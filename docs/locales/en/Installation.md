@@ -1,14 +1,13 @@
-En estas instrucciones se presupone que el sóftwer se ejecutará en un equipo
-Raspberry Pi en conjunto con OctoPrint. Es recomendable que se emplee como
-máquina anfitriona un Raspberry Pi 2, 3 o 4 (para otras máquinas, vea las
-[preguntas frecuentes](FAQ.md#can-i-run-klipper-on-something-other-than-a-
-raspberry-pi-3)).
+These instructions assume the software will run on a Raspberry Pi computer in
+conjunction with OctoPrint. It is recommended that a Raspberry Pi 2, 3, or 4
+computer be used as the host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-
+something-other-than-a-raspberry-pi-3) for other machines).
 
 Klipper currently supports a number of Atmel ATmega based micro-controllers,
 [ARM based micro-controllers](Features.md#step-benchmarks), and [Beaglebone
 PRU](beaglebone.md) based printers.
 
-# Preparación de una imagen del SO
+# Prepping an OS image
 
 Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry
 Pi computer. Use OctoPi v0.17.0 or later - see the [octopi
@@ -78,8 +77,7 @@ make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 ```
 
-No se olvide de actualizar el FLASH_DEVICE con el nombre de puerto en serie
-único de la impresora.
+Be sure to update the FLASH_DEVICE with the printer's unique serial port name.
 
 When flashing for the first time, make sure that OctoPrint is not connected
 directly to the printer (from the OctoPrint web page, under the "Connection"
@@ -113,7 +111,7 @@ will likely report there is an error opening the config file - that means
 OctoPrint is successfully communicating with Klipper. Proceed to the next
 section.
 
-# Configurar Klipper
+# Configuring Klipper
 
 The Klipper configuration is stored in a text file on the Raspberry Pi. Take a
 look at the example config files in the [config directory](../config/). The

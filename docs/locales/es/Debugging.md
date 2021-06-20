@@ -1,12 +1,13 @@
-This document describes some of the Klipper debugging tools.
+Este documento describe algunas de las herramientas de depuración de Klipper.
 
-# Translating gcode files to micro-controller commands
+# Convertir archivos gcode en órdenes de microcontrolador
 
-The Klippy host code can run in a batch mode to produce the low-level micro-
-controller commands associated with a gcode file. Inspecting these low-level
-commands is useful when trying to understand the actions of the low-level
-hardware. It can also be useful to compare the difference in micro-controller
-commands after a code change.
+El código anfitrión de Klippy puede ejecutarse en modo por lotes para producir
+las órdenes de microcontrolador de bajo nivel asociadas con un archivo gcode.
+Resulta útil inspeccionar estas órdenes de bajo nivel para entender las acciones
+del hárdwer de bajo nivel. También puede ser provechoso para comparar la
+diferencia en las órdenes de microcontrolador tras efectuar una modificación en
+el código.
 
 To run Klippy in this batch mode, there is a one time step necessary to generate
 the micro-controller "data dictionary". This is done by compiling the micro-
@@ -17,37 +18,39 @@ make menuconfig
 make
 ```
 
-Once the above is done it is possible to run Klipper in batch mode (see
-[installation](Installation.md) for the steps necessary to build the python
-virtual environment and a printer.cfg file):
+Una vez se haya llevado a cabo lo anterior, será posible ejecutar Klipper en
+modo por lotes (en [Instalación](Installation.md) encontrará los pasos
+necesarios para compilar el entorno virtual de Python y un archivo printer.cfg):
 
 ```
 ~/klippy-env/bin/python ./klippy/klippy.py ~/printer.cfg -i test.gcode -o test.serial -v -d out/klipper.dict
 ```
 
-The above will produce a file **test.serial** with the binary serial output.
-This output can be translated to readable text with:
+Lo anterior producirá un archivo, **test.serial**, con la salida en serie
+binaria. Esta salida puede transformarse en texto legible mediante:
 
 ```
 ~/klippy-env/bin/python ./klippy/parsedump.py out/klipper.dict test.serial > test.txt
 ```
 
-The resulting file **test.txt** contains a human readable list of micro-
-controller commands.
+El archivo resultante, **test.txt**, contiene una lista legible por humanos de
+órdenes del microcontrolador.
 
-The batch mode disables certain response / request commands in order to
-function. As a result, there will be some differences between actual commands
-and the above output. The generated data is useful for testing and inspection;
-it is not useful for sending to a real micro-controller.
+El modo por lotes desactiva determinadas órdenes de respuesta/petición para
+poder funcionar. Por consiguiente, habrá algunas diferencias entre las órdenes
+reales y la salida anterior. Los datos generados son útiles para efectuar
+pruebas e inspecciones; no lo son para su envío a un microcontrolador real.
 
-# Testing with simulavr
+# Puesta a prueba con simulavr
 
-The [simulavr](http://www.nongnu.org/simulavr/) tool enables one to simulate an
-Atmel ATmega micro-controller. This section describes how one can run test gcode
-files through simulavr. It is recommended to run this on a desktop class machine
-(not a Raspberry Pi) as it does require significant cpu to run efficiently.
+La herramienta [simulavr](http://www.nongnu.org/simulavr/) le permite simular un
+microcontrolador ATmega de Atmel. Esta sección describe el procedimiento para
+ejecutar archivos gcode de prueba a través de simulavr. Es recomendable ejecutar
+esto en un PC de escritorio de categoría (no un Raspberry Pi), puesto que
+necesitará cuantiosos recursos de CPU para funcionar eficientemente.
 
-To use simulavr, download the simulavr package and compile with python support:
+Para utilizar simulavr, descargue el paquete de simulavr y compílelo con
+compatibilidad con Python:
 
 ```
 git clone git://git.savannah.nongnu.org/simulavr.git
@@ -57,20 +60,22 @@ cd simulavr
 make
 ```
 
-Note that the build system may need to have some packages (such as swig)
-installed in order to build the python module. Make sure the file
-**src/python/_pysimulavr.so** is present after the above compilation.
+Observe que el sistema de generación podría necesitar que algunos paquetes (como
+swig) estén instalados para generar el módulo de Python. Asegúrese de que el
+archivo **src/python/_pysimulavr.so** exista luego de efectuar la compilación
+anterior.
 
-To compile Klipper for use in simulavr, run:
+Para compilar Klipper para su uso en simulavr, ejecute:
 
 ```
 cd /patch/to/klipper
 make menuconfig
 ```
 
-and compile the micro-controller software for an AVR atmega644p, set the MCU
-frequency to 20Mhz, and select SIMULAVR software emulation support. Then one can
-compile Klipper (run `make`) and then start the simulation with:
+y compile el programa del microcontrolador para un atmega644p de AVR, defina la
+frecuencia de MCU a 20 Mhz y seleccione la compatibilidad de emulación del
+programa SIMULAVR. Ahora es posible compilar Klipper (ejecute `make`) e iniciar
+la simulación con:
 
 ```
 PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py -m atmega644 -s 20000000 -b 250000 out/klipper.elf
@@ -85,11 +90,12 @@ necessary to build the python virtual environment):
 ~/klippy-env/bin/python ./klippy/klippy.py config/generic-simulavr.cfg -i test.gcode -v
 ```
 
-## Using simulavr with gtkwave
+## Utilizar simulavr con gtkwave
 
-One useful feature of simulavr is its ability to create signal wave generation
-files with the exact timing of events. To do this, follow the directions above,
-but run avrsim.py with a command-line like the following:
+Una prestación útil de simulavr es su capacidad de crear archivos de generación
+de ondas de señal con la cadencia exacta de los sucesos. Para hacerlo, siga las
+instrucciones anteriores, pero ejecute avrsim.py con una línea de órdenes como
+esta:
 
 ```
 PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py -m atmega644 -s 20000000 -b 250000 out/klipper.elf -t PORTA.PORT,PORTC.PORT
@@ -102,7 +108,7 @@ the GPIOs on PORTA and PORTB. This could then be viewed using gtkwave with:
 gtkwave avrsim.vcd
 ```
 
-# Manually sending commands to the micro-controller
+# Enviar órdenes al microcontrolador manualmente
 
 Normally, the host klippy.py process would be used to translate gcode commands
 to Klipper micro-controller commands. However, it's also possible to manually
@@ -116,14 +122,14 @@ Klipper source code). To do so, run:
 See the "HELP" command within the tool for more information on its
 functionality.
 
-Some command-line options are available. For more information run:
-`~/klippy- env/bin/python ./klippy/console.py --help`
+Tiene a su disposición algunas opciones de línea de órdenes. Para obtener más
+información al respecto, ejecute: `~/klippy-env/bin/python ./klippy/console.py --help`
 
-# Generating load graphs
+# Generar gráficos de carga
 
-The Klippy log file (/tmp/klippy.log) stores statistics on bandwidth, micro-
-controller load, and host buffer load. It can be useful to graph these
-statistics after a print.
+El archivo de registro de Klippy (/tmp/klippy.log) almacena estadísticas sobre
+anchura de banda, carga sobre el microcontrolador y carga sobre el búfer del
+anfitrión. Puede resultar útil graficar estas estadísticas luego de mostrarlas.
 
 To generate a graph, a one time step is necessary to install the "matplotlib"
 package:
@@ -133,22 +139,24 @@ sudo apt-get update
 sudo apt-get install python-matplotlib
 ```
 
-Then graphs can be produced with:
+Ahora, será posible generar gráficos con:
 
 ```
 ~/klipper/scripts/graphstats.py /tmp/klippy.log -o loadgraph.png
 ```
 
-One can then view the resulting **loadgraph.png** file.
+Tras lo anterior, será posible visualizar el archivo resultante,
+**loadgraph.png**.
 
-Different graphs can be produced. For more information run:
+Es posible producir diferentes gráficos. Para más información, ejecute:
 `~/klipper/scripts/graphstats.py --help`
 
-# Extracting information from the klippy.log file
+# Extraer información desde el archivo klippy.log
 
-The Klippy log file (/tmp/klippy.log) also contains debugging information. There
-is a logextract.py script that may be useful when analyzing a micro-controller
-shutdown or similar problem. It is typically run with something like:
+El archivo de registro de Klippy (/tmp/klippy.log) contiene además información
+para la depuración. Hay una secuencia de órdenes, logextract.py, que puede
+resultar útil al momento de analizar problemas de apagado del microcontrolador o
+similares. Normalmente se ejecuta con algo como:
 
 ```
 mkdir work_directory
@@ -157,11 +165,12 @@ cp /tmp/klippy.log .
 ~/klipper/scripts/logextract.py ./klippy.log
 ```
 
-The script will extract the printer config file and will extract MCU shutdown
-information. The information dumps from an MCU shutdown (if present) will be
-reordered by timestamp to assist in diagnosing cause and effect scenarios.
+La secuencia de órdenes extraerá el archivo de configuración de la impresora y
+los datos de apagado de MCU. Los volcados de información de un apagado de MCU
+(si existen) se reordenarán por fecha y hora para ayudar a diagnosticar
+escenarios de causa y efecto.
 
-# Running the regression tests
+# Ejecutar las pruebas antirregresiones
 
 The main Klipper GitHub repository uses "github actions" to run a series of
 regression tests. It can be useful to run some of these tests locally.
