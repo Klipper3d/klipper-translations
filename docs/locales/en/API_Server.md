@@ -1,6 +1,6 @@
-Este documento describe la interfaz de programación de aplicaciones (API, por
-sus siglas en inglés) de Klipper. Esta interfaz permite que aplicaciones
-externas efectúen consultas y controlen el sóftwer de anfitrión de Klipper.
+This document describes Klipper's Application Programmer Interface (API). This
+interface enables external applications to query and control the Klipper host
+software.
 
 # Enabling the API socket
 
