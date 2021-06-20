@@ -1,20 +1,20 @@
-These instructions assume the software will run on a Raspberry Pi computer in
-conjunction with OctoPrint. It is recommended that a Raspberry Pi 2, 3, or 4
-computer be used as the host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-
-something-other-than-a-raspberry-pi-3) for other machines).
+Bu talimatlar, yazılımın OctoPrint ile birlikte bir Raspberry Pi bilgisayarında
+çalışacağını varsayar. Ana makine olarak bir Raspberry Pi 2, 3 veya 4
+bilgisayarın kullanılması önerilir (bkz. [SSS](FAQ.md # can-i-run-klipper-on-
+something-other-a-ahududu -pi-3) diğer makineler için).
 
-Klipper currently supports a number of Atmel ATmega based micro-controllers,
-[ARM based micro-controllers](Features.md#step-benchmarks), and [Beaglebone
-PRU](beaglebone.md) based printers.
+Klipper şu anda bir dizi Atmel ATmega tabanlı mikro denetleyiciyi, [ARM tabanlı
+mikro denetleyicileri](Features.md # step-benchmarklar) ve [Beaglebone PRU]
+(beaglebone.md) tabanlı yazıcıları desteklemektedir.
 
-# Prepping an OS image
+# Bir işletim sistemi görüntüsünü hazırlama
 
-Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry
-Pi computer. Use OctoPi v0.17.0 or later - see the [octopi
-releases](https://github.com/guysoft/OctoPi/releases) for release information.
-One should verify that OctoPi boots and that the OctoPrint web server works.
-After connecting to the OctoPrint web page, follow the prompt to upgrade
-OctoPrint to v1.4.2 or later.
+Raspberry Pi bilgisayarına [OctoPi](https://github.com/guysoft/OctoPi) kurarak
+başlayın. OctoPi v0.17.0 veya sonraki bir sürümünü kullanın - sürüm bilgileri
+için [octopi sürümlerine] (https://github.com/guysoft/OctoPi/releases) bakın.
+OctoPi'nin önyüklediği ve OctoPrint web sunucusunun çalıştığı doğrulanmalıdır.
+OctoPrint web sayfasına bağlandıktan sonra, OctoPrint'i v1.4.2 veya sonraki bir
+sürüme yükseltmek için istemleri izleyin.
 
 After installing OctoPi and upgrading OctoPrint, it will be necessary to ssh
 into the target machine to run a handful of system commands. If using a Linux or
