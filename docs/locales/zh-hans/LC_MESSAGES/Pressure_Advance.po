@@ -189,3 +189,16 @@ msgid ""
 "during acceleration and deceleration, and no configuration setting "
 "places a limit on the amount of that movement."
 msgstr ""
+
+msgid "SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500\n"
+msgstr ""
+
+msgid ""
+"TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 "
+"FACTOR=.005\n"
+msgstr ""
+
+msgid ""
+"TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 "
+"FACTOR=.020\n"
+msgstr ""

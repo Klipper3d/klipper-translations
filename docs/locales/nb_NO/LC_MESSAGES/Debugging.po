@@ -185,3 +185,77 @@ msgid ""
 "Once the data dictionaries are downloaded, use the following to run "
 "the regression suite:"
 msgstr ""
+
+msgid ""
+"make menuconfig\n"
+"make\n"
+msgstr ""
+
+msgid ""
+"~/klippy-env/bin/python ./klippy/klippy.py ~/printer.cfg -i "
+"test.gcode -o test.serial -v -d out/klipper.dict\n"
+msgstr ""
+
+msgid ""
+"~/klippy-env/bin/python ./klippy/parsedump.py out/klipper.dict "
+"test.serial > test.txt\n"
+msgstr ""
+
+msgid ""
+"git clone git://git.savannah.nongnu.org/simulavr.git\n"
+"cd simulavr\n"
+"./bootstrap\n"
+"./configure --enable-python\n"
+"make\n"
+msgstr ""
+
+msgid ""
+"cd /patch/to/klipper\n"
+"make menuconfig\n"
+msgstr ""
+
+msgid ""
+"PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py -m "
+"atmega644 -s 20000000 -b 250000 out/klipper.elf\n"
+msgstr ""
+
+msgid ""
+"~/klippy-env/bin/python ./klippy/klippy.py config/generic-"
+"simulavr.cfg -i test.gcode -v\n"
+msgstr ""
+
+msgid ""
+"PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py -m "
+"atmega644 -s 20000000 -b 250000 out/klipper.elf -t "
+"PORTA.PORT,PORTC.PORT\n"
+msgstr ""
+
+msgid "gtkwave avrsim.vcd\n"
+msgstr ""
+
+msgid "~/klippy-env/bin/python ./klippy/console.py /tmp/pseudoserial\n"
+msgstr ""
+
+msgid ""
+"sudo apt-get update\n"
+"sudo apt-get install python-matplotlib\n"
+msgstr ""
+
+msgid ""
+"~/klipper/scripts/graphstats.py /tmp/klippy.log -o loadgraph.png\n"
+msgstr ""
+
+msgid ""
+"mkdir work_directory\n"
+"cd work_directory\n"
+"cp /tmp/klippy.log .\n"
+"~/klipper/scripts/logextract.py ./klippy.log\n"
+msgstr ""
+
+msgid "./scripts/check_whitespace.sh\n"
+msgstr ""
+
+msgid ""
+"tar xfz klipper-dict-20??????.tar.gz\n"
+"~/klippy-env/bin/python ~/klipper/scripts/test_klippy.py -d dict/ ~/klipper/test/klippy/*.test\n"
+msgstr ""

@@ -427,3 +427,55 @@ msgid ""
 "received from the host. It is not used to track sequences of response"
 " message blocks."
 msgstr ""
+
+msgid ""
+"set_digital_out pin=PA3 value=1\n"
+"set_digital_out pin=PA7 value=1\n"
+"schedule_digital_out oid=8 clock=4000000 value=0\n"
+"queue_step oid=7 interval=7458 count=10 add=331\n"
+"queue_step oid=7 interval=11717 count=4 add=1281\n"
+msgstr ""
+
+msgid ""
+"DECL_COMMAND(command_update_digital_out, \"update_digital_out oid=%c "
+"value=%c\");\n"
+msgstr ""
+
+msgid ""
+"sendf(\"status clock=%u status=%c\", sched_read_time(), "
+"sched_is_shutdown());\n"
+msgstr ""
+
+msgid "output(\"The value of %u is %s with size %u.\", x, buf, buf_len);\n"
+msgstr ""
+
+msgid ""
+"DECL_ENUMERATION(\"spi_bus\", \"spi\", 0);\n"
+"\n"
+"DECL_ENUMERATION_RANGE(\"pin\", \"PC0\", 16, 8);\n"
+msgstr ""
+
+msgid "DECL_CONSTANT(\"SERIAL_BAUD\", 250000);\n"
+msgstr ""
+
+msgid "DECL_CONSTANT_STR(\"MCU\", \"pru\");\n"
+msgstr ""
+
+msgid ""
+"<1 byte length><1 byte sequence><n-byte content><2 byte crc><1 byte "
+"sync>\n"
+msgstr ""
+
+msgid ""
+"update_digital_out oid=6 value=1\n"
+"update_digital_out oid=5 value=0\n"
+"get_config\n"
+"get_clock\n"
+msgstr ""
+
+msgid ""
+"<id_update_digital_out><6><1><id_update_digital_out><5><0><id_get_config><id_get_clock>\n"
+msgstr ""
+
+msgid "<VLQ encoded length><n-byte contents>\n"
+msgstr ""
