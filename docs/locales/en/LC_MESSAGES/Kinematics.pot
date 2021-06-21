@@ -344,3 +344,57 @@ msgstr ""
 
 msgid "Key formula for \"smoothed pressure advance\":"
 msgstr ""
+
+msgid "velocity(time) = start_velocity + accel*time\n"
+msgstr ""
+
+msgid "end_velocity^2 = start_velocity^2 + 2*accel*move_distance\n"
+msgstr ""
+
+msgid ""
+"move_distance = (start_velocity + .5 * accel * move_time) * "
+"move_time\n"
+msgstr ""
+
+msgid "move_distance = cruise_velocity * move_time\n"
+msgstr ""
+
+msgid ""
+"cartesian_x_position = start_x + move_distance * total_x_movement / total_movement\n"
+"cartesian_y_position = start_y + move_distance * total_y_movement / total_movement\n"
+"cartesian_z_position = start_z + move_distance * total_z_movement / total_movement\n"
+msgstr ""
+
+msgid ""
+"stepper_x_position = cartesian_x_position\n"
+"stepper_y_position = cartesian_y_position\n"
+"stepper_z_position = cartesian_z_position\n"
+msgstr ""
+
+msgid ""
+"stepper_a_position = cartesian_x_position + cartesian_y_position\n"
+"stepper_b_position = cartesian_x_position - cartesian_y_position\n"
+"stepper_z_position = cartesian_z_position\n"
+msgstr ""
+
+msgid ""
+"stepper_position = (sqrt(arm_length^2\n"
+"                         - (cartesian_x_position - tower_x_position)^2\n"
+"                         - (cartesian_y_position - tower_y_position)^2)\n"
+"                    + cartesian_z_position)\n"
+msgstr ""
+
+msgid "stepper_position = requested_e_position\n"
+msgstr ""
+
+msgid ""
+"pa_position = nominal_position + pressure_advance_coefficient * "
+"nominal_velocity\n"
+msgstr ""
+
+msgid ""
+"smooth_pa_position(t) =\n"
+"    ( definitive_integral(pa_position(x) * (smooth_time/2 - abs(t - x)) * dx,\n"
+"                          from=t-smooth_time/2, to=t+smooth_time/2)\n"
+"     / (smooth_time/2)^2 )\n"
+msgstr ""
