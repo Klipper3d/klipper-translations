@@ -22,7 +22,7 @@ for dir in docs/locales/*/; do
     targetmdfile=docs/locales/$dir/$mdfile #Add target directory to mdfile
     echo "Converting $mdfile to $pofile"
     command="md2po $mdfilepath --md-encoding utf-8 --po-encoding utf-8 \
-    -e utf-8 -w $width -q -s --po-filepath $pofilepath"
+    -e utf-8 -w $width -q -s -c --po-filepath $pofilepath"
     echo "$command"
     $($command)
     echo "Converting $pofile to $mdfile"

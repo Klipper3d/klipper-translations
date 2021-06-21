@@ -126,3 +126,21 @@ msgid ""
 "Update the Klipper [mcu configuration](Config_Reference.md#mcu) to "
 "use the CAN bus to communicate with the device - for example:"
 msgstr ""
+
+msgid ""
+"auto can0\n"
+"iface can0 can static\n"
+"    bitrate 500000\n"
+"    up ifconfig $IFACE txqueuelen 128\n"
+msgstr ""
+
+msgid "~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0\n"
+msgstr ""
+
+msgid "Found canbus_uuid=11aa22bb33cc\n"
+msgstr ""
+
+msgid ""
+"[mcu my_can_mcu]\n"
+"canbus_uuid: 11aa22bb33cc\n"
+msgstr ""

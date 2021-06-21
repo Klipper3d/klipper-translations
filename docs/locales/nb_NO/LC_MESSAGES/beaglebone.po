@@ -89,3 +89,42 @@ msgid ""
 "feature (see [config reference](Config_Reference.md#virtual_sdcard) "
 "for details) to print directly from Klipper."
 msgstr ""
+
+msgid ""
+"git clone https://github.com/KevinOConnor/klipper\n"
+"./klipper/scripts/install-beaglebone.sh\n"
+msgstr ""
+
+msgid ""
+"git clone https://github.com/foosel/OctoPrint.git\n"
+"cd OctoPrint/\n"
+"virtualenv venv\n"
+"./venv/bin/python setup.py install\n"
+msgstr ""
+
+msgid ""
+"sudo cp ~/OctoPrint/scripts/octoprint.init /etc/init.d/octoprint\n"
+"sudo chmod +x /etc/init.d/octoprint\n"
+"sudo cp ~/OctoPrint/scripts/octoprint.default /etc/default/octoprint\n"
+"sudo update-rc.d octoprint defaults\n"
+msgstr ""
+
+msgid "sudo nano /etc/default/octoprint\n"
+msgstr ""
+
+msgid "sudo systemctl start octoprint\n"
+msgstr ""
+
+msgid ""
+"cd ~/klipper/\n"
+"make menuconfig\n"
+msgstr ""
+
+msgid ""
+"sudo service klipper stop\n"
+"make flash\n"
+"sudo service klipper start\n"
+msgstr ""
+
+msgid "make menuconfig\n"
+msgstr ""
