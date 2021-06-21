@@ -247,3 +247,20 @@ msgid ""
 " of teeth, it may make sense to use a floating point number in the "
 "gear ratio (eg, `gear_ratio: 107.237:16`)."
 msgstr ""
+
+msgid ""
+"rotation_distance = <full_steps_per_rotation> * <microsteps> / "
+"<steps_per_mm>\n"
+msgstr ""
+
+msgid ""
+"rotation_distance = <full_steps_per_rotation> * <microsteps> * "
+"<step_distance>\n"
+msgstr ""
+
+msgid "rotation_distance = <belt_pitch> * <number_of_teeth_on_pulley>\n"
+msgstr ""
+
+msgid ""
+"rotation_distance = <screw_pitch> * <number_of_separate_threads>\n"
+msgstr ""

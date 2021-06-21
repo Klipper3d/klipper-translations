@@ -111,3 +111,29 @@ msgid ""
 "X and/or Y axes. It is recommended to arrange parts away from the "
 "edges when using [skew_correction]."
 msgstr ""
+
+msgid ""
+"Length AC = 140.4\n"
+"Length BD = 142.8\n"
+"Length AD = 99.8\n"
+msgstr ""
+
+msgid "SET_SKEW XY=140.4,142.8,99.8\n"
+msgstr ""
+
+msgid ""
+"SET_SKEW XY=140.4,142.8,99.8 XZ=141.6,141.4,99.8 "
+"YZ=142.4,140.5,99.5\n"
+msgstr ""
+
+msgid "SKEW_PROFILE SAVE=my_skew_profile\n"
+msgstr ""
+
+msgid "SKEW_PROFILE LOAD=my_skew_profile\n"
+msgstr ""
+
+msgid "SKEW_PROFILE REMOVE=my_skew_profile\n"
+msgstr ""
+
+msgid "CALC_MEASURED_SKEW AC=<ac_length> BD=<bd_length> AD=<ad_length>\n"
+msgstr ""

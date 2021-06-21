@@ -312,3 +312,35 @@ msgid ""
 " obtained bed mesh. After performing a new delta calibration be sure "
 "to rerun BED_MESH_CALIBRATE."
 msgstr ""
+
+msgid ""
+"G28\n"
+"DELTA_CALIBRATE METHOD=manual\n"
+msgstr ""
+
+msgid "SAVE_CONFIG\n"
+msgstr ""
+
+msgid ""
+"DELTA_ANALYZE "
+"CENTER_DISTS=<a_dist>,<far_c_dist>,<b_dist>,<far_a_dist>,<c_dist>,<far_b_dist>\n"
+msgstr ""
+
+msgid ""
+"DELTA_ANALYZE "
+"OUTER_DISTS=<a_to_far_c>,<far_c_to_b>,<b_to_far_a>,<far_a_to_c>,<c_to_far_b>,<far_b_to_a>\n"
+msgstr ""
+
+msgid "DELTA_ANALYZE CENTER_PILLAR_WIDTHS=<a>,<b>,<c>\n"
+msgstr ""
+
+msgid ""
+"DELTA_ANALYZE "
+"OUTER_PILLAR_WIDTHS=<a>,<far_c>,<b>,<far_a>,<c>,<far_b>\n"
+msgstr ""
+
+msgid "DELTA_ANALYZE SCALE=1.0\n"
+msgstr ""
+
+msgid "DELTA_ANALYZE CALIBRATE=extended\n"
+msgstr ""

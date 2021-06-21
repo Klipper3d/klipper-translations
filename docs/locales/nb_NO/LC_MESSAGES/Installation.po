@@ -210,3 +210,38 @@ msgid ""
 "questions. See the [contact page](Contact.md) to report a bug or to "
 "contact the developers."
 msgstr ""
+
+msgid ""
+"git clone https://github.com/KevinOConnor/klipper\n"
+"./klipper/scripts/install-octopi.sh\n"
+msgstr ""
+
+msgid ""
+"cd ~/klipper/\n"
+"make menuconfig\n"
+msgstr ""
+
+msgid "make\n"
+msgstr ""
+
+msgid "ls /dev/serial/by-id/*\n"
+msgstr ""
+
+msgid "/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
+msgstr ""
+
+msgid ""
+"sudo service klipper stop\n"
+"make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
+"sudo service klipper start\n"
+msgstr ""
+
+msgid ""
+"cp ~/klipper/config/example-cartesian.cfg ~/printer.cfg\n"
+"nano ~/printer.cfg\n"
+msgstr ""
+
+msgid ""
+"[mcu]\n"
+"serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
+msgstr ""

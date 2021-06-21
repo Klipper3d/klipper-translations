@@ -397,3 +397,20 @@ msgid ""
 "\"query_endstops/status\"}` might return: `{\"id\": 123, \"result\": "
 "{\"y\": \"open\", \"x\": \"open\", \"z\": \"TRIGGERED\"}}`"
 msgstr ""
+
+msgid ""
+"~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a "
+"/tmp/klippy_uds -l /tmp/klippy.log\n"
+msgstr ""
+
+msgid "<json_object_1><0x03><json_object_2><0x03>...\n"
+msgstr ""
+
+msgid "~/klipper/scripts/whconsole.py /tmp/klippy_uds\n"
+msgstr ""
+
+msgid ""
+"[gcode_macro PANELDUE_BEEP]\n"
+"gcode:\n"
+"  {action_call_remote_method(\"paneldue_beep\", frequency=300, duration=1.0)}\n"
+msgstr ""

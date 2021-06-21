@@ -1,4 +1,4 @@
-Klipper has several compelling features:
+Klipper 有几个引人注目的功能：
 
 * High precision stepper movement. Klipper utilizes an application processor (such
 as a low-cost Raspberry Pi) when calculating printer movements. The application

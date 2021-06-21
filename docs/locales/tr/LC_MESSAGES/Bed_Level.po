@@ -279,3 +279,18 @@ msgid ""
 " that macro. See the [slicers](Slicers.md) document for further "
 "details."
 msgstr ""
+
+msgid ""
+"Recv: // Starting manual Z probe. Use TESTZ to adjust position.\n"
+"Recv: // Finish with ACCEPT or ABORT command.\n"
+"Recv: // Z position: ?????? --> 5.000 <-- ??????\n"
+msgstr ""
+
+msgid "TESTZ Z=-.1\n"
+msgstr ""
+
+msgid "Recv: // Z position: 0.130 --> 0.230 <-- 0.280\n"
+msgstr ""
+
+msgid "ACCEPT\n"
+msgstr ""

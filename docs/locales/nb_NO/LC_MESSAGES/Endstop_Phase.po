@@ -147,3 +147,12 @@ msgid ""
 "config sections (see [config "
 "reference](Config_Reference.md#endstop_phase) for the details)."
 msgstr ""
+
+msgid "[endstop_phase]\n"
+msgstr ""
+
+msgid "ENDSTOP_PHASE_CALIBRATE STEPPER=stepper_z\n"
+msgstr ""
+
+msgid "SAVE_CONFIG\n"
+msgstr ""
