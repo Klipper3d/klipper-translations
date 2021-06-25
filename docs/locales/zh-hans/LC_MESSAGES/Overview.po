@@ -1,120 +1,137 @@
-#
+# Yifei Ding <dingyifeiair@gmail.com>, 2021.
 msgid ""
 msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"POT-Creation-Date: 2021-06-25 03:39+0200\n"
+"PO-Revision-Date: 2021-06-25 01:39+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/overview/zh_Hans/>\n"
+"Language: zh-hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.7.1-dev\n"
+
+#
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with "
 "the [features](Features.md) and [installation](Installation.md) "
 "documents."
 msgstr ""
+"欢迎使用Klipper文档。如果刚接触Klipper，请从[特性](features.md)和[安装](installation.md)文档开始阅读。"
 
 msgid "Overview information"
-msgstr ""
+msgstr "概览信息"
 
 msgid ""
 "[Features](Features.md): A high-level list of features in Klipper."
-msgstr ""
+msgstr "[功能](Features.md)：Klipper中的高级功能列表。"
 
 msgid "[FAQ](FAQ.md): Frequently asked questions."
-msgstr ""
+msgstr "[常见问题](FAQ.md)：常见问题。"
 
 msgid "[Releases](Releases.md): The history of Klipper releases."
-msgstr ""
+msgstr "[发行版](Release.md)：Klipper的版本发布历史。"
 
 msgid ""
 "[Config changes](Config_Changes.md): Recent software changes that may"
 " require users to update their printer config file."
-msgstr ""
+msgstr "[配置更改](Config_Changes.md)：可能需要手动更新打印机配置文件的软件更改。"
 
 msgid ""
 "[Contact](Contact.md): Information on bug reporting and general "
 "communication with the Klipper developers."
-msgstr ""
+msgstr "[联系](Contact.md)：关于如何提交错误报告和Klipper开发者的联系信息。"
 
 msgid "Configuration and Tuning Guides"
-msgstr ""
+msgstr "配置与调优指南"
 
 msgid "[Installation](Installation.md): Guide to installing Klipper."
-msgstr ""
+msgstr "[安装](Installation.md)：Klipper 安装指南。"
 
 msgid ""
 "[Config Reference](Config_Reference.md): Description of config "
 "parameters."
-msgstr ""
+msgstr "[配置参考](Config_Reference.md)：配置参数说明。"
 
 msgid ""
 "[Rotation Distance](Rotation_Distance.md): Calculating the "
 "rotation_distance stepper parameter."
-msgstr ""
+msgstr "[旋转距离](Rotation_Distance.md)：计算rotation_distance步进参数。"
 
 msgid ""
 "[Config checks](Config_checks.md): Verify basic pin settings in the "
 "config file."
-msgstr ""
+msgstr "[检查配置](Config_checks.md)：验证配置文件中的基本引脚设置。"
 
 msgid ""
 "[Bed level](Bed_Level.md): Information on \"bed leveling\" in "
 "Klipper."
-msgstr ""
+msgstr "[热床调平](Bed_Level.md)：Klipper 中关于“热床调平”的信息。"
 
 msgid ""
 "[Delta calibrate](Delta_Calibrate.md): Calibration of delta "
 "kinematics."
-msgstr ""
+msgstr "[三角洲校准](Delta_Calibrate.md)：校准三角洲结构。"
 
 msgid ""
 "[Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z "
 "probes."
-msgstr ""
+msgstr "[探针校准](Probe_Calibrate.md)：校准自动Z探针。"
 
 msgid "[BL-Touch](BLTouch.md): Configure a \"BL-Touch\" Z probe."
-msgstr ""
+msgstr "[BL-Touch](BLTouch.md)：配置“BL-Touch”Z 探针。"
 
 msgid ""
 "[Manual level](Manual_Level.md): Calibration of Z endstops (and "
 "similar)."
-msgstr ""
+msgstr "[手动调平](Manual_Level.md)：校准 Z 限位和调整热床调平螺丝。"
 
 msgid ""
 "[Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations."
-msgstr ""
+msgstr "[床网](Bed_Mesh)：基于 XY 位置的热床高度补偿。"
 
 msgid ""
 "[Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop "
 "positioning."
-msgstr ""
+msgstr "[限位相位](Endstop_Phase.md)：使用步进电机相位辅助Z限位定位。"
 
 msgid ""
 "[Resonance compensation](Resonance_Compensation.md): A tool to reduce"
 " ringing in prints."
-msgstr ""
+msgstr "[共振补偿](Resonance_Compensation)：减少打印震纹的工具。"
 
 msgid ""
 "[Measuring resonances](Measuring_Resonances.md): Information on using"
 " adxl345 accelerometer hardware to measure resonance."
-msgstr ""
+msgstr "[测量共振](Measuring_Resonances.md)：使用adxl345 加速度计模块测量共振。"
 
 msgid ""
 "[Pressure advance](Pressure_Advance.md): Calibrate extruder pressure."
-msgstr ""
+msgstr "[提前压力](Pressure_Advance.md)：校准挤出机压力。"
 
 msgid "[Slicers](Slicers.md): Configure \"slicer\" software for Klipper."
-msgstr ""
+msgstr "[切片](Slicers.md)：为Klipper配置切片软件。"
 
+#, fuzzy
 msgid ""
 "[Command Templates](Command_Templates.md): G-Code macros and "
 "conditional evaluation."
-msgstr ""
+msgstr "[命令模板](Command_Templates.md)：G-Code宏和条件评估。"
 
 msgid ""
 "[Status Reference](Status_Reference.md): Information available to "
 "macros (and similar)."
-msgstr ""
+msgstr "[状态参考](Status_Reference.md)：可用于宏和类似功能的信息。"
 
 msgid ""
 "[TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers "
 "with Klipper."
-msgstr ""
+msgstr "[TMC驱动](TMC_Drivers.md)：在Klipper中使用 Trinamic 步进电机驱动。"
 
 msgid ""
 "[Skew correction](skew_correction.md): Adjustments for axes not "

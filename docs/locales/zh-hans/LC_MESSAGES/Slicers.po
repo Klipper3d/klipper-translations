@@ -1,15 +1,31 @@
-#
+# Yifei Ding <dingyifeiair@gmail.com>, 2021.
 msgid ""
 msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"POT-Creation-Date: 2021-06-25 03:39+0200\n"
+"PO-Revision-Date: 2021-06-25 01:39+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/slicers/zh_Hans/>\n"
+"Language: zh-hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.7.1-dev\n"
+
+#
 
 msgid ""
 "This document provides some tips for configuring a \"slicer\" "
 "application for use with Klipper. Common slicers used with Klipper "
 "are Slic3r, Cura, Simplify3D, etc."
 msgstr ""
+"本文档提供了与 Klipper 一起使用的切片软件的一些配置技巧。 Klipper 常用的切片软件有 Slic3r、Cura、Simplify3D 等。"
 
 msgid "Set the G-Code flavor to Marlin"
-msgstr ""
+msgstr "将 G-Code 风格设置为 Marlin"
 
 msgid ""
 "Many slicers have an option to configure the \"G-Code flavor\". The "
@@ -35,14 +51,17 @@ msgid ""
 "See [sample-macros.cfg](../config/sample-macros.cfg) for example "
 "START_PRINT and END_PRINT macros."
 msgstr ""
+"参见[sample-macros.cfg](../config/sample-macros.cfg)中的START_PRINT 和END_PRINT "
+"宏实例。"
 
 msgid ""
 "See the [config reference](Config_Reference.md#gcode_macro) for "
 "details on defining a gcode_macro."
 msgstr ""
 
+#, fuzzy
 msgid "Large retraction settings may require tuning Klipper"
-msgstr ""
+msgstr "大回抽可能需要调优Klipper"
 
 msgid ""
 "The maximum speed and acceleration of retraction moves are controlled"
@@ -62,13 +81,15 @@ msgid ""
 msgstr ""
 
 msgid "Do not enable \"coasting\""
-msgstr ""
+msgstr "不要启用“滑行(coasting)”"
 
 msgid ""
 "The \"coasting\" feature is likely to result in poor quality prints "
 "with Klipper. Consider using Klipper's [pressure "
 "advance](Pressure_Advance.md) instead."
 msgstr ""
+"和Klipper 一起使用“滑行(coasting)”功能可能会导致打印质量不佳。考虑使用 Klipper 的 "
+"[提前压力](Pressure_Advance.md)功能替代。"
 
 msgid ""
 "Specifically, if the slicer dramatically changes the extrusion rate "
@@ -83,7 +104,7 @@ msgid ""
 msgstr ""
 
 msgid "Do not use \"extra restart distance\" on Simplify3d"
-msgstr ""
+msgstr "不要在Simplify3d上使用“额外重启距离（extra restart distance）”"
 
 msgid ""
 "This setting can cause dramatic changes to extrusion rates which can "
@@ -92,8 +113,9 @@ msgid ""
 "regular Simplify3d retract setting instead."
 msgstr ""
 
+#, fuzzy
 msgid "Disable \"PreloadVE\" on KISSlicer"
-msgstr ""
+msgstr "在 KISSlicer 上禁用“PreloadVE”"
 
 msgid ""
 "If using KISSlicer slicing software then set \"PreloadVE\" to zero. "
@@ -102,7 +124,7 @@ msgid ""
 msgstr ""
 
 msgid "Disable any \"advanced extruder pressure\" settings"
-msgstr ""
+msgstr "禁用任何\"提前挤出压力\"的设置"
 
 msgid ""
 "Some slicers advertise an \"advanced extruder pressure\" capability. "
