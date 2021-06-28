@@ -1,6 +1,21 @@
-#
+# Yifei Ding <dingyifeiair@gmail.com>, 2021.
 msgid ""
 msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"POT-Creation-Date: 2021-06-28 08:28+0200\n"
+"PO-Revision-Date: 2021-06-28 06:28+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/installation/zh_Hans/>\n"
+"Language: zh-hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.7.1-dev\n"
+
+#
 
 msgid ""
 "These instructions assume the software will run on a Raspberry Pi "
@@ -15,9 +30,11 @@ msgid ""
 "controllers, [ARM based micro-controllers](Features.md#step-"
 "benchmarks), and [Beaglebone PRU](beaglebone.md) based printers."
 msgstr ""
+"Klipper目前支持数种基于Atmel ATmega的微控制器、[基于ARM的微控制器](Features.md#step-"
+"benchmarks)、和[Beaglebone可编程实时单元](beaglebone.md)的打印机。"
 
 msgid "Prepping an OS image"
-msgstr ""
+msgstr "准备操作系统镜像"
 
 msgid ""
 "Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on "
@@ -47,17 +64,17 @@ msgid ""
 msgstr ""
 
 msgid "Building and flashing the micro-controller"
-msgstr ""
+msgstr "构建和烧写微控制器"
 
 msgid ""
 "To compile the micro-controller code, start by running these commands"
 " on the Raspberry Pi:"
-msgstr ""
+msgstr "在编译微控制器代码之前，首先在树莓派上运行这些命令："
 
 msgid ""
 "Select the appropriate micro-controller and review any other options "
 "provided. Once configured, run:"
-msgstr ""
+msgstr "选择恰当的微控制器并复查提供的其他选项。配置好后，运行："
 
 msgid ""
 "It is necessary to determine the serial port connected to the micro-"
@@ -66,8 +83,9 @@ msgid ""
 msgstr ""
 
 msgid "It should report something similar to the following:"
-msgstr ""
+msgstr "它应该报告类似以下的内容："
 
+#, fuzzy
 msgid ""
 "It's common for each printer to have its own unique serial port name."
 " This unique name will be used when flashing the micro-controller. "
@@ -75,11 +93,15 @@ msgid ""
 "so, choose the line corresponding to the micro-controller (see the "
 "[FAQ](FAQ.md#wheres-my-serial-port) for more information)."
 msgstr ""
+"通常每一个打印机都有自己独特的串口名，这个独特串口名将会在烧写微处理器时用到。It's possible there may be multiple "
+"lines in the above output - if so, choose the line corresponding to the "
+"micro-controller (see the [FAQ](FAQ.md#wheres-my-serial-port) for more "
+"information)."
 
 msgid ""
 "For common micro-controllers, the code can be flashed with something "
 "similar to:"
-msgstr ""
+msgstr "对于常见的微控制器，可以用类似以下的方法来烧写固件："
 
 msgid ""
 "Be sure to update the FLASH_DEVICE with the printer's unique serial "
@@ -90,10 +112,10 @@ msgid ""
 "When flashing for the first time, make sure that OctoPrint is not "
 "connected directly to the printer (from the OctoPrint web page, under"
 " the \"Connection\" section, click \"Disconnect\")."
-msgstr ""
+msgstr "第一次烧写时要确保 OctoPrint 没有直接连接到打印机（在 OctoPrint 网页的 \"连接 \"分段中点击 \"断开连接\"）。"
 
 msgid "Configuring OctoPrint to use Klipper"
-msgstr ""
+msgstr "为Klipper配置 OctoPrint"
 
 msgid ""
 "The OctoPrint web server needs to be configured to communicate with "
