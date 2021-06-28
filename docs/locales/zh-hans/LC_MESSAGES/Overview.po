@@ -1,11 +1,12 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# badpoi <a1635835119@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-25 03:39+0200\n"
-"PO-Revision-Date: 2021-06-25 01:39+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"PO-Revision-Date: 2021-06-25 04:23+0000\n"
+"Last-Translator: badpoi <a1635835119@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/overview/zh_Hans/>\n"
 "Language: zh-hans\n"
@@ -16,7 +17,6 @@ msgstr ""
 "X-Generator: Weblate 4.7.1-dev\n"
 
 #
-
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with "
 "the [features](Features.md) and [installation](Installation.md) "
@@ -136,102 +136,102 @@ msgstr "[TMC驱动](TMC_Drivers.md)：在Klipper中使用 Trinamic 步进电机�
 msgid ""
 "[Skew correction](skew_correction.md): Adjustments for axes not "
 "perfectly square."
-msgstr ""
+msgstr "[偏斜校正](skew_correction.md): 轴调整不是一个完美的方形。"
 
 msgid ""
 "[PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled "
 "tools such as lasers or spindles."
-msgstr ""
+msgstr "[PWM 工具](Using_PWM_Tools.md):关于如何使用 PWM 的控制工具，例如激光头和电钻头."
 
 msgid ""
 "[G-Codes](G-Codes.md): Information on commands supported by Klipper."
-msgstr ""
+msgstr "[G-代码](G-Codes.md): 有关klipper可用的G代码指令."
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "开发者文档"
 
 msgid ""
 "[Code overview](Code_Overview.md): Developers should read this first."
-msgstr ""
+msgstr "[代码概述](Code_Overview.md):开发者应该首先阅读这个."
 
 msgid ""
 "[Kinematics](Kinematics.md): Technical details on how Klipper "
 "implements motion."
-msgstr ""
+msgstr "[运动学](Kinematics.md): 关于klipper如何实现运动的技术细节."
 
 msgid ""
 "[Protocol](Protocol.md): Information on the low-level messaging "
 "protocol between host and micro-controller."
-msgstr ""
+msgstr "[协议](Protocol.md): 主机和微控制器之间的低级通信协议的信息。"
 
 msgid ""
 "[API Server](API_Server.md): Information on Klipper's command and "
 "control API."
-msgstr ""
+msgstr "[API 服务](API_Server.md): 关于Klipper 的命令和控制 API 的信息。"
 
 msgid ""
 "[MCU commands](MCU_Commands.md): A description of low-level commands "
 "implemented in the micro-controller software."
-msgstr ""
+msgstr "[MCU 指令](MCU_Commands.md): 描述在微控制器软件中实施的低级指令。"
 
 msgid ""
 "[CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message "
 "format."
-msgstr ""
+msgstr "[CAN 总线协议](CANBUS_protocol.md): Klipper 的 CAN总线通信格式。"
 
 msgid ""
 "[Debugging](Debugging.md): Information on how to test and debug "
 "Klipper."
-msgstr ""
+msgstr "[调试](Debugging.md): 有关如何测试和调试Klipper。"
 
 msgid ""
 "[Benchmarks](Benchmarks.md): Information on the Klipper benchmark "
 "method."
-msgstr ""
+msgstr "[基准](Benchmarks.md): 关于 Klipper 基准的方法。"
 
 msgid ""
 "[Contributing](CONTRIBUTING.md): Information on how to submit "
 "improvements to Klipper."
-msgstr ""
+msgstr "[贡献](CONTRIBUTING.md): 有关如何向 Klipper 提交改进方法的信息."
 
 msgid "[Packaging](Packaging.md): Information on building OS packages."
-msgstr ""
+msgstr "[封装](Packaging.md):有关于如何构建系统包的信息。"
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "设备特定的文档"
 
 msgid ""
 "[Example configs](Example_Configs.md): Information on adding an "
 "example config file to Klipper."
-msgstr ""
+msgstr "[示列 配置](Example_Configs.md):有关于添加示列配置到 Klipper 的信息。"
 
 msgid ""
 "[SDCard Updates](SDCard_Updates.md): Flash a micro-controller by "
 "copying a binary to an sdcard in the micro-controller."
-msgstr ""
+msgstr "[SD卡更新](SDCard_Updates.md):通过将固件拷贝到SD卡中，再通过微控制器的SD卡槽来更新微控制器。"
 
 msgid ""
 "[Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details "
 "for controlling devices wired to the GPIO pins of a Raspberry Pi."
-msgstr ""
+msgstr "[树莓派作为微控制器](RPi_microcontroller.md): 连接到树莓派的 GPIO 引脚设备的详细信息。"
 
 msgid ""
 "[Beaglebone](beaglebone.md): Details for running Klipper on the "
 "Beaglebone PRU."
-msgstr ""
+msgstr "[Beaglebone](beaglebone.md): 在 Beaglebone PRU 上运行 Klipper 的详细信息.。"
 
 msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-"
 "controller flashing."
-msgstr ""
+msgstr "[底层引导程序](Bootloaders.md): 有关于微控制器刷机的开发者信息。"
 
 msgid ""
 "[CAN bus](CANBUS.md): Information on using CAN bus with Klipper."
-msgstr ""
+msgstr "[CAN 总线](CANBUS.md): 有关于 Klipper使用 CAN总线 的信息。"
 
 msgid ""
 "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
-msgstr ""
+msgstr "[TSL1401CL 耗材线径传感器](TSL1401CL_Filament_Width_Sensor.md)"
 
 msgid "[Hall filament width sensor](HallFilamentWidthSensor.md)"
-msgstr ""
+msgstr "[霍尔耗材线径宽度传感器](HallFilamentWidthSensor.md)"
