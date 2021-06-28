@@ -1,9 +1,24 @@
-#
+# Yifei Ding <dingyifeiair@gmail.com>, 2021.
 msgid ""
 msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"POT-Creation-Date: 2021-06-25 03:39+0200\n"
+"PO-Revision-Date: 2021-06-25 01:39+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/features/zh_Hans/>\n"
+"Language: zh-hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.7.1-dev\n"
+
+#
 
 msgid "Klipper has several compelling features:"
-msgstr ""
+msgstr "Klipper 有几个引人注目的功能："
 
 msgid ""
 "High precision stepper movement. Klipper utilizes an application "
