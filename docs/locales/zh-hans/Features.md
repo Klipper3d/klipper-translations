@@ -1,34 +1,16 @@
 Klipper 有几个引人注目的功能：
 
-* High precision stepper movement. Klipper utilizes an application processor (such
-as a low-cost Raspberry Pi) when calculating printer movements. The application
-processor determines when to step each stepper motor, it compresses those
-events, transmits them to the micro-controller, and then the micro- controller
-executes each event at the requested time. Each stepper event is scheduled with
-a precision of 25 micro-seconds or better. The software does not use kinematic
-estimations (such as the Bresenham algorithm) - instead it calculates precise
-step times based on the physics of acceleration and the physics of the machine
-kinematics. More precise stepper movement translates to quieter and more stable
-printer operation.
+* 高精度步进运动。Klipper使用一个应用处理器（例如低成本的树莓派）来计算打印机运动。应用处理器决定何时对每个步进电机发出步进信号，压缩这些事件，并将它们发
+送到微控制器。微处理器将会把每个事件按请求时间执行。每一个步进事件被以25毫秒或更高的精度安排。软件不进行运动估计，例如
+Bresenham算法，而是通过加速度与机械运动物理计算精确的步进时间。更精准的步进电机运动意味着打印机更安静和稳定的运行。
 
-* Best in class performance. Klipper is able to achieve high stepping rates on
-both new and old micro-controllers. Even old 8bit micro-controllers can obtain
-rates over 175K steps per second. On more recent micro-controllers, rates over
-500K steps per second are possible. Higher stepper rates enable higher print
-velocities. The stepper event timing remains precise even at high speeds which
-improves overall stability.
+* 同类固件中最佳表现。 Klipper 能够在新的和旧的微控制器上实现高步进率。即使是旧的 8 位微控制器也可以获得超过每秒 175K
+步的速率。在较新的微控制器上，速率可以超过每秒 500K 步。更高的步进速率可实现更高的打印速度。即使在高速下也能保持步进事件计时精确，从而提高整体稳定性。
 
-* Klipper supports printers with multiple micro-controllers. For example, one
-micro-controller could be used to control an extruder, while another controls
-the printer's heaters, while a third controls the rest of the printer. The
-Klipper host software implements clock synchronization to account for clock
-drift between micro-controllers. No special code is needed to enable multiple
-micro-controllers - it just requires a few extra lines in the config file.
+* Klipper 支持带有多个微控制器的打印机。例如，一个微控制器可以被用来控制挤出机，而另一个用来控制加热器，并使用第三个来控制其他的打印机组件。Klipper
+主机程序实现了时钟同步，解决了微处理器之间的时钟漂移。 启用多个控制器只需要在配置文件中添加几行，不需要任何特殊代码。
 
-* Configuration via simple config file. There's no need to reflash the micro-
-controller to change a setting. All of Klipper's configuration is stored in a
-standard config file which can be easily edited. This makes it easier to setup
-and maintain the hardware.
+* 通过简单的配置文件进行配置。修改设置不需要重新刷写微控制器。Klipper 的所有配置都被存储在一个易编辑的配置文件中，大大减少了配置与维护硬件的难度。
 
 * Klipper supports "Smooth Pressure Advance" - a mechanism to account for the
 effects of pressure within an extruder. This reduces extruder "ooze" and
@@ -51,24 +33,19 @@ Existing "reprap" style printers can run Klipper without hardware modification
 - just add a Raspberry Pi. Klipper's internal code layout makes it easier to
 support other micro-controller architectures as well.
 
-* Simpler code. Klipper uses a very high level language (Python) for most code.
-The kinematics algorithms, the G-code parsing, the heating and thermistor
-algorithms, etc. are all written in Python. This makes it easier to develop new
-functionality.
+* 简洁的代码。大部分 Klipper
+代码使用一个极高级编程语言（Python），这包括了运动算法，G代码解析，加热，温度传感器算法和其他，降低了开发新功能的难度。
 
-* Custom programmable macros. New G-Code commands can be defined in the printer
-config file (no code changes are necessary). Those commands are programmable -
-allowing them to produce different actions depending on the state of the
-printer.
+* 自定义可编程脚本。可以在打印机配置文件中定义新的G代码命令（而不需要修改任何代码）。这些命令都是可编程的，可以能根据打印机的状态做出不同的响应。
 
-* Builtin API server. In addition to the standard G-Code interface, Klipper
-supports a rich JSON based application interface. This enables programmers to
-build external applications with detailed control of the printer.
+* 内置API服务器。In addition to the standard G-Code interface, Klipper supports a rich
+JSON based application interface. This enables programmers to build external
+applications with detailed control of the printer.
 
 
-# Additional features
+# 其他功能
 
-Klipper supports many standard 3d printer features:
+Klipper 支持许多标准的 3d 打印机功能：
 
 * Works with Octoprint. This allows the printer to be controlled using a regular
 web-browser. The same Raspberry Pi that runs Klipper can also run Octoprint.
@@ -93,15 +70,12 @@ probes.
 height calibration as well as an enhanced X and Y dimension calibration. The
 calibration can be done with a Z height probe or via manual probing.
 
-* Support for common temperature sensors (eg, common thermistors, AD595, AD597,
-AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D,
-and LM75). Custom thermistors and custom analog temperature sensors can also be
-configured.
+* 支持常见的温度传感器（例如，常见的热敏电阻、AD595、AD597、AD849x、PT100、PT1000、MAX6675、MAX31855、MAX31856
+、MAX31865、BME280、HTU21D和LM75）。还可以配置自定义热敏电阻和自定义模拟温度传感器。
 
-* Basic thermal heater protection enabled by default.
+* 默认启用基本加热器保护。
 
-* Support for standard fans, nozzle fans, and temperature controlled fans. No need
-to keep fans running when the printer is idle.
+* 支持标准风扇、喷嘴风扇和温控风扇。当打印机闲置时，不需要保持风扇运行。
 
 * Support for run-time configuration of TMC2130, TMC2208/TMC2224, TMC2209,
 TMC2660, and TMC5160 stepper motor drivers. There is also support for current

@@ -2,7 +2,7 @@ This document provides some tips for configuring a "slicer" application for
 use with Klipper. Common slicers used with Klipper are Slic3r, Cura, Simplify3D,
 etc.
 
-# Set the G-Code flavor to Marlin
+# 将 G-Code 风格设置为 Marlin
 
 Many slicers have an option to configure the "G-Code flavor". The default is
 frequently "Marlin" and that works well with Klipper. The "Smoothieware"
@@ -17,13 +17,12 @@ Then one can just run START_PRINT and END_PRINT in the slicer's configuration.
 Defining these actions in the Klipper configuration may make it easier to tweak
 the printer's start and end steps as changes do not require re- slicing.
 
-See [sample-macros.cfg](../config/sample-macros.cfg) for example START_PRINT and
-END_PRINT macros.
+参见[sample-macros.cfg](../config/sample-macros.cfg)中的START_PRINT 和END_PRINT 宏实例。
 
 See the [config reference](Config_Reference.md#gcode_macro) for details on
 defining a gcode_macro.
 
-# Large retraction settings may require tuning Klipper
+# 大回抽可能需要调优Klipper
 
 The maximum speed and acceleration of retraction moves are controlled in Klipper
 by the `max_extrude_only_velocity` and `max_extrude_only_accel` config settings.

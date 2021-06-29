@@ -130,7 +130,8 @@ enable_pin:
 #   driver must always be enabled.
 rotation_distance:
 #   Distance (in mm) that the axis travels with one full rotation of
-#   the stepper motor. This parameter must be provided.
+#   the stepper motor (or final gear if gear_ratio is specified).
+#   This parameter must be provided.
 microsteps:
 #   The number of microsteps the stepper motor driver uses. This
 #   parameter must be provided.
@@ -1548,6 +1549,22 @@ printer config file. Wildcards may also be used (eg, "configs/*.cfg").
 
 ```
 [include my_other_config.cfg]
+```
+
+## [duplicate_pin_override]
+
+This tool allows a single micro-controller pin to be defined multiple times in a
+config file without normal error checking. This is intended for diagnostic and
+debugging purposes. This section is not needed where Klipper supports using the
+same pin multiple times, and using this override may cause confusing and
+unexpected results.
+
+```
+[duplicate_pin_override]
+pins:
+#   A comma separated list of pins that may be used multiple times in
+#   a config file without normal error checks. This parameter must be
+#   provided.
 ```
 
 # Bed probing hardware

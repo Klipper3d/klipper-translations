@@ -3,11 +3,10 @@ conjunction with OctoPrint. It is recommended that a Raspberry Pi 2, 3, or 4
 computer be used as the host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-
 something-other-than-a-raspberry-pi-3) for other machines).
 
-Klipper currently supports a number of Atmel ATmega based micro-controllers,
-[ARM based micro-controllers](Features.md#step-benchmarks), and [Beaglebone
-PRU](beaglebone.md) based printers.
+Klipper目前支持数种基于Atmel ATmega的微控制器、[基于ARM的微控制器](Features.md#step-
+benchmarks)、和[Beaglebone可编程实时单元](beaglebone.md)的打印机。
 
-# Prepping an OS image
+# 准备操作系统镜像
 
 Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry
 Pi computer. Use OctoPi v0.17.0 or later - see the [octopi
@@ -33,18 +32,16 @@ The above will download Klipper, install some system dependencies, setup Klipper
 to run at system startup, and start the Klipper host software. It will require
 an internet connection and it may take a few minutes to complete.
 
-# Building and flashing the micro-controller
+# 构建和烧写微控制器
 
-To compile the micro-controller code, start by running these commands on the
-Raspberry Pi:
+在编译微控制器代码之前，首先在树莓派上运行这些命令：
 
 ```
 cd ~/klipper/
 make menuconfig
 ```
 
-Select the appropriate micro-controller and review any other options provided.
-Once configured, run:
+选择恰当的微控制器并复查提供的其他选项。配置好后，运行：
 
 ```
 make
@@ -57,19 +54,17 @@ For micro-controllers that connect via USB, run the following:
 ls /dev/serial/by-id/*
 ```
 
-It should report something similar to the following:
+它应该报告类似以下的内容：
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-It's common for each printer to have its own unique serial port name. This
-unique name will be used when flashing the micro-controller. It's possible there
-may be multiple lines in the above output - if so, choose the line corresponding
-to the micro-controller (see the [FAQ](FAQ.md#wheres-my-serial-port) for more
-information).
+通常每一个打印机都有自己独特的串口名，这个独特串口名将会在烧写微处理器时用到。It's possible there may be multiple lines
+in the above output - if so, choose the line corresponding to the micro-
+controller (see the [FAQ](FAQ.md#wheres-my-serial-port) for more information).
 
-For common micro-controllers, the code can be flashed with something similar to:
+对于常见的微控制器，可以用类似以下的方法来烧写固件：
 
 ```
 sudo service klipper stop
@@ -83,7 +78,7 @@ When flashing for the first time, make sure that OctoPrint is not connected
 directly to the printer (from the OctoPrint web page, under the "Connection"
 section, click "Disconnect").
 
-# Configuring OctoPrint to use Klipper
+# 为Klipper配置 OctoPrint
 
 The OctoPrint web server needs to be configured to communicate with the Klipper
 host software. Using a web browser, login to the OctoPrint web page and then

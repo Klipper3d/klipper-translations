@@ -1,81 +1,61 @@
-Welcome to the Klipper documentation. If new to Klipper, start with the
-[features](Features.md) and [installation](Installation.md) documents.
+欢迎使用Klipper文档。如果刚接触Klipper，请从[特性](features.md)和[安装](installation.md)文档开始阅读。
 
-# Overview information
+# 概览信息
 
-- [Features](Features.md): A high-level list of features in Klipper.
-- [FAQ](FAQ.md): Frequently asked questions.
-- [Releases](Releases.md): The history of Klipper releases.
-- [Config changes](Config_Changes.md): Recent software changes that may require
-users to update their printer config file.
-- [Contact](Contact.md): Information on bug reporting and general communication
-with the Klipper developers.
+- [功能](Features.md)：Klipper 中的高级功能列表。
+- [常见问题](FAQ.md)：常见问题。
+- [发行版](Release.md)：Klipper的版本发布历史。
+- [配置更改](Config_Changes.md)：可能需要手动更新打印机配置文件的软件更改。
+- [联系](Contact.md)：关于如何提交错误报告和联系 Klipper 开发者的信息。
 
-# Configuration and Tuning Guides
+# 配置与调优指南
 
-- [Installation](Installation.md): Guide to installing Klipper.
-- [Config Reference](Config_Reference.md): Description of config parameters.
-  - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance
-stepper parameter.
+- [安装](Installation.md)：Klipper 安装指南。
+- [配置参考](Config_Reference.md)：配置参数说明。
+  - [旋转距离](Rotation_Distance.md)：计算rotation_distance步进参数。
 
-- [Config checks](Config_checks.md): Verify basic pin settings in the config
-file.
+- [检查配置](Config_checks.md)：验证配置文件中的基本引脚设置。
 - [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
-  - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
-  - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
+  - [三角洲校准](Delta_Calibrate.md)：校准三角洲结构。
+  - [探针校准](Probe_Calibrate.md)：校准自动Z探针。
   - [BL-Touch](BLTouch.md): Configure a "BL-Touch" Z probe.
-  - [Manual level](Manual_Level.md): Calibration of Z endstops (and similar).
-  - [Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations.
-  - [Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning.
+  - [手动调平](Manual_Level.md)：校准 Z 限位和调整热床调平螺丝。
+  - [床网](Bed_Mesh)：基于 XY 位置的热床高度补偿。
+  - [限位相位](Endstop_Phase.md)：使用步进电机相位辅助Z限位定位。
 
-- [Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing
-in prints.
-  - [Measuring resonances](Measuring_Resonances.md): Information on using adxl345
-accelerometer hardware to measure resonance.
+- [共振补偿](Resonance_Compensation)：减少打印震纹的工具。
+  - [测量共振](Measuring_Resonances.md)：使用 adxl345 加速度计模块测量共振。
 
-- [Pressure advance](Pressure_Advance.md): Calibrate extruder pressure.
+- [提前压力](Pressure_Advance.md)：校准挤出机压力。
 - [Slicers](Slicers.md): Configure "slicer" software for Klipper.
-- [Command Templates](Command_Templates.md): G-Code macros and conditional
-evaluation.
-  - [Status Reference](Status_Reference.md): Information available to macros (and
-similar).
+- [命令模板](Command_Templates.md)：G代码宏和条件判断。
+  - [状态参考](Status_Reference.md)：可用于宏和类似功能的信息。
 
-- [TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with
-Klipper.
-- [Skew correction](skew_correction.md): Adjustments for axes not perfectly
-square.
-- [PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such
-as lasers or spindles.
-- [G-Codes](G-Codes.md): Information on commands supported by Klipper.
+- [TMC驱动](TMC_Drivers.md)：在 Klipper 中使用 Trinamic 步进电机驱动。
+- [偏斜校正](skew_correction.md): 轴调整不是一个完美的方形。
+- [PWM 工具](Using_PWM_Tools.md)：关于如何使用 PWM 控制的工具，例如激光器或电钻头。
+- [G-代码](G-Codes.md)：用于 Klipper 的G代码指令。
 
-# Developer Documentation
+# 开发者文档
 
-- [Code overview](Code_Overview.md): Developers should read this first.
-- [Kinematics](Kinematics.md): Technical details on how Klipper implements
-motion.
-- [Protocol](Protocol.md): Information on the low-level messaging protocol
-between host and micro-controller.
-- [API Server](API_Server.md): Information on Klipper's command and control API.
-- [MCU commands](MCU_Commands.md): A description of low-level commands
-implemented in the micro-controller software.
-- [CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format.
-- [Debugging](Debugging.md): Information on how to test and debug Klipper.
-- [Benchmarks](Benchmarks.md): Information on the Klipper benchmark method.
-- [Contributing](CONTRIBUTING.md): Information on how to submit improvements to
-Klipper.
-- [Packaging](Packaging.md): Information on building OS packages.
+- [代码概述](Code_Overview.md)：开发者应该从这个文档开始阅读。
+- [运动学](Kinematics.md)：关于 Klipper 如何实现运动的技术细节。
+- [协议](Protocol.md)：主机和微控制器之间的低级通信协议的信息。
+- [API 服务器](API_Server.md)：关于 Klipper 的命令和控制 API 的信息。
+- [MCU 指令](MCU_Commands.md)：描述在微控制器软件中实施的低级指令。
+- [CAN 总线协议](CANBUS_protocol.md)：Klipper 的 CAN总线通信格式。
+- [调试](Debugging.md)：有关如何测试和调试 Klipper。
+- [基准测试](Benchmarks.md)：关于 Klipper 基准测试的方法。
+- [贡献](CONTRIBUTING.md)：有关如何向 Klipper 提交改进方法的信息。
+- [打包](Packaging.md)：有关于如何构建系统包的信息。
 
-# Device Specific Documents
+# 设备特定文档
 
-- [Example configs](Example_Configs.md): Information on adding an example config
-file to Klipper.
-- [SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a
-binary to an sdcard in the micro-controller.
-- [Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for
-controlling devices wired to the GPIO pins of a Raspberry Pi.
-- [Beaglebone](beaglebone.md): Details for running Klipper on the Beaglebone PRU.
-- [Bootloaders](Bootloaders.md): Developer information on micro-controller
-flashing.
-- [CAN bus](CANBUS.md): Information on using CAN bus with Klipper.
-- [TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)
-- [Hall filament width sensor](HallFilamentWidthSensor.md)
+- [示列配置](Example_Configs.md)：有关于添加示列配置到 Klipper 的信息。
+- [SD卡更新](SDCard_Updates.md)：通过将固件拷贝到SD卡中，再通过微控制器的SD卡槽来烧写微控制器。
+- [将树莓派作为微控制器](RPi_microcontroller.md)：连接到树莓派的 GPIO 引脚设备的详细信息。
+- [Beaglebone](beaglebone.md)：在 Beaglebone PRU （可编程实时单元）上运行 Klipper 的详细信息。
+- [底层引导程序](Bootloaders.md)：有关于微控制器烧写的开发者信息。
+- [CAN 总线](CANBUS.md)：有关于 Klipper 使用 CAN 总线的信息。
+- [TSL1401CL 耗材线径传感器](TSL1401CL_Filament_Width_Sensor.md)
+- [霍尔耗材线径宽度传感器](HallFilamentWidthSensor.md)

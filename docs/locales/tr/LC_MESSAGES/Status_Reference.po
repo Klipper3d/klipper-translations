@@ -625,3 +625,43 @@ msgid ""
 "`applied`: True if the z-tilt leveling process has been run and "
 "completed successfully."
 msgstr ""
+
+msgid "dual_carriage"
+msgstr ""
+
+msgid ""
+"The following information is available in "
+"[dual_carriage](Config_Reference.md#dual_carriage) on a hybrid_corexy"
+" or hybrid_corexz robot"
+msgstr ""
+
+msgid "`mode`: The current mode. Possible values are: \"FULL_CONTROL\""
+msgstr ""
+
+msgid ""
+"`active_carriage`: The current active carriage. Possible values are: "
+"\"CARRIAGE_0\", \"CARRIAGE_1\""
+msgstr ""
+
+msgid "`file_path`: A full path to the file of currently loaded file."
+msgstr ""
+
+msgid "`file_size`: The file size (in bytes) of currently loaded file."
+msgstr ""
+
+msgid "neopixel / dotstar"
+msgstr ""
+
+msgid ""
+"The following information is available for each `[neopixel led_name]`"
+" and `[dotstar led_name]` defined in printer.cfg:"
+msgstr ""
+
+msgid ""
+"`color_data`: An array of objects, with each object containing the "
+"RGBW values for a led in the chain. Note that not all configurations "
+"will contain a white value. Each value is represented as a float from"
+" 0 to 1. For example, the blue value of the second neopixel in a "
+"chain could be accessed at `printer[\"neopixel "
+"<config_name>\"].colordata[1].B`."
+msgstr ""

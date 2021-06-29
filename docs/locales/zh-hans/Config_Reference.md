@@ -1,31 +1,25 @@
-This document is a reference for options available in the Klipper config file.
+本文档是 Klipper 配置文件中可用选项的参考。
 
-The descriptions in this document are formatted so that it is possible to cut-
-and-paste them into a printer config file. See the [installation
-document](Installation.md) for information on setting up Klipper and choosing an
-initial config file.
+本文档中的描述已经格式化，以便可以将它们剪切并粘贴到打印机配置文件中。 见 [installation document](Installation.md)
+有关设置 Klipper 和选择初始配置文件的信息。
 
-# Micro-controller configuration
+# 微控制器配置
 
-## Format of micro-controller pin names
+## 微控制器引脚名字的格式
 
-Many config options require the name of a micro-controller pin. Klipper uses the
-hardware names for these pins - for example `PA4`.
+许多配置选项需要微控制器引脚的名称。Klipper 使用了这些引脚的硬件名称 - 例如`PA4`。
 
-Pin names may be preceded by `!` to indicate that a reverse polarity should be
-used (eg, trigger on low instead of high).
+在 引脚名称前加 `!`来表示相反的电极极性（ 例如触发条件时低电平而不是高电平）。
 
-Input pins may be preceded by `^` to indicate that a hardware pull-up resistor
-should be enabled for the pin. If the micro-controller supports pull-down
-resistors then an input pin may alternatively be preceded by `~`.
+在引脚名称前面加 `^` ，以指示该引脚启用硬件上拉电阻。如果微控制器支持下拉电阻器，那么输入引脚也可以在前面加上`~`。
 
 Note, some config sections may "create" additional pins. Where this occurs,
 the config section defining the pins must be listed in the config file before
 any sections using those pins.
 
-## [mcu]
+## [MCU]
 
-Configuration of the primary micro-controller.
+主要的微控制器配置。
 
 ```
 [mcu]
@@ -56,7 +50,7 @@ serial:
 #   communicates over a serial port, 'command' otherwise.
 ```
 
-## [mcu my_extra_mcu]
+## 额外的mcu [mcu my_extra_mcu]
 
 Additional micro-controllers (one may define any number of sections with an
 "mcu" prefix). Additional micro-controllers introduce additional pins that may
@@ -70,11 +64,11 @@ name on the given mcu).
 # See the "mcu" section for configuration parameters.
 ```
 
-# Common kinematic settings
+# 常用的运动学设置
 
-## [printer]
+## [打印]
 
-The printer section controls high level printer settings.
+打印机控制的高级设置部分。
 
 ```
 [printer]
@@ -107,15 +101,14 @@ max_accel:
 #   decelerate to zero at each corner. The default is 5mm/s.
 ```
 
-## [stepper]
+## [步进]
 
 Stepper motor definitions. Different printer types (as specified by the
 "kinematics" option in the [printer] config section) require different names
 for the stepper (eg, `stepper_x` vs `stepper_a`). Below are common stepper
 definitions.
 
-See the [rotation distance document](Rotation_Distance.md) for information on
-calculating the `rotation_distance` parameter.
+有关计算`rotation_distance`参数的信息，请参阅[旋转距离文档](Rotation_Distance.md) 。
 
 ```
 [stepper_x]
@@ -130,7 +123,8 @@ enable_pin:
 #   driver must always be enabled.
 rotation_distance:
 #   Distance (in mm) that the axis travels with one full rotation of
-#   the stepper motor. This parameter must be provided.
+#   the stepper motor (or final gear if gear_ratio is specified).
+#   This parameter must be provided.
 microsteps:
 #   The number of microsteps the stepper motor driver uses. This
 #   parameter must be provided.
@@ -181,13 +175,11 @@ position_max:
 #   if near position_min.
 ```
 
-## Cartesian Kinematics
+## 笛卡尔运动学
 
-See [example-cartesian.cfg](../config/example-cartesian.cfg) for an example
-cartesian kinematics config file.
+有关示例笛卡尔运动学配置文件，请参阅 [example-cartesian.cfg](../config/example-cartesian.cfg)。
 
-Only parameters specific to cartesian printers are described here - see [common
-kinematic settings](#common-kinematic-settings) for available parameters.
+此处描述的参数只适用于笛卡尔打印机，有关可用参数，请参阅 [常用运动设置](#common-kinematic-settings)。
 
 ```
 [printer]
@@ -215,15 +207,12 @@ max_z_accel:
 [stepper_z]
 ```
 
-## Linear Delta Kinematics
+## 线性三角洲运动学
 
-See [example-delta.cfg](../config/example-delta.cfg) for an example linear delta
-kinematics config file. See the [delta calibrate guide](Delta_Calibrate.md) for
-information on calibration.
+有关示例线性三角洲运动学配置文件，请参阅 [example-delta.cfg](../config/example-delta.cfg)。
+有关校准的信息，请参阅 [三角洲校准指南](Delta_Calibrate.md)。
 
-Only parameters specific to linear delta printers are described here - see
-[common kinematic settings](#common-kinematic-settings) for available
-parameters.
+此处仅描述了线性三角洲打印机的特定参数 - 有关可用参数，请参阅 [常用运动设置](#common-kinematic-settings)。
 
 ```
 [printer]
@@ -295,7 +284,7 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-## CoreXY Kinematics
+## CoreXY 架构
 
 See [example-corexy.cfg](../config/example-corexy.cfg) for an example corexy
 (and h-bot) kinematics file.
@@ -1548,6 +1537,22 @@ printer config file. Wildcards may also be used (eg, "configs/*.cfg").
 
 ```
 [include my_other_config.cfg]
+```
+
+## [duplicate_pin_override]
+
+This tool allows a single micro-controller pin to be defined multiple times in a
+config file without normal error checking. This is intended for diagnostic and
+debugging purposes. This section is not needed where Klipper supports using the
+same pin multiple times, and using this override may cause confusing and
+unexpected results.
+
+```
+[duplicate_pin_override]
+pins:
+#   A comma separated list of pins that may be used multiple times in
+#   a config file without normal error checks. This parameter must be
+#   provided.
 ```
 
 # Bed probing hardware

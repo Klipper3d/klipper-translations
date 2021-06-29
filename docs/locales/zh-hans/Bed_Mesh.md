@@ -1,21 +1,14 @@
-The Bed Mesh module may be used to compensate for bed surface irregularties to
-achieve a better first layer across the entire bed. It should be noted that
-software based correction will not achieve perfect results, it can only
-approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical
-and electrical issues. If an axis is skewed or a probe is not accurate then the
-bed_mesh module will not receive accurate results from the probing process.
+网床 插件可用于补偿热床表面的不规则性，以保证在打印过程中获得更好的第一层。 需要注意的是，基于软件的校正还不能达到完美的程度，它只能尽可能达到床的形状。网床
+也无法补偿机械和电气导致的问题。 如果机器没装好结构歪了或探针不准确，则 网床 模块将无法从探测过程中获得令人满意的结果。
 
-Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is
-calibrated. If using an endstop for Z homing it will need to be calibrated as
-well. See [Probe_Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in
-[Manual_Level](Manual_Level.md) for more information.
+在进行网格校准之前，请确保您已经校准了探头的 Z 偏移。 如果使用限位开关进行 Z 归位，则还需要对其进行校准。 有关详细信息，请参阅
+[手动调平](Manual_Level.md) 中的 [探针校准](Probe_Calibrate.md) 和 Z_ENDSTOP_CALIBRATE。
 
-## Basic Configuration
+## 基本配置
 
-### Rectangular Beds
+### 矩形床
 
-This example assumes a printer with a 250 mm x 220 mm rectangular bed and a
-probe with an x-offset of 24 mm and y-offset of 5 mm.
+此示例假定打印机具有 250 mm x 220 mm 矩形床和一个 x 偏移为 24 mm和 y 偏移为 5 mm的探针。
 
 ```
 [bed_mesh]
@@ -26,42 +19,29 @@ mesh_max: 240, 198
 probe_count: 5,3
 ```
 
-- `speed: 120` *Default Value: 50* The speed in which the tool moves between
-points.
+- `speed: 120` *默认值：50* 探针在两个点之间移动的速度。
 
-- `horizontal_move_z: 5` *Default Value: 5* The Z coordinate the probe rises to
-prior to traveling between points.
+- `horizontal_move_z: 5` *默认值：5* 探针前往下一个点之前Z需要抬升的高度。
 
-- `mesh_min: 35,6` *Required* The first probed coordinate, nearest to the origin.
-This coordinate is relative to the probe's location.
+- `mesh_min: 35,6` *必须配置* 第一个探测的坐标，距离原点最近。该坐标就是探针所在的位置。
 
-- `mesh_max: 240,198` *Required* The probed coordinate farthest farthest from the
-origin. This is not necessarily the last point probed, as the probing process
-occurs in a zig-zag fashion. As with `mesh_min`, this coordiante is relative to
-the probe's location.
+- `mesh_max: 240,198` *必须配置* 距离原点最远的探测坐标。 这不一定是探测的最后一个点，因为探测过程以锯齿形的方式运动。 与
+`mesh_min` 一样，这个坐标是探针的位置。
 
-- `probe_count: 5,3` *Default Value: 3,3* The number of points to probe on each
-axis, specified as x,y integer values. In this example 5 points will be probed
-along the X axis, with 3 points along the Y axis, for a total of 15 probed
-points. Note that if you wanted a square grid, for example 3x3, this could be
-specified as a single integer value that is used for both axes, ie
-`probe_count: 3`. Note that a mesh requires a minimum probe_count of 3 along
-each axis.
+- `probe_count: 5,3` *默认值：3,3* 每条轴上要探测的点数，指定为 x,y 整数值。 在本示例中，将沿 X 轴探测 5 个点，沿 Y 轴探测
+3 个点，总共探测 15 个点。 请注意，如果您想要一个方形网格，例如 3x3，可以将指定其为一个整数值，比如 `probe_count: 3`。
+请注意，网格需要沿每个轴的最小probe_count 为3。
 
 
-The illustration below demonstrates how the `mesh_min`, `mesh_max`, and
-`probe_count` options are used to generate probe points. The arrows indicate the
-direction of the probing procedure, beginning at `mesh_min`. For reference, when
-the probe is at `mesh_min` the nozzle will be at (11, 1), and when the probe is
-at `mesh_max`, the nozzle will be at (206, 193).
+下图演示了如何使用 `mesh_min`、`mesh_max` 和 `probe_count` 选项来生成探测点。
+箭头表示探测过程的运动方向，从“mesh_min”开始。 图中所示，当探针位于“mesh_min”时，喷嘴将位于 (11,
+1)，当探针位于“mesh_max”时，喷嘴将位于 (206, 193)。
 
-![bedmesh_rect_basic](img/bedmesh_rect_basic.svg)
+![矩形网床基本配置](img/bedmesh_rect_basic.svg)
 
-### Round beds
+### 圆形床
 
-This example assumes a printer equipped with a round bed radius of 100mm. We
-will use the same probe offsets as the rectangular example, 24 mm on X and 5 mm
-on Y.
+本示例假设打印机配备的圆床半径为 100 mm。 我们将使用与矩形网床示例相同的探针偏移来演示，X 偏移为 24 mm，Y 偏移为 5 mm。
 
 ```
 [bed_mesh]
@@ -72,15 +52,11 @@ mesh_origin: 0,0
 round_probe_count: 5
 ```
 
-- `mesh_radius: 75` *Required* The radius of the probed mesh in mm, relative to
-the `mesh_origin`. Note that the probe's offsets limit the size of the mesh
-radius. In this example, a radius larger than 76 would move the tool beyond the
-range of the printer.
+- `mesh_radius: 75` *必须配置* 探测网格范围的半径（以毫米为单位），相对于 `mesh_origin`。
+请注意，探针的偏移会限制网格半径的大小。 在此示例中，大于 76 mm的半径会将打印头移动到打印机的范围之外。
 
-- `mesh_origin: 0,0` *Default Value: 0,0* The center point of the mesh. This
-coordinate is relative to the probe's location. While the default is 0,0, it may
-be useful to adjust the origin in an effort to probe a larger portion of the
-bed. See the illustration below.
+- `mesh_origin: 0,0` *默认值： 0,0* 探测网格的中心点。 该坐标相对于探针的位置。 虽然默认值为
+0,0，但为了探测床更多的部分而调整原点可能很有用。 请参阅下图。
 
 - `round_probe_count: 5` *Default Value: 5* This is an integer value that defines
 the maximum number of probed points along the X and Y axes. By "maximum", we
@@ -88,26 +64,18 @@ mean the number of points probed along the mesh origin. This value must be an
 odd number, as it is required that the center of the mesh is probed.
 
 
-The illustration below shows how the probed points are generated. As you can
-see, setting the `mesh_origin` to (-10, 0) allows us to specifiy a larger mesh
-radius of 85.
+下图展示了如何生成探测点。 如您所见，将 `mesh_origin` 设置为 (-10, 0) 允许我们指定更大的网格半径 85mm。
 
-![bedmesh_round_basic](img/bedmesh_round_basic.svg)
+![圆形网床基本配置](img/bedmesh_round_basic.svg)
 
-## Advanced Configuration
+## 高级配置
 
-Below the more advanced configuration options are explained in detail. Each
-example will build upon the basic rectangular bed configuration shown above.
-Each of the advanced options apply to round beds in the same manner.
+下面详细解释了更高级的配置选项。 每个示例都将建立在上面显示的基本矩形床配置之上。 每个高级选项都以相同的方式应用于圆床。
 
-### Mesh Interpolation
+### 网格插值
 
-While its possible to sample the probed matrix directly using simple bilinear
-interpolation to determine the Z-Values between probed points, it is often
-useful to interpolate extra points using more advanced interpolation algorithms
-to increase mesh density. These algorithms add curvature to the mesh, attempting
-to simulate the material properties of the bed. Bed Mesh offers lagrange and
-bicubic interpolation to accomplish this.
+虽然可以使用简单的双线性插值直接对探测网格的数据进行采样以确定探测点之间的 Z 值，但使用更高级的插值算法来插入额外的点以增加网格密度通常很有用。
+这些算法向网格添加曲率，试图模拟床的材料属性。 网床提供了拉格朗日和双三次插值来实现这一点。
 
 ```
 [bed_mesh]
@@ -121,42 +89,27 @@ algorithm: bicubic
 bicubic_tension: 0.2
 ```
 
-- `mesh_pps: 2,3` *Default Value: 2,2* The `mesh_pps` option is shorthand for Mesh
-Points Per Segment. This option specifies how many points to interpolate for
-each segment along the x and y axes. Consider a 'segment' to be the space
-between each probed point. Like `probe_count`, `mesh_pps` is specified as an x,y
-integer pair, and also may be specified a single integer that is applied to both
-axes. In this example there are 4 segments along the X axis and 2 segments along
-the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated
-points along Y, which results in a 13x8 mesh. Note that if mesh_pps is set to 0
-then mesh interpolation is disabled and the probed matrix will be sampled
-directly.
+- `mesh_pps: 2,3` *默认值：2,2*`mesh_pps` 选项是每段网格点数的简写。 此选项指定沿 x 轴和 y 轴为每个线段插值的点数。
+将“段”视为每个探测点之间的间隔。 与 `probe_count` 一样，`mesh_pps` 被指定为 x,y 整数对，也可以指定为应用于两个轴的单个整数。
+在此示例中，沿 X 轴有 4 个线段，沿 Y 轴有 2 个线段。 这计算为沿 X 的 8 个插值点，沿 Y 的 6 个插值点，从而产生 13x8 网格。
+请注意，如果 mesh_pps 设置为 0，则禁用网格插值，并且将直接对探测网格进行采样。
 
-- `algorithm: lagrange` *Default Value: lagrange* The algorithm used to
-interpolate the mesh. May be `lagrange` or `bicubic`. Lagrange interpolation is
-capped at 6 probed points as oscillation tends to occur with a larger number of
-samples. Bicubic interpolation requires a minimum of 4 probed points along each
-axis, if less than 4 points are specified then lagrange sampling is forced. If
-`mesh_pps` is set to 0 then this value is ignored as no mesh interpolation is
-done.
+- `algorithm: lagrange` *默认值：lagrange* 用于插入网格的算法。 可能是 `lagrange` or `bicubic`。
+拉格朗日插值最多为 6 个探测点，因为大量样本容易发生振荡。 双三次插值要求沿每个轴至少有 4 个探测点，如果指定的点少于 4 个，则强制拉格朗日采样。 如果
+`mesh_pps` 设置为 0，则该值将被忽略，因为没有进行网格插值。
 
-- `bicubic_tension: 0.2` *Default Value: 0.2* If the `algorithm` option is set to
-bicubic it is possible to specify the tension value. The higher the tension the
-more slope is interpolated. Be careful when adjusting this, as higher values
-also create more overshoot, which will result in interpolated values higher or
-lower than your probed points.
+- `bicubic_tension: 0.2` *默认值：0.2* 双三次插值的张力值。如果`algorithm` 选项设置为双三次，则可以指定张力值。
+张力越高，内插的斜率越大。 调整时要小心，因为较高的值也会产生更多的过冲，这将导致插值高于或低于探测点。
 
 
-The illustration below shows how the options above are used to generate an
-interpolated mesh.
+下图显示了如何使用上述选项生成网格插值。
 
-![bedmesh_interpolated](img/bedmesh_interpolated.svg)
+![网床插值](img/bedmesh_interpolated.svg)
 
-### Move Splitting
+### 移动拆分
 
-Bed Mesh works by intercepting gcode move commands and applying a transform to
-their Z coordinate. Long moves must be and split into smaller moves to correctly
-follow the shape of the bed. The options below control the splitting behavior.
+Bed Mesh 的工作原理是拦截 gcode 移动命令并对它们的 Z 坐标应用变换。 将长距离移动并拆分成更小的移动，让打印出来的效果尽量接近床的形状。
+下面的选项控制如何拆分。
 
 ```
 [bed_mesh]
@@ -169,27 +122,18 @@ move_check_distance: 5
 split_delta_z: .025
 ```
 
-- `move_check_distance: 5` *Default Value: 5* The minimum distance to check for
-the desired change in Z before performing a split. In this example, a move
-longer than 5mm will be traversed by the algorithm. Each 5mm a mesh Z lookup
-will occur, comparing it with the Z value of the previous move. If the delta
-meets the threshold set by `split_delta_z`, the move will be split and traversal
-will continue. This process repeats until the end of the move is reached, where
-a final adjustment will be applied. Moves shorter than the
-`move_check_distance` have the correct Z adjustment applied directly to the move
-without traversal or splitting.
+- `move_check_distance: 5` *默认值：5* 在执行拆分之前检查 Z 中需要变化的最小距离。 在此示例中，算法将遍历超过 5 毫米的移动。
+每 5mm 将查找一次网格的Z ，并将其与前一次移动的 Z 值进行比较。 如果三角洲满足 `split_delta_z` 设置的阈值，则移动将被拆分并继续遍历。
+重复此过程，直到到达移动结束处，在此将应用最终调整。 比 `move_check_distance` 短的移动将正确的 Z 调整直接应用于移动，无需遍历或拆分。
 
-- `split_delta_z: .025` *Default Value: .025* As mentioned above, this is the
-minimum deviation required to trigger a move split. In this example, any Z value
-with a deviation +/- .025mm will trigger a split.
+- `split_delta_z: .025` *默认值：.025* 如上所述，这是触发移动拆分所需的最小偏差。 在上面的示例中，任何偏差为 +/- .025
+mm的 Z 值都将触发拆分。
 
 
-Generally the default values for these options are sufficient, in fact the
-default value of 5mm for the `move_check_distance` may be overkill. However an
-advanced user may wish to experiment with these options in an effort to squeeze
-out the optimial first layer.
+一般来说，这些选项的默认值就足够了，但事实上，`move_check_distance` 的默认值 5mm 可能会有点过度矫正。
+所以，高端可能希望尝试使用这个选项来获得挤出最佳的第一层。
 
-### Mesh Fade
+### 网格淡出
 
 When "fade" is enabled Z adjustment is phased out over a distance defined by
 the configuration. This is accomplished by applying small adjustments to the
@@ -213,38 +157,22 @@ fade_end: 10
 fade_target: 0
 ```
 
-- `fade_start: 1` *Default Value: 1* The Z height in which to start phasing out
-adjustment. It is a good idea to get a few layers down before starting the fade
-process.
+- `fade_start: 1` *默认值：1* 开始网格淡出的值，在设定的fade_start值之后逐步停止调整Z的高度。 建议在打印几层之后再开始淡出层高。
 
-- `fade_end: 10` *Default Value: 0* The Z height in which fade should complete. If
-this value is lower than `fade_start` then fade is disabled. This value may be
-adjusted depending on how warped the print surface is. A significantly warped
-surface should fade out over a longer distance. A near flat surface may be able
-to reduce this value to phase out more quickly. 10mm is a sane value to begin
-with if using the default value of 1 for `fade_start`.
+- `fade_end: 10` *默认值：0* 网格淡出完成的 Z 高度。 如果此值低于`fade_start`，则禁用网格淡出。
+该值可以根据打印表面的弯曲程度进行调整。 明显弯曲的表面应该在将网格淡出的距离长。 接近平坦的表面可能能够降低该值以更快地逐步淘汰。 如果对
+`fade_start` 使用默认值 1，则 10mm 是一个合理的值。
 
-- `fade_target: 0` *Default Value: The average Z value of the mesh* The
-`fade_target` can be thought of as an additional Z offset applied to the entire
-bed after fade completes. Generally speaking we would like this value to be 0,
-however there are circumstances where it should not be. For example, lets assume
-your homing position on the bed is an outlier, its .2 mm lower than the average
-probed height of the bed. If the `fade_target` is 0, fade will shrink the print
-by an average of .2 mm across the bed. By setting the `fade_target` to .2, the
-homed area will expand by .2 mm, however the rest of the bed will have an
-accurately sized. Generally its a good idea to leave `fade_target` out of the
-configuration so the average height of the mesh is used, however it may be
-desirable to manually adjust the fade target if one wants to print on a specific
-portion of the bed.
+- `fade_target: 0` *默认值：热床网格的平均Z值* `fade_target` 是在网格淡出完成后应用于整个床的额外 Z 偏移。一
+般来说，这个值是 0，但有些情况下它需要改动。 例如，您在热床的归位位置与床的平均探测高度有偏差，它比床的平均探测高度低 0.2 mm。 如果
+`fade_target` 为 0，淡出会将整个床的打印平均缩小 0.2 mm。 通过将 `fade_target` 设置为 0.2，归位的位置将扩大 0.2
+毫米，但床的其余部分将具有准确的尺寸。 一般来说，最好不要修改 `fade_target` 而修正机器本身导致的误差，以便使用网格的平均高度，但是如果想要在床的特定部分打印，可能需要手动调整网格淡出。
 
 
-### The Relative Reference Index
+### 相对参考索引
 
-Most probes are suceptible to drift, ie: inaccuracies in probing introduced by
-heat or interference. This can make calculating the probe's z-offset
-challenging, particuarly at different bed temperatures. As such, some printers
-use an endstop for homing the Z axis, and a probe for calibrating the mesh.
-These printers can benefit from configuring the relative reference index.
+大部分探针检测到的值容易产生误差，即：由温度或探测介质干扰产生的探测误差。 这加大探针Z偏移的看计算难度，尤其是在不同的热床温度下。
+因此，一些打印机使用限位开关来归位 Z 轴，并使用探针来校准网格。 这些打印机可以从配置的相对参考索引中寻找帮助。
 
 ```
 [bed_mesh]
