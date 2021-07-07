@@ -172,7 +172,8 @@ fade_target: 0
 ### 相对参考索引
 
 大部分探针检测到的值容易产生误差，即：由温度或探测介质干扰产生的探测误差。 这加大探针Z偏移的看计算难度，尤其是在不同的热床温度下。
-因此，一些打印机使用限位开关来归位 Z 轴，并使用探针来校准网格。 这些打印机可以从配置的相对参考索引中寻找帮助。
+因此，一些打印机使用限位开关来归位 Z 轴，并使用探针来校准网格。
+这些打印机可以从配置中的相对参考索引（relative_reference_index）中寻找帮助。
 
 ```
 [bed_mesh]
@@ -197,7 +198,7 @@ the spot on the bed where Z endstop calibration was done. Note that when looking
 up the index using the log or BED_MESH_OUTPUT, you should use the coordinates
 listed under the "Probe" header to find the correct index.
 
-### Faulty Regions
+### 故障区域
 
 It is possible for some areas of a bed to report inaccurate results when probing
 due to a "fault" at specific locations. The best example of this are beds with
@@ -208,11 +209,8 @@ not accurately represent the surface at these locations. **Note: This should not
 be confused with probe location bias, which produces inaccurate results across
 the entire bed.**
 
-The `faulty_region` options may be configured to compensate for this affect. If
-a generated point lies within a faulty region bed mesh will attempt to probe up
-to 4 points at the boundaries of this region. These probed values will be
-averaged and inserted in the mesh as the Z value at the generated (X, Y)
-coordinate.
+可以配置 `faulty_region` 选项来避免这种影响。 如果生成的点位于故障区域内，热床网格将尝试在该区域的边界处探测最多 4 个点。
+这些探测的平均值将插入网床中作为生成的 (X, Y) 坐标处的 Z 值。
 
 ```
 [bed_mesh]

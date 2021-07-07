@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -11,8 +12,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 3.3.6\n"
-
-#
 
 msgid ""
 "This document covers recent software changes to the config file that "
@@ -466,4 +465,9 @@ msgid ""
 msgstr ""
 
 msgid "20181220: Klipper v0.7.0 released"
+msgstr ""
+
+msgid ""
+"20210703: A `samd_sercom` config section must now specify the sercom "
+"bus it is configuring via the `sercom` option."
 msgstr ""

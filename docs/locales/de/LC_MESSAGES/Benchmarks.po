@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -11,8 +12,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Translate Toolkit 3.3.6\n"
-
-#
 
 msgid "This document describes Klipper benchmarks."
 msgstr ""
@@ -783,4 +782,49 @@ msgid ""
 "time ~/klippy-env/bin/python ./klippy/klippy.py config/example-"
 "cartesian.cfg -i something_complex.gcode -o /dev/null -d "
 "out/klipper.dict\n"
+msgstr ""
+
+msgid "RP2040 step rate benchmark"
+msgstr ""
+
+msgid "The following configuration sequence is used on the RP2040:"
+msgstr ""
+
+msgid ""
+"allocate_oids count=4\n"
+"config_stepper oid=0 step_pin=gpio25 dir_pin=gpio3 invert_step=0\n"
+"config_stepper oid=1 step_pin=gpio26 dir_pin=gpio4 invert_step=0\n"
+"config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=0\n"
+"config_stepper oid=3 step_pin=gpio28 dir_pin=gpio6 invert_step=0\n"
+"finalize_config crc=0\n"
+msgstr ""
+
+msgid ""
+"The test was last run on commit `c5667193` with gcc version `arm-"
+"none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a Raspberry Pi Pico "
+"board."
+msgstr ""
+
+msgid "rp2040"
+msgstr ""
+
+msgid "66"
+msgstr ""
+
+msgid "5"
+msgstr ""
+
+msgid "22"
+msgstr ""
+
+msgid "rp2040 (USB)"
+msgstr ""
+
+msgid "873K"
+msgstr ""
+
+msgid "c5667193"
+msgstr ""
+
+msgid "arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0"
 msgstr ""
