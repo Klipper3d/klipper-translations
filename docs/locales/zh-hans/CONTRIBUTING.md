@@ -1,13 +1,12 @@
-# Contributing to Klipper
+# 为 Klipper 做贡献
 
-Thank you for contributing to Klipper! Please take a moment to read this
-document.
+感谢你对 Klipper 的贡献！请花一点时间阅读本文档。
 
-## Creating a new issue
+## 创建一个新的议题
 
 Please see the [contact page](Contact.md) for information on creating an issue.
 
-## Submitting a pull request
+## 提交拉取请求（PR）
 
 Contributions of Code and documentation are managed through github pull
 requests. Each commit should have a commit message formatted similar to the
@@ -29,6 +28,6 @@ Signed-off-by: My Name <myemail@example.org>
 ```
 
 It is important to have a "Signed-off-by" line on each commit - it certifies
-that you agree to the [developer certificate of origin](developer-certificate-
-of-origin). It must contain your real name (sorry, no pseudonyms or anonymous
-contributions) and contain a current email address.
+that you agree to the [developer certificate of
+origin](developer-certificate-of-origin). It must contain your real name (sorry,
+no pseudonyms or anonymous contributions) and contain a current email address.

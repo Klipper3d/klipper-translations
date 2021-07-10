@@ -1,7 +1,8 @@
 These instructions assume the software will run on a Raspberry Pi computer in
 conjunction with OctoPrint. It is recommended that a Raspberry Pi 2, 3, or 4
-computer be used as the host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-
-something-other-than-a-raspberry-pi-3) for other machines).
+computer be used as the host machine (see the
+[FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) for
+other machines).
 
 Klipper currently supports a number of Atmel ATmega based micro-controllers,
 [ARM based micro-controllers](Features.md#step-benchmarks), and [Beaglebone
@@ -90,26 +91,23 @@ host software. Using a web browser, login to the OctoPrint web page and then
 configure the following items:
 
 Navigate to the Settings tab (the wrench icon at the top of the page). Under
-"Serial Connection" in "Additional serial ports" add "/tmp/printer". Then
-click "Save".
+"Serial Connection" in "Additional serial ports" add "/tmp/printer". Then click
+"Save".
 
 Enter the Settings tab again and under "Serial Connection" change the "Serial
 Port" setting to "/tmp/printer".
 
-In the Settings tab, navigate to the "Behavior" sub-tab and select the
-"Cancel any ongoing prints but stay connected to the printer" option. Click
-"Save".
+In the Settings tab, navigate to the "Behavior" sub-tab and select the "Cancel
+any ongoing prints but stay connected to the printer" option. Click "Save".
 
-From the main page, under the "Connection" section (at the top left of the
-page) make sure the "Serial Port" is set to "/tmp/printer" and click
-"Connect". (If "/tmp/printer" is not an available selection then try
-reloading the page.)
+From the main page, under the "Connection" section (at the top left of the page)
+make sure the "Serial Port" is set to "/tmp/printer" and click "Connect". (If
+"/tmp/printer" is not an available selection then try reloading the page.)
 
-Once connected, navigate to the "Terminal" tab and type "status" (without
-the quotes) into the command entry box and click "Send". The terminal window
-will likely report there is an error opening the config file - that means
-OctoPrint is successfully communicating with Klipper. Proceed to the next
-section.
+Once connected, navigate to the "Terminal" tab and type "status" (without the
+quotes) into the command entry box and click "Send". The terminal window will
+likely report there is an error opening the config file - that means OctoPrint
+is successfully communicating with Klipper. Proceed to the next section.
 
 # Configuring Klipper
 
@@ -136,8 +134,8 @@ nano ~/printer.cfg
 Make sure to review and update each setting that is appropriate for the
 hardware.
 
-It's common for each printer to have its own unique name for the micro-
-controller. The name may change after flashing Klipper, so rerun the
+It's common for each printer to have its own unique name for the
+micro-controller. The name may change after flashing Klipper, so rerun the
 `ls /dev/serial/by-id/*` command and then update the config file with the unique
 name. For example, update the `[mcu]` section to look something similar to:
 
@@ -159,8 +157,8 @@ script also places a log in **/tmp/klippy.log** which provides more detailed
 information.
 
 In addition to common g-code commands, Klipper supports a few extended commands
-- "status" and "restart" are examples of these commands. Use the "help"
-command to get a list of other extended commands.
+- "status" and "restart" are examples of these commands. Use the "help" command
+to get a list of other extended commands.
 
 After Klipper reports that the printer is ready go on to the [config check
 document](Config_checks.md) to perform some basic checks on the pin definitions

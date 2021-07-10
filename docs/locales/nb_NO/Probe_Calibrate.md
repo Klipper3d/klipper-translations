@@ -1,15 +1,15 @@
-This document describes the method for calibrating the x, y, and z offsets of an
-"automatic z probe" in Klipper. This is useful for users that have a
-`[probe]` or `[bltouch]` section in their config file.
+Dette dokumentet beskriver metoden for kalibrering av x, y, og z-forskyvning av
+en «automatisk probe» i Klipper. Dette er nyttig for brukere som har en
+«[probe]» eller «[bltouch]»-del i oppsettsfilen sin.
 
 # Kalibrering av probeforskyvning for X og Y
 
-To calibrate the X and Y offset, navigate to the OctoPrint "Control" tab, home
-the printer, and then use the OctoPrint jogging buttons to move the head to a
-position near the center of the bed.
+For å kalibrer X- og Y-forsyvning, kan du gå til «Kontroll»-fanen i OctoPrint,
+nullstille skriveren, og så bruke OctoPrint-hjulene til å flytte hode til en
+posisjon nær midten av bunnplaten.
 
-Place a piece of blue painters tape (or similar) on the bed underneath the
-probe. Navigate to the OctoPrint "Terminal" tab and issue a PROBE command:
+Plasser en bit blå maskeringstape (eller lignende) på bunnplaten under proben.
+Gå til «Terminal»-fanen i OctoPrint og utfør en «PROBE»-kommando:
 
 ```
 PROBE
@@ -62,10 +62,10 @@ flytter til en posisjon over det automatiske probepunktet, vil «ABORT» avslutt
 det manuelle probeverktøyet og utføre kalibrering av XY-probeforskyvning
 beskrevet ovenfor.
 
-Once the manual probe tool starts, follow the steps described at ["the paper
-test"](Bed_Level.md#the-paper-test)) to determine the actual distance between
-the nozzle and bed at the given location. Once those steps are complete one can
-`ACCEPT` the position and save the results to the config file with:
+Når det manuelle probeverktøyet starter, følger du stegene beskrevet i
+[«papirtesten»](Bed_Level.md#the-paper-test) for å bestemme faktisk avstand
+mellom tut og bunnplate på gitt posisjon. Når disse stegene er fullført, kan man
+utføre «ACCEPT» for posisjonen, og lagre resultatet i en oppsettsfil med:
 
 ```
 SAVE_CONFIG
@@ -111,14 +111,14 @@ Recv: // probe at -0.003,0.005 is z=2.506948
 Recv: // probe accuracy results: maximum 2.519448, minimum 2.506948, range 0.012500, average 2.513198, median 2.513198, standard deviation 0.006250
 ```
 
-Ideally the tool will report an identical maximum and minimum value. (That is,
-ideally the probe obtains an identical result on all ten probes.) However, it's
-normal for the minimum and maximum values to differ by one Z "step distance"
-or up to 5 microns (.005mm). A "step distance" is
-`rotation_distance/(full_steps_per_rotation*microsteps)`. The distance between
-the minimum and the maximum value is called the range. So, in the above example,
-since the printer uses a Z step distance of .0125, a range of 0.012500 would be
-considered normal.
+Ideelt vil verktøyet rapportere identisk maksimums- og minimumsverdi. (Altså at
+proben gir identiske resultater ved alle ti prober.) Dog er det normalt for
+minimums- og maksimumsverdier å variere med én Z-«stegavstand», eller opptil 5
+mikrometer (0,005 mm). En «stegavstand» er
+`rotation_distance/(full_steps_per_rotation*microsteps)`. Avstanden mellom
+minimums- og maksimumsverdi kalles spennvidden. Så, i eksempelet ovenfor, siden
+skriveren bruker en Z-avstand på 0,125, vil en spennvidde på 0,012500 være å
+anslå som normalt.
 
 Hvis resultatet av testen viser en spennviddeverdi høyere en 25 mikrometer
 «0,025 mm) vil proben ikke ha nok nøyaktighet for typiske
@@ -134,11 +134,11 @@ for flere detaljer.
 
 Hvis probehastighet, samplingsantall, eller andre innstillinger trengs, kan du
 oppdatere skriverens printer.cfg-fil og kjøre «RESTART»-kommandoen. Hvis dette
-gjøres er det en god idé å også [kalibrere z_offset](#calibrating-probe-z-
-offset) igjen. Hvis reproduserbare resultater ikke kan demonstreres, så bruker
-du ikke proben for bunnplatenivelering. Klipper har flere manuelle probeverktøy
-som kan brukes istedenfor. Sjekk «[Bunnplatenivådokumentet](Bed_Level.md)» for
-flere detaljer.
+gjøres er det en god idé å også [kalibrere
+z_offset](#calibrating-probe-z-offset) igjen. Hvis reproduserbare resultater
+ikke kan demonstreres, så bruker du ikke proben for bunnplatenivelering. Klipper
+har flere manuelle probeverktøy som kan brukes istedenfor. Sjekk
+«[Bunnplatenivådokumentet](Bed_Level.md)» for flere detaljer.
 
 # Posisjonsbiassjekk
 
@@ -164,8 +164,8 @@ angitt i begynnelsen av dette dokumentet. Deretter nullstiller du skriveren og
 navigerer til første XY-posisjon. Følg stegene i [kalibrering av
 probeforskyvning for Z](#calibrating-probe-z-offset) og kjør
 «PROBE_CALIBRATE»-kommandoen, «TESTZ»-kommandoene, og «ACCEPT»-kommandoen, uten
-å kjøre «SAVE_CONFIG». Registrer rapportert z_offset. Gå så til de andre XY-
-posisjonene, gjenta disse «PROBE_CALIBRATE»-stegene, og registrer rapportert
+å kjøre «SAVE_CONFIG». Registrer rapportert z_offset. Gå så til de andre
+XY-posisjonene, gjenta disse «PROBE_CALIBRATE»-stegene, og registrer rapportert
 z_offset.
 
 Hvis forskjellen mellom minste rapporterte z_offset og største rapporterte

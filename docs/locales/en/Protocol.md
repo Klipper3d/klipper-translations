@@ -44,22 +44,21 @@ macro in the C code. For example:
 DECL_COMMAND(command_update_digital_out, "update_digital_out oid=%c value=%c");
 ```
 
-The above declares a command named "update_digital_out". This allows the host
-to "invoke" this command which would cause the command_update_digital_out() C
+The above declares a command named "update_digital_out". This allows the host to
+"invoke" this command which would cause the command_update_digital_out() C
 function to be executed in the micro-controller. The above also indicates that
 the command takes two integer parameters. When the command_update_digital_out()
 C code is executed, it will be passed an array containing these two integers -
 the first corresponding to the 'oid' and the second corresponding to the
 'value'.
 
-In general, the parameters are described with printf() style syntax (eg,
-"%u"). The formatting directly corresponds to the human-readable view of
-commands (eg, "update_digital_out oid=7 value=1"). In the above example,
-"value=" is a parameter name and "%c" indicates the parameter is an integer.
-Internally, the parameter name is only used as documentation. In this example,
-the "%c" is also used as documentation to indicate the expected integer is 1
-byte in size (the declared integer size does not impact the parsing or
-encoding).
+In general, the parameters are described with printf() style syntax (eg, "%u").
+The formatting directly corresponds to the human-readable view of commands (eg,
+"update_digital_out oid=7 value=1"). In the above example, "value=" is a
+parameter name and "%c" indicates the parameter is an integer. Internally, the
+parameter name is only used as documentation. In this example, the "%c" is also
+used as documentation to indicate the expected integer is 1 byte in size (the
+declared integer size does not impact the parsing or encoding).
 
 The micro-controller build will collect all commands declared with
 DECL_COMMAND(), determine their parameters, and arrange for them to be callable.
@@ -213,15 +212,16 @@ response in the message block contents.
 
 ### Variable Length Quantities
 
-See the [wikipedia article](https://en.wikipedia.org/wiki/Variable-
-length_quantity) for more information on the general format of VLQ encoded
-integers. Klipper uses an encoding scheme that supports both positive and
-negative integers. Integers close to zero use less bytes to encode and positive
-integers typically encode using less bytes than negative integers. The following
-table shows the number of bytes each integer takes to encode:
+See the [wikipedia
+article](https://en.wikipedia.org/wiki/Variable-length_quantity) for more
+information on the general format of VLQ encoded integers. Klipper uses an
+encoding scheme that supports both positive and negative integers. Integers
+close to zero use less bytes to encode and positive integers typically encode
+using less bytes than negative integers. The following table shows the number of
+bytes each integer takes to encode:
 
 | Integer | Encoded size |
-| ------- | ------------ |
+| --- | --- |
 | -32 .. 95 | 1 |
 | -4096 .. 12287 | 2 |
 | -524288 .. 1572863 | 3 |
@@ -302,10 +302,10 @@ corresponding "ack". In addition, if the micro-controller detects a corrupt or
 out-of-order block it may transmit a "nak message block" to facilitate fast
 retransmission.
 
-An "ack" is a message block with empty content (ie, a 5 byte message block)
-and a sequence number greater than the last received host sequence number. A
-"nak" is a message block with empty content and a sequence number less than
-the last received host sequence number.
+An "ack" is a message block with empty content (ie, a 5 byte message block) and
+a sequence number greater than the last received host sequence number. A "nak"
+is a message block with empty content and a sequence number less than the last
+received host sequence number.
 
 The protocol facilitates a "window" transmission system so that the host can
 have many outstanding message blocks in-flight at a time. (This is in addition

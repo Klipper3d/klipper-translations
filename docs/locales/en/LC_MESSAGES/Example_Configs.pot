@@ -18,11 +18,6 @@ msgid "Guidelines"
 msgstr ""
 
 msgid ""
-"Select the appropriate config filename prefix.The `printer` prefix is"
-" used for stock printers sold by a mainstream manufacturer."
-msgstr ""
-
-msgid ""
 "The `generic` prefix is used for a 3d printer board that may be used "
 "in many different types of printers."
 msgstr ""
@@ -168,3 +163,18 @@ msgid ""
 "request\". Please also follow the directions in the [contributing "
 "document](CONTRIBUTING.md)."
 msgstr ""
+
+#: docs/Example_Configs.md:block 4 (ordered list)
+msgid "Select the appropriate config filename prefix."
+msgstr ""
+
+#: docs/Example_Configs.md:block 4 (ordered list)
+msgid ""
+"The `printer` prefix is used for stock printers sold by a mainstream "
+"manufacturer."
+msgstr ""
+
+#~ msgid ""
+#~ "Select the appropriate config filename prefix.The `printer` prefix is"
+#~ " used for stock printers sold by a mainstream manufacturer."
+#~ msgstr ""

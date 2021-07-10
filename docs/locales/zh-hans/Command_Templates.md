@@ -46,13 +46,13 @@ function.
 ### Save/Restore state for G-Code moves
 
 Unfortunately, the G-Code command language can be challenging to use. The
-standard mechanism to move the toolhead is via the `G1` command (the `G0` command
-is an alias for `G1` and it can be used interchangeably with it). However, this
-command relies on the "G-Code parsing state" setup by `M82`, `M83`, `G90`,
-`G91`, `G92`, and previous `G1` commands. When creating a G-Code macro it is a
-good idea to always explicitly set the G-Code parsing state prior to issuing a
-`G1` command. (Otherwise, there is a risk the `G1` command will make an
-undesirable request.)
+standard mechanism to move the toolhead is via the `G1` command (the `G0`
+command is an alias for `G1` and it can be used interchangeably with it).
+However, this command relies on the "G-Code parsing state" setup by `M82`,
+`M83`, `G90`, `G91`, `G92`, and previous `G1` commands. When creating a G-Code
+macro it is a good idea to always explicitly set the G-Code parsing state prior
+to issuing a `G1` command. (Otherwise, there is a risk the `G1` command will
+make an undesirable request.)
 
 A common way to accomplish that is to wrap the `G1` moves in `SAVE_GCODE_STATE`,
 `G91`, and `RESTORE_GCODE_STATE`. For example:
@@ -66,16 +66,16 @@ gcode:
   RESTORE_GCODE_STATE NAME=my_move_up_state
 ```
 
-The `G91` command places the G-Code parsing state into "relative move mode"
-and the `RESTORE_GCODE_STATE` command restores the state to what it was prior to
+The `G91` command places the G-Code parsing state into "relative move mode" and
+the `RESTORE_GCODE_STATE` command restores the state to what it was prior to
 entering the macro. Be sure to specify an explicit speed (via the `F` parameter)
 on the first `G1` command.
 
 ### Template expansion
 
 The gcode_macro `gcode:` config section is evaluated using the Jinja2 template
-language. One can evaluate expressions at run-time by wrapping them in `{ }` characters
-or use conditional statements wrapped in `{% %}`. See the [Jinja2
+language. One can evaluate expressions at run-time by wrapping them in `{ }`
+characters or use conditional statements wrapped in `{% %}`. See the [Jinja2
 documentation](http://jinja.pocoo.org/docs/2.10/templates/) for further
 information on the syntax.
 
@@ -172,19 +172,18 @@ commands are executed.
 
 Available "action" commands:
 
-- `action_respond_info(msg)`: Write the given `msg` to the /tmp/printer pseudo-
-terminal. Each line of `msg` will be sent with a "// " prefix.
-- `action_raise_error(msg)`: Abort the current macro (and any calling macros) and
-write the given `msg` to the /tmp/printer pseudo-terminal. The first line of
-`msg` will be sent with a "!! " prefix and subsequent lines will have a "//
-" prefix.
+- `action_respond_info(msg)`: Write the given `msg` to the /tmp/printer
+pseudo-terminal. Each line of `msg` will be sent with a "// " prefix.
+- `action_raise_error(msg)`: Abort the current macro (and any calling macros)
+and write the given `msg` to the /tmp/printer pseudo-terminal. The first line of
+`msg` will be sent with a "!! " prefix and subsequent lines will have a "// "
+prefix.
 - `action_emergency_stop(msg)`: Transition the printer to a shutdown state. The
 `msg` parameter is optional, it may be useful to describe the reason for the
 shutdown.
-- `action_call_remote_method(method_name)`: Calls a method registered by a remote
-client. If the method takes parameters they should be provided via keyword
-arguments, ie: `action_call_remote_method("print_stuff",
-my_arg="hello_world")`
+- `action_call_remote_method(method_name)`: Calls a method registered by a
+remote client. If the method takes parameters they should be provided via
+keyword arguments, ie: `action_call_remote_method("print_stuff", my_arg="hello_world")`
 
 ### Variables
 
@@ -238,9 +237,9 @@ Complete!" message after the extrusion is finished. The last line of gcode
 enables the "clear_display" delayed_gcode, set to execute in 10 seconds.
 
 The `initial_duration` config option can be set to execute the delayed_gcode on
-printer startup. The countdown begins when the printer enters the "ready"
-state. For example, the below delayed_gcode will execute 5 seconds after the
-printer is ready, initializing the display with a "Welcome!" message:
+printer startup. The countdown begins when the printer enters the "ready" state.
+For example, the below delayed_gcode will execute 5 seconds after the printer is
+ready, initializing the display with a "Welcome!" message:
 
 ```
 [delayed_gcode welcome]
@@ -284,16 +283,14 @@ The following actions are available in menu templates:
 
 * `menu.back(force, update)`: will execute menu back command, optional boolean
 parameters `<force>` and `<update>`.
-  * When `<force>` is set True then it will also stop editing. Default value is
+   * When `<force>` is set True then it will also stop editing. Default value is
 False.
-  * When `<update>` is set False then parent container items are not updated.
+   * When `<update>` is set False then parent container items are not updated.
 Default value is True.
-
-* `menu.exit(force)` - will execute menu exit command, optional boolean parameter
-`<force>` default value False.
-  * When `<force>` is set True then it will also stop editing. Default value is
+* `menu.exit(force)` - will execute menu exit command, optional boolean
+parameter `<force>` default value False.
+   * When `<force>` is set True then it will also stop editing. Default value is
 False.
-
 
 ### Save Variables to disk
 

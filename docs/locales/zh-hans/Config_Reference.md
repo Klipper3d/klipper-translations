@@ -13,9 +13,7 @@
 
 在引脚名称前面加 `^` ，以指示该引脚启用硬件上拉电阻。如果微控制器支持下拉电阻器，那么输入引脚也可以在前面加上`~`。
 
-Note, some config sections may "create" additional pins. Where this occurs,
-the config section defining the pins must be listed in the config file before
-any sections using those pins.
+注意，某些配置部分可能会“创建”额外的引脚。 如果发生这种情况，定义引脚的配置部分必须在使用这些引脚的任何部分之前列在配置文件中。
 
 ## [MCU]
 
@@ -52,12 +50,10 @@ serial:
 
 ## 额外的mcu [mcu my_extra_mcu]
 
-Additional micro-controllers (one may define any number of sections with an
-"mcu" prefix). Additional micro-controllers introduce additional pins that may
-be configured as heaters, steppers, fans, etc.. For example, if an "[mcu
-extra_mcu]" section is introduced, then pins such as "extra_mcu:ar9" may then
-be used elsewhere in the config (where "ar9" is a hardware pin name or alias
-name on the given mcu).
+额外的微控制器（可以定义任意数量的带有“mcu”前缀的部分）。
+额外的微控制器引入了额外的引脚，这些引脚可以配置为加热器、步进器、风扇等。例如，如果引入了“[mcu
+extra_mcu]”部分，那么诸如“extra_mcu:ar9”之类的引脚就可以在其他地方使用 ，在配置中（其中“ar9”是给定 mcu
+上的硬件引脚名称或别名）。
 
 ```
 [mcu my_extra_mcu]
@@ -103,10 +99,8 @@ max_accel:
 
 ## [步进]
 
-Stepper motor definitions. Different printer types (as specified by the
-"kinematics" option in the [printer] config section) require different names
-for the stepper (eg, `stepper_x` vs `stepper_a`). Below are common stepper
-definitions.
+步进电机定义。 不同的打印机类型（由 [打印] 配置部分中的“运动学”选项指定）步进器需要定义不同的名称（例如，`stepper_x` 与
+`stepper_a`）。 以下是常见的步进器定义。
 
 有关计算`rotation_distance`参数的信息，请参阅[旋转距离文档](Rotation_Distance.md) 。
 
@@ -744,8 +738,8 @@ transformations that offset the z axis based on a mesh generated from probed
 points. When using a probe to home the z-axis, it is recommended to define a
 safe_z_home section in printer.cfg to home toward the center of the print area.
 
-See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#mesh-
-bed-leveling) for additional information.
+See the [bed mesh guide](Bed_Mesh.md) and [command
+reference](G-Codes.md#mesh-bed-leveling) for additional information.
 
 Visual Examples:
 
@@ -939,9 +933,10 @@ Tool to help adjust bed screws tilt using Z probe. One may define a
 screws_tilt_adjust config section to enable a SCREWS_TILT_CALCULATE g-code
 command.
 
-See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-
-the-bed-probe) and [command reference](G-Codes.md#bed-screws-tilt-adjust-helper)
-for additional information.
+See the [leveling
+guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) and
+[command reference](G-Codes.md#bed-screws-tilt-adjust-helper) for additional
+information.
 
 ```
 [screws_tilt_adjust]
@@ -1143,10 +1138,10 @@ gcode:
 ## [endstop_phase]
 
 Stepper phase adjusted endstops. To use this feature, define a config section
-with an "endstop_phase" prefix followed by the name of the corresponding
-stepper config section (for example, "[endstop_phase stepper_z]"). This
-feature can improve the accuracy of endstop switches. Add a bare
-"[endstop_phase]" declaration to enable the ENDSTOP_PHASE_CALIBRATE command.
+with an "endstop_phase" prefix followed by the name of the corresponding stepper
+config section (for example, "[endstop_phase stepper_z]"). This feature can
+improve the accuracy of endstop switches. Add a bare "[endstop_phase]"
+declaration to enable the ENDSTOP_PHASE_CALIBRATE command.
 
 See the [endstop phases guide](Endstop_Phase.md) and [command
 reference](G-Codes.md#endstop-adjustments-by-stepper-phase) for additional
@@ -1359,8 +1354,8 @@ Support for gcode arc (G2/G3) commands.
 
 ## [respond]
 
-Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#send-message-
-respond-to-host).
+Enable the "M118" and "RESPOND" extended
+[commands](G-Codes.md#send-message-respond-to-host).
 
 ```
 [respond]
@@ -1419,9 +1414,10 @@ Enables [resonance compensation](Resonance_Compensation.md). Also see the
 
 Support for ADXL345 accelerometers. This support allows one to query
 accelerometer measurements from the sensor. This enables an
-ACCELEROMETER_MEASURE command (see [G-Codes](G-Codes.md#adxl345-accelerometer-
-commands) for more information). The default chip name is "default", but one
-may specify an explicit name (eg, [adxl345 my_chip_name]).
+ACCELEROMETER_MEASURE command (see
+[G-Codes](G-Codes.md#adxl345-accelerometer-commands) for more information). The
+default chip name is "default", but one may specify an explicit name (eg,
+[adxl345 my_chip_name]).
 
 ```
 [adxl345]
@@ -1630,8 +1626,8 @@ z_offset:
 BLTouch probe. One may define this section (instead of a probe section) to
 enable a BLTouch probe. See [BL-Touch guide](BLTouch.md) and [command
 reference](G-Codes.md#bltouch) for further information. A virtual
-"probe:z_virtual_endstop" pin is also created (see the "probe" section for
-the details).
+"probe:z_virtual_endstop" pin is also created (see the "probe" section for the
+details).
 
 ```
 [bltouch]
@@ -1711,8 +1707,8 @@ sections with a numeric suffix starting at 1 (for example, "stepper_z1",
 
 In a multi-extruder printer add an additional extruder section for each
 additional extruder. The additional extruder sections should be named
-"extruder1", "extruder2", "extruder3", and so on. See the "extruder"
-section for a description of available parameters.
+"extruder1", "extruder2", "extruder3", and so on. See the "extruder" section for
+a description of available parameters.
 
 See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an
 example configuration.
@@ -1878,9 +1874,9 @@ Tool to disable heaters when homing or probing an axis.
 Custom thermistors (one may define any number of sections with a "thermistor"
 prefix). A custom thermistor may be used in the sensor_type field of a heater
 config section. (For example, if one defines a "[thermistor my_thermistor]"
-section then one may use a "sensor_type: my_thermistor" when defining a
-heater.) Be sure to place the thermistor section in the config file above its
-first use in a heater section.
+section then one may use a "sensor_type: my_thermistor" when defining a heater.)
+Be sure to place the thermistor section in the config file above its first use
+in a heater section.
 
 ```
 [thermistor my_thermistor]
@@ -1904,14 +1900,14 @@ first use in a heater section.
 ## [adc_temperature]
 
 Custom ADC temperature sensors (one may define any number of sections with an
-"adc_temperature" prefix). This allows one to define a custom temperature
-sensor that measures a voltage on an Analog to Digital Converter (ADC) pin and
-uses linear interpolation between a set of configured temperature/voltage (or
+"adc_temperature" prefix). This allows one to define a custom temperature sensor
+that measures a voltage on an Analog to Digital Converter (ADC) pin and uses
+linear interpolation between a set of configured temperature/voltage (or
 temperature/resistance) measurements to determine the temperature. The resulting
 sensor can be used as a sensor_type in a heater section. (For example, if one
-defines a "[adc_temperature my_sensor]" section then one may use a
-"sensor_type: my_sensor" when defining a heater.) Be sure to place the sensor
-section in the config file above its first use in a heater section.
+defines a "[adc_temperature my_sensor]" section then one may use a "sensor_type:
+my_sensor" when defining a heater.) Be sure to place the sensor section in the
+config file above its first use in a heater section.
 
 ```
 [adc_temperature my_sensor]
@@ -2087,9 +2083,9 @@ sensor_pin:
 BMP280/BME280/BME680 two wire interface (I2C) environmental sensors. Note that
 thoose sensors aee not intended for use with extruders and heater beds, but
 rather for monitoring ambient temperature (C), pressure (hPa), relative humidity
-and in case of the BME680 gas level. See [sample-macros.cfg](../config/sample-
-macros.cfg) for a gcode_macro that may be used to report pressure and humidity
-in addition to temperature.
+and in case of the BME680 gas level. See
+[sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be
+used to report pressure and humidity in addition to temperature.
 
 ```
 sensor_type: BME280
@@ -2107,9 +2103,9 @@ sensor_type: BME280
 
 HTU21D family two wire interface (I2C) environmental sensor. Note that this
 sensor is not intended for use with extruders and heater beds, but rather for
-monitoring ambient temperature (C) and relative humidity. See [sample-
-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to
-report humidity in addition to temperature.
+monitoring ambient temperature (C) and relative humidity. See
+[sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be
+used to report humidity in addition to temperature.
 
 ```
 sensor_type:
@@ -2162,8 +2158,7 @@ sensor_type: lm75
 ## Builtin micro-controller temperature sensor
 
 The atsam, atsamd, and stm32 micro-controllers contain an internal temperature
-sensor. One can use the "temperature_mcu" sensor to monitor these
-temperatures.
+sensor. One can use the "temperature_mcu" sensor to monitor these temperatures.
 
 ```
 sensor_type: temperature_mcu
@@ -2443,9 +2438,10 @@ SET_FAN_SPEED [gcode command](G-Codes.md#manually-controlled-fans-commands).
 
 ## [servo]
 
-Servos (one may define any number of sections with a "servo" prefix). The
-servos may be controlled using the SET_SERVO [g-code command](G-Codes.md#servo-
-commands). For example: SET_SERVO SERVO=my_servo ANGLE=180
+Servos (one may define any number of sections with a "servo" prefix). The servos
+may be controlled using the SET_SERVO [g-code
+command](G-Codes.md#servo-commands). For example: SET_SERVO SERVO=my_servo
+ANGLE=180
 
 ```
 [servo my_servo]
@@ -2502,8 +2498,8 @@ pin:
 ## [dotstar]
 
 Dotstar (aka APA102) LED support (one may define any number of sections with a
-"dotstar" prefix). One may set the LED color via "SET_LED LED=my_dotstar
-RED=0.1 GREEN=0.1 BLUE=0.1" type extended [g-code
+"dotstar" prefix). One may set the LED color via "SET_LED LED=my_dotstar RED=0.1
+GREEN=0.1 BLUE=0.1" type extended [g-code
 commands](G-Codes.md#neopixel-and-dotstar-commands).
 
 ```
@@ -2575,9 +2571,9 @@ pin:
 ## [output_pin]
 
 Run-time configurable output pins (one may define any number of sections with an
-"output_pin" prefix). Pins configured here will be setup as output pins and
-one may modify them at run-time using "SET_PIN PIN=my_pin VALUE=.1" type
-extended [g-code commands](G-Codes.md#custom-pin-commands).
+"output_pin" prefix). Pins configured here will be setup as output pins and one
+may modify them at run-time using "SET_PIN PIN=my_pin VALUE=.1" type extended
+[g-code commands](G-Codes.md#custom-pin-commands).
 
 ```
 [output_pin my_pin]
@@ -2631,8 +2627,8 @@ pin:
 ## [static_digital_output]
 
 Statically configured digital output pins (one may define any number of sections
-with a "static_digital_output" prefix). Pins configured here will be setup as
-a GPIO output during MCU configuration. They can not be changed at run-time.
+with a "static_digital_output" prefix). Pins configured here will be setup as a
+GPIO output during MCU configuration. They can not be changed at run-time.
 
 ```
 [static_digital_output my_output_pins]
@@ -2648,9 +2644,8 @@ Multiple pin outputs (one may define any number of sections with a "multi_pin"
 prefix). A multi_pin output creates an internal pin alias that can modify
 multiple output pins each time the alias pin is set. For example, one could
 define a "[multi_pin my_fan]" object containing two pins and then set
-"pin=multi_pin:my_fan" in the "[fan]" section - on each fan change both
-output pins would be updated. These aliases may not be used with stepper motor
-pins.
+"pin=multi_pin:my_fan" in the "[fan]" section - on each fan change both output
+pins would be updated. These aliases may not be used with stepper motor pins.
 
 ```
 [multi_pin my_multi_pin]
@@ -2796,9 +2791,8 @@ run_current:
 ## [tmc2209]
 
 Configure a TMC2209 stepper motor driver via single wire UART. To use this
-feature, define a config section with a "tmc2209" prefix followed by the name
-of the corresponding stepper config section (for example, "[tmc2209
-stepper_x]").
+feature, define a config section with a "tmc2209" prefix followed by the name of
+the corresponding stepper config section (for example, "[tmc2209 stepper_x]").
 
 ```
 [tmc2209 stepper_x]
@@ -3115,8 +3109,8 @@ Statically configured MCP4728 digital-to-analog converter connected via I2C bus
 
 ## [mcp4018]
 
-Statically configured MCP4018 digipot connected via two gpio "bit banging"
-pins (one may define any number of sections with an "mcp4018" prefix).
+Statically configured MCP4018 digipot connected via two gpio "bit banging" pins
+(one may define any number of sections with an "mcp4018" prefix).
 
 ```
 [mcp4018 my_digipot]
@@ -3469,8 +3463,8 @@ See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples.
 
 If a primary [display] section has been defined in printer.cfg as shown above it
 is possible to define multiple auxiliary displays. Note that auxiliary displays
-do not currently support menu functionality, thus they do not support the
-"menu" options or button configuration.
+do not currently support menu functionality, thus they do not support the "menu"
+options or button configuration.
 
 ```
 [display my_extra_display]
@@ -3702,9 +3696,9 @@ Configure an SX1509 I2C to GPIO expander. Due to the delay incurred by I2C
 communication you should NOT use SX1509 pins as stepper enable, step or dir pins
 or any other pin that requires fast bit-banging. They are best used as static or
 gcode controlled digital outputs or hardware-pwm pins for e.g. fans. One may
-define any number of sections with an "sx1509" prefix. Each expander provides
-a set of 16 pins (sx1509_my_sx1509:PIN_0 to sx1509_my_sx1509:PIN_15) which can
-be used in the printer configuration.
+define any number of sections with an "sx1509" prefix. Each expander provides a
+set of 16 pins (sx1509_my_sx1509:PIN_0 to sx1509_my_sx1509:PIN_15) which can be
+used in the printer configuration.
 
 See the [generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg) file for an
 example.
@@ -3729,8 +3723,8 @@ i2c_address:
 ## [samd_sercom]
 
 SAMD SERCOM configuration to specify which pins to use on a given SERCOM. One
-may define any number of sections with a "samd_sercom" prefix. Each SERCOM
-must be configured prior to using it as SPI or I2C peripheral. Place this config
+may define any number of sections with a "samd_sercom" prefix. Each SERCOM must
+be configured prior to using it as SPI or I2C peripheral. Place this config
 section above any other section that makes use of SPI or I2C buses.
 
 ```
@@ -3757,10 +3751,9 @@ clk_pin:
 ## [adc_scaled]
 
 Duet2 Maestro analog scaling by vref and vssa readings. Defining an adc_scaled
-section enables virtual adc pins (such as "my_name:PB0") that are
-automatically adjusted by the board's vref and vssa monitoring pins. Be sure to
-define this config section above any config sections that use one these virtual
-pins.
+section enables virtual adc pins (such as "my_name:PB0") that are automatically
+adjusted by the board's vref and vssa monitoring pins. Be sure to define this
+config section above any config sections that use one these virtual pins.
 
 See the [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) file
 for an example.
@@ -3781,8 +3774,8 @@ vssa_pin:
 
 ## [replicape]
 
-Replicape support - see the [beaglebone guide](beaglebone.md) and the [generic-
-replicape.cfg](../config/generic-replicape.cfg) file for an example.
+Replicape support - see the [beaglebone guide](beaglebone.md) and the
+[generic-replicape.cfg](../config/generic-replicape.cfg) file for an example.
 
 ```
 # The "replicape" config section adds "replicape:stepper_x_enable"

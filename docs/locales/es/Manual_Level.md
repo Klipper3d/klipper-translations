@@ -19,10 +19,10 @@ then navigate to the OctoPrint terminal tab and run:
 Z_ENDSTOP_CALIBRATE
 ```
 
-Then follow the steps described at ["the paper test"](Bed_Level.md#the-paper-
-test) to determine the actual distance between the nozzle and bed at the given
-location. Once those steps are complete one can `ACCEPT` the position and save
-the results to the config file with:
+Then follow the steps described at ["the paper
+test"](Bed_Level.md#the-paper-test) to determine the actual distance between the
+nozzle and bed at the given location. Once those steps are complete one can
+`ACCEPT` the position and save the results to the config file with:
 
 ```
 SAVE_CONFIG
@@ -76,11 +76,11 @@ BED_SCREWS_ADJUST
 ```
 
 This tool will move the printer's nozzle to each screw XY location and then move
-the nozzle to a Z=0 height. At this point one can use the "paper test" to
-adjust the bed screw directly under the nozzle. See the information described in
-["the paper test"](Bed_Level.md#the-paper-test), but adjust the bed screw
-instead of commanding the nozzle to different heights. Adjust the bed screw
-until there is a small amount of friction when pushing the paper back and forth.
+the nozzle to a Z=0 height. At this point one can use the "paper test" to adjust
+the bed screw directly under the nozzle. See the information described in ["the
+paper test"](Bed_Level.md#the-paper-test), but adjust the bed screw instead of
+commanding the nozzle to different heights. Adjust the bed screw until there is
+a small amount of friction when pushing the paper back and forth.
 
 Once the screw is adjusted so that a small amount of friction is felt, run
 either the `ACCEPT` or `ADJUSTED` command. Use the `ADJUSTED` command if the bed
@@ -89,8 +89,8 @@ of the screw). Use the `ACCEPT` command if no significant adjustment is
 necessary. Both commands will cause the tool to proceed to the next screw. (When
 an `ADJUSTED` command is used, the tool will schedule an additional cycle of bed
 screw adjustments; the tool completes successfully when all bed screws are
-verified to not require any significant adjustments.) One can use the `ABORT` command
-to exit the tool early.
+verified to not require any significant adjustments.) One can use the `ABORT`
+command to exit the tool early.
 
 This system works best when the printer has a flat printing surface (such as
 glass) and has straight rails. Upon successful completion of the bed leveling
@@ -99,9 +99,9 @@ tool the bed should be ready for printing.
 ## Fine grained bed screw adjustments
 
 If the printer uses three bed screws and all three screws are under the bed,
-then it may be possible to perform a second "high precision" bed leveling
-step. This is done by commanding the nozzle to locations where the bed moves a
-larger distance with each bed screw adjustment.
+then it may be possible to perform a second "high precision" bed leveling step.
+This is done by commanding the nozzle to locations where the bed moves a larger
+distance with each bed screw adjustment.
 
 For example, consider a bed with screws at locations A, B, and C:
 
@@ -173,12 +173,10 @@ Recv: ok
 
 This means that:
 
-
     - front left screw is the reference point you must not change it.
     - front right screw must be turned clockwise 1 full turn and a quarter turn
     - rear right screw must be turned counter-clockwise 50 minutes
     - read left screw must be turned clockwise 2 minutes (not need it's ok)
-
 
 Repeat the process several times until you get a good level bed - normally when
 all adjustments are below 6 minutes.

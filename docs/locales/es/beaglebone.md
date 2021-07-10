@@ -90,8 +90,8 @@ sudo service klipper start
 # Remaining configuration
 
 Complete the installation by configuring Klipper and Octoprint following the
-instructions in [the main installation document](Installation.md#configuring-
-klipper).
+instructions in [the main installation
+document](Installation.md#configuring-klipper).
 
 # Printing on the Beaglebone
 

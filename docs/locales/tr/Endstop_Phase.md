@@ -69,26 +69,24 @@ SAVE_CONFIG
 ## Additional notes
 
 * This feature is most useful on delta printers and on the Z endstop of
-cartesian/corexy printers. It is possible to use this feature on the XY endstops
-of cartesian printers, but that isn't particularly useful as a minor error in
-X/Y endstop position is unlikely to impact print quality. It is not valid to use
-this feature on the XY endstops of corexy printers (as the XY position is not
-determined by a single stepper on corexy kinematics). It is not valid to use
-this feature on a printer using a "probe:z_virtual_endstop" Z endstop (as the
-stepper phase is only stable if the endstop is at a static location on a rail).
-
+cartesian/corexy printers. It is possible to use this feature on the XY
+endstops of cartesian printers, but that isn't particularly useful as a minor
+error in X/Y endstop position is unlikely to impact print quality. It is not
+valid to use this feature on the XY endstops of corexy printers (as the XY
+position is not determined by a single stepper on corexy kinematics). It is not
+valid to use this feature on a printer using a "probe:z_virtual_endstop" Z
+endstop (as the stepper phase is only stable if the endstop is at a static
+location on a rail).
 * After calibrating the endstop phase, if the endstop is later moved or adjusted
 then it will be necessary to recalibrate the endstop. Remove the calibration
 data from the config file and rerun the steps above.
-
-* In order to use this system the endstop must be accurate enough to identify the
-stepper position within two "full steps". So, for example, if a stepper is
+* In order to use this system the endstop must be accurate enough to identify
+the stepper position within two "full steps". So, for example, if a stepper is
 using 16 micro-steps with a step distance of 0.005mm then the endstop must have
-an accuracy of at least 0.160mm. If one gets "Endstop stepper_z incorrect
-phase" type error messages than in may be due to an endstop that is not
-sufficiently accurate. If recalibration does not help then disable endstop phase
-adjustments by removing them from the config file.
-
+an accuracy of at least 0.160mm. If one gets "Endstop stepper_z incorrect phase"
+type error messages than in may be due to an endstop that is not sufficiently
+accurate. If recalibration does not help then disable endstop phase adjustments
+by removing them from the config file.
 * If one is using a traditional stepper controlled Z axis (as on a cartesian or
 corexy printer) along with traditional bed leveling screws then it is also
 possible to use this system to arrange for each print layer to be performed on a
@@ -97,19 +95,17 @@ configured with a layer height that is a multiple of a "full step", manually
 enable the endstop_align_zero option in the endstop_phase config section (see
 [config reference](Config_Reference.md#endstop_phase) for further details), and
 then re-level the bed screws.
-
-* It is possible to use this system with traditional (non-Trinamic) stepper motor
-drivers. However, doing this requires making sure that the stepper motor drivers
-are reset every time the micro-controller is reset. (If the two are always reset
-together then Klipper can determine the stepper phase by tracking the total
-number of steps it has commanded the stepper to move.) Currently, the only way
-to do this reliably is if both the micro-controller and stepper motor drivers
-are powered solely from USB and that USB power is provided from a host running
-on a Raspberry Pi. In this situation one can specify an mcu config with
-"restart_method: rpi_usb" - that option will arrange for the micro-controller
-to always be reset via a USB power reset, which would arrange for both the
-micro-controller and stepper motor drivers to be reset together. If using this
-mechanism, one would then need to manually configure the "trigger_phase"
-config sections (see [config reference](Config_Reference.md#endstop_phase) for
-the details).
-
+* It is possible to use this system with traditional (non-Trinamic) stepper
+motor drivers. However, doing this requires making sure that the stepper motor
+drivers are reset every time the micro-controller is reset. (If the two are
+always reset together then Klipper can determine the stepper phase by tracking
+the total number of steps it has commanded the stepper to move.) Currently, the
+only way to do this reliably is if both the micro-controller and stepper motor
+drivers are powered solely from USB and that USB power is provided from a host
+running on a Raspberry Pi. In this situation one can specify an mcu config with
+"restart_method: rpi_usb" - that option will arrange for the micro-controller to
+always be reset via a USB power reset, which would arrange for both the micro-
+controller and stepper motor drivers to be reset together. If using this
+mechanism, one would then need to manually configure the "trigger_phase" config
+sections (see [config reference](Config_Reference.md#endstop_phase) for the
+details).

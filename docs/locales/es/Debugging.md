@@ -9,9 +9,10 @@ del hárdwer de bajo nivel. También puede ser provechoso para comparar la
 diferencia en las órdenes de microcontrolador tras efectuar una modificación en
 el código.
 
-To run Klippy in this batch mode, there is a one time step necessary to generate
-the micro-controller "data dictionary". This is done by compiling the micro-
-controller code to obtain the **out/klipper.dict** file:
+Para ejecutar Klippy en esta modalidad por lotes, existe un paso que debe
+llevarse a cabo una vez para generar el «diccionario de datos» del
+microcontrolador. Este consiste en compilar el código del microcontrolador para
+obtener el archivo **out/klipper.dict**:
 
 ```
 make menuconfig
@@ -81,10 +82,11 @@ la simulación con:
 PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py -m atmega644 -s 20000000 -b 250000 out/klipper.elf
 ```
 
-Then, with simulavr running in another window, one can run the following to read
-gcode from a file (eg, "test.gcode"), process it with Klippy, and send it to
-Klipper running in simulavr (see [installation](Installation.md) for the steps
-necessary to build the python virtual environment):
+Acto seguido, teniendo simulavr en ejecución en otra ventana, es posible
+ejecutar lo siguiente para leer gcode a partir de un archivo (p. ej.,
+«test.gcode»), procesarlo con Klippy y enviarlo al Klipper que se ejecuta dentro
+de simulavr (vea [Instalación](Installation.md) para obtener los pasos
+necesarios para generar el entorno virtual de Python):
 
 ```
 ~/klippy-env/bin/python ./klippy/klippy.py config/generic-simulavr.cfg -i test.gcode -v
@@ -119,8 +121,8 @@ Klipper source code). To do so, run:
 ~/klippy-env/bin/python ./klippy/console.py /tmp/pseudoserial
 ```
 
-See the "HELP" command within the tool for more information on its
-functionality.
+Vea la orden «HELP» de la herramienta para obtener información sobre sus
+funcionalidades.
 
 Tiene a su disposición algunas opciones de línea de órdenes. Para obtener más
 información al respecto, ejecute: `~/klippy-env/bin/python ./klippy/console.py --help`
@@ -131,8 +133,8 @@ El archivo de registro de Klippy (/tmp/klippy.log) almacena estadísticas sobre
 anchura de banda, carga sobre el microcontrolador y carga sobre el búfer del
 anfitrión. Puede resultar útil graficar estas estadísticas luego de mostrarlas.
 
-To generate a graph, a one time step is necessary to install the "matplotlib"
-package:
+Para generar un gráfico, hace falta efectuar una vez este paso para instalar el
+paquete «matplotlib»:
 
 ```
 sudo apt-get update
@@ -172,19 +174,23 @@ escenarios de causa y efecto.
 
 # Ejecutar las pruebas antirregresiones
 
-The main Klipper GitHub repository uses "github actions" to run a series of
-regression tests. It can be useful to run some of these tests locally.
+El repositorio principal de Klipper en GitHub utiliza «acciones de GitHub» para
+ejecutar una serie de pruebas antirregresiones. Puede ser provechoso ejecutar
+algunas de estas pruebas de manera local.
 
-The source code "whitespace check" can be run with:
+La «comprobación de espacios en blanco» del código fuente puede ejecutarse de
+esta manera:
 
 ```
 ./scripts/check_whitespace.sh
 ```
 
-The Klippy regression test suite requires "data dictionaries" from many
-platforms. The easiest way to obtain them is to [download them from
-github](https://github.com/KevinOConnor/klipper/issues/1438). Once the data
-dictionaries are downloaded, use the following to run the regression suite:
+El conjunto de pruebas antirregresiones de Klippy requiere «diccionarios de
+datos» provenientes de muchas plataformas. La manera más sencilla de obtenerlos
+consiste en [descargarlos de
+GitHub](https://github.com/KevinOConnor/klipper/issues/1438). Luego de descargar
+los diccionarios de datos, siga este procedimiento para ejecutar el conjunto de
+pruebas:
 
 ```
 tar xfz klipper-dict-20??????.tar.gz

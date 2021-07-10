@@ -29,6 +29,6 @@ Signed-off-by: My Name <myemail@example.org>
 ```
 
 It is important to have a "Signed-off-by" line on each commit - it certifies
-that you agree to the [developer certificate of origin](developer-certificate-
-of-origin). It must contain your real name (sorry, no pseudonyms or anonymous
-contributions) and contain a current email address.
+that you agree to the [developer certificate of
+origin](developer-certificate-of-origin). It must contain your real name (sorry,
+no pseudonyms or anonymous contributions) and contain a current email address.

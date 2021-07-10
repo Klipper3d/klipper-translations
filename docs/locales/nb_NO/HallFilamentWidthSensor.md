@@ -18,7 +18,6 @@ boards
 
 ## Configuration
 
-
     [hall_filament_width_sensor]
     
     adc1: analog11
@@ -79,7 +78,6 @@ boards
     #event_delay: 3.0
     #pause_delay: 0.5
 
-
 ## Commands
 
 **QUERY_FILAMENT_WIDTH** - Return the current measured filament width as result
@@ -110,7 +108,6 @@ sensor value for calibration points
 
 ## Template for menu variables
 
-
     [menu __main __filament __width_current]
     type: command
     enable: {'hall_filament_width_sensor' in printer}
@@ -122,7 +119,6 @@ sensor value for calibration points
     enable: {'hall_filament_width_sensor' in printer}
     name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}
     index: 1
-
 
 ## Calibration procedure
 

@@ -37,8 +37,8 @@ request. (The Klipper API server does not have a newline requirement.)
 
 # API Protocol
 
-The command protocol used on the communication socket is inspired by [json-
-rpc](https://www.jsonrpc.org/).
+The command protocol used on the communication socket is inspired by
+[json-rpc](https://www.jsonrpc.org/).
 
 A request might look like:
 
@@ -52,8 +52,8 @@ Each request must be a JSON dictionary. (This document uses the Python term
 "dictionary" to describe a "JSON object" - a mapping of key/value pairs
 contained within `{}`.)
 
-The request dictionary must contain a "method" parameter that is the string
-name of an available Klipper "endpoint".
+The request dictionary must contain a "method" parameter that is the string name
+of an available Klipper "endpoint".
 
 The request dictionary may contain a "params" parameter which must be of a
 dictionary type. The "params" provide additional parameter information to the
@@ -64,9 +64,9 @@ The request dictionary may contain an "id" parameter which may be of any JSON
 type. If "id" is present then Klipper will respond to the request with a
 response message containing that "id". If "id" is omitted (or set to a JSON
 "null" value) then Klipper will not provide any response to the request. A
-response message is a JSON dictionary containing "id" and "result". The
-"result" is always a dictionary - its contents are specific to the
-"endpoint" handling the request.
+response message is a JSON dictionary containing "id" and "result". The "result"
+is always a dictionary - its contents are specific to the "endpoint" handling
+the request.
 
 If the processing of a request results in an error, then the response message
 will contain an "error" field instead of a "result" field. For example, the
@@ -81,8 +81,8 @@ requests.
 
 # Subscriptions
 
-Some Klipper "endpoint" requests allow one to "subscribe" to future
-asynchronous update messages.
+Some Klipper "endpoint" requests allow one to "subscribe" to future asynchronous
+update messages.
 
 For example:
 
@@ -96,21 +96,19 @@ and cause Klipper to send future messages similar to:
 
 `{"params": {"response": "ok B:22.8 /0.0 T0:22.4 /0.0"}, "key": 345}`
 
-A subscription request accepts a "response_template" dictionary in the
-"params" field of the request. That "response_template" dictionary is used
-as a template for future asynchronous messages - it may contain arbitrary
-key/value pairs. When sending these future asynchronous messages, Klipper will
-add a "params" field containing a dictionary with "endpoint" specific
-contents to the response template and then send that template. If a
-"response_template" field is not provided then it defaults to an empty
-dictionary (`{}`).
+A subscription request accepts a "response_template" dictionary in the "params"
+field of the request. That "response_template" dictionary is used as a template
+for future asynchronous messages - it may contain arbitrary key/value pairs.
+When sending these future asynchronous messages, Klipper will add a "params"
+field containing a dictionary with "endpoint" specific contents to the response
+template and then send that template. If a "response_template" field is not
+provided then it defaults to an empty dictionary (`{}`).
 
 # Available "endpoints"
 
-By convention, Klipper "endpoints" are of the form
-`<module_name>/<some_name>`. When making a request to an "endpoint", the full
-name must be set in the "method" parameter of the request dictionary (eg,
-`{"method"="gcode/restart"}`).
+By convention, Klipper "endpoints" are of the form `<module_name>/<some_name>`.
+When making a request to an "endpoint", the full name must be set in the
+"method" parameter of the request dictionary (eg, `{"method"="gcode/restart"}`).
 
 ### info
 
@@ -152,10 +150,9 @@ like the following over the socket: `{"action": "run_paneldue_beep", "params": {
 
 ### objects/list
 
-This endpoint queries the list of available printer "objects" that one may
-query (via the "objects/query" endpoint). For example:
-`{"id": 123, "method": "objects/list"}` might return:
-`{"id": 123, "result": {"objects": ["webhooks", "configfile", "heaters", "gcode_move", "query_endstops", "idle_timeout", "toolhead", "extruder"]}}`
+This endpoint queries the list of available printer "objects" that one may query
+(via the "objects/query" endpoint). For example: `{"id": 123, "method": "objects/list"}`
+might return: `{"id": 123, "result": {"objects": ["webhooks", "configfile", "heaters", "gcode_move", "query_endstops", "idle_timeout", "toolhead", "extruder"]}}`
 
 ### objects/query
 
@@ -168,11 +165,10 @@ printer objects that are to be queried - the key contains the printer object
 name and the value is either "null" (to query all fields) or a list of field
 names.
 
-The response message will contain a "status" field containing a dictionary
-with the queried information - the key contains the printer object name and the
-value is a dictionary containing its fields. The response message will also
-contain an "eventtime" field containing the timestamp from when the query was
-taken.
+The response message will contain a "status" field containing a dictionary with
+the queried information - the key contains the printer object name and the value
+is a dictionary containing its fields. The response message will also contain an
+"eventtime" field containing the timestamp from when the query was taken.
 
 Available fields are documented in the [Status Reference](Status_Reference.md)
 document.
@@ -188,8 +184,8 @@ and result in subsequent asynchronous messages such as: `{"params": {"status": {
 ### gcode/help
 
 This endpoint allows one to query available G-Code commands that have a help
-string defined. For example: `{"id": 123, "method": "gcode/help"}` might
-return: `{"id": 123, "result": {"RESTORE_GCODE_STATE": "Restore a previously saved G-Code state", "PID_CALIBRATE": "Run PID calibration test", "QUERY_ADC": "Report the last value of an analog pin", ...}}`
+string defined. For example: `{"id": 123, "method": "gcode/help"}` might return:
+`{"id": 123, "result": {"RESTORE_GCODE_STATE": "Restore a previously saved G-Code state", "PID_CALIBRATE": "Run PID calibration test", "QUERY_ADC": "Report the last value of an analog pin", ...}}`
 
 ### gcode/script
 

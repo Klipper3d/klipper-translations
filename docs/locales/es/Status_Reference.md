@@ -45,8 +45,8 @@ The following information is available in the
 the last home attempt.
 - `last_home.<stepper name>.phases`: The total number of phases available on the
 stepper motor.
-- `last_home.<stepper name>.mcu_position`: The position (as tracked by the micro-
-controller) of the stepper motor at the end of the last home attempt. The
+- `last_home.<stepper name>.mcu_position`: The position (as tracked by the
+micro-controller) of the stepper motor at the end of the last home attempt. The
 position is the total number of steps taken in a forward direction minus the
 total number of steps taken in the reverse direction since the micro-controller
 was last restarted.
@@ -82,9 +82,10 @@ some_name](Config_Reference.md#filament_motion_sensor) objects:
 The following information is available in the
 [firmware_retraction](Config_Reference.md#firmware_retraction) object:
 
-- `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`:
-The current settings for the firmware_retraction module. These settings may
-differ from the config file if a `SET_RETRACTION` command alters them.
+- `retract_length`, `retract_speed`, `unretract_extra_length`,
+`unretract_speed`: The current settings for the firmware_retraction module.
+These settings may differ from the config file if a `SET_RETRACTION` command
+alters them.
 
 # gcode_macro
 
@@ -101,22 +102,22 @@ is always available):
 
 - `gcode_position`: The current position of the toolhead relative to the current
 G-Code origin. That is, positions that one might directly send to a `G1`
-command. It is possible to access the x, y, z, and e components of this
-position (eg, `gcode_position.x`).
+command. It is possible to access the x, y, z, and e components of this position
+(eg, `gcode_position.x`).
 - `position`: The last commanded position of the toolhead using the coordinate
-system specified in the config file. It is possible to access the x, y, z, and
-e components of this position (eg, `position.x`).
+system specified in the config file. It is possible to access the x, y, z, and e
+components of this position (eg, `position.x`).
 - `homing_origin`: The origin of the gcode coordinate system (relative to the
 coordinate system specified in the config file) to use after a `G28` command.
-The `SET_GCODE_OFFSET` command can alter this position. It is possible to
-access the x, y, and z components of this position (eg, `homing_origin.x`).
+The `SET_GCODE_OFFSET` command can alter this position. It is possible to access
+the x, y, and z components of this position (eg, `homing_origin.x`).
 - `speed`: The last speed set in a `G1` command (in mm/s).
 - `speed_factor`: The "speed factor override" as set by an `M220` command. This
 is a floating point value such that 1.0 means no override and, for example, 2.0
 would double requested speed.
 - `extrude_factor`: The "extrude factor override" as set by an `M221` command.
-This is a floating point value such that 1.0 means no override and, for
-example, 2.0 would double requested extrusions.
+This is a floating point value such that 1.0 means no override and, for example,
+2.0 would double requested extrusions.
 - `absolute_coordinates`: This returns True if in `G90` absolute coordinate mode
 or False if in `G91` relative mode.
 - `absolute_extrude`: This returns True if in `M82` absolute extrude mode or
@@ -152,13 +153,10 @@ available only for [extruder](Config_Reference.md#extruder)
 The following information is available in the `heaters` object (this object is
 available if any heater is defined):
 
-- `available_heaters`: Returns a list of all currently available heaters by their
-full config section names, e.g. `["extruder", "heater_bed",
-"heater_generic my_custom_heater"]`.
+- `available_heaters`: Returns a list of all currently available heaters by
+their full config section names, e.g. `["extruder", "heater_bed", "heater_generic my_custom_heater"]`.
 - `available_sensors`: Returns a list of all currently available temperature
-sensors by their full config section names, e.g. `["extruder",
-"heater_bed", "heater_generic my_custom_heater", "temperature_sensor
-electronics_temp"]`.
+sensors by their full config section names, e.g. `["extruder", "heater_bed", "heater_generic my_custom_heater", "temperature_sensor electronics_temp"]`.
 
 # idle_timeout
 
@@ -179,8 +177,8 @@ The following information is available in [mcu](Config_Reference.md#mcu) and
 - `mcu_version`: The Klipper code version reported by the micro-controller.
 - `mcu_build_versions`: Information on the build tools used to generate the
 micro-controller code (as reported by the micro-controller).
-- `mcu_constants.<constant_name>`: Compile time constants reported by the micro-
-controller. The available constants may differ between micro-controller
+- `mcu_constants.<constant_name>`: Compile time constants reported by the
+micro-controller. The available constants may differ between micro-controller
 architectures and with each code revision.
 - `last_stats.<statistics_name>`: Statistics information on the micro-controller
 connection.
@@ -226,13 +224,13 @@ The following information is available in the [probe](Config_Reference.md#probe)
 object (this object is also available if a
 [bltouch](Config_Reference.md#bltouch) config section is defined):
 
-- `last_query`: Returns True if the probe was reported as "triggered" during
-the last QUERY_PROBE command. Note, if this is used in a macro, due to the
-order of template expansion, the QUERY_PROBE command must be run prior to the
-macro containing this reference.
-- `last_z_result`: Returns the Z result value of the last PROBE command. Note, if
-this is used in a macro, due to the order of template expansion, the PROBE (or
-similar) command must be run prior to the macro containing this reference.
+- `last_query`: Returns True if the probe was reported as "triggered" during the
+last QUERY_PROBE command. Note, if this is used in a macro, due to the order of
+template expansion, the QUERY_PROBE command must be run prior to the macro
+containing this reference.
+- `last_z_result`: Returns the Z result value of the last PROBE command. Note,
+if this is used in a macro, due to the order of template expansion, the PROBE
+(or similar) command must be run prior to the macro containing this reference.
 
 # quad_gantry_level
 
@@ -249,8 +247,8 @@ object is available if any endstop is defined):
 
 - `last_query["<endstop>"]`: Returns True if the given endstop was reported as
 "triggered" during the last QUERY_ENDSTOP command. Note, if this is used in a
-macro, due to the order of template expansion, the QUERY_ENDSTOP command must
-be run prior to the macro containing this reference.
+macro, due to the order of template expansion, the QUERY_ENDSTOP command must be
+run prior to the macro containing this reference.
 
 # servo
 
@@ -272,11 +270,12 @@ process load.
 
 The following information is available in
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-
-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [lm75
+[bme280
+config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor),
+[htu21d config_section_name](Config_Reference.md#htu21d-sensor), [lm75
 config_section_name](Config_Reference.md#lm75-temperature-sensor), and
-[temperature_host config_section_name](Config_Reference.md#host-temperature-
-sensor) objects:
+[temperature_host
+config_section_name](Config_Reference.md#host-temperature-sensor) objects:
 
 - `temperature`: The last read temperature from the sensor.
 - `humidity`, `pressure`, `gas`: The last read values from the sensor (only on
@@ -312,16 +311,16 @@ one could use `printer[printer.toolhead.extruder].target` to get the target
 temperature of the current extruder.
 - `homed_axes`: The current cartesian axes considered to be in a "homed" state.
 This is a string containing one or more of "x", "y", "z".
-- `axis_minimum`, `axis_maximum`: The axis travel limits (mm) after homing. It is
-possible to access the x, y, z components of this limit value (eg,
+- `axis_minimum`, `axis_maximum`: The axis travel limits (mm) after homing. It
+is possible to access the x, y, z components of this limit value (eg,
 `axis_minimum.x`, `axis_maximum.z`).
 - `max_velocity`, `max_accel`, `max_accel_to_decel`, `square_corner_velocity`:
 The current printing limits that are in effect. This may differ from the config
-file settings if a `SET_VELOCITY_LIMIT` (or `M204`) command alters them at run-
-time.
+file settings if a `SET_VELOCITY_LIMIT` (or `M204`) command alters them at
+run-time.
 - `stalls`: The total number of times (since the last restart) that the printer
-had to be paused because the toolhead moved faster than moves could be read
-from the G-Code input.
+had to be paused because the toolhead moved faster than moves could be read from
+the G-Code input.
 
 # dual_carriage
 
@@ -350,8 +349,8 @@ file position).
 The following information is available in the `webhooks` object (this object is
 always available):
 
-- `state`: Returns a string indicating the current Klipper state. Possible values
-are: "ready", "startup", "shutdown", "error".
+- `state`: Returns a string indicating the current Klipper state. Possible
+values are: "ready", "startup", "shutdown", "error".
 - `state_message`: A human readable string giving additional context on the
 current Klipper state.
 

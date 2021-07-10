@@ -63,14 +63,14 @@ be necessary to convert to [`rotation_distance`](Rotation_Distance.md) and
 recalibrate any endstop phases by running the ENDSTOP_PHASE_CALIBRATE command.
 
 20201218: Rotary delta and polar printers must now specify a `gear_ratio` for
-their rotary steppers, and they may no longer specify a `step_distance` parameter.
-See the [config reference](Config_Reference.md#stepper) for the format of the
-new gear_ratio paramter.
+their rotary steppers, and they may no longer specify a `step_distance`
+parameter. See the [config reference](Config_Reference.md#stepper) for the
+format of the new gear_ratio paramter.
 
 20201213: It is not valid to specify a Z "position_endstop" when using
-"probe:z_virtual_endstop". An error will now be raised if a Z
-"position_endstop" is specified with "probe:z_virtual_endstop". Remove the Z
-"position_endstop" definition to fix the error.
+"probe:z_virtual_endstop". An error will now be raised if a Z "position_endstop"
+is specified with "probe:z_virtual_endstop". Remove the Z "position_endstop"
+definition to fix the error.
 
 20201120: The `[board_pins]` config section now specifies the mcu name in an
 explicit `mcu:` parameter. If using board_pins for a secondary mcu, then the
@@ -114,8 +114,8 @@ klippy/extras/display/menu.cfg for examples.
 when a print is paused. It will now always report progress based on the internal
 file position, or 0 if no file is currently loaded.
 
-20200725: The servo `enable` config parameter and the SET_SERVO `ENABLE` parameter
-have been removed. Update any macros to use `SET_SERVO SERVO=my_servo WIDTH=0`
+20200725: The servo `enable` config parameter and the SET_SERVO `ENABLE`
+parameter have been removed. Update any macros to use `SET_SERVO SERVO=my_servo WIDTH=0`
 to disable a servo.
 
 20200608: The LCD display support has changed the name of some internal
@@ -146,8 +146,8 @@ to `printer.heaters`.
 20200313: The default lcd layout for multi-extruder printers with a 16x4 screen
 has changed. The single extruder screen layout is now the default and it will
 show the currently active extruder. To use the previous display layout set
-"display_group: _multiextruder_16x4" in the [display] section of the
-printer.cfg file.
+"display_group: _multiextruder_16x4" in the [display] section of the printer.cfg
+file.
 
 20200308: The default `__test` menu item was removed. If the config file has a
 custom menu then be sure to remove all references to this `__test` menu item.
@@ -159,18 +159,18 @@ config/example-extras.cfg for the details).
 20200109: The bed_mesh module now references the probe's location in for the
 mesh configuration. As such, some configuration options have been renamed to
 more accurately reflect their intended functionality. For rectangular beds,
-`min_point` and `max_point` have been renamed to `mesh_min` and `mesh_max` respectively.
-For round beds, `bed_radius` has been renamed to `mesh_radius`. A new
-`mesh_origin` option has also been added for round beds. Note that these changes
-are also incompatible with previously saved mesh profiles. If an incompatible
-profile is detected it will be ignored and scheduled for removal. The removal
-process can be completed by issuing the SAVE_CONFIG command. The user will need
-to re-calibrate each profile.
+`min_point` and `max_point` have been renamed to `mesh_min` and `mesh_max`
+respectively. For round beds, `bed_radius` has been renamed to `mesh_radius`. A
+new `mesh_origin` option has also been added for round beds. Note that these
+changes are also incompatible with previously saved mesh profiles. If an
+incompatible profile is detected it will be ignored and scheduled for removal.
+The removal process can be completed by issuing the SAVE_CONFIG command. The
+user will need to re-calibrate each profile.
 
-20191218: The display config section no longer supports "lcd_type: st7567".
-Use the "uc1701" display type instead - set "lcd_type: uc1701" and change
-the "rs_pin: some_pin" to "rst_pin: some_pin". It may also be necessary to
-add a "contrast: 60" config setting.
+20191218: The display config section no longer supports "lcd_type: st7567". Use
+the "uc1701" display type instead - set "lcd_type: uc1701" and change the
+"rs_pin: some_pin" to "rst_pin: some_pin". It may also be necessary to add a
+"contrast: 60" config setting.
 
 20191210: The builtin T0, T1, T2, ... commands have been removed. The extruder
 activate_gcode and deactivate_gcode config options have been removed. If these
@@ -184,14 +184,14 @@ section that calls SET_GCODE_OFFSET. (For example "SET_GCODE_OFFSET
 Z=-{params.Z}".)
 
 20191202: Support for the undocumented "S" parameter of the "G4" command has
-been removed. Replace any occurrences of S with the standard "P" parameter
-(the delay specified in milliseconds).
+been removed. Replace any occurrences of S with the standard "P" parameter (the
+delay specified in milliseconds).
 
 20191126: The USB names have changed on micro-controllers with native USB
-support. They now use a unique chip id by default (where available). If an
-"mcu" config section uses a "serial" setting that starts with
-"/dev/serial/by-id/" then it may be necessary to update the config. Run "ls
-/dev/serial/by-id/*" in an ssh terminal to determine the new id.
+support. They now use a unique chip id by default (where available). If an "mcu"
+config section uses a "serial" setting that starts with "/dev/serial/by-id/"
+then it may be necessary to update the config. Run "ls /dev/serial/by-id/*" in
+an ssh terminal to determine the new id.
 
 20191121: The pressure_advance_lookahead_time parameter has been removed. See
 example.cfg for alternate configuration settings.
@@ -237,9 +237,9 @@ parameter of SET_GCODE_VARIABLE) are now parsed as Python literals. If a value
 needs to be assigned a string then wrap the value in quotes so that it is
 evaluated as a string.
 
-20190606: The "samples", "samples_result", and "sample_retract_dist"
-config options have been moved to the "probe" config section. These options
-are no longer supported in the "delta_calibrate", "bed_tilt", "bed_mesh",
+20190606: The "samples", "samples_result", and "sample_retract_dist" config
+options have been moved to the "probe" config section. These options are no
+longer supported in the "delta_calibrate", "bed_tilt", "bed_mesh",
 "screws_tilt_adjust", "z_tilt", or "quad_gantry_level" config sections.
 
 20190528: The magic "status" variable in gcode_macro template evaluation has
@@ -271,8 +271,8 @@ automatically calculated from run_current).
 20190310: The [controller_fan] config section now always takes a name (such as
 [controller_fan my_controller_fan]).
 
-20190308: The "driver_BLANK_TIME_SELECT" field in [tmc2130] and [tmc2208]
-config sections has been renamed to "driver_TBL".
+20190308: The "driver_BLANK_TIME_SELECT" field in [tmc2130] and [tmc2208] config
+sections has been renamed to "driver_TBL".
 
 20190308: The [tmc2660] config section has changed. A new sense_resistor config
 parameter must now be provided. The meaning of several of the driver_XXX

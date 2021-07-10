@@ -22,7 +22,7 @@ connection, which is suggested by ADXL345 documentation, has too low throughput
 and **will not work**. The recommended connection scheme:
 
 | ADXL345 pin | RPi pin | RPi pin name |
-| :---------: | :-----: | :----------: |
+| :-: | :-: | :-: |
 | 3V3 (or VCC) | 01 | 3.3v DC power |
 | GND | 06 | Ground |
 | CS | 24 | GPIO08 (SPI0_CE0_N) |
@@ -81,8 +81,7 @@ sudo apt install python-numpy python-matplotlib
 ```
 
 Afterwards, check and follow the instructions in the [RPi Microcontroller
-document](RPi_microcontroller.md) to setup the "linux mcu" on the Raspberry
-Pi.
+document](RPi_microcontroller.md) to setup the "linux mcu" on the Raspberry Pi.
 
 Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and
 enabling SPI under the "Interfacing options" menu.
@@ -116,8 +115,8 @@ Now you can test a connection.
 - For "non bed-slingers" (e.g. one accelerometer), in Octoprint, enter
 `ACCELEROMETER_QUERY`
 - For "bed-slingers" (e.g. more than one accelerometer), enter
-`ACCELEROMETER_QUERY CHIP=<chip>` where `<chip>` is the name of the chip as-
-entered, e.g. `CHIP=bed` (see: [bed-slinger](#bed-slinger-printers)) for all
+`ACCELEROMETER_QUERY CHIP=<chip>` where `<chip>` is the name of the chip
+as-entered, e.g. `CHIP=bed` (see: [bed-slinger](#bed-slinger-printers)) for all
 installed accelerometer chips.
 
 You should see the current measurements from the accelerometer, including the
@@ -285,9 +284,9 @@ Note that the reported `smoothing` values are some abstract projected values.
 These values can be used to compare different configurations: the higher the
 value, the more smoothing a shaper will create. However, these smoothing scores
 do not represent any real measure of smoothing, because the actual smoothing
-depends on [`max_accel`](#selecting-max-accel) and `square_corner_velocity` parameters.
-Therefore, you should print some test prints to see how much smoothing exactly a
-chosen configuration creates.
+depends on [`max_accel`](#selecting-max-accel) and `square_corner_velocity`
+parameters. Therefore, you should print some test prints to see how much
+smoothing exactly a chosen configuration creates.
 
 In the example above the suggested shaper parameters are not bad, but what if
 you want to get less smoothing on the X axis? You can try to limit the maximum
@@ -319,16 +318,16 @@ If you compare to the previously suggested parameters, the vibrations are a bit
 larger, but the smoothing is significantly smaller than previously, allowing
 larger maximum acceleration.
 
-When deciding which `max_smoothing` parameter to choose, you can use a trial-
-and-error approach. Try a few different values and see which results you get.
-Note that the actual smoothing produced by the input shaper depends, primarily,
-on the lowest resonance frequency of the printer: the higher the frequency of
-the lowest resonance - the smaller the smoothing. Therefore, if you request the
-script to find a configuration of the input shaper with the unrealistically
-small smoothing, it will be at the expense of increased ringing at the lowest
-resonance frequencies (which are, typically, also more prominently visible in
-prints). So, always double-check the projected remaining vibrations reported by
-the script and make sure they are not too high.
+When deciding which `max_smoothing` parameter to choose, you can use a
+trial-and-error approach. Try a few different values and see which results you
+get. Note that the actual smoothing produced by the input shaper depends,
+primarily, on the lowest resonance frequency of the printer: the higher the
+frequency of the lowest resonance - the smaller the smoothing. Therefore, if you
+request the script to find a configuration of the input shaper with the
+unrealistically small smoothing, it will be at the expense of increased ringing
+at the lowest resonance frequencies (which are, typically, also more prominently
+visible in prints). So, always double-check the projected remaining vibrations
+reported by the script and make sure they are not too high.
 
 Note that if you chose a good `max_smoothing` value for both of your axes, you
 can store it in the `printer.cfg` as
@@ -355,18 +354,19 @@ theoretical maximum at which the respective shaper is still able to work without
 producing too much smoothing. It is by no means a recommendation to set this
 acceleration for printing. The maximum acceleration your printer is able to
 sustain depends on its mechanical properties and the maximum torque of the used
-stepper motors. Therefore, it is suggested to set `max_accel` in `[printer]` section
-that does not exceed the estimated values for X and Y axes, likely with some
-conservative safety margin.
+stepper motors. Therefore, it is suggested to set `max_accel` in `[printer]`
+section that does not exceed the estimated values for X and Y axes, likely with
+some conservative safety margin.
 
 Alternatively, follow [this](Resonance_Compensation.md#selecting-max_accel) part
-of the input shaper tuning guide and print the test model to choose `max_accel` parameter
-experimentally.
+of the input shaper tuning guide and print the test model to choose `max_accel`
+parameter experimentally.
 
-The same notice applies to the input shaper [auto-calibration](#input-shaper-
-auto-calibration) with `SHAPER_CALIBRATE` command: it is still necessary to
-choose the right `max_accel` value after the auto-calibration, and the suggested
-acceleration limits will not be applied automatically.
+The same notice applies to the input shaper
+[auto-calibration](#input-shaper-auto-calibration) with `SHAPER_CALIBRATE`
+command: it is still necessary to choose the right `max_accel` value after the
+auto-calibration, and the suggested acceleration limits will not be applied
+automatically.
 
 If you are doing a shaper re-calibration and the reported smoothing for the
 suggested shaper configuration is almost the same as what you got during the
@@ -404,8 +404,8 @@ Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz
 ```
 
 If you agree with the suggested parameters, you can execute `SAVE_CONFIG` now to
-save them and restart the Klipper. Note that this will not update `max_accel` value
-in `[printer]` section. You should update it manually following the
+save them and restart the Klipper. Note that this will not update `max_accel`
+value in `[printer]` section. You should update it manually following the
 considerations in [Selecting max_accel](#selecting-max_accel) section.
 
 If your printer is a bed slinger printer, you can specify which axis to test, so
@@ -461,9 +461,9 @@ SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0
 TEST_RESONANCES AXIS=X OUTPUT=raw_data
 ```
 
-ignoring any errors for `SET_INPUT_SHAPER` command. For `TEST_RESONANCES` command,
-specify the desired test axis. The raw data will be written into `/tmp` directory
-on the RPi.
+ignoring any errors for `SET_INPUT_SHAPER` command. For `TEST_RESONANCES`
+command, specify the desired test axis. The raw data will be written into
+`/tmp` directory on the RPi.
 
 The raw data can also be obtained by running the command
 `ACCELEROMETER_MEASURE` command twice during some normal printer activity -
@@ -482,12 +482,12 @@ supported;
 inputs are specified, the average frequency response is computed;
 * comparison of the frequency response between several inputs (use `-c`
 parameter); you can additionally specify which accelerometer axis to consider
-via `-a x`, `-a y` or `-a z` parameter (if none specified, the sum of
-vibrations for all axes is used);
+via `-a x`, `-a y` or `-a z` parameter (if none specified, the sum of vibrations
+for all axes is used);
 * plotting the spectrogram (use `-s` parameter), only 1 input is supported; you
-can additionally specify which accelerometer axis to consider via `-a x`, `-a
-y` or `-a z` parameter (if none specified, the sum of vibrations for all axes
-is used).
+can additionally specify which accelerometer axis to consider via `-a x`,
+`-a y` or `-a z` parameter (if none specified, the sum of vibrations for all
+axes is used).
 
 Note that graph_accelerometer.py script supports only the raw_data\*.csv files
 and not resonances\*.csv or calibration_data\*.csv files.

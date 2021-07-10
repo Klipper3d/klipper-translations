@@ -9,8 +9,8 @@ data bytes and an 11-bit CAN bus identifier. In order to support efficient
 communication, each micro-controller is assigned at run-time a unique 1-byte CAN
 bus nodeid (`canbus_nodeid`) for general Klipper command and response traffic.
 Klipper command messages going from host to micro-controller use the CAN bus id
-of `canbus_nodeid * 2 + 256`, while Klipper response messages from micro-
-controller to host use `canbus_nodeid * 2 + 256 + 1`.
+of `canbus_nodeid * 2 + 256`, while Klipper response messages from
+micro-controller to host use `canbus_nodeid * 2 + 256 + 1`.
 
 Each micro-controller has a factory assigned unique chip identifier that is used
 during id assignment. This identifier can exceed the length of one CAN packet,
@@ -20,9 +20,10 @@ the factory id.
 # Admin messages
 
 Admin messages are used for id assignment. Admin messages sent from host to
-micro-controller use the CAN bus id `0x3f0` and messages sent from micro-
-controller to host use the CAN bus id `0x3f1`. All micro-controllers listen to
-messages on id `0x3f0`; that id can be thought of as a "broadcast address".
+micro-controller use the CAN bus id `0x3f0` and messages sent from
+micro-controller to host use the CAN bus id `0x3f1`. All micro-controllers
+listen to messages on id `0x3f0`; that id can be thought of as a "broadcast
+address".
 
 ## CMD_QUERY_UNASSIGNED message
 

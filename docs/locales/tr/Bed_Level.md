@@ -43,14 +43,14 @@ trying to determine the actual bed position.
 
 # The "paper test"
 
-The primary bed calibration mechanism is the "paper test". It involves placing
-a regular piece of "copy machine paper" between the printer's bed and nozzle,
-and then commanding the nozzle to different Z heights until one feels a small
-amount of friction when pushing the paper back and forth.
+The primary bed calibration mechanism is the "paper test". It involves placing a
+regular piece of "copy machine paper" between the printer's bed and nozzle, and
+then commanding the nozzle to different Z heights until one feels a small amount
+of friction when pushing the paper back and forth.
 
-It is important to understand the "paper test" even if one has an "automatic
-Z probe". The probe itself often needs to be calibrated to get good results.
-That probe calibration is done using this "paper test".
+It is important to understand the "paper test" even if one has an "automatic Z
+probe". The probe itself often needs to be calibrated to get good results. That
+probe calibration is done using this "paper test".
 
 In order to perform the paper test, cut a small rectangular piece of paper using
 a pair of scissors (eg, 5x3 cm). The paper generally has a width of around 100
@@ -134,10 +134,9 @@ Continue issuing TESTZ commands until one feels a small amount of friction when
 testing with the paper.
 
 If too much friction is found then one can use a positive Z value to move the
-nozzle up. It is also possible to use `TESTZ Z=+` or `TESTZ Z=-` to "bisect"
-the last position - that is to move to a position half way between two
-positions. For example, if one received the following prompt from a TESTZ
-command:
+nozzle up. It is also possible to use `TESTZ Z=+` or `TESTZ Z=-` to "bisect" the
+last position - that is to move to a position half way between two positions.
+For example, if one received the following prompt from a TESTZ command:
 
 ```
 Recv: // Z position: 0.130 --> 0.230 <-- 0.280

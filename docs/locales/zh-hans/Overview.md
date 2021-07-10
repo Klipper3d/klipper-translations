@@ -12,25 +12,21 @@
 
 - [安装](Installation.md)：Klipper 安装指南。
 - [配置参考](Config_Reference.md)：配置参数说明。
-  - [旋转距离](Rotation_Distance.md)：计算rotation_distance步进参数。
-
+   - [旋转距离](Rotation_Distance.md)：计算rotation_distance步进参数。
 - [检查配置](Config_checks.md)：验证配置文件中的基本引脚设置。
-- [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
-  - [三角洲校准](Delta_Calibrate.md)：校准三角洲结构。
-  - [探针校准](Probe_Calibrate.md)：校准自动Z探针。
-  - [BL-Touch](BLTouch.md): Configure a "BL-Touch" Z probe.
-  - [手动调平](Manual_Level.md)：校准 Z 限位和调整热床调平螺丝。
-  - [床网](Bed_Mesh)：基于 XY 位置的热床高度补偿。
-  - [限位相位](Endstop_Phase.md)：使用步进电机相位辅助Z限位定位。
-
+- [热床调平](Bed_Level.md)：Klipper 中关于“热床调平”的信息。
+   - [三角洲校准](Delta_Calibrate.md)：校准三角洲结构。
+   - [探针校准](Probe_Calibrate.md)：校准自动Z探针。
+   - [BL-Touch](BLTouch.md)：配置“BL-Touch”Z 探针。
+   - [手动调平](Manual_Level.md)：校准 Z 限位和调整热床调平螺丝。
+   - [床网](Bed_Mesh)：基于 XY 位置的热床高度补偿。
+   - [限位相位](Endstop_Phase.md)：使用步进电机相位辅助Z限位定位。
 - [共振补偿](Resonance_Compensation)：减少打印震纹的工具。
-  - [测量共振](Measuring_Resonances.md)：使用 adxl345 加速度计模块测量共振。
-
+   - [测量共振](Measuring_Resonances.md)：使用 adxl345 加速度计模块测量共振。
 - [提前压力](Pressure_Advance.md)：校准挤出机压力。
-- [Slicers](Slicers.md): Configure "slicer" software for Klipper.
+- [切片](Slicers.md)：为 Klipper 配置切片软件。
 - [命令模板](Command_Templates.md)：G代码宏和条件判断。
-  - [状态参考](Status_Reference.md)：可用于宏和类似功能的信息。
-
+   - [状态参考](Status_Reference.md)：可用于宏和类似功能的信息。
 - [TMC驱动](TMC_Drivers.md)：在 Klipper 中使用 Trinamic 步进电机驱动。
 - [偏斜校正](skew_correction.md): 轴调整不是一个完美的方形。
 - [PWM 工具](Using_PWM_Tools.md)：关于如何使用 PWM 控制的工具，例如激光器或电钻头。

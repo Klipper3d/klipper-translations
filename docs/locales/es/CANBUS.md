@@ -17,14 +17,12 @@ currently two common options:
 
 1. Use a [Waveshare Raspberry Pi CAN hat](https://www.waveshare.com/rs485-can-
 hat.htm) or one of its many clones.
-
-2. Use a USB CAN adapter (for example <https://hacker-gadgets.com/product/cantact-
-usb-can-adapter/>). There are many different USB to CAN adapters available -
-when choosing one, we recommend verifying it can run the [candlelight
-firmware](https://github.com/candle-usb/candleLight_fw). (Unfortunately, we've
-found some USB adapters run defective firmware and are locked down, so verify
-before purchasing.)
-
+1. Use a USB CAN adapter (for example <https://hacker-
+gadgets.com/product/cantact-usb-can-adapter/>). There are many different USB to
+CAN adapters available - when choosing one, we recommend verifying it can run
+the [candlelight firmware](https://github.com/candle-usb/candleLight_fw).
+(Unfortunately, we've found some USB adapters run defective firmware and are
+locked down, so verify before purchasing.)
 
 It is also necessary to configure the host operating system to use the adapter.
 This is typically done by creating a new file named
@@ -74,8 +72,8 @@ like the following:
 Found canbus_uuid=11aa22bb33cc
 ```
 
-Each device will have a unique identifier. In the above example, `11aa22bb33cc` is
-the micro-controller's "canbus_uuid".
+Each device will have a unique identifier. In the above example, `11aa22bb33cc`
+is the micro-controller's "canbus_uuid".
 
 Note that the `canbus_query.py` tool will only report uninitialized devices - if
 Klipper (or a similar tool) configures the device then it will no longer appear

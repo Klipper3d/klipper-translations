@@ -4,10 +4,9 @@ following the steps in the [installation document](Installation.md).
 
 During this guide, it may be necessary to make changes to the Klipper config
 file. Be sure to issue a RESTART command after every change to the config file
-to ensure that the change takes effect (type "restart" in the Octoprint
-terminal tab and then click "Send"). It's also a good idea to issue a STATUS
-command after every RESTART to verify that the config file is successfully
-loaded.
+to ensure that the change takes effect (type "restart" in the Octoprint terminal
+tab and then click "Send"). It's also a good idea to issue a STATUS command
+after every RESTART to verify that the config file is successfully loaded.
 
 ### Verify temperature
 
@@ -24,12 +23,12 @@ settings for the nozzle and/or bed.
 ### Verify M112
 
 Navigate to the Octoprint terminal tab and issue an M112 command in the terminal
-box. This command requests Klipper to go into a "shutdown" state. It will
-cause Octoprint to disconnect from Klipper - navigate to the Connection area and
-click on "Connect" to cause Octoprint to reconnect. Then navigate to the
-Octoprint temperature tab and verify that temperatures continue to update and
-the temperatures are not increasing. If temperatures are increasing, remove
-power from the printer.
+box. This command requests Klipper to go into a "shutdown" state. It will cause
+Octoprint to disconnect from Klipper - navigate to the Connection area and click
+on "Connect" to cause Octoprint to reconnect. Then navigate to the Octoprint
+temperature tab and verify that temperatures continue to update and the
+temperatures are not increasing. If temperatures are increasing, remove power
+from the printer.
 
 The M112 command causes Klipper to go into a "shutdown" state. To clear this
 state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab.
@@ -51,21 +50,21 @@ Verify that all of the printer axes can manually move freely (the stepper motors
 are disabled). If not, issue an M84 command to disable the motors. If any of the
 axes still can not move freely, then verify the stepper "enable_pin"
 configuration for the given axis. On most commodity stepper motor drivers, the
-motor enable pin is "active low" and therefore the enable pin should have a
-"!" before the pin (for example, "enable_pin: !ar38").
+motor enable pin is "active low" and therefore the enable pin should have a "!"
+before the pin (for example, "enable_pin: !ar38").
 
 ### Verify endstops
 
 Manually move all the printer axes so that none of them are in contact with an
 endstop. Send a QUERY_ENDSTOPS command via the Octoprint terminal tab. It should
 respond with the current state of all of the configured endstops and they should
-all report a state of "open". For each of the endstops, rerun the
-QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS
-command should report the endstop as "TRIGGERED".
+all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS
+command while manually triggering the endstop. The QUERY_ENDSTOPS command should
+report the endstop as "TRIGGERED".
 
 If the endstop appears inverted (it reports "open" when triggered and vice-
-versa) then add a "!" to the pin definition (for example, "endstop_pin:
-^!ar3"), or remove the "!" if there is already one present.
+versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!ar3"),
+or remove the "!" if there is already one present.
 
 If the endstop does not change at all then it generally indicates that the
 endstop is connected to a different pin. However, it may also require a change
@@ -82,14 +81,14 @@ to its starting position. (If the endstop is defined at position_endstop=0 then
 at the start of each movement the stepper will move away from the endstop.) It
 will perform this oscillation ten times.
 
-If the stepper does not move at all, then verify the "enable_pin" and
-"step_pin" settings for the stepper. If the stepper motor moves but does not
-return to its original position then verify the "dir_pin" setting. If the
-stepper motor oscillates in an incorrect direction, then it generally indicates
-that the "dir_pin" for the axis needs to be inverted. This is done by adding a
-'!' to the "dir_pin" in the printer config file (or removing it if one is
-already there). If the motor moves significantly more or significantly less than
-one millimeter then verify the "rotation_distance" setting.
+If the stepper does not move at all, then verify the "enable_pin" and "step_pin"
+settings for the stepper. If the stepper motor moves but does not return to its
+original position then verify the "dir_pin" setting. If the stepper motor
+oscillates in an incorrect direction, then it generally indicates that the
+"dir_pin" for the axis needs to be inverted. This is done by adding a '!' to the
+"dir_pin" in the printer config file (or removing it if one is already there).
+If the motor moves significantly more or significantly less than one millimeter
+then verify the "rotation_distance" setting.
 
 Run the above test for each stepper motor defined in the config file. (Set the
 STEPPER parameter of the STEPPER_BUZZ command to the name of the config section

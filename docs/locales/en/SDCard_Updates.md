@@ -42,7 +42,7 @@ definition as [described below](#board-definitions).
 
 The above commands assume that your MCU connects at the default baud rate of
 250000 and the firmware is located at `~/klipper/out/klipper.bin`. The
-`flash- sdcard.sh` script provides options for changing these defaults. All
+`flash-sdcard.sh` script provides options for changing these defaults. All
 options can be viewed by the help screen:
 
 ```
@@ -88,8 +88,7 @@ firmware. The initial flashing procedure must be done manually per the
 instructions that apply to your controller board.
 - While it is possible to flash a build that changes the Serial Baud or
 connection interface (ie: from USB to UART), verification will always fail as
-the script will be unable to reconnect to the MCU to verify the current
-version.
+the script will be unable to reconnect to the MCU to verify the current version.
 - Only boards that use SPI for SD Card communication are supported. Boards that
 use SDIO, such as the Flymaker Flyboard and MKS Robin Nano V1/V2, will not
 work.
@@ -123,8 +122,8 @@ the board's schematic. This field is required.
 retreived from the board schematic. This field is required.
 - `firmware_path`: The path on the SD Card where firmware should be transferred.
 The default is `firmware.bin`.
-- `current_firmware_path` The path on the SD Card where the renamed firmware file
-is located after a successful flash. The default is `firmware.cur`.
+- `current_firmware_path` The path on the SD Card where the renamed firmware
+file is located after a successful flash. The default is `firmware.cur`.
 
 If software SPI is required the `spi_bus` field should be set to `swspi` and the
 following additional field should be specified:

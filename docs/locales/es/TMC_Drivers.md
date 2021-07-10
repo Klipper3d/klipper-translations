@@ -1,18 +1,18 @@
 This document provides information on using Trinamic stepper motor drivers in
 SPI/UART mode on Klipper.
 
-Klipper can also use Trinamic drivers in their "standalone mode". However,
-when the drivers are in this mode, no special Klipper configuration is needed
-and the advanced Klipper features discussed in this document are not available.
+Klipper can also use Trinamic drivers in their "standalone mode". However, when
+the drivers are in this mode, no special Klipper configuration is needed and the
+advanced Klipper features discussed in this document are not available.
 
 In addition to this document, be sure to review the [TMC driver config
 reference](Config_Reference.md#tmc-stepper-driver-configuration).
 
 # Enabling "Stealthchop" mode
 
-By default, Klipper places the TMC drivers in "spreadcycle" mode. If the
-driver supports "stealthchop" then it can be enabled by adding
-`stealthchop_threshold: 999999` to the TMC config section.
+By default, Klipper places the TMC drivers in "spreadcycle" mode. If the driver
+supports "stealthchop" then it can be enabled by adding `stealthchop_threshold: 999999`
+to the TMC config section.
 
 It is recommended to always use "spreadcycle" mode (by not specifying
 `stealthchop_threshold`) or to always use "stealthchop" mode (by setting
@@ -61,13 +61,12 @@ TMCs. There you can also find more details on limitations of this setup.
 
 A few prerequisites are needed to use sensorless homing:
 
-1. A StallGuard capable TMC stepper driver (tmc2130, tmc2209, tmc2660, or
-tmc5160).
-2. SPI / UART interface of the TMC driver wired to micro-controller (stand-alone
+1. A StallGuard capable TMC stepper driver (tmc2130, tmc2209, tmc2660, or tmc5160).
+1. SPI / UART interface of the TMC driver wired to micro-controller (stand-alone
 mode does not work).
-3. The appropriate "DIAG" or "SG_TST" pin of TMC driver connected to the
-micro-controller.
-4. The steps in the [config checks](Config_checks.md) document must be run to
+1. The appropriate "DIAG" or "SG_TST" pin of TMC driver connected to the micro-
+controller.
+1. The steps in the [config checks](Config_checks.md) document must be run to
 confirm the stepper motors are configured and working properly.
 
 ## Tuning
@@ -75,12 +74,12 @@ confirm the stepper motors are configured and working properly.
 The procedure described here has six major steps:
 
 1. Choose a homing speed.
-2. Configure the `printer.cfg` file to enable sensorless homing.
-3. Find the stallguard setting with highest sensitivity that successfully homes.
-4. Find the stallguard setting with lowest sensitivity that successfully homes
+1. Configure the `printer.cfg` file to enable sensorless homing.
+1. Find the stallguard setting with highest sensitivity that successfully homes.
+1. Find the stallguard setting with lowest sensitivity that successfully homes
 with a single touch.
-5. Update the `printer.cfg` with the desired stallguard setting.
-6. Create or update `printer.cfg` macros to home consistently.
+1. Update the `printer.cfg` with the desired stallguard setting.
+1. Create or update `printer.cfg` macros to home consistently.
 
 ### Choose homing speed
 
@@ -114,8 +113,8 @@ the current while in that position may cause the carriage to move - that results
 in poor performance and will confuse the tuning process.)
 
 It is necessary to configure the sensorless homing pins and to configure initial
-"stallguard" settings. A tmc2209 example configuration for an X axis might
-look like:
+"stallguard" settings. A tmc2209 example configuration for an X axis might look
+like:
 
 ```
 [tmc2209 stepper_x]
@@ -196,8 +195,8 @@ configuration and it must be corrected before continuing.)
 When searching for maximum_sensitivity, it may be convenient to jump to
 different VALUE settings (so as to bisect the VALUE parameter). If doing this
 then be prepared to issue an `M112` command to halt the printer, as a setting
-with a very low sensitivity may cause the axis to repeatedly "bang" into the
-end of the rail.
+with a very low sensitivity may cause the axis to repeatedly "bang" into the end
+of the rail.
 
 Be sure to wait a couple of seconds between each homing attempt. After the TMC
 driver detects a stall it may take a little time for it to clear its internal
@@ -212,16 +211,16 @@ and a move command may cause undesirable and confusing results.
 
 When homing with the found *maximum_sensitivity* value, the axis should move to
 the end of the rail and stop with a "single touch" - that is, there should not
-be a "clicking" or "banging" sound. (If there is a banging or clicking sound
-at maximum_sensitivity then the homing_speed may be too low, the driver current
-may be too low, or sensorless homing may not be a good choice for the axis.)
+be a "clicking" or "banging" sound. (If there is a banging or clicking sound at
+maximum_sensitivity then the homing_speed may be too low, the driver current may
+be too low, or sensorless homing may not be a good choice for the axis.)
 
 The next step is to again continually move the carriage to a position near the
 center of the rail, decrease the sensitivity, and run the `SET_TMC_FIELD`
 `G28 X0` commands - the goal is now to find the lowest sensitivity that still
 results in the carriage successfully homing with a "single touch". That is, it
-does not "bang" or "click" when contacting the end of the rail. Note the
-found value as *minimum_sensitivity*.
+does not "bang" or "click" when contacting the end of the rail. Note the found
+value as *minimum_sensitivity*.
 
 ### Update printer.cfg with sensitivity value
 
@@ -295,14 +294,14 @@ printer. Klipper uses the `[stepper_x]` stepper to detect stalls when homing the
 X carriage and uses the `[stepper_y]` stepper to detect stalls when homing the Y
 carriage.
 
-Use the tuning guide described above to find the appropriate "stall
-sensitivity" for each carriage, but be aware of the following restrictions:
+Use the tuning guide described above to find the appropriate "stall sensitivity"
+for each carriage, but be aware of the following restrictions:
 
-1. When using sensorless homing on CoreXY, make sure there is no `hold_current` in
-effect for either stepper during homing.
-2. While tuning, make sure both the X and Y carriages are near the center of their
-rails before each home attempt.
-3. After tuning is complete, when homing both X and Y, use macros to ensure that
+1. When using sensorless homing on CoreXY, make sure there is no `hold_current`
+in effect for either stepper during homing.
+1. While tuning, make sure both the X and Y carriages are near the center of
+their rails before each home attempt.
+1. After tuning is complete, when homing both X and Y, use macros to ensure that
 one axis is homed first, then move that carriage away from the axis limit,
 pause for at least 2 seconds, and then start the homing of the other carriage.
 The move away from the axis avoids homing one axis while the other is pressed
@@ -311,9 +310,7 @@ necessary to ensure the driver's stall flag is cleared prior to homing again.
 
 # Querying and diagnosing driver settings
 
-The `[DUMP_TMC command](G-Codes.md#tmc-stepper-drivers) is a useful tool when
-configuring and diagnosing the drivers. It will report all fields configured by
-Klipper as well as all fields that can be queried from the driver.
+The `[DUMP_TMC command](G-Codes.md#tmc-stepper-drivers) is a useful tool when configuring and diagnosing the drivers. It will report all fields configured by Klipper as well as all fields that can be queried from the driver.
 
 All of the reported fields are defined in the Trinamic datasheet for each
 driver. These datasheets can be found on the [Trinamic
@@ -322,10 +319,10 @@ for the driver to interpret the results of DUMP_TMC.
 
 # Configuring driver_XXX settings
 
-Klipper supports configuring many low-level driver fields using `driver_XXX` settings.
-The [TMC driver config reference](Config_Reference.md#tmc-stepper-
-driver-configuration) has the full list of fields available for each type of
-driver.
+Klipper supports configuring many low-level driver fields using `driver_XXX`
+settings. The [TMC driver config
+reference](Config_Reference.md#tmc-stepper-driver-configuration) has the full
+list of fields available for each type of driver.
 
 In addition, almost all fields can be modified at run-time using the
 [SET_TMC_FIELD command](G-Codes.md#tmc-stepper-drivers).
@@ -333,25 +330,24 @@ In addition, almost all fields can be modified at run-time using the
 Each of these fields is defined in the Trinamic datasheet for each driver. These
 datasheets can be found on the [Trinamic website](https://www.trinamic.com/).
 
-Note that the Trinamic datasheets sometime use wording that can confuse a high-
-level setting (such as "hysteresis end") with a low-level field value (eg,
+Note that the Trinamic datasheets sometime use wording that can confuse a
+high-level setting (such as "hysteresis end") with a low-level field value (eg,
 "HEND"). In Klipper, `driver_XXX` and SET_TMC_FIELD always set the low-level
 field value that is actually written to the driver. So, for example, if the
 Trinamic datasheet states that a value of 3 must be written to the HEND field to
-obtain a "hysteresis end" of 0, then set `driver_HEND=3` to obtain the high-
-level value of 0.
+obtain a "hysteresis end" of 0, then set `driver_HEND=3` to obtain the
+high-level value of 0.
 
 # Common Questions
 
 ## Can I use stealthchop mode on an extruder with pressure advance?
 
-Many people successfully use "stealthchop" mode with Klipper's pressure
-advance. Klipper implements [smooth pressure advance](Kinematics.md#pressure-
-advance) which does not introduce any instantaneous velocity changes.
+Many people successfully use "stealthchop" mode with Klipper's pressure advance.
+Klipper implements [smooth pressure advance](Kinematics.md#pressure-advance)
+which does not introduce any instantaneous velocity changes.
 
-However, "stealthchop" mode may produce lower motor torque and/or produce
-higher motor heat. It may or may not be an adequate mode for your particular
-printer.
+However, "stealthchop" mode may produce lower motor torque and/or produce higher
+motor heat. It may or may not be an adequate mode for your particular printer.
 
 ## I keep getting "Unable to read tmc uart 'stepper_x' register IFCNT" errors?
 

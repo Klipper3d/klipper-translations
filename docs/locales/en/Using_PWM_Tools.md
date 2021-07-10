@@ -37,7 +37,6 @@ output to shutdown value.
 
 If you use Laserweb, a working configuration would be:
 
-
     GCODE START:
         M5            ; Disable Laser
         G21           ; Set units to mm
@@ -62,4 +61,3 @@ If you use Laserweb, a working configuration would be:
     
     LASER INTENSITY:
         S
-

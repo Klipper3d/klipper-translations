@@ -1,9 +1,11 @@
 #!/bin/bash
-#Automatically generate a set of po and md files for 
-#Localization in the ./locales/[language]/ folder
-#requirement: pip install mdpo
+# Automatically generate a set of po and md files for 
+# Localization files in the ./locales/[language]/ folder
+# Prerequisit: pip install mdpo
 
 width=71
+
+md2po -v
 
 for dir in docs/locales/*/; do
   dir=${dir%*/}
@@ -22,7 +24,7 @@ for dir in docs/locales/*/; do
     targetmdfile=docs/locales/$dir/$mdfile #Add target directory to mdfile
     echo "Converting $mdfile to $pofile"
     command="md2po $mdfilepath --md-encoding utf-8 --po-encoding utf-8 \
-    -e utf-8 -w $width -q -s -c --po-filepath $pofilepath"
+    -w $width -q -s -c --po-filepath $pofilepath"
     echo "$command"
     $($command)
     echo "Converting $pofile to $mdfile"
@@ -30,5 +32,6 @@ for dir in docs/locales/*/; do
     -p $pofilepath -q -s $targetmdfile"
     echo "$command"
     $($command)
+    
   done
 done

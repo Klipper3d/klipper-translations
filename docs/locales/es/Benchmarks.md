@@ -51,10 +51,10 @@ queue_step oid=2 interval=3000 count=1 add=0
 ```
 
 The above tests three steppers simultaneously stepping. If running the above
-results in a "Rescheduled timer in the past" or "Stepper too far in past"
-error then it indicates the `ticks` parameter is too low (it results in a
-stepping rate that is too fast). The goal is to find the lowest setting of the
-ticks parameter that reliably results in a successful completion of the test. It
+results in a "Rescheduled timer in the past" or "Stepper too far in past" error
+then it indicates the `ticks` parameter is too low (it results in a stepping
+rate that is too fast). The goal is to find the lowest setting of the ticks
+parameter that reliably results in a successful completion of the test. It
 should be possible to bisect the ticks parameter until a stable value is found.
 
 On a failure, one can copy-and-paste the following to clear the error in
@@ -103,7 +103,7 @@ configured for an atmega644p (previous tests have confirmed simulavr results
 match tests on both a 16Mhz at90usb and a 16Mhz atmega2560).
 
 | avr | ticks |
-| ----- | ----- |
+| --- | --- |
 | 1 stepper | 104 |
 | 2 stepper | 296 |
 | 3 stepper | 472 |
@@ -124,7 +124,7 @@ The test was last run on commit `8d4a5c16` with gcc version
 `arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0`.
 
 | sam3x8e | ticks |
-| ------- | ----- |
+| --- | --- |
 | 1 stepper | 388 |
 | 2 stepper | 405 |
 | 3 stepper | 576 |
@@ -147,7 +147,7 @@ The test was last run on commit `8d4a5c16` with gcc version
 `arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0`.
 
 | sam4s8c | ticks |
-| ------- | ----- |
+| --- | --- |
 | 1 stepper | 527 |
 | 2 stepper | 535 |
 | 3 stepper | 638 |
@@ -172,7 +172,7 @@ The test was last run on commit `59a60d68` with gcc version
 `arm-none-eabi-gcc 7.3.1 20180622 (release) [ARM/embedded-7-branch revision 261907]`.
 
 | sam4e8e | ticks |
-| ------- | ----- |
+| --- | --- |
 | 1 stepper | 519 |
 | 2 stepper | 520 |
 | 3 stepper | 525 |
@@ -195,7 +195,7 @@ The test was last run on commit `b161a69e` with gcc version
 `pru-gcc (GCC) 8.0.0 20170530 (experimental)`.
 
 | pru | ticks |
-| ----- | ----- |
+| --- | --- |
 | 1 stepper | 861 |
 | 2 stepper | 853 |
 | 3 stepper | 883 |
@@ -216,7 +216,7 @@ The test was last run on commit `0b0c47c5` with gcc version
 `arm-none-eabi-gcc (Fedora 9.2.0-1.fc30) 9.2.0`.
 
 | stm32f042 | ticks |
-| --------- | ----- |
+| --- | --- |
 | 1 stepper | 247 |
 | 2 stepper | 328 |
 | 3 stepper | 558 |
@@ -237,7 +237,7 @@ The test was last run on commit `8d4a5c16` with gcc version
 `arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0`.
 
 | stm32f103 | ticks |
-| --------- | ----- |
+| --- | --- |
 | 1 stepper | 347 |
 | 2 stepper | 372 |
 | 3 stepper | 600 |
@@ -263,7 +263,7 @@ obtained by running an STM32F407 binary on an STM32F446 (and thus using a 168Mhz
 clock).
 
 | stm32f446 | ticks |
-| --------- | ----- |
+| --- | --- |
 | 1 stepper | 757 |
 | 2 stepper | 761 |
 | 3 stepper | 757 |
@@ -272,7 +272,7 @@ clock).
 | 3 stepper (no delay) | 226 |
 
 | stm32f407 | ticks |
-| --------- | ----- |
+| --- | --- |
 | 1 stepper | 709 |
 | 2 stepper | 714 |
 | 3 stepper | 709 |
@@ -297,7 +297,7 @@ The test was last run on commit `8d4a5c16` with gcc version
 obtained by overclocking an LPC1768 to 120Mhz.
 
 | lpc1768 | ticks |
-| ------- | ----- |
+| --- | --- |
 | 1 stepper | 448 |
 | 2 stepper | 450 |
 | 3 stepper | 523 |
@@ -305,7 +305,7 @@ obtained by overclocking an LPC1768 to 120Mhz.
 | 3 stepper (no delay) | 240 |
 
 | lpc1769 | ticks |
-| ------- | ----- |
+| --- | --- |
 | 1 stepper | 525 |
 | 2 stepper | 526 |
 | 3 stepper | 545 |
@@ -328,7 +328,7 @@ The test was last run on commit `8d4a5c16` with gcc version
 `arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0` on a SAMD21G18 micro-controller.
 
 | samd21 | ticks |
-| ------ | ----- |
+| --- | --- |
 | 1 stepper | 277 |
 | 2 stepper | 410 |
 | 3 stepper | 664 |
@@ -354,7 +354,7 @@ The test was last run on commit `524ebbc7` with gcc version
 micro-controller.
 
 | samd51 | ticks |
-| ------ | ----- |
+| --- | --- |
 | 1 stepper | 516 |
 | 2 stepper | 520 |
 | 3 stepper | 520 |
@@ -384,7 +384,7 @@ The test was last run on commit `c5667193` with gcc version
 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a Raspberry Pi Pico board.
 
 | rp2040 | ticks |
-| ------ | ----- |
+| --- | --- |
 | 1 stepper | 52 |
 | 2 stepper | 52 |
 | 3 stepper | 52 |
@@ -409,16 +409,16 @@ The test was last run on commit `db0fb5d5` with gcc version
 (revision a22082).
 
 | Linux (RPi3) | ticks |
-| ------------ | ----- |
+| --- | --- |
 | 1 stepper | 349 |
 | 2 stepper | 350 |
 | 3 stepper | 400 |
 
 ## Command dispatch benchmark
 
-The command dispatch benchmark tests how many "dummy" commands the micro-
-controller can process. It is primarily a test of the hardware communication
-mechanism. The test is run using the console.py tool (described in
+The command dispatch benchmark tests how many "dummy" commands the
+micro-controller can process. It is primarily a test of the hardware
+communication mechanism. The test is run using the console.py tool (described in
 [Debugging.md]). The following is cut-and-paste into the console.py terminal
 window:
 
@@ -439,7 +439,7 @@ benchmarks below are with console.py running on a desktop class machine with the
 device connected via a high-speed hub.
 
 | MCU | Rate | Build | Build compiler |
-| ----- | ----- | ----- | -------------- |
+| --- | --- | --- | --- |
 | stm32f042 (CAN) | 18K | c105adc8 | arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1 |
 | atmega2560 (serial) | 23K | b161a69e | avr-gcc (GCC) 4.8.1 |
 | sam3x8e (serial) | 23K | b161a69e | arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0 |

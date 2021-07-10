@@ -40,32 +40,28 @@ Available on 20201028. Release containing only bug fixes.
 
 Available on 20191021. Major changes in this release:
 
-* New G-Code command template support. G-Code in the config file is now evaluated
-with the Jinja2 template language.
+* New G-Code command template support. G-Code in the config file is now
+evaluated with the Jinja2 template language.
 * Improvements to Trinamic stepper drivers:
-  * New support for TMC2209 and TMC5160 drivers.
-  * Improved DUMP_TMC, SET_TMC_CURRENT, and INIT_TMC G-Code commands.
-  * Improved support for TMC UART handling with an analog mux.
-
+   * New support for TMC2209 and TMC5160 drivers.
+   * Improved DUMP_TMC, SET_TMC_CURRENT, and INIT_TMC G-Code commands.
+   * Improved support for TMC UART handling with an analog mux.
 * Improved homing, probing, and bed leveling support:
-  * New manual_probe, bed_screws, screws_tilt_adjust, skew_correction, safe_z_home
+   * New manual_probe, bed_screws, screws_tilt_adjust, skew_correction, safe_z_home
 modules added.
-  * Enhanced multi-sample probing with median, average, and retry logic.
-  * Improved documentation for BL-Touch, probe calibration, endstop calibration,
+   * Enhanced multi-sample probing with median, average, and retry logic.
+   * Improved documentation for BL-Touch, probe calibration, endstop calibration,
 delta calibration, sensorless homing, and endstop phase calibration.
-  * Improved homing support on a large Z axis.
-
+   * Improved homing support on a large Z axis.
 * Many Klipper micro-controller improvements:
-  * Klipper ported to: SAM3X8C, SAM4S8C, SAMD51, STM32F042, STM32F4
-  * New USB CDC driver implementations on SAM3X, SAM4, STM32F4.
-  * Enhanced support for flashing Klipper over USB.
-  * Software SPI support.
-  * Greatly improved temperature filtering on the LPC176x.
-  * Early output pin settings can be configured in the micro-controller.
-
+   * Klipper ported to: SAM3X8C, SAM4S8C, SAMD51, STM32F042, STM32F4
+   * New USB CDC driver implementations on SAM3X, SAM4, STM32F4.
+   * Enhanced support for flashing Klipper over USB.
+   * Software SPI support.
+   * Greatly improved temperature filtering on the LPC176x.
+   * Early output pin settings can be configured in the micro-controller.
 * New website with the Klipper documentation: http://klipper3d.org/
-  * Klipper now has a logo.
-
+   * Klipper now has a logo.
 * Experimental support for polar and "cable winch" kinematics.
 * The config file can now include other config files.
 * Many additional modules added: board_pins, controller_fan, delayed_gcode,
@@ -94,16 +90,14 @@ quad_gantry_level, endstop_phase, bltouch
 SET_GCODE_OFFSET, SET_VELOCITY_LIMIT, STEPPER_BUZZ, TURN_OFF_HEATERS, M204,
 custom g-code macros
 * Expanded LCD display support:
-  * Support for run-time menus
-  * New display icons
-  * Support for "uc1701" and "ssd1306" displays
-
+   * Support for run-time menus
+   * New display icons
+   * Support for "uc1701" and "ssd1306" displays
 * Additional micro-controller support:
-  * Klipper ported to: LPC176x (Smoothieboards), SAM4E8E (Duet2), SAMD21 (Arduino
+   * Klipper ported to: LPC176x (Smoothieboards), SAM4E8E (Duet2), SAMD21 (Arduino
 Zero), STM32F103 ("Blue pill" devices), atmega32u4
-  * New Generic USB CDC driver implemented on AVR, LPC176x, SAMD21, and STM32F103
-  * Performance improvements on ARM processors
-
+   * New Generic USB CDC driver implemented on AVR, LPC176x, SAMD21, and STM32F103
+   * Performance improvements on ARM processors
 * The kinematics code was rewritten to use an "iterative solver"
 * New automatic test cases for the Klipper host software
 * Many new example config files for common off-the-shelf printers
@@ -124,9 +118,8 @@ delta_calibrate command)
 * Initial support for displaying status on RepRapDiscount style 2004 and 12864
 displays
 * New multi-extruder improvements:
-  * Support for shared heaters
-  * Initial support for dual carriages
-
+   * Support for shared heaters
+   * Initial support for dual carriages
 * Support for configuring multiple steppers per axis (eg, dual Z)
 * Support for custom digital and pwm output pins (with a new SET_PIN command)
 * Initial support for a "virtual sdcard" that allows printing directly from
@@ -135,11 +128,10 @@ Klipper (helps on machines too slow to run OctoPrint well)
 * Support for G-Code M220/M221 commands (speed factor override / extrude factor
 override)
 * Several documentation updates:
-  * Many new example config files for common off-the-shelf printers
-  * New multiple MCU config example
-  * New bltouch sensor config example
-  * New FAQ, config check, and G-Code documents
-
+   * Many new example config files for common off-the-shelf printers
+   * New multiple MCU config example
+   * New bltouch sensor config example
+   * New FAQ, config check, and G-Code documents
 * Initial support for continuous integration testing on all github commits
 * Several bug fixes and code cleanups
 
@@ -190,8 +182,7 @@ Available on 20161223. Major changes in this release:
 * Support for "pressure advance" algorithm - it reduces ooze during prints.
 * New "stepper phased based endstop" feature - enables higher precision on
 endstop homing.
-* Support for "extended g-code" commands such as "help", "restart", and
-"status".
+* Support for "extended g-code" commands such as "help", "restart", and "status".
 * Support for reloading the Klipper config and restarting the host software by
 issuing a "restart" command from the terminal.
 * Stepper performance improvements (20Mhz AVRs up to 158K steps per second).

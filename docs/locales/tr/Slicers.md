@@ -1,12 +1,12 @@
-This document provides some tips for configuring a "slicer" application for
-use with Klipper. Common slicers used with Klipper are Slic3r, Cura, Simplify3D,
+This document provides some tips for configuring a "slicer" application for use
+with Klipper. Common slicers used with Klipper are Slic3r, Cura, Simplify3D,
 etc.
 
 # Set the G-Code flavor to Marlin
 
 Many slicers have an option to configure the "G-Code flavor". The default is
-frequently "Marlin" and that works well with Klipper. The "Smoothieware"
-setting also works well with Klipper.
+frequently "Marlin" and that works well with Klipper. The "Smoothieware" setting
+also works well with Klipper.
 
 # Klipper gcode_macro
 
@@ -15,7 +15,7 @@ sequences. It is often convenient to define custom macros in the Klipper config
 file instead - such as: `[gcode_macro START_PRINT]` and `[gcode_macro END_PRINT]`.
 Then one can just run START_PRINT and END_PRINT in the slicer's configuration.
 Defining these actions in the Klipper configuration may make it easier to tweak
-the printer's start and end steps as changes do not require re- slicing.
+the printer's start and end steps as changes do not require re-slicing.
 
 See [sample-macros.cfg](../config/sample-macros.cfg) for example START_PRINT and
 END_PRINT macros.
@@ -39,16 +39,15 @@ config file.
 
 # Do not enable "coasting"
 
-The "coasting" feature is likely to result in poor quality prints with
-Klipper. Consider using Klipper's [pressure advance](Pressure_Advance.md)
-instead.
+The "coasting" feature is likely to result in poor quality prints with Klipper.
+Consider using Klipper's [pressure advance](Pressure_Advance.md) instead.
 
 Specifically, if the slicer dramatically changes the extrusion rate between
 moves then Klipper will perform deceleration and acceleration between moves.
 This is likely to make blobbing worse, not better.
 
-In contrast, it is okay (and often helpful) to use a slicer's "retract"
-setting, "wipe" setting, and/or "wipe on retract" setting.
+In contrast, it is okay (and often helpful) to use a slicer's "retract" setting,
+"wipe" setting, and/or "wipe on retract" setting.
 
 # Do not use "extra restart distance" on Simplify3d
 
@@ -59,8 +58,8 @@ setting instead.
 
 # Disable "PreloadVE" on KISSlicer
 
-If using KISSlicer slicing software then set "PreloadVE" to zero. Consider
-using Klipper's [pressure advance](Pressure_Advance.md) instead.
+If using KISSlicer slicing software then set "PreloadVE" to zero. Consider using
+Klipper's [pressure advance](Pressure_Advance.md) instead.
 
 # Disable any "advanced extruder pressure" settings
 
@@ -79,5 +78,5 @@ movement - which is not the slicer's intent. The slicer may even command
 excessive extrusion rates to the point that it triggers Klipper's maximum
 extrusion cross-section check.
 
-In contrast, it is okay (and often helpful) to use a slicer's "retract"
-setting, "wipe" setting, and/or "wipe on retract" setting.
+In contrast, it is okay (and often helpful) to use a slicer's "retract" setting,
+"wipe" setting, and/or "wipe on retract" setting.

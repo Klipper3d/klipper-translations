@@ -1,5 +1,5 @@
-This document describes Klipper's automatic calibration system for "delta"
-style printers.
+This document describes Klipper's automatic calibration system for "delta" style
+printers.
 
 Delta calibration involves finding the tower endstop positions, tower angles,
 delta radius, and delta arm lengths. These settings control printer motion on a
@@ -57,9 +57,9 @@ this setting from the config.)
 There are two ways to perform the probing - manual probing (
 `DELTA_CALIBRATE METHOD=manual`) and automatic probing (`DELTA_CALIBRATE`). The
 manual probing method will move the head near the bed and then wait for the user
-to follow the steps described at ["the paper
-test"](Bed_Level.md#the-paper-test) to determine the actual distance between
-the nozzle and bed at the given location.
+to follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test)
+to determine the actual distance between the nozzle and bed at the given
+location.
 
 To perform the basic probe, make sure the config has a [delta_calibrate] section
 defined and then run the tool:
@@ -213,22 +213,20 @@ printer configuration and the raw measurements no longer apply.
 
 ## Additional notes
 
-* If the delta printer has good dimensional accuracy then the distance between any
-two pillars should be around 74mm and the width of every pillar should be around
-9mm. (Specifically, the goal is for the distance between any two pillars minus
-the width of one of the pillars to be exactly 65mm.) Should there be a
+* If the delta printer has good dimensional accuracy then the distance between
+any two pillars should be around 74mm and the width of every pillar should be
+around 9mm. (Specifically, the goal is for the distance between any two pillars
+minus the width of one of the pillars to be exactly 65mm.) Should there be a
 dimensional inaccuracy in the part then the DELTA_ANALYZE routine will calculate
 new delta parameters using both the distance measurements and the previous
 height measurements from the last DELTA_CALIBRATE command.
-
-* DELTA_ANALYZE may produce delta parameters that are surprising. For example, it
-may suggest arm lengths that do not match the printer's actual arm lengths.
+* DELTA_ANALYZE may produce delta parameters that are surprising. For example,
+it may suggest arm lengths that do not match the printer's actual arm lengths.
 Despite this, testing has shown that DELTA_ANALYZE often produces superior
 results. It is believed that the calculated delta parameters are able to account
 for slight errors elsewhere in the hardware. For example, small differences in
 arm length may result in a tilt to the effector and some of that tilt may be
 accounted for by adjusting the arm length parameters.
-
 
 # Using Bed Mesh on a Delta
 

@@ -1,94 +1,70 @@
-This document provides contact information for Klipper.
+本文档提供了关于 Klipper 的联系信息。
 
-1. [Community Forum](#community-forum)
-2. [Discord Chat](#discord-chat)
-3. [I have a question about Klipper](#i-have-a-question-about-klipper)
-4. [I have a feature request](#i-have-a-feature-request)
-5. [Help! It doesn't work!](#help-it-doesnt-work)
-6. [I have diagnosed a defect in the Klipper software](#i-have-diagnosed-a-defect-
-in-the-klipper-software)
-7. [I am making changes that I'd like to include in Klipper](#i-am-making-changes-
-that-id-like-to-include-in-klipper)
+1. [社区论坛](#community-forum)
+1. [Discord聊天](#discord-chat)
+1. [我有一个关于 Klipper 的问题](#i-have-a-question-about-klipper)
+1. [我有一个功能请求](#i-have-a-feature-request)
+1. [我需要帮助！它炸了！](#help-it-doesnt-work)
+1. [我在 Klipper 中发现了一个缺陷](#i-have-diagnosed-a-defect-in-the-klipper-software)
+1. [我正在进行我想纳入 Klipper 的修改](#i-am-making-changes-that-id-like-to-include-in-klipper)
 
-# Community Forum
+# 社区论坛
 
-There is a [Klipper Community Discourse server](https://community.klipper3d.org)
-for discussions on Klipper.
+有一个用来讨论 Klipper 的 [Klipper 社区 Discourse 服务器](https://community.klipper3d.org)。
 
-# Discord Chat
+# Discord聊天
 
 There is a Discord server dedicated to Klipper at:
 <https://discord.klipper3d.org>.
 
-This server is run by a community of Klipper enthusiasts dedicated to
-discussions on Klipper. It allows users to chat with other users in real-time.
+这个服务器是由 Klipper 爱好者社区运行的，致力于讨论Klipper。它允许进行用户间的实时聊天。
 
-# I have a question about Klipper
+# 我有一个关于 Klipper 的问题
 
-Many questions we receive are already answered in the [Klipper
-documentation](Overview.md). Please be sure to to read the documentation and
-follow the directions provided there.
+我们收到的许多问题在 [Klipper 文档](Overview.md)中已经有了答案。请务必阅读该文档并遵循其中提供的指示。
 
-It is also possible to search for similar questions in the [Klipper Community
-Forum](#community-forum).
+也可以在[ Klipper 社区论坛](#community-forum)中搜索类似的问题。
 
-If you are interested in sharing your knowledge and experience with other
-Klipper users then you can join the [Klipper Community Forum](#community-forum)
-or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper
-users can discuss Klipper with other users.
+如果你有兴趣与其他Klipper用户分享你的知识和经验，那么你可以加入[ Klipper 社区论坛](#community-forum)或[ Klipper
+Discord 聊天室](#discord-chat)。这两个社区都是 Klipper 用户互相讨论Klipper 的地方。
 
-Many questions we receive are general 3d-printing questions that are not
-specific to Klipper. If you have a general question or are experiencing general
-printing problems, then you will likely get a better response by asking in a
-general 3d-printing forum or a forum dedicated to your printer hardware.
+我们经常收到许多并不针对 Klipper
+的常规3D打印问题。如果你有常规的问题或遇到常规的打印问题，那么你可能会在一般的3D打印论坛或专门针对你的打印机硬件的论坛上得到更好的答案。
 
-Do not open a Klipper github issue to ask a question.
+不要在 Klipper 的 Github 上创建议题来提问。
 
-# I have a feature request
+# 我有一个功能请求
 
-All new features require someone interested and able to implement that feature.
-If you are interested in helping to implement or test a new feature, you can
-search for ongoing developments in the [Klipper Community Forum](#community-
-forum). There is also [Klipper Discord Chat](#discord-chat) for discussions
-between collaborators.
+所有的新功能都需要有人对该功能感兴趣并能够实现。如果你想帮助实现或测试一个新功能，你可以在[ Klipper
+社区论坛](#community-forum)中搜索正在进行的开发。还有[Klipper Discord
+聊天室](#discord-chat)供合作者之间讨论。
 
-Do not open a Klipper github issue to request a feature.
+不要在 Klipper 的 Github 上创建议题来请求功能。
 
-# Help! It doesn't work!
+# 我需要帮助！它不起作用！
 
-Unfortunately, we receive many more requests for help than we could possibly
-answer. Most problem reports we see are eventually tracked down to:
+不幸的是，我们收到的帮助请求往往比我们能够回答的要多。我们发现大多数问题报告的根本原因都是：
 
-1. Subtle errors in the hardware, or
-2. Not following all the steps described in the Klipper documentation.
+1. 细微的硬件问题或
+1. 未遵循 Klipper 文档中描述的所有步骤。
 
-If you are experiencing problems we recommend you carefully read the [Klipper
-documentation](Overview.md) and double check that all steps were followed.
+如果您遇到了问题，我们建议您仔细阅读 [Klipper 文档](Overview.md) 并再次检查是否遵循了所有步骤。
 
-If you are experiencing a printing problem, then we recommend carefully
-inspecting the printer hardware (all joints, wires, screws, etc.) and verify
-nothing is abnormal. We find most printing problems are not related to the
-Klipper software. If you do find a problem with the printer hardware then you
-will likely get a better response by searching in a general 3d-printing forum or
-in a forum dedicated to your printer hardware.
+如果你遇到了打印问题，我们建议仔细检查打印机的硬件（所有接头、电线、螺丝等），确认没有任何异常。我们发现大多数打印问题都与 Klipper
+软件无关。如果你确实发现了打印机硬件的问题，在一般的3D打印论坛或专门针对你的打印机硬件的论坛上搜索通常可以得到更好的答复。
 
-It is also possible to search for similar issues in the [Klipper Community
-Forum](#community-forum).
+也可以在[ Klipper 社区论坛](#community-forum)中查找类似的问题。
 
-If you are interested in sharing your knowledge and experience with other
-Klipper users then you can join the [Klipper Community Forum](#community-forum)
-or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper
-users can discuss Klipper with other users.
+如果你有兴趣与其他Klipper用户分享你的知识和经验，那么你可以加入[ Klipper 社区论坛](#community-forum)或[ Klipper
+Discord 聊天室](#discord-chat)。这两个社区都是 Klipper 用户互相讨论Klipper 的地方。
 
-Do not open a Klipper github issue to request help.
+不要在 Klipper 的 Github 上创建议题来求助。
 
-# I have diagnosed a defect in the Klipper software
+# 我在 Klipper 软件中诊断出了一个缺陷
 
-Klipper is an open-source project and we appreciate when collaborators diagnose
-errors in the software.
+Klipper 是一个开源项目，我们诚挚的感谢贡献者们在软件中诊断出错误。
 
-There is important information that will be needed in order to fix a bug. Please
-follow these steps:
+为了修复一个错误，一些重要的信息需要被提供。请遵循以下步骤：
 
 1. Be sure the bug is in the Klipper software. If you are thinking "there is a
 problem, I can't figure out why, and therefore it is a Klipper bug", then **do
@@ -97,44 +73,37 @@ to first research and diagnose the root cause of the problem. If you would like
 to share the results of your research or check if other users are experiencing
 similar issues then you can search the [Klipper Community Forum](#community-
 forum).
-
-2. Make sure you are running unmodified code from
+1. Make sure you are running unmodified code from
 <https://github.com/KevinOConnor/klipper>. If the code has been modified or is
 obtained from another source, then you will need to reproduce the problem on the
 unmodified code from <https://github.com/KevinOConnor/klipper> prior to
 reporting an issue.
-
-3. If possible, run an `M112` command in the OctoPrint terminal window immediately
-after the undesirable event occurs. This causes Klipper to go into a "shutdown
-state" and it will cause additional debugging information to be written to the
-log file.
-
-4. Obtain the Klipper log file from the event. The log file has been engineered to
-answer common questions the Klipper developers have about the software and its
-environment (software version, hardware type, configuration, event timing, and
-hundreds of other questions).
-
+1. If possible, run an `M112` command in the OctoPrint terminal window
+immediately after the undesirable event occurs. This causes Klipper to go into a
+"shutdown state" and it will cause additional debugging information to be
+written to the log file.
+1. Obtain the Klipper log file from the event. The log file has been engineered
+to answer common questions the Klipper developers have about the software and
+its environment (software version, hardware type, configuration, event timing,
+and hundreds of other questions).
    1. The Klipper log file is located in `/tmp/klippy.log` on the Klipper "host"
 computer (the Raspberry Pi).
-   2. An "scp" or "sftp" utility is needed to copy this log file to your desktop
-computer. The "scp" utility comes standard with Linux and MacOS desktops.
-There are freely available scp utilities for other desktops (eg, WinSCP). If
-using a graphical scp utility that can not directly copy `/tmp/klippy.log` then
-repeatedly click on `..` or `parent folder` until you get to the root
-directory, click on the `tmp` folder, and then select the `klippy.log` file.
-   3. Copy the log file to your desktop so that it can be attached to an issue
-report.
-   4. Do not modify the log file in any way; do not provide a snippet of the log.
+   1. An "scp" or "sftp" utility is needed to copy this log file to your desktop
+computer. The "scp" utility comes standard with Linux and MacOS desktops. There
+are freely available scp utilities for other desktops (eg, WinSCP). If using a
+graphical scp utility that can not directly copy `/tmp/klippy.log` then
+repeatedly click on `..` or `parent folder` until you get to the root directory,
+click on the `tmp` folder, and then select the `klippy.log` file.
+   1. Copy the log file to your desktop so that it can be attached to an issue report.
+   1. Do not modify the log file in any way; do not provide a snippet of the log.
 Only the full unmodified log file provides the necessary information.
-   5. If the log file is very large (eg, greater than 2MB) then one may need to
+   1. If the log file is very large (eg, greater than 2MB) then one may need to
 compress the log with zip or gzip.
 
-5. Open a new github issue at <https://github.com/KevinOConnor/klipper/issues> and
-provide a clear description of the problem. The Klipper developers need to
+   1. Open a new github issue at <https://github.com/KevinOConnor/klipper/issues>
+and provide a clear description of the problem. The Klipper developers need to
 understand what steps were taken, what the desired outcome was, and what outcome
-actually occurred. The Klipper log file **must be attached** to that ticket:
-![attach-issue](img/attach-issue.png)
-
+actually occurred. The Klipper log file **must be attached** to that ticket:![attach-issue](img/attach-issue.png)
 
 # I am making changes that I'd like to include in Klipper
 
@@ -144,9 +113,10 @@ New contributions (for both code and documentation) are submitted via Github
 Pull Requests. See the [CONTRIBUTING document](CONTRIBUTING.md) for important
 information.
 
-There are several [documents for developers](Overview.md#developer-
-documentation). If you have questions on the code then you can also ask in the
-[Klipper Community Forum](#community-forum) or on the [Klipper Community
-Discord](#discord-chat). If you would like to provide an update on your current
-progress then you can open a Github issue with the location of your code, an
-overview of the changes, and a description of its current status.
+There are several [documents for
+developers](Overview.md#developer-documentation). If you have questions on the
+code then you can also ask in the [Klipper Community Forum](#community-forum) or
+on the [Klipper Community Discord](#discord-chat). If you would like to provide
+an update on your current progress then you can open a Github issue with the
+location of your code, an overview of the changes, and a description of its
+current status.

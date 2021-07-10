@@ -38,8 +38,8 @@ cd ~/klipper/
 make menuconfig
 ```
 
-In the menu, set "Microcontroller Architecture" to "Linux process," then
-save and exit.
+In the menu, set "Microcontroller Architecture" to "Linux process," then save
+and exit.
 
 To build and install the new micro-controller code, run:
 
@@ -49,8 +49,8 @@ make flash
 sudo service klipper start
 ```
 
-If klippy.log reports a "Permission denied" error when attempting to connect
-to `/tmp/klipper_host_mcu` then you need to add your user to the tty group. The
+If klippy.log reports a "Permission denied" error when attempting to connect to
+`/tmp/klipper_host_mcu` then you need to add your user to the tty group. The
 following command will add the "pi" user to the tty group:
 
 ```
@@ -70,7 +70,8 @@ gpiochip. They can therefore be used on klipper simply by referring them with
 the name `gpio0..n`. However, there are cases in which the exposed pins belong
 to gpiochips other than the first. For example in the case of some OrangePi
 models or if a Port Expander is used. In these cases it is useful to use the
-commands to access the *Linux GPIO character device* to verify the configuration.
+commands to access the *Linux GPIO character device* to verify the
+configuration.
 
 To install the *Linux GPIO character device - binary* on a debian based distro
 like octopi run:

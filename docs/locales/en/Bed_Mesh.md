@@ -28,18 +28,14 @@ probe_count: 5,3
 
 - `speed: 120` *Default Value: 50* The speed in which the tool moves between
 points.
-
 - `horizontal_move_z: 5` *Default Value: 5* The Z coordinate the probe rises to
 prior to traveling between points.
-
-- `mesh_min: 35,6` *Required* The first probed coordinate, nearest to the origin.
-This coordinate is relative to the probe's location.
-
-- `mesh_max: 240,198` *Required* The probed coordinate farthest farthest from the
-origin. This is not necessarily the last point probed, as the probing process
-occurs in a zig-zag fashion. As with `mesh_min`, this coordiante is relative to
-the probe's location.
-
+- `mesh_min: 35,6` *Required* The first probed coordinate, nearest to the
+origin. This coordinate is relative to the probe's location.
+- `mesh_max: 240,198` *Required* The probed coordinate farthest farthest from
+the origin. This is not necessarily the last point probed, as the probing
+process occurs in a zig-zag fashion. As with `mesh_min`, this coordiante is
+relative to the probe's location.
 - `probe_count: 5,3` *Default Value: 3,3* The number of points to probe on each
 axis, specified as x,y integer values. In this example 5 points will be probed
 along the X axis, with 3 points along the Y axis, for a total of 15 probed
@@ -47,7 +43,6 @@ points. Note that if you wanted a square grid, for example 3x3, this could be
 specified as a single integer value that is used for both axes, ie
 `probe_count: 3`. Note that a mesh requires a minimum probe_count of 3 along
 each axis.
-
 
 The illustration below demonstrates how the `mesh_min`, `mesh_max`, and
 `probe_count` options are used to generate probe points. The arrows indicate the
@@ -76,17 +71,14 @@ round_probe_count: 5
 the `mesh_origin`. Note that the probe's offsets limit the size of the mesh
 radius. In this example, a radius larger than 76 would move the tool beyond the
 range of the printer.
-
 - `mesh_origin: 0,0` *Default Value: 0,0* The center point of the mesh. This
 coordinate is relative to the probe's location. While the default is 0,0, it may
 be useful to adjust the origin in an effort to probe a larger portion of the
 bed. See the illustration below.
-
-- `round_probe_count: 5` *Default Value: 5* This is an integer value that defines
-the maximum number of probed points along the X and Y axes. By "maximum", we
-mean the number of points probed along the mesh origin. This value must be an
-odd number, as it is required that the center of the mesh is probed.
-
+- `round_probe_count: 5` *Default Value: 5* This is an integer value that
+defines the maximum number of probed points along the X and Y axes. By
+"maximum", we mean the number of points probed along the mesh origin. This value
+must be an odd number, as it is required that the center of the mesh is probed.
 
 The illustration below shows how the probed points are generated. As you can
 see, setting the `mesh_origin` to (-10, 0) allows us to specifiy a larger mesh
@@ -121,9 +113,9 @@ algorithm: bicubic
 bicubic_tension: 0.2
 ```
 
-- `mesh_pps: 2,3` *Default Value: 2,2* The `mesh_pps` option is shorthand for Mesh
-Points Per Segment. This option specifies how many points to interpolate for
-each segment along the x and y axes. Consider a 'segment' to be the space
+- `mesh_pps: 2,3` *Default Value: 2,2* The `mesh_pps` option is shorthand for
+Mesh Points Per Segment. This option specifies how many points to interpolate
+for each segment along the x and y axes. Consider a 'segment' to be the space
 between each probed point. Like `probe_count`, `mesh_pps` is specified as an x,y
 integer pair, and also may be specified a single integer that is applied to both
 axes. In this example there are 4 segments along the X axis and 2 segments along
@@ -131,7 +123,6 @@ the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated
 points along Y, which results in a 13x8 mesh. Note that if mesh_pps is set to 0
 then mesh interpolation is disabled and the probed matrix will be sampled
 directly.
-
 - `algorithm: lagrange` *Default Value: lagrange* The algorithm used to
 interpolate the mesh. May be `lagrange` or `bicubic`. Lagrange interpolation is
 capped at 6 probed points as oscillation tends to occur with a larger number of
@@ -139,13 +130,11 @@ samples. Bicubic interpolation requires a minimum of 4 probed points along each
 axis, if less than 4 points are specified then lagrange sampling is forced. If
 `mesh_pps` is set to 0 then this value is ignored as no mesh interpolation is
 done.
-
-- `bicubic_tension: 0.2` *Default Value: 0.2* If the `algorithm` option is set to
-bicubic it is possible to specify the tension value. The higher the tension the
-more slope is interpolated. Be careful when adjusting this, as higher values
+- `bicubic_tension: 0.2` *Default Value: 0.2* If the `algorithm` option is set
+to bicubic it is possible to specify the tension value. The higher the tension
+the more slope is interpolated. Be careful when adjusting this, as higher values
 also create more overshoot, which will result in interpolated values higher or
 lower than your probed points.
-
 
 The illustration below shows how the options above are used to generate an
 interpolated mesh.
@@ -178,11 +167,9 @@ will continue. This process repeats until the end of the move is reached, where
 a final adjustment will be applied. Moves shorter than the
 `move_check_distance` have the correct Z adjustment applied directly to the move
 without traversal or splitting.
-
 - `split_delta_z: .025` *Default Value: .025* As mentioned above, this is the
 minimum deviation required to trigger a move split. In this example, any Z value
 with a deviation +/- .025mm will trigger a split.
-
 
 Generally the default values for these options are sufficient, in fact the
 default value of 5mm for the `move_check_distance` may be overkill. However an
@@ -191,11 +178,11 @@ out the optimial first layer.
 
 ### Mesh Fade
 
-When "fade" is enabled Z adjustment is phased out over a distance defined by
-the configuration. This is accomplished by applying small adjustments to the
-layer height, either increasing or decreasing depending on the shape of the bed.
-When fade has completed, Z adjustment is no longer applied, allowing the top of
-the print to be flat rather than mirror the shape of the bed. Fade also may have
+When "fade" is enabled Z adjustment is phased out over a distance defined by the
+configuration. This is accomplished by applying small adjustments to the layer
+height, either increasing or decreasing depending on the shape of the bed. When
+fade has completed, Z adjustment is no longer applied, allowing the top of the
+print to be flat rather than mirror the shape of the bed. Fade also may have
 some undesirable traits, if you fade too quickly it can result in visible
 artifacts on the print. Also, if your bed is significantly warped, fade can
 shrink or stretch the Z height of the print. As such, fade is disabled by
@@ -216,14 +203,12 @@ fade_target: 0
 - `fade_start: 1` *Default Value: 1* The Z height in which to start phasing out
 adjustment. It is a good idea to get a few layers down before starting the fade
 process.
-
-- `fade_end: 10` *Default Value: 0* The Z height in which fade should complete. If
-this value is lower than `fade_start` then fade is disabled. This value may be
-adjusted depending on how warped the print surface is. A significantly warped
+- `fade_end: 10` *Default Value: 0* The Z height in which fade should complete.
+If this value is lower than `fade_start` then fade is disabled. This value may
+be adjusted depending on how warped the print surface is. A significantly warped
 surface should fade out over a longer distance. A near flat surface may be able
 to reduce this value to phase out more quickly. 10mm is a sane value to begin
 with if using the default value of 1 for `fade_start`.
-
 - `fade_target: 0` *Default Value: The average Z value of the mesh* The
 `fade_target` can be thought of as an additional Z offset applied to the entire
 bed after fade completes. Generally speaking we would like this value to be 0,
@@ -236,7 +221,6 @@ accurately sized. Generally its a good idea to leave `fade_target` out of the
 configuration so the average height of the mesh is used, however it may be
 desirable to manually adjust the fade target if one wants to print on a specific
 portion of the bed.
-
 
 ### The Relative Reference Index
 
@@ -257,12 +241,12 @@ relative_reference_index: 7
 ```
 
 - `relative_reference_index: 7` *Default Value: None (disabled)* When the probed
-points are generated they are each assigned an index. You can look up this
-index in klippy.log or by using BED_MESH_OUTPUT (see the section on Bed Mesh
-GCodes below for more information). If you assign an index to the
+points are generated they are each assigned an index. You can look up this index
+in klippy.log or by using BED_MESH_OUTPUT (see the section on Bed Mesh GCodes
+below for more information). If you assign an index to the
 `relative_reference_index` option, the value probed at this coordinate will
-replace the probe's z_offset. This effectively makes this coordinate the
-"zero" reference for the mesh.
+replace the probe's z_offset. This effectively makes this coordinate the "zero"
+reference for the mesh.
 
 When using the relative reference index, you should choose the index nearest to
 the spot on the bed where Z endstop calibration was done. Note that when looking
@@ -331,20 +315,17 @@ It is possible to specify mesh parameters to modify the probed area. The
 following parameters are available:
 
 - Rectangular beds (cartesian):
-  - `MESH_MIN`
-  - `MESH_MAX`
-  - `PROBE_COUNT`
-
+   - `MESH_MIN`
+   - `MESH_MAX`
+   - `PROBE_COUNT`
 - Round beds (delta):
-  - `MESH_RADIUS`
-  - `MESH_ORIGIN`
-  - `ROUND_PROBE_COUNT`
-
+   - `MESH_RADIUS`
+   - `MESH_ORIGIN`
+   - `ROUND_PROBE_COUNT`
 - All beds:
-  - `RELATIVE_REFERNCE_INDEX`
-  - `ALGORITHM` See the configuration documentation above for details on how each
+   - `RELATIVE_REFERNCE_INDEX`
+   - `ALGORITHM` See the configuration documentation above for details on how each
 parameter applies to the mesh.
-
 
 ### Profiles
 
@@ -375,8 +356,8 @@ with the named profile you wish to remove.
 Outputs the current mesh state to the terminal. Note that the mesh itself is
 output
 
-The PGP parameter is shorthand for "Print Generated Points". If `PGP=1` is
-set, the generated probed points will be output to the terminal:
+The PGP parameter is shorthand for "Print Generated Points". If `PGP=1` is set,
+the generated probed points will be output to the terminal:
 
 ```
 // bed_mesh: generated points
@@ -398,9 +379,9 @@ set, the generated probed points will be output to the terminal:
 // 14 | (216.0, 193.0) | (240.0, 198.0)
 ```
 
-The "Tool Adjusted" points refer to the nozzle location for each point, and
-the "Probe" points refer to the probe location. Note that when manually
-probing the "Probe" points will refer to both the tool and nozzle locations.
+The "Tool Adjusted" points refer to the nozzle location for each point, and the
+"Probe" points refer to the probe location. Note that when manually probing the
+"Probe" points will refer to both the tool and nozzle locations.
 
 ### Clear Mesh State
 

@@ -4,8 +4,8 @@ A **warning** before you start: Avoid touching the BL-Touch pin with your bare
 fingers, since it is quite sensitive to finger grease. And if you do touch it,
 be very gentle, in order to not bend or push anything.
 
-Hook up the BL-Touch "servo" connector to a `control_pin` according to the BL-
-Touch documentation or your MCU documentation. Using the original wiring, the
+Hook up the BL-Touch "servo" connector to a `control_pin` according to the
+BL-Touch documentation or your MCU documentation. Using the original wiring, the
 yellow wire from the triple is the `control_pin` and the white wire from the
 pair is the `sensor_pin`. You need to configure these pins according to your
 wiring. Most BL-Touch devices require a pullup on the sensor pin (prefix the pin
@@ -109,22 +109,21 @@ Some "clone" devices are unable to perform Klipper's internal sensor
 verification test. On these devices, attempts to home or probe can result in
 Klipper reporting a "BLTouch failed to verify sensor state" error. If this
 occurs, then manually run the steps to confirm the sensor pin is working as
-described in the [initial tests section](#initial-tests). If the `QUERY_PROBE` commands
-in that test always produce the expected results and "BLTouch failed to verify
-sensor state" errors still occur, then it may be necessary to set
+described in the [initial tests section](#initial-tests). If the `QUERY_PROBE`
+commands in that test always produce the expected results and "BLTouch failed to
+verify sensor state" errors still occur, then it may be necessary to set
 `pin_up_touch_mode_reports_triggered` to False in the Klipper config file.
 
 A rare number of old "clone" devices are unable to report when they have
-successfully raised their probe. On these devices Klipper will report a
-"BLTouch failed to raise probe" error after every home or probe attempt. One
-can test for these devices - move the head far from the bed, run
-`BLTOUCH_DEBUG COMMAND=pin_down`, verify the pin has moved down, run
-`QUERY_PROBE`, verify that command reports "probe: open", run
-`BLTOUCH_DEBUG COMMAND=pin_up`, verify the pin has moved up, and run
-`QUERY_PROBE`. If the pin remains up, the device does not enter an error state,
-and the first query reports "probe: open" while the second query reports
-"probe: TRIGGERED" then it indicates that `pin_up_reports_not_triggered`
-should be set to False in the Klipper config file.
+successfully raised their probe. On these devices Klipper will report a "BLTouch
+failed to raise probe" error after every home or probe attempt. One can test for
+these devices - move the head far from the bed, run `BLTOUCH_DEBUG COMMAND=pin_down`,
+verify the pin has moved down, run `QUERY_PROBE`, verify that command reports
+"probe: open", run `BLTOUCH_DEBUG COMMAND=pin_up`, verify the pin has moved up,
+and run `QUERY_PROBE`. If the pin remains up, the device does not enter an error
+state, and the first query reports "probe: open" while the second query reports
+"probe: TRIGGERED" then it indicates that `pin_up_reports_not_triggered` should
+be set to False in the Klipper config file.
 
 # BL-Touch v3
 
@@ -133,11 +132,11 @@ Some BL-Touch v3.0 and BL-Touch 3.1 devices may require configuring
 
 If the BL-Touch v3.0 has its signal wire connected to an endstop pin (with a
 noise filtering capacitor), then the BL-Touch v3.0 may not be able to
-consistently send a signal during homing and probing. If the `QUERY_PROBE` commands
-in the [initial tests section](#initial-tests) always produce the expected
-results, but the toolhead does not always stop during G28/PROBE commands, then
-it is indicative of this issue. A workaround is to set `probe_with_touch_mode: True`
-in the config file.
+consistently send a signal during homing and probing. If the `QUERY_PROBE`
+commands in the [initial tests section](#initial-tests) always produce the
+expected results, but the toolhead does not always stop during G28/PROBE
+commands, then it is indicative of this issue. A workaround is to set
+`probe_with_touch_mode: True` in the config file.
 
 The BL-Touch v3.1 may incorrectly enter an error state after a successful probe
 attempt. The symptoms are an occasional flashing light on the BL-Touch v3.1 that
@@ -148,9 +147,8 @@ may set `probe_with_touch_mode` in the config file to avoid this issue.
 Important! Some "clone" devices and the BL-Touch v2.0 (and earlier) may have
 reduced accuracy when `probe_with_touch_mode` is set to True. Setting this to
 True also increases the time it takes to deploy the probe. If configuring this
-value on a "clone" or older BL-Touch device, be sure to test the probe
-accuracy before and after setting this value (use the `PROBE_ACCURACY` command
-to test).
+value on a "clone" or older BL-Touch device, be sure to test the probe accuracy
+before and after setting this value (use the `PROBE_ACCURACY` command to test).
 
 # Multi-probing without stowing
 
@@ -173,8 +171,8 @@ not detect a subsequent bed contact if `probe_with_touch_mode` is not set. On
 all devices, using the combination of these two settings simplifies the device
 signaling, which can improve overall stability.
 
-Note, however, that some "clone" devices and the BL-Touch v2.0 (and earlier)
-may have reduced accuracy when `probe_with_touch_mode` is set to True. On these
+Note, however, that some "clone" devices and the BL-Touch v2.0 (and earlier) may
+have reduced accuracy when `probe_with_touch_mode` is set to True. On these
 devices it is a good idea to test the probe accuracy before and after setting
 `probe_with_touch_mode` (use the `PROBE_ACCURACY` command to test).
 
@@ -193,26 +191,27 @@ rerun the probe calibration steps.
 
 # BL-Touch output mode
 
-* A BL-Touch V3.0 supports setting a 5V or OPEN-DRAIN output mode, a BL-Touch V3.1
-supports this too, but can also store this in its internal EEPROM. If your
+
+   * A BL-Touch V3.0 supports setting a 5V or OPEN-DRAIN output mode, a BL-Touch
+V3.1 supports this too, but can also store this in its internal EEPROM. If your
 controller board needs the fixed 5V high logic level of the 5V mode you may set
 the 'set_output_mode' parameter in the [bltouch] section of the printer config
-file to "5V".
-*** Only use the 5V mode if your controller boards input line is 5V tolerant.
+file to "5V".*** Only use the 5V mode if your controller boards input line is 5V tolerant.
 This is why the default configuration of these BL-Touch versions is OPEN-DRAIN
 mode. You could potentially damage your controller boards CPU ***
-So therefore: If a controller board NEEDs 5V mode AND it is 5V tolerant on its
+
+   So therefore: If a controller board NEEDs 5V mode AND it is 5V tolerant on its
 input signal line AND if
 
-  - you have a BL-Touch Smart V3.0, you need the use 'set_output_mode: 5V'
+   - you have a BL-Touch Smart V3.0, you need the use 'set_output_mode: 5V'
 parameter to ensure this setting at each startup, since the probe cannot
 remember the needed setting.
-  - you have a BL-Touch Smart V3.1, you have the choice of using 'set_output_mode:
+   - you have a BL-Touch Smart V3.1, you have the choice of using 'set_output_mode:
 5V' or storing the mode once by use of a 'BLTOUCH_STORE MODE=5V' command
 manually and NOT using the parameter 'set_output_mode:'.
-  - you have some other probe: Some probes have a trace on the circuit board to cut
-or a jumper to set in order to (permanently) set the output mode. In that case,
-omit the 'set_output_mode' parameter completely.
+   - you have some other probe: Some probes have a trace on the circuit board to
+cut or a jumper to set in order to (permanently) set the output mode. In that
+case, omit the 'set_output_mode' parameter completely.
 If you have a V3.1, do not automate or repeat storing the output mode to avoid
 wearing out the EEPROM of the probe.The BLTouch EEPROM is good for about 100.000
 updates. 100 stores per day would add up to about 3 years of operation prior to
@@ -221,5 +220,4 @@ vendor to be a complicated operation (the factory default being a safe OPEN
 DRAIN mode) and is not suited to be repeatedly issued by any slicer, macro or
 anything else, it is preferably only to be used when first integrating the probe
 into a printers electronics.
-
 

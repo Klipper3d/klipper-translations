@@ -30,9 +30,9 @@ is a useful reference.
 
 To flash a bootloader itself, the AVR chips require an external hardware
 flashing tool (which communicates with the chip using SPI). This tool can be
-purchased (for example, do a web search for "avr isp", "arduino isp", or
-"usb tiny isp"). It is also possible to use another Arduino or Raspberry Pi to
-flash an AVR bootloader (for example, do a web search for "program an avr using
+purchased (for example, do a web search for "avr isp", "arduino isp", or "usb
+tiny isp"). It is also possible to use another Arduino or Raspberry Pi to flash
+an AVR bootloader (for example, do a web search for "program an avr using
 raspberry pi"). The examples below are written assuming an "AVR ISP Mk2" type
 device is in use.
 
@@ -100,9 +100,9 @@ To flash an application use something like:
 avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
 ```
 
-Note that a number of "Melzi" style boards come preloaded with a bootloader
-that uses a baud rate of 57600. In this case, to flash an application use
-something like this instead:
+Note that a number of "Melzi" style boards come preloaded with a bootloader that
+uses a baud rate of 57600. In this case, to flash an application use something
+like this instead:
 
 ```
 avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.elf.hex:i
@@ -146,10 +146,10 @@ avrdude -carduino -patmega168 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.e
 It is not common to use a bootloader with the SAM3 mcu. The chip itself has a
 ROM that allows the flash to be programmed from 3.3V serial port or from USB.
 
-To enable the ROM, the "erase" pin is held high during a reset, which erases
-the flash contents, and causes the ROM to run. On an Arduino Due, this sequence
-can be accomplished by setting a baud rate of 1200 on the "programming usb
-port" (the USB port closest to the power supply).
+To enable the ROM, the "erase" pin is held high during a reset, which erases the
+flash contents, and causes the ROM to run. On an Arduino Due, this sequence can
+be accomplished by setting a baud rate of 1200 on the "programming usb port"
+(the USB port closest to the power supply).
 
 The code at <https://github.com/shumatech/BOSSA> can be used to program the
 SAM3. It is recommended to use version 1.9 or later.
@@ -166,8 +166,8 @@ bossac -U -p /dev/ttyACM0 -R
 It is not common to use a bootloader with the SAM4 mcu. The chip itself has a
 ROM that allows the flash to be programmed from 3.3V serial port or from USB.
 
-To enable the ROM, the "erase" pin is held high during a reset, which erases
-the flash contents, and causes the ROM to run.
+To enable the ROM, the "erase" pin is held high during a reset, which erases the
+flash contents, and causes the ROM to run.
 
 The code at <https://github.com/shumatech/BOSSA> can be used to program the
 SAM4. It is necessary to use version `1.8.0` or higher.
@@ -203,10 +203,10 @@ at91samd bootloader 0
 program samd21_sam_ba.bin verify
 ```
 
-The most common bootloader on the SAMD21 is the one found on the "Arduino
-Zero". It uses an 8KiB bootloader (the application must be compiled with a
-start address of 8KiB). One can enter this bootloader by double clicking the
-reset button. To flash an application use something like:
+The most common bootloader on the SAMD21 is the one found on the "Arduino Zero".
+It uses an 8KiB bootloader (the application must be compiled with a start
+address of 8KiB). One can enter this bootloader by double clicking the reset
+button. To flash an application use something like:
 
 ```
 bossac -U -p /dev/ttyACM0 --offset=0x2000 -w out/klipper.bin -v -b -R
@@ -256,22 +256,21 @@ bossac -U -p /dev/ttyACM0 --offset=0x4000 -w out/klipper.bin -v -b -R
 # STM32F103 micro-controllers (Blue Pill devices)
 
 The STM32F103 devices have a ROM that can flash a bootloader or application via
-3.3V serial. To access this ROM, one should connect the "boot 0" pin to high
-and "boot 1" pin to low, and then reset the device. The "stm32flash" package
-can then be used to flash the device using something like:
+3.3V serial. To access this ROM, one should connect the "boot 0" pin to high and
+"boot 1" pin to low, and then reset the device. The "stm32flash" package can
+then be used to flash the device using something like:
 
 ```
 stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0
 ```
 
 Note that if one is using a Raspberry Pi for the 3.3V serial, the stm32flash
-protocol uses a serial parity mode which the Raspberry Pi's "miniuart" does
-not support. See
-<https://www.raspberrypi.org/documentation/configuration/uart.md> for details on
-enabling the full uart on the Raspberry Pi GPIO pins.
+protocol uses a serial parity mode which the Raspberry Pi's "miniuart" does not
+support. See <https://www.raspberrypi.org/documentation/configuration/uart.md>
+for details on enabling the full uart on the Raspberry Pi GPIO pins.
 
-After flashing, set both "boot 0" and "boot 1" back to low so that future
-resets boot from flash.
+After flashing, set both "boot 0" and "boot 1" back to low so that future resets
+boot from flash.
 
 ## STM32F103 with stm32duino bootloader
 
@@ -296,8 +295,8 @@ dfu-util -d 1eaf:0003 -a 2 -R -D out/klipper.bin
 The bootloader typically runs for only a short period after boot. It may be
 necessary to time the above command so that it runs while the bootloader is
 still active (the bootloader will flash a board led while it is running).
-Alternatively, set the "boot 0" pin to low and "boot 1" pin to high to stay
-in the bootloader after a reset.
+Alternatively, set the "boot 0" pin to low and "boot 1" pin to high to stay in
+the bootloader after a reset.
 
 ## STM32F103 with HID bootloader
 
@@ -342,18 +341,18 @@ the method chosen to flash it is recommended to erase the chip prior to
 flashing.
 - Prior flashing the SKR Mini E3 with this bootloader you should be aware that
 you will no longer be able to update firmware via the sdcard.
-- ```
-You may need to hold down the reset button on the board while launching
-OpenOCD. It should display something like:Open On-Chip Debugger
-0.10.0+dev-01204-gc60252ac-dirty (2020-04-27-16:00) Licensed under GNU GPL v2
-For bug reports, read         http://openocd.org/doc/doxygen/bugs.html
-DEPRECATED! use 'adapter speed' not 'adapter_khz' Info : BCM2835 GPIO JTAG/SWD
-bitbang driver Info : JTAG and SWD modes enabled Info : clock speed 40 kHz Info
-: SWD DPIDR 0x1ba01477 Info : stm32f1x.cpu: hardware has 6 breakpoints, 4
-watchpoints Info : stm32f1x.cpu: external reset detected Info : starting gdb
-server for stm32f1x.cpu on 3333 Info : Listening on port 3333 for gdb
-connections```
-
+- You may need to hold down the reset button on the board while launching
+OpenOCD. It should display something like:
+   ```
+   Open On-Chip Debugger 0.10.0+dev-01204-gc60252ac-dirty (2020-04-27-16:00)
+Licensed under GNU GPL v2 For bug reports, read
+http://openocd.org/doc/doxygen/bugs.html DEPRECATED! use 'adapter speed' not
+'adapter_khz' Info : BCM2835 GPIO JTAG/SWD bitbang driver Info : JTAG and SWD
+modes enabled Info : clock speed 40 kHz Info : SWD DPIDR 0x1ba01477 Info :
+stm32f1x.cpu: hardware has 6 breakpoints, 4 watchpoints Info : stm32f1x.cpu:
+external reset detected Info : starting gdb server for stm32f1x.cpu on 3333 Info
+: Listening on port 3333 for gdb connections
+   ```
 After which you can release the reset button.
 
 This bootloader requires 2KiB of flash space (the application must be compiled
@@ -389,9 +388,9 @@ make flash FLASH_DEVICE=/dev/ttyACM0
 It may be necessary to manually enter the bootloader, this can be done by
 setting "boot 0" low and "boot 1" high. On the SKR Mini E3 "Boot 1" is not
 available, so it may be done by setting pin PA2 low if you flashed
-"hid_btt_skr_mini_e3.bin". This pin is labeld "TX0" on the TFT header in the
-SKR Mini E3's "PIN" document. There is a ground pin next to PA2 which you can
-use to pull PA2 low.
+"hid_btt_skr_mini_e3.bin". This pin is labeld "TX0" on the TFT header in the SKR
+Mini E3's "PIN" document. There is a ground pin next to PA2 which you can use to
+pull PA2 low.
 
 # STM32F4 micro-controllers (SKR Pro 1.1)
 
@@ -446,8 +445,8 @@ debugging. It can use the GPIO pins on a Raspberry Pi to communicate with a
 variety of ARM chips.
 
 This section describes how one can install and launch OpenOCD. It is derived
-from the instructions at: <https://learn.adafruit.com/programming-
-microcontrollers-using-openocd-on-raspberry-pi>
+from the instructions at:
+<https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi>
 
 Begin by downloading and compiling the software (each step may take several
 minutes and the "make" step may take 30+ minutes):

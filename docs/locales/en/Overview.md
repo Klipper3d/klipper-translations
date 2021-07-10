@@ -15,31 +15,26 @@ with the Klipper developers.
 
 - [Installation](Installation.md): Guide to installing Klipper.
 - [Config Reference](Config_Reference.md): Description of config parameters.
-  - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance
+   - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance
 stepper parameter.
-
-- [Config checks](Config_checks.md): Verify basic pin settings in the config
-file.
+- [Config checks](Config_checks.md): Verify basic pin settings in the config file.
 - [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
-  - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
-  - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
-  - [BL-Touch](BLTouch.md): Configure a "BL-Touch" Z probe.
-  - [Manual level](Manual_Level.md): Calibration of Z endstops (and similar).
-  - [Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations.
-  - [Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning.
-
+   - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
+   - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
+   - [BL-Touch](BLTouch.md): Configure a "BL-Touch" Z probe.
+   - [Manual level](Manual_Level.md): Calibration of Z endstops (and similar).
+   - [Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations.
+   - [Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning.
 - [Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing
 in prints.
-  - [Measuring resonances](Measuring_Resonances.md): Information on using adxl345
+   - [Measuring resonances](Measuring_Resonances.md): Information on using adxl345
 accelerometer hardware to measure resonance.
-
 - [Pressure advance](Pressure_Advance.md): Calibrate extruder pressure.
 - [Slicers](Slicers.md): Configure "slicer" software for Klipper.
 - [Command Templates](Command_Templates.md): G-Code macros and conditional
 evaluation.
-  - [Status Reference](Status_Reference.md): Information available to macros (and
+   - [Status Reference](Status_Reference.md): Information available to macros (and
 similar).
-
 - [TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with
 Klipper.
 - [Skew correction](skew_correction.md): Adjustments for axes not perfectly
@@ -51,8 +46,7 @@ as lasers or spindles.
 # Developer Documentation
 
 - [Code overview](Code_Overview.md): Developers should read this first.
-- [Kinematics](Kinematics.md): Technical details on how Klipper implements
-motion.
+- [Kinematics](Kinematics.md): Technical details on how Klipper implements motion.
 - [Protocol](Protocol.md): Information on the low-level messaging protocol
 between host and micro-controller.
 - [API Server](API_Server.md): Information on Klipper's command and control API.

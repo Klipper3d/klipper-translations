@@ -1,6 +1,6 @@
 Stepper motor drivers on Klipper require a `rotation_distance` parameter in each
-[stepper config section](Config_Reference.md#stepper). The `rotation_distance` is
-the amount of distance that the axis moves with one full revolution of the
+[stepper config section](Config_Reference.md#stepper). The `rotation_distance`
+is the amount of distance that the axis moves with one full revolution of the
 stepper motor. This document describes how one can configure this value.
 
 # Obtaining rotation_distance from steps_per_mm (or step_distance)
@@ -13,19 +13,19 @@ general formula to obtain that original rotation distance:
 rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
 ```
 
-Or, if you have an older Klipper configuration and know the `step_distance` parameter
-you can use this formula:
+Or, if you have an older Klipper configuration and know the `step_distance`
+parameter you can use this formula:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
 ```
 
 The `<full_steps_per_rotation>` setting is determined from the type of stepper
-motor. Most stepper motors are "1.8 degree steppers" and therefore have 200
-full steps per rotation (360 divided by 1.8 is 200). Some stepper motors are
-"0.9 degree steppers" and thus have 400 full steps per rotation. Other stepper
-motors are rare. If unsure, do not set full_steps_per_rotation in the config
-file and use 200 in the formula above.
+motor. Most stepper motors are "1.8 degree steppers" and therefore have 200 full
+steps per rotation (360 divided by 1.8 is 200). Some stepper motors are "0.9
+degree steppers" and thus have 400 full steps per rotation. Other stepper motors
+are rare. If unsure, do not set full_steps_per_rotation in the config file and
+use 200 in the formula above.
 
 The `<microsteps>` setting is determined by the stepper motor driver. Most
 drivers use 16 microsteps. If unsure, set `microsteps: 16` in the config and use
@@ -42,27 +42,25 @@ travels for one full rotation of the stepper motor. The best way to get an
 accurate value for this setting is to use a "measure and trim" procedure.
 
 First start with an initial guess for the rotation distance. This may be
-obtained from [steps_per_mm](#obtaining-rotation_distance-from-steps_per_mm-or-
-step_distance) or by [inspecting the hardware](#extruder).
+obtained from
+[steps_per_mm](#obtaining-rotation_distance-from-steps_per_mm-or-step_distance)
+or by [inspecting the hardware](#extruder).
 
 Then use the following procedure to "measure and trim":
 
 1. Make sure the extruder has filament in it, the hotend is heated to an
 appropriate temperature, and the printer is ready to extrude.
-2. Use a marker to place a mark on the filament around 70mm from the intake of the
-extruder body. Then use a digital calipers to measure the actual distance of
+1. Use a marker to place a mark on the filament around 70mm from the intake of
+the extruder body. Then use a digital calipers to measure the actual distance of
 that mark as precisely as one can. Note this as `<initial_mark_distance>`.
-3. Extrude 50mm of filament with the following command sequence: `G91` followed by
-`G1 E50 F60`. Note 50mm as `<requested_extrude_distance>`. Wait for the
+1. Extrude 50mm of filament with the following command sequence: `G91` followed
+by `G1 E50 F60`. Note 50mm as `<requested_extrude_distance>`. Wait for the
 extruder to finish the move (it will take about 50 seconds).
-4. Use the digital calipers to measure the new distance between the extruder body
-and the mark on the filament. Note this as `<subsequent_mark_distance>`. Then
-calculate: `actual_extrude_distance = <initial_mark_distance> -
-<subsequent_mark_distance>`
-5. Calculate rotation_distance as: `rotation_distance =
-<previous_rotation_distance> * <actual_extrude_distance> /
-<requested_extrude_distance>` Round the new rotation_distance to three decimal
-places.
+1. Use the digital calipers to measure the new distance between the extruder
+body and the mark on the filament. Note this as `<subsequent_mark_distance>`.
+Then calculate: `actual_extrude_distance = <initial_mark_distance> - <subsequent_mark_distance>`
+1. Calculate rotation_distance as: `rotation_distance = <previous_rotation_distance> * <actual_extrude_distance> / <requested_extrude_distance>`
+Round the new rotation_distance to three decimal places.
 
 If the actual_extrude_distance differs from requested_extrude_distance by more
 than about 2mm then it is a good idea to perform the steps above a second time.
@@ -107,10 +105,10 @@ rotation_distance = <screw_pitch> * <number_of_separate_threads>
 For example, the common "T8 leadscrew" has a rotation distance of 8 (it has a
 pitch of 2mm and has 4 separate threads).
 
-Older printers with "threaded rods" have only one "thread" on the lead screw
-and thus the rotation distance is the pitch of the screw. (The screw pitch is
-the distance between each groove on the screw.) So, for example, an M6 metric
-rod has a rotation distance of 1 and an M8 rod has a rotation distance of 1.25.
+Older printers with "threaded rods" have only one "thread" on the lead screw and
+thus the rotation distance is the pitch of the screw. (The screw pitch is the
+distance between each groove on the screw.) So, for example, an M6 metric rod
+has a rotation distance of 1 and an M8 rod has a rotation distance of 1.25.
 
 ## Extruder
 
@@ -122,23 +120,24 @@ If the extruder uses gears then it will also be necessary to [determine and set
 the gear_ratio](#using-a-gear_ratio) for the extruder.
 
 The actual rotation distance on an extruder will vary from printer to printer,
-because the grip of the "hobbed bolt" that engages the filament can vary. It
-can even vary between filament spools. After obtaining an initial
-rotation_distance, use the [measure and trim procedure](#calibrating-
-rotation_distance-on-extruders) to obtain a more accurate setting.
+because the grip of the "hobbed bolt" that engages the filament can vary. It can
+even vary between filament spools. After obtaining an initial rotation_distance,
+use the [measure and trim
+procedure](#calibrating-rotation_distance-on-extruders) to obtain a more
+accurate setting.
 
 # Using a gear_ratio
 
-Setting a `gear_ratio` can make it easier to configure the `rotation_distance` on
-steppers that have a gear box (or similar) attached to it. Most steppers do not
-have a gear box - if unsure then do not set `gear_ratio` in the config.
+Setting a `gear_ratio` can make it easier to configure the `rotation_distance`
+on steppers that have a gear box (or similar) attached to it. Most steppers do
+not have a gear box - if unsure then do not set `gear_ratio` in the config.
 
 When `gear_ratio` is set, the `rotation_distance` represents the distance the
 axis moves with one full rotation of the final gear on the gear box. If, for
-example, one is using a gearbox with a "5:1" ratio, then one could calculate
-the rotation_distance with [knowledge of the hardware](#obtaining-
-rotation_distance-by-inspecting-the-hardware) and then add `gear_ratio: 5:1` to
-the config.
+example, one is using a gearbox with a "5:1" ratio, then one could calculate the
+rotation_distance with [knowledge of the
+hardware](#obtaining-rotation_distance-by-inspecting-the-hardware) and then add
+`gear_ratio: 5:1` to the config.
 
 For gearing implemented with belts and pulleys, it is possible to determine the
 gear_ratio by counting the teeth on the pulleys. For example, if a stepper with
@@ -154,8 +153,8 @@ teeth don't always mesh the same way with each revolution.) The common "5.18:1
 planetary gearbox", is more accurately configured with `gear_ratio: 57:11`.
 
 If several gears are used on an axis then it is possible to provide a comma
-separated list to gear_ratio. For example, a "5:1" gear box driving a 16
-toothed to 80 toothed pulley could use `gear_ratio: 5:1, 80:16`.
+separated list to gear_ratio. For example, a "5:1" gear box driving a 16 toothed
+to 80 toothed pulley could use `gear_ratio: 5:1, 80:16`.
 
 In most cases, gear_ratio should be defined with whole numbers as common gears
 and pulleys have a whole number of teeth on them. However, in cases where a belt
