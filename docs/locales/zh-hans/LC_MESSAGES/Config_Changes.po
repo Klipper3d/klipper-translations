@@ -1,11 +1,12 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Neko.vecter <Vecterfang@icloud.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
 "PO-Revision-Date: 2021-07-10 14:29+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/config_changes/zh_Hans/>\n"
 "Language: zh-hans\n"
@@ -34,6 +35,7 @@ msgid ""
 "temperature_fan sections is deprecated. The option will be removed in"
 " the near future."
 msgstr ""
+"20210612: `pid_integral_max` heater和temperature_fan部分的配置选项已被弃用。该选项将在不久的将来被删除。"
 
 msgid ""
 "20210503: The gcode_macro `default_parameter_<name>` config option is"

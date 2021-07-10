@@ -1,13 +1,29 @@
-#
+# Neko.vecter <Vecterfang@icloud.com>, 2021.
 msgid ""
 msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"POT-Creation-Date: 2021-07-10 16:29+0200\n"
+"PO-Revision-Date: 2021-07-10 14:29+0000\n"
+"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/faq/zh_Hans/>\n"
+"Language: zh-hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.8-dev\n"
+
+#
 
 msgid "Frequently asked questions"
-msgstr ""
+msgstr "常见问题"
 
+#, fuzzy
 msgid ""
 "[How can I donate to the project?](#how-can-i-donate-to-the-project)"
-msgstr ""
+msgstr "[我怎样才能支持项目？](#How-can-i-donate-to-the-project)"
 
 msgid ""
 "[How do I calculate the rotation_distance config parameter?](#how-do-"
@@ -763,18 +779,23 @@ msgid ""
 msgstr ""
 
 msgid "/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
-msgstr ""
+msgstr "/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 
 msgid ""
 "sudo service klipper stop\n"
 "make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 "sudo service klipper start\n"
 msgstr ""
+"sudo service klipper stop\n"
+"make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
+"sudo service klipper start\n"
 
 msgid ""
 "[mcu]\n"
 "serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 msgstr ""
+"[mcu]\n"
+"serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 
 msgid ""
 "[mcu]\n"
