@@ -2,13 +2,14 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
 # hani-lengxi <2836842270@qq.com>, 2024.
 # SiHengTang <tang142857dev@163.com>, 2025.
+# "Neko.vecter" <Vecterfang@icloud.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/installation/zh_Hans/>\n"
 "Language: zh_Hans\n"
