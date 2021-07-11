@@ -10,7 +10,7 @@ We use the [weblate](https://hosted.weblate.org/widgets/klipper) tool for transl
 
 # Temporary Contacts and Documentation Entry
 
-If you are a translation contributor, you can create a pull request to update the README.md with your language-specific community contact information before the translated documentation is merged into the main repository. The community contact serves as a way for getting feedback. Please make sure it's Klipper related and follow the following the same format. 
+If you are a translation contributor, you can create a pull request to update the README.md with your language-specific community contact information before the translated documentation is merged into the main repository. The community contact serves as a way for getting feedback. Please make sure it's Klipper related and follow the following format. 
 
 ### This is very early beta documentation!
 
