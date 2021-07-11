@@ -1,4 +1,4 @@
-# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023, 2025.
 # badpoi <a1635835119@gmail.com>, 2021.
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
 # Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024.
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-25 03:39+0200\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/overview/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -23,7 +23,8 @@ msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
-"欢迎使用Klipper文档。如果刚接触Klipper，请从[特性](features.md)和[安装](installation.md)文档开始阅读。"
+"欢迎使用Klipper文档。如果刚接触Klipper，请从[特性](features.md)和[安装]"
+"(installation.md)文档开始阅读。"
 
 msgid "Overview information"
 msgstr "概览信息"
@@ -122,7 +123,8 @@ msgstr "[TMC驱动](TMC_Drivers.md)：在 Klipper 中使用 Trinamic 步进电�
 msgid ""
 "[PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such"
 " as lasers or spindles."
-msgstr "[PWM 工具](Using_PWM_Tools.md)：关于如何使用 PWM 控制的工具，例如激光器或电钻头。"
+msgstr "[PWM 工具](Using_PWM_Tools.md)：关于如何使用 PWM "
+"控制的工具，例如激光器或电钻头。"
 
 msgid "[G-Codes](G-Codes.md): Information on commands supported by Klipper."
 msgstr "[G代码](G-Codes.md)：用于 Klipper 的G代码命令。"
@@ -181,12 +183,15 @@ msgstr "[示列配置](Example_Configs.md)：有关于添加示列配置到 Klip
 msgid ""
 "[SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a "
 "binary to an sdcard in the micro-controller."
-msgstr "[SD卡更新](SDCard_Updates.md)：通过将固件拷贝到SD卡中，再通过微控制器的SD卡槽来刷写微控制器。"
+msgstr "[SD卡更新]"
+"(SDCard_Updates.md)：通过将固件拷贝到SD卡中，再通过微控制器的SD卡槽来刷写微控"
+"制器。"
 
 msgid ""
 "[Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for "
 "controlling devices wired to the GPIO pins of a Raspberry Pi."
-msgstr "[将树莓派作为微控制器](RPi_microcontroller.md)：关于如何控制与树莓派 GPIO 引脚连接的设备。"
+msgstr "[将树莓派作为微控制器](RPi_microcontroller.md)：关于如何控制与树莓派 GPIO "
+"引脚连接的设备。"
 
 msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-controller "
