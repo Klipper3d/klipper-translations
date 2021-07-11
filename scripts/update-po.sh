@@ -1,5 +1,5 @@
 #!/bin/bash
-# Automatically generate a set of po and md files for 
+# Automatically generate/update gettext files for 
 # Localization files in the ./locales/[language]/ folder
 # Prerequisit: pip install mdpo
 
@@ -25,11 +25,6 @@ for dir in docs/locales/*/; do
     echo "Converting $mdfile to $pofile"
     command="md2po $mdfilepath --md-encoding utf-8 --po-encoding utf-8 \
     -w $width -q -s -c --po-filepath $pofilepath"
-    echo "$command"
-    $($command)
-    echo "Converting $pofile to $mdfile"
-    command="po2md $mdfilepath --md-encoding utf-8 --po-encoding utf-8 \
-    -p $pofilepath -q -s $targetmdfile"
     echo "$command"
     $($command)
     
