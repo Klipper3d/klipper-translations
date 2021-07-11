@@ -1,4 +1,5 @@
-本教程假定软件将会在树莓派上和Octoprint一起运行。推荐使用树莓派2/3/4作为主机（关于其他设备，请见[常见问题](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)）。
+本教程假定软件将会在树莓派上和 Octoprint
+一起运行。推荐使用树莓派2/3/4作为主机（关于其他设备，请见[常见问题](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)）。
 
 Klipper目前支持数种基于Atmel
 ATmega的微控制器、[基于ARM的微控制器](Features.md#step-benchmarks)、和[Beaglebone可编程实时单元](beaglebone.md)的打印机。
@@ -8,9 +9,9 @@ ATmega的微控制器、[基于ARM的微控制器](Features.md#step-benchmarks)�
 先在树莓派上安装[OctoPi](https://github.com/guysoft/OctoPi)。使用OctoPi
 v0.17.0或更高版本，查看[octopi发布版](https://github.com/guysoft/OctoPi/releases)来获取最新的发布版。安装完系统后，请先验证OctoPi能正常启动，并且OctoPrint网络服务器正常运行。连接到OctoPrint网页后，按照提示将OctoPrint更新到v1.4.2或更高版本。
 
-在安装OctoPi和升级 OctoPrint后，用ssh进入目标设备，以运行少量的系统命令。如果使用Linux或MacOS桌面，那么
-"ssh"软件应该已经安装在桌面上。有一些免费的ssh客户端可用于其他台式机（例如，[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)）。使用ssh工具连接到Raspberry
-Pi（ssh pi@octopi --密码是 "raspberry"），并运行以下命令。
+在安装 OctoPi 和升级 OctoPrint后，用 ssh 进入目标设备，以运行少量的系统命令。如果使用Linux或MacOS系统，那么
+"ssh"软件应该已经预装在系统上。有一些免费的ssh客户端可用于其他操作系统（例如，[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)）。使用ssh工具连接到Raspberry
+Pi（ssh pi@octopi --密码是 "raspberry"），并运行以下命令：
 
 ```
 git clone https://github.com/KevinOConnor/klipper
@@ -75,8 +76,8 @@ OctoPrint网络服务器需要进行配置，以便与Klipper host 软件进行�
 在主页上，在 "连接 "部分（在页面的左上方），确保 "串行端口 "被设置为"/tmp/printer"，然后点击 "连接"。(如果"/tmp/printer
 "不是一个可用的选择，那么试着重新加载页面)
 
-连接后，导航到 "终端 "选项卡，在命令输入框中输入 "status"（不带引号），然后点击 "发送"。终端窗口可能会报告说，打开配置文件时出现了错误--
-这意味着OctoPrint与Klipper成功地进行了通信。进入下一节
+连接后，导航到 "终端 "选项卡，在命令输入框中输入 "status"（不带引号），然后点击 "发送"。终端窗口可能会报告在打开配置文件时出现了错误--这意味着
+OctoPrint 与 Klipper 成功地进行了通信。继续下一部分。
 
 # 配置 Klipper
 

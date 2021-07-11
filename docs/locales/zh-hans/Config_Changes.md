@@ -7,10 +7,11 @@
 20210703: A `samd_sercom` config section must now specify the sercom bus it is
 configuring via the `sercom` option.
 
-20210612: `pid_integral_max` heater和temperature_fan部分的配置选项已被弃用。该选项将在不久的将来被删除。
+20210612:
+加热器(heater)和温度控制风扇(temperature_fan)配置中的`pid_integral_max`选项已被弃用。该选项将在未来被移除。
 
 20210503:配置中 gcode_macro 的`default_parameter_<name>` 选项已废用。使用伪变量 `params`
-来访问宏参数。其他访问宏参数的方法将在未来会被删除。请参考[命令模版文档](Command_Templates.md#macro-parameters)中的例子。
+来访问宏参数。其他访问宏参数的方法将在未来会被移除。请参考[命令模版文档](Command_Templates.md#macro-parameters)中的例子。
 
 20210430:
 SET_VELOCITY_LIMIT（和M204）命令现在可以设置大于配置文件中指定值的速度(velocity)、加速度(acceleration)和转角离心速度(square_corner_velocity)。
