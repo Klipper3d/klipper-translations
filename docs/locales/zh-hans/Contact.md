@@ -78,23 +78,20 @@ forum).
 obtained from another source, then you will need to reproduce the problem on the
 unmodified code from <https://github.com/KevinOConnor/klipper> prior to
 reporting an issue.
-1. If possible, run an `M112` command in the OctoPrint terminal window
-immediately after the undesirable event occurs. This causes Klipper to go into a
-"shutdown state" and it will cause additional debugging information to be
-written to the log file.
+1. 如果可能的话，在不期望的事件发生后，立即在 OctoPrint 终端窗口运行一个`M112`命令。这将使 Klipper 进入
+"关闭状态"，并在日志文件中写入额外的调试信息。
 1. Obtain the Klipper log file from the event. The log file has been engineered
 to answer common questions the Klipper developers have about the software and
 its environment (software version, hardware type, configuration, event timing,
 and hundreds of other questions).
-   1. The Klipper log file is located in `/tmp/klippy.log` on the Klipper "host"
-computer (the Raspberry Pi).
+   1. Klipper 日志文件位于 Klipper "主机"（树莓票）的`/tmp/klippy.log`文件中。
    1. An "scp" or "sftp" utility is needed to copy this log file to your desktop
 computer. The "scp" utility comes standard with Linux and MacOS desktops. There
 are freely available scp utilities for other desktops (eg, WinSCP). If using a
 graphical scp utility that can not directly copy `/tmp/klippy.log` then
 repeatedly click on `..` or `parent folder` until you get to the root directory,
 click on the `tmp` folder, and then select the `klippy.log` file.
-   1. Copy the log file to your desktop so that it can be attached to an issue report.
+   1. 将日志文件复制到你的电脑，以便将其附到问题报告中。
    1. Do not modify the log file in any way; do not provide a snippet of the log.
 Only the full unmodified log file provides the necessary information.
    1. If the log file is very large (eg, greater than 2MB) then one may need to
