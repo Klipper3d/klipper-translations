@@ -21,3 +21,4 @@ jobs:
         commit-message: "locales: Automated Markdown Update"
         committer: GitHub <noreply@github.com> 
         signoff: true
+        author: GitHub <noreply@github.com> 
