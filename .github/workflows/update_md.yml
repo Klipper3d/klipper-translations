@@ -2,6 +2,8 @@ name: Update Markdown Output
 
 on:
   push:
+    branches:
+      - translations
   workflow_dispatch:
 
 jobs:
@@ -21,3 +23,5 @@ jobs:
         commit-message: "locales: Automated Markdown Update"
         committer: GitHub <noreply@github.com> 
         signoff: true
+        author: GitHub <noreply@github.com> 
+        
