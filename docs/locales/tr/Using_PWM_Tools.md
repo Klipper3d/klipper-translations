@@ -4,29 +4,16 @@ This document describes how to setup a PWM-controlled laser or spindle using
 ## How does it work?
 
 With re-purposing the printhead's fan pwm output, you can control lasers or
-spindles. This is useful if you use switchable print heads, for example the E3D
-toolchanger or a DIY solution. Usually, cam-tools such as LaserWeb can be
-configured to use `M3-M5` commands, which stand for *spindle speed CW* (
-`M3 S[0-255]`), *spindle speed CCW* (`M4 S[0-255]`) and *spindle stop* (`M5`).
+spindles. This is useful if you use switchable print heads, for example the E3D toolchanger or a DIY solution. Usually, cam-tools such as LaserWeb can be configured to use `M3-M5` commands, which stand for *spindle speed CW* (`M3 S[0-255]`), *spindle speed CCW* (`M4 S[0-255]`) and *spindle stop* (`M5`).
 
-**Warning:** When driving a laser, keep all security precautions that you can
-think of! Diode lasers are usually inverted. This means, that when the MCU
-restarts, the laser will be *fully on* for the time it takes the MCU to start up
-again. For good measure, it is recommended to *always* wear appropriate laser-
-goggles of the right wavelength if the laser is powered; and to disconnect the
-laser when it is not needed. Also, you should configure a safety timeout, so
-that when your host or MCU encounters an error, the tool will stop.
+**Warning:** When driving a laser, keep all security precautions that you can think of! Diode lasers are usually inverted. This means, that when the MCU restarts, the laser will be *fully on* for the time it takes the MCU to start up again. For good measure, it is recommended to *always* wear appropriate laser-goggles of the right wavelength if the laser is powered; and to disconnect the laser when it is not needed. Also, you should configure a safety timeout, so that when your host or MCU encounters an error, the tool will stop.
 
 For an example configuration, see `config/sample-pwm-tool-cfg`.
 
 ## Current Limitations
 
 There is a limitation of how frequent PWM updates may occur. While being very
-precise, a PWM update may only occur every 0.1 seconds, rendering it almost
-useless for raster engraving. However, there exists an [experimental
-branch](https://github.com/Cirromulus/klipper/tree/laser_tool) with its own
-tradeoffs. In long term, it is planned to add this functionality to main-line
-klipper.
+precise, a PWM update may only occur every 0.1 seconds, rendering it almost useless for raster engraving. However, there exists an [experimental branch](https://github.com/Cirromulus/klipper/tree/laser_tool) with its own tradeoffs. In long term, it is planned to add this functionality to main-line klipper.
 
 ## Commands
 

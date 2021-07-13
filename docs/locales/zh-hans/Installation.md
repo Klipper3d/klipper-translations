@@ -10,16 +10,14 @@ ATmega的微控制器、[基于ARM的微控制器](Features.md#step-benchmarks)�
 v0.17.0或更高版本，查看[octopi发布版](https://github.com/guysoft/OctoPi/releases)来获取最新的发布版。安装完系统后，请先验证OctoPi能正常启动，并且OctoPrint网络服务器正常运行。连接到OctoPrint网页后，按照提示将OctoPrint更新到v1.4.2或更高版本。
 
 在安装 OctoPi 和升级 OctoPrint后，用 ssh 进入目标设备，以运行少量的系统命令。如果使用Linux或MacOS系统，那么
-"ssh"软件应该已经预装在系统上。有一些免费的ssh客户端可用于其他操作系统（例如，[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)）。使用ssh工具连接到Raspberry
-Pi（ssh pi@octopi --密码是 "raspberry"），并运行以下命令：
+"ssh"软件应该已经预装在系统上。有一些免费的ssh客户端可用于其他操作系统（例如，[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)）。使用ssh工具连接到Raspberry Pi（ssh pi@octopi --密码是 "raspberry"），并运行以下命令：
 
 ```
 git clone https://github.com/KevinOConnor/klipper
 ./klipper/scripts/install-octopi.sh
 ```
 
-以上将会下载Klipper，安装一些系统依赖，设置Klipper在系统启动时运行，并启动Klipper
-host软件。这将需要一个互联网连接以及可能需要几分钟时间才能完成。
+以上将会下载Klipper，安装一些系统依赖，设置Klipper在系统启动时运行，并启动Klipper host软件。这将需要一个互联网连接以及可能需要几分钟时间才能完成。
 
 # 构建和烧写微控制器
 
@@ -73,21 +71,16 @@ OctoPrint网络服务器需要进行配置，以便与Klipper host 软件进行�
 
 在 "设置 "中，浏览到 "Behavior "子选项卡，选择 "取消任何正在进行的打印，但保持与打印机的连接 "选项。点击 "保存"。
 
-在主页上，在 "连接 "部分（在页面的左上方），确保 "串行端口 "被设置为"/tmp/printer"，然后点击 "连接"。(如果"/tmp/printer
-"不是一个可用的选择，那么试着重新加载页面)
+在主页上，在 "连接 "部分（在页面的左上方），确保 "串行端口 "被设置为"/tmp/printer"，然后点击 "连接"。(如果"/tmp/printer "不是一个可用的选择，那么试着重新加载页面)
 
-连接后，导航到 "终端 "选项卡，在命令输入框中输入 "status"（不带引号），然后点击 "发送"。终端窗口可能会报告在打开配置文件时出现了错误--这意味着
-OctoPrint 与 Klipper 成功地进行了通信。继续下一部分。
+连接后，导航到 "终端 "选项卡，在命令输入框中输入 "status"（不带引号），然后点击 "发送"。终端窗口可能会报告在打开配置文件时出现了错误--这意味着 OctoPrint 与 Klipper 成功地进行了通信。继续下一部分。
 
 # 配置 Klipper
 
 Klipper configuration 存储在Raspberry Pi上的一个文本文件中。看一下[config
-directory](../config/)。[config reference](Config_Reference.md)包含了config
-parameters.
+directory](../config/)。[config reference](Config_Reference.md)包含了config parameters.
 
-可以说，更新Klipper configuration 文件的最简单方法是使用一个支持通过 "scp "或 "sftp
-"协议编辑文件的桌面编辑器。有一些免费的工具支持这个功能（例如，Notepad++、WinSCP和Cyberduck）。使用其中一个配置文件的例子作为起点，并将其保存为pi用户的主目录中名为
-"printer.cfg "的文件（例如，/home/pi/printer.cfg）。
+可以说，更新Klipper configuration 文件的最简单方法是使用一个支持通过 "scp "或 "sftp "协议编辑文件的桌面编辑器。有一些免费的工具支持这个功能（例如，Notepad++、WinSCP和Cyberduck）。使用其中一个配置文件的例子作为起点，并将其保存为pi用户的主目录中名为 "printer.cfg "的文件（例如，/home/pi/printer.cfg）。
 
 另外，也可以通过ssh在Raspberry Pi上直接复制和编辑该文件。比如说：
 
@@ -105,14 +98,11 @@ nano ~/printer.cfg
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-在创建和编辑该文件后，有必要在OctoPrint网络终端发出 "restart"命令去重新加载config。"status"
-命令将报告打印机已准备就绪。在初始设置期间出现配置错误是很正常的。更新打印机配置文件并发出 "restart"命令，直到 "状态 "报告打印机已准备就绪。
+在创建和编辑该文件后，有必要在OctoPrint网络终端发出 "restart"命令去重新加载config。"status" 命令将报告打印机已准备就绪。在初始设置期间出现配置错误是很正常的。更新打印机配置文件并发出 "restart"命令，直到 "状态 "报告打印机已准备就绪。
 
-Klipper通过OctoPrint终端标签报告错误信息。可以使用 "status
-"命令来重新报告错误信息。默认的Klipper启动脚本也在**/tmp/klippy.log**中放置一个日志，提供更详细的信息。
+Klipper通过OctoPrint终端标签报告错误信息。可以使用 "status "命令来重新报告错误信息。默认的Klipper启动脚本也在**/tmp/klippy.log**中放置一个日志，提供更详细的信息。
 
-除此之外常见的g-code命令之外，Klipper还支持一些扩展命令"status "和 "restart "就是这些命令的例子。使用 "help
-"命令可以获得其他扩展命令的列表。
+除此之外常见的g-code命令之外，Klipper还支持一些扩展命令"status "和 "restart "就是这些命令的例子。使用 "help "命令可以获得其他扩展命令的列表。
 
 在Klipper反馈打印机已经准备好后，进入[config check
 document](Config_checks.md)对配置文件中的引脚定义进行一些基本检查。

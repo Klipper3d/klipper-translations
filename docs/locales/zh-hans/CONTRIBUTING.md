@@ -8,9 +8,7 @@ Please see the [contact page](Contact.md) for information on creating an issue.
 
 ## 提交拉取请求（PR）
 
-Contributions of Code and documentation are managed through github pull
-requests. Each commit should have a commit message formatted similar to the
-following:
+Contributions of Code and documentation are managed through github pull requests. Each commit should have a commit message formatted similar to the following:
 
 ```
 module: Capitalized, short (50 chars or less) summary
@@ -28,6 +26,4 @@ Signed-off-by: My Name <myemail@example.org>
 ```
 
 It is important to have a "Signed-off-by" line on each commit - it certifies
-that you agree to the [developer certificate of
-origin](developer-certificate-of-origin). It must contain your real name (sorry,
-no pseudonyms or anonymous contributions) and contain a current email address.
+that you agree to the [developer certificate of origin](developer-certificate-of-origin). It must contain your real name (sorry, no pseudonyms or anonymous contributions) and contain a current email address.
