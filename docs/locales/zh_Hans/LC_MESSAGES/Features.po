@@ -1,13 +1,14 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023, 2025.
 # 红豆蛋黄派 <zgpride87@outlook.com>, 2022.
+# "Neko.vecter" <Vecterfang@icloud.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-15 06:32+0200\n"
 "PO-Revision-Date: 2025-05-03 07:20+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/features/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -144,15 +145,17 @@ msgid ""
 "height probes are supported, including BL-Touch probes and servo activated "
 "probes."
 msgstr ""
-"自动床面平整支持。Klipper可以被配置为基本的床身倾斜检测或网床调平。如果床铺使用多个Z步进器，那么Klipper也可以通过独立操纵Z步进器来调平。支持大多数Z高度探头，包括BL-"
-"Touch探头和伺服激活的探头。"
+"自动床面平整支持。Klipper可以被配置为基本的床身倾斜检测或网床调平。如果床铺使"
+"用多个Z步进器，那么Klipper也可以通过独立操纵Z步进器来调平。支持大多数Z高度探"
+"头，包括BL-Touch探头和伺服激活的探头。"
 
 #: docs/Features.md:block 5 (unordered list)
 msgid ""
 "Automatic delta calibration support. The calibration tool can perform basic "
 "height calibration as well as an enhanced X and Y dimension calibration. The "
 "calibration can be done with a Z height probe or via manual probing."
-msgstr "支持自动delta校准。校准工具可以进行基本的高度校准，以及增强的X和Y尺寸校准。校准可以用Z型高度探头或通过手动探测来完成。"
+msgstr "支持自动delta校准。校准工具可以进行基本的高度校准，以及增强的X和Y尺寸校准。校"
+"准可以用Z型高度探头或通过手动探测来完成。"
 
 #: docs/Features.md:block 5 (unordered list)
 msgid "Basic thermal heater protection enabled by default."
@@ -163,7 +166,8 @@ msgid ""
 "Support for common LCD displays attached directly to the printer. A default "
 "menu is also available. The contents of the display and menu can be fully "
 "customized via the config file."
-msgstr "支持直接连接到打印机的普通LCD显示器。还提供了一个默认的菜单。显示器和菜单的内容可以通过配置文件完全定制。"
+msgstr "支持直接连接到打印机的普通LCD显示器。还提供了一个默认的菜单。显示器和菜单的内"
+"容可以通过配置文件完全定制。"
 
 #: docs/Features.md:block 5 (unordered list)
 msgid ""
