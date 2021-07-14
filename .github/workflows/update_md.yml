@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - translations
+      - weblate-klipper-readme
   workflow_dispatch:
 
 jobs:
