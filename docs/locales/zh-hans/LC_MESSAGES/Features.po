@@ -1,6 +1,21 @@
-#
+# Neko.vecter <Vecterfang@icloud.com>, 2021.
 msgid ""
 msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"POT-Creation-Date: 2021-07-15 06:32+0200\n"
+"PO-Revision-Date: 2021-07-15 04:32+0000\n"
+"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/features/zh_Hans/>\n"
+"Language: zh-hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.7.2-dev\n"
+
+#
 
 #: docs/Features.md:block 1 (paragraph)
 msgid "Klipper has several compelling features:"
@@ -175,6 +190,8 @@ msgid ""
 "manipulating the Z steppers. Most Z height probes are supported, "
 "including BL-Touch probes and servo activated probes."
 msgstr ""
+"自动床面平整支持。Klipper可以被配置为基本的床身倾斜检测或网床调平。如果床铺使用多个Z步进器，那么Klipper也可以通过独立操纵Z步进器来调平。支"
+"持大多数Z高度探头，包括BL-Touch探头和伺服激活的探头。"
 
 #: docs/Features.md:block 5 (unordered list)
 msgid ""
@@ -182,7 +199,7 @@ msgid ""
 " basic height calibration as well as an enhanced X and Y dimension "
 "calibration. The calibration can be done with a Z height probe or via"
 " manual probing."
-msgstr ""
+msgstr "支持自动delta校准。校准工具可以进行基本的高度校准，以及增强的X和Y尺寸校准。校准可以用Z型高度探头或通过手动探测来完成。"
 
 #: docs/Features.md:block 5 (unordered list)
 msgid ""
@@ -210,13 +227,15 @@ msgid ""
 "support for current control of traditional stepper drivers via "
 "AD5206, MCP4451, MCP4728, MCP4018, and PWM pins."
 msgstr ""
+"支持TMC2130、TMC2208/TMC2224、TMC2209、TMC2660和TMC5160步进电机驱动器的运行时配置。还支持通过AD5206、MC"
+"P4451、MCP4728、MCP4018和PWM引脚对传统步进驱动器进行电流控制。"
 
 #: docs/Features.md:block 5 (unordered list)
 msgid ""
 "Support for common LCD displays attached directly to the printer. A "
 "default menu is also available. The contents of the display and menu "
 "can be fully customized via the config file."
-msgstr ""
+msgstr "支持直接连接到打印机的普通LCD显示器。还提供了一个默认的菜单。显示器和菜单的内容可以通过配置文件完全定制。"
 
 #: docs/Features.md:block 5 (unordered list)
 msgid ""

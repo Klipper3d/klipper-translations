@@ -1,11 +1,26 @@
-#
+# Neko.vecter <Vecterfang@icloud.com>, 2021.
 msgid ""
 msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"POT-Creation-Date: 2021-07-15 06:32+0200\n"
+"PO-Revision-Date: 2021-07-15 04:32+0000\n"
+"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/tmc_drivers/zh_Hans/>\n"
+"Language: zh-hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.7.2-dev\n"
+
+#
 
 msgid ""
 "This document provides information on using Trinamic stepper motor "
 "drivers in SPI/UART mode on Klipper."
-msgstr ""
+msgstr "这个文档提供了在Klipper上以SPI/UART模式使用Trinamic步进电机驱动器的信息。"
 
 msgid ""
 "Klipper can also use Trinamic drivers in their \"standalone mode\". "
@@ -13,22 +28,29 @@ msgid ""
 "configuration is needed and the advanced Klipper features discussed "
 "in this document are not available."
 msgstr ""
+"Klipper也可以在其 \"standalone mode\"下使用Trinamic驱动"
+"。然而，当驱动处于这种模式时，不需要特殊的Klipper配置，本文件中讨论的高级Klipper功能也无法使用。"
 
 msgid ""
 "In addition to this document, be sure to review the [TMC driver "
 "config reference](Config_Reference.md#tmc-stepper-driver-"
 "configuration)."
 msgstr ""
+"除了这份文档，请务必查看[TMC驱动配置参考](Config_Reference.md#tmc-stepper-driver-"
+"configuration)."
 
 msgid "Enabling \"Stealthchop\" mode"
-msgstr ""
+msgstr "启用 \"Stealthchop \"模式"
 
 msgid ""
 "By default, Klipper places the TMC drivers in \"spreadcycle\" mode. "
 "If the driver supports \"stealthchop\" then it can be enabled by "
 "adding `stealthchop_threshold: 999999` to the TMC config section."
 msgstr ""
+"默认情况下，Klipper将TMC驱动置于 \"spreadcycle \"模式。如果驱动程序支持 \"stealthchop\""
+"，那么可以通过添加`stealthchop_threshold:999999` 到TMC配置部分。"
 
+#, fuzzy
 msgid ""
 "It is recommended to always use \"spreadcycle\" mode (by not "
 "specifying `stealthchop_threshold`) or to always use \"stealthchop\" "
@@ -36,9 +58,12 @@ msgid ""
 "the drivers often produce poor and confusing results if the mode "
 "changes while the motor is at a non-zero velocity."
 msgstr ""
+"建议总是使用 \"spreadcycle \"模式（通过不指定`stealthchop_threshold`）或总是使用 \"stealthchop "
+"\"模式"
+"（通过设置`stealthchop_threshold`为999999）。不幸的是，如果在电机处于非零速度时改变模式，驱动器往往会产生糟糕和混乱的结果。"
 
 msgid "Sensorless Homing"
-msgstr ""
+msgstr "无限位归零"
 
 msgid ""
 "Sensorless homing allows to home an axis without the need for a "
