@@ -1,16 +1,12 @@
-These instructions assume the software will run on a Raspberry Pi computer in
-conjunction with OctoPrint. It is recommended that a Raspberry Pi 2, 3, or 4 computer be used as the host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) for other machines).
+These instructions assume the software will run on a Raspberry Pi computer in conjunction with OctoPrint. It is recommended that a Raspberry Pi 2, 3, or 4 computer be used as the host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) for other machines).
 
-Klipper currently supports a number of Atmel ATmega based micro-controllers,
-[ARM based micro-controllers](Features.md#step-benchmarks), and [Beaglebone PRU](beaglebone.md) based printers.
+Klipper currently supports a number of Atmel ATmega based micro-controllers, [ARM based micro-controllers](Features.md#step-benchmarks), and [Beaglebone PRU](beaglebone.md) based printers.
 
 # Prepping an OS image
 
-Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry
-Pi computer. Use OctoPi v0.17.0 or later - see the [octopi releases](https://github.com/guysoft/OctoPi/releases) for release information. One should verify that OctoPi boots and that the OctoPrint web server works. After connecting to the OctoPrint web page, follow the prompt to upgrade OctoPrint to v1.4.2 or later.
+Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry Pi computer. Use OctoPi v0.17.0 or later - see the [octopi releases](https://github.com/guysoft/OctoPi/releases) for release information. One should verify that OctoPi boots and that the OctoPrint web server works. After connecting to the OctoPrint web page, follow the prompt to upgrade OctoPrint to v1.4.2 or later.
 
-After installing OctoPi and upgrading OctoPrint, it will be necessary to ssh
-into the target machine to run a handful of system commands. If using a Linux or MacOS desktop, then the "ssh" software should already be installed on the desktop. There are free ssh clients available for other desktops (eg, [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Use the ssh utility to connect to the Raspberry Pi (ssh pi@octopi -- password is "raspberry") and run the following commands:
+After installing OctoPi and upgrading OctoPrint, it will be necessary to ssh into the target machine to run a handful of system commands. If using a Linux or MacOS desktop, then the "ssh" software should already be installed on the desktop. There are free ssh clients available for other desktops (eg, [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Use the ssh utility to connect to the Raspberry Pi (ssh pi@octopi -- password is "raspberry") and run the following commands:
 
 ```
 git clone https://github.com/KevinOConnor/klipper
@@ -46,8 +42,7 @@ It should report something similar to the following:
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-It's common for each printer to have its own unique serial port name. This
-unique name will be used when flashing the micro-controller. It's possible there may be multiple lines in the above output - if so, choose the line corresponding to the micro-controller (see the [FAQ](FAQ.md#wheres-my-serial-port) for more information).
+It's common for each printer to have its own unique serial port name. This unique name will be used when flashing the micro-controller. It's possible there may be multiple lines in the above output - if so, choose the line corresponding to the micro-controller (see the [FAQ](FAQ.md#wheres-my-serial-port) for more information).
 
 For common micro-controllers, the code can be flashed with something similar to:
 
@@ -77,8 +72,7 @@ Once connected, navigate to the "Terminal" tab and type "status" (without the qu
 
 # Configuring Klipper
 
-The Klipper configuration is stored in a text file on the Raspberry Pi. Take a
-look at the example config files in the [config directory](../config/). The [config reference](Config_Reference.md) contains documentation on config parameters.
+The Klipper configuration is stored in a text file on the Raspberry Pi. Take a look at the example config files in the [config directory](../config/). The [config reference](Config_Reference.md) contains documentation on config parameters.
 
 Arguably the easiest way to update the Klipper configuration file is to use a desktop editor that supports editing files over the "scp" and/or "sftp" protocols. There are freely available tools that support this (eg, Notepad++, WinSCP, and Cyberduck). Use one of the example config files as a starting point and save it as a file named "printer.cfg" in the home directory of the pi user (ie, /home/pi/printer.cfg).
 
@@ -91,8 +85,7 @@ nano ~/printer.cfg
 
 Make sure to review and update each setting that is appropriate for the hardware.
 
-It's common for each printer to have its own unique name for the
-micro-controller. The name may change after flashing Klipper, so rerun the `ls /dev/serial/by-id/*` command and then update the config file with the unique name. For example, update the `[mcu]` section to look something similar to:
+It's common for each printer to have its own unique name for the micro-controller. The name may change after flashing Klipper, so rerun the `ls /dev/serial/by-id/*` command and then update the config file with the unique name. For example, update the `[mcu]` section to look something similar to:
 
 ```
 [mcu]
@@ -105,10 +98,8 @@ Klipper reports error messages via the OctoPrint terminal tab. The "status" comm
 
 In addition to common g-code commands, Klipper supports a few extended commands - "status" and "restart" are examples of these commands. Use the "help" command to get a list of other extended commands.
 
-After Klipper reports that the printer is ready go on to the [config check
-document](Config_checks.md) to perform some basic checks on the pin definitions in the config file.
+After Klipper reports that the printer is ready go on to the [config check document](Config_checks.md) to perform some basic checks on the pin definitions in the config file.
 
 # Contacting the developers
 
-Be sure to see the [FAQ](FAQ.md) for answers to some common questions. See the
-[contact page](Contact.md) to report a bug or to contact the developers.
+Be sure to see the [FAQ](FAQ.md) for answers to some common questions. See the [contact page](Contact.md) to report a bug or to contact the developers.

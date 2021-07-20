@@ -13,8 +13,7 @@ In order to use a CAN bus, it is necessary to have a host adapter. There are cur
 1. Use a [Waveshare Raspberry Pi CAN hat](https://www.waveshare.com/rs485-can-hat.htm) or one of its many clones.
 1. Use a USB CAN adapter (for example <https://hacker-gadgets.com/product/cantact-usb-can-adapter/>). There are many different USB to CAN adapters available - when choosing one, we recommend verifying it can run the [candlelight firmware](https://github.com/candle-usb/candleLight_fw). (Unfortunately, we've found some USB adapters run defective firmware and are locked down, so verify before purchasing.)
 
-It is also necessary to configure the host operating system to use the adapter.
-This is typically done by creating a new file named `/etc/network/interfaces.d/can0` with the following contents:
+It is also necessary to configure the host operating system to use the adapter. This is typically done by creating a new file named `/etc/network/interfaces.d/can0` with the following contents:
 
 ```
 auto can0
@@ -23,8 +22,7 @@ iface can0 can static
     up ifconfig $IFACE txqueuelen 128
 ```
 
-Note that the "Raspberry Pi CAN hat" also requires [changes to
-config.txt](https://www.waveshare.com/wiki/RS485_CAN_HAT).
+Note that the "Raspberry Pi CAN hat" also requires [changes to config.txt](https://www.waveshare.com/wiki/RS485_CAN_HAT).
 
 # Terminating Resistors
 
@@ -48,16 +46,13 @@ If uninitialized CAN devices are detected the above command will report lines li
 Found canbus_uuid=11aa22bb33cc
 ```
 
-Each device will have a unique identifier. In the above example, `11aa22bb33cc`
-is the micro-controller's "canbus_uuid".
+Each device will have a unique identifier. In the above example, `11aa22bb33cc` is the micro-controller's "canbus_uuid".
 
-Note that the `canbus_query.py` tool will only report uninitialized devices - if
-Klipper (or a similar tool) configures the device then it will no longer appear in the list.
+Note that the `canbus_query.py` tool will only report uninitialized devices - if Klipper (or a similar tool) configures the device then it will no longer appear in the list.
 
 # Configuring Klipper
 
-Update the Klipper [mcu configuration](Config_Reference.md#mcu) to use the CAN
-bus to communicate with the device - for example:
+Update the Klipper [mcu configuration](Config_Reference.md#mcu) to use the CAN bus to communicate with the device - for example:
 
 ```
 [mcu my_can_mcu]

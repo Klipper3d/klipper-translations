@@ -8,8 +8,7 @@ This document attempts to describe common bootloaders, the steps needed to flash
 
 # AVR micro-controllers
 
-In general, the Arduino project is a good reference for bootloaders and flashing
-procedures on the 8-bit Atmel Atmega micro-controllers. In particular, the "boards.txt" file: <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> is a useful reference.
+In general, the Arduino project is a good reference for bootloaders and flashing procedures on the 8-bit Atmel Atmega micro-controllers. In particular, the "boards.txt" file: <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> is a useful reference.
 
 To flash a bootloader itself, the AVR chips require an external hardware flashing tool (which communicates with the chip using SPI). This tool can be purchased (for example, do a web search for "avr isp", "arduino isp", or "usb tiny isp"). It is also possible to use another Arduino or Raspberry Pi to flash an AVR bootloader (for example, do a web search for "program an avr using raspberry pi"). The examples below are written assuming an "AVR ISP Mk2" type device is in use.
 
@@ -85,8 +84,7 @@ avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.
 
 This document does not cover the method to flash a bootloader to the At90usb1286 nor does it cover general application flashing to this device.
 
-The Teensy++ device from pjrc.com comes with a proprietary bootloader. It
-requires a custom flashing tool from <https://github.com/PaulStoffregen/teensy_loader_cli>. One can flash an application with it using something like:
+The Teensy++ device from pjrc.com comes with a proprietary bootloader. It requires a custom flashing tool from <https://github.com/PaulStoffregen/teensy_loader_cli>. One can flash an application with it using something like:
 
 ```
 teensy_loader_cli --mcu=at90usb1286 out/klipper.elf.hex -v
@@ -116,8 +114,7 @@ It is not common to use a bootloader with the SAM3 mcu. The chip itself has a RO
 
 To enable the ROM, the "erase" pin is held high during a reset, which erases the flash contents, and causes the ROM to run. On an Arduino Due, this sequence can be accomplished by setting a baud rate of 1200 on the "programming usb port" (the USB port closest to the power supply).
 
-The code at <https://github.com/shumatech/BOSSA> can be used to program the
-SAM3. It is recommended to use version 1.9 or later.
+The code at <https://github.com/shumatech/BOSSA> can be used to program the SAM3. It is recommended to use version 1.9 or later.
 
 To flash an application use something like:
 
@@ -132,8 +129,7 @@ It is not common to use a bootloader with the SAM4 mcu. The chip itself has a RO
 
 To enable the ROM, the "erase" pin is held high during a reset, which erases the flash contents, and causes the ROM to run.
 
-The code at <https://github.com/shumatech/BOSSA> can be used to program the
-SAM4. It is necessary to use version `1.8.0` or higher.
+The code at <https://github.com/shumatech/BOSSA> can be used to program the SAM4. It is necessary to use version `1.8.0` or higher.
 
 To flash an application use something like:
 
@@ -143,8 +139,7 @@ bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 
 # SAMD21 micro-controllers (Arduino Zero)
 
-The SAMD21 bootloader is flashed via the ARM Serial Wire Debug (SWD) interface.
-This is commonly done with a dedicated SWD hardware dongle. Alternatively, one can use a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi).
+The SAMD21 bootloader is flashed via the ARM Serial Wire Debug (SWD) interface. This is commonly done with a dedicated SWD hardware dongle. Alternatively, one can use a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi).
 
 To flash a bootloader with OpenOCD use the following chip config:
 
@@ -179,15 +174,13 @@ avrdude -c stk500v2 -p atmega2560 -P /dev/ttyACM0 -u -Uflash:w:out/klipper.elf.h
 
 # SAMD51 micro-controllers (Adafruit Metro-M4 and similar)
 
-Like the SAMD21, the SAMD51 bootloader is flashed via the ARM Serial Wire Debug
-(SWD) interface. To flash a bootloader with [OpenOCD on a Raspberry Pi](#running-openocd-on-the-raspberry-pi) use the following chip config:
+Like the SAMD21, the SAMD51 bootloader is flashed via the ARM Serial Wire Debug (SWD) interface. To flash a bootloader with [OpenOCD on a Raspberry Pi](#running-openocd-on-the-raspberry-pi) use the following chip config:
 
 ```
 source [find target/atsame5x.cfg]
 ```
 
-Obtain a bootloader - several bootloaders are available from
-<https://github.com/adafruit/uf2-samdx1/releases/latest>. For example:
+Obtain a bootloader - several bootloaders are available from <https://github.com/adafruit/uf2-samdx1/releases/latest>. For example:
 
 ```
 wget 'https://github.com/adafruit/uf2-samdx1/releases/download/v3.7.0/bootloader-itsybitsy_m4-v3.7.0.bin'
@@ -215,15 +208,13 @@ The STM32F103 devices have a ROM that can flash a bootloader or application via 
 stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0
 ```
 
-Note that if one is using a Raspberry Pi for the 3.3V serial, the stm32flash
-protocol uses a serial parity mode which the Raspberry Pi's "miniuart" does not support. See <https://www.raspberrypi.org/documentation/configuration/uart.md> for details on enabling the full uart on the Raspberry Pi GPIO pins.
+Note that if one is using a Raspberry Pi for the 3.3V serial, the stm32flash protocol uses a serial parity mode which the Raspberry Pi's "miniuart" does not support. See <https://www.raspberrypi.org/documentation/configuration/uart.md> for details on enabling the full uart on the Raspberry Pi GPIO pins.
 
 After flashing, set both "boot 0" and "boot 1" back to low so that future resets boot from flash.
 
 ## STM32F103 with stm32duino bootloader
 
-The "stm32duino" project has a USB capable bootloader - see:
-<https://github.com/rogerclarkmelbourne/STM32duino-bootloader>
+The "stm32duino" project has a USB capable bootloader - see: <https://github.com/rogerclarkmelbourne/STM32duino-bootloader>
 
 This bootloader can be flashed via 3.3V serial with something like:
 
@@ -243,13 +234,11 @@ The bootloader typically runs for only a short period after boot. It may be nece
 
 ## STM32F103 with HID bootloader
 
-The [HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader) is a
-compact, driverless bootloader capable of flashing over USB. Also available is a [fork with builds specific to the SKR Mini E3 1.2](https://github.com/Arksine/STM32_HID_Bootloader/releases/tag/v0.5-beta).
+The [HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader) is a compact, driverless bootloader capable of flashing over USB. Also available is a [fork with builds specific to the SKR Mini E3 1.2](https://github.com/Arksine/STM32_HID_Bootloader/releases/tag/v0.5-beta).
 
 For generic STM32F103 boards such as the blue pill it is possible to flash the bootloader via 3.3v serial using stm32flash as noted in the stm32duino section above, substituting the file name for the desired hid bootloader binary (ie: hid_generic_pc13.bin for the blue pill).
 
-It is not possible to use stm32flash for the SKR Mini E3 as the boot0 pin is
-tied directly to ground and not broken out via header pins. It is recommended to use a STLink V2 with STM32Cubeprogrammer to flash the bootloader. If you don't have access to a STLink it is also possible to use a [Raspberry Pi and OpenOCD](#running-openocd-on-the-raspberry-pi) with the following chip config:
+It is not possible to use stm32flash for the SKR Mini E3 as the boot0 pin is tied directly to ground and not broken out via header pins. It is recommended to use a STLink V2 with STM32Cubeprogrammer to flash the bootloader. If you don't have access to a STLink it is also possible to use a [Raspberry Pi and OpenOCD](#running-openocd-on-the-raspberry-pi) with the following chip config:
 
 ```
 source [find target/stm32f1x.cfg]
@@ -274,7 +263,19 @@ NOTES:
 - Prior flashing the SKR Mini E3 with this bootloader you should be aware that you will no longer be able to update firmware via the sdcard.
 - You may need to hold down the reset button on the board while launching OpenOCD. It should display something like:
    ```
-   Open On-Chip Debugger 0.10.0+dev-01204-gc60252ac-dirty (2020-04-27-16:00) Licensed under GNU GPL v2 For bug reports, read         http://openocd.org/doc/doxygen/bugs.html DEPRECATED! use 'adapter speed' not 'adapter_khz' Info : BCM2835 GPIO JTAG/SWD bitbang driver Info : JTAG and SWD modes enabled Info : clock speed 40 kHz Info : SWD DPIDR 0x1ba01477 Info : stm32f1x.cpu: hardware has 6 breakpoints, 4 watchpoints Info : stm32f1x.cpu: external reset detected Info : starting gdb server for stm32f1x.cpu on 3333 Info : Listening on port 3333 for gdb connections
+   Open On-Chip Debugger 0.10.0+dev-01204-gc60252ac-dirty (2020-04-27-16:00)
+Licensed under GNU GPL v2
+For bug reports, read
+        http://openocd.org/doc/doxygen/bugs.html
+DEPRECATED! use 'adapter speed' not 'adapter_khz'
+Info : BCM2835 GPIO JTAG/SWD bitbang driver
+Info : JTAG and SWD modes enabled
+Info : clock speed 40 kHz
+Info : SWD DPIDR 0x1ba01477
+Info : stm32f1x.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : stm32f1x.cpu: external reset detected
+Info : starting gdb server for stm32f1x.cpu on 3333
+Info : Listening on port 3333 for gdb connections
    ```
 After which you can release the reset button.
 
@@ -310,11 +311,9 @@ It may be necessary to manually enter the bootloader, this can be done by settin
 
 # STM32F4 micro-controllers (SKR Pro 1.1)
 
-STM32F4 microcontrollers come equipped with a built-in system bootloader capable
-of flashing over USB (via DFU), 3.3v Serial, and various other methods (see STM Document AN2606 for more information). Some STM32F4 boards, such as the SKR Pro 1.1, are not able to enter the DFU bootloader. The HID bootloader is available for STM32F405/407 based boards should the user prefer flashing over USB over using the sdcard. Note that you may need to configure and build a version specific to your board, a [build for the SKR Pro 1.1 is available here](https://github.com/Arksine/STM32_HID_Bootloader/releases/tag/v0.5-beta).
+STM32F4 microcontrollers come equipped with a built-in system bootloader capable of flashing over USB (via DFU), 3.3v Serial, and various other methods (see STM Document AN2606 for more information). Some STM32F4 boards, such as the SKR Pro 1.1, are not able to enter the DFU bootloader. The HID bootloader is available for STM32F405/407 based boards should the user prefer flashing over USB over using the sdcard. Note that you may need to configure and build a version specific to your board, a [build for the SKR Pro 1.1 is available here](https://github.com/Arksine/STM32_HID_Bootloader/releases/tag/v0.5-beta).
 
-Unless your board is DFU capable the most accessable flashing method is likely
-via 3.3v serial, which follows the same procedure as [flashing the STM32F103 using stm32flash](#stm32f103-micro-controllers-blue-pill-devices). For example:
+Unless your board is DFU capable the most accessable flashing method is likely via 3.3v serial, which follows the same procedure as [flashing the STM32F103 using stm32flash](#stm32f103-micro-controllers-blue-pill-devices). For example:
 
 ```
 wget https://github.com/Arksine/STM32_HID_Bootloader/releases/download/v0.5-beta/hid_bootloader_SKR_PRO.bin
@@ -330,18 +329,15 @@ It may be necessary to manually enter the bootloader, this can be done by settin
 
 # LPC176x micro-controllers (Smoothieboards)
 
-This document does not describe the method to flash a bootloader itself - see:
-<http://smoothieware.org/flashing-the-bootloader> for further information on that topic.
+This document does not describe the method to flash a bootloader itself - see: <http://smoothieware.org/flashing-the-bootloader> for further information on that topic.
 
-It is common for Smoothieboards to come with a bootloader from:
-<https://github.com/triffid/LPC17xx-DFU-Bootloader>. When using this bootloader the application must be compiled with a start address of 16KiB. The easiest way to flash an application with this bootloader is to copy the application file (eg, `out/klipper.bin`) to a file named `firmware.bin` on an SD card, and then to reboot the micro-controller with that SD card.
+It is common for Smoothieboards to come with a bootloader from: <https://github.com/triffid/LPC17xx-DFU-Bootloader>. When using this bootloader the application must be compiled with a start address of 16KiB. The easiest way to flash an application with this bootloader is to copy the application file (eg, `out/klipper.bin`) to a file named `firmware.bin` on an SD card, and then to reboot the micro-controller with that SD card.
 
 # Running OpenOCD on the Raspberry PI
 
 OpenOCD is a software package that can perform low-level chip flashing and debugging. It can use the GPIO pins on a Raspberry Pi to communicate with a variety of ARM chips.
 
-This section describes how one can install and launch OpenOCD. It is derived
-from the instructions at: <https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi>
+This section describes how one can install and launch OpenOCD. It is derived from the instructions at: <https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi>
 
 Begin by downloading and compiling the software (each step may take several minutes and the "make" step may take 30+ minutes):
 

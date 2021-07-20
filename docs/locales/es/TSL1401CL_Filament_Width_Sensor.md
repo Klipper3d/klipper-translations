@@ -1,5 +1,4 @@
-This document describes Filament Width Sensor host module. Hardware used for
-developing this host module is based on TSL1401CL linear sensor array but it can work with any sensor array that has analog output. You can find designs at [thingiverse.com](https://www.thingiverse.com/search?q=filament%20width%20sensor)
+This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on TSL1401CL linear sensor array but it can work with any sensor array that has analog output. You can find designs at [thingiverse.com](https://www.thingiverse.com/search?q=filament%20width%20sensor)
 
 ## How does it work?
 
@@ -10,15 +9,12 @@ Sensor generates analog output based on calculated filament width. Output voltag
     [tsl1401cl_filament_width_sensor]
     pin: analog5
     # Analog input pin for sensor output on Ramps board
-    
     default_nominal_filament_diameter: 1.75
     # This parameter is in millimeters (mm)
-    
     max_difference: 0.2
     #  Maximum allowed filament diameter difference in millimeters (mm)
     #  If difference between nominal filament diameter and sensor output is more
     #  than +- max_difference, extrusion multiplier set back to %100
-    
     measurement_delay 100
     #  The distance from sensor to the melting chamber/hot-end in millimeters (mm).
     #  The filament between the sensor and the hot-end will be treated as the default_nominal_filament_diameter.

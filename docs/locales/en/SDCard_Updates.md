@@ -2,8 +2,7 @@ Many of today's popular controller boards ship with a bootloader capable of upda
 
 # Typical Upgrade Procedure
 
-The procedure for updating MCU firmware using the SD Card is similar to that of
-other methods. Instead of using `make flash` it is necessary to run a helper script, `flash-sdcard.sh`. Updating a BigTreeTech SKR 1.3 might look like the following:
+The procedure for updating MCU firmware using the SD Card is similar to that of other methods. Instead of using `make flash` it is necessary to run a helper script, `flash-sdcard.sh`. Updating a BigTreeTech SKR 1.3 might look like the following:
 
 ```
 sudo service klipper stop
@@ -16,8 +15,7 @@ make
 sudo service klipper start
 ```
 
-It is up to the user to determine the device location and board name. If a user
-needs to flash multiple boards, `flash-sdcard.sh` (or `make flash` if appropriate) should be run for each board prior to restarting the Klipper service.
+It is up to the user to determine the device location and board name. If a user needs to flash multiple boards, `flash-sdcard.sh` (or `make flash` if appropriate) should be run for each board prior to restarting the Klipper service.
 
 Supported boards can be listed with the following command:
 
@@ -25,13 +23,11 @@ Supported boards can be listed with the following command:
 ./scripts/flash-sdcard.sh -l
 ```
 
-If you do not see your board listed it may be necessary to add a new board
-definition as [described below](#board-definitions).
+If you do not see your board listed it may be necessary to add a new board definition as [described below](#board-definitions).
 
 # Advanced Usage
 
-The above commands assume that your MCU connects at the default baud rate of
-250000 and the firmware is located at `~/klipper/out/klipper.bin`. The `flash-sdcard.sh` script provides options for changing these defaults. All options can be viewed by the help screen:
+The above commands assume that your MCU connects at the default baud rate of 250000 and the firmware is located at `~/klipper/out/klipper.bin`. The `flash-sdcard.sh` script provides options for changing these defaults. All options can be viewed by the help screen:
 
 ```
 ./scripts/flash-sdcard.sh -h
@@ -51,22 +47,19 @@ optional arguments:
   -f <firmware>   path to klipper.bin
 ```
 
-If your board is flashed with firmware that connects at a custom baud rate it is
-possible to upgrade by specifying the `-b` option:
+If your board is flashed with firmware that connects at a custom baud rate it is possible to upgrade by specifying the `-b` option:
 
 ```
 ./scripts/flash-sdcard.sh -b 115200 /dev/ttyAMA0 btt-skr-v1.3
 ```
 
-If you wish to flash a build of Klipper located somewhere other than the default
-location it can be done by specifying the `-f` option:
+If you wish to flash a build of Klipper located somewhere other than the default location it can be done by specifying the `-f` option:
 
 ```
 ./scripts/flash-sdcard.sh -f ~/downloads/klipper.bin /dev/ttyAMA0 btt-skr-v1.3
 ```
 
-Note that when upgrading a MKS Robin E3 it is not necessary to manually run
-`update_mks_robin.py` and supply the resulting binary to `flash-sdcard.sh`. This procedure is automated during the upload process.
+Note that when upgrading a MKS Robin E3 it is not necessary to manually run `update_mks_robin.py` and supply the resulting binary to `flash-sdcard.sh`. This procedure is automated during the upload process.
 
 # Caveats
 
@@ -76,8 +69,7 @@ Note that when upgrading a MKS Robin E3 it is not necessary to manually run
 
 # Board Definitions
 
-Most common boards should be available, however it is possible to add a new
-board definition if necessary. Board definitions are located in `~/klipper/scripts/spi_flash/board_defs.py`. The definitions are stored in dictionary, for example:
+Most common boards should be available, however it is possible to add a new board definition if necessary. Board definitions are located in `~/klipper/scripts/spi_flash/board_defs.py`. The definitions are stored in dictionary, for example:
 
 ```python
 BOARD_DEFS = {
@@ -98,16 +90,13 @@ The following fields may be specified:
 - `firmware_path`: The path on the SD Card where firmware should be transferred. The default is `firmware.bin`.
 - `current_firmware_path` The path on the SD Card where the renamed firmware file is located after a successful flash. The default is `firmware.cur`.
 
-If software SPI is required the `spi_bus` field should be set to `swspi` and the
-following additional field should be specified:
+If software SPI is required the `spi_bus` field should be set to `swspi` and the following additional field should be specified:
 
 - `spi_pins`: This should be 3 comma separated pins that are connected to the SD Card in the format of `miso,mosi,sclk`.
 
-It should be exceedingly rare that Software SPI is necessary, typically only
-boards with design errors will require it. The `btt-skr-pro` board definition provides an example.
+It should be exceedingly rare that Software SPI is necessary, typically only boards with design errors will require it. The `btt-skr-pro` board definition provides an example.
 
-Prior to creating a new board definition one should check to see if an existing
-board definition meets the criteria necessary for the new board. If this is the case, a `BOARD_ALIAS` may be specified. For example, the following alias may be added to specify `my-new-board` as an alias for `generic-lpc1768`:
+Prior to creating a new board definition one should check to see if an existing board definition meets the criteria necessary for the new board. If this is the case, a `BOARD_ALIAS` may be specified. For example, the following alias may be added to specify `my-new-board` as an alias for `generic-lpc1768`:
 
 ```python
 BOARD_ALIASES = {
@@ -116,5 +105,4 @@ BOARD_ALIASES = {
 }
 ```
 
-If you need a new board definition and you are uncomfortable with the procedure
-outlined above it is recommended that you request one in the [Klipper Community Discord](Contact.md#discord).
+If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the [Klipper Community Discord](Contact.md#discord).

@@ -1,7 +1,6 @@
 网床 插件可用于补偿热床表面的不规则性，以保证在打印过程中获得更好的第一层。 需要注意的是，基于软件的校正还不能达到完美的程度，它只能尽可能达到床的形状。网床 也无法补偿机械和电气导致的问题。 如果机器没装好结构歪了或探针不准确，则 网床 模块将无法从探测过程中获得令人满意的结果。
 
-在进行网格校准之前，请确保您已经校准了探头的 Z 偏移。 如果使用限位开关进行 Z 归位，则还需要对其进行校准。 有关详细信息，请参阅
-[手动调平](Manual_Level.md) 中的 [探针校准](Probe_Calibrate.md) 和 Z_ENDSTOP_CALIBRATE。
+在进行网格校准之前，请确保您已经校准了探头的 Z 偏移。 如果使用限位开关进行 Z 归位，则还需要对其进行校准。 有关详细信息，请参阅 [手动调平](Manual_Level.md) 中的 [探针校准](Probe_Calibrate.md) 和 Z_ENDSTOP_CALIBRATE。
 
 ## 基本配置
 
@@ -24,8 +23,7 @@ probe_count: 5,3
 - `mesh_max: 240,198` *必须配置* 距离原点最远的探测坐标。 这不一定是探测的最后一个点，因为探测过程以锯齿形的方式运动。 与 `mesh_min` 一样，这个坐标是探针的位置。
 - `probe_count: 5,3` *默认值：3,3* 每条轴上要探测的点数，指定为 x,y 整数值。 在本示例中，将沿 X 轴探测 5 个点，沿 Y 轴探测 3 个点，总共探测 15 个点。 请注意，如果您想要一个方形网格，例如 3x3，可以将指定其为一个整数值，比如 `probe_count: 3`。 请注意，网格需要沿每个轴的最小probe_count 为3。
 
-下图演示了如何使用 `mesh_min`、`mesh_max` 和 `probe_count` 选项来生成探测点。
-箭头表示探测过程的运动方向，从“mesh_min”开始。 图中所示，当探针位于“mesh_min”时，喷嘴将位于 (11, 1)，当探针位于“mesh_max”时，喷嘴将位于 (206, 193)。
+下图演示了如何使用 `mesh_min`、`mesh_max` 和 `probe_count` 选项来生成探测点。 箭头表示探测过程的运动方向，从“mesh_min”开始。 图中所示，当探针位于“mesh_min”时，喷嘴将位于 (11, 1)，当探针位于“mesh_max”时，喷嘴将位于 (206, 193)。
 
 ![矩形网床基本配置](img/bedmesh_rect_basic.svg)
 
@@ -96,8 +94,7 @@ split_delta_z: .025
 - `move_check_distance: 5` *默认值：5* 在执行拆分之前检查 Z 中需要变化的最小距离。 在此示例中，算法将遍历超过 5 毫米的移动。 每 5mm 将查找一次网格的Z ，并将其与前一次移动的 Z 值进行比较。 如果三角洲满足 `split_delta_z` 设置的阈值，则移动将被拆分并继续遍历。 重复此过程，直到到达移动结束处，在此将应用最终调整。 比 `move_check_distance` 短的移动将正确的 Z 调整直接应用于移动，无需遍历或拆分。
 - `split_delta_z: .025` *默认值：.025* 如上所述，这是触发移动拆分所需的最小偏差。 在上面的示例中，任何偏差为 +/- .025 mm的 Z 值都将触发拆分。
 
-一般来说，这些选项的默认值就足够了，但事实上，`move_check_distance` 的默认值 5mm 可能会有点过度矫正。
-所以，高端可能希望尝试使用这个选项来获得挤出最佳的第一层。
+一般来说，这些选项的默认值就足够了，但事实上，`move_check_distance` 的默认值 5mm 可能会有点过度矫正。 所以，高端可能希望尝试使用这个选项来获得挤出最佳的第一层。
 
 ### 网格淡出
 
@@ -133,7 +130,7 @@ probe_count: 5,3
 relative_reference_index: 7
 ```
 
-- `relative_reference_index: 7`*默认值：无（禁用）*生成探测点时，为每个点分配一个索引。您可以使用网床输出或在klippy.log中查找此索引（有关详细信息，请参阅下面的网床 g代码部分）。如果您为 `relative_reference_index` 选项分配索引，则在该坐标处探测的值将替换探测器的 Z偏移值。 这有效地使该坐标成为网格的“零”参考
+- `relative_reference_index: 7`*默认值：无（禁用）*生成探测点时，为每个点分配一个索引。您可以使用网床输出或在 klippy.log 中查找此索引（有关详细信息，请参阅下面的网床 G代码部分）。如果您为 `relative_reference_index` 选项分配了索引，则在该坐标处探测的值将替换探针的 Z偏移值。 这将把这个坐标作为“零高度”的参考。
 
 使用相对参考指数时，应选择距离床身 Z 限位器校准点最近的指数。 请注意，在网床输出或在日志中查找索引时，您应该使用“探针”标题下列出的坐标来查找正确的索引。
 
@@ -141,8 +138,7 @@ relative_reference_index: 7
 
 由于特定位置的“故障”，热床的某些区域在探测时可能会报告不准确的结果。 最好的例子是带有用弹簧钢板的磁铁热床。 这些磁铁处和周围的磁场可能干扰探针触发的高度，从而导致网格无法准确表示这些位置的表面。 **注意：不要与探头位置偏差导致探测结果不准确的结果混淆。**
 
-可以配置 `faulty_region` 选项来避免这种影响。 如果生成的点位于故障区域内，热床网格将尝试在该区域的边界处探测最多 4 个点。
-这些探测的平均值将插入网床中作为生成的 (X, Y) 坐标处的 Z 值。
+可以配置 `faulty_region` 选项来避免这种影响。 如果生成的点位于故障区域内，热床网格将尝试在该区域的边界处探测最多 4 个点。 这些探测的平均值将插入网床中作为生成的 (X, Y) 坐标处的 Z 值。
 
 ```
 [bed_mesh]
@@ -171,11 +167,9 @@ The image below illustrates how replacement points are generated when a generate
 
 ### Calibration
 
-`BED_MESH_CALIBRATE METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`
-*Default Method: automatic if a probe is detected, otherwise manual*
+`BED_MESH_CALIBRATE METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Method: automatic if a probe is detected, otherwise manual*
 
-Initiates the probing procedure for Bed Mesh Calibration. If `METHOD=manual` is
-selected then manual probing will occur. When switching between automatic and manual probing the generated mesh points will automatically be adjusted.
+Initiates the probing procedure for Bed Mesh Calibration. If `METHOD=manual` is selected then manual probing will occur. When switching between automatic and manual probing the generated mesh points will automatically be adjusted.
 
 It is possible to specify mesh parameters to modify the probed area. The following parameters are available:
 
@@ -195,8 +189,7 @@ It is possible to specify mesh parameters to modify the probed area. The followi
 
 `BED_MESH_PROFILE SAVE=name LOAD=name REMOVE=name`
 
-After a BED_MESH_CALIBRATE has been performed, it is possible to save the
-current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using `BED_MESH_PROFILE SAVE=name` the `SAVE_CONFIG` gcode may be executed to write the profile to printer.cfg.
+After a BED_MESH_CALIBRATE has been performed, it is possible to save the current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using `BED_MESH_PROFILE SAVE=name` the `SAVE_CONFIG` gcode may be executed to write the profile to printer.cfg.
 
 Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=name`.
 
@@ -212,8 +205,7 @@ Any other saved profile can be removed in the same fashion, replacing *default* 
 
 Outputs the current mesh state to the terminal. Note that the mesh itself is output
 
-The PGP parameter is shorthand for "Print Generated Points". If `PGP=1` is set,
-the generated probed points will be output to the terminal:
+The PGP parameter is shorthand for "Print Generated Points". If `PGP=1` is set, the generated probed points will be output to the terminal:
 
 ```
 // bed_mesh: generated points

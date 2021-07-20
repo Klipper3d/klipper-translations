@@ -1,16 +1,12 @@
-本教程假定软件将会在树莓派上和 Octoprint
-一起运行。推荐使用树莓派2/3/4作为主机（关于其他设备，请见[常见问题](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)）。
+本教程假定软件将会在树莓派上和 Octoprint 一起运行。推荐使用树莓派2/3/4作为主机（关于其他设备，请见[常见问题](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)）。
 
-Klipper目前支持数种基于Atmel
-ATmega的微控制器、[基于ARM的微控制器](Features.md#step-benchmarks)、和[Beaglebone可编程实时单元](beaglebone.md)的打印机。
+Klipper目前支持数种基于Atmel ATmega的微控制器、[基于ARM的微控制器](Features.md#step-benchmarks)、和[Beaglebone可编程实时单元](beaglebone.md)的打印机。
 
 # 准备操作系统镜像
 
-先在树莓派上安装[OctoPi](https://github.com/guysoft/OctoPi)。使用OctoPi
-v0.17.0或更高版本，查看[octopi发布版](https://github.com/guysoft/OctoPi/releases)来获取最新的发布版。安装完系统后，请先验证OctoPi能正常启动，并且OctoPrint网络服务器正常运行。连接到OctoPrint网页后，按照提示将OctoPrint更新到v1.4.2或更高版本。
+先在树莓派上安装[OctoPi](https://github.com/guysoft/OctoPi)。使用OctoPi v0.17.0或更高版本，查看[octopi发布版](https://github.com/guysoft/OctoPi/releases)来获取最新的发布版。安装完系统后，请先验证OctoPi能正常启动，并且OctoPrint网络服务器正常运行。连接到OctoPrint网页后，按照提示将OctoPrint更新到v1.4.2或更高版本。
 
-在安装 OctoPi 和升级 OctoPrint后，用 ssh 进入目标设备，以运行少量的系统命令。如果使用Linux或MacOS系统，那么
-"ssh"软件应该已经预装在系统上。有一些免费的ssh客户端可用于其他操作系统（例如，[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)）。使用ssh工具连接到Raspberry Pi（ssh pi@octopi --密码是 "raspberry"），并运行以下命令：
+在安装 OctoPi 和升级 OctoPrint后，用 ssh 进入目标设备，以运行少量的系统命令。如果使用Linux或MacOS系统，那么 "ssh"软件应该已经预装在系统上。有一些免费的ssh客户端可用于其他操作系统（例如，[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)）。使用ssh工具连接到Raspberry Pi（ssh pi@octopi --密码是 "raspberry"），并运行以下命令：
 
 ```
 git clone https://github.com/KevinOConnor/klipper
@@ -46,8 +42,7 @@ ls /dev/serial/by-id/*
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-通常每一个打印机都有自己独特的串口名，这个独特串口名将会在烧写微处理器时用到。在上述输出中可能有多行。如果是这样的话选择与微控制器相应的
-(查看[FAQ](FAQ.md#wheres-my-serial-port)了解更多信息).
+通常每一个打印机都有自己独特的串口名，这个独特串口名将会在烧写微处理器时用到。在上述输出中可能有多行。如果是这样的话选择与微控制器相应的 (查看[FAQ](FAQ.md#wheres-my-serial-port)了解更多信息).
 
 对于常见的微控制器，可以用类似以下的方法来烧写固件：
 
@@ -77,8 +72,7 @@ OctoPrint网络服务器需要进行配置，以便与Klipper host 软件进行�
 
 # 配置 Klipper
 
-Klipper configuration 存储在Raspberry Pi上的一个文本文件中。看一下[config
-directory](../config/)。[config reference](Config_Reference.md)包含了config parameters.
+Klipper configuration 存储在Raspberry Pi上的一个文本文件中。看一下[config directory](../config/)。[config reference](Config_Reference.md)包含了config parameters.
 
 可以说，更新Klipper configuration 文件的最简单方法是使用一个支持通过 "scp "或 "sftp "协议编辑文件的桌面编辑器。有一些免费的工具支持这个功能（例如，Notepad++、WinSCP和Cyberduck）。使用其中一个配置文件的例子作为起点，并将其保存为pi用户的主目录中名为 "printer.cfg "的文件（例如，/home/pi/printer.cfg）。
 
@@ -104,8 +98,7 @@ Klipper通过OctoPrint终端标签报告错误信息。可以使用 "status "命
 
 除此之外常见的g-code命令之外，Klipper还支持一些扩展命令"status "和 "restart "就是这些命令的例子。使用 "help "命令可以获得其他扩展命令的列表。
 
-在Klipper反馈打印机已经准备好后，进入[config check
-document](Config_checks.md)对配置文件中的引脚定义进行一些基本检查。
+在Klipper反馈打印机已经准备好后，进入[config check document](Config_checks.md)对配置文件中的引脚定义进行一些基本检查。
 
 # 联系开发者
 

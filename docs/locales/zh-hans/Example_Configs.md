@@ -1,36 +1,33 @@
-This document contains guidelines for contributing an example Klipper
-configuration to the Klipper github repository (located in the [config directory](../config/)).
+本文档包含向Klipper github仓库（位于[config directory](../config/)）贡献Klipper配置示例的指南。
 
-Note that the [Klipper Community Discourse
-server](https://community.klipper3d.org) is also a useful resource for finding and sharing config files.
+请注意 [Klipper Community Discourse server](https://community.klipper3d.org)也是非常有用的寻找和分享配置文件的地方。
 
-# Guidelines
+# 指引
 
-1. Select the appropriate config filename prefix.
-   1. The `printer` prefix is used for stock printers sold by a mainstream manufacturer.
-   1. The `generic` prefix is used for a 3d printer board that may be used in many different types of printers.
-   1. The `kit` prefix is for 3d printers that are assembled according to a widely used specification. These "kit" printers are generally distinct from normal "printers" in that they are not sold by a manufacturer.
-   1. The `sample` prefix is used for config "snippets" that one may copy-and-paste into the main config file.
-   1. The `example` prefix is used to describe printer kinematics. This type of config is typically only added along with code for a new type of printer kinematics.
-1. Use the appropriate filename suffix. The `printer` config files must end in a year followed by `.cfg` (eg, `-2019.cfg`). In this case, the year is an approximate year the given printer was sold. All example configuration files must end in `.cfg`.
-1. Klipper must be able to start `printer`, `generic`, and `kit` example config file without error. These config files should be added to the [test/klippy/printers.test](../test/klippy/printers.test) regression test case. Add new config files to that test case in the appropriate section and in alphabetical order within that section.
-1. The example configuration should be for the "stock" configuration of the printer. (There are too many "customized" configurations to track in the main Klipper repository.) Similarly, we only add example config files for printers, kits, and boards that have mainstream popularity (eg, there should be at least a 100 of them in active use). Consider using the [Klipper Community Discourse server](https://community.klipper3d.org) for other configs.
+1. 选择适当的配置文件名前缀。
+   1. `printer`前缀用于主流制造商出售的打印机。
+   1. `generic`前缀用于3D打印机主板，可用于许多不同类型的打印机。
+   1. `kit`的前缀是指按照广泛使用的规范组装的3d打印机。这些 "套件 "打印机通常与普通的 "打印机 "不同，因为它们不是由制造商出售的。
+   1. `sample`前缀用于配置 "片段"可以被复制到主的配置文件中。
+   1. `example`前缀是用来描述打印机运动学。这种类型的配置通常只与新类型的打印机运动学的代码一起添加。
+1. 使用适当的文件名后缀。`printer`配置文件必须以年份结尾，后面是`.cfg`（例如，`-2019.cfg`）。在这种情况下，年份是给定打印机出售的大致年份。所有实例配置文件必须以`.cfg`结尾。
+1. Klipper 必须能够启动 `printer`, `generic`, 和 `kit` 示例配置文件而不出错。这些配置文件应该被添加到 [test/klippy/printers.test](./test/klippy/printers.test) 回归测试用例中。将新的配置文件添加到该测试用例的适当部分，并按该部分的字母顺序排列。
+1. 该配置示例应该是打印机的 "stock "配置。(在klipper的仓库中有太多定制的配置。)同样地，我们只为具有主流流行性的打印机、套件和板子添加配置文件的例子（至少应该有100个正在使用中）。考虑使用[Klipper Community Discourse server](https://community.klipper3d.org)进行其他配置。
 1. Only specify those devices present on the given printer or board. Do not specify settings specific to your particular setup.
    1. For `generic` config files, only those devices on the mainboard should be described. For example, it would not make sense to add a display config section to a "generic" config as there is no way to know if the board will be attached to that type of display. If the board has a specific hardware port to facilitate an optional peripheral (eg, a bltouch port) then one can add a "commented out" config section for the given device.
-   1. Do not specify `pressure_advance` in an example config, as that value is specific to the filament, not the printer hardware. Similarly, do not specify `max_extrude_only_velocity` nor `max_extrude_only_accel` settings.
-   1. Do not specify a config section containing a host path or host hardware. For example, do not specify `[virtual_sdcard]` nor `[temperature_host]` config sections.
-   1. Only define macros that utilize functionality specific to the given printer or to define g-codes that are commonly emitted by slicers configured for the given printer.
+   1. 不要在配置示例中指定`pressure_advance`，因为该值是针对耗材的，而不是打印机硬件。同样，不要指定`max_extrude_only_velocity`或`max_extrude_only_accel`设置。
+   1. 不要指定一个包含主机路径或主机硬件的配置部分。例如，不要指定`[virtual_sdcard]`或`[temperature_host]`配置部分。
+   1. 只定义利用特定打印机功能的宏，或定义为特定打印机配置的切片软件通常发出的g代码。
 1. Where possible, it is best to use the same wording, phrasing, indentation, and section ordering as the existing config files.
    1. The top of each config file should list the type of micro-controller the user should select during "make menuconfig". It should also have a reference to "docs/Config_Reference.md".
-   1. Do not copy the field documentation into the example config files. (Doing so creates a maintenance burden as an update to the documentation would then require changing it in many places.)
-   1. Example config files should not contain a "SAVE_CONFIG" section. If necessary, copy the relevant fields from the SAVE_CONFIG section to the appropriate section in the main config area.
-   1. Use `field: value` syntax instead of `field=value`.
-   1. When adding an extruder `rotation_distance` it is preferable to specify a `gear_ratio` if the extruder has a gearing mechanism. We expect the rotation_distance in the example configs to correlate with the circumference of the hobbed gear in the extruder - it is normally in the range of 20 to 35mm. When specifying a `gear_ratio` it is preferable to specify the actual gears on the mechanism (eg, prefer `gear_ratio: 80:20` over `gear_ratio: 4:1`).
-   1. Avoid defining field values that are set to their default value. For example, one should not specify `min_extrude_temp: 170` as that is already the default value.
-   1. Where possible, lines should not exceed 80 columns.
-   1. Avoid adding attribution or revision messages to the config files. (For example, avoid adding lines like "this file was created by ...".) Place attribution and change history in the git commit message.
-1. Do not use any deprecated features in the example config file. The `step_distance` and `pin_map` parameters are deprecated and should not be in any example config file.
-1. Do not disable a default safety system in an example config file. For example, a config should not specify a custom `max_extrude_cross_section`. Do not enable debugging features. For example there should not be a `force_move` config section.
+   1. 不要将字段文档复制到示例配置文件中。这样做会造成维护方面的负担，因为对文档的更新需要在很多地方进行修改）。
+   1. 配置文件的例子不应包含 "SAVE_CONFIG "部分。如果有必要，把SAVE_CONFIG部分的相关字段复制到主配置区的适当部分。
+   1. 使用`field: value`的语法，而不要使用`field=value`。
+   1. 当添加一个挤出机的`rotation_distance`时，如果挤出机有一个齿轮机构，最好是指定一个`rotation_distance`。我们希望示例配置中的旋转距离与挤出机中滚齿的周长相关--它通常在20到35毫米之间。当指定`gear_ratio`时，最好是指定机构上的实际齿轮（例如，最好是`gear_ratio: 80:20`而不是`gear_ratio: 4:1`）。
+   1. 避免定义那些被设置为默认值的字段值。例如，不应该指定`min_extrude_temp: 170`，因为这已经是默认值。
+   1. 在可能的情况下，行数不应超过80列。
+   1. 避免在配置文件中添加归属或修订信息。例如，避免添加类似 "此文件由......创建 "的行。）将归属和修改历史放在git提交信息中。
+1. 不要在示例配置文件中使用任何已废弃的功能。`step_distance`和`pin_map`参数已被废弃，不应出现在任何实例配置文件中。
+1. 不要在示例配置文件中禁用默认安全系统。例如，一个配置不应该指定一个自定义的 `max_extrude_cross_section`。不要启用调试功能。例如，不应该有一个 `force_move` 配置部分。
 
-Example config files are submitted by creating a github "pull request". Please
-also follow the directions in the [contributing document](CONTRIBUTING.md).
+通过创建github "pull request "来提交配置文件示例。也请遵循[contribution document](CONTRIBUTING.md)中的指示。

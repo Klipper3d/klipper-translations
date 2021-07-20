@@ -1,2 +1,1 @@
-Welcome to the Klipper documentation. The [overview document](Overview.md) is a
-good starting point.
+Willkommen bei der Klipper-Dokumentation. Das [Übersichtsdokument](Overview.md) ist ein guter Startpunkt.

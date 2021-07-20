@@ -1,35 +1,34 @@
-This document provides a list of steps to help confirm the pin settings in the
-Klipper printer.cfg file. It is a good idea to run through these steps after following the steps in the [installation document](Installation.md).
+Este documento contiene una lista con los pasos para configurar el pin del archivo Klipper printer.cfg. Se recomienda ejecutarlos una vez que se hayan terminado los pasos en [instalación documentos](installation.md).
 
-During this guide, it may be necessary to make changes to the Klipper config file. Be sure to issue a RESTART command after every change to the config file to ensure that the change takes effect (type "restart" in the Octoprint terminal tab and then click "Send"). It's also a good idea to issue a STATUS command after every RESTART to verify that the config file is successfully loaded.
+A lo largo de esta guía puede ser necesario hacer cambios en el archivo config Klipper. Es importante ejecutar el comando RESTART después de cada cambio en el susodicho archivo para asegurar que los cambios han tenido efecto (escriba "restart" en la pestaña del terminal Octoprint y pulse "Send"). Se recomienda también usar el comando STATUS después de cada RESTART para verificar que este archivo se ha cargado correctamente.
 
-### Verify temperature
+### Verifique la temperatura
 
-Start by verifying that temperatures are being properly reported. Navigate to the Octoprint temperature tab.
+Comienza verificando que la temperatura se ha guardado correctamente. Navega a la pestaña de temperatura Octoprint.
 
 ![octoprint-temperature](img/octoprint-temperature.png)
 
-Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.
+Verifique que la temperatura de la boquilla y la cama (si es necesario) están presentes y no están aumentando. Si están aumentando, desconecte la impresora. Si la temperatura no es exacta, revise los ajustes del "sensor_type" y del "sensor_pin" para la boquilla y/o cama.
 
-### Verify M112
+### Verifica M112
 
-Navigate to the Octoprint terminal tab and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause Octoprint to disconnect from Klipper - navigate to the Connection area and click on "Connect" to cause Octoprint to reconnect. Then navigate to the Octoprint temperature tab and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
+Navegue a la pestaña con el terminal Octoprint and lance el comando M112. Este comando le pide a Klipper ir al estado "shutdown". Hará que Octoprint se desconecte de Klipper - navegue al área de conección y pulse en "Connect" para hacer que Octoprint se conecte. Después de esto, vaya de nuevo a la pestaña de temperatura de Octoprint y compruebe que la temperatura se sigue actualizando y no aumenta. Si la temperature incrementara, desconecte la impresora.
 
-The M112 command causes Klipper to go into a "shutdown" state. To clear this state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab.
+El comando M112 hace que Klipper se vaya al estado de "shutdown". Para salir de este estado, lance el comando FIRMWARE_RESTART en la pestaña con el terminal Octoprint.
 
-### Verify heaters
+### Verifique los calentadores
 
-Navigate to the Octoprint temperature tab and type in 50 followed by enter in the "Tool" temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the "Tool" temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
+Abra la pestaña de la temperatura de octoprint y escriba 50 seguido de la tecla retorno en el recuadro de la temperatura "Tool". La temperatura de la extrusora en el gráfico debería incrementar (en un intervalo de 30 segundos). Después vaya al menú desplegable de "Tool" y seleccione "Off". La temperatura debería comenzar a disminuir a la temperatura ambiente trás unos minutos. Si la temperatura no incrementara revise los ajustes del "heater-pin" en el config.
 
-If the printer has a heated bed then perform the above test again with the bed.
+Si la temperatura de la cama es también alta, haga el mismo test para la cama esta vez.
 
-### Verify stepper motor enable pin
+### Verifique el pin del motor de pasos
 
-Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !ar38").
+Verifique que los ejes de la impresora se pueden mover libremente (los motores de pasos están desactivados). Si no, lance el comando M84 para desactivar los motores. Si alguno de los ejes no puede moverse libremente, entonces verifique la configuración del "enable_pin" para el eje en cuestión. La mayoría de los drivers para motores de pasos tienen el pin enable en "active low" y por lo tanto el pin debería tener una "!" antes del pin (por ejemplo, "enable_pin:!ar38").
 
-### Verify endstops
+### Verifique el paro programado
 
-Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the Octoprint terminal tab. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
+Mueve todos los ejes de la impresora de manera que ninguno de ellos este en contacto con un interruptor de límite. Lanza el comando QUERY_ENDSTOPS usando la pestaña del terminal Octoprint. El terminal debería mostrar el estado actual de los interruptor de límite configurados y deberían tener el estado "open". Para cada uno de estos interruptores, ejecute el comando QUERY_ENDSTOP a la vez que fuerce el interruptor de límite manualmente. El comando QUERY_ENDSTOPS debería mostrar "TRIGGERED".
 
 If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!ar3"), or remove the "!" if there is already one present.
 
@@ -37,8 +36,7 @@ If the endstop does not change at all then it generally indicates that the endst
 
 ### Verify stepper motors
 
-Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor.
-Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x`. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
+Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor. Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x`. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
 
 If the stepper does not move at all, then verify the "enable_pin" and "step_pin" settings for the stepper. If the stepper motor moves but does not return to its original position then verify the "dir_pin" setting. If the stepper motor oscillates in an incorrect direction, then it generally indicates that the "dir_pin" for the axis needs to be inverted. This is done by adding a '!' to the "dir_pin" in the printer config file (or removing it if one is already there). If the motor moves significantly more or significantly less than one millimeter then verify the "rotation_distance" setting.
 
@@ -52,25 +50,18 @@ To test the extruder motor it will be necessary to heat the extruder to a printi
 
 ### Calibrate PID settings
 
-Klipper supports [PID control](https://en.wikipedia.org/wiki/PID_controller) for
-the extruder and bed heaters. In order to use this control mechanism it is necessary to calibrate the PID settings on each printer. (PID settings found in other firmwares or in the example configuration files often work poorly.)
+Klipper supports [PID control](https://en.wikipedia.org/wiki/PID_controller) for the extruder and bed heaters. In order to use this control mechanism it is necessary to calibrate the PID settings on each printer. (PID settings found in other firmwares or in the example configuration files often work poorly.)
 
-To calibrate the extruder, navigate to the OctoPrint terminal tab and run the
-PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder TARGET=170`
+To calibrate the extruder, navigate to the OctoPrint terminal tab and run the PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder TARGET=170`
 
-At the completion of the tuning test run `SAVE_CONFIG` to update the printer.cfg
-file the new PID settings.
+At the completion of the tuning test run `SAVE_CONFIG` to update the printer.cfg file the new PID settings.
 
-If the printer has a heated bed and it supports being driven by PWM (Pulse Width
-Modulation) then it is recommended to use PID control for the bed. (When the bed heater is controlled using the PID algorithm it may turn on and off ten times a second, which may not be suitable for heaters using a mechanical switch.) A typical bed PID calibration command is: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
+If the printer has a heated bed and it supports being driven by PWM (Pulse Width Modulation) then it is recommended to use PID control for the bed. (When the bed heater is controlled using the PID algorithm it may turn on and off ten times a second, which may not be suitable for heaters using a mechanical switch.) A typical bed PID calibration command is: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
 
 ### Next steps
 
-This guide is intended to help with basic verification of pin settings in the
-Klipper configuration file. Be sure to read the [bed leveling](Bed_Level.md) guide. Also see the [Slicers](Slicers.md) document for information on configuring a slicer with Klipper.
+This guide is intended to help with basic verification of pin settings in the Klipper configuration file. Be sure to read the [bed leveling](Bed_Level.md) guide. Also see the [Slicers](Slicers.md) document for information on configuring a slicer with Klipper.
 
-After one has verified that basic printing works, it is a good idea to consider
-calibrating [pressure advance](Pressure_Advance.md).
+After one has verified that basic printing works, it is a good idea to consider calibrating [pressure advance](Pressure_Advance.md).
 
-It may be necessary to perform other types of detailed printer calibration - a
-number of guides are available online to help with this (for example, do a web search for "3d printer calibration"). As an example, if you experience the effect called ringing, you may try following [resonance compensation](Resonance_Compensation.md) tuning guide.
+It may be necessary to perform other types of detailed printer calibration - a number of guides are available online to help with this (for example, do a web search for "3d printer calibration"). As an example, if you experience the effect called ringing, you may try following [resonance compensation](Resonance_Compensation.md) tuning guide.

@@ -1,5 +1,4 @@
-History of Klipper releases. Please see [installation](Installation.md) for
-information on installing Klipper.
+History of Klipper releases. Please see [installation](Installation.md) for information on installing Klipper.
 
 # Klipper 0.9.0
 

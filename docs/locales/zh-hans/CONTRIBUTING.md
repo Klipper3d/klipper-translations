@@ -4,11 +4,11 @@
 
 ## 创建一个新的议题
 
-Please see the [contact page](Contact.md) for information on creating an issue.
+请参阅[联系页面](Contact.md)，来了解如何创建议题。
 
 ## 提交拉取请求（PR）
 
-Contributions of Code and documentation are managed through github pull requests. Each commit should have a commit message formatted similar to the following:
+代码和文档的贡献是通过github 拉取请求（PR）管理的。每个提交都应该有一个提交信息，其格式类似于以下内容：
 
 ```
 module: Capitalized, short (50 chars or less) summary
@@ -25,5 +25,4 @@ Further paragraphs come after blank lines..
 Signed-off-by: My Name <myemail@example.org>
 ```
 
-It is important to have a "Signed-off-by" line on each commit - it certifies
-that you agree to the [developer certificate of origin](developer-certificate-of-origin). It must contain your real name (sorry, no pseudonyms or anonymous contributions) and contain a current email address.
+在每个提交上必须有一个 "Signed-off-by "行--它证明你同意[开发者起源证书](developer-certificate-of-origin)。它必须包含你的真实姓名（对不起，没有假名或匿名的贡献）和一个可用的电子邮件地址。

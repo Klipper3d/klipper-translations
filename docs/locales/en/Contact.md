@@ -10,26 +10,21 @@ This document provides contact information for Klipper.
 
 # Community Forum
 
-There is a [Klipper Community Discourse server](https://community.klipper3d.org)
-for discussions on Klipper.
+There is a [Klipper Community Discourse server](https://community.klipper3d.org) for discussions on Klipper.
 
 # Discord Chat
 
-There is a Discord server dedicated to Klipper at:
-<https://discord.klipper3d.org>.
+There is a Discord server dedicated to Klipper at: <https://discord.klipper3d.org>.
 
 This server is run by a community of Klipper enthusiasts dedicated to discussions on Klipper. It allows users to chat with other users in real-time.
 
 # I have a question about Klipper
 
-Many questions we receive are already answered in the [Klipper
-documentation](Overview.md). Please be sure to to read the documentation and follow the directions provided there.
+Many questions we receive are already answered in the [Klipper documentation](Overview.md). Please be sure to to read the documentation and follow the directions provided there.
 
-It is also possible to search for similar questions in the [Klipper Community
-Forum](#community-forum).
+It is also possible to search for similar questions in the [Klipper Community Forum](#community-forum).
 
-If you are interested in sharing your knowledge and experience with other
-Klipper users then you can join the [Klipper Community Forum](#community-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
+If you are interested in sharing your knowledge and experience with other Klipper users then you can join the [Klipper Community Forum](#community-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
 
 Many questions we receive are general 3d-printing questions that are not specific to Klipper. If you have a general question or are experiencing general printing problems, then you will likely get a better response by asking in a general 3d-printing forum or a forum dedicated to your printer hardware.
 
@@ -37,8 +32,7 @@ Do not open a Klipper github issue to ask a question.
 
 # I have a feature request
 
-All new features require someone interested and able to implement that feature.
-If you are interested in helping to implement or test a new feature, you can search for ongoing developments in the [Klipper Community Forum](#community-forum). There is also [Klipper Discord Chat](#discord-chat) for discussions between collaborators.
+All new features require someone interested and able to implement that feature. If you are interested in helping to implement or test a new feature, you can search for ongoing developments in the [Klipper Community Forum](#community-forum). There is also [Klipper Discord Chat](#discord-chat) for discussions between collaborators.
 
 Do not open a Klipper github issue to request a feature.
 
@@ -49,16 +43,13 @@ Unfortunately, we receive many more requests for help than we could possibly ans
 1. Subtle errors in the hardware, or
 1. Not following all the steps described in the Klipper documentation.
 
-If you are experiencing problems we recommend you carefully read the [Klipper
-documentation](Overview.md) and double check that all steps were followed.
+If you are experiencing problems we recommend you carefully read the [Klipper documentation](Overview.md) and double check that all steps were followed.
 
 If you are experiencing a printing problem, then we recommend carefully inspecting the printer hardware (all joints, wires, screws, etc.) and verify nothing is abnormal. We find most printing problems are not related to the Klipper software. If you do find a problem with the printer hardware then you will likely get a better response by searching in a general 3d-printing forum or in a forum dedicated to your printer hardware.
 
-It is also possible to search for similar issues in the [Klipper Community
-Forum](#community-forum).
+It is also possible to search for similar issues in the [Klipper Community Forum](#community-forum).
 
-If you are interested in sharing your knowledge and experience with other
-Klipper users then you can join the [Klipper Community Forum](#community-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
+If you are interested in sharing your knowledge and experience with other Klipper users then you can join the [Klipper Community Forum](#community-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
 
 Do not open a Klipper github issue to request help.
 
@@ -84,8 +75,6 @@ There is important information that will be needed in order to fix a bug. Please
 
 Klipper is open-source software and we appreciate new contributions.
 
-New contributions (for both code and documentation) are submitted via Github
-Pull Requests. See the [CONTRIBUTING document](CONTRIBUTING.md) for important information.
+New contributions (for both code and documentation) are submitted via Github Pull Requests. See the [CONTRIBUTING document](CONTRIBUTING.md) for important information.
 
-There are several [documents for
-developers](Overview.md#developer-documentation). If you have questions on the code then you can also ask in the [Klipper Community Forum](#community-forum) or on the [Klipper Community Discord](#discord-chat). If you would like to provide an update on your current progress then you can open a Github issue with the location of your code, an overview of the changes, and a description of its current status.
+There are several [documents for developers](Overview.md#developer-documentation). If you have questions on the code then you can also ask in the [Klipper Community Forum](#community-forum) or on the [Klipper Community Discord](#discord-chat). If you would like to provide an update on your current progress then you can open a Github issue with the location of your code, an overview of the changes, and a description of its current status.
