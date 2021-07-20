@@ -15,6 +15,6 @@ msgstr ""
 "X-Generator: Weblate 4.7.1-dev\n"
 
 msgid ""
-"Welcome to the Klipper documentation. The [overview "
-"document](Overview.md) is a good starting point."
+"Welcome to the Klipper documentation. The [overview document](Overview.md) "
+"is a good starting point."
 msgstr "欢迎使用Klipper文档。 可以先从[概述文档](Overview.md)开始阅读。"

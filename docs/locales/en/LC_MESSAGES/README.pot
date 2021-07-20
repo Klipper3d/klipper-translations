@@ -1,8 +1,8 @@
 #
 msgid ""
-msgstr ""
+msgstr "Content-Type: text/plain; charset=UTF-8\n"
 
 msgid ""
-"Welcome to the Klipper documentation. The [overview "
-"document](Overview.md) is a good starting point."
+"Welcome to the Klipper documentation. The [overview document](Overview.md) "
+"is a good starting point."
 msgstr ""
