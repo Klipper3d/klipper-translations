@@ -54,5 +54,4 @@ Below are the results of stepper performance tests. The numbers shown represent 
 | Adafruit Metro M4 (SAMD51) | 761K | 692K |
 | BigTreeTech SKR Pro (STM32F407) | 922K | 711K |
 
-On AVR platforms, the highest achievable step rate is with just one stepper
-stepping. On the SAMD21 and STM32F103 the highest step rate is with two simultaneous steppers stepping. On the SAM3X8E, SAM4S8C, SAM4E8E, LPC176x, and PRU the highest step rate is with three simultaneous steppers. On the SAMD51 and STM32F4 the highest step rate is with four simultaneous steppers. (Further details on the benchmarks are available in the [Benchmarks document](Benchmarks.md).)
+On AVR platforms, the highest achievable step rate is with just one stepper stepping. On the SAMD21 and STM32F103 the highest step rate is with two simultaneous steppers stepping. On the SAM3X8E, SAM4S8C, SAM4E8E, LPC176x, and PRU the highest step rate is with three simultaneous steppers. On the SAMD51 and STM32F4 the highest step rate is with four simultaneous steppers. (Further details on the benchmarks are available in the [Benchmarks document](Benchmarks.md).)

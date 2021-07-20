@@ -2,8 +2,7 @@ This document provides information on the low-level micro-controller commands th
 
 This document may be useful for developers interested in understanding the low-level micro-controller commands.
 
-See the [protocol](Protocol.md) document for more information on the format of
-commands and their transmission. The commands here are described using their "printf" style syntax - for those unfamiliar with that format, just note that where a '%...' sequence is seen it should be replaced with an actual integer. For example, a description with "count=%c" could be replaced with the text "count=10". Note that parameters that are considered "enumerations" (see the above protocol document) take a string value which is automatically converted to an integer value for the micro-controller. This is common with parameters named "pin" (or that have a suffix of "_pin").
+See the [protocol](Protocol.md) document for more information on the format of commands and their transmission. The commands here are described using their "printf" style syntax - for those unfamiliar with that format, just note that where a '%...' sequence is seen it should be replaced with an actual integer. For example, a description with "count=%c" could be replaced with the text "count=10". Note that parameters that are considered "enumerations" (see the above protocol document) take a string value which is automatically converted to an integer value for the micro-controller. This is common with parameters named "pin" (or that have a suffix of "_pin").
 
 # Startup Commands
 
@@ -18,8 +17,7 @@ Common startup commands:
 
 Most commands in the micro-controller require an initial setup before they can be successfully invoked. This section provides an overview of the configuration process. This section and the following sections are likely only of interest to developers interested in the internal details of Klipper.
 
-When the host first connects to the micro-controller it always starts by
-obtaining a data dictionary (see [protocol](Protocol.md) for more information). After the data dictionary is obtained the host will check if the micro-controller is in a "configured" state and configure it if not. Configuration involves the following phases:
+When the host first connects to the micro-controller it always starts by obtaining a data dictionary (see [protocol](Protocol.md) for more information). After the data dictionary is obtained the host will check if the micro-controller is in a "configured" state and configure it if not. Configuration involves the following phases:
 
 * `get_config` : The host starts by checking if the micro-controller is already configured. The micro-controller responds to this command with a "config" response message. The micro-controller software always starts in an unconfigured state at power-on. It remains in this state until the host completes the configuration processes (by issuing a finalize_config command). If the micro-controller is already configured from a previous session (and is configured with the desired settings) then no further action is needed by the host and the configuration process ends successfully.
 * `allocate_oids count=%c` : This command is issued to inform the micro-controller of the maximum number of object-ids (oid) that the host requires. It is only valid to issue this command once. An oid is an integer identifier allocated to each stepper, each endstop, and each schedulable gpio pin. The host determines in advance the number of oids it will require to operate the hardware and passes this to the micro-controller so that it may allocate sufficient memory to store a mapping from oid to internal object.

@@ -1,5 +1,4 @@
-Welcome to the Klipper documentation. If new to Klipper, start with the
-[features](Features.md) and [installation](Installation.md) documents.
+Welcome to the Klipper documentation. If new to Klipper, start with the [features](Features.md) and [installation](Installation.md) documents.
 
 # Overview information
 

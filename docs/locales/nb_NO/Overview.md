@@ -1,5 +1,4 @@
-Velkommen til Klipper-dokumentasjonen. Hvis du er ny kan du begynne med
-[funksjoner](Features.md)- og [installasjon](Installation.md)-dokumentene
+Velkommen til Klipper-dokumentasjonen. Hvis du er ny kan du begynne med [funksjoner](Features.md)- og [installasjon](Installation.md)-dokumentene
 
 # Oversiktsinfo
 

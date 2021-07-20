@@ -11,8 +11,7 @@ make menuconfig
 make
 ```
 
-Una vez se haya llevado a cabo lo anterior, será posible ejecutar Klipper en
-modo por lotes (en [Instalación](Installation.md) encontrará los pasos necesarios para compilar el entorno virtual de Python y un archivo printer.cfg):
+Una vez se haya llevado a cabo lo anterior, será posible ejecutar Klipper en modo por lotes (en [Instalación](Installation.md) encontrará los pasos necesarios para compilar el entorno virtual de Python y un archivo printer.cfg):
 
 ```
 ~/klippy-env/bin/python ./klippy/klippy.py ~/printer.cfg -i test.gcode -o test.serial -v -d out/klipper.dict
@@ -30,8 +29,7 @@ El modo por lotes desactiva determinadas órdenes de respuesta/petición para po
 
 # Puesta a prueba con simulavr
 
-La herramienta [simulavr](http://www.nongnu.org/simulavr/) le permite simular un
-microcontrolador ATmega de Atmel. Esta sección describe el procedimiento para ejecutar archivos gcode de prueba a través de simulavr. Es recomendable ejecutar esto en un PC de escritorio de categoría (no un Raspberry Pi), puesto que necesitará cuantiosos recursos de CPU para funcionar eficientemente.
+La herramienta [simulavr](http://www.nongnu.org/simulavr/) le permite simular un microcontrolador ATmega de Atmel. Esta sección describe el procedimiento para ejecutar archivos gcode de prueba a través de simulavr. Es recomendable ejecutar esto en un PC de escritorio de categoría (no un Raspberry Pi), puesto que necesitará cuantiosos recursos de CPU para funcionar eficientemente.
 
 Para utilizar simulavr, descargue el paquete de simulavr y compílelo con compatibilidad con Python:
 
@@ -52,15 +50,13 @@ cd /patch/to/klipper
 make menuconfig
 ```
 
-y compile el programa del microcontrolador para un atmega644p de AVR, defina la
-frecuencia de MCU a 20 Mhz y seleccione la compatibilidad de emulación del programa SIMULAVR. Ahora es posible compilar Klipper (ejecute `make`) e iniciar la simulación con:
+y compile el programa del microcontrolador para un atmega644p de AVR, defina la frecuencia de MCU a 20 Mhz y seleccione la compatibilidad de emulación del programa SIMULAVR. Ahora es posible compilar Klipper (ejecute `make`) e iniciar la simulación con:
 
 ```
 PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py -m atmega644 -s 20000000 -b 250000 out/klipper.elf
 ```
 
-Acto seguido, teniendo simulavr en ejecución en otra ventana, es posible
-ejecutar lo siguiente para leer gcode a partir de un archivo (p. ej., «test.gcode»), procesarlo con Klippy y enviarlo al Klipper que se ejecuta dentro de simulavr (vea [Instalación](Installation.md) para obtener los pasos necesarios para generar el entorno virtual de Python):
+Acto seguido, teniendo simulavr en ejecución en otra ventana, es posible ejecutar lo siguiente para leer gcode a partir de un archivo (p. ej., «test.gcode»), procesarlo con Klippy y enviarlo al Klipper que se ejecuta dentro de simulavr (vea [Instalación](Installation.md) para obtener los pasos necesarios para generar el entorno virtual de Python):
 
 ```
 ~/klippy-env/bin/python ./klippy/klippy.py config/generic-simulavr.cfg -i test.gcode -v
@@ -90,8 +86,7 @@ Normally, the host klippy.py process would be used to translate gcode commands t
 
 Vea la orden «HELP» de la herramienta para obtener información sobre sus funcionalidades.
 
-Tiene a su disposición algunas opciones de línea de órdenes. Para obtener más
-información al respecto, ejecute: `~/klippy-env/bin/python ./klippy/console.py --help`
+Tiene a su disposición algunas opciones de línea de órdenes. Para obtener más información al respecto, ejecute: `~/klippy-env/bin/python ./klippy/console.py --help`
 
 # Generar gráficos de carga
 
@@ -112,8 +107,7 @@ Ahora, será posible generar gráficos con:
 
 Tras lo anterior, será posible visualizar el archivo resultante, **loadgraph.png**.
 
-Es posible producir diferentes gráficos. Para más información, ejecute:
-`~/klipper/scripts/graphstats.py --help`
+Es posible producir diferentes gráficos. Para más información, ejecute: `~/klipper/scripts/graphstats.py --help`
 
 # Extraer información desde el archivo klippy.log
 
@@ -138,8 +132,7 @@ La «comprobación de espacios en blanco» del código fuente puede ejecutarse d
 ./scripts/check_whitespace.sh
 ```
 
-El conjunto de pruebas antirregresiones de Klippy requiere «diccionarios de
-datos» provenientes de muchas plataformas. La manera más sencilla de obtenerlos consiste en [descargarlos de GitHub](https://github.com/KevinOConnor/klipper/issues/1438). Luego de descargar los diccionarios de datos, siga este procedimiento para ejecutar el conjunto de pruebas:
+El conjunto de pruebas antirregresiones de Klippy requiere «diccionarios de datos» provenientes de muchas plataformas. La manera más sencilla de obtenerlos consiste en [descargarlos de GitHub](https://github.com/KevinOConnor/klipper/issues/1438). Luego de descargar los diccionarios de datos, siga este procedimiento para ejecutar el conjunto de pruebas:
 
 ```
 tar xfz klipper-dict-20??????.tar.gz

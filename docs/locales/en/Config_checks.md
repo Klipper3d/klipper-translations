@@ -1,5 +1,4 @@
-This document provides a list of steps to help confirm the pin settings in the
-Klipper printer.cfg file. It is a good idea to run through these steps after following the steps in the [installation document](Installation.md).
+This document provides a list of steps to help confirm the pin settings in the Klipper printer.cfg file. It is a good idea to run through these steps after following the steps in the [installation document](Installation.md).
 
 During this guide, it may be necessary to make changes to the Klipper config file. Be sure to issue a RESTART command after every change to the config file to ensure that the change takes effect (type "restart" in the Octoprint terminal tab and then click "Send"). It's also a good idea to issue a STATUS command after every RESTART to verify that the config file is successfully loaded.
 
@@ -37,8 +36,7 @@ If the endstop does not change at all then it generally indicates that the endst
 
 ### Verify stepper motors
 
-Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor.
-Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x`. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
+Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor. Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x`. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
 
 If the stepper does not move at all, then verify the "enable_pin" and "step_pin" settings for the stepper. If the stepper motor moves but does not return to its original position then verify the "dir_pin" setting. If the stepper motor oscillates in an incorrect direction, then it generally indicates that the "dir_pin" for the axis needs to be inverted. This is done by adding a '!' to the "dir_pin" in the printer config file (or removing it if one is already there). If the motor moves significantly more or significantly less than one millimeter then verify the "rotation_distance" setting.
 
@@ -52,25 +50,18 @@ To test the extruder motor it will be necessary to heat the extruder to a printi
 
 ### Calibrate PID settings
 
-Klipper supports [PID control](https://en.wikipedia.org/wiki/PID_controller) for
-the extruder and bed heaters. In order to use this control mechanism it is necessary to calibrate the PID settings on each printer. (PID settings found in other firmwares or in the example configuration files often work poorly.)
+Klipper supports [PID control](https://en.wikipedia.org/wiki/PID_controller) for the extruder and bed heaters. In order to use this control mechanism it is necessary to calibrate the PID settings on each printer. (PID settings found in other firmwares or in the example configuration files often work poorly.)
 
-To calibrate the extruder, navigate to the OctoPrint terminal tab and run the
-PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder TARGET=170`
+To calibrate the extruder, navigate to the OctoPrint terminal tab and run the PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder TARGET=170`
 
-At the completion of the tuning test run `SAVE_CONFIG` to update the printer.cfg
-file the new PID settings.
+At the completion of the tuning test run `SAVE_CONFIG` to update the printer.cfg file the new PID settings.
 
-If the printer has a heated bed and it supports being driven by PWM (Pulse Width
-Modulation) then it is recommended to use PID control for the bed. (When the bed heater is controlled using the PID algorithm it may turn on and off ten times a second, which may not be suitable for heaters using a mechanical switch.) A typical bed PID calibration command is: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
+If the printer has a heated bed and it supports being driven by PWM (Pulse Width Modulation) then it is recommended to use PID control for the bed. (When the bed heater is controlled using the PID algorithm it may turn on and off ten times a second, which may not be suitable for heaters using a mechanical switch.) A typical bed PID calibration command is: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
 
 ### Next steps
 
-This guide is intended to help with basic verification of pin settings in the
-Klipper configuration file. Be sure to read the [bed leveling](Bed_Level.md) guide. Also see the [Slicers](Slicers.md) document for information on configuring a slicer with Klipper.
+This guide is intended to help with basic verification of pin settings in the Klipper configuration file. Be sure to read the [bed leveling](Bed_Level.md) guide. Also see the [Slicers](Slicers.md) document for information on configuring a slicer with Klipper.
 
-After one has verified that basic printing works, it is a good idea to consider
-calibrating [pressure advance](Pressure_Advance.md).
+After one has verified that basic printing works, it is a good idea to consider calibrating [pressure advance](Pressure_Advance.md).
 
-It may be necessary to perform other types of detailed printer calibration - a
-number of guides are available online to help with this (for example, do a web search for "3d printer calibration"). As an example, if you experience the effect called ringing, you may try following [resonance compensation](Resonance_Compensation.md) tuning guide.
+It may be necessary to perform other types of detailed printer calibration - a number of guides are available online to help with this (for example, do a web search for "3d printer calibration"). As an example, if you experience the effect called ringing, you may try following [resonance compensation](Resonance_Compensation.md) tuning guide.

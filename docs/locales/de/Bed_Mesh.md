@@ -1,7 +1,6 @@
 The Bed Mesh module may be used to compensate for bed surface irregularties to achieve a better first layer across the entire bed. It should be noted that software based correction will not achieve perfect results, it can only approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical and electrical issues. If an axis is skewed or a probe is not accurate then the bed_mesh module will not receive accurate results from the probing process.
 
-Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is
-calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe_Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual_Level](Manual_Level.md) for more information.
+Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe_Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual_Level](Manual_Level.md) for more information.
 
 ## Basic Configuration
 
@@ -24,8 +23,7 @@ probe_count: 5,3
 - `mesh_max: 240,198` *Required* The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with `mesh_min`, this coordiante is relative to the probe's location.
 - `probe_count: 5,3` *Default Value: 3,3* The number of points to probe on each axis, specified as x,y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie `probe_count: 3`. Note that a mesh requires a minimum probe_count of 3 along each axis.
 
-The illustration below demonstrates how the `mesh_min`, `mesh_max`, and
-`probe_count` options are used to generate probe points. The arrows indicate the direction of the probing procedure, beginning at `mesh_min`. For reference, when the probe is at `mesh_min` the nozzle will be at (11, 1), and when the probe is at `mesh_max`, the nozzle will be at (206, 193).
+The illustration below demonstrates how the `mesh_min`, `mesh_max`, and `probe_count` options are used to generate probe points. The arrows indicate the direction of the probing procedure, beginning at `mesh_min`. For reference, when the probe is at `mesh_min` the nozzle will be at (11, 1), and when the probe is at `mesh_max`, the nozzle will be at (206, 193).
 
 ![bedmesh_rect_basic](img/bedmesh_rect_basic.svg)
 
@@ -46,8 +44,7 @@ round_probe_count: 5
 - `mesh_origin: 0,0` *Default Value: 0,0* The center point of the mesh. This coordinate is relative to the probe's location. While the default is 0,0, it may be useful to adjust the origin in an effort to probe a larger portion of the bed. See the illustration below.
 - `round_probe_count: 5` *Default Value: 5* This is an integer value that defines the maximum number of probed points along the X and Y axes. By "maximum", we mean the number of points probed along the mesh origin. This value must be an odd number, as it is required that the center of the mesh is probed.
 
-The illustration below shows how the probed points are generated. As you can
-see, setting the `mesh_origin` to (-10, 0) allows us to specifiy a larger mesh radius of 85.
+The illustration below shows how the probed points are generated. As you can see, setting the `mesh_origin` to (-10, 0) allows us to specifiy a larger mesh radius of 85.
 
 ![bedmesh_round_basic](img/bedmesh_round_basic.svg)
 
@@ -97,8 +94,7 @@ split_delta_z: .025
 - `move_check_distance: 5` *Default Value: 5* The minimum distance to check for the desired change in Z before performing a split. In this example, a move longer than 5mm will be traversed by the algorithm. Each 5mm a mesh Z lookup will occur, comparing it with the Z value of the previous move. If the delta meets the threshold set by `split_delta_z`, the move will be split and traversal will continue. This process repeats until the end of the move is reached, where a final adjustment will be applied. Moves shorter than the `move_check_distance` have the correct Z adjustment applied directly to the move without traversal or splitting.
 - `split_delta_z: .025` *Default Value: .025* As mentioned above, this is the minimum deviation required to trigger a move split. In this example, any Z value with a deviation +/- .025mm will trigger a split.
 
-Generally the default values for these options are sufficient, in fact the
-default value of 5mm for the `move_check_distance` may be overkill. However an advanced user may wish to experiment with these options in an effort to squeeze out the optimial first layer.
+Generally the default values for these options are sufficient, in fact the default value of 5mm for the `move_check_distance` may be overkill. However an advanced user may wish to experiment with these options in an effort to squeeze out the optimial first layer.
 
 ### Mesh Fade
 
@@ -142,8 +138,7 @@ When using the relative reference index, you should choose the index nearest to 
 
 It is possible for some areas of a bed to report inaccurate results when probing due to a "fault" at specific locations. The best example of this are beds with series of integrated magnets used to retain removable steel sheets. The magnetic field at and around these magnets may cause an inductive probe to trigger at a distance higher or lower than it would otherwise, resulting in a mesh that does not accurately represent the surface at these locations. **Note: This should not be confused with probe location bias, which produces inaccurate results across the entire bed.**
 
-The `faulty_region` options may be configured to compensate for this affect. If
-a generated point lies within a faulty region bed mesh will attempt to probe up to 4 points at the boundaries of this region. These probed values will be averaged and inserted in the mesh as the Z value at the generated (X, Y) coordinate.
+The `faulty_region` options may be configured to compensate for this affect. If a generated point lies within a faulty region bed mesh will attempt to probe up to 4 points at the boundaries of this region. These probed values will be averaged and inserted in the mesh as the Z value at the generated (X, Y) coordinate.
 
 ```
 [bed_mesh]
@@ -172,11 +167,9 @@ The image below illustrates how replacement points are generated when a generate
 
 ### Calibration
 
-`BED_MESH_CALIBRATE METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`
-*Default Method: automatic if a probe is detected, otherwise manual*
+`BED_MESH_CALIBRATE METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Method: automatic if a probe is detected, otherwise manual*
 
-Initiates the probing procedure for Bed Mesh Calibration. If `METHOD=manual` is
-selected then manual probing will occur. When switching between automatic and manual probing the generated mesh points will automatically be adjusted.
+Initiates the probing procedure for Bed Mesh Calibration. If `METHOD=manual` is selected then manual probing will occur. When switching between automatic and manual probing the generated mesh points will automatically be adjusted.
 
 It is possible to specify mesh parameters to modify the probed area. The following parameters are available:
 
@@ -196,8 +189,7 @@ It is possible to specify mesh parameters to modify the probed area. The followi
 
 `BED_MESH_PROFILE SAVE=name LOAD=name REMOVE=name`
 
-After a BED_MESH_CALIBRATE has been performed, it is possible to save the
-current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using `BED_MESH_PROFILE SAVE=name` the `SAVE_CONFIG` gcode may be executed to write the profile to printer.cfg.
+After a BED_MESH_CALIBRATE has been performed, it is possible to save the current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using `BED_MESH_PROFILE SAVE=name` the `SAVE_CONFIG` gcode may be executed to write the profile to printer.cfg.
 
 Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=name`.
 
@@ -213,8 +205,7 @@ Any other saved profile can be removed in the same fashion, replacing *default* 
 
 Outputs the current mesh state to the terminal. Note that the mesh itself is output
 
-The PGP parameter is shorthand for "Print Generated Points". If `PGP=1` is set,
-the generated probed points will be output to the terminal:
+The PGP parameter is shorthand for "Print Generated Points". If `PGP=1` is set, the generated probed points will be output to the terminal:
 
 ```
 // bed_mesh: generated points

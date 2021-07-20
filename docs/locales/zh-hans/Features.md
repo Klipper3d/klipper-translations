@@ -20,13 +20,13 @@ Klipper 支持许多标准的 3d 打印机功能：
 * 标准G代码支持。支持典型的切片软件生成的G代码。Klipper可以与 Slic3r、Cura 和其他切片软件进行操作。
 * 支持多挤出机。包括对共享热端的挤出机（多进一出）和多头（IDEX）的支持。
 * 支持笛卡尔（cartesian）、三角洲（delta）、CoreXY、CoreXZ、旋转三角洲（rotary delta）和缆绳绞盘（cable winch）结构打印机。
-* Automatic bed leveling support. Klipper can be configured for basic bed tilt detection or full mesh bed leveling. If the bed uses multiple Z steppers then Klipper can also level by independently manipulating the Z steppers. Most Z height probes are supported, including BL-Touch probes and servo activated probes.
-* Automatic delta calibration support. The calibration tool can perform basic height calibration as well as an enhanced X and Y dimension calibration. The calibration can be done with a Z height probe or via manual probing.
+* 自动床面平整支持。Klipper可以被配置为基本的床身倾斜检测或网床调平。如果床铺使用多个Z步进器，那么Klipper也可以通过独立操纵Z步进器来调平。支持大多数Z高度探头，包括BL-Touch探头和伺服激活的探头。
+* 支持自动delta校准。校准工具可以进行基本的高度校准，以及增强的X和Y尺寸校准。校准可以用Z型高度探头或通过手动探测来完成。
 * 支持常见的温度传感器（例如，常见的热敏电阻、AD595、AD597、AD849x、PT100、PT1000、MAX6675、MAX31855、MAX31856、MAX31865、BME280、HTU21D和LM75）。还可以配置自定义热敏电阻和自定义模拟温度传感器。
 * 默认启用基本加热器保护。
 * 支持标准风扇、喷嘴风扇和温控风扇。当打印机闲置时，不需要保持风扇运行。
-* Support for run-time configuration of TMC2130, TMC2208/TMC2224, TMC2209, TMC2660, and TMC5160 stepper motor drivers. There is also support for current control of traditional stepper drivers via AD5206, MCP4451, MCP4728, MCP4018, and PWM pins.
-* Support for common LCD displays attached directly to the printer. A default menu is also available. The contents of the display and menu can be fully customized via the config file.
+* 支持TMC2130、TMC2208/TMC2224、TMC2209、TMC2660和TMC5160步进电机驱动器的运行时配置。还支持通过AD5206、MCP4451、MCP4728、MCP4018和PWM引脚对传统步进驱动器进行电流控制。
+* 支持直接连接到打印机的普通LCD显示器。还提供了一个默认的菜单。显示器和菜单的内容可以通过配置文件完全定制。
 * Constant acceleration and "look-ahead" support. All printer moves will gradually accelerate from standstill to cruising speed and then decelerate back to a standstill. The incoming stream of G-Code movement commands are queued and analyzed - the acceleration between movements in a similar direction will be optimized to reduce print stalls and improve overall print time.
 * Klipper implements a "stepper phase endstop" algorithm that can improve the accuracy of typical endstop switches. When properly tuned it can improve a print's first layer bed adhesion.
 * Support for measuring and recording acceleration using an adxl345 accelerometer.
@@ -54,5 +54,4 @@ Below are the results of stepper performance tests. The numbers shown represent 
 | Adafruit Metro M4 (SAMD51) | 761K | 692K |
 | BigTreeTech SKR Pro (STM32F407) | 922K | 711K |
 
-On AVR platforms, the highest achievable step rate is with just one stepper
-stepping. On the SAMD21 and STM32F103 the highest step rate is with two simultaneous steppers stepping. On the SAM3X8E, SAM4S8C, SAM4E8E, LPC176x, and PRU the highest step rate is with three simultaneous steppers. On the SAMD51 and STM32F4 the highest step rate is with four simultaneous steppers. (Further details on the benchmarks are available in the [Benchmarks document](Benchmarks.md).)
+On AVR platforms, the highest achievable step rate is with just one stepper stepping. On the SAMD21 and STM32F103 the highest step rate is with two simultaneous steppers stepping. On the SAM3X8E, SAM4S8C, SAM4E8E, LPC176x, and PRU the highest step rate is with three simultaneous steppers. On the SAMD51 and STM32F4 the highest step rate is with four simultaneous steppers. (Further details on the benchmarks are available in the [Benchmarks document](Benchmarks.md).)

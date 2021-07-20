@@ -11,8 +11,7 @@ make menuconfig
 make
 ```
 
-Once the above is done it is possible to run Klipper in batch mode (see
-[installation](Installation.md) for the steps necessary to build the python virtual environment and a printer.cfg file):
+Once the above is done it is possible to run Klipper in batch mode (see [installation](Installation.md) for the steps necessary to build the python virtual environment and a printer.cfg file):
 
 ```
 ~/klippy-env/bin/python ./klippy/klippy.py ~/printer.cfg -i test.gcode -o test.serial -v -d out/klipper.dict
@@ -30,8 +29,7 @@ The batch mode disables certain response / request commands in order to function
 
 # Testing with simulavr
 
-The [simulavr](http://www.nongnu.org/simulavr/) tool enables one to simulate an
-Atmel ATmega micro-controller. This section describes how one can run test gcode files through simulavr. It is recommended to run this on a desktop class machine (not a Raspberry Pi) as it does require significant cpu to run efficiently.
+The [simulavr](http://www.nongnu.org/simulavr/) tool enables one to simulate an Atmel ATmega micro-controller. This section describes how one can run test gcode files through simulavr. It is recommended to run this on a desktop class machine (not a Raspberry Pi) as it does require significant cpu to run efficiently.
 
 To use simulavr, download the simulavr package and compile with python support:
 
@@ -52,15 +50,13 @@ cd /patch/to/klipper
 make menuconfig
 ```
 
-and compile the micro-controller software for an AVR atmega644p, set the MCU
-frequency to 20Mhz, and select SIMULAVR software emulation support. Then one can compile Klipper (run `make`) and then start the simulation with:
+and compile the micro-controller software for an AVR atmega644p, set the MCU frequency to 20Mhz, and select SIMULAVR software emulation support. Then one can compile Klipper (run `make`) and then start the simulation with:
 
 ```
 PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py -m atmega644 -s 20000000 -b 250000 out/klipper.elf
 ```
 
-Then, with simulavr running in another window, one can run the following to read
-gcode from a file (eg, "test.gcode"), process it with Klippy, and send it to Klipper running in simulavr (see [installation](Installation.md) for the steps necessary to build the python virtual environment):
+Then, with simulavr running in another window, one can run the following to read gcode from a file (eg, "test.gcode"), process it with Klippy, and send it to Klipper running in simulavr (see [installation](Installation.md) for the steps necessary to build the python virtual environment):
 
 ```
 ~/klippy-env/bin/python ./klippy/klippy.py config/generic-simulavr.cfg -i test.gcode -v
@@ -90,8 +86,7 @@ Normally, the host klippy.py process would be used to translate gcode commands t
 
 See the "HELP" command within the tool for more information on its functionality.
 
-Some command-line options are available. For more information run:
-`~/klippy-env/bin/python ./klippy/console.py --help`
+Some command-line options are available. For more information run: `~/klippy-env/bin/python ./klippy/console.py --help`
 
 # Generating load graphs
 
@@ -112,8 +107,7 @@ Then graphs can be produced with:
 
 One can then view the resulting **loadgraph.png** file.
 
-Different graphs can be produced. For more information run:
-`~/klipper/scripts/graphstats.py --help`
+Different graphs can be produced. For more information run: `~/klipper/scripts/graphstats.py --help`
 
 # Extracting information from the klippy.log file
 
@@ -138,8 +132,7 @@ The source code "whitespace check" can be run with:
 ./scripts/check_whitespace.sh
 ```
 
-The Klippy regression test suite requires "data dictionaries" from many
-platforms. The easiest way to obtain them is to [download them from github](https://github.com/KevinOConnor/klipper/issues/1438). Once the data dictionaries are downloaded, use the following to run the regression suite:
+The Klippy regression test suite requires "data dictionaries" from many platforms. The easiest way to obtain them is to [download them from github](https://github.com/KevinOConnor/klipper/issues/1438). Once the data dictionaries are downloaded, use the following to run the regression suite:
 
 ```
 tar xfz klipper-dict-20??????.tar.gz
