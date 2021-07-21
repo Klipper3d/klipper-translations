@@ -30,7 +30,7 @@
 - [TMC驱动](TMC_Drivers.md)：在 Klipper 中使用 Trinamic 步进电机驱动。
 - [偏斜校正](skew_correction.md)：调整不是完美垂直的轴（不完美的方形）。
 - [PWM 工具](Using_PWM_Tools.md)：关于如何使用 PWM 控制的工具，例如激光器或电钻头。
-- [G代码](G-Codes.md)：用于 Klipper 的G代码指令。
+- [G代码](G-Codes.md)：用于 Klipper 的G代码命令。
 
 # 开发者文档
 

@@ -16,7 +16,7 @@
 
 ## [MCU]
 
-主要的微控制器配置。
+主微控制器的配置。
 
 ```
 [mcu]
@@ -272,7 +272,7 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-## CoreXY 架构
+## CoreXY 结构
 
 See [example-corexy.cfg](../config/example-corexy.cfg) for an example corexy (and h-bot) kinematics file.
 
@@ -304,7 +304,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-## CoreXZ Kinematics
+## CoreXY 结构
 
 See [example-corexz.cfg](../config/example-corexz.cfg) for an example corexz kinematics config file.
 
@@ -520,13 +520,13 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-## Cable winch Kinematics
+## 缆绳绞盘结构
 
 See the [example-winch.cfg](../config/example-winch.cfg) for an example cable winch kinematics config file.
 
 Only parameters specific to cable winch printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
 
-CABLE WINCH SUPPORT IS EXPERIMENTAL. Homing is not implemented on cable winch kinematics. In order to home the printer, manually send movement commands until the toolhead is at 0,0,0 and then issue a `G28` command.
+缆绳绞盘结构支持是实验性的。归零尚未在缆绳绞盘结构中实现。为了将打印机归零，需要手动发送移动命令直到工具头处于 0,0,0 位置，然后发出 ` G28` 命令。
 
 ```
 [printer]
@@ -560,7 +560,7 @@ max_accel: 1
 #   values are not used for "none" kinematics.
 ```
 
-# Common extruder and heated bed support
+# 通用挤出机和热床支持
 
 ## [extruder]
 
@@ -696,7 +696,7 @@ max_temp:
 #   See the "extruder" section for a description of the above parameters.
 ```
 
-# Bed level support
+# 打印床调平支持
 
 ## [bed_mesh]
 
@@ -729,120 +729,108 @@ Visual Examples:
 ```
 [bed_mesh]
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+#   在校准时非探测移动的速度（以毫米每秒(mm/s)为单位）。
+#   默认为50。
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+#   在探测前打印头必须移动到的高度（以毫米(mm)为单位）。
+#   默认为5。
 #mesh_radius:
-#   Defines the radius of the mesh to probe for round beds. Note that
-#   the radius is relative to the coordinate specified by the
-#   mesh_origin option. This parameter must be provided for round beds
-#   and omitted for rectangular beds.
+#   定义圆形打印床的网格半径。注意，半径相对于 mesh_origin 
+#   选项定义的中心。圆形打印床必须提供这个参数，而长方形
+#   打印床必须忽略。
 #mesh_origin:
-#   Defines the center x,y coordinate of the mesh for round beds. This
-#   coordinate is relative to the probe's location. It may be useful
-#   to adjust the mesh_origin in an effort to maximize the size of the
-#   mesh radius. Default is 0,0. This parameter must be omitted for
-#   rectangular beds.
+#   定义圆形打印床网格中心的 x,y 坐标。 这个坐标相对于探针
+#   位置。可以通过调整 mesh_origin 来最大化网格半径。默认为
+#   0,0。长方形打印床必须忽略这个参数。
 #mesh_min:
-#   Defines the minimum x,y coordinate of the mesh for rectangular
-#   beds. This coordinate is relative to the probe's location. This
-#   will be the first point probed, nearest to the origin. This
-#   parameter must be provided for rectangular beds.
+#   定义长方形打印床网格的最小 x,y 坐标。这个坐标相对与探针
+#   位置。这将会是第一个被探测，最接近原点的坐标。
+#   长方形打印床必须提供这个参数。
 #mesh_max:
-#   Defines the maximum x,y coordinate of the mesh for rectangular
-#   beds. Adheres to the same principle as mesh_min, however this will
-#   be the furthest point probed from the bed's origin. This parameter
-#   must be provided for rectangular beds.
+#   定义长方形打印床网格的极限 x,y 坐标。遵循和 mesh_min  相同
+#   的原则，但是这将是离打印床原点最远的点。长方形打印床
+#   必须提供这个参数。
 #probe_count: 3,3
-#   For rectangular beds, this is a comma separate pair of integer
-#   values (X,Y) defining the number of points to probe along each
-#   axis. A single value is also valid, in which case that value will
-#   be applied to both axes. Default is 3,3.
+#   用于长方形打印床，这是一对逗号分隔的整数 (X,Y) ，定义了每个
+#   轴向的探测点数。也可以仅用一个整数，这个整数将被应用于两
+#   个轴。
+#   默认为3,3。
 #round_probe_count: 5
-#   For round beds, this integer value defines the maximum number of
-#   points to probe along each axis. This value must be an odd number.
-#   Default is 5.
+#   用于圆形热床，这个整数定义了每个轴的最大探测点数。这个数值
+#   必须是一个单数。
+#   默认为5。
 #fade_start: 1.0
-#   The gcode z position in which to start phasing out z-adjustment
-#   when fade is enabled. Default is 1.0.
+#   在淡出启用时开始淡出修正G代码中z坐标的位置。
+#   默认为1.0。
 #fade_end: 0.0
-#   The gcode z position in which phasing out completes. When set to a
-#   value below fade_start, fade is disabled. It should be noted that
-#   fade may add unwanted scaling along the z-axis of a print. If a
-#   user wishes to enable fade, a value of 10.0 is recommended.
-#   Default is 0.0, which disables fade.
+#   在淡出启用时结束淡出修正G代码中z坐标的位置。 当这个数值小于
+#   fade_start 时，淡出会被禁用。注意，淡出可能会在打印件的z轴上
+#   增加不期望的缩放。如果一个用户想启用淡出，10.0是一个推荐数值。
+#   默认为 0.0，意味着淡出被禁用。
 #fade_target:
-#   The z position in which fade should converge. When this value is
-#   set to a non-zero value it must be within the range of z-values in
-#   the mesh. Users that wish to converge to the z homing position
-#   should set this to 0. Default is the average z value of the mesh.
+#   淡出收敛的目标 z 坐标。当这个数值被设为一个非0数值，它必须
+#   在网床的 z 数值之间。希望收敛到 z 归零点的用户应该将它设为0。
+#   默认为网床的平均 z 数值。
 #split_delta_z: .025
-#   The amount of Z difference (in mm) along a move that will trigger
-#   a split. Default is .025.
+#   单次移动中触发运动分隔的最小 Z 差异（以毫米(mm)为单位）。
+#   默认为 .025。
 #move_check_distance: 5.0
-#   The distance (in mm) along a move to check for split_delta_z.
-#   This is also the minimum length that a move can be split. Default
-#   is 5.0.
+#   触发 split_delta_z 检测的最小单次移动距离（以毫米(mm)为单位）。
+#   这也是移动能被分隔成的最小段。
+#   默认为 5.0。
 #mesh_pps: 2,2
-#   A comma separated pair of integers (X,Y) defining the number of
-#   points per segment to interpolate in the mesh along each axis. A
-#   "segment" can be defined as the space between each probed point.
-#   The user may enter a single value which will be applied to both
-#   axes. Default is 2,2.
+#   一对逗号分隔的整数 (X,Y)，定义了每个轴每段插值点数。一
+#   个“段”是在每个探测点之间的空间。也可以仅用一个整数，这个整
+#   数将被应用于两个轴。
+#   默认为 2,2。
 #algorithm: lagrange
-#   The interpolation algorithm to use. May be either "lagrange" or
-#   "bicubic". This option will not affect 3x3 grids, which are forced
-#   to use lagrange sampling. Default is lagrange.
+#   使用的插值算法。可以是"lagrange"（拉格朗日）或者"bicubic"（双
+#   三次）。 这个选项不影响 3x3 网格，因为它会被强制使用拉格朗日
+#   采样。
+#   默认为lagrange。
 #bicubic_tension: .2
-#   When using the bicubic algorithm the tension parameter above may
-#   be applied to change the amount of slope interpolated. Larger
-#   numbers will increase the amount of slope, which results in more
-#   curvature in the mesh. Default is .2.
+#   在使用双三次算法时，上述张力参数可以改变内插斜率的大小。
+#   更大的数值可以增加斜率，增加网格的曲率。
+#   默认为 .2。
 #relative_reference_index:
-#   A point index in the mesh to reference all z values to. Enabling
-#   this parameter produces a mesh relative to the probed z position
-#   at the provided index.
+#   网格中所有 z 值的一个参考点。启用这个参数会产生一个相对于
+#   提供参考点探测的 z 高度的网格。
 #faulty_region_1_min:
 #faulty_region_1_max:
-#   Optional points that define a faulty region.  See docs/Bed_Mesh.md
-#   for details on faulty regions.  Up to 99 faulty regions may be added.
-#   By default no faulty regions are set.
+#   可选的故障区域定义点。详见 docs/Bed_Mesh.md。最多可以定
+#   义99个故障区域。
+#   默认不设定任何故障区域。
 ```
 
 ## [bed_tilt]
 
-Bed tilt compensation. One may define a bed_tilt config section to enable move transformations that account for a tilted bed. Note that bed_mesh and bed_tilt are incompatible; both cannot be defined.
+打印床倾斜补偿。可以定义一个 bed_tilt 配置分段来启用移动变换倾斜打印床补偿。请注意，bed_mesh 和 bed_tilt 不兼容：两者无法同时被定义。
 
 See the [command reference](G-Codes.md#bed-tilt) for additional information.
 
 ```
 [bed_tilt]
 #x_adjust: 0
-#   The amount to add to each move's Z height for each mm on the X
-#   axis. The default is 0.
+#   每毫米X轴运动的Z高度增量。
+#   默认为 0。
 #y_adjust: 0
-#   The amount to add to each move's Z height for each mm on the Y
-#   axis. The default is 0.
+#   每毫米Y轴运动的Z高度增量。
+#   默认为 0。
 #z_adjust: 0
-#   The amount to add to the Z height when the nozzle is nominally at
-#   0,0. The default is 0.
-# The remaining parameters control a BED_TILT_CALIBRATE extended
-# g-code command that may be used to calibrate appropriate x and y
-# adjustment parameters.
+#   喷嘴在 0,0 时的z高度增量。
+#   默认为 0。
+#   剩余的参数控制用于校准X和Y调整的 BED_TILT_CALIBRATE 增强G代
+#   码命令。
 #points:
-#   A list of X,Y coordinates (one per line; subsequent lines
-#   indented) that should be probed during a BED_TILT_CALIBRATE
-#   command. Specify coordinates of the nozzle and be sure the probe
-#   is above the bed at the given nozzle coordinates. The default is
-#   to not enable the command.
+#   BED_TILT_CALIBRATE 命令探测的 X,Y 坐标的列表（一个一行，后续行
+#   缩进。坐标根据喷嘴位置决定，确保在相应喷嘴坐标时探针在打印床上
+#   默认不启用此命令。
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+#   在校准时非探测移动的速度（以毫米每秒(mm/s)为单位）。
+#   默认为50。
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+#   在探测前打印头必须移动到的高度（以毫米(mm)为单位）。
+#   默认为5。
 ```
 
 ## [bed_screws]
@@ -854,24 +842,22 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 ```
 [bed_screws]
 #screw1:
-#   The X,Y coordinate of the first bed leveling screw. This is a
-#   position to command the nozzle to that is directly above the bed
-#   screw (or as close as possible while still being above the bed).
-#   This parameter must be provided.
+#   第一个打印床调平螺丝的 X,Y 坐标。这是命令喷嘴到打印床螺丝
+#   正上方的坐标（或在打印床上尽可能接近的坐标）。
+#   必须提供这个参数。
 #screw1_name:
-#   An arbitrary name for the given screw. This name is displayed when
-#   the helper script runs. The default is to use a name based upon
-#   the screw XY location.
+#   给定螺丝的昵称。在助手脚本运行时会显示这跟昵称。
+#   默认为基于螺丝坐标的名称。
 #screw1_fine_adjust:
-#   An X,Y coordinate to command the nozzle to so that one can fine
-#   tune the bed leveling screw. The default is to not perform fine
-#   adjustments on the bed screw.
+#   这是命令喷嘴到打印床螺丝正上方的 X,Y 坐标用于微调打印床调
+#   平螺丝的坐标。 
+#   默认不在打印床螺丝上进行微调。
 #screw2:
 #screw2_name:
 #screw2_fine_adjust:
 #...
-#   Additional bed leveling screws. At least three screws must be
-#   defined.
+#   额外的打印床调平螺丝坐标。
+#   至少要定义三个螺丝。
 #horizontal_move_z: 5
 #   The height (in mm) that the head should be commanded to move to
 #   when moving from one screw location to the next. The default is 5.
@@ -1016,7 +1002,7 @@ Printer Skew Correction. It is possible to use software to correct printer skew 
 [skew_correction]
 ```
 
-# Customized homing
+# 自定义归零
 
 ## [safe_z_home]
 
@@ -1163,8 +1149,8 @@ Support saving variables to disk so that they are retained across restarts. See 
 ```
 [save_variables]
 filename:
-#   Required - provide a filename that would be used to save the
-#   variables to disk e.g. ~/variables.cfg
+#   必须提供一个可以用来保存参数到磁盘的文件名。
+#   例如 . ~/variables.cfg
 ```
 
 ## [idle_timeout]
@@ -1186,7 +1172,7 @@ Idle timeout. An idle timeout is automatically enabled - add an explicit idle_ti
 
 ## [virtual_sdcard]
 
-A virtual sdcard may be useful if the host machine is not fast enough to run OctoPrint well. It allows the Klipper host software to directly print gcode files stored in a directory on the host using standard sdcard G-Code commands (eg, M24).
+如果主机的速度不足以很好地运行 OctoPrint，虚拟 SD 卡可能有帮助。它允许 Klipper 主机软件使用标准的 SD 卡G代码命令（例如，M24）直接打印存储在主机目录中的 gcode 文件。
 
 ```
 [virtual_sdcard]
@@ -1326,29 +1312,25 @@ Support for ADXL345 accelerometers. This support allows one to query acceleromet
 ```
 [adxl345]
 cs_pin:
-#   The SPI enable pin for the sensor. This parameter must be provided.
+#   传感器的 SPI 启用引脚。必须提供这个参数。
 #spi_speed: 5000000
-#   The SPI speed (in hz) to use when communicating with the chip.
-#   The default is 5000000.
+#   用于和芯片通讯的SPI 速率（以赫兹(hz)为单位）。
+#   默认值为5000000。
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   上述参数详见“常见 SPI 设置”章节。
 #axes_map: x,y,z
-#   The accelerometer axis for each of the printer's x, y, and z axes.
-#   This may be useful if the accelerometer is mounted in an
-#   orientation that does not match the printer orientation. For
-#   example, one could set this to "y,x,z" to swap the x and y axes.
-#   It is also possible to negate an axis if the accelerometer
-#   direction is reversed (eg, "x,z,-y"). The default is "x,y,z".
+#   打印机 x 、 y 和 z 轴对应的加速度计轴。在加速度计的
+#   安装方向和打印机的方向不同时很有用。例如，可
+#   以设置为“y,x,z”来交换 x 和 y 轴。也可以在加速度计反装
+#   时反转轴。（例如"x,z,-y"）。默认值为”x,y,z“。
 #rate: 3200
-#   Output data rate for ADXL345. ADXL345 supports the following data
-#   rates: 3200, 1600, 800, 400, 200, 100, 50, and 25. Note that it is
-#   not recommended to change this rate from the default 3200, and
-#   rates below 800 will considerably affect the quality of resonance
-#   measurements.
+#   ADXL345的输出数据率。ADXL345支持以下数据输出速率：
+#   3200、1600、800、400、200、100、50和25。注意，不推
+#   荐降低默认值的3200，低于800的速率会极大的影响共振
+#   测量准确性。
 ```
 
 ## [resonance_tester]
@@ -1402,25 +1384,24 @@ Support for resonance testing and automatic input shaper calibration. In order t
 #   (Hz/sec == sec^-2).
 ```
 
-# Config file helpers
+# 配置文件助手
 
 ## [board_pins]
 
-Board pin aliases (one may define any number of sections with a "board_pins" prefix). Use this to define aliases for the pins on a micro-controller.
+控制板引脚别名（可以定义任意数量的带有 "board_pins "前缀的分段）。用它来定义微控制器上的引脚的别名。
 
 ```
-[board_pins my_aliases]
+[board_pins my_aliases]。
 mcu: mcu
-#   A comma separated list of micro-controllers that may use the
-#   aliases. The default is to apply the aliases to the main "mcu".
+#   一个可以使用别名的逗号分隔的微控制器列表。
+#   默认将别名应用于主 "mcu"。
 aliases:
 aliases_<name>:
-#   A comma separated list of "name=value" aliases to create for the
-#   given micro-controller. For example, "EXP1_1=PE6" would create an
-#   "EXP1_1" alias for the "PE6" pin. However, if "value" is enclosed
-#   in "<>" then "name" is created as a reserved pin (for example,
-#   "EXP1_9=<GND>" would reserve "EXP1_9"). Any number of options
-#   starting with "aliases_" may be specified.
+#   为给定的微控制器创建的一个以逗号分隔的 "name=value "
+#   别名列表。例如，"EXP1_1=PE6" 将创建一个用于 "PE6 "引
+#   脚的"EXP1_1 "别名。然而，如果 "值 " 被包括在 "<>"中，
+#   则 "name "将被创建为一个保留针脚（例如，"EXP1_9=<GND>" 
+#   将保留 "EXP1_9"）。可以指定任何数量以 "aliases_"开头的分段。
 ```
 
 ## [include]
@@ -1443,7 +1424,7 @@ pins:
 #   provided.
 ```
 
-# Bed probing hardware
+# 打印床探测硬件
 
 ## [probe]
 
@@ -1508,45 +1489,44 @@ z_offset:
 
 ## [bltouch]
 
-BLTouch probe. One may define this section (instead of a probe section) to enable a BLTouch probe. See [BL-Touch guide](BLTouch.md) and [command reference](G-Codes.md#bltouch) for further information. A virtual "probe:z_virtual_endstop" pin is also created (see the "probe" section for the details).
+BLTouch 探针。可以定义这个分段（而不是探针（probe）分段）来启用 BLTouch 探针。更多信息见[BL-Touch 指南](BLTouch.md)和[命令参考](G-Code.md#bltouch)。一个虚拟的 "probe:z_virtual_endstop "引脚也会被同时创建（详见 "probe "章节）。
 
 ```
 [bltouch]
 sensor_pin:
-#   Pin connected to the BLTouch sensor pin. Most BLTouch devices
-#   require a pullup on the sensor pin (prefix the pin name with "^").
-#   This parameter must be provided.
+#   连接到 BLTouch sensor 引脚的引脚。大多数 BLTouch 需要在
+#   sensor 引脚上有一个拉高电阻（在引脚名前加上“^”）。
+#   必须提供这个参数。
 control_pin:
-#   Pin connected to the BLTouch control pin. This parameter must be
-#   provided.
+#   连接到 BLTouch control 引脚的引脚。 
+#   必须提供这个参数。
 #pin_move_time: 0.680
-#   The amount of time (in seconds) to wait for the BLTouch pin to
-#   move up or down. The default is 0.680 seconds.
+#   等待 BLTouch探针收放的时间（以秒为单位）。
+#   默认为 0.680 秒。
 #stow_on_each_sample: True
-#   This determines if Klipper should command the pin to move up
-#   between each probe attempt when performing a multiple probe
-#   sequence. Read the directions in docs/BLTouch.md before setting
-#   this to False. The default is True.
+#   这个参数决定了 Klipper 是否会在进行多次探测的每次探测之间
+#   收放探针。在禁用这个动作前请先阅读 docs/BLTouch.md。
+#   默认为True（启用）。
 #probe_with_touch_mode: False
-#   If this is set to True then Klipper will probe with the device in
-#   "touch_mode". The default is False (probing in "pin_down" mode).
+#   当该选项被启用，Klipper 会以“touch_mode”（触摸模式）使用
+#   探针。
+#   默认为False （禁用，使用“pin_down”模式探测）。
 #pin_up_reports_not_triggered: True
-#   Set if the BLTouch consistently reports the probe in a "not
-#   triggered" state after a successful "pin_up" command. This should
-#   be True for all genuine BLTouch devices. Read the directions in
-#   docs/BLTouch.md before setting this to False. The default is True.
+#   只在 BLTouch 在 "pin_up" 命令后稳定汇报探针在一个“not triggered（未
+#   触发）”的状态时需要设置。所有正版的 BLTouch 都应该设为 True（启
+#   用）。 在设为False（禁用）前，请先阅读 docs/BLTouch.md 中的说明。
+#   默认是True（启用）。
 #pin_up_touch_mode_reports_triggered: True
-#   Set if the BLTouch consistently reports a "triggered" state after
-#   the commands "pin_up" followed by "touch_mode". This should be
-#   True for all genuine BLTouch devices. Read the directions in
-#   docs/BLTouch.md before setting this to False. The default is True.
+#   只在 BLTouch 在 "pin_up" 和 “touch_mode" 命令后稳定汇报探针在一个“not
+#    triggered（未触发）”的状态时需要设置。所有正版的 BLTouch 都应该设为 
+#   True（启用）。 在设为False（禁用）前，请先阅读 docs/BLTouch.md 中的说明。
+#   默认是True（启用）。
 #set_output_mode:
-#   Request a specific sensor pin output mode on the BLTouch V3.0 (and
-#   later). This setting should not be used on other types of probes.
-#   Set to "5V" to request a sensor pin output of 5 Volts (only use if
-#   the controller board needs 5V mode and is 5V tolerant on its input
-#   signal line). Set to "OD" to request the sensor pin output use
-#   open drain mode. The default is to not request an output mode.
+#   向BLTouch V3.0 （和更新版本）请求一个特定的 sensor 引脚输出模式 。
+#   这个设置不应该在其他类型的探针上使用。设为“5v”会请求 sensor 引脚
+#   以5V输出（仅在控制板需要使用5V模式并且这个信号输入引脚可以耐受5V
+#   时）。设为“OD”来请求 sensor 引脚输出使用开漏模式。
+#   默认不请求输出模式。
 #x_offset:
 #y_offset:
 #z_offset:
@@ -1556,10 +1536,10 @@ control_pin:
 #samples_result:
 #samples_tolerance:
 #samples_tolerance_retries:
-#   See the "probe" section for information on these parameters.
+#   这些参数详见”探针“章节。
 ```
 
-# Additional stepper motors and extruders
+# 额外的步进电机和挤出机
 
 ## [stepper_z1]
 
@@ -1672,7 +1652,7 @@ Manual steppers (one may define any number of sections with a "manual_stepper" p
 #   MANUAL_STEPPER movement commands.
 ```
 
-# Custom heaters and sensors
+# 自定义加热器和传感器
 
 ## [verify_heater]
 
@@ -1761,22 +1741,19 @@ Custom ADC temperature sensors (one may define any number of sections with an "a
 #temperature2:
 #voltage2:
 #...
-#   A set of temperatures (in Celsius) and voltages (in Volts) to use
-#   as reference when converting a temperature. A heater section using
-#   this sensor may also specify adc_voltage and voltage_offset
-#   parameters to define the ADC voltage (see "Common temperature
-#   amplifiers" section for details). At least two measurements must
-#   be provided.
+#   一组用作温度转换的参考温度（以摄氏度为单位）和电压（以
+#   伏特为单位）。使用这个传感器的加热器分段也可以指定
+#   adc_voltage 和 voltage_offset 参数来定义 ADC 电压（详见“常用温度
+#   放大器”章节）。至少要提供两个测量点。
 #temperature1:
 #resistance1:
 #temperature2:
 #resistance2:
 #...
-#   Alternatively one may specify a set of temperatures (in Celsius)
-#   and resistance (in Ohms) to use as reference when converting a
-#   temperature. A heater section using this sensor may also specify a
-#   pullup_resistor parameter (see "extruder" section for details). At
-#   least two measurements must be provided.
+#   作为替代，也可以指定一组用作温度转换的参考温度（以摄氏度为
+#   单位）和阻值（以欧姆为单位）。使用这个传感器的加热器分段也
+#   可以指定一个 pullup_resistor 参数（详见“挤出机”章节）。至少要
+#   提供两个测量点。
 ```
 
 ## [heater_generic]
@@ -1825,9 +1802,9 @@ Generic temperature sensors. One can define any number of additional temperature
 
 Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heated_bed]` section).
 
-## Common thermistors
+## 常见热敏电阻
 
-Common thermistors. The following parameters are available in heater sections that use one of these sensors.
+常见的热敏电阻。在使用这些传感器之一的加热器分段中可以使用以下参数。
 
 ```
 sensor_type:
@@ -1847,9 +1824,9 @@ sensor_pin:
 #   The default is 0 ohms.
 ```
 
-## Common temperature amplifiers
+## 常见温度放大器
 
-Common temperature amplifiers. The following parameters are available in heater sections that use one of these sensors.
+常见温度放大器。在使用这些传感器之一的加热器分段中可以使用以下参数。
 
 ```
 sensor_type:
@@ -1864,9 +1841,9 @@ sensor_pin:
 #   The ADC voltage offset (in Volts). The default is 0.
 ```
 
-## Directly connected PT1000 sensor
+## 直接连接的 PT1000 传感器
 
-Directly connected PT1000 sensor. The following parameters are available in heater sections that use one of these sensors.
+直接连接到控制板的 PT1000 传感器。以下参数可用于使用这些传感器之一的加热器分段。
 
 ```
 sensor_type: PT1000
@@ -1912,9 +1889,9 @@ sensor_pin:
 #   name in the above list.
 ```
 
-## BMP280/BME280/BME680 temperature sensor
+## BMP280/BME280/BME680 温度传感器
 
-BMP280/BME280/BME680 two wire interface (I2C) environmental sensors. Note that thoose sensors aee not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C), pressure (hPa), relative humidity and in case of the BME680 gas level. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report pressure and humidity in addition to temperature.
+BMP280/BME280/BME680双线接口（I2C）环境传感器。请注意，这些传感器不被设计用于挤出机和热床，而是用于监测环境温度（C）、压力（hPa）和相对湿度，如果是BME680，还可以测量空气质量。参见[sample-macros.cfg](./config/sample-macros.cfg)中的 gcode_macro，它可以用来报告温度、压力和湿度。
 
 ```
 sensor_type: BME280
@@ -1978,7 +1955,7 @@ sensor_type: lm75
 #   0.5.
 ```
 
-## Builtin micro-controller temperature sensor
+## 微控制器的内置温度传感器
 
 The atsam, atsamd, and stm32 micro-controllers contain an internal temperature sensor. One can use the "temperature_mcu" sensor to monitor these temperatures.
 
@@ -2139,7 +2116,7 @@ Heater cooling fans (one may define any number of sections with a "heater_fan" p
 
 ## [controller_fan]
 
-Controller cooling fan (one may define any number of sections with a "controller_fan" prefix). A "controller fan" is a fan that will be enabled whenever its associated heater or any configured stepper driver is active. The fan will stop whenever an idle_timeout is reached to ensure no overheating will occur after deactivating a watched component.
+控制器冷却风扇（可以定义带有"controller_fan"前缀的任何部分的任意数量）。"控制器风扇"是一个只要其相关加热器或任何配置的步进驱动处于活动状态就会启用的风扇。每当达到 idle_timeout时，风扇都会停止，以确保停止监视组件后不会出现过热。
 
 ```
 [controller_fan my_controller_fan]
@@ -2238,7 +2215,7 @@ Manually controlled fan (one may define any number of sections with a "fan_gener
 #   See the "fan" section for a description of the above parameters.
 ```
 
-# Additional servos, LEDs, buttons, and other pins
+# 额外的舵机，LED，按键，和其他引脚。
 
 ## [servo]
 
@@ -2440,11 +2417,11 @@ pins:
 
 # TMC stepper driver configuration
 
-Configuration of Trinamic stepper motor drivers in UART/SPI mode. Additional information is in the [TMC Drivers guide](TMC_Drivers.md) and in the [command reference](G-Codes.md#tmc-stepper-drivers).
+配置在 UART/SPI 模式下的 Trinamic 步进电机驱动器。其他信息在[TMC驱动指南](TMC_Drivers.md)和[命令参考](G-Code.md#tmc-stepper-drivers)中。
 
 ## [tmc2130]
 
-Configure a TMC2130 stepper motor driver via SPI bus. To use this feature, define a config section with a "tmc2130" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2130 stepper_x]").
+通过 SPI 总线配置 TMC2130 步进电机驱动。要使用此功能，请定义一个带有“tmc2130”前缀并后跟步进驱动配置分段相应名称的配置分段（例如，“[tmc2130 stepper_x]”）。
 
 ```
 [tmc2130 stepper_x]
@@ -2512,7 +2489,7 @@ run_current:
 
 ## [tmc2208]
 
-Configure a TMC2208 (or TMC2224) stepper motor driver via single wire UART. To use this feature, define a config section with a "tmc2208" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2208 stepper_x]").
+通过单线 UART 配置 TMC2208（或 TMC2224）步进电机驱动。要使用此功能，请定义一个带有 “tmc2208” 前缀并后跟步进驱动配置分段相应名称的配置分段（例如，“[tmc2208 stepper_x]”）。
 
 ```
 [tmc2208 stepper_x]
@@ -2567,7 +2544,7 @@ run_current:
 
 ## [tmc2209]
 
-Configure a TMC2209 stepper motor driver via single wire UART. To use this feature, define a config section with a "tmc2209" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2209 stepper_x]").
+通过单线 UART 配置 TMC2209 步进电机驱动。要使用此功能，请定义一个带有 “tmc2209” 前缀并后跟步进驱动配置分段相应名称的配置分段（例如，“[tmc2209 stepper_x]”）。
 
 ```
 [tmc2209 stepper_x]
@@ -2614,7 +2591,7 @@ run_current:
 
 ## [tmc2660]
 
-Configure a TMC2660 stepper motor driver via SPI bus. To use this feature, define a config section with a tmc2660 prefix followed by the name of the corresponding stepper config section (for example, "[tmc2660 stepper_x]").
+通过 SPI 总线配置 TMC2660 步进电机驱动。要使用此功能，请定义一个带有 “tmc 2660” 前缀并后跟步进驱动配置分段相应名称的配置分段（例如，“[tmc2660 stepper_x]”）。
 
 ```
 [tmc2660 stepper_x]
@@ -2681,7 +2658,7 @@ run_current:
 
 ## [tmc5160]
 
-Configure a TMC5160 stepper motor driver via SPI bus. To use this feature, define a config section with a "tmc5160" prefix followed by the name of the corresponding stepper config section (for example, "[tmc5160 stepper_x]").
+通过 SPI 总线配置 TMC5160 步进电机驱动。要使用此功能，请定义一个带有 “tmc5160” 前缀并后跟步进驱动配置分段相应名称的配置分段（例如，“[tmc5160 stepper_x]”）。
 
 ```
 [tmc5160 stepper_x]
@@ -2789,20 +2766,16 @@ enable_pin:
 #channel_4:
 #channel_5:
 #channel_6:
-#   The value to statically set the given AD5206 channel to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest resistance and 0.0 being the lowest resistance. However,
-#   the range may be changed with the 'scale' parameter (see below).
-#   If a channel is not specified then it is left unconfigured.
+#   设置AD5206通道的静态值。通常在0.0和1.0之间，1.0为最高
+#   电阻，而0.0为最低电阻。然而，这个范围也可以被 ‘scale’ 参
+#   数配置。（见下文）如果一个通道没有参数则它不会被配置。
 #scale:
-#   This parameter can be used to alter how the 'channel_x' parameters
-#   are interpreted. If provided, then the 'channel_x' parameters
-#   should be between 0.0 and 'scale'. This may be useful when the
-#   AD5206 is used to set stepper voltage references. The 'scale' can
-#   be set to the equivalent stepper amperage if the AD5206 were at
-#   its highest resistance, and then the 'channel_x' parameters can be
-#   specified using the desired amperage value for the stepper. The
-#   default is to not scale the 'channel_x' parameters.
+#   这个参数可以用来修改 ‘channel_x’ 参数的定义。如被提供，
+#   则 ‘channel_x’ 的范围会在 0.0 和 ‘scale’ 之间。在 AD5206 被作
+#   为步进电机参考电压时可能很有帮助。当AD5206在最高电阻时
+#   ‘scale’ 可以被设置为步进电机的电流， 然后 ‘channel_x’ 参数可
+#   以设置为步进电机的期望电流安培。默认为不对 'channel_x' 参
+#   数进行缩放。
 ```
 
 ## [mcp4451]
@@ -2901,7 +2874,7 @@ wiper:
 #   scale the 'wiper' parameter.
 ```
 
-# Display support
+# 显示器支持
 
 ## [display]
 
@@ -3146,7 +3119,7 @@ lcd_type:
 
 Support for displaying custom data on an lcd screen. One may create any number of display groups and any number of data items under those groups. The display will show all the data items for a given group if the display_group option in the [display] section is set to the given group name.
 
-A [default set of display groups](../klippy/extras/display/display.cfg) are automatically created. One can replace or extend these display_data items by overriding the defaults in the main printer.cfg config file.
+一套[默认显示组](../klippy/extras/display/display.cfg)将被自动创建。通过覆盖打印机的 printer.cfg 主配置文件中的默认值可以替换或扩展这些 display_data 项。
 
 ```
 [display_data my_group_name my_data_name]
@@ -3212,84 +3185,79 @@ See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples.
 If a primary [display] section has been defined in printer.cfg as shown above it is possible to define multiple auxiliary displays. Note that auxiliary displays do not currently support menu functionality, thus they do not support the "menu" options or button configuration.
 
 ```
-[display my_extra_display]
-# See the "display" section for available parameters.
+[display my_extra_display] 。
+#   可用参数参见 "显示 "分段。
 ```
 
 ## [menu]
 
-Customizable lcd display menus.
+可自定义液晶显示屏菜单。
 
-A [default set of menus](../klippy/extras/display/menu.cfg) are automatically created. One can replace or extend the menu by overriding the defaults in the main printer.cfg config file.
+一套[默认菜单](../klippy/extras/display/menu.cfg)将被自动创建。通过覆盖 printer.cfg 主配置文件中的默认值可以替换或扩展该菜单。
 
 See the [command template document](Command_Templates.md#menu-templates) for information on menu attributes available during template rendering.
 
 ```
-# Common parameters available for all menu config sections.
+# 所有的菜单配置分段都有的通用参数。
 #[menu __some_list __some_name]
 #type: disabled
-#   Permanently disabled menu element, only required attribute is 'type'.
-#   Allows you to easily disable/hide existing menu items.
-
+#   永久禁用这个菜单元素，唯一需要的属性是 "类型"。
+#   允许你简单啊的禁用/隐藏现有的菜单项目。
 #[menu some_name]
 #type:
-#   One of command, input, list, text:
-#       command - basic menu element with various script triggers
-#       input   - same like 'command' but has value changing capabilities.
-#                 Press will start/stop edit mode.
-#       list    - it allows for menu items to be grouped together in a
-#                 scrollable list.  Add to the list by creating menu
-#                 configurations using "some_list" as a prefix - for
-#                 example: [menu some_list some_item_in_the_list]
-#       vsdlist - same as 'list' but will append files from virtual sdcard
-#                 (will be removed in the future)
+#   command（命令）, input（输入）, list（列表）, text（文字）之一：
+#       command - 可以触发各种脚本的基本菜单元素。
+#       input   - 类似 “command” 但是可以修改数值。
+#                 点击来进入/退出修改模式。
+#       list    - 这允许菜单项被组织成一个可滚动的列表。通过创建由 "some_list"
+#                 开头的菜单配置 - 例如：[menu some_list some_item_in_the_list]
+#       vsdlist - 和“list”一样，但是会自动从虚拟SD卡中添加文件。
+#                 （将在未来被移除）
 #name:
-#   Name of menu item - evaluated as a template.
+#   菜单项的名称 - 被视为模板
 #enable:
-#   Template that evaluates to True or False.
+#   视为 True 或 False 的模板。
 #index:
-#   Position where an item needs to be inserted in list. By default
-#   the item is added at the end.
+#   项目插入到列表的位置。
+#   默认添加到结尾。
 
 #[menu some_list]
 #type: list
 #name:
 #enable:
-#   See above for a description of these parameters.
+#   见上文对这些参数的描述。
 
 #[menu some_list some_command]
 #type: command
 #name:
 #enable:
-#   See above for a description of these parameters.
+#   见上文对这些参数的描述。
 #gcode:
-#   Script to run on button click or long click. Evaluated as a
-#   template.
-
+#   点击按钮或长按时运行的G代码脚本。被视为模板。
 #[menu some_list some_input]
 #type: input
 #name:
 #enable:
-#   See above for a description of these parameters.
+#   见上文对这些参数的描述。
 #input:
-#   Initial value to use when editing - evaluated as a template.
-#   Result must be float.
+#   用于修改的初始数值 - 被视为模板。
+#   结果必须为浮点数。
 #input_min:
-#   Minimum value of range - evaluated as a template. Default -99999.
+#   范围的最小值 - 被视为模板。默认-99999。
 #input_max:
-#   Maximum value of range - evaluated as a template. Default 99999.
+#   范围的最大值 - 被视为模板。 默认-99999。
 #input_step:
-#   Editing step - Must be a positive integer or float value. It has
-#   internal fast rate step. When "(input_max - input_min) /
-#   input_step > 100" then fast rate step is 10 * input_step else fast
-#   rate step is same input_step.
+#   修改的步长 - 必须是一个正整数或浮点数。它有内置快进
+#   步长。当"(input_max - input_min) /
+#   input_step > 100" 时，快进步长是 10 * input_step， 否则
+#   步长和 input_step 相同。
 #realtime:
-#   This attribute accepts static boolean value. When enabled then
-#   gcode script is run after each value change. The default is False.
+#   此属性接受静态布尔值。 在启用时，G代码脚本将会在每
+#   次数值变化时执行。
+#   默认为False（否）。
 #gcode:
-#   Script to run on button click, long click or value change.
-#   Evaluated as a template. The button click will trigger the edit
-#   mode start or end.
+#   点击按钮、长按或数值变化时运行的G代码脚本。
+#   被视为模板。点击按钮会进入或退出修改模式。
 ```
 
 # Filament sensors
@@ -3425,11 +3393,11 @@ adc2:
 #   above parameters.
 ```
 
-# Board specific hardware support
+# 控制板特定硬件支持
 
 ## [sx1509]
 
-Configure an SX1509 I2C to GPIO expander. Due to the delay incurred by I2C communication you should NOT use SX1509 pins as stepper enable, step or dir pins or any other pin that requires fast bit-banging. They are best used as static or gcode controlled digital outputs or hardware-pwm pins for e.g. fans. One may define any number of sections with an "sx1509" prefix. Each expander provides a set of 16 pins (sx1509_my_sx1509:PIN_0 to sx1509_my_sx1509:PIN_15) which can be used in the printer configuration.
+将一个 SX1509 I2C 配置为 GPIO 扩展器。由于 I2C 通信本身的延迟，不应将 SX1509 引脚用作步进电机的 enable （启用)、step（步进）或 dir （方向）引脚或任何其他需要快速 bit-banging（位拆裂）的引脚。它们最适合用作静态或G代码控制的数字输出或硬件 pwm 引脚，例如风扇。可以使用“sx1509”前缀定义任意数量的分段。每个扩展器提供可用于打印机配置的一组 16 个引脚（sx1509_my_sx1509:PIN_0 到 sx1509_my_sx1509:PIN_15）。
 
 See the [generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg) file for an example.
 
@@ -3484,15 +3452,12 @@ See the [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) file fo
 ```
 [adc_scaled my_name]
 vref_pin:
-#   The ADC pin to use for VREF monitoring. This parameter must be
-#   provided.
+#   用于监测 VREF 的 ADC 引脚。这个参数必须被提供。
 vssa_pin:
-#   The ADC pin to use for VSSA monitoring. This parameter must be
-#   provided.
+#   用于监测 VSSA 的 ADC 引脚。这个参数必须被提供。
 #smooth_time: 2.0
-#   A time value (in seconds) over which the vref and vssa
-#   measurements will be smoothed to reduce the impact of measurement
-#   noise. The default is 2 seconds.
+#   一个时间参数（以秒为计）区间用于平滑 VREF 和
+#   VSSA 测量来减少测量的干扰。默认为2秒。
 ```
 
 ## [replicape]
@@ -3587,9 +3552,9 @@ serial:
 #   Auto cancel print when ping varation is above this threshold
 ```
 
-# Common bus parameters
+# 通用总线参数
 
-## Common SPI settings
+## 常见 SPI 设置
 
 The following parameters are generally available for devices using an SPI bus.
 
@@ -3610,7 +3575,7 @@ The following parameters are generally available for devices using an SPI bus.
 #   "software spi".
 ```
 
-## Common I2C settings
+## 通用 I2C 设置
 
 The following parameters are generally available for devices using an I2C bus.
 
