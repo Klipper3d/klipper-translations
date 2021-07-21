@@ -1,6 +1,6 @@
 This document describes the commands that Klipper supports. These are commands that one may enter into the OctoPrint terminal tab.
 
-# G-Code commands
+# G代码命令
 
 Klipper supports the following standard G-Code commands:
 
@@ -101,7 +101,7 @@ The following standard commands are supported:
 - `SET_STEPPER_ENABLE STEPPER=<config_name> ENABLE=[0|1]`: Enable or disable only the given stepper. This is a diagnostic and debugging tool and must be used with care. Disabling an axis motor does not reset the homing information. Manually moving a disabled stepper may cause the machine to operate the motor outside of safe limits. This can lead to damage to axis components, hot ends, and print surface.
 - `STEPPER_BUZZ STEPPER=<config_name>`: Move the given stepper forward one mm and then backward one mm, repeated 10 times. This is a diagnostic tool to help verify stepper connectivity.
 - `MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:
-   - `ACCEPT`: This command accepts the current Z position and concludes the manual probing tool.
+   - `ACCEPT`：该命令接受当前的Z位置，并结束手动探测工具。
    - `ABORT`：该命令终止手动探测工具。
    - `TESTZ Z=<value>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
 - `Z_ENDSTOP_CALIBRATE [SPEED=<speed>]`: Run a helper script useful for calibrating a Z position_endstop config setting. See the MANUAL_PROBE command for details on the parameters and the additional commands available while the tool is active.
@@ -158,7 +158,7 @@ The following command is available when an [extruder_stepper config section](Con
 
 - `SYNC_STEPPER_TO_EXTRUDER STEPPER=<extruder_stepper config_name> [EXTRUDER=<extruder config_name>]`: This command will cause the given STEPPER to become synchronized to the given EXTRUDER, overriding the extruder defined in the "extruder_stepper" config section.
 
-## Probe
+## 探针
 
 The following commands are available when a [probe config section](Config_Reference.md#probe) is enabled (also see the [probe calibrate guide](Probe_Calibrate.md)):
 
@@ -326,8 +326,8 @@ The following command is available when a [temperature_fan config section](Confi
 
 The following commands are available when an [adxl345 config section](Config_Reference.md#adxl345) is enabled:
 
-- `ACCELEROMETER_MEASURE [CHIP=<config_name>] [RATE=<value>] [NAME=<value>]`: Starts accelerometer measurements at the requested number of samples per second. If CHIP is not specified it defaults to "default". Valid rates are 25, 50, 100, 200, 400, 800, 1600, and 3200. The command works in a start-stop mode: when executed for the first time, it starts the measurements, next execution stops them. If RATE is not specified, then the default value is used (either from `printer.cfg` or `3200` default value). The results of measurements are written to a file named `/tmp/adxl345-<chip>-<name>.csv` where `<chip>` is the name of the accelerometer chip (`my_chip_name` from `[adxl345 my_chip_name]`) and `<name>` is the optional NAME parameter. If NAME is not specified it defaults to the current time in "YYYYMMDD_HHMMSS" format. If the accelerometer does not have a name in its config section (simply `[adxl345]`) <chip> part of the name is not generated.
-- `ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: queries accelerometer for the current value. If CHIP is not specified it defaults to "default". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).
+- `ACCELEROMETER_MEASURE [CHIP=<config_name>] [RATE=<value>] [NAME=<value>]` ：以请求的每秒采样数启动加速度计测量。如果没有指定CHIP（芯片），则默认为 "default"。有效速率为25、50、100、200、400、800、1600和3200。该命令以启动-停止模式工作：第一次执行时，它开始测量，下次执行时则停止测量。如果没有指定RATE（速率），则使用默认值（来自`printer.cfg`或`3200`默认值）。测量结果被写入一个名为`/tmp/adxl345-<chip>-<name>.csv`的文件，其中`<chip>`是加速度计芯片的名称（`my_chip_name`来自`[adxl345 my_chip_name]`），`<name>`是可选NAME（名称）参数。如果没有指定NAME，则默认为格式为 "YYYMMDD_HHMMSS"的当前时间。如果加速度计在其配置部分没有名称（仅仅是`[adxl345]`）则文件名的<chip>部分不会生成。
+- `ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`：查询加速度计的当前读数。如果没有指定CHIP（芯片），则默认为 "default"。如果没有指定RATE（速率），则使用默认值。该命令对于测试与ADXL345加速度计的连接非常有用：返回的数值之一应该是自由落体加速度（+/-芯片的一些噪声）。
 - `ADXL345_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries ADXL345 register <register> (e.g. 44 or 0x2C). Can be useful for debugging purposes.
 - `ADXL345_DEBUG_WRITE [CHIP=<config_name>] REG=<reg> VAL=<value>`: writes raw <value> into a register <register>. Both <value> and <register> can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.
 
