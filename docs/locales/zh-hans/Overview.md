@@ -48,10 +48,10 @@
 # 设备特定文档
 
 - [示列配置](Example_Configs.md)：有关于添加示列配置到 Klipper 的信息。
-- [SD卡更新](SDCard_Updates.md)：通过将固件拷贝到SD卡中，再通过微控制器的SD卡槽来烧写微控制器。
+- [SD卡更新](SDCard_Updates.md)：通过将固件拷贝到SD卡中，再通过微控制器的SD卡槽来刷写微控制器。
 - [将树莓派作为微控制器](RPi_microcontroller.md)：关于如何控制与树莓派 GPIO 引脚连接的设备。
 - [Beaglebone](beaglebone.md)：在 Beaglebone 可编程实时单元(PRU)上运行 Klipper 的详细信息。
-- [底层引导程序](Bootloaders.md)：有关于微控制器烧写的开发者信息。
+- [底层引导程序](Bootloaders.md)：有关于微控制器刷写的开发者信息。
 - [CAN 总线](CANBUS.md)：有关于 Klipper 使用 CAN 总线的信息。
 - [TSL1401CL 耗材线径传感器](TSL1401CL_Filament_Width_Sensor.md)
 - [霍尔耗材线径宽度传感器](HallFilamentWidthSensor.md)

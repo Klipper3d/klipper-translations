@@ -1,4 +1,4 @@
-本文档是 Klipper 配置文件中可用选项的参考。
+本文档是 Klipper 配置文件中可用配置分段的参考。
 
 本文档中的描述已经格式化，以便可以将它们剪切并粘贴到打印机配置文件中。 见 [installation document](Installation.md) 有关设置 Klipper 和选择初始配置文件的信息。
 
@@ -93,7 +93,7 @@ max_accel:
 #   decelerate to zero at each corner. The default is 5mm/s.
 ```
 
-## [步进]
+## [stepper]
 
 步进电机定义。 不同的打印机类型（由 [打印] 配置部分中的“运动学”选项指定）步进器需要定义不同的名称（例如，`stepper_x` 与 `stepper_a`）。 以下是常见的步进器定义。
 
@@ -272,7 +272,7 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-## CoreXY 结构
+## CoreXY 运动学
 
 See [example-corexy.cfg](../config/example-corexy.cfg) for an example corexy (and h-bot) kinematics file.
 
@@ -304,7 +304,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-## CoreXY 结构
+## CoreXY 运动学
 
 See [example-corexz.cfg](../config/example-corexz.cfg) for an example corexz kinematics config file.
 
@@ -520,13 +520,13 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-## 缆绳绞盘结构
+## 缆绳绞盘运动学
 
 See the [example-winch.cfg](../config/example-winch.cfg) for an example cable winch kinematics config file.
 
 Only parameters specific to cable winch printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
 
-缆绳绞盘结构支持是实验性的。归零尚未在缆绳绞盘结构中实现。为了将打印机归零，需要手动发送移动命令直到工具头处于 0,0,0 位置，然后发出 ` G28` 命令。
+缆绳绞盘运动学支持是实验性的。归零尚未在缆绳绞盘运动学中实现。为了将打印机归零，需要手动发送移动命令直到工具头处于 0,0,0 位置，然后发出 ` G28` 命令。
 
 ```
 [printer]
@@ -1251,7 +1251,7 @@ Support for gcode arc (G2/G3) commands.
 
 ## [respond]
 
-Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#send-message-respond-to-host).
+启用 "M118 "和 "RESPOND "扩展[命令](G-Code.md#send-message-respond tohost)。
 
 ```
 [respond]
@@ -1270,7 +1270,7 @@ Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#send-message-resp
 
 ## [input_shaper]
 
-Enables [resonance compensation](Resonance_Compensation.md). Also see the [command reference](G-Codes.md#resonance-compensation).
+启用[共振补偿](Resonance_Compensation.md)。也请参见[命令参考](G-Code.md#resonance-compensation)。
 
 ```
 [input_shaper]
@@ -1709,7 +1709,7 @@ Tool to disable heaters when homing or probing an axis.
 
 ## [thermistor]
 
-Custom thermistors (one may define any number of sections with a "thermistor" prefix). A custom thermistor may be used in the sensor_type field of a heater config section. (For example, if one defines a "[thermistor my_thermistor]" section then one may use a "sensor_type: my_thermistor" when defining a heater.) Be sure to place the thermistor section in the config file above its first use in a heater section.
+自定义热敏电阻（可以定义任意数量的带有“热敏电阻”前缀的分段）。可以在加热器配置分段的 sensor_type 字段中使用自定义热敏电阻。 （例如，如果定义了“[thermistor my_thermistor]”分段，那么在定义加热器时可以使用“sensor_type: my_thermistor”。）确保将热敏电阻分段放在配置文件中第一次使用这个传感器的加热器分段的上方。
 
 ```
 [thermistor my_thermistor]
@@ -1732,7 +1732,7 @@ Custom thermistors (one may define any number of sections with a "thermistor" pr
 
 ## [adc_temperature]
 
-Custom ADC temperature sensors (one may define any number of sections with an "adc_temperature" prefix). This allows one to define a custom temperature sensor that measures a voltage on an Analog to Digital Converter (ADC) pin and uses linear interpolation between a set of configured temperature/voltage (or temperature/resistance) measurements to determine the temperature. The resulting sensor can be used as a sensor_type in a heater section. (For example, if one defines a "[adc_temperature my_sensor]" section then one may use a "sensor_type: my_sensor" when defining a heater.) Be sure to place the sensor section in the config file above its first use in a heater section.
+自定义 ADC 温度传感器（可以使用 “adc_temperature” 前缀定义任意数量的分段）。这允许定义一个自定义温度传感器，该传感器测量一个模数转换器 (ADC) 引脚上的电压，并在一组配置的温度/电压（或温度/电阻）测量值之间使用线性插值来确定温度。设置的传感器可被用作加热器分段中的 sensor_type。 （例如，如果定义了 “[adc_temperature my_sensor]” 分段，则在定义加热器时可以使用 “sensor_type: my_sensor” 。）确保将传感器分段放在配置文件中第一次使用这个传感器的加热器分段的上方。
 
 ```
 [adc_temperature my_sensor]
@@ -1999,7 +1999,7 @@ sensor_type: temperature_host
 #   system file on a Raspberry Pi computer.
 ```
 
-## DS18B20 temperature sensor
+## DS18B20 温度传感器
 
 DS18B20 is a 1-wire (w1) digital temperature sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C). These sensors have range up to 125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers. DS18B20 sensors are only supported on the "host mcu", e.g. the Raspberry Pi. The w1-gpio Linux kernel module must be installed.
 
@@ -2130,24 +2130,23 @@ Heater cooling fans (one may define any number of sections with a "heater_fan" p
 #tachometer_pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
-#   See the "fan" section for a description of the above parameters.
+#   见 "风扇 "章节对上述参数的描述
 #fan_speed: 1.0
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when a heater or stepper driver is active.
-#   The default is 1.0
+#   当一个加热器或步进电机工作时的风扇速度（用0.0到
+#   1.0的数值表示）。
+#   默认为 1.0。
 #idle_timeout:
-#   The amount of time (in seconds) after a stepper driver or heater
-#   was active and the fan should be kept running. The default
-#   is 30 seconds.
+#   在一个加热器或步进电机停止工作后风扇继续运行的时间（以
+#   秒为单位）。
+#   默认为30秒。
 #idle_speed:
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when a heater or stepper driver was active and
-#   before the idle_timeout is reached. The default is fan_speed.
+#   在一个加热器或步进电机停止工作后，idle_timeout 未结束时
+#   的风扇速度（用0.0到1.0的数值表示）。
+#  默认为 fan_speed。
 #heater:
-#   Name of the config section defining the heater that this fan is
-#   associated with. If a comma separated list of heater names is
-#   provided here, then the fan will be enabled when any of the given
-#   heaters are enabled. The default is "extruder".
+#   这个风扇关联的加热器分段名称。如果提供了一个逗号分隔的
+#   加热器列表，风扇会在任何列表中加热器启用时启动。
+#   默认为 “extruder”（挤出机）。
 ```
 
 ## [temperature_fan]
@@ -2272,21 +2271,19 @@ pin:
 
 ## [dotstar]
 
-Dotstar (aka APA102) LED support (one may define any number of sections with a "dotstar" prefix). One may set the LED color via "SET_LED LED=my_dotstar RED=0.1 GREEN=0.1 BLUE=0.1" type extended [g-code commands](G-Codes.md#neopixel-and-dotstar-commands).
+支持Dotstar（又称APA102）LED（可以定义任何数量的带有 "dotstar "前缀的分段）。通过 "SET_LED LED=my_dotstar RED=0.1 GREEN=0.1 BLUE=0.1 "类型的扩展[G代码命令]（G-Code.md#neopixel-and-dotstar-commands）可以设置LED颜色。
 
 ```
 [dotstar my_dotstar]
 data_pin:
-#   The pin connected to the data line of the dotstar. This parameter
-#   must be provided.
+#   连接到dotstar data（数据）线的引脚。必须提供这个参数。
 clock_pin:
-#   The pin connected to the clock line of the dotstar. This parameter
-#   must be provided.
+# 连接到dotstar clock（时钟）线的引脚。必须提供这个参数。
 #chain_count:
-#initial_RED: 0.0
+#initial_RED:0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
-#   See the "neopixel" section for information on these parameters.
+#   有关这些参数的信息，请参见 "Neopixel " 章节。
 ```
 
 ## [PCA9533]
@@ -3026,7 +3023,7 @@ sid_pin:
 ...
 ```
 
-### emulated_st7920 display
+### emulated_st7920（模拟ST7920）显示屏
 
 Information on configuring an emulated st7920 display - found in some "2.4 inch touchscreen devices" and similar.
 
