@@ -1,6 +1,16 @@
-#
+# Yifei Ding <dingyifeiair@gmail.com>, 2021.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-07-24 16:32+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/bed_level/zh_Hans/>\n"
+"Language: zh-hans\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.7.2-dev\n"
 
 msgid ""
 "Bed leveling (sometimes also referred to as \"bed tramming\") is critical to"
@@ -9,6 +19,8 @@ msgid ""
 "print. This document serves as a guide to performing bed leveling in "
 "Klipper."
 msgstr ""
+"打印床调平（有时也被称为 \"bed tramming\"）对于获得高质量的打印结果至关重要。错误\"调平\"的打印床会造成附着力差、\"翘曲\""
+"，以及整个打印过程中的细微问题。本文档是在 Klipper 中进行调平的指南。"
 
 msgid ""
 "It's important to understand the goal of bed leveling. If the printer is "
