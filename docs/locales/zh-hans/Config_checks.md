@@ -1,32 +1,32 @@
-This document provides a list of steps to help confirm the pin settings in the Klipper printer.cfg file. It is a good idea to run through these steps after following the steps in the [installation document](Installation.md).
+本文档提供了帮助确认 Klipper printer.cfg 文件中的引脚设置的步骤列表。推荐在完成[安装文档](Installation.md) 中的步骤后再进行本文档中的步骤。
 
-During this guide, it may be necessary to make changes to the Klipper config file. Be sure to issue a RESTART command after every change to the config file to ensure that the change takes effect (type "restart" in the Octoprint terminal tab and then click "Send"). It's also a good idea to issue a STATUS command after every RESTART to verify that the config file is successfully loaded.
+在本指南中，可能需要修改 Klipper 的配置文件。请务必在每次修改配置文件后发送 RESTART 命令，以确保修改生效（在 Octoprint 终端标签中输入 "RESTART"（重启），然后点击 "发送"）。在每次 RESTART 之后最好再发出一次 STATUS （状态）命令，以验证配置文件是否成功加载。
 
-### Verify temperature
+### 验证温度
 
-Start by verifying that temperatures are being properly reported. Navigate to the Octoprint temperature tab.
+首先验证是否正确报告了温度。导航到 Octoprint 温度选项卡。
 
-![octoprint-temperature](img/octoprint-temperature.png)
+![octoprint-温度](img/octoprint-temperature.png)
 
-Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.
+确认喷嘴和热床（如果适用）的温度存在且不在升高。如果它正在增加，请断开打印机的电源。如果温度不准确，请查看喷嘴和/或热床的 “sensor_type” 和 “sensor_pin” 设置。
 
-### Verify M112
+### 验证 M112
 
 Navigate to the Octoprint terminal tab and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause Octoprint to disconnect from Klipper - navigate to the Connection area and click on "Connect" to cause Octoprint to reconnect. Then navigate to the Octoprint temperature tab and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
 
-The M112 command causes Klipper to go into a "shutdown" state. To clear this state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab.
+M112 命令会使 Klipper 进入 "关闭 "状态。要退出这一状态，请在 Octoprint 终端选项卡中发出 FIRMWARE_RESTART 命令。
 
-### Verify heaters
+### 验证加热器
 
 Navigate to the Octoprint temperature tab and type in 50 followed by enter in the "Tool" temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the "Tool" temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
 
-If the printer has a heated bed then perform the above test again with the bed.
+如果打印机带有热床，则用热床再次执行上述测试。
 
-### Verify stepper motor enable pin
+### 验证步进电机enable（启用）引脚
 
 Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !ar38").
 
-### Verify endstops
+### 验证限位开关
 
 Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the Octoprint terminal tab. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
 

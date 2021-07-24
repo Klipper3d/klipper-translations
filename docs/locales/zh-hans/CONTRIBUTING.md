@@ -22,7 +22,7 @@
 
 可以在空白行之后写更多段落。
 
-Sign-off-by: 姓名< myemail@example.org >
+Signed-off-by: 姓名< myemail@example.org >
 ```
 
 在每个提交上必须有一个 "Signed-off-by "行--它证明你同意[开发者起源证书](developer-certificate-of-origin)。它必须包含你的真实姓名（对不起，没有假名或匿名的贡献）和一个可用的电子邮件地址。

@@ -157,17 +157,17 @@ faulty_region_4_min: 30.0, 170.0
 faulty_region_4_max: 45.0, 210.0
 ```
 
-- `faulty_region_{1...99}_min` `faulty_region_{1..99}_max` *Default Value: None (disabled)* Faulty Regions are defined in a way similar to that of mesh itself, where minimum and maximum (X, Y) coordinates must be specified for each region. A faulty region may extend outside of a mesh, however the alternate points generated will always be within the mesh boundary. No two regions may overlap.
+- `faulty_region_{1...99}_min` `faulty_region_{1...99}_max` *默认值：None （无）(disabled（禁用）)* 故障区域的定义方式类似床网本身，必须为每个区域指定最小和最大（X, Y）坐标。一个故障区域可以延伸到网格之外，但是产生的替代探测点总是在网格的边界内。两个区域不可以重叠。
 
-The image below illustrates how replacement points are generated when a generated point lies within a faulty region. The regions shown match those in the sample config above. The replacement points and their coordinates are identified in green.
+下面的图片说明了当一个生成的探测点位于一个故障区域内时，如何生成替代探测点。所显示的区域与上述样本配置中的区域一致。替代点和它们的坐标以绿色标识。
 
 ![bedmesh_interpolated](img/bedmesh_faulty_regions.svg)
 
-## Bed Mesh Gcodes
+## 床网 G代码
 
-### Calibration
+### 校准
 
-`BED_MESH_CALIBRATE METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Method: automatic if a probe is detected, otherwise manual*
+`BED_MESH_CALIBRATE METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *默认方法：如果检测到探针，则自动，否则手动*
 
 Initiates the probing procedure for Bed Mesh Calibration. If `METHOD=manual` is selected then manual probing will occur. When switching between automatic and manual probing the generated mesh points will automatically be adjusted.
 

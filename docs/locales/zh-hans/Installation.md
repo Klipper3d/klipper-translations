@@ -4,7 +4,7 @@ Klipper目前支持数种基于Atmel ATmega的微控制器、[基于ARM的微控
 
 # 准备操作系统镜像
 
-先在树莓派上安装[OctoPi](https://github.com/guysoft/OctoPi)。使用OctoPi v0.17.0或更高版本，查看[octopi发布版](https://github.com/guysoft/OctoPi/releases)来获取最新的发布版。安装完系统后，请先验证OctoPi能正常启动，并且OctoPrint网络服务器正常运行。连接到OctoPrint网页后，按照提示将OctoPrint更新到v1.4.2或更高版本。
+先在树莓派上安装 [OctoPi](https://github.com/guysoft/OctoPi)。使用OctoPi v0.17.0或更高版本，查看 [Octopi 发行版](https://github.com/guysoft/OctoPi/releases)来获取最新的发布版。安装完系统后，请先验证 OctoPi 能正常启动，并且 OctoPrint 网络服务器正常运行。连接到 OctoPrint 网页后，按照提示将 OctoPrint 更新到v1.4.2或更高版本。
 
 在安装 OctoPi 和升级 OctoPrint后，用 ssh 进入目标设备，以运行少量的系统命令。如果使用Linux或MacOS系统，那么 "ssh"软件应该已经预装在系统上。有一些免费的ssh客户端可用于其他操作系统（例如，[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)）。使用ssh工具连接到Raspberry Pi（ssh pi@octopi --密码是 "raspberry"），并运行以下命令：
 
@@ -13,9 +13,9 @@ git clone https://github.com/KevinOConnor/klipper
 ./klipper/scripts/install-octopi.sh
 ```
 
-以上将会下载Klipper，安装一些系统依赖，设置Klipper在系统启动时运行，并启动Klipper host软件。这将需要一个互联网连接以及可能需要几分钟时间才能完成。
+以上将会下载 Klipper 、安装一些系统依赖、设置 Klipper 在系统启动时运行并启动Klipper 主机程序。这将需要互联网连接以及可能需要几分钟时间才能完成。
 
-# 构建和烧写微控制器
+# 构建和刷写微控制器
 
 在编译微控制器代码之前，首先在树莓派上运行这些命令：
 
@@ -42,9 +42,9 @@ ls /dev/serial/by-id/*
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-通常每一个打印机都有自己独特的串口名，这个独特串口名将会在烧写微处理器时用到。在上述输出中可能有多行。如果是这样的话选择与微控制器相应的 (查看[FAQ](FAQ.md#wheres-my-serial-port)了解更多信息).
+通常每一个打印机都有自己独特的串口名，这个独特串口名将会在刷写微处理器时用到。在上述输出中可能有多行。如果是这样的话选择与微控制器相应的 (查看[FAQ](FAQ.md#wheres-my-serial-port)了解更多信息).
 
-对于常见的微控制器，可以用类似以下的方法来烧写固件：
+对于常见的微控制器，可以用类似以下的方法来刷写固件：
 
 ```
 sudo service klipper stop
@@ -54,7 +54,7 @@ sudo service klipper start
 
 请务必用打印机的唯一串行端口名称来更新 FLASH_DEVICE 参数。
 
-第一次烧写时要确保 OctoPrint 没有直接连接到打印机（在 OctoPrint 网页的 "连接 "分段中点击 "断开连接"）。
+第一次刷写时要确保 OctoPrint 没有直接连接到打印机（在 OctoPrint 网页的 "连接 "分段中点击 "断开连接"）。
 
 # 为Klipper配置 OctoPrint
 
@@ -85,7 +85,7 @@ nano ~/printer.cfg
 
 确保你检查和更新每一个设置并且与硬件相符合。
 
-每台打印机都有自己独特的微控制器名称是很常见的。烧写Klipper后这个名字可能会改变，所以重新运行`ls /dev/serial/by-id/*`命令，然后用这个唯一的名字更新配置文件。例如，更新"[mcu]"部分，看起来类似于:
+每台打印机都有自己独特的微控制器名称是很常见的。刷写Klipper后这个名字可能会改变，所以重新运行`ls /dev/serial/by-id/*`命令，然后用这个唯一的名字更新配置文件。例如，更新"[mcu]"部分，看起来类似于:
 
 ```
 [mcu]
