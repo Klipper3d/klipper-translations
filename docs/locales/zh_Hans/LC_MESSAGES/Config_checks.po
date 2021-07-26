@@ -1,12 +1,12 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2025.
-# badpoi <a1635835119@gmail.com>, 2021.
+# badpoi <a1635835119@gmail.com>, 2021, 2025.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2023, 2024.
 # Petal <Petalzu@outlook.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Last-Translator: badpoi <a1635835119@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/config_checks/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -161,8 +161,10 @@ msgid ""
 "the effect called ringing, you may try following [resonance "
 "compensation](Resonance_Compensation.md) tuning guide."
 msgstr ""
-"可能需要执行其他类型的详细打印机校准 - 网络上提供了许多指南来帮助解决此问题（例如，在网络上搜索“3d 打印机校准”）。 "
-"例如，如果您遇到称为振铃的效果，您可以尝试遵循 [共振补偿](Resonance_Compensation.md) 调谐指南。"
+"可能需要执行其他类型的详细打印机校准 - "
+"网络上提供了许多指南来帮助解决此问题（例如，在网络上搜索“3d 打印机校准”）。 "
+"例如，如果您遇到称为振铃的效果，您可以尝试遵循 [共振补偿]"
+"(Resonance_Compensation.md) 调谐指南。"
 
 #: docs/Config_checks.md:block 1 (header)
 msgid "Configuration checks"
