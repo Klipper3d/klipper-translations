@@ -1128,18 +1128,16 @@ G-Code macros (one may define any number of sections with a "gcode_macro" prefix
 Execute a gcode on a set delay. See the [command template guide](Command_Templates.md#delayed-gcodes) and [command reference](G-Codes.md#delayed-gcode) for more information.
 
 ```
-[delayed_gcode my_delayed_gcode]
+[delayed_gcode my_delayed_gcode]。
 gcode:
-#   A list of G-Code commands to execute when the delay duration has
-#   elapsed. G-Code templates are supported. This parameter must be
-#   provided.
-#initial_duration: 0.0
-#   The duration of the initial delay (in seconds). If set to a
-#   non-zero value the delayed_gcode will execute the specified number
-#   of seconds after the printer enters the "ready" state. This can be
-#   useful for initialization procedures or a repeating delayed_gcode.
-#   If set to 0 the delayed_gcode will not execute on startup.
-#   Default is 0.
+#   当延迟时间结束后执行的G代码命令列表。支持G代码模板。
+#   必须提供这个参数。
+#initial_duration:0.0
+#   初始延迟的持续时间(以秒为单位)。如果设置为一个
+#   非零值，delayed_gcode 将在打印机进入 "就绪 "状态后指定
+#   秒数后执行。可能对初始化程序或重复的 delayed_gcode 有
+#   用。如果设置为 0，delayed_gcode 将在启动时不执行。
+# 默认为0。
 ```
 
 ## [save_variables]
@@ -2959,23 +2957,23 @@ Information on configuring hd44780 displays (which is used in "RepRapDiscount 20
 ```
 [display]
 lcd_type: hd44780
-#   Set to "hd44780" for hd44780 displays.
+#   对于hd44780显示屏，填写 "hd44780"。
 rs_pin:
 e_pin:
 d4_pin:
 d5_pin:
 d6_pin:
 d7_pin:
-#   The pins connected to an hd44780 type lcd. These parameters must
-#   be provided.
+#   连接到hd44780 类LCD的引脚。
+#   必须提供这些参数
 #hd44780_protocol_init: True
-#   Perform 8-bit/4-bit protocol initialization on an hd44780 display.
-#   This is necessary on real hd44780 devices. However, one may need
-#   to disable this on some "clone" devices. The default is True.
+#   在一个 hd44780 显示器上执行 8-bit/4-bit 协议初始化。对于所有
+#   正版的 hd44780 设备，这是必须的。但是，在一些克隆的设备上
+#   可能需要禁用。
+#   默认为True（启用）。
 #line_length:
-#   Set the number of characters per line for an hd44780 type lcd.
-#   Possible values are 20 (default) and 16. The number of lines is
-#   fixed to 4.
+#   设置 hd44780 类LCD 每行显示的字符数。可能的数值有20（默认）
+#   和16。行数被锁定为4行。
 ...
 ```
 
@@ -3014,12 +3012,12 @@ Information on configuring st7920 displays (which is used in "RepRapDiscount 128
 ```
 [display]
 lcd_type: st7920
-#   Set to "st7920" for st7920 displays.
+#   为st7920显示器设置为 "st7920"。
 cs_pin:
 sclk_pin:
 sid_pin:
-#   The pins connected to an st7920 type lcd. These parameters must be
-#   provided.
+#   连接到 st7920 类LCD的引脚。
+#   这些参数必须被提供。
 ...
 ```
 
@@ -3030,18 +3028,17 @@ Information on configuring an emulated st7920 display - found in some "2.4 inch 
 ```
 [display]
 lcd_type: emulated_st7920
-#   Set to "emulated_st7920" for emulated_st7920 displays.
+#   对于 emulated_st7920 显示屏，设置为"emulated_st7920"。
 en_pin:
 spi_software_sclk_pin:
 spi_software_mosi_pin:
 spi_software_miso_pin:
-#   The pins connected to an emulated_st7920 type lcd. The en_pin
-#   corresponds to the cs_pin of the st7920 type lcd,
-#   spi_software_sclk_pin corresponds to sclk_pin and
-#   spi_software_mosi_pin corresponds to sid_pin. The
-#   spi_software_miso_pin needs to be set to an unused pin of the
-#   printer mainboard as the st7920 as no MISO pin but the software
-#   spi implementation requires this pin to be configured.
+#   连接到 emulated_st7920 类LCD的引脚。 en_pin 对应
+#   st7920 类LCD的 cs_pin。spi_software_sclk_pin 对应 sclk_pin，
+#   还有 spi_software_mosi_pin 对应 sid_pin。由于软件SPI实现
+#   的方式，虽然 ST7920 不使用 MISO 引脚， 依旧需要将
+#   spi_software_miso_pin设为一个打印机控制板上一个没有被
+#   使用的引脚。
 ...
 ```
 

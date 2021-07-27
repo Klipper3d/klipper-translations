@@ -12,56 +12,56 @@
 
 ### 验证 M112
 
-Navigate to the Octoprint terminal tab and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause Octoprint to disconnect from Klipper - navigate to the Connection area and click on "Connect" to cause Octoprint to reconnect. Then navigate to the Octoprint temperature tab and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
+找到Octoprint终端选项卡并在控制台发送M112命令。此命令会使klipper进入关闭状态。这将导致Octoprint与Klipper断开链接-找到连接板块单击 "Connect"以使Octoprint重新连接。然后找到Octoprint温度选项卡验证温度是否持续更新并观察温度有没有增加。如果温度升高，请关闭打印机电源。
 
 M112 命令会使 Klipper 进入 "关闭 "状态。要退出这一状态，请在 Octoprint 终端选项卡中发出 FIRMWARE_RESTART 命令。
 
 ### 验证加热器
 
-Navigate to the Octoprint temperature tab and type in 50 followed by enter in the "Tool" temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the "Tool" temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
+找到 Octoprint 温度选项卡并输入 50，然后在“Tool”温度框中输入。 图中的挤出机温度应开始升高（约 30 秒左右）。 然后转到“Tool”温度下拉框并选择“关闭”。 几分钟后，温度应开始恢复到其初始室温值。 如果温度没有升高，则验证配置中的“heater_pin”设置。
 
 如果打印机带有热床，则用热床再次执行上述测试。
 
 ### 验证步进电机enable（启用）引脚
 
-Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !ar38").
+验证所有打印机轴都可以手动自由移动（步进电机已禁用）。 如果没有，请发出 M84 命令以禁用电机。 如果任何轴仍然无法自由移动，则验证给定轴的步进器“enable_pin”配置。 在大多数步进电机驱动器上，电机使能引脚为“低电平有效”，因此使能引脚在pin之前应带有“！” （例如，“enable_pin: !ar38”）。
 
 ### 验证限位开关
 
-Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the Octoprint terminal tab. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
+手动移动所有打印机轴，使它们都不与限位器接触。 通过 Octoprint 终端选项卡发送 QUERY_ENDSTOPS 命令。 它应该以所有配置的限位器的当前状态做出响应，并且它们都应该报告“打开”状态。 对于每个限位器，在手动触发限位器的同时重新运行 QUERY_ENDSTOPS 命令。 QUERY_ENDSTOPS 命令应该将终点站报告为“TRIGGERED”。
 
-If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!ar3"), or remove the "!" if there is already one present.
+如果限位器出现倒置（触发时报告“open”，反之亦然），则添加“！” 到引脚定义（例如，“endstop_pin: ^!ar3”），如果存在“！”就将之删除。
 
-If the endstop does not change at all then it generally indicates that the endstop is connected to a different pin. However, it may also require a change to the pullup setting of the pin (the '^' at the start of the endstop_pin name - most printers will use a pullup resistor and the '^' should be present).
+如果限位器根本没有变化，则通常表示限位器连接到不同的引脚。 但是，它可能还需要更改引脚的上拉设置（endstop_pin 名称开头的“^” - 大多数打印机将使用上拉电阻并且应该存在“^”）。
 
-### Verify stepper motors
+### 验证步进电机
 
-Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor. Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x`. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
+使用 STEPPER_BUZZ 命令验证每个步进电机的连通性。 首先将要验证的轴手动挪到到中间点，然后运行`STEPPER_BUZZ STEPPER=stepper_x`。 STEPPER_BUZZ 命令将使X轴的步进器开始振荡，沿正方向移动一毫米，然后返回到其起始位置。 （如果在 position_endstop=0 处定义了限位器，则在每次运动开始时，步进器将远离限位器。）它将执行这个动作十次。
 
-If the stepper does not move at all, then verify the "enable_pin" and "step_pin" settings for the stepper. If the stepper motor moves but does not return to its original position then verify the "dir_pin" setting. If the stepper motor oscillates in an incorrect direction, then it generally indicates that the "dir_pin" for the axis needs to be inverted. This is done by adding a '!' to the "dir_pin" in the printer config file (or removing it if one is already there). If the motor moves significantly more or significantly less than one millimeter then verify the "rotation_distance" setting.
+如果步进器根本不移动，则验证步进器的“enable_pin”和“step_pin”设置。 如果步进电机移动但没有返回其原始位置，则验证“dir_pin”设置。 如果步进电机的振荡方向不正确，则通常表示需要反转轴的“dir_pin”。 即通过添加“！”来完成， 到打印机配置文件中的“dir_pin”（如果已经存在“！”，则将其删除）。 如果电机移动明显大于或小于一毫米，则验证“rotation_distance”设置。
 
-Run the above test for each stepper motor defined in the config file. (Set the STEPPER parameter of the STEPPER_BUZZ command to the name of the config section that is to be tested.) If there is no filament in the extruder then one can use STEPPER_BUZZ to verify the extruder motor connectivity (use STEPPER=extruder). Otherwise, it's best to test the extruder motor separately (see the next section).
+对配置文件中定义的每个步进电机运行上述测试。 （将 STEPPER_BUZZ 命令的 STEPPER 参数设置为要测试的配置部分的名称。）如果挤出机中没有耗材，则可以使用 STEPPER_BUZZ 验证挤出机电机连接（使用 STEPPER=extruder）。 否则，最好单独测试挤出机电机（参见下一节）。
 
-After verifying all endstops and verifying all stepper motors the homing mechanism should be tested. Issue a G28 command to home all axes. Remove power from the printer if it does not home properly. Rerun the endstop and stepper motor verification steps if necessary.
+在验证所有限位器并验证所有步进电机后，应测试归位机制。 发出 G28 命令以归零所有轴。 如果打印机不能正常归位，请断开打印机电源。 然后，重新运行限位器和步进电机验证步骤。
 
-### Verify extruder motor
+### 验证挤出机电机
 
-To test the extruder motor it will be necessary to heat the extruder to a printing temperature. Navigate to the Octoprint temperature tab and select a target temperature from the temperature drop-down box (or manually enter an appropriate temperature). Wait for the printer to reach the desired temperature. Then navigate to the Octoprint control tab and click the "Extrude" button. Verify that the extruder motor turns in the correct direction. If it does not, see the troubleshooting tips in the previous section to confirm the "enable_pin", "step_pin", and "dir_pin" settings for the extruder.
+要测试挤出机电机，必须将挤出机加热到打印温度。 找到 Octoprint 温度选项卡并从温度下拉框中选择目标温度（或手动输入适当的温度）。 等待打印机达到所需温度。 然后找到 Octoprint 控制选项卡并单击“Extrude”按钮。 确认挤出机电机以正确的方向转动。 如果没有，请参阅上一节中的故障排除提示，以确认挤出机的“enable_pin”、“step_pin”和“dir_pin”设置。
 
-### Calibrate PID settings
+### 校准 PID 设置
 
-Klipper supports [PID control](https://en.wikipedia.org/wiki/PID_controller) for the extruder and bed heaters. In order to use this control mechanism it is necessary to calibrate the PID settings on each printer. (PID settings found in other firmwares or in the example configuration files often work poorly.)
+Klipper 支持挤出机和床加热器的 [PID 控制](https://en.wikipedia.org/wiki/PID_controller)。 为了使用这种控制机制，必须校准每台打印机上的 PID 设置。 （在其他固件或示例配置文件中找到的 PID 设置通常效果不佳。）
 
-To calibrate the extruder, navigate to the OctoPrint terminal tab and run the PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder TARGET=170`
+要校准挤出机，请找到 OctoPrint 终端选项卡并运行 PID_CALIBRATE 命令。 例如：`PID_CALIBRATE HEATER=extruder TARGET=170`
 
-At the completion of the tuning test run `SAVE_CONFIG` to update the printer.cfg file the new PID settings.
+调整测试完成后，运行 `SAVE_CONFIG` 以更新printer.cfg 文件的新PID 设置。
 
-If the printer has a heated bed and it supports being driven by PWM (Pulse Width Modulation) then it is recommended to use PID control for the bed. (When the bed heater is controlled using the PID algorithm it may turn on and off ten times a second, which may not be suitable for heaters using a mechanical switch.) A typical bed PID calibration command is: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
+如果打印机有加热床，并且支持PWM（脉宽调制）驱动，那么建议加热床使用PID控制。 （当使用 PID 算法控制床加热器时，它可能每秒打开和关闭十次，这可能不适用于使用机械开关的加热器。）一般床 PID 校准命令是：`PID_CALIBRATE HEATER=heater_bed TARGET= 60`
 
-### Next steps
+### 下一步
 
-This guide is intended to help with basic verification of pin settings in the Klipper configuration file. Be sure to read the [bed leveling](Bed_Level.md) guide. Also see the [Slicers](Slicers.md) document for information on configuring a slicer with Klipper.
+本指南旨在帮助对 Klipper 配置文件中的引脚设置进行基本验证。 请务必阅读 [床位调平](Bed_Level.md) 指南。 另请参阅 [Slicers](Slicers.md) 文档，了解有关使用 Klipper 配置切片器的信息。
 
-After one has verified that basic printing works, it is a good idea to consider calibrating [pressure advance](Pressure_Advance.md).
+在验证基本打印工作后，最好考虑校准 [压力提前](Pressure_Advance.md)。
 
-It may be necessary to perform other types of detailed printer calibration - a number of guides are available online to help with this (for example, do a web search for "3d printer calibration"). As an example, if you experience the effect called ringing, you may try following [resonance compensation](Resonance_Compensation.md) tuning guide.
+可能需要执行其他类型的详细打印机校准 - 网络上提供了许多指南来帮助解决此问题（例如，在网络上搜索“3d 打印机校准”）。 例如，如果您遇到称为振铃的效果，您可以尝试遵循 [共振补偿](Resonance_Compensation.md) 调谐指南。

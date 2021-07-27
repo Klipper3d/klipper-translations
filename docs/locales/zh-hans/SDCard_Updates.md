@@ -1,8 +1,8 @@
-Many of today's popular controller boards ship with a bootloader capable of updating firmware via SD Card. While this is convenient in many circumstances, these bootloaders typically provide no other way to update firmware. This can be a nuisance if your board is mounted in a location that is difficult to access or if you need to update firmware often. After Klipper has been initially flashed to a controller it is possible to transfer new firmware to the SD Card and initiate the flashing procedure via ssh.
+当今许多流行的控制器板都带有能够通过 SD 卡更新固件的引导加载程序。 虽然这在很多情况下都很方便，但这些引导加载程序通常不提供其他方式来更新固件。 如果您的电路板安装在很难插入SD卡的位置或者您需要经常更新固件，这可能会很麻烦。 在 Klipper 最初刷入控制器后，可以将新固件通过网络传输到 SD 卡并通过 ssh 启动刷写过程。
 
-# Typical Upgrade Procedure
+# 典型的升级程序
 
-The procedure for updating MCU firmware using the SD Card is similar to that of other methods. Instead of using `make flash` it is necessary to run a helper script, `flash-sdcard.sh`. Updating a BigTreeTech SKR 1.3 might look like the following:
+使用 SD 卡更新 MCU 固件的过程与其他方法类似。 不需要使用`make flash`，而是需要运行一个辅助脚本`flash-sdcard.sh`。 更新 BigTreeTech SKR 1.3 可能如下所示：
 
 ```
 sudo service klipper stop
@@ -15,19 +15,19 @@ make
 sudo service klipper start
 ```
 
-It is up to the user to determine the device location and board name. If a user needs to flash multiple boards, `flash-sdcard.sh` (or `make flash` if appropriate) should be run for each board prior to restarting the Klipper service.
+由用户决定设备位置和电路板名称。 如果用户需要刷新多个板，在重新启动 Klipper 服务之前，应该为每个板运行 `flash-sdcard.sh`（或`make flash`，如果合适）。
 
-Supported boards can be listed with the following command:
+可以使用以下命令列出支持的微控制器板：
 
 ```
 ./scripts/flash-sdcard.sh -l
 ```
 
-If you do not see your board listed it may be necessary to add a new board definition as [described below](#board-definitions).
+如果您没有看到您的电路板列出，则可能需要添加一个新的电路板定义[如下所述](#board-definitions)。
 
-# Advanced Usage
+# 高级用法
 
-The above commands assume that your MCU connects at the default baud rate of 250000 and the firmware is located at `~/klipper/out/klipper.bin`. The `flash-sdcard.sh` script provides options for changing these defaults. All options can be viewed by the help screen:
+上述命令假设您的 MCU 以默认波特率 250000 连接并且固件位于`~/klipper/out/klipper.bin`。 `flash-sdcard.sh` 脚本提供了更改这些默认值的选项。 所有选项都可以通过帮助画面查看：
 
 ```
 ./scripts/flash-sdcard.sh -h
@@ -47,29 +47,29 @@ optional arguments:
   -f <firmware>   path to klipper.bin
 ```
 
-If your board is flashed with firmware that connects at a custom baud rate it is possible to upgrade by specifying the `-b` option:
+如果您的电路板使用以自定义波特率连接的固件刷新，则可以通过指定 `-b` 选项进行升级：
 
 ```
 ./scripts/flash-sdcard.sh -b 115200 /dev/ttyAMA0 btt-skr-v1.3
 ```
 
-If you wish to flash a build of Klipper located somewhere other than the default location it can be done by specifying the `-f` option:
+如果您希望闪存位于默认位置以外的其他位置的 Klipper 构建，可以通过指定 `-f` 选项来完成：
 
 ```
 ./scripts/flash-sdcard.sh -f ~/downloads/klipper.bin /dev/ttyAMA0 btt-skr-v1.3
 ```
 
-Note that when upgrading a MKS Robin E3 it is not necessary to manually run `update_mks_robin.py` and supply the resulting binary to `flash-sdcard.sh`. This procedure is automated during the upload process.
+请注意，升级 MKS Robin E3 时，无需手动运行 `update_mks_robin.py` 并将生成的二进制文件提供给 `flash-sdcard.sh`。 此过程在上传过程中自动执行。
 
-# Caveats
+# 注意事项
 
-- As mentioned in the introduction, this method only works for upgrading firmware. The initial flashing procedure must be done manually per the instructions that apply to your controller board.
-- While it is possible to flash a build that changes the Serial Baud or connection interface (ie: from USB to UART), verification will always fail as the script will be unable to reconnect to the MCU to verify the current version.
-- Only boards that use SPI for SD Card communication are supported. Boards that use SDIO, such as the Flymaker Flyboard and MKS Robin Nano V1/V2, will not work.
+- 如介绍中所述，此方法仅适用于升级固件。 初始刷鞋程序必须按照适用于您的控制器板的说明手动完成。
+- 虽然可以刷新更改串行波特率或连接接口（即：从 USB 到 UART）的构建，但验证终将失败，因为脚本将无法重新连接到 MCU 以验证当前版本。
+- 仅支持使用 SPI 进行 SD 卡通信的板。 使用 SDIO 的板，例如 Flymaker Flyboard 和 MKS Robin Nano V1/V2，将无法工作。
 
-# Board Definitions
+# 电路板定义
 
-Most common boards should be available, however it is possible to add a new board definition if necessary. Board definitions are located in `~/klipper/scripts/spi_flash/board_defs.py`. The definitions are stored in dictionary, for example:
+大多数常见的电路板都应该可用，但如有必要，可以添加新的电路板定义。 板定义位于`~/klipper/scripts/spi_flash/board_defs.py`。 定义存储在字典中，例如：
 
 ```python
 BOARD_DEFS = {
@@ -82,21 +82,21 @@ BOARD_DEFS = {
 }
 ```
 
-The following fields may be specified:
+可以指定以下字段：
 
 - `mcu`: The mcu type. This can be retrevied after configuring the build via `make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is required.
-- `spi_bus`: The SPI bus connected to the SD Card. This should be retreived from the board's schematic. This field is required.
-- `cs_pin`: The Chip Select Pin connected to the SD Card. This should be retreived from the board schematic. This field is required.
-- `firmware_path`: The path on the SD Card where firmware should be transferred. The default is `firmware.bin`.
-- `current_firmware_path` The path on the SD Card where the renamed firmware file is located after a successful flash. The default is `firmware.cur`.
+- `spi_bus`：连接到 SD 卡的 SPI 总线。 这应该从电路板的原理图中检索。 此字段是必需的。
+- `cs_pin`：连接到 SD 卡的芯片选择引脚。 这应该从电路板原理图中检索。 此字段是必需的。
+- `firmware_path`：SD 卡上固件应传输的路径。 默认是`firmware.bin`。
+- `current_firmware_path` 成功刷新后重命名的固件文件所在的 SD 卡上的路径。 默认是`firmware.cur`。
 
-If software SPI is required the `spi_bus` field should be set to `swspi` and the following additional field should be specified:
+如果需要软件 SPI，`spi_bus` 字段应设置为 `swspi`，并应指定以下附加字段：
 
-- `spi_pins`: This should be 3 comma separated pins that are connected to the SD Card in the format of `miso,mosi,sclk`.
+- `spi_pins`：这应该是 3 个逗号分隔的引脚，以 `miso,mosi,sclk` 的格式连接到 SD 卡。
 
-It should be exceedingly rare that Software SPI is necessary, typically only boards with design errors will require it. The `btt-skr-pro` board definition provides an example.
+软件 SPI 是必要的应该是非常罕见的，通常只有设计错误的板才会需要它。 `btt-skr-pro` 板定义提供了一个示例。
 
-Prior to creating a new board definition one should check to see if an existing board definition meets the criteria necessary for the new board. If this is the case, a `BOARD_ALIAS` may be specified. For example, the following alias may be added to specify `my-new-board` as an alias for `generic-lpc1768`:
+在创建新板定义之前，应检查现有板定义是否满足新板所需的标准。 如果是这种情况，可以指定`BOARD_ALIAS`。 例如，可以添加以下别名来指定“my-new-board”作为“generic-lpc1768”的别名：
 
 ```python
 BOARD_ALIASES = {
@@ -105,4 +105,4 @@ BOARD_ALIASES = {
 }
 ```
 
-If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the [Klipper Community Discord](Contact.md#discord).
+如果您需要一个新的电路板定义并且您对上述过程感到不舒服，建议您在 [Klipper Community Discord](Contact.md#discord) 中请求一个。
