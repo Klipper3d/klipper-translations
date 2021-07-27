@@ -1,6 +1,16 @@
-#
+# badpoi <a1635835119@gmail.com>, 2021.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-07-27 05:34+0000\n"
+"Last-Translator: badpoi <a1635835119@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/skew_correction/zh_Hans/>\n"
+"Language: zh-hans\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.7.2-dev\n"
 
 msgid ""
 "Software based skew correction can help resolve dimensional inaccuracies "
@@ -91,7 +101,7 @@ msgid ""
 msgstr ""
 
 msgid "Caveats"
-msgstr ""
+msgstr "注意事项"
 
 msgid ""
 "Due to the nature of skew correction it is recommended to configure skew in "
