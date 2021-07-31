@@ -1,17 +1,18 @@
-# wilmouths <wilmouthsteven@gmail.com>, 2021.
+# wilmouths <wilmouthsteven@gmail.com>, 2021, 2025.
 # Francis Poulizac <francis@poulizac.fr>, 2022, 2023.
 # jean-luc MATTEI <jlucm@free.fr>, 2022, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-04-26 06:51+0000\n"
-"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/contributing/fr/>\n"
+"PO-Revision-Date: 2025-05-03 07:24+0000\n"
+"Last-Translator: wilmouths <wilmouthsteven@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"contributing/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid "Contributing to Klipper"
 msgstr "Contribuer à Klipper"
@@ -22,11 +23,11 @@ msgid ""
 "certificate-of-origin). It must contain your real name (sorry, no pseudonyms "
 "or anonymous contributions) and contain a current email address."
 msgstr ""
-"Il est important d'avoir une ligne \"Signed-off-by\" sur chaque commit - elle "
-"certifie que vous acceptez le [certificat d'origine du développeur](developer-"
-"certificate-of-origin). Cette ligne doit contenir votre vrai nom (désolé, pas "
-"de pseudonymes ou de contributions anonymes) et une adresse électronique "
-"valide."
+"Il est important d'avoir une ligne \"Signed-off-by\" sur chaque commit - "
+"elle certifie que vous acceptez le [certificat d'origine du développeur]"
+"(developer-certificate-of-origin). Cette ligne doit contenir votre vrai nom ("
+"désolé, pas de pseudonymes ou de contributions anonymes) et une adresse "
+"électronique valide."
 
 #: docs/CONTRIBUTING.md:block 9 (header)
 msgid "Contributing to Klipper Translations"
