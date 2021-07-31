@@ -1,18 +1,19 @@
-# wilmouths <wilmouthsteven@gmail.com>, 2021.
+# wilmouths <wilmouthsteven@gmail.com>, 2021, 2025.
 # Wivik <seb+weblate@zedas.fr>, 2021.
 # Francis Poulizac <francis@poulizac.fr>, 2022, 2023.
 # jean-luc MATTEI <jlucm@free.fr>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-04-26 06:51+0000\n"
-"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/tsl1401cl_filament_width_sensor/fr/>\n"
+"PO-Revision-Date: 2025-05-03 07:24+0000\n"
+"Last-Translator: wilmouths <wilmouthsteven@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"tsl1401cl_filament_width_sensor/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid "How does it work?"
 msgstr "Comment cela fonctionne-t-il ?"
@@ -24,17 +25,18 @@ msgid ""
 msgstr ""
 "Le capteur génère une sortie analogique basée sur la largeur calculée du "
 "filament. La tension de sortie est toujours égale à la largeur de filament "
-"détectée (ex. 1,65v, 1,70v, 3,0v). Le module hôte surveille les changements de"
-" tension et ajuste le multiplicateur d'extrusion."
+"détectée (ex. 1,65v, 1,70v, 3,0v). Le module hôte surveille les changements "
+"de tension et ajuste le multiplicateur d'extrusion."
 
 msgid ""
 "Sensor readings done with 10 mm intervals by default. If necessary you are "
 "free to change this setting by editing ***MEASUREMENT_INTERVAL_MM*** parameter"
 " in **filament_width_sensor.py** file."
 msgstr ""
-"Les lectures du capteur sont effectuées par défaut avec des intervalles de 10 "
-"mm. Si nécessaire, vous pouvez modifier ce paramètre en modifiant le paramètre"
-" ***MEASUREMENT_INTERVAL_MM*** dans le fichier **filament_width_sensor.py**."
+"Les lectures du capteur sont effectuées par défaut avec des intervalles de "
+"10 mm. Si nécessaire, vous pouvez modifier ce paramètre en modifiant le "
+"paramètre ***MEASUREMENT_INTERVAL_MM*** dans le fichier "
+"**filament_width_sensor.py**."
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 1 (header)
 msgid "TSL1401CL filament width sensor"
