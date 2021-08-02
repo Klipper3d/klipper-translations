@@ -149,3 +149,7 @@ msgstr ""
 
 msgid "SAVE_CONFIG\n"
 msgstr ""
+
+#: docs/Endstop_Phase.md:block 1 (header)
+msgid "Endstop phase"
+msgstr ""

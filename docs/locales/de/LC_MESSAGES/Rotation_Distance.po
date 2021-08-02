@@ -261,3 +261,7 @@ msgstr ""
 
 msgid "rotation_distance = <screw_pitch> * <number_of_separate_threads>\n"
 msgstr ""
+
+#: docs/Rotation_Distance.md:block 1 (header)
+msgid "Rotation distance"
+msgstr ""

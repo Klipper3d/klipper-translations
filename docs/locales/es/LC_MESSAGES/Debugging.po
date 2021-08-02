@@ -345,3 +345,7 @@ msgid ""
 "tar xfz klipper-dict-20??????.tar.gz\n"
 "~/klippy-env/bin/python ~/klipper/scripts/test_klippy.py -d dict/ ~/klipper/test/klippy/*.test\n"
 msgstr ""
+
+#: docs/Debugging.md:block 1 (header)
+msgid "Debugging"
+msgstr ""

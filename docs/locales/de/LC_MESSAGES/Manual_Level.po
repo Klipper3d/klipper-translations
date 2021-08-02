@@ -279,6 +279,10 @@ msgid ""
 "can be leveled by turning all the screws in the given direction."
 msgstr ""
 
+#: docs/Manual_Level.md:block 1 (header)
+msgid "Manual leveling"
+msgstr ""
+
 #~ msgid ""
 #~ "The screw1 is always the reference point for the others, so the system "
 #~ "assumes that screw1 is in the correct height. Always run `G28` first and "

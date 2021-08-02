@@ -280,3 +280,7 @@ msgid ""
 "experience the effect called ringing, you may try following [resonance "
 "compensation](Resonance_Compensation.md) tuning guide."
 msgstr ""
+
+#: docs/Config_checks.md:block 1 (header)
+msgid "Configuration checks"
+msgstr ""

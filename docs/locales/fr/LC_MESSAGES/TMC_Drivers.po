@@ -634,3 +634,7 @@ msgid ""
 "    # Set current during print\n"
 "    SET_TMC_CURRENT STEPPER=stepper_x CURRENT={RUN_CUR} HOLDCURRENT={HOLD_CUR}\n"
 msgstr ""
+
+#: docs/TMC_Drivers.md:block 1 (header)
+msgid "TMC drivers"
+msgstr ""

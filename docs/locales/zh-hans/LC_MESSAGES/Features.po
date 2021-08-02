@@ -419,3 +419,7 @@ msgid ""
 " (Further details on the benchmarks are available in the [Benchmarks "
 "document](Benchmarks.md).)"
 msgstr ""
+
+#: docs/Features.md:block 1 (header)
+msgid "Features"
+msgstr ""

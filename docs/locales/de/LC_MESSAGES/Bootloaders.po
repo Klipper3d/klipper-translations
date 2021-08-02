@@ -737,6 +737,10 @@ msgstr ""
 msgid "target remote octopi:44444\n"
 msgstr ""
 
+#: docs/Bootloaders.md:block 1 (header)
+msgid "Bootloaders"
+msgstr ""
+
 #~ msgid ""
 #~ "You may need to hold down the reset button on the board while launching "
 #~ "OpenOCD. It should display something like:After which you can release the "

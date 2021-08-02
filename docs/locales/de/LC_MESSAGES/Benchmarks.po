@@ -816,3 +816,7 @@ msgstr ""
 
 msgid "arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0"
 msgstr ""
+
+#: docs/Benchmarks.md:block 1 (header)
+msgid "Benchmarks"
+msgstr ""

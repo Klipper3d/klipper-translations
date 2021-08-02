@@ -59,3 +59,7 @@ msgid ""
 "#  Host module works with FIFO logic. It keeps each sensor value and position in\n"
 "#  an array and POP them back in correct position.\n"
 msgstr ""
+
+#: docs/TSL1401CL_Filament_Width_Sensor.md:block 1 (header)
+msgid "TSL1401CL filament width sensor"
+msgstr ""

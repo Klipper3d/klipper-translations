@@ -435,3 +435,7 @@ msgid ""
 "  {% set svv = printer.save_variables.variables %}\n"
 "  ACTIVATE_EXTRUDER extruder={svv.currentextruder}\n"
 msgstr ""
+
+#: docs/Command_Templates.md:block 1 (header)
+msgid "Commands templates"
+msgstr ""

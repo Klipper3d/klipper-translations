@@ -356,3 +356,7 @@ msgid ""
 "`spi_send oid=%c data=%*s` : This command is similar to \"spi_transfer\", "
 "but it does not generate a \"spi_transfer_response\" message."
 msgstr ""
+
+#: docs/MCU_Commands.md:block 1 (header)
+msgid "MCU commands"
+msgstr ""

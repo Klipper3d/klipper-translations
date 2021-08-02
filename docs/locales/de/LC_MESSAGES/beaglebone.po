@@ -135,3 +135,7 @@ msgstr ""
 
 msgid "make menuconfig\n"
 msgstr ""
+
+#: docs/beaglebone.md:block 1 (header)
+msgid "Beaglebone"
+msgstr ""

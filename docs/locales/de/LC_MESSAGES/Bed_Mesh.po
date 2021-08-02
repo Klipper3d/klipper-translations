@@ -573,3 +573,7 @@ msgid ""
 "// 13 | (164.8, 193.0) | (188.8, 198.0)\n"
 "// 14 | (216.0, 193.0) | (240.0, 198.0)\n"
 msgstr ""
+
+#: docs/Bed_Mesh.md:block 1 (header)
+msgid "Bed Mesh"
+msgstr ""

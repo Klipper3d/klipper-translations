@@ -243,3 +243,7 @@ msgid ""
 "current progress then you can open a Github issue with the location of your "
 "code, an overview of the changes, and a description of its current status."
 msgstr ""
+
+#: docs/Contact.md:block 1 (header)
+msgid "Contact"
+msgstr ""

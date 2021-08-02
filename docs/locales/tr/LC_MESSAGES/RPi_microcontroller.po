@@ -278,3 +278,17 @@ msgid ""
 "gpio19: |PWM|gpio PIN|Func| |---|--------|----| | 0| 12| 4| | 0| 18| 2| | 1|"
 " 13| 4| | 1| 19| 2|"
 msgstr ""
+
+#: docs/RPi_microcontroller.md:block 1 (header)
+msgid "RPi microcontroller"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 10 (header)
+msgid "Enabling SPI"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 11 (paragraph)
+msgid ""
+"Make sure the Linux SPI driver is enabled by running sudo raspi-config and "
+"enabling SPI under the \"Interfacing options\" menu."
+msgstr ""

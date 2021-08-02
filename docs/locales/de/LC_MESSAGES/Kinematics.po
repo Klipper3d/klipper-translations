@@ -390,3 +390,7 @@ msgid ""
 "                          from=t-smooth_time/2, to=t+smooth_time/2)\n"
 "     / (smooth_time/2)^2 )\n"
 msgstr ""
+
+#: docs/Kinematics.md:block 1 (header)
+msgid "Kinematics"
+msgstr ""

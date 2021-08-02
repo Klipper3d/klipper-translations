@@ -200,3 +200,7 @@ msgstr ""
 
 msgid "[Hall filament width sensor](HallFilamentWidthSensor.md)"
 msgstr ""
+
+#: docs/Overview.md:block 1 (header)
+msgid "Overview"
+msgstr ""

@@ -1263,6 +1263,26 @@ msgid ""
 "time in \"YYYYMMDD_HHMMSS\" format."
 msgstr ""
 
+#: docs/G-Codes.md:block 1 (header)
+msgid "G-Codes"
+msgstr ""
+
+#: docs/G-Codes.md:block 29 (unordered list)
+msgid ""
+"`Z_OFFSET_APPLY_ENDSTOP`: Take the current Z Gcode offset (aka, "
+"babystepping), and subtract it from the stepper_z endstop_position. This "
+"acts to take a frequently used babystepping value, and \"make it "
+"permanent\". Requires a `SAVE_CONFIG` to take effect."
+msgstr ""
+
+#: docs/G-Codes.md:block 54 (unordered list)
+msgid ""
+"`Z_OFFSET_APPLY_PROBE`: Take the current Z Gcode offset (aka, babystepping),"
+" and subtract if from the probe's z_offset. This acts to take a frequently "
+"used babystepping value, and \"make it permanent\". Requires a `SAVE_CONFIG`"
+" to take effect."
+msgstr ""
+
 #~ msgid ""
 #~ "`TEST_RESONANCES AXIS=<axis> OUTPUT=<resonances,raw_data> [NAME=<name>] "
 #~ "[FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] "

@@ -415,6 +415,10 @@ msgid ""
 "  {action_call_remote_method(\"paneldue_beep\", frequency=300, duration=1.0)}\n"
 msgstr ""
 
+#: docs/API_Server.md:block 1 (header)
+msgid "API server"
+msgstr ""
+
 #~ msgid ""
 #~ "When the PANELDUE_BEEP gcode macro is executed, Klipper would send something"
 #~ " like the following over the socket: `{\"action\": \"run_paneldue_beep\", "

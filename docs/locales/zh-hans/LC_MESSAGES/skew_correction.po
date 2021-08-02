@@ -4,8 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2021-07-27 05:34+0000\n"
 "Last-Translator: badpoi <a1635835119@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"klipper/skew_correction/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/skew_correction/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -140,4 +139,8 @@ msgid "SKEW_PROFILE REMOVE=my_skew_profile\n"
 msgstr ""
 
 msgid "CALC_MEASURED_SKEW AC=<ac_length> BD=<bd_length> AD=<ad_length>\n"
+msgstr ""
+
+#: docs/skew_correction.md:block 1 (header)
+msgid "Skew correction"
 msgstr ""

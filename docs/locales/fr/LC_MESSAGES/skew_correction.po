@@ -134,3 +134,7 @@ msgstr ""
 
 msgid "CALC_MEASURED_SKEW AC=<ac_length> BD=<bd_length> AD=<ad_length>\n"
 msgstr ""
+
+#: docs/skew_correction.md:block 1 (header)
+msgid "Skew correction"
+msgstr ""

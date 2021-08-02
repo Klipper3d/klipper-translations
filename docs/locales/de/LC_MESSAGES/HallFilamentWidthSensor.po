@@ -204,3 +204,7 @@ msgid ""
 "name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}\n"
 "index: 1\n"
 msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 1 (header)
+msgid "Hall filament width sensor"
+msgstr ""

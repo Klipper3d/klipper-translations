@@ -462,3 +462,7 @@ msgstr ""
 
 msgid "<VLQ encoded length><n-byte contents>\n"
 msgstr ""
+
+#: docs/Protocol.md:block 1 (header)
+msgid "Protocol"
+msgstr ""

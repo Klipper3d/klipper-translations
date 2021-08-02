@@ -181,6 +181,10 @@ msgid ""
 "manufacturer."
 msgstr ""
 
+#: docs/Example_Configs.md:block 1 (header)
+msgid "Example configurations"
+msgstr ""
+
 #~ msgid ""
 #~ "Select the appropriate config filename prefix.The `printer` prefix is used "
 #~ "for stock printers sold by a mainstream manufacturer."

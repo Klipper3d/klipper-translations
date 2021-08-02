@@ -372,3 +372,7 @@ msgstr ""
 "durch). Wenn Sie z. B. den Effekt \"Klingeln\" feststellen, können Sie "
 "versuchen, die Abstimmungsanleitung "
 "[Resonanzkompensation](Resonance_Compensation.md) zu befolgen."
+
+#: docs/Config_checks.md:block 1 (header)
+msgid "Configuration checks"
+msgstr ""

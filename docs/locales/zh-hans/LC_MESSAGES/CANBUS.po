@@ -140,3 +140,7 @@ msgid ""
 "[mcu my_can_mcu]\n"
 "canbus_uuid: 11aa22bb33cc\n"
 msgstr ""
+
+#: docs/CANBUS.md:block 1 (header)
+msgid "CANBUS"
+msgstr ""

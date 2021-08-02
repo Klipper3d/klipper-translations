@@ -279,3 +279,7 @@ msgstr ""
 
 msgid "ACCEPT\n"
 msgstr ""
+
+#: docs/Bed_Level.md:block 1 (header)
+msgid "Bed leveling"
+msgstr ""

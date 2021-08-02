@@ -399,3 +399,7 @@ msgid ""
 "gcode:\n"
 "  {action_call_remote_method(\"paneldue_beep\", frequency=300, duration=1.0)}\n"
 msgstr ""
+
+#: docs/API_Server.md:block 1 (header)
+msgid "API server"
+msgstr ""

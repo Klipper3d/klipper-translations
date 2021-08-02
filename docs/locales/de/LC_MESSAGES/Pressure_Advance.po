@@ -203,3 +203,7 @@ msgid ""
 "TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 "
 "FACTOR=.020\n"
 msgstr ""
+
+#: docs/Pressure_Advance.md:block 1 (header)
+msgid "Pressure advance"
+msgstr ""

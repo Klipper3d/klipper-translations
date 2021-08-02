@@ -96,3 +96,7 @@ msgid ""
 "LASER INTENSITY:\n"
 "    S\n"
 msgstr ""
+
+#: docs/Using_PWM_Tools.md:block 1 (header)
+msgid "Using PWM tools"
+msgstr ""

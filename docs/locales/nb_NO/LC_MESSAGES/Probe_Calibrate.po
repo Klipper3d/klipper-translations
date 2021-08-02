@@ -409,3 +409,7 @@ msgid ""
 "Recv: // probe at -0.003,0.005 is z=2.506948\n"
 "Recv: // probe accuracy results: maximum 2.519448, minimum 2.506948, range 0.012500, average 2.513198, median 2.513198, standard deviation 0.006250\n"
 msgstr ""
+
+#: docs/Probe_Calibrate.md:block 1 (header)
+msgid "Probe calibration"
+msgstr ""

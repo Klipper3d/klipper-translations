@@ -649,3 +649,35 @@ msgid ""
 "example, the blue value of the second neopixel in a chain could be accessed "
 "at `printer[\"neopixel <config_name>\"].colordata[1].B`."
 msgstr ""
+
+#: docs/Status_Reference.md:block 1 (header)
+msgid "Status reference"
+msgstr ""
+
+#: docs/Status_Reference.md:block 49 (header)
+msgid "motion_report"
+msgstr ""
+
+#: docs/Status_Reference.md:block 50 (paragraph)
+msgid ""
+"The following information is available in the `motion_report` object (this "
+"object is automatically available if any stepper config section is defined):"
+msgstr ""
+
+#: docs/Status_Reference.md:block 51 (unordered list)
+msgid ""
+"`live_position`: The requested toolhead position interpolated to the current"
+" time."
+msgstr ""
+
+#: docs/Status_Reference.md:block 51 (unordered list)
+msgid ""
+"`live_velocity`: The requested toolhead velocity (in mm/s) at the current "
+"time."
+msgstr ""
+
+#: docs/Status_Reference.md:block 51 (unordered list)
+msgid ""
+"`live_extruder_velocity`: The requested extruder velocity (in mm/s) at the "
+"current time."
+msgstr ""

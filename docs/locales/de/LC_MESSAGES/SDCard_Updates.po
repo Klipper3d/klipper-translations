@@ -223,3 +223,7 @@ msgid ""
 "    'my-new-board': BOARD_DEFS['generic-lpc1768'],\n"
 "}\n"
 msgstr ""
+
+#: docs/SDCard_Updates.md:block 1 (header)
+msgid "SDCard updates"
+msgstr ""

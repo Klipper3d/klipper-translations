@@ -709,3 +709,7 @@ msgid ""
 "Recv: // gcode base: X:0.000000 Y:0.000000 Z:0.000000 E:0.000000\n"
 "Recv: // gcode homing: X:0.000000 Y:0.000000 Z:0.000000\n"
 msgstr ""
+
+#: docs/Code_Overview.md:block 1 (header)
+msgid "Code overview"
+msgstr ""

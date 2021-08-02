@@ -473,3 +473,7 @@ msgstr ""
 
 msgid "Support for AVR micro-controllers via standard serial ports"
 msgstr ""
+
+#: docs/Releases.md:block 1 (header)
+msgid "Releases"
+msgstr ""

@@ -96,3 +96,7 @@ msgid ""
 "host by copying the message data into one or more packets with the node's "
 "transmit CAN bus id (`canbus_nodeid * 2 + 256 + 1`)."
 msgstr ""
+
+#: docs/CANBUS_protocol.md:block 1 (header)
+msgid "CANBUS protocol"
+msgstr ""

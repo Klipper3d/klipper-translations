@@ -330,3 +330,7 @@ msgid ""
 "z_hop: 10                 # Move up 10mm\n"
 "z_hop_speed: 5\n"
 msgstr ""
+
+#: docs/BLTouch.md:block 1 (header)
+msgid "BL-Touch"
+msgstr ""

@@ -342,3 +342,7 @@ msgstr ""
 
 msgid "DELTA_ANALYZE CALIBRATE=extended\n"
 msgstr ""
+
+#: docs/Delta_Calibrate.md:block 1 (header)
+msgid "Delta calibration"
+msgstr ""
