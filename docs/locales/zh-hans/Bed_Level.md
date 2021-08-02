@@ -1,10 +1,12 @@
+# Bed leveling
+
 打印床调平（有时也被称为 "bed tramming"）对于获得高质量的打印结果至关重要。错误"调平"的打印床会造成附着力差、"翘曲"，以及整个打印过程中的细微问题。本文档是在 Klipper 中进行调平的指南。
 
 It's important to understand the goal of bed leveling. If the printer is commanded to a position `X0 Y0 Z10` during a print, then the goal is for the printer's nozzle to be exactly 10mm from the printer's bed. Further, should the printer then be commanded to a position of `X50 Z10` the goal is for the nozzle to maintain an exact distance of 10mm from the bed during that entire horizontal move.
 
 In order to get good quality prints the printer should be calibrated so that Z distances are accurate to within about 25 microns (.025mm). This is a small distance - significantly smaller than the width of a typical human hair. This scale can not be measured "by eye". Subtle effects (such as heat expansion) impact measurements at this scale. The secret to getting high accuracy is to use a repeatable process and to use a leveling method that leverages the high accuracy of the printer's own motion system.
 
-# Choose the appropriate calibration mechanism
+## Choose the appropriate calibration mechanism
 
 Different types of printers use different methods for performing bed leveling. All of them ultimately depend on the "paper test" (described below). However, the actual process for a particular type of printer is described in other documents.
 
@@ -14,7 +16,7 @@ For printers with an "automatic Z probe" be sure to calibrate the probe followin
 
 During calibration it may be necessary to set the printer's Z `position_min` to a negative number (eg, `position_min = -2`). The printer enforces boundary checks even during calibration routines. Setting a negative number allows the printer to move below the nominal position of the bed, which may help when trying to determine the actual bed position.
 
-# The "paper test"
+## The "paper test"
 
 The primary bed calibration mechanism is the "paper test". It involves placing a regular piece of "copy machine paper" between the printer's bed and nozzle, and then commanding the nozzle to different Z heights until one feels a small amount of friction when pushing the paper back and forth.
 
@@ -82,7 +84,7 @@ The exact amount of friction felt isn't crucial, just as the amount of thermal e
 
 If something goes wrong during the test, one can use the `ABORT` command to exit the calibration tool.
 
-# Determining Thermal Expansion
+## Determining Thermal Expansion
 
 After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "width of the paper", and "amount of friction felt during the paper test".
 

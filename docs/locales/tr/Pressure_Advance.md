@@ -1,6 +1,8 @@
+# Pressure advance
+
 This document provides information on tuning the "pressure advance" configuration variable for a particular nozzle and filament. The pressure advance feature can be helpful in reducing ooze. For more information on how pressure advance is implemented see the [kinematics](Kinematics.md) document.
 
-# Tuning pressure advance
+## Tuning pressure advance
 
 Pressure advance does two useful things - it reduces ooze during non-extrude moves and it reduces blobbing during cornering. This guide uses the second feature (reducing blobbing during cornering) as a mechanism for tuning.
 
@@ -48,7 +50,7 @@ Although this tuning exercise directly improves the quality of corners, it's wor
 
 At the completion of this test, set `pressure_advance = <calculated_value>` in the `[extruder]` section of the configuration file and issue a RESTART command. The RESTART command will clear the test state and return the acceleration and cornering speeds to their normal values.
 
-# Important Notes
+## Important Notes
 
 * The pressure advance value is dependent on the extruder, the nozzle, and the filament. It is common for filament from different manufactures or with different pigments to require significantly different pressure advance values. Therefore, one should calibrate pressure advance on each printer and with each spool of filament.
 * Printing temperature and extrusion rates can impact pressure advance. Be sure to tune the [extruder rotation_distance](Rotation_Distance.md#calibrating-rotation_distance-on-extruders) and [nozzle temperature](http://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide#Nozzle_Temperature) prior to tuning pressure advance.

@@ -4,9 +4,9 @@ Klipper has built-in support for ADXL345 accelerometer, which can be used to mea
 
 When sourcing ADLX345, be aware that there is a variety of different PCB board designs and different clones of them. Make sure that the board supports SPI mode (small number of boards appear to be hard-configured for I2C by pulling SDO to GND), and, if it is going to be connected to a 5V printer MCU, that it has a voltage regulator and a level shifter.
 
-# Installation instructions
+## Installation instructions
 
-## Wiring
+### Wiring
 
 You need to connect ADXL345 to your Raspberry Pi via SPI. Note that the I2C connection, which is suggested by ADXL345 documentation, has too low throughput and **will not work**. The recommended connection scheme:
 
@@ -25,7 +25,7 @@ Fritzing wiring diagrams for some of the ADXL345 boards:
 
 Double-check your wiring before powering up the Raspberry Pi to prevent damaging it or the accelerometer.
 
-## Mounting the accelerometer
+### Mounting the accelerometer
 
 The accelerometer must be attached to the toolhead. One needs to design a proper mount that fits their own 3D printer. It is better to align the axes of the accelerometer with the printer's axes (but if it makes it more convenient, axes can be swapped - i.e. no need to align X axis with X and so forth - it should be fine even if Z axis of accelerometer is X axis of the printer, etc.).
 
@@ -37,7 +37,7 @@ Note that on a bed slinger printer one must design 2 mounts: one for the toolhea
 
 **Attention:** make sure the accelerometer and any screws that hold it in place do not touch any metal parts of the printer. Basically, the mount must be designed such as to ensure the electrical isolation of the accelerometer from the printer frame. Failing to ensure that can create a ground loop in the system that may damage the electronics.
 
-## Software installation
+### Software installation
 
 Note that resonance measurements and shaper auto-calibration require additional software dependencies not installed by default. First, you will have to run on your Raspberry Pi the following command:
 
@@ -77,9 +77,9 @@ It is advised to start with 1 probe point, in the middle of the print bed, sligh
 
 Restart Klipper via the `RESTART` command.
 
-# Measuring the resonances
+## Measuring the resonances
 
-## Checking the setup
+### Checking the setup
 
 Now you can test a connection.
 
@@ -96,7 +96,7 @@ If you get an error like `Invalid adxl345 id (got xx vs e5)`, where `xx` is some
 
 Next, try running `MEASURE_AXES_NOISE` in Octoprint, you should get some baseline numbers for the noise of accelerometer on the axes (should be somewhere in the range of ~1-100). Too high axes noise (e.g. 1000 and more) can be indicative of the sensor issues, problems with its power, or too noisy imbalanced fans on a 3D printer.
 
-## Measuring the resonances
+### Measuring the resonances
 
 Now you can run some real-life tests. Run the following command:
 
@@ -163,7 +163,7 @@ or you can choose some other configuration yourself based on the generated chart
 
 Note that alternatively you can run the input shaper autocalibration from Klipper [directly](#input-shaper-auto-calibration), which can be convenient, for example, for the input shaper [re-calibration](#input-shaper-re-calibration).
 
-## Bed-slinger printers
+### Bed-slinger printers
 
 If your printer is a bed slinger printer, you will need to change the location of the accelerometer between the measurements for X and Y axes: measure the resonances of X axis with the accelerometer attached to the toolhead and the resonances of Y axis - to the bed (the usual bed slinger setup).
 
@@ -187,7 +187,7 @@ probe_points: ...
 
 Then the commands `TEST_RESONANCES AXIS=X` and `TEST_RESONANCES AXIS=Y` will use the correct accelerometer for each axis.
 
-## Max smoothing
+### Max smoothing
 
 Keep in mind that the input shaper can create some smoothing in parts. Automatic tuning of the input shaper performed by `calibrate_shaper.py` script or `SHAPER_CALIBRATE` command tries not to exacerbate the smoothing, but at the same time they try to minimize the resulting vibrations. Sometimes they can make a sub-optimal choice of the shaper frequency, or maybe you simply prefer to have less smoothing in parts at the expense of a larger remaining vibrations. In these cases, you can request to limit the maximum smoothing from the input shaper.
 
@@ -250,7 +250,7 @@ max_smoothing: 0.25  # an example
 
 Then, if you [rerun](#input-shaper-re-calibration) the input shaper auto-tuning using `SHAPER_CALIBRATE` Klipper command in the future, it will use the stored `max_smoothing` value as a reference.
 
-## Selecting max_accel
+### Selecting max_accel
 
 Since the input shaper can create some smoothing in parts, especially at high accelerations, you will still need to choose the `max_accel` value that does not create too much smoothing in the printed parts. A calibration script provides an estimate for `max_accel` parameter that should not create too much smoothing. Note that the `max_accel` as displayed by the calibration script is only a theoretical maximum at which the respective shaper is still able to work without producing too much smoothing. It is by no means a recommendation to set this acceleration for printing. The maximum acceleration your printer is able to sustain depends on its mechanical properties and the maximum torque of the used stepper motors. Therefore, it is suggested to set `max_accel` in `[printer]` section that does not exceed the estimated values for X and Y axes, likely with some conservative safety margin.
 
@@ -260,7 +260,7 @@ The same notice applies to the input shaper [auto-calibration](#input-shaper-aut
 
 If you are doing a shaper re-calibration and the reported smoothing for the suggested shaper configuration is almost the same as what you got during the previous calibration, this step can be skipped.
 
-## Testing custom axes
+### Testing custom axes
 
 `TEST_RESONANCES` command supports custom axes. While this is not really useful for input shaper calibration, it can be used to study printer resonances in-depth and to check, for example, belt tension.
 
@@ -295,7 +295,7 @@ and then use the same command
 
 to generate `/tmp/resonances.png` comparing the resonances.
 
-# Input Shaper auto-calibration
+## Input Shaper auto-calibration
 
 Besides manually choosing the appropriate parameters for the input shaper feature, it is also possible to run the auto-tuning for the input shaper directly from Klipper. Run the following command via Octoprint terminal:
 
@@ -332,7 +332,7 @@ You can execute `SAVE_CONFIG` twice - after calibrating each axis.
 
 However, if you connected two accelerometers simultaneously, you simply run `SHAPER_CALIBRATE` without specifying an axis to calibrate the input shaper for both axes in one go.
 
-## Input Shaper re-calibration
+### Input Shaper re-calibration
 
 `SHAPER_CALIBRATE` command can be also used to re-calibrate the input shaper in the future, especially if some changes to the printer that can affect its kinematics are made. One can either re-run the full calibration using `SHAPER_CALIBRATE` command, or restrict the auto-calibration to a single axis by supplying `AXIS=` parameter, like
 
@@ -344,7 +344,7 @@ SHAPER_CALIBRATE AXIS=X
 
 Also, due to some noise in measurements, it is possible that the tuning results will be slightly different from one calibration run to another one. Still, it is not expected that the noise will affect the print quality too much. However, it is still advised to double-check the suggested parameters, and print some test prints before using them to confirm they are good.
 
-# Offline processing of the accelerometer data
+## Offline processing of the accelerometer data
 
 It is possible to generate the raw accelerometer data and process it offline (e.g. on a host machine), for example to find resonances. In order to do so, run the following commands via Octoprint terminal:
 

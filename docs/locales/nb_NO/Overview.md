@@ -1,6 +1,8 @@
+# Overview
+
 Velkommen til Klipper-dokumentasjonen. Hvis du er ny kan du begynne med [funksjoner](Features.md)- og [installasjon](Installation.md)-dokumentene
 
-# Oversiktsinfo
+## Oversiktsinfo
 
 - [Features](Features.md): A high-level list of features in Klipper.
 - [FAQ](FAQ.md): Frequently asked questions.
@@ -8,7 +10,7 @@ Velkommen til Klipper-dokumentasjonen. Hvis du er ny kan du begynne med [funksjo
 - [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
 - [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
 
-# Configuration and Tuning Guides
+## Configuration and Tuning Guides
 
 - [Installation](Installation.md): Guide to installing Klipper.
 - [Config Reference](Config_Reference.md): Description of config parameters.
@@ -32,7 +34,7 @@ Velkommen til Klipper-dokumentasjonen. Hvis du er ny kan du begynne med [funksjo
 - [PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such as lasers or spindles.
 - [G-Codes](G-Codes.md): Information on commands supported by Klipper.
 
-# Developer Documentation
+## Developer Documentation
 
 - [Code overview](Code_Overview.md): Developers should read this first.
 - [Kinematics](Kinematics.md): Technical details on how Klipper implements motion.
@@ -45,7 +47,7 @@ Velkommen til Klipper-dokumentasjonen. Hvis du er ny kan du begynne med [funksjo
 - [Contributing](CONTRIBUTING.md): Information on how to submit improvements to Klipper.
 - [Packaging](Packaging.md): Information on building OS packages.
 
-# Device Specific Documents
+## Device Specific Documents
 
 - [Example configs](Example_Configs.md): Information on adding an example config file to Klipper.
 - [SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a binary to an sdcard in the micro-controller.

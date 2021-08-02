@@ -1,3 +1,5 @@
+# Features
+
 Klipper 有几个引人注目的功能：
 
 * 高精度步进运动。Klipper使用一个应用处理器（例如低成本的树莓派）来计算打印机运动。应用处理器决定何时对每个步进电机发出步进信号，压缩这些事件，并将它们发送到微控制器。微处理器将会把每个事件按请求时间执行。每一个步进事件被以25毫秒或更高的精度安排。软件不进行运动估计，例如 Bresenham算法，而是通过加速度与机械运动物理计算精确的步进时间。更精准的步进电机运动意味着打印机更安静和稳定的运行。
@@ -12,7 +14,7 @@ Klipper 有几个引人注目的功能：
 * 自定义可编程脚本。可以在打印机配置文件中定义新的G代码命令（而不需要修改任何代码）。这些命令都是可编程的，可以能根据打印机的状态做出不同的响应。
 * 内置API服务器。除了标准G代码接口，Klipper也支持富JSON API。使程序员能编写对打印机进行精细控制的外置程序。
 
-# 其他功能
+## 其他功能
 
 Klipper 支持许多标准的 3d 打印机功能：
 
@@ -35,7 +37,7 @@ Klipper 支持许多标准的 3d 打印机功能：
 
 To get started with Klipper, read the [installation](Installation.md) guide.
 
-# Step Benchmarks
+## Step Benchmarks
 
 Below are the results of stepper performance tests. The numbers shown represent total number of steps per second on the micro-controller.
 

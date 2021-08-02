@@ -1,6 +1,8 @@
+# SDCard updates
+
 Many of today's popular controller boards ship with a bootloader capable of updating firmware via SD Card. While this is convenient in many circumstances, these bootloaders typically provide no other way to update firmware. This can be a nuisance if your board is mounted in a location that is difficult to access or if you need to update firmware often. After Klipper has been initially flashed to a controller it is possible to transfer new firmware to the SD Card and initiate the flashing procedure via ssh.
 
-# Typical Upgrade Procedure
+## Typical Upgrade Procedure
 
 The procedure for updating MCU firmware using the SD Card is similar to that of other methods. Instead of using `make flash` it is necessary to run a helper script, `flash-sdcard.sh`. Updating a BigTreeTech SKR 1.3 might look like the following:
 
@@ -25,7 +27,7 @@ Supported boards can be listed with the following command:
 
 If you do not see your board listed it may be necessary to add a new board definition as [described below](#board-definitions).
 
-# Advanced Usage
+## Advanced Usage
 
 The above commands assume that your MCU connects at the default baud rate of 250000 and the firmware is located at `~/klipper/out/klipper.bin`. The `flash-sdcard.sh` script provides options for changing these defaults. All options can be viewed by the help screen:
 
@@ -61,13 +63,13 @@ If you wish to flash a build of Klipper located somewhere other than the default
 
 Note that when upgrading a MKS Robin E3 it is not necessary to manually run `update_mks_robin.py` and supply the resulting binary to `flash-sdcard.sh`. This procedure is automated during the upload process.
 
-# Caveats
+## Caveats
 
 - As mentioned in the introduction, this method only works for upgrading firmware. The initial flashing procedure must be done manually per the instructions that apply to your controller board.
 - While it is possible to flash a build that changes the Serial Baud or connection interface (ie: from USB to UART), verification will always fail as the script will be unable to reconnect to the MCU to verify the current version.
 - Only boards that use SPI for SD Card communication are supported. Boards that use SDIO, such as the Flymaker Flyboard and MKS Robin Nano V1/V2, will not work.
 
-# Board Definitions
+## Board Definitions
 
 Most common boards should be available, however it is possible to add a new board definition if necessary. Board definitions are located in `~/klipper/scripts/spi_flash/board_defs.py`. The definitions are stored in dictionary, for example:
 

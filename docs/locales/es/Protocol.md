@@ -1,3 +1,5 @@
+# Protocol
+
 The Klipper messaging protocol is used for low-level communication between the Klipper host software and the Klipper micro-controller software. At a high level the protocol can be thought of as a series of command and response strings that are compressed, transmitted, and then processed at the receiving side. An example series of commands in uncompressed human-readable format might look like:
 
 ```
@@ -14,11 +16,11 @@ This page provides a high-level description of the Klipper messaging protocol it
 
 The goal of the protocol is to enable an error-free communication channel between the host and micro-controller that is low-latency, low-bandwidth, and low-complexity for the micro-controller.
 
-# Micro-controller Interface
+## Micro-controller Interface
 
 The Klipper transmission protocol can be thought of as a [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) mechanism between micro-controller and host. The micro-controller software declares the commands that the host may invoke along with the response messages that it can generate. The host uses that information to command the micro-controller to perform actions and to interpret the results.
 
-## Declaring commands
+### Declaring commands
 
 The micro-controller software declares a "command" by using the DECL_COMMAND() macro in the C code. For example:
 
@@ -32,7 +34,7 @@ In general, the parameters are described with printf() style syntax (eg, "%u"). 
 
 The micro-controller build will collect all commands declared with DECL_COMMAND(), determine their parameters, and arrange for them to be callable.
 
-## Declaring responses
+### Declaring responses
 
 To send information from the micro-controller to the host a "response" is generated. These are both declared and transmitted using the sendf() C macro. For example:
 
@@ -46,7 +48,7 @@ The host can arrange to register a callback function for each response. So, in e
 
 The sendf() macro should only be invoked from command or task handlers, and it should not be invoked from interrupts or timers. The code does not need to issue a sendf() in response to a received command, it is not limited in the number of times sendf() may be invoked, and it may invoke sendf() at any time from a task handler.
 
-### Output responses
+#### Output responses
 
 To simplify debugging, there is also an output() C function. For example:
 
@@ -56,7 +58,7 @@ output("The value of %u is %s with size %u.", x, buf, buf_len);
 
 The output() function is similar in usage to printf() - it is intended to generate and format arbitrary messages for human consumption.
 
-## Declaring enumerations
+### Declaring enumerations
 
 Enumerations allow the host code to use string identifiers for parameters that the micro-controller handles as integers. They are declared in the micro-controller code - for example:
 
@@ -70,7 +72,7 @@ If the first example, the DECL_ENUMERATION() macro defines an enumeration for an
 
 It's also possible to declare an enumeration range. In the second example, a "pin" parameter (or any parameter with a suffix of "_pin") would accept PC0, PC1, PC2, ..., PC7 as valid values. The strings will be transmitted with integers 16, 17, 18, ..., 23.
 
-## Declaring constants
+### Declaring constants
 
 Constants can also be exported. For example, the following:
 
@@ -84,11 +86,11 @@ would export a constant named "SERIAL_BAUD" with a value of 250000 from the micr
 DECL_CONSTANT_STR("MCU", "pru");
 ```
 
-# Low-level message encoding
+## Low-level message encoding
 
 To accomplish the above RPC mechanism, each command and response is encoded into a binary format for transmission. This section describes the transmission system.
 
-## Message Blocks
+### Message Blocks
 
 All data sent from host to micro-controller and vice-versa are contained in "message blocks". A message block has a two byte header and a three byte trailer. The format of a message block is:
 
@@ -100,7 +102,7 @@ The length byte contains the number of bytes in the message block including the 
 
 The format of the message block is inspired by [HDLC](https://en.wikipedia.org/wiki/High-Level_Data_Link_Control) message frames. Like in HDLC, the message block may optionally contain an additional sync character at the start of the block. Unlike in HDLC, a sync character is not exclusive to the framing and may be present in the message block content.
 
-## Message Block Contents
+### Message Block Contents
 
 Each message block sent from host to micro-controller contains a series of zero or more message commands in its contents. Each command starts with a [Variable Length Quantity](#variable-length-quantities) (VLQ) encoded integer command-id followed by zero or more VLQ parameters for the given command.
 
@@ -123,7 +125,7 @@ In order to encode and parse the message contents, both the host and micro-contr
 
 The message contents for blocks sent from micro-controller to host follow the same format. The identifiers in these messages are "response ids", but they serve the same purpose and follow the same encoding rules. In practice, message blocks sent from the micro-controller to the host never contain more than one response in the message block contents.
 
-### Variable Length Quantities
+#### Variable Length Quantities
 
 See the [wikipedia article](https://en.wikipedia.org/wiki/Variable-length_quantity) for more information on the general format of VLQ encoded integers. Klipper uses an encoding scheme that supports both positive and negative integers. Integers close to zero use less bytes to encode and positive integers typically encode using less bytes than negative integers. The following table shows the number of bytes each integer takes to encode:
 
@@ -135,7 +137,7 @@ See the [wikipedia article](https://en.wikipedia.org/wiki/Variable-length_quanti
 | -67108864 .. 201326591 | 4 |
 | -2147483648 .. 4294967295 | 5 |
 
-### Variable length strings
+#### Variable length strings
 
 As an exception to the above encoding rules, if a parameter to a command or response is a dynamic string then the parameter is not encoded as a simple VLQ integer. Instead it is encoded by transmitting the length as a VLQ encoded integer followed by the contents itself:
 
@@ -145,7 +147,7 @@ As an exception to the above encoding rules, if a parameter to a command or resp
 
 The command descriptions found in the data dictionary allow both the host and micro-controller to know which command parameters use simple VLQ encoding and which parameters use string encoding.
 
-# Data Dictionary
+## Data Dictionary
 
 In order for meaningful communications to be established between micro-controller and host, both sides must agree on a "data dictionary". This data dictionary contains the integer identifiers for commands and responses along with their descriptions.
 
@@ -159,7 +161,7 @@ The format of the transmitted data dictionary itself is a zlib compressed JSON s
 
 In addition to information on the communication protocol, the data dictionary also contains the software version, enumerations (as defined by DECL_ENUMERATION), and constants (as defined by DECL_CONSTANT).
 
-# Message flow
+## Message flow
 
 Message commands sent from host to micro-controller are intended to be error-free. The micro-controller will check the CRC and sequence numbers in each message block to ensure the commands are accurate and in-order. The micro-controller always processes message blocks in-order - should it receive a block out-of-order it will discard it and any other out-of-order blocks until it receives blocks with the correct sequencing.
 
