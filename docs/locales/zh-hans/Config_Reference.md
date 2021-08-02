@@ -1,10 +1,12 @@
+# Configuration reference
+
 本文档是 Klipper 配置文件中可用配置分段的参考。
 
 本文档中的描述已经格式化，以便可以将它们剪切并粘贴到打印机配置文件中。 见 [installation document](Installation.md) 有关设置 Klipper 和选择初始配置文件的信息。
 
-# 微控制器配置
+## 微控制器配置
 
-## 微控制器引脚名字的格式
+### 微控制器引脚名字的格式
 
 许多配置选项需要微控制器引脚的名称。Klipper 使用了这些引脚的硬件名称 - 例如`PA4`。
 
@@ -14,7 +16,7 @@
 
 注意，某些配置部分可能会“创建”额外的引脚。 如果发生这种情况，定义引脚的配置部分必须在使用这些引脚的任何部分之前列在配置文件中。
 
-## [MCU]
+### [MCU]
 
 主微控制器的配置。
 
@@ -47,7 +49,7 @@ serial:
 #   communicates over a serial port, 'command' otherwise.
 ```
 
-## 额外的mcu [mcu my_extra_mcu]
+### 额外的mcu [mcu my_extra_mcu]
 
 额外的微控制器（可以定义任意数量的带有“mcu”前缀的部分）。 额外的微控制器引入了额外的引脚，这些引脚可以配置为加热器、步进器、风扇等。例如，如果引入了“[mcu extra_mcu]”部分，那么诸如“extra_mcu:ar9”之类的引脚就可以在其他地方使用 ，在配置中（其中“ar9”是给定 mcu 上的硬件引脚名称或别名）。
 
@@ -56,9 +58,9 @@ serial:
 # See the "mcu" section for configuration parameters.
 ```
 
-# 常用的运动学设置
+## 常用的运动学设置
 
-## [打印]
+### [打印]
 
 打印机控制的高级设置部分。
 
@@ -93,7 +95,7 @@ max_accel:
 #   decelerate to zero at each corner. The default is 5mm/s.
 ```
 
-## [stepper]
+### [stepper]
 
 步进电机定义。 不同的打印机类型（由 [打印] 配置部分中的“运动学”选项指定）步进器需要定义不同的名称（例如，`stepper_x` 与 `stepper_a`）。 以下是常见的步进器定义。
 
@@ -164,7 +166,7 @@ position_max:
 #   if near position_min.
 ```
 
-## 笛卡尔运动学
+### 笛卡尔运动学
 
 有关示例笛卡尔运动学配置文件，请参阅 [example-cartesian.cfg](../config/example-cartesian.cfg)。
 
@@ -196,7 +198,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-## 线性三角洲运动学
+### 线性三角洲运动学
 
 有关示例线性三角洲运动学配置文件，请参阅 [example-delta.cfg](../config/example-delta.cfg)。 有关校准的信息，请参阅 [三角洲校准指南](Delta_Calibrate.md)。
 
@@ -272,7 +274,7 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-## CoreXY 运动学
+### CoreXY 运动学
 
 See [example-corexy.cfg](../config/example-corexy.cfg) for an example corexy (and h-bot) kinematics file.
 
@@ -304,7 +306,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-## CoreXY 运动学
+### CoreXY 运动学
 
 See [example-corexz.cfg](../config/example-corexz.cfg) for an example corexz kinematics config file.
 
@@ -333,7 +335,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-## Hybrid-CoreXY Kinematics
+### Hybrid-CoreXY Kinematics
 
 See [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) for an example hybrid corexy kinematics config file.
 
@@ -364,7 +366,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-## Hybrid-CoreXZ Kinematics
+### Hybrid-CoreXZ Kinematics
 
 See [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) for an example hybrid corexz kinematics config file.
 
@@ -395,7 +397,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-## Polar Kinematics
+### Polar Kinematics
 
 See [example-polar.cfg](../config/example-polar.cfg) for an example polar kinematics config file.
 
@@ -434,7 +436,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-## Rotary delta Kinematics
+### Rotary delta Kinematics
 
 See [example-rotary-delta.cfg](../config/example-rotary-delta.cfg) for an example rotary delta kinematics config file.
 
@@ -520,7 +522,7 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-## 缆绳绞盘运动学
+### 缆绳绞盘运动学
 
 See the [example-winch.cfg](../config/example-winch.cfg) for an example cable winch kinematics config file.
 
@@ -547,7 +549,7 @@ anchor_z:
 #   These parameters must be provided.
 ```
 
-## None Kinematics
+### None Kinematics
 
 It is possible to define a special "none" kinematics to disable kinematic support in Klipper. This may be useful for controlling devices that are not typical 3d-printers or for debugging purposes.
 
@@ -560,9 +562,9 @@ max_accel: 1
 #   values are not used for "none" kinematics.
 ```
 
-# 通用挤出机和热床支持
+## 通用挤出机和热床支持
 
-## [extruder]
+### [extruder]
 
 The extruder section is used to describe both the stepper controlling the printer extruder and the heater parameters for the nozzle. See the [pressure advance guide](Pressure_Advance.md) for information on tuning pressure advance.
 
@@ -681,7 +683,7 @@ max_temp:
 #   These parameters must be provided.
 ```
 
-## [heater_bed]
+### [heater_bed]
 
 The heater_bed section describes a heated bed. It uses the same heater settings described in the "extruder" section.
 
@@ -696,9 +698,9 @@ max_temp:
 #   See the "extruder" section for a description of the above parameters.
 ```
 
-# 打印床调平支持
+## 打印床调平支持
 
-## [bed_mesh]
+### [bed_mesh]
 
 Mesh Bed Leveling. One may define a bed_mesh config section to enable move transformations that offset the z axis based on a mesh generated from probed points. When using a probe to home the z-axis, it is recommended to define a safe_z_home section in printer.cfg to home toward the center of the print area.
 
@@ -802,7 +804,7 @@ Visual Examples:
 #   默认不设定任何故障区域。
 ```
 
-## [bed_tilt]
+### [bed_tilt]
 
 打印床倾斜补偿。可以定义一个 bed_tilt 配置分段来启用移动变换倾斜打印床补偿。请注意，bed_mesh 和 bed_tilt 不兼容：两者无法同时被定义。
 
@@ -833,7 +835,7 @@ See the [command reference](G-Codes.md#bed-tilt) for additional information.
 #   默认为5。
 ```
 
-## [bed_screws]
+### [bed_screws]
 
 Tool to help adjust bed leveling screws. One may define a [bed_screws] config section to enable a BED_SCREWS_ADJUST g-code command.
 
@@ -872,7 +874,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 #   to a probe_height position. The default is 5.
 ```
 
-## [screws_tilt_adjust]
+### [screws_tilt_adjust]
 
 Tool to help adjust bed screws tilt using Z probe. One may define a screws_tilt_adjust config section to enable a SCREWS_TILT_CALCULATE g-code command.
 
@@ -910,7 +912,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the
 #   turning the knob clockwise decrease distance.
 ```
 
-## [z_tilt]
+### [z_tilt]
 
 Multiple Z stepper tilt adjustment. This feature enables independent adjustment of multiple z steppers (see the "stepper_z1" section) to adjust for tilt. If this section is present then a Z_TILT_ADJUST extended [G-Code command](G-Codes.md#z-tilt) becomes available.
 
@@ -948,7 +950,7 @@ Multiple Z stepper tilt adjustment. This feature enables independent adjustment 
 #   by observing command output.
 ```
 
-## [quad_gantry_level]
+### [quad_gantry_level]
 
 Moving gantry leveling using 4 independently controlled Z motors. Corrects hyperbolic parabola effects (potato chip) on moving gantry which is more flexible. WARNING: Using this on a moving bed may lead to undesirable results. If this section is present then a QUAD_GANTRY_LEVEL extended G-Code command becomes available. This routine assumes the following Z motor configuration:
 
@@ -994,7 +996,7 @@ Where x is the (0,0) point on the bed
 #   points differ more than retry_tolerance.
 ```
 
-## [skew_correction]
+### [skew_correction]
 
 Printer Skew Correction. It is possible to use software to correct printer skew across 3 planes, xy, xz, yz. This is done by printing a calibration model along a plane and measuring three lengths. Due to the nature of skew correction these lengths are set via gcode. See [skew correction](skew_correction.md) and [command reference](G-Codes.md#skew-correction) for details.
 
@@ -1002,9 +1004,9 @@ Printer Skew Correction. It is possible to use software to correct printer skew 
 [skew_correction]
 ```
 
-# 自定义归零
+## 自定义归零
 
-## [safe_z_home]
+### [safe_z_home]
 
 Safe Z homing. One may use this mechanism to home the Z axis at a specific XY coordinate. This is useful if the toolhead, for example has to move to the center of the bed before Z can be homed.
 
@@ -1031,7 +1033,7 @@ home_xy_position:
 #   homing. The default is False.
 ```
 
-## [homing_override]
+### [homing_override]
 
 Homing override. One may use this mechanism to run a series of g-code commands in place of a G28 found in the normal g-code input. This may be useful on printers that require a specific procedure to home the machine.
 
@@ -1060,7 +1062,7 @@ gcode:
 #   axis. The default is to not force a position for an axis.
 ```
 
-## [endstop_phase]
+### [endstop_phase]
 
 Stepper phase adjusted endstops. To use this feature, define a config section with an "endstop_phase" prefix followed by the name of the corresponding stepper config section (for example, "[endstop_phase stepper_z]"). This feature can improve the accuracy of endstop switches. Add a bare "[endstop_phase]" declaration to enable the ENDSTOP_PHASE_CALIBRATE command.
 
@@ -1090,9 +1092,9 @@ See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes
 #   layer will occur on a full step.) The default is False.
 ```
 
-# G-Code macros and events
+## G-Code macros and events
 
-## [gcode_macro]
+### [gcode_macro]
 
 G-Code macros (one may define any number of sections with a "gcode_macro" prefix). See the [command template guide](Command_Templates.md) for more information.
 
@@ -1123,7 +1125,7 @@ G-Code macros (one may define any number of sections with a "gcode_macro" prefix
 #   using the auto completion feature. Default "G-Code macro"
 ```
 
-## [delayed_gcode]
+### [delayed_gcode]
 
 Execute a gcode on a set delay. See the [command template guide](Command_Templates.md#delayed-gcodes) and [command reference](G-Codes.md#delayed-gcode) for more information.
 
@@ -1140,7 +1142,7 @@ gcode:
 # 默认为0。
 ```
 
-## [save_variables]
+### [save_variables]
 
 Support saving variables to disk so that they are retained across restarts. See [command templates](Command_Templates.md#save-variables-to-disk) and [G-Code reference](G-Codes.md#save-variables) for further information.
 
@@ -1151,7 +1153,7 @@ filename:
 #   例如 . ~/variables.cfg
 ```
 
-## [idle_timeout]
+### [idle_timeout]
 
 Idle timeout. An idle timeout is automatically enabled - add an explicit idle_timeout config section to change the default settings.
 
@@ -1166,9 +1168,9 @@ Idle timeout. An idle timeout is automatically enabled - add an explicit idle_ti
 #   commands. The default is 600 seconds.
 ```
 
-# Optional G-Code features
+## Optional G-Code features
 
-## [virtual_sdcard]
+### [virtual_sdcard]
 
 如果主机的速度不足以很好地运行 OctoPrint，虚拟 SD 卡可能有帮助。它允许 Klipper 主机软件使用标准的 SD 卡G代码命令（例如，M24）直接打印存储在主机目录中的 gcode 文件。
 
@@ -1182,7 +1184,7 @@ path:
 #   be provided.
 ```
 
-## [sdcard_loop]
+### [sdcard_loop]
 
 Some printers with stage-clearing features, such as a part ejector or a belt printer, can find use in looping sections of the sdcard file. (For example, to print the same part over and over, or repeat the a section of a part for a chain or other repeated pattern).
 
@@ -1192,7 +1194,7 @@ See the [command reference](G-Codes.md#sdcard-loop) for supported commands. See 
 [sdcard_loop]
 ```
 
-## [force_move]
+### [force_move]
 
 Support manually moving stepper motors for diagnostic purposes. Note, using this feature may place the printer in an invalid state - see the [command reference](G-Codes.md#force-movement) for important details.
 
@@ -1203,7 +1205,7 @@ Support manually moving stepper motors for diagnostic purposes. Note, using this
 #   extended G-Code commands. The default is false.
 ```
 
-## [pause_resume]
+### [pause_resume]
 
 Pause/Resume functionality with support of position capture and restore. See the [command reference](G-Codes.md#pause-resume) for more information.
 
@@ -1214,7 +1216,7 @@ Pause/Resume functionality with support of position capture and restore. See the
 #   the captured position (in mm/s). Default is 50.0 mm/s.
 ```
 
-## [firmware_retraction]
+### [firmware_retraction]
 
 Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCODE commands issued by many slicers. The parameters below provide startup defaults, although the values can be adjusted via the SET_RETRACTION [command](G-Codes.md#firmware-retraction)), allowing per-filament settings and runtime tuning.
 
@@ -1233,7 +1235,7 @@ Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCO
 #   The speed of unretraction, in mm/s. The default is 10 mm/s.
 ```
 
-## [gcode_arcs]
+### [gcode_arcs]
 
 Support for gcode arc (G2/G3) commands.
 
@@ -1247,7 +1249,7 @@ Support for gcode arc (G2/G3) commands.
 #   1mm.
 ```
 
-## [respond]
+### [respond]
 
 启用 "M118 "和 "RESPOND "扩展[命令](G-Code.md#send-message-respond tohost)。
 
@@ -1264,9 +1266,9 @@ Support for gcode arc (G2/G3) commands.
 #   override the "default_type".
 ```
 
-# Resonance compensation
+## Resonance compensation
 
-## [input_shaper]
+### [input_shaper]
 
 启用[共振补偿](Resonance_Compensation.md)。也请参见[命令参考](G-Code.md#resonance-compensation)。
 
@@ -1303,7 +1305,7 @@ Support for gcode arc (G2/G3) commands.
 #   parameter requires no tuning and should not be changed.
 ```
 
-## [adxl345]
+### [adxl345]
 
 Support for ADXL345 accelerometers. This support allows one to query accelerometer measurements from the sensor. This enables an ACCELEROMETER_MEASURE command (see [G-Codes](G-Codes.md#adxl345-accelerometer-commands) for more information). The default chip name is "default", but one may specify an explicit name (eg, [adxl345 my_chip_name]).
 
@@ -1331,7 +1333,7 @@ cs_pin:
 #   测量准确性。
 ```
 
-## [resonance_tester]
+### [resonance_tester]
 
 Support for resonance testing and automatic input shaper calibration. In order to use most of the functionality of this module, additional software dependencies must be installed; refer to [Measuring Resonances](Measuring_Resonances.md) and the [command reference](G-Codes.md#resonance-testing-commands) for more information. See the [Max smoothing](Measuring_Resonances.md#max-smoothing) section of the measuring resonances guide for more information on `max_smoothing` parameter and its use.
 
@@ -1382,9 +1384,9 @@ Support for resonance testing and automatic input shaper calibration. In order t
 #   (Hz/sec == sec^-2).
 ```
 
-# 配置文件助手
+## 配置文件助手
 
-## [board_pins]
+### [board_pins]
 
 控制板引脚别名（可以定义任意数量的带有 "board_pins "前缀的分段）。用它来定义微控制器上的引脚的别名。
 
@@ -1402,7 +1404,7 @@ aliases_<name>:
 #   将保留 "EXP1_9"）。可以指定任何数量以 "aliases_"开头的分段。
 ```
 
-## [include]
+### [include]
 
 Include file support. One may include additional config file from the main printer config file. Wildcards may also be used (eg, "configs/*.cfg").
 
@@ -1410,7 +1412,7 @@ Include file support. One may include additional config file from the main print
 [include my_other_config.cfg]
 ```
 
-## [duplicate_pin_override]
+### [duplicate_pin_override]
 
 This tool allows a single micro-controller pin to be defined multiple times in a config file without normal error checking. This is intended for diagnostic and debugging purposes. This section is not needed where Klipper supports using the same pin multiple times, and using this override may cause confusing and unexpected results.
 
@@ -1422,9 +1424,9 @@ pins:
 #   provided.
 ```
 
-# 打印床探测硬件
+## 打印床探测硬件
 
-## [probe]
+### [probe]
 
 Z height probe. One may define this section to enable Z height probing hardware. When this section is enabled, PROBE and QUERY_PROBE extended [g-code commands](G-Codes.md#probe) become available. Also, see the [probe calibrate guide](Probe_Calibrate.md). The probe section also creates a virtual "probe:z_virtual_endstop" pin. One may set the stepper_z endstop_pin to this virtual pin on cartesian style printers that use the probe in place of a z endstop. If using "probe:z_virtual_endstop" then do not define a position_endstop in the stepper_z config section.
 
@@ -1485,7 +1487,7 @@ z_offset:
 #   not run any special G-Code commands on deactivation.
 ```
 
-## [bltouch]
+### [bltouch]
 
 BLTouch 探针。可以定义这个分段（而不是探针（probe）分段）来启用 BLTouch 探针。更多信息见[BL-Touch 指南](BLTouch.md)和[命令参考](G-Code.md#bltouch)。一个虚拟的 "probe:z_virtual_endstop "引脚也会被同时创建（详见 "probe "章节）。
 
@@ -1537,9 +1539,9 @@ control_pin:
 #   这些参数详见”探针“章节。
 ```
 
-# 额外的步进电机和挤出机
+## 额外的步进电机和挤出机
 
-## [stepper_z1]
+### [stepper_z1]
 
 Multi-stepper axes. On a cartesian style printer, the stepper controlling a given axis may have additional config blocks defining steppers that should be stepped in concert with the primary stepper. One may define any number of sections with a numeric suffix starting at 1 (for example, "stepper_z1", "stepper_z2", etc.).
 
@@ -1558,7 +1560,7 @@ Multi-stepper axes. On a cartesian style printer, the stepper controlling a give
 #   axis is triggered.
 ```
 
-## [extruder1]
+### [extruder1]
 
 In a multi-extruder printer add an additional extruder section for each additional extruder. The additional extruder sections should be named "extruder1", "extruder2", "extruder3", and so on. See the "extruder" section for a description of available parameters.
 
@@ -1580,7 +1582,7 @@ See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an exam
 #   reuse an existing heater.
 ```
 
-## [dual_carriage]
+### [dual_carriage]
 
 Support for cartesian printers with dual carriages on a single axis. The active carriage is set via the SET_DUAL_CARRIAGE extended g-code command. The "SET_DUAL_CARRIAGE CARRIAGE=1" command will activate the carriage defined in this section (CARRIAGE=0 will return activation to the primary carriage). Dual carriage support is typically combined with extra extruders - the SET_DUAL_CARRIAGE command is often called at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the carriages during deactivation.
 
@@ -1603,7 +1605,7 @@ axis:
 #   See the "stepper" section for the definition of the above parameters.
 ```
 
-## [extruder_stepper]
+### [extruder_stepper]
 
 Support for additional steppers synchronized to the movement of an extruder (one may define any number of sections with an "extruder_stepper" prefix).
 
@@ -1623,7 +1625,7 @@ See the [command reference](G-Codes.md#extruder-stepper-commands) for more infor
 #   parameters.
 ```
 
-## [manual_stepper]
+### [manual_stepper]
 
 Manual steppers (one may define any number of sections with a "manual_stepper" prefix). These are steppers that are controlled by the MANUAL_STEPPER g-code command. For example: "MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5". See [G-Codes](G-Codes.md#manual-stepper-commands) file for a description of the MANUAL_STEPPER command. The steppers are not connected to the normal printer kinematics.
 
@@ -1650,9 +1652,9 @@ Manual steppers (one may define any number of sections with a "manual_stepper" p
 #   MANUAL_STEPPER movement commands.
 ```
 
-# 自定义加热器和传感器
+## 自定义加热器和传感器
 
-## [verify_heater]
+### [verify_heater]
 
 Heater and temperature sensor verification. Heater verification is automatically enabled for each heater that is configured on the printer. Use verify_heater sections to change the default settings.
 
@@ -1688,7 +1690,7 @@ Heater and temperature sensor verification. Heater verification is automatically
 #   value. The default is 2.
 ```
 
-## [homing_heaters]
+### [homing_heaters]
 
 Tool to disable heaters when homing or probing an axis.
 
@@ -1705,7 +1707,7 @@ Tool to disable heaters when homing or probing an axis.
 #   Typical example: extruder, heater_bed
 ```
 
-## [thermistor]
+### [thermistor]
 
 自定义热敏电阻（可以定义任意数量的带有“热敏电阻”前缀的分段）。可以在加热器配置分段的 sensor_type 字段中使用自定义热敏电阻。 （例如，如果定义了“[thermistor my_thermistor]”分段，那么在定义加热器时可以使用“sensor_type: my_thermistor”。）确保将热敏电阻分段放在配置文件中第一次使用这个传感器的加热器分段的上方。
 
@@ -1728,7 +1730,7 @@ Tool to disable heaters when homing or probing an axis.
 #   provided when using "beta" to define the thermistor.
 ```
 
-## [adc_temperature]
+### [adc_temperature]
 
 自定义 ADC 温度传感器（可以使用 “adc_temperature” 前缀定义任意数量的分段）。这允许定义一个自定义温度传感器，该传感器测量一个模数转换器 (ADC) 引脚上的电压，并在一组配置的温度/电压（或温度/电阻）测量值之间使用线性插值来确定温度。设置的传感器可被用作加热器分段中的 sensor_type。 （例如，如果定义了 “[adc_temperature my_sensor]” 分段，则在定义加热器时可以使用 “sensor_type: my_sensor” 。）确保将传感器分段放在配置文件中第一次使用这个传感器的加热器分段的上方。
 
@@ -1754,7 +1756,7 @@ Tool to disable heaters when homing or probing an axis.
 #   提供两个测量点。
 ```
 
-## [heater_generic]
+### [heater_generic]
 
 Generic heaters (one may define any number of sections with a "heater_generic" prefix). These heaters behave similarly to standard heaters (extruders, heated beds). Use the SET_HEATER_TEMPERATURE command (see [G-Codes](G-Codes.md) for details) to set the target temperature.
 
@@ -1779,7 +1781,7 @@ Generic heaters (one may define any number of sections with a "heater_generic" p
 #   parameters.
 ```
 
-## [temperature_sensor]
+### [temperature_sensor]
 
 Generic temperature sensors. One can define any number of additional temperature sensors that are reported via the M105 command.
 
@@ -1796,11 +1798,11 @@ Generic temperature sensors. One can define any number of additional temperature
 #   parameter.
 ```
 
-# Temperature sensors
+## Temperature sensors
 
 Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heated_bed]` section).
 
-## 常见热敏电阻
+### 常见热敏电阻
 
 常见的热敏电阻。在使用这些传感器之一的加热器分段中可以使用以下参数。
 
@@ -1822,7 +1824,7 @@ sensor_pin:
 #   The default is 0 ohms.
 ```
 
-## 常见温度放大器
+### 常见温度放大器
 
 常见温度放大器。在使用这些传感器之一的加热器分段中可以使用以下参数。
 
@@ -1839,7 +1841,7 @@ sensor_pin:
 #   The ADC voltage offset (in Volts). The default is 0.
 ```
 
-## 直接连接的 PT1000 传感器
+### 直接连接的 PT1000 传感器
 
 直接连接到控制板的 PT1000 传感器。以下参数可用于使用这些传感器之一的加热器分段。
 
@@ -1853,7 +1855,7 @@ sensor_pin:
 #   default is 4700 ohms.
 ```
 
-## MAXxxxxx temperature sensors
+### MAXxxxxx temperature sensors
 
 MAXxxxxx serial peripheral interface (SPI) temperature based sensors. The following parameters are available in heater sections that use one of these sensor types.
 
@@ -1887,7 +1889,7 @@ sensor_pin:
 #   name in the above list.
 ```
 
-## BMP280/BME280/BME680 温度传感器
+### BMP280/BME280/BME680 温度传感器
 
 BMP280/BME280/BME680双线接口（I2C）环境传感器。请注意，这些传感器不被设计用于挤出机和热床，而是用于监测环境温度（C）、压力（hPa）和相对湿度，如果是BME680，还可以测量空气质量。参见[sample-macros.cfg](./config/sample-macros.cfg)中的 gcode_macro，它可以用来报告温度、压力和湿度。
 
@@ -1903,7 +1905,7 @@ sensor_type: BME280
 #   above parameters.
 ```
 
-## HTU21D sensor
+### HTU21D sensor
 
 HTU21D family two wire interface (I2C) environmental sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
 
@@ -1933,7 +1935,7 @@ sensor_type:
 #   Interval in seconds between readings. Default is 30
 ```
 
-## LM75 temperature sensor
+### LM75 temperature sensor
 
 LM75/LM75A two wire (I2C) connected temperature sensors. These sensors have range up to 125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers.
 
@@ -1953,7 +1955,7 @@ sensor_type: lm75
 #   0.5.
 ```
 
-## 微控制器的内置温度传感器
+### 微控制器的内置温度传感器
 
 The atsam, atsamd, and stm32 micro-controllers contain an internal temperature sensor. One can use the "temperature_mcu" sensor to monitor these temperatures.
 
@@ -1985,7 +1987,7 @@ sensor_type: temperature_mcu
 #   micro-controller specification.
 ```
 
-## Host temperature sensor
+### Host temperature sensor
 
 Temperature from the machine (eg Raspberry Pi) running the host software.
 
@@ -1997,7 +1999,7 @@ sensor_type: temperature_host
 #   system file on a Raspberry Pi computer.
 ```
 
-## DS18B20 温度传感器
+### DS18B20 温度传感器
 
 DS18B20 is a 1-wire (w1) digital temperature sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C). These sensors have range up to 125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers. DS18B20 sensors are only supported on the "host mcu", e.g. the Raspberry Pi. The w1-gpio Linux kernel module must be installed.
 
@@ -2014,9 +2016,9 @@ serial_no:
 #   The micro-controller to read from. Must be the host_mcu
 ```
 
-# Fans
+## 风扇
 
-## [fan]
+### [fan]
 
 Print cooling fan.
 
@@ -2081,7 +2083,7 @@ pin:
 #   maximum speed (in RPM) of the fan.
 ```
 
-## [heater_fan]
+### [heater_fan]
 
 Heater cooling fans (one may define any number of sections with a "heater_fan" prefix). A "heater fan" is a fan that will be enabled whenever its associated heater is active. By default, a heater_fan has a shutdown_speed equal to max_power.
 
@@ -2112,9 +2114,9 @@ Heater cooling fans (one may define any number of sections with a "heater_fan" p
 #   is 1.0
 ```
 
-## [controller_fan]
+### [controller_fan]
 
-控制器冷却风扇（可以定义带有"controller_fan"前缀的任何部分的任意数量）。"控制器风扇"是一个只要其相关加热器或任何配置的步进驱动处于活动状态就会启用的风扇。每当达到 idle_timeout时，风扇都会停止，以确保停止监视组件后不会出现过热。
+Controller cooling fan (one may define any number of sections with a "controller_fan" prefix). A "controller fan" is a fan that will be enabled whenever its associated heater or its associated stepper driver is active. The fan will stop whenever an idle_timeout is reached to ensure no overheating will occur after deactivating a watched component.
 
 ```
 [controller_fan my_controller_fan]
@@ -2128,26 +2130,29 @@ Heater cooling fans (one may define any number of sections with a "heater_fan" p
 #tachometer_pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
-#   见 "风扇 "章节对上述参数的描述
+#   See the "fan" section for a description of the above parameters.
 #fan_speed: 1.0
-#   当一个加热器或步进电机工作时的风扇速度（用0.0到
-#   1.0的数值表示）。
-#   默认为 1.0。
+#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
+#   will be set to when a heater or stepper driver is active.
+#   The default is 1.0
 #idle_timeout:
-#   在一个加热器或步进电机停止工作后风扇继续运行的时间（以
-#   秒为单位）。
-#   默认为30秒。
+#   The amount of time (in seconds) after a stepper driver or heater
+#   was active and the fan should be kept running. The default
+#   is 30 seconds.
 #idle_speed:
-#   在一个加热器或步进电机停止工作后，idle_timeout 未结束时
-#   的风扇速度（用0.0到1.0的数值表示）。
-#  默认为 fan_speed。
+#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
+#   will be set to when a heater or stepper driver was active and
+#   before the idle_timeout is reached. The default is fan_speed.
 #heater:
-#   这个风扇关联的加热器分段名称。如果提供了一个逗号分隔的
-#   加热器列表，风扇会在任何列表中加热器启用时启动。
-#   默认为 “extruder”（挤出机）。
+#stepper:
+#   Name of the config section defining the heater/stepper that this fan
+#   is associated with. If a comma separated list of heater/stepper names
+#   is provided here, then the fan will be enabled when any of the given
+#   heaters/steppers are enabled. The default heater is "extruder", the
+#   default stepper is all of them.
 ```
 
-## [temperature_fan]
+### [temperature_fan]
 
 Temperature-triggered cooling fans (one may define any number of sections with a "temperature_fan" prefix). A "temperature fan" is a fan that will be enabled whenever its associated sensor is above a set temperature. By default, a temperature_fan has a shutdown_speed equal to max_power.
 
@@ -2193,7 +2198,7 @@ See the [command reference](G-Codes.md#temperature-fan-commands) for additional 
 #   given id. The default is to not report the temperature via M105.
 ```
 
-## [fan_generic]
+### [fan_generic]
 
 Manually controlled fan (one may define any number of sections with a "fan_generic" prefix). The speed of a manually controlled fan is set with the SET_FAN_SPEED [gcode command](G-Codes.md#manually-controlled-fans-commands).
 
@@ -2209,12 +2214,12 @@ Manually controlled fan (one may define any number of sections with a "fan_gener
 #tachometer_pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
-#   See the "fan" section for a description of the above parameters.
+#   以上参数介绍请见“fan”（风扇）章节。
 ```
 
-# 额外的舵机，LED，按键，和其他引脚。
+## 额外的舵机，LED，按键，和其他引脚。
 
-## [servo]
+### [servo]
 
 Servos (one may define any number of sections with a "servo" prefix). The servos may be controlled using the SET_SERVO [g-code command](G-Codes.md#servo-commands). For example: SET_SERVO SERVO=my_servo ANGLE=180
 
@@ -2242,7 +2247,7 @@ pin:
 #   send any signal at startup.
 ```
 
-## [neopixel]
+### [neopixel]
 
 Neopixel (aka WS2812) LED support (one may define any number of sections with a "neopixel" prefix). One may set the LED color via "SET_LED LED=my_neopixel RED=0.1 GREEN=0.1 BLUE=0.1" type extended [g-code commands](G-Codes.md#neopixel-and-dotstar-commands).
 
@@ -2267,7 +2272,7 @@ pin:
 #   LEDs. The default for each color is 0.
 ```
 
-## [dotstar]
+### [dotstar]
 
 支持Dotstar（又称APA102）LED（可以定义任何数量的带有 "dotstar "前缀的分段）。通过 "SET_LED LED=my_dotstar RED=0.1 GREEN=0.1 BLUE=0.1 "类型的扩展[G代码命令]（G-Code.md#neopixel-and-dotstar-commands）可以设置LED颜色。
 
@@ -2284,7 +2289,7 @@ clock_pin:
 #   有关这些参数的信息，请参见 "Neopixel " 章节。
 ```
 
-## [PCA9533]
+### [PCA9533]
 
 PCA9533 LED support. The PCA9533 is used on the mightyboard.
 
@@ -2308,7 +2313,7 @@ PCA9533 LED support. The PCA9533 is used on the mightyboard.
 #   set_led led=my_pca9533 red=1 green=1 blue=1
 ```
 
-## [gcode_button]
+### [gcode_button]
 
 Execute gcode when a button is pressed or released (or when a pin changes state). You can check the state of the button by using `QUERY_BUTTON button=my_gcode_button`.
 
@@ -2334,7 +2339,7 @@ pin:
 #   commands on a button release.
 ```
 
-## [output_pin]
+### [output_pin]
 
 Run-time configurable output pins (one may define any number of sections with an "output_pin" prefix). Pins configured here will be setup as output pins and one may modify them at run-time using "SET_PIN PIN=my_pin VALUE=.1" type extended [g-code commands](G-Codes.md#custom-pin-commands).
 
@@ -2387,7 +2392,7 @@ pin:
 #   parameter.
 ```
 
-## [static_digital_output]
+### [static_digital_output]
 
 Statically configured digital output pins (one may define any number of sections with a "static_digital_output" prefix). Pins configured here will be setup as a GPIO output during MCU configuration. They can not be changed at run-time.
 
@@ -2399,7 +2404,7 @@ pins:
 #   with "!". This parameter must be provided.
 ```
 
-## [multi_pin]
+### [multi_pin]
 
 Multiple pin outputs (one may define any number of sections with a "multi_pin" prefix). A multi_pin output creates an internal pin alias that can modify multiple output pins each time the alias pin is set. For example, one could define a "[multi_pin my_fan]" object containing two pins and then set "pin=multi_pin:my_fan" in the "[fan]" section - on each fan change both output pins would be updated. These aliases may not be used with stepper motor pins.
 
@@ -2410,11 +2415,11 @@ pins:
 #   parameter must be provided.
 ```
 
-# TMC stepper driver configuration
+## TMC stepper driver configuration
 
 配置在 UART/SPI 模式下的 Trinamic 步进电机驱动器。其他信息在[TMC驱动指南](TMC_Drivers.md)和[命令参考](G-Code.md#tmc-stepper-drivers)中。
 
-## [tmc2130]
+### [tmc2130]
 
 通过 SPI 总线配置 TMC2130 步进电机驱动。要使用此功能，请定义一个带有“tmc2130”前缀并后跟步进驱动配置分段相应名称的配置分段（例如，“[tmc2130 stepper_x]”）。
 
@@ -2482,7 +2487,7 @@ run_current:
 #   sensorless homing.
 ```
 
-## [tmc2208]
+### [tmc2208]
 
 通过单线 UART 配置 TMC2208（或 TMC2224）步进电机驱动。要使用此功能，请定义一个带有 “tmc2208” 前缀并后跟步进驱动配置分段相应名称的配置分段（例如，“[tmc2208 stepper_x]”）。
 
@@ -2537,7 +2542,7 @@ run_current:
 #   above list.
 ```
 
-## [tmc2209]
+### [tmc2209]
 
 通过单线 UART 配置 TMC2209 步进电机驱动。要使用此功能，请定义一个带有 “tmc2209” 前缀并后跟步进驱动配置分段相应名称的配置分段（例如，“[tmc2209 stepper_x]”）。
 
@@ -2584,20 +2589,19 @@ run_current:
 #   sensorless homing.
 ```
 
-## [tmc2660]
+### [tmc2660]
 
 通过 SPI 总线配置 TMC2660 步进电机驱动。要使用此功能，请定义一个带有 “tmc 2660” 前缀并后跟步进驱动配置分段相应名称的配置分段（例如，“[tmc2660 stepper_x]”）。
 
 ```
 [tmc2660 stepper_x]
 cs_pin:
-#   The pin corresponding to the TMC2660 chip select line. This pin
-#   will be set to low at the start of SPI messages and set to high
-#   after the message transfer completes. This parameter must be
-#   provided.
+#   对应 TMC2660 芯片选择线路的引脚。这个引脚将在 SPI 
+#   信息开始传输时拉低，并在消息传输完成后拉高。
+#   必须提供此参数。
 #spi_speed: 4000000
-#   SPI bus frequency used to communicate with the TMC2660 stepper
-#   driver. The default is 4000000.
+#   SPI 总线与 TMC2660 步进驱动的通信速率。
+#   默认为4000000。
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
@@ -2651,7 +2655,7 @@ run_current:
 #   HDEC) is interpreted as the MSB of HSTRT in this case).
 ```
 
-## [tmc5160]
+### [tmc5160]
 
 通过 SPI 总线配置 TMC5160 步进电机驱动。要使用此功能，请定义一个带有 “tmc5160” 前缀并后跟步进驱动配置分段相应名称的配置分段（例如，“[tmc5160 stepper_x]”）。
 
@@ -2737,9 +2741,9 @@ run_current:
 #   sensorless homing.
 ```
 
-# Run-time stepper motor current configuration
+## Run-time stepper motor current configuration
 
-## [ad5206]
+### [ad5206]
 
 Statically configured AD5206 digipots connected via SPI bus (one may define any number of sections with an "ad5206" prefix).
 
@@ -2773,7 +2777,7 @@ enable_pin:
 #   数进行缩放。
 ```
 
-## [mcp4451]
+### [mcp4451]
 
 Statically configured MCP4451 digipot connected via I2C bus (one may define any number of sections with an "mcp4451" prefix).
 
@@ -2807,7 +2811,7 @@ i2c_address:
 #   to not scale the 'wiper_x' parameters.
 ```
 
-## [mcp4728]
+### [mcp4728]
 
 Statically configured MCP4728 digital-to-analog converter connected via I2C bus (one may define any number of sections with an "mcp4728" prefix).
 
@@ -2842,7 +2846,7 @@ Statically configured MCP4728 digital-to-analog converter connected via I2C bus 
 #   stepper. The default is to not scale the 'channel_x' parameters.
 ```
 
-## [mcp4018]
+### [mcp4018]
 
 Statically configured MCP4018 digipot connected via two gpio "bit banging" pins (one may define any number of sections with an "mcp4018" prefix).
 
@@ -2869,9 +2873,9 @@ wiper:
 #   scale the 'wiper' parameter.
 ```
 
-# 显示器支持
+## 显示器支持
 
-## [display]
+### [display]
 
 Support for a display attached to the micro-controller.
 
@@ -3118,18 +3122,17 @@ Support for displaying custom data on an lcd screen. One may create any number o
 ```
 [display_data my_group_name my_data_name]
 position:
-#   Comma separated row and column of the display position that should
-#   be used to display the information. This parameter must be
-#   provided.
+#   用于显示信息的屏幕位置，由逗号分隔行与列表示。
+#   这个参数必须被提供。
 text:
-#   The text to show at the given position. This field is evaluated
-#   using command templates (see docs/Command_Templates.md). This
-#   parameter must be provided.
+#   在指定位置显示的文本。本字段必须用命令样板进行评估。
+#   （查看 docs/Command_Templates.md）。
+#   这个参数必须被提供。
 ```
 
 ## [display_template]
 
-Display data text "macros" (one may define any number of sections with a display_template prefix). This feature allows one to reduce repetitive definitions in display_data sections. One may use the builtin render() function in display_data sections to evaluate a template. For example, if one were to define `[display_template my_template]` then one could use `{ render('my_template') }` in a display_data section.
+显示数据文本“宏”（可以使用 display_template 前缀定义任意数量的部分）。此功能可以帮助减少 display_data 部分中重复的定义。可以使用 display_data 部分中的内置 render() 函数来预览模板。例如，如果要定义 `[display_template my_template]` 则可以在 display_data 部分使用 `{ render('my_template') }` 。
 
 ```
 [display_template my_template_name]
@@ -3150,7 +3153,7 @@ Display data text "macros" (one may define any number of sections with a display
 
 ## [display_glyph]
 
-Display a custom glyph on displays that support it. The given name will be assigned the given display data which can then be referenced in the display templates by their name surrounded by two "tilde" symbols i.e. `~my_display_glyph~`
+在支持自定义字形的显示器上显示一个自定义字形。给定的名称将被分配给给定的显示数据，然后可以在显示模板中通过用“波浪形（～）”符号包围的名称来引用，即 `~my_display_glyph~` 。
 
 See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples.
 
@@ -3254,9 +3257,9 @@ See the [command template document](Command_Templates.md#menu-templates) for inf
 #   被视为模板。点击按钮会进入或退出修改模式。
 ```
 
-# Filament sensors
+## Filament sensors
 
-## [filament_switch_sensor]
+### [filament_switch_sensor]
 
 Filament Switch Sensor. Support for filament insert and runout detection using a switch sensor, such as an endstop switch.
 
@@ -3293,7 +3296,7 @@ See the [command reference](G-Codes.md#filament-sensor) for more information.
 #   provided.
 ```
 
-## [filament_motion_sensor]
+### [filament_motion_sensor]
 
 Filament Motion Sensor. Support for filament insert and runout detection using an encoder that toggles the output pin during filament movement through the sensor.
 
@@ -3318,7 +3321,7 @@ switch_pin:
 #   above parameters.
 ```
 
-## [tsl1401cl_filament_width_sensor]
+### [tsl1401cl_filament_width_sensor]
 
 TSLl401CL Based Filament Width Sensor. See the [guide](TSL1401CL_Filament_Width_Sensor.md) for more information.
 
@@ -3332,7 +3335,7 @@ TSLl401CL Based Filament Width Sensor. See the [guide](TSL1401CL_Filament_Width_
 #measurement_delay: 100
 ```
 
-## [hall_filament_width_sensor]
+### [hall_filament_width_sensor]
 
 Hall filament width sensor (see [Hall Filament Width Sensor](HallFilamentWidthSensor.md)).
 
@@ -3387,9 +3390,9 @@ adc2:
 #   above parameters.
 ```
 
-# 控制板特定硬件支持
+## 控制板特定硬件支持
 
-## [sx1509]
+### [sx1509]
 
 将一个 SX1509 I2C 配置为 GPIO 扩展器。由于 I2C 通信本身的延迟，不应将 SX1509 引脚用作步进电机的 enable （启用)、step（步进）或 dir （方向）引脚或任何其他需要快速 bit-banging（位拆裂）的引脚。它们最适合用作静态或G代码控制的数字输出或硬件 pwm 引脚，例如风扇。可以使用“sx1509”前缀定义任意数量的分段。每个扩展器提供可用于打印机配置的一组 16 个引脚（sx1509_my_sx1509:PIN_0 到 sx1509_my_sx1509:PIN_15）。
 
@@ -3412,7 +3415,7 @@ i2c_address:
 #   default is to use the default micro-controller i2c bus.
 ```
 
-## [samd_sercom]
+### [samd_sercom]
 
 SAMD SERCOM configuration to specify which pins to use on a given SERCOM. One may define any number of sections with a "samd_sercom" prefix. Each SERCOM must be configured prior to using it as SPI or I2C peripheral. Place this config section above any other section that makes use of SPI or I2C buses.
 
@@ -3437,7 +3440,7 @@ clk_pin:
 #   for the given SERCOM peripheral. This parameter must be provided.
 ```
 
-## [adc_scaled]
+### [adc_scaled]
 
 Duet2 Maestro analog scaling by vref and vssa readings. Defining an adc_scaled section enables virtual adc pins (such as "my_name:PB0") that are automatically adjusted by the board's vref and vssa monitoring pins. Be sure to define this config section above any config sections that use one these virtual pins.
 
@@ -3454,7 +3457,7 @@ vssa_pin:
 #   VSSA 测量来减少测量的干扰。默认为2秒。
 ```
 
-## [replicape]
+### [replicape]
 
 Replicape support - see the [beaglebone guide](beaglebone.md) and the [generic-replicape.cfg](../config/generic-replicape.cfg) file for an example.
 
@@ -3518,9 +3521,9 @@ host_mcu:
 #   (True sets CFG5 high, False sets it low). The default is True.
 ```
 
-# Other Custom Modules
+## Other Custom Modules
 
-## [palette2]
+### [palette2]
 
 Palette 2 multimaterial support - provides a tighter integration supporting Palette 2 devices in connected mode.
 
@@ -3546,9 +3549,9 @@ serial:
 #   Auto cancel print when ping varation is above this threshold
 ```
 
-# 通用总线参数
+## 通用总线参数
 
-## 常见 SPI 设置
+### 常见 SPI 设置
 
 The following parameters are generally available for devices using an SPI bus.
 
@@ -3569,7 +3572,7 @@ The following parameters are generally available for devices using an SPI bus.
 #   "software spi".
 ```
 
-## 通用 I2C 设置
+### 通用 I2C 设置
 
 The following parameters are generally available for devices using an I2C bus.
 

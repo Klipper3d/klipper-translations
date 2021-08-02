@@ -1,3 +1,5 @@
+# Features
+
 Klipper has several compelling features:
 
 * High precision stepper movement. Klipper utilizes an application processor (such as a low-cost Raspberry Pi) when calculating printer movements. The application processor determines when to step each stepper motor, it compresses those events, transmits them to the micro-controller, and then the micro-controller executes each event at the requested time. Each stepper event is scheduled with a precision of 25 micro-seconds or better. The software does not use kinematic estimations (such as the Bresenham algorithm) - instead it calculates precise step times based on the physics of acceleration and the physics of the machine kinematics. More precise stepper movement translates to quieter and more stable printer operation.
@@ -12,7 +14,7 @@ Klipper has several compelling features:
 * Custom programmable macros. New G-Code commands can be defined in the printer config file (no code changes are necessary). Those commands are programmable - allowing them to produce different actions depending on the state of the printer.
 * Builtin API server. In addition to the standard G-Code interface, Klipper supports a rich JSON based application interface. This enables programmers to build external applications with detailed control of the printer.
 
-# Additional features
+## Additional features
 
 Klipper supports many standard 3d printer features:
 
@@ -35,7 +37,7 @@ Klipper supports many standard 3d printer features:
 
 To get started with Klipper, read the [installation](Installation.md) guide.
 
-# Step Benchmarks
+## Step Benchmarks
 
 Below are the results of stepper performance tests. The numbers shown represent total number of steps per second on the micro-controller.
 

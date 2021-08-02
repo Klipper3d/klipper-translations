@@ -1,6 +1,8 @@
+# Benchmarks
+
 This document describes Klipper benchmarks.
 
-# Micro-controller Benchmarks
+## Micro-controller Benchmarks
 
 This section describes the mechanism used to generate the Klipper micro-controller step rate benchmarks.
 
@@ -10,7 +12,7 @@ The step rate benchmark is designed to find the maximum stepping rate that the h
 
 In general, the pins for the benchmark tests are chosen to flash LEDs or other innocuous pins. **Always verify that it is safe to drive the configured pins prior to running a benchmark.** It is not recommended to drive an actual stepper during a benchmark.
 
-## Step rate benchmark test
+### Step rate benchmark test
 
 The test is performed using the console.py tool (described in [Debugging.md]). The micro-controller is configured for the particular hardware platform (see below) and then the following is cut-and-paste into the console.py terminal window:
 
@@ -395,7 +397,7 @@ Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If runn
 | stm32f446 (USB) | 870K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | rp2040 (USB) | 873K | c5667193 | arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0 |
 
-# Host Benchmarks
+## Host Benchmarks
 
 It is possible to run timing tests on the host software using the "batch mode" processing mechanism (described in [Debugging.md]). This is typically done by choosing a large and complex G-Code file and timing how long it takes for the host software to process it. For example:
 

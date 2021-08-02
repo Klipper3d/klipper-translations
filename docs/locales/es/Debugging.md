@@ -1,6 +1,8 @@
+# Debugging
+
 Este documento describe algunas de las herramientas de depuración de Klipper.
 
-# Convertir archivos gcode en órdenes de microcontrolador
+## Convertir archivos gcode en órdenes de microcontrolador
 
 El código anfitrión de Klippy puede ejecutarse en modo por lotes para producir las órdenes de microcontrolador de bajo nivel asociadas con un archivo gcode. Resulta útil inspeccionar estas órdenes de bajo nivel para entender las acciones del hárdwer de bajo nivel. También puede ser provechoso para comparar la diferencia en las órdenes de microcontrolador tras efectuar una modificación en el código.
 
@@ -27,7 +29,7 @@ El archivo resultante, **test.txt**, contiene una lista legible por humanos de �
 
 El modo por lotes desactiva determinadas órdenes de respuesta/petición para poder funcionar. Por consiguiente, habrá algunas diferencias entre las órdenes reales y la salida anterior. Los datos generados son útiles para efectuar pruebas e inspecciones; no lo son para su envío a un microcontrolador real.
 
-# Puesta a prueba con simulavr
+## Puesta a prueba con simulavr
 
 La herramienta [simulavr](http://www.nongnu.org/simulavr/) le permite simular un microcontrolador ATmega de Atmel. Esta sección describe el procedimiento para ejecutar archivos gcode de prueba a través de simulavr. Es recomendable ejecutar esto en un PC de escritorio de categoría (no un Raspberry Pi), puesto que necesitará cuantiosos recursos de CPU para funcionar eficientemente.
 
@@ -62,7 +64,7 @@ Acto seguido, teniendo simulavr en ejecución en otra ventana, es posible ejecut
 ~/klippy-env/bin/python ./klippy/klippy.py config/generic-simulavr.cfg -i test.gcode -v
 ```
 
-## Utilizar simulavr con gtkwave
+### Utilizar simulavr con gtkwave
 
 Una prestación útil de simulavr es su capacidad de crear archivos de generación de ondas de señal con la cadencia exacta de los sucesos. Para hacerlo, siga las instrucciones anteriores, pero ejecute avrsim.py con una línea de órdenes como esta:
 
@@ -76,7 +78,7 @@ The above would create a file **avrsim.vcd** with information on each change to 
 gtkwave avrsim.vcd
 ```
 
-# Enviar órdenes al microcontrolador manualmente
+## Enviar órdenes al microcontrolador manualmente
 
 Normally, the host klippy.py process would be used to translate gcode commands to Klipper micro-controller commands. However, it's also possible to manually send these MCU commands (functions marked with the DECL_COMMAND() macro in the Klipper source code). To do so, run:
 
@@ -88,7 +90,7 @@ Vea la orden «HELP» de la herramienta para obtener información sobre sus func
 
 Tiene a su disposición algunas opciones de línea de órdenes. Para obtener más información al respecto, ejecute: `~/klippy-env/bin/python ./klippy/console.py --help`
 
-# Generar gráficos de carga
+## Generar gráficos de carga
 
 El archivo de registro de Klippy (/tmp/klippy.log) almacena estadísticas sobre anchura de banda, carga sobre el microcontrolador y carga sobre el búfer del anfitrión. Puede resultar útil graficar estas estadísticas luego de mostrarlas.
 
@@ -109,7 +111,7 @@ Tras lo anterior, será posible visualizar el archivo resultante, **loadgraph.pn
 
 Es posible producir diferentes gráficos. Para más información, ejecute: `~/klipper/scripts/graphstats.py --help`
 
-# Extraer información desde el archivo klippy.log
+## Extraer información desde el archivo klippy.log
 
 El archivo de registro de Klippy (/tmp/klippy.log) contiene además información para la depuración. Hay una secuencia de órdenes, logextract.py, que puede resultar útil al momento de analizar problemas de apagado del microcontrolador o similares. Normalmente se ejecuta con algo como:
 
@@ -122,7 +124,7 @@ cp /tmp/klippy.log .
 
 La secuencia de órdenes extraerá el archivo de configuración de la impresora y los datos de apagado de MCU. Los volcados de información de un apagado de MCU (si existen) se reordenarán por fecha y hora para ayudar a diagnosticar escenarios de causa y efecto.
 
-# Ejecutar las pruebas antirregresiones
+## Ejecutar las pruebas antirregresiones
 
 El repositorio principal de Klipper en GitHub utiliza «acciones de GitHub» para ejecutar una serie de pruebas antirregresiones. Puede ser provechoso ejecutar algunas de estas pruebas de manera local.
 

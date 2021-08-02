@@ -1,8 +1,10 @@
+# Installation
+
 Bu talimatlar, yazılımın OctoPrint ile birlikte bir Raspberry Pi bilgisayarında çalışacağını varsayar. Ana makine olarak bir Raspberry Pi 2, 3 veya 4 bilgisayarın kullanılması önerilir (bkz. [SSS](FAQ.md # can-i-run-klipper-on-something-other-a-ahududu -pi-3) diğer makineler için).
 
 Klipper şu anda bir dizi Atmel ATmega tabanlı mikro denetleyiciyi, [ARM tabanlı mikro denetleyicileri](Features.md # step-benchmarklar) ve [Beaglebone PRU] (beaglebone.md) tabanlı yazıcıları desteklemektedir.
 
-# Bir işletim sistemi görüntüsünü hazırlama
+## Bir işletim sistemi görüntüsünü hazırlama
 
 Raspberry Pi bilgisayarına [OctoPi](https://github.com/guysoft/OctoPi) kurarak başlayın. OctoPi v0.17.0 veya sonraki bir sürümünü kullanın - sürüm bilgileri için [octopi sürümlerine] (https://github.com/guysoft/OctoPi/releases) bakın. OctoPi'nin önyüklediği ve OctoPrint web sunucusunun çalıştığı doğrulanmalıdır. OctoPrint web sayfasına bağlandıktan sonra, OctoPrint'i v1.4.2 veya sonraki bir sürüme yükseltmek için istemleri izleyin.
 
@@ -15,7 +17,7 @@ git clone https://github.com/KevinOConnor/klipper
 
 The above will download Klipper, install some system dependencies, setup Klipper to run at system startup, and start the Klipper host software. It will require an internet connection and it may take a few minutes to complete.
 
-# Building and flashing the micro-controller
+## Building and flashing the micro-controller
 
 To compile the micro-controller code, start by running these commands on the Raspberry Pi:
 
@@ -56,7 +58,7 @@ Be sure to update the FLASH_DEVICE with the printer's unique serial port name.
 
 When flashing for the first time, make sure that OctoPrint is not connected directly to the printer (from the OctoPrint web page, under the "Connection" section, click "Disconnect").
 
-# Configuring OctoPrint to use Klipper
+## Configuring OctoPrint to use Klipper
 
 The OctoPrint web server needs to be configured to communicate with the Klipper host software. Using a web browser, login to the OctoPrint web page and then configure the following items:
 
@@ -70,7 +72,7 @@ From the main page, under the "Connection" section (at the top left of the page)
 
 Once connected, navigate to the "Terminal" tab and type "status" (without the quotes) into the command entry box and click "Send". The terminal window will likely report there is an error opening the config file - that means OctoPrint is successfully communicating with Klipper. Proceed to the next section.
 
-# Configuring Klipper
+## Configuring Klipper
 
 The Klipper configuration is stored in a text file on the Raspberry Pi. Take a look at the example config files in the [config directory](../config/). The [config reference](Config_Reference.md) contains documentation on config parameters.
 
@@ -100,6 +102,6 @@ In addition to common g-code commands, Klipper supports a few extended commands 
 
 After Klipper reports that the printer is ready go on to the [config check document](Config_checks.md) to perform some basic checks on the pin definitions in the config file.
 
-# Contacting the developers
+## Contacting the developers
 
 Be sure to see the [FAQ](FAQ.md) for answers to some common questions. See the [contact page](Contact.md) to report a bug or to contact the developers.

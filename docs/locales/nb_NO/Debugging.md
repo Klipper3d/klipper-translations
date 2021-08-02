@@ -1,6 +1,8 @@
+# Debugging
+
 This document describes some of the Klipper debugging tools.
 
-# Translating gcode files to micro-controller commands
+## Translating gcode files to micro-controller commands
 
 The Klippy host code can run in a batch mode to produce the low-level micro-controller commands associated with a gcode file. Inspecting these low-level commands is useful when trying to understand the actions of the low-level hardware. It can also be useful to compare the difference in micro-controller commands after a code change.
 
@@ -27,7 +29,7 @@ The resulting file **test.txt** contains a human readable list of micro-controll
 
 The batch mode disables certain response / request commands in order to function. As a result, there will be some differences between actual commands and the above output. The generated data is useful for testing and inspection; it is not useful for sending to a real micro-controller.
 
-# Testing with simulavr
+## Testing with simulavr
 
 The [simulavr](http://www.nongnu.org/simulavr/) tool enables one to simulate an Atmel ATmega micro-controller. This section describes how one can run test gcode files through simulavr. It is recommended to run this on a desktop class machine (not a Raspberry Pi) as it does require significant cpu to run efficiently.
 
@@ -62,7 +64,7 @@ Then, with simulavr running in another window, one can run the following to read
 ~/klippy-env/bin/python ./klippy/klippy.py config/generic-simulavr.cfg -i test.gcode -v
 ```
 
-## Using simulavr with gtkwave
+### Using simulavr with gtkwave
 
 One useful feature of simulavr is its ability to create signal wave generation files with the exact timing of events. To do this, follow the directions above, but run avrsim.py with a command-line like the following:
 
@@ -76,7 +78,7 @@ The above would create a file **avrsim.vcd** with information on each change to 
 gtkwave avrsim.vcd
 ```
 
-# Manually sending commands to the micro-controller
+## Manually sending commands to the micro-controller
 
 Normally, the host klippy.py process would be used to translate gcode commands to Klipper micro-controller commands. However, it's also possible to manually send these MCU commands (functions marked with the DECL_COMMAND() macro in the Klipper source code). To do so, run:
 
@@ -88,7 +90,7 @@ See the "HELP" command within the tool for more information on its functionality
 
 Some command-line options are available. For more information run: `~/klippy-env/bin/python ./klippy/console.py --help`
 
-# Generating load graphs
+## Generating load graphs
 
 The Klippy log file (/tmp/klippy.log) stores statistics on bandwidth, micro-controller load, and host buffer load. It can be useful to graph these statistics after a print.
 
@@ -109,7 +111,7 @@ One can then view the resulting **loadgraph.png** file.
 
 Different graphs can be produced. For more information run: `~/klipper/scripts/graphstats.py --help`
 
-# Extracting information from the klippy.log file
+## Extracting information from the klippy.log file
 
 The Klippy log file (/tmp/klippy.log) also contains debugging information. There is a logextract.py script that may be useful when analyzing a micro-controller shutdown or similar problem. It is typically run with something like:
 
@@ -122,7 +124,7 @@ cp /tmp/klippy.log .
 
 The script will extract the printer config file and will extract MCU shutdown information. The information dumps from an MCU shutdown (if present) will be reordered by timestamp to assist in diagnosing cause and effect scenarios.
 
-# Running the regression tests
+## Running the regression tests
 
 The main Klipper GitHub repository uses "github actions" to run a series of regression tests. It can be useful to run some of these tests locally.
 

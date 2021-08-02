@@ -1,8 +1,10 @@
+# Installation
+
 本教程假定软件将会在树莓派上和 Octoprint 一起运行。推荐使用树莓派2/3/4作为主机（关于其他设备，请见[常见问题](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)）。
 
 Klipper目前支持数种基于Atmel ATmega的微控制器、[基于ARM的微控制器](Features.md#step-benchmarks)、和[Beaglebone可编程实时单元](beaglebone.md)的打印机。
 
-# 准备操作系统镜像
+## 准备操作系统镜像
 
 先在树莓派上安装 [OctoPi](https://github.com/guysoft/OctoPi)。使用OctoPi v0.17.0或更高版本，查看 [Octopi 发行版](https://github.com/guysoft/OctoPi/releases)来获取最新的发布版。安装完系统后，请先验证 OctoPi 能正常启动，并且 OctoPrint 网络服务器正常运行。连接到 OctoPrint 网页后，按照提示将 OctoPrint 更新到v1.4.2或更高版本。
 
@@ -15,7 +17,7 @@ git clone https://github.com/KevinOConnor/klipper
 
 以上将会下载 Klipper 、安装一些系统依赖、设置 Klipper 在系统启动时运行并启动Klipper 主机程序。这将需要互联网连接以及可能需要几分钟时间才能完成。
 
-# 构建和刷写微控制器
+## 构建和刷写微控制器
 
 在编译微控制器代码之前，首先在树莓派上运行这些命令：
 
@@ -56,7 +58,7 @@ sudo service klipper start
 
 第一次刷写时要确保 OctoPrint 没有直接连接到打印机（在 OctoPrint 网页的 "连接 "分段中点击 "断开连接"）。
 
-# 为Klipper配置 OctoPrint
+## 为Klipper配置 OctoPrint
 
 OctoPrint网络服务器需要进行配置，以便与Klipper host 软件进行通信。使用网络浏览器，登录到OctoPrint网页，然后配置以下项目：
 
@@ -70,7 +72,7 @@ OctoPrint网络服务器需要进行配置，以便与Klipper host 软件进行�
 
 连接后，导航到 "终端 "选项卡，在命令输入框中输入 "status"（不带引号），然后点击 "发送"。终端窗口可能会报告在打开配置文件时出现了错误--这意味着 OctoPrint 与 Klipper 成功地进行了通信。继续下一部分。
 
-# 配置 Klipper
+## 配置 Klipper
 
 Klipper configuration 存储在Raspberry Pi上的一个文本文件中。看一下[config directory](../config/)。[config reference](Config_Reference.md)包含了config parameters.
 
@@ -100,6 +102,6 @@ Klipper通过OctoPrint终端标签报告错误信息。可以使用 "status "命
 
 在Klipper反馈打印机已经准备好后，进入[config check document](Config_checks.md)对配置文件中的引脚定义进行一些基本检查。
 
-# 联系开发者
+## 联系开发者
 
 请务必查看[FAQ](FAQ.md)，了解一些常见问题的答案。请参阅[联系页面](Contact.md)来报告一个错误或联系开发者。

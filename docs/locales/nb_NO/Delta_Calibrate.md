@@ -1,10 +1,12 @@
+# Delta calibration
+
 This document describes Klipper's automatic calibration system for "delta" style printers.
 
 Delta calibration involves finding the tower endstop positions, tower angles, delta radius, and delta arm lengths. These settings control printer motion on a delta printer. Each one of these parameters has a non-obvious and non-linear impact and it is difficult to calibrate them manually. In contrast, the software calibration code can provide excellent results with just a few minutes of time. No special probing hardware is necessary.
 
 Ultimately, the delta calibration is dependent on the precision of the tower endstop switches. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of those switches.
 
-# Automatic vs manual probing
+## Automatic vs manual probing
 
 Klipper supports calibrating the delta parameters via a manual probing method or via an automatic Z probe.
 
@@ -12,7 +14,7 @@ A number of delta printer kits come with automatic Z probes that are not suffici
 
 If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that performing delta calibration will invalidate the results of probe calibration. These types of probes are rarely suitable for use on a delta (because minor effector tilt will result in a probe location bias). If using the probe anyway, then be sure to rerun probe calibration after any delta calibration.
 
-# Basic delta calibration
+## Basic delta calibration
 
 Klipper has a DELTA_CALIBRATE command that can perform basic delta calibration. This command probes seven different points on the bed and calculates new values for the tower angles, tower endstops, and delta radius.
 
@@ -37,7 +39,7 @@ SAVE_CONFIG
 
 The basic calibration should provide delta parameters that are accurate enough for basic printing. If this is a new printer, this is a good time to print some basic objects and verify general functionality.
 
-# Enhanced delta calibration
+## Enhanced delta calibration
 
 The basic delta calibration generally does a good job of calculating delta parameters such that the nozzle is the correct distance from the bed. However, it does not attempt to calibrate X and Y dimensional accuracy. It's a good idea to perform an enhanced delta calibration to verify dimensional accuracy.
 
@@ -129,12 +131,12 @@ SAVE_CONFIG
 
 The SAVE_CONFIG command will save both the updated delta parameters and information from the distance measurements. Future DELTA_CALIBRATE commands will also utilize this distance information. Do not attempt to reenter the raw distance measurements after running SAVE_CONFIG, as this command changes the printer configuration and the raw measurements no longer apply.
 
-## Additional notes
+### Additional notes
 
 * If the delta printer has good dimensional accuracy then the distance between any two pillars should be around 74mm and the width of every pillar should be around 9mm. (Specifically, the goal is for the distance between any two pillars minus the width of one of the pillars to be exactly 65mm.) Should there be a dimensional inaccuracy in the part then the DELTA_ANALYZE routine will calculate new delta parameters using both the distance measurements and the previous height measurements from the last DELTA_CALIBRATE command.
 * DELTA_ANALYZE may produce delta parameters that are surprising. For example, it may suggest arm lengths that do not match the printer's actual arm lengths. Despite this, testing has shown that DELTA_ANALYZE often produces superior results. It is believed that the calculated delta parameters are able to account for slight errors elsewhere in the hardware. For example, small differences in arm length may result in a tilt to the effector and some of that tilt may be accounted for by adjusting the arm length parameters.
 
-# Using Bed Mesh on a Delta
+## Using Bed Mesh on a Delta
 
 It is possible to use [bed mesh](Bed_Mesh.md) on a delta. However, it is important to obtain good delta calibration prior to enabling a bed mesh. Running bed mesh with poor delta calibration will result in confusing and poor results.
 

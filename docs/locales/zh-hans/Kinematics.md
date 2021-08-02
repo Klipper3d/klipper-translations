@@ -1,6 +1,8 @@
-This document provides an overview of how Klipper implements robot motion (its [kinematics](https://en.wikipedia.org/wiki/Kinematics)). The contents may be of interest to both developers interested in working on the Klipper software as well as users interested in better understanding the mechanics of their machines.
+# Kinematics
 
-# Acceleration
+该文档提供Klipper实现机械[运动学](https://en.wikipedia.org/wiki/Kinematics)控制的概述，以供 致力于完善Klipper的开发者 或 希望对自己的设备的机械原理有进一步了解的爱好者 参考。
+
+## 加速
 
 Klipper implements a constant acceleration scheme whenever the print head changes velocity - the velocity is gradually changed to the new speed instead of suddenly jerking to it. Klipper always enforces acceleration between the tool head and the print. The filament leaving the extruder can be quite fragile - rapid jerks and/or extruder flow changes lead to poor quality and poor bed adhesion. Even when not extruding, if the print head is at the same level as the print then rapid jerking of the head can cause disruption of recently deposited filament. Limiting speed changes of the print head (relative to the print) reduces risks of disrupting the print.
 
@@ -12,7 +14,7 @@ Klipper implements constant acceleration. The key formula for constant accelerat
 velocity(time) = start_velocity + accel*time
 ```
 
-# Trapezoid generator
+## Trapezoid generator
 
 Klipper uses a traditional "trapezoid generator" to model the motion of each move - each move has a start speed, it accelerates to a cruising speed at constant acceleration, it cruises at a constant speed, and then decelerates to the end speed using constant acceleration.
 
@@ -24,7 +26,7 @@ The cruising speed is always greater than or equal to both the start speed and t
 
 ![trapezoids](img/trapezoids.svg.png)
 
-# Look-ahead
+## Look-ahead
 
 The "look-ahead" system is used to determine cornering speeds between moves.
 
@@ -50,7 +52,7 @@ Key formula for look-ahead:
 end_velocity^2 = start_velocity^2 + 2*accel*move_distance
 ```
 
-## Smoothed look-ahead
+### Smoothed look-ahead
 
 Klipper also implements a mechanism for smoothing out the motions of short "zigzag" moves. Consider the following moves:
 
@@ -62,7 +64,7 @@ In the above, the frequent changes from acceleration to deceleration can cause t
 
 Specifically, the code calculates what the velocity of each move would be if it were limited to this virtual "acceleration to deceleration" rate (half the normal acceleration rate by default). In the above picture the dashed gray lines represent this virtual acceleration rate for the first move. If a move can not reach its full cruising speed using this virtual acceleration rate then its top speed is reduced to the maximum speed it could obtain at this virtual acceleration rate. For most moves the limit will be at or above the move's existing limits and no change in behavior is induced. For short zigzag moves, however, this limit reduces the top speed. Note that it does not change the actual acceleration within the move - the move continues to use the normal acceleration scheme up to its adjusted top-speed.
 
-# Generating steps
+## Generating steps
 
 Once the look-ahead process completes, the print head movement for the given move is fully known (time, start position, end position, velocity at each point) and it is possible to generate the step times for the move. This process is done within "kinematic classes" in the Klipper code. Outside of these kinematic classes, everything is tracked in millimeters, seconds, and in cartesian coordinate space. It's the task of the kinematic classes to convert from this generic coordinate system to the hardware specifics of the particular printer.
 
@@ -88,7 +90,7 @@ cartesian_y_position = start_y + move_distance * total_y_movement / total_moveme
 cartesian_z_position = start_z + move_distance * total_z_movement / total_movement
 ```
 
-## Cartesian Robots
+### Cartesian Robots
 
 Generating steps for cartesian printers is the simplest case. The movement on each axis is directly related to the movement in cartesian space.
 
@@ -100,7 +102,7 @@ stepper_y_position = cartesian_y_position
 stepper_z_position = cartesian_z_position
 ```
 
-## CoreXY Robots
+### CoreXY Robots
 
 Generating steps on a CoreXY machine is only a little more complex than basic cartesian robots. The key formulas are:
 
@@ -110,7 +112,7 @@ stepper_b_position = cartesian_x_position - cartesian_y_position
 stepper_z_position = cartesian_z_position
 ```
 
-## Delta Robots
+### Delta Robots
 
 Step generation on a delta robot is based on Pythagoras's theorem:
 
@@ -127,7 +129,7 @@ With delta kinematics it is possible for a move that is accelerating in cartesia
 
 However, to avoid extreme cases, Klipper enforces a maximum ceiling on stepper acceleration of three times the printer's configured maximum move acceleration. (Similarly, the maximum velocity of the stepper is limited to three times the maximum move velocity.) In order to enforce this limit, moves at the extreme edge of the build envelope (where a stepper arm may be nearly horizontal) will have a lower maximum acceleration and velocity.
 
-## Extruder kinematics
+### Extruder kinematics
 
 Klipper implements extruder motion in its own kinematic class. Since the timing and speed of each print head movement is fully known for each move, it's possible to calculate the step times for the extruder independently from the step time calculations of the print head movement.
 

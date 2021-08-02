@@ -1,6 +1,8 @@
+# Manual leveling
+
 This document describes tools for calibrating a Z endstop and for performing adjustments to bed leveling screws.
 
-# Calibrating a Z endstop
+## Calibrating a Z endstop
 
 An accurate Z endstop position is critical to obtaining high quality prints.
 
@@ -22,7 +24,7 @@ It's preferable to use a Z endstop switch on the opposite end of the Z axis from
 
 Some printers have the ability to manually adjust the location of the physical endstop switch. However, it's recommended to perform Z endstop positioning in software with Klipper - once the physical location of the endstop is in a convenient location, one can make any further adjustments by running Z_ENDSTOP_CALIBRATE or by manually updating the Z position_endstop in the configuration file.
 
-# Adjusting bed leveling screws
+## Adjusting bed leveling screws
 
 The secret to getting good bed leveling with bed leveling screws is to utilize the printer's high precision motion system during the bed leveling process itself. This is done by commanding the nozzle to a position near each bed screw and then adjusting that screw until the bed is a set distance from the nozzle. Klipper has a tool to assist with this. In order to use the tool it is necessary to specify each screw XY location.
 
@@ -49,7 +51,7 @@ Once the screw is adjusted so that a small amount of friction is felt, run eithe
 
 This system works best when the printer has a flat printing surface (such as glass) and has straight rails. Upon successful completion of the bed leveling tool the bed should be ready for printing.
 
-## Fine grained bed screw adjustments
+### Fine grained bed screw adjustments
 
 If the printer uses three bed screws and all three screws are under the bed, then it may be possible to perform a second "high precision" bed leveling step. This is done by commanding the nozzle to locations where the bed moves a larger distance with each bed screw adjustment.
 
@@ -73,7 +75,7 @@ screw3_fine_adjust: 0,100
 
 When this feature is enabled, the `BED_SCREWS_ADJUST` tool will first prompt for coarse adjustments directly above each screw position, and once those are accepted, it will prompt for fine adjustments at the additional locations. Continue to use `ACCEPT` and `ADJUSTED` at each position.
 
-# Adjusting bed leveling screws using the bed probe
+## Adjusting bed leveling screws using the bed probe
 
 This is another way to calibrate the bed level using the bed probe. To use it you must have a Z probe (BL Touch, Inductive sensor, etc).
 

@@ -8,7 +8,7 @@ Ringing is caused by mechanical vibrations in the printer due to quick changes o
 
 [Input shaping](https://en.wikipedia.org/wiki/Input_shaping) is an open-loop control technique which creates a commanding signal that cancels its own vibrations. Input shaping requires some tuning and measurements before it can be enabled. Besides ringing, Input Shaping typically reduces the vibrations and shaking of the printer in general, and may also improve the reliability of the stealthChop mode of Trinamic stepper drivers.
 
-# Tuning
+## Tuning
 
 Basic tuning requires measuring the ringing frequencies of the printer and adding a few parameters to `printer.cfg` file.
 
@@ -22,7 +22,7 @@ Slice the ringing test model, which can be found in [docs/prints/ringing_tower.s
 * Make sure any "dynamic acceleration control" is disabled in the slicer.
 * Do not turn the model. The model has X and Y marks at the back of the model. Note the unusual location of the marks vs. the axes of the printer - it is not a mistake. The marks can be used later in the tuning process as a reference, because they show which axis the measurements correspond to.
 
-## Ringing frequency
+### Ringing frequency
 
 First, measure the **ringing frequency**.
 
@@ -57,7 +57,7 @@ Note that the ringing frequencies can change if the changes are made to the prin
 
 If such changes are made, it is a good idea to at least measure the ringing frequencies to see if they have changed.
 
-## Input shaper configuration
+### Input shaper configuration
 
 After the ringing frequencies for X and Y axes are measured, you can add the following section to your `printer.cfg`:
 
@@ -69,7 +69,7 @@ shaper_freq_y: ...  # frequency for the Y mark of the test model
 
 For the example above, we get shaper_freq_x/y = 49.4.
 
-## Choosing input shaper
+### Choosing input shaper
 
 Klipper supports several input shapers. They differ in their sensitivity to errors determining the resonance frequency and how much smoothing they cause in the printed parts. Also, some of the shapers like 2HUMP_EI and 3HUMP_EI should usually not be used with shaper_freq = resonance frequency - they are configured from different considerations to reduce several resonances at once.
 
@@ -103,7 +103,7 @@ A few notes on shaper selection:
 * EI shaper may be more suited for bed slinger printers (if the resonance frequency and resulting smoothing allows): as more filament is deposited on the moving bed, the mass of the bed increases and the resonance frequency will decrease. Since EI shaper is more robust to resonance frequency changes, it may work better when printing large parts.
 * Due to the nature of delta kinematics, resonance frequencies can differ a lot in different parts of the build volume. Therefore, EI shaper can be a better fit for delta printers rather than MZV or ZV, and should be considered for the use. If the resonance frequency is sufficiently large (more than 50-60 Hz), then one can even attempt to test 2HUMP_EI shaper (by running the suggested test above with `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI`), but check the considerations in the [section below](#selecting-max_accel) before enabling it.
 
-## Selecting max_accel
+### Selecting max_accel
 
 You should have a printed test for the shaper you chose from the previous step (if you don't, print the test model sliced with the [suggested parameters](#tuning) with the pressure advance disabled `SET_PRESSURE_ADVANCE ADVANCE=0` and with the tuning tower enabled as `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1250 FACTOR=100 BAND=5`). Note that at very high accelerations, depending on the resonance frequency and the input shaper you chose (e.g. EI shaper creates more smoothing than MZV), input shaping may cause too much smoothing and rounding of the parts. So, max_accel should be chosen such as to prevent that. Another parameter that can impact smoothing is `square_corner_velocity`, so it is not advisable to increase it above the default 5 mm/sec to prevent increased smoothing.
 
@@ -129,7 +129,7 @@ At very low ringing frequencies (~25 Hz and below) even MZV shaper may create to
 
 Another consideration is that if a resonance frequency is too low (below 20-25 Hz), it might be a good idea to increase the printer stiffness or reduce the moving mass. Otherwise, acceleration and printing speed may be limited due too much smoothing now instead of ringing.
 
-## Fine-tuning resonance frequencies
+### Fine-tuning resonance frequencies
 
 Note that the precision of the resonance frequencies measurements using the ringing test model is sufficient for most purposes, so further tuning is not advised. If you still want to try to double-check your results (e.g. if you still see some ringing after printing a test model with an input shaper of your choice with the same frequencies as you have measured earlier), you can follow the steps in this section. Note that if you see ringing at different frequencies after enabling [input_shaper], this section will not help with that.
 
@@ -153,11 +153,11 @@ After both new `shaper_freq_x` and `shaper_freq_y` parameters have been calculat
 
 Do not forget to revert the changes to `max_accel` and `max_accel_to_decel` parameters in the `printer.cfg` after finishing this section.
 
-## Pressure Advance
+### Pressure Advance
 
 If you use Pressure Advance, it may need to be re-tuned. Follow the [instructions](Pressure_Advance.md#tuning-pressure-advance) to find the new value, if it differs from the previous one. Make sure to restore the original values of `max_accel` and `max_accel_to_decel` parameters in the `printer.cfg` and restart Klipper before tuning Pressure Advance.
 
-## Unreliable measurements of ringing frequencies
+### Unreliable measurements of ringing frequencies
 
 If you are unable to measure the ringing frequencies, e.g. if the distance between the oscillations is not stable, you may still be able to take advantage of input shaping techniques, but the results may not be as good as with proper measurements of the frequencies, and will require a bit more tuning and printing the test model. Note that another possibility is to purchase and install an accelerometer and measure the resonances with it (refer to the [docs](Measuring_Resonances.md) describing the required hardware and the setup process) - but this option requires some crimping and soldering.
 
@@ -208,7 +208,7 @@ shaper_type: 2hump_ei
 
 Continue the tuning with [Selecting max_accel](#selecting-max_accel) section.
 
-# Troubleshooting and FAQ
+## Troubleshooting and FAQ
 
 ### I cannot get reliable measurements of resonance frequencies
 
@@ -237,9 +237,9 @@ And similarly when switching back to carriage 0.
 
 No, `input_shaper` feature has pretty much no impact on the print times by itself. However, the value of `max_accel` certainly does (tuning of this parameter described in [this section](#selecting-max_accel)).
 
-# Technical details
+## Technical details
 
-## Input shapers
+### Input shapers
 
 Input shapers used in Klipper are rather standard, and one can find more in-depth overview in the articles describing the corresponding shapers. This section contains a brief overview of some technical aspects of the supported input shapers. The table below shows some (usually approximate) parameters of each shaper.
 

@@ -1,6 +1,8 @@
+# Code overview
+
 This document describes the overall code layout and major code flow of Klipper.
 
-# Directory Layout
+## Directory Layout
 
 The **src/** directory contains the C source for the micro-controller code. The **src/atsam/**, **src/atsamd/**, **src/avr/**, **src/linux/**, **src/lpc176x/**, **src/pru/**, and **src/stm32/** directories contain architecture specific micro-controller code. The **src/simulator/** contains code stubs that allow the micro-controller to be test compiled on other architectures. The **src/generic/** directory contains helper code that may be useful across different architectures. The build arranges for includes of "board/somefile.h" to first look in the current architecture directory (eg, src/avr/somefile.h) and then in the generic directory (eg, src/generic/somefile.h).
 
@@ -16,7 +18,7 @@ The **test/** directory contains automated test cases.
 
 During compilation, the build may create an **out/** directory. This contains temporary build time objects. The final micro-controller object that is built is **out/klipper.elf.hex** on AVR and **out/klipper.bin** on ARM.
 
-# Micro-controller code flow
+## Micro-controller code flow
 
 Execution of the micro-controller code starts in architecture specific code (eg, **src/avr/main.c**) which ultimately calls sched_main() located in **src/sched.c**. The sched_main() code starts by running all functions that have been tagged with the DECL_INIT() macro. It then goes on to repeatedly run all functions tagged with the DECL_TASK() macro.
 
@@ -30,7 +32,7 @@ In the event an error is detected the code can invoke shutdown() (a macro which 
 
 Much of the functionality of the micro-controller involves working with General-Purpose Input/Output pins (GPIO). In order to abstract the low-level architecture specific code from the high-level task code, all GPIO events are implemented in architecture specific wrappers (eg, **src/avr/gpio.c**). The code is compiled with gcc's "-flto -fwhole-program" optimization which does an excellent job of inlining functions across compilation units, so most of these tiny gpio functions are inlined into their callers, and there is no run-time cost to using them.
 
-# Klippy code overview
+## Klippy code overview
 
 The host code (Klippy) is intended to run on a low-cost computer (such as a Raspberry Pi) paired with the micro-controller. The code is primarily written in Python, however it does use CFFI to implement some functionality in C code.
 
@@ -38,7 +40,7 @@ Initial execution starts in **klippy/klippy.py**. This reads the command-line ar
 
 There are four threads in the Klippy host code. The main thread handles incoming gcode commands. A second thread (which resides entirely in the **klippy/chelper/serialqueue.c** C code) handles low-level IO with the serial port. The third thread is used to process response messages from the micro-controller in the Python code (see **klippy/serialhdl.py**). The fourth thread writes debug messages to the log (see **klippy/queuelogger.py**) so that the other threads never block on log writes.
 
-# Code flow of a move command
+## Code flow of a move command
 
 A typical printer movement starts when a "G1" command is sent to the Klippy host and it completes when the corresponding step pulses are produced on the micro-controller. This section outlines the code flow of a typical move command. The [kinematics](Kinematics.md) document provides further information on the mechanics of moves.
 
@@ -58,7 +60,7 @@ A typical printer movement starts when a "G1" command is sent to the Klippy host
 
 The above may seem like a lot of complexity to execute a movement. However, the only really interesting parts are in the ToolHead and kinematic classes. It's this part of the code which specifies the movements and their timings. The remaining parts of the processing is mostly just communication and plumbing.
 
-# Adding a host module
+## Adding a host module
 
 The Klippy host code has a dynamic module loading capability. If a config section named "[my_module]" is found in the printer config file then the software will automatically attempt to load the python module klippy/extras/my_module.py . This module system is the preferred method for adding new functionality to Klipper.
 
@@ -79,7 +81,7 @@ The following may also be useful:
 * Avoid accessing the internal member variables (or calling methods that start with an underscore) of other printer objects. Observing this convention makes it easier to manage future changes.
 * If submitting the module for inclusion in the main Klipper code, be sure to place a copyright notice at the top of the module. See the existing modules for the preferred format.
 
-# Adding new kinematics
+## Adding new kinematics
 
 This section provides some tips on adding support to Klipper for additional types of printer kinematics. This type of activity requires excellent understanding of the math formulas for the target kinematics. It also requires software development skills - though one should only need to update the host software.
 
@@ -92,7 +94,7 @@ Useful steps:
 1. Other methods. Implement the `check_move()`, `get_status()`, `get_steppers()`, `home()`, and `set_position()` methods. These functions are typically used to provide kinematic specific checks. However, at the start of development one can use boiler-plate code here.
 1. Implement test cases. Create a g-code file with a series of moves that can test important cases for the given kinematics. Follow the [debugging documentation](Debugging.md) to convert this g-code file to micro-controller commands. This is useful to exercise corner cases and to check for regressions.
 
-# Porting to a new micro-controller
+## Porting to a new micro-controller
 
 This section provides some tips on porting Klipper's micro-controller code to a new architecture. This type of activity requires good knowledge of embedded development and hands-on access to the target micro-controller.
 
@@ -108,7 +110,7 @@ Useful steps:
 1. Create a sample Klipper config file in the config/ directory. Test the micro-controller with the main klippy.py program.
 1. Consider adding build test cases in the test/ directory.
 
-# Coordinate Systems
+## Coordinate Systems
 
 Internally, Klipper primarily tracks the position of the toolhead in cartesian coordinates that are relative to the coordinate system specified in the config file. That is, most of the Klipper code will never experience a change in coordinate systems. If the user makes a request to change the origin (eg, a `G92` command) then that effect is obtained by translating future commands to the primary coordinate system.
 
@@ -139,7 +141,7 @@ The "gcode base" is the location of the g-code origin in cartesian coordinates r
 
 The "gcode homing" is the location to use for the g-code origin (in cartesian coordinates relative to the coordinate system specified in the config file) after a `G28` home command. The `SET_GCODE_OFFSET` command can alter this value.
 
-# Time
+## Time
 
 Fundamental to the operation of Klipper is the handling of clocks, times, and timestamps. Klipper executes actions on the printer by scheduling events to occur in the near future. For example, to turn on a fan, the code might schedule a change to a GPIO pin in a 100ms. It is rare for the code to attempt to take an instantaneous action. Thus, the handling of time within Klipper is critical to correct operation.
 

@@ -1,6 +1,8 @@
+# Overview
+
 欢迎使用Klipper文档。如果刚接触Klipper，请从[特性](features.md)和[安装](installation.md)文档开始阅读。
 
-# 概览信息
+## 概览信息
 
 - [功能](Features.md)：Klipper 中的高级功能列表。
 - [常见问题](FAQ.md)：常见问题。
@@ -8,7 +10,7 @@
 - [配置更改](Config_Changes.md)：可能需要手动更新打印机配置文件的软件更改。
 - [联系](Contact.md)：关于如何提交错误报告和联系 Klipper 开发者的信息。
 
-# 配置与调优指南
+## 配置与调优指南
 
 - [安装](Installation.md)：Klipper 安装指南。
 - [配置参考](Config_Reference.md)：配置参数说明。
@@ -32,7 +34,7 @@
 - [PWM 工具](Using_PWM_Tools.md)：关于如何使用 PWM 控制的工具，例如激光器或电钻头。
 - [G代码](G-Codes.md)：用于 Klipper 的G代码命令。
 
-# 开发者文档
+## 开发者文档
 
 - [代码概述](Code_Overview.md)：开发者应该从这个文档开始阅读。
 - [运动学](Kinematics.md)：关于 Klipper 如何实现运动的技术细节。
@@ -45,7 +47,7 @@
 - [贡献](CONTRIBUTING.md)：有关如何向 Klipper 提交改进方法的信息。
 - [打包](Packaging.md)：有关于如何构建系统包的信息。
 
-# 设备特定文档
+## 设备特定文档
 
 - [示列配置](Example_Configs.md)：有关于添加示列配置到 Klipper 的信息。
 - [SD卡更新](SDCard_Updates.md)：通过将固件拷贝到SD卡中，再通过微控制器的SD卡槽来刷写微控制器。

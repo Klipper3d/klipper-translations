@@ -1,28 +1,30 @@
-This document describes the overall code layout and major code flow of Klipper.
+# Code overview
 
-# Directory Layout
+本文档将描述Klipper的代码总体结构和代码流。
 
-The **src/** directory contains the C source for the micro-controller code. The **src/atsam/**, **src/atsamd/**, **src/avr/**, **src/linux/**, **src/lpc176x/**, **src/pru/**, and **src/stm32/** directories contain architecture specific micro-controller code. The **src/simulator/** contains code stubs that allow the micro-controller to be test compiled on other architectures. The **src/generic/** directory contains helper code that may be useful across different architectures. The build arranges for includes of "board/somefile.h" to first look in the current architecture directory (eg, src/avr/somefile.h) and then in the generic directory (eg, src/generic/somefile.h).
+## 文件夹结构
 
-The **klippy/** directory contains the host software. Most of the host software is written in Python, however the **klippy/chelper/** directory contains some C code helpers. The **klippy/kinematics/** directory contains the robot kinematics code. The **klippy/extras/** directory contains the host code extensible "modules".
+**src/**包含微控制器的C源码。其中**src/atsam/**, **src/atsamd/**, **src/avr/**, **src/linux/**, **src/lpc176x/**, **src/pru/**, and **src/stm32/** 为对应微处理器架构的源码。 **src/simulator/** 包含有用于交叉编译、测试目标微处理器的代码。**src/generic/**为对不同架构均有用的代码。编译"board/somefile.h"时，编译器会优先使用 架构特定的目录 (即src/avr/somefile.h)随后找寻通用目录(即 src/generic/somefile.h)。
 
-The **lib/** directory contains external 3rd-party library code that is necessary to build some targets.
+**klippy/**目录包含了上位机软件。软件大部分由Python实现，同时**klippy/chelper/** 目录包含了由C实现的有用代码。**klippy/kinematics/**目录包含机械运动学的实现代码。**klippy/extras/** 目录包含了上位机的扩建模块("modules")。
 
-The **config/** directory contains example printer configuration files.
+**lib/**包含了构建必须的第三方库代码。
 
-The **scripts/** directory contains build-time scripts useful for compiling the micro-controller code.
+**config/**包含了打印机配置的实例文件。
 
-The **test/** directory contains automated test cases.
+**scripts/**目录包含了编译微控制器代码时有用的脚本。
 
-During compilation, the build may create an **out/** directory. This contains temporary build time objects. The final micro-controller object that is built is **out/klipper.elf.hex** on AVR and **out/klipper.bin** on ARM.
+**test/**目录包含了自动测试示例。
 
-# Micro-controller code flow
+在编译过程重，编译器会构建**out/**目录。该目录包含构建时的临时文件。对于AVR架构，编译器输出的为**out/klipper.elf.hex**，而对ARM架构则为**out/klipper.bin**。
 
-Execution of the micro-controller code starts in architecture specific code (eg, **src/avr/main.c**) which ultimately calls sched_main() located in **src/sched.c**. The sched_main() code starts by running all functions that have been tagged with the DECL_INIT() macro. It then goes on to repeatedly run all functions tagged with the DECL_TASK() macro.
+## 微处理器的代码流
 
-One of the main task functions is command_dispatch() located in **src/command.c**. This function is called from the board specific input/output code (eg, **src/avr/serial.c**, **src/generic/serial_irq.c**) and it runs the command functions associated with the commands found in the input stream. Command functions are declared using the DECL_COMMAND() macro (see the [protocol](Protocol.md) document for more information).
+微控制器的代码从对应架构的代码(即**src/avr/main.c**)开始执行，前述代码会持续调用**src/sched.c**中的 sched_main() 函数。sched_main() 代码会先运行经 DECL_INIT() 宏标注的所有函数。之后它将不断重复运行由 DECL_TASK() 宏所标注的函数。
 
-Task, init, and command functions always run with interrupts enabled (however, they can temporarily disable interrupts if needed). These functions should never pause, delay, or do any work that lasts more than a few micro-seconds. These functions schedule work at specific times by scheduling timers.
+其中一个主要的任务函数为**src/command.c** 中的command_dispatch()。上述函数经由微处理器特定的 输入/输出 代码调用(即**src/avr/serial.c**, **src/generic/serial_irq.c**)，并执行输入流中的命令所对应的命令函数。命令函数通过 DECL_COMMAND() 宏进行定义 (详情参照[协议](Protocol.md) 文档)。
+
+任务、初始化和命令函数总是在中断启用的情况下运行（然而，可根据需要将中断功能停用）。这些函数不应出现暂停、延迟或执行持续事件长于数微秒的任务。这些函数应由调度定时器在特定的事件进行调用。
 
 Timer functions are scheduled by calling sched_add_timer() (located in **src/sched.c**). The scheduler code will arrange for the given function to be called at the requested clock time. Timer interrupts are initially handled in an architecture specific interrupt handler (eg, **src/avr/timer.c**) which calls sched_timer_dispatch() located in **src/sched.c**. The timer interrupt leads to execution of schedule timer functions. Timer functions always run with interrupts disabled. The timer functions should always complete within a few micro-seconds. At completion of the timer event, the function may choose to reschedule itself.
 
@@ -30,17 +32,17 @@ In the event an error is detected the code can invoke shutdown() (a macro which 
 
 Much of the functionality of the micro-controller involves working with General-Purpose Input/Output pins (GPIO). In order to abstract the low-level architecture specific code from the high-level task code, all GPIO events are implemented in architecture specific wrappers (eg, **src/avr/gpio.c**). The code is compiled with gcc's "-flto -fwhole-program" optimization which does an excellent job of inlining functions across compilation units, so most of these tiny gpio functions are inlined into their callers, and there is no run-time cost to using them.
 
-# Klippy code overview
+## 代码总览
 
-The host code (Klippy) is intended to run on a low-cost computer (such as a Raspberry Pi) paired with the micro-controller. The code is primarily written in Python, however it does use CFFI to implement some functionality in C code.
+上位机程序（klippy）运行在廉价计算机（如 树莓派）上，配搭mcu使用。该程序的主要编程语言为Python，同时部分功能通过CFFI在C语言上实现。
 
-Initial execution starts in **klippy/klippy.py**. This reads the command-line arguments, opens the printer config file, instantiates the main printer objects, and starts the serial connection. The main execution of G-code commands is in the process_commands() method in **klippy/gcode.py**. This code translates the G-code commands into printer object calls, which frequently translate the actions to commands to be executed on the micro-controller (as declared via the DECL_COMMAND macro in the micro-controller code).
+上位机程序通过** klippy/klippy.py**初始化。该文件会读取命令行参数，打开打印机的设置文件，实例化打印机的主要模块，并启用串口通讯。G代码命令的执行则通过 **klippy/gcode.py**中的 process_commands() 方法实现。此代码将G代码转化为打印机的对象调用，它将频繁地将G代码命令转化为微控制器的行动指令（通过微控制器代码中的 DECL_COMMAND 进行声明）。
 
-There are four threads in the Klippy host code. The main thread handles incoming gcode commands. A second thread (which resides entirely in the **klippy/chelper/serialqueue.c** C code) handles low-level IO with the serial port. The third thread is used to process response messages from the micro-controller in the Python code (see **klippy/serialhdl.py**). The fourth thread writes debug messages to the log (see **klippy/queuelogger.py**) so that the other threads never block on log writes.
+Klippy上位机程序包含四个进程。主线程用于处理输入的G代码命令。第二线程通过串口实现底层IO的处理（代码位于 **klippy/chelper/serialqueue.c **以C语言实现）。第三线程则通过Python代码处理微控制器返回的信息（参照 klippy/serialhdl.py）。第四线程则负责将Debug信息写入到日志文件(见 **klippy/queuelogger.py**)，由此，其他线程的执行将不会阻塞日志的写入。
 
-# Code flow of a move command
+## 典型运动命令的代码流
 
-A typical printer movement starts when a "G1" command is sent to the Klippy host and it completes when the corresponding step pulses are produced on the micro-controller. This section outlines the code flow of a typical move command. The [kinematics](Kinematics.md) document provides further information on the mechanics of moves.
+典型的打印机运动始于klipper上位机接收到"G1"命令，并在微控制器发出对应的步进脉冲结束。本节将简述典型运动命令的代码流。[运动学](Kinematics.md)文档将更为细致的描述运动的机械原理。
 
 * Processing for a move command starts in gcode.py. The goal of gcode.py is to translate G-code into internal calls. A G1 command will invoke cmd_G1() in klippy/extras/gcode_move.py. The gcode_move.py code handles changes in origin (eg, G92), changes in relative vs absolute positions (eg, G90), and unit changes (eg, F6000=100mm/s). The code path for a move is: `_process_data() -> _process_commands() -> cmd_G1()`. Ultimately the ToolHead class is invoked to execute the actual request: `cmd_G1() -> ToolHead.move()`
 * The ToolHead class (in toolhead.py) handles "look-ahead" and tracks the timing of printing actions. The main codepath for a move is: `ToolHead.move() -> MoveQueue.add_move() -> MoveQueue.flush() -> Move.set_junction() -> ToolHead._process_moves()`.
@@ -58,7 +60,7 @@ A typical printer movement starts when a "G1" command is sent to the Klippy host
 
 The above may seem like a lot of complexity to execute a movement. However, the only really interesting parts are in the ToolHead and kinematic classes. It's this part of the code which specifies the movements and their timings. The remaining parts of the processing is mostly just communication and plumbing.
 
-# Adding a host module
+## 添加上位机模块
 
 The Klippy host code has a dynamic module loading capability. If a config section named "[my_module]" is found in the printer config file then the software will automatically attempt to load the python module klippy/extras/my_module.py . This module system is the preferred method for adding new functionality to Klipper.
 
@@ -79,7 +81,7 @@ The following may also be useful:
 * Avoid accessing the internal member variables (or calling methods that start with an underscore) of other printer objects. Observing this convention makes it easier to manage future changes.
 * If submitting the module for inclusion in the main Klipper code, be sure to place a copyright notice at the top of the module. See the existing modules for the preferred format.
 
-# Adding new kinematics
+## Adding new kinematics
 
 This section provides some tips on adding support to Klipper for additional types of printer kinematics. This type of activity requires excellent understanding of the math formulas for the target kinematics. It also requires software development skills - though one should only need to update the host software.
 
@@ -92,7 +94,7 @@ Useful steps:
 1. Other methods. Implement the `check_move()`, `get_status()`, `get_steppers()`, `home()`, and `set_position()` methods. These functions are typically used to provide kinematic specific checks. However, at the start of development one can use boiler-plate code here.
 1. Implement test cases. Create a g-code file with a series of moves that can test important cases for the given kinematics. Follow the [debugging documentation](Debugging.md) to convert this g-code file to micro-controller commands. This is useful to exercise corner cases and to check for regressions.
 
-# Porting to a new micro-controller
+## Porting to a new micro-controller
 
 This section provides some tips on porting Klipper's micro-controller code to a new architecture. This type of activity requires good knowledge of embedded development and hands-on access to the target micro-controller.
 
@@ -108,7 +110,7 @@ Useful steps:
 1. Create a sample Klipper config file in the config/ directory. Test the micro-controller with the main klippy.py program.
 1. Consider adding build test cases in the test/ directory.
 
-# Coordinate Systems
+## Coordinate Systems
 
 Internally, Klipper primarily tracks the position of the toolhead in cartesian coordinates that are relative to the coordinate system specified in the config file. That is, most of the Klipper code will never experience a change in coordinate systems. If the user makes a request to change the origin (eg, a `G92` command) then that effect is obtained by translating future commands to the primary coordinate system.
 
@@ -139,7 +141,7 @@ The "gcode base" is the location of the g-code origin in cartesian coordinates r
 
 The "gcode homing" is the location to use for the g-code origin (in cartesian coordinates relative to the coordinate system specified in the config file) after a `G28` home command. The `SET_GCODE_OFFSET` command can alter this value.
 
-# Time
+## Time
 
 Fundamental to the operation of Klipper is the handling of clocks, times, and timestamps. Klipper executes actions on the printer by scheduling events to occur in the near future. For example, to turn on a fan, the code might schedule a change to a GPIO pin in a 100ms. It is rare for the code to attempt to take an instantaneous action. Thus, the handling of time within Klipper is critical to correct operation.
 

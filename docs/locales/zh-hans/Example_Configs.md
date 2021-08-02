@@ -1,8 +1,10 @@
+# Example configurations
+
 本文档包含向 Klipper Github 仓库（位于[config directory](../config/)）贡献 Klipper 配置示例的指南。
 
 请注意 [Klipper Community Discourse server](https://community.klipper3d.org)也是非常有用的寻找和分享配置文件的地方。
 
-# 准则
+## 准则
 
 1. 选择适当的配置文件名前缀。
    1. `printer`前缀用于主流制造商出售的打印机。

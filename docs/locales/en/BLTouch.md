@@ -1,4 +1,6 @@
-# Connecting BL-Touch
+# BL-Touch
+
+## Connecting BL-Touch
 
 A **warning** before you start: Avoid touching the BL-Touch pin with your bare fingers, since it is quite sensitive to finger grease. And if you do touch it, be very gentle, in order to not bend or push anything.
 
@@ -22,7 +24,7 @@ z_hop_speed: 5
 
 It's important that the z_hop movement in safe_z_home is high enough that the probe doesn't hit anything even if the probe pin happens to be in its lowest state.
 
-# Initial tests
+## Initial tests
 
 Before moving on, verify that the BL-Touch is mounted at the correct height, the pin should be roughly 2 mm above the nozzle when retracted
 
@@ -36,7 +38,7 @@ After completing the BL-Touch control pin and sensor pin tests, it is now time t
 
 If that was successful, do another `G28` (or `PROBE`) but this time let it touch the bed as it should.
 
-# BL-Touch gone bad
+## BL-Touch gone bad
 
 Once the BL-Touch is in inconsistent state, it starts blinking red. You can force it to leave that state by issuing:
 
@@ -46,7 +48,7 @@ This may happen if its calibration is interrupted by the probe being blocked fro
 
 However, the BL-Touch may also not be able to calibrate itself anymore. This happens if the screw on its top is in the wrong position or the magnetic core inside the probe pin has moved. If it has moved up so that it sticks to the screw, it may not be able to lower its pin anymore. With this behavior you need to open the screw and use a ball-point pen to push it gently back into place. Re-Insert the pin into the BL-Touch so that it falls into the extracted position. Carefully readjust the headless screw into place. You need to find the right position so it is able to lower and raise the pin and the red light turns on and of. Use the `reset`, `pin_up` and `pin_down` commands to achieve this.
 
-# BL-Touch "clones"
+## BL-Touch "clones"
 
 Many BL-Touch "clone" devices work correctly with Klipper using the default configuration. However, some "clone" devices may require configuration of `pin_up_reports_not_triggered` or `pin_up_touch_mode_reports_triggered`.
 
@@ -56,7 +58,7 @@ Some "clone" devices are unable to perform Klipper's internal sensor verificatio
 
 A rare number of old "clone" devices are unable to report when they have successfully raised their probe. On these devices Klipper will report a "BLTouch failed to raise probe" error after every home or probe attempt. One can test for these devices - move the head far from the bed, run `BLTOUCH_DEBUG COMMAND=pin_down`, verify the pin has moved down, run `QUERY_PROBE`, verify that command reports "probe: open", run `BLTOUCH_DEBUG COMMAND=pin_up`, verify the pin has moved up, and run `QUERY_PROBE`. If the pin remains up, the device does not enter an error state, and the first query reports "probe: open" while the second query reports "probe: TRIGGERED" then it indicates that `pin_up_reports_not_triggered` should be set to False in the Klipper config file.
 
-# BL-Touch v3
+## BL-Touch v3
 
 Some BL-Touch v3.0 and BL-Touch 3.1 devices may require configuring `probe_with_touch_mode` in the printer config file.
 
@@ -66,7 +68,7 @@ The BL-Touch v3.1 may incorrectly enter an error state after a successful probe 
 
 Important! Some "clone" devices and the BL-Touch v2.0 (and earlier) may have reduced accuracy when `probe_with_touch_mode` is set to True. Setting this to True also increases the time it takes to deploy the probe. If configuring this value on a "clone" or older BL-Touch device, be sure to test the probe accuracy before and after setting this value (use the `PROBE_ACCURACY` command to test).
 
-# Multi-probing without stowing
+## Multi-probing without stowing
 
 By default, Klipper will deploy the probe at the start of each probe attempt and then stow the probe afterwards. This repetitive deploying and stowing of the probe may increase the total time of calibration sequences that involve many probe measurements. Klipper supports leaving the probe deployed between consecutive probes, which can reduce the total time of probing. This mode is enabled by configuring `stow_on_each_sample` to False in the config file.
 
@@ -76,13 +78,13 @@ Important! It is recommended to use `probe_with_touch_mode` configured to True w
 
 Note, however, that some "clone" devices and the BL-Touch v2.0 (and earlier) may have reduced accuracy when `probe_with_touch_mode` is set to True. On these devices it is a good idea to test the probe accuracy before and after setting `probe_with_touch_mode` (use the `PROBE_ACCURACY` command to test).
 
-# Calibrating the BL-Touch offsets
+## Calibrating the BL-Touch offsets
 
 Follow the directions in the [Probe Calibrate](Probe_Calibrate.md) guide to set the x_offset, y_offset, and z_offset config parameters.
 
 It's a good idea to verify that the Z offset is close to 1mm. If not, then you probably want to move the probe up or down to fix this. You want it to trigger well before the nozzle hits the bed, so that possible stuck filament or a warped bed doesn't affect any probing action. But at the same time, you want the retracted position to be as far above the nozzle as possible to avoid it touching printed parts. If an adjustment is made to the probe position, then rerun the probe calibration steps.
 
-# BL-Touch output mode
+## BL-Touch output mode
 
 
    * A BL-Touch V3.0 supports setting a 5V or OPEN-DRAIN output mode, a BL-Touch V3.1 supports this too, but can also store this in its internal EEPROM. If your controller board needs the fixed 5V high logic level of the 5V mode you may set the 'set_output_mode' parameter in the [bltouch] section of the printer config file to "5V".*** Only use the 5V mode if your controller boards input line is 5V tolerant. This is why the default configuration of these BL-Touch versions is OPEN-DRAIN mode. You could potentially damage your controller boards CPU ***

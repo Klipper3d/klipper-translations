@@ -1,18 +1,20 @@
+# Skew correction
+
 Software based skew correction can help resolve dimensional inaccuracies resulting from a printer assembly that is not perfectly square. Note that if your printer is significantly skewed it is strongly recommended to first use mechanical means to get your printer as square as possible prior to applying software based correction.
 
-# Print a Calibration Object
+## Print a Calibration Object
 
 The first step in correcting skew is to print a [calibration object](https://www.thingiverse.com/thing:2563185/files) along the plane you want to correct. There is also a [calibration object](https://www.thingiverse.com/thing:2972743) that includes all planes in one model. You want the object oriented so that corner A is toward the origin of the plane.
 
 Make sure that no skew correction is applied during this print. You may do this by either removing the [skew_correction] module from printer.cfg or by issuing a `SET_SKEW CLEAR=1` gcode.
 
-# Take your measurements
+## Take your measurements
 
 The [skew_correcton] module requires 3 measurements for each plane you want to correct; the length from Corner A to Corner C, the length from Corner B to Corner D, and the length from corner A to corner D. When measuring length AD do not include the flats on the corners that some test objects provide.
 
 ![skew_lengths](img/skew_lengths.png)
 
-# Configure your skew
+## Configure your skew
 
 Make sure [skew_correction] is in printer.cfg. You may now use the `SET_SKEW` gcode to configure skew_correcton. For example, if your measured lengths along XY are as follows:
 
@@ -56,7 +58,7 @@ SKEW_PROFILE REMOVE=my_skew_profile
 
 After removing a profile you will be prompted to issue a `SAVE_CONFIG` to make this change persist.
 
-# Verifying your correction
+## Verifying your correction
 
 After skew_correction has been configured you may reprint the calibration part with correction enabled. Use the following gcode to check your skew on each plane. The results should be lower than those reported via `GET_CURRENT_SKEW`.
 
@@ -64,7 +66,7 @@ After skew_correction has been configured you may reprint the calibration part w
 CALC_MEASURED_SKEW AC=<ac_length> BD=<bd_length> AD=<ad_length>
 ```
 
-# Caveats
+## Caveats
 
 Due to the nature of skew correction it is recommended to configure skew in your start gcode, after homing and any kind of movement that travels near the edge of the print area such as a purge or nozzle wipe. You may use use the `SET_SKEW` or `SKEW_PROFILE` gcodes to accomplish this. It is also recommended to issue a `SET_SKEW CLEAR=1` in your end gcode.
 

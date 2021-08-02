@@ -1,6 +1,8 @@
+# Probe calibration
+
 Dette dokumentet beskriver metoden for kalibrering av x, y, og z-forskyvning av en «automatisk probe» i Klipper. Dette er nyttig for brukere som har en «[probe]» eller «[bltouch]»-del i oppsettsfilen sin.
 
-# Kalibrering av probeforskyvning for X og Y
+## Kalibrering av probeforskyvning for X og Y
 
 For å kalibrer X- og Y-forsyvning, kan du gå til «Kontroll»-fanen i OctoPrint, nullstille skriveren, og så bruke OctoPrint-hjulene til å flytte hode til en posisjon nær midten av bunnplaten.
 
@@ -30,7 +32,7 @@ for å flytte tuten til en X-posisjon på 57, og Y-posisjon på 30. Når man fin
 
 «x_offset» er dermed «nozzle_x_position - probe_x_position» og «y_offset» er «nozzle_y_position - probe_y_position». Oppdater printer.cfg-filen med angitte verdier, fjern tape/merker fra bunnplaten, og kjør så en «RESTART»-kommando slik at de nye endringene anvendes.
 
-# Kalibrering av probeforskyvning for Z
+## Kalibrering av probeforskyvning for Z
 
 Å angi nøyaktig z_offset for proben er kritisk for nøyaktige utskrifter. z_offset er avstanden mellom tuten og bunnplaten når proben utløser. Klipper sitt «PROBE_CALIBRATE»-verktøy kan brukes til å hente denne verdien. Den vil kjøre en automatisk probe for å måle probens Z-utløserposisjon og så starte en manuell probe for å hente Z-høyde for tuten. Probens z_offset vil så bli regnet ut basert på disse målingene.
 
@@ -50,7 +52,7 @@ Hvis proben har en X- eller Y-forskyvning av bunnplatens helning (f.eks. ved jus
 
 Hvis resultatet av «PROBE_CALIBRATE» invalideres, vil forrige [bunnplatemaske](Bed_Mesh.md)-resultater innhenten under probingen også invalideres. Hvis så er tilfelle må man kjøre «BED_MESH_CALIBRATE» igjen etter rekalibrering av proben.
 
-# Gjentaksbarhetssjekk
+## Gjentaksbarhetssjekk
 
 Etter kalibrering av probens X, Y, og Z-forskyvning, er det en god idé å bekrefte at proben gir reproduserbare resultater. Start ved å nullstille skriveren, og så flytte hodet til en posisjon nær midten av bunnplaten. Gå til «Terminal»-fanen i OctoPrint og kjør «PROBE_ACCURACY»-kommandoen.
 
@@ -78,7 +80,7 @@ Hvis resultatet av testen viser en spennviddeverdi høyere en 25 mikrometer «0,
 
 Hvis probehastighet, samplingsantall, eller andre innstillinger trengs, kan du oppdatere skriverens printer.cfg-fil og kjøre «RESTART»-kommandoen. Hvis dette gjøres er det en god idé å også [kalibrere z_offset](#calibrating-probe-z-offset) igjen. Hvis reproduserbare resultater ikke kan demonstreres, så bruker du ikke proben for bunnplatenivelering. Klipper har flere manuelle probeverktøy som kan brukes istedenfor. Sjekk «[Bunnplatenivådokumentet](Bed_Level.md)» for flere detaljer.
 
-# Posisjonsbiassjekk
+## Posisjonsbiassjekk
 
 Noen prober kan ha et systemisk bias som forringer resultatet for en probe for gitte verktøyhodeposisjoner. For eksempel, hvis proben er litt skjev når den flytter seg langs Y-aksen, kan dette gi høyere rapportert hastighet på forskjellige Y-posisjoner.
 
@@ -92,7 +94,7 @@ Før du starter testen, kalibrerer du først probens X, Y og Z-forskyvning som a
 
 Hvis forskjellen mellom minste rapporterte z_offset og største rapporterte z_offset er større enn 25 mikrometer (0,025 mm) passer ikke proben for bruk i typiske bunnplateniveleringsprosedyrer. Sjekk «[Bunnplatenivådokumentet](Bed_Level.md) for manuelle probealternativer.
 
-# Temperaturbias
+## Temperaturbias
 
 Mange prober har et systemisk bias der probing under forskjellige temperaturer. For eksempel kan proben alltid utløse ved en lavere høyde når den er i høyere temperatur.
 
