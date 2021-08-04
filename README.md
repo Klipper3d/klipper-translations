@@ -60,3 +60,12 @@ Status: I prosess (Last updated ???)
 
 
 PS: I used Google Translate, so if any entry is wrong, please fix it/point it out :P - Yifei Ding
+
+## Français
+
+### Il s'agit d'une documentation en beta encore très jeune !
+
+Status : En cours (Last updated ???)
+
+[Documentation française de Klipper](https://github.com/KevinOConnor/klipper-translations/tree/translations/docs/locales/fr)
+
