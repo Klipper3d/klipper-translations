@@ -1,6 +1,16 @@
-#
+# Allan Nordhøy <epost@anotheragency.no>, 2021.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-08-04 15:32+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/"
+"index/nb_NO/>\n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.8-dev\n"
 
 #: docs/index.md:block 1 (paragraph)
 msgid "hide:"
@@ -25,6 +35,8 @@ msgstr ""
 #: docs/index.md:block 5 (paragraph)
 msgid "To begin using Klipper start by [installing](Installation.md) it."
 msgstr ""
+"For å begynne å bruke Klipper kan du begynne med "
+"[installasjonen](installasjonen.md) av det."
 
 #: docs/index.md:block 6 (paragraph)
 msgid ""

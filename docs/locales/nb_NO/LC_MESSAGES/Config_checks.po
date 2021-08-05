@@ -1,12 +1,25 @@
-#
+# Allan Nordhøy <epost@anotheragency.no>, 2021.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-08-04 15:32+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/"
+"config_checks/nb_NO/>\n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.8-dev\n"
 
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in "
 "the Klipper printer.cfg file. It is a good idea to run through these steps "
 "after following the steps in the [installation document](Installation.md)."
 msgstr ""
+"Dokumentet har en del steg som hjelper deg å bekrefte pinne-innstillingene i "
+"Klipper sin printer.cfg-fil. Det er en god idé å gå gjennom disse stegene "
+"etter at du har fulgt stegene i [installasjonsdokumentet](installation.md)."
 
 msgid ""
 "During this guide, it may be necessary to make changes to the Klipper config"
@@ -18,7 +31,7 @@ msgid ""
 msgstr ""
 
 msgid "Verify temperature"
-msgstr ""
+msgstr "Bekrefting av temperatur"
 
 msgid ""
 "Start by verifying that temperatures are being properly reported. Navigate "
@@ -54,8 +67,9 @@ msgid ""
 msgstr ""
 
 msgid "Verify heaters"
-msgstr ""
+msgstr "Bekrefting av varmeelementer"
 
+#, fuzzy
 msgid ""
 "Navigate to the Octoprint temperature tab and type in 50 followed by enter "
 "in the \"Tool\" temperature box. The extruder temperature in the graph "
@@ -65,11 +79,19 @@ msgid ""
 "value. If the temperature does not increase then verify the \"heater_pin\" "
 "setting in the config."
 msgstr ""
+"Gå til Octoprint-temperaturfanen og skriv «50» etterfulgt av av Enter i "
+"«Verktøy»-temperaturboksen. Ekstraheringstemperaturen i diagrammet bør "
+"begynne å øke (innen ca. 30 sekunder). Gå så til «Verktøy»-"
+"rullegardinsmenyen og velg «ELLER». Etter flere minutter vil temperaturen "
+"begynne å falle til opprinnelig romtemperatur. Hvis verdien ikke øker kan du "
+"bekrefte «heater_pin»-innstillingen i oppsettet."
 
 msgid ""
 "If the printer has a heated bed then perform the above test again with the "
 "bed."
 msgstr ""
+"Hvis skriveren har en oppvarmet bunnplate kan du utføre ovennevnte igjen med "
+"bunnplaten."
 
 msgid "Verify stepper motor enable pin"
 msgstr ""
@@ -85,7 +107,7 @@ msgid ""
 msgstr ""
 
 msgid "Verify endstops"
-msgstr ""
+msgstr "Bekrefting av endestopp"
 
 msgid ""
 "Manually move all the printer axes so that none of them are in contact with "
@@ -199,14 +221,19 @@ msgid ""
 msgstr ""
 
 msgid "Next steps"
-msgstr ""
+msgstr "Neste steg"
 
+#, fuzzy
 msgid ""
 "This guide is intended to help with basic verification of pin settings in "
 "the Klipper configuration file. Be sure to read the [bed "
 "leveling](Bed_Level.md) guide. Also see the [Slicers](Slicers.md) document "
 "for information on configuring a slicer with Klipper."
 msgstr ""
+"Denne veiledningen er tiltenkt hjelp med grunnleggende pinneinnstillinger i "
+"Kipper-oppsettsfilen. Sørg for å ha lest [bunnplate-nivelering](Bed_Level."
+"md)-veiledningen. Sjekk også [Inndelere](slicers.md]-dokumentet for info om "
+"oppsett av en inndeler med Klipper."
 
 msgid ""
 "After one has verified that basic printing works, it is a good idea to "
@@ -223,4 +250,4 @@ msgstr ""
 
 #: docs/Config_checks.md:block 1 (header)
 msgid "Configuration checks"
-msgstr ""
+msgstr "Oppsettssjekker"
