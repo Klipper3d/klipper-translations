@@ -1,9 +1,17 @@
 # wilmouths <wilmouthsteven@gmail.com>, 2021.
+# Wivik <seb+weblate@zedas.fr>, 2021.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-08-05 20:32+0000\n"
+"Last-Translator: Wivik <seb+weblate@zedas.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/features/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.8-dev\n"
 
 msgid "Klipper has several compelling features:"
 msgstr ""
@@ -62,6 +70,11 @@ msgid ""
 " to obtain faster printing speeds while still maintaining high print "
 "quality."
 msgstr ""
+"Klipper prend en charge la fonction \"Input Shaping\" pour réduire l'impact "
+"des vibrations sur la qualité d'impression. Cela peut réduire ou éliminer le "
+"\"ringing\" (également appelé \"ghosting\", \"echoing\" ou \"rippling\") des "
+"impressions. Cela peut également permettre d'obtenir des vitesses "
+"d'impression plus rapides tout en maintenant une qualité d'impression élevée."
 
 msgid ""
 "Klipper uses an \"iterative solver\" to calculate precise step times from "
@@ -203,7 +216,7 @@ msgid ""
 msgstr ""
 
 msgid "Step Benchmarks"
-msgstr ""
+msgstr "Performances des pas"
 
 msgid ""
 "Below are the results of stepper performance tests. The numbers shown "
@@ -232,82 +245,82 @@ msgid "20Mhz AVR"
 msgstr ""
 
 msgid "192K"
-msgstr ""
+msgstr "192K"
 
 msgid "127K"
-msgstr ""
+msgstr "127K"
 
 msgid "Arduino Zero (SAMD21)"
-msgstr ""
+msgstr "Arduino Zero (SAMD21)"
 
 msgid "234K"
-msgstr ""
+msgstr "234K"
 
 msgid "217K"
-msgstr ""
+msgstr "217K"
 
 msgid "\"Blue Pill\" (STM32F103)"
-msgstr ""
+msgstr "\"Blue Pill\" (STM32F103)"
 
 msgid "387K"
-msgstr ""
+msgstr "387K"
 
 msgid "360K"
-msgstr ""
+msgstr "360K"
 
 msgid "Arduino Due (SAM3X8E)"
 msgstr ""
 
 msgid "438K"
-msgstr ""
+msgstr "438K"
 
 msgid "Duet2 Maestro (SAM4S8C)"
 msgstr ""
 
 msgid "564K"
-msgstr ""
+msgstr "564K"
 
 msgid "Smoothieboard (LPC1768)"
 msgstr ""
 
 msgid "574K"
-msgstr ""
+msgstr "574K"
 
 msgid "Smoothieboard (LPC1769)"
 msgstr ""
 
 msgid "661K"
-msgstr ""
+msgstr "661K"
 
 msgid "Beaglebone PRU"
 msgstr ""
 
 msgid "680K"
-msgstr ""
+msgstr "680K"
 
 msgid "Duet2 Wifi/Eth (SAM4E8E)"
 msgstr ""
 
 msgid "686K"
-msgstr ""
+msgstr "686K"
 
 msgid "Adafruit Metro M4 (SAMD51)"
 msgstr ""
 
 msgid "761K"
-msgstr ""
+msgstr "761K"
 
 msgid "692K"
-msgstr ""
+msgstr "692K"
 
 msgid "BigTreeTech SKR Pro (STM32F407)"
 msgstr ""
 
 msgid "922K"
-msgstr ""
+msgstr "922K"
 
 msgid "711K"
-msgstr ""
+msgstr "711K"
 
 msgid ""
 "On AVR platforms, the highest achievable step rate is with just one stepper "
@@ -318,6 +331,13 @@ msgid ""
 " (Further details on the benchmarks are available in the [Benchmarks "
 "document](Benchmarks.md).)"
 msgstr ""
+"Sur les plates-formes AVR, le taux de pas le plus élevé est atteint avec un "
+"seul stepper. Sur les SAMD21 et STM32F103, le taux de pas le plus élevé est "
+"obtenu avec deux pas simultanés. Sur les SAM3X8E, SAM4S8C, SAM4E8E, LPC176x, "
+"et PRU, le taux de pas le plus élevé est obtenu avec trois pas simultanés. "
+"Sur les SAMD51 et STM32F4, la vitesse de pas la plus élevée est obtenue avec "
+"quatre steppers simultanés. (Plus de détails sur les benchmarks sont "
+"disponibles dans le document [Tests de performance](Benchmarks.md)."
 
 #: docs/Features.md:block 1 (header)
 msgid "Features"
