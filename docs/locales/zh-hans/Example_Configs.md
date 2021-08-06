@@ -1,16 +1,16 @@
-# Example configurations
+# 配置示例
 
 本文档包含向 Klipper Github 仓库（位于[config directory](../config/)）贡献 Klipper 配置示例的指南。
 
-请注意 [Klipper Community Discourse server](https://community.klipper3d.org)也是非常有用的寻找和分享配置文件的地方。
+请注意 [Klipper Community Discourse server](https://community.klipper3d.org) 也可以用来寻找和分享配置文件。
 
 ## 准则
 
 1. 选择适当的配置文件名前缀。
    1. `printer`前缀用于主流制造商出售的打印机。
-   1. `generic`前缀用于3D打印机主板，可用于许多不同类型的打印机。
-   1. `kit`的前缀是指按照广泛使用的规范组装的3d打印机。这些 "套件 "打印机通常与普通的 "打印机 "不同，因为它们不是由制造商出售的。
-   1. `sample`前缀用于配置 "片段"可以被复制到主的配置文件中。
+   1. `generic`前缀用于通用3D打印机主板。
+   1. `kit`的前缀用于按照公开规范组装的3D打印机（例如Voron V2.4）。这些 "套件 "打印机通常与普通的打印机不同在它们通常不被制造商销售。
+   1. `sample`前缀用于可以被复制到主配置文件中的配置 "片段"。
    1. `example`前缀是用来描述打印机运动学。这种类型的配置通常只与新类型的打印机运动学的代码一起添加。
 1. 使用适当的文件名后缀。`printer`配置文件必须以年份结尾，后面是`.cfg`（例如，`-2019.cfg`）。在这种情况下，年份是给定打印机出售的大致年份。所有实例配置文件必须以`.cfg`结尾。
 1. `printer`, `generic`, 和 `kit` 示例配置文件必须保证 Klipper 能够正常启动而不出错。这些配置文件应该被添加到 [test/klippy/printers.test](../test/klippy/printers.test) 回归测试用例中。将新的配置文件添加到该测试用例的适当部分，并按该部分的字母顺序排列。

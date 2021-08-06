@@ -1,4 +1,4 @@
-# SDCard updates
+# 通过SD卡更新
 
 当今许多流行的控制器板都带有能够通过 SD 卡更新固件的引导加载程序。 虽然这在很多情况下都很方便，但这些引导加载程序通常不提供其他方式来更新固件。 如果您的电路板安装在很难插入SD卡的位置或者您需要经常更新固件，这可能会很麻烦。 在 Klipper 最初刷入控制器后，可以将新固件通过网络传输到 SD 卡并通过 ssh 启动刷写过程。
 
@@ -33,20 +33,20 @@ sudo service klipper start
 
 ```
 ./scripts/flash-sdcard.sh -h
-SD Card upload utility for Klipper
+Klipper SD卡更新工具
 
-usage: flash_sdcard.sh [-h] [-l] [-b <baud>] [-f <firmware>]
+使用方法：flash_sdcard.sh [-h] [-l] [-b <baud>] [-f <firmware>]
                        <device> <board>
 
-positional arguments:
-  <device>        device serial port
-  <board>         board type
+位置参数：
+  <device>        设备串口
+  <board>         主板类型
 
-optional arguments:
-  -h              show this message
-  -l              list available boards
-  -b <baud>       serial baud rate (default is 250000)
-  -f <firmware>   path to klipper.bin
+可选参数：
+  -h              显示这条信息
+  -l              列出可用主板
+  -b <baud>       串口波特率（默认为250000）
+  -f <firmware>   klipper.bin文件路径
 ```
 
 如果您的电路板使用以自定义波特率连接的固件刷新，则可以通过指定 `-b` 选项进行升级：
@@ -80,13 +80,13 @@ BOARD_DEFS = {
         'spi_bus': "ssp1",
         "cs_pin": "P0.6"
     },
-    ...<further definitions>
+    ...<更多定义>
 }
 ```
 
 可以指定以下字段：
 
-- `mcu`: The mcu type. This can be retrevied after configuring the build via `make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is required.
+- `mcu`：微控制器类型。这可以在使用`make menuconfig`配置构建配置后通过运行`cat .config | grep CONFIG_MCU`获取。 此字段是必需的。
 - `spi_bus`：连接到 SD 卡的 SPI 总线。 这应该从电路板的原理图中检索。 此字段是必需的。
 - `cs_pin`：连接到 SD 卡的芯片选择引脚。 这应该从电路板原理图中检索。 此字段是必需的。
 - `firmware_path`：SD 卡上固件应传输的路径。 默认是`firmware.bin`。
@@ -102,7 +102,7 @@ BOARD_DEFS = {
 
 ```python
 BOARD_ALIASES = {
-    ...<previous aliases>,
+    ...<原先的别名>,
     'my-new-board': BOARD_DEFS['generic-lpc1768'],
 }
 ```

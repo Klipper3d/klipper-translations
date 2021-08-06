@@ -1,4 +1,4 @@
-# Configuration reference
+# 配置参考
 
 本文档是 Klipper 配置文件中可用配置分段的参考。
 
@@ -2116,7 +2116,7 @@ Heater cooling fans (one may define any number of sections with a "heater_fan" p
 
 ### [controller_fan]
 
-Controller cooling fan (one may define any number of sections with a "controller_fan" prefix). A "controller fan" is a fan that will be enabled whenever its associated heater or its associated stepper driver is active. The fan will stop whenever an idle_timeout is reached to ensure no overheating will occur after deactivating a watched component.
+控制器冷却风扇（可以定义任意数量带有"controller_fan"前缀的分段）。"控制器风扇"(Controller fan)是一个只要关联的加热器或步进驱动程序处于活动状态就会启动的风扇。风扇会在空闲超时(idle_timeout)后停止，以确保被监视组件不再活跃后不会过热。
 
 ```
 [controller_fan my_controller_fan]
@@ -2130,26 +2130,25 @@ Controller cooling fan (one may define any number of sections with a "controller
 #tachometer_pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
-#   See the "fan" section for a description of the above parameters.
+#  以上参数请见“风扇”(fan)分段。
 #fan_speed: 1.0
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when a heater or stepper driver is active.
-#   The default is 1.0
+#   当一个加热器或步进电机活跃时的风扇速度（以一个0.0到1.0
+#   的数值表示）。
+#   默认为 1.0。
 #idle_timeout:
-#   The amount of time (in seconds) after a stepper driver or heater
-#   was active and the fan should be kept running. The default
-#   is 30 seconds.
+#   在步进电机或加热器不再活跃后风扇持续运行的时间（以秒
+#   为单位）。
+#   默认为 30秒。
 #idle_speed:
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when a heater or stepper driver was active and
-#   before the idle_timeout is reached. The default is fan_speed.
+#   当一个加热器或步进电机不再活跃，但没有达到空闲超时(
+#   idle_timeout)时的风扇速度（以一个0.0到1.0的数值表示）。
+#   默认为 fan_speed。
 #heater:
 #stepper:
-#   Name of the config section defining the heater/stepper that this fan
-#   is associated with. If a comma separated list of heater/stepper names
-#   is provided here, then the fan will be enabled when any of the given
-#   heaters/steppers are enabled. The default heater is "extruder", the
-#   default stepper is all of them.
+#   与这个风扇关联的加热器/步进驱动配置分段名称。如果提
+#   供一个逗号分隔的加热器/步进驱动名称，任意一个列表中
+#   的设备启用时风扇将会启动。
+#   默认加热器是“挤出机”（extruder)，默认步进驱动是全部步进驱动。
 ```
 
 ### [temperature_fan]

@@ -1,10 +1,10 @@
-# Configuration checks
+# Oppsettssjekker
 
-This document provides a list of steps to help confirm the pin settings in the Klipper printer.cfg file. It is a good idea to run through these steps after following the steps in the [installation document](Installation.md).
+Dokumentet har en del steg som hjelper deg å bekrefte pinne-innstillingene i Klipper sin printer.cfg-fil. Det er en god idé å gå gjennom disse stegene etter at du har fulgt stegene i [installasjonsdokumentet](installation.md).
 
 During this guide, it may be necessary to make changes to the Klipper config file. Be sure to issue a RESTART command after every change to the config file to ensure that the change takes effect (type "restart" in the Octoprint terminal tab and then click "Send"). It's also a good idea to issue a STATUS command after every RESTART to verify that the config file is successfully loaded.
 
-## Verify temperature
+## Bekrefting av temperatur
 
 Start by verifying that temperatures are being properly reported. Navigate to the Octoprint temperature tab.
 
@@ -18,17 +18,17 @@ Navigate to the Octoprint terminal tab and issue an M112 command in the terminal
 
 The M112 command causes Klipper to go into a "shutdown" state. To clear this state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab.
 
-## Verify heaters
+## Bekrefting av varmeelementer
 
-Navigate to the Octoprint temperature tab and type in 50 followed by enter in the "Tool" temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the "Tool" temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
+Gå til Octoprint-temperaturfanen og skriv «50» etterfulgt av av Enter i «Verktøy»-temperaturboksen. Ekstraheringstemperaturen i diagrammet bør begynne å øke (innen ca. 30 sekunder). Gå så til «Verktøy»-rullegardinsmenyen og velg «ELLER». Etter flere minutter vil temperaturen begynne å falle til opprinnelig romtemperatur. Hvis verdien ikke øker kan du bekrefte «heater_pin»-innstillingen i oppsettet.
 
-If the printer has a heated bed then perform the above test again with the bed.
+Hvis skriveren har en oppvarmet bunnplate kan du utføre ovennevnte igjen med bunnplaten.
 
 ## Verify stepper motor enable pin
 
 Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !ar38").
 
-## Verify endstops
+## Bekrefting av endestopp
 
 Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the Octoprint terminal tab. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
 
@@ -60,9 +60,9 @@ At the completion of the tuning test run `SAVE_CONFIG` to update the printer.cfg
 
 If the printer has a heated bed and it supports being driven by PWM (Pulse Width Modulation) then it is recommended to use PID control for the bed. (When the bed heater is controlled using the PID algorithm it may turn on and off ten times a second, which may not be suitable for heaters using a mechanical switch.) A typical bed PID calibration command is: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
 
-## Next steps
+## Neste steg
 
-This guide is intended to help with basic verification of pin settings in the Klipper configuration file. Be sure to read the [bed leveling](Bed_Level.md) guide. Also see the [Slicers](Slicers.md) document for information on configuring a slicer with Klipper.
+Denne veiledningen er tiltenkt hjelp med grunnleggende pinneinnstillinger i Kipper-oppsettsfilen. Sørg for å ha lest [bunnplate-nivelering](Bed_Level.md)-veiledningen. Sjekk også [Inndelere](slicers.md]-dokumentet for info om oppsett av en inndeler med Klipper.
 
 After one has verified that basic printing works, it is a good idea to consider calibrating [pressure advance](Pressure_Advance.md).
 

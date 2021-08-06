@@ -1,4 +1,4 @@
-# Contact
+# 联系方式
 
 本文档提供了关于 Klipper 的联系信息。
 
@@ -34,7 +34,7 @@ There is a Discord server dedicated to Klipper at: <https://discord.klipper3d.or
 
 ## 我有一个功能请求
 
-所有的新功能都需要有感兴趣并能够实现这个功能的人。如果你想帮助实现或测试一个新功能，你可以在[ Klipper 社区论坛](#community-forum)中搜索正在进行的开发进程。还有[Klipper Discord 聊天室](#discord-chat)供合作者之间讨论。
+所有的新功能都需要有感兴趣并能够实现这些功能的人。如果你想帮助实现或测试一个新功能，你可以在[ Klipper 社区论坛](#community-forum)中搜索正在进行的开发进程。还有[Klipper Discord 聊天室](#discord-chat)供合作者之间讨论。
 
 不要在 Klipper 的 Github 上创建议题来请求功能。
 
@@ -59,24 +59,24 @@ There is a Discord server dedicated to Klipper at: <https://discord.klipper3d.or
 
 Klipper 是一个开源项目，我们诚挚的感谢贡献者们在软件中诊断出错误。
 
-为了修复一个错误，需要提供一些重要的信息。请遵循以下步骤：
+修复bug需要提供一些重要的信息。请遵循以下步骤：
 
-1. 先要确定这个错误是在Klipper软件中。如果你在想 "我有一个问题，我无法找出原因，因此这是一个Klipper的错误"，那么**不要**创建一个Github议题。在这种情况下，有兴趣且有能力的人需要首先研究并诊断出问题的根源。如果你想分享你的研究结果或检查其他用户是否遇到类似的问题，那么你可以搜索[Klipper社区论坛](#community-forum)。
+1. 首先要确定这个错误是在 Klipper 软件中。如果你在想 "我有一个问题，我无法找出原因，因此这是一个Klipper的错误"，那么**不要**创建一个 Github 议题。在这种情况下，有兴趣且有能力的人需要先找到问题的根源。如果你想分享你的研究结果或检查其他用户是否遇到类似的问题，那么你可以搜索 [Klipper 社区论坛](#community-forum)。
 1. Make sure you are running unmodified code from <https://github.com/KevinOConnor/klipper>. If the code has been modified or is obtained from another source, then you will need to reproduce the problem on the unmodified code from <https://github.com/KevinOConnor/klipper> prior to reporting an issue.
-1. 如果可能的话，在不期望的事件发生后，立即在 OctoPrint 终端窗口运行一个`M112`命令。这将使 Klipper 进入 "关闭状态"，并在日志文件中写入额外的调试信息。
-1. 获取事件中的 Klipper 日志文件。该日志文件已被设计用来回答 Klipper 开发人员关于软件及其运行环境的常见问题（软件版本、硬件类型、配置、事件时间和数百个其他问题）。
+1. 如果可能的话，在不期望的事件发生后，立即在 OctoPrint 终端窗口运行一个`M112`命令。这将使 Klipper 进入 "关闭"(shutdown)状态，并在日志文件中写入额外的调试信息。
+1. 获取事件发送时的 Klipper 日志文件。该日志文件已被设计用来给 Klipper 开发人员提供关于软件及其运行环境的常见问题（软件版本、硬件类型、配置、事件时间和数百个其他问题）。
    1. Klipper 日志文件位于 Klipper "主机"（树莓派）的`/tmp/klippy.log`文件中。
    1. 你需要用“scp”或“sftp”程序将此日志文件复制到您的计算机。 “scp”程序是 Linux 和 MacOS 系统的标准配置。其他系统也通常有可用的 scp 实用程序（例如 WinSCP）。如果使用图形界面的 scp 程序无法直接复制 `/tmp/klippy.log`，可以尝试重复点击 `..`或者`parent folder`（父文件夹）直到进入根目录，再点击`tmp`文件夹，然后选择`klippy.log`文件。
    1. 将日志文件复制到你的电脑，以便将其上传到问题报告中。
    1. 不要以任何方式修改日志文件；不要只提供日志的片段。只有完整的未修改的日志文件才能够提供必要的信息。
    1. 如果日志文件非常大（例如，大于2MB），那么可能需要用 zip 或 gzip 来压缩日志。
 
-   1. Open a new github issue at <https://github.com/KevinOConnor/klipper/issues> and provide a clear description of the problem. The Klipper developers need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The Klipper log file **must be attached** to that ticket:![问题附件](img/attach-issue.png)
+   1. Open a new github issue at <https://github.com/KevinOConnor/klipper/issues> and provide a clear description of the problem. The Klipper developers need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The Klipper log file **must be attached** to that ticket:![议题附件](img/attach-issue.png)
 
-## 我正在进行一些我想包含在 Klipper 中的改进
+## 我正在进行一些我想添加到 Klipper 中的改进
 
 Klipper 是开源软件，我们非常感谢新的贡献。
 
-新的贡献（包括代码和文档）需要通过Github Pull Requests提交。重要信息请参见[贡献文档](CONTRIBUTING.md)。
+新的贡献（包括代码和文档）需要通过拉取请求(PR)提交。重要信息请参见[贡献文档](CONTRIBUTING.md)。
 
 有几个[开发人员文档](Overview.md#developer-documentation)。如果你对代码有疑问，那么你也可以在[Klipper社区论坛](#community-forum)或[Klipper社区 Discord](#discord-chat)上提问。如果你想提供你目前的进展情况，那么你可以在 Github 上开一个问题，写上你的代码的位置，修改的概述，以及对其目前状态的描述。
