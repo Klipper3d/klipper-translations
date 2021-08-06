@@ -7,7 +7,7 @@ Klipper has several compelling features:
 * Klipper supports printers with multiple micro-controllers. For example, one micro-controller could be used to control an extruder, while another controls the printer's heaters, while a third controls the rest of the printer. The Klipper host software implements clock synchronization to account for clock drift between micro-controllers. No special code is needed to enable multiple micro-controllers - it just requires a few extra lines in the config file.
 * Configuration via simple config file. There's no need to reflash the micro-controller to change a setting. All of Klipper's configuration is stored in a standard config file which can be easily edited. This makes it easier to setup and maintain the hardware.
 * Klipper supports "Smooth Pressure Advance" - a mechanism to account for the effects of pressure within an extruder. This reduces extruder "ooze" and improves the quality of print corners. Klipper's implementation does not introduce instantaneous extruder speed changes, which improves overall stability and robustness.
-* Klipper supports "Input Shaping" to reduce the impact of vibrations on print quality. This can reduce or eliminate "ringing" (also known as "ghosting", "echoing", or "rippling") in prints. It may also allow one to obtain faster printing speeds while still maintaining high print quality.
+* Klipper prend en charge la fonction "Input Shaping" pour réduire l'impact des vibrations sur la qualité d'impression. Cela peut réduire ou éliminer le "ringing" (également appelé "ghosting", "echoing" ou "rippling") des impressions. Cela peut également permettre d'obtenir des vitesses d'impression plus rapides tout en maintenant une qualité d'impression élevée.
 * Klipper uses an "iterative solver" to calculate precise step times from simple kinematic equations. This makes porting Klipper to new types of robots easier and it keeps timing precise even with complex kinematics (no "line segmentation" is needed).
 * Portable code. Klipper works on ARM, AVR, and PRU based micro-controllers. Existing "reprap" style printers can run Klipper without hardware modification - just add a Raspberry Pi. Klipper's internal code layout makes it easier to support other micro-controller architectures as well.
 * Simpler code. Klipper uses a very high level language (Python) for most code. The kinematics algorithms, the G-code parsing, the heating and thermistor algorithms, etc. are all written in Python. This makes it easier to develop new functionality.
@@ -37,7 +37,7 @@ Klipper supports many standard 3d printer features:
 
 To get started with Klipper, read the [installation](Installation.md) guide.
 
-## Step Benchmarks
+## Performances des pas
 
 Below are the results of stepper performance tests. The numbers shown represent total number of steps per second on the micro-controller.
 
@@ -56,4 +56,4 @@ Below are the results of stepper performance tests. The numbers shown represent 
 | Adafruit Metro M4 (SAMD51) | 761K | 692K |
 | BigTreeTech SKR Pro (STM32F407) | 922K | 711K |
 
-On AVR platforms, the highest achievable step rate is with just one stepper stepping. On the SAMD21 and STM32F103 the highest step rate is with two simultaneous steppers stepping. On the SAM3X8E, SAM4S8C, SAM4E8E, LPC176x, and PRU the highest step rate is with three simultaneous steppers. On the SAMD51 and STM32F4 the highest step rate is with four simultaneous steppers. (Further details on the benchmarks are available in the [Benchmarks document](Benchmarks.md).)
+Sur les plates-formes AVR, le taux de pas le plus élevé est atteint avec un seul stepper. Sur les SAMD21 et STM32F103, le taux de pas le plus élevé est obtenu avec deux pas simultanés. Sur les SAM3X8E, SAM4S8C, SAM4E8E, LPC176x, et PRU, le taux de pas le plus élevé est obtenu avec trois pas simultanés. Sur les SAMD51 et STM32F4, la vitesse de pas la plus élevée est obtenue avec quatre steppers simultanés. (Plus de détails sur les benchmarks sont disponibles dans le document [Tests de performance](Benchmarks.md).

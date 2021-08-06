@@ -1,6 +1,6 @@
 # Overview
 
-Welcome to the Klipper documentation. If new to Klipper, start with the [features](Features.md) and [installation](Installation.md) documents.
+Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, commencez par les sections [fonctionnalités](Features.md) et [installation](Installation.md).
 
 ## Overview information
 

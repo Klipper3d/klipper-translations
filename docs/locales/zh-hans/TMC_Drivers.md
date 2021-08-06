@@ -10,7 +10,7 @@ Klipper也可以在其 "standalone mode"下使用Trinamic驱动。然而，当�
 
 默认情况下，Klipper将TMC驱动置于 "spreadcycle "模式。如果驱动程序支持 "stealthchop"，那么可以通过添加`stealthchop_threshold:999999` 到TMC配置部分。
 
-建议总是使用 "spreadcycle "模式（通过不指定`stealthchop_threshold`）或总是使用 "stealthchop "模式（通过设置`stealthchop_threshold`为999999）。不幸的是，如果在电机处于非零速度时改变模式，驱动器往往会产生糟糕和混乱的结果。
+建议总是使用 "spreadcycle "模式（不指定`stealthchop_threshold` 即可）或总是使用 "stealthchop "模式（通过设置`stealthchop_threshold`为 999999 ）。不幸的是，如果在电机处于非零速度时改变模式，驱动器往往会产生糟糕和混乱的结果。
 
 ## 无限位归零
 

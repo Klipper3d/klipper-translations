@@ -1,4 +1,4 @@
-# Configuration checks
+# 配置检查
 
 本文档提供了帮助验证 Klipper printer.cfg 文件中的引脚设置的步骤列表。推荐在完成[安装文档](Installation.md) 中的步骤后执行本文档中的步骤。
 
@@ -10,7 +10,7 @@
 
 ![octoprint-温度](img/octoprint-temperature.png)
 
-确认喷嘴和热床（如果适用）的温度合理且不在升高。如果它正在增加，请断开打印机的电源。如果温度不准确，请查看喷嘴和/或热床的 “sensor_type” 和 “sensor_pin” 设置。
+确认喷嘴和热床（如果适用）的温度合理且不在上升。如果正在上升，请断开打印机的电源。如果温度显示不准确，请检查喷嘴和/或热床的 “sensor_type” 和 “sensor_pin” 设置。
 
 ## 验证 M112
 
