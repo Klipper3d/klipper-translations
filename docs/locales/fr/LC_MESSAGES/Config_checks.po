@@ -1,5 +1,5 @@
 # wilmouths <wilmouthsteven@gmail.com>, 2021, 2025.
-# Wivik <seb+weblate@zedas.fr>, 2021.
+# Wivik <seb+weblate@zedas.fr>, 2021, 2025.
 # gbonaspetti <gbonaspetti@hotmail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # jean-luc MATTEI <jlucm@free.fr>, 2023.
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: wilmouths <wilmouthsteven@gmail.com>\n"
+"Last-Translator: Wivik <seb+weblate@zedas.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "config_checks/fr/>\n"
 "Language: fr\n"
