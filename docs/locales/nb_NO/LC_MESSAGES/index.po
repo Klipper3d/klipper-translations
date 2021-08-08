@@ -1,11 +1,11 @@
-# Allan Nordhøy <epost@anotheragency.no>, 2021.
+# Allan Nordhøy <epost@anotheragency.no>, 2021, 2025.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2025.
 # Petter Reinholdtsen <pere-weblate@hungry.com>, 2021, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: Petter Reinholdtsen <pere-weblate@hungry.com>\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/"
 "index/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -33,15 +33,14 @@ msgid ""
 "document for more information on why you should use Klipper."
 msgstr ""
 "Klipper er 3D-skriverfastvare. Det kombinerer kraften av en generell "
-"datamaskin med én eller flere mikrokontrollere. Sjekk "
-"[funksjoner](Features.md)-dokumenter for mer info om hvorfor du bør bruke "
-"Klipper."
+"datamaskin med én eller flere mikrokontrollere. Sjekk [funksjoner]"
+"(Features.md)-dokumenter for mer info om hvorfor du bør bruke Klipper."
 
 #: docs/index.md:block 5 (paragraph)
 msgid "To begin using Klipper start by [installing](Installation.md) it."
 msgstr ""
-"For å begynne å bruke Klipper kan du begynne med "
-"[installasjonen](installasjonen.md) av det."
+"For å begynne å bruke Klipper kan du begynne med [installasjonen]"
+"(installasjonen.md) av det."
 
 #: docs/index.md:block 6 (paragraph)
 msgid ""
