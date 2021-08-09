@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-04 15:32+0000\n"
+"PO-Revision-Date: 2021-08-09 19:33+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/"
 "index/nb_NO/>\n"
@@ -13,16 +13,19 @@ msgstr ""
 "X-Generator: Weblate 4.8-dev\n"
 
 #: docs/index.md:block 1 (paragraph)
+#, fuzzy
 msgid "hide:"
-msgstr ""
+msgstr "hide:"
 
 #: docs/index.md:block 2 (unordered list)
+#, fuzzy
 msgid "toc title: Welcome"
-msgstr ""
+msgstr "toc title: Velkommen"
 
 #: docs/index.md:block 3 (paragraph)
+#, fuzzy
 msgid "![](img/klipper-logo.png){ .center-image }"
-msgstr ""
+msgstr "![](img/klipper-logo.png){ .center-image }"
 
 #: docs/index.md:block 4 (paragraph)
 msgid ""
@@ -31,6 +34,9 @@ msgid ""
 "[features](Features.md) document for more information on why you should use "
 "Klipper."
 msgstr ""
+"Klipper er 3D-skriverfastvare. Det kombinerer kraften av en generell "
+"datamaskin med én eller flere mikrokontrollere. Sjekk [funksjoner](Features."
+"md)-dokumenter for mer info om hvorfor du bør bruke Klipper."
 
 #: docs/index.md:block 5 (paragraph)
 msgid "To begin using Klipper start by [installing](Installation.md) it."
@@ -39,7 +45,10 @@ msgstr ""
 "[installasjonen](installasjonen.md) av det."
 
 #: docs/index.md:block 6 (paragraph)
+#, fuzzy
 msgid ""
 "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
 " Klipper code on github](https://github.com/KevinOConnor/klipper)."
 msgstr ""
+"Klipper er fri programvare. Les [dokumentasjonen](Overview.md) eller sjekk "
+"[Klipper-kildekoden på GitHub](https://github.com/KevinOConnor/klipper)."
