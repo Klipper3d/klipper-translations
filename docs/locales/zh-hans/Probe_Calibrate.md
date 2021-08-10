@@ -36,27 +36,27 @@ X偏移值为 `喷嘴X坐标值 - 探针X坐标值`， 类似地， Y偏移值�
 
 准确的探针 z 偏移(z_offset)是高质量打印的基础。z 偏移是探针触发时探针和喷嘴之间的高度差。Klipper 中的 `PROBE_CALIBRATE`（探针校准）工具可用于测量这个值——首先，该工具会运行一次自动探测以获取探针的 z 触发位置，然后需要手动调整Z坐标以获取喷嘴碰触到热床时的 z 高度。然后将根据这些测量值计算探针的 z 偏移。
 
-Start by homing the printer and then move the head to a position near the center of the bed. Navigate to the OctoPrint terminal tab and run the `PROBE_CALIBRATE` command to start the tool.
+首先进行三轴的归零，然后将喷嘴移动到热床的中央位置。转到OctoPrint的“命令行（Terminal）”子页，输入 `PROBE_CALIBRATE`以启动z_offset校准工具。
 
-This tool will perform an automatic probe, then lift the head, move the nozzle over the location of the probe point, and start the manual probe tool. If the nozzle does not move to a position above the automatic probe point, then `ABORT` the manual probe tool and perform the XY probe offset calibration described above.
+工具首先会令探针进行一次自动探测，获取触发探针的z位置，之后，控制喷嘴上升，并将喷嘴的X/Y位置移动到探针对应位置上，并开始手动调平流程。如果喷嘴没有移动到探针进行自动探测的位置，输入`ABORT`以停止手动调平，并上文根据X、y偏移校准流程进行探针X、Y校准。
 
-Once the manual probe tool starts, follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test)) to determine the actual distance between the nozzle and bed at the given location. Once those steps are complete one can `ACCEPT` the position and save the results to the config file with:
+进入手动调平的过程后，请按照[“纸片测试”](Bed_Level.md#the-paper-test)的流程，确定在探针探测位置上，喷嘴与热床之间的距离。完成上述流程后，使用`ACCEPT`命令将测量到的z_offset应用到当前配置，如需要保存配置到文件，则键入：
 
 ```
 SAVE_CONFIG
 ```
 
-Note that if a change is made to the printer's motion system, hotend position, or probe location then it will invalidate the results of PROBE_CALIBRATE.
+注意！如果修改了打印机的运动系统、喷嘴位置或探针位置中的任意一项，PROBE_CALIBRATE的结果将会需要重新测量。
 
-If the probe has an X or Y offset and the bed tilt is changed (eg, by adjusting bed screws, running DELTA_CALIBRATE, running Z_TILT_ADJUST, running QUAD_GANTRY_LEVEL, or similar) then it will invalidate the results of PROBE_CALIBRATE. After making any of the above adjustments it will be necessary to run PROBE_CALIBRATE again.
+如果探针的物理X、Y偏移量，或热床的倾斜度发生变化（如 调整了热床调平螺母，进行DELTA_CALIBRATE，进行Z_TILT_ADJUST，进行QUAD_GANTRY_LEVEL或其他行为），也应进行一次PROBE_CALiRATE。
 
-If the results of PROBE_CALIBRATE are invalidated, then any previous [bed mesh](Bed_Mesh.md) results that were obtained using the probe are also invalidated - it will be necessary to rerun BED_MESH_CALIBRATE after recalibrating the probe.
+上述使PROBE_CALIBRATE结果失效的行为，同样会使使用探针测量的[床网](Bed_Mesh.md)结果失效。推荐在完成PROBE_CALIBRATE后再进行一次BED_MESH_CALIBRATE。
 
 ## 重复性测试
 
-After calibrating the probe X, Y, and Z offsets it is a good idea to verify that the probe provides repeatable results. Start by homing the printer and then move the head to a position near the center of the bed. Navigate to the OctoPrint terminal tab and run the `PROBE_ACCURACY` command.
+在完成探针的X、Y、Z偏移的校准后，推荐进行探针的重复性测试。首先对打印机进行三周归零，然后将喷嘴移动到热床的中央位置。进入OctoPrint的命令行界面，执行`PROBE_ACCURACY`命令。
 
-This command will run the probe ten times and produce output similar to the following:
+该命令会就地进行10次探针测量，并输出类似下方的结果：
 
 ```
 Recv: // probe accuracy: at X:0.000 Y:0.000 Z:10.000
@@ -74,11 +74,11 @@ Recv: // probe at -0.003,0.005 is z=2.506948
 Recv: // probe accuracy results: maximum 2.519448, minimum 2.506948, range 0.012500, average 2.513198, median 2.513198, standard deviation 0.006250
 ```
 
-Ideally the tool will report an identical maximum and minimum value. (That is, ideally the probe obtains an identical result on all ten probes.) However, it's normal for the minimum and maximum values to differ by one Z "step distance" or up to 5 microns (.005mm). A "step distance" is `rotation_distance/(full_steps_per_rotation*microsteps)`. The distance between the minimum and the maximum value is called the range. So, in the above example, since the printer uses a Z step distance of .0125, a range of 0.012500 would be considered normal.
+理想状况下，使用探针测量的所有结果应该一致（也就是10次测量的结果为同一值）。然而，测量结果的最大值和最小值之间差距 “一个z电机步长”或5微米，也是正常的情况。一个“电机步长”是`旋转一周的长度/(旋转一周需要的步数*驱动微步设置)`。测量最大值和最小值的差值称为偏差范围。故在上述的例子中，因为打印机的z步长为0.0125，因此误差范围在0.012500mm可以认为是正常值。
 
-If the results of the test show a range value that is greater than 25 microns (.025mm) then the probe does not have sufficient accuracy for typical bed leveling procedures. It may be possible to tune the probe speed and/or probe start height to improve the repeatability of the probe. The `PROBE_ACCURACY` command allows one to run tests with different parameters to see their impact - see the [G-Codes document](G-Codes.md) for further details. If the probe generally obtains repeatable results but has an occasional outlier, then it may be possible to account for that by using multiple samples on each probe - read the description of the probe `samples` config parameters in the [config reference](Config_Reference.md#probe) for more details.
+如果测量的结果显示误差范围大于25微米（0.025mm），受测的探针则不能满足热床调平的要求。通过调整探针测试的速度和/或探针测试的起始高度，有可能获得更佳的可重复性。`PROBE_ACCURACY`命令允许用户以不同的条件进行测试，详情参考[G代码文档](G-Codes.md)。如果探针在多次测量中偶发性出现大偏差的读值，可以通过单点多次测量功能抑制偶发偏差，详情参考[配置参考](Config_Reference.md#probe)中探针`samples`部分。
 
-If new probe speed, samples count, or other settings are needed, then update the printer.cfg file and issue a `RESTART` command. If so, it is a good idea to [calibrate the z_offset](#calibrating-probe-z-offset) again. If repeatable results can not be obtained then don't use the probe for bed leveling. Klipper has several manual probing tools that can be used instead - see the [Bed Level document](Bed_Level.md) for further details.
+要更改探针测试速度，重复采样或其他设置，应在修改printer.cfg使用`RESTART`命令以应用修改值。推荐在使用新设置值后再进行一次[Z偏移校准](#calibrating-probe-z-offset)。如果重复性测试结论不能接受，建议不要使用自动热床调平功能。Klipper提供了数种手动调平的工具，详情请见[打印床调平](Bed_Level.md)。
 
 ## 局部偏差确定
 

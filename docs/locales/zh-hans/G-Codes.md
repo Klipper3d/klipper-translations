@@ -326,14 +326,14 @@ The following command is available when a [temperature_fan config section](Confi
 
 - `SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_name> [target=<target_temperature>] [min_speed=<min_speed>]  [max_speed=<max_speed>]`: Sets the target temperature for a temperature_fan. If a target is not supplied, it is set to the specified temperature in the config file. If speeds are not supplied, no change is applied.
 
-### Adxl345 Accelerometer Commands
+### Adxl345 加速度传感器命令
 
 The following commands are available when an [adxl345 config section](Config_Reference.md#adxl345) is enabled:
 
 - `ACCELEROMETER_MEASURE [CHIP=<config_name>] [RATE=<value>] [NAME=<value>]` ：以请求的每秒采样数启动加速度计测量。如果没有指定CHIP（芯片），则默认为 "default"。有效速率为25、50、100、200、400、800、1600和3200。该命令以启动-停止模式工作：第一次执行时，它开始测量，下次执行时则停止测量。如果没有指定RATE（速率），则使用默认值（来自`printer.cfg`或`3200`默认值）。测量结果被写入一个名为`/tmp/adxl345-<chip>-<name>.csv`的文件，其中`<chip>`是加速度计芯片的名称（`my_chip_name`来自`[adxl345 my_chip_name]`），`<name>`是可选NAME（名称）参数。如果没有指定NAME，则默认为格式为 "YYYMMDD_HHMMSS"的当前时间。如果加速度计在其配置部分没有名称（仅仅是`[adxl345]`）则文件名的<chip>部分不会生成。
 - `ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`：查询加速度计的当前读数。如果没有指定CHIP（芯片），则默认为 "default"。如果没有指定RATE（速率），则使用默认值。该命令对于测试与ADXL345加速度计的连接非常有用：返回的数值之一应该是自由落体加速度（+/-芯片的一些噪声）。
 - `ADXL345_DEBUG_READ [CHIP=<config_name>] REG=<register>`：读取 ADXL345 寄存器 <register>（例如44或0x2C）。可用于调试目的。
-- `ADXL345_DEBUG_WRITE [CHIP=<config_name>] REG=<reg> VAL=<value>`: writes raw <value> into a register <register>. Both <value> and <register> can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.
+- `ADXL345_DEBUG_WRITE [CHIP=<config_name>] REG=<reg> VAL=<value>`: 向<register>写入值<value> 。 <value> 和 <register> 均可使用 十进制 和 十六进制 实数。请小心使用，并参考ADXL345的参考手册。
 
 ### Resonance Testing Commands
 
