@@ -1,4 +1,4 @@
-# Nathan <bonnemainsnathan@gmail.com>, 2021.
+# Nathan <bonnemainsnathan@gmail.com>, 2021, 2025.
 # Tircown <tircown@gmail.com>, 2021.
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021, 2025.
 # Maxime Leroy <lisacintosh@gmail.com>, 2022, 2025.
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: Francis Poulizac <fpoulizac@vivaldi.net>\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "installation/fr/>\n"
 "Language: fr\n"
