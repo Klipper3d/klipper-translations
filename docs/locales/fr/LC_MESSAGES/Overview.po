@@ -1,9 +1,10 @@
 # Wivik <seb+weblate@zedas.fr>, 2021.
+# Nathan <bonnemainsnathan@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2021-08-10 07:59+0000\n"
-"Last-Translator: Wivik <seb+weblate@zedas.fr>\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/overview/"
 "fr/>\n"
 "Language: fr\n"
@@ -25,11 +26,11 @@ msgstr "Informations générales"
 
 msgid "[Features](Features.md): A high-level list of features in Klipper."
 msgstr ""
-"[Caractéristiques](Features.md) : Une liste avancée des fonctionnalités de "
+"[Fonctionnalités](Features.md) : Une liste avancée des fonctionnalités de "
 "Klipper."
 
 msgid "[FAQ](FAQ.md): Frequently asked questions."
-msgstr "[FAQ](FAQ.md): Questions fréquemment posées."
+msgstr "[FAQ](FAQ.md) : Foire aux questions."
 
 msgid "[Releases](Releases.md): The history of Klipper releases."
 msgstr "[Releases](Releases.md): L'historique des versions de Klipper."
