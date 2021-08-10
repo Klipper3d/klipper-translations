@@ -2600,32 +2600,30 @@ cs_pin:
 #   必须提供此参数。
 #spi_speed: 4000000
 #   SPI 总线与 TMC2660 步进驱动的通信速率。
-#   默认为4000000。
+#   默认为 4000000。
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   以上参数详见“常见 SPI 设置”章节。
 #interpolate: True
-#   If true, enable step interpolation (the driver will internally
-#   step at a rate of 256 micro-steps). This only works if microsteps
-#   is set to 16. The default is True.
+#   如设置为 True ，则启用步进细分（驱动将会在内部以256
+#   微步的频率步进）。这只在微步设置为 16 时有效。
+#   默认为 True 。
 run_current:
-#   The amount of current (in amps RMS) used by the driver during
-#   stepper movement. This parameter must be provided.
+#   驱动在步进电机运动时使用的电流（以安培 RMS 为单位）。
+#   必须提供这个参数。
 #sense_resistor:
-#   The resistance (in ohms) of the motor sense resistor. This
-#   parameter must be provided.
+#   电机检测电阻的阻值（以 ohms 为单位）。
+#   必须提供这个参数。
 #idle_current_percent: 100
-#   The percentage of the run_current the stepper driver will be
-#   lowered to when the idle timeout expires (you need to set up the
-#   timeout using a [idle_timeout] config section). The current will
-#   be raised again once the stepper has to move again. Make sure to
-#   set this to a high enough value such that the steppers do not lose
-#   their position. There is also small delay until the current is
-#   raised again, so take this into account when commanding fast moves
-#   while the stepper is idling. The default is 100 (no reduction).
+#   当空闲超时到期时步进电机将降低到的 run_current 百分比（
+#   你必须使用一个 [idle_timeout] 配置分段来设置一个空闲超时）。
+#   在步进电机开始运行时电流将会重新提高。确保它被设为一个足
+#   够高的数值以保证步进电机不会发生位移。电流重新提高有一个
+#   微小的延迟，请在对一个空闲状态步进电机发送快速移动指令前
+#   考虑这项延迟。
+#   默认为 100 （不减少）。
 #driver_TBL: 2
 #driver_RNDTF: 0
 #driver_HDEC: 0
@@ -2644,14 +2642,11 @@ run_current:
 #driver_SLPL: 0
 #driver_DISS2G: 0
 #driver_TS2G: 3
-#   Set the given parameter during the configuration of the TMC2660
-#   chip. This may be used to set custom driver parameters. The
-#   defaults for each parameter are next to the parameter name in the
-#   list above. See the TMC2660 datasheet about what each parameter
-#   does and what the restrictions on parameter combinations are. Be
-#   especially aware of the CHOPCONF register, where setting CHM to
-#   either zero or one will lead to layout changes (the first bit of
-#   HDEC) is interpreted as the MSB of HSTRT in this case).
+#   在配置 TMC2660 芯片时给定的参数。可以用来设置自定义参数。
+#   在列表中参数的默认值是芯片的默认值。查看 TMC2660数据手册
+#   以了解这些参数的作用以及它们互相组合的限制。尤其注意 
+#   CHOPCONF 寄存器，因为设置 CHM 为 0 或 1 将会造成布局变化（
+#   HDEC的第一个比特会在此时被视为 HSTRT 的 MSB）。
 ```
 
 ### [tmc5160]
@@ -2987,24 +2982,23 @@ Information on configuring an hd44780_spi display - a 20x04 display controlled v
 ```
 [display]
 lcd_type: hd44780_spi
-#   Set to "hd44780_spi" for hd44780_spi displays.
+#   对于hd44780_spi 显示器，设置为“hd44780_spi”。
 latch_pin:
 spi_software_sclk_pin:
 spi_software_mosi_pin:
 spi_software_miso_pin:
-#   The pins connected to the shift register controlling the display.
-#   The spi_software_miso_pin needs to be set to an unused pin of the
-#   printer mainboard as the shift register does not have a MISO pin,
-#   but the software spi implementation requires this pin to be
-#   configured.
+#   控制显示器的移位寄存器的引脚。由于位移寄存器没有 MISO 引
+#   脚，但是软件 SPI 实现需要这个引脚被配置，
+#   spi_software_miso_pin 需要被设置为一个打印机主板上未被使
+#   用的引脚。
 #hd44780_protocol_init: True
-#   Perform 8-bit/4-bit protocol initialization on an hd44780 display.
-#   This is necessary on real hd44780 devices. However, one may need
-#   to disable this on some "clone" devices. The default is True.
+#   在 hd44780 显示器上执行 8-bit/4-bit 协议初始化。正版的
+#   hd44780 设备必须执行此操作，但是某些克隆设备上可能需要
+#   禁用。
+#   默认为True（启用）。
 #line_length:
-#   Set the number of characters per line for an hd44780 type lcd.
-#   Possible values are 20 (default) and 16. The number of lines is
-#   fixed to 4.
+#   设置一个 hd44780 类 LCD 每行显示的字符数量。可能的值为20
+#   （默认）和 16。行数固定为4。
 ...
 ```
 

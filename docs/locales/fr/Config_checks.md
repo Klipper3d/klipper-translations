@@ -1,4 +1,4 @@
-# Configuration checks
+# Contrôles de la configuration
 
 Ce document fournit une liste d'étapes permettant de confirmer les paramètres des broches dans le fichier printer.cfg de Klipper. Il est conseillé d'exécuter ces étapes après avoir suivi les étapes du [document d'installation](Installation.md).
 

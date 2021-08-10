@@ -2,14 +2,14 @@
 
 hide:
 
-- toc title: Welcome
+- toc title: Velkommen
 
 ---
 
 ![](img/klipper-logo.png){ .center-image }
 
-Klipper is a 3d-Printer firmware. It combines the power of a general purpose computer with one or more micro-controllers. See the [features](Features.md) document for more information on why you should use Klipper.
+Klipper er 3D-skriverfastvare. Det kombinerer kraften av en generell datamaskin med én eller flere mikrokontrollere. Sjekk [funksjoner](Features.md)-dokumenter for mer info om hvorfor du bør bruke Klipper.
 
 For å begynne å bruke Klipper kan du begynne med [installasjonen](installasjonen.md) av det.
 
-Klipper is Free Software. Read the [documentation](Overview.md) or view [the Klipper code on github](https://github.com/KevinOConnor/klipper).
+Klipper er fri programvare. Les [dokumentasjonen](Overview.md) eller sjekk [Klipper-kildekoden på GitHub](https://github.com/KevinOConnor/klipper).
