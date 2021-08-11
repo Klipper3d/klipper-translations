@@ -2,17 +2,17 @@
 
 Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, commencez par les sections [fonctionnalités](Features.md) et [installation](Installation.md).
 
-## Overview information
+## Informations générales
 
-- [Features](Features.md): A high-level list of features in Klipper.
-- [FAQ](FAQ.md): Frequently asked questions.
-- [Releases](Releases.md): The history of Klipper releases.
-- [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
-- [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
+- [Fonctionnalités](Features.md) : Une liste avancée des fonctionnalités de Klipper.
+- [FAQ](FAQ.md) : Foire aux questions.
+- [Versions](Releases.md) : L'historique des versions de Klipper.
+- [Modifications de configuration](Config_Changes.md) : Modifications récentes du logiciel qui peuvent nécessiter que les utilisateurs mettent à jour la configuration de leur imprimante.
+- [Contact](Contact.md) : Informations sur les rapports d'anomalies et communication générale avec les développeurs de Klipper.
 
 ## Configuration and Tuning Guides
 
-- [Installation](Installation.md): Guide to installing Klipper.
+- [Installation](Installation.md) : Guide pour installer Klipper.
 - [Config Reference](Config_Reference.md): Description of config parameters.
    - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
 - [Config checks](Config_checks.md): Verify basic pin settings in the config file.
