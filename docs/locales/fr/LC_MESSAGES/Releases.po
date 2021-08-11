@@ -1,9 +1,16 @@
-#
+# Nathan <bonnemainsnathan@gmail.com>, 2021.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-08-11 08:32+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/releases/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.8-dev\n"
 
 msgid ""
 "History of Klipper releases. Please see [installation](Installation.md) for "
@@ -468,4 +475,4 @@ msgstr ""
 
 #: docs/Releases.md:block 1 (header)
 msgid "Releases"
-msgstr ""
+msgstr "Versions"
