@@ -26,11 +26,11 @@
 
 任务、初始化和命令函数总是在中断启用的情况下运行（然而，可根据需要将中断功能停用）。这些函数不应出现暂停、延迟或执行持续事件长于数微秒的任务。这些函数应由调度定时器在特定的事件进行调用。
 
-Timer functions are scheduled by calling sched_add_timer() (located in **src/sched.c**). The scheduler code will arrange for the given function to be called at the requested clock time. Timer interrupts are initially handled in an architecture specific interrupt handler (eg, **src/avr/timer.c**) which calls sched_timer_dispatch() located in **src/sched.c**. The timer interrupt leads to execution of schedule timer functions. Timer functions always run with interrupts disabled. The timer functions should always complete within a few micro-seconds. At completion of the timer event, the function may choose to reschedule itself.
+定时函数通过调用sched_add_timer() (即 **src/sched.c**)方法进行注册。调度器会在设定的时间点对注册的函数进行调用。定时器中断会在微处理器架构特定的初始化处理器中处理(例如 **src/avr/timer.c**)，该代码会调用 **src/sched.c**中的sched_timer_dispatch()。通过定时器中断执行注册的定时函数。定时函数总在中断禁用下运行。定时函数应总能在数微秒内完成。在定时函数结束时，该函数可对自身进行重新定时。
 
-In the event an error is detected the code can invoke shutdown() (a macro which calls sched_shutdown() located in **src/sched.c**). Invoking shutdown() causes all functions tagged with the DECL_SHUTDOWN() macro to be run. Shutdown functions always run with interrupts disabled.
+如果事件中抛出错误， 代码可调用shutdown()（**src/sched.c**中的sched_shutdown()）。调用shutdown()会导致所有标记为DECL_SHUTDOWN()宏的函数被运行。shutdown()总是在禁用中断的情况下运行。
 
-Much of the functionality of the micro-controller involves working with General-Purpose Input/Output pins (GPIO). In order to abstract the low-level architecture specific code from the high-level task code, all GPIO events are implemented in architecture specific wrappers (eg, **src/avr/gpio.c**). The code is compiled with gcc's "-flto -fwhole-program" optimization which does an excellent job of inlining functions across compilation units, so most of these tiny gpio functions are inlined into their callers, and there is no run-time cost to using them.
+微控制器的大部分功能涉及到通用输入输出引脚（GPIO）的操作。为了从高级任务代码中抽象出特定架构底层代码，所有的GPIO事件都在特定架构的包装器中实现（如，**src/avr/gpio.c**）。代码使用gcc的"-flto -fwhole-program "来优化编译，以实现内联函数的高性能交叉编译，大多数微小的GPIO操作函数内联到它们的调用器中，使用这些GPIO将没有任何运行时成本。
 
 ## 代码总览
 
@@ -62,24 +62,24 @@ The above may seem like a lot of complexity to execute a movement. However, the 
 
 ## 添加上位机模块
 
-The Klippy host code has a dynamic module loading capability. If a config section named "[my_module]" is found in the printer config file then the software will automatically attempt to load the python module klippy/extras/my_module.py . This module system is the preferred method for adding new functionality to Klipper.
+Klippy上位机的主程序能对模块进行热加载。如果设置文件中出现了类似"[my_module]" 的字段名，程序会自动尝试加载 klippy/extras/my_module.py 文件内的模块。Klipper推荐使用上述方式扩展Klipper功能。
 
-The easiest way to add a new module is to use an existing module as a reference - see **klippy/extras/servo.py** as an example.
+新增模块的最简单的方式是参照已有的模块 - 下面将以 **klippy/extras/servo.py **作为例子。
 
-The following may also be useful:
+下面是另一些有用的信息：
 
-* Execution of the module starts in the module level `load_config()` function (for config sections of the form [my_module]) or in `load_config_prefix()` (for config sections of the form [my_module my_name]). This function is passed a "config" object and it must return a new "printer object" associated with the given config section.
-* During the process of instantiating a new printer object, the config object can be used to read parameters from the given config section. This is done using `config.get()`, `config.getfloat()`, `config.getint()`, etc. methods. Be sure to read all values from the config during the construction of the printer object - if the user specifies a config parameter that is not read during this phase then it will be assumed it is a typo in the config and an error will be raised.
-* Use the `config.get_printer()` method to obtain a reference to the main "printer" class. This "printer" class stores references to all the "printer objects" that have been instantiated. Use the `printer.lookup_object()` method to find references to other printer objects. Almost all functionality (even core kinematic modules) are encapsulated in one of these printer objects. Note, though, that when a new module is instantiated, not all other printer objects will have been instantiated. The "gcode" and "pins" modules will always be available, but for other modules it is a good idea to defer the lookup.
-* Register event handlers using the `printer.register_event_handler()` method if the code needs to be called during "events" raised by other printer objects. Each event name is a string, and by convention it is the name of the main source module that raises the event along with a short name for the action that is occurring (eg, "klippy:connect"). The parameters passed to each event handler are specific to the given event (as are exception handling and execution context). Two common startup events are:
-   * klippy:connect - This event is generated after all printer objects are instantiated. It is commonly used to lookup other printer objects, to verify config settings, and to perform an initial "handshake" with printer hardware.
-   * klippy:ready - This event is generated after all connect handlers have completed successfully. It indicates the printer is transitioning to a state ready to handle normal operations. Do not raise an error in this callback.
-* If there is an error in the user's config, be sure to raise it during the `load_config()` or "connect event" phases. Use either `raise config.error("my error")` or `raise printer.config_error("my error")` to report the error.
-* Use the "pins" module to configure a pin on a micro-controller. This is typically done with something similar to `printer.lookup_object("pins").setup_pin("pwm", config.get("my_pin"))`. The returned object can then be commanded at run-time.
-* If the module needs access to system timing or external file descriptors then use `printer.get_reactor()` to obtain access to the global "event reactor" class. This reactor class allows one to schedule timers, wait for input on file descriptors, and to "sleep" the host code.
-* Do not use global variables. All state should be stored in the printer object returned from the `load_config()` function. This is important as otherwise the RESTART command may not perform as expected. Also, for similar reasons, if any external files (or sockets) are opened then be sure to register a "klippy:disconnect" event handler and close them from that callback.
-* Avoid accessing the internal member variables (or calling methods that start with an underscore) of other printer objects. Observing this convention makes it easier to manage future changes.
-* If submitting the module for inclusion in the main Klipper code, be sure to place a copyright notice at the top of the module. See the existing modules for the preferred format.
+* 模块的运作起始于模块级别的`load_config()`函数（针对形如 [my_module] 的配置块）或`load_config_prefix()`（对 [my_module my_name] 配置块）。该方法将接受一个 "config" 对象并必须返回一个与目标功能相关的新"printer object"。
+* 在创建新"printer object"的实例时，可以使用"config"对象读取配置文件中相应配置块中的信息。此时可使用 `config.get()`，`config.getfloat()`， `config.getint()`等方法。应确保所需的参数在 "printer object" 构建阶段时完成读取。如果用户参数没有在该阶段完成读取，程序将认为这是配置中的错字，并抛出异常。
+* 使用 `config.get_printer()` 方法获取主"printer"类的引用。该"printer"类存储了所有实例化了的"printer objects"的引用。使用`printer.lookup_object()`方法获取其他"printer objects"的引用。几乎全部的功能（包括运动控制模块）都包装为"printer objects"。需要注意的是，当一个新模块实例化的时候，并非所有其他的"printer objects"均已完成实例化。其中"gcode"和"pins"模块总是可用，但对于其他模块最好推迟查找。
+* 如果代码需要在其他"printer objects"发起事件（event）时被调用，可通过`printer.register_event_handler()`注册事件处理函数。每个事件的名称是一个字符串，按照惯例，它是引发该事件的主要源模块的名称，以及正在发生的动作的简短名称（例如，"klippy:connect"）。传递给事件处理函数的参数因处理函数而异（异常处理和执行环境也是如此）。常见的两种起始事件为：
+   * klippy:connect - 该事件在所有 "printer objects" 实例化后发起。它通常用于查找其他"printer objects"，核实配置，并与mcu进行初始握手。
+   * klippy:ready - 该事件在所有connect处理程序成功地完成后发起。它意味着打印机转为等待常规指令的待命状态。不应在该回调函数中抛出异常。
+* 如果用户配置中存在错误，应在`load_config()`或连接事件（connect event）中抛出异常。使用 `raise config.error("my error")` 或 `raise printer.config_error("my error")` 进行告警。
+* 使用"pins"模块对微控制器的引脚进行定义，例如`printer.lookup_object("pins").setup_pin("pwm", config.get("my_pin"))`。此后，运行时，可通过返回的对象对针脚进行控制。
+* 如果模块需要使用系统时钟或外部文件描述符，可通过`printer.get_reactor()`对获取全局事件反应器进行访问（event reactor）。通过该反应器类可以部署定时器，等待文件描述符输入，或者“挂起”上位机程序。
+* 不应使用全局变量。全部状态量应存储于 "printer objects"，并通过 `load_config()`进行访问。否则，RESTART命令的行为将无法预测。同样，任何在运行时打开的外部文件（或套接字），应在"klippy:disconnect"的事件内注册相应的回调函数进行关闭。
+* 应避免访问其他"printer objects"私有对象属性（或调用命名以下划线开始的方法）。遵循这一方式可方便之后的变更。
+* 若需向 klipper 母分支提交模块的代码，请在模块代码的头部加入版权声明。详请参考已有模块的格式。
 
 ## Adding new kinematics
 
