@@ -69,3 +69,11 @@ Status : En cours (Last updated ???)
 
 [Documentation française de Klipper](https://github.com/KevinOConnor/klipper-translations/tree/translations/docs/locales/fr)
 
+## Republic of Korea 한국어
+
+### 이것은 베타문서 입니다!
+
+Status : 진행중 (Last updated ???)
+
+[Klipper 한국어 문서](https://github.com/KevinOConnor/klipper-translations/tree/translations/docs/locales/ko)
+
