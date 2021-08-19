@@ -1,4 +1,4 @@
-# Wivik <seb+weblate@zedas.fr>, 2021.
+# Wivik <seb+weblate@zedas.fr>, 2021, 2025.
 # Phil Clifford <philip.clifford@gmail.com>, 2021, 2022, 2025.
 # MOULINIER <moulinier.r@gmail.com>, 2022, 2025.
 # jean-luc MATTEI <jlucm@free.fr>, 2022, 2023, 2024, 2025.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: MOULINIER <moulinier.r@gmail.com>\n"
+"Last-Translator: Wivik <seb+weblate@zedas.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "config_reference/fr/>\n"
 "Language: fr\n"
