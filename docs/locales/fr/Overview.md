@@ -10,26 +10,26 @@ Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, comme
 - [Modifications de configuration](Config_Changes.md) : Modifications récentes du logiciel qui peuvent nécessiter que les utilisateurs mettent à jour la configuration de leur imprimante.
 - [Contact](Contact.md) : Informations sur les rapports d'anomalies et communication générale avec les développeurs de Klipper.
 
-## Configuration and Tuning Guides
+## Guides de configuration et réglages
 
 - [Installation](Installation.md) : Guide pour installer Klipper.
-- [Config Reference](Config_Reference.md): Description of config parameters.
-   - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
-- [Config checks](Config_checks.md): Verify basic pin settings in the config file.
-- [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
-   - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
-   - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
-   - [BL-Touch](BLTouch.md): Configure a "BL-Touch" Z probe.
-   - [Manual level](Manual_Level.md): Calibration of Z endstops (and similar).
-   - [Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations.
-   - [Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning.
-- [Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing in prints.
-   - [Measuring resonances](Measuring_Resonances.md): Information on using adxl345 accelerometer hardware to measure resonance.
-- [Pressure advance](Pressure_Advance.md): Calibrate extruder pressure.
-- [Slicers](Slicers.md): Configure "slicer" software for Klipper.
-- [Command Templates](Command_Templates.md): G-Code macros and conditional evaluation.
-   - [Status Reference](Status_Reference.md): Information available to macros (and similar).
-- [TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with Klipper.
+- [Référence de la configuration](Config_Reference.md): Description de tous les paramètres de configuration.
+   - [Distance de rotation](Rotation_Distance.md) : Calcul du paramètre rotation_distance du stepper.
+- [Vérifications de la configuration](Config_checks.md) : Vérifier les paramètres de base des broches dans le fichier de configuration.
+- [Niveau du Bed](Bed_Level.md) : Informations sur le "nivellement du bed" dans Klipper.
+   - [Calibration delta](Delta_Calibrate.md) : Calibration de la cinématique du delta.
+   - [Calibrage de la sonde](Probe_Calibrate.md) : Calibration automatiques des sondes Z.
+   - [BL-Touch](BLTouch.md) : Configurer une sonde Z "BL-Touch".
+   - [Niveau manuel](Manual_Level.md) : Calibrage des butées Z (et similaires).
+   - [Maillage du bed](Bed_Mesh.md) : Correction de la hauteur du bed basée sur les emplacements XY.
+   - [Phase de fin de course](Endstop_Phase.md) : Positionnement de la fin de course Z assisté par le stepper.
+- [Compensation de résonance](Resonance_Compensation.md) : Un outil permettant de réduire la résonance durant les impressions.
+   - [Mesurer les résonances](Measuring_Resonances.md) : Informations sur l'utilisation du matériel accélérométrique adxl345 pour mesurer les résonances.
+- [Pressure advance](Pressure_Advance.md) : Calibrer la pression de l'extrudeur.
+- [Slicers](Slicers.md) : Configurer un logiciel "slicer" pour Klipper.
+- [Modèles de commande](Command_Templates.md) : Macros G-Code et évaluation conditionnelle.
+   - [Référence des états](Status_Reference.md) : Informations disponibles pour les macros (et similaires).
+- [Pilotes TMC](TMC_Drivers.md) : Utilisation des pilotes de moteurs pas à pas Trinamic avec Klipper.
 - [Skew correction](skew_correction.md): Adjustments for axes not perfectly square.
 - [PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such as lasers or spindles.
 - [G-Codes](G-Codes.md): Information on commands supported by Klipper.
