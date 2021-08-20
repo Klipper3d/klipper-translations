@@ -1,5 +1,5 @@
 # Allan Nordhøy <epost@anotheragency.no>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2025.
 # Petter Reinholdtsen <pere-weblate@hungry.com>, 2021, 2025.
 # Vemund Kvam <vemund.kvam@gmail.com>, 2022.
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Petter Reinholdtsen <pere-weblate@hungry.com>\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/"
 "overview/nb_NO/>\n"
 "Language: nb_NO\n"
