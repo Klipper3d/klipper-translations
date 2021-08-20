@@ -30,8 +30,8 @@ Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, comme
 - [Modèles de commande](Command_Templates.md) : Macros G-Code et évaluation conditionnelle.
    - [Référence des états](Status_Reference.md) : Informations disponibles pour les macros (et similaires).
 - [Pilotes TMC](TMC_Drivers.md) : Utilisation des pilotes de moteurs pas à pas Trinamic avec Klipper.
-- [Skew correction](skew_correction.md): Adjustments for axes not perfectly square.
-- [PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such as lasers or spindles.
+- [Correction de l'inclinaison](skew_correction.md) : Ajustements pour les axes qui ne sont pas parfaitement carrés.
+- [Outils PWM](Using_PWM_Tools.md) : Guide sur l'utilisation des outils contrôlés par PWM tels que les lasers ou les broches.
 - [G-Codes](G-Codes.md): Information on commands supported by Klipper.
 
 ## Developer Documentation

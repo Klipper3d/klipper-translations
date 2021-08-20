@@ -1,4 +1,4 @@
-# TSL1401CL filament width sensor
+# Capteur de largeur de filament TSL1401CL
 
 Ce document décrit le module hôte du capteur de largeur de filament. Le matériel utilisé pour développer ce module hôte est basé sur le réseau de capteurs linéaires TSL1401CL, mais il peut fonctionner avec n'importe quel réseau de capteurs ayant une sortie analogique. Vous pouvez trouver les conceptions sur [thingiverse.com](https://www.thingiverse.com/search?q=filament%20width%20sensor)
 
