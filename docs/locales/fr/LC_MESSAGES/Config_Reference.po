@@ -1,9 +1,16 @@
-#
+# Wivik <seb+weblate@zedas.fr>, 2021.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-08-20 02:20+0000\n"
+"Last-Translator: Wivik <seb+weblate@zedas.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"config_reference/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.8-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -504,7 +511,7 @@ msgid ""
 msgstr ""
 
 msgid "Resonance compensation"
-msgstr ""
+msgstr "Compensation de la résonance"
 
 msgid "[input_shaper]"
 msgstr ""

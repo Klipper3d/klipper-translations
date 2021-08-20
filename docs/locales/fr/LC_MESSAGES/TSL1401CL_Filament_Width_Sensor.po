@@ -1,10 +1,12 @@
 # wilmouths <wilmouthsteven@gmail.com>, 2021.
+# Wivik <seb+weblate@zedas.fr>, 2021.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-01 10:34+0000\n"
-"Last-Translator: wilmouths <wilmouthsteven@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/tsl1401cl_filament_width_sensor/fr/>\n"
+"PO-Revision-Date: 2021-08-20 02:20+0000\n"
+"Last-Translator: Wivik <seb+weblate@zedas.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"tsl1401cl_filament_width_sensor/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -109,4 +111,4 @@ msgstr ""
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 1 (header)
 msgid "TSL1401CL filament width sensor"
-msgstr ""
+msgstr "Capteur de largeur de filament TSL1401CL"
