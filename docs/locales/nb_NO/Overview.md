@@ -10,7 +10,7 @@ Velkommen til Klipper-dokumentasjonen. Hvis du er ny kan du begynne med [funksjo
 - [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
 - [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
 
-## Configuration and Tuning Guides
+## Installation and Configuration
 
 - [Installation](Installation.md): Guide to installing Klipper.
 - [Config Reference](Config_Reference.md): Description of config parameters.

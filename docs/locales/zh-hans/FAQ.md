@@ -1,4 +1,4 @@
-# 常见问题
+# Frequently Asked Questions
 
 1. [我怎样才能支持项目？](#how-can-i-donate-to-the-project)
 1. [如何计算rotation_distance配置参数？](#how-do-i-calculate-the-rotation_distance-config-parameter)

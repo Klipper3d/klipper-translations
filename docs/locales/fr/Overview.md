@@ -10,7 +10,7 @@ Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, comme
 - [Modifications de configuration](Config_Changes.md) : Modifications récentes du logiciel qui peuvent nécessiter que les utilisateurs mettent à jour la configuration de leur imprimante.
 - [Contact](Contact.md) : Informations sur les rapports d'anomalies et communication générale avec les développeurs de Klipper.
 
-## Guides de configuration et réglages
+## Installation and Configuration
 
 - [Installation](Installation.md) : Guide pour installer Klipper.
 - [Référence de la configuration](Config_Reference.md): Description de tous les paramètres de configuration.
