@@ -2,6 +2,35 @@
 
 Este documento describe algunas de las herramientas de depuración de Klipper.
 
+## Ejecutar las pruebas antirregresiones
+
+El repositorio principal de Klipper en GitHub utiliza «acciones de GitHub» para ejecutar una serie de pruebas antirregresiones. Puede ser provechoso ejecutar algunas de estas pruebas de manera local.
+
+La «comprobación de espacios en blanco» del código fuente puede ejecutarse de esta manera:
+
+```
+./scripts/check_whitespace.sh
+```
+
+El conjunto de pruebas antirregresiones de Klippy requiere «diccionarios de datos» provenientes de muchas plataformas. La manera más sencilla de obtenerlos consiste en [descargarlos de GitHub](https://github.com/KevinOConnor/klipper/issues/1438). Luego de descargar los diccionarios de datos, siga este procedimiento para ejecutar el conjunto de pruebas:
+
+```
+tar xfz klipper-dict-20??????.tar.gz
+~/klippy-env/bin/python ~/klipper/scripts/test_klippy.py -d dict/ ~/klipper/test/klippy/*.test
+```
+
+## Enviar órdenes al microcontrolador manualmente
+
+Normally, the host klippy.py process would be used to translate gcode commands to Klipper micro-controller commands. However, it's also possible to manually send these MCU commands (functions marked with the DECL_COMMAND() macro in the Klipper source code). To do so, run:
+
+```
+~/klippy-env/bin/python ./klippy/console.py /tmp/pseudoserial
+```
+
+Vea la orden «HELP» de la herramienta para obtener información sobre sus funcionalidades.
+
+Tiene a su disposición algunas opciones de línea de órdenes. Para obtener más información al respecto, ejecute: `~/klippy-env/bin/python ./klippy/console.py --help`
+
 ## Convertir archivos gcode en órdenes de microcontrolador
 
 El código anfitrión de Klippy puede ejecutarse en modo por lotes para producir las órdenes de microcontrolador de bajo nivel asociadas con un archivo gcode. Resulta útil inspeccionar estas órdenes de bajo nivel para entender las acciones del hárdwer de bajo nivel. También puede ser provechoso para comparar la diferencia en las órdenes de microcontrolador tras efectuar una modificación en el código.
@@ -28,6 +57,40 @@ Lo anterior producirá un archivo, **test.serial**, con la salida en serie binar
 El archivo resultante, **test.txt**, contiene una lista legible por humanos de órdenes del microcontrolador.
 
 El modo por lotes desactiva determinadas órdenes de respuesta/petición para poder funcionar. Por consiguiente, habrá algunas diferencias entre las órdenes reales y la salida anterior. Los datos generados son útiles para efectuar pruebas e inspecciones; no lo son para su envío a un microcontrolador real.
+
+## Generar gráficos de carga
+
+El archivo de registro de Klippy (/tmp/klippy.log) almacena estadísticas sobre anchura de banda, carga sobre el microcontrolador y carga sobre el búfer del anfitrión. Puede resultar útil graficar estas estadísticas luego de mostrarlas.
+
+Para generar un gráfico, hace falta efectuar una vez este paso para instalar el paquete «matplotlib»:
+
+```
+sudo apt-get update
+sudo apt-get install python-matplotlib
+```
+
+Ahora, será posible generar gráficos con:
+
+```
+~/klipper/scripts/graphstats.py /tmp/klippy.log -o loadgraph.png
+```
+
+Tras lo anterior, será posible visualizar el archivo resultante, **loadgraph.png**.
+
+Es posible producir diferentes gráficos. Para más información, ejecute: `~/klipper/scripts/graphstats.py --help`
+
+## Extraer información desde el archivo klippy.log
+
+El archivo de registro de Klippy (/tmp/klippy.log) contiene además información para la depuración. Hay una secuencia de órdenes, logextract.py, que puede resultar útil al momento de analizar problemas de apagado del microcontrolador o similares. Normalmente se ejecuta con algo como:
+
+```
+mkdir work_directory
+cd work_directory
+cp /tmp/klippy.log .
+~/klipper/scripts/logextract.py ./klippy.log
+```
+
+La secuencia de órdenes extraerá el archivo de configuración de la impresora y los datos de apagado de MCU. Los volcados de información de un apagado de MCU (si existen) se reordenarán por fecha y hora para ayudar a diagnosticar escenarios de causa y efecto.
 
 ## Puesta a prueba con simulavr
 
@@ -76,67 +139,4 @@ The above would create a file **avrsim.vcd** with information on each change to 
 
 ```
 gtkwave avrsim.vcd
-```
-
-## Enviar órdenes al microcontrolador manualmente
-
-Normally, the host klippy.py process would be used to translate gcode commands to Klipper micro-controller commands. However, it's also possible to manually send these MCU commands (functions marked with the DECL_COMMAND() macro in the Klipper source code). To do so, run:
-
-```
-~/klippy-env/bin/python ./klippy/console.py /tmp/pseudoserial
-```
-
-Vea la orden «HELP» de la herramienta para obtener información sobre sus funcionalidades.
-
-Tiene a su disposición algunas opciones de línea de órdenes. Para obtener más información al respecto, ejecute: `~/klippy-env/bin/python ./klippy/console.py --help`
-
-## Generar gráficos de carga
-
-El archivo de registro de Klippy (/tmp/klippy.log) almacena estadísticas sobre anchura de banda, carga sobre el microcontrolador y carga sobre el búfer del anfitrión. Puede resultar útil graficar estas estadísticas luego de mostrarlas.
-
-Para generar un gráfico, hace falta efectuar una vez este paso para instalar el paquete «matplotlib»:
-
-```
-sudo apt-get update
-sudo apt-get install python-matplotlib
-```
-
-Ahora, será posible generar gráficos con:
-
-```
-~/klipper/scripts/graphstats.py /tmp/klippy.log -o loadgraph.png
-```
-
-Tras lo anterior, será posible visualizar el archivo resultante, **loadgraph.png**.
-
-Es posible producir diferentes gráficos. Para más información, ejecute: `~/klipper/scripts/graphstats.py --help`
-
-## Extraer información desde el archivo klippy.log
-
-El archivo de registro de Klippy (/tmp/klippy.log) contiene además información para la depuración. Hay una secuencia de órdenes, logextract.py, que puede resultar útil al momento de analizar problemas de apagado del microcontrolador o similares. Normalmente se ejecuta con algo como:
-
-```
-mkdir work_directory
-cd work_directory
-cp /tmp/klippy.log .
-~/klipper/scripts/logextract.py ./klippy.log
-```
-
-La secuencia de órdenes extraerá el archivo de configuración de la impresora y los datos de apagado de MCU. Los volcados de información de un apagado de MCU (si existen) se reordenarán por fecha y hora para ayudar a diagnosticar escenarios de causa y efecto.
-
-## Ejecutar las pruebas antirregresiones
-
-El repositorio principal de Klipper en GitHub utiliza «acciones de GitHub» para ejecutar una serie de pruebas antirregresiones. Puede ser provechoso ejecutar algunas de estas pruebas de manera local.
-
-La «comprobación de espacios en blanco» del código fuente puede ejecutarse de esta manera:
-
-```
-./scripts/check_whitespace.sh
-```
-
-El conjunto de pruebas antirregresiones de Klippy requiere «diccionarios de datos» provenientes de muchas plataformas. La manera más sencilla de obtenerlos consiste en [descargarlos de GitHub](https://github.com/KevinOConnor/klipper/issues/1438). Luego de descargar los diccionarios de datos, siga este procedimiento para ejecutar el conjunto de pruebas:
-
-```
-tar xfz klipper-dict-20??????.tar.gz
-~/klippy-env/bin/python ~/klipper/scripts/test_klippy.py -d dict/ ~/klipper/test/klippy/*.test
 ```

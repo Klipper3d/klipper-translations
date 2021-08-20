@@ -169,9 +169,11 @@ faulty_region_4_max: 45.0, 210.0
 
 ### 校准
 
-`BED_MESH_CALIBRATE METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *默认方法：如果检测到探针，则自动，否则手动*
+`BED_MESH_CALIBRATE PROFILE=name METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: default* *Default Method: automatic if a probe is detected, otherwise manual*
 
-Initiates the probing procedure for Bed Mesh Calibration. If `METHOD=manual` is selected then manual probing will occur. When switching between automatic and manual probing the generated mesh points will automatically be adjusted.
+Initiates the probing procedure for Bed Mesh Calibration.
+
+The mesh will be saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. If `METHOD=manual` is selected then manual probing will occur. When switching between automatic and manual probing the generated mesh points will automatically be adjusted.
 
 It is possible to specify mesh parameters to modify the probed area. The following parameters are available:
 
