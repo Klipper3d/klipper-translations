@@ -1,9 +1,9 @@
-# brian park <gouache95@gmail.com>, 2021.
+# brian park <gouache95@gmail.com>, 2021, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:25+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: brian park <gouache95@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
 "using_pwm_tools/ko/>\n"
 "Language: ko\n"
