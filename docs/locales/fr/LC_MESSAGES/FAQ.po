@@ -5,9 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Frequently asked questions"
-msgstr ""
-
 msgid "[How can I donate to the project?](#how-can-i-donate-to-the-project)"
 msgstr ""
 
@@ -778,3 +775,10 @@ msgid ""
 "sudo ~/klipper/scripts/klipper-uninstall.sh\n"
 "rm -rf ~/klippy-env ~/klipper\n"
 msgstr ""
+
+#: docs/FAQ.md:block 1 (header)
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#~ msgid "Frequently asked questions"
+#~ msgstr ""

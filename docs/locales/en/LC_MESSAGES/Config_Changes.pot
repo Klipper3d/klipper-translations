@@ -439,10 +439,6 @@ msgid ""
 "is configuring via the `sercom` option."
 msgstr ""
 
-#: docs/Config_Changes.md:block 1 (header)
-msgid "Configuration changes"
-msgstr ""
-
 #: docs/Config_Changes.md:block 5 (paragraph)
 msgid ""
 "20210720: A controller_fan section now monitors all stepper motors by "
@@ -450,3 +446,25 @@ msgid ""
 " desired, see the `stepper` config option in the [config "
 "reference](Config_Reference.md#controller_fan)."
 msgstr ""
+
+#: docs/Config_Changes.md:block 1 (header)
+msgid "Configuration Changes"
+msgstr ""
+
+#: docs/Config_Changes.md:block 5 (paragraph)
+msgid ""
+"20210819: In some cases, a `G28` homing move may end in a position that is "
+"nominally outside the valid movement range. In rare situations this may "
+"result in confusing \"Move out of range\" errors after homing. If this "
+"occurs, change your start scripts to move the toolhead to a valid position "
+"immediately after homing."
+msgstr ""
+
+#: docs/Config_Changes.md:block 6 (paragraph)
+msgid ""
+"20210814: The analog only pseudo-pins on the atmega168 and atmega328 have "
+"been renamed from PE0/PE1 to PE2/PE3."
+msgstr ""
+
+#~ msgid "Configuration changes"
+#~ msgstr ""

@@ -44,9 +44,6 @@ msgid ""
 "communication with the Klipper developers."
 msgstr ""
 
-msgid "Configuration and Tuning Guides"
-msgstr ""
-
 msgid "[Installation](Installation.md): Guide to installing Klipper."
 msgstr ""
 
@@ -219,3 +216,10 @@ msgstr ""
 #: docs/Overview.md:block 1 (header)
 msgid "Overview"
 msgstr ""
+
+#: docs/Overview.md:block 5 (header)
+msgid "Installation and Configuration"
+msgstr ""
+
+#~ msgid "Configuration and Tuning Guides"
+#~ msgstr ""

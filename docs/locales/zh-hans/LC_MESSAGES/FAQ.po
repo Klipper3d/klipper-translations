@@ -16,9 +16,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.7.2-dev\n"
 
-msgid "Frequently asked questions"
-msgstr "常见问题"
-
 msgid "[How can I donate to the project?](#how-can-i-donate-to-the-project)"
 msgstr "[我怎样才能支持项目？](#how-can-i-donate-to-the-project)"
 
@@ -840,3 +837,10 @@ msgid ""
 "sudo ~/klipper/scripts/klipper-uninstall.sh\n"
 "rm -rf ~/klippy-env ~/klipper\n"
 msgstr ""
+
+#: docs/FAQ.md:block 1 (header)
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#~ msgid "Frequently asked questions"
+#~ msgstr "常见问题"

@@ -331,19 +331,6 @@ msgid "Calibration"
 msgstr ""
 
 msgid ""
-"`BED_MESH_CALIBRATE METHOD=[manual | automatic] [<probe_parameter>=<value>] "
-"[<mesh_parameter>=<value>]` *Default Method: automatic if a probe is "
-"detected, otherwise manual*"
-msgstr ""
-
-msgid ""
-"Initiates the probing procedure for Bed Mesh Calibration. If `METHOD=manual`"
-" is selected then manual probing will occur. When switching between "
-"automatic and manual probing the generated mesh points will automatically be"
-" adjusted."
-msgstr ""
-
-msgid ""
 "It is possible to specify mesh parameters to modify the probed area. The "
 "following parameters are available:"
 msgstr ""
@@ -566,3 +553,36 @@ msgstr ""
 #: docs/Bed_Mesh.md:block 1 (header)
 msgid "Bed Mesh"
 msgstr ""
+
+#: docs/Bed_Mesh.md:block 48 (paragraph)
+msgid ""
+"`BED_MESH_CALIBRATE PROFILE=name METHOD=[manual | automatic] "
+"[<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: "
+"default* *Default Method: automatic if a probe is detected, otherwise "
+"manual*"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 49 (paragraph)
+msgid "Initiates the probing procedure for Bed Mesh Calibration."
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 50 (paragraph)
+msgid ""
+"The mesh will be saved into a profile specified by the `PROFILE` parameter, "
+"or `default` if unspecified. If `METHOD=manual` is selected then manual "
+"probing will occur. When switching between automatic and manual probing the "
+"generated mesh points will automatically be adjusted."
+msgstr ""
+
+#~ msgid ""
+#~ "`BED_MESH_CALIBRATE METHOD=[manual | automatic] [<probe_parameter>=<value>] "
+#~ "[<mesh_parameter>=<value>]` *Default Method: automatic if a probe is "
+#~ "detected, otherwise manual*"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Initiates the probing procedure for Bed Mesh Calibration. If `METHOD=manual`"
+#~ " is selected then manual probing will occur. When switching between "
+#~ "automatic and manual probing the generated mesh points will automatically be"
+#~ " adjusted."
+#~ msgstr ""
