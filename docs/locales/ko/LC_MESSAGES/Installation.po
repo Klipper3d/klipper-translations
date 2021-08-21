@@ -1,10 +1,10 @@
-# brian park <gouache95@gmail.com>, 2021.
+# brian park <gouache95@gmail.com>, 2021, 2025.
 # 이정희 <daemul72@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:25+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: brian park <gouache95@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
 "installation/ko/>\n"
 "Language: ko\n"
@@ -21,7 +21,8 @@ msgstr "그럼 다음과 비슷한 결과물을 얻을 수 있습니다:"
 
 msgid ""
 "Be sure to update the FLASH_DEVICE with the printer's unique serial port name."
-msgstr "반드시 프린터의 고유한 시리얼 포트 이름으로 FLASH_DEVICE를 업데이트해야 합니다."
+msgstr "반드시 프린터의 고유한 시리얼 포트 이름으로 FLASH_DEVICE를 업데이트해야 "
+"합니다."
 
 msgid "Configuring Klipper"
 msgstr "Klipper 구성 중"
