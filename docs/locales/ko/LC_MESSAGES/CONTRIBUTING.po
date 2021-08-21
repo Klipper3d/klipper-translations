@@ -1,11 +1,11 @@
-# system3rdb <system3rd@gmail.com>, 2021.
+# system3rdb <system3rd@gmail.com>, 2021, 2025.
 # brian park <gouache95@gmail.com>, 2021.
 # 이정희 <daemul72@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:25+0000\n"
-"Last-Translator: 이정희 <daemul72@gmail.com>\n"
+"Last-Translator: system3rdb <system3rd@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
 "contributing/ko/>\n"
 "Language: ko\n"
@@ -23,9 +23,10 @@ msgid ""
 "certificate-of-origin). It must contain your real name (sorry, no pseudonyms "
 "or anonymous contributions) and contain a current email address."
 msgstr ""
-"각 commit에 \"서명자\" 라인이 있는 것이 중요합니다. 이는 개발자 인증서[developer certificate of "
-"origin](developer-certificate-of-origin)에 동의함을 증명합니다. 실명을 포함해야 하며(가명이나 익명의 기여는"
-" 불가) 현재 이메일 주소를 포함해야 합니다."
+"각 commit에 \"서명자\" 라인이 있는 것이 중요합니다. 이는 개발자 인증서"
+"[developer certificate of origin](developer-certificate-of-origin)에 "
+"동의함을 증명합니다. 실명을 포함해야 하며(가명이나 익명의 기여는 불가) 현재 "
+"이메일 주소를 포함해야 합니다."
 
 #: docs/CONTRIBUTING.md:block 9 (header)
 msgid "Contributing to Klipper Translations"
