@@ -1,9 +1,10 @@
 # system3rdb <system3rd@gmail.com>, 2021.
+# brian park <gouache95@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2021-08-22 00:41+0000\n"
-"Last-Translator: system3rdb <system3rd@gmail.com>\n"
+"Last-Translator: brian park <gouache95@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/canbus/ko/"
 ">\n"
 "Language: ko\n"
@@ -141,7 +142,7 @@ msgstr ""
 "이상 목록에 나타나지 않습니다."
 
 msgid "Configuring Klipper"
-msgstr ""
+msgstr "Klipper 설정"
 
 msgid ""
 "Update the Klipper [mcu configuration](Config_Reference.md#mcu) to use the "
