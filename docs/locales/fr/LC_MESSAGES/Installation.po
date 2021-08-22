@@ -1,15 +1,17 @@
 # Nathan <bonnemainsnathan@gmail.com>, 2021.
+# Tircown <tircown@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-11 08:32+0000\n"
-"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/installation/fr/>\n"
+"PO-Revision-Date: 2021-08-22 00:40+0000\n"
+"Last-Translator: Tircown <tircown@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"installation/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.8.1-dev\n"
 
 msgid ""
 "These instructions assume the software will run on a Raspberry Pi computer "
@@ -229,23 +231,30 @@ msgid "ls /dev/serial/by-id/*\n"
 msgstr ""
 
 msgid "/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
-msgstr ""
+msgstr "/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 
+#, fuzzy
 msgid ""
 "sudo service klipper stop\n"
 "make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 "sudo service klipper start\n"
 msgstr ""
+"sudo service klipper stop\n"
+"make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
+"sudo service klipper start\n"
 
 msgid ""
 "cp ~/klipper/config/example-cartesian.cfg ~/printer.cfg\n"
 "nano ~/printer.cfg\n"
 msgstr ""
 
+#, fuzzy
 msgid ""
 "[mcu]\n"
 "serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 msgstr ""
+"[mcu]\n"
+"serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 
 #: docs/Installation.md:block 1 (header)
 msgid "Installation"
