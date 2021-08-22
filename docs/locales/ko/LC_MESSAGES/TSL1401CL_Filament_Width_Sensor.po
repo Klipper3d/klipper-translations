@@ -1,9 +1,16 @@
-#
+# brian park <gouache95@gmail.com>, 2021.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-08-22 00:41+0000\n"
+"Last-Translator: brian park <gouache95@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
+"tsl1401cl_filament_width_sensor/ko/>\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.8.1-dev\n"
 
 msgid ""
 "This document describes Filament Width Sensor host module. Hardware used for"
@@ -14,7 +21,7 @@ msgid ""
 msgstr ""
 
 msgid "How does it work?"
-msgstr ""
+msgstr "어떻게 동작하나요?"
 
 msgid ""
 "Sensor generates analog output based on calculated filament width. Output "
@@ -23,7 +30,7 @@ msgid ""
 msgstr ""
 
 msgid "Configuration"
-msgstr ""
+msgstr "설정"
 
 msgid ""
 "Sensor readings done with 10 mm intervals by default. If necessary you are "
@@ -32,7 +39,7 @@ msgid ""
 msgstr ""
 
 msgid "Commands"
-msgstr ""
+msgstr "명령어"
 
 msgid ""
 "**QUERY_FILAMENT_WIDTH** - Return the current measured filament width as "

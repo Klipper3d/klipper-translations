@@ -1,213 +1,233 @@
-#
+# brian park <gouache95@gmail.com>, 2021.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-08-22 00:40+0000\n"
+"Last-Translator: brian park <gouache95@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/overview/"
+"ko/>\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.8.1-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
+"Klipper 에 오신것을 환영합니다. Klipper를 처음 사용하는 경우라면 [features](Features.md) 및 "
+"[installation](Installation.md) 문서부터 시작하십시오."
 
 msgid "Overview information"
-msgstr ""
+msgstr "개요 정보"
 
 msgid "[Features](Features.md): A high-level list of features in Klipper."
-msgstr ""
+msgstr "[특징들](Features.md): Klipper의 상위 수준 기능 목록."
 
 msgid "[FAQ](FAQ.md): Frequently asked questions."
-msgstr ""
+msgstr "[자주하는 질문](FAQ.md): 자주 묻는 질문."
 
 msgid "[Releases](Releases.md): The history of Klipper releases."
-msgstr ""
+msgstr "[릴리즈 정보](Releases.md): 클리퍼 릴리즈 히스토리."
 
 msgid ""
 "[Config changes](Config_Changes.md): Recent software changes that may "
 "require users to update their printer config file."
 msgstr ""
+"[Config changes](Config_Changes.md): 사용자가 프린터 config 파일을 업데이트해야 할 수 있는 최근 "
+"소프트웨어 변경 사항."
 
 msgid ""
 "[Contact](Contact.md): Information on bug reporting and general "
 "communication with the Klipper developers."
-msgstr ""
+msgstr "[연락처](Contact.md): 버그 보고 및 Klipper 개발자와의 일반적인 커뮤니케이션에 대한 정보."
 
 msgid "[Installation](Installation.md): Guide to installing Klipper."
-msgstr ""
+msgstr "[설치](Installation.md): 클리퍼 설치 안내입니다."
 
 msgid ""
 "[Config Reference](Config_Reference.md): Description of config parameters."
-msgstr ""
+msgstr "[Config Reference](Config_Reference.md): config 매개변수에 대한 설명."
 
 msgid ""
 "[Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance"
 " stepper parameter."
 msgstr ""
+"[Rotation Distance](Rotation_Distance.md): rotation_distance 스테퍼 모터 매개변수 계산."
 
 msgid ""
 "[Config checks](Config_checks.md): Verify basic pin settings in the config "
 "file."
-msgstr ""
+msgstr "[Config checks](Config_checks.md): cofnig 파일에서 기본 핀 설정 확인."
 
 msgid "[Bed level](Bed_Level.md): Information on \"bed leveling\" in Klipper."
-msgstr ""
+msgstr "[베드 레벨링](Bed_Level.md): Klipper의 \"베드 레벨링\"에 대한 정보."
 
 msgid ""
 "[Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics."
-msgstr ""
+msgstr "[델타 캘리브레이션](Delta_Calibrate.md): 델타 방식 프린터 교정."
 
 msgid ""
 "[Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes."
-msgstr ""
+msgstr "[프로브 캘리브레이션](Probe_Calibrate.md): 자동 Z 프로브 교정."
 
 msgid "[BL-Touch](BLTouch.md): Configure a \"BL-Touch\" Z probe."
-msgstr ""
+msgstr "[BL-Touch](BLTouch.md): \"BL-Touch\" Z 프로브를 구성합니다."
 
 msgid ""
 "[Manual level](Manual_Level.md): Calibration of Z endstops (and similar)."
-msgstr ""
+msgstr "[수동 레벨링](Manual_Level.md): Z 엔드스톱(및 유사)의 보정."
 
 msgid "[Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations."
-msgstr ""
+msgstr "[베드 메쉬](Bed_Mesh.md): XY 위치를 기반으로 한 BED 높이 보정."
 
 msgid ""
 "[Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning."
-msgstr ""
+msgstr "[Endstop phase](Endstop_Phase.md): 스테퍼 지원 Z 엔드스톱 포지셔닝."
 
 msgid ""
 "[Resonance compensation](Resonance_Compensation.md): A tool to reduce "
 "ringing in prints."
-msgstr ""
+msgstr "[Resonance compensation](Resonance_Compensation.md): 인쇄물에서 물결을 줄이는 도구."
 
 msgid ""
 "[Measuring resonances](Measuring_Resonances.md): Information on using "
 "adxl345 accelerometer hardware to measure resonance."
 msgstr ""
+"[Measuring resonances](Measuring_Resonances.md): 공진을 측정하기 위해 adxl345 가속도계 "
+"하드웨어를 사용하는 방법에 대한 정보."
 
 msgid "[Pressure advance](Pressure_Advance.md): Calibrate extruder pressure."
-msgstr ""
+msgstr "[Pressure advance](Pressure_Advance.md): 익스트루더 압출 보정."
 
 msgid "[Slicers](Slicers.md): Configure \"slicer\" software for Klipper."
-msgstr ""
+msgstr "[슬라이서](Slicers.md): Klipper용 \"슬라이서\" 소프트웨어 구성."
 
 msgid ""
 "[Command Templates](Command_Templates.md): G-Code macros and conditional "
 "evaluation."
-msgstr ""
+msgstr "[Command Templates](Command_Templates.md): G-Code 매크로 및 조건부 평가."
 
 msgid ""
 "[Status Reference](Status_Reference.md): Information available to macros "
 "(and similar)."
-msgstr ""
+msgstr "[Status Reference](Status_Reference.md): 매크로(및 유사)에 사용할 수 있는 정보."
 
 msgid ""
 "[TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with "
 "Klipper."
-msgstr ""
+msgstr "[TMC 드라이버](TMC_Drivers.md): Klipper와 함께 Trinamic 스테퍼 모터 드라이버 사용."
 
 msgid ""
 "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
 "square."
-msgstr ""
+msgstr "[Skew correction](skew_correction.md): 축 틀어짐 보정."
 
 msgid ""
 "[PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools "
 "such as lasers or spindles."
 msgstr ""
+"[PWM tools](Using_PWM_Tools.md): 레이저 또는 스핀들과 같은 PWM 제어 도구를 사용하는 방법에 대한 안내."
 
 msgid "[G-Codes](G-Codes.md): Information on commands supported by Klipper."
-msgstr ""
+msgstr "[G-Codes](G-Codes.md): Klipper에서 지원하는 G-Code 대한 정보."
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "개발자 문서"
 
 msgid "[Code overview](Code_Overview.md): Developers should read this first."
-msgstr ""
+msgstr "[코딩 개요](Code_Overview.md): 개발자라면 읽어야 하는 문서."
 
 msgid ""
 "[Kinematics](Kinematics.md): Technical details on how Klipper implements "
 "motion."
-msgstr ""
+msgstr "[Kinematics](Kinematics.md): Klipper가 모션을 구현하는 방법에 대한 기술 세부 정보."
 
 msgid ""
 "[Protocol](Protocol.md): Information on the low-level messaging protocol "
 "between host and micro-controller."
-msgstr ""
+msgstr "[프로토콜](Protocol.md): 호스트와 마이크로 컨트롤러 간의 저수준 메시징 프로토콜에 대한 정보."
 
 msgid ""
 "[API Server](API_Server.md): Information on Klipper's command and control "
 "API."
-msgstr ""
+msgstr "[API 서버](API_Server.md): Klipper의 명령 및 제어 API에 대한 정보."
 
 msgid ""
 "[MCU commands](MCU_Commands.md): A description of low-level commands "
 "implemented in the micro-controller software."
-msgstr ""
+msgstr "[MCU 명령어](MCU_Commands.md): 마이크로 컨트롤러 소프트웨어에 구현된 저수준 명령에 대한 설명."
 
 msgid ""
 "[CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format."
-msgstr ""
+msgstr "[캔버스 프로토콜](CANBUS_protocol.md): Klipper CAN 버스 메시지 형식."
 
 msgid ""
 "[Debugging](Debugging.md): Information on how to test and debug Klipper."
-msgstr ""
+msgstr "[디버깅](Debugging.md): Klipper를 테스트하고 디버그하는 방법에 대한 정보."
 
 msgid ""
 "[Benchmarks](Benchmarks.md): Information on the Klipper benchmark method."
-msgstr ""
+msgstr "[벤치마크](Benchmarks.md): Klipper 벤치마크 방법에 대한 정보."
 
 msgid ""
 "[Contributing](CONTRIBUTING.md): Information on how to submit improvements "
 "to Klipper."
-msgstr ""
+msgstr "[기여](CONTRIBUTING.md): 개선 사항을 Klipper에 제출하는 방법에 대한 정보."
 
 msgid "[Packaging](Packaging.md): Information on building OS packages."
-msgstr ""
+msgstr "[패키징](Packaging.md): OS 패키지 빌드에 대한 정보."
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "기기별 문서"
 
 msgid ""
 "[Example configs](Example_Configs.md): Information on adding an example "
 "config file to Klipper."
-msgstr ""
+msgstr "[config 예제](Example_Configs.md): 예제 config 파일을 Klipper에 추가하는 방법에 대한 정보."
 
 msgid ""
 "[SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a "
 "binary to an sdcard in the micro-controller."
 msgstr ""
+"[SDCard 업데이트](SDCard_Updates.md): sdcard 에 바이너리를 복사하여 마이크로 컨트롤러 펌웨어 업데이르 하는 "
+"방법."
 
 msgid ""
 "[Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for "
 "controlling devices wired to the GPIO pins of a Raspberry Pi."
 msgstr ""
+"[Raspberry Pi as Micro-controller](RPi_microcontroller.md): Raspberry Pi의 "
+"GPIO 핀에 연결된 장치 제어에 대한 세부 정보."
 
 msgid ""
 "[Beaglebone](beaglebone.md): Details for running Klipper on the Beaglebone "
 "PRU."
 msgstr ""
+"[Beaglebone](beaglebone.md): Beaglebone PRU에서 Klipper를 실행하는 방법에 대한 세부 정보."
 
 msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-controller "
 "flashing."
-msgstr ""
+msgstr "[브트로더](Bootloaders.md): 마이크로 컨트롤러 펌업에 대한 개발자 정보."
 
 msgid "[CAN bus](CANBUS.md): Information on using CAN bus with Klipper."
-msgstr ""
+msgstr "[캔버스](CANBUS.md): Klipper에서 CAN 버스를 사용하는 방법에 대한 정보."
 
 msgid "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
-msgstr ""
+msgstr "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
 
 msgid "[Hall filament width sensor](HallFilamentWidthSensor.md)"
-msgstr ""
+msgstr "[홀 필라멘트 너비 센서](HallFilamentWidthSensor.md)"
 
 #: docs/Overview.md:block 1 (header)
 msgid "Overview"
-msgstr ""
+msgstr "개요"
 
 #: docs/Overview.md:block 5 (header)
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "설치 및 설정"
 
 #~ msgid "Configuration and Tuning Guides"
 #~ msgstr ""

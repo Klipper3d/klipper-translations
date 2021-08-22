@@ -1,9 +1,16 @@
-#
+# brian park <gouache95@gmail.com>, 2021.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-08-22 00:41+0000\n"
+"Last-Translator: brian park <gouache95@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
+"using_pwm_tools/ko/>\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.8.1-dev\n"
 
 msgid ""
 "This document describes how to setup a PWM-controlled laser or spindle using"
@@ -11,7 +18,7 @@ msgid ""
 msgstr ""
 
 msgid "How does it work?"
-msgstr ""
+msgstr "어떻게 동작하나요?"
 
 msgid ""
 "With re-purposing the printhead's fan pwm output, you can control lasers or "
@@ -49,7 +56,7 @@ msgid ""
 msgstr ""
 
 msgid "Commands"
-msgstr ""
+msgstr "명령어"
 
 msgid ""
 "`M3/M4 S<value>` : Set PWM duty-cycle. Values between 0 and 255. `M5` : Stop"
