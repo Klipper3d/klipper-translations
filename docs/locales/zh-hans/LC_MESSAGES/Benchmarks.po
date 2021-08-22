@@ -1,17 +1,28 @@
-#
+# Neko.vecter <Vecterfang@icloud.com>, 2021.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-08-22 00:40+0000\n"
+"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/benchmarks/zh_Hans/>\n"
+"Language: zh-hans\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.8.1-dev\n"
 
 msgid "This document describes Klipper benchmarks."
-msgstr ""
+msgstr "这个文档解释了Klipper的跑分"
 
 msgid "Micro-controller Benchmarks"
-msgstr ""
+msgstr "微控制器跑分"
 
+#, fuzzy
 msgid ""
 "This section describes the mechanism used to generate the Klipper micro-"
 "controller step rate benchmarks."
-msgstr ""
+msgstr "本节描述了用于生成 Klipper 微控制器步速率基准的机制。"
 
 msgid ""
 "The primary goal of the benchmarks is to provide a consistent mechanism for "
