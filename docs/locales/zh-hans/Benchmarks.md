@@ -1,10 +1,10 @@
 # Benchmarks
 
-This document describes Klipper benchmarks.
+这个文档解释了Klipper的跑分
 
-## Micro-controller Benchmarks
+## 微控制器跑分
 
-This section describes the mechanism used to generate the Klipper micro-controller step rate benchmarks.
+本节描述了用于生成 Klipper 微控制器步速率基准的机制。
 
 The primary goal of the benchmarks is to provide a consistent mechanism for measuring the impact of coding changes within the software. A secondary goal is to provide high-level metrics for comparing the performance between chips and between software platforms.
 

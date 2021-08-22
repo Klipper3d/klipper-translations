@@ -1,4 +1,4 @@
-# Configuration checks
+# Überprüfung der Konfiguration
 
 Dieses Dokument enthält eine Liste von Schritten, die bei der Bestätigung der Pin-Einstellungen in der Datei "Klipper printer.cfg" helfen. Es ist eine gute Idee, diese Schritte durchzugehen, nachdem Sie die Schritte im [Installationsdokument](Installation.md) ausgeführt haben.
 
@@ -52,9 +52,9 @@ Um den Extrudermotor zu testen, muss der Extruder auf eine Drucktemperatur erhit
 
 ## PID-Einstellungen kalibrieren
 
-Klipper unterstützt die [PID-Regelung] (https://en.wikipedia.org/wiki/PID_controller) für den Extruder und die Bettheizungen. Um diesen Regelungsmechanismus zu nutzen, ist es notwendig, die PID-Einstellungen an jedem Drucker zu kalibrieren. (PID-Einstellungen, die in anderen Firmwares oder in den Beispielkonfigurationsdateien gefunden werden, funktionieren oft schlecht).
+Klipper unterstützt die [PID-Regelung](https://en.wikipedia.org/wiki/PID_controller) für den Extruder und die Bettheizungen. Um diesen Regelungsmechanismus zu nutzen, ist es notwendig, die PID-Einstellungen an jedem Drucker zu kalibrieren. (PID-Einstellungen, die in anderen Firmwares oder in den Beispielkonfigurationsdateien gefunden werden, funktionieren oft schlecht.)
 
-Um den Extruder zu kalibrieren, navigieren Sie zur Registerkarte OctoPrint-Terminal und führen Sie den Befehl PID_CALIBRATE aus. Zum Beispiel: `PID_CALIBRATE HEATER=extruder TARGET=170`
+Um den Extruder zu kalibrieren, navigieren Sie zur Registerkarte Terminal in OctoPrint und führen Sie den Befehl PID_CALIBRATE aus. Zum Beispiel: `PID_CALIBRATE HEATER=extruder TARGET=170`
 
 Führen Sie nach Abschluss des Abstimmungstests `SAVE_CONFIG` aus, um die Datei printer.cfg mit den neuen PID-Einstellungen zu aktualisieren.
 
@@ -64,6 +64,6 @@ Wenn der Drucker über ein beheiztes Bett verfügt und die Ansteuerung durch PWM
 
 Diese Anleitung soll bei der grundlegenden Überprüfung der Pin-Einstellungen in der Klipper-Konfigurationsdatei helfen. Lesen Sie unbedingt die Anleitung [Bed leveling](Bed_Level.md). Lesen Sie auch das Dokument [Slicers](Slicers.md) für Informationen zur Konfiguration eines Slicers mit Klipper.
 
-Nachdem man sich vergewissert hat, dass der Grunddruck funktioniert, sollte man eine Kalibrierung der [Druckweiterschaltung](Pressure_Advance.md) in Betracht ziehen.
+Nachdem man sich vergewissert hat, dass das drucken grundlegend funktioniert, sollte man eine Kalibrierung des [Druck im Materialvorschub](Pressure_Advance.md) in Betracht ziehen.
 
 Es kann notwendig sein, andere Arten der detaillierten Druckerkalibrierung durchzuführen - eine Reihe von Anleitungen sind online verfügbar, um dabei zu helfen (führen Sie z. B. eine Websuche nach "3d printer calibration" durch). Wenn Sie z. B. den Effekt "Klingeln" feststellen, können Sie versuchen, die Abstimmungsanleitung [Resonanzkompensation](Resonance_Compensation.md) zu befolgen.
