@@ -1,6 +1,6 @@
 # Protocol
 
-The Klipper messaging protocol is used for low-level communication between the Klipper host software and the Klipper micro-controller software. At a high level the protocol can be thought of as a series of command and response strings that are compressed, transmitted, and then processed at the receiving side. An example series of commands in uncompressed human-readable format might look like:
+Klipper 메시징 프로토콜은 Klipper 호스트 소프트웨어와 Klipper 마이크로 컨트롤러 소프트웨어 간의 저수준 통신에 사용됩니다. 높은 수준에서 프로토콜은 압축, 전송 및 수신 측에서 처리되는 일련의 명령 및 응답 문자열로 생각할 수 있습니다. 사람이 읽을 수 있는 압축되지 않은 형식의 예제 명령은 다음과 같습니다:
 
 ```
 set_digital_out pin=PA3 value=1
@@ -10,57 +10,57 @@ queue_step oid=7 interval=7458 count=10 add=331
 queue_step oid=7 interval=11717 count=4 add=1281
 ```
 
-See the [mcu commands](MCU_Commands.md) document for information on available commands. See the [debugging](Debugging.md) document for information on how to translate a G-Code file into its corresponding human-readable micro-controller commands.
+사용 가능한 명령에 대한 정보는 [mcu commands](MCU_Commands.md) 문서를 참조하십시오. G-Code 파일을 사람이 읽을 수 있는 마이크로 컨트롤러 명령으로 변환하는 방법에 대한 정보는 [debugging](Debugging.md) 문서를 참조하십시오.
 
-This page provides a high-level description of the Klipper messaging protocol itself. It describes how messages are declared, encoded in binary format (the "compression" scheme), and transmitted.
+이 페이지는 Klipper 메시징 프로토콜 자체에 대한 높은 수준의 설명을 제공합니다. 메시지가 선언되고 이진 형식("compression" 체계)으로 인코딩되고 전송되는 방법을 설명합니다.
 
-The goal of the protocol is to enable an error-free communication channel between the host and micro-controller that is low-latency, low-bandwidth, and low-complexity for the micro-controller.
+프로토콜의 목표는 호스트와 마이크로 컨트롤러 사이에 오류가 없는 통신 채널을 가능하게 하여 마이크로 컨트롤러에 대해 낮은 대기 시간, 낮은 대역폭 및 낮은 복잡성을 제공하는 것입니다.
 
-## Micro-controller Interface
+## 마이크로 컨트롤러 인터페이스
 
-The Klipper transmission protocol can be thought of as a [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) mechanism between micro-controller and host. The micro-controller software declares the commands that the host may invoke along with the response messages that it can generate. The host uses that information to command the micro-controller to perform actions and to interpret the results.
+Klipper 전송 프로토콜은 마이크로 컨트롤러와 호스트 간의 [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) 메커니즘으로 생각할 수 있습니다. 마이크로 컨트롤러 소프트웨어는 호스트가 생성할 수 있는 응답 메시지와 함께 호출할 수 있는 명령을 선언합니다. 호스트는 해당 정보를 사용하여 마이크로 컨트롤러가 작업을 수행하고 결과를 해석하도록 명령합니다.
 
-### Declaring commands
+### 명령 선언
 
-The micro-controller software declares a "command" by using the DECL_COMMAND() macro in the C code. For example:
+마이크로 컨트롤러 소프트웨어는 C 코드에서 DECL_COMMAND() 매크로를 사용하여 "command"을 선언합니다. 예를 들어:
 
 ```
 DECL_COMMAND(command_update_digital_out, "update_digital_out oid=%c value=%c");
 ```
 
-The above declares a command named "update_digital_out". This allows the host to "invoke" this command which would cause the command_update_digital_out() C function to be executed in the micro-controller. The above also indicates that the command takes two integer parameters. When the command_update_digital_out() C code is executed, it will be passed an array containing these two integers - the first corresponding to the 'oid' and the second corresponding to the 'value'.
+그는 위에서 "update_digital_out" 이라는 명령을 선언합니다. 이것은 호스트가 이 명령을 "invoke" 하여 command_update_digital_out() C 함수가 마이크로 컨트롤러에서 실행되도록 합니다. 위의 내용은 명령이 두 개의 정수 매개변수를 취함을 나타냅니다. command_update_digital_out() C 코드가 실행되면 이 두 정수를 포함하는 배열이 전달됩니다. 첫 번째는 'oid'에 해당하고 두 번째는 'value'에 해당합니다.
 
-In general, the parameters are described with printf() style syntax (eg, "%u"). The formatting directly corresponds to the human-readable view of commands (eg, "update_digital_out oid=7 value=1"). In the above example, "value=" is a parameter name and "%c" indicates the parameter is an integer. Internally, the parameter name is only used as documentation. In this example, the "%c" is also used as documentation to indicate the expected integer is 1 byte in size (the declared integer size does not impact the parsing or encoding).
+일반적으로 매개변수는 printf() 스타일 구문(예: "%u")으로 설명됩니다. 형식은 사람이 읽을 수 있는 명령입니다. (예: "update_digital_out oid=7 value=1"). 위의 예에서 "value=" 는 매개변수 이름이고 "%c" 는 매개변수가 정수임을 나타냅니다. 내부적으로 매개변수 이름은 문서로만 사용됩니다. 이 예에서 "%c" 는 예상 정수 크기가 1바이트임을 나타내는 문서로도 사용됩니다 (선언된 정수 크기는 구문 분석 또는 인코딩에 영향을 미치지 않음).
 
-The micro-controller build will collect all commands declared with DECL_COMMAND(), determine their parameters, and arrange for them to be callable.
+마이크로 컨트롤러 빌드는 DECL_COMMAND() 로 선언된 모든 명령을 수집하고 해당 매개변수를 결정하며 호출 가능하도록 정렬합니다.
 
-### Declaring responses
+### 응답 선언
 
-To send information from the micro-controller to the host a "response" is generated. These are both declared and transmitted using the sendf() C macro. For example:
+마이크로 컨트롤러에서 호스트로 정보를 보내기 위해 "response" 가 생성됩니다. 이것들은 모두 sendf() C 매크로를 사용하여 선언되고 전송됩니다. 예를 들어:
 
 ```
 sendf("status clock=%u status=%c", sched_read_time(), sched_is_shutdown());
 ```
 
-The above transmits a "status" response message that contains two integer parameters ("clock" and "status"). The micro-controller build automatically finds all sendf() calls and generates encoders for them. The first parameter of the sendf() function describes the response and it is in the same format as command declarations.
+위는 두 개의 정수 매개변수("clock" 및 "status")를 포함하는 "status" 응답 메시지를 전송합니다. 마이크로 컨트롤러 빌드는 모든 sendf() 호출을 자동으로 찾고 이에 대한 인코더를 생성합니다. sendf() 함수의 첫 번째 매개변수는 응답을 설명하며 명령 선언과 동일한 형식입니다.
 
-The host can arrange to register a callback function for each response. So, in effect, commands allow the host to invoke C functions in the micro-controller and responses allow the micro-controller software to invoke code in the host.
+호스트는 각 응답에 대한 콜백 함수를 등록하도록 조정할 수 있습니다. 따라서 실제로 명령을 통해 호스트는 마이크로 컨트롤러에서 C 기능을 호출할 수 있고 응답을 통해 마이크로 컨트롤러 소프트웨어는 호스트에서 코드를 호출할 수 있습니다.
 
-The sendf() macro should only be invoked from command or task handlers, and it should not be invoked from interrupts or timers. The code does not need to issue a sendf() in response to a received command, it is not limited in the number of times sendf() may be invoked, and it may invoke sendf() at any time from a task handler.
+sendf() 매크로는 명령 또는 작업 처리기에서만 호출해야 하며 인터럽트나 타이머에서 호출하면 안 됩니다. 코드는 수신된 명령에 대한 응답으로 sendf()를 발행할 필요가 없으며, sendf()가 호출될 수 있는 횟수에 제한이 없으며 태스크 핸들러에서 언제든지 sendf()를 호출할 수 있습니다.
 
-#### Output responses
+#### 출력 응답
 
-To simplify debugging, there is also an output() C function. For example:
+디버깅을 단순화하기 위해 output() C 함수도 있습니다. 예를 들어:
 
 ```
 output("The value of %u is %s with size %u.", x, buf, buf_len);
 ```
 
-The output() function is similar in usage to printf() - it is intended to generate and format arbitrary messages for human consumption.
+output() 함수는 printf()와 사용법이 유사합니다 - 이는 사람이 소비할 임의의 메시지를 생성하고 형식화하기 위한 것입니다.
 
-### Declaring enumerations
+### 열거형 선언
 
-Enumerations allow the host code to use string identifiers for parameters that the micro-controller handles as integers. They are declared in the micro-controller code - for example:
+열거를 통해 호스트 코드는 마이크로 컨트롤러가 정수로 처리하는 매개변수에 대한 문자열 식별자를 사용할 수 있습니다. 그것들은 마이크로 컨트롤러 코드에서 선언됩니다. 예를 들면 다음과 같습니다:
 
 ```
 DECL_ENUMERATION("spi_bus", "spi", 0);
@@ -68,45 +68,45 @@ DECL_ENUMERATION("spi_bus", "spi", 0);
 DECL_ENUMERATION_RANGE("pin", "PC0", 16, 8);
 ```
 
-If the first example, the DECL_ENUMERATION() macro defines an enumeration for any command/response message with a parameter name of "spi_bus" or parameter name with a suffix of "_spi_bus". For those parameters the string "spi" is a valid value and it will be transmitted with an integer value of zero.
+첫 번째 예의 경우 DECL_ENUMERATION() 매크로는 매개변수 이름이 "spi_bus"이 거나 접미사가 "_spi_bus" 인 매개변수 이름이 있는 명령/응답 메시지에 대한 열거를 정의합니다. 이러한 매개변수의 경우 문자열 "spi"는 유효한 값이며 정수 값 0 으로 전송됩니다.
 
-It's also possible to declare an enumeration range. In the second example, a "pin" parameter (or any parameter with a suffix of "_pin") would accept PC0, PC1, PC2, ..., PC7 as valid values. The strings will be transmitted with integers 16, 17, 18, ..., 23.
+열거 범위를 선언하는 것도 가능합니다. 두 번째 예에서 "pin" 매개변수 (또는 "_pin" 접미사가 있는 매개변수) 는 PC0, PC1, PC2, ..., PC7 을 유효한 값으로 허용합니다. 문자열은 정수 16, 17, 18, ..., 23으로 전송됩니다.
 
-### Declaring constants
+### 상수 선언
 
-Constants can also be exported. For example, the following:
+상수도 내보낼 수 있습니다. 예를 들면 다음과 같습니다:
 
 ```
 DECL_CONSTANT("SERIAL_BAUD", 250000);
 ```
 
-would export a constant named "SERIAL_BAUD" with a value of 250000 from the micro-controller to the host. It is also possible to declare a constant that is a string - for example:
+마이크로 컨트롤러에서 호스트로 값이 250000 인 "SERIAL_BAUD" 라는 상수를 내보냅니다. 문자열인 상수를 선언하는 것도 가능합니다. 예를 들면 다음과 같습니다:
 
 ```
 DECL_CONSTANT_STR("MCU", "pru");
 ```
 
-## Low-level message encoding
+## 저수준 메시지 인코딩
 
-To accomplish the above RPC mechanism, each command and response is encoded into a binary format for transmission. This section describes the transmission system.
+위의 RPC 메커니즘을 수행하기 위해 각 명령과 응답은 전송을 위해 바이너리 형식으로 인코딩됩니다. 이 섹션에서는 전송 시스템에 대해 설명합니다.
 
-### Message Blocks
+### 메시지 블록
 
-All data sent from host to micro-controller and vice-versa are contained in "message blocks". A message block has a two byte header and a three byte trailer. The format of a message block is:
+호스트에서 마이크로 컨트롤러로 또는 그 반대로 전송되는 모든 데이터는 "message blocks"에 포함됩니다. 메시지 블록에는 2바이트 헤더와 3바이트 트레일러가 있습니다. 메시지 블록의 형식은 다음과 같습니다:
 
 ```
 <1 byte length><1 byte sequence><n-byte content><2 byte crc><1 byte sync>
 ```
 
-The length byte contains the number of bytes in the message block including the header and trailer bytes (thus the minimum message length is 5 bytes). The maximum message block length is currently 64 bytes. The sequence byte contains a 4 bit sequence number in the low-order bits and the high-order bits always contain 0x10 (the high-order bits are reserved for future use). The content bytes contain arbitrary data and its format is described in the following section. The crc bytes contain a 16bit CCITT [CRC](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) of the message block including the header bytes but excluding the trailer bytes. The sync byte is 0x7e.
+길이 바이트는 헤더 및 트레일러 바이트를 포함하는 메시지 블록의 바이트 수를 포함합니다 (따라서 최소 메시지 길이는 5바이트입니다). 최대 메시지 블록 길이는 현재 64바이트입니다. 시퀀스 바이트는 하위 비트에 4비트 시퀀스 번호를 포함하고 상위 비트는 항상 0x10을 포함합니다 (상위 비트는 향후 사용을 위해 예약됨). 콘텐츠 바이트는 임의의 데이터를 포함하며 그 형식은 다음 섹션에 설명되어 있습니다. crc 바이트는 헤더 바이트를 포함하지만 트레일러 바이트를 제외한 메시지 블록의 16비트 CCITT [CRC](https://en.wikipedia.org/wiki/Cyclic_redundancy_check)를 포함합니다. 동기화 바이트는 0x7e입니다.
 
-The format of the message block is inspired by [HDLC](https://en.wikipedia.org/wiki/High-Level_Data_Link_Control) message frames. Like in HDLC, the message block may optionally contain an additional sync character at the start of the block. Unlike in HDLC, a sync character is not exclusive to the framing and may be present in the message block content.
+메시지 블록의 형식은 [HDLC](https://en.wikipedia.org/wiki/High-Level_Data_Link_Control) 메시지 프레임에서 영감을 받았습니다. HDLC 에서와 같이 메시지 블록은 선택적으로 블록 시작 부분에 추가 동기화 문자를 포함할 수 있습니다. HDLC 와 달리 동기화 문자는 프레이밍에만 국한되지 않으며 메시지 블록 콘텐츠에 존재할 수 있습니다.
 
-### Message Block Contents
+### 메시지 블록 내용
 
-Each message block sent from host to micro-controller contains a series of zero or more message commands in its contents. Each command starts with a [Variable Length Quantity](#variable-length-quantities) (VLQ) encoded integer command-id followed by zero or more VLQ parameters for the given command.
+호스트에서 마이크로 컨트롤러로 전송된 각 메시지 블록에는 내용에 일련의 0 개 이상의 메시지 명령이 포함되어 있습니다. 각 명령은 [Variable Length Quantity](#variable-length-quantities)(VLQ)로 인코딩된 정수 command-id로 시작하고 그 뒤에 주어진 명령에 대한 0 개 이상의 VLQ 매개변수가 옵니다.
 
-As an example, the following four commands might be placed in a single message block:
+예를 들어 다음 네 가지 명령을 단일 메시지 블록에 넣을 수 있습니다:
 
 ```
 update_digital_out oid=6 value=1
@@ -115,19 +115,19 @@ get_config
 get_clock
 ```
 
-and encoded into the following eight VLQ integers:
+그리고 다음 8개의 VLQ 정수로 인코딩됩니다:
 
 ```
 <id_update_digital_out><6><1><id_update_digital_out><5><0><id_get_config><id_get_clock>
 ```
 
-In order to encode and parse the message contents, both the host and micro-controller must agree on the command ids and the number of parameters each command has. So, in the above example, both the host and micro-controller would know that "id_update_digital_out" is always followed by two parameters, and "id_get_config" and "id_get_clock" have zero parameters. The host and micro-controller share a "data dictionary" that maps the command descriptions (eg, "update_digital_out oid=%c value=%c") to their integer command-ids. When processing the data, the parser will know to expect a specific number of VLQ encoded parameters following a given command id.
+메시지 내용을 인코딩하고 구문 분석하려면 호스트와 마이크로 컨트롤러 모두 명령 ID 와 각 명령이 갖는 매개변수 수에 동의해야 합니다. 따라서 위의 예에서 호스트와 마이크로 컨트롤러 모두 "id_update_digital_out" 뒤에는 항상 두 개의 매개변수가 오고 "id_get_config" 및 "id_get_clock" 에는 매개변수가 0 개 있다는 것을 알 수 있습니다. 호스트와 마이크로 컨트롤러는 명령 설명 (예: "update_digital_out oid=%c 값=%c")을 정수로 매핑하는 "data dictionary" 을 공유합니다. 데이터를 처리할 때 파서는 주어진 명령 ID 다음에 오는 특정 수의 VLQ 인코딩 매개변수를 예상한다는 것을 알게 됩니다.
 
-The message contents for blocks sent from micro-controller to host follow the same format. The identifiers in these messages are "response ids", but they serve the same purpose and follow the same encoding rules. In practice, message blocks sent from the micro-controller to the host never contain more than one response in the message block contents.
+마이크로 컨트롤러에서 호스트로 전송된 블록의 메시지 내용은 동일한 형식을 따릅니다. 이러한 메시지의 식별자는 "response ids" 이지만 동일한 용도로 사용되며 동일한 인코딩 규칙을 따릅니다. 실제로 마이크로 컨트롤러에서 호스트로 보낸 메시지 블록은 메시지 블록 내용에 둘 이상의 응답을 포함하지 않습니다.
 
-#### Variable Length Quantities
+#### 가변 길이 수량
 
-See the [wikipedia article](https://en.wikipedia.org/wiki/Variable-length_quantity) for more information on the general format of VLQ encoded integers. Klipper uses an encoding scheme that supports both positive and negative integers. Integers close to zero use less bytes to encode and positive integers typically encode using less bytes than negative integers. The following table shows the number of bytes each integer takes to encode:
+VLQ 로 인코딩된 정수의 일반 형식에 대한 자세한 내용은 [wikipedia article](https://en.wikipedia.org/wiki/Variable-length_quantity) 를 참조하세요. Klipper는 양수 및 음수 정수를 모두 지원하는 인코딩 체계를 사용합니다. 0 에 가까운 정수는 인코딩하는 데 더 적은 바이트를 사용하고 양의 정수는 일반적으로 음의 정수보다 적은 바이트를 사용하여 인코딩합니다. 다음 표는 각 정수가 인코딩하는 데 걸리는 바이트 수를 보여줍니다:
 
 | Integer | Encoded size |
 | --- | --- |
@@ -137,38 +137,38 @@ See the [wikipedia article](https://en.wikipedia.org/wiki/Variable-length_quanti
 | -67108864 .. 201326591 | 4 |
 | -2147483648 .. 4294967295 | 5 |
 
-#### Variable length strings
+#### 가변 길이 문자열
 
-As an exception to the above encoding rules, if a parameter to a command or response is a dynamic string then the parameter is not encoded as a simple VLQ integer. Instead it is encoded by transmitting the length as a VLQ encoded integer followed by the contents itself:
+위의 인코딩 규칙에 대한 예외로 명령 또는 응답에 대한 매개변수가 동적 문자열인 경우 매개변수는 단순 VLQ 정수로 인코딩되지 않습니다. 대신 VLQ로 인코딩된 정수로 길이를 전송하고 그 뒤에 내용 자체를 전송하여 인코딩됩니다:
 
 ```
 <VLQ encoded length><n-byte contents>
 ```
 
-The command descriptions found in the data dictionary allow both the host and micro-controller to know which command parameters use simple VLQ encoding and which parameters use string encoding.
+데이터 사전에 있는 명령 설명을 통해 호스트와 마이크로 컨트롤러는 어떤 명령 매개변수가 단순 VLQ 인코딩을 사용하고 어떤 매개변수가 문자열 인코딩을 사용하는지 알 수 있습니다.
 
-## Data Dictionary
+## 데이터 사전
 
-In order for meaningful communications to be established between micro-controller and host, both sides must agree on a "data dictionary". This data dictionary contains the integer identifiers for commands and responses along with their descriptions.
+마이크로 컨트롤러와 호스트 간에 의미 있는 통신이 설정되기 위해서는 양측이 "ata dictionary" 에 동의해야 합니다. 이 데이터 사전에는 설명과 함께 명령 및 응답에 대한 정수 식별자가 포함되어 있습니다.
 
-The micro-controller build uses the contents of DECL_COMMAND() and sendf() macros to generate the data dictionary. The build automatically assigns unique identifiers to each command and response. This system allows both the host and micro-controller code to seamlessly use descriptive human-readable names while still using minimal bandwidth.
+마이크로 컨트롤러 빌드는 DECL_COMMAND() 및 sendf() 매크로의 내용을 사용하여 데이터 사전을 생성합니다. 빌드는 각 명령과 응답에 고유 식별자를 자동으로 할당합니다. 이 시스템을 통해 호스트 및 마이크로 컨트롤러 코드는 최소한의 대역폭을 사용하면서 사람이 읽을 수 있는 설명적인 이름을 원활하게 사용할 수 있습니다.
 
-The host queries the data dictionary when it first connects to the micro-controller. Once the host downloads the data dictionary from the micro-controller, it uses that data dictionary to encode all commands and to parse all responses from the micro-controller. The host must therefore handle a dynamic data dictionary. However, to keep the micro-controller software simple, the micro-controller always uses its static (compiled in) data dictionary.
+호스트는 마이크로 컨트롤러에 처음 연결할 때 데이터 사전을 쿼리합니다. 호스트가 마이크로 컨트롤러에서 데이터 사전을 다운로드하면 해당 데이터 사전을 사용하여 모든 명령을 인코딩하고 마이크로 컨트롤러의 모든 응답을 구문 분석합니다. 따라서 호스트는 동적 데이터 사전을 처리해야 합니다. 그러나 마이크로 컨트롤러 소프트웨어를 단순하게 유지하기 위해 마이크로 컨트롤러는 항상 정적(컴파일된) 데이터 사전을 사용합니다.
 
-The data dictionary is queried by sending "identify" commands to the micro-controller. The micro-controller will respond to each identify command with an "identify_response" message. Since these two commands are needed prior to obtaining the data dictionary, their integer ids and parameter types are hard-coded in both the micro-controller and the host. The "identify_response" response id is 0, the "identify" command id is 1. Other than having hard-coded ids the identify command and its response are declared and transmitted the same way as other commands and responses. No other command or response is hard-coded.
+데이터 사전은 "identify" 명령을 마이크로 컨트롤러에 보내 쿼리합니다. 마이크로 컨트롤러는 "identify_response" 메시지로 각 식별 명령에 응답합니다. 이 두 명령은 데이터 사전을 얻기 전에 필요하므로 정수 ID와 매개변수 유형은 마이크로 컨트롤러와 호스트 모두에서 하드 코딩됩니다. "identify_response" 응답 ID는 0 이고, "identify" 명령 ID는 1 입니다. 하드 코딩된 ID를 갖는 것 외에는 식별 명령 및 해당 응답이 선언되고 다른 명령 및 응답과 동일한 방식으로 전송됩니다. 다른 명령이나 응답은 하드 코딩되어 있지 않습니다.
 
-The format of the transmitted data dictionary itself is a zlib compressed JSON string. The micro-controller build process generates the string, compresses it, and stores it in the text section of the micro-controller flash. The data dictionary can be much larger than the maximum message block size - the host downloads it by sending multiple identify commands requesting progressive chunks of the data dictionary. Once all chunks are obtained the host will assemble the chunks, uncompress the data, and parse the contents.
+전송된 데이터 사전 자체의 형식은 zlib 압축 JSON 문자열입니다. 마이크로 컨트롤러 빌드 프로세스는 문자열을 생성하고 압축하여 마이크로 컨트롤러 플래시의 텍스트 섹션에 저장합니다. 데이터 사전은 최대 메시지 블록 크기보다 훨씬 클 수 있습니다. 호스트는 데이터 사전의 점진적 청크를 요청하는 여러 식별 명령을 전송하여 데이터 사전을 다운로드합니다. 모든 청크가 확보되면 호스트는 청크를 어셈블하고 데이터 압축을 풀고 내용을 구문 분석합니다.
 
-In addition to information on the communication protocol, the data dictionary also contains the software version, enumerations (as defined by DECL_ENUMERATION), and constants (as defined by DECL_CONSTANT).
+통신 프로토콜에 대한 정보 외에도 데이터 사전에는 소프트웨어 버전, 열거 (DECL_ENUMERATION으로 정의됨) 및 상수(DECL_CONSTANT로 정의됨)도 포함됩니다.
 
-## Message flow
+## 메시지 흐름
 
-Message commands sent from host to micro-controller are intended to be error-free. The micro-controller will check the CRC and sequence numbers in each message block to ensure the commands are accurate and in-order. The micro-controller always processes message blocks in-order - should it receive a block out-of-order it will discard it and any other out-of-order blocks until it receives blocks with the correct sequencing.
+호스트에서 마이크로 컨트롤러로 전송된 메시지 명령은 오류가 없도록 의도되었습니다. 마이크로 컨트롤러는 명령이 정확하고 순서가 올바른지 확인하기 위해 각 메시지 블록의 CRC 및 시퀀스 번호를 확인합니다. 마이크로 컨트롤러는 항상 메시지 블록을 순서대로 처리합니다 - 순서가 잘못된 블록을 수신하면 올바른 순서로 블록을 수신할 때까지 해당 블록과 다른 순서가 잘못된 블록을 버립니다.
 
-The low-level host code implements an automatic retransmission system for lost and corrupt message blocks sent to the micro-controller. To facilitate this, the micro-controller transmits an "ack message block" after each successfully received message block. The host schedules a timeout after sending each block and it will retransmit should the timeout expire without receiving a corresponding "ack". In addition, if the micro-controller detects a corrupt or out-of-order block it may transmit a "nak message block" to facilitate fast retransmission.
+저수준 호스트 코드는 마이크로 컨트롤러로 전송된 손실 및 손상된 메시지 블록에 대한 자동 재전송 시스템을 구현합니다. 이를 용이하게 하기 위해 마이크로 컨트롤러는 성공적으로 수신된 각 메시지 블록 후에 "ack message block"을 전송합니다. 호스트는 각 블록을 보낸 후 시간 초과를 예약하고 해당 "ack"을 수신하지 않고 시간 초과가 만료되면 다시 전송합니다. 또한 마이크로 컨트롤러가 손상되거나 순서가 잘못된 블록을 감지하면 빠른 재전송을 용이하게 하기 위해 "nak message block"을 전송할 수 있습니다.
 
-An "ack" is a message block with empty content (ie, a 5 byte message block) and a sequence number greater than the last received host sequence number. A "nak" is a message block with empty content and a sequence number less than the last received host sequence number.
+"ack"은 빈 내용(즉, 5바이트 메시지 블록) 과 마지막으로 수신된 호스트 시퀀스 번호보다 큰 시퀀스 번호가 있는 메시지 블록입니다. "nak" 은 내용이 비어 있고 마지막으로 수신된 호스트 시퀀스 번호보다 작은 시퀀스 번호가 있는 메시지 블록입니다.
 
-The protocol facilitates a "window" transmission system so that the host can have many outstanding message blocks in-flight at a time. (This is in addition to the many commands that may be present in a given message block.) This allows maximum bandwidth utilization even in the event of transmission latency. The timeout, retransmit, windowing, and ack mechanism are inspired by similar mechanisms in [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol).
+이 프로토콜은 호스트가 한 번에 많은 미해결 메시지 블록을 처리할 수 있도록 "window" 전송 시스템을 용이하게 합니다. (이는 주어진 메시지 블록에 있을 수 있는 많은 명령에 추가됩니다.) 이를 통해 전송 대기 시간의 경우에도 최대 대역폭 활용이 가능합니다. 타임아웃, 재전송, 윈도우 및 승인 메커니즘은 [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) 의 유사한 메커니즘에서 영감을 받았습니다.
 
-In the other direction, message blocks sent from micro-controller to host are designed to be error-free, but they do not have assured transmission. (Responses should not be corrupt, but they may go missing.) This is done to keep the implementation in the micro-controller simple. There is no automatic retransmission system for responses - the high-level code is expected to be capable of handling an occasional missing response (usually by re-requesting the content or setting up a recurring schedule of response transmission). The sequence number field in message blocks sent to the host is always one greater than the last received sequence number of message blocks received from the host. It is not used to track sequences of response message blocks.
+다른 방향으로, 마이크로 컨트롤러에서 호스트로 전송되는 메시지 블록은 오류가 없도록 설계되지만 전송이 보장되지는 않습니다. (응답은 손상되지 않아야 하지만 누락될 수 있습니다.) 이것은 마이크로 컨트롤러에서 구현을 단순하게 유지하기 위해 수행됩니다. 응답을 위한 자동 재전송 시스템은 없습니다 - 고급 코드는 가끔 누락된 응답을 처리할 수 있을 것으로 예상됩니다 (일반적으로 콘텐츠를 다시 요청하거나 응답 전송의 반복 일정을 설정하여). 호스트로 전송된 메시지 블록의 시퀀스 번호 필드는 항상 호스트에서 수신한 메시지 블록의 마지막 수신 시퀀스 번호보다 하나 더 큽니다. 응답 메시지 블록의 시퀀스를 추적하는 데 사용되지 않습니다.

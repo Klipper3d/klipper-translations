@@ -2,7 +2,7 @@
 
 This document describes how to setup a PWM-controlled laser or spindle using `output_pin` and some macros.
 
-## How does it work?
+## 어떻게 동작하나요?
 
 With re-purposing the printhead's fan pwm output, you can control lasers or spindles. This is useful if you use switchable print heads, for example the E3D toolchanger or a DIY solution. Usually, cam-tools such as LaserWeb can be configured to use `M3-M5` commands, which stand for *spindle speed CW* (`M3 S[0-255]`), *spindle speed CCW* (`M4 S[0-255]`) and *spindle stop* (`M5`).
 
@@ -14,7 +14,7 @@ For an example configuration, see `config/sample-pwm-tool-cfg`.
 
 There is a limitation of how frequent PWM updates may occur. While being very precise, a PWM update may only occur every 0.1 seconds, rendering it almost useless for raster engraving. However, there exists an [experimental branch](https://github.com/Cirromulus/klipper/tree/laser_tool) with its own tradeoffs. In long term, it is planned to add this functionality to main-line klipper.
 
-## Commands
+## 명령어
 
 `M3/M4 S<value>` : Set PWM duty-cycle. Values between 0 and 255. `M5` : Stop PWM output to shutdown value.
 

@@ -1,4 +1,4 @@
-# Frequently Asked Questions
+# 자주 묻는 질문
 
 1. [어떻게 프로젝트에 기부할수 있나요?](#어떻게-프로젝트에-기부할수-있나요)
 1. [rotation_distance는 어떻게 계산합니까?](#rotation_distance는-어떻게-계산합니까)

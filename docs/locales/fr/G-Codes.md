@@ -2,7 +2,7 @@
 
 This document describes the commands that Klipper supports. These are commands that one may enter into the OctoPrint terminal tab.
 
-## G-Code commands
+## Commandes G-Code
 
 Klipper prend en charge les commandes G-Code standard suivantes :
 
@@ -97,14 +97,14 @@ The following standard commands are supported:
 - `TEMPERATURE_WAIT SENSOR=<config_name> [MINIMUM=<target>] [MAXIMUM=<target>]`: Wait until the given temperature sensor is at or above the supplied MINIMUM and/or at or below the supplied MAXIMUM.
 - `SET_VELOCITY_LIMIT [VELOCITY=<value>] [ACCEL=<value>] [ACCEL_TO_DECEL=<value>] [SQUARE_CORNER_VELOCITY=<value>]`: Modify the printer's velocity limits.
 - `SET_HEATER_TEMPERATURE HEATER=<heater_name> [TARGET=<target_temperature>]`: Sets the target temperature for a heater. If a target temperature is not supplied, the target is 0.
-- `ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: In a printer with multiple extruders this command is used to change the active extruder.
+- `ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: Pour une imprimante avec plusieurs extrudeurs, cette commande permet de changer l'extrudeur actif.
 - `SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Set pressure advance parameters. If EXTRUDER is not specified, it defaults to the active extruder.
 - `SET_EXTRUDER_STEP_DISTANCE [EXTRUDER=<config_name>] [DISTANCE=<distance>]`: Set a new value for the provided extruder's "step distance". The "step distance" is `rotation_distance/(full_steps_per_rotation*microsteps)`. Value is not retained on Klipper reset. Use with caution, small changes can result in excessive pressure between extruder and hot end. Do proper calibration steps with filament before use. If 'DISTANCE' value is not included command will return current step distance.
 - `SET_STEPPER_ENABLE STEPPER=<config_name> ENABLE=[0|1]`: Enable or disable only the given stepper. This is a diagnostic and debugging tool and must be used with care. Disabling an axis motor does not reset the homing information. Manually moving a disabled stepper may cause the machine to operate the motor outside of safe limits. This can lead to damage to axis components, hot ends, and print surface.
 - `STEPPER_BUZZ STEPPER=<config_name>`: Move the given stepper forward one mm and then backward one mm, repeated 10 times. This is a diagnostic tool to help verify stepper connectivity.
 - `MANUAL_PROBE [SPEED=<speed>]`: Exécute un script d'aide servant à mesurer la hauteur de la buse à un point donné. Si SPEED est spécifié, il définit la vitesse des commandes TESTZ (la valeur par défaut est 5mm/s). Pendant un sondage manuel, les commandes supplémentaires suivantes sont disponibles :
-   - `ACCEPT`: This command accepts the current Z position and concludes the manual probing tool.
-   - `ABORT`: This command terminates the manual probing tool.
+   - `ACCEPT`: Cette commande valide la position Z actuelle et met fin au sondage manuel.
+   - `ABORT`: Cette commande interrompt le sondage manuel.
    - `TESTZ Z=<value>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
 - `Z_ENDSTOP_CALIBRATE [SPEED=<speed>]`: Run a helper script useful for calibrating a Z position_endstop config setting. See the MANUAL_PROBE command for details on the parameters and the additional commands available while the tool is active.
 - `Z_OFFSET_APPLY_ENDSTOP`: Take the current Z Gcode offset (aka, babystepping), and subtract it from the stepper_z endstop_position. This acts to take a frequently used babystepping value, and "make it permanent". Requires a `SAVE_CONFIG` to take effect.
@@ -186,7 +186,7 @@ The following commands are available when the [delta_calibrate config section](C
 - `DELTA_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>]`: This command will probe seven points on the bed and recommend updated endstop positions, tower angles, and radius. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active.
 - `DELTA_ANALYZE`: This command is used during enhanced delta calibration. See [Delta Calibrate](Delta_Calibrate.md) for details.
 
-### Bed Tilt
+### Inclinaison du bed
 
 The following commands are available when the [bed_tilt config section](Config_Reference.md#bed_tilt) is enabled:
 
@@ -196,20 +196,20 @@ The following commands are available when the [bed_tilt config section](Config_R
 
 The following commands are available when the [bed_mesh config section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh guide](Bed_Mesh.md)):
 
-- `BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: This command probes the bed using generated points specified by the parameters in the config. After probing, a mesh is generated and z-movement is adjusted according to the mesh. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active.
-- `BED_MESH_OUTPUT PGP=[<0:1>]`: This command outputs the current probed z values and current mesh values to the terminal. If PGP=1 is specified the x,y coordinates generated by bed_mesh, along with their associated indices, will be output to the terminal.
-- `BED_MESH_MAP`: Like to BED_MESH_OUTPUT, this command prints the current state of the mesh to the terminal. Instead of printing the values in a human readable format, the state is serialized in json format. This allows octoprint plugins to easily capture the data and generate height maps approximating the bed's surface.
-- `BED_MESH_CLEAR`: This command clears the mesh and removes all z adjustment. It is recommended to put this in your end-gcode.
-- `BED_MESH_PROFILE LOAD=<name> SAVE=<name> REMOVE=<name>`: This command provides profile management for mesh state. LOAD will restore the mesh state from the profile matching the supplied name. SAVE will save the current mesh state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to peristent memory permanent.
-- `BED_MESH_OFFSET [X=<value>] [Y=<value>]`: Applies X and/or Y offsets to the mesh lookup. This is useful for printers with independent extruders, as an offset is necessary to produce correct Z adjustment after a tool change.
+- `BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` : Cette commande palpe le bed en utilisant des points générés spécifiés par les paramètres de la config. Après le test, un maillage est généré et le déplacement de l'axe Z est ajusté en fonction de celui-ci. Référez-vous à la commande PROBE pour plus de détails sur les paramètres optionnels. Si METHOD=manual est spécifié, l'outil de palpage manuel est activé - voir la commande MANUAL_PROBE ci-dessus pour plus de détails sur les possibilités supplémentaires disponibles lorsque cet outil est utilisé.
+- `BED_MESH_OUTPUT PGP=[<0:1>]`: Cette commande sort les valeurs z obtenues lors du palpage et les valeurs de maillage courantes sur le terminal. Si PGP=1 est spécifié, les coordonnées x,y générées par bed_mesh, ainsi que leurs indices associés, seront affichés sur le terminal.
+- `BED_MESH_MAP` : Comme pour BED_MESH_OUTPUT, cette commande affiche l'état actuel du maillage sur le terminal. L'état sera retourné au format json. Cela permet aux plugins octoprint de récupérer facilement les données et de générer des cartes d'altitude au plus proche de la surface du bed.
+- `BED_MESH_CLEAR`: Cette commande efface le maillage actuel et supprime les ajustements de l'axe z. Il est recommandé de mettre cette commande dans votre gcode de fin.
+- `BED_MESH_PROFILE LOAD=<name> SAVE=<name> REMOVE=<name> ` : Cette commande fournit une gestion de profil pour l'état du maillage. LOAD restaurera le maillage à partir du profil <name>. SAVE sauvegarde l'état actuel du maillage dans un profil nommé selon <name>. REMOVE supprime de la mémoire persistante le profil <name>. A savoir qu'une fois les opérations SAVE ou REMOVE executées, le gcode SAVE_CONFIG doit être lancé pour enregistrer les changements dans la mémoire persistante.
+- `BED_MESH_OFFSET [X=<value>] [Y=<value>] ` : Applique des décalages X et/ou Y pour l'évaluation du maillage. Ceci est utile pour les imprimantes avec extrudeurs indépendants, car un décalage est nécessaire pour obtenir un ajustement Z correct après un changement d'outil.
 
-### Bed Screws Helper
+### Assistant pour les vis du bed
 
 The following commands are available when the [bed_screws config section](Config_Reference.md#bed_screws) is enabled (also see the [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws)):
 
-- `BED_SCREWS_ADJUST`: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) and allow one to make adjustments to the bed screws so that the bed is a constant distance from the nozzle.
+- `BED_SCREWS_ADJUST`: Cette commande fait appel à l'outil de réglage des vis du bed. Elle commandera la buse à différents endroits (tels que définis dans le fichier de configuration) et permettra d'ajuster les vis du bed afin que celui-ci et la buse soient à distance constante.
 
-### Bed Screws Tilt Adjust Helper
+### Assistant de réglage de l'inclinaison des vis du bed
 
 The following commands are available when the [screws_tilt_adjust config section](Config_Reference.md#screws_tilt_adjust) is enabled (also see the [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe)):
 
@@ -326,14 +326,14 @@ The following command is available when a [temperature_fan config section](Confi
 
 - `SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_name> [target=<target_temperature>] [min_speed=<min_speed>]  [max_speed=<max_speed>]`: Sets the target temperature for a temperature_fan. If a target is not supplied, it is set to the specified temperature in the config file. If speeds are not supplied, no change is applied.
 
-### Adxl345 Accelerometer Commands
+### Commandes pour l'accéléromètre Adxl345
 
 The following commands are available when an [adxl345 config section](Config_Reference.md#adxl345) is enabled:
 
-- `ACCELEROMETER_MEASURE [CHIP=<config_name>] [RATE=<value>] [NAME=<value>]`: Starts accelerometer measurements at the requested number of samples per second. If CHIP is not specified it defaults to "default". Valid rates are 25, 50, 100, 200, 400, 800, 1600, and 3200. The command works in a start-stop mode: when executed for the first time, it starts the measurements, next execution stops them. If RATE is not specified, then the default value is used (either from `printer.cfg` or `3200` default value). The results of measurements are written to a file named `/tmp/adxl345-<chip>-<name>.csv` where `<chip>` is the name of the accelerometer chip (`my_chip_name` from `[adxl345 my_chip_name]`) and `<name>` is the optional NAME parameter. If NAME is not specified it defaults to the current time in "YYYYMMDD_HHMMSS" format. If the accelerometer does not have a name in its config section (simply `[adxl345]`) <chip> part of the name is not generated.
-- `ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: queries accelerometer for the current value. If CHIP is not specified it defaults to "default". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).
-- `ADXL345_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries ADXL345 register <register> (e.g. 44 or 0x2C). Can be useful for debugging purposes.
-- `ADXL345_DEBUG_WRITE [CHIP=<config_name>] REG=<reg> VAL=<value>`: writes raw <value> into a register <register>. Both <value> and <register> can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.
+- `ACCELEROMETER_MEASURE [CHIP=<config_name>] [RATE=<value>] [NAME=<value>]`: Démarre la mesure avec l'accéléromètre au nombre de mesures par seconde souhaité. Si CHIP n'est pas précisé, la valeur par défaut est "default". Les fréquences de mesure valides sont 25, 50, 100, 200, 400, 800, 1600 et 3200. Cette commande fonctionne en marche/arrêt: lorsque qu'exécutée une première fois elle commence les mesures, l'exécution suivante stoppe la mesure. Si RATE n'est pas précisé alors la valeur utilisée est celle renseignée dans `printer.cfg` ou `3200` à défaut. Les résultats des mesures sont enregistrés dans un fichier nommé `/tmp/adxl345-<chip>-<name>.csv` où `<chip>` est le nom de l'accéléromètre (`my_chip_name` dans `[adxl345 my_chip_name]`) et `<name>` est la valeur du paramètre optionnel NAME. Si NAME n'est pas précisé, la date et l'heure au format "YYYYMMDD_HHMMSS" sont utilisées. Si l’accéléromètre n'a pas de nom dans la section (c'est-à-dire `[adxl345]`) alors l'élément <chip> n'est pas renseigné dans le nom du fichier.
+- `ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: interroge l'accéléromètre et retourne la valeur courante. SI CHIP n'est pas précisé, la valeur par défaut est "default". Si RATE n'est pas précisé, la valeur par défaut est utilisée. Cette commande est utile pour tester la connexion avec l'accéléromètre ADXL345: la valeur renvoyée doit être l'accélération en chute libre (+/- du bruit de mesure).
+- `ADXL345_DEBUG_READ [CHIP=<config_name>] REG=<register>`: Interroge le registre <register> de l'ADXL345 (ex: 44 ou 0x2C). Peut-être utile pour déboguer.
+- `ADXL345_DEBUG_WRITE [CHIP=<nom_de_la_configuration>] REG=<reg> VAL=<valeur>` : écrit la valeur brute <valeur> dans un registre <registre>. <valeur> et <registre> peuvent tous deux être un entier décimal ou hexadécimal. A utiliser avec précaution, et se référer à la fiche technique du ADXL345 pour la référence.
 
 ### Resonance Testing Commands
 

@@ -1284,7 +1284,7 @@ Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#send-message-resp
 #   override the "default_type".
 ```
 
-## Resonance compensation
+## 공진 보상
 
 ### [input_shaper]
 

@@ -1,28 +1,26 @@
-# Contributing to Klipper
+# 클리퍼에 기여하기
 
-Thank you for contributing to Klipper! Please take a moment to read this document.
+클리퍼에 기여해주셔서 감사합니다! 잠시 시간을 내어 이 문서를 읽어주세요.
 
-## Creating a new issue
+## 새 이슈 만들기
 
-Please see the [contact page](Contact.md) for information on creating an issue.
+이슈 생성에 대한 정보는 [contact page](Contact.md)를 참조하십시오.
 
-## Submitting a pull request
+## pull request 제출
 
-Contributions of Code and documentation are managed through github pull requests. Each commit should have a commit message formatted similar to the following:
+코드 및 문서의 기여는 github pull 요청을 통해 관리됩니다. 각 commit에는 다음과 유사한 형식의 commit 메시지가 있어야 합니다:
 
 ```
-module: Capitalized, short (50 chars or less) summary
+모듈: 대문자, 짧은(50자 이하) 요약
 
-More detailed explanatory text, if necessary.  Wrap it to about 75
-characters or so.  In some contexts, the first line is treated as the
-subject of an email and the rest of the text as the body.  The blank
-line separating the summary from the body is critical (unless you omit
-the body entirely); tools like rebase can get confused if you run the
-two together.
+필요한 경우 더 자세한 설명 텍스트 작성. 약 75자 정도로 줄바꿈합니다.
+일부 상황에서 첫 번째 줄은 이메일의 제목으로 처리되고 나머지 텍스트는 본문으로 처리됩니다.
+본문과 요약을 구분하는 빈 줄은 중요합니다(본문을 완전히 생략하지 않는 한).
+두 가지를 함께 실행하면 rebase와 같은 도구가 혼동될 수 있습니다.
 
-Further paragraphs come after blank lines..
+빈 줄 뒤에 추가 단락이 옵니다..
 
-Signed-off-by: My Name <myemail@example.org>
+서명자: 내 이름 <myemail@example.org>
 ```
 
-It is important to have a "Signed-off-by" line on each commit - it certifies that you agree to the [developer certificate of origin](developer-certificate-of-origin). It must contain your real name (sorry, no pseudonyms or anonymous contributions) and contain a current email address.
+각 commit에 "서명자" 라인이 있는 것이 중요합니다. 이는 개발자 인증서[developer certificate of origin](developer-certificate-of-origin)에 동의함을 증명합니다. 실명을 포함해야 하며(가명이나 익명의 기여는 불가) 현재 이메일 주소를 포함해야 합니다.

@@ -1,18 +1,18 @@
 # Bed leveling
 
-Bed leveling (sometimes also referred to as "bed tramming") is critical to getting high quality prints. If a bed is not properly "leveled" it can lead to poor bed adhesion, "warping", and subtle problems throughout the print. This document serves as a guide to performing bed leveling in Klipper.
+Die Bettnivellierung (auch als "Bettbewegung" bezeichnet) ist entscheidend, um qualitativ hochwertige Drucke zu erhalten. Wenn ein Bett nicht richtig "nivelliert" ist, kann dies zu schlechter Betthaftung, "Verziehen" und subtilen Problemen während des gesamten Drucks führen. Dieses Dokument dient als Leitfaden für die Durchführung der Bettnivellierung in Klipper.
 
-It's important to understand the goal of bed leveling. If the printer is commanded to a position `X0 Y0 Z10` during a print, then the goal is for the printer's nozzle to be exactly 10mm from the printer's bed. Further, should the printer then be commanded to a position of `X50 Z10` the goal is for the nozzle to maintain an exact distance of 10mm from the bed during that entire horizontal move.
+Es ist wichtig, das Ziel der Bettnivellierung zu verstehen. Wenn der Drucker während eines Druckvorgangs in eine Position `X0 Y0 Z10` befohlen wird, dann ist es das Ziel, dass die Düse des Druckers genau 10 mm vom Druckerbett entfernt ist. Sollte der Drucker dann auf eine Position von `X50 Z10` angewiesen werden, besteht das Ziel darin, dass die Düse während der gesamten horizontalen Bewegung einen genauen Abstand von 10 mm vom Bett einhält.
 
-In order to get good quality prints the printer should be calibrated so that Z distances are accurate to within about 25 microns (.025mm). This is a small distance - significantly smaller than the width of a typical human hair. This scale can not be measured "by eye". Subtle effects (such as heat expansion) impact measurements at this scale. The secret to getting high accuracy is to use a repeatable process and to use a leveling method that leverages the high accuracy of the printer's own motion system.
+Um qualitativ hochwertige Drucke zu erhalten, sollte der Drucker so kalibriert werden, dass die Z-Abstände auf etwa 25 Mikrometer (0,025 mm) genau sind. Dies ist ein kleiner Abstand - deutlich kleiner als die Breite eines typischen menschlichen Haares. Diese Größenordnung kann nicht "mit dem Auge" gemessen werden. Feine Effekte (wie Wärmeausdehnung) wirken sich auf Messungen dieser Größenordnung aus. Das Geheimnis einer hohen Genauigkeit besteht darin, einen wiederholbaren Prozess zu verwenden und eine Nivellierungsmethode zu verwenden, welche die hohe Genauigkeit des eigenen Bewegungssystems des Druckers nutzt.
 
-## Choose the appropriate calibration mechanism
+## Wählen Sie den geeigneten Kalibrierungsvorgang
 
-Different types of printers use different methods for performing bed leveling. All of them ultimately depend on the "paper test" (described below). However, the actual process for a particular type of printer is described in other documents.
+Unterschiedliche Druckertypen verwenden unterschiedliche Methoden zum Durchführen einer Bettnivellierung. Alle hängen letztendlich vom "Papiertest" ab (unten beschrieben). Der eigentliche Vorgang für einen bestimmten Druckertyp ist jedoch in den anderen Dokumenten beschrieben.
 
-Prior to running any of these calibration tools, be sure to run the checks described in the [config check document](Config_checks.md). It is necessary to verify basic printer motion before performing bed leveling.
+Bevor Sie eines dieser Kalibrierungstools ausführen, führen Sie unbedingt die im [config check document](Config_checks.md) beschriebenen Prüfungen durch. Es ist notwendig, die grundlegende Druckerbewegung zu überprüfen, bevor Sie die Bettnivellierung durchführen.
 
-For printers with an "automatic Z probe" be sure to calibrate the probe following the directions in the [Probe Calibrate](Probe_Calibrate.md) document. For delta printers, see the [Delta Calibrate](Delta_Calibrate.md) document. For printers with bed screws and traditional Z endstops, see the [Manual Level](Manual_Level.md) document.
+Bei Druckern mit einer "automatischen Z-Sonde" müssen Sie die Sonde gemäß den Anweisungen im Dokument [Probe Calibrate](Probe_Calibrate.md) kalibrieren. Informationen zu Deltadruckern finden Sie im Dokument [Delta Calibrate](Delta_Calibrate.md). Informationen zu Druckern mit Bettschrauben und herkömmlichen Z-Endschaltern finden Sie im Dokument [Manual Level](Manual_Level.md).
 
 During calibration it may be necessary to set the printer's Z `position_min` to a negative number (eg, `position_min = -2`). The printer enforces boundary checks even during calibration routines. Setting a negative number allows the printer to move below the nominal position of the bed, which may help when trying to determine the actual bed position.
 
