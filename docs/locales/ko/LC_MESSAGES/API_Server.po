@@ -1,9 +1,10 @@
 # bookledge <bookledge@gmail.com>, 2021.
+# brian park <gouache95@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-22 05:42+0000\n"
-"Last-Translator: bookledge <bookledge@gmail.com>\n"
+"PO-Revision-Date: 2021-08-23 02:32+0000\n"
+"Last-Translator: brian park <gouache95@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
 "api_server/ko/>\n"
 "Language: ko\n"
@@ -247,8 +248,8 @@ msgid ""
 "For example: `{\"id\": 123, \"method\": \"emergency_stop\"}`"
 msgstr ""
 "\"emergency_stop\" endpoint 는 클리퍼가 \"shutdown\" 상태로 가도록 지시하는데 사용합니다. 그것은 "
-"`M112` gcode 와 비슷하게 행동합니다. 예시 :\n"
-"`{\"id\": 123, \"method\": \"emergency_stop\"}`"
+"`M112` gcode 와 비슷하게 행동합니다. 예시 : `{\"id\": 123, \"method\": \"emergency_stop\""
+"}`"
 
 msgid "register_remote_method"
 msgstr "레지스터 원격 메쏘드"
