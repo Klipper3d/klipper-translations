@@ -1,9 +1,10 @@
 # brian park <gouache95@gmail.com>, 2021.
+# bookledge <bookledge@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-22 00:41+0000\n"
-"Last-Translator: brian park <gouache95@gmail.com>\n"
+"PO-Revision-Date: 2021-08-23 02:32+0000\n"
+"Last-Translator: bookledge <bookledge@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
 "rpi_microcontroller/ko/>\n"
 "Language: ko\n"
@@ -48,7 +49,7 @@ msgid "After installing Klipper, install the script. run:"
 msgstr ""
 
 msgid "Building the micro-controller code"
-msgstr ""
+msgstr "마이크로 컨트롤러 코드를 빌드하기"
 
 msgid ""
 "To compile the Klipper micro-controller code, start by configuring it for "
@@ -61,7 +62,7 @@ msgid ""
 msgstr ""
 
 msgid "To build and install the new micro-controller code, run:"
-msgstr ""
+msgstr "새로운 마이크로 컨트롤러 코드를 빌드하고 설치하기 위해 다음을 실행시킵니다. :"
 
 msgid ""
 "If klippy.log reports a \"Permission denied\" error when attempting to "
@@ -70,7 +71,7 @@ msgid ""
 msgstr ""
 
 msgid "Remaining configuration"
-msgstr ""
+msgstr "나머지 설정"
 
 msgid ""
 "Complete the installation by configuring Klipper secondary MCU following the"
@@ -135,6 +136,9 @@ msgid ""
 "make flash\n"
 "sudo service klipper start\n"
 msgstr ""
+"sudo service klipper stop\n"
+"make flash\n"
+"sudo service klipper start\n"
 
 msgid "sudo usermod -a -G tty pi\n"
 msgstr ""
