@@ -1,9 +1,16 @@
-#
+# brian park <gouache95@gmail.com>, 2021.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-08-23 02:32+0000\n"
+"Last-Translator: brian park <gouache95@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
+"resonance_compensation/ko/>\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.8.1-dev\n"
 
 msgid "Resonance Compensation"
 msgstr ""
@@ -315,7 +322,7 @@ msgid ""
 msgstr ""
 
 msgid "Selecting max_accel"
-msgstr ""
+msgstr "max_accel 선택"
 
 msgid ""
 "You should have a printed test for the shaper you chose from the previous "
