@@ -1,48 +1,48 @@
-# Bed leveling
+# 베드 레벨링
 
-Bed leveling (sometimes also referred to as "bed tramming") is critical to getting high quality prints. If a bed is not properly "leveled" it can lead to poor bed adhesion, "warping", and subtle problems throughout the print. This document serves as a guide to performing bed leveling in Klipper.
+베드레벨링(때로는 베드 트램밍tramming으로 불려지기도 한다)은 고품질 출력을 얻는데 결정적이다. 만약 베드레벨이 제대로 맞춰져 있지 않으면 베드 안착에 문제가 생길 수 있다. 그래서 모서리 들뜸이나 프린트 전반에 걸친 자잘한 문제들이 일어날 수 있다. 이 문서는 클리퍼에서 베드레벨을 시행하는데 가이드를 제공한다.
 
-It's important to understand the goal of bed leveling. If the printer is commanded to a position `X0 Y0 Z10` during a print, then the goal is for the printer's nozzle to be exactly 10mm from the printer's bed. Further, should the printer then be commanded to a position of `X50 Z10` the goal is for the nozzle to maintain an exact distance of 10mm from the bed during that entire horizontal move.
+베드레벨링의 목표를 이해하는 것이 중요하다. 만약 프린터가 `X0 Y0 Z10` 위치로 가라고 명령을 받았다면 노즐은 프린터의 베드로 부터 정확히 10mm 위에 있어야 한다. 연이어서 `X50 Z10`으로 이동하라고 명령을 하면 노즐은 베드와의 간격을 정확히 10mm 유지한 상태에서 수평으로 이동해야 한다.
 
-In order to get good quality prints the printer should be calibrated so that Z distances are accurate to within about 25 microns (.025mm). This is a small distance - significantly smaller than the width of a typical human hair. This scale can not be measured "by eye". Subtle effects (such as heat expansion) impact measurements at this scale. The secret to getting high accuracy is to use a repeatable process and to use a leveling method that leverages the high accuracy of the printer's own motion system.
+고품질 출력물을 얻기 위해 프린터는 약 0.025mm (25마이크로미터) 내의 정확도로 Z 높이를 캘리브레이션 해야 한다. 이정도 거리는 보통의 사람 머리카락두께보다 훨씬 더 얇은 값이다. 이 스케일은 눈으로는 측정될 수 없는 값이다. 열팽창와 같은 아주 미세한 것도 이정도 스케일에는 영향을 미칠 수 있다. 높은 정확도의 레벨링을 얻을 수 있는 비밀은 반복에 있다. 그리고 프린터 자체의 모션시스템의 정확성을 이용하는데 있다.
 
-## Choose the appropriate calibration mechanism
+## 적절한 캘리브레이션 메카니즘을 선택하라
 
-Different types of printers use different methods for performing bed leveling. All of them ultimately depend on the "paper test" (described below). However, the actual process for a particular type of printer is described in other documents.
+프린터들마다 각자 저마다의 베드레벨링 방식을 채택하고 있다. 그것들 대부분은 결국에는 아래 기술한 "종이테스트"에 의존한다. 특별한 타입의 프린터를 위한 실제 과정은 다른 문서에서 소개하겠다.
 
-Prior to running any of these calibration tools, be sure to run the checks described in the [config check document](Config_checks.md). It is necessary to verify basic printer motion before performing bed leveling.
+이 캘리브레이션 도구들을 이용하기전에 [config check document](Config_checks.md) 에 기재된 내용으로 꼭 체크해보기 바란다. 베드레벨링을 하기 앞서 프린터의 기본동작상태를 점검하는 것은 필수적이다.
 
-For printers with an "automatic Z probe" be sure to calibrate the probe following the directions in the [Probe Calibrate](Probe_Calibrate.md) document. For delta printers, see the [Delta Calibrate](Delta_Calibrate.md) document. For printers with bed screws and traditional Z endstops, see the [Manual Level](Manual_Level.md) document.
+오토레벨링센서가 장착된 프린터의 경우는 [Probe Calibrate](Probe_Calibrate.md) 문서에 있는 지시내용을 따라 반드시 캘리브레이션 하도록 하라. 델타 프린터라면 [Delta Calibrate](Delta_Calibrate.md) 를 참고하기 바란다. 그리고, 베드나사와 전통적인 Z endstop 을 가진 프린터는 [Manual Level](Manual_Level.md) 문서를 참고하라.
 
-During calibration it may be necessary to set the printer's Z `position_min` to a negative number (eg, `position_min = -2`). The printer enforces boundary checks even during calibration routines. Setting a negative number allows the printer to move below the nominal position of the bed, which may help when trying to determine the actual bed position.
+캘리브레이션 할동안에는 프린터의 Z `position_min` (최소값)을 음수로 설정하도록 한다. (예, `position_min = -2`). 이것은 프린터가 캘리브레이션 중에도 경계를 체크하려고 하기 때문이다. 최소 Z 위치를 음수값으로 설정해두면 프린터가 베드의 수평면 아래의 위치로 갈 수 있게 된다. 이것은 정확한 실제 베드 위치를 결정하는데 도움을 줄 것이다.
 
-## The "paper test"
+## "paper test" 종이테스트
 
-The primary bed calibration mechanism is the "paper test". It involves placing a regular piece of "copy machine paper" between the printer's bed and nozzle, and then commanding the nozzle to different Z heights until one feels a small amount of friction when pushing the paper back and forth.
+기본적인 베드 캘리브레이션 메커니즘은 "종이테스트"이다. 일단은 프린터의 베드와 노즐사이에 복사용지 한장을 놓는다. 그리고 종이를 앞뒤로 밀었다 당겼다 하면서 노즐간의 미묘한 마찰을 느끼면서 노즐의 Z 높이를 변화시킨다.
 
-It is important to understand the "paper test" even if one has an "automatic Z probe". The probe itself often needs to be calibrated to get good results. That probe calibration is done using this "paper test".
+오토레벨링 센서가 있더라도 "종이테스트"의 방법을 이해하는 것은 중요하다. 레벨링센서 그 자체도 좋은 레벨링을 위해서는 캘리브레이션 되어야 한다. 레벨링센서의 캘리브레이션도 역시 "종이테스트" 를 이용한다.
 
-In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a width of around 100 microns (0.100mm). (The exact width of the paper isn't crucial.)
+종이테스트를 하기 위해, 가위를 이용해 종이를 5x3cm 정도의 작은 직사각형 크기로 자른다. 복사용지(A4)는 일반적으로 100마이크로메타(0.100mm) 두께를 가지고 있다. (종이 두께가 정확할 필요는 없다)
 
-The first step of the paper test is to inspect the printer's nozzle and bed. Make sure there is no plastic (or other debris) on the nozzle or bed.
+종이테스트의 첫번째 단계는 프린터 노즐과 베드를 잘 살펴보는 것이다. 노즐과 베드에 남은 필라멘트찌꺼기들이 붙어 있지 않도록 하십시오.
 
-**Inspect the nozzle and bed to ensure no plastic is present!**
+**노즐과 베드에 필라멘트찌꺼기가 붙어 있지 않은지 확인하라!**
 
-If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a width and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.
+만일 특별한 테이프나 베드표면위에서 항상 출력을 한다면 그 표면/테이프를 이용해 종이테스트를 할 것이다. 하지만, 테이프 자체의 두께가 각각 다를 수 있기 때문에 다른 테이프를 사용하거나 베드판을 바꾸거나 하면 Z 측정에 영향을 미치게 됨을 기억하라. 그래서 반드시 실제 사용할 베드판이나 테이프를 깔고 종이테스트를 해야 한다.
 
-If there is plastic on the nozzle then heat up the extruder and use a metal tweezers to remove that plastic. Wait for the extruder to fully cool to room temperature before continuing with the paper test. While the nozzle is cooling, use the metal tweezers to remove any plastic that may ooze out.
+만일 노즐에 필라멘트가 붙어있다면 노즐 온도를 올리고 핀셋을 이용해 필라멘트를 제거하도록 하라. 그리고, 노즐의 온도가 상온으로 완전히 식고 나면 종이테스트를 이어 진행한다. 노즐이 식을 동안 필라멘트가 흘러 새어나온게 있다면 핀셋으로 제거하도록 한다.
 
-**Always perform the paper test when both nozzle and bed are at room temperature!**
+**종이테스트는 노즐과 베드의 온도가 모두 상온상태로 해놓고 진행하도록 한다.**
 
-When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same width as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact width of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two widths).
+노즐이 히팅되면 열팽창에 의해 베드와의 상대적 높이가 변하게 된다. 열팽창은 대체로 100 마이크론 전후가 된다, 이는 종이테스트를 진행하는 복사용지 두께에 해당한다. 열팽창한 정확한 값은 복사용지 두께가 그랬던것처럼 결정적인 사항은 아니다. 두개가 동일하다고 가정하고 종이테스트를 진행하면 된다. (두개 사이의 차이를 확인하는 방법은 아래를 참고하기 바란다).
 
-It may seem odd to calibrate the distance at room temperature when the goal is to have a consistent distance when heated. However, if one calibrates when the nozzle is heated, it tends to impart small amounts of molten plastic on to the paper, which changes the amount of friction felt. That makes it harder to get a good calibration. Calibrating while the bed/nozzle is hot also greatly increases the risk of burning oneself. The amount of thermal expansion is stable, so it is easily accounted for later in the calibration process.
+출력시 노즐이 히팅되어 있는 상황인데 출력 상태가 아닌 상온상태에서 베드/노즐간격을 캘리브레이션 하는것이 이상하게 보일지도 모르겠다. 하지만, 만약 노즐이 히팅된 상태에서 캘리브레이션을 한다면 종이위에 아주 작은양의 녹은 필라멘트가 묻게 되고, 그것은 노즐과 종이와의 마찰을 다르게 할 것이다. 그리고 그런 차이는 좋은 캘리브레이션을 얻는데 장애가 된다. 베드와 노즐을 히팅시켜놓고 캘리브레이션을 하면 화상의 위험도 높아진다. 열팽창 값은 안정적이며, 그렇기 때문에 이후 캘리브레이션 과정에서 쉽게 보정될 수 있다.
 
-**Use an automated tool to determine precise Z heights!**
+**정밀한 Z 높이를 결정하기 위해 자동화 툴을 사용하라!**
 
-Klipper has several helper scripts available (eg, MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). See the documents [described above](#choose-the-appropriate-calibration-mechanism) to choose one of them.
+클리퍼는 몇가지 유용한 스크립트를 가지고 있다. (예. MANUAL_PROBE,Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). [자세한 내용](#choose-the-appropriate-calibration-mechanism) 은 링크를 참고하기 바란다.
 
-Run the appropriate command in the OctoPrint terminal window. The script will prompt for user interaction in the OctoPrint terminal output. It will look something like:
+옥토프린트 터미널창에서 적당한 명령어를 실행시켜라. 스크립트 실행을 하면 사용자가 확인할 수 있도록 옥토프린터 터미널 창에 아래와 같은 메시지를 띄울것이다. :
 
 ```
 Recv: // Starting manual Z probe. Use TESTZ to adjust position.
@@ -50,50 +50,50 @@ Recv: // Finish with ACCEPT or ABORT command.
 Recv: // Z position: ?????? --> 5.000 <-- ??????
 ```
 
-The current height of the nozzle (as the printer currently understands it) is shown between the "--> <--". The number to the right is the height of the last probe attempt just greater than the current height, and to the left is the last probe attempt less than the current height (or ?????? if no attempt has been made).
+현재 노즐높이(프린터가 현재 인식하고 있는)는 "--> <--" 표시 사이에 보여진다. 오른쪽 숫자는 현재 높이보다 큰, 최근 시도한 높이, 왼쪽의 숫자는 현재 높이보다 작은, 최근 시도한 높이이다. (어떤 시도도 없었다면 ?????? 가 표시될 것이다).
 
-Place the paper between the nozzle and bed. It can be useful to fold a corner of the paper so that it is easier to grab. (Try not to push down on the bed when moving the paper back and forth.)
+노즐과 베드사이에 종이를 둔다. 종이 모서리를 살짝접어두면 손가락으로 종이를 잡기 쉬울 것이다. (종이를 앞뒤로 밀고 당길때 손으로 베드를 아래로 누르지 않도록 주의하라)
 
-![paper-test](img/paper-test.jpg)
+![종이테스트](img/paper-test.jpg)
 
-Use the TESTZ command to request the nozzle to move closer to the paper. For example:
+노즐을 종이에 가깝게 붙도록 TESTZ 명령어를 사용하라. 예를들어:
 
 ```
 TESTZ Z=-.1
 ```
 
-The TESTZ command will move the nozzle a relative distance from the nozzle's current position. (So, `Z=-.1` requests the nozzle to move closer to the bed by .1mm.) After the nozzle stops moving, push the paper back and forth to check if the nozzle is in contact with the paper and to feel the amount of friction. Continue issuing TESTZ commands until one feels a small amount of friction when testing with the paper.
+TESTZ 명령어는 노즐을 현재 위치로부터 상대적 거리로 움직이게 한다. (그래서, `Z=-.1` 명령은 노즐을 베드쪽으로 0.1mm 이동케 하는 요청이다.) 노즐의 움직임이 멈춘후 노즐이 종이와 맞닿아 있는지 확인을 위해 종이를 앞뒤로 밀고 당겨보도록 하라. 그리고 마찰의 정도를 느껴보도록 하라. 이때 마찰이 아주 작은 양이 느껴질때까지 TESTZ 명령을 계속한다.
 
-If too much friction is found then one can use a positive Z value to move the nozzle up. It is also possible to use `TESTZ Z=+` or `TESTZ Z=-` to "bisect" the last position - that is to move to a position half way between two positions. For example, if one received the following prompt from a TESTZ command:
+만일 너무 많은 마찰이 느껴지면 Z 값을 높여 노즐을 위로 올린다. 또한 이전 위치와 현재위치사이의 "중간위치"로 이동하려면 `TESTZ Z=+` 혹은 `TESTZ Z=-` 를 사용하면 된다. 예를 들어, 만일 다음과 같은 내용을 TESTZ 명령으로 부터 결과로 받았다면:
 
 ```
 Recv: // Z position: 0.130 --> 0.230 <-- 0.280
 ```
 
-Then a `TESTZ Z=-` would move the nozzle to a Z position of 0.180 (half way between 0.130 and 0.230). One can use this feature to help rapidly narrow down to a consistent friction. It is also possible to use `Z=++` and `Z=--` to return directly to a past measurement - for example, after the above prompt a `TESTZ Z=--` command would move the nozzle to a Z position of 0.130.
+`TESTZ Z=-` 명령은 노즐을 0.180 (0.130 과 0.230 의 중간위치)으로 움직이게 될 것이다. 이것은 적정 마찰력위치로 재빠르게 좁혀가기 위해 유용하게 사용될 수 있다. 또한 `Z=++` 와 `Z=--` 명령이 있다. 이것은 과거 측정위치로 곧바로 돌아가게 한다. 예를 들어, 위의 결과 메시지를 보고 `TESTZ Z=--` 명령을 하면 노즐은 0.130 위치로 이동하게 된다.
 
-After finding a small amount of friction run the ACCEPT command:
+최종적으로 아주 작은 마찰력 위치를 찾게 되면 ACCEPT 명령을 내리면 된다. :
 
 ```
 ACCEPT
 ```
 
-This will accept the given Z height and proceed with the given calibration tool.
+이 ACCEPT 명령은 향후 주어진 Z 높이와 캘리브레이션 결과를 이용해 진행하게 될 것이다.
 
-The exact amount of friction felt isn't crucial, just as the amount of thermal expansion and exact width of the paper isn't crucial. Just try to obtain the same amount of friction each time one runs the test.
+정확한 마찰력의 느낌을 얻는게 결정적인것은 아니다. 마치 열팽창과 종이두께가 결정적인 요인이 아닌것과 마찬가지이다. 단지 테스트할 때마다 동일한 정도의 마찰이 느껴지도록 하기만 하면 된다.
 
-If something goes wrong during the test, one can use the `ABORT` command to exit the calibration tool.
+만약 테스트진행중 뭔가 잘못되고 있다면, 캘리브레이션 상태를 빠져나가기 위해 `ABORT` 명령을 사용하면 된다.
 
-## Determining Thermal Expansion
+## 열팽창도 결정하기
 
-After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "width of the paper", and "amount of friction felt during the paper test".
+여기까지 성공적으로 베드레벨링을 진행하였다면 이제 "열팽창", "종이두께", "마찰력느낌"의 복합적인 영향을 고려한 정밀한 값을 계산할 수 있다.
 
-This type of calculation is generally not needed as most users find the simple "paper test" provides good results.
+이 계산은 일반적으로는 필요치 않다. 대부분의 사용자들은 간단한 "종이테스트"만으로도 좋은 결과를 얻을 수 있을 것이다.
 
-The easiest way to make this calculation is to print a test object that has straight walls on all sides. The large hollow square found in [docs/prints/square.stl](prints/square.stl) can be used for this. When slicing the object, make sure the slicer uses the same layer height and extrusion widths for the first level that it does for all subsequent layers. Use a coarse layer height (the layer height should be around 75% of the nozzle diameter) and do not use a brim or raft.
+이 계산의 가장 쉬운 방법은 모든 방향으로 직선의 벽을 가지고 있는 모델링의 테스트 출력을 해보는 것이다. 큰 사이즈의 구멍난 사각형 모델링은 [docs/prints/square.stl](prints/square.stl) 에서 찾을 수 있다. 이것을 사용하면 된다. 모델링파일을 슬라이싱 할 때 첫레이어와 그 다음레이어가 모두 동일한 층높이와 압출폭을 갖도록 설정하는 것을 잊지 말도록 한다. 두꺼운 층높이(노즐직경의 약 75% 두께)를 사용하고 브림과 라프트를 사용하지 않는다.
 
-Print the test object, wait for it to cool, and remove it from the bed. Inspect the lowest layer of the object. (It may also be useful to run a finger or nail along the bottom edge.) If one finds the bottom layer bulges out slightly along all sides of the object then it indicates the nozzle was slightly closer to the bed then it should be. One can issue a `SET_GCODE_OFFSET Z=+.010` command to increase the height. In subsequent prints one can inspect for this behavior and make further adjustment as needed. Adjustments of this type are typically in 10s of microns (.010mm).
+테스트파일을 출력하고 식기를 기다려라, 그리고 베드로 부터 제거한다. 이후 가장 낮은 첫레이어를 관찰한다. (손가락이나 손톱으로 아래쪽 모서리를 훑는 것도 좋은 방법이다) 하단 레이어가 네면을 따라 약간 튀어나와 있다면 노즐은 베드에 살짝 가깝다는 것을 의미한다. 그러면 `SET_GCODE_OFFSET Z=+.010` 명령어를 이용해 노즐높이를 올리면 된다. 이어진 출력에서 같은 행동을 반복하여 최적위치를 찾는다. 이런 방식의 보정은 일반적으로 0.010mm 단위로 이루어진다.
 
-If the bottom layer consistently appears narrower than subsequent layers then one can use the SET_GCODE_OFFSET command to make a negative Z adjustment. If one is unsure, then one can decrease the Z adjustment until the bottom layer of prints exhibit a small bulge, and then back-off until it disappears.
+만일 첫레이어가 이어진 레이어들에 비해 더 얇게 관찰이 된다면 SET_GCODE_OFFSET 명령을 이용해 Z 보정값을 음수로 두면 된다. 만약 확실치 않다고 느껴지면 첫레이어 모서리가 약간 튀어나올때까지 Z 보정값을 낮춰보라. 그리고, 그 튀어나온것이 사라질때까지 반대로 값을 주어 최적보정값을 찾을 수 있다.
 
-The easiest way to apply the desired Z adjustment is to create a START_PRINT g-code macro, arrange for the slicer to call that macro during the start of each print, and add a SET_GCODE_OFFSET command to that macro. See the [slicers](Slicers.md) document for further details.
+최적의 Z 보정값을 찾는 가장 쉬운 방법은 START_PRINT g-code 매크로를 생성하는 것이다. 각 프린팅의 시작지점에 이 매크로를 불러와 출력을 진행한다. 그리고 이 매크로에 SET_GCODE_OFFSET 명령을 포함시키면 된다. 보다 더 자세한 내용은 [slicers](Slicers.md) 문서를 참고하기 바란다.

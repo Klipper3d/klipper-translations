@@ -1,34 +1,34 @@
-# Manual leveling
+# 수동 레벨링
 
-This document describes tools for calibrating a Z endstop and for performing adjustments to bed leveling screws.
+이 문서는 Z 엔드스톱을 보정하고 BED 레벨링 나사를 조정하기 위한 도구에 대해 설명합니다.
 
-## Calibrating a Z endstop
+## Z 엔드스톱 보정
 
-An accurate Z endstop position is critical to obtaining high quality prints.
+정확한 Z 엔드스톱 위치는 고품질 인쇄물을 얻는 데 매우 중요합니다.
 
-Note, though, the accuracy of the Z endstop switch itself can be a limiting factor. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of the switch.
+그러나 Z 엔드스톱 스위치 자체의 정확도가 제한 요소가 될 수 있습니다. Trinamic 스테퍼 모터 드라이버를 사용하는 경우 [endstop phase](Endstop_Phase.md) 감지를 활성화하여 스위치의 정확도를 높이는 것이 좋습니다.
 
-To perform a Z endstop calibration, home the printer, command the head to move to a Z position that is at least five millimeters above the bed (if it is not already), command the head to move to an XY position near the center of the bed, then navigate to the OctoPrint terminal tab and run:
+Z 엔드스톱 보정을 수행하려면 프린터를 홈으로 이동하고 헤드가 BED 에서 최소 5mm 위에 있는 Z 위치로 이동하도록 명령하고 (아직 하지 않는 경우) 헤드가 중심 근처의 XY 위치로 이동하도록 명령합니다. BED 에서 OctoPrint 터미널 탭으로 이동하여 다음을 실행합니다:
 
 ```
 Z_ENDSTOP_CALIBRATE
 ```
 
-Then follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test) to determine the actual distance between the nozzle and bed at the given location. Once those steps are complete one can `ACCEPT` the position and save the results to the config file with:
+그런 다음 ["the paper test"](Bed_Level.md#the-paper-test) 에 설명된 단계에 따라 주어진 위치에서 노즐과 BED 사이의 실제 거리를 결정합니다. 이러한 단계가 완료되면 위치를 `ACCEPT` 하고 다음을 사용하여 구성 파일에 결과를 저장할 수 있습니다:
 
 ```
 SAVE_CONFIG
 ```
 
-It's preferable to use a Z endstop switch on the opposite end of the Z axis from the bed. (Homing away from the bed is more robust as then it is generally always safe to home the Z.) However, if one must home towards the bed it is recommended to adjust the endstop so that it triggers a small distance (eg, .5mm) above the bed. Almost all endstop switches can safely be depressed a small distance beyond their trigger point. When this is done, one should find that the `Z_ENDSTOP_CALIBRATE` command reports a small positive value (eg, .5mm) for the Z position_endstop. Triggering the endstop while it is still some distance from the bed reduces the risk of inadvertent bed crashes.
+BED 에서 Z축의 반대쪽 끝에 Z 엔드스톱 스위치를 사용하는 것이 좋습니다. (BED 에서 멀어지는 방향으로 귀환하는 것이 일반적으로 Z로 귀환하는 것이 항상 안전하므로 더 강력합니다.) 그러나 BED 를 향해 Homing 하는 경우 BED 위의 작은 거리(예: 0.5mm)가 트리거되도록 엔드스톱을 조정하는 것이 좋습니다. 거의 모든 엔드스톱 스위치는 트리거 포인트를 넘어 약간 떨어진 거리에서 안전하게 누를 수 있습니다. 이 작업이 완료되면 `Z_ENDSTOP_CALIBRATE` 명령이 Z position_endstop 에 대해 작은 양수 값(예: .5mm)을 나태내는 것을 알 수 있습니다. BED 에서 아직 약간의 거리가 있는 동안 엔드스톱을 트리거하면 의도하지 않은 BED 충돌의 위험이 줄어듭니다.
 
-Some printers have the ability to manually adjust the location of the physical endstop switch. However, it's recommended to perform Z endstop positioning in software with Klipper - once the physical location of the endstop is in a convenient location, one can make any further adjustments by running Z_ENDSTOP_CALIBRATE or by manually updating the Z position_endstop in the configuration file.
+일부 프린터에는 물리적 엔드스톱 스위치의 위치를 수동으로 조정할 수 있는 기능이 있습니다. 그러나 Klipper 를 사용하여 소프트웨어에서 Z 엔드스톱 위치 지정을 수행하는 것이 좋습니다. 엔드스톱의 물리적 위치가 편리한 위치에 있으면 Z_ENDSTOP_CALIBRATE 를 실행하거나 구성 파일에서 Z position_endstop 을 수동으로 업데이트하여 추가 조정을 수행할 수 있습니다.
 
-## Adjusting bed leveling screws
+## BED 레벨링 나사 조정
 
-The secret to getting good bed leveling with bed leveling screws is to utilize the printer's high precision motion system during the bed leveling process itself. This is done by commanding the nozzle to a position near each bed screw and then adjusting that screw until the bed is a set distance from the nozzle. Klipper has a tool to assist with this. In order to use the tool it is necessary to specify each screw XY location.
+BED 레벨링 나사로 BED 레벨링을 잘 하는 비결은 BED 레벨링 과정 자체에서 프린터의 고정밀 모션 시스템을 활용하는 것입니다. 이것은 노즐을 각 BED 나사 근처의 위치로 지정한 다음 BED 가 노즐에서 설정된 거리가 될 때까지 해당 나사를 조정하여 수행됩니다. Klipper에는 이를 지원하는 도구가 있습니다. 도구를 사용하려면 각 나사 XY 위치를 지정해야 합니다.
 
-This is done by creating a `[bed_screws]` config section. For example, it might look something similar to:
+이것은 `[bed_screws]` config 섹션을 생성하여 수행됩니다. 예를 들어 다음과 유사할 수 있습니다:
 
 ```
 [bed_screws]
@@ -37,31 +37,31 @@ screw2: 100,150
 screw3: 150,100
 ```
 
-If a bed screw is under the bed, then specify the XY position directly above the screw. If the screw is outside the bed then specify an XY position closest to the screw that is still within the range of the bed.
+BED 나사가 BED 아래에 있는 경우 나사 바로 위에 XY 위치를 지정합니다. 나사가 BED 외부에 있으면 여전히 BED 범위 내에 있는 나사에 가장 가까운 XY 위치를 지정합니다.
 
-Once the config file is ready, run `RESTART` to load that config, and then one can start the tool by running:
+config 파일이 준비되면 `RESTART`를 실행하여 해당 config 를 로드한 다음 다음을 실행하여 도구를 시작할 수 있습니다:
 
 ```
 BED_SCREWS_ADJUST
 ```
 
-This tool will move the printer's nozzle to each screw XY location and then move the nozzle to a Z=0 height. At this point one can use the "paper test" to adjust the bed screw directly under the nozzle. See the information described in ["the paper test"](Bed_Level.md#the-paper-test), but adjust the bed screw instead of commanding the nozzle to different heights. Adjust the bed screw until there is a small amount of friction when pushing the paper back and forth.
+이 도구는 프린터의 노즐을 각 나사 XY 위치로 이동한 다음 노즐을 Z=0 높이로 이동합니다. 이 시점에서 ["the paper test"](Bed_Level.md#the-paper-test) 를 사용하여 노즐 바로 아래의 BED 나사를 조정할 수 있습니다. 용지를 앞뒤로 밀 때 약간의 마찰이 있을 때까지 BED 나사를 조정합니다.
 
-Once the screw is adjusted so that a small amount of friction is felt, run either the `ACCEPT` or `ADJUSTED` command. Use the `ADJUSTED` command if the bed screw needed an adjustment (typically anything more than about 1/8th of a turn of the screw). Use the `ACCEPT` command if no significant adjustment is necessary. Both commands will cause the tool to proceed to the next screw. (When an `ADJUSTED` command is used, the tool will schedule an additional cycle of bed screw adjustments; the tool completes successfully when all bed screws are verified to not require any significant adjustments.) One can use the `ABORT` command to exit the tool early.
+약간의 마찰이 느껴지도록 나사를 조정했으면 `ACCEPT` 또는 `ADJUSTED` 명령을 실행합니다. BED 나사를 조정해야 하는 경우 `ADJUSTED` 명령을 사용합니다 (일반적으로 나사 회전의 약 1/8 이상). 더이상 조정이 필요하지 않은 경우 `ACCEPT` 명령을 사용하십시오. 두 명령 모두 도구가 다음 나사로 진행하도록 합니다. ('ADJUSTED' 명령을 사용하면 도구가 BED 나사 조정의 추가 주기를 예약합니다. 모든 BED 나사가 더이상 조정이 필요하지 않은 것으로 확인되면 도구가 성공적으로 완료됩니다.) `ABORT` 명령을 사용하여 도구를 일찍 종료할 수 있습니다.
 
-This system works best when the printer has a flat printing surface (such as glass) and has straight rails. Upon successful completion of the bed leveling tool the bed should be ready for printing.
+이 시스템은 프린터에 평평한 인쇄 표면(예: 유리)이 있고 직선 레일이 있을 때 가장 잘 작동합니다. BED 레벨링 도구가 성공적으로 완료되면 BED 인쇄할 준비가 되어야 합니다.
 
-### Fine grained bed screw adjustments
+### 미세한 BED 나사 조정
 
-If the printer uses three bed screws and all three screws are under the bed, then it may be possible to perform a second "high precision" bed leveling step. This is done by commanding the nozzle to locations where the bed moves a larger distance with each bed screw adjustment.
+프린터가 3개의 BED 나사를 사용하고 3개의 나사가 모두 BED 아래에 있는 경우 두 번째 "고정밀" BED 레벨링 단계를 수행할 수 있습니다. 이것은 각 BED 나사 조정으로 BED가 더 먼 거리를 이동하는 위치로 노즐을 명령하여 수행됩니다.
 
-For example, consider a bed with screws at locations A, B, and C:
+예를 들어 위치 A, B 및 C에 나사가 있는 BED를 생각할 수 있습니다:
 
 ![bed_screws](img/bed_screws.svg.png)
 
-For each adjustment made to the bed screw at location C, the bed will swing along a pendulum defined by the remaining two bed screws (shown here as a green line). In this situation, each adjustment to the bed screw at C will move the bed at position D a further amount than directly at C. It is thus possible to make an improved C screw adjustment when the nozzle is at position D.
+위치 C에서 BED 나사를 조정할 때마다 BED는 나머지 2개의 BED 나사 (여기서는 녹색 선으로 표시)에 의해 정의된 선을 따라 양쪽으로 기울어 집니다. 이 상황에서 C에서 BED 나사를 조정할 때마다 C에서 보다 D 위치에서 BED가 더 많이 움직입니다. 따라서 노즐이 위치 D에 있을 때 C 나사 조정을 개선할 수 있습니다.
 
-To enable this feature, one would determine the additional nozzle coordinates and add them to the config file. For example, it might look like:
+이 기능을 활성화하려면 추가 노즐 좌표를 결정하고 config 파일에 추가해야 합니다. 예를 들어 다음과 같을 수 있습니다:
 
 ```
 [bed_screws]
@@ -73,13 +73,13 @@ screw3: 150,100
 screw3_fine_adjust: 0,100
 ```
 
-When this feature is enabled, the `BED_SCREWS_ADJUST` tool will first prompt for coarse adjustments directly above each screw position, and once those are accepted, it will prompt for fine adjustments at the additional locations. Continue to use `ACCEPT` and `ADJUSTED` at each position.
+이 기능이 활성화되면 `BED_SCREWS_ADJUST` 도구는 먼저 각 나사 위치 바로 위의 대략적인 조정을 요청하고 일단 수락되면 추가 위치에서 미세 조정을 요청합니다. 각 위치에서 `ACCEPT` 및 `ADJUSTED` 를 계속 사용합니다.
 
-## Adjusting bed leveling screws using the bed probe
+## BED 프로브를 사용하여 BED 레벨링 나사 조정
 
-This is another way to calibrate the bed level using the bed probe. To use it you must have a Z probe (BL Touch, Inductive sensor, etc).
+이것은 BED 프로브를 사용하여 BED 레벨을 보정하는 또 다른 방법입니다. 그것을 사용하려면 Z 프로브 (BL Touch, Inductive sensor 등)가 있어야 합니다.
 
-To enable this feature, one would determine the nozzle coordinates such that the Z probe is above the screws, and then add them to the config file. For example, it might look like:
+이 기능을 활성화하려면 Z 프로브가 나사 위에 있도록 노즐 좌표를 결정한 다음 구성 파일에 추가합니다. 예를 들어 다음과 같을 수 있습니다:
 
 ```
 [screws_tilt_adjust]
@@ -96,7 +96,7 @@ speed: 50.
 screw_thread: CW-M3
 ```
 
-The screw1 is always the reference point for the others, so the system assumes that screw1 is at the correct height. Always run `G28` first and then run `SCREWS_TILT_CALCULATE` - it should produce output similar to:
+나사1은 항상 다른 기준점이므로 시스템은 나사1이 올바른 높이에 있다고 가정합니다. 항상 `G28`을 먼저 실행한 다음 `SCREWS_TILT_CALCULATE`를 실행하십시오. 다음과 유사한 출력이 생성되어야 합니다:
 
 ```
 Send: G28
@@ -110,17 +110,17 @@ Recv: // read left screw : x=-5.0, y=190.0, z=2.47250 : adjust CW 00:02
 Recv: ok
 ```
 
-This means that:
+이는 다음을 의미합니다:
 
-    - front left screw is the reference point you must not change it.
-    - front right screw must be turned clockwise 1 full turn and a quarter turn
-    - rear right screw must be turned counter-clockwise 50 minutes
-    - read left screw must be turned clockwise 2 minutes (not need it's ok)
+    - 전면 왼쪽 나사는 변경해서는 안 되는 기준점입니다
+    - 전면 오른쪽 나사는 시계 방향으로 완전히 1바퀴, 1/4바퀴 돌려야 합니다
+    - 후면 오른쪽 나사는 시계 반대 방향으로 50분 돌려야 합니다
+    - 후면 왼쪽 나사는 시계 방향으로 2분 돌려야 합니다 (필요 없다면 안해도 무방).
 
-Repeat the process several times until you get a good level bed - normally when all adjustments are below 6 minutes.
+BED가 수평이 될 때까지 이 과정을 여러 번 반복합니다. 일반적으로 6분 미만의 시간이 필요합니다.
 
-If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that adjusting the bed tilt will invalidate any previous probe calibration that was performed with a tilted bed. Be sure to run [probe calibration](Probe_Calibrate.md) after the bed screws have been adjusted.
+핫엔드 측면에 장착된 프로브를 사용하는 경우(즉, X 또는 Y 오프셋이 있음) BED 기울기를 조정하면 기울어진 BED 에서 수행된 이전 프로브 교정이 무효화됩니다. 반드시 BED 나사를 조정한 후 [probe calibration](Probe_Calibrate.md) 을 실행하세요.
 
-The `MAX_DEVIATION` parameter is useful when a saved bed mesh is used, to ensure that the bed level has not drifted too far from where it was when the mesh was created. For example, `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` can be added to the custom start gcode of the slicer before the mesh is loaded. It will abort the print if the configured limit is exceeded (0.01mm in this example), giving the user a chance to adjust the screws and restart the print.
+`MAX_DEVIATION` 매개변수는 저장된 BED MESH 가 사용될 때 BED 레벨이 MESH 가 생성되었을 때의 위치에서 너무 멀어지지 않았는지 확인하는 데 유용합니다. 예를 들어 메시가 로드되기 전에 슬라이서의 사용자 정의 start gcode에 `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01`을 추가할 수 있습니다. 구성된 제한(이 예에서는 0.01mm)을 초과하면 인쇄가 중단되어 사용자가 나사를 조정하고 인쇄를 다시 시작할 수 있습니다.
 
-The `DIRECTION` parameter is useful if you can turn your bed adjustment screws in one direction only. For example, you might have screws that start tightened in their lowest (or highest) possible position, which can only be turned in a single direction, to raise (or lower) the bed. If you can only turn the screws clockwise, run `SCREWS_TILT_CALCULATE DIRECTION=CW`. If you can only turn them counter-clockwise, run `SCREWS_TILT_CALCULATE DIRECTION=CCW`. A suitable reference point will be chosen such that the bed can be leveled by turning all the screws in the given direction.
+`DIRECTION` 매개변수는 BED 조정 나사를 한 방향으로만 돌릴 수 있는 경우에 유용합니다. 예를 들어, BED 를 올리거나 내리기 위해 한 방향으로만 돌릴 수 있는 가장 낮은 (또는 가장 높은) 위치에서 조이기 시작하는 나사가 있을 수 있습니다. 나사를 시계 방향으로만 돌릴 수 있다면 `SCREWS_TILT_CALCULATE DIRECTION=CW`를 실행합니다. 시계 반대 방향으로만 돌릴 수 있다면 `SCREWS_TILT_CALCULATE DIRECTION=CCW`를 실행하세요. 모든 나사를 주어진 방향으로 돌려 BED 가 수평을 이룰 수 있도록 적절한 기준점을 선택합니다.

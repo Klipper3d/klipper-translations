@@ -1,26 +1,26 @@
-# Bootloaders
+# 부트로더
 
-This document provides information on common bootloaders found on micro-controllers that Klipper supports.
+이 문서는 클리퍼가 지원하는 마이크로 컨트롤러에 발견되는 공통 부트로더에 대한 정보를 포함하고 있다.
 
-The bootloader is 3rd-party software that runs on the micro-controller when it is first powered on. It is typically used to flash a new application (eg, Klipper) to the micro-controller without requiring specialized hardware. Unfortunately, there is no industry wide standard for flashing a micro-controller, nor is there a standard bootloader that works across all micro-controllers. Worse, it is common for each bootloader to require a different set of steps to flash an application.
+부트로더는 써드파티 소프트웨어다. 처음 전원이 인가될때 마이크로 컨트롤러를 동작시키는 역할을 한다. 이것은 일반적으로 별도 특별한 하드웨어 추가없이 클리퍼와 같은 새로운 어플리케이션을 마이크로컨트롤러에 굽기 위해 사용된다. 불행하게도, 마이크로 컨트롤러를 굽는것에 대한 산업전반 걸친 표준은 존재하지 않는다. 또한 모든 마이크로 컨트롤러에서 작동하는 표준 부트로더도 없다. 더 나아가 각 부트로더는 어플리케이션을 굽기 위해 저마다 다른 절차를 필요로 한다.
 
-If one can flash a bootloader to a micro-controller then one can generally also use that mechanism to flash an application, but care should be taken when doing this as one may inadvertently remove the bootloader. In contrast, a bootloader will generally only permit a user to flash an application. It is therefore recommended to use a bootloader to flash an application where possible.
+만일 마이크로 컨트롤러에 부트로더를 구을 수 있다면 일반적으로 어플리케이션을 굽는 메커니즘을 사용할 수 있다. 그러나 이런 과정속에 부지중에 부트로더를 날려버릴 수 있음을 주의해야 한다. 반대로, 부트로더는 일반적으로 오직 사용자들이 어플리케이션을 굽도록만 허용되어 있다. 그런 이유로 부트로더에 가능한 어플리케이션을 굽는에 사용할것을 권한다.
 
-This document attempts to describe common bootloaders, the steps needed to flash a bootloader, and the steps needed to flash an application. This document is not an authoritative reference; it is intended as a collection of useful information that the Klipper developers have accumulated.
+이 문서는 공통 부트로더와, 부트로더를 구을때 필요한 과정, 그리고 어플리케이션을 구을때 필요한 과정에 대해 기술하려고 한다. 이 문서는 권위있는 참조문서는 아니다 ; 이것은 클리퍼 개발자들이 쌓아둔 유용한 정보의 모임이라는 성격이 있다.
 
-## AVR micro-controllers
+## AVR 마이크로 컨트롤러
 
 In general, the Arduino project is a good reference for bootloaders and flashing procedures on the 8-bit Atmel Atmega micro-controllers. In particular, the "boards.txt" file: <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> is a useful reference.
 
-To flash a bootloader itself, the AVR chips require an external hardware flashing tool (which communicates with the chip using SPI). This tool can be purchased (for example, do a web search for "avr isp", "arduino isp", or "usb tiny isp"). It is also possible to use another Arduino or Raspberry Pi to flash an AVR bootloader (for example, do a web search for "program an avr using raspberry pi"). The examples below are written assuming an "AVR ISP Mk2" type device is in use.
+부트로더 자체를 굽기 위해서는 AVR 칩은 (SPI를 사용하여 칩과 통신을 하는) 외부 하드웨어 플래싱 도구가 필요하다. 이 도구는 구입할 수 있다. (예를덜어, 인터넷에서 "avr isp", "arduino isp", 도는 "usb tiny isp" 로 검색해보기 바란다) 또한 AVR 부트로더를 굽기 위해 다른 아두이노나 라즈베리파이를 사용하는 것도 가능하다. (예를 들어 인터넷에 "program an avr using raspberry pi" 검색해보라) 아래 예는 "AVR ISP Mk2" 타입의 디바이스를 사용한다는 전제하에 기록되어있다.
 
-The "avrdude" program is the most common tool used to flash atmega chips (both bootloader flashing and application flashing).
+"avrdude" 프로그램은 atmega칩을 굽는데(부트로더와 어플리케이션 플래싱 모두) 사용되어지는 가장 많이 쓰이는 공통 도구이다.
 
 ### Atmega2560
 
-This chip is typically found in the "Arduino Mega" and is very common in 3d printer boards.
+이 칩은 전형적으로 "Arduino Mega" 에서 볼 수 있다. 이것은 3D 프린터에 매우 전형적이다.
 
-To flash the bootloader itself use something like:
+부트로더 그자체를 굽기 위해 다음과 같이 사용하면 된다. :
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/stk500v2/stk500boot_v2_mega2560.hex'
@@ -30,7 +30,7 @@ avrdude -cavrispv2 -patmega2560 -P/dev/ttyACM0 -b115200 -U flash:w:stk500boot_v2
 avrdude -cavrispv2 -patmega2560 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-To flash an application use something like:
+어플리케이션을 구으려면 다음처럼 사용하라:
 
 ```
 avrdude -cwiring -patmega2560 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
@@ -38,9 +38,9 @@ avrdude -cwiring -patmega2560 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.e
 
 ### Atmega1280
 
-This chip is typically found in earlier versions of the "Arduino Mega".
+이 칩은 일반적으로 "Arduino Mega"의 초기버전에서 발견된다.
 
-To flash the bootloader itself use something like:
+부트로더 그자체를 굽기 위해 다음과 같이 사용하면 된다. :
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/atmega/ATmegaBOOT_168_atmega1280.hex'
@@ -50,7 +50,7 @@ avrdude -cavrispv2 -patmega1280 -P/dev/ttyACM0 -b115200 -U flash:w:ATmegaBOOT_16
 avrdude -cavrispv2 -patmega1280 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-To flash an application use something like:
+어플리케이션을 구으려면 다음처럼 사용하라:
 
 ```
 avrdude -carduino -patmega1280 -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.elf.hex:i
@@ -58,9 +58,9 @@ avrdude -carduino -patmega1280 -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.e
 
 ### Atmega1284p
 
-This chip is commonly found in "Melzi" style 3d printer boards.
+이 칩은 일반적으로 Melzi 스타일 3D 프린터 보드에서 발견된다.
 
-To flash the bootloader itself use something like:
+부트로더 그자체를 굽기 위해 다음과 같이 사용하면 된다. :
 
 ```
 wget 'https://github.com/Lauszus/Sanguino/raw/1.0.2/bootloaders/optiboot/optiboot_atmega1284p.hex'
@@ -70,13 +70,13 @@ avrdude -cavrispv2 -patmega1284p -P/dev/ttyACM0 -b115200 -U flash:w:optiboot_atm
 avrdude -cavrispv2 -patmega1284p -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-To flash an application use something like:
+어플리케이션을 구으려면 다음처럼 사용하라:
 
 ```
 avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
 ```
 
-Note that a number of "Melzi" style boards come preloaded with a bootloader that uses a baud rate of 57600. In this case, to flash an application use something like this instead:
+일련의 "Melzi" 스타일 보드들은 57600 baud rate 을 사용하도록 미리 부트로더가 올려져 있음을 기억하라. 이 경우 어플리케이션을 굽기 위해 대신 이와 같이 사용한다. :
 
 ```
 avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.elf.hex:i
@@ -84,7 +84,7 @@ avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.
 
 ### At90usb1286
 
-This document does not cover the method to flash a bootloader to the At90usb1286 nor does it cover general application flashing to this device.
+이 문서는 부트로더를 At90usb1286으로 굽는 방법을 다루지 않으며 이 장치로 플래싱하는 일반 애플리케이션도 다루지 않습니다.
 
 The Teensy++ device from pjrc.com comes with a proprietary bootloader. It requires a custom flashing tool from <https://github.com/PaulStoffregen/teensy_loader_cli>. One can flash an application with it using something like:
 
@@ -94,7 +94,7 @@ teensy_loader_cli --mcu=at90usb1286 out/klipper.elf.hex -v
 
 ### Atmega168
 
-The atmega168 has limited flash space. If using a bootloader, it is recommended to use the Optiboot bootloader. To flash that bootloader use something like:
+atmega168 은 제한된 용량을 가지고 있다. 만일 부트로더를 사용한다면 Optiboot 부트로더를 사용할것을 권한다. 부트로더를 굽기 위해 다음과 같이 사용하면 된다. :
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/optiboot/optiboot_atmega168.hex'
@@ -104,79 +104,79 @@ avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U flash:w:optiboot_atmeg
 avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-To flash an application via the Optiboot bootloader use something like:
+Optiboot 부트로더를 통해 어플리케이션을 구으려면 다음과 같이 사용하라 :
 
 ```
 avrdude -carduino -patmega168 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
 ```
 
-## SAM3 micro-controllers (Arduino Due)
+## SAM3 마이크로 컨트롤러 (Arduino Due)
 
-It is not common to use a bootloader with the SAM3 mcu. The chip itself has a ROM that allows the flash to be programmed from 3.3V serial port or from USB.
+SAM3 mcu 에 부트로더를 사용하는 것은 일반적이지 않다. 칩 자체가 3.3V 시리얼 포트나 USB 로부터 프로그램된 플래쉬를 허용하는 ROM 을 가지고 있다.
 
-To enable the ROM, the "erase" pin is held high during a reset, which erases the flash contents, and causes the ROM to run. On an Arduino Due, this sequence can be accomplished by setting a baud rate of 1200 on the "programming usb port" (the USB port closest to the power supply).
+ROM 을 활성화하기 위해 "erase"핀이 리셋할동안 high 에 있도록 한다. 리셋은 플래쉬 컨텐츠를 삭제한다. 그리고 ROM 이 작동된다. Arduino Due 에서 "programming usb port"(파워서플라이에 가장 가까운 USB 포트)에 1200 baud rate 을 셋팅하면 이 과정을 성공적으로 마칠 수 있다.
 
 The code at <https://github.com/shumatech/BOSSA> can be used to program the SAM3. It is recommended to use version 1.9 or later.
 
-To flash an application use something like:
+어플리케이션을 구으려면 다음처럼 사용하라:
 
 ```
 bossac -U -p /dev/ttyACM0 -a -e -w out/klipper.bin -v -b
 bossac -U -p /dev/ttyACM0 -R
 ```
 
-## SAM4 micro-controllers (Duet Wifi)
+## SAM4 마이크로 컨트롤러 (Duet Wifi)
 
-It is not common to use a bootloader with the SAM4 mcu. The chip itself has a ROM that allows the flash to be programmed from 3.3V serial port or from USB.
+SAM4 mcu 에 부트로더를 사용하는 것은 일반적이지 않다. 칩 자체가 3.3V 시리얼 포트나 USB 로부터 프로그램된 플래쉬를 허용하는 ROM 을 가지고 있다.
 
-To enable the ROM, the "erase" pin is held high during a reset, which erases the flash contents, and causes the ROM to run.
+ROM 을 활성화하기 위해 "erase"핀이 리셋할동안 high 에 있도록 한다. 리셋은 플래쉬 컨텐츠를 삭제한다. 그리고 ROM 이 작동된다.
 
 The code at <https://github.com/shumatech/BOSSA> can be used to program the SAM4. It is necessary to use version `1.8.0` or higher.
 
-To flash an application use something like:
+어플리케이션을 구으려면 다음처럼 사용하라:
 
 ```
 bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 ```
 
-## SAMD21 micro-controllers (Arduino Zero)
+## SAMD21 마이크로 컨트롤러 (Arduino Zero)
 
-The SAMD21 bootloader is flashed via the ARM Serial Wire Debug (SWD) interface. This is commonly done with a dedicated SWD hardware dongle. Alternatively, one can use a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi).
+SAMD21 부트로더는 ARM Serial Wire Debug (SWD) 인터페이스를 통해 구워진다. 일반적으로 전용 SWD 하드웨어 동글을 사용해 이루어진다. 다른방법으로는 [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi)를 사용할 수 있다.
 
-To flash a bootloader with OpenOCD use the following chip config:
+OpenOCD로 부트로더를 구으려면 다음의 칩 설정을 사용하라 :
 
 ```
 source [find target/at91samdXX.cfg]
 ```
 
-Obtain a bootloader - for example:
+부트로더를 얻으려면 - 예:
 
 ```
 wget 'https://github.com/arduino/ArduinoCore-samd/raw/1.8.3/bootloaders/zero/samd21_sam_ba.bin'
 ```
 
-Flash with OpenOCD commands similar to:
+OpenOCD 명령으로 굽는것은 아래와 비슷하게 한다 :
 
 ```
 at91samd bootloader 0
 program samd21_sam_ba.bin verify
 ```
 
-The most common bootloader on the SAMD21 is the one found on the "Arduino Zero". It uses an 8KiB bootloader (the application must be compiled with a start address of 8KiB). One can enter this bootloader by double clicking the reset button. To flash an application use something like:
+SAMD21상에서 가장 일반적인 부트로더는 "Arduino Zero"에서 발견되는 것이다. 그것은 8KiB 부트로더를 사용한다.(어플리케이션은 8KiB의 시작 어드레스와 함께 컴파일되어야 한다) 리셋버튼을 두번 클릭하면 이 부트로더로 들어갈 수 있다. 어플리케이션을 구으려면 아래와 같이 사용하면 된다. :
 
 ```
 bossac -U -p /dev/ttyACM0 --offset=0x2000 -w out/klipper.bin -v -b -R
 ```
 
-In contrast, the "Arduino M0" uses a 16KiB bootloader (the application must be compiled with a start address of 16KiB). To flash an application on this bootloader, reset the micro-controller and run the flash command within the first few seconds of boot - something like:
+그와는 다르게 "Arduino M0" 16KiB 부트로더를 사용한다. (어플리케이션은 16KiB의 시작 어드레스와 함께 컴파일되어야 한다) 이 부트로더상에 어플리케이션을 굽기 위해 마이크로 컨트롤러를 리셋하고 부팅중 처음 몇초안에 플래쉬 명령을 실행시키도록 하라. 다음과 같이 :
 
 ```
 avrdude -c stk500v2 -p atmega2560 -P /dev/ttyACM0 -u -Uflash:w:out/klipper.elf.hex:i
 ```
 
-## SAMD51 micro-controllers (Adafruit Metro-M4 and similar)
+## SAMD51 마이크로 컨트롤러 (Adafruit Metro-M4 및 유사품)
 
-Like the SAMD21, the SAMD51 bootloader is flashed via the ARM Serial Wire Debug (SWD) interface. To flash a bootloader with [OpenOCD on a Raspberry Pi](#running-openocd-on-the-raspberry-pi) use the following chip config:
+SAMD21과 같이 SAMD51 부트로더는 ARM Serial Wire Debug(SWD)인터페이스를 통해 구워진다. [OpenOCD on a Raspberry Pi](#running-openocd-on-the-raspberry-pi)로 부트로더를 굽고자 한다면 다음에 나오는 칩 설정을 사용하라.:
 
 ```
 source [find target/atsame5x.cfg]
@@ -188,7 +188,7 @@ Obtain a bootloader - several bootloaders are available from <https://github.com
 wget 'https://github.com/adafruit/uf2-samdx1/releases/download/v3.7.0/bootloader-itsybitsy_m4-v3.7.0.bin'
 ```
 
-Flash with OpenOCD commands similar to:
+OpenOCD 명령으로 굽는것은 아래와 비슷하게 한다 :
 
 ```
 at91samd bootloader 0
@@ -196,15 +196,15 @@ program bootloader-itsybitsy_m4-v3.7.0.bin verify
 at91samd bootloader 16384
 ```
 
-The SAMD51 uses a 16KiB bootloader (the application must be compiled with a start address of 16KiB). To flash an application use something like:
+SAMD51은 16KiB 부트로더를 사용한다. (어플리케이션은 16KiB의 시작 어드레스와 함께 컴파일되어야 한다) 어플리케이션을 굽기 위해서 다음과 같이 하면 된다.:
 
 ```
 bossac -U -p /dev/ttyACM0 --offset=0x4000 -w out/klipper.bin -v -b -R
 ```
 
-## STM32F103 micro-controllers (Blue Pill devices)
+## STM32F103 마이크로 컨트롤러 (Blue Pill 디바이스)
 
-The STM32F103 devices have a ROM that can flash a bootloader or application via 3.3V serial. To access this ROM, one should connect the "boot 0" pin to high and "boot 1" pin to low, and then reset the device. The "stm32flash" package can then be used to flash the device using something like:
+STM32F103 디바이스는 3.3V 시리얼을 통해 부트로더나 어플리케이션을 구울수 있는 ROM을 갖고 있다. 이 ROM 에 접근하려면 "boot 0" 핀은 high 로, "boot 1" 핀은 low로 연결하고 장치를 리셋하도록 하라. "stm32flash" 패키지는 아래와 같이 하여 디바이스를 굽는데 사용할 수 있다.:
 
 ```
 stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0
@@ -212,13 +212,13 @@ stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0
 
 Note that if one is using a Raspberry Pi for the 3.3V serial, the stm32flash protocol uses a serial parity mode which the Raspberry Pi's "miniuart" does not support. See <https://www.raspberrypi.org/documentation/configuration/uart.md> for details on enabling the full uart on the Raspberry Pi GPIO pins.
 
-After flashing, set both "boot 0" and "boot 1" back to low so that future resets boot from flash.
+플래싱 후에 "boot 0"과 "boot 1"을 모두 다시 low로 설정하여 나중에 플래시에서 부팅을 재설정합니다.
 
-### STM32F103 with stm32duino bootloader
+### stm32duino 부트로더를 포함한 STM32F103
 
 The "stm32duino" project has a USB capable bootloader - see: <https://github.com/rogerclarkmelbourne/STM32duino-bootloader>
 
-This bootloader can be flashed via 3.3V serial with something like:
+이 부트로더는 아래와 같이 하여 3.3V 시리얼을 통해 구워질 수 있다 :
 
 ```
 wget 'https://github.com/rogerclarkmelbourne/STM32duino-bootloader/raw/master/binaries/generic_boot20_pc13.bin'
@@ -226,43 +226,43 @@ wget 'https://github.com/rogerclarkmelbourne/STM32duino-bootloader/raw/master/bi
 stm32flash -w generic_boot20_pc13.bin -v -g 0 /dev/ttyAMA0
 ```
 
-This bootloader uses 8KiB of flash space (the application must be compiled with a start address of 8KiB). Flash an application with something like:
+이 부트로더는 8KiB 플래쉬 공간을 사용한다.(어플리케이션은 8KiB의 시작 어드레스와 함께 컴파일되어야 한다) 다음과 같이 하여 어플리케이션을 굽도록 한다. :
 
 ```
 dfu-util -d 1eaf:0003 -a 2 -R -D out/klipper.bin
 ```
 
-The bootloader typically runs for only a short period after boot. It may be necessary to time the above command so that it runs while the bootloader is still active (the bootloader will flash a board led while it is running). Alternatively, set the "boot 0" pin to low and "boot 1" pin to high to stay in the bootloader after a reset.
+일반적으로 부트로더는 오직 부팅후 짧은 시간동안 작동한다. 위 명령을 처리할 시간이 필요할 수도 있다. 그래야 부트로더가 활성화 상태일 동안 실행이 된다(부트로더가 동작중에는 보드 led가 점멸할 것이다). 다른방법으로 리셋이후 부트로더에 머물도록 하려면 "boot 0"핀은 low 로 하고 "boot 1" 는 high 로 셋팅하도록 한다.
 
-### STM32F103 with HID bootloader
+### HID 부트로더를 가진 STM32F103
 
-The [HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader) is a compact, driverless bootloader capable of flashing over USB. Also available is a [fork with builds specific to the SKR Mini E3 1.2](https://github.com/Arksine/STM32_HID_Bootloader/releases/tag/v0.5-beta).
+[HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader)는 컴팩트하며 USB를 통해 플래싱이 가능한 드라이버가 없는 부트로더다. 또한 [fork with builds specific to the SKR Mini E3 1.2](https://github.com/Arksine/STM32_HID_Bootloader/releases/tag/v0.5-beta) 도 가능하다.
 
-For generic STM32F103 boards such as the blue pill it is possible to flash the bootloader via 3.3v serial using stm32flash as noted in the stm32duino section above, substituting the file name for the desired hid bootloader binary (ie: hid_generic_pc13.bin for the blue pill).
+blue pill 같은 일반적인 STM32F103 보드에 대해 위에 언급된 stm32duino 섹션에 나오는 stm32flash 를 사용한 3.3v 시리얼을 통한 부트로더를 구을 수도 있다. 파일이름을 원하는 hid 부트로더 바이너리로 변경할 수 있다. (즉: blue pill 대신 hid_generic_pc13.bin ).
 
-It is not possible to use stm32flash for the SKR Mini E3 as the boot0 pin is tied directly to ground and not broken out via header pins. It is recommended to use a STLink V2 with STM32Cubeprogrammer to flash the bootloader. If you don't have access to a STLink it is also possible to use a [Raspberry Pi and OpenOCD](#running-openocd-on-the-raspberry-pi) with the following chip config:
+SKR Mini E3 에 stm32flash 를 사용하는 것은 불가능하다. 왜냐하면 boot0 핀이 그라운드에 직접 ㅇ녀결되어 있고 헤더핀을 통해 나와 있지 않기 때문이다. 부트로더를 굽기 위해서는 STM32Cubeprogrammer 와 함께 STLink V2를 사용하기를 추천한다. 만약 STLink에 접속하지 않는다면 다음의 칩 설정을 통해 [Raspberry Pi and OpenOCD](#running-openocd-on-the-raspberry-pi)을 사용하는게 가능하다. :
 
 ```
 source [find target/stm32f1x.cfg]
 ```
 
-If you wish you can make a backup of the current flash with the following command. Note that it may take some time to complete:
+만약 원한다면 다음 명령어로 현재 플래시의 백업을 만들어 놓을 수 있다. 이 작업을 완료하려면 시간이 좀 걸린다는 것을 기억해두라. :
 
 ```
 flash read_bank 0 btt_skr_mini_e3_backup.bin
 ```
 
-finally, you can flash with commands similar to:
+마지막으로, 아래와 같은 명령을 통해 플래쉬 할 수 있다 :
 
 ```
 stm32f1x mass_erase 0
 program hid_btt_skr_mini_e3.bin verify 0x08000000
 ```
 
-NOTES:
+참고:
 
-- The example above erases the chip then programs the bootloader. Regardless of the method chosen to flash it is recommended to erase the chip prior to flashing.
-- Prior flashing the SKR Mini E3 with this bootloader you should be aware that you will no longer be able to update firmware via the sdcard.
+- 위 예제는 칩을 지우고, 부트로더를 프로그램한다. 소개된 굽는 방법과 관계없이 플래싱하기에 앞서 칩을 지우는걸 추천한다.
+- 이 부트로더로 SKR Mini E3 보드를 굽기전에 이점을 알아두어야 한다. 당신은 더이상 sdcard를 통해 펌웨어를 업데이트 할 수 없다는 사실을.
 - You may need to hold down the reset button on the board while launching OpenOCD. It should display something like:
    ```
    Open On-Chip Debugger 0.10.0+dev-01204-gc60252ac-dirty (2020-04-27-16:00)
@@ -281,9 +281,9 @@ Info : Listening on port 3333 for gdb connections
    ```
 After which you can release the reset button.
 
-This bootloader requires 2KiB of flash space (the application must be compiled with a start address of 2KiB).
+이 부트로더는 2KiB의 플래싱 공간을 필요로 한다. (어플리케이션은 2KiB의 시작 어드레스와 함께 컴파일되어야 한다).
 
-The hid-flash program is used to upload a binary to the bootloader. You can install this software with the following commands:
+hid-flash 프로그램은부트로더에 바이너리를 업로드 하는데 사용된다. 다음과 같은 명령어로 이 소프트웨어를 설치할 수 있다. :
 
 ```
 sudo apt install libusb-1.0
@@ -291,31 +291,31 @@ cd ~/klipper/lib/hidflash
 make
 ```
 
-If the bootloader is running you can flash with something like:
+만약 부트로더가 동작하고 있다면 다음과 같이 하여 구을 수 있다. :
 
 ```
 ~/klipper/lib/hidflash/hid-flash ~/klipper/out/klipper.bin
 ```
 
-alternatively, you can use `make flash` to flash klipper directly:
+다른방법으론 `make flash`를 사용하여 직접적으로 클리퍼를 구을 수 있다. :
 
 ```
 make flash FLASH_DEVICE=1209:BEBA
 ```
 
-OR if klipper has been previously flashed:
+또는 만약 클리퍼가 이미 설치되어 있다면 :
 
 ```
 make flash FLASH_DEVICE=/dev/ttyACM0
 ```
 
-It may be necessary to manually enter the bootloader, this can be done by setting "boot 0" low and "boot 1" high. On the SKR Mini E3 "Boot 1" is not available, so it may be done by setting pin PA2 low if you flashed "hid_btt_skr_mini_e3.bin". This pin is labeld "TX0" on the TFT header in the SKR Mini E3's "PIN" document. There is a ground pin next to PA2 which you can use to pull PA2 low.
+수동으로 부트로더에 들어가야 할 수도 있다. 이를 위해서 "boot 0" 은 low로 하고 "boot 1" 은 high로 설정하면 된다. SKR Mini E3에선 "Boot 1" 은 사용할 수 없다. 그래서 "hid_btt_skr_mini_e3.bin" 를 설치했다면 PA2핀을 low로 설정하여 진행할 수 있다. 이 핀은 SKR Mini E3의 핀 문서에 TFT 헤더상에 "TX0"라고 라벨이 붙어 있다. PA2 핀 옆에는 그라운드 핀이 있어 이걸 이용해 PA2 를 low 로 셋팅할 수 있다.
 
-## STM32F4 micro-controllers (SKR Pro 1.1)
+## STM32F4 마이크로 컨트롤러 (SKR Pro 1.1)
 
-STM32F4 microcontrollers come equipped with a built-in system bootloader capable of flashing over USB (via DFU), 3.3v Serial, and various other methods (see STM Document AN2606 for more information). Some STM32F4 boards, such as the SKR Pro 1.1, are not able to enter the DFU bootloader. The HID bootloader is available for STM32F405/407 based boards should the user prefer flashing over USB over using the sdcard. Note that you may need to configure and build a version specific to your board, a [build for the SKR Pro 1.1 is available here](https://github.com/Arksine/STM32_HID_Bootloader/releases/tag/v0.5-beta).
+STM32F4 마이크로 컨트롤러는 DFU를 통한 USB로, 3.3v 시리얼로, 그리고 다양한 방법으로 플래싱이 가능한 빌트인 시스템 부트로더를 보유하고 있다.(보다 자세한 내용은 STM 문서 AN2606 를 참고하라). SKR Pro 1.1같은 일부 STM32F4 보드는 DFU 부트로더로 들어갈 수 없다. HID 부트로더는 STM32F405/407 에서 가능하다. 이 보드들에서는 사용자가 원하는 방식으로 USB나 또는 SD카드로 플래싱할 수 있다. 당신의 보드에 맞게 버전을 설정하고 빌드할 필요가 있다. [build for the SKR Pro 1.1 is available here](https://github.com/Arksine/STM32_HID_Bootloader/releases/tag/v0.5-beta).
 
-Unless your board is DFU capable the most accessable flashing method is likely via 3.3v serial, which follows the same procedure as [flashing the STM32F103 using stm32flash](#stm32f103-micro-controllers-blue-pill-devices). For example:
+DFU 를 사용할 수 없는 보드라면 가장 접근가능한 플래싱 방법은 3.3V 시리얼을 통한 방법이다. 이것은 [flashing the STM32F103 using stm32flash](#stm32f103-micro-controllers-blue-pill-devices)과 동일한 절차를 따라 진행하면 된다. 예를 들어:
 
 ```
 wget https://github.com/Arksine/STM32_HID_Bootloader/releases/download/v0.5-beta/hid_bootloader_SKR_PRO.bin
@@ -323,25 +323,25 @@ wget https://github.com/Arksine/STM32_HID_Bootloader/releases/download/v0.5-beta
 stm32flash -w hid_bootloader_SKR_PRO.bin -v -g 0 /dev/ttyAMA0
 ```
 
-This bootloader requires 16Kib of flash space on the STM32F4 (the application must be compiled with a start address of 16KiB).
+이 부트로더는 16KiB 의 플래싱 공간이 필요하다.(어플리케이션은 16KiB의 시작 어드레스와 함께 컴파일되어야 한다).
 
-As with the STM32F1, the STM32F4 uses the hid-flash tool to upload binaries to the MCU. See the instructions above for details on how to build and use hid-flash.
+STM32F1 를 사용할 때 처럼 STM32F4 도 MCD에 바이너르를 업로드 하기 위해 Hid-flash 도구를 사용한다. hid-flash 를 어떻게 빌드하고 사용하는지에 대한 자세한 내용은 위의 나오는 지시사항을 참고하기 바란다.
 
-It may be necessary to manually enter the bootloader, this can be done by setting "boot 0" low, "boot 1" high and plugging in the device. After programming is complete unplug the device and set "boot 1" back to low so the application will be loaded.
+수동으로 부트로더에 들어갈 필요가 있다. 이는 "boot 0" 를 low, "boot 1" 를 high로 설정하고 디바이스에 연결함으로 가능하다. 프로그램이 완료된 후에 장치를 분리하고 "boot 1"은 low 로 돌려놓도록 한다. 이렇게 하여 어플리케이션이 로드될 것이다.
 
-## LPC176x micro-controllers (Smoothieboards)
+## LPC176x 마이크로 컨트롤러 (Smoothieboards)
 
 This document does not describe the method to flash a bootloader itself - see: <http://smoothieware.org/flashing-the-bootloader> for further information on that topic.
 
 It is common for Smoothieboards to come with a bootloader from: <https://github.com/triffid/LPC17xx-DFU-Bootloader>. When using this bootloader the application must be compiled with a start address of 16KiB. The easiest way to flash an application with this bootloader is to copy the application file (eg, `out/klipper.bin`) to a file named `firmware.bin` on an SD card, and then to reboot the micro-controller with that SD card.
 
-## Running OpenOCD on the Raspberry PI
+## 라즈베리파이상에 OpenOCD를 실행
 
-OpenOCD is a software package that can perform low-level chip flashing and debugging. It can use the GPIO pins on a Raspberry Pi to communicate with a variety of ARM chips.
+OpenOCD는 로우레벨 칩 플래생과 디버깅을 수행할 수 있는 소프트웨어 패키지이다. 그것은 다양한 ARM 칩과 통신하기 위해 라즈베리파이상의 GPIO 핀을 사용할 수 있다.
 
 This section describes how one can install and launch OpenOCD. It is derived from the instructions at: <https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi>
 
-Begin by downloading and compiling the software (each step may take several minutes and the "make" step may take 30+ minutes):
+소프트웨어를 다운로드 하고 컴파일하여 시작하라. (각 단계에는 몇분 가량 소요된다. "make" 단계는 30분 이상 걸릴 수도 있다):
 
 ```
 sudo apt-get update
@@ -356,15 +356,15 @@ make
 make install
 ```
 
-### Configure OpenOCD
+### OpenOCD 설정
 
-Create an OpenOCD config file:
+OpenOCD 설정파일을 만들라:
 
 ```
 nano ~/openocd/openocd.cfg
 ```
 
-Use a config similar to the following:
+다음과 같은 방식을 사용하라:
 
 ```
 # Uses RPi pins: GPIO25 for SWDCLK, GPIO24 for SWDIO, GPIO18 for nRST
@@ -390,55 +390,55 @@ targets
 reset halt
 ```
 
-### Wire the Raspberry Pi to the target chip
+### 목표 칩에 라즈베리파이를 배선연결
 
-Poweroff both the the Raspberry Pi and the target chip before wiring! Verify the target chip uses 3.3V prior to connecting to a Raspberry Pi!
+라즈베리파이와 타겟 칩에 배선연결하기전 전원을 끄도록 하라. 라즈베리파이에 연결하기에 앞서 타겟칩은 3.3V 를 사용함을 확인하라!
 
-Connect GND, SWDCLK, SWDIO, and RST on the target chip to GND, GPIO25, GPIO24, and GPIO18 respectively on the Raspberry Pi.
+타겟칩상에 GND, SWDCLK, SWDIO, 그리고 RST 을 라즈베리파이에 있는 GND, GPIO25,GPIO24, 그리고 GPIO18 에 각각 대응하여 연결한다.
 
-Then power up the Raspberry Pi and provide power to the target chip.
+그리고 라즈베리파이의 전원을 켜고 타겟칩에 전원을 공급한다.
 
-### Run OpenOCD
+### OpenOCD를 실행
 
-Run OpenOCD:
+OpenOCD를 실행:
 
 ```
 cd ~/openocd/
 sudo ~/openocd/install/bin/openocd -f ~/openocd/openocd.cfg
 ```
 
-The above should cause OpenOCD to emit some text messages and then wait (it should not immediately return to the Unix shell prompt). If OpenOCD exits on its own or if it continues to emit text messages then double check the wiring.
+위 작업은 OpenOCD 가 몇개의 텍스트 메시지를 내보내게 합니다. 그리고 나서 기다리십시오. (너무 급하게 Unix 쉘 프롬프트로 돌아가지 말아야 합니다) OpenOCD가 자체적으로 종료되거나 계속해서 문자 메시지를 내보내는 경우 배선을 다시 확인하십시오.
 
-Once OpenOCD is running and is stable, one can send it commands via telnet. Open another ssh session and run the following:
+한번 OpenOCD 가 작동하고 안정화되면, telnet 을 통해 명령을 보낼 수 있습니다. 다른 ssh 세션을 열어 아래와 같이 실행시키십시오:
 
 ```
 telnet 127.0.0.1 4444
 ```
 
-(One can exit telnet by pressing ctrl+] and then running the "quit" command.)
+(ctrl+] 를 누르고 "quit" 명령을 실행시켜 telnet 을 빠져나올 수 있습니다. )
 
-### OpenOCD and gdb
+### OpenOCD 와 gdb
 
-It is possible to use OpenOCD with gdb to debug Klipper. The following commands assume one is running gdb on a desktop class machine.
+클리퍼를 디버그하기 위해 OpenOCD 를 gbd와 함께 사용할 수 있습니다. 다음 명령은 컵퓨터 class 머신에 gbd를 실행시키는걸 가정하고 있습니다.
 
-Add the following to the OpenOCD config file:
+다음은 OpenOCD 설정에 추가하십시오:
 
 ```
 bindto 0.0.0.0
 gdb_port 44444
 ```
 
-Restart OpenOCD on the Raspberry Pi and then run the following Unix command on the desktop machine:
+라즈베리파이상에서 OpenOCD 를 재실행하고 컴퓨터 상에서 다음 유닉스 명령을 실행시키십시오:
 
 ```
 cd /path/to/klipper/
 gdb out/klipper.elf
 ```
 
-Within gdb run:
+gbd 내에서 실행시키십시오:
 
 ```
 target remote octopi:44444
 ```
 
-(Replace "octopi" with the host name of the Raspberry Pi.) Once gdb is running it is possible to set breakpoints and to inspect registers.
+(라즈베리파이의 호스트이름으로 "octopi"를 대체하십시오.) gbd 가 실행되고 있다면 브레이크 포인트를 셋팅하고 레지스터를 점검하는것이 가능하다.
