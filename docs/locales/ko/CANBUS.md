@@ -15,7 +15,7 @@ CAN bus를 사용하려면, 호스트 어댑터가 필요합니다. 현재까지
 1. [Waveshare Raspberry Pi CAN hat](https://www.waveshare.com/rs485-can-hat.htm) 을 사용하거나, 다른 클론제품을 사용합니다.
 1. Use a USB CAN adapter (for example <https://hacker-gadgets.com/product/cantact-usb-can-adapter/>). There are many different USB to CAN adapters available - when choosing one, we recommend verifying it can run the [candlelight firmware](https://github.com/candle-usb/candleLight_fw). (Unfortunately, we've found some USB adapters run defective firmware and are locked down, so verify before purchasing.)
 
-또한 어댑터를 사용하도록 호스트 운영 체제를 구성해야 합니다. 이것은 일반적으로 다음과 같이 /etc/network/interfaces.d/can0이라는 새 파일을 생성하여 수행됩니다:
+또한 어댑터를 사용하도록 호스트 운영 체제를 구성해야 합니다. 이것은 일반적으로 다음과 같이 `/etc/network/interfaces.d/can0` 이라는 새 파일을 생성하여 수행됩니다:
 
 ```
 auto can0
