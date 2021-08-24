@@ -1,9 +1,16 @@
-#
+# brian park <gouache95@gmail.com>, 2021.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-08-24 10:33+0000\n"
+"Last-Translator: brian park <gouache95@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
+"skew_correction/ko/>\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.8.1-dev\n"
 
 msgid ""
 "Software based skew correction can help resolve dimensional inaccuracies "
@@ -94,7 +101,7 @@ msgid ""
 msgstr ""
 
 msgid "Caveats"
-msgstr ""
+msgstr "주의 사항"
 
 msgid ""
 "Due to the nature of skew correction it is recommended to configure skew in "
