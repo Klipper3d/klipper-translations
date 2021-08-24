@@ -708,7 +708,7 @@ Mesh Bed Leveling. One may define a bed_mesh config section to enable move trans
 
 See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#mesh-bed-leveling) for additional information.
 
-Visual Examples:
+可视化示例：
 
 ```
  rectangular bed, probe_count = 3,3:
@@ -967,7 +967,7 @@ Moving gantry leveling using 4 independently controlled Z motors. Corrects hyper
  ----------------
 ```
 
-Where x is the (0,0) point on the bed
+x 是打印床上的 （0，0） 点
 
 ```
 [quad_gantry_level]
