@@ -10,7 +10,7 @@
 - [配置更改](Config_Changes.md)：可能需要手动更新打印机配置文件的软件更改。
 - [联系](Contact.md)：关于如何提交错误报告和联系 Klipper 开发者的信息。
 
-## Installation and Configuration
+## 安装和配置
 
 - [安装](Installation.md)：Klipper 安装指南。
 - [配置参考](Config_Reference.md)：配置参数说明。
