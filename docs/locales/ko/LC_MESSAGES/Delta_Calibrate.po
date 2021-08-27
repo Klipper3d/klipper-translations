@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-23 02:32+0000\n"
+"PO-Revision-Date: 2021-08-25 12:33+0000\n"
 "Last-Translator: brian park <gouache95@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
 "delta_calibrate/ko/>\n"
@@ -273,7 +273,7 @@ msgid ""
 msgstr ""
 
 msgid "Additional notes"
-msgstr ""
+msgstr "추가 참고 사항"
 
 msgid ""
 "If the delta printer has good dimensional accuracy then the distance between"
