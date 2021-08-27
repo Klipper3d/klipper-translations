@@ -1,9 +1,10 @@
 # mirokymac <toufubomb@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-25 06:02+0000\n"
-"Last-Translator: mirokymac <toufubomb@gmail.com>\n"
+"PO-Revision-Date: 2021-08-25 07:41+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/code_overview/zh_Hans/>\n"
 "Language: zh-hans\n"
@@ -338,6 +339,7 @@ msgstr ""
 "（队列步进）命令。这些\"queue_step\"命令将被队列化，优先处理，并发送到微控制器中（上位机通过 stepcompress."
 "c:steppersync；下位机通过serialqueue.c:serialqueue)）。"
 
+#, fuzzy
 msgid ""
 "Processing of the queue_step commands on the micro-controller starts in "
 "src/command.c which parses the command and calls `command_queue_step()`. The"
@@ -356,7 +358,11 @@ msgstr ""
 "在微控制器，queue_step命令将经由 src/command.c 处理。改代码将对命令进行解释，并调用 "
 "`command_queue_step()`。command_queue_step()（位于src/stepper."
 "c）将每个queue_step命令的参数附加到对应的步进队列中。正常运行下，一“步”将在其执行前100ms被解释并加入队列。最后通过 "
-"`stepper_event()`结束步进事件的生成。"
+"`stepper_event()` 结束步进事件的生成。在第一个歩进的预定时间从硬件时钟中断中被调用。 stepper_event() "
+"代码生成一个步进脉冲，然后通过给定的 queue_step 参数重新预定使它在下一个步进脉冲时运行。每一个 queue_step 命令的参数有 "
+"\"interval\"，\"count\"，和 \"add\"。At a high-level, stepper_event() runs the "
+"following, 'count' times: `do_step(); next_wake_time = last_wake_time + "
+"interval; interval += add;`"
 
 msgid ""
 "The above may seem like a lot of complexity to execute a movement. However, "
