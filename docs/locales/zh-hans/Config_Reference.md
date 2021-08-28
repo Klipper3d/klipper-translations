@@ -3155,21 +3155,20 @@ See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples.
 ```
 [display_glyph my_display_glyph]
 #data:
-#   The display data, stored as 16 lines consisting of 16 bits (1 per
-#   pixel) where '.' is a blank pixel and '*' is an on pixel (e.g.,
-#   "****************" to display a solid horizontal line).
-#   Alternatively, one can use '0' for a blank pixel and '1' for an on
-#   pixel. Put each display line into a separate config line. The
-#   glyph must consist of exactly 16 lines with 16 bits each. This
-#   parameter is optional.
+#   被存储为16 行，每行 16 位（1位代表1个像素）的显示数据。“.”是一个
+#   空白的像素，而‘*’是一个开启的像素（例如，"****************"
+#   可以用来显示一条横向的实线。除此以外，也可以用“0”作为空
+#   白的像素，而‘1’作为开启的像素。需要将每个显示的行放到配置文件
+#   中独立的一行。每个字形都必须包含且仅包含 16 行，每行 16 位。
+#   这是一个可选参数。
 #hd44780_data:
-#   Glyph to use on 20x4 hd44780 displays. The glyph must consist of
-#   exactly 8 lines with 5 bits each. This parameter is optional.
+#   用于 20x4 hd44780 显示屏的字形。字形必须包含且仅包含 8 行，
+#   每行 5 位。
+#   这是一个可选参数。
 #hd44780_slot:
-#   The hd44780 hardware index (0..7) to store the glyph at. If
-#   multiple distinct images use the same slot then make sure to only
-#   use one of those images in any given screen. This parameter is
-#   required if hd44780_data is specified.
+#   用于存储字形的 hd44780 硬件索引（0..7）。如果多个独特的图片使用
+#   了相同的索引位置，需要保证在任何屏幕上只使用其中一个图片。
+#   如果定义了 hd44780_data ，则必须提供此参数。
 ```
 
 ## [display my_extra_display]

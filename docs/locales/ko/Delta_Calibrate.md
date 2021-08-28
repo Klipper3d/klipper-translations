@@ -131,7 +131,7 @@ SAVE_CONFIG
 
 The SAVE_CONFIG command will save both the updated delta parameters and information from the distance measurements. Future DELTA_CALIBRATE commands will also utilize this distance information. Do not attempt to reenter the raw distance measurements after running SAVE_CONFIG, as this command changes the printer configuration and the raw measurements no longer apply.
 
-### Additional notes
+### 추가 참고 사항
 
 * If the delta printer has good dimensional accuracy then the distance between any two pillars should be around 74mm and the width of every pillar should be around 9mm. (Specifically, the goal is for the distance between any two pillars minus the width of one of the pillars to be exactly 65mm.) Should there be a dimensional inaccuracy in the part then the DELTA_ANALYZE routine will calculate new delta parameters using both the distance measurements and the previous height measurements from the last DELTA_CALIBRATE command.
 * DELTA_ANALYZE may produce delta parameters that are surprising. For example, it may suggest arm lengths that do not match the printer's actual arm lengths. Despite this, testing has shown that DELTA_ANALYZE often produces superior results. It is believed that the calculated delta parameters are able to account for slight errors elsewhere in the hardware. For example, small differences in arm length may result in a tilt to the effector and some of that tilt may be accounted for by adjusting the arm length parameters.
