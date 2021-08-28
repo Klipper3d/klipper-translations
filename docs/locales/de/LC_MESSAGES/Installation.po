@@ -1,4 +1,4 @@
-# Florian Schaupp <fschaupp@hotmail.com>, 2021.
+# Florian Schaupp <fschaupp@hotmail.com>, 2021, 2025.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Florian Schaupp <fschaupp@hotmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "installation/de/>\n"
 "Language: de\n"
