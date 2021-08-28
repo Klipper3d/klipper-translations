@@ -175,21 +175,21 @@ Initiates the probing procedure for Bed Mesh Calibration.
 
 The mesh will be saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. If `METHOD=manual` is selected then manual probing will occur. When switching between automatic and manual probing the generated mesh points will automatically be adjusted.
 
-It is possible to specify mesh parameters to modify the probed area. The following parameters are available:
+可以通过指定网格参数来修改探测区域。以下参数可用：
 
-- Rectangular beds (cartesian):
+- 矩形打印床（笛卡尔 Cartesian）：
    - `MESH_MIN`
    - `MESH_MAX`
    - `PROBE_COUNT`
-- Round beds (delta):
+- 圆形打印床（三角洲 delta）：
    - `MESH_RADIUS`
    - `MESH_ORIGIN`
    - `ROUND_PROBE_COUNT`
-- All beds:
+- 全部打印床：
    - `RELATIVE_REFERNCE_INDEX`
    - `ALGORITHM` See the configuration documentation above for details on how each parameter applies to the mesh.
 
-### Profiles
+### 配置
 
 `BED_MESH_PROFILE SAVE=name LOAD=name REMOVE=name`
 
