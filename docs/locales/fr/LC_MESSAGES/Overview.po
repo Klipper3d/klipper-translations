@@ -1,6 +1,6 @@
 # Wivik <seb+weblate@zedas.fr>, 2021.
 # Nathan <bonnemainsnathan@gmail.com>, 2021.
-# Rhenaud Dubois <rhen33390@gmail.com>, 2021.
+# Rhenaud Dubois <rhen33390@gmail.com>, 2021, 2025.
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
 # Linda 'linigrhf' Ayasing <linigrhf@gmail.com>, 2022.
 # Francis Poulizac <francis@poulizac.fr>, 2022, 2023.
@@ -9,14 +9,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-12-04 04:08+0000\n"
-"Last-Translator: Thomas Fournier <thomas@artivain.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/overview/fr/>\n"
+"PO-Revision-Date: 2025-05-03 07:24+0000\n"
+"Last-Translator: Rhenaud Dubois <rhen33390@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/overview/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -61,8 +62,8 @@ msgstr "[Installation](Installation.md) : Guide d'installation de Klipper."
 msgid ""
 "[Config Reference](Config_Reference.md): Description of config parameters."
 msgstr ""
-"[Référence de la configuration](Config_Reference.md) : Description de tous les"
-" paramètres de configuration."
+"[Référence de la configuration](Config_Reference.md) : Description de tous "
+"les paramètres de configuration."
 
 msgid ""
 "[Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance "
@@ -265,11 +266,13 @@ msgstr ""
 
 msgid "[CAN bus](CANBUS.md): Information on using CAN bus with Klipper."
 msgstr ""
-"[Bus CAN](CANBUS.md) : Informations sur l'utilisation du bus CAN avec Klipper."
+"[Bus CAN](CANBUS.md) : Informations sur l'utilisation du bus CAN avec "
+"Klipper."
 
 msgid "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
 msgstr ""
-"[Capteur de largeur de filament TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)"
+"[Capteur de largeur de filament TSL1401CL]"
+"(TSL1401CL_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 1 (header)
 msgid "Overview"
