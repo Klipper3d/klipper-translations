@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-09-03 08:30+0000\n"
-"Last-Translator: Wivik <seb+weblate@zedas.fr>\n"
+"PO-Revision-Date: 2021-09-04 08:34+0000\n"
+"Last-Translator: Rhenaud Dubois <rhen33390@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/overview/"
 "fr/>\n"
 "Language: fr\n"
@@ -57,7 +57,7 @@ msgstr "[Installation](Installation.md) : Guide pour installer Klipper."
 msgid ""
 "[Config Reference](Config_Reference.md): Description of config parameters."
 msgstr ""
-"[Référence de la configuration](Config_Reference.md): Description de tous "
+"[Référence de la configuration](Config_Reference.md) : Description de tous "
 "les paramètres de configuration."
 
 msgid ""
@@ -284,19 +284,20 @@ msgstr ""
 
 msgid "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
 msgstr ""
-"[TSL1401CL capteur de largeur de filament](TSL1401CL_Filament_Width_Sensor."
+"[Capteur de largeur de filament TSL1401CL](TSL1401CL_Filament_Width_Sensor."
 "md)"
 
 msgid "[Hall filament width sensor](HallFilamentWidthSensor.md)"
 msgstr ""
+"[Détecteur de largeur de filament à effet hall](HallFilamentWidthSensor.md)"
 
 #: docs/Overview.md:block 1 (header)
 msgid "Overview"
-msgstr "Vue d'ensemble"
+msgstr "Vue d'Ensemble"
 
 #: docs/Overview.md:block 5 (header)
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "Installation et Configuration"
 
 #~ msgid "Configuration and Tuning Guides"
 #~ msgstr "Guides de configuration et réglages"
