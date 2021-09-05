@@ -14,7 +14,7 @@ In general, the pins for the benchmark tests are chosen to flash LEDs or other i
 
 ### Step rate benchmark test
 
-The test is performed using the console.py tool (described in [Debugging.md]). The micro-controller is configured for the particular hardware platform (see below) and then the following is cut-and-paste into the console.py terminal window:
+The test is performed using the console.py tool (described in <Debugging.md>). The micro-controller is configured for the particular hardware platform (see below) and then the following is cut-and-paste into the console.py terminal window:
 
 ```
 SET start_clock {clock+freq}
@@ -368,7 +368,7 @@ The test was last run on commit `db0fb5d5` with gcc version `gcc (Raspbian 6.3.0
 
 ## Command dispatch benchmark
 
-The command dispatch benchmark tests how many "dummy" commands the micro-controller can process. It is primarily a test of the hardware communication mechanism. The test is run using the console.py tool (described in [Debugging.md]). The following is cut-and-paste into the console.py terminal window:
+The command dispatch benchmark tests how many "dummy" commands the micro-controller can process. It is primarily a test of the hardware communication mechanism. The test is run using the console.py tool (described in <Debugging.md>). The following is cut-and-paste into the console.py terminal window:
 
 ```
 DELAY {clock + 2*freq} get_uptime
@@ -399,7 +399,7 @@ Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If runn
 
 ## Host Benchmarks
 
-It is possible to run timing tests on the host software using the "batch mode" processing mechanism (described in [Debugging.md]). This is typically done by choosing a large and complex G-Code file and timing how long it takes for the host software to process it. For example:
+It is possible to run timing tests on the host software using the "batch mode" processing mechanism (described in <Debugging.md>). This is typically done by choosing a large and complex G-Code file and timing how long it takes for the host software to process it. For example:
 
 ```
 time ~/klippy-env/bin/python ./klippy/klippy.py config/example-cartesian.cfg -i something_complex.gcode -o /dev/null -d out/klipper.dict

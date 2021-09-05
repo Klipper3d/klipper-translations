@@ -14,7 +14,7 @@ Step rate 벤치마크는 하드웨어와 소프트웨어가 도달할 수 있�
 
 ### 스텝 레이트 벤치마크 테스트
 
-The test is performed using the console.py tool (described in [Debugging.md]). The micro-controller is configured for the particular hardware platform (see below) and then the following is cut-and-paste into the console.py terminal window:
+The test is performed using the console.py tool (described in <Debugging.md>). The micro-controller is configured for the particular hardware platform (see below) and then the following is cut-and-paste into the console.py terminal window:
 
 ```
 SET start_clock {clock+freq}
@@ -368,7 +368,7 @@ finalize_config crc=0
 
 ## 명령 디스패치 벤치마크
 
-The command dispatch benchmark tests how many "dummy" commands the micro-controller can process. It is primarily a test of the hardware communication mechanism. The test is run using the console.py tool (described in [Debugging.md]). The following is cut-and-paste into the console.py terminal window:
+The command dispatch benchmark tests how many "dummy" commands the micro-controller can process. It is primarily a test of the hardware communication mechanism. The test is run using the console.py tool (described in <Debugging.md>). The following is cut-and-paste into the console.py terminal window:
 
 ```
 DELAY {clock + 2*freq} get_uptime
@@ -399,7 +399,7 @@ get_uptime
 
 ## 호스트 벤치마크
 
-It is possible to run timing tests on the host software using the "batch mode" processing mechanism (described in [Debugging.md]). This is typically done by choosing a large and complex G-Code file and timing how long it takes for the host software to process it. For example:
+It is possible to run timing tests on the host software using the "batch mode" processing mechanism (described in <Debugging.md>). This is typically done by choosing a large and complex G-Code file and timing how long it takes for the host software to process it. For example:
 
 ```
 time ~/klippy-env/bin/python ./klippy/klippy.py config/example-cartesian.cfg -i something_complex.gcode -o /dev/null -d out/klipper.dict

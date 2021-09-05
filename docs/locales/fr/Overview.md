@@ -1,4 +1,4 @@
-# Overview
+# Vue d'Ensemble
 
 Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, commencez par les sections [fonctionnalités](Features.md) et [installation](Installation.md).
 
@@ -10,10 +10,10 @@ Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, comme
 - [Modifications de configuration](Config_Changes.md) : Modifications récentes du logiciel qui peuvent nécessiter que les utilisateurs mettent à jour la configuration de leur imprimante.
 - [Contact](Contact.md) : Informations sur les rapports d'anomalies et communication générale avec les développeurs de Klipper.
 
-## Installation and Configuration
+## Installation et Configuration
 
 - [Installation](Installation.md) : Guide pour installer Klipper.
-- [Référence de la configuration](Config_Reference.md): Description de tous les paramètres de configuration.
+- [Référence de la configuration](Config_Reference.md) : Description de tous les paramètres de configuration.
    - [Distance de rotation](Rotation_Distance.md) : Calcul du paramètre rotation_distance du stepper.
 - [Vérifications de la configuration](Config_checks.md) : Vérifier les paramètres de base des broches dans le fichier de configuration.
 - [Niveau du Bed](Bed_Level.md) : Informations sur le "nivellement du bed" dans Klipper.
@@ -32,28 +32,28 @@ Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, comme
 - [Pilotes TMC](TMC_Drivers.md) : Utilisation des pilotes de moteurs pas à pas Trinamic avec Klipper.
 - [Correction de l'inclinaison](skew_correction.md) : Ajustements pour les axes qui ne sont pas parfaitement carrés.
 - [Outils PWM](Using_PWM_Tools.md) : Guide sur l'utilisation des outils contrôlés par PWM tels que les lasers ou les broches.
-- [G-Codes](G-Codes.md): Information on commands supported by Klipper.
+- [G-Codes](G-Codes.md) : Informations sur les instructions prises en charge par Klipper.
 
-## Developer Documentation
+## Documentation pour les Développeurs
 
-- [Code overview](Code_Overview.md): Developers should read this first.
-- [Kinematics](Kinematics.md): Technical details on how Klipper implements motion.
-- [Protocol](Protocol.md): Information on the low-level messaging protocol between host and micro-controller.
-- [API Server](API_Server.md): Information on Klipper's command and control API.
-- [MCU commands](MCU_Commands.md): A description of low-level commands implemented in the micro-controller software.
-- [CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format.
-- [Debugging](Debugging.md): Information on how to test and debug Klipper.
-- [Benchmarks](Benchmarks.md): Information on the Klipper benchmark method.
-- [Contributing](CONTRIBUTING.md): Information on how to submit improvements to Klipper.
-- [Packaging](Packaging.md): Information on building OS packages.
+- [Vue d'ensemble du code](Code_Overview.md) : Les développeurs devraient lire ceci en premier.
+- [Cinématiques](Kinematics.md) : Détails techniques sur la façon dont Klipper met en œuvre le mouvement.
+- [Protocole](Protocol.md) : Informations sur le protocole de messagerie de bas niveau entre l'hôte et le microcontrôleur.
+- [API du Serveur](API_Server.md) : Informations sur l'API de commande et de contrôle de Klipper.
+- [Commandes MCU](MCU_Commands.md) : Une description des commandes de bas niveau implémentées dans le logiciel du micro-contrôleur.
+- [Protocole du bus CAN](CANBUS_protocol.md) : Format de message du bus CAN de Klipper.
+- [Débogage](Debugging.md) : Informations sur la façon de tester et de déboguer Klipper.
+- [Tests de charge](Benchmarks.md) : Informations sur la méthode de tests de charge de Klipper.
+- [Contribuer](CONTRIBUTING.md) : Informations sur comment proposer des améliorations pour Klipper.
+- [Packaging](Packaging.md) : Informations sur la construction de paquets de système d'exploitation.
 
-## Device Specific Documents
+## Documents Spécifiques pour Certains Appareils
 
-- [Example configs](Example_Configs.md): Information on adding an example config file to Klipper.
-- [SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a binary to an sdcard in the micro-controller.
-- [Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for controlling devices wired to the GPIO pins of a Raspberry Pi.
-- [Beaglebone](beaglebone.md): Details for running Klipper on the Beaglebone PRU.
-- [Bootloaders](Bootloaders.md): Developer information on micro-controller flashing.
-- [CAN bus](CANBUS.md): Information on using CAN bus with Klipper.
-- [TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)
-- [Hall filament width sensor](HallFilamentWidthSensor.md)
+- [Configs d'exemple](Example_Configs.md) : Informations sur l'ajout d'un exemple de fichier de configuration à Klipper.
+- [Mises à jour par SDCard](SDCard_Updates.md) : Flasher le micro-contrôleur en copiant un binaire sur une carte SD.
+- [Raspberry Pi en tant que Microcontrôleur](RPi_microcontroller.md) : Détails pour contrôler les appareils connectés aux broches GPIO d'un Raspberry Pi.
+- [Beaglebone](beaglebone.md) : Détails pour l'exécution de Klipper sur le PRU Beaglebone.
+- [Bootloaders](Bootloaders.md) : Informations pour les développeurs sur le flashage des microcontrôleurs.
+- [Bus CAN](CANBUS.md) : Informations sur l'utilisation du bus CAN avec Klipper.
+- [Capteur de largeur de filament TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
+- [Détecteur de largeur de filament à effet hall](HallFilamentWidthSensor.md)
