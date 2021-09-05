@@ -1,24 +1,24 @@
 # Overview
 
-Welcome to the Klipper documentation. If new to Klipper, start with the [features](Features.md) and [installation](Installation.md) documents.
+Willkommen auf der Klipper-Dokumentationsseite! Wenn Klipper für dich neu ist, starte doch einfach mit den [features](Features.md) und [installation](Installation.md) Dokumenten.
 
-## Overview information
+## Übersicht
 
-- [Features](Features.md): A high-level list of features in Klipper.
-- [FAQ](FAQ.md): Frequently asked questions.
-- [Releases](Releases.md): The history of Klipper releases.
-- [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
-- [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
+- [Features](Features.md): Eine grobe Übersicht über die Features von Klipper.
+- [FAQ](FAQ.md): Häufig gestellte Fragen.
+- [Releases](Releases.md): Veröffentlichungshistorie von Klipper.
+- [Config changes](Config_Changes.md): Die neuesten Änderungen, die potentielle Änderungen an der Konfigurationsdatei des Druckers auslösen können.
+- [Contact](Contact.md): Kontaktinformationen bei Fehlern oder Anfragen an die Klipper-Entwickler.
 
 ## Installation and Configuration
 
-- [Installation](Installation.md): Guide to installing Klipper.
-- [Config Reference](Config_Reference.md): Description of config parameters.
-   - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
-- [Config checks](Config_checks.md): Verify basic pin settings in the config file.
+- [Installation](Installation.md): Anleitung zur Installation von Klipper.
+- [Config Reference](Config_Reference.md): Beschreibung der Einstellmöglichkeiten.
+   - [Rotation Distance](Rotation_Distance.md): Berechnung des Schrittmotor-Parameters rotation_distance.
+- [Config checks](Config_checks.md): Überprüfung der grundlegenden Pin-Einstellungen in der Konfigurationsdatei.
 - [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
-   - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
-   - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
+   - [Delta calibrate](Delta_Calibrate.md): Kalibrierung der Delta-Kinematik.
+   - [Probe calibrate](Probe_Calibrate.md): Kalibrierung von automatischen Z-Sonden.
    - [BL-Touch](BLTouch.md): Configure a "BL-Touch" Z probe.
    - [Manual level](Manual_Level.md): Calibration of Z endstops (and similar).
    - [Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations.

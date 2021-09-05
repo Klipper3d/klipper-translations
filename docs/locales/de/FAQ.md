@@ -1,9 +1,9 @@
 # Frequently Asked Questions
 
-1. [How can I donate to the project?](#how-can-i-donate-to-the-project)
-1. [How do I calculate the rotation_distance config parameter?](#how-do-i-calculate-the-rotation_distance-config-parameter)
-1. [Where's my serial port?](#wheres-my-serial-port)
-1. [When the micro-controller restarts the device changes to /dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1)
+1. [Wie kann ich dem Projekt etwas spenden?](#how-can-i-donate-to-the-project)
+1. [Wie berechne ich den rotation_distance-Parameter?](#how-do-i-calculate-the-rotation_distance-config-parameter)
+1. [Wo ist meine serieller Anschluss?](#wheres-my-serial-port)
+1. [Nach einem Neustart wechselt das Gerät zu /dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1)
 1. [The "make flash" command doesn't work](#the-make-flash-command-doesnt-work)
 1. [How do I change the serial baud rate?](#how-do-i-change-the-serial-baud-rate)
 1. [Can I run Klipper on something other than a Raspberry Pi 3?](#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)
