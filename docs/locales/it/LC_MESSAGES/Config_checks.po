@@ -1,4 +1,4 @@
-# Stefano Serioli <stefano.serioli@outlook.com>, 2021.
+# Stefano Serioli <stefano.serioli@outlook.com>, 2021, 2025.
 # Nicola Falciani <nicola.fal@gmail.com>, 2022.
 # Davide Cerati <davide.cerati6@gmail.com>, 2022, 2025.
 # Ale Ale <ale.99.ale@gmail.com>, 2022, 2025.
@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:25+0000\n"
-"Last-Translator: Davide Cerati <davide.cerati6@gmail.com>\n"
+"Last-Translator: Stefano Serioli <stefano.serioli@outlook.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "config_checks/it/>\n"
 "Language: it\n"
@@ -23,9 +23,10 @@ msgid ""
 " Klipper printer.cfg file. It is a good idea to run through these steps after "
 "following the steps in the [installation document](Installation.md)."
 msgstr ""
-"Questo documento fornisce una lista di step per confermare le impostazioni dei"
-" pin nel file printer.cfg di Klipper. È una buona idea eseguire questi passi "
-"dopo aver seguito i passi nel [documento di installazione](Installation.md)."
+"Questo documento fornisce una lista di step per confermare le impostazioni "
+"dei pin nel file printer.cfg di Klipper. È una buona idea eseguire questi "
+"passi dopo aver seguito i passi nel [documento di installazione]"
+"(Installation.md)."
 
 msgid ""
 "During this guide, it may be necessary to make changes to the Klipper config "
