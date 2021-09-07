@@ -1,0 +1,11 @@
+#
+msgid ""
+msgstr ""
+"Language: it\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
+"Welcome to the Klipper documentation. The [overview document](Overview.md) "
+"is a good starting point."
+msgstr ""
