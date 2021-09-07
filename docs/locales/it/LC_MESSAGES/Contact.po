@@ -1,11 +1,11 @@
-# Stefano Serioli <stefano.serioli@outlook.com>, 2021.
+# Stefano Serioli <stefano.serioli@outlook.com>, 2021, 2025.
 # Dex94 <Dasvaresu@dr.com>, 2022, 2025.
 # Ale Ale <ale.99.ale@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
+"Last-Translator: Stefano Serioli <stefano.serioli@outlook.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/contact/"
 "it/>\n"
 "Language: it\n"
