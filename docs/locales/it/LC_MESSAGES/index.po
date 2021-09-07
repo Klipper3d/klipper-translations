@@ -1,0 +1,36 @@
+#
+msgid ""
+msgstr ""
+"Language: it\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/index.md:block 1 (paragraph)
+msgid "hide:"
+msgstr ""
+
+#: docs/index.md:block 2 (unordered list)
+msgid "toc title: Welcome"
+msgstr ""
+
+#: docs/index.md:block 3 (paragraph)
+msgid "![](img/klipper-logo.png){ .center-image }"
+msgstr ""
+
+#: docs/index.md:block 4 (paragraph)
+msgid ""
+"Klipper is a 3d-Printer firmware. It combines the power of a general purpose"
+" computer with one or more micro-controllers. See the "
+"[features](Features.md) document for more information on why you should use "
+"Klipper."
+msgstr ""
+
+#: docs/index.md:block 5 (paragraph)
+msgid "To begin using Klipper start by [installing](Installation.md) it."
+msgstr ""
+
+#: docs/index.md:block 6 (paragraph)
+msgid ""
+"Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
+" Klipper code on github](https://github.com/KevinOConnor/klipper)."
+msgstr ""
