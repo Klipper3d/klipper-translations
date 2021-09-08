@@ -1,9 +1,19 @@
-#
+# mirokymac <toufubomb@gmail.com>, 2021.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-09-08 19:33+0000\n"
+"Last-Translator: mirokymac <toufubomb@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/measuring_resonances/zh_Hans/>\n"
+"Language: zh-hans\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.8.1-dev\n"
 
 msgid "Measuring Resonances"
-msgstr ""
+msgstr "共振值测量"
 
 msgid ""
 "Klipper has built-in support for ADXL345 accelerometer, which can be used to"
@@ -13,6 +23,9 @@ msgid ""
 "ADXL345 can be connected to a Raspberry Pi directly, or to an SPI interface "
 "of an MCU board (it needs to be reasonably fast)."
 msgstr ""
+"Klipper内建有ADXL345加速度传感器驱动，可用以测量打印机不同运动轴发生共振的频率，从而自动进行 "
+"[输入整形](Resonance_Compensation.md) 以实现共振补偿。注意使用ADXL345需要进行焊接和压线。ADXL345可以直接连接到"
+"树莓派，也可以连接到MCU的SPI总线（注意MCU有一定的性能需求）。"
 
 msgid ""
 "When sourcing ADLX345, be aware that there is a variety of different PCB "
@@ -21,95 +34,99 @@ msgid ""
 "I2C by pulling SDO to GND), and, if it is going to be connected to a 5V "
 "printer MCU, that it has a voltage regulator and a level shifter."
 msgstr ""
+"购买ADXL345时，要注意选择合适的PCB版型，务必购买支持SPI模式的产品。少数产品将SDO引脚连接到GND，从而使ADXL硬设置到I2C模式。同时，"
+"在将ADXL345连接到5V驱动的MCU时，应在ADXL345和MCU引脚间使用调压模块和电流转换模块。"
 
 msgid "Installation instructions"
-msgstr ""
+msgstr "安装指南"
 
 msgid "Wiring"
-msgstr ""
+msgstr "接线"
 
 msgid ""
 "You need to connect ADXL345 to your Raspberry Pi via SPI. Note that the I2C "
 "connection, which is suggested by ADXL345 documentation, has too low "
 "throughput and **will not work**. The recommended connection scheme:"
 msgstr ""
+"我们需要将ADXL345连接到树莓派的SPI接口。注意，尽管ADXL345文档推荐使用I2C，但其数据吞吐能力不足，**不能**实现共振测量的要求。推荐的"
+"接线图为："
 
 msgid "ADXL345 pin"
-msgstr ""
+msgstr "ADXL345引脚"
 
 msgid "RPi pin"
-msgstr ""
+msgstr "树莓派引脚"
 
 msgid "RPi pin name"
-msgstr ""
+msgstr "树莓派引脚名称"
 
 msgid "3V3 (or VCC)"
-msgstr ""
+msgstr "3V3 或 VCC"
 
 msgid "01"
-msgstr ""
+msgstr "01"
 
 msgid "3.3v DC power"
-msgstr ""
+msgstr "3.3v 直流电（DC）"
 
 msgid "GND"
-msgstr ""
+msgstr "GND"
 
 msgid "06"
-msgstr ""
+msgstr "06"
 
 msgid "Ground"
-msgstr ""
+msgstr "地线"
 
 msgid "CS"
-msgstr ""
+msgstr "CS（芯片选定）"
 
 msgid "24"
-msgstr ""
+msgstr "24"
 
 msgid "GPIO08 (SPI0_CE0_N)"
-msgstr ""
+msgstr "GPIO08 (SPI0_CE0_N)"
 
 msgid "SDO"
-msgstr ""
+msgstr "SDO"
 
 msgid "21"
-msgstr ""
+msgstr "21"
 
 msgid "GPIO09 (SPI0_MISO)"
-msgstr ""
+msgstr "GPIO09 (SPI0_MISO)"
 
 msgid "SDA"
-msgstr ""
+msgstr "SDA"
 
 msgid "19"
-msgstr ""
+msgstr "19"
 
 msgid "GPIO10 (SPI0_MOSI)"
-msgstr ""
+msgstr "GPIO10 (SPI0_MOSI)"
 
 msgid "SCL"
-msgstr ""
+msgstr "SCL"
 
 msgid "23"
-msgstr ""
+msgstr "23"
 
 msgid "GPIO11 (SPI0_SCLK)"
-msgstr ""
+msgstr "GPIO11 (SPI0_SCLK)"
 
 msgid "Fritzing wiring diagrams for some of the ADXL345 boards:"
-msgstr ""
+msgstr "部分ADXL345开发板的Fritzing接线图如下："
 
 msgid "![ADXL345-Rpi](img/adxl345-fritzing.png)"
-msgstr ""
+msgstr "![ADXL345-树莓派](img/adxl345-fritzing.png)"
 
 msgid ""
 "Double-check your wiring before powering up the Raspberry Pi to prevent "
 "damaging it or the accelerometer."
-msgstr ""
+msgstr "为避免损害树莓派或加速度传感器，请再三确认接线正确再对树莓派上电。"
 
 msgid "Mounting the accelerometer"
-msgstr ""
+msgstr "固定加速度传感器"
 
 msgid ""
 "The accelerometer must be attached to the toolhead. One needs to design a "
@@ -119,18 +136,21 @@ msgid ""
 " forth - it should be fine even if Z axis of accelerometer is X axis of the "
 "printer, etc.)."
 msgstr ""
+"加速度传感器应固定在打印头上。应根据打印机的情况设计合适的固定件。推荐将加速度的测量轴与打印机运行轴的方向进行对齐。然而，如果轴对齐极其麻烦，可以将打印机"
+"的轴使用其他测量轴对齐，比如打印机+X对应传感器-X，甚至打印机+X对应传感器-Z等。"
 
 msgid "An example of mounting ADXL345 on the SmartEffector:"
-msgstr ""
+msgstr "下面是ADXL345固定到SmartEffector的示例："
 
 msgid "![ADXL345 on SmartEffector](img/adxl345-mount.jpg)"
-msgstr ""
+msgstr "![ADXL345固定在SmartEffector](img/adxl345-mount.jpg)"
 
 msgid ""
 "Note that on a bed slinger printer one must design 2 mounts: one for the "
 "toolhead and one for the bed, and run the measurements twice. See the "
 "corresponding [section](#bed-slinger-printers) for more details."
 msgstr ""
+"注意，滑床式打印机需要设计两个固定件：一个安装于打印头，另一个用于热床，并进行两次测量。详见 [对应分节](#bed-slinger-printers)。"
 
 msgid ""
 "**Attention:** make sure the accelerometer and any screws that hold it in "
@@ -139,9 +159,11 @@ msgid ""
 " from the printer frame. Failing to ensure that can create a ground loop in "
 "the system that may damage the electronics."
 msgstr ""
+"**注意**：务必确保加速度传感器和任何螺丝都不应该接触到打印机的金属部分。紧固件必须设计成在加速度传感器和打印机框体间形成电气绝缘。错误的设计可能会形成"
+"短路，从而损毁电气元件。"
 
 msgid "Software installation"
-msgstr ""
+msgstr "软件设置"
 
 msgid ""
 "Note that resonance measurements and shaper auto-calibration require "
