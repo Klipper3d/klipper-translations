@@ -1,23 +1,37 @@
-#
+# Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2021.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-09-08 19:33+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/overview/"
+"es/>\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.8.1-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
+"Le damos la bienvenida a la documentación de Klipper. Si recién comienza a "
+"utilizar Klipper, comience leyendo los documentos [Funcionalidades](Features."
+"md) e [Instalación](Installation.md)."
 
 msgid "Overview information"
-msgstr ""
+msgstr "Información general"
 
 msgid "[Features](Features.md): A high-level list of features in Klipper."
 msgstr ""
+"[Funcionalidades](Features.md): una lista general de prestaciones de Klipper."
 
 msgid "[FAQ](FAQ.md): Frequently asked questions."
-msgstr ""
+msgstr "[Preguntas frecuentes](FAQ.md): cuestiones que surgen a menudo."
 
 msgid "[Releases](Releases.md): The history of Klipper releases."
-msgstr ""
+msgstr "[Versiones](Releases.md): el histórico de versiones de Klipper."
 
 msgid ""
 "[Config changes](Config_Changes.md): Recent software changes that may "
