@@ -1,4 +1,4 @@
-# Grabekk <dgrabowski@ciechocinek.zhr.pl>, 2021.
+# Grabekk <dgrabowski@ciechocinek.zhr.pl>, 2021, 2025.
 # sportspider <radoslaw.janas@gmail.com>, 2021.
 # Den Bo <denbo.swaggins@gmail.com>, 2021.
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
@@ -11,14 +11,16 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-07-31 08:45+0000\n"
-"Last-Translator: Bartosz Trojan <51444728+ethylowy@users.noreply.github.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/config_checks/pl/>\n"
+"PO-Revision-Date: 2025-05-03 07:26+0000\n"
+"Last-Translator: Grabekk <dgrabowski@ciechocinek.zhr.pl>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
+"config_checks/pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.7-dev\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in the"
@@ -113,11 +115,11 @@ msgid ""
 "(see the next section)."
 msgstr ""
 "Uruchom powyższy test dla każdego silnika krokowego zdefiniowanego w pliku "
-"konfiguracyjnym. (Ustaw parametr STEPPER komendy STEPPER_BUZZ na nazwę sekcji "
-"konfiguracyjnej, która ma być testowana.) Jeśli w ekstruderze nie ma "
+"konfiguracyjnym. (Ustaw parametr STEPPER komendy STEPPER_BUZZ na nazwę "
+"sekcji konfiguracyjnej, która ma być testowana.) Jeśli w ekstruderze nie ma "
 "filamentu, można użyć STEPPER_BUZZ do weryfikacji połączenia silnika "
-"ekstrudera (użyj STEPPER=extruder). W przeciwnym razie najlepiej przetestować "
-"silnik ekstrudera osobno (patrz następna sekcja)."
+"ekstrudera (użyj STEPPER=extruder). W przeciwnym razie najlepiej "
+"przetestować silnik ekstrudera osobno (patrz następna sekcja)."
 
 msgid ""
 "After verifying all endstops and verifying all stepper motors the homing "
