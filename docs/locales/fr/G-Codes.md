@@ -7,31 +7,31 @@ This document describes the commands that Klipper supports. These are commands t
 Klipper prend en charge les commandes G-Code standard suivantes :
 
 - Move (G0 ou G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
-- Dwell: `G4 P<milliseconds>`
+- Temporisation : `G4 P<millisecondes>`
 - Déplacement vers l'origine : `G28 [X] [Y] [Z] `
 - Turn off motors: `M18` or `M84`
 - Wait for current moves to finish: `M400`
 - Use absolute/relative distances for extrusion: `M82`, `M83`
 - Use absolute/relative coordinates: `G90`, `G91`
-- Set position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
-- Set speed factor override percentage: `M220 S<percent>`
-- Set extrude factor override percentage: `M221 S<percent>`
-- Set acceleration: `M204 S<value>` OR `M204 P<value> T<value>`
+- Définir la position : `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] `
+- Définir le pourcentage de neutralisation du facteur de vitesse : `M220 S<percent>`
+- Définit le pourcentage d'annulation du facteur d'extrusion : `M221 S<percent>`
+- Régler l'accélération : `M204 S<valeur>` OU `M204 P<valeur> T<valeur>`
    - Remarque : si S n'est pas spécifié et que P et T le sont, l'accélération sera réglée sur le minimum de P et T. Si un seul P ou T est donné, la commande n'aura aucun effet.
 - Obtenir la température de l'extrudeur : `M105`
-- Set extruder temperature: `M104 [T<index>] [S<temperature>]`
-- Set extruder temperature and wait: `M109 [T<index>] S<temperature>`
+- Régler la température de l'extrudeur : `M104 [T<index>] [S<température>] `
+- Régler la température de l'extrudeur et attendre : `M109 [T<index>] S<température> `
    - Note : M109 attendra toujours que la température se stabilise à la valeur demandée.
-- Set bed temperature: `M140 [S<temperature>]`
-- Set bed temperature and wait: `M190 S<temperature>`
+- Régler la température du bed : `M140 [S<temperature>]`
+- Régler la température du bed et attendre : `M190 S<temperature>`
    - Note : M190 attendra toujours que la température se stabilise à la valeur demandée.
-- Set fan speed: `M106 S<value>`
+- Régler la vitesse du ventilateur : `M106 S<valeur>`
 - Turn fan off: `M107`
-- Emergency stop: `M112`
+- Arrêt d'urgence : `M112`
 - Obtenir la position actuelle : `M114`
 - Obtenir la version du firmware : `M115`
 
-For further details on the above commands see the [RepRap G-Code documentation](http://reprap.org/wiki/G-code).
+Pour plus de détails sur les commandes ci-dessus, voir la [documentation RepRap G-Code] (http://reprap.org/wiki/G-code).
 
 L'objectif de Klipper est de prendre en charge les commandes G-Code produites par les logiciels tiers courants (par exemple, OctoPrint, Printrun, Slic3r, Cura, etc.) dans leurs configurations standard. L'objectif n'est pas de prendre en charge toutes les commandes G-Code possibles. A la place, Klipper préfère les ["commandes G-Code étendues"](#extended-g-code-commands) plus faciles à lire pour un humain.
 
@@ -43,36 +43,36 @@ Klipper prend également en charge les commandes G-Code standard suivantes si la
 
 - Liste des cartes SD : `M20`
 - Initialiser la carte SD : `M21`
-- Select SD file: `M23 <filename>`
+- Sélectionnez le fichier SD : `M23 <nom du fichier> `
 - Start/resume SD print: `M24`
 - Suspendre l'impression depuis la SD : `M25`
-- Set SD position: `M26 S<offset>`
-- Report SD print status: `M27`
+- Définir la position SD : `M26 S<décalage> `
+- Afficher l'état d'impression depuis la carte SD : `M27`
 
 En outre, les commandes étendues suivantes sont disponibles lorsque la section de configuration « virtual_sdcard » est activée.
 
 - Charger un fichier et lancer l'impression depuis la SD : `SDCARD_PRINT_FILE FILENAME=<filename>`
 - Unload file and clear SD state: `SDCARD_RESET_FILE`
 
-### G-Code arcs
+### Arcs de G-Code
 
 The following standard G-Code commands are available if a [gcode_arcs config section](Config_Reference.md#gcode_arcs) is enabled:
 
 - Controlled Arc Move (G2 or G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>`
 
-### G-Code firmware retraction
+### Rétraction du firmware G-Code
 
 The following standard G-Code commands are available if a [firmware_retraction config section](Config_Reference.md#firmware_retraction) is enabled:
 
-- Retract: `G10`
+- Rétractation : `G10`
 - Unretract: `G11`
 
-### G-Code display commands
+### Commandes d’affichage G-Code
 
 The following standard G-Code commands are available if a [display config section](Config_Reference.md#display) is enabled:
 
 - Afficher un message : `M117 <message> `
-- Set build percentage: `M73 P<percent>`
+- Définir le pourcentage de génération : `M73 P<pourcentage>`
 
 ### Autres commandes G-Code disponibles
 
@@ -80,27 +80,27 @@ The following standard G-Code commands are currently available, but using them i
 
 - Obtenir le statut Fin de course : `M119` (Utilisez QUERY_ENDSTOPS à la place.)
 
-## Extended G-Code Commands
+## Commandes G-Code étendues
 
 Klipper utilise des commandes G-Code "étendues" pour la configuration générale et l'état. Ces commandes étendues suivent toutes un format similaire : elles commencent par le nom de la commande et peuvent être suivies d'un ou plusieurs paramètres. Par exemple : `SET_SERVO SERVO=myservo ANGLE=5.3 `. Dans ce document, les commandes et les paramètres sont indiqués en majuscules, mais ils ne sont pas sensibles à la casse. (Ainsi, "SET_SERVO" et "set_servo" exécuteront tous deux la même commande).
 
 The following standard commands are supported:
 
-- `QUERY_ENDSTOPS`: Probe the axis endstops and report if they are "triggered" or in an "open" state. This command is typically used to verify that an endstop is working correctly.
-- `QUERY_ADC [NAME=<config_name>] [PULLUP=<value>]`: Report the last analog value received for a configured analog pin. If NAME is not provided, the list of available adc names are reported. If PULLUP is provided (as a value in Ohms), the raw analog value along with the equivalent resistance given that pullup is reported.
+- `QUERY_ENDSTOPS`: Teste les butées d'axe et indique si elles sont "déclenchées" ou dans un état "ouvert". Cette commande est généralement utilisée pour vérifier qu'un butoir de fin de course fonctionne correctement.
+- `QUERY_ADC [NAME=<nom_de_la_configuration>] [PULLUP=<valeur>] ` : Rapporte la dernière valeur analogique reçue pour une broche analogique donnée. Si NAME n'est pas fourni, la liste des noms d'adc disponibles est retournée. Si PULLUP est fourni (comme une valeur en Ohms), la valeur analogique brute ainsi que la résistance équivalente relative à ce pullup est retournée.
 - `GET_POSITION` : Retourne les informations sur la position actuelle de la tête.
-- `SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Set a positional offset to apply to future G-Code commands. This is commonly used to virtually change the Z bed offset or to set nozzle XY offsets when switching extruders. For example, if "SET_GCODE_OFFSET Z=0.2" is sent, then future G-Code moves will have 0.2mm added to their Z height. If the X_ADJUST style parameters are used, then the adjustment will be added to any existing offset (eg, "SET_GCODE_OFFSET Z=-0.2" followed by "SET_GCODE_OFFSET Z_ADJUST=0.3" would result in a total Z offset of 0.1). If "MOVE=1" is specified then a toolhead move will be issued to apply the given offset (otherwise the offset will take effect on the next absolute G-Code move that specifies the given axis). If "MOVE_SPEED" is specified then the toolhead move will be performed with the given speed (in mm/s); otherwise the toolhead move will use the last specified G-Code speed.
-- `SAVE_GCODE_STATE [NAME=<state_name>]`: Save the current g-code coordinate parsing state. Saving and restoring the g-code state is useful in scripts and macros. This command saves the current g-code absolute coordinate mode (G90/G91), absolute extrude mode (M82/M83), origin (G92), offset (SET_GCODE_OFFSET), speed override (M220), extruder override (M221), move speed, current XYZ position, and relative extruder "E" position. If NAME is provided it allows one to name the saved state to the given string. If NAME is not provided it defaults to "default".
-- `RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Restore a state previously saved via SAVE_GCODE_STATE. If "MOVE=1" is specified then a toolhead move will be issued to move back to the previous XYZ position. If "MOVE_SPEED" is specified then the toolhead move will be performed with the given speed (in mm/s); otherwise the toolhead move will use the restored g-code speed.
+- `SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]] ` : Définit un décalage positionnel à appliquer aux futures commandes G-Code. Ceci est généralement utilisé pour changer virtuellement le décalage Z du bed ou pour définir les décalages XY des buses lors du changement d'extrudeur. Par exemple, si "SET_GCODE_OFFSET Z=0.2" est donné, les prochains mouvements G-Code auront 0,2mm ajouté à leur hauteur Z. Si les paramètres de style X_ADJUST sont utilisés, l'ajustement sera ajouté à tout décalage existant (par exemple, "SET_GCODE_OFFSET Z=-0.2" suivi de "SET_GCODE_OFFSET Z_ADJUST=0.3" donnerait un décalage Z total de 0.1). Si "MOVE=1" est spécifié, un déplacement de la tête d'outil sera effectué pour appliquer le décalage donné (sinon le décalage prendra effet lors du prochain déplacement absolu en G-code qui spécifie l'axe donné). Si "MOVE_SPEED" est spécifié, le déplacement de la tête d'outil sera effectué avec la vitesse donnée (en mm/s) ; sinon, le déplacement de la tête d'outil utilisera la dernière vitesse G-Code spécifiée.
+- `SAVE_GCODE_STATE [NAME=<nom_de_l'état>]` : Sauvegarde l'état actuel de l'analyse des coordonnées du g-code. La sauvegarde et le rétablissement de l'état du g-code sont utiles dans les scripts et les macros. Cette commande enregistre le mode actuel de coordonnées absolues en g-code (G90/G91), le mode d'extrusion absolue (M82/M83), l'origine (G92), le décalage (SET_GCODE_OFFSET), la priorité de vitesse (M220), la priorité d'extrusion (M221), la vitesse de déplacement, la position XYZ actuelle et la position relative de l'extrudeuse "E". Si NOM est fourni, cela permet de nommer l'état sauvegardé avec la chaîne de caractères donnée. Si le NOM n'est pas fourni, la valeur par défaut est "default".
+- `RESTORE_GCODE_STATE [NAME=<nom_de_l'état>] [MOVE=1 [MOVE_SPEED=<speed>]]` : Restaure un état précédemment sauvegardé via SAVE_GCODE_STATE. Si "MOVE=1" est spécifié, un déplacement de la tête d'outil sera effectué pour revenir à la position XYZ précédente. Si "MOVE_SPEED" est spécifié, alors le déplacement de la tête d'outil sera effectué avec la vitesse donnée (en mm/s) ; sinon, le déplacement de la tête d'outil utilisera la vitesse du G-Code restauré.
 - ` PID_CALIBRATE HEATER=<config_name> TARGET=<temperature> [WRITE_FILE=1]`: Effectuer un test d’étalonnage PID. Le chauffage demandé sera activé jusqu’à ce que la température définie soit atteinte, il s'éteindra et se rallumera durant plusieurs cycles. Si le paramètre WRITE_FILE est activé, le fichier /tmp/heattest.txt sera créé avec un journal de tous les échantillons de température mesurés pendant le test.
 - `TURN_OFF_HEATERS`: Turn off all heaters.
 - `TEMPERATURE_WAIT SENSOR=<config_name> [MINIMUM=<target>] [MAXIMUM=<target>]`: Wait until the given temperature sensor is at or above the supplied MINIMUM and/or at or below the supplied MAXIMUM.
 - `SET_VELOCITY_LIMIT [VELOCITY=<value>] [ACCEL=<value>] [ACCEL_TO_DECEL=<value>] [SQUARE_CORNER_VELOCITY=<value>]`: Modify the printer's velocity limits.
-- `SET_HEATER_TEMPERATURE HEATER=<heater_name> [TARGET=<target_temperature>]`: Sets the target temperature for a heater. If a target temperature is not supplied, the target is 0.
+- `SET_HEATER_TEMPERATURE HEATER=<nom_du_chauffeur> [TARGET=<température_cible>] ` : Définit la température cible d'un élément chauffant. Si une température cible n'est pas fournie, la cible est 0.
 - `ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: Pour une imprimante avec plusieurs extrudeurs, cette commande permet de changer l'extrudeur actif.
-- `SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Set pressure advance parameters. If EXTRUDER is not specified, it defaults to the active extruder.
-- `SET_EXTRUDER_STEP_DISTANCE [EXTRUDER=<config_name>] [DISTANCE=<distance>]`: Set a new value for the provided extruder's "step distance". The "step distance" is `rotation_distance/(full_steps_per_rotation*microsteps)`. Value is not retained on Klipper reset. Use with caution, small changes can result in excessive pressure between extruder and hot end. Do proper calibration steps with filament before use. If 'DISTANCE' value is not included command will return current step distance.
-- `SET_STEPPER_ENABLE STEPPER=<config_name> ENABLE=[0|1]`: Enable or disable only the given stepper. This is a diagnostic and debugging tool and must be used with care. Disabling an axis motor does not reset the homing information. Manually moving a disabled stepper may cause the machine to operate the motor outside of safe limits. This can lead to damage to axis components, hot ends, and print surface.
+- `SET_PRESSURE_ADVANCE [EXTRUDER=<nom_de_la_configuration>] [ADVANCE=<avance_de_pression>] [SMOOTH_TIME=<avance_de_pression_smooth_time>] ` : Définit les paramètres d'avance de pression. Si EXTRUDER n'est pas spécifié, il s'agit par défaut de l'extrudeur active.
+- `SET_EXTRUDER_STEP_DISTANCE [EXTRUDER=<nom_config>] [DISTANCE=<distance>] ` : Définit une nouvelle valeur pour la "distance de pas" de l'extrudeur fourni. La "distance de pas" est `rotation_distance/(full_steps_per_rotation*microsteps)`. La valeur n'est pas conservée lors de la réinitialisation de Klipper. A utiliser avec précaution, de petites modifications peuvent entraîner une pression excessive entre l'extrudeur et l'extrémité chaude. Procédez avec des étapes de calibrage appropriées avec le filament avant de l'utiliser. Si la valeur 'DISTANCE' n'est pas incluse, la commande retournera la distance de pas courante.
+- `SET_STEPPER_ENABLE STEPPER=<nom_de_la_configuration> ENABLE=[0|1] ` : Active ou désactive uniquement le stepper donné. Il s'agit d'un outil de diagnostic et de débogage qui doit donc être utilisé avec précaution. La désactivation d'un moteur d'axe ne réinitialise pas les informations d'orientation. Le déplacement manuel d'un moteur pas à pas désactivé peut amener la machine à faire fonctionner le moteur en dehors des limites de sécurité. Cela peut entraîner des dommages aux composants de l'axe, aux extrémités chaudes et à la surface d'impression.
 - `STEPPER_BUZZ STEPPER=<config_name>`: Move the given stepper forward one mm and then backward one mm, repeated 10 times. This is a diagnostic tool to help verify stepper connectivity.
 - `MANUAL_PROBE [SPEED=<speed>]`: Exécute un script d'aide servant à mesurer la hauteur de la buse à un point donné. Si SPEED est spécifié, il définit la vitesse des commandes TESTZ (la valeur par défaut est 5mm/s). Pendant un sondage manuel, les commandes supplémentaires suivantes sont disponibles :
    - `ACCEPT`: Cette commande valide la position Z actuelle et met fin au sondage manuel.
@@ -109,25 +109,25 @@ The following standard commands are supported:
 - `Z_ENDSTOP_CALIBRATE [SPEED=<speed>]`: Run a helper script useful for calibrating a Z position_endstop config setting. See the MANUAL_PROBE command for details on the parameters and the additional commands available while the tool is active.
 - `Z_OFFSET_APPLY_ENDSTOP`: Take the current Z Gcode offset (aka, babystepping), and subtract it from the stepper_z endstop_position. This acts to take a frequently used babystepping value, and "make it permanent". Requires a `SAVE_CONFIG` to take effect.
 - `TUNING_TOWER COMMAND=<command> PARAMETER=<name> START=<value> FACTOR=<value> [BAND=<value>]`: A tool for tuning a parameter on each Z height during a print. The tool will run the given COMMAND with the given PARAMETER assigned to the value using the formula `value = start + factor * z_height`. If BAND is provided then the adjustment will only be made every BAND millimeters of z height - in that case the formula used is `value = start + factor * ((floor(z_height / band) + .5) * band)`.
-- `SET_DISPLAY_GROUP [DISPLAY=<display>] GROUP=<group>`: Set the active display group of an lcd display. This allows to define multiple display data groups in the config, e.g. `[display_data <group> <elementname>]` and switch between them using this extended gcode command. If DISPLAY is not specified it defaults to "display" (the primary display).
-- `SET_IDLE_TIMEOUT [TIMEOUT=<timeout>]`: Allows the user to set the idle timeout (in seconds).
-- `RESTART`: This will cause the host software to reload its config and perform an internal reset. This command will not clear error state from the micro-controller (see FIRMWARE_RESTART) nor will it load new software (see [the FAQ](FAQ.md#how-do-i-upgrade-to-the-latest-software)).
-- `FIRMWARE_RESTART`: This is similar to a RESTART command, but it also clears any error state from the micro-controller.
-- `SAVE_CONFIG`: This command will overwrite the main printer config file and restart the host software. This command is used in conjunction with other calibration commands to store the results of calibration tests.
+- `SET_DISPLAY_GROUP [DISPLAY=<display>] GROUP=<group> ` : Définit le groupe d'affichage actif d'un écran LCD. Cela permet de définir plusieurs groupes de données d'affichage dans la configuration, par exemple `[display_data <group> <elementname>]` et de passer de l'un à l'autre en utilisant cette commande gcode étendue. Si DISPLAY n'est pas spécifié, la valeur par défaut est "display" (l'affichage principal).
+- `SET_IDLE_TIMEOUT [TIMEOUT=<timeout>]` : Permet à l'utilisateur de définir le délai d'inactivité (en secondes).
+- `RESTART` : Cette commande permet au logiciel hôte de recharger sa configuration et d'effectuer une réinitialisation interne. Cette commande n'efface pas l'état d'erreur du micro-contrôleur (voir FIRMWARE_RESTART) et ne charge pas de nouveau logiciel (voir [la FAQ](FAQ.md#how-do-i-upgrade-to-the-latest-software)).
+- `FIRMWARE_RESTART` : Cette commande est similaire à un RESTART, mais elle efface également tout état d'erreur du micro-contrôleur.
+- `SAVE_CONFIG`: Cette commande écrase le fichier de configuration principal de l'imprimante et redémarre le logiciel hôte. Cette commande est utilisée conjointement avec d'autres commandes d'étalonnage pour enregistrer les résultats de ces tests.
 - `STATUS`: Report the Klipper host software status.
 - `HELP` : Affiche la liste des commandes G-Code étendues disponibles.
 
-### G-Code Macro Commands
+### Commandes de macro G-Code
 
 The following command is available when a [gcode_macro config section](Config_Reference.md#gcode_macro) is enabled (also see the [command templates guide](Command_Templates.md)):
 
-- `SET_GCODE_VARIABLE MACRO=<macro_name> VARIABLE=<name> VALUE=<value>`: This command allows one to change the value of a gcode_macro variable at run-time. The provided VALUE is parsed as a Python literal.
+- `SET_GCODE_VARIABLE MACRO=<macro_name> VARIABLE=<name> VALUE=<value> ` : Cette commande permet de changer la valeur d'une variable gcode_macro au moment de l'exécution. La valeur fournie est analysée comme un littéral Python.
 
 ### Commandes de broches personnalisées
 
 The following command is available when an [output_pin config section](Config_Reference.md#output_pin) is enabled:
 
-- `SET_PIN PIN=config_name VALUE=<value> CYCLE_TIME=<cycle_time>`
+- `SET_PIN PIN=nom_de_configuration VALUE=<valeur> CYCLE_TIME=<temps_de_cycle> `
 
 Remarque : Le matériel PWM ne prend pas encore en charge le paramètre CYCLE_TIME et utilisera donc le temps de cycle défini dans le config.
 
@@ -135,19 +135,19 @@ Remarque : Le matériel PWM ne prend pas encore en charge le paramètre CYCLE_TI
 
 The following command is available when a [fan_generic config section](Config_Reference.md#fan_generic) is enabled:
 
-- `SET_FAN_SPEED FAN=config_name SPEED=<speed>` This command sets the speed of a fan. <speed> must be between 0.0 and 1.0.
+- `SET_FAN_SPEED FAN=nom_du_config SPEED=<speed> ` Cette commande définit la vitesse d'un ventilateur. <speed> doit être comprise entre 0,0 et 1,0.
 
 ### Commandes Neopixel et Dotstar
 
 The following command is available when a [neopixel config section](Config_Reference.md#neopixel) or [dotstar config section](Config_Reference.md#dotstar) is enabled:
 
-- `SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: This sets the LED output. Each color `<value>` must be between 0.0 and 1.0. The WHITE option is only valid on RGBW LEDs. If multiple LED chips are daisy-chained then one may specify INDEX to alter the color of just the given chip (1 for the first chip, 2 for the second, etc.). If INDEX is not provided then all LEDs in the daisy-chain will be set to the provided color. If TRANSMIT=0 is specified then the color change will only be made on the next SET_LED command that does not specify TRANSMIT=0; this may be useful in combination with the INDEX parameter to batch multiple updates in a daisy-chain. By default, the SET_LED command will sync it's changes with other ongoing gcode commands. This can lead to undesirable behavior if LEDs are being set while the printer is not printing as it will reset the idle timeout. If careful timing is not needed, the optional SYNC=0 parameter can be specified to apply the changes instantly and not reset the idle timeout.
+- `SET_LED LED=<nom_de_la_configuration> ROUGE=<valeur> VERT=<valeur> BLEU=<valeur> BLANC=<valeur> [INDEX=<index>] [TRANSMIT=0] [SYNC=1] ` : Ceci définit la sortie de la LED. Chaque couleur `<valeur>` doit être comprise entre 0,0 et 1,0. L'option WHITE n'est valable que pour les LEDs RGBW. Si plusieurs puces LED sont chaînées en guirlande, on peut spécifier INDEX pour modifier la couleur de la seule puce donnée (1 pour la première puce, 2 pour la deuxième, etc.). Si INDEX n'est pas spécifié, alors toutes les LEDs de la chaîne seront réglées sur la couleur fournie. Si TRANSMIT=0 est spécifié, le changement de couleur ne sera effectué que lors de la prochaine commande SET_LED qui ne spécifie pas TRANSMIT=0 ; cela peut être utile en combinaison avec le paramètre INDEX pour effectuer des mises à jour multiples dans une chaîne. Par défaut, la commande SET_LED synchronisera ses changements avec les autres commandes gcode en cours. Cela peut conduire à un comportement indésirable si les LEDs sont réglées alors que l'imprimante n'imprime pas, car cela réinitialisera le délai d'inactivité. Si un timing précis n'est pas nécessaire, le paramètre optionnel SYNC=0 peut être spécifié pour appliquer les changements instantanément et ne pas réinitialiser le délai d'inactivité.
 
-### Servo Commands
+### Commandes de servo
 
 The following commands are available when a [servo config section](Config_Reference.md#servo) is enabled:
 
-- `SET_SERVO SERVO=config_name [ANGLE=<degrees> | WIDTH=<seconds>]`: Set the servo position to the given angle (in degrees) or pulse width (in seconds). Use `WIDTH=0` to disable the servo output.
+- `SET_SERVO SERVO=nom_config [ANGLE=<degrés> | LARGEUR=<secondes>] ` : Définit la position du servo à l'angle (en degrés) ou à la largeur d'impulsion (en secondes) donnés. Utilisez `WIDTH=0` pour désactiver la sortie du servo.
 
 ### Commandes manuelles du stepper
 
@@ -155,7 +155,7 @@ The following command is available when a [manual_stepper config section](Config
 
 - `MANUAL_STEPPER STEPPER=nom_du_config [ENABLE=[0|1]]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|-1|-2]] [SYNC=0]] ` : Cette commande modifie l'état du stepper. Utilisez le paramètre ENABLE pour activer/désactiver le stepper. Utilisez le paramètre SET_POSITION pour forcer le moteur pas à pas à penser qu'il se trouve à la position donnée. Utilisez le paramètre MOVE pour déplacer vers la position donnée. Si SPEED et/ou ACCEL sont spécifiés, les valeurs données seront utilisées à la place de celles par défaut issues du fichier de configuration. Si un ACCEL de zéro est spécifié, aucune accélération ne sera effectuée. Si STOP_ON_ENDSTOP=1 est spécifié, le déplacement se terminera prématurément si la fin de course est déclenchée (utilisez STOP_ON_ENDSTOP=2 pour terminer le déplacement sans erreur même si la fin de course n'est pas déclenchée, utilisez -1 ou -2 pour s'arrêter lorsque la fin de course n'est pas déclenchée). Normalement, les futures commandes G-Code seront programmées pour être exécutées après la fin du déplacement de la commande de pas, mais si un déplacement manuel de la commande de pas utilise SYNC=0, les futures commandes de déplacement G-Code peuvent être exécutées en parallèle avec le déplacement de la commande de pas.
 
-### Extruder stepper Commands
+### Commandes de l'extrudeur pas à pas
 
 The following command is available when an [extruder_stepper config section](Config_Reference.md#extruder_stepper) is enabled:
 
@@ -165,8 +165,8 @@ The following command is available when an [extruder_stepper config section](Con
 
 The following commands are available when a [probe config section](Config_Reference.md#probe) is enabled (also see the [probe calibrate guide](Probe_Calibrate.md)):
 
-- `PROBE [PROBE_SPEED=<mm/s>] [LIFT_SPEED=<mm/s>] [SAMPLES=<count>] [SAMPLE_RETRACT_DIST=<mm>] [SAMPLES_TOLERANCE=<mm>] [SAMPLES_TOLERANCE_RETRIES=<count>] [SAMPLES_RESULT=median|average]`: Move the nozzle downwards until the probe triggers. If any of the optional parameters are provided they override their equivalent setting in the [probe config section](Config_Reference.md#probe).
-- `QUERY_PROBE`: Report the current status of the probe ("triggered" or "open").
+- `PROBE [PROBE_SPEED=<mm/s>] [LIFT_SPEED=<mm/s>] [SAMPLES=<count>] [SAMPLE_RETRACT_DIST=<mm>] [SAMPLES_TOLERANCE=<mm>] [SAMPLES_TOLERANCE_RETRIES=<count>] [SAMPLES_RESULT=median|average]` : Déplace la buse vers le bas jusqu'à ce que le palpeur se déclenche. Si l'un des paramètres facultatifs est fourni, il remplace son paramètre équivalent dans la section [configuration de la sonde](Config_Reference.md#probe).
+- `QUERY_PROBE`: Retourne l'état actuel de la sonde ("triggered" ou "open").
 - ` PROBE_ACCURACY [PROBE_SPEED=<mm/s>] [SAMPLES=<count>] [SAMPLE_RETRACT_DIST=<mm>]` : Calculer le maximum, le minimum, la moyenne, la médiane et l’écart type des échantillons des multiples palpeurs. Par défaut, 10 ÉCHANTILLONS sont prélevés. Sinon, les paramètres optionnels peuvent être définis dans la section de configuration du palpeur.
 - ` PROBE_CALIBRATE [SPEED=<speed>] [<probe_parameter>=<value>]` : Exécute l'assistant servant à calibrer le z_offset du palpeur. Consultez la commande PROBE pour plus d’informations sur les paramètres optionnels du palpeur. Reportez-vous à la commande MANUAL_PROBE pour plus d’informations sur le paramètre SPEED et les commandes supplémentaires disponibles lorsque l'assistant est actif. Veuillez noter que la commande PROBE_CALIBRATE utilise la variable de vitesse pour se déplacer dans la direction XY ainsi que dans Z.
 - `Z_OFFSET_APPLY_PROBE`: Take the current Z Gcode offset (aka, babystepping), and subtract if from the probe's z_offset. This acts to take a frequently used babystepping value, and "make it permanent". Requires a `SAVE_CONFIG` to take effect.
@@ -213,7 +213,7 @@ The following commands are available when the [bed_screws config section](Config
 
 The following commands are available when the [screws_tilt_adjust config section](Config_Reference.md#screws_tilt_adjust) is enabled (also see the [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe)):
 
-- `SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [<probe_parameter>=<value>]`: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) probing the z height and calculate the number of knob turns to adjust the bed level. If DIRECTION is specified, the knob turns will all be in the same direction, clockwise (CW) or counterclockwise (CCW). See the PROBE command for details on the optional probe parameters. IMPORTANT: You MUST always do a G28 before using this command.
+- `SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [<paramètre_sonde>=<valeur>] ` : Cette commande appellera l'outil de réglage des vis du bed. Elle commandera la buse à différents endroits (tels que définis dans le fichier de configuration) en testant la hauteur z et calculera le nombre de tours de bouton pour ajuster le niveau du lit. Si DIRECTION est spécifié, les tours de bouton seront tous dans la même direction, dans le sens des aiguilles d'une montre (CW) ou dans le sens inverse (CCW). Voir la commande PROBE pour plus de détails sur les paramètres optionnels du palpeur. IMPORTANT : Vous DEVEZ toujours effectuer un G28 avant d'utiliser cette commande.
 
 ### Z Tilt
 
@@ -225,79 +225,79 @@ The following commands are available when the [z_tilt config section](Config_Ref
 
 The following command is available when the [dual_carriage config section](Config_Reference.md#dual_carriage) is enabled:
 
-- `SET_DUAL_CARRIAGE CARRIAGE=[0|1]`: This command will set the active carriage. It is typically invoked from the activate_gcode and deactivate_gcode fields in a multiple extruder configuration.
+- `SET_DUAL_CARRIAGE CARRIAGE=[0|1]`: Cette commande définit le chariot actif. Elle est généralement appelée à partir des champs activate_gcode et deactivate_gcode dans une configuration à extrudeurs multiples.
 
 ### TMC stepper drivers
 
 The following commands are available when any of the [tmcXXXX config sections](Config_Reference.md#tmc-stepper-driver-configuration) are enabled:
 
-- `DUMP_TMC STEPPER=<name>`: This command will read the TMC driver registers and report their values.
+- `DUMP_TMC STEPPER=<nom>` : Cette commande lit les registres du pilote TMC et renvoie leurs valeurs.
 - `INIT_TMC STEPPER=<name>`: Cette commande va initialiser les registres du TMC. Nécessaire pour réactiver le pilote si l'alimentation de la puce est interrompue puis rétablie.
 - `SET_TMC_CURRENT STEPPER=<name> CURRENT=<amps> HOLDCURRENT=<amps>`: This will adjust the run and hold currents of the TMC driver. (HOLDCURRENT is not applicable to tmc2660 drivers.)
 - `SET_TMC_FIELD STEPPER=<name> FIELD=<field> VALUE=<value>`: This will alter the value of the specified register field of the TMC driver. This command is intended for low-level diagnostics and debugging only because changing the fields during run-time can lead to undesired and potentially dangerous behavior of your printer. Permanent changes should be made using the printer configuration file instead. No sanity checks are performed for the given values.
 
-### Endstop adjustments by stepper phase
+### Réglages des butées par phase pas à pas
 
 The following commands are available when an [endstop_phase config section](Config_Reference.md#endstop_phase) is enabled (also see the [endstop phase guide](Endstop_Phase.md)):
 
-- `ENDSTOP_PHASE_CALIBRATE [STEPPER=<config_name>]`: If no STEPPER parameter is provided then this command will reports statistics on endstop stepper phases during past homing operations. When a STEPPER parameter is provided it arranges for the given endstop phase setting to be written to the config file (in conjunction with the SAVE_CONFIG command).
+- `ENDSTOP_PHASE_CALIBRATE [STEPPER=<config_name>]` : Si aucun paramètre STEPPER n'est fourni, cette commande rapporte des statistiques sur les phases d'arrêt du stepper pendant les précédentes opérations de recherche d'origine. Lorsqu'un paramètre STEPPER est fourni, elle fait en sorte que le paramètre de phase de fin de course donné soit écrit dans le fichier de configuration (en lien avec la commande SAVE_CONFIG).
 
-### Force movement
+### Forcer le déplacement
 
 The following commands are available when the [force_move config section](Config_Reference.md#force_move) is enabled:
 
-- `FORCE_MOVE STEPPER=<config_name> DISTANCE=<value> VELOCITY=<value> [ACCEL=<value>]`: This command will forcibly move the given stepper the given distance (in mm) at the given constant velocity (in mm/s). If ACCEL is specified and is greater than zero, then the given acceleration (in mm/s^2) will be used; otherwise no acceleration is performed. No boundary checks are performed; no kinematic updates are made; other parallel steppers on an axis will not be moved. Use caution as an incorrect command could cause damage! Using this command will almost certainly place the low-level kinematics in an incorrect state; issue a G28 afterwards to reset the kinematics. This command is intended for low-level diagnostics and debugging.
-- `SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>]`: Force the low-level kinematic code to believe the toolhead is at the given cartesian position. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. If an axis is not specified then it will default to the position that the head was last commanded to. Setting an incorrect or invalid position may lead to internal software errors. This command may invalidate future boundary checks; issue a G28 afterwards to reset the kinematics.
+- `FORCE_MOVE STEPPER=<nom_de_la_configuration> DISTANCE=<valeur> VELOCITE=<valeur> [ACCEL=<valeur>] ` : Cette commande forcera le déplacement du stepper donné sur la distance donnée (en mm) à la vitesse constante donnée (en mm/s). Si ACCEL est spécifié et est supérieur à zéro, alors l'accélération donnée (en mm/s^2) sera utilisée ; sinon, aucune accélération n'est effectuée. Aucune vérification des limites n'est effectuée ; aucune mise à jour cinématique n'est faite ; les autres steppers parallèles sur un axe ne seront pas déplacés. Soyez prudent car une commande incorrecte pourrait endommager le matériel ! L'utilisation de cette commande placera presque certainement la cinématique de bas niveau dans un état incorrect ; émettez ensuite un G28 pour réinitialiser la cinématique. Cette commande est destinée aux diagnostics de bas niveau et au débogage.
+- `SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] ` : Force le code cinématique de bas niveau à croire que la tête d'outil est à la position cartésienne donnée. Il s'agit d'une commande de diagnostic et de débogage ; utilisez SET_GCODE_OFFSET et/ou G92 pour des transformations d'axe régulières. Si un axe n'est pas spécifié, la position par défaut sera celle de la dernière commande de la tête. La définition d'une position incorrecte ou invalide peut entraîner des erreurs logicielles internes. Cette commande peut invalider les futures vérifications de limites ; émettez ensuite un G28 pour réinitialiser la cinématique.
 
-### SDcard loop
+### Boucle SDcard
 
 When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is enabled, the following extended commands are available:
 
-- `SDCARD_LOOP_BEGIN COUNT=<count>`: Begin a looped section in the SD print. A count of 0 indicates that the section should be looped indefinately.
-- `SDCARD_LOOP_END`: End a looped section in the SD print.
-- `SDCARD_LOOP_DESIST`: Complete existing loops without further iterations.
+- `SDCARD_LOOP_BEGIN COUNT=<count>` : Démarre une boucle dans l'impression SD. Un compteur à 0 indique une boucle infinie.
+- `SDCARD_LOOP_END`: Termine une section de boucle dans l'impression SD.
+- `SDCARD_LOOP_DESIST`: Termine les boucles existantes sans autres itérations.
 
-### Send message (respond) to host
+### Envoyer un message (répondre) à l’hôte
 
 The following commands are availabe when the [respond config section](Config_Reference.md#respond) is enabled.
 
 - `M118 <message>` : affiche le message précédé du préfixe par défaut configuré (ou `echo : ` si aucun préfixe n'est configuré).
-- `RESPOND MSG="<message>"`: echo the message prepended with the configured default prefix (or `echo: ` if no prefix is configured).
-- `RESPOND TYPE=echo MSG="<message>"`: echo the message prepended with `echo: `.
-- `RESPOND TYPE=command MSG="<message>"`: echo the message prepended with `// `. Octopint can be configured to respond to these messages (e.g. `RESPOND TYPE=command MSG=action:pause`).
-- `RESPOND TYPE=error MSG="<message>"`: echo the message prepended with `!! `.
-- `RESPOND PREFIX=<prefix> MSG="<message>"`: echo the message prepended with `<prefix>`. (The `PREFIX` parameter will take priority over the `TYPE` parameter)
+- `RESPOND MSG="<message>"` : Affiche le message précédé du préfixe par défaut configuré (ou `echo : ` si aucun préfixe n'est configuré).
+- `RESPOND TYPE=echo MSG="<message>" ` : affiche le message précédé par `echo : `.
+- `RESPOND TYPE=commande MSG="<message>"` : affiche le message précédé par `// `. Octopint peut être configuré pour répondre à ces messages (par exemple `RESPOND TYPE=commande MSG=action:pause`).
+- `RESPOND TYPE=error MSG="<message>" ` : affiche le message précédé par `!!!`.
+- `RESPOND PREFIX=<prefix> MSG="<message>"` : renvoie le message précédé de `<prefix>`. (Le paramètre `PREFIX` est prioritaire sur le paramètre `TYPE`).
 
 ### Reprendre
 
 The following commands are available when the [pause_resume config section](Config_Reference.md#pause_resume) is enabled:
 
 - ` PAUSE` : suspend l’impression en cours. La position actuelle est enregistrée pour reprendre lorsque demandé.
-- `RESUME [VELOCITY=<value>]`: Resumes the print from a pause, first restoring the previously captured position. The VELOCITY parameter determines the speed at which the tool should return to the original captured position.
+- `RESUME [VELOCITY=<value>]` : Reprend l'impression à la suite d'une pause, en rétablissant d'abord la position capturée précédemment. Le paramètre VELOCITY détermine la vitesse à laquelle l'outil doit revenir à la position capturée d'origine.
 - `CLEAR_PAUSE`: Supprime la mise en pause actuelle sans reprendre l'impression. Ceci est utile si l'on décide d'interrompre une impression après une PAUSE. Il est recommandé d'ajouter ceci à votre gcode de démarrage pour s'assurer que l'état de pause est réinitialisé pour chaque impression.
 - `CANCEL_PRINT`: Annule l'impression en cours.
 
-### Filament Sensor
+### Détecteur de filament
 
 The following command is available when the [filament_switch_sensor or filament_motion_sensor config section](Config_Reference.md#filament_switch_sensor) is enabled.
 
-- `QUERY_FILAMENT_SENSOR SENSOR=<sensor_name>`: Queries the current status of the filament sensor. The data displayed on the terminal will depend on the sensor type defined in the confguration.
-- `SET_FILAMENT_SENSOR SENSOR=<sensor_name> ENABLE=[0|1]`: Sets the filament sensor on/off. If ENABLE is set to 0, the filament sensor will be disabled, if set to 1 it is enabled.
+- `QUERY_FILAMENT_SENSOR SENSOR=<nom_du_capteur> ` : Interroge l'état actuel du capteur de filament. Les données affichées sur le terminal dépendront du type de capteur défini dans la confguration.
+- `SET_FILAMENT_SENSOR SENSOR=<nom_du_capteur> ENABLE=[0|1] ` : Active/désactive le détecteur de filament. Si ENABLE est réglé sur 0, le détecteur de filament est désactivé, s'il est réglé sur 1, il est activé.
 
-### Firmware Retraction
+### Rétraction du firmware
 
 The following commands are available when the [firmware_retraction config section](Config_Reference.md#firmware_retraction) is enabled. These commands allow you to utilise the firmware retraction feature available in many slicers, to reduce stringing during non-extrusion moves from one part of the print to another. Appropriately configuring pressure advance reduces the length of retraction required.
 
-- `SET_RETRACTION [RETRACT_LENGTH=<mm>] [RETRACT_SPEED=<mm/s>] [UNRETRACT_EXTRA_LENGTH=<mm>] [UNRETRACT_SPEED=<mm/s>]`: Adjust the parameters used by firmware retraction. RETRACT_LENGTH determines the length of filament to retract and unretract. The speed of retraction is adjusted via RETRACT_SPEED, and is typically set relatively high. The speed of unretraction is adjusted via UNRETRACT_SPEED, and is not particularly critical, although often lower than RETRACT_SPEED. In some cases it is useful to add a small amount of additional length on unretraction, and this is set via UNRETRACT_EXTRA_LENGTH. SET_RETRACTION is commonly set as part of slicer per-filament configuration, as different filaments require different parameter settings.
+- `SET_RETRACTION [RETRACT_LENGTH=<mm>] [RETRACT_SPEED=<mm/s>] [UNRETRACT_EXTRA_LENGTH=<mm>] [UNRETRACT_SPEED=<mm/s>] ` : Ajuste les paramètres utilisés par la rétraction du micrologiciel. RETRACT_LENGTH détermine la longueur de filament à rétracter et à dérétracter. La vitesse de rétraction est ajustée via RETRACT_SPEED, et est généralement réglée relativement haut. La vitesse de déstratification est ajustée via UNRETRACT_SPEED, et n'est pas particulièrement critique, bien que souvent inférieure à RETRACT_SPEED. Dans certains cas, il est utile d'ajouter une petite quantité de longueur supplémentaire lors de la dérétraction, et ceci est réglé via UNRETRACT_EXTRA_LENGTH. SET_RETRACTION est généralement défini dans le cadre de la configuration du slicer par filament, car les différents filaments nécessitent des paramètres différents.
 - `GET_RETRACTION`: Interroge les paramètres actuellement utilisés pour la rétraction du firmware et les affiche sur le terminal.
-- `G10`: Retracts the extruder using the currently configured parameters.
-- `G11`: Unretracts the extruder using the currently configured parameters.
+- `G10` : Rétracte l'extrudeur en utilisant les paramètres actuellement configurés.
+- `G11` : Détache l'extrudeur en utilisant les paramètres actuellement configurés.
 
 ### Skew Correction
 
 The following commands are available when the [skew_correction config section](Config_Reference.md#skew_correction) is enabled (also see the [skew correction guide](skew_correction.md)):
 
-- `SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] [YZ=<ac,bd,ad>] [CLEAR=<0|1>]`: Configures the [skew_correction] module with measurements (in mm) taken from a calibration print. One may enter measurements for any combination of planes, planes not entered will retain their current value. If `CLEAR=1` is entered then all skew correction will be disabled.
+- `SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] [YZ=<ac,bd,ad>] [CLEAR=<0|1>] ` : Configure le module [skew_correction] avec des mesures (en mm) prises à partir d'une impression d'étalonnage. On peut entrer des mesures pour n'importe quelle combinaison de plans, les plans non entrés conserveront leur valeur actuelle. Si `CLEAR=1` est entré, toute correction d'inclinaison sera désactivée.
 - `GET_CURRENT_SKEW`: Indique l'inclinaison actuelle de l'imprimante pour chaque plan en radians et en degrés. L'inclinaison est calculée en fonction des paramètres fournis par le gcode `SET_SKEW`.
 - `CALC_MEASURED_SKEW [AC=<ac_length>] [BD=<bd_length>] [AD=<ad_length>] ` : Calcule et renvoie l'inclinaison (en radians et en degrés) en fonction d'une impression mesurée. Cela peut être utile pour déterminer l'inclinaison actuelle de l'imprimante après l'application de la correction. Elle peut également être utile avant l'application de la correction pour déterminer si l'inclinaison en a besoin d'une. Voir skew_correction.md pour plus de détails sur les objets et les mesures de calibration de l'inclinaison.
 - `SKEW_PROFILE [LOAD=<name>] [SAVE=<name>] [REMOVE=<name>]`: Profile management for skew_correction. LOAD will restore skew state from the profile matching the supplied name. SAVE will save the current skew state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to peristent memory permanent.
@@ -308,17 +308,17 @@ The following command is enabled if a [delayed_gcode config section](Config_Refe
 
 - `UPDATE_DELAYED_GCODE [ID=<name>] [DURATION=<seconds>]`: Updates the delay duration for the identified [delayed_gcode] and starts the timer for gcode execution. A value of 0 will cancel a pending delayed gcode from executing.
 
-### Save Variables
+### Enregistrer les variables
 
 The following command is enabled if a [save_variables config section](Config_Reference.md#save_variables) has been enabled:
 
-- `SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Saves the variable to disk so that it can be used across restarts. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. The provided VALUE is parsed as a Python literal.
+- `SAVE_VARIABLE VARIABLE=<nom> VALUE=<valeur> ` : Enregistre la variable sur le disque afin qu'elle puisse être utilisée lors des redémarrages. Toutes les variables enregistrées sont chargées dans le dict `printer.save_variables.variables` au démarrage et peuvent être utilisées dans des macros gcode. La VALEUR fournie est analysée comme un littéral Python.
 
 ### Compensation de la résonance
 
 The following command is enabled if an [input_shaper config section](Config_Reference.md#input_shaper) has been enabled (also see the [resonance compensation guide](Resonance_Compensation.md)):
 
-- `SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>]`: Modify input shaper parameters. Note that SHAPER_TYPE parameter resets input shaper for both X and Y axes even if different shaper types have been configured in [input_shaper] section. SHAPER_TYPE cannot be used together with either of SHAPER_TYPE_X and SHAPER_TYPE_Y parameters. See [config reference](Config_Reference.md#input_shaper) for more details on each of these parameters.
+- `SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>] ` : Modifie les paramètres de mise en forme d'entrée. Notez que le paramètre SHAPER_TYPE réinitialise le shaper d'entrée pour les axes X et Y même si différents types de shaper ont été configurés dans la section [input_shaper]. SHAPER_TYPE ne peut pas être utilisé avec l'un des paramètres SHAPER_TYPE_X et SHAPER_TYPE_Y. Voir [config reference](Config_Reference.md#input_shaper) pour plus de détails sur chacun de ces paramètres.
 
 ### Temperature Fan Commands
 
@@ -335,7 +335,7 @@ The following commands are available when an [adxl345 config section](Config_Ref
 - `ADXL345_DEBUG_READ [CHIP=<config_name>] REG=<register>`: Interroge le registre <register> de l'ADXL345 (ex: 44 ou 0x2C). Peut-être utile pour déboguer.
 - `ADXL345_DEBUG_WRITE [CHIP=<nom_de_la_configuration>] REG=<reg> VAL=<valeur>` : écrit la valeur brute <valeur> dans un registre <registre>. <valeur> et <registre> peuvent tous deux être un entier décimal ou hexadécimal. A utiliser avec précaution, et se référer à la fiche technique du ADXL345 pour la référence.
 
-### Resonance Testing Commands
+### Commandes de test de résonance
 
 The following commands are available when a [resonance_tester config section](Config_Reference.md#resonance_tester) is enabled (also see the [measuring resonances guide](Measuring_Resonances.md)):
 
