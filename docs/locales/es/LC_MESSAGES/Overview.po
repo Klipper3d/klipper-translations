@@ -1,4 +1,4 @@
-# Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2021.
+# Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2021, 2025.
 # in the moon <igna@hypixel.one>, 2021.
 # paco avendaño <pacoavendano13@gmail.com>, 2021.
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Alberto <alberto.robles.gomez@aruzeta.com>\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/overview/"
 "es/>\n"
 "Language: es\n"
@@ -189,8 +189,8 @@ msgid ""
 "[Protocol](Protocol.md): Information on the low-level messaging protocol "
 "between host and micro-controller."
 msgstr ""
-"[Protocolo](Protocol.md): información sobre el protocolo de mensajería de bajo"
-" nivel que hay entre el anfitrión y el microcontrolador."
+"[Protocolo](Protocol.md): información sobre el protocolo de mensajería de "
+"bajo nivel que hay entre el anfitrión y el microcontrolador."
 
 msgid ""
 "[API Server](API_Server.md): Information on Klipper's command and control API."
@@ -207,8 +207,8 @@ msgstr ""
 
 msgid "[CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format."
 msgstr ""
-"[Protocolo de bus CAN](CANBUS_protocol.md): el formato de mensajes de bus CAN "
-"de Klipper."
+"[Protocolo de bus CAN](CANBUS_protocol.md): el formato de mensajes de bus "
+"CAN de Klipper."
 
 msgid "[Debugging](Debugging.md): Information on how to test and debug Klipper."
 msgstr ""
