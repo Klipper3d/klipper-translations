@@ -1,50 +1,50 @@
 # API server
 
-该文档介绍Klipper的应用开发者接口（API）功能。该接口允许外部应用程序访问和控制Klipper主机。
+This document describes Klipper's Application Programmer Interface (API). This interface enables external applications to query and control the Klipper host software.
 
-## 启用API套接字
+## Enabling the API socket
 
-要启用API服务器，klipper.py运行时应加上 `-a` 参数。例如：
+In order to use the API server, the klippy.py host software must be started with the `-a` parameter. For example:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 ```
 
-上述操作会使主机创建一个Unix本地套接字。之后，客户应用程序可以创建一个套接字链接，从而给Klipper发送命令。
+This causes the host software to create a Unix Domain Socket. A client can then open a connection on that socket and send commands to Klipper.
 
-## 请求格式
+## Request format
 
-套接字进出的数据包应使用JSON编码的字符串，并以ASCII字符0x03作为结尾：
+Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:
 
 ```
 <json_object_1><0x03><json_object_2><0x03>...
 ```
 
-Klipper使用`scripts/whconsole.py`的代码进行上述的数据帧打包。例如：
+Klipper contains a `scripts/whconsole.py` tool that can perform the above message framing. For example:
 
 ```
 ~/klipper/scripts/whconsole.py /tmp/klippy_uds
 ```
 
-该工具会从stdin中读取一系列的JSON命令，发送到Klipper执行，并将结果送出。该工具默认输入的每条Json命令中不存在换行，并自动地在发送命令时在结尾附上0x03。（Klipper API服务器没有换行符要求。）
+This tool can read a series of JSON commands from stdin, send them to Klipper, and report the results. The tool expects each JSON command to be on a single line, and it will automatically append the 0x03 terminator when transmitting a request. (The Klipper API server does not have a newline requirement.)
 
-## API协议
+## API Protocol
 
-套接字的命令协议受 [json-rpc](https://www.jsonrpc.org/) 启发。
+The command protocol used on the communication socket is inspired by [json-rpc](https://www.jsonrpc.org/).
 
-一个请求命令类似：
+A request might look like:
 
 `{"id": 123, "method": "info", "params": {}}`
 
-一个回应帧类似：
+and a response might look like:
 
 `{"id": 123, "result": {"state_message": "Printer is ready", "klipper_path": "/home/pi/klipper", "config_file": "/home/pi/printer.cfg", "software_version": "v0.8.0-823-g883b1cb6", "hostname": "octopi", "cpu_info": "4 core ARMv7 Processor rev 4 (v7l)", "state": "ready", "python_path": "/home/pi/klippy-env/bin/python", "log_file": "/tmp/klippy.log"}}`
 
-每个请求应为一个JSON字典。（本文档使用Python中的术语“字典”描述以`{}`为边界的“键-值”JSON对象。）
+Each request must be a JSON dictionary. (This document uses the Python term "dictionary" to describe a "JSON object" - a mapping of key/value pairs contained within `{}`.)
 
-请求字典中必须包含一个”method”字段，其值应包含一个可用的Klipper端点”endpoint”名称字符串。
+The request dictionary must contain a "method" parameter that is the string name of an available Klipper "endpoint".
 
-请求字典可能包含”params”参数，并其值应为一个字典类型。”params”提供Klipper”endpoint”处理请求所需的额外数据，其内容依”endpoint”而定。
+The request dictionary may contain a "params" parameter which must be of a dictionary type. The "params" provide additional parameter information to the Klipper "endpoint" handling the request. Its content is specific to the "endpoint".
 
 The request dictionary may contain an "id" parameter which may be of any JSON type. If "id" is present then Klipper will respond to the request with a response message containing that "id". If "id" is omitted (or set to a JSON "null" value) then Klipper will not provide any response to the request. A response message is a JSON dictionary containing "id" and "result". The "result" is always a dictionary - its contents are specific to the "endpoint" handling the request.
 
