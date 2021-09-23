@@ -58,9 +58,6 @@ msgstr ""
 "de sécurité, de sorte que lorsque votre hôte ou votre MCU rencontre une "
 "erreur, l'outil s'arrête."
 
-msgid "For an example configuration, see `config/sample-pwm-tool-cfg`."
-msgstr "Pour un exemple de configuration, voir `config/sample-pwm-tool-cfg`."
-
 msgid "Current Limitations"
 msgstr "Limites actuelles"
 
@@ -152,3 +149,12 @@ msgstr ""
 #: docs/Using_PWM_Tools.md:block 1 (header)
 msgid "Using PWM tools"
 msgstr ""
+
+#: docs/Using_PWM_Tools.md:block 6 (paragraph)
+msgid ""
+"For an example configuration, see [config/sample-pwm-"
+"tool.cfg](/config/sample-pwm-tool.cfg)."
+msgstr ""
+
+#~ msgid "For an example configuration, see `config/sample-pwm-tool-cfg`."
+#~ msgstr "Pour un exemple de configuration, voir `config/sample-pwm-tool-cfg`."

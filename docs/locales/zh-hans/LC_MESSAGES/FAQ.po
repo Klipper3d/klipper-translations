@@ -166,13 +166,6 @@ msgstr "[如何卸载 klipper？](#how-do-i-uninstall-klipper)"
 msgid "How can I donate to the project?"
 msgstr "我如何向项目捐款？"
 
-msgid ""
-"Thanks. Kevin has a Patreon page at: "
-"[https://www.patreon.com/koconnor](https://www.patreon.com/koconnor)"
-msgstr ""
-"谢谢。 凯文有一个 Patreon "
-"页面：[https://www.patreon.com/koconnor](https://www.patreon.com/koconnor)"
-
 msgid "How do I calculate the rotation_distance config parameter?"
 msgstr "如何计算 rotation_distance 配置参数？"
 
@@ -841,6 +834,18 @@ msgstr ""
 #: docs/FAQ.md:block 1 (header)
 msgid "Frequently Asked Questions"
 msgstr ""
+
+#: docs/FAQ.md:block 4 (paragraph)
+msgid ""
+"Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>"
+msgstr ""
+
+#~ msgid ""
+#~ "Thanks. Kevin has a Patreon page at: "
+#~ "[https://www.patreon.com/koconnor](https://www.patreon.com/koconnor)"
+#~ msgstr ""
+#~ "谢谢。 凯文有一个 Patreon "
+#~ "页面：[https://www.patreon.com/koconnor](https://www.patreon.com/koconnor)"
 
 #~ msgid "Frequently asked questions"
 #~ msgstr "常见问题"

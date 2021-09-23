@@ -8,7 +8,7 @@ En ré-utilisant la sortie pwm du ventilateur de la tête d'impression, vous pou
 
 **Avertissement :** Lorsque vous pilotez un laser, prenez toutes les précautions de sécurité auxquelles vous pouvez penser ! Les lasers à diodes sont généralement inversés. Cela signifie que lorsque l'unité centrale redémarre, le laser sera *complètement allumé* pendant le temps nécessaire à l'unité centrale pour redémarrer. Pour faire bonne mesure, il est recommandé de *toujours* porter des lunettes laser appropriées de la bonne longueur d'onde si le laser est alimenté ; et de déconnecter le laser lorsqu'il n'est pas nécessaire. Vous devriez également configurer un délai de sécurité, de sorte que lorsque votre hôte ou votre MCU rencontre une erreur, l'outil s'arrête.
 
-Pour un exemple de configuration, voir `config/sample-pwm-tool-cfg`.
+For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
 
 ## Limites actuelles
 

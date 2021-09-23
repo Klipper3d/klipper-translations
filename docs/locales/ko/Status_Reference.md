@@ -16,6 +16,8 @@
 
 - `settings.<section>.<option>`: 마지막 소프트웨어 시작 또는 다시 시작 중에 지정된 구성 파일 설정(또는 기본값)을 반환합니다. (런타임에 변경된 설정은 여기에 반영되지 않습니다.)
 - `config.<section>.<option>`: 마지막 소프트웨어 시작 또는 다시 시작 중에 Klipper가 읽은 대로 주어진 원시 구성 파일 설정을 반환합니다. (런타임에 변경된 설정은 여기에 반영되지 않습니다.) 모든 값은 문자열로 반환됩니다.
+- `save_config_pending`: Returns true if there are updates that a `SAVE_CONFIG` command may persist to disk.
+- `warnings`: A list of warnings about config options. Each entry in the list will be a dictionary containing a `type` and `message` field (both strings). Additional fields may be available depending on the type of warning.
 
 ## display_status
 
@@ -204,6 +206,14 @@
 
 - `temperature`: 센서에서 마지막으로 읽은 온도입니다.
 - `measured_min_temp`, `measured_max_temp`: Klipper 호스트 소프트웨어가 마지막으로 다시 시작된 이후 센서에 표시되는 최저 및 최고 온도입니다.
+
+## tmc drivers
+
+The following information is available in [TMC stepper driver](Config_Reference.md#tmc-stepper-driver-configuration) objects (eg, `[tmc2208 stepper_x]`):
+
+- `mcu_phase_offset`: The micro-controller stepper position corresponding with the driver's "zero" phase. This field may be null if the phase offset is not known.
+- `phase_offset_position`: The "commanded position" corresponding to the driver's "zero" phase. This field may be null if the phase offset is not known.
+- `drv_status`: The results of the last driver status query. (Only non-zero fields are reported.) This field will be null if the driver is not enabled (and thus is not periodically queried).
 
 ## toolhead
 

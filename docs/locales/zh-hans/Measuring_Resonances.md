@@ -2,7 +2,7 @@
 
 Klipper内建有ADXL345加速度传感器驱动，可用以测量打印机不同运动轴发生共振的频率，从而自动进行 [输入整形](Resonance_Compensation.md) 以实现共振补偿。注意使用ADXL345需要进行焊接和压线。ADXL345可以直接连接到树莓派，也可以连接到MCU的SPI总线（注意MCU有一定的性能需求）。
 
-购买ADXL345时，要注意选择合适的PCB版型，务必购买支持SPI模式的产品。少数产品将SDO引脚连接到GND，从而使ADXL硬设置到I2C模式。同时，在将ADXL345连接到5V驱动的MCU时，应在ADXL345和MCU引脚间使用调压模块和电流转换模块。
+When sourcing ADXL345, be aware that there is a variety of different PCB board designs and different clones of them. Make sure that the board supports SPI mode (small number of boards appear to be hard-configured for I2C by pulling SDO to GND), and, if it is going to be connected to a 5V printer MCU, that it has a voltage regulator and a level shifter.
 
 ## 安装指南
 

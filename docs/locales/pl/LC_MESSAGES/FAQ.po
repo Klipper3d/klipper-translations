@@ -125,11 +125,6 @@ msgstr ""
 msgid "How can I donate to the project?"
 msgstr ""
 
-msgid ""
-"Thanks. Kevin has a Patreon page at: "
-"[https://www.patreon.com/koconnor](https://www.patreon.com/koconnor)"
-msgstr ""
-
 msgid "How do I calculate the rotation_distance config parameter?"
 msgstr ""
 
@@ -779,6 +774,16 @@ msgstr ""
 #: docs/FAQ.md:block 1 (header)
 msgid "Frequently Asked Questions"
 msgstr ""
+
+#: docs/FAQ.md:block 4 (paragraph)
+msgid ""
+"Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>"
+msgstr ""
+
+#~ msgid ""
+#~ "Thanks. Kevin has a Patreon page at: "
+#~ "[https://www.patreon.com/koconnor](https://www.patreon.com/koconnor)"
+#~ msgstr ""
 
 #~ msgid "Frequently asked questions"
 #~ msgstr ""

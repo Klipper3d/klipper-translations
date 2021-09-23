@@ -26,13 +26,14 @@ Klipper 에 오신것을 환영합니다. Klipper를 처음 사용하는 경우�
 - [Resonance compensation](Resonance_Compensation.md): 인쇄물에서 물결을 줄이는 도구.
    - [Measuring resonances](Measuring_Resonances.md): 공진을 측정하기 위해 adxl345 가속도계 하드웨어를 사용하는 방법에 대한 정보.
 - [Pressure advance](Pressure_Advance.md): 익스트루더 압출 보정.
-- [슬라이서](Slicers.md): Klipper용 "슬라이서" 소프트웨어 구성.
+- [G-Codes](G-Codes.md): Klipper에서 지원하는 G-Code 대한 정보.
 - [Command Templates](Command_Templates.md): G-Code 매크로 및 조건부 평가.
    - [Status Reference](Status_Reference.md): 매크로(및 유사)에 사용할 수 있는 정보.
 - [TMC 드라이버](TMC_Drivers.md): Klipper와 함께 Trinamic 스테퍼 모터 드라이버 사용.
+- [Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple micro-controllers.
+- [슬라이서](Slicers.md): Klipper용 "슬라이서" 소프트웨어 구성.
 - [Skew correction](skew_correction.md): 축 틀어짐 보정.
 - [PWM tools](Using_PWM_Tools.md): 레이저 또는 스핀들과 같은 PWM 제어 도구를 사용하는 방법에 대한 안내.
-- [G-Codes](G-Codes.md): Klipper에서 지원하는 G-Code 대한 정보.
 
 ## 개발자 문서
 

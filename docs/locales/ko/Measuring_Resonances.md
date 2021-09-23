@@ -2,7 +2,7 @@
 
 Klipper는 다양한 축에 대한 프린터의 공진 주파수를 측정하는 데 사용할 수 있는 ADXL345 가속도계를 기본적으로 지원하고 공진을 보상하기 위해 [input shapers](Resonance_Compensation.md) 를 자동 조정합니다. ADXL345 를 사용하려면 약간의 납땜 및 압착이 필요합니다. ADXL345는 Raspberry Pi에 직접 연결하거나 MCU 보드의 SPI 인터페이스에 연결할 수 있습니다 (빠른 속도가 필요하기 때문에).
 
-ADLX345를 구입할 때 다양한 PCB 보드 디자인과 다양한 복제품이 있다는 점에 유의하십시오. 보드가 SPI 모드를 지원하는지 확인하십시오 (어떤 보드는 SDO 를 GND 로 당겨서 I2C 에 대해 하드 구성되어 있는 것으로 나타남). 그리고 5V 프린터 MCU 에 연결하려는 경우 전압 레귤레이터 및 레벨 시프터가 필요할 수 있습니다.
+When sourcing ADXL345, be aware that there is a variety of different PCB board designs and different clones of them. Make sure that the board supports SPI mode (small number of boards appear to be hard-configured for I2C by pulling SDO to GND), and, if it is going to be connected to a 5V printer MCU, that it has a voltage regulator and a level shifter.
 
 ## 설치 방법
 

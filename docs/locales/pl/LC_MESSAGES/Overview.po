@@ -209,5 +209,11 @@ msgstr ""
 msgid "Installation and Configuration"
 msgstr ""
 
+#: docs/Overview.md:block 6 (unordered list)
+msgid ""
+"[Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple "
+"micro-controllers."
+msgstr ""
+
 #~ msgid "Configuration and Tuning Guides"
 #~ msgstr ""

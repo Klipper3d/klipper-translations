@@ -32,7 +32,7 @@ rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
 
 1. 압출기에 필라멘트가 있고 핫엔드가 적절한 온도로 가열되고 프린터가 압출할 준비가 되었는지 확인합니다.
 1. Extruder 본체의 흡입구에서 약 70mm 지점에 필라멘트에 마커를 사용하여 표시를 합니다. 그런 다음 디지털 캘리퍼스를 사용하여 해당 표시의 실제 거리를 가능한 한 정확하게 측정합니다. 이것을 `<initial_mark_distance>`로 기록하십시오.
-1. 'G91' 다음에 'G1 E50 F60' 명령 순서로 필라멘트 50mm를 압출합니다. 50mm를 `<requested_extrude_distance>`로 기록합니다. 압출기가 이동을 마칠 때까지 기다립니다(약 50초 소요).
+1. Extrude 50mm of filament with the following command sequence: `G91` followed by `G1 E50 F60`. Note 50mm as `<requested_extrude_distance>`. Wait for the extruder to finish the move (it will take about 50 seconds). It is important to use the slow extrusion rate for this test as a faster rate can cause high pressure in the extruder which will skew the results. (Do not use the "extrude button" on graphical front-ends for this test as they extrude at a fast rate.)
 1. 디지털 캘리퍼스를 사용하여 압출기 본체와 필라멘트 표시 사이의 새로운 거리를 측정합니다. 이것을 `<subsequent_mark_distance>`로 기록하십시오. 그런 다음 다음을 계산합니다: `actual_extrude_distance = <initial_mark_distance> - <subsequent_mark_distance>`
 1. 다음과 같이 rotation_distance를 계산합니다: `rotation_distance = <previous_rotation_distance> * <actual_extrude_distance> / <requested_extrude_distance>` 새 rotation_distance를 소수점 이하 세 자리로 반올림합니다.
 

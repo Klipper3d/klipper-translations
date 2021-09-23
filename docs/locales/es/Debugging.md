@@ -58,6 +58,55 @@ El archivo resultante, **test.txt**, contiene una lista legible por humanos de �
 
 El modo por lotes desactiva determinadas órdenes de respuesta/petición para poder funcionar. Por consiguiente, habrá algunas diferencias entre las órdenes reales y la salida anterior. Los datos generados son útiles para efectuar pruebas e inspecciones; no lo son para su envío a un microcontrolador real.
 
+## Motion analysis and data logging
+
+Klipper supports logging its internal motion history, which can be later analyzed. To use this feature, Klipper must be started with the [API Server](API_Server.md) enabled.
+
+Data logging is enabled with the `data_logger.py` tool. For example:
+
+```
+~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog
+```
+
+This command will connect to the Klipper API Server, subscribe to status and motion information, and log the results. Two files are generated - a compressed data file and an index file (eg, `mylog.json.gz` and `mylog.index.gz`). After starting the logging, it is possible to complete prints and other actions - the logging will continue in the background. When done logging, hit `ctrl-c` to exit from the `data_logger.py` tool.
+
+The resulting files can be read and graphed using the `motan_graph.py` tool. To generate graphs on a Raspberry Pi, a one time step is necessary to install the "matplotlib" package:
+
+```
+sudo apt-get update
+sudo apt-get install python-matplotlib
+```
+
+However, it may be more convenient to copy the data files to a desktop class machine along with the Python code in the `scripts/motan/` directory. The motion analysis scripts should run on any machine with a recent version of [Python](https://python.org) and [Matplotlib](https://matplotlib.org/) installed.
+
+Graphs can be generated with a command like the following:
+
+```
+~/klipper/scripts/motan/motan_graph.py mylog -o mygraph.png
+```
+
+One can use the `-g` option to specify the datasets to graph (it takes a Python literal containing a list of lists). For example:
+
+```
+~/klipper/scripts/motan/motan_graph.py mylog -g '[["trapq(toolhead,velocity)"], ["trapq(toolhead,accel)"]]'
+```
+
+The list of available datasets can be found using the `-l` option - for example:
+
+```
+~/klipper/scripts/motan/motan_graph.py -l
+```
+
+It is also possible to specify matplotlib plot options for each dataset:
+
+```
+~/klipper/scripts/motan/motan_graph.py mylog -g '[["trapq(toolhead,velocity)?color=red&alpha=0.4"]]'
+```
+
+Many matplotlib options are available; some examples are "color", "label", "alpha", and "linestyle".
+
+The `motan_graph.py` tool supports several other command-line options - use the `--help` option to see a list. It may also be convenient to view/modify the [motan_graph.py](../scripts/motan/motan_graph.py) script itself.
+
 ## Generar gráficos de carga
 
 El archivo de registro de Klippy (/tmp/klippy.log) almacena estadísticas sobre anchura de banda, carga sobre el microcontrolador y carga sobre el búfer del anfitrión. Puede resultar útil graficar estas estadísticas luego de mostrarlas.
@@ -111,14 +160,14 @@ Observe que el sistema de generación podría necesitar que algunos paquetes (co
 Para compilar Klipper para su uso en simulavr, ejecute:
 
 ```
-cd /patch/to/klipper
+cd /path/to/klipper
 make menuconfig
 ```
 
-y compile el programa del microcontrolador para un atmega644p de AVR, defina la frecuencia de MCU a 20 Mhz y seleccione la compatibilidad de emulación del programa SIMULAVR. Ahora es posible compilar Klipper (ejecute `make`) e iniciar la simulación con:
+and compile the micro-controller software for an AVR atmega644p and select SIMULAVR software emulation support. Then one can compile Klipper (run `make`) and then start the simulation with:
 
 ```
-PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py -m atmega644 -s 20000000 -b 250000 out/klipper.elf
+PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py out/klipper.elf
 ```
 
 Acto seguido, teniendo simulavr en ejecución en otra ventana, es posible ejecutar lo siguiente para leer gcode a partir de un archivo (p. ej., «test.gcode»), procesarlo con Klippy y enviarlo al Klipper que se ejecuta dentro de simulavr (vea [Instalación](Installation.md) para obtener los pasos necesarios para generar el entorno virtual de Python):
@@ -132,7 +181,7 @@ Acto seguido, teniendo simulavr en ejecución en otra ventana, es posible ejecut
 Una prestación útil de simulavr es su capacidad de crear archivos de generación de ondas de señal con la cadencia exacta de los sucesos. Para hacerlo, siga las instrucciones anteriores, pero ejecute avrsim.py con una línea de órdenes como esta:
 
 ```
-PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py -m atmega644 -s 20000000 -b 250000 out/klipper.elf -t PORTA.PORT,PORTC.PORT
+PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py out/klipper.elf -t PORTA.PORT,PORTC.PORT
 ```
 
 The above would create a file **avrsim.vcd** with information on each change to the GPIOs on PORTA and PORTB. This could then be viewed using gtkwave with:

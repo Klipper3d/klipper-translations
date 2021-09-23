@@ -71,12 +71,6 @@ msgid "To compile Klipper for use in simulavr, run:"
 msgstr ""
 
 msgid ""
-"and compile the micro-controller software for an AVR atmega644p, set the MCU"
-" frequency to 20Mhz, and select SIMULAVR software emulation support. Then "
-"one can compile Klipper (run `make`) and then start the simulation with:"
-msgstr ""
-
-msgid ""
 "Then, with simulavr running in another window, one can run the following to "
 "read gcode from a file (eg, \"test.gcode\"), process it with Klippy, and "
 "send it to Klipper running in simulavr (see [installation](Installation.md) "
@@ -202,23 +196,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"cd /patch/to/klipper\n"
-"make menuconfig\n"
-msgstr ""
-
-msgid ""
-"PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py -m atmega644 -s"
-" 20000000 -b 250000 out/klipper.elf\n"
-msgstr ""
-
-msgid ""
 "~/klippy-env/bin/python ./klippy/klippy.py config/generic-simulavr.cfg -i "
 "test.gcode -v\n"
-msgstr ""
-
-msgid ""
-"PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py -m atmega644 -s"
-" 20000000 -b 250000 out/klipper.elf -t PORTA.PORT,PORTC.PORT\n"
 msgstr ""
 
 msgid "gtkwave avrsim.vcd\n"
@@ -253,3 +232,148 @@ msgstr ""
 #: docs/Debugging.md:block 1 (header)
 msgid "Debugging"
 msgstr ""
+
+#: docs/Debugging.md:block 24 (header)
+msgid "Motion analysis and data logging"
+msgstr ""
+
+#: docs/Debugging.md:block 25 (paragraph)
+msgid ""
+"Klipper supports logging its internal motion history, which can be later "
+"analyzed. To use this feature, Klipper must be started with the [API "
+"Server](API_Server.md) enabled."
+msgstr ""
+
+#: docs/Debugging.md:block 26 (paragraph)
+msgid "Data logging is enabled with the `data_logger.py` tool. For example:"
+msgstr ""
+
+#: docs/Debugging.md:block 27 (code)
+msgid "~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog\n"
+msgstr ""
+
+#: docs/Debugging.md:block 28 (paragraph)
+msgid ""
+"This command will connect to the Klipper API Server, subscribe to status and"
+" motion information, and log the results. Two files are generated - a "
+"compressed data file and an index file (eg, `mylog.json.gz` and "
+"`mylog.index.gz`). After starting the logging, it is possible to complete "
+"prints and other actions - the logging will continue in the background. When"
+" done logging, hit `ctrl-c` to exit from the `data_logger.py` tool."
+msgstr ""
+
+#: docs/Debugging.md:block 29 (paragraph)
+msgid ""
+"The resulting files can be read and graphed using the `motan_graph.py` tool."
+" To generate graphs on a Raspberry Pi, a one time step is necessary to "
+"install the \"matplotlib\" package:"
+msgstr ""
+
+#: docs/Debugging.md:block 31 (paragraph)
+msgid ""
+"However, it may be more convenient to copy the data files to a desktop class"
+" machine along with the Python code in the `scripts/motan/` directory. The "
+"motion analysis scripts should run on any machine with a recent version of "
+"[Python](https://python.org) and [Matplotlib](https://matplotlib.org/) "
+"installed."
+msgstr ""
+
+#: docs/Debugging.md:block 32 (paragraph)
+msgid "Graphs can be generated with a command like the following:"
+msgstr ""
+
+#: docs/Debugging.md:block 33 (code)
+msgid "~/klipper/scripts/motan/motan_graph.py mylog -o mygraph.png\n"
+msgstr ""
+
+#: docs/Debugging.md:block 34 (paragraph)
+msgid ""
+"One can use the `-g` option to specify the datasets to graph (it takes a "
+"Python literal containing a list of lists). For example:"
+msgstr ""
+
+#: docs/Debugging.md:block 35 (code)
+msgid ""
+"~/klipper/scripts/motan/motan_graph.py mylog -g "
+"'[[\"trapq(toolhead,velocity)\"], [\"trapq(toolhead,accel)\"]]'\n"
+msgstr ""
+
+#: docs/Debugging.md:block 36 (paragraph)
+msgid ""
+"The list of available datasets can be found using the `-l` option - for "
+"example:"
+msgstr ""
+
+#: docs/Debugging.md:block 37 (code)
+msgid "~/klipper/scripts/motan/motan_graph.py -l\n"
+msgstr ""
+
+#: docs/Debugging.md:block 38 (paragraph)
+msgid ""
+"It is also possible to specify matplotlib plot options for each dataset:"
+msgstr ""
+
+#: docs/Debugging.md:block 39 (code)
+msgid ""
+"~/klipper/scripts/motan/motan_graph.py mylog -g "
+"'[[\"trapq(toolhead,velocity)?color=red&alpha=0.4\"]]'\n"
+msgstr ""
+
+#: docs/Debugging.md:block 40 (paragraph)
+msgid ""
+"Many matplotlib options are available; some examples are \"color\", "
+"\"label\", \"alpha\", and \"linestyle\"."
+msgstr ""
+
+#: docs/Debugging.md:block 41 (paragraph)
+msgid ""
+"The `motan_graph.py` tool supports several other command-line options - use "
+"the `--help` option to see a list. It may also be convenient to view/modify "
+"the [motan_graph.py](../scripts/motan/motan_graph.py) script itself."
+msgstr ""
+
+#: docs/Debugging.md:block 60 (code)
+msgid ""
+"cd /path/to/klipper\n"
+"make menuconfig\n"
+msgstr ""
+
+#: docs/Debugging.md:block 61 (paragraph)
+msgid ""
+"and compile the micro-controller software for an AVR atmega644p and select "
+"SIMULAVR software emulation support. Then one can compile Klipper (run "
+"`make`) and then start the simulation with:"
+msgstr ""
+
+#: docs/Debugging.md:block 62 (code)
+msgid ""
+"PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py "
+"out/klipper.elf\n"
+msgstr ""
+
+#: docs/Debugging.md:block 67 (code)
+msgid ""
+"PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py out/klipper.elf"
+" -t PORTA.PORT,PORTC.PORT\n"
+msgstr ""
+
+#~ msgid ""
+#~ "and compile the micro-controller software for an AVR atmega644p, set the MCU"
+#~ " frequency to 20Mhz, and select SIMULAVR software emulation support. Then "
+#~ "one can compile Klipper (run `make`) and then start the simulation with:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "cd /patch/to/klipper\n"
+#~ "make menuconfig\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py -m atmega644 -s"
+#~ " 20000000 -b 250000 out/klipper.elf\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py -m atmega644 -s"
+#~ " 20000000 -b 250000 out/klipper.elf -t PORTA.PORT,PORTC.PORT\n"
+#~ msgstr ""

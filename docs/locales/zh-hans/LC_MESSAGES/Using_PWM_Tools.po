@@ -47,9 +47,6 @@ msgstr ""
 "在驱动激光器时，应采用一切可能的预防措施。二极管激光一般是使用反信号的，即当微控制器重启时，激光将会*全功率输出*，直至微处理器恢复正常运作。 "
 "慎重而言，建议在激光器上电期间*始终*佩戴合适波长的护目镜；并在不使用激光时对激光器断电。同时，应该为激光器设置安全定时，保证在上位机和微控制器发生错误时，激光器能自动停止。"
 
-msgid "For an example configuration, see `config/sample-pwm-tool-cfg`."
-msgstr "我们将以`config/sample-pwm-tool-cfg`作为示例。"
-
 msgid "Current Limitations"
 msgstr "电流限制"
 
@@ -132,3 +129,12 @@ msgstr ""
 #: docs/Using_PWM_Tools.md:block 1 (header)
 msgid "Using PWM tools"
 msgstr "使用 PWM 工具"
+
+#: docs/Using_PWM_Tools.md:block 6 (paragraph)
+msgid ""
+"For an example configuration, see [config/sample-pwm-"
+"tool.cfg](/config/sample-pwm-tool.cfg)."
+msgstr ""
+
+#~ msgid "For an example configuration, see `config/sample-pwm-tool-cfg`."
+#~ msgstr "我们将以`config/sample-pwm-tool-cfg`作为示例。"

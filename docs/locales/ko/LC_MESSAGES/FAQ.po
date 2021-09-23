@@ -153,13 +153,6 @@ msgstr "[Klipper를 어떻게 제거합니까?](#Klipper를-어떻게-제거합�
 msgid "How can I donate to the project?"
 msgstr "어떻게 프로젝트에 기부할수 있나요?"
 
-msgid ""
-"Thanks. Kevin has a Patreon page at: "
-"[https://www.patreon.com/koconnor](https://www.patreon.com/koconnor)"
-msgstr ""
-"감사합니다. Kevin의 Patreon 페이지는 다음과 같습니다.: "
-"[https://www.patreon.com/koconnor](https://www.patreon.com/koconnor)"
-
 msgid "How do I calculate the rotation_distance config parameter?"
 msgstr "rotation_distance는 어떻게 계산합니까?"
 
@@ -1007,6 +1000,18 @@ msgstr ""
 #: docs/FAQ.md:block 1 (header)
 msgid "Frequently Asked Questions"
 msgstr "자주 묻는 질문"
+
+#: docs/FAQ.md:block 4 (paragraph)
+msgid ""
+"Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>"
+msgstr ""
+
+#~ msgid ""
+#~ "Thanks. Kevin has a Patreon page at: "
+#~ "[https://www.patreon.com/koconnor](https://www.patreon.com/koconnor)"
+#~ msgstr ""
+#~ "감사합니다. Kevin의 Patreon 페이지는 다음과 같습니다.: "
+#~ "[https://www.patreon.com/koconnor](https://www.patreon.com/koconnor)"
 
 #~ msgid "Frequently asked questions"
 #~ msgstr "자주 묻는 질문들"

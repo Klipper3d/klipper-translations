@@ -2,12 +2,6 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8\n"
 
-msgid ""
-"This document describes the protocol Klipper uses to communicate over [CAN "
-"bus](https://en.wikipedia.org/wiki/CAN_bus). See [CANBUS.md](CANBUS.md) for "
-"information on configuring Klipper with CAN bus."
-msgstr ""
-
 msgid "Micro-controller id assignment"
 msgstr ""
 
@@ -100,3 +94,16 @@ msgstr ""
 #: docs/CANBUS_protocol.md:block 1 (header)
 msgid "CANBUS protocol"
 msgstr ""
+
+#: docs/CANBUS_protocol.md:block 2 (paragraph)
+msgid ""
+"This document describes the protocol Klipper uses to communicate over [CAN "
+"bus](https://en.wikipedia.org/wiki/CAN_bus). See <CANBUS.md> for information"
+" on configuring Klipper with CAN bus."
+msgstr ""
+
+#~ msgid ""
+#~ "This document describes the protocol Klipper uses to communicate over [CAN "
+#~ "bus](https://en.wikipedia.org/wiki/CAN_bus). See [CANBUS.md](CANBUS.md) for "
+#~ "information on configuring Klipper with CAN bus."
+#~ msgstr ""

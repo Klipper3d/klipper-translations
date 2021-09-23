@@ -26,13 +26,14 @@
 - [共振补偿](Resonance_Compensation)：减少打印震纹的工具。
    - [测量共振](Measuring_Resonances.md)：使用 adxl345 加速度计模块测量共振。
 - [提前压力](Pressure_Advance.md)：校准挤出机压力。
-- [切片](Slicers.md)：为 Klipper 配置切片软件。
+- [G代码](G-Codes.md)：用于 Klipper 的G代码命令。
 - [命令模板](Command_Templates.md)：G代码宏和条件判断。
    - [状态参考](Status_Reference.md)：可用于宏和类似功能的信息。
 - [TMC驱动](TMC_Drivers.md)：在 Klipper 中使用 Trinamic 步进电机驱动。
+- [Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple micro-controllers.
+- [切片](Slicers.md)：为 Klipper 配置切片软件。
 - [偏斜校正](skew_correction.md)：调整不是完美垂直的轴（不完美的方形）。
 - [PWM 工具](Using_PWM_Tools.md)：关于如何使用 PWM 控制的工具，例如激光器或电钻头。
-- [G代码](G-Codes.md)：用于 Klipper 的G代码命令。
 
 ## 开发者文档
 

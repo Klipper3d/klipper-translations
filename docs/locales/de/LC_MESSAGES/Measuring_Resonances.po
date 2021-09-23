@@ -25,14 +25,6 @@ msgid ""
 "of an MCU board (it needs to be reasonably fast)."
 msgstr ""
 
-msgid ""
-"When sourcing ADLX345, be aware that there is a variety of different PCB "
-"board designs and different clones of them. Make sure that the board "
-"supports SPI mode (small number of boards appear to be hard-configured for "
-"I2C by pulling SDO to GND), and, if it is going to be connected to a 5V "
-"printer MCU, that it has a voltage regulator and a level shifter."
-msgstr ""
-
 msgid "Installation instructions"
 msgstr ""
 
@@ -816,6 +808,23 @@ msgstr ""
 #: docs/Measuring_Resonances.md:block 91 (paragraph)
 msgid "to generate `/tmp/resonances.png` comparing the resonances."
 msgstr ""
+
+#: docs/Measuring_Resonances.md:block 3 (paragraph)
+msgid ""
+"When sourcing ADXL345, be aware that there is a variety of different PCB "
+"board designs and different clones of them. Make sure that the board "
+"supports SPI mode (small number of boards appear to be hard-configured for "
+"I2C by pulling SDO to GND), and, if it is going to be connected to a 5V "
+"printer MCU, that it has a voltage regulator and a level shifter."
+msgstr ""
+
+#~ msgid ""
+#~ "When sourcing ADLX345, be aware that there is a variety of different PCB "
+#~ "board designs and different clones of them. Make sure that the board "
+#~ "supports SPI mode (small number of boards appear to be hard-configured for "
+#~ "I2C by pulling SDO to GND), and, if it is going to be connected to a 5V "
+#~ "printer MCU, that it has a voltage regulator and a level shifter."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Next, run the following command to install the additional dependencies:"

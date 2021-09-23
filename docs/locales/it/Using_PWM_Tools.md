@@ -8,7 +8,7 @@ With re-purposing the printhead's fan pwm output, you can control lasers or spin
 
 **Warning:** When driving a laser, keep all security precautions that you can think of! Diode lasers are usually inverted. This means, that when the MCU restarts, the laser will be *fully on* for the time it takes the MCU to start up again. For good measure, it is recommended to *always* wear appropriate laser-goggles of the right wavelength if the laser is powered; and to disconnect the laser when it is not needed. Also, you should configure a safety timeout, so that when your host or MCU encounters an error, the tool will stop.
 
-For an example configuration, see `config/sample-pwm-tool-cfg`.
+For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
 
 ## Current Limitations
 

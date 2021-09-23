@@ -149,6 +149,30 @@ PANELDUE_BEEP gcode 매크로가 실행되면 클리퍼는 소켓위에 아래�
 
 이 endpoint 는 터미널창 인터페이스를 통해 인간과 상호작용을 하도록 도와줄 수 있게 합니다. G-code 터미널 출력으로 부터의 파싱 내용은 낙담케(?) 된다. 클리퍼 상태에 대한 업데이트 내용을 얻고자 할 때는 "objects/subscribe" endpoint 를 사용하라.
 
+### motion_report/dump_stepper
+
+This endpoint is used to subscribe to Klipper's internal stepper queue_step command stream for a stepper. Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.
+
+A request may look like: `{"id": 123, "method":"motion_report/dump_stepper", "params": {"name": "stepper_x", "response_template": {}}}` and might return: `{"id": 123, "result": {"header": ["interval", "count", "add"]}}` and might later produce asynchronous messages such as: `{"params": {"first_clock": 179601081, "first_time": 8.98, "first_position": 0, "last_clock": 219686097, "last_time": 10.984, "data": [[179601081, 1, 0], [29573, 2, -8685], [16230, 4, -1525], [10559, 6, -160], [10000, 976, 0], [10000, 1000, 0], [10000, 1000, 0], [10000, 1000, 0], [9855, 5, 187], [11632, 4, 1534], [20756, 2, 9442]]}}`
+
+The "header" field in the initial query response is used to describe the fields found in later "data" responses.
+
+### motion_report/dump_trapq
+
+This endpoint is used to subscribe to Klipper's internal "trapezoid motion queue". Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.
+
+A request may look like: `{"id": 123, "method": "motion_report/dump_trapq", "params": {"name": "toolhead", "response_template":{}}}` and might return: `{"id": 1, "result": {"header": ["time", "duration", "start_velocity", "acceleration", "start_position", "direction"]}}` and might later produce asynchronous messages such as: `{"params": {"data": [[4.05, 1.0, 0.0, 0.0, [300.0, 0.0, 0.0], [0.0, 0.0, 0.0]], [5.054, 0.001, 0.0, 3000.0, [300.0, 0.0, 0.0], [-1.0, 0.0, 0.0]]]}}`
+
+The "header" field in the initial query response is used to describe the fields found in later "data" responses.
+
+### adxl345/dump_adxl345
+
+This endpoint is used to subscribe to ADXL345 accelerometer data. Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.
+
+A request may look like: `{"id": 123, "method":"adxl345/dump_adxl345", "params": {"sensor": "adxl345", "response_template": {}}}` and might return: `{"id": 123,"result":{"header":["time","x_acceleration","y_acceleration", "z_acceleration"]}}` and might later produce asynchronous messages such as: `{"params":{"overflows":0,"data":[[3292.432935,-535.44309,-1529.8374,9561.4], [3292.433256,-382.45935,-1606.32927,9561.48375]]}}`
+
+The "header" field in the initial query response is used to describe the fields found in later "data" responses.
+
 ### 멈춤_재개/취소
 
 이 endpoint 는 "PRINT_CANCEL" G-Code 명령을 실행하는 것과 유사하다. 예를 들어 : `{"id": 123, "method": "pause_resume/cancel"}`

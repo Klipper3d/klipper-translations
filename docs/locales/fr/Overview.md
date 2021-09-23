@@ -26,13 +26,14 @@ Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, comme
 - [Compensation de résonance](Resonance_Compensation.md) : Un outil permettant de réduire la résonance durant les impressions.
    - [Mesurer les résonances](Measuring_Resonances.md) : Informations sur l'utilisation du matériel accélérométrique adxl345 pour mesurer les résonances.
 - [Pressure advance](Pressure_Advance.md) : Calibrer la pression de l'extrudeur.
-- [Slicers](Slicers.md) : Configurer un logiciel "slicer" pour Klipper.
+- [G-Codes](G-Codes.md) : Informations sur les instructions prises en charge par Klipper.
 - [Modèles de commande](Command_Templates.md) : Macros G-Code et évaluation conditionnelle.
    - [Référence des états](Status_Reference.md) : Informations disponibles pour les macros (et similaires).
 - [Pilotes TMC](TMC_Drivers.md) : Utilisation des pilotes de moteurs pas à pas Trinamic avec Klipper.
+- [Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple micro-controllers.
+- [Slicers](Slicers.md) : Configurer un logiciel "slicer" pour Klipper.
 - [Correction de l'inclinaison](skew_correction.md) : Ajustements pour les axes qui ne sont pas parfaitement carrés.
 - [Outils PWM](Using_PWM_Tools.md) : Guide sur l'utilisation des outils contrôlés par PWM tels que les lasers ou les broches.
-- [G-Codes](G-Codes.md) : Informations sur les instructions prises en charge par Klipper.
 
 ## Documentation pour les Développeurs
 

@@ -683,6 +683,51 @@ msgid ""
 "at `printer[\"neopixel <config_name>\"].color_data[1].B`."
 msgstr ""
 
+#: docs/Status_Reference.md:block 9 (unordered list)
+msgid ""
+"`save_config_pending`: Returns true if there are updates that a "
+"`SAVE_CONFIG` command may persist to disk."
+msgstr ""
+
+#: docs/Status_Reference.md:block 9 (unordered list)
+msgid ""
+"`warnings`: A list of warnings about config options. Each entry in the list "
+"will be a dictionary containing a `type` and `message` field (both strings)."
+" Additional fields may be available depending on the type of warning."
+msgstr ""
+
+#: docs/Status_Reference.md:block 89 (header)
+msgid "tmc drivers"
+msgstr ""
+
+#: docs/Status_Reference.md:block 90 (paragraph)
+msgid ""
+"The following information is available in [TMC stepper "
+"driver](Config_Reference.md#tmc-stepper-driver-configuration) objects (eg, "
+"`[tmc2208 stepper_x]`):"
+msgstr ""
+
+#: docs/Status_Reference.md:block 91 (unordered list)
+msgid ""
+"`mcu_phase_offset`: The micro-controller stepper position corresponding with"
+" the driver's \"zero\" phase. This field may be null if the phase offset is "
+"not known."
+msgstr ""
+
+#: docs/Status_Reference.md:block 91 (unordered list)
+msgid ""
+"`phase_offset_position`: The \"commanded position\" corresponding to the "
+"driver's \"zero\" phase. This field may be null if the phase offset is not "
+"known."
+msgstr ""
+
+#: docs/Status_Reference.md:block 91 (unordered list)
+msgid ""
+"`drv_status`: The results of the last driver status query. (Only non-zero "
+"fields are reported.) This field will be null if the driver is not enabled "
+"(and thus is not periodically queried)."
+msgstr ""
+
 #~ msgid ""
 #~ "`color_data`: An array of objects, with each object containing the RGBW "
 #~ "values for a led in the chain. Note that not all configurations will contain"

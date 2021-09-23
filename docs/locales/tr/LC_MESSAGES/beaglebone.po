@@ -40,11 +40,6 @@ msgstr ""
 msgid "Then start the Octoprint service:"
 msgstr ""
 
-msgid ""
-"Make sure the octoprint web server is accessible - it should be at: "
-"[http://beaglebone:5000/](http://beaglebone:5000/)"
-msgstr ""
-
 msgid "Building the micro-controller code"
 msgstr ""
 
@@ -128,3 +123,14 @@ msgstr ""
 #: docs/beaglebone.md:block 1 (header)
 msgid "Beaglebone"
 msgstr ""
+
+#: docs/beaglebone.md:block 16 (paragraph)
+msgid ""
+"Make sure the octoprint web server is accessible - it should be at: "
+"<http://beaglebone:5000/>"
+msgstr ""
+
+#~ msgid ""
+#~ "Make sure the octoprint web server is accessible - it should be at: "
+#~ "[http://beaglebone:5000/](http://beaglebone:5000/)"
+#~ msgstr ""
