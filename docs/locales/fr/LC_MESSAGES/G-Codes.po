@@ -1,6 +1,6 @@
 # Wivik <seb+weblate@zedas.fr>, 2021, 2025.
 # Tircown <tircown@gmail.com>, 2021.
-# Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
+# Francis Poulizac <fpoulizac@vivaldi.net>, 2021, 2025.
 # Francis Poulizac <francis@poulizac.fr>, 2022, 2023, 2025.
 # jean-luc MATTEI <jlucm@free.fr>, 2023, 2024, 2025.
 # Thibaud <thibaud.perso@proton.me>, 2025.
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: Thibaud <thibaud.perso@proton.me>\n"
+"Last-Translator: Francis Poulizac <fpoulizac@vivaldi.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/g-codes/"
 "fr/>\n"
 "Language: fr\n"
@@ -21,8 +21,8 @@ msgid ""
 "This document describes the commands that Klipper supports. These are commands"
 " that one may enter into the OctoPrint terminal tab."
 msgstr ""
-"Ce document décrit les commandes que Klipper supporte. Il s'agit de commandes "
-"que l'on peut saisir dans l'onglet du terminal OctoPrint."
+"Ce document décrit les commandes que Klipper supporte. Il s'agit de "
+"commandes que l'on peut saisir dans l'onglet du terminal OctoPrint."
 
 msgid "G-Code commands"
 msgstr "Commandes G-Code"
