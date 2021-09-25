@@ -30,7 +30,7 @@
 - [命令模板](Command_Templates.md)：G代码宏和条件判断。
    - [状态参考](Status_Reference.md)：可用于宏和类似功能的信息。
 - [TMC驱动](TMC_Drivers.md)：在 Klipper 中使用 Trinamic 步进电机驱动。
-- [Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple micro-controllers.
+- [多 MCU 归零](Multi_MCU_Homing.md)：在归位和探测时使用多个微处理器。
 - [切片](Slicers.md)：为 Klipper 配置切片软件。
 - [偏斜校正](skew_correction.md)：调整不是完美垂直的轴（不完美的方形）。
 - [PWM 工具](Using_PWM_Tools.md)：关于如何使用 PWM 控制的工具，例如激光器或电钻头。

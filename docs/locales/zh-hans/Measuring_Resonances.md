@@ -94,7 +94,7 @@ Recv: // adxl345 values (x, y, z): 470.719200, 941.438400, 9728.196800
 
 如果输出类似 `Invalid adxl345 id (got xx vs e5)`，其中'xx'为e5以外ID，这表示出现连接问题（如，连接错误、线缆电阻过大、干扰等），或传感器错误（如，残次传感器 或 错误的传感器）。请在此检查电源，接线（再三确定接线正确，没有破损、松动的电线）或焊接问题。
 
-下一步，在Octoprint中输入 `MEASURE_AXES_NOISE`，之后将会显示各个轴的基准测量噪声（其值应在1-100之间）
+下一步，在Octoprint中输入 `MEASURE_AXES_NOISE`，之后将会显示各个轴的基准测量噪声（其值应在1-100之间）。如果轴的噪声极高（例如 1000 或更高）可能意味着3D打印机上存在传感器问题、电源问题或不平衡的风扇。
 
 ### 测量共振值
 
@@ -306,18 +306,18 @@ SHAPER_CALIBRATE
 This will run the full test for both axes and generate the csv output (`/tmp/calibration_data_*.csv` by default) for the frequency response and the suggested input shapers. You will also get the suggested frequencies for each input shaper, as well as which input shaper is recommended for your setup, on Octoprint console. For example:
 
 ```
-Calculating the best input shaper parameters for y axis `正在计算y轴的最佳输入整形参数`
-Fitted shaper 'zv' frequency = 39.0 Hz (vibrations = 13.2%, smoothing ~= 0.105) `拟合整形“zv”`
-To avoid too much smoothing with 'zv', suggested max_accel <= 5900 mm/sec^2 `为避免使用“zv”方法产生过度平滑，建议最大加速度<=5900 mm/sec^2`
-Fitted shaper 'mzv' frequency = 36.8 Hz (vibrations = 1.7%, smoothing ~= 0.150) `拟合整形“mzv”`
-To avoid too much smoothing with 'mzv', suggested max_accel <= 4000 mm/sec^2 `为避免使用“mzv”方法产生过度平滑，建议最大加速度<=4000 mm/sec^2`
-Fitted shaper 'ei' frequency = 36.6 Hz (vibrations = 2.2%, smoothing ~= 0.240) `拟合整形“ei”`
-To avoid too much smoothing with 'ei', suggested max_accel <= 2500 mm/sec^2 `为避免使用“ei”方法产生过度平滑，建议最大加速度<=2500 mm/sec^2`
-Fitted shaper '2hump_ei' frequency = 48.0 Hz (vibrations = 0.0%, smoothing ~= 0.234) `拟合整形“2hump_ei”`
-To avoid too much smoothing with '2hump_ei', suggested max_accel <= 2500 mm/sec^2 `为避免使用“2hump_ei”方法产生过度平滑，建议最大加速度<=2500 mm/sec^2`
-Fitted shaper '3hump_ei' frequency = 59.0 Hz (vibrations = 0.0%, smoothing ~= 0.235) `拟合整形“3hump_ei”`
-To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2500 mm/sec^2 `为避免使用“3hump_ei”方法产生过度平滑，建议最大加速度<=2500 mm/sec^2`
-Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz `建议shaper_type_y = mzv, shaper_freq_y = 36.8 Hz`
+Calculating the best input shaper parameters for y axis # 正在计算y轴的最佳输入整形参数
+Fitted shaper 'zv' frequency = 39.0 Hz (vibrations = 13.2%, smoothing ~= 0.105) # 拟合整形“zv”
+To avoid too much smoothing with 'zv', suggested max_accel <= 5900 mm/sec^2 # 为避免使用“zv”方法产生过度平滑，建议最大加速度<=5900 mm/sec^2
+Fitted shaper 'mzv' frequency = 36.8 Hz (vibrations = 1.7%, smoothing ~= 0.150) # 拟合整形“mzv”
+To avoid too much smoothing with 'mzv', suggested max_accel <= 4000 mm/sec^2 # 为避免使用“mzv”方法产生过度平滑，建议最大加速度<=4000 mm/sec^2
+Fitted shaper 'ei' frequency = 36.6 Hz (vibrations = 2.2%, smoothing ~= 0.240) # 拟合整形“ei”
+To avoid too much smoothing with 'ei', suggested max_accel <= 2500 mm/sec^2 # 为避免使用“ei”方法产生过度平滑，建议最大加速度<=2500 mm/sec^2
+Fitted shaper '2hump_ei' frequency = 48.0 Hz (vibrations = 0.0%, smoothing ~= 0.234) # 拟合整形“2hump_ei”
+To avoid too much smoothing with '2hump_ei', suggested max_accel <= 2500 mm/sec^2 # 为避免使用“2hump_ei”方法产生过度平滑，建议最大加速度<=2500 mm/sec^2
+Fitted shaper '3hump_ei' frequency = 59.0 Hz (vibrations = 0.0%, smoothing ~= 0.235) # 拟合整形“3hump_ei”
+To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2500 mm/sec^2 # 为避免使用“3hump_ei”方法产生过度平滑，建议最大加速度<=2500 mm/sec^2
+Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz # 建议shaper_type_y = mzv, shaper_freq_y = 36.8 Hz
 ```
 
 If you agree with the suggested parameters, you can execute `SAVE_CONFIG` now to save them and restart the Klipper. Note that this will not update `max_accel` value in `[printer]` section. You should update it manually following the considerations in [Selecting max_accel](#selecting-max_accel) section.
