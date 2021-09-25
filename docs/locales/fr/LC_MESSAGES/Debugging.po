@@ -1,12 +1,19 @@
-#
+# Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-09-25 19:03+0000\n"
+"Last-Translator: Francis Poulizac <fpoulizac@vivaldi.net>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/debugging/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 msgid "This document describes some of the Klipper debugging tools."
-msgstr ""
+msgstr "Ce document décrit certains des outils de débogage de Klipper."
 
 msgid "Translating gcode files to micro-controller commands"
 msgstr ""
