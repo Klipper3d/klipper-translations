@@ -1,10 +1,10 @@
-# mirokymac <toufubomb@gmail.com>, 2021.
+# mirokymac <toufubomb@gmail.com>, 2021, 2025.
 # Arda <pengfei.fu@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:20+0000\n"
-"Last-Translator: Arda <pengfei.fu@gmail.com>\n"
+"Last-Translator: mirokymac <toufubomb@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/mcu_commands/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -18,7 +18,8 @@ msgid ""
 "that are sent from the Klipper \"host\" software and processed by the Klipper "
 "micro-controller software. This document is not an authoritative reference for"
 " these commands, nor is it an exclusive list of all available commands."
-msgstr "该文档介绍了Klipper上位机软件发送到微控制器的，并由微处理器负责执行的底层命令。该文档不是这些命令的权威文档，也并未包含所有命令。"
+msgstr "该文档介绍了Klipper上位机软件发送到微控制器的，并由微处理器负责执行的底层命令"
+"。该文档不是这些命令的权威文档，也并未包含所有命令。"
 
 msgid ""
 "This document may be useful for developers interested in understanding the "
