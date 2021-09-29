@@ -187,7 +187,7 @@ The mesh will be saved into a profile specified by the `PROFILE` parameter, or `
    - `ROUND_PROBE_COUNT`
 - 全部打印床：
    - `RELATIVE_REFERNCE_INDEX`
-   - `ALGORITHM` See the configuration documentation above for details on how each parameter applies to the mesh.
+   - `ALGORITHM` 关于每个参数对网格的影响，详见上方的配置文档。
 
 ### 配置
 

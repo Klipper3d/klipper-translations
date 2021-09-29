@@ -1324,7 +1324,7 @@ cs_pin:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   上述参数详见“常见 SPI 设置”章节。
+#   上述参数详见“通用 SPI 设置”章节。
 #axes_map: x,y,z
 #   打印机 x 、 y 和 z 轴对应的加速度计轴。在加速度计的
 #   安装方向和打印机的方向不同时很有用。例如，可
@@ -2007,7 +2007,7 @@ sensor_type: temperature_host
 
 ### DS18B20 温度传感器
 
-DS18B20 is a 1-wire (w1) digital temperature sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C). These sensors have range up to 125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers. DS18B20 sensors are only supported on the "host mcu", e.g. the Raspberry Pi. The w1-gpio Linux kernel module must be installed.
+DS18B20 是一个单总线 (1-wire (w1)) 数值温度传感器。注意，这个传感器不是被设计用于热端或热床， 而是用于监测环境温度(C)。这些传感器最高量程是125 C，因此可用于例如箱体温度监测。它们也可以被当作简单的风扇/加热器控制器。DS18B20 传感器仅在“主机 mcu”上支持，例如树莓派。w1-gpio Linux 内核模块必须被安装。
 
 ```
 sensor_type: DS18B20
@@ -2611,7 +2611,7 @@ cs_pin:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   以上参数详见“常见 SPI 设置”章节。
+#   以上参数详见“通用 SPI 设置”章节。
 #interpolate: True
 #   如设置为 True ，则启用步进细分（驱动将会在内部以256
 #   微步的频率步进）。这只在微步设置为 16 时有效。
@@ -3074,13 +3074,12 @@ Information on configuring ssd1306 and sh1106 displays.
 ```
 [display]
 lcd_type:
-#   Set to either "ssd1306" or "sh1106" for the given display type.
+#   对于给定的显示屏类型，设置为 “ssd1306" 或 "sh1106"。
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   Optional parameters available for displays connected via an i2c
-#   bus. See the "common I2C settings" section for a description of
-#   the above parameters.
+#   连接到I2C总线的显示屏的可选参数， 以上参数详见通
+#   用 I2C 设置章节。
 #cs_pin:
 #dc_pin:
 #spi_speed:
@@ -3088,27 +3087,25 @@ lcd_type:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   The pins connected to the lcd when in "4-wire" spi mode. See the
-#   "common SPI settings" section for a description of the parameters
-#   that start with "spi_". The default is to use i2c mode for the
-#   display.
+#   使用4线 SPI 模式时连接到 lcd 的引脚。以 "spi_" 开头的
+#   参数详见 “通用 SPI 设置” 章节。
+#   显示屏默认使用 I2C 模式
 #reset_pin:
-#   A reset pin may be specified on the display. If it is not
-#   specified then the hardware must have a pull-up on the
-#   corresponding lcd line.
+#   可以指定一个显示屏上的重置引脚，如果不指定，硬件
+#   必须在相应的 lcd 线路上有一个拉高电阻。
 #contrast:
-#   The contrast to set. The value may range from 0 to 256 and the
-#   default is 239.
+#   可设置的对比度。
+#   数值必须在 0 和 256 之间，默认为 239。
 #vcomh: 0
-#   Set the Vcomh value on the display. This value is associated with
-#   a "smearing" effect on some OLED displays. The value may range
-#   from 0 to 63. Default is 0.
+#   设置显示屏的 Vcomh 值。这个值与一些OLED显示屏的
+#   模糊效果有关。这个数值可以在 0 和 63 之间。
+#   默认为0。
 #invert: False
-#   TRUE inverts the pixels on certain OLED displays.  The default is
-#   False.
+#   TRUE 可以在一些OLED显示屏上反转像素
+#   默认为 False。
 #x_offset: 0
-#   Set the horizontal offset value on SH1106 displays. The default is
-#   0.
+#   设置在 SH1106 显示屏上的水平偏移。
+#   默认为0。
 ...
 ```
 

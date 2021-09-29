@@ -1,10 +1,10 @@
-# Multiple Micro-controller Homing and Probing
+# Homing und Probing mit mehreren Mikrocontrollern
 
-Klipper supports a mechanism for homing with an endstop attached to one micro-controller while its stepper motors are on a different micro-controller. This support is referred to as "multi-mcu homing". This feature is also used when a Z probe is on a different micro-controller than the Z stepper motors.
+Klipper unterstützt einen Mechanismus für das Homen mit einem Endstopp, welcher an einen Mikrocontroller angeschlossen ist, während die Steppermotoren an einen anderen Mikrocontroller angeschlossen sind. Diese Unterstützung wird "multi-mcu homing" genannt. Dieses Feature wird ebenfalls benutzt, wenn eine Z-Sonde an einem anderen Mikrocontroller angeschlossen ist, als die dazugehörigen Z-Steppermotoren.
 
-This feature can be useful to simplify wiring, as it may be more convenient to attach an endstop or probe to a closer micro-controller. However, using this feature may result in "overshoot" of the stepper motors during homing and probing operations.
+Dieses Feature kann zur Vereinfachung der Verkabelung nützlich sein, da es einfacher sein könnte, einen Endstopp oder eine Sonde an einen näheren Mikrocontroller anzuschließen. Dieses Feature kann allerdings zum "overshoot" der Steppermotoren beim Homing und Probing führen.
 
-The overshoot occurs due to possible message transmission delays between the micro-controller monitoring the endstop and the micro-controllers moving the stepper motors. The Klipper code is designed to limit this delay to no more than 25ms. (When multi-mcu homing is activated, the micro-controllers send periodic status messages and check that corresponding status messages are received within 25ms.)
+Der "overshoot" wird ausgelöst durch die eventuelle Verzögerung der Nachrichtenübertragung zwischen dem überwachenden Mikrocontroller und dem Mikrocontroller, welcher die Steppermotoren antreibt. Der Klipper-Code ist so entworfen, dass diese Verzögerung auf maximal 25ms reduziert wird. (Wenn Multi-MCU Homing aktiviert ist, sendet der Mikrocontroller periodische Statusnachrichten und prüft, dass diese innerhalb von 25ms empfangen werden.)
 
 So, for example, if homing at 10mm/s then it is possible for an overshoot of up to 0.250mm (10mm/s * .025s == 0.250mm). Care should be taken when configuring multi-mcu homing to account for this type of overshoot. Using slower homing or probing speeds can reduce the overshoot.
 
