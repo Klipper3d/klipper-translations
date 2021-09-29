@@ -8,7 +8,7 @@
 
 **警告：** 在驱动激光器时，应采用一切可能的预防措施。二极管激光一般是使用反信号的，即当微控制器重启时，激光将会*全功率输出*，直至微处理器恢复正常运作。 慎重而言，建议在激光器上电期间*始终*佩戴合适波长的护目镜；并在不使用激光时对激光器断电。同时，应该为激光器设置安全定时，保证在上位机和微控制器发生错误时，激光器能自动停止。
 
-For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
+有关示例配置，请参阅 [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg)。
 
 ## 电流限制
 

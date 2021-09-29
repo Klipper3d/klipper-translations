@@ -97,14 +97,14 @@ The following standard commands are supported:
 - `TEMPERATURE_WAIT SENSOR=<config_name> [MINIMUM=<target>] [MAXIMUM=<target>]`: Wait until the given temperature sensor is at or above the supplied MINIMUM and/or at or below the supplied MAXIMUM.
 - `SET_VELOCITY_LIMIT [VELOCITY=<value>] [ACCEL=<value>] [ACCEL_TO_DECEL=<value>] [SQUARE_CORNER_VELOCITY=<value>]`: Modify the printer's velocity limits.
 - `SET_HEATER_TEMPERATURE HEATER=<heater_name> [TARGET=<target_temperature>]`: Sets the target temperature for a heater. If a target temperature is not supplied, the target is 0.
-- `ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: In a printer with multiple extruders this command is used to change the active extruder.
+- `ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: Dieser Befehl wird bei einem Drucker mit mehreren Extrudern verwendet, um den aktiven Extruder zu wechseln.
 - `SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Set pressure advance parameters. If EXTRUDER is not specified, it defaults to the active extruder.
 - `SET_EXTRUDER_STEP_DISTANCE [EXTRUDER=<config_name>] [DISTANCE=<distance>]`: Set a new value for the provided extruder's "step distance". The "step distance" is `rotation_distance/(full_steps_per_rotation*microsteps)`. Value is not retained on Klipper reset. Use with caution, small changes can result in excessive pressure between extruder and hot end. Do proper calibration steps with filament before use. If 'DISTANCE' value is not included command will return current step distance.
 - `SET_STEPPER_ENABLE STEPPER=<config_name> ENABLE=[0|1]`: Enable or disable only the given stepper. This is a diagnostic and debugging tool and must be used with care. Disabling an axis motor does not reset the homing information. Manually moving a disabled stepper may cause the machine to operate the motor outside of safe limits. This can lead to damage to axis components, hot ends, and print surface.
 - `STEPPER_BUZZ STEPPER=<config_name>`: Move the given stepper forward one mm and then backward one mm, repeated 10 times. This is a diagnostic tool to help verify stepper connectivity.
 - `MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:
-   - `ACCEPT`: This command accepts the current Z position and concludes the manual probing tool.
-   - `ABORT`: This command terminates the manual probing tool.
+   - `ACCEPT`: Dieser Befehl akzeptiert die aktuelle Z-Position und beendet das manuelle Ausrichtungstool.
+   - `ABORT`: Dieser Befehl bricht das manuelle Bettleveling ab.
    - `TESTZ Z=<value>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
 - `Z_ENDSTOP_CALIBRATE [SPEED=<speed>]`: Run a helper script useful for calibrating a Z position_endstop config setting. See the MANUAL_PROBE command for details on the parameters and the additional commands available while the tool is active.
 - `Z_OFFSET_APPLY_ENDSTOP`: Take the current Z Gcode offset (aka, babystepping), and subtract it from the stepper_z endstop_position. This acts to take a frequently used babystepping value, and "make it permanent". Requires a `SAVE_CONFIG` to take effect.
@@ -164,7 +164,7 @@ The following command is available when an [extruder_stepper config section](Con
 
 - `SYNC_STEPPER_TO_EXTRUDER STEPPER=<extruder_stepper config_name> [EXTRUDER=<extruder config_name>]`: This command will cause the given STEPPER to become synchronized to the given EXTRUDER, overriding the extruder defined in the "extruder_stepper" config section.
 
-### Probe
+### Sonde
 
 The following commands are available when a [probe config section](Config_Reference.md#probe) is enabled (also see the [probe calibrate guide](Probe_Calibrate.md)):
 
@@ -329,7 +329,7 @@ The following command is available when a [temperature_fan config section](Confi
 
 - `SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_name> [target=<target_temperature>] [min_speed=<min_speed>]  [max_speed=<max_speed>]`: Sets the target temperature for a temperature_fan. If a target is not supplied, it is set to the specified temperature in the config file. If speeds are not supplied, no change is applied.
 
-### Adxl345 Accelerometer Commands
+### Adxl345 Beschleunigungssensor-Befehle
 
 The following commands are available when an [adxl345 config section](Config_Reference.md#adxl345) is enabled:
 

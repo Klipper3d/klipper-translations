@@ -1,48 +1,48 @@
 # Bed leveling
 
-Bed leveling (sometimes also referred to as "bed tramming") is critical to getting high quality prints. If a bed is not properly "leveled" it can lead to poor bed adhesion, "warping", and subtle problems throughout the print. This document serves as a guide to performing bed leveling in Klipper.
+El nivelado de la base (aveces tambien llamado "bed tramming") es un proceso critico para obtener impresiones de gran calidad. Si la base no esta correctamente "nivelada" puede producirse una mala adherencia, "warping" (despegue de las esquinas) asi como problemas sutiles durante la impresion. Este documento sirve como una guia para realizar el nivelado de la base en Klipper.
 
-It's important to understand the goal of bed leveling. If the printer is commanded to a position `X0 Y0 Z10` during a print, then the goal is for the printer's nozzle to be exactly 10mm from the printer's bed. Further, should the printer then be commanded to a position of `X50 Z10` the goal is for the nozzle to maintain an exact distance of 10mm from the bed during that entire horizontal move.
+Es importante entender el objetivo de la nivelacion de la base. Si a la impresora le es comandado ir a la posicion `X0 Y0 Z10` durante una impresion, el objetivo de la boquilla es quedar exactamente a 10mm sobre la base de la impresora. Por lo que, si a la impresora le es comandado ir la posicion `X50 Z10` el objetivo es que la boquilla se mantenga a una distancia exacta de 10mm sobre la base durante todo el movimiento horizontal.
 
-In order to get good quality prints the printer should be calibrated so that Z distances are accurate to within about 25 microns (.025mm). This is a small distance - significantly smaller than the width of a typical human hair. This scale can not be measured "by eye". Subtle effects (such as heat expansion) impact measurements at this scale. The secret to getting high accuracy is to use a repeatable process and to use a leveling method that leverages the high accuracy of the printer's own motion system.
+Para obtener impresiones de buena calidad, la impresora debe estar calibrada para que las distancias Z tengan una precisión de unas 25 micras (.025mm). Esta es una distancia pequeña - significativamente menor que el ancho de un cabello humano. Esta escala no puede medirse "a ojo". Los efectos sutiles (como la expansión térmica) afectan a las mediciones a esta escala. El secreto para conseguir una gran precisión es utilizar un proceso repetible y utilizar un método de nivelación que aproveche la alta precisión del sistema de movimiento de la propia impresora.
 
-## Choose the appropriate calibration mechanism
+## Elija el mecanismo de calibración apropiado
 
-Different types of printers use different methods for performing bed leveling. All of them ultimately depend on the "paper test" (described below). However, the actual process for a particular type of printer is described in other documents.
+Los distintos tipos de impresoras utilizan diferentes métodos para realizar la nivelación de la cama. Todos ellos dependen, en última instancia, de la "prueba del papel" (descrita a continuación). Sin embargo, el proceso para algun tipo particular de impresora se describe en otros documentos.
 
-Prior to running any of these calibration tools, be sure to run the checks described in the [config check document](Config_checks.md). It is necessary to verify basic printer motion before performing bed leveling.
+Antes de ejecutar cualquiera de estas herramientas de calibración, asegúrese de realizar las comprobaciones descritas en el documento [config check](Config_checks.md). Es necesario verificar el movimiento básico de la impresora antes de realizar la nivelación de la base.
 
-For printers with an "automatic Z probe" be sure to calibrate the probe following the directions in the [Probe Calibrate](Probe_Calibrate.md) document. For delta printers, see the [Delta Calibrate](Delta_Calibrate.md) document. For printers with bed screws and traditional Z endstops, see the [Manual Level](Manual_Level.md) document.
+Para las impresoras con una "sensor Z automático", asegúrese de calibrar el sensor siguiendo las instrucciones del documento [Probe Calibrate](Probe_Calibrate.md). Para las impresoras delta, consulte el documento [Delta Calibrate](Delta_Calibrate.md). Para impresoras con tornillos en la base y finales de carrera tradicionales en el eje Z, consulte el documento [Manual Level](Manual_Level.md).
 
-During calibration it may be necessary to set the printer's Z `position_min` to a negative number (eg, `position_min = -2`). The printer enforces boundary checks even during calibration routines. Setting a negative number allows the printer to move below the nominal position of the bed, which may help when trying to determine the actual bed position.
+Durante la calibración puede ser necesario ajustar la `position_min` Z de la impresora a un número negativo (por ejemplo, `position_min = -2`). La impresora aplica las comprobaciones de límites incluso durante las rutinas de calibración. Establecer un número negativo permite que la impresora se mueva por debajo de la posición nominal de la base, lo que puede ayudar a intentar determinar la posición real de la base.
 
-## The "paper test"
+## La "prueba del papel"
 
-The primary bed calibration mechanism is the "paper test". It involves placing a regular piece of "copy machine paper" between the printer's bed and nozzle, and then commanding the nozzle to different Z heights until one feels a small amount of friction when pushing the paper back and forth.
+El principal mecanismo de calibración de la cama es la "prueba de papel". Consiste en colocar un trozo regular de "papel de fotocopiadora" entre la cama y la boquilla de la impresora, y luego comandar la boquilla a diferentes alturas Z hasta que uno sienta una pequeña cantidad de fricción al empujar el papel hacia adelante y hacia atrás.
 
-It is important to understand the "paper test" even if one has an "automatic Z probe". The probe itself often needs to be calibrated to get good results. That probe calibration is done using this "paper test".
+Es importante entender la "prueba del papel" aunque se tenga un "sensor Z automático". A menudo es necesario calibrar el propio sensor para obtener buenos resultados. Esa calibración del sensor se realiza mediante esta "prueba de papel".
 
-In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a width of around 100 microns (0.100mm). (The exact width of the paper isn't crucial.)
+Para realizar la prueba del papel, corte un pequeño trozo de papel rectangular con unas tijeras (por ejemplo, 5x3 cm). El papel suele tener un espesor de unas 100 micras (0,100 mm). (El espesor exacto del papel no es crucial).
 
-The first step of the paper test is to inspect the printer's nozzle and bed. Make sure there is no plastic (or other debris) on the nozzle or bed.
+El primer paso de la prueba del papel es inspeccionar la boquilla y la base de la impresora. Asegúrese de que no hay plástico (u otros residuos) en la boquilla o en la base.
 
-**Inspect the nozzle and bed to ensure no plastic is present!**
+**¡Inspeccione la boquilla y la base para asegurarse de que no hay plástico!**
 
-If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a width and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.
+Si uno siempre imprime en una cinta o superficie de impresión en particular, entonces puede realizar la prueba de papel con esa cinta/superficie en su lugar. Sin embargo, tenga en cuenta que la cinta en sí tiene un ancho y que las diferentes cintas (o cualquier otra superficie de impresión) afectarán a las mediciones en Z. Asegúrese de volver a realizar la prueba del papel para medir cada tipo de superficie que se utilice.
 
-If there is plastic on the nozzle then heat up the extruder and use a metal tweezers to remove that plastic. Wait for the extruder to fully cool to room temperature before continuing with the paper test. While the nozzle is cooling, use the metal tweezers to remove any plastic that may ooze out.
+Si hay plástico en la boquilla, caliente el extrusor y utilize una pinza metálica para eliminar ese plástico. Espere a que el extrusor se enfríe a temperatura ambiente antes de continuar con la prueba del papel. Mientras se enfría la boquilla, utiliza las pinzas metálicas para eliminar el plástico que pueda gotear.
 
-**Always perform the paper test when both nozzle and bed are at room temperature!**
+**¡Realice siempre la prueba del papel cuando tanto la boquilla como la base se encuentren a temperatura ambiente!**
 
-When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same width as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact width of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two widths).
+Cuando la boquilla se calienta, su posición (con respecto a la base) cambia debido a la expansión térmica. Esta expansión térmica suele ser de unas 100 micras, que es más o menos el mismo espesor que un trozo de papel de impresora típico. La cantidad exacta de expansión térmica no es crucial, como tampoco lo es el espesor exacto del papel. Empiece con la suposición de que ambos son iguales (vea más abajo un método para determinar la diferencia entre los dos anchos).
 
-It may seem odd to calibrate the distance at room temperature when the goal is to have a consistent distance when heated. However, if one calibrates when the nozzle is heated, it tends to impart small amounts of molten plastic on to the paper, which changes the amount of friction felt. That makes it harder to get a good calibration. Calibrating while the bed/nozzle is hot also greatly increases the risk of burning oneself. The amount of thermal expansion is stable, so it is easily accounted for later in the calibration process.
+Puede parecer extraño calibrar la distancia a temperatura ambiente cuando el objetivo es tener una distancia consistente cuando se calienta. Sin embargo, si se calibra cuando la boquilla se calienta, esta tiende a filtrar pequeñas cantidades de plástico fundido sobre el papel, lo que cambia la cantidad de fricción que se siente. Esto hace más difícil conseguir una buena calibración. Calibrar mientras la cama/boquilla está caliente también aumenta en gran medida el riesgo de quemarse. La cantidad de expansión térmica es estable, por lo que se puede tener en cuenta fácilmente más adelante en el proceso de calibración.
 
-**Use an automated tool to determine precise Z heights!**
+**¡Usa una herramienta automatizada para determinar las alturas precisas en Z!**
 
-Klipper has several helper scripts available (eg, MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). See the documents [described above](#choose-the-appropriate-calibration-mechanism) to choose one of them.
+Klipper dispone de varios scripts de ayuda (por ejemplo, MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). Consulte los documentos [described above](#elegir-el-mecanismo-de-calibración-apropiado) para elegir uno de ellos.
 
-Run the appropriate command in the OctoPrint terminal window. The script will prompt for user interaction in the OctoPrint terminal output. It will look something like:
+Ejecute el comando correspondiente en la ventana del terminal OctoPrint. El script solicitará la interacción del usuario en la salida del terminal OctoPrint. Tendrá un aspecto similar al siguiente:
 
 ```
 Recv: // Starting manual Z probe. Use TESTZ to adjust position.
@@ -50,41 +50,41 @@ Recv: // Finish with ACCEPT or ABORT command.
 Recv: // Z position: ?????? --> 5.000 <-- ??????
 ```
 
-The current height of the nozzle (as the printer currently understands it) is shown between the "--> <--". The number to the right is the height of the last probe attempt just greater than the current height, and to the left is the last probe attempt less than the current height (or ?????? if no attempt has been made).
+La altura actual de la boquilla (tal y como lo entiende la impresora en ese momento) se muestra entre los "--> <--". El número a la derecha es la altura del último intento de sondeo justo mayor que la altura actual, y a la izquierda es el último intento de sondeo menor que la altura actual (o ?????? si no se ha hecho ningún intento).
 
-Place the paper between the nozzle and bed. It can be useful to fold a corner of the paper so that it is easier to grab. (Try not to push down on the bed when moving the paper back and forth.)
+Coloque el papel entre la boquilla y la base. Puede ser útil doblar una esquina del papel para que sea más fácil de agarrar. (Procura no empujar hacia abajo la base cuando muevas el papel hacia delante y hacia atrás.)
 
 ![paper-test](img/paper-test.jpg)
 
-Use the TESTZ command to request the nozzle to move closer to the paper. For example:
+Utilize el comando TESTZ para comandar a la boquilla a moverse más cerca del papel. Por ejemplo:
 
 ```
 TESTZ Z=-.1
 ```
 
-The TESTZ command will move the nozzle a relative distance from the nozzle's current position. (So, `Z=-.1` requests the nozzle to move closer to the bed by .1mm.) After the nozzle stops moving, push the paper back and forth to check if the nozzle is in contact with the paper and to feel the amount of friction. Continue issuing TESTZ commands until one feels a small amount of friction when testing with the paper.
+El comando TESTZ moverá la boquilla una distancia relativa desde la posición actual de la boquilla. (Así, `Z=-.1` comanda que la boquilla se acerque a la cama en 0,1mm). Después de que la boquilla deje de moverse, empuje el papel hacia adelante y hacia atrás para comprobar si la boquilla está en contacto con el papel y para sentir la cantidad de fricción. Continúe emitiendo comandos TESTZ hasta que se sienta una pequeña cantidad de fricción al probar con el papel.
 
-If too much friction is found then one can use a positive Z value to move the nozzle up. It is also possible to use `TESTZ Z=+` or `TESTZ Z=-` to "bisect" the last position - that is to move to a position half way between two positions. For example, if one received the following prompt from a TESTZ command:
+Si se encuentra demasiada fricción, se puede utilizar un valor Z positivo para mover la boquilla hacia arriba. También es posible utilizar `TESTZ Z=+` o `TESTZ Z=-` para "bisecar" la última posición - es decir, para moverse a una posición a medio camino entre dos posiciones. Por ejemplo, si uno recibe la siguiente indicación de un comando TESTZ:
 
 ```
 Recv: // Z position: 0.130 --> 0.230 <-- 0.280
 ```
 
-Then a `TESTZ Z=-` would move the nozzle to a Z position of 0.180 (half way between 0.130 and 0.230). One can use this feature to help rapidly narrow down to a consistent friction. It is also possible to use `Z=++` and `Z=--` to return directly to a past measurement - for example, after the above prompt a `TESTZ Z=--` command would move the nozzle to a Z position of 0.130.
+Entonces un `TESTZ Z=-` movería la boquilla a una posición Z de 0,180 (a medio camino entre 0,130 y 0,230). Se puede utilizar esta función para ayudar a reducir rápidamente a una fricción consistente. También es posible utilizar `Z=++` y `Z=--` para volver directamente a una medición pasada - por ejemplo, después de la indicación anterior un comando `TESTZ Z=--` movería la boquilla a una posición Z de 0.130.
 
-After finding a small amount of friction run the ACCEPT command:
+Después de encontrar una pequeña cantidad de fricción envíe el comando ACEPTAR :
 
 ```
 ACCEPT
 ```
 
-This will accept the given Z height and proceed with the given calibration tool.
+Esto aceptará la altura en Z dada y continuara con la herramienta de calibración.
 
-The exact amount of friction felt isn't crucial, just as the amount of thermal expansion and exact width of the paper isn't crucial. Just try to obtain the same amount of friction each time one runs the test.
+La cantidad exacta de fricción no es crucial, al igual que la cantidad de expansión térmica y la anchura exacta del papel no son cruciales. Sólo hay que intentar obtener la misma cantidad de fricción cada vez que se realiza la prueba.
 
-If something goes wrong during the test, one can use the `ABORT` command to exit the calibration tool.
+Si algo va mal durante la prueba, se puede utilizar el comando `ABORT` para salir de la herramienta de calibración.
 
-## Determining Thermal Expansion
+## Determinando la Expansión Térmica
 
 After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "width of the paper", and "amount of friction felt during the paper test".
 
