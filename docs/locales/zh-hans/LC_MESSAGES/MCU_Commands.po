@@ -1,6 +1,16 @@
-#
+# mirokymac <toufubomb@gmail.com>, 2021.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-09-27 22:38+0000\n"
+"Last-Translator: mirokymac <toufubomb@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/mcu_commands/zh_Hans/>\n"
+"Language: zh-hans\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 msgid ""
 "This document provides information on the low-level micro-controller "
@@ -8,12 +18,12 @@ msgid ""
 "the Klipper micro-controller software. This document is not an authoritative"
 " reference for these commands, nor is it an exclusive list of all available "
 "commands."
-msgstr ""
+msgstr "该文档介绍了Klipper上位机软件发送到微控制器的，并由微处理器负责执行的底层命令。该文档不是这些命令的权威文档，也并未包含所有命令。"
 
 msgid ""
 "This document may be useful for developers interested in understanding the "
 "low-level micro-controller commands."
-msgstr ""
+msgstr "若想深入了解底层微处理器命令，该文档是不错的入门材料。"
 
 msgid ""
 "See the [protocol](Protocol.md) document for more information on the format "
