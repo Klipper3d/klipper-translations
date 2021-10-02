@@ -1,15 +1,16 @@
 # Tircown <tircown@gmail.com>, 2021.
+# Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-23 02:32+0000\n"
-"Last-Translator: Tircown <tircown@gmail.com>\n"
+"PO-Revision-Date: 2021-10-02 09:35+0000\n"
+"Last-Translator: Francis Poulizac <fpoulizac@vivaldi.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/faq/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.8.1-dev\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 msgid "[How can I donate to the project?](#how-can-i-donate-to-the-project)"
 msgstr "[Comment puis-je faire un don?](#how-can-i-donate-to-the-project)"
@@ -1063,7 +1064,6 @@ msgstr ""
 msgid "/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 msgstr "/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 
-#, fuzzy
 msgid ""
 "sudo service klipper stop\n"
 "make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
@@ -1073,7 +1073,6 @@ msgstr ""
 "make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 "sudo service klipper start\n"
 
-#, fuzzy
 msgid ""
 "[mcu]\n"
 "serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
