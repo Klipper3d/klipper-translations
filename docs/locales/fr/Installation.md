@@ -1,52 +1,52 @@
 # Installation
 
-These instructions assume the software will run on a Raspberry Pi computer in conjunction with OctoPrint. It is recommended that a Raspberry Pi 2, 3, or 4 computer be used as the host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) for other machines).
+Ces instructions supposent que le logiciel fonctionnera sur un ordinateur Raspberry Pi en conjonction avec OctoPrint. Il est recommandé d'utiliser un ordinateur Raspberry Pi 2, 3 ou 4 comme machine hôte (voir la [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) pour les autres machines).
 
-Klipper currently supports a number of Atmel ATmega based micro-controllers, [ARM based micro-controllers](Features.md#step-benchmarks), and [Beaglebone PRU](beaglebone.md) based printers.
+Klipper prend actuellement en charge un certain nombre de microcontrôleurs Atmel ATmega, de [microcontrôleurs ARM](Features.md#step-benchmarks) et d'imprimantes à base de [Beaglebone PRU](beaglebone.md).
 
-## Prepping an OS image
+## Préparation de l'image du système d'exploitation (OS)
 
-Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry Pi computer. Use OctoPi v0.17.0 or later - see the [octopi releases](https://github.com/guysoft/OctoPi/releases) for release information. One should verify that OctoPi boots and that the OctoPrint web server works. After connecting to the OctoPrint web page, follow the prompt to upgrade OctoPrint to v1.4.2 or later.
+Commencez par installer [OctoPi](https://github.com/guysoft/OctoPi) sur l'ordinateur Raspberry Pi. Utilisez OctoPi v0.17.0 ou une version plus récente - voir les [versions octopi](https://github.com/guysoft/OctoPi/releases) pour les informations sur les versions. Il faut vérifier que OctoPi démarre et que le serveur web OctoPrint fonctionne. Après s'être connecté à la page web d'OctoPrint, suivez les instructions pour mettre à jour OctoPrint à la version v1.4.2 ou ultérieure.
 
-After installing OctoPi and upgrading OctoPrint, it will be necessary to ssh into the target machine to run a handful of system commands. If using a Linux or MacOS desktop, then the "ssh" software should already be installed on the desktop. There are free ssh clients available for other desktops (eg, [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Use the ssh utility to connect to the Raspberry Pi (ssh pi@octopi -- password is "raspberry") and run the following commands:
+Après avoir installé OctoPi et mis à jour OctoPrint, il sera nécessaire de se connecter via ssh à la machine cible pour exécuter quelques commandes système. Si vous utilisez un bureau Linux ou MacOS, le logiciel "ssh" devrait déjà être installé sur le bureau. Il existe des clients ssh gratuits pour d'autres ordinateurs de bureau (par exemple, [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Utilisez l'utilitaire ssh pour vous connecter au Raspberry Pi (ssh pi@octopi -- le mot de passe par défaut est "raspberry") et exécutez les commandes suivantes :
 
 ```
 git clone https://github.com/KevinOConnor/klipper
 ./klipper/scripts/install-octopi.sh
 ```
 
-The above will download Klipper, install some system dependencies, setup Klipper to run at system startup, and start the Klipper host software. It will require an internet connection and it may take a few minutes to complete.
+L'opération ci-dessus permet de télécharger Klipper, d'installer certaines dépendances du système, de configurer Klipper pour qu'il soit exécuté au démarrage du système et de lancer le logiciel hôte Klipper. Une connexion Internet est nécessaire et l'opération peut prendre quelques minutes.
 
-## Building and flashing the micro-controller
+## Compilation et flashage du micro-contrôleur
 
-To compile the micro-controller code, start by running these commands on the Raspberry Pi:
+Pour compiler le code du microcontrôleur, commencez par exécuter ces commandes sur le Raspberry Pi :
 
 ```
 cd ~/klipper/
 make menuconfig
 ```
 
-Select the appropriate micro-controller and review any other options provided. Once configured, run:
+Sélectionnez le microcontrôleur approprié et examinez les autres options proposées. Une fois configuré, exécutez :
 
 ```
 make
 ```
 
-It is necessary to determine the serial port connected to the micro-controller. For micro-controllers that connect via USB, run the following:
+Il est nécessaire de déterminer le port série connecté au micro-contrôleur. Pour les micro-contrôleurs qui se connectent via USB, exécutez ce qui suit :
 
 ```
 ls /dev/serial/by-id/*
 ```
 
-It should report something similar to the following:
+Il devrait retourner quelque chose de similaire à ce qui suit :
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-It's common for each printer to have its own unique serial port name. This unique name will be used when flashing the micro-controller. It's possible there may be multiple lines in the above output - if so, choose the line corresponding to the micro-controller (see the [FAQ](FAQ.md#wheres-my-serial-port) for more information).
+Il est courant que chaque imprimante ait son propre nom de port série unique. Ce nom unique sera utilisé lors du flashage du micro-contrôleur. Il est possible qu'il y ait plusieurs lignes dans la sortie ci-dessus - si c'est le cas, choisissez la ligne correspondant au micro-contrôleur (voir la [FAQ](FAQ.md#wheres-my-serial-port) pour plus d'informations).
 
-For common micro-controllers, the code can be flashed with something similar to:
+Pour les micro-contrôleurs courants, le code peut être flashé avec quelque chose de similaire :
 
 ```
 sudo service klipper stop
@@ -54,54 +54,54 @@ make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 ```
 
-Be sure to update the FLASH_DEVICE with the printer's unique serial port name.
+Veillez à mettre à jour le FLASH_DEVICE avec le nom unique du port série de l'imprimante.
 
-When flashing for the first time, make sure that OctoPrint is not connected directly to the printer (from the OctoPrint web page, under the "Connection" section, click "Disconnect").
+Lors du premier flashage, assurez-vous qu'OctoPrint n'est pas connecté directement à l'imprimante (à partir de la page web d'OctoPrint, sous la section "Connexion", cliquez sur "Déconnecter").
 
-## Configuring OctoPrint to use Klipper
+## Configuration d'OctoPrint pour utiliser Klipper
 
-The OctoPrint web server needs to be configured to communicate with the Klipper host software. Using a web browser, login to the OctoPrint web page and then configure the following items:
+Le serveur web OctoPrint doit être configuré pour communiquer avec le logiciel hôte Klipper. À l'aide d'un navigateur Web, connectez-vous à la page Web d'OctoPrint, puis configurez les éléments suivants :
 
-Navigate to the Settings tab (the wrench icon at the top of the page). Under "Serial Connection" in "Additional serial ports" add "/tmp/printer". Then click "Save".
+Naviguez vers l'onglet "Settings" (l'icône de la clé à molette en haut de la page). Sous "Serial Connection" dans "Additional serial ports" ajoutez "/tmp/printer". Cliquez ensuite sur "Save".
 
-Enter the Settings tab again and under "Serial Connection" change the "Serial Port" setting to "/tmp/printer".
+Entrez à nouveau dans l'onglet Paramètres et, sous "Connexion série", changez le paramètre "Port série" en "/tmp/printer".
 
-In the Settings tab, navigate to the "Behavior" sub-tab and select the "Cancel any ongoing prints but stay connected to the printer" option. Click "Save".
+Dans l'onglet "Paramètres", accédez au sous-onglet "Behavior" et sélectionnez l'option "Cancel any ongoing prints but stay connected to the printer". Cliquez sur "Enregistrer".
 
-From the main page, under the "Connection" section (at the top left of the page) make sure the "Serial Port" is set to "/tmp/printer" and click "Connect". (If "/tmp/printer" is not an available selection then try reloading the page.)
+Sur la page principale, dans la section "Connection" (en haut à gauche de la page), assurez-vous que le "Serial Port" est réglé sur "/tmp/printer" et cliquez sur "Connect". (si "/tmp/printer" n'est pas une sélection disponible, essayez de recharger la page.)
 
-Once connected, navigate to the "Terminal" tab and type "status" (without the quotes) into the command entry box and click "Send". The terminal window will likely report there is an error opening the config file - that means OctoPrint is successfully communicating with Klipper. Proceed to the next section.
+Une fois connecté, naviguez vers l'onglet "Terminal" et tapez "status" (sans les guillemets) dans la boîte de saisie de la commande et cliquez sur "Send". La fenêtre du terminal indiquera probablement qu'il y a une erreur dans l'ouverture du fichier de configuration - cela signifie qu'OctoPrint communique avec succès avec Klipper. Passez à la section suivante.
 
-## Configuring Klipper
+## Configuration de Klipper
 
-The Klipper configuration is stored in a text file on the Raspberry Pi. Take a look at the example config files in the [config directory](../config/). The [config reference](Config_Reference.md) contains documentation on config parameters.
+La configuration de Klipper est stockée dans un fichier texte sur le Raspberry Pi. Jetez un coup d'œil aux exemples de fichiers de configuration dans le [répertoire config](../config/). Le [référence de configuration](Config_Reference.md) contient de la documentation sur ces paramètres.
 
-Arguably the easiest way to update the Klipper configuration file is to use a desktop editor that supports editing files over the "scp" and/or "sftp" protocols. There are freely available tools that support this (eg, Notepad++, WinSCP, and Cyberduck). Use one of the example config files as a starting point and save it as a file named "printer.cfg" in the home directory of the pi user (ie, /home/pi/printer.cfg).
+La façon la plus simple de mettre à jour le fichier de configuration de Klipper est d'utiliser un éditeur de bureau qui prend en charge l'édition de fichiers via les protocoles "scp" et/ou "sftp". Il existe des outils disponibles gratuitement qui prennent en charge cette fonction (par exemple, Notepad++, WinSCP et Cyberduck). Utilisez un des exemples de fichiers de configuration comme point de départ et sauvegardez-le dans un fichier nommé "printer.cfg" dans le répertoire personnel de l'utilisateur pi (par exemple, /home/pi/printer.cfg).
 
-Alternatively, one can also copy and edit the file directly on the Raspberry Pi via ssh - for example:
+On peut aussi copier et éditer le fichier directement sur le Raspberry Pi via ssh - par exemple :
 
 ```
 cp ~/klipper/config/example-cartesian.cfg ~/printer.cfg
 nano ~/printer.cfg
 ```
 
-Make sure to review and update each setting that is appropriate for the hardware.
+Assurez-vous d'examiner et de mettre à jour chaque paramètre approprié au matériel.
 
-It's common for each printer to have its own unique name for the micro-controller. The name may change after flashing Klipper, so rerun the `ls /dev/serial/by-id/*` command and then update the config file with the unique name. For example, update the `[mcu]` section to look something similar to:
+Il est courant que chaque imprimante ait son propre nom unique pour le micro-contrôleur. Le nom peut changer après avoir flashé Klipper, donc relancez la commande `ls /dev/serial/by-id/*` et mettez à jour le fichier de configuration avec ce nom unique. Par exemple, mettez à jour la section `[mcu]` pour qu'elle ressemble à quelque chose comme :
 
 ```
 [mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-After creating and editing the file it will be necessary to issue a "restart" command in the OctoPrint web terminal to load the config. A "status" command will report the printer is ready if the Klipper config file is successfully read and the micro-controller is successfully found and configured. It is not unusual to have configuration errors during the initial setup - update the printer config file and issue "restart" until "status" reports the printer is ready.
+Après avoir créé et édité le fichier, il sera nécessaire de lancer la commande "restart" dans le terminal web OctoPrint pour charger la configuration. La commande "status" indiquera que l'imprimante est prête si le fichier de configuration Klipper est lu avec succès et si le micro-contrôleur est trouvé et configuré avec succès. Il n'est pas rare d'avoir des erreurs de configuration pendant la configuration initiale - mettez à jour le fichier de configuration de l'imprimante et relancez la commande "restart" jusqu'à ce que "status" indique que l'imprimante est prête.
 
-Klipper reports error messages via the OctoPrint terminal tab. The "status" command can be used to re-report error messages. The default Klipper startup script also places a log in **/tmp/klippy.log** which provides more detailed information.
+Klipper rapporte les messages d'erreur via l'onglet du terminal OctoPrint. La commande "status" peut être utilisée pour rapporter à nouveau les messages d'erreur. Le script de démarrage par défaut de Klipper place également un journal dans **/tmp/klippy.log** qui fournit des informations plus détaillées.
 
-In addition to common g-code commands, Klipper supports a few extended commands - "status" and "restart" are examples of these commands. Use the "help" command to get a list of other extended commands.
+En plus des commandes g-code courantes, Klipper prend en charge quelques commandes étendues - "status" et "restart" en sont des exemples. Utilisez la commande "help" pour obtenir la liste des autres commandes étendues.
 
-After Klipper reports that the printer is ready go on to the [config check document](Config_checks.md) to perform some basic checks on the pin definitions in the config file.
+Après que Klipper ait signalé que l'imprimante est prête, passez au [document de vérification de la configuration](Config_checks.md) pour effectuer quelques vérifications de base sur les définitions des broches dans le fichier de configuration.
 
-## Contacting the developers
+## Contacter les développeurs
 
-Be sure to see the [FAQ](FAQ.md) for answers to some common questions. See the [contact page](Contact.md) to report a bug or to contact the developers.
+N'oubliez pas de consulter la [FAQ](FAQ.md) pour obtenir des réponses aux questions courantes. Consultez la page [contact](Contact.md) pour signaler un bogue ou contacter les développeurs.

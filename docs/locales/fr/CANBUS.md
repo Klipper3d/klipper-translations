@@ -52,7 +52,7 @@ Each device will have a unique identifier. In the above example, `11aa22bb33cc` 
 
 Note that the `canbus_query.py` tool will only report uninitialized devices - if Klipper (or a similar tool) configures the device then it will no longer appear in the list.
 
-## Configuring Klipper
+## Configuration de Klipper
 
 Update the Klipper [mcu configuration](Config_Reference.md#mcu) to use the CAN bus to communicate with the device - for example:
 
