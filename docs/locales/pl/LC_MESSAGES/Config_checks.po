@@ -1,5 +1,5 @@
 # Grabekk <dgrabowski@ciechocinek.zhr.pl>, 2021, 2025.
-# sportspider <radoslaw.janas@gmail.com>, 2021.
+# sportspider <radoslaw.janas@gmail.com>, 2021, 2025.
 # Den Bo <denbo.swaggins@gmail.com>, 2021.
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: Grabekk <dgrabowski@ciechocinek.zhr.pl>\n"
+"Last-Translator: sportspider <radoslaw.janas@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "config_checks/pl/>\n"
 "Language: pl\n"
