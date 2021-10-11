@@ -1,14 +1,17 @@
 # Grabekk <dgrabowski@ciechocinek.zhr.pl>, 2021.
+# sportspider <radoslaw.janas@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-09-11 08:35+0000\n"
-"Last-Translator: Grabekk <dgrabowski@ciechocinek.zhr.pl>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/config_checks/pl/>\n"
+"PO-Revision-Date: 2021-10-11 09:46+0000\n"
+"Last-Translator: sportspider <radoslaw.janas@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
+"config_checks/pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.9-dev\n"
 
 msgid ""
@@ -47,8 +50,9 @@ msgstr ""
 "Zacznij od sprawdzenia, czy temperatury są prawidłowo raportowane. Przejdź "
 "do zakładki Temperatura Octoprint."
 
+#, fuzzy
 msgid "![octoprint-temperature](img/octoprint-temperature.png)"
-msgstr ""
+msgstr "![octoprint-temperature](img/octoprint-temperature.png)"
 
 #, fuzzy
 msgid ""
@@ -63,7 +67,7 @@ msgstr ""
 " stołu."
 
 msgid "Verify M112"
-msgstr ""
+msgstr "Sprawdź M112"
 
 msgid ""
 "Navigate to the Octoprint terminal tab and issue an M112 command in the "
@@ -79,9 +83,12 @@ msgid ""
 "The M112 command causes Klipper to go into a \"shutdown\" state. To clear "
 "this state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab."
 msgstr ""
+"Komenda M112 powoduje przejście Klippera w stan \"shutdown\". Opuszczenie "
+"tego stanu można wywołać komendą FIRMWARE_RESTART w zakładce terminala "
+"Octoprint."
 
 msgid "Verify heaters"
-msgstr ""
+msgstr "Sprawdź grzałki"
 
 msgid ""
 "Navigate to the Octoprint temperature tab and type in 50 followed by enter "
@@ -99,7 +106,7 @@ msgid ""
 msgstr ""
 
 msgid "Verify stepper motor enable pin"
-msgstr ""
+msgstr "Sprawdź pin włączający silnik krokowy"
 
 msgid ""
 "Verify that all of the printer axes can manually move freely (the stepper "
@@ -110,9 +117,15 @@ msgid ""
 "enable pin should have a \"!\" before the pin (for example, \"enable_pin: "
 "!ar38\")."
 msgstr ""
+"Sprawdź, czy wszystkie osie drukarki można przesunąć ręcznie (przy "
+"wyłączonych silnikach krokowych). Jeśli nie, wyłącz silniki komendą M84. "
+"Jeśli któraś z osi nadal pozostanie aktywna, sprawdź konfigurację "
+"\"enable_pin\" danej osi. Większość sterowników silników krokowych ma pin "
+"enable aktywny przy niskim stanie dlatego w konfiguracji pin należy wstawić "
+"\"!\" przed nazwą pinu (np. enable_pin:!ar38\")."
 
 msgid "Verify endstops"
-msgstr ""
+msgstr "Sprawdź krańcówki"
 
 msgid ""
 "Manually move all the printer axes so that none of them are in contact with "
