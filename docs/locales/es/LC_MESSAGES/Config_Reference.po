@@ -1,6 +1,16 @@
-#
+# c0d3x27 <banginpadr27@aol.com>, 2021.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-10-11 09:46+0000\n"
+"Last-Translator: c0d3x27 <banginpadr27@aol.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"config_reference/es/>\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -735,7 +745,7 @@ msgid ""
 msgstr ""
 
 msgid "Common temperature amplifiers"
-msgstr ""
+msgstr "Anplificador de temperaturas comunes"
 
 msgid ""
 "Common temperature amplifiers. The following parameters are available in "
@@ -1291,7 +1301,7 @@ msgid "Common bus parameters"
 msgstr ""
 
 msgid "Common SPI settings"
-msgstr ""
+msgstr "Configurazione comun de SPI"
 
 msgid ""
 "The following parameters are generally available for devices using an SPI "
