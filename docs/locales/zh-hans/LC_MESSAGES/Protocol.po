@@ -1,6 +1,16 @@
-#
+# Neko.vecter <Vecterfang@icloud.com>, 2021.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-10-11 09:46+0000\n"
+"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/protocol/zh_Hans/>\n"
+"Language: zh-hans\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 msgid ""
 "The Klipper messaging protocol is used for low-level communication between "
@@ -283,7 +293,7 @@ msgid "-2147483648 .. 4294967295"
 msgstr ""
 
 msgid "5"
-msgstr ""
+msgstr "5"
 
 msgid "Variable length strings"
 msgstr ""

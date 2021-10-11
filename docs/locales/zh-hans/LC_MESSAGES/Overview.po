@@ -1,12 +1,13 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
 # badpoi <a1635835119@gmail.com>, 2021.
+# Neko.vecter <Vecterfang@icloud.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-25 03:39+0200\n"
-"PO-Revision-Date: 2021-09-24 04:35+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"PO-Revision-Date: 2021-10-11 09:46+0000\n"
+"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/overview/zh_Hans/>\n"
 "Language: zh-hans\n"
@@ -226,7 +227,7 @@ msgstr "安装和配置"
 msgid ""
 "[Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple "
 "micro-controllers."
-msgstr "[多 MCU 归零](Multi_MCU_Homing.md)：在归位和探测时使用多个微处理器。"
+msgstr "[Multi-MCU Homing](Multi_MCU_Homing.md)：在归位和探测时使用多个微处理器。"
 
 #~ msgid "Configuration and Tuning Guides"
 #~ msgstr "配置与调优指南"
