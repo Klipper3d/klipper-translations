@@ -12,23 +12,23 @@ Zacznij od sprawdzenia, czy temperatury są prawidłowo raportowane. Przejdź do
 
 Sprawdź, czy temperatura dyszy i złoża (jeśli dotyczy) jest obecna i nie wzrasta. Jeśli rośnie, odłącz zasilanie od drukarki. Jeśli temperatury nie są dokładne, sprawdź ustawienia „sensor_type” i „sensor_pin” dla dyszy i/lub stołu.
 
-## Verify M112
+## Sprawdź M112
 
 Navigate to the Octoprint terminal tab and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause Octoprint to disconnect from Klipper - navigate to the Connection area and click on "Connect" to cause Octoprint to reconnect. Then navigate to the Octoprint temperature tab and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
 
-The M112 command causes Klipper to go into a "shutdown" state. To clear this state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab.
+Komenda M112 powoduje przejście Klippera w stan "shutdown". Opuszczenie tego stanu można wywołać komendą FIRMWARE_RESTART w zakładce terminala Octoprint.
 
-## Verify heaters
+## Sprawdź grzałki
 
 Navigate to the Octoprint temperature tab and type in 50 followed by enter in the "Tool" temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the "Tool" temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
 
 If the printer has a heated bed then perform the above test again with the bed.
 
-## Verify stepper motor enable pin
+## Sprawdź pin włączający silnik krokowy
 
-Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !ar38").
+Sprawdź, czy wszystkie osie drukarki można przesunąć ręcznie (przy wyłączonych silnikach krokowych). Jeśli nie, wyłącz silniki komendą M84. Jeśli któraś z osi nadal pozostanie aktywna, sprawdź konfigurację "enable_pin" danej osi. Większość sterowników silników krokowych ma pin enable aktywny przy niskim stanie dlatego w konfiguracji pin należy wstawić "!" przed nazwą pinu (np. enable_pin:!ar38").
 
-## Verify endstops
+## Sprawdź krańcówki
 
 Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the Octoprint terminal tab. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
 
