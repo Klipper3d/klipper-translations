@@ -1,16 +1,16 @@
 # RPi microcontroller
 
-This document describes the process of running Klipper on a RPi and use the same RPi as secondary mcu.
+这个文档描述了在RPi上运行Klipper的过程，并使用相同的RPi作为辅助MCU。
 
-## Why use RPi as a secondary MCU?
+## 为什么使用RPi作为辅助MCU？
 
-Often the MCUs dedicated to controlling 3D printers have a limited and pre-configured number of exposed pins to manage the main printing functions (thermal resistors, extruders, steppers ...). Using the RPi where Klipper is installed as a secondary MCU gives the possibility to directly use the GPIOs and the buses (i2c, spi) of the RPi inside klipper without using Octoprint plugins (if used) or external programs giving the ability to control everything within the print GCODE.
+通常情况下，专门用于控制3D打印机的MCU有有限的、预先配置好的引脚来管理主要的打印功能（热敏电阻、挤出机、步进器...）。使用安装了Klipper的RPi作为辅助MCU，可以直接使用klipper内的GPIO和RPi的总线（i2c，spi），而不需要使用Octoprint插件（如果使用的话）或外部程序，从而能够控制打印GCODE内的一切。
 
-**Warning**: If your platform is a *Beaglebone* and you have correctly followed the installation steps, the linux mcu is already installed and configured for your system.
+**警告**。如果你的平台是*Beaglebone*，并且你已经正确地按照安装步骤进行了安装，那么linux mcu已经为你的系统安装和配置了。
 
-## Install the rc script
+## 安装 rc 脚本
 
-If you want to use the host as a secondary MCU the klipper_mcu process must run before the klippy process.
+如果你想把主机作为一个辅助MCU，klipper_mcu进程必须在klippy进程之前运行。
 
 After installing Klipper, install the script. run:
 

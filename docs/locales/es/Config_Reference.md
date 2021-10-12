@@ -1855,7 +1855,7 @@ sensor_pin:
 #   The default is 0 ohms.
 ```
 
-### Common temperature amplifiers
+### Anplificador de temperaturas comunes
 
 Common temperature amplifiers. The following parameters are available in heater sections that use one of these sensors.
 
@@ -3600,7 +3600,7 @@ serial:
 
 ## Common bus parameters
 
-### Common SPI settings
+### Configurazione comun de SPI
 
 The following parameters are generally available for devices using an SPI bus.
 
