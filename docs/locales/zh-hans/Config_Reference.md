@@ -1423,9 +1423,8 @@ This tool allows a single micro-controller pin to be defined multiple times in a
 ```
 [duplicate_pin_override]
 pins:
-#   A comma separated list of pins that may be used multiple times in
-#   a config file without normal error checks. This parameter must be
-#   provided.
+#   一个逗号分隔的引脚列表，允许其中的引脚在配置文件中被多次使用而不触发错误检查。
+#   必须提供此参数。
 ```
 
 ## 打印床探测硬件
@@ -2320,7 +2319,7 @@ PCA9533 LED support. The PCA9533 is used on the mightyboard.
 
 ### [gcode_button]
 
-Execute gcode when a button is pressed or released (or when a pin changes state). You can check the state of the button by using `QUERY_BUTTON button=my_gcode_button`.
+在一个按钮被按下或放开（或当一个引脚状态发生变化时）时运行G代码。你可以使用 `QUERY_BUTTON button=my_gcode_button` 来查询按钮的状态。
 
 ```
 [gcode_button my_gcode_button]
