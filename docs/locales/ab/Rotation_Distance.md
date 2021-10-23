@@ -1,22 +1,22 @@
 # Rotation distance
 
-Klipper 上的步进电机驱动器在每个 [步进配置部分](Config_Reference.md#stepper) 中都需要一个 `rotation_distance` 参数。 `rotation_distance` 是步进电机旋转一整圈时轴移动的距离。本文档描述了如何配置此值。
+Stepper motor drivers on Klipper require a `rotation_distance` parameter in each [stepper config section](Config_Reference.md#stepper). The `rotation_distance` is the amount of distance that the axis moves with one full revolution of the stepper motor. This document describes how one can configure this value.
 
-## 从step_per_mm（或step_distance）获取旋转距离
+## Obtaining rotation_distance from steps_per_mm (or step_distance)
 
-你的 3D 打印机的设计师最初从旋转距离计算 `steps_per_mm `。如果您知道steps_per_mm，则可以使用此通用公式获得原始旋转距离：
+The designers of your 3d printer originally calculated `steps_per_mm` from a rotation distance. If you know the steps_per_mm then it is possible to use this general formula to obtain that original rotation distance:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
 ```
 
-或者，如果你有一个旧版本的Klipper配置并知道`step_distance`参数，你可以使用这个公式：
+Or, if you have an older Klipper configuration and know the `step_distance` parameter you can use this formula:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
 ```
 
-`<full_steps_per_rotation>` 设置由步进电机的类型决定。大多数步进电机是“1.8 度步进电机”，因此每转 200 步（360 除以 1.8 等于 200）。一些步进电机是“0.9 度步进电机”，因此每转有 400 整步。其他步进电机很少见。如果不确定，请不要在配置文件中设置 full_steps_per_rotation 并在上面的公式中使用 200。
+The `<full_steps_per_rotation>` setting is determined from the type of stepper motor. Most stepper motors are "1.8 degree steppers" and therefore have 200 full steps per rotation (360 divided by 1.8 is 200). Some stepper motors are "0.9 degree steppers" and thus have 400 full steps per rotation. Other stepper motors are rare. If unsure, do not set full_steps_per_rotation in the config file and use 200 in the formula above.
 
 The `<microsteps>` setting is determined by the stepper motor driver. Most drivers use 16 microsteps. If unsure, set `microsteps: 16` in the config and use 16 in the formula above.
 

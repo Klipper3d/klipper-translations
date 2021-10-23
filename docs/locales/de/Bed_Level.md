@@ -14,35 +14,35 @@ Bevor Sie eines dieser Kalibrierungstools ausführen, führen Sie unbedingt die 
 
 Bei Druckern mit einer "automatischen Z-Sonde" müssen Sie die Sonde gemäß den Anweisungen im Dokument [Probe Calibrate](Probe_Calibrate.md) kalibrieren. Informationen zu Deltadruckern finden Sie im Dokument [Delta Calibrate](Delta_Calibrate.md). Informationen zu Druckern mit Bettschrauben und herkömmlichen Z-Endschaltern finden Sie im Dokument [Manual Level](Manual_Level.md).
 
-During calibration it may be necessary to set the printer's Z `position_min` to a negative number (eg, `position_min = -2`). The printer enforces boundary checks even during calibration routines. Setting a negative number allows the printer to move below the nominal position of the bed, which may help when trying to determine the actual bed position.
+Während der Kalibrierung kann es notwendig sein dem `position_min` Parameter der Z-Achse einen negativen Wert zuzuweisen (z.B. `position_min = -2`). Auch während eines Kalibrierungsvorgangs schränkt der Drucker die Bewegungsfreiheit gemäß der konfigurierten Grenzen ein. Ein negativer Wert erlaubt es dem Drucker sich unter die nominale Höhe des Druckbettes zu bewegen, was bei der Ermittlung der tatsächlichen Position des Druckbettes hilfreich sein kann.
 
-## The "paper test"
+## Der "Papiertest"
 
-The primary bed calibration mechanism is the "paper test". It involves placing a regular piece of "copy machine paper" between the printer's bed and nozzle, and then commanding the nozzle to different Z heights until one feels a small amount of friction when pushing the paper back and forth.
+Der "Papiertest" ist der primäre Test zur Kalibrierung der Höhe des Druckbettes. Ein gewöhnliches "Kopierpapier" wird zwischen dem Druckbett und der Düse platziert und die Düse so lange entlang der Z-Achse bewegt bis beim Hin- und Herbewegen des Papiers Reibung zwischen dem Papier und der Düse festgestellt werden kann.
 
-It is important to understand the "paper test" even if one has an "automatic Z probe". The probe itself often needs to be calibrated to get good results. That probe calibration is done using this "paper test".
+Die Kenntis des "Papiertests" ist wichtig, selbst wenn der Drucker einen "automatischen Z Sonde" besitzt. Der Z Sonde selbst muss kalibriert werden um gute Ergebnisse zu erhalten. Diese Kalbirierung wird mithilfe des "Papiertests" durchgeführt.
 
-In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a width of around 100 microns (0.100mm). (The exact width of the paper isn't crucial.)
+Um den Papiertest durchzufühlen, schneiden sie mithilfe einer Schere ein kleines rechteckiges (z.b. 5x3cm) Stück Papier zurecht. Das Papier hat gewöhnlicherweise eine Dicke von etwa 100 Mikrometer (0.100mm). (Die genaue Dicke ist für den Test nicht ausschlaggebend.)
 
-The first step of the paper test is to inspect the printer's nozzle and bed. Make sure there is no plastic (or other debris) on the nozzle or bed.
+Der erste Schritt des Papiertests besteht in der Kontrolle der Düse und des Druckbetts des Druckers. Stellen sie sicher dass keine Plastikreste oder andere Verschmutzungen an der Düse oder auf dem Bett vorhanden sind.
 
-**Inspect the nozzle and bed to ensure no plastic is present!**
+**Kontrollieren sie die Düse und das Druckbett um sicherzustellen dass keine Plastikreste vorhanden sind!**
 
-If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a width and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.
+Falls Klebeband oder andere Druckoberflächen zum Einsatz kommen sollte der Papiertest auf diesen Druckoberflächen durchgeführt werden. Es gilt jedoch zu beachten dass Klebeband ebenfalls eine gewissen Dicke hat und verschiedene Klebebänder (oder andere Druckoberflächen) die Kalbrierung der Z-Achse beeinflüssen können. Wiederholen sie den Papiertest für jede Druckoberfläche die zum Drucken verwendet wird.
 
-If there is plastic on the nozzle then heat up the extruder and use a metal tweezers to remove that plastic. Wait for the extruder to fully cool to room temperature before continuing with the paper test. While the nozzle is cooling, use the metal tweezers to remove any plastic that may ooze out.
+Falls Plastikreste an der Düse vorhanden sind, heizen sie die Düse auf und verwenden sie eine Metallpinzette um Reste zu entfernen. Warten sie bis die Düse wieder vollständig auf Zimmertemperatur abgekühlt ist bevor sie mit dem Papiertest fortfahren. Während die Düse abkühlt, verwenden sie die Metallpinzette um weitere Plastikreste, die evtl. auslaufen, zu entfernen.
 
-**Always perform the paper test when both nozzle and bed are at room temperature!**
+**Führen sie den Papiertest nur durch wenn sich Druckdüse und Druckbett auf Zimmertemperatur befinden!**
 
-When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same width as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact width of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two widths).
+Wenn sich die Düse aufheizt verändert sich die relative Position zum Druckbett aufgrund von Wärmeausdehnung. Diese Wärmeausdehnung beschränkt sich gewöhnlicherweise auf etwa 100 Mikrometer, was in etwa der Dicke eines gewöhnlichen Druckerpapiers entspricht. Die genaue Menge an Ausdehnung ist nicht ausschlaggebend. Beginnen sie mit der Annahme dass die beiden Werte identisch sind (eine Methode zur Feststellung der genauen Differenz finden sie weiter unten).
 
-It may seem odd to calibrate the distance at room temperature when the goal is to have a consistent distance when heated. However, if one calibrates when the nozzle is heated, it tends to impart small amounts of molten plastic on to the paper, which changes the amount of friction felt. That makes it harder to get a good calibration. Calibrating while the bed/nozzle is hot also greatly increases the risk of burning oneself. The amount of thermal expansion is stable, so it is easily accounted for later in the calibration process.
+Es mag komisch vorkommen den Abstand bei Zimmertemperatur zu kalibrieren, obwohl das Ziel ein reproduzierbarer Abstand im aufgeheizten Zustand ist. Wird die Kalbrierung jedoch im aufgeheizten Zustand durchgeführt, können kleine Mengen an geschmolzenem Plastik auf dem Papier zurückbleiben, was die gefühlte Menge Reibung beeinflussen kann. Eine Kalbrierung mit aufgeheizter Düse und Druckbett erhöht außerdem das Risiko für Brandverletzungen. Die Wärmeausdehnung ist konstant, daher ist es sehr einfach sie später im Kalibrierungsprozess zu berücksichtigen.
 
-**Use an automated tool to determine precise Z heights!**
+**Benutzen sie ein automatisiertes Werkzeug um die genaue Z Höhe festzustellen!**
 
-Klipper has several helper scripts available (eg, MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). See the documents [described above](#choose-the-appropriate-calibration-mechanism) to choose one of them.
+Klipper stellt einige Hilfe-Skripte zur Verfügung (z.b. MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). Prüfen sie die [obige](#choose-the-appropriate-calibration-mechanism) Dokumentation um das passende Skript auszuwählen.
 
-Run the appropriate command in the OctoPrint terminal window. The script will prompt for user interaction in the OctoPrint terminal output. It will look something like:
+Führen sie das passende Kommando im Octoprint Terminal Fenster aus. Das Skript bittet dann um Benutzereingaben im OctoPrint Terminal. Die Ausgabe wird ähnlich dem Folgenden aussehen:
 
 ```
 Recv: // Starting manual Z probe. Use TESTZ to adjust position.
