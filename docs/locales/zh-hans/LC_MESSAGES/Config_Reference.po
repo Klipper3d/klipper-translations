@@ -1,12 +1,13 @@
 # badpoi <a1635835119@gmail.com>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Neko.vecter <Vecterfang@icloud.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
-"PO-Revision-Date: 2021-10-20 09:35+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2021-10-22 03:35+0000\n"
+"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/config_reference/zh_Hans/>\n"
 "Language: zh-hans\n"
