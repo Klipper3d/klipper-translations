@@ -11,7 +11,7 @@ Klipper目前支持数种基于Atmel ATmega的微控制器、[基于ARM的微控
 在安装 OctoPi 和升级 OctoPrint后，用 ssh 进入目标设备，以运行少量的系统命令。如果使用Linux或MacOS系统，那么 "ssh"软件应该已经预装在系统上。有一些免费的ssh客户端可用于其他操作系统（例如，[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)）。使用ssh工具连接到Raspberry Pi（ssh pi@octopi --密码是 "raspberry"），并运行以下命令：
 
 ```
-git clone https://github.com/KevinOConnor/klipper
+git clone https://github.com/Klipper3d/klipper
 ./klipper/scripts/install-octopi.sh
 ```
 

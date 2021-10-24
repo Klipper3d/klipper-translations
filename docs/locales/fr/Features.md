@@ -19,18 +19,19 @@ Klipper propose plusieurs caractéristiques intéressantes :
 Klipper prend en charge de nombreuses fonctionnalités standard des imprimantes 3d :
 
 * Fonctionne avec Octoprint. Cela permet de contrôler l'imprimante à l'aide d'un navigateur web ordinaire. Le même Raspberry Pi qui fait tourner Klipper peut aussi faire tourner Octoprint.
-* Prise en charge du G-Code standard. Les commandes G-Code courantes qui sont produites par les "slicers" classiques sont prises en charge. On peut continuer à utiliser Slic3r, Cura, etc. avec Klipper.
+* Standard G-Code support. Common g-code commands that are produced by typical "slicers" (SuperSlicer, Cura, PrusaSlicer, etc.) are supported.
 * Prise en charge de l'extrusion multiple. Les extrudeurs avec réchauffeurs partagés et les extrudeurs sur chariots indépendants (IDEX) sont également prises en charge.
-* Prise en charge des imprimantes de type cartésien, delta, corexy, corexz, rotatif delta, polaire et treuil à câble.
+* Support for cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, rotary delta, polar, and cable winch style printers.
 * Support du nivellement automatique du bed. Klipper peut être configuré pour une détection de base de l'inclinaison du bed ou pour une mise à niveau complète de celui-ci. Si le bed utilise plusieurs steppers Z, Klipper peut également le mettre à niveau en manipulant indépendamment les steppers Z. La plupart des capteurs de hauteur Z sont prises en charge, y compris les sondes BL-Touch et les sondes activées par servomoteur.
 * Prise en charge du calibrage delta automatique. L'outil d'étalonnage peut effectuer un étalonnage de base de la hauteur ainsi qu'un avancé des dimensions X et Y. L'étalonnage peut être effectué avec un palpeur de l'axe Z ou manuellement.
-* Prise en charge des capteurs de température courants (par exemple, les thermistances courantes, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D et LM75). Des thermistances et des capteurs de température analogiques personnalisés peuvent également être configurés.
+* Support for common temperature sensors (eg, common thermistors, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20, and LM75). Custom thermistors and custom analog temperature sensors can also be configured. One can monitor the internal micro-controller temperature sensor and the internal temperature sensor of a Raspberry Pi.
 * Protection thermique basique de l'appareil activée par défaut.
-* Prise en charge des ventilateurs standard, des ventilateurs de buses et des ventilateurs contrôlés par la température. Plus besoin de maintenir les ventilateurs en marche lorsque l'imprimante est inactive.
+* Support for standard fans, nozzle fans, and temperature controlled fans. No need to keep fans running when the printer is idle. Fan speed can be monitored on fans that have a tachometer.
 * Prise en charge de la configuration en temps réel des pilotes de moteurs pas à pas TMC2130, TMC2208/TMC2224, TMC2209, TMC2660 et TMC5160. Il existe également un support pour le contrôle du courant des pilotes pas à pas traditionnels via AD5206, MCP4451, MCP4728, MCP4018 et les broches PWM.
 * Prise en charge des écrans LCD courants fixés directement à l'imprimante. Un menu par défaut est également disponible. Le contenu de l'écran et du menu peut être entièrement personnalisé via le fichier de configuration.
 * Accélération constante et prise en charge du "look-ahead". Tous les mouvements de l'imprimante s'accélèrent progressivement de l'arrêt à la vitesse de croisière, puis décélèrent pour revenir à l'arrêt. Le flux entrant de commandes de mouvement en G-Code est mis en file d'attente et analysé - l'accélération entre les mouvements dans une direction similaire sera optimisée pour réduire les blocages d'impression et améliorer le temps d'impression global.
 * Klipper met en œuvre un algorithme de "fin de phase pas à pas" qui peut améliorer la précision des interrupteurs de butée. Lorsqu'il est correctement réglé, il peut améliorer l'adhérence de la première couche d'une impression.
+* Support for filament presence sensors, filament motion sensors, and filament width sensors.
 * Support pour la mesure et l'enregistrement de l'accélération en utilisant un accéléromètre adxl345.
 * Prise en charge de la limitation de la vitesse maximale des mouvements courts en "zigzag" pour réduire les vibrations et le bruit de l'imprimante. Voir le document [Cinématiques](Kinematics.md) pour plus d'informations.
 * Des exemples de fichiers de configuration sont disponibles pour de nombreuses imprimantes courantes. Consultez le [répertoire config](../config/) pour en obtenir la liste.

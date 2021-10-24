@@ -184,4 +184,11 @@ cycle_time: 0.000001
 
 그러면 Pi의 하드웨어 pwm 제어가 gpio12에 추가됩니다(오버레이가 pwm0을 pin=12로 라우팅하도록 구성되었기 때문).
 
-PWM0은 gpio12 및 gpio18로 라우팅할 수 있고 PWM1은 gpio13 및 gpio19로 라우팅할 수 있습니다:|PWM|gpio PIN|Func| |---|--------|----| | 0| 12| 4| | 0| 18| 2| | 1| 13| 4| | 1| 19| 2|
+PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and gpio19:
+
+| PWM | gpio PIN | Func |
+| --- | --- | --- |
+| 0 | 12 | 4 |
+| 0 | 18 | 2 |
+| 1 | 13 | 4 |
+| 1 | 19 | 2 |

@@ -62,7 +62,7 @@ Klipper est un projet open-source et nous apprécions quand des contributeurs di
 Il y a des informations importantes qui sont nécessaires pour pouvoir corriger un bug. Veuillez suivre ces étapes :
 
 1. Assurez-vous que le bug se trouve bien dans le logiciel Klipper. Si vous pensez "il y a un problème, ne j'arrive pas à comprendre pourquoi, c'est donc un bug dans Klipper", alors veuillez **ne pas** ouvrir d'issue GitHub. Dans ce cas, une personne intéressée et capable devra d'abord rechercher et diagnostiquer la cause racine de l'anomalie. Si vous souhaitez partager les résultats de vos recherches ou vérifier si d'autres utilisateurs rencontrent des problèmes similaires, vous pouvez consulter le [Forum de la Communauté Klipper](#community-forum).
-1. Make sure you are running unmodified code from <https://github.com/KevinOConnor/klipper>. If the code has been modified or is obtained from another source, then you will need to reproduce the problem on the unmodified code from <https://github.com/KevinOConnor/klipper> prior to reporting an issue.
+1. Make sure you are running unmodified code from <https://github.com/Klipper3d/klipper>. If the code has been modified or is obtained from another source, then you will need to reproduce the problem on the unmodified code from <https://github.com/Klipper3d/klipper> prior to reporting an issue.
 1. Si possible, exécutez une commande `M112` dans la fenêtre du terminal OctoPrint immédiatement que l'anomalie s'est produite. Cela bascule Klipper dans un "état d'arrêt" et entraîne l'écriture d'informations de débogage supplémentaires dans le fichier journal.
 1. Récupérez l'événement depuis le fichier journal Klipper. Ce journal a été conçu pour répondre aux questions courantes que les développeurs de Klipper se posent sur le logiciel et son environnement (version du logiciel, type de matériel, configuration, à quel moment l'anomalie eu lieu, et des centaines d'autres questions).
    1. Le fichier journal de Klipper est situé dans `/tmp/klippy.log` sur l'ordinateur "hôte" de Klipper (le Raspberry Pi).
@@ -71,7 +71,7 @@ Il y a des informations importantes qui sont nécessaires pour pouvoir corriger 
    1. Ne modifiez pas le fichier journal de quelque façon que ce soit ; ne fournissez pas un extrait non plus. Seul le fichier journal complet sans altération fournira les informations nécessaires.
    1. Si le fichier journal est très volumineux (par exemple, plus de 2 Mo), il peut être nécessaire de le compresser avec zip ou gzip.
 
-   1. Open a new github issue at <https://github.com/KevinOConnor/klipper/issues> and provide a clear description of the problem. The Klipper developers need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The Klipper log file **must be attached** to that ticket:![attach-issue](img/attach-issue.png)
+   1. Open a new github issue at <https://github.com/Klipper3d/klipper/issues> and provide a clear description of the problem. The Klipper developers need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The Klipper log file **must be attached** to that ticket:![attach-issue](img/attach-issue.png)
 
 ## J’apporte des modifications que j’aimerais inclure dans Klipper
 

@@ -12,7 +12,7 @@ The source code "whitespace check" can be run with:
 ./scripts/check_whitespace.sh
 ```
 
-The Klippy regression test suite requires "data dictionaries" from many platforms. The easiest way to obtain them is to [download them from github](https://github.com/KevinOConnor/klipper/issues/1438). Once the data dictionaries are downloaded, use the following to run the regression suite:
+The Klippy regression test suite requires "data dictionaries" from many platforms. The easiest way to obtain them is to [download them from github](https://github.com/Klipper3d/klipper/issues/1438). Once the data dictionaries are downloaded, use the following to run the regression suite:
 
 ```
 tar xfz klipper-dict-20??????.tar.gz

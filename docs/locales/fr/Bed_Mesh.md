@@ -80,7 +80,7 @@ The illustration below shows how the options above are used to generate an inter
 
 ### Move Splitting
 
-Bed Mesh works by intercepting gcode move commands and applying a transform to their Z coordinate. Long moves must be and split into smaller moves to correctly follow the shape of the bed. The options below control the splitting behavior.
+Bed Mesh works by intercepting gcode move commands and applying a transform to their Z coordinate. Long moves must be split into smaller moves to correctly follow the shape of the bed. The options below control the splitting behavior.
 
 ```
 [bed_mesh]

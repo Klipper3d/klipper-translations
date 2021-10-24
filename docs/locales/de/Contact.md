@@ -62,7 +62,7 @@ Klipper ist ein open-source Projekt und wir freuen uns sehr, wenn Mitbearbeiter 
 Wichtige Informationen werden benötigt, um einen Fehler zu beheben. Bitte befolge die folgenden Schritte:
 
 1. Stell sicher, dass der Fehler in der Klipper-Software liegt. Wenn du denkst "Ich kann nicht herausfinden, warum das so ist, also ist es ein Klipper-Fehler", dann **öffne kein** GitHub-Issue. In dem Fall sollte dir zunächst jemand interessiertes und fähiges dabei helfen, die Wurzel des Fehlers zu finden. Wenn du deinen Fortschritt bei der Forschung nach der Wurzel teilen willst oder prüfen willst, ob andere Benutzer ein ähnliches Problem haben, kannst du das [Klipper Community Forum](#community-forum) durschsuchen.
-1. Make sure you are running unmodified code from <https://github.com/KevinOConnor/klipper>. If the code has been modified or is obtained from another source, then you will need to reproduce the problem on the unmodified code from <https://github.com/KevinOConnor/klipper> prior to reporting an issue.
+1. Make sure you are running unmodified code from <https://github.com/Klipper3d/klipper>. If the code has been modified or is obtained from another source, then you will need to reproduce the problem on the unmodified code from <https://github.com/Klipper3d/klipper> prior to reporting an issue.
 1. Wenn möglich, setze einen `M112`-Befehl im OctoPrint-Terminalfenster direkt nach dem Auftreten des Fehlers ab. Dies setzt Klipper in einen heruntergefahrenen Status, welcher weitere Debugginginformationen in die Logdatei schreibt.
 1. Obtain the Klipper log file from the event. The log file has been engineered to answer common questions the Klipper developers have about the software and its environment (software version, hardware type, configuration, event timing, and hundreds of other questions).
    1. The Klipper log file is located in `/tmp/klippy.log` on the Klipper "host" computer (the Raspberry Pi).
@@ -71,7 +71,7 @@ Wichtige Informationen werden benötigt, um einen Fehler zu beheben. Bitte befol
    1. Do not modify the log file in any way; do not provide a snippet of the log. Only the full unmodified log file provides the necessary information.
    1. If the log file is very large (eg, greater than 2MB) then one may need to compress the log with zip or gzip.
 
-   1. Open a new github issue at <https://github.com/KevinOConnor/klipper/issues> and provide a clear description of the problem. The Klipper developers need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The Klipper log file **must be attached** to that ticket:![attach-issue](img/attach-issue.png)
+   1. Open a new github issue at <https://github.com/Klipper3d/klipper/issues> and provide a clear description of the problem. The Klipper developers need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The Klipper log file **must be attached** to that ticket:![attach-issue](img/attach-issue.png)
 
 ## I am making changes that I'd like to include in Klipper
 

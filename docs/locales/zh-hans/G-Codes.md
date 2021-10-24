@@ -335,8 +335,8 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 - `ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]`: Starts accelerometer measurements at the requested number of samples per second. If CHIP is not specified it defaults to "adxl345". The command works in a start-stop mode: when executed for the first time, it starts the measurements, next execution stops them. The results of measurements are written to a file named `/tmp/adxl345-<chip>-<name>.csv` where `<chip>` is the name of the accelerometer chip (`my_chip_name` from `[adxl345 my_chip_name]`) and `<name>` is the optional NAME parameter. If NAME is not specified it defaults to the current time in "YYYYMMDD_HHMMSS" format. If the accelerometer does not have a name in its config section (simply `[adxl345]`) then `<chip>` part of the name is not generated.
 - `ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).
-- `ADXL345_DEBUG_READ [CHIP=<config_name>] REG=<register>`：读取 ADXL345 寄存器 <register>（例如44或0x2C）。可用于调试目的。
-- `ADXL345_DEBUG_WRITE [CHIP=<config_name>] REG=<reg> VAL=<value>`: 向<register>写入值<value> 。 <value> 和 <register> 均可使用 十进制 和 十六进制 实数。请小心使用，并参考ADXL345的参考手册。
+- `ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries ADXL345 register <register> (e.g. 44 or 0x2C). Can be useful for debugging purposes.
+- `ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<reg> VAL=<value>`: writes raw <value> into a register <register>. Both <value> and <register> can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.
 
 ### Resonance Testing Commands
 

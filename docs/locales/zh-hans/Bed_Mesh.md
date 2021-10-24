@@ -80,7 +80,7 @@ bicubic_tension: 0.2
 
 ### 移动拆分
 
-Bed Mesh 的工作原理是拦截 gcode 移动命令并对它们的 Z 坐标应用变换。 将长距离移动并拆分成更小的移动，让打印出来的效果尽量接近床的形状。 下面的选项控制如何拆分。
+Bed Mesh works by intercepting gcode move commands and applying a transform to their Z coordinate. Long moves must be split into smaller moves to correctly follow the shape of the bed. The options below control the splitting behavior.
 
 ```
 [bed_mesh]

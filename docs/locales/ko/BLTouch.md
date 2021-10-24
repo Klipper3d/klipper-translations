@@ -12,7 +12,7 @@ sensor_pin: ^P1.24
 control_pin: P1.26
 ```
 
-만약 bltouch 가 Z축 호밍할 때 사용된다면 `[stepper_z]` 에 `endstop_pin: probe:z_virtual_endstop` 로 설정하라. 그리고 `[safe_z_home]` 구성 섹션을 더하라. 그렇게 되면 일단 Z 축을 올리고, XY축 호밍을 한후에, 베드 센터로 이동해서 Z 축 호밍을 하게 될 것이다. 예를들어 :
+If the BL-Touch will be used to home the Z axis then set `endstop_pin: probe:z_virtual_endstop` and remove `position_endstop` in the `[stepper_z]` config section, then add a `[safe_z_home]` config section to raise the z axis, home the xy axes, move to the center of the bed, and home the z axis. For example:
 
 ```
 [safe_z_home]

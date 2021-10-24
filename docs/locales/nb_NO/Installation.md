@@ -11,7 +11,7 @@ Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry
 After installing OctoPi and upgrading OctoPrint, it will be necessary to ssh into the target machine to run a handful of system commands. If using a Linux or MacOS desktop, then the "ssh" software should already be installed on the desktop. There are free ssh clients available for other desktops (eg, [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Use the ssh utility to connect to the Raspberry Pi (ssh pi@octopi -- password is "raspberry") and run the following commands:
 
 ```
-git clone https://github.com/KevinOConnor/klipper
+git clone https://github.com/Klipper3d/klipper
 ./klipper/scripts/install-octopi.sh
 ```
 

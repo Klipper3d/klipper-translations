@@ -335,8 +335,8 @@ Klipper는 일반 구성 및 상태에 대해 "확장된" G-Code 명령을 사�
 
 - `ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]`: Starts accelerometer measurements at the requested number of samples per second. If CHIP is not specified it defaults to "adxl345". The command works in a start-stop mode: when executed for the first time, it starts the measurements, next execution stops them. The results of measurements are written to a file named `/tmp/adxl345-<chip>-<name>.csv` where `<chip>` is the name of the accelerometer chip (`my_chip_name` from `[adxl345 my_chip_name]`) and `<name>` is the optional NAME parameter. If NAME is not specified it defaults to the current time in "YYYYMMDD_HHMMSS" format. If the accelerometer does not have a name in its config section (simply `[adxl345]`) then `<chip>` part of the name is not generated.
 - `ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).
-- `ADXL345_DEBUG_READ [CHIP=<config_name>] REG=<register>`: 쿼리 ADXL345 레지스터 <register> (예: 44 또는 0x2C). 디버깅 목적으로 유용할 수 있습니다.
-- `ADXL345_DEBUG_WRITE [CHIP=<config_name>] REG=<reg> VAL=<value>`: 원시 <value> 을 레지스터 <register> 에 씁니다. <value> 및 <register> 는 모두 10진수 또는 16진수 정수일 수 있습니다. 주의해서 사용하고 참조용으로 ADXL345 데이터 시트를 참조하십시오.
+- `ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries ADXL345 register <register> (e.g. 44 or 0x2C). Can be useful for debugging purposes.
+- `ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<reg> VAL=<value>`: writes raw <value> into a register <register>. Both <value> and <register> can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.
 
 ### 공진 테스트 명령어
 

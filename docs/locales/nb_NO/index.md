@@ -12,4 +12,4 @@ Klipper er 3D-skriverfastvare. Det kombinerer kraften av en generell datamaskin 
 
 For å begynne å bruke Klipper kan du begynne med [installasjonen](installasjonen.md) av det.
 
-Klipper er fri programvare. Les [dokumentasjonen](Overview.md) eller sjekk [Klipper-kildekoden på GitHub](https://github.com/KevinOConnor/klipper).
+Klipper is Free Software. Read the [documentation](Overview.md) or view [the Klipper code on github](https://github.com/Klipper3d/klipper).
