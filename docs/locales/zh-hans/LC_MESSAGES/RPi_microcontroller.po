@@ -7,8 +7,7 @@ msgstr ""
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
 "PO-Revision-Date: 2021-10-11 09:46+0000\n"
 "Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"klipper/rpi_microcontroller/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/rpi_microcontroller/zh_Hans/>\n"
 "Language: zh-hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,9 +32,7 @@ msgid ""
 "Octoprint plugins (if used) or external programs giving the ability to "
 "control everything within the print GCODE."
 msgstr ""
-"通常情况下，专门用于控制3D打印机的MCU有有限的、预先配置好的引脚来管理主要的打印功能（热敏电阻、挤出机、步进器...）。使用安装了Klipper的RP"
-"i作为辅助MCU，可以直接使用klipper内的GPIO和RPi的总线（i2c，spi），而不需要使用Octoprint插件（如果使用的话）或外部程序，从"
-"而能够控制打印GCODE内的一切。"
+"通常情况下，专门用于控制3D打印机的MCU有有限的、预先配置好的引脚来管理主要的打印功能（热敏电阻、挤出机、步进器...）。使用安装了Klipper的RPi作为辅助MCU，可以直接使用klipper内的GPIO和RPi的总线（i2c，spi），而不需要使用Octoprint插件（如果使用的话）或外部程序，从而能够控制打印GCODE内的一切。"
 
 msgid ""
 "**Warning**: If your platform is a *Beaglebone* and you have correctly "
@@ -292,13 +289,6 @@ msgid ""
 "was configured to route pwm0 to pin=12)."
 msgstr ""
 
-#: docs/RPi_microcontroller.md:block 41 (paragraph)
-msgid ""
-"PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and "
-"gpio19: |PWM|gpio PIN|Func| |---|--------|----| | 0| 12| 4| | 0| 18| 2| | 1|"
-" 13| 4| | 1| 19| 2|"
-msgstr ""
-
 #: docs/RPi_microcontroller.md:block 1 (header)
 msgid "RPi microcontroller"
 msgstr ""
@@ -312,3 +302,59 @@ msgid ""
 "Make sure the Linux SPI driver is enabled by running sudo raspi-config and "
 "enabling SPI under the \"Interfacing options\" menu."
 msgstr ""
+
+#: docs/RPi_microcontroller.md:block 44 (paragraph)
+msgid ""
+"PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and "
+"gpio19:"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "PWM"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "gpio PIN"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "Func"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "0"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "12"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "4"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "18"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "2"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "1"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "13"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "19"
+msgstr ""
+
+#~ msgid ""
+#~ "PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and "
+#~ "gpio19: |PWM|gpio PIN|Func| |---|--------|----| | 0| 12| 4| | 0| 18| 2| | 1|"
+#~ " 13| 4| | 1| 19| 2|"
+#~ msgstr ""

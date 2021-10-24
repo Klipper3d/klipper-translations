@@ -82,11 +82,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"git clone https://github.com/KevinOConnor/klipper\n"
-"./klipper/scripts/install-beaglebone.sh\n"
-msgstr ""
-
-msgid ""
 "git clone https://github.com/foosel/OctoPrint.git\n"
 "cd OctoPrint/\n"
 "virtualenv venv\n"
@@ -129,6 +124,17 @@ msgid ""
 "Make sure the octoprint web server is accessible - it should be at: "
 "<http://beaglebone:5000/>"
 msgstr ""
+
+#: docs/beaglebone.md:block 6 (code)
+msgid ""
+"git clone https://github.com/Klipper3d/klipper\n"
+"./klipper/scripts/install-beaglebone.sh\n"
+msgstr ""
+
+#~ msgid ""
+#~ "git clone https://github.com/KevinOConnor/klipper\n"
+#~ "./klipper/scripts/install-beaglebone.sh\n"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Make sure the octoprint web server is accessible - it should be at: "

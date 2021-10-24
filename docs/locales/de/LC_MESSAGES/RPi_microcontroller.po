@@ -283,13 +283,6 @@ msgid ""
 "was configured to route pwm0 to pin=12)."
 msgstr ""
 
-#: docs/RPi_microcontroller.md:block 41 (paragraph)
-msgid ""
-"PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and "
-"gpio19: |PWM|gpio PIN|Func| |---|--------|----| | 0| 12| 4| | 0| 18| 2| | 1|"
-" 13| 4| | 1| 19| 2|"
-msgstr ""
-
 #: docs/RPi_microcontroller.md:block 1 (header)
 msgid "RPi microcontroller"
 msgstr ""
@@ -303,3 +296,59 @@ msgid ""
 "Make sure the Linux SPI driver is enabled by running sudo raspi-config and "
 "enabling SPI under the \"Interfacing options\" menu."
 msgstr ""
+
+#: docs/RPi_microcontroller.md:block 44 (paragraph)
+msgid ""
+"PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and "
+"gpio19:"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "PWM"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "gpio PIN"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "Func"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "0"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "12"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "4"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "18"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "2"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "1"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "13"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (table)
+msgid "19"
+msgstr ""
+
+#~ msgid ""
+#~ "PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and "
+#~ "gpio19: |PWM|gpio PIN|Func| |---|--------|----| | 0| 12| 4| | 0| 18| 2| | 1|"
+#~ " 13| 4| | 1| 19| 2|"
+#~ msgstr ""

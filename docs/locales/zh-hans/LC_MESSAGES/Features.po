@@ -154,24 +154,9 @@ msgstr "兼容Octoprint。这使得打印机可以通过普通浏览器来控制
 
 #: docs/Features.md:block 5 (unordered list)
 msgid ""
-"Standard G-Code support. Common g-code commands that are produced by typical"
-" \"slicers\" are supported. One may continue to use Slic3r, Cura, etc. with "
-"Klipper."
-msgstr "标准G代码支持。支持典型的切片软件生成的G代码。Klipper可以与 Slic3r、Cura 和其他切片软件进行操作。"
-
-#: docs/Features.md:block 5 (unordered list)
-msgid ""
 "Support for multiple extruders. Extruders with shared heaters and extruders "
 "on independent carriages (IDEX) are also supported."
 msgstr "支持多挤出机。包括对共享热端的挤出机（多进一出）和多头（IDEX）的支持。"
-
-#: docs/Features.md:block 5 (unordered list)
-msgid ""
-"Support for cartesian, delta, corexy, corexz, rotary delta, polar, and cable"
-" winch style printers."
-msgstr ""
-"支持笛卡尔（cartesian）、三角洲（delta）、CoreXY、CoreXZ、旋转三角洲（rotary delta）和缆绳绞盘（cable "
-"winch）结构打印机。"
 
 #: docs/Features.md:block 5 (unordered list)
 msgid ""
@@ -192,23 +177,8 @@ msgid ""
 msgstr "支持自动delta校准。校准工具可以进行基本的高度校准，以及增强的X和Y尺寸校准。校准可以用Z型高度探头或通过手动探测来完成。"
 
 #: docs/Features.md:block 5 (unordered list)
-msgid ""
-"Support for common temperature sensors (eg, common thermistors, AD595, "
-"AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280,"
-" HTU21D, and LM75). Custom thermistors and custom analog temperature sensors"
-" can also be configured."
-msgstr ""
-"支持常见的温度传感器（例如，常见的热敏电阻、AD595、AD597、AD849x、PT100、PT1000、MAX6675、MAX31855、MAX31856、MAX31865、BME280、HTU21D和LM75）。还可以配置自定义热敏电阻和自定义模拟温度传感器。"
-
-#: docs/Features.md:block 5 (unordered list)
 msgid "Basic thermal heater protection enabled by default."
 msgstr "默认启用基本加热器保护。"
-
-#: docs/Features.md:block 5 (unordered list)
-msgid ""
-"Support for standard fans, nozzle fans, and temperature controlled fans. No "
-"need to keep fans running when the printer is idle."
-msgstr "支持标准风扇、喷嘴风扇和温控风扇。当打印机闲置时，不需要保持风扇运行。"
 
 #: docs/Features.md:block 5 (unordered list)
 msgid ""
@@ -423,3 +393,64 @@ msgstr ""
 #: docs/Features.md:block 1 (header)
 msgid "Features"
 msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Standard G-Code support. Common g-code commands that are produced by typical"
+" \"slicers\" (SuperSlicer, Cura, PrusaSlicer, etc.) are supported."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, "
+"rotary delta, polar, and cable winch style printers."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for common temperature sensors (eg, common thermistors, AD595, "
+"AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280,"
+" HTU21D, DS18B20, and LM75). Custom thermistors and custom analog "
+"temperature sensors can also be configured. One can monitor the internal "
+"micro-controller temperature sensor and the internal temperature sensor of a"
+" Raspberry Pi."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for standard fans, nozzle fans, and temperature controlled fans. No "
+"need to keep fans running when the printer is idle. Fan speed can be "
+"monitored on fans that have a tachometer."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for filament presence sensors, filament motion sensors, and filament"
+" width sensors."
+msgstr ""
+
+#~ msgid ""
+#~ "Standard G-Code support. Common g-code commands that are produced by typical"
+#~ " \"slicers\" are supported. One may continue to use Slic3r, Cura, etc. with "
+#~ "Klipper."
+#~ msgstr "标准G代码支持。支持典型的切片软件生成的G代码。Klipper可以与 Slic3r、Cura 和其他切片软件进行操作。"
+
+#~ msgid ""
+#~ "Support for cartesian, delta, corexy, corexz, rotary delta, polar, and cable"
+#~ " winch style printers."
+#~ msgstr ""
+#~ "支持笛卡尔（cartesian）、三角洲（delta）、CoreXY、CoreXZ、旋转三角洲（rotary delta）和缆绳绞盘（cable "
+#~ "winch）结构打印机。"
+
+#~ msgid ""
+#~ "Support for common temperature sensors (eg, common thermistors, AD595, "
+#~ "AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280,"
+#~ " HTU21D, and LM75). Custom thermistors and custom analog temperature sensors"
+#~ " can also be configured."
+#~ msgstr ""
+#~ "支持常见的温度传感器（例如，常见的热敏电阻、AD595、AD597、AD849x、PT100、PT1000、MAX6675、MAX31855、MAX31856、MAX31865、BME280、HTU21D和LM75）。还可以配置自定义热敏电阻和自定义模拟温度传感器。"
+
+#~ msgid ""
+#~ "Support for standard fans, nozzle fans, and temperature controlled fans. No "
+#~ "need to keep fans running when the printer is idle."
+#~ msgstr "支持标准风扇、喷嘴风扇和温控风扇。当打印机闲置时，不需要保持风扇运行。"

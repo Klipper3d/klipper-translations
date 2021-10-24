@@ -107,19 +107,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Standard G-Code support. Common g-code commands that are produced by typical"
-" \"slicers\" are supported. One may continue to use Slic3r, Cura, etc. with "
-"Klipper."
-msgstr ""
-
-msgid ""
 "Support for multiple extruders. Extruders with shared heaters and extruders "
 "on independent carriages (IDEX) are also supported."
-msgstr ""
-
-msgid ""
-"Support for cartesian, delta, corexy, corexz, rotary delta, polar, and cable"
-" winch style printers."
 msgstr ""
 
 msgid ""
@@ -136,19 +125,7 @@ msgid ""
 " calibration can be done with a Z height probe or via manual probing."
 msgstr ""
 
-msgid ""
-"Support for common temperature sensors (eg, common thermistors, AD595, "
-"AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280,"
-" HTU21D, and LM75). Custom thermistors and custom analog temperature sensors"
-" can also be configured."
-msgstr ""
-
 msgid "Basic thermal heater protection enabled by default."
-msgstr ""
-
-msgid ""
-"Support for standard fans, nozzle fans, and temperature controlled fans. No "
-"need to keep fans running when the printer is idle."
 msgstr ""
 
 msgid ""
@@ -319,3 +296,61 @@ msgstr ""
 #: docs/Features.md:block 1 (header)
 msgid "Features"
 msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Standard G-Code support. Common g-code commands that are produced by typical"
+" \"slicers\" (SuperSlicer, Cura, PrusaSlicer, etc.) are supported."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, "
+"rotary delta, polar, and cable winch style printers."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for common temperature sensors (eg, common thermistors, AD595, "
+"AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280,"
+" HTU21D, DS18B20, and LM75). Custom thermistors and custom analog "
+"temperature sensors can also be configured. One can monitor the internal "
+"micro-controller temperature sensor and the internal temperature sensor of a"
+" Raspberry Pi."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for standard fans, nozzle fans, and temperature controlled fans. No "
+"need to keep fans running when the printer is idle. Fan speed can be "
+"monitored on fans that have a tachometer."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for filament presence sensors, filament motion sensors, and filament"
+" width sensors."
+msgstr ""
+
+#~ msgid ""
+#~ "Standard G-Code support. Common g-code commands that are produced by typical"
+#~ " \"slicers\" are supported. One may continue to use Slic3r, Cura, etc. with "
+#~ "Klipper."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Support for cartesian, delta, corexy, corexz, rotary delta, polar, and cable"
+#~ " winch style printers."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Support for common temperature sensors (eg, common thermistors, AD595, "
+#~ "AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280,"
+#~ " HTU21D, and LM75). Custom thermistors and custom analog temperature sensors"
+#~ " can also be configured."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Support for standard fans, nozzle fans, and temperature controlled fans. No "
+#~ "need to keep fans running when the printer is idle."
+#~ msgstr ""

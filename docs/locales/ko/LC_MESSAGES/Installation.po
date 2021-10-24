@@ -272,13 +272,6 @@ msgstr ""
 "page](Contact.md)를 참조하세요."
 
 msgid ""
-"git clone https://github.com/KevinOConnor/klipper\n"
-"./klipper/scripts/install-octopi.sh\n"
-msgstr ""
-"git clone https://github.com/KevinOConnor/klipper\n"
-"./klipper/scripts/install-octopi.sh\n"
-
-msgid ""
 "cd ~/klipper/\n"
 "make menuconfig\n"
 msgstr ""
@@ -320,3 +313,16 @@ msgstr ""
 #: docs/Installation.md:block 1 (header)
 msgid "Installation"
 msgstr "설치"
+
+#: docs/Installation.md:block 7 (code)
+msgid ""
+"git clone https://github.com/Klipper3d/klipper\n"
+"./klipper/scripts/install-octopi.sh\n"
+msgstr ""
+
+#~ msgid ""
+#~ "git clone https://github.com/KevinOConnor/klipper\n"
+#~ "./klipper/scripts/install-octopi.sh\n"
+#~ msgstr ""
+#~ "git clone https://github.com/KevinOConnor/klipper\n"
+#~ "./klipper/scripts/install-octopi.sh\n"

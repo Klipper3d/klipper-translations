@@ -213,11 +213,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"git clone https://github.com/KevinOConnor/klipper\n"
-"./klipper/scripts/install-octopi.sh\n"
-msgstr ""
-
-msgid ""
 "cd ~/klipper/\n"
 "make menuconfig\n"
 msgstr ""
@@ -251,3 +246,14 @@ msgstr ""
 #, fuzzy
 msgid "Installation"
 msgstr "Installazione"
+
+#: docs/Installation.md:block 7 (code)
+msgid ""
+"git clone https://github.com/Klipper3d/klipper\n"
+"./klipper/scripts/install-octopi.sh\n"
+msgstr ""
+
+#~ msgid ""
+#~ "git clone https://github.com/KevinOConnor/klipper\n"
+#~ "./klipper/scripts/install-octopi.sh\n"
+#~ msgstr ""

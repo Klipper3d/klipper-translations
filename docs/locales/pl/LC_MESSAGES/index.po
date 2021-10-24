@@ -32,5 +32,10 @@ msgstr ""
 #: docs/index.md:block 6 (paragraph)
 msgid ""
 "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
-" Klipper code on github](https://github.com/KevinOConnor/klipper)."
+" Klipper code on github](https://github.com/Klipper3d/klipper)."
 msgstr ""
+
+#~ msgid ""
+#~ "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
+#~ " Klipper code on github](https://github.com/KevinOConnor/klipper)."
+#~ msgstr ""

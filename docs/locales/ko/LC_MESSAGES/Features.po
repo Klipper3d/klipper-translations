@@ -152,23 +152,9 @@ msgstr ""
 "Klipper 와 Octoprint를 실행할 수 있습니다."
 
 msgid ""
-"Standard G-Code support. Common g-code commands that are produced by typical"
-" \"slicers\" are supported. One may continue to use Slic3r, Cura, etc. with "
-"Klipper."
-msgstr ""
-"표준 gcode 지원. 일반적인 \"슬라이서\" 에서 생성되는 gcode 명령이 지원됩니다. Slic3r, Cura 등을 Klipper와"
-" 함께 계속 사용할 수 있습니다."
-
-msgid ""
 "Support for multiple extruders. Extruders with shared heaters and extruders "
 "on independent carriages (IDEX) are also supported."
 msgstr "멀티 익스트루더를 지원합니다. 히터를 공유하는 익스트루더 방식 및 독립 캐리지 상의 익스트루더(IDEX) 방식도 지원됩니다."
-
-msgid ""
-"Support for cartesian, delta, corexy, corexz, rotary delta, polar, and cable"
-" winch style printers."
-msgstr ""
-"다양한 방식의 프린터지 지원. 직교, 델타, corexy, corexz, 회전 델타, 극성 및 케이블 윈치 스타일 프린터를 지원합니다."
 
 msgid ""
 "Automatic bed leveling support. Klipper can be configured for basic bed tilt"
@@ -189,23 +175,8 @@ msgstr ""
 "오토 델타 캘리브레이션 지원. 자동으로 델타 프린터의 높이 보정과 향상된 X 및 Y 치수 보정을 수행할 수 있습니다. 보정은 Z 높이 "
 "프로브 또는 수동 프로빙을 통해 수행할 수 있습니다."
 
-msgid ""
-"Support for common temperature sensors (eg, common thermistors, AD595, "
-"AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280,"
-" HTU21D, and LM75). Custom thermistors and custom analog temperature sensors"
-" can also be configured."
-msgstr ""
-"공통 온도 센서 지원 (예: 공통 서미스터, AD595, AD597, AD849x, PT100, PT1000, MAX6675, "
-"MAX31855, MAX31856, MAX31865, BME280, HTU21D 및 LM75). 맞춤형 서미스터 및 맞춤형 아날로그 온도"
-" 센서도 구성할 수 있습니다."
-
 msgid "Basic thermal heater protection enabled by default."
 msgstr "온도 안전장치 기본적으로 thermal protection 이 활성화되어 있습니다."
-
-msgid ""
-"Support for standard fans, nozzle fans, and temperature controlled fans. No "
-"need to keep fans running when the printer is idle."
-msgstr "표준 상시팬, 노즐팬 및 온도 제어팬을 지원합니다. 프린터가 유휴 상태일 때 팬을 계속 작동시킬 필요가 없습니다."
 
 msgid ""
 "Support for run-time configuration of TMC2130, TMC2208/TMC2224, TMC2209, "
@@ -392,3 +363,67 @@ msgstr ""
 #: docs/Features.md:block 1 (header)
 msgid "Features"
 msgstr "Features"
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Standard G-Code support. Common g-code commands that are produced by typical"
+" \"slicers\" (SuperSlicer, Cura, PrusaSlicer, etc.) are supported."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, "
+"rotary delta, polar, and cable winch style printers."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for common temperature sensors (eg, common thermistors, AD595, "
+"AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280,"
+" HTU21D, DS18B20, and LM75). Custom thermistors and custom analog "
+"temperature sensors can also be configured. One can monitor the internal "
+"micro-controller temperature sensor and the internal temperature sensor of a"
+" Raspberry Pi."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for standard fans, nozzle fans, and temperature controlled fans. No "
+"need to keep fans running when the printer is idle. Fan speed can be "
+"monitored on fans that have a tachometer."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for filament presence sensors, filament motion sensors, and filament"
+" width sensors."
+msgstr ""
+
+#~ msgid ""
+#~ "Standard G-Code support. Common g-code commands that are produced by typical"
+#~ " \"slicers\" are supported. One may continue to use Slic3r, Cura, etc. with "
+#~ "Klipper."
+#~ msgstr ""
+#~ "표준 gcode 지원. 일반적인 \"슬라이서\" 에서 생성되는 gcode 명령이 지원됩니다. Slic3r, Cura 등을 Klipper와"
+#~ " 함께 계속 사용할 수 있습니다."
+
+#~ msgid ""
+#~ "Support for cartesian, delta, corexy, corexz, rotary delta, polar, and cable"
+#~ " winch style printers."
+#~ msgstr ""
+#~ "다양한 방식의 프린터지 지원. 직교, 델타, corexy, corexz, 회전 델타, 극성 및 케이블 윈치 스타일 프린터를 지원합니다."
+
+#~ msgid ""
+#~ "Support for common temperature sensors (eg, common thermistors, AD595, "
+#~ "AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280,"
+#~ " HTU21D, and LM75). Custom thermistors and custom analog temperature sensors"
+#~ " can also be configured."
+#~ msgstr ""
+#~ "공통 온도 센서 지원 (예: 공통 서미스터, AD595, AD597, AD849x, PT100, PT1000, MAX6675, "
+#~ "MAX31855, MAX31856, MAX31865, BME280, HTU21D 및 LM75). 맞춤형 서미스터 및 맞춤형 아날로그 온도"
+#~ " 센서도 구성할 수 있습니다."
+
+#~ msgid ""
+#~ "Support for standard fans, nozzle fans, and temperature controlled fans. No "
+#~ "need to keep fans running when the printer is idle."
+#~ msgstr "표준 상시팬, 노즐팬 및 온도 제어팬을 지원합니다. 프린터가 유휴 상태일 때 팬을 계속 작동시킬 필요가 없습니다."

@@ -725,6 +725,14 @@ msgid ""
 "(and thus is not periodically queried)."
 msgstr ""
 
+#: docs/Status_Reference.md:block 91 (unordered list)
+msgid "`run_current`: The currently set run current."
+msgstr ""
+
+#: docs/Status_Reference.md:block 91 (unordered list)
+msgid "`hold_current`: The currently set hold current."
+msgstr ""
+
 #~ msgid ""
 #~ "`color_data`: An array of objects, with each object containing the RGBW "
 #~ "values for a led in the chain. Note that not all configurations will contain"

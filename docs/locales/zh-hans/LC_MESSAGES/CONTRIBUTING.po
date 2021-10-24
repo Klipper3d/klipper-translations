@@ -74,3 +74,67 @@ msgstr ""
 "可以在空白行之后写更多段落。\n"
 "\n"
 "Signed-off-by: 姓名< myemail@example.org >\n"
+
+#: docs/CONTRIBUTING.md:block 9 (header)
+msgid "Contributing to Klipper Translations"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 10 (paragraph)
+msgid ""
+"[Klipper-translations Project](https://github.com/Klipper3d/klipper-"
+"translations) is a project dedicated to translating Klipper to different "
+"languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all"
+" the Gettext strings for translating and reviewing. Locales can merge into "
+"the Klipper project once they satisfy the following requirements:"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 11 (unordered list)
+msgid "75% Total coverage"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 11 (unordered list)
+msgid "All titles (H1) are covered"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 11 (unordered list)
+msgid "An updated navigation hierarchy PR in klipper-translations."
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 12 (paragraph)
+msgid "The navigation hierarchy is in `docs\\_klipper3d\\mkdocs.yml`."
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 13 (paragraph)
+msgid ""
+"To reduce the frustration of translating domain-specific terms and gain "
+"awareness of the ongoing translations, you can submit a PR modifying the "
+"[Klipper-translations Project](https://github.com/Klipper3d/klipper-"
+"translations) `readme.md`. Once a translation is ready, the corresponding "
+"modification to the Klipper project can be made."
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 14 (paragraph)
+msgid ""
+"If a translation already exists in the Klipper repository and no longer "
+"meets the checklist above, it will be marked out-of-date after a month "
+"without updates."
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 15 (paragraph)
+msgid ""
+"Please follow the following format for `mkdocs.yml` navigation hierarchy:"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 16 (code)
+msgid ""
+"nav:\n"
+"  - existing hierachy\n"
+"  - <language>:\n"
+"    - locales/<language code>/md file\n"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 17 (paragraph)
+msgid ""
+"Note: Currently, there isn't a method for correctly translating pictures in "
+"the documentation."
+msgstr ""

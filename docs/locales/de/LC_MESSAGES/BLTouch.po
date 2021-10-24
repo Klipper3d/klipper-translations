@@ -32,13 +32,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If the BL-Touch will be used to home the Z axis then set `endstop_pin: "
-"probe:z_virtual_endstop` in the `[stepper_z]` config section and add a "
-"`[safe_z_home]` config section to raise the z axis, home the xy axes, move "
-"to the center of the bed, and home the z axis. For example:"
-msgstr ""
-
-msgid ""
 "It's important that the z_hop movement in safe_z_home is high enough that "
 "the probe doesn't hit anything even if the probe pin happens to be in its "
 "lowest state."
@@ -334,3 +327,19 @@ msgstr ""
 #: docs/BLTouch.md:block 1 (header)
 msgid "BL-Touch"
 msgstr ""
+
+#: docs/BLTouch.md:block 6 (paragraph)
+msgid ""
+"If the BL-Touch will be used to home the Z axis then set `endstop_pin: "
+"probe:z_virtual_endstop` and remove `position_endstop` in the `[stepper_z]` "
+"config section, then add a `[safe_z_home]` config section to raise the z "
+"axis, home the xy axes, move to the center of the bed, and home the z axis. "
+"For example:"
+msgstr ""
+
+#~ msgid ""
+#~ "If the BL-Touch will be used to home the Z axis then set `endstop_pin: "
+#~ "probe:z_virtual_endstop` in the `[stepper_z]` config section and add a "
+#~ "`[safe_z_home]` config section to raise the z axis, home the xy axes, move "
+#~ "to the center of the bed, and home the z axis. For example:"
+#~ msgstr ""
