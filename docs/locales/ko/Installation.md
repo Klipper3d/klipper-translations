@@ -11,7 +11,7 @@ Raspberry Pi에 [OctoPi](https://github.com/guysoft/OctoPi) 를 설치하여 시
 OctoPi를 설치하고 OctoPrint를 업그레이드한 후 몇 가지 시스템 명령을 실행하려면 대상 시스템에 ssh해야 합니다. Linux 또는 MacOS 데스크탑을 사용하는 경우 "ssh" 소프트웨어가 이미 설치되어 있어야 합니다. 윈도우 OS 에서는 [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) 처럼 무료로 사용할 수 있는 ssh 클라이언트가 있습니다. ssh 유틸리티를 사용하여 Raspberry Pi(ssh pi@octpi -- 암호는 "raspberry")에 연결하고 다음 명령을 실행합니다:
 
 ```
-git clone https://github.com/KevinOConnor/klipper
+git clone https://github.com/Klipper3d/klipper
 ./klipper/scripts/install-octopi.sh
 ```
 

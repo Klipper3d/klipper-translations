@@ -335,8 +335,8 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 - `ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]`: Starts accelerometer measurements at the requested number of samples per second. If CHIP is not specified it defaults to "adxl345". The command works in a start-stop mode: when executed for the first time, it starts the measurements, next execution stops them. The results of measurements are written to a file named `/tmp/adxl345-<chip>-<name>.csv` where `<chip>` is the name of the accelerometer chip (`my_chip_name` from `[adxl345 my_chip_name]`) and `<name>` is the optional NAME parameter. If NAME is not specified it defaults to the current time in "YYYYMMDD_HHMMSS" format. If the accelerometer does not have a name in its config section (simply `[adxl345]`) then `<chip>` part of the name is not generated.
 - `ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).
-- `ADXL345_DEBUG_READ [CHIP=<config_name>] REG=<register>`: Interroge le registre <register> de l'ADXL345 (ex: 44 ou 0x2C). Peut-être utile pour déboguer.
-- `ADXL345_DEBUG_WRITE [CHIP=<nom_de_la_configuration>] REG=<reg> VAL=<valeur>` : écrit la valeur brute <valeur> dans un registre <registre>. <valeur> et <registre> peuvent tous deux être un entier décimal ou hexadécimal. A utiliser avec précaution, et se référer à la fiche technique du ADXL345 pour la référence.
+- `ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries ADXL345 register <register> (e.g. 44 or 0x2C). Can be useful for debugging purposes.
+- `ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<reg> VAL=<value>`: writes raw <value> into a register <register>. Both <value> and <register> can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.
 
 ### Commandes de test de résonance
 

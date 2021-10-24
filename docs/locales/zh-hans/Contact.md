@@ -62,7 +62,7 @@ Klipper 是一个开源项目，我们诚挚的感谢贡献者们在软件中诊
 修复bug需要提供一些重要的信息。请遵循以下步骤：
 
 1. 首先要确定这个错误是在 Klipper 软件中。如果你在想 "我有一个问题，我无法找出原因，因此这是一个Klipper的错误"，那么**不要**创建一个 Github 议题。在这种情况下，有兴趣且有能力的人需要先找到问题的根源。如果你想分享你的研究结果或检查其他用户是否遇到类似的问题，那么你可以搜索 [Klipper 社区论坛](#community-forum)。
-1. 请先确保你正在运行来自 <https://github.com/KevinOConnor/klipper>的原始代码。如果代码是已被修改的或是从其他来源获得的，你需要在报告问题之前在 <https://github.com/KevinOConnor/klipper>的原始代码上复现这个问题。
+1. Make sure you are running unmodified code from <https://github.com/Klipper3d/klipper>. If the code has been modified or is obtained from another source, then you will need to reproduce the problem on the unmodified code from <https://github.com/Klipper3d/klipper> prior to reporting an issue.
 1. 如果可能的话，在不期望的事件发生后，立即在 OctoPrint 终端窗口运行一个`M112`命令。这将使 Klipper 进入 "关闭"(shutdown)状态，并在日志文件中写入额外的调试信息。
 1. 获取事件发送时的 Klipper 日志文件。该日志文件已被设计用来给 Klipper 开发人员提供关于软件及其运行环境的常见问题（软件版本、硬件类型、配置、事件时间和数百个其他问题）。
    1. Klipper 日志文件位于 Klipper "主机"（树莓派）的`/tmp/klippy.log`文件中。
@@ -71,7 +71,7 @@ Klipper 是一个开源项目，我们诚挚的感谢贡献者们在软件中诊
    1. 不要以任何方式修改日志文件；不要只提供日志的片段。只有完整的未修改的日志文件才能够提供必要的信息。
    1. 如果日志文件非常大（例如，大于2MB），那么可能需要用 zip 或 gzip 来压缩日志。
 
-   1. Open a new github issue at <https://github.com/KevinOConnor/klipper/issues> and provide a clear description of the problem. The Klipper developers need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The Klipper log file **must be attached** to that ticket:![议题附件](img/attach-issue.png)
+   1. Open a new github issue at <https://github.com/Klipper3d/klipper/issues> and provide a clear description of the problem. The Klipper developers need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The Klipper log file **must be attached** to that ticket:![议题附件](img/attach-issue.png)
 
 ## 我正在进行一些我想添加到 Klipper 中的改进
 

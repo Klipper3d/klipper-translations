@@ -19,18 +19,19 @@ Klipper has several compelling features:
 Klipper supports many standard 3d printer features:
 
 * Works with Octoprint. This allows the printer to be controlled using a regular web-browser. The same Raspberry Pi that runs Klipper can also run Octoprint.
-* Standard G-Code support. Common g-code commands that are produced by typical "slicers" are supported. One may continue to use Slic3r, Cura, etc. with Klipper.
+* Standard G-Code support. Common g-code commands that are produced by typical "slicers" (SuperSlicer, Cura, PrusaSlicer, etc.) are supported.
 * Support for multiple extruders. Extruders with shared heaters and extruders on independent carriages (IDEX) are also supported.
-* Support for cartesian, delta, corexy, corexz, rotary delta, polar, and cable winch style printers.
+* Support for cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, rotary delta, polar, and cable winch style printers.
 * Automatic bed leveling support. Klipper can be configured for basic bed tilt detection or full mesh bed leveling. If the bed uses multiple Z steppers then Klipper can also level by independently manipulating the Z steppers. Most Z height probes are supported, including BL-Touch probes and servo activated probes.
 * Automatic delta calibration support. The calibration tool can perform basic height calibration as well as an enhanced X and Y dimension calibration. The calibration can be done with a Z height probe or via manual probing.
-* Support for common temperature sensors (eg, common thermistors, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, and LM75). Custom thermistors and custom analog temperature sensors can also be configured.
+* Support for common temperature sensors (eg, common thermistors, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20, and LM75). Custom thermistors and custom analog temperature sensors can also be configured. One can monitor the internal micro-controller temperature sensor and the internal temperature sensor of a Raspberry Pi.
 * Basic thermal heater protection enabled by default.
-* Support for standard fans, nozzle fans, and temperature controlled fans. No need to keep fans running when the printer is idle.
+* Support for standard fans, nozzle fans, and temperature controlled fans. No need to keep fans running when the printer is idle. Fan speed can be monitored on fans that have a tachometer.
 * Support for run-time configuration of TMC2130, TMC2208/TMC2224, TMC2209, TMC2660, and TMC5160 stepper motor drivers. There is also support for current control of traditional stepper drivers via AD5206, MCP4451, MCP4728, MCP4018, and PWM pins.
 * Support for common LCD displays attached directly to the printer. A default menu is also available. The contents of the display and menu can be fully customized via the config file.
 * Constant acceleration and "look-ahead" support. All printer moves will gradually accelerate from standstill to cruising speed and then decelerate back to a standstill. The incoming stream of G-Code movement commands are queued and analyzed - the acceleration between movements in a similar direction will be optimized to reduce print stalls and improve overall print time.
 * Klipper implements a "stepper phase endstop" algorithm that can improve the accuracy of typical endstop switches. When properly tuned it can improve a print's first layer bed adhesion.
+* Support for filament presence sensors, filament motion sensors, and filament width sensors.
 * Support for measuring and recording acceleration using an adxl345 accelerometer.
 * Support for limiting the top speed of short "zigzag" moves to reduce printer vibration and noise. See the [kinematics](Kinematics.md) document for more information.
 * Sample configuration files are available for many common printers. Check the [config directory](../config/) for a list.

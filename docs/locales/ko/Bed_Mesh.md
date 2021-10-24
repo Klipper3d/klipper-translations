@@ -80,7 +80,7 @@ bicubic_tension: 0.2
 
 ### 이동 스플리팅
 
-베드 메쉬는 gcode 이동명령을 가로채고 Z 좌표계에 변형을 가하면서 작동한다. 긴 이동은 베드 표면 형상에 따라 정확히 움직일 수 있기 위해 보다 작은 움직임으로 나뉘어져야 한다. 아래 나오는 옵션들이 그런 나누는 동작을 컨트롤할 것이다.
+Bed Mesh works by intercepting gcode move commands and applying a transform to their Z coordinate. Long moves must be split into smaller moves to correctly follow the shape of the bed. The options below control the splitting behavior.
 
 ```
 [bed_mesh]

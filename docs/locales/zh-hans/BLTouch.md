@@ -12,7 +12,7 @@ sensor_pin: ^P1.24
 control_pin: P1.26
 ```
 
-如果 BL-Touch 将用于 Z 轴归位，则在 `[stepper_z]` 配置部分中设置 `endstop_pin: probe:z_virtual_endstop` 并添加一个 `[safe_z_home]` ] 配置部分以升高 z 轴，使 xy 轴归位，移动到床的中心，并归位 z 轴。例如：
+If the BL-Touch will be used to home the Z axis then set `endstop_pin: probe:z_virtual_endstop` and remove `position_endstop` in the `[stepper_z]` config section, then add a `[safe_z_home]` config section to raise the z axis, home the xy axes, move to the center of the bed, and home the z axis. For example:
 
 ```
 [safe_z_home]

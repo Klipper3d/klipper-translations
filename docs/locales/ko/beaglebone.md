@@ -9,7 +9,7 @@
 그리고 비글본 장치로 접속하십시오. (ssh debian@beaglebone -- password is "temppwd") 그다음 아래 명령어를 실행시켜 클리퍼를 설치하시면 됩니다.:
 
 ```
-git clone https://github.com/KevinOConnor/klipper
+git clone https://github.com/Klipper3d/klipper
 ./klipper/scripts/install-beaglebone.sh
 ```
 
