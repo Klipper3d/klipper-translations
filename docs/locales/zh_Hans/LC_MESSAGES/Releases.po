@@ -1,4 +1,4 @@
-# Lantern Master <1013653797@qq.com>, 2021.
+# Lantern Master <1013653797@qq.com>, 2021, 2025.
 # Arda <pengfei.fu@gmail.com>, 2022, 2025.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # 猫尾草 <aike1997sims2@gmail.com>, 2023, 2025.
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Last-Translator: Lantern Master <1013653797@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/releases/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -40,8 +40,8 @@ msgid ""
 " tune pressure advance using a \"Tuning Tower\" method."
 msgstr ""
 "“Smooth Pressure Advance”全新的挤出算法机制。这实现了“Pressure "
-"Advance”(打印挤出）同时不会引起挤出速度瞬间的改变，相反会变得更加平滑。现在也可以使用“Tuning Tower”方法来调整“Pressure "
-"Advance”(打印挤出）。"
+"Advance”(打印挤出）同时不会引起挤出速度瞬间的改变，相反会变得更加平滑。现在也"
+"可以使用“Tuning Tower”方法来调整“Pressure Advance”(打印挤出）。"
 
 msgid ""
 "New \"webhooks\" API server. This provides a programmable JSON interface to "
