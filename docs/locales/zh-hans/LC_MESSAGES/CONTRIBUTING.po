@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2021-07-22 11:32+0000\n"
+"PO-Revision-Date: 2021-10-27 05:44+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/contributing/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/contributing/zh_Hans/>\n"
 "Language: zh-hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.7.2-dev\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 msgid "Contributing to Klipper"
 msgstr "为 Klipper 做贡献"
@@ -77,7 +78,7 @@ msgstr ""
 
 #: docs/CONTRIBUTING.md:block 9 (header)
 msgid "Contributing to Klipper Translations"
-msgstr ""
+msgstr "为 Klipper 翻译做出贡献"
 
 #: docs/CONTRIBUTING.md:block 10 (paragraph)
 msgid ""
@@ -87,14 +88,17 @@ msgid ""
 " the Gettext strings for translating and reviewing. Locales can merge into "
 "the Klipper project once they satisfy the following requirements:"
 msgstr ""
+"[Klipper翻译项目](https://github.com/Klipper3d/klipper-"
+"translations)是一个致力于将Klipper翻译成不同语言的项目。[Weblate](https://hosted.weblate.org/"
+"projects/klipper/) 托管所有 Gettext 字符串以进行翻译和审查。一旦符合以下要求，本地化可以被合并到 Klipper 项目中："
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "75% Total coverage"
-msgstr ""
+msgstr "75% 总覆盖率"
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "All titles (H1) are covered"
-msgstr ""
+msgstr "涵盖所有大标题（H1）"
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "An updated navigation hierarchy PR in klipper-translations."
