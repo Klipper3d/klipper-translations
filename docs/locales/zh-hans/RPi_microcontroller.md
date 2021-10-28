@@ -24,7 +24,7 @@ sudo update-rc.d klipper_mcu defaults
 
 Make sure the Linux SPI driver is enabled by running sudo raspi-config and enabling SPI under the "Interfacing options" menu.
 
-## Building the micro-controller code
+## 构建微控制器代码
 
 To compile the Klipper micro-controller code, start by configuring it for the "Linux process":
 
@@ -49,7 +49,7 @@ If klippy.log reports a "Permission denied" error when attempting to connect to 
 sudo usermod -a -G tty pi
 ```
 
-## Remaining configuration
+## 剩余的配置
 
 Complete the installation by configuring Klipper secondary MCU following the instructions in [RaspberryPi sample config](../config/sample-raspberry-pi.cfg) and [Multi MCU sample config](../config/sample-multi-mcu.cfg).
 
