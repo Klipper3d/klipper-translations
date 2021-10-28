@@ -27,12 +27,12 @@ Signed-off-by: 姓名< myemail@example.org >
 
 在每个提交上必须有一个 "Signed-off-by "行--它证明你同意[开发者起源证书](developer-certificate-of-origin)。它必须包含你的真实姓名（对不起，没有假名或匿名的贡献）和一个可用的电子邮件地址。
 
-## Contributing to Klipper Translations
+## 为 Klipper 翻译做出贡献
 
-[Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) is a project dedicated to translating Klipper to different languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all the Gettext strings for translating and reviewing. Locales can merge into the Klipper project once they satisfy the following requirements:
+[Klipper翻译项目](https://github.com/Klipper3d/klipper-translations)是一个致力于将Klipper翻译成不同语言的项目。[Weblate](https://hosted.weblate.org/projects/klipper/) 托管所有 Gettext 字符串以进行翻译和审查。一旦符合以下要求，本地化可以被合并到 Klipper 项目中：
 
-- [ ] 75% Total coverage
-- [ ] All titles (H1) are covered
+- [ ] 75% 总覆盖率
+- [ ] 涵盖所有大标题（H1）
 - [ ] An updated navigation hierarchy PR in klipper-translations.
 
 The navigation hierarchy is in `docs\_klipper3d\mkdocs.yml`.

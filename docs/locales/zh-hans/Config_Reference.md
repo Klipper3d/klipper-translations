@@ -1270,7 +1270,7 @@ Support for gcode arc (G2/G3) commands.
 #   override the "default_type".
 ```
 
-## Resonance compensation
+## 共振补偿
 
 ### [input_shaper]
 

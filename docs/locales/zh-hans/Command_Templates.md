@@ -2,11 +2,11 @@
 
 This document provides information on implementing G-Code command sequences in gcode_macro (and similar) config sections.
 
-## G-Code Macro Naming
+## G 代码宏命名
 
 Case is not important for the G-Code macro name - MY_MACRO and my_macro will evaluate the same and may be called in either upper or lower case. If any numbers are used in the macro name then they must all be at the end of the name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not).
 
-## Formatting of G-Code in the config
+## 配置中 G 代码的格式
 
 Indentation is important when defining a macro in the config file. To specify a multi-line G-Code sequence it is important for each line to have proper indentation. For example:
 
@@ -20,7 +20,7 @@ gcode:
 
 Note how the `gcode:` config option always starts at the beginning of the line and subsequent lines in the G-Code macro never start at the beginning.
 
-## Add a description to your macro
+## 向宏添加描述
 
 To help identify the functionality a short description can be added. Add `description:` with a short text to describe the functionality. Default is "G-Code macro" if not specified. For example:
 

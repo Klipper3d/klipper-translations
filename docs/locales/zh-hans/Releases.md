@@ -1,6 +1,6 @@
 # Releases
 
-History of Klipper releases. Please see [installation](Installation.md) for information on installing Klipper.
+Klipper版本发布。如何安装Klipper ，请查看[installation](Installation.md)。
 
 ## Klipper 0.10.0
 
@@ -22,14 +22,14 @@ Available on 20210929. Major changes in this release:
 
 ## Klipper 0.9.0
 
-Available on 20201020. Major changes in this release:
+发布于2020年10月20日，此版本更新内容:
 
-* Support for "Input Shaping" - a mechanism to counteract printer resonance. It can reduce or eliminate "ringing" in prints.
-* New "Smooth Pressure Advance" system. This implements "Pressure Advance" without introducing instantaneous velocity changes. It is also now possible to tune pressure advance using a "Tuning Tower" method.
-* New "webhooks" API server. This provides a programmable JSON interface to Klipper.
-* The LCD display and menu are now configurable using the Jinja2 template language.
-* The TMC2208 stepper motor drivers can now be used in "standalone" mode with Klipper.
-* Improved BL-Touch v3 support.
+* 支持使用“Input Shaping”功能 - 此功能主要作用是抵消打印机共振。它可以减少甚至消除打印中产生的“ringing”振纹。
+* “Smooth Pressure Advance”全新的挤出算法机制。这实现了“Pressure Advance”(打印挤出）同时不会引起挤出速度瞬间的改变，相反会变得更加平滑。现在也可以使用“Tuning Tower”方法来调整“Pressure Advance”(打印挤出）。
+* “webhooks”全新的API 服务器。 这次 Klipper 添加了可编程的 JSON 接口。
+* 现在可以使用 Jinja2 模板语言配置 LCD 显示和菜单。
+* 现在TMC2208 步进电机驱动器可以在 Klipper系统中 使用“standalone”模式。
+* 支持并优化使用BL-Touch v3 。
 * Improved USB identification. Klipper now has its own USB identification code and micro-controllers can now report their unique serial numbers during USB identification.
 * New kinematic support for "Rotary Delta" and "CoreXZ" printers.
 * Micro-controller improvements: support for stm32f070, support for stm32f207, support for GPIO pins on "Linux MCU", stm32 "HID bootloader" support, Chitu bootloader support, MKS Robin bootloader support.

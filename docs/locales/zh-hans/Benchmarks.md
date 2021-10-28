@@ -1,12 +1,12 @@
 # 基准测试
 
-这个文档解释了Klipper的基准测试
+这个文档解释了Klipper的基准测试。
 
 ## 微控制器（Micro-controller）基准测试
 
 本节描述了用于生成 Klipper 微控制器步进率（step rate）基准的机制。
 
-Benchmarks的主要目标是提供一个一致的机制来衡量软件内编码变化的影响。次要目标是为比较芯片之间和软件平台之间的性能提供高水平的指标。
+基准的主要目标是提供一个一致的机制，用于测量软件中编码更改的影响。次要目标是提供高级别指标，用于比较芯片和软件平台之间的性能。
 
 步进率(stepping rate)基准是为了找到硬件和软件可以达到的最大步进率。这个基准步进率在日常使用中是无法实现的，因为Klipper在任何实际使用中都需要执行其他任务（例如，MCU/主机通信、温度读取、限位检查）。
 
@@ -41,7 +41,7 @@ queue_step oid=2 interval=3000 count=1 add=0
 
 以上测试三个步进器同时步进。如果运行上述程序的结果是 "重新安排定时器在过去 "或 "步进器在过去太远 "的错误，则表明`ticks`参数太低（它导致步进速度太快）。我们的目标是找到能够可靠地导致成功完成测试的最低的ticks参数设置。应该可以将ticks参数一分为二，直到找到一个稳定的值。
 
-在失败的情况下，可以复制和粘贴以下内容来清除错误，为下一次测试做准备。
+在失败的情况下，可以复制和粘贴以下内容来清除错误，为下一次测试做准备：
 
 ```
 clear_shutdown
@@ -49,7 +49,7 @@ clear_shutdown
 
 为了获得单步和双步基准，使用相同的配置序列，但只将上述测试的第一个块（对于单步情况）或前两个块（对于双步情况）剪切并粘贴到console.py窗口。
 
-为了产生Feature.md文件中的基准测试，每秒的总步数是通过将有源步进器的数量与标称的MCU频率相乘并除以最终的ticks参数来计算的。结果被四舍五入到最接近的K。例如，有三个激活的步进电机。
+为了产生Feature.md 文件中的基准测试，每秒的总步数是通过将有源步进器的数量与标称的MCU频率相乘并除以最终的ticks参数来计算的。结果被四舍五入到最接近的K。例如，有三个激活的步进电机：
 
 ```
 ECHO Test result is: {"%.0fK" % (3. * freq / ticks / 1000.)}
@@ -74,13 +74,13 @@ finalize_config crc=0
 
 | avr | ticks |
 | --- | --- |
-| 1 stepper | 104 |
-| 2 stepper | 296 |
-| 3 stepper | 472 |
+| 1个步进电机 | 104 |
+| 2个步进电机 | 296 |
+| 3个步进电机 | 472 |
 
 ### Arduino Due 的步速率基准测试
 
-以下是在Due上使用的配置序列。
+以下是在Due上使用的配置序列：
 
 ```
 allocate_oids count=3
@@ -94,15 +94,15 @@ finalize_config crc=0
 
 | sam3x8e | ticks |
 | --- | --- |
-| 1 stepper | 388 |
-| 2 stepper | 405 |
-| 3 stepper | 576 |
+| 1个步进电机 | 388 |
+| 2个步进电机 | 405 |
+| 3个步进电机 | 576 |
 | 1 stepper (无延迟) | 77 |
 | 3 stepper (无延迟) | 299 |
 
 ### Duet Maestro 步进率基准测试
 
-在Duet Maestro上使用以下配置序列。
+在Duet Maestro上使用以下配置序列：
 
 ```
 allocate_oids count=3
@@ -116,15 +116,15 @@ finalize_config crc=0
 
 | sam4s8c | ticks |
 | --- | --- |
-| 1 stepper | 527 |
-| 2 stepper | 535 |
-| 3 stepper | 638 |
+| 1个步进电机 | 527 |
+| 2个步进电机 | 535 |
+| 3个步进电机 | 638 |
 | 1 stepper (无延迟) | 70 |
 | 3 stepper (无延迟) | 254 |
 
 ### Duet Wifi 步进率基准测试
 
-在Duet Wifi上使用以下配置序列。
+在Duet Wifi上使用以下配置序列：
 
 ```
 allocate_oids count=4
@@ -135,14 +135,14 @@ config_stepper oid=3 step_pin=PD5 dir_pin=PA1 invert_step=0
 finalize_config crc=0
 ```
 
-测试最后在提交 `59a60d68` gcc 版本`arm-none-eabi-gcc 7.3.1 20180622 (release) [ARM/embedded-7-branch revision 261907]`.
+测试最后在提交 `59a60d68` gcc 版本`arm-none-eabi-gcc 7.3.1 20180622 (release) [ARM/embedded-7-branch revision 261907]`。
 
 | sam4e8e | ticks |
 | --- | --- |
-| 1 stepper | 519 |
-| 2 stepper | 520 |
-| 3 stepper | 525 |
-| 4 stepper | 703 |
+| 1个步进电机 | 519 |
+| 2个步进电机 | 520 |
+| 3个步进电机 | 525 |
+| 4个步进电机 | 703 |
 
 ### Beaglebone PRU 步进率基准测试
 
@@ -159,11 +159,11 @@ finalize_config crc=0
 
 测试最后在提交 `b161a69e` 上运行，gcc 版本为 `pru-gcc (GCC) 8.0.0 20170530 (experimental)`。
 
-| pru | ticks |
+| 可编程实时单元 | ticks |
 | --- | --- |
-| 1 stepper | 861 |
-| 2 stepper | 853 |
-| 3 stepper | 883 |
+| 1个步进电机 | 861 |
+| 2个步进电机 | 853 |
+| 3个步进电机 | 883 |
 
 ### STM32F042 步进率基准测试
 
@@ -181,9 +181,9 @@ finalize_config crc=0
 
 | stm32f042 | ticks |
 | --- | --- |
-| 1 stepper | 247 |
-| 2 stepper | 328 |
-| 3 stepper | 558 |
+| 1个步进电机 | 247 |
+| 2个步进电机 | 328 |
+| 3个步进电机 | 558 |
 
 ### STM32F103 步速率基准测试
 
@@ -201,9 +201,9 @@ finalize_config crc=0
 
 | stm32f103 | ticks |
 | --- | --- |
-| 1 stepper | 347 |
-| 2 stepper | 372 |
-| 3 stepper | 600 |
+| 1个步进电机 | 347 |
+| 2个步进电机 | 372 |
+| 3个步进电机 | 600 |
 | 1 stepper (无延迟) | 71 |
 | 3 stepper (无延迟) | 288 |
 
@@ -224,19 +224,19 @@ finalize_config crc=0
 
 | stm32f446 | ticks |
 | --- | --- |
-| 1 stepper | 757 |
-| 2 stepper | 761 |
-| 3 stepper | 757 |
-| 4 stepper | 767 |
+| 1个步进电机 | 757 |
+| 2个步进电机 | 761 |
+| 3个步进电机 | 757 |
+| 4个步进电机 | 767 |
 | 1 stepper (无延迟) | 51 |
 | 3 stepper (无延迟) | 226 |
 
 | stm32f407 | ticks |
 | --- | --- |
-| 1 stepper | 709 |
-| 2 stepper | 714 |
-| 3 stepper | 709 |
-| 4 stepper | 729 |
+| 1个步进电机 | 709 |
+| 2个步进电机 | 714 |
+| 3个步进电机 | 709 |
+| 4个步进电机 | 729 |
 | 1 stepper (无延迟) | 52 |
 | 3 stepper (无延迟) | 226 |
 
@@ -256,17 +256,17 @@ finalize_config crc=0
 
 | lpc1768 | ticks |
 | --- | --- |
-| 1 stepper | 448 |
-| 2 stepper | 450 |
-| 3 stepper | 523 |
+| 1个步进电机 | 448 |
+| 2个步进电机 | 450 |
+| 3个步进电机 | 523 |
 | 1 stepper (无延迟) | 56 |
 | 3 stepper (无延迟) | 240 |
 
 | lpc1769 | ticks |
 | --- | --- |
-| 1 stepper | 525 |
-| 2 stepper | 526 |
-| 3 stepper | 545 |
+| 1个步进电机 | 525 |
+| 2个步进电机 | 526 |
+| 3个步进电机 | 545 |
 | 1 stepper (无延迟) | 56 |
 | 3 stepper (无延迟) | 240 |
 
@@ -286,9 +286,9 @@ finalize_config crc=0
 
 | SAMD21 | ticks |
 | --- | --- |
-| 1 stepper | 277 |
-| 2 stepper | 410 |
-| 3 stepper | 664 |
+| 1个步进电机 | 277 |
+| 2个步进电机 | 410 |
+| 3个步进电机 | 664 |
 | 1 stepper (无延迟) | 83 |
 | 3 stepper (无延迟) | 321 |
 
@@ -310,10 +310,10 @@ finalize_config crc=0
 
 | SAMD51 | ticks |
 | --- | --- |
-| 1 stepper | 516 |
-| 2 stepper | 520 |
-| 3 stepper | 520 |
-| 4 stepper | 631 |
+| 1个步进电机 | 516 |
+| 2个步进电机 | 520 |
+| 3个步进电机 | 520 |
+| 4个步进电机 | 631 |
 | 1 stepper (200Mhz) | 839 |
 | 2 stepper (200Mhz) | 838 |
 | 3 stepper (200Mhz) | 838 |
@@ -339,10 +339,10 @@ finalize_config crc=0
 
 | rp2040 | ticks |
 | --- | --- |
-| 1 stepper | 52 |
-| 2 stepper | 52 |
-| 3 stepper | 52 |
-| 4 stepper | 66 |
+| 1个步进电机 | 52 |
+| 2个步进电机 | 52 |
+| 3个步进电机 | 52 |
+| 4个步进电机 | 66 |
 | 1 stepper (无延迟) | 5 |
 | 3 stepper (无延迟) | 22 |
 
@@ -362,9 +362,9 @@ finalize_config crc=0
 
 | Linux (RPi3) | ticks |
 | --- | --- |
-| 1 stepper | 349 |
-| 2 stepper | 350 |
-| 3 stepper | 400 |
+| 1个步进电机 | 349 |
+| 2个步进电机 | 350 |
+| 3个步进电机 | 400 |
 
 ## Command dispatch 基准测试
 

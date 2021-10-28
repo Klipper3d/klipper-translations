@@ -193,9 +193,9 @@ The mesh will be saved into a profile specified by the `PROFILE` parameter, or `
 
 `BED_MESH_PROFILE SAVE=name LOAD=name REMOVE=name`
 
-After a BED_MESH_CALIBRATE has been performed, it is possible to save the current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using `BED_MESH_PROFILE SAVE=name` the `SAVE_CONFIG` gcode may be executed to write the profile to printer.cfg.
+在进行 BED_MESH_CALIBRATE 后，可以将当前网格状态保存到一个命名的配置中。这样就可以加载一个网格而不需要重新探测打印床。在使用`BED_MESH_PROFILE SAVE=name`保存了一个配置文件后，可以执行`SAVE_CONFIG`gcode，将配置文件写入print.cfg。
 
-Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=name`.
+可以通过运行 `BED_MESH_PROFILE LOAD=name` 来载入配置。
 
 It should be noted that each time a BED_MESH_CALIBRATE occurs, the current state is automatically saved to the *default* profile. If this profile exists it is automatically loaded when Klipper starts. If this behavior is not desirable the *default* profile can be removed as follows:
 
