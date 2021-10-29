@@ -1,4 +1,4 @@
-# mirokymac <toufubomb@gmail.com>, 2021.
+# mirokymac <toufubomb@gmail.com>, 2021, 2025.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # Temparo <temperacket@outlook.com>, 2024, 2025.
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:27+0000\n"
-"Last-Translator: Temparo <temperacket@outlook.com>\n"
+"Last-Translator: mirokymac <toufubomb@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/multi_mcu_homing/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -37,7 +37,9 @@ msgid ""
 "feature may result in \"overshoot\" of the stepper motors during homing and "
 "probing operations."
 msgstr ""
-"该功能可以简化接线，因为限位开关或探针可以连接到距离最短的微控制器上。然而，该功能也会带来问题，因为运动控制器和限位控制器并非同一控制器，可能造成归零或探高时的“过度运动”。"
+"该功能可以简化接线，因为限位开关或探针可以连接到距离最短的微控制器上。然而，"
+"该功能也会带来问题，因为运动控制器和限位控制器并非同一控制器，可能造成归零或"
+"探高时的“过度运动”。"
 
 #: docs/Multi_MCU_Homing.md:block 4 (paragraph)
 msgid ""
@@ -69,7 +71,9 @@ msgid ""
 " design is capable of handling overshoot without causing damage to the "
 "machine."
 msgstr ""
-"步进电机的过运动不太可能对归零和探高的精度产生很大的影响。Klippe代码上会考虑通讯延时校正归零的结果。但是，过运动对硬件稳固性有要求，因为过运动发生时有可能会损坏硬件。"
+"步进电机的过运动不太可能对归零和探高的精度产生很大的影响。Klippe代码上会考虑"
+"通讯延时校正归零的结果。但是，过运动对硬件稳固性有要求，因为过运动发生时有可"
+"能会损坏硬件。"
 
 #: docs/Multi_MCU_Homing.md:block 8 (paragraph)
 msgid ""
