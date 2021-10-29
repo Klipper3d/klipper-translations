@@ -1,143 +1,143 @@
-# Delta calibration
+# 三角校正
 
-This document describes Klipper's automatic calibration system for "delta" style printers.
+本文将介绍在Klipper中对“三角洲”运动模式的打印机进行自动校准的操作。
 
-Delta calibration involves finding the tower endstop positions, tower angles, delta radius, and delta arm lengths. These settings control printer motion on a delta printer. Each one of these parameters has a non-obvious and non-linear impact and it is difficult to calibrate them manually. In contrast, the software calibration code can provide excellent results with just a few minutes of time. No special probing hardware is necessary.
+三角洲校准包含确定柱限位开关位置（tower endstop positions），柱夹角（ tower angles），三角半径（delta radius）和悬臂长度四个参数（delta arm lengths）。上述参数将用于三角洲打印机的运动控制。然而，由于每个的影响并非显而易见或其影响具有非线性，因此难以通过手工校正。相对而言，软件校正在数分钟的时间后就可以达到极佳的效果。自动校正无需增加探针。
 
-Ultimately, the delta calibration is dependent on the precision of the tower endstop switches. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of those switches.
+归根到底，三角洲校准依赖于各柱的限位开关精度。如果使用Trinamic 步进电机驱动，则可考虑使用[无限位功能](Endstop_Phase.md)以提高检测的准确度。
 
-## Automatic vs manual probing
+## 自动校准 vs 手动校准
 
-Klipper supports calibrating the delta parameters via a manual probing method or via an automatic Z probe.
+Klipper支持使用手动探高或自动z探针的方法进行三角洲参数校准。
 
-A number of delta printer kits come with automatic Z probes that are not sufficiently accurate (specifically, small differences in arm length can cause effector tilt which can skew an automatic probe). If using an automatic probe then first [calibrate the probe](Probe_Calibrate.md) and then check for a [probe location bias](Probe_Calibrate.md#location-bias-check). If the automatic probe has a bias of more than 25 microns (.025mm) then use manual probing instead. Manual probing only takes a few minutes and it eliminates error introduced by the probe.
+市面上众多的三角洲打印机附带了自动Z探针，但这些探针的精度不足。特别对于三角洲，臂长的细微差异会导致效应器倾斜，导致打印效果一塌糊涂。如果使用自动探针，则先进行[探针校准](Probe_Calibrate.md)，然后检查[探针位置漂移](Probe_Calibrate.md#location-bias-check)。如果探针的偏差大于25微米（0.025mm），则应使用手动探高。手动探高只需要数分钟的时间，并能摒弃探针带来的误差。
 
-If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that performing delta calibration will invalidate the results of probe calibration. These types of probes are rarely suitable for use on a delta (because minor effector tilt will result in a probe location bias). If using the probe anyway, then be sure to rerun probe calibration after any delta calibration.
+如果使用的探针是安装在喷嘴的一侧（即，探针对喷嘴存在xy偏移），需注意在进行过三角洲校准之后会使探针校准的结果无效。该类型的探针并不适用于三角洲打印机（因为效应器倾斜会差生探针位置漂移）。如果仍使用上述的探针，则需在三角洲校准校准后再进行一次探针校准。
 
-## Basic delta calibration
+## 简单三角洲校准
 
-Klipper has a DELTA_CALIBRATE command that can perform basic delta calibration. This command probes seven different points on the bed and calculates new values for the tower angles, tower endstops, and delta radius.
+通过DELTA_CALIBRATE 命令可以在Klipper中进行简单三角洲校准。该命令会对热床上的7个不同的位置进行探高，并计算除柱夹角，柱限位位置和三角半径。
 
-In order to perform this calibration the initial delta parameters (arm lengths, radius, and endstop positions) must be provided and they should have an accuracy to within a few millimeters. Most delta printer kits will provide these parameters - configure the printer with these initial defaults and then go on to run the DELTA_CALIBRATE command as described below. If no defaults are available then search online for a delta calibration guide that can provide a basic starting point.
+要进行校准，需要先提供柱夹角，柱限位位置和三角半径的初始值，这些值应与实际值只有几毫米的偏差。大多三角洲打印机套件会提供这些值，在配置文件中输入这些值作为初始配置，然后按照下述步骤运行DELTA_CALIBRATE 。如果无法找到初始值，则可以通过搜索 三角洲校准 教程，作为测量的依据。
 
-During the delta calibration process it may be necessary for the printer to probe below what would otherwise be considered the plane of the bed. It is typical to permit this during calibration by updating the config so that the printer's `minimum_z_position=-5`. (Once calibration completes, one can remove this setting from the config.)
+校准期间，打印机需要对热床外的底板进行探高。通常可以通过修改设置中的 `minimum_z_position=-5` 以实现床外探高。（校准后可以在设置中移除该项。）
 
-There are two ways to perform the probing - manual probing (`DELTA_CALIBRATE METHOD=manual`) and automatic probing (`DELTA_CALIBRATE`). The manual probing method will move the head near the bed and then wait for the user to follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test) to determine the actual distance between the nozzle and bed at the given location.
+探高的方式有两种：手动探高(`DELTA_CALIBRATE METHOD=manual`)和自动探高(`DELTA_CALIBRATE`)。手动探高模式下，打印头将会移近热床，然后等候用户使用 ["纸测法"](Bed_Level.md#the-paper-test) 测量特定位置上的喷嘴和热床的之间的偏差值。
 
-To perform the basic probe, make sure the config has a [delta_calibrate] section defined and then run the tool:
+进行简单校准，请确保在配置文件中定义了[delta_calibrate]，然后运行工具：
 
 ```
 G28
 DELTA_CALIBRATE METHOD=manual
 ```
 
-After probing the seven points new delta parameters will be calculated. Save and apply these parameters by running:
+在测量了7个点，并计算得出新三角洲参数后，运行下面的命令进行保存。
 
 ```
 SAVE_CONFIG
 ```
 
-The basic calibration should provide delta parameters that are accurate enough for basic printing. If this is a new printer, this is a good time to print some basic objects and verify general functionality.
+简单校准获得的参数，其准确性可以满足日常打印的需求。对于新打印机，可以尝试打印几个简单模型，确定功能正常。
 
-## Enhanced delta calibration
+## 进阶三角洲校准
 
-The basic delta calibration generally does a good job of calculating delta parameters such that the nozzle is the correct distance from the bed. However, it does not attempt to calibrate X and Y dimensional accuracy. It's a good idea to perform an enhanced delta calibration to verify dimensional accuracy.
+简单三角洲校准获得的三角洲参数可以很好地修正喷嘴距离之类问题。然而，该模式不能校准X，Y轴上的准确度。而进阶三角洲校准则是针对维度准确性地问题。
 
-This calibration procedure requires printing a test object and measuring parts of that test object with digital calipers.
+校准流程需要打印一个测试模型并用游标卡尺测量模型的尺寸。
 
-Prior to running an enhanced delta calibration one must run the basic delta calibration (via the DELTA_CALIBRATE command) and save the results (via the SAVE_CONFIG command).
+在进行进阶三角洲校准时，必须先完成三角洲校准（通过DELTA_CALIBRATE命令）并保存结果（通过SAVE_CONFIG 命令）。
 
-Use a slicer to generate G-Code from the [docs/prints/calibrate_size.stl](prints/calibrate_size.stl) file. Slice the object using a slow speed (eg, 40mm/s). If possible, use a stiff plastic (such as PLA) for the object. The object has a diameter of 140mm. If this is too large for the printer then one can scale it down (but be sure to uniformly scale both the X and Y axes). If the printer supports significantly larger prints then this object can also be increased in size. A larger size can improve the measurement accuracy, but good print adhesion is more important than a larger print size.
+用切片器对[docs/prints/calibrate_size.stl](prints/calibrate_size.stl)的模型进行切片，生成G-Code。速度设置使用低速（例如 40mm/s）。如可能使用刚性塑料（如PLA）。模型的外径为140mm。如果尺寸太大则按照热床大小进行缩小（但应注意X和Y应按比例进行缩放）。如果打印机的热床足够大，也可以放大该模型。大尺寸可以提高测量的准确性，但是模型的床附着对测量准确性影响更大。
 
-Print the test object and wait for it to fully cool. The commands described below must be run with the same printer settings used to print the calibration object (don't run DELTA_CALIBRATE between printing and measuring, or do something that would otherwise change the printer configuration).
+打印测试模型并等待其完全冷却。打印机设置和校准模型必须一一对应（即，在打印校准模型后，不要再进行DELTA_CALIBRATE或修改打印机参数，否则模型测量无效），再执行下面的命令。
 
-If possible, perform the measurements described below while the object is still attached to the print bed, but don't worry if the part detaches from the bed - just try to avoid bending the object when performing the measurements.
+如可能，在模型黏着在床上进行测量，但若模型脱离热床也没有关系——这步骤只是为了减少模型的弯曲。
 
-Start by measuring the distance between the center pillar and the pillar next to the "A" label (which should also be pointing towards the "A" tower).
+首先测量中心柱到印有“A”标志的柱的距离（即中心到A柱方向的距离）。
 
 ![delta-a-distance](img/delta-a-distance.jpg)
 
-Then go counterclockwise and measure the distances between the center pillar and the other pillars (distance from center to pillar across from C label, distance from center to pillar with B label, etc.).
+之后，按照逆时针方向逐一测量中心柱到边沿柱的距离（中心到C标签柱的距离，中心到B标签柱的距离等）。
 
 ![delta_cal_e_step1](img/delta_cal_e_step1.png)
 
-Enter these parameters into Klipper with a comma separated list of floating point numbers:
+以 逗号分隔的浮点数 的形式将数据输入到Klipper：
 
 ```
 DELTA_ANALYZE CENTER_DISTS=<a_dist>,<far_c_dist>,<b_dist>,<far_a_dist>,<c_dist>,<far_b_dist>
 ```
 
-Provide the values without spaces between them.
+数据之间不要插入 空格 。
 
-Then measure the distance between the A pillar and the pillar across from the C label.
+之后测量A柱和C柱之间的距离。
 
 ![delta-ab-distance](img/delta-outer-distance.jpg)
 
-Then go counterclockwise and measure the distance between the pillar across from C to the B pillar, the distance between the B pillar and the pillar across from A, and so on.
+之后测量C柱和B柱，以及B柱和A柱之间的距离等。
 
 ![delta_cal_e_step2](img/delta_cal_e_step2.png)
 
-Enter these parameters into Klipper:
+将参数输入到Klipper：
 
 ```
 DELTA_ANALYZE OUTER_DISTS=<a_to_far_c>,<far_c_to_b>,<b_to_far_a>,<far_a_to_c>,<c_to_far_b>,<far_b_to_a>
 ```
 
-At this point it is okay to remove the object from the bed. The final measurements are of the pillars themselves. Measure the size of the center pillar along the A spoke, then the B spoke, and then the C spoke.
+此时可以拆除床上的模型。最后要测量的是柱子的尺寸。首先测量中心柱在A柱方向上，B柱方向上以及C柱方向上的尺寸。
 
 ![delta-a-pillar](img/delta-a-pillar.jpg)
 
 ![delta_cal_e_step3](img/delta_cal_e_step3.png)
 
-Enter them into Klipper:
+将结果输入Klipper：
 
 ```
 DELTA_ANALYZE CENTER_PILLAR_WIDTHS=<a>,<b>,<c>
 ```
 
-The final measurements are of the outer pillars. Start by measuring the distance of the A pillar along the line from A to the pillar across from C.
+然后侧向外侧柱子的尺寸。首先测量A柱朝向C柱内侧的面之间的尺寸（见下图）。
 
 ![delta-ab-pillar](img/delta-outer-pillar.jpg)
 
-Then go counterclockwise and measure the remaining outer pillars (pillar across from C along the line to B, B pillar along the line to pillar across from A, etc.).
+之后逆时针逐一测量外则柱子的尺寸（测量C柱朝向B柱内侧的面之间的尺寸，测量B柱朝向A柱内侧的面之间的尺寸等）。
 
 ![delta_cal_e_step4](img/delta_cal_e_step4.png)
 
-And enter them into Klipper:
+并将参数输入Klipper：
 
 ```
 DELTA_ANALYZE OUTER_PILLAR_WIDTHS=<a>,<far_c>,<b>,<far_a>,<c>,<far_b>
 ```
 
-If the object was scaled to a smaller or larger size then provide the scale factor that was used when slicing the object:
+如果模型经过了缩放，则输入切片时使用的缩放系数：
 
 ```
 DELTA_ANALYZE SCALE=1.0
 ```
 
-(A scale value of 2.0 would mean the object is twice its original size, 0.5 would be half its original size.)
+（输入系数2.0则模型被放大一倍，输入系数0.5则模型被缩小至一半。）
 
-Finally, perform the enhanced delta calibration by running:
+最后输入下列面命令进行三角校准：
 
 ```
 DELTA_ANALYZE CALIBRATE=extended
 ```
 
-This command can take several minutes to complete. After completion it will calculate updated delta parameters (delta radius, tower angles, endstop positions, and arm lengths). Use the SAVE_CONFIG command to save and apply the settings:
+该命令将进行数分钟的计算。计算将给出三角洲参数（三角半径，柱夹角，限位位置，臂长）。之后使用SAVE_CONFIG 保存并应用结果。
 
 ```
 SAVE_CONFIG
 ```
 
-The SAVE_CONFIG command will save both the updated delta parameters and information from the distance measurements. Future DELTA_CALIBRATE commands will also utilize this distance information. Do not attempt to reenter the raw distance measurements after running SAVE_CONFIG, as this command changes the printer configuration and the raw measurements no longer apply.
+SAVE_CONFIG 会保存计算并更新后的三角参数。之后的DELTA_CALIBRATE 命令也会给予进阶计算的结果。请勿在SAVE_CONFIG 重新输入原始测量数据，因为此时原始测量数据已不会应用至三角参数上。
 
-### Additional notes
+### 额外要点
 
-* If the delta printer has good dimensional accuracy then the distance between any two pillars should be around 74mm and the width of every pillar should be around 9mm. (Specifically, the goal is for the distance between any two pillars minus the width of one of the pillars to be exactly 65mm.) Should there be a dimensional inaccuracy in the part then the DELTA_ANALYZE routine will calculate new delta parameters using both the distance measurements and the previous height measurements from the last DELTA_CALIBRATE command.
-* DELTA_ANALYZE may produce delta parameters that are surprising. For example, it may suggest arm lengths that do not match the printer's actual arm lengths. Despite this, testing has shown that DELTA_ANALYZE often produces superior results. It is believed that the calculated delta parameters are able to account for slight errors elsewhere in the hardware. For example, small differences in arm length may result in a tilt to the effector and some of that tilt may be accounted for by adjusting the arm length parameters.
+* 如果三角洲打印机的尺寸相当准确，则两柱间的距离应该在74mm附近，并各个柱子的尺寸应为9mm（即目标为柱子面向另一柱子的一侧到所向柱子的统一面的距离为65mm）。如果尺寸不准确，则可以通过DELTA_ANALYZE ，基于之前DELTA_CALIBRATE 获得的高度测量数据和距离测量数据生成新的三角参数。
+* DELTA_ANALYZE 的结果可能不符合逻辑。比如，它计算出的臂长可能于打印机的实际臂长不符。尽管如此，测试结果表明 DELTA_ANALYZE 总能给出出色的打印结果。推测这是因为计算三角参数的时候将其他未知的影响参数也纳入到计算考虑。例如，臂长的细微差异会使效应器倾斜，而通过调节臂长的计算基准可以补偿这种差异。
 
-## Using Bed Mesh on a Delta
+## 在三角洲打印机上使用床网
 
-It is possible to use [bed mesh](Bed_Mesh.md) on a delta. However, it is important to obtain good delta calibration prior to enabling a bed mesh. Running bed mesh with poor delta calibration will result in confusing and poor results.
+三角洲打印机上也能使用[床网](Bed_Mesh.md)。但是应在开启床网之前对打印机进行三角校准。在未校准的打印机上使用床网会得出奇怪的结果。
 
-Note that performing delta calibration will invalidate any previously obtained bed mesh. After performing a new delta calibration be sure to rerun BED_MESH_CALIBRATE.
+注意进行三角校正会使之前获得的床网数据无效。应在进行三角校正后重新运行BED_MESH_CALIBRATE。
