@@ -1,15 +1,15 @@
-# Multiple Micro-controller Homing and Probing
+# 复数微控制器归零与探高
 
-Klipper supports a mechanism for homing with an endstop attached to one micro-controller while its stepper motors are on a different micro-controller. This support is referred to as "multi-mcu homing". This feature is also used when a Z probe is on a different micro-controller than the Z stepper motors.
+Klipper支持归零限位开关和动作的步进电机连接到不同的微控制器上。该功能被称为“复数微控制器归零”。该功能也支持将探针连接到不同的微控制器上。
 
-This feature can be useful to simplify wiring, as it may be more convenient to attach an endstop or probe to a closer micro-controller. However, using this feature may result in "overshoot" of the stepper motors during homing and probing operations.
+该功能可以简化接线，因为限位开关或探针可以连接到距离最短的微控制器上。然而，该功能也会带来问题，因为运动控制器和限位控制器并非同一控制器，可能造成归零或探高时的“过度运动”。
 
-The overshoot occurs due to possible message transmission delays between the micro-controller monitoring the endstop and the micro-controllers moving the stepper motors. The Klipper code is designed to limit this delay to no more than 25ms. (When multi-mcu homing is activated, the micro-controllers send periodic status messages and check that corresponding status messages are received within 25ms.)
+过度运动的可能成因是，控制步进电机运动的微控制器 和 监控限位开关的微控制器之间的信息传递存在延时。Klipper在设计上将延时压缩到25ms以下。（在使用复数微控制器时，各个微控制器会通过周期性发送状态信息确定与上位机的延时不超过25ms。）
 
-So, for example, if homing at 10mm/s then it is possible for an overshoot of up to 0.250mm (10mm/s * .025s == 0.250mm). Care should be taken when configuring multi-mcu homing to account for this type of overshoot. Using slower homing or probing speeds can reduce the overshoot.
+例如，如果归零速度为10 mm/s则可能的过运动的量为0.25mm（10mm/s * .025s == 0.250mm）。在进行复数微控制器的归零配置时应充分考虑过运动的影响。使用低速归零可以有效减少过运动。
 
-Stepper motor overshoot should not adversely impact the precision of the homing and probing procedure. The Klipper code will detect the overshoot and account for it in its calculations. However, it is important that the hardware design is capable of handling overshoot without causing damage to the machine.
+步进电机的过运动不太可能对归零和探高的精度产生很大的影响。Klippe代码上会考虑通讯延时校正归零的结果。但是，过运动对硬件稳固性有要求，因为过运动发生时有可能会损坏硬件。
 
-Should Klipper detect a communication issue between micro-controllers during multi-mcu homing then it will raise a "Communication timeout during homing" error.
+对配置有复数微控制器归零的Klipper，如在进行归零时遭遇通讯错误，软件将会抛出"Communication timeout during homing"（归零时，控制器通讯超时）错误信息。
 
-Note that an axis with multiple steppers (eg, `stepper_z` and `stepper_z1`) need to be on the same micro-controller in order to use multi-mcu homing. For example, if an endstop is on a separate micro-controller from `stepper_z` then `stepper_z1` must be on the same micro-controller as `stepper_z`.
+要注意，当一个轴由多个步进电机控制（如`stepper_z`和`stepper_z1`），这些电机必须连接到同一微控制器上以实现复数微控制器归零。详细来说，即Z限位开关位于微控制器1， `stepper_z`连接到微控制器2，则`stepper_z1`必须连接到微控制器2。
