@@ -1,8 +1,8 @@
 # Endstop phase
 
-This document describes Klipper's stepper phase adjusted endstop system. This functionality can improve the accuracy of traditional endstop switches. It is most useful when using a Trinamic stepper motor driver that has run-time configuration.
+该文档介绍了Klipper的步进电机相态校准限位位置的功能。该功能可以增强传统限位开关的准确性。使用带有运行期间设置的步进电机驱动器，如Trinamic，可发挥该功能的最大作用。
 
-A typical endstop switch has an accuracy of around 100 microns. (Each time an axis is homed the switch may trigger slightly earlier or slightly later.) Although this is a relatively small error, it can result in unwanted artifacts. In particular, this positional deviation may be noticeable when printing the first layer of an object. In contrast, typical stepper motors can obtain significantly higher precision.
+典型的限位开关的精度在100微米左右。（每次归零时，限位触发的位置可深可浅。）尽管该误差很小，但它确时会影响打印效果。对于模型的首层打印而言，该精度会有明显的影响。相对地，步进电机的运动精度显然更高。
 
 The stepper phase adjusted endstop mechanism can use the precision of the stepper motors to improve the precision of the endstop switches. A stepper motor moves by cycling through a series of phases until in completes four "full steps". So, a stepper motor using 16 micro-steps would have 64 phases and when moving in a positive direction it would cycle through phases: 0, 1, 2, ... 61, 62, 63, 0, 1, 2, etc. Crucially, when the stepper motor is at a particular position on a linear rail it should always be at the same stepper phase. Thus, when a carriage triggers the endstop switch the stepper controlling that carriage should always be at the same stepper motor phase. Klipper's endstop phase system combines the stepper phase with the endstop trigger to improve the accuracy of the endstop.
 
