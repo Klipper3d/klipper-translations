@@ -1,4 +1,4 @@
-# ZiomaleQ <r.partyka30@gmail.com>, 2021.
+# ZiomaleQ <r.partyka30@gmail.com>, 2021, 2025.
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
 # gnu-ewm <gnu.ewm@protonmail.com>, 2022.
 # Daviteusz <imefiu3@gmail.com>, 2023.
@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: Dawid <dawidgorski.m@gmail.com>\n"
+"Last-Translator: ZiomaleQ <r.partyka30@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/overview/"
 "pl/>\n"
 "Language: pl\n"
