@@ -1,32 +1,32 @@
-# Endstop phase
+# 限位相位
 
-该文档介绍了Klipper的步进电机相态校准限位位置的功能。该功能可以增强传统限位开关的准确性。使用带有运行期间设置的步进电机驱动器，如Trinamic，可发挥该功能的最大作用。
+该文档介绍了Klipper的步进电机相态校准限位位置的功能（下称：相态修正）。该功能可以增强传统限位开关的准确性。使用带有运行期间设置的步进电机驱动器，如Trinamic，可发挥该功能的最大作用。
 
 典型的限位开关的精度在100微米左右。（每次归零时，限位触发的位置可深可浅。）尽管该误差很小，但它确时会影响打印效果。对于模型的首层打印而言，该精度会有明显的影响。相对地，步进电机的运动精度显然更高。
 
-The stepper phase adjusted endstop mechanism can use the precision of the stepper motors to improve the precision of the endstop switches. A stepper motor moves by cycling through a series of phases until in completes four "full steps". So, a stepper motor using 16 micro-steps would have 64 phases and when moving in a positive direction it would cycle through phases: 0, 1, 2, ... 61, 62, 63, 0, 1, 2, etc. Crucially, when the stepper motor is at a particular position on a linear rail it should always be at the same stepper phase. Thus, when a carriage triggers the endstop switch the stepper controlling that carriage should always be at the same stepper motor phase. Klipper's endstop phase system combines the stepper phase with the endstop trigger to improve the accuracy of the endstop.
+相位修正功能可以利用步进电机的精度提高限位开关的精度。 步进电机通过一系列的相位循环运动，直到完成四个 "全步"。例如，一个使用16微步的步进电机，“全步”有64个相位，运动时会通过0, 1, 2, ... 61, 62, 63, 0, 1, 2...的相位循环。最重要的是，当步进电机处于线性轨道上的特定位置时，它应始终处于同一步进相位。因此，当滑车触发限位开关时，控制该滑车的步进电机应始终处于同一相位。Klipper的限位相位系统将步进相位与限位开关触发相结合，以提高归零的准确定。
 
-In order to use this functionality it is necessary to be able to identify the phase of the stepper motor. If one is using Trinamic TMC2130, TMC2208, TMC2224 or TMC2660 drivers in run-time configuration mode (ie, not stand-alone mode) then Klipper can query the stepper phase from the driver. (It is also possible to use this system on traditional stepper drivers if one can reliably reset the stepper drivers - see below for details.)
+使用该功能需要确定步进电机的相位。如果使用 TMC2130, TMC2208, TMC2224 或 TMC2660 ，并设置为 运行时设置模式（即，不使用独立（stand-alone）模式），Klipper可以通过访问它们获得相位信息。（使用传统步进电机驱动，在可以可靠地重置驱动地情况下，也能够实现相态检测功能。）
 
-## Calibrating endstop phases
+## 校准限位相位
 
-If using Trinamic stepper motor drivers with run-time configuration then one can calibrate the endstop phases using the ENDSTOP_PHASE_CALIBRATE command. Start by adding the following to the config file:
+在使用Trinamic驱动 并 使用了运行时设置后，可以使用ENDSTOP_PHASE_CALIBRATE命令进行相位修正。首先在配置文件中加入下列设置：
 
 ```
 [endstop_phase]
 ```
 
-Then RESTART the printer and run a `G28` command followed by an `ENDSTOP_PHASE_CALIBRATE` command. Then move the toolhead to a new location and run `G28` again. Try moving the toolhead to several different locations and rerun `G28` from each position. Run at least five `G28` commands.
+之后，依次执行RESTART ，运行`G28`和`ENDSTOP_PHASE_CALIBRATE`。完成后，将打印头移动到一个新位置，再执行`G28`。重复数次，确保每次打印头在不同地位置执行`G28`。最少应重复上述移动-`G28`操作5次。
 
-After performing the above, the `ENDSTOP_PHASE_CALIBRATE` command will often report the same (or nearly the same) phase for the stepper. This phase can be saved in the config file so that all future G28 commands use that phase. (So, in future homing operations, Klipper will obtain the same position even if the endstop triggers a little earlier or a little later.)
+完成上述操作后，`ENDSTOP_PHASE_CALIBRATE`命令会给出相同或进行的步进电机相位值。该值可以输入到配置文件中，之后G28命令执行使会参考该相位数据。（此后，即使限位开关过早或过晚触发，Klipper在归零时会获得调整到相同的相位。）
 
-To save the endstop phase for a particular stepper motor, run something like the following:
+要保存特定电机的相位修正信息，可使用下面的命令：
 
 ```
 ENDSTOP_PHASE_CALIBRATE STEPPER=stepper_z
 ```
 
-Run the above for all the steppers one wishes to save. Typically, one would use this on stepper_z for cartesian and corexy printers, and for stepper_a, stepper_b, and stepper_c on delta printers. Finally, run the following to update the configuration file with the data:
+参照上述命令，我们可以保存想要的步进电机信息。通常，stepper_z会用于龙门式或CoreXY式打印机，而stepper_a、stepper_b和stepper_c则用于三角洲。最后运行下面数据保存配置文件：
 
 ```
 SAVE_CONFIG
@@ -34,8 +34,8 @@ SAVE_CONFIG
 
 ### 额外要点
 
-* This feature is most useful on delta printers and on the Z endstop of cartesian/corexy printers. It is possible to use this feature on the XY endstops of cartesian printers, but that isn't particularly useful as a minor error in X/Y endstop position is unlikely to impact print quality. It is not valid to use this feature on the XY endstops of corexy printers (as the XY position is not determined by a single stepper on corexy kinematics). It is not valid to use this feature on a printer using a "probe:z_virtual_endstop" Z endstop (as the stepper phase is only stable if the endstop is at a static location on a rail).
-* After calibrating the endstop phase, if the endstop is later moved or adjusted then it will be necessary to recalibrate the endstop. Remove the calibration data from the config file and rerun the steps above.
-* In order to use this system the endstop must be accurate enough to identify the stepper position within two "full steps". So, for example, if a stepper is using 16 micro-steps with a step distance of 0.005mm then the endstop must have an accuracy of at least 0.160mm. If one gets "Endstop stepper_z incorrect phase" type error messages than in may be due to an endstop that is not sufficiently accurate. If recalibration does not help then disable endstop phase adjustments by removing them from the config file.
-* If one is using a traditional stepper controlled Z axis (as on a cartesian or corexy printer) along with traditional bed leveling screws then it is also possible to use this system to arrange for each print layer to be performed on a "full step" boundary. To enable this feature be sure the G-Code slicer is configured with a layer height that is a multiple of a "full step", manually enable the endstop_align_zero option in the endstop_phase config section (see [config reference](Config_Reference.md#endstop_phase) for further details), and then re-level the bed screws.
-* It is possible to use this system with traditional (non-Trinamic) stepper motor drivers. However, doing this requires making sure that the stepper motor drivers are reset every time the micro-controller is reset. (If the two are always reset together then Klipper can determine the stepper phase by tracking the total number of steps it has commanded the stepper to move.) Currently, the only way to do this reliably is if both the micro-controller and stepper motor drivers are powered solely from USB and that USB power is provided from a host running on a Raspberry Pi. In this situation one can specify an mcu config with "restart_method: rpi_usb" - that option will arrange for the micro-controller to always be reset via a USB power reset, which would arrange for both the micro-controller and stepper motor drivers to be reset together. If using this mechanism, one would then need to manually configure the "trigger_phase" config sections (see [config reference](Config_Reference.md#endstop_phase) for the details).
+* 该功能在三角洲打印机和使用Z限位的龙门/CoreXY打印机上最为适用。该功能也可以用在龙门式打印机的X、Y轴上，但，由于X、Y轴的限位偏差不会对打印质量有太大影响，因此重要性略逊于Z限位。该功能**不适用**于CoreXY打印机的X，Y轴。（因为XY位置并非单个步进电机决定。）该功能也**不适用**于适用探针Z限位的打印机（因为步进电机相位仅在固定线性位置的限位上有效。）
+* 在限位开关校准后，如果移动过限位开关，则需要重新校准相位。此时应删除设置文件中的校准值，然后重新运行相位修正。
+* 为使用上述功能，限位开关必的偏差值需低于特定步进电机的两倍“全步长”的距离。因此，如果步进电机使用16微步，此时每个微步的长度为0.005mm，则限位开关的分辨能力应低于0.160mm。如果系统反馈"Endstop stepper_z incorrect phase"（stepper_z相位与限位开关不一致）错误信息，则限位开关的精度太差。如果重新校准未能消除报警，则需要停用相位校准功能。
+* 如果打印机使用的是从传统的步进电机控制Z轴（如龙门或CoreXY），同时使用了传统的螺母调平的话，则可以使用相态修正功能将打印的每一层的边界设置到一个“全步”上。要使用这个功能则需要在切片器上将层高设置为“全步”的整倍数，然后在设置文件中的endstop_phase 片段中增加endstop_align_zero选项（详见 [配置参考](Config_Reference.md#endstop_phase)），然后通过调平螺母调平。
+* 该系统也有可能用于传统(非Trinamic)步进电机驱动 。然而，这需要每次微控制器复位时，对应的步进电机驱动也同时复位。（如果两者能实现同时复位的话，Klipper能够通过记录步进的总移动步数来确定其相位。）目前，能够可靠地完成微控制器和步进电机驱动地同时复位地方式是，这两者仅通过USB供电并USB电源通过运行有Klipper的树莓派提供。此时可以在配置的MCU章节中添加 "restart_method: rpi_usb"，该选项将安排微控制器始终通过USB电源复位，在仅使用USB供电时，这将安排微控制器和步进电机驱动器一起被复位。使用这种方式时，需要在配置文件中手动设置"trigger_phase"（详见[配置参考](Config_Reference.md#endstop_phase) ）。
