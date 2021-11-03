@@ -1,9 +1,10 @@
 # mirokymac <toufubomb@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-11-02 06:26+0000\n"
-"Last-Translator: mirokymac <toufubomb@gmail.com>\n"
+"PO-Revision-Date: 2021-11-03 05:54+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/endstop_phase/zh_Hans/>\n"
 "Language: zh-hans\n"
@@ -181,11 +182,9 @@ msgstr ""
 "，该选项将安排微控制器始终通过USB电源复位，在仅使用USB供电时，这将安排微控制器和步进电机驱动器一起被复位。使用这种方式时，"
 "需要在配置文件中手动设置\"trigger_phase\"（详见[配置参考](Config_Reference.md#endstop_phase) ）。"
 
-#, fuzzy
 msgid "[endstop_phase]\n"
 msgstr "[endstop_phase]\n"
 
-#, fuzzy
 msgid "ENDSTOP_PHASE_CALIBRATE STEPPER=stepper_z\n"
 msgstr "ENDSTOP_PHASE_CALIBRATE STEPPER=stepper_z\n"
 
