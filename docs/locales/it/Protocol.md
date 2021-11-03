@@ -1,6 +1,6 @@
 # Protocol
 
-The Klipper messaging protocol is used for low-level communication between the Klipper host software and the Klipper micro-controller software. At a high level the protocol can be thought of as a series of command and response strings that are compressed, transmitted, and then processed at the receiving side. An example series of commands in uncompressed human-readable format might look like:
+Il protocollo di messaggistica Klipper viene utilizzato per la comunicazione di basso livello tra il software host Klipper e il software microcontrollore Klipper. Ad alto livello il protocollo può essere pensato come una serie di stringhe di comando e risposta che vengono compresse, trasmesse e quindi elaborate sul lato ricevente. Una serie di esempio di comandi in formato non compresso leggibile dall'uomo potrebbe essere simile a:
 
 ```
 set_digital_out pin=PA3 value=1
@@ -10,25 +10,25 @@ queue_step oid=7 interval=7458 count=10 add=331
 queue_step oid=7 interval=11717 count=4 add=1281
 ```
 
-See the [mcu commands](MCU_Commands.md) document for information on available commands. See the [debugging](Debugging.md) document for information on how to translate a G-Code file into its corresponding human-readable micro-controller commands.
+Vedere il documento [mcu commands](MCU_Commands.md) per informazioni sui comandi disponibili. Vedere il documento [debugging](Debugging.md) per informazioni su come tradurre un file G-Code nei corrispondenti comandi del microcontrollore leggibili dall'uomo.
 
-This page provides a high-level description of the Klipper messaging protocol itself. It describes how messages are declared, encoded in binary format (the "compression" scheme), and transmitted.
+Questa pagina fornisce una descrizione di alto livello del protocollo di messaggistica Klipper. Descrive come i messaggi sono dichiarati, codificati in formato binario (lo schema di "compressione") e trasmessi.
 
-The goal of the protocol is to enable an error-free communication channel between the host and micro-controller that is low-latency, low-bandwidth, and low-complexity for the micro-controller.
+L'obiettivo del protocollo è abilitare un canale di comunicazione privo di errori tra l'host e il microcontrollore che sia a bassa latenza, bassa larghezza di banda e bassa complessità per il microcontrollore.
 
-## Micro-controller Interface
+## Interfaccia microcontrollore
 
-The Klipper transmission protocol can be thought of as a [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) mechanism between micro-controller and host. The micro-controller software declares the commands that the host may invoke along with the response messages that it can generate. The host uses that information to command the micro-controller to perform actions and to interpret the results.
+Il protocollo di trasmissione Klipper può essere pensato come un meccanismo [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) tra microcontrollore e host. Il software del microcontrollore dichiara i comandi che l'host può richiamare insieme ai messaggi di risposta che può generare. L'host utilizza tali informazioni per comandare al microcontrollore di eseguire azioni e interpretare i risultati.
 
-### Declaring commands
+### Dichiarazione dei comandi
 
-The micro-controller software declares a "command" by using the DECL_COMMAND() macro in the C code. For example:
+Il software del microcontrollore dichiara un "comando" utilizzando la macro DECL_COMMAND() nel codice C. Per esempio:
 
 ```
 DECL_COMMAND(command_update_digital_out, "update_digital_out oid=%c value=%c");
 ```
 
-The above declares a command named "update_digital_out". This allows the host to "invoke" this command which would cause the command_update_digital_out() C function to be executed in the micro-controller. The above also indicates that the command takes two integer parameters. When the command_update_digital_out() C code is executed, it will be passed an array containing these two integers - the first corresponding to the 'oid' and the second corresponding to the 'value'.
+Quanto sopra dichiara un comando denominato "update_digital_out". Ciò consente all'host di "richiamare" questo comando che causerebbe l'esecuzione della funzione C command_update_digital_out() nel microcontrollore. Quanto sopra indica anche che il comando accetta due parametri interi. Quando viene eseguito il codice C command_update_digital_out(), verrà passata una matrice contenente questi due numeri interi: il primo corrispondente all'"oid" e il secondo corrispondente al "valore".
 
 In general, the parameters are described with printf() style syntax (eg, "%u"). The formatting directly corresponds to the human-readable view of commands (eg, "update_digital_out oid=7 value=1"). In the above example, "value=" is a parameter name and "%c" indicates the parameter is an integer. Internally, the parameter name is only used as documentation. In this example, the "%c" is also used as documentation to indicate the expected integer is 1 byte in size (the declared integer size does not impact the parsing or encoding).
 
