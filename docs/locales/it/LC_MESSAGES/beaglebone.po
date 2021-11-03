@@ -1,9 +1,16 @@
-#
+# Ernesto Lo Valvo <elovalvo@gmail.com>, 2021.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-11-03 05:54+0000\n"
+"Last-Translator: Ernesto Lo Valvo <elovalvo@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"beaglebone/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 msgid ""
 "This document describes the process of running Klipper on a Beaglebone PRU."
@@ -44,7 +51,7 @@ msgid "Then start the Octoprint service:"
 msgstr ""
 
 msgid "Building the micro-controller code"
-msgstr ""
+msgstr "Creazione del codice del microcontrollore"
 
 msgid ""
 "To compile the Klipper micro-controller code, start by configuring it for "
@@ -53,6 +60,7 @@ msgstr ""
 
 msgid "To build and install the new micro-controller code, run:"
 msgstr ""
+"Per compilare e installare il nuovo codice del microcontrollore, eseguire:"
 
 msgid ""
 "It is also necessary to compile and install the micro-controller code for a "
@@ -64,7 +72,7 @@ msgid "Then install this micro-controller code as well:"
 msgstr ""
 
 msgid "Remaining configuration"
-msgstr ""
+msgstr "Configurazione rimanente"
 
 msgid ""
 "Complete the installation by configuring Klipper and Octoprint following the"
