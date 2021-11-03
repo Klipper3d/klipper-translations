@@ -21,9 +21,9 @@
    - [探针校准](Probe_Calibrate.md)：校准自动Z探针。
    - [BL-Touch](BLTouch.md)：配置“BL-Touch”Z 探针。
    - [手动调平](Manual_Level.md)：校准 Z 限位和调整热床调平螺丝。
-   - [床网](Bed_Mesh)：基于 XY 位置的打印床高度补偿。
+   - [床网](Bed_Mesh.md)：基于 XY 位置的打印床高度补偿。
    - [限位相位](Endstop_Phase.md)：使用步进电机相位辅助 Z 限位定位。
-- [共振补偿](Resonance_Compensation)：减少打印震纹的工具。
+- [共振补偿](Resonance_Compensation.md)：减少打印震纹的工具。
    - [测量共振](Measuring_Resonances.md)：使用 adxl345 加速度计模块测量共振。
 - [提前压力](Pressure_Advance.md)：校准挤出机压力。
 - [G代码](G-Codes.md)：用于 Klipper 的G代码命令。
