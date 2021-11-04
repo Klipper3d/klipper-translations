@@ -1,10 +1,10 @@
-# Matemática A3K <matematica.a3k@gmail.com>, 2021.
+# Matemática A3K <matematica.a3k@gmail.com>, 2021, 2025.
 # Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:20+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Matemática A3K <matematica.a3k@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "kinematics/es/>\n"
 "Language: es\n"
