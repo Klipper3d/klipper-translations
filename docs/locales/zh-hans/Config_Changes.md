@@ -30,9 +30,9 @@
 
 20210325:配置中的`pin_map`选项已被废弃。使用[sample-aliases.cfg](../config/sample-aliases.cfg)文件将现有的引脚名翻译成实际的微控制器引脚名称。配置中的`pin_map` 选项将在未来被移除。
 
-20210313: Klipper's support for micro-controllers that communicate with CAN bus has changed. If using CAN bus then all micro-controllers must be reflashed and the [Klipper configuration must be updated](CANBUS.md).
+20210313：Klipper对CAN总线通信的微控制器的支持发生了变化。如果使用CAN总线，全部微控制器必须被重新刷写并更新[Klipper CAN 总线配置](CANBUS.md)。
 
-20210310: The TMC2660 default for driver_SFILT has been changed from 1 to 0.
+20210310：TMC2660 默认 driver_SFILT 从1 改为 0。
 
 20210227: TMC stepper motor drivers in UART or SPI mode are now queried once per second whenever they are enabled - if the driver can not be contacted or if the driver reports an error, then Klipper will transition to a shutdown state.
 

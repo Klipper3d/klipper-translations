@@ -4,7 +4,7 @@
 
 ## 构建一个操作系统镜像
 
-Start by installing the [Debian 9.9 2019-08-03 4GB SD IoT](https://beagleboard.org/latest-images) image. One may run the image from either a micro-SD card or from builtin eMMC. If using the eMMC, install it to eMMC now by following the instructions from the above link.
+首先安装[Debian 9.9 2019-08-03 4GB SD IoT](https://beagleboard.org/latest-images)镜像。可以从micro-SD卡或内置的eMMC中运行该镜像。如果使用eMMC，现在需要按照上述链接的说明将其安装到eMMC。
 
 然后 ssh 进入 Beaglebone 机器（ssh debian@beaglebone -- 密码是 "temppwd"），通过运行以下命令安装 Klipper：
 
@@ -33,7 +33,7 @@ sudo cp ~/OctoPrint/scripts/octoprint.default /etc/default/octoprint
 sudo update-rc.d octoprint defaults
 ```
 
-It is necessary to modify OctoPrint's **/etc/default/octoprint** configuration file. One must change the OCTOPRINT_USER user to "debian", change NICELEVEL to 0, uncomment the BASEDIR, CONFIGFILE, and DAEMON settings and change the references from "/home/pi/" to "/home/debian/":
+有必要修改OctoPrint的 **/etc/default/octoprint** 配置文件。我们必须把 OCTOPRINT_USER 用户改为 "debian"，把 NICELEVEL 改为 0 ，取消注释 BASEDIR、CONFIGFILE 和 DAEMON 的设置，并把引用从"/home/pi/"改为"/home/debian/"：
 
 ```
 sudo nano /etc/default/octoprint
@@ -45,18 +45,18 @@ sudo nano /etc/default/octoprint
 sudo systemctl start octoprint
 ```
 
-Make sure the octoprint web server is accessible - it should be at: <http://beaglebone:5000/>
+确保可以访问 OctoPrint 网络服务器 - 它应该在以下位置： <http://beaglebone:5000/>
 
 ## 构建微控制器代码
 
-To compile the Klipper micro-controller code, start by configuring it for the "Beaglebone PRU":
+要编译的 Klipper 微控制器代码，需要先将编译配置设为“Beaglebone PRU”：
 
 ```
 cd ~/klipper/
 make menuconfig
 ```
 
-To build and install the new micro-controller code, run:
+要构建和安装新的微控制器代码，请运行：
 
 ```
 sudo service klipper stop
@@ -64,7 +64,7 @@ make flash
 sudo service klipper start
 ```
 
-It is also necessary to compile and install the micro-controller code for a Linux host process. Run "make menuconfig" a second time and configure it for a "Linux process":
+还需要编译和安装用于 Linux 主机进程的微控制器代码。再次运行 "make menuconfig"，并将其配置为"Linux process"：
 
 ```
 make menuconfig
@@ -80,8 +80,8 @@ sudo service klipper start
 
 ## 剩余的配置
 
-Complete the installation by configuring Klipper and Octoprint following the instructions in [the main installation document](Installation.md#configuring-klipper).
+根据[总安装文档](Installation.md#configuring-klipper)来配置 Klipper 和 Octoprint 来完成安装。
 
 ## 在 Beaglebone 上打印
 
-Unfortunately, the Beaglebone processor can sometimes struggle to run OctoPrint well. Print stalls have been known to occur on complex prints (the printer may move faster than OctoPrint can send movement commands). If this occurs, consider using the "virtual_sdcard" feature (see [config reference](Config_Reference.md#virtual_sdcard) for details) to print directly from Klipper.
+不幸的是，Beaglebone 处理器有时难以很好地运行 OctoPrint。据了解，在复杂的打印中会出现打印停滞（打印机的移动速度可能比 OctoPrint 发送的移动命令快）。如果发生这种情况，可以考虑使用 "virtual_sdcard" 功能（详见[配置参考](Config_Reference.md#virtual_sdcard)），直接从 Klipper 打印。

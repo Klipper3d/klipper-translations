@@ -1,4 +1,4 @@
-# Installation
+# kurulum
 
 Bu talimatlar, yazılımın OctoPrint ile birlikte bir Raspberry Pi bilgisayarında çalışacağını varsayar. Ana makine olarak bir Raspberry Pi 2, 3 veya 4 bilgisayarın kullanılması önerilir (bkz. [SSS](FAQ.md # can-i-run-klipper-on-something-other-a-ahududu -pi-3) diğer makineler için).
 

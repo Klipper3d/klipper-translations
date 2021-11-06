@@ -22,7 +22,7 @@ El principal mecanismo de calibración de la cama es la "prueba de papel". Consi
 
 Es importante entender la "prueba del papel" aunque se tenga un "sensor Z automático". A menudo es necesario calibrar el propio sensor para obtener buenos resultados. Esa calibración del sensor se realiza mediante esta "prueba de papel".
 
-Para realizar la prueba del papel, corte un pequeño trozo de papel rectangular con unas tijeras (por ejemplo, 5x3 cm). El papel suele tener un espesor de unas 100 micras (0,100 mm). (El espesor exacto del papel no es crucial).
+Para realizar la prueba del papel, corte un pequeño trozo de papel rectangular con unas tijeras (por ejemplo, 5x3 cm). El papel suele tener un espesor de unas 100 micras (0,100 mm). (El espesor exacto del papel no es crucial.)
 
 El primer paso de la prueba del papel es inspeccionar la boquilla y la base de la impresora. Asegúrese de que no hay plástico (u otros residuos) en la boquilla o en la base.
 

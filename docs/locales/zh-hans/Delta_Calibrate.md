@@ -31,7 +31,7 @@ G28
 DELTA_CALIBRATE METHOD=manual
 ```
 
-在测量了7个点，并计算得出新三角洲参数后，运行下面的命令进行保存。
+在测量了7个点，并计算得出新三角洲参数后，运行下面的命令来保存参数：
 
 ```
 SAVE_CONFIG
@@ -123,7 +123,7 @@ DELTA_ANALYZE SCALE=1.0
 DELTA_ANALYZE CALIBRATE=extended
 ```
 
-该命令将进行数分钟的计算。计算将给出三角洲参数（三角半径，柱夹角，限位位置，臂长）。之后使用SAVE_CONFIG 保存并应用结果。
+该命令将进行数分钟的计算。计算将给出三角洲参数（三角半径，柱夹角，限位位置，臂长）。之后使用SAVE_CONFIG 保存并应用结果：
 
 ```
 SAVE_CONFIG

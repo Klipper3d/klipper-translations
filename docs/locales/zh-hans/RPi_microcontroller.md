@@ -12,7 +12,7 @@
 
 如果你想把主机作为一个辅助MCU，klipper_mcu进程必须在klippy进程之前运行。
 
-After installing Klipper, install the script. run:
+安装 Klipper 后，运行以下命令来安装脚本：
 
 ```
 cd ~/klipper/
@@ -26,16 +26,16 @@ Make sure the Linux SPI driver is enabled by running sudo raspi-config and enabl
 
 ## 构建微控制器代码
 
-To compile the Klipper micro-controller code, start by configuring it for the "Linux process":
+要编译的 Klipper 微控制器代码，需要先将编译配置设置为“Linux Process”：
 
 ```
 cd ~/klipper/
 make menuconfig
 ```
 
-In the menu, set "Microcontroller Architecture" to "Linux process," then save and exit.
+在菜单中，设置“Microcontroller Archetecture”（微控制器架构）为“Linux Process”（Linux 进程），然后保存(save)并退出(exit)。
 
-To build and install the new micro-controller code, run:
+要构建和安装新的微控制器代码，请运行：
 
 ```
 sudo service klipper stop
