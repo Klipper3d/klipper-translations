@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2021-10-27 05:44+0000\n"
+"PO-Revision-Date: 2021-11-06 01:54+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/contributing/zh_Hans/>\n"
@@ -102,11 +102,11 @@ msgstr "涵盖所有大标题（H1）"
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "An updated navigation hierarchy PR in klipper-translations."
-msgstr ""
+msgstr "klipper-translations 中提供一个更新导航层次的 PR。"
 
 #: docs/CONTRIBUTING.md:block 12 (paragraph)
 msgid "The navigation hierarchy is in `docs\\_klipper3d\\mkdocs.yml`."
-msgstr ""
+msgstr "导航层级在`docs\\_klipper3d\\mkdocs.yml`中。"
 
 #: docs/CONTRIBUTING.md:block 13 (paragraph)
 msgid ""

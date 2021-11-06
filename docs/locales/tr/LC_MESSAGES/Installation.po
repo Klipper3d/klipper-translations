@@ -1,18 +1,20 @@
 # udo pton <udopton@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-05-05 10:46+0200\n"
-"PO-Revision-Date: 2021-05-06 09:32+0000\n"
-"Last-Translator: udo pton <udopton@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/installation/tr/>\n"
+"PO-Revision-Date: 2021-11-06 17:57+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
+"installation/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 msgid ""
 "These instructions assume the software will run on a Raspberry Pi computer "
@@ -261,7 +263,7 @@ msgstr ""
 
 #: docs/Installation.md:block 1 (header)
 msgid "Installation"
-msgstr ""
+msgstr "kurulum"
 
 #: docs/Installation.md:block 7 (code)
 msgid ""
