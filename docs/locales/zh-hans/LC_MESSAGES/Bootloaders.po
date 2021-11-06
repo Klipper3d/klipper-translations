@@ -1,11 +1,21 @@
-#
+# Yifei Ding <dingyifeiair@gmail.com>, 2021.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-11-06 17:57+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/bootloaders/zh_Hans/>\n"
+"Language: zh-hans\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 msgid ""
 "This document provides information on common bootloaders found on micro-"
 "controllers that Klipper supports."
-msgstr ""
+msgstr "本文档提供了有关 Klipper 支持的微控制器上常见引导加载程序的信息。"
 
 msgid ""
 "The bootloader is 3rd-party software that runs on the micro-controller when "

@@ -1,9 +1,10 @@
 # mirokymac <toufubomb@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-10-29 06:44+0000\n"
-"Last-Translator: mirokymac <toufubomb@gmail.com>\n"
+"PO-Revision-Date: 2021-11-05 23:35+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/delta_calibrate/zh_Hans/>\n"
 "Language: zh-hans\n"
@@ -125,7 +126,7 @@ msgstr "进行简单校准，请确保在配置文件中定义了[delta_calibrat
 msgid ""
 "After probing the seven points new delta parameters will be calculated. Save"
 " and apply these parameters by running:"
-msgstr "在测量了7个点，并计算得出新三角洲参数后，运行下面的命令进行保存。"
+msgstr "在测量了7个点，并计算得出新三角洲参数后，运行下面的命令来保存参数："
 
 msgid ""
 "The basic calibration should provide delta parameters that are accurate "
@@ -203,7 +204,6 @@ msgid ""
 "distance from center to pillar with B label, etc.)."
 msgstr "之后，按照逆时针方向逐一测量中心柱到边沿柱的距离（中心到C标签柱的距离，中心到B标签柱的距离等）。"
 
-#, fuzzy
 msgid "![delta_cal_e_step1](img/delta_cal_e_step1.png)"
 msgstr "![delta_cal_e_step1](img/delta_cal_e_step1.png)"
 
@@ -244,7 +244,6 @@ msgstr "此时可以拆除床上的模型。最后要测量的是柱子的尺寸
 msgid "![delta-a-pillar](img/delta-a-pillar.jpg)"
 msgstr "![delta-a-pillar](img/delta-a-pillar.jpg)"
 
-#, fuzzy
 msgid "![delta_cal_e_step3](img/delta_cal_e_step3.png)"
 msgstr "![delta_cal_e_step3](img/delta_cal_e_step3.png)"
 
@@ -256,7 +255,6 @@ msgid ""
 "distance of the A pillar along the line from A to the pillar across from C."
 msgstr "然后侧向外侧柱子的尺寸。首先测量A柱朝向C柱内侧的面之间的尺寸（见下图）。"
 
-#, fuzzy
 msgid "![delta-ab-pillar](img/delta-outer-pillar.jpg)"
 msgstr "![delta-ab-pillar](img/delta-outer-pillar.jpg)"
 
@@ -266,7 +264,6 @@ msgid ""
 "from A, etc.)."
 msgstr "之后逆时针逐一测量外则柱子的尺寸（测量C柱朝向B柱内侧的面之间的尺寸，测量B柱朝向A柱内侧的面之间的尺寸等）。"
 
-#, fuzzy
 msgid "![delta_cal_e_step4](img/delta_cal_e_step4.png)"
 msgstr "![delta_cal_e_step4](img/delta_cal_e_step4.png)"
 
@@ -291,7 +288,7 @@ msgid ""
 "calculate updated delta parameters (delta radius, tower angles, endstop "
 "positions, and arm lengths). Use the SAVE_CONFIG command to save and apply "
 "the settings:"
-msgstr "该命令将进行数分钟的计算。计算将给出三角洲参数（三角半径，柱夹角，限位位置，臂长）。之后使用SAVE_CONFIG 保存并应用结果。"
+msgstr "该命令将进行数分钟的计算。计算将给出三角洲参数（三角半径，柱夹角，限位位置，臂长）。之后使用SAVE_CONFIG 保存并应用结果："
 
 msgid ""
 "The SAVE_CONFIG command will save both the updated delta parameters and "
@@ -349,7 +346,6 @@ msgid ""
 " BED_MESH_CALIBRATE."
 msgstr "注意进行三角校正会使之前获得的床网数据无效。应在进行三角校正后重新运行BED_MESH_CALIBRATE。"
 
-#, fuzzy
 msgid ""
 "G28\n"
 "DELTA_CALIBRATE METHOD=manual\n"
@@ -360,7 +356,6 @@ msgstr ""
 msgid "SAVE_CONFIG\n"
 msgstr "SAVE_CONFIG\n"
 
-#, fuzzy
 msgid ""
 "DELTA_ANALYZE "
 "CENTER_DISTS=<a_dist>,<far_c_dist>,<b_dist>,<far_a_dist>,<c_dist>,<far_b_dist>\n"
@@ -368,7 +363,6 @@ msgstr ""
 "DELTA_ANALYZE CENTER_DISTS=<a_dist>,<far_c_dist>,<b_dist>,<far_a_dist>,<c_dis"
 "t>,<far_b_dist>\n"
 
-#, fuzzy
 msgid ""
 "DELTA_ANALYZE "
 "OUTER_DISTS=<a_to_far_c>,<far_c_to_b>,<b_to_far_a>,<far_a_to_c>,<c_to_far_b>,<far_b_to_a>\n"
@@ -376,19 +370,15 @@ msgstr ""
 "DELTA_ANALYZE OUTER_DISTS=<a_to_far_c>,<far_c_to_b>,<b_to_far_a>,<far_a_to_c>"
 ",<c_to_far_b>,<far_b_to_a>\n"
 
-#, fuzzy
 msgid "DELTA_ANALYZE CENTER_PILLAR_WIDTHS=<a>,<b>,<c>\n"
 msgstr "DELTA_ANALYZE CENTER_PILLAR_WIDTHS=<a>,<b>,<c>\n"
 
-#, fuzzy
 msgid "DELTA_ANALYZE OUTER_PILLAR_WIDTHS=<a>,<far_c>,<b>,<far_a>,<c>,<far_b>\n"
 msgstr "DELTA_ANALYZE OUTER_PILLAR_WIDTHS=<a>,<far_c>,<b>,<far_a>,<c>,<far_b>\n"
 
-#, fuzzy
 msgid "DELTA_ANALYZE SCALE=1.0\n"
 msgstr "DELTA_ANALYZE SCALE=1.0\n"
 
-#, fuzzy
 msgid "DELTA_ANALYZE CALIBRATE=extended\n"
 msgstr "DELTA_ANALYZE CALIBRATE=extended\n"
 
