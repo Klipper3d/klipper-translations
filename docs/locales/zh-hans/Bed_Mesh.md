@@ -197,19 +197,19 @@ The mesh will be saved into a profile specified by the `PROFILE` parameter, or `
 
 可以通过运行 `BED_MESH_PROFILE LOAD=name` 来载入配置。
 
-It should be noted that each time a BED_MESH_CALIBRATE occurs, the current state is automatically saved to the *default* profile. If this profile exists it is automatically loaded when Klipper starts. If this behavior is not desirable the *default* profile can be removed as follows:
+请注意，每次运行 BED_MESH_CALIBRATE 后，当前状态会被保存到 *default* 配置。如果这个配置在配置文件中存在，它会在 Klipper 启动时自动载入。如果不希望这种行为，可以通过以下命令删除 *default* 配置：
 
 `BED_MESH_PROFILE REMOVE=default`
 
-Any other saved profile can be removed in the same fashion, replacing *default* with the named profile you wish to remove.
+任何其他保存的配置也可以用相同的方式删除，用你想删除的配置名称替换*default*。
 
-### Output
+### 输出
 
 `BED_MESH_OUTPUT PGP=[0 | 1]`
 
-Outputs the current mesh state to the terminal. Note that the mesh itself is output
+将当前网格状态输出到终端。请注意，输出的是网格本身
 
-The PGP parameter is shorthand for "Print Generated Points". If `PGP=1` is set, the generated probed points will be output to the terminal:
+PGP 参数是“打印生成的点”的简写。如果设置了`PGP=1`，生成的探测点将输出到终端：
 
 ```
 // bed_mesh: generated points
@@ -231,15 +231,15 @@ The PGP parameter is shorthand for "Print Generated Points". If `PGP=1` is set, 
 // 14 | (216.0, 193.0) | (240.0, 198.0)
 ```
 
-The "Tool Adjusted" points refer to the nozzle location for each point, and the "Probe" points refer to the probe location. Note that when manually probing the "Probe" points will refer to both the tool and nozzle locations.
+"Tool Adjusted"（工具调整）点指每个点的喷嘴位置，"Probe"（探针）点指探头位置。请注意，手动探测时"Probe"（探针）点时将同时指工具和喷嘴位置。
 
-### Clear Mesh State
+### 清除网格状态
 
 `BED_MESH_CLEAR`
 
-This gcode may be used to clear the internal mesh state.
+此 gcode 可用于清除内部网格状态。
 
-### Apply X/Y offsets
+### 应用X/Y偏移量
 
 `BED_MESH_OFFSET [X=<value>] [Y=<value>]`
 

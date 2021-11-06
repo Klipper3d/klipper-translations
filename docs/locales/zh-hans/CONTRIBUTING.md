@@ -33,9 +33,9 @@ Signed-off-by: 姓名< myemail@example.org >
 
 - [ ] 75% 总覆盖率
 - [ ] 涵盖所有大标题（H1）
-- [ ] An updated navigation hierarchy PR in klipper-translations.
+- [ ] klipper-translations 中提供一个更新导航层次的 PR。
 
-The navigation hierarchy is in `docs\_klipper3d\mkdocs.yml`.
+导航层级在`docs\_klipper3d\mkdocs.yml`中。
 
 To reduce the frustration of translating domain-specific terms and gain awareness of the ongoing translations, you can submit a PR modifying the [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md`. Once a translation is ready, the corresponding modification to the Klipper project can be made.
 

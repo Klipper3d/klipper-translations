@@ -1,8 +1,8 @@
 # Bed leveling
 
-Bed leveling (sometimes also referred to as "bed tramming") is critical to getting high quality prints. If a bed is not properly "leveled" it can lead to poor bed adhesion, "warping", and subtle problems throughout the print. This document serves as a guide to performing bed leveling in Klipper.
+Poziomowanie stołu jest kluczowe w otrzymywaniu dobrej jakosci wydruków.Jesli stół jest nieprawidłowo "wypoziomowany" prowadzi to do słabej adhezji , podwijania krawędzi i drobnych problemów przez cały wydruk .Ten dokument pokazuje jak wykononać poziomowanie stołu w systemie Klipper
 
-It's important to understand the goal of bed leveling. If the printer is commanded to a position `X0 Y0 Z10` during a print, then the goal is for the printer's nozzle to be exactly 10mm from the printer's bed. Further, should the printer then be commanded to a position of `X50 Z10` the goal is for the nozzle to maintain an exact distance of 10mm from the bed during that entire horizontal move.
+Bardzo ważne jest zrozumienie celu poziomowania stołu. Jeśli drukarka otrzyma komendę `X0 Y0 Z10` podczas wydruku , wtedy celem dla drukarki jest utrzymanie dyszy dokładnie 10mm nad stołem.Drukarka zanając odstęp od stołu przy komendzie `X50 Z10` będzie wstanie utrzymać dystans od stołu 10mm przez cały ruch niezależnie od płaszczyzny stołu.
 
 In order to get good quality prints the printer should be calibrated so that Z distances are accurate to within about 25 microns (.025mm). This is a small distance - significantly smaller than the width of a typical human hair. This scale can not be measured "by eye". Subtle effects (such as heat expansion) impact measurements at this scale. The secret to getting high accuracy is to use a repeatable process and to use a leveling method that leverages the high accuracy of the printer's own motion system.
 
