@@ -1,18 +1,20 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-15 06:32+0200\n"
-"PO-Revision-Date: 2021-07-15 04:32+0000\n"
-"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/features/zh_Hans/>\n"
+"PO-Revision-Date: 2021-11-06 20:20+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/features/zh_Hans/>\n"
 "Language: zh-hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.7.2-dev\n"
+"X-Generator: Weblate 4.9-dev\n"
 
 #: docs/Features.md:block 1 (paragraph)
 msgid "Klipper has several compelling features:"
@@ -205,179 +207,181 @@ msgid ""
 "direction will be optimized to reduce print stalls and improve overall print"
 " time."
 msgstr ""
+"恒定加速和“look-ahead”（前瞻）支持。所有打印机移动将从静止逐渐加速到巡航速度，然后减速回到静止。对传入的 G 代码移动命令流进行排队和分析 -"
+" 将优化类似方向上的移动之间的加速度，以减少打印停顿并改善整体打印时间。"
 
 #: docs/Features.md:block 5 (unordered list)
 msgid ""
 "Klipper implements a \"stepper phase endstop\" algorithm that can improve "
 "the accuracy of typical endstop switches. When properly tuned it can improve"
 " a print's first layer bed adhesion."
-msgstr ""
+msgstr "Klipper 实现了一种“步进相位限位”算法，可以提高典型限位开关的精度。如果调整得当，它可以提高打印件首层和打印床的附着力。"
 
 #: docs/Features.md:block 5 (unordered list)
 msgid ""
 "Support for measuring and recording acceleration using an adxl345 "
 "accelerometer."
-msgstr ""
+msgstr "支持使用 adxl345 加速度计测量和记录加速度。"
 
 #: docs/Features.md:block 5 (unordered list)
 msgid ""
 "Support for limiting the top speed of short \"zigzag\" moves to reduce "
 "printer vibration and noise. See the [kinematics](Kinematics.md) document "
 "for more information."
-msgstr ""
+msgstr "支持限制短距离“之”字形移动的最高速度，以减少打印机的振动和噪音。更多信息见[运动学](Kinematics.md)文档。"
 
 #: docs/Features.md:block 5 (unordered list)
 msgid ""
 "Sample configuration files are available for many common printers. Check the"
 " [config directory](../config/) for a list."
-msgstr ""
+msgstr "许多常见的打印机都有样本配置文件。查看[配置文件夹](..../config/)中的列表。"
 
 #: docs/Features.md:block 6 (paragraph)
 msgid ""
 "To get started with Klipper, read the [installation](Installation.md) guide."
-msgstr ""
+msgstr "要开始使用Klipper，请阅读[安装](Installation.md)指南。"
 
 #: docs/Features.md:block 7 (header)
 msgid "Step Benchmarks"
-msgstr ""
+msgstr "步速基准测试"
 
 #: docs/Features.md:block 8 (paragraph)
 msgid ""
 "Below are the results of stepper performance tests. The numbers shown "
 "represent total number of steps per second on the micro-controller."
-msgstr ""
+msgstr "下面是步进性能测试的结果。显示的数字代表了微控制器上每秒的总步数。"
 
 #: docs/Features.md:block 9 (table)
 msgid "Micro-controller"
-msgstr ""
+msgstr "微控制器"
 
 #: docs/Features.md:block 9 (table)
 msgid "Fastest step rate"
-msgstr ""
+msgstr "最快步进速率"
 
 #: docs/Features.md:block 9 (table)
 msgid "3 steppers active"
-msgstr ""
+msgstr "3个步进器活跃"
 
 #: docs/Features.md:block 9 (table)
 msgid "16Mhz AVR"
-msgstr ""
+msgstr "16Mhz AVR"
 
 #: docs/Features.md:block 9 (table)
 msgid "154K"
-msgstr ""
+msgstr "154K"
 
 #: docs/Features.md:block 9 (table)
 msgid "102K"
-msgstr ""
+msgstr "102K"
 
 #: docs/Features.md:block 9 (table)
 msgid "20Mhz AVR"
-msgstr ""
+msgstr "20Mhz AVR"
 
 #: docs/Features.md:block 9 (table)
 msgid "192K"
-msgstr ""
+msgstr "192K"
 
 #: docs/Features.md:block 9 (table)
 msgid "127K"
-msgstr ""
+msgstr "127K"
 
 #: docs/Features.md:block 9 (table)
 msgid "Arduino Zero (SAMD21)"
-msgstr ""
+msgstr "Arduino Zero (SAMD21)"
 
 #: docs/Features.md:block 9 (table)
 msgid "234K"
-msgstr ""
+msgstr "234K"
 
 #: docs/Features.md:block 9 (table)
 msgid "217K"
-msgstr ""
+msgstr "217K"
 
 #: docs/Features.md:block 9 (table)
 msgid "\"Blue Pill\" (STM32F103)"
-msgstr ""
+msgstr "\"Blue Pill\" (STM32F103)"
 
 #: docs/Features.md:block 9 (table)
 msgid "387K"
-msgstr ""
+msgstr "387K"
 
 #: docs/Features.md:block 9 (table)
 msgid "360K"
-msgstr ""
+msgstr "360K"
 
 #: docs/Features.md:block 9 (table)
 msgid "Arduino Due (SAM3X8E)"
-msgstr ""
+msgstr "Arduino Due (SAM3X8E)"
 
 #: docs/Features.md:block 9 (table)
 msgid "438K"
-msgstr ""
+msgstr "438K"
 
 #: docs/Features.md:block 9 (table)
 msgid "Duet2 Maestro (SAM4S8C)"
-msgstr ""
+msgstr "Duet2 Maestro (SAM4S8C)"
 
 #: docs/Features.md:block 9 (table)
 msgid "564K"
-msgstr ""
+msgstr "564K"
 
 #: docs/Features.md:block 9 (table)
 msgid "Smoothieboard (LPC1768)"
-msgstr ""
+msgstr "Smoothieboard (LPC1768)"
 
 #: docs/Features.md:block 9 (table)
 msgid "574K"
-msgstr ""
+msgstr "574K"
 
 #: docs/Features.md:block 9 (table)
 msgid "Smoothieboard (LPC1769)"
-msgstr ""
+msgstr "Smoothieboard (LPC1769)"
 
 #: docs/Features.md:block 9 (table)
 msgid "661K"
-msgstr ""
+msgstr "661K"
 
 #: docs/Features.md:block 9 (table)
 msgid "Beaglebone PRU"
-msgstr ""
+msgstr "Beaglebone 可编程实时单元"
 
 #: docs/Features.md:block 9 (table)
 msgid "680K"
-msgstr ""
+msgstr "680K"
 
 #: docs/Features.md:block 9 (table)
 msgid "Duet2 Wifi/Eth (SAM4E8E)"
-msgstr ""
+msgstr "Duet2 Wifi/Eth (SAM4E8E)"
 
 #: docs/Features.md:block 9 (table)
 msgid "686K"
-msgstr ""
+msgstr "686K"
 
 #: docs/Features.md:block 9 (table)
 msgid "Adafruit Metro M4 (SAMD51)"
-msgstr ""
+msgstr "Adafruit Metro M4 (SAMD51)"
 
 #: docs/Features.md:block 9 (table)
 msgid "761K"
-msgstr ""
+msgstr "761K"
 
 #: docs/Features.md:block 9 (table)
 msgid "692K"
-msgstr ""
+msgstr "692K"
 
 #: docs/Features.md:block 9 (table)
 msgid "BigTreeTech SKR Pro (STM32F407)"
-msgstr ""
+msgstr "BigTreeTech SKR Pro (STM32F407)"
 
 #: docs/Features.md:block 9 (table)
 msgid "922K"
-msgstr ""
+msgstr "922K"
 
 #: docs/Features.md:block 9 (table)
 msgid "711K"
-msgstr ""
+msgstr "711K"
 
 #: docs/Features.md:block 10 (paragraph)
 msgid ""
@@ -389,22 +393,25 @@ msgid ""
 " (Further details on the benchmarks are available in the [Benchmarks "
 "document](Benchmarks.md).)"
 msgstr ""
+"在AVR平台上，最高可实现的步进率是只用一个步进器步进。在SAMD21和STM32F103上，最高步进率是两个步进器同时步进。在SAM3X8E、SAM4S"
+"8C、SAM4E8E、LPC176x和PRU上，最高步进率是三个步进器同时进行。在SAMD51和STM32F4上，最高步进速率为四个同步步进器。(关于基准"
+"的更多细节可在[基准测试文档](Benchmarks.md)中找到。）"
 
 #: docs/Features.md:block 1 (header)
 msgid "Features"
-msgstr ""
+msgstr "功能"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Standard G-Code support. Common g-code commands that are produced by typical"
 " \"slicers\" (SuperSlicer, Cura, PrusaSlicer, etc.) are supported."
-msgstr ""
+msgstr "标准 G 代码支持。支持由常见“切片软件”（SuperSlicer、Cura、PrusaSlicer 等）生成的通用 G 代码命令。"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, "
 "rotary delta, polar, and cable winch style printers."
-msgstr ""
+msgstr "支持笛卡尔、三角洲、CoreXY、CoreXZ、混合CoreXY、混合CoreXZ、旋转三角洲、极坐标和缆绳铰盘式打印机。"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -415,19 +422,22 @@ msgid ""
 "micro-controller temperature sensor and the internal temperature sensor of a"
 " Raspberry Pi."
 msgstr ""
+"支持常见的温度传感器（例如，常见的热敏电阻、AD595、AD597、AD849x、PT100、PT1000、MAX6675、MAX31855、MAX318"
+"56、MAX31865、BME280、HTU21D、DS18B20和LM75）。还可以配置自定义热敏电阻和自定义模拟温度传感器。还可以监测微控制器和 "
+"Raspberry Pi 内部的温度传感器。"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for standard fans, nozzle fans, and temperature controlled fans. No "
 "need to keep fans running when the printer is idle. Fan speed can be "
 "monitored on fans that have a tachometer."
-msgstr ""
+msgstr "支持标准风扇、喷嘴风扇和温控风扇。不需要在打印机闲置时保持风扇运转。可以在带有转速表的风扇上监测风扇速度。"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for filament presence sensors, filament motion sensors, and filament"
 " width sensors."
-msgstr ""
+msgstr "支持打印丝存在传感器、打印丝运动传感器和打印丝宽度传感器。"
 
 #~ msgid ""
 #~ "Standard G-Code support. Common g-code commands that are produced by typical"
