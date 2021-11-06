@@ -1,5 +1,5 @@
 # udo pton <udopton@gmail.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2025.
 # Zay <olgeege3@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-05-05 10:46+0200\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Zay <olgeege3@gmail.com>\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
 "installation/tr/>\n"
 "Language: tr\n"
