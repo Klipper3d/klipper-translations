@@ -27,17 +27,22 @@ PWM脉冲发生的频率存在上限。尽管相当精确，但每隔0.1秒才�
         G21           ; 使用mm作为单位
         G90           ; 使用绝对坐标
         G0 Z0 F7000   ; 设置空走速度
+    
     GCODE END: 结束 G 代码
         M5            ; 停用激光
         G91           ; 使用相对坐标
         G0 Z+20 F4000 ;
         G90           ; 使用绝对坐标
+    
     GCODE HOMING: 归零 G 代码
         M5            ; 停用激光
         G28           ; 全轴归零
+    
     TOOL ON: 开启工具
         M3 $INTENSITY
+    
     TOOL OFF: 关闭工具
         M5            ; 停用激光
+    
     LASER INTENSITY: 激光强度
         S

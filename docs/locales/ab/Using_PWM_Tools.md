@@ -27,17 +27,22 @@ If you use Laserweb, a working configuration would be:
         G21           ; Set units to mm
         G90           ; Absolute positioning
         G0 Z0 F7000   ; Set Non-Cutting speed
+    
     GCODE END:
         M5            ; Disable Laser
         G91           ; relative
         G0 Z+20 F4000 ;
         G90           ; absolute
+    
     GCODE HOMING:
         M5            ; Disable Laser
         G28           ; Home all axis
+    
     TOOL ON:
         M3 $INTENSITY
+    
     TOOL OFF:
         M5            ; Disable Laser
+    
     LASER INTENSITY:
         S

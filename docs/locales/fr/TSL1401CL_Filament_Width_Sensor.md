@@ -11,12 +11,15 @@ Le capteur génère une sortie analogique basée sur la largeur calculée du fil
     [tsl1401cl_filament_width_sensor]
     pin : analog5
     # Broche d'entrée analogique pour la sortie du capteur sur la carte Ramps.
+    
     default_nominal_filament_diameter : 1.75
     # Ce paramètre est exprimé en millimètres (mm).
+    
     max_différence : 0.2
     # Différence maximale autorisée du diamètre du filament en millimètres (mm).
     # Si la différence entre le diamètre nominal du filament et la sortie du capteur est supérieure à +- max_difference, le multiplicateur d'extrusion est remis à zéro.
     # que +- max_différence, le multiplicateur d'extrusion est ramené à %100.
+    
     measurement_delay 100
     # La distance entre le capteur et la chambre de fusion/le bout chaud en millimètres (mm).
     # Le filament entre le capteur et le bout chaud sera traité comme le diamètre du filament nominal par défaut.

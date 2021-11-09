@@ -2,25 +2,25 @@
 
 本文档提供了有关 Klipper 支持的微控制器上常见引导加载程序的信息。
 
-The bootloader is 3rd-party software that runs on the micro-controller when it is first powered on. It is typically used to flash a new application (eg, Klipper) to the micro-controller without requiring specialized hardware. Unfortunately, there is no industry wide standard for flashing a micro-controller, nor is there a standard bootloader that works across all micro-controllers. Worse, it is common for each bootloader to require a different set of steps to flash an application.
+引导程序是第三方软件，在微控制器首次通电时在其上运行。它通常用于将一个新的应用程序（例如，Klipper）闪存到微控制器上，而不需要专门的硬件。遗憾的是，目前还没有一刷写微控制器的工业标准，也没有一个适用于所有微控制器的标准引导程序。更糟糕的是，每个引导程序都需要一套不同的步骤来闪现一个应用程序但是这这很常见。
 
-If one can flash a bootloader to a micro-controller then one can generally also use that mechanism to flash an application, but care should be taken when doing this as one may inadvertently remove the bootloader. In contrast, a bootloader will generally only permit a user to flash an application. It is therefore recommended to use a bootloader to flash an application where possible.
+如果一个人可以在微控制器上刷写一个引导程序，那么他通常也可以使用这个机制来刷写一个应用程序，但是在这样做的时候应该小心，因为他可能会无意中删除引导程序。与此相反，引导程序一般只允许用户刷写应用程序。因此，建议在可能的情况下使用引导程序来闪存应用程序。
 
-This document attempts to describe common bootloaders, the steps needed to flash a bootloader, and the steps needed to flash an application. This document is not an authoritative reference; it is intended as a collection of useful information that the Klipper developers have accumulated.
+本文件试图描述常见的引导程序，刷写引导程序所需的步骤，以及刷写应用程序所需的步骤。这个文档不是一个权威的参考资料，它是作为Klipper开发者积累的有用信息的一个集合。
 
 ## AVR micro-controllers
 
 In general, the Arduino project is a good reference for bootloaders and flashing procedures on the 8-bit Atmel Atmega micro-controllers. In particular, the "boards.txt" file: <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> is a useful reference.
 
-To flash a bootloader itself, the AVR chips require an external hardware flashing tool (which communicates with the chip using SPI). This tool can be purchased (for example, do a web search for "avr isp", "arduino isp", or "usb tiny isp"). It is also possible to use another Arduino or Raspberry Pi to flash an AVR bootloader (for example, do a web search for "program an avr using raspberry pi"). The examples below are written assuming an "AVR ISP Mk2" type device is in use.
+要刷写引导程序本身，AVR芯片需要一个外部硬件刷写工具（它使用SPI与芯片进行通信）。这个工具可以购买（例如，在网上搜索 "avr isp"、"arduino isp "或 "usb tiny isp"）。也可以使用另一个Arduino或Raspberry Pi来闪存AVR引导程序（例如，在网上搜索 "用raspberry pi编程AVR"）。下面的例子是在假设使用 "AVR ISP Mk2 "类型的设备的情况下编写的。
 
-The "avrdude" program is the most common tool used to flash atmega chips (both bootloader flashing and application flashing).
+"avrdude "程序是最常用的工具，用于刷写atmega芯片（包括引导程序刷写和应用程序刷写）。
 
 ### Atmega2560
 
-This chip is typically found in the "Arduino Mega" and is very common in 3d printer boards.
+这种芯片通常出现在 "Arduino Mega"中并且在3D打印机主板中非常常见。
 
-To flash the bootloader itself use something like:
+要刷写引导程序本身：
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/stk500v2/stk500boot_v2_mega2560.hex'
@@ -30,7 +30,7 @@ avrdude -cavrispv2 -patmega2560 -P/dev/ttyACM0 -b115200 -U flash:w:stk500boot_v2
 avrdude -cavrispv2 -patmega2560 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-To flash an application use something like:
+要刷写一个应用程序使用：
 
 ```
 avrdude -cwiring -patmega2560 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
@@ -38,9 +38,9 @@ avrdude -cwiring -patmega2560 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.e
 
 ### Atmega1280
 
-This chip is typically found in earlier versions of the "Arduino Mega".
+这个芯片通常出现在早期版本的 "Arduino Mega "中。
 
-To flash the bootloader itself use something like:
+要刷写引导程序本身：
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/atmega/ATmegaBOOT_168_atmega1280.hex'
@@ -50,7 +50,7 @@ avrdude -cavrispv2 -patmega1280 -P/dev/ttyACM0 -b115200 -U flash:w:ATmegaBOOT_16
 avrdude -cavrispv2 -patmega1280 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-To flash an application use something like:
+要刷写一个应用程序使用：
 
 ```
 avrdude -carduino -patmega1280 -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.elf.hex:i
@@ -58,9 +58,9 @@ avrdude -carduino -patmega1280 -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.e
 
 ### Atmega1284p
 
-This chip is commonly found in "Melzi" style 3d printer boards.
+这种芯片通常出现在 "Melzi "式的3D打印机主板上。
 
-To flash the bootloader itself use something like:
+要刷写引导程序本身：
 
 ```
 wget 'https://github.com/Lauszus/Sanguino/raw/1.0.2/bootloaders/optiboot/optiboot_atmega1284p.hex'
@@ -70,13 +70,13 @@ avrdude -cavrispv2 -patmega1284p -P/dev/ttyACM0 -b115200 -U flash:w:optiboot_atm
 avrdude -cavrispv2 -patmega1284p -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-To flash an application use something like:
+要刷写一个应用程序使用：
 
 ```
 avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
 ```
 
-Note that a number of "Melzi" style boards come preloaded with a bootloader that uses a baud rate of 57600. In this case, to flash an application use something like this instead:
+注意，一些 "Melzi "风格的板子预载了一个使用57600波特率的引导程序。在这种情况下，要刷写一个应用程序，请使用类似这样的东西来代替：
 
 ```
 avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.elf.hex:i
@@ -84,7 +84,7 @@ avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.
 
 ### At90usb1286
 
-This document does not cover the method to flash a bootloader to the At90usb1286 nor does it cover general application flashing to this device.
+本文件不包括向At90usb1286刷写引导程序的方法，也不包括向该设备刷写一般应用。
 
 The Teensy++ device from pjrc.com comes with a proprietary bootloader. It requires a custom flashing tool from <https://github.com/PaulStoffregen/teensy_loader_cli>. One can flash an application with it using something like:
 
@@ -94,7 +94,7 @@ teensy_loader_cli --mcu=at90usb1286 out/klipper.elf.hex -v
 
 ### Atmega168
 
-The atmega168 has limited flash space. If using a bootloader, it is recommended to use the Optiboot bootloader. To flash that bootloader use something like:
+atmega168的闪存空间有限。如果使用引导程序，建议使用Optiboot bootloader。要刷写该引导程序，请使用这个的方法：
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/optiboot/optiboot_atmega168.hex'
@@ -104,21 +104,21 @@ avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U flash:w:optiboot_atmeg
 avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-To flash an application via the Optiboot bootloader use something like:
+要通过Optibootbootloader 刷写一个应用程序，请使用以下方法：
 
 ```
 avrdude -carduino -patmega168 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
 ```
 
-## SAM3 micro-controllers (Arduino Due)
+## SAM3 微控制器 (Arduino Due)
 
-It is not common to use a bootloader with the SAM3 mcu. The chip itself has a ROM that allows the flash to be programmed from 3.3V serial port or from USB.
+使用SAM3 mcu的bootloader是不常见的。芯片本身有一个ROM，允许从3.3V serial port 或从USB对闪存进行编程。
 
-To enable the ROM, the "erase" pin is held high during a reset, which erases the flash contents, and causes the ROM to run. On an Arduino Due, this sequence can be accomplished by setting a baud rate of 1200 on the "programming usb port" (the USB port closest to the power supply).
+为了启用ROM，"erase"引脚在复位过程中保持高电平，这将擦除闪存的内容，并使ROM运行。在Arduino Due上，这个程序可以通过在 "programming usb port"（最靠近电源的USB端口）上设置1200的波特率来完成。
 
 The code at <https://github.com/shumatech/BOSSA> can be used to program the SAM3. It is recommended to use version 1.9 or later.
 
-To flash an application use something like:
+要刷写一个应用程序使用：
 
 ```
 bossac -U -p /dev/ttyACM0 -a -e -w out/klipper.bin -v -b
@@ -133,7 +133,7 @@ To enable the ROM, the "erase" pin is held high during a reset, which erases the
 
 The code at <https://github.com/shumatech/BOSSA> can be used to program the SAM4. It is necessary to use version `1.8.0` or higher.
 
-To flash an application use something like:
+要刷写一个应用程序使用：
 
 ```
 bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin

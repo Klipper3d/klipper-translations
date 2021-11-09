@@ -265,7 +265,7 @@ When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is enable
 The following commands are availabe when the [respond config section](Config_Reference.md#respond) is enabled.
 
 - `M118 <message>`：回显配置了默认前缀的信息（如果没有配置前缀，则返回`echo: `）。
-- `RESPOND MSG="<message>"`：
+- `RESPOND MSG="<message>"`：回显带有配置的默认前缀的消息（没有配置前缀则默认 `echo: `为前缀 ）。
 - `RESPOND TYPE=echo MSG="<message>"`: echo the message prepended with `echo: `.
 - `RESPOND TYPE=command MSG="<message>"`: echo the message prepended with `// `. Octopint can be configured to respond to these messages (e.g. `RESPOND TYPE=command MSG=action:pause`).
 - `RESPOND TYPE=error MSG="<message>"`: echo the message prepended with `!! `.
