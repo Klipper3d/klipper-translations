@@ -27,17 +27,22 @@ Si vous utilisez Laserweb, une configuration fonctionnelle serait la suivante :
         G21 ; Définir les unités en mm
         G90 ; Positionnement absolu
         G0 Z0 F7000 ; Régler la vitesse de non coupe
+    
     GCODE END :
         M5 ; Désactiver le laser
         G91 ; relatif
         G0 Z+20 F4000 ;
         G90 ; absolu
+    
     GCODE HOMING :
         M5 ; Désactiver le laser
         G28 ; Déplacement sur tous les axes
+    
     TOOL ON :
         M3 $INTENSITÉ
+    
     TOOL OFF :
         M5 ; Désactiver le laser
+    
     INTENSITÉ DU LASER :
         S

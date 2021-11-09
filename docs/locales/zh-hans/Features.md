@@ -1,4 +1,4 @@
-# Features
+# 功能
 
 Klipper 有几个引人注目的功能：
 
@@ -19,30 +19,30 @@ Klipper 有几个引人注目的功能：
 Klipper 支持许多标准的 3d 打印机功能：
 
 * 兼容Octoprint。这使得打印机可以通过普通浏览器来控制。运行Klipper的树莓派可以同时用来运行Octoprint。
-* Standard G-Code support. Common g-code commands that are produced by typical "slicers" (SuperSlicer, Cura, PrusaSlicer, etc.) are supported.
+* 标准 G 代码支持。支持由常见“切片软件”（SuperSlicer、Cura、PrusaSlicer 等）生成的通用 G 代码命令。
 * 支持多挤出机。包括对共享热端的挤出机（多进一出）和多头（IDEX）的支持。
-* Support for cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, rotary delta, polar, and cable winch style printers.
+* 支持笛卡尔、三角洲、CoreXY、CoreXZ、混合CoreXY、混合CoreXZ、旋转三角洲、极坐标和缆绳铰盘式打印机。
 * 自动床面平整支持。Klipper可以被配置为基本的床身倾斜检测或网床调平。如果床铺使用多个Z步进器，那么Klipper也可以通过独立操纵Z步进器来调平。支持大多数Z高度探头，包括BL-Touch探头和伺服激活的探头。
 * 支持自动delta校准。校准工具可以进行基本的高度校准，以及增强的X和Y尺寸校准。校准可以用Z型高度探头或通过手动探测来完成。
-* Support for common temperature sensors (eg, common thermistors, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20, and LM75). Custom thermistors and custom analog temperature sensors can also be configured. One can monitor the internal micro-controller temperature sensor and the internal temperature sensor of a Raspberry Pi.
+* 支持常见的温度传感器（例如，常见的热敏电阻、AD595、AD597、AD849x、PT100、PT1000、MAX6675、MAX31855、MAX31856、MAX31865、BME280、HTU21D、DS18B20和LM75）。还可以配置自定义热敏电阻和自定义模拟温度传感器。还可以监测微控制器和 Raspberry Pi 内部的温度传感器。
 * 默认启用基本加热器保护。
-* Support for standard fans, nozzle fans, and temperature controlled fans. No need to keep fans running when the printer is idle. Fan speed can be monitored on fans that have a tachometer.
+* 支持标准风扇、喷嘴风扇和温控风扇。不需要在打印机闲置时保持风扇运转。可以在带有转速表的风扇上监测风扇速度。
 * 支持TMC2130、TMC2208/TMC2224、TMC2209、TMC2660和TMC5160步进电机驱动器的运行时配置。还支持通过AD5206、MCP4451、MCP4728、MCP4018和PWM引脚对传统步进驱动器进行电流控制。
 * 支持直接连接到打印机的普通LCD显示器。还提供了一个默认的菜单。显示器和菜单的内容可以通过配置文件完全定制。
-* Constant acceleration and "look-ahead" support. All printer moves will gradually accelerate from standstill to cruising speed and then decelerate back to a standstill. The incoming stream of G-Code movement commands are queued and analyzed - the acceleration between movements in a similar direction will be optimized to reduce print stalls and improve overall print time.
-* Klipper implements a "stepper phase endstop" algorithm that can improve the accuracy of typical endstop switches. When properly tuned it can improve a print's first layer bed adhesion.
-* Support for filament presence sensors, filament motion sensors, and filament width sensors.
-* Support for measuring and recording acceleration using an adxl345 accelerometer.
-* Support for limiting the top speed of short "zigzag" moves to reduce printer vibration and noise. See the [kinematics](Kinematics.md) document for more information.
-* Sample configuration files are available for many common printers. Check the [config directory](../config/) for a list.
+* 恒定加速和“look-ahead”（前瞻）支持。所有打印机移动将从静止逐渐加速到巡航速度，然后减速回到静止。对传入的 G 代码移动命令流进行排队和分析 - 将优化类似方向上的移动之间的加速度，以减少打印停顿并改善整体打印时间。
+* Klipper 实现了一种“步进相位限位”算法，可以提高典型限位开关的精度。如果调整得当，它可以提高打印件首层和打印床的附着力。
+* 支持打印丝存在传感器、打印丝运动传感器和打印丝宽度传感器。
+* 支持使用 adxl345 加速度计测量和记录加速度。
+* 支持限制短距离“之”字形移动的最高速度，以减少打印机的振动和噪音。更多信息见[运动学](Kinematics.md)文档。
+* 许多常见的打印机都有样本配置文件。查看[配置文件夹](..../config/)中的列表。
 
-To get started with Klipper, read the [installation](Installation.md) guide.
+要开始使用Klipper，请阅读[安装](Installation.md)指南。
 
-## Step Benchmarks
+## 步速基准测试
 
-Below are the results of stepper performance tests. The numbers shown represent total number of steps per second on the micro-controller.
+下面是步进性能测试的结果。显示的数字代表了微控制器上每秒的总步数。
 
-| Micro-controller | Fastest step rate | 3 steppers active |
+| 微控制器 | 最快步进速率 | 3个步进器活跃 |
 | --- | --- | --- |
 | 16Mhz AVR | 154K | 102K |
 | 20Mhz AVR | 192K | 127K |
@@ -52,9 +52,9 @@ Below are the results of stepper performance tests. The numbers shown represent 
 | Duet2 Maestro (SAM4S8C) | 564K | 564K |
 | Smoothieboard (LPC1768) | 574K | 574K |
 | Smoothieboard (LPC1769) | 661K | 661K |
-| Beaglebone PRU | 680K | 680K |
+| Beaglebone 可编程实时单元 | 680K | 680K |
 | Duet2 Wifi/Eth (SAM4E8E) | 686K | 686K |
 | Adafruit Metro M4 (SAMD51) | 761K | 692K |
 | BigTreeTech SKR Pro (STM32F407) | 922K | 711K |
 
-On AVR platforms, the highest achievable step rate is with just one stepper stepping. On the SAMD21 and STM32F103 the highest step rate is with two simultaneous steppers stepping. On the SAM3X8E, SAM4S8C, SAM4E8E, LPC176x, and PRU the highest step rate is with three simultaneous steppers. On the SAMD51 and STM32F4 the highest step rate is with four simultaneous steppers. (Further details on the benchmarks are available in the [Benchmarks document](Benchmarks.md).)
+在AVR平台上，最高可实现的步进率是只用一个步进器步进。在SAMD21和STM32F103上，最高步进率是两个步进器同时步进。在SAM3X8E、SAM4S8C、SAM4E8E、LPC176x和PRU上，最高步进率是三个步进器同时进行。在SAMD51和STM32F4上，最高步进速率为四个同步步进器。(关于基准的更多细节可在[基准测试文档](Benchmarks.md)中找到。）

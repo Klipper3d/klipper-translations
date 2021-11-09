@@ -34,11 +34,11 @@
 
 20210310：TMC2660 默认 driver_SFILT 从1 改为 0。
 
-20210227: TMC stepper motor drivers in UART or SPI mode are now queried once per second whenever they are enabled - if the driver can not be contacted or if the driver reports an error, then Klipper will transition to a shutdown state.
+20210227：现在每当启用 UART 或 SPI 模式的 TMC 步进电机驱动活跃时，每秒会查询一次 - 如果无法联系到驱动或如果驱动报告错误，则 Klipper 将过渡到关闭状态。
 
-20210219: The `rpi_temperature` module has been renamed to `temperature_host`. Replace any occurrences of `sensor_type: rpi_temperature` with `sensor_type: temperature_host`. The path to the temperature file may be specified in the `sensor_path` config variable. The `rpi_temperature` name is deprecated and will be removed in the near future.
+20210219：`rpi_temperature` 模块已被重新命名为 `temperature_host`。用 `sensor_type: temperature_host` 替换全部的 `sensor_type: rpi_temperature`。温度文件的路径可以在 `sensor_path` 配置变量中指定。名称“`rpi_temperature`”已被废弃，在不久的将来会被删除。
 
-20210201: The `TEST_RESONANCES` command will now disable input shaping if it was previously enabled (and re-enable it after the test). In order to override this behavior and keep the input shaping enabled, one can pass an additional parameter `INPUT_SHAPING=1` to the command.
+20210201: `TEST_RESONANCES` 命令现在将禁用之前启用的输入整形（并在测试后重新启用）。如果需要覆盖这一行为并保持输入整形在测试时启用，可以在命令中传递一个附加参数 `INPUT_SHAPING=1`。
 
 20210201: The `ACCELEROMETER_MEASURE` command will now append the name of the accelerometer chip to the output file name if the chip was given a name in the corresponding adxl345 section of the printer.cfg.
 

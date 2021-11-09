@@ -1,4 +1,4 @@
-# Bed Mesh
+# 床网
 
 网床 插件可用于补偿热床表面的不规则性，以保证在打印过程中获得更好的第一层。 需要注意的是，基于软件的校正还不能达到完美的程度，它只能尽可能达到床的形状。网床 也无法补偿机械和电气导致的问题。 如果机器没装好结构歪了或探针不准确，则 网床 模块将无法从探测过程中获得令人满意的结果。
 
@@ -80,7 +80,7 @@ bicubic_tension: 0.2
 
 ### 移动拆分
 
-Bed Mesh works by intercepting gcode move commands and applying a transform to their Z coordinate. Long moves must be split into smaller moves to correctly follow the shape of the bed. The options below control the splitting behavior.
+床网的工作原理是拦截 G 代码移动命令并对其 Z 坐标进行变换。长的移动必须被分割成较小的移动以正确地遵循床的形状。下面的选项可以控制分割的行为。
 
 ```
 [bed_mesh]
@@ -169,11 +169,11 @@ faulty_region_4_max: 45.0, 210.0
 
 ### 校准
 
-`BED_MESH_CALIBRATE PROFILE=name METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: default* *Default Method: automatic if a probe is detected, otherwise manual*
+`BED_MESH_CALIBRATE PROFILE=name METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *默认配置文件：default* *默认方法：如果检测到探针则自动，否则手动*
 
-Initiates the probing procedure for Bed Mesh Calibration.
+启动床网校准的探测程序。
 
-The mesh will be saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. If `METHOD=manual` is selected then manual probing will occur. When switching between automatic and manual probing the generated mesh points will automatically be adjusted.
+网格将被保存到由 `PROFILE` 参数指定的配置中，如果没有指定，则使用 `default`。如果选择了 `METHOD=manual` ，那么将进行手动探测。在自动和手动探测之间切换时，生成的网格点会自动调整。
 
 可以通过指定网格参数来修改探测区域。以下参数可用：
 
@@ -243,4 +243,4 @@ PGP 参数是“打印生成的点”的简写。如果设置了`PGP=1`，生成
 
 `BED_MESH_OFFSET [X=<value>] [Y=<value>]`
 
-This is useful for printers with multiple independent extruders, as an offset is necessary to produce correct Z adjustment after a tool change. Offsets should be specified relative to the primary extruder. That is, a positive X offset should be specified if the secondary extruder is mounted to the right of the primary extruder, and a positive Y offset should be specified if the secondary extruder is mounted "behind" the primary extruder.
+这对有多个独立挤出头的打印机很有用，因为偏移量是必要的，以便在更换工具后产生正确的Z调整。应指定它们相对于主挤出头的偏移量。也就是说，如果第二个挤出头安装在第一个挤出头的右边，应指定一个正的X偏移量，如果第二个挤出头安装在第一个挤出头的 "后面"，应指定一个正的Y偏移量。

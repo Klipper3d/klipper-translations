@@ -1,14 +1,14 @@
 # Skew correction
 
-Software based skew correction can help resolve dimensional inaccuracies resulting from a printer assembly that is not perfectly square. Note that if your printer is significantly skewed it is strongly recommended to first use mechanical means to get your printer as square as possible prior to applying software based correction.
+基于软件的偏斜校正可以帮助解决打印机装配不完全方形造成的尺寸不准确问题。请注意，如果您的打印机严重偏斜，强烈建议在应用基于软件的校正之前，首先使用机械手段使打印机尽可能的方形。
 
-## Print a Calibration Object
+## 打印一个校准物件
 
-The first step in correcting skew is to print a [calibration object](https://www.thingiverse.com/thing:2563185/files) along the plane you want to correct. There is also a [calibration object](https://www.thingiverse.com/thing:2972743) that includes all planes in one model. You want the object oriented so that corner A is toward the origin of the plane.
+纠正偏斜的第一步是沿着你要纠正的平面打印一个[校准物件](https://www.thingiverse.com/thing:2563185/files)。还有一个[校准物件](https://www.thingiverse.com/thing:2972743)包括了一个模型中的所有平面。你需要旋转这个物件，使角A朝向平面的原点。
 
-Make sure that no skew correction is applied during this print. You may do this by either removing the [skew_correction] module from printer.cfg or by issuing a `SET_SKEW CLEAR=1` gcode.
+确保在这个打印过程中没有应用倾斜校正。你可以通过从printer.cfg中删除[skew_correction]模块或发出`SET_SKEW CLEAR=1`gcode来实现。
 
-## Take your measurements
+## 进行测量
 
 The [skew_correcton] module requires 3 measurements for each plane you want to correct; the length from Corner A to Corner C, the length from Corner B to Corner D, and the length from corner A to corner D. When measuring length AD do not include the flats on the corners that some test objects provide.
 
