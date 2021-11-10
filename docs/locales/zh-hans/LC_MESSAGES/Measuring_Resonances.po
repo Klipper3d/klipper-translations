@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-11-05 23:35+0000\n"
+"PO-Revision-Date: 2021-11-10 03:32+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/measuring_resonances/zh_Hans/>\n"
@@ -57,7 +57,7 @@ msgid "01"
 msgstr "01"
 
 msgid "3.3v DC power"
-msgstr "3.3v 直流电（DC）"
+msgstr "3.3v 直流（DC）电源"
 
 msgid "GND"
 msgstr "GND"
@@ -66,7 +66,7 @@ msgid "06"
 msgstr "06"
 
 msgid "Ground"
-msgstr "地线"
+msgstr "地（GND）"
 
 msgid "CS"
 msgstr "CS（芯片选定）"
