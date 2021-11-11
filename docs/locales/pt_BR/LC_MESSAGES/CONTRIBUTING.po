@@ -1,0 +1,117 @@
+#
+msgid ""
+msgstr ""
+"Language: pt_BR\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Contributing to Klipper"
+msgstr ""
+
+msgid ""
+"Thank you for contributing to Klipper! Please take a moment to read this "
+"document."
+msgstr ""
+
+msgid "Creating a new issue"
+msgstr ""
+
+msgid ""
+"Please see the [contact page](Contact.md) for information on creating an "
+"issue."
+msgstr ""
+
+msgid "Submitting a pull request"
+msgstr ""
+
+msgid ""
+"Contributions of Code and documentation are managed through github pull "
+"requests. Each commit should have a commit message formatted similar to the "
+"following:"
+msgstr ""
+
+msgid ""
+"It is important to have a \"Signed-off-by\" line on each commit - it "
+"certifies that you agree to the [developer certificate of origin](developer-"
+"certificate-of-origin). It must contain your real name (sorry, no pseudonyms"
+" or anonymous contributions) and contain a current email address."
+msgstr ""
+
+msgid ""
+"module: Capitalized, short (50 chars or less) summary\n"
+"\n"
+"More detailed explanatory text, if necessary.  Wrap it to about 75\n"
+"characters or so.  In some contexts, the first line is treated as the\n"
+"subject of an email and the rest of the text as the body.  The blank\n"
+"line separating the summary from the body is critical (unless you omit\n"
+"the body entirely); tools like rebase can get confused if you run the\n"
+"two together.\n"
+"\n"
+"Further paragraphs come after blank lines..\n"
+"\n"
+"Signed-off-by: My Name <myemail@example.org>\n"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 9 (header)
+msgid "Contributing to Klipper Translations"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 10 (paragraph)
+msgid ""
+"[Klipper-translations Project](https://github.com/Klipper3d/klipper-"
+"translations) is a project dedicated to translating Klipper to different "
+"languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all"
+" the Gettext strings for translating and reviewing. Locales can merge into "
+"the Klipper project once they satisfy the following requirements:"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 11 (unordered list)
+msgid "75% Total coverage"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 11 (unordered list)
+msgid "All titles (H1) are covered"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 11 (unordered list)
+msgid "An updated navigation hierarchy PR in klipper-translations."
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 12 (paragraph)
+msgid "The navigation hierarchy is in `docs\\_klipper3d\\mkdocs.yml`."
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 13 (paragraph)
+msgid ""
+"To reduce the frustration of translating domain-specific terms and gain "
+"awareness of the ongoing translations, you can submit a PR modifying the "
+"[Klipper-translations Project](https://github.com/Klipper3d/klipper-"
+"translations) `readme.md`. Once a translation is ready, the corresponding "
+"modification to the Klipper project can be made."
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 14 (paragraph)
+msgid ""
+"If a translation already exists in the Klipper repository and no longer "
+"meets the checklist above, it will be marked out-of-date after a month "
+"without updates."
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 15 (paragraph)
+msgid ""
+"Please follow the following format for `mkdocs.yml` navigation hierarchy:"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 16 (code)
+msgid ""
+"nav:\n"
+"  - existing hierachy\n"
+"  - <language>:\n"
+"    - locales/<language code>/md file\n"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 17 (paragraph)
+msgid ""
+"Note: Currently, there isn't a method for correctly translating pictures in "
+"the documentation."
+msgstr ""
