@@ -1,4 +1,4 @@
-# Roberto Besser <rmbesser@gmail.com>, 2021.
+# Roberto Besser <rmbesser@gmail.com>, 2021, 2025.
 # Zeldazul <b.ferreirargs@gmail.com>, 2022.
 # Wagner Reck <wagner.reck@gmail.com>, 2022, 2025.
 # Alfredo Monclus <alfredomonclus@gmail.com>, 2023.
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:27+0000\n"
-"Last-Translator: Rodrigo Altendorf Bernordi <risrdg@gmail.com>\n"
+"Last-Translator: Roberto Besser <rmbesser@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/config_reference/pt_BR/>\n"
 "Language: pt_BR\n"
