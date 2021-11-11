@@ -1,10 +1,10 @@
 # Configuration Changes
 
-本文档涵盖了软件更新中对配置文件不向后兼容的部分。在升级 Klipper 时，最好也查看一下这份文档。
+This document covers recent software changes to the config file that are not backwards compatible. It is a good idea to review this document when upgrading the Klipper software.
 
-本文档中的所有日期都是不精确的。
+All dates in this document are approximate.
 
-## 变更
+## Changes
 
 20210903: The default [`smooth_time`](Config_Reference.md#extruder) for heaters has changed to 1 second (from 2 seconds). For most printers this will result in more stable temperature control.
 
@@ -22,25 +22,25 @@
 
 20210703: A `samd_sercom` config section must now specify the sercom bus it is configuring via the `sercom` option.
 
-20210612: 加热器(heater)和温度控制风扇(temperature_fan)配置中的`pid_integral_max`选项已被弃用。该选项将在未来被移除。
+20210612: The `pid_integral_max` config option in heater and temperature_fan sections is deprecated. The option will be removed in the near future.
 
-20210503:配置中 gcode_macro 的`default_parameter_<name>` 选项已废用。使用伪变量 `params` 来访问宏参数。其他访问宏参数的方法将在未来会被移除。请参考[命令模版文档](Command_Templates.md#macro-parameters)中的例子。
+20210503: The gcode_macro `default_parameter_<name>` config option is deprecated. Use the `params` pseudo-variable to access macro parameters. Other methods for accessing macro parameters will be removed in the near future. See the [Command Templates document](Command_Templates.md#macro-parameters) for examples.
 
-20210430: SET_VELOCITY_LIMIT（和M204）命令现在可以设置大于配置文件中指定值的速度(velocity)、加速度(acceleration)和转角离心速度(square_corner_velocity)。
+20210430: The SET_VELOCITY_LIMIT (and M204) command may now set a velocity, acceleration, and square_corner_velocity larger than the specified values in the config file.
 
-20210325:配置中的`pin_map`选项已被废弃。使用[sample-aliases.cfg](../config/sample-aliases.cfg)文件将现有的引脚名翻译成实际的微控制器引脚名称。配置中的`pin_map` 选项将在未来被移除。
+20210325: Support for the `pin_map` config option is deprecated. Use the [sample-aliases.cfg](../config/sample-aliases.cfg) file to translate to the actual micro-controller pin names. The `pin_map` config option will be removed in the near future.
 
-20210313：Klipper对CAN总线通信的微控制器的支持发生了变化。如果使用CAN总线，全部微控制器必须被重新刷写并更新[Klipper CAN 总线配置](CANBUS.md)。
+20210313: Klipper's support for micro-controllers that communicate with CAN bus has changed. If using CAN bus then all micro-controllers must be reflashed and the [Klipper configuration must be updated](CANBUS.md).
 
-20210310：TMC2660 默认 driver_SFILT 从1 改为 0。
+20210310: The TMC2660 default for driver_SFILT has been changed from 1 to 0.
 
-20210227：现在每当启用 UART 或 SPI 模式的 TMC 步进电机驱动活跃时，每秒会查询一次 - 如果无法联系到驱动或如果驱动报告错误，则 Klipper 将过渡到关闭状态。
+20210227: TMC stepper motor drivers in UART or SPI mode are now queried once per second whenever they are enabled - if the driver can not be contacted or if the driver reports an error, then Klipper will transition to a shutdown state.
 
-20210219：`rpi_temperature` 模块已被重新命名为 `temperature_host`。用 `sensor_type: temperature_host` 替换全部的 `sensor_type: rpi_temperature`。温度文件的路径可以在 `sensor_path` 配置变量中指定。名称“`rpi_temperature`”已被废弃，在不久的将来会被删除。
+20210219: The `rpi_temperature` module has been renamed to `temperature_host`. Replace any occurrences of `sensor_type: rpi_temperature` with `sensor_type: temperature_host`. The path to the temperature file may be specified in the `sensor_path` config variable. The `rpi_temperature` name is deprecated and will be removed in the near future.
 
-20210201: `TEST_RESONANCES` 命令现在将禁用之前启用的输入整形（并在测试后重新启用）。如果需要覆盖这一行为并保持输入整形在测试时启用，可以在命令中传递一个附加参数 `INPUT_SHAPING=1`。
+20210201: The `TEST_RESONANCES` command will now disable input shaping if it was previously enabled (and re-enable it after the test). In order to override this behavior and keep the input shaping enabled, one can pass an additional parameter `INPUT_SHAPING=1` to the command.
 
-20210201：如果一个加速度计芯片在printer.cfg的相应 adxl345 分段被赋予了一个名称，`ACCELEROMETER_MEASURE` 命令的输出文件现在会包含它的名称。
+20210201: The `ACCELEROMETER_MEASURE` command will now append the name of the accelerometer chip to the output file name if the chip was given a name in the corresponding adxl345 section of the printer.cfg.
 
 20201222: The `step_distance` setting in the stepper config sections is deprecated. It is advised to update the config to use the [`rotation_distance`](Rotation_Distance.md) setting. Support for `step_distance` will be removed in the near future.
 
@@ -54,15 +54,15 @@
 
 20201112: The time reported by `print_stats.print_duration` has changed. The duration prior to the first detected extrusion is now excluded.
 
-20201029: neopixel `color_order_GRB` 配置已从配置中移除。如果需要，请更新配置文件，将新的`color_order`选项设置为RGB、GRB、RGBW或GRBW。
+20201029: The neopixel `color_order_GRB` config option has been removed. If necessary, update the config to set the new `color_order` option to RGB, GRB, RGBW, or GRBW.
 
-20201029: mcu配置部分的串行选项不再默认为 /dev/ttyS0 。在极其罕见的情况下，如果 /dev/ttyS0 是所需的串行端口，必须明确指定它。
+20201029: The serial option in the mcu config section no longer defaults to /dev/ttyS0. In the rare situation where /dev/ttyS0 is the desired serial port, it must be specified explicitly.
 
-20201020: Klipper v0.9.0发布。
+20201020: Klipper v0.9.0 released.
 
 20200902: The RTD resistance-to-temperature calculation for MAX31865 converters has been corrected to not read low. If you are using such a device, you should recalibrate your print temperature and PID settings.
 
-20200816: G代码宏`printer.gcode`对象已被重命名为`printer.gcode_move`。删除了 `printer.toolhead` 和 `printer.gcode` 中几个没有文档的变量。参见 docs/Command_Templates.md 以获得可用的模板变量列表。
+20200816: The gcode macro `printer.gcode` object has been renamed to `printer.gcode_move`. Several undocumented variables in `printer.toolhead` and `printer.gcode` have been removed. See docs/Command_Templates.md for a list of available template variables.
 
 20200816: The gcode macro "action_" system has changed. Replace any calls to `printer.gcode.action_emergency_stop()` with `action_emergency_stop()`, `printer.gcode.action_respond_info()` with `action_respond_info()`, and `printer.gcode.action_respond_error()` with `action_raise_error()`.
 

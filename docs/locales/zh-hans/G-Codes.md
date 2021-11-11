@@ -335,7 +335,7 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 - `ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]` 。以要求的每秒采样数启动加速度计测量。如果没有指定CHIP，则默认为 "adxl345"。该命令以启动-停止模式工作：第一次执行时，它开始测量，下次执行时停止测量。测量结果被写入一个名为`/tmp/adxl345-<chip>-<name>的文件中。csv`，其中`<chip>`是加速度计芯片的名称（`my_chip_name`来自`[adxl345 my_chip_name]`），`<name>`是可选NAME参数。如果没有指定NAME，则默认为当前时间，格式为 "YYYMMDD_HHMMSS"。如果加速度计在其配置部分没有名称（只是`[adxl345]`），那么`<chip >`部分的名称就不会生成。
 - `ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: 查询加速度计的当前值。如果没有指定芯片，则默认为 "adxl345"。如果没有指定RATE，则使用默认值。该命令对于测试与ADXL345加速度计的连接非常有用：返回的数值之一应该是自由落体加速度（+/-芯片的一些噪声）。
-- `ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`：查询ADXL345寄存器<register>（例如44或0x2C）。对于调试来说是很有用的。
+- `ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`：查询ADXL345的 <register> 寄存器（例如44或0x2C）。对于调试来说是很有用的。
 - `ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<reg> VAL=<value>`：将原始<value>写入寄存器<register>中。<value>和<register>都可以是一个十进制或十六进制的整数。使用时要注意，参考ADXL345数据表。
 
 ### 共振测试命令
