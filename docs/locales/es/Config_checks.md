@@ -1,4 +1,4 @@
-# Configuration checks
+# Verificación de Configuración
 
 Este documento contiene una lista con los pasos para configurar el pin del archivo Klipper printer.cfg. Se recomienda ejecutarlos una vez que se hayan terminado los pasos en [instalación documentos](installation.md).
 
@@ -8,7 +8,7 @@ A lo largo de esta guía puede ser necesario hacer cambios en el archivo config 
 
 Comienza verificando que la temperatura se ha guardado correctamente. Navega a la pestaña de temperatura Octoprint.
 
-![octoprint-temperature](img/octoprint-temperature.png)
+![temperatura-octoprint](img/octoprint-temperature.png)
 
 Verifique que la temperatura de la boquilla y la cama (si es necesario) están presentes y no están aumentando. Si están aumentando, desconecte la impresora. Si la temperatura no es exacta, revise los ajustes del "sensor_type" y del "sensor_pin" para la boquilla y/o cama.
 
@@ -32,38 +32,38 @@ Verifique que los ejes de la impresora se pueden mover libremente (los motores d
 
 Mueve todos los ejes de la impresora de manera que ninguno de ellos este en contacto con un interruptor de límite. Lanza el comando QUERY_ENDSTOPS usando la pestaña del terminal Octoprint. El terminal debería mostrar el estado actual de los interruptor de límite configurados y deberían tener el estado "open". Para cada uno de estos interruptores, ejecute el comando QUERY_ENDSTOP a la vez que fuerce el interruptor de límite manualmente. El comando QUERY_ENDSTOPS debería mostrar "TRIGGERED".
 
-If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!ar3"), or remove the "!" if there is already one present.
+Si el final de carrera aparece invertido (reporta "abierto" cuando se acciona y vice-versa) entonces agregue un "!" a la definición del alfiler (por ejemplo "endstop_pin: ^!ar3"), o quite el "!" si ya se estaba presente.
 
-If the endstop does not change at all then it generally indicates that the endstop is connected to a different pin. However, it may also require a change to the pullup setting of the pin (the '^' at the start of the endstop_pin name - most printers will use a pullup resistor and the '^' should be present).
+Si el final de carrera no cambia en absoluto, entonces generalmente indica que el final de carrera está conectado a un alfiler diferente. Sin embargo, puede requerir también un cambio a la configuración del levantado del alfiler (el '^' al comienzo del nombre de endstop_pin - la mayoría de las impresoras usarán un resistor de levantado y el '^' debería estar presente).
 
-## Verify stepper motors
+## Verificar el motor a pasos
 
-Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor. Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x`. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
+Use el comando STEPPER_BUZZ para verificar la conectividad de cada motor de pasos. Comience por posicionar manualmente el eje dado a un punto medio y entonces ejecute `STEPPER_BUZZ STEPPER=stepper_x`. El comando STEPPER_BUZZ causará que el motor a pasos dado se mueva un milímetro en una dirección positiva y después retornará a su posición inicial. (Si el final de carrera es definido en position_endstop=0 entonces al comienzo de cada movimiento el motor a pasos se alejará de el final de carrera.) Realizará esta oscilación diez veces.
 
-If the stepper does not move at all, then verify the "enable_pin" and "step_pin" settings for the stepper. If the stepper motor moves but does not return to its original position then verify the "dir_pin" setting. If the stepper motor oscillates in an incorrect direction, then it generally indicates that the "dir_pin" for the axis needs to be inverted. This is done by adding a '!' to the "dir_pin" in the printer config file (or removing it if one is already there). If the motor moves significantly more or significantly less than one millimeter then verify the "rotation_distance" setting.
+Si el motor a pasos no se mueve en absoluto, entonces verifique las configuraciones de "enable_pin" y "step_pin" para el motor a pasos. Si el motor a pasos se mueve pero no regresa a su posición original entonces verifique la configuración de "dir_pin". Si el motor a pasos oscila en una dirección incorrecta, entonces generalmente indica que la "dir_pin" para un eje necesita ser invertida. Esto puede hacerse con agregar un '!' a la "dir_pin" en el archivo de configuración de la impresora (o quitándole si ya esta ahí). Si el motor se mueve significativamente más o significativamente menos que un milímetro entonces verifique la configuración "rotation_distance".
 
-Run the above test for each stepper motor defined in the config file. (Set the STEPPER parameter of the STEPPER_BUZZ command to the name of the config section that is to be tested.) If there is no filament in the extruder then one can use STEPPER_BUZZ to verify the extruder motor connectivity (use STEPPER=extruder). Otherwise, it's best to test the extruder motor separately (see the next section).
+Ejecute el test anterior para cada motor a pasos definido en el archivo de configuración. (Establezca el parámetro STEPPER del comando STEPPER_BUZZ al nombre de la sección de configuración que va a ser evaluada.) Si no hay un filamento en el extrusor entonces uno puede usar STEPPER_BUZZ para verificar la conectividad del motor (use STEPPER=extruder). De otra forma, es mejor el evaluar el motor del extrusor separadamente (ver la próxima sección).
 
-After verifying all endstops and verifying all stepper motors the homing mechanism should be tested. Issue a G28 command to home all axes. Remove power from the printer if it does not home properly. Rerun the endstop and stepper motor verification steps if necessary.
+Después de verificar todos los finales de carrera y verificar todos los motores a pasos, el mecanismo de guiado al inicio debería ser evaluado. Envíe un comando G28 para enviar al inicio todos los ejes. Quite la alimentación de poder de la impresora si no se guían al inicio adecuadamente. Repita los pasos de verificación de finales de carrera y de los motores a pasos si es necesario.
 
-## Verify extruder motor
+## Verificar el motor del extrusor
 
-To test the extruder motor it will be necessary to heat the extruder to a printing temperature. Navigate to the Octoprint temperature tab and select a target temperature from the temperature drop-down box (or manually enter an appropriate temperature). Wait for the printer to reach the desired temperature. Then navigate to the Octoprint control tab and click the "Extrude" button. Verify that the extruder motor turns in the correct direction. If it does not, see the troubleshooting tips in the previous section to confirm the "enable_pin", "step_pin", and "dir_pin" settings for the extruder.
+Para probar el motor del extrusor será necesario el calentar el extrusor a una temperatura de impresión. Navegue hasta la pestaña de temperatura de Octoprint y seleccione una temperatura objetivo en el cuadro desplegable de temperatura (o ingrese manualmente una temperatura apropiada). Espere a que la impresora alcance la temperatura deseada. Entonces navegue hacia la pesaña de control Octoprint y haga clic en el botón "Extrude". Verifique que el motor del extrusor gira en la dirección correcta. Si no lo hace, vea las sugerencia de resolución de problemas en la sección anterior para confirmar las configuraciones de "enable_pin", "step_pin" y "dir_pin" para el extrusor.
 
-## Calibrate PID settings
+## Calibrar las configuraciones de PID
 
-Klipper supports [PID control](https://en.wikipedia.org/wiki/PID_controller) for the extruder and bed heaters. In order to use this control mechanism it is necessary to calibrate the PID settings on each printer. (PID settings found in other firmwares or in the example configuration files often work poorly.)
+Klipper soporta [control PID](https://en.wikipedia.org/wiki/PID_controller) para el extrusor y los calentadores de cama. Para usar este mecanismo de control es necesario el calibrar las configuraciones de PID en cada impresora. (Las configuraciones de PID que se encuentran en otros firmwares o en los archivos de configuración de ejemplo usualmente funcionan mal.)
 
-To calibrate the extruder, navigate to the OctoPrint terminal tab and run the PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder TARGET=170`
+Para calibrar el extrusor, navegue hasta la pestaña de terminal OctoPrint y ejecute el comando PID_CALIBRATE. Por ejemplo: `PID_CALIBRATE HEATER=extruder TARGET=170`
 
-At the completion of the tuning test run `SAVE_CONFIG` to update the printer.cfg file the new PID settings.
+Cuando se complete la prueba de ajuste ejecute `SAVE_CONFIG` para actualizar el archivo printer.cfg con las nuevas configuraciones de PID.
 
-If the printer has a heated bed and it supports being driven by PWM (Pulse Width Modulation) then it is recommended to use PID control for the bed. (When the bed heater is controlled using the PID algorithm it may turn on and off ten times a second, which may not be suitable for heaters using a mechanical switch.) A typical bed PID calibration command is: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
+Si la impresora está equipada con una cama de calefacción y soporta ser manejada por PWM (Modulación de Ancho de Pulsos) entonces es recomienda el usar control PID para la cama. (Cuando el calentador de cama es controlado usando el algoritmo PID, se puede prender y apagar diez veces por segundo, lo cual no puede ser adecuado para calentadores que utilicen un interruptor mecánico.) Un comando de calibración PID de cama típico es: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
 
-## Next steps
+## Pasos Siguientes
 
-This guide is intended to help with basic verification of pin settings in the Klipper configuration file. Be sure to read the [bed leveling](Bed_Level.md) guide. Also see the [Slicers](Slicers.md) document for information on configuring a slicer with Klipper.
+Esta guía pretende el ayudar con la verificación básica de las configuraciones del alfiler en el archivo de configuración de Klipper. Asegúrese de leer la guía de [nivelación de cama](Bed_Level.md). También vea el documento sobre [Rebanadores](Slicers.md) para información sobre el configurar un rebanador con Klipper.
 
-After one has verified that basic printing works, it is a good idea to consider calibrating [pressure advance](Pressure_Advance.md).
+Después de haber verificado que la impresión básica funciona, es una buena idea el considerar calibrar el [Avance de presión](Pressure_Advance.md).
 
-It may be necessary to perform other types of detailed printer calibration - a number of guides are available online to help with this (for example, do a web search for "3d printer calibration"). As an example, if you experience the effect called ringing, you may try following [resonance compensation](Resonance_Compensation.md) tuning guide.
+Puede ser necesario el realizar otros tipos de calibración detallada de la impresora - un número de guías están disponibles en línea para ayudar con esto (por ejemplo, realice una búsqueda web de "calibración de impresora 3d"). Como un ejemplo, si experimenta el efecto llamado "ringing", puede probar seguir la guía de ajuste de la [Compensación de Resonancia](Resonance_Compensation.md).
