@@ -1,9 +1,16 @@
-#
+# Roberto Besser <rmbesser@gmail.com>, 2021.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-11-12 23:51+0000\n"
+"Last-Translator: Roberto Besser <rmbesser@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/g-codes/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.9.1-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -1062,7 +1069,7 @@ msgid ""
 msgstr ""
 
 msgid "Resonance compensation"
-msgstr ""
+msgstr "Compensação de ressonância"
 
 msgid ""
 "The following command is enabled if an [input_shaper config "
