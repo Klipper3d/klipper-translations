@@ -1,4 +1,4 @@
-# Pressure advance
+# Avanço de pressão
 
 This document provides information on tuning the "pressure advance" configuration variable for a particular nozzle and filament. The pressure advance feature can be helpful in reducing ooze. For more information on how pressure advance is implemented see the [kinematics](Kinematics.md) document.
 

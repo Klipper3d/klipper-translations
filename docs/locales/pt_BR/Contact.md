@@ -1,42 +1,42 @@
-# Contact
+# Contato
 
-This document provides contact information for Klipper.
+Este documento fornece informações de contato para o Klipper.
 
-1. [Community Forum](#community-forum)
-1. [Discord Chat](#discord-chat)
-1. [I have a question about Klipper](#i-have-a-question-about-klipper)
-1. [I have a feature request](#i-have-a-feature-request)
-1. [Help! It doesn't work!](#help-it-doesnt-work)
-1. [I have diagnosed a defect in the Klipper software](#i-have-diagnosed-a-defect-in-the-klipper-software)
-1. [I am making changes that I'd like to include in Klipper](#i-am-making-changes-that-id-like-to-include-in-klipper)
+1. [Forum da Comunidade](#community-forum)
+1. [Chat do Discord](#discord-chat)
+1. [Eu tenho uma pergunta sobre o Klipper](#i-have-a-question-about-klipper)
+1. [Eu tenho um pedido de recurso](#i-have-a-feature-request)
+1. [Me ajude! Não funciona!](#help-it-doesnt-work)
+1. [Eu encontrei um defeito no software Klipper](#i-have-diagnosed-a-defect-in-the-klipper-software)
+1. [Estou fazendo alterações que gostaria de incluir no Klipper](#i-am-making-changes-that-id-like-to-include-in-klipper)
 
-## Community Forum
+## Fórum da Comunidade
 
-There is a [Klipper Community Discourse server](https://community.klipper3d.org) for discussions on Klipper.
+Existe um [servidor da Comunidade Klipper no Discourse](https://community.klipper3d.org) para discussões sobre o Klipper.
 
-## Discord Chat
+## Chat no Discord
 
 There is a Discord server dedicated to Klipper at: <https://discord.klipper3d.org>.
 
-This server is run by a community of Klipper enthusiasts dedicated to discussions on Klipper. It allows users to chat with other users in real-time.
+Este servidor é administrado por uma comunidade de entusiastasdo Klipper dedicados a discussões sobre o Klipper. Ele permite que os usuários conversem com outros usuários em tempo real.
 
-## I have a question about Klipper
+## Eu tenho uma pergunta sobre o Klipper
 
-Many questions we receive are already answered in the [Klipper documentation](Overview.md). Please be sure to to read the documentation and follow the directions provided there.
+Muitas perguntas que recebemos já foram respondidas na [documentação do Klipper](Overview.md). Leia a documentação e siga as instruções fornecidas.
 
-It is also possible to search for similar questions in the [Klipper Community Forum](#community-forum).
+Também é possível pesquisar perguntas semelhantes no [Fórum da Comunidade Klipper](#community-forum).
 
-If you are interested in sharing your knowledge and experience with other Klipper users then you can join the [Klipper Community Forum](#community-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
+Se você estiver interessado em compartilhar seu conhecimento e experiência com outros usuários do Klipper, então você pode se juntar ao [Fórum da Comunidade Klipper](#community-forum) ou ao [Chat no Discord Klipper](#discord-chat). Ambas são comunidades onde os usuários do Klipper podem discutir sobre o Klipper com outros usuários.
 
-Many questions we receive are general 3d-printing questions that are not specific to Klipper. If you have a general question or are experiencing general printing problems, then you will likely get a better response by asking in a general 3d-printing forum or a forum dedicated to your printer hardware.
+Muitas perguntas que recebemos são perguntas gerais sobre impressão em 3D que não são específicas do Klipper. Se você tiver uma pergunta geral ou estiver enfrentando problemas gerais de impressão, provavelmente obterá uma resposta melhor se perguntando em um fórum de impressão em 3D geral ou em um fórum dedicado ao hardware da sua impressora.
 
-Do not open a Klipper github issue to ask a question.
+Não abra um chamado de problema do github do Klipper para fazer uma pergunta.
 
-## I have a feature request
+## Eu tenho um pedido de recurso
 
-All new features require someone interested and able to implement that feature. If you are interested in helping to implement or test a new feature, you can search for ongoing developments in the [Klipper Community Forum](#community-forum). There is also [Klipper Discord Chat](#discord-chat) for discussions between collaborators.
+Todos os novos recursos exigem alguém interessado e capaz de implementar esse recurso. Se você estiver interessado em ajudar a implementar ou testar um novo recurso, você pode procurar pelos desenvolvimentos em andamento no [Fórum da Comunidade Klipper](#community-forum). Há também [Chat no Discord do Klipper](#discord-chat) para discussões entre os colaboradores.
 
-Do not open a Klipper github issue to request a feature.
+Não abra um chamado de problema de github do Klipper para solicitar um recurso.
 
 ## Help! It doesn't work!
 
@@ -51,7 +51,7 @@ If you are experiencing a printing problem, then we recommend carefully inspecti
 
 It is also possible to search for similar issues in the [Klipper Community Forum](#community-forum).
 
-If you are interested in sharing your knowledge and experience with other Klipper users then you can join the [Klipper Community Forum](#community-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
+Se você estiver interessado em compartilhar seu conhecimento e experiência com outros usuários do Klipper, então você pode se juntar ao [Fórum da Comunidade Klipper](#community-forum) ou ao [Chat no Discord Klipper](#discord-chat). Ambas são comunidades onde os usuários do Klipper podem discutir sobre o Klipper com outros usuários.
 
 Do not open a Klipper github issue to request help.
 
