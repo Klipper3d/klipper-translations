@@ -1,4 +1,4 @@
-# Slicers
+# Fatiadores
 
 This document provides some tips for configuring a "slicer" application for use with Klipper. Common slicers used with Klipper are Slic3r, Cura, Simplify3D, etc.
 
