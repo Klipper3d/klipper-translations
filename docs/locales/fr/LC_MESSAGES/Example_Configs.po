@@ -1,12 +1,12 @@
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021, 2025.
-# Programmateur01 <git@juliencoutault.fr>, 2021.
+# Programmateur01 <git@juliencoutault.fr>, 2021, 2025.
 # jean-luc MATTEI <jlucm@free.fr>, 2023.
 # Francis Poulizac <francis@poulizac.fr>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: Francis Poulizac <fpoulizac@vivaldi.net>\n"
+"Last-Translator: Programmateur01 <git@juliencoutault.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "example_configs/fr/>\n"
 "Language: fr\n"
@@ -29,9 +29,9 @@ msgid ""
 "server](https://community.klipper3d.org) is also a useful resource for finding"
 " and sharing config files."
 msgstr ""
-"Notez que le [serveur discord communautaire de "
-"Klipper](https://community.klipper3d.org) est une ressource utile pour trouver"
-" et partager des fichiers de configuration."
+"Notez que le [serveur discord communautaire de Klipper]"
+"(https://community.klipper3d.org) est une ressource utile pour trouver et "
+"partager des fichiers de configuration."
 
 msgid "Guidelines"
 msgstr "Lignes directives"
