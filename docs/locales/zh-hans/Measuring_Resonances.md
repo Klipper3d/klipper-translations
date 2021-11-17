@@ -98,15 +98,15 @@ Recv: // adxl345 values (x, y, z): 470.719200, 941.438400, 9728.196800
 
 ### 测量共振值
 
-Now you can run some real-life tests. Run the following command:
+现在可以运行进行实测。运行以下命令:
 
 ```
 TEST_RESONANCES AXIS=X
 ```
 
-Note that it will create vibrations on X axis. It will also disable input shaping if it was enabled previously, as it is not valid to run the resonance testing with the input shaper enabled.
+注意，这将在X轴上产生振动。如果之前启用了输入整形，它也将禁用输入整形，因为在启用输入整形的情况下运行共振测试是无效的。
 
-**Attention!** Be sure to observe the printer for the first time, to make sure the vibrations do not become too violent (`M112` command can be used to abort the test in case of emergency; hopefully it will not come to this though). If the vibrations do get too strong, you can attempt to specify a lower than the default value for `accel_per_hz` parameter in `[resonance_tester]` section, e.g.
+**注意！**请确保第一次运行时时刻观察打印机，以确保振动不会太剧烈（`M112`命令可以在紧急情况下中止测试；但愿不会到这一步）。如果振动确实太强烈，你可以尝试在`[Resonance_tester]`分段中为`accel_per_hz`参数指定一个低于默认值的值，例如:
 
 ```
 [resonance_tester]
@@ -115,7 +115,7 @@ accel_per_hz: 50  # default is 75
 probe_points: ...
 ```
 
-If it works for X axis, run for Y axis as well:
+如果它适用于 X 轴，则也可以为 Y 轴运行：
 
 ```
 TEST_RESONANCES AXIS=Y

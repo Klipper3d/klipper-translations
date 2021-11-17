@@ -51,7 +51,7 @@ serial:
 
 ### [mcu my_extra_mcu]
 
-Additional micro-controllers (one may define any number of sections with an "mcu" prefix). Additional micro-controllers introduce additional pins that may be configured as heaters, steppers, fans, etc.. For example, if an "[mcu extra_mcu]" section is introduced, then pins such as "extra_mcu:ar9" may then be used elsewhere in the config (where "ar9" is a hardware pin name or alias name on the given mcu).
+Microcontrôleurs supplémentaires (on peut définir un nombre quelconque de sections avec un préfixe "mcu"). Les microcontrôleurs supplémentaires introduisent des broches additionnelles qui peuvent être configurées comme des chauffeurs, des steppers, des ventilateurs, etc. Par exemple, si une section "[mcu extra_mcu]" est introduite, des broches telles que "extra_mcu:ar9" peuvent alors être utilisées ailleurs dans la configuration (où "ar9" est un nom de broche matérielle ou un nom d'alias sur le mcu donné).
 
 ```
 [mcu my_extra_mcu]
@@ -1763,28 +1763,28 @@ Custom thermistors (one may define any number of sections with a "thermistor" pr
 Custom ADC temperature sensors (one may define any number of sections with an "adc_temperature" prefix). This allows one to define a custom temperature sensor that measures a voltage on an Analog to Digital Converter (ADC) pin and uses linear interpolation between a set of configured temperature/voltage (or temperature/resistance) measurements to determine the temperature. The resulting sensor can be used as a sensor_type in a heater section. (For example, if one defines a "[adc_temperature my_sensor]" section then one may use a "sensor_type: my_sensor" when defining a heater.) Be sure to place the sensor section in the config file above its first use in a heater section.
 
 ```
-[adc_temperature my_sensor]
-#temperature1:
-#voltage1:
-#temperature2:
-#voltage2:
+[adc_temperature mon_capteur]
+#température1 :
+#voltage1 :
+#temperature2 :
+#voltage2 :
 #...
-#   A set of temperatures (in Celsius) and voltages (in Volts) to use
-#   as reference when converting a temperature. A heater section using
-#   this sensor may also specify adc_voltage and voltage_offset
-#   parameters to define the ADC voltage (see "Common temperature
-#   amplifiers" section for details). At least two measurements must
-#   be provided.
-#temperature1:
-#resistance1:
-#temperature2:
-#resistance2:
+# Un ensemble de températures (en Celsius) et de tensions (en Volts) à utiliser
+# comme référence lors de la conversion d'une température. Une section de chauffage utilisant
+# ce capteur peut également spécifier les paramètres adc_voltage et voltage_offset
+# pour définir la tension ADC (voir la section "Température commune
+# température commune" pour plus de détails). Au moins deux mesures doivent
+# être fournies.
+#température1 :
+#résistance1 :
+#température2 :
+#résistance2 :
 #...
-#   Alternatively one may specify a set of temperatures (in Celsius)
-#   and resistance (in Ohms) to use as reference when converting a
-#   temperature. A heater section using this sensor may also specify a
-#   pullup_resistor parameter (see "extruder" section for details). At
-#   least two measurements must be provided.
+# Alternativement, on peut spécifier un ensemble de températures (en Celsius)
+# et de résistance (en Ohms) à utiliser comme référence lors de la conversion d'une
+# température. Une section de chauffage utilisant ce capteur peut également spécifier un paramètre
+# paramètre pullup_resistor (voir la section "extrudeuse" pour plus de détails). Sur
+# au moins deux mesures doivent être fournies.
 ```
 
 ### [heater_generic]
@@ -2248,7 +2248,7 @@ Manually controlled fan (one may define any number of sections with a "fan_gener
 #   See the "fan" section for a description of the above parameters.
 ```
 
-## Additional servos, LEDs, buttons, and other pins
+## Servos supplémentaires, LEDs, boutons, et autres pins
 
 ### [servo]
 
@@ -3498,17 +3498,17 @@ Duet2 Maestro analog scaling by vref and vssa readings. Defining an adc_scaled s
 See the [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) file for an example.
 
 ```
-[adc_scaled my_name]
-vref_pin:
-#   The ADC pin to use for VREF monitoring. This parameter must be
-#   provided.
-vssa_pin:
-#   The ADC pin to use for VSSA monitoring. This parameter must be
-#   provided.
-#smooth_time: 2.0
-#   A time value (in seconds) over which the vref and vssa
-#   measurements will be smoothed to reduce the impact of measurement
-#   noise. The default is 2 seconds.
+[adc_scaled mon_nom]
+vref_pin :
+# La broche ADC à utiliser pour le contrôle de VREF. Ce paramètre doit être
+# fourni.
+vssa_pin :
+# La broche ADC à utiliser pour la surveillance VSSA. Ce paramètre doit être
+# fourni.
+#smooth_time : 2.0
+# Une valeur de temps (en secondes) sur laquelle les mesures de vref et vssa
+# seront lissées pour réduire l'impact du bruit de mesure.
+# bruit de mesure. La valeur par défaut est de 2 secondes.
 ```
 
 ### [replicape]
