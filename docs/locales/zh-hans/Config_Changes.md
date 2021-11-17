@@ -42,11 +42,11 @@
 
 20210201：如果一个加速度计芯片在printer.cfg的相应 adxl345 分段被赋予了一个名称，`ACCELEROMETER_MEASURE` 命令的输出文件现在会包含它的名称。
 
-20201222: The `step_distance` setting in the stepper config sections is deprecated. It is advised to update the config to use the [`rotation_distance`](Rotation_Distance.md) setting. Support for `step_distance` will be removed in the near future.
+20201222：步进配置分段中的`step_distance`设置已被废弃。建议更新配置以使用[`rotrot_distance`](Rotation_Distance.md)设置。对`step_distance`的支持将在不久的将来被移除。
 
-20201218: The `endstop_phase` setting in the endstop_phase module has been replaced with `trigger_phase`. If using the endstop phases module then it will be necessary to convert to [`rotation_distance`](Rotation_Distance.md) and recalibrate any endstop phases by running the ENDSTOP_PHASE_CALIBRATE command.
+20201218：endstop_phase 模块中的 `endstop_phase` 设置已被 `trigger_phase` 取代。如果使用相位限位模块，则需要转换为 [`rotation_distance`](Rotation_Distance.md)，并通过运行 ENDSTOP_PHASE_CALIBRATE 命令重新校准任何相位限位。
 
-20201218: Rotary delta and polar printers must now specify a `gear_ratio` for their rotary steppers, and they may no longer specify a `step_distance` parameter. See the [config reference](Config_Reference.md#stepper) for the format of the new gear_ratio paramter.
+20201218：旋转三角洲和极点打印机现在必须为旋转步进电机指定 `gear_ratio ` ，并且它们可以不再指定 `step_distance ` 参数。有关新 gear_ratio 参数的格式，请参阅 [配置参考](Config_Reference.md#stepper)。
 
 20201213: It is not valid to specify a Z "position_endstop" when using "probe:z_virtual_endstop". An error will now be raised if a Z "position_endstop" is specified with "probe:z_virtual_endstop". Remove the Z "position_endstop" definition to fix the error.
 

@@ -43,7 +43,7 @@ make flash
 sudo service klipper start
 ```
 
-If klippy.log reports a "Permission denied" error when attempting to connect to `/tmp/klipper_host_mcu` then you need to add your user to the tty group. The following command will add the "pi" user to the tty group:
+如果klippy.log在试图连接到`/tmp/klipper_host_mcu`时输出 "Permission denied" 错误，那么你需要将你的用户添加到tty用户组。下面的命令将把 "pi "用户添加到tty用户组中：
 
 ```
 sudo usermod -a -G tty pi
