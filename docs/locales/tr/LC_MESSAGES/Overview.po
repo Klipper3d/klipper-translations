@@ -1,36 +1,55 @@
-#
+# Yusuf Yavuzyigit <yusufyavuzyigit25@gmail.com>, 2021.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-11-18 08:53+0000\n"
+"Last-Translator: Yusuf Yavuzyigit <yusufyavuzyigit25@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/overview/"
+"tr/>\n"
+"Language: tr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.9.1-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
+"Klipper dökümantasyonuna hoş geldiniz. Eğer Klipper'e yeni iseniz , "
+"[özellikler](Features.md) ve [kurulum](Installation.md) ile "
+"başlayabilirsiniz."
 
 msgid "Overview information"
-msgstr ""
+msgstr "Genel Bakış Bilgileri"
 
 msgid "[Features](Features.md): A high-level list of features in Klipper."
 msgstr ""
+"[Özellikler](Features.md): Klipper'ın sahip olduğu yüksek-seviye özellikler "
+"listesi."
 
 msgid "[FAQ](FAQ.md): Frequently asked questions."
-msgstr ""
+msgstr "[SSS](FAQ.md): Sıklıkla sorulan sorular."
 
 msgid "[Releases](Releases.md): The history of Klipper releases."
-msgstr ""
+msgstr "[Sürümler](Releases.md): Klipper sürümleri."
 
 msgid ""
 "[Config changes](Config_Changes.md): Recent software changes that may "
 "require users to update their printer config file."
 msgstr ""
+"[Yapı değişiklikleri](Config_Changes.md): Kullanıcıların yazıcı yapılandırma "
+"dosyasını değiştirmelerini gerektirebilecek son yazılım değişiklikleri."
 
 msgid ""
 "[Contact](Contact.md): Information on bug reporting and general "
 "communication with the Klipper developers."
 msgstr ""
+"[İletişim](Contact.md): Hata raporlama ve Klipper geliştiricileri ile genel "
+"iletişim hakkında bilgiler."
 
 msgid "[Installation](Installation.md): Guide to installing Klipper."
-msgstr ""
+msgstr "[Kurulum](Installation.md): Klipper'ı indirmek için kılavuz."
 
 msgid ""
 "[Config Reference](Config_Reference.md): Description of config parameters."
