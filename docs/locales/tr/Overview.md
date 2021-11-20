@@ -1,18 +1,18 @@
 # Overview
 
-Welcome to the Klipper documentation. If new to Klipper, start with the [features](Features.md) and [installation](Installation.md) documents.
+Klipper dökümantasyonuna hoş geldiniz. Eğer Klipper'e yeni iseniz , [özellikler](Features.md) ve [kurulum](Installation.md) ile başlayabilirsiniz.
 
-## Overview information
+## Genel Bakış Bilgileri
 
-- [Features](Features.md): A high-level list of features in Klipper.
-- [FAQ](FAQ.md): Frequently asked questions.
-- [Releases](Releases.md): The history of Klipper releases.
-- [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
-- [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
+- [Özellikler](Features.md): Klipper'ın sahip olduğu yüksek-seviye özellikler listesi.
+- [SSS](FAQ.md): Sıklıkla sorulan sorular.
+- [Sürümler](Releases.md): Klipper sürümleri.
+- [Yapı değişiklikleri](Config_Changes.md): Kullanıcıların yazıcı yapılandırma dosyasını değiştirmelerini gerektirebilecek son yazılım değişiklikleri.
+- [İletişim](Contact.md): Hata raporlama ve Klipper geliştiricileri ile genel iletişim hakkında bilgiler.
 
 ## Installation and Configuration
 
-- [Installation](Installation.md): Guide to installing Klipper.
+- [Kurulum](Installation.md): Klipper'ı indirmek için kılavuz.
 - [Config Reference](Config_Reference.md): Description of config parameters.
    - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
 - [Config checks](Config_checks.md): Verify basic pin settings in the config file.

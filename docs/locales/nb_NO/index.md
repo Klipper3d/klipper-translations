@@ -1,10 +1,10 @@
----
+***
 
 hide:
 
 - toc title: Velkommen
 
----
+***
 
 ![](img/klipper-logo.png){ .center-image }
 
