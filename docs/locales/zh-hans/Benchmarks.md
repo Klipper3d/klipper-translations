@@ -47,7 +47,7 @@ queue_step oid=2 interval=3000 count=1 add=0
 clear_shutdown
 ```
 
-为了获得单步和双步基准，使用相同的配置序列，但只将上述测试的第一个块（对于单步情况）或前两个块（对于双步情况）剪切并粘贴到console.py窗口。
+To obtain the single stepper benchmarks, the same configuration sequence is used, but only the first block of the above test is cut-and-paste into the console.py window.
 
 为了产生Feature.md 文件中的基准测试，每秒的总步数是通过将有源步进器的数量与标称的MCU频率相乘并除以最终的ticks参数来计算的。结果被四舍五入到最接近的K。例如，有三个激活的步进电机：
 
@@ -55,28 +55,26 @@ clear_shutdown
 ECHO Test result is: {"%.0fK" % (3. * freq / ticks / 1000.)}
 ```
 
-可以使用 "步进脉冲持续时间 "为零的微控制器代码来运行基准测试（下面的表格将其报告为 "无延迟"）。这种配置被认为在实际使用中是有效的，当人们只使用Trinamic步进驱动器时。这些基准测试的结果没有在Feature.md文件中报告。
+The benchmarks are run with parameters suitable for TMC Drivers. For micro-controllers that support `STEPPER_BOTH_EDGE=1` (as reported in the `MCU config` line when console.py first starts) use `step_pulse_duration=0` and `invert_step=-1` to enable optimized stepping on both edges of the step pulse. For other micro-controllers use a `step_pulse_duration` corresponding to 100ns.
 
 ### AVR步进率基准测试
 
 在AVR芯片上使用以下配置序列：
 
 ```
-PINS arduino
 allocate_oids count=3
-config_stepper oid=0 step_pin=ar29 dir_pin=ar28 invert_step=0
-config_stepper oid=1 step_pin=ar27 dir_pin=ar26 invert_step=0
-config_stepper oid=2 step_pin=ar23 dir_pin=ar22 invert_step=0
+config_stepper oid=0 step_pin=PA5 dir_pin=PA4 invert_step=0 step_pulse_ticks=32
+config_stepper oid=1 step_pin=PA3 dir_pin=PA2 invert_step=0 step_pulse_ticks=32
+config_stepper oid=2 step_pin=PC7 dir_pin=PC6 invert_step=0 step_pulse_ticks=32
 finalize_config crc=0
 ```
 
-测试最后在提交 `01d2183f` 上运行，gcc 版本为 `avr-gcc (GCC) 5.4.0`。 16Mhz 和 20Mhz 测试都是使用为 atmega644p 配置的 simulavr 运行的（之前的测试已经确认了 16Mhz at90usb 和 16Mhz atmega2560 上的 simulavr 结果匹配测试）。
+The test was last run on commit `59314d99` with gcc version `avr-gcc (GCC) 5.4.0`. Both the 16Mhz and 20Mhz tests were run using simulavr configured for an atmega644p (previous tests have confirmed simulavr results match tests on both a 16Mhz at90usb and a 16Mhz atmega2560).
 
 | avr | ticks |
 | --- | --- |
-| 1个步进电机 | 104 |
-| 2个步进电机 | 296 |
-| 3个步进电机 | 472 |
+| 1个步进电机 | 102 |
+| 3个步进电机 | 486 |
 
 ### Arduino Due 的步速率基准测试
 
@@ -84,21 +82,18 @@ finalize_config crc=0
 
 ```
 allocate_oids count=3
-config_stepper oid=0 step_pin=PB27 dir_pin=PA21 invert_step=0
-config_stepper oid=1 step_pin=PB26 dir_pin=PC30 invert_step=0
-config_stepper oid=2 step_pin=PA21 dir_pin=PC30 invert_step=0
+config_stepper oid=0 step_pin=PB27 dir_pin=PA21 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PB26 dir_pin=PC30 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PA21 dir_pin=PC30 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-测试最后在提交 `8d4a5c16` 上运行，gcc 版本为 `arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0`。
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
 | sam3x8e | ticks |
 | --- | --- |
-| 1个步进电机 | 388 |
-| 2个步进电机 | 405 |
-| 3个步进电机 | 576 |
-| 1 stepper (无延迟) | 77 |
-| 3 stepper (无延迟) | 299 |
+| 1个步进电机 | 66 |
+| 3个步进电机 | 257 |
 
 ### Duet Maestro 步进率基准测试
 
@@ -106,64 +101,56 @@ finalize_config crc=0
 
 ```
 allocate_oids count=3
-config_stepper oid=0 step_pin=PC26 dir_pin=PC18 invert_step=0
-config_stepper oid=1 step_pin=PC26 dir_pin=PA8 invert_step=0
-config_stepper oid=2 step_pin=PC26 dir_pin=PB4 invert_step=0
+config_stepper oid=0 step_pin=PC26 dir_pin=PC18 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PC26 dir_pin=PA8 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PC26 dir_pin=PB4 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-测试最后在提交 `8d4a5c16` 上运行，gcc 版本为 `arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0`。
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
 | sam4s8c | ticks |
 | --- | --- |
-| 1个步进电机 | 527 |
-| 2个步进电机 | 535 |
-| 3个步进电机 | 638 |
-| 1 stepper (无延迟) | 70 |
-| 3 stepper (无延迟) | 254 |
+| 1个步进电机 | 71 |
+| 3个步进电机 | 260 |
 
 ### Duet Wifi 步进率基准测试
 
 在Duet Wifi上使用以下配置序列：
 
 ```
-allocate_oids count=4
-config_stepper oid=0 step_pin=PD6 dir_pin=PD11 invert_step=0
-config_stepper oid=1 step_pin=PD7 dir_pin=PD12 invert_step=0
-config_stepper oid=2 step_pin=PD8 dir_pin=PD13 invert_step=0
-config_stepper oid=3 step_pin=PD5 dir_pin=PA1 invert_step=0
+allocate_oids count=3
+config_stepper oid=0 step_pin=PD6 dir_pin=PD11 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PD7 dir_pin=PD12 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PD8 dir_pin=PD13 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-测试最后在提交 `59a60d68` gcc 版本`arm-none-eabi-gcc 7.3.1 20180622 (release) [ARM/embedded-7-branch revision 261907]`。
+The test was last run on commit `59314d99` with gcc version `gcc version 10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`.
 
 | sam4e8e | ticks |
 | --- | --- |
-| 1个步进电机 | 519 |
-| 2个步进电机 | 520 |
-| 3个步进电机 | 525 |
-| 4个步进电机 | 703 |
+| 1个步进电机 | 48 |
+| 3个步进电机 | 215 |
 
 ### Beaglebone PRU 步进率基准测试
 
 在PRU上使用以下配置序列：
 
 ```
-PINS beaglebone
 allocate_oids count=3
-config_stepper oid=0 step_pin=P8_13 dir_pin=P8_12 invert_step=0
-config_stepper oid=1 step_pin=P8_15 dir_pin=P8_14 invert_step=0
-config_stepper oid=2 step_pin=P8_19 dir_pin=P8_18 invert_step=0
+config_stepper oid=0 step_pin=gpio0_23 dir_pin=gpio1_12 invert_step=0 step_pulse_ticks=20
+config_stepper oid=1 step_pin=gpio1_15 dir_pin=gpio0_26 invert_step=0 step_pulse_ticks=20
+config_stepper oid=2 step_pin=gpio0_22 dir_pin=gpio2_1 invert_step=0 step_pulse_ticks=20
 finalize_config crc=0
 ```
 
-测试最后在提交 `b161a69e` 上运行，gcc 版本为 `pru-gcc (GCC) 8.0.0 20170530 (experimental)`。
+The test was last run on commit `59314d99` with gcc version `pru-gcc (GCC) 8.0.0 20170530 (experimental)`.
 
 | 可编程实时单元 | ticks |
 | --- | --- |
-| 1个步进电机 | 861 |
-| 2个步进电机 | 853 |
-| 3个步进电机 | 883 |
+| 1个步进电机 | 231 |
+| 3个步进电机 | 847 |
 
 ### STM32F042 步进率基准测试
 
@@ -171,19 +158,18 @@ finalize_config crc=0
 
 ```
 allocate_oids count=3
-config_stepper oid=0 step_pin=PA1 dir_pin=PA2 invert_step=0
-config_stepper oid=1 step_pin=PA3 dir_pin=PA2 invert_step=0
-config_stepper oid=2 step_pin=PB8 dir_pin=PA2 invert_step=0
+config_stepper oid=0 step_pin=PA1 dir_pin=PA2 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PA3 dir_pin=PA2 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PB8 dir_pin=PA2 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-测试最后在提交 `0b0c47c5` 上运行，gcc 版本为 `arm-none-eabi-gcc (Fedora 9.2.0-1.fc30) 9.2.0`。
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
 | stm32f042 | ticks |
 | --- | --- |
-| 1个步进电机 | 247 |
-| 2个步进电机 | 328 |
-| 3个步进电机 | 558 |
+| 1个步进电机 | 59 |
+| 3个步进电机 | 249 |
 
 ### STM32F103 步速率基准测试
 
@@ -191,54 +177,42 @@ finalize_config crc=0
 
 ```
 allocate_oids count=3
-config_stepper oid=0 step_pin=PC13 dir_pin=PB5 invert_step=0
-config_stepper oid=1 step_pin=PB3 dir_pin=PB6 invert_step=0
-config_stepper oid=2 step_pin=PA4 dir_pin=PB7 invert_step=0
+config_stepper oid=0 step_pin=PC13 dir_pin=PB5 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PB3 dir_pin=PB6 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PA4 dir_pin=PB7 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-测试最后在提交 `8d4a5c16` 上运行，gcc 版本为 `arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0`。
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
 | stm32f103 | ticks |
 | --- | --- |
-| 1个步进电机 | 347 |
-| 2个步进电机 | 372 |
-| 3个步进电机 | 600 |
-| 1 stepper (无延迟) | 71 |
-| 3 stepper (无延迟) | 288 |
+| 1个步进电机 | 61 |
+| 3个步进电机 | 264 |
 
 ### STM32F4 步进率基准测试
 
 在STM32F4上使用以下配置序列：
 
 ```
-allocate_oids count=4
-config_stepper oid=0 step_pin=PA5 dir_pin=PB5 invert_step=0
-config_stepper oid=1 step_pin=PB2 dir_pin=PB6 invert_step=0
-config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=0
-config_stepper oid=3 step_pin=PB3 dir_pin=PB8 invert_step=0
+allocate_oids count=3
+config_stepper oid=0 step_pin=PA5 dir_pin=PB5 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PB2 dir_pin=PB6 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-测试最后在提交 `8d4a5c16` 上运行，gcc 版本为 `arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0`。 STM32F407 结果是通过在 STM32F446 上运行 STM32F407 二进制文件获得的（因此使用 168Mhz 时钟）。
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The STM32F407 results were obtained by running an STM32F407 binary on an STM32F446 (and thus using a 168Mhz clock).
 
 | stm32f446 | ticks |
 | --- | --- |
-| 1个步进电机 | 757 |
-| 2个步进电机 | 761 |
-| 3个步进电机 | 757 |
-| 4个步进电机 | 767 |
-| 1 stepper (无延迟) | 51 |
-| 3 stepper (无延迟) | 226 |
+| 1个步进电机 | 46 |
+| 3个步进电机 | 205 |
 
 | stm32f407 | ticks |
 | --- | --- |
-| 1个步进电机 | 709 |
-| 2个步进电机 | 714 |
-| 3个步进电机 | 709 |
-| 4个步进电机 | 729 |
-| 1 stepper (无延迟) | 52 |
-| 3 stepper (无延迟) | 226 |
+| 1个步进电机 | 46 |
+| 3个步进电机 | 205 |
 
 ### LPC176x 步进率基准测试
 
@@ -246,29 +220,23 @@ finalize_config crc=0
 
 ```
 allocate_oids count=3
-config_stepper oid=0 step_pin=P1.20 dir_pin=P1.18 invert_step=0
-config_stepper oid=1 step_pin=P1.21 dir_pin=P1.18 invert_step=0
-config_stepper oid=2 step_pin=P1.23 dir_pin=P1.18 invert_step=0
+config_stepper oid=0 step_pin=P1.20 dir_pin=P1.18 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=P1.21 dir_pin=P1.18 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=P1.23 dir_pin=P1.18 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-测试最后在提交 `8d4a5c16` 上运行，gcc 版本为 `arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0`。 120Mhz LPC1769 结果是通过将 LPC1768 超频到 120Mhz 获得的。
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The 120Mhz LPC1769 results were obtained by overclocking an LPC1768 to 120Mhz.
 
 | lpc1768 | ticks |
 | --- | --- |
-| 1个步进电机 | 448 |
-| 2个步进电机 | 450 |
-| 3个步进电机 | 523 |
-| 1 stepper (无延迟) | 56 |
-| 3 stepper (无延迟) | 240 |
+| 1个步进电机 | 52 |
+| 3个步进电机 | 222 |
 
 | lpc1769 | ticks |
 | --- | --- |
-| 1个步进电机 | 525 |
-| 2个步进电机 | 526 |
-| 3个步进电机 | 545 |
-| 1 stepper (无延迟) | 56 |
-| 3 stepper (无延迟) | 240 |
+| 1个步进电机 | 51 |
+| 3个步进电机 | 222 |
 
 ### SAMD21 步速率基准测试
 
@@ -276,75 +244,58 @@ finalize_config crc=0
 
 ```
 allocate_oids count=3
-config_stepper oid=0 step_pin=PA27 dir_pin=PA20 invert_step=0
-config_stepper oid=1 step_pin=PB3 dir_pin=PA21 invert_step=0
-config_stepper oid=2 step_pin=PA17 dir_pin=PA21 invert_step=0
+config_stepper oid=0 step_pin=PA27 dir_pin=PA20 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PB3 dir_pin=PA21 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PA17 dir_pin=PA21 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-该测试最后在提交`8d4a5c16`上运行，gcc版本为`arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0`，在SAMD21G18微控制器上。
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD21G18 micro-controller.
 
 | SAMD21 | ticks |
 | --- | --- |
-| 1个步进电机 | 277 |
-| 2个步进电机 | 410 |
-| 3个步进电机 | 664 |
-| 1 stepper (无延迟) | 83 |
-| 3 stepper (无延迟) | 321 |
+| 1个步进电机 | 70 |
+| 3个步进电机 | 306 |
 
 ### SAMD51 步速率基准测试
 
 在SAMD51上使用以下配置序列：
 
 ```
-allocate_oids count=5
-config_stepper oid=0 step_pin=PA22 dir_pin=PA20 invert_step=0
-config_stepper oid=1 step_pin=PA22 dir_pin=PA21 invert_step=0
-config_stepper oid=2 step_pin=PA22 dir_pin=PA19 invert_step=0
-config_stepper oid=3 step_pin=PA22 dir_pin=PA18 invert_step=0
-config_stepper oid=4 step_pin=PA23 dir_pin=PA17 invert_step=0
+allocate_oids count=3
+config_stepper oid=0 step_pin=PA22 dir_pin=PA20 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PA22 dir_pin=PA21 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PA22 dir_pin=PA19 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-该测试最后在提交`524ebbc7`上运行，gcc版本为`arm-none-eabi-gcc (Fedora 9.2.0-1.fc30) 9.2.0`，在SAMD51J19A微控制器上。
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD51J19A micro-controller.
 
 | SAMD51 | ticks |
 | --- | --- |
-| 1个步进电机 | 516 |
-| 2个步进电机 | 520 |
-| 3个步进电机 | 520 |
-| 4个步进电机 | 631 |
-| 1 stepper (200Mhz) | 839 |
-| 2 stepper (200Mhz) | 838 |
-| 3 stepper (200Mhz) | 838 |
-| 4 stepper (200Mhz) | 838 |
-| 5 stepper (200Mhz) | 891 |
-| 1 stepper (无延迟) | 42 |
-| 3 stepper (无延迟) | 194 |
+| 1个步进电机 | 39 |
+| 3个步进电机 | 191 |
+| 1 stepper (200Mhz) | 39 |
+| 3 stepper (200Mhz) | 181 |
 
 ### RP2040 步速率基准测试
 
 RP2040 上使用以下配置序列：
 
 ```
-allocate_oids count=4
-config_stepper oid=0 step_pin=gpio25 dir_pin=gpio3 invert_step=0
-config_stepper oid=1 step_pin=gpio26 dir_pin=gpio4 invert_step=0
-config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=0
-config_stepper oid=3 step_pin=gpio28 dir_pin=gpio6 invert_step=0
+allocate_oids count=3
+config_stepper oid=0 step_pin=gpio25 dir_pin=gpio3 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=gpio26 dir_pin=gpio4 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-该测试最后是在提交`c5667193`上运行的，gcc版本为`arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`，在Raspberry Pi Pico板上。
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a Raspberry Pi Pico board.
 
 | rp2040 | ticks |
 | --- | --- |
-| 1个步进电机 | 52 |
-| 2个步进电机 | 52 |
-| 3个步进电机 | 52 |
-| 4个步进电机 | 66 |
-| 1 stepper (无延迟) | 5 |
-| 3 stepper (无延迟) | 22 |
+| 1个步进电机 | 5 |
+| 3个步进电机 | 22 |
 
 ### Linux MCU 步速率基准测试
 
@@ -352,19 +303,18 @@ finalize_config crc=0
 
 ```
 allocate_oids count=3
-config_stepper oid=0 step_pin=gpio2 dir_pin=gpio3 invert_step=0
-config_stepper oid=1 step_pin=gpio4 dir_pin=gpio5 invert_step=0
-config_stepper oid=2 step_pin=gpio6 dir_pin=gpio7 invert_step=0
+config_stepper oid=0 step_pin=gpio2 dir_pin=gpio3 invert_step=0 step_pulse_ticks=5
+config_stepper oid=1 step_pin=gpio4 dir_pin=gpio5 invert_step=0 step_pulse_ticks=5
+config_stepper oid=2 step_pin=gpio6 dir_pin=gpio17 invert_step=0 step_pulse_ticks=5
 finalize_config crc=0
 ```
 
-该测试最后是在提交`db0fb5d5`上运行的，gcc版本为`gcc（Raspbian 6.3.0-18+rpi1+deb9u1）6.3.0 20170516`，在Raspberry Pi 3（revision a22082）。
+The test was last run on commit `59314d99` with gcc version `gcc (Raspbian 8.3.0-6+rpi1) 8.3.0` on a Raspberry Pi 3 (revision a02082). It was difficult to get stable results in this benchmark.
 
 | Linux (RPi3) | ticks |
 | --- | --- |
-| 1个步进电机 | 349 |
-| 2个步进电机 | 350 |
-| 3个步进电机 | 400 |
+| 1个步进电机 | 160 |
+| 3个步进电机 | 380 |
 
 ## Command dispatch 基准测试
 

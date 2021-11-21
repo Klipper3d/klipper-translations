@@ -3,7 +3,7 @@
 Klipper 에는 다음과 같이 몇가지 매력적인 기능이 있습니다:
 
 * 고정밀 스테퍼 동작. Klipper 는 3D 프린터의 움직임을 계산할 때 라즈베리파이 같은 저렴한 애플리케이션 프로세서를 활용합니다. 애플리케이션 프로세서는 각 스테퍼 모터를 언제 움직여야 하는지 결정하고 해당 이벤트를 압축하여 마이크로 컨트롤러에 전송한 다음 마이크로 컨트롤러가 요청된 시간에 각 이벤트를 실행합니다. 각 스테퍼 이벤트는 25 마이크로초 이상의 정밀도로 스케줄링 됩니다. 소프트웨어는 운동학적 추정(예: Bresenham 알고리즘)을 사용하지 않습니다. 대신 가속 물리학 및 기계 운동학 물리학을 기반으로 정확한 단계 시간을 계산합니다. 더 정밀한 스테퍼 움직임은 더 조용하고 안정적인 프린터 작동으로 이어집니다.
-* 동급 최고의 성능. Klipper는 신규 및 기존 마이크로 컨트롤러 모두에서 높은 스테핑 속도를 달성할 수 있습니다. 심지어 오래된 8비트 마이크로 컨트롤러도 초당 175K 단계 이상의 속도를 얻을 수 있습니다. 최신 마이크로 컨트롤러에서는 초당 500K 단계 이상의 속도가 가능합니다. 더 빠른 스테퍼 속도는 더 빠른 인쇄 속도를 가능하게 합니다. 스테퍼 이벤트 타이밍은 고속에서도 정밀하게 유지되어 전반적인 안정성을 향상시킵니다.
+* Best in class performance. Klipper is able to achieve high stepping rates on both new and old micro-controllers. Even old 8bit micro-controllers can obtain rates over 175K steps per second. On more recent micro-controllers, several million steps per second are possible. Higher stepper rates enable higher print velocities. The stepper event timing remains precise even at high speeds which improves overall stability.
 * Klipper는 다수개의 마이크로 컨트롤러가 있는 프린터를 지원합니다. 예를 들어, 하나의 마이크로 컨트롤러는 익스트루더를 제어하는데 사용되고 다른 하나는 프린터의 히터를 제어하고 세 번째는 나머지 프린터를 제어하는데 사용할 수 있습니다. Klipper 호스트 소프트웨어는 마이크로 컨트롤러간의 클럭 드리프트를 계산하기 위해 클록 동기화를 구현합니다.여러 마이크로 컨트롤러를 활성화하는데 특별한 코드는 필요하지 않습니다. 구성 파일에 몇 줄만 추가하면 됩니다.
 * 간단한 config 파일을 통한 구성. 설정을 변경하기 위해 마이크로 컨트롤러를 다시 펌웨어 업데이트할 필요가 없습니다. Klipper의 모든 구성은 쉽게 편집할 수 있는 표준 config 파일에 저장됩니다. 이렇게 하면 하드웨어를 더 쉽게 설정하고 유지 관리할 수 있습니다.
 * Klipper는 익스트루더 내에 압력의 영향을 설명하는 메커니즘인 "Smooth Pressure Advance"를 지원합니다. 이것은 익스트루더의 "노즐 흘러내림" 을 줄이고 인쇄 모서리의 품질을 향상시킵니다. Klipper의 구현은 전반적인 안정성과 견고성을 향상시키는 즉각적인 익스트루더 속도 변경을 도입하지 않습니다.
@@ -42,19 +42,22 @@ Klipper를 시작하려면 [설치](Installation.md) 가이드를 읽으십시�
 
 다음은 스테퍼 모터의 성능 테스트 결과입니다. 표시된 숫자는 마이크로 컨트롤러에서 초당 총 스텝수를 나타냅니다.
 
-| Micro-controller | Fastest step rate | 3 steppers active |
+| Micro-controller | 1 stepper active | 3 steppers active |
 | --- | --- | --- |
-| 16Mhz AVR | 154K | 102K |
-| 20Mhz AVR | 192K | 127K |
-| Arduino Zero (SAMD21) | 234K | 217K |
-| "Blue Pill" (STM32F103) | 387K | 387K |
-| Arduino Due (SAM3X8E) | 438K | 438K |
-| Duet2 Maestro (SAM4S8C) | 564K | 564K |
-| Smoothieboard (LPC1768) | 574K | 574K |
-| Smoothieboard (LPC1769) | 661K | 661K |
-| Beaglebone PRU | 680K | 680K |
-| Duet2 Wifi/Eth (SAM4E8E) | 686K | 686K |
-| Adafruit Metro M4 (SAMD51) | 761K | 692K |
-| BigTreeTech SKR Pro (STM32F407) | 922K | 711K |
+| 16Mhz AVR | 157K | 99K |
+| 20Mhz AVR | 196K | 123K |
+| Arduino Zero (SAMD21) | 686K | 471K |
+| STM32F042 | 814K | 578K |
+| Beaglebone PRU | 866K | 708K |
+| "Blue Pill" (STM32F103) | 1180K | 818K |
+| Arduino Due (SAM3X8E) | 1273K | 981K |
+| Duet2 Maestro (SAM4S8C) | 1690K | 1385K |
+| Smoothieboard (LPC1768) | 1923K | 1351K |
+| Smoothieboard (LPC1769) | 2353K | 1622K |
+| Raspberry Pi Pico (RP2040) | 2400K | 1636K |
+| Duet2 Wifi/Eth (SAM4E8E) | 2500K | 1674K |
+| Adafruit Metro M4 (SAMD51) | 3077K | 1885K |
+| BigTreeTech SKR Pro (STM32F407) | 3652K | 2459K |
+| Fysetc Spider (STM32F446) | 3913K | 2634K |
 
-AVR 플랫폼에서 가능한 step rate은 단 하나의 스태퍼 모터의 제어입니다. SAMD21 및 STM32F103에서는 동시에 두개의 스태퍼 모터를 제어할 수 있습니다. SAM3X8E, SAM4S8C, SAM4E8E, LPC176x 및 PRU에서는 동시에 3개가 가능합니다. SAMD51 및 STM32F4에서의 동시 사용 스태퍼 모터는 4개 입니다. (자세한 내용은 [Benchmarks document](Benchmarks.md).)에서 확인할 수 있습니다.)
+Further details on the benchmarks are available in the [Benchmarks document](Benchmarks.md).

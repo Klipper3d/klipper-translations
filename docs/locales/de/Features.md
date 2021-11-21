@@ -3,7 +3,7 @@
 Klipper has several compelling features:
 
 * High precision stepper movement. Klipper utilizes an application processor (such as a low-cost Raspberry Pi) when calculating printer movements. The application processor determines when to step each stepper motor, it compresses those events, transmits them to the micro-controller, and then the micro-controller executes each event at the requested time. Each stepper event is scheduled with a precision of 25 micro-seconds or better. The software does not use kinematic estimations (such as the Bresenham algorithm) - instead it calculates precise step times based on the physics of acceleration and the physics of the machine kinematics. More precise stepper movement translates to quieter and more stable printer operation.
-* Best in class performance. Klipper is able to achieve high stepping rates on both new and old micro-controllers. Even old 8bit micro-controllers can obtain rates over 175K steps per second. On more recent micro-controllers, rates over 500K steps per second are possible. Higher stepper rates enable higher print velocities. The stepper event timing remains precise even at high speeds which improves overall stability.
+* Best in class performance. Klipper is able to achieve high stepping rates on both new and old micro-controllers. Even old 8bit micro-controllers can obtain rates over 175K steps per second. On more recent micro-controllers, several million steps per second are possible. Higher stepper rates enable higher print velocities. The stepper event timing remains precise even at high speeds which improves overall stability.
 * Klipper supports printers with multiple micro-controllers. For example, one micro-controller could be used to control an extruder, while another controls the printer's heaters, while a third controls the rest of the printer. The Klipper host software implements clock synchronization to account for clock drift between micro-controllers. No special code is needed to enable multiple micro-controllers - it just requires a few extra lines in the config file.
 * Configuration via simple config file. There's no need to reflash the micro-controller to change a setting. All of Klipper's configuration is stored in a standard config file which can be easily edited. This makes it easier to setup and maintain the hardware.
 * Klipper supports "Smooth Pressure Advance" - a mechanism to account for the effects of pressure within an extruder. This reduces extruder "ooze" and improves the quality of print corners. Klipper's implementation does not introduce instantaneous extruder speed changes, which improves overall stability and robustness.
@@ -42,19 +42,22 @@ To get started with Klipper, read the [installation](Installation.md) guide.
 
 Below are the results of stepper performance tests. The numbers shown represent total number of steps per second on the micro-controller.
 
-| Micro-controller | Fastest step rate | 3 steppers active |
+| Micro-controller | 1 stepper active | 3 steppers active |
 | --- | --- | --- |
-| 16Mhz AVR | 154K | 102K |
-| 20Mhz AVR | 192K | 127K |
-| Arduino Zero (SAMD21) | 234K | 217K |
-| "Blue Pill" (STM32F103) | 387K | 360K |
-| Arduino Due (SAM3X8E) | 438K | 438K |
-| Duet2 Maestro (SAM4S8C) | 564K | 564K |
-| Smoothieboard (LPC1768) | 574K | 574K |
-| Smoothieboard (LPC1769) | 661K | 661K |
-| Beaglebone PRU | 680K | 680K |
-| Duet2 Wifi/Eth (SAM4E8E) | 686K | 686K |
-| Adafruit Metro M4 (SAMD51) | 761K | 692K |
-| BigTreeTech SKR Pro (STM32F407) | 922K | 711K |
+| 16Mhz AVR | 157K | 99K |
+| 20Mhz AVR | 196K | 123K |
+| Arduino Zero (SAMD21) | 686K | 471K |
+| STM32F042 | 814K | 578K |
+| Beaglebone PRU | 866K | 708K |
+| "Blue Pill" (STM32F103) | 1180K | 818K |
+| Arduino Due (SAM3X8E) | 1273K | 981K |
+| Duet2 Maestro (SAM4S8C) | 1690K | 1385K |
+| Smoothieboard (LPC1768) | 1923K | 1351K |
+| Smoothieboard (LPC1769) | 2353K | 1622K |
+| Raspberry Pi Pico (RP2040) | 2400K | 1636K |
+| Duet2 Wifi/Eth (SAM4E8E) | 2500K | 1674K |
+| Adafruit Metro M4 (SAMD51) | 3077K | 1885K |
+| BigTreeTech SKR Pro (STM32F407) | 3652K | 2459K |
+| Fysetc Spider (STM32F446) | 3913K | 2634K |
 
-On AVR platforms, the highest achievable step rate is with just one stepper stepping. On the SAMD21 and STM32F103 the highest step rate is with two simultaneous steppers stepping. On the SAM3X8E, SAM4S8C, SAM4E8E, LPC176x, and PRU the highest step rate is with three simultaneous steppers. On the SAMD51 and STM32F4 the highest step rate is with four simultaneous steppers. (Further details on the benchmarks are available in the [Benchmarks document](Benchmarks.md).)
+Further details on the benchmarks are available in the [Benchmarks document](Benchmarks.md).
