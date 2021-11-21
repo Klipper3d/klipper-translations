@@ -6,11 +6,11 @@ Klipper는 "standalone mode"에서 Trinamic 드라이버를 사용할 수도 있
 
 이 문서 외에 [TMC 드라이버 구성 참조](Config_Reference.md#tmc-stepper-driver-configuration)를 반드시 검토하십시오.
 
-## "Stealthchop" 모드 활성화
+## Enabling "StealthChop" Mode
 
-기본적으로 Klipper는 TMC 드라이버를 "spreadcycle" 모드로 설정합니다. 드라이버가 "stealthchop"을 지원하는 경우 TMC 구성 섹션에 `stealthchop_threshold: 999999`를 추가하여 활성화할 수 있습니다.
+By default, Klipper places the TMC drivers in "spreadCycle" mode. If the driver supports "stealthChop" then it can be enabled by adding `stealthchop_threshold: 999999` to the TMC config section.
 
-항상 "spreadcycle" 모드(`stealthchop_threshold`를 지정하지 않음)를 사용하거나 항상 `stealthchop_threshold`를 999999로 설정하여 `stealthchop` 모드를 사용하는 것이 좋습니다. 불행히도, 모터가 0이 아닌 속도에 있는 동안 모드가 변경되면 드라이버는 종종 좋지 않고 혼란스러운 결과를 생성합니다.
+It is recommended to always use "spreadCycle" mode (by not specifying `stealthchop_threshold`) or to always use "stealthChop" mode (by setting `stealthchop_threshold` to 999999). Unfortunately, the drivers often produce poor and confusing results if the mode changes while the motor is at a non-zero velocity.
 
 ## 센서리스 원점복귀
 
@@ -32,7 +32,7 @@ Klipper는 "standalone mode"에서 Trinamic 드라이버를 사용할 수도 있
 
 센서리스 원점 복귀를 사용하려면 몇 가지 전제 조건이 필요합니다:
 
-1. StallGuard 지원 TMC 스테퍼 드라이버(tmc2130, tmc2209, tmc2660 또는 tmc5160).
+1. A stallGuard capable TMC stepper driver (tmc2130, tmc2209, tmc2660, or tmc5160).
 1. 마이크로 컨트롤러에 연결된 TMC 드라이버의 SPI/UART 인터페이스 (stand-alone 모드는 작동하지 않음).
 1. 마이크로 컨트롤러에 연결된 TMC 드라이버의 적절한 "DIAG" 또는 "SG_TST" 핀.
 1. [구성 검사](Config_checks.md) 문서의 단계를 실행하여 스테퍼 모터가 구성되고 제대로 작동하는지 확인해야 합니다.
@@ -110,7 +110,7 @@ homing_retract_dist: 0
 
 위의 예는 센서리스 원점복귀와 관련된 설정만 보여줍니다. 사용 가능한 모든 옵션은 [구성 참조](Config_Reference.md#tmc-stepper-driver-configuration) 를 참조하세요.
 
-### 원점복귀에 가장 높은 민감도 성공적으로 찾기
+#### 원점복귀에 가장 높은 민감도 성공적으로 찾기
 
 레일 중앙 근처에 캐리지를 놓습니다. SET_TMC_FIELD 명령을 사용하여 가장 높은 민감도를 설정합니다. tmc2209의 경우:
 
@@ -212,11 +212,11 @@ Trinamic 데이터시트는 때때로 높은 수준의 설정(예: "hysteresis e
 
 ## 일반적인 질문
 
-### pressure advance 기능이 있는 압출기에서 stealthchop 모드를 사용할 수 있습니까?
+### Can I use stealthChop mode on an extruder with pressure advance?
 
-많은 사람들이 Klipper의 pressure advance으로 "stealthchop" 모드를 성공적으로 사용합니다. Klipper는 즉각적인 속도 변화를 도입하지 않는 [smooth pressure advance](Kinematics.md#pressure-advance)을 구현합니다.
+Many people successfully use "stealthChop" mode with Klipper's pressure advance. Klipper implements [smooth pressure advance](Kinematics.md#pressure-advance) which does not introduce any instantaneous velocity changes.
 
-그러나 "stealthchop" 모드는 더 낮은 모터 토크를 생성하거나 더 높은 모터 열을 생성할 수 있습니다. 특정 프린터에 적합한 모드일 수도 있고 아닐 수도 있습니다.
+However, "stealthChop" mode may produce lower motor torque and/or produce higher motor heat. It may or may not be an adequate mode for your particular printer.
 
 ### "Unable to read tmc uart 'stepper_x' register IFCNT" 오류가 계속 발생합니까?
 
@@ -242,20 +242,28 @@ Trinamic 데이터시트는 때때로 높은 수준의 설정(예: "hysteresis e
 
 이 유형의 오류는 TMC 드라이버가 문제를 감지하고 자체적으로 비활성화 되었음을 나타냅니다. 즉, 드라이버가 위치 유지를 중지하고 이동 명령을 무시했습니다. Klipper는 활성 드라이버가 자체적으로 비활성화되었음을 감지하면 프린터를 "shutdown" 상태로 전환합니다.
 
-몇 가지 일반적인 오류 및 진단 팁:
-
-**TMC reports error: ... ot=1(OvertempError!)"**: 이것은 모터 드라이버가 너무 뜨거워져서 스스로 비활성화되었음을 나타냅니다. 일반적인 솔루션은 스테퍼 모터 전류를 낮추고, 스테퍼 모터 드라이버의 냉각을 높이거나, 스테퍼 모터의 냉각을 높이는 것입니다.
-
-**TMC reports error: ... ShortToGND** OR **LowSideShort**: 이것은 드라이버를 통과하는 매우 높은 전류를 감지했기 때문에 드라이버가 스스로 비활성화되었음을 나타냅니다. 이것은 스테퍼 모터 또는 스테퍼 모터 자체 내부의 느슨하거나 단락된 와이어를 나타낼 수 있습니다.
-
-이 오류는 stealthchop 모드를 사용하고 TMC 드라이버가 모터의 기계적 부하를 정확하게 예측할 수 없는 경우에도 발생할 수 있습니다. (드라이버가 잘못된 예측을 하면 모터를 통해 너무 많은 전류를 보내고 자체 과전류 감지를 트리거할 수 있습니다.) 이를 테스트하려면 stealthchop 모드를 비활성화하고 오류가 계속 발생하는지 확인하십시오.
-
-**TMC reports error: ... reset=1(Reset)** OR **CS_ACTUAL=0(Reset?)** OR **SE=0(Reset?)**: 이것은 드라이버가 인쇄 중간에 재설정되었음을 나타냅니다. 이는 전압 또는 배선 문제로 인한 것일 수 있습니다.
-
-**TMC reports error: ... uv_cp=1(Undervoltage!)**: 이는 드라이버가 저전압 이벤트를 감지하고 자체적으로 비활성화되었음을 나타냅니다. 이는 배선 또는 전원 공급 문제로 인한 것일 수 있습니다.
-
 드라이버와의 통신을 방해하는 SPI 오류로 인해 **TMC가 오류 보고** 종료가 발생할 수도 있습니다(tmc2130, tmc5160 또는 tmc2660에서). 이 경우 보고된 드라이버 상태가 `00000000` 또는 `ffffffff`로 표시되는 것이 일반적입니다. 예: `TMC 보고 오류: DRV_STATUS: ffffffff ...' 또는 `TMC 보고 오류: READRSP@RDSEL2: 00000000 ... `. 이러한 오류는 SPI 배선 문제로 인한 것일 수도 있고 자체 재설정 또는 TMC 드라이버의 오류로 인한 것일 수도 있습니다.
 
-### Spreadcycle/coolstep 등을 어떻게 조정합니까? 내 드라이버의 모드?
+몇 가지 일반적인 오류 및 진단 팁:
+
+#### TMC reports error: `... ot=1(OvertempError!)`
+
+This indicates the motor driver disabled itself because it became too hot. Typical solutions are to decrease the stepper motor current, increase cooling on the stepper motor driver, and/or increase cooling on the stepper motor.
+
+#### TMC reports error: `... ShortToGND` OR `LowSideShort`
+
+This indicates the driver has disabled itself because it detected very high current passing through the driver. This may indicate a loose or shorted wire to the stepper motor or within the stepper motor itself.
+
+This error may also occur if using stealthChop mode and the TMC driver is not able to accurately predict the mechanical load of the motor. (If the driver makes a poor prediction then it may send too much current through the motor and trigger its own over-current detection.) To test this, disable stealthChop mode and check if the errors continue to occur.
+
+#### TMC reports error: `... reset=1(Reset)` OR `CS_ACTUAL=0(Reset?)` OR `SE=0(Reset?)`
+
+This indicates that the driver has reset itself mid-print. This may be due to voltage or wiring issues.
+
+#### TMC reports error: `... uv_cp=1(Undervoltage!)`
+
+This indicates the driver has detected a low-voltage event and has disabled itself. This may be due to wiring or power supply issues.
+
+### How do I tune spreadCycle/coolStep/etc. mode on my drivers?
 
 [Trinamic 웹사이트](https://www.trinamic.com/)에는 드라이버 구성에 대한 가이드가 있습니다. 이 가이드는 종종 기술적이고 낮은 수준이며 특수 하드웨어가 필요할 수 있습니다. 그럼에도 불구하고 그들은 최고의 정보 소스입니다.
