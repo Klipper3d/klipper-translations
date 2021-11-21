@@ -12,19 +12,6 @@ msgstr ""
 "X-Generator: Weblate 4.8.1-dev\n"
 
 msgid ""
-"This document describes Filament Width Sensor host module. Hardware used for"
-" developing this host module is based on Two Hall liniar sensors (ss49e for "
-"example). Sensors in the body are located opposite sides. Principle of "
-"operation : two hall sensors work in differential mode, temperature drift "
-"same for sensor. Special temperature compensation not needed. You can find "
-"designs at [thingiverse.com](https://www.thingiverse.com/thing:4138933)"
-msgstr ""
-"이 문서에서는 필라멘트 폭 센서 호스트 모듈에 대해 설명합니다. 이 호스트 모듈을 개발하는데 사용되는 하드웨어는 두개의 홀 센서(예: "
-"ss49e)를 기반으로 합니다. 센서는 서로 마주보고 있습니다. 작동 원리: 2개의 홀 센서는 차동 모드에서 작동하며 온도 드리프트는 "
-"센서에 대해 동일합니다. 특별한 온도 보상이 필요하지 않습니다. 디자인은 다음 링크에서 확인하실 수 있습니다 "
-"[thingiverse.com](https://www.thingiverse.com/thing:4138933)"
-
-msgid ""
 "[Hall based filament width sensor assembly "
 "video](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr "[홀 기반 필라멘트 폭 센서 조립 영상](https://www.youtube.com/watch?v=TDO9tME8vp4)"
@@ -46,25 +33,10 @@ msgstr ""
 msgid "Configuration"
 msgstr "설정"
 
-msgid "Commands"
-msgstr "명령어"
-
 msgid ""
 "**QUERY_FILAMENT_WIDTH** - Return the current measured filament width as "
 "result"
 msgstr "**QUERY_FILAMENT_WIDTH** - 현재 측정된 필라멘트 너비를 결과로 반환"
-
-msgid ""
-"**RESET_FILAMENT_WIDTH_SENSOR** вЂ“ Clear all sensor readings. Can be used "
-"after filament change."
-msgstr ""
-"**RESET_FILAMENT_WIDTH_SENSOR** - 모든 센서 판독값을 지웁니다. 필라멘트 교체 후 사용 가능합니다."
-
-msgid ""
-"**DISABLE_FILAMENT_WIDTH_SENSOR** вЂ“ Turn off the filament width sensor and"
-" stop using it to do flow control"
-msgstr ""
-"**DISABLE_FILAMENT_WIDTH_SENSOR** - 필라멘트 폭 센서를 끄고 흐름 제어를 위해 사용을 중지하십시오"
 
 msgid ""
 "**ENABLE_FILAMENT_WIDTH_SENSOR** - Turn on the filament width sensor and "
@@ -118,27 +90,11 @@ msgid ""
 "Insert second calibration rod (2.0 mm size) get second raw sensor value"
 msgstr "두 번째 보정 막대(2.0mm 크기) 삽입 후 raw 센서 값 가져오기"
 
-msgid "Save raw values in config"
-msgstr "config 파일에 raw 값 저장"
-
 msgid "How to enable sensor"
 msgstr "센서 활성 방법"
 
-msgid ""
-"After power on by default sensor disabled. Enable sensor in start g-code by "
-"command **ENABLE_FILAMENT_WIDTH_SENSOR** or change enable parameter in "
-"config"
-msgstr ""
-"기본적으로 전원을 켜면 센서가 비활성화 상태입니다. g-code **ENABLE_FILAMENT_WIDTH_SENSOR** 명령으로 "
-"센서를 활성화하거나 config 파일에서 활성화 매개변수를 변경합니다"
-
 msgid "Logging"
 msgstr "로깅 (logging)"
-
-msgid ""
-"After power on by default diameter Logging disabled. Data to log added on "
-"every measurement interval (10 mm by default)"
-msgstr "기본적으로 전원을 켜면 직경 로깅이 비활성화 상태입니다. 측정 간격마다 추가되는 로그 데이터(기본값은 10mm)"
 
 msgid ""
 "[hall_filament_width_sensor]\n"
@@ -289,3 +245,104 @@ msgstr ""
 #: docs/HallFilamentWidthSensor.md:block 1 (header)
 msgid "Hall filament width sensor"
 msgstr "홀 필라멘트 너비 센서"
+
+#: docs/HallFilamentWidthSensor.md:block 2 (paragraph)
+msgid ""
+"This document describes Filament Width Sensor host module. Hardware used for"
+" developing this host module is based on Two Hall liniar sensors (ss49e for "
+"example). Sensors in the body are located opposite sides. Principle of "
+"operation : two hall sensors work in differential mode, temperature drift "
+"same for sensor. Special temperature compensation not needed. You can find "
+"designs at [Thingiverse](https://www.thingiverse.com/thing:4138933)"
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 8 (header)
+msgid "G-Code Commands"
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 10 (paragraph)
+msgid ""
+"**RESET_FILAMENT_WIDTH_SENSOR** - Clear all sensor readings. Can be used "
+"after filament change."
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 11 (paragraph)
+msgid ""
+"**DISABLE_FILAMENT_WIDTH_SENSOR** - Turn off the filament width sensor and "
+"stop using it to do flow control"
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 24 (ordered list)
+msgid "Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`"
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 26 (paragraph)
+msgid "By default, the sensor is disabled at power-on."
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 27 (paragraph)
+msgid ""
+"To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
+"the `enable` parameter to `true.`"
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 29 (paragraph)
+msgid "By default, diameter logging is disabled at power-on."
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 30 (paragraph)
+msgid ""
+"Issue **ENABLE_FILAMENT_WIDTH_LOG** command to start logging and issue "
+"**DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at"
+" power-on, set the `logging` parameter to `true`."
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 31 (paragraph)
+msgid ""
+"Filament diameter is logged on every measurement interval (10 mm by "
+"default)."
+msgstr ""
+
+#~ msgid ""
+#~ "This document describes Filament Width Sensor host module. Hardware used for"
+#~ " developing this host module is based on Two Hall liniar sensors (ss49e for "
+#~ "example). Sensors in the body are located opposite sides. Principle of "
+#~ "operation : two hall sensors work in differential mode, temperature drift "
+#~ "same for sensor. Special temperature compensation not needed. You can find "
+#~ "designs at [thingiverse.com](https://www.thingiverse.com/thing:4138933)"
+#~ msgstr ""
+#~ "이 문서에서는 필라멘트 폭 센서 호스트 모듈에 대해 설명합니다. 이 호스트 모듈을 개발하는데 사용되는 하드웨어는 두개의 홀 센서(예: "
+#~ "ss49e)를 기반으로 합니다. 센서는 서로 마주보고 있습니다. 작동 원리: 2개의 홀 센서는 차동 모드에서 작동하며 온도 드리프트는 "
+#~ "센서에 대해 동일합니다. 특별한 온도 보상이 필요하지 않습니다. 디자인은 다음 링크에서 확인하실 수 있습니다 "
+#~ "[thingiverse.com](https://www.thingiverse.com/thing:4138933)"
+
+#~ msgid "Commands"
+#~ msgstr "명령어"
+
+#~ msgid ""
+#~ "**RESET_FILAMENT_WIDTH_SENSOR** вЂ“ Clear all sensor readings. Can be used "
+#~ "after filament change."
+#~ msgstr ""
+#~ "**RESET_FILAMENT_WIDTH_SENSOR** - 모든 센서 판독값을 지웁니다. 필라멘트 교체 후 사용 가능합니다."
+
+#~ msgid ""
+#~ "**DISABLE_FILAMENT_WIDTH_SENSOR** вЂ“ Turn off the filament width sensor and"
+#~ " stop using it to do flow control"
+#~ msgstr ""
+#~ "**DISABLE_FILAMENT_WIDTH_SENSOR** - 필라멘트 폭 센서를 끄고 흐름 제어를 위해 사용을 중지하십시오"
+
+#~ msgid "Save raw values in config"
+#~ msgstr "config 파일에 raw 값 저장"
+
+#~ msgid ""
+#~ "After power on by default sensor disabled. Enable sensor in start g-code by "
+#~ "command **ENABLE_FILAMENT_WIDTH_SENSOR** or change enable parameter in "
+#~ "config"
+#~ msgstr ""
+#~ "기본적으로 전원을 켜면 센서가 비활성화 상태입니다. g-code **ENABLE_FILAMENT_WIDTH_SENSOR** 명령으로 "
+#~ "센서를 활성화하거나 config 파일에서 활성화 매개변수를 변경합니다"
+
+#~ msgid ""
+#~ "After power on by default diameter Logging disabled. Data to log added on "
+#~ "every measurement interval (10 mm by default)"
+#~ msgstr "기본적으로 전원을 켜면 직경 로깅이 비활성화 상태입니다. 측정 간격마다 추가되는 로그 데이터(기본값은 10mm)"

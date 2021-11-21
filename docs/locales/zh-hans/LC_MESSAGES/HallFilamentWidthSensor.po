@@ -13,15 +13,6 @@ msgstr ""
 "X-Generator: Weblate 4.8-dev\n"
 
 msgid ""
-"This document describes Filament Width Sensor host module. Hardware used for"
-" developing this host module is based on Two Hall liniar sensors (ss49e for "
-"example). Sensors in the body are located opposite sides. Principle of "
-"operation : two hall sensors work in differential mode, temperature drift "
-"same for sensor. Special temperature compensation not needed. You can find "
-"designs at [thingiverse.com](https://www.thingiverse.com/thing:4138933)"
-msgstr ""
-
-msgid ""
 "[Hall based filament width sensor assembly "
 "video](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
@@ -40,22 +31,9 @@ msgstr ""
 msgid "Configuration"
 msgstr ""
 
-msgid "Commands"
-msgstr "命令"
-
 msgid ""
 "**QUERY_FILAMENT_WIDTH** - Return the current measured filament width as "
 "result"
-msgstr ""
-
-msgid ""
-"**RESET_FILAMENT_WIDTH_SENSOR** вЂ“ Clear all sensor readings. Can be used "
-"after filament change."
-msgstr ""
-
-msgid ""
-"**DISABLE_FILAMENT_WIDTH_SENSOR** вЂ“ Turn off the filament width sensor and"
-" stop using it to do flow control"
 msgstr ""
 
 msgid ""
@@ -108,24 +86,10 @@ msgid ""
 "Insert second calibration rod (2.0 mm size) get second raw sensor value"
 msgstr ""
 
-msgid "Save raw values in config"
-msgstr ""
-
 msgid "How to enable sensor"
 msgstr ""
 
-msgid ""
-"After power on by default sensor disabled. Enable sensor in start g-code by "
-"command **ENABLE_FILAMENT_WIDTH_SENSOR** or change enable parameter in "
-"config"
-msgstr ""
-
 msgid "Logging"
-msgstr ""
-
-msgid ""
-"After power on by default diameter Logging disabled. Data to log added on "
-"every measurement interval (10 mm by default)"
 msgstr ""
 
 msgid ""
@@ -207,3 +171,96 @@ msgstr ""
 #: docs/HallFilamentWidthSensor.md:block 1 (header)
 msgid "Hall filament width sensor"
 msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 2 (paragraph)
+msgid ""
+"This document describes Filament Width Sensor host module. Hardware used for"
+" developing this host module is based on Two Hall liniar sensors (ss49e for "
+"example). Sensors in the body are located opposite sides. Principle of "
+"operation : two hall sensors work in differential mode, temperature drift "
+"same for sensor. Special temperature compensation not needed. You can find "
+"designs at [Thingiverse](https://www.thingiverse.com/thing:4138933)"
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 8 (header)
+msgid "G-Code Commands"
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 10 (paragraph)
+msgid ""
+"**RESET_FILAMENT_WIDTH_SENSOR** - Clear all sensor readings. Can be used "
+"after filament change."
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 11 (paragraph)
+msgid ""
+"**DISABLE_FILAMENT_WIDTH_SENSOR** - Turn off the filament width sensor and "
+"stop using it to do flow control"
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 24 (ordered list)
+msgid "Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`"
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 26 (paragraph)
+msgid "By default, the sensor is disabled at power-on."
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 27 (paragraph)
+msgid ""
+"To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
+"the `enable` parameter to `true.`"
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 29 (paragraph)
+msgid "By default, diameter logging is disabled at power-on."
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 30 (paragraph)
+msgid ""
+"Issue **ENABLE_FILAMENT_WIDTH_LOG** command to start logging and issue "
+"**DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at"
+" power-on, set the `logging` parameter to `true`."
+msgstr ""
+
+#: docs/HallFilamentWidthSensor.md:block 31 (paragraph)
+msgid ""
+"Filament diameter is logged on every measurement interval (10 mm by "
+"default)."
+msgstr ""
+
+#~ msgid ""
+#~ "This document describes Filament Width Sensor host module. Hardware used for"
+#~ " developing this host module is based on Two Hall liniar sensors (ss49e for "
+#~ "example). Sensors in the body are located opposite sides. Principle of "
+#~ "operation : two hall sensors work in differential mode, temperature drift "
+#~ "same for sensor. Special temperature compensation not needed. You can find "
+#~ "designs at [thingiverse.com](https://www.thingiverse.com/thing:4138933)"
+#~ msgstr ""
+
+#~ msgid "Commands"
+#~ msgstr "命令"
+
+#~ msgid ""
+#~ "**RESET_FILAMENT_WIDTH_SENSOR** вЂ“ Clear all sensor readings. Can be used "
+#~ "after filament change."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**DISABLE_FILAMENT_WIDTH_SENSOR** вЂ“ Turn off the filament width sensor and"
+#~ " stop using it to do flow control"
+#~ msgstr ""
+
+#~ msgid "Save raw values in config"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "After power on by default sensor disabled. Enable sensor in start g-code by "
+#~ "command **ENABLE_FILAMENT_WIDTH_SENSOR** or change enable parameter in "
+#~ "config"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "After power on by default diameter Logging disabled. Data to log added on "
+#~ "every measurement interval (10 mm by default)"
+#~ msgstr ""
