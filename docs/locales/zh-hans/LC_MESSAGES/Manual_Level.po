@@ -242,13 +242,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"- front left screw is the reference point you must not change it.\n"
-"- front right screw must be turned clockwise 1 full turn and a quarter turn\n"
-"- rear right screw must be turned counter-clockwise 50 minutes\n"
-"- read left screw must be turned clockwise 2 minutes (not need it's ok)\n"
-msgstr ""
-
-msgid ""
 "The screw1 is always the reference point for the others, so the system "
 "assumes that screw1 is at the correct height. Always run `G28` first and "
 "then run `SCREWS_TILT_CALCULATE` - it should produce output similar to:"
@@ -280,6 +273,30 @@ msgstr ""
 #: docs/Manual_Level.md:block 1 (header)
 msgid "Manual leveling"
 msgstr ""
+
+#: docs/Manual_Level.md:block 37 (unordered list)
+msgid "front left screw is the reference point you must not change it."
+msgstr ""
+
+#: docs/Manual_Level.md:block 37 (unordered list)
+msgid ""
+"front right screw must be turned clockwise 1 full turn and a quarter turn"
+msgstr ""
+
+#: docs/Manual_Level.md:block 37 (unordered list)
+msgid "rear right screw must be turned counter-clockwise 50 minutes"
+msgstr ""
+
+#: docs/Manual_Level.md:block 37 (unordered list)
+msgid "read left screw must be turned clockwise 2 minutes (not need it's ok)"
+msgstr ""
+
+#~ msgid ""
+#~ "- front left screw is the reference point you must not change it.\n"
+#~ "- front right screw must be turned clockwise 1 full turn and a quarter turn\n"
+#~ "- rear right screw must be turned counter-clockwise 50 minutes\n"
+#~ "- read left screw must be turned clockwise 2 minutes (not need it's ok)\n"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "The screw1 is always the reference point for the others, so the system "

@@ -33,19 +33,6 @@ msgstr ""
 "시간을 계산합니다. 더 정밀한 스테퍼 움직임은 더 조용하고 안정적인 프린터 작동으로 이어집니다."
 
 msgid ""
-"Best in class performance. Klipper is able to achieve high stepping rates on"
-" both new and old micro-controllers. Even old 8bit micro-controllers can "
-"obtain rates over 175K steps per second. On more recent micro-controllers, "
-"rates over 500K steps per second are possible. Higher stepper rates enable "
-"higher print velocities. The stepper event timing remains precise even at "
-"high speeds which improves overall stability."
-msgstr ""
-"동급 최고의 성능. Klipper는 신규 및 기존 마이크로 컨트롤러 모두에서 높은 스테핑 속도를 달성할 수 있습니다. 심지어 오래된 "
-"8비트 마이크로 컨트롤러도 초당 175K 단계 이상의 속도를 얻을 수 있습니다. 최신 마이크로 컨트롤러에서는 초당 500K 단계 이상의 "
-"속도가 가능합니다. 더 빠른 스테퍼 속도는 더 빠른 인쇄 속도를 가능하게 합니다. 스테퍼 이벤트 타이밍은 고속에서도 정밀하게 유지되어 "
-"전반적인 안정성을 향상시킵니다."
-
-msgid ""
 "Klipper supports printers with multiple micro-controllers. For example, one "
 "micro-controller could be used to control an extruder, while another "
 "controls the printer's heaters, while a third controls the rest of the "
@@ -250,77 +237,35 @@ msgstr "다음은 스테퍼 모터의 성능 테스트 결과입니다. 표시�
 msgid "Micro-controller"
 msgstr "Micro-controller"
 
-msgid "Fastest step rate"
-msgstr "Fastest step rate"
-
 msgid "3 steppers active"
 msgstr "3 steppers active"
 
 msgid "16Mhz AVR"
 msgstr "16Mhz AVR"
 
-msgid "154K"
-msgstr "154K"
-
-msgid "102K"
-msgstr "102K"
-
 msgid "20Mhz AVR"
 msgstr "20Mhz AVR"
-
-msgid "192K"
-msgstr "192K"
-
-msgid "127K"
-msgstr "127K"
 
 msgid "Arduino Zero (SAMD21)"
 msgstr "Arduino Zero (SAMD21)"
 
-msgid "234K"
-msgstr "234K"
-
-msgid "217K"
-msgstr "217K"
-
 msgid "\"Blue Pill\" (STM32F103)"
 msgstr "\"Blue Pill\" (STM32F103)"
-
-msgid "387K"
-msgstr "387K"
-
-msgid "360K"
-msgstr "387K"
 
 msgid "Arduino Due (SAM3X8E)"
 msgstr "Arduino Due (SAM3X8E)"
 
-msgid "438K"
-msgstr "438K"
-
 msgid "Duet2 Maestro (SAM4S8C)"
 msgstr "Duet2 Maestro (SAM4S8C)"
-
-msgid "564K"
-msgstr "564K"
 
 msgid "Smoothieboard (LPC1768)"
 msgstr "Smoothieboard (LPC1768)"
 
-msgid "574K"
-msgstr "574K"
-
 msgid "Smoothieboard (LPC1769)"
 msgstr "Smoothieboard (LPC1769)"
 
-msgid "661K"
-msgstr "661K"
-
 msgid "Beaglebone PRU"
 msgstr "Beaglebone PRU"
-
-msgid "680K"
-msgstr "680K"
 
 msgid "Duet2 Wifi/Eth (SAM4E8E)"
 msgstr "Duet2 Wifi/Eth (SAM4E8E)"
@@ -331,34 +276,8 @@ msgstr "686K"
 msgid "Adafruit Metro M4 (SAMD51)"
 msgstr "Adafruit Metro M4 (SAMD51)"
 
-msgid "761K"
-msgstr "761K"
-
-msgid "692K"
-msgstr "692K"
-
 msgid "BigTreeTech SKR Pro (STM32F407)"
 msgstr "BigTreeTech SKR Pro (STM32F407)"
-
-msgid "922K"
-msgstr "922K"
-
-msgid "711K"
-msgstr "711K"
-
-msgid ""
-"On AVR platforms, the highest achievable step rate is with just one stepper "
-"stepping. On the SAMD21 and STM32F103 the highest step rate is with two "
-"simultaneous steppers stepping. On the SAM3X8E, SAM4S8C, SAM4E8E, LPC176x, "
-"and PRU the highest step rate is with three simultaneous steppers. On the "
-"SAMD51 and STM32F4 the highest step rate is with four simultaneous steppers."
-" (Further details on the benchmarks are available in the [Benchmarks "
-"document](Benchmarks.md).)"
-msgstr ""
-"AVR 플랫폼에서 가능한 step rate은 단 하나의 스태퍼 모터의 제어입니다. SAMD21 및 STM32F103에서는 동시에 두개의 "
-"스태퍼 모터를 제어할 수 있습니다. SAM3X8E, SAM4S8C, SAM4E8E, LPC176x 및 PRU에서는 동시에 3개가 "
-"가능합니다. SAMD51 및 STM32F4에서의 동시 사용 스태퍼 모터는 4개 입니다. (자세한 내용은 [Benchmarks "
-"document](Benchmarks.md).)에서 확인할 수 있습니다.)"
 
 #: docs/Features.md:block 1 (header)
 msgid "Features"
@@ -398,6 +317,235 @@ msgid ""
 "Support for filament presence sensors, filament motion sensors, and filament"
 " width sensors."
 msgstr ""
+
+#: docs/Features.md:block 3 (unordered list)
+msgid ""
+"Best in class performance. Klipper is able to achieve high stepping rates on"
+" both new and old micro-controllers. Even old 8bit micro-controllers can "
+"obtain rates over 175K steps per second. On more recent micro-controllers, "
+"several million steps per second are possible. Higher stepper rates enable "
+"higher print velocities. The stepper event timing remains precise even at "
+"high speeds which improves overall stability."
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1 stepper active"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "157K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "99K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "196K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "123K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "471K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "STM32F042"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "814K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "578K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "866K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "708K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1180K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "818K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1273K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "981K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1690K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1385K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1923K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1351K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2353K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1622K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "Raspberry Pi Pico (RP2040)"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2400K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1636K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2500K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1674K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "3077K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1885K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "3652K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2459K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "Fysetc Spider (STM32F446)"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "3913K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2634K"
+msgstr ""
+
+#: docs/Features.md:block 11 (paragraph)
+msgid ""
+"Further details on the benchmarks are available in the [Benchmarks "
+"document](Benchmarks.md)."
+msgstr ""
+
+#~ msgid ""
+#~ "Best in class performance. Klipper is able to achieve high stepping rates on"
+#~ " both new and old micro-controllers. Even old 8bit micro-controllers can "
+#~ "obtain rates over 175K steps per second. On more recent micro-controllers, "
+#~ "rates over 500K steps per second are possible. Higher stepper rates enable "
+#~ "higher print velocities. The stepper event timing remains precise even at "
+#~ "high speeds which improves overall stability."
+#~ msgstr ""
+#~ "동급 최고의 성능. Klipper는 신규 및 기존 마이크로 컨트롤러 모두에서 높은 스테핑 속도를 달성할 수 있습니다. 심지어 오래된 "
+#~ "8비트 마이크로 컨트롤러도 초당 175K 단계 이상의 속도를 얻을 수 있습니다. 최신 마이크로 컨트롤러에서는 초당 500K 단계 이상의 "
+#~ "속도가 가능합니다. 더 빠른 스테퍼 속도는 더 빠른 인쇄 속도를 가능하게 합니다. 스테퍼 이벤트 타이밍은 고속에서도 정밀하게 유지되어 "
+#~ "전반적인 안정성을 향상시킵니다."
+
+#~ msgid "Fastest step rate"
+#~ msgstr "Fastest step rate"
+
+#~ msgid "154K"
+#~ msgstr "154K"
+
+#~ msgid "102K"
+#~ msgstr "102K"
+
+#~ msgid "192K"
+#~ msgstr "192K"
+
+#~ msgid "127K"
+#~ msgstr "127K"
+
+#~ msgid "234K"
+#~ msgstr "234K"
+
+#~ msgid "217K"
+#~ msgstr "217K"
+
+#~ msgid "387K"
+#~ msgstr "387K"
+
+#~ msgid "360K"
+#~ msgstr "387K"
+
+#~ msgid "438K"
+#~ msgstr "438K"
+
+#~ msgid "564K"
+#~ msgstr "564K"
+
+#~ msgid "574K"
+#~ msgstr "574K"
+
+#~ msgid "661K"
+#~ msgstr "661K"
+
+#~ msgid "680K"
+#~ msgstr "680K"
+
+#~ msgid "761K"
+#~ msgstr "761K"
+
+#~ msgid "692K"
+#~ msgstr "692K"
+
+#~ msgid "922K"
+#~ msgstr "922K"
+
+#~ msgid "711K"
+#~ msgstr "711K"
+
+#~ msgid ""
+#~ "On AVR platforms, the highest achievable step rate is with just one stepper "
+#~ "stepping. On the SAMD21 and STM32F103 the highest step rate is with two "
+#~ "simultaneous steppers stepping. On the SAM3X8E, SAM4S8C, SAM4E8E, LPC176x, "
+#~ "and PRU the highest step rate is with three simultaneous steppers. On the "
+#~ "SAMD51 and STM32F4 the highest step rate is with four simultaneous steppers."
+#~ " (Further details on the benchmarks are available in the [Benchmarks "
+#~ "document](Benchmarks.md).)"
+#~ msgstr ""
+#~ "AVR 플랫폼에서 가능한 step rate은 단 하나의 스태퍼 모터의 제어입니다. SAMD21 및 STM32F103에서는 동시에 두개의 "
+#~ "스태퍼 모터를 제어할 수 있습니다. SAM3X8E, SAM4S8C, SAM4E8E, LPC176x 및 PRU에서는 동시에 3개가 "
+#~ "가능합니다. SAMD51 및 STM32F4에서의 동시 사용 스태퍼 모터는 4개 입니다. (자세한 내용은 [Benchmarks "
+#~ "document](Benchmarks.md).)에서 확인할 수 있습니다.)"
 
 #~ msgid ""
 #~ "Standard G-Code support. Common g-code commands that are produced by typical"

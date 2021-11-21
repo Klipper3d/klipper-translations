@@ -36,28 +36,6 @@ msgstr ""
 "除了这份文档，请务必查看[TMC驱动配置参考](Config_Reference.md#tmc-stepper-driver-"
 "configuration)."
 
-msgid "Enabling \"Stealthchop\" mode"
-msgstr "启用 \"Stealthchop \"模式"
-
-msgid ""
-"By default, Klipper places the TMC drivers in \"spreadcycle\" mode. If the "
-"driver supports \"stealthchop\" then it can be enabled by adding "
-"`stealthchop_threshold: 999999` to the TMC config section."
-msgstr ""
-"默认情况下，Klipper将TMC驱动置于 \"spreadcycle \"模式。如果驱动程序支持 "
-"\"stealthchop\"，那么可以通过添加`stealthchop_threshold:999999` 到TMC配置部分。"
-
-msgid ""
-"It is recommended to always use \"spreadcycle\" mode (by not specifying "
-"`stealthchop_threshold`) or to always use \"stealthchop\" mode (by setting "
-"`stealthchop_threshold` to 999999). Unfortunately, the drivers often produce"
-" poor and confusing results if the mode changes while the motor is at a non-"
-"zero velocity."
-msgstr ""
-"建议总是使用 \"spreadcycle \"模式（不指定`stealthchop_threshold` 即可）或总是使用 \"stealthchop "
-"\"模式（通过设置`stealthchop_threshold`为 999999 "
-"）。不幸的是，如果在电机处于非零速度时改变模式，驱动器往往会产生糟糕和混乱的结果。"
-
 msgid "Sensorless Homing"
 msgstr "无限位归零"
 
@@ -115,11 +93,6 @@ msgid "Prerequisites"
 msgstr ""
 
 msgid "A few prerequisites are needed to use sensorless homing:"
-msgstr ""
-
-msgid ""
-"A StallGuard capable TMC stepper driver (tmc2130, tmc2209, tmc2660, or "
-"tmc5160)."
 msgstr ""
 
 msgid ""
@@ -448,22 +421,6 @@ msgstr ""
 msgid "Common Questions"
 msgstr ""
 
-msgid "Can I use stealthchop mode on an extruder with pressure advance?"
-msgstr ""
-
-msgid ""
-"Many people successfully use \"stealthchop\" mode with Klipper's pressure "
-"advance. Klipper implements [smooth pressure "
-"advance](Kinematics.md#pressure-advance) which does not introduce any "
-"instantaneous velocity changes."
-msgstr ""
-
-msgid ""
-"However, \"stealthchop\" mode may produce lower motor torque and/or produce "
-"higher motor heat. It may or may not be an adequate mode for your particular"
-" printer."
-msgstr ""
-
 msgid ""
 "I keep getting \"Unable to read tmc uart 'stepper_x' register IFCNT\" "
 "errors?"
@@ -534,40 +491,6 @@ msgid "Some common errors and tips for diagnosing them:"
 msgstr ""
 
 msgid ""
-"**TMC reports error: ... ot=1(OvertempError!)\"**: This indicates the motor "
-"driver disabled itself because it became too hot. Typical solutions are to "
-"decrease the stepper motor current, increase cooling on the stepper motor "
-"driver, and/or increase cooling on the stepper motor."
-msgstr ""
-
-msgid ""
-"**TMC reports error: ... ShortToGND** OR **LowSideShort**: This indicates "
-"the driver has disabled itself because it detected very high current passing"
-" through the driver. This may indicate a loose or shorted wire to the "
-"stepper motor or within the stepper motor itself."
-msgstr ""
-
-msgid ""
-"This error may also occur if using stealthchop mode and the TMC driver is "
-"not able to accurately predict the mechanical load of the motor. (If the "
-"driver makes a poor prediction then it may send too much current through the"
-" motor and trigger its own over-current detection.) To test this, disable "
-"stealthchop mode and check if the errors continue to occur."
-msgstr ""
-
-msgid ""
-"**TMC reports error: ... reset=1(Reset)** OR **CS_ACTUAL=0(Reset?)** OR "
-"**SE=0(Reset?)**: This indicates that the driver has reset itself mid-print."
-" This may be due to voltage or wiring issues."
-msgstr ""
-
-msgid ""
-"**TMC reports error: ... uv_cp=1(Undervoltage!)**: This indicates the driver"
-" has detected a low-voltage event and has disabled itself. This may be due "
-"to wiring or power supply issues."
-msgstr ""
-
-msgid ""
 "It's also possible that a **TMC reports error** shutdown occurs due to SPI "
 "errors that prevent communication with the driver (on tmc2130, tmc5160, or "
 "tmc2660). If this occurs, it's common for the reported driver status to show"
@@ -575,9 +498,6 @@ msgid ""
 "ffffffff ...` OR `TMC reports error: READRSP@RDSEL2: 00000000 ...`. Such a "
 "failure may be due to an SPI wiring problem or may be due to a self-reset or"
 " failure of the TMC driver."
-msgstr ""
-
-msgid "How do I tune spreadcycle/coolstep/etc. mode on my drivers?"
 msgstr ""
 
 msgid ""
@@ -657,3 +577,186 @@ msgstr ""
 #: docs/TMC_Drivers.md:block 1 (header)
 msgid "TMC drivers"
 msgstr ""
+
+#: docs/TMC_Drivers.md:block 5 (header)
+msgid "Enabling \"StealthChop\" Mode"
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 6 (paragraph)
+msgid ""
+"By default, Klipper places the TMC drivers in \"spreadCycle\" mode. If the "
+"driver supports \"stealthChop\" then it can be enabled by adding "
+"`stealthchop_threshold: 999999` to the TMC config section."
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 7 (paragraph)
+msgid ""
+"It is recommended to always use \"spreadCycle\" mode (by not specifying "
+"`stealthchop_threshold`) or to always use \"stealthChop\" mode (by setting "
+"`stealthchop_threshold` to 999999). Unfortunately, the drivers often produce"
+" poor and confusing results if the mode changes while the motor is at a non-"
+"zero velocity."
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 18 (ordered list)
+msgid ""
+"A stallGuard capable TMC stepper driver (tmc2130, tmc2209, tmc2660, or "
+"tmc5160)."
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 75 (header)
+msgid "Can I use stealthChop mode on an extruder with pressure advance?"
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 76 (paragraph)
+msgid ""
+"Many people successfully use \"stealthChop\" mode with Klipper's pressure "
+"advance. Klipper implements [smooth pressure "
+"advance](Kinematics.md#pressure-advance) which does not introduce any "
+"instantaneous velocity changes."
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 77 (paragraph)
+msgid ""
+"However, \"stealthChop\" mode may produce lower motor torque and/or produce "
+"higher motor heat. It may or may not be an adequate mode for your particular"
+" printer."
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 92 (header)
+msgid "TMC reports error: `... ot=1(OvertempError!)`"
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 93 (paragraph)
+msgid ""
+"This indicates the motor driver disabled itself because it became too hot. "
+"Typical solutions are to decrease the stepper motor current, increase "
+"cooling on the stepper motor driver, and/or increase cooling on the stepper "
+"motor."
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 94 (header)
+msgid "TMC reports error: `... ShortToGND` OR `LowSideShort`"
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 95 (paragraph)
+msgid ""
+"This indicates the driver has disabled itself because it detected very high "
+"current passing through the driver. This may indicate a loose or shorted "
+"wire to the stepper motor or within the stepper motor itself."
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 96 (paragraph)
+msgid ""
+"This error may also occur if using stealthChop mode and the TMC driver is "
+"not able to accurately predict the mechanical load of the motor. (If the "
+"driver makes a poor prediction then it may send too much current through the"
+" motor and trigger its own over-current detection.) To test this, disable "
+"stealthChop mode and check if the errors continue to occur."
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 97 (header)
+msgid ""
+"TMC reports error: `... reset=1(Reset)` OR `CS_ACTUAL=0(Reset?)` OR "
+"`SE=0(Reset?)`"
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 98 (paragraph)
+msgid ""
+"This indicates that the driver has reset itself mid-print. This may be due "
+"to voltage or wiring issues."
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 99 (header)
+msgid "TMC reports error: `... uv_cp=1(Undervoltage!)`"
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 100 (paragraph)
+msgid ""
+"This indicates the driver has detected a low-voltage event and has disabled "
+"itself. This may be due to wiring or power supply issues."
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 101 (header)
+msgid "How do I tune spreadCycle/coolStep/etc. mode on my drivers?"
+msgstr ""
+
+#~ msgid "Enabling \"Stealthchop\" mode"
+#~ msgstr "启用 \"Stealthchop \"模式"
+
+#~ msgid ""
+#~ "By default, Klipper places the TMC drivers in \"spreadcycle\" mode. If the "
+#~ "driver supports \"stealthchop\" then it can be enabled by adding "
+#~ "`stealthchop_threshold: 999999` to the TMC config section."
+#~ msgstr ""
+#~ "默认情况下，Klipper将TMC驱动置于 \"spreadcycle \"模式。如果驱动程序支持 "
+#~ "\"stealthchop\"，那么可以通过添加`stealthchop_threshold:999999` 到TMC配置部分。"
+
+#~ msgid ""
+#~ "It is recommended to always use \"spreadcycle\" mode (by not specifying "
+#~ "`stealthchop_threshold`) or to always use \"stealthchop\" mode (by setting "
+#~ "`stealthchop_threshold` to 999999). Unfortunately, the drivers often produce"
+#~ " poor and confusing results if the mode changes while the motor is at a non-"
+#~ "zero velocity."
+#~ msgstr ""
+#~ "建议总是使用 \"spreadcycle \"模式（不指定`stealthchop_threshold` 即可）或总是使用 \"stealthchop "
+#~ "\"模式（通过设置`stealthchop_threshold`为 999999 "
+#~ "）。不幸的是，如果在电机处于非零速度时改变模式，驱动器往往会产生糟糕和混乱的结果。"
+
+#~ msgid ""
+#~ "A StallGuard capable TMC stepper driver (tmc2130, tmc2209, tmc2660, or "
+#~ "tmc5160)."
+#~ msgstr ""
+
+#~ msgid "Can I use stealthchop mode on an extruder with pressure advance?"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Many people successfully use \"stealthchop\" mode with Klipper's pressure "
+#~ "advance. Klipper implements [smooth pressure "
+#~ "advance](Kinematics.md#pressure-advance) which does not introduce any "
+#~ "instantaneous velocity changes."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "However, \"stealthchop\" mode may produce lower motor torque and/or produce "
+#~ "higher motor heat. It may or may not be an adequate mode for your particular"
+#~ " printer."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**TMC reports error: ... ot=1(OvertempError!)\"**: This indicates the motor "
+#~ "driver disabled itself because it became too hot. Typical solutions are to "
+#~ "decrease the stepper motor current, increase cooling on the stepper motor "
+#~ "driver, and/or increase cooling on the stepper motor."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**TMC reports error: ... ShortToGND** OR **LowSideShort**: This indicates "
+#~ "the driver has disabled itself because it detected very high current passing"
+#~ " through the driver. This may indicate a loose or shorted wire to the "
+#~ "stepper motor or within the stepper motor itself."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This error may also occur if using stealthchop mode and the TMC driver is "
+#~ "not able to accurately predict the mechanical load of the motor. (If the "
+#~ "driver makes a poor prediction then it may send too much current through the"
+#~ " motor and trigger its own over-current detection.) To test this, disable "
+#~ "stealthchop mode and check if the errors continue to occur."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**TMC reports error: ... reset=1(Reset)** OR **CS_ACTUAL=0(Reset?)** OR "
+#~ "**SE=0(Reset?)**: This indicates that the driver has reset itself mid-print."
+#~ " This may be due to voltage or wiring issues."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**TMC reports error: ... uv_cp=1(Undervoltage!)**: This indicates the driver"
+#~ " has detected a low-voltage event and has disabled itself. This may be due "
+#~ "to wiring or power supply issues."
+#~ msgstr ""
+
+#~ msgid "How do I tune spreadcycle/coolstep/etc. mode on my drivers?"
+#~ msgstr ""

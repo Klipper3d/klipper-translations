@@ -448,3 +448,28 @@ msgstr ""
 #: docs/Command_Templates.md:block 1 (header)
 msgid "Commands templates"
 msgstr ""
+
+#: docs/Command_Templates.md:block 28 (header)
+msgid "The \"rawparams\" variable"
+msgstr ""
+
+#: docs/Command_Templates.md:block 29 (paragraph)
+msgid ""
+"The full unparsed parameters for the running macro can be access via the "
+"`rawparams` pseudo-variable."
+msgstr ""
+
+#: docs/Command_Templates.md:block 30 (paragraph)
+msgid ""
+"This is quite useful if you want to change the behavior of certain commands "
+"like the `M117`. For example:"
+msgstr ""
+
+#: docs/Command_Templates.md:block 31 (code)
+msgid ""
+"[gcode_macro M117]\n"
+"rename_existing: M117.1\n"
+"gcode:\n"
+"  M117.1 { rawparams }\n"
+"  M118 { rawparams }\n"
+msgstr ""
