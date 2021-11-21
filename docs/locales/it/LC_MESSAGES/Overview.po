@@ -1,5 +1,5 @@
 # Ernesto Lo Valvo <elovalvo@gmail.com>, 2021, 2025.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2025.
 # G R <gradaellig@gmail.com>, 2022, 2025.
 # Ale Ale <ale.99.ale@gmail.com>, 2022, 2023, 2025.
 # Gabriele <gabriele1413.4@gmail.com>, 2024, 2025.
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:25+0000\n"
-"Last-Translator: Gabriele <gabriele1413.4@gmail.com>\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/overview/"
 "it/>\n"
 "Language: it\n"
@@ -50,8 +50,8 @@ msgid ""
 "[Contact](Contact.md): Information on bug reporting and general communication "
 "with the Klipper developers."
 msgstr ""
-"[Contatto](Contact.md): Informazioni sulla segnalazione di bug e comunicazione"
-" generale con gli sviluppatori di Klipper."
+"[Contatto](Contact.md): Informazioni sulla segnalazione di bug e "
+"comunicazione generale con gli sviluppatori di Klipper."
 
 msgid "[Installation](Installation.md): Guide to installing Klipper."
 msgstr "[Installazione](Installation.md): Guida all'installazione di Klipper."
@@ -78,17 +78,19 @@ msgstr ""
 
 msgid "[Bed level](Bed_Level.md): Information on \"bed leveling\" in Klipper."
 msgstr ""
-"[Livello del piatto](Bed_Level.md): Informazioni sul \"livellamento del "
-"piatto\" in Klipper."
+"[Livello del piatto](Bed_Level.md): Informazioni sul "
+"\"livellamento del piatto\" in Klipper."
 
 msgid "[Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics."
 msgstr ""
-"[Calibrazione Delta](Delta_Calibrate.md): Calibrazione della cinematica delta."
+"[Calibrazione Delta](Delta_Calibrate.md): Calibrazione della cinematica "
+"delta."
 
 msgid ""
 "[Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes."
 msgstr ""
-"[Calibrazione sonda](Probe_Calibrate.md): Calibrazione di sonde Z automatiche."
+"[Calibrazione sonda](Probe_Calibrate.md): Calibrazione di sonde Z "
+"automatiche."
 
 msgid "[BL-Touch](BLTouch.md): Configure a \"BL-Touch\" Z probe."
 msgstr "[BL-Touch](BLTouch.md): Configura una sonda Z \"BL-Touch\"."
