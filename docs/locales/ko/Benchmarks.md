@@ -47,7 +47,7 @@ queue_step oid=2 interval=3000 count=1 add=0
 clear_shutdown
 ```
 
-싱글 스텝모터나 듀얼 스텝모터의 벤치마크값을 얻기 위해서도 동일한 설정 시퀀스를 사용하면 된다. 단지, 위 테스트에 나오는 첫번째 블록(싱글 스텝퍼의 경우), 처음나오는 두개의 블록(듀얼 스텝퍼의 경우)을 console.py 창에 복붙 하면 된다.
+To obtain the single stepper benchmarks, the same configuration sequence is used, but only the first block of the above test is cut-and-paste into the console.py window.
 
 Features.md 문서에 있는 벤치마크들을 생성하기 위해서, 초당 전체 스텝수는 명목상의 mcu 주파수와 활성 스텝모터의 수를 곱하고 최종 tick 파라메터로 나누어 계산되어진다. 결과는 가장 가까운 K 로 반올림된다. 예를 들어 세개의 스텝모터라면 :
 
@@ -55,28 +55,26 @@ Features.md 문서에 있는 벤치마크들을 생성하기 위해서, 초당 �
 ECHO Test result is: {"%.0fK" % (3. * freq / ticks / 1000.)}
 ```
 
-벤치마크는 zero(아래 테이블을 통해 보면 이것은 delay 가 없음을 나타낸다)의 "step pulse duration"을 사용하여 컴파일된 마이크로 컨트롤러로 돌려야 한다. 이 설정은 TMC 드라이버를 사용할때에만 실제세상의 사용에 유용하다고 믿어진다. 이 벤치마크 결과들은 Features.md 문서에 기록되지 않는다.
+The benchmarks are run with parameters suitable for TMC Drivers. For micro-controllers that support `STEPPER_BOTH_EDGE=1` (as reported in the `MCU config` line when console.py first starts) use `step_pulse_duration=0` and `invert_step=-1` to enable optimized stepping on both edges of the step pulse. For other micro-controllers use a `step_pulse_duration` corresponding to 100ns.
 
 ### AVR 스텝 레이트 벤치마크
 
 다음에 나오는 설정 시퀀스는 AVR 칩에 적용된다.:
 
 ```
-PINS arduino
 allocate_oids count=3
-config_stepper oid=0 step_pin=ar29 dir_pin=ar28 invert_step=0
-config_stepper oid=1 step_pin=ar27 dir_pin=ar26 invert_step=0
-config_stepper oid=2 step_pin=ar23 dir_pin=ar22 invert_step=0
+config_stepper oid=0 step_pin=PA5 dir_pin=PA4 invert_step=0 step_pulse_ticks=32
+config_stepper oid=1 step_pin=PA3 dir_pin=PA2 invert_step=0 step_pulse_ticks=32
+config_stepper oid=2 step_pin=PC7 dir_pin=PC6 invert_step=0 step_pulse_ticks=32
 finalize_config crc=0
 ```
 
-테스트는 gcc의 `avr-gcc(GCC) 5.4.0` 버전을 사용하여 `01d2183f` 커밋상에서 최종적으로 돌려졌다. 16Mhz 와 20Mhz 테스트 모두 atmega644p를 위해 설정된 simulavr을 사용해 돌려졌다. (앞선 테스트들에서 simulavr 결과가 16Mhz at90usb 와 16Mhz atmega2560 에서 테스트한 값과 같음을 확인했습니다).
+The test was last run on commit `59314d99` with gcc version `avr-gcc (GCC) 5.4.0`. Both the 16Mhz and 20Mhz tests were run using simulavr configured for an atmega644p (previous tests have confirmed simulavr results match tests on both a 16Mhz at90usb and a 16Mhz atmega2560).
 
 | avr | ticks |
 | --- | --- |
-| 한개의 스텝모터 | 104 |
-| 두개의 스텝모터 | 296 |
-| 세개의 스텝모터 | 472 |
+| 한개의 스텝모터 | 102 |
+| 세개의 스텝모터 | 486 |
 
 ### Arduino Due 스텝레이트 벤치마크
 
@@ -84,21 +82,18 @@ finalize_config crc=0
 
 ```
 allocate_oids count=3
-config_stepper oid=0 step_pin=PB27 dir_pin=PA21 invert_step=0
-config_stepper oid=1 step_pin=PB26 dir_pin=PC30 invert_step=0
-config_stepper oid=2 step_pin=PA21 dir_pin=PC30 invert_step=0
+config_stepper oid=0 step_pin=PB27 dir_pin=PA21 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PB26 dir_pin=PC30 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PA21 dir_pin=PC30 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-테스트는 gcc의 `arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0` 버전에서 `8d4a5c16` 커밋상에 마지막으로 실행되었다.
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
 | sam3x8e | ticks |
 | --- | --- |
-| 한개의 스텝모터 | 388 |
-| 두개의 스텝모터 | 405 |
-| 세개의 스텝모터 | 576 |
-| 한개의 스텝모터 (delay 없음) | 77 |
-| 세개의 스텝모터 (delay 없음) | 299 |
+| 한개의 스텝모터 | 66 |
+| 세개의 스텝모터 | 257 |
 
 ### Duet Maestro 스텝 레이트 벤치마크
 
@@ -106,64 +101,56 @@ finalize_config crc=0
 
 ```
 allocate_oids count=3
-config_stepper oid=0 step_pin=PC26 dir_pin=PC18 invert_step=0
-config_stepper oid=1 step_pin=PC26 dir_pin=PA8 invert_step=0
-config_stepper oid=2 step_pin=PC26 dir_pin=PB4 invert_step=0
+config_stepper oid=0 step_pin=PC26 dir_pin=PC18 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PC26 dir_pin=PA8 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PC26 dir_pin=PB4 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-테스트는 gcc의 `arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0` 버전에서 `8d4a5c16` 커밋상에 마지막으로 실행되었다.
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
 | sam4s8c | ticks |
 | --- | --- |
-| 한개의 스텝모터 | 527 |
-| 두개의 스텝모터 | 535 |
-| 세개의 스텝모터 | 638 |
-| 한개의 스텝모터 (delay 없음) | 70 |
-| 세개의 스텝모터 (delay 없음) | 254 |
+| 한개의 스텝모터 | 71 |
+| 세개의 스텝모터 | 260 |
 
 ### Duet Wifi 스텝 레이트 벤치마크
 
 이어지는 설정 시퀀스는 Duet Wifi 에서 사용된다:
 
 ```
-allocate_oids count=4
-config_stepper oid=0 step_pin=PD6 dir_pin=PD11 invert_step=0
-config_stepper oid=1 step_pin=PD7 dir_pin=PD12 invert_step=0
-config_stepper oid=2 step_pin=PD8 dir_pin=PD13 invert_step=0
-config_stepper oid=3 step_pin=PD5 dir_pin=PA1 invert_step=0
+allocate_oids count=3
+config_stepper oid=0 step_pin=PD6 dir_pin=PD11 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PD7 dir_pin=PD12 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PD8 dir_pin=PD13 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-테스트는 gcc의 `arm-none-eabi-gcc 7.3.1 20180622 (release) [ARM/embedded-7-branch revision 261907]` 버전에서 `59a60d68` 커밋상에 마지막으로 실행되었다.
+The test was last run on commit `59314d99` with gcc version `gcc version 10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`.
 
 | sam4e8e | ticks |
 | --- | --- |
-| 한개의 스텝모터 | 519 |
-| 두개의 스텝모터 | 520 |
-| 세개의 스텝모터 | 525 |
-| 네개의 스텝모터 | 703 |
+| 한개의 스텝모터 | 48 |
+| 세개의 스텝모터 | 215 |
 
 ### Beaglebone PRU 스텝 레이트 벤치마크
 
 이어지는 설정 시퀀스는 RPU 에서 사용된다:
 
 ```
-PINS beaglebone
 allocate_oids count=3
-config_stepper oid=0 step_pin=P8_13 dir_pin=P8_12 invert_step=0
-config_stepper oid=1 step_pin=P8_15 dir_pin=P8_14 invert_step=0
-config_stepper oid=2 step_pin=P8_19 dir_pin=P8_18 invert_step=0
+config_stepper oid=0 step_pin=gpio0_23 dir_pin=gpio1_12 invert_step=0 step_pulse_ticks=20
+config_stepper oid=1 step_pin=gpio1_15 dir_pin=gpio0_26 invert_step=0 step_pulse_ticks=20
+config_stepper oid=2 step_pin=gpio0_22 dir_pin=gpio2_1 invert_step=0 step_pulse_ticks=20
 finalize_config crc=0
 ```
 
-테스트는 gcc의 `pru-gcc (GCC) 8.0.0 20170530 (experimental)` 버전에서 `b161a69e` 커밋상에 마지막으로 실행되었다.
+The test was last run on commit `59314d99` with gcc version `pru-gcc (GCC) 8.0.0 20170530 (experimental)`.
 
 | pru | ticks |
 | --- | --- |
-| 한개의 스텝모터 | 861 |
-| 두개의 스텝모터 | 853 |
-| 세개의 스텝모터 | 883 |
+| 한개의 스텝모터 | 231 |
+| 세개의 스텝모터 | 847 |
 
 ### STM32F042 스텝 레이트 벤치마크
 
@@ -171,19 +158,18 @@ finalize_config crc=0
 
 ```
 allocate_oids count=3
-config_stepper oid=0 step_pin=PA1 dir_pin=PA2 invert_step=0
-config_stepper oid=1 step_pin=PA3 dir_pin=PA2 invert_step=0
-config_stepper oid=2 step_pin=PB8 dir_pin=PA2 invert_step=0
+config_stepper oid=0 step_pin=PA1 dir_pin=PA2 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PA3 dir_pin=PA2 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PB8 dir_pin=PA2 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-테스트는 gcc의 `arm-none-eabi-gcc (Fedora 9.2.0-1.fc30) 9.2.0` 버전에서 `0b0c47c5` 커밋상에 마지막으로 실행되었다.
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
 | stm32f042 | ticks |
 | --- | --- |
-| 한개의 스텝모터 | 247 |
-| 두개의 스텝모터 | 328 |
-| 세개의 스텝모터 | 558 |
+| 한개의 스텝모터 | 59 |
+| 세개의 스텝모터 | 249 |
 
 ### STM32F103 스텝 레이트 벤치마크
 
@@ -191,54 +177,42 @@ finalize_config crc=0
 
 ```
 allocate_oids count=3
-config_stepper oid=0 step_pin=PC13 dir_pin=PB5 invert_step=0
-config_stepper oid=1 step_pin=PB3 dir_pin=PB6 invert_step=0
-config_stepper oid=2 step_pin=PA4 dir_pin=PB7 invert_step=0
+config_stepper oid=0 step_pin=PC13 dir_pin=PB5 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PB3 dir_pin=PB6 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PA4 dir_pin=PB7 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-테스트는 gcc의 `arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0` 버전에서 `8d4a5c16` 커밋상에 마지막으로 실행되었다.
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
 | stm32f103 | ticks |
 | --- | --- |
-| 한개의 스텝모터 | 347 |
-| 두개의 스텝모터 | 372 |
-| 세개의 스텝모터 | 600 |
-| 한개의 스텝모터 (delay 없음) | 71 |
-| 세개의 스텝모터 (delay 없음) | 288 |
+| 한개의 스텝모터 | 61 |
+| 세개의 스텝모터 | 264 |
 
 ### STM32F4 스텝 레이트 벤치마크
 
 이어지는 설정 시퀀스는 STM32F4 에서 사용된다:
 
 ```
-allocate_oids count=4
-config_stepper oid=0 step_pin=PA5 dir_pin=PB5 invert_step=0
-config_stepper oid=1 step_pin=PB2 dir_pin=PB6 invert_step=0
-config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=0
-config_stepper oid=3 step_pin=PB3 dir_pin=PB8 invert_step=0
+allocate_oids count=3
+config_stepper oid=0 step_pin=PA5 dir_pin=PB5 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PB2 dir_pin=PB6 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-테스트는 gcc의 `arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0` 버전에서 `8d4a5c16` 커밋상에 마지막으로 실행되었다. STM32F407 결과는 STM32F446에서 STM32F407 바이너리를 실행하여 얻은 것입니다(따라서 168Mhz 클록 사용).
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The STM32F407 results were obtained by running an STM32F407 binary on an STM32F446 (and thus using a 168Mhz clock).
 
 | stm32f446 | ticks |
 | --- | --- |
-| 한개의 스텝모터 | 757 |
-| 두개의 스텝모터 | 761 |
-| 세개의 스텝모터 | 757 |
-| 네개의 스텝모터 | 767 |
-| 한개의 스텝모터 (delay 없음) | 51 |
-| 세개의 스텝모터 (delay 없음) | 226 |
+| 한개의 스텝모터 | 46 |
+| 세개의 스텝모터 | 205 |
 
 | stm32f407 | ticks |
 | --- | --- |
-| 한개의 스텝모터 | 709 |
-| 두개의 스텝모터 | 714 |
-| 세개의 스텝모터 | 709 |
-| 네개의 스텝모터 | 729 |
-| 한개의 스텝모터 (delay 없음) | 52 |
-| 세개의 스텝모터 (delay 없음) | 226 |
+| 한개의 스텝모터 | 46 |
+| 세개의 스텝모터 | 205 |
 
 ### LPC176x 스텝 레이트 벤치마크
 
@@ -246,29 +220,23 @@ finalize_config crc=0
 
 ```
 allocate_oids count=3
-config_stepper oid=0 step_pin=P1.20 dir_pin=P1.18 invert_step=0
-config_stepper oid=1 step_pin=P1.21 dir_pin=P1.18 invert_step=0
-config_stepper oid=2 step_pin=P1.23 dir_pin=P1.18 invert_step=0
+config_stepper oid=0 step_pin=P1.20 dir_pin=P1.18 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=P1.21 dir_pin=P1.18 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=P1.23 dir_pin=P1.18 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-테스트는 gcc의 `arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0` 버전으로 `8d4a5c16` 커밋상에 마지막으로 실행되었다. 120Mhz LPC1769 결과는 LPC1768을 120MHz 로 오버클럭킹해서 얻은 것이다.
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The 120Mhz LPC1769 results were obtained by overclocking an LPC1768 to 120Mhz.
 
 | lpc1768 | ticks |
 | --- | --- |
-| 한개의 스텝모터 | 448 |
-| 두개의 스텝모터 | 450 |
-| 세개의 스텝모터 | 523 |
-| 한개의 스텝모터 (delay 없음) | 56 |
-| 세개의 스텝모터 (delay 없음) | 240 |
+| 한개의 스텝모터 | 52 |
+| 세개의 스텝모터 | 222 |
 
 | lpc1769 | ticks |
 | --- | --- |
-| 한개의 스텝모터 | 525 |
-| 두개의 스텝모터 | 526 |
-| 세개의 스텝모터 | 545 |
-| 한개의 스텝모터 (delay 없음) | 56 |
-| 세개의 스텝모터 (delay 없음) | 240 |
+| 한개의 스텝모터 | 51 |
+| 세개의 스텝모터 | 222 |
 
 ### SAMD21 스텝 레이트 벤치마크
 
@@ -276,75 +244,58 @@ finalize_config crc=0
 
 ```
 allocate_oids count=3
-config_stepper oid=0 step_pin=PA27 dir_pin=PA20 invert_step=0
-config_stepper oid=1 step_pin=PB3 dir_pin=PA21 invert_step=0
-config_stepper oid=2 step_pin=PA17 dir_pin=PA21 invert_step=0
+config_stepper oid=0 step_pin=PA27 dir_pin=PA20 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PB3 dir_pin=PA21 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PA17 dir_pin=PA21 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-테스트는 SAMD21G18 마이크로 컨트롤러에서 gcc의 `arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0` 버전으로 `8d4a5c16` 커밋상에 마지막으로 실행되었다.
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD21G18 micro-controller.
 
 | samd21 | ticks |
 | --- | --- |
-| 한개의 스텝모터 | 277 |
-| 두개의 스텝모터 | 410 |
-| 세개의 스텝모터 | 664 |
-| 한개의 스텝모터 (delay 없음) | 83 |
-| 세개의 스텝모터 (delay 없음) | 321 |
+| 한개의 스텝모터 | 70 |
+| 세개의 스텝모터 | 306 |
 
 ### SAMD51 스텝 레이트 벤치마크
 
 이어지는 설정 시퀀스는 SAMD51 에서 사용된다:
 
 ```
-allocate_oids count=5
-config_stepper oid=0 step_pin=PA22 dir_pin=PA20 invert_step=0
-config_stepper oid=1 step_pin=PA22 dir_pin=PA21 invert_step=0
-config_stepper oid=2 step_pin=PA22 dir_pin=PA19 invert_step=0
-config_stepper oid=3 step_pin=PA22 dir_pin=PA18 invert_step=0
-config_stepper oid=4 step_pin=PA23 dir_pin=PA17 invert_step=0
+allocate_oids count=3
+config_stepper oid=0 step_pin=PA22 dir_pin=PA20 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PA22 dir_pin=PA21 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PA22 dir_pin=PA19 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-테스트는 SAMD51J19A 마이크로 컨트롤러에서 gcc의 `arm-none-eabi-gcc (Fedora 9.2.0-1.fc30) 9.2.0` 버전으로 `524ebbc7` 커밋상에 마지막으로 실행되었다.
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD51J19A micro-controller.
 
 | samd51 | ticks |
 | --- | --- |
-| 한개의 스텝모터 | 516 |
-| 두개의 스텝모터 | 520 |
-| 세개의 스텝모터 | 520 |
-| 네개의 스텝모터 | 631 |
-| 한개의 스테모터 (200Mhz) | 839 |
-| 두개의 스테모터 (200Mhz) | 838 |
-| 세개의 스테모터 (200Mhz) | 838 |
-| 네개의 스테모터 (200Mhz) | 838 |
-| 다섯개의 스테모터 (200Mhz) | 891 |
-| 한개의 스텝모터 (delay 없음) | 42 |
-| 세개의 스텝모터 (delay 없음) | 194 |
+| 한개의 스텝모터 | 39 |
+| 세개의 스텝모터 | 191 |
+| 한개의 스테모터 (200Mhz) | 39 |
+| 세개의 스테모터 (200Mhz) | 181 |
 
 ### RP2040 스텝 레이트 벤치마크
 
 이어지는 설정 시퀀스는 RP2040 에서 사용된다:
 
 ```
-allocate_oids count=4
-config_stepper oid=0 step_pin=gpio25 dir_pin=gpio3 invert_step=0
-config_stepper oid=1 step_pin=gpio26 dir_pin=gpio4 invert_step=0
-config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=0
-config_stepper oid=3 step_pin=gpio28 dir_pin=gpio6 invert_step=0
+allocate_oids count=3
+config_stepper oid=0 step_pin=gpio25 dir_pin=gpio3 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=gpio26 dir_pin=gpio4 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-테스트는 라즈베리파이 피코 보드에서 gcc의 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`버전으로 `c5667193` 커밋상에 마지막으로 실행되었다.
+The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a Raspberry Pi Pico board.
 
 | rp2040 | ticks |
 | --- | --- |
-| 한개의 스텝모터 | 52 |
-| 두개의 스텝모터 | 52 |
-| 세개의 스텝모터 | 52 |
-| 네개의 스텝모터 | 66 |
-| 한개의 스텝모터 (delay 없음) | 5 |
-| 세개의 스텝모터 (delay 없음) | 22 |
+| 한개의 스텝모터 | 5 |
+| 세개의 스텝모터 | 22 |
 
 ### Linux MCU 스텝 레이트 벤치마크
 
@@ -352,19 +303,18 @@ finalize_config crc=0
 
 ```
 allocate_oids count=3
-config_stepper oid=0 step_pin=gpio2 dir_pin=gpio3 invert_step=0
-config_stepper oid=1 step_pin=gpio4 dir_pin=gpio5 invert_step=0
-config_stepper oid=2 step_pin=gpio6 dir_pin=gpio7 invert_step=0
+config_stepper oid=0 step_pin=gpio2 dir_pin=gpio3 invert_step=0 step_pulse_ticks=5
+config_stepper oid=1 step_pin=gpio4 dir_pin=gpio5 invert_step=0 step_pulse_ticks=5
+config_stepper oid=2 step_pin=gpio6 dir_pin=gpio17 invert_step=0 step_pulse_ticks=5
 finalize_config crc=0
 ```
 
-테스트는 라즈베리파이 3(revision a22082)에서 gcc의 `gcc(Raspbian 6.3.0-18+rpi1+deb9u1) 6.3.0 20170516` 버전으로 `db0fb5d5` 커밋상에 마지막으로 실행되었다.
+The test was last run on commit `59314d99` with gcc version `gcc (Raspbian 8.3.0-6+rpi1) 8.3.0` on a Raspberry Pi 3 (revision a02082). It was difficult to get stable results in this benchmark.
 
 | Linux (RPi3) | ticks |
 | --- | --- |
-| 한개의 스텝모터 | 349 |
-| 두개의 스텝모터 | 350 |
-| 세개의 스텝모터 | 400 |
+| 한개의 스텝모터 | 160 |
+| 세개의 스텝모터 | 380 |
 
 ## 명령 디스패치 벤치마크
 

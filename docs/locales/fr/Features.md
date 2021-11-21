@@ -3,7 +3,7 @@
 Klipper propose plusieurs caractéristiques intéressantes :
 
 * Mouvement pas à pas de haute précision. Klipper utilise un processeur d'application (comme un Raspberry Pi à bas prix) pour calculer les mouvements de l'imprimante. Le processeur d'application détermine le moment où il faut faire marcher chaque moteur pas à pas, il compresse ces événements, les transmet au microcontrôleur, puis le microcontrôleur exécute chaque événement au moment demandé. Chaque événement du moteur pas à pas est programmé avec une précision de 25 microsecondes ou mieux. Le logiciel n'utilise pas d'estimations cinématiques (telles que l'algorithme de Bresenham), mais calcule des temps de pas précis basés sur la physique de l'accélération et la physique de la cinématique de la machine. Un mouvement plus précis des pas se traduit par un fonctionnement plus silencieux et plus stable de l'imprimante.
-* Meilleures performances de sa catégorie. Klipper est capable d'atteindre des taux de pas élevés sur les micro-contrôleurs nouveaux et anciens. Même les anciens microcontrôleurs 8 bits peuvent obtenir des taux supérieurs à 175 000 pas par seconde. Sur les micro-contrôleurs plus récents, des taux supérieurs à 500 000 pas par seconde sont possibles. Des taux de pas plus élevés permettent des vitesses d'impression plus importantes. La synchronisation des événements pas à pas reste précise même à des vitesses élevées, ce qui améliore la stabilité globale.
+* Best in class performance. Klipper is able to achieve high stepping rates on both new and old micro-controllers. Even old 8bit micro-controllers can obtain rates over 175K steps per second. On more recent micro-controllers, several million steps per second are possible. Higher stepper rates enable higher print velocities. The stepper event timing remains precise even at high speeds which improves overall stability.
 * Klipper prend en charge les imprimantes dotées de plusieurs microcontrôleurs. Par exemple, un microcontrôleur peut être utilisé pour contrôler l'extrudeur, tandis qu'un autre contrôle les pièces chauffantes de l'imprimante, et un troisième s'occupe du reste de l'imprimante. Le logiciel Klipper met en œuvre la synchronisation de l'horloge pour tenir compte de la dérive entre les microcontrôleurs. Il n'y a pas besoin de code particulier pour activer plusieurs microcontrôleurs - il suffit de quelques lignes supplémentaires dans le fichier de configuration.
 * Configuration grâce à un fichier de configuration unique. Il n'est pas nécessaire de reflasher le microcontrôleur pour modifier un paramètre. Toute la configuration de Klipper est stockée dans un fichier de configuration standard qui peut être facilement modifié. Cela facilite la configuration et la maintenance du matériel.
 * Klipper prend en charge la fonction "Smooth Pressure Advance", un mécanisme permettant de prendre en compte les effets de la pression dans un extrudeur. Cela réduit le "suintement" de l'extrudeur et améliore la qualité des d'impression des coins. L'implémentation de Klipper n'introduit pas de changements instantanés de la vitesse de l'extrudeur, ce qui améliore la stabilité et la robustesse générales.
@@ -42,19 +42,22 @@ Pour commencer avec Klipper, lisez le guide d'[installation](Installation.md).
 
 Ci-après les résultats des tests de performance du stepper. Les chiffres indiqués représentent le nombre total de pas par seconde sur le micro-contrôleur.
 
-| Microcontrôleur | Taux de pas le plus rapide | 3 steppers actifs |
+| Microcontrôleur | 1 stepper active | 3 steppers actifs |
 | --- | --- | --- |
-| AVR 16Mhz | 154K | 102K |
-| AVR 20Mhz | 192K | 127K |
-| Arduino Zero (SAMD21) | 234K | 217K |
-| "Blue Pill" (STM32F103) | 387K | 360K |
-| Arduino Due (SAM3X8E) | 438K | 438K |
-| Duet2 Maestro (SAM4S8C) | 564K | 564K |
-| Smoothieboard (LPC1768) | 574K | 574K |
-| Smoothieboard (LPC1769) | 661K | 661K |
-| PRU Beaglebone | 680K | 680K |
-| Duet2 Wifi/Eth (SAM4E8E) | 686K | 686K |
-| Adafruit Metro M4 (SAMD51) | 761K | 692K |
-| BigTreeTech SKR Pro (STM32F407) | 922K | 711K |
+| AVR 16Mhz | 157K | 99K |
+| AVR 20Mhz | 196K | 123K |
+| Arduino Zero (SAMD21) | 686K | 471K |
+| STM32F042 | 814K | 578K |
+| PRU Beaglebone | 866K | 708K |
+| "Blue Pill" (STM32F103) | 1180K | 818K |
+| Arduino Due (SAM3X8E) | 1273K | 981K |
+| Duet2 Maestro (SAM4S8C) | 1690K | 1385K |
+| Smoothieboard (LPC1768) | 1923K | 1351K |
+| Smoothieboard (LPC1769) | 2353K | 1622K |
+| Raspberry Pi Pico (RP2040) | 2400K | 1636K |
+| Duet2 Wifi/Eth (SAM4E8E) | 2500K | 1674K |
+| Adafruit Metro M4 (SAMD51) | 3077K | 1885K |
+| BigTreeTech SKR Pro (STM32F407) | 3652K | 2459K |
+| Fysetc Spider (STM32F446) | 3913K | 2634K |
 
-Sur les plates-formes AVR, le taux de pas le plus élevé est atteint avec un seul stepper. Sur les SAMD21 et STM32F103, le taux de pas le plus élevé est obtenu avec deux pas simultanés. Sur les SAM3X8E, SAM4S8C, SAM4E8E, LPC176x, et PRU, le taux de pas le plus élevé est obtenu avec trois pas simultanés. Sur les SAMD51 et STM32F4, la vitesse de pas la plus élevée est obtenue avec quatre steppers simultanés. (Plus de détails sur les benchmarks sont disponibles dans le document [Tests de performance](Benchmarks.md).
+Further details on the benchmarks are available in the [Benchmarks document](Benchmarks.md).
