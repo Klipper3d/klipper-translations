@@ -7,8 +7,7 @@ msgstr ""
 "POT-Creation-Date: 2021-07-15 06:32+0200\n"
 "PO-Revision-Date: 2021-11-06 20:20+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"klipper/features/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/features/zh_Hans/>\n"
 "Language: zh-hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,19 +34,6 @@ msgid ""
 msgstr ""
 "高精度步进运动。Klipper使用一个应用处理器（例如低成本的树莓派）来计算打印机运动。应用处理器决定何时对每个步进电机发出步进信号，压缩这些事件，并将它们发送到微控制器。微处理器将会把每个事件按请求时间执行。每一个步进事件被以25毫秒或更高的精度安排。软件不进行运动估计，例如"
 " Bresenham算法，而是通过加速度与机械运动物理计算精确的步进时间。更精准的步进电机运动意味着打印机更安静和稳定的运行。"
-
-#: docs/Features.md:block 2 (unordered list)
-msgid ""
-"Best in class performance. Klipper is able to achieve high stepping rates on"
-" both new and old micro-controllers. Even old 8bit micro-controllers can "
-"obtain rates over 175K steps per second. On more recent micro-controllers, "
-"rates over 500K steps per second are possible. Higher stepper rates enable "
-"higher print velocities. The stepper event timing remains precise even at "
-"high speeds which improves overall stability."
-msgstr ""
-"同类固件中最佳表现。 Klipper 能够在新的和旧的微控制器上实现高步进率。即使是旧的 8 位微控制器也可以获得超过每秒 175K "
-"步的速率。在较新的微控制器上，速率可以超过每秒 500K "
-"步。更高的步进速率可实现更高的打印速度。即使在高速下也能保持步进事件计时精确，从而提高整体稳定性。"
 
 #: docs/Features.md:block 2 (unordered list)
 msgid ""
@@ -207,8 +193,8 @@ msgid ""
 "direction will be optimized to reduce print stalls and improve overall print"
 " time."
 msgstr ""
-"恒定加速和“look-ahead”（前瞻）支持。所有打印机移动将从静止逐渐加速到巡航速度，然后减速回到静止。对传入的 G 代码移动命令流进行排队和分析 -"
-" 将优化类似方向上的移动之间的加速度，以减少打印停顿并改善整体打印时间。"
+"恒定加速和“look-ahead”（前瞻）支持。所有打印机移动将从静止逐渐加速到巡航速度，然后减速回到静止。对传入的 G 代码移动命令流进行排队和分析 "
+"- 将优化类似方向上的移动之间的加速度，以减少打印停顿并改善整体打印时间。"
 
 #: docs/Features.md:block 5 (unordered list)
 msgid ""
@@ -256,10 +242,6 @@ msgid "Micro-controller"
 msgstr "微控制器"
 
 #: docs/Features.md:block 9 (table)
-msgid "Fastest step rate"
-msgstr "最快步进速率"
-
-#: docs/Features.md:block 9 (table)
 msgid "3 steppers active"
 msgstr "3个步进器活跃"
 
@@ -268,88 +250,36 @@ msgid "16Mhz AVR"
 msgstr "16Mhz AVR"
 
 #: docs/Features.md:block 9 (table)
-msgid "154K"
-msgstr "154K"
-
-#: docs/Features.md:block 9 (table)
-msgid "102K"
-msgstr "102K"
-
-#: docs/Features.md:block 9 (table)
 msgid "20Mhz AVR"
 msgstr "20Mhz AVR"
-
-#: docs/Features.md:block 9 (table)
-msgid "192K"
-msgstr "192K"
-
-#: docs/Features.md:block 9 (table)
-msgid "127K"
-msgstr "127K"
 
 #: docs/Features.md:block 9 (table)
 msgid "Arduino Zero (SAMD21)"
 msgstr "Arduino Zero (SAMD21)"
 
 #: docs/Features.md:block 9 (table)
-msgid "234K"
-msgstr "234K"
-
-#: docs/Features.md:block 9 (table)
-msgid "217K"
-msgstr "217K"
-
-#: docs/Features.md:block 9 (table)
 msgid "\"Blue Pill\" (STM32F103)"
 msgstr "\"Blue Pill\" (STM32F103)"
-
-#: docs/Features.md:block 9 (table)
-msgid "387K"
-msgstr "387K"
-
-#: docs/Features.md:block 9 (table)
-msgid "360K"
-msgstr "360K"
 
 #: docs/Features.md:block 9 (table)
 msgid "Arduino Due (SAM3X8E)"
 msgstr "Arduino Due (SAM3X8E)"
 
 #: docs/Features.md:block 9 (table)
-msgid "438K"
-msgstr "438K"
-
-#: docs/Features.md:block 9 (table)
 msgid "Duet2 Maestro (SAM4S8C)"
 msgstr "Duet2 Maestro (SAM4S8C)"
-
-#: docs/Features.md:block 9 (table)
-msgid "564K"
-msgstr "564K"
 
 #: docs/Features.md:block 9 (table)
 msgid "Smoothieboard (LPC1768)"
 msgstr "Smoothieboard (LPC1768)"
 
 #: docs/Features.md:block 9 (table)
-msgid "574K"
-msgstr "574K"
-
-#: docs/Features.md:block 9 (table)
 msgid "Smoothieboard (LPC1769)"
 msgstr "Smoothieboard (LPC1769)"
 
 #: docs/Features.md:block 9 (table)
-msgid "661K"
-msgstr "661K"
-
-#: docs/Features.md:block 9 (table)
 msgid "Beaglebone PRU"
 msgstr "Beaglebone 可编程实时单元"
-
-#: docs/Features.md:block 9 (table)
-msgid "680K"
-msgstr "680K"
 
 #: docs/Features.md:block 9 (table)
 msgid "Duet2 Wifi/Eth (SAM4E8E)"
@@ -364,38 +294,8 @@ msgid "Adafruit Metro M4 (SAMD51)"
 msgstr "Adafruit Metro M4 (SAMD51)"
 
 #: docs/Features.md:block 9 (table)
-msgid "761K"
-msgstr "761K"
-
-#: docs/Features.md:block 9 (table)
-msgid "692K"
-msgstr "692K"
-
-#: docs/Features.md:block 9 (table)
 msgid "BigTreeTech SKR Pro (STM32F407)"
 msgstr "BigTreeTech SKR Pro (STM32F407)"
-
-#: docs/Features.md:block 9 (table)
-msgid "922K"
-msgstr "922K"
-
-#: docs/Features.md:block 9 (table)
-msgid "711K"
-msgstr "711K"
-
-#: docs/Features.md:block 10 (paragraph)
-msgid ""
-"On AVR platforms, the highest achievable step rate is with just one stepper "
-"stepping. On the SAMD21 and STM32F103 the highest step rate is with two "
-"simultaneous steppers stepping. On the SAM3X8E, SAM4S8C, SAM4E8E, LPC176x, "
-"and PRU the highest step rate is with three simultaneous steppers. On the "
-"SAMD51 and STM32F4 the highest step rate is with four simultaneous steppers."
-" (Further details on the benchmarks are available in the [Benchmarks "
-"document](Benchmarks.md).)"
-msgstr ""
-"在AVR平台上，最高可实现的步进率是只用一个步进器步进。在SAMD21和STM32F103上，最高步进率是两个步进器同时步进。在SAM3X8E、SAM4S"
-"8C、SAM4E8E、LPC176x和PRU上，最高步进率是三个步进器同时进行。在SAMD51和STM32F4上，最高步进速率为四个同步步进器。(关于基准"
-"的更多细节可在[基准测试文档](Benchmarks.md)中找到。）"
 
 #: docs/Features.md:block 1 (header)
 msgid "Features"
@@ -422,9 +322,8 @@ msgid ""
 "micro-controller temperature sensor and the internal temperature sensor of a"
 " Raspberry Pi."
 msgstr ""
-"支持常见的温度传感器（例如，常见的热敏电阻、AD595、AD597、AD849x、PT100、PT1000、MAX6675、MAX31855、MAX318"
-"56、MAX31865、BME280、HTU21D、DS18B20和LM75）。还可以配置自定义热敏电阻和自定义模拟温度传感器。还可以监测微控制器和 "
-"Raspberry Pi 内部的温度传感器。"
+"支持常见的温度传感器（例如，常见的热敏电阻、AD595、AD597、AD849x、PT100、PT1000、MAX6675、MAX31855、MAX31856、MAX31865、BME280、HTU21D、DS18B20和LM75）。还可以配置自定义热敏电阻和自定义模拟温度传感器。还可以监测微控制器和"
+" Raspberry Pi 内部的温度传感器。"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -438,6 +337,231 @@ msgid ""
 "Support for filament presence sensors, filament motion sensors, and filament"
 " width sensors."
 msgstr "支持打印丝存在传感器、打印丝运动传感器和打印丝宽度传感器。"
+
+#: docs/Features.md:block 3 (unordered list)
+msgid ""
+"Best in class performance. Klipper is able to achieve high stepping rates on"
+" both new and old micro-controllers. Even old 8bit micro-controllers can "
+"obtain rates over 175K steps per second. On more recent micro-controllers, "
+"several million steps per second are possible. Higher stepper rates enable "
+"higher print velocities. The stepper event timing remains precise even at "
+"high speeds which improves overall stability."
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1 stepper active"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "157K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "99K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "196K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "123K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "471K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "STM32F042"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "814K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "578K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "866K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "708K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1180K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "818K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1273K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "981K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1690K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1385K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1923K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1351K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2353K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1622K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "Raspberry Pi Pico (RP2040)"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2400K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1636K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2500K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1674K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "3077K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1885K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "3652K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2459K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "Fysetc Spider (STM32F446)"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "3913K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2634K"
+msgstr ""
+
+#: docs/Features.md:block 11 (paragraph)
+msgid ""
+"Further details on the benchmarks are available in the [Benchmarks "
+"document](Benchmarks.md)."
+msgstr ""
+
+#~ msgid ""
+#~ "Best in class performance. Klipper is able to achieve high stepping rates on"
+#~ " both new and old micro-controllers. Even old 8bit micro-controllers can "
+#~ "obtain rates over 175K steps per second. On more recent micro-controllers, "
+#~ "rates over 500K steps per second are possible. Higher stepper rates enable "
+#~ "higher print velocities. The stepper event timing remains precise even at "
+#~ "high speeds which improves overall stability."
+#~ msgstr ""
+#~ "同类固件中最佳表现。 Klipper 能够在新的和旧的微控制器上实现高步进率。即使是旧的 8 位微控制器也可以获得超过每秒 175K "
+#~ "步的速率。在较新的微控制器上，速率可以超过每秒 500K "
+#~ "步。更高的步进速率可实现更高的打印速度。即使在高速下也能保持步进事件计时精确，从而提高整体稳定性。"
+
+#~ msgid "Fastest step rate"
+#~ msgstr "最快步进速率"
+
+#~ msgid "154K"
+#~ msgstr "154K"
+
+#~ msgid "102K"
+#~ msgstr "102K"
+
+#~ msgid "192K"
+#~ msgstr "192K"
+
+#~ msgid "127K"
+#~ msgstr "127K"
+
+#~ msgid "234K"
+#~ msgstr "234K"
+
+#~ msgid "217K"
+#~ msgstr "217K"
+
+#~ msgid "387K"
+#~ msgstr "387K"
+
+#~ msgid "360K"
+#~ msgstr "360K"
+
+#~ msgid "438K"
+#~ msgstr "438K"
+
+#~ msgid "564K"
+#~ msgstr "564K"
+
+#~ msgid "574K"
+#~ msgstr "574K"
+
+#~ msgid "661K"
+#~ msgstr "661K"
+
+#~ msgid "680K"
+#~ msgstr "680K"
+
+#~ msgid "761K"
+#~ msgstr "761K"
+
+#~ msgid "692K"
+#~ msgstr "692K"
+
+#~ msgid "922K"
+#~ msgstr "922K"
+
+#~ msgid "711K"
+#~ msgstr "711K"
+
+#~ msgid ""
+#~ "On AVR platforms, the highest achievable step rate is with just one stepper "
+#~ "stepping. On the SAMD21 and STM32F103 the highest step rate is with two "
+#~ "simultaneous steppers stepping. On the SAM3X8E, SAM4S8C, SAM4E8E, LPC176x, "
+#~ "and PRU the highest step rate is with three simultaneous steppers. On the "
+#~ "SAMD51 and STM32F4 the highest step rate is with four simultaneous steppers."
+#~ " (Further details on the benchmarks are available in the [Benchmarks "
+#~ "document](Benchmarks.md).)"
+#~ msgstr ""
+#~ "在AVR平台上，最高可实现的步进率是只用一个步进器步进。在SAMD21和STM32F103上，最高步进率是两个步进器同时步进。在SAM3X8E、SAM4S8C、SAM4E8E、LPC176x和PRU上，最高步进率是三个步进器同时进行。在SAMD51和STM32F4上，最高步进速率为四个同步步进器。(关于基准的更多细节可在[基准测试文档](Benchmarks.md)中找到。）"
 
 #~ msgid ""
 #~ "Standard G-Code support. Common g-code commands that are produced by typical"

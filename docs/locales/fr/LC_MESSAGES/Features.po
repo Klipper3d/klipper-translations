@@ -41,23 +41,6 @@ msgstr ""
 " stable de l'imprimante."
 
 msgid ""
-"Best in class performance. Klipper is able to achieve high stepping rates on"
-" both new and old micro-controllers. Even old 8bit micro-controllers can "
-"obtain rates over 175K steps per second. On more recent micro-controllers, "
-"rates over 500K steps per second are possible. Higher stepper rates enable "
-"higher print velocities. The stepper event timing remains precise even at "
-"high speeds which improves overall stability."
-msgstr ""
-"Meilleures performances de sa catégorie. Klipper est capable d'atteindre des"
-" taux de pas élevés sur les micro-contrôleurs nouveaux et anciens. Même les "
-"anciens microcontrôleurs 8 bits peuvent obtenir des taux supérieurs à 175 "
-"000 pas par seconde. Sur les micro-contrôleurs plus récents, des taux "
-"supérieurs à 500 000 pas par seconde sont possibles. Des taux de pas plus "
-"élevés permettent des vitesses d'impression plus importantes. La "
-"synchronisation des événements pas à pas reste précise même à des vitesses "
-"élevées, ce qui améliore la stabilité globale."
-
-msgid ""
 "Klipper supports printers with multiple micro-controllers. For example, one "
 "micro-controller could be used to control an extruder, while another "
 "controls the printer's heaters, while a third controls the rest of the "
@@ -314,77 +297,35 @@ msgstr ""
 msgid "Micro-controller"
 msgstr "Microcontrôleur"
 
-msgid "Fastest step rate"
-msgstr "Taux de pas le plus rapide"
-
 msgid "3 steppers active"
 msgstr "3 steppers actifs"
 
 msgid "16Mhz AVR"
 msgstr "AVR 16Mhz"
 
-msgid "154K"
-msgstr "154K"
-
-msgid "102K"
-msgstr "102K"
-
 msgid "20Mhz AVR"
 msgstr "AVR 20Mhz"
-
-msgid "192K"
-msgstr "192K"
-
-msgid "127K"
-msgstr "127K"
 
 msgid "Arduino Zero (SAMD21)"
 msgstr "Arduino Zero (SAMD21)"
 
-msgid "234K"
-msgstr "234K"
-
-msgid "217K"
-msgstr "217K"
-
 msgid "\"Blue Pill\" (STM32F103)"
 msgstr "\"Blue Pill\" (STM32F103)"
-
-msgid "387K"
-msgstr "387K"
-
-msgid "360K"
-msgstr "360K"
 
 msgid "Arduino Due (SAM3X8E)"
 msgstr ""
 
-msgid "438K"
-msgstr "438K"
-
 msgid "Duet2 Maestro (SAM4S8C)"
 msgstr ""
-
-msgid "564K"
-msgstr "564K"
 
 msgid "Smoothieboard (LPC1768)"
 msgstr ""
 
-msgid "574K"
-msgstr "574K"
-
 msgid "Smoothieboard (LPC1769)"
 msgstr ""
 
-msgid "661K"
-msgstr "661K"
-
 msgid "Beaglebone PRU"
 msgstr "PRU Beaglebone"
-
-msgid "680K"
-msgstr "680K"
 
 msgid "Duet2 Wifi/Eth (SAM4E8E)"
 msgstr ""
@@ -395,37 +336,8 @@ msgstr "686K"
 msgid "Adafruit Metro M4 (SAMD51)"
 msgstr ""
 
-msgid "761K"
-msgstr "761K"
-
-msgid "692K"
-msgstr "692K"
-
 msgid "BigTreeTech SKR Pro (STM32F407)"
 msgstr ""
-
-msgid "922K"
-msgstr "922K"
-
-msgid "711K"
-msgstr "711K"
-
-msgid ""
-"On AVR platforms, the highest achievable step rate is with just one stepper "
-"stepping. On the SAMD21 and STM32F103 the highest step rate is with two "
-"simultaneous steppers stepping. On the SAM3X8E, SAM4S8C, SAM4E8E, LPC176x, "
-"and PRU the highest step rate is with three simultaneous steppers. On the "
-"SAMD51 and STM32F4 the highest step rate is with four simultaneous steppers."
-" (Further details on the benchmarks are available in the [Benchmarks "
-"document](Benchmarks.md).)"
-msgstr ""
-"Sur les plates-formes AVR, le taux de pas le plus élevé est atteint avec un "
-"seul stepper. Sur les SAMD21 et STM32F103, le taux de pas le plus élevé est "
-"obtenu avec deux pas simultanés. Sur les SAM3X8E, SAM4S8C, SAM4E8E, LPC176x,"
-" et PRU, le taux de pas le plus élevé est obtenu avec trois pas simultanés. "
-"Sur les SAMD51 et STM32F4, la vitesse de pas la plus élevée est obtenue avec"
-" quatre steppers simultanés. (Plus de détails sur les benchmarks sont "
-"disponibles dans le document [Tests de performance](Benchmarks.md)."
 
 #: docs/Features.md:block 1 (header)
 msgid "Features"
@@ -465,6 +377,242 @@ msgid ""
 "Support for filament presence sensors, filament motion sensors, and filament"
 " width sensors."
 msgstr ""
+
+#: docs/Features.md:block 3 (unordered list)
+msgid ""
+"Best in class performance. Klipper is able to achieve high stepping rates on"
+" both new and old micro-controllers. Even old 8bit micro-controllers can "
+"obtain rates over 175K steps per second. On more recent micro-controllers, "
+"several million steps per second are possible. Higher stepper rates enable "
+"higher print velocities. The stepper event timing remains precise even at "
+"high speeds which improves overall stability."
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1 stepper active"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "157K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "99K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "196K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "123K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "471K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "STM32F042"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "814K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "578K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "866K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "708K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1180K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "818K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1273K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "981K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1690K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1385K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1923K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1351K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2353K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1622K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "Raspberry Pi Pico (RP2040)"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2400K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1636K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2500K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1674K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "3077K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1885K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "3652K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2459K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "Fysetc Spider (STM32F446)"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "3913K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2634K"
+msgstr ""
+
+#: docs/Features.md:block 11 (paragraph)
+msgid ""
+"Further details on the benchmarks are available in the [Benchmarks "
+"document](Benchmarks.md)."
+msgstr ""
+
+#~ msgid ""
+#~ "Best in class performance. Klipper is able to achieve high stepping rates on"
+#~ " both new and old micro-controllers. Even old 8bit micro-controllers can "
+#~ "obtain rates over 175K steps per second. On more recent micro-controllers, "
+#~ "rates over 500K steps per second are possible. Higher stepper rates enable "
+#~ "higher print velocities. The stepper event timing remains precise even at "
+#~ "high speeds which improves overall stability."
+#~ msgstr ""
+#~ "Meilleures performances de sa catégorie. Klipper est capable d'atteindre des"
+#~ " taux de pas élevés sur les micro-contrôleurs nouveaux et anciens. Même les "
+#~ "anciens microcontrôleurs 8 bits peuvent obtenir des taux supérieurs à 175 "
+#~ "000 pas par seconde. Sur les micro-contrôleurs plus récents, des taux "
+#~ "supérieurs à 500 000 pas par seconde sont possibles. Des taux de pas plus "
+#~ "élevés permettent des vitesses d'impression plus importantes. La "
+#~ "synchronisation des événements pas à pas reste précise même à des vitesses "
+#~ "élevées, ce qui améliore la stabilité globale."
+
+#~ msgid "Fastest step rate"
+#~ msgstr "Taux de pas le plus rapide"
+
+#~ msgid "154K"
+#~ msgstr "154K"
+
+#~ msgid "102K"
+#~ msgstr "102K"
+
+#~ msgid "192K"
+#~ msgstr "192K"
+
+#~ msgid "127K"
+#~ msgstr "127K"
+
+#~ msgid "234K"
+#~ msgstr "234K"
+
+#~ msgid "217K"
+#~ msgstr "217K"
+
+#~ msgid "387K"
+#~ msgstr "387K"
+
+#~ msgid "360K"
+#~ msgstr "360K"
+
+#~ msgid "438K"
+#~ msgstr "438K"
+
+#~ msgid "564K"
+#~ msgstr "564K"
+
+#~ msgid "574K"
+#~ msgstr "574K"
+
+#~ msgid "661K"
+#~ msgstr "661K"
+
+#~ msgid "680K"
+#~ msgstr "680K"
+
+#~ msgid "761K"
+#~ msgstr "761K"
+
+#~ msgid "692K"
+#~ msgstr "692K"
+
+#~ msgid "922K"
+#~ msgstr "922K"
+
+#~ msgid "711K"
+#~ msgstr "711K"
+
+#~ msgid ""
+#~ "On AVR platforms, the highest achievable step rate is with just one stepper "
+#~ "stepping. On the SAMD21 and STM32F103 the highest step rate is with two "
+#~ "simultaneous steppers stepping. On the SAM3X8E, SAM4S8C, SAM4E8E, LPC176x, "
+#~ "and PRU the highest step rate is with three simultaneous steppers. On the "
+#~ "SAMD51 and STM32F4 the highest step rate is with four simultaneous steppers."
+#~ " (Further details on the benchmarks are available in the [Benchmarks "
+#~ "document](Benchmarks.md).)"
+#~ msgstr ""
+#~ "Sur les plates-formes AVR, le taux de pas le plus élevé est atteint avec un "
+#~ "seul stepper. Sur les SAMD21 et STM32F103, le taux de pas le plus élevé est "
+#~ "obtenu avec deux pas simultanés. Sur les SAM3X8E, SAM4S8C, SAM4E8E, LPC176x,"
+#~ " et PRU, le taux de pas le plus élevé est obtenu avec trois pas simultanés. "
+#~ "Sur les SAMD51 et STM32F4, la vitesse de pas la plus élevée est obtenue avec"
+#~ " quatre steppers simultanés. (Plus de détails sur les benchmarks sont "
+#~ "disponibles dans le document [Tests de performance](Benchmarks.md)."
 
 #~ msgid ""
 #~ "Standard G-Code support. Common g-code commands that are produced by typical"
