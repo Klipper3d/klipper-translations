@@ -104,7 +104,7 @@ avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U flash:w:optiboot_atmeg
 avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-要通过Optibootbootloader 刷写一个应用程序，请使用以下方法：
+要通过Optiboot bootloader 刷写一个应用程序，请使用以下方法：
 
 ```
 avrdude -carduino -patmega168 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
@@ -112,9 +112,9 @@ avrdude -carduino -patmega168 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.e
 
 ## SAM3 微控制器 (Arduino Due)
 
-使用SAM3 mcu的bootloader是不常见的。芯片本身有一个ROM，允许从3.3V serial port 或从USB对闪存进行编程。
+通常在 SAM 3 微控制器上不使用引导程序。芯片自带一个允许从3.3V 串口或从USB进行编程的ROM。
 
-为了启用ROM，"erase"引脚在复位过程中保持高电平，这将擦除闪存的内容，并使ROM运行。在Arduino Due上，这个程序可以通过在 "programming usb port"（最靠近电源的USB端口）上设置1200的波特率来完成。
+为了启用ROM，将"erase"引脚在复位过程中保持高电平，这将擦除闪存的内容，并使ROM运行。在Arduino Due上，这个程序可以通过在 "programming usb port"（编程USB口，最靠近电源的USB端口）上设置1200的波特率来完成。
 
 The code at <https://github.com/shumatech/BOSSA> can be used to program the SAM3. It is recommended to use version 1.9 or later.
 
@@ -125,11 +125,11 @@ bossac -U -p /dev/ttyACM0 -a -e -w out/klipper.bin -v -b
 bossac -U -p /dev/ttyACM0 -R
 ```
 
-## SAM4 micro-controllers (Duet Wifi)
+## SAM4 微控制器 (Duet Wifi)
 
-It is not common to use a bootloader with the SAM4 mcu. The chip itself has a ROM that allows the flash to be programmed from 3.3V serial port or from USB.
+通常在 SAM4 微控制器中不使用引导程序。芯片自带一个可以从 3.3V 串口或 USB 进行编程的ROM。
 
-To enable the ROM, the "erase" pin is held high during a reset, which erases the flash contents, and causes the ROM to run.
+为了启用ROM，在复位过程中要将"erase"引脚保持为高电平，这将擦除闪存内容，并使ROM运行。
 
 The code at <https://github.com/shumatech/BOSSA> can be used to program the SAM4. It is necessary to use version `1.8.0` or higher.
 
@@ -139,7 +139,7 @@ The code at <https://github.com/shumatech/BOSSA> can be used to program the SAM4
 bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 ```
 
-## SAMD21 micro-controllers (Arduino Zero)
+## SAMD21微控制器（Arduino Zero）
 
 The SAMD21 bootloader is flashed via the ARM Serial Wire Debug (SWD) interface. This is commonly done with a dedicated SWD hardware dongle. Alternatively, one can use a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi).
 
