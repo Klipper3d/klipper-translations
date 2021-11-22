@@ -1,6 +1,6 @@
 # Probe calibration
 
-Dette dokumentet beskriver metoden for kalibrering av x, y, og z-forskyvning av en «automatisk probe» i Klipper. Dette er nyttig for brukere som har en «[probe]» eller «[bltouch]»-del i oppsettsfilen sin.
+Dette dokumentet beskriver metoden for kalibrering av x, y, og z-forskyvning av en «automatisk probe» i Klipper. Dette er nyttig for brukere som har en `[probe]` eller `[bltouch]`-del i oppsettsfilen sin.
 
 ## Kalibrering av probeforskyvning for X og Y
 
@@ -14,7 +14,7 @@ PROBE
 
 Merk tapen akkurat under proben (eller bruk en lignende metode for å merke posisjon på bunnplaten).
 
-Utfør en «GET_POSITION»-kommando og ta vare på verktøyhodets XY-posisjon, som rapportert av kommandoen. For eksempel hvis man ser:
+Utfør en `GET_POSITION`-kommando og ta vare på verktøyhodets XY-posisjon, som rapportert av kommandoen. For eksempel hvis man ser:
 
 ```
 Recv: // toolhead: X:46.500000 Y:27.000000 Z:15.000000 E:0.000000
@@ -28,19 +28,19 @@ Etter å ha registrert probeposisjon, send en rekke G1-kommandoer til tuten er d
 G1 F300 X57 Y30 Z15
 ```
 
-for å flytte tuten til en X-posisjon på 57, og Y-posisjon på 30. Når man finner posisjonen direkte over merket, kan man bruke «GET_POSITION»-kommandoen for å rapportere den posisjonen. Dette er tut-posisjonen.
+for å flytte tuten til en X-posisjon på 57, og Y-posisjon på 30. Når man finner posisjonen direkte over merket, kan man bruke `GET_POSITION`-kommandoen for å rapportere den posisjonen. Dette er tut-posisjonen.
 
-«x_offset» er dermed «nozzle_x_position - probe_x_position» og «y_offset» er «nozzle_y_position - probe_y_position». Oppdater printer.cfg-filen med angitte verdier, fjern tape/merker fra bunnplaten, og kjør så en «RESTART»-kommando slik at de nye endringene anvendes.
+«x_offset» er dermed `nozzle_x_position - probe_x_position` og `y_offset` er `nozzle_y_position - probe_y_position`. Oppdater printer.cfg-filen med angitte verdier, fjern tape/merker fra bunnplaten, og kjør så en `RESTART`-kommando slik at de nye endringene anvendes.
 
 ## Kalibrering av probeforskyvning for Z
 
-Å angi nøyaktig z_offset for proben er kritisk for nøyaktige utskrifter. z_offset er avstanden mellom tuten og bunnplaten når proben utløser. Klipper sitt «PROBE_CALIBRATE»-verktøy kan brukes til å hente denne verdien. Den vil kjøre en automatisk probe for å måle probens Z-utløserposisjon og så starte en manuell probe for å hente Z-høyde for tuten. Probens z_offset vil så bli regnet ut basert på disse målingene.
+Å angi nøyaktig z_offset for proben er kritisk for nøyaktige utskrifter. z_offset er avstanden mellom tuten og bunnplaten når proben utløser. Klipper sitt `PROBE_CALIBRATE`-verktøy kan brukes til å hente denne verdien. Den vil kjøre en automatisk probe for å måle probens Z-utløserposisjon og så starte en manuell probe for å hente Z-høyde for tuten. Probens z_offset vil så bli regnet ut basert på disse målingene.
 
-Start ved å nullstile skriveren og så flytte hodet til en posisjon nær midten av bunnplaten. Gå til «Terminal»-fanen i OctoPrint og kjør «PROBE_CALIBTRATE»-kommandoen for å starte verktøyet.
+Start ved å nullstile skriveren og så flytte hodet til en posisjon nær midten av bunnplaten. Gå til «Terminal»-fanen i OctoPrint og kjør `PROBE_CALIBTRATE`-kommandoen for å starte verktøyet.
 
-Verktøyet vil utføre en automatisk probe, løfte hodet, flytte tuten over stedet for probingspunkt, og starte det manuelle probeverktøyet. Hvis tuten ikke flytter til en posisjon over det automatiske probepunktet, vil «ABORT» avslutte det manuelle probeverktøyet og utføre kalibrering av XY-probeforskyvning beskrevet ovenfor.
+Verktøyet vil utføre en automatisk probe, løfte hodet, flytte tuten over stedet for probingspunkt, og starte det manuelle probeverktøyet. Hvis tuten ikke flytter til en posisjon over det automatiske probepunktet, vil `ABORT` avslutte det manuelle probeverktøyet og utføre kalibrering av XY-probeforskyvning beskrevet ovenfor.
 
-Når det manuelle probeverktøyet starter, følger du stegene beskrevet i [«papirtesten»](Bed_Level.md#the-paper-test) for å bestemme faktisk avstand mellom tut og bunnplate på gitt posisjon. Når disse stegene er fullført, kan man utføre «ACCEPT» for posisjonen, og lagre resultatet i en oppsettsfil med:
+Når det manuelle probeverktøyet starter, følger du stegene beskrevet i [«papirtesten»](Bed_Level.md#the-paper-test) for å bestemme faktisk avstand mellom tut og bunnplate på gitt posisjon. Når disse stegene er fullført, kan man utføre `ACCEPT` for posisjonen, og lagre resultatet i en oppsettsfil med:
 
 ```
 SAVE_CONFIG
@@ -54,7 +54,7 @@ Hvis resultatet av «PROBE_CALIBRATE» invalideres, vil forrige [bunnplatemaske]
 
 ## Gjentaksbarhetssjekk
 
-Etter kalibrering av probens X, Y, og Z-forskyvning, er det en god idé å bekrefte at proben gir reproduserbare resultater. Start ved å nullstille skriveren, og så flytte hodet til en posisjon nær midten av bunnplaten. Gå til «Terminal»-fanen i OctoPrint og kjør «PROBE_ACCURACY»-kommandoen.
+Etter kalibrering av probens X, Y, og Z-forskyvning, er det en god idé å bekrefte at proben gir reproduserbare resultater. Start ved å nullstille skriveren, og så flytte hodet til en posisjon nær midten av bunnplaten. Gå til «Terminal»-fanen i OctoPrint og kjør `PROBE_ACCURACY`-kommandoen.
 
 Denne kommandoen vil kjøre proben ti ganger og gi et resultat lignende følgende:
 

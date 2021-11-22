@@ -2,11 +2,11 @@
 
 Bu talimatlar, yazılımın OctoPrint ile birlikte bir Raspberry Pi bilgisayarında çalışacağını varsayar. Ana makine olarak bir Raspberry Pi 2, 3 veya 4 bilgisayarın kullanılması önerilir (bkz. [SSS](FAQ.md # can-i-run-klipper-on-something-other-a-ahududu -pi-3) diğer makineler için).
 
-Klipper şu anda bir dizi Atmel ATmega tabanlı mikro denetleyiciyi, [ARM tabanlı mikro denetleyicileri](Features.md # step-benchmarklar) ve [Beaglebone PRU] (beaglebone.md) tabanlı yazıcıları desteklemektedir.
+Klipper şu anda bir dizi Atmel ATmega tabanlı mikro denetleyiciyi, [ARM tabanlı mikro denetleyicileri](Features.md#step-benchmarklar) ve [Beaglebone PRU](beaglebone.md) tabanlı yazıcıları desteklemektedir.
 
 ## Bir işletim sistemi görüntüsünü hazırlama
 
-Raspberry Pi bilgisayarına [OctoPi](https://github.com/guysoft/OctoPi) kurarak başlayın. OctoPi v0.17.0 veya sonraki bir sürümünü kullanın - sürüm bilgileri için [octopi sürümlerine] (https://github.com/guysoft/OctoPi/releases) bakın. OctoPi'nin önyüklediği ve OctoPrint web sunucusunun çalıştığı doğrulanmalıdır. OctoPrint web sayfasına bağlandıktan sonra, OctoPrint'i v1.4.2 veya sonraki bir sürüme yükseltmek için istemleri izleyin.
+Raspberry Pi bilgisayarına [OctoPi](https://github.com/guysoft/OctoPi) kurarak başlayın. OctoPi v0.17.0 veya sonraki bir sürümünü kullanın - sürüm bilgileri için [octopi sürümlerine](https://github.com/guysoft/OctoPi/releases) bakın. OctoPi'nin önyüklediği ve OctoPrint web sunucusunun çalıştığı doğrulanmalıdır. OctoPrint web sayfasına bağlandıktan sonra, OctoPrint'i v1.4.2 veya sonraki bir sürüme yükseltmek için istemleri izleyin.
 
 After installing OctoPi and upgrading OctoPrint, it will be necessary to ssh into the target machine to run a handful of system commands. If using a Linux or MacOS desktop, then the "ssh" software should already be installed on the desktop. There are free ssh clients available for other desktops (eg, [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Use the ssh utility to connect to the Raspberry Pi (ssh pi@octopi -- password is "raspberry") and run the following commands:
 
