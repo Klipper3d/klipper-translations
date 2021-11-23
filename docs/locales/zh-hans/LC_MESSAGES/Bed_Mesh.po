@@ -28,15 +28,6 @@ msgstr ""
 "需要注意的是，基于软件的校正还不能达到完美的程度，它只能尽可能达到床的形状。网床 也无法补偿机械和电气导致的问题。 "
 "如果机器没装好结构歪了或探针不准确，则 网床 模块将无法从探测过程中获得令人满意的结果。"
 
-msgid ""
-"Prior to Mesh Calibration you will need to be sure that your Probe's "
-"Z-Offset is calibrated. If using an endstop for Z homing it will need to be "
-"calibrated as well. See [Probe_Calibrate](Probe_Calibrate.md) and "
-"Z_ENDSTOP_CALIBRATE in [Manual_Level](Manual_Level.md) for more information."
-msgstr ""
-"在进行网格校准之前，请确保您已经校准了探头的 Z 偏移。 如果使用限位开关进行 Z 归位，则还需要对其进行校准。 有关详细信息，请参阅 "
-"[手动调平](Manual_Level.md) 中的 [探针校准](Probe_Calibrate.md) 和 Z_ENDSTOP_CALIBRATE。"
-
 msgid "Basic Configuration"
 msgstr "基本配置"
 
@@ -440,30 +431,8 @@ msgstr "全部打印床："
 msgid "`RELATIVE_REFERNCE_INDEX`"
 msgstr "`RELATIVE_REFERNCE_INDEX`"
 
-msgid ""
-"`ALGORITHM` See the configuration documentation above for details on how "
-"each parameter applies to the mesh."
-msgstr "`ALGORITHM` 关于每个参数对网格的影响，详见上方的配置文档。"
-
 msgid "Profiles"
 msgstr "配置"
-
-msgid "`BED_MESH_PROFILE SAVE=name LOAD=name REMOVE=name`"
-msgstr "`BED_MESH_PROFILE SAVE=name LOAD=name REMOVE=name`"
-
-msgid ""
-"After a BED_MESH_CALIBRATE has been performed, it is possible to save the "
-"current mesh state into a named profile. This makes it possible to load a "
-"mesh without re-probing the bed. After a profile has been saved using "
-"`BED_MESH_PROFILE SAVE=name` the `SAVE_CONFIG` gcode may be executed to "
-"write the profile to printer.cfg."
-msgstr ""
-"在进行 BED_MESH_CALIBRATE "
-"后，可以将当前网格状态保存到一个命名的配置中。这样就可以加载一个网格而不需要重新探测打印床。在使用`BED_MESH_PROFILE "
-"SAVE=name`保存了一个配置文件后，可以执行`SAVE_CONFIG`gcode，将配置文件写入print.cfg。"
-
-msgid "Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=name`."
-msgstr "可以通过运行 `BED_MESH_PROFILE LOAD=name` 来载入配置。"
 
 msgid ""
 "It should be noted that each time a BED_MESH_CALIBRATE occurs, the current "
@@ -714,17 +683,6 @@ msgstr ""
 msgid "Bed Mesh"
 msgstr "床网"
 
-#: docs/Bed_Mesh.md:block 48 (paragraph)
-msgid ""
-"`BED_MESH_CALIBRATE PROFILE=name METHOD=[manual | automatic] "
-"[<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: "
-"default* *Default Method: automatic if a probe is detected, otherwise "
-"manual*"
-msgstr ""
-"`BED_MESH_CALIBRATE PROFILE=name METHOD=[manual | automatic] "
-"[<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *默认配置文件：default* "
-"*默认方法：如果检测到探针则自动，否则手动*"
-
 #: docs/Bed_Mesh.md:block 49 (paragraph)
 msgid "Initiates the probing procedure for Bed Mesh Calibration."
 msgstr "启动床网校准的探测程序。"
@@ -747,6 +705,90 @@ msgid ""
 "splitting behavior."
 msgstr ""
 "床网的工作原理是拦截 G 代码移动命令并对其 Z 坐标进行变换。长的移动必须被分割成较小的移动以正确地遵循床的形状。下面的选项可以控制分割的行为。"
+
+#: docs/Bed_Mesh.md:block 3 (paragraph)
+msgid ""
+"Prior to Mesh Calibration you will need to be sure that your Probe's "
+"Z-Offset is calibrated. If using an endstop for Z homing it will need to be "
+"calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and "
+"Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information."
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 48 (paragraph)
+msgid ""
+"`BED_MESH_CALIBRATE PROFILE=<name> METHOD=[manual | automatic] "
+"[<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: "
+"default* *Default Method: automatic if a probe is detected, otherwise "
+"manual*"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 52 (unordered list)
+msgid "`ALGORITHM`"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 53 (paragraph)
+msgid ""
+"See the configuration documentation above for details on how each parameter "
+"applies to the mesh."
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 55 (paragraph)
+msgid "`BED_MESH_PROFILE SAVE=<name> LOAD=<name> REMOVE=<name>`"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 56 (paragraph)
+msgid ""
+"After a BED_MESH_CALIBRATE has been performed, it is possible to save the "
+"current mesh state into a named profile. This makes it possible to load a "
+"mesh without re-probing the bed. After a profile has been saved using "
+"`BED_MESH_PROFILE SAVE=<name>` the `SAVE_CONFIG` gcode may be executed to "
+"write the profile to printer.cfg."
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 57 (paragraph)
+msgid "Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=<name>`."
+msgstr ""
+
+#~ msgid ""
+#~ "Prior to Mesh Calibration you will need to be sure that your Probe's "
+#~ "Z-Offset is calibrated. If using an endstop for Z homing it will need to be "
+#~ "calibrated as well. See [Probe_Calibrate](Probe_Calibrate.md) and "
+#~ "Z_ENDSTOP_CALIBRATE in [Manual_Level](Manual_Level.md) for more information."
+#~ msgstr ""
+#~ "在进行网格校准之前，请确保您已经校准了探头的 Z 偏移。 如果使用限位开关进行 Z 归位，则还需要对其进行校准。 有关详细信息，请参阅 "
+#~ "[手动调平](Manual_Level.md) 中的 [探针校准](Probe_Calibrate.md) 和 Z_ENDSTOP_CALIBRATE。"
+
+#~ msgid ""
+#~ "`ALGORITHM` See the configuration documentation above for details on how "
+#~ "each parameter applies to the mesh."
+#~ msgstr "`ALGORITHM` 关于每个参数对网格的影响，详见上方的配置文档。"
+
+#~ msgid "`BED_MESH_PROFILE SAVE=name LOAD=name REMOVE=name`"
+#~ msgstr "`BED_MESH_PROFILE SAVE=name LOAD=name REMOVE=name`"
+
+#~ msgid ""
+#~ "After a BED_MESH_CALIBRATE has been performed, it is possible to save the "
+#~ "current mesh state into a named profile. This makes it possible to load a "
+#~ "mesh without re-probing the bed. After a profile has been saved using "
+#~ "`BED_MESH_PROFILE SAVE=name` the `SAVE_CONFIG` gcode may be executed to "
+#~ "write the profile to printer.cfg."
+#~ msgstr ""
+#~ "在进行 BED_MESH_CALIBRATE "
+#~ "后，可以将当前网格状态保存到一个命名的配置中。这样就可以加载一个网格而不需要重新探测打印床。在使用`BED_MESH_PROFILE "
+#~ "SAVE=name`保存了一个配置文件后，可以执行`SAVE_CONFIG`gcode，将配置文件写入print.cfg。"
+
+#~ msgid "Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=name`."
+#~ msgstr "可以通过运行 `BED_MESH_PROFILE LOAD=name` 来载入配置。"
+
+#~ msgid ""
+#~ "`BED_MESH_CALIBRATE PROFILE=name METHOD=[manual | automatic] "
+#~ "[<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: "
+#~ "default* *Default Method: automatic if a probe is detected, otherwise "
+#~ "manual*"
+#~ msgstr ""
+#~ "`BED_MESH_CALIBRATE PROFILE=name METHOD=[manual | automatic] "
+#~ "[<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *默认配置文件：default* "
+#~ "*默认方法：如果检测到探针则自动，否则手动*"
 
 #~ msgid ""
 #~ "Bed Mesh works by intercepting gcode move commands and applying a transform "

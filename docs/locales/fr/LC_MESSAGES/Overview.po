@@ -155,13 +155,6 @@ msgstr ""
 " Trinamic avec Klipper."
 
 msgid ""
-"[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
-"square."
-msgstr ""
-"[Correction de l'inclinaison](skew_correction.md) : Ajustements pour les "
-"axes qui ne sont pas parfaitement carrés."
-
-msgid ""
 "[PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools "
 "such as lasers or spindles."
 msgstr ""
@@ -264,13 +257,6 @@ msgstr ""
 " pour contrôler les appareils connectés aux broches GPIO d'un Raspberry Pi."
 
 msgid ""
-"[Beaglebone](beaglebone.md): Details for running Klipper on the Beaglebone "
-"PRU."
-msgstr ""
-"[Beaglebone](beaglebone.md) : Détails pour l'exécution de Klipper sur le PRU"
-" Beaglebone."
-
-msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-controller "
 "flashing."
 msgstr ""
@@ -287,10 +273,6 @@ msgstr ""
 "[Capteur de largeur de filament "
 "TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)"
 
-msgid "[Hall filament width sensor](HallFilamentWidthSensor.md)"
-msgstr ""
-"[Détecteur de largeur de filament à effet hall](HallFilamentWidthSensor.md)"
-
 #: docs/Overview.md:block 1 (header)
 msgid "Overview"
 msgstr "Vue d'Ensemble"
@@ -306,6 +288,40 @@ msgid ""
 msgstr ""
 "[Multi-MCU Prise origine matérielle](Multi_MCU_Homing.md): Prise d'origine "
 "matérielle et palpage utilisant plusieurs micro-contrôleurs."
+
+#: docs/Overview.md:block 6 (unordered list)
+msgid ""
+"[Skew correction](Skew_Correction.md): Adjustments for axes not perfectly "
+"square."
+msgstr ""
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid ""
+"[Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone "
+"PRU."
+msgstr ""
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
+msgstr ""
+
+#~ msgid ""
+#~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
+#~ "square."
+#~ msgstr ""
+#~ "[Correction de l'inclinaison](skew_correction.md) : Ajustements pour les "
+#~ "axes qui ne sont pas parfaitement carrés."
+
+#~ msgid ""
+#~ "[Beaglebone](beaglebone.md): Details for running Klipper on the Beaglebone "
+#~ "PRU."
+#~ msgstr ""
+#~ "[Beaglebone](beaglebone.md) : Détails pour l'exécution de Klipper sur le PRU"
+#~ " Beaglebone."
+
+#~ msgid "[Hall filament width sensor](HallFilamentWidthSensor.md)"
+#~ msgstr ""
+#~ "[Détecteur de largeur de filament à effet hall](HallFilamentWidthSensor.md)"
 
 #~ msgid "Configuration and Tuning Guides"
 #~ msgstr "Guides de configuration et réglages"

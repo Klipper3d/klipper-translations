@@ -349,15 +349,6 @@ msgstr ""
 msgid "[skew_correction]"
 msgstr ""
 
-msgid ""
-"Printer Skew Correction. It is possible to use software to correct printer "
-"skew across 3 planes, xy, xz, yz. This is done by printing a calibration "
-"model along a plane and measuring three lengths. Due to the nature of skew "
-"correction these lengths are set via gcode. See [skew "
-"correction](skew_correction.md) and [command reference](G-Codes.md#skew-"
-"correction) for details."
-msgstr ""
-
 msgid "Customized homing"
 msgstr ""
 
@@ -1214,11 +1205,6 @@ msgstr ""
 msgid "[hall_filament_width_sensor]"
 msgstr ""
 
-msgid ""
-"Hall filament width sensor (see [Hall Filament Width "
-"Sensor](HallFilamentWidthSensor.md))."
-msgstr ""
-
 msgid "Board specific hardware support"
 msgstr ""
 
@@ -1260,12 +1246,6 @@ msgid ""
 msgstr ""
 
 msgid "[replicape]"
-msgstr ""
-
-msgid ""
-"Replicape support - see the [beaglebone guide](beaglebone.md) and the "
-"[generic-replicape.cfg](../config/generic-replicape.cfg) file for an "
-"example."
 msgstr ""
 
 msgid "Other Custom Modules"
@@ -4432,6 +4412,49 @@ msgid ""
 "#   appropriate sensitivity value.) The default is to not enable\n"
 "#   sensorless homing.\n"
 msgstr ""
+
+#: docs/Config_Reference.md:block 103 (paragraph)
+msgid ""
+"Printer Skew Correction. It is possible to use software to correct printer "
+"skew across 3 planes, xy, xz, yz. This is done by printing a calibration "
+"model along a plane and measuring three lengths. Due to the nature of skew "
+"correction these lengths are set via gcode. See [Skew "
+"Correction](Skew_Correction.md) and [Command Reference](G-Codes.md#skew-"
+"correction) for details."
+msgstr ""
+
+#: docs/Config_Reference.md:block 375 (paragraph)
+msgid ""
+"Hall filament width sensor (see [Hall Filament Width "
+"Sensor](Hall_Filament_Width_Sensor.md))."
+msgstr ""
+
+#: docs/Config_Reference.md:block 390 (paragraph)
+msgid ""
+"Replicape support - see the [beaglebone guide](Beaglebone.md) and the "
+"[generic-replicape.cfg](../config/generic-replicape.cfg) file for an "
+"example."
+msgstr ""
+
+#~ msgid ""
+#~ "Printer Skew Correction. It is possible to use software to correct printer "
+#~ "skew across 3 planes, xy, xz, yz. This is done by printing a calibration "
+#~ "model along a plane and measuring three lengths. Due to the nature of skew "
+#~ "correction these lengths are set via gcode. See [skew "
+#~ "correction](skew_correction.md) and [command reference](G-Codes.md#skew-"
+#~ "correction) for details."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Hall filament width sensor (see [Hall Filament Width "
+#~ "Sensor](HallFilamentWidthSensor.md))."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Replicape support - see the [beaglebone guide](beaglebone.md) and the "
+#~ "[generic-replicape.cfg](../config/generic-replicape.cfg) file for an "
+#~ "example."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "sensor_type:\n"

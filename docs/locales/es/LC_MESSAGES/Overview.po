@@ -125,11 +125,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
-"square."
-msgstr ""
-
-msgid ""
 "[PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools "
 "such as lasers or spindles."
 msgstr ""
@@ -219,11 +214,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"[Beaglebone](beaglebone.md): Details for running Klipper on the Beaglebone "
-"PRU."
-msgstr ""
-
-msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-controller "
 "flashing."
 msgstr ""
@@ -233,9 +223,6 @@ msgstr ""
 "[Bus CAN](CANBUS.md): información para utilizar un bus CAN con Klipper."
 
 msgid "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
-msgstr ""
-
-msgid "[Hall filament width sensor](HallFilamentWidthSensor.md)"
 msgstr ""
 
 #: docs/Overview.md:block 1 (header)
@@ -251,6 +238,35 @@ msgid ""
 "[Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple "
 "micro-controllers."
 msgstr ""
+
+#: docs/Overview.md:block 6 (unordered list)
+msgid ""
+"[Skew correction](Skew_Correction.md): Adjustments for axes not perfectly "
+"square."
+msgstr ""
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid ""
+"[Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone "
+"PRU."
+msgstr ""
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
+msgstr ""
+
+#~ msgid ""
+#~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
+#~ "square."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[Beaglebone](beaglebone.md): Details for running Klipper on the Beaglebone "
+#~ "PRU."
+#~ msgstr ""
+
+#~ msgid "[Hall filament width sensor](HallFilamentWidthSensor.md)"
+#~ msgstr ""
 
 #~ msgid "Configuration and Tuning Guides"
 #~ msgstr ""

@@ -53,14 +53,6 @@ msgid ""
 "preparation for the next test:"
 msgstr ""
 
-msgid ""
-"To produce the benchmarks found in the Features.md document, the total "
-"number of steps per second is calculated by multiplying the number of active"
-" steppers with the nominal mcu frequency and dividing by the final ticks "
-"parameter. The results are rounded to the nearest K. For example, with three"
-" active steppers:"
-msgstr ""
-
 msgid "AVR step rate benchmark"
 msgstr ""
 
@@ -723,6 +715,23 @@ msgstr ""
 #: docs/Benchmarks.md:block 84 (table)
 msgid "380"
 msgstr ""
+
+#: docs/Benchmarks.md:block 15 (paragraph)
+msgid ""
+"To produce the benchmarks found in the [Features](Features.md) document, the"
+" total number of steps per second is calculated by multiplying the number of"
+" active steppers with the nominal mcu frequency and dividing by the final "
+"ticks parameter. The results are rounded to the nearest K. For example, with"
+" three active steppers:"
+msgstr ""
+
+#~ msgid ""
+#~ "To produce the benchmarks found in the Features.md document, the total "
+#~ "number of steps per second is calculated by multiplying the number of active"
+#~ " steppers with the nominal mcu frequency and dividing by the final ticks "
+#~ "parameter. The results are rounded to the nearest K. For example, with three"
+#~ " active steppers:"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "To obtain the single stepper and dual stepper benchmarks, the same "

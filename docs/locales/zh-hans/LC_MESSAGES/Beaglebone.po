@@ -31,13 +31,6 @@ msgstr ""
 "首先安装[Debian 9.9 2019-08-03 4GB SD IoT](https://beagleboard.org/latest-"
 "images)镜像。可以从micro-SD卡或内置的eMMC中运行该镜像。如果使用eMMC，现在需要按照上述链接的说明将其安装到eMMC。"
 
-msgid ""
-"Then ssh into the beaglebone machine (ssh debian@beaglebone -- password is "
-"\"temppwd\") and install Klipper by running the following commands:"
-msgstr ""
-"然后 ssh 进入 Beaglebone 机器（ssh debian@beaglebone -- 密码是 \"temppwd\"），通过运行以下命令安装"
-" Klipper："
-
 msgid "Install Octoprint"
 msgstr "安装 Octoprint"
 
@@ -46,16 +39,6 @@ msgstr "然后可以安装 Octoprint："
 
 msgid "And setup OctoPrint to start at bootup:"
 msgstr "和设置 Octoprint 开始启动："
-
-msgid ""
-"It is necessary to modify OctoPrint's **/etc/default/octoprint** "
-"configuration file. One must change the OCTOPRINT_USER user to \"debian\", "
-"change NICELEVEL to 0, uncomment the BASEDIR, CONFIGFILE, and DAEMON "
-"settings and change the references from \"/home/pi/\" to \"/home/debian/\":"
-msgstr ""
-"有必要修改OctoPrint的 **/etc/default/octoprint** 配置文件。我们必须把 OCTOPRINT_USER 用户改为 "
-"\"debian\"，把 NICELEVEL 改为 0 ，取消注释 BASEDIR、CONFIGFILE 和 DAEMON "
-"的设置，并把引用从\"/home/pi/\"改为\"/home/debian/\"："
 
 msgid "Then start the Octoprint service:"
 msgstr "然后启动 Octoprint 服务："
@@ -71,41 +54,14 @@ msgstr "要编译的 Klipper 微控制器代码，需要先将编译配置设为
 msgid "To build and install the new micro-controller code, run:"
 msgstr "要构建和安装新的微控制器代码，请运行："
 
-msgid ""
-"It is also necessary to compile and install the micro-controller code for a "
-"Linux host process. Run \"make menuconfig\" a second time and configure it "
-"for a \"Linux process\":"
-msgstr ""
-"还需要编译和安装用于 Linux 主机进程的微控制器代码。再次运行 \"make menuconfig\"，并将其配置为\"Linux "
-"process\"："
-
 msgid "Then install this micro-controller code as well:"
 msgstr "然后也安装这个微控制器代码："
 
 msgid "Remaining configuration"
 msgstr "剩余的配置"
 
-msgid ""
-"Complete the installation by configuring Klipper and Octoprint following the"
-" instructions in [the main installation "
-"document](Installation.md#configuring-klipper)."
-msgstr ""
-"根据[总安装文档](Installation.md#configuring-klipper)来配置 Klipper 和 Octoprint 来完成安装。"
-
 msgid "Printing on the Beaglebone"
 msgstr "在 Beaglebone 上打印"
-
-msgid ""
-"Unfortunately, the Beaglebone processor can sometimes struggle to run "
-"OctoPrint well. Print stalls have been known to occur on complex prints (the"
-" printer may move faster than OctoPrint can send movement commands). If this"
-" occurs, consider using the \"virtual_sdcard\" feature (see [config "
-"reference](Config_Reference.md#virtual_sdcard) for details) to print "
-"directly from Klipper."
-msgstr ""
-"不幸的是，Beaglebone 处理器有时难以很好地运行 OctoPrint。据了解，在复杂的打印中会出现打印停滞（打印机的移动速度可能比 "
-"OctoPrint 发送的移动命令快）。如果发生这种情况，可以考虑使用 \"virtual_sdcard\" "
-"功能（详见[配置参考](Config_Reference.md#virtual_sdcard)），直接从 Klipper 打印。"
 
 msgid ""
 "git clone https://github.com/foosel/OctoPrint.git\n"
@@ -158,12 +114,6 @@ msgstr "make menuconfig\n"
 msgid "Beaglebone"
 msgstr "Beaglebone"
 
-#: docs/beaglebone.md:block 16 (paragraph)
-msgid ""
-"Make sure the octoprint web server is accessible - it should be at: "
-"<http://beaglebone:5000/>"
-msgstr "确保可以访问 OctoPrint 网络服务器 - 它应该在以下位置：<http://beaglebone:5000/>"
-
 #: docs/beaglebone.md:block 6 (code)
 msgid ""
 "git clone https://github.com/Klipper3d/klipper\n"
@@ -171,6 +121,99 @@ msgid ""
 msgstr ""
 "git clone https://github.com/Klipper3d/klipper\n"
 "./klipper/scripts/install-beaglebone.sh\n"
+
+#: docs/Beaglebone.md:block 5 (paragraph)
+msgid ""
+"Then ssh into the Beaglebone machine (`ssh debian@beaglebone` -- password is"
+" `temppwd`) and install Klipper by running the following commands:"
+msgstr ""
+
+#: docs/Beaglebone.md:block 12 (paragraph)
+msgid ""
+"It is necessary to modify OctoPrint's **/etc/default/octoprint** "
+"configuration file. One must change the `OCTOPRINT_USER` user to `debian`, "
+"change `NICELEVEL` to `0`, uncomment the `BASEDIR`, `CONFIGFILE`, and "
+"`DAEMON` settings and change the references from `/home/pi/` to "
+"`/home/debian/`:"
+msgstr ""
+
+#: docs/Beaglebone.md:block 16 (paragraph)
+msgid ""
+"Make sure the OctoPrint web server is accessible - it should be at: "
+"<http://beaglebone:5000/>"
+msgstr ""
+
+#: docs/Beaglebone.md:block 22 (paragraph)
+msgid ""
+"It is also necessary to compile and install the micro-controller code for a "
+"Linux host process. Configure it a second time for a \"Linux process\":"
+msgstr ""
+
+#: docs/Beaglebone.md:block 27 (paragraph)
+msgid ""
+"Complete the installation by configuring Klipper and Octoprint following the"
+" instructions in the main [Installation](Installation.md#configuring-"
+"klipper) document."
+msgstr ""
+
+#: docs/Beaglebone.md:block 29 (paragraph)
+msgid ""
+"Unfortunately, the Beaglebone processor can sometimes struggle to run "
+"OctoPrint well. Print stalls have been known to occur on complex prints (the"
+" printer may move faster than OctoPrint can send movement commands). If this"
+" occurs, consider using the \"virtual_sdcard\" feature (see [Config "
+"Reference](Config_Reference.md#virtual_sdcard) for details) to print "
+"directly from Klipper."
+msgstr ""
+
+#~ msgid ""
+#~ "Then ssh into the beaglebone machine (ssh debian@beaglebone -- password is "
+#~ "\"temppwd\") and install Klipper by running the following commands:"
+#~ msgstr ""
+#~ "然后 ssh 进入 Beaglebone 机器（ssh debian@beaglebone -- 密码是 \"temppwd\"），通过运行以下命令安装"
+#~ " Klipper："
+
+#~ msgid ""
+#~ "It is necessary to modify OctoPrint's **/etc/default/octoprint** "
+#~ "configuration file. One must change the OCTOPRINT_USER user to \"debian\", "
+#~ "change NICELEVEL to 0, uncomment the BASEDIR, CONFIGFILE, and DAEMON "
+#~ "settings and change the references from \"/home/pi/\" to \"/home/debian/\":"
+#~ msgstr ""
+#~ "有必要修改OctoPrint的 **/etc/default/octoprint** 配置文件。我们必须把 OCTOPRINT_USER 用户改为 "
+#~ "\"debian\"，把 NICELEVEL 改为 0 ，取消注释 BASEDIR、CONFIGFILE 和 DAEMON "
+#~ "的设置，并把引用从\"/home/pi/\"改为\"/home/debian/\"："
+
+#~ msgid ""
+#~ "It is also necessary to compile and install the micro-controller code for a "
+#~ "Linux host process. Run \"make menuconfig\" a second time and configure it "
+#~ "for a \"Linux process\":"
+#~ msgstr ""
+#~ "还需要编译和安装用于 Linux 主机进程的微控制器代码。再次运行 \"make menuconfig\"，并将其配置为\"Linux "
+#~ "process\"："
+
+#~ msgid ""
+#~ "Complete the installation by configuring Klipper and Octoprint following the"
+#~ " instructions in [the main installation "
+#~ "document](Installation.md#configuring-klipper)."
+#~ msgstr ""
+#~ "根据[总安装文档](Installation.md#configuring-klipper)来配置 Klipper 和 Octoprint 来完成安装。"
+
+#~ msgid ""
+#~ "Unfortunately, the Beaglebone processor can sometimes struggle to run "
+#~ "OctoPrint well. Print stalls have been known to occur on complex prints (the"
+#~ " printer may move faster than OctoPrint can send movement commands). If this"
+#~ " occurs, consider using the \"virtual_sdcard\" feature (see [config "
+#~ "reference](Config_Reference.md#virtual_sdcard) for details) to print "
+#~ "directly from Klipper."
+#~ msgstr ""
+#~ "不幸的是，Beaglebone 处理器有时难以很好地运行 OctoPrint。据了解，在复杂的打印中会出现打印停滞（打印机的移动速度可能比 "
+#~ "OctoPrint 发送的移动命令快）。如果发生这种情况，可以考虑使用 \"virtual_sdcard\" "
+#~ "功能（详见[配置参考](Config_Reference.md#virtual_sdcard)），直接从 Klipper 打印。"
+
+#~ msgid ""
+#~ "Make sure the octoprint web server is accessible - it should be at: "
+#~ "<http://beaglebone:5000/>"
+#~ msgstr "确保可以访问 OctoPrint 网络服务器 - 它应该在以下位置：<http://beaglebone:5000/>"
 
 #~ msgid ""
 #~ "git clone https://github.com/KevinOConnor/klipper\n"

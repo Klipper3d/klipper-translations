@@ -305,13 +305,6 @@ msgstr ""
 "reference](Config_Reference.md#virtual_sdcard) 참조)."
 
 msgid ""
-"For running on the Beaglebone, see the [Beaglebone specific installation "
-"instructions](beaglebone.md)."
-msgstr ""
-"Beaglebone에서 실행하려면 [Beaglebone specific installation "
-"instructions](beaglebone.md) 을 참조하십시오."
-
-msgid ""
 "Klipper has been run on other machines. The Klipper host software only "
 "requires Python running on a Linux (or similar) computer. However, if you "
 "wish to run it on a different machine you will need Linux admin knowledge to"
@@ -1005,6 +998,19 @@ msgstr "자주 묻는 질문"
 msgid ""
 "Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>"
 msgstr ""
+
+#: docs/FAQ.md:block 31 (paragraph)
+msgid ""
+"For running on the Beaglebone, see the [Beaglebone specific installation "
+"instructions](Beaglebone.md)."
+msgstr ""
+
+#~ msgid ""
+#~ "For running on the Beaglebone, see the [Beaglebone specific installation "
+#~ "instructions](beaglebone.md)."
+#~ msgstr ""
+#~ "Beaglebone에서 실행하려면 [Beaglebone specific installation "
+#~ "instructions](beaglebone.md) 을 참조하십시오."
 
 #~ msgid ""
 #~ "Thanks. Kevin has a Patreon page at: "

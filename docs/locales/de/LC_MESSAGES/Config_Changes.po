@@ -341,12 +341,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"20190628: All configuration options have been removed from the "
-"[skew_correction] section. Configuration for skew_correction is now done via"
-" the SET_SKEW gcode. See skew_correction.md for recommended usage."
-msgstr ""
-
-msgid ""
 "20190607: The \"variable_X\" parameters of gcode_macro (along with the VALUE"
 " parameter of SET_GCODE_VARIABLE) are now parsed as Python literals. If a "
 "value needs to be assigned a string then wrap the value in quotes so that it"
@@ -541,6 +535,20 @@ msgid ""
 "NAME = params.NAME|default(VALUE)|float %}`. See the [Command Templates "
 "document](Command_Templates.md#macro-parameters) for examples."
 msgstr ""
+
+#: docs/Config_Changes.md:block 67 (paragraph)
+msgid ""
+"20190628: All configuration options have been removed from the "
+"[skew_correction] section. Configuration for skew_correction is now done via"
+" the SET_SKEW gcode. See [Skew Correction](Skew_Correction.md) for "
+"recommended usage."
+msgstr ""
+
+#~ msgid ""
+#~ "20190628: All configuration options have been removed from the "
+#~ "[skew_correction] section. Configuration for skew_correction is now done via"
+#~ " the SET_SKEW gcode. See skew_correction.md for recommended usage."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "20210503: The gcode_macro `default_parameter_<name>` config option is "

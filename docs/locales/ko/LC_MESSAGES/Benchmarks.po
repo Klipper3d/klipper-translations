@@ -74,16 +74,6 @@ msgid ""
 "preparation for the next test:"
 msgstr "실패시 다음 테스트를 준비하기 위해 에러를 클리어 해야 하는데 다음에 나오는 명령어를 복붙해 사용하면 된다.:"
 
-msgid ""
-"To produce the benchmarks found in the Features.md document, the total "
-"number of steps per second is calculated by multiplying the number of active"
-" steppers with the nominal mcu frequency and dividing by the final ticks "
-"parameter. The results are rounded to the nearest K. For example, with three"
-" active steppers:"
-msgstr ""
-"Features.md 문서에 있는 벤치마크들을 생성하기 위해서, 초당 전체 스텝수는 명목상의 mcu 주파수와 활성 스텝모터의 수를 곱하고"
-" 최종 tick 파라메터로 나누어 계산되어진다. 결과는 가장 가까운 K 로 반올림된다. 예를 들어 세개의 스텝모터라면 :"
-
 msgid "AVR step rate benchmark"
 msgstr "AVR 스텝 레이트 벤치마크"
 
@@ -776,6 +766,25 @@ msgstr ""
 #: docs/Benchmarks.md:block 84 (table)
 msgid "380"
 msgstr ""
+
+#: docs/Benchmarks.md:block 15 (paragraph)
+msgid ""
+"To produce the benchmarks found in the [Features](Features.md) document, the"
+" total number of steps per second is calculated by multiplying the number of"
+" active steppers with the nominal mcu frequency and dividing by the final "
+"ticks parameter. The results are rounded to the nearest K. For example, with"
+" three active steppers:"
+msgstr ""
+
+#~ msgid ""
+#~ "To produce the benchmarks found in the Features.md document, the total "
+#~ "number of steps per second is calculated by multiplying the number of active"
+#~ " steppers with the nominal mcu frequency and dividing by the final ticks "
+#~ "parameter. The results are rounded to the nearest K. For example, with three"
+#~ " active steppers:"
+#~ msgstr ""
+#~ "Features.md 문서에 있는 벤치마크들을 생성하기 위해서, 초당 전체 스텝수는 명목상의 mcu 주파수와 활성 스텝모터의 수를 곱하고"
+#~ " 최종 tick 파라메터로 나누어 계산되어진다. 결과는 가장 가까운 K 로 반올림된다. 예를 들어 세개의 스텝모터라면 :"
 
 #~ msgid ""
 #~ "To obtain the single stepper and dual stepper benchmarks, the same "

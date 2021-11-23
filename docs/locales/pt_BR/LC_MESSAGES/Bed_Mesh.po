@@ -21,13 +21,6 @@ msgid ""
 " probing process."
 msgstr ""
 
-msgid ""
-"Prior to Mesh Calibration you will need to be sure that your Probe's "
-"Z-Offset is calibrated. If using an endstop for Z homing it will need to be "
-"calibrated as well. See [Probe_Calibrate](Probe_Calibrate.md) and "
-"Z_ENDSTOP_CALIBRATE in [Manual_Level](Manual_Level.md) for more information."
-msgstr ""
-
 msgid "Basic Configuration"
 msgstr ""
 
@@ -367,26 +360,7 @@ msgstr ""
 msgid "`RELATIVE_REFERNCE_INDEX`"
 msgstr ""
 
-msgid ""
-"`ALGORITHM` See the configuration documentation above for details on how "
-"each parameter applies to the mesh."
-msgstr ""
-
 msgid "Profiles"
-msgstr ""
-
-msgid "`BED_MESH_PROFILE SAVE=name LOAD=name REMOVE=name`"
-msgstr ""
-
-msgid ""
-"After a BED_MESH_CALIBRATE has been performed, it is possible to save the "
-"current mesh state into a named profile. This makes it possible to load a "
-"mesh without re-probing the bed. After a profile has been saved using "
-"`BED_MESH_PROFILE SAVE=name` the `SAVE_CONFIG` gcode may be executed to "
-"write the profile to printer.cfg."
-msgstr ""
-
-msgid "Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=name`."
 msgstr ""
 
 msgid ""
@@ -556,14 +530,6 @@ msgstr ""
 msgid "Bed Mesh"
 msgstr "Malha da Base"
 
-#: docs/Bed_Mesh.md:block 48 (paragraph)
-msgid ""
-"`BED_MESH_CALIBRATE PROFILE=name METHOD=[manual | automatic] "
-"[<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: "
-"default* *Default Method: automatic if a probe is detected, otherwise "
-"manual*"
-msgstr ""
-
 #: docs/Bed_Mesh.md:block 49 (paragraph)
 msgid "Initiates the probing procedure for Bed Mesh Calibration."
 msgstr ""
@@ -583,6 +549,82 @@ msgid ""
 "correctly follow the shape of the bed. The options below control the "
 "splitting behavior."
 msgstr ""
+
+#: docs/Bed_Mesh.md:block 3 (paragraph)
+msgid ""
+"Prior to Mesh Calibration you will need to be sure that your Probe's "
+"Z-Offset is calibrated. If using an endstop for Z homing it will need to be "
+"calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and "
+"Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information."
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 48 (paragraph)
+msgid ""
+"`BED_MESH_CALIBRATE PROFILE=<name> METHOD=[manual | automatic] "
+"[<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: "
+"default* *Default Method: automatic if a probe is detected, otherwise "
+"manual*"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 52 (unordered list)
+msgid "`ALGORITHM`"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 53 (paragraph)
+msgid ""
+"See the configuration documentation above for details on how each parameter "
+"applies to the mesh."
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 55 (paragraph)
+msgid "`BED_MESH_PROFILE SAVE=<name> LOAD=<name> REMOVE=<name>`"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 56 (paragraph)
+msgid ""
+"After a BED_MESH_CALIBRATE has been performed, it is possible to save the "
+"current mesh state into a named profile. This makes it possible to load a "
+"mesh without re-probing the bed. After a profile has been saved using "
+"`BED_MESH_PROFILE SAVE=<name>` the `SAVE_CONFIG` gcode may be executed to "
+"write the profile to printer.cfg."
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 57 (paragraph)
+msgid "Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=<name>`."
+msgstr ""
+
+#~ msgid ""
+#~ "Prior to Mesh Calibration you will need to be sure that your Probe's "
+#~ "Z-Offset is calibrated. If using an endstop for Z homing it will need to be "
+#~ "calibrated as well. See [Probe_Calibrate](Probe_Calibrate.md) and "
+#~ "Z_ENDSTOP_CALIBRATE in [Manual_Level](Manual_Level.md) for more information."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`ALGORITHM` See the configuration documentation above for details on how "
+#~ "each parameter applies to the mesh."
+#~ msgstr ""
+
+#~ msgid "`BED_MESH_PROFILE SAVE=name LOAD=name REMOVE=name`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "After a BED_MESH_CALIBRATE has been performed, it is possible to save the "
+#~ "current mesh state into a named profile. This makes it possible to load a "
+#~ "mesh without re-probing the bed. After a profile has been saved using "
+#~ "`BED_MESH_PROFILE SAVE=name` the `SAVE_CONFIG` gcode may be executed to "
+#~ "write the profile to printer.cfg."
+#~ msgstr ""
+
+#~ msgid "Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=name`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`BED_MESH_CALIBRATE PROFILE=name METHOD=[manual | automatic] "
+#~ "[<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: "
+#~ "default* *Default Method: automatic if a probe is detected, otherwise "
+#~ "manual*"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Bed Mesh works by intercepting gcode move commands and applying a transform "

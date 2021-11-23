@@ -152,13 +152,6 @@ msgstr ""
 "verwenden."
 
 msgid ""
-"[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
-"square."
-msgstr ""
-"[Skew correction](skew_correction.md): Einstellungen für nicht perfekt "
-"rechtwinklige Achsen."
-
-msgid ""
 "[PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools "
 "such as lasers or spindles."
 msgstr ""
@@ -259,13 +252,6 @@ msgstr ""
 "sind."
 
 msgid ""
-"[Beaglebone](beaglebone.md): Details for running Klipper on the Beaglebone "
-"PRU."
-msgstr ""
-"[Beaglebone](beaglebone.md): Details über das Betreiben von Klipper auf dem "
-"Beaglebone PRU."
-
-msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-controller "
 "flashing."
 msgstr ""
@@ -279,9 +265,6 @@ msgstr ""
 
 msgid "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
 msgstr "[TSL1401CL Filamentbreitensensor](TSL1401CL_Filament_Width_Sensor.md)"
-
-msgid "[Hall filament width sensor](HallFilamentWidthSensor.md)"
-msgstr "[Hall-Effekt Filamentbreitensensor](HallFilamentWidthSensor.md)"
 
 #: docs/Overview.md:block 1 (header)
 msgid "Overview"
@@ -298,6 +281,39 @@ msgid ""
 msgstr ""
 "[Multi-MCU Homing](Multi_MCU_Homing.md): Homing und Probing mithilfe "
 "mehrerer Mikrocontroller."
+
+#: docs/Overview.md:block 6 (unordered list)
+msgid ""
+"[Skew correction](Skew_Correction.md): Adjustments for axes not perfectly "
+"square."
+msgstr ""
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid ""
+"[Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone "
+"PRU."
+msgstr ""
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
+msgstr ""
+
+#~ msgid ""
+#~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
+#~ "square."
+#~ msgstr ""
+#~ "[Skew correction](skew_correction.md): Einstellungen für nicht perfekt "
+#~ "rechtwinklige Achsen."
+
+#~ msgid ""
+#~ "[Beaglebone](beaglebone.md): Details for running Klipper on the Beaglebone "
+#~ "PRU."
+#~ msgstr ""
+#~ "[Beaglebone](beaglebone.md): Details über das Betreiben von Klipper auf dem "
+#~ "Beaglebone PRU."
+
+#~ msgid "[Hall filament width sensor](HallFilamentWidthSensor.md)"
+#~ msgstr "[Hall-Effekt Filamentbreitensensor](HallFilamentWidthSensor.md)"
 
 #~ msgid "Configuration and Tuning Guides"
 #~ msgstr ""

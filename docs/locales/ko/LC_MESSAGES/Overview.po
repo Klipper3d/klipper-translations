@@ -120,11 +120,6 @@ msgid ""
 msgstr "[TMC 드라이버](TMC_Drivers.md): Klipper와 함께 Trinamic 스테퍼 모터 드라이버 사용."
 
 msgid ""
-"[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
-"square."
-msgstr "[Skew correction](skew_correction.md): 축 틀어짐 보정."
-
-msgid ""
 "[PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools "
 "such as lasers or spindles."
 msgstr ""
@@ -203,12 +198,6 @@ msgstr ""
 "GPIO 핀에 연결된 장치 제어에 대한 세부 정보."
 
 msgid ""
-"[Beaglebone](beaglebone.md): Details for running Klipper on the Beaglebone "
-"PRU."
-msgstr ""
-"[Beaglebone](beaglebone.md): Beaglebone PRU에서 Klipper를 실행하는 방법에 대한 세부 정보."
-
-msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-controller "
 "flashing."
 msgstr "[브트로더](Bootloaders.md): 마이크로 컨트롤러 펌업에 대한 개발자 정보."
@@ -218,9 +207,6 @@ msgstr "[캔버스](CANBUS.md): Klipper에서 CAN 버스를 사용하는 방법�
 
 msgid "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
 msgstr "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
-
-msgid "[Hall filament width sensor](HallFilamentWidthSensor.md)"
-msgstr "[홀 필라멘트 너비 센서](HallFilamentWidthSensor.md)"
 
 #: docs/Overview.md:block 1 (header)
 msgid "Overview"
@@ -235,6 +221,36 @@ msgid ""
 "[Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple "
 "micro-controllers."
 msgstr ""
+
+#: docs/Overview.md:block 6 (unordered list)
+msgid ""
+"[Skew correction](Skew_Correction.md): Adjustments for axes not perfectly "
+"square."
+msgstr ""
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid ""
+"[Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone "
+"PRU."
+msgstr ""
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
+msgstr ""
+
+#~ msgid ""
+#~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
+#~ "square."
+#~ msgstr "[Skew correction](skew_correction.md): 축 틀어짐 보정."
+
+#~ msgid ""
+#~ "[Beaglebone](beaglebone.md): Details for running Klipper on the Beaglebone "
+#~ "PRU."
+#~ msgstr ""
+#~ "[Beaglebone](beaglebone.md): Beaglebone PRU에서 Klipper를 실행하는 방법에 대한 세부 정보."
+
+#~ msgid "[Hall filament width sensor](HallFilamentWidthSensor.md)"
+#~ msgstr "[홀 필라멘트 너비 센서](HallFilamentWidthSensor.md)"
 
 #~ msgid "Configuration and Tuning Guides"
 #~ msgstr ""
