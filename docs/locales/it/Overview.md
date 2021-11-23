@@ -32,7 +32,7 @@ Benvenuto nella documentazione di Klipper. Se sei nuovo di Klipper, inizia con i
 - [Driver TMC](TMC_Drivers.md): Uso dei driver Trinamic per motori passo-passo con Klipper.
 - [Multi-MCU Homing](Multi_MCU_Homing.md): Homing e probing utilizzando più microcontrollori.
 - [Slicers](Slicers.md): Configurare il software "slicer" per Klipper.
-- [Correzione inclinazione](skew_correction.md): Regolazioni per assi non perfettamente squadrati.
+- [Skew correction](Skew_Correction.md): Adjustments for axes not perfectly square.
 - [Strumenti PWM](Using_PWM_Tools.md): Guida su come usare gli strumenti controllati da PWM come i laser o i mandrini.
 
 ## Documentazione per sviluppatori
@@ -53,8 +53,8 @@ Benvenuto nella documentazione di Klipper. Se sei nuovo di Klipper, inizia con i
 - [Configurazioni di esempio](Example_Configs.md): Informazioni su come aggiungere un file di configurazione di esempio a Klipper.
 - [Aggiornamenti SDCard](SDCard_Updates.md): esegui il flashing di un microcontrollore copiando un file binario su una scheda SD nel microcontrollore.
 - [Raspberry Pi come microcontrollore](RPi_microcontroller.md): Dettagli per controllare i dispositivi collegati ai pin GPIO di un Raspberry Pi.
-- [Beaglebone](beaglebone.md): Dettagli per l'esecuzione di Klipper sulla PRU Beaglebone.
+- [Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone PRU.
 - [Bootloaders](Bootloaders.md): Informazioni per gli sviluppatori sul flashing del microcontrollore.
 - [CAN bus](CANBUS.md): Informazioni sull'uso del CAN bus con Klipper.
 - [Sensore larghezza filamento TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
-- [Sensore di larghezza del filamento Hall](HallFilamentWidthSensor.md)
+- [Hall filament width sensor](Hall_Filament_Width_Sensor.md)

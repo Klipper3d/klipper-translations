@@ -1,4 +1,4 @@
-# 打包 Klipper
+# Packaging Klipper
 
 Klipper 是个有点反常的 Python 程序，因为它不使用 setuptools 来构建和安装。关于如何最好地打包它的一些说明如下：
 
@@ -16,4 +16,4 @@ Klipper 使用一个 C 模块来更快地处理一些运动学计算。此模块
 
 ## 示例打包脚本
 
-klipper-git 是为 Arch Linux 打包的，并且在 https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git 上有一个 PKGBUILD（包构建脚本）。
+klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).

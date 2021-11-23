@@ -49,7 +49,7 @@ clear_shutdown
 
 To obtain the single stepper benchmarks, the same configuration sequence is used, but only the first block of the above test is cut-and-paste into the console.py window.
 
-Features.md 문서에 있는 벤치마크들을 생성하기 위해서, 초당 전체 스텝수는 명목상의 mcu 주파수와 활성 스텝모터의 수를 곱하고 최종 tick 파라메터로 나누어 계산되어진다. 결과는 가장 가까운 K 로 반올림된다. 예를 들어 세개의 스텝모터라면 :
+To produce the benchmarks found in the [Features](Features.md) document, the total number of steps per second is calculated by multiplying the number of active steppers with the nominal mcu frequency and dividing by the final ticks parameter. The results are rounded to the nearest K. For example, with three active steppers:
 
 ```
 ECHO Test result is: {"%.0fK" % (3. * freq / ticks / 1000.)}

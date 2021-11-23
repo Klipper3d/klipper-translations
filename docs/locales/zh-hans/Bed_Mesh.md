@@ -2,7 +2,7 @@
 
 网床 插件可用于补偿热床表面的不规则性，以保证在打印过程中获得更好的第一层。 需要注意的是，基于软件的校正还不能达到完美的程度，它只能尽可能达到床的形状。网床 也无法补偿机械和电气导致的问题。 如果机器没装好结构歪了或探针不准确，则 网床 模块将无法从探测过程中获得令人满意的结果。
 
-在进行网格校准之前，请确保您已经校准了探头的 Z 偏移。 如果使用限位开关进行 Z 归位，则还需要对其进行校准。 有关详细信息，请参阅 [手动调平](Manual_Level.md) 中的 [探针校准](Probe_Calibrate.md) 和 Z_ENDSTOP_CALIBRATE。
+Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information.
 
 ## 基本配置
 
@@ -169,7 +169,7 @@ faulty_region_4_max: 45.0, 210.0
 
 ### 校准
 
-`BED_MESH_CALIBRATE PROFILE=name METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *默认配置文件：default* *默认方法：如果检测到探针则自动，否则手动*
+`BED_MESH_CALIBRATE PROFILE=<name> METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: default* *Default Method: automatic if a probe is detected, otherwise manual*
 
 启动床网校准的探测程序。
 
@@ -187,15 +187,17 @@ faulty_region_4_max: 45.0, 210.0
    - `ROUND_PROBE_COUNT`
 - 全部打印床：
    - `RELATIVE_REFERNCE_INDEX`
-   - `ALGORITHM` 关于每个参数对网格的影响，详见上方的配置文档。
+   - `ALGORITHM`
+
+See the configuration documentation above for details on how each parameter applies to the mesh.
 
 ### 配置
 
-`BED_MESH_PROFILE SAVE=name LOAD=name REMOVE=name`
+`BED_MESH_PROFILE SAVE=<name> LOAD=<name> REMOVE=<name>`
 
-在进行 BED_MESH_CALIBRATE 后，可以将当前网格状态保存到一个命名的配置中。这样就可以加载一个网格而不需要重新探测打印床。在使用`BED_MESH_PROFILE SAVE=name`保存了一个配置文件后，可以执行`SAVE_CONFIG`gcode，将配置文件写入print.cfg。
+After a BED_MESH_CALIBRATE has been performed, it is possible to save the current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using `BED_MESH_PROFILE SAVE=<name>` the `SAVE_CONFIG` gcode may be executed to write the profile to printer.cfg.
 
-可以通过运行 `BED_MESH_PROFILE LOAD=name` 来载入配置。
+Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=<name>`.
 
 请注意，每次运行 BED_MESH_CALIBRATE 后，当前状态会被保存到 *default* 配置。如果这个配置在配置文件中存在，它会在 Klipper 启动时自动载入。如果不希望这种行为，可以通过以下命令删除 *default* 配置：
 

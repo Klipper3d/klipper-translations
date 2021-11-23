@@ -93,7 +93,7 @@ The Klipper micro-controller baud rate is not related to the baud rate of the mi
 
 Klipper will run on a Raspberry Pi 1 and on the Raspberry Pi Zero, but these boards don't have enough processing power to run OctoPrint well. It is common for print stalls to occur on these slower machines when printing directly from OctoPrint. (The printer may move faster than OctoPrint can send movement commands.) If you wish to run on one one of these slower boards anyway, consider using the "virtual_sdcard" feature when printing (see [config reference](Config_Reference.md#virtual_sdcard) for details).
 
-要在 Beaglebone 上运行，请参阅 [Beaglebone 特定安装说明](beaglebone.md)。
+For running on the Beaglebone, see the [Beaglebone specific installation instructions](Beaglebone.md).
 
 Klipper has been run on other machines. The Klipper host software only requires Python running on a Linux (or similar) computer. However, if you wish to run it on a different machine you will need Linux admin knowledge to install the system prerequisites for that particular machine. See the [install-octopi.sh](../scripts/install-octopi.sh) script for further information on the necessary Linux admin steps.
 

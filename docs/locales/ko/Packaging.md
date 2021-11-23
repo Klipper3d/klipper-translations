@@ -1,4 +1,4 @@
-# Klipper 패키징
+# Packaging Klipper
 
 Klipper는 빌드 및 설치를 위해 setuptools 를 사용하지 않기 때문에 파이썬 프로그램 사이에서 다소 패키징 이상입니다. 가장 좋은 패키징 방법에 대한 몇 가지 참고 사항은 다음과 같습니다:
 
@@ -16,4 +16,4 @@ git에서 Klipper 패키지를 빌드하는 경우 .git 디렉토리를 제공�
 
 ## 샘플 패키징 스크립트
 
-klipper-git은 Arch Linux 용으로 패키지되어 있으며 https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git에서 PKGBUILD(패키지 빌드 스크립트)를 사용할 수 있습니다.
+klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).

@@ -298,11 +298,11 @@ Klipper는 일반 구성 및 상태에 대해 "확장된" G-Code 명령을 사�
 
 ### Skew Correction
 
-다음 명령은 [skew_correction config section](Config_Reference.md#skew_correction) 이 활성화된 경우 사용할 수 있습니다([skew correction guide](skew_correction.md) 참조):
+The following commands are available when the [skew_correction config section](Config_Reference.md#skew_correction) is enabled (also see the [Skew Correction](Skew_Correction.md) guide):
 
 - `SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] [YZ=<ac,bd,ad>] [CLEAR=<0|1>]`: 보정 인쇄에서 가져온 측정값(mm)으로 [skew_correction] 모듈을 구성합니다. 평면 조합에 대한 측정값을 입력할 수 있으며 입력하지 않은 평면은 현재 값을 유지합니다. 'CLEAR=1'을 입력하면 모든 기울기 보정이 비활성화됩니다.
 - `GET_CURRENT_SKEW`: 각 평면에 대한 현재 프린터 왜곡을 라디안과 도 단위로 보고합니다. 왜곡은 `SET_SKEW` gcode를 통해 제공된 매개변수를 기반으로 계산됩니다.
-- `CALC_MEASURED_SKEW [AC=<ac_length>] [BD=<bd_length>] [AD=<ad_length>]`: 측정된 인쇄물을 기반으로 기울기 (라디안 및 도 단위)를 계산하고 보고합니다. 이것은 수정이 적용된 후 프린터의 현재 왜곡을 결정하는 데 유용할 수 있습니다. 또한 보정이 적용되기 전에 왜곡 보정이 필요한지 여부를 결정하는 데 유용할 수 있습니다. 왜곡 보정 개체 및 측정에 대한 자세한 내용은 skew_correction.md 를 참조하십시오.
+- `CALC_MEASURED_SKEW [AC=<ac_length>] [BD=<bd_length>] [AD=<ad_length>]`: Calculates and reports the skew (in radians and degrees) based on a measured print. This can be useful for determining the printer's current skew after correction has been applied. It may also be useful before correction is applied to determine if skew correction is necessary. See [Skew Correction](Skew_Correction.md) for details on skew calibration objects and measurements.
 - `SKEW_PROFILE [LOAD=<name>] [SAVE=<name>] [REMOVE=<name>]`: Skew_correction을 위한 프로필 관리. LOAD 는 제공된 이름과 일치하는 프로필에서 왜곡 상태를 복원합니다. SAVE 는 현재 왜곡 상태를 제공된 이름과 일치하는 프로필에 저장합니다. REMOVE 는 제공된 이름과 일치하는 프로필을 영구 메모리에서 삭제합니다. SAVE 또는 REMOVE 작업이 실행된 후 영구 메모리에 대한 변경 사항을 영구적으로 적용하려면 SAVE_CONFIG gcode를 실행해야 합니다.
 
 ### Delayed GCode

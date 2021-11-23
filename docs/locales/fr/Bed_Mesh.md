@@ -2,7 +2,7 @@
 
 The Bed Mesh module may be used to compensate for bed surface irregularties to achieve a better first layer across the entire bed. It should be noted that software based correction will not achieve perfect results, it can only approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical and electrical issues. If an axis is skewed or a probe is not accurate then the bed_mesh module will not receive accurate results from the probing process.
 
-Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe_Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual_Level](Manual_Level.md) for more information.
+Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information.
 
 ## Basic Configuration
 
@@ -169,7 +169,7 @@ The image below illustrates how replacement points are generated when a generate
 
 ### Calibration
 
-`BED_MESH_CALIBRATE PROFILE=name METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: default* *Default Method: automatic if a probe is detected, otherwise manual*
+`BED_MESH_CALIBRATE PROFILE=<name> METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: default* *Default Method: automatic if a probe is detected, otherwise manual*
 
 Initiates the probing procedure for Bed Mesh Calibration.
 
@@ -187,15 +187,17 @@ It is possible to specify mesh parameters to modify the probed area. The followi
    - `ROUND_PROBE_COUNT`
 - All beds:
    - `RELATIVE_REFERNCE_INDEX`
-   - `ALGORITHM` See the configuration documentation above for details on how each parameter applies to the mesh.
+   - `ALGORITHM`
+
+See the configuration documentation above for details on how each parameter applies to the mesh.
 
 ### Profiles
 
-`BED_MESH_PROFILE SAVE=name LOAD=name REMOVE=name`
+`BED_MESH_PROFILE SAVE=<name> LOAD=<name> REMOVE=<name>`
 
-After a BED_MESH_CALIBRATE has been performed, it is possible to save the current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using `BED_MESH_PROFILE SAVE=name` the `SAVE_CONFIG` gcode may be executed to write the profile to printer.cfg.
+After a BED_MESH_CALIBRATE has been performed, it is possible to save the current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using `BED_MESH_PROFILE SAVE=<name>` the `SAVE_CONFIG` gcode may be executed to write the profile to printer.cfg.
 
-Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=name`.
+Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=<name>`.
 
 It should be noted that each time a BED_MESH_CALIBRATE occurs, the current state is automatically saved to the *default* profile. If this profile exists it is automatically loaded when Klipper starts. If this behavior is not desirable the *default* profile can be removed as follows:
 

@@ -13,7 +13,7 @@ Klipper支持以下标准的G-Code命令：
 - Wait for current moves to finish: `M400`
 - Use absolute/relative distances for extrusion: `M82`, `M83`
 - Use absolute/relative coordinates: `G90`, `G91`
-- Set position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
+- 设置坐标：`G92 [X<坐标>] [Y<坐标>] [Z<坐标>] [E<坐标>]`
 - Set speed factor override percentage: `M220 S<percent>`
 - 设置挤压因子覆盖百分比：`M221 S<percent>`
 - 设置加速度：`M204 S<value>` 或 `M204 P<value> T<value>`
@@ -96,9 +96,9 @@ The following standard commands are supported:
 - `TURN_OFF_HEATERS`: Turn off all heaters.
 - `TEMPERATURE_WAIT SENSOR=<config_name> [MINIMUM=<target>] [MAXIMUM=<target>]`: Wait until the given temperature sensor is at or above the supplied MINIMUM and/or at or below the supplied MAXIMUM.
 - `SET_VELOCITY_LIMIT [VELOCITY=<value>] [ACCEL=<value>] [ACCEL_TO_DECEL=<value>] [SQUARE_CORNER_VELOCITY=<value>]`: Modify the printer's velocity limits.
-- `SET_HEATER_TEMPERATURE HEATER=<heater_name> [TARGET=<target_temperature>]`: Sets the target temperature for a heater. If a target temperature is not supplied, the target is 0.
+- `SET_HEATER_TEMPERATURE HEATER=<加热器名称> [TARGET=<目标温度>]`：设置一个加热器的目标温度。如果没有提供目标温度，则目标温度为 0。
 - `ACTIVATE_EXTRUDER EXTRUDER=<config_name>`：这个命令在具有多个挤出机的打印机中用于更改活动挤出机。
-- `SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Set pressure advance parameters. If EXTRUDER is not specified, it defaults to the active extruder.
+- `SET_PRESSURE_ADVANCE [EXTRUDER=<挤出机名称>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]` ：设置压力提前的参数。如果没有指定挤出机，则默认为活动的挤出机。
 - `SET_EXTRUDER_STEP_DISTANCE [EXTRUDER=<config_name>] [DISTANCE=<distance>]`。为所提供的挤出机的 "步距 "设置一个新值。"步距 "是 `rotation_distance/(full_steps_per_rotation*microsteps)`。Klipper复位时，该值不会被保留。谨慎使用，小的变化会导致挤出机和热端之间的压力过大。在使用前，请用打印材料做适当的校准步骤。如果不包括'DISTANCE'值，命令将返回当前步距。
 - `SET_STEPPER_ENABLE STEPPER=<config_name> ENABLE=[0|1]`: Enable or disable only the given stepper. This is a diagnostic and debugging tool and must be used with care. Disabling an axis motor does not reset the homing information. Manually moving a disabled stepper may cause the machine to operate the motor outside of safe limits. This can lead to damage to axis components, hot ends, and print surface.
 - `STEPPER_BUZZ STEPPER=<config_name>`: Move the given stepper forward one mm and then backward one mm, repeated 10 times. This is a diagnostic tool to help verify stepper connectivity.
@@ -113,7 +113,7 @@ The following standard commands are supported:
    - `FACTOR`和`BAND`：值以每毫米`factor`的平均速度变化，但在离散的带子中，每隔`BAND`毫米的Z高度才会进行调整。使用的公式是 `value = start + factor * ((floor(z_height / band) + .5) * band)`。
    - `STEP_DELTA` and `STEP_HEIGHT`: The value changes by `STEP_DELTA` every `STEP_HEIGHT` millimeters. The formula used is `value = start + step_delta * floor(z_height / step_height)`. You can simply count bands or read tuning tower labels to determine the optimum value.
 - `SET_DISPLAY_GROUP [DISPLAY=<display>] GROUP=<group>`:设置一个lcd显示器的活动显示组。这允许在配置中定义多个显示数据组，例如`[display_data <group> <elementname>]`并使用这个扩展的gcode命令在它们之间切换。如果没有指定DISPLAY，则默认为 "display"（主显示）。
-- `SET_IDLE_TIMEOUT [TIMEOUT=<timeout>]`: Allows the user to set the idle timeout (in seconds).
+- `SET_IDLE_TIMEOUT [TIMEOUT=<超时>]`：允许用户设置空闲超时（以秒为单位）。
 - `RESTART`：这将导致主机软件重新加载其配置并执行内部重置。此命令不会从微控制器清除错误状态（请参阅 FIRMWARE_RESTART），也不会加载新软件（请参阅 [常见问题](FAQ.md#how-do-i-upgrade-to-the-latest-software)） .
 - `FIRMWARE_RESTART`：这类似于重启命令，但它也清除了微控制器的任何错误状态。
 - `SAVE_CONFIG`：该命令将覆盖打印机的主配置文件，并重新启动主机软件。该命令与其他校准命令一起使用，用于存储校准测试的结果。
@@ -130,7 +130,7 @@ The following command is available when a [gcode_macro config section](Config_Re
 
 The following command is available when an [output_pin config section](Config_Reference.md#output_pin) is enabled:
 
-- `SET_PIN PIN=config_name VALUE=<value> CYCLE_TIME=<cycle_time>`
+- `SET_PIN PIN=config_name VALUE=<值> CYCLE_TIME=<循环时间>`
 
 注意：硬件PWM目前不支持CYCLE_TIME参数，将使用配置中定义的周期时间。
 
@@ -266,9 +266,9 @@ The following commands are availabe when the [respond config section](Config_Ref
 
 - `M118 <message>`：回显配置了默认前缀的信息（如果没有配置前缀，则返回`echo: `）。
 - `RESPOND MSG="<message>"`：回显带有配置的默认前缀的消息（没有配置前缀则默认 `echo: `为前缀 ）。
-- `RESPOND TYPE=echo MSG="<message>"`: echo the message prepended with `echo: `.
+- `RESPOND TYPE=echo MSG="<消息>"`：回显`echo:`开头消息。
 - `RESPOND TYPE=command MSG="<message>"`: echo the message prepended with `// `. Octopint can be configured to respond to these messages (e.g. `RESPOND TYPE=command MSG=action:pause`).
-- `RESPOND TYPE=error MSG="<message>"`: echo the message prepended with `!! `.
+- `RESPOND TYPE=error MSG="<消息>"`：回显以 `!!`开头的消息。
 - `RESPOND PREFIX=<prefix> MSG="<message>"`: 回应以`<prefix>`为前缀的信息。(`PREFIX`参数将优先于`TYPE`参数)
 
 ### 暂停与恢复
@@ -298,11 +298,11 @@ The following commands are available when the [firmware_retraction config sectio
 
 ### Skew Correction
 
-The following commands are available when the [skew_correction config section](Config_Reference.md#skew_correction) is enabled (also see the [skew correction guide](skew_correction.md)):
+The following commands are available when the [skew_correction config section](Config_Reference.md#skew_correction) is enabled (also see the [Skew Correction](Skew_Correction.md) guide):
 
 - `SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] [YZ=<ac,bd,ad>] [CLEAR=<0|1>]`: Configures the [skew_correction] module with measurements (in mm) taken from a calibration print. One may enter measurements for any combination of planes, planes not entered will retain their current value. If `CLEAR=1` is entered then all skew correction will be disabled.
 - `GET_CURRENT_SKEW`:以弧度和度数报告每个平面的当前打印机偏移。斜度是根据通过`SET_SKEW`代码提供的参数计算的。
-- `CALC_MEASURED_SKEW [AC=<ac_length>] [BD=<bd_length>] [AD=<ad_length>]`：根据测量的打印并计算斜度（以弧度和度为单位）。这对确定应用校正后打印机的当前偏斜很有用。在应用校正之前，它也可以用来确定是否需要进行偏斜校正。关于斜度校准对象和测量的详细信息，请参见skew_correction.md。
+- `CALC_MEASURED_SKEW [AC=<ac_length>] [BD=<bd_length>] [AD=<ad_length>]`: Calculates and reports the skew (in radians and degrees) based on a measured print. This can be useful for determining the printer's current skew after correction has been applied. It may also be useful before correction is applied to determine if skew correction is necessary. See [Skew Correction](Skew_Correction.md) for details on skew calibration objects and measurements.
 - `SKEW_PROFILE [LOAD=<name>] [SAVE=<name>] [REMOVE=<name>]`: Profile management for skew_correction. LOAD will restore skew state from the profile matching the supplied name. SAVE will save the current skew state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to peristent memory permanent.
 
 ### 延迟 GCode
