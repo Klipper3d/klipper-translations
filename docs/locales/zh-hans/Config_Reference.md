@@ -1008,7 +1008,7 @@ x 是打印床上的 （0，0） 点
 
 ### [skew_correction]
 
-Printer Skew Correction. It is possible to use software to correct printer skew across 3 planes, xy, xz, yz. This is done by printing a calibration model along a plane and measuring three lengths. Due to the nature of skew correction these lengths are set via gcode. See [skew correction](skew_correction.md) and [command reference](G-Codes.md#skew-correction) for details.
+Printer Skew Correction. It is possible to use software to correct printer skew across 3 planes, xy, xz, yz. This is done by printing a calibration model along a plane and measuring three lengths. Due to the nature of skew correction these lengths are set via gcode. See [Skew Correction](Skew_Correction.md) and [Command Reference](G-Codes.md#skew-correction) for details.
 
 ```
 [skew_correction]
@@ -1081,7 +1081,7 @@ See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes
 ```
 [endstop_phase stepper_z]
 #endstop_accuracy:
-#   Sets the expected accuracy (in mm) of the endstop. This represents
+#   设置预期的限位精度（以毫米(mm)为单位）。 This represents
 #   the maximum error distance the endstop may trigger (eg, if an
 #   endstop may occasionally trigger 100um early or up to 100um late
 #   then set this to 0.200 for 200um). The default is
@@ -1137,7 +1137,7 @@ G-Code macros (one may define any number of sections with a "gcode_macro" prefix
 
 ### [delayed_gcode]
 
-Execute a gcode on a set delay. See the [command template guide](Command_Templates.md#delayed-gcodes) and [command reference](G-Codes.md#delayed-gcode) for more information.
+在预设的延迟后运行的G-Code。详见[命令模板指南](Command_Templates.md#delayed-gcodes)和[命令参考](G-Codes.md#delayed-gcode)。
 
 ```
 [delayed_gcode my_delayed_gcode]。
@@ -1233,16 +1233,17 @@ Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCO
 ```
 [firmware_retraction]
 #retract_length: 0
-#   The length of filament (in mm) to retract when G10 is activated,
-#   and to unretract when G11 is activated (but see
-#   unretract_extra_length below). The default is 0 mm.
+#   当 G10 被运行时回抽的长度（以毫米(mm)为单位）
+#   和当 G11 被运行时退回的长度（但同时也包括
+#   以下的unretract_extra_length）。
+#   默认为0毫米。
 #retract_speed: 20
-#   The speed of retraction, in mm/s. The default is 20 mm/s.
+#   回抽速度，以毫米每秒(mm/s)为单位。默认为每秒20毫米。
 #unretract_extra_length: 0
-#   The length (in mm) of *additional* filament to add when
-#   unretracting.
+#   退回时增加*额外*长度（以毫米(mm)为单位）的耗材。
 #unretract_speed: 10
-#   The speed of unretraction, in mm/s. The default is 10 mm/s.
+#   退回速度，以毫米(mm)为单位。
+#   默认为每秒10毫米
 ```
 
 ### [gcode_arcs]
@@ -1582,15 +1583,13 @@ See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an exam
 #step_pin:
 #dir_pin:
 #...
-#   See the "extruder" section for available stepper and heater
-#   parameters.
+#   有关可用的步进电机和加热器配置，请查看“extruder”分段。
 #shared_heater:
-#   If this extruder uses the same heater already defined for another
-#   extruder then place the name of that extruder here. For example,
-#   should extruder3 and extruder4 share a heater then the extruder3
-#   config section should define the heater and the extruder4 section
-#   should specify "shared_heater: extruder3". The default is to not
-#   reuse an existing heater.
+#   如果这个挤出头使用另一个挤出头已定义的加热器，在这里使用
+#   那个挤出头的名称。例如，当extruder3和extruder4共享加热器时，
+#   extruder3的配置分段应定义加热器，而extruder4的配置分段应定义
+#   "shared_heater: extruder3"。
+#   默认不共享加热器。
 ```
 
 ### [dual_carriage]
@@ -1602,8 +1601,8 @@ See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration.
 ```
 [dual_carriage]
 axis:
-#   The axis this extra carriage is on (either x or y). This parameter
-#   must be provided.
+#   额外滑车所在的轴（x或者y）。
+#   必须提供这个参数。
 #step_pin:
 #dir_pin:
 #enable_pin:
@@ -1613,7 +1612,7 @@ axis:
 #position_endstop:
 #position_min:
 #position_max:
-#   See the "stepper" section for the definition of the above parameters.
+#   以上参数的定义请查阅“stepper”分段。
 ```
 
 ### [extruder_stepper]
@@ -1625,15 +1624,14 @@ See the [command reference](G-Codes.md#extruder-stepper-commands) for more infor
 ```
 [extruder_stepper my_extra_stepper]
 #extruder: extruder
-#   The extruder this stepper is synchronized to. The default is
-#   "extruder".
+#   与这个步进电机同步的挤出头。
+#   默认为"extruder"。
 #step_pin:
 #dir_pin:
 #enable_pin:
 #microsteps:
 #rotation_distance:
-#   See the "stepper" section for the definition of the above
-#   parameters.
+#   以上参数定义详见“stepper”分段。
 ```
 
 ### [manual_stepper]
@@ -3342,7 +3340,7 @@ TSLl401CL Based Filament Width Sensor. See the [guide](TSL1401CL_Filament_Width_
 
 ### [hall_filament_width_sensor]
 
-Hall filament width sensor (see [Hall Filament Width Sensor](HallFilamentWidthSensor.md)).
+Hall filament width sensor (see [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)).
 
 ```
 [hall_filament_width_sensor]
@@ -3464,7 +3462,7 @@ vssa_pin:
 
 ### [replicape]
 
-Replicape support - see the [beaglebone guide](beaglebone.md) and the [generic-replicape.cfg](../config/generic-replicape.cfg) file for an example.
+Replicape support - see the [beaglebone guide](Beaglebone.md) and the [generic-replicape.cfg](../config/generic-replicape.cfg) file for an example.
 
 ```
 # The "replicape" config section adds "replicape:stepper_x_enable"

@@ -2,7 +2,7 @@
 
 베드 메쉬 모듈은 베드 표면의 불균일함을 보상하기 위해 사용됩니다. 이 기능을 사용하면 전체 베드면에서의 첫레이어 안착을 더 좋게 할 수 있습니다. 소프트웨어 기반의 수정은 완벽한 결과를 얻을 수 없습니다. 오직 대략적인 베드 형태만을 취할 수 있을 뿐입니다. 또한 베드 메쉬는 기계적이거나 전기적인 문제에 대한 보정을 할 수 없습니다. 만일 축이 틀어져 있거나 레벨링센서의 정확도가 떨어진다면 베드 메쉬 모듈은 레벨링 측정만으로는 정확한 결과를 얻지 못할 것입니다.
 
-메쉬 캘리브레이션에 앞서 필수적으로 당신의 레벨링 센서의 Z-offset 값을 캘리브레이션 해야 합니다. 만일 Z 호밍에 Endstop 스위치가 사용된다면 이것역시 캘리브레이션이 필요합니다. 보다 자세한 정보는 다음 2개의 문서를 참고하기 바랍니다. [Probe_Calibrate](Probe_Calibrate.md) [Manual_Level](Manual_Level.md) .
+Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information.
 
 ## 기본 설정
 
@@ -169,7 +169,7 @@ faulty_region_4_max: 45.0, 210.0
 
 ### 캘리브레이션
 
-`BED_MESH_CALIBRATE PROFILE=name METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: default* *디폴트 방법: 프로브가 감지되면 자동, 아닌경우는 수동*
+`BED_MESH_CALIBRATE PROFILE=<name> METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: default* *Default Method: automatic if a probe is detected, otherwise manual*
 
 메드 메쉬 캘리브레이션을 위해 프로빙 과정을 초기화하라.
 
@@ -187,15 +187,17 @@ faulty_region_4_max: 45.0, 210.0
    - `ROUND_PROBE_COUNT`
 - 모든 베드:
    - `RELATIVE_REFERNCE_INDEX`
-   - `ALGORITHM` 각 파라메타를 어떻게 메쉬에 적용하는지에 대한 자세한 설명은 위쪽에 있는 설정 관련 내용을 참고하길 바란다.
+   - `ALGORITHM`
+
+See the configuration documentation above for details on how each parameter applies to the mesh.
 
 ### 프로필
 
-`BED_MESH_PROFILE SAVE=name LOAD=name REMOVE=name`
+`BED_MESH_PROFILE SAVE=<name> LOAD=<name> REMOVE=<name>`
 
-BED_MESH_CALIBRATE 을 진행하게 되면, 현재 메쉬상태에 이름을 지정하여 저장할 수 있다. 이렇게 하면 베드를 재측정하지 않고 저장된 메쉬를 불러오는 것이 가능하다. 프로필이 `BED_MESH_PROFILE SAVE=name` 을 사용해 저장되었다면, `SAVE_CONFIG` gcode 가 실행되어 프로필은 printer.cfg 파일에 쓰여질 것이다.
+After a BED_MESH_CALIBRATE has been performed, it is possible to save the current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using `BED_MESH_PROFILE SAVE=<name>` the `SAVE_CONFIG` gcode may be executed to write the profile to printer.cfg.
 
-프로필을 불러오려면 `BED_MESH_PROFILE LOAD=name` 를 실행시키면 된다.
+Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=<name>`.
 
 BED_MESH_CALIBRATE가 발생할 때마다 현재 상태가 *default*프로필에 자동으로 저장됩니다. 만일 이 프로필이 존재한다면 클리퍼가 시작될때 자동으로 불러와진다. 만일 이렇게 자동불러와지는것을 원치 않는다면 *default*프로필은 아래와 같은 방법으로 삭제할 수 있다:
 

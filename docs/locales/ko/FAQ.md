@@ -93,7 +93,7 @@ Klipper 마이크로 컨트롤러 전송 속도는 마이크로 컨트롤러 부
 
 Klipper는 Raspberry Pi 1 및 Raspberry Pi Zero에서 실행되지만 이러한 보드에는 OctoPrint를 제대로 실행하기에 충분한 처리 능력이 없습니다. OctoPrint에서 직접 인쇄할 때 이러한 느린 시스템에서 인쇄 중단이 발생하는 것은 일반적입니다. (프린터는 OctoPrint가 이동 명령을 보낼 수 있는 것보다 더 빠르게 움직일 수 있습니다.) 어쨌든 이러한 느린 보드 중 하나에서 실행하려면 인쇄할 때 "virtual_sdcard" 기능을 사용하는 것을 고려하십시오 (자세한 내용은 [config reference](Config_Reference.md#virtual_sdcard) 참조).
 
-Beaglebone에서 실행하려면 [Beaglebone specific installation instructions](beaglebone.md) 을 참조하십시오.
+For running on the Beaglebone, see the [Beaglebone specific installation instructions](Beaglebone.md).
 
 Klipper는 다양한 컴퓨터에서 실행될 수 있습니다. Klipper 호스트 소프트웨어에는 Linux(또는 이와 유사한) 컴퓨터에서 실행되는 Python만 있으면 됩니다. 그러나 다른 시스템에서 실행하려면 기본적으로 필요한 소프트웨어를 설치하기 위해 Linux 관리자 지식이 필요합니다. 필요한 Linux 관리자에 대한 추가 정보는 [install-octopi.sh](../scripts/install-octopi.sh) 를 참조하십시오.
 

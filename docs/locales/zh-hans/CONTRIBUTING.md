@@ -37,11 +37,11 @@ Signed-off-by: 姓名< myemail@example.org >
 
 导航层级在`docs\_klipper3d\mkdocs.yml`中。
 
-To reduce the frustration of translating domain-specific terms and gain awareness of the ongoing translations, you can submit a PR modifying the [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md`. Once a translation is ready, the corresponding modification to the Klipper project can be made.
+为了减少翻译特定领域术语的疑惑，并让更多人了解正在进行的翻译，你可以提交一个修改[Klipper-translations 项目](https://github.com/Klipper3d/klipper-translations) `readme.md` 文件的PR。一旦翻译完成，也可以对 Klipper 项目进行相应的修改。
 
-If a translation already exists in the Klipper repository and no longer meets the checklist above, it will be marked out-of-date after a month without updates.
+如果一个已经存在于 Klipper 代码库中的翻译不再符合上述的检查清单，那么在一个月没有更新后，它将被标记为过期。
 
-Please follow the following format for `mkdocs.yml` navigation hierarchy:
+请按以下格式编写 `mkdocs.yml` 的导航层次结构：
 
 ```yml
 nav:
@@ -50,4 +50,4 @@ nav:
     - locales/<language code>/md file
 ```
 
-Note: Currently, there isn't a method for correctly translating pictures in the documentation.
+注意：目前，还没有翻译图片中文字的方法。

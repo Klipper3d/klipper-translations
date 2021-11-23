@@ -93,7 +93,7 @@ Le matériel recommandé est un Raspberry Pi 2, Raspberry Pi 3 ou Raspberry Pi 4
 
 Klipper fonctionne sur un Raspberry Pi 1 et sur le Raspberry Pi Zero, mais ces cartes n'ont pas assez de puissance de traitement pour faire fonctionner OctoPrint correctement. Il est fréquent que l'impression se fasse par à-coup avec ces machines plus lentes lorsqu'on imprime directement depuis OctoPrint. (L'imprimante peut chercher à imprimer plus rapidement que la vitesse à laquelle OctoPrint peut envoyer les commandes de mouvement.) Si vous souhaitez quand même utiliser une de ces cartes plus lentes, pensez à utiliser la fonctionnalité "virtual_sdcard" lors de l'impression (voir le document de [référence des configurations](Config_Reference.md#virtual_sdcard) pour plus de détails).
 
-Pour l'utilisation sur le Beaglebone, consultez les [instructions d'installation spécifiques au Beaglebone](beaglebone.md).
+For running on the Beaglebone, see the [Beaglebone specific installation instructions](Beaglebone.md).
 
 Klipper has been run on other machines. The Klipper host software only requires Python running on a Linux (or similar) computer. However, if you wish to run it on a different machine you will need Linux admin knowledge to install the system prerequisites for that particular machine. See the [install-octopi.sh](../scripts/install-octopi.sh) script for further information on the necessary Linux admin steps.
 

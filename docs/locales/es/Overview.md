@@ -32,7 +32,7 @@ Le damos la bienvenida a la documentación de Klipper. Si recién comienza a uti
 - [TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with Klipper.
 - [Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple micro-controllers.
 - [Slicers](Slicers.md): Configure "slicer" software for Klipper.
-- [Skew correction](skew_correction.md): Adjustments for axes not perfectly square.
+- [Skew correction](Skew_Correction.md): Adjustments for axes not perfectly square.
 - [PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such as lasers or spindles.
 
 ## Documentación para desarrolladores
@@ -53,8 +53,8 @@ Le damos la bienvenida a la documentación de Klipper. Si recién comienza a uti
 - [Example configs](Example_Configs.md): Information on adding an example config file to Klipper.
 - [SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a binary to an sdcard in the micro-controller.
 - [Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for controlling devices wired to the GPIO pins of a Raspberry Pi.
-- [Beaglebone](beaglebone.md): Details for running Klipper on the Beaglebone PRU.
+- [Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone PRU.
 - [Bootloaders](Bootloaders.md): Developer information on micro-controller flashing.
 - [Bus CAN](CANBUS.md): información para utilizar un bus CAN con Klipper.
 - [TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)
-- [Hall filament width sensor](HallFilamentWidthSensor.md)
+- [Hall filament width sensor](Hall_Filament_Width_Sensor.md)

@@ -141,42 +141,42 @@ bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 
 ## SAMD21微控制器（Arduino Zero）
 
-The SAMD21 bootloader is flashed via the ARM Serial Wire Debug (SWD) interface. This is commonly done with a dedicated SWD hardware dongle. Alternatively, one can use a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi).
+SAMD21 引导加载程序通过 ARM 串行线调试 （SWD） 接口进行刷写，通常需要一个专用的 SWD 硬件转换器或者使用[安装了 OpenOCD 的 Raspberry Pi](#running-openocd-on-the-raspberry-pi)来完成。
 
-To flash a bootloader with OpenOCD use the following chip config:
+要使用 OpenOCD 刷写引导加载程序，请使用以下芯片配置：
 
 ```
 source [find target/at91samdXX.cfg]
 ```
 
-Obtain a bootloader - for example:
+获取引导加载程序 - 例如：
 
 ```
 wget 'https://github.com/arduino/ArduinoCore-samd/raw/1.8.3/bootloaders/zero/samd21_sam_ba.bin'
 ```
 
-Flash with OpenOCD commands similar to:
+使用类似下面的 OpenOCD 命令来刷写：
 
 ```
 at91samd bootloader 0
 program samd21_sam_ba.bin verify
 ```
 
-The most common bootloader on the SAMD21 is the one found on the "Arduino Zero". It uses an 8KiB bootloader (the application must be compiled with a start address of 8KiB). One can enter this bootloader by double clicking the reset button. To flash an application use something like:
+SAMD21上最常见的启动引导程序可以在 "Arduino Zero "上找到。它使用一个 8KiB 的引导程序（应用程序必须以 8KiB 的起始地址进行编译），按下复位按钮两次就可以进入。要刷写一个程序，请使用类似以下的方法：
 
 ```
 bossac -U -p /dev/ttyACM0 --offset=0x2000 -w out/klipper.bin -v -b -R
 ```
 
-In contrast, the "Arduino M0" uses a 16KiB bootloader (the application must be compiled with a start address of 16KiB). To flash an application on this bootloader, reset the micro-controller and run the flash command within the first few seconds of boot - something like:
+相比之下，"Arduino M0 "使用一个 16KiB 的启动引导程序（程序必须用 16KiB 的起始地址进行编译）。使用这个启动引导程序来刷写一个程序，请重置微控制器，并在启动的头几秒钟内运行刷写命令--类似如下命令：
 
 ```
 avrdude -c stk500v2 -p atmega2560 -P /dev/ttyACM0 -u -Uflash:w:out/klipper.elf.hex:i
 ```
 
-## SAMD51 micro-controllers (Adafruit Metro-M4 and similar)
+## SAMD51 微控制器(Adafruit Metro-M4及类似的开发板)
 
-Like the SAMD21, the SAMD51 bootloader is flashed via the ARM Serial Wire Debug (SWD) interface. To flash a bootloader with [OpenOCD on a Raspberry Pi](#running-openocd-on-the-raspberry-pi) use the following chip config:
+和 SAMD21 一样，SAMD51 的启动引导程序也是通过 ARM 串行线调试（SWD）接口刷写的。要用[运行 OpenOCD的 Raspberry Pi](#running-openocd-on-the-raspberry-pi)刷写引导程序，请使用以下芯片配置：
 
 ```
 source [find target/atsame5x.cfg]
@@ -188,7 +188,7 @@ Obtain a bootloader - several bootloaders are available from <https://github.com
 wget 'https://github.com/adafruit/uf2-samdx1/releases/download/v3.7.0/bootloader-itsybitsy_m4-v3.7.0.bin'
 ```
 
-Flash with OpenOCD commands similar to:
+使用类似下面的 OpenOCD 命令来刷写：
 
 ```
 at91samd bootloader 0
@@ -196,15 +196,15 @@ program bootloader-itsybitsy_m4-v3.7.0.bin verify
 at91samd bootloader 16384
 ```
 
-The SAMD51 uses a 16KiB bootloader (the application must be compiled with a start address of 16KiB). To flash an application use something like:
+SAMD51 使用 16KiB 的启动引导程序（应用程序必须以16KiB的起始地址进行编译）。要刷写一个应用程序，请使用类似以下的方法：
 
 ```
 bossac -U -p /dev/ttyACM0 --offset=0x4000 -w out/klipper.bin -v -b -R
 ```
 
-## STM32F103 micro-controllers (Blue Pill devices)
+## STM32F103 微控制器（Blue Pill 开发板）
 
-The STM32F103 devices have a ROM that can flash a bootloader or application via 3.3V serial. To access this ROM, one should connect the "boot 0" pin to high and "boot 1" pin to low, and then reset the device. The "stm32flash" package can then be used to flash the device using something like:
+STM32F103 产品线的芯片包含一个可以通过 3.3V 串口刷写引导程序或应用程序的ROM。要访问这个ROM，在"boot 0 "引脚接到高电平"boot 1 " 引脚接到低电平后重置芯片。然后，可以使用 "stm32flash "软件包，使用类似以下的命令刷写：
 
 ```
 stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0
@@ -212,13 +212,13 @@ stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0
 
 Note that if one is using a Raspberry Pi for the 3.3V serial, the stm32flash protocol uses a serial parity mode which the Raspberry Pi's "miniuart" does not support. See <https://www.raspberrypi.org/documentation/configuration/uart.md> for details on enabling the full uart on the Raspberry Pi GPIO pins.
 
-After flashing, set both "boot 0" and "boot 1" back to low so that future resets boot from flash.
+刷写后，将 "boot 0 "和 "boot 1 "都恢复设为低电平，以便在复位后从闪存启动。
 
-### STM32F103 with stm32duino bootloader
+### 带有 stm32duino 引导加载程序的 STM32F103
 
 The "stm32duino" project has a USB capable bootloader - see: <https://github.com/rogerclarkmelbourne/STM32duino-bootloader>
 
-This bootloader can be flashed via 3.3V serial with something like:
+这个引导程序可以通过3.3V的串口用类似以下的命令来刷写：
 
 ```
 wget 'https://github.com/rogerclarkmelbourne/STM32duino-bootloader/raw/master/binaries/generic_boot20_pc13.bin'
@@ -226,7 +226,7 @@ wget 'https://github.com/rogerclarkmelbourne/STM32duino-bootloader/raw/master/bi
 stm32flash -w generic_boot20_pc13.bin -v -g 0 /dev/ttyAMA0
 ```
 
-This bootloader uses 8KiB of flash space (the application must be compiled with a start address of 8KiB). Flash an application with something like:
+这个引导程序使用 8KiB 的闪存空间（应用程序必须以 8KiB 的起始地址编译）。刷写应用程序需要使用类似以下的命令：
 
 ```
 dfu-util -d 1eaf:0003 -a 2 -R -D out/klipper.bin
@@ -234,9 +234,9 @@ dfu-util -d 1eaf:0003 -a 2 -R -D out/klipper.bin
 
 The bootloader typically runs for only a short period after boot. It may be necessary to time the above command so that it runs while the bootloader is still active (the bootloader will flash a board led while it is running). Alternatively, set the "boot 0" pin to low and "boot 1" pin to high to stay in the bootloader after a reset.
 
-### STM32F103 with HID bootloader
+### 带有 HID 引导程序的STM32F103
 
-The [HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader) is a compact, driverless bootloader capable of flashing over USB. Also available is a [fork with builds specific to the SKR Mini E3 1.2](https://github.com/Arksine/STM32_HID_Bootloader/releases/tag/v0.5-beta).
+[HID 引导加载程序](https://github.com/Serasidis/STM32_HID_Bootloader) 是一个紧凑、免驱动的引导加载程序，能够通过 USB 刷写。另外也可以使用 [SKR Mini E3 1.2 专用分支](https://github.com/Arksine/STM32_HID_Bootloader/releases/tag/v0.5-beta)。
 
 For generic STM32F103 boards such as the blue pill it is possible to flash the bootloader via 3.3v serial using stm32flash as noted in the stm32duino section above, substituting the file name for the desired hid bootloader binary (ie: hid_generic_pc13.bin for the blue pill).
 

@@ -47,9 +47,9 @@ queue_step oid=2 interval=3000 count=1 add=0
 clear_shutdown
 ```
 
-To obtain the single stepper benchmarks, the same configuration sequence is used, but only the first block of the above test is cut-and-paste into the console.py window.
+为了获得单一步进电机的基准测试，使用了相同的配置序列，但只将上述测试的第一块剪切并粘贴到console.py窗口。
 
-为了产生Feature.md 文件中的基准测试，每秒的总步数是通过将有源步进器的数量与标称的MCU频率相乘并除以最终的ticks参数来计算的。结果被四舍五入到最接近的K。例如，有三个激活的步进电机：
+To produce the benchmarks found in the [Features](Features.md) document, the total number of steps per second is calculated by multiplying the number of active steppers with the nominal mcu frequency and dividing by the final ticks parameter. The results are rounded to the nearest K. For example, with three active steppers:
 
 ```
 ECHO Test result is: {"%.0fK" % (3. * freq / ticks / 1000.)}

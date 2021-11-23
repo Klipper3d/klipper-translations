@@ -1,4 +1,4 @@
-# Empaquetamiento de Klipper
+# Packaging Klipper
 
 Klipper es anómalo respecto a otros programas Python porque no utiliza setuptools para la compilación y la instalación. A continuación proporcionamos algunas notas relativas al empaquetamiento óptimo del programa:
 
@@ -16,4 +16,4 @@ Si va a crear un paquete para Klipper a partir de Git, es práctica habitual no 
 
 ## Secuencia de órdenes simple para empaquetamiento
 
-klipper-git se ha empaquetado para Arch Linux, y su PKGBUILD (secuencia de generación de paquete) está disponible en https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git.
+klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).

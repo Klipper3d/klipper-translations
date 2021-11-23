@@ -105,13 +105,18 @@ Klippy上位机的主程序能对模块进行热加载。如果设置文件中�
 
 1. 首先应确定移植所需的第三方库。常见的例子为“CMSIS”包装器和厂商的“HAL”库。全部第三方代码应遵循或兼容GNU GPLv3协议。第三方代码应提交到Klipper的/lib文件夹。更新lib/README注明第三方库的获取途径和更新时间。推荐不改变内容，直接将代码复制到Klipper，但如果需要进行变更，应将所做的修改列在lib/README文件中。
 1. 在src/下新建一个新架构的子目录，并创建对应的初始Kconfig和Makefile。以已有的架构作为模版，其中src/simulator给出了微控制器架构的基本需求。
-1. 首要的变成任务，是为目标架构提供通讯支持。这是移植中最难的一步。只要完成基础通讯，剩余的步骤会更为简单。在开发初期，通常使用RS-232风格串行通讯，因为这些硬件通常易于获得和控制。在这个阶段，应充分使用src/generic的帮助代码（检查如何通过src/simulator/Makefile将通过C代码纳入构建之中）。同时，在这个阶段必须定义timer_read_time()（用于返回现时的系统时钟），然而此时不必添加完全的定时器中断处理支持。
+1. The first main coding task is to bring up communication support to the target board. This is the most difficult step in a new port. Once basic communication is working, the remaining steps tend to be much easier. It is typical to use a UART type serial device during initial development as these types of hardware devices are generally easier to enable and control. During this phase, make liberal use of helper code from the src/generic/ directory (check how src/simulator/Makefile includes the generic C code into the build). It is also necessary to define timer_read_time() (which returns the current system clock) in this phase, but it is not necessary to fully support timer irq handling.
 1. 依照[调试文档](Debugging.md)熟悉console.py工具，并使用该工具核实微控制器的连接。该工具将底层微控制器通讯协议转换为可读形式。
 1. 增加对硬件中断的定时器调度的支持。参见 Klipper [commit 970831ee](https://github.com/Klipper3d/klipper/commit/970831ee0d3b91897196e92270d98b2a3067427f)，作为针对LPC176x架构的步骤1-5的例子。
 1. 提供基本的 GPIO 输入和输出支持。参见 Klipper [commit c78b9076](https://github.com/Klipper3d/klipper/commit/c78b90767f19c9e8510c3155b89fb7ad64ca3c54) 作为一个例子。
 1. 启动其他外围设备-参阅Klipper提交[65613aed](https://github.com/Klipper3d/klipper/commit/65613aeddfb9ef86905cb1dade9e773a02ef3c27)，[c812a40a](https://github.com/Klipper3d/klipper/commit/c812a40a3782415e454b04bf7bd2158a6f0ec8b5)，和[c381d03a](https://github.com/Klipper3d/klipper/commit/c381d03aad5c3ee761169b7c7bced519cc14da29)的例子。
 1. 在config/目录新建一个配置事例，并使用Klipper.py的主程序进行设置。
 1. 考虑在test/目录加入构建测试的事例。
+
+Additional coding tips:
+
+1. Avoid using "C bitfields" to access IO registers; prefer direct read and write operations of 32bit, 16bit, or 8bit integers. The C language specifications don't clearly specify how the compiler must implement C bitfields (eg, endianness, and bit layout), and it's difficult to determine what IO operations will occur on a C bitfield read or write.
+1. Prefer writing explicit values to IO registers instead of using read-modify-write operations. That is, if updating a field in an IO register where the other fields have known values, then it is preferable to explicitly write the full contents of the register. Explicit writes produce code that is smaller, faster, and easier to debug.
 
 ## 坐标系变换
 

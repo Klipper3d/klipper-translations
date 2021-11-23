@@ -2,11 +2,11 @@
 
 Bu talimatlar, yazılımın OctoPrint ile birlikte bir Raspberry Pi bilgisayarında çalışacağını varsayar. Ana makine olarak bir Raspberry Pi 2, 3 veya 4 bilgisayarın kullanılması önerilir (bkz. [SSS](FAQ.md # can-i-run-klipper-on-something-other-a-ahududu -pi-3) diğer makineler için).
 
-Klipper şu anda bir dizi Atmel ATmega tabanlı mikro denetleyiciyi, [ARM tabanlı mikro denetleyicileri](Features.md#step-benchmarklar) ve [Beaglebone PRU](beaglebone.md) tabanlı yazıcıları desteklemektedir.
+Klipper currently supports a number of Atmel ATmega based micro-controllers, [ARM based micro-controllers](Features.md#step-benchmarks), and [Beaglebone PRU](Beaglebone.md) based printers.
 
 ## Bir işletim sistemi görüntüsünü hazırlama
 
-Raspberry Pi bilgisayarına [OctoPi](https://github.com/guysoft/OctoPi) kurarak başlayın. OctoPi v0.17.0 veya sonraki bir sürümünü kullanın - sürüm bilgileri için [octopi sürümlerine](https://github.com/guysoft/OctoPi/releases) bakın. OctoPi'nin önyüklediği ve OctoPrint web sunucusunun çalıştığı doğrulanmalıdır. OctoPrint web sayfasına bağlandıktan sonra, OctoPrint'i v1.4.2 veya sonraki bir sürüme yükseltmek için istemleri izleyin.
+Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry Pi computer. Use OctoPi v0.17.0 or later - see the [OctoPi releases](https://github.com/guysoft/OctoPi/releases) for release information. One should verify that OctoPi boots and that the OctoPrint web server works. After connecting to the OctoPrint web page, follow the prompt to upgrade OctoPrint to v1.4.2 or later.
 
 After installing OctoPi and upgrading OctoPrint, it will be necessary to ssh into the target machine to run a handful of system commands. If using a Linux or MacOS desktop, then the "ssh" software should already be installed on the desktop. There are free ssh clients available for other desktops (eg, [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Use the ssh utility to connect to the Raspberry Pi (ssh pi@octopi -- password is "raspberry") and run the following commands:
 
@@ -74,7 +74,7 @@ Once connected, navigate to the "Terminal" tab and type "status" (without the qu
 
 ## Configuring Klipper
 
-The Klipper configuration is stored in a text file on the Raspberry Pi. Take a look at the example config files in the [config directory](../config/). The [config reference](Config_Reference.md) contains documentation on config parameters.
+The Klipper configuration is stored in a text file on the Raspberry Pi. Take a look at the example config files in the [config directory](../config/). The [Config Reference](Config_Reference.md) contains documentation on config parameters.
 
 Arguably the easiest way to update the Klipper configuration file is to use a desktop editor that supports editing files over the "scp" and/or "sftp" protocols. There are freely available tools that support this (eg, Notepad++, WinSCP, and Cyberduck). Use one of the example config files as a starting point and save it as a file named "printer.cfg" in the home directory of the pi user (ie, /home/pi/printer.cfg).
 
