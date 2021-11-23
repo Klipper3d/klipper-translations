@@ -1,9 +1,19 @@
-#
+# Yifei Ding <dingyifeiair@gmail.com>, 2021.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-11-23 07:15+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/resonance_compensation/zh_Hans/>\n"
+"Language: zh-hans\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 msgid "Resonance Compensation"
-msgstr ""
+msgstr "共振补偿"
 
 msgid ""
 "Klipper supports Input Shaping - a technique that can be used to reduce "
@@ -15,7 +25,7 @@ msgstr ""
 msgid ""
 "|![Ringing test](img/ringing-test.jpg)|![3D "
 "Benchy](img/ringing-3dbenchy.jpg)|"
-msgstr ""
+msgstr "|![振纹测试](img/ringing-test.jpg)|![3D Benchy](img/ringing-3dbenchy.jpg)|"
 
 msgid ""
 "Ringing is caused by mechanical vibrations in the printer due to quick "
