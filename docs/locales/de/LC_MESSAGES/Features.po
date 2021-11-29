@@ -1,4 +1,4 @@
-# pomowunk <accounts+gthb@felixir.de>, 2021.
+# pomowunk <accounts+gthb@felixir.de>, 2021, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:37+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: pomowunk <accounts+gthb@felixir.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/features/"
 "de/>\n"
 "Language: de\n"
@@ -31,9 +31,9 @@ msgstr ""
 "könnte ein Mikrocontroller einen Extruder steuern und ein anderer die "
 "Heizelemente, während ein Dritter die restlichen Funktionen des Druckers "
 "steuert. Die Klipper Host-Anwendung synchronisiert den Takt der "
-"Mikrocontroller, um Taktschwankungen zwischen Mikrocontrollern auszugleichen. "
-"Um mehrere Mikrocontroller zu verwenden müssen lediglich einige Zeilen in der "
-"Konfigurationsdatei eingefügt werden."
+"Mikrocontroller, um Taktschwankungen zwischen Mikrocontrollern "
+"auszugleichen. Um mehrere Mikrocontroller zu verwenden müssen lediglich "
+"einige Zeilen in der Konfigurationsdatei eingefügt werden."
 
 msgid ""
 "Configuration via simple config file. There's no need to reflash the micro-"
