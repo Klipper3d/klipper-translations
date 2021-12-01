@@ -5,15 +5,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
-"PO-Revision-Date: 2021-11-06 17:57+0000\n"
+"PO-Revision-Date: 2021-12-01 04:47+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/bed_mesh/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/bed_mesh/zh_Hans/>\n"
 "Language: zh-hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 msgid ""
 "The Bed Mesh module may be used to compensate for bed surface irregularties "
@@ -713,6 +714,8 @@ msgid ""
 "calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and "
 "Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information."
 msgstr ""
+"在进行网格校准之前，需要先校准探针的 Z 偏移。如果使用限位开关进行Z轴定位，也需要对其进行校准。请参阅[探针校准](Probe_Calibrate."
+"md)和[手动调平](Manual_Level.md)中的 Z_ENDSTOP_CALIBRATE 获取更多信息。"
 
 #: docs/Bed_Mesh.md:block 48 (paragraph)
 msgid ""
@@ -721,20 +724,23 @@ msgid ""
 "default* *Default Method: automatic if a probe is detected, otherwise "
 "manual*"
 msgstr ""
+"`BED_MESH_CALIBRATE PROFILE=<名称> METHOD=[manual | automatic] "
+"[<probe_parameter>=<值>] [<mesh_parameter>=<值>]` *默认配置：default* "
+"*默认方法：如果检测到探针则自动，否则手动*"
 
 #: docs/Bed_Mesh.md:block 52 (unordered list)
 msgid "`ALGORITHM`"
-msgstr ""
+msgstr "`ALGORITHM`"
 
 #: docs/Bed_Mesh.md:block 53 (paragraph)
 msgid ""
 "See the configuration documentation above for details on how each parameter "
 "applies to the mesh."
-msgstr ""
+msgstr "有关在网格中使用的配置参数详见配置文档。"
 
 #: docs/Bed_Mesh.md:block 55 (paragraph)
 msgid "`BED_MESH_PROFILE SAVE=<name> LOAD=<name> REMOVE=<name>`"
-msgstr ""
+msgstr "`BED_MESH_PROFILE SAVE=<名称> LOAD=<名称> REMOVE=<名称>`"
 
 #: docs/Bed_Mesh.md:block 56 (paragraph)
 msgid ""
@@ -744,10 +750,12 @@ msgid ""
 "`BED_MESH_PROFILE SAVE=<name>` the `SAVE_CONFIG` gcode may be executed to "
 "write the profile to printer.cfg."
 msgstr ""
+"在执行 BED_MESH_CALIBRATE 后，可以将当前网格状态保存到一个命名的配置中。这样不需要重新探测打印床就可以载入一个网格。在使用`"
+"BED_MESH_PROFILE SAVE=<名称>`保存了一个配置文件后，可以执行`SAVE_CONFIG` G代码将配置写入 printer.cfg。"
 
 #: docs/Bed_Mesh.md:block 57 (paragraph)
 msgid "Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=<name>`."
-msgstr ""
+msgstr "可以通过运行 `BED_MESH_PROFILE LOAD=<名称>` 来载入配置。"
 
 #~ msgid ""
 #~ "Prior to Mesh Calibration you will need to be sure that your Probe's "
