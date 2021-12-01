@@ -1,5 +1,5 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2025.
 # hani-lengxi <2836842270@qq.com>, 2024, 2025.
 msgid ""
 msgstr ""
@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
 "PO-Revision-Date: 2025-05-03 07:29+0000\n"
-"Last-Translator: hani-lengxi <2836842270@qq.com>\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/beaglebone/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -50,15 +50,17 @@ msgid ""
 "`NICELEVEL` to `0`, uncomment the `BASEDIR`, `CONFIGFILE`, and `DAEMON` "
 "settings and change the references from `/home/pi/` to `/home/debian/`:"
 msgstr ""
-"在配置 Klipper 之前，需要先修改OctoPrint的 **/etc/default/octoprint** 配置文件。把 "
-"`OCTOPRINT_USER` 用户改为 `debian`，把 `NICELEVEL` 改为 `0` ，取消注释 "
-"`BASEDIR`、`CONFIGFILE` 和 `DAEMON` 的设置，并把引用从`/home/pi/`改为`/home/debian/`："
+"在配置 Klipper 之前，需要先修改OctoPrint的 **/etc/default/octoprint** "
+"配置文件。把 `OCTOPRINT_USER` 用户改为 `debian`，把 `NICELEVEL` 改为 `0` ，"
+"取消注释 `BASEDIR`、`CONFIGFILE` 和 `DAEMON` 的设置，并把引用从`/home/pi/"
+"`改为`/home/debian/`："
 
 #: docs/Beaglebone.md:block 22 (paragraph)
 msgid ""
 "It is also necessary to compile and install the micro-controller code for a "
 "Linux host process. Configure it a second time for a \"Linux process\":"
-msgstr "还需要编译和安装用于 Linux 主机进程的微控制器代码。再次修改编译配置为\"Linux process\"："
+msgstr "还需要编译和安装用于 Linux 主机进程的微控制器代码。再次修改编译配置为\"Linux "
+"process\"："
 
 #: docs/Beaglebone.md:block 4 (paragraph)
 msgid ""
