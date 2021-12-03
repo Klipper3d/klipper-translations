@@ -14,7 +14,7 @@ Klipper支持以下标准的G-Code命令：
 - Use absolute/relative distances for extrusion: `M82`, `M83`
 - Use absolute/relative coordinates: `G90`, `G91`
 - 设置坐标：`G92 [X<坐标>] [Y<坐标>] [Z<坐标>] [E<坐标>]`
-- Set speed factor override percentage: `M220 S<percent>`
+- 设置速度因子覆写百分比：`M220 S<百分比>`
 - 设置挤压因子覆盖百分比：`M221 S<percent>`
 - 设置加速度：`M204 S<value>` 或 `M204 P<value> T<value>`
    - 注意：如果没有指定S，同时指定了P和T，那么加速度将被设置为P和T中的最小值。
@@ -44,9 +44,9 @@ Klipper的目标是支持普通第三方软件（如OctoPrint、Printrun、Slic3
 - 列出SD卡：`M20` 。
 - 初始化SD卡：`M21`
 - 选择SD卡文件：`M23 <filename>`
-- Start/resume SD print: `M24`
+- 开始/暂停 SD 卡打印：`M24`
 - 暂停 SD 卡打印： `M25`
-- Set SD position: `M26 S<offset>`
+- 设置 SD 块位置：`M26 S<偏移>`。
 - 报告SD卡打印状态：`M27`
 
 此外，当 "virtual_sdcard "配置部分被启用时，可以使用以下扩展命令。
@@ -95,13 +95,13 @@ The following standard commands are supported:
 - `PID_CALIBRATE HEATER=<config_name> TARGET=<temperature> [WRITE_FILE=1]`：执行一个PID校准测试。指定的加热器将被启用，直到达到指定的目标温度，然后加热器将被关闭和开启几个周期。如果WRITE_FILE参数被启用，那么将创建文件/tmp/heattest.txt，其中包含测试期间所有温度样本的日志。
 - `TURN_OFF_HEATERS`: Turn off all heaters.
 - `TEMPERATURE_WAIT SENSOR=<config_name> [MINIMUM=<target>] [MAXIMUM=<target>]`: Wait until the given temperature sensor is at or above the supplied MINIMUM and/or at or below the supplied MAXIMUM.
-- `SET_VELOCITY_LIMIT [VELOCITY=<value>] [ACCEL=<value>] [ACCEL_TO_DECEL=<value>] [SQUARE_CORNER_VELOCITY=<value>]`: Modify the printer's velocity limits.
+- `SET_VELOCITY_LIMIT [VELOCITY=<值>] [ACCEL=<值>] [ACCEL_TO_DECEL=<值>] [SQUARE_CORNER_VELOCITY=<值>]`：修改打印机速度限制。
 - `SET_HEATER_TEMPERATURE HEATER=<加热器名称> [TARGET=<目标温度>]`：设置一个加热器的目标温度。如果没有提供目标温度，则目标温度为 0。
 - `ACTIVATE_EXTRUDER EXTRUDER=<config_name>`：这个命令在具有多个挤出机的打印机中用于更改活动挤出机。
 - `SET_PRESSURE_ADVANCE [EXTRUDER=<挤出机名称>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]` ：设置压力提前的参数。如果没有指定挤出机，则默认为活动的挤出机。
 - `SET_EXTRUDER_STEP_DISTANCE [EXTRUDER=<config_name>] [DISTANCE=<distance>]`。为所提供的挤出机的 "步距 "设置一个新值。"步距 "是 `rotation_distance/(full_steps_per_rotation*microsteps)`。Klipper复位时，该值不会被保留。谨慎使用，小的变化会导致挤出机和热端之间的压力过大。在使用前，请用打印材料做适当的校准步骤。如果不包括'DISTANCE'值，命令将返回当前步距。
-- `SET_STEPPER_ENABLE STEPPER=<config_name> ENABLE=[0|1]`: Enable or disable only the given stepper. This is a diagnostic and debugging tool and must be used with care. Disabling an axis motor does not reset the homing information. Manually moving a disabled stepper may cause the machine to operate the motor outside of safe limits. This can lead to damage to axis components, hot ends, and print surface.
-- `STEPPER_BUZZ STEPPER=<config_name>`: Move the given stepper forward one mm and then backward one mm, repeated 10 times. This is a diagnostic tool to help verify stepper connectivity.
+- `SET_STEPPER_ENABLE STEPPER=<配置名> ENABLE=[0|1]` 。启用或禁用指定的步进电机。这是一个诊断和调试工具，必须谨慎使用。因为禁用一个轴电机不会重置归位信息，手动移动一个被禁用的步进可能会导致机器在安全限值外操作电机。这可能导致轴结构、热端和打印件的损坏。
+- `STEPPER_BUZZ STEPPER=<配置名>`：移动指定的步进电机前后运动一毫米，重复的10次。这是一个用于验证步进电机接线的工具
 - `MANUAL_PROBE [SPEED=<speed>]`：运行一个辅助脚本，对测量给定位置的喷嘴高度有用。如果指定了速度，它将设置TESTZ命令的速度（默认为5mm/s）。在手动探测过程中，可使用以下附加命令：
    - `ACCEPT`：该命令接受当前的Z位置，并结束手动探测工具。
    - `ABORT`：该命令终止手动探测工具。
@@ -117,18 +117,18 @@ The following standard commands are supported:
 - `RESTART`：这将导致主机软件重新加载其配置并执行内部重置。此命令不会从微控制器清除错误状态（请参阅 FIRMWARE_RESTART），也不会加载新软件（请参阅 [常见问题](FAQ.md#how-do-i-upgrade-to-the-latest-software)） .
 - `FIRMWARE_RESTART`：这类似于重启命令，但它也清除了微控制器的任何错误状态。
 - `SAVE_CONFIG`：该命令将覆盖打印机的主配置文件，并重新启动主机软件。该命令与其他校准命令一起使用，用于存储校准测试的结果。
-- `STATUS`: Report the Klipper host software status.
+- `STATUS`：报告Klipper主机程序的状态。
 - `HELP`：报告可用的扩展G-Code命令列表。
 
 ### G-Code宏命令
 
-The following command is available when a [gcode_macro config section](Config_Reference.md#gcode_macro) is enabled (also see the [command templates guide](Command_Templates.md)):
+当[gcode_macro 配置分段](Config_Reference.md#gcode_macro)被启用时，以下命令可用（另请参见[命令模板指南](Command_Templates.md)）：
 
 - `SET_GCODE_VARIABLE MACRO=<macro_name> VARIABLE=<name> VALUE=<value>`：这条命令允许人们在运行时改变 gcode_macro 变量的值。所提供的 VALUE 会被解析为一个 Python 字面。
 
 ### 自定义引脚命令
 
-The following command is available when an [output_pin config section](Config_Reference.md#output_pin) is enabled:
+当[output_pin 配置分段](Config_Reference.md#output_pin)被启用时，以下命令可用：
 
 - `SET_PIN PIN=config_name VALUE=<值> CYCLE_TIME=<循环时间>`
 
@@ -136,13 +136,13 @@ The following command is available when an [output_pin config section](Config_Re
 
 ### 手动控制风扇命令
 
-The following command is available when a [fan_generic config section](Config_Reference.md#fan_generic) is enabled:
+当启用 [fan_generic 配置分段](Config_Reference.md#fan_generic) 时，以下命令可用：
 
 - `SET_FAN_SPEED FAN=config_name SPEED=<speed>` 此命令设置风扇的速度。<speed>必须在0.0和1.0之间。
 
 ### Neopixel 和 Dotstar 命令
 
-The following command is available when a [neopixel config section](Config_Reference.md#neopixel) or [dotstar config section](Config_Reference.md#dotstar) is enabled:
+当启用[neopixel 配置分段](Config_Reference.md#neopixel)或[dotstar 配置分段](Config_Reference.md#dotstar)时，以下命令可用：
 
 - `SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: This sets the LED output. Each color `<value>` must be between 0.0 and 1.0. The WHITE option is only valid on RGBW LEDs. If multiple LED chips are daisy-chained then one may specify INDEX to alter the color of just the given chip (1 for the first chip, 2 for the second, etc.). If INDEX is not provided then all LEDs in the daisy-chain will be set to the provided color. If TRANSMIT=0 is specified then the color change will only be made on the next SET_LED command that does not specify TRANSMIT=0; this may be useful in combination with the INDEX parameter to batch multiple updates in a daisy-chain. By default, the SET_LED command will sync it's changes with other ongoing gcode commands. This can lead to undesirable behavior if LEDs are being set while the printer is not printing as it will reset the idle timeout. If careful timing is not needed, the optional SYNC=0 parameter can be specified to apply the changes instantly and not reset the idle timeout.
 
@@ -150,23 +150,23 @@ The following command is available when a [neopixel config section](Config_Refer
 
 The following commands are available when a [servo config section](Config_Reference.md#servo) is enabled:
 
-- `SET_SERVO SERVO=config_name [ANGLE=<degrees> | WIDTH=<seconds>]`: Set the servo position to the given angle (in degrees) or pulse width (in seconds). Use `WIDTH=0` to disable the servo output.
+- `SET_SERVO SERVO=配置名 [ANGLE=<角度> | WIDTH=<秒>]`：将舵机位置设置为给定的角度（度）或脉冲宽度（秒）。使用 `WIDTH=0` 来禁用舵机输出。
 
 ### 手动步进电机命令
 
-The following command is available when a [manual_stepper config section](Config_Reference.md#manual_stepper) is enabled:
+当[manual_stepper 配置分段](Config_Reference.md#manual_stepper)被启用时，以下命令可用：
 
 - `MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|-1|-2]] [SYNC=0]]`：该命令将改变步进器的状态。使用ENABLE参数来启用/禁用步进。使用SET_POSITION参数，迫使步进认为它处于给定的位置。使用MOVE参数，要求移动到给定位置。如果指定了SPEED或者ACCEL，那么将使用给定的值而不是配置文件中指定的默认值。如果指定ACCEL为0，那么将不执行加速。如果STOP_ON_ENDSTOP=1被指定，那么如果止动器报告被触发，动作将提前结束（使用STOP_ON_ENDSTOP=2来完成动作，即使止动器没有被触发也不会出错，使用-1或-2来在止动器报告没有被触发时停止）。通常情况下，未来的G-Code命令将被安排在步进运动完成后运行，但是如果手动步进运动使用SYNC=0，那么未来的G-Code运动命令可能与步进运动平行运行。
 
 ### 挤出机步进电机命令
 
-The following command is available when an [extruder_stepper config section](Config_Reference.md#extruder_stepper) is enabled:
+当[extruder_stepper 配置分段](Config_Reference.md#extruder_stepper)被启用时，以下命令可用：
 
 - `SYNC_STEPPER_TO_EXTRUDER STEPPER=<extruder_stepper config_name> [EXTRUDER=<extruder config_name>]`: This command will cause the given STEPPER to become synchronized to the given EXTRUDER, overriding the extruder defined in the "extruder_stepper" config section.
 
 ### 探针
 
-The following commands are available when a [probe config section](Config_Reference.md#probe) is enabled (also see the [probe calibrate guide](Probe_Calibrate.md)):
+当[probe 配置分段](Config_Reference.md#probe)被启用时，以下命令可用（也请参见[探针校准指南](Probe_Calibrate.md)）：
 
 - `PROBE [PROBE_SPEED=<mm/s>] [LIFT_SPEED=<mm/s>] [SAMPLES=<count>] [SAMPLE_RETRACT_DIST=<mm>] [SAMPLES_TOLERANCE=<mm>] [SAMPLES_TOLERANCE_RETRIES=<count>] [SAMPLES_RESULT=median|average]`：向下移动喷嘴直到探针触发。如果提供了任何可选参数，它们将覆盖 [probe config section](Config_Reference.md#probe) 中的等效设置。
 - `QUERY_PROBE`:报告探针的当前状态（"triggered"或 "open"）。
@@ -176,7 +176,7 @@ The following commands are available when a [probe config section](Config_Refere
 
 ### BLTouch
 
-The following command is available when a [bltouch config section](Config_Reference.md#bltouch) is enabled (also see the [BL-Touch guide](BLTouch.md)):
+当启用 [bltouch 配置分段](Config_Reference.md#bltouch) 时，以下命令可用（另请参阅 [BL-Touch 指南](BLTouch.md)）：
 
 
    - `BLTOUCH_DEBUG COMMAND=<command>`:这将向BLTouch发送一个命令。这可能对调试很有用。可用的命令有 `pin_down`, `touch_mode`, `pin_up`, `self_test`, `reset`, (*1): `set_5V_output_mode`, `set_OD_output_mode`, `output_mode_store`*** 注意，标有（*1）的命令仅由BL-TOUCH V3.0或V3.1（+）支持。
@@ -184,20 +184,20 @@ The following command is available when a [bltouch config section](Config_Refere
 
 ### 三角洲校准
 
-The following commands are available when the [delta_calibrate config section](Config_Reference.md#linear-delta-kinematics) is enabled (also see the [delta calibrate guide](Delta_Calibrate.md)):
+当[delta_calibrate 配置分段](Config_Reference.md#linear-delta-kinematics)被启用时，以下命令可用（另请参阅[三角洲校准指南](Delta_Calibrate.md)）：
 
 - `DELTA_CALIBRATE [Method=manual] [<probe_parameter>=<value>] `:这条命令将探测床身的七个点，并建议更新限位位置、塔架角度和半径。有关可选探测参数的详细信息，请参见PROBE命令。如果指定METHOD=manual，那么手动探测工具将被激活 - 关于该工具激活时可用的附加命令的详细信息，请参见上面的MANUAL_PROBE命令。
 - `DELTA_ANALYZE`:这个命令在增强的delta校准过程中使用。详情见[Delta Calibrate](Delta_Calibrate.md)。
 
 ### 打印床倾斜
 
-The following commands are available when the [bed_tilt config section](Config_Reference.md#bed_tilt) is enabled:
+当 [bed_tilt 配置分段](Config_Reference.md#bed_tilt)被启用时，以下命令可用：
 
 - `BED_TILT_CALIBRATE [Method=manual] [<probe_parameter>=<value>] `:该命令将探测配置中指定的点，然后建议更新X和Y的倾斜调整。有关可选探测参数的详细信息，请参见PROBE命令。如果指定METHOD=manual，那么手动探测工具就会被激活 - 关于该工具激活时可用的附加命令，请参见上面的MANUAL_PROBE命令。
 
 ### 网床调平
 
-The following commands are available when the [bed_mesh config section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh guide](Bed_Mesh.md)):
+当[bed_mesh配置分段](Config_Reference.md#bed_mesh)被启用时，以下命令是可用的（另请参阅[床网指南](Bed_Mesh.md)）：
 
 - `BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: 此命令使用通过配置参数指定并生成的探测点探测打印床。在探测后，一个网格将被生成，z 轴移动将根据网格调整。有关可选探测参数，请见 PROBE命令。如果指定 METHOD=manual ，则会启动手动探测工具 - 有关此工具活跃时可用的额外命令，详见 MANUAL_PROBE 命令。
 - `BED_MESH_OUTPUT PGP=[<0:1>]`：此命令输出当前探测的 z 值和当前网格数值们到终端。如果指定 PGP=1 则 bed_mesh 生成的 x,y 坐标和它们相关联的索引将被输出到终端。
@@ -208,7 +208,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 ### 打印床螺丝助手
 
-The following commands are available when the [bed_screws config section](Config_Reference.md#bed_screws) is enabled (also see the [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws)):
+当 [bed_screws 配置分段](Config_Reference.md#bed_screws)被启用时，以下命令可用（另请参阅[手动调平指南](Manual_Level.md#adjusting-bed-leveling-screws)）：
 
 - `BED_SCREWS_ADJUST`：该命令将调用打印床螺丝调整工具。它将命令喷嘴移动到不同的位置（在配置文件中定义），并允许对打印床螺丝进行手动调整，使打印床与喷嘴的距离保持不变。
 
@@ -226,28 +226,28 @@ The following commands are available when the [z_tilt config section](Config_Ref
 
 ### 双滑车
 
-The following command is available when the [dual_carriage config section](Config_Reference.md#dual_carriage) is enabled:
+当[dual_carriage 配置分段](Config_Reference.md#dual_carriage)被启用时，以下命令可用：
 
 - `SET_DUAL_CARRIAGE CARRIAGE=[0|1]`:该命令将设置活动的滑块。它通常是在一个多挤出机配置中从 activate_gcode和deactivate_gcode字段调用。
 
 ### TMC stepper drivers
 
-The following commands are available when any of the [tmcXXXX config sections](Config_Reference.md#tmc-stepper-driver-configuration) are enabled:
+当启用了任何 [tmcXXXX 配置分段](Config_Reference.md#tmc-stepper-driver-configuration)时，以下命令可用：
 
 - `DUMP_TMC STEPPER=<name>`。该命令将读取TMC驱动寄存器并报告其值。
 - `INIT_TMC STEPPER=<name>`：该命令将初始化TMC寄存器。如果芯片的电源被关闭然后又被打开，需要重新启用驱动程序。
-- `SET_TMC_CURRENT STEPPER=<name> CURRENT=<amps> HOLDCURRENT=<amps>`: This will adjust the run and hold currents of the TMC driver. (HOLDCURRENT is not applicable to tmc2660 drivers.)
+- `SET_TMC_CURRENT STEPPER=<名称> CURRENT=<安培> HOLDCURRENT=<安培>`：该命令修改TMC驱动的运行和保持电流（HOLDCURRENT 在 tmc2660 驱动上不起效）。
 - `SET_TMC_FIELD STEPPER=<name> FIELD=<field> VALUE=<value>`: This will alter the value of the specified register field of the TMC driver. This command is intended for low-level diagnostics and debugging only because changing the fields during run-time can lead to undesired and potentially dangerous behavior of your printer. Permanent changes should be made using the printer configuration file instead. No sanity checks are performed for the given values.
 
 ### 通过步进相位进行限位调整
 
-The following commands are available when an [endstop_phase config section](Config_Reference.md#endstop_phase) is enabled (also see the [endstop phase guide](Endstop_Phase.md)):
+当[endstop_phase配置分段](Config_Reference.md#endstop_phase)被启用时，以下命令可用（也可参见[限位相位指南](Endstop_Phase.md)）：
 
 - `ENDSTOP_PHASE_CALIBRATE [STEPPER=<config_name>]` 。如果没有提供STEPPER参数，那么该命令将报告在过去的归位操作中对端停步进相的统计。当提供STEPPER参数时，它会安排将给定的终点站相位设置写入配置文件中（与SAVE_CONFIG命令一起使用）。
 
 ### Force movement
 
-The following commands are available when the [force_move config section](Config_Reference.md#force_move) is enabled:
+当 [force_move 配置分段](Config_Reference.md#force_move)被启用时，以下命令可用：
 
 - `FORCE_MOVE STEPPER=<config_name> DISTANCE=<value> VELOCITY=<value> [ACCEL=<value>]` 。该命令将以给定的恒定速度（mm/s）强制移动给定的步进器，移动距离（mm）。如果指定了ACCEL并且大于零，那么将使用给定的加速度（单位：mm/s^2）；否则不进行加速。不执行边界检查；不进行运动学更新；一个轴上的其他平行步进器将不会被移动。请谨慎使用，因为不正确的命令可能会导致损坏使用该命令几乎肯定会使低级运动学处于不正确的状态；随后发出G28命令以重置运动学。该命令用于低级别的诊断和调试。
 - `SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>]`: Force the low-level kinematic code to believe the toolhead is at the given cartesian position. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. If an axis is not specified then it will default to the position that the head was last commanded to. Setting an incorrect or invalid position may lead to internal software errors. This command may invalidate future boundary checks; issue a G28 afterwards to reset the kinematics.
@@ -262,12 +262,12 @@ When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is enable
 
 ### 向主机发送消息（回复）
 
-The following commands are availabe when the [respond config section](Config_Reference.md#respond) is enabled.
+[response 配置分段](Config_Reference.md#respond)启用时，以下命令可用：
 
 - `M118 <message>`：回显配置了默认前缀的信息（如果没有配置前缀，则返回`echo: `）。
 - `RESPOND MSG="<message>"`：回显带有配置的默认前缀的消息（没有配置前缀则默认 `echo: `为前缀 ）。
 - `RESPOND TYPE=echo MSG="<消息>"`：回显`echo:`开头消息。
-- `RESPOND TYPE=command MSG="<message>"`: echo the message prepended with `// `. Octopint can be configured to respond to these messages (e.g. `RESPOND TYPE=command MSG=action:pause`).
+- `RESPOND TYPE=command MSG="<消息>"`: 回显以`//`为前缀的消息。可以配置 OctoPrint 对这些信息响应（例如，`RESPOND TYPE=command MSG=action:pause`）。
 - `RESPOND TYPE=error MSG="<消息>"`：回显以 `!!`开头的消息。
 - `RESPOND PREFIX=<prefix> MSG="<message>"`: 回应以`<prefix>`为前缀的信息。(`PREFIX`参数将优先于`TYPE`参数)
 
@@ -282,7 +282,7 @@ The following commands are available when the [pause_resume config section](Conf
 
 ### 耗材传感器
 
-The following command is available when the [filament_switch_sensor or filament_motion_sensor config section](Config_Reference.md#filament_switch_sensor) is enabled.
+当[filament_switch_sensor 或 filament_motion_sensor 配置分段](Config_Reference.md#filament_switch_sensor)被启用时，以下命令可用：
 
 - `QUERY_FILAMENT_SENSOR SENSOR=<sensor_name>`。查询耗材传感器的当前状态。终端上显示的数据将取决于配置中定义的传感器类型。
 - `SET_FILAMENT_SENSOR SENSOR=<sensor_name> ENABLE=[0|1]` ：设置灯丝传感器的开/关。如果 ENABLE 设置为 0，耗材传感器将被禁用，如果设置为 1是启用。
@@ -291,19 +291,19 @@ The following command is available when the [filament_switch_sensor or filament_
 
 The following commands are available when the [firmware_retraction config section](Config_Reference.md#firmware_retraction) is enabled. These commands allow you to utilise the firmware retraction feature available in many slicers, to reduce stringing during non-extrusion moves from one part of the print to another. Appropriately configuring pressure advance reduces the length of retraction required.
 
-- `SET_RETRACTION [RETRACT_LENGTH=<mm>] [RETRACT_SPEED=<mm/s>] [UNRETRACT_EXTRA_LENGTH=<mm>] [UNRETRACT_SPEED=<mm/s>]`: Adjust the parameters used by firmware retraction. RETRACT_LENGTH determines the length of filament to retract and unretract. The speed of retraction is adjusted via RETRACT_SPEED, and is typically set relatively high. The speed of unretraction is adjusted via UNRETRACT_SPEED, and is not particularly critical, although often lower than RETRACT_SPEED. In some cases it is useful to add a small amount of additional length on unretraction, and this is set via UNRETRACT_EXTRA_LENGTH. SET_RETRACTION is commonly set as part of slicer per-filament configuration, as different filaments require different parameter settings.
+- `SET_RETRACTION [RETRACT_LENGTH=<毫米>] [RETRACT_SPEED=<毫米每秒>] [UNRETRACT_EXTRA_LENGTH=<毫米>] [UNRETRACT_SPEED=<毫米每秒>]`：调整固件回抽所使用的参数。RETRACT_LENGTH 决定回抽和回填的耗材长度。回抽的速度通过 RETRACT_SPEED 调整，通常设置得比较高。回填的速度通过 UNRETRACT_SPEED 调整，虽然经常比RETRACT_SPEED 低，但不是特别重要。在某些情况下，在回填时增加少量的额外长度的耗材可能有益，这可以通过 UNRETRACT_EXTRA_LENGTH 设置。SET_RETRACTION 通常作为切片机耗材配置的一部分来设置，因为不同的耗材需要不同的参数设置。
 - `GET_RETRACTION`:查询当前固件回抽所使用的参数并在终端显示。
 - `G10`：使用当前配置的参数回抽挤出机。
 - `G11`：不使用当前配置的参数回抽挤出机。
 
-### Skew Correction
+### 偏斜校正
 
 The following commands are available when the [skew_correction config section](Config_Reference.md#skew_correction) is enabled (also see the [Skew Correction](Skew_Correction.md) guide):
 
-- `SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] [YZ=<ac,bd,ad>] [CLEAR=<0|1>]`: Configures the [skew_correction] module with measurements (in mm) taken from a calibration print. One may enter measurements for any combination of planes, planes not entered will retain their current value. If `CLEAR=1` is entered then all skew correction will be disabled.
+- `SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] [YZ=<ac,bd,ad>] [CLEAR=<0|1>]`：用从校准打印中测量的数据（以毫米为单位）配置 [skew_correction] 模块。可以输入任何组合的平面，没有新输入的平面将保持它们原有的数值。如果传入 `CLEAR=1`，则全部偏斜校正将被禁用。
 - `GET_CURRENT_SKEW`:以弧度和度数报告每个平面的当前打印机偏移。斜度是根据通过`SET_SKEW`代码提供的参数计算的。
-- `CALC_MEASURED_SKEW [AC=<ac_length>] [BD=<bd_length>] [AD=<ad_length>]`: Calculates and reports the skew (in radians and degrees) based on a measured print. This can be useful for determining the printer's current skew after correction has been applied. It may also be useful before correction is applied to determine if skew correction is necessary. See [Skew Correction](Skew_Correction.md) for details on skew calibration objects and measurements.
-- `SKEW_PROFILE [LOAD=<name>] [SAVE=<name>] [REMOVE=<name>]`: Profile management for skew_correction. LOAD will restore skew state from the profile matching the supplied name. SAVE will save the current skew state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to peristent memory permanent.
+- `CALC_MEASURED_SKEW [AC=<ac 长度>] [BD=<bd 长度>] [AD=<ad 长度>]`：计算并报告基于一个打印件测量的偏斜度（以弧度和角度为单位）。它可以用来验证应用校正后打印机的当前偏斜度。它也可以用来确定是否有必要进行偏斜矫正。有关偏斜矫正打印模型和测量方法详见[偏斜校正文档](Skew_Correction.md)。
+- `SKEW_PROFILE [LOAD=<名称>] [SAVE=<名称>] [REMOVE=<名称>] `：管理歪斜校正配置。LOAD 将从与指定名称相匹配的配置中恢复偏斜状态。SAVE 将把当前的偏斜状态保存到与指定名称相匹配的配置文件中。REMOVE（删除）将从持久性内存中删除与指定名称相匹配的配置。请注意，在 SAVE 或 REMOVE 操作运行后，必须运行 SAVE_CONFIG G代码以使持久性存储器的变化永久化。
 
 ### 延迟 GCode
 
@@ -313,25 +313,25 @@ The following command is enabled if a [delayed_gcode config section](Config_Refe
 
 ### 保存变量
 
-The following command is enabled if a [save_variables config section](Config_Reference.md#save_variables) has been enabled:
+如果[save_variables 配置分段](Config_Reference.md#save_variables)已被启用，则以下命令可用：
 
 - `SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`：将变量保存到磁盘，以便在重新启动时使用。所有存储的变量都会在启动时加载到 `printer.save_variables.variables` 目录中，并可以在 gcode 宏中使用。所提供的 VALUE 会被解析为一个 Python 字面。
 
 ### 共振补偿
 
-The following command is enabled if an [input_shaper config section](Config_Reference.md#input_shaper) has been enabled (also see the [resonance compensation guide](Resonance_Compensation.md)):
+如果[input_shaper 配置分段](Config_Reference.md#input_shaper)被启用，以下命令可用（另请参阅[共振补偿指南](Resonance_Compensation.md)）：
 
-- `SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>]`: Modify input shaper parameters. Note that SHAPER_TYPE parameter resets input shaper for both X and Y axes even if different shaper types have been configured in [input_shaper] section. SHAPER_TYPE cannot be used together with either of SHAPER_TYPE_X and SHAPER_TYPE_Y parameters. See [config reference](Config_Reference.md#input_shaper) for more details on each of these parameters.
+- `SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>]`：修改输入整形参数。注意 SHAPER_TYPE 参数会同时覆写 X 和 Y 轴的整形器类型，即使它们在 [input_shaper] 配置分段中有不同的整形器类型。SHAPER_TYPE 不能和 SHAPER_TYPE_X 和 SHAPER_TYPE_Y 参数同时使用。这些参数的细节请见[配置参考](Config_Reference.md#input_shaper)。
 
-### Temperature Fan Commands
+### 温控风扇命令
 
-The following command is available when a [temperature_fan config section](Config_Reference.md#temperature_fan) is enabled:
+当[temperature_fan 配置分段](Config_Reference.md#temperature_fan)被启用时，以下命令可用。
 
 - `SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_name> [target=<target_temperature>] [min_speed=<min_speed>]  [max_speed=<max_speed>]`: Sets the target temperature for a temperature_fan. If a target is not supplied, it is set to the specified temperature in the config file. If speeds are not supplied, no change is applied.
 
 ### Adxl345 加速度传感器命令
 
-The following commands are available when an [adxl345 config section](Config_Reference.md#adxl345) is enabled:
+当[adxl345配置分段](Config_Reference.md#adxl345)被启用时，以下命令可用：
 
 - `ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]` 。以要求的每秒采样数启动加速度计测量。如果没有指定CHIP，则默认为 "adxl345"。该命令以启动-停止模式工作：第一次执行时，它开始测量，下次执行时停止测量。测量结果被写入一个名为`/tmp/adxl345-<chip>-<name>的文件中。csv`，其中`<chip>`是加速度计芯片的名称（`my_chip_name`来自`[adxl345 my_chip_name]`），`<name>`是可选NAME参数。如果没有指定NAME，则默认为当前时间，格式为 "YYYMMDD_HHMMSS"。如果加速度计在其配置部分没有名称（只是`[adxl345]`），那么`<chip >`部分的名称就不会生成。
 - `ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: 查询加速度计的当前值。如果没有指定芯片，则默认为 "adxl345"。如果没有指定RATE，则使用默认值。该命令对于测试与ADXL345加速度计的连接非常有用：返回的数值之一应该是自由落体加速度（+/-芯片的一些噪声）。
@@ -348,7 +348,7 @@ The following commands are available when a [resonance_tester config section](Co
 
 ### Palette 2 命令
 
-The following command is available when the [palette2 config section](Config_Reference.md#palette2) is enabled:
+当[palette2 配置分段](Config_Reference.md#palette2)被启用时，以下命令可用：
 
 - `PALETTE_CONNECT`：该命令初始化与Palette 2的连接。
 - `PALETTE_DISCONNECT`：该命令断开与Palette 2的连接。

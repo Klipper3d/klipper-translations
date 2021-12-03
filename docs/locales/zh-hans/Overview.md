@@ -32,7 +32,7 @@
 - [TMC驱动](TMC_Drivers.md)：在 Klipper 中使用 Trinamic 步进电机驱动。
 - [Multi-MCU Homing](Multi_MCU_Homing.md)：在归位和探测时使用多个微处理器。
 - [切片](Slicers.md)：为 Klipper 配置切片软件。
-- [Skew correction](Skew_Correction.md): Adjustments for axes not perfectly square.
+- [偏斜校正](Skew_Correction.md)：调整不完全垂直的轴（不完美的方形）。
 - [PWM 工具](Using_PWM_Tools.md)：关于如何使用 PWM 控制的工具，例如激光器或电钻头。
 
 ## 开发者文档
@@ -53,8 +53,8 @@
 - [示列配置](Example_Configs.md)：有关于添加示列配置到 Klipper 的信息。
 - [SD卡更新](SDCard_Updates.md)：通过将固件拷贝到SD卡中，再通过微控制器的SD卡槽来刷写微控制器。
 - [将树莓派作为微控制器](RPi_microcontroller.md)：关于如何控制与树莓派 GPIO 引脚连接的设备。
-- [Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone PRU.
+- [Beaglebone](Beaglebone.md)：在 Beaglebone PRU 上运行 Klipper 的详细信息。
 - [底层引导程序](Bootloaders.md)：有关于微控制器刷写的开发者信息。
 - [CAN 总线](CANBUS.md)：有关于 Klipper 使用 CAN 总线的信息。
 - [TSL1401CL 耗材线径传感器](TSL1401CL_Filament_Width_Sensor.md)
-- [Hall filament width sensor](Hall_Filament_Width_Sensor.md)
+- [霍尔打印丝宽度传感器](Hall_Filament_Width_Sensor.md)
