@@ -76,32 +76,32 @@ serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 
 Klipper的推荐波特率是 250000。这个波特率在 Klipper 支持的所有微控制器板上都很好用。如果你发现网上的指南推荐了一个不同的波特率，那么请忽略这部分指南，继续使用默认值 250000。
 
-If you want to change the baud rate anyway, then the new rate will need to be configured in the micro-controller (during **make menuconfig**) and that updated code will need to be compiled and flashed to the micro-controller. The Klipper printer.cfg file will also need to be updated to match that baud rate (see the [config reference](Config_Reference.md#mcu) for details). For example:
+如果你还是想改变波特率，那么需要重新配置微控制器为新的波特率（在**make menuconfig**过程中），然后将更新的代码编译并刷写到微控制器中。Klipper 的 printer.cfg 文件也需要更新以匹配该波特率（详见[配置参考](Config_Reference.md#mcu）)。例如：
 
 ```
 [mcu]
 baud: 250000
 ```
 
-The baud rate shown on the OctoPrint web page has no impact on the internal Klipper micro-controller baud rate. Always set the OctoPrint baud rate to 250000 when using Klipper.
+OctoPrint 网页上显示的波特率对内部 Klipper 微控制器的波特率没有影响。使用 Klipper 时，始终将 OctoPrint 的波特率设置为250000。
 
-The Klipper micro-controller baud rate is not related to the baud rate of the micro-controller's bootloader. See the [bootloader document](Bootloaders.md) for additional information on bootloaders.
+Klipper 微控制器的波特率与微控制器启动引导程序的波特率无关。有关启动引导程序的额外信息请参阅[启动引导程序文档](Bootloaders.md)。
 
 ## 我可以在 Raspberry Pi 3 以外的其他设备上运行 Klipper 吗？
 
 推荐的硬件是 Raspberry Pi 2、Raspberry Pi 3 或 Raspberry Pi 4。
 
-Klipper will run on a Raspberry Pi 1 and on the Raspberry Pi Zero, but these boards don't have enough processing power to run OctoPrint well. It is common for print stalls to occur on these slower machines when printing directly from OctoPrint. (The printer may move faster than OctoPrint can send movement commands.) If you wish to run on one one of these slower boards anyway, consider using the "virtual_sdcard" feature when printing (see [config reference](Config_Reference.md#virtual_sdcard) for details).
+Klipper 可以在 Raspberry Pi 1和Raspberry Pi Zero上运行，但这些板子没有足够的处理能力来运行 OctoPrint。在这些较慢的机器上直接从 OctoPrint 打印时，经常会出现打印停滞。(打印机的移动速度可能比 OctoPrint 发送移动命令的速度快。)如果你希望在这些较慢的板子上运行，请考虑在打印时使用 "virtual_sdcard "功能(详情请参见[配置参考](Config_Reference.md#virtual_sdcard))。
 
 For running on the Beaglebone, see the [Beaglebone specific installation instructions](Beaglebone.md).
 
-Klipper has been run on other machines. The Klipper host software only requires Python running on a Linux (or similar) computer. However, if you wish to run it on a different machine you will need Linux admin knowledge to install the system prerequisites for that particular machine. See the [install-octopi.sh](../scripts/install-octopi.sh) script for further information on the necessary Linux admin steps.
+Klipper 可以在其他计算机上运行。Klipper 主机软件只需要在Linux（或类似）系统的计算机上运行 Python。然而，如果你想在其他计算机上运行它，你将需要一些 Linux 管理知识来安装该计算机上系统的依赖包。参见 [install-octopi.sh](..../scripts/install-octopi.sh) 脚本，以进一步了解必要的 Linux 安装方法。
 
-If you are looking to run the Klipper host software on a low-end chip, then be aware that, at a minimum, a machine with "double precision floating point" hardware is required.
+如果你想在低端处理器上运行 Klipper 主机软件，请注意，你至少需要一台具有 "双精度浮点 "运算硬件的计算机。
 
 If you are looking to run the Klipper host software on a shared general-purpose desktop or server class machine, then note that Klipper has some real-time scheduling requirements. If, during a print, the host computer also performs an intensive general-purpose computing task (such as defragmenting a hard drive, 3d rendering, heavy swapping, etc.), then it may cause Klipper to report print errors.
 
-Note: If you are not using an OctoPi image, be aware that several Linux distributions enable a "ModemManager" (or similar) package that can disrupt serial communication. (Which can cause Klipper to report seemingly random "Lost communication with MCU" errors.) If you install Klipper on one of these distributions you may need to disable that package.
+注意：如果你没有使用 OctoPi 镜像，一些Linux发行版启用了一个 "ModemManager"（或类似的）软件包，它干扰串行通信。(这可能导致 Klipper 报告看似随机的 "与MCU失去通信 "错误）。如果你在这些发行版上安装Klipper，你可能需要禁用该软件包。
 
 ## 我可以在同一台主机上运行多个 Klipper 实例吗？
 

@@ -2,7 +2,7 @@
 
 网床 插件可用于补偿热床表面的不规则性，以保证在打印过程中获得更好的第一层。 需要注意的是，基于软件的校正还不能达到完美的程度，它只能尽可能达到床的形状。网床 也无法补偿机械和电气导致的问题。 如果机器没装好结构歪了或探针不准确，则 网床 模块将无法从探测过程中获得令人满意的结果。
 
-Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information.
+在进行网格校准之前，需要先校准探针的 Z 偏移。如果使用限位开关进行Z轴定位，也需要对其进行校准。请参阅[探针校准](Probe_Calibrate.md)和[手动调平](Manual_Level.md)中的 Z_ENDSTOP_CALIBRATE 获取更多信息。
 
 ## 基本配置
 
@@ -169,7 +169,7 @@ faulty_region_4_max: 45.0, 210.0
 
 ### 校准
 
-`BED_MESH_CALIBRATE PROFILE=<name> METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: default* *Default Method: automatic if a probe is detected, otherwise manual*
+`BED_MESH_CALIBRATE PROFILE=<名称> METHOD=[manual | automatic] [<probe_parameter>=<值>] [<mesh_parameter>=<值>]` *默认配置：default* *默认方法：如果检测到探针则自动，否则手动*
 
 启动床网校准的探测程序。
 
@@ -189,15 +189,15 @@ faulty_region_4_max: 45.0, 210.0
    - `RELATIVE_REFERNCE_INDEX`
    - `ALGORITHM`
 
-See the configuration documentation above for details on how each parameter applies to the mesh.
+有关在网格中使用的配置参数详见配置文档。
 
 ### 配置
 
-`BED_MESH_PROFILE SAVE=<name> LOAD=<name> REMOVE=<name>`
+`BED_MESH_PROFILE SAVE=<名称> LOAD=<名称> REMOVE=<名称>`
 
-After a BED_MESH_CALIBRATE has been performed, it is possible to save the current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using `BED_MESH_PROFILE SAVE=<name>` the `SAVE_CONFIG` gcode may be executed to write the profile to printer.cfg.
+在执行 BED_MESH_CALIBRATE 后，可以将当前网格状态保存到一个命名的配置中。这样不需要重新探测打印床就可以载入一个网格。在使用`BED_MESH_PROFILE SAVE=<名称>`保存了一个配置文件后，可以执行`SAVE_CONFIG` G代码将配置写入 printer.cfg。
 
-Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=<name>`.
+可以通过运行 `BED_MESH_PROFILE LOAD=<名称>` 来载入配置。
 
 请注意，每次运行 BED_MESH_CALIBRATE 后，当前状态会被保存到 *default* 配置。如果这个配置在配置文件中存在，它会在 Klipper 启动时自动载入。如果不希望这种行为，可以通过以下命令删除 *default* 配置：
 
