@@ -1,6 +1,6 @@
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2021, 2025.
 # in the moon <igna@hypixel.one>, 2021.
-# paco avendaño <pacoavendano13@gmail.com>, 2021.
+# paco avendaño <pacoavendano13@gmail.com>, 2021, 2025.
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
 # Juan <benitesjn@gmail.com>, 2023.
 # L Garcia <unsaid.sorrels.0y@icloud.com>, 2024, 2025.
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: L Garcia <unsaid.sorrels.0y@icloud.com>\n"
+"Last-Translator: paco avendaño <pacoavendano13@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/overview/"
 "es/>\n"
 "Language: es\n"
@@ -76,8 +76,8 @@ msgid ""
 "[Config checks](Config_checks.md): Verify basic pin settings in the config "
 "file."
 msgstr ""
-"[Validación de configuración](Config_checks.md): Verificar las configuraciónes"
-" básicas del PIN en el archivo de configuración."
+"[Validación de configuración](Config_checks.md): Verificar las "
+"configuraciónes básicas del PIN en el archivo de configuración."
 
 msgid "[Bed level](Bed_Level.md): Information on \"bed leveling\" in Klipper."
 msgstr ""
