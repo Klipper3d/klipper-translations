@@ -1,16 +1,18 @@
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2021.
 # in the moon <igna@hypixel.one>, 2021.
+# paco avendaño <pacoavendano13@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-09-11 08:35+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/overview/es/>\n"
+"PO-Revision-Date: 2021-12-08 10:52+0000\n"
+"Last-Translator: paco avendaño <pacoavendano13@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/overview/"
+"es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -67,6 +69,8 @@ msgid ""
 "[Config checks](Config_checks.md): Verify basic pin settings in the config "
 "file."
 msgstr ""
+"[Validación de configuración](Config_checks.md): Verificar las "
+"configuraciónes básicas del PIN en el archivo de configuración."
 
 msgid "[Bed level](Bed_Level.md): Information on \"bed leveling\" in Klipper."
 msgstr ""
