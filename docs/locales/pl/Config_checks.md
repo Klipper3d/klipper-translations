@@ -1,4 +1,4 @@
-# Configuration checks
+# Kontrola konfiguracji
 
 Ten dokument zawiera listę kroków, które pomogą potwierdzić ustawienia pinów w pliku konfiguracyjnym klipper printer.cfg. Dobrym pomysłem jest wykonanie tych kroków po wykonaniu czynności opisanych w [installation document](Installation.md).
 
@@ -10,19 +10,19 @@ Zacznij od sprawdzenia, czy temperatury są prawidłowo raportowane. Przejdź do
 
 ![octoprint-temperature](img/octoprint-temperature.png)
 
-Sprawdź, czy temperatura dyszy i złoża (jeśli dotyczy) jest obecna i nie wzrasta. Jeśli rośnie, odłącz zasilanie od drukarki. Jeśli temperatury nie są dokładne, sprawdź ustawienia „sensor_type” i „sensor_pin” dla dyszy i/lub stołu.
+Sprawdź, czy temperatura dyszy i złoża (jeśli dotyczy) jest obecna i nie wzrasta. Jeśli rośnie, odłącz zasilanie od drukarki. Jeśli temperatury nie rosnie, sprawdź ustawienia „sensor_type” i „sensor_pin” dla dyszy i/lub stołu.
 
 ## Sprawdź M112
 
-Navigate to the Octoprint terminal tab and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause Octoprint to disconnect from Klipper - navigate to the Connection area and click on "Connect" to cause Octoprint to reconnect. Then navigate to the Octoprint temperature tab and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
+Przejść do karty terminala Octoprint i wyday polecenie M112 w oknie terminala. To polecenie żąda, aby Klipper przeszedł w stan "wyłączenia". Spowoduje odłączenie się ze urządzenia Octoprint od urządzenia Klipper - przejść do obszaru Połączenie i klikni "Połącz", aby spowodować ponowne połączenie się z urządzeniem Octoprint. Następnie przejść do karty Temperatura Octoprint i sprawdzić, czy temperatury są nadal aktualizowane i czy nie wzrastają. Jeśli temperatury wzrastają, odłączyć zasilanie od drukarki.
 
 Komenda M112 powoduje przejście Klippera w stan "shutdown". Opuszczenie tego stanu można wywołać komendą FIRMWARE_RESTART w zakładce terminala Octoprint.
 
 ## Sprawdź grzałki
 
-Navigate to the Octoprint temperature tab and type in 50 followed by enter in the "Tool" temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the "Tool" temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
+Przejść do zakładki Octoprint temperature i wpisai 50 w polu temperatury "Tool". Temperatura ekstrudera na wykresie powinna zacząć wzrastać (w ciągu około 30 sekund lub tak). Następnie przechodzimy do rozwijanego pola temperatury "Tool" i wybieramy "Off". Po kilku minutach temperatura powinna zacząć wracać do początkowej wartości temperatury pokojowej. Jeśli temperatura nie wzrasta, należy sprawdzić ustawienie "heater_pin" w konfiguracji.
 
-If the printer has a heated bed then perform the above test again with the bed.
+Jeśli drukarka ma podgrzewane łoże, wykonaj powyższy test ponownie z tym łożem.
 
 ## Sprawdź pin włączający silnik krokowy
 
@@ -30,17 +30,17 @@ Sprawdź, czy wszystkie osie drukarki można przesunąć ręcznie (przy wyłącz
 
 ## Sprawdź krańcówki
 
-Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the Octoprint terminal tab. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
+Ręcznie przesunąć wszystkie osie drukarki tak, aby żadna z nich nie stykała się z ogranicznikiem krańcowym. Wysłać polecenie QUERY_ENDSTOPS przez kartę terminala Octoprint. Powinno ono odpowiedzieć podając aktualny stan wszystkich skonfigurowanych ograniczników krańcowych i wszystkie powinny zgłaszać stan "otwarty". Dla każdego z tych punktów końcowych ponownie uruchomić polecenie QUERY_ENDSTOPS, ręcznie wyzwalając punkt końcowy. Polecenie QUERY_ENDSTOPS powinno zgłaszać wyłącznik krańcowy jako "TRIGGERED" (wyzwolony).
 
-If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!ar3"), or remove the "!" if there is already one present.
+Jeśli endstop wydaje się odwrócony (zgłasza "otwarty", gdy jest wyzwolony i odwrotnie), to dodaj "!" do definicji pinu (na przykład, "endstop_pin: ^!ar3"), lub usuń "!", jeśli już jest obecny.
 
-If the endstop does not change at all then it generally indicates that the endstop is connected to a different pin. However, it may also require a change to the pullup setting of the pin (the '^' at the start of the endstop_pin name - most printers will use a pullup resistor and the '^' should be present).
+Jeżeli endstop w ogóle się nie zmienia, to generalnie oznacza to, że endstop jest podłączony do innego pinu. Jednak może to również wymagać zmiany ustawienia pullup dla tego pinu ('^' na początku nazwy endstop_pin - większość drukarek będzie używać rezystora pullup i '^' powinno być obecne).
 
-## Verify stepper motors
+## Weryfikacja silników krokowych
 
-Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor. Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x`. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
+Użyj komendy STEPPER_BUZZ aby zweryfikować łączność każdego silnika krokowego. Zacznij od ręcznego ustawienia danej osi w punkcie środkowym, a następnie uruchom `STEPPER_BUZZ STEPPER=stepper_x`. Komenda STEPPER_BUZZ spowoduje, że dany krokowiec przesunie się o jeden milimetr w kierunku dodatnim, a następnie powróci do pozycji wyjściowej. (Jeśli endstop jest zdefiniowany na position_endstop=0 to na początku każdego ruchu stepper odsunie się od endstopu). Oscylacja ta zostanie wykonana dziesięć razy.
 
-If the stepper does not move at all, then verify the "enable_pin" and "step_pin" settings for the stepper. If the stepper motor moves but does not return to its original position then verify the "dir_pin" setting. If the stepper motor oscillates in an incorrect direction, then it generally indicates that the "dir_pin" for the axis needs to be inverted. This is done by adding a '!' to the "dir_pin" in the printer config file (or removing it if one is already there). If the motor moves significantly more or significantly less than one millimeter then verify the "rotation_distance" setting.
+Jeśli stepper nie porusza się w ogóle, to następnie sprawdc ustawienia "enable_pin" i "step_pin" dla steppera. Jeśli silnik krokowy porusza się, ale nie powraca do pozycji wyjściowej, należy sprawdzić ustawienie "dir_pin". Jeśli silnik krokowy oscyluje w niewłaściwym kierunku, oznacza to z reguły, że "dir_pin" dla osi musi zostać odwrócony. W tym celu należy dodać znak "!" do "dir_pin" w pliku konfiguracyjnym drukarki (lub usunąć go, jeśli już tam jest). Jeśli silnik porusza się znacznie więcej lub znacznie mniej niż jeden milimetr, należy sprawdzić ustawienie "rotation_distance".
 
 Uruchom powyższy test dla każdego silnika krokowego zdefiniowanego w pliku konfiguracyjnym. (Ustaw parametr STEPPER komendy STEPPER_BUZZ na nazwę sekcji konfiguracyjnej, która ma być testowana.) Jeśli w ekstruderze nie ma filamentu, można użyć STEPPER_BUZZ do weryfikacji połączenia silnika ekstrudera (użyj STEPPER=extruder). W przeciwnym razie najlepiej przetestować silnik ekstrudera osobno (patrz następna sekcja).
 
@@ -54,16 +54,16 @@ Aby przetestować silnik ekstrudera, konieczne będzie podgrzanie ekstrudera do 
 
 Klipper obsługuje [PID control](https://en.wikipedia.org/wiki/PID_controller) dla ekstrudera i podgrzewaczy stołu. Aby skorzystać z tego mechanizmu sterującego, konieczne jest skalibrowanie ustawień PID na każdej drukarce. (Ustawienia PID znalezione w innych firmware lub w przykładowych plikach konfiguracyjnych często działają słabo.)
 
-To calibrate the extruder, navigate to the OctoPrint terminal tab and run the PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder TARGET=170`
+Aby skalibrować ekstruder, przejdź do zakładki terminala OctoPrint i uruchom polecenie PID_CALIBRATE. Na przykład: `PID_CALIBRATE HEATER=extruder TARGET=170`.`
 
-At the completion of the tuning test run `SAVE_CONFIG` to update the printer.cfg file the new PID settings.
+Po zakończeniu testu dostrajania uruchom `SAVE_CONFIG`, aby zaktualizować plik printer.cfg o nowemu ustawienia PID.
 
-If the printer has a heated bed and it supports being driven by PWM (Pulse Width Modulation) then it is recommended to use PID control for the bed. (When the bed heater is controlled using the PID algorithm it may turn on and off ten times a second, which may not be suitable for heaters using a mechanical switch.) A typical bed PID calibration command is: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
+Jeśli drukarka ma podgrzewane łoże i obsługuje ono sterowanie PWM (modulacja szerokości impulsu), zaleca się stosowanie sterowania PID dla łoża. (Gdy podgrzewacz łoża jest sterowany za pomocą algorytmu PID, może on włączać się i wyłączać dziesięć razy na sekundę, co może nie być odpowiednie dla podgrzewaczy wykorzystujących przełącznik mechaniczny). Typowa komenda kalibracji PID łóżka to: `PID_CALIBRATE HEATER=heater_bed TARGET=60`.
 
-## Next steps
+## Następne kroki
 
-This guide is intended to help with basic verification of pin settings in the Klipper configuration file. Be sure to read the [bed leveling](Bed_Level.md) guide. Also see the [Slicers](Slicers.md) document for information on configuring a slicer with Klipper.
+Ten dokument ma na celu pomóc w podstawowej weryfikacji ustawień pinów w pliku konfiguracyjnym Klippera. Należy zapoznać się z przewodnikiem [Bed Leveling](Bed_Level.md). Zobacz także dokument [Slicers](Slicers.md), aby uzyskać informacje na temat konfigurowania slicera za pomocą programu Klipper.
 
-After one has verified that basic printing works, it is a good idea to consider calibrating [pressure advance](Pressure_Advance.md).
+Po sprawdzeniu, że podstawowe drukowanie działa, warto rozważyć kalibrację [pressure advance] (Pressure_Advance.md).
 
-It may be necessary to perform other types of detailed printer calibration - a number of guides are available online to help with this (for example, do a web search for "3d printer calibration"). As an example, if you experience the effect called ringing, you may try following [resonance compensation](Resonance_Compensation.md) tuning guide.
+Może być konieczne przeprowadzenie innych rodzajów szczegółowej kalibracji drukarki - w sieci dostępnych jest wiele poradników, które w tym pomogą (na przykład wyszukaj w Internecie hasło "3d printer calibration"). Na przykład, jeśli doświadczasz efektu zwanego dzwonieniem, możesz spróbować zastosować się do instrukcji strojenia [Kompensacja rezonansu](Resonance_Compensation.md).
