@@ -15,7 +15,7 @@ Le damos la bienvenida a la documentación de Klipper. Si recién comienza a uti
 - [Instalación](Installation.md): guía para instalar Klipper.
 - [Referencia de configuración](Config_Reference.md): descripción de los parámetros de configuración.
    - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
-- [Config checks](Config_checks.md): Verify basic pin settings in the config file.
+- [Validación de configuración](Config_checks.md): Verificar las configuraciónes básicas del PIN en el archivo de configuración.
 - [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
    - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
    - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
