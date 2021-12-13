@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-11-06 20:20+0000\n"
+"PO-Revision-Date: 2021-12-13 01:52+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/packaging/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/packaging/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 msgid ""
 "Klipper is somewhat of a packaging anomaly among python programs, as it "
@@ -59,7 +60,7 @@ msgstr "示例打包脚本"
 
 #: docs/Packaging.md:block 1 (header)
 msgid "Packaging Klipper"
-msgstr ""
+msgstr "打包 Klipper"
 
 #: docs/Packaging.md:block 10 (paragraph)
 msgid ""
@@ -68,6 +69,9 @@ msgid ""
 "Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-"
 "git)."
 msgstr ""
+"klipper-git 是 klipper 的 Arch Linux 软件包，在[Arch User Repositiory](https://aur."
+"archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git)上有一个 "
+"PKGBUILD（软件包构建脚本）。"
 
 #~ msgid "Packaging klipper"
 #~ msgstr "打包 Klipper"
