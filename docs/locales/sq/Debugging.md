@@ -1,6 +1,6 @@
 # Debugging
 
-本文档描述了一些 Klipper 调试工具。
+This document describes some of the Klipper debugging tools.
 
 ## Running the regression tests
 
@@ -31,32 +31,32 @@ See the "HELP" command within the tool for more information on its functionality
 
 Some command-line options are available. For more information run: `~/klippy-env/bin/python ./klippy/console.py --help`
 
-## 将G代码文件转换为微控制器命令
+## Translating gcode files to micro-controller commands
 
-Klippy 主机代码可以在批处理模式下运行并生成G代码文件相应的低级微控制器命令。这些低级命令可以帮助了解低级硬件的操作和在修改代码后微控制器命令的差异。
+The Klippy host code can run in a batch mode to produce the low-level micro-controller commands associated with a gcode file. Inspecting these low-level commands is useful when trying to understand the actions of the low-level hardware. It can also be useful to compare the difference in micro-controller commands after a code change.
 
-要在批处理模式下运行 Klippy，需要首先生成微控制器的"数据字典"。通过编译微控制器代码来获得**out/klipper.dict**文件：
+To run Klippy in this batch mode, there is a one time step necessary to generate the micro-controller "data dictionary". This is done by compiling the micro-controller code to obtain the **out/klipper.dict** file:
 
 ```
 make menuconfig
 make
 ```
 
-完成上述操作后，可以在批处理模式下运行 Klipper（请参阅[安装](Installation.md)以了解构建 Python 虚拟环境(venv)和 printer.cfg 文件所需的步骤）：
+Once the above is done it is possible to run Klipper in batch mode (see [installation](Installation.md) for the steps necessary to build the python virtual environment and a printer.cfg file):
 
 ```
 ~/klippy-env/bin/python ./klippy/klippy.py ~/printer.cfg -i test.gcode -o test.serial -v -d out/klipper.dict
 ```
 
-以上命令将生成一个包含二进制串行输出的**test.serial**文件。该文件可以用以下方法翻译成可读文本：
+The above will produce a file **test.serial** with the binary serial output. This output can be translated to readable text with:
 
 ```
 ~/klippy-env/bin/python ./klippy/parsedump.py out/klipper.dict test.serial > test.txt
 ```
 
-生成的文件 **test.txt** 包含可读的微控制器命令列表。
+The resulting file **test.txt** contains a human readable list of micro-controller commands.
 
-为了使批处理模式正常运行，一些响应和请求命令被禁用了。因此，实际命令和上述输出之间会有一些差异。生成的数据可以用于测试和检查，但是它不能被发送到真正的微控制器。
+The batch mode disables certain response / request commands in order to function. As a result, there will be some differences between actual commands and the above output. The generated data is useful for testing and inspection; it is not useful for sending to a real micro-controller.
 
 ## Motion analysis and data logging
 
@@ -141,7 +141,7 @@ cp /tmp/klippy.log .
 
 The script will extract the printer config file and will extract MCU shutdown information. The information dumps from an MCU shutdown (if present) will be reordered by timestamp to assist in diagnosing cause and effect scenarios.
 
-## 用 simulavr 测试
+## Testing with simulavr
 
 The [simulavr](http://www.nongnu.org/simulavr/) tool enables one to simulate an Atmel ATmega micro-controller. This section describes how one can run test gcode files through simulavr. It is recommended to run this on a desktop class machine (not a Raspberry Pi) as it does require significant cpu to run efficiently.
 
