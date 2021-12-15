@@ -1,47 +1,47 @@
 # Frequently Asked Questions
 
-1. [我怎样才能支持项目？](#how-can-i-donate-to-the-project)
-1. [如何计算rotation_distance配置参数？](#how-do-i-calculate-the-rotation_distance-config-parameter)
-1. [我的串口在哪里找？](#wheres-my-serial-port)
-1. [当微控制器重启设备更改为/dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1)
-1. [“make flash”命令不起作用](#the-make-flash-command-doesnt-work)
-1. [如何更改串口波特率？](#how-do-i-change-the-serial-baud-rate)
-1. [我可以在 Raspberry Pi 3 以外的其他设备上运行 Klipper 吗？](#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)
-1. [我可以在同一台主机上运行多个 Klipper 实例吗？](#can-i-run-multiple-instances-of-klipper-on-the-same-host-machine)
-1. [我必须使用 OctoPrint 吗？](#do-i-have-to-use-octoprint)
-1. [为什么我不能在归位打印机之前移动步进器？](#why-cant-i-move-the-stepper-before-homing-the-printer)
-1. [为什么默认配置中的 Z position_endstop 设置为 0.5？](#why-is-the-z-position_endstop-set-to-05-in-the-default-configs)
-1. [我从 Marlin 转换了我的配置，X/Y 轴工作正常，但在 Z 轴归位时我只会听到刺耳的噪音](#i-converted-my-config-from-marlin-and-the-xy-axes-work-fine-but-i-just-get-a-screeching-noise-when-homing-the-z-axis)
-1. [我的 TMC 电机驱动程序在打印过程中关闭](#my-tmc-motor-driver-turns-off-in-the-middle-of-a-print)
-1. [我不断收到随机的“与 MCU 失去通信”错误](#i-keep-getting-random-lost-communication-with-mcu-errors)
-1. [我的树莓派在打印过程中不断重启](#my-raspberry-pi-keeps-rebooting-during-prints)
-1. [当我设置“restart_method=command”时，我的 AVR 设备在重启时挂起](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-restart)
-1. [如果 Raspberry Pi 崩溃，加热器会继续打开吗？](#will-the-heaters-be-left-on-if-the-raspberry-pi-crashes)
-1. [如何将 Marlin 引脚编号转换为 Klipper 引脚名称？](#how-do-i-convert-a-marlin-pin-number-to-a-klipper-pin-name)
-1. [我必须将我的设备连接到特定类型的微控制器引脚吗？](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin)
-1. [我如何取消 M109/M190“等待温度”请求？](#how-do-i-cancel-an-m109m190-wait-for-temperature-request)
-1. [可以查一下打印机是否丢步吗？](#can-i-find-out-whether-the-printer-has-lost-steps)
-1. [为什么Klipper会报错？ 我打印的文件丢了！](#why-does-klipper-report-errors-i-lost-my-print)
-1. [如何升级到最新软件？](#how-do-i-upgrade-to-the-latest-software)
-1. [如何卸载 klipper？](#how-do-i-uninstall-klipper)
+1. [How can I donate to the project?](#how-can-i-donate-to-the-project)
+1. [How do I calculate the rotation_distance config parameter?](#how-do-i-calculate-the-rotation_distance-config-parameter)
+1. [Where's my serial port?](#wheres-my-serial-port)
+1. [When the micro-controller restarts the device changes to /dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1)
+1. [The "make flash" command doesn't work](#the-make-flash-command-doesnt-work)
+1. [How do I change the serial baud rate?](#how-do-i-change-the-serial-baud-rate)
+1. [Can I run Klipper on something other than a Raspberry Pi 3?](#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)
+1. [Can I run multiple instances of Klipper on the same host machine?](#can-i-run-multiple-instances-of-klipper-on-the-same-host-machine)
+1. [Do I have to use OctoPrint?](#do-i-have-to-use-octoprint)
+1. [Why can't I move the stepper before homing the printer?](#why-cant-i-move-the-stepper-before-homing-the-printer)
+1. [Why is the Z position_endstop set to 0.5 in the default configs?](#why-is-the-z-position_endstop-set-to-05-in-the-default-configs)
+1. [I converted my config from Marlin and the X/Y axes work fine, but I just get a screeching noise when homing the Z axis](#i-converted-my-config-from-marlin-and-the-xy-axes-work-fine-but-i-just-get-a-screeching-noise-when-homing-the-z-axis)
+1. [My TMC motor driver turns off in the middle of a print](#my-tmc-motor-driver-turns-off-in-the-middle-of-a-print)
+1. [I keep getting random "Lost communication with MCU" errors](#i-keep-getting-random-lost-communication-with-mcu-errors)
+1. [My Raspberry Pi keeps rebooting during prints](#my-raspberry-pi-keeps-rebooting-during-prints)
+1. [When I set "restart_method=command" my AVR device just hangs on a restart](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-restart)
+1. [Will the heaters be left on if the Raspberry Pi crashes?](#will-the-heaters-be-left-on-if-the-raspberry-pi-crashes)
+1. [How do I convert a Marlin pin number to a Klipper pin name?](#how-do-i-convert-a-marlin-pin-number-to-a-klipper-pin-name)
+1. [Do I have to wire my device to a specific type of micro-controller pin?](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin)
+1. [How do I cancel an M109/M190 "wait for temperature" request?](#how-do-i-cancel-an-m109m190-wait-for-temperature-request)
+1. [Can I find out whether the printer has lost steps?](#can-i-find-out-whether-the-printer-has-lost-steps)
+1. [Why does Klipper report errors? I lost my print!](#why-does-klipper-report-errors-i-lost-my-print)
+1. [How do I upgrade to the latest software?](#how-do-i-upgrade-to-the-latest-software)
+1. [How do I uninstall klipper?](#how-do-i-uninstall-klipper)
 
-## 我如何向项目捐款？
+## How can I donate to the project?
 
 Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>
 
-## 如何计算 rotation_distance 配置参数？
+## How do I calculate the rotation_distance config parameter?
 
-参见[旋转距离文档](Rotation_Distance.md)。
+See the [rotation distance document](Rotation_Distance.md).
 
-## 我的串口在哪里找？
+## Where's my serial port?
 
-查找 USB 串行端口的一般方法是从主机上的 ssh 终端运行 `ls /dev/serial/by-id/*`。 它可能会产生类似于以下内容的输出：
+The general way to find a USB serial port is to run `ls /dev/serial/by-id/*` from an ssh terminal on the host machine. It will likely produce output similar to the following:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-在上述命令中找到的名称是稳定的，可以在配置文件中使用它，同时可用于刷写微控制器的代码。 例如，一个 flash 命令：
+The name found in the above command is stable and it is possible to use it in the config file and while flashing the micro-controller code. For example, a flash command might look similar to:
 
 ```
 sudo service klipper stop
@@ -49,103 +49,103 @@ make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 ```
 
-更新后的配置可能如下所示：
+and the updated config might look like:
 
 ```
 [mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-请务必从上面运行的“ls”命令中复制并粘贴名称，因为每个打印机的名称都不同。
+Be sure to copy-and-paste the name from the "ls" command that you ran above as the name will be different for each printer.
 
-如果您使用多个微控制器并且它们没有唯一的 ID（在带有 CH340 USB 芯片的板上很常见），那么请按照上面的说明使用命令 `ls /dev/serial/by-path/*` 代替。
+If you are using multiple micro-controllers and they do not have unique ids (common on boards with a CH340 USB chip) then follow the directions above using the command `ls /dev/serial/by-path/*` instead.
 
-## 当微控制器重新启动设备更改为/dev/ttyUSB1
+## When the micro-controller restarts the device changes to /dev/ttyUSB1
 
-按照“[我的串行端口在哪里找？](#wheres-my-serial-port)”部分中的说明来防止这种情况发生。
+Follow the directions in the "[Where's my serial port?](#wheres-my-serial-port)" section to prevent this from occurring.
 
-## “make flash”命令不起作用
+## The "make flash" command doesn't work
 
-该代码尝试使用每个平台最常用的方法来刷写设备。 不幸的是，刷写方法存在很多差异，因此“make flash”命令可能不适用于所有主板。
+The code attempts to flash the device using the most common method for each platform. Unfortunately, there is a lot of variance in flashing methods, so the "make flash" command may not work on all boards.
 
-如果您遇到间歇性故障或您确实有标准设置，请仔细检查刷写时 Klipper 是否未运行（sudo service klipper stop），确保 OctoPrint 未尝试直接连接到设备（打开 网页中的连接选项卡，如果串行端口设置为设备，则单击断开连接），并确保为您的电路板正确设置了 FLASH_DEVICE（请参阅[上面的问题](#wheres-my-serial-port)）。
+If you're having an intermittent failure or you do have a standard setup, then double check that Klipper isn't running when flashing (sudo service klipper stop), make sure OctoPrint isn't trying to connect directly to the device (open the Connection tab in the web page and click Disconnect if the Serial Port is set to the device), and make sure FLASH_DEVICE is set correctly for your board (see the [question above](#wheres-my-serial-port)).
 
-但是，如果“make flash”对您的电路板不起作用，那么您将需要手动刷写。 查看 [config directory](../config) 中是否有一个配置文件，里面有刷机的具体说明。 此外，请查看电路板制造商的文档，看看它是否描述了如何刷写设备。 最后，可以使用诸如“avrdude”或“bossac”之类的工具手动刷写设备——有关更多信息，请参阅[引导加载程序文档](Bootloaders.md)。
+However, if "make flash" just doesn't work for your board, then you will need to manually flash. See if there is a config file in the [config directory](../config) with specific instructions for flashing the device. Also, check the board manufacturer's documentation to see if it describes how to flash the device. Finally, it may be possible to manually flash the device using tools such as "avrdude" or "bossac" - see the [bootloader document](Bootloaders.md) for additional information.
 
-## 如何更改串行波特率？
+## How do I change the serial baud rate?
 
-Klipper的推荐波特率是 250000。这个波特率在 Klipper 支持的所有微控制器板上都很好用。如果你发现网上的指南推荐了一个不同的波特率，那么请忽略这部分指南，继续使用默认值 250000。
+The recommended baud rate for Klipper is 250000. This baud rate works well on all micro-controller boards that Klipper supports. If you've found an online guide recommending a different baud rate, then ignore that part of the guide and continue with the default value of 250000.
 
-如果你还是想改变波特率，那么需要重新配置微控制器为新的波特率（在**make menuconfig**过程中），然后将更新的代码编译并刷写到微控制器中。Klipper 的 printer.cfg 文件也需要更新以匹配该波特率（详见[配置参考](Config_Reference.md#mcu）)。例如：
+If you want to change the baud rate anyway, then the new rate will need to be configured in the micro-controller (during **make menuconfig**) and that updated code will need to be compiled and flashed to the micro-controller. The Klipper printer.cfg file will also need to be updated to match that baud rate (see the [config reference](Config_Reference.md#mcu) for details). For example:
 
 ```
 [mcu]
 baud: 250000
 ```
 
-OctoPrint 网页上显示的波特率对内部 Klipper 微控制器的波特率没有影响。使用 Klipper 时，始终将 OctoPrint 的波特率设置为250000。
+The baud rate shown on the OctoPrint web page has no impact on the internal Klipper micro-controller baud rate. Always set the OctoPrint baud rate to 250000 when using Klipper.
 
-Klipper 微控制器的波特率与微控制器启动引导程序的波特率无关。有关启动引导程序的额外信息请参阅[启动引导程序文档](Bootloaders.md)。
+The Klipper micro-controller baud rate is not related to the baud rate of the micro-controller's bootloader. See the [bootloader document](Bootloaders.md) for additional information on bootloaders.
 
-## 我可以在 Raspberry Pi 3 以外的其他设备上运行 Klipper 吗？
+## Can I run Klipper on something other than a Raspberry Pi 3?
 
-推荐的硬件是 Raspberry Pi 2、Raspberry Pi 3 或 Raspberry Pi 4。
+The recommended hardware is a Raspberry Pi 2, Raspberry Pi 3, or Raspberry Pi 4.
 
-Klipper 可以在 Raspberry Pi 1和Raspberry Pi Zero上运行，但这些板子没有足够的处理能力来运行 OctoPrint。在这些较慢的机器上直接从 OctoPrint 打印时，经常会出现打印停滞。(打印机的移动速度可能比 OctoPrint 发送移动命令的速度快。)如果你希望在这些较慢的板子上运行，请考虑在打印时使用 "virtual_sdcard "功能(详情请参见[配置参考](Config_Reference.md#virtual_sdcard))。
+Klipper will run on a Raspberry Pi 1 and on the Raspberry Pi Zero, but these boards don't have enough processing power to run OctoPrint well. It is common for print stalls to occur on these slower machines when printing directly from OctoPrint. (The printer may move faster than OctoPrint can send movement commands.) If you wish to run on one one of these slower boards anyway, consider using the "virtual_sdcard" feature when printing (see [config reference](Config_Reference.md#virtual_sdcard) for details).
 
 For running on the Beaglebone, see the [Beaglebone specific installation instructions](Beaglebone.md).
 
-Klipper 可以在其他计算机上运行。Klipper 主机软件只需要在Linux（或类似）系统的计算机上运行 Python。然而，如果你想在其他计算机上运行它，你将需要一些 Linux 管理知识来安装该计算机上系统的依赖包。参见 [install-octopi.sh](..../scripts/install-octopi.sh) 脚本，以进一步了解必要的 Linux 安装方法。
+Klipper has been run on other machines. The Klipper host software only requires Python running on a Linux (or similar) computer. However, if you wish to run it on a different machine you will need Linux admin knowledge to install the system prerequisites for that particular machine. See the [install-octopi.sh](../scripts/install-octopi.sh) script for further information on the necessary Linux admin steps.
 
-如果你想在低端处理器上运行 Klipper 主机软件，请注意，你至少需要一台具有 "双精度浮点 "运算硬件的计算机。
+If you are looking to run the Klipper host software on a low-end chip, then be aware that, at a minimum, a machine with "double precision floating point" hardware is required.
 
-如果你想在共享的通用计算机或服务器上运行 Klipper 主机程序，请注意 Klipper 有一些实时调度要求。如果在打印过程中，主机也在执行密集型的通用计算任务（如硬盘碎片整理、3D渲染、大量swapping （虚拟内存交换）等），可能会导致 Klipper 报告打印错误。
+If you are looking to run the Klipper host software on a shared general-purpose desktop or server class machine, then note that Klipper has some real-time scheduling requirements. If, during a print, the host computer also performs an intensive general-purpose computing task (such as defragmenting a hard drive, 3d rendering, heavy swapping, etc.), then it may cause Klipper to report print errors.
 
-注意：如果你没有使用 OctoPi 镜像，一些Linux发行版启用了一个 "ModemManager"（或类似的）软件包，它干扰串行通信。(这可能导致 Klipper 报告看似随机的 "与MCU失去通信 "错误）。如果你在这些发行版上安装Klipper，你可能需要禁用该软件包。
+Note: If you are not using an OctoPi image, be aware that several Linux distributions enable a "ModemManager" (or similar) package that can disrupt serial communication. (Which can cause Klipper to report seemingly random "Lost communication with MCU" errors.) If you install Klipper on one of these distributions you may need to disable that package.
 
-## 我可以在同一台主机上运行多个 Klipper 实例吗？
+## Can I run multiple instances of Klipper on the same host machine?
 
-可以运行 Klipper 主机软件的多个实例，但这样做需要一定的 Linux 知识。 Klipper 安装脚本最终会导致运行以下 Unix 命令：
+It is possible to run multiple instances of the Klipper host software, but doing so requires Linux admin knowledge. The Klipper installation scripts ultimately cause the following Unix command to be run:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -l /tmp/klippy.log
 ```
 
-只要每个实例都有自己的打印机配置文件、自己的日志文件和自己的伪 tty，就可以运行上述命令的多个实例。 例如：
+One can run multiple instances of the above command as long as each instance has its own printer config file, its own log file, and its own pseudo-tty. For example:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer2.cfg -l /tmp/klippy2.log -I /tmp/printer2
 ```
 
-如果你选择这样做，你将需要实现必要的启动、停止和安装脚本。[install-octopi.sh](..../scripts/install-octopi.sh)和[klipper-start.sh](..../scripts/klipper-start.sh)脚本提供了一些例子。
+If you choose to do this, you will need to implement the necessary start, stop, and installation scripts (if any). The [install-octopi.sh](../scripts/install-octopi.sh) script and the [klipper-start.sh](../scripts/klipper-start.sh) script may be useful as examples.
 
-## 我必须使用 OctoPrint 吗？
+## Do I have to use OctoPrint?
 
-Klipper 不依赖 OctoPrint。其他软件也可以向 Klipper 发送命令，但这样做可能需要一些 Linux 管理知识。
+The Klipper software is not dependent on OctoPrint. It is possible to use alternative software to send commands to Klipper, but doing so requires Linux admin knowledge.
 
-Klipper 通过 “/tmp/printer” 文件创建了一个“虚拟串口”，该文件模拟了一个标准的3D打印机串口。理论上任何能配置并使用 “/tmp/printer” 作为打印机串口的软件都可以与Klipper一起工作。
+Klipper creates a "virtual serial port" via the "/tmp/printer" file, and it emulates a classic 3d-printer serial interface via that file. In general, alternative software may work with Klipper as long as it can be configured to use "/tmp/printer" for the printer serial port.
 
-## 为什么在归位打印机之前我不能移动步进器？
+## Why can't I move the stepper before homing the printer?
 
-代码这样做是为了减少意外将头撞到床或墙壁的机会。 打印机归位后，软件会尝试验证每个移动是否在配置文件中定义的 position_min/max 范围内。 如果电机被禁用（通过 M84 或 M18 命令），那么电机将需要在运动前再次归位。
+The code does this to reduce the chance of accidentally commanding the head into the bed or a wall. Once the printer is homed the software attempts to verify each move is within the position_min/max defined in the config file. If the motors are disabled (via an M84 or M18 command) then the motors will need to be homed again prior to movement.
 
-如果您想在通过 OctoPrint 取消打印后移动打印头，请考虑更改 OctoPrint 取消顺序来为您执行此操作。 它是通过 Web 浏览器在 OctoPrint 中配置的：设置-> GCODE 脚本
+If you want to move the head after canceling a print via OctoPrint, consider changing the OctoPrint cancel sequence to do that for you. It's configured in OctoPrint via a web browser under: Settings->GCODE Scripts
 
-如果您想在打印完成后移动头部，请考虑将所需的移动添加到切片机的“自定义 g 代码”部分。
+If you want to move the head after a print finishes, consider adding the desired movement to the "custom g-code" section of your slicer.
 
-如果打印机归位过程中需要一些额外的移动（或者根本上没有归位运动），那么可以在配置文件中定义safe_z_home或 homing_override分段。如果你需要为诊断或调试目的移动一个步进，可以在配置文件中添加一个 force_move 分段。参见[配置参考](Config_Reference.md#customized_homing)以了解关于这些选项的详情。
+If the printer requires some additional movement as part of the homing process itself (or fundamentally does not have a homing process) then consider using a safe_z_home or homing_override section in the config file. If you need to move a stepper for diagnostic or debugging purposes then consider adding a force_move section to the config file. See [config reference](Config_Reference.md#customized_homing) for further details on these options.
 
-## 为什么 Z position_endstop 在默认配置中设置为 0.5？
+## Why is the Z position_endstop set to 0.5 in the default configs?
 
-对于笛卡尔式打印机，Z position_endstop 定义了当限位触发时喷嘴离床的距离。如果可能的话，建议使用 Z-max 限位使归位时打印头远离床（因为这可以减少碰撞的发生）。如果必须朝向床归位，那么建议将限位固定在喷嘴距离床还有一小段距离时触发。这样，当归位 Z 轴时，喷嘴会在接触床之前停止。有关详细信息，请参阅 [打印床调平文档](Bed_Level.md)。
+For cartesian style printers the Z position_endstop specifies how far the nozzle is from the bed when the endstop triggers. If possible, it is recommended to use a Z-max endstop and home away from the bed (as this reduces the potential for bed collisions). However, if one must home towards the bed then it is recommended to position the endstop so it triggers when the nozzle is still a small distance away from the bed. This way, when homing the axis, it will stop before the nozzle touches the bed. See the [bed level document](Bed_Level.md) for more information.
 
-## 我从 Marlin 转换了我的配置并且 X/Y 轴工作正常，但是在归位 Z 轴时我只听到刺耳的噪音且打印机不动
+## I converted my config from Marlin and the X/Y axes work fine, but I just get a screeching noise when homing the Z axis
 
-长话短说：首先，请确保您已按照 [配置检查文档](Config_checks.md) 中描述的步骤验证了步进驱动配置。如果问题仍然存在，请尝试降低打印机配置中的 max_z_velocity 设置。
+Short answer: First, make sure you have verified the stepper configuration as described in the [config check document](Config_checks.md). If the problem persists, try reducing the max_z_velocity setting in the printer config.
 
-具体原理：在实践中，Marlin 通常只能以每秒 10000 步左右的速度发送步进。如果要求它以需要更高的步进率的速度移动，那么 Marlin 会尽可能快地步进。Klipper 能够实现更高的步进率，但步进电机可能没有足够的扭矩以更高的速度移动。因此，对于一个具有高传动比或高微步设定的 Z 轴，实际的最大速度可能小于 Marlin 中配置的值。
+Long answer: In practice Marlin can typically only step at a rate of around 10000 steps per second. If it is requested to move at a speed that would require a higher step rate then Marlin will generally just step as fast as it can. Klipper is able to achieve much higher step rates, but the stepper motor may not have sufficient torque to move at a higher speed. So, for a Z axis with a high gearing ratio or high microsteps setting the actual obtainable max_z_velocity may be smaller than what is configured in Marlin.
 
-## 我的 TMC 电机驱动在打印过程中关闭了
+## My TMC motor driver turns off in the middle of a print
 
 If using the TMC2208 (or TMC2224) driver in "standalone mode" then make sure to use the [latest version of Klipper](#how-do-i-upgrade-to-the-latest-software). A workaround for a TMC2208 "stealthchop" driver problem was added to Klipper in mid-March of 2020.
 

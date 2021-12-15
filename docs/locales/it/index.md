@@ -2,14 +2,14 @@
 
 hide:
 
-- toc title: Welcome
+- toc title: Benvenuto
 
 ***
 
 ![](img/klipper-logo.png){ .center-image }
 
-Klipper is a 3d-Printer firmware. It combines the power of a general purpose computer with one or more micro-controllers. See the [features](Features.md) document for more information on why you should use Klipper.
+Klipper è un firmware per stampanti 3D. Combina la potenza di un computer con uno o più microntrollori. Leggi la pagina sulle [funzionalità](Features.md) per avere più informazioni sul perché usare Klipper.
 
-To begin using Klipper start by [installing](Installation.md) it.
+Per iniziare ad usare Klipper comincia con la sua [installazione](Installation.md).
 
-Klipper is Free Software. Read the [documentation](Overview.md) or view [the Klipper code on github](https://github.com/Klipper3d/klipper).
+Klipper è software libero. Leggi la [documentazione](Overview.md) o esamina il [codice sorgente di Klipper su github](https://github.com/Klipper3d/klipper).

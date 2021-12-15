@@ -250,7 +250,7 @@ The following commands are available when the [z_tilt config section](Config_Ref
 当 [force_move 配置分段](Config_Reference.md#force_move)被启用时，以下命令可用：
 
 - `FORCE_MOVE STEPPER=<config_name> DISTANCE=<value> VELOCITY=<value> [ACCEL=<value>]` 。该命令将以给定的恒定速度（mm/s）强制移动给定的步进器，移动距离（mm）。如果指定了ACCEL并且大于零，那么将使用给定的加速度（单位：mm/s^2）；否则不进行加速。不执行边界检查；不进行运动学更新；一个轴上的其他平行步进器将不会被移动。请谨慎使用，因为不正确的命令可能会导致损坏使用该命令几乎肯定会使低级运动学处于不正确的状态；随后发出G28命令以重置运动学。该命令用于低级别的诊断和调试。
-- `SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>]`: Force the low-level kinematic code to believe the toolhead is at the given cartesian position. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. If an axis is not specified then it will default to the position that the head was last commanded to. Setting an incorrect or invalid position may lead to internal software errors. This command may invalidate future boundary checks; issue a G28 afterwards to reset the kinematics.
+- `SET_KINEMATIC_POSITION [X=<值>] [Y=<值>] [Z=<值>]`：强制设定低级运动学代码使用的打印头位置。这是一个诊断和调试工具，常规的轴转换应该使用 SET_GCODE_OFFSET 和/或 G92指令。如果没有指定一个轴，则使用上一次命令的打印头位置。设定一个不合理的数值可能会导致内部程序问题。这个命令可能会使边界检查失效，使用后发送 G28 来重置运动学。
 
 ### SD卡循环
 
