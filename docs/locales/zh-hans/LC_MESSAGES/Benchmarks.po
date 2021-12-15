@@ -3,9 +3,10 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-11-23 07:15+0000\n"
-"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/benchmarks/zh_Hans/>\n"
+"PO-Revision-Date: 2021-12-15 05:52+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/benchmarks/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -485,12 +486,11 @@ msgstr ""
 "代码文件并计时主机软件处理它所需的时间来完成的。例如："
 
 #: docs/Benchmarks.md:block 14 (paragraph)
-#, fuzzy
 msgid ""
 "To obtain the single stepper benchmarks, the same configuration sequence is "
 "used, but only the first block of the above test is cut-and-paste into the "
 "console.py window."
-msgstr "为了获得单一步进电机的基准测试，使用了相同的配置序列，但只将上述测试的第一块剪切并粘贴到console.py窗口。"
+msgstr "为了获得单一步进电机的基准测试，使用了相同的配置序列，但只将上述测试的第一块剪切并粘贴到 console.py 窗口。"
 
 #: docs/Benchmarks.md:block 17 (paragraph)
 msgid ""
