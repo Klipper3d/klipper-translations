@@ -147,19 +147,19 @@ Klipper 通过 “/tmp/printer” 文件创建了一个“虚拟串口”，该�
 
 ## 我的 TMC 电机驱动在打印过程中关闭了
 
-If using the TMC2208 (or TMC2224) driver in "standalone mode" then make sure to use the [latest version of Klipper](#how-do-i-upgrade-to-the-latest-software). A workaround for a TMC2208 "stealthchop" driver problem was added to Klipper in mid-March of 2020.
+如果在“独立模式”中使用 TMC2208（或 TMC2224）驱动，那么请确保您正在使用[最新版本的 Klipper](#how-do-i-upgrade-to-the-latest-software)。2020年3月中旬，Klipper 中修复了 TMC2208 “StealthChop” 驱动的问题。
 
-## I keep getting random "Lost communication with MCU" errors
+## 我不断收到随机的"与MCU失去通信"错误
 
-This is commonly caused by hardware errors on the USB connection between the host machine and the micro-controller. Things to look for:
+这通常是由主机和微控制器之间的 USB 连接中硬件错误引起的。注意这些问题：
 
-- Use a good quality USB cable between the host machine and micro-controller. Make sure the plugs are secure.
-- If using a Raspberry Pi, use a [good quality power supply](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md) for the Raspberry Pi and use a [good quality USB cable](https://www.raspberrypi.org/forums/viewtopic.php?p=589877#p589877) to connect that power supply to the Pi. If you get "under voltage" warnings from OctoPrint, this is related to the power supply and it must be fixed.
-- Make sure the printer's power supply is not being overloaded. (Power fluctuations to the micro-controller's USB chip may result in resets of that chip.)
-- Verify stepper, heater, and other printer wires are not crimped or frayed. (Printer movement may place stress on a faulty wire causing it to lose contact, briefly short, or generate excessive noise.)
+- 在主机和微控制器之间应该使用高质量USB线，并确保插头牢固。
+- 如果使用树莓派，搭配一个[优质电源](https://www.raspberrypi.org/documentation/hardware/raspberrypi/power/README.md)和一根[优质USB电缆](https://www.raspberrypi.org/forums/viewtopic.php?p=589877#p589877)。如果 OctoPrint 发出 “Under Voltage" 警告，这与电源有关，必须加以解决。
+- 请确保打印机的电源没有过载。(微控制器 USB 芯片的电压波动可能会导致该芯片欠压复位。)
+- 确认步进电机、加热器和其他打印机电线没有被压坏或磨损。（打印机移动时可能对故障的电线施加压力，导致其失去接触、短暂短路或产生过多的噪音。）
 - There have been reports of high USB noise when both the printer's power supply and the host's 5V power supply are mixed. (If you find that the micro-controller powers on when either the printer's power supply is on or the USB cable is plugged in, then it indicates the 5V power supplies are being mixed.) It may help to configure the micro-controller to use power from only one source. (Alternatively, if the micro-controller board can not configure its power source, one may modify a USB cable so that it does not carry 5V power between the host and micro-controller.)
 
-## My Raspberry Pi keeps rebooting during prints
+## 我的树莓派在打印时不断重启
 
 This is most likely do to voltage fluctuations. Follow the same troubleshooting steps for a ["Lost communication with MCU"](#i-keep-getting-random-lost-communication-with-mcu-errors) error.
 
