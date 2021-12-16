@@ -705,7 +705,7 @@ sensor_pin:
 control:
 min_temp:
 max_temp:
-#   See the "extruder" section for a description of the above parameters.
+#   以上参数详见“extruder”配置分段。
 ```
 
 ## 打印床调平支持
@@ -1102,7 +1102,7 @@ See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes
 #   layer will occur on a full step.) The default is False.
 ```
 
-## G-Code macros and events
+## G 代码宏和事件
 
 ### [gcode_macro]
 
@@ -1211,8 +1211,9 @@ Support manually moving stepper motors for diagnostic purposes. Note, using this
 ```
 [force_move]
 #enable_force_move: False
-#   Set to true to enable FORCE_MOVE and SET_KINEMATIC_POSITION
-#   extended G-Code commands. The default is false.
+#   设置为true来启用 FORCE_MOVE 和 SET_KINEMATIC_POSITION 扩展 
+#   G代码命令。
+#   默认为false。
 ```
 
 ### [pause_resume]
@@ -1228,7 +1229,7 @@ Pause/Resume functionality with support of position capture and restore. See the
 
 ### [firmware_retraction]
 
-Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCODE commands issued by many slicers. The parameters below provide startup defaults, although the values can be adjusted via the SET_RETRACTION [command](G-Codes.md#firmware-retraction)), allowing per-filament settings and runtime tuning.
+固件耗材回抽。它启用了对许多切片软件发出的G10（回抽）和G11（回填）G代码指令的支持。以下参数提供了初始默认值，这些值可以通过 SET_RETRACTION [命令](G-Code.md#firmware-retraction)调整，允许不同耗材的设置和运行时的调优。
 
 ```
 [firmware_retraction]
@@ -1253,11 +1254,11 @@ Support for gcode arc (G2/G3) commands.
 ```
 [gcode_arcs]
 #resolution: 1.0
-#   An arc will be split into segments. Each segment's length will
-#   equal the resolution in mm set above. Lower values will produce a
-#   finer arc, but also more work for your machine. Arcs smaller than
-#   the configured value will become straight lines. The default is
-#   1mm.
+#   一条弧线将被分割成若干段。每段的长度将
+#   等于上面设置的分辨率（mm）。更低的值会产生一个
+#   更细腻的弧线，但也会需要机器进行更多运算。小于
+#   配置值的曲线会被视为直线。
+#   默认为1毫米。
 ```
 
 ### [respond]
@@ -2885,20 +2886,18 @@ Support for a display attached to the micro-controller.
 ```
 [display]
 lcd_type:
-#   The type of LCD chip in use. This may be "hd44780", "hd44780_spi",
-#   "st7920", "emulated_st7920", "uc1701", "ssd1306", or "sh1106".
-#   See the display sections below for information on each type and
-#   additional parameters they provide. This parameter must be
-#   provided.
+#   使用的 LCD 芯片类型。这可以是“hd44780”、“hd44780_spi”、
+#   “st7920”、“emulated_st7920”、“uc1701”、“ssd1306”、或“sh1106”。
+#   有关不同的LCD芯片类型和它们特有的参数，请查看下面的显示屏分段。
+#   必须提供此参数。
 #display_group:
-#   The name of the display_data group to show on the display. This
-#   controls the content of the screen (see the "display_data" section
-#   for more information). The default is _default_20x4 for hd44780
-#   displays and _default_16x4 for other displays.
+#   显示在这个显示屏上的 display_data 组。它决定了这个屏幕显示
+#   的内容（详见“display_data”分段）。
+#   hd44780 默认使用 _default_20x4，其他显示屏则默认使用 _default_16x4。
 #menu_timeout:
-#   Timeout for menu. Being inactive this amount of seconds will
-#   trigger menu exit or return to root menu when having autorun
-#   enabled. The default is 0 seconds (disabled)
+#   菜单超时时间。在不活跃给定时间后将会退出菜单或在 autorun 启用时
+#   回到根菜单。
+#   默认为 0 秒（禁用）。
 #menu_root:
 #   Name of the main menu section to show when clicking the encoder
 #   on the home screen. The defaults is __main, and this shows the
@@ -2962,7 +2961,7 @@ lcd_type:
 #   button.
 ```
 
-### hd44780 display
+### hd44780显示器
 
 Information on configuring hd44780 displays (which is used in "RepRapDiscount 2004 Smart Controller" type displays).
 
@@ -2989,7 +2988,7 @@ d7_pin:
 ...
 ```
 
-### hd44780_spi display
+### hd44780_spi显示器
 
 Information on configuring an hd44780_spi display - a 20x04 display controlled via a hardware "shift register" (which is used in mightyboard based printers).
 
@@ -3060,18 +3059,17 @@ Information on configuring uc1701 displays (which is used in "MKS Mini 12864" ty
 ```
 [display]
 lcd_type: uc1701
-#   Set to "uc1701" for uc1701 displays.
+#   uc1701 显示屏应设为"uc1701"。
 cs_pin:
 a0_pin:
-#   The pins connected to a uc1701 type lcd. These parameters must be
-#   provided.
+#   连接到 uc1701 类LCD的引脚。
+#   必须提供这些参数。
 #rst_pin:
-#   The pin connected to the "rst" pin on the lcd. If it is not
-#   specified then the hardware must have a pull-up on the
-#   corresponding lcd line.
+#   连接到 LCD "rst" 的引脚。 如果没有定义，则硬件必须在LCD
+#   相应的线路上带一个LCD引脚。
 #contrast:
-#   The contrast to set. The value may range from 0 to 63 and the
-#   default is 40.
+#   显示屏的对比度。必须在0和63之间。
+#   默认为40。
 ...
 ```
 
@@ -3260,11 +3258,11 @@ See the [command template document](Command_Templates.md#menu-templates) for inf
 #   被视为模板。点击按钮会进入或退出修改模式。
 ```
 
-## Filament sensors
+## 耗材传感器
 
 ### [filament_switch_sensor]
 
-Filament Switch Sensor. Support for filament insert and runout detection using a switch sensor, such as an endstop switch.
+耗材开关传感器。支持使用开关传感器（如限位开关）进行耗材插入和耗尽检测。
 
 See the [command reference](G-Codes.md#filament-sensor) for more information.
 
@@ -3301,7 +3299,7 @@ See the [command reference](G-Codes.md#filament-sensor) for more information.
 
 ### [filament_motion_sensor]
 
-Filament Motion Sensor. Support for filament insert and runout detection using an encoder that toggles the output pin during filament movement through the sensor.
+耗材移动传感器。使用一个在耗材通过传感器时输出引脚状态会发生变化来检测耗材插入和耗尽。
 
 See the [command reference](G-Codes.md#filament-sensor) for more information.
 

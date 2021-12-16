@@ -8,13 +8,13 @@
 
 ## 选择适当的校准机制
 
-Different types of printers use different methods for performing bed leveling. All of them ultimately depend on the "paper test" (described below). However, the actual process for a particular type of printer is described in other documents.
+不同类型的打印机使用不同的方法来进行调平，但是所有这些方法最终都取决于“纸张测试“（如下所述）。特定类型打印机的实际调平过程在其他文档中有所描述。
 
 在运行任何校准工具前，一定要执行在 [检查配置文档](Config_checks.md) 中 描述的检查步骤。在打印床调平前有必要验证打印机的基本运动。
 
 For printers with an "automatic Z probe" be sure to calibrate the probe following the directions in the [Probe Calibrate](Probe_Calibrate.md) document. For delta printers, see the [Delta Calibrate](Delta_Calibrate.md) document. For printers with bed screws and traditional Z endstops, see the [Manual Level](Manual_Level.md) document.
 
-During calibration it may be necessary to set the printer's Z `position_min` to a negative number (eg, `position_min = -2`). The printer enforces boundary checks even during calibration routines. Setting a negative number allows the printer to move below the nominal position of the bed, which may help when trying to determine the actual bed position.
+在校准过程中，可能需要将打印机的Z `position_min`设置为一个负数（例如，`position_min = -2`）。即使在校准程序中，打印机也会执行边界检查。设置一个负数允许打印机在打印床的标称位置以下移动，这可以帮助确定实际床面位置。
 
 ## “A4纸测试法”
 
