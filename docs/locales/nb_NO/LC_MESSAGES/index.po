@@ -1,11 +1,13 @@
 # Allan Nordhøy <epost@anotheragency.no>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Petter Reinholdtsen <pere-weblate@hungry.com>, 2021.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-11-22 01:35+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/index/nb_NO/>\n"
+"PO-Revision-Date: 2021-12-16 08:53+0000\n"
+"Last-Translator: Petter Reinholdtsen <pere-weblate@hungry.com>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/"
+"index/nb_NO/>\n"
 "Language: nb_NO\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -47,6 +49,8 @@ msgid ""
 "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
 " Klipper code on github](https://github.com/Klipper3d/klipper)."
 msgstr ""
+"Klipper er fri programvare. Sjekk [dokumentasjonen](Overview.md) eller ta en "
+"titt på [Klipper-koden på github](https://github.com/Klipper3d/klipper)."
 
 #, fuzzy
 #~ msgid ""
