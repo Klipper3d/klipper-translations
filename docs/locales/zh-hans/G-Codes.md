@@ -1,6 +1,6 @@
 # G-Codes
 
-This document describes the commands that Klipper supports. These are commands that one may enter into the OctoPrint terminal tab.
+本文档描述了 Klipper 支持的命令。这些命令可以输入到 OctoPrint 终端中。
 
 ## G代码命令
 
@@ -9,10 +9,10 @@ Klipper支持以下标准的G-Code命令：
 - 移动 (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
 - 停留时间：`G4 P<milliseconds>`
 - 返回原点：`G28 [X] [Y] [Z]`
-- Turn off motors: `M18` or `M84`
-- Wait for current moves to finish: `M400`
-- Use absolute/relative distances for extrusion: `M82`, `M83`
-- Use absolute/relative coordinates: `G90`, `G91`
+- 关闭步进电机：`M18`或`M84`
+- 等待当前移动完成： `M400`
+- 使用绝对/相对挤出距离：`M82`， `M83`
+- 使用绝对/相对坐标：`G90`, `G91`
 - 设置坐标：`G92 [X<坐标>] [Y<坐标>] [Z<坐标>] [E<坐标>]`
 - 设置速度因子覆写百分比：`M220 S<百分比>`
 - 设置挤压因子覆盖百分比：`M221 S<percent>`
@@ -26,7 +26,7 @@ Klipper支持以下标准的G-Code命令：
 - 设置热床温度并且等待：`M190 S<temperature>`
    - 注意：M190总是等待温度稳定在请求的数值上。
 - 设置风扇速度：`M106 S<value>`
-- Turn fan off: `M107`
+- 停止风扇：`M107`
 - 紧急停止：`M112`
 - 获取当前位置：`M114`
 - 获取固件版本：`M115`
@@ -52,31 +52,31 @@ Klipper的目标是支持普通第三方软件（如OctoPrint、Printrun、Slic3
 此外，当 "virtual_sdcard "配置部分被启用时，可以使用以下扩展命令。
 
 - 加载文件并且开始SD卡打印：`SDCARD_PRINT_FILE FILENAME=<filename>`
-- Unload file and clear SD state: `SDCARD_RESET_FILE`
+- 卸载文件并清除SD卡状态：`SDCARD_RESET_FILE`
 
 ### G-Code弧
 
-The following standard G-Code commands are available if a [gcode_arcs config section](Config_Reference.md#gcode_arcs) is enabled:
+如果启用了[gcode_arcs 配置分段](Config_Reference.md#gcode_arcs)，下列标准G代码命令可用：
 
 - 受控弧线移动（G2或G3）。`G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>` 。
 
 ### G-Code固件回抽
 
-The following standard G-Code commands are available if a [firmware_retraction config section](Config_Reference.md#firmware_retraction) is enabled:
+如果启用了[firmware_retraction 配置分段](Config_Reference.md#firmware_retraction)，则以下标准G代码命令可用：
 
 - 回抽：`G10`
-- Unretract: `G11`
+- 回填：`G11`
 
 ### G-Code 显示命令
 
-The following standard G-Code commands are available if a [display config section](Config_Reference.md#display) is enabled:
+如果启用了[display 配置分段](Config_Reference.md#display)，以下标准G代码命令可用：
 
 - 显示信息： `M117 <message> `
 - 设置构建百分比：`M73 P<percent>`
 
 ### 其他可用的G-Code命令
 
-The following standard G-Code commands are currently available, but using them is not recommended:
+目前以下标准的G代码命令可用，但不建议使用这些命令：
 
 - 获取限位状态：`M119` (使用QUERY_ENDSTOPS代替)
 
@@ -84,7 +84,7 @@ The following standard G-Code commands are currently available, but using them i
 
 Klipper使用 "extended" 的G代码命令来进行一般的配置和状态。这些扩展命令都遵循一个类似的格式--它们以一个命令名开始，后面可能有一个或多个参数。比如说：`SET_SERVO SERVO=myservo ANGLE=5.3`。在本文件中，命令和参数以大写字母显示，但它们不分大小写。(所以，"SET_SERVO "和 "set_servo "都是运行同一个命令）
 
-The following standard commands are supported:
+支持以下标准命令：
 
 - `QUERY_ENDSTOPS`：检测限位并返回限位是否被 "triggered"或处于"open"。该命令通常用于验证一个限位是否正常工作。
 - `QUERY_ADC [NAME=<config_name>] [PULLUP=<value>]` ：返回为配置的模拟引脚收到的最后一个模拟值。如果NAME没有被提供，将报告可用的adc名称列表。如果提供了PULLUP（以欧姆为单位的数值），将会返回原始模拟值和给定的等效电阻。
@@ -93,7 +93,7 @@ The following standard commands are supported:
 - `SAVE_GCODE_STATE [NAME=<state_name>]`：保存当前的g-code坐标解析状态。保存和恢复g-code状态在脚本和宏中很有用。该命令保存当前g-code绝对坐标模式（G90/G91）绝对挤出模式（M82/M83）原点（G92）偏移量（SET_GCODE_OFFSET）速度覆盖（M220）挤出机覆盖（M221）移动速度。当前XYZ位置和相对挤出机 "E "位置。如果提供NAME，它允许人们将保存的状态命名为给定的字符串。如果没有提供NAME，则默认为 "default"
 - `RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`：恢复之前通过 SAVE_GCODE_STATE 保存的状态。如果指定“MOVE=1”，则将发出刀头移动以返回到先前的 XYZ 位置。如果指定了“MOVE_SPEED”，则刀头移动将以给定的速度（以mm/s为单位）执行；否则工具头移动将使用恢复的G-Code速度。
 - `PID_CALIBRATE HEATER=<config_name> TARGET=<temperature> [WRITE_FILE=1]`：执行一个PID校准测试。指定的加热器将被启用，直到达到指定的目标温度，然后加热器将被关闭和开启几个周期。如果WRITE_FILE参数被启用，那么将创建文件/tmp/heattest.txt，其中包含测试期间所有温度样本的日志。
-- `TURN_OFF_HEATERS`: Turn off all heaters.
+- `TURN_OFF_HEATERS`：关闭全部加热器。
 - `TEMPERATURE_WAIT SENSOR=<config_name> [MINIMUM=<target>] [MAXIMUM=<target>]`: Wait until the given temperature sensor is at or above the supplied MINIMUM and/or at or below the supplied MAXIMUM.
 - `SET_VELOCITY_LIMIT [VELOCITY=<值>] [ACCEL=<值>] [ACCEL_TO_DECEL=<值>] [SQUARE_CORNER_VELOCITY=<值>]`：修改打印机速度限制。
 - `SET_HEATER_TEMPERATURE HEATER=<加热器名称> [TARGET=<目标温度>]`：设置一个加热器的目标温度。如果没有提供目标温度，则目标温度为 0。
@@ -105,7 +105,7 @@ The following standard commands are supported:
 - `MANUAL_PROBE [SPEED=<speed>]`：运行一个辅助脚本，对测量给定位置的喷嘴高度有用。如果指定了速度，它将设置TESTZ命令的速度（默认为5mm/s）。在手动探测过程中，可使用以下附加命令：
    - `ACCEPT`：该命令接受当前的Z位置，并结束手动探测工具。
    - `ABORT`：该命令终止手动探测工具。
-   - `TESTZ Z=<value>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
+   - `TESTZ Z=<值>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
 - `Z_ENDSTOP_CALIBRATE [SPEED=<speed>]`: Run a helper script useful for calibrating a Z position_endstop config setting. See the MANUAL_PROBE command for details on the parameters and the additional commands available while the tool is active.
 - `Z_OFFSET_APPLY_ENDSTOP`: Take the current Z Gcode offset (aka, babystepping), and subtract it from the stepper_z endstop_position. This acts to take a frequently used babystepping value, and "make it permanent". Requires a `SAVE_CONFIG` to take effect.
 - `TUNING_TOWER COMMAND=<command> PARAMETER=<name> START=<value> [SKIP=<value>] [FACTOR=<value> [BAND=<value>]] | [STEP_DELTA=<value> STEP_HEIGHT=<value>]`: A tool for tuning a parameter on each Z height during a print. The tool will run the given `COMMAND` with the given `PARAMETER` assigned to a value that varies with `Z` according to a formula. Use `FACTOR` if you will use a ruler or calipers to measure the Z height of the optimum value, or `STEP_DELTA` and `STEP_HEIGHT` if the tuning tower model has bands of discrete values as is common with temperature towers. If `SKIP=<value>` is specified, the tuning process doesn't begin until Z height `<value>` is reached, and below that the value will be set to `START`; in this case, the `z_height` used in the formulas below is actually `max(z - skip, 0)`. There are three possible combinations of options:
@@ -144,11 +144,11 @@ The following standard commands are supported:
 
 当启用[neopixel 配置分段](Config_Reference.md#neopixel)或[dotstar 配置分段](Config_Reference.md#dotstar)时，以下命令可用：
 
-- `SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: This sets the LED output. Each color `<value>` must be between 0.0 and 1.0. The WHITE option is only valid on RGBW LEDs. If multiple LED chips are daisy-chained then one may specify INDEX to alter the color of just the given chip (1 for the first chip, 2 for the second, etc.). If INDEX is not provided then all LEDs in the daisy-chain will be set to the provided color. If TRANSMIT=0 is specified then the color change will only be made on the next SET_LED command that does not specify TRANSMIT=0; this may be useful in combination with the INDEX parameter to batch multiple updates in a daisy-chain. By default, the SET_LED command will sync it's changes with other ongoing gcode commands. This can lead to undesirable behavior if LEDs are being set while the printer is not printing as it will reset the idle timeout. If careful timing is not needed, the optional SYNC=0 parameter can be specified to apply the changes instantly and not reset the idle timeout.
+- `SET_LED LED=<配置中的名称> RED=<值> GREEN=<值> BLUE=<值> WHITE=<值> [INDEX=<索引>] [TRANSMIT=0] [SYNC=1]`：这条指令设置LED的输出。每个颜色的 `<值>` 必须在0.0和1.0之间。The WHITE option is only valid on RGBW LEDs. If multiple LED chips are daisy-chained then one may specify INDEX to alter the color of just the given chip (1 for the first chip, 2 for the second, etc.). If INDEX is not provided then all LEDs in the daisy-chain will be set to the provided color. If TRANSMIT=0 is specified then the color change will only be made on the next SET_LED command that does not specify TRANSMIT=0; this may be useful in combination with the INDEX parameter to batch multiple updates in a daisy-chain. By default, the SET_LED command will sync it's changes with other ongoing gcode commands. This can lead to undesirable behavior if LEDs are being set while the printer is not printing as it will reset the idle timeout. If careful timing is not needed, the optional SYNC=0 parameter can be specified to apply the changes instantly and not reset the idle timeout.
 
 ### 舵机命令
 
-The following commands are available when a [servo config section](Config_Reference.md#servo) is enabled:
+当[servo 配置分段](Config_Reference.md#servo)被启用时，以下命令可用：
 
 - `SET_SERVO SERVO=配置名 [ANGLE=<角度> | WIDTH=<秒>]`：将舵机位置设置为给定的角度（度）或脉冲宽度（秒）。使用 `WIDTH=0` 来禁用舵机输出。
 
@@ -162,7 +162,7 @@ The following commands are available when a [servo config section](Config_Refere
 
 当[extruder_stepper 配置分段](Config_Reference.md#extruder_stepper)被启用时，以下命令可用：
 
-- `SYNC_STEPPER_TO_EXTRUDER STEPPER=<extruder_stepper config_name> [EXTRUDER=<extruder config_name>]`: This command will cause the given STEPPER to become synchronized to the given EXTRUDER, overriding the extruder defined in the "extruder_stepper" config section.
+- `SYNC_STEPPER_TO_EXTRUDER STEPPER=<挤出步进电机配置名> [EXTRUDER=<挤出机配置名>]`：这个命令会使给定步进电机与给定挤出机同步，覆盖 "extruder_stepper" 配置分段定义的挤出机。
 
 ### 探针
 
@@ -214,13 +214,13 @@ The following commands are available when a [servo config section](Config_Refere
 
 ### 打印床螺丝倾斜调整助手
 
-The following commands are available when the [screws_tilt_adjust config section](Config_Reference.md#screws_tilt_adjust) is enabled (also see the [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe)):
+当[screws_tilt_adjust配置分段](Config_Reference.md#screws_tilt_adjust)被启用时，以下命令可用（也可参考[手动水平指南](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe)）：
 
 - `SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [<probe_parameter>=<value>]`：该命令将调用热床丝杆调整工具。它将命令喷嘴到不同的位置（如配置文件中定义的）探测z高度，并计算出调整床面水平的旋钮旋转次数。如果指定了DIRECTION，旋钮的转动方向都是一样的，顺时针（CW）或逆时针（CCW）。有关可选探头参数的详细信息，请参见PROBE命令。重要的是：在使用这个命令之前，你必须先做一个G28。
 
-### Z Tilt
+### Z 倾斜
 
-The following commands are available when the [z_tilt config section](Config_Reference.md#z_tilt) is enabled:
+当[z_tilt 配置分段](Config_Reference.md#z_tilt)被启用时，以下命令可用：
 
 - `Z_TILT_ADJUST [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters.
 
@@ -230,14 +230,14 @@ The following commands are available when the [z_tilt config section](Config_Ref
 
 - `SET_DUAL_CARRIAGE CARRIAGE=[0|1]`:该命令将设置活动的滑块。它通常是在一个多挤出机配置中从 activate_gcode和deactivate_gcode字段调用。
 
-### TMC stepper drivers
+### TMC步进驱动器
 
 当启用了任何 [tmcXXXX 配置分段](Config_Reference.md#tmc-stepper-driver-configuration)时，以下命令可用：
 
 - `DUMP_TMC STEPPER=<name>`。该命令将读取TMC驱动寄存器并报告其值。
 - `INIT_TMC STEPPER=<name>`：该命令将初始化TMC寄存器。如果芯片的电源被关闭然后又被打开，需要重新启用驱动程序。
 - `SET_TMC_CURRENT STEPPER=<名称> CURRENT=<安培> HOLDCURRENT=<安培>`：该命令修改TMC驱动的运行和保持电流（HOLDCURRENT 在 tmc2660 驱动上不起效）。
-- `SET_TMC_FIELD STEPPER=<name> FIELD=<field> VALUE=<value>`: This will alter the value of the specified register field of the TMC driver. This command is intended for low-level diagnostics and debugging only because changing the fields during run-time can lead to undesired and potentially dangerous behavior of your printer. Permanent changes should be made using the printer configuration file instead. No sanity checks are performed for the given values.
+- `SET_TMC_FIELD STEPPER=<名称> FIELD=<字段> VALUE=<值>`：这将修改指定 TMC 步进驱动寄存器字段的值。该命令仅适用于低级别的诊断和调试，因为在运行期间改变字段可能会导致打印机出现不符合预期的、有潜在危险的行为。常规修改应当通过打印机配置文件进行。该命令不会对给定的值进行越界检查。
 
 ### 通过步进相位进行限位调整
 
@@ -254,7 +254,7 @@ The following commands are available when the [z_tilt config section](Config_Ref
 
 ### SD卡循环
 
-When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is enabled, the following extended commands are available:
+当[sdcard_loop 配置分段](Config_Reference.md#sdcard_loop)被启用时，以下扩展命令可用：
 
 - `SDCARD_LOOP_BEGIN COUNT=<count>`：在SD打印中开始一个循环的部分。计数为0表示该部分应无限期地循环。
 - `SDCARD_LOOP_END`：结束SD打印中的一个循环部分。
@@ -273,7 +273,7 @@ When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is enable
 
 ### 暂停与恢复
 
-The following commands are available when the [pause_resume config section](Config_Reference.md#pause_resume) is enabled:
+当[pause_resume 配置分段](Config_Reference.md#pause_resume)被启用时，以下命令可用：
 
 - `PAUSE`：暂停当前的打印。当前的位置被报错以便在恢复时恢复。
 - `RESUME [VELOCITY=<value>]`：从暂停中恢复打印，首先恢复以前保持的位置。VELOCITY参数决定了工具返回到原始捕捉位置的速度。
@@ -298,7 +298,7 @@ The following commands are available when the [firmware_retraction config sectio
 
 ### 偏斜校正
 
-The following commands are available when the [skew_correction config section](Config_Reference.md#skew_correction) is enabled (also see the [Skew Correction](Skew_Correction.md) guide):
+当[skew_correction 配置分段](Config_Reference.md#skew_correction)被启用时，以下命令可用（也请参见[Skew Correction](Skew_Correction.md)指南）：
 
 - `SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] [YZ=<ac,bd,ad>] [CLEAR=<0|1>]`：用从校准打印中测量的数据（以毫米为单位）配置 [skew_correction] 模块。可以输入任何组合的平面，没有新输入的平面将保持它们原有的数值。如果传入 `CLEAR=1`，则全部偏斜校正将被禁用。
 - `GET_CURRENT_SKEW`:以弧度和度数报告每个平面的当前打印机偏移。斜度是根据通过`SET_SKEW`代码提供的参数计算的。
@@ -307,7 +307,7 @@ The following commands are available when the [skew_correction config section](C
 
 ### 延迟 GCode
 
-The following command is enabled if a [delayed_gcode config section](Config_Reference.md#delayed_gcode) has been enabled (also see the [template guide](Command_Templates.md#delayed-gcodes)):
+如果启用了[delayed_gcode 配置分段](Config_Reference.md#delayed_gcode)，则可用以下命令（也可参见[template guide](Command_Templates.md#delayed-gcodes)）：
 
 - `UPDATE_DELAYED_GCODE [ID=<name>] [DURATION=<seconds>]`: Updates the delay duration for the identified [delayed_gcode] and starts the timer for gcode execution. A value of 0 will cancel a pending delayed gcode from executing.
 
@@ -327,7 +327,7 @@ The following command is enabled if a [delayed_gcode config section](Config_Refe
 
 当[temperature_fan 配置分段](Config_Reference.md#temperature_fan)被启用时，以下命令可用。
 
-- `SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_name> [target=<target_temperature>] [min_speed=<min_speed>]  [max_speed=<max_speed>]`: Sets the target temperature for a temperature_fan. If a target is not supplied, it is set to the specified temperature in the config file. If speeds are not supplied, no change is applied.
+- `SET_TEMPERATURE_FAN_TARGET temperature_fan=<温度控制风扇名称> [target=<目标温度>] [min_speed=<最小速度>]  [max_speed=<最大速度>]`：设置一个temperature_fan的目标温度。如果没有定义目标温度，配置文件中定义的温度将被使用。如果速度没有定义，不会应用任何变化。
 
 ### Adxl345 加速度传感器命令
 
@@ -340,11 +340,11 @@ The following command is enabled if a [delayed_gcode config section](Config_Refe
 
 ### 共振测试命令
 
-The following commands are available when a [resonance_tester config section](Config_Reference.md#resonance_tester) is enabled (also see the [measuring resonances guide](Measuring_Resonances.md)):
+当[resonance_tester 配置分段](Config_Reference.md#resonance_tester)被启用时，以下命令可用（也可参见[Measurement resonances guide](Measurement_Resonances.md)）：
 
 - `MEASURE_AXES_NOISE`：测量并输出所有启用的加速度计芯片的所有轴的噪声。
-- `TEST_RESONANCES AXIS=<axis> OUTPUT=<resonances,raw_data> [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [INPUT_SHAPING=[<0:1>]]`: Runs the resonance test in all configured probe points for the requested <axis> and measures the acceleration using the accelerometer chips configured for the respective axis. <axis> can either be X or Y, or specify an arbitrary direction as `AXIS=dx,dy`, where dx and dy are floating point numbers defining a direction vector (e.g. `AXIS=X`, `AXIS=Y`, or `AXIS=1,-1` to define a diagonal direction). Note that `AXIS=dx,dy` and `AXIS=-dx,-dy` is equivalent. If `INPUT_SHAPING=0` or not set (default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. `OUTPUT` parameter is a comma-separated list of which outputs will be written. If `raw_data` is requested, then the raw accelerometer data is written into a file or a series of files `/tmp/raw_data_<axis>_[<point>_]<name>.csv` with (`<point>_` part of the name generated only if more than 1 probe point is configured). If `resonances` is specified, the frequency response is calculated (across all probe points) and written into `/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to `resonances`, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.
-- `SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [MAX_SMOOTHING=<max_smoothing>]`: Similarly to `TEST_RESONANCES`, runs the resonance test as configured, and tries to find the optimal parameters for the input shaper for the requested axis (or both X and Y axes if `AXIS` parameter is unset). If `MAX_SMOOTHING` is unset, its value is taken from `[resonance_tester]` section, with the default being unset. See the [Max smoothing](Measuring_Resonances.md#max-smoothing) of the measuring resonances guide for more information on the use of this feature. The results of the tuning are printed to the console, and the frequency responses and the different input shapers values are written to a CSV file(s) `/tmp/calibration_data_<axis>_<name>.csv`. Unless specified, NAME defaults to the current time in "YYYYMMDD_HHMMSS" format. Note that the suggested input shaper parameters can be persisted in the config by issuing `SAVE_CONFIG` command.
+- `TEST_RESONANCES AXIS=<轴> OUTPUT=<resonances,raw_data> [NAME=<名称>] [FREQ_START=<最小频率>] [FREQ_END=<最大频率>] [HZ_PER_SEC=<hz_per_sec>] [INPUT_SHAPING=[<0:1>]]`：在请求的<轴>全部配置的探测点运行共振测试并使用加速度计测量相应轴的加速度。<轴> 可以是 X 或者 Y，或者一个抽象的方向例如 `AXIS=dx,dy`，dx和dy是定义了方向矢量的浮点数（例如 `AXIS=X`、`AXIS=Y`或`AXIS=1,-1`来定义一个对角的方向）。注意`AXIS=dx,dy` 和 `AXIS=-dx,-dy` 是等效的。e`INPUT_SHAPING=0` or not set (default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. `OUTPUT` parameter is a comma-separated list of which outputs will be written. If `raw_data` is requested, then the raw accelerometer data is written into a file or a series of files `/tmp/raw_data_<axis>_[<point>_]<name>.csv` with (`<point>_` part of the name generated only if more than 1 probe point is configured). If `resonances` is specified, the frequency response is calculated (across all probe points) and written into `/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to `resonances`, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.
+- `SHAPER_CALIBRATE [AXIS=<轴>] [NAME=<名称>] [FREQ_START=<最小频率>] [FREQ_END=<最大频率>] [HZ_PER_SEC=<hz_per_sec>] [MAX_SMOOTHING=<max_smoothing>]`：类似`TEST_RESONANCES`，该命令按配置运行共振测试并尝试寻找给定轴最佳的输入整形参数。如果没有选择`AXIS`，则测量X和Y轴。如果没有选择 `MAX_SMOOTHING` ，会使用 `[resonance_tester]` 的默认参数。查看 [Max smoothing](Measuring_Resonances.md#max-smoothing) of the measuring resonances guide for more information on the use of this feature. The results of the tuning are printed to the console, and the frequency responses and the different input shapers values are written to a CSV file(s) `/tmp/calibration_data_<axis>_<name>.csv`. Unless specified, NAME defaults to the current time in "YYYYMMDD_HHMMSS" format. Note that the suggested input shaper parameters can be persisted in the config by issuing `SAVE_CONFIG` command.
 
 ### Palette 2 命令
 
