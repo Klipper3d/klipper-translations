@@ -4,15 +4,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-12-16 08:53+0000\n"
-"Last-Translator: Petter Reinholdtsen <pere-weblate@hungry.com>\n"
+"PO-Revision-Date: 2021-12-17 08:52+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/"
 "index/nb_NO/>\n"
 "Language: nb_NO\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 4.10\n"
 
 #: docs/index.md:block 1 (paragraph)
 msgid "hide:"
@@ -50,7 +50,7 @@ msgid ""
 " Klipper code on github](https://github.com/Klipper3d/klipper)."
 msgstr ""
 "Klipper er fri programvare. Sjekk [dokumentasjonen](Overview.md) eller ta en "
-"titt på [Klipper-koden på github](https://github.com/Klipper3d/klipper)."
+"titt på [Klipper-koden på GitHub](https://github.com/Klipper3d/klipper)."
 
 #, fuzzy
 #~ msgid ""
