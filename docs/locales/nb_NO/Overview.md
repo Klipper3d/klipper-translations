@@ -39,7 +39,7 @@ Velkommen til Klipper-dokumentasjonen. Hvis du er ny kan du begynne med [funksjo
 
 - [Code overview](Code_Overview.md): Developers should read this first.
 - [Kinematics](Kinematics.md): Technical details on how Klipper implements motion.
-- [Protocol](Protocol.md): Information on the low-level messaging protocol between host and micro-controller.
+- [Protokoll](Protocol.md): Informasjon om lavnivå meldingsutvekslingsprotokoll mellom verten og mikrokontrolleren.
 - [API Server](API_Server.md): Information on Klipper's command and control API.
 - [MCU commands](MCU_Commands.md): A description of low-level commands implemented in the micro-controller software.
 - [CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format.

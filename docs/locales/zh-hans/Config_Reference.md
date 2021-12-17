@@ -2899,12 +2899,11 @@ lcd_type:
 #   回到根菜单。
 #   默认为 0 秒（禁用）。
 #menu_root:
-#   Name of the main menu section to show when clicking the encoder
-#   on the home screen. The defaults is __main, and this shows the
-#   the default menus as defined in klippy/extras/display/menu.cfg
+#   在主屏幕按下编码器时显示的主菜单段名称。
+#   默认为 __main，这会显示在 klippy/extras/display/menu.cfg中定义的主菜单。
 #menu_reverse_navigation:
-#   When enabled it will reverse up and down directions for list
-#   navigation. The default is False. This parameter is optional.
+#   启用时反转上滚动和下滚动。
+#   默认为False。这是一个可选参数。
 #encoder_pins:
 #   The pins connected to encoder. 2 pins must be provided when using
 #   encoder. This parameter must be provided when using menu.
@@ -3137,12 +3136,11 @@ text:
 显示数据文本“宏”（可以使用 display_template 前缀定义任意数量的部分）。此功能可以帮助减少 display_data 部分中重复的定义。可以使用 display_data 部分中的内置 render() 函数来预览模板。例如，如果要定义 `[display_template my_template]` 则可以在 display_data 部分使用 `{ render('my_template') }` 。
 
 ```
-[display_template my_template_name]
-#param_<name>:
-#   One may specify any number of options with a "param_" prefix. The
-#   given name will be assigned the given value (parsed as a Python
-#   literal) and will be available during macro expansion. If the
-#   parameter is passed in the call to render() then that value will
+[display_template 模版名称]
+#param_<名称>:
+#   可以使用"param_"前缀定义任意数量的选项。定义的名称将被
+#   关联到给定的值（被解析为Python literal）并在macro解释时可
+#   以被使用。如果参数被传入is passed in the call to render() then that value will
 #   be used during macro expansion. For example, a config with
 #   "param_speed = 75" might have a caller with
 #   "render('my_template_name', param_speed=80)". Parameter names may
