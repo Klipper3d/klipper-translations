@@ -1,18 +1,28 @@
-#
+# Yifei Ding <dingyifeiair@gmail.com>, 2021.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-12-20 04:54+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/index/zh_Hans/>\n"
+"Language: zh-hans\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.10\n"
 
 #: docs/index.md:block 1 (paragraph)
 msgid "hide:"
-msgstr ""
+msgstr "hide:"
 
 #: docs/index.md:block 2 (unordered list)
 msgid "toc title: Welcome"
-msgstr ""
+msgstr "toc title: 欢迎"
 
 #: docs/index.md:block 3 (paragraph)
 msgid "![](img/klipper-logo.png){ .center-image }"
-msgstr ""
+msgstr "![](img/klipper-logo.png){ .center-image }"
 
 #: docs/index.md:block 4 (paragraph)
 msgid ""
@@ -21,16 +31,20 @@ msgid ""
 "[features](Features.md) document for more information on why you should use "
 "Klipper."
 msgstr ""
+"Klipper是3D打印机固件。它将通用计算机的运算能力与一个或多个微控制器相结合。有关Klipper的优势，请参阅 [功能](Features."
+"md)文档。"
 
 #: docs/index.md:block 5 (paragraph)
 msgid "To begin using Klipper start by [installing](Installation.md) it."
-msgstr ""
+msgstr "要开始使用 Klipper，请从 [安装文档](Installation.md) 开始。"
 
 #: docs/index.md:block 6 (paragraph)
 msgid ""
 "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
 " Klipper code on github](https://github.com/Klipper3d/klipper)."
 msgstr ""
+"Klipper是自由软件。阅读[文档](Overview.md)或查看[GitHub上的Klipper代码](https://github.com/"
+"Klipper3d/klipper)。"
 
 #~ msgid ""
 #~ "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
