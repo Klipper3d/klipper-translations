@@ -1,8 +1,8 @@
-This github repository is used for Klipper translations.
+This GitHub repository is used for Klipper translations.
 
-For the main Klipper project, please see https://www.klipper3d.org/
+The main Klipper project is at https://www.klipper3d.org/
 
-We use the [weblate](https://hosted.weblate.org/widgets/klipper) tool for translations.
+You can help translate the program at [Hosted Weblate](https://hosted.weblate.org/widgets/klipper).
 
 <a href="https://hosted.weblate.org/engage/klipper/">
 <img src="https://hosted.weblate.org/widgets/klipper/-/multi-auto.svg" alt="Translation status" />
@@ -10,7 +10,10 @@ We use the [weblate](https://hosted.weblate.org/widgets/klipper) tool for transl
 
 # Temporary Contacts and Documentation Entry
 
-If you are a translation contributor, you can create a pull request to update the README.md with your language-specific community contact information before the translated documentation is merged into the main repository. The community contact serves as a way for getting feedback. Please make sure it's Klipper related and follow the following format. 
+If you are a translator, create a pull request to update the README.md \
+with your language-specific community contact info before the translated documentation is merged into the main repository. \
+The community contact serves as a way for getting feedback. \
+Please make sure it's Klipper related and that it follows this format:
 
 ### This is very early beta documentation!
 
@@ -28,7 +31,7 @@ If you are a translation contributor, you can create a pull request to update th
 
 ## German Deutsche
 
-### Dies ist eine sehr einfache Beeta-Dokumentation! 
+### Dies ist eine sehr einfache Beta-Dokumentation! 
 
 Status: In Bearbeitung(Last updated ???)
 
@@ -36,7 +39,7 @@ Status: In Bearbeitung(Last updated ???)
 
 ## Turkish Türk
 
-### Bu çok kolay Beeta Belgeleri! 
+### Bu çok kolay Beta Belgeleri! 
 
 Status: Devam etmekte(Last updated ???)
 
@@ -44,7 +47,7 @@ Status: Devam etmekte(Last updated ???)
 
 ## Spanish Español
 
-### ¡Esta es una documentación muy fácil de Beeta! 
+### ¡Esta es una documentación muy fácil de Beta! 
 
 Status: En curso(Last updated ???)
 
@@ -52,14 +55,11 @@ Status: En curso(Last updated ???)
 
 ## Norwegian Norsk bokmål
 
-### Dette er veldig enkelt Beeta-dokumentasjon! 
+### Dette er veldig enkel Beta-dokumentasjon! 
 
-Status: I prosess (Last updated ???)
+Status: Underveis (Last updated ???)
 
-[Klipper norsk språk](https://github.com/KevinOConnor/klipper-translations/tree/translations/docs/locales/nb_NO)
-
-
-PS: I used Google Translate, so if any entry is wrong, please fix it/point it out :P - Yifei Ding
+[Klipper på bokmål](https://github.com/KevinOConnor/klipper-translations/tree/translations/docs/locales/nb_NO)
 
 ## Français
 
