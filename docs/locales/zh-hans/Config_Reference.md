@@ -135,7 +135,9 @@ microsteps:
 #   The minimum time between the step pulse signal edge and the
 #   following "unstep" signal edge. This is also used to set the
 #   minimum time between a step pulse and a direction change signal.
-#   The default is 0.000002 (which is 2us).
+#   The default is 0.000000100 (100ns) for TMC steppers that are
+#   configured in UART or SPI mode, and the default is 0.000002 (which
+#   is 2us) for all other steppers.
 endstop_pin:
 #   Endstop switch detection pin. If this endstop pin is on a
 #   different mcu than the stepper motor then it enables "multi-mcu
@@ -220,6 +222,11 @@ max_z_velocity:
 #   maximum speed of up/down moves (which require a higher step rate
 #   than other moves on a delta printer). The default is to use
 #   max_velocity for max_z_velocity.
+#max_z_accel:
+#   This sets the maximum acceleration (in mm/s^2) of movement along
+#   the z axis. Setting this may be useful if the printer can reach higher
+#   acceleration on XY moves than Z moves (eg, when using input shaper).
+#   The default is to use max_accel for max_z_accel.
 #minimum_z_position: 0
 #   The minimum Z position that the user may command the head to move
 #   to. The default is 0.
@@ -1901,7 +1908,7 @@ sensor_pin:
 
 ### BMP280/BME280/BME680 温度传感器
 
-BMP280/BME280/BME680双线接口（I2C）环境传感器。请注意，这些传感器不被设计用于挤出机和热床，而是用于监测环境温度（C）、压力（hPa）和相对湿度，如果是BME680，还可以测量空气质量。参见[sample-macros.cfg](./config/sample-macros.cfg)中的 gcode_macro，它可以用来报告温度、压力和湿度。
+BMP280/BME280/BME680 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C), pressure (hPa), relative humidity and in case of the BME680 gas level. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report pressure and humidity in addition to temperature.
 
 ```
 sensor_type: BME280
@@ -2453,14 +2460,17 @@ cs_pin:
 #   The default is to not use an SPI daisy chain.
 #interpolate: True
 #   If true, enable step interpolation (the driver will internally
-#   step at a rate of 256 micro-steps). The default is True.
+#   step at a rate of 256 micro-steps). This interpolation does
+#   introduce a small systemic positional deviation - see
+#   TMC_Drivers.md for details. The default is True.
 run_current:
 #   The amount of current (in amps RMS) to configure the driver to use
 #   during stepper movement. This parameter must be provided.
 #hold_current:
 #   The amount of current (in amps RMS) to configure the driver to use
-#   when the stepper is not moving. The default is to not reduce the
-#   current.
+#   when the stepper is not moving. Setting a hold_current is not
+#   recommended (see TMC_Drivers.md for details). The default is to
+#   not reduce the current.
 #sense_resistor: 0.110
 #   The resistance (in ohms) of the motor sense resistor. The default
 #   is 0.110 ohms.
@@ -2516,14 +2526,17 @@ uart_pin:
 #   UART communication. The default is to not configure any pins.
 #interpolate: True
 #   If true, enable step interpolation (the driver will internally
-#   step at a rate of 256 micro-steps). The default is True.
+#   step at a rate of 256 micro-steps). This interpolation does
+#   introduce a small systemic positional deviation - see
+#   TMC_Drivers.md for details. The default is True.
 run_current:
 #   The amount of current (in amps RMS) to configure the driver to use
 #   during stepper movement. This parameter must be provided.
 #hold_current:
 #   The amount of current (in amps RMS) to configure the driver to use
-#   when the stepper is not moving. The default is to use the same
-#   value as run_current.
+#   when the stepper is not moving. Setting a hold_current is not
+#   recommended (see TMC_Drivers.md for details). The default is to
+#   not reduce the current.
 #sense_resistor: 0.110
 #   The resistance (in ohms) of the motor sense resistor. The default
 #   is 0.110 ohms.
@@ -2605,35 +2618,40 @@ run_current:
 ```
 [tmc2660 stepper_x]
 cs_pin:
-#   对应 TMC2660 芯片选择线路的引脚。这个引脚将在 SPI 
-#   信息开始传输时拉低，并在消息传输完成后拉高。
-#   必须提供此参数。
+#   The pin corresponding to the TMC2660 chip select line. This pin
+#   will be set to low at the start of SPI messages and set to high
+#   after the message transfer completes. This parameter must be
+#   provided.
 #spi_speed: 4000000
-#   SPI 总线与 TMC2660 步进驱动的通信速率。
-#   默认为 4000000。
+#   SPI bus frequency used to communicate with the TMC2660 stepper
+#   driver. The default is 4000000.
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   以上参数详见“通用 SPI 设置”章节。
+#   See the "common SPI settings" section for a description of the
+#   above parameters.
 #interpolate: True
-#   如设置为 True ，则启用步进细分（驱动将会在内部以256
-#   微步的频率步进）。这只在微步设置为 16 时有效。
-#   默认为 True 。
+#   If true, enable step interpolation (the driver will internally
+#   step at a rate of 256 micro-steps). This only works if microsteps
+#   is set to 16. Interpolation does introduce a small systemic
+#   positional deviation - see TMC_Drivers.md for details. The default
+#   is True.
 run_current:
-#   驱动在步进电机运动时使用的电流（以安培 RMS 为单位）。
-#   必须提供这个参数。
+#   The amount of current (in amps RMS) used by the driver during
+#   stepper movement. This parameter must be provided.
 #sense_resistor:
-#   电机检测电阻的阻值（以 ohms 为单位）。
-#   必须提供这个参数。
+#   The resistance (in ohms) of the motor sense resistor. This
+#   parameter must be provided.
 #idle_current_percent: 100
-#   当空闲超时到期时步进电机将降低到的 run_current 百分比（
-#   你必须使用一个 [idle_timeout] 配置分段来设置一个空闲超时）。
-#   在步进电机开始运行时电流将会重新提高。确保它被设为一个足
-#   够高的数值以保证步进电机不会发生位移。电流重新提高有一个
-#   微小的延迟，请在对一个空闲状态步进电机发送快速移动指令前
-#   考虑这项延迟。
-#   默认为 100 （不减少）。
+#   The percentage of the run_current the stepper driver will be
+#   lowered to when the idle timeout expires (you need to set up the
+#   timeout using a [idle_timeout] config section). The current will
+#   be raised again once the stepper has to move again. Make sure to
+#   set this to a high enough value such that the steppers do not lose
+#   their position. There is also small delay until the current is
+#   raised again, so take this into account when commanding fast moves
+#   while the stepper is idling. The default is 100 (no reduction).
 #driver_TBL: 2
 #driver_RNDTF: 0
 #driver_HDEC: 0
@@ -2652,11 +2670,14 @@ run_current:
 #driver_SLPL: 0
 #driver_DISS2G: 0
 #driver_TS2G: 3
-#   在配置 TMC2660 芯片时给定的参数。可以用来设置自定义参数。
-#   在列表中参数的默认值是芯片的默认值。查看 TMC2660数据手册
-#   以了解这些参数的作用以及它们互相组合的限制。尤其注意 
-#   CHOPCONF 寄存器，因为设置 CHM 为 0 或 1 将会造成布局变化（
-#   HDEC的第一个比特会在此时被视为 HSTRT 的 MSB）。
+#   Set the given parameter during the configuration of the TMC2660
+#   chip. This may be used to set custom driver parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   list above. See the TMC2660 datasheet about what each parameter
+#   does and what the restrictions on parameter combinations are. Be
+#   especially aware of the CHOPCONF register, where setting CHM to
+#   either zero or one will lead to layout changes (the first bit of
+#   HDEC) is interpreted as the MSB of HSTRT in this case).
 ```
 
 ### [tmc5160]
@@ -2690,8 +2711,9 @@ run_current:
 #   during stepper movement. This parameter must be provided.
 #hold_current:
 #   The amount of current (in amps RMS) to configure the driver to use
-#   when the stepper is not moving. The default is to use the same
-#   value as run_current.
+#   when the stepper is not moving. Setting a hold_current is not
+#   recommended (see TMC_Drivers.md for details). The default is to
+#   not reduce the current.
 #sense_resistor: 0.075
 #   The resistance (in ohms) of the motor sense resistor. The default
 #   is 0.075 ohms.
@@ -2699,8 +2721,7 @@ run_current:
 #   The velocity (in mm/s) to set the "stealthChop" threshold to. When
 #   set, "stealthChop" mode will be enabled if the stepper motor
 #   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode. Try to reexperience this with tmc5160.
-#   Values can be much higher than other tmcs.
+#   "stealthChop" mode.
 #driver_IHOLDDELAY: 6
 #driver_TPOWERDOWN: 10
 #driver_TBL: 2

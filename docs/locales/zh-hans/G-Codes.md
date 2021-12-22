@@ -105,7 +105,7 @@ Klipper使用 "extended" 的G代码命令来进行一般的配置和状态。这
 - `MANUAL_PROBE [SPEED=<speed>]`：运行一个辅助脚本，对测量给定位置的喷嘴高度有用。如果指定了速度，它将设置TESTZ命令的速度（默认为5mm/s）。在手动探测过程中，可使用以下附加命令：
    - `ACCEPT`：该命令接受当前的Z位置，并结束手动探测工具。
    - `ABORT`：该命令终止手动探测工具。
-   - `TESTZ Z=<值>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
+   - `TESTZ Z=<值>`：这个命令可以将喷嘴上升或下降给定值，以毫米为单位。例如，`TESTZ Z=-.1` 会将喷嘴下降 0.1 毫米，而 `TESTZ Z=.1` 会将喷嘴上升 0.1 毫米，参数可以带有`+`, `-`, `++`, or `--`来根据上次尝试相对的移动喷嘴。
 - `Z_ENDSTOP_CALIBRATE [SPEED=<速度>]`：运行一个校准 Z position_endstop 参数的辅助脚本。有关更多参数和额外命令的信息，请查看 MANUAL_PROBE 命令。
 - `Z_OFFSET_APPLY_ENDSTOP`：将当前的Z 的 G 代码偏移量（就是 babystepping）从 stepper_z 的 endstop_position 中减去。该命令将持久化一个常用babystepping 微调值。需要执行 `SAVE_CONFIG`才能生效。
 - `TUNING_TOWER COMMAND=<命令> PARAMETER=<名称> START=<值> [SKIP=<值>] [FACTOR=<值> [BAND=<值>]] | [STEP_DELTA=<值> STEP_HEIGHT=<值>]`：根据Z高度调整参数的工具。该工具将定期运行一个 `PARAMETER` 不断根据 `Z` 的公式变化的 `COMMAND`（命令）。如果使用一把尺子或者游标卡尺测量 Z来获得最佳值，你可以用`FACTOR`。如果打印件带有带状标识或者使用离散数值（例如温度塔），可以用`STEP_DELTA`和 `STEP_HEIGHT` 。如果 `SKIP=<值>` 被定义，则调整只会在到达 Z 高度 `<值>` 后才开始。在此之前，参数会被设定为 `START`；在这种情况下，下面公式中`z_height`用`max(z - skip, 0)`替代。这些选项有三种不同的组合：
@@ -144,7 +144,7 @@ Klipper使用 "extended" 的G代码命令来进行一般的配置和状态。这
 
 当启用[neopixel 配置分段](Config_Reference.md#neopixel)或[dotstar 配置分段](Config_Reference.md#dotstar)时，以下命令可用：
 
-- `SET_LED LED=<配置中的名称> RED=<值> GREEN=<值> BLUE=<值> WHITE=<值> [INDEX=<索引>] [TRANSMIT=0] [SYNC=1]`：这条指令设置LED的输出。每个颜色的 `<值>` 必须在0.0和1.0之间。WHITE（白色）参数仅在 RGBW LED上有效果。如果多个 LED 芯片是通过菊链连接的，可以用INDEX参数来指定改变指定芯片的颜色（1是第一颗芯片，2是第二颗芯片…）。如果不提供 INDEX 则全部菊链中的 LED 将被设置为给定的颜色。如果指定了 TRANSMIT=0 ，色彩变化只会在下一条不是 TRANSMIT=0 的 SET_LED命令发送后发生。这个特性和 INDEX 参数一起使用可以在菊链中批量改变LED的颜色。默认情况下，SET_LED命令将与其他正在进行的G代码命令同步其变化。 This can lead to undesirable behavior if LEDs are being set while the printer is not printing as it will reset the idle timeout. If careful timing is not needed, the optional SYNC=0 parameter can be specified to apply the changes instantly and not reset the idle timeout.
+- `SET_LED LED=<配置中的名称> RED=<值> GREEN=<值> BLUE=<值> WHITE=<值> [INDEX=<索引>] [TRANSMIT=0] [SYNC=1]`：这条指令设置LED的输出。每个颜色的 `<值>` 必须在0.0和1.0之间。WHITE（白色）参数仅在 RGBW LED上有效果。如果多个 LED 芯片是通过菊链连接的，可以用INDEX参数来指定改变指定芯片的颜色（1是第一颗芯片，2是第二颗芯片…）。如果不提供 INDEX 则全部菊链中的 LED 将被设置为给定的颜色。如果指定了 TRANSMIT=0 ，色彩变化只会在下一条不是 TRANSMIT=0 的 SET_LED命令发送后发生。这个特性和 INDEX 参数一起使用可以在菊链中批量改变LED的颜色。默认情况下，SET_LED命令将与其他正在进行的G代码命令同步其变化。 因为修改LED状态会重置空闲超时，这可能在不打印时造成不期望的行为。 如果精确的时序不重要，可选的 SYNC=0 参数可以立刻应用LED变化而不重置LED超时。
 
 ### 舵机命令
 
@@ -230,7 +230,7 @@ Klipper使用 "extended" 的G代码命令来进行一般的配置和状态。这
 
 - `SET_DUAL_CARRIAGE CARRIAGE=[0|1]`:该命令将设置活动的滑块。它通常是在一个多挤出机配置中从 activate_gcode和deactivate_gcode字段调用。
 
-### TMC步进驱动器
+### TMC步进驱动
 
 当启用了任何 [tmcXXXX 配置分段](Config_Reference.md#tmc-stepper-driver-configuration)时，以下命令可用：
 
@@ -343,8 +343,8 @@ Klipper使用 "extended" 的G代码命令来进行一般的配置和状态。这
 当[resonance_tester 配置分段](Config_Reference.md#resonance_tester)被启用时，以下命令可用（也可参见[Measurement resonances guide](Measurement_Resonances.md)）：
 
 - `MEASURE_AXES_NOISE`：测量并输出所有启用的加速度计芯片的所有轴的噪声。
-- `TEST_RESONANCES AXIS=<轴> OUTPUT=<resonances,raw_data> [NAME=<名称>] [FREQ_START=<最小频率>] [FREQ_END=<最大频率>] [HZ_PER_SEC=<hz_per_sec>] [INPUT_SHAPING=[<0:1>]]`：在请求的<轴>全部配置的探测点运行共振测试并使用加速度计测量相应轴的加速度。<轴> 可以是 X 或者 Y，或者一个抽象的方向例如 `AXIS=dx,dy`，dx和dy是定义了方向矢量的浮点数（例如 `AXIS=X`、`AXIS=Y`或`AXIS=1,-1`来定义一个对角的方向）。注意`AXIS=dx,dy` 和 `AXIS=-dx,-dy` 是等效的。e`INPUT_SHAPING=0` or not set (default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. `OUTPUT` parameter is a comma-separated list of which outputs will be written. If `raw_data` is requested, then the raw accelerometer data is written into a file or a series of files `/tmp/raw_data_<axis>_[<point>_]<name>.csv` with (`<point>_` part of the name generated only if more than 1 probe point is configured). If `resonances` is specified, the frequency response is calculated (across all probe points) and written into `/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to `resonances`, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.
-- `SHAPER_CALIBRATE [AXIS=<轴>] [NAME=<名称>] [FREQ_START=<最小频率>] [FREQ_END=<最大频率>] [HZ_PER_SEC=<hz_per_sec>] [MAX_SMOOTHING=<max_smoothing>]`：类似`TEST_RESONANCES`，该命令按配置运行共振测试并尝试寻找给定轴最佳的输入整形参数。如果没有选择`AXIS`，则测量X和Y轴。如果没有选择 `MAX_SMOOTHING` ，会使用 `[resonance_tester]` 的默认参数。查看 [最大平滑](Measuring_Resonances.md#max-smoothing) of the measuring resonances guide for more information on the use of this feature. The results of the tuning are printed to the console, and the frequency responses and the different input shapers values are written to a CSV file(s) `/tmp/calibration_data_<axis>_<name>.csv`. Unless specified, NAME defaults to the current time in "YYYYMMDD_HHMMSS" format. Note that the suggested input shaper parameters can be persisted in the config by issuing `SAVE_CONFIG` command.
+- `TEST_RESONANCES AXIS=<轴> OUTPUT=<resonances,raw_data> [NAME=<名称>] [FREQ_START=<最小频率>] [FREQ_END=<最大频率>] [HZ_PER_SEC=<hz_per_sec>] [INPUT_SHAPING=[<0:1>]]`：在请求的<轴>全部配置的探测点运行共振测试并使用加速度计测量相应轴的加速度。<轴> 可以是 X 或者 Y，或者一个抽象的方向例如 `AXIS=dx,dy`，dx和dy是定义了方向矢量的浮点数（例如 `AXIS=X`、`AXIS=Y`或`AXIS=1,-1`来定义一个对角的方向）。注意，`AXIS=dx,dy` 和 `AXIS=-dx,-dy` 是等效的。`INPUT_SHAPING=0` 或默认会在共振测试时禁用输入整形，在输入整形启用时的共振测试结果是无效的。`OUTPUT` 参数是一个用来选择输出的逗号分隔列表。 如果请求了`raw_data`，原始加速度计数据将被写到一个或多个路径为`/tmp/raw_data_<轴>_[<坐标>_]<名称>.csv`的文件。（`<坐标>_`部分只会在多个探测点被配置时才会被加入）。如果定义了`resonances`，频响会被计算 （包括全部探测点）并写入到`/tmp/resonances_<轴>_<名称>.csv` 文件中。如果没有定义，则输出默认为`resonances`，而名称将被默认为"YYYYMMDD_HHMMSS"格式。
+- `SHAPER_CALIBRATE [AXIS=<轴>] [NAME=<名称>] [FREQ_START=<最小频率>] [FREQ_END=<最大频率>] [HZ_PER_SEC=<hz_per_sec>] [MAX_SMOOTHING=<max_smoothing>]`：类似`TEST_RESONANCES`，该命令按配置运行共振测试并尝试寻找给定轴最佳的输入整形参数。如果没有选择`AXIS`，则测量X和Y轴。如果没有选择 `MAX_SMOOTHING` ，会使用 `[resonance_tester]` 的默认参数。有关该特性的使用方法，详见共振量测量指南中的 [最大平滑](Measuring_Resonances.md#max-smoothing)章节。测试结果会被输出到终端，而频响和不同输入整形器的参数将被写入到一个或多个 CSV 文件中。它们的名称是`/tmp/calibration_data_<轴>_<名称>.csv`。如果没有指定，名称默认为“YYYYMMDD_HHMMSS”格式的当前时间。注意，可以通过请求 `SAVE_CONFIG` 命令将推荐的输入整形器参数直接保存到配置文件中。
 
 ### Palette 2 命令
 

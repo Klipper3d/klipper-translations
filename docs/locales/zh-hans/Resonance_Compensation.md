@@ -121,7 +121,7 @@ In this picture, the acceleration increases left to right, and the gap starts to
 
 Note the acceleration when the gap is still very small in your test print. If you see bulges, but no gap in the wall at all, even at high accelerations, it may be due to disabled Pressure Advance, especially on Bowden extruders. If that is the case, you may need to repeat the print with the PA enabled. It may also be a result of a miscalibrated (too high) filament flow, so it is a good idea to check that too.
 
-Choose the minimum out of the two acceleration values (from ringing and smoothing), and put it as max_accel into printer.cfg (you can delete max_accel_or_decel or revert it to the old value).
+Choose the minimum out of the two acceleration values (from ringing and smoothing), and put it as max_accel into printer.cfg (you can delete max_accel_to_decel or revert it to the old value).
 
 As a note, it may happen - especially at low ringing frequencies - that EI shaper will cause too much smoothing even at lower accelerations. In this case, MZV may be a better choice, because it may allow higher acceleration values.
 

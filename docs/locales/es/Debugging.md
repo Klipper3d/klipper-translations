@@ -107,6 +107,8 @@ Many matplotlib options are available; some examples are "color", "label", "alph
 
 The `motan_graph.py` tool supports several other command-line options - use the `--help` option to see a list. It may also be convenient to view/modify the [motan_graph.py](../scripts/motan/motan_graph.py) script itself.
 
+The raw data logs produced by the `data_logger.py` tool follow the format described in the [API Server](API_Server.md). It may be useful to inspect the data with a Unix command like the following: `gunzip < mylog.json.gz | tr '\03' '\n' | less`
+
 ## Generar gráficos de carga
 
 El archivo de registro de Klippy (/tmp/klippy.log) almacena estadísticas sobre anchura de banda, carga sobre el microcontrolador y carga sobre el búfer del anfitrión. Puede resultar útil graficar estas estadísticas luego de mostrarlas.

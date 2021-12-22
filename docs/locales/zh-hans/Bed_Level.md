@@ -12,37 +12,37 @@
 
 在运行任何校准工具前，一定要执行在 [检查配置文档](Config_checks.md) 中 描述的检查步骤。在打印床调平前有必要验证打印机的基本运动。
 
-For printers with an "automatic Z probe" be sure to calibrate the probe following the directions in the [Probe Calibrate](Probe_Calibrate.md) document. For delta printers, see the [Delta Calibrate](Delta_Calibrate.md) document. For printers with bed screws and traditional Z endstops, see the [Manual Level](Manual_Level.md) document.
+对于带有“自动 Z 探针”的打印机，请务必按照 [探针校准](Probe_Calibrate.md) 文档中的说明先校准探针。对于三角洲结构的打印机，请参阅 [三角洲校准](Delta_Calibrate.md) 文档。对于带有打印床调平螺丝和传统 Z 限位的打印机，请参阅 [手动调平](Manual_Level.md) 文档。
 
 在校准过程中，可能需要将打印机的Z `position_min`设置为一个负数（例如，`position_min = -2`）。即使在校准程序中，打印机也会执行边界检查。设置一个负数允许打印机在打印床的标称位置以下移动，这可以帮助确定实际床面位置。
 
 ## “A4纸测试法”
 
-The primary bed calibration mechanism is the "paper test". It involves placing a regular piece of "copy machine paper" between the printer's bed and nozzle, and then commanding the nozzle to different Z heights until one feels a small amount of friction when pushing the paper back and forth.
+床调平的核心校准机制是"塞纸测试"。它涉及在打印床和喷嘴之间放置一张普通打印纸，然后将喷嘴控制到不同的Z高度，直到在来回移动纸张时感觉到适量的阻力。
 
-It is important to understand the "paper test" even if one has an "automatic Z probe". The probe itself often needs to be calibrated to get good results. That probe calibration is done using this "paper test".
+即使你的打印机带有自动Z探针，理解塞纸测试依然很重要。为了保证探针的效果，它经常会需要校准。探针的校准机制也依赖塞纸测试。
 
-In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a width of around 100 microns (0.100mm). (The exact width of the paper isn't crucial.)
+为了进行塞纸测试，先用剪刀剪下一小块长方形的纸条（例如，5x3厘米）。打印纸的厚度一般为100微米（0.100mm）左右。(纸条的确切宽度并不重要.）
 
 纸张测试的第一步是检查打印机的喷嘴和打印床。确保喷嘴和打印床面上没有塑料（或其他杂物）。
 
-**Inspect the nozzle and bed to ensure no plastic is present!**
+**请仔细检查喷嘴和床面，确保没有残留塑料存在！**
 
-If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a width and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.
+如果总是在一种胶带或床面上打印，可以在该胶带或床面上直接进行纸张测试。请注意，胶带本身有厚度，不同的胶带（或任何其他床面）将影响 Z 的测量。请确保用塞纸测试测量每一种使用的床面。
 
-If there is plastic on the nozzle then heat up the extruder and use a metal tweezers to remove that plastic. Wait for the extruder to fully cool to room temperature before continuing with the paper test. While the nozzle is cooling, use the metal tweezers to remove any plastic that may ooze out.
+如果喷嘴上残留了塑料，需要先加热挤出头并用金属镊子把这些塑料去除。等到挤出机完全冷却到室温后，再继续进行纸张测试。当喷嘴正在冷却时，使用金属镊子去除任何可能漏出的塑料。
 
-**Always perform the paper test when both nozzle and bed are at room temperature!**
+**只在喷嘴和打印床都处于室温的情况下进行塞纸测试！**
 
 When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same width as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact width of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two widths).
 
 It may seem odd to calibrate the distance at room temperature when the goal is to have a consistent distance when heated. However, if one calibrates when the nozzle is heated, it tends to impart small amounts of molten plastic on to the paper, which changes the amount of friction felt. That makes it harder to get a good calibration. Calibrating while the bed/nozzle is hot also greatly increases the risk of burning oneself. The amount of thermal expansion is stable, so it is easily accounted for later in the calibration process.
 
-**Use an automated tool to determine precise Z heights!**
+**使用自动化工具来确定精确的 Z 高度！**
 
 Klipper has several helper scripts available (eg, MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). See the documents [described above](#choose-the-appropriate-calibration-mechanism) to choose one of them.
 
-Run the appropriate command in the OctoPrint terminal window. The script will prompt for user interaction in the OctoPrint terminal output. It will look something like:
+在OctoPrint终端窗口中运行适当的命令。该脚本将在OctoPrint终端输出中提示用户互动。以下是一个例子：
 
 ```
 Recv: // Starting manual Z probe. Use TESTZ to adjust position.

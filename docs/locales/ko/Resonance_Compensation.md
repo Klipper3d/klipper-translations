@@ -121,7 +121,7 @@ Shaper 선택에 대한 몇 가지 참고 사항:
 
 테스트 인쇄에서 틈이 여전히 매우 작을 때 가속도에 유의하십시오. 팽창이 보이지만 높은 가속에서도 벽에 틈이 전혀 없다면 특히 Bowden 압출기에서 비활성화된 Pressure Advance 때문일 수 있습니다. 이 경우 PA가 활성화된 상태에서 인쇄를 반복해야 할 수도 있습니다. 또한 잘못 보정된(너무 높은) 필라멘트 흐름의 결과일 수 있으므로 이것도 확인하는 것이 좋습니다.
 
-두 가지 가속도 값(ringing 및 smoothing) 중에서 최소값을 선택하고 max_accel로 printer.cfg에 넣습니다(max_accel_or_decel을 삭제하거나 이전 값으로 되돌릴 수 있음).
+Choose the minimum out of the two acceleration values (from ringing and smoothing), and put it as max_accel into printer.cfg (you can delete max_accel_to_decel or revert it to the old value).
 
 참고로, 특히 낮은 ringing 주파수에서 EI shaper가 더 낮은 가속에서도 너무 많은 smoothing을 유발할 수 있습니다. 이 경우 더 높은 가속도 값을 허용할 수 있으므로 MZV가 더 나은 선택일 수 있습니다.
 

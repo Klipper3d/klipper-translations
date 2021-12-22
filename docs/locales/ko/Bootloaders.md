@@ -210,7 +210,7 @@ STM32F103 디바이스는 3.3V 시리얼을 통해 부트로더나 어플리케�
 stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0
 ```
 
-Note that if one is using a Raspberry Pi for the 3.3V serial, the stm32flash protocol uses a serial parity mode which the Raspberry Pi's "miniuart" does not support. See <https://www.raspberrypi.org/documentation/configuration/uart.md> for details on enabling the full uart on the Raspberry Pi GPIO pins.
+Note that if one is using a Raspberry Pi for the 3.3V serial, the stm32flash protocol uses a serial parity mode which the Raspberry Pi's "mini UART" does not support. See <https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts> for details on enabling the full uart on the Raspberry Pi GPIO pins.
 
 플래싱 후에 "boot 0"과 "boot 1"을 모두 다시 low로 설정하여 나중에 플래시에서 부팅을 재설정합니다.
 
@@ -236,7 +236,7 @@ dfu-util -d 1eaf:0003 -a 2 -R -D out/klipper.bin
 
 ### HID 부트로더를 가진 STM32F103
 
-[HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader)는 컴팩트하며 USB를 통해 플래싱이 가능한 드라이버가 없는 부트로더다. 또한 [fork with builds specific to the SKR Mini E3 1.2](https://github.com/Arksine/STM32_HID_Bootloader/releases/tag/v0.5-beta) 도 가능하다.
+The [HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader) is a compact, driverless bootloader capable of flashing over USB. Also available is a [fork with builds specific to the SKR Mini E3 1.2](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
 
 blue pill 같은 일반적인 STM32F103 보드에 대해 위에 언급된 stm32duino 섹션에 나오는 stm32flash 를 사용한 3.3v 시리얼을 통한 부트로더를 구을 수도 있다. 파일이름을 원하는 hid 부트로더 바이너리로 변경할 수 있다. (즉: blue pill 대신 hid_generic_pc13.bin ).
 
@@ -313,7 +313,7 @@ make flash FLASH_DEVICE=/dev/ttyACM0
 
 ## STM32F4 마이크로 컨트롤러 (SKR Pro 1.1)
 
-STM32F4 마이크로 컨트롤러는 DFU를 통한 USB로, 3.3v 시리얼로, 그리고 다양한 방법으로 플래싱이 가능한 빌트인 시스템 부트로더를 보유하고 있다.(보다 자세한 내용은 STM 문서 AN2606 를 참고하라). SKR Pro 1.1같은 일부 STM32F4 보드는 DFU 부트로더로 들어갈 수 없다. HID 부트로더는 STM32F405/407 에서 가능하다. 이 보드들에서는 사용자가 원하는 방식으로 USB나 또는 SD카드로 플래싱할 수 있다. 당신의 보드에 맞게 버전을 설정하고 빌드할 필요가 있다. [build for the SKR Pro 1.1 is available here](https://github.com/Arksine/STM32_HID_Bootloader/releases/tag/v0.5-beta).
+STM32F4 microcontrollers come equipped with a built-in system bootloader capable of flashing over USB (via DFU), 3.3v Serial, and various other methods (see STM Document AN2606 for more information). Some STM32F4 boards, such as the SKR Pro 1.1, are not able to enter the DFU bootloader. The HID bootloader is available for STM32F405/407 based boards should the user prefer flashing over USB over using the sdcard. Note that you may need to configure and build a version specific to your board, a [build for the SKR Pro 1.1 is available here](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
 
 DFU 를 사용할 수 없는 보드라면 가장 접근가능한 플래싱 방법은 3.3V 시리얼을 통한 방법이다. 이것은 [flashing the STM32F103 using stm32flash](#stm32f103-micro-controllers-blue-pill-devices)과 동일한 절차를 따라 진행하면 된다. 예를 들어:
 
