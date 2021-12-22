@@ -4,11 +4,11 @@
 
 ## 加速
 
-Klipper implements a constant acceleration scheme whenever the print head changes velocity - the velocity is gradually changed to the new speed instead of suddenly jerking to it. Klipper always enforces acceleration between the tool head and the print. The filament leaving the extruder can be quite fragile - rapid jerks and/or extruder flow changes lead to poor quality and poor bed adhesion. Even when not extruding, if the print head is at the same level as the print then rapid jerking of the head can cause disruption of recently deposited filament. Limiting speed changes of the print head (relative to the print) reduces risks of disrupting the print.
+Klipper总使用常加速度策略——打印头的速度总是梯度变化到新的速度，而非使用速度突变的方式。Klipper着眼于打印件和打印头之间的速度变化。离开挤出机的耗材十分脆弱，突然的移动速度和/或挤出流量突变可能会导致造成打印质量或床黏着能力的下降。甚至在无挤出时，如果打印头和打印件顶端在同一水平面时，喷嘴的速度突变有可能对刚挤出的耗材进行剐蹭。限制打印头相对于打印件的速度，可以减少剐蹭打印件的风险。
 
-It is also important to limit acceleration so that the stepper motors do not skip or put excessive stress on the machine. Klipper limits the torque on each stepper by virtue of limiting the acceleration of the print head. Enforcing acceleration at the print head naturally also limits the torque of the steppers that move the print head (the inverse is not always true).
+限制减速度也能减少步进电机丢步和炸机的状况。Klipper通过限制打印头的加速度来限制每个步进电机的力矩。限制打印头的加速度自然也限制了移动打印头的步进器的扭矩（反之则不一定）。
 
-Klipper implements constant acceleration. The key formula for constant acceleration is:
+Klipper实现恒加速度控制，关键的方程如下：
 
 ```
 velocity(time) = start_velocity + accel*time
