@@ -3,14 +3,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-12-15 05:52+0000\n"
+"PO-Revision-Date: 2021-12-23 09:51+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/benchmarks/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/benchmarks/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 4.10.1\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "这个文档解释了Klipper的基准测试。"
@@ -509,6 +510,14 @@ msgid ""
 "config_stepper oid=2 step_pin=PC7 dir_pin=PC6 invert_step=0 step_pulse_ticks=32\n"
 "finalize_config crc=0\n"
 msgstr ""
+"allocate_oids count=3\n"
+"config_stepper oid=0 step_pin=PA5 dir_pin=PA4 invert_step=0 step_pulse_ticks="
+"32\n"
+"config_stepper oid=1 step_pin=PA3 dir_pin=PA2 invert_step=0 step_pulse_ticks="
+"32\n"
+"config_stepper oid=2 step_pin=PC7 dir_pin=PC6 invert_step=0 step_pulse_ticks="
+"32\n"
+"finalize_config crc=0\n"
 
 #: docs/Benchmarks.md:block 21 (paragraph)
 msgid ""
@@ -520,11 +529,11 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 22 (table)
 msgid "102"
-msgstr ""
+msgstr "102"
 
 #: docs/Benchmarks.md:block 22 (table)
 msgid "486"
-msgstr ""
+msgstr "486"
 
 #: docs/Benchmarks.md:block 25 (code)
 msgid ""
@@ -534,6 +543,14 @@ msgid ""
 "config_stepper oid=2 step_pin=PA21 dir_pin=PC30 invert_step=-1 step_pulse_ticks=0\n"
 "finalize_config crc=0\n"
 msgstr ""
+"allocate_oids count=3\n"
+"config_stepper oid=0 step_pin=PB27 dir_pin=PA21 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=1 step_pin=PB26 dir_pin=PC30 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=2 step_pin=PA21 dir_pin=PC30 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"finalize_config crc=0\n"
 
 #: docs/Benchmarks.md:block 26 (paragraph)
 msgid ""
@@ -543,7 +560,7 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 27 (table)
 msgid "257"
-msgstr ""
+msgstr "257"
 
 #: docs/Benchmarks.md:block 30 (code)
 msgid ""
@@ -553,10 +570,18 @@ msgid ""
 "config_stepper oid=2 step_pin=PC26 dir_pin=PB4 invert_step=-1 step_pulse_ticks=0\n"
 "finalize_config crc=0\n"
 msgstr ""
+"allocate_oids count=3\n"
+"config_stepper oid=0 step_pin=PC26 dir_pin=PC18 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=1 step_pin=PC26 dir_pin=PA8 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=2 step_pin=PC26 dir_pin=PB4 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"finalize_config crc=0\n"
 
 #: docs/Benchmarks.md:block 32 (table)
 msgid "260"
-msgstr ""
+msgstr "260"
 
 #: docs/Benchmarks.md:block 35 (code)
 msgid ""
@@ -575,11 +600,11 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 37 (table)
 msgid "48"
-msgstr ""
+msgstr "48"
 
 #: docs/Benchmarks.md:block 37 (table)
 msgid "215"
-msgstr ""
+msgstr "215"
 
 #: docs/Benchmarks.md:block 40 (code)
 msgid ""
@@ -598,11 +623,11 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 42 (table)
 msgid "231"
-msgstr ""
+msgstr "231"
 
 #: docs/Benchmarks.md:block 42 (table)
 msgid "847"
-msgstr ""
+msgstr "847"
 
 #: docs/Benchmarks.md:block 45 (code)
 msgid ""
