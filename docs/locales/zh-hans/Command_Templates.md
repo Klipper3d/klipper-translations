@@ -1,14 +1,14 @@
 # Commands templates
 
-This document provides information on implementing G-Code command sequences in gcode_macro (and similar) config sections.
+本文档描述了 gcode_macro（和其他类似）配置分段中实现 G-Code 命令序列的方法。
 
 ## G 代码宏命名
 
-Case is not important for the G-Code macro name - MY_MACRO and my_macro will evaluate the same and may be called in either upper or lower case. If any numbers are used in the macro name then they must all be at the end of the name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not).
+G-Code 宏的名称大小写并不重要。比如，MY_MACRO 和 my_macro 是等效的，可以用大写或小写来调用。如果在宏的名称中使用任何数字，那么它们必须都在名称的末尾（例如，TEST_MACRO25是合法的，但MACRO25_TEST3是不合法的）。
 
 ## 配置中 G 代码的格式
 
-Indentation is important when defining a macro in the config file. To specify a multi-line G-Code sequence it is important for each line to have proper indentation. For example:
+在配置文件中定义一个宏时需要注意缩进。在定义多行的G代码序列时每行都要有适当的缩进。例如：
 
 ```
 [gcode_macro blink_led]
@@ -35,7 +35,7 @@ gcode:
 
 This will be showing is you use the `HELP` command or use the autocomplete function.
 
-## Save/Restore state for G-Code moves
+## 保存/恢复 G-Code 移动的状态
 
 Unfortunately, the G-Code command language can be challenging to use. The standard mechanism to move the toolhead is via the `G1` command (the `G0` command is an alias for `G1` and it can be used interchangeably with it). However, this command relies on the "G-Code parsing state" setup by `M82`, `M83`, `G90`, `G91`, `G92`, and previous `G1` commands. When creating a G-Code macro it is a good idea to always explicitly set the G-Code parsing state prior to issuing a `G1` command. (Otherwise, there is a risk the `G1` command will make an undesirable request.)
 

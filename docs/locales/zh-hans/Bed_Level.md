@@ -1,4 +1,4 @@
-# Bed leveling
+# 打印床调平
 
 打印床调平（有时也被称为 "bed tramming"）对于获得高质量的打印结果至关重要。错误"调平"的打印床会造成附着力差、"翘曲"，以及整个打印过程中的细微问题。本文档是在 Klipper 中进行调平的指南。
 
@@ -34,13 +34,13 @@
 
 **只在喷嘴和打印床都处于室温的情况下进行塞纸测试！**
 
-When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same width as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact width of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two widths).
+当喷嘴被加热时，其位置（相对于床面）会因热膨胀而发生变化。这种热膨胀通常在100微米左右，大约是一张典型的打印纸的厚度。热膨胀的确切程度并不关键，正如纸张的确切厚度并不关键一样。从假设二者相等开始（见下文确定二者宽度之差的方法）。
 
-It may seem odd to calibrate the distance at room temperature when the goal is to have a consistent distance when heated. However, if one calibrates when the nozzle is heated, it tends to impart small amounts of molten plastic on to the paper, which changes the amount of friction felt. That makes it harder to get a good calibration. Calibrating while the bed/nozzle is hot also greatly increases the risk of burning oneself. The amount of thermal expansion is stable, so it is easily accounted for later in the calibration process.
+当目标是在加热时有一个一致的距离时，在室温下校准距离可能听起来很奇怪。然而，如果在喷嘴加热时进行校准，往往会有少量的熔融塑料渗入纸张，从而改变了摩擦力的大小。这会影响校准精度。在床或喷嘴热的时候进行校准也会大大增加烧伤风险。热膨胀量是稳定的，所以在校准过程中很容易被考虑到。
 
 **使用自动化工具来确定精确的 Z 高度！**
 
-Klipper has several helper scripts available (eg, MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). See the documents [described above](#choose-the-appropriate-calibration-mechanism) to choose one of them.
+Klipper 有几个辅助脚本（例如，MANUAL_PROBE、Z_ENDSTOP_CALIBRATE、PROBE_CALIBRATE 或 DELTA_CALIBRATE）。请参阅[上述章节](#choose-the-appropriate-calibration-mechanism)来选择它们。
 
 在OctoPrint终端窗口中运行适当的命令。该脚本将在OctoPrint终端输出中提示用户互动。以下是一个例子：
 
@@ -50,47 +50,47 @@ Recv: // Finish with ACCEPT or ABORT command.
 Recv: // Z position: ?????? --> 5.000 <-- ??????
 ```
 
-The current height of the nozzle (as the printer currently understands it) is shown between the "--> <--". The number to the right is the height of the last probe attempt just greater than the current height, and to the left is the last probe attempt less than the current height (or ?????? if no attempt has been made).
+喷嘴的（按照打印机目前的定义的）当前高度显示在"--> <--"之间。右边的数字是刚刚大于当前高度的最后一次探测高度，左边的数字是小于当前高度的最后一次探测高度（如果没有尝试，则??????）。
 
-Place the paper between the nozzle and bed. It can be useful to fold a corner of the paper so that it is easier to grab. (Try not to push down on the bed when moving the paper back and forth.)
+将纸放在喷嘴和床面之间。折叠纸张的一角可以让它更容易被抓在手里。(来回移动纸张时，尽量不要下压床面。）
 
 ![paper-test](img/paper-test.jpg)
 
-Use the TESTZ command to request the nozzle to move closer to the paper. For example:
+使用 TESTZ 命令将喷嘴向纸条靠近。例如：
 
 ```
 TESTZ Z=-.1
 ```
 
-The TESTZ command will move the nozzle a relative distance from the nozzle's current position. (So, `Z=-.1` requests the nozzle to move closer to the bed by .1mm.) After the nozzle stops moving, push the paper back and forth to check if the nozzle is in contact with the paper and to feel the amount of friction. Continue issuing TESTZ commands until one feels a small amount of friction when testing with the paper.
+TESTZ命令将相对喷嘴的当前位置移动指定距离。(因此，`Z=-.1` 命令喷嘴向床身靠近 0.1mm。）喷嘴停止移动后，来回推动纸张，检查喷嘴是否与纸张接触，并感受摩擦力的大小。继续发出 TESTZ 命令，直到塞纸测试时感觉到少量的摩擦。
 
-If too much friction is found then one can use a positive Z value to move the nozzle up. It is also possible to use `TESTZ Z=+` or `TESTZ Z=-` to "bisect" the last position - that is to move to a position half way between two positions. For example, if one received the following prompt from a TESTZ command:
+如果发现摩擦力太大，那么可以用一个正的 Z 值将喷嘴向上移动，或者用`TESTZ Z=+`或`TESTZ Z=-`来二分上一次位置和当前位置-也就是移动到两个位置之间的一半位置。例如，如果从 TESTZ 命令后收到以下反馈：
 
 ```
 Recv: // Z position: 0.130 --> 0.230 <-- 0.280
 ```
 
-Then a `TESTZ Z=-` would move the nozzle to a Z position of 0.180 (half way between 0.130 and 0.230). One can use this feature to help rapidly narrow down to a consistent friction. It is also possible to use `Z=++` and `Z=--` to return directly to a past measurement - for example, after the above prompt a `TESTZ Z=--` command would move the nozzle to a Z position of 0.130.
+然后 `TESTZ Z=-` 会将喷嘴移动到 Z 坐标 0.180 （0.130 和 0.230之间）。这个功能可以快速的找到一致阻力的位置。也可以用 `Z=++` 和 `Z=--` 直接回到上一次测量位置。例如，在上面反馈后执行`TESTZ Z=--`命令会将 Z 坐标移动到 0.130。
 
-After finding a small amount of friction run the ACCEPT command:
+感受到少量的摩擦后，运行 ACCEPT 命令：
 
 ```
 ACCEPT
 ```
 
-This will accept the given Z height and proceed with the given calibration tool.
+这将接受给定的 Z 高度，并继续使用给定的校准工具。
 
-The exact amount of friction felt isn't crucial, just as the amount of thermal expansion and exact width of the paper isn't crucial. Just try to obtain the same amount of friction each time one runs the test.
+确切的阻力并不重要，就像热膨胀量和纸张的确切宽度并不重要一样。只需要每次测试时尽量达到相同的阻力就行了。
 
-If something goes wrong during the test, one can use the `ABORT` command to exit the calibration tool.
+如果在测试过程中出了问题，可以使用 `ABORT` 命令来退出校准工具。
 
-## Determining Thermal Expansion
+## 确定热膨胀
 
-After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "width of the paper", and "amount of friction felt during the paper test".
+在成功进行打印床调平后，可以继续计算"热膨胀"、"纸张厚度"和"纸张测试时感受到的摩擦量"综合影响的精确值。
 
-This type of calculation is generally not needed as most users find the simple "paper test" provides good results.
+这种类型的计算通常是不需要的，因为大多数用户发现简单的"塞纸测试"提供了足够好的结果。
 
-The easiest way to make this calculation is to print a test object that has straight walls on all sides. The large hollow square found in [docs/prints/square.stl](prints/square.stl) can be used for this. When slicing the object, make sure the slicer uses the same layer height and extrusion widths for the first level that it does for all subsequent layers. Use a coarse layer height (the layer height should be around 75% of the nozzle diameter) and do not use a brim or raft.
+最简单的计算方法是打印一个四面都是直壁的测试物体。可以用在[docs/prints/square.stl](prints/square.stl)中找到的大型空心方形。在切片时，确保切片软件在第一层使用与所有后续层相同的层高和挤出宽度。使用较高的层高（层高应该是喷嘴直径的75%左右），不要使用裙边(skirt)或筏(raft)。
 
 Print the test object, wait for it to cool, and remove it from the bed. Inspect the lowest layer of the object. (It may also be useful to run a finger or nail along the bottom edge.) If one finds the bottom layer bulges out slightly along all sides of the object then it indicates the nozzle was slightly closer to the bed then it should be. One can issue a `SET_GCODE_OFFSET Z=+.010` command to increase the height. In subsequent prints one can inspect for this behavior and make further adjustment as needed. Adjustments of this type are typically in 10s of microns (.010mm).
 
