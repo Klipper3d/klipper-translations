@@ -1,53 +1,53 @@
 # 为 Klipper 做贡献
 
-Thank you for contributing to Klipper! This document describes the process for contributing changes to Klipper.
+感谢您对Klipper的贡献！本文档介绍向 Klipper 贡献改进的流程。
 
-Please see the [contact page](Contact.md) for information on reporting an issue or for details on contacting the developers.
+请参阅[联系页面](Contact.md)来了解报告问题的信息或联系开发人员的方法。
 
-## Overview of Contribution Process
+## 贡献流程概述
 
-Contributions to Klipper generally follow a high-level process:
+对Klipper的贡献通常遵循一个高水平的流程：
 
-1. A submitter starts by creating a [GitHub Pull Request](https://github.com/Klipper3d/klipper/pulls) when a submission is ready for widespread deployment.
-1. When a [reviewer](#reviewers) is available to [review](#what-to-expect-in-a-review) the submission, they will assign themselves to the Pull Request on GitHub. The goal of the review is to look for defects and to check that the submission follows documented guidelines.
-1. After a successful review, the reviewer will "approve the review" on GitHub and a [maintainer](#reviewers) will commit the change to the Klipper master branch.
+1. 当提交的内容准备好进行广泛的部署时，提交者要先先创建一个[GitHub 拉取请求(Pull Request)](https://github.com/Klipper3d/klipper/pulls)。
+1. 当 [审核者](#reviewers)可以 [审核](#what-to-expect-in-a-review)提交时，他们将把自己分配给 GitHub 上的拉取请求。审核的目的是寻找缺陷并检查提交是否遵循记录在案的准则。
+1. 审核完成后，审核者会在GitHub上"批准审查"，然后由[维护者](#reviewers)将修改提交到Klipper的master分支。
 
-When working on enhancements, consider starting (or contributing to) a topic on [Klipper Discourse](Contact.md). An ongoing discussion on the forum can improve visibility of development work and may attract others interested in testing new work.
+在改进Klipper时，请考虑在[Klipper Discourse](Contact.md)上打开（或参与）一个主题。论坛上正在进行的讨论可以提高开发工作的可见性，并可能吸引对测试新工作感兴趣的其他人。
 
-## What to expect in a review
+## 审核中的预期内容
 
-Contributions to Klipper are reviewed before merging. The primary goal of the review process is to check for defects and to check that the submission follows guidelines specified in the Klipper documentation.
+对 Klipper 的贡献在合并前会被审核。审核过程的主要目的是检查缺陷，并检查提交的内容是否符合 Klipper 文档中规定的准则。
 
-It is understood that there are many ways to accomplish a task; it is not the intent of the review to discuss the "best" implementation. Where possible, review discussions focused on facts and measurements are preferable.
+有许多方法可以实现一个功能；审核的目的不是寻找"最佳 "的实现。在可能的情况下，审查讨论最好是集中在事实和测试结果上。
 
-The majority of submissions will result in feedback from a review. Be prepared to obtain feedback, provide further details, and to update the submission if needed.
+大多数的提交都会得到至少一个审核。准备好获得反馈，提供更多的细节，并在需要时更新提交的代码。
 
-Common things a reviewer will look for:
+审核员通常会检查这些：
 
 
-   1. Is the submission free of defects and is it ready to be widely deployed?Submitters are expected to test their changes prior to submission. The reviewers look for errors, but they don't, in general, test submissions. An accepted submission is often deployed to thousands of printers within a few weeks of acceptance. Quality of submissions is therefore considered a priority.
+   1. 提交是否没有缺陷，是否准备好广泛部署？提交者应在提交之前测试其更改。审核员会查找提交中的错误，但通常不会测试提交的实际内容。接受的提交通常会在被接受后的几周内部署到数千台打印机。因此，提交的质量极为重要。
 
-   The main [Klipper3d/klipper](https://github.com/Klipper3d/klipper) GitHub repository does not accept experimental work. Submitters should perform experimentation, debugging, and testing in their own repositories. The [Klipper Discourse](Contact.md) server is a good place to raise awareness of new work and to find users interested in providing real-world feedback.
+   主[Klipper3d/klipper](https://github.com/Klipper3d/klipper) GitHub仓库不接受实验性代码。提交者应该在他们自己的仓库中进行实验、调试和测试。Klipper Discourse](Contact.md)论坛可以帮助你找到其他有兴趣的开发者和可以提供真实世界反馈的用户，或者让更多人了解你的工作。
 
-   Submissions must pass all [regression test cases](Debugging.md).
+   提交必须通过所有[回归测试用例](Debugging.md)。
 
-   Code submissions should not contain excessive debugging code, debugging options, nor run-time debug logging.
+   代码提交不应包含过多的调试代码、调试选项，也不应包含运行时调试日志。
 
-   Comments in code submissions should focus on enhancing code maintenance. Submissions should not contain "commented out code" nor excessive comments describing past implementations. There should not be excessive "todo" comments.
+   代码提交中的注释应侧重于增强代码的可维护性。提交不应包含"注释掉的代码"，不应包含描述过去实现的过多注释，也不应包含过多的"待办事项"。
 
-   Updates to documentation should not declare that they are a "work in progress".
+   对文件的更新不应该声明它们是一项正在进行的工作。
 
-   1. Is the copyright of the submission clear, non-gratuitous, and compatible?New C files and Python files should have an unambiguous copyright statement. See the existing files for the preferred format. Declaring a copyright on an existing file when making minor changes to that file is discouraged.
+   1. 提交的版权是否清晰、无偿、兼容？新的 C 文件和 Python 文件应该有一个明确的版权声明。请看现有文件以了解推荐格式。不推荐在对现有文件进行小的修改时对该文件进行版权声明。
 
-   Code taken from 3rd party sources must be compatible with the Klipper license (GNU GPLv3). Large 3rd party code additions should be added to the `lib/` directory (and follow the format described in [lib/README](../lib/README)).
+   从第三方来源获取的代码必须与 Klipper 的许可证（GNU GPLv3）兼容。大型的第三方代码添加应被添加到`lib/`目录中（并遵循[../lib/README](./lib/README)中描述的格式）。
 
-   Submitters must provide a [Signed-off-by line](#format-of-commit-messages) using their full real name. It indicates the submitter agrees with the [developer certificate of origin](developer-certificate-of-origin).
+   提交者必须提供一个[Signed-off-by 行](#format-of-commit-messages)，使用他们的真实全名。它表明提交者同意[开发者源头证书](developer-certificate-of-origin)。
 
-   1. Does the submission follow guidelines specified in the Klipper documentation?In particular, code should follow the guidelines in <Code_Overview.md> and config files should follow the guidelines in <Example_Configs.md>.
+   1. 提交的文件是否遵循 Klipper 文件中规定的准则？特别是，代码应遵循 <Code_Overview.md> 中的准则，配置文件应遵循 <Example_Configs.md> 中的准则。
 
-   1. Is the Klipper documentation updated to reflect new changes?At a minimum, the reference documentation must be updated with corresponding changes to the code:
+   1. Klipper 文档是否已更新以反映新的更改？At a minimum, the reference documentation must be updated with corresponding changes to the code:
 
-   * All commands and command parameters must be documented in <G-Codes.md>.
+   * 所有命令和命令参数必须在 <G-Code.md> 中被描述。
    * All user facing modules and their config parameters must be documented in <Config_Reference.md>.
    * All exported "status variables" must be documented in <Status_Reference.md>.
    * All new "webhooks" and their parameters must be documented in <API_Server.md>.

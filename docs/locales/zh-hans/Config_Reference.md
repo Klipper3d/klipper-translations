@@ -55,7 +55,7 @@ serial:
 
 ```
 [mcu my_extra_mcu]
-# See the "mcu" section for configuration parameters.
+#   请参阅"mcu"分段的配置参数。
 ```
 
 ## 常用的运动学设置
@@ -349,7 +349,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Hybrid-CoreXY Kinematics
+### 混合型 CoreXY 运动学
 
 See [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) for an example hybrid corexy kinematics config file.
 
@@ -380,7 +380,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Hybrid-CoreXZ Kinematics
+### 混合型 CoreXZ 运动学
 
 See [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) for an example hybrid corexz kinematics config file.
 
@@ -591,23 +591,22 @@ microsteps:
 rotation_distance:
 #full_steps_per_rotation:
 #gear_ratio:
-#   See the "stepper" section for a description of the above parameters.
+#   以上参数请参阅“stepper”章节。
 nozzle_diameter:
-#   Diameter of the nozzle orifice (in mm). This parameter must be
-#   provided.
+#   喷嘴的孔径（mm）。
+#   必须提供此参数。
 filament_diameter:
-#   The nominal diameter of the raw filament (in mm) as it enters the
-#   extruder. This parameter must be provided.
+#   进入挤出机前耗材的常规直径（mm）。
+#   必须提供此参数。
 #max_extrude_cross_section:
-#   Maximum area (in mm^2) of an extrusion cross section (eg,
-#   extrusion width multiplied by layer height). This setting prevents
-#   excessive amounts of extrusion during relatively small XY moves.
-#   If a move requests an extrusion rate that would exceed this value
-#   it will cause an error to be returned. The default is: 4.0 *
-#   nozzle_diameter^2
+#   挤出的最大截面积（mm^2）。
+#   例如，挤出宽度乘以层高。
+#   这个参数避免了在微小的 XY 移动中挤出了过多的耗材。如果
+#   一个移动请求了超过该参数限制的挤出速率，打印机会报告错误。
+#   默认为：4.0 * nozzle_diameter^2
 #instantaneous_corner_velocity: 1.000
-#   The maximum instantaneous velocity change (in mm/s) of the
-#   extruder during the junction of two moves. The default is 1mm/s.
+#   在两个移动之间挤出头最大的瞬时速度变化（mm/s)。
+#   默认为 1mm/s。
 #max_extrude_only_distance: 50.0
 #   Maximum length (in mm of raw filament) that a retraction or
 #   extrude-only move may have. If a retraction or extrude-only move
@@ -1052,7 +1051,7 @@ home_xy_position:
 
 ### [homing_override]
 
-Homing override. One may use this mechanism to run a series of g-code commands in place of a G28 found in the normal g-code input. This may be useful on printers that require a specific procedure to home the machine.
+归位覆写。可以使用这种机制来运行一系列 G-Code 命令来替代常规的G28。通常用于需要特定过程才能将机器归零的打印机。
 
 ```
 [homing_override]
@@ -1113,7 +1112,7 @@ See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes
 
 ### [gcode_macro]
 
-G-Code macros (one may define any number of sections with a "gcode_macro" prefix). See the [command template guide](Command_Templates.md) for more information.
+G-Code宏（"gcode_macro"前缀定义的G-Code 宏分段没有数量限制）。更多信息请参见[命令模板指南](Command_Templates.md)。
 
 ```
 [gcode_macro my_cmd]
@@ -1172,7 +1171,7 @@ filename:
 
 ### [idle_timeout]
 
-Idle timeout. An idle timeout is automatically enabled - add an explicit idle_timeout config section to change the default settings.
+空闲超时。默认启用空闲超时 - 添加显式 idle_timeout 配置分段以更改默认设置。
 
 ```
 [idle_timeout]
@@ -1294,34 +1293,29 @@ Support for gcode arc (G2/G3) commands.
 ```
 [input_shaper]
 #shaper_freq_x: 0
-#   A frequency (in Hz) of the input shaper for X axis. This is
-#   usually a resonance frequency of X axis that the input shaper
-#   should suppress. For more complex shapers, like 2- and 3-hump EI
-#   input shapers, this parameter can be set from different
-#   considerations. The default value is 0, which disables input
-#   shaping for X axis.
+#   输入整形器的 X 轴频率(Hz)。通常这是希望被输入整形器消除的
+#   X 轴共振频率。对于更复杂的整形器，例如2- 和 3-hump EI 输入
+#   整形器，设置这个参数可能需要考虑其他特性。
+#   默认值是0，禁用 X 轴输入整形。
 #shaper_freq_y: 0
-#   A frequency (in Hz) of the input shaper for Y axis. This is
-#   usually a resonance frequency of Y axis that the input shaper
-#   should suppress. For more complex shapers, like 2- and 3-hump EI
-#   input shapers, this parameter can be set from different
-#   considerations. The default value is 0, which disables input
-#   shaping for Y axis.
+#   输入整形器的 Y 轴频率(Hz)。通常这是希望被输入整形器消除的
+#   Y 轴共振频率。对于更复杂的整形器，例如2- 和 3-hump EI 输入
+#   整形器，设置这个参数可能需要考虑其他特性。
+#   默认值是0，禁用 Y 轴输入整形。
 #shaper_type: mzv
-#   A type of the input shaper to use for both X and Y axes. Supported
-#   shapers are zv, mzv, zvd, ei, 2hump_ei, and 3hump_ei. The default
-#   is mzv input shaper.
+#   用于 X 和 Y 轴的输入整形器。支持的输入整形器有 zv、mzv、
+#   zvd、ei、2hump_ei 和 3hump_ei。
+#   默认为 mzv 输入整形器。
 #shaper_type_x:
 #shaper_type_y:
-#   If shaper_type is not set, these two parameters can be used to
-#   configure different input shapers for X and Y axes. The same
-#   values are supported as for shaper_type parameter.
+#   如果没有设置 shaper_type，可以用这两个参数来单独配置 X
+#   和 Y 轴的 输入整形器。
+#   该参数支持全部shaper_type 支持的选项。
 #damping_ratio_x: 0.1
 #damping_ratio_y: 0.1
-#   Damping ratios of vibrations of X and Y axes used by input shapers
-#   to improve vibration suppression. Default value is 0.1 which is a
-#   good all-round value for most printers. In most circumstances this
-#   parameter requires no tuning and should not be changed.
+#   X 和 Y 轴的共振抑制比例，可以用来改善振动抑制效果。
+#   默认值是 0.1，适用于大多数打印机。
+#   大多数情况下不需要调整这个值。
 ```
 
 ### [adxl345]
@@ -1425,7 +1419,7 @@ aliases_<name>:
 
 ### [include]
 
-Include file support. One may include additional config file from the main printer config file. Wildcards may also be used (eg, "configs/*.cfg").
+引入文件支持。可以在主打印机配置文件中引用额外的配置文件。支持通配符（例如，`configs/*.cfg`）。
 
 ```
 [include my_other_config.cfg]
@@ -1714,14 +1708,13 @@ Tool to disable heaters when homing or probing an axis.
 ```
 [homing_heaters]
 #steppers:
-#   A comma separated list of steppers that should cause heaters to be
-#   disabled. The default is to disable heaters for any homing/probing
-#   move.
-#   Typical example: stepper_z
+#   会使加热器被禁用的步进电机逗号分隔列表。
+#   默认在归零和探测时禁用全部加热器。
+#   例如：stepper_z
 #heaters:
-#   A comma separated list of heaters to disable during homing/probing
-#   moves. The default is to disable all heaters.
-#   Typical example: extruder, heater_bed
+#   归零和探测时会被禁用的加热器的逗号分隔列表。
+#   默认禁用全部加热器。
+#   例如：extruder, heater_bed
 ```
 
 ### [thermistor]
@@ -1775,13 +1768,13 @@ Tool to disable heaters when homing or probing an axis.
 
 ### [heater_generic]
 
-Generic heaters (one may define any number of sections with a "heater_generic" prefix). These heaters behave similarly to standard heaters (extruders, heated beds). Use the SET_HEATER_TEMPERATURE command (see [G-Codes](G-Codes.md) for details) to set the target temperature.
+通用加热器（“heater_generic”前缀定义的加热器分段没有数量限制）。这些加热器的行为类似于标准加热器（挤出头和热床）。可以用SET_HEATER_TEMPERATURE 命令（详见[G-Code文档](G-Code.md)）来设置目标温度。
 
 ```
 [heater_generic my_generic_heater]
 #gcode_id:
-#   The id to use when reporting the temperature in the M105 command.
-#   This parameter must be provided.
+#   使用M105查询温度时使用的ID。
+#   必须提供此参数。
 #heater_pin:
 #max_power:
 #sensor_type:
@@ -1794,13 +1787,12 @@ Generic heaters (one may define any number of sections with a "heater_generic" p
 #pwm_cycle_time:
 #min_temp:
 #max_temp:
-#   See the "extruder" section for the definition of the above
-#   parameters.
+#   以上参数详见“extruder”分段。
 ```
 
 ### [temperature_sensor]
 
-Generic temperature sensors. One can define any number of additional temperature sensors that are reported via the M105 command.
+通用温度传感器（可以定义任意数量的通用温度传感器）。通过 M105 命令查询温度。
 
 ```
 [temperature_sensor my_sensor]
@@ -1872,7 +1864,7 @@ sensor_pin:
 #   default is 4700 ohms.
 ```
 
-### MAXxxxxx temperature sensors
+### MAXxxxxx 温度传感器
 
 MAXxxxxx serial peripheral interface (SPI) temperature based sensors. The following parameters are available in heater sections that use one of these sensor types.
 
@@ -1908,7 +1900,7 @@ sensor_pin:
 
 ### BMP280/BME280/BME680 温度传感器
 
-BMP280/BME280/BME680 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C), pressure (hPa), relative humidity and in case of the BME680 gas level. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report pressure and humidity in addition to temperature.
+BMP280/BME280/BME680 两线接口 (I2C) 环境传感器。注意，这些传感器不适用于挤出机和加热床。它们可以用于监测环境温度 (C)、压力 (hPa)、相对湿度以及气体水平（仅在BME680上）。请参阅 [sample-macros.cfg](../config/sample-macros.cfg) 以获取可用于报告压力和湿度以及温度的gcode_macro。
 
 ```
 sensor_type: BME280
@@ -1922,7 +1914,7 @@ sensor_type: BME280
 #   above parameters.
 ```
 
-### HTU21D sensor
+### HTU21D 传感器
 
 HTU21D family two wire interface (I2C) environmental sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
 
@@ -1952,7 +1944,7 @@ sensor_type:
 #   Interval in seconds between readings. Default is 30
 ```
 
-### LM75 temperature sensor
+### LM75 温度传感器
 
 LM75/LM75A two wire (I2C) connected temperature sensors. These sensors have range up to 125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers.
 
@@ -2004,7 +1996,7 @@ sensor_type: temperature_mcu
 #   micro-controller specification.
 ```
 
-### Host temperature sensor
+### 主机温度传感器
 
 Temperature from the machine (eg Raspberry Pi) running the host software.
 
@@ -2042,10 +2034,11 @@ Print cooling fan.
 ```
 [fan]
 pin:
-#   Output pin controlling the fan. This parameter must be provided.
+#   控制风扇的输出引脚。
+#   必须提供此参数。
 #max_power: 1.0
-#   The maximum power (expressed as a value from 0.0 to 1.0) that the
-#   pin may be set to. The value 1.0 allows the pin to be set fully
+#   引脚允许被设置的最大占空比（在0.0和1.0之间）。
+#   1.0 允许引脚被allows the pin to be set fully
 #   enabled for extended periods, while a value of 0.5 would allow the
 #   pin to be enabled for no more than half the time. This setting may
 #   be used to limit the total power output (over extended periods) to
@@ -2116,19 +2109,18 @@ Heater cooling fans (one may define any number of sections with a "heater_fan" p
 #tachometer_pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
-#   See the "fan" section for a description of the above parameters.
+#   以上参数详见“fan”章节。
 #heater: extruder
-#   Name of the config section defining the heater that this fan is
-#   associated with. If a comma separated list of heater names is
-#   provided here, then the fan will be enabled when any of the given
-#   heaters are enabled. The default is "extruder".
+#   该风扇关联的加热器配置分段名称。如果提供了一个逗号分隔的
+#   加热器列表，则风扇将会在任一加热器被启用时启动。
+#   默认为"extruder"。
 #heater_temp: 50.0
-#   A temperature (in Celsius) that the heater must drop below before
-#   the fan is disabled. The default is 50 Celsius.
+#   风扇可以被禁用的最高加热器温度（以摄氏度为单位）。加热器
+#   必须被降低到该温度以下风扇才会被禁用。
+#   默认为 50 摄氏度。
 #fan_speed: 1.0
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when its associated heater is enabled. The default
-#   is 1.0
+#   当相关联的加热器活跃时该风扇的速度（在0.0和1.0之间）。
+#   默认为 1.0
 ```
 
 ### [controller_fan]
@@ -3095,7 +3087,7 @@ a0_pin:
 
 ### ssd1306 and sh1106 displays
 
-Information on configuring ssd1306 and sh1106 displays.
+ssd1306 和 sh1106 显示屏的配置信息。
 
 ```
 [display]
@@ -3325,20 +3317,18 @@ See the [command reference](G-Codes.md#filament-sensor) for more information.
 ```
 [filament_motion_sensor my_sensor]
 detection_length: 7.0
-#   The minimum length of filament pulled through the sensor to trigger
-#   a state change on the switch_pin
-#   Default is 7 mm.
+#   触发传感器 switch_pin 引脚状态变化的最小距离。
+#   默认为 7 mm。
 extruder:
-#   The name of the extruder section this sensor is associated with.
-#   This parameter must be provided.
+#   该传感器相关联的挤出机。
+#   必须提供此参数。
 switch_pin:
 #pause_on_runout:
 #runout_gcode:
 #insert_gcode:
 #event_delay:
 #pause_delay:
-#   See the "filament_switch_sensor" section for a description of the
-#   above parameters.
+#   以上参数详见“filament_switch_sensor”章节。
 ```
 
 ### [tsl1401cl_filament_width_sensor]
@@ -3357,7 +3347,7 @@ TSLl401CL Based Filament Width Sensor. See the [guide](TSL1401CL_Filament_Width_
 
 ### [hall_filament_width_sensor]
 
-Hall filament width sensor (see [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)).
+霍尔耗材宽度传感器（详见[霍尔耗材宽度传感器](Hall_Filament_Width_Sensor.md)）。
 
 ```
 [hall_filament_width_sensor]
@@ -3551,7 +3541,7 @@ This modules also requires `[virtual_sdcard]` and `[pause_resume]` for full func
 
 If you use this module, do not use the Palette 2 plugin for Octoprint as they will conflict, and 1 will fail to initialize properly likely aborting your print.
 
-If you use Octoprint and stream gcode over the serial port instead of printing from virtual_sd, then remo **M1** and **M0** from *Pausing commands* in *Settings > Serial Connection > Firmware & protocol* will prevent the need to start print on the Palette 2 and unpausing in Octoprint for your print to begin.
+如果使用 OctoPrint 并通过串行端口流式传输 G-Code，而不通过 virtual_sd 打印，将 * 设置>串行连接>固件和协议 * 中的“暂停命令” 设置为**M1** 和 **M0** 可以避免在开始打印时需要在Palette 2 上选择开始打印并在 OctoPrint 中取消暂停。
 
 ```
 [palette2]
@@ -3598,17 +3588,16 @@ The following parameters are generally available for devices using an I2C bus.
 
 ```
 #i2c_address:
-#   The i2c address of the device. This must specified as a decimal
-#   number (not in hex). The default depends on the type of device.
+#   设备的 I2C 地址。必须是一个十进制数字（而不是十六进制）。
+#   默认值取决于设备的类型。
 #i2c_mcu:
-#   The name of the micro-controller that the chip is connected to.
-#   The default is "mcu".
+#   芯片所连接的微控制器的名称。
+#   默认为"mcu"。
 #i2c_bus:
-#   If the micro-controller supports multiple I2C busses then one may
-#   specify the micro-controller bus name here. The default depends on
-#   the type of micro-controller.
+# 如果微控制器支持多个 I2C 总线，可以指定微控制器的总线名称。
+#   默认值取决于微控制器的类型。
 #i2c_speed:
-#   The I2C speed (in Hz) to use when communicating with the device.
-#   On some micro-controllers changing this value has no effect. The
-#   default is 100000.
+#   与设备通信时使用的I2C速度（Hz）。在某些微控制器上，
+#   该数值无效。
+#   默认值是默认为100000。
 ```
