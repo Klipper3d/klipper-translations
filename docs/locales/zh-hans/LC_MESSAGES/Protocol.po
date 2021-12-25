@@ -1,15 +1,17 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-10-11 09:46+0000\n"
-"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/protocol/zh_Hans/>\n"
+"PO-Revision-Date: 2021-12-25 08:35+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/protocol/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.10.1\n"
 
 msgid ""
 "The Klipper messaging protocol is used for low-level communication between "
@@ -268,13 +270,13 @@ msgid "-32 .. 95"
 msgstr ""
 
 msgid "1"
-msgstr ""
+msgstr "1"
 
 msgid "-4096 .. 12287"
 msgstr ""
 
 msgid "2"
-msgstr ""
+msgstr "2"
 
 msgid "-524288 .. 1572863"
 msgstr ""
@@ -286,7 +288,7 @@ msgid "-67108864 .. 201326591"
 msgstr ""
 
 msgid "4"
-msgstr ""
+msgstr "4"
 
 msgid "-2147483648 .. 4294967295"
 msgstr ""

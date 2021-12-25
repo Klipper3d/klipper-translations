@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-12-24 20:49+0000\n"
+"PO-Revision-Date: 2021-12-25 07:16+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/skew_correction/zh_Hans/>\n"
@@ -133,6 +133,8 @@ msgid ""
 "this by either removing the `[skew_correction]` module from printer.cfg or "
 "by issuing a `SET_SKEW CLEAR=1` gcode."
 msgstr ""
+"不要在这次打印中应用倾斜校正。你可以通过从printer.cfg中删除`[skew_correction]`模块或发送 `SET_SKEW "
+"CLEAR=1`G-Code 来实现。"
 
 #: docs/skew_correction.md:block 7 (paragraph)
 msgid ""
@@ -142,6 +144,8 @@ msgid ""
 "measuring length AD do not include the flats on the corners that some test "
 "objects provide."
 msgstr ""
+"`[skew_correcton]` 模块需要三次对校准平面的测量值；从角 A 到角 C 的距离，从角 B 到角 D 的距离，以及从角 A 到角 D "
+"的距离。当测量距离 AD 时，不包括一些测试物件的角上的平面。"
 
 #: docs/skew_correction.md:block 10 (paragraph)
 msgid ""
@@ -149,6 +153,8 @@ msgid ""
 "`SET_SKEW` gcode to configure skew_correcton. For example, if your measured "
 "lengths along XY are as follows:"
 msgstr ""
+"确保 `[skew_correction]` 已经在 printer.cfg 中。现在可以使用`SET_SKEW` G-Code 来配置 "
+"skew_correcton。例如，如果对 XY 平面测量的距离结果如下："
 
 #: docs/skew_correction.md:block 16 (paragraph)
 msgid ""
@@ -156,6 +162,8 @@ msgid ""
 "similar to `[bed_mesh]`. After setting skew using the `SET_SKEW` gcode, you "
 "may use the `SKEW_PROFILE` gcode to save it:"
 msgstr ""
+"`[skew_correction]` 模块也支持多配置管理，用法类似`[bed_mesh]`。在使用`SET_SKEW` G-Code "
+"设置偏斜后，你可以使用`SKEW_PROFILE` G-Code来保存偏斜配置："
 
 #: docs/skew_correction.md:block 29 (paragraph)
 msgid ""
