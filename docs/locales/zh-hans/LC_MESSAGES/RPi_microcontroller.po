@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2021-12-24 20:49+0000\n"
+"PO-Revision-Date: 2021-12-25 08:35+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/rpi_microcontroller/zh_Hans/>\n"
@@ -87,6 +87,8 @@ msgid ""
 " instructions in [RaspberryPi sample config](../config/sample-raspberry-"
 "pi.cfg) and [Multi MCU sample config](../config/sample-multi-mcu.cfg)."
 msgstr ""
+"按照[RaspberryPi 参考配置](../config/sample-raspberry-pi.cfg)和[多微控制器参考配置](../"
+"config/sample-multi-mcu.cfg)中的说明配置Klipper 二级微控制器来完成安装。"
 
 msgid "Optional: Identify the correct gpiochip"
 msgstr "可选步骤：识别正确的 gpiochip"
@@ -100,6 +102,9 @@ msgid ""
 "useful to use the commands to access the *Linux GPIO character device* to "
 "verify the configuration."
 msgstr ""
+"在树莓派和许多克隆上，暴露在 GPIO 上的引脚属于第一个 gpiochip。因此，它们只需用`gpio0...n`的名字来引用就可以在 Klipper "
+"上直接使用。然而，在有些情况下，暴露的引脚不属于第一个 gpiochip。例如，在使用一些 OrangePi 型号时或者使用了端口扩展器。在这些情况下，"
+"使用命令访问 *Linux GPIO character device* 来验证实际配置。"
 
 msgid ""
 "To install the *Linux GPIO character device - binary* on a debian based "
@@ -119,20 +124,25 @@ msgid ""
 "`gpiodetect` command and **o** is the line number seen by the` gpioinfo` "
 "command."
 msgstr ""
+"因此，所选引脚可以在配置中用 `gpiochip<n>/gpio<o>`引用，其中 **n** 是由 `gpiodetect` "
+"命令看到的芯片编号**o** 是 ` gpioinfo` 命令看到的行号。"
 
 msgid ""
 "***Warning:*** only gpio marked as `unused` can be used. It is not possible "
 "for a *line* to be used by multiple processes simultaneously."
-msgstr ""
+msgstr "***警告：***只有标记为`unused`的 gpio 才可以被使用。一条*线路*不可能被多个进程同时使用。"
 
 msgid "For example on a RPi 3B+ where klipper use the GPIO20 for a switch:"
-msgstr ""
+msgstr "例如，在树莓派 3B+上 将GPIO20作为 Klipper 的一个开关："
 
 msgid ""
 "cd ~/klipper/\n"
 "sudo cp \"./scripts/klipper-mcu-start.sh\" /etc/init.d/klipper_mcu\n"
 "sudo update-rc.d klipper_mcu defaults\n"
 msgstr ""
+"cd ~/klipper/\n"
+"sudo cp \"./scripts/klipper-mcu-start.sh\" /etc/init.d/klipper_mcu\n"
+"sudo update-rc.d klipper_mcu defaults\n"
 
 msgid ""
 "cd ~/klipper/\n"
@@ -151,16 +161,16 @@ msgstr ""
 "sudo service klipper start\n"
 
 msgid "sudo usermod -a -G tty pi\n"
-msgstr ""
+msgstr "sudo usermod -a -G tty pi\n"
 
 msgid "sudo apt-get install gpiod\n"
-msgstr ""
+msgstr "sudo apt-get install gpiod\n"
 
 msgid "gpiodetect\n"
-msgstr ""
+msgstr "gpiodetect\n"
 
 msgid "gpioinfo\n"
-msgstr ""
+msgstr "gpioinfo\n"
 
 msgid ""
 "$ gpiodetect\n"
@@ -233,10 +243,79 @@ msgid ""
 "        line   6:      unnamed       unused   input  active-high\n"
 "        line   7:      unnamed       unused   input  active-high\n"
 msgstr ""
+"$ gpiodetect\n"
+"gpiochip0 [pinctrl-bcm2835] (54 lines)\n"
+"gpiochip1 [raspberrypi-exp-gpio] (8 lines)\n"
+"\n"
+"$ gpioinfo\n"
+"gpiochip0 - 54 lines:\n"
+"        line   0:      unnamed       unused   input  active-high\n"
+"        line   1:      unnamed       unused   input  active-high\n"
+"        line   2:      unnamed       unused   input  active-high\n"
+"        line   3:      unnamed       unused   input  active-high\n"
+"        line   4:      unnamed       unused   input  active-high\n"
+"        line   5:      unnamed       unused   input  active-high\n"
+"        line   6:      unnamed       unused   input  active-high\n"
+"        line   7:      unnamed       unused   input  active-high\n"
+"        line   8:      unnamed       unused   input  active-high\n"
+"        line   9:      unnamed       unused   input  active-high\n"
+"        line  10:      unnamed       unused   input  active-high\n"
+"        line  11:      unnamed       unused   input  active-high\n"
+"        line  12:      unnamed       unused   input  active-high\n"
+"        line  13:      unnamed       unused   input  active-high\n"
+"        line  14:      unnamed       unused   input  active-high\n"
+"        line  15:      unnamed       unused   input  active-high\n"
+"        line  16:      unnamed       unused   input  active-high\n"
+"        line  17:      unnamed       unused   input  active-high\n"
+"        line  18:      unnamed       unused   input  active-high\n"
+"        line  19:      unnamed       unused   input  active-high\n"
+"        line  20:      unnamed    \"klipper\"  output  active-high [used]\n"
+"        line  21:      unnamed       unused   input  active-high\n"
+"        line  22:      unnamed       unused   input  active-high\n"
+"        line  23:      unnamed       unused   input  active-high\n"
+"        line  24:      unnamed       unused   input  active-high\n"
+"        line  25:      unnamed       unused   input  active-high\n"
+"        line  26:      unnamed       unused   input  active-high\n"
+"        line  27:      unnamed       unused   input  active-high\n"
+"        line  28:      unnamed       unused   input  active-high\n"
+"        line  29:      unnamed       \"led0\"  output  active-high [used]\n"
+"        line  30:      unnamed       unused   input  active-high\n"
+"        line  31:      unnamed       unused   input  active-high\n"
+"        line  32:      unnamed       unused   input  active-high\n"
+"        line  33:      unnamed       unused   input  active-high\n"
+"        line  34:      unnamed       unused   input  active-high\n"
+"        line  35:      unnamed       unused   input  active-high\n"
+"        line  36:      unnamed       unused   input  active-high\n"
+"        line  37:      unnamed       unused   input  active-high\n"
+"        line  38:      unnamed       unused   input  active-high\n"
+"        line  39:      unnamed       unused   input  active-high\n"
+"        line  40:      unnamed       unused   input  active-high\n"
+"        line  41:      unnamed       unused   input  active-high\n"
+"        line  42:      unnamed       unused   input  active-high\n"
+"        line  43:      unnamed       unused   input  active-high\n"
+"        line  44:      unnamed       unused   input  active-high\n"
+"        line  45:      unnamed       unused   input  active-high\n"
+"        line  46:      unnamed       unused   input  active-high\n"
+"        line  47:      unnamed       unused   input  active-high\n"
+"        line  48:      unnamed       unused   input  active-high\n"
+"        line  49:      unnamed       unused   input  active-high\n"
+"        line  50:      unnamed       unused   input  active-high\n"
+"        line  51:      unnamed       unused   input  active-high\n"
+"        line  52:      unnamed       unused   input  active-high\n"
+"        line  53:      unnamed       unused   input  active-high\n"
+"gpiochip1 - 8 lines:\n"
+"        line   0:      unnamed       unused   input  active-high\n"
+"        line   1:      unnamed       unused   input  active-high\n"
+"        line   2:      unnamed       \"led1\"  output   active-low [used]\n"
+"        line   3:      unnamed       unused   input  active-high\n"
+"        line   4:      unnamed       unused   input  active-high\n"
+"        line   5:      unnamed       unused   input  active-high\n"
+"        line   6:      unnamed       unused   input  active-high\n"
+"        line   7:      unnamed       unused   input  active-high\n"
 
 #: docs/RPi_microcontroller.md:block 31 (header)
 msgid "Optional: Hardware PWM"
-msgstr ""
+msgstr "可选功能：硬件 PWM"
 
 #: docs/RPi_microcontroller.md:block 32 (paragraph)
 msgid ""
@@ -246,18 +325,23 @@ msgid ""
 "Linux hosts. The pwm sysfs interface is not exposed by default on a "
 "Raspberry and can be activated by adding a line to `/boot/config.txt`:"
 msgstr ""
+"树莓派有两个PWM通道（PWM0和PWM1），它们通常暴露在header中上，如果没有，可以路由到现有的 gpio 引脚。Linux mcu "
+"守护程序使用 pwmchip sysfs 接口来控制 Linux 主机上的硬件 PWM 设备。pwm sysfs 接口在树莓上默认是隐藏的，可以通过在`/"
+"boot/config.txt`中加入一行设置来激活："
 
 #: docs/RPi_microcontroller.md:block 33 (code)
 msgid ""
 "# Enable pwmchip sysfs interface\n"
 "dtoverlay=pwm,pin=12,func=4\n"
 msgstr ""
+"# 启用 pwmchip sysfs 接口\n"
+"dtoverlay=pwm,pin=12,func=4\n"
 
 #: docs/RPi_microcontroller.md:block 34 (paragraph)
 msgid ""
 "This example enables only PWM0 and routes it to gpio12. If both PWM channels"
 " need to be enabled you can use `pwm-2chan`."
-msgstr ""
+msgstr "此示例仅启用 PWM0 并将其路由到 gpio12。如果需要同时启用两个 PWM 通道，则可以使用 `pwm-2chan`。"
 
 #: docs/RPi_microcontroller.md:block 35 (paragraph)
 msgid ""
@@ -265,10 +349,12 @@ msgid ""
 "exported by echo'ing the number of the pwm channel to "
 "`/sys/class/pwm/pwmchip0/export`:"
 msgstr ""
+"overlay 在启动时不会在 sysfs 上暴露出 PWM 线路，需要通过echo将 PWM 通道的编号导出到 `/sys/class/pwm/"
+"pwmchip0/export`："
 
 #: docs/RPi_microcontroller.md:block 36 (code)
 msgid "echo 0 > /sys/class/pwm/pwmchip0/export\n"
-msgstr ""
+msgstr "echo 0 > /sys/class/pwm/pwmchip0/export\n"
 
 #: docs/RPi_microcontroller.md:block 37 (paragraph)
 msgid ""
@@ -276,12 +362,14 @@ msgid ""
 "The easiest way to do this is by adding this to `/etc/rc.local` before the "
 "`exit 0` line."
 msgstr ""
+"这将在文件系统中创建设备`/sys/class/pwm/kwmchip0/pwm0`。最简单的方法是在`/etc/rc.local`的`exit "
+"0`行之前添加这行。"
 
 #: docs/RPi_microcontroller.md:block 38 (paragraph)
 msgid ""
 "With the sysfs in place, you can now use either the pwm channel(s) by adding"
 " the following piece of configuration to your `printer.cfg`:"
-msgstr ""
+msgstr "有了 sysfs，现在可以通过将以下配置添加到 `printer.cfg` 来使用 PWM 通道："
 
 #: docs/RPi_microcontroller.md:block 39 (code)
 msgid ""
@@ -291,72 +379,78 @@ msgid ""
 "hardware_pwm: True\n"
 "cycle_time: 0.000001\n"
 msgstr ""
+"[output_pin caselight]\n"
+"pin: host:pwmchip0/pwm0\n"
+"pwm: True\n"
+"hardware_pwm: True\n"
+"cycle_time: 0.000001\n"
 
 #: docs/RPi_microcontroller.md:block 40 (paragraph)
 msgid ""
 "This will add hardware pwm control to gpio12 on the Pi (because the overlay "
 "was configured to route pwm0 to pin=12)."
-msgstr ""
+msgstr "这将为树莓派上的 gpio12 引脚添加硬件 PWM 控制（因为overlay被配置为将 pwm0 路由到 pin=12）。"
 
 #: docs/RPi_microcontroller.md:block 1 (header)
 msgid "RPi microcontroller"
-msgstr ""
+msgstr "RPi 微控制器"
 
 #: docs/RPi_microcontroller.md:block 10 (header)
 msgid "Enabling SPI"
-msgstr ""
+msgstr "启用 SPI"
 
 #: docs/RPi_microcontroller.md:block 11 (paragraph)
 msgid ""
 "Make sure the Linux SPI driver is enabled by running sudo raspi-config and "
 "enabling SPI under the \"Interfacing options\" menu."
 msgstr ""
+"通过运行 sudo raspi-config 并在\"Interfacing Options\"菜单下启用 SPI，确保Linux SPI驱动程序被启用。"
 
 #: docs/RPi_microcontroller.md:block 44 (paragraph)
 msgid ""
 "PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and "
 "gpio19:"
-msgstr ""
+msgstr "PWM0 可以被路由到 gpio12 和 gpio18，PWM1 可以被路由到 gpio13 和 gpio19："
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "PWM"
-msgstr ""
+msgstr "PWM"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "gpio PIN"
-msgstr ""
+msgstr "GPIO 引脚"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "Func"
-msgstr ""
+msgstr "功能"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "12"
-msgstr ""
+msgstr "12"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "18"
-msgstr ""
+msgstr "18"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "13"
-msgstr ""
+msgstr "13"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "19"
