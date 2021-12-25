@@ -27,7 +27,7 @@
 
    1. 提交是否没有缺陷，是否准备好广泛部署？提交者应在提交之前测试其更改。审核员会查找提交中的错误，但通常不会测试提交的实际内容。接受的提交通常会在被接受后的几周内部署到数千台打印机。因此，提交的质量极为重要。
 
-   主[Klipper3d/klipper](https://github.com/Klipper3d/klipper) GitHub仓库不接受实验性代码。提交者应该在他们自己的仓库中进行实验、调试和测试。Klipper Discourse](Contact.md)论坛可以帮助你找到其他有兴趣的开发者和可以提供真实世界反馈的用户，或者让更多人了解你的工作。
+   主[Klipper3d/klipper](https://github.com/Klipper3d/klipper) GitHub仓库不接受实验性代码。提交者应该在他们自己的仓库中进行实验、调试和测试。[Klipper Discourse](Contact.md)论坛可以帮助你找到其他有兴趣的开发者和可以提供真实世界反馈的用户，或者让更多人了解你的工作。
 
    提交必须通过所有[回归测试用例](Debugging.md)。
 
@@ -39,7 +39,7 @@
 
    1. 提交的版权是否清晰、无偿、兼容？新的 C 文件和 Python 文件应该有一个明确的版权声明。请看现有文件以了解推荐格式。不推荐在对现有文件进行小的修改时对该文件进行版权声明。
 
-   从第三方来源获取的代码必须与 Klipper 的许可证（GNU GPLv3）兼容。大型的第三方代码添加应被添加到`lib/`目录中（并遵循[../lib/README](./lib/README)中描述的格式）。
+   从第三方来源获取的代码必须与 Klipper 的许可证（GNU GPLv3）兼容。大型的第三方代码添加应被添加到`lib/`目录中（并遵循 <../lib/README>中描述的格式）。
 
    提交者必须提供一个[Signed-off-by 行](#format-of-commit-messages)，使用他们的真实全名。它表明提交者同意[开发者源头证书](developer-certificate-of-origin)。
 

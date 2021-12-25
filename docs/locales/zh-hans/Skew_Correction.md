@@ -1,4 +1,4 @@
-# Skew correction
+# 偏斜校正
 
 基于软件的偏斜校正可以帮助解决打印机装配不完全方形造成的尺寸不准确问题。请注意，如果您的打印机严重偏斜，强烈建议在应用基于软件的校正之前，首先使用机械手段使打印机尽可能的方形。
 
@@ -6,17 +6,17 @@
 
 纠正偏斜的第一步是沿着你要纠正的平面打印一个[校准物件](https://www.thingiverse.com/thing:2563185/files)。还有一个[校准物件](https://www.thingiverse.com/thing:2972743)包括了一个模型中的所有平面。你需要旋转这个物件，使角A朝向平面的原点。
 
-Make sure that no skew correction is applied during this print. You may do this by either removing the `[skew_correction]` module from printer.cfg or by issuing a `SET_SKEW CLEAR=1` gcode.
+不要在这次打印中应用倾斜校正。你可以通过从printer.cfg中删除`[skew_correction]`模块或发送 `SET_SKEW CLEAR=1`G-Code 来实现。
 
 ## 进行测量
 
-The `[skew_correcton]` module requires 3 measurements for each plane you want to correct; the length from Corner A to Corner C, the length from Corner B to Corner D, and the length from Corner A to Corner D. When measuring length AD do not include the flats on the corners that some test objects provide.
+`[skew_correcton]` 模块需要三次对校准平面的测量值；从角 A 到角 C 的距离，从角 B 到角 D 的距离，以及从角 A 到角 D 的距离。当测量距离 AD 时，不包括一些测试物件的角上的平面。
 
 ![skew_lengths](img/skew_lengths.png)
 
-## Configure your skew
+## 配置偏斜
 
-Make sure `[skew_correction]` is in printer.cfg. You may now use the `SET_SKEW` gcode to configure skew_correcton. For example, if your measured lengths along XY are as follows:
+确保 `[skew_correction]` 已经在 printer.cfg 中。现在可以使用`SET_SKEW` G-Code 来配置 skew_correcton。例如，如果对 XY 平面测量的距离结果如下：
 
 ```
 Length AC = 140.4
@@ -24,50 +24,50 @@ Length BD = 142.8
 Length AD = 99.8
 ```
 
-`SET_SKEW` can be used to configure skew correction for the XY plane.
+`SET_SKEW`可以配置 XY 平面的偏斜校正。
 
 ```
 SET_SKEW XY=140.4,142.8,99.8
 ```
 
-You may also add measurements for XZ and YZ to the gcode:
+你也可以在 G代码中加入 XZ 和 YZ 的测量值：
 
 ```
 SET_SKEW XY=140.4,142.8,99.8 XZ=141.6,141.4,99.8 YZ=142.4,140.5,99.5
 ```
 
-The `[skew_correction]` module also supports profile management in a manner similar to `[bed_mesh]`. After setting skew using the `SET_SKEW` gcode, you may use the `SKEW_PROFILE` gcode to save it:
+`[skew_correction]` 模块也支持多配置管理，用法类似`[bed_mesh]`。在使用`SET_SKEW` G-Code 设置偏斜后，你可以使用`SKEW_PROFILE` G-Code来保存偏斜配置：
 
 ```
 SKEW_PROFILE SAVE=my_skew_profile
 ```
 
-After this command you will be prompted to issue a `SAVE_CONFIG` gcode to save the profile to persistent storage. If no profile is named `my_skew_profile` then a new profile will be created. If the named profile exists it will be overwritten.
+在执行这个命令之后，Klipper 会提示你发送 `SAVE_CONFIG` G-Code 来保存配置。如果没有名为`my_skew_profile`的配置，那么一个新的配置将被创建。如果命名的配置文件存在，它将被覆盖。
 
-Once you have a saved profile, you may load it:
+保存配置后，您可以加载它：
 
 ```
 SKEW_PROFILE LOAD=my_skew_profile
 ```
 
-It is also possible to remove an old or out of date profile:
+也可以删除旧的或过时的配置：
 
 ```
 SKEW_PROFILE REMOVE=my_skew_profile
 ```
 
-After removing a profile you will be prompted to issue a `SAVE_CONFIG` to make this change persist.
+在删除一个配置文件后，Klipper 提示你发送 `SAVE_CONFIG` 以保留修改。
 
-## Verifying your correction
+## 验证修正
 
-After skew_correction has been configured you may reprint the calibration part with correction enabled. Use the following gcode to check your skew on each plane. The results should be lower than those reported via `GET_CURRENT_SKEW`.
+在配置了 skew_correction 之后，你可以在启用修正的情况下重新打印校准物件。使用下面的 G-Code 来检查每个平面的偏斜。其结果应该低于通过`GET_CURRENT_SKEW`报告的结果。
 
 ```
-CALC_MEASURED_SKEW AC=<ac_length> BD=<bd_length> AD=<ad_length>
+CALC_MEASURED_SKEW AC=<ad长度> BD=<bd长度> AD=<ad长度>
 ```
 
 ## 注意事项
 
-Due to the nature of skew correction it is recommended to configure skew in your start gcode, after homing and any kind of movement that travels near the edge of the print area such as a purge or nozzle wipe. You may use use the `SET_SKEW` or `SKEW_PROFILE` gcodes to accomplish this. It is also recommended to issue a `SET_SKEW CLEAR=1` in your end gcode.
+由于偏斜校正的性质，建议之在归位和任何类型的靠近打印区域边缘的运动（如清除或喷嘴擦除）完成之后的开始打印 G-Code 中配置偏斜校正。您可以使用 `SET_SKEW` 或 `SKEW_PROFILE` G-Code 来完成此操作。还建议在结束打印 G-Code 中发出 `SET_SKEW CLEAR=1`。
 
-Keep in mind that it is possible for `[skew_correction]` to generate a correction that moves the tool beyond the printer's boundaries on the X and/or Y axes. It is recommended to arrange parts away from the edges when using `[skew_correction]`.
+请记住，`[skew_correction]`有可能产生一个会使打印头在 X 和/或 Y 轴上超出打印机边界的修正。建议在使用`[skew_correction]`时将打印物件远离打印机边缘。

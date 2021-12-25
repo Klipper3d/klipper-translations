@@ -1,27 +1,27 @@
 # Status reference
 
-This document is a reference of printer status information available in Klipper [macros](Command_Templates.md), [display fields](Config_Reference.md#display), and via the [API Server](API_Server.md).
+本文档是可用于 Klipper [宏](Command_Templates.md)、[显示字段](Config_Reference.md#display)以及[API服务器](API_Server.md) 的打印机状态信息的参考。
 
-The fields in this document are subject to change - if using an attribute be sure to review the [Config Changes document](Config_Changes.md) when upgrading the Klipper software.
+本文档中的字段可能会发生变化 - 如果使用了任何字段，在更新 Klipper 时，请务必查看[配置变化文档](Config_Changes.md)。
 
 ## bed_mesh
 
-The following information is available in the [bed_mesh](Config_Reference.md#bed_mesh) object:
+[bed_mesh](Config_Reference.md#bed_mesh) 对象中提供了以下信息：
 
-- `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: Information on the currently active bed_mesh.
+- `profile_name`、`mesh_min`、`mesh_max`、`probed_matrix`、`mesh_matrix`：关于当前活跃的 bed_mesh 配置信息。
 
 ## configfile
 
-The following information is available in the `configfile` object (this object is always available):
+`configfile` 对象中提供了以下信息（该对象始终可用）：
 
-- `settings.<section>.<option>`: Returns the given config file setting (or default value) during the last software start or restart. (Any settings changed at run-time will not be reflected here.)
-- `config.<section>.<option>`: Returns the given raw config file setting as read by Klipper during the last software start or restart. (Any settings changed at run-time will not be reflected here.) All values are returned as strings.
+- `settings.<分段>.<选项>`：返回最后一次软件启动或重启时给定的配置文件设置（或默认值）。(不会反映运行时的修改。）
+- `config.<分段>.<选项>`：返回Klipper在上次软件启动或重启时读取的原始配置文件设置。(不会反映运行时的修改。)所有值都以字符串形式返回。
 - `save_config_pending`: Returns true if there are updates that a `SAVE_CONFIG` command may persist to disk.
 - `warnings`: A list of warnings about config options. Each entry in the list will be a dictionary containing a `type` and `message` field (both strings). Additional fields may be available depending on the type of warning.
 
 ## display_status
 
-The following information is available in the `display_status` object (this object is automatically available if a [display](Config_Reference.md#display) config section is defined):
+`display_status` 对象中提供以下信息（如果定义了 [display](Config_Reference.md#display) 配置分段，则该对象自动可用）：
 
 - `progress`: The progress value of the last `M73` G-Code command (or `virtual_sdcard.progress` if no recent `M73` received).
 - `message`: The message contained in the last `M117` G-Code command.

@@ -1,6 +1,6 @@
 # 共振补偿
 
-Klipper supports Input Shaping - a technique that can be used to reduce ringing (also known as echoing, ghosting or rippling) in prints. Ringing is a surface printing defect when, typically, elements like edges repeat themselves on a printed surface as a subtle 'echo':
+Klipper支持输入整形--一种可以用来减少打印件上振纹（也被称为echo、ghosting或ripping）的技术。振纹是一种表面打印缺陷，通常在边角的位置表面重复出现，成为一种微妙的水波状纹路：
 
 |![振纹测试](img/ringing-test.jpg)|![3D Benchy](img/ringing-3dbenchy.jpg)|
 

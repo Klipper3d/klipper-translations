@@ -92,8 +92,8 @@ ACCEPT
 
 最简单的计算方法是打印一个四面都是直壁的测试物体。可以用在[docs/prints/square.stl](prints/square.stl)中找到的大型空心方形。在切片时，确保切片软件在第一层使用与所有后续层相同的层高和挤出宽度。使用较高的层高（层高应该是喷嘴直径的75%左右），不要使用裙边(skirt)或筏(raft)。
 
-Print the test object, wait for it to cool, and remove it from the bed. Inspect the lowest layer of the object. (It may also be useful to run a finger or nail along the bottom edge.) If one finds the bottom layer bulges out slightly along all sides of the object then it indicates the nozzle was slightly closer to the bed then it should be. One can issue a `SET_GCODE_OFFSET Z=+.010` command to increase the height. In subsequent prints one can inspect for this behavior and make further adjustment as needed. Adjustments of this type are typically in 10s of microns (.010mm).
+打印测试对象，等待其自然冷却，并将其从打印床上取下。检查该物体的最低层。(可以用手指或指甲沿底层边缘划一下。)如果发现底层沿着物体的四边略微凸起，则表明喷嘴离床面偏近。可以发出`SET_GCODE_OFFSET Z=+.010`命令来增加高度。在未来的打印中，可以用相同的方法检查这种性状，并根据需要作进一步调整。这种类型的调整通常是以 10 微米（0.010毫米）为单位。
 
-If the bottom layer consistently appears narrower than subsequent layers then one can use the SET_GCODE_OFFSET command to make a negative Z adjustment. If one is unsure, then one can decrease the Z adjustment until the bottom layer of prints exhibit a small bulge, and then back-off until it disappears.
+如果首层一直比后续层窄，那么可以使用 SET_GCODE_OFFSET 命令进行负的 Z 调整。如果不确定，那么可以减少 Z 值，直到底层的印刷品出现一个小的凸起，然后再增加 Z 值直到它消失。
 
-The easiest way to apply the desired Z adjustment is to create a START_PRINT g-code macro, arrange for the slicer to call that macro during the start of each print, and add a SET_GCODE_OFFSET command to that macro. See the [slicers](Slicers.md) document for further details.
+应用期望的Z 值调整的最简单方法是创建一个 START_PRINT G代码宏，配置切片软件在打印开始代码中调用该宏，并为该宏添加 SET_GCODE_OFFSET 命令。详情见[切片软件](Slicers.md)文档。

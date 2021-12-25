@@ -1,4 +1,4 @@
-# RPi microcontroller
+# RPi 微控制器
 
 这个文档描述了在RPi上运行Klipper的过程，并使用相同的RPi作为辅助MCU。
 
@@ -20,9 +20,9 @@ sudo cp "./scripts/klipper-mcu-start.sh" /etc/init.d/klipper_mcu
 sudo update-rc.d klipper_mcu defaults
 ```
 
-## Enabling SPI
+## 启用 SPI
 
-Make sure the Linux SPI driver is enabled by running sudo raspi-config and enabling SPI under the "Interfacing options" menu.
+通过运行 sudo raspi-config 并在"Interfacing Options"菜单下启用 SPI，确保Linux SPI驱动程序被启用。
 
 ## 构建微控制器代码
 
@@ -51,35 +51,35 @@ sudo usermod -a -G tty pi
 
 ## 剩余的配置
 
-Complete the installation by configuring Klipper secondary MCU following the instructions in [RaspberryPi sample config](../config/sample-raspberry-pi.cfg) and [Multi MCU sample config](../config/sample-multi-mcu.cfg).
+按照[RaspberryPi 参考配置](../config/sample-raspberry-pi.cfg)和[多微控制器参考配置](../config/sample-multi-mcu.cfg)中的说明配置Klipper 二级微控制器来完成安装。
 
-## Optional: Identify the correct gpiochip
+## 可选步骤：识别正确的 gpiochip
 
-On Rasperry and on many clones the pins exposed on the GPIO belong to the first gpiochip. They can therefore be used on klipper simply by referring them with the name `gpio0..n`. However, there are cases in which the exposed pins belong to gpiochips other than the first. For example in the case of some OrangePi models or if a Port Expander is used. In these cases it is useful to use the commands to access the *Linux GPIO character device* to verify the configuration.
+在树莓派和许多克隆上，暴露在 GPIO 上的引脚属于第一个 gpiochip。因此，它们只需用`gpio0...n`的名字来引用就可以在 Klipper 上直接使用。然而，在有些情况下，暴露的引脚不属于第一个 gpiochip。例如，在使用一些 OrangePi 型号时或者使用了端口扩展器。在这些情况下，使用命令访问 *Linux GPIO character device* 来验证实际配置。
 
-To install the *Linux GPIO character device - binary* on a debian based distro like octopi run:
+要在基于 Debian 的发行版（如 OctoPi）上安装 *Linux GPIO character device - binary*，请运行：
 
 ```
 sudo apt-get install gpiod
 ```
 
-To check available gpiochip run:
+要检查可用的gpiochip，请运行：
 
 ```
 gpiodetect
 ```
 
-To check the pin number and the pin availability tun:
+要检查针脚编号和针脚可用性，请运行：
 
 ```
 gpioinfo
 ```
 
-The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the` gpioinfo` command.
+因此，所选引脚可以在配置中用 `gpiochip<n>/gpio<o>`引用，其中 **n** 是由 `gpiodetect` 命令看到的芯片编号**o** 是 ` gpioinfo` 命令看到的行号。
 
-***Warning:*** only gpio marked as `unused` can be used. It is not possible for a *line* to be used by multiple processes simultaneously.
+***警告：***只有标记为`unused`的 gpio 才可以被使用。一条*线路*不可能被多个进程同时使用。
 
-For example on a RPi 3B+ where klipper use the GPIO20 for a switch:
+例如，在树莓派 3B+上 将GPIO20作为 Klipper 的一个开关：
 
 ```
 $ gpiodetect
@@ -153,26 +153,26 @@ gpiochip1 - 8 lines:
         line   7:      unnamed       unused   input  active-high
 ```
 
-## Optional: Hardware PWM
+## 可选功能：硬件 PWM
 
-Raspberry Pi's have two PWM channels (PWM0 and PWM1) which are exposed on the header or if not, can be routed to existing gpio pins. The Linux mcu daemon uses the pwmchip sysfs interface to control hardware pwm devices on Linux hosts. The pwm sysfs interface is not exposed by default on a Raspberry and can be activated by adding a line to `/boot/config.txt`:
+树莓派有两个PWM通道（PWM0和PWM1），它们通常暴露在header中上，如果没有，可以路由到现有的 gpio 引脚。Linux mcu 守护程序使用 pwmchip sysfs 接口来控制 Linux 主机上的硬件 PWM 设备。pwm sysfs 接口在树莓上默认是隐藏的，可以通过在`/boot/config.txt`中加入一行设置来激活：
 
 ```
-# Enable pwmchip sysfs interface
+# 启用 pwmchip sysfs 接口
 dtoverlay=pwm,pin=12,func=4
 ```
 
-This example enables only PWM0 and routes it to gpio12. If both PWM channels need to be enabled you can use `pwm-2chan`.
+此示例仅启用 PWM0 并将其路由到 gpio12。如果需要同时启用两个 PWM 通道，则可以使用 `pwm-2chan`。
 
-The overlay does not expose the pwm line on sysfs on boot and needs to be exported by echo'ing the number of the pwm channel to `/sys/class/pwm/pwmchip0/export`:
+overlay 在启动时不会在 sysfs 上暴露出 PWM 线路，需要通过echo将 PWM 通道的编号导出到 `/sys/class/pwm/pwmchip0/export`：
 
 ```
 echo 0 > /sys/class/pwm/pwmchip0/export
 ```
 
-This will create device `/sys/class/pwm/pwmchip0/pwm0` in the filesystem. The easiest way to do this is by adding this to `/etc/rc.local` before the `exit 0` line.
+这将在文件系统中创建设备`/sys/class/pwm/kwmchip0/pwm0`。最简单的方法是在`/etc/rc.local`的`exit 0`行之前添加这行。
 
-With the sysfs in place, you can now use either the pwm channel(s) by adding the following piece of configuration to your `printer.cfg`:
+有了 sysfs，现在可以通过将以下配置添加到 `printer.cfg` 来使用 PWM 通道：
 
 ```
 [output_pin caselight]
@@ -182,11 +182,11 @@ hardware_pwm: True
 cycle_time: 0.000001
 ```
 
-This will add hardware pwm control to gpio12 on the Pi (because the overlay was configured to route pwm0 to pin=12).
+这将为树莓派上的 gpio12 引脚添加硬件 PWM 控制（因为overlay被配置为将 pwm0 路由到 pin=12）。
 
-PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and gpio19:
+PWM0 可以被路由到 gpio12 和 gpio18，PWM1 可以被路由到 gpio13 和 gpio19：
 
-| PWM | gpio PIN | Func |
+| PWM | GPIO 引脚 | 功能 |
 | --- | --- | --- |
 | 0 | 12 | 4 |
 | 0 | 18 | 2 |

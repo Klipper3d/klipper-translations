@@ -1,37 +1,37 @@
-# CANBUS protocol
+# CANBUS 协议
 
-This document describes the protocol Klipper uses to communicate over [CAN bus](https://en.wikipedia.org/wiki/CAN_bus). See <CANBUS.md> for information on configuring Klipper with CAN bus.
+本文档描述了 Klipper 通过[CAN总线](https://en.wikipedia.org/wiki/CAN_bus)进行通信的协议。参见<CANBUS.md>了解如何在 Klipper 中配置 CAN 总线。
 
-## Micro-controller id assignment
+## 微控制器 ID 分配
 
-Klipper uses only CAN 2.0A standard size CAN bus packets, which are limited to 8 data bytes and an 11-bit CAN bus identifier. In order to support efficient communication, each micro-controller is assigned at run-time a unique 1-byte CAN bus nodeid (`canbus_nodeid`) for general Klipper command and response traffic. Klipper command messages going from host to micro-controller use the CAN bus id of `canbus_nodeid * 2 + 256`, while Klipper response messages from micro-controller to host use `canbus_nodeid * 2 + 256 + 1`.
+Klipper使用 CAN 2.0A 标准尺寸的 CAN 总线数据包，它被限制在8个数据字节和一个11位的CAN总线标识。为了保证高效的通信，每个微控制器在运行时被分配一个唯一的 1 字节的CAN总线节点 ID（`canbus_nodeid`）用于一般的 Klipper 命令和响应通信。从主机到微控制器的 Klipper 命令信息使用`canbus_nodeid * 2 + 256` 的CAN总线 ID，而从微控制器到主机的 Klipper 响应信息使用`canbus_nodeid * 2 + 256 + 1`。
 
-Each micro-controller has a factory assigned unique chip identifier that is used during id assignment. This identifier can exceed the length of one CAN packet, so a hash function is used to generate a unique 6-byte id (`canbus_uuid`) from the factory id.
+每个微控制器出厂时都有一个用于ID分配的唯一的芯片标识符。这个标识符可以超过一个 CAN 数据包的长度，一个哈希函数会用出厂标识符生成一个唯一的 6 字节标识（`canbus_uuid`）。
 
-## Admin messages
+## 管理消息
 
-Admin messages are used for id assignment. Admin messages sent from host to micro-controller use the CAN bus id `0x3f0` and messages sent from micro-controller to host use the CAN bus id `0x3f1`. All micro-controllers listen to messages on id `0x3f0`; that id can be thought of as a "broadcast address".
+管理信息用于 ID 分配。从主机发送到微控制器的管理消息使用CAN总线的 ID `0x3f0`，而从微控制器发送到主机的消息使用CAN总线的 ID `0x3f1`。所有的微控制器都听从ID `0x3f0`上的消息；这个 ID 可以被认为是一个"广播地址"。
 
-### CMD_QUERY_UNASSIGNED message
+### CMD_QUERY_UNASSIGNED 消息
 
-This command queries all micro-controllers that have not yet been assigned a `canbus_nodeid`. Unassigned micro-controllers will respond with a RESP_NEED_NODEID response message.
+该命令查询所有尚未被分配 `canbus_nodeid` 的微控制器。未分配的微控制器将以 RESP_NEED_NODEID 响应消息进行回应。
 
-The CMD_QUERY_UNASSIGNED message format is: `<1-byte message_id = 0x00>`
+CMD_QUERY_UNASSIGNED 消息格式是：`<1-byte message_id = 0x00>`
 
-### CMD_SET_NODEID message
+### CMD_SET_NODEID 消息
 
-This command assigns a `canbus_nodeid` to the micro-controller with a given `canbus_uuid`.
+这个命令根据微处理器给定的 `canbus_uuid` 给相应的微处理器分配一个 `canbus_nodeid`。
 
-The CMD_SET_NODEID message format is: `<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`
+CMD_SET_NODEID消息格式是：`<1字节message_id = 0x01><6字节canbus_uuid><1字节canbus_nodeid>`
 
-### RESP_NEED_NODEID message
+### RESP_NEED_NODEID 消息
 
-The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte canbus_uuid>`
+RESP_NEED_NODEID消息格式为：`<1字节message_id = 0x20><6字节canbus_uuid>`
 
-## Data Packets
+## 数据包
 
-A micro-controller that has been assigned a nodeid via the CMD_SET_NODEID command can send and receive data packets.
+通过 CMD_SET_NODEID 命令分配了节点 ID 的微控制器可以发送和接收数据包。
 
-The packet data in messages using the node's receive CAN bus id (`canbus_nodeid * 2 + 256`) are simply appended to a buffer, and when a complete [mcu protocol message](Protocol.md) is found its contents are parsed and processed. The data is treated as a byte stream - there is no requirement for the start of a Klipper message block to align with the start of a CAN bus packet.
+带有节点接收 CAN 总线ID（`canbus_nodeid * 2 + 256`）的消息中的数据包被简单地添加到一个缓冲区，当一个完整的[mcu 协议消息](Protocol.md)被找到时，其内容会被解析和处理。数据被视为一个字节流-- Klipper 消息块的开始位置与CAN总线数据包的开始位置不需要对齐。
 
-Similarly, mcu protocol message responses are sent from micro-controller to host by copying the message data into one or more packets with the node's transmit CAN bus id (`canbus_nodeid * 2 + 256 + 1`).
+类似地，mcu 协议消息响应通过将消息数据插入到具有节点发送 CAN 总线 ID 的一个或多个数据包（`canbus_nodeid * 2 + 256 + 1`）并从微控制器发送到主机。
