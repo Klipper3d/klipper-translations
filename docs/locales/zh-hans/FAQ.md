@@ -161,55 +161,55 @@ Klipper 通过 “/tmp/printer” 文件创建了一个“虚拟串口”，该�
 
 ## 我的树莓派在打印时不断重启
 
-This is most likely do to voltage fluctuations. Follow the same troubleshooting steps for a ["Lost communication with MCU"](#i-keep-getting-random-lost-communication-with-mcu-errors) error.
+这很可能是由于电压波动引起的。请遵循["与MCU失去通信"](#i-keep-getting-random-lost-communication-with-mcu-errors)错误同样的故障排除步骤。
 
-## When I set "restart_method=command" my AVR device just hangs on a restart
+## 当设置"restart_method=command"时， AVR 设备重启时会死机
 
 Some old versions of the AVR bootloader have a known bug in watchdog event handling. This typically manifests when the printer.cfg file has restart_method set to "command". When the bug occurs, the AVR device will be unresponsive until power is removed and reapplied to the device (the power or status LEDs may also blink repeatedly until the power is removed).
 
 The workaround is to use a restart_method other than "command" or to flash an updated bootloader to the AVR device. Flashing a new bootloader is a one time step that typically requires an external programmer - see [Bootloaders](Bootloaders.md) for further details.
 
-## Will the heaters be left on if the Raspberry Pi crashes?
+## 如果 Raspberry Pi 崩溃了，加热器会一直加热吗？
 
-The software has been designed to prevent that. Once the host enables a heater, the host software needs to confirm that enablement every 5 seconds. If the micro-controller does not receive a confirmation every 5 seconds it goes into a "shutdown" state which is designed to turn off all heaters and stepper motors.
+Klipper 的设计防止了这种情况。一旦主机启用了一个加热器，主机软件需要每 5 秒钟确认一次启用状态。如果微控制器没有收到每 5 秒的确认，它就会进入"关闭"状态，该状态会关闭所有加热器和步进电机。
 
-See the "config_digital_out" command in the [MCU commands](MCU_Commands.md) document for further details.
+详情请见[MCU 命令](MCU_Commands.md)文档中的 "config_digital_out" 命令。
 
 In addition, the micro-controller software is configured with a minimum and maximum temperature range for each heater at startup (see the min_temp and max_temp parameters in the [config reference](Config_Reference.md#extruder) for details). If the micro-controller detects that the temperature is outside of that range then it will also enter a "shutdown" state.
 
 Separately, the host software also implements code to check that heaters and temperature sensors are functioning correctly. See the [config reference](Config_Reference.md#verify_heater) for further details.
 
-## How do I convert a Marlin pin number to a Klipper pin name?
+## 如何将 Marlin 引脚编号转换为 Klipper 引脚名称？
 
 Short answer: A mapping is available in the [sample-aliases.cfg](../config/sample-aliases.cfg) file. Use that file as a guide to finding the actual micro-controller pin names. (It is also possible to copy the relevant [board_pins](Config_Reference.md#board_pins) config section into your config file and use the aliases in your config, but it is preferable to translate and use the actual micro-controller pin names.) Note that the sample-aliases.cfg file uses pin names that start with the prefix "ar" instead of "D" (eg, Arduino pin `D23` is Klipper alias `ar23`) and the prefix "analog" instead of "A" (eg, Arduino pin `A14` is Klipper alias `analog14`).
 
-Long answer: Klipper uses the standard pin names defined by the micro-controller. On the Atmega chips these hardware pins have names like `PA4`, `PC7`, or `PD2`.
+详细答案：Klipper使用微控制器定义的标准引脚名称。在 Atmega 芯片上，这些硬件引脚的名称类似于`PA4`、`PC7`或`PD2`。
 
 Long ago, the Arduino project decided to avoid using the standard hardware names in favor of their own pin names based on incrementing numbers - these Arduino names generally look like `D23` or `A14`. This was an unfortunate choice that has lead to a great deal of confusion. In particular the Arduino pin numbers frequently don't translate to the same hardware names. For example, `D21` is `PD0` on one common Arduino board, but is `PC7` on another common Arduino board.
 
-To avoid this confusion, the core Klipper code uses the standard pin names defined by the micro-controller.
+为了避免这种混淆，Klipper 核心代码使用微控制器定义的标准引脚名称。
 
-## Do I have to wire my device to a specific type of micro-controller pin?
+## 我必须将设备连接到特定类型的微控制器引脚吗？
 
-It depends on the type of device and type of pin:
+这取决于设备和引脚的类型：
 
-ADC pins (or Analog pins): For thermistors and similar "analog" sensors, the device must be wired to an "analog" or "ADC" capable pin on the micro-controller. If you configure Klipper to use a pin that is not analog capable, Klipper will report a "Not a valid ADC pin" error.
+ADC 引脚（或模拟引脚）：热敏电阻和类似的“模拟”传感器必须连接到微控制器上具有“模拟”或“ADC”功能的引脚。如果您在 Klipper 上为一个模拟传感器配置为使用不具备模拟功能的引脚，Klipper 将报告“Not a valid ADC pin”错误。
 
 PWM pins (or Timer pins): Klipper does not use hardware PWM by default for any device. So, in general, one may wire heaters, fans, and similar devices to any general purpose IO pin. However, fans and output_pin devices may be optionally configured to use `hardware_pwm: True`, in which case the micro-controller must support hardware PWM on the pin (otherwise, Klipper will report a "Not a valid PWM pin" error).
 
 IRQ pins (or Interrupt pins): Klipper does not use hardware interrupts on IO pins, so it is never necessary to wire a device to one of these micro-controller pins.
 
-SPI pins: When using hardware SPI it is necessary to wire the pins to the micro-controller's SPI capable pins. However, most devices can be configured to use "software SPI", in which case any general purpose IO pins may be used.
+SPI 引脚：使用硬件 SPI 时，需要将引脚连接到微控制器的 SPI 引脚。但是，大多数设备都可以配置为使用“软件 SPI”，在这种情况下，可以使用任何通用 IO 引脚。
 
-I2C pins: When using I2C it is necessary to wire the pins to the micro-controller's I2C capable pins.
+I2C 引脚：使用 I2C 时，必须将引脚连接到微控制器支持 I2C 的引脚。
 
 Other devices may be wired to any general purpose IO pin. For example, steppers, heaters, fans, Z probes, servos, LEDs, common hd44780/st7920 LCD displays, the Trinamic UART control line may be wired to any general purpose IO pin.
 
-## How do I cancel an M109/M190 "wait for temperature" request?
+## 如何取消 M109/M190 "等待达到目标温度"的请求？
 
 Navigate to the OctoPrint terminal tab and issue an M112 command in the terminal box. The M112 command will cause Klipper to enter into a "shutdown" state, and it will cause OctoPrint to disconnect from Klipper. Navigate to the OctoPrint connection area and click on "Connect" to cause OctoPrint to reconnect. Navigate back to the terminal tab and issue a FIRMWARE_RESTART command to clear the Klipper error state. After completing this sequence, the previous heating request will be canceled and a new print may be started.
 
-## Can I find out whether the printer has lost steps?
+## 怎么检查打印机是否发生了丢步?
 
 In a way, yes. Home the printer, issue a `GET_POSITION` command, run your print, home again and issue another `GET_POSITION`. Then compare the values in the `mcu:` line.
 
@@ -217,7 +217,7 @@ This might be helpful to tune settings like stepper motor currents, acceleration
 
 Note that endstop switches themselves tend to trigger at slightly different positions, so a difference of a couple of microsteps is likely the result of endstop inaccuracies. A stepper motor itself can only lose steps in increments of 4 full steps. (So, if one is using 16 microsteps, then a lost step on the stepper would result in the "mcu:" step counter being off by a multiple of 64 microsteps.)
 
-## Why does Klipper report errors? I lost my print!
+## 为什么 Klipper 会报错？我收了一盘面条！
 
 Short answer: We want to know if our printers detect a problem so that the underlying issue can be fixed and we can obtain great quality prints. We definitely do not want our printers to silently produce low quality prints.
 

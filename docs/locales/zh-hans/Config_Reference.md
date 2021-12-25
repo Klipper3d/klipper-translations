@@ -60,7 +60,7 @@ serial:
 
 ## 常用的运动学设置
 
-### [打印]
+### [printer]
 
 打印机控制的高级设置部分。
 
@@ -292,7 +292,7 @@ radius:
 
 See [example-corexy.cfg](../config/example-corexy.cfg) for an example corexy (and h-bot) kinematics file.
 
-Only parameters specific to corexy printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+这里只描述了 CoreXY 打印机特有的参数 -- 有关可用参数，请参阅 [常见运动学设置](#common-kinematic-settings)。
 
 ```
 [printer]
@@ -324,7 +324,7 @@ max_z_accel:
 
 See [example-corexz.cfg](../config/example-corexz.cfg) for an example corexz kinematics config file.
 
-Only parameters specific to corexz printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+此处描述的参数只适用于笛卡尔打印机—有关全部可用参数，请参阅 [常用的运动学设置](#common-kinematic-settings)。
 
 ```
 [printer]
@@ -355,7 +355,7 @@ See [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) for an exam
 
 This kinematic is also known as Markforged kinematic.
 
-Only parameters specific to hybrid corexy printers are described here see [common kinematic settings](#common-kinematic-settings) for available parameters.
+此处仅描述了线性三角洲打印机的特定参数—有关全部可用参数，请参阅 [常用的运动学设置](#common-kinematic-settings)。
 
 ```
 [printer]
@@ -386,7 +386,7 @@ See [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) for an exam
 
 This kinematic is also known as Markforged kinematic.
 
-Only parameters specific to hybrid corexy printers are described here see [common kinematic settings](#common-kinematic-settings) for available parameters.
+此处仅描述了线性三角洲打印机的特定参数—有关全部可用参数，请参阅 [常用的运动学设置](#common-kinematic-settings)。
 
 ```
 [printer]
@@ -411,13 +411,13 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Polar Kinematics
+### 极坐标运动学
 
 See [example-polar.cfg](../config/example-polar.cfg) for an example polar kinematics config file.
 
-Only parameters specific to polar printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+这里只描述了极地打印机特有的参数—全部可用的参数请见[常用的运动学设置](#common-kinematic-settings)。
 
-POLAR KINEMATICS ARE A WORK IN PROGRESS. Moves around the `0,0` position are known to not work properly.
+目前 Klipper 的极坐标运动学是一个不成熟的实现。围绕`0,0`位置的移动已知不能正常工作。
 
 ```
 [printer]
@@ -454,7 +454,7 @@ max_z_accel:
 
 See [example-rotary-delta.cfg](../config/example-rotary-delta.cfg) for an example rotary delta kinematics config file.
 
-Only parameters specific to rotary delta printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+此处仅介绍特定于旋转三角洲打印机的参数—有关可用参数，请参阅[常用的运动学设置](#common-kinematic-settings)。
 
 ROTARY DELTA KINEMATICS ARE A WORK IN PROGRESS. Homing moves may timeout and some boundary checks are not implemented.
 
@@ -540,7 +540,7 @@ radius:
 
 See the [example-winch.cfg](../config/example-winch.cfg) for an example cable winch kinematics config file.
 
-Only parameters specific to cable winch printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+这里只描述了缆绳铰盘式打印机特有的参数 — 全部可用的参数见[常用的运动学设置](#common-kinematic-settings)。
 
 缆绳绞盘运动学支持是实验性的。归零尚未在缆绳绞盘运动学中实现。为了将打印机归零，需要手动发送移动命令直到工具头处于 0,0,0 位置，然后发出 ` G28` 命令。
 
@@ -563,7 +563,7 @@ anchor_z:
 #   These parameters must be provided.
 ```
 
-### None Kinematics
+### 无运动学
 
 It is possible to define a special "none" kinematics to disable kinematic support in Klipper. This may be useful for controlling devices that are not typical 3d-printers or for debugging purposes.
 
@@ -591,7 +591,7 @@ microsteps:
 rotation_distance:
 #full_steps_per_rotation:
 #gear_ratio:
-#   以上参数请参阅“stepper”章节。
+#   以上参数详见“stepper”章节。
 nozzle_diameter:
 #   喷嘴的孔径（mm）。
 #   必须提供此参数。
@@ -608,95 +608,83 @@ filament_diameter:
 #   在两个移动之间挤出头最大的瞬时速度变化（mm/s)。
 #   默认为 1mm/s。
 #max_extrude_only_distance: 50.0
-#   Maximum length (in mm of raw filament) that a retraction or
-#   extrude-only move may have. If a retraction or extrude-only move
-#   requests a distance greater than this value it will cause an error
-#   to be returned. The default is 50mm.
+#   仅回抽或仅挤出时挤出机允许的最长移动（mm 耗材长度）。
+#   如果一个仅回抽或仅挤出动作请求了超过该参数限制的挤出速率，
+#   打印机会报告错误。
+#   默认为 50mm。
 #max_extrude_only_velocity:
 #max_extrude_only_accel:
-#   Maximum velocity (in mm/s) and acceleration (in mm/s^2) of the
-#   extruder motor for retractions and extrude-only moves. These
-#   settings do not have any impact on normal printing moves. If not
-#   specified then they are calculated to match the limit an XY
-#   printing move with a cross section of 4.0*nozzle_diameter^2 would
-#   have.
+#   挤出机电机回抽和仅挤出移动时的最大速度（mm/s）和加速度
+#   （mm/s^2）。这些设置不影响常规打印移动。如果没有被定义，
+#   会根据一个 XY 截面是 4.0*nozzle_diameter^2 的打印移动计算一个
+#   相应的限制。
 #pressure_advance: 0.0
-#   The amount of raw filament to push into the extruder during
-#   extruder acceleration. An equal amount of filament is retracted
-#   during deceleration. It is measured in millimeters per
-#   millimeter/second. The default is 0, which disables pressure
-#   advance.
+#   加速时挤出机的原始耗材长度。等于减速时挤出机回抽的耗材长度。
+#   以mm/(mm/s)为单位。
+#   默认为 0，禁用压力提前。
 #pressure_advance_smooth_time: 0.040
-#   A time range (in seconds) to use when calculating the average
-#   extruder velocity for pressure advance. A larger value results in
-#   smoother extruder movements. This parameter may not exceed 200ms.
-#   This setting only applies if pressure_advance is non-zero. The
-#   default is 0.040 (40 milliseconds).
+#   一个用来计算压力提前平均挤出机速度的时间范围（以秒为单位）。
+#   更大的值可以产生更流畅的挤出机运动。
+#   这个参数不能超过 200ms。
+#   仅在压力提前不为 0 时起效。
+#   默认为 0.040 (40 毫秒)。
 #
-# The remaining variables describe the extruder heater.
+#   以下参数描述了挤出头加热器。
 heater_pin:
-#   PWM output pin controlling the heater. This parameter must be
-#   provided.
+#   控制加热器的 PWM 输出引脚。
+#   必须提供此参数。
 #max_power: 1.0
-#   The maximum power (expressed as a value from 0.0 to 1.0) that the
-#   heater_pin may be set to. The value 1.0 allows the pin to be set
-#   fully enabled for extended periods, while a value of 0.5 would
-#   allow the pin to be enabled for no more than half the time. This
-#   setting may be used to limit the total power output (over extended
-#   periods) to the heater. The default is 1.0.
+#   heater_pin 允许的最大功率（一个0.0和1.0之间的值）。1.0允许加热器
+#   引脚一直被拉高，而0.5会只允许加热器引脚在一半的时间里被拉高。
+#   这个参数可以限制加热器的功率（平均功率）。
+#   默认为1.0。
 sensor_type:
-#   Type of sensor - common thermistors are "EPCOS 100K B57560G104F",
-#   "ATC Semitec 104GT-2", "ATC Semitec 104NT-4-R025H42G", "Generic
-#   3950","Honeywell 100K 135-104LAG-J01", "NTC 100K MGB18-104F39050L32",
-#   "SliceEngineering 450", and "TDK NTCG104LH104JT1". See the
-#   "Temperature sensors" section for other sensors. This parameter
-#   must be provided.
+#   温度传感器类型，可以是 "EPCOS 100K B57560G104F"、
+#   "ATC Semitec 104GT-2"、"ATC Semitec 104NT-4-R025H42G"、"Generic
+#   3950"、"Honeywell 100K 135-104LAG-J01"、"NTC 100K MGB18-104F39050L32"、
+#   "SliceEngineering 450"或"TDK NTCG104LH104JT1"。
+#   有关其他温度传感器，请见“温度传感器”章节。
+#   必须提供此参数。
 sensor_pin:
-#   Analog input pin connected to the sensor. This parameter must be
-#   provided.
+#   连接到传感器的模拟引脚。
+#   必须提供此参数。
 #pullup_resistor: 4700
-#   The resistance (in ohms) of the pullup attached to the thermistor.
-#   This parameter is only valid when the sensor is a thermistor. The
-#   default is 4700 ohms.
+#   连接到热敏电阻的拉高电阻阻值（ohms）。
+#   仅在使用热敏电阻时有效。
+#   默认为 4700 ohms。
 #smooth_time: 1.0
-#   A time value (in seconds) over which temperature measurements will
-#   be smoothed to reduce the impact of measurement noise. The default
-#   is 1 seconds.
+#   减少噪音造成温度测量影响的平滑时间（秒）
+#   默认为1秒
 control:
-#   Control algorithm (either pid or watermark). This parameter must
-#   be provided.
+#   控制算法（可以是 pid 或 watermark）。
+#   必须提供此参数。
 pid_Kp:
-#   Kp is the "proportional" constant for the pid. This parameter must
-#   be provided for PID heaters.
+#   Kp 是 PID 算法的"比例"常数。
+#   PID 加热器必须提供此参数
 pid_Ki:
-#   Ki is the "integral" constant for the pid. This parameter must be
-#   provided for PID heaters.
+#   Ki 是 PID 算法的"积分"常数。
+#   PID 加热器必须提供此参数
 pid_Kd:
-#   Kd is the "derivative" constant for the pid. This parameter must
-#   be provided for PID heaters.
+#   Kd 是 PID 算法的"微分"常数。
+#   PID 加热器必须提供此参数
 #max_delta: 2.0
-#   On 'watermark' controlled heaters this is the number of degrees in
-#   Celsius above the target temperature before disabling the heater
-#   as well as the number of degrees below the target before
-#   re-enabling the heater. The default is 2 degrees Celsius.
+#   在 “watermark” 控制的加热器上高于设定温度时关闭加热器或
+#   低于设定温度时打开加热器的温差。
+#   默认为 2 摄氏度
 #pwm_cycle_time: 0.100
-#   Time in seconds for each software PWM cycle of the heater. It is
-#   not recommended to set this unless there is an electrical
-#   requirement to switch the heater faster than 10 times a second.
-#   The default is 0.100 seconds.
+#   加热器每个软件PWM周期的时间，单位为秒。不推荐修改这个值，
+#   除非有电气上的需求，必须以超过 10 次每秒的频率开关加热器。
+#   默认是 0.100 秒。
 #min_extrude_temp: 170
-#   The minimum temperature (in Celsius) at which extruder move
-#   commands may be issued. The default is 170 Celsius.
+#   允许挤出机移动的最低温度（摄氏度）。
+#   默认为 170 摄氏度。
 min_temp:
 max_temp:
-#   The maximum range of valid temperatures (in Celsius) that the
-#   heater must remain within. This controls a safety feature
-#   implemented in the micro-controller code - should the measured
-#   temperature ever fall outside this range then the micro-controller
-#   will go into a shutdown state. This check can help detect some
-#   heater and sensor hardware failures. Set this range just wide
-#   enough so that reasonable temperatures do not result in an error.
-#   These parameters must be provided.
+#   加热器必须保持的最大有效温度范围（摄氏度）。这是一个在微
+#   处理器中的安全功能 - 一旦测量温度超出这个范围，微处理器会
+#   进入关闭模式。这项检查可以检测到一些加热器或温度传感器故障。
+#   将两个值设置的足够宽以避免在正常运行时报错。
+#   必须提供这些参数。
 ```
 
 ### [heater_bed]
@@ -1087,25 +1075,20 @@ See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes
 ```
 [endstop_phase stepper_z]
 #endstop_accuracy:
-#   设置预期的限位精度（以毫米(mm)为单位）。 This represents
-#   the maximum error distance the endstop may trigger (eg, if an
-#   endstop may occasionally trigger 100um early or up to 100um late
-#   then set this to 0.200 for 200um). The default is
-#   4*rotation_distance/full_steps_per_rotation.
+#   设置预期的限位精度（以毫米(mm)为单位）。 代表了相位可能
+#   触发的最大误差距离（比如，一个可能会提早 100um 触发或延迟
+#   100um 触发的限位需要将该值设为 0.200,也就是 200um）。
+#  默认为 4*rotation_distance/full_steps_per_rotation。
 #trigger_phase:
-#   This specifies the phase of the stepper motor driver to expect
-#   when hitting the endstop. It is composed of two numbers separated
-#   by a forward slash character - the phase and the total number of
-#   phases (eg, "7/64"). Only set this value if one is sure the
-#   stepper motor driver is reset every time the mcu is reset. If this
-#   is not set, then the stepper phase will be detected on the first
-#   home and that phase will be used on all subsequent homes.
+#   该参数定义了相位触发时预期的步进电机驱动相位。这通常是两
+#   个由正斜杠符号分隔的整数 - 相位和总相位数（例如 "7/64"）。
+#   只有当步进电机驱动在 mcu 重置时也会重置才需要该参数。
+#   如果没有定义，步进相位会在第一次归位时检测并被用于后续归位。
 #endstop_align_zero: False
-#   If true then the position_endstop of the axis will effectively be
-#   modified so that the zero position for the axis occurs at a full
-#   step on the stepper motor. (If used on the Z axis and the print
-#   layer height is a multiple of a full step distance then every
-#   layer will occur on a full step.) The default is False.
+#   如果是 True 则打印机的 position_endstop 相应轴的零点位置是步进
+#   电机的一个全步位置。(在Z轴上，如果打印层高是全步的倍数，每
+#   层都会在全步上。）
+#   默认为 False。
 ```
 
 ## G 代码宏和事件
@@ -1176,15 +1159,15 @@ filename:
 ```
 [idle_timeout]
 #gcode:
-#   A list of G-Code commands to execute on an idle timeout. See
-#   docs/Command_Templates.md for G-Code format. The default is to run
-#   "TURN_OFF_HEATERS" and "M84".
+#   在空闲超时时执行的一系列 G-Code 命令。G-Code 格式请见
+#   docs/Command_Templates.md。
+#   默认运行 "TURN_OFF_HEATERS" 和 "M84"。
 #timeout: 600
-#   Idle time (in seconds) to wait before running the above G-Code
-#   commands. The default is 600 seconds.
+#   在执行以上 G-Code 前等待的空闲时间（以秒为单位）
+#   默认为 600 秒。
 ```
 
-## Optional G-Code features
+## 可选的 G-Code 特性
 
 ### [virtual_sdcard]
 
@@ -1224,13 +1207,13 @@ Support manually moving stepper motors for diagnostic purposes. Note, using this
 
 ### [pause_resume]
 
-Pause/Resume functionality with support of position capture and restore. See the [command reference](G-Codes.md#pause-resume) for more information.
+暂停/恢复功能，支持位置捕获和恢复。有关详细信息，请参阅 [命令参考](G-Codes.md#pause-resume)。
 
 ```
 [pause_resume]
 #recover_velocity: 50.
-#   When capture/restore is enabled, the speed at which to return to
-#   the captured position (in mm/s). Default is 50.0 mm/s.
+#   当捕捉/恢复功能被启用时，返回到捕获的位置的速度(单位：毫米/秒)。
+#   默认为50.0 mm/s。
 ```
 
 ### [firmware_retraction]
@@ -1641,33 +1624,32 @@ See the [command reference](G-Codes.md#extruder-stepper-commands) for more infor
 Manual steppers (one may define any number of sections with a "manual_stepper" prefix). These are steppers that are controlled by the MANUAL_STEPPER g-code command. For example: "MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5". See [G-Codes](G-Codes.md#manual-stepper-commands) file for a description of the MANUAL_STEPPER command. The steppers are not connected to the normal printer kinematics.
 
 ```
-[manual_stepper my_stepper]
+[manual_stepper my_stepper]。
 #step_pin:
 #dir_pin:
 #enable_pin:
 #microsteps:
 #rotation_distance:
-#   See the "stepper" section for a description of these parameters.
+#   有关这些参数的描述请见"stepper"分段。
 #velocity:
-#   Set the default velocity (in mm/s) for the stepper. This value
-#   will be used if a MANUAL_STEPPER command does not specify a SPEED
-#   parameter. The default is 5mm/s.
+#   设置步进电机的默认速度（单位：mm/s）。这个值会在 MANUAL_STEPPER
+#   命令没有指定一个 SPEED 参数时会被使用。
+#   默认为 5 mm/s。
 #accel:
-#   Set the default acceleration (in mm/s^2) for the stepper. An
-#   acceleration of zero will result in no acceleration. This value
-#   will be used if a MANUAL_STEPPER command does not specify an ACCEL
-#   parameter. The default is zero.
+#   设置步进电机的默认加速度（单位：mm/s^2）。设置加速度为零将导致
+#   没有加速度。这个值会在 MANUAL_STEPPER 命令没有指定 ACCEL 参数时
+#   会被使用。
+#   默认为 0。
 #endstop_pin:
-#   Endstop switch detection pin. If specified, then one may perform
-#   "homing moves" by adding a STOP_ON_ENDSTOP parameter to
-#   MANUAL_STEPPER movement commands.
+#   限位开关检测引脚。如果定义了这个参数，可以通过在 MANUAL_STEPPER
+#   运动命令中添加一个 STOP_ON_ENDSTOP 参数来执行 "归位动作" 。
 ```
 
 ## 自定义加热器和传感器
 
 ### [verify_heater]
 
-Heater and temperature sensor verification. Heater verification is automatically enabled for each heater that is configured on the printer. Use verify_heater sections to change the default settings.
+加热器和温度传感器验证。默认在打印机上每个配置的加热器上启用加热器验证。使用 verify_heater 分段来覆盖默认设置。
 
 ```
 [verify_heater heater_config_name]
@@ -2029,7 +2011,7 @@ serial_no:
 
 ### [fan]
 
-Print cooling fan.
+打印冷却风扇。
 
 ```
 [fan]
@@ -2038,18 +2020,15 @@ pin:
 #   必须提供此参数。
 #max_power: 1.0
 #   引脚允许被设置的最大占空比（在0.0和1.0之间）。
-#   1.0 允许引脚被allows the pin to be set fully
-#   enabled for extended periods, while a value of 0.5 would allow the
-#   pin to be enabled for no more than half the time. This setting may
-#   be used to limit the total power output (over extended periods) to
-#   the fan. If this value is less than 1.0 then fan speed requests
-#   will be scaled between zero and max_power (for example, if
-#   max_power is .9 and a fan speed of 80% is requested then the fan
-#   power will be set to 72%). The default is 1.0.
+#   1.0 允许引脚被长时间完全启用，而0.5会只允许引脚只在一半的时间里
+#   被启用。这个设置可以限制风扇的最大功率（平均功率）。如果这个值
+#   小于 1.0 则风速请求会被缩放到 0 和 max_power 之间（例如，如果
+#   max_power 是 0.9，请求 80% 风速速度会使风扇功率设为72%）。
+#   默认为1.0。
 #shutdown_speed: 0
-#   The desired fan speed (expressed as a value from 0.0 to 1.0) if
-#   the micro-controller software enters an error state. The default
-#   is 0.
+#   在微控制器进入错误状态时期望的（一个在0.0和1.0之间的值）
+#   风扇速度。
+#   默认为 0。
 #cycle_time: 0.010
 #   The amount of time (in seconds) for each PWM power cycle to the
 #   fan. It is recommended this be 10 milliseconds or greater when
@@ -2095,7 +2074,7 @@ pin:
 
 ### [heater_fan]
 
-Heater cooling fans (one may define any number of sections with a "heater_fan" prefix). A "heater fan" is a fan that will be enabled whenever its associated heater is active. By default, a heater_fan has a shutdown_speed equal to max_power.
+加热器冷却风扇（可以用"heater_fan"前缀定义任意数量的分段）。"加热器风扇"是一种当其关联的加热器活跃时会启用的风扇。默认情况下，heater_fan shutdown_speed 等于 max_power。
 
 ```
 [heater_fan my_nozzle_fan]
@@ -2299,7 +2278,7 @@ clock_pin:
 
 ### [PCA9533]
 
-PCA9533 LED support. The PCA9533 is used on the mightyboard.
+PCA9533 LED支持。PCA9533 在 mightyboard上出现。
 
 ```
 [pca9533 my_pca9533]
@@ -2328,8 +2307,8 @@ PCA9533 LED support. The PCA9533 is used on the mightyboard.
 ```
 [gcode_button my_gcode_button]
 pin:
-#   The pin on which the button is connected. This parameter must be
-#   provided.
+#   连接到按键的引脚。
+#   必须提供此参数。
 #analog_range:
 #   Two comma separated resistances (in Ohms) specifying the minimum
 #   and maximum resistance range for the button. If analog_range is
@@ -2419,8 +2398,8 @@ Multiple pin outputs (one may define any number of sections with a "multi_pin" p
 ```
 [multi_pin my_multi_pin]
 pins:
-#   A comma separated list of pins associated with this alias. This
-#   parameter must be provided.
+#   与此别名关联的引脚的逗号分隔列表。
+#   必须提供此参数。
 ```
 
 ## TMC stepper driver configuration
@@ -2890,7 +2869,7 @@ wiper:
 #   scale the 'wiper' parameter.
 ```
 
-## 显示器支持
+## 显示屏支持
 
 ### [display]
 
@@ -2918,59 +2897,53 @@ lcd_type:
 #   启用时反转上滚动和下滚动。
 #   默认为False。这是一个可选参数。
 #encoder_pins:
-#   The pins connected to encoder. 2 pins must be provided when using
-#   encoder. This parameter must be provided when using menu.
+#   连接到编码器的引脚。使用编码器时必须提供两个引脚。
+#   使用菜单时必须提供此参数。
 #encoder_steps_per_detent:
-#   How many steps the encoder emits per detent ("click"). If the
-#   encoder takes two detents to move between entries or moves two
-#   entries from one detent, try changing this. Allowed values are 2
-#   (half-stepping) or 4 (full-stepping). The default is 4.
+#   编码器在每一个凹陷处（"click"）发出多少步。如果编码器需要转过两个凹
+#   陷才能在条目之间移动，或者转过一个凹痕会在两个词条之间移动/跳过
+#   一个词条，可以尝试改变这个值。
+#   允许的值是2 （半步）或 4（全步）。
+#   默认为 4。
 #click_pin:
-#   The pin connected to 'enter' button or encoder 'click'. This
-#   parameter must be provided when using menu. The presence of an
-#   'analog_range_click_pin' config parameter turns this parameter
-#   from digital to analog.
+#   连接到 "enter" 按钮或编码器按压的引脚。
+#   使用菜单时必须提供此参数。
+#   如果定义了 “analog_range_click_pin”配置参数，则这个参数的引脚需要
+#   是模拟引脚。
 #back_pin:
-#   The pin connected to 'back' button. This parameter is optional,
-#   menu can be used without it. The presence of an
-#   'analog_range_back_pin' config parameter turns this parameter from
-#   digital to analog.
+#   连接到“back”按钮的引脚。这是一个可选参数，菜单不需要这个按钮。
+#   如果定义了 “analog_range_back_pin”配置参数，则这个参数的引脚需要
+#   是模拟引脚。
 #up_pin:
-#   The pin connected to 'up' button. This parameter must be provided
-#   when using menu without encoder. The presence of an
-#   'analog_range_up_pin' config parameter turns this parameter from
-#   digital to analog.
+#   连接到“up”按钮的引脚。在不使用编码器时使用菜单必须提供这个参数。
+#   如果定义了 “analog_range_up_pin”配置参数，则这个参数的引脚需要
+#   是模拟引脚。
 #down_pin:
-#   The pin connected to 'down' button. This parameter must be
-#   provided when using menu without encoder. The presence of an
-#   'analog_range_down_pin' config parameter turns this parameter from
-#   digital to analog.
+#   连接到“down”按钮的引脚。 在不使用编码器时使用菜单必须提供这个参数。
+#   如果定义了 “analog_range_down_pin”配置参数，则这个参数的引脚需要
+#   是模拟引脚。
 #kill_pin:
-#   The pin connected to 'kill' button. This button will call
-#   emergency stop. The presence of an 'analog_range_kill_pin' config
-#   parameter turns this parameter from digital to analog.
+#   连接到“kill”按钮的引脚。 这个按钮将会触发紧急停止。
+#   如果定义了 “analog_range_kill_pin”配置参数，则这个参数的引脚需要
+#   是模拟引脚。
 #analog_pullup_resistor: 4700
-#   The resistance (in ohms) of the pullup attached to the analog
-#   button. The default is 4700 ohms.
+#   连接到模拟按钮的拉高电阻阻值(ohms)
+#   默认为 4700 ohms。
 #analog_range_click_pin:
-#   The resistance range for a 'enter' button. Range minimum and
-#   maximum comma-separated values must be provided when using analog
-#   button.
+#   'enter'按钮的阻值范围。
+#   在使用模拟按钮时必须提供由逗号分隔最小和最大值。
 #analog_range_back_pin:
-#   The resistance range for a 'back' button. Range minimum and
-#   maximum comma-separated values must be provided when using analog
-#   button.
+#   'back'按钮的阻值范围。
+#   在使用模拟按钮时必须提供由逗号分隔最小和最大值。
 #analog_range_up_pin:
-#   The resistance range for a 'up' button. Range minimum and maximum
-#   comma-separated values must be provided when using analog button.
+#   'up'按钮的阻值范围。
+#   在使用模拟按钮时必须提供由逗号分隔最小和最大值。
 #analog_range_down_pin:
-#   The resistance range for a 'down' button. Range minimum and
-#   maximum comma-separated values must be provided when using analog
-#   button.
+#   'down'按钮的阻值范围。
+#   在使用模拟按钮时必须提供由逗号分隔最小和最大值。
 #analog_range_kill_pin:
-#   The resistance range for a 'kill' button. Range minimum and
-#   maximum comma-separated values must be provided when using analog
-#   button.
+#   'kill'按钮的阻值范围。
+#   在使用模拟按钮时必须提供由逗号分隔最小和最大值。
 ```
 
 ### hd44780显示器
@@ -3029,7 +3002,7 @@ spi_software_miso_pin:
 
 ### st7920 display
 
-Information on configuring st7920 displays (which is used in "RepRapDiscount 12864 Full Graphic Smart Controller" type displays).
+有关配置 st7920 类显示屏的信息（可用于 "RepRapDiscount 12864 Full Graphic Smart Controller" 类型的显示器）。
 
 ```
 [display]
@@ -3153,15 +3126,14 @@ text:
 #param_<名称>:
 #   可以使用"param_"前缀定义任意数量的选项。定义的名称将被
 #   关联到给定的值（被解析为Python literal）并在macro解释时可
-#   以被使用。如果参数被传入is passed in the call to render() then that value will
-#   be used during macro expansion. For example, a config with
-#   "param_speed = 75" might have a caller with
-#   "render('my_template_name', param_speed=80)". Parameter names may
-#   not use upper case characters.
+#   以被使用。如果参数被render()的调用传入，则这个值会被用于
+#   宏扩展。例如，配置 "param_speed = 75" 允许调用
+#   "render('my_template_name', param_speed=80)"。
+#   参数名不能包含大写字符。
 #text:
-#   The text to return when the render() function is called for this
-#   template. This field is evaluated using command templates (see
-#   docs/Command_Templates.md). This parameter must be provided.
+#   当 render() 函数因为这个模板被调用时会显示的文本。这个
+#   字段使用命令模板（请见docs/Command_Templates.md）。
+#   必须提供此参数。
 ```
 
 ## [display_glyph]
@@ -3278,34 +3250,35 @@ See the [command template document](Command_Templates.md#menu-templates) for inf
 See the [command reference](G-Codes.md#filament-sensor) for more information.
 
 ```
-[filament_switch_sensor my_sensor]
+[filament_switch_sensor my_sensor]。
 #pause_on_runout: True
-#   When set to True, a PAUSE will execute immediately after a runout
-#   is detected. Note that if pause_on_runout is False and the
-#   runout_gcode is omitted then runout detection is disabled. Default
-#   is True.
+#   当设置为 "True "时，会在检测到耗尽后立即暂停打印机。
+#   请注意, 如果 pause_on_runout 为 False 并且没有定义。
+#   runout_gcode的话, 耗尽检测将被禁用。
+#   默认为 True。
 #runout_gcode:
-#   A list of G-Code commands to execute after a filament runout is
-#   detected. See docs/Command_Templates.md for G-Code format. If
-#   pause_on_runout is set to True this G-Code will run after the
-#   PAUSE is complete. The default is not to run any G-Code commands.
+#   在检测到耗材耗尽后会执行的G代码命令列表。
+#   有关G-Code 格式请见 docs/Command_Templates.md。
+#   如果 pause_on_runout 被设置为 True，这个G-Code将在
+#   暂停后执行。
+#   默认情况是不运行任何 G-Code 命令。
 #insert_gcode:
-#   A list of G-Code commands to execute after a filament insert is
-#   detected. See docs/Command_Templates.md for G-Code format. The
-#   default is not to run any G-Code commands, which disables insert
-#   detection.
+#   在检测到耗材插入后会执行的 G-Code 命令列表。
+#   关于G代码格式，请参见 docs/Command_Templates.md。
+#   默认不运行任何 G-Code 命令，这将禁用耗材插入检测。
 #event_delay: 3.0
-#   The minimum amount of time in seconds to delay between events.
-#   Events triggered during this time period will be silently
-#   ignored. The default is 3 seconds.
+#   事件之间的最小延迟时间（秒）。
+#   在这个时间段内触发的事件将被默许忽略。
+#   默认为3秒。
 #pause_delay: 0.5
-#   The amount of time to delay, in seconds, between the pause command
-#   dispatch and execution of the runout_gcode. It may be useful to
-#   increase this delay if OctoPrint exhibits strange pause behavior.
-#   Default is 0.5 seconds.
+#   暂停命令和执行 runout_gcode 之间的延迟时间, 单位是秒。
+#   如果在OctoPrint的情况下，增加这个延迟可能改善暂
+#   停的可靠性。如果OctoPrint表现出奇怪的暂停行为，
+#   考虑增加这个延迟。
+#   默认为0.5秒。
 #switch_pin:
-#   The pin on which the switch is connected. This parameter must be
-#   provided.
+#   连接到检测开关的引脚。
+#   必须提供此参数。
 ```
 
 ### [filament_motion_sensor]
@@ -3353,51 +3326,50 @@ TSLl401CL Based Filament Width Sensor. See the [guide](TSL1401CL_Filament_Width_
 [hall_filament_width_sensor]
 adc1:
 adc2:
-#   Analog input pins connected to the sensor. These parameters must
-#   be provided.
+#   连接到传感器的模拟输入引脚。
+#   必须提供这些参数。
 #cal_dia1: 1.50
 #cal_dia2: 2.00
-#   The calibration values (in mm) for the sensors. The default is
-#   1.50 for cal_dia1 and 2.00 for cal_dia2.
+#   传感器的校准值（单位：毫米）。
+#   默认 cal_dia1 为1.50，cal_dia2 为 2.00。
 #raw_dia1: 9500
 #raw_dia2: 10500
-#   The raw calibration values for the sensors. The default is 9500
-#   for raw_dia1 and 10500 for raw_dia2.
+#   传感器的原始校准值。默认raw_dial1 为 9500
+#   而 raw_dia2 为 10500。
 #default_nominal_filament_diameter: 1.75
-#   The nominal filament diameter. This parameter must be provided.
+#   标称耗材直径。
+#   必须提供此参数。
 #max_difference: 0.200
-#   Maximum allowed filament diameter difference in millimeters (mm).
-#   If difference between nominal filament diameter and sensor output
-#   is more than +- max_difference, extrusion multiplier is set back
-#   to %100. The default is 0.200.
+#   允许的耗材最大直径差异，单位是毫米（mm）。
+#   如果耗材标称直径和传感器输出之间的差异
+#   超过正负 max_difference，挤出倍数将被设回
+#   到100%。
+#   默认为0.200。
 #measurement_delay: 70
-#   The distance from sensor to the melting chamber/hot-end in
-#   millimeters (mm). The filament between the sensor and the hot-end
-#   will be treated as the default_nominal_filament_diameter. Host
-#   module works with FIFO logic. It keeps each sensor value and
-#   position in an array and POP them back in correct position. This
-#   parameter must be provided.
-#enable: False
-#   Sensor enabled or disabled after power on. The default is to
-#   disable.
+#   从传感器到熔腔/热端的距离，单位是毫米 (mm)。
+#   传感器和热端之间的耗材将被视为标称直径。主机
+#   模块采用先进先出的逻辑工作。它将每个传感器的值和
+#   位置在一个数组中，并会在正确的位置使用传感器值。
+#   必须提供这个参数。
+#enable:False
+#   传感器在开机后启用或禁用。
+#   默认是 False。
 #measurement_interval: 10
-#   The approximate distance (in mm) between sensor readings. The
-#   default is 10mm.
-#logging: False
-#   Out diameter to terminal and klipper.log can be turn on|of by
-#   command.
+#   传感器读数之间的近似距离(mm)。
+#   默认为10mm。
+#logging:False
+#   输出直径到终端和 klipper.log，可以通过命令启用或禁用。
 #min_diameter: 1.0
-#   Minimal diameter for trigger virtual filament_switch_sensor.
+#   触发虚拟 filament_switch_sensor 的最小直径。
 #use_current_dia_while_delay: False
-#   Use the current diameter instead of the nominal diameter while
-#   the measurement delay has not run through.
+#   在未被测量的 measurement_delay 部分耗材使用当前耗材
+#   传感器报告的直径而不是标称直径。
 #pause_on_runout:
 #runout_gcode:
 #insert_gcode:
 #event_delay:
 #pause_delay:
-#   See the "filament_switch_sensor" section for a description of the
-#   above parameters.
+#   关于上述参数的描述请参见"filament_switch_sensor"章节。
 ```
 
 ## 控制板特定硬件支持
@@ -3531,11 +3503,11 @@ host_mcu:
 #   (True sets CFG5 high, False sets it low). The default is True.
 ```
 
-## Other Custom Modules
+## 其他自定义模块
 
 ### [palette2]
 
-Palette 2 multimaterial support - provides a tighter integration supporting Palette 2 devices in connected mode.
+Palette 2 多材料支持 - 提供更紧密的集成，支持处于连接模式的 Palette 2 设备。
 
 This modules also requires `[virtual_sdcard]` and `[pause_resume]` for full functionality.
 
@@ -3546,17 +3518,20 @@ If you use this module, do not use the Palette 2 plugin for Octoprint as they wi
 ```
 [palette2]
 serial:
-#   The serial port to connect to the Palette 2.
+#   连接到 Palette 2 的串口。
 #baud: 115200
-#   The baud rate to use. The default is 115200.
+#   使用的波特率。
+#   默认为115200。
 #feedrate_splice: 0.8
-#   The feedrate to use when splicing, default is 0.8
+#   融接时的给进率
+#   默认为0.8。
 #feedrate_normal: 1.0
-#   The feedrate to use after splicing, default is 1.0
+#   不在融接时的给进率 1.0
 #auto_load_speed: 2
-#   Extrude feedrate when autoloading, default is 2 (mm/s)
+#   自动换料时的给近率
+#   默认 2 (mm/s)
 #auto_cancel_variation: 0.1
-#   Auto cancel print when ping varation is above this threshold
+#   # 当 ping 值变化高于此阈值时自动取消打印
 ```
 
 ## 通用总线参数
