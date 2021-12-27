@@ -1,12 +1,12 @@
 # Manual leveling
 
-This document describes tools for calibrating a Z endstop and for performing adjustments to bed leveling screws.
+本文介绍了用于校准Z限位和对打印床调品螺丝进行调整的工具。
 
-## Calibrating a Z endstop
+## 校准 Z 限位
 
-An accurate Z endstop position is critical to obtaining high quality prints.
+准确的 Z 轴限位位置对于获得高质量打印至关重要。
 
-Note, though, the accuracy of the Z endstop switch itself can be a limiting factor. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of the switch.
+请注意，Z 限位开关本身的精度限制了调平的精度。如果使用 Trinamic 步进电机驱动，那么可以考虑启用[限位相位](Endstop_Phase.md)检测以提高开关的精度。
 
 To perform a Z endstop calibration, home the printer, command the head to move to a Z position that is at least five millimeters above the bed (if it is not already), command the head to move to an XY position near the center of the bed, then navigate to the OctoPrint terminal tab and run:
 

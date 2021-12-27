@@ -23,101 +23,101 @@
 
 `display_status` 对象中提供以下信息（如果定义了 [display](Config_Reference.md#display) 配置分段，则该对象自动可用）：
 
-- `progress`: The progress value of the last `M73` G-Code command (or `virtual_sdcard.progress` if no recent `M73` received).
-- `message`: The message contained in the last `M117` G-Code command.
+- `progress`：最后一个 `M73` G代码命令报告的进度（如果没有收到`M73`，则会用`virtual_sdcard.progress`替代）。
+- `message`：最后一条 `M117` G代码命令中包含的消息。
 
 ## endstop_phase
 
-The following information is available in the [endstop_phase](Config_Reference.md#endstop_phase) object:
+[endstop_phase](Config_Reference.md#endstop_phase) 对象中提供了以下信息：
 
-- `last_home.<stepper name>.phase`: The phase of the stepper motor at the end of the last home attempt.
-- `last_home.<stepper name>.phases`: The total number of phases available on the stepper motor.
-- `last_home.<stepper name>.mcu_position`: The position (as tracked by the micro-controller) of the stepper motor at the end of the last home attempt. The position is the total number of steps taken in a forward direction minus the total number of steps taken in the reverse direction since the micro-controller was last restarted.
+- `last_home.<步进电机名>.phase`：最后一次归为尝试结束时步进电机的相位。
+- `last_home.<步进电机名称>.phase`：步进电机上可用的总相数。
+- `last_home.<步进电机名称>.mcu_position`：步进电机在上次归位尝试结束时的位置（由微控制器跟踪）。该位置是自微控制器最后一次重启以来，向前走的总步数减去反向走的总步数。
 
 ## fan
 
-The following information is available in [fan](Config_Reference.md#fan), [heater_fan some_name](Config_Reference.md#heater_fan) and [controller_fan some_name](Config_Reference.md#controller_fan) objects:
+[fan](Config_Reference.md#fan)、[heater_fan some_name](Config_Reference.md#heater_fan)和[controller_fan some_name](Config_Reference.md#controller_fan)对象提供了以下信息：
 
-- `speed`: The fan speed as a float between 0.0 and 1.0.
-- `rpm`: The measured fan speed in rotations per minute if the fan has a tachometer_pin defined.
+- `speed`：风扇速度，0.0和1.0之间的浮点数。
+- `rpm`：如果风扇有一个 tachometer_pin，则测量的风扇速度，单位是每分钟转数。
 
 ## filament_switch_sensor
 
-The following information is available in [filament_switch_sensor some_name](Config_Reference.md#filament_switch_sensor) objects:
+[filament_switch_sensor some_name](Config_Reference.md#filament_switch_sensor) 对象提供了以下信息：
 
-- `enabled`: Returns True if the switch sensor is currently enabled.
-- `filament_detected`: Returns True if the sensor is in a triggered state.
+- `enabled`：如果开关传感器当前已启用，则返回True。
+- `filament_detected`：如果传感器处于触发状态，则返回 True。
 
 ## filament_motion_sensor
 
-The following information is available in [filament_motion_sensor some_name](Config_Reference.md#filament_motion_sensor) objects:
+[filament_motion_sensor 传感器名](Config_Reference.md#filament_motion_sensor) 对象提供了以下信息：
 
-- `enabled`: Returns True if the motion sensor is currently enabled.
-- `filament_detected`: Returns True if the sensor is in a triggered state.
+- `enabled`：如果当前启用了运动传感器，则返回 True。
+- `filament_detected`：如果传感器处于触发状态，则返回 True。
 
 ## firmware_retraction
 
-The following information is available in the [firmware_retraction](Config_Reference.md#firmware_retraction) object:
+[firmware_retraction](Config_Reference.md#firmware_retraction) 对象提供了以下信息：
 
-- `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`: The current settings for the firmware_retraction module. These settings may differ from the config file if a `SET_RETRACTION` command alters them.
+- `retract_length`、`retract_speed`、`unretract_extra_length`、`unretract_speed`：firmware_retraction 模块的当前设置。如果 `SET_RETRACTION` 命令改变它们，这些设置可能与配置文件不同。
 
 ## gcode_macro
 
-The following information is available in [gcode_macro some_name](Config_Reference.md#gcode_macro) objects:
+[gcode_macro <名称> 对象提供了以下信息：
 
-- `<variable>`: The current value of a [gcode_macro variable](Command_Templates.md#variables).
+- `<变量名>`：[gcode_macro 变量](Command_Templates.md#variables) 的当前值。
 
 ## gcode_move
 
-The following information is available in the `gcode_move` object (this object is always available):
+`gcode_move` 对象中提供了以下信息（该对象始终可用）：
 
-- `gcode_position`: The current position of the toolhead relative to the current G-Code origin. That is, positions that one might directly send to a `G1` command. It is possible to access the x, y, z, and e components of this position (eg, `gcode_position.x`).
+- `gcode_position`：工具头相对于当前 G 代码原点的当前位置。也就是可以直接被发送到`G1`命令的位置。可以分别访问这个位置的x、y、z和e分量（例如，`gcode_position.x`）。
 - `position`: The last commanded position of the toolhead using the coordinate system specified in the config file. It is possible to access the x, y, z, and e components of this position (eg, `position.x`).
-- `homing_origin`: The origin of the gcode coordinate system (relative to the coordinate system specified in the config file) to use after a `G28` command. The `SET_GCODE_OFFSET` command can alter this position. It is possible to access the x, y, and z components of this position (eg, `homing_origin.x`).
-- `speed`: The last speed set in a `G1` command (in mm/s).
-- `speed_factor`: The "speed factor override" as set by an `M220` command. This is a floating point value such that 1.0 means no override and, for example, 2.0 would double requested speed.
-- `extrude_factor`: The "extrude factor override" as set by an `M221` command. This is a floating point value such that 1.0 means no override and, for example, 2.0 would double requested extrusions.
-- `absolute_coordinates`: This returns True if in `G90` absolute coordinate mode or False if in `G91` relative mode.
-- `absolute_extrude`: This returns True if in `M82` absolute extrude mode or False if in `M83` relative mode.
+- `homing_origin`：在`G28`命令之后要使用的 G-Code 坐标系的原点（相对于配置文件中定义的坐标系）。`SET_GCODE_OFFSET` 命令可以改变这个位置。可以分别访问这个位置的x、y和z分量（例如，`homing_origin.x`）。
+- `speed`：在`G1`命令中最后一次设定的速度（单位：mm/s）。
+- `speed_factor`：通过 `M220` 命令设置的"速度因子覆盖"。这是一个浮点值，1.0 意味着没有覆盖，例如，2.0 将请求的速度翻倍。
+- `extrude_factor`：由`M221`命令设置的"挤出倍率覆盖" 。这是一个浮点值，1.0意味着没有覆盖，例如，2.0将使要求的挤出量翻倍。
+- `absolute_coordinates`：如果在 `G90` 绝对坐标模式下，则返回 True；如果在 `G91` 相对模式下，则返回 False。
+- `absolute_extrude`：如果在`M82`绝对挤出模式，则返回True；如果在`M83`相对模式，则返回False。
 
 ## hall_filament_width_sensor
 
-The following information is available in the [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor) object:
+[hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor) 对象提供了以下信息：
 
-- `is_active`: Returns True if the sensor is currently active.
-- `Diameter`, `Raw`: The last read values from the sensor.
+- `is_active`：如果传感器当前处于活动状态，返回True。
+- `Diameter`、`Raw`：最后一次从传感器读取的值。
 
 ## heater
 
-The following information is available for heater objects such as [extruder](Config_Reference.md#extruder), [heater_bed](Config_Reference.md#heater_bed), and [heater_generic](Config_Reference.md#heater_generic):
+加热器对象，如[extruder](Config_Reference.md#extruder)、[heater_bed](Config_Reference.md#heater_bed)和[heater_generic](Config_Reference.md#heater_generic)，提供了以下信息：
 
-- `temperature`: The last reported temperature (in Celsius as a float) for the given heater.
-- `target`: The current target temperature (in Celsius as a float) for the given heater.
-- `power`: The last setting of the PWM pin (a value between 0.0 and 1.0) associated with the heater.
-- `can_extrude`: If extruder can extrude (defined by `min_extrude_temp`), available only for [extruder](Config_Reference.md#extruder)
+- `temperature`：给定加热器最后报告的温度（以摄氏度为单位的浮点数）。
+- `target`：给定加热器的当前目标温度（以摄氏度为单位的浮点数）。
+- `power`：与加热器相关的 PWM 引脚的最后设置（0.0和1.0之间的数值）。
+- `can_extrude`：挤出机是否可以挤出（由`min_extrude_temp`定义），仅可用于[extruder](Config_Reference.md#extruder)
 
 ## heaters
 
-The following information is available in the `heaters` object (this object is available if any heater is defined):
+`heaters` 对象中提供以下信息（如果定义了任何加热器，则该对象可用）：
 
-- `available_heaters`: Returns a list of all currently available heaters by their full config section names, e.g. `["extruder", "heater_bed", "heater_generic my_custom_heater"]`.
-- `available_sensors`: Returns a list of all currently available temperature sensors by their full config section names, e.g. `["extruder", "heater_bed", "heater_generic my_custom_heater", "temperature_sensor electronics_temp"]`.
+- `available_heaters`：返回所有当前可用加热器的完整配置分段名称，例如 `["extruder"、"heater_bed"、"heater_generic my_custom_heater"]`。
+- `available_sensors`：返回所有当前可用的温度传感器的完整配置分段名称列表，例如：`["extruder", "heater_bed", "heater_generic my_custom_heater", "temperature_sensor electronics_temp"] `。
 
 ## idle_timeout
 
-The following information is available in the [idle_timeout](Config_Reference.md#idle_timeout) object (this object is always available):
+[idle_timeout](Config_Reference.md#idle_timeout) 对象中提供了以下信息（该对象始终可用）：
 
-- `state`: The current state of the printer as tracked by the idle_timeout module. It is one of the following strings: "Idle", "Printing", "Ready".
-- `printing_time`: The amount of time (in seconds) the printer has been in the "Printing" state (as tracked by the idle_timeout module).
+- `state`：由 idle_timeout 模块跟踪的打印机的当前状态。它可以是以下字符串之一："Idle", "Printing", "Ready"。
+- `printing_time`：打印机处于“Printing”状态的时间（以秒为单位）（由 idle_timeout 模块跟踪）。
 
 ## mcu
 
-The following information is available in [mcu](Config_Reference.md#mcu) and [mcu some_name](Config_Reference.md#mcu-my_extra_mcu) objects:
+[mcu](Config_Reference.md#mcu)和[mcu 名称](Config_Reference.md#mcu-my_extra_mcu)对象中提供了以下信息。
 
-- `mcu_version`: The Klipper code version reported by the micro-controller.
-- `mcu_build_versions`: Information on the build tools used to generate the micro-controller code (as reported by the micro-controller).
-- `mcu_constants.<constant_name>`: Compile time constants reported by the micro-controller. The available constants may differ between micro-controller architectures and with each code revision.
-- `last_stats.<statistics_name>`: Statistics information on the micro-controller connection.
+- `mcu_version`：由微控制器报告的 Klipper 代码版本。
+- `mcu_build_versions`：有关用于生成微控制器代码的构建工具的信息（由微控制器报告）。
+- `mcu_constants.<常量名>`：由微控制器报告编译时使用的常量。可用的常量在不同的微控制器架构和每个代码修订版中可能有所不同。
+- `last_stats.<统计信息名>`：关于微控制器连接的统计信息。
 
 ## motion_report
 
@@ -129,83 +129,83 @@ The following information is available in the `motion_report` object (this objec
 
 ## output_pin
 
-The following information is available in [output_pin some_name](Config_Reference.md#output_pin) objects:
+[output_pin <配置名称> 对象提供以下信息：
 
-- `value`: The "value" of the pin, as set by a `SET_PIN` command.
+- `value`：由`SET_PIN`指令设置的引脚“值”。
 
 ## palette2
 
-The following information is available in the [palette2](Config_Reference.md#palette2) object:
+[palette2](Config_Reference.md#palette2) 对象提供了以下信息：
 
-- `ping`: Amount of the last reported Palette 2 ping in percent.
-- `remaining_load_length`: When starting a Palette 2 print, this will be the amount of filament to load into the extruder.
-- `is_splicing`: True when the Palette 2 is splicing filament.
+- `ping`。最后一次报告的Palette 2 ping值（百分比）。
+- `remaining_load_length`：当开始一个使用 Palette 2 的打印时，这是需要加载到挤出机中的耗材长度。
+- `is_splicing`：当Palette 2正在拼接耗材时为 True。
 
 ## pause_resume
 
-The following information is available in the [pause_resume](Config_Reference.md#pause_resume) object:
+[palette2](Config_Reference.md#palette2) 对象提供了以下信息：
 
-- `is_paused`: Returns true if a PAUSE command has been executed without a corresponding RESUME.
+- `is_paused`：如果执行了 PAUSE 命令而没有执行 RESUME，则返回 True。
 
 ## print_stats
 
-The following information is available in the `print_stats` object (this object is automatically available if a [virtual_sdcard](Config_Reference.md#virtual_sdcard) config section is defined):
+`print_stats` 对象提供了以下信息（如果定义了 [virtual_sdcard](Config_Reference.md#virtual_sdcard) 配置分段，则此对象自动可用）：
 
-- `filename`, `total_duration`, `print_duration`, `filament_used`, `state`, `message`: Estimated information about the current print when a virtual_sdcard print is active.
+- `filename`、`total_duration`、`print_duration`、`filament_used`、`state`、`message`：virtual_sdcard 打印处于活动状态时有关当前打印的估测。
 
 ## probe
 
-The following information is available in the [probe](Config_Reference.md#probe) object (this object is also available if a [bltouch](Config_Reference.md#bltouch) config section is defined):
+[probe](Config_Reference.md#probe) 对象中提供了以下信息（如果定义了 [bltouch](Config_Reference.md#bltouch) 配置分段，则此对象也可用）：
 
-- `last_query`: Returns True if the probe was reported as "triggered" during the last QUERY_PROBE command. Note, if this is used in a macro, due to the order of template expansion, the QUERY_PROBE command must be run prior to the macro containing this reference.
+- `last_query`：如果探针在上一个 QUERY_PROBE 命令期间报告为"已触发"，则返回 True。请注意，如果在宏中使用它，根据模板展开的顺序，必须在包含此引用的宏之前运行 QUERY_PROBE 命令。
 - `last_z_result`: Returns the Z result value of the last PROBE command. Note, if this is used in a macro, due to the order of template expansion, the PROBE (or similar) command must be run prior to the macro containing this reference.
 
 ## quad_gantry_level
 
-The following information is available in the `quad_gantry_level` object (this object is available if quad_gantry_level is defined):
+`quad_gantry_level` 对象提供了以下信息（如果定义了 quad_gantry_level，则该对象可用）：
 
-- `applied`: True if the gantry leveling process has been run and completed successfully.
+- `applied`：如果龙门调平已运行并成功完成，则为 True。
 
 ## query_endstops
 
-The following information is available in the `query_endstops` object (this object is available if any endstop is defined):
+`query_endstops` 对象提供以下信息（如果定义了任何限位，则该对象可用）：
 
-- `last_query["<endstop>"]`: Returns True if the given endstop was reported as "triggered" during the last QUERY_ENDSTOP command. Note, if this is used in a macro, due to the order of template expansion, the QUERY_ENDSTOP command must be run prior to the macro containing this reference.
+- `last_query["<限位>"]`：如果在最后一次 QUERY_ENDSTOP 命令中，给定的 endstop 处于“触发”状态，则返回 True。注意，如果在宏中使用，由于模板扩展的顺序，QUERY_ENDSTOP 命令必须在包含这个引用的宏之前运行。
 
 ## servo
 
-The following information is available in [servo some_name](Config_Reference.md#servo) objects:
+[servo some_name](Config_Reference.md#servo) 对象提供了以下信息：
 
-- `printer["servo <config_name>"].value`: The last setting of the PWM pin (a value between 0.0 and 1.0) associated with the servo.
+- `printer["servo <配置名>"].value`：与指定伺服相关 PWM 引脚的上一次设置的值（0.0 和 1.0 之间的值）。
 
 ## system_stats
 
-The following information is available in the `system_stats` object (this object is always available):
+`system_stats` 对象提供了以下信息（该对象始终可用）：
 
-- `sysload`, `cputime`, `memavail`: Information on the host operating system and process load.
+- `sysload`、`cputime`、`memavail`：关于主机操作系统和进程负载的信息。
 
-## temperature sensors
+## 温度传感器
 
-The following information is available in
+以下信息可在
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), and [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) objects:
+[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor)、[htu21d config_section_name](Config_Reference.md#htu21d-sensor)、[lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor)和[temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) 对象：
 
-- `temperature`: The last read temperature from the sensor.
-- `humidity`, `pressure`, `gas`: The last read values from the sensor (only on bme280, htu21d, and lm75 sensors).
+- `temperature`：上一次从传感器读取的温度。
+- `hemidity`、`pressure`和`gas`：传感器上一次读取的值（仅在bme280、htu21d和lm75传感器上）。
 
 ## temperature_fan
 
-The following information is available in [temperature_fan some_name](Config_Reference.md#temperature_fan) objects:
+[temperature_fan some_name](Config_Reference.md#temperature_fan) 对象提供了以下信息：
 
-- `temperature`: The last read temperature from the sensor.
-- `target`: The target temperature for the fan.
+- `temperature`：上一次从传感器读取的温度。
+- `target`：风扇目标温度。
 
 ## temperature_sensor
 
-The following information is available in [temperature_sensor some_name](Config_Reference.md#temperature_sensor) objects:
+[temperature_sensor some_name](Config_Reference.md#temperature_sensor) 对象提供了以下信息：
 
-- `temperature`: The last read temperature from the sensor.
-- `measured_min_temp`, `measured_max_temp`: The lowest and highest temperature seen by the sensor since the Klipper host software was last restarted.
+- `temperature`：上一次从传感器读取的温度。
+- `measured_min_temp`和`measured_max_temp`：自Klipper主机软件上次重新启动以来，传感器测量的最低和最高温度。
 
 ## tmc drivers
 
@@ -219,14 +219,14 @@ The following information is available in [TMC stepper driver](Config_Reference.
 
 ## toolhead
 
-The following information is available in the `toolhead` object (this object is always available):
+`toolhead` 对象提供了以下信息（该对象始终可用）：
 
 - `position`: The last commanded position of the toolhead relative to the coordinate system specified in the config file. It is possible to access the x, y, z, and e components of this position (eg, `position.x`).
-- `extruder`: The name of the currently active extruder. For example, in a macro one could use `printer[printer.toolhead.extruder].target` to get the target temperature of the current extruder.
-- `homed_axes`: The current cartesian axes considered to be in a "homed" state. This is a string containing one or more of "x", "y", "z".
-- `axis_minimum`, `axis_maximum`: The axis travel limits (mm) after homing. It is possible to access the x, y, z components of this limit value (eg, `axis_minimum.x`, `axis_maximum.z`).
-- `max_velocity`, `max_accel`, `max_accel_to_decel`, `square_corner_velocity`: The current printing limits that are in effect. This may differ from the config file settings if a `SET_VELOCITY_LIMIT` (or `M204`) command alters them at run-time.
-- `stalls`: The total number of times (since the last restart) that the printer had to be paused because the toolhead moved faster than moves could be read from the G-Code input.
+- `extruder`：当前活跃的挤出机的名称。例如，在宏中可以使用`printer[printer.toolhead.extruder].target`来获取当前挤出机的目标温度。
+- `homed_axes`：当前被认为处于“已归位”状态的车轴。这是一个包含一个或多个"x"、"y"、"z"的字符串。
+- `axis_minimum`、`axis_maximum`：归位后的轴的行程限制（毫米）。可以访问此极限值的 x、y、z 分量（例如，`axis_minimum.x`、`axis_maximum.z`）。
+- `max_velocity`、`max_accel`、`max_accel_to_decel`和`square_corner_velocity`：当前生效的打印机限制。如果 `SET_VELOCITY_LIMIT`（或 `M204`）命令在运行时改变它们，这些值可能与配置文件设置不同。
+- `stalls`：由于工具头移动速度快于从 G 代码输入读取的移动速度，因此打印机必须暂停的总次数（自上次重新启动以来）。
 
 ## dual_carriage
 
@@ -237,26 +237,26 @@ The following information is available in [dual_carriage](Config_Reference.md#du
 
 ## virtual_sdcard
 
-The following information is available in the [virtual_sdcard](Config_Reference.md#virtual_sdcard) object:
+[virtual_sdcard](Config_Reference.md#virtual_sdcard)对象提供了以下信息：
 
-- `is_active`: Returns True if a print from file is currently active.
-- `progress`: An estimate of the current print progress (based of file size and file position).
+- `is_active`：如果正在从文件进行打印，则返回 True。
+- `progress`：对当前打印进度的估计（基于文件大小和文件位置）。
 - `file_path`: A full path to the file of currently loaded file.
-- `file_position`: The current position (in bytes) of an active print.
+- `file_position`：当前打印的位置（以字节为单位）。
 - `file_size`: The file size (in bytes) of currently loaded file.
 
 ## webhooks
 
-The following information is available in the `webhooks` object (this object is always available):
+`system_stats` 对象提供了以下信息（该对象始终可用）：
 
-- `state`: Returns a string indicating the current Klipper state. Possible values are: "ready", "startup", "shutdown", "error".
-- `state_message`: A human readable string giving additional context on the current Klipper state.
+- `state`：返回一个表示当前 Klipper 状态的字符串。可能的值为："ready"、"startup"、"shutdown"和"error"。
+- `state_message`：提供了一个包含当前 Klipper 状态和上下文的可读字符串。
 
 ## z_tilt
 
-The following information is available in the `z_tilt` object (this object is available if z_tilt is defined):
+`z_tilt` 对象提供了以下信息（如果定义了 z_tilt，则该对象可用）：
 
-- `applied`: True if the z-tilt leveling process has been run and completed successfully.
+- `applied`：如果 z 倾斜调平过程已运行并成功完成，则为 True。
 
 ## neopixel / dotstar
 
