@@ -565,7 +565,7 @@ anchor_z:
 
 ### 无运动学
 
-It is possible to define a special "none" kinematics to disable kinematic support in Klipper. This may be useful for controlling devices that are not typical 3d-printers or for debugging purposes.
+可以定义特殊的 "none" 运动学来禁用 Klipper 中的运动学支持。可以用于控制不是 3D 打印机的设备或调试。
 
 ```
 [printer]
@@ -1043,27 +1043,25 @@ home_xy_position:
 
 ```
 [homing_override]
-gcode:
-#   A list of G-Code commands to execute in place of G28 commands
-#   found in the normal g-code input. See docs/Command_Templates.md
-#   for G-Code format. If a G28 is contained in this list of commands
-#   then it will invoke the normal homing procedure for the printer.
-#   The commands listed here must home all axes. This parameter must
-#   be provided.
+gcode：
+#   覆盖常规 G28 命令的 G 代码命令序列。
+#   G 代码格式请参阅 docs/Command_Templates.md。如果
+#   G28 包含在此命令列表中，常规版本的G28会被调用并进
+#   行打印机的正常归位过程。此处列出的命令必须归位所
+#   有轴。
+#   必须提供此参数。
 #axes: xyz
-#   The axes to override. For example, if this is set to "z" then the
-#   override script will only be run when the z axis is homed (eg, via
-#   a "G28" or "G28 Z0" command). Note, the override script should
-#   still home all axes. The default is "xyz" which causes the
-#   override script to be run in place of all G28 commands.
-#set_position_x:
-#set_position_y:
-#set_position_z:
-#   If specified, the printer will assume the axis is at the specified
-#   position prior to running the above g-code commands. Setting this
-#   disables homing checks for that axis. This may be useful if the
-#   head must move prior to invoking the normal G28 mechanism for an
-#   axis. The default is to not force a position for an axis.
+#   要覆盖的轴。例如，如果将其设置为"z"，则覆盖脚本将
+#   仅在 z 轴被归位时运行（例如，通过"G28" 或 "G28 Z0"
+#   命令）。请注意，覆盖脚本仍然需要归位所有轴。
+#   默认值为"xyz"，覆盖全部所有 G28 命令。
+#set_position_x：
+#set_position_y：
+#set_position_z：
+#   如果指定，打印机将假定轴在运行上述 G 代码命令序列
+#   之前的位置。该设置会禁用相应轴的归位检查。在打印
+#   头必须在执行常规 G28 机制前移动相应的轴时有用。
+#   默认不假定轴的位置。
 ```
 
 ### [endstop_phase]
@@ -1098,30 +1096,28 @@ See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes
 G-Code宏（"gcode_macro"前缀定义的G-Code 宏分段没有数量限制）。更多信息请参见[命令模板指南](Command_Templates.md)。
 
 ```
-[gcode_macro my_cmd]
+[gcode_macro 命令] 。
 #gcode:
-#   A list of G-Code commands to execute in place of "my_cmd". See
-#   docs/Command_Templates.md for G-Code format. This parameter must
-#   be provided.
-#variable_<name>:
-#   One may specify any number of options with a "variable_" prefix.
-#   The given variable name will be assigned the given value (parsed
-#   as a Python literal) and will be available during macro expansion.
-#   For example, a config with "variable_fan_speed = 75" might have
-#   gcode commands containing "M106 S{ fan_speed * 255 }". Variables
-#   can be changed at run-time using the SET_GCODE_VARIABLE command
-#   (see docs/Command_Templates.md for details). Variable names may
-#   not use upper case characters.
+#   一个替代"命令" 执行的 G 代码命令的列表。请看
+#   docs/Command_Templates.md 了解支持的 G 代码格式。
+#   必须提供此参数。
+#variable_<名称>:
+#   可以指定任意数量的带有"变量_"前缀的设置。
+#   定义的变量名将被赋予给定的值（并被解析为作为一个
+#   Python Literal），并在宏扩展时可用。
+#   例如，一个带有"variable_fan_speed = 75"的 G-Code 命令的
+#   G 代码列表中可以包含"M106 S{ fan_speed * 255 }"。变量
+#   可以在运行时使用 SET_GCODE_VARIABLE 命令进行修改
+#   （详见docs/Command_Templates.md）。变量名称
+#   不能使用大写字母。
 #rename_existing:
-#   This option will cause the macro to override an existing G-Code
-#   command and provide the previous definition of the command via the
-#   name provided here. This can be used to override builtin G-Code
-#   commands. Care should be taken when overriding commands as it can
-#   cause complex and unexpected results. The default is to not
-#   override an existing G-Code command.
+#   这个选项将导致宏覆盖一个现有的 G-Code 命令，并通过
+#   这里提供的名称引用该命令的先前定义。覆盖命令时应注
+#   意，因为它可能会导致复杂和意外的错误。
+#   默认不覆盖现有的 G-Code 命令。
 #description: G-Code macro
-#   This will add a short description used at the HELP command or while
-#   using the auto completion feature. Default "G-Code macro"
+#   在 HELP 命令或自动完成中使用的简单描述。
+#   默认为"G-Code macro"。
 ```
 
 ### [delayed_gcode]
@@ -1559,7 +1555,7 @@ Multi-stepper axes. On a cartesian style printer, the stepper controlling a give
 
 ### [extruder1]
 
-In a multi-extruder printer add an additional extruder section for each additional extruder. The additional extruder sections should be named "extruder1", "extruder2", "extruder3", and so on. See the "extruder" section for a description of available parameters.
+在一个多挤出机的打印机中，为每个额外的挤出机添加一个额外挤出机分段。额外挤出机分段应被命名为"extruder1"、"extruder2"、"extruder3"，以此类推。有关可用参数，参见"extruder"章节。
 
 See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an example configuration.
 
@@ -1791,7 +1787,7 @@ Tool to disable heaters when homing or probing an axis.
 
 ## Temperature sensors
 
-Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heated_bed]` section).
+Klipper 包括许多类型的温度传感器的定义。这些传感器可以在任何需要温度传感器的配置分段中使用（例如`[extruder]`或`[heated_bed]`分段）。
 
 ### 常见热敏电阻
 
@@ -1848,7 +1844,7 @@ sensor_pin:
 
 ### MAXxxxxx 温度传感器
 
-MAXxxxxx serial peripheral interface (SPI) temperature based sensors. The following parameters are available in heater sections that use one of these sensor types.
+MAXxxxxx 串行外设接口（SPI）温度传感器。以下参数在使用该类型传感器的加热器分段中可用。
 
 ```
 sensor_type:
@@ -1898,7 +1894,7 @@ sensor_type: BME280
 
 ### HTU21D 传感器
 
-HTU21D family two wire interface (I2C) environmental sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
+HTU21D 系列双线接口（I2C）环境传感器。注意，这种传感器不适用于挤出机和加热床，它们可以用于监测环境温度（C）和相对湿度。参见 [sample-macros.cfg](../config/sample-macros.cfg) 中可以报告温度和湿度的 gcode_macro。
 
 ```
 sensor_type:
@@ -1928,7 +1924,7 @@ sensor_type:
 
 ### LM75 温度传感器
 
-LM75/LM75A two wire (I2C) connected temperature sensors. These sensors have range up to 125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers.
+LM75/LM75A 两线 (I2C) 温度传感器。这些传感器的最高温度高达 125 C，因此可用于例如腔室温度监测。它们还可以用作简单的风扇或加热器控制器。
 
 ```
 sensor_type: LM75
@@ -2187,7 +2183,7 @@ See the [command reference](G-Codes.md#temperature-fan-commands) for additional 
 
 ### [fan_generic]
 
-Manually controlled fan (one may define any number of sections with a "fan_generic" prefix). The speed of a manually controlled fan is set with the SET_FAN_SPEED [gcode command](G-Codes.md#manually-controlled-fans-commands).
+手动控制的风扇（可以用"fan_generic"前缀来定义任何数量的手动控制风扇）。手动控制风扇的速度通过SET_FAN_SPEED [G代码命令](G-Code.md#manually-controlled-fans-commands)进行设置。
 
 ```
 [fan_generic extruder_partfan]
@@ -2307,23 +2303,20 @@ PCA9533 LED支持。PCA9533 在 mightyboard上出现。
 ```
 [gcode_button my_gcode_button]
 pin:
-#   连接到按键的引脚。
+#   连接到按钮的引脚。
 #   必须提供此参数。
 #analog_range:
-#   Two comma separated resistances (in Ohms) specifying the minimum
-#   and maximum resistance range for the button. If analog_range is
-#   provided then the pin must be an analog capable pin. The default
-#   is to use digital gpio for the button.
-#analog_pullup_resistor:
-#   The pullup resistance (in Ohms) when analog_range is specified.
-#   The default is 4700 ohms.
+#   两个逗号分隔的阻值(单位：欧姆)，指定了按钮的最小和最大电阻。
+#   如果提供了 analog_range ，必须使用一个模拟功能的引脚。默认
+#   情况下为按钮使用数字GPIO。
+#   analog_pullup_resistor:
+#   当定义 analog_range 时的上拉电阻(欧姆)。默认为4700欧姆。
 #press_gcode:
-#   A list of G-Code commands to execute when the button is pressed.
-#   G-Code templates are supported. This parameter must be provided.
+#   当按钮被按下时要执行的 G-Code 命令序列，支持G-Code模板。
+#   必须提供此参数。
 #release_gcode:
-#   A list of G-Code commands to execute when the button is released.
-#   G-Code templates are supported. The default is to not run any
-#   commands on a button release.
+#   当按钮被释放时要执行的G-Code命令序列，支持G-Code模板。
+#   默认在按钮释放时不运行任何命令。
 ```
 
 ### [output_pin]
@@ -2948,7 +2941,7 @@ lcd_type:
 
 ### hd44780显示器
 
-Information on configuring hd44780 displays (which is used in "RepRapDiscount 2004 Smart Controller" type displays).
+有关配置 hd44780 显示器（在"RepRapDiscount 2004 Smart Controller"类型显示屏中可以找到）的信息。
 
 ```
 [display]
@@ -2975,7 +2968,7 @@ d7_pin:
 
 ### hd44780_spi显示器
 
-Information on configuring an hd44780_spi display - a 20x04 display controlled via a hardware "shift register" (which is used in mightyboard based printers).
+有关配置 hd44780_spi 显示屏的信息 - 通过硬件"移位寄存器"（用于基于 mightyboard 的打印机）控制的20x04显示器。
 
 ```
 [display]
@@ -3018,7 +3011,7 @@ sid_pin:
 
 ### emulated_st7920（模拟ST7920）显示屏
 
-Information on configuring an emulated st7920 display - found in some "2.4 inch touchscreen devices" and similar.
+有关配置模拟 st7920 显示屏的信息 —它可以在一些"2.4 寸触摸屏"和其他类似设备中找到。
 
 ```
 [display]
@@ -3039,7 +3032,7 @@ spi_software_miso_pin:
 
 ### uc1701 display
 
-Information on configuring uc1701 displays (which is used in "MKS Mini 12864" type displays).
+有关配置 uc1701 显示屏的信息（用于“MKS Mini 12864”型显示屏）。
 
 ```
 [display]
@@ -3163,7 +3156,7 @@ See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples.
 
 ## [display my_extra_display]
 
-If a primary [display] section has been defined in printer.cfg as shown above it is possible to define multiple auxiliary displays. Note that auxiliary displays do not currently support menu functionality, thus they do not support the "menu" options or button configuration.
+如果如上所示在 printer.cfg 中定义了主要的 [display] 分段，还可以定义多个辅助显示器。注意，辅助显示器当前不支持菜单功能，因此它们不支持“menu”选项或按钮配置。
 
 ```
 [display my_extra_display] 。
@@ -3511,7 +3504,7 @@ Palette 2 多材料支持 - 提供更紧密的集成，支持处于连接模式�
 
 This modules also requires `[virtual_sdcard]` and `[pause_resume]` for full functionality.
 
-If you use this module, do not use the Palette 2 plugin for Octoprint as they will conflict, and 1 will fail to initialize properly likely aborting your print.
+不要和 Octoprint 的 Palette 2插件一起使用这个模块，因为它们会发生冲突，造成初始化和打印失败。
 
 如果使用 OctoPrint 并通过串行端口流式传输 G-Code，而不通过 virtual_sd 打印，将 * 设置>串行连接>固件和协议 * 中的“暂停命令” 设置为**M1** 和 **M0** 可以避免在开始打印时需要在Palette 2 上选择开始打印并在 OctoPrint 中取消暂停。
 

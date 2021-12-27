@@ -33,11 +33,11 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 ```
 
-This will be showing is you use the `HELP` command or use the autocomplete function.
+会显示和使用`HELP`命令或使用自动完成功能时一样的文本。
 
 ## 保存/恢复 G-Code 移动的状态
 
-Unfortunately, the G-Code command language can be challenging to use. The standard mechanism to move the toolhead is via the `G1` command (the `G0` command is an alias for `G1` and it can be used interchangeably with it). However, this command relies on the "G-Code parsing state" setup by `M82`, `M83`, `G90`, `G91`, `G92`, and previous `G1` commands. When creating a G-Code macro it is a good idea to always explicitly set the G-Code parsing state prior to issuing a `G1` command. (Otherwise, there is a risk the `G1` command will make an undesirable request.)
+不幸的是，G-Code 命令语言在使用上有些难度。移动工具头的标准机制是通过 `G1` 命令（`G0` 命令是 `G1` 的别名，它们互换使用）。然而，这个命令依赖于由`M82`、`M83`、`G90`、`G91`、`G92`, 以及先前的`G1`命令所设置的"G-Code解析状态"。在创建 G-Code 宏时，最好在发出`G1`命令之前，先明确 G-Code 解析状态。(否则，`G1` 命令就有可能提出一个不符合预期的请求。）
 
 A common way to accomplish that is to wrap the `G1` moves in `SAVE_GCODE_STATE`, `G91`, and `RESTORE_GCODE_STATE`. For example:
 
@@ -52,7 +52,7 @@ gcode:
 
 The `G91` command places the G-Code parsing state into "relative move mode" and the `RESTORE_GCODE_STATE` command restores the state to what it was prior to entering the macro. Be sure to specify an explicit speed (via the `F` parameter) on the first `G1` command.
 
-## Template expansion
+## 模板扩展
 
 The gcode_macro `gcode:` config section is evaluated using the Jinja2 template language. One can evaluate expressions at run-time by wrapping them in `{ }` characters or use conditional statements wrapped in `{% %}`. See the [Jinja2 documentation](http://jinja.pocoo.org/docs/2.10/templates/) for further information on the syntax.
 

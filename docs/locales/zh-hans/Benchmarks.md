@@ -49,13 +49,13 @@ clear_shutdown
 
 为了获得单一步进电机的基准测试，使用了相同的配置序列，但只将上述测试的第一块剪切并粘贴到 console.py 窗口。
 
-To produce the benchmarks found in the [Features](Features.md) document, the total number of steps per second is calculated by multiplying the number of active steppers with the nominal mcu frequency and dividing by the final ticks parameter. The results are rounded to the nearest K. For example, with three active steppers:
+为了生成 [功能](Features.md) 文档中的基准测试结果，每秒总步数的计算方法是将活动步进器的数量与标称 mcu 频率相乘，然后除以最终的 ticks 参数。结果四舍五入到最接近的 K。例如，使用三个活动步进器：
 
 ```
 ECHO Test result is: {"%.0fK" % (3. * freq / ticks / 1000.)}
 ```
 
-The benchmarks are run with parameters suitable for TMC Drivers. For micro-controllers that support `STEPPER_BOTH_EDGE=1` (as reported in the `MCU config` line when console.py first starts) use `step_pulse_duration=0` and `invert_step=-1` to enable optimized stepping on both edges of the step pulse. For other micro-controllers use a `step_pulse_duration` corresponding to 100ns.
+基准的运行参数必须和 TMC 驱动相匹配。对于支持 `STEPPER_BOTH_EDGE=1` 的微控制器（控制台启动时`MCU config`行中会报告）使用 `step_pulse_duration=0` 和 `invert_step=-1` 来启用步进脉冲的两边上的优化。对于其他微控制器，使用对应 100ns 的 `step_pulse_duration`。
 
 ### AVR步进率基准测试
 
@@ -69,7 +69,7 @@ config_stepper oid=2 step_pin=PC7 dir_pin=PC6 invert_step=0 step_pulse_ticks=32
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `avr-gcc (GCC) 5.4.0`. Both the 16Mhz and 20Mhz tests were run using simulavr configured for an atmega644p (previous tests have confirmed simulavr results match tests on both a 16Mhz at90usb and a 16Mhz atmega2560).
+该测试最后一次运行使用了提交 `59314d99` 与 gcc 版本 `avr-gcc （GCC） 5.4.0`。16Mhz 和 20Mhz 测试都使用了按 atmega644p 配置的 simulavr 运行（以前的测试已经确认了16Mhz at90usb 和16Mhz atmega2560 的实际性能与 simulavr 结果相似）。
 
 | avr | ticks |
 | --- | --- |
@@ -88,7 +88,7 @@ config_stepper oid=2 step_pin=PA21 dir_pin=PC30 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+测试最后在提交 `59314d99` 上运行，gcc 版本为 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`。
 
 | sam3x8e | ticks |
 | --- | --- |
@@ -107,7 +107,7 @@ config_stepper oid=2 step_pin=PC26 dir_pin=PB4 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+测试最后在提交 `59314d99` 上运行，gcc 版本为 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`。
 
 | sam4s8c | ticks |
 | --- | --- |
@@ -126,7 +126,7 @@ config_stepper oid=2 step_pin=PD8 dir_pin=PD13 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `gcc version 10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`.
+测试最后在提交 `59314d99` 上运行，gcc 版本 `gcc 版本 10.3.1 20210621（发布版） (GNU Arm Embedded Toolchain 10.3-2021.07)`。
 
 | sam4e8e | ticks |
 | --- | --- |
@@ -145,7 +145,7 @@ config_stepper oid=2 step_pin=gpio0_22 dir_pin=gpio2_1 invert_step=0 step_pulse_
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `pru-gcc (GCC) 8.0.0 20170530 (experimental)`.
+测试最后在提交 `59314d99` 上运行，gcc 版本为 `pru-gcc (GCC) 8.0.0 20170530（实验版）`。
 
 | 可编程实时单元 | ticks |
 | --- | --- |
@@ -164,7 +164,7 @@ config_stepper oid=2 step_pin=PB8 dir_pin=PA2 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+测试最后在提交 `59314d99` 上运行，gcc 版本为 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`。
 
 | stm32f042 | ticks |
 | --- | --- |
@@ -183,7 +183,7 @@ config_stepper oid=2 step_pin=PA4 dir_pin=PB7 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+测试最后在提交 `59314d99` 上运行，gcc 版本为 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`。
 
 | stm32f103 | ticks |
 | --- | --- |
@@ -202,7 +202,7 @@ config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The STM32F407 results were obtained by running an STM32F407 binary on an STM32F446 (and thus using a 168Mhz clock).
+该测试最后一次运行使用了提交`59314d99`，gcc版本`arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`。STM32F407 的结果是通过在 STM32F446 上运行 STM32F407 二进制文件得到的（因此时钟是 168Mhz ）。
 
 | stm32f446 | ticks |
 | --- | --- |
@@ -226,7 +226,7 @@ config_stepper oid=2 step_pin=P1.23 dir_pin=P1.18 invert_step=-1 step_pulse_tick
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The 120Mhz LPC1769 results were obtained by overclocking an LPC1768 to 120Mhz.
+该测试最后一次运行使用了提交 `59314d99`，gcc 版本 `arm-none-eabi-gcc （Fedora 10.2.0-4.fc34） 10.2.0`。120Mhz LPC1769 的结果是通过将 LPC1768 超频到 120Mhz 而获得的。
 
 | lpc1768 | ticks |
 | --- | --- |
@@ -250,7 +250,7 @@ config_stepper oid=2 step_pin=PA17 dir_pin=PA21 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD21G18 micro-controller.
+该测试最后一次运行使用了提交 `59314d99`，gcc 版本 `arm-none-eabi-gcc （Fedora 10.2.0-4.fc34） 10.2.0` 在 SAMD21G18 微控制器上。
 
 | SAMD21 | ticks |
 | --- | --- |
@@ -269,7 +269,7 @@ config_stepper oid=2 step_pin=PA22 dir_pin=PA19 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD51J19A micro-controller.
+该测试最后一次运行使用了提交 `59314d99` 与 gcc 版本 `arm-none-eabi-gcc （Fedora 10.2.0-4.fc34） 10.2.0` 在 SAMD51J19A 微控制器上运行的。
 
 | SAMD51 | ticks |
 | --- | --- |
@@ -290,7 +290,7 @@ config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=-1 step_pulse_tic
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a Raspberry Pi Pico board.
+该测试最后一次在 Raspberry Pi Pico 板上使用 gcc 版本 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`和提交 `59314d99` 运行。
 
 | rp2040 | ticks |
 | --- | --- |
@@ -309,7 +309,7 @@ config_stepper oid=2 step_pin=gpio6 dir_pin=gpio17 invert_step=0 step_pulse_tick
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `gcc (Raspbian 8.3.0-6+rpi1) 8.3.0` on a Raspberry Pi 3 (revision a02082). It was difficult to get stable results in this benchmark.
+该测试最后一次运行使用了提交 `59314d99` 与 gcc 版本 `gcc （Raspbian 8.3.0-6+rpi1） 8.3.0` 在 Raspberry Pi 3 （修订版 a02082） 上运行。在这个基准测试中很难获得稳定的结果。
 
 | Linux (RPi3) | ticks |
 | --- | --- |
