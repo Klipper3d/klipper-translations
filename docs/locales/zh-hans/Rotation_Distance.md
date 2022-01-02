@@ -18,13 +18,13 @@ rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
 
 `<full_steps_per_rotation>` 设置由步进电机的类型决定。大多数步进电机是“1.8 度步进电机”，因此每转 200 步（360 除以 1.8 等于 200）。一些步进电机是“0.9 度步进电机”，因此每转有 400 整步。其他步进电机很少见。如果不确定，请不要在配置文件中设置 full_steps_per_rotation 并在上面的公式中使用 200。
 
-The `<microsteps>` setting is determined by the stepper motor driver. Most drivers use 16 microsteps. If unsure, set `microsteps: 16` in the config and use 16 in the formula above.
+`<microsteps>`设置由取决于步进电机驱动型号。大多数驱动使用 16 个微步。如果不确定，请在配置中设置 `microsteps: 16`，并在上面的公式中使用 16。
 
 Almost all printers should have a whole number for `rotation_distance` on x, y, and z type axes. If the above formula results in a rotation_distance that is within .01 of a whole number then round the final value to that whole_number.
 
-## Calibrating rotation_distance on extruders
+## 校准挤出机的 rotation_distance
 
-On an extruder, the `rotation_distance` is the amount of distance the filament travels for one full rotation of the stepper motor. The best way to get an accurate value for this setting is to use a "measure and trim" procedure.
+在挤出机上，`rotation_distance`是指步进电机旋转一圈后，耗材所走的距离。获得这一设置准确值的最好方法是使用"测量并修正"的方法。
 
 First start with an initial guess for the rotation distance. This may be obtained from [steps_per_mm](#obtaining-rotation_distance-from-steps_per_mm-or-step_distance) or by [inspecting the hardware](#extruder).
 

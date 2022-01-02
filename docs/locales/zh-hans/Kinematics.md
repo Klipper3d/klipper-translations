@@ -14,13 +14,13 @@ Klipper实现恒加速度控制，关键的方程如下：
 velocity(time) = start_velocity + accel*time
 ```
 
-## Trapezoid generator
+## 梯形发生器
 
-Klipper uses a traditional "trapezoid generator" to model the motion of each move - each move has a start speed, it accelerates to a cruising speed at constant acceleration, it cruises at a constant speed, and then decelerates to the end speed using constant acceleration.
+Klipper 使用传统的"梯形发生器"来产生每个动作的运动--每个动作都有一个起始速度，先恒定的加速度加速到一个巡航速度，再以恒定的速度巡航，最后用恒定的加速度减速到终点速度。
 
 ![trapezoid](img/trapezoid.svg.png)
 
-It's called a "trapezoid generator" because a velocity diagram of the move looks like a trapezoid.
+因为移动时的速度图看起来像一个梯形，它被称为 "梯形发生器"。
 
 The cruising speed is always greater than or equal to both the start speed and the end speed. The acceleration phase may be of zero duration (if the start speed is equal to the cruising speed), the cruising phase may be of zero duration (if the move immediately starts decelerating after acceleration), and/or the deceleration phase may be of zero duration (if the end speed is equal to the cruising speed).
 
@@ -30,7 +30,7 @@ The cruising speed is always greater than or equal to both the start speed and t
 
 The "look-ahead" system is used to determine cornering speeds between moves.
 
-Consider the following two moves contained on an XY plane:
+考虑以下两个在 XY 平面上的移动：
 
 ![corner](img/corner.svg.png)
 

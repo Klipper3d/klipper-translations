@@ -48,23 +48,23 @@ Klipper使用`scripts/whconsole.py`的代码进行上述的数据帧打包。例
 
 The request dictionary may contain an "id" parameter which may be of any JSON type. If "id" is present then Klipper will respond to the request with a response message containing that "id". If "id" is omitted (or set to a JSON "null" value) then Klipper will not provide any response to the request. A response message is a JSON dictionary containing "id" and "result". The "result" is always a dictionary - its contents are specific to the "endpoint" handling the request.
 
-If the processing of a request results in an error, then the response message will contain an "error" field instead of a "result" field. For example, the request: `{"id": 123, "method": "gcode/script", "params": {"script": "G1 X200"}}` might result in an error response such as: `{"id": 123, "error": {"message": "Must home axis first: 200.000 0.000 0.000 [0.000]", "error": "WebRequestError"}}`
+如果处理的请求造成了错误，则响应消息将包含"error"字段，而不是"result"字段。例如，请求： `{"id"： 123， "method"： "gcode/script"， "params"： {"script"： "G1 X200"}}` 可能会返回错误响应，例如： `{"id"： 123， "error"： {"message"： "Must home axis first： 200.000 0.000 0.000 [0.000]"， "error"： "WebRequestError"}}`
 
-Klipper will always start processing requests in the order that they are received. However, some request may not complete immediately, which could cause the associated response to be sent out of order with respect to responses from other requests. A JSON request will never pause the processing of future JSON requests.
+Klipper 会按照收到请求的顺序依次处理请求。然而，一些请求可能不会立即完成，这可能会导致相关的响应与其他请求的响应不按顺序发送。一个 JSON 请求永远不会暂停对未来JSON 请求的处理。
 
-## Subscriptions
+## 订阅
 
-Some Klipper "endpoint" requests allow one to "subscribe" to future asynchronous update messages.
+一些 Klipper 的"endpoint"可以以 "订阅" 的形式接收未来的异步更新消息。
 
-For example:
+例如：
 
 `{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{"key": 345}}}`
 
-may initially respond with:
+可能会返回一个初始回应：
 
 `{"id": 123, "result": {}}`
 
-and cause Klipper to send future messages similar to:
+并导致 Klipper 在未来发送类似于以下内容的消息：
 
 `{"params": {"response": "ok B:22.8 /0.0 T0:22.4 /0.0"}, "key": 345}`
 

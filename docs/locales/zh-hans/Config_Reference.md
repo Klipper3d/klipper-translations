@@ -706,7 +706,7 @@ max_temp:
 
 ### [bed_mesh]
 
-Mesh Bed Leveling. One may define a bed_mesh config section to enable move transformations that offset the z axis based on a mesh generated from probed points. When using a probe to home the z-axis, it is recommended to define a safe_z_home section in printer.cfg to home toward the center of the print area.
+网床调平。定义一个 bed_mesh 配置分段来启用基于探测点生成网格的 Z 轴偏移移动变换。当使用探针归位 Z 轴时，建议通过 printer.cfg 中定义一个 safe_z_home 分段使 Z 轴归位在打印区域的中心执行。
 
 See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#mesh-bed-leveling) for additional information.
 
@@ -1617,7 +1617,7 @@ See the [command reference](G-Codes.md#extruder-stepper-commands) for more infor
 
 ### [manual_stepper]
 
-Manual steppers (one may define any number of sections with a "manual_stepper" prefix). These are steppers that are controlled by the MANUAL_STEPPER g-code command. For example: "MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5". See [G-Codes](G-Codes.md#manual-stepper-commands) file for a description of the MANUAL_STEPPER command. The steppers are not connected to the normal printer kinematics.
+手动步进器（可以使用"manual_stepper"前缀定义任意数量的手动步进器）。这些步进器可以通过 MANUAL_STEPPER G代码命令控制。例如："MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5"。有关 MANUAL_STEPPER 命令的使用说明，请参阅 [G-Codes](G-Codes.md#manual-stepper-commands)文档。手动步进器不会与打印机运动学关联。
 
 ```
 [manual_stepper my_stepper]。
@@ -2842,9 +2842,11 @@ Statically configured MCP4018 digipot connected via two gpio "bit banging" pins 
 ```
 [mcp4018 my_digipot]
 scl_pin:
-#   The SCL "clock" pin. This parameter must be provided.
+#   SCL "时钟"引脚。
+#   必须提供此参数。
 sda_pin:
-#   The SDA "data" pin. This parameter must be provided.
+#   SCL "数据"引脚。
+#   必须提供此参数。
 wiper:
 #   The value to statically set the given MCP4018 "wiper" to. This is
 #   typically set to a number between 0.0 and 1.0 with 1.0 being the
