@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-12-27 01:54+0000\n"
+"PO-Revision-Date: 2021-12-29 08:51+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/manual_level/zh_Hans/>\n"
@@ -71,7 +71,7 @@ msgid ""
 msgstr ""
 
 msgid "Adjusting bed leveling screws"
-msgstr ""
+msgstr "调整打印调平螺丝"
 
 msgid ""
 "The secret to getting good bed leveling with bed leveling screws is to "

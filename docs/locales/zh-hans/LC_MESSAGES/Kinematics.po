@@ -1,15 +1,17 @@
 # mirokymac <toufubomb@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-12-22 05:21+0000\n"
-"Last-Translator: mirokymac <toufubomb@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/kinematics/zh_Hans/>\n"
+"PO-Revision-Date: 2021-12-29 08:51+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/kinematics/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10\n"
+"X-Generator: Weblate 4.10.1\n"
 
 msgid ""
 "This document provides an overview of how Klipper implements robot motion "
@@ -52,7 +54,7 @@ msgid ""
 msgstr "Klipper实现恒加速度控制，关键的方程如下："
 
 msgid "Trapezoid generator"
-msgstr ""
+msgstr "梯形发生器"
 
 msgid ""
 "Klipper uses a traditional \"trapezoid generator\" to model the motion of "
@@ -60,14 +62,16 @@ msgid ""
 "at constant acceleration, it cruises at a constant speed, and then "
 "decelerates to the end speed using constant acceleration."
 msgstr ""
+"Klipper 使用传统的\"梯形发生器\"来产生每个动作的运动--"
+"每个动作都有一个起始速度，先恒定的加速度加速到一个巡航速度，再以恒定的速度巡航，最后用恒定的加速度减速到终点速度。"
 
 msgid "![trapezoid](img/trapezoid.svg.png)"
-msgstr ""
+msgstr "![trapezoid](img/trapezoid.svg.png)"
 
 msgid ""
 "It's called a \"trapezoid generator\" because a velocity diagram of the move"
 " looks like a trapezoid."
-msgstr ""
+msgstr "因为移动时的速度图看起来像一个梯形，它被称为 \"梯形发生器\"。"
 
 msgid ""
 "The cruising speed is always greater than or equal to both the start speed "
@@ -79,10 +83,10 @@ msgid ""
 msgstr ""
 
 msgid "![trapezoids](img/trapezoids.svg.png)"
-msgstr ""
+msgstr "![trapezoids](img/trapezoids.svg.png)"
 
 msgid "Look-ahead"
-msgstr ""
+msgstr "Look-ahead"
 
 msgid ""
 "The \"look-ahead\" system is used to determine cornering speeds between "
@@ -90,10 +94,10 @@ msgid ""
 msgstr ""
 
 msgid "Consider the following two moves contained on an XY plane:"
-msgstr ""
+msgstr "考虑以下两个在 XY 平面上的移动："
 
 msgid "![corner](img/corner.svg.png)"
-msgstr ""
+msgstr "![corner](img/corner.svg.png)"
 
 msgid ""
 "In the above situation it is possible to fully decelerate after the first "

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-12-27 08:37+0000\n"
+"PO-Revision-Date: 2021-12-28 00:54+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/status_reference/zh_Hans/>\n"
@@ -362,8 +362,8 @@ msgid ""
 "The following information is available in [mcu](Config_Reference.md#mcu) and"
 " [mcu some_name](Config_Reference.md#mcu-my_extra_mcu) objects:"
 msgstr ""
-"[mcu](Config_Reference.md#mcu)和[mcu 名称](Config_Reference.md#mcu-"
-"my_extra_mcu)对象中提供了以下信息。"
+"[mcu](Config_Reference.md#mcu)和[mcu some_name](Config_Reference.md#mcu-"
+"my_extra_mcu)对象提供了以下信息："
 
 msgid ""
 "`mcu_version`: The Klipper code version reported by the micro-controller."
@@ -474,6 +474,8 @@ msgid ""
 "PROBE (or similar) command must be run prior to the macro containing this "
 "reference."
 msgstr ""
+"`last_z_result`：返回上一次 PROBE 命令的结果 Z 值。请注意，由于模板展开的顺序，在宏中使用时必须在包含此引用的宏之前运行 "
+"PROBE（或类似）命令。"
 
 msgid "quad_gantry_level"
 msgstr "quad_gantry_level"
@@ -698,42 +700,45 @@ msgid ""
 "[dual_carriage](Config_Reference.md#dual_carriage) on a hybrid_corexy or "
 "hybrid_corexz robot"
 msgstr ""
+"使用了 hybrid_corexy 或 hybrid_corexz 运动学的 [dual_carriage](Config_Reference."
+"md#dual_carriage) 对象提供了以下信息"
 
 msgid "`mode`: The current mode. Possible values are: \"FULL_CONTROL\""
-msgstr ""
+msgstr "`mode`：当前模式。可能的值：\"FULL_CONTROL\""
 
 msgid ""
 "`active_carriage`: The current active carriage. Possible values are: "
 "\"CARRIAGE_0\", \"CARRIAGE_1\""
-msgstr ""
+msgstr "`active_carriage`：当前的活跃的滑车。可能的值是\"CARRIAGE_0\"和\"CARRIAGE_1\""
 
 msgid "`file_path`: A full path to the file of currently loaded file."
-msgstr ""
+msgstr "`file_path`：当前加载的文件的完整路径。"
 
 msgid "`file_size`: The file size (in bytes) of currently loaded file."
-msgstr ""
+msgstr "`file_size`：当前加载的文件的大小（以字节为单位）。"
 
 msgid "neopixel / dotstar"
-msgstr ""
+msgstr "neopixel / dotstar"
 
 msgid ""
 "The following information is available for each `[neopixel led_name]` and "
 "`[dotstar led_name]` defined in printer.cfg:"
 msgstr ""
+"以下信息适用于每个在 printer.cfg 中定义的 `[neopixel led_name]` 和 `[dotstar led_name]`："
 
 #: docs/Status_Reference.md:block 1 (header)
 msgid "Status reference"
-msgstr ""
+msgstr "状态参考"
 
 #: docs/Status_Reference.md:block 49 (header)
 msgid "motion_report"
-msgstr ""
+msgstr "motion_report"
 
 #: docs/Status_Reference.md:block 50 (paragraph)
 msgid ""
 "The following information is available in the `motion_report` object (this "
 "object is automatically available if any stepper config section is defined):"
-msgstr ""
+msgstr "`motion_report` 对象提供了以下信息（如果定义了任何步进器配置分段，则该对象自动可用）："
 
 #: docs/Status_Reference.md:block 51 (unordered list)
 msgid ""
@@ -745,13 +750,13 @@ msgstr ""
 msgid ""
 "`live_velocity`: The requested toolhead velocity (in mm/s) at the current "
 "time."
-msgstr ""
+msgstr "`live_velocity`：当前请求的打印头速度（以毫米/秒为单位）。"
 
 #: docs/Status_Reference.md:block 51 (unordered list)
 msgid ""
 "`live_extruder_velocity`: The requested extruder velocity (in mm/s) at the "
 "current time."
-msgstr ""
+msgstr "`live_extruder_velocity`：当前请求的挤出机速度（单位：mm/s）。"
 
 #: docs/Status_Reference.md:block 106 (unordered list)
 msgid ""
@@ -761,12 +766,15 @@ msgid ""
 "example, the blue value of the second neopixel in a chain could be accessed "
 "at `printer[\"neopixel <config_name>\"].color_data[1].B`."
 msgstr ""
+"`color_data`：对象数组，每个对象包含链中一个 LED 的 RGBW 值。请注意，并非所有配置都包含白色值。每个值都是从 0 到 1 "
+"的浮点数。例如，链中第二个 neopixel 的蓝色值可以通过`printer[\"neopixel <config_name>\"]."
+"color_data[1].B`访问。"
 
 #: docs/Status_Reference.md:block 9 (unordered list)
 msgid ""
 "`save_config_pending`: Returns true if there are updates that a "
 "`SAVE_CONFIG` command may persist to disk."
-msgstr ""
+msgstr "`save_config_pending`：如果存在可以通过 `SAVE_CONFIG` 命令保存到配置文件的更新，则返回 True。"
 
 #: docs/Status_Reference.md:block 9 (unordered list)
 msgid ""
@@ -774,10 +782,12 @@ msgid ""
 "will be a dictionary containing a `type` and `message` field (both strings)."
 " Additional fields may be available depending on the type of warning."
 msgstr ""
+"`warnings`：有关配置选项的警告列表。列表中的每个条目都将是一个 dictionary，其中包含 ` type` 和 `message` "
+"字段（都是字符串）。根据警告类型，可能还有其他可用字段。"
 
 #: docs/Status_Reference.md:block 89 (header)
 msgid "tmc drivers"
-msgstr ""
+msgstr "tmc 驱动"
 
 #: docs/Status_Reference.md:block 90 (paragraph)
 msgid ""
@@ -785,35 +795,37 @@ msgid ""
 "driver](Config_Reference.md#tmc-stepper-driver-configuration) objects (eg, "
 "`[tmc2208 stepper_x]`):"
 msgstr ""
+"[TMC 步进驱动](Config_Reference.md#tmc-stepper-driver-configuration)对象（例如，`["
+"tmc2208 stepper_x]`）提供了以下信息："
 
 #: docs/Status_Reference.md:block 91 (unordered list)
 msgid ""
 "`mcu_phase_offset`: The micro-controller stepper position corresponding with"
 " the driver's \"zero\" phase. This field may be null if the phase offset is "
 "not known."
-msgstr ""
+msgstr "`mcu_phase_offset`：微控制器步进位置与驱动器的\"零\"相位的相对位置。如果相位偏移未知，则此字段可能为空。"
 
 #: docs/Status_Reference.md:block 91 (unordered list)
 msgid ""
 "`phase_offset_position`: The \"commanded position\" corresponding to the "
 "driver's \"zero\" phase. This field may be null if the phase offset is not "
 "known."
-msgstr ""
+msgstr "`phase_offset_position`：对应电机“零”相位的“指令位置”。如果相位偏移未知，则该字段可以为空。"
 
 #: docs/Status_Reference.md:block 91 (unordered list)
 msgid ""
 "`drv_status`: The results of the last driver status query. (Only non-zero "
 "fields are reported.) This field will be null if the driver is not enabled "
 "(and thus is not periodically queried)."
-msgstr ""
+msgstr "`drv_status`：上次驱动状态查询结果。（仅报告非零字段。如果驱动没有被启用（因此没有轮询），则此字段将为 null。"
 
 #: docs/Status_Reference.md:block 91 (unordered list)
 msgid "`run_current`: The currently set run current."
-msgstr ""
+msgstr "`run_current`：当前设置的运行电流。"
 
 #: docs/Status_Reference.md:block 91 (unordered list)
 msgid "`hold_current`: The currently set hold current."
-msgstr ""
+msgstr "`hold_current`：当前设置的保持电流。"
 
 #~ msgid ""
 #~ "`color_data`: An array of objects, with each object containing the RGBW "
