@@ -1,4 +1,4 @@
-# Status reference
+# 状态参考
 
 本文档是可用于 Klipper [宏](Command_Templates.md)、[显示字段](Config_Reference.md#display)以及[API服务器](API_Server.md) 的打印机状态信息的参考。
 
@@ -16,8 +16,8 @@
 
 - `settings.<分段>.<选项>`：返回最后一次软件启动或重启时给定的配置文件设置（或默认值）。(不会反映运行时的修改。）
 - `config.<分段>.<选项>`：返回Klipper在上次软件启动或重启时读取的原始配置文件设置。(不会反映运行时的修改。)所有值都以字符串形式返回。
-- `save_config_pending`: Returns true if there are updates that a `SAVE_CONFIG` command may persist to disk.
-- `warnings`: A list of warnings about config options. Each entry in the list will be a dictionary containing a `type` and `message` field (both strings). Additional fields may be available depending on the type of warning.
+- `save_config_pending`：如果存在可以通过 `SAVE_CONFIG` 命令保存到配置文件的更新，则返回 True。
+- `warnings`：有关配置选项的警告列表。列表中的每个条目都将是一个 dictionary，其中包含 ` type` 和 `message` 字段（都是字符串）。根据警告类型，可能还有其他可用字段。
 
 ## display_status
 
@@ -112,7 +112,7 @@
 
 ## mcu
 
-[mcu](Config_Reference.md#mcu)和[mcu 名称](Config_Reference.md#mcu-my_extra_mcu)对象中提供了以下信息。
+[mcu](Config_Reference.md#mcu)和[mcu some_name](Config_Reference.md#mcu-my_extra_mcu)对象提供了以下信息：
 
 - `mcu_version`：由微控制器报告的 Klipper 代码版本。
 - `mcu_build_versions`：有关用于生成微控制器代码的构建工具的信息（由微控制器报告）。
@@ -121,11 +121,11 @@
 
 ## motion_report
 
-The following information is available in the `motion_report` object (this object is automatically available if any stepper config section is defined):
+`motion_report` 对象提供了以下信息（如果定义了任何步进器配置分段，则该对象自动可用）：
 
 - `live_position`: The requested toolhead position interpolated to the current time.
-- `live_velocity`: The requested toolhead velocity (in mm/s) at the current time.
-- `live_extruder_velocity`: The requested extruder velocity (in mm/s) at the current time.
+- `live_velocity`：当前请求的打印头速度（以毫米/秒为单位）。
+- `live_extruder_velocity`：当前请求的挤出机速度（单位：mm/s）。
 
 ## output_pin
 
@@ -158,7 +158,7 @@ The following information is available in the `motion_report` object (this objec
 [probe](Config_Reference.md#probe) 对象中提供了以下信息（如果定义了 [bltouch](Config_Reference.md#bltouch) 配置分段，则此对象也可用）：
 
 - `last_query`：如果探针在上一个 QUERY_PROBE 命令期间报告为"已触发"，则返回 True。请注意，如果在宏中使用它，根据模板展开的顺序，必须在包含此引用的宏之前运行 QUERY_PROBE 命令。
-- `last_z_result`: Returns the Z result value of the last PROBE command. Note, if this is used in a macro, due to the order of template expansion, the PROBE (or similar) command must be run prior to the macro containing this reference.
+- `last_z_result`：返回上一次 PROBE 命令的结果 Z 值。请注意，由于模板展开的顺序，在宏中使用时必须在包含此引用的宏之前运行 PROBE（或类似）命令。
 
 ## quad_gantry_level
 
@@ -207,15 +207,15 @@ The following information is available in the `motion_report` object (this objec
 - `temperature`：上一次从传感器读取的温度。
 - `measured_min_temp`和`measured_max_temp`：自Klipper主机软件上次重新启动以来，传感器测量的最低和最高温度。
 
-## tmc drivers
+## tmc 驱动
 
-The following information is available in [TMC stepper driver](Config_Reference.md#tmc-stepper-driver-configuration) objects (eg, `[tmc2208 stepper_x]`):
+[TMC 步进驱动](Config_Reference.md#tmc-stepper-driver-configuration)对象（例如，`[tmc2208 stepper_x]`）提供了以下信息：
 
-- `mcu_phase_offset`: The micro-controller stepper position corresponding with the driver's "zero" phase. This field may be null if the phase offset is not known.
-- `phase_offset_position`: The "commanded position" corresponding to the driver's "zero" phase. This field may be null if the phase offset is not known.
-- `drv_status`: The results of the last driver status query. (Only non-zero fields are reported.) This field will be null if the driver is not enabled (and thus is not periodically queried).
-- `run_current`: The currently set run current.
-- `hold_current`: The currently set hold current.
+- `mcu_phase_offset`：微控制器步进位置与驱动器的"零"相位的相对位置。如果相位偏移未知，则此字段可能为空。
+- `phase_offset_position`：对应电机“零”相位的“指令位置”。如果相位偏移未知，则该字段可以为空。
+- `drv_status`：上次驱动状态查询结果。（仅报告非零字段。如果驱动没有被启用（因此没有轮询），则此字段将为 null。
+- `run_current`：当前设置的运行电流。
+- `hold_current`：当前设置的保持电流。
 
 ## toolhead
 
@@ -230,10 +230,10 @@ The following information is available in [TMC stepper driver](Config_Reference.
 
 ## dual_carriage
 
-The following information is available in [dual_carriage](Config_Reference.md#dual_carriage) on a hybrid_corexy or hybrid_corexz robot
+使用了 hybrid_corexy 或 hybrid_corexz 运动学的 [dual_carriage](Config_Reference.md#dual_carriage) 对象提供了以下信息
 
-- `mode`: The current mode. Possible values are: "FULL_CONTROL"
-- `active_carriage`: The current active carriage. Possible values are: "CARRIAGE_0", "CARRIAGE_1"
+- `mode`：当前模式。可能的值："FULL_CONTROL"
+- `active_carriage`：当前的活跃的滑车。可能的值是"CARRIAGE_0"和"CARRIAGE_1"
 
 ## virtual_sdcard
 
@@ -241,9 +241,9 @@ The following information is available in [dual_carriage](Config_Reference.md#du
 
 - `is_active`：如果正在从文件进行打印，则返回 True。
 - `progress`：对当前打印进度的估计（基于文件大小和文件位置）。
-- `file_path`: A full path to the file of currently loaded file.
+- `file_path`：当前加载的文件的完整路径。
 - `file_position`：当前打印的位置（以字节为单位）。
-- `file_size`: The file size (in bytes) of currently loaded file.
+- `file_size`：当前加载的文件的大小（以字节为单位）。
 
 ## webhooks
 
@@ -260,6 +260,6 @@ The following information is available in [dual_carriage](Config_Reference.md#du
 
 ## neopixel / dotstar
 
-The following information is available for each `[neopixel led_name]` and `[dotstar led_name]` defined in printer.cfg:
+以下信息适用于每个在 printer.cfg 中定义的 `[neopixel led_name]` 和 `[dotstar led_name]`：
 
-- `color_data`: An array of objects, with each object containing the RGBW values for a led in the chain. Note that not all configurations will contain a white value. Each value is represented as a float from 0 to 1. For example, the blue value of the second neopixel in a chain could be accessed at `printer["neopixel <config_name>"].color_data[1].B`.
+- `color_data`：对象数组，每个对象包含链中一个 LED 的 RGBW 值。请注意，并非所有配置都包含白色值。每个值都是从 0 到 1 的浮点数。例如，链中第二个 neopixel 的蓝色值可以通过`printer["neopixel <config_name>"].color_data[1].B`访问。

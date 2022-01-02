@@ -7,7 +7,7 @@
 1. [La commande "make flash" ne fonctionne pas](#the-make-flash-command-doesnt-work)
 1. [Comment changer le baud rate (taux bit/s) du port série?](#how-do-i-change-the-serial-baud-rate)
 1. [Puis-je faire fonctionner Klipper sur quelque chose d'autre qu'un Raspberry Pi 3?](#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)
-1. [Can I run multiple instances of Klipper on the same host machine?](#can-i-run-multiple-instances-of-klipper-on-the-same-host-machine)
+1. [Puis-je exécuter plusieurs instances de Klipper sur le même hôte?](#can-i-run-multiple-instances-of-klipper-on-the-same-host-machine)
 1. [Suis-je obligé d'utiliser OctoPrint?](#do-i-have-to-use-octoprint)
 1. [Pourquoi ne puis-je pas commander un déplacement avant de prendre l'origine?](#why-cant-i-move-the-stepper-before-homing-the-printer)
 1. [Pourquoi le paramètre position_endstop Z est-il défini à 0.5 dans la configuration par défaut?](#why-is-the-z-position_endstop-set-to-05-in-the-default-configs)

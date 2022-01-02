@@ -22,7 +22,7 @@ Note how the `gcode:` config option always starts at the beginning of the line a
 
 ## 向宏添加描述
 
-To help identify the functionality a short description can be added. Add `description:` with a short text to describe the functionality. Default is "G-Code macro" if not specified. For example:
+可以通过添加 `description:` 和简短的描述来帮助理解该功能。如果没有指定，默认为"G-Code macro"。例如：
 
 ```
 [gcode_macro blink_led]
@@ -73,7 +73,7 @@ gcode:
   RESTORE_GCODE_STATE NAME=clean_nozzle_state
 ```
 
-### Macro parameters
+### 宏观参数
 
 It is often useful to inspect parameters passed to the macro when it is called. These parameters are available via the `params` pseudo-variable. For example, if the macro:
 
@@ -108,7 +108,7 @@ gcode:
   M118 { rawparams }
 ```
 
-### The "printer" Variable
+### "printer"变量
 
 It is possible to inspect (and alter) the current state of the printer via the `printer` pseudo-variable. For example:
 
