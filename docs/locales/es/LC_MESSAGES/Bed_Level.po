@@ -1,16 +1,18 @@
 # nieraldo <nierybecar@gmail.com>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Bernardo M.M <bmendizabalm@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-11-06 17:57+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/bed_level/es/>\n"
+"PO-Revision-Date: 2022-01-09 13:53+0000\n"
+"Last-Translator: Bernardo M.M <bmendizabalm@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"bed_level/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.10.1\n"
 
 msgid ""
 "Bed leveling (sometimes also referred to as \"bed tramming\") is critical to"
@@ -304,7 +306,6 @@ msgstr ""
 "emitiendo comandos TESTZ hasta que se sienta una pequeña cantidad de "
 "fricción al probar con el papel."
 
-#, fuzzy
 msgid ""
 "If too much friction is found then one can use a positive Z value to move "
 "the nozzle up. It is also possible to use `TESTZ Z=+` or `TESTZ Z=-` to "
@@ -313,8 +314,8 @@ msgid ""
 "from a TESTZ command:"
 msgstr ""
 "Si se encuentra demasiada fricción, se puede utilizar un valor Z positivo "
-"para mover la boquilla hacia arriba. También es posible utilizar `TESTZ Z=+`"
-" o `TESTZ Z=-` para \"bisecar\" la última posición - es decir, para moverse "
+"para mover la boquilla hacia arriba. También es posible utilizar `TESTZ Z=+` "
+"o `TESTZ Z=-` para \"bifurcar\" la última posición - es decir, para moverse "
 "a una posición a medio camino entre dos posiciones. Por ejemplo, si uno "
 "recibe la siguiente indicación de un comando TESTZ:"
 
@@ -366,11 +367,16 @@ msgstr ""
 msgid "Determining Thermal Expansion"
 msgstr "Determinando la Expansión Térmica"
 
+#, fuzzy
 msgid ""
 "After successfully performing bed leveling, one may go on to calculate a "
 "more precise value for the combined impact of \"thermal expansion\", \"width"
 " of the paper\", and \"amount of friction felt during the paper test\"."
 msgstr ""
+"Una vez completada satisfactoriamente la \"nivelación de la plataforma\" , "
+"se puede proceder a calcular un valor  preciso, para el impacto combinado, "
+"de \"expansión térmica\", \"ancho del papel\" y \"cantidad de fricción que "
+"se siente durante la prueba del papel\"."
 
 msgid ""
 "This type of calculation is generally not needed as most users find the "
