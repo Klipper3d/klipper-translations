@@ -1,11 +1,11 @@
-# Davide Di Gloria <davidedigloria87@gmail.com>, 2022.
+# Davide Di Gloria <davidedigloria87@gmail.com>, 2022, 2025.
 # Dex94 <Dasvaresu@dr.com>, 2022.
 # Ale Ale <ale.99.ale@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:25+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Davide Di Gloria <davidedigloria87@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/canbus/"
 "it/>\n"
 "Language: it\n"
