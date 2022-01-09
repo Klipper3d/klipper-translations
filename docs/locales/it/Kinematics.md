@@ -1,46 +1,46 @@
 # Kinematics
 
-This document provides an overview of how Klipper implements robot motion (its [kinematics](https://en.wikipedia.org/wiki/Kinematics)). The contents may be of interest to both developers interested in working on the Klipper software as well as users interested in better understanding the mechanics of their machines.
+Questo documento è una panoramica su come Klipper implementa la movimentazione del sistema meccanico(la sua [cinematica](https://en.wikipedia.org/wiki/Kinematics)). Questi contenuti potrebbero interessare sia gli sviluppatori che intendono lacorare sul software Klipper che gli utenti che desiderano comprendere meglio il funzionamento delle proprie macchine.
 
-## Acceleration
+## Accelerazione
 
-Klipper implements a constant acceleration scheme whenever the print head changes velocity - the velocity is gradually changed to the new speed instead of suddenly jerking to it. Klipper always enforces acceleration between the tool head and the print. The filament leaving the extruder can be quite fragile - rapid jerks and/or extruder flow changes lead to poor quality and poor bed adhesion. Even when not extruding, if the print head is at the same level as the print then rapid jerking of the head can cause disruption of recently deposited filament. Limiting speed changes of the print head (relative to the print) reduces risks of disrupting the print.
+Klipper utilizza uno schema ad accelerazione costrante ogni qualvolta la testa di stampa cambia velocità - la velocità viene gradualmente variata fino a raggiungere la nuova velocità invece di strattonare direttamente alla nuova velocità. Klipper mantiene sempre l'accelerazione tra la testa di stampa e la stampa. Il filamento in uscita dall'ugello può essere piuttosto fragile, rapidi sobbalzi e/o cambi di flusso di estrusione portano a cattiva qualità di stampa e bassa adesione al piano di stampa. Anche quando non viene estruso filamento, se l'ugello si trova allo stesso livello della stampa, un repentino cambio di velocità potrebbe disturbare il filamento appena depositato. Limitare i cambi di velocità della testa di stampa relativamente alla stampa riduce il rischio di rovinare la stampa.
 
-It is also important to limit acceleration so that the stepper motors do not skip or put excessive stress on the machine. Klipper limits the torque on each stepper by virtue of limiting the acceleration of the print head. Enforcing acceleration at the print head naturally also limits the torque of the steppers that move the print head (the inverse is not always true).
+È anche importante limitare l'accelerazione in modo da evitare che i motori stepper perdano passi e per ridurre le sollecitazioni alla macchina. Klipper limita la coppia su ciascuno stepper mediante la limitazione dell'accelerazione sulla testina di stampa. Imporre l'accelerazione alla testa di stampa ha la conseguenza naturale di limitare la coppia degli stepper che la muovono (l'inverso non è sempre vero).
 
-Klipper implements constant acceleration. The key formula for constant acceleration is:
+Klipper implementa l'accelerazione costante. La formula chiave per l'accelerazione costante è:
 
 ```
 velocity(time) = start_velocity + accel*time
 ```
 
-## Trapezoid generator
+## Generatore di trapezoide
 
-Klipper uses a traditional "trapezoid generator" to model the motion of each move - each move has a start speed, it accelerates to a cruising speed at constant acceleration, it cruises at a constant speed, and then decelerates to the end speed using constant acceleration.
+Klipper utilizza un "generatore di trapezoide" di tipo tradizionale per modellare il movimento - ogni movimento ha una velocità iniziale, accelera verso la velocità di crociera ad accelerazione costante, prosegue a velocità costante ed infine decelera fino alla velocità finale ad accelerazione costante.
 
 ![trapezoid](img/trapezoid.svg.png)
 
-It's called a "trapezoid generator" because a velocity diagram of the move looks like a trapezoid.
+Viene detto "generatore di trapezoide" perché il diagramma di velocità del movimento sembra un trapezoide.
 
-The cruising speed is always greater than or equal to both the start speed and the end speed. The acceleration phase may be of zero duration (if the start speed is equal to the cruising speed), the cruising phase may be of zero duration (if the move immediately starts decelerating after acceleration), and/or the deceleration phase may be of zero duration (if the end speed is equal to the cruising speed).
+La velocità di crociera è sempre maggiore o uguale sia alla velocità iniziale che a quella finale. La fase di accelerazione potrebbe avere durata zero (se la velocità iniziale è uguale alla velocità di crociera), la fase di movimento a valocità costante potrebbe avere durata zero (se il movimento inizia a decelerare subito l'accelerazione) e/o la fase di decelerazione potrebbe avere durata zero (se la velocità finale è uguale alla velocità di crociera).
 
 ![trapezoids](img/trapezoids.svg.png)
 
-## Look-ahead
+## Look-ahead (Precalcolo)
 
-The "look-ahead" system is used to determine cornering speeds between moves.
+Il sistema di "look-ahead" (precalcolo) è usato per determinare le velocità nelle giunzioni tra movimenti (cornering speed).
 
-Consider the following two moves contained on an XY plane:
+Consideriamo questi due movimenti sul piano XY:
 
 ![corner](img/corner.svg.png)
 
-In the above situation it is possible to fully decelerate after the first move and then fully accelerate at the start of the next move, but that is not ideal as all that acceleration and deceleration would greatly increase the print time and the frequent changes in extruder flow would result in poor print quality.
+Nella situazione sopra descritta è possibile decelerare completamente dopo il primo movimento e poi accelerare all'inizio del movimento successivo; però questo non è un comportamento ideale dato che continue accelerazioni e decelerazioni aumentano il tempo di stampa e continue variazioni nel flusso dell'estrusore peggiorano la qualità di stampa.
 
-To solve this, the "look-ahead" mechanism queues multiple incoming moves and analyzes the angles between moves to determine a reasonable speed that can be obtained during the "junction" between two moves. If the next move is nearly in the same direction then the head need only slow down a little (if at all).
+Per risolvere questo problema, la funzione "look-ahead" (precalcolo) accoda i movimenti da eseguire ed analizza gli angoli tra essi per calcolare la velocità da usare nella giunzione tra due movimenti. Se il prossimo movimento è all'incirca nella stessa direzione del precedente, la testina di stampa deve rallentare molto poco (se non per nulla).
 
 ![lookahead](img/lookahead.svg.png)
 
-However, if the next move forms an acute angle (the head is going to travel in nearly a reverse direction on the next move) then only a small junction speed is permitted.
+Se però il prossimo movimento forma un angolo acuto (la testina deve praticamente invertire la direzione di marcia), la velocità alla giunzione sarà piccola.
 
 ![lookahead](img/lookahead-slow.svg.png)
 
