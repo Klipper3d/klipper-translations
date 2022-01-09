@@ -1,15 +1,16 @@
-# Ömer Talha Başoğlu <edriyin@gmail.com>, 2022.
+# Ömer Talha Başoğlu <edriyin@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-09 13:53+0000\n"
+"PO-Revision-Date: 2025-05-03 07:22+0000\n"
 "Last-Translator: Ömer Talha Başoğlu <edriyin@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/api_server/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
+"api_server/tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "This document describes Klipper's Application Programmer Interface (API). This"
