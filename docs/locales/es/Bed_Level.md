@@ -64,7 +64,7 @@ TESTZ Z=-.1
 
 El comando TESTZ moverá la boquilla una distancia relativa desde la posición actual de la boquilla. (Así, `Z=-.1` comanda que la boquilla se acerque a la cama en 0,1mm). Después de que la boquilla deje de moverse, empuje el papel hacia adelante y hacia atrás para comprobar si la boquilla está en contacto con el papel y para sentir la cantidad de fricción. Continúe emitiendo comandos TESTZ hasta que se sienta una pequeña cantidad de fricción al probar con el papel.
 
-Si se encuentra demasiada fricción, se puede utilizar un valor Z positivo para mover la boquilla hacia arriba. También es posible utilizar `TESTZ Z=+` o `TESTZ Z=-` para "bisecar" la última posición - es decir, para moverse a una posición a medio camino entre dos posiciones. Por ejemplo, si uno recibe la siguiente indicación de un comando TESTZ:
+Si se encuentra demasiada fricción, se puede utilizar un valor Z positivo para mover la boquilla hacia arriba. También es posible utilizar `TESTZ Z=+` o `TESTZ Z=-` para "bifurcar" la última posición - es decir, para moverse a una posición a medio camino entre dos posiciones. Por ejemplo, si uno recibe la siguiente indicación de un comando TESTZ:
 
 ```
 Recv: // Z position: 0.130 --> 0.230 <-- 0.280
@@ -86,7 +86,7 @@ Si algo va mal durante la prueba, se puede utilizar el comando `ABORT` para sali
 
 ## Determinando la Expansión Térmica
 
-After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "width of the paper", and "amount of friction felt during the paper test".
+Una vez completada satisfactoriamente la "nivelación de la plataforma" , se puede proceder a calcular un valor preciso, para el impacto combinado, de "expansión térmica", "ancho del papel" y "cantidad de fricción que se siente durante la prueba del papel".
 
 This type of calculation is generally not needed as most users find the simple "paper test" provides good results.
 

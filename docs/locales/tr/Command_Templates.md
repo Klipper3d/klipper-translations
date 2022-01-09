@@ -56,7 +56,7 @@ The `G91` command places the G-Code parsing state into "relative move mode" and 
 
 The gcode_macro `gcode:` config section is evaluated using the Jinja2 template language. One can evaluate expressions at run-time by wrapping them in `{ }` characters or use conditional statements wrapped in `{% %}`. See the [Jinja2 documentation](http://jinja.pocoo.org/docs/2.10/templates/) for further information on the syntax.
 
-An example of a complex macro:
+Karmaşık bir makro örneği:
 
 ```
 [gcode_macro clean_nozzle]

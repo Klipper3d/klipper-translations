@@ -1,20 +1,20 @@
 # API server
 
-This document describes Klipper's Application Programmer Interface (API). This interface enables external applications to query and control the Klipper host software.
+Bu döküman Klipper'in uygulama geliştirme arayüzü ile ilgili bilgileri bulundurur. Bu arayüz, harici yazılımların Klipper ana yazılımını kontrol etmesini ve bilgi sorgusu yapmasını olası kılar.
 
-## Enabling the API socket
+## API soketini etkinleştirmek
 
-In order to use the API server, the klippy.py host software must be started with the `-a` parameter. For example:
+API sunucunun kontrol edilebilmesi için, klippy.py ana yazılımının `-a` parametresi ile başlatılması gerekmektedir. Örneğin:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 ```
 
-This causes the host software to create a Unix Domain Socket. A client can then open a connection on that socket and send commands to Klipper.
+Bu komut ana yazılımın Unix Domain Soketi oluşturmasını sağlar. Kullanıcı sokete bağlanarak Klipper'e komutlar yollayabilir.
 
-## Request format
+## İstek Formatı
 
-Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:
+Soketten alınan ve sokete yollanan mesajların ASCII 0x03 karakteriyle bitirilip JSON olarak kodlanması gerekmektedir. Örneğin:
 
 ```
 <json_object_1><0x03><json_object_2><0x03>...
