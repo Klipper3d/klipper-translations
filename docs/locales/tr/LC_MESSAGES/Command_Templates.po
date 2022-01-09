@@ -1,6 +1,16 @@
-#
+# Aysu Toprak <moonwater99@hotmail.com>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-01-09 13:53+0000\n"
+"Last-Translator: Aysu Toprak <moonwater99@hotmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
+"command_templates/tr/>\n"
+"Language: tr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.10.1\n"
 
 msgid ""
 "This document provides information on implementing G-Code command sequences "
@@ -83,7 +93,7 @@ msgid ""
 msgstr ""
 
 msgid "An example of a complex macro:"
-msgstr ""
+msgstr "Karmaşık bir makro örneği:"
 
 msgid "Macro parameters"
 msgstr ""
