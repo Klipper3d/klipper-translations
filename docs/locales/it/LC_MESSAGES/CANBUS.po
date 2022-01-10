@@ -1,9 +1,16 @@
-#
+# Davide Di Gloria <davidedigloria87@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-01-10 23:53+0000\n"
+"Last-Translator: Davide Di Gloria <davidedigloria87@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/canbus/"
+"it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.10.1\n"
 
 msgid "This document describes Klipper's CAN bus support."
 msgstr ""
@@ -97,7 +104,7 @@ msgid ""
 msgstr ""
 
 msgid "Configuring Klipper"
-msgstr ""
+msgstr "Configurare Klipper"
 
 msgid ""
 "Update the Klipper [mcu configuration](Config_Reference.md#mcu) to use the "
