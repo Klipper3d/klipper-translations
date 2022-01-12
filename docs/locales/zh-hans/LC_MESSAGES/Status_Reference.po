@@ -1,8 +1,8 @@
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-12-28 00:54+0000\n"
+"PO-Revision-Date: 2022-01-12 00:54+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/status_reference/zh_Hans/>\n"
@@ -215,7 +215,7 @@ msgid ""
 "`position`: The last commanded position of the toolhead using the coordinate"
 " system specified in the config file. It is possible to access the x, y, z, "
 "and e components of this position (eg, `position.x`)."
-msgstr ""
+msgstr "`position`：打印头在配置文件中定义的坐标系中的最后指令位置。可以访问这个位置的x、y、z和e分量（例如，`position.x`）。"
 
 msgid ""
 "`homing_origin`: The origin of the gcode coordinate system (relative to the "
@@ -603,6 +603,7 @@ msgid ""
 "coordinate system specified in the config file. It is possible to access the"
 " x, y, z, and e components of this position (eg, `position.x`)."
 msgstr ""
+"`position`：打印头相对于配置文件中指定的坐标系的最后命令位置。可以访问该位置的 x、y、z 和 e 分量（例如，`position.x`）。"
 
 msgid ""
 "`extruder`: The name of the currently active extruder. For example, in a "
@@ -744,7 +745,7 @@ msgstr "`motion_report` 对象提供了以下信息（如果定义了任何步�
 msgid ""
 "`live_position`: The requested toolhead position interpolated to the current"
 " time."
-msgstr ""
+msgstr "`live_position`：请求的打印头位置插值到当前时间后的位置。"
 
 #: docs/Status_Reference.md:block 51 (unordered list)
 msgid ""
