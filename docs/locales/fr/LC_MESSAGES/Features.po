@@ -1,16 +1,18 @@
 # wilmouths <wilmouthsteven@gmail.com>, 2021.
 # Wivik <seb+weblate@zedas.fr>, 2021.
+# Maxime Leroy <lisacintosh@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-09 19:33+0000\n"
-"Last-Translator: Wivik <seb+weblate@zedas.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/features/fr/>\n"
+"PO-Revision-Date: 2022-01-12 00:54+0000\n"
+"Last-Translator: Maxime Leroy <lisacintosh@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/features/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.10.1\n"
 
 msgid "Klipper has several compelling features:"
 msgstr "Klipper propose plusieurs caractéristiques intéressantes :"
@@ -313,31 +315,31 @@ msgid "\"Blue Pill\" (STM32F103)"
 msgstr "\"Blue Pill\" (STM32F103)"
 
 msgid "Arduino Due (SAM3X8E)"
-msgstr ""
+msgstr "Arduino Due (SAM3X8E)"
 
 msgid "Duet2 Maestro (SAM4S8C)"
-msgstr ""
+msgstr "Duet2 Maestro (SAM4S8C)"
 
 msgid "Smoothieboard (LPC1768)"
-msgstr ""
+msgstr "Smoothieboard (LPC1768)"
 
 msgid "Smoothieboard (LPC1769)"
-msgstr ""
+msgstr "Smoothieboard (LPC1769)"
 
 msgid "Beaglebone PRU"
 msgstr "PRU Beaglebone"
 
 msgid "Duet2 Wifi/Eth (SAM4E8E)"
-msgstr ""
+msgstr "Duet2 Wifi/Eth (SAM4E8E)"
 
 msgid "686K"
 msgstr "686K"
 
 msgid "Adafruit Metro M4 (SAMD51)"
-msgstr ""
+msgstr "Adafruit Metro M4 (SAMD51)"
 
 msgid "BigTreeTech SKR Pro (STM32F407)"
-msgstr ""
+msgstr "BigTreeTech SKR Pro (STM32F407)"
 
 #: docs/Features.md:block 1 (header)
 msgid "Features"
