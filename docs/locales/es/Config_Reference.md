@@ -68,7 +68,7 @@ The printer section controls high level printer settings.
 [printer]
 kinematics:
 #   The type of printer in use. This option may be one of: cartesian,
-#   corexy, corexz, hybrid-corexy, hybrid-corexz, rotary_delta, delta,
+#   corexy, corexz, hybrid_corexy, hybrid_corexz, rotary_delta, delta,
 #   polar, winch, or none. This
 #   parameter must be specified.
 max_velocity:
@@ -417,7 +417,7 @@ See [example-polar.cfg](../config/example-polar.cfg) for an example polar kinema
 
 Only parameters specific to polar printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
 
-POLAR KINEMATICS ARE A WORK IN PROGRESS. Moves around the `0,0` position are known to not work properly.
+POLAR KINEMATICS ARE A WORK IN PROGRESS. Moves around the 0, 0 position are known to not work properly.
 
 ```
 [printer]
@@ -542,7 +542,7 @@ See the [example-winch.cfg](../config/example-winch.cfg) for an example cable wi
 
 Only parameters specific to cable winch printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
 
-CABLE WINCH SUPPORT IS EXPERIMENTAL. Homing is not implemented on cable winch kinematics. In order to home the printer, manually send movement commands until the toolhead is at 0,0,0 and then issue a `G28` command.
+CABLE WINCH SUPPORT IS EXPERIMENTAL. Homing is not implemented on cable winch kinematics. In order to home the printer, manually send movement commands until the toolhead is at 0, 0, 0 and then issue a `G28` command.
 
 ```
 [printer]
@@ -559,7 +559,7 @@ rotation_distance:
 anchor_x:
 anchor_y:
 anchor_z:
-#   The x, y, and z position of the cable winch in cartesian space.
+#   The X, Y, and Z position of the cable winch in cartesian space.
 #   These parameters must be provided.
 ```
 
@@ -726,7 +726,7 @@ See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#mesh-be
 Visual Examples:
 
 ```
- rectangular bed, probe_count = 3,3:
+ rectangular bed, probe_count = 3, 3:
              x---x---x (max_point)
              |
              x---x---x
@@ -734,15 +734,15 @@ Visual Examples:
  (min_point) x---x---x
 
  round bed, round_probe_count = 5, bed_radius = r:
-                x (0,r) end
-              /
-            x---x---x
-                      \
- (-r,0) x---x---x---x---x (r,0)
-          \
-            x---x---x
-                  /
-                x  (0,-r) start
+                 x (0, r) end
+               /
+             x---x---x
+                       \
+ (-r, 0) x---x---x---x---x (r, 0)
+           \
+             x---x---x
+                   /
+                 x  (0, -r) start
 ```
 
 ```
@@ -759,26 +759,26 @@ Visual Examples:
 #   mesh_origin option. This parameter must be provided for round beds
 #   and omitted for rectangular beds.
 #mesh_origin:
-#   Defines the center x,y coordinate of the mesh for round beds. This
+#   Defines the center X, Y coordinate of the mesh for round beds. This
 #   coordinate is relative to the probe's location. It may be useful
 #   to adjust the mesh_origin in an effort to maximize the size of the
-#   mesh radius. Default is 0,0. This parameter must be omitted for
+#   mesh radius. Default is 0, 0. This parameter must be omitted for
 #   rectangular beds.
 #mesh_min:
-#   Defines the minimum x,y coordinate of the mesh for rectangular
+#   Defines the minimum X, Y coordinate of the mesh for rectangular
 #   beds. This coordinate is relative to the probe's location. This
 #   will be the first point probed, nearest to the origin. This
 #   parameter must be provided for rectangular beds.
 #mesh_max:
-#   Defines the maximum x,y coordinate of the mesh for rectangular
+#   Defines the maximum X, Y coordinate of the mesh for rectangular
 #   beds. Adheres to the same principle as mesh_min, however this will
 #   be the furthest point probed from the bed's origin. This parameter
 #   must be provided for rectangular beds.
-#probe_count: 3,3
+#probe_count: 3, 3
 #   For rectangular beds, this is a comma separate pair of integer
-#   values (X,Y) defining the number of points to probe along each
+#   values X, Y defining the number of points to probe along each
 #   axis. A single value is also valid, in which case that value will
-#   be applied to both axes. Default is 3,3.
+#   be applied to both axes. Default is 3, 3.
 #round_probe_count: 5
 #   For round beds, this integer value defines the maximum number of
 #   points to probe along each axis. This value must be an odd number.
@@ -804,12 +804,12 @@ Visual Examples:
 #   The distance (in mm) along a move to check for split_delta_z.
 #   This is also the minimum length that a move can be split. Default
 #   is 5.0.
-#mesh_pps: 2,2
-#   A comma separated pair of integers (X,Y) defining the number of
+#mesh_pps: 2, 2
+#   A comma separated pair of integers X, Y defining the number of
 #   points per segment to interpolate in the mesh along each axis. A
 #   "segment" can be defined as the space between each probed point.
 #   The user may enter a single value which will be applied to both
-#   axes. Default is 2,2.
+#   axes. Default is 2, 2.
 #algorithm: lagrange
 #   The interpolation algorithm to use. May be either "lagrange" or
 #   "bicubic". This option will not affect 3x3 grids, which are forced
@@ -846,12 +846,12 @@ See the [command reference](G-Codes.md#bed-tilt) for additional information.
 #   axis. The default is 0.
 #z_adjust: 0
 #   The amount to add to the Z height when the nozzle is nominally at
-#   0,0. The default is 0.
+#   0, 0. The default is 0.
 # The remaining parameters control a BED_TILT_CALIBRATE extended
 # g-code command that may be used to calibrate appropriate x and y
 # adjustment parameters.
 #points:
-#   A list of X,Y coordinates (one per line; subsequent lines
+#   A list of X, Y coordinates (one per line; subsequent lines
 #   indented) that should be probed during a BED_TILT_CALIBRATE
 #   command. Specify coordinates of the nozzle and be sure the probe
 #   is above the bed at the given nozzle coordinates. The default is
@@ -873,7 +873,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 ```
 [bed_screws]
 #screw1:
-#   The X,Y coordinate of the first bed leveling screw. This is a
+#   The X, Y coordinate of the first bed leveling screw. This is a
 #   position to command the nozzle to that is directly above the bed
 #   screw (or as close as possible while still being above the bed).
 #   This parameter must be provided.
@@ -882,7 +882,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 #   the helper script runs. The default is to use a name based upon
 #   the screw XY location.
 #screw1_fine_adjust:
-#   An X,Y coordinate to command the nozzle to so that one can fine
+#   An X, Y coordinate to command the nozzle to so that one can fine
 #   tune the bed leveling screw. The default is to not perform fine
 #   adjustments on the bed screw.
 #screw2:
@@ -914,7 +914,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the
 ```
 [screws_tilt_adjust]
 #screw1:
-#   The X,Y coordinate of the first bed leveling screw. This is a
+#   The (X, Y) coordinate of the first bed leveling screw. This is a
 #   position to command the nozzle to that is directly above the bed
 #   screw (or as close as possible while still being above the bed).
 #   This is the base screw used in calculations. This parameter must
@@ -950,15 +950,15 @@ Multiple Z stepper tilt adjustment. This feature enables independent adjustment 
 ```
 [z_tilt]
 #z_positions:
-#   A list of X,Y coordinates (one per line; subsequent lines
+#   A list of X, Y coordinates (one per line; subsequent lines
 #   indented) describing the location of each bed "pivot point". The
 #   "pivot point" is the point where the bed attaches to the given Z
-#   stepper. It is described using nozzle coordinates (the XY position
+#   stepper. It is described using nozzle coordinates (the X, Y position
 #   of the nozzle if it could move directly above the point). The
 #   first entry corresponds to stepper_z, the second to stepper_z1,
 #   the third to stepper_z2, etc. This parameter must be provided.
 #points:
-#   A list of X,Y coordinates (one per line; subsequent lines
+#   A list of X, Y coordinates (one per line; subsequent lines
 #   indented) that should be probed during a Z_TILT_ADJUST command.
 #   Specify coordinates of the nozzle and be sure the probe is above
 #   the bed at the given nozzle coordinates. This parameter must be
@@ -996,16 +996,16 @@ Moving gantry leveling using 4 independently controlled Z motors. Corrects hyper
  ----------------
 ```
 
-Where x is the (0,0) point on the bed
+Where x is the 0, 0 point on the bed
 
 ```
 [quad_gantry_level]
 #gantry_corners:
-#   A newline separated list of X,Y coordinates describing the two
+#   A newline separated list of X, Y coordinates describing the two
 #   opposing corners of the gantry. The first entry corresponds to Z,
 #   the second to Z2. This parameter must be provided.
 #points:
-#   A newline separated list of four X,Y points that should be probed
+#   A newline separated list of four X, Y points that should be probed
 #   during a QUAD_GANTRY_LEVEL command. Order of the locations is
 #   important, and should correspond to Z, Z1, Z2, and Z3 location in
 #   order. This parameter must be provided. For maximum accuracy,
@@ -1039,12 +1039,12 @@ Printer Skew Correction. It is possible to use software to correct printer skew 
 
 ### [safe_z_home]
 
-Safe Z homing. One may use this mechanism to home the Z axis at a specific XY coordinate. This is useful if the toolhead, for example has to move to the center of the bed before Z can be homed.
+Safe Z homing. One may use this mechanism to home the Z axis at a specific X, Y coordinate. This is useful if the toolhead, for example has to move to the center of the bed before Z can be homed.
 
 ```
 [safe_z_home]
 home_xy_position:
-#   A X,Y coordinate (e.g. 100,100) where the Z homing should be
+#   A X, Y coordinate (e.g. 100, 100) where the Z homing should be
 #   performed. This parameter must be provided.
 #speed: 50.0
 #   Speed at which the toolhead is moved to the safe Z home
@@ -1060,8 +1060,8 @@ home_xy_position:
 #   Speed (in mm/s) at which the Z axis is lifted prior to homing. The
 #   default is 20mm/s.
 #move_to_previous: False
-#   When set to True, xy are reset to their previous positions after z
-#   homing. The default is False.
+#   When set to True, the X and Y axes are reset to their previous
+#   positions after Z axis homing. The default is False.
 ```
 
 ### [homing_override]
@@ -1355,13 +1355,13 @@ cs_pin:
 #spi_software_miso_pin:
 #   See the "common SPI settings" section for a description of the
 #   above parameters.
-#axes_map: x,y,z
-#   The accelerometer axis for each of the printer's x, y, and z axes.
+#axes_map: x, y, z
+#   The accelerometer axis for each of the printer's X, Y, and Z axes.
 #   This may be useful if the accelerometer is mounted in an
 #   orientation that does not match the printer orientation. For
-#   example, one could set this to "y,x,z" to swap the x and y axes.
+#   example, one could set this to "y, x, z" to swap the X and Y axes.
 #   It is also possible to negate an axis if the accelerometer
-#   direction is reversed (eg, "x,z,-y"). The default is "x,y,z".
+#   direction is reversed (eg, "x, z, -y"). The default is "x, y, z".
 #rate: 3200
 #   Output data rate for ADXL345. ADXL345 supports the following data
 #   rates: 3200, 1600, 800, 400, 200, 100, 50, and 25. Note that it is
@@ -1377,7 +1377,7 @@ Support for resonance testing and automatic input shaper calibration. In order t
 ```
 [resonance_tester]
 #probe_points:
-#   A list of X,Y,Z coordinates of points (one point per line) to test
+#   A list of X, Y, Z coordinates of points (one point per line) to test
 #   resonances at. At least one point is required. Make sure that all
 #   points with some safety margin in XY plane (~a few centimeters)
 #   are reachable by the toolhead.
@@ -1655,8 +1655,9 @@ See the [command reference](G-Codes.md#extruder-stepper-commands) for more infor
 ```
 [extruder_stepper my_extra_stepper]
 #extruder: extruder
-#   The extruder this stepper is synchronized to. The default is
-#   "extruder".
+#   The extruder this stepper is synchronized to. If this is set to an
+#   empty string then the stepper will not be synchronized to an
+#   extruder. The default is "extruder".
 #step_pin:
 #dir_pin:
 #enable_pin:
@@ -2306,7 +2307,7 @@ pin:
 #   Neopixel is connected to the pin).
 #color_order: GRB
 #   Set the pixel order required by the LED hardware. Options are GRB,
-#   RGB, GRBW, or RGBW. The default is GRB.
+#   RGB, BRG, GRBW, or RGBW. The default is GRB.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
@@ -3538,7 +3539,7 @@ Replicape support - see the [beaglebone guide](Beaglebone.md) and the [generic-r
 
 ```
 # The "replicape" config section adds "replicape:stepper_x_enable"
-# virtual stepper enable pins (for steppers x, y, z, e, and h) and
+# virtual stepper enable pins (for steppers X, Y, Z, E, and H) and
 # "replicape:power_x" PWM output pins (for hotbed, e, h, fan0, fan1,
 # fan2, and fan3) that may then be used elsewhere in the config file.
 [replicape]

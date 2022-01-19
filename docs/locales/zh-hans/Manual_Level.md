@@ -32,9 +32,9 @@ This is done by creating a `[bed_screws]` config section. For example, it might 
 
 ```
 [bed_screws]
-screw1: 100,50
-screw2: 100,150
-screw3: 150,100
+screw1: 100, 50
+screw2: 100, 150
+screw3: 150, 100
 ```
 
 If a bed screw is under the bed, then specify the XY position directly above the screw. If the screw is outside the bed then specify an XY position closest to the screw that is still within the range of the bed.
@@ -65,12 +65,12 @@ To enable this feature, one would determine the additional nozzle coordinates an
 
 ```
 [bed_screws]
-screw1: 100,50
-screw1_fine_adjust: 0,0
-screw2: 100,150
-screw2_fine_adjust: 300,300
-screw3: 150,100
-screw3_fine_adjust: 0,100
+screw1: 100, 50
+screw1_fine_adjust: 0, 0
+screw2: 100, 150
+screw2_fine_adjust: 300, 300
+screw3: 150, 100
+screw3_fine_adjust: 0, 100
 ```
 
 When this feature is enabled, the `BED_SCREWS_ADJUST` tool will first prompt for coarse adjustments directly above each screw position, and once those are accepted, it will prompt for fine adjustments at the additional locations. Continue to use `ACCEPT` and `ADJUSTED` at each position.
@@ -83,13 +83,13 @@ To enable this feature, one would determine the nozzle coordinates such that the
 
 ```
 [screws_tilt_adjust]
-screw1: -5,30
+screw1: -5, 30
 screw1_name: front left screw
-screw2: 155,30
+screw2: 155, 30
 screw2_name: front right screw
-screw3: 155,190
+screw3: 155, 190
 screw3_name: rear right screw
-screw4: -5,190
+screw4: -5, 190
 screw4_name: rear left screw
 horizontal_move_z: 10.
 speed: 50.

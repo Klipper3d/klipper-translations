@@ -20,7 +20,7 @@ rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
 
 `<microsteps>`设置由取决于步进电机驱动型号。大多数驱动使用 16 个微步。如果不确定，请在配置中设置 `microsteps: 16`，并在上面的公式中使用 16。
 
-Almost all printers should have a whole number for `rotation_distance` on x, y, and z type axes. If the above formula results in a rotation_distance that is within .01 of a whole number then round the final value to that whole_number.
+Almost all printers should have a whole number for `rotation_distance` on X, Y, and Z type axes. If the above formula results in a rotation_distance that is within .01 of a whole number then round the final value to that whole_number.
 
 ## 校准挤出机的 rotation_distance
 

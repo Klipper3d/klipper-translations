@@ -22,19 +22,19 @@ Der "Papiertest" ist der primäre Test zur Kalibrierung der Höhe des Druckbette
 
 Die Kenntis des "Papiertests" ist wichtig, selbst wenn der Drucker einen "automatischen Z Sonde" besitzt. Der Z Sonde selbst muss kalibriert werden um gute Ergebnisse zu erhalten. Diese Kalbirierung wird mithilfe des "Papiertests" durchgeführt.
 
-Um den Papiertest durchzufühlen, schneiden sie mithilfe einer Schere ein kleines rechteckiges (z.b. 5x3cm) Stück Papier zurecht. Das Papier hat gewöhnlicherweise eine Dicke von etwa 100 Mikrometer (0.100mm). (Die genaue Dicke ist für den Test nicht ausschlaggebend.)
+In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a thickness of around 100 microns (0.100mm). (The exact thickness of the paper isn't crucial.)
 
 Der erste Schritt des Papiertests besteht in der Kontrolle der Düse und des Druckbetts des Druckers. Stellen sie sicher dass keine Plastikreste oder andere Verschmutzungen an der Düse oder auf dem Bett vorhanden sind.
 
 **Kontrollieren sie die Düse und das Druckbett um sicherzustellen dass keine Plastikreste vorhanden sind!**
 
-Falls Klebeband oder andere Druckoberflächen zum Einsatz kommen sollte der Papiertest auf diesen Druckoberflächen durchgeführt werden. Es gilt jedoch zu beachten dass Klebeband ebenfalls eine gewissen Dicke hat und verschiedene Klebebänder (oder andere Druckoberflächen) die Kalbrierung der Z-Achse beeinflüssen können. Wiederholen sie den Papiertest für jede Druckoberfläche die zum Drucken verwendet wird.
+If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a thickness and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.
 
 Falls Plastikreste an der Düse vorhanden sind, heizen sie die Düse auf und verwenden sie eine Metallpinzette um Reste zu entfernen. Warten sie bis die Düse wieder vollständig auf Zimmertemperatur abgekühlt ist bevor sie mit dem Papiertest fortfahren. Während die Düse abkühlt, verwenden sie die Metallpinzette um weitere Plastikreste, die evtl. auslaufen, zu entfernen.
 
 **Führen sie den Papiertest nur durch wenn sich Druckdüse und Druckbett auf Zimmertemperatur befinden!**
 
-Wenn sich die Düse aufheizt verändert sich die relative Position zum Druckbett aufgrund von Wärmeausdehnung. Diese Wärmeausdehnung beschränkt sich gewöhnlicherweise auf etwa 100 Mikrometer, was in etwa der Dicke eines gewöhnlichen Druckerpapiers entspricht. Die genaue Menge an Ausdehnung ist nicht ausschlaggebend. Beginnen sie mit der Annahme dass die beiden Werte identisch sind (eine Methode zur Feststellung der genauen Differenz finden sie weiter unten).
+When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same thickness as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact thickness of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two distances).
 
 Es mag komisch vorkommen den Abstand bei Zimmertemperatur zu kalibrieren, obwohl das Ziel ein reproduzierbarer Abstand im aufgeheizten Zustand ist. Wird die Kalbrierung jedoch im aufgeheizten Zustand durchgeführt, können kleine Mengen an geschmolzenem Plastik auf dem Papier zurückbleiben, was die gefühlte Menge Reibung beeinflussen kann. Eine Kalbrierung mit aufgeheizter Düse und Druckbett erhöht außerdem das Risiko für Brandverletzungen. Die Wärmeausdehnung ist konstant, daher ist es sehr einfach sie später im Kalibrierungsprozess zu berücksichtigen.
 
@@ -86,7 +86,7 @@ If something goes wrong during the test, one can use the `ABORT` command to exit
 
 ## Determining Thermal Expansion
 
-After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "width of the paper", and "amount of friction felt during the paper test".
+After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "thickness of the paper", and "amount of friction felt during the paper test".
 
 This type of calculation is generally not needed as most users find the simple "paper test" provides good results.
 

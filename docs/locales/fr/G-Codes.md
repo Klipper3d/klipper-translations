@@ -100,6 +100,7 @@ The following standard commands are supported:
 - `ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: Pour une imprimante avec plusieurs extrudeurs, cette commande permet de changer l'extrudeur actif.
 - `SET_PRESSURE_ADVANCE [EXTRUDER=<nom_de_la_configuration>] [ADVANCE=<avance_de_pression>] [SMOOTH_TIME=<avance_de_pression_smooth_time>] ` : Définit les paramètres d'avance de pression. Si EXTRUDER n'est pas spécifié, il s'agit par défaut de l'extrudeur active.
 - `SET_EXTRUDER_STEP_DISTANCE [EXTRUDER=<nom_config>] [DISTANCE=<distance>] ` : Définit une nouvelle valeur pour la "distance de pas" de l'extrudeur fourni. La "distance de pas" est `rotation_distance/(full_steps_per_rotation*microsteps)`. La valeur n'est pas conservée lors de la réinitialisation de Klipper. A utiliser avec précaution, de petites modifications peuvent entraîner une pression excessive entre l'extrudeur et l'extrémité chaude. Procédez avec des étapes de calibrage appropriées avec le filament avant de l'utiliser. Si la valeur 'DISTANCE' n'est pas incluse, la commande retournera la distance de pas courante.
+- `SYNC_STEPPER_TO_EXTRUDER STEPPER=<name> [EXTRUDER=<name>]`: This command will cause the given extruder STEPPER (as specified in an [extruder](Config_Reference#extruder) or [extruder stepper](Config_Reference#extruder_stepper) config section) to become synchronized to the given EXTRUDER. If EXTRUDER is an empty string then the stepper will not be synchronized to an extruder.
 - `SET_STEPPER_ENABLE STEPPER=<nom_de_la_configuration> ENABLE=[0|1] ` : Active ou désactive uniquement le stepper donné. Il s'agit d'un outil de diagnostic et de débogage qui doit donc être utilisé avec précaution. La désactivation d'un moteur d'axe ne réinitialise pas les informations d'orientation. Le déplacement manuel d'un moteur pas à pas désactivé peut amener la machine à faire fonctionner le moteur en dehors des limites de sécurité. Cela peut entraîner des dommages aux composants de l'axe, aux extrémités chaudes et à la surface d'impression.
 - `STEPPER_BUZZ STEPPER=<config_name>`: Move the given stepper forward one mm and then backward one mm, repeated 10 times. This is a diagnostic tool to help verify stepper connectivity.
 - `MANUAL_PROBE [SPEED=<speed>]`: Exécute un script d'aide servant à mesurer la hauteur de la buse à un point donné. Si SPEED est spécifié, il définit la vitesse des commandes TESTZ (la valeur par défaut est 5mm/s). Pendant un sondage manuel, les commandes supplémentaires suivantes sont disponibles :
@@ -158,12 +159,6 @@ The following command is available when a [manual_stepper config section](Config
 
 - `MANUAL_STEPPER STEPPER=nom_du_config [ENABLE=[0|1]]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|-1|-2]] [SYNC=0]] ` : Cette commande modifie l'état du stepper. Utilisez le paramètre ENABLE pour activer/désactiver le stepper. Utilisez le paramètre SET_POSITION pour forcer le moteur pas à pas à penser qu'il se trouve à la position donnée. Utilisez le paramètre MOVE pour déplacer vers la position donnée. Si SPEED et/ou ACCEL sont spécifiés, les valeurs données seront utilisées à la place de celles par défaut issues du fichier de configuration. Si un ACCEL de zéro est spécifié, aucune accélération ne sera effectuée. Si STOP_ON_ENDSTOP=1 est spécifié, le déplacement se terminera prématurément si la fin de course est déclenchée (utilisez STOP_ON_ENDSTOP=2 pour terminer le déplacement sans erreur même si la fin de course n'est pas déclenchée, utilisez -1 ou -2 pour s'arrêter lorsque la fin de course n'est pas déclenchée). Normalement, les futures commandes G-Code seront programmées pour être exécutées après la fin du déplacement de la commande de pas, mais si un déplacement manuel de la commande de pas utilise SYNC=0, les futures commandes de déplacement G-Code peuvent être exécutées en parallèle avec le déplacement de la commande de pas.
 
-### Commandes de l'extrudeur pas à pas
-
-The following command is available when an [extruder_stepper config section](Config_Reference.md#extruder_stepper) is enabled:
-
-- `SYNC_STEPPER_TO_EXTRUDER STEPPER=<extruder_stepper config_name> [EXTRUDER=<extruder config_name>]`: This command will cause the given STEPPER to become synchronized to the given EXTRUDER, overriding the extruder defined in the "extruder_stepper" config section.
-
 ### Palpeur
 
 The following commands are available when a [probe config section](Config_Reference.md#probe) is enabled (also see the [probe calibrate guide](Probe_Calibrate.md)):
@@ -200,7 +195,7 @@ The following commands are available when the [bed_tilt config section](Config_R
 The following commands are available when the [bed_mesh config section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh guide](Bed_Mesh.md)):
 
 - `BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` : Cette commande palpe le bed en utilisant des points générés spécifiés par les paramètres de la config. Après le test, un maillage est généré et le déplacement de l'axe Z est ajusté en fonction de celui-ci. Référez-vous à la commande PROBE pour plus de détails sur les paramètres optionnels. Si METHOD=manual est spécifié, l'outil de palpage manuel est activé - voir la commande MANUAL_PROBE ci-dessus pour plus de détails sur les possibilités supplémentaires disponibles lorsque cet outil est utilisé.
-- `BED_MESH_OUTPUT PGP=[<0:1>]`: Cette commande sort les valeurs z obtenues lors du palpage et les valeurs de maillage courantes sur le terminal. Si PGP=1 est spécifié, les coordonnées x,y générées par bed_mesh, ainsi que leurs indices associés, seront affichés sur le terminal.
+- `BED_MESH_OUTPUT PGP=[<0:1>]`: This command outputs the current probed z values and current mesh values to the terminal. If PGP=1 is specified the X, Y coordinates generated by bed_mesh, along with their associated indices, will be output to the terminal.
 - `BED_MESH_MAP` : Comme pour BED_MESH_OUTPUT, cette commande affiche l'état actuel du maillage sur le terminal. L'état sera retourné au format json. Cela permet aux plugins octoprint de récupérer facilement les données et de générer des cartes d'altitude au plus proche de la surface du bed.
 - `BED_MESH_CLEAR`: Cette commande efface le maillage actuel et supprime les ajustements de l'axe z. Il est recommandé de mettre cette commande dans votre gcode de fin.
 - `BED_MESH_PROFILE LOAD=<name> SAVE=<name> REMOVE=<name> ` : Cette commande fournit une gestion de profil pour l'état du maillage. LOAD restaurera le maillage à partir du profil <name>. SAVE sauvegarde l'état actuel du maillage dans un profil nommé selon <name>. REMOVE supprime de la mémoire persistante le profil <name>. A savoir qu'une fois les opérations SAVE ou REMOVE executées, le gcode SAVE_CONFIG doit être lancé pour enregistrer les changements dans la mémoire persistante.
@@ -359,3 +354,20 @@ The following command is available when the [palette2 config section](Config_Ref
 Les impressions avec Palette fonctionnent en intégrant des OCodes (Omega Codes) spéciaux dans le fichier GCode :
 
 - `O1`...`O32`: Ces codes sont lus à partir du flux GCode, traités par ce module et transmis au dispositif Palette 2.
+
+### Filament Width Sensor Commands
+
+The following command is available when the [tsl1401cl filament width sensor config section](Config_Reference.md#tsl1401cl_filament_width_sensor) or [hall filament width sensor config section](Config_Reference.md#hall_filament_width_sensor) is enabled (also see [TSLl401CL Filament Width Sensor](TSL1401CL_Filament_Width_Sensor.md) and [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)):
+
+- `QUERY_FILAMENT_WIDTH` - Return the current measured filament width
+- `RESET_FILAMENT_WIDTH_SENSOR` - Clear all sensor readings. Helpful after filament change
+- `DISABLE_FILAMENT_WIDTH_SENSOR` - Turn off the filament width sensor and stop using it for flow control
+- `ENABLE_FILAMENT_WIDTH_SENSOR` - Turn on the filament width sensor and start using it for flow control
+
+### Hall Filament Width Sensor Commands
+
+The following command is available when the [hall filament width sensor config section](Config_Reference.md#hall_filament_width_sensor) is enabled:
+
+- `QUERY_RAW_FILAMENT_WIDTH` - Return the current ADC channel readings and RAW sensor value for calibration points
+- `ENABLE_FILAMENT_WIDTH_LOG` - Turn on diameter logging
+- `DISABLE_FILAMENT_WIDTH_LOG` - Turn off diameter logging

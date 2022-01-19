@@ -100,11 +100,12 @@ The following standard commands are supported:
 - `ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: In a printer with multiple extruders this command is used to change the active extruder.
 - `SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Set pressure advance parameters. If EXTRUDER is not specified, it defaults to the active extruder.
 - `SET_EXTRUDER_STEP_DISTANCE [EXTRUDER=<config_name>] [DISTANCE=<distance>]`: Set a new value for the provided extruder's "step distance". The "step distance" is `rotation_distance/(full_steps_per_rotation*microsteps)`. Value is not retained on Klipper reset. Use with caution, small changes can result in excessive pressure between extruder and hot end. Do proper calibration steps with filament before use. If 'DISTANCE' value is not included command will return current step distance.
+- `SYNC_STEPPER_TO_EXTRUDER STEPPER=<name> [EXTRUDER=<name>]`: This command will cause the given extruder STEPPER (as specified in an [extruder](Config_Reference#extruder) or [extruder stepper](Config_Reference#extruder_stepper) config section) to become synchronized to the given EXTRUDER. If EXTRUDER is an empty string then the stepper will not be synchronized to an extruder.
 - `SET_STEPPER_ENABLE STEPPER=<config_name> ENABLE=[0|1]`: Enable or disable only the given stepper. This is a diagnostic and debugging tool and must be used with care. Disabling an axis motor does not reset the homing information. Manually moving a disabled stepper may cause the machine to operate the motor outside of safe limits. This can lead to damage to axis components, hot ends, and print surface.
 - `STEPPER_BUZZ STEPPER=<config_name>`: Move the given stepper forward one mm and then backward one mm, repeated 10 times. This is a diagnostic tool to help verify stepper connectivity.
 - `MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:
    - `ACCEPT`: This command accepts the current Z position and concludes the manual probing tool.
-   - `ABORT`: This command terminates the manual probing tool.
+   - `ABORTAR`: Este comando interrumpe la herramienta de sondeo manual.
    - `TESTZ Z=<value>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
 - `Z_ENDSTOP_CALIBRATE [SPEED=<speed>]`: Run a helper script useful for calibrating a Z position_endstop config setting. See the MANUAL_PROBE command for details on the parameters and the additional commands available while the tool is active.
 - `Z_OFFSET_APPLY_ENDSTOP`: Take the current Z Gcode offset (aka, babystepping), and subtract it from the stepper_z endstop_position. This acts to take a frequently used babystepping value, and "make it permanent". Requires a `SAVE_CONFIG` to take effect.
@@ -158,12 +159,6 @@ The following command is available when a [manual_stepper config section](Config
 
 - `MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|-1|-2]] [SYNC=0]]`: This command will alter the state of the stepper. Use the ENABLE parameter to enable/disable the stepper. Use the SET_POSITION parameter to force the stepper to think it is at the given position. Use the MOVE parameter to request a movement to the given position. If SPEED and/or ACCEL is specified then the given values will be used instead of the defaults specified in the config file. If an ACCEL of zero is specified then no acceleration will be performed. If STOP_ON_ENDSTOP=1 is specified then the move will end early should the endstop report as triggered (use STOP_ON_ENDSTOP=2 to complete the move without error even if the endstop does not trigger, use -1 or -2 to stop when the endstop reports not triggered). Normally future G-Code commands will be scheduled to run after the stepper move completes, however if a manual stepper move uses SYNC=0 then future G-Code movement commands may run in parallel with the stepper movement.
 
-### Extruder stepper Commands
-
-The following command is available when an [extruder_stepper config section](Config_Reference.md#extruder_stepper) is enabled:
-
-- `SYNC_STEPPER_TO_EXTRUDER STEPPER=<extruder_stepper config_name> [EXTRUDER=<extruder config_name>]`: This command will cause the given STEPPER to become synchronized to the given EXTRUDER, overriding the extruder defined in the "extruder_stepper" config section.
-
 ### Probe
 
 The following commands are available when a [probe config section](Config_Reference.md#probe) is enabled (also see the [probe calibrate guide](Probe_Calibrate.md)):
@@ -200,7 +195,7 @@ The following commands are available when the [bed_tilt config section](Config_R
 The following commands are available when the [bed_mesh config section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh guide](Bed_Mesh.md)):
 
 - `BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: This command probes the bed using generated points specified by the parameters in the config. After probing, a mesh is generated and z-movement is adjusted according to the mesh. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active.
-- `BED_MESH_OUTPUT PGP=[<0:1>]`: This command outputs the current probed z values and current mesh values to the terminal. If PGP=1 is specified the x,y coordinates generated by bed_mesh, along with their associated indices, will be output to the terminal.
+- `BED_MESH_OUTPUT PGP=[<0:1>]`: This command outputs the current probed z values and current mesh values to the terminal. If PGP=1 is specified the X, Y coordinates generated by bed_mesh, along with their associated indices, will be output to the terminal.
 - `BED_MESH_MAP`: Like to BED_MESH_OUTPUT, this command prints the current state of the mesh to the terminal. Instead of printing the values in a human readable format, the state is serialized in json format. This allows octoprint plugins to easily capture the data and generate height maps approximating the bed's surface.
 - `BED_MESH_CLEAR`: This command clears the mesh and removes all z adjustment. It is recommended to put this in your end-gcode.
 - `BED_MESH_PROFILE LOAD=<name> SAVE=<name> REMOVE=<name>`: This command provides profile management for mesh state. LOAD will restore the mesh state from the profile matching the supplied name. SAVE will save the current mesh state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to peristent memory permanent.
@@ -359,3 +354,20 @@ The following command is available when the [palette2 config section](Config_Ref
 Palette prints work by embedding special OCodes (Omega Codes) in the GCode file:
 
 - `O1`...`O32`: These codes are read from the GCode stream and processed by this module and passed to the Palette 2 device.
+
+### Filament Width Sensor Commands
+
+The following command is available when the [tsl1401cl filament width sensor config section](Config_Reference.md#tsl1401cl_filament_width_sensor) or [hall filament width sensor config section](Config_Reference.md#hall_filament_width_sensor) is enabled (also see [TSLl401CL Filament Width Sensor](TSL1401CL_Filament_Width_Sensor.md) and [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)):
+
+- `QUERY_FILAMENT_WIDTH` - Return the current measured filament width
+- `RESET_FILAMENT_WIDTH_SENSOR` - Clear all sensor readings. Helpful after filament change
+- `DISABLE_FILAMENT_WIDTH_SENSOR` - Turn off the filament width sensor and stop using it for flow control
+- `ENABLE_FILAMENT_WIDTH_SENSOR` - Turn on the filament width sensor and start using it for flow control
+
+### Hall Filament Width Sensor Commands
+
+The following command is available when the [hall filament width sensor config section](Config_Reference.md#hall_filament_width_sensor) is enabled:
+
+- `QUERY_RAW_FILAMENT_WIDTH` - Return the current ADC channel readings and RAW sensor value for calibration points
+- `ENABLE_FILAMENT_WIDTH_LOG` - Turn on diameter logging
+- `DISABLE_FILAMENT_WIDTH_LOG` - Turn off diameter logging

@@ -1,6 +1,6 @@
 # 探针校准
 
-该文档介绍了如何在 Klipper 中校准自动 z 探针x，y 和 z 偏移。依据本文，用户可以简单地完成 `[probe]` 或 `[bltouch]` 段落的配置。
+This document describes the method for calibrating the X, Y, and Z offsets of an "automatic z probe" in Klipper. This is useful for users that have a `[probe]` or `[bltouch]` section in their config file.
 
 ## 探针X/Y偏移校准
 

@@ -16,9 +16,9 @@ control_pin: P1.26
 
 ```
 [safe_z_home]
-home_xy_position: 100,100 # 修改坐标为打印床的中心位置
+home_xy_position: 100, 100 # Change coordinates to the center of your print bed
 speed: 50
-z_hop: 10                 # 向上移动 10mm
+z_hop: 10                 # Move up 10mm
 z_hop_speed: 5
 ```
 
@@ -32,7 +32,7 @@ z_hop_speed: 5
 
 如果以上都没有问题，就可以测试 control 引脚是否正常工作了。首先在打印机终端中运行 `BLTOUCH_DEBUG COMMAND=pin_down`。确认探针伸出并且探头上的红色 LED 熄灭。如果没有，请再次检查打印机的接线和配置。接下来在打印机终端输入 `BLTOUCH_DEBUG COMMAND=pin_up`，确认探针向上移动了，并且红灯再次亮起。如果它闪烁，则说明存在问题。
 
-下一步是确认 sensor 引脚是否正常工作。运行`BLTOUCH_DEBUG COMMAND=pin_down`，确认引脚向下移动，运行`BLTOUCH_DEBUG COMMAND=touch_mode`，运行`QUERY_PROBE`，确认命令报告 "probe: open"。然后用手指轻轻地将针头向上推，再次运行`QUERY_PROBE`。确认该命令的报告是"probe: TRIGGERED"。如果没有返回正确的信息，那么请再次检查你的接线和配置。在这个测试完成后，运行`BLTOUCH_DEBUG COMMAND=pin_up`并验证引脚是否向上移动。
+The next step is to confirm that the sensor pin is working correctly. Run `BLTOUCH_DEBUG COMMAND=pin_down`, verify that the pin moves down, run `BLTOUCH_DEBUG COMMAND=touch_mode`, run `QUERY_PROBE`, and verify that command reports "probe: open". Then while gently pushing the pin up slightly with the nail of your finger run `QUERY_PROBE` again. Verify the command reports "probe: TRIGGERED". If either query does not report the correct message then it usually indicates an incorrect wiring or configuration (though some [clones](#bl-touch-clones) may require special handling). At the completion of this test run `BLTOUCH_DEBUG COMMAND=pin_up` and verify that the pin moves up.
 
 在完成 BL-TOUCH contro 引脚和 sensor 引脚的测试后，现在是测试探针的时候了，但有一个技巧。不要让探针接触打印床，而是让它接触你手指甲。将打印头移动到离床面较远的位置，发送`G28`（如果不使用probe:z_virtual_endstop，发送`PROBE`），等待工具头开始向下移动，然后用手指甲轻轻地触摸针脚来停止移动。你可能要做两次，因为默认的归位配置会探测两次。如果你触摸探针时它没有停止，请立即关闭打印机电源。
 
@@ -50,9 +50,11 @@ BLTOUCH_DEBUG COMMAND=reset
 
 ## BL-Touch 的克隆（3D-Touch）
 
-许多克隆的 BL-TOUCH 设备使用默认配置可以与 Klipper 正常工作。然而，一些克隆的设备可能需要配置`pin_up_reports_not_triggered`或`pin_up_touch_mode_reports_triggered`。
+Many BL-Touch "clone" devices work correctly with Klipper using the default configuration. However, some "clone" devices may not support the `QUERY_PROBE` command and some "clone" devices may require configuration of `pin_up_reports_not_triggered` or `pin_up_touch_mode_reports_triggered`.
 
 注意！在没有遵循这些指示之前，不要把 `pin_up_reports_not_triggered` 或 `pin_up_touch_mode_reports_triggered` 配置为 False。不要在正版 BL-Touch 上把这两个参数配置为False。错误地将这些设置为 "False"会增加探测时间和损坏打印机的风险。
+
+Some "clone" devices do not support `touch_mode` and as a result the `QUERY_PROBE` command does not work. Despite this, it may still be possible to perform probing and homing with these devices. On these devices the `QUERY_PROBE` command during the [initial tests](#initial-tests) will not succeed, however the subsequent `G28` (or `PROBE`) test does succeed. It may be possible to use these "clone" devices with Klipper if one does not utilize the `QUERY_PROBE` command and one does not enable the `probe_with_touch_mode` feature.
 
 一些克隆设备无法执行 Klipper 的内部传感器验证测试。在这些设备上，尝试归位或探测会导致 Klipper 报告 "BLTouch failed to verify sensor state" 错误。如果发生这种情况，那么请手动运行这些步骤以确认 sensor 引脚正确，如[初次调试](#initial-tests)所述。如果该测试中的`QUERY_PROBE`命令总是产生符合预期的结果，而 "BLTouch failed to verify sensor state "错误仍然发生，那么可能需要在Klipper配置文件中把`pin_up_touch_mode_reports_triggered`设为False。
 

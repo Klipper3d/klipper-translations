@@ -68,7 +68,7 @@ serial:
 [printer]
 kinematics:
 #   The type of printer in use. This option may be one of: cartesian,
-#   corexy, corexz, hybrid-corexy, hybrid-corexz, rotary_delta, delta,
+#   corexy, corexz, hybrid_corexy, hybrid_corexz, rotary_delta, delta,
 #   polar, winch, or none. This
 #   parameter must be specified.
 max_velocity:
@@ -417,7 +417,7 @@ See [example-polar.cfg](../config/example-polar.cfg) for an example polar kinema
 
 这里只描述了极地打印机特有的参数—全部可用的参数请见[常用的运动学设置](#common-kinematic-settings)。
 
-目前 Klipper 的极坐标运动学是一个不成熟的实现。围绕`0,0`位置的移动已知不能正常工作。
+POLAR KINEMATICS ARE A WORK IN PROGRESS. Moves around the 0, 0 position are known to not work properly.
 
 ```
 [printer]
@@ -542,7 +542,7 @@ See the [example-winch.cfg](../config/example-winch.cfg) for an example cable wi
 
 这里只描述了缆绳铰盘式打印机特有的参数 — 全部可用的参数见[常用的运动学设置](#common-kinematic-settings)。
 
-缆绳绞盘运动学支持是实验性的。归零尚未在缆绳绞盘运动学中实现。为了将打印机归零，需要手动发送移动命令直到工具头处于 0,0,0 位置，然后发出 ` G28` 命令。
+CABLE WINCH SUPPORT IS EXPERIMENTAL. Homing is not implemented on cable winch kinematics. In order to home the printer, manually send movement commands until the toolhead is at 0, 0, 0 and then issue a `G28` command.
 
 ```
 [printer]
@@ -559,7 +559,7 @@ rotation_distance:
 anchor_x:
 anchor_y:
 anchor_z:
-#   The x, y, and z position of the cable winch in cartesian space.
+#   The X, Y, and Z position of the cable winch in cartesian space.
 #   These parameters must be provided.
 ```
 
@@ -713,7 +713,7 @@ See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#mesh-be
 可视化示例：
 
 ```
- rectangular bed, probe_count = 3,3:
+ rectangular bed, probe_count = 3, 3:
              x---x---x (max_point)
              |
              x---x---x
@@ -721,91 +721,100 @@ See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#mesh-be
  (min_point) x---x---x
 
  round bed, round_probe_count = 5, bed_radius = r:
-                x (0,r) end
-              /
-            x---x---x
-                      \
- (-r,0) x---x---x---x---x (r,0)
-          \
-            x---x---x
-                  /
-                x  (0,-r) start
+                 x (0, r) end
+               /
+             x---x---x
+                       \
+ (-r, 0) x---x---x---x---x (r, 0)
+           \
+             x---x---x
+                   /
+                 x  (0, -r) start
 ```
 
 ```
 [bed_mesh]
 #speed: 50
-#   在校准时非探测移动的速度（以毫米每秒(mm/s)为单位）。
-#   默认为50。
+#   The speed (in mm/s) of non-probing moves during the calibration.
+#   The default is 50.
 #horizontal_move_z: 5
-#   在探测前打印头必须移动到的高度（以毫米(mm)为单位）。
-#   默认为5。
+#   The height (in mm) that the head should be commanded to move to
+#   just prior to starting a probe operation. The default is 5.
 #mesh_radius:
-#   定义圆形打印床的网格半径。注意，半径相对于 mesh_origin 
-#   选项定义的中心。圆形打印床必须提供这个参数，而长方形
-#   打印床必须忽略。
+#   Defines the radius of the mesh to probe for round beds. Note that
+#   the radius is relative to the coordinate specified by the
+#   mesh_origin option. This parameter must be provided for round beds
+#   and omitted for rectangular beds.
 #mesh_origin:
-#   定义圆形打印床网格中心的 x,y 坐标。 这个坐标相对于探针
-#   位置。可以通过调整 mesh_origin 来最大化网格半径。默认为
-#   0,0。长方形打印床必须忽略这个参数。
+#   Defines the center X, Y coordinate of the mesh for round beds. This
+#   coordinate is relative to the probe's location. It may be useful
+#   to adjust the mesh_origin in an effort to maximize the size of the
+#   mesh radius. Default is 0, 0. This parameter must be omitted for
+#   rectangular beds.
 #mesh_min:
-#   定义长方形打印床网格的最小 x,y 坐标。这个坐标相对与探针
-#   位置。这将会是第一个被探测，最接近原点的坐标。
-#   长方形打印床必须提供这个参数。
+#   Defines the minimum X, Y coordinate of the mesh for rectangular
+#   beds. This coordinate is relative to the probe's location. This
+#   will be the first point probed, nearest to the origin. This
+#   parameter must be provided for rectangular beds.
 #mesh_max:
-#   定义长方形打印床网格的极限 x,y 坐标。遵循和 mesh_min  相同
-#   的原则，但是这将是离打印床原点最远的点。长方形打印床
-#   必须提供这个参数。
-#probe_count: 3,3
-#   用于长方形打印床，这是一对逗号分隔的整数 (X,Y) ，定义了每个
-#   轴向的探测点数。也可以仅用一个整数，这个整数将被应用于两
-#   个轴。
-#   默认为3,3。
+#   Defines the maximum X, Y coordinate of the mesh for rectangular
+#   beds. Adheres to the same principle as mesh_min, however this will
+#   be the furthest point probed from the bed's origin. This parameter
+#   must be provided for rectangular beds.
+#probe_count: 3, 3
+#   For rectangular beds, this is a comma separate pair of integer
+#   values X, Y defining the number of points to probe along each
+#   axis. A single value is also valid, in which case that value will
+#   be applied to both axes. Default is 3, 3.
 #round_probe_count: 5
-#   用于圆形热床，这个整数定义了每个轴的最大探测点数。这个数值
-#   必须是一个单数。
-#   默认为5。
+#   For round beds, this integer value defines the maximum number of
+#   points to probe along each axis. This value must be an odd number.
+#   Default is 5.
 #fade_start: 1.0
-#   在淡出启用时开始淡出修正G代码中z坐标的位置。
-#   默认为1.0。
+#   The gcode z position in which to start phasing out z-adjustment
+#   when fade is enabled. Default is 1.0.
 #fade_end: 0.0
-#   在淡出启用时结束淡出修正G代码中z坐标的位置。 当这个数值小于
-#   fade_start 时，淡出会被禁用。注意，淡出可能会在打印件的z轴上
-#   增加不期望的缩放。如果一个用户想启用淡出，10.0是一个推荐数值。
-#   默认为 0.0，意味着淡出被禁用。
+#   The gcode z position in which phasing out completes. When set to a
+#   value below fade_start, fade is disabled. It should be noted that
+#   fade may add unwanted scaling along the z-axis of a print. If a
+#   user wishes to enable fade, a value of 10.0 is recommended.
+#   Default is 0.0, which disables fade.
 #fade_target:
-#   淡出收敛的目标 z 坐标。当这个数值被设为一个非0数值，它必须
-#   在网床的 z 数值之间。希望收敛到 z 归零点的用户应该将它设为0。
-#   默认为网床的平均 z 数值。
+#   The z position in which fade should converge. When this value is
+#   set to a non-zero value it must be within the range of z-values in
+#   the mesh. Users that wish to converge to the z homing position
+#   should set this to 0. Default is the average z value of the mesh.
 #split_delta_z: .025
-#   单次移动中触发运动分隔的最小 Z 差异（以毫米(mm)为单位）。
-#   默认为 .025。
+#   The amount of Z difference (in mm) along a move that will trigger
+#   a split. Default is .025.
 #move_check_distance: 5.0
-#   触发 split_delta_z 检测的最小单次移动距离（以毫米(mm)为单位）。
-#   这也是移动能被分隔成的最小段。
-#   默认为 5.0。
-#mesh_pps: 2,2
-#   一对逗号分隔的整数 (X,Y)，定义了每个轴每段插值点数。一
-#   个“段”是在每个探测点之间的空间。也可以仅用一个整数，这个整
-#   数将被应用于两个轴。
-#   默认为 2,2。
+#   The distance (in mm) along a move to check for split_delta_z.
+#   This is also the minimum length that a move can be split. Default
+#   is 5.0.
+#mesh_pps: 2, 2
+#   A comma separated pair of integers X, Y defining the number of
+#   points per segment to interpolate in the mesh along each axis. A
+#   "segment" can be defined as the space between each probed point.
+#   The user may enter a single value which will be applied to both
+#   axes. Default is 2, 2.
 #algorithm: lagrange
-#   使用的插值算法。可以是"lagrange"（拉格朗日）或者"bicubic"（双
-#   三次）。 这个选项不影响 3x3 网格，因为它会被强制使用拉格朗日
-#   采样。
-#   默认为lagrange。
+#   The interpolation algorithm to use. May be either "lagrange" or
+#   "bicubic". This option will not affect 3x3 grids, which are forced
+#   to use lagrange sampling. Default is lagrange.
 #bicubic_tension: .2
-#   在使用双三次算法时，上述张力参数可以改变内插斜率的大小。
-#   更大的数值可以增加斜率，增加网格的曲率。
-#   默认为 .2。
+#   When using the bicubic algorithm the tension parameter above may
+#   be applied to change the amount of slope interpolated. Larger
+#   numbers will increase the amount of slope, which results in more
+#   curvature in the mesh. Default is .2.
 #relative_reference_index:
-#   网格中所有 z 值的一个参考点。启用这个参数会产生一个相对于
-#   提供参考点探测的 z 高度的网格。
+#   A point index in the mesh to reference all z values to. Enabling
+#   this parameter produces a mesh relative to the probed z position
+#   at the provided index.
 #faulty_region_1_min:
 #faulty_region_1_max:
-#   可选的故障区域定义点。详见 docs/Bed_Mesh.md。最多可以定
-#   义99个故障区域。
-#   默认不设定任何故障区域。
+#   Optional points that define a faulty region.  See docs/Bed_Mesh.md
+#   for details on faulty regions.  Up to 99 faulty regions may be added.
+#   By default no faulty regions are set.
 ```
 
 ### [bed_tilt]
@@ -817,26 +826,29 @@ See the [command reference](G-Codes.md#bed-tilt) for additional information.
 ```
 [bed_tilt]
 #x_adjust: 0
-#   每毫米X轴运动的Z高度增量。
-#   默认为 0。
+#   The amount to add to each move's Z height for each mm on the X
+#   axis. The default is 0.
 #y_adjust: 0
-#   每毫米Y轴运动的Z高度增量。
-#   默认为 0。
+#   The amount to add to each move's Z height for each mm on the Y
+#   axis. The default is 0.
 #z_adjust: 0
-#   喷嘴在 0,0 时的z高度增量。
-#   默认为 0。
-#   剩余的参数控制用于校准X和Y调整的 BED_TILT_CALIBRATE 增强G代
-#   码命令。
+#   The amount to add to the Z height when the nozzle is nominally at
+#   0, 0. The default is 0.
+# The remaining parameters control a BED_TILT_CALIBRATE extended
+# g-code command that may be used to calibrate appropriate x and y
+# adjustment parameters.
 #points:
-#   BED_TILT_CALIBRATE 命令探测的 X,Y 坐标的列表（一个一行，后续行
-#   缩进。坐标根据喷嘴位置决定，确保在相应喷嘴坐标时探针在打印床上
-#   默认不启用此命令。
+#   A list of X, Y coordinates (one per line; subsequent lines
+#   indented) that should be probed during a BED_TILT_CALIBRATE
+#   command. Specify coordinates of the nozzle and be sure the probe
+#   is above the bed at the given nozzle coordinates. The default is
+#   to not enable the command.
 #speed: 50
-#   在校准时非探测移动的速度（以毫米每秒(mm/s)为单位）。
-#   默认为50。
+#   The speed (in mm/s) of non-probing moves during the calibration.
+#   The default is 50.
 #horizontal_move_z: 5
-#   在探测前打印头必须移动到的高度（以毫米(mm)为单位）。
-#   默认为5。
+#   The height (in mm) that the head should be commanded to move to
+#   just prior to starting a probe operation. The default is 5.
 ```
 
 ### [bed_screws]
@@ -848,22 +860,24 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 ```
 [bed_screws]
 #screw1:
-#   第一个打印床调平螺丝的 X,Y 坐标。这是命令喷嘴到打印床螺丝
-#   正上方的坐标（或在打印床上尽可能接近的坐标）。
-#   必须提供这个参数。
+#   The X, Y coordinate of the first bed leveling screw. This is a
+#   position to command the nozzle to that is directly above the bed
+#   screw (or as close as possible while still being above the bed).
+#   This parameter must be provided.
 #screw1_name:
-#   给定螺丝的昵称。在助手脚本运行时会显示这跟昵称。
-#   默认为基于螺丝坐标的名称。
+#   An arbitrary name for the given screw. This name is displayed when
+#   the helper script runs. The default is to use a name based upon
+#   the screw XY location.
 #screw1_fine_adjust:
-#   这是命令喷嘴到打印床螺丝正上方的 X,Y 坐标用于微调打印床调
-#   平螺丝的坐标。 
-#   默认不在打印床螺丝上进行微调。
+#   An X, Y coordinate to command the nozzle to so that one can fine
+#   tune the bed leveling screw. The default is to not perform fine
+#   adjustments on the bed screw.
 #screw2:
 #screw2_name:
 #screw2_fine_adjust:
 #...
-#   额外的打印床调平螺丝坐标。
-#   至少要定义三个螺丝。
+#   Additional bed leveling screws. At least three screws must be
+#   defined.
 #horizontal_move_z: 5
 #   The height (in mm) that the head should be commanded to move to
 #   when moving from one screw location to the next. The default is 5.
@@ -887,7 +901,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the
 ```
 [screws_tilt_adjust]
 #screw1:
-#   The X,Y coordinate of the first bed leveling screw. This is a
+#   The (X, Y) coordinate of the first bed leveling screw. This is a
 #   position to command the nozzle to that is directly above the bed
 #   screw (or as close as possible while still being above the bed).
 #   This is the base screw used in calculations. This parameter must
@@ -923,15 +937,15 @@ Multiple Z stepper tilt adjustment. This feature enables independent adjustment 
 ```
 [z_tilt]
 #z_positions:
-#   A list of X,Y coordinates (one per line; subsequent lines
+#   A list of X, Y coordinates (one per line; subsequent lines
 #   indented) describing the location of each bed "pivot point". The
 #   "pivot point" is the point where the bed attaches to the given Z
-#   stepper. It is described using nozzle coordinates (the XY position
+#   stepper. It is described using nozzle coordinates (the X, Y position
 #   of the nozzle if it could move directly above the point). The
 #   first entry corresponds to stepper_z, the second to stepper_z1,
 #   the third to stepper_z2, etc. This parameter must be provided.
 #points:
-#   A list of X,Y coordinates (one per line; subsequent lines
+#   A list of X, Y coordinates (one per line; subsequent lines
 #   indented) that should be probed during a Z_TILT_ADJUST command.
 #   Specify coordinates of the nozzle and be sure the probe is above
 #   the bed at the given nozzle coordinates. This parameter must be
@@ -969,16 +983,16 @@ Moving gantry leveling using 4 independently controlled Z motors. Corrects hyper
  ----------------
 ```
 
-x 是打印床上的 （0，0） 点
+Where x is the 0, 0 point on the bed
 
 ```
 [quad_gantry_level]
 #gantry_corners:
-#   A newline separated list of X,Y coordinates describing the two
+#   A newline separated list of X, Y coordinates describing the two
 #   opposing corners of the gantry. The first entry corresponds to Z,
 #   the second to Z2. This parameter must be provided.
 #points:
-#   A newline separated list of four X,Y points that should be probed
+#   A newline separated list of four X, Y points that should be probed
 #   during a QUAD_GANTRY_LEVEL command. Order of the locations is
 #   important, and should correspond to Z, Z1, Z2, and Z3 location in
 #   order. This parameter must be provided. For maximum accuracy,
@@ -1012,12 +1026,12 @@ Printer Skew Correction. It is possible to use software to correct printer skew 
 
 ### [safe_z_home]
 
-Safe Z homing. One may use this mechanism to home the Z axis at a specific XY coordinate. This is useful if the toolhead, for example has to move to the center of the bed before Z can be homed.
+Safe Z homing. One may use this mechanism to home the Z axis at a specific X, Y coordinate. This is useful if the toolhead, for example has to move to the center of the bed before Z can be homed.
 
 ```
 [safe_z_home]
 home_xy_position:
-#   A X,Y coordinate (e.g. 100,100) where the Z homing should be
+#   A X, Y coordinate (e.g. 100, 100) where the Z homing should be
 #   performed. This parameter must be provided.
 #speed: 50.0
 #   Speed at which the toolhead is moved to the safe Z home
@@ -1033,8 +1047,8 @@ home_xy_position:
 #   Speed (in mm/s) at which the Z axis is lifted prior to homing. The
 #   default is 20mm/s.
 #move_to_previous: False
-#   When set to True, xy are reset to their previous positions after z
-#   homing. The default is False.
+#   When set to True, the X and Y axes are reset to their previous
+#   positions after Z axis homing. The default is False.
 ```
 
 ### [homing_override]
@@ -1304,25 +1318,29 @@ Support for ADXL345 accelerometers. This support allows one to query acceleromet
 ```
 [adxl345]
 cs_pin:
-#   传感器的 SPI 启用引脚。必须提供这个参数。
+#   The SPI enable pin for the sensor. This parameter must be provided.
 #spi_speed: 5000000
-#   用于和芯片通讯的SPI 速率（以赫兹(hz)为单位）。
-#   默认值为5000000。
+#   The SPI speed (in hz) to use when communicating with the chip.
+#   The default is 5000000.
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   上述参数详见“通用 SPI 设置”章节。
-#axes_map: x,y,z
-#   打印机 x 、 y 和 z 轴对应的加速度计轴。在加速度计的
-#   安装方向和打印机的方向不同时很有用。例如，可
-#   以设置为“y,x,z”来交换 x 和 y 轴。也可以在加速度计反装
-#   时反转轴。（例如"x,z,-y"）。默认值为”x,y,z“。
+#   See the "common SPI settings" section for a description of the
+#   above parameters.
+#axes_map: x, y, z
+#   The accelerometer axis for each of the printer's X, Y, and Z axes.
+#   This may be useful if the accelerometer is mounted in an
+#   orientation that does not match the printer orientation. For
+#   example, one could set this to "y, x, z" to swap the X and Y axes.
+#   It is also possible to negate an axis if the accelerometer
+#   direction is reversed (eg, "x, z, -y"). The default is "x, y, z".
 #rate: 3200
-#   ADXL345的输出数据率。ADXL345支持以下数据输出速率：
-#   3200、1600、800、400、200、100、50和25。注意，不推
-#   荐降低默认值的3200，低于800的速率会极大的影响共振
-#   测量准确性。
+#   Output data rate for ADXL345. ADXL345 supports the following data
+#   rates: 3200, 1600, 800, 400, 200, 100, 50, and 25. Note that it is
+#   not recommended to change this rate from the default 3200, and
+#   rates below 800 will considerably affect the quality of resonance
+#   measurements.
 ```
 
 ### [resonance_tester]
@@ -1332,7 +1350,7 @@ Support for resonance testing and automatic input shaper calibration. In order t
 ```
 [resonance_tester]
 #probe_points:
-#   A list of X,Y,Z coordinates of points (one point per line) to test
+#   A list of X, Y, Z coordinates of points (one point per line) to test
 #   resonances at. At least one point is required. Make sure that all
 #   points with some safety margin in XY plane (~a few centimeters)
 #   are reachable by the toolhead.
@@ -1605,14 +1623,16 @@ See the [command reference](G-Codes.md#extruder-stepper-commands) for more infor
 ```
 [extruder_stepper my_extra_stepper]
 #extruder: extruder
-#   与这个步进电机同步的挤出头。
-#   默认为"extruder"。
+#   The extruder this stepper is synchronized to. If this is set to an
+#   empty string then the stepper will not be synchronized to an
+#   extruder. The default is "extruder".
 #step_pin:
 #dir_pin:
 #enable_pin:
 #microsteps:
 #rotation_distance:
-#   以上参数定义详见“stepper”分段。
+#   See the "stepper" section for the definition of the above
+#   parameters.
 ```
 
 ### [manual_stepper]
@@ -2245,7 +2265,7 @@ pin:
 #   Neopixel is connected to the pin).
 #color_order: GRB
 #   Set the pixel order required by the LED hardware. Options are GRB,
-#   RGB, GRBW, or RGBW. The default is GRB.
+#   RGB, BRG, GRBW, or RGBW. The default is GRB.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
@@ -3440,7 +3460,7 @@ Replicape support - see the [beaglebone guide](Beaglebone.md) and the [generic-r
 
 ```
 # The "replicape" config section adds "replicape:stepper_x_enable"
-# virtual stepper enable pins (for steppers x, y, z, e, and h) and
+# virtual stepper enable pins (for steppers X, Y, Z, E, and H) and
 # "replicape:power_x" PWM output pins (for hotbed, e, h, fan0, fan1,
 # fan2, and fan3) that may then be used elsewhere in the config file.
 [replicape]

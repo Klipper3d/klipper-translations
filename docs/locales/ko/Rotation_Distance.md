@@ -20,7 +20,7 @@ rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
 
 `<microsteps>` 설정은 스테퍼 모터 드라이버에 의해 결정됩니다. 대부분의 드라이버는 16개의 마이크로스텝을 사용합니다. 확실하지 않은 경우 구성에서 'microsteps: 16'을 설정하고 위 공식에서 16을 사용합니다.
 
-거의 모든 프린터에는 x, y 및 z 유형 축의 `rotation_distance` 에 대한 정수가 있어야 합니다. 위 수식으로 인해 회전 거리가 정수의 0.01 이내이면 최종 값을 해당 정수로 반올림합니다.
+Almost all printers should have a whole number for `rotation_distance` on X, Y, and Z type axes. If the above formula results in a rotation_distance that is within .01 of a whole number then round the final value to that whole_number.
 
 ## 압출기에서 rotation_distance 보정
 

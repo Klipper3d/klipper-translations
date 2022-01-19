@@ -85,7 +85,8 @@
 [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor) 개체에서 다음 정보를 사용할 수 있습니다:
 
 - `is_active`: 센서가 현재 활성 상태이면 True를 반환합니다.
-- `Diameter`, `Raw`: 센서에서 마지막으로 읽은 값입니다.
+- `Diameter`: The last reading from the sensor in mm.
+- `Raw`: The last raw ADC reading from the sensor.
 
 ## heater
 
