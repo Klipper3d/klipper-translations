@@ -1,16 +1,17 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-12-28 00:54+0000\n"
+"PO-Revision-Date: 2022-01-19 21:06+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/rotation_distance/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/rotation_distance/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "Stepper motor drivers on Klipper require a `rotation_distance` parameter in "
@@ -73,14 +74,16 @@ msgid ""
 "obtained from [steps_per_mm](#obtaining-rotation_distance-from-steps_per_mm-"
 "or-step_distance) or by [inspecting the hardware](#extruder)."
 msgstr ""
+"从一个初始的旋转距离猜测值开始。可以通过[steps_per_mm](#obtaining-rotation_distance-from-"
+"steps_per_mm-or-step_distance)或者通过[检查硬件](#extruder)来。"
 
 msgid "Then use the following procedure to \"measure and trim\":"
-msgstr ""
+msgstr "然后根据以下程序执行\"测量和修正\"："
 
 msgid ""
 "Make sure the extruder has filament in it, the hotend is heated to an "
 "appropriate temperature, and the printer is ready to extrude."
-msgstr ""
+msgstr "首先确保挤出机里有耗材，热端被加热到适当的温度，并且打印机准备好挤出。"
 
 msgid ""
 "Use a marker to place a mark on the filament around 70mm from the intake of "
