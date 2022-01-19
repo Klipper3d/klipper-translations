@@ -1,38 +1,39 @@
 # mirokymac <toufubomb@gmail.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-04 15:32+0000\n"
+"PO-Revision-Date: 2022-01-19 21:06+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/hallfilamentwidthsensor/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/hall_filament_width_sensor/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid "How does it work?"
 msgstr "它如何运作？"
 
 msgid "Template for menu variables"
-msgstr ""
+msgstr "菜单变量模板"
 
 msgid "Calibration procedure"
-msgstr ""
+msgstr "校准程序"
 
 msgid "Insert first calibration rod (1.5 mm size) get first raw sensor value"
-msgstr ""
+msgstr "插入第一根校准棒（1.5毫米直径），并得到第一个原始传感器值"
 
 msgid ""
 "Insert second calibration rod (2.0 mm size) get second raw sensor value"
-msgstr ""
+msgstr "插入第二根校准棒（2.0毫米直径），并得到第二个原始传感器值"
 
 msgid "How to enable sensor"
-msgstr ""
+msgstr "如何启用传感器"
 
 msgid "Logging"
-msgstr ""
+msgstr "记录"
 
 msgid ""
 "[menu __main __filament __width_current]\n"
@@ -47,28 +48,39 @@ msgid ""
 "name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}\n"
 "index: 1\n"
 msgstr ""
+"[menu __main __filament __width_current]\n"
+"type: command\n"
+"enable: {'hall_filament_width_sensor' in printer}\n"
+"name: Dia: {'%.2F' % printer.hall_filament_width_sensor.Diameter}\n"
+"index: 0\n"
+"\n"
+"[menu __main __filament __raw_width_current]\n"
+"type: command\n"
+"enable: {'hall_filament_width_sensor' in printer}\n"
+"name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}\n"
+"index: 1\n"
 
 #: docs/HallFilamentWidthSensor.md:block 1 (header)
 msgid "Hall filament width sensor"
-msgstr ""
+msgstr "霍尔耗材线径传感器"
 
 #: docs/HallFilamentWidthSensor.md:block 24 (ordered list)
 msgid "Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`"
-msgstr ""
+msgstr "在配置参数`Raw_dia1`和`Raw_dia2`中写入原始传感器值"
 
 #: docs/HallFilamentWidthSensor.md:block 26 (paragraph)
 msgid "By default, the sensor is disabled at power-on."
-msgstr ""
+msgstr "传感器在开机时默认被禁用。"
 
 #: docs/HallFilamentWidthSensor.md:block 27 (paragraph)
 msgid ""
 "To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
 "the `enable` parameter to `true.`"
-msgstr ""
+msgstr "要启用传感器，请发送**ENABLE_FILAMENT_WIDTH_SENSOR**命令或将`enable`配置参数改为`true`"
 
 #: docs/HallFilamentWidthSensor.md:block 29 (paragraph)
 msgid "By default, diameter logging is disabled at power-on."
-msgstr ""
+msgstr "直径记录在开机时默认被禁用。"
 
 #: docs/HallFilamentWidthSensor.md:block 30 (paragraph)
 msgid ""
@@ -76,12 +88,14 @@ msgid ""
 "**DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at"
 " power-on, set the `logging` parameter to `true`."
 msgstr ""
+"发送**ENABLE_FILAMENT_WIDTH_LOG**命令开始记录，发送**DISABLE_FILAMENT_WIDTH_LOG**命令停止记录。"
+"如果想在开机时启用日志记录，请将`logging`配置参数设置为`true`。"
 
 #: docs/HallFilamentWidthSensor.md:block 31 (paragraph)
 msgid ""
 "Filament diameter is logged on every measurement interval (10 mm by "
 "default)."
-msgstr ""
+msgstr "每个测量间隔都会记录耗材直径（默认为10毫米）。"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 2 (paragraph)
 msgid ""
@@ -91,6 +105,8 @@ msgid ""
 "operation: two hall sensors work in differential mode, temperature drift "
 "same for sensor. Special temperature compensation not needed."
 msgstr ""
+"本文件介绍了耗材宽度传感器的主机模块。用于开发该主机模块的硬件基于两个霍尔线性传感器（例如，ss49e）。设备内的两个传感器位于两侧。工作原理：两个霍尔传"
+"感器以差分模式工作，由于传感器的温度漂移相同。不需要特殊的温度补偿。"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 3 (paragraph)
 msgid ""
@@ -98,6 +114,9 @@ msgid ""
 "[Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video "
 "is also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
+"你可以在[Thingiverse](https://www.thingiverse.com/"
+"thing:4138933)上找到设计，在[Youtube](https://www.youtube.com/"
+"watch?v=TDO9tME8vp4)上也有一个装配视频"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 4 (paragraph)
 msgid ""
@@ -105,6 +124,8 @@ msgid ""
 "Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
 "documentation](G-Codes.md#Hall_Filament_Width_Sensor_Commands)."
 msgstr ""
+"要使用霍尔耗材线径传感器，请阅读[配置参考](Config_Reference.md#hall_filament_width_sensor)和[G-"
+"Code 文档](G-Code.md#Hall_Filament_Width_Sensor_Commands)。"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 6 (paragraph)
 msgid ""
@@ -114,12 +135,14 @@ msgid ""
 "connector on ramps-like board analog11 and analog12 pins. You can use "
 "different pins and differenr boards."
 msgstr ""
+"传感器根据两个模拟输出计算出耗材直径。检测到的电压之和始终对应耗材宽度。主机模块监测电压变化并调整挤出倍率。"
+"我在类似ramps的控制板上使用aux2连接器的 analog11和analog12引脚，你也可以使用不同的引脚和不同的控制板。"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 10 (paragraph)
 msgid ""
 "To get raw sensor value you can use menu item or "
 "**QUERY_RAW_FILAMENT_WIDTH** command in terminal."
-msgstr ""
+msgstr "要获得原始传感器值，你可以使用菜单中的选项或在终端发送**QUERY_RAW_FILAMENT_WIDTH**命令。"
 
 #~ msgid ""
 #~ "[Hall based filament width sensor assembly "
