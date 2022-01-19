@@ -61,7 +61,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20201218：旋转三角洲和极点打印机现在必须为旋转步进电机指定 `gear_ratio ` ，并且它们可以不再指定 `step_distance ` 参数。有关新 gear_ratio 参数的格式，请参阅 [配置参考](Config_Reference.md#stepper)。
 
-20201213: It is not valid to specify a Z "position_endstop" when using "probe:z_virtual_endstop". An error will now be raised if a Z "position_endstop" is specified with "probe:z_virtual_endstop". Remove the Z "position_endstop" definition to fix the error.
+20201213：当使用"probe:z_virtual_endstop"时，指定的 Z "position_endstop"是无效的。现在，如果用"probe:z_virtual_endstop"指定一个 Z "position_endstop"，将会报告一个错误。删除 Z 的 "position_endstop"定义以解决这个错误。
 
 20201120: The `[board_pins]` config section now specifies the mcu name in an explicit `mcu:` parameter. If using board_pins for a secondary mcu, then the config must be updated to specify that name. See the [config reference](Config_Reference.md#board_pins) for further details.
 

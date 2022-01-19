@@ -214,9 +214,9 @@ finalize_config crc=0
 | 1个步进电机 | 46 |
 | 3个步进电机 | 205 |
 
-### STM32G0B1 step rate benchmark
+### STM32G0B1 步速率基准测试
 
-The following configuration sequence is used on the STM32G0B1:
+在 STM32G0B1 上使用以下配置序列：
 
 ```
 allocate_oids count=3
@@ -226,7 +226,7 @@ config_stepper oid=2 step_pin=PB0 dir_pin=PC5 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `247cd753` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+测试最后在提交 `247cd753` 上运行，gcc 版本为 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`。
 
 | stm32f042 | ticks |
 | --- | --- |

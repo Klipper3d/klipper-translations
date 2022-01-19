@@ -42,7 +42,7 @@ If using stealthChop mode then the positional inaccuracy from interpolation is s
 
 ## 无限位归零
 
-Sensorless homing allows to home an axis without the need for a physical limit switch. Instead, the carriage on the axis is moved into the mechanical limit making the stepper motor lose steps. The stepper driver senses the lost steps and indicates this to the controlling MCU (Klipper) by toggling a pin. This information can be used by Klipper as end stop for the axis.
+无传感器归位允许在不需要物理限位开关的情况下将一个轴归位。相反，轴上的滑车接触机械限位后，使步进电机失去步长。步进驱动器感应到失去的步数，并通过切换一个引脚向控制的微控制器（Klipper）告知这一点。该信息可被 Klipper 用作轴的限位。
 
 This guide covers the setup of sensorless homing for the X axis of your (cartesian) printer. However, it works the same with all other axes (that require an end stop). You should configure and tune it for one axis at a time.
 

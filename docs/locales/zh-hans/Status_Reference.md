@@ -85,8 +85,8 @@
 [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor) 对象提供了以下信息：
 
 - `is_active`：如果传感器当前处于活动状态，返回True。
-- `Diameter`: The last reading from the sensor in mm.
-- `Raw`: The last raw ADC reading from the sensor.
+- `Diameter`：上一次传感器读数，单位为 mm。
+- `Raw`：上一次传感器原始 ADC 读数。
 
 ## heater
 

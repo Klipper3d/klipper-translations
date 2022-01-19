@@ -22,19 +22,19 @@
 
 即使你的打印机带有自动Z探针，理解塞纸测试依然很重要。为了保证探针的效果，它经常会需要校准。探针的校准机制也依赖塞纸测试。
 
-In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a thickness of around 100 microns (0.100mm). (The exact thickness of the paper isn't crucial.)
+为了进行塞纸测试，先用剪刀剪下一小块长方形的纸条（例如，5x3厘米）。打印纸的厚度一般为100微米（0.100mm）左右。(纸条的确切宽度并不重要.）
 
 纸张测试的第一步是检查打印机的喷嘴和打印床。确保喷嘴和打印床面上没有塑料（或其他杂物）。
 
 **请仔细检查喷嘴和床面，确保没有残留塑料存在！**
 
-If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a thickness and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.
+如果总是在一种胶带或床面上打印，可以在该胶带或床面上直接进行塞纸测试。请注意，胶带本身有厚度，不同的胶带（或任何其他床面）将影响 Z 的测量。请确保用塞纸测试测量每一种使用的床面。
 
 如果喷嘴上残留了塑料，需要先加热挤出头并用金属镊子把这些塑料去除。等到挤出机完全冷却到室温后，再继续进行纸张测试。当喷嘴正在冷却时，使用金属镊子去除任何可能漏出的塑料。
 
 **只在喷嘴和打印床都处于室温的情况下进行塞纸测试！**
 
-When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same thickness as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact thickness of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two distances).
+当喷嘴被加热时，其位置（相对于床面）会因热膨胀而发生变化。这种热膨胀通常在100微米左右，大约是一张典型的打印纸的厚度。热膨胀的确切程度并不关键，正如纸张的确切厚度并不关键一样。从假设二者相等开始（见下文确定二者宽度之差的方法）。
 
 当目标是在加热时有一个一致的距离时，在室温下校准距离可能听起来很奇怪。然而，如果在喷嘴加热时进行校准，往往会有少量的熔融塑料渗入纸张，从而改变了摩擦力的大小。这会影响校准精度。在床或喷嘴热的时候进行校准也会大大增加烧伤风险。热膨胀量是稳定的，所以在校准过程中很容易被考虑到。
 
@@ -86,7 +86,7 @@ ACCEPT
 
 ## 确定热膨胀
 
-After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "thickness of the paper", and "amount of friction felt during the paper test".
+在成功进行打印床调平后，可以继续计算"热膨胀"、"纸张厚度"和"纸张测试时感受到的摩擦量"综合影响的精确值。
 
 这种类型的计算通常是不需要的，因为大多数用户发现简单的"塞纸测试"提供了足够好的结果。
 
