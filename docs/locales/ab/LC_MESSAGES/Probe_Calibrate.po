@@ -5,12 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid ""
-"This document describes the method for calibrating the x, y, and z offsets "
-"of an \"automatic z probe\" in Klipper. This is useful for users that have a"
-" `[probe]` or `[bltouch]` section in their config file."
-msgstr ""
-
 msgid "Calibrating probe X and Y offsets"
 msgstr ""
 
@@ -266,3 +260,16 @@ msgstr ""
 #: docs/Probe_Calibrate.md:block 1 (header)
 msgid "Probe calibration"
 msgstr ""
+
+#: docs/Probe_Calibrate.md:block 2 (paragraph)
+msgid ""
+"This document describes the method for calibrating the X, Y, and Z offsets "
+"of an \"automatic z probe\" in Klipper. This is useful for users that have a"
+" `[probe]` or `[bltouch]` section in their config file."
+msgstr ""
+
+#~ msgid ""
+#~ "This document describes the method for calibrating the x, y, and z offsets "
+#~ "of an \"automatic z probe\" in Klipper. This is useful for users that have a"
+#~ " `[probe]` or `[bltouch]` section in their config file."
+#~ msgstr ""

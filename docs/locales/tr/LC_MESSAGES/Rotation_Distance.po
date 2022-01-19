@@ -39,13 +39,6 @@ msgid ""
 " use 16 in the formula above."
 msgstr ""
 
-msgid ""
-"Almost all printers should have a whole number for `rotation_distance` on x,"
-" y, and z type axes. If the above formula results in a rotation_distance "
-"that is within .01 of a whole number then round the final value to that "
-"whole_number."
-msgstr ""
-
 msgid "Calibrating rotation_distance on extruders"
 msgstr ""
 
@@ -259,6 +252,21 @@ msgid ""
 "\"extrude button\" on graphical front-ends for this test as they extrude at "
 "a fast rate.)"
 msgstr ""
+
+#: docs/Rotation_Distance.md:block 10 (paragraph)
+msgid ""
+"Almost all printers should have a whole number for `rotation_distance` on X,"
+" Y, and Z type axes. If the above formula results in a rotation_distance "
+"that is within .01 of a whole number then round the final value to that "
+"whole_number."
+msgstr ""
+
+#~ msgid ""
+#~ "Almost all printers should have a whole number for `rotation_distance` on x,"
+#~ " y, and z type axes. If the above formula results in a rotation_distance "
+#~ "that is within .01 of a whole number then round the final value to that "
+#~ "whole_number."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Extrude 50mm of filament with the following command sequence: `G91` followed"

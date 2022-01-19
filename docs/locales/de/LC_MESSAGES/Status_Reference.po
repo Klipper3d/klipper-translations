@@ -240,9 +240,6 @@ msgstr ""
 msgid "`is_active`: Returns True if the sensor is currently active."
 msgstr ""
 
-msgid "`Diameter`, `Raw`: The last read values from the sensor."
-msgstr ""
-
 msgid "heater"
 msgstr ""
 
@@ -743,6 +740,17 @@ msgstr ""
 #: docs/Status_Reference.md:block 91 (unordered list)
 msgid "`hold_current`: The currently set hold current."
 msgstr ""
+
+#: docs/Status_Reference.md:block 36 (unordered list)
+msgid "`Diameter`: The last reading from the sensor in mm."
+msgstr ""
+
+#: docs/Status_Reference.md:block 36 (unordered list)
+msgid "`Raw`: The last raw ADC reading from the sensor."
+msgstr ""
+
+#~ msgid "`Diameter`, `Raw`: The last read values from the sensor."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "`color_data`: An array of objects, with each object containing the RGBW "

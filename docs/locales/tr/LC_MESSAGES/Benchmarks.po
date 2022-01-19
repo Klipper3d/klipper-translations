@@ -725,6 +725,37 @@ msgid ""
 " three active steppers:"
 msgstr ""
 
+#: docs/Benchmarks.md:block 59 (header)
+msgid "STM32G0B1 step rate benchmark"
+msgstr ""
+
+#: docs/Benchmarks.md:block 60 (paragraph)
+msgid "The following configuration sequence is used on the STM32G0B1:"
+msgstr ""
+
+#: docs/Benchmarks.md:block 61 (code)
+msgid ""
+"allocate_oids count=3\n"
+"config_stepper oid=0 step_pin=PB13 dir_pin=PB12 invert_step=-1 step_pulse_ticks=0\n"
+"config_stepper oid=1 step_pin=PB10 dir_pin=PB2 invert_step=-1 step_pulse_ticks=0\n"
+"config_stepper oid=2 step_pin=PB0 dir_pin=PC5 invert_step=-1 step_pulse_ticks=0\n"
+"finalize_config crc=0\n"
+msgstr ""
+
+#: docs/Benchmarks.md:block 62 (paragraph)
+msgid ""
+"The test was last run on commit `247cd753` with gcc version `arm-none-eabi-"
+"gcc (Fedora 10.2.0-4.fc34) 10.2.0`."
+msgstr ""
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "58"
+msgstr ""
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "243"
+msgstr ""
+
 #~ msgid ""
 #~ "To produce the benchmarks found in the Features.md document, the total "
 #~ "number of steps per second is calculated by multiplying the number of active"

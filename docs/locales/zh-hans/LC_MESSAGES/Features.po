@@ -488,6 +488,18 @@ msgid ""
 "document](Benchmarks.md)."
 msgstr "关于基准测试的更多详细信息可在[基准测试文档](Benchmarks.md)中找到。"
 
+#: docs/Features.md:block 10 (table)
+msgid "STM32G0B1"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1103K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "790K"
+msgstr ""
+
 #~ msgid ""
 #~ "Best in class performance. Klipper is able to achieve high stepping rates on"
 #~ " both new and old micro-controllers. Even old 8bit micro-controllers can "

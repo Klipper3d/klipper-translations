@@ -6,8 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2022-01-12 00:54+0000\n"
 "Last-Translator: Maxime Leroy <lisacintosh@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/features/"
-"fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/features/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -526,6 +525,18 @@ msgstr ""
 msgid ""
 "Further details on the benchmarks are available in the [Benchmarks "
 "document](Benchmarks.md)."
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "STM32G0B1"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "1103K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "790K"
 msgstr ""
 
 #~ msgid ""
