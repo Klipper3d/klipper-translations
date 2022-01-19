@@ -1,16 +1,17 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-12-25 08:35+0000\n"
+"PO-Revision-Date: 2022-01-19 08:09+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/protocol/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/protocol/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "The Klipper messaging protocol is used for low-level communication between "
@@ -27,6 +28,8 @@ msgid ""
 "information on how to translate a G-Code file into its corresponding human-"
 "readable micro-controller commands."
 msgstr ""
+"有关可用命令的信息，请参阅 [mcu 命令](MCU_Commands.md)文档。有关如何将 G-Code "
+"文件转换为其相应的可读的微控制器命令信息，请参阅[调试](Debugging.md)文档。"
 
 msgid ""
 "This page provides a high-level description of the Klipper messaging "

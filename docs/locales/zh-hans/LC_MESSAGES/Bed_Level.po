@@ -1,15 +1,16 @@
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-12-24 16:51+0000\n"
+"PO-Revision-Date: 2022-01-19 08:09+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/bed_level/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/bed_level/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "Bed leveling (sometimes also referred to as \"bed tramming\") is critical to"
@@ -310,6 +311,7 @@ msgid ""
 "of around 100 microns (0.100mm). (The exact thickness of the paper isn't "
 "crucial.)"
 msgstr ""
+"为了进行塞纸测试，先用剪刀剪下一小块长方形的纸条（例如，5x3厘米）。打印纸的厚度一般为100微米（0.100mm）左右。(纸条的确切宽度并不重要.）"
 
 #: docs/Bed_Level.md:block 16 (paragraph)
 msgid ""
@@ -319,6 +321,8 @@ msgid ""
 "surface) will impact Z measurements. Be sure to rerun the paper test to "
 "measure each type of surface that is in use."
 msgstr ""
+"如果总是在一种胶带或床面上打印，可以在该胶带或床面上直接进行塞纸测试。请注意，胶带本身有厚度，不同的胶带（或任何其他床面）将影响 Z "
+"的测量。请确保用塞纸测试测量每一种使用的床面。"
 
 #: docs/Bed_Level.md:block 19 (paragraph)
 msgid ""
@@ -330,6 +334,8 @@ msgid ""
 "the two are equal (see below for a method of determining the difference "
 "between the two distances)."
 msgstr ""
+"当喷嘴被加热时，其位置（相对于床面）会因热膨胀而发生变化。这种热膨胀通常在100微米左右，大约是一张典型的打印纸的厚度。热膨胀的确切程度并不关键，正如纸张"
+"的确切厚度并不关键一样。从假设二者相等开始（见下文确定二者宽度之差的方法）。"
 
 #: docs/Bed_Level.md:block 40 (paragraph)
 msgid ""
@@ -337,7 +343,7 @@ msgid ""
 "more precise value for the combined impact of \"thermal expansion\", "
 "\"thickness of the paper\", and \"amount of friction felt during the paper "
 "test\"."
-msgstr ""
+msgstr "在成功进行打印床调平后，可以继续计算\"热膨胀\"、\"纸张厚度\"和\"纸张测试时感受到的摩擦量\"综合影响的精确值。"
 
 #~ msgid ""
 #~ "In order to perform the paper test, cut a small rectangular piece of paper "

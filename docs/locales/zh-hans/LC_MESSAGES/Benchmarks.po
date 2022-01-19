@@ -1,16 +1,17 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-12-27 01:53+0000\n"
+"PO-Revision-Date: 2022-01-19 08:09+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/benchmarks/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/benchmarks/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "这个文档解释了Klipper的基准测试。"
@@ -867,11 +868,11 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 59 (header)
 msgid "STM32G0B1 step rate benchmark"
-msgstr ""
+msgstr "STM32G0B1 步速率基准测试"
 
 #: docs/Benchmarks.md:block 60 (paragraph)
 msgid "The following configuration sequence is used on the STM32G0B1:"
-msgstr ""
+msgstr "在 STM32G0B1 上使用以下配置序列："
 
 #: docs/Benchmarks.md:block 61 (code)
 msgid ""
@@ -881,20 +882,30 @@ msgid ""
 "config_stepper oid=2 step_pin=PB0 dir_pin=PC5 invert_step=-1 step_pulse_ticks=0\n"
 "finalize_config crc=0\n"
 msgstr ""
+"allocate_oids count=3\n"
+"config_stepper oid=0 step_pin=PB13 dir_pin=PB12 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=1 step_pin=PB10 dir_pin=PB2 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=2 step_pin=PB0 dir_pin=PC5 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"finalize_config crc=0\n"
 
 #: docs/Benchmarks.md:block 62 (paragraph)
 msgid ""
 "The test was last run on commit `247cd753` with gcc version `arm-none-eabi-"
 "gcc (Fedora 10.2.0-4.fc34) 10.2.0`."
 msgstr ""
+"测试最后在提交 `247cd753` 上运行，gcc 版本为 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2"
+".0`。"
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "58"
-msgstr ""
+msgstr "58"
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "243"
-msgstr ""
+msgstr "243"
 
 #~ msgid ""
 #~ "To produce the benchmarks found in the Features.md document, the total "

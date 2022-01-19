@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-12 00:54+0000\n"
+"PO-Revision-Date: 2022-01-19 08:09+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/status_reference/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/status_reference/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -826,11 +827,11 @@ msgstr "`hold_current`：当前设置的保持电流。"
 
 #: docs/Status_Reference.md:block 36 (unordered list)
 msgid "`Diameter`: The last reading from the sensor in mm."
-msgstr ""
+msgstr "`Diameter`：上一次传感器读数，单位为 mm。"
 
 #: docs/Status_Reference.md:block 36 (unordered list)
 msgid "`Raw`: The last raw ADC reading from the sensor."
-msgstr ""
+msgstr "`Raw`：上一次传感器原始 ADC 读数。"
 
 #~ msgid "`Diameter`, `Raw`: The last read values from the sensor."
 #~ msgstr "`Diameter`、`Raw`：最后一次从传感器读取的值。"

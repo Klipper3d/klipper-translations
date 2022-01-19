@@ -1,16 +1,17 @@
 # mirokymac <toufubomb@gmail.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-09 19:33+0000\n"
-"Last-Translator: mirokymac <toufubomb@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/probe_calibrate/zh_Hans/>\n"
+"PO-Revision-Date: 2022-01-19 08:09+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/probe_calibrate/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid "Calibrating probe X and Y offsets"
 msgstr "探针X/Y偏移校准"
@@ -317,6 +318,8 @@ msgid ""
 "of an \"automatic z probe\" in Klipper. This is useful for users that have a"
 " `[probe]` or `[bltouch]` section in their config file."
 msgstr ""
+"本文档介绍了在 Klipper 中校准\"自动 Z 探针\" X、Y 和 Z 偏移的流程。这对于配置文件中具有 `[probe]` 或 "
+"`[bltouch]` 部分的打印机非常有用。"
 
 #~ msgid ""
 #~ "This document describes the method for calibrating the x, y, and z offsets "

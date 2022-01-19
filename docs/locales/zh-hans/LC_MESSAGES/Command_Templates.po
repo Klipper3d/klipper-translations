@@ -1,15 +1,16 @@
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-12-29 08:51+0000\n"
+"PO-Revision-Date: 2022-01-19 08:09+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/command_templates/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/command_templates/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "This document provides information on implementing G-Code command sequences "
@@ -40,7 +41,7 @@ msgstr "在配置文件中定义一个宏时需要注意缩进。在定义多行
 msgid ""
 "Note how the `gcode:` config option always starts at the beginning of the "
 "line and subsequent lines in the G-Code macro never start at the beginning."
-msgstr ""
+msgstr "请注意，`gcode:` 配置选项总是从行首开始，而 G-Code 宏中的后续行从不从行首开始。"
 
 msgid "Add a description to your macro"
 msgstr "向宏添加描述"
@@ -78,6 +79,7 @@ msgid ""
 "A common way to accomplish that is to wrap the `G1` moves in "
 "`SAVE_GCODE_STATE`, `G91`, and `RESTORE_GCODE_STATE`. For example:"
 msgstr ""
+"实现这一目标的常见方法是将 `G1` 移动包装在 `SAVE_GCODE_STATE`、`G91`和`RESTORE_GCODE_STATE`中。例如："
 
 msgid ""
 "The `G91` command places the G-Code parsing state into \"relative move "
@@ -98,7 +100,7 @@ msgid ""
 msgstr ""
 
 msgid "An example of a complex macro:"
-msgstr ""
+msgstr "一个更复杂的宏示例："
 
 msgid "Macro parameters"
 msgstr "宏观参数"
