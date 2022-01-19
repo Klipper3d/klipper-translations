@@ -1,19 +1,20 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-15 06:32+0200\n"
-"PO-Revision-Date: 2021-12-02 22:36+0000\n"
+"PO-Revision-Date: 2022-01-19 08:09+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/features/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/features/zh_Hans/>\n"
 "Language: zh-hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: docs/Features.md:block 1 (paragraph)
 msgid "Klipper has several compelling features:"
@@ -490,15 +491,15 @@ msgstr "关于基准测试的更多详细信息可在[基准测试文档](Benchm
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32G0B1"
-msgstr ""
+msgstr "STM32G0B1"
 
 #: docs/Features.md:block 10 (table)
 msgid "1103K"
-msgstr ""
+msgstr "1103K"
 
 #: docs/Features.md:block 10 (table)
 msgid "790K"
-msgstr ""
+msgstr "790K"
 
 #~ msgid ""
 #~ "Best in class performance. Klipper is able to achieve high stepping rates on"

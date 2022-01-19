@@ -1,19 +1,20 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-15 06:32+0200\n"
-"PO-Revision-Date: 2021-08-04 15:32+0000\n"
+"PO-Revision-Date: 2022-01-19 08:09+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/tmc_drivers/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/tmc_drivers/zh_Hans/>\n"
 "Language: zh-hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "This document provides information on using Trinamic stepper motor drivers "
@@ -46,6 +47,8 @@ msgid ""
 "lost steps and indicates this to the controlling MCU (Klipper) by toggling a"
 " pin. This information can be used by Klipper as end stop for the axis."
 msgstr ""
+"无传感器归位允许在不需要物理限位开关的情况下将一个轴归位。相反，轴上的滑车接触机械限位后，使步进电机失去步长。步进驱动器感应到失去的步数，并通过切换一个引"
+"脚向控制的微控制器（Klipper）告知这一点。该信息可被 Klipper 用作轴的限位。"
 
 msgid ""
 "This guide covers the setup of sensorless homing for the X axis of your "
