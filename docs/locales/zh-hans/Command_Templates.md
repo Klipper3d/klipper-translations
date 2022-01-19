@@ -18,7 +18,7 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 ```
 
-Note how the `gcode:` config option always starts at the beginning of the line and subsequent lines in the G-Code macro never start at the beginning.
+请注意，`gcode:` 配置选项总是从行首开始，而 G-Code 宏中的后续行从不从行首开始。
 
 ## 向宏添加描述
 
@@ -39,7 +39,7 @@ gcode:
 
 不幸的是，G-Code 命令语言在使用上有些难度。移动工具头的标准机制是通过 `G1` 命令（`G0` 命令是 `G1` 的别名，它们互换使用）。然而，这个命令依赖于由`M82`、`M83`、`G90`、`G91`、`G92`, 以及先前的`G1`命令所设置的"G-Code解析状态"。在创建 G-Code 宏时，最好在发出`G1`命令之前，先明确 G-Code 解析状态。(否则，`G1` 命令就有可能提出一个不符合预期的请求。）
 
-A common way to accomplish that is to wrap the `G1` moves in `SAVE_GCODE_STATE`, `G91`, and `RESTORE_GCODE_STATE`. For example:
+实现这一目标的常见方法是将 `G1` 移动包装在 `SAVE_GCODE_STATE`、`G91`和`RESTORE_GCODE_STATE`中。例如：
 
 ```
 [gcode_macro MOVE_UP]
@@ -56,7 +56,7 @@ The `G91` command places the G-Code parsing state into "relative move mode" and 
 
 The gcode_macro `gcode:` config section is evaluated using the Jinja2 template language. One can evaluate expressions at run-time by wrapping them in `{ }` characters or use conditional statements wrapped in `{% %}`. See the [Jinja2 documentation](http://jinja.pocoo.org/docs/2.10/templates/) for further information on the syntax.
 
-An example of a complex macro:
+一个更复杂的宏示例：
 
 ```
 [gcode_macro clean_nozzle]

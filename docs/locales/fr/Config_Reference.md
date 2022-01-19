@@ -2806,36 +2806,36 @@ Statically configured AD5206 digipots connected via SPI bus (one may define any 
 ```
 [ad5206 my_digipot]
 enable_pin:
-#   The pin corresponding to the AD5206 chip select line. This pin
-#   will be set to low at the start of SPI messages and raised to high
-#   after the message completes. This parameter must be provided.
+# Il pin corrispondente alla linea di chip select dell'AD5206. Questo pin
+# sarà impostato su basso all'inizio dei messaggi SPI e sollevato su alto
+# dopo il completamento del messaggio. Questo parametro deve essere fornito.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
-#channel_1:
-#channel_2:
-#channel_3:
-#channel_4:
-#channel_5:
-#channel_6:
-#   The value to statically set the given AD5206 channel to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest resistance and 0.0 being the lowest resistance. However,
-#   the range may be changed with the 'scale' parameter (see below).
-#   If a channel is not specified then it is left unconfigured.
-#scale:
-#   This parameter can be used to alter how the 'channel_x' parameters
-#   are interpreted. If provided, then the 'channel_x' parameters
-#   should be between 0.0 and 'scale'. This may be useful when the
-#   AD5206 is used to set stepper voltage references. The 'scale' can
-#   be set to the equivalent stepper amperage if the AD5206 were at
-#   its highest resistance, and then the 'channel_x' parameters can be
-#   specified using the desired amperage value for the stepper. The
-#   default is to not scale the 'channel_x' parameters.
+# Vedere la sezione "impostazioni SPI comuni" per una descrizione dei
+# parametri di cui sopra.
+#canale_1:
+#canale_2:
+#canale_3:
+#canale_4:
+#canale_5:
+#canale_6:
+# Il valore su cui impostare staticamente il canale AD5206 dato. Questo è
+# tipicamente impostato su un numero tra 0.0 e 1.0 con 1.0 che è la
+# resistenza più alta e 0,0 è la resistenza più bassa. Tuttavia,
+# l'intervallo può essere cambiato con il parametro 'scala' (vedi sotto).
+# Se un canale non è specificato, viene lasciato non configurato.
+# scala:
+# Questo parametro può essere usato per alterare il modo in cui i parametri 'channel_x
+# sono interpretati. Se fornito, allora i parametri 'channel_x'
+# dovrebbero essere compresi tra 0,0 e 'scala'. Questo può essere utile quando l'
+# AD5206 è usato per impostare i riferimenti di tensione stepper. La 'scala' può
+# essere impostata all'amperaggio equivalente di uno stepper se l'AD5206 fosse alla
+# sua massima resistenza, e poi i parametri 'channel_x' possono essere
+# specificati usando il valore di amperaggio desiderato per lo stepper. Il
+# default è di non scalare i parametri 'channel_x'.
 ```
 
 ### [mcp4451]

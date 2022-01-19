@@ -1,16 +1,16 @@
-# Hall filament width sensor
+# 霍尔耗材线径传感器
 
-This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on two Hall linear sensors (ss49e for example). Sensors in the body are located opposite sides. Principle of operation: two hall sensors work in differential mode, temperature drift same for sensor. Special temperature compensation not needed.
+本文件介绍了耗材宽度传感器的主机模块。用于开发该主机模块的硬件基于两个霍尔线性传感器（例如，ss49e）。设备内的两个传感器位于两侧。工作原理：两个霍尔传感器以差分模式工作，由于传感器的温度漂移相同。不需要特殊的温度补偿。
 
-You can find designs at [Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video is also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)
+你可以在[Thingiverse](https://www.thingiverse.com/thing:4138933)上找到设计，在[Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)上也有一个装配视频
 
-To use Hall filament width sensor, read [Config Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code documentation](G-Codes.md#Hall_Filament_Width_Sensor_Commands).
+要使用霍尔耗材线径传感器，请阅读[配置参考](Config_Reference.md#hall_filament_width_sensor)和[G-Code 文档](G-Code.md#Hall_Filament_Width_Sensor_Commands)。
 
 ## 它如何运作？
 
-Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use aux2 connector on ramps-like board analog11 and analog12 pins. You can use different pins and differenr boards.
+传感器根据两个模拟输出计算出耗材直径。检测到的电压之和始终对应耗材宽度。主机模块监测电压变化并调整挤出倍率。我在类似ramps的控制板上使用aux2连接器的 analog11和analog12引脚，你也可以使用不同的引脚和不同的控制板。
 
-## Template for menu variables
+## 菜单变量模板
 
 ```
 [menu __main __filament __width_current]
@@ -26,24 +26,24 @@ name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}
 index: 1
 ```
 
-## Calibration procedure
+## 校准程序
 
-To get raw sensor value you can use menu item or **QUERY_RAW_FILAMENT_WIDTH** command in terminal.
+要获得原始传感器值，你可以使用菜单中的选项或在终端发送**QUERY_RAW_FILAMENT_WIDTH**命令。
 
-1. Insert first calibration rod (1.5 mm size) get first raw sensor value
-1. Insert second calibration rod (2.0 mm size) get second raw sensor value
-1. Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`
+1. 插入第一根校准棒（1.5毫米直径），并得到第一个原始传感器值
+1. 插入第二根校准棒（2.0毫米直径），并得到第二个原始传感器值
+1. 在配置参数`Raw_dia1`和`Raw_dia2`中写入原始传感器值
 
-## How to enable sensor
+## 如何启用传感器
 
-By default, the sensor is disabled at power-on.
+传感器在开机时默认被禁用。
 
-To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set the `enable` parameter to `true.`
+要启用传感器，请发送**ENABLE_FILAMENT_WIDTH_SENSOR**命令或将`enable`配置参数改为`true`
 
-## Logging
+## 记录
 
-By default, diameter logging is disabled at power-on.
+直径记录在开机时默认被禁用。
 
-Issue **ENABLE_FILAMENT_WIDTH_LOG** command to start logging and issue **DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at power-on, set the `logging` parameter to `true`.
+发送**ENABLE_FILAMENT_WIDTH_LOG**命令开始记录，发送**DISABLE_FILAMENT_WIDTH_LOG**命令停止记录。如果想在开机时启用日志记录，请将`logging`配置参数设置为`true`。
 
-Filament diameter is logged on every measurement interval (10 mm by default).
+每个测量间隔都会记录耗材直径（默认为10毫米）。
