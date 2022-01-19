@@ -14,16 +14,16 @@ Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
+probe_count: 5, 3
 ```
 
 - `speed: 120` *Default 값: 50* 포인트 사이를 이동하는 속도.
 - `horizontal_move_z: 5` *Default 값: 5* 포인트 사이를 이동하기 전에 Z 축 방향으로 올라가는 높이.
-- `mesh_min: 35,6` *필수* 원점으로 부터 가장 가까운 첫번째 측정위치. 이 위치는 레벨링센서(프로브)위치에 따라 상대적이다.
-- `mesh_max: 240,198` *필수* 원점에서 가장 멀리 떨어진 측정위치. 이 지점은 가장 마지막 측정이 아닐 수도 있습니다. 왜냐하면 레벨 측정은 지그재그 경로로 되기 때문입니다. `mesh_min` 과 같이 레벨링센서위치에 따라 상대적이다.
-- `probe_count: 5,3` *Default 값: 3,3* x, y 각 축별로 측정되는 지점의 수. 정수값. 이 예제에서는 X 축방향으로 5개 점, Y 축방향으로 3개점을 측정합니다. 따라서 전체적으로 15개 측정위치가 됩니다. 만약 3x3 과 같이 정방형으로 측정하기 원한다면 정수 하나만으로 설정이 가능합니다. 즉, `probe_count: 3` 이렇게 입력하면 됩니다. 메쉬는 각 축별로 최소 3개의 측정포인트가 필요함을 기억하십시오.
+- `mesh_min: 35, 6` *Required* The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.
+- `mesh_max: 240, 198` *Required* The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with `mesh_min`, this coordiante is relative to the probe's location.
+- `probe_count: 5, 3` *Default Value: 3, 3* The number of points to probe on each axis, specified as X, Y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie `probe_count: 3`. Note that a mesh requires a minimum probe_count of 3 along each axis.
 
 아래 그림은 `mesh_min`, `mesh_max`, and `probe_count` 옵션이 어떻게 측정위치를 생성하시지를 나타낸 것이다. 화살표는 `mesh_min` 으로 부터 시작한 레벨측정 순서를 나타낸다. 참고로, 프로브가 `mesh_min` 위치일 때 노즐은 (11,1) 위치에 있게 되고, 프로브가 `mesh_max` 위치일 때 노즐은 (206,193)에 위치한다.
 
@@ -38,12 +38,12 @@ probe_count: 5,3
 speed: 120
 horizontal_move_z: 5
 mesh_radius: 75
-mesh_origin: 0,0
+mesh_origin: 0, 0
 round_probe_count: 5
 ```
 
 - `mesh_radius: 75` *필수* `mesh_origin`에 상대적인 값으로 측정메쉬의 반지름을 mm 단위로 표시한다. 프로브 오프셋이 메쉬 반지름의 크기를 제한합니다. 이 예제에서는 76보다 큰 반지름은 프린터의 가용반경을 넘어 동작하게 될 것입니다.
-- `mesh_origin: 0,0` *Default 값: 0,0* 메쉬의 중심점. 이 좌표는 프로브 위치에 따라 상대적이다. 기본값이 0,0 이지만 베드의 더 넓은 부분을 측정할 수 있도록 원점을 잡는게 유용할 수 있다. 아래 나오는 그림을 참고하기 바란다.
+- `mesh_origin: 0, 0` *Default Value: 0, 0* The center point of the mesh. This coordinate is relative to the probe's location. While the default is 0, 0, it may be useful to adjust the origin in an effort to probe a larger portion of the bed. See the illustration below.
 - `round_probe_count: 5` *Default 값: 5* 이 값은 X, Y 축에 따라 레벨링 측정을 할 최대 포인트수를 정수값으로 나타낸다. "최대"값이라 함은 메쉬 원점을 따라 측정하는 포인트수를 뜻한다. 메쉬의 중심을 측정할 수 있도록 하기 위해 이 값은 홀수여야 한다.
 
 아래 도안은 얼마나 많은 측정포인트가 만들어졌는지를 나타내고 있다. 보다시피 `mesh_origin` 을 (-10, 0) 로 설정하게 되면 측정하는 영역의 반지름이 85mm 이 된다.
@@ -62,15 +62,15 @@ round_probe_count: 5
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
-mesh_pps: 2,3
+probe_count: 5, 3
+mesh_pps: 2, 3
 algorithm: bicubic
 bicubic_tension: 0.2
 ```
 
-- `mesh_pps: 2,3` *Default *값: 2,2 `mesh_pps` 옵션은 Mesh Points Per Segment(세그먼트 당 메쉬 포인트)의 줄임말이다. 이 옵션은 x, y 축을 따라 얼마나 많은 분할 포인트로 인터폴레이션을 할지 정해준다. 각 레벨링 측정포인트사이를 '분할'하여 공간을 나누도록 한다. `probe_count` 처럼 `mesh_pps` 는 x,y 의 정수쌍으로 입력된다. 또한 정수 하나만 입력시 x,y 양쪽 축에 대한 값으로 인정된다. 예제에서는 X축을 따라 4개(5-1)의 분할, y 축을 따라 2개(3-1)의 분할이 존재한다. 이는 곧 x 축으로 9개의 인터폴레이션 포인트와, y 축으로 6개의 인터폴레이션 포인트가 만들어진다. 이것은 총 13x8 의 메쉬를 형성하는 결과를 낳게된다. mesh_pps 를 0 으로 하면 메쉬 인터폴레이션은 꺼지고, 측정 매트릭스가 직접적인 샘플링 위치값이 될 것이다.
+- `mesh_pps: 2, 3` *Default Value: 2, 2* The `mesh_pps` option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like `probe_count`, `mesh_pps` is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x8 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.
 - `algorithm: lagrange` *Default 값: lagrange* 메쉬를 인터폴레이션 하는데 사용되는 알고리즘. `lagrange` 와 `bicubic` 를 선택해줄 수 있다. 라그랑지 인터폴레이션은 6개의 측정 포인트로 제한됩니다. 왜냐하면 진동이 더 큰수의 샘플로 발생하기 때문입니다. Bicubic 인터폴레이션은 각축을 따라 최소 4개의 측정 포인트가 필요합니다. 만약 4개 이하의 값이 주어지면 라그랑지 샘플링이 강제로 적용됩니다. 만약 `mesh_pps` 를 0 으로 설정하면 이 값은 무시되며 어떤 메쉬 인터폴레이션도 실행되지 않습니다.
 - `bicubic_tension: 0.2` *Default 값: 0.2* 만약 `algorithm` 옵션이 bicubic 이면 tension 값 설정이 가능합니다. 더 높은 텐션값을 적용할 수록 더 많은 경사가 인터폴레이션될 것입니다. 이 값을 설정할 때 주의하십시오. 값이 커질 수록 또한 더 많은 오버슛이 발생합니다. 이 오버슛은 당신이 측정한 포인트보다 더 높거나 낮은 인터폴레이션 값을 내놓을 것입니다.
 
@@ -86,9 +86,9 @@ Bed Mesh works by intercepting gcode move commands and applying a transform to t
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
+probe_count: 5, 3
 move_check_distance: 5
 split_delta_z: .025
 ```
@@ -106,9 +106,9 @@ split_delta_z: .025
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
+probe_count: 5, 3
 fade_start: 1
 fade_end: 10
 fade_target: 0
@@ -126,9 +126,9 @@ fade_target: 0
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
+probe_count: 5, 3
 relative_reference_index: 7
 ```
 
@@ -146,9 +146,9 @@ relative_reference_index: 7
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
+probe_count: 5, 3
 faulty_region_1_min: 130.0, 0.0
 faulty_region_1_max: 145.0, 40.0
 faulty_region_2_min: 225.0, 0.0

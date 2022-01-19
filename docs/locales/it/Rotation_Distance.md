@@ -20,7 +20,7 @@ The `<full_steps_per_rotation>` setting is determined from the type of stepper m
 
 The `<microsteps>` setting is determined by the stepper motor driver. Most drivers use 16 microsteps. If unsure, set `microsteps: 16` in the config and use 16 in the formula above.
 
-Almost all printers should have a whole number for `rotation_distance` on x, y, and z type axes. If the above formula results in a rotation_distance that is within .01 of a whole number then round the final value to that whole_number.
+Almost all printers should have a whole number for `rotation_distance` on X, Y, and Z type axes. If the above formula results in a rotation_distance that is within .01 of a whole number then round the final value to that whole_number.
 
 ## Calibrating rotation_distance on extruders
 

@@ -14,16 +14,16 @@ This example assumes a printer with a 250 mm x 220 mm rectangular bed and a prob
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
+probe_count: 5, 3
 ```
 
 - `speed: 120` *Default Value: 50* The speed in which the tool moves between points.
 - `horizontal_move_z: 5` *Default Value: 5* The Z coordinate the probe rises to prior to traveling between points.
-- `mesh_min: 35,6` *Required* The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.
-- `mesh_max: 240,198` *Required* The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with `mesh_min`, this coordiante is relative to the probe's location.
-- `probe_count: 5,3` *Default Value: 3,3* The number of points to probe on each axis, specified as x,y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie `probe_count: 3`. Note that a mesh requires a minimum probe_count of 3 along each axis.
+- `mesh_min: 35, 6` *Required* The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.
+- `mesh_max: 240, 198` *Required* The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with `mesh_min`, this coordiante is relative to the probe's location.
+- `probe_count: 5, 3` *Default Value: 3, 3* The number of points to probe on each axis, specified as X, Y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie `probe_count: 3`. Note that a mesh requires a minimum probe_count of 3 along each axis.
 
 The illustration below demonstrates how the `mesh_min`, `mesh_max`, and `probe_count` options are used to generate probe points. The arrows indicate the direction of the probing procedure, beginning at `mesh_min`. For reference, when the probe is at `mesh_min` the nozzle will be at (11, 1), and when the probe is at `mesh_max`, the nozzle will be at (206, 193).
 
@@ -38,12 +38,12 @@ This example assumes a printer equipped with a round bed radius of 100mm. We wil
 speed: 120
 horizontal_move_z: 5
 mesh_radius: 75
-mesh_origin: 0,0
+mesh_origin: 0, 0
 round_probe_count: 5
 ```
 
 - `mesh_radius: 75` *Required* The radius of the probed mesh in mm, relative to the `mesh_origin`. Note that the probe's offsets limit the size of the mesh radius. In this example, a radius larger than 76 would move the tool beyond the range of the printer.
-- `mesh_origin: 0,0` *Default Value: 0,0* The center point of the mesh. This coordinate is relative to the probe's location. While the default is 0,0, it may be useful to adjust the origin in an effort to probe a larger portion of the bed. See the illustration below.
+- `mesh_origin: 0, 0` *Default Value: 0, 0* The center point of the mesh. This coordinate is relative to the probe's location. While the default is 0, 0, it may be useful to adjust the origin in an effort to probe a larger portion of the bed. See the illustration below.
 - `round_probe_count: 5` *Default Value: 5* This is an integer value that defines the maximum number of probed points along the X and Y axes. By "maximum", we mean the number of points probed along the mesh origin. This value must be an odd number, as it is required that the center of the mesh is probed.
 
 The illustration below shows how the probed points are generated. As you can see, setting the `mesh_origin` to (-10, 0) allows us to specifiy a larger mesh radius of 85.
@@ -62,15 +62,15 @@ While its possible to sample the probed matrix directly using simple bilinear in
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
-mesh_pps: 2,3
+probe_count: 5, 3
+mesh_pps: 2, 3
 algorithm: bicubic
 bicubic_tension: 0.2
 ```
 
-- `mesh_pps: 2,3` *Default Value: 2,2* The `mesh_pps` option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the x and y axes. Consider a 'segment' to be the space between each probed point. Like `probe_count`, `mesh_pps` is specified as an x,y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x8 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.
+- `mesh_pps: 2, 3` *Default Value: 2, 2* The `mesh_pps` option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like `probe_count`, `mesh_pps` is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x8 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.
 - `algorithm: lagrange` *Default Value: lagrange* The algorithm used to interpolate the mesh. May be `lagrange` or `bicubic`. Lagrange interpolation is capped at 6 probed points as oscillation tends to occur with a larger number of samples. Bicubic interpolation requires a minimum of 4 probed points along each axis, if less than 4 points are specified then lagrange sampling is forced. If `mesh_pps` is set to 0 then this value is ignored as no mesh interpolation is done.
 - `bicubic_tension: 0.2` *Default Value: 0.2* If the `algorithm` option is set to bicubic it is possible to specify the tension value. The higher the tension the more slope is interpolated. Be careful when adjusting this, as higher values also create more overshoot, which will result in interpolated values higher or lower than your probed points.
 
@@ -86,9 +86,9 @@ Bed Mesh works by intercepting gcode move commands and applying a transform to t
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
+probe_count: 5, 3
 move_check_distance: 5
 split_delta_z: .025
 ```
@@ -106,9 +106,9 @@ When "fade" is enabled Z adjustment is phased out over a distance defined by the
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
+probe_count: 5, 3
 fade_start: 1
 fade_end: 10
 fade_target: 0
@@ -126,9 +126,9 @@ Most probes are suceptible to drift, ie: inaccuracies in probing introduced by h
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
+probe_count: 5, 3
 relative_reference_index: 7
 ```
 
@@ -146,9 +146,9 @@ The `faulty_region` options may be configured to compensate for this affect. If 
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
+probe_count: 5, 3
 faulty_region_1_min: 130.0, 0.0
 faulty_region_1_max: 145.0, 40.0
 faulty_region_2_min: 225.0, 0.0

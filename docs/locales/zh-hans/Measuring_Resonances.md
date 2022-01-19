@@ -51,7 +51,7 @@ Next, run the following commands to install the additional dependencies:
 
 ```
 sudo apt update
-sudo apt install python-numpy python-matplotlib
+sudo apt install python3-numpy python3-matplotlib
 ```
 
 之后，参考[树莓派作为微控制器文档](RPi_microcontroller.md)的指引完成“LINUX微处理器”的设置。
@@ -70,7 +70,7 @@ cs_pin: rpi:None
 [resonance_tester]
 accel_chip: adxl345
 probe_points:
-    100,100,20  # an example
+    100, 100, 20  # an example
 ```
 
 建议在测试开始前，用探针在热床中央进行一次探测，触发后稍微上移。

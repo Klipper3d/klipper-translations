@@ -32,9 +32,9 @@ BED 레벨링 나사로 BED 레벨링을 잘 하는 비결은 BED 레벨링 과�
 
 ```
 [bed_screws]
-screw1: 100,50
-screw2: 100,150
-screw3: 150,100
+screw1: 100, 50
+screw2: 100, 150
+screw3: 150, 100
 ```
 
 BED 나사가 BED 아래에 있는 경우 나사 바로 위에 XY 위치를 지정합니다. 나사가 BED 외부에 있으면 여전히 BED 범위 내에 있는 나사에 가장 가까운 XY 위치를 지정합니다.
@@ -65,12 +65,12 @@ BED_SCREWS_ADJUST
 
 ```
 [bed_screws]
-screw1: 100,50
-screw1_fine_adjust: 0,0
-screw2: 100,150
-screw2_fine_adjust: 300,300
-screw3: 150,100
-screw3_fine_adjust: 0,100
+screw1: 100, 50
+screw1_fine_adjust: 0, 0
+screw2: 100, 150
+screw2_fine_adjust: 300, 300
+screw3: 150, 100
+screw3_fine_adjust: 0, 100
 ```
 
 이 기능이 활성화되면 `BED_SCREWS_ADJUST` 도구는 먼저 각 나사 위치 바로 위의 대략적인 조정을 요청하고 일단 수락되면 추가 위치에서 미세 조정을 요청합니다. 각 위치에서 `ACCEPT` 및 `ADJUSTED` 를 계속 사용합니다.
@@ -83,13 +83,13 @@ screw3_fine_adjust: 0,100
 
 ```
 [screws_tilt_adjust]
-screw1: -5,30
+screw1: -5, 30
 screw1_name: front left screw
-screw2: 155,30
+screw2: 155, 30
 screw2_name: front right screw
-screw3: 155,190
+screw3: 155, 190
 screw3_name: rear right screw
-screw4: -5,190
+screw4: -5, 190
 screw4_name: rear left screw
 horizontal_move_z: 10.
 speed: 50.

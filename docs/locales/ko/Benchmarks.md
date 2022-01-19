@@ -214,6 +214,25 @@ The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (
 | 한개의 스텝모터 | 46 |
 | 세개의 스텝모터 | 205 |
 
+### STM32G0B1 step rate benchmark
+
+The following configuration sequence is used on the STM32G0B1:
+
+```
+allocate_oids count=3
+config_stepper oid=0 step_pin=PB13 dir_pin=PB12 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PB10 dir_pin=PB2 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PB0 dir_pin=PC5 invert_step=-1 step_pulse_ticks=0
+finalize_config crc=0
+```
+
+The test was last run on commit `247cd753` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+
+| stm32f042 | ticks |
+| --- | --- |
+| 한개의 스텝모터 | 58 |
+| 세개의 스텝모터 | 243 |
+
 ### LPC176x 스텝 레이트 벤치마크
 
 이어지는 설정 시퀀스는 LPC176x 에서 사용된다:

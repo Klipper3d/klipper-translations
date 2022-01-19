@@ -22,19 +22,19 @@ The primary bed calibration mechanism is the "paper test". It involves placing a
 
 It is important to understand the "paper test" even if one has an "automatic Z probe". The probe itself often needs to be calibrated to get good results. That probe calibration is done using this "paper test".
 
-In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a width of around 100 microns (0.100mm). (The exact width of the paper isn't crucial.)
+In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a thickness of around 100 microns (0.100mm). (The exact thickness of the paper isn't crucial.)
 
 The first step of the paper test is to inspect the printer's nozzle and bed. Make sure there is no plastic (or other debris) on the nozzle or bed.
 
 **Inspect the nozzle and bed to ensure no plastic is present!**
 
-If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a width and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.
+If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a thickness and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.
 
 If there is plastic on the nozzle then heat up the extruder and use a metal tweezers to remove that plastic. Wait for the extruder to fully cool to room temperature before continuing with the paper test. While the nozzle is cooling, use the metal tweezers to remove any plastic that may ooze out.
 
 **Always perform the paper test when both nozzle and bed are at room temperature!**
 
-When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same width as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact width of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two widths).
+When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same thickness as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact thickness of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two distances).
 
 It may seem odd to calibrate the distance at room temperature when the goal is to have a consistent distance when heated. However, if one calibrates when the nozzle is heated, it tends to impart small amounts of molten plastic on to the paper, which changes the amount of friction felt. That makes it harder to get a good calibration. Calibrating while the bed/nozzle is hot also greatly increases the risk of burning oneself. The amount of thermal expansion is stable, so it is easily accounted for later in the calibration process.
 
@@ -86,7 +86,7 @@ If something goes wrong during the test, one can use the `ABORT` command to exit
 
 ## Determining Thermal Expansion
 
-After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "width of the paper", and "amount of friction felt during the paper test".
+After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "thickness of the paper", and "amount of friction felt during the paper test".
 
 This type of calculation is generally not needed as most users find the simple "paper test" provides good results.
 

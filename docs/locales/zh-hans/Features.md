@@ -49,6 +49,7 @@ Klipper 支持许多标准的 3d 打印机功能：
 | Arduino Zero (SAMD21) | 686K | 471K |
 | STM32F042 | 814K | 578K |
 | Beaglebone 可编程实时单元 | 866K | 708K |
+| STM32G0B1 | 1103K | 790K |
 | "Blue Pill" (STM32F103) | 1180K | 818K |
 | Arduino Due (SAM3X8E) | 1273K | 981K |
 | Duet2 Maestro (SAM4S8C) | 1690K | 1385K |

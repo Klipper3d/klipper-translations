@@ -14,16 +14,16 @@
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
+probe_count: 5, 3
 ```
 
 - `speed: 120` *默认值：50* 探针在两个点之间移动的速度。
 - `horizontal_move_z: 5` *默认值：5* 探针前往下一个点之前Z需要抬升的高度。
-- `mesh_min: 35,6` *必须配置* 第一个探测的坐标，距离原点最近。该坐标就是探针所在的位置。
-- `mesh_max: 240,198` *必须配置* 距离原点最远的探测坐标。 这不一定是探测的最后一个点，因为探测过程以锯齿形的方式运动。 与 `mesh_min` 一样，这个坐标是探针的位置。
-- `probe_count: 5,3` *默认值：3,3* 每条轴上要探测的点数，指定为 x,y 整数值。 在本示例中，将沿 X 轴探测 5 个点，沿 Y 轴探测 3 个点，总共探测 15 个点。 请注意，如果您想要一个方形网格，例如 3x3，可以将指定其为一个整数值，比如 `probe_count: 3`。 请注意，网格需要沿每个轴的最小probe_count 为3。
+- `mesh_min: 35, 6` *Required* The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.
+- `mesh_max: 240, 198` *Required* The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with `mesh_min`, this coordiante is relative to the probe's location.
+- `probe_count: 5, 3` *Default Value: 3, 3* The number of points to probe on each axis, specified as X, Y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie `probe_count: 3`. Note that a mesh requires a minimum probe_count of 3 along each axis.
 
 下图演示了如何使用 `mesh_min`、`mesh_max` 和 `probe_count` 选项来生成探测点。 箭头表示探测过程的运动方向，从“mesh_min”开始。 图中所示，当探针位于“mesh_min”时，喷嘴将位于 (11, 1)，当探针位于“mesh_max”时，喷嘴将位于 (206, 193)。
 
@@ -38,12 +38,12 @@ probe_count: 5,3
 speed: 120
 horizontal_move_z: 5
 mesh_radius: 75
-mesh_origin: 0,0
+mesh_origin: 0, 0
 round_probe_count: 5
 ```
 
 - `mesh_radius: 75` *必须配置* 探测网格范围的半径（以毫米为单位），相对于 `mesh_origin`。 请注意，探针的偏移会限制网格半径的大小。 在此示例中，大于 76 mm的半径会将打印头移动到打印机的范围之外。
-- `mesh_origin: 0,0` *默认值： 0,0* 探测网格的中心点。 该坐标相对于探针的位置。 虽然默认值为 0,0，但为了探测床更多的部分而调整原点可能很有用。 请参阅下图。
+- `mesh_origin: 0, 0` *Default Value: 0, 0* The center point of the mesh. This coordinate is relative to the probe's location. While the default is 0, 0, it may be useful to adjust the origin in an effort to probe a larger portion of the bed. See the illustration below.
 - `round_probe_count: 5` *默认值： 5* 这是一个整数值，用于限制沿 X 轴和 Y 轴的最大探测点数。 “最大”是指沿网格原点探测的点数。 该值必须是奇数，因为需要探测网格的中心。
 
 下图展示了如何生成探测点。 如您所见，将 `mesh_origin` 设置为 (-10, 0) 允许我们指定更大的网格半径 85mm。
@@ -62,15 +62,15 @@ round_probe_count: 5
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
-mesh_pps: 2,3
+probe_count: 5, 3
+mesh_pps: 2, 3
 algorithm: bicubic
 bicubic_tension: 0.2
 ```
 
-- `mesh_pps: 2,3` *默认值：2,2*`mesh_pps` 选项是每段网格点数的简写。 此选项指定沿 x 轴和 y 轴为每个线段插值的点数。 将“段”视为每个探测点之间的间隔。 与 `probe_count` 一样，`mesh_pps` 被指定为 x,y 整数对，也可以指定为应用于两个轴的单个整数。 在此示例中，沿 X 轴有 4 个线段，沿 Y 轴有 2 个线段。 这计算为沿 X 的 8 个插值点，沿 Y 的 6 个插值点，从而产生 13x8 网格。 请注意，如果 mesh_pps 设置为 0，则禁用网格插值，并且将直接对探测网格进行采样。
+- `mesh_pps: 2, 3` *Default Value: 2, 2* The `mesh_pps` option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like `probe_count`, `mesh_pps` is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x8 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.
 - `algorithm: lagrange` *默认值：lagrange* 用于插入网格的算法。 可能是 `lagrange` or `bicubic`。 拉格朗日插值最多为 6 个探测点，因为大量样本容易发生振荡。 双三次插值要求沿每个轴至少有 4 个探测点，如果指定的点少于 4 个，则强制拉格朗日采样。 如果 `mesh_pps` 设置为 0，则该值将被忽略，因为没有进行网格插值。
 - `bicubic_tension: 0.2` *默认值：0.2* 双三次插值的张力值。如果`algorithm` 选项设置为双三次，则可以指定张力值。 张力越高，内插的斜率越大。 调整时要小心，因为较高的值也会产生更多的过冲，这将导致插值高于或低于探测点。
 
@@ -86,9 +86,9 @@ bicubic_tension: 0.2
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
+probe_count: 5, 3
 move_check_distance: 5
 split_delta_z: .025
 ```
@@ -106,9 +106,9 @@ split_delta_z: .025
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
+probe_count: 5, 3
 fade_start: 1
 fade_end: 10
 fade_target: 0
@@ -126,9 +126,9 @@ fade_target: 0
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
+probe_count: 5, 3
 relative_reference_index: 7
 ```
 
@@ -146,9 +146,9 @@ relative_reference_index: 7
 [bed_mesh]
 speed: 120
 horizontal_move_z: 5
-mesh_min: 35,6
+mesh_min: 35, 6
 mesh_max: 240, 198
-probe_count: 5,3
+probe_count: 5, 3
 faulty_region_1_min: 130.0, 0.0
 faulty_region_1_max: 145.0, 40.0
 faulty_region_2_min: 225.0, 0.0

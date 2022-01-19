@@ -72,7 +72,7 @@
 `gcode_move` 对象中提供了以下信息（该对象始终可用）：
 
 - `gcode_position`：工具头相对于当前 G 代码原点的当前位置。也就是可以直接被发送到`G1`命令的位置。可以分别访问这个位置的x、y、z和e分量（例如，`gcode_position.x`）。
-- `position`: The last commanded position of the toolhead using the coordinate system specified in the config file. It is possible to access the x, y, z, and e components of this position (eg, `position.x`).
+- `position`：打印头在配置文件中定义的坐标系中的最后指令位置。可以访问这个位置的x、y、z和e分量（例如，`position.x`）。
 - `homing_origin`：在`G28`命令之后要使用的 G-Code 坐标系的原点（相对于配置文件中定义的坐标系）。`SET_GCODE_OFFSET` 命令可以改变这个位置。可以分别访问这个位置的x、y和z分量（例如，`homing_origin.x`）。
 - `speed`：在`G1`命令中最后一次设定的速度（单位：mm/s）。
 - `speed_factor`：通过 `M220` 命令设置的"速度因子覆盖"。这是一个浮点值，1.0 意味着没有覆盖，例如，2.0 将请求的速度翻倍。
@@ -85,7 +85,8 @@
 [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor) 对象提供了以下信息：
 
 - `is_active`：如果传感器当前处于活动状态，返回True。
-- `Diameter`、`Raw`：最后一次从传感器读取的值。
+- `Diameter`: The last reading from the sensor in mm.
+- `Raw`: The last raw ADC reading from the sensor.
 
 ## heater
 
@@ -123,7 +124,7 @@
 
 `motion_report` 对象提供了以下信息（如果定义了任何步进器配置分段，则该对象自动可用）：
 
-- `live_position`: The requested toolhead position interpolated to the current time.
+- `live_position`：请求的打印头位置插值到当前时间后的位置。
 - `live_velocity`：当前请求的打印头速度（以毫米/秒为单位）。
 - `live_extruder_velocity`：当前请求的挤出机速度（单位：mm/s）。
 
@@ -221,7 +222,7 @@
 
 `toolhead` 对象提供了以下信息（该对象始终可用）：
 
-- `position`: The last commanded position of the toolhead relative to the coordinate system specified in the config file. It is possible to access the x, y, z, and e components of this position (eg, `position.x`).
+- `position`：打印头相对于配置文件中指定的坐标系的最后命令位置。可以访问该位置的 x、y、z 和 e 分量（例如，`position.x`）。
 - `extruder`：当前活跃的挤出机的名称。例如，在宏中可以使用`printer[printer.toolhead.extruder].target`来获取当前挤出机的目标温度。
 - `homed_axes`：当前被认为处于“已归位”状态的车轴。这是一个包含一个或多个"x"、"y"、"z"的字符串。
 - `axis_minimum`、`axis_maximum`：归位后的轴的行程限制（毫米）。可以访问此极限值的 x、y、z 分量（例如，`axis_minimum.x`、`axis_maximum.z`）。

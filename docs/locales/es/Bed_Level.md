@@ -22,19 +22,19 @@ El principal mecanismo de calibración de la cama es la "prueba de papel". Consi
 
 Es importante entender la "prueba del papel" aunque se tenga un "sensor Z automático". A menudo es necesario calibrar el propio sensor para obtener buenos resultados. Esa calibración del sensor se realiza mediante esta "prueba de papel".
 
-Para realizar la prueba del papel, corte un pequeño trozo de papel rectangular con unas tijeras (por ejemplo, 5x3 cm). El papel suele tener un espesor de unas 100 micras (0,100 mm). (El espesor exacto del papel no es crucial.)
+In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a thickness of around 100 microns (0.100mm). (The exact thickness of the paper isn't crucial.)
 
 El primer paso de la prueba del papel es inspeccionar la boquilla y la base de la impresora. Asegúrese de que no hay plástico (u otros residuos) en la boquilla o en la base.
 
 **¡Inspeccione la boquilla y la base para asegurarse de que no hay plástico!**
 
-Si uno siempre imprime en una cinta o superficie de impresión en particular, entonces puede realizar la prueba de papel con esa cinta/superficie en su lugar. Sin embargo, tenga en cuenta que la cinta en sí tiene un ancho y que las diferentes cintas (o cualquier otra superficie de impresión) afectarán a las mediciones en Z. Asegúrese de volver a realizar la prueba del papel para medir cada tipo de superficie que se utilice.
+If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a thickness and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.
 
 Si hay plástico en la boquilla, caliente el extrusor y utilize una pinza metálica para eliminar ese plástico. Espere a que el extrusor se enfríe a temperatura ambiente antes de continuar con la prueba del papel. Mientras se enfría la boquilla, utiliza las pinzas metálicas para eliminar el plástico que pueda gotear.
 
 **¡Realice siempre la prueba del papel cuando tanto la boquilla como la base se encuentren a temperatura ambiente!**
 
-Cuando la boquilla se calienta, su posición (con respecto a la base) cambia debido a la expansión térmica. Esta expansión térmica suele ser de unas 100 micras, que es más o menos el mismo espesor que un trozo de papel de impresora típico. La cantidad exacta de expansión térmica no es crucial, como tampoco lo es el espesor exacto del papel. Empiece con la suposición de que ambos son iguales (vea más abajo un método para determinar la diferencia entre los dos anchos).
+When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same thickness as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact thickness of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two distances).
 
 Puede parecer extraño calibrar la distancia a temperatura ambiente cuando el objetivo es tener una distancia consistente cuando se calienta. Sin embargo, si se calibra cuando la boquilla se calienta, esta tiende a filtrar pequeñas cantidades de plástico fundido sobre el papel, lo que cambia la cantidad de fricción que se siente. Esto hace más difícil conseguir una buena calibración. Calibrar mientras la cama/boquilla está caliente también aumenta en gran medida el riesgo de quemarse. La cantidad de expansión térmica es estable, por lo que se puede tener en cuenta fácilmente más adelante en el proceso de calibración.
 
@@ -86,7 +86,7 @@ Si algo va mal durante la prueba, se puede utilizar el comando `ABORT` para sali
 
 ## Determinando la Expansión Térmica
 
-Una vez completada satisfactoriamente la "nivelación de la plataforma" , se puede proceder a calcular un valor preciso, para el impacto combinado, de "expansión térmica", "ancho del papel" y "cantidad de fricción que se siente durante la prueba del papel".
+After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "thickness of the paper", and "amount of friction felt during the paper test".
 
 This type of calculation is generally not needed as most users find the simple "paper test" provides good results.
 

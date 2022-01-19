@@ -51,7 +51,7 @@ BED Slingers 프린터에서 하나는 2개의 마운트를 설계해야 합니�
 
 ```
 sudo apt update
-sudo apt install python-numpy python-matplotlib
+sudo apt install python3-numpy python3-matplotlib
 ```
 
 이후 [RPi Microcontroller document](RPi_microcontroller.md) 의 지시사항에 따라 라즈베리파이에 "linux mcu"를 설정합니다.
@@ -70,7 +70,7 @@ cs_pin: rpi:None
 [resonance_tester]
 accel_chip: adxl345
 probe_points:
-    100,100,20  # an example
+    100, 100, 20  # an example
 ```
 
 프린터 BED 중간, 약간 위에서 프로브 포인트 1개로 시작하는 것이 좋습니다.

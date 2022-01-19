@@ -22,19 +22,19 @@
 
 오토레벨링 센서가 있더라도 "종이테스트"의 방법을 이해하는 것은 중요하다. 레벨링센서 그 자체도 좋은 레벨링을 위해서는 캘리브레이션 되어야 한다. 레벨링센서의 캘리브레이션도 역시 "종이테스트" 를 이용한다.
 
-종이테스트를 하기 위해, 가위를 이용해 종이를 5x3cm 정도의 작은 직사각형 크기로 자른다. 복사용지(A4)는 일반적으로 100마이크로메타(0.100mm) 두께를 가지고 있다. (종이 두께가 정확할 필요는 없다)
+In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a thickness of around 100 microns (0.100mm). (The exact thickness of the paper isn't crucial.)
 
 종이테스트의 첫번째 단계는 프린터 노즐과 베드를 잘 살펴보는 것이다. 노즐과 베드에 남은 필라멘트찌꺼기들이 붙어 있지 않도록 하십시오.
 
 **노즐과 베드에 필라멘트찌꺼기가 붙어 있지 않은지 확인하라!**
 
-만일 특별한 테이프나 베드표면위에서 항상 출력을 한다면 그 표면/테이프를 이용해 종이테스트를 할 것이다. 하지만, 테이프 자체의 두께가 각각 다를 수 있기 때문에 다른 테이프를 사용하거나 베드판을 바꾸거나 하면 Z 측정에 영향을 미치게 됨을 기억하라. 그래서 반드시 실제 사용할 베드판이나 테이프를 깔고 종이테스트를 해야 한다.
+If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a thickness and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.
 
 만일 노즐에 필라멘트가 붙어있다면 노즐 온도를 올리고 핀셋을 이용해 필라멘트를 제거하도록 하라. 그리고, 노즐의 온도가 상온으로 완전히 식고 나면 종이테스트를 이어 진행한다. 노즐이 식을 동안 필라멘트가 흘러 새어나온게 있다면 핀셋으로 제거하도록 한다.
 
 **종이테스트는 노즐과 베드의 온도가 모두 상온상태로 해놓고 진행하도록 한다.**
 
-노즐이 히팅되면 열팽창에 의해 베드와의 상대적 높이가 변하게 된다. 열팽창은 대체로 100 마이크론 전후가 된다, 이는 종이테스트를 진행하는 복사용지 두께에 해당한다. 열팽창한 정확한 값은 복사용지 두께가 그랬던것처럼 결정적인 사항은 아니다. 두개가 동일하다고 가정하고 종이테스트를 진행하면 된다. (두개 사이의 차이를 확인하는 방법은 아래를 참고하기 바란다).
+When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same thickness as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact thickness of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two distances).
 
 출력시 노즐이 히팅되어 있는 상황인데 출력 상태가 아닌 상온상태에서 베드/노즐간격을 캘리브레이션 하는것이 이상하게 보일지도 모르겠다. 하지만, 만약 노즐이 히팅된 상태에서 캘리브레이션을 한다면 종이위에 아주 작은양의 녹은 필라멘트가 묻게 되고, 그것은 노즐과 종이와의 마찰을 다르게 할 것이다. 그리고 그런 차이는 좋은 캘리브레이션을 얻는데 장애가 된다. 베드와 노즐을 히팅시켜놓고 캘리브레이션을 하면 화상의 위험도 높아진다. 열팽창 값은 안정적이며, 그렇기 때문에 이후 캘리브레이션 과정에서 쉽게 보정될 수 있다.
 
@@ -86,7 +86,7 @@ ACCEPT
 
 ## 열팽창도 결정하기
 
-여기까지 성공적으로 베드레벨링을 진행하였다면 이제 "열팽창", "종이두께", "마찰력느낌"의 복합적인 영향을 고려한 정밀한 값을 계산할 수 있다.
+After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "thickness of the paper", and "amount of friction felt during the paper test".
 
 이 계산은 일반적으로는 필요치 않다. 대부분의 사용자들은 간단한 "종이테스트"만으로도 좋은 결과를 얻을 수 있을 것이다.
 

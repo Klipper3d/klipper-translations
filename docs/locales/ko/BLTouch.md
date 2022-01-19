@@ -16,7 +16,7 @@ If the BL-Touch will be used to home the Z axis then set `endstop_pin: probe:z_v
 
 ```
 [safe_z_home]
-home_xy_position: 100,100 # Change coordinates to the center of your print bed
+home_xy_position: 100, 100 # Change coordinates to the center of your print bed
 speed: 50
 z_hop: 10                 # Move up 10mm
 z_hop_speed: 5
@@ -32,7 +32,7 @@ safe_z_home 으로 z_hop 이동은 프로브 핀이 가장 낮은 위치에 있�
 
 만약 지금까지 잘 진행이 되었다면, 핀이 정확히 동작하는지 테스트할 차례이다. 먼저, 터미널에서 `BLTOUCH_DEBUG COMMAND=pin_down`를 실행시켜라. 그랬을때 프로브 핀이 아래로 내려가고 빨간색 불이 꺼지는지 확인하라. 만약 그렇게 되지 않는다면 배선연결과 설정을 다시 체크하기 바란다. 다음은 `BLTOUCH_DEBUG COMMAND=pin_up` 를 실행시켜 프로브 핀이 위로 동작하고 빨간색 led 가 다시 켜지는 것을 확인하라. 만일 불빛이 점멸한다면 동일한 문제가 있다는 뜻이다.
 
-다음 단계는 센서 핀이 정확히 동작하는지 확인할 차례다. `BLTOUCH_DEBUG COMMAND=pin_down`를 실행하여 핀이 아래로 내려갔는지 보고, `BLTOUCH_DEBUG COMMAND=touch_mode` 과 `QUERY_PROBE`를 실행하여 해당 명령이 "probe: open" 를 보이는지 확인하라. 그리고 손톱을 이용해 조심스럽게 핀을 천천히 밀어올리고 `QUERY_PROBE` 명령을 다시 실행해보라. 그때 "probe: TRIGGERED"가 보이는지 확인하라. 만일 둘다 제대로된 정확한 메시지가 보이지 않는다면 배선연결과 설정을 다시 체크하기 바란다. 테스트가 끝나면 `BLTOUCH_DEBUG COMMAND=pin_up` 라고 입력하고 핀이 올라가는것을 확인하기 바란다.
+The next step is to confirm that the sensor pin is working correctly. Run `BLTOUCH_DEBUG COMMAND=pin_down`, verify that the pin moves down, run `BLTOUCH_DEBUG COMMAND=touch_mode`, run `QUERY_PROBE`, and verify that command reports "probe: open". Then while gently pushing the pin up slightly with the nail of your finger run `QUERY_PROBE` again. Verify the command reports "probe: TRIGGERED". If either query does not report the correct message then it usually indicates an incorrect wiring or configuration (though some [clones](#bl-touch-clones) may require special handling). At the completion of this test run `BLTOUCH_DEBUG COMMAND=pin_up` and verify that the pin moves up.
 
 bltouch 컨트롤 핀과 센서핀 테스트를 마치고 나서, 측정 테스트를 할 차례가 된다. 하지만, 조금 다르게 할 것이다. 프로브 핀을 프린터 베드에 닿게 하는 것대신에, 손톱으로 터치할 것이다. 툴 헤드가 베드로부터 많이 떨어져 있도록 위치시켜놓고, `G28`(또는 만약 probe:z_virtual_endstop 을 사용하지 않는다면 `PROBE`)를 입력하라. 그리고 툴헤드가 아래로 내려오기 시작할 때까지 기다려라. 내려오기 시작하면 손톱으로 아주 천천히 핀을 건드려서 내려오는 움직임을 멈추도록 하라. 이것을 두번정도 해야할 것이다. 왜냐하면 기본 호밍 설정에서 두번 측정하도록 되어 있기 때문이다. 만약 핀을 건드리는데도 멈추지 않을때를 대비하여 프린터의 전원을 끌 준비를 하고 진행하도록 한다.
 
@@ -50,9 +50,11 @@ BLTOUCH_DEBUG COMMAND=reset
 
 ## BL-Touch 짝퉁
 
-수많은 bltouch 짝퉁들이 기본 설정을 이용해 클리퍼상에서 정상적으로 작동한다. 하지만, 몇몇 짝둥제품은 `pin_up_reports_not_triggered` 혹은 `pin_up_touch_mode_reports_triggered`를 설정해야할 수도 있다.
+Many BL-Touch "clone" devices work correctly with Klipper using the default configuration. However, some "clone" devices may not support the `QUERY_PROBE` command and some "clone" devices may require configuration of `pin_up_reports_not_triggered` or `pin_up_touch_mode_reports_triggered`.
 
 중요! 먼저 다음 지시를 따르지 않고 `pin_up_reports_not_triggered` 나 `pin_up_touch_mode_reports_triggered` 을 False 로 설정하지 마십시오. 정품 bltouch에 이값들을 False 로 설정해서도 안됩니다. 잘못 False 로 셋팅하면 측정 시간을 증가시키고, 프린터를 손상시킬 위험이 증가할 수 있습니다.
+
+Some "clone" devices do not support `touch_mode` and as a result the `QUERY_PROBE` command does not work. Despite this, it may still be possible to perform probing and homing with these devices. On these devices the `QUERY_PROBE` command during the [initial tests](#initial-tests) will not succeed, however the subsequent `G28` (or `PROBE`) test does succeed. It may be possible to use these "clone" devices with Klipper if one does not utilize the `QUERY_PROBE` command and one does not enable the `probe_with_touch_mode` feature.
 
 몇몇 짝퉁 제품은 클리퍼의 내부적인 센서인증테스트를 진행할 수 없습니다. 이 제품들로 호밍이나 프로빙을 시도하면 클리퍼에서 "BLTouch failed to verify sensor state" 결과를 내보내게 됩니다. 만일 이런게 발생하면, [initial tests section](#initial-tests) 에 기록된 내용을 따라 수동으로 센서핀이 제대로 잘 잘동하는지를 단계별로 진행해야 한다. 만약, 그 테스트 중에 `QUERY_PROBE` 명령은 기대했던 동작하고, "BLTouch failed to verify sensor state" 에러는 계속 보인다면, 클리퍼 설정파일에서 `pin_up_touch_mode_reports_triggered` 값을 False 로 셋팅해야 할 수도 있다.
 
