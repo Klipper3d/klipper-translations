@@ -1,4 +1,4 @@
-# Bootloaders
+# 底层引导程序
 
 本文档介绍Klipper支持的用于微控制器的底层引导程序（bootloader）。
 
@@ -10,7 +10,7 @@
 
 ## AVR 微控制器
 
-In general, the Arduino project is a good reference for bootloaders and flashing procedures on the 8-bit Atmel Atmega micro-controllers. In particular, the "boards.txt" file: <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> is a useful reference.
+总体上来说，Arduino项目是8位Atmel Atmega微控制器的引导程序和刷写程序的好的参考。特别是" boards.txt "文件。 <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt>是一个有用的参考。
 
 要刷写引导程序本身，AVR 芯片需要一个外部硬件刷写工具（它使用 SPI 与芯片进行通信）。这个工具可以购买（例如，在网上搜索 "avr isp"、"arduino isp "或 "usb tiny isp"）。也可以使用另一个Arduino或Raspberry Pi来闪存AVR引导程序（例如，在网上搜索 "用raspberry pi编程AVR"）。下面的例子是在假设使用 "AVR ISP Mk2 "类型的设备的情况下编写的。
 
@@ -86,7 +86,7 @@ avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.
 
 本文件不包括向At90usb1286刷写引导程序的方法，也不包括向该设备刷写一般应用。
 
-The Teensy++ device from pjrc.com comes with a proprietary bootloader. It requires a custom flashing tool from <https://github.com/PaulStoffregen/teensy_loader_cli>. One can flash an application with it using something like:
+来自pjrc.com的Teensy++设备带有一个专用的引导程序。它需要一个来自 <https://github.com/PaulStoffregen/teensy_loader_cli>的定制刷写工具。可以用这个工具来刷写一个应用程序，例如：
 
 ```
 teensy_loader_cli --mcu=at90usb1286 out/klipper.elf.hex -v
@@ -116,7 +116,7 @@ avrdude -carduino -patmega168 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.e
 
 为了启用ROM，将"erase"引脚在复位过程中保持高电平，这将擦除闪存的内容，并使ROM运行。在Arduino Due上，这个程序可以通过在 "programming usb port"（编程USB口，最靠近电源的USB端口）上设置1200的波特率来完成。
 
-The code at <https://github.com/shumatech/BOSSA> can be used to program the SAM3. It is recommended to use version 1.9 or later.
+ <https://github.com/shumatech/BOSSA>中的代码可以用来为SAM3编程。建议使用1.9或更高版本。
 
 要刷写一个应用程序使用：
 
@@ -131,7 +131,7 @@ bossac -U -p /dev/ttyACM0 -R
 
 为了启用ROM，在复位过程中要将"erase"引脚保持为高电平，这将擦除闪存内容，并使ROM运行。
 
-The code at <https://github.com/shumatech/BOSSA> can be used to program the SAM4. It is necessary to use version `1.8.0` or higher.
+ <https://github.com/shumatech/BOSSA>中的代码可以用来为SAM4编程。需要使用`1.8.0`或更高的版本。
 
 要刷写一个应用程序使用：
 
@@ -146,7 +146,7 @@ SAMD21 引导加载程序通过 ARM 串行线调试 （SWD） 接口进行刷写
 要使用 OpenOCD 刷写引导加载程序，请使用以下芯片配置：
 
 ```
-source [find target/at91samdXX.cfg]
+来源 [查找目标/at91samdXX.cfg]
 ```
 
 获取引导加载程序 - 例如：
@@ -179,10 +179,10 @@ avrdude -c stk500v2 -p atmega2560 -P /dev/ttyACM0 -u -Uflash:w:out/klipper.elf.h
 和 SAMD21 一样，SAMD51 的启动引导程序也是通过 ARM 串行线调试（SWD）接口刷写的。要用[运行 OpenOCD的 Raspberry Pi](#running-openocd-on-the-raspberry-pi)刷写引导程序，请使用以下芯片配置：
 
 ```
-source [find target/atsame5x.cfg]
+来源 [查找目标/atsame5x.cfg]
 ```
 
-Obtain a bootloader - several bootloaders are available from <https://github.com/adafruit/uf2-samdx1/releases/latest>. For example:
+获得一个引导程序--很多引导程序可以从 <https://github.com/adafruit/uf2-samdx1/releases/latest>获得。例如：
 
 ```
 wget 'https://github.com/adafruit/uf2-samdx1/releases/download/v3.7.0/bootloader-itsybitsy_m4-v3.7.0.bin'
@@ -210,13 +210,13 @@ STM32F103 产品线的芯片包含一个可以通过 3.3V 串口刷写引导程�
 stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0
 ```
 
-Note that if one is using a Raspberry Pi for the 3.3V serial, the stm32flash protocol uses a serial parity mode which the Raspberry Pi's "mini UART" does not support. See <https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts> for details on enabling the full uart on the Raspberry Pi GPIO pins.
+注意，如果使用树莓派的3.3V串口，stm32flash协议使用的串行奇偶校验模式，树莓派的 "mini UART "并不支持。关于在树莓派的GPIO引脚上启用完整的UART的细节，见 <https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts>。
 
 刷写后，将 "boot 0 "和 "boot 1 "都恢复设为低电平，以便在复位后从闪存启动。
 
 ### 带有 stm32duino 引导加载程序的 STM32F103
 
-The "stm32duino" project has a USB capable bootloader - see: <https://github.com/rogerclarkmelbourne/STM32duino-bootloader>
+"stm32duino "项目有一个USB功能的引导程序-参见： <https://github.com/rogerclarkmelbourne/STM32duino-bootloader>
 
 这个引导程序可以通过3.3V的串口用类似以下的命令来刷写：
 
@@ -232,21 +232,21 @@ stm32flash -w generic_boot20_pc13.bin -v -g 0 /dev/ttyAMA0
 dfu-util -d 1eaf:0003 -a 2 -R -D out/klipper.bin
 ```
 
-The bootloader typically runs for only a short period after boot. It may be necessary to time the above command so that it runs while the bootloader is still active (the bootloader will flash a board led while it is running). Alternatively, set the "boot 0" pin to low and "boot 1" pin to high to stay in the bootloader after a reset.
+启动引导程序通常只在启动后的一小段时间运行。在输入以上命令的时候，需要确保启动引导程序还在运行（启动引导程序运行的时候会控制板上的led闪烁）。此外，启动后如果设置“boot 0”引脚为低，设置“boot 1”引脚为高则可以一直停留在启动引导程序。
 
 ### 带有 HID 引导程序的STM32F103
 
-The [HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader) is a compact, driverless bootloader capable of flashing over USB. Also available is a [fork with builds specific to the SKR Mini E3 1.2](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
+[HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader)是一个紧凑的、不包含驱动的启动引导程序，能够通过USB进行刷写。此外，还有一个[针对SKR Mini E3 1.2构建的分支](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest)。
 
 对于常见的STM32F103板，如Blue Pill，和 stm32duino 章节中一样，可以通过 3.3v 串行用stm32flash 刷写启动引导程序，将文件名替换为所需的 hid引导程序二进制文件（例如Blue Pill 使用的 hid_generic_pc13.bin）。
 
-It is not possible to use stm32flash for the SKR Mini E3 as the boot0 pin is tied directly to ground and not broken out via header pins. It is recommended to use a STLink V2 with STM32Cubeprogrammer to flash the bootloader. If you don't have access to a STLink it is also possible to use a [Raspberry Pi and OpenOCD](#running-openocd-on-the-raspberry-pi) with the following chip config:
+SKR Mini E3无法使用stm32flash ，因为boot 0引脚被直接接到GND且没有跳线断开。推荐使用STLink V2通过STM32Cubeprogrammer刷写启动引导程序。如果你没有STLink ，也可以按照以下芯片配置使用[树莓派和OpenOCD](#running-openocd-on-the-raspberry-pi) 刷写：
 
 ```
-source [find target/stm32f1x.cfg]
+来源 [查找目标/stm32f1x.cfg]
 ```
 
-If you wish you can make a backup of the current flash with the following command. Note that it may take some time to complete:
+如果你愿意，可以使用下面的命令备份当前闪存上的程序。请注意，这可能需要一些时间来完成备份：
 
 ```
 flash read_bank 0 btt_skr_mini_e3_backup.bin
@@ -261,8 +261,8 @@ program hid_btt_skr_mini_e3.bin verify 0x08000000
 
 注意：
 
-- The example above erases the chip then programs the bootloader. Regardless of the method chosen to flash it is recommended to erase the chip prior to flashing.
-- Prior flashing the SKR Mini E3 with this bootloader you should be aware that you will no longer be able to update firmware via the sdcard.
+- 上面的例子是先擦除芯片，然后再写入引导程序。无论选择哪种方法刷写，都建议在刷写前擦除芯片。
+- 在用这个引导程序刷写SKR Mini E3之前，你需要知道之后你将不能再通过SD卡更新固件。
 - You may need to hold down the reset button on the board while launching OpenOCD. It should display something like:
    ```
    Open On-Chip Debugger 0.10.0+dev-01204-gc60252ac-dirty (2020-04-27-16:00)
@@ -279,11 +279,11 @@ Info : stm32f1x.cpu: external reset detected
 Info : starting gdb server for stm32f1x.cpu on 3333
 Info : Listening on port 3333 for gdb connections
    ```
-After which you can release the reset button.
+之后可以松开复位按钮。
 
-This bootloader requires 2KiB of flash space (the application must be compiled with a start address of 2KiB).
+这个引导程序需要2KiB的闪存空间（应用程序必须以2KiB的起始地址进行编译）。
 
-The hid-flash program is used to upload a binary to the bootloader. You can install this software with the following commands:
+hid-flash程序是用来上传二进制文件到启动引导程序的。你可以用以下命令安装这个软件：
 
 ```
 sudo apt install libusb-1.0
@@ -291,31 +291,31 @@ cd ~/klipper/lib/hidflash
 make
 ```
 
-If the bootloader is running you can flash with something like:
+如果bootloader正在运行，你可以用这个来刷写：
 
 ```
 ~/klipper/lib/hidflash/hid-flash ~/klipper/out/klipper.bin
 ```
 
-alternatively, you can use `make flash` to flash klipper directly:
+或者，你可以使用`make flash`来直接刷写klipper：
 
 ```
 make flash FLASH_DEVICE=1209:BEBA
 ```
 
-OR if klipper has been previously flashed:
+或者，如果klipper之前已经被写入过：
 
 ```
 make flash FLASH_DEVICE=/dev/ttyACM0
 ```
 
-It may be necessary to manually enter the bootloader, this can be done by setting "boot 0" low and "boot 1" high. On the SKR Mini E3 "Boot 1" is not available, so it may be done by setting pin PA2 low if you flashed "hid_btt_skr_mini_e3.bin". This pin is labeld "TX0" on the TFT header in the SKR Mini E3's "PIN" document. There is a ground pin next to PA2 which you can use to pull PA2 low.
+可能需要手动进入引导程序，这可以通过设置 "boot 0 "的低电平和 "boot 1 "的高电平来完成。在SKR Mini E3上，"Boot 1 "是不可用的，所以如果你写入过"hid_btt_skr_mini_e3.bin"，可以通过设置PA2的低电平来完成。在SKR Mini E3的 "PIN "文件中，这个引脚在TFT插座上被标记为 "TX0"。在PA2旁边有一个接地引脚，你可以用它来把PA2拉低。
 
-## STM32F4 micro-controllers (SKR Pro 1.1)
+## STM32F4 微控制器 (SKR Pro 1.1)
 
-STM32F4 microcontrollers come equipped with a built-in system bootloader capable of flashing over USB (via DFU), 3.3v Serial, and various other methods (see STM Document AN2606 for more information). Some STM32F4 boards, such as the SKR Pro 1.1, are not able to enter the DFU bootloader. The HID bootloader is available for STM32F405/407 based boards should the user prefer flashing over USB over using the sdcard. Note that you may need to configure and build a version specific to your board, a [build for the SKR Pro 1.1 is available here](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
+STM32F4微控制器配备了一个内置的系统引导程序，能够通过USB（通过DFU）、3.3v串口和其他各种方法进行刷写（更多信息见STM文件AN2606）。一些STM32F4板，如SKR Pro 1.1，不能进入DFU引导程序。基于STM32F405/407的板子可以使用HID引导程序，如果用户愿意通过USB刷写而不是使用SD卡。请注意，你可能需针对你的板子配置和构建一个特定的版本，[针对SKR Pro 1.1的构建可以在这里找到](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest)。
 
-Unless your board is DFU capable the most accessable flashing method is likely via 3.3v serial, which follows the same procedure as [flashing the STM32F103 using stm32flash](#stm32f103-micro-controllers-blue-pill-devices). For example:
+除非你的板子有DFU功能，否则最容易的写入方法可能是通过3.3v的串口，这与[使用stm32flash刷写STM32F103](#stm32f103-micro-controllers-blue-pill-devices)的步骤相同。例如：
 
 ```
 wget https://github.com/Arksine/STM32_HID_Bootloader/releases/download/v0.5-beta/hid_bootloader_SKR_PRO.bin
@@ -323,25 +323,25 @@ wget https://github.com/Arksine/STM32_HID_Bootloader/releases/download/v0.5-beta
 stm32flash -w hid_bootloader_SKR_PRO.bin -v -g 0 /dev/ttyAMA0
 ```
 
-This bootloader requires 16Kib of flash space on the STM32F4 (the application must be compiled with a start address of 16KiB).
+这个引导程序在STM32F4上需要16Kib的闪存空间（应用程序必须以16KiB的起始地址进行编译）。
 
-As with the STM32F1, the STM32F4 uses the hid-flash tool to upload binaries to the MCU. See the instructions above for details on how to build and use hid-flash.
+与STM32F1一样，STM32F4使用hid-flash工具来上传二进制文件到MCU。关于如何构建和使用hid-flash的细节，请参见上面的说明。
 
-It may be necessary to manually enter the bootloader, this can be done by setting "boot 0" low, "boot 1" high and plugging in the device. After programming is complete unplug the device and set "boot 1" back to low so the application will be loaded.
+可能需要手动进入引导程序，这可以通过设置 "boot 0 "为低电平，"boot 1 "为高电平并上电来完成。编程完成后，设备断电，将 "boot 1 "重设为低电平，这样应用程序就会被加载。
 
-## LPC176x micro-controllers (Smoothieboards)
+## LPC176x微控制器（Smoothieboards）
 
-This document does not describe the method to flash a bootloader itself - see: <http://smoothieware.org/flashing-the-bootloader> for further information on that topic.
+本文件没有描述刷写引导程序本身的方法--见： <http://smoothieware.org/flashing-the-bootloader>以获得关于该主题的进一步信息。
 
-It is common for Smoothieboards to come with a bootloader from: <https://github.com/triffid/LPC17xx-DFU-Bootloader>. When using this bootloader the application must be compiled with a start address of 16KiB. The easiest way to flash an application with this bootloader is to copy the application file (eg, `out/klipper.bin`) to a file named `firmware.bin` on an SD card, and then to reboot the micro-controller with that SD card.
+Smoothieboards通常带有一个来自 <https://github.com/triffid/LPC17xx-DFU-Bootloader>的bootloader。当使用这个引导程序时，应用程序必须以16KiB的起始地址进行编译。用这个引导程序刷写应用程序的最简单方法是将应用程序文件（例如`out/klipper.bin`）复制到SD卡上一个名为`firmware.bin`的文件，然后用该SD卡重新启动微控制器。
 
-## Running OpenOCD on the Raspberry PI
+## 在树莓派上运行OpenOCD
 
-OpenOCD is a software package that can perform low-level chip flashing and debugging. It can use the GPIO pins on a Raspberry Pi to communicate with a variety of ARM chips.
+OpenOCD是一个软件包，可以进行底层的芯片编程和调试。它可以使用树莓派上的GPIO引脚与各种ARM芯片通信。
 
-This section describes how one can install and launch OpenOCD. It is derived from the instructions at: <https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi>
+本节描述了如何安装和启动OpenOCD。它来自于以下的说明： <https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi>
 
-Begin by downloading and compiling the software (each step may take several minutes and the "make" step may take 30+ minutes):
+开始下载和编译软件（每个步骤可能需要数分钟，"make "步骤可能需要30分钟以上）：
 
 ```
 sudo apt-get update
@@ -356,15 +356,15 @@ make
 make install
 ```
 
-### Configure OpenOCD
+### 配置OpenOCD
 
-Create an OpenOCD config file:
+创建一个OpenOCD配置文件：
 
 ```
 nano ~/openocd/openocd.cfg
 ```
 
-Use a config similar to the following:
+使用类似于以下的配置：
 
 ```
 # Uses RPi pins: GPIO25 for SWDCLK, GPIO24 for SWDIO, GPIO18 for nRST
@@ -390,55 +390,55 @@ targets
 reset halt
 ```
 
-### Wire the Raspberry Pi to the target chip
+### 将树莓派与目标芯片相连
 
-Poweroff both the the Raspberry Pi and the target chip before wiring! Verify the target chip uses 3.3V prior to connecting to a Raspberry Pi!
+在接线之前，请关闭树莓派和目标芯片的电源! 在连接到树莓派之前，请确认目标芯片使用3.3V电压!
 
-Connect GND, SWDCLK, SWDIO, and RST on the target chip to GND, GPIO25, GPIO24, and GPIO18 respectively on the Raspberry Pi.
+将目标芯片上的GND、SWDCLK、SWDIO和RST分别连接到树莓派上的GND、GPIO25、GPIO24和GPIO18。
 
-Then power up the Raspberry Pi and provide power to the target chip.
+然后给树莓派上电，再给目标芯片供电。
 
-### Run OpenOCD
+### 运行OpenOCD
 
-Run OpenOCD:
+运行OpenOCD：
 
 ```
 cd ~/openocd/
 sudo ~/openocd/install/bin/openocd -f ~/openocd/openocd.cfg
 ```
 
-The above should cause OpenOCD to emit some text messages and then wait (it should not immediately return to the Unix shell prompt). If OpenOCD exits on its own or if it continues to emit text messages then double check the wiring.
+上述操作应该使OpenOCD输出一些文本信息，然后等待（它不会立即返回到Unix shell提示符）。如果OpenOCD自己退出或继续输出文本信息，那么请仔细检查接线。
 
-Once OpenOCD is running and is stable, one can send it commands via telnet. Open another ssh session and run the following:
+一旦OpenOCD运行稳定，就可以通过telnet向它发送命令。打开另一个ssh会话，运行下面的命令：
 
 ```
 telnet 127.0.0.1 4444
 ```
 
-(One can exit telnet by pressing ctrl+] and then running the "quit" command.)
+(可以按ctrl+]退出telnet，然后运行 "quit "命令。)
 
-### OpenOCD and gdb
+### OpenOCD和gdb
 
-It is possible to use OpenOCD with gdb to debug Klipper. The following commands assume one is running gdb on a desktop class machine.
+可以使用OpenOCD和gdb来调试Klipper。下面的命令假设是在台式机上运行gdb。
 
-Add the following to the OpenOCD config file:
+在OpenOCD的配置文件中加入以下内容：
 
 ```
 bindto 0.0.0.0
 gdb_port 44444
 ```
 
-Restart OpenOCD on the Raspberry Pi and then run the following Unix command on the desktop machine:
+在树莓派上重新启动OpenOCD，然后在台式机上运行以下Unix命令：
 
 ```
 cd /path/to/klipper/
 gdb out/klipper.elf
 ```
 
-Within gdb run:
+在gdb中运行：
 
 ```
 target remote octopi:44444
 ```
 
-(Replace "octopi" with the host name of the Raspberry Pi.) Once gdb is running it is possible to set breakpoints and to inspect registers.
+(用树莓派的主机名替换 "octopi"）一旦gdb运行，就可以设置断点并检查寄存器。

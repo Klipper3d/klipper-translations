@@ -1,6 +1,6 @@
 # Protocol
 
-Klipper消息协议用于Klipper主机软件和Klipper微控制器软件之间的低层通信。在上层看，该协议可以被认为是一系列的命令和响应字符串，它们被压缩、传输，然后在接收方进行处理。以下是一个例子，包含一组未经压缩的人类可读格式的命令：
+The Klipper messaging protocol is used for low-level communication between the Klipper host software and the Klipper micro-controller software. At a high level the protocol can be thought of as a series of command and response strings that are compressed, transmitted, and then processed at the receiving side. An example series of commands in uncompressed human-readable format might look like:
 
 ```
 set_digital_out pin=PA3 value=1
@@ -10,25 +10,25 @@ queue_step oid=7 interval=7458 count=10 add=331
 queue_step oid=7 interval=11717 count=4 add=1281
 ```
 
-有关可用命令的信息，请参阅 [mcu 命令](MCU_Commands.md)文档。有关如何将 G-Code 文件转换为其相应的可读的微控制器命令信息，请参阅[调试](Debugging.md)文档。
+See the [mcu commands](MCU_Commands.md) document for information on available commands. See the [debugging](Debugging.md) document for information on how to translate a G-Code file into its corresponding human-readable micro-controller commands.
 
-本页提供了Klipper消息传递协议本身的高层描述。它描述了消息是如何被声明、以二进制格式编码（"压缩 "方案）和传输的。
+This page provides a high-level description of the Klipper messaging protocol itself. It describes how messages are declared, encoded in binary format (the "compression" scheme), and transmitted.
 
-该协议的目标是在主机和微控制器之间建立一个无错误的通信通道，对微控制器来说是低延迟、低带宽和低复杂度的。
+The goal of the protocol is to enable an error-free communication channel between the host and micro-controller that is low-latency, low-bandwidth, and low-complexity for the micro-controller.
 
-## 微控制器接口
+## Micro-controller Interface
 
-Klipper传输协议可以被认为是微控制器和主机之间的一个[RPC](https://en.wikipedia.org/wiki/Remote_procedure_call)机制。微控制器软件声明了主机可以调用的命令，以及它可以产生的响应信息。主机使用这些信息来命令微控制器执行动作并解释结果。
+The Klipper transmission protocol can be thought of as a [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) mechanism between micro-controller and host. The micro-controller software declares the commands that the host may invoke along with the response messages that it can generate. The host uses that information to command the micro-controller to perform actions and to interpret the results.
 
-### 宣布命令
+### Declaring commands
 
-微控制器软件通过使用C代码中的DECL_COMMAND()宏来声明一个 “命令”。例如：
+The micro-controller software declares a "command" by using the DECL_COMMAND() macro in the C code. For example:
 
 ```
 DECL_COMMAND(command_update_digital_out, "update_digital_out oid=%c value=%c");
 ```
 
-以上声明了一个名为 "update_digital_out "的命令。这允许主机 “invoke”这个命令，这将使得command_update_digital_out()C函数在微控制器中被执行。上述内容还表明，该命令需要两个整数参数。当command_update_digital_out()C代码被执行时，它将被传递一个包含这两个整数的数组--第一个对应于 "oid"，第二个对应于 "value"。
+The above declares a command named "update_digital_out". This allows the host to "invoke" this command which would cause the command_update_digital_out() C function to be executed in the micro-controller. The above also indicates that the command takes two integer parameters. When the command_update_digital_out() C code is executed, it will be passed an array containing these two integers - the first corresponding to the 'oid' and the second corresponding to the 'value'.
 
 In general, the parameters are described with printf() style syntax (eg, "%u"). The formatting directly corresponds to the human-readable view of commands (eg, "update_digital_out oid=7 value=1"). In the above example, "value=" is a parameter name and "%c" indicates the parameter is an integer. Internally, the parameter name is only used as documentation. In this example, the "%c" is also used as documentation to indicate the expected integer is 1 byte in size (the declared integer size does not impact the parsing or encoding).
 

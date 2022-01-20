@@ -1,14 +1,14 @@
-# Instalação
+# Installation
 
-Estas instruções assumem que o software irá ser executado num computador Raspberry Pi em conjunto com OctoPrint. É recomendado que seja usado um Raspberry Pi 2, 3 ou 4 como host (verificar [FAQ](FAQ.md#posso-correr-klipper-sem-ser-num-Raspberry-Pi-3) para outras máquinas).
+These instructions assume the software will run on a Raspberry Pi computer in conjunction with OctoPrint. It is recommended that a Raspberry Pi 2, 3, or 4 computer be used as the host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) for other machines).
 
 Klipper currently supports a number of Atmel ATmega based micro-controllers, [ARM based micro-controllers](Features.md#step-benchmarks), and [Beaglebone PRU](Beaglebone.md) based printers.
 
-## Preparando imagem do SO
+## Prepping an OS image
 
 Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry Pi computer. Use OctoPi v0.17.0 or later - see the [OctoPi releases](https://github.com/guysoft/OctoPi/releases) for release information. One should verify that OctoPi boots and that the OctoPrint web server works. After connecting to the OctoPrint web page, follow the prompt to upgrade OctoPrint to v1.4.2 or later.
 
-Depois de instalar o OctoPi e atualizar o OctoPrint, é necessário ligar-se à máquina usando ssh para executar alguns comandos de sistema. Usando um computador Linux ou MacOS, então o software para "ssh" já deverá estar instalado. Há alguns outros clientes ssh disponíveis para outros computadores (ex, [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Use a ferramenta ssh para se conectar ao Raspberry Pi (ssh pi@octopi --password is "raspberry") e corra os seguintes comandos:
+After installing OctoPi and upgrading OctoPrint, it will be necessary to ssh into the target machine to run a handful of system commands. If using a Linux or MacOS desktop, then the "ssh" software should already be installed on the desktop. There are free ssh clients available for other desktops (eg, [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Use the ssh utility to connect to the Raspberry Pi (ssh pi@octopi -- password is "raspberry") and run the following commands:
 
 ```
 git clone https://github.com/Klipper3d/klipper
