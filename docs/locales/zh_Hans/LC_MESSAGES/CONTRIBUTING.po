@@ -1,5 +1,5 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2025.
-# Arda <pengfei.fu@gmail.com>, 2022.
+# Arda <pengfei.fu@gmail.com>, 2022, 2025.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 # xm Y <3260838022@qq.com>, 2023, 2025.
 # Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024, 2025.
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
 "PO-Revision-Date: 2025-05-03 07:20+0000\n"
-"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Last-Translator: Arda <pengfei.fu@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/contributing/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -296,14 +296,16 @@ msgstr "所有新的 \"webhooks \"及其参数必须在<API_Server.md>中描述�
 msgid ""
 "Any change that makes a non-backwards compatible change to a command or config"
 " file setting must be documented in <Config_Changes.md>."
-msgstr "任何对命令或配置文件设置导致无法向后兼容的改变，都必须在<Config_Changes.md>中进行说明。"
+msgstr "任何对命令或配置文件设置导致无法向后兼容的改变，都必须在<Config_Changes.md>中"
+"进行说明。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "New documents should be added to <Overview.md> and be added to the website "
 "index [docs/_klipper3d/mkdocs.yml](../docs/_klipper3d/mkdocs.yml)."
 msgstr ""
-"新的文件应该被添加到<Overview.md>中，并被添加到网站索引[docs/_klipper3d/mkdocs.yml](../docs/_klipper3d/mkdocs.yml)。"
+"新的文件应该被添加到<Overview.md>中，并被添加到网站索引"
+"[docs/_klipper3d/mkdocs.yml](../docs/_klipper3d/mkdocs.yml)。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -325,9 +327,10 @@ msgid ""
 "conflict, then submitters are recommended to use `git rebase` to address the "
 "conflict."
 msgstr ""
-"提交的内容不能有合并冲突。对 Klipper 主分支的新添加总是通过 \"rebase \"或 \"squash and rebase "
-"\"完成。一般来说，提交者没有必要在每次更新Klipper主库的时候重新合并他们的提交。然而，如果有合并冲突，建议提交者使用`git "
-"rebase`来解决冲突。"
+"提交的内容不能有合并冲突。对 Klipper 主分支的新添加总是通过 \"rebase \"或 "
+"\"squash and rebase \""
+"完成。一般来说，提交者没有必要在每次更新Klipper主库的时候重新合并他们的提交。"
+"然而，如果有合并冲突，建议提交者使用`git rebase`来解决冲突。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -335,7 +338,8 @@ msgid ""
 " broken up into multiple independent commits. Each commit should \"stand on "
 "its own\" so that tools like `git bisect` and `git revert` work reliably."
 msgstr ""
-"每一次提交都应该解决一个高层的变化。大的改动应该被分解成多个独立的提交。每个提交都应该 \"自成一体\"，这样才能让`git bisect`和`git "
+"每一次提交都应该解决一个高层的变化。大的改动应该被分解成多个独立的提交。"
+"每个提交都应该 \"自成一体\"，这样才能让`git bisect`和`git "
 "revert`等工具可靠地工作。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
@@ -343,7 +347,8 @@ msgid ""
 "Whitespace changes should not be mixed with functional changes. In general, "
 "gratuitous whitespace changes are not accepted unless they are from the "
 "established \"owner\" of the code being modified."
-msgstr "空格的修改不应该与功能修改混在一起。一般来说，无意义的空格修改是不被接受的，除非是来自被修改代码的既定 \"所有者\"。"
+msgstr "空格的修改不应该与功能修改混在一起。一般来说，无意义的空格修改是不被接受的，"
+"除非是来自被修改代码的既定 \"所有者\"。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
