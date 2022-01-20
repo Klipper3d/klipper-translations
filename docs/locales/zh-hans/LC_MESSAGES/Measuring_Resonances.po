@@ -1,16 +1,17 @@
 # mirokymac <toufubomb@gmail.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-11-16 18:06+0000\n"
+"PO-Revision-Date: 2022-01-19 23:32+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/measuring_resonances/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/measuring_resonances/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.9.1-dev\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "共振值测量"
@@ -268,6 +269,8 @@ msgid ""
 "alone script on a Raspberry Pi. To do that, run running the following "
 "commands:"
 msgstr ""
+"这将产生2个CSV文件（`/tmp/resonances_x_*.csv`和`/tmp/resonances_y_*."
+"csv`）。这两个文件可以在树莓派上用独立的脚本进行处理。运行以下命令进行处理："
 
 msgid ""
 "This script will generate the charts `/tmp/shaper_calibrate_x.png` and "
