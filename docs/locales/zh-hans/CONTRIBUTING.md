@@ -45,26 +45,26 @@
 
    1. 提交的文件是否遵循 Klipper 文件中规定的准则？特别是，代码应遵循 <Code_Overview.md> 中的准则，配置文件应遵循 <Example_Configs.md> 中的准则。
 
-   1. Klipper 文档是否已更新以反映新的更改？At a minimum, the reference documentation must be updated with corresponding changes to the code:
+   1. Klipper 文档是否已更新以反映新的更改？至少，参考文件必须随着代码的相应变化而更新：
 
    * 所有命令和命令参数必须在 <G-Code.md> 中被描述。
-   * All user facing modules and their config parameters must be documented in <Config_Reference.md>.
-   * All exported "status variables" must be documented in <Status_Reference.md>.
-   * All new "webhooks" and their parameters must be documented in <API_Server.md>.
-   * Any change that makes a non-backwards compatible change to a command or config file setting must be documented in <Config_Changes.md>.
+   * 所有面向用户的模块及其配置参数必须在<Config_Reference.md>中记录。
+   * 所有输出的 "状态变量 "必须在<Status_Reference.md>中进行描述。
+   * 所有新的 "webhooks "及其参数必须在<API_Server.md>中描述。
+   * 任何对命令或配置文件设置导致无法向后兼容的改变，都必须在<Config_Changes.md>中进行说明。
 
-New documents should be added to <Overview.md> and be added to the website index [docs/_klipper3d/mkdocs.yml](../docs/_klipper3d/mkdocs.yml).
+新的文件应该被添加到<Overview.md>中，并被添加到网站索引[docs/_klipper3d/mkdocs.yml](../docs/_klipper3d/mkdocs.yml)。
 
 
-   1. Are commits well formed, address a single topic per commit, and independent?Commit messages should follow the [preferred format](#format-of-commit-messages).
+   1. 提交的内容是否完整，每次提交只涉及一个主题，并且是独立的？提交信息应遵循[首选格式](#format-of-commit-messages)。
 
-   Commits must not have a merge conflict. New additions to the Klipper master branch are always done via a "rebase" or "squash and rebase". It is generally not necessary for submitters to re-merge their submission on every update to the Klipper master repository. However, if there is a merge conflict, then submitters are recommended to use `git rebase` to address the conflict.
+   提交的内容不能有合并冲突。对 Klipper 主分支的新添加总是通过 "rebase "或 "squash and rebase "完成。一般来说，提交者没有必要在每次更新Klipper主库的时候重新合并他们的提交。然而，如果有合并冲突，建议提交者使用`git rebase`来解决冲突。
 
-   Each commit should address a single high-level change. Large changes should be broken up into multiple independent commits. Each commit should "stand on its own" so that tools like `git bisect` and `git revert` work reliably.
+   每一次提交都应该解决一个高层的变化。大的改动应该被分解成多个独立的提交。每个提交都应该 "自成一体"，这样才能让`git bisect`和`git revert`等工具可靠地工作。
 
-   Whitespace changes should not be mixed with functional changes. In general, gratuitous whitespace changes are not accepted unless they are from the established "owner" of the code being modified.
+   空格的修改不应该与功能修改混在一起。一般来说，无意义的空格修改是不被接受的，除非是来自被修改代码的既定 "所有者"。
 
-   1. Does the submission provide a "high impact" benefit to real-world users performing real-world tasks?Reviewers need to identify, at least in their own minds, roughly "who the target audience is", a rough scale of "the size of that audience", the "benefit" they will obtain, how the "benefit is measured", and the "results of those measurement tests". In most cases this will be obvious to both the submitter and the reviewer, and it is not explicitly stated during a review.
+   1. 提交的文件是否为执行真实世界任务的真实世界用户提供了 "高度影响"的好处？Reviewers need to identify, at least in their own minds, roughly "who the target audience is", a rough scale of "the size of that audience", the "benefit" they will obtain, how the "benefit is measured", and the "results of those measurement tests". In most cases this will be obvious to both the submitter and the reviewer, and it is not explicitly stated during a review.
 
    Submissions to the master Klipper branch are expected to have a noteworthy target audience. As a general "rule of thumb", submissions should target a user base of at least a 100 real-world users.
 
