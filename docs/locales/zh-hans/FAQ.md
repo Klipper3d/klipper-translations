@@ -1,4 +1,4 @@
-# Frequently Asked Questions
+# 常见问题
 
 1. [我怎样才能支持项目？](#how-can-i-donate-to-the-project)
 1. [如何计算rotation_distance配置参数？](#how-do-i-calculate-the-rotation_distance-config-parameter)
@@ -27,7 +27,7 @@
 
 ## 我如何向项目捐款？
 
-Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>
+谢谢。Kevin有一个PATREON页面，地址是： <https://www.patreon.com/koconnor>
 
 ## 如何计算 rotation_distance 配置参数？
 
@@ -93,7 +93,7 @@ Klipper 微控制器的波特率与微控制器启动引导程序的波特率无
 
 Klipper 可以在 Raspberry Pi 1和Raspberry Pi Zero上运行，但这些板子没有足够的处理能力来运行 OctoPrint。在这些较慢的机器上直接从 OctoPrint 打印时，经常会出现打印停滞。(打印机的移动速度可能比 OctoPrint 发送移动命令的速度快。)如果你希望在这些较慢的板子上运行，请考虑在打印时使用 "virtual_sdcard "功能(详情请参见[配置参考](Config_Reference.md#virtual_sdcard))。
 
-For running on the Beaglebone, see the [Beaglebone specific installation instructions](Beaglebone.md).
+要在Beaglebone上运行，请参阅[Beaglebone特别安装说明](Beaglebone.md)。
 
 Klipper 可以在其他计算机上运行。Klipper 主机软件只需要在Linux（或类似）系统的计算机上运行 Python。然而，如果你想在其他计算机上运行它，你将需要一些 Linux 管理知识来安装该计算机上系统的依赖包。参见 [install-octopi.sh](..../scripts/install-octopi.sh) 脚本，以进一步了解必要的 Linux 安装方法。
 
@@ -154,10 +154,10 @@ Klipper 通过 “/tmp/printer” 文件创建了一个“虚拟串口”，该�
 这通常是由主机和微控制器之间的 USB 连接中硬件错误引起的。注意这些问题：
 
 - 在主机和微控制器之间应该使用高质量USB线，并确保插头牢固。
-- If using a Raspberry Pi, use a [good quality power supply](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply) for the Raspberry Pi and use a [good quality USB cable](https://forums.raspberrypi.com/viewtopic.php?p=589877#p589877) to connect that power supply to the Pi. If you get "under voltage" warnings from OctoPrint, this is related to the power supply and it must be fixed.
+- 如果使用树莓派，请为树莓派使用[优质电源](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply)，并使用[优质USB电缆](https://forums.raspberrypi.com/viewtopic.php?p=589877#p589877)将该电源与Pi连接。如果你从OctoPrint得到 "电压不足 "的警告，这也与电源有关，必须解决。
 - 请确保打印机的电源没有过载。(微控制器 USB 芯片的电压波动可能会导致该芯片欠压复位。)
 - 确认步进电机、加热器和其他打印机电线没有被压坏或磨损。（打印机移动时可能对故障的电线施加压力，导致其失去接触、短暂短路或产生过多的噪音。）
-- There have been reports of high USB noise when both the printer's power supply and the host's 5V power supply are mixed. (If you find that the micro-controller powers on when either the printer's power supply is on or the USB cable is plugged in, then it indicates the 5V power supplies are being mixed.) It may help to configure the micro-controller to use power from only one source. (Alternatively, if the micro-controller board can not configure its power source, one may modify a USB cable so that it does not carry 5V power between the host and micro-controller.)
+- 有报告称，当打印机的电源和主机的5V电源混合时，USB噪音很大。(如果你发现当打印机的电源打开或USB电缆插入时，微控制器会通电，那么这表明5V电源被混用了）。配置微控制器，使其只使用一个电源可能会有帮助。(另外，如果微控制器主板不能配置其供电来源，也可以修改USB电缆，使其主机和微控制器之间不共享5V电源。）
 
 ## 我的树莓派在打印时不断重启
 
@@ -165,9 +165,9 @@ Klipper 通过 “/tmp/printer” 文件创建了一个“虚拟串口”，该�
 
 ## 当设置"restart_method=command"时， AVR 设备重启时会死机
 
-Some old versions of the AVR bootloader have a known bug in watchdog event handling. This typically manifests when the printer.cfg file has restart_method set to "command". When the bug occurs, the AVR device will be unresponsive until power is removed and reapplied to the device (the power or status LEDs may also blink repeatedly until the power is removed).
+一些旧版本的AVR引导程序在看门狗事件处理方面有一个已知的错误。这通常表现在printer.cfg文件中的restart_method设置为 "command"的时候。当这个错误发生时，AVR设备会死机直到电源被移除并重新上电（电源或状态LED也可能不停的闪烁直到断电）。
 
-The workaround is to use a restart_method other than "command" or to flash an updated bootloader to the AVR device. Flashing a new bootloader is a one time step that typically requires an external programmer - see [Bootloaders](Bootloaders.md) for further details.
+解决办法是使用 "command "以外的重启方法，或者在AVR设备上刷写一个新的引导程序。刷写一个新的引导程序是一个一次性的步骤，通常需要一个外部编程器--更多细节请参见[Bootloaders](Bootloaders.md)。
 
 ## 如果 Raspberry Pi 崩溃了，加热器会一直加热吗？
 
@@ -175,17 +175,17 @@ Klipper 的设计防止了这种情况。一旦主机启用了一个加热器，
 
 详情请见[MCU 命令](MCU_Commands.md)文档中的 "config_digital_out" 命令。
 
-In addition, the micro-controller software is configured with a minimum and maximum temperature range for each heater at startup (see the min_temp and max_temp parameters in the [config reference](Config_Reference.md#extruder) for details). If the micro-controller detects that the temperature is outside of that range then it will also enter a "shutdown" state.
+此外，微控制器软件在启动时为每个加热器配置了最低和最高温度范围（详见[配置参考](Config_Reference.md#extruder)中的min_temp和max_temp参数）。如果微控制器检测到温度超出了该范围，那么它也将进入 "关机 "状态。
 
-Separately, the host software also implements code to check that heaters and temperature sensors are functioning correctly. See the [config reference](Config_Reference.md#verify_heater) for further details.
+另外，主机软件还实现了检查加热器和温度传感器是否正常工作的代码。详情见[配置参考](Config_Reference.md#verify_heater) 。
 
 ## 如何将 Marlin 引脚编号转换为 Klipper 引脚名称？
 
-Short answer: A mapping is available in the [sample-aliases.cfg](../config/sample-aliases.cfg) file. Use that file as a guide to finding the actual micro-controller pin names. (It is also possible to copy the relevant [board_pins](Config_Reference.md#board_pins) config section into your config file and use the aliases in your config, but it is preferable to translate and use the actual micro-controller pin names.) Note that the sample-aliases.cfg file uses pin names that start with the prefix "ar" instead of "D" (eg, Arduino pin `D23` is Klipper alias `ar23`) and the prefix "analog" instead of "A" (eg, Arduino pin `A14` is Klipper alias `analog14`).
+简要回答：在[sample-aliases.cfg](../config/sample-aliases.cfg)文件中有一个映射。使用该文件作为指引来寻找实际的微控制器引脚名称。(也可以将相关的[board_pins](Config_Reference.md#board_pins)配置部分复制到你的配置文件中，在你的配置中使用别名，但最好是翻译并使用实际的微控制器引脚名称。) 请注意，sample-aliases.cfg文件使用以 "ar "开头的引脚名称替换 "D"（例如，Arduino引脚`D23`是Klipper别名`ar23`）和以 "analog "开头的引脚名称替换 "A"（例如，Arduino引脚`A14`是Klipper别名`analog14`）。
 
 详细答案：Klipper使用微控制器定义的标准引脚名称。在 Atmega 芯片上，这些硬件引脚的名称类似于`PA4`、`PC7`或`PD2`。
 
-Long ago, the Arduino project decided to avoid using the standard hardware names in favor of their own pin names based on incrementing numbers - these Arduino names generally look like `D23` or `A14`. This was an unfortunate choice that has lead to a great deal of confusion. In particular the Arduino pin numbers frequently don't translate to the same hardware names. For example, `D21` is `PD0` on one common Arduino board, but is `PC7` on another common Arduino board.
+很久以前，Arduino项目决定避免使用标准的硬件名称，而采用他们自己的基于递增数字的引脚名称--这些Arduino名称一般看起来像`D23`或`A14`。这是一个不幸的选择，导致了大量的混乱。特别是Arduino的引脚号码经常不能转换为相同的硬件名称。例如，`D21`在一个常见的Arduino板上是`PD0`，但在另一个常见的Arduino板上是`PC7`。
 
 为了避免这种混淆，Klipper 核心代码使用微控制器定义的标准引脚名称。
 
@@ -195,41 +195,41 @@ Long ago, the Arduino project decided to avoid using the standard hardware names
 
 ADC 引脚（或模拟引脚）：热敏电阻和类似的“模拟”传感器必须连接到微控制器上具有“模拟”或“ADC”功能的引脚。如果您在 Klipper 上为一个模拟传感器配置为使用不具备模拟功能的引脚，Klipper 将报告“Not a valid ADC pin”错误。
 
-PWM pins (or Timer pins): Klipper does not use hardware PWM by default for any device. So, in general, one may wire heaters, fans, and similar devices to any general purpose IO pin. However, fans and output_pin devices may be optionally configured to use `hardware_pwm: True`, in which case the micro-controller must support hardware PWM on the pin (otherwise, Klipper will report a "Not a valid PWM pin" error).
+PWM引脚（或定时器引脚）。Klipper默认不在任何设备上使用硬件PWM。因此，一般来说，可以将热端、风扇和类似的设备连接到任何的通用IO引脚。然而，风扇和output_pin设备可以选择配置为使用`hardware_pwm: True`，在这种情况下，微控制器在这个引脚上必须支持硬件PWM（否则，Klipper将报告 "不是有效的PWM引脚 "错误）。
 
-IRQ pins (or Interrupt pins): Klipper does not use hardware interrupts on IO pins, so it is never necessary to wire a device to one of these micro-controller pins.
+IRQ引脚（或中断引脚）。Klipper不使用IO引脚上的硬件中断，所以没有必要将设备连接到这些微控制器引脚上。
 
 SPI 引脚：使用硬件 SPI 时，需要将引脚连接到微控制器的 SPI 引脚。但是，大多数设备都可以配置为使用“软件 SPI”，在这种情况下，可以使用任何通用 IO 引脚。
 
 I2C 引脚：使用 I2C 时，必须将引脚连接到微控制器支持 I2C 的引脚。
 
-Other devices may be wired to any general purpose IO pin. For example, steppers, heaters, fans, Z probes, servos, LEDs, common hd44780/st7920 LCD displays, the Trinamic UART control line may be wired to any general purpose IO pin.
+其他设备可以连接到任何通用的IO引脚。例如，步进电机、加热器、风扇、Z探头、舵机、LED、通用的hd44780/st7920液晶显示器和Trinamic UART控制线都可以连接到任何通用的IO引脚。
 
 ## 如何取消 M109/M190 "等待达到目标温度"的请求？
 
-Navigate to the OctoPrint terminal tab and issue an M112 command in the terminal box. The M112 command will cause Klipper to enter into a "shutdown" state, and it will cause OctoPrint to disconnect from Klipper. Navigate to the OctoPrint connection area and click on "Connect" to cause OctoPrint to reconnect. Navigate back to the terminal tab and issue a FIRMWARE_RESTART command to clear the Klipper error state. After completing this sequence, the previous heating request will be canceled and a new print may be started.
+导航到OctoPrint终端标签页，在终端框中输入M112命令。M112命令将使Klipper进入 "关机 "状态，它将使OctoPrint从Klipper断开。导航到OctoPrint连接区，点击 "连接"，使OctoPrint重新连接。导航回到终端标签页，输入FIRMWARE_RESTART命令以清除Klipper的错误状态。完成这一系列操作将取消先前的加热请求，可以开始新的打印。
 
 ## 怎么检查打印机是否发生了丢步?
 
-In a way, yes. Home the printer, issue a `GET_POSITION` command, run your print, home again and issue another `GET_POSITION`. Then compare the values in the `mcu:` line.
+在某种程度上，是的。将打印机归位，发出 `GET_POSITION `命令，运行打印，再次归位，再发出 `GET_POSITION`。然后比较 `mcu: `行中的值。
 
-This might be helpful to tune settings like stepper motor currents, accelerations and speeds without needing to actually print something and waste filament: just run some high-speed moves in between the `GET_POSITION` commands.
+这可能有助于调整步进电机电流、加速度和速度等设置，而不需要实际打印东西和浪费材料：只要在 `GET_POSITION `命令之间运行一些高速移动。
 
-Note that endstop switches themselves tend to trigger at slightly different positions, so a difference of a couple of microsteps is likely the result of endstop inaccuracies. A stepper motor itself can only lose steps in increments of 4 full steps. (So, if one is using 16 microsteps, then a lost step on the stepper would result in the "mcu:" step counter being off by a multiple of 64 microsteps.)
+请注意，限位开关本身的触发位置略有不同，所以导致限位开关触发结果可能有几个微步的误差。步进电机本身只能以4个整步为增量损失步数。(因此，如果使用16个微步，那么步进器电机上的失步将导致 "MCU: "步进计数器偏离64微步的倍数。）
 
-## 为什么 Klipper 会报错？我收了一盘面条！
+## 为什么 Klipper 会报错？我收了一盘面条（我又打废了）！
 
-Short answer: We want to know if our printers detect a problem so that the underlying issue can be fixed and we can obtain great quality prints. We definitely do not want our printers to silently produce low quality prints.
+简短的回答：我们想知道打印机是否检测到问题，这样就可以解决潜在的问题，就可以获得高质量的打印件。我们绝对不希望打印机默默地生产低质量的打印件。
 
-Long answer: Klipper has been engineered to automatically workaround many transient problems. For example, it automatically detects communication errors and will retransmit; it schedules actions in advance and buffers commands at multiple layers to enable precise timing even with intermittent interference. However, should the software detect an error that it can not recover from, if it is commanded to take an invalid action, or if it detects it is hopelessly unable to perform its commanded task, then Klipper will report an error. In these situations there is a high risk of producing a low-quality print (or worse). It is hoped that alerting the user will empower them to fix the underlying issue and improve the overall quality of their prints.
+详细答案：Klipper被设计成能够自动解决许多瞬时问题。例如，它自动检测到通信错误，并会重新传输；它提前安排行动，并在多层缓冲命令，以便即使有间歇性干扰也能精确控制时序。然而，如果软件检测到它无法恢复的错误，或者它被命令采取无效的行动，或者它检测到它无法执行其被命令的任务，那么Klipper将报告错误。在这些情况下，产生低质量印刷件（或更糟）的风险很大。我们希望通过提醒用户，使他们有能力解决潜在的问题，提高打印的整体质量。
 
-There are some related questions: Why doesn't Klipper pause the print instead? Report a warning instead? Check for errors before the print? Ignore errors in user typed commands? etc? Currently Klipper reads commands using the G-Code protocol, and unfortunately the G-Code command protocol is not flexible enough to make these alternatives practical today. There is developer interest in improving the user experience during abnormal events, but it is expected that will require notable infrastructure work (including a shift away from G-Code).
+有一些相关的问题。为什么Klipper不暂停打印？为什么不先警告？为什么不在打印前检查错误？为什么不忽略用户输入的命令中的错误？等等？目前，Klipper使用G-Code协议读取命令，不幸的是，G-Code命令协议不够灵活，导致现在并不能使用这些替代方案。开发者对改善异常事件中的用户体验很感兴趣，但预计这将需要大量的底层工作（包括从G-Code的迁移到别的方式）。
 
-## How do I upgrade to the latest software?
+## 我怎样才能升级到最新的软件？
 
-The first step to upgrading the software is to review the latest [config changes](Config_Changes.md) document. On occasion, changes are made to the software that require users to update their settings as part of a software upgrade. It is a good idea to review this document prior to upgrading.
+升级软件的第一步是查看最新的[配置变更](Config_Changes.md)文件。作为软件升级的一部分，偶尔有时候软件会有一些变化需要用户更新他们的设置。在升级前最好查看该文件。
 
-When ready to upgrade, the general method is to ssh into the Raspberry Pi and run:
+当准备升级时，一般的方法是ssh进入树莓派并运行：
 
 ```
 cd ~/klipper
@@ -237,7 +237,7 @@ git pull
 ~/klipper/scripts/install-octopi.sh
 ```
 
-Then one can recompile and flash the micro-controller code. For example:
+然后可以重新编译和刷写微控制器的代码。例如：
 
 ```
 make menuconfig
@@ -249,7 +249,7 @@ make flash FLASH_DEVICE=/dev/ttyACM0
 sudo service klipper start
 ```
 
-However, it's often the case that only the host software changes. In this case, one can update and restart just the host software with:
+然而，通常是只有主机软件发生变化。这时可以只更新和重新启动主机软件：
 
 ```
 cd ~/klipper
@@ -257,17 +257,17 @@ git pull
 sudo service klipper restart
 ```
 
-If after using this shortcut the software warns about needing to reflash the micro-controller or some other unusual error occurs, then follow the full upgrade steps outlined above.
+如果在使用这个快速方式后，软件警告说需要重新刷写微控制器或出现其他不常见的错误，那么请按照上面所述的完整升级步骤进行。
 
-If any errors persist then double check the [config changes](Config_Changes.md) document, as you may need to modify the printer configuration.
+如果任何错误持续存在，那么请仔细检查[config changes](Config_Changes.md)文件，因为可能需要修改打印机配置。
 
-Note that the RESTART and FIRMWARE_RESTART g-code commands do not load new software - the above "sudo service klipper restart" and "make flash" commands are needed for a software change to take effect.
+请注意，RESTART和FIRMWARE_RESTART g-code命令不会加载新的软件--需要使用上述 "sudo service klipper restart "和 "make flash "命令才能使软件变化生效。
 
-## How do I uninstall Klipper?
+## 如何卸载Klipper？
 
-On the firmware end, nothing special needs to happen. Just follow the flashing directions for the new firmware.
+在固件端，没有什么特别需要做的。只要刷写新固件就可以了。
 
-On the raspberry pi end, an uninstall script is available in [scripts/klipper-uninstall.sh](../scripts/klipper-uninstall.sh). For example:
+在树莓派上，卸载脚本在这里[scripts/klipper-uninstall.sh](../scripts/klipper-uninstall.sh)。例如：
 
 ```
 sudo ~/klipper/scripts/klipper-uninstall.sh

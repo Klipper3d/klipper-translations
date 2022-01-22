@@ -19,17 +19,17 @@ tar xfz klipper-dict-20??????.tar.gz
 ~/klippy-env/bin/python ~/klipper/scripts/test_klippy.py -d dict/ ~/klipper/test/klippy/*.test
 ```
 
-## Manually sending commands to the micro-controller
+## 手动向微控制器发送命令
 
-Normally, the host klippy.py process would be used to translate gcode commands to Klipper micro-controller commands. However, it's also possible to manually send these MCU commands (functions marked with the DECL_COMMAND() macro in the Klipper source code). To do so, run:
+通常情况下，主机klippy.py进程会被用来将gcode命令翻译成Klipper微控制器命令。然而，也可以手动发送这些MCU命令（Klipper源代码中标有DECL_COMMAND()宏的函数）。要做到这一点，请运行：
 
 ```
 ~/klippy-env/bin/python ./klippy/console.py /tmp/pseudoserial
 ```
 
-See the "HELP" command within the tool for more information on its functionality.
+请参阅该工具中的"HELP"命令，以获得有关其功能的更多信息。
 
-Some command-line options are available. For more information run: `~/klippy-env/bin/python ./klippy/console.py --help`
+一些命令行选项是可用的。更多信息请运行：`~/klippy-env/bin/python ./klippy/console.py --help`
 
 ## 将G代码文件转换为微控制器命令
 
@@ -109,30 +109,30 @@ The `motan_graph.py` tool supports several other command-line options - use the 
 
 The raw data logs produced by the `data_logger.py` tool follow the format described in the [API Server](API_Server.md). It may be useful to inspect the data with a Unix command like the following: `gunzip < mylog.json.gz | tr '\03' '\n' | less`
 
-## Generating load graphs
+## 生成负载图
 
-The Klippy log file (/tmp/klippy.log) stores statistics on bandwidth, micro-controller load, and host buffer load. It can be useful to graph these statistics after a print.
+Klippy日志文件（/tmp/klippy.log）存储了关于带宽、微控制器负载和主机缓冲区负载的统计数据。在打印之后，绘制这些统计数字可能会很有用。
 
-To generate a graph, a one time step is necessary to install the "matplotlib" package:
+为了生成图形，有必要安装"matplotlib"包：
 
 ```
 sudo apt-get update
 sudo apt-get install python-matplotlib
 ```
 
-Then graphs can be produced with:
+然后可以使用以下方式生成图形：
 
 ```
 ~/klipper/scripts/graphstats.py /tmp/klippy.log -o loadgraph.png
 ```
 
-One can then view the resulting **loadgraph.png** file.
+然后结果可以通过**loadgraph.png**查看。
 
-Different graphs can be produced. For more information run: `~/klipper/scripts/graphstats.py --help`
+可以产生不同的图表。更多信息请运行：`~/klipper/scripts/graphstats.py --help`
 
-## Extracting information from the klippy.log file
+## 从klippy.log文件中提取信息
 
-The Klippy log file (/tmp/klippy.log) also contains debugging information. There is a logextract.py script that may be useful when analyzing a micro-controller shutdown or similar problem. It is typically run with something like:
+Klippy的日志文件（/tmp/klippy.log）也包含调试信息。有一个logextract.py脚本，在分析微控制器停机或类似问题时可能很有用。它通常是这样运行的：
 
 ```
 mkdir work_directory
@@ -145,9 +145,9 @@ The script will extract the printer config file and will extract MCU shutdown in
 
 ## 用 simulavr 测试
 
-The [simulavr](http://www.nongnu.org/simulavr/) tool enables one to simulate an Atmel ATmega micro-controller. This section describes how one can run test gcode files through simulavr. It is recommended to run this on a desktop class machine (not a Raspberry Pi) as it does require significant cpu to run efficiently.
+[simulavr](http://www.nongnu.org/simulavr/)工具使人们可以模拟Atmel ATmega微控制器。本节描述了如何通过simulavr运行测试gcode文件。建议在台式机（而不是Raspberry Pi）上运行这个工具，因为它需要大量的cpu来有效运行。
 
-To use simulavr, download the simulavr package and compile with python support:
+要使用simulavr，下载simulavr包并在python支持下进行编译：
 
 ```
 git clone git://git.savannah.nongnu.org/simulavr.git
@@ -157,9 +157,9 @@ cd simulavr
 make
 ```
 
-Note that the build system may need to have some packages (such as swig) installed in order to build the python module. Make sure the file **src/python/_pysimulavr.so** is present after the above compilation.
+请注意，构建系统可能需要安装一些软件包（如swig），以便构建python模块。确保在上述编译之后，文件**src/python/_pysimulavr.so**是存在的。
 
-To compile Klipper for use in simulavr, run:
+要编译Klipper以便在simulavr中使用，请运行：
 
 ```
 cd /path/to/klipper
@@ -172,21 +172,21 @@ and compile the micro-controller software for an AVR atmega644p and select SIMUL
 PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py out/klipper.elf
 ```
 
-Then, with simulavr running in another window, one can run the following to read gcode from a file (eg, "test.gcode"), process it with Klippy, and send it to Klipper running in simulavr (see [installation](Installation.md) for the steps necessary to build the python virtual environment):
+然后，在另一个窗口中运行simulavr，可以运行以下内容，从一个文件（例如，"test.gcode"）中读取gcode，用Klippy处理它，并将其发送到simulavr中运行的Klipper（关于建立python虚拟环境的必要步骤，见[安装](Installation.md)）。
 
 ```
 ~/klippy-env/bin/python ./klippy/klippy.py config/generic-simulavr.cfg -i test.gcode -v
 ```
 
-### Using simulavr with gtkwave
+### 在gtkwave中使用simulavr
 
-One useful feature of simulavr is its ability to create signal wave generation files with the exact timing of events. To do this, follow the directions above, but run avrsim.py with a command-line like the following:
+simulavr的一个有用的功能是它能够创建具有准确事件时间的信号波生成文件。要做到这一点，请按照上面的指示，在命令行运行avrsim.py请使用：
 
 ```
 PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py out/klipper.elf -t PORTA.PORT,PORTC.PORT
 ```
 
-The above would create a file **avrsim.vcd** with information on each change to the GPIOs on PORTA and PORTB. This could then be viewed using gtkwave with:
+以上将创建一个文件**avrsim.vcd**，其中包括PORTA和PORTB上的GPIO的每个变化信息。然后可以用gtkwave来查看：
 
 ```
 gtkwave avrsim.vcd

@@ -35,12 +35,12 @@
 * `config_analog_in oid=%c pin=%u`：该命令用于将一个引脚配置为模拟输入采样模式。一旦配置完成，就可以使用query_analog_in命令（见下文）以固定的时间间隔对该引脚进行采样。
 * `config_stepper oid=%c step_pin=%c dir_pin=%c invert_step=%c step_pulse_ticks=%u` : This command creates an internal stepper object. The 'step_pin' and 'dir_pin' parameters specify the step and direction pins respectively; this command will configure them in digital output mode. The 'invert_step' parameter specifies whether a step occurs on a rising edge (invert_step=0) or falling edge (invert_step=1). The 'step_pulse_ticks' parameter specifies the minimum duration of the step pulse. If the mcu exports the constant 'STEPPER_BOTH_EDGE=1' then setting step_pulse_ticks=0 and invert_step=-1 will setup for stepping on both the rising and falling edges of the step pin.
 * `config_endstop oid=%c pin=%c pull_up=%c stepper_count=%c` : 该命令创建一个内部的 "endstop"对象。它用于指定限位开关的引脚，并启用 "homing "操作（见下面的endstop_home命令）。该命令将把指定的引脚配置为数字输入模式。‘pull_up’参数决定是否启用硬件为引脚提供的上拉电阻（如果有的话）。‘stepper_count’参数规定了在归零操作中，该限位开关触发器可能需要的最大步进数（见下文endstop_home）。
-* `config_spi oid=%c bus=%u pin=%u mode=%u rate=%u shutdown_msg=%*s` : This command creates an internal SPI object. It is used with spi_transfer and spi_send commands (see below). The "bus" identifies the SPI bus to use (if the micro-controller has more than one SPI bus available). The "pin" specifies the chip select (CS) pin for the device. The "mode" is the SPI mode (should be between 0 and 3). The "rate" parameter specifies the SPI bus rate (in cycles per second). Finally, the "shutdown_msg" is an SPI command to send to the given device should the micro-controller go into a shutdown state.
-* `config_spi_without_cs oid=%c bus=%u mode=%u rate=%u shutdown_msg=%*s` : This command is similar to config_spi, but without a CS pin definition. It is useful for SPI devices that do not have a chip select line.
+* `config_spi oid=%c bus=%u pin=%u mode=%u rate=%u shutdown_msg=%*s`：该命令创建了一个内部SPI对象。它与spi_transfer和spi_send命令一起使用（见下文）。"bus"标识了要使用的SPI总线（如果微控制器有一个以上的SPI总线可用）。"pin"指定了设备的片选（CS）引脚。"mode"指定SPI模式（应该在0到3之间）。"rate "参数指定了SPI总线的速率（以每秒周期为单位）。最后，"shutdown_msg "是在微控制器进入关机状态时向给定设备发送的SPI命令。
+* `config_spi_without_cs oid=%c bus=%u mode=%u rate=%u shutdown_msg=%*s` : 这个命令类似于config_spi，但是没有CS引脚的定义。它对没有芯片选择线的SPI设备很有用。
 
-## Common commands
+## 常用命令
 
-This section lists some commonly used run-time commands. It is likely only of interest to developers looking to gain insight into Klipper.
+本节列出了一些常用的运行时命令。对希望深入了解Klipper的开发者可能会感兴趣。
 
 * `set_digital_out_pwm_cycle oid=%c cycle_ticks=%u` : This command configures a digital output pin (as created by config_digital_out) to use "software PWM". The 'cycle_ticks' is the number of clock ticks for the PWM cycle. Because the output switching is implemented in the micro-controller software, it is recommended that 'cycle_ticks' correspond to a time of 10ms or greater.
 * `queue_digital_out oid=%c clock=%u on_ticks=%u` : This command will schedule a change to a digital output GPIO pin at the given clock time. To use this command a 'config_digital_out' command with the same 'oid' parameter must have been issued during micro-controller configuration. If 'set_digital_out_pwm_cycle' has been called then 'on_ticks' is the on duration (in clock ticks) for the pwm cycle. Otherwise, 'on_ticks' should be either 0 (for low voltage) or 1 (for high voltage).
