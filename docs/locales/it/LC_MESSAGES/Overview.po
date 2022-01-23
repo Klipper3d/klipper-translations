@@ -1,16 +1,18 @@
 # Ernesto Lo Valvo <elovalvo@gmail.com>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# G R <gradaellig@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-11-21 17:51+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/overview/it/>\n"
+"PO-Revision-Date: 2022-01-23 04:52+0000\n"
+"Last-Translator: G R <gradaellig@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/overview/"
+"it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -285,16 +287,20 @@ msgid ""
 "[Skew correction](Skew_Correction.md): Adjustments for axes not perfectly "
 "square."
 msgstr ""
+"[Correzione dell'inclinazione](Skew_Correction.md): Regolazioni per assi non "
+"perfettamente squadrati."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
 "[Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone "
 "PRU."
 msgstr ""
+"[Beaglebone](beaglebone.md): Dettagli per l'esecuzione di Klipper sulla PRU "
+"Beaglebone."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
-msgstr ""
+msgstr "[Sensore di larghezza del filamento Hall](HallFilamentWidthSensor.md)"
 
 #~ msgid ""
 #~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
