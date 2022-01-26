@@ -1,4 +1,4 @@
-# TMC drivers
+# TMC 驱动器
 
 这个文档提供了在Klipper上以SPI/UART模式使用Trinamic步进电机驱动器的信息。
 
@@ -6,81 +6,81 @@ Klipper也可以在其 "standalone mode"下使用Trinamic驱动。然而，当�
 
 除了这份文档，请务必查看[TMC驱动配置参考](Config_Reference.md#tmc-stepper-driver-configuration).
 
-## Tuning motor current
+## 调整电机电流
 
-A higher driver current increases positional accuracy and torque. However, a higher current also increases the heat produced by the stepper motor and the stepper motor driver. If the stepper motor driver gets too hot it will disable itself and Klipper will report an error. If the stepper motor gets too hot, it loses torque and positional accuracy. (If it gets very hot it may also melt plastic parts attached to it or near it.)
+较高的驱动电流可以提高定位精度和扭矩。然而，较高的电流也会增加步进电机和步进电机驱动器产生的热量。如果步进电机驱动器太热，它就会自行失效，Klipper会报告错误。如果步进电机太热，它将失去扭矩和位置精度。(如果它变得非常热，还可能融化连接在它身上或附近的塑料部件。）
 
-As a general tuning tip, prefer higher current values as long as the stepper motor does not get too hot and the stepper motor driver does not report warnings or errors. In general, it is okay for the stepper motor to feel warm, but it should not become so hot that it is painful to touch.
+作为一般的调整建议，只要步进电机不会太热，并且步进电机驱动器不会报告警告或错误，就可以选择更高的电流值。一般来说，步进电机感到温热是可以接受的，但不应该热到触摸起来很烫手。
 
-## Prefer to not specify a hold_current
+## 倾向于不指定保持电流（hold_current）
 
-If one configures a `hold_current` then the TMC driver can reduce current to the stepper motor when it detects that the stepper is not moving. However, changing motor current may itself introduce motor movement. This may occur due to "detent forces" within the stepper motor (the permanent magnet in the rotor pulls towards the iron teeth in the stator) or due to external forces on the axis carriage.
+如果配置了 `hold_current` ，那么TMC驱动器可以在检测到步进电机没有移动时会减少步进电机的电流。然而，改变电机电流本身可能会引起电机转动。这可能是由于步进电机内部的 "阻滞力"（转子中的永久磁铁拉向定子中的铁齿）或轴滑车上的外力造成的。
 
-Most stepper motors will not obtain a significant benefit to reducing current during normal prints, because few printing moves will leave a stepper motor idle for sufficiently long to activate the `hold_current` feature. And, it is unlikely that one would want to introduce subtle print artifacts to the few printing moves that do leave a stepper idle sufficiently long.
+大多数步进电机来说，在正常的打印过程中，减少电流不会获得显著好处，因为很少有打印动作会让步进电机空闲足够长的时间来激活 "保持电流 "功能。而且，人们可能不太想在少数使步进电机空闲足够长的时间的打印动作中引入小的打印毛刺。
 
-If one wishes to reduce current to motors during print start routines, then consider issuing [SET_TMC_CURRENT](G-Codes.md#tmc-stepper-drivers) commands in a [START_PRINT macro](Slicers.md#klipper-gcode_macro) to adjust the current before and after normal printing moves.
+如果希望在打印启动程序中减少电机的电流，那么可以考虑在[START_PRINT宏](Slicers.md#klipper-gcode_macro)中发出[SET_TMC_CURRENT](G-Code.md#tmc-stepper-drivers)命令，在正常打印动作前后调整电流。
 
-Some printers with dedicated Z motors that are idle during normal printing moves (no bed_mesh, no bed_tilt, no Z skew_correction, no "vase mode" prints, etc.) may find that Z motors do run cooler with a `hold_current`. If implementing this then be sure to take into account this type of uncommanded Z axis movement during bed leveling, bed probing, probe calibration, and similar. The `driver_TPOWERDOWN` and `driver_IHOLDDELAY` should also be calibrated accordingly. If unsure, prefer to not specify a `hold_current`.
+一些打印机的专用Z轴电机在正常的打印动作中是空闲的（没有床网（bed_mesh），没有床面倾斜（bed_tilt），没有Z轴倾斜校正（skew_correction），没有 "花瓶模式 （vase mode）"打印，等等），可能会发现Z轴电机在 `hold_current`的情况下确实运行得比较冷。如果实现了这一点，那么一定要考虑到在床面调平、床面探测、探针校准等过程中这种非指令性的Z轴运动。 `driver_TPOWERDOWN`和 `driver_IHOLDDELAY`也应该进行相应的校准。如果不确定，最好不要指定 `hold_current`。
 
-## Setting "spreadCycle" vs "stealthChop" Mode
+## 设置 "spreadCycle "与 "stealthChop "模式
 
-By default, Klipper places the TMC drivers in "spreadCycle" mode. If the driver supports "stealthChop" then it can be enabled by adding `stealthchop_threshold: 999999` to the TMC config section.
+默认情况下，Klipper将TMC驱动置于 "spreadCycle "模式。如果驱动程序支持 "stealthChop"，那么可以通过添加`stealthchop_threshold: 999999`到TMC的配置部分。
 
-In general, spreadCycle mode provides greater torque and greater positional accuracy than stealthChop mode. However, stealthChop mode may produce significantly lower audible noise on some printers.
+一般来说，spreadCycle模式比stealthChop模式提供更大的扭矩和更高的定位精度。然而，在某些打印机上，stealthChop 模式显著降低可听到的噪音。
 
-Tests comparing modes have shown an increased "positional lag" of around 75% of a full-step during constant velocity moves when using stealthChop mode (for example, on a printer with 40mm rotation_distance and 200 steps_per_rotation, position deviation of constant speed moves increased by ~0.150mm). However, this "delay in obtaining the requested position" may not manifest as a significant print defect and one may prefer the quieter behavior of stealthChop mode.
+比较模式的测试表明，在使用stealthChop模式时，在恒速移动过程中，"位置滞后 "增加了约为整步的75%（例如，在一台旋转距离（rotation_distance ）为40mm、每圈200步（steps_per_rotation）的打印机上，恒速移动的位置偏差增加了约0.150mm）。然而，这种 "获得所需位置的延迟 "可能不会表现为明显的打印缺陷，人们可能更喜欢stealthChop模式带来的更安静的打印。
 
-It is recommended to always use "spreadCycle" mode (by not specifying `stealthchop_threshold`) or to always use "stealthChop" mode (by setting `stealthchop_threshold` to 999999). Unfortunately, the drivers often produce poor and confusing results if the mode changes while the motor is at a non-zero velocity.
+建议总是使用 "spreadCycle "模式（通过不指定`stealthchop_threshold`）或总是使用 "stealthChop "模式（通过设置`stealthchop_threshold`为99999）。不幸的是，如果在电机处于非零速度时改变模式，驱动器往往会产生糟糕和混乱的结果。
 
-## TMC interpolate setting introduces small position deviation
+## TMC插值设置引入了微小的位置偏差
 
-The TMC driver `interpolate` setting may reduce the audible noise of printer movement at the cost of introducing a small systemic positional error. This systemic positional error results from the driver's delay in executing "steps" that Klipper sends it. During constant velocity moves, this delay results in a positional error of nearly half a configured microstep (more precisely, the error is half a microstep distance minus a 512th of a full step distance). For example, on an axis with a 40mm rotation_distance, 200 steps_per_rotation, and 16 microsteps, the systemic error introduced during constant velocity moves is ~0.006mm.
+TMC驱动程序的 `interpolate` 设置可以减少打印机运动的噪音，但代价是引入一个小的系统位置误差。这个系统性的位置误差是由驱动器在执行Klipper发送的 "步骤 "时的延迟造成的。在恒速移动过程中，这种延迟导致了将近一半的配置微步的位置误差（更准确地说，误差是一半的微步距离减去512分之一的整步距离）。例如，在一个旋转距离（rotation_distance）为40毫米、每圈200步（steps_per_rotation）、16微步的轴上，在恒速移动过程中引入的系统误差是~0.006毫米。
 
-For best positional accuracy consider using spreadCycle mode and disable interpolation (set `interpolate: False` in the TMC driver config). When configured this way, one may increase the `microstep` setting to reduce audible noise during stepper movement. Typically, a microstep setting of `64` or `128` will have similar audible noise as interpolation, and do so without introducing a systemic positional error.
+为了获得最佳的定位精度，可以考虑使用spreadCycle模式，并禁用插值（在TMC驱动配置中设置`interpolate: False` ）。当以这种方式配置时，可以增加`microstep`设置，以减少步进运动中的噪音。通常情况下，微步设置为`64`或`128`会有类似于插值的噪音水平，而且不会引入系统性的位置误差。
 
-If using stealthChop mode then the positional inaccuracy from interpolation is small relative to the positional inaccuracy introduced from stealthChop mode. Therefore tuning interpolation is not considered useful when in stealthChop mode, and one can leave interpolation in its default state.
+如果使用stealthChop模式，那么相对于从stealthChop模式引入的位置不精确性，插值的位置不精确性很小。因此，在stealthChop 模式下，调整插值是没有用的，可以将插值设置再其默认状态。
 
 ## 无限位归零
 
 无传感器归位允许在不需要物理限位开关的情况下将一个轴归位。相反，轴上的滑车接触机械限位后，使步进电机失去步长。步进驱动器感应到失去的步数，并通过切换一个引脚向控制的微控制器（Klipper）告知这一点。该信息可被 Klipper 用作轴的限位。
 
-This guide covers the setup of sensorless homing for the X axis of your (cartesian) printer. However, it works the same with all other axes (that require an end stop). You should configure and tune it for one axis at a time.
+本指南介绍了如何设置（笛卡尔）打印机的X轴无传感器归位。这个方法也适合其他轴（需要一个限位）。每次应该只对一个轴进行配置和调整。
 
-### Limitations
+### 限制
 
-Be sure that your mechanical components are able to handle the load of the carriage bumping into the limit of the axis repeatedly. Especially leadscrews might generate a lot of force. Homing a Z axis by bumping the nozzle into the printing surface might not be a good idea. For best results, verify that the axis carriage will make a firm contact with the axis limit.
+要确保你的机械部件能够承受滑车反复撞向轴的限位的负载。特别是丝杠可能会产生很大的力。通过将喷嘴撞向打印表面来确定Z轴的位置可能不是一个好主意。为了获得最佳效果，请确认轴滑车将与轴的限位紧密接触。
 
-Further, sensorless homing might not be accurate enough for your printer. While homing X and Y axes on a cartesian machine can work well, homing the Z axis is generally not accurate enough and may result in an inconsistent first layer height. Homing a delta printer sensorless is not advisable due to missing accuracy.
+此外，无传感器归位对你的打印机来说可能不够精确。虽然笛卡尔机器上的X和Y轴归位可以很好地工作，但Z轴的归位通常不够准确，可能会导致第一层高度不一致。由于精度低，不建议在delta 打印机上使用无传感器的归位。
 
-Further, the stall detection of the stepper driver is dependent on the mechanical load on the motor, the motor current and the motor temperature (coil resistance).
+此外，步进驱动器的失速检测取决于电机的机械负载、电机电流和电机温度（线圈电阻）。
 
-Sensorless homing works best at medium motor speeds. For very slow speeds (less than 10 RPM) the motor does not generate significant back EMF and the TMC cannot reliably detect motor stalls. Further, at very high speeds, the back EMF of the motor approaches the supply voltage of the motor, so the TMC cannot detect stalls anymore. It is advised to have a look in the datasheet of your specific TMCs. There you can also find more details on limitations of this setup.
+无传感器归位在电机中速时效果最好。对于非常慢的速度（小于10RPM），电机不会产生明显的反电磁场，TMC芯片不能可靠地检测到电机停顿。此外，在非常高的速度下，电机的反向电动势接近电机的电源电压，所以TMC芯片也检测不到停顿。建议你看看一下对应的TMC芯片数据手册。在手册中还可以找到更多关于这种设置的限制的细节。
 
-### Prerequisites
+### 前提条件
 
-A few prerequisites are needed to use sensorless homing:
+使用无传感器归位，需要一些前提条件：
 
-1. A stallGuard capable TMC stepper driver (tmc2130, tmc2209, tmc2660, or tmc5160).
-1. SPI / UART interface of the TMC driver wired to micro-controller (stand-alone mode does not work).
-1. The appropriate "DIAG" or "SG_TST" pin of TMC driver connected to the micro-controller.
-1. The steps in the [config checks](Config_checks.md) document must be run to confirm the stepper motors are configured and working properly.
+1. 一个具有stallGuard功能的TMC步进驱动器（TMC2130、TMC2209、TMC2660或TMC5160）。
+1. 需要TMC驱动器的SPI / UART接口与微控制器连接（stand-alone 模式不行）。
+1. 需要把TMC驱动器的 "DIAG "或 "SG_TST "引脚连接到微控制器。
+1. 必须按照[配置检查](Config_checks.md)文件中的步骤来确认步进电机的配置和运转正常。
 
-### Tuning
+### 调整
 
-The procedure described here has six major steps:
+调整过程有六个主要步骤：
 
-1. Choose a homing speed.
-1. Configure the `printer.cfg` file to enable sensorless homing.
-1. Find the stallguard setting with highest sensitivity that successfully homes.
-1. Find the stallguard setting with lowest sensitivity that successfully homes with a single touch.
-1. Update the `printer.cfg` with the desired stallguard setting.
-1. Create or update `printer.cfg` macros to home consistently.
+1. 选择一个归位速度。
+1. 配置`printer.cfg`文件以启用无传感器归位。
+1. 找到有最高灵敏度的stallguard设置，确保其成功找到零点位置。
+1. 找到有最低灵敏度的stallguard 设置，确保只需轻轻一碰就能成功归零。
+1. 更新`printer.cfg`，加入所需的stallguard设置。
+1. 创建或更新 `printer.cfg `宏确保稳定归位（home）。
 
-#### Choose homing speed
+#### 选择归位速度
 
-The homing speed is an important choice when performing sensorless homing. It's desirable to use a slow homing speed so that the carriage does not exert excessive force on the frame when making contact with the end of the rail. However, the TMC drivers can't reliably detect a stall at very slow speeds.
+执行无传感器归位时，归位速度是一个重要参数。最好使用较慢的归位速度，以便滑车在与轨道限位接触时不会对框架施加过多的力。然而，TMC驱动器在非常慢的速度下并不能可靠地检测到失速。
 
-A good starting point for the homing speed is for the stepper motor to make a full rotation every two seconds. For many axes this will be the `rotation_distance` divided by two. For example:
+归位速度的最佳调整起点是步进电机每两秒转一圈。对于许多轴，这就是将是 `rotation_distance` 除以2。例如：
 
 ```
 [stepper_x]
@@ -89,18 +89,18 @@ homing_speed: 20
 ...
 ```
 
-#### Configure printer.cfg for sensorless homing
+#### 为无传感器归位配置printer.cfg
 
-The `homing_retract_dist` setting must be set to zero in the `stepper_x` config section to disable the second homing move. The second homing attempt does not add value when using sensorless homing, it will not work reliably, and it will confuse the tuning process.
+在`stepper_x` 配置部分， `homing_retract_dist` 设置必须被设为零，以禁用第二次归位动作。在使用无传感器归位时，第二次归位尝试不会提高精度，也不会可靠地工作，而且会扰乱调整过程。
 
-Be sure that a `hold_current` setting is not specified in the TMC driver section of the config. (If a hold_current is set then after contact is made, the motor stops while the carriage is pressed against the end of the rail, and reducing the current while in that position may cause the carriage to move - that results in poor performance and will confuse the tuning process.)
+确保在配置的TMC驱动部分没有指定 `hold_current`的设置。（如果设置了hold_current，那么在接触后，当滑车撞到轨道末端时，电机就会停止，在这个位置上减少电流可能会导致滑车移动--这将导致归位性能不佳，并会扰乱调整过程。）
 
-It is necessary to configure the sensorless homing pins and to configure initial "stallguard" settings. A tmc2209 example configuration for an X axis might look like:
+需要配置无传感器归位引脚，并配置初始 "stallguard "设置。一个用于X轴的tmc2209示例配置如下：
 
 ```
 [tmc2209 stepper_x]
-diag_pin: ^PA1      # Set to MCU pin connected to TMC DIAG pin
-driver_SGTHRS: 255  # 255 is most sensitive value, 0 is least sensitive
+diag_pin: ^PA1      # 设置MCU引脚连接到TMC的DIAG引脚
+driver_SGTHRS: 255  # 255是最敏感的值，0是最不敏感的值
 ...
 
 [stepper_x]
@@ -109,12 +109,12 @@ homing_retract_dist: 0
 ...
 ```
 
-An example tmc2130 or tmc5160 config might look like:
+用于tmc2130或tmc5160配置的例子如下：
 
 ```
 [tmc2130 stepper_x]
-diag1_pin: ^!PA1 # Pin connected to TMC DIAG1 pin (or use diag0_pin / DIAG0 pin)
-driver_SGT: -64  # -64 is most sensitive value, 63 is least sensitive
+diag1_pin: ^!PA1 #  连接到TMC的DIAG1引脚(或使用diag0_pin / DIAG0引脚)
+driver_SGT: -64  # -64是最敏感的值，63是最不敏感的值
 ...
 
 [stepper_x]
@@ -123,70 +123,70 @@ homing_retract_dist: 0
 ...
 ```
 
-An example tmc2660 config might look like:
+用于tmc2660配置的例子如下：
 
 ```
 [tmc2660 stepper_x]
-driver_SGT: -64     # -64 is most sensitive value, 63 is least sensitive
+driver_SGT: -64     # -64是最敏感的值，63是最不敏感的值
 ...
 
 [stepper_x]
-endstop_pin: ^PA1   # Pin connected to TMC SG_TST pin
+endstop_pin: ^PA1   # 与TMC SG_TST引脚相连的引脚
 homing_retract_dist: 0
 ...
 ```
 
-The examples above only show settings specific to sensorless homing. See the [config reference](Config_Reference.md#tmc-stepper-driver-configuration) for all the available options.
+上面的例子只显示了针对无传感器归位的设置。所有可用选项请参见[配置参考](Config_Reference.md#tmc-stepper-driver-configuration)。
 
-#### Find highest sensitivity that successfully homes
+#### 找到能成功归位的最高的敏感度设定
 
-Place the carriage near the center of the rail. Use the SET_TMC_FIELD command to set the highest sensitivity. For tmc2209:
+将滑车放在靠近轨道中心的位置。使用SET_TMC_FIELD命令来设置最高灵敏度。对于tmc2209：
 
 ```
 SET_TMC_FIELD STEPPER=stepper_x FIELD=SGTHRS VALUE=255
 ```
 
-For tmc2130, tmc5160, and tmc2660:
+对于tmc2130, tmc5160, and tmc2660:
 
 ```
 SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 ```
 
-Then issue a `G28 X0` command and verify the axis does not move at all. If the axis does move, then issue an `M112` to halt the printer - something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.
+然后发一个 `G28 X0`命令，确保轴完全不动。如果轴移动了，立即一个`M112`命令停止打印机-可能是diag/sg_tst引脚的接线或配置有问题，必须在继续之前修正。
 
-Next, continually decrease the sensitivity of the `VALUE` setting and run the `SET_TMC_FIELD` `G28 X0` commands again to find the highest sensitivity that results in the carriage successfully moving all the way to the endstop and halting. (For tmc2209 drivers this will be decreasing SGTHRS, for other drivers it will be increasing sgt.) Be sure to start each attempt with the carriage near the center of the rail (if needed issue `M84` and then manually move the carriage to the center). It should be possible to find the highest sensitivity that homes reliably (settings with higher sensitivity result in small or no movement). Note the found value as *maximum_sensitivity*. (If the minimum possible sensitivity (SGTHRS=0 or sgt=63) is obtained without any carriage movement then something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.)
+接下来，不断降低 `VALUE` 设置的灵敏度，再次运行 `SET_TMC_FIELD`和`G28 X0` 命令，找到最高的灵敏度，使滑车成功地一直移动到端点并停止。(对于TMC2209驱动，调整是减少SGTHRS，对于其他驱动，调整是增加sgt)。确保每次尝试都在轨道中心附近开始（如果需要，发出`M84`，然后手动将滑车移到中心）。应该可以找到可靠归位的最高灵敏度（更高的灵敏度设置会导致滑车只动一小段或完全不动）。注意找到的值为*maximum_sensitivity*。(如果在最低灵敏度（SGTHRS=0或sgt=63）下滑车也不动，那么diag/sg_tst引脚的接线或配置应该有问题，必须在继续后面操作前予以修正）。
 
-When searching for maximum_sensitivity, it may be convenient to jump to different VALUE settings (so as to bisect the VALUE parameter). If doing this then be prepared to issue an `M112` command to halt the printer, as a setting with a very low sensitivity may cause the axis to repeatedly "bang" into the end of the rail.
+在寻找最大灵敏度时，更方便的是跳到不同的VALUE设置（比如将VALUE参数的一半）。如果这样做，请准备好发出 `M112`命令以停止打印机，因为灵敏度很低的设置可能会导致轴反复 "撞 "到导轨的末端。
 
-Be sure to wait a couple of seconds between each homing attempt. After the TMC driver detects a stall it may take a little time for it to clear its internal indicator and be capable of detecting another stall.
+请确保在每次归位尝试之间等待几秒钟。在TMC驱动程序检测到失速后，它可能需要一点时间来清除其内部指示器，才能够检测到下一次失速。
 
-During these tuning tests, if a `G28 X0` command does not move all the way to the axis limit, then be careful with issuing any regular movement commands (eg, `G1`). Klipper will not have a correct understanding of the carriage position and a move command may cause undesirable and confusing results.
+在调整测试中，如果`G28 X0`命令不能完全移动到轴的极限位置，那么在发出任何常规移动命令（例如，`G1`）时要小心。Klipper将不能正确定位滑块的位置，移动命令可能会导致非预期和混乱的结果。
 
-#### Find lowest sensitivity that homes with one touch
+#### 找到最低的灵敏度，只需一次接触就能归位
 
-When homing with the found *maximum_sensitivity* value, the axis should move to the end of the rail and stop with a "single touch" - that is, there should not be a "clicking" or "banging" sound. (If there is a banging or clicking sound at maximum_sensitivity then the homing_speed may be too low, the driver current may be too low, or sensorless homing may not be a good choice for the axis.)
+当用找到的*最大灵敏度*值归位时，轴应该移动到轨道的末端并 "single touch（一触即停）"--也就是说，不应该有 "咔嚓 "或 "砰 "的声音。(如果在最大灵敏度下有撞击或点击声，那么归位速度可能太低，驱动电流可能太低，或者该轴可能不适合用无传感器归位。）
 
-The next step is to again continually move the carriage to a position near the center of the rail, decrease the sensitivity, and run the `SET_TMC_FIELD` `G28 X0` commands - the goal is now to find the lowest sensitivity that still results in the carriage successfully homing with a "single touch". That is, it does not "bang" or "click" when contacting the end of the rail. Note the found value as *minimum_sensitivity*.
+下一步是再次持续移动滑块到靠近轨道中心的位置，降低灵敏度，并运行`SET_TMC_FIELD`和`G28 X0`命令 - 这次的目标是找到最低的灵敏度，仍能使滑块成功地 "一触即停"归位。也就是说，当接触到轨道的末端时，它不会发出"砰 "或 "咔"的声音。注意找到的值是*minimum_sensitivity*。
 
-#### Update printer.cfg with sensitivity value
+#### 更新printer.cfg中的灵敏度值
 
-After finding *maximum_sensitivity* and *minimum_sensitivity*, use a calculator to obtain the recommend sensitivity as *minimum_sensitivity + (maximum_sensitivity - minimum_sensitivity)/3*. The recommended sensitivity should be in the range between the minimum and maximum, but slightly closer to the minimum. Round the final value to the nearest integer value.
+在找到*maximum_sensitivity*和*minimum_sensitivity*后，计算得到推荐的灵敏度为 *minimum_sensitivity +(maximum_sensitivity-minimum_sensitivity)/3*。推荐的灵敏度应该在最小值和最大值之间，但略微接近最小值。将最终值四舍五入到最近的整数值。
 
-For tmc2209 set this in the config as `driver_SGTHRS`, for other TMC drivers set this in the config as `driver_SGT`.
+对于TMC2209，在配置中设置`driver_SGTHRS`，对于其他TMC驱动，在配置中设置`driver_SGT`。
 
-If the range between *maximum_sensitivity* and *minimum_sensitivity* is small (eg, less than 5) then it may result in unstable homing. A faster homing speed may increase the range and make the operation more stable.
+如果*maximum_sensitivity*和*minimum_sensitivity*之间的范围很小（例如，小于5），那么可能导致不稳定的归位。更快的归位速度可以扩大范围，使操作更加稳定。
 
-Note that if any change is made to driver current, homing speed, or a notable change is made to the printer hardware, then it will be necessary to run the tuning process again.
+请注意，如果对驱动电流、归位速度做了任何改变，或者对打印机硬件做了明显的改变，那么就需要再次运行这个调整过程。
 
-#### Using Macros when Homing
+#### 归位时使用宏
 
-After sensorless homing completes the carriage will be pressed against the end of the rail and the stepper will exert a force on the frame until the carriage is moved away. It is a good idea to create a macro to home the axis and immediately move the carriage away from the end of the rail.
+在无传感器归位完成后，滑车将顶到导轨的末端，步进器将持续对框架施加力，直到滑车移开。最好创建一个宏来使轴归位，并立即将小车从轨道的末端移开。
 
-It is a good idea for the macro to pause at least 2 seconds prior to starting sensorless homing (or otherwise ensure that there has been no movement on the stepper for 2 seconds). Without a delay it is possible for the driver's internal stall flag to still be set from a previous move.
+在开始无传感器归位之前，宏最好暂停至少2秒（或确保步进在2秒内没有移动）。如果没有延迟，驱动器的内部失速标志有可能在之前的移动中被设置了。
 
-It can also be useful to have that macro set the driver current before homing and set a new current after the carriage has moved away.
+使用宏在归位前设置驱动电流，并在滑车移开后设置新的电流，也会很有用。
 
-An example macro might look something like:
+一个宏的例子如下：
 
 ```
 [gcode_macro SENSORLESS_HOME_X]
@@ -194,103 +194,103 @@ gcode:
     {% set HOME_CUR = 0.700 %}
     {% set driver_config = printer.configfile.settings['tmc2209 stepper_x'] %}
     {% set RUN_CUR = driver_config.run_current %}
-    # Set current for sensorless homing
+    # 为无传感器归位设置电流
     SET_TMC_CURRENT STEPPER=stepper_x CURRENT={HOME_CUR}
-    # Pause to ensure driver stall flag is clear
+    # 暂停，以确保驱动器失速标志被清除
     G4 P2000
-    # Home
+    # 归位
     G28 X0
-    # Move away
+    # 移开
     G90
     G1 X5 F1200
-    # Set current during print
+    # 打印过程中设置电流
     SET_TMC_CURRENT STEPPER=stepper_x CURRENT={RUN_CUR}
 ```
 
-The resulting macro can be called from a [homing_override config section](Config_Reference.md#homing_override) or from a [START_PRINT macro](Slicers.md#klipper-gcode_macro).
+产生的宏可以从[homing_override配置部分](Config_Reference.md#homing_override)或[START_PRINT宏](Slicers.md#klipper-gcode_macro)中调用。
 
-Note that if the driver current during homing is changed, then the tuning process should be run again.
+请注意，如果归位期间的驱动电流发生变化，则应重新运行调整过程。
 
-### Tips for sensorless homing on CoreXY
+### 在CoreXY上进行无传感器归位的技巧
 
-It is possible to use sensorless homing on the X and Y carriages of a CoreXY printer. Klipper uses the `[stepper_x]` stepper to detect stalls when homing the X carriage and uses the `[stepper_y]` stepper to detect stalls when homing the Y carriage.
+可以在CoreXY打印机的X和Y行车上使用无传感器归位。Klipper使用`[stepper_x]`步进器来检测X滑车归位时的失速，使用`[stepper_y]`步进器来检测Y滑车归位时的失速。
 
-Use the tuning guide described above to find the appropriate "stall sensitivity" for each carriage, but be aware of the following restrictions:
+使用上述的调谐指南，为每个滑车找到合适的 "失速灵敏度"，但要注意以下限制：
 
-1. When using sensorless homing on CoreXY, make sure there is no `hold_current` configured for either stepper.
-1. While tuning, make sure both the X and Y carriages are near the center of their rails before each home attempt.
-1. After tuning is complete, when homing both X and Y, use macros to ensure that one axis is homed first, then move that carriage away from the axis limit, pause for at least 2 seconds, and then start the homing of the other carriage. The move away from the axis avoids homing one axis while the other is pressed against the axis limit (which may skew the stall detection). The pause is necessary to ensure the driver's stall flag is cleared prior to homing again.
+1. 当在CoreXY上使用无传感器归位时，确保没有为任何一个步进电机配置`hold_current`。
+1. 在调整时，确保X和Y车架在每次归位尝试前都接近其轨道的中心。
+1. 调整完成后，当X和Y轴归位时，使用宏来确保一个轴首先被归位，然后将该滑车远离轴的极限，停顿至少2秒，然后开始另一个滑车的归位。远离轴端点的移动可以避免一个轴被归位，而另一个轴顶在轴的极限上（这可能使失速检测发生偏差）。暂停是必要的，以确保驱动器的失速标志在再次归位之前被清除。
 
-## Querying and diagnosing driver settings
+## 查询和诊断驱动程序设置
 
-The `[DUMP_TMC command](G-Codes.md#tmc-stepper-drivers) is a useful tool when configuring and diagnosing the drivers. It will report all fields configured by Klipper as well as all fields that can be queried from the driver.
+\`[DUMP_TMC命令](G-Code.md#tmc-stepper-drivers)是配置和诊断驱动程序时的有效工具。它将报告所有由Klipper配置的字段，以及所有可以从驱动中查询到的字段。
 
-All of the reported fields are defined in the Trinamic datasheet for each driver. These datasheets can be found on the [Trinamic website](https://www.trinamic.com/). Obtain and review the Trinamic datasheet for the driver to interpret the results of DUMP_TMC.
+所有报告的字段都定义在驱动器的Trinamic数据手册中。这些数据表可以在[Trinamic网站](https://www.trinamic.com/)上找到。请获取并查看驱动器的Trinamic数据手册来解释DUMP_TMC的结果。
 
-## Configuring driver_XXX settings
+## 配置driver_XXX设置
 
-Klipper supports configuring many low-level driver fields using `driver_XXX` settings. The [TMC driver config reference](Config_Reference.md#tmc-stepper-driver-configuration) has the full list of fields available for each type of driver.
+Klipper支持使用`driver_XXX`设置来配置许多底层驱动程序字段。[TMC驱动配置参考](Config_Reference.md#tmc-stepper-driver-configuration)有每种类型的驱动可用字段的完整列表。
 
-In addition, almost all fields can be modified at run-time using the [SET_TMC_FIELD command](G-Codes.md#tmc-stepper-drivers).
+此外，几乎所有的字段都可以在运行时使用[SET_TMC_FIELD命令](G-Codes.md#tmc-stepper-drivers)进行修改。
 
-Each of these fields is defined in the Trinamic datasheet for each driver. These datasheets can be found on the [Trinamic website](https://www.trinamic.com/).
+每一个字段都在驱动器的Trinamic数据手册中有定义。这些数据表可以在[Trinamic网站](https://www.trinamic.com/)上找到。
 
-Note that the Trinamic datasheets sometime use wording that can confuse a high-level setting (such as "hysteresis end") with a low-level field value (eg, "HEND"). In Klipper, `driver_XXX` and SET_TMC_FIELD always set the low-level field value that is actually written to the driver. So, for example, if the Trinamic datasheet states that a value of 3 must be written to the HEND field to obtain a "hysteresis end" of 0, then set `driver_HEND=3` to obtain the high-level value of 0.
+请注意，Trinamic的数据表中，有时一些词可能导致在高层设置（如 "hysteresis end"）和底层字段值（如 "HEND"）的混乱。在Klipper中，`driver_XXX`和SET_TMC_FIELD总是设置实际写入驱动器的底层次字段值。例如，如果Trinamic的数据表指出，需要将3的值写入HEND字段，以使得 "hysteresis end"等于0，那么设置`driver_HEND=3`使得高层获得0的值。
 
-## Common Questions
+## 常见问题
 
-### Can I use stealthChop mode on an extruder with pressure advance?
+### 我可以在有压力推进（pressure advance）的挤出机上使用stealthChop 模式吗？
 
-Many people successfully use "stealthChop" mode with Klipper's pressure advance. Klipper implements [smooth pressure advance](Kinematics.md#pressure-advance) which does not introduce any instantaneous velocity changes.
+许多人成功地在 "stealthChop "模式下使用了Klipper的压力推进。Klipper实现了[平滑压力推进](Kinematics.md#pressure-advance)，它不会引入任何瞬时速度变化。
 
-However, "stealthChop" mode may produce lower motor torque and/or produce higher motor heat. It may or may not be an adequate mode for your particular printer.
+然而，"stealthChop "模式可能导致较低的电机扭矩和/或产生较高的电机热量。对于你的特定打印机来说，它可能是也可能不是一个合适的模式。
 
-### I keep getting "Unable to read tmc uart 'stepper_x' register IFCNT" errors?
+### 我一直得到 "Unable to read tmc uart 'stepper_x' register IFCNT "的错误？
 
-This occurs when Klipper is unable to communicate with a tmc2208 or tmc2209 driver.
+这种情况发生在Klipper无法与tmc2208或tmc2209驱动通信时。
 
-Make sure that the motor power is enabled, as the stepper motor driver generally needs motor power before it can communicate with the micro-controller.
+确保电机电源启用，因为步进电机驱动器在与微控制器通信之前一般需要确保电机先上电。
 
-If this error occurs after flashing Klipper for the first time, then the stepper driver may have been previously programmed in a state that is not compatible with Klipper. To reset the state, remove all power from the printer for several seconds (physically unplug both USB and power plugs).
+如果这个错误是在第一次刷写Klipper后发生的，那么步进驱动器可能处在一个状态，此状态与刚刚写入的Klipper不兼容。要重置该状态，请将打印机的所有电源拔掉几秒钟（物理上拔掉USB插头和电源插头）。
 
-Otherwise, this error is typically the result of incorrect UART pin wiring or an incorrect Klipper configuration of the UART pin settings.
+否则，这种错误通常是由于UART引脚接线不正确或Klipper配置的UART引脚设置不正确造成的。
 
-### I keep getting "Unable to write tmc spi 'stepper_x' register ..." errors?
+### 我一直得到 "Unable to write tmc spi 'stepper_x' register ..."的错误？
 
-This occurs when Klipper is unable to communicate with a tmc2130 or tmc5160 driver.
+当Klipper无法与tmc2130或tmc5160驱动通信时就会出现这种情况。
 
-Make sure that the motor power is enabled, as the stepper motor driver generally needs motor power before it can communicate with the micro-controller.
+确保电机电源启用，因为步进电机驱动器在与微控制器通信之前一般需要确保电机先上电。
 
-Otherwise, this error is typically the result of incorrect SPI wiring, an incorrect Klipper configuration of the SPI settings, or an incomplete configuration of devices on an SPI bus.
+否则，这种错误通常是由于SPI接线不正确、Klipper对SPI设置的配置不正确或SPI总线上的设备配置不完整造成的。
 
-Note that if the driver is on a shared SPI bus with multiple devices then be sure to fully configure every device on that shared SPI bus in Klipper. If a device on a shared SPI bus is not configured, then it may incorrectly respond to commands not intended for it and corrupt the communication to the intended device. If there is a device on a shared SPI bus that can not be configured in Klipper, then use a [static_digital_output config section](Config_Reference.md#static_digital_output) to set the CS pin of the unused device high (so that it will not attempt to use the SPI bus). The board's schematic is often a useful reference for finding which devices are on an SPI bus and their associated pins.
+请注意，如果驱动器是在挂多个设备共享的SPI总线上，那么一定要在Klipper中完全配置该共享SPI总线上的每个设备。如果共享SPI总线上的一个设备没有被配置，那么它可能会错误地响应不是为它准备的命令，并破坏与目标设备的通信。如果在共享的SPI总线上有不能在Klipper中配置的设备，那么使用[static_digital_output config section](Config_Reference.md#static_digital_output)将未使用的设备的CS引脚设置为高电平（这样它就不会试图使用SPI总线）。电路板的原理图通常是一个有用的参考，原理图上可以找到哪些设备挂在SPI总线上以及它们的相关引脚。
 
-### Why did I get a "TMC reports error: ..." error?
+### 为什么我得到一个 "TMC reports error: ..."错误？
 
-This type of error indicates the TMC driver detected a problem and has disabled itself. That is, the driver stopped holding its position and ignored movement commands. If Klipper detects that an active driver has disabled itself, it will transition the printer into a "shutdown" state.
+这类型的错误表明TMC驱动器检测到了一个问题，并且已经自我禁用。也就是说，驱动器已经停止了保持位置，并忽略了移动命令。如果Klipper检测到一个激活的驱动器已经自我禁用，它就会把打印机切换到 "关闭 "状态。
 
-It's also possible that a **TMC reports error** shutdown occurs due to SPI errors that prevent communication with the driver (on tmc2130, tmc5160, or tmc2660). If this occurs, it's common for the reported driver status to show `00000000` or `ffffffff` - for example: `TMC reports error: DRV_STATUS: ffffffff ...` OR `TMC reports error: READRSP@RDSEL2: 00000000 ...`. Such a failure may be due to an SPI wiring problem or may be due to a self-reset or failure of the TMC driver.
+也有可能由于SPI错误导致无法与驱动器通信而发生**TMC reports error**导致的关机（在tmc2130、tmc5160或tmc2660上）。如果发生这种情况，报告的驱动器状态通常会显示 "00000000 "或 "ffffff"--例如：`TMC reports error: DRV_STATUS: ffffffff ...`或者`TMC reports error: READRSP@RDSEL2: 00000000 ...`。这样的故障可能是由于SPI的接线问题，也可能是由于TMC驱动器的自复位或故障导致的。
 
-Some common errors and tips for diagnosing them:
+一些常见的错误和诊断的技巧：
 
-#### TMC reports error: `... ot=1(OvertempError!)`
+#### TMC 报告错误： `... ot=1(OvertempError!)`
 
-This indicates the motor driver disabled itself because it became too hot. Typical solutions are to decrease the stepper motor current, increase cooling on the stepper motor driver, and/or increase cooling on the stepper motor.
+这表明电机驱动器因温度过高而自我禁用。典型的解决方案是降低步进电机的电流，增加步进电机驱动器的冷却，和/或增加步进电机的冷却。
 
-#### TMC reports error: `... ShortToGND` OR `LowSideShort`
+#### TMC 报告错误: `... ShortToGND` 或着 `LowSideShort`
 
-This indicates the driver has disabled itself because it detected very high current passing through the driver. This may indicate a loose or shorted wire to the stepper motor or within the stepper motor itself.
+这表明驱动器已自行禁用，因为它检测到通过驱动器的电流非常高。这可能表明连接到步进电机或者部件电机内部的电线松动或短路了。
 
-This error may also occur if using stealthChop mode and the TMC driver is not able to accurately predict the mechanical load of the motor. (If the driver makes a poor prediction then it may send too much current through the motor and trigger its own over-current detection.) To test this, disable stealthChop mode and check if the errors continue to occur.
+如果使用stealthChop模式，并且TMC驱动器不能准确地预测电机的机械负载，也可能发生这种错误。(如果驱动器预测不准确，那么它可能输出过高电流到电机，并触发自己的过电流检测)。要测试这个，请禁用stealthChop模式，再检查错误是否继续发生。
 
-#### TMC reports error: `... reset=1(Reset)` OR `CS_ACTUAL=0(Reset?)` OR `SE=0(Reset?)`
+#### TMC报告错误：`... reset=1(Reset)` 或`CS_ACTUAL=0(Reset?)` 或`SE=0(Reset?)`
 
-This indicates that the driver has reset itself mid-print. This may be due to voltage or wiring issues.
+这表明驱动器在打印过程中自我复位。这可能是由于电压或接线问题导致的。
 
-#### TMC reports error: `... uv_cp=1(Undervoltage!)`
+#### TMC 报告错误： `... uv_cp=1(Undervoltage!)`
 
-This indicates the driver has detected a low-voltage event and has disabled itself. This may be due to wiring or power supply issues.
+这表明驱动器检测到了一个电压低事件，并已自行禁用。这可能是由于接线或电源问题导致的。
 
-### How do I tune spreadCycle/coolStep/etc. mode on my drivers?
+### 我如何在我的驱动器上调整 spreadCycle/coolStep等模式？
 
-The [Trinamic website](https://www.trinamic.com/) has guides on configuring the drivers. These guides are often technical, low-level, and may require specialized hardware. Regardless, they are the best source of information.
+[Trinamic网站](https://www.trinamic.com/)有关于配置驱动程序的指南。这些指南通常是专业、底层且可能需要专用的硬件。不管怎么说，它们是最好的信息来源。

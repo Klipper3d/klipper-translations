@@ -1,6 +1,6 @@
 # Pressure advance
 
-This document provides information on tuning the "pressure advance" configuration variable for a particular nozzle and filament. The pressure advance feature can be helpful in reducing ooze. For more information on how pressure advance is implemented see the [kinematics](Kinematics.md) document.
+Questo documento fornisce informazioni sulla messa a punto della variabile di regolazione de "l'anticipo della pressione" per un particolare ugello e filamento. La funzione di anticipo della pressione può essere utile per ridurre i filamenti. Per maggiori informazioni su come viene implementato l'anticipo di pressione, vedere il documento [kinematics](Kinematics.md).
 
 ## Tuning pressure advance
 
