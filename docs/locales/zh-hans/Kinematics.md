@@ -22,39 +22,39 @@ Klipper 使用传统的"梯形发生器"来产生每个动作的运动--每个�
 
 因为移动时的速度图看起来像一个梯形，它被称为 "梯形发生器"。
 
-The cruising speed is always greater than or equal to both the start speed and the end speed. The acceleration phase may be of zero duration (if the start speed is equal to the cruising speed), the cruising phase may be of zero duration (if the move immediately starts decelerating after acceleration), and/or the deceleration phase may be of zero duration (if the end speed is equal to the cruising speed).
+巡航速度总是大于等于起始和终端速度。加速度阶段可能持续时间为0（如果起始速度等于巡航速度），巡航速度的持续时间也可为0（如果在加速结束后马上进行减速），减速阶段也能为0（如果终端速度等于巡航速度）。
 
 ![trapezoids](img/trapezoids.svg.png)
 
-## Look-ahead
+## 预计算（look-ahead）
 
-The "look-ahead" system is used to determine cornering speeds between moves.
+拐角速度使用预计算系统进行处理。
 
 考虑以下两个在 XY 平面上的移动：
 
 ![corner](img/corner.svg.png)
 
-In the above situation it is possible to fully decelerate after the first move and then fully accelerate at the start of the next move, but that is not ideal as all that acceleration and deceleration would greatly increase the print time and the frequent changes in extruder flow would result in poor print quality.
+在上述的状况下，打印机可以在第一步时减速至停止，并在第二步开始时加速至巡航速度。但这种运动策略并不理想，完全减速和完全加速会大幅增加打印时间，同时挤出量会频繁变动，从而导致打印质量的下降。
 
-To solve this, the "look-ahead" mechanism queues multiple incoming moves and analyzes the angles between moves to determine a reasonable speed that can be obtained during the "junction" between two moves. If the next move is nearly in the same direction then the head need only slow down a little (if at all).
+要解决这种情况，klipper引入了预计算机制，预先依次计算后续的数个移动，分析其中的拐角并确定合适的拐角速度。如果下一步的速度与现时的移动速度相近，则滑车速度仅会稍微减少。
 
 ![lookahead](img/lookahead.svg.png)
 
-However, if the next move forms an acute angle (the head is going to travel in nearly a reverse direction on the next move) then only a small junction speed is permitted.
+然而，如果下一步形成一个尖锐的拐角（滑车将在下一步进行近于反方向的移动），则只能采用一个很低的拐角速度。
 
 ![lookahead](img/lookahead-slow.svg.png)
 
 The junction speeds are determined using "approximated centripetal acceleration". Best [described by the author](https://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/). However, in Klipper, junction speeds are configured by specifying the desired speed that a 90° corner should have (the "square corner velocity"), and the junction speeds for other angles are derived from that.
 
-Key formula for look-ahead:
+预计算的关键方程：
 
 ```
 end_velocity^2 = start_velocity^2 + 2*accel*move_distance
 ```
 
-### Smoothed look-ahead
+### 预计算结果平滑
 
-Klipper also implements a mechanism for smoothing out the motions of short "zigzag" moves. Consider the following moves:
+Klipper
 
 ![zigzag](img/zigzag.svg.png)
 

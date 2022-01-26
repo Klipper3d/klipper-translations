@@ -1,4 +1,4 @@
-# Configuration Changes
+# 配置变更
 
 本文档涵盖了软件更新中对配置文件不向后兼容的部分。在升级 Klipper 时，最好也查看一下这份文档。
 
@@ -6,33 +6,33 @@
 
 ## 变更
 
-20220116: The tmc2130, tmc2208, tmc2209, and tmc2660 `run_current` calculation code has changed. For some `run_current` settings the drivers may now be configured differently. This new configuration should be more accurate, but it may invalidate previous tmc driver tuning.
+20220116: 变更了tmc2130, tmc2208, tmc2209和tmc2660的`run_current`计算代码。对于一些 `run_current`设置，驱动程序现在的配置结果可能被和原来不同。新的配置应该更准确，但它可能导致前的tmc驱动调谐失效。
 
-20211230: Scripts to tune input shaper (`scripts/calibrate_shaper.py` and `scripts/graph_accelerometer.py`) were migrated to use Python3 by default. As a result, users must install Python3 versions of certain packages (e.g. `sudo apt install python3-numpy python3-matplotlib`) to continue using these scripts. For more details, refer to [Software installation](Measuring_Resonances.md#software-installation). Alternatively, users can temporarily force the execution of these scripts under Python 2 by explicitly calling Python2 interpretor in the console: `python2 ~/klipper/scripts/calibrate_shaper.py ...`
+20211230: 迁移输入整形器调整脚本（`scripts/calibrate_shaper.py`和`scripts/graph_accelerometer.py`），新脚本默认使用Python3。因此，必须安装Python3版本的某些软件包（例如，`sudo apt install python3-numpy python3-matplotlib`）才能继续使用这些脚本。更多细节，请参考[软件安装](Measuring_Resonances.md#software-installation)。另外，用户可以通过在控制台显性调用Python2解释器，临时强制在Python 2下执行这些脚本：`python2 ~/klipper/scripts/calibrate_shaper.py ...`
 
-20211110: The "NTC 100K beta 3950" temperature sensor is deprecated. This sensor will be removed in the near future. Most users will find the "Generic 3950" temperature sensor more accurate. To continue to use the older (typically less accurate) definition, define a custom [thermistor](Config_Reference.md#thermistor) with `temperature1: 25`, `resistance1: 100000`, and `beta: 3950`.
+20211110: 弃用"NTC 100K beta 3950 "温度传感器。未来会删除这个传感器。大多数用户会发现 "Generic 3950 "温度传感器更准确。要继续使用旧的（通常不太准确）定义，请定义一个自定义的[thermistor](Config_Reference.md#thermistor)，其中包括`temperature1: 25`，`resistance1: 100000`和`beta: 3950`。
 
-20211104: The "step pulse duration" option in "make menuconfig" has been removed. The default step duration for TMC drivers configured in UART or SPI mode is now 100ns. A new `step_pulse_duration` setting in the [stepper config section](Config_Reference.md#stepper) should be set for all steppers that need a custom pulse duration.
+20211104：删除了"make menuconfig "中的 "step pulse duration "选项。现在在UART或SPI模式下配置的TMC驱动器的默认步长是100ns。在[stepper config section](Config_Reference.md#stepper)中的增加了一个新的`step_pulse_duration`设置，所有需要自定义脉冲持续时间的步进驱动器都需要设置。
 
-20211102: Several deprecated features have been removed. The stepper `step_distance` option has been removed (deprecated on 20201222). The `rpi_temperature` sensor alias has been removed (deprecated on 20210219). The mcu `pin_map` option has been removed (deprecated on 20210325). The gcode_macro `default_parameter_<name>` and macro access to command parameters other than via the `params` pseudo-variable has been removed (deprecated on 20210503). The heater `pid_integral_max` option has been removed (deprecated on 20210612).
+20211102：删除了多个废弃的功能。删除了步进器`step_distance`选项（已于20201222废弃）。删除了`rpi_temperature`传感器别名（已于20210219废弃）。删除了mcu的`pin_map`选项（已于20210325废弃）。删除了gcode_macro `default_parameter_<name>`和通过`params`伪变量以外的宏访问命令参数（已于20210503废弃）。删除了加热器的`pid_integral_max`选项（已于20210612废弃）。
 
-20210929: Klipper v0.10.0 released.
+20210929: Klipper v0.10.0发布。
 
-20210903: The default [`smooth_time`](Config_Reference.md#extruder) for heaters has changed to 1 second (from 2 seconds). For most printers this will result in more stable temperature control.
+20210903: 加热器的默认[`smooth_time`](Config_Reference.md#extruder)已改为1秒（从2秒）。对于大多数打印机来说，这将使温度控制更加稳定。
 
-20210830: The default adxl345 name is now "adxl345". The default CHIP parameter for the `ACCELEROMETER_MEASURE` and `ACCELEROMETER_QUERY` is now also "adxl345".
+20210830: 默认的adxl345名称现在是 "adxl345"。`ACCELEROMETER_MEASURE`和`ACCELEROMETER_QUERY`的默认CHIP参数现在也是 "adxl345"。
 
-20210830: The adxl345 ACCELEROMETER_MEASURE command no longer supports a RATE parameter. To alter the query rate, update the printer.cfg file and issue a RESTART command.
+20210830: adxl345 ACCELEROMETER_MEASURE命令不再支持RATE参数。要改变查询速率，请更新printer.cfg文件并发出RESTART命令。
 
-20210821: Several config settings in `printer.configfile.settings` will now be reported as lists instead of raw strings. If the actual raw string is desired, use `printer.configfile.config` instead.
+20210821: `printer.configfile.settings`中的一些配置设置现在将以列表形式报告，而不是原始字符串。如果需要原始的字符串，请使用`printer.configfile.config`代替。
 
-20210819: In some cases, a `G28` homing move may end in a position that is nominally outside the valid movement range. In rare situations this may result in confusing "Move out of range" errors after homing. If this occurs, change your start scripts to move the toolhead to a valid position immediately after homing.
+20210819: 在某些情况下，`G28`的归零动作可能在某个超出有效移动范围的位置结束。在少数情况下，这可能导致归位后出现 "移动超出范围（Move out of range）"的错误。如果发生这种情况，请改变你的启动脚本，在归位后立即将打印头移动到有效位置。
 
-20210814: The analog only pseudo-pins on the atmega168 and atmega328 have been renamed from PE0/PE1 to PE2/PE3.
+20210814: atmega168和atmega328上的仅有模拟的伪引脚已经从PE0/PE1改名为PE2/PE3。
 
-20210720: A controller_fan section now monitors all stepper motors by default (not just the kinematic stepper motors). If the previous behavior is desired, see the `stepper` config option in the [config reference](Config_Reference.md#controller_fan).
+20210720: controller_fan部分现在默认监控所有步进电机（而不仅仅是运动型步进电机）。如果需要以前的行为，请参考[config reference](Config_Reference.md#controller_fan)中的`stepper`配置选项。
 
-20210703: A `samd_sercom` config section must now specify the sercom bus it is configuring via the `sercom` option.
+20210703: `samd_sercom`配置部分现在必须通过`sercom`选项指定它要配置的sercom总线。
 
 20210612: 加热器(heater)和温度控制风扇(temperature_fan)配置中的`pid_integral_max`选项已被弃用。该选项将在未来被移除。
 
@@ -63,9 +63,9 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20201213：当使用"probe:z_virtual_endstop"时，指定的 Z "position_endstop"是无效的。现在，如果用"probe:z_virtual_endstop"指定一个 Z "position_endstop"，将会报告一个错误。删除 Z 的 "position_endstop"定义以解决这个错误。
 
-20201120: The `[board_pins]` config section now specifies the mcu name in an explicit `mcu:` parameter. If using board_pins for a secondary mcu, then the config must be updated to specify that name. See the [config reference](Config_Reference.md#board_pins) for further details.
+20201120: `[board_pins]`配置部分现在在`mcu:`参数中明确指定了对应MCU名称。如果使用辅助MCU的board_pins，则必须更新配置以指定该MCU名称。参见 [配置参考](Config_Reference.md#board_pins) 以了解更多细节。
 
-20201112: The time reported by `print_stats.print_duration` has changed. The duration prior to the first detected extrusion is now excluded.
+20201112: 由`print_stats.print_duration`控制的报告时间已经改变。现在不包括检测到的首次挤出之前的时间。
 
 20201029: neopixel `color_order_GRB` 配置已从配置中移除。如果需要，请更新配置文件，将新的`color_order`选项设置为RGB、GRB、RGBW或GRBW。
 
@@ -73,98 +73,98 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20201020: Klipper v0.9.0发布。
 
-20200902: The RTD resistance-to-temperature calculation for MAX31865 converters has been corrected to not read low. If you are using such a device, you should recalibrate your print temperature and PID settings.
+20200902: 修正了MAX31865转换器的RTD电阻-温度计算无法为低的错误。如果你使用此芯片，请重新校准你的打印温度和PID设定。
 
 20200816: G代码宏`printer.gcode`对象已被重命名为`printer.gcode_move`。删除了 `printer.toolhead` 和 `printer.gcode` 中几个没有文档的变量。参见 docs/Command_Templates.md 以获得可用的模板变量列表。
 
-20200816: The gcode macro "action_" system has changed. Replace any calls to `printer.gcode.action_emergency_stop()` with `action_emergency_stop()`, `printer.gcode.action_respond_info()` with `action_respond_info()`, and `printer.gcode.action_respond_error()` with `action_raise_error()`.
+20200816: gcode宏 "action_"系统已经改变。请用`action_emergency_stop()`替换所有`printer.gcode.action_emergency_stop()` ，用`action_respond_info()`替换所有`printer.gcode.action_respond_info()`，用`action_raise_error()`替换所有`printer.gcode.action_respond_error()`。
 
-20200809: The menu system has been rewritten. If the menu has been customized then it will be necessary to update to the new configuration. See config/example-menu.cfg for configuration details and see klippy/extras/display/menu.cfg for examples.
+20200809: 菜单系统已被重写。如果是定制菜单，那需要更新配置。配置细节见config/example-menu.cfg，例子见klippy/extras/display/menu.cfg。
 
-20200731: The behavior of the `progress` attribute reported by the `virtual_sdcard` printer object has changed. Progress is no longer reset to 0 when a print is paused. It will now always report progress based on the internal file position, or 0 if no file is currently loaded.
+20200731: `virtual_sdcard`打印机对象报告的`progress`属性的行为已经改变。当打印暂停时，进度不再被重置为0。现在它会始终根据已加载文件的读取位置来报告进度，如果当前没有加载文件，则报告0。
 
-20200725: The servo `enable` config parameter and the SET_SERVO `ENABLE` parameter have been removed. Update any macros to use `SET_SERVO SERVO=my_servo WIDTH=0` to disable a servo.
+20200725: 移除了舵机`enable`配置参数和SET_SERVO`ENABLE`参数。请更新所有宏，用`SET_SERVO SERVO=my_servo WIDTH=0`来禁用舵机。
 
-20200608: The LCD display support has changed the name of some internal "glyphs". If a custom display layout was implemented it may be necessary to update to the latest glyph names (see klippy/extras/display/display.cfg for a list of available glyphs).
+20200608: LCD显示支持部分改变了一些内部 "字形 "的名称。如果自定义了显示布局，可能需要更新到最新的字形名称（见klippy/extras/display/display.cfg中的可用字形列表）。
 
-20200606: The pin names on linux mcu have changed. Pins now have names of the form `gpiochip<chipid>/gpio<gpio>`. For gpiochip0 you can also use a short `gpio<gpio>`. For example, what was previously referred to as `P20` now becomes `gpio20` or `gpiochip0/gpio20`.
+20200606: 改变了linux mcu上的引脚名称。现在引脚的名称格式是`gpiochip<chipid>/gpio<gpio>`。对于gpiochip0，你也可以使用`gpio<gpio>`的缩写。例如，以前名字为`P20'，现在变成`gpio20'或`gpiochip0/gpio20'。
 
-20200603: The default 16x4 LCD layout will no longer show the estimated time remaining in a print. (Only the elapsed time will be shown.) If the old behavior is desired one can customize the menu display with that information (see the description of display_data in config/example-extras.cfg for details).
+20200603：默认的16x4 LCD布局将不再显示打印的预计剩余时间。(只显示已用时间。)如果需要旧的布局，可以用定制菜单显示该信息(详情见config/example-extras.cfg中display_data的描述)。
 
-20200531: The default USB vendor/product id is now 0x1d50/0x614e. These new ids are reserved for Klipper (thanks to the openmoko project). This change should not require any config changes, but the new ids may appear in system logs.
+20200531: 默认的USB厂商/产品ID现在是0x1d50/0x614e。这个新ID是为Klipper保留的（感谢openmoko项目）。这个变化不需要改变任何配置，但新的ID可能会出现在系统日志中。
 
-20200524: The default value for the tmc5160 pwm_freq field is now zero (instead of one).
+20200524：现在tmc5160的pwm_freq字段，默认值是0（而不是1）。
 
-20200425: The gcode_macro command template variable `printer.heater` was renamed to `printer.heaters`.
+20200425: gcode_macro命令模板变量`printer.heater`改命名为`printer.heaters`。
 
-20200313: The default lcd layout for multi-extruder printers with a 16x4 screen has changed. The single extruder screen layout is now the default and it will show the currently active extruder. To use the previous display layout set "display_group: _multiextruder_16x4" in the [display] section of the printer.cfg file.
+20200313: 改变多挤出机打印机16x4屏幕的默认液晶屏布局。现在默认是单个挤出机屏幕布局，用于显示当前活动的挤出机。要使用以前的显示布局，请设置printer.cfg文件中[display]部分的 "display_group: _multiextruder_16x4"。
 
-20200308: The default `__test` menu item was removed. If the config file has a custom menu then be sure to remove all references to this `__test` menu item.
+20200308：移除了默认的`__test`菜单项。如果配置文件中有自定义的菜单，那么请确保删除所有对这个`__test`菜单项的引用。
 
-20200308: The menu "deck" and "card" options were removed. To customize the layout of an lcd screen use the new display_data config sections (see config/example-extras.cfg for the details).
+20200308: 移除了菜单中的 "desk "和 "card "选项。要定制lcd屏幕的布局，请使用新的display_data配置部分（详见config/example-extras.cfg）。
 
-20200109: The bed_mesh module now references the probe's location in for the mesh configuration. As such, some configuration options have been renamed to more accurately reflect their intended functionality. For rectangular beds, `min_point` and `max_point` have been renamed to `mesh_min` and `mesh_max` respectively. For round beds, `bed_radius` has been renamed to `mesh_radius`. A new `mesh_origin` option has also been added for round beds. Note that these changes are also incompatible with previously saved mesh profiles. If an incompatible profile is detected it will be ignored and scheduled for removal. The removal process can be completed by issuing the SAVE_CONFIG command. The user will need to re-calibrate each profile.
+20200109: bed_mesh模块现在引用探头的位置来进行网格配置。因此，一些配置选项已被重新命名用于更准确地反映其功能。对于矩形床，`min_point'和`max_point'分别重新命名为`mesh_min'和`mesh_max'。对于圆形床，`bed_radius'重新命名为`mesh_radius'。对于圆形床，还增加了一个新的`mesh_origin'选项。请注意，这些变更与之前保存的网格配置文件不兼容。如果检测到一个不兼容的配置文件，此文件会被忽略并被删除。删除过程可以通过发出SAVE_CONFIG命令来完成。用户将需要重新校准每个床的图。
 
-20191218: The display config section no longer supports "lcd_type: st7567". Use the "uc1701" display type instead - set "lcd_type: uc1701" and change the "rs_pin: some_pin" to "rst_pin: some_pin". It may also be necessary to add a "contrast: 60" config setting.
+20191218: 显示配置部分不再支持 "lcd_type: st7567"。请使用 "uc1701 "显示类型代替：设置 "lcd_type: uc1701 "，将 "rs_pin: some_pin "改为 "rst_pin: some_pin"。可能还需要增加一个 "contrast: 60"的配置设置。
 
-20191210: The builtin T0, T1, T2, ... commands have been removed. The extruder activate_gcode and deactivate_gcode config options have been removed. If these commands (and scripts) are needed then define individual [gcode_macro T0] style macros that call the ACTIVATE_EXTRUDER command. See the config/sample-idex.cfg and sample-multi-extruder.cfg files for examples.
+20191210：删除了内置的T0、T1、T2...命令。移除了挤出机 activate_gcode 和 deactivate_gcode 配置选项。如果需要这些命令（和脚本），请定义单独的[gcode_macro T0]风格的宏，调用ACTIVATE_EXTRUDER命令。参见config/sample-idex.cfg和sample-multi-extruder.cfg文件中的例子。
 
-20191210: Support for the M206 command has been removed. Replace with calls to SET_GCODE_OFFSET. If support for M206 is needed, add a [gcode_macro M206] config section that calls SET_GCODE_OFFSET. (For example "SET_GCODE_OFFSET Z=-{params.Z}".)
+20191210：移除了对M206命令的支持。用调用SET_GCODE_OFFSET来代替。如果需要对M206的支持，请添加一个[gcode_macro M206]配置部分，调用SET_GCODE_OFFSET。(例如 "SET_GCODE_OFFSET Z=-{params.Z}"。)
 
-20191202: Support for the undocumented "S" parameter of the "G4" command has been removed. Replace any occurrences of S with the standard "P" parameter (the delay specified in milliseconds).
+20191202：移除了对 "G4 "命令中无标注的 "S "参数的支持。用标准的 "P "参数（以毫秒为单位的延迟）取代任何出现的S。
 
-20191126: The USB names have changed on micro-controllers with native USB support. They now use a unique chip id by default (where available). If an "mcu" config section uses a "serial" setting that starts with "/dev/serial/by-id/" then it may be necessary to update the config. Run "ls /dev/serial/by-id/*" in an ssh terminal to determine the new id.
+20191126：改变了那些原生USB支持的微控制器上的USB名称。现在默认使用唯一的芯片ID（如果可用）。如果 "MCU "配置部分使用以"/dev/serial/by-id/"开头的 "串口 "设置，那么可能有必要更新配置。在ssh终端运行 "ls /dev/serial/by-id/*"来确定新的id。
 
-20191121: The pressure_advance_lookahead_time parameter has been removed. See example.cfg for alternate configuration settings.
+20191121：移除了pressure_advance_lookahead_time参数。查看example.cfg以了解替代的配置设置。
 
-20191112: The tmc stepper driver virtual enable capability is now automatically enabled if the stepper does not have a dedicated stepper enable pin. Remove references to tmcXXXX:virtual_enable from the config. The ability to control multiple pins in the stepper enable_pin config has been removed. If multiple pins are needed then use a multi_pin config section.
+20191112：如果步进驱动器没有专用的步进电机使能引脚，那么就会自动启用tmc步进驱动器的虚拟使能功能。从配置中删除对tmcXXXX:virtual_enable的引用。移除了在步进驱动器 enable_pin 配置中控制多个引脚的能力。如果需要控制多个引脚，请使用multi_pin 配置部分。
 
-20191107: The primary extruder config section must be specified as "extruder" and may no longer be specified as "extruder0". Gcode command templates that query the extruder status are now accessed via "{printer.extruder}".
+20191107：主挤出机配置部分必须指定为 "extruder"，不得再指定为 "extruder0"。查询挤出机状态的Gcode命令模板现在可以通过"{printer.extruder}"访问。
 
-20191021: Klipper v0.8.0 released
+20191021: Klipper v0.8.0发布
 
-20191003: The move_to_previous option in [safe_z_homing] now defaults to False. (It was effectively False prior to 20190918.)
+20191003: [safe_z_homing] 中的 move_to_previous 选项现在默认为 False。(在20190918年之前，它实际上是False。)
 
-20190918: The zhop option in [safe_z_homing] is always re-applied after Z axis homing completed. This might need users to update custom scripts based on this module.
+20190918: [safe_z_homing]中的zhop选项总是在Z轴归位完成后重新应用。这可能需要用户更新基于此模块的自定义脚本。
 
-20190806: The SET_NEOPIXEL command has been renamed to SET_LED.
+20190806: SET_NEOPIXEL 命令已被重新命名为 SET_LED。
 
-20190726: The mcp4728 digital-to-analog code has changed. The default i2c_address is now 0x60 and the voltage reference is now relative to the mcp4728's internal 2.048 volt reference.
+20190726：更改了mcp4728的数模转换代码。默认的i2c_address现在是0x60，电压参考现在是相对于mcp4728的内部2.048V参考源。
 
-20190710: The z_hop option was removed from the [firmware_retract] config section. The z_hop support was incomplete and could cause incorrect behavior with several common slicers.
+20190710: 删除了[firmware_retract]配置部分中的z_hop选项。由于对z_hop的支持不完整，可能会导致几个常见切片软件的异常行为。
 
-20190710: The optional parameters of the PROBE_ACCURACY command have changed. It may be necessary to update any macros or scripts that use that command.
+20190710：改变了PROBE_ACCURACY命令的可选参数。如果宏或脚本使用了该命令，可能需要更新。
 
-20190628: All configuration options have been removed from the [skew_correction] section. Configuration for skew_correction is now done via the SET_SKEW gcode. See [Skew Correction](Skew_Correction.md) for recommended usage.
+20190628：移除了[skew_correction]部分所有的配置选项。现在，对skew_correction的配置是通过SET_SKEW gcode完成的。推荐使用方法请参见[倾斜校正](Skew_Correction.md)。
 
-20190607: The "variable_X" parameters of gcode_macro (along with the VALUE parameter of SET_GCODE_VARIABLE) are now parsed as Python literals. If a value needs to be assigned a string then wrap the value in quotes so that it is evaluated as a string.
+20190607: gcode_macro 的 "variable_X "参数（以及 SET_GCODE_VARIABLE 的 VALUE 参数）现在被解析为 Python 字符。如果一个值需要分配成字符串型，那么用引号包裹该值以确保它被解析为一个字符串。
 
-20190606: The "samples", "samples_result", and "sample_retract_dist" config options have been moved to the "probe" config section. These options are no longer supported in the "delta_calibrate", "bed_tilt", "bed_mesh", "screws_tilt_adjust", "z_tilt", or "quad_gantry_level" config sections.
+20190606: samples"、"samples_result "和 "samples_retract_dist "配置选项已被移至 "probe "配置部分。在 "delta_calibrate"、"bed_tilt"、"bed_mesh"、"screw_tilt_adjust"、"z_tilt "或 "quad_gantry_level "配置部分不再支持这些选项。
 
-20190528: The magic "status" variable in gcode_macro template evaluation has been renamed to "printer".
+20190528：gcode_macro模板评估中的特殊 "status "变量已更名为 "printer"。
 
-20190520: The SET_GCODE_OFFSET command has changed; update any g-code macros accordingly. The command will no longer apply the requested offset to the next G1 command. The old behavior may be approximated by using the new "MOVE=1" parameter.
+20190520: SET_GCODE_OFFSET命令已经改变，请相应地更新G代码宏。该命令将不再把要求的偏移量应用于下一个G1命令。旧的行为可以通过使用新的 "MOVE=1 "参数来近似实现。
 
-20190404: The Python host software packages were updated. Users will need to rerun the ~/klipper/scripts/install-octopi.sh script (or otherwise upgrade the python dependencies if not using a standard OctoPi installation).
+20190404：Python主机软件包已经更新。用户需要重新运行~/klipper/scripts/install-octopi.sh脚本（如果不使用标准的OctoPi安装，则需要升级Python的依赖关系）。
 
-20190404: The i2c_bus and spi_bus parameters (in various config sections) now take a bus name instead of a number.
+20190404：现在i2c_bus和spi_bus参数（在各个配置部分）采用总线名称而不是数字。
 
-20190404: The sx1509 config parameters have changed. The 'address' parameter is now 'i2c_address' and it must be specified as a decimal number. Where 0x3E was previously used, specify 62.
+20190404：变更了sx1509的配置参数。'address' 参数改名为 'i2c_address'且必须被指定为十进制数字。以前使用的是0x3E，现在则用62。
 
-20190328: The min_speed value in [temperature_fan] config will now be respected and the fan will always run at this speed or higher in PID mode.
+20190328：现在[temperature_fan]配置中的min_speed值将被使用，在PID模式下，风扇将始终以这个速度或更高的速度转动。
 
-20190322: The default value for "driver_HEND" in [tmc2660] config sections was changed from 6 to 3. The "driver_VSENSE" field was removed (it is now automatically calculated from run_current).
+20190322: [tmc2660] 配置部分中 "driver_HEND "的默认值从6改为3。"driver_VSENSE "字段被删除（从run_current中自动计算的）。
 
-20190310: The [controller_fan] config section now always takes a name (such as [controller_fan my_controller_fan]).
+20190310：现在[controller_fan]配置部分总是包含一个名字（例如[controller_fan my_controller_fan]）。
 
-20190308: The "driver_BLANK_TIME_SELECT" field in [tmc2130] and [tmc2208] config sections has been renamed to "driver_TBL".
+20190308：[tmc2130]和[tmc2208]配置部分中的 "driver_BLANK_TIME_SELECT "字段已被重新命名为 "driver_TBL"。
 
-20190308: The [tmc2660] config section has changed. A new sense_resistor config parameter must now be provided. The meaning of several of the driver_XXX parameters has changed.
+20190308：变更了[tmc2660]配置部分。现在必须提供一个新的sense_resistor配置参数。变更了几个driver_XXX参数的含义。
 
-20190228: Users of SPI or I2C on SAMD21 boards must now specify the bus pins via a [samd_sercom] config section.
+20190228: SAMD21板上的SPI或I2C现在必须通过[samd_sercom]配置部分指定总线引脚。
 
-20190224: The bed_shape option has been removed from bed_mesh. The radius option has been renamed to bed_radius. Users with round beds should supply the bed_radius and round_probe_count options.
+20190224: bed_shape选项已从bed_mesh中移除。半径（radius）选项已被重新命名为bed_radius。如果使用圆形床，需要提供bed_radius和round_probe_count选项。
 
-20190107: The i2c_address parameter in the mcp4451 config section changed. This is a common setting on Smoothieboards. The new value is half the old value (88 should be changed to 44, and 90 should be changed to 45).
+20190107：变更了mcp4451配置部分的i2c_address参数。这是Smoothieboards上的一个常规设置。新值是旧值的一半（88应改为44，而90应改为45）。
 
-20181220: Klipper v0.7.0 released
+20181220: Klipper v0.7.0发布

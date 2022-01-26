@@ -4,23 +4,23 @@ This document describes Klipper's Application Programmer Interface (API). This i
 
 ## Enabling the API socket
 
-In order to use the API server, the klippy.py host software must be started with the `-a` parameter. For example:
+Um den API-Server zu nutzen, muss die klippy.py Host-Software mit dem Parameter `-a` gestartet werden. Zum Beispiel:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 ```
 
-This causes the host software to create a Unix Domain Socket. A client can then open a connection on that socket and send commands to Klipper.
+Dies veranlasst die Host-Software, einen Unix Domain Socket zu erstellen. Ein Client kann dann eine Verbindung zu diesem Socket öffnen und Befehle an Klipper senden.
 
-## Request format
+## Anfrageformat
 
-Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:
+Über den Socket gesendete und empfangene Nachrichten sind JSON-kodierte Strings, die mit einem ASCII-Zeichen 0x03 abgeschlossen werden:
 
 ```
 <json_object_1><0x03><json_object_2><0x03>...
 ```
 
-Klipper contains a `scripts/whconsole.py` tool that can perform the above message framing. For example:
+Klipper beinhaltet ein Tool `scripts/whconsole.py`, das die oben genannte Meldung einrahmen kann. Zum Beispiel:
 
 ```
 ~/klipper/scripts/whconsole.py /tmp/klippy_uds
