@@ -1,14 +1,23 @@
-#
+# Dex94 <Dasvaresu@dr.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-01-26 09:56+0000\n"
+"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"bootloaders/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "This document provides information on common bootloaders found on micro-"
 "controllers that Klipper supports."
 msgstr ""
+"Questo documento fornisce informazioni sui bootloader comuni scoperti sui "
+"microcontrollori che sono supportati da Klipper."
 
 msgid ""
 "The bootloader is 3rd-party software that runs on the micro-controller when "
