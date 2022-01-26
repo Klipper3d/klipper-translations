@@ -1,14 +1,23 @@
-#
+# Dex94 <Dasvaresu@dr.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-01-26 09:56+0000\n"
+"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"config_reference/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
 "file."
 msgstr ""
+"Questo documento è un riferimento per le opzioni disponibili nel file di "
+"configurazione di Klipper."
 
 msgid ""
 "The descriptions in this document are formatted so that it is possible to "
