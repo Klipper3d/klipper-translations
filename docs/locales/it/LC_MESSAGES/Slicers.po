@@ -1,11 +1,11 @@
-# Dex94 <Dasvaresu@dr.com>, 2022.
+# Dex94 <Dasvaresu@dr.com>, 2022, 2025.
 # elovalvoc047faba7aa1427f <ernesto.lovalvo@unipa.it>, 2022.
 # Ale Ale <ale.99.ale@gmail.com>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:25+0000\n"
-"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
+"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/slicers/"
 "it/>\n"
 "Language: it\n"
@@ -19,9 +19,9 @@ msgid ""
 "use with Klipper. Common slicers used with Klipper are Slic3r, Cura, "
 "Simplify3D, etc."
 msgstr ""
-"Questo documento fornisce alcuni suggerimenti per configurare un'applicazione "
-"\"slicer\" da usare con Klipper. Gli slicer comuni usati con Klipper sono "
-"Slic3r, Cura, Simplify3D, ecc."
+"Questo documento fornisce alcuni suggerimenti per configurare "
+"un'applicazione \"slicer\" da usare con Klipper. Gli slicer comuni usati con "
+"Klipper sono Slic3r, Cura, Simplify3D, ecc."
 
 msgid "Set the G-Code flavor to Marlin"
 msgstr "Imposta il Gcode su variante Marlin"
