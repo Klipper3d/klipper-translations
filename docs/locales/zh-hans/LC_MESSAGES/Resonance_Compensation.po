@@ -1,15 +1,17 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Arda <pengfei.fu@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-12-25 07:16+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/resonance_compensation/zh_Hans/>\n"
+"PO-Revision-Date: 2022-01-26 07:54+0000\n"
+"Last-Translator: Arda <pengfei.fu@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/resonance_compensation/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid "Resonance Compensation"
 msgstr "共振补偿"
@@ -47,7 +49,7 @@ msgid ""
 msgstr ""
 
 msgid "Tuning"
-msgstr ""
+msgstr "调整"
 
 msgid ""
 "Basic tuning requires measuring the ringing frequencies of the printer and "
