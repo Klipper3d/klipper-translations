@@ -1,4 +1,4 @@
-# Protocol
+# Protocollo
 
 Il protocollo di messaggistica Klipper viene utilizzato per la comunicazione di basso livello tra il software host Klipper e il software microcontrollore Klipper. Ad alto livello il protocollo può essere pensato come una serie di stringhe di comando e risposta che vengono compresse, trasmesse e quindi elaborate sul lato ricevente. Una serie di esempio di comandi in formato non compresso leggibile dall'uomo potrebbe essere simile a:
 

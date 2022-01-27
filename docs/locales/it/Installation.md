@@ -2,11 +2,11 @@
 
 Queste istruzioni partono dal presupposto che Klipper girerà su un Raspberry Pi con OctoPrint. È consigliato l'utilizzo di un Raspberry Pi 2, 3 o 4 (vedi la [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) per utilizzare un hardware diverso).
 
-Klipper currently supports a number of Atmel ATmega based micro-controllers, [ARM based micro-controllers](Features.md#step-benchmarks), and [Beaglebone PRU](Beaglebone.md) based printers.
+Klipper attualmente supporta un certo numero di microcontrollori basati su Atmel ATmega, [ARM based micro-controllers](Features.md#step-benchmarks), e stampanti basate su [Beaglebone PRU](Beaglebone.md).
 
 ## Preparazione dell'immagine del sistema operativo
 
-Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry Pi computer. Use OctoPi v0.17.0 or later - see the [OctoPi releases](https://github.com/guysoft/OctoPi/releases) for release information. One should verify that OctoPi boots and that the OctoPrint web server works. After connecting to the OctoPrint web page, follow the prompt to upgrade OctoPrint to v1.4.2 or later.
+Iniziate installando [OctoPi](https://github.com/guysoft/OctoPi) sul computer Raspberry Pi. Usa OctoPi v0.17.0 o successivo - vedi [OctoPi releases](https://github.com/guysoft/OctoPi/releases) per informazioni sulla versione. Si dovrebbe verificare che OctoPi si avvii e che il server web OctoPrint funzioni. Dopo essersi collegati alla pagina web OctoPrint, segui la richiesta di aggiornare OctoPrint alla v1.4.2 o successiva.
 
 Dopo aver installato OctoPi ed aver aggiornato OctoPrint all'ultima versione sarà necessario loggarsi via ssh sul Raspberry (o altra macchina scelta per far girare klipper) per eseguire una manciata di comandi. Se stai utilizzando un sistema Linux o MacOS desktop, il programma "ssh" potrebbe già essere installato sul tuo sistema. Esistono vari client ssh disponibili (ad esempio [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Usa il programma ssh per connetterti al Raspberry Pi (ssh pi@octopi -- la password è "raspberry") ed esegui questi comandi:
 
@@ -74,7 +74,7 @@ Una volta connesso, vai nella scheda "Terminal" e scrivi il comando "status" (se
 
 ## Configurare Klipper
 
-The Klipper configuration is stored in a text file on the Raspberry Pi. Take a look at the example config files in the [config directory](../config/). The [Config Reference](Config_Reference.md) contains documentation on config parameters.
+La configurazione di Klipper è memorizzata in un file di testo su Raspberry Pi. Dai un'occhiata ai file di configurazione di esempio nella [directory config](../config/). Il [Config Reference](Config_Reference.md) contiene la documentazione sui parametri di configurazione.
 
 Probabilmente il modo più semplice per modificare il file di configurazione di Klipper è usare un editor di testo che supportti l'apertura di file su protocollo "SCP" e/o "SFTP". Esistono molti tool gratuiti che hanno questa caratteristica (es. Notepad++, WinSCP, Cyberduck). Usa i file config di esempio come punto di partenza e salva il file con il nome "printer.cfg" nella cartella home dell'utente pi (solitamente /home/pi/printer.cfg).
 
@@ -100,8 +100,8 @@ Klipper riferisce i messaggi di errore tramite il terminale di OctoPrint. Il com
 
 Oltre i comandi in stile g-code, Klipper supporta alcuni comandi aggiuntivi ("status" e "restart" sono alcuni esempi). Usa il comando "help" per avere una lista di altri comandi aggiuntivi.
 
-After Klipper reports that the printer is ready go on to the [config check document](Config_checks.md) to perform some basic checks on the pin definitions in the config file.
+Dopo che Klipper riporta che la stampante è pronta, vai al [config check document] (Config_checks.md) per eseguire alcuni controlli di base sulle definizioni dei pin nel file di configurazione.dei pin nel file di configurazione.
 
-## Contacting the developers
+## Contattare gli svilluppatori
 
-Be sure to see the [FAQ](FAQ.md) for answers to some common questions. See the [contact page](Contact.md) to report a bug or to contact the developers.
+Assicurati di vedere le [FAQ](FAQ.md) per le risposte ad alcune domande comuni. Vedi la [contact page](Contact.md) per segnalare un bug o per contattare gli sviluppatori.

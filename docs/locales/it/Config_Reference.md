@@ -1299,7 +1299,7 @@ Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#send-message-resp
 #   override the "default_type".
 ```
 
-## Resonance compensation
+## Compensazione della risonanza
 
 ### [input_shaper]
 

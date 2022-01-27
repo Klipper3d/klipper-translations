@@ -1,6 +1,6 @@
 # Fase di fine corsa
 
-This document describes Klipper's stepper phase adjusted endstop system. This functionality can improve the accuracy of traditional endstop switches. It is most useful when using a Trinamic stepper motor driver that has run-time configuration.
+Questo documento descrive il sistema di fine-corsa con regolazione della fase del passo di Klipper. Questa funzionalità può migliorare la precisione dei tradizionali interruttori di fine corsa. È più utile quando si usa un driver Trinamic per motori stepper che ha una configurazione run-time.
 
 A typical endstop switch has an accuracy of around 100 microns. (Each time an axis is homed the switch may trigger slightly earlier or slightly later.) Although this is a relatively small error, it can result in unwanted artifacts. In particular, this positional deviation may be noticeable when printing the first layer of an object. In contrast, typical stepper motors can obtain significantly higher precision.
 

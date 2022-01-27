@@ -1,6 +1,6 @@
 # Matrice del Piatto
 
-The Bed Mesh module may be used to compensate for bed surface irregularties to achieve a better first layer across the entire bed. It should be noted that software based correction will not achieve perfect results, it can only approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical and electrical issues. If an axis is skewed or a probe is not accurate then the bed_mesh module will not receive accurate results from the probing process.
+Il modulo Griglia Letto (bed mesh) può essere usato per compensare le irregolarità della superficie del letto e per ottenere un primo strato migliore su tutto il letto. Va notato che la correzione basata sul software non raggiungerà risultati perfetti, può solo approssimare la forma del letto. Griglia Letto inoltre non può compensare i problemi meccanici ed elettrici. Se un asse è obliquo o una sonda non è accurata, il modulo Griglia Letto non riceverà risultati accurati dal processo di ispezione.
 
 Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information.
 

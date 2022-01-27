@@ -1,6 +1,6 @@
-# Slicers
+# Affettatore
 
-This document provides some tips for configuring a "slicer" application for use with Klipper. Common slicers used with Klipper are Slic3r, Cura, Simplify3D, etc.
+Questo documento fornisce alcuni suggerimenti per configurare un'applicazione "slicer" da usare con Klipper. Gli slicer comuni usati con Klipper sono Slic3r, Cura, Simplify3D, ecc.
 
 ## Set the G-Code flavor to Marlin
 

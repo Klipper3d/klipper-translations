@@ -1,6 +1,6 @@
 # Contatti
 
-This document provides contact information for Klipper.
+Questo documento fornisce informazioni di contatto per Klipper.
 
 1. [Community Forum](#community-forum)
 1. [Discord Chat](#discord-chat)
