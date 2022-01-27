@@ -1,9 +1,16 @@
-#
+# Dex94 <Dasvaresu@dr.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-01-27 10:52+0000\n"
+"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"mcu_commands/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "This document provides information on the low-level micro-controller "
@@ -12,6 +19,11 @@ msgid ""
 " reference for these commands, nor is it an exclusive list of all available "
 "commands."
 msgstr ""
+"Questo documento fornisce informazioni sui comandi di basso livello del "
+"microcontrollore che sono inviati dal software \"host\" Klipper e processati "
+"dal software del microcontrollore Klipper. Questo documento non è un "
+"riferimento autorevole per questi comandi, né una lista esclusiva di tutti i "
+"comandi disponibili."
 
 msgid ""
 "This document may be useful for developers interested in understanding the "
@@ -342,7 +354,7 @@ msgstr ""
 
 #: docs/MCU_Commands.md:block 1 (header)
 msgid "MCU commands"
-msgstr ""
+msgstr "Comandi della MCU"
 
 #: docs/MCU_Commands.md:block 15 (unordered list)
 msgid ""

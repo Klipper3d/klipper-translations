@@ -1,18 +1,20 @@
 # Stefano Serioli <stefano.serioli@outlook.com>, 2021.
+# Dex94 <Dasvaresu@dr.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-09-07 15:08+0000\n"
-"Last-Translator: Stefano Serioli <stefano.serioli@outlook.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/contact/it/>\n"
+"PO-Revision-Date: 2022-01-27 10:52+0000\n"
+"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/contact/"
+"it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8.1-dev\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid "This document provides contact information for Klipper."
-msgstr ""
+msgstr "Questo documento fornisce informazioni di contatto per Klipper."
 
 msgid "[Community Forum](#community-forum)"
 msgstr ""

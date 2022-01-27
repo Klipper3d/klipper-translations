@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-26 09:56+0000\n"
+"PO-Revision-Date: 2022-01-27 10:52+0000\n"
 "Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/"
 "it/>\n"
@@ -1034,7 +1034,7 @@ msgid ""
 msgstr ""
 
 msgid "Resonance compensation"
-msgstr ""
+msgstr "Compensazione della risonanza"
 
 msgid ""
 "The following command is enabled if an [input_shaper config "

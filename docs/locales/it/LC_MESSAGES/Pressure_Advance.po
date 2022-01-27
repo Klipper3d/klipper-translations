@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-26 09:56+0000\n"
+"PO-Revision-Date: 2022-01-27 10:52+0000\n"
 "Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "pressure_advance/it/>\n"
@@ -210,4 +210,4 @@ msgstr ""
 
 #: docs/Pressure_Advance.md:block 1 (header)
 msgid "Pressure advance"
-msgstr ""
+msgstr "Anticipodi pressione"
