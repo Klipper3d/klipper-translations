@@ -1,6 +1,6 @@
 # Benchmarks
 
-This document describes Klipper benchmarks.
+Questo documento descrive i benchmark di Klipper.
 
 ## Micro-controller Benchmarks
 

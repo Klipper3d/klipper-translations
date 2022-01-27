@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-1. [How can I donate to the project?](#how-can-i-donate-to-the-project)
+1. [Come posso fare donazioni al progetto?](#how-can-i-donate-to-the-project)
 1. [How do I calculate the rotation_distance config parameter?](#how-do-i-calculate-the-rotation_distance-config-parameter)
 1. [Where's my serial port?](#wheres-my-serial-port)
 1. [When the micro-controller restarts the device changes to /dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1)
