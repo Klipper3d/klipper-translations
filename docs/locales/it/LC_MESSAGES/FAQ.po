@@ -1,12 +1,20 @@
-#
+# Dex94 <Dasvaresu@dr.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-01-27 10:52+0000\n"
+"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/faq/it/>"
+"\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid "[How can I donate to the project?](#how-can-i-donate-to-the-project)"
 msgstr ""
+"[Come posso fare donazioni al progetto?](#how-can-i-donate-to-the-project)"
 
 msgid ""
 "[How do I calculate the rotation_distance config parameter?](#how-do-i-"
@@ -702,18 +710,23 @@ msgid ""
 msgstr ""
 
 msgid "/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
-msgstr ""
+msgstr "/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 
 msgid ""
 "sudo service klipper stop\n"
 "make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 "sudo service klipper start\n"
 msgstr ""
+"sudo service klipper stop\n"
+"make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
+"sudo service klipper start\n"
 
 msgid ""
 "[mcu]\n"
 "serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 msgstr ""
+"[mcu]\n"
+"serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 
 msgid ""
 "[mcu]\n"

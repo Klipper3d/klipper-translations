@@ -1,22 +1,29 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Dex94 <Dasvaresu@dr.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-11-06 17:57+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/endstop_phase/it/>\n"
+"PO-Revision-Date: 2022-01-27 10:52+0000\n"
+"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"endstop_phase/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.11-dev\n"
 
+#, fuzzy
 msgid ""
 "This document describes Klipper's stepper phase adjusted endstop system. "
 "This functionality can improve the accuracy of traditional endstop switches."
 " It is most useful when using a Trinamic stepper motor driver that has run-"
 "time configuration."
 msgstr ""
+"Questo documento descrive il sistema di fine-corsa con regolazione della "
+"fase del passo di Klipper. Questa funzionalità può migliorare la precisione "
+"dei tradizionali interruttori di fine corsa. È più utile quando si usa un "
+"driver Trinamic per motori stepper che ha una configurazione run-time."
 
 msgid ""
 "A typical endstop switch has an accuracy of around 100 microns. (Each time "

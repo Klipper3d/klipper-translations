@@ -1,12 +1,19 @@
-#
+# Dex94 <Dasvaresu@dr.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-01-27 10:52+0000\n"
+"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"debugging/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid "This document describes some of the Klipper debugging tools."
-msgstr ""
+msgstr "Questo documento descrive alcuni degli strumenti di debug di Klipper."
 
 msgid "Translating gcode files to micro-controller commands"
 msgstr ""
