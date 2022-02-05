@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-19 08:09+0000\n"
+"PO-Revision-Date: 2022-02-05 18:57+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/command_templates/zh_Hans/>\n"
@@ -437,7 +437,7 @@ msgstr ""
 
 #: docs/Command_Templates.md:block 1 (header)
 msgid "Commands templates"
-msgstr ""
+msgstr "命令模板"
 
 #: docs/Command_Templates.md:block 28 (header)
 msgid "The \"rawparams\" variable"

@@ -1,10 +1,10 @@
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-21 23:54+0000\n"
-"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
+"PO-Revision-Date: 2022-02-05 18:57+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/debugging/zh_Hans/>\n"
 "Language: zh-hans\n"
@@ -255,7 +255,7 @@ msgstr ""
 
 #: docs/Debugging.md:block 1 (header)
 msgid "Debugging"
-msgstr ""
+msgstr "调试"
 
 #: docs/Debugging.md:block 24 (header)
 msgid "Motion analysis and data logging"
