@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-19 21:06+0000\n"
+"PO-Revision-Date: 2022-02-05 18:57+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/rotation_distance/zh_Hans/>\n"
@@ -262,7 +262,7 @@ msgstr ""
 
 #: docs/Rotation_Distance.md:block 1 (header)
 msgid "Rotation distance"
-msgstr ""
+msgstr "旋转距离"
 
 #: docs/Rotation_Distance.md:block 15 (ordered list)
 msgid ""

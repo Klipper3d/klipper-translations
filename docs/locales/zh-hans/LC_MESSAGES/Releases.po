@@ -1,10 +1,11 @@
 # Lantern Master <1013653797@qq.com>, 2021.
 # Arda <pengfei.fu@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-20 09:17+0000\n"
-"Last-Translator: Arda <pengfei.fu@gmail.com>\n"
+"PO-Revision-Date: 2022-02-05 18:57+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/releases/zh_Hans/>\n"
 "Language: zh-hans\n"
@@ -486,7 +487,7 @@ msgstr ""
 
 #: docs/Releases.md:block 1 (header)
 msgid "Releases"
-msgstr ""
+msgstr "版本发布"
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.10.0"

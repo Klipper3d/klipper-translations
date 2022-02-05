@@ -1,19 +1,20 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2021-12-25 07:16+0000\n"
+"PO-Revision-Date: 2022-02-05 18:57+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/canbus/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/canbus/zh_Hans/>\n"
 "Language: zh-hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid "This document describes Klipper's CAN bus support."
 msgstr "本文档描述了 Klipper 的 CAN 总线支持。"
@@ -154,7 +155,7 @@ msgstr ""
 
 #: docs/CANBUS.md:block 1 (header)
 msgid "CANBUS"
-msgstr "CANBUS"
+msgstr "CAN 总线"
 
 #: docs/CANBUS.md:block 8 (ordered list)
 msgid ""
