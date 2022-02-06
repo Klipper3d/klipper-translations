@@ -1,4 +1,4 @@
-# Debugging
+# 调试
 
 本文档描述了一些 Klipper 调试工具。
 

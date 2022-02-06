@@ -1,4 +1,4 @@
-# API server
+# API 服务器
 
 该文档介绍Klipper的应用开发者接口（API）功能。该接口允许外部应用程序访问和控制Klipper主机。
 

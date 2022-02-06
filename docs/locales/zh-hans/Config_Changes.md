@@ -103,7 +103,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20200308: 移除了菜单中的 "desk "和 "card "选项。要定制lcd屏幕的布局，请使用新的display_data配置部分（详见config/example-extras.cfg）。
 
-20200109: bed_mesh模块现在引用探头的位置来进行网格配置。因此，一些配置选项已被重新命名用于更准确地反映其功能。对于矩形床，`min_point'和`max_point'分别重新命名为`mesh_min'和`mesh_max'。对于圆形床，`bed_radius'重新命名为`mesh_radius'。对于圆形床，还增加了一个新的`mesh_origin'选项。请注意，这些变更与之前保存的网格配置文件不兼容。如果检测到一个不兼容的配置文件，此文件会被忽略并被删除。删除过程可以通过发出SAVE_CONFIG命令来完成。用户将需要重新校准每个床的图。
+20200109: bed_mesh 模块现在引用探针的位置来进行网格配置。因此，一些配置选项已被重新命名以更准确地反映其功能。对于矩形床，`min_point'和`max_point`分别重新命名为`mesh_min`和`mesh_max`。对于圆形床，`bed_radius`重新命名为`mesh_radius`。对于圆形床，还增加了一个新的`mesh_origin`选项。请注意，这些变更与之前保存的网格配置文件不兼容。如果检测到一个不兼容的配置文件，此文件会被忽略并被删除。删除过程可以通过发出 SAVE_CONFIG 命令来完成。用户将需要重新校准每个床的网床配置。
 
 20191218: 显示配置部分不再支持 "lcd_type: st7567"。请使用 "uc1701 "显示类型代替：设置 "lcd_type: uc1701 "，将 "rs_pin: some_pin "改为 "rst_pin: some_pin"。可能还需要增加一个 "contrast: 60"的配置设置。
 

@@ -1,4 +1,4 @@
-# CANBUS
+# CAN 总线
 
 本文档描述了 Klipper 的 CAN 总线支持。
 
