@@ -1,4 +1,4 @@
-# Kinematics
+# 运动学
 
 该文档提供Klipper实现机械[运动学](https://en.wikipedia.org/wiki/Kinematics)控制的概述，以供 致力于完善Klipper的开发者 或 希望对自己的设备的机械原理有进一步了解的爱好者 参考。
 
@@ -54,7 +54,7 @@ end_velocity^2 = start_velocity^2 + 2*accel*move_distance
 
 ### 预计算结果平滑
 
-Klipper
+Klipper 实现了一种用于平滑短距离之字形移动的机制。参考以下移动：
 
 ![zigzag](img/zigzag.svg.png)
 

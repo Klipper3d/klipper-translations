@@ -1,4 +1,4 @@
-# Commands templates
+# 命令模板
 
 本文档描述了 gcode_macro（和其他类似）配置分段中实现 G-Code 命令序列的方法。
 

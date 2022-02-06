@@ -1,4 +1,4 @@
-# Rotation distance
+# 旋转距离
 
 Klipper 上的步进电机驱动器在每个 [步进配置部分](Config_Reference.md#stepper) 中都需要一个 `rotation_distance` 参数。 `rotation_distance` 是步进电机旋转一整圈时轴移动的距离。本文档描述了如何配置此值。
 
