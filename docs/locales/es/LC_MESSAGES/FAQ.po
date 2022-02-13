@@ -75,12 +75,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"[When I set \"restart_method=command\" my AVR device just hangs on a "
-"restart](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-"
-"restart)"
-msgstr ""
-
-msgid ""
 "[Will the heaters be left on if the Raspberry Pi crashes?](#will-the-"
 "heaters-be-left-on-if-the-raspberry-pi-crashes)"
 msgstr ""
@@ -436,10 +430,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"When I set \"restart_method=command\" my AVR device just hangs on a restart"
-msgstr ""
-
-msgid ""
 "Some old versions of the AVR bootloader have a known bug in watchdog event "
 "handling. This typically manifests when the printer.cfg file has "
 "restart_method set to \"command\". When the bug occurs, the AVR device will "
@@ -778,6 +768,28 @@ msgid ""
 "connect that power supply to the Pi. If you get \"under voltage\" warnings "
 "from OctoPrint, this is related to the power supply and it must be fixed."
 msgstr ""
+
+#: docs/FAQ.md:block 2 (ordered list)
+msgid ""
+"[When I set `restart_method=command` my AVR device just hangs on a "
+"restart](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-"
+"restart)"
+msgstr ""
+
+#: docs/FAQ.md:block 62 (header)
+msgid ""
+"When I set `restart_method=command` my AVR device just hangs on a restart"
+msgstr ""
+
+#~ msgid ""
+#~ "[When I set \"restart_method=command\" my AVR device just hangs on a "
+#~ "restart](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-"
+#~ "restart)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "When I set \"restart_method=command\" my AVR device just hangs on a restart"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "If using a Raspberry Pi, use a [good quality power "

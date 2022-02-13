@@ -117,15 +117,6 @@ msgid "To check the pin number and the pin availability tun:"
 msgstr "핀 번호와 핀 가용성 확인하려면 다음을 실행합니다:"
 
 msgid ""
-"The chosen pin can thus be used within the configuration as "
-"`gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the "
-"`gpiodetect` command and **o** is the line number seen by the` gpioinfo` "
-"command."
-msgstr ""
-"따라서 선택한 핀은 구성 내에서 `gpiochip<n>/gpio<o>`로 사용할 수 있습니다. 여기서 **n**은 `gpiodetect`"
-" 명령으로 볼 수 있는 칩 번호이고 **o**는 `gpioinfo` 명령으로 볼 수 라인 번호입니다."
-
-msgid ""
 "***Warning:*** only gpio marked as `unused` can be used. It is not possible "
 "for a *line* to be used by multiple processes simultaneously."
 msgstr ""
@@ -398,18 +389,6 @@ msgstr ""
 msgid "RPi microcontroller"
 msgstr "RPi microcontroller"
 
-#: docs/RPi_microcontroller.md:block 10 (header)
-msgid "Enabling SPI"
-msgstr "SPI 활성화"
-
-#: docs/RPi_microcontroller.md:block 11 (paragraph)
-msgid ""
-"Make sure the Linux SPI driver is enabled by running sudo raspi-config and "
-"enabling SPI under the \"Interfacing options\" menu."
-msgstr ""
-"sudo raspi-config를 실행하고 \"인터페이싱 옵션\" 메뉴에서 SPI를 활성화하여 Linux SPI 드라이버가 활성화되어 "
-"있는지 확인합니다."
-
 #: docs/RPi_microcontroller.md:block 44 (paragraph)
 msgid ""
 "PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and "
@@ -459,6 +438,43 @@ msgstr ""
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "19"
 msgstr ""
+
+#: docs/RPi_microcontroller.md:block 20 (header)
+msgid "Optional: Enabling SPI"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 21 (paragraph)
+msgid ""
+"Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and"
+" enabling SPI under the \"Interfacing options\" menu."
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 30 (paragraph)
+msgid ""
+"The chosen pin can thus be used within the configuration as "
+"`gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the "
+"`gpiodetect` command and **o** is the line number seen by the`gpioinfo` "
+"command."
+msgstr ""
+
+#~ msgid ""
+#~ "The chosen pin can thus be used within the configuration as "
+#~ "`gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the "
+#~ "`gpiodetect` command and **o** is the line number seen by the` gpioinfo` "
+#~ "command."
+#~ msgstr ""
+#~ "따라서 선택한 핀은 구성 내에서 `gpiochip<n>/gpio<o>`로 사용할 수 있습니다. 여기서 **n**은 `gpiodetect`"
+#~ " 명령으로 볼 수 있는 칩 번호이고 **o**는 `gpioinfo` 명령으로 볼 수 라인 번호입니다."
+
+#~ msgid "Enabling SPI"
+#~ msgstr "SPI 활성화"
+
+#~ msgid ""
+#~ "Make sure the Linux SPI driver is enabled by running sudo raspi-config and "
+#~ "enabling SPI under the \"Interfacing options\" menu."
+#~ msgstr ""
+#~ "sudo raspi-config를 실행하고 \"인터페이싱 옵션\" 메뉴에서 SPI를 활성화하여 Linux SPI 드라이버가 활성화되어 "
+#~ "있는지 확인합니다."
 
 #~ msgid ""
 #~ "PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and "

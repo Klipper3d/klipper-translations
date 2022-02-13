@@ -252,11 +252,6 @@ msgid ""
 "area."
 msgstr ""
 
-msgid ""
-"See the [bed mesh guide](Bed_Mesh.md) and [command "
-"reference](G-Codes.md#mesh-bed-leveling) for additional information."
-msgstr ""
-
 msgid "Visual Examples:"
 msgstr ""
 
@@ -269,22 +264,12 @@ msgid ""
 "bed_tilt are incompatible; both cannot be defined."
 msgstr ""
 
-msgid ""
-"See the [command reference](G-Codes.md#bed-tilt) for additional information."
-msgstr ""
-
 msgid "[bed_screws]"
 msgstr ""
 
 msgid ""
 "Tool to help adjust bed leveling screws. One may define a [bed_screws] "
 "config section to enable a BED_SCREWS_ADJUST g-code command."
-msgstr ""
-
-msgid ""
-"See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and "
-"[command reference](G-Codes.md#bed-screws-helper) for additional "
-"information."
 msgstr ""
 
 msgid "[screws_tilt_adjust]"
@@ -296,20 +281,7 @@ msgid ""
 "command."
 msgstr ""
 
-msgid ""
-"See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-"
-"using-the-bed-probe) and [command reference](G-Codes.md#bed-screws-tilt-"
-"adjust-helper) for additional information."
-msgstr ""
-
 msgid "[z_tilt]"
-msgstr ""
-
-msgid ""
-"Multiple Z stepper tilt adjustment. This feature enables independent "
-"adjustment of multiple z steppers (see the \"stepper_z1\" section) to adjust"
-" for tilt. If this section is present then a Z_TILT_ADJUST extended [G-Code "
-"command](G-Codes.md#z-tilt) becomes available."
 msgstr ""
 
 msgid "[quad_gantry_level]"
@@ -354,12 +326,6 @@ msgid ""
 "ENDSTOP_PHASE_CALIBRATE command."
 msgstr ""
 
-msgid ""
-"See the [endstop phases guide](Endstop_Phase.md) and [command "
-"reference](G-Codes.md#endstop-adjustments-by-stepper-phase) for additional "
-"information."
-msgstr ""
-
 msgid "G-Code macros and events"
 msgstr ""
 
@@ -375,19 +341,7 @@ msgstr ""
 msgid "[delayed_gcode]"
 msgstr ""
 
-msgid ""
-"Execute a gcode on a set delay. See the [command template "
-"guide](Command_Templates.md#delayed-gcodes) and [command "
-"reference](G-Codes.md#delayed-gcode) for more information."
-msgstr ""
-
 msgid "[save_variables]"
-msgstr ""
-
-msgid ""
-"Support saving variables to disk so that they are retained across restarts. "
-"See [command templates](Command_Templates.md#save-variables-to-disk) and "
-"[G-Code reference](G-Codes.md#save-variables) for further information."
 msgstr ""
 
 msgid "[idle_timeout]"
@@ -421,38 +375,13 @@ msgid ""
 " a chain or other repeated pattern)."
 msgstr ""
 
-msgid ""
-"See the [command reference](G-Codes.md#sdcard-loop) for supported commands. "
-"See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin "
-"compatible M808 G-Code macro."
-msgstr ""
-
 msgid "[force_move]"
-msgstr ""
-
-msgid ""
-"Support manually moving stepper motors for diagnostic purposes. Note, using "
-"this feature may place the printer in an invalid state - see the [command "
-"reference](G-Codes.md#force-movement) for important details."
 msgstr ""
 
 msgid "[pause_resume]"
 msgstr ""
 
-msgid ""
-"Pause/Resume functionality with support of position capture and restore. See"
-" the [command reference](G-Codes.md#pause-resume) for more information."
-msgstr ""
-
 msgid "[firmware_retraction]"
-msgstr ""
-
-msgid ""
-"Firmware filament retraction. This enables G10 (retract) and G11 (unretract)"
-" GCODE commands issued by many slicers. The parameters below provide startup"
-" defaults, although the values can be adjusted via the SET_RETRACTION "
-"[command](G-Codes.md#firmware-retraction)), allowing per-filament settings "
-"and runtime tuning."
 msgstr ""
 
 msgid "[gcode_arcs]"
@@ -464,46 +393,16 @@ msgstr ""
 msgid "[respond]"
 msgstr ""
 
-msgid ""
-"Enable the \"M118\" and \"RESPOND\" extended [commands](G-Codes.md#send-"
-"message-respond-to-host)."
-msgstr ""
-
 msgid "Resonance compensation"
 msgstr ""
 
 msgid "[input_shaper]"
 msgstr ""
 
-msgid ""
-"Enables [resonance compensation](Resonance_Compensation.md). Also see the "
-"[command reference](G-Codes.md#resonance-compensation)."
-msgstr ""
-
 msgid "[adxl345]"
 msgstr ""
 
-msgid ""
-"Support for ADXL345 accelerometers. This support allows one to query "
-"accelerometer measurements from the sensor. This enables an "
-"ACCELEROMETER_MEASURE command (see "
-"[G-Codes](G-Codes.md#adxl345-accelerometer-commands) for more information). "
-"The default chip name is \"default\", but one may specify an explicit name "
-"(eg, [adxl345 my_chip_name])."
-msgstr ""
-
 msgid "[resonance_tester]"
-msgstr ""
-
-msgid ""
-"Support for resonance testing and automatic input shaper calibration. In "
-"order to use most of the functionality of this module, additional software "
-"dependencies must be installed; refer to [Measuring "
-"Resonances](Measuring_Resonances.md) and the [command "
-"reference](G-Codes.md#resonance-testing-commands) for more information. See "
-"the [Max smoothing](Measuring_Resonances.md#max-smoothing) section of the "
-"measuring resonances guide for more information on `max_smoothing` parameter"
-" and its use."
 msgstr ""
 
 msgid "Config file helpers"
@@ -610,21 +509,7 @@ msgid ""
 "(one may define any number of sections with an \"extruder_stepper\" prefix)."
 msgstr ""
 
-msgid ""
-"See the [command reference](G-Codes.md#extruder-stepper-commands) for more "
-"information."
-msgstr ""
-
 msgid "[manual_stepper]"
-msgstr ""
-
-msgid ""
-"Manual steppers (one may define any number of sections with a "
-"\"manual_stepper\" prefix). These are steppers that are controlled by the "
-"MANUAL_STEPPER g-code command. For example: \"MANUAL_STEPPER "
-"STEPPER=my_stepper MOVE=10 SPEED=5\". See [G-Codes](G-Codes.md#manual-"
-"stepper-commands) file for a description of the MANUAL_STEPPER command. The "
-"steppers are not connected to the normal printer kinematics."
 msgstr ""
 
 msgid "Custom heaters and sensors"
@@ -674,13 +559,6 @@ msgid ""
 msgstr ""
 
 msgid "[heater_generic]"
-msgstr ""
-
-msgid ""
-"Generic heaters (one may define any number of sections with a "
-"\"heater_generic\" prefix). These heaters behave similarly to standard "
-"heaters (extruders, heated beds). Use the SET_HEATER_TEMPERATURE command "
-"(see [G-Codes](G-Codes.md) for details) to set the target temperature."
 msgstr ""
 
 msgid "[temperature_sensor]"
@@ -750,12 +628,6 @@ msgstr ""
 msgid "LM75 temperature sensor"
 msgstr ""
 
-msgid ""
-"LM75/LM75A two wire (I2C) connected temperature sensors. These sensors have "
-"range up to 125 C, so are usable for e.g. chamber temperature monitoring. "
-"They can also function as simple fan/heater controllers."
-msgstr ""
-
 msgid "Builtin micro-controller temperature sensor"
 msgstr ""
 
@@ -817,19 +689,7 @@ msgid ""
 "default, a temperature_fan has a shutdown_speed equal to max_power."
 msgstr ""
 
-msgid ""
-"See the [command reference](G-Codes.md#temperature-fan-commands) for "
-"additional information."
-msgstr ""
-
 msgid "[fan_generic]"
-msgstr ""
-
-msgid ""
-"Manually controlled fan (one may define any number of sections with a "
-"\"fan_generic\" prefix). The speed of a manually controlled fan is set with "
-"the SET_FAN_SPEED [gcode command](G-Codes.md#manually-controlled-fans-"
-"commands)."
 msgstr ""
 
 msgid "Additional servos, LEDs, buttons, and other pins"
@@ -838,31 +698,10 @@ msgstr ""
 msgid "[servo]"
 msgstr ""
 
-msgid ""
-"Servos (one may define any number of sections with a \"servo\" prefix). The "
-"servos may be controlled using the SET_SERVO [g-code "
-"command](G-Codes.md#servo-commands). For example: SET_SERVO SERVO=my_servo "
-"ANGLE=180"
-msgstr ""
-
 msgid "[neopixel]"
 msgstr ""
 
-msgid ""
-"Neopixel (aka WS2812) LED support (one may define any number of sections "
-"with a \"neopixel\" prefix). One may set the LED color via \"SET_LED "
-"LED=my_neopixel RED=0.1 GREEN=0.1 BLUE=0.1\" type extended [g-code "
-"commands](G-Codes.md#neopixel-and-dotstar-commands)."
-msgstr ""
-
 msgid "[dotstar]"
-msgstr ""
-
-msgid ""
-"Dotstar (aka APA102) LED support (one may define any number of sections with"
-" a \"dotstar\" prefix). One may set the LED color via \"SET_LED "
-"LED=my_dotstar RED=0.1 GREEN=0.1 BLUE=0.1\" type extended [g-code "
-"commands](G-Codes.md#neopixel-and-dotstar-commands)."
 msgstr ""
 
 msgid "[PCA9533]"
@@ -881,13 +720,6 @@ msgid ""
 msgstr ""
 
 msgid "[output_pin]"
-msgstr ""
-
-msgid ""
-"Run-time configurable output pins (one may define any number of sections "
-"with an \"output_pin\" prefix). Pins configured here will be setup as output"
-" pins and one may modify them at run-time using \"SET_PIN PIN=my_pin "
-"VALUE=.1\" type extended [g-code commands](G-Codes.md#custom-pin-commands)."
 msgstr ""
 
 msgid "[static_digital_output]"
@@ -914,12 +746,6 @@ msgid ""
 msgstr ""
 
 msgid "TMC stepper driver configuration"
-msgstr ""
-
-msgid ""
-"Configuration of Trinamic stepper motor drivers in UART/SPI mode. Additional"
-" information is in the [TMC Drivers guide](TMC_Drivers.md) and in the "
-"[command reference](G-Codes.md#tmc-stepper-drivers)."
 msgstr ""
 
 msgid "[tmc2130]"
@@ -1141,11 +967,6 @@ msgstr ""
 msgid ""
 "Filament Switch Sensor. Support for filament insert and runout detection "
 "using a switch sensor, such as an endstop switch."
-msgstr ""
-
-msgid ""
-"See the [command reference](G-Codes.md#filament-sensor) for more "
-"information."
 msgstr ""
 
 msgid "[filament_motion_sensor]"
@@ -1845,22 +1666,6 @@ msgid ""
 "#   stepper will home until the endstop is triggered. Otherwise, the\n"
 "#   stepper will home until the endstop on the primary stepper for the\n"
 "#   axis is triggered.\n"
-msgstr ""
-
-msgid ""
-"[extruder1]\n"
-"#step_pin:\n"
-"#dir_pin:\n"
-"#...\n"
-"#   See the \"extruder\" section for available stepper and heater\n"
-"#   parameters.\n"
-"#shared_heater:\n"
-"#   If this extruder uses the same heater already defined for another\n"
-"#   extruder then place the name of that extruder here. For example,\n"
-"#   should extruder3 and extruder4 share a heater then the extruder3\n"
-"#   config section should define the heater and the extruder4 section\n"
-"#   should specify \"shared_heater: extruder3\". The default is to not\n"
-"#   reuse an existing heater.\n"
 msgstr ""
 
 msgid ""
@@ -3466,16 +3271,6 @@ msgid ""
 "#   0.5.\n"
 msgstr ""
 
-#: docs/Config_Reference.md:block 103 (paragraph)
-msgid ""
-"Printer Skew Correction. It is possible to use software to correct printer "
-"skew across 3 planes, xy, xz, yz. This is done by printing a calibration "
-"model along a plane and measuring three lengths. Due to the nature of skew "
-"correction these lengths are set via gcode. See [Skew "
-"Correction](Skew_Correction.md) and [Command Reference](G-Codes.md#skew-"
-"correction) for details."
-msgstr ""
-
 #: docs/Config_Reference.md:block 375 (paragraph)
 msgid ""
 "Hall filament width sensor (see [Hall Filament Width "
@@ -4467,6 +4262,432 @@ msgid ""
 "#   This parameter controls the CFG5 pin of the stepper motor driver\n"
 "#   (True sets CFG5 high, False sets it low). The default is True.\n"
 msgstr ""
+
+#: docs/Config_Reference.md:block 78 (paragraph)
+msgid ""
+"See the [bed mesh guide](Bed_Mesh.md) and [command "
+"reference](G-Codes.md#bed_mesh) for additional information."
+msgstr ""
+
+#: docs/Config_Reference.md:block 84 (paragraph)
+msgid ""
+"See the [command reference](G-Codes.md#bed_tilt) for additional information."
+msgstr ""
+
+#: docs/Config_Reference.md:block 88 (paragraph)
+msgid ""
+"See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and "
+"[command reference](G-Codes.md#bed_screws) for additional information."
+msgstr ""
+
+#: docs/Config_Reference.md:block 92 (paragraph)
+msgid ""
+"See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-"
+"using-the-bed-probe) and [command reference](G-Codes.md#screws_tilt_adjust) "
+"for additional information."
+msgstr ""
+
+#: docs/Config_Reference.md:block 95 (paragraph)
+msgid ""
+"Multiple Z stepper tilt adjustment. This feature enables independent "
+"adjustment of multiple z steppers (see the \"stepper_z1\" section) to adjust"
+" for tilt. If this section is present then a Z_TILT_ADJUST extended [G-Code "
+"command](G-Codes.md#z_tilt) becomes available."
+msgstr ""
+
+#: docs/Config_Reference.md:block 103 (paragraph)
+msgid ""
+"Printer Skew Correction. It is possible to use software to correct printer "
+"skew across 3 planes, xy, xz, yz. This is done by printing a calibration "
+"model along a plane and measuring three lengths. Due to the nature of skew "
+"correction these lengths are set via gcode. See [Skew "
+"Correction](Skew_Correction.md) and [Command "
+"Reference](G-Codes.md#skew_correction) for details."
+msgstr ""
+
+#: docs/Config_Reference.md:block 114 (paragraph)
+msgid ""
+"See the [endstop phases guide](Endstop_Phase.md) and [command "
+"reference](G-Codes.md#endstop_phase) for additional information."
+msgstr ""
+
+#: docs/Config_Reference.md:block 121 (paragraph)
+msgid ""
+"Execute a gcode on a set delay. See the [command template "
+"guide](Command_Templates.md#delayed-gcodes) and [command "
+"reference](G-Codes.md#delayed_gcode) for more information."
+msgstr ""
+
+#: docs/Config_Reference.md:block 124 (paragraph)
+msgid ""
+"Support saving variables to disk so that they are retained across restarts. "
+"See [command templates](Command_Templates.md#save-variables-to-disk) and "
+"[G-Code reference](G-Codes.md#save_variables) for further information."
+msgstr ""
+
+#: docs/Config_Reference.md:block 135 (paragraph)
+msgid ""
+"See the [command reference](G-Codes.md#sdcard_loop) for supported commands. "
+"See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin "
+"compatible M808 G-Code macro."
+msgstr ""
+
+#: docs/Config_Reference.md:block 138 (paragraph)
+msgid ""
+"Support manually moving stepper motors for diagnostic purposes. Note, using "
+"this feature may place the printer in an invalid state - see the [command "
+"reference](G-Codes.md#force_move) for important details."
+msgstr ""
+
+#: docs/Config_Reference.md:block 141 (paragraph)
+msgid ""
+"Pause/Resume functionality with support of position capture and restore. See"
+" the [command reference](G-Codes.md#pause_resume) for more information."
+msgstr ""
+
+#: docs/Config_Reference.md:block 144 (paragraph)
+msgid ""
+"Firmware filament retraction. This enables G10 (retract) and G11 (unretract)"
+" GCODE commands issued by many slicers. The parameters below provide startup"
+" defaults, although the values can be adjusted via the SET_RETRACTION "
+"[command](G-Codes.md#firmware_retraction)), allowing per-filament settings "
+"and runtime tuning."
+msgstr ""
+
+#: docs/Config_Reference.md:block 150 (paragraph)
+msgid "Enable the \"M118\" and \"RESPOND\" extended [commands](G-Codes.md#respond)."
+msgstr ""
+
+#: docs/Config_Reference.md:block 154 (paragraph)
+msgid ""
+"Enables [resonance compensation](Resonance_Compensation.md). Also see the "
+"[command reference](G-Codes.md#input_shaper)."
+msgstr ""
+
+#: docs/Config_Reference.md:block 157 (paragraph)
+msgid ""
+"Support for ADXL345 accelerometers. This support allows one to query "
+"accelerometer measurements from the sensor. This enables an "
+"ACCELEROMETER_MEASURE command (see [G-Codes](G-Codes.md#adxl345) for more "
+"information). The default chip name is \"default\", but one may specify an "
+"explicit name (eg, [adxl345 my_chip_name])."
+msgstr ""
+
+#: docs/Config_Reference.md:block 160 (paragraph)
+msgid ""
+"Support for resonance testing and automatic input shaper calibration. In "
+"order to use most of the functionality of this module, additional software "
+"dependencies must be installed; refer to [Measuring "
+"Resonances](Measuring_Resonances.md) and the [command "
+"reference](G-Codes.md#resonance_tester) for more information. See the [Max "
+"smoothing](Measuring_Resonances.md#max-smoothing) section of the measuring "
+"resonances guide for more information on `max_smoothing` parameter and its "
+"use."
+msgstr ""
+
+#: docs/Config_Reference.md:block 186 (code)
+msgid ""
+"[extruder1]\n"
+"#step_pin:\n"
+"#dir_pin:\n"
+"#...\n"
+"#   See the \"extruder\" section for available stepper and heater\n"
+"#   parameters.\n"
+"#shared_heater:\n"
+"#   This option is deprecated and should no longer be specified.\n"
+msgstr ""
+
+#: docs/Config_Reference.md:block 193 (paragraph)
+msgid "See the [command reference](G-Codes.md#extruder) for more information."
+msgstr ""
+
+#: docs/Config_Reference.md:block 196 (paragraph)
+msgid ""
+"Manual steppers (one may define any number of sections with a "
+"\"manual_stepper\" prefix). These are steppers that are controlled by the "
+"MANUAL_STEPPER g-code command. For example: \"MANUAL_STEPPER "
+"STEPPER=my_stepper MOVE=10 SPEED=5\". See "
+"[G-Codes](G-Codes.md#manual_stepper) file for a description of the "
+"MANUAL_STEPPER command. The steppers are not connected to the normal printer"
+" kinematics."
+msgstr ""
+
+#: docs/Config_Reference.md:block 212 (paragraph)
+msgid ""
+"Generic heaters (one may define any number of sections with a "
+"\"heater_generic\" prefix). These heaters behave similarly to standard "
+"heaters (extruders, heated beds). Use the SET_HEATER_TEMPERATURE command "
+"(see [G-Codes](G-Codes.md#heaters) for details) to set the target "
+"temperature."
+msgstr ""
+
+#: docs/Config_Reference.md:block 238 (paragraph)
+msgid ""
+"LM75/LM75A two wire (I2C) connected temperature sensors. These sensors have "
+"a range of -55~125 C, so are usable for e.g. chamber temperature monitoring."
+" They can also function as simple fan/heater controllers."
+msgstr ""
+
+#: docs/Config_Reference.md:block 261 (paragraph)
+msgid ""
+"See the [command reference](G-Codes.md#temperature_fan) for additional "
+"information."
+msgstr ""
+
+#: docs/Config_Reference.md:block 264 (paragraph)
+msgid ""
+"Manually controlled fan (one may define any number of sections with a "
+"\"fan_generic\" prefix). The speed of a manually controlled fan is set with "
+"the SET_FAN_SPEED [gcode command](G-Codes.md#fan_generic)."
+msgstr ""
+
+#: docs/Config_Reference.md:block 268 (paragraph)
+msgid ""
+"Servos (one may define any number of sections with a \"servo\" prefix). The "
+"servos may be controlled using the SET_SERVO [g-code "
+"command](G-Codes.md#servo). For example: SET_SERVO SERVO=my_servo ANGLE=180"
+msgstr ""
+
+#: docs/Config_Reference.md:block 271 (paragraph)
+msgid ""
+"Neopixel (aka WS2812) LED support (one may define any number of sections "
+"with a \"neopixel\" prefix). One may set the LED color via \"SET_LED "
+"LED=my_neopixel RED=0.1 GREEN=0.1 BLUE=0.1\" type extended [g-code "
+"commands](G-Codes.md#neopixel)."
+msgstr ""
+
+#: docs/Config_Reference.md:block 274 (paragraph)
+msgid ""
+"Dotstar (aka APA102) LED support (one may define any number of sections with"
+" a \"dotstar\" prefix). One may set the LED color via \"SET_LED "
+"LED=my_dotstar RED=0.1 GREEN=0.1 BLUE=0.1\" type extended [g-code "
+"commands](G-Codes.md#neopixel)."
+msgstr ""
+
+#: docs/Config_Reference.md:block 283 (paragraph)
+msgid ""
+"Run-time configurable output pins (one may define any number of sections "
+"with an \"output_pin\" prefix). Pins configured here will be setup as output"
+" pins and one may modify them at run-time using \"SET_PIN PIN=my_pin "
+"VALUE=.1\" type extended [g-code commands](G-Codes.md#output_pin)."
+msgstr ""
+
+#: docs/Config_Reference.md:block 292 (paragraph)
+msgid ""
+"Configuration of Trinamic stepper motor drivers in UART/SPI mode. Additional"
+" information is in the [TMC Drivers guide](TMC_Drivers.md) and in the "
+"[command reference](G-Codes.md#tmcxxxx)."
+msgstr ""
+
+#: docs/Config_Reference.md:block 365 (paragraph)
+msgid ""
+"See the [command reference](G-Codes.md#filament_switch_sensor) for more "
+"information."
+msgstr ""
+
+#~ msgid ""
+#~ "See the [bed mesh guide](Bed_Mesh.md) and [command "
+#~ "reference](G-Codes.md#mesh-bed-leveling) for additional information."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "See the [command reference](G-Codes.md#bed-tilt) for additional information."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and "
+#~ "[command reference](G-Codes.md#bed-screws-helper) for additional "
+#~ "information."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-"
+#~ "using-the-bed-probe) and [command reference](G-Codes.md#bed-screws-tilt-"
+#~ "adjust-helper) for additional information."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Multiple Z stepper tilt adjustment. This feature enables independent "
+#~ "adjustment of multiple z steppers (see the \"stepper_z1\" section) to adjust"
+#~ " for tilt. If this section is present then a Z_TILT_ADJUST extended [G-Code "
+#~ "command](G-Codes.md#z-tilt) becomes available."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "See the [endstop phases guide](Endstop_Phase.md) and [command "
+#~ "reference](G-Codes.md#endstop-adjustments-by-stepper-phase) for additional "
+#~ "information."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Execute a gcode on a set delay. See the [command template "
+#~ "guide](Command_Templates.md#delayed-gcodes) and [command "
+#~ "reference](G-Codes.md#delayed-gcode) for more information."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Support saving variables to disk so that they are retained across restarts. "
+#~ "See [command templates](Command_Templates.md#save-variables-to-disk) and "
+#~ "[G-Code reference](G-Codes.md#save-variables) for further information."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "See the [command reference](G-Codes.md#sdcard-loop) for supported commands. "
+#~ "See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin "
+#~ "compatible M808 G-Code macro."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Support manually moving stepper motors for diagnostic purposes. Note, using "
+#~ "this feature may place the printer in an invalid state - see the [command "
+#~ "reference](G-Codes.md#force-movement) for important details."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Pause/Resume functionality with support of position capture and restore. See"
+#~ " the [command reference](G-Codes.md#pause-resume) for more information."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Firmware filament retraction. This enables G10 (retract) and G11 (unretract)"
+#~ " GCODE commands issued by many slicers. The parameters below provide startup"
+#~ " defaults, although the values can be adjusted via the SET_RETRACTION "
+#~ "[command](G-Codes.md#firmware-retraction)), allowing per-filament settings "
+#~ "and runtime tuning."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Enable the \"M118\" and \"RESPOND\" extended [commands](G-Codes.md#send-"
+#~ "message-respond-to-host)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Enables [resonance compensation](Resonance_Compensation.md). Also see the "
+#~ "[command reference](G-Codes.md#resonance-compensation)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Support for ADXL345 accelerometers. This support allows one to query "
+#~ "accelerometer measurements from the sensor. This enables an "
+#~ "ACCELEROMETER_MEASURE command (see "
+#~ "[G-Codes](G-Codes.md#adxl345-accelerometer-commands) for more information). "
+#~ "The default chip name is \"default\", but one may specify an explicit name "
+#~ "(eg, [adxl345 my_chip_name])."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Support for resonance testing and automatic input shaper calibration. In "
+#~ "order to use most of the functionality of this module, additional software "
+#~ "dependencies must be installed; refer to [Measuring "
+#~ "Resonances](Measuring_Resonances.md) and the [command "
+#~ "reference](G-Codes.md#resonance-testing-commands) for more information. See "
+#~ "the [Max smoothing](Measuring_Resonances.md#max-smoothing) section of the "
+#~ "measuring resonances guide for more information on `max_smoothing` parameter"
+#~ " and its use."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "See the [command reference](G-Codes.md#extruder-stepper-commands) for more "
+#~ "information."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Manual steppers (one may define any number of sections with a "
+#~ "\"manual_stepper\" prefix). These are steppers that are controlled by the "
+#~ "MANUAL_STEPPER g-code command. For example: \"MANUAL_STEPPER "
+#~ "STEPPER=my_stepper MOVE=10 SPEED=5\". See [G-Codes](G-Codes.md#manual-"
+#~ "stepper-commands) file for a description of the MANUAL_STEPPER command. The "
+#~ "steppers are not connected to the normal printer kinematics."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Generic heaters (one may define any number of sections with a "
+#~ "\"heater_generic\" prefix). These heaters behave similarly to standard "
+#~ "heaters (extruders, heated beds). Use the SET_HEATER_TEMPERATURE command "
+#~ "(see [G-Codes](G-Codes.md) for details) to set the target temperature."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "LM75/LM75A two wire (I2C) connected temperature sensors. These sensors have "
+#~ "range up to 125 C, so are usable for e.g. chamber temperature monitoring. "
+#~ "They can also function as simple fan/heater controllers."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "See the [command reference](G-Codes.md#temperature-fan-commands) for "
+#~ "additional information."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Manually controlled fan (one may define any number of sections with a "
+#~ "\"fan_generic\" prefix). The speed of a manually controlled fan is set with "
+#~ "the SET_FAN_SPEED [gcode command](G-Codes.md#manually-controlled-fans-"
+#~ "commands)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Servos (one may define any number of sections with a \"servo\" prefix). The "
+#~ "servos may be controlled using the SET_SERVO [g-code "
+#~ "command](G-Codes.md#servo-commands). For example: SET_SERVO SERVO=my_servo "
+#~ "ANGLE=180"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Neopixel (aka WS2812) LED support (one may define any number of sections "
+#~ "with a \"neopixel\" prefix). One may set the LED color via \"SET_LED "
+#~ "LED=my_neopixel RED=0.1 GREEN=0.1 BLUE=0.1\" type extended [g-code "
+#~ "commands](G-Codes.md#neopixel-and-dotstar-commands)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Dotstar (aka APA102) LED support (one may define any number of sections with"
+#~ " a \"dotstar\" prefix). One may set the LED color via \"SET_LED "
+#~ "LED=my_dotstar RED=0.1 GREEN=0.1 BLUE=0.1\" type extended [g-code "
+#~ "commands](G-Codes.md#neopixel-and-dotstar-commands)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Run-time configurable output pins (one may define any number of sections "
+#~ "with an \"output_pin\" prefix). Pins configured here will be setup as output"
+#~ " pins and one may modify them at run-time using \"SET_PIN PIN=my_pin "
+#~ "VALUE=.1\" type extended [g-code commands](G-Codes.md#custom-pin-commands)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Configuration of Trinamic stepper motor drivers in UART/SPI mode. Additional"
+#~ " information is in the [TMC Drivers guide](TMC_Drivers.md) and in the "
+#~ "[command reference](G-Codes.md#tmc-stepper-drivers)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "See the [command reference](G-Codes.md#filament-sensor) for more "
+#~ "information."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[extruder1]\n"
+#~ "#step_pin:\n"
+#~ "#dir_pin:\n"
+#~ "#...\n"
+#~ "#   See the \"extruder\" section for available stepper and heater\n"
+#~ "#   parameters.\n"
+#~ "#shared_heater:\n"
+#~ "#   If this extruder uses the same heater already defined for another\n"
+#~ "#   extruder then place the name of that extruder here. For example,\n"
+#~ "#   should extruder3 and extruder4 share a heater then the extruder3\n"
+#~ "#   config section should define the heater and the extruder4 section\n"
+#~ "#   should specify \"shared_heater: extruder3\". The default is to not\n"
+#~ "#   reuse an existing heater.\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Printer Skew Correction. It is possible to use software to correct printer "
+#~ "skew across 3 planes, xy, xz, yz. This is done by printing a calibration "
+#~ "model along a plane and measuring three lengths. Due to the nature of skew "
+#~ "correction these lengths are set via gcode. See [Skew "
+#~ "Correction](Skew_Correction.md) and [Command Reference](G-Codes.md#skew-"
+#~ "correction) for details."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "POLAR KINEMATICS ARE A WORK IN PROGRESS. Moves around the `0,0` position are"

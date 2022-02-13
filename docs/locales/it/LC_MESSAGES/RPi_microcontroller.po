@@ -6,8 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2022-01-27 10:52+0000\n"
 "Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
-"rpi_microcontroller/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/rpi_microcontroller/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -138,16 +137,6 @@ msgstr "Per controllare i gpiochip disponibili eseguire:"
 
 msgid "To check the pin number and the pin availability tun:"
 msgstr "Per verificare il numero di pin e la disponibilità dei pin:"
-
-msgid ""
-"The chosen pin can thus be used within the configuration as "
-"`gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the "
-"`gpiodetect` command and **o** is the line number seen by the` gpioinfo` "
-"command."
-msgstr ""
-"Il pin scelto può quindi essere usato all'interno della configurazione come "
-"`gpiochip<n>/gpio<o>` dove **n** è il numero del chip visto dal comando "
-"`gpiodetect` e **o** è il numero della linea visto dal comando` gpioinfo`."
 
 msgid ""
 "***Warning:*** only gpio marked as `unused` can be used. It is not possible "
@@ -351,16 +340,6 @@ msgstr ""
 msgid "RPi microcontroller"
 msgstr "Microcontrollore RPi"
 
-#: docs/RPi_microcontroller.md:block 10 (header)
-msgid "Enabling SPI"
-msgstr "Abilitazione di SPI"
-
-#: docs/RPi_microcontroller.md:block 11 (paragraph)
-msgid ""
-"Make sure the Linux SPI driver is enabled by running sudo raspi-config and "
-"enabling SPI under the \"Interfacing options\" menu."
-msgstr ""
-
 #: docs/RPi_microcontroller.md:block 44 (paragraph)
 msgid ""
 "PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and "
@@ -410,6 +389,42 @@ msgstr ""
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "19"
 msgstr ""
+
+#: docs/RPi_microcontroller.md:block 20 (header)
+msgid "Optional: Enabling SPI"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 21 (paragraph)
+msgid ""
+"Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and"
+" enabling SPI under the \"Interfacing options\" menu."
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 30 (paragraph)
+msgid ""
+"The chosen pin can thus be used within the configuration as "
+"`gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the "
+"`gpiodetect` command and **o** is the line number seen by the`gpioinfo` "
+"command."
+msgstr ""
+
+#~ msgid ""
+#~ "The chosen pin can thus be used within the configuration as "
+#~ "`gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the "
+#~ "`gpiodetect` command and **o** is the line number seen by the` gpioinfo` "
+#~ "command."
+#~ msgstr ""
+#~ "Il pin scelto può quindi essere usato all'interno della configurazione come "
+#~ "`gpiochip<n>/gpio<o>` dove **n** è il numero del chip visto dal comando "
+#~ "`gpiodetect` e **o** è il numero della linea visto dal comando` gpioinfo`."
+
+#~ msgid "Enabling SPI"
+#~ msgstr "Abilitazione di SPI"
+
+#~ msgid ""
+#~ "Make sure the Linux SPI driver is enabled by running sudo raspi-config and "
+#~ "enabling SPI under the \"Interfacing options\" menu."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and "

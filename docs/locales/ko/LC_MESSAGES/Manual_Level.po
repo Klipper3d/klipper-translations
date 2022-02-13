@@ -323,10 +323,6 @@ msgstr ""
 msgid "rear right screw must be turned counter-clockwise 50 minutes"
 msgstr ""
 
-#: docs/Manual_Level.md:block 37 (unordered list)
-msgid "read left screw must be turned clockwise 2 minutes (not need it's ok)"
-msgstr ""
-
 #: docs/Manual_Level.md:block 15 (code)
 msgid ""
 "[bed_screws]\n"
@@ -361,6 +357,13 @@ msgid ""
 "speed: 50.\n"
 "screw_thread: CW-M3\n"
 msgstr ""
+
+#: docs/Manual_Level.md:block 37 (unordered list)
+msgid "rear left screw must be turned clockwise 2 minutes (not need it's ok)"
+msgstr ""
+
+#~ msgid "read left screw must be turned clockwise 2 minutes (not need it's ok)"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "[bed_screws]\n"

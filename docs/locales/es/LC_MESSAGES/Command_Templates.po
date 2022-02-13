@@ -40,11 +40,6 @@ msgid ""
 "\"G-Code macro\" if not specified. For example:"
 msgstr ""
 
-msgid ""
-"This will be showing is you use the `HELP` command or use the autocomplete "
-"function."
-msgstr ""
-
 msgid "Save/Restore state for G-Code moves"
 msgstr ""
 
@@ -462,6 +457,17 @@ msgid ""
 "  {% endfor %}\n"
 "  RESTORE_GCODE_STATE NAME=clean_nozzle_state\n"
 msgstr ""
+
+#: docs/Command_Templates.md:block 12 (paragraph)
+msgid ""
+"The terminal will display the description when you use the `HELP` command or"
+" the autocomplete function."
+msgstr ""
+
+#~ msgid ""
+#~ "This will be showing is you use the `HELP` command or use the autocomplete "
+#~ "function."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "[gcode_macro clean_nozzle]\n"

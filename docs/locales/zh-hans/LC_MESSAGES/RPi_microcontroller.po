@@ -119,15 +119,6 @@ msgid "To check the pin number and the pin availability tun:"
 msgstr "要检查针脚编号和针脚可用性，请运行："
 
 msgid ""
-"The chosen pin can thus be used within the configuration as "
-"`gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the "
-"`gpiodetect` command and **o** is the line number seen by the` gpioinfo` "
-"command."
-msgstr ""
-"因此，所选引脚可以在配置中用 `gpiochip<n>/gpio<o>`引用，其中 **n** 是由 `gpiodetect` "
-"命令看到的芯片编号**o** 是 ` gpioinfo` 命令看到的行号。"
-
-msgid ""
 "***Warning:*** only gpio marked as `unused` can be used. It is not possible "
 "for a *line* to be used by multiple processes simultaneously."
 msgstr "***警告：***只有标记为`unused`的 gpio 才可以被使用。一条*线路*不可能被多个进程同时使用。"
@@ -395,18 +386,6 @@ msgstr "这将为树莓派上的 gpio12 引脚添加硬件 PWM 控制（因为ov
 msgid "RPi microcontroller"
 msgstr "RPi 微控制器"
 
-#: docs/RPi_microcontroller.md:block 10 (header)
-msgid "Enabling SPI"
-msgstr "启用 SPI"
-
-#: docs/RPi_microcontroller.md:block 11 (paragraph)
-msgid ""
-"Make sure the Linux SPI driver is enabled by running sudo raspi-config and "
-"enabling SPI under the \"Interfacing options\" menu."
-msgstr ""
-"通过运行 sudo raspi-config 并在\"Interfacing Options\"菜单下启用 SPI，确保Linux "
-"SPI驱动程序被启用。"
-
 #: docs/RPi_microcontroller.md:block 44 (paragraph)
 msgid ""
 "PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and "
@@ -456,6 +435,43 @@ msgstr "13"
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "19"
 msgstr "19"
+
+#: docs/RPi_microcontroller.md:block 20 (header)
+msgid "Optional: Enabling SPI"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 21 (paragraph)
+msgid ""
+"Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and"
+" enabling SPI under the \"Interfacing options\" menu."
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 30 (paragraph)
+msgid ""
+"The chosen pin can thus be used within the configuration as "
+"`gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the "
+"`gpiodetect` command and **o** is the line number seen by the`gpioinfo` "
+"command."
+msgstr ""
+
+#~ msgid ""
+#~ "The chosen pin can thus be used within the configuration as "
+#~ "`gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the "
+#~ "`gpiodetect` command and **o** is the line number seen by the` gpioinfo` "
+#~ "command."
+#~ msgstr ""
+#~ "因此，所选引脚可以在配置中用 `gpiochip<n>/gpio<o>`引用，其中 **n** 是由 `gpiodetect` "
+#~ "命令看到的芯片编号**o** 是 ` gpioinfo` 命令看到的行号。"
+
+#~ msgid "Enabling SPI"
+#~ msgstr "启用 SPI"
+
+#~ msgid ""
+#~ "Make sure the Linux SPI driver is enabled by running sudo raspi-config and "
+#~ "enabling SPI under the \"Interfacing options\" menu."
+#~ msgstr ""
+#~ "通过运行 sudo raspi-config 并在\"Interfacing Options\"菜单下启用 SPI，确保Linux "
+#~ "SPI驱动程序被启用。"
 
 #~ msgid ""
 #~ "PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and "

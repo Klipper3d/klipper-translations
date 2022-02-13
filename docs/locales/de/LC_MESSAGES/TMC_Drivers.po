@@ -356,13 +356,6 @@ msgid "Querying and diagnosing driver settings"
 msgstr ""
 
 msgid ""
-"The `[DUMP_TMC command](G-Codes.md#tmc-stepper-drivers) is a useful tool "
-"when configuring and diagnosing the drivers. It will report all fields "
-"configured by Klipper as well as all fields that can be queried from the "
-"driver."
-msgstr ""
-
-msgid ""
 "All of the reported fields are defined in the Trinamic datasheet for each "
 "driver. These datasheets can be found on the [Trinamic "
 "website](https://www.trinamic.com/). Obtain and review the Trinamic "
@@ -377,11 +370,6 @@ msgid ""
 " settings. The [TMC driver config reference](Config_Reference.md#tmc-"
 "stepper-driver-configuration) has the full list of fields available for each"
 " type of driver."
-msgstr ""
-
-msgid ""
-"In addition, almost all fields can be modified at run-time using the "
-"[SET_TMC_FIELD command](G-Codes.md#tmc-stepper-drivers)."
 msgstr ""
 
 msgid ""
@@ -685,14 +673,6 @@ msgid ""
 "sufficiently long."
 msgstr ""
 
-#: docs/TMC_Drivers.md:block 11 (paragraph)
-msgid ""
-"If one wishes to reduce current to motors during print start routines, then "
-"consider issuing [SET_TMC_CURRENT](G-Codes.md#tmc-stepper-drivers) commands "
-"in a [START_PRINT macro](Slicers.md#klipper-gcode_macro) to adjust the "
-"current before and after normal printing moves."
-msgstr ""
-
 #: docs/TMC_Drivers.md:block 12 (paragraph)
 msgid ""
 "Some printers with dedicated Z motors that are idle during normal printing "
@@ -793,6 +773,46 @@ msgid ""
 "When using sensorless homing on CoreXY, make sure there is no `hold_current`"
 " configured for either stepper."
 msgstr ""
+
+#: docs/TMC_Drivers.md:block 11 (paragraph)
+msgid ""
+"If one wishes to reduce current to motors during print start routines, then "
+"consider issuing [SET_TMC_CURRENT](G-Codes.md#set_tmc_current) commands in a"
+" [START_PRINT macro](Slicers.md#klipper-gcode_macro) to adjust the current "
+"before and after normal printing moves."
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 81 (paragraph)
+msgid ""
+"The `[DUMP_TMC command](G-Codes.md#dump_tmc) is a useful tool when "
+"configuring and diagnosing the drivers. It will report all fields configured"
+" by Klipper as well as all fields that can be queried from the driver."
+msgstr ""
+
+#: docs/TMC_Drivers.md:block 85 (paragraph)
+msgid ""
+"In addition, almost all fields can be modified at run-time using the "
+"[SET_TMC_FIELD command](G-Codes.md#set_tmc_field)."
+msgstr ""
+
+#~ msgid ""
+#~ "The `[DUMP_TMC command](G-Codes.md#tmc-stepper-drivers) is a useful tool "
+#~ "when configuring and diagnosing the drivers. It will report all fields "
+#~ "configured by Klipper as well as all fields that can be queried from the "
+#~ "driver."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In addition, almost all fields can be modified at run-time using the "
+#~ "[SET_TMC_FIELD command](G-Codes.md#tmc-stepper-drivers)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If one wishes to reduce current to motors during print start routines, then "
+#~ "consider issuing [SET_TMC_CURRENT](G-Codes.md#tmc-stepper-drivers) commands "
+#~ "in a [START_PRINT macro](Slicers.md#klipper-gcode_macro) to adjust the "
+#~ "current before and after normal printing moves."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "It can also be useful to have that macro set the driver current before "

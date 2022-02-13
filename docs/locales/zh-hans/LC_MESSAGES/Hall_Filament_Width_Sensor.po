@@ -5,8 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2022-01-19 21:06+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"klipper/hall_filament_width_sensor/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/hall_filament_width_sensor/zh_Hans/>\n"
 "Language: zh-hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -72,12 +71,6 @@ msgstr "在配置参数`Raw_dia1`和`Raw_dia2`中写入原始传感器值"
 msgid "By default, the sensor is disabled at power-on."
 msgstr "传感器在开机时默认被禁用。"
 
-#: docs/HallFilamentWidthSensor.md:block 27 (paragraph)
-msgid ""
-"To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
-"the `enable` parameter to `true.`"
-msgstr "要启用传感器，请发送**ENABLE_FILAMENT_WIDTH_SENSOR**命令或将`enable`配置参数改为`true`"
-
 #: docs/HallFilamentWidthSensor.md:block 29 (paragraph)
 msgid "By default, diameter logging is disabled at power-on."
 msgstr "直径记录在开机时默认被禁用。"
@@ -88,8 +81,7 @@ msgid ""
 "**DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at"
 " power-on, set the `logging` parameter to `true`."
 msgstr ""
-"发送**ENABLE_FILAMENT_WIDTH_LOG**命令开始记录，发送**DISABLE_FILAMENT_WIDTH_LOG**命令停止记录。"
-"如果想在开机时启用日志记录，请将`logging`配置参数设置为`true`。"
+"发送**ENABLE_FILAMENT_WIDTH_LOG**命令开始记录，发送**DISABLE_FILAMENT_WIDTH_LOG**命令停止记录。如果想在开机时启用日志记录，请将`logging`配置参数设置为`true`。"
 
 #: docs/HallFilamentWidthSensor.md:block 31 (paragraph)
 msgid ""
@@ -105,8 +97,7 @@ msgid ""
 "operation: two hall sensors work in differential mode, temperature drift "
 "same for sensor. Special temperature compensation not needed."
 msgstr ""
-"本文件介绍了耗材宽度传感器的主机模块。用于开发该主机模块的硬件基于两个霍尔线性传感器（例如，ss49e）。设备内的两个传感器位于两侧。工作原理：两个霍尔传"
-"感器以差分模式工作，由于传感器的温度漂移相同。不需要特殊的温度补偿。"
+"本文件介绍了耗材宽度传感器的主机模块。用于开发该主机模块的硬件基于两个霍尔线性传感器（例如，ss49e）。设备内的两个传感器位于两侧。工作原理：两个霍尔传感器以差分模式工作，由于传感器的温度漂移相同。不需要特殊的温度补偿。"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 3 (paragraph)
 msgid ""
@@ -114,18 +105,7 @@ msgid ""
 "[Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video "
 "is also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
-"你可以在[Thingiverse](https://www.thingiverse.com/"
-"thing:4138933)上找到设计，在[Youtube](https://www.youtube.com/"
-"watch?v=TDO9tME8vp4)上也有一个装配视频"
-
-#: docs/Hall_Filament_Width_Sensor.md:block 4 (paragraph)
-msgid ""
-"To use Hall filament width sensor, read [Config "
-"Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
-"documentation](G-Codes.md#Hall_Filament_Width_Sensor_Commands)."
-msgstr ""
-"要使用霍尔耗材线径传感器，请阅读[配置参考](Config_Reference.md#hall_filament_width_sensor)和[G-"
-"Code 文档](G-Code.md#Hall_Filament_Width_Sensor_Commands)。"
+"你可以在[Thingiverse](https://www.thingiverse.com/thing:4138933)上找到设计，在[Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)上也有一个装配视频"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 6 (paragraph)
 msgid ""
@@ -135,14 +115,40 @@ msgid ""
 "connector on ramps-like board analog11 and analog12 pins. You can use "
 "different pins and differenr boards."
 msgstr ""
-"传感器根据两个模拟输出计算出耗材直径。检测到的电压之和始终对应耗材宽度。主机模块监测电压变化并调整挤出倍率。"
-"我在类似ramps的控制板上使用aux2连接器的 analog11和analog12引脚，你也可以使用不同的引脚和不同的控制板。"
+"传感器根据两个模拟输出计算出耗材直径。检测到的电压之和始终对应耗材宽度。主机模块监测电压变化并调整挤出倍率。我在类似ramps的控制板上使用aux2连接器的"
+" analog11和analog12引脚，你也可以使用不同的引脚和不同的控制板。"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 10 (paragraph)
 msgid ""
 "To get raw sensor value you can use menu item or "
 "**QUERY_RAW_FILAMENT_WIDTH** command in terminal."
 msgstr "要获得原始传感器值，你可以使用菜单中的选项或在终端发送**QUERY_RAW_FILAMENT_WIDTH**命令。"
+
+#: docs/Hall_Filament_Width_Sensor.md:block 4 (paragraph)
+msgid ""
+"To use Hall filament width sensor, read [Config "
+"Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
+"documentation](G-Codes.md#hall_filament_width_sensor)."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 14 (paragraph)
+msgid ""
+"To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
+"the `enable` parameter to `true`."
+msgstr ""
+
+#~ msgid ""
+#~ "To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
+#~ "the `enable` parameter to `true.`"
+#~ msgstr "要启用传感器，请发送**ENABLE_FILAMENT_WIDTH_SENSOR**命令或将`enable`配置参数改为`true`"
+
+#~ msgid ""
+#~ "To use Hall filament width sensor, read [Config "
+#~ "Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
+#~ "documentation](G-Codes.md#Hall_Filament_Width_Sensor_Commands)."
+#~ msgstr ""
+#~ "要使用霍尔耗材线径传感器，请阅读[配置参考](Config_Reference.md#hall_filament_width_sensor)和[G-Code"
+#~ " 文档](G-Code.md#Hall_Filament_Width_Sensor_Commands)。"
 
 #~ msgid ""
 #~ "[Hall based filament width sensor assembly "

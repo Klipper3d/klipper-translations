@@ -53,12 +53,6 @@ msgstr ""
 msgid "By default, the sensor is disabled at power-on."
 msgstr ""
 
-#: docs/HallFilamentWidthSensor.md:block 27 (paragraph)
-msgid ""
-"To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
-"the `enable` parameter to `true.`"
-msgstr ""
-
 #: docs/HallFilamentWidthSensor.md:block 29 (paragraph)
 msgid "By default, diameter logging is disabled at power-on."
 msgstr ""
@@ -92,13 +86,6 @@ msgid ""
 "is also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
 
-#: docs/Hall_Filament_Width_Sensor.md:block 4 (paragraph)
-msgid ""
-"To use Hall filament width sensor, read [Config "
-"Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
-"documentation](G-Codes.md#Hall_Filament_Width_Sensor_Commands)."
-msgstr ""
-
 #: docs/Hall_Filament_Width_Sensor.md:block 6 (paragraph)
 msgid ""
 "Sensor generates two analog output based on calculated filament width. Sum "
@@ -113,6 +100,30 @@ msgid ""
 "To get raw sensor value you can use menu item or "
 "**QUERY_RAW_FILAMENT_WIDTH** command in terminal."
 msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 4 (paragraph)
+msgid ""
+"To use Hall filament width sensor, read [Config "
+"Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
+"documentation](G-Codes.md#hall_filament_width_sensor)."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 14 (paragraph)
+msgid ""
+"To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
+"the `enable` parameter to `true`."
+msgstr ""
+
+#~ msgid ""
+#~ "To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
+#~ "the `enable` parameter to `true.`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To use Hall filament width sensor, read [Config "
+#~ "Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
+#~ "documentation](G-Codes.md#Hall_Filament_Width_Sensor_Commands)."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "[Hall based filament width sensor assembly "

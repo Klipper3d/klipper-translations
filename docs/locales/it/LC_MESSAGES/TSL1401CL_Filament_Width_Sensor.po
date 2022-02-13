@@ -4,8 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2022-01-27 10:52+0000\n"
 "Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
-"tsl1401cl_filament_width_sensor/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/tsl1401cl_filament_width_sensor/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -40,16 +39,22 @@ msgid ""
 "[Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor)."
 msgstr ""
 
+#: docs/TSL1401CL_Filament_Width_Sensor.md:block 6 (header)
+msgid "Note:"
+msgstr ""
+
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 3 (paragraph)
 msgid ""
 "To use a sensor array as a filament width sensor, read [Config "
 "Reference](Config_Reference.md#tsl1401cl_filament_width_sensor) and [G-Code "
-"documentation](G-Codes.md#Filament_Width_Sensor_Commands)."
+"documentation](G-Codes.md#hall_filament_width_sensor)."
 msgstr ""
 
-#: docs/TSL1401CL_Filament_Width_Sensor.md:block 6 (header)
-msgid "Note:"
-msgstr ""
+#~ msgid ""
+#~ "To use a sensor array as a filament width sensor, read [Config "
+#~ "Reference](Config_Reference.md#tsl1401cl_filament_width_sensor) and [G-Code "
+#~ "documentation](G-Codes.md#Filament_Width_Sensor_Commands)."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "This document describes Filament Width Sensor host module. Hardware used for"

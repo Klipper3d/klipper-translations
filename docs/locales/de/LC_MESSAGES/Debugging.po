@@ -67,17 +67,6 @@ msgid ""
 "cpu to run efficiently."
 msgstr ""
 
-msgid ""
-"To use simulavr, download the simulavr package and compile with python "
-"support:"
-msgstr ""
-
-msgid ""
-"Note that the build system may need to have some packages (such as swig) "
-"installed in order to build the python module. Make sure the file "
-"**src/python/_pysimulavr.so** is present after the above compilation."
-msgstr ""
-
 msgid "To compile Klipper for use in simulavr, run:"
 msgstr ""
 
@@ -189,14 +178,6 @@ msgstr ""
 msgid ""
 "~/klippy-env/bin/python ./klippy/parsedump.py out/klipper.dict test.serial >"
 " test.txt\n"
-msgstr ""
-
-msgid ""
-"git clone git://git.savannah.nongnu.org/simulavr.git\n"
-"cd simulavr\n"
-"./bootstrap\n"
-"./configure --enable-python\n"
-"make\n"
 msgstr ""
 
 msgid ""
@@ -349,12 +330,6 @@ msgid ""
 "`make`) and then start the simulation with:"
 msgstr ""
 
-#: docs/Debugging.md:block 62 (code)
-msgid ""
-"PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py "
-"out/klipper.elf\n"
-msgstr ""
-
 #: docs/Debugging.md:block 67 (code)
 msgid ""
 "PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py out/klipper.elf"
@@ -376,6 +351,93 @@ msgid ""
 "the data with a Unix command like the following: `gunzip < mylog.json.gz | "
 "tr '\\03' '\\n' | less`"
 msgstr ""
+
+#: docs/Debugging.md:block 57 (paragraph)
+msgid ""
+"To use simulavr, download the simulavr package and compile with python "
+"support. Note that the build system may need to have some packages (such as "
+"swig) installed in order to build the python module."
+msgstr ""
+
+#: docs/Debugging.md:block 58 (code)
+msgid ""
+"git clone git://git.savannah.nongnu.org/simulavr.git\n"
+"cd simulavr\n"
+"make python\n"
+"make build\n"
+msgstr ""
+
+#: docs/Debugging.md:block 59 (paragraph)
+msgid ""
+"Make sure a file like **./build/pysimulavr/_pysimulavr.*.so** is present "
+"after the above compilation:"
+msgstr ""
+
+#: docs/Debugging.md:block 60 (code)
+msgid "ls ./build/pysimulavr/_pysimulavr.*.so\n"
+msgstr ""
+
+#: docs/Debugging.md:block 61 (paragraph)
+msgid ""
+"This commmand should report a specific file (e.g. "
+"**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not "
+"an error."
+msgstr ""
+
+#: docs/Debugging.md:block 62 (paragraph)
+msgid ""
+"If you are on a Debian-based system (Debian, Ubuntu, etc.) you can install "
+"the following packages and generate *.deb files for system-wide installation"
+" of simulavr:"
+msgstr ""
+
+#: docs/Debugging.md:block 63 (code)
+msgid ""
+"sudo apt update\n"
+"sudo apt install g++ make cmake swig rst2pdf help2man texinfo\n"
+"make cfgclean python debian\n"
+"sudo dpkg -i build/debian/python3-simulavr*.deb\n"
+msgstr ""
+
+#: docs/Debugging.md:block 67 (code)
+msgid ""
+"PYTHONPATH=/path/to/simulavr/build/pysimulavr/ ./scripts/avrsim.py "
+"out/klipper.elf\n"
+msgstr ""
+
+#: docs/Debugging.md:block 68 (paragraph)
+msgid ""
+"Note that if you have installed python3-simulavr system-wide, you do not "
+"need to set `PYTHONPATH`, and can simply run the simulator as"
+msgstr ""
+
+#: docs/Debugging.md:block 69 (code)
+msgid "./scripts/avrsim.py out/klipper.elf\n"
+msgstr ""
+
+#~ msgid ""
+#~ "To use simulavr, download the simulavr package and compile with python "
+#~ "support:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Note that the build system may need to have some packages (such as swig) "
+#~ "installed in order to build the python module. Make sure the file "
+#~ "**src/python/_pysimulavr.so** is present after the above compilation."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "git clone git://git.savannah.nongnu.org/simulavr.git\n"
+#~ "cd simulavr\n"
+#~ "./bootstrap\n"
+#~ "./configure --enable-python\n"
+#~ "make\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py "
+#~ "out/klipper.elf\n"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "The Klippy regression test suite requires \"data dictionaries\" from many "
