@@ -147,17 +147,31 @@ The script will extract the printer config file and will extract MCU shutdown in
 
 The [simulavr](http://www.nongnu.org/simulavr/) tool enables one to simulate an Atmel ATmega micro-controller. This section describes how one can run test gcode files through simulavr. It is recommended to run this on a desktop class machine (not a Raspberry Pi) as it does require significant cpu to run efficiently.
 
-To use simulavr, download the simulavr package and compile with python support:
+To use simulavr, download the simulavr package and compile with python support. Note that the build system may need to have some packages (such as swig) installed in order to build the python module.
 
 ```
 git clone git://git.savannah.nongnu.org/simulavr.git
 cd simulavr
-./bootstrap
-./configure --enable-python
-make
+make python
+make build
 ```
 
-Note that the build system may need to have some packages (such as swig) installed in order to build the python module. Make sure the file **src/python/_pysimulavr.so** is present after the above compilation.
+Make sure a file like **./build/pysimulavr/_pysimulavr.*.so** is present after the above compilation:
+
+```
+ls ./build/pysimulavr/_pysimulavr.*.so
+```
+
+This commmand should report a specific file (e.g. **./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not an error.
+
+If you are on a Debian-based system (Debian, Ubuntu, etc.) you can install the following packages and generate *.deb files for system-wide installation of simulavr:
+
+```
+sudo apt update
+sudo apt install g++ make cmake swig rst2pdf help2man texinfo
+make cfgclean python debian
+sudo dpkg -i build/debian/python3-simulavr*.deb
+```
 
 To compile Klipper for use in simulavr, run:
 
@@ -169,7 +183,13 @@ make menuconfig
 and compile the micro-controller software for an AVR atmega644p and select SIMULAVR software emulation support. Then one can compile Klipper (run `make`) and then start the simulation with:
 
 ```
-PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py out/klipper.elf
+PYTHONPATH=/path/to/simulavr/build/pysimulavr/ ./scripts/avrsim.py out/klipper.elf
+```
+
+Note that if you have installed python3-simulavr system-wide, you do not need to set `PYTHONPATH`, and can simply run the simulator as
+
+```
+./scripts/avrsim.py out/klipper.elf
 ```
 
 Then, with simulavr running in another window, one can run the following to read gcode from a file (eg, "test.gcode"), process it with Klippy, and send it to Klipper running in simulavr (see [installation](Installation.md) for the steps necessary to build the python virtual environment):

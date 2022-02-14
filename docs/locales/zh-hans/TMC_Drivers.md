@@ -16,9 +16,9 @@ Klipper也可以在其 "standalone mode"下使用Trinamic驱动。然而，当�
 
 如果配置了 `hold_current` ，那么TMC驱动器可以在检测到步进电机没有移动时会减少步进电机的电流。然而，改变电机电流本身可能会引起电机转动。这可能是由于步进电机内部的 "阻滞力"（转子中的永久磁铁拉向定子中的铁齿）或轴滑车上的外力造成的。
 
-大多数步进电机来说，在正常的打印过程中，减少电流不会获得显著好处，因为很少有打印动作会让步进电机空闲足够长的时间来激活 "保持电流 "功能。而且，人们可能不太想在少数使步进电机空闲足够长的时间的打印动作中引入小的打印毛刺。
+对于大多数步进电机，在正常的打印过程中减少电流不会带来显著的好处，因为很少有打印动作会让步进电机空闲足够长的时间来激活 `hold_current`（保持电流）功能。而且，你也不会希望在少数使步进电机空闲足够长的时间的打印动作中引入小的打印瑕疵。
 
-如果希望在打印启动程序中减少电机的电流，那么可以考虑在[START_PRINT宏](Slicers.md#klipper-gcode_macro)中发出[SET_TMC_CURRENT](G-Code.md#tmc-stepper-drivers)命令，在正常打印动作前后调整电流。
+如果希望在打印预热时减少电机的电流，那么可以考虑在[START_PRINT宏](Slicers.md#klipper-gcode_macro)中写入[SET_TMC_CURRENT](G-Code.md#set_tmc_current)命令，在正常打印开始前后调整电流。
 
 一些打印机的专用Z轴电机在正常的打印动作中是空闲的（没有床网（bed_mesh），没有床面倾斜（bed_tilt），没有Z轴倾斜校正（skew_correction），没有 "花瓶模式 （vase mode）"打印，等等），可能会发现Z轴电机在 `hold_current`的情况下确实运行得比较冷。如果实现了这一点，那么一定要考虑到在床面调平、床面探测、探针校准等过程中这种非指令性的Z轴运动。 `driver_TPOWERDOWN`和 `driver_IHOLDDELAY`也应该进行相应的校准。如果不确定，最好不要指定 `hold_current`。
 
@@ -154,7 +154,7 @@ SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 
 然后发一个 `G28 X0`命令，确保轴完全不动。如果轴移动了，立即一个`M112`命令停止打印机-可能是diag/sg_tst引脚的接线或配置有问题，必须在继续之前修正。
 
-接下来，不断降低 `VALUE` 设置的灵敏度，再次运行 `SET_TMC_FIELD`和`G28 X0` 命令，找到最高的灵敏度，使滑车成功地一直移动到端点并停止。(对于TMC2209驱动，调整是减少SGTHRS，对于其他驱动，调整是增加sgt)。确保每次尝试都在轨道中心附近开始（如果需要，发出`M84`，然后手动将滑车移到中心）。应该可以找到可靠归位的最高灵敏度（更高的灵敏度设置会导致滑车只动一小段或完全不动）。注意找到的值为*maximum_sensitivity*。(如果在最低灵敏度（SGTHRS=0或sgt=63）下滑车也不动，那么diag/sg_tst引脚的接线或配置应该有问题，必须在继续后面操作前予以修正）。
+接下来，不断降低 `VALUE` 设置的灵敏度，并再次运行 `SET_TMC_FIELD`和`G28 X0` 命令，找到能使使滑车成功地一直移动到端点并停止的最高的灵敏度。(对于TMC2209驱动，调整是减少 SGTHRS，对于其他驱动，调整是增加 sgt)。确保每次尝试都在轨道中心附近开始（如果需要，发出`M84`，然后手动将滑车移到中心）。该方法应该可以找到可靠归位的最高灵敏度（更高的灵敏度设置会导致滑车只动一小段或完全不动）。注意找到的值为*maximum_sensitivity*。(如果在最低灵敏度（SGTHRS=0或sgt=63）下滑车也不动，那么diag/sg_tst 引脚的接线或配置可能有问题，必须在继续后面操作前予以修正。）
 
 在寻找最大灵敏度时，更方便的是跳到不同的VALUE设置（比如将VALUE参数的一半）。如果这样做，请准备好发出 `M112`命令以停止打印机，因为灵敏度很低的设置可能会导致轴反复 "撞 "到导轨的末端。
 
@@ -223,7 +223,7 @@ gcode:
 
 ## 查询和诊断驱动程序设置
 
-\`[DUMP_TMC 命令](G-Code.md#tmc-stepper-drivers)是配置和诊断驱动程序时的有效工具。它将报告所有由Klipper配置的字段，以及所有可以从驱动中查询到的字段。
+\`[DUMP_TMC 命令](G-Code.md#dump_tmc)是配置和诊断驱动程序的有效工具。它将报告所有由Klipper配置的字段，以及所有可以从驱动中查询到的字段。
 
 所有报告的字段都定义在驱动器的Trinamic数据手册中。这些数据表可以在[Trinamic网站](https://www.trinamic.com/)上找到。请获取并查看驱动器的Trinamic数据手册来解释DUMP_TMC的结果。
 
@@ -231,7 +231,7 @@ gcode:
 
 Klipper支持使用`driver_XXX`设置来配置许多底层驱动程序字段。[TMC驱动配置参考](Config_Reference.md#tmc-stepper-driver-configuration)有每种类型的驱动可用字段的完整列表。
 
-此外，几乎所有的字段都可以在运行时使用[SET_TMC_FIELD命令](G-Codes.md#tmc-stepper-drivers)进行修改。
+此外，几乎所有的字段都可以在运行时使用[SET_TMC_FIELD命令](G-Codes.md#set_tmc_field)进行修改。
 
 每一个字段都在驱动器的Trinamic数据手册中有定义。这些数据表可以在[Trinamic网站](https://www.trinamic.com/)上找到。
 

@@ -15,7 +15,7 @@
 1. [Mes pilotes de moteur TMC s'arrêtent en plein milieu d'une impression](#my-tmc-motor-driver-turns-off-in-the-middle-of-a-print)
 1. [J'ai des erreurs aléatoires "Lost communication with MCU" (communication perdue avec le microcontrôleur)] (#i-keep-getting-random-lost-communication-with-mcu-errors)
 1. [Mon Raspberry Pi redémarre pendant les impressions](#my-raspberry-pi-keeps-rebooting-during-prints)
-1. [Lorsque je définis « restart_method=command » mon microcontrôleur AVR bloque pendant le redémarrage](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-restart)
+1. [When I set `restart_method=command` my AVR device just hangs on a restart](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-restart)
 1. [Est-ce que les éléments chauffants restent allumés si le Raspberry Pi plante?](#will-the-heaters-be-left-on-if-the-raspberry-pi-crashes)
 1. [Comment puis-je convertir des noms broches de Marlin à Klipper?](#how-do-i-convert-a-marlin-pin-number-to-a-klipper-pin-name)
 1. [Dois-je connecter mon appareil à un type spécifique de broche de microcontrôleur?](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin)
@@ -163,7 +163,7 @@ Ce problème est généralement causé par des erreurs matérielles sur la conne
 
 Cela est très probablement dû à des fluctuations de tension. Suivez les mêmes étapes de dépannage que pour une erreur [« Communication perdue avec le MCU »](#i-keep-getting-random-lost-communication-with-mcu-errors).
 
-## Lorsque je définis « restart_method=command » mon microcontrôleur AVR bloque pendant le redémarrage
+## When I set `restart_method=command` my AVR device just hangs on a restart
 
 Certaines anciennes versions du bootloader AVR ont un bogue connu dans la gestion des événements de chien de garde. Cela se manifeste typiquement lorsque le paramètre restart_method est défini sur "command" dans le fichier printer.cfg. Lorsque le bogue se produit, le dispositif AVR ne répond pas jusqu'à ce que l'alimentation de la carte soit coupée puis remise (les DEL d'alimentation ou d'état peuvent également clignoter de manière répétée jusqu'à ce que l'alimentation soit retirée).
 

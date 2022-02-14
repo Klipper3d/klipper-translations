@@ -6,7 +6,7 @@ This document describes Klipper's CAN bus support.
 
 Klipper currently only supports CAN on stm32 chips. In addition, the micro-controller chip must support CAN and it must be on a board that has a CAN transceiver.
 
-To compile for CAN, run "make menuconfig" and select "CAN bus" as the communication interface. Finally, compile the micro-controller code and flash it to the target board.
+To compile for CAN, run `make menuconfig` and select "CAN bus" as the communication interface. Finally, compile the micro-controller code and flash it to the target board.
 
 ## Host Hardware
 

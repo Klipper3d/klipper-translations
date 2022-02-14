@@ -6,7 +6,9 @@
 
 ## 变更
 
-20220116: 变更了tmc2130, tmc2208, tmc2209和tmc2660的`run_current`计算代码。对于一些 `run_current`设置，驱动程序现在的配置结果可能被和原来不同。新的配置应该更准确，但它可能导致前的tmc驱动调谐失效。
+20220210：`SYNC_STEPPER_TO_EXTRUDER`、`SET_EXTRUDER_STEP_DISTANCE`、[extruder](Config_Reference.md#extruder)的 `shared_heater` 配置选项已弃用。这些功能将在不久的将来被删除。将`SET_EXTRUDER_STEP_DISTANCE`替换为`SET_EXTRUDER_ROTATION_DISTANCE`，`SYNC_STEPPER_TO_EXTRUDER`替换为`SYNC_EXTRUDER_MOTION`，使用 `shared_heater` 与 [extruder_stepper](Config_Reference.md#extruder_stepper)配置分段替换 extruder 配置分段，并更新所有激活宏以使用 [SYNC_EXTRUDER_MOTION](G-Codes.md#sync_extruder_motion)。
+
+20220116: 变更了tmc2130、tmc2208、tmc2209和tmc2660的 `run_current` 计算代码。对于一些 `run_current`设置，驱动程序现在的配置结果可能被和原来不同。新的配置应该更准确，但它可能导致前的tmc驱动调谐失效。
 
 20211230: 迁移输入整形器调整脚本（`scripts/calibrate_shaper.py`和`scripts/graph_accelerometer.py`），新脚本默认使用Python3。因此，必须安装Python3版本的某些软件包（例如，`sudo apt install python3-numpy python3-matplotlib`）才能继续使用这些脚本。更多细节，请参考[软件安装](Measuring_Resonances.md#software-installation)。另外，用户可以通过在控制台显性调用Python2解释器，临时强制在Python 2下执行这些脚本：`python2 ~/klipper/scripts/calibrate_shaper.py ...`
 
@@ -125,7 +127,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20191003: [safe_z_homing] 中的 move_to_previous 选项现在默认为 False。(在20190918年之前，它实际上是False。)
 
-20190918: [safe_z_homing]中的zhop选项总是在Z轴归位完成后重新应用。这可能需要用户更新基于此模块的自定义脚本。
+20190918: [safe_z_homing]中的 zhop 选项总是在Z轴归位完成后重新应用。这可能需要用户更新基于此模块的自定义脚本。
 
 20190806: SET_NEOPIXEL 命令已被重新命名为 SET_LED。
 

@@ -18,7 +18,7 @@ If one configures a `hold_current` then the TMC driver can reduce current to the
 
 Most stepper motors will not obtain a significant benefit to reducing current during normal prints, because few printing moves will leave a stepper motor idle for sufficiently long to activate the `hold_current` feature. And, it is unlikely that one would want to introduce subtle print artifacts to the few printing moves that do leave a stepper idle sufficiently long.
 
-If one wishes to reduce current to motors during print start routines, then consider issuing [SET_TMC_CURRENT](G-Codes.md#tmc-stepper-drivers) commands in a [START_PRINT macro](Slicers.md#klipper-gcode_macro) to adjust the current before and after normal printing moves.
+If one wishes to reduce current to motors during print start routines, then consider issuing [SET_TMC_CURRENT](G-Codes.md#set_tmc_current) commands in a [START_PRINT macro](Slicers.md#klipper-gcode_macro) to adjust the current before and after normal printing moves.
 
 Some printers with dedicated Z motors that are idle during normal printing moves (no bed_mesh, no bed_tilt, no Z skew_correction, no "vase mode" prints, etc.) may find that Z motors do run cooler with a `hold_current`. If implementing this then be sure to take into account this type of uncommanded Z axis movement during bed leveling, bed probing, probe calibration, and similar. The `driver_TPOWERDOWN` and `driver_IHOLDDELAY` should also be calibrated accordingly. If unsure, prefer to not specify a `hold_current`.
 
@@ -223,7 +223,7 @@ CoreXY 프린터의 X 및 Y 캐리지에서 센서리스 원점복귀를 사용�
 
 ## 드라이버 설정 쿼리 및 진단
 
-\`[DUMP_TMC 명령](G-Codes.md#tmc-stepper-drivers)은 드라이버를 구성하고 진단할 때 유용한 도구입니다. Klipper가 구성한 모든 필드와 드라이버에서 쿼리할 수 있는 모든 필드를 보고합니다.
+The `[DUMP_TMC command](G-Codes.md#dump_tmc) is a useful tool when configuring and diagnosing the drivers. It will report all fields configured by Klipper as well as all fields that can be queried from the driver.
 
 보고된 모든 필드는 각 드라이버에 대한 Trinamic 데이터시트에 정의되어 있습니다. 이 데이터시트는 [Trinamic 웹사이트](https://www.trinamic.com/)에서 찾을 수 있습니다. 드라이버가 DUMP_TMC의 결과를 해석할 수 있도록 Trinamic 데이터시트를 구하고 검토하십시오.
 
@@ -231,7 +231,7 @@ CoreXY 프린터의 X 및 Y 캐리지에서 센서리스 원점복귀를 사용�
 
 Klipper는 `driver_XXX` 설정을 사용하여 많은 하위 수준 드라이버 필드 구성을 지원합니다. [TMC 드라이버 구성 참조](Config_Reference.md#tmc-stepper-driver-configuration)에는 각 드라이버 유형에 사용할 수 있는 전체 필드 목록이 있습니다.
 
-또한 [SET_TMC_FIELD 명령](G-Codes.md#tmc-stepper-drivers)을 사용하여 런타임 시 거의 모든 필드를 수정할 수 있습니다.
+In addition, almost all fields can be modified at run-time using the [SET_TMC_FIELD command](G-Codes.md#set_tmc_field).
 
 이러한 각 필드는 각 드라이버에 대한 Trinamic 데이터시트에 정의되어 있습니다. 이 데이터시트는 [Trinamic 웹사이트](https://www.trinamic.com/)에서 찾을 수 있습니다.
 

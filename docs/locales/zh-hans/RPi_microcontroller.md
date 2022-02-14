@@ -20,10 +20,6 @@ sudo cp "./scripts/klipper-mcu-start.sh" /etc/init.d/klipper_mcu
 sudo update-rc.d klipper_mcu defaults
 ```
 
-## 启用 SPI
-
-通过运行 sudo raspi-config 并在"Interfacing Options"菜单下启用 SPI，确保Linux SPI驱动程序被启用。
-
 ## 构建微控制器代码
 
 要编译的 Klipper 微控制器代码，需要先将编译配置设置为“Linux Process”：
@@ -53,6 +49,10 @@ sudo usermod -a -G tty pi
 
 按照[RaspberryPi 参考配置](../config/sample-raspberry-pi.cfg)和[多微控制器参考配置](../config/sample-multi-mcu.cfg)中的说明配置Klipper 二级微控制器来完成安装。
 
+## 可选：启用 SPI
+
+通过运行`sudo raspi-config` 后的 "Interfacing options"菜单中启用 SPI 以确保Linux SPI 驱动已启用。
+
 ## 可选步骤：识别正确的 gpiochip
 
 在树莓派和许多克隆上，暴露在 GPIO 上的引脚属于第一个 gpiochip。因此，它们只需用`gpio0...n`的名字来引用就可以在 Klipper 上直接使用。然而，在有些情况下，暴露的引脚不属于第一个 gpiochip。例如，在使用一些 OrangePi 型号时或者使用了端口扩展器。在这些情况下，使用命令访问 *Linux GPIO character device* 来验证实际配置。
@@ -75,7 +75,7 @@ gpiodetect
 gpioinfo
 ```
 
-因此，所选引脚可以在配置中用 `gpiochip<n>/gpio<o>`引用，其中 **n** 是由 `gpiodetect` 命令看到的芯片编号**o** 是 ` gpioinfo` 命令看到的行号。
+因此，所选引脚可以在配置中可以通过 `gpiochip<n>/gpio<o>`引用，其中 **n** 是由 `gpiodetect` 命令看到的芯片编号**o** 是 ` gpioinfo` 命令看到的行号。
 
 ***警告：***只有标记为`unused`的 gpio 才可以被使用。一条*线路*不可能被多个进程同时使用。
 

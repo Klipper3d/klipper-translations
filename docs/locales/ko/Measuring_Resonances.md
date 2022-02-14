@@ -121,7 +121,7 @@ X축에 대해 작동하는 경우 Y축에 대해서도 실행합니다:
 TEST_RESONANCES AXIS=Y
 ```
 
-이렇게 하면 2개의 CSV 파일 (`/tmp/resonances_x_*.csv` 및 `/tmp/resonances_y_*.csv`) 이 생성됩니다. This will generate 2 CSV files (`/tmp/resonances_x_*.csv` and `/tmp/resonances_y_*.csv`). 이 파일들은 Raspberry Pi 에서 독립 실행형 스크립트로 처리할 수 있습니다. 그렇게 하려면 다음 명령을 실행하십시오:
+This will generate 2 CSV files (`/tmp/resonances_x_*.csv` and `/tmp/resonances_y_*.csv`). These files can be processed with the stand-alone script on a Raspberry Pi. To do that, run the following commands:
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png
@@ -355,7 +355,7 @@ TEST_RESONANCES AXIS=X OUTPUT=raw_data
 
 `SET_INPUT_SHAPER` 명령에 대한 오류를 무시합니다. `TEST_RESONANCES` 명령의 경우 원하는 테스트 축을 지정합니다. 원시 데이터는 RPi의 `/tmp` 디렉토리에 기록됩니다.
 
-원시 데이터는 정상적인 프린터 활동 중에 `ACCELEROMETER_MEASURE` 명령을 두 번 실행하여 얻을 수도 있습니다. 먼저 측정을 시작한 다음 측정을 중지하고 출력 파일을 작성합니다. 자세한 내용은 [G-Codes](G-Codes.md#adxl345-accelerometer-commands) 를 참조하세요.
+The raw data can also be obtained by running the command `ACCELEROMETER_MEASURE` command twice during some normal printer activity - first to start the measurements, and then to stop them and write the output file. Refer to [G-Codes](G-Codes.md#adxl345) for more details.
 
 데이터는 나중에 다음 스크립트로 처리할 수 있습니다: `scripts/graph_accelerometer.py` 및 `scripts/calibrate_shaper.py`. 둘 다 모드에 따라 하나 또는 여러 개의 원시 csv 파일을 입력으로 허용합니다. graph_accelerometer.py 스크립트는 여러 작동 모드를 지원합니다:
 
