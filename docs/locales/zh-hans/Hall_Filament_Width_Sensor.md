@@ -4,7 +4,7 @@
 
 你可以在[Thingiverse](https://www.thingiverse.com/thing:4138933)上找到设计，在[Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)上也有一个装配视频
 
-要使用霍尔耗材线径传感器，请阅读[配置参考](Config_Reference.md#hall_filament_width_sensor)和[G-Code 文档](G-Code.md#Hall_Filament_Width_Sensor_Commands)。
+要使用霍尔耗材线径传感器，请阅读[配置参考](Config_Reference.md#hall_filament_width_sensor)和[G-Code 文档](G-Codes.md#hall_filament_width_sensor)。
 
 ## 它如何运作？
 
@@ -38,7 +38,7 @@ index: 1
 
 传感器在开机时默认被禁用。
 
-要启用传感器，请发送**ENABLE_FILAMENT_WIDTH_SENSOR**命令或将`enable`配置参数改为`true`
+要启用传感器，发送**ENABLE_FILAMENT_WIDTH_SENSOR**命令或将`enable`参数改为`true`。
 
 ## 记录
 

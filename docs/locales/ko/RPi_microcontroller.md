@@ -20,10 +20,6 @@ sudo cp "./scripts/klipper-mcu-start.sh" /etc/init.d/klipper_mcu
 sudo update-rc.d klipper_mcu defaults
 ```
 
-## SPI 활성화
-
-sudo raspi-config를 실행하고 "인터페이싱 옵션" 메뉴에서 SPI를 활성화하여 Linux SPI 드라이버가 활성화되어 있는지 확인합니다.
-
 ## 마이크로 컨트롤러 코드를 빌드하기
 
 Klipper 마이크로 컨트롤러 코드를 컴파일하려면 "리눅스 프로세스"를 위한 그 코드 구성부터 시작합니다:
@@ -53,6 +49,10 @@ sudo usermod -a -G tty pi
 
 [RaspberryPi 샘플 구성](../config/sample-raspberry-pi.cfg) 및 [멀티 MCU 샘플 구성](../config/sample-multi-mcu.cfg)의 지침에 따라 Klipper 보조 MCU를 구성하여 설치 완료합니다.
 
+## Optional: Enabling SPI
+
+Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and enabling SPI under the "Interfacing options" menu.
+
 ## 선택 사항: 올바른 gpiochip 식별
 
 Rasperry 및 많은 클론에서 GPIO에 노출된 핀은 첫 번째 gpiochip에 속합니다. 따라서 `gpio0..n`이라는 이름으로 참조하기만 하면 Klipper에서 사용할 수 있습니다. 다만, 노출된 핀이 1차 이외의 gpiochip에 속하는 경우가 있습니다. 예를들어 일부 OrangePi 모델의 경우 또는 포트 확장기가 사용되는 경우. 이러한 경우 명령을 사용하여 *Linux GPIO 문자 장치* 에 액세스하여 구성을 확인하는 것이 유용합니다.
@@ -75,7 +75,7 @@ gpiodetect
 gpioinfo
 ```
 
-따라서 선택한 핀은 구성 내에서 `gpiochip<n>/gpio<o>`로 사용할 수 있습니다. 여기서 **n**은 `gpiodetect` 명령으로 볼 수 있는 칩 번호이고 **o**는 `gpioinfo` 명령으로 볼 수 라인 번호입니다.
+The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the`gpioinfo` command.
 
 **경고:** `unused` 로 표시된 gpio만 사용할 수 있습니다. 여러 프로세스에서 동시에 *line* 을 사용할 수 없습니다.
 

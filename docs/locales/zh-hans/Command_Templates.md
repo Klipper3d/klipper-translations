@@ -33,7 +33,7 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 ```
 
-会显示和使用`HELP`命令或使用自动完成功能时一样的文本。
+The terminal will display the description when you use the `HELP` command or the autocomplete function.
 
 ## 保存/恢复 G-Code 移动的状态
 

@@ -47,8 +47,8 @@ Available on 20210929. Major changes in this release:
 
 * 新的G-Code命令模板支持。配置文件中的G-Code现在可以用Jinja2模板语言进行编写。
 * 对Trinamic步进驱动器的改进：
-   * New support for TMC2209 and TMC5160 drivers.
-   * Improved DUMP_TMC, SET_TMC_CURRENT, and INIT_TMC G-Code commands.
+   * 新增对TMC2209和TMC5160驱动器的支持。
+   * 改进了 DUMP_TMC、SET_TMC_CURRENT 和 INIT_TMC G-Code 命令。
    * Improved support for TMC UART handling with an analog mux.
 * Improved homing, probing, and bed leveling support:
    * New manual_probe, bed_screws, screws_tilt_adjust, skew_correction, safe_z_home modules added.

@@ -10,7 +10,7 @@ Ringing은 인쇄 방향의 급격한 변화로 인한 프린터의 기계적 �
 
 ## 조정
 
-기본 조정을 위해서는 프린터의 ringing 빈도를 측정하고 `printer.cfg` 파일에 몇 가지 매개변수를 추가해야 합니다.
+Basic tuning requires measuring the ringing frequencies of the printer by printing a test model.
 
 [docs/prints/ringing_tower.stl](prints/ringing_tower.stl) 에 있는 ringing 테스트 모델을 슬라이서에서 슬라이스합니다:
 
@@ -26,19 +26,18 @@ Ringing은 인쇄 방향의 급격한 변화로 인한 프린터의 기계적 �
 
 먼저 **rining 주파수**를 측정합니다.
 
-1. `printer.cfg`의 `max_accel` 및 `max_accel_to_decel` 매개변수를 7000으로 늘립니다. 이는 조저에만 필요하며 해당 [섹션](#selecting-max_accel)에서 더 적절한 값이 선택됩니다.
-1. `square_corner_velocity` 매개변수가 변경되었으면 다시 5.0으로 되돌립니다. Input shaper를 사용할 때 이 값을 늘리는 것은 부품에 더 많은 스무딩을 유발할 수 있으므로 권장하지 않습니다. 대신 더 높은 가속도 값을 사용하는 것이 좋습니다.
-1. 펌웨어를 다시 시작하십시오: `RESTART`.
-1. Pressure Advance 비활성화: `SET_PRESSURE_ADVANCE ADVANCE=0`.
+1. If `square_corner_velocity` parameter was changed, revert it back to 5.0. It is not advised to increase it when using input shaper because it can cause more smoothing in parts - it is better to use higher acceleration value instead.
+1. Increase `max_accel_to_decel` by issuing the following command: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
+1. Disable Pressure Advance: `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. Printer.cfg에 `[input_shaper]` 섹션을 이미 추가한 경우 `SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0` 명령어를 실행합니다. "Unknown command" 오류가 발생하면 안전하게 이 오류를 무시하고 측정을 계속할 수 있습니다.
-1. 명령을 실행 `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1250 FACTOR=100 BAND=5`. 기본적으로 우리는 가속도에 대해 다른 큰 값을 설정하여 ringing을 더 두드러지게 하려고 합니다. 이 명령은 1500mm/sec^2에서 시작하여 5mm마다 가속도를 증가시킵니다: 1500mm/sec^2, 2000mm/sec^2, 2500mm/sec^2 등등 마지막 밴드에서 7000mm/sec^2까지.
+1. Execute the command: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5` Basically, we try to make ringing more pronounced by setting different large values for acceleration. This command will increase the acceleration every 5 mm starting from 1500 mm/sec^2: 1500 mm/sec^2, 2000 mm/sec^2, 2500 mm/sec^2 and so forth up until 7000 mm/sec^2 at the last band.
 1. 제안된 매개변수로 슬라이스된 테스트 모델을 출력합니다.
 1. Ringing이 명확하게 보이고 프린터에 대한 가속도가 너무 높은 경우(예: 프린터가 너무 많이 흔들리거나 단계를 건너뛰기 시작하는 경우) 인쇄 출력을 중지할 수 있습니다.
 
    1. 참조를 위해 모델 뒷면의 X 및 Y 표시를 이용합니다. X 표시가 있는 쪽의 측정은 X축 *구성*에 사용하고 Y 표시는 Y축 구성에 사용해야 합니다. 노치 근처에서 X 표시가 있는 부품의 여러 진동 사이의 거리 *D*(mm)를 측정합니다. 가급적이면 첫 번째 진동 또는 두 번을 건너뜁니다. 진동 사이의 거리를 더 쉽게 측정하려면 먼저 진동을 표시한 다음 눈금자 또는 캘리퍼스로 표시 사이의 거리를 측정합니다:|![Mark ringing](img/ringing-mark.jpg)|![Measure ringing](img/ringing-measure.jpg)|
 1. 측정 거리 *D*가 해당하는 진동수 *N*를 측정합니다. 진동수를 세는 방법을 잘 모르는 경우 *N* = 6 진동수를 표시하는 위의 그림을 참조합니다.
 1. *V* &middot; *N* / *D*(Hz) 수식을 이용하여 X축의 ringing 주파수를 게산합니다. 여기서 *V*는 outer perimeters 속도(mm/sec)입니다. 위의 예에서 우리는 6개의 진동수를 표시했고 테스트는 100mm/sec 속도로 인쇄되었으므로 주파수는 100 * 6 / 12.14 ≈ 49.4Hz입니다.
-1. 마찬가지로 Y 표시에 대해서도 (9) - (11)을 수행합니다.
+1. Do (8) - (10) for Y mark as well.
 
 테스트 인쇄에서 ringing은 위의 그림과 같이 구부러진 노치의 패턴을 따라야 합니다. 그렇지 않은 경우 이 결함은 실제로 rining이 아니라 다른 원인(기계적 문제 또는 압출기 문제)이 있는 것입니다. Input shapers를 활성화하고 조정하기 전에 이 원인은 먼저 해결되어야 합니다.
 
@@ -75,19 +74,20 @@ Klipper는 여러 input shapers를 지원합니다. 공진 주파수를 결정�
 
 대부분의 프린터에는 MZV 또는 EI shapers가 권장됩니다. 이 섹션에서는 이들 중에서 선택하고 몇 가지 다른 관련 매개변수를 이해하기 위한 테스트 프로세스를 설명합니다.
 
-Ringing 테스트 모델을 다음과 같이 인쇄합니다(이미 shaper_freq_x/y가 설정되고 max_accel/max_accel_to_decel이 printer.cfg 파일에서 7000으로 증가했다고 가정):
+Print the ringing test model as follows:
 
-1. 펌웨어를 다시 시작하십시오: `RESTART`.
-1. Pressure Advance 비활성화: `SET_PRESSURE_ADVANCE ADVANCE=0`.
-1. `SET_INPUT_SHAPER SHAPER_TYPE=MZV`를 실행합니다.
-1. `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1250 FACTOR=100 BAND=5`. 를 실행합니다.
+1. Restart the firmware: `RESTART`
+1. Prepare for test: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
+1. Disable Pressure Advance: `SET_PRESSURE_ADVANCE ADVANCE=0`
+1. Execute: `SET_INPUT_SHAPER SHAPER_TYPE=MZV`
+1. Execute the command: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
 1. 제안된 매개변수로 슬라이스된 테스트 모델을 출력합니다.
 
 이 시점에서 ringing 이 보이지 않으면 MZV shaper 사용을 권장할 수 있습니다.
 
 Ringing이 보이면 [링잉 주파수](#ringing-frequency) 섹션에 설명된 단계 (8)-(10)을 사용하여 주파수를 다시 측정합니다. 주파수가 이전에 얻은 값과 크게 다른 경우 더 복잡한 input shaper 구성이 필요합니다. [Input shapers](#input-shapers) 섹션의 기술적 세부 사항을 참조할 수 있습니다.그렇지 않으면 다음 단계로 진행하십시오.
 
-이제 EI input shaper를 사용해 보십시오. 이를 시도하려면 위의 (1)-(5) 단계를 반복하되 3단계에서 다음 명령을 대신 실행하세요: `SET_INPUT_SHAPER SHAPER_TYPE=EI`.
+Now try EI input shaper. To try it, repeat steps (1)-(6) from above, but executing at step 4 the following command instead: `SET_INPUT_SHAPER SHAPER_TYPE=EI`.
 
 MZV 및 EI input shaper로 두 개의 인쇄물을 비교합니다. EI가 MZV보다 눈에 띄게 더 나은 결과를 보이면 EI shaper를 사용하고, 그렇지 않으면 MZV를 선호합니다. EI shaper는 인쇄된 부분을 더 매끄럽게 만듭니다(자세한 내용은 다음 섹션 참조). `shaper_type: mzv` (또는 ei) 매개변수를 [input_shaper] 섹션에 추가합니다. 예:
 
@@ -105,7 +105,7 @@ Shaper 선택에 대한 몇 가지 참고 사항:
 
 ### max_accel 선택
 
-이전 단계에서 선택한 shaper에 대한 인쇄된 테스트가 있어야 합니다 (그렇지 않은 경우 pressure advance 이 비활성화된 `SET_PRESSURE_ADVANCE ADVANCE=0` 및 tuning tower는 `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1250 FACTOR=100 BAND=5` 로 활성화된 테스트모델 [suggested parameters](#tuning) 을 출력하세요). 매우 높은 가속도에서 공진 주파수와 선택한 input shaper 따라(예: EI shaper는 MZV보다 더 매끄럽게 생성) input shaping은 부품을 너무 많이 매끄럽게 하고 파트를 둥글게 할 수 있습니다. 따라서 이를 방지하기 위해 max_accel을 선택해야 합니다. 스무딩에 영향을 줄 수 있는 또 다른 매개변수는 `square_corner_velocity`이므로 smoothing 증가를 방지하기 위해 기본값인 5mm/sec 이상으로 높이는 것은 권장하지 않습니다.
+You should have a printed test for the shaper you chose from the previous step (if you don't, print the test model sliced with the [suggested parameters](#tuning) with the pressure advance disabled `SET_PRESSURE_ADVANCE ADVANCE=0` and with the tuning tower enabled as `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`). Note that at very high accelerations, depending on the resonance frequency and the input shaper you chose (e.g. EI shaper creates more smoothing than MZV), input shaping may cause too much smoothing and rounding of the parts. So, max_accel should be chosen such as to prevent that. Another parameter that can impact smoothing is `square_corner_velocity`, so it is not advisable to increase it above the default 5 mm/sec to prevent increased smoothing.
 
 적절한 max_accel 값을 선택하려면 선택한 input shaper에 대한 모델을 검사합니다. 먼저 가속도 ringing이 여전히 작은지 확인하십시오.
 
@@ -121,7 +121,7 @@ Shaper 선택에 대한 몇 가지 참고 사항:
 
 테스트 인쇄에서 틈이 여전히 매우 작을 때 가속도에 유의하십시오. 팽창이 보이지만 높은 가속에서도 벽에 틈이 전혀 없다면 특히 Bowden 압출기에서 비활성화된 Pressure Advance 때문일 수 있습니다. 이 경우 PA가 활성화된 상태에서 인쇄를 반복해야 할 수도 있습니다. 또한 잘못 보정된(너무 높은) 필라멘트 흐름의 결과일 수 있으므로 이것도 확인하는 것이 좋습니다.
 
-Choose the minimum out of the two acceleration values (from ringing and smoothing), and put it as max_accel into printer.cfg (you can delete max_accel_to_decel or revert it to the old value).
+Choose the minimum out of the two acceleration values (from ringing and smoothing), and put it as `max_accel` into printer.cfg.
 
 참고로, 특히 낮은 ringing 주파수에서 EI shaper가 더 낮은 가속에서도 너무 많은 smoothing을 유발할 수 있습니다. 이 경우 더 높은 가속도 값을 허용할 수 있으므로 MZV가 더 나은 선택일 수 있습니다.
 
@@ -133,13 +133,14 @@ Choose the minimum out of the two acceleration values (from ringing and smoothin
 
 Ringing 테스트 모델을 사용하는 공진 주파수 측정의 정밀도는 대부분의 목적에 충분하므로 추가 조정은 권장되지 않습니다. 여전히 결과를 다시 확인하려는 경우(예: 이전에 측정한 것과 동일한 주파수로 선택한 input shaper를 사용하여 테스트 모델을 인쇄한 후에도 약간의 ringing이 있는 경우) 이 섹션의 단계를 따를 수 있습니다. [input_shaper]를 활성화한 후 다른 주파수에서 ringing이 표시되는 경우 이 섹션은 도움이 되지 않습니다.
 
-제안된 매개변수로 ringing 모델을 슬라이스하고 `printer.cfg`의 `max_accel` 및 `max_accel_to_decel` 매개변수를 이미 7000으로 증가했다고 가정하고 X 및 Y 축 각각에 대해 다음 단계를 완료하십시오:
+Assuming that you have sliced the ringing model with suggested parameters, complete the following steps for each of the axes X and Y:
 
-1. Pressure Advance이 비활성화되어 있는지 확인하십시오: `SET_PRESSURE_ADVANCE ADVANCE=0`.
-1. 다음을 실행합니다: `SET_INPUT_SHAPER SHAPER_TYPE=ZV`.
-1. 선택한 input shaper가 있는 기존 rining 테스트 모델에서 rining을 충분히 잘 보여주는 가속도를 선택하고 다음과 같이 설정합니다: `SET_VELOCITY_LIMIT ACCEL=...`.
+1. Prepare for test: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
+1. Make sure Pressure Advance is disabled: `SET_PRESSURE_ADVANCE ADVANCE=0`
+1. Execute: `SET_INPUT_SHAPER SHAPER_TYPE=ZV`
+1. From the existing ringing test model with your chosen input shaper select the acceleration that shows ringing sufficiently well, and set it with: `SET_VELOCITY_LIMIT ACCEL=...`
 1. `shaper_freq_x` 매개변수를 조정하기 위해 `TUNING_TOWER` 명령에 필요한 매개변수를 다음과 같이 계산합니다. start = shaper_freq_x * 83 / 132 및 factor = shaper_freq_x / 66, 여기서 `shaper_freq_x`는 `printer.cfg`의 현재 값입니다.
-1. 단계 (4)에서 계산된 `start` 및 `factor` 값을 사용하여 명령어를 실행합니다: `TUNING_TOWER COMMAND=SET_INPUT_SHAPER PARAMETER=SHAPER_FREQ_X START=start FACTOR=factor BAND=5`.
+1. Execute the command: `TUNING_TOWER COMMAND=SET_INPUT_SHAPER PARAMETER=SHAPER_FREQ_X START=start FACTOR=factor BAND=5` using `start` and `factor` values calculated at step (5).
 1. 테스트 모델을 인쇄합니다.
 1. 원래 주파수 값을 재설정합니다: `SET_INPUT_SHAPER SHAPER_FREQ_X=...`.
 1. 가장 적은 rining 밴드를 찾아 그 아래에서 1부터 숫자를 센다.
@@ -151,32 +152,31 @@ Ringing 테스트 모델을 사용하는 공진 주파수 측정의 정밀도는
 
 새로운 `shaper_freq_x` 및 `shaper_freq_y` 매개변수가 모두 계산된 후 `printer.cfg`의 `[input_shaper]` 섹션을 새로운 `shaper_freq_x` 및 `shaper_freq_y` 값으로 업데이트할 수 있습니다.
 
-이 섹션을 마친 후 `printer.cfg`의 `max_accel` 및 `max_accel_to_decel` 매개변수에 대한 변경 사항을 되돌리는 것을 잊지 마십시오.
-
 ### Pressure Advance
 
-Pressure Advance를 사용하면 다시 조정되어야 할 수 있습니다. 이전 값과 다른 경우[instructions](Pressure_Advance.md#tuning-pressure-advance)에 따라 새 값을 찾습니다. `printer.cfg`에서 `max_accel` 및 `max_accel_to_decel` 매개변수의 원래 값을 복원하고 Pressure Advance를 조정하기 전에 Klipper를 다시 시작해야 합니다.
+If you use Pressure Advance, it may need to be re-tuned. Follow the [instructions](Pressure_Advance.md#tuning-pressure-advance) to find the new value, if it differs from the previous one. Make sure to restart Klipper before tuning Pressure Advance.
 
 ### Unreliable measurements of ringing frequencies
 
 Ringing 주파수를 측정할 수 없는 경우, 예를 들어 진동 사이의 거리가 안정적이지 않은 경우에도 input shaping 기술을 사용할 수 있지만 결과는 주파수를 적절하게 측정하는 것만큼 좋지 않을 수 있으며 테스트 모델을 약간 더 조정하고 인쇄해야 합니다. 또 다른 가능성은 가속도계를 구입하여 설치하고 공진을 측정하는 것입니다 (필요한 하드웨어 및 설정 프로세스를 설명하는 [docs](Measuring_Resonances.md) 참조) - 그러나 이 옵션은 약간의 압착 및 납땜이 필요합니다.
 
-조정을 위해 `printer.cfg`에 빈 `[input_shaper]` 섹션을 추가합니다. 그런 다음 제안된 매개변수로 벨소리 모델을 슬라이스하고 `printer.cfg`의 `max_accel` 및 `max_accel_to_decel` 매개변수를 이미 7000 으로 증가했다고 가정하고 다음과 같이 테스트 모델을 3회 인쇄합니다. 처음으로 인쇄하기 전에 다음을 실행합니다
+For tuning, add empty `[input_shaper]` section to your `printer.cfg`. Then, assuming that you have sliced the ringing model with suggested parameters, print the test model 3 times as follows. First time, prior to printing, run
 
 1. `RESTART`
-1. `SET_PRESSURE_ADVANCE ADVANCE=0`.
-1. `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=60 SHAPER_FREQ_Y=60`.
-1. `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1250 FACTOR=100 BAND=5`.
+1. `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
+1. `SET_PRESSURE_ADVANCE ADVANCE=0`
+1. `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=60 SHAPER_FREQ_Y=60`
+1. `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
 
 모델을 인쇄합니다. 그런 다음 다시 모델을 인쇄하지만 인쇄하기 전에 다음을 실행합니다
 
-1. `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=50 SHAPER_FREQ_Y=50`.
-1. `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1250 FACTOR=100 BAND=5`.
+1. `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=50 SHAPER_FREQ_Y=50`
+1. `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
 
 그런 다음 세 번째로 모델을 인쇄하기전에 다음을 실행합니다
 
-1. `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=40 SHAPER_FREQ_Y=40`.
-1. `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1250 FACTOR=100 BAND=5`.
+1. `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=40 SHAPER_FREQ_Y=40`
+1. `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
 
 기본적으로 shaper_freq = 60Hz, 50Hz 및 40Hz인 2HUMP_EI shaper를 사용하여 TUNING_TOWER로 rining 테스트 모델을 인쇄하고 있습니다.
 
@@ -192,8 +192,8 @@ Ringing 주파수를 측정할 수 없는 경우, 예를 들어 진동 사이의
 
 이제 테스트 모델을 한 번 더 인쇄하여 실행합니다
 
-1. `SET_INPUT_SHAPER SHAPER_TYPE=EI SHAPER_FREQ_X=... SHAPER_FREQ_Y=...`.
-1. `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1250 FACTOR=100 BAND=5`.
+1. `SET_INPUT_SHAPER SHAPER_TYPE=EI SHAPER_FREQ_X=... SHAPER_FREQ_Y=...`
+1. `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
 
 이전에 결정된 shaper_freq_x=... 및 shaper_freq_y=...를 제공합니다.
 

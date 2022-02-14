@@ -708,7 +708,7 @@ max_temp:
 
 网床调平。定义一个 bed_mesh 配置分段来启用基于探测点生成网格的 Z 轴偏移移动变换。当使用探针归位 Z 轴时，建议通过 printer.cfg 中定义一个 safe_z_home 分段使 Z 轴归位在打印区域的中心执行。
 
-See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#mesh-bed-leveling) for additional information.
+See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#bed_mesh) for additional information.
 
 可视化示例：
 
@@ -821,7 +821,7 @@ See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#mesh-be
 
 打印床倾斜补偿。可以定义一个 bed_tilt 配置分段来启用移动变换倾斜打印床补偿。请注意，bed_mesh 和 bed_tilt 不兼容：两者无法同时被定义。
 
-See the [command reference](G-Codes.md#bed-tilt) for additional information.
+See the [command reference](G-Codes.md#bed_tilt) for additional information.
 
 ```
 [bed_tilt]
@@ -855,7 +855,7 @@ See the [command reference](G-Codes.md#bed-tilt) for additional information.
 
 Tool to help adjust bed leveling screws. One may define a [bed_screws] config section to enable a BED_SCREWS_ADJUST g-code command.
 
-See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [command reference](G-Codes.md#bed-screws-helper) for additional information.
+See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [command reference](G-Codes.md#bed_screws) for additional information.
 
 ```
 [bed_screws]
@@ -896,7 +896,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 
 Tool to help adjust bed screws tilt using Z probe. One may define a screws_tilt_adjust config section to enable a SCREWS_TILT_CALCULATE g-code command.
 
-See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) and [command reference](G-Codes.md#bed-screws-tilt-adjust-helper) for additional information.
+See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) and [command reference](G-Codes.md#screws_tilt_adjust) for additional information.
 
 ```
 [screws_tilt_adjust]
@@ -932,7 +932,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the
 
 ### [z_tilt]
 
-Multiple Z stepper tilt adjustment. This feature enables independent adjustment of multiple z steppers (see the "stepper_z1" section) to adjust for tilt. If this section is present then a Z_TILT_ADJUST extended [G-Code command](G-Codes.md#z-tilt) becomes available.
+Multiple Z stepper tilt adjustment. This feature enables independent adjustment of multiple z steppers (see the "stepper_z1" section) to adjust for tilt. If this section is present then a Z_TILT_ADJUST extended [G-Code command](G-Codes.md#z_tilt) becomes available.
 
 ```
 [z_tilt]
@@ -1016,7 +1016,7 @@ Where x is the 0, 0 point on the bed
 
 ### [skew_correction]
 
-Printer Skew Correction. It is possible to use software to correct printer skew across 3 planes, xy, xz, yz. This is done by printing a calibration model along a plane and measuring three lengths. Due to the nature of skew correction these lengths are set via gcode. See [Skew Correction](Skew_Correction.md) and [Command Reference](G-Codes.md#skew-correction) for details.
+Printer Skew Correction. It is possible to use software to correct printer skew across 3 planes, xy, xz, yz. This is done by printing a calibration model along a plane and measuring three lengths. Due to the nature of skew correction these lengths are set via gcode. See [Skew Correction](Skew_Correction.md) and [Command Reference](G-Codes.md#skew_correction) for details.
 
 ```
 [skew_correction]
@@ -1082,7 +1082,7 @@ gcode：
 
 Stepper phase adjusted endstops. To use this feature, define a config section with an "endstop_phase" prefix followed by the name of the corresponding stepper config section (for example, "[endstop_phase stepper_z]"). This feature can improve the accuracy of endstop switches. Add a bare "[endstop_phase]" declaration to enable the ENDSTOP_PHASE_CALIBRATE command.
 
-See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes.md#endstop-adjustments-by-stepper-phase) for additional information.
+See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes.md#endstop_phase) for additional information.
 
 ```
 [endstop_phase stepper_z]
@@ -1136,7 +1136,7 @@ G-Code宏（"gcode_macro"前缀定义的G-Code 宏分段没有数量限制）。
 
 ### [delayed_gcode]
 
-在预设的延迟后运行的G-Code。详见[命令模板指南](Command_Templates.md#delayed-gcodes)和[命令参考](G-Codes.md#delayed-gcode)。
+Execute a gcode on a set delay. See the [command template guide](Command_Templates.md#delayed-gcodes) and [command reference](G-Codes.md#delayed_gcode) for more information.
 
 ```
 [delayed_gcode my_delayed_gcode]。
@@ -1153,7 +1153,7 @@ gcode:
 
 ### [save_variables]
 
-Support saving variables to disk so that they are retained across restarts. See [command templates](Command_Templates.md#save-variables-to-disk) and [G-Code reference](G-Codes.md#save-variables) for further information.
+Support saving variables to disk so that they are retained across restarts. See [command templates](Command_Templates.md#save-variables-to-disk) and [G-Code reference](G-Codes.md#save_variables) for further information.
 
 ```
 [save_variables]
@@ -1197,7 +1197,7 @@ path:
 
 Some printers with stage-clearing features, such as a part ejector or a belt printer, can find use in looping sections of the sdcard file. (For example, to print the same part over and over, or repeat the a section of a part for a chain or other repeated pattern).
 
-See the [command reference](G-Codes.md#sdcard-loop) for supported commands. See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin compatible M808 G-Code macro.
+See the [command reference](G-Codes.md#sdcard_loop) for supported commands. See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin compatible M808 G-Code macro.
 
 ```
 [sdcard_loop]
@@ -1205,7 +1205,7 @@ See the [command reference](G-Codes.md#sdcard-loop) for supported commands. See 
 
 ### [force_move]
 
-Support manually moving stepper motors for diagnostic purposes. Note, using this feature may place the printer in an invalid state - see the [command reference](G-Codes.md#force-movement) for important details.
+Support manually moving stepper motors for diagnostic purposes. Note, using this feature may place the printer in an invalid state - see the [command reference](G-Codes.md#force_move) for important details.
 
 ```
 [force_move]
@@ -1217,7 +1217,7 @@ Support manually moving stepper motors for diagnostic purposes. Note, using this
 
 ### [pause_resume]
 
-暂停/恢复功能，支持位置捕获和恢复。有关详细信息，请参阅 [命令参考](G-Codes.md#pause-resume)。
+Pause/Resume functionality with support of position capture and restore. See the [command reference](G-Codes.md#pause_resume) for more information.
 
 ```
 [pause_resume]
@@ -1228,7 +1228,7 @@ Support manually moving stepper motors for diagnostic purposes. Note, using this
 
 ### [firmware_retraction]
 
-固件耗材回抽。它启用了对许多切片软件发出的G10（回抽）和G11（回填）G代码指令的支持。以下参数提供了初始默认值，这些值可以通过 SET_RETRACTION [命令](G-Code.md#firmware-retraction)调整，允许不同耗材的设置和运行时的调优。
+Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCODE commands issued by many slicers. The parameters below provide startup defaults, although the values can be adjusted via the SET_RETRACTION [command](G-Codes.md#firmware_retraction)), allowing per-filament settings and runtime tuning.
 
 ```
 [firmware_retraction]
@@ -1262,7 +1262,7 @@ Support for gcode arc (G2/G3) commands.
 
 ### [respond]
 
-启用 "M118 "和 "RESPOND "扩展[命令](G-Code.md#send-message-respond tohost)。
+Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#respond).
 
 ```
 [respond]
@@ -1281,7 +1281,7 @@ Support for gcode arc (G2/G3) commands.
 
 ### [input_shaper]
 
-启用[共振补偿](Resonance_Compensation.md)。也请参见[命令参考](G-Code.md#resonance-compensation)。
+Enables [resonance compensation](Resonance_Compensation.md). Also see the [command reference](G-Codes.md#input_shaper).
 
 ```
 [input_shaper]
@@ -1313,39 +1313,39 @@ Support for gcode arc (G2/G3) commands.
 
 ### [adxl345]
 
-Support for ADXL345 accelerometers. This support allows one to query accelerometer measurements from the sensor. This enables an ACCELEROMETER_MEASURE command (see [G-Codes](G-Codes.md#adxl345-accelerometer-commands) for more information). The default chip name is "default", but one may specify an explicit name (eg, [adxl345 my_chip_name]).
+Support for ADXL345 accelerometers. This support allows one to query accelerometer measurements from the sensor. This enables an ACCELEROMETER_MEASURE command (see [G-Codes](G-Codes.md#adxl345) for more information). The default chip name is "default", but one may specify an explicit name (eg, [adxl345 my_chip_name]).
 
 ```
 [adxl345]
 cs_pin:
-#   The SPI enable pin for the sensor. This parameter must be provided.
+#   传感器的 SPI 启用引脚。
+#   必须提供此参数。
 #spi_speed: 5000000
-#   The SPI speed (in hz) to use when communicating with the chip.
-#   The default is 5000000.
+#   与芯片通信时使用的SPI速度(hz)。
+#   默认为5000000。
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   参见"常见的SPI设置"章节，以了解对上述参数的描述。
 #axes_map: x, y, z
-#   The accelerometer axis for each of the printer's X, Y, and Z axes.
-#   This may be useful if the accelerometer is mounted in an
-#   orientation that does not match the printer orientation. For
-#   example, one could set this to "y, x, z" to swap the X and Y axes.
-#   It is also possible to negate an axis if the accelerometer
-#   direction is reversed (eg, "x, z, -y"). The default is "x, y, z".
+#   打印机的X、Y和Z轴的加速度计轴。
+#   如果加速度计的安装方向与打印机的方向不一致，
+#   可能需要修改该设定。
+#   例如，可以将其设置为"y, x, z"来交换X和Y轴。
+#   如果加速度计方向是相反的，可能需要反转相应轴
+#   （例如，"x, z, -y"）。
+#   默认是"x, y, z"。
 #rate: 3200
-#   Output data rate for ADXL345. ADXL345 supports the following data
-#   rates: 3200, 1600, 800, 400, 200, 100, 50, and 25. Note that it is
-#   not recommended to change this rate from the default 3200, and
-#   rates below 800 will considerably affect the quality of resonance
-#   measurements.
+#   ADXL345的输出数据速率。ADXL345支持以下数据速率。
+#   3200、1600、800、400、200、100、50和25。请注意，不建议
+#   将此速率从默认的3200改为低于800的速率，这将大大影响
+#   共振测量的质量。
 ```
 
 ### [resonance_tester]
 
-Support for resonance testing and automatic input shaper calibration. In order to use most of the functionality of this module, additional software dependencies must be installed; refer to [Measuring Resonances](Measuring_Resonances.md) and the [command reference](G-Codes.md#resonance-testing-commands) for more information. See the [Max smoothing](Measuring_Resonances.md#max-smoothing) section of the measuring resonances guide for more information on `max_smoothing` parameter and its use.
+Support for resonance testing and automatic input shaper calibration. In order to use most of the functionality of this module, additional software dependencies must be installed; refer to [Measuring Resonances](Measuring_Resonances.md) and the [command reference](G-Codes.md#resonance_tester) for more information. See the [Max smoothing](Measuring_Resonances.md#max-smoothing) section of the measuring resonances guide for more information on `max_smoothing` parameter and its use.
 
 ```
 [resonance_tester]
@@ -1582,13 +1582,10 @@ See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an exam
 #step_pin:
 #dir_pin:
 #...
-#   有关可用的步进电机和加热器配置，请查看“extruder”分段。
+#   See the "extruder" section for available stepper and heater
+#   parameters.
 #shared_heater:
-#   如果这个挤出头使用另一个挤出头已定义的加热器，在这里使用
-#   那个挤出头的名称。例如，当extruder3和extruder4共享加热器时，
-#   extruder3的配置分段应定义加热器，而extruder4的配置分段应定义
-#   "shared_heater: extruder3"。
-#   默认不共享加热器。
+#   This option is deprecated and should no longer be specified.
 ```
 
 ### [dual_carriage]
@@ -1618,7 +1615,7 @@ axis:
 
 Support for additional steppers synchronized to the movement of an extruder (one may define any number of sections with an "extruder_stepper" prefix).
 
-See the [command reference](G-Codes.md#extruder-stepper-commands) for more information.
+See the [command reference](G-Codes.md#extruder) for more information.
 
 ```
 [extruder_stepper my_extra_stepper]
@@ -1637,7 +1634,7 @@ See the [command reference](G-Codes.md#extruder-stepper-commands) for more infor
 
 ### [manual_stepper]
 
-手动步进器（可以使用"manual_stepper"前缀定义任意数量的手动步进器）。这些步进器可以通过 MANUAL_STEPPER G代码命令控制。例如："MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5"。有关 MANUAL_STEPPER 命令的使用说明，请参阅 [G-Codes](G-Codes.md#manual-stepper-commands)文档。手动步进器不会与打印机运动学关联。
+Manual steppers (one may define any number of sections with a "manual_stepper" prefix). These are steppers that are controlled by the MANUAL_STEPPER g-code command. For example: "MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5". See [G-Codes](G-Codes.md#manual_stepper) file for a description of the MANUAL_STEPPER command. The steppers are not connected to the normal printer kinematics.
 
 ```
 [manual_stepper my_stepper]。
@@ -1766,7 +1763,7 @@ Tool to disable heaters when homing or probing an axis.
 
 ### [heater_generic]
 
-通用加热器（“heater_generic”前缀定义的加热器分段没有数量限制）。这些加热器的行为类似于标准加热器（挤出头和热床）。可以用SET_HEATER_TEMPERATURE 命令（详见[G-Code文档](G-Code.md)）来设置目标温度。
+Generic heaters (one may define any number of sections with a "heater_generic" prefix). These heaters behave similarly to standard heaters (extruders, heated beds). Use the SET_HEATER_TEMPERATURE command (see [G-Codes](G-Codes.md#heaters) for details) to set the target temperature.
 
 ```
 [heater_generic my_generic_heater]
@@ -1944,7 +1941,7 @@ sensor_type:
 
 ### LM75 温度传感器
 
-LM75/LM75A 两线 (I2C) 温度传感器。这些传感器的最高温度高达 125 C，因此可用于例如腔室温度监测。它们还可以用作简单的风扇或加热器控制器。
+LM75/LM75A two wire (I2C) connected temperature sensors. These sensors have a range of -55~125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers.
 
 ```
 sensor_type: LM75
@@ -2159,7 +2156,7 @@ pin:
 
 Temperature-triggered cooling fans (one may define any number of sections with a "temperature_fan" prefix). A "temperature fan" is a fan that will be enabled whenever its associated sensor is above a set temperature. By default, a temperature_fan has a shutdown_speed equal to max_power.
 
-See the [command reference](G-Codes.md#temperature-fan-commands) for additional information.
+See the [command reference](G-Codes.md#temperature_fan) for additional information.
 
 ```
 [temperature_fan my_temp_fan]
@@ -2203,7 +2200,7 @@ See the [command reference](G-Codes.md#temperature-fan-commands) for additional 
 
 ### [fan_generic]
 
-手动控制的风扇（可以用"fan_generic"前缀来定义任何数量的手动控制风扇）。手动控制风扇的速度通过SET_FAN_SPEED [G代码命令](G-Code.md#manually-controlled-fans-commands)进行设置。
+Manually controlled fan (one may define any number of sections with a "fan_generic" prefix). The speed of a manually controlled fan is set with the SET_FAN_SPEED [gcode command](G-Codes.md#fan_generic).
 
 ```
 [fan_generic extruder_partfan]
@@ -2224,7 +2221,7 @@ See the [command reference](G-Codes.md#temperature-fan-commands) for additional 
 
 ### [servo]
 
-Servos (one may define any number of sections with a "servo" prefix). The servos may be controlled using the SET_SERVO [g-code command](G-Codes.md#servo-commands). For example: SET_SERVO SERVO=my_servo ANGLE=180
+Servos (one may define any number of sections with a "servo" prefix). The servos may be controlled using the SET_SERVO [g-code command](G-Codes.md#servo). For example: SET_SERVO SERVO=my_servo ANGLE=180
 
 ```
 [servo my_servo]
@@ -2252,7 +2249,7 @@ pin:
 
 ### [neopixel]
 
-Neopixel (aka WS2812) LED support (one may define any number of sections with a "neopixel" prefix). One may set the LED color via "SET_LED LED=my_neopixel RED=0.1 GREEN=0.1 BLUE=0.1" type extended [g-code commands](G-Codes.md#neopixel-and-dotstar-commands).
+Neopixel (aka WS2812) LED support (one may define any number of sections with a "neopixel" prefix). One may set the LED color via "SET_LED LED=my_neopixel RED=0.1 GREEN=0.1 BLUE=0.1" type extended [g-code commands](G-Codes.md#neopixel).
 
 ```
 [neopixel my_neopixel]
@@ -2277,7 +2274,7 @@ pin:
 
 ### [dotstar]
 
-支持Dotstar（又称APA102）LED（可以定义任何数量的带有 "dotstar "前缀的分段）。通过 "SET_LED LED=my_dotstar RED=0.1 GREEN=0.1 BLUE=0.1 "类型的扩展[G代码命令]（G-Code.md#neopixel-and-dotstar-commands）可以设置LED颜色。
+Dotstar (aka APA102) LED support (one may define any number of sections with a "dotstar" prefix). One may set the LED color via "SET_LED LED=my_dotstar RED=0.1 GREEN=0.1 BLUE=0.1" type extended [g-code commands](G-Codes.md#neopixel).
 
 ```
 [dotstar my_dotstar]
@@ -2341,7 +2338,7 @@ pin:
 
 ### [output_pin]
 
-Run-time configurable output pins (one may define any number of sections with an "output_pin" prefix). Pins configured here will be setup as output pins and one may modify them at run-time using "SET_PIN PIN=my_pin VALUE=.1" type extended [g-code commands](G-Codes.md#custom-pin-commands).
+Run-time configurable output pins (one may define any number of sections with an "output_pin" prefix). Pins configured here will be setup as output pins and one may modify them at run-time using "SET_PIN PIN=my_pin VALUE=.1" type extended [g-code commands](G-Codes.md#output_pin).
 
 ```
 [output_pin my_pin]
@@ -2417,7 +2414,7 @@ pins:
 
 ## TMC stepper driver configuration
 
-配置在 UART/SPI 模式下的 Trinamic 步进电机驱动器。其他信息在[TMC驱动指南](TMC_Drivers.md)和[命令参考](G-Code.md#tmc-stepper-drivers)中。
+Configuration of Trinamic stepper motor drivers in UART/SPI mode. Additional information is in the [TMC Drivers guide](TMC_Drivers.md) and in the [command reference](G-Codes.md#tmcxxxx).
 
 ### [tmc2130]
 
@@ -3262,7 +3259,7 @@ See the [command template document](Command_Templates.md#menu-templates) for inf
 
 耗材开关传感器。支持使用开关传感器（如限位开关）进行耗材插入和耗尽检测。
 
-See the [command reference](G-Codes.md#filament-sensor) for more information.
+See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
 
 ```
 [filament_switch_sensor my_sensor]。
@@ -3300,7 +3297,7 @@ See the [command reference](G-Codes.md#filament-sensor) for more information.
 
 耗材移动传感器。使用一个在耗材通过传感器时输出引脚状态会发生变化来检测耗材插入和耗尽。
 
-See the [command reference](G-Codes.md#filament-sensor) for more information.
+See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
 
 ```
 [filament_motion_sensor my_sensor]

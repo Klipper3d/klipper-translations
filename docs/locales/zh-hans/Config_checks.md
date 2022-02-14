@@ -52,7 +52,7 @@ M112 命令会使 Klipper 进入 "shutdown"（关闭）状态。要退出这一�
 
 ## 校准 PID 设置
 
-Klipper 支持挤出机和床加热器的 [PID 控制](https://en.wikipedia.org/wiki/PID_controller)。 为了使用这种控制机制，必须校准每台打印机上的 PID 设置。 （在其他固件或示例配置文件中找到的 PID 设置通常效果不佳。）
+Klipper支持挤出机和热床加热器的[PID控制](https://en.wikipedia.org/wiki/PID_controller)。为了使用这种控制机制，必须对每台打印机的 PID 参数进行校准（在其他固件或示例配置文件中找到的 PID 设置往往效果不佳）。
 
 要校准挤出机，请找到 OctoPrint 终端选项卡并运行 PID_CALIBRATE 命令。 例如：`PID_CALIBRATE HEATER=extruder TARGET=170`
 

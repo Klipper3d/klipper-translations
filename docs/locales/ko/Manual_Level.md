@@ -115,7 +115,7 @@ Recv: ok
 - front left screw is the reference point you must not change it.
 - front right screw must be turned clockwise 1 full turn and a quarter turn
 - rear right screw must be turned counter-clockwise 50 minutes
-- read left screw must be turned clockwise 2 minutes (not need it's ok)
+- rear left screw must be turned clockwise 2 minutes (not need it's ok)
 
 BED가 수평이 될 때까지 이 과정을 여러 번 반복합니다. 일반적으로 6분 미만의 시간이 필요합니다.
 

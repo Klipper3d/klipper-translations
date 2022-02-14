@@ -15,7 +15,7 @@
 1. [TMC 모터 드라이버가 인쇄 도중에 꺼집니다](#TMC-모터-드라이버가-인쇄-도중에-꺼집니다)
 1. [랜덤하게 "MCU와의 통신 끊김" 오류가 계속 발생합니다](#랜덤하게-MCU와의-통신-끊김-오류가-계속-발생합니다)
 1. [Raspberry Pi가 인쇄 중에 계속 재부팅됩니다](#Raspberry-Pi가-인쇄-중에-계속-재부팅됩니다.)
-1. ["restart_method=command"를 설정하면 AVR 장치가 다시 시작할 때 멈춥니다](#restart_method=command를-설정하면-AVR-장치가-다시-시작할-때-멈춥니다)
+1. [When I set `restart_method=command` my AVR device just hangs on a restart](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-restart)
 1. [Raspberry Pi가 비정상 종료하면 히터가 켜져 있습니까?](#Raspberry-Pi가-비정상-종료하면-히터가-켜져-있습니까)
 1. [Marlin 핀 번호를 Klipper 핀 이름으로 어떻게 변환합니까?](#Marlin-핀-번호를-Klipper-핀-이름으로-어떻게-변환합니까)
 1. [내 장치를 특정 유형의 마이크로 컨트롤러 핀에 연결해야 합니까?](#내-장치를-특정-유형의-마이크로-컨트롤러-핀에-연결해야-합니까)
@@ -163,7 +163,7 @@ OctoPrint를 통해 인쇄를 취소한 후 헤드를 이동하려면 OctoPrint 
 
 이것은 대부분 전압 변동이 원인일 가능성이 있습니다. 문제를 해결하려면 ["MCU와의 통신 끊김"](#랜덤하게-MCU와의-통신-끊김-오류가-계속-발생합니다)를 따르십시오.
 
-## "restart_method=command"를 설정하면 AVR 장치가 다시 시작할 때 멈춥니다
+## When I set `restart_method=command` my AVR device just hangs on a restart
 
 AVR 부트로더의 일부 이전 버전에는 워치독 이벤트 처리에 알려진 버그가 있습니다. 이것은 일반적으로 printer.cfg 파일에 restart_method가 "command"로 설정되어 있을 때 나타납니다. 버그가 발생하면 전원이 제거되고 장치에 다시 공급될 때까지 AVR 장치가 응답하지 않습니다 (전원이 제거될 때까지 전원 또는 상태 LED도 반복적으로 깜박일 수 있음).
 

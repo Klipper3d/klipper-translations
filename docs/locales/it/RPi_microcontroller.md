@@ -20,10 +20,6 @@ sudo cp "./scripts/klipper-mcu-start.sh" /etc/init.d/klipper_mcu
 sudo update-rc.d klipper_mcu defaults
 ```
 
-## Abilitazione di SPI
-
-Make sure the Linux SPI driver is enabled by running sudo raspi-config and enabling SPI under the "Interfacing options" menu.
-
 ## Creazione del codice del microcontrollore
 
 Per compilare il codice del microcontrollore Klipper, iniziate configurandolo per il "processo Linux":
@@ -53,6 +49,10 @@ sudo usermod -a -G tty pi
 
 Completare l'installazione configurando l'MCU secondario di Klipper seguendo le istruzioni in [RaspberryPi sample config](../config/sample-raspberry-pi.cfg) e [Multi MCU sample config](../config/sample-multi-mcu.cfg).
 
+## Optional: Enabling SPI
+
+Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and enabling SPI under the "Interfacing options" menu.
+
 ## Opzionale: Identificare il gpiochip corretto
 
 Su Rasperry e su molti cloni i pin esposti sul GPIO appartengono al primo gpiochip. Possono quindi essere utilizzati su klipper semplicemente riferendoli con il nome `gpio0..n`. Tuttavia, ci sono casi in cui i pin esposti appartengono a gpiochip diversi dal primo. Per esempio nel caso di alcuni modelli OrangePi o se viene utilizzato un Port Expander. In questi casi è utile utilizzare i comandi per accedere al dispositivo *Linux GPIO character* per verificare la configurazione.
@@ -75,7 +75,7 @@ Per verificare il numero di pin e la disponibilità dei pin:
 gpioinfo
 ```
 
-Il pin scelto può quindi essere usato all'interno della configurazione come `gpiochip<n>/gpio<o>` dove **n** è il numero del chip visto dal comando `gpiodetect` e **o** è il numero della linea visto dal comando` gpioinfo`.
+The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the`gpioinfo` command.
 
 ***Attenzione:*** solo i gpio contrassegnati come `inutilizzati` possono essere utilizzati. Non è possibile che una *linea* sia usata da più processi contemporaneamente.
 

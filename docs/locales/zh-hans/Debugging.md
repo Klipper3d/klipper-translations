@@ -147,17 +147,31 @@ The script will extract the printer config file and will extract MCU shutdown in
 
 [simulavr](http://www.nongnu.org/simulavr/)工具使人们可以模拟Atmel ATmega微控制器。本节描述了如何通过simulavr运行测试gcode文件。建议在台式机（而不是Raspberry Pi）上运行这个工具，因为它需要大量的cpu来有效运行。
 
-要使用simulavr，下载simulavr包并在python支持下进行编译：
+To use simulavr, download the simulavr package and compile with python support. Note that the build system may need to have some packages (such as swig) installed in order to build the python module.
 
 ```
 git clone git://git.savannah.nongnu.org/simulavr.git
 cd simulavr
-./bootstrap
-./configure --enable-python
-make
+make python
+make build
 ```
 
-请注意，构建系统可能需要安装一些软件包（如swig），以便构建python模块。确保在上述编译之后，文件**src/python/_pysimulavr.so**是存在的。
+Make sure a file like **./build/pysimulavr/_pysimulavr.*.so** is present after the above compilation:
+
+```
+ls ./build/pysimulavr/_pysimulavr.*.so
+```
+
+This commmand should report a specific file (e.g. **./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not an error.
+
+If you are on a Debian-based system (Debian, Ubuntu, etc.) you can install the following packages and generate *.deb files for system-wide installation of simulavr:
+
+```
+sudo apt update
+sudo apt install g++ make cmake swig rst2pdf help2man texinfo
+make cfgclean python debian
+sudo dpkg -i build/debian/python3-simulavr*.deb
+```
 
 要编译Klipper以便在simulavr中使用，请运行：
 
@@ -169,7 +183,13 @@ make menuconfig
 and compile the micro-controller software for an AVR atmega644p and select SIMULAVR software emulation support. Then one can compile Klipper (run `make`) and then start the simulation with:
 
 ```
-PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py out/klipper.elf
+PYTHONPATH=/path/to/simulavr/build/pysimulavr/ ./scripts/avrsim.py out/klipper.elf
+```
+
+Note that if you have installed python3-simulavr system-wide, you do not need to set `PYTHONPATH`, and can simply run the simulator as
+
+```
+./scripts/avrsim.py out/klipper.elf
 ```
 
 然后，在另一个窗口中运行simulavr，可以运行以下内容，从一个文件（例如，"test.gcode"）中读取gcode，用Klippy处理它，并将其发送到simulavr中运行的Klipper（关于建立python虚拟环境的必要步骤，见[安装](Installation.md)）。

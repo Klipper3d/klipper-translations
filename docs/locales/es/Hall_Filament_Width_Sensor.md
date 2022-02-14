@@ -4,7 +4,7 @@ This document describes Filament Width Sensor host module. Hardware used for dev
 
 You can find designs at [Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video is also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)
 
-To use Hall filament width sensor, read [Config Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code documentation](G-Codes.md#Hall_Filament_Width_Sensor_Commands).
+To use Hall filament width sensor, read [Config Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code documentation](G-Codes.md#hall_filament_width_sensor).
 
 ## How does it work?
 
@@ -38,7 +38,7 @@ To get raw sensor value you can use menu item or **QUERY_RAW_FILAMENT_WIDTH** co
 
 By default, the sensor is disabled at power-on.
 
-To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set the `enable` parameter to `true.`
+To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set the `enable` parameter to `true`.
 
 ## Logging
 

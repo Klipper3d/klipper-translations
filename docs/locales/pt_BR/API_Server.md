@@ -1,16 +1,16 @@
 # API server
 
-This document describes Klipper's Application Programmer Interface (API). This interface enables external applications to query and control the Klipper host software.
+‎Este documento descreve a Interface do Programador de Aplicativos (API) da ‎‎Klipper‎‎. Esta interface permite que aplicativos externos consultem e controlem o software de host ‎‎Klipper‎‎.‎
 
-## Enabling the API socket
+## ‎Habilitando o soquete de API‎
 
-In order to use the API server, the klippy.py host software must be started with the `-a` parameter. For example:
+‎Para usar o ‎‎servidor API‎‎, o software host klippy.py deve ser iniciado com o ‎parâmetro `-a`‎. Por exemplo:‎
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 ```
 
-This causes the host software to create a Unix Domain Socket. A client can then open a connection on that socket and send commands to Klipper.
+‎Isso faz com que o software host crie um Soquete de domínio Unix, um cliente pode então abrir uma conexão nesse soquete e enviar comandos para ‎‎Klipper‎‎.‎
 
 ## Request format
 

@@ -15,7 +15,7 @@
 1. [我的 TMC 电机驱动程序在打印过程中关闭](#my-tmc-motor-driver-turns-off-in-the-middle-of-a-print)
 1. [我不断收到随机的“与 MCU 失去通信”错误](#i-keep-getting-random-lost-communication-with-mcu-errors)
 1. [我的树莓派在打印过程中不断重启](#my-raspberry-pi-keeps-rebooting-during-prints)
-1. [当我设置“restart_method=command”时，我的 AVR 设备在重启时挂起](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-restart)
+1. [当我设置`restart_method=command`时，我的 AVR 设备在重启时挂起](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-restart)
 1. [如果 Raspberry Pi 崩溃，加热器会继续打开吗？](#will-the-heaters-be-left-on-if-the-raspberry-pi-crashes)
 1. [如何将 Marlin 引脚编号转换为 Klipper 引脚名称？](#how-do-i-convert-a-marlin-pin-number-to-a-klipper-pin-name)
 1. [我必须将我的设备连接到特定类型的微控制器引脚吗？](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin)
@@ -163,7 +163,7 @@ Klipper 通过 “/tmp/printer” 文件创建了一个“虚拟串口”，该�
 
 这很可能是由于电压波动引起的。请遵循["与MCU失去通信"](#i-keep-getting-random-lost-communication-with-mcu-errors)错误同样的故障排除步骤。
 
-## 当设置"restart_method=command"时， AVR 设备重启时会死机
+## 当设置`restart_method=command`时， AVR 设备在重启时就会死机
 
 一些旧版本的AVR引导程序在看门狗事件处理方面有一个已知的错误。这通常表现在printer.cfg文件中的restart_method设置为 "command"的时候。当这个错误发生时，AVR设备会死机直到电源被移除并重新上电（电源或状态LED也可能不停的闪烁直到断电）。
 

@@ -2,7 +2,7 @@
 
 本文档描述了耗材宽度传感器主机模块。用于开发此主机模块的硬件基于 TSL1401CL 线性传感器阵列，但该模块可以与任何具有模拟输出的传感器阵列一起使用。您可以在 [Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor) 找到可用的设计。
 
-要使用基于传感器阵列的耗材宽度传感器，请参阅[配置参考](Config_Reference.md#tsl1401cl_filament_width_sensor)和[G-Code documentation](G-Code.md#Filament_Width_Sensor_Commands)。
+To use a sensor array as a filament width sensor, read [Config Reference](Config_Reference.md#tsl1401cl_filament_width_sensor) and [G-Code documentation](G-Codes.md#hall_filament_width_sensor).
 
 ## 它如何运作？
 
