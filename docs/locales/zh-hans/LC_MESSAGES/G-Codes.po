@@ -6,9 +6,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-13 14:53+0200\n"
-"PO-Revision-Date: 2022-01-19 08:09+0000\n"
+"PO-Revision-Date: 2022-02-14 07:40+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/g-codes/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/g-codes/zh_Hans/>\n"
 "Language: zh-hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1042,10 +1043,13 @@ msgid ""
 "command. Instead, Klipper prefers human readable [\"extended G-Code "
 "commands\"](#additional-commands)."
 msgstr ""
+"Klipper的目标是支持常见第三方软件（如OctoPrint、Printrun、Slic3r、Cura等）在其标准配置中产生的 G 代码命令。"
+"支持所有可能的 G-Code 命令并不是我们的目标。相反，Klipper更喜欢人类可读的[\"扩展G-Code命令\"](#additional-"
+"commands)。"
 
 #: docs/G-Codes.md:block 9 (header)
 msgid "Additional Commands"
-msgstr ""
+msgstr "其他命令"
 
 #: docs/G-Codes.md:block 11 (paragraph)
 msgid ""
@@ -1056,7 +1060,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 12 (header)
 msgid "[adxl345]"
-msgstr ""
+msgstr "[adxl345]"
 
 #: docs/G-Codes.md:block 13 (paragraph)
 msgid ""
@@ -1066,15 +1070,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 14 (header)
 msgid "ACCELEROMETER_MEASURE"
-msgstr ""
+msgstr "ACCELEROMETER_MEASURE"
 
 #: docs/G-Codes.md:block 16 (header)
 msgid "ACCELEROMETER_QUERY"
-msgstr ""
+msgstr "ACCELEROMETER_QUERY"
 
 #: docs/G-Codes.md:block 18 (header)
 msgid "ACCELEROMETER_DEBUG_READ"
-msgstr ""
+msgstr "ACCELEROMETER_DEBUG_READ"
 
 #: docs/G-Codes.md:block 19 (paragraph)
 msgid ""
@@ -1082,10 +1086,12 @@ msgid ""
 "ADXL345 register \"register\" (e.g. 44 or 0x2C). Can be useful for debugging"
 " purposes."
 msgstr ""
+"`ACCELEROMETER_DEBUG_READ [CHIP=<配置名>] REG=<寄存器>`：查询ADXL345的寄存器\"REG\""
+"（例如44或0x2C）。可以用于debug。"
 
 #: docs/G-Codes.md:block 20 (header)
 msgid "ACCELEROMETER_DEBUG_WRITE"
-msgstr ""
+msgstr "ACCELEROMETER_DEBUG_WRITE"
 
 #: docs/G-Codes.md:block 21 (paragraph)
 msgid ""
@@ -1094,10 +1100,12 @@ msgid ""
 "\"register\" can be a decimal or a hexadecimal integer. Use with care, and "
 "refer to ADXL345 data sheet for the reference."
 msgstr ""
+"`ACCELEROMETER_DEBUG_WRITE [CHIP=<配置名>] REG=<寄存器> VAL=<值>`：将原始的\"值\"写进寄存器"
+"\"寄存器\"。\"值\"和\"寄存器\"都可以是一个十进制或十六进制的整数。请谨慎使用，并参考 ADXL345 数据手册。"
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[bed_mesh]"
-msgstr ""
+msgstr "[bed_mesh]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
@@ -1108,23 +1116,23 @@ msgstr ""
 
 #: docs/G-Codes.md:block 24 (header)
 msgid "BED_MESH_CALIBRATE"
-msgstr ""
+msgstr "BED_MESH_CALIBRATE"
 
 #: docs/G-Codes.md:block 26 (header)
 msgid "BED_MESH_OUTPUT"
-msgstr ""
+msgstr "BED_MESH_OUTPUT"
 
 #: docs/G-Codes.md:block 28 (header)
 msgid "BED_MESH_MAP"
-msgstr ""
+msgstr "BED_MESH_MAP"
 
 #: docs/G-Codes.md:block 30 (header)
 msgid "BED_MESH_CLEAR"
-msgstr ""
+msgstr "BED_MESH_CLEAR"
 
 #: docs/G-Codes.md:block 32 (header)
 msgid "BED_MESH_PROFILE"
-msgstr ""
+msgstr "BED_MESH_PROFILE"
 
 #: docs/G-Codes.md:block 33 (paragraph)
 msgid ""
@@ -1139,11 +1147,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 34 (header)
 msgid "BED_MESH_OFFSET"
-msgstr ""
+msgstr "BED_MESH_OFFSET"
 
 #: docs/G-Codes.md:block 36 (header)
 msgid "[bed_screws]"
-msgstr ""
+msgstr "[bed_screws]"
 
 #: docs/G-Codes.md:block 37 (paragraph)
 msgid ""
@@ -1154,11 +1162,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 38 (header)
 msgid "BED_SCREWS_ADJUST"
-msgstr ""
+msgstr "BED_SCREWS_ADJUST"
 
 #: docs/G-Codes.md:block 40 (header)
 msgid "[bed_tilt]"
-msgstr ""
+msgstr "[bed_tilt]"
 
 #: docs/G-Codes.md:block 41 (paragraph)
 msgid ""
@@ -1168,11 +1176,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 42 (header)
 msgid "BED_TILT_CALIBRATE"
-msgstr ""
+msgstr "BED_TILT_CALIBRATE"
 
 #: docs/G-Codes.md:block 44 (header)
 msgid "[bltouch]"
-msgstr ""
+msgstr "[bltouch]"
 
 #: docs/G-Codes.md:block 45 (paragraph)
 msgid ""
@@ -1183,7 +1191,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 46 (header)
 msgid "BLTOUCH_DEBUG"
-msgstr ""
+msgstr "BLTOUCH_DEBUG"
 
 #: docs/G-Codes.md:block 47 (paragraph)
 msgid ""
@@ -1193,26 +1201,29 @@ msgid ""
 "also support `set_5V_output_mode`, `set_OD_output_mode`, `output_mode_store`"
 " commands."
 msgstr ""
+"`BLTOUCH_DEBUG COMMAND=<命令>`：向BLTouch发送一个指定的命令，可以用于调试。可用的命令有：`pin_down`、`touc"
+"h_mode`、`pin_up`、`self_test`和`reset`。BL-TOUCH V3.0 或 V3.1 "
+"也可能支持`set_5V_output_mode`、`set_OD_output_mode`和`output_mode_store`命令。"
 
 #: docs/G-Codes.md:block 48 (header)
 msgid "BLTOUCH_STORE"
-msgstr ""
+msgstr "BLTOUCH_STORE"
 
 #: docs/G-Codes.md:block 50 (header)
 msgid "[configfile]"
-msgstr ""
+msgstr "[configfile]"
 
 #: docs/G-Codes.md:block 51 (paragraph)
 msgid "The configfile module is automatically loaded."
-msgstr ""
+msgstr "configfile模块被自动加载。"
 
 #: docs/G-Codes.md:block 52 (header)
 msgid "SAVE_CONFIG"
-msgstr ""
+msgstr "SAVE_CONFIG"
 
 #: docs/G-Codes.md:block 54 (header)
 msgid "[delayed_gcode]"
-msgstr ""
+msgstr "[delayed_gcode]"
 
 #: docs/G-Codes.md:block 55 (paragraph)
 msgid ""
@@ -1227,7 +1238,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 58 (header)
 msgid "[delta_calibrate]"
-msgstr ""
+msgstr "[delta_calibrate]"
 
 #: docs/G-Codes.md:block 59 (paragraph)
 msgid ""
@@ -1238,15 +1249,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 60 (header)
 msgid "DELTA_CALIBRATE"
-msgstr ""
+msgstr "DELTA_CALIBRATE"
 
 #: docs/G-Codes.md:block 62 (header)
 msgid "DELTA_ANALYZE"
-msgstr ""
+msgstr "DELTA_ANALYZE"
 
 #: docs/G-Codes.md:block 64 (header)
 msgid "[display]"
-msgstr ""
+msgstr "[display]"
 
 #: docs/G-Codes.md:block 65 (paragraph)
 msgid ""
@@ -1256,11 +1267,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 66 (header)
 msgid "SET_DISPLAY_GROUP"
-msgstr ""
+msgstr "SET_DISPLAY_GROUP"
 
 #: docs/G-Codes.md:block 68 (header)
 msgid "[display_status]"
-msgstr ""
+msgstr "[display_status]"
 
 #: docs/G-Codes.md:block 69 (paragraph)
 msgid ""
@@ -1271,7 +1282,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 71 (header)
 msgid "[dual_carriage]"
-msgstr ""
+msgstr "[dual_carriage]"
 
 #: docs/G-Codes.md:block 72 (paragraph)
 msgid ""
@@ -1281,11 +1292,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 73 (header)
 msgid "SET_DUAL_CARRIAGE"
-msgstr ""
+msgstr "SET_DUAL_CARRIAGE"
 
 #: docs/G-Codes.md:block 75 (header)
 msgid "[endstop_phase]"
-msgstr ""
+msgstr "[endstop_phase]"
 
 #: docs/G-Codes.md:block 76 (paragraph)
 msgid ""
@@ -1296,11 +1307,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 77 (header)
 msgid "ENDSTOP_PHASE_CALIBRATE"
-msgstr ""
+msgstr "ENDSTOP_PHASE_CALIBRATE"
 
 #: docs/G-Codes.md:block 79 (header)
 msgid "[extruder]"
-msgstr ""
+msgstr "[extruder]"
 
 #: docs/G-Codes.md:block 80 (paragraph)
 msgid ""
@@ -1310,15 +1321,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 81 (header)
 msgid "ACTIVATE_EXTRUDER"
-msgstr ""
+msgstr "ACTIVATE_EXTRUDER"
 
 #: docs/G-Codes.md:block 83 (header)
 msgid "SET_PRESSURE_ADVANCE"
-msgstr ""
+msgstr "SET_PRESSURE_ADVANCE"
 
 #: docs/G-Codes.md:block 85 (header)
 msgid "SET_EXTRUDER_ROTATION_DISTANCE"
-msgstr ""
+msgstr "SET_EXTRUDER_ROTATION_DISTANCE"
 
 #: docs/G-Codes.md:block 86 (paragraph)
 msgid ""
@@ -1335,7 +1346,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 87 (header)
 msgid "SYNC_EXTRUDER_MOTION"
-msgstr ""
+msgstr "SYNC_EXTRUDER_MOTION"
 
 #: docs/G-Codes.md:block 88 (paragraph)
 msgid ""
@@ -1351,7 +1362,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 89 (header)
 msgid "SET_EXTRUDER_STEP_DISTANCE"
-msgstr ""
+msgstr "SET_EXTRUDER_STEP_DISTANCE"
 
 #: docs/G-Codes.md:block 90 (paragraph)
 msgid "This command is deprecated and will be removed in the near future."
@@ -1359,11 +1370,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 91 (header)
 msgid "SYNC_STEPPER_TO_EXTRUDER"
-msgstr ""
+msgstr "SYNC_STEPPER_TO_EXTRUDER"
 
 #: docs/G-Codes.md:block 93 (header)
 msgid "[fan_generic]"
-msgstr ""
+msgstr "[fan_generic]"
 
 #: docs/G-Codes.md:block 94 (paragraph)
 msgid ""
@@ -1373,7 +1384,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 95 (header)
 msgid "SET_FAN_SPEED"
-msgstr ""
+msgstr "SET_FAN_SPEED"
 
 #: docs/G-Codes.md:block 96 (paragraph)
 msgid ""
@@ -1383,7 +1394,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 97 (header)
 msgid "[firmware_retraction]"
-msgstr ""
+msgstr "[firmware_retraction]"
 
 #: docs/G-Codes.md:block 98 (paragraph)
 msgid ""
@@ -1398,19 +1409,19 @@ msgstr ""
 
 #: docs/G-Codes.md:block 100 (paragraph)
 msgid "The following additional commands are also available."
-msgstr ""
+msgstr "还可以使用以下额外命令："
 
 #: docs/G-Codes.md:block 101 (header)
 msgid "SET_RETRACTION"
-msgstr ""
+msgstr "SET_RETRACTION"
 
 #: docs/G-Codes.md:block 103 (header)
 msgid "GET_RETRACTION"
-msgstr ""
+msgstr "GET_RETRACTION"
 
 #: docs/G-Codes.md:block 105 (header)
 msgid "[filament_switch_sensor]"
-msgstr ""
+msgstr "[filament_switch_sensor]"
 
 #: docs/G-Codes.md:block 106 (paragraph)
 msgid ""
@@ -1422,7 +1433,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 107 (header)
 msgid "QUERY_FILAMENT_SENSOR"
-msgstr ""
+msgstr "QUERY_FILAMENT_SENSOR"
 
 #: docs/G-Codes.md:block 108 (paragraph)
 msgid ""
@@ -1433,11 +1444,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 109 (header)
 msgid "SET_FILAMENT_SENSOR"
-msgstr ""
+msgstr "SET_FILAMENT_SENSOR"
 
 #: docs/G-Codes.md:block 114 (header)
 msgid "[force_move]"
-msgstr ""
+msgstr "[force_move]"
 
 #: docs/G-Codes.md:block 115 (paragraph)
 msgid ""
@@ -1448,19 +1459,19 @@ msgstr ""
 
 #: docs/G-Codes.md:block 116 (header)
 msgid "STEPPER_BUZZ"
-msgstr ""
+msgstr "STEPPER_BUZZ"
 
 #: docs/G-Codes.md:block 118 (header)
 msgid "FORCE_MOVE"
-msgstr ""
+msgstr "FORCE_MOVE"
 
 #: docs/G-Codes.md:block 120 (header)
 msgid "SET_KINEMATIC_POSITION"
-msgstr ""
+msgstr "SET_KINEMATIC_POSITION"
 
 #: docs/G-Codes.md:block 122 (header)
 msgid "[gcode]"
-msgstr ""
+msgstr "[gcode]"
 
 #: docs/G-Codes.md:block 123 (paragraph)
 msgid "The gcode module is automatically loaded."
@@ -1468,27 +1479,27 @@ msgstr ""
 
 #: docs/G-Codes.md:block 124 (header)
 msgid "RESTART"
-msgstr ""
+msgstr "RESTART"
 
 #: docs/G-Codes.md:block 126 (header)
 msgid "FIRMWARE_RESTART"
-msgstr ""
+msgstr "FIRMWARE_RESTART"
 
 #: docs/G-Codes.md:block 128 (header)
 msgid "STATUS"
-msgstr ""
+msgstr "STATUS"
 
 #: docs/G-Codes.md:block 130 (header)
 msgid "HELP"
-msgstr ""
+msgstr "HELP"
 
 #: docs/G-Codes.md:block 132 (header)
 msgid "[gcode_arcs]"
-msgstr ""
+msgstr "[gcode_arcs]"
 
 #: docs/G-Codes.md:block 135 (header)
 msgid "[gcode_macro]"
-msgstr ""
+msgstr "[gcode_macro]"
 
 #: docs/G-Codes.md:block 136 (paragraph)
 msgid ""
@@ -1499,11 +1510,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 137 (header)
 msgid "SET_GCODE_VARIABLE"
-msgstr ""
+msgstr "SET_GCODE_VARIABLE"
 
 #: docs/G-Codes.md:block 139 (header)
 msgid "[gcode_move]"
-msgstr ""
+msgstr "[gcode_move]"
 
 #: docs/G-Codes.md:block 140 (paragraph)
 msgid "The gcode_move module is automatically loaded."
@@ -1511,23 +1522,23 @@ msgstr ""
 
 #: docs/G-Codes.md:block 141 (header)
 msgid "GET_POSITION"
-msgstr ""
+msgstr "GET_POSITION"
 
 #: docs/G-Codes.md:block 143 (header)
 msgid "SET_GCODE_OFFSET"
-msgstr ""
+msgstr "SET_GCODE_OFFSET"
 
 #: docs/G-Codes.md:block 145 (header)
 msgid "SAVE_GCODE_STATE"
-msgstr ""
+msgstr "SAVE_GCODE_STATE"
 
 #: docs/G-Codes.md:block 147 (header)
 msgid "RESTORE_GCODE_STATE"
-msgstr ""
+msgstr "RESTORE_GCODE_STATE"
 
 #: docs/G-Codes.md:block 149 (header)
 msgid "[hall_filament_width_sensor]"
-msgstr ""
+msgstr "[hall_filament_width_sensor]"
 
 #: docs/G-Codes.md:block 150 (paragraph)
 msgid ""
@@ -1541,71 +1552,71 @@ msgstr ""
 
 #: docs/G-Codes.md:block 151 (header)
 msgid "QUERY_FILAMENT_WIDTH"
-msgstr ""
+msgstr "QUERY_FILAMENT_WIDTH"
 
 #: docs/G-Codes.md:block 152 (paragraph)
 msgid "`QUERY_FILAMENT_WIDTH`: Return the current measured filament width."
-msgstr ""
+msgstr "`QUERY_FILAMENT_WIDTH`：返回当前测量的耗材直径。"
 
 #: docs/G-Codes.md:block 153 (header)
 msgid "RESET_FILAMENT_WIDTH_SENSOR"
-msgstr ""
+msgstr "RESET_FILAMENT_WIDTH_SENSOR"
 
 #: docs/G-Codes.md:block 154 (paragraph)
 msgid ""
 "`RESET_FILAMENT_WIDTH_SENSOR`: Clear all sensor readings. Helpful after "
 "filament change."
-msgstr ""
+msgstr "`RESET_FILAMENT_WIDTH_SENSOR`：清除全部传感器读数。在更换耗材后有用。"
 
 #: docs/G-Codes.md:block 155 (header)
 msgid "DISABLE_FILAMENT_WIDTH_SENSOR"
-msgstr ""
+msgstr "DISABLE_FILAMENT_WIDTH_SENSOR"
 
 #: docs/G-Codes.md:block 156 (paragraph)
 msgid ""
 "`DISABLE_FILAMENT_WIDTH_SENSOR`: Turn off the filament width sensor and stop"
 " using it for flow control."
-msgstr ""
+msgstr "`DISABLE_FILAMENT_WIDTH_SENSOR`：关闭耗材直径传感器并停止使用它进行流量控制。"
 
 #: docs/G-Codes.md:block 157 (header)
 msgid "ENABLE_FILAMENT_WIDTH_SENSOR"
-msgstr ""
+msgstr "ENABLE_FILAMENT_WIDTH_SENSOR"
 
 #: docs/G-Codes.md:block 158 (paragraph)
 msgid ""
 "`ENABLE_FILAMENT_WIDTH_SENSOR`: Turn on the filament width sensor and start "
 "using it for flow control."
-msgstr ""
+msgstr "`ENABLE_FILAMENT_WIDTH_SENSOR`：启用耗材直径传感器并使用它进行流量控制。"
 
 #: docs/G-Codes.md:block 159 (header)
 msgid "QUERY_RAW_FILAMENT_WIDTH"
-msgstr ""
+msgstr "QUERY_RAW_FILAMENT_WIDTH"
 
 #: docs/G-Codes.md:block 160 (paragraph)
 msgid ""
 "`QUERY_RAW_FILAMENT_WIDTH`: Return the current ADC channel readings and RAW "
 "sensor value for calibration points."
-msgstr ""
+msgstr "`QUERY_RAW_FILAMENT_WIDTH`：返回当前 ADC 通道读数和校准点的 RAW 传感器值。"
 
 #: docs/G-Codes.md:block 161 (header)
 msgid "ENABLE_FILAMENT_WIDTH_LOG"
-msgstr ""
+msgstr "ENABLE_FILAMENT_WIDTH_LOG"
 
 #: docs/G-Codes.md:block 162 (paragraph)
 msgid "`ENABLE_FILAMENT_WIDTH_LOG`: Turn on diameter logging."
-msgstr ""
+msgstr "`ENABLE_FILAMENT_WIDTH_LOG`：开启直径记录。"
 
 #: docs/G-Codes.md:block 163 (header)
 msgid "DISABLE_FILAMENT_WIDTH_LOG"
-msgstr ""
+msgstr "DISABLE_FILAMENT_WIDTH_LOG"
 
 #: docs/G-Codes.md:block 164 (paragraph)
 msgid "`DISABLE_FILAMENT_WIDTH_LOG`: Turn off diameter logging."
-msgstr ""
+msgstr "`DISABLE_FILAMENT_WIDTH_LOG`：停止直径记录。"
 
 #: docs/G-Codes.md:block 165 (header)
 msgid "[heaters]"
-msgstr ""
+msgstr "[heaters]"
 
 #: docs/G-Codes.md:block 166 (paragraph)
 msgid ""
@@ -1619,15 +1630,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 169 (header)
 msgid "TEMPERATURE_WAIT"
-msgstr ""
+msgstr "TEMPERATURE_WAIT"
 
 #: docs/G-Codes.md:block 171 (header)
 msgid "SET_HEATER_TEMPERATURE"
-msgstr ""
+msgstr "SET_HEATER_TEMPERATURE"
 
 #: docs/G-Codes.md:block 173 (header)
 msgid "[idle_timeout]"
-msgstr ""
+msgstr "[idle_timeout]"
 
 #: docs/G-Codes.md:block 174 (paragraph)
 msgid "The idle_timeout module is automatically loaded."
@@ -1635,11 +1646,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 175 (header)
 msgid "SET_IDLE_TIMEOUT"
-msgstr ""
+msgstr "SET_IDLE_TIMEOUT"
 
 #: docs/G-Codes.md:block 177 (header)
 msgid "[input_shaper]"
-msgstr ""
+msgstr "[input_shaper]"
 
 #: docs/G-Codes.md:block 178 (paragraph)
 msgid ""
@@ -1650,11 +1661,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 179 (header)
 msgid "SET_INPUT_SHAPER"
-msgstr ""
+msgstr "SET_INPUT_SHAPER"
 
 #: docs/G-Codes.md:block 181 (header)
 msgid "[manual_probe]"
-msgstr ""
+msgstr "[manual_probe]"
 
 #: docs/G-Codes.md:block 182 (paragraph)
 msgid "The manual_probe module is automatically loaded."
@@ -1662,7 +1673,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 183 (header)
 msgid "MANUAL_PROBE"
-msgstr ""
+msgstr "MANUAL_PROBE"
 
 #: docs/G-Codes.md:block 186 (header)
 msgid "Z_ENDSTOP_CALIBRATE"
@@ -1674,21 +1685,21 @@ msgstr ""
 
 #: docs/G-Codes.md:block 190 (header)
 msgid "[manual_stepper]"
-msgstr ""
+msgstr "[manual_stepper]"
 
 #: docs/G-Codes.md:block 191 (paragraph)
 msgid ""
 "The following command is available when a [manual_stepper config "
 "section](Config_Reference.md#manual_stepper) is enabled."
-msgstr ""
+msgstr "当[manual_stepper 配置分段](Config_Reference.md#manual_stepper)被启用时，以下命令可用。"
 
 #: docs/G-Codes.md:block 192 (header)
 msgid "MANUAL_STEPPER"
-msgstr ""
+msgstr "MANUAL_STEPPER"
 
 #: docs/G-Codes.md:block 194 (header)
 msgid "[neopixel]"
-msgstr ""
+msgstr "[neopixel]"
 
 #: docs/G-Codes.md:block 195 (paragraph)
 msgid ""
@@ -1699,11 +1710,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 196 (header)
 msgid "SET_LED"
-msgstr ""
+msgstr "SET_LED"
 
 #: docs/G-Codes.md:block 198 (header)
 msgid "[output_pin]"
-msgstr ""
+msgstr "[output_pin]"
 
 #: docs/G-Codes.md:block 199 (paragraph)
 msgid ""
@@ -1713,7 +1724,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 200 (header)
 msgid "SET_PIN"
-msgstr ""
+msgstr "SET_PIN"
 
 #: docs/G-Codes.md:block 201 (paragraph)
 msgid ""
@@ -1724,7 +1735,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 202 (header)
 msgid "[palette2]"
-msgstr ""
+msgstr "[palette2]"
 
 #: docs/G-Codes.md:block 203 (paragraph)
 msgid ""
@@ -1734,27 +1745,27 @@ msgstr ""
 
 #: docs/G-Codes.md:block 207 (header)
 msgid "PALETTE_CONNECT"
-msgstr ""
+msgstr "PALETTE_CONNECT"
 
 #: docs/G-Codes.md:block 209 (header)
 msgid "PALETTE_DISCONNECT"
-msgstr ""
+msgstr "PALETTE_DISCONNECT"
 
 #: docs/G-Codes.md:block 211 (header)
 msgid "PALETTE_CLEAR"
-msgstr ""
+msgstr "PALETTE_CLEAR"
 
 #: docs/G-Codes.md:block 213 (header)
 msgid "PALETTE_CUT"
-msgstr ""
+msgstr "PALETTE_CUT"
 
 #: docs/G-Codes.md:block 215 (header)
 msgid "PALETTE_SMART_LOAD"
-msgstr ""
+msgstr "PALETTE_SMART_LOAD"
 
 #: docs/G-Codes.md:block 217 (header)
 msgid "[pid_calibrate]"
-msgstr ""
+msgstr "[pid_calibrate]"
 
 #: docs/G-Codes.md:block 218 (paragraph)
 msgid ""
@@ -1764,31 +1775,31 @@ msgstr ""
 
 #: docs/G-Codes.md:block 219 (header)
 msgid "PID_CALIBRATE"
-msgstr ""
+msgstr "PID_CALIBRATE"
 
 #: docs/G-Codes.md:block 221 (header)
 msgid "[pause_resume]"
-msgstr ""
+msgstr "[pause_resume]"
 
 #: docs/G-Codes.md:block 223 (header)
 msgid "PAUSE"
-msgstr ""
+msgstr "PAUSE"
 
 #: docs/G-Codes.md:block 225 (header)
 msgid "RESUME"
-msgstr ""
+msgstr "RESUME"
 
 #: docs/G-Codes.md:block 227 (header)
 msgid "CLEAR_PAUSE"
-msgstr ""
+msgstr "CLEAR_PAUSE"
 
 #: docs/G-Codes.md:block 229 (header)
 msgid "CANCEL_PRINT"
-msgstr ""
+msgstr "CANCEL_PRINT"
 
 #: docs/G-Codes.md:block 231 (header)
 msgid "[probe]"
-msgstr ""
+msgstr "[probe]"
 
 #: docs/G-Codes.md:block 232 (paragraph)
 msgid ""
@@ -1800,19 +1811,19 @@ msgstr ""
 
 #: docs/G-Codes.md:block 233 (header)
 msgid "PROBE"
-msgstr ""
+msgstr "PROBE"
 
 #: docs/G-Codes.md:block 235 (header)
 msgid "QUERY_PROBE"
-msgstr ""
+msgstr "QUERY_PROBE"
 
 #: docs/G-Codes.md:block 237 (header)
 msgid "PROBE_ACCURACY"
-msgstr ""
+msgstr "PROBE_ACCURACY"
 
 #: docs/G-Codes.md:block 239 (header)
 msgid "PROBE_CALIBRATE"
-msgstr ""
+msgstr "PROBE_CALIBRATE"
 
 #: docs/G-Codes.md:block 241 (header)
 msgid "Z_OFFSET_APPLY_PROBE"
@@ -1820,7 +1831,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 243 (header)
 msgid "[query_adc]"
-msgstr ""
+msgstr "[query_adc]"
 
 #: docs/G-Codes.md:block 244 (paragraph)
 msgid "The query_endstops module is automatically loaded."
@@ -1828,11 +1839,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 245 (header)
 msgid "QUERY_ADC"
-msgstr ""
+msgstr "QUERY_ADC"
 
 #: docs/G-Codes.md:block 247 (header)
 msgid "[query_endstops]"
-msgstr ""
+msgstr "[query_endstops]"
 
 #: docs/G-Codes.md:block 248 (paragraph)
 msgid ""
@@ -1842,11 +1853,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 250 (header)
 msgid "QUERY_ENDSTOPS"
-msgstr ""
+msgstr "QUERY_ENDSTOPS"
 
 #: docs/G-Codes.md:block 252 (header)
 msgid "[resonance_tester]"
-msgstr ""
+msgstr "[resonance_tester]"
 
 #: docs/G-Codes.md:block 253 (paragraph)
 msgid ""
@@ -1857,11 +1868,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 254 (header)
 msgid "MEASURE_AXES_NOISE"
-msgstr ""
+msgstr "MEASURE_AXES_NOISE"
 
 #: docs/G-Codes.md:block 256 (header)
 msgid "TEST_RESONANCES"
-msgstr ""
+msgstr "TEST_RESONANCES"
 
 #: docs/G-Codes.md:block 257 (paragraph)
 msgid ""
@@ -1889,11 +1900,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 258 (header)
 msgid "SHAPER_CALIBRATE"
-msgstr ""
+msgstr "SHAPER_CALIBRATE"
 
 #: docs/G-Codes.md:block 260 (header)
 msgid "[respond]"
-msgstr ""
+msgstr "[respond]"
 
 #: docs/G-Codes.md:block 261 (paragraph)
 msgid ""
@@ -1903,7 +1914,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 264 (header)
 msgid "RESPOND"
-msgstr ""
+msgstr "RESPOND"
 
 #: docs/G-Codes.md:block 265 (unordered list)
 msgid ""
@@ -1914,7 +1925,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 266 (header)
 msgid "[save_variables]"
-msgstr ""
+msgstr "[save_variables]"
 
 #: docs/G-Codes.md:block 267 (paragraph)
 msgid ""
@@ -1924,11 +1935,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 268 (header)
 msgid "SAVE_VARIABLE"
-msgstr ""
+msgstr "SAVE_VARIABLE"
 
 #: docs/G-Codes.md:block 270 (header)
 msgid "[screws_tilt_adjust]"
-msgstr ""
+msgstr "[screws_tilt_adjust]"
 
 #: docs/G-Codes.md:block 271 (paragraph)
 msgid ""
@@ -1940,11 +1951,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 272 (header)
 msgid "SCREWS_TILT_CALCULATE"
-msgstr ""
+msgstr "SCREWS_TILT_CALCULATE"
 
 #: docs/G-Codes.md:block 274 (header)
 msgid "[sdcard_loop]"
-msgstr ""
+msgstr "[sdcard_loop]"
 
 #: docs/G-Codes.md:block 275 (paragraph)
 msgid ""
@@ -1954,25 +1965,25 @@ msgstr ""
 
 #: docs/G-Codes.md:block 276 (header)
 msgid "SDCARD_LOOP_BEGIN"
-msgstr ""
+msgstr "SDCARD_LOOP_BEGIN"
 
 #: docs/G-Codes.md:block 277 (paragraph)
 msgid ""
 "`SDCARD_LOOP_BEGIN COUNT=<count>`: Begin a looped section in the SD print. A"
 " count of 0 indicates that the section should be looped indefinitely."
-msgstr ""
+msgstr "`SDCARD_LOOP_BEGIN COUNT=<count>`：SD 打印中开始循环的部分。计数为0表示该部分应无限期地循环。"
 
 #: docs/G-Codes.md:block 278 (header)
 msgid "SDCARD_LOOP_END"
-msgstr ""
+msgstr "SDCARD_LOOP_END"
 
 #: docs/G-Codes.md:block 280 (header)
 msgid "SDCARD_LOOP_DESIST"
-msgstr ""
+msgstr "SDCARD_LOOP_DESIST"
 
 #: docs/G-Codes.md:block 282 (header)
 msgid "[servo]"
-msgstr ""
+msgstr "[servo]"
 
 #: docs/G-Codes.md:block 283 (paragraph)
 msgid ""
@@ -1982,11 +1993,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 284 (header)
 msgid "SET_SERVO"
-msgstr ""
+msgstr "SET_SERVO"
 
 #: docs/G-Codes.md:block 286 (header)
 msgid "[skew_correction]"
-msgstr ""
+msgstr "[skew_correction]"
 
 #: docs/G-Codes.md:block 287 (paragraph)
 msgid ""
@@ -1997,19 +2008,19 @@ msgstr ""
 
 #: docs/G-Codes.md:block 288 (header)
 msgid "SET_SKEW"
-msgstr ""
+msgstr "SET_SKEW"
 
 #: docs/G-Codes.md:block 290 (header)
 msgid "GET_CURRENT_SKEW"
-msgstr ""
+msgstr "GET_CURRENT_SKEW"
 
 #: docs/G-Codes.md:block 292 (header)
 msgid "CALC_MEASURED_SKEW"
-msgstr ""
+msgstr "CALC_MEASURED_SKEW"
 
 #: docs/G-Codes.md:block 294 (header)
 msgid "SKEW_PROFILE"
-msgstr ""
+msgstr "SKEW_PROFILE"
 
 #: docs/G-Codes.md:block 295 (paragraph)
 msgid ""
@@ -2024,7 +2035,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 296 (header)
 msgid "[stepper_enable]"
-msgstr ""
+msgstr "[stepper_enable]"
 
 #: docs/G-Codes.md:block 297 (paragraph)
 msgid "The stepper_enable module is automatically loaded."
@@ -2032,11 +2043,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 298 (header)
 msgid "SET_STEPPER_ENABLE"
-msgstr ""
+msgstr "SET_STEPPER_ENABLE"
 
 #: docs/G-Codes.md:block 300 (header)
 msgid "[temperature_fan]"
-msgstr ""
+msgstr "[temperature_fan]"
 
 #: docs/G-Codes.md:block 301 (paragraph)
 msgid ""
@@ -2046,7 +2057,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 302 (header)
 msgid "SET_TEMPERATURE_FAN_TARGET"
-msgstr ""
+msgstr "SET_TEMPERATURE_FAN_TARGET"
 
 #: docs/G-Codes.md:block 303 (paragraph)
 msgid ""
@@ -2069,26 +2080,26 @@ msgstr ""
 
 #: docs/G-Codes.md:block 306 (header)
 msgid "DUMP_TMC"
-msgstr ""
+msgstr "DUMP_TMC"
 
 #: docs/G-Codes.md:block 308 (header)
 msgid "INIT_TMC"
-msgstr ""
+msgstr "INIT_TMC"
 
 #: docs/G-Codes.md:block 309 (paragraph)
 msgid ""
 "`INIT_TMC STEPPER=<name>`: This command will initialize the TMC registers. "
 "Needed to re-enable the driver if power to the chip is turned off then back "
 "on."
-msgstr ""
+msgstr "`INIT_TMC STEPPER=<名称>`：此命令将初始化 TMC 寄存器。如果芯片的电源关闭然后重新打开，则需要重新启用该驱动。"
 
 #: docs/G-Codes.md:block 310 (header)
 msgid "SET_TMC_CURRENT"
-msgstr ""
+msgstr "SET_TMC_CURRENT"
 
 #: docs/G-Codes.md:block 312 (header)
 msgid "SET_TMC_FIELD"
-msgstr ""
+msgstr "SET_TMC_FIELD"
 
 #: docs/G-Codes.md:block 314 (header)
 msgid "[toolhead]"
@@ -2100,7 +2111,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 316 (header)
 msgid "SET_VELOCITY_LIMIT"
-msgstr ""
+msgstr "SET_VELOCITY_LIMIT"
 
 #: docs/G-Codes.md:block 318 (header)
 msgid "[tuning_tower]"
@@ -2121,6 +2132,8 @@ msgid ""
 "optimum Z height directly into the formula to determine the optimum "
 "parameter value."
 msgstr ""
+"`FACTOR`：数值以`factor`每毫米的速度变化。使用的公式是：`value = start + factor * z_height`。"
+"你可以将最佳的 Z 高度直接插入该公式，以确定最佳的参数值。"
 
 #: docs/G-Codes.md:block 322 (unordered list)
 msgid ""
@@ -2129,6 +2142,8 @@ msgid ""
 "every `BAND` millimeters of Z height. The formula used is: `value = start + "
 "factor * ((floor(z_height / band) + .5) * band)`."
 msgstr ""
+"`FACTOR` 和 `BAND`：该值以`factor`每毫米的平均速度变化，但在离散的环上，每`BAND`毫米的Z高度才会进行调整。使用的公式是：`"
+"value = start + factor * ((floor(z_height / band) + .5) * band)`。"
 
 #: docs/G-Codes.md:block 322 (unordered list)
 msgid ""
@@ -2153,24 +2168,24 @@ msgstr ""
 msgid ""
 "In addition, the following extended commands are available when the "
 "\"virtual_sdcard\" config section is enabled."
-msgstr ""
+msgstr "此外，当启用\"virtual_sdcard\"配置分段时，以下扩展命令可用。"
 
 #: docs/G-Codes.md:block 327 (header)
 msgid "SDCARD_PRINT_FILE"
-msgstr ""
+msgstr "SDCARD_PRINT_FILE"
 
 #: docs/G-Codes.md:block 328 (paragraph)
 msgid ""
 "`SDCARD_PRINT_FILE FILENAME=<filename>`: Load a file and start SD print."
-msgstr ""
+msgstr "`SDCARD_PRINT_FILE FILENAME=<文件名>`：载入一个文件并开始 SD 打印"
 
 #: docs/G-Codes.md:block 329 (header)
 msgid "SDCARD_RESET_FILE"
-msgstr ""
+msgstr "SDCARD_RESET_FILE"
 
 #: docs/G-Codes.md:block 330 (paragraph)
 msgid "`SDCARD_RESET_FILE`: Unload file and clear SD state."
-msgstr ""
+msgstr "`SDCARD_RESET_FILE`：卸载文件并清除SD状态。"
 
 #: docs/G-Codes.md:block 331 (header)
 msgid "[z_tilt]"
@@ -2184,7 +2199,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 333 (header)
 msgid "Z_TILT_ADJUST"
-msgstr ""
+msgstr "Z_TILT_ADJUST"
 
 #~ msgid ""
 #~ "Klipper's goal is to support the G-Code commands produced by common 3rd "
