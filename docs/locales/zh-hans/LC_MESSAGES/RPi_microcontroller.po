@@ -1,19 +1,20 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2021-12-25 08:35+0000\n"
+"PO-Revision-Date: 2022-02-14 07:25+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/rpi_microcontroller/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/rpi_microcontroller/zh_Hans/>\n"
 "Language: zh-hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "This document describes the process of running Klipper on a RPi and use the "
@@ -438,13 +439,15 @@ msgstr "19"
 
 #: docs/RPi_microcontroller.md:block 20 (header)
 msgid "Optional: Enabling SPI"
-msgstr ""
+msgstr "可选：启用 SPI"
 
 #: docs/RPi_microcontroller.md:block 21 (paragraph)
 msgid ""
 "Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and"
 " enabling SPI under the \"Interfacing options\" menu."
 msgstr ""
+"通过运行`sudo raspi-config` 后的 \"Interfacing options\"菜单中启用 SPI 以确保Linux SPI "
+"驱动已启用。"
 
 #: docs/RPi_microcontroller.md:block 30 (paragraph)
 msgid ""
@@ -453,6 +456,8 @@ msgid ""
 "`gpiodetect` command and **o** is the line number seen by the`gpioinfo` "
 "command."
 msgstr ""
+"因此，所选引脚可以在配置中可以通过 `gpiochip<n>/gpio<o>`引用，其中 **n** 是由 `gpiodetect` "
+"命令看到的芯片编号**o** 是 ` gpioinfo` 命令看到的行号。"
 
 #~ msgid ""
 #~ "The chosen pin can thus be used within the configuration as "
