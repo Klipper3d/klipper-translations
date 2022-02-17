@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-13 14:53+0200\n"
-"PO-Revision-Date: 2022-02-14 07:40+0000\n"
+"PO-Revision-Date: 2022-02-17 19:55+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/g-codes/zh_Hans/>\n"
@@ -1144,6 +1144,10 @@ msgid ""
 "SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to"
 " make the changes to persistent memory permanent."
 msgstr ""
+"`BED_MESH_PROFILE LOAD=<名称> SAVE=<名称> REMOVE=<名称>`：此命令提供了网床配置管理功能。LOAD "
+"将从与所提供的名称相符的配置文件中恢复网格状态。SAVE "
+"将会把目前的网格状态保存到与提供的名称相符的配置文件中。REMOVE（移除）将从持久性内存中删除与所提供名称相符的配置文件。请注意，在 SAVE 或 "
+"REMOVE 操作后，必须发送SAVE_CONFIG G代码，以保存变更到持久性内存。"
 
 #: docs/G-Codes.md:block 34 (header)
 msgid "BED_MESH_OFFSET"
@@ -1391,6 +1395,7 @@ msgid ""
 "`SET_FAN_SPEED FAN=config_name SPEED=<speed>` This command sets the speed of"
 " a fan. \"speed\" must be between 0.0 and 1.0."
 msgstr ""
+"`SET_FAN_SPEED FAN=config_name SPEED=<速度>`该命令设置风扇的速度。\"速度\" 必须在0.0到1.0之间。"
 
 #: docs/G-Codes.md:block 97 (header)
 msgid "[firmware_retraction]"
@@ -1441,6 +1446,7 @@ msgid ""
 "the filament sensor. The data displayed on the terminal will depend on the "
 "sensor type defined in the configuration."
 msgstr ""
+"`QUERY_FILAMENT_SENSOR SENSOR=<传感器名>`：查询耗材传感器的当前状态。在终端中显示的数据将取决于配置中定义的传感器类型。"
 
 #: docs/G-Codes.md:block 109 (header)
 msgid "SET_FILAMENT_SENSOR"
@@ -1732,6 +1738,8 @@ msgid ""
 "hardware PWM does not currently support the CYCLE_TIME parameter and will "
 "use the cycle time defined in the config."
 msgstr ""
+"`SET_PIN PIN=config_name VALUE=<值> CYCLE_TIME=<周期时间>`: 注意 - "
+"硬件PWM目前不支持CYCLE_TIME参数，将使用配置中定义的周期时间。"
 
 #: docs/G-Codes.md:block 202 (header)
 msgid "[palette2]"
@@ -1922,6 +1930,8 @@ msgid ""
 "`// `. OctoPrint can be configured to respond to these messages (e.g. "
 "`RESPOND TYPE=command MSG=action:pause`)."
 msgstr ""
+"`RESPOND TYPE=command MSG=\"<消息>\"`：回显以`/`为前缀的消息。可以配置 OctoPrint "
+"对这些消息进行响应（例如，`RESPOND TYPE=command MSG=action:pause`）。"
 
 #: docs/G-Codes.md:block 266 (header)
 msgid "[save_variables]"
@@ -2032,6 +2042,9 @@ msgid ""
 "REMOVE operations have been run the SAVE_CONFIG gcode must be run to make "
 "the changes to persistent memory permanent."
 msgstr ""
+"`SKEW_PROFILE [LOAD=<名称>] [SAVE=<名称>] [REMOVE=<名称>]`：skew_correction 配置管理命令。 "
+"LOAD 将从与提供的名称匹配的配置中载入偏斜状态。 SAVE 会将当前偏斜状态保存到与提供的名称匹配的配置中。 REMOVE "
+"将从持久内存中删除与提供的名称匹配的配置。请注意，在运行 SAVE 或 REMOVE 操作后，必须运行 SAVE_CONFIG G代码才能保存更改。"
 
 #: docs/G-Codes.md:block 296 (header)
 msgid "[stepper_enable]"
@@ -2067,6 +2080,9 @@ msgid ""
 " If a target is not supplied, it is set to the specified temperature in the "
 "config file. If speeds are not supplied, no change is applied."
 msgstr ""
+"`SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_名称> "
+"[target=<目标温度>] [min_speed=<最小速度>] [max_speed=<最大速度>]`：设置一个温度控制风扇的目标温度。如果没有提供"
+"目标温度，它将被设为配置文件中定义的温度。如果没有提供速度，则不会进行任何更改。"
 
 #: docs/G-Codes.md:block 304 (header)
 msgid "[tmcXXXX]"
@@ -2163,6 +2179,8 @@ msgid ""
 "[virtual_sdcard config section](Config_Reference.md#virtual_sdcard) is "
 "enabled:"
 msgstr ""
+"如果启用了 [virtual_sdcard 配置分段](Config_Reference.md#virtual_sdcard)，Klipper "
+"支持以下标准 G-Code 命令："
 
 #: docs/G-Codes.md:block 326 (paragraph)
 msgid ""
