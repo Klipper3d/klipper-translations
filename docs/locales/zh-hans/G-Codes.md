@@ -85,7 +85,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 #### BED_MESH_PROFILE
 
-`BED_MESH_PROFILE LOAD=<name> SAVE=<name> REMOVE=<name>`: This command provides profile management for mesh state. LOAD will restore the mesh state from the profile matching the supplied name. SAVE will save the current mesh state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to persistent memory permanent.
+`BED_MESH_PROFILE LOAD=<名称> SAVE=<名称> REMOVE=<名称>`：此命令提供了网床配置管理功能。LOAD 将从与所提供的名称相符的配置文件中恢复网格状态。SAVE 将会把目前的网格状态保存到与提供的名称相符的配置文件中。REMOVE（移除）将从持久性内存中删除与所提供名称相符的配置文件。请注意，在 SAVE 或 REMOVE 操作后，必须发送SAVE_CONFIG G代码，以保存变更到持久性内存。
 
 #### BED_MESH_OFFSET
 
@@ -212,7 +212,7 @@ The following command is available when a [fan_generic config section](Config_Re
 
 #### SET_FAN_SPEED
 
-`SET_FAN_SPEED FAN=config_name SPEED=<speed>` This command sets the speed of a fan. "speed" must be between 0.0 and 1.0.
+`SET_FAN_SPEED FAN=config_name SPEED=<速度>`该命令设置风扇的速度。"速度" 必须在0.0到1.0之间。
 
 ### [firmware_retraction]
 
@@ -237,7 +237,7 @@ The following command is available when a [filament_switch_sensor](Config_Refere
 
 #### QUERY_FILAMENT_SENSOR
 
-`QUERY_FILAMENT_SENSOR SENSOR=<sensor_name>`: Queries the current status of the filament sensor. The data displayed on the terminal will depend on the sensor type defined in the configuration.
+`QUERY_FILAMENT_SENSOR SENSOR=<传感器名>`：查询耗材传感器的当前状态。在终端中显示的数据将取决于配置中定义的传感器类型。
 
 #### SET_FILAMENT_SENSOR
 
@@ -426,7 +426,7 @@ The following command is available when an [output_pin config section](Config_Re
 
 #### SET_PIN
 
-`SET_PIN PIN=config_name VALUE=<value> CYCLE_TIME=<cycle_time>`: Note - hardware PWM does not currently support the CYCLE_TIME parameter and will use the cycle time defined in the config.
+`SET_PIN PIN=config_name VALUE=<值> CYCLE_TIME=<周期时间>`: 注意 - 硬件PWM目前不支持CYCLE_TIME参数，将使用配置中定义的周期时间。
 
 ### [palette2]
 
@@ -556,7 +556,7 @@ The following standard G-Code commands are available when the [respond config se
 
 - `RESPOND MSG="<message>"`：回显带有配置的默认前缀的消息（没有配置前缀则默认 `echo: `为前缀 ）。
 - `RESPOND TYPE=echo MSG="<消息>"`：回显`echo:`开头消息。
-- `RESPOND TYPE=command MSG="<message>"`: echo the message prepended with `// `. OctoPrint can be configured to respond to these messages (e.g. `RESPOND TYPE=command MSG=action:pause`).
+- `RESPOND TYPE=command MSG="<消息>"`：回显以`/`为前缀的消息。可以配置 OctoPrint 对这些消息进行响应（例如，`RESPOND TYPE=command MSG=action:pause`）。
 - `RESPOND TYPE=error MSG="<消息>"`：回显以 `!!`开头的消息。
 - `RESPOND PREFIX=<prefix> MSG="<message>"`: 回应以`<prefix>`为前缀的信息。(`PREFIX`参数将优先于`TYPE`参数)
 
@@ -618,7 +618,7 @@ The following commands are available when the [skew_correction config section](C
 
 #### SKEW_PROFILE
 
-`SKEW_PROFILE [LOAD=<name>] [SAVE=<name>] [REMOVE=<name>]`: Profile management for skew_correction. LOAD will restore skew state from the profile matching the supplied name. SAVE will save the current skew state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to persistent memory permanent.
+`SKEW_PROFILE [LOAD=<名称>] [SAVE=<名称>] [REMOVE=<名称>]`：skew_correction 配置管理命令。 LOAD 将从与提供的名称匹配的配置中载入偏斜状态。 SAVE 会将当前偏斜状态保存到与提供的名称匹配的配置中。 REMOVE 将从持久内存中删除与提供的名称匹配的配置。请注意，在运行 SAVE 或 REMOVE 操作后，必须运行 SAVE_CONFIG G代码才能保存更改。
 
 ### [stepper_enable]
 
@@ -634,7 +634,7 @@ The following command is available when a [temperature_fan config section](Confi
 
 #### SET_TEMPERATURE_FAN_TARGET
 
-`SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_name> [target=<target_temperature>] [min_speed=<min_speed>] [max_speed=<max_speed>]`: Sets the target temperature for a temperature_fan. If a target is not supplied, it is set to the specified temperature in the config file. If speeds are not supplied, no change is applied.
+`SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_名称> [target=<目标温度>] [min_speed=<最小速度>] [max_speed=<最大速度>]`：设置一个温度控制风扇的目标温度。如果没有提供目标温度，它将被设为配置文件中定义的温度。如果没有提供速度，则不会进行任何更改。
 
 ### [tmcXXXX]
 
@@ -678,7 +678,7 @@ The tuning_tower module is automatically loaded.
 
 ### [virtual_sdcard]
 
-Klipper supports the following standard G-Code commands if the [virtual_sdcard config section](Config_Reference.md#virtual_sdcard) is enabled:
+如果启用了 [virtual_sdcard 配置分段](Config_Reference.md#virtual_sdcard)，Klipper 支持以下标准 G-Code 命令：
 
 - 列出SD卡：`M20` 。
 - 初始化SD卡：`M21`
