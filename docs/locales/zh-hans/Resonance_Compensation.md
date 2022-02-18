@@ -4,9 +4,9 @@ Klipper支持输入整形--一种可以用来减少打印件上振纹（也被�
 
 |![振纹测试](img/ringing-test.jpg)|![3D Benchy](img/ringing-3dbenchy.jpg)|
 
-Ringing is caused by mechanical vibrations in the printer due to quick changes of the printing direction. Note that ringing usually has mechanical origins: insufficiently rigid printer frame, non-tight or too springy belts, alignment issues of mechanical parts, heavy moving mass, etc. Those should be checked and fixed first, if possible.
+振纹是由打印机在快速改变打印方向时机械振动引起的。请注意，振纹通常源于机械方面的问题：打印机框架强度不足，皮带不够紧或太有弹性，机械部件的对准问题，移动质量大等。如果可能的话，应首先检查和解决这些问题。
 
-[Input shaping](https://en.wikipedia.org/wiki/Input_shaping) is an open-loop control technique which creates a commanding signal that cancels its own vibrations. Input shaping requires some tuning and measurements before it can be enabled. Besides ringing, Input Shaping typically reduces the vibrations and shaking of the printer in general, and may also improve the reliability of the stealthChop mode of Trinamic stepper drivers.
+[输入整形](https://en.wikipedia.org/wiki/Input_shaping)是一种开环控制技术，它通过生成一个控制信号来抵消自身的振动。输入整形在启用之前需要进行一些调整和测量。除了振纹之外，输入整形通常可以减少打印机的振动和摇晃，也可以提高 Trinamic 步进驱动器的StealthChop模式的可靠性。
 
 ## 调整
 

@@ -31,7 +31,7 @@ Almost all printers should have a whole number for `rotation_distance` on X, Y, 
 然后根据以下程序执行"测量和修正"：
 
 1. 首先确保挤出机里有耗材，热端被加热到适当的温度，并且打印机准备好挤出。
-1. Use a marker to place a mark on the filament around 70mm from the intake of the extruder body. Then use a digital calipers to measure the actual distance of that mark as precisely as one can. Note this as `<initial_mark_distance>`.
+1. 用记号笔在离挤出机入口约70毫米的位置上对耗材做一个标记。然后用数字卡尺尽可能精确地测量该标记的实际距离。将此记为`<initial_mark_distance> `。
 1. Extrude 50mm of filament with the following command sequence: `G91` followed by `G1 E50 F60`. Note 50mm as `<requested_extrude_distance>`. Wait for the extruder to finish the move (it will take about 50 seconds). It is important to use the slow extrusion rate for this test as a faster rate can cause high pressure in the extruder which will skew the results. (Do not use the "extrude button" on graphical front-ends for this test as they extrude at a fast rate.)
 1. Use the digital calipers to measure the new distance between the extruder body and the mark on the filament. Note this as `<subsequent_mark_distance>`. Then calculate: `actual_extrude_distance = <initial_mark_distance> - <subsequent_mark_distance>`
 1. Calculate rotation_distance as: `rotation_distance = <previous_rotation_distance> * <actual_extrude_distance> / <requested_extrude_distance>` Round the new rotation_distance to three decimal places.
