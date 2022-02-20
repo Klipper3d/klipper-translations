@@ -1,12 +1,12 @@
 # 共振补偿
 
-Klipper支持输入整形--一种可以用来减少打印件上振纹（也被称为echo、ghosting或ripping）的技术。振纹是一种表面打印缺陷，通常在边角的位置表面重复出现，成为一种微妙的水波状纹路：
+Klipper支持Input Shaping -一种可以用来减少打印件上振纹（也被称为echo、ghosting或ripping）的技术。振纹是一种表面打印缺陷，通常在边角的位置表面重复出现，成为一种微妙的水波状纹路：
 
 |![振纹测试](img/ringing-test.jpg)|![3D Benchy](img/ringing-3dbenchy.jpg)|
 
 振纹是由打印机在快速改变打印方向时机械振动引起的。请注意，振纹通常源于机械方面的问题：打印机框架强度不足，皮带不够紧或太有弹性，机械部件的对准问题，移动质量大等。如果可能的话，应首先检查和解决这些问题。
 
-[输入整形](https://en.wikipedia.org/wiki/Input_shaping)是一种开环控制技术，它通过生成一个控制信号来抵消自身的振动。输入整形在启用之前需要进行一些调整和测量。除了振纹之外，输入整形通常可以减少打印机的振动和摇晃，也可以提高 Trinamic 步进驱动器的StealthChop模式的可靠性。
+[Input Shaping](https://en.wikipedia.org/wiki/Input_shaping)是一种开环控制技术，它通过生成一个控制信号来抵消自身的振动。输入整形在启用之前需要进行一些调整和测量。除了振纹之外，输入整形通常可以减少打印机的振动和摇晃，也可以提高 Trinamic 步进驱动器的StealthChop模式的可靠性。
 
 ## 调整
 
