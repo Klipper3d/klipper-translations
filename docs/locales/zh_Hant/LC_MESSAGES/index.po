@@ -1,15 +1,16 @@
-# Fred Chan <fred2088@gmail.com>, 2022.
+# Fred Chan <fred2088@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-01 07:21+0000\n"
+"PO-Revision-Date: 2025-05-03 07:32+0000\n"
 "Last-Translator: Fred Chan <fred2088@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/klipper/index/zh_Hant/>\n"
+"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
+"projects/klipper/index/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/index.md:block 1 (paragraph)
 msgid "hide:"
@@ -29,7 +30,8 @@ msgid ""
 "computer with one or more micro-controllers. See the [features](Features.md) "
 "document for more information on why you should use Klipper."
 msgstr ""
-"Klipper一個將通用計算機的運算能力與一個或多個微控制器相結合的3D印表機韌體。有關Klipper的優勢，請參閱[功能](Features.md)文件。"
+"Klipper一個將通用計算機的運算能力與一個或多個微控制器相結合的3D印表機韌體。有"
+"關Klipper的優勢，請參閱[功能](Features.md)文件。"
 
 #: docs/index.md:block 5 (paragraph)
 msgid "To begin using Klipper start by [installing](Installation.md) it."
@@ -41,8 +43,9 @@ msgid ""
 "Klipper code on github](https://github.com/Klipper3d/klipper). We depend on "
 "the generous support from our [sponsors](Sponsors.md)."
 msgstr ""
-"Klipper 是免費軟件。閱讀 [文檔](Overview.md) 或查看 [github 上的 Klipper "
-"代碼](https://github.com/Klipper3d/klipper)。我們依賴於我們的 [贊助商](Sponsors.md) 的慷慨支持。"
+"Klipper 是免費軟件。閱讀 [文檔](Overview.md) 或查看 "
+"[github 上的 Klipper 代碼](https://github.com/Klipper3d/klipper)。"
+"我們依賴於我們的 [贊助商](Sponsors.md) 的慷慨支持。"
 
 #~ msgid ""
 #~ "Klipper is Free Software. Read the [documentation](Overview.md) or view [the "
