@@ -1,11 +1,11 @@
-# Fred Chan <fred2088@gmail.com>, 2022.
+# Fred Chan <fred2088@gmail.com>, 2022, 2025.
 # hugoalh <hugoalh@users.noreply.hosted.weblate.org>, 2024, 2025.
 # Peter Dave Hello <hsu@peterdavehello.org>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:31+0000\n"
-"Last-Translator: hugoalh <hugoalh@users.noreply.hosted.weblate.org>\n"
+"Last-Translator: Fred Chan <fred2088@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/klipper/overview/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -18,7 +18,8 @@ msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
-"歡迎使用Klipper文件。如果剛接觸Klipper，請從[特性](features.md)和[安裝](installation.md)文件開始閱讀。"
+"歡迎使用Klipper文件。如果剛接觸Klipper，請從[特性](features.md)和[安裝]"
+"(installation.md)文件開始閱讀。"
 
 msgid "Overview information"
 msgstr "概覽資訊"
@@ -117,7 +118,8 @@ msgstr "[TMC驅動](TMC_Drivers.md)：在 Klipper 中使用 Trinamic 步進電�
 msgid ""
 "[PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such"
 " as lasers or spindles."
-msgstr "[PWM 工具](Using_PWM_Tools.md)：關於如何使用 PWM 控制的工具，例如鐳射器或電鉆頭。"
+msgstr "[PWM 工具](Using_PWM_Tools.md)：關於如何使用 PWM "
+"控制的工具，例如鐳射器或電鉆頭。"
 
 msgid "[G-Codes](G-Codes.md): Information on commands supported by Klipper."
 msgstr "[G程式碼](G-Codes.md)：用於 Klipper 的G程式碼命令。"
@@ -176,12 +178,15 @@ msgstr "[示列配置](Example_Configs.md)：有關於新增示列配置到 Klip
 msgid ""
 "[SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a "
 "binary to an sdcard in the micro-controller."
-msgstr "[SD卡更新](SDCard_Updates.md)：通過將韌體拷貝到SD卡中，再通過微控制器的SD卡槽來刷寫微控制器。"
+msgstr "[SD卡更新]"
+"(SDCard_Updates.md)：通過將韌體拷貝到SD卡中，再通過微控制器的SD卡槽來刷寫微控"
+"制器。"
 
 msgid ""
 "[Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for "
 "controlling devices wired to the GPIO pins of a Raspberry Pi."
-msgstr "[將樹莓派作為微控制器](RPi_microcontroller.md)：關於如何控制與樹莓派 GPIO 引腳連線的裝置。"
+msgstr "[將樹莓派作為微控制器](RPi_microcontroller.md)：關於如何控制與樹莓派 GPIO "
+"引腳連線的裝置。"
 
 msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-controller "
