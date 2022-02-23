@@ -1,19 +1,19 @@
-# Packaging Klipper
+# 打包 Klipper
 
-Klipper is somewhat of a packaging anomaly among python programs, as it doesn't use setuptools to build and install. Some notes regarding how best to package it are as follows:
+Klipper 是個有點反常的 Python 程式，因為它不使用 setuptools 來構建和安裝。關於如何最好地打包它的一些說明如下：
 
-## C modules
+## C 模組
 
-Klipper uses a C module to handle some kinematics calculations more quickly. This module needs to be compiled at packaging time to avoid introducing a runtime dependency on a compiler. To compile the C module, run `python2 klippy/chelper/__init__.py`.
+Klipper 使用一個 C 模組來更快地處理一些運動學計算。此模組需要在包裝時間進行編譯，以避免對編譯器的執行環境依賴。要編譯 C 模組，請執行 `python2 klippy/chelper/__init__.py`。
 
-## Compiling python code
+## 編譯 Python 程式碼
 
-Many distributions have a policy of compiling all python code before packaging to improve startup time. You can do this by running `python2 -m compileall klippy`.
+許多發行版都有在打包之前編譯所有 Python 程式碼以縮短啟動時間的規定。您可以通過執行 `python2 -m compileall klippy` 來完成此操作。
 
-## Versioning
+## 版本管理
 
-If you are building a package of Klipper from git, it is usual practice not to ship a .git directory, so the versioning must be handled without git. To do this, use the script shipped in `scripts/make_version.py` which should be run as follows: `python2 scripts/make_version.py YOURDISTRONAME > klippy/.version`.
+如果你從 git 構建 Klipper 包，通常的做法是不提供 .git 目錄，所以版本管理必須在沒有 git 的情況下處理。要做到這一點，請使用 `scripts/make_version.py` 中提供的指令碼，該指令碼應按如下方式執行：`python2 scripts/make_version.py YOURDISTRONAME > klippy/.version`。
 
-## Sample packaging script
+## 示例打包指令碼
 
-klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).
+klipper-git 是 klipper 的 Arch Linux 軟體包，在[Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git)上有一個 PKGBUILD（軟體包構建指令碼）。

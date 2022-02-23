@@ -1,4 +1,4 @@
-# Endstop phase
+# 限位相位
 
 This document describes Klipper's stepper phase adjusted endstop system. This functionality can improve the accuracy of traditional endstop switches. It is most useful when using a Trinamic stepper motor driver that has run-time configuration.
 

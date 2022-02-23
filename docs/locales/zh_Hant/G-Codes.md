@@ -20,11 +20,11 @@ Klipper支援以下標準的G-Code命令：
    - 注意：如果沒有指定S，同時指定了P和T，那麼加速度將被設定為P和T中的最小值。
 - 獲取擠出機溫度：`M105`
 - 設定擠出機溫度：`M104 [T<index>] [S<temperature>]`
-- 設定擠出機溫度並等待：`M109 [T<index>] S<temperature>`。
-   - 注意：M109總是等待溫度穩定在請求的數值上。
+- 設定擠出機溫度並等待：`M109 [T<index>] S<temperature>`
+   - 注意：M109總是等待溫度穩定在請求的數值上
 - 設定熱床溫度：`M140 [S<temperature>]`
 - 設定熱床溫度並且等待：`M190 S<temperature>`
-   - 注意：M190總是等待溫度穩定在請求的數值上。
+   - 注意：M190總是等待溫度穩定在請求的數值上
 - 設定風扇速度：`M106 S<value>`
 - 停止風扇：`M107`
 - 緊急停止：`M112`
@@ -35,7 +35,7 @@ Klipper支援以下標準的G-Code命令：
 
 Klipper的目標是支援常見第三方軟體（如OctoPrint、Printrun、Slic3r、Cura等）在其標準配置中產生的 G 程式碼命令。支援所有可能的 G-Code 命令並不是我們的目標。相反，Klipper更喜歡人類可讀的["擴充套件G-Code命令"](#additional-commands)。
 
-如果一個人需要一個不太常見的G-Code命令，那麼可以用一個自定義的[gcode_macro config section](Config_Reference.md#gcode_macro)來實現它。例如，我們可以用這個來實現。`G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1` ，etc
+如果一個人需要一個不太常見的G-Code命令，那麼可以用一個自定義的[gcode_macro config section](Config_Reference.md#gcode_macro)來實現它。例如，我們可以用這個來實現。`G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1` ，etc.
 
 ## 其他命令
 
@@ -121,7 +121,7 @@ The following command is available when a [bltouch config section](Config_Refere
 
 ### [configfile]
 
-configfile模組被自動載入。
+configfile模組被自動載入.
 
 #### SAVE_CONFIG
 
@@ -221,7 +221,7 @@ The following standard G-Code commands are available when the [firmware_retracti
 - `G10`：使用目前配置的參數回抽擠出機。
 - `G11`：不使用目前配置的參數回抽擠出機。
 
-還可以使用以下額外命令：
+還可以使用以下額外命令.
 
 #### SET_RETRACTION
 
@@ -256,7 +256,7 @@ The force_move module is automatically loaded, however some commands require set
 
 #### STEPPER_BUZZ
 
-`STEPPER_BUZZ STEPPER=<配置名>`：移動指定的步進電機前後運動一毫米，重複的10次。這是一個用於驗證步進電機接線的工具
+`STEPPER_BUZZ STEPPER=<配置名>`：移動指定的步進電機前後運動一毫米，重複的10次。這是一個用於驗證步進電機接線的工具.
 
 #### FORCE_MOVE
 
@@ -290,7 +290,7 @@ The gcode module is automatically loaded.
 
 如果啟用了[gcode_arcs 配置分段](Config_Reference.md#gcode_arcs)，下列標準G程式碼命令可用：
 
-- 受控弧線移動（G2或G3）。`G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>` 。
+- 受控弧線移動（G2或G3）。`G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>`
 
 ### [gcode_macro]
 
@@ -306,7 +306,7 @@ The gcode_move module is automatically loaded.
 
 #### GET_POSITION
 
-`GET_POSITION`：返回工具目前位置資訊
+`GET_POSITION`：返回工具目前位置資訊.
 
 #### SET_GCODE_OFFSET
 
@@ -314,7 +314,7 @@ The gcode_move module is automatically loaded.
 
 #### SAVE_GCODE_STATE
 
-`SAVE_GCODE_STATE [NAME=<state_name>]`：儲存目前的g-code座標解析狀態。儲存和恢復g-code狀態在指令碼和宏中很有用。該命令儲存目前g-code絕對座標模式（G90/G91）絕對擠出模式（M82/M83）原點（G92）偏移量（SET_GCODE_OFFSET）速度覆蓋（M220）擠出機覆蓋（M221）移動速度。目前XYZ位置和相對擠出機 "E "位置。如果提供NAME，它允許人們將儲存的狀態命名為給定的字串。如果沒有提供NAME，則預設為 "default"
+`SAVE_GCODE_STATE [NAME=<state_name>]`：儲存目前的g-code座標解析狀態。儲存和恢復g-code狀態在指令碼和宏中很有用。該命令儲存目前g-code絕對座標模式（G90/G91）絕對擠出模式（M82/M83）原點（G92）偏移量（SET_GCODE_OFFSET）速度覆蓋（M220）擠出機覆蓋（M221）移動速度。目前XYZ位置和相對擠出機 "E "位置。如果提供NAME，它允許人們將儲存的狀態命名為給定的字串。如果沒有提供NAME，則預設為 "default".
 
 #### RESTORE_GCODE_STATE
 
@@ -432,11 +432,11 @@ The following command is available when an [output_pin config section](Config_Re
 
 The following commands are available when the [palette2 config section](Config_Reference.md#palette2) is enabled.
 
-Palette列印通過在GCode檔案中嵌入特殊的OCodes（Omega Codes）來工作。
+Palette列印通過在GCode檔案中嵌入特殊的OCodes（Omega Codes）來工作:
 
 - `O1`...`O32`：這些程式碼從G-Code流中讀出並且傳遞給Palette 2裝置進行處理。
 
-還可以使用以下額外命令：
+還可以使用以下額外命令.
 
 #### PALETTE_CONNECT
 
@@ -550,7 +550,7 @@ The following standard G-Code commands are available when the [respond config se
 
 - `M118 <message>`：回顯配置了預設字首的資訊（如果沒有配置字首，則返回`echo: `）。
 
-還可以使用以下額外命令：
+還可以使用以下額外命令.
 
 #### RESPOND
 
@@ -680,19 +680,19 @@ The tuning_tower module is automatically loaded.
 
 如果啟用了 [virtual_sdcard 配置分段](Config_Reference.md#virtual_sdcard)，Klipper 支援以下標準 G-Code 命令：
 
-- 列出SD卡：`M20` 。
+- 列出SD卡：`M20`
 - 初始化SD卡：`M21`
 - 選擇SD卡檔案：`M23 <filename>`
 - 開始/暫停 SD 卡列印：`M24`
 - 暫停 SD 卡列印： `M25`
-- 設定 SD 塊位置：`M26 S<偏移>`。
+- 設定 SD 塊位置：`M26 S<偏移>`
 - 報告SD卡列印狀態：`M27`
 
 此外，當啟用"virtual_sdcard"配置分段時，以下擴充套件命令可用。
 
 #### SDCARD_PRINT_FILE
 
-`SDCARD_PRINT_FILE FILENAME=<檔名>`：載入一個檔案並開始 SD 列印
+`SDCARD_PRINT_FILE FILENAME=<檔名>`：載入一個檔案並開始 SD 列印.
 
 #### SDCARD_RESET_FILE
 

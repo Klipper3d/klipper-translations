@@ -1,4 +1,4 @@
-# Installation
+# 安裝
 
 These instructions assume the software will run on a Raspberry Pi computer in conjunction with OctoPrint. It is recommended that a Raspberry Pi 2, 3, or 4 computer be used as the host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) for other machines).
 
@@ -72,7 +72,7 @@ From the main page, under the "Connection" section (at the top left of the page)
 
 Once connected, navigate to the "Terminal" tab and type "status" (without the quotes) into the command entry box and click "Send". The terminal window will likely report there is an error opening the config file - that means OctoPrint is successfully communicating with Klipper. Proceed to the next section.
 
-## Configuring Klipper
+## 配置 Klipper
 
 The Klipper configuration is stored in a text file on the Raspberry Pi. Take a look at the example config files in the [config directory](../config/). The [Config Reference](Config_Reference.md) contains documentation on config parameters.
 

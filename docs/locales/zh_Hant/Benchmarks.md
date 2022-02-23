@@ -1,20 +1,20 @@
-# Benchmarks
+# 基準測試
 
-This document describes Klipper benchmarks.
+這個文件解釋了Klipper的基準測試。
 
-## Micro-controller Benchmarks
+## 微控制器（Micro-controller）基準測試
 
-This section describes the mechanism used to generate the Klipper micro-controller step rate benchmarks.
+本節描述了用於產生 Klipper 微控制器步進率（step rate）基準的機制。
 
-The primary goal of the benchmarks is to provide a consistent mechanism for measuring the impact of coding changes within the software. A secondary goal is to provide high-level metrics for comparing the performance between chips and between software platforms.
+基準的主要目標是提供一個一致的機制，用於測量軟體中編碼更改的影響。次要目標是提供高級別指標，用於比較晶片和軟件平臺之間的效能。
 
-The step rate benchmark is designed to find the maximum stepping rate that the hardware and software can reach. This benchmark stepping rate is not achievable in day-to-day use as Klipper needs to perform other tasks (eg, mcu/host communication, temperature reading, endstop checking) in any real-world usage.
+步進率(stepping rate)基準是爲了找到硬體和軟體可以達到的最大步進率。這個基準步進率在日常使用中是無法實現的，因為Klipper在任何實際使用中都需要執行其他任務（例如，MCU/主機通訊、溫度讀取、限位檢查）。
 
-In general, the pins for the benchmark tests are chosen to flash LEDs or other innocuous pins. **Always verify that it is safe to drive the configured pins prior to running a benchmark.** It is not recommended to drive an actual stepper during a benchmark.
+一般而言，基準測試的引腳被選擇用於閃爍 LED 或其他安全引腳。 ** 在執行基準測試之前，始終驗證驅動配置的引腳是安全的。** 不建議在基準測試期間驅動實際的步進器。
 
-### Step rate benchmark test
+### 步進率基準測試
 
-The test is performed using the console.py tool (described in <Debugging.md>). The micro-controller is configured for the particular hardware platform (see below) and then the following is cut-and-paste into the console.py terminal window:
+測試是使用console.py工具進行的（在<Debugging.md>中描述）。為特定的硬件平臺配置微控制器（見下文），然後將以下內容剪下並貼上到console.py終端視窗:
 
 ```
 SET start_clock {clock+freq}
@@ -39,27 +39,27 @@ set_next_step_dir oid=2 dir=1
 queue_step oid=2 interval=3000 count=1 add=0
 ```
 
-The above tests three steppers simultaneously stepping. If running the above results in a "Rescheduled timer in the past" or "Stepper too far in past" error then it indicates the `ticks` parameter is too low (it results in a stepping rate that is too fast). The goal is to find the lowest setting of the ticks parameter that reliably results in a successful completion of the test. It should be possible to bisect the ticks parameter until a stable value is found.
+以上測試三個步進器同時步進。如果執行上述程式的結果是 "重新安排定時器在過去 "或 "步進器在過去太遠 "的錯誤，則表明`ticks`參數太低（它導致步進速度太快）。我們的目標是找到能夠可靠地導致成功完成測試的最低的ticks參數設定。應該可以將ticks參數一分為二，直到找到一個穩定的值。
 
-On a failure, one can copy-and-paste the following to clear the error in preparation for the next test:
+在失敗的情況下，可以複製和貼上以下內容來清除錯誤，為下一次測試做準備：
 
 ```
 clear_shutdown
 ```
 
-To obtain the single stepper benchmarks, the same configuration sequence is used, but only the first block of the above test is cut-and-paste into the console.py window.
+爲了獲得單一步進電機的基準測試，使用了相同的配置序列，但只將上述測試的第一塊剪下並貼上到 console.py 視窗。
 
-To produce the benchmarks found in the [Features](Features.md) document, the total number of steps per second is calculated by multiplying the number of active steppers with the nominal mcu frequency and dividing by the final ticks parameter. The results are rounded to the nearest K. For example, with three active steppers:
+爲了產生 [功能](Features.md) 文件中的基準測試結果，每秒總步數的計算方法是將活動步進器的數量與標稱 mcu 頻率相乘，然後除以最終的 ticks 參數。結果四捨五入到最接近的 K。例如，使用三個活動步進器：
 
 ```
 ECHO Test result is: {"%.0fK" % (3. * freq / ticks / 1000.)}
 ```
 
-The benchmarks are run with parameters suitable for TMC Drivers. For micro-controllers that support `STEPPER_BOTH_EDGE=1` (as reported in the `MCU config` line when console.py first starts) use `step_pulse_duration=0` and `invert_step=-1` to enable optimized stepping on both edges of the step pulse. For other micro-controllers use a `step_pulse_duration` corresponding to 100ns.
+基準的執行參數必須和 TMC 驅動相匹配。對於支援 `STEPPER_BOTH_EDGE=1` 的微控制器（控制檯啟動時`MCU config`行中會報告）使用 `step_pulse_duration=0` 和 `invert_step=-1` 來啟用步進脈衝的兩邊上的優化。對於其他微控制器，使用對應 100ns 的 `step_pulse_duration`。
 
-### AVR step rate benchmark
+### AVR步進率基準測試
 
-The following configuration sequence is used on AVR chips:
+在AVR晶片上使用以下配置序列：
 
 ```
 allocate_oids count=3
@@ -69,16 +69,16 @@ config_stepper oid=2 step_pin=PC7 dir_pin=PC6 invert_step=0 step_pulse_ticks=32
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `avr-gcc (GCC) 5.4.0`. Both the 16Mhz and 20Mhz tests were run using simulavr configured for an atmega644p (previous tests have confirmed simulavr results match tests on both a 16Mhz at90usb and a 16Mhz atmega2560).
+該測試最後一次執行使用了提交 `59314d99` 與 gcc 版本 `avr-gcc （GCC） 5.4.0`。16Mhz 和 20Mhz 測試都使用了按 atmega644p 配置的 simulavr 執行（以前的測試已經確認了16Mhz at90usb 和16Mhz atmega2560 的實際效能與 simulavr 結果相似）。
 
 | avr | ticks |
 | --- | --- |
-| 1 stepper | 102 |
-| 3 stepper | 486 |
+| 1個步進電機 | 102 |
+| 3個步進電機 | 486 |
 
-### Arduino Due step rate benchmark
+### Arduino Due 的步速率基準測試
 
-The following configuration sequence is used on the Due:
+以下是在Due上使用的配置序列：
 
 ```
 allocate_oids count=3
@@ -88,16 +88,16 @@ config_stepper oid=2 step_pin=PA21 dir_pin=PC30 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+測試最後在提交 `59314d99` 上執行，gcc 版本為 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`。
 
 | sam3x8e | ticks |
 | --- | --- |
-| 1 stepper | 66 |
-| 3 stepper | 257 |
+| 1個步進電機 | 66 |
+| 3個步進電機 | 257 |
 
-### Duet Maestro step rate benchmark
+### Duet Maestro 步進率基準測試
 
-The following configuration sequence is used on the Duet Maestro:
+在Duet Maestro上使用以下配置序列：
 
 ```
 allocate_oids count=3
@@ -107,16 +107,16 @@ config_stepper oid=2 step_pin=PC26 dir_pin=PB4 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+測試最後在提交 `59314d99` 上執行，gcc 版本為 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`。
 
 | sam4s8c | ticks |
 | --- | --- |
-| 1 stepper | 71 |
-| 3 stepper | 260 |
+| 1個步進電機 | 71 |
+| 3個步進電機 | 260 |
 
-### Duet Wifi step rate benchmark
+### Duet Wifi 步進率基準測試
 
-The following configuration sequence is used on the Duet Wifi:
+在Duet Wifi上使用以下配置序列：
 
 ```
 allocate_oids count=3
@@ -126,16 +126,16 @@ config_stepper oid=2 step_pin=PD8 dir_pin=PD13 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `gcc version 10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`.
+測試最後在提交 `59314d99` 上執行，gcc 版本 `gcc 版本 10.3.1 20210621（發佈版） (GNU Arm Embedded Toolchain 10.3-2021.07)`。
 
 | sam4e8e | ticks |
 | --- | --- |
-| 1 stepper | 48 |
-| 3 stepper | 215 |
+| 1個步進電機 | 48 |
+| 3個步進電機 | 215 |
 
-### Beaglebone PRU step rate benchmark
+### Beaglebone PRU 步進率基準測試
 
-The following configuration sequence is used on the PRU:
+在PRU上使用以下配置序列：
 
 ```
 allocate_oids count=3
@@ -145,16 +145,16 @@ config_stepper oid=2 step_pin=gpio0_22 dir_pin=gpio2_1 invert_step=0 step_pulse_
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `pru-gcc (GCC) 8.0.0 20170530 (experimental)`.
+測試最後在提交 `59314d99` 上執行，gcc 版本為 `pru-gcc (GCC) 8.0.0 20170530（實驗版）`。
 
-| pru | ticks |
+| 可程式設計實時單元 | ticks |
 | --- | --- |
-| 1 stepper | 231 |
-| 3 stepper | 847 |
+| 1個步進電機 | 231 |
+| 3個步進電機 | 847 |
 
-### STM32F042 step rate benchmark
+### STM32F042 步進率基準測試
 
-The following configuration sequence is used on the STM32F042:
+在STM32F042上使用以下配置序列：
 
 ```
 allocate_oids count=3
@@ -164,16 +164,16 @@ config_stepper oid=2 step_pin=PB8 dir_pin=PA2 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+測試最後在提交 `59314d99` 上執行，gcc 版本為 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`。
 
 | stm32f042 | ticks |
 | --- | --- |
-| 1 stepper | 59 |
-| 3 stepper | 249 |
+| 1個步進電機 | 59 |
+| 3個步進電機 | 249 |
 
-### STM32F103 step rate benchmark
+### STM32F103 步速率基準測試
 
-The following configuration sequence is used on the STM32F103:
+在STM32F103上使用以下配置序列：
 
 ```
 allocate_oids count=3
@@ -183,16 +183,16 @@ config_stepper oid=2 step_pin=PA4 dir_pin=PB7 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+測試最後在提交 `59314d99` 上執行，gcc 版本為 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`。
 
 | stm32f103 | ticks |
 | --- | --- |
-| 1 stepper | 61 |
-| 3 stepper | 264 |
+| 1個步進電機 | 61 |
+| 3個步進電機 | 264 |
 
-### STM32F4 step rate benchmark
+### STM32F4 步進率基準測試
 
-The following configuration sequence is used on the STM32F4:
+在STM32F4上使用以下配置序列：
 
 ```
 allocate_oids count=3
@@ -202,21 +202,21 @@ config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The STM32F407 results were obtained by running an STM32F407 binary on an STM32F446 (and thus using a 168Mhz clock).
+該測試最後一次執行使用了提交`59314d99`，gcc版本`arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`。STM32F407 的結果是通過在 STM32F446 上執行 STM32F407 二進制檔案得到的（因此時鐘是 168Mhz ）。
 
 | stm32f446 | ticks |
 | --- | --- |
-| 1 stepper | 46 |
-| 3 stepper | 205 |
+| 1個步進電機 | 46 |
+| 3個步進電機 | 205 |
 
 | stm32f407 | ticks |
 | --- | --- |
-| 1 stepper | 46 |
-| 3 stepper | 205 |
+| 1個步進電機 | 46 |
+| 3個步進電機 | 205 |
 
-### STM32G0B1 step rate benchmark
+### STM32G0B1 步速率基準測試
 
-The following configuration sequence is used on the STM32G0B1:
+在 STM32G0B1 上使用以下配置序列：
 
 ```
 allocate_oids count=3
@@ -226,16 +226,16 @@ config_stepper oid=2 step_pin=PB0 dir_pin=PC5 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `247cd753` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+測試最後在提交 `247cd753` 上執行，gcc 版本為 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`。
 
 | stm32f042 | ticks |
 | --- | --- |
-| 1 stepper | 58 |
-| 3 stepper | 243 |
+| 1個步進電機 | 58 |
+| 3個步進電機 | 243 |
 
-### LPC176x step rate benchmark
+### LPC176x 步進率基準測試
 
-The following configuration sequence is used on the LPC176x:
+在LPC176x上使用以下配置序列：
 
 ```
 allocate_oids count=3
@@ -245,21 +245,21 @@ config_stepper oid=2 step_pin=P1.23 dir_pin=P1.18 invert_step=-1 step_pulse_tick
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The 120Mhz LPC1769 results were obtained by overclocking an LPC1768 to 120Mhz.
+該測試最後一次執行使用了提交 `59314d99`，gcc 版本 `arm-none-eabi-gcc （Fedora 10.2.0-4.fc34） 10.2.0`。120Mhz LPC1769 的結果是通過將 LPC1768 超頻到 120Mhz 而獲得的。
 
 | lpc1768 | ticks |
 | --- | --- |
-| 1 stepper | 52 |
-| 3 stepper | 222 |
+| 1個步進電機 | 52 |
+| 3個步進電機 | 222 |
 
 | lpc1769 | ticks |
 | --- | --- |
-| 1 stepper | 51 |
-| 3 stepper | 222 |
+| 1個步進電機 | 51 |
+| 3個步進電機 | 222 |
 
-### SAMD21 step rate benchmark
+### SAMD21 步速率基準測試
 
-The following configuration sequence is used on the SAMD21:
+在SAMD21上使用以下配置序列：
 
 ```
 allocate_oids count=3
@@ -269,16 +269,16 @@ config_stepper oid=2 step_pin=PA17 dir_pin=PA21 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD21G18 micro-controller.
+該測試最後一次執行使用了提交 `59314d99`，gcc 版本 `arm-none-eabi-gcc （Fedora 10.2.0-4.fc34） 10.2.0` 在 SAMD21G18 微控制器上。
 
-| samd21 | ticks |
+| SAMD21 | ticks |
 | --- | --- |
-| 1 stepper | 70 |
-| 3 stepper | 306 |
+| 1個步進電機 | 70 |
+| 3個步進電機 | 306 |
 
-### SAMD51 step rate benchmark
+### SAMD51 步速率基準測試
 
-The following configuration sequence is used on the SAMD51:
+在SAMD51上使用以下配置序列：
 
 ```
 allocate_oids count=3
@@ -288,18 +288,18 @@ config_stepper oid=2 step_pin=PA22 dir_pin=PA19 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD51J19A micro-controller.
+該測試最後一次執行使用了提交 `59314d99` 與 gcc 版本 `arm-none-eabi-gcc （Fedora 10.2.0-4.fc34） 10.2.0` 在 SAMD51J19A 微控制器上執行的。
 
-| samd51 | ticks |
+| SAMD51 | ticks |
 | --- | --- |
-| 1 stepper | 39 |
-| 3 stepper | 191 |
+| 1個步進電機 | 39 |
+| 3個步進電機 | 191 |
 | 1 stepper (200Mhz) | 39 |
 | 3 stepper (200Mhz) | 181 |
 
-### RP2040 step rate benchmark
+### RP2040 步速率基準測試
 
-The following configuration sequence is used on the RP2040:
+RP2040 上使用以下配置序列：
 
 ```
 allocate_oids count=3
@@ -309,16 +309,16 @@ config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=-1 step_pulse_tic
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a Raspberry Pi Pico board.
+該測試最後一次在 Raspberry Pi Pico 板上使用 gcc 版本 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`和提交 `59314d99` 執行。
 
 | rp2040 | ticks |
 | --- | --- |
-| 1 stepper | 5 |
-| 3 stepper | 22 |
+| 1個步進電機 | 5 |
+| 3個步進電機 | 22 |
 
-### Linux MCU step rate benchmark
+### Linux MCU 步速率基準測試
 
-The following configuration sequence is used on a Raspberry Pi:
+樹莓派上使用以下配置序列：
 
 ```
 allocate_oids count=3
@@ -328,16 +328,16 @@ config_stepper oid=2 step_pin=gpio6 dir_pin=gpio17 invert_step=0 step_pulse_tick
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `gcc (Raspbian 8.3.0-6+rpi1) 8.3.0` on a Raspberry Pi 3 (revision a02082). It was difficult to get stable results in this benchmark.
+該測試最後一次執行使用了提交 `59314d99` 與 gcc 版本 `gcc （Raspbian 8.3.0-6+rpi1） 8.3.0` 在 Raspberry Pi 3 （修訂版 a02082） 上執行。在這個基準測試中很難獲得穩定的結果。
 
 | Linux (RPi3) | ticks |
 | --- | --- |
-| 1 stepper | 160 |
-| 3 stepper | 380 |
+| 1個步進電機 | 160 |
+| 3個步進電機 | 380 |
 
-## Command dispatch benchmark
+## Command dispatch 基準測試
 
-The command dispatch benchmark tests how many "dummy" commands the micro-controller can process. It is primarily a test of the hardware communication mechanism. The test is run using the console.py tool (described in <Debugging.md>). The following is cut-and-paste into the console.py terminal window:
+命令排程基準測試微控制器可以處理多少個 "dummy"命令。它主要是對硬體通訊機制的測試。該測試使用console.py工具（在<Debugging.md>中描述）執行。以下是剪下並貼上到console.py終端視窗的內容:
 
 ```
 DELAY {clock + 2*freq} get_uptime
@@ -345,18 +345,18 @@ FLOOD 100000 0.0 debug_nop
 get_uptime
 ```
 
-When the test completes, determine the difference between the clocks reported in the two "uptime" response messages. The total number of commands per second is then `100000 * mcu_frequency / clock_diff`.
+當測試完成後，確定兩個 "正常執行時間 "響應資訊中報告的時鐘之間的差異。然後，每秒鐘的總命令數是`100000 * mcu_frequency / clock_diff`。
 
-Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If running on a Raspberry Pi, Beaglebone, or similar host computer then increase the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the benchmarks below are with console.py running on a desktop class machine with the device connected via a high-speed hub.
+注意，這個測試可能會使Raspberry Pi的USB/CPU容量達到飽和。如果在Raspberry Pi、Beaglebone或類似的主機上執行，那麼要增加延遲（例如，`DELAY {clock + 20*freq} get_uptime`）。在適用的情況下，下面的基準是用控制檯.py在桌面類機器上執行，裝置通過高速集線器連線。
 
 | MCU | Rate | Build | Build compiler |
 | --- | --- | --- | --- |
 | stm32f042 (CAN) | 18K | c105adc8 | arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1 |
-| atmega2560 (serial) | 23K | b161a69e | avr-gcc (GCC) 4.8.1 |
-| sam3x8e (serial) | 23K | b161a69e | arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0 |
+| atmega2560 (序列匯流排) | 23K | b161a69e | avr-gcc (GCC) 4.8.1 |
+| sam3x8e (序列匯流排) | 23K | b161a69e | arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0 |
 | at90usb1286 (USB) | 75K | 01d2183f | avr-gcc (GCC) 5.4.0 |
 | samd21 (USB) | 223K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
-| pru (shared memory) | 260K | c5968a08 | pru-gcc (GCC) 8.0.0 20170530 (experimental) |
+| PRU（共享記憶體） | 260K | c5968a08 | pru-gcc (GCC) 8.0.0 20170530 (experimental) |
 | stm32f103 (USB) | 355K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | sam3x8e (USB) | 418K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | lpc1768 (USB) | 534K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
@@ -366,9 +366,9 @@ Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If runn
 | stm32f446 (USB) | 870K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | rp2040 (USB) | 873K | c5667193 | arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0 |
 
-## Host Benchmarks
+## Host 基準測試
 
-It is possible to run timing tests on the host software using the "batch mode" processing mechanism (described in <Debugging.md>). This is typically done by choosing a large and complex G-Code file and timing how long it takes for the host software to process it. For example:
+可以使用「批處理模式」處理機制（在 <Debugging.md> 中描述）在主機軟體上執行時序測試。這通常是通過選擇一個大而複雜的 G 程式碼檔案並計時主機軟體處理它所需的時間來完成的。例如：
 
 ```
 time ~/klippy-env/bin/python ./klippy/klippy.py config/example-cartesian.cfg -i something_complex.gcode -o /dev/null -d out/klipper.dict

@@ -1,64 +1,64 @@
-# Features
+# 功能
 
-Klipper has several compelling features:
+Klipper 有幾個引人注目的功能：
 
-* High precision stepper movement. Klipper utilizes an application processor (such as a low-cost Raspberry Pi) when calculating printer movements. The application processor determines when to step each stepper motor, it compresses those events, transmits them to the micro-controller, and then the micro-controller executes each event at the requested time. Each stepper event is scheduled with a precision of 25 micro-seconds or better. The software does not use kinematic estimations (such as the Bresenham algorithm) - instead it calculates precise step times based on the physics of acceleration and the physics of the machine kinematics. More precise stepper movement translates to quieter and more stable printer operation.
-* Best in class performance. Klipper is able to achieve high stepping rates on both new and old micro-controllers. Even old 8bit micro-controllers can obtain rates over 175K steps per second. On more recent micro-controllers, several million steps per second are possible. Higher stepper rates enable higher print velocities. The stepper event timing remains precise even at high speeds which improves overall stability.
-* Klipper supports printers with multiple micro-controllers. For example, one micro-controller could be used to control an extruder, while another controls the printer's heaters, while a third controls the rest of the printer. The Klipper host software implements clock synchronization to account for clock drift between micro-controllers. No special code is needed to enable multiple micro-controllers - it just requires a few extra lines in the config file.
-* Configuration via simple config file. There's no need to reflash the micro-controller to change a setting. All of Klipper's configuration is stored in a standard config file which can be easily edited. This makes it easier to setup and maintain the hardware.
-* Klipper supports "Smooth Pressure Advance" - a mechanism to account for the effects of pressure within an extruder. This reduces extruder "ooze" and improves the quality of print corners. Klipper's implementation does not introduce instantaneous extruder speed changes, which improves overall stability and robustness.
-* Klipper supports "Input Shaping" to reduce the impact of vibrations on print quality. This can reduce or eliminate "ringing" (also known as "ghosting", "echoing", or "rippling") in prints. It may also allow one to obtain faster printing speeds while still maintaining high print quality.
-* Klipper uses an "iterative solver" to calculate precise step times from simple kinematic equations. This makes porting Klipper to new types of robots easier and it keeps timing precise even with complex kinematics (no "line segmentation" is needed).
-* Portable code. Klipper works on ARM, AVR, and PRU based micro-controllers. Existing "reprap" style printers can run Klipper without hardware modification - just add a Raspberry Pi. Klipper's internal code layout makes it easier to support other micro-controller architectures as well.
-* Simpler code. Klipper uses a very high level language (Python) for most code. The kinematics algorithms, the G-code parsing, the heating and thermistor algorithms, etc. are all written in Python. This makes it easier to develop new functionality.
-* Custom programmable macros. New G-Code commands can be defined in the printer config file (no code changes are necessary). Those commands are programmable - allowing them to produce different actions depending on the state of the printer.
-* Builtin API server. In addition to the standard G-Code interface, Klipper supports a rich JSON based application interface. This enables programmers to build external applications with detailed control of the printer.
+* 高精度步進運動。Klipper使用一個應用處理器（例如低成本的樹莓派）來計算印表機運動。應用處理器決定何時對每個步進電機發出步進訊號，壓縮這些事件，並將它們發送到微控制器。微處理器將會把每個事件按請求時間執行。每一個步進事件被以25毫秒或更高的精度安排。軟體不進行運動估計，例如 Bresenham演算法，而是通過加速度與機械運動物理計算精確的步進時間。更精準的步進電機運動意味著印表機更安靜和穩定的執行。
+* 同類項目中最佳的效能。 Klipper 能夠在新舊微控制器上實現高步進速率。即使是舊的 8 位微控制器也可以發送超過每秒 175K 步的速率。在較新的微控制器上，每秒數百萬步也可以實現。更高的步進速率可以實現更高的列印速度。步進事件計時即使在高速下也能保持精確，提高了整體穩定性。
+* Klipper 支援帶有多個微控制器的印表機。例如，一個微控制器可以被用來控制擠出機，而另一個用來控制加熱器，並使用第三個來控制其他的印表機元件。Klipper 主機程式實現了時鐘同步，解決了微處理器之間的時鐘漂移。 啟用多個控制器只需要在配置檔案中新增幾行，不需要任何特殊程式碼。
+* 通過簡單的配置檔案進行配置。修改設定不需要重新刷寫微控制器。Klipper 的所有配置都被儲存在一個易編輯的配置檔案中，大大減少了配置與維護硬體的難度。
+* Klipper 支援「平滑提前壓力」--一種考慮了擠出機內壓力影響的機制。這項技術可以減少噴嘴溢料並改善轉角的列印質量。Klipper 的實現不會引入瞬間擠出機速度變化，改善了整體穩定性和穩健性。
+* 支援使用「輸入整形」來減少振動對列印質量的影響。這項功能可以減少或消除列印件的「振紋(ringing)」（又名「ghosting」，「echoing」，或「rippling」）。在一些情況下它可以在保持列印質量的同時提高列印速度。
+* Klipper 使用「迭代求解器」從簡單的運動學方程中計算精準的步進時間。這降低了移植Klipper到新的機械結構的難度並保證了精確的步進計時（而不需要「線段化」）。
+* 易移植的程式碼。Klipper 可以在 ARM，AVR，和PRU架構的微控制器上執行。現有的「reprap」類印表機不需要改動任何硬體就可以執行 Klipper，只需要加一個樹莓派。Klipper 的內部程式碼結構使它能夠被簡單的移植到其他架構。
+* 簡潔的程式碼。大部分 Klipper 程式碼使用一個極高級程式語言（Python），這包括了運動演算法，G程式碼解析，加熱，溫度感測器演算法和其他，降低了開發新功能的難度。
+* 自定義可程式設計指令碼。可以在印表機配置檔案中定義新的G程式碼命令（而不需要修改任何程式碼）。這些命令都是可程式設計的，可以能根據印表機的狀態做出不同的響應。
+* 內建API伺服器。除了標準G程式碼介面，Klipper也支援富JSON API。使程式設計師能編寫對印表機進行精細控制的外接程式。
 
-## Additional features
+## 其他功能
 
-Klipper supports many standard 3d printer features:
+Klipper 支援許多標準的 3d 印表機功能：
 
-* Works with Octoprint. This allows the printer to be controlled using a regular web-browser. The same Raspberry Pi that runs Klipper can also run Octoprint.
-* Standard G-Code support. Common g-code commands that are produced by typical "slicers" (SuperSlicer, Cura, PrusaSlicer, etc.) are supported.
-* Support for multiple extruders. Extruders with shared heaters and extruders on independent carriages (IDEX) are also supported.
-* Support for cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, rotary delta, polar, and cable winch style printers.
-* Automatic bed leveling support. Klipper can be configured for basic bed tilt detection or full mesh bed leveling. If the bed uses multiple Z steppers then Klipper can also level by independently manipulating the Z steppers. Most Z height probes are supported, including BL-Touch probes and servo activated probes.
-* Automatic delta calibration support. The calibration tool can perform basic height calibration as well as an enhanced X and Y dimension calibration. The calibration can be done with a Z height probe or via manual probing.
-* Support for common temperature sensors (eg, common thermistors, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20, and LM75). Custom thermistors and custom analog temperature sensors can also be configured. One can monitor the internal micro-controller temperature sensor and the internal temperature sensor of a Raspberry Pi.
-* Basic thermal heater protection enabled by default.
-* Support for standard fans, nozzle fans, and temperature controlled fans. No need to keep fans running when the printer is idle. Fan speed can be monitored on fans that have a tachometer.
-* Support for run-time configuration of TMC2130, TMC2208/TMC2224, TMC2209, TMC2660, and TMC5160 stepper motor drivers. There is also support for current control of traditional stepper drivers via AD5206, MCP4451, MCP4728, MCP4018, and PWM pins.
-* Support for common LCD displays attached directly to the printer. A default menu is also available. The contents of the display and menu can be fully customized via the config file.
-* Constant acceleration and "look-ahead" support. All printer moves will gradually accelerate from standstill to cruising speed and then decelerate back to a standstill. The incoming stream of G-Code movement commands are queued and analyzed - the acceleration between movements in a similar direction will be optimized to reduce print stalls and improve overall print time.
-* Klipper implements a "stepper phase endstop" algorithm that can improve the accuracy of typical endstop switches. When properly tuned it can improve a print's first layer bed adhesion.
-* Support for filament presence sensors, filament motion sensors, and filament width sensors.
-* Support for measuring and recording acceleration using an adxl345 accelerometer.
-* Support for limiting the top speed of short "zigzag" moves to reduce printer vibration and noise. See the [kinematics](Kinematics.md) document for more information.
-* Sample configuration files are available for many common printers. Check the [config directory](../config/) for a list.
+* 相容Octoprint。這使得印表機可以通過普通瀏覽器來控制。執行Klipper的樹莓派可以同時用來執行Octoprint。
+* 標準 G 程式碼支援。支援由常見「切片軟體」（SuperSlicer、Cura、PrusaSlicer 等）產生的通用 G 程式碼命令。
+* 支援多擠出機。包括對共享熱端的擠出機（多進一出）和多頭（IDEX）的支援。
+* 支援笛卡爾、三角洲、CoreXY、CoreXZ、混合CoreXY、混合CoreXZ、旋轉三角洲、極座標和纜繩鉸盤式印表機。
+* 自動床面平整支援。Klipper可以被配置為基本的床身傾斜檢測或網床調平。如果床鋪使用多個Z步進器，那麼Klipper也可以通過獨立操縱Z步進器來調平。支援大多數Z高度探頭，包括BL-Touch探頭和伺服啟用的探頭。
+* 支援自動delta校準。校準工具可以進行基本的高度校準，以及增強的X和Y尺寸校準。校準可以用Z型高度探頭或通過手動探測來完成。
+* 支援常見的溫度感測器（例如，常見的熱敏電阻、AD595、AD597、AD849x、PT100、PT1000、MAX6675、MAX31855、MAX31856、MAX31865、BME280、HTU21D、DS18B20和LM75）。還可以配置自定義熱敏電阻和自定義模擬溫度感測器。還可以監測微控制器和 Raspberry Pi 內部的溫度感測器。
+* 預設啟用基本加熱器保護。
+* 支援標準風扇、噴嘴風扇和溫控風扇。不需要在印表機閑置時保持風扇運轉。可以在帶有轉速錶的風扇上監測風扇速度。
+* 支援TMC2130、TMC2208/TMC2224、TMC2209、TMC2660和TMC5160步進電機驅動器的執行時配置。還支援通過AD5206、MCP4451、MCP4728、MCP4018和PWM引腳對傳統步進驅動器進行電流控制。
+* 支援直接連線到印表機的普通LCD顯示器。還提供了一個預設的菜單。顯示器和菜單的內容可以通過配置檔案完全定製。
+* 恒定加速和「look-ahead」（前瞻）支援。所有印表機移動將從靜止逐漸加速到巡航速度，然後減速回到靜止。對傳入的 G 程式碼移動命令流進行排隊和分析 - 將優化類似方向上的移動之間的加速度，以減少列印停頓並改善整體列印時間。
+* Klipper 實現了一種「步進相位限位」演算法，可以提高典型限位開關的精度。如果調整得當，它可以提高列印件首層和列印床的附著力。
+* 支援列印絲存在感測器、列印絲運動感測器和列印絲寬度感測器。
+* 支援使用 adxl345 加速度計測量和記錄加速度。
+* 支援限制短距離「之」字形移動的最高速度，以減少印表機的振動和噪音。更多資訊見[運動學](Kinematics.md)文件。
+* 許多常見的印表機都有樣本配置檔案。檢視[配置資料夾](..../config/)中的列表。
 
-To get started with Klipper, read the [installation](Installation.md) guide.
+要開始使用Klipper，請閱讀[安裝](Installation.md)指南。
 
-## Step Benchmarks
+## 步速基準測試
 
-Below are the results of stepper performance tests. The numbers shown represent total number of steps per second on the micro-controller.
+下面是步進效能測試的結果。顯示的數字代表了微控制器上每秒的總步數。
 
-| Micro-controller | 1 stepper active | 3 steppers active |
+| 微控制器 | 1個活躍步進電機 | 3個步進器活躍 |
 | --- | --- | --- |
 | 16Mhz AVR | 157K | 99K |
 | 20Mhz AVR | 196K | 123K |
 | Arduino Zero (SAMD21) | 686K | 471K |
 | STM32F042 | 814K | 578K |
-| Beaglebone PRU | 866K | 708K |
+| Beaglebone 可程式設計實時單元 | 866K | 708K |
 | STM32G0B1 | 1103K | 790K |
 | "Blue Pill" (STM32F103) | 1180K | 818K |
 | Arduino Due (SAM3X8E) | 1273K | 981K |
 | Duet2 Maestro (SAM4S8C) | 1690K | 1385K |
 | Smoothieboard (LPC1768) | 1923K | 1351K |
 | Smoothieboard (LPC1769) | 2353K | 1622K |
-| Raspberry Pi Pico (RP2040) | 2400K | 1636K |
+| 樹莓派Pico (RP2040) | 2400K | 1636K |
 | Duet2 Wifi/Eth (SAM4E8E) | 2500K | 1674K |
 | Adafruit Metro M4 (SAMD51) | 3077K | 1885K |
 | BigTreeTech SKR Pro (STM32F407) | 3652K | 2459K |
-| Fysetc Spider (STM32F446) | 3913K | 2634K |
+| 富源盛蜘蛛（STM32F446） | 3913K | 2634K |
 
-Further details on the benchmarks are available in the [Benchmarks document](Benchmarks.md).
+關於基準測試的更多詳細資訊可在[基準測試文件](Benchmarks.md)中找到。

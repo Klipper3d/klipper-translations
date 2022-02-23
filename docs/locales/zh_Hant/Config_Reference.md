@@ -2217,7 +2217,7 @@ Manually controlled fan (one may define any number of sections with a "fan_gener
 #   以上參數介紹請見「fan」（風扇）章節。
 ```
 
-## 額外的舵機，LED，按鍵，和其他引腳。
+## 額外的舵機，LED，按鍵，和其他引腳
 
 ### [servo]
 
@@ -3072,7 +3072,7 @@ a0_pin:
 
 ### ssd1306 and sh1106 displays
 
-ssd1306 和 sh1106 顯示屏的配置資訊。
+ssd1306 和 sh1106 顯示屏的配置資訊.
 
 ```
 [display]
@@ -3150,7 +3150,7 @@ text:
 
 ## [display_glyph]
 
-在支援自定義字形的顯示器上顯示一個自定義字形。給定的名稱將被分配給給定的顯示數據，然後可以在顯示模板中通過用「波浪形（～）」符號包圍的名稱來引用，即 `~my_display_glyph~` 。
+在支援自定義字形的顯示器上顯示一個自定義字形。給定的名稱將被分配給給定的顯示數據，然後可以在顯示模板中通過用「波浪形（～）」符號包圍的名稱來引用，即 `~my_display_glyph~`
 
 See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples.
 

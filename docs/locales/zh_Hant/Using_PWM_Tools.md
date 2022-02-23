@@ -1,48 +1,48 @@
-# Using PWM tools
+# 使用 PWM 工具
 
-This document describes how to setup a PWM-controlled laser or spindle using `output_pin` and some macros.
+該文件介紹如何配置 `output_pin` 和宏命令以實現使用 PWM 訊號對鐳射器或主軸進行控制。
 
-## How does it work?
+## 它如何運作？
 
-With re-purposing the printhead's fan pwm output, you can control lasers or spindles. This is useful if you use switchable print heads, for example the E3D toolchanger or a DIY solution. Usually, cam-tools such as LaserWeb can be configured to use `M3-M5` commands, which stand for *spindle speed CW* (`M3 S[0-255]`), *spindle speed CCW* (`M4 S[0-255]`) and *spindle stop* (`M5`).
+通過重用列印頭模型風扇(part fan)的PWM輸出訊號，我們可以實現對鐳射頭或轉軸的控制。對使用可更換列印頭的裝置，如E3D toolchanger 或其他DIY專案，這是十分有用的功能。通常，cam軟體，例如LaserWeb，會使用`M3-M5`命令，它們分別是 主軸順時針轉速*spindle speed CW* (`M3 S[0-255]`)， 主軸逆時針轉速*spindle speed CCW* (`M4 S[0-255]`) 和轉軸停止 *spindle stop* (`M5`)。
 
-**Warning:** When driving a laser, keep all security precautions that you can think of! Diode lasers are usually inverted. This means, that when the MCU restarts, the laser will be *fully on* for the time it takes the MCU to start up again. For good measure, it is recommended to *always* wear appropriate laser-goggles of the right wavelength if the laser is powered; and to disconnect the laser when it is not needed. Also, you should configure a safety timeout, so that when your host or MCU encounters an error, the tool will stop.
+**警告：** 在驅動鐳射器時，應採用一切可能的預防措施。二極管鐳射一般是使用反訊號的，即當微控制器重啟時，鐳射將會*全功率輸出*，直至微處理器恢復正常運作。 慎重而言，建議在鐳射器上電期間*始終*佩戴合適波長的護目鏡；並在不使用鐳射時對鐳射器斷電。同時，應該為鐳射器設定安全定時，保證在上位機和微控制器發生錯誤時，鐳射器能自動停止。
 
-For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
+有關示例配置，請參閱 [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg)。
 
-## Current Limitations
+## 電流限制
 
-There is a limitation of how frequent PWM updates may occur. While being very precise, a PWM update may only occur every 0.1 seconds, rendering it almost useless for raster engraving. However, there exists an [experimental branch](https://github.com/Cirromulus/klipper/tree/laser_tool) with its own tradeoffs. In long term, it is planned to add this functionality to main-line klipper.
+PWM脈衝發生的頻率存在上限。儘管相當精確，但每隔0.1秒才能產生一個PWM脈衝，因而幾乎無法用作光柵蝕刻。相對地，可使用以下[測試分支](https://github.com/Cirromulus/klipper/tree/laser_tool) 。它與主分支各有考量。長期計劃中將上述功能加入到 Klipper 的主分支中。
 
-## Commands
+## 命令
 
-`M3/M4 S<value>` : Set PWM duty-cycle. Values between 0 and 255. `M5` : Stop PWM output to shutdown value.
+`M3/M4 S<值>` ：設定 PWM 占空比。占空比數值應在0和255之間。 `M5` : 停止 PWM 訊號輸出。
 
-## Laserweb Configuration
+## LaserWeb 端配置
 
-If you use Laserweb, a working configuration would be:
+如果你使用的是 LaserWeb 軟體，一個可用的配置為：
 
-    GCODE START:
-        M5            ; Disable Laser
-        G21           ; Set units to mm
-        G90           ; Absolute positioning
-        G0 Z0 F7000   ; Set Non-Cutting speed
+    GCODE START: 啟動 G 程式碼
+        M5            ; 停用鐳射
+        G21           ; 使用mm作為單位
+        G90           ; 使用絕對座標
+        G0 Z0 F7000   ; 設定空走速度
     
-    GCODE END:
-        M5            ; Disable Laser
-        G91           ; relative
+    GCODE END: 結束 G 程式碼
+        M5            ; 停用鐳射
+        G91           ; 使用相對座標
         G0 Z+20 F4000 ;
-        G90           ; absolute
+        G90           ; 使用絕對座標
     
-    GCODE HOMING:
-        M5            ; Disable Laser
-        G28           ; Home all axis
+    GCODE HOMING: 歸零 G 程式碼
+        M5            ; 停用鐳射
+        G28           ; 全軸歸零
     
-    TOOL ON:
+    TOOL ON: 開啟工具
         M3 $INTENSITY
     
-    TOOL OFF:
-        M5            ; Disable Laser
+    TOOL OFF: 關閉工具
+        M5            ; 停用鐳射
     
-    LASER INTENSITY:
+    LASER INTENSITY: 鐳射強度
         S

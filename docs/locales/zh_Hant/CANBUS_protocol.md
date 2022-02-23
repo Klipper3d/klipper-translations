@@ -1,37 +1,37 @@
-# CANBUS protocol
+# CANBUS 協議
 
-This document describes the protocol Klipper uses to communicate over [CAN bus](https://en.wikipedia.org/wiki/CAN_bus). See <CANBUS.md> for information on configuring Klipper with CAN bus.
+本文件描述了 Klipper 通過[CAN匯流排](https://en.wikipedia.org/wiki/CAN_bus)進行通訊的協議。參見<CANBUS.md>瞭解如何在 Klipper 中配置 CAN 匯流排。
 
-## Micro-controller id assignment
+## 微控制器 ID 分配
 
-Klipper uses only CAN 2.0A standard size CAN bus packets, which are limited to 8 data bytes and an 11-bit CAN bus identifier. In order to support efficient communication, each micro-controller is assigned at run-time a unique 1-byte CAN bus nodeid (`canbus_nodeid`) for general Klipper command and response traffic. Klipper command messages going from host to micro-controller use the CAN bus id of `canbus_nodeid * 2 + 256`, while Klipper response messages from micro-controller to host use `canbus_nodeid * 2 + 256 + 1`.
+Klipper使用 CAN 2.0A 標準尺寸的 CAN 匯流排數據包，它被限制在8個數據位元組和一個11位的CAN匯流排標識。爲了保證高效的通訊，每個微控制器在執行時被分配一個唯一的 1 位元組的CAN匯流排節點 ID（`canbus_nodeid`）用於一般的 Klipper 命令和響應通訊。從主機到微控制器的 Klipper 命令資訊使用`canbus_nodeid * 2 + 256` 的CAN匯流排 ID，而從微控制器到主機的 Klipper 響應資訊使用`canbus_nodeid * 2 + 256 + 1`。
 
-Each micro-controller has a factory assigned unique chip identifier that is used during id assignment. This identifier can exceed the length of one CAN packet, so a hash function is used to generate a unique 6-byte id (`canbus_uuid`) from the factory id.
+每個微控制器出廠時都有一個用於ID分配的唯一的晶片識別符號。這個識別符號可以超過一個 CAN 數據包的長度，一個雜湊函式會用出廠識別符號產生一個唯一的 6 位元組標識（`canbus_uuid`）。
 
-## Admin messages
+## 管理訊息
 
-Admin messages are used for id assignment. Admin messages sent from host to micro-controller use the CAN bus id `0x3f0` and messages sent from micro-controller to host use the CAN bus id `0x3f1`. All micro-controllers listen to messages on id `0x3f0`; that id can be thought of as a "broadcast address".
+管理資訊用於 ID 分配。從主機發送到微控制器的管理訊息使用CAN匯流排的 ID `0x3f0`，而從微控制器發送到主機的訊息使用CAN匯流排的 ID `0x3f1`。所有的微控制器都聽從ID `0x3f0`上的訊息；這個 ID 可以被認為是一個"廣播地址"。
 
-### CMD_QUERY_UNASSIGNED message
+### CMD_QUERY_UNASSIGNED 訊息
 
-This command queries all micro-controllers that have not yet been assigned a `canbus_nodeid`. Unassigned micro-controllers will respond with a RESP_NEED_NODEID response message.
+該命令查詢所有尚未被分配 `canbus_nodeid` 的微控制器。未分配的微控制器將以 RESP_NEED_NODEID 響應訊息進行迴應。
 
-The CMD_QUERY_UNASSIGNED message format is: `<1-byte message_id = 0x00>`
+CMD_QUERY_UNASSIGNED 訊息格式是：`<1-byte message_id = 0x00>`
 
-### CMD_SET_NODEID message
+### CMD_SET_NODEID 訊息
 
-This command assigns a `canbus_nodeid` to the micro-controller with a given `canbus_uuid`.
+這個命令根據微處理器給定的 `canbus_uuid` 給相應的微處理器分配一個 `canbus_nodeid`。
 
-The CMD_SET_NODEID message format is: `<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`
+CMD_SET_NODEID訊息格式是：`<1位元組message_id = 0x01><6位元組canbus_uuid><1位元組canbus_nodeid>`
 
-### RESP_NEED_NODEID message
+### RESP_NEED_NODEID 訊息
 
-The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte canbus_uuid>`
+RESP_NEED_NODEID訊息格式為：`<1位元組message_id = 0x20><6位元組canbus_uuid>`
 
-## Data Packets
+## 數據包
 
-A micro-controller that has been assigned a nodeid via the CMD_SET_NODEID command can send and receive data packets.
+通過 CMD_SET_NODEID 命令分配了節點 ID 的微控制器可以發送和接收數據包。
 
-The packet data in messages using the node's receive CAN bus id (`canbus_nodeid * 2 + 256`) are simply appended to a buffer, and when a complete [mcu protocol message](Protocol.md) is found its contents are parsed and processed. The data is treated as a byte stream - there is no requirement for the start of a Klipper message block to align with the start of a CAN bus packet.
+帶有節點接收 CAN 匯流排ID（`canbus_nodeid * 2 + 256`）的訊息中的數據包被簡單地新增到一個緩衝區，當一個完整的[mcu 協議訊息](Protocol.md)被找到時，其內容會被解析和處理。數據被視為一個位元組流-- Klipper 訊息塊的開始位置與CAN匯流排數據包的開始位置不需要對齊。
 
-Similarly, mcu protocol message responses are sent from micro-controller to host by copying the message data into one or more packets with the node's transmit CAN bus id (`canbus_nodeid * 2 + 256 + 1`).
+類似地，mcu 協議訊息響應通過將訊息數據插入到具有節點發送 CAN 匯流排 ID 的一個或多個數據包（`canbus_nodeid * 2 + 256 + 1`）並從微控制器發送到主機。

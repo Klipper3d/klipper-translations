@@ -1,4 +1,4 @@
-# Hall filament width sensor
+# 霍爾耗材線徑感測器
 
 This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on two Hall linear sensors (ss49e for example). Sensors in the body are located opposite sides. Principle of operation: two hall sensors work in differential mode, temperature drift same for sensor. Special temperature compensation not needed.
 
@@ -6,7 +6,7 @@ You can find designs at [Thingiverse](https://www.thingiverse.com/thing:4138933)
 
 To use Hall filament width sensor, read [Config Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code documentation](G-Codes.md#hall_filament_width_sensor).
 
-## How does it work?
+## 它如何運作？
 
 Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use aux2 connector on ramps-like board analog11 and analog12 pins. You can use different pins and differenr boards.
 
