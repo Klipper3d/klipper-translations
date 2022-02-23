@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-23 08:01+0000\n"
+"PO-Revision-Date: 2022-02-23 12:56+0000\n"
 "Last-Translator: Fred Chan <fred2088@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "klipper/g-codes/zh_Hant/>\n"
@@ -69,10 +69,10 @@ msgid "Set extruder temperature: `M104 [T<index>] [S<temperature>]`"
 msgstr "設定擠出機溫度：`M104 [T<index>] [S<temperature>]`"
 
 msgid "Set extruder temperature and wait: `M109 [T<index>] S<temperature>`"
-msgstr "設定擠出機溫度並等待：`M109 [T<index>] S<temperature>`。"
+msgstr "設定擠出機溫度並等待：`M109 [T<index>] S<temperature>`"
 
 msgid "Note: M109 always waits for temperature to settle at requested value"
-msgstr "注意：M109總是等待溫度穩定在請求的數值上。"
+msgstr "注意：M109總是等待溫度穩定在請求的數值上"
 
 msgid "Set bed temperature: `M140 [S<temperature>]`"
 msgstr "設定熱床溫度：`M140 [S<temperature>]`"
@@ -81,7 +81,7 @@ msgid "Set bed temperature and wait: `M190 S<temperature>`"
 msgstr "設定熱床溫度並且等待：`M190 S<temperature>`"
 
 msgid "Note: M190 always waits for temperature to settle at requested value"
-msgstr "注意：M190總是等待溫度穩定在請求的數值上。"
+msgstr "注意：M190總是等待溫度穩定在請求的數值上"
 
 msgid "Set fan speed: `M106 S<value>`"
 msgstr "設定風扇速度：`M106 S<value>`"
@@ -113,10 +113,10 @@ msgid ""
 msgstr ""
 "如果一個人需要一個不太常見的G-Code命令，那麼可以用一個自定義的[gcode_macro config "
 "section](Config_Reference.md#gcode_macro)來實現它。例如，我們可以用這個來實現。`G12`, `G29`, "
-"`G30`, `G31`, `M42`, `M80`, `M81`, `T1` ，etc"
+"`G30`, `G31`, `M42`, `M80`, `M81`, `T1` ，etc."
 
 msgid "List SD card: `M20`"
-msgstr "列出SD卡：`M20` 。"
+msgstr "列出SD卡：`M20`"
 
 msgid "Initialize SD card: `M21`"
 msgstr "初始化SD卡：`M21`"
@@ -131,7 +131,7 @@ msgid "Pause SD print: `M25`"
 msgstr "暫停 SD 卡列印： `M25`"
 
 msgid "Set SD position: `M26 S<offset>`"
-msgstr "設定 SD 塊位置：`M26 S<偏移>`。"
+msgstr "設定 SD 塊位置：`M26 S<偏移>`"
 
 msgid "Report SD print status: `M27`"
 msgstr "報告SD卡列印狀態：`M27`"
@@ -146,7 +146,7 @@ msgid ""
 "[F<speed>] I<value> J<value>`"
 msgstr ""
 "受控弧線移動（G2或G3）。`G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> "
-"J<value>` 。"
+"J<value>`"
 
 msgid ""
 "The following standard G-Code commands are available if a "
@@ -202,7 +202,7 @@ msgstr ""
 
 msgid ""
 "`GET_POSITION`: Return information on the current location of the toolhead."
-msgstr "`GET_POSITION`：返回工具目前位置資訊"
+msgstr "`GET_POSITION`：返回工具目前位置資訊."
 
 msgid ""
 "`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] "
@@ -242,7 +242,7 @@ msgstr ""
 "`SAVE_GCODE_STATE [NAME=<state_name>]`：儲存目前的g-code座標解析狀態。儲存和恢復g-"
 "code狀態在指令碼和宏中很有用。該命令儲存目前g-code絕對座標模式（G90/G91）絕對擠出模式（M82/"
 "M83）原點（G92）偏移量（SET_GCODE_OFFSET）速度覆蓋（M220）擠出機覆蓋（M221）移動速度。目前XYZ位置和相對擠出機 \"E "
-"\"位置。如果提供NAME，它允許人們將儲存的狀態命名為給定的字串。如果沒有提供NAME，則預設為 \"default\""
+"\"位置。如果提供NAME，它允許人們將儲存的狀態命名為給定的字串。如果沒有提供NAME，則預設為 \"default\"."
 
 msgid ""
 "`RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`: "
@@ -325,7 +325,7 @@ msgid ""
 "`STEPPER_BUZZ STEPPER=<config_name>`: Move the given stepper forward one mm "
 "and then backward one mm, repeated 10 times. This is a diagnostic tool to "
 "help verify stepper connectivity."
-msgstr "`STEPPER_BUZZ STEPPER=<配置名>`：移動指定的步進電機前後運動一毫米，重複的10次。這是一個用於驗證步進電機接線的工具"
+msgstr "`STEPPER_BUZZ STEPPER=<配置名>`：移動指定的步進電機前後運動一毫米，重複的10次。這是一個用於驗證步進電機接線的工具."
 
 msgid ""
 "`MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the"
@@ -913,7 +913,7 @@ msgstr ""
 msgid ""
 "Palette prints work by embedding special OCodes (Omega Codes) in the GCode "
 "file:"
-msgstr "Palette列印通過在GCode檔案中嵌入特殊的OCodes（Omega Codes）來工作。"
+msgstr "Palette列印通過在GCode檔案中嵌入特殊的OCodes（Omega Codes）來工作:"
 
 msgid ""
 "`O1`...`O32`: These codes are read from the GCode stream and processed by "
@@ -1222,7 +1222,7 @@ msgstr "[configfile]"
 
 #: docs/G-Codes.md:block 51 (paragraph)
 msgid "The configfile module is automatically loaded."
-msgstr "configfile模組被自動載入。"
+msgstr "configfile模組被自動載入."
 
 #: docs/G-Codes.md:block 52 (header)
 msgid "SAVE_CONFIG"
@@ -1417,7 +1417,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 100 (paragraph)
 msgid "The following additional commands are also available."
-msgstr "還可以使用以下額外命令："
+msgstr "還可以使用以下額外命令."
 
 #: docs/G-Codes.md:block 101 (header)
 msgid "SET_RETRACTION"
@@ -2198,7 +2198,7 @@ msgstr "SDCARD_PRINT_FILE"
 #: docs/G-Codes.md:block 328 (paragraph)
 msgid ""
 "`SDCARD_PRINT_FILE FILENAME=<filename>`: Load a file and start SD print."
-msgstr "`SDCARD_PRINT_FILE FILENAME=<檔名>`：載入一個檔案並開始 SD 列印"
+msgstr "`SDCARD_PRINT_FILE FILENAME=<檔名>`：載入一個檔案並開始 SD 列印."
 
 #: docs/G-Codes.md:block 329 (header)
 msgid "SDCARD_RESET_FILE"
@@ -2210,7 +2210,7 @@ msgstr "`SDCARD_RESET_FILE`：解除安裝檔案並清除SD狀態。"
 
 #: docs/G-Codes.md:block 331 (header)
 msgid "[z_tilt]"
-msgstr ""
+msgstr "[z_tilt]"
 
 #: docs/G-Codes.md:block 332 (paragraph)
 msgid ""

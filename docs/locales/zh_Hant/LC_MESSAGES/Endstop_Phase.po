@@ -1,9 +1,16 @@
-#
+# Fred Chan <fred2088@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-02-23 12:56+0000\n"
+"Last-Translator: Fred Chan <fred2088@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"klipper/endstop_phase/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "This document describes Klipper's stepper phase adjusted endstop system. "
@@ -152,4 +159,4 @@ msgstr ""
 
 #: docs/Endstop_Phase.md:block 1 (header)
 msgid "Endstop phase"
-msgstr ""
+msgstr "限位相位"

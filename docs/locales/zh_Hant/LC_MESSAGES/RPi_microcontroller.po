@@ -1,9 +1,16 @@
-#
+# Fred Chan <fred2088@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-02-23 13:00+0000\n"
+"Last-Translator: Fred Chan <fred2088@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"klipper/rpi_microcontroller/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "This document describes the process of running Klipper on a RPi and use the "
@@ -113,6 +120,8 @@ msgid ""
 "cd ~/klipper/\n"
 "make menuconfig\n"
 msgstr ""
+"cd ~/klipper/\n"
+"make menuconfig\n"
 
 msgid ""
 "sudo service klipper stop\n"
@@ -300,7 +309,7 @@ msgstr ""
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "18"
@@ -308,11 +317,11 @@ msgstr ""
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "13"

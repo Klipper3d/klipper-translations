@@ -1,9 +1,16 @@
-#
+# Fred Chan <fred2088@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-02-23 12:56+0000\n"
+"Last-Translator: Fred Chan <fred2088@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"klipper/installation/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "These instructions assume the software will run on a Raspberry Pi computer "
@@ -119,7 +126,7 @@ msgid ""
 msgstr ""
 
 msgid "Configuring Klipper"
-msgstr ""
+msgstr "配置 Klipper"
 
 msgid ""
 "Arguably the easiest way to update the Klipper configuration file is to use "
@@ -196,13 +203,16 @@ msgid "ls /dev/serial/by-id/*\n"
 msgstr ""
 
 msgid "/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
-msgstr ""
+msgstr "/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 
 msgid ""
 "sudo service klipper stop\n"
 "make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 "sudo service klipper start\n"
 msgstr ""
+"sudo service klipper stop\n"
+"make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
+"sudo service klipper start\n"
 
 msgid ""
 "cp ~/klipper/config/example-cartesian.cfg ~/printer.cfg\n"
@@ -213,10 +223,12 @@ msgid ""
 "[mcu]\n"
 "serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 msgstr ""
+"[mcu]\n"
+"serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 
 #: docs/Installation.md:block 1 (header)
 msgid "Installation"
-msgstr ""
+msgstr "安裝"
 
 #: docs/Installation.md:block 7 (code)
 msgid ""
