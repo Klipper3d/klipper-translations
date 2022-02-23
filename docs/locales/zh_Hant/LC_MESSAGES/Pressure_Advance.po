@@ -1,9 +1,16 @@
-#
+# Fred Chan <fred2088@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-02-23 12:56+0000\n"
+"Last-Translator: Fred Chan <fred2088@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"klipper/pressure_advance/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "This document provides information on tuning the \"pressure advance\" "
@@ -198,4 +205,4 @@ msgstr ""
 
 #: docs/Pressure_Advance.md:block 1 (header)
 msgid "Pressure advance"
-msgstr ""
+msgstr "壓力提前"
