@@ -1,0 +1,18 @@
+# Fred Chan <fred2088@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-02-23 05:12+0000\n"
+"Last-Translator: Fred Chan <fred2088@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"klipper/readme/zh_Hant/>\n"
+"Language: zh_Hant\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.11-dev\n"
+
+msgid ""
+"Welcome to the Klipper documentation. The [overview document](Overview.md) "
+"is a good starting point."
+msgstr "歡迎使用 Klipper 文件檔。 [概述文件](Overview.md) 是一個很好的起點。"
