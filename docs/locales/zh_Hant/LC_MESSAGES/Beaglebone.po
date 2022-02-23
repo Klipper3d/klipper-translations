@@ -1,15 +1,16 @@
-# Fred Chan <fred2088@gmail.com>, 2022.
+# Fred Chan <fred2088@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-24 08:58+0000\n"
+"PO-Revision-Date: 2025-05-03 07:32+0000\n"
 "Last-Translator: Fred Chan <fred2088@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/klipper/beaglebone/zh_Hant/>\n"
+"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
+"projects/klipper/beaglebone/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/Beaglebone.md:block 1 (header)
 msgid "Beaglebone"
@@ -35,9 +36,10 @@ msgid ""
 "`NICELEVEL` to `0`, uncomment the `BASEDIR`, `CONFIGFILE`, and `DAEMON` "
 "settings and change the references from `/home/pi/` to `/home/debian/`:"
 msgstr ""
-"在配置 Klipper 之前，需要先修改OctoPrint的 **/etc/default/octoprint** 配置檔案。把 "
-"`OCTOPRINT_USER` 使用者改為 `debian`，把 `NICELEVEL` 改為 `0` ，取消註釋 "
-"`BASEDIR`、`CONFIGFILE` 和 `DAEMON` 的設定，並把引用從`/home/pi/`改為`/home/debian/`："
+"在配置 Klipper 之前，需要先修改OctoPrint的 **/etc/default/octoprint** "
+"配置檔案。把 `OCTOPRINT_USER` 使用者改為 `debian`，把 `NICELEVEL` 改為 `0` ，"
+"取消註釋 `BASEDIR`、`CONFIGFILE` 和 `DAEMON` 的設定，並把引用從`/home/pi/"
+"`改為`/home/debian/`："
 
 #: docs/Beaglebone.md:block 14 (paragraph)
 msgid "Then start the Octoprint service:"
@@ -47,7 +49,8 @@ msgstr "然後啟動 Octoprint 服務："
 msgid ""
 "It is also necessary to compile and install the micro-controller code for a "
 "Linux host process. Configure it a second time for a \"Linux process\":"
-msgstr "還需要編譯和安裝用於 Linux 主機程序的微控制器程式碼。再次修改編譯配置為\"Linux process\"："
+msgstr "還需要編譯和安裝用於 Linux 主機程序的微控制器程式碼。"
+"再次修改編譯配置為\"Linux process\"："
 
 #: docs/Beaglebone.md:block 24 (paragraph)
 msgid "Then install this micro-controller code as well:"
