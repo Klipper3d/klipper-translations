@@ -1,4 +1,4 @@
-# Releases
+# 發行版
 
 History of Klipper releases. Please see [installation](Installation.md) for information on installing Klipper.
 

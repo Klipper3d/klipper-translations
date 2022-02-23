@@ -1,4 +1,4 @@
-# Contact
+# 聯繫
 
 This document provides contact information for Klipper.
 

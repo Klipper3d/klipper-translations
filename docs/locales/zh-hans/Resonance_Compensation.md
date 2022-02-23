@@ -12,14 +12,14 @@ Klipper支持Input Shaping -一种可以用来减少打印件上振纹（也被�
 
 Basic tuning requires measuring the ringing frequencies of the printer by printing a test model.
 
-Slice the ringing test model, which can be found in [docs/prints/ringing_tower.stl](prints/ringing_tower.stl), in the slicer:
+将振纹测试模型切片，该模型可以在[docs/prints/ringing_tower.stl](prints/ringing_tower.stl)中找到，在切片软件中：
 
-* Suggested layer height is 0.2 or 0.25 mm.
-* Infill and top layers can be set to 0.
+* 建议的层高为 0.2 或 0.25 毫米。
+* 填充和顶层层数可以被设置为0。
 * Use 1-2 perimeters, or even better the smooth vase mode with 1-2 mm base.
 * Use sufficiently high speed, around 80-100 mm/sec, for **external** perimeters.
-* Make sure that the minimum layer time is **at most** 3 seconds.
-* Make sure any "dynamic acceleration control" is disabled in the slicer.
+* 确保最短的层耗时**最多是**3秒。
+* 确保切片软件中禁用任何"动态加速度控制"功能。
 * Do not turn the model. The model has X and Y marks at the back of the model. Note the unusual location of the marks vs. the axes of the printer - it is not a mistake. The marks can be used later in the tuning process as a reference, because they show which axis the measurements correspond to.
 
 ### Ringing frequency

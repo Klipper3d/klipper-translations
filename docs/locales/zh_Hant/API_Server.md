@@ -1,70 +1,70 @@
-# API server
+# API 伺服器
 
-This document describes Klipper's Application Programmer Interface (API). This interface enables external applications to query and control the Klipper host software.
+該文件介紹Klipper的應用開發者介面（API）功能。該介面允許外部應用程式訪問和控制Klipper主機。
 
-## Enabling the API socket
+## 啟用API套接字
 
-In order to use the API server, the klippy.py host software must be started with the `-a` parameter. For example:
+要啟用API伺服器，klipper.py執行時應加上 `-a` 參數。例如：
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 ```
 
-This causes the host software to create a Unix Domain Socket. A client can then open a connection on that socket and send commands to Klipper.
+上述操作會使主機建立一個Unix本地套接字。之後，客戶應用程式可以建立一個套接字鏈接，從而給Klipper發送命令。
 
-## Request format
+## 請求格式
 
-Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:
+套接字進出的數據包應使用JSON編碼的字串，並以ASCII字元0x03作為結尾：
 
 ```
 <json_object_1><0x03><json_object_2><0x03>...
 ```
 
-Klipper contains a `scripts/whconsole.py` tool that can perform the above message framing. For example:
+Klipper使用`scripts/whconsole.py`的程式碼進行上述的數據幀打包。例如：
 
 ```
 ~/klipper/scripts/whconsole.py /tmp/klippy_uds
 ```
 
-This tool can read a series of JSON commands from stdin, send them to Klipper, and report the results. The tool expects each JSON command to be on a single line, and it will automatically append the 0x03 terminator when transmitting a request. (The Klipper API server does not have a newline requirement.)
+該工具會從stdin中讀取一系列的JSON命令，發送到Klipper執行，並將結果送出。該工具預設輸入的每條Json命令中不存在換行，並自動地在發送命令時在結尾附上0x03。（Klipper API伺服器沒有換行符要求。）
 
-## API Protocol
+## API協議
 
-The command protocol used on the communication socket is inspired by [json-rpc](https://www.jsonrpc.org/).
+套接字的命令協議受 [json-rpc](https://www.jsonrpc.org/) 啓發。
 
-A request might look like:
+一個請求命令類似：
 
 `{"id": 123, "method": "info", "params": {}}`
 
-and a response might look like:
+一個迴應幀類似：
 
 `{"id": 123, "result": {"state_message": "Printer is ready", "klipper_path": "/home/pi/klipper", "config_file": "/home/pi/printer.cfg", "software_version": "v0.8.0-823-g883b1cb6", "hostname": "octopi", "cpu_info": "4 core ARMv7 Processor rev 4 (v7l)", "state": "ready", "python_path": "/home/pi/klippy-env/bin/python", "log_file": "/tmp/klippy.log"}}`
 
-Each request must be a JSON dictionary. (This document uses the Python term "dictionary" to describe a "JSON object" - a mapping of key/value pairs contained within `{}`.)
+每個請求應為一個JSON字典。（本文件使用Python中的術語「字典」描述以`{}`為邊界的「鍵-值」JSON對象。）
 
-The request dictionary must contain a "method" parameter that is the string name of an available Klipper "endpoint".
+請求字典中必須包含一個」method」欄位，其值應包含一個可用的Klipper端點」endpoint」名稱字串。
 
-The request dictionary may contain a "params" parameter which must be of a dictionary type. The "params" provide additional parameter information to the Klipper "endpoint" handling the request. Its content is specific to the "endpoint".
+請求字典可能包含」params」參數，並其值應為一個字典型別。」params」提供Klipper」endpoint」處理請求所需的額外數據，其內容依」endpoint」而定。
 
 The request dictionary may contain an "id" parameter which may be of any JSON type. If "id" is present then Klipper will respond to the request with a response message containing that "id". If "id" is omitted (or set to a JSON "null" value) then Klipper will not provide any response to the request. A response message is a JSON dictionary containing "id" and "result". The "result" is always a dictionary - its contents are specific to the "endpoint" handling the request.
 
-If the processing of a request results in an error, then the response message will contain an "error" field instead of a "result" field. For example, the request: `{"id": 123, "method": "gcode/script", "params": {"script": "G1 X200"}}` might result in an error response such as: `{"id": 123, "error": {"message": "Must home axis first: 200.000 0.000 0.000 [0.000]", "error": "WebRequestError"}}`
+如果處理的請求造成了錯誤，則響應訊息將包含"error"欄位，而不是"result"欄位。例如，請求： `{"id"： 123， "method"： "gcode/script"， "params"： {"script"： "G1 X200"}}` 可能會返回錯誤響應，例如： `{"id"： 123， "error"： {"message"： "Must home axis first： 200.000 0.000 0.000 [0.000]"， "error"： "WebRequestError"}}`
 
-Klipper will always start processing requests in the order that they are received. However, some request may not complete immediately, which could cause the associated response to be sent out of order with respect to responses from other requests. A JSON request will never pause the processing of future JSON requests.
+Klipper 會按照收到請求的順序依次處理請求。然而，一些請求可能不會立即完成，這可能會導致相關的響應與其他請求的響應不按順序發送。一個 JSON 請求永遠不會暫停對未來JSON 請求的處理。
 
-## Subscriptions
+## 訂閱
 
-Some Klipper "endpoint" requests allow one to "subscribe" to future asynchronous update messages.
+一些 Klipper 的"endpoint"可以以 "訂閱" 的形式接收未來的非同步更新訊息。
 
-For example:
+例如：
 
 `{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{"key": 345}}}`
 
-may initially respond with:
+可能會返回一個初始迴應：
 
 `{"id": 123, "result": {}}`
 
-and cause Klipper to send future messages similar to:
+並導致 Klipper 在未來發送類似於以下內容的訊息：
 
 `{"params": {"response": "ok B:22.8 /0.0 T0:22.4 /0.0"}, "key": 345}`
 
