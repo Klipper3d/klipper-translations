@@ -1,24 +1,24 @@
-# Configuration reference
+# 配置參考
 
-This document is a reference for options available in the Klipper config file.
+本文件是 Klipper 配置檔案中可用配置分段的參考。
 
-The descriptions in this document are formatted so that it is possible to cut-and-paste them into a printer config file. See the [installation document](Installation.md) for information on setting up Klipper and choosing an initial config file.
+本文件中的描述已經格式化，以便可以將它們剪下並貼上到印表機配置檔案中。 見 [installation document](Installation.md) 有關設定 Klipper 和選擇初始配置檔案的資訊。
 
-## Micro-controller configuration
+## 微控制器配置
 
-### Format of micro-controller pin names
+### 微控制器引腳名字的格式
 
-Many config options require the name of a micro-controller pin. Klipper uses the hardware names for these pins - for example `PA4`.
+許多配置選項需要微控制器引腳的名稱。Klipper 使用了這些引腳的硬體名稱 - 例如`PA4`。
 
-Pin names may be preceded by `!` to indicate that a reverse polarity should be used (eg, trigger on low instead of high).
+在 引腳名稱前加 `!`來表示相反的電極極性（ 例如觸發條件時低電平而不是高電平）。
 
-Input pins may be preceded by `^` to indicate that a hardware pull-up resistor should be enabled for the pin. If the micro-controller supports pull-down resistors then an input pin may alternatively be preceded by `~`.
+在引腳名稱前面加 `^` ，以指示該引腳啟用硬體上拉電阻。如果微控制器支援下拉電阻器，那麼輸入引腳也可以在前面加上`~`。
 
-Note, some config sections may "create" additional pins. Where this occurs, the config section defining the pins must be listed in the config file before any sections using those pins.
+注意，某些配置部分可能會「建立」額外的引腳。 如果發生這種情況，定義引腳的配置部分必須在使用這些引腳的任何部分之前列在配置檔案中。
 
-### [mcu]
+### [MCU]
 
-Configuration of the primary micro-controller.
+主微控制器的配置。
 
 ```
 [mcu]
@@ -49,20 +49,20 @@ serial:
 #   communicates over a serial port, 'command' otherwise.
 ```
 
-### [mcu my_extra_mcu]
+### 額外的mcu [mcu my_extra_mcu]
 
-Additional micro-controllers (one may define any number of sections with an "mcu" prefix). Additional micro-controllers introduce additional pins that may be configured as heaters, steppers, fans, etc.. For example, if an "[mcu extra_mcu]" section is introduced, then pins such as "extra_mcu:ar9" may then be used elsewhere in the config (where "ar9" is a hardware pin name or alias name on the given mcu).
+額外的微控制器（可以定義任意數量的帶有「mcu」字首的部分）。 額外的微控制器引入了額外的引腳，這些引腳可以配置為加熱器、步進器、風扇等。例如，如果引入了「[mcu extra_mcu]」部分，那麼諸如「extra_mcu:ar9」之類的引腳就可以在其他地方使用 ，在配置中（其中「ar9」是給定 mcu 上的硬體引腳名稱或別名）。
 
 ```
 [mcu my_extra_mcu]
-# See the "mcu" section for configuration parameters.
+#   請參閱"mcu"分段的配置參數。
 ```
 
-## Common kinematic settings
+## 常用的運動學設定
 
 ### [printer]
 
-The printer section controls high level printer settings.
+印表機控制的高級設定部分。
 
 ```
 [printer]
@@ -97,7 +97,7 @@ max_accel:
 
 ### [stepper]
 
-Stepper motor definitions. Different printer types (as specified by the "kinematics" option in the [printer] config section) require different names for the stepper (eg, `stepper_x` vs `stepper_a`). Below are common stepper definitions.
+步進電機定義。 不同的印表機型別（由 [列印] 配置部分中的「運動學」選項指定）步進器需要定義不同的名稱（例如，`stepper_x` 與 `stepper_a`）。 以下是常見的步進器定義。
 
 See the [rotation distance document](Rotation_Distance.md) for information on calculating the `rotation_distance` parameter. See the [Multi-MCU homing](Multi_MCU_Homing.md) document for information on homing using multiple micro-controllers.
 
@@ -175,11 +175,11 @@ position_max:
 #   if near position_min.
 ```
 
-### Cartesian Kinematics
+### 笛卡爾運動學
 
-See [example-cartesian.cfg](../config/example-cartesian.cfg) for an example cartesian kinematics config file.
+有關示例笛卡爾運動學配置檔案，請參閱 [example-cartesian.cfg](../config/example-cartesian.cfg)。
 
-Only parameters specific to cartesian printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+此處描述的參數只適用於笛卡爾印表機，有關可用參數，請參閱 [常用運動設定](#common-kinematic-settings)。
 
 ```
 [printer]
@@ -207,11 +207,11 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Linear Delta Kinematics
+### 線性三角洲運動學
 
-See [example-delta.cfg](../config/example-delta.cfg) for an example linear delta kinematics config file. See the [delta calibrate guide](Delta_Calibrate.md) for information on calibration.
+有關示例線性三角洲運動學配置檔案，請參閱 [example-delta.cfg](../config/example-delta.cfg)。 有關校準的資訊，請參閱 [三角洲校準指南](Delta_Calibrate.md)。
 
-Only parameters specific to linear delta printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+此處僅描述了線性三角洲印表機的特定參數 - 有關可用參數，請參閱 [常用運動設定](#common-kinematic-settings)。
 
 ```
 [printer]
@@ -288,11 +288,11 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-### CoreXY Kinematics
+### CoreXY 運動學
 
 See [example-corexy.cfg](../config/example-corexy.cfg) for an example corexy (and h-bot) kinematics file.
 
-Only parameters specific to corexy printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+這裡只描述了 CoreXY 印表機特有的參數 -- 有關可用參數，請參閱 [常見運動學設定](#common-kinematic-settings)。
 
 ```
 [printer]
@@ -320,11 +320,11 @@ max_z_accel:
 [stepper_z]
 ```
 
-### CoreXZ Kinematics
+### CoreXY 運動學
 
 See [example-corexz.cfg](../config/example-corexz.cfg) for an example corexz kinematics config file.
 
-Only parameters specific to corexz printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+此處描述的參數只適用於笛卡爾印表機—有關全部可用參數，請參閱 [常用的運動學設定](#common-kinematic-settings)。
 
 ```
 [printer]
@@ -349,13 +349,13 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Hybrid-CoreXY Kinematics
+### 混合型 CoreXY 運動學
 
 See [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) for an example hybrid corexy kinematics config file.
 
 This kinematic is also known as Markforged kinematic.
 
-Only parameters specific to hybrid corexy printers are described here see [common kinematic settings](#common-kinematic-settings) for available parameters.
+此處僅描述了線性三角洲印表機的特定參數—有關全部可用參數，請參閱 [常用的運動學設定](#common-kinematic-settings)。
 
 ```
 [printer]
@@ -380,13 +380,13 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Hybrid-CoreXZ Kinematics
+### 混合型 CoreXZ 運動學
 
 See [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) for an example hybrid corexz kinematics config file.
 
 This kinematic is also known as Markforged kinematic.
 
-Only parameters specific to hybrid corexy printers are described here see [common kinematic settings](#common-kinematic-settings) for available parameters.
+此處僅描述了線性三角洲印表機的特定參數—有關全部可用參數，請參閱 [常用的運動學設定](#common-kinematic-settings)。
 
 ```
 [printer]
@@ -411,11 +411,11 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Polar Kinematics
+### 極座標運動學
 
 See [example-polar.cfg](../config/example-polar.cfg) for an example polar kinematics config file.
 
-Only parameters specific to polar printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+這裡只描述了極地印表機特有的參數—全部可用的參數請見[常用的運動學設定](#common-kinematic-settings)。
 
 POLAR KINEMATICS ARE A WORK IN PROGRESS. Moves around the 0, 0 position are known to not work properly.
 
@@ -454,7 +454,7 @@ max_z_accel:
 
 See [example-rotary-delta.cfg](../config/example-rotary-delta.cfg) for an example rotary delta kinematics config file.
 
-Only parameters specific to rotary delta printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+此處僅介紹特定於旋轉三角洲印表機的參數—有關可用參數，請參閱[常用的運動學設定](#common-kinematic-settings)。
 
 ROTARY DELTA KINEMATICS ARE A WORK IN PROGRESS. Homing moves may timeout and some boundary checks are not implemented.
 
@@ -536,11 +536,11 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-### Cable winch Kinematics
+### 纜繩絞盤運動學
 
 See the [example-winch.cfg](../config/example-winch.cfg) for an example cable winch kinematics config file.
 
-Only parameters specific to cable winch printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+這裡只描述了纜繩鉸盤式印表機特有的參數 — 全部可用的參數見[常用的運動學設定](#common-kinematic-settings)。
 
 CABLE WINCH SUPPORT IS EXPERIMENTAL. Homing is not implemented on cable winch kinematics. In order to home the printer, manually send movement commands until the toolhead is at 0, 0, 0 and then issue a `G28` command.
 
@@ -563,9 +563,9 @@ anchor_z:
 #   These parameters must be provided.
 ```
 
-### None Kinematics
+### 無運動學
 
-It is possible to define a special "none" kinematics to disable kinematic support in Klipper. This may be useful for controlling devices that are not typical 3d-printers or for debugging purposes.
+可以定義特殊的 "none" 運動學來禁用 Klipper 中的運動學支援。可以用於控制不是 3D 印表機的裝置或除錯。
 
 ```
 [printer]
@@ -576,7 +576,7 @@ max_accel: 1
 #   values are not used for "none" kinematics.
 ```
 
-## Common extruder and heated bed support
+## 通用擠出機和熱床支援
 
 ### [extruder]
 
@@ -591,113 +591,100 @@ microsteps:
 rotation_distance:
 #full_steps_per_rotation:
 #gear_ratio:
-#   See the "stepper" section for a description of the above parameters.
+#   以上參數詳見「stepper」章節。
 nozzle_diameter:
-#   Diameter of the nozzle orifice (in mm). This parameter must be
-#   provided.
+#   噴嘴的孔徑（mm）。
+#   必須提供此參數。
 filament_diameter:
-#   The nominal diameter of the raw filament (in mm) as it enters the
-#   extruder. This parameter must be provided.
+#   進入擠出機前耗材的常規直徑（mm）。
+#   必須提供此參數。
 #max_extrude_cross_section:
-#   Maximum area (in mm^2) of an extrusion cross section (eg,
-#   extrusion width multiplied by layer height). This setting prevents
-#   excessive amounts of extrusion during relatively small XY moves.
-#   If a move requests an extrusion rate that would exceed this value
-#   it will cause an error to be returned. The default is: 4.0 *
-#   nozzle_diameter^2
+#   擠出的最大截面積（mm^2）。
+#   例如，擠出寬度乘以層高。
+#   這個參數避免了在微小的 XY 移動中擠出了過多的耗材。如果
+#   一個移動請求了超過該參數限制的擠出速率，印表機會報告錯誤。
+#   預設為：4.0 * nozzle_diameter^2
 #instantaneous_corner_velocity: 1.000
-#   The maximum instantaneous velocity change (in mm/s) of the
-#   extruder during the junction of two moves. The default is 1mm/s.
+#   在兩個移動之間擠出頭最大的瞬時速度變化（mm/s)。
+#   預設為 1mm/s。
 #max_extrude_only_distance: 50.0
-#   Maximum length (in mm of raw filament) that a retraction or
-#   extrude-only move may have. If a retraction or extrude-only move
-#   requests a distance greater than this value it will cause an error
-#   to be returned. The default is 50mm.
+#   僅回抽或僅擠出時擠出機允許的最長移動（mm 耗材長度）。
+#   如果一個僅回抽或僅擠出動作請求了超過該參數限制的擠出速率，
+#   印表機會報告錯誤。
+#   預設為 50mm。
 #max_extrude_only_velocity:
 #max_extrude_only_accel:
-#   Maximum velocity (in mm/s) and acceleration (in mm/s^2) of the
-#   extruder motor for retractions and extrude-only moves. These
-#   settings do not have any impact on normal printing moves. If not
-#   specified then they are calculated to match the limit an XY
-#   printing move with a cross section of 4.0*nozzle_diameter^2 would
-#   have.
+#   擠出機電機回抽和僅擠出移動時的最大速度（mm/s）和加速度
+#   （mm/s^2）。這些設定不影響常規列印移動。如果沒有被定義，
+#   會根據一個 XY 截面是 4.0*nozzle_diameter^2 的列印移動計算一個
+#   相應的限制。
 #pressure_advance: 0.0
-#   The amount of raw filament to push into the extruder during
-#   extruder acceleration. An equal amount of filament is retracted
-#   during deceleration. It is measured in millimeters per
-#   millimeter/second. The default is 0, which disables pressure
-#   advance.
+#   加速時擠出機的原始耗材長度。等於減速時擠出機回抽的耗材長度。
+#   以mm/(mm/s)為單位。
+#   預設為 0，禁用壓力提前。
 #pressure_advance_smooth_time: 0.040
-#   A time range (in seconds) to use when calculating the average
-#   extruder velocity for pressure advance. A larger value results in
-#   smoother extruder movements. This parameter may not exceed 200ms.
-#   This setting only applies if pressure_advance is non-zero. The
-#   default is 0.040 (40 milliseconds).
+#   一個用來計算壓力提前平均擠出機速度的時間範圍（以秒為單位）。
+#   更大的值可以產生更流暢的擠出機運動。
+#   這個參數不能超過 200ms。
+#   僅在壓力提前不為 0 時起效。
+#   預設為 0.040 (40 毫秒)。
 #
-# The remaining variables describe the extruder heater.
+#   以下參數描述了擠出頭加熱器。
 heater_pin:
-#   PWM output pin controlling the heater. This parameter must be
-#   provided.
+#   控制加熱器的 PWM 輸出引腳。
+#   必須提供此參數。
 #max_power: 1.0
-#   The maximum power (expressed as a value from 0.0 to 1.0) that the
-#   heater_pin may be set to. The value 1.0 allows the pin to be set
-#   fully enabled for extended periods, while a value of 0.5 would
-#   allow the pin to be enabled for no more than half the time. This
-#   setting may be used to limit the total power output (over extended
-#   periods) to the heater. The default is 1.0.
+#   heater_pin 允許的最大功率（一個0.0和1.0之間的值）。1.0允許加熱器
+#   引腳一直被拉高，而0.5會只允許加熱器引腳在一半的時間裡被拉高。
+#   這個參數可以限制加熱器的功率（平均功率）。
+#   預設為1.0。
 sensor_type:
-#   Type of sensor - common thermistors are "EPCOS 100K B57560G104F",
-#   "ATC Semitec 104GT-2", "ATC Semitec 104NT-4-R025H42G", "Generic
-#   3950","Honeywell 100K 135-104LAG-J01", "NTC 100K MGB18-104F39050L32",
-#   "SliceEngineering 450", and "TDK NTCG104LH104JT1". See the
-#   "Temperature sensors" section for other sensors. This parameter
-#   must be provided.
+#   溫度感測器型別，可以是 "EPCOS 100K B57560G104F"、
+#   "ATC Semitec 104GT-2"、"ATC Semitec 104NT-4-R025H42G"、"Generic
+#   3950"、"Honeywell 100K 135-104LAG-J01"、"NTC 100K MGB18-104F39050L32"、
+#   "SliceEngineering 450"或"TDK NTCG104LH104JT1"。
+#   有關其他溫度感測器，請見「溫度感測器」章節。
+#   必須提供此參數。
 sensor_pin:
-#   Analog input pin connected to the sensor. This parameter must be
-#   provided.
+#   連線到感測器的模擬引腳。
+#   必須提供此參數。
 #pullup_resistor: 4700
-#   The resistance (in ohms) of the pullup attached to the thermistor.
-#   This parameter is only valid when the sensor is a thermistor. The
-#   default is 4700 ohms.
+#   連線到熱敏電阻的拉高電阻阻值（ohms）。
+#   僅在使用熱敏電阻時有效。
+#   預設為 4700 ohms。
 #smooth_time: 1.0
-#   A time value (in seconds) over which temperature measurements will
-#   be smoothed to reduce the impact of measurement noise. The default
-#   is 1 seconds.
+#   減少噪音造成溫度測量影響的平滑時間（秒）
+#   預設為1秒
 control:
-#   Control algorithm (either pid or watermark). This parameter must
-#   be provided.
+#   控制演算法（可以是 pid 或 watermark）。
+#   必須提供此參數。
 pid_Kp:
-#   Kp is the "proportional" constant for the pid. This parameter must
-#   be provided for PID heaters.
+#   Kp 是 PID 演算法的"比例"常數。
+#   PID 加熱器必須提供此參數
 pid_Ki:
-#   Ki is the "integral" constant for the pid. This parameter must be
-#   provided for PID heaters.
+#   Ki 是 PID 演算法的"積分"常數。
+#   PID 加熱器必須提供此參數
 pid_Kd:
-#   Kd is the "derivative" constant for the pid. This parameter must
-#   be provided for PID heaters.
+#   Kd 是 PID 演算法的"微分"常數。
+#   PID 加熱器必須提供此參數
 #max_delta: 2.0
-#   On 'watermark' controlled heaters this is the number of degrees in
-#   Celsius above the target temperature before disabling the heater
-#   as well as the number of degrees below the target before
-#   re-enabling the heater. The default is 2 degrees Celsius.
+#   在 「watermark」 控制的加熱器上高於設定溫度時關閉加熱器或
+#   低於設定溫度時打開加熱器的溫差。
+#   預設為 2 攝氏度
 #pwm_cycle_time: 0.100
-#   Time in seconds for each software PWM cycle of the heater. It is
-#   not recommended to set this unless there is an electrical
-#   requirement to switch the heater faster than 10 times a second.
-#   The default is 0.100 seconds.
+#   加熱器每個軟體PWM週期的時間，單位為秒。不推薦修改這個值，
+#   除非有電氣上的需求，必須以超過 10 次每秒的頻率開關加熱器。
+#   預設是 0.100 秒。
 #min_extrude_temp: 170
-#   The minimum temperature (in Celsius) at which extruder move
-#   commands may be issued. The default is 170 Celsius.
+#   允許擠出機移動的最低溫度（攝氏度）。
+#   預設為 170 攝氏度。
 min_temp:
 max_temp:
-#   The maximum range of valid temperatures (in Celsius) that the
-#   heater must remain within. This controls a safety feature
-#   implemented in the micro-controller code - should the measured
-#   temperature ever fall outside this range then the micro-controller
-#   will go into a shutdown state. This check can help detect some
-#   heater and sensor hardware failures. Set this range just wide
-#   enough so that reasonable temperatures do not result in an error.
-#   These parameters must be provided.
+#   加熱器必須保持的最大有效溫度範圍（攝氏度）。這是一個在微
+#   處理器中的安全功能 - 一旦測量溫度超出這個範圍，微處理器會
+#   進入關閉模式。這項檢查可以檢測到一些加熱器或溫度感測器故障。
+#   將兩個值設定的足夠寬以避免在正常執行時報錯。
+#   必須提供這些參數。
 ```
 
 ### [heater_bed]
@@ -712,18 +699,18 @@ sensor_pin:
 control:
 min_temp:
 max_temp:
-#   See the "extruder" section for a description of the above parameters.
+#   以上參數詳見「extruder」配置分段。
 ```
 
-## Bed level support
+## 列印床調平支援
 
 ### [bed_mesh]
 
-Mesh Bed Leveling. One may define a bed_mesh config section to enable move transformations that offset the z axis based on a mesh generated from probed points. When using a probe to home the z-axis, it is recommended to define a safe_z_home section in printer.cfg to home toward the center of the print area.
+網床調平。定義一個 bed_mesh 配置分段來啟用基於探測點產生網格的 Z 軸偏移移動變換。當使用探針歸位 Z 軸時，建議通過 printer.cfg 中定義一個 safe_z_home 分段使 Z 軸歸位在列印區域的中心執行。
 
 See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#bed_mesh) for additional information.
 
-Visual Examples:
+視覺化示例：
 
 ```
  rectangular bed, probe_count = 3, 3:
@@ -832,7 +819,7 @@ Visual Examples:
 
 ### [bed_tilt]
 
-Bed tilt compensation. One may define a bed_tilt config section to enable move transformations that account for a tilted bed. Note that bed_mesh and bed_tilt are incompatible; both cannot be defined.
+列印床傾斜補償。可以定義一個 bed_tilt 配置分段來啟用移動變換傾斜列印床補償。請注意，bed_mesh 和 bed_tilt 不相容：兩者無法同時被定義。
 
 See the [command reference](G-Codes.md#bed_tilt) for additional information.
 
@@ -1035,7 +1022,7 @@ Printer Skew Correction. It is possible to use software to correct printer skew 
 [skew_correction]
 ```
 
-## Customized homing
+## 自定義歸零
 
 ### [safe_z_home]
 
@@ -1066,31 +1053,29 @@ home_xy_position:
 
 ### [homing_override]
 
-Homing override. One may use this mechanism to run a series of g-code commands in place of a G28 found in the normal g-code input. This may be useful on printers that require a specific procedure to home the machine.
+歸位覆寫。可以使用這種機制來執行一系列 G-Code 命令來替代常規的G28。通常用於需要特定過程才能將機器歸零的印表機。
 
 ```
 [homing_override]
-gcode:
-#   A list of G-Code commands to execute in place of G28 commands
-#   found in the normal g-code input. See docs/Command_Templates.md
-#   for G-Code format. If a G28 is contained in this list of commands
-#   then it will invoke the normal homing procedure for the printer.
-#   The commands listed here must home all axes. This parameter must
-#   be provided.
+gcode：
+#   覆蓋常規 G28 命令的 G 程式碼命令序列。
+#   G 程式碼格式請參閱 docs/Command_Templates.md。如果
+#   G28 包含在此命令列表中，常規版本的G28會被呼叫並進
+#   行印表機的正常歸位過程。此處列出的命令必須歸位所
+#   有軸。
+#   必須提供此參數。
 #axes: xyz
-#   The axes to override. For example, if this is set to "z" then the
-#   override script will only be run when the z axis is homed (eg, via
-#   a "G28" or "G28 Z0" command). Note, the override script should
-#   still home all axes. The default is "xyz" which causes the
-#   override script to be run in place of all G28 commands.
-#set_position_x:
-#set_position_y:
-#set_position_z:
-#   If specified, the printer will assume the axis is at the specified
-#   position prior to running the above g-code commands. Setting this
-#   disables homing checks for that axis. This may be useful if the
-#   head must move prior to invoking the normal G28 mechanism for an
-#   axis. The default is to not force a position for an axis.
+#   要覆蓋的軸。例如，如果將其設定為"z"，則覆蓋指令碼將
+#   僅在 z 軸被歸位時執行（例如，通過"G28" 或 "G28 Z0"
+#   命令）。請注意，覆蓋指令碼仍然需要歸位所有軸。
+#   預設值為"xyz"，覆蓋全部所有 G28 命令。
+#set_position_x：
+#set_position_y：
+#set_position_z：
+#   如果指定，印表機將假定軸在執行上述 G 程式碼命令序列
+#   之前的位置。該設定會禁用相應軸的歸位檢查。在列印
+#   頭必須在執行常規 G28 機制前移動相應的軸時有用。
+#   預設不假定軸的位置。
 ```
 
 ### [endstop_phase]
@@ -1102,58 +1087,51 @@ See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes
 ```
 [endstop_phase stepper_z]
 #endstop_accuracy:
-#   Sets the expected accuracy (in mm) of the endstop. This represents
-#   the maximum error distance the endstop may trigger (eg, if an
-#   endstop may occasionally trigger 100um early or up to 100um late
-#   then set this to 0.200 for 200um). The default is
-#   4*rotation_distance/full_steps_per_rotation.
+#   設定預期的限位精度（以毫米(mm)為單位）。 代表了相位可能
+#   觸發的最大誤差距離（比如，一個可能會提早 100um 觸發或延遲
+#   100um 觸發的限位需要將該值設為 0.200,也就是 200um）。
+#  預設為 4*rotation_distance/full_steps_per_rotation。
 #trigger_phase:
-#   This specifies the phase of the stepper motor driver to expect
-#   when hitting the endstop. It is composed of two numbers separated
-#   by a forward slash character - the phase and the total number of
-#   phases (eg, "7/64"). Only set this value if one is sure the
-#   stepper motor driver is reset every time the mcu is reset. If this
-#   is not set, then the stepper phase will be detected on the first
-#   home and that phase will be used on all subsequent homes.
+#   該參數定義了相位觸發時預期的步進電機驅動相位。這通常是兩
+#   個由正斜槓符號分隔的整數 - 相位和總相位數（例如 "7/64"）。
+#   只有當步進電機驅動在 mcu 重置時也會重置才需要該參數。
+#   如果沒有定義，步進相位會在第一次歸位時檢測並被用於後續歸位。
 #endstop_align_zero: False
-#   If true then the position_endstop of the axis will effectively be
-#   modified so that the zero position for the axis occurs at a full
-#   step on the stepper motor. (If used on the Z axis and the print
-#   layer height is a multiple of a full step distance then every
-#   layer will occur on a full step.) The default is False.
+#   如果是 True 則印表機的 position_endstop 相應軸的零點位置是步進
+#   電機的一個全步位置。(在Z軸上，如果列印層高是全步的倍數，每
+#   層都會在全步上。）
+#   預設為 False。
 ```
 
-## G-Code macros and events
+## G 程式碼宏和事件
 
 ### [gcode_macro]
 
-G-Code macros (one may define any number of sections with a "gcode_macro" prefix). See the [command template guide](Command_Templates.md) for more information.
+G-Code宏（"gcode_macro"字首定義的G-Code 宏分段沒有數量限制）。更多資訊請參見[命令模板指南](Command_Templates.md)。
 
 ```
-[gcode_macro my_cmd]
+[gcode_macro 命令] 。
 #gcode:
-#   A list of G-Code commands to execute in place of "my_cmd". See
-#   docs/Command_Templates.md for G-Code format. This parameter must
-#   be provided.
-#variable_<name>:
-#   One may specify any number of options with a "variable_" prefix.
-#   The given variable name will be assigned the given value (parsed
-#   as a Python literal) and will be available during macro expansion.
-#   For example, a config with "variable_fan_speed = 75" might have
-#   gcode commands containing "M106 S{ fan_speed * 255 }". Variables
-#   can be changed at run-time using the SET_GCODE_VARIABLE command
-#   (see docs/Command_Templates.md for details). Variable names may
-#   not use upper case characters.
+#   一個替代"命令" 執行的 G 程式碼命令的列表。請看
+#   docs/Command_Templates.md 瞭解支援的 G 程式碼格式。
+#   必須提供此參數。
+#variable_<名稱>:
+#   可以指定任意數量的帶有"變數_"字首的設定。
+#   定義的變數名將被賦予給定的值（並被解析為作為一個
+#   Python Literal），並在宏擴充套件時可用。
+#   例如，一個帶有"variable_fan_speed = 75"的 G-Code 命令的
+#   G 程式碼列表中可以包含"M106 S{ fan_speed * 255 }"。變數
+#   可以在執行時使用 SET_GCODE_VARIABLE 命令進行修改
+#   （詳見docs/Command_Templates.md）。變數名稱
+#   不能使用大寫字母。
 #rename_existing:
-#   This option will cause the macro to override an existing G-Code
-#   command and provide the previous definition of the command via the
-#   name provided here. This can be used to override builtin G-Code
-#   commands. Care should be taken when overriding commands as it can
-#   cause complex and unexpected results. The default is to not
-#   override an existing G-Code command.
+#   這個選項將導致宏覆蓋一個現有的 G-Code 命令，並通過
+#   這裡提供的名稱引用該命令的先前定義。覆蓋命令時應注
+#   意，因為它可能會導致複雜和意外的錯誤。
+#   預設不覆蓋現有的 G-Code 命令。
 #description: G-Code macro
-#   This will add a short description used at the HELP command or while
-#   using the auto completion feature. Default "G-Code macro"
+#   在 HELP 命令或自動完成中使用的簡單描述。
+#   預設為"G-Code macro"。
 ```
 
 ### [delayed_gcode]
@@ -1161,18 +1139,16 @@ G-Code macros (one may define any number of sections with a "gcode_macro" prefix
 Execute a gcode on a set delay. See the [command template guide](Command_Templates.md#delayed-gcodes) and [command reference](G-Codes.md#delayed_gcode) for more information.
 
 ```
-[delayed_gcode my_delayed_gcode]
+[delayed_gcode my_delayed_gcode]。
 gcode:
-#   A list of G-Code commands to execute when the delay duration has
-#   elapsed. G-Code templates are supported. This parameter must be
-#   provided.
-#initial_duration: 0.0
-#   The duration of the initial delay (in seconds). If set to a
-#   non-zero value the delayed_gcode will execute the specified number
-#   of seconds after the printer enters the "ready" state. This can be
-#   useful for initialization procedures or a repeating delayed_gcode.
-#   If set to 0 the delayed_gcode will not execute on startup.
-#   Default is 0.
+#   當延遲時間結束后執行的G程式碼命令列表。支援G程式碼模板。
+#   必須提供這個參數。
+#initial_duration:0.0
+#   初始延遲的持續時間(以秒為單位)。如果設定為一個
+#   非零值，delayed_gcode 將在印表機進入 "就緒 "狀態后指定
+#   秒數后執行。可能對初始化程式或重複的 delayed_gcode 有
+#   用。如果設定為 0，delayed_gcode 將在啟動時不執行。
+# 預設為0。
 ```
 
 ### [save_variables]
@@ -1182,30 +1158,30 @@ Support saving variables to disk so that they are retained across restarts. See 
 ```
 [save_variables]
 filename:
-#   Required - provide a filename that would be used to save the
-#   variables to disk e.g. ~/variables.cfg
+#   必須提供一個可以用來儲存參數到磁碟的檔名。
+#   例如 . ~/variables.cfg
 ```
 
 ### [idle_timeout]
 
-Idle timeout. An idle timeout is automatically enabled - add an explicit idle_timeout config section to change the default settings.
+空閑超時。預設啟用空閑超時 - 新增顯式 idle_timeout 配置分段以更改預設設定。
 
 ```
 [idle_timeout]
 #gcode:
-#   A list of G-Code commands to execute on an idle timeout. See
-#   docs/Command_Templates.md for G-Code format. The default is to run
-#   "TURN_OFF_HEATERS" and "M84".
+#   在空閑超時時執行的一系列 G-Code 命令。G-Code 格式請見
+#   docs/Command_Templates.md。
+#   預設執行 "TURN_OFF_HEATERS" 和 "M84"。
 #timeout: 600
-#   Idle time (in seconds) to wait before running the above G-Code
-#   commands. The default is 600 seconds.
+#   在執行以上 G-Code 前等待的空閑時間（以秒為單位）
+#   預設為 600 秒。
 ```
 
-## Optional G-Code features
+## 可選的 G-Code 特性
 
 ### [virtual_sdcard]
 
-A virtual sdcard may be useful if the host machine is not fast enough to run OctoPrint well. It allows the Klipper host software to directly print gcode files stored in a directory on the host using standard sdcard G-Code commands (eg, M24).
+如果主機的速度不足以很好地執行 OctoPrint，虛擬 SD 卡可能有幫助。它允許 Klipper 主機軟體使用標準的 SD 卡G程式碼命令（例如，M24）直接列印儲存在主機目錄中的 gcode 檔案。
 
 ```
 [virtual_sdcard]
@@ -1234,8 +1210,9 @@ Support manually moving stepper motors for diagnostic purposes. Note, using this
 ```
 [force_move]
 #enable_force_move: False
-#   Set to true to enable FORCE_MOVE and SET_KINEMATIC_POSITION
-#   extended G-Code commands. The default is false.
+#   設定為true來啟用 FORCE_MOVE 和 SET_KINEMATIC_POSITION 擴充套件 
+#   G程式碼命令。
+#   預設為false。
 ```
 
 ### [pause_resume]
@@ -1245,8 +1222,8 @@ Pause/Resume functionality with support of position capture and restore. See the
 ```
 [pause_resume]
 #recover_velocity: 50.
-#   When capture/restore is enabled, the speed at which to return to
-#   the captured position (in mm/s). Default is 50.0 mm/s.
+#   當捕捉/恢復功能被啟用時，返回到捕獲的位置的速度(單位：毫米/秒)。
+#   預設為50.0 mm/s。
 ```
 
 ### [firmware_retraction]
@@ -1256,16 +1233,17 @@ Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCO
 ```
 [firmware_retraction]
 #retract_length: 0
-#   The length of filament (in mm) to retract when G10 is activated,
-#   and to unretract when G11 is activated (but see
-#   unretract_extra_length below). The default is 0 mm.
+#   當 G10 被執行時回抽的長度（以毫米(mm)為單位）
+#   和當 G11 被執行時退回的長度（但同時也包括
+#   以下的unretract_extra_length）。
+#   預設為0毫米。
 #retract_speed: 20
-#   The speed of retraction, in mm/s. The default is 20 mm/s.
+#   回抽速度，以毫米每秒(mm/s)為單位。預設為每秒20毫米。
 #unretract_extra_length: 0
-#   The length (in mm) of *additional* filament to add when
-#   unretracting.
+#   退回時增加*額外*長度（以毫米(mm)為單位）的耗材。
 #unretract_speed: 10
-#   The speed of unretraction, in mm/s. The default is 10 mm/s.
+#   退回速度，以毫米(mm)為單位。
+#   預設為每秒10毫米
 ```
 
 ### [gcode_arcs]
@@ -1275,11 +1253,11 @@ Support for gcode arc (G2/G3) commands.
 ```
 [gcode_arcs]
 #resolution: 1.0
-#   An arc will be split into segments. Each segment's length will
-#   equal the resolution in mm set above. Lower values will produce a
-#   finer arc, but also more work for your machine. Arcs smaller than
-#   the configured value will become straight lines. The default is
-#   1mm.
+#   一條弧線將被分割成若干段。每段的長度將
+#   等於上面設定的解析度（mm）。更低的值會產生一個
+#   更細膩的弧線，但也會需要機器進行更多運算。小於
+#   配置值的曲線會被視為直線。
+#   預設為1毫米。
 ```
 
 ### [respond]
@@ -1299,7 +1277,7 @@ Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#respond).
 #   override the "default_type".
 ```
 
-## Rezonanční kompenzace
+## 共振補償
 
 ### [input_shaper]
 
@@ -1308,34 +1286,29 @@ Enables [resonance compensation](Resonance_Compensation.md). Also see the [comma
 ```
 [input_shaper]
 #shaper_freq_x: 0
-#   A frequency (in Hz) of the input shaper for X axis. This is
-#   usually a resonance frequency of X axis that the input shaper
-#   should suppress. For more complex shapers, like 2- and 3-hump EI
-#   input shapers, this parameter can be set from different
-#   considerations. The default value is 0, which disables input
-#   shaping for X axis.
+#   輸入整形器的 X 軸頻率(Hz)。通常這是希望被輸入整形器消除的
+#   X 軸共振頻率。對於更復雜的整形器，例如2- 和 3-hump EI 輸入
+#   整形器，設定這個參數可能需要考慮其他特性。
+#   預設值是0，禁用 X 軸輸入整形。
 #shaper_freq_y: 0
-#   A frequency (in Hz) of the input shaper for Y axis. This is
-#   usually a resonance frequency of Y axis that the input shaper
-#   should suppress. For more complex shapers, like 2- and 3-hump EI
-#   input shapers, this parameter can be set from different
-#   considerations. The default value is 0, which disables input
-#   shaping for Y axis.
+#   輸入整形器的 Y 軸頻率(Hz)。通常這是希望被輸入整形器消除的
+#   Y 軸共振頻率。對於更復雜的整形器，例如2- 和 3-hump EI 輸入
+#   整形器，設定這個參數可能需要考慮其他特性。
+#   預設值是0，禁用 Y 軸輸入整形。
 #shaper_type: mzv
-#   A type of the input shaper to use for both X and Y axes. Supported
-#   shapers are zv, mzv, zvd, ei, 2hump_ei, and 3hump_ei. The default
-#   is mzv input shaper.
+#   用於 X 和 Y 軸的輸入整形器。支援的輸入整形器有 zv、mzv、
+#   zvd、ei、2hump_ei 和 3hump_ei。
+#   預設為 mzv 輸入整形器。
 #shaper_type_x:
 #shaper_type_y:
-#   If shaper_type is not set, these two parameters can be used to
-#   configure different input shapers for X and Y axes. The same
-#   values are supported as for shaper_type parameter.
+#   如果沒有設定 shaper_type，可以用這兩個參數來單獨配置 X
+#   和 Y 軸的 輸入整形器。
+#   該參數支援全部shaper_type 支援的選項。
 #damping_ratio_x: 0.1
 #damping_ratio_y: 0.1
-#   Damping ratios of vibrations of X and Y axes used by input shapers
-#   to improve vibration suppression. Default value is 0.1 which is a
-#   good all-round value for most printers. In most circumstances this
-#   parameter requires no tuning and should not be changed.
+#   X 和 Y 軸的共振抑制比例，可以用來改善振動抑制效果。
+#   預設值是 0.1，適用於大多數印表機。
+#   大多數情況下不需要調整這個值。
 ```
 
 ### [adxl345]
@@ -1345,29 +1318,29 @@ Support for ADXL345 accelerometers. This support allows one to query acceleromet
 ```
 [adxl345]
 cs_pin:
-#   The SPI enable pin for the sensor. This parameter must be provided.
+#   感測器的 SPI 啟用引腳。
+#   必須提供此參數。
 #spi_speed: 5000000
-#   The SPI speed (in hz) to use when communicating with the chip.
-#   The default is 5000000.
+#   與晶片通訊時使用的SPI速度(hz)。
+#   預設為5000000。
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   參見"常見的SPI設定"章節，以瞭解對上述參數的描述。
 #axes_map: x, y, z
-#   The accelerometer axis for each of the printer's X, Y, and Z axes.
-#   This may be useful if the accelerometer is mounted in an
-#   orientation that does not match the printer orientation. For
-#   example, one could set this to "y, x, z" to swap the X and Y axes.
-#   It is also possible to negate an axis if the accelerometer
-#   direction is reversed (eg, "x, z, -y"). The default is "x, y, z".
+#   印表機的X、Y和Z軸的加速度計軸。
+#   如果加速度計的安裝方向與印表機的方向不一致，
+#   可能需要修改該設定。
+#   例如，可以將其設定為"y, x, z"來交換X和Y軸。
+#   如果加速度計方向是相反的，可能需要反轉相應軸
+#   （例如，"x, z, -y"）。
+#   預設是"x, y, z"。
 #rate: 3200
-#   Output data rate for ADXL345. ADXL345 supports the following data
-#   rates: 3200, 1600, 800, 400, 200, 100, 50, and 25. Note that it is
-#   not recommended to change this rate from the default 3200, and
-#   rates below 800 will considerably affect the quality of resonance
-#   measurements.
+#   ADXL345的輸出數據速率。ADXL345支援以下數據速率。
+#   3200、1600、800、400、200、100、50和25。請注意，不建議
+#   將此速率從預設的3200改為低於800的速率，這將大大影響
+#   共振測量的質量。
 ```
 
 ### [resonance_tester]
@@ -1421,30 +1394,29 @@ Support for resonance testing and automatic input shaper calibration. In order t
 #   (Hz/sec == sec^-2).
 ```
 
-## Config file helpers
+## 配置檔案助手
 
 ### [board_pins]
 
-Board pin aliases (one may define any number of sections with a "board_pins" prefix). Use this to define aliases for the pins on a micro-controller.
+控制板引腳別名（可以定義任意數量的帶有 "board_pins "字首的分段）。用它來定義微控制器上的引腳的別名。
 
 ```
-[board_pins my_aliases]
+[board_pins my_aliases]。
 mcu: mcu
-#   A comma separated list of micro-controllers that may use the
-#   aliases. The default is to apply the aliases to the main "mcu".
+#   一個可以使用別名的逗號分隔的微控制器列表。
+#   預設將別名應用於主 "mcu"。
 aliases:
 aliases_<name>:
-#   A comma separated list of "name=value" aliases to create for the
-#   given micro-controller. For example, "EXP1_1=PE6" would create an
-#   "EXP1_1" alias for the "PE6" pin. However, if "value" is enclosed
-#   in "<>" then "name" is created as a reserved pin (for example,
-#   "EXP1_9=<GND>" would reserve "EXP1_9"). Any number of options
-#   starting with "aliases_" may be specified.
+#   為給定的微控制器建立的一個以逗號分隔的 "name=value "
+#   別名列表。例如，"EXP1_1=PE6" 將建立一個用於 "PE6 "引
+#   腳的"EXP1_1 "別名。然而，如果 "值 " 被包括在 "<>"中，
+#   則 "name "將被建立為一個保留針腳（例如，"EXP1_9=<GND>" 
+#   將保留 "EXP1_9"）。可以指定任何數量以 "aliases_"開頭的分段。
 ```
 
 ### [include]
 
-Include file support. One may include additional config file from the main printer config file. Wildcards may also be used (eg, "configs/*.cfg").
+引入檔案支援。可以在主印表機配置檔案中引用額外的配置檔案。支援萬用字元（例如，`configs/*.cfg`）。
 
 ```
 [include my_other_config.cfg]
@@ -1457,12 +1429,11 @@ This tool allows a single micro-controller pin to be defined multiple times in a
 ```
 [duplicate_pin_override]
 pins:
-#   A comma separated list of pins that may be used multiple times in
-#   a config file without normal error checks. This parameter must be
-#   provided.
+#   一個逗號分隔的引腳列表，允許其中的引腳在配置檔案中被多次使用而不觸發錯誤檢查。
+#   必須提供此參數。
 ```
 
-## Bed probing hardware
+## 列印床探測硬體
 
 ### [probe]
 
@@ -1529,45 +1500,44 @@ z_offset:
 
 ### [bltouch]
 
-BLTouch probe. One may define this section (instead of a probe section) to enable a BLTouch probe. See [BL-Touch guide](BLTouch.md) and [command reference](G-Codes.md#bltouch) for further information. A virtual "probe:z_virtual_endstop" pin is also created (see the "probe" section for the details).
+BLTouch 探針。可以定義這個分段（而不是探針（probe）分段）來啟用 BLTouch 探針。更多資訊見[BL-Touch 指南](BLTouch.md)和[命令參考](G-Code.md#bltouch)。一個虛擬的 "probe:z_virtual_endstop "引腳也會被同時建立（詳見 "probe "章節）。
 
 ```
 [bltouch]
 sensor_pin:
-#   Pin connected to the BLTouch sensor pin. Most BLTouch devices
-#   require a pullup on the sensor pin (prefix the pin name with "^").
-#   This parameter must be provided.
+#   連線到 BLTouch sensor 引腳的引腳。大多數 BLTouch 需要在
+#   sensor 引腳上有一個拉高電阻（在引腳名前加上「^」）。
+#   必須提供這個參數。
 control_pin:
-#   Pin connected to the BLTouch control pin. This parameter must be
-#   provided.
+#   連線到 BLTouch control 引腳的引腳。 
+#   必須提供這個參數。
 #pin_move_time: 0.680
-#   The amount of time (in seconds) to wait for the BLTouch pin to
-#   move up or down. The default is 0.680 seconds.
+#   等待 BLTouch探針收放的時間（以秒為單位）。
+#   預設為 0.680 秒。
 #stow_on_each_sample: True
-#   This determines if Klipper should command the pin to move up
-#   between each probe attempt when performing a multiple probe
-#   sequence. Read the directions in docs/BLTouch.md before setting
-#   this to False. The default is True.
+#   這個參數決定了 Klipper 是否會在進行多次探測的每次探測之間
+#   收放探針。在禁用這個動作前請先閱讀 docs/BLTouch.md。
+#   預設為True（啟用）。
 #probe_with_touch_mode: False
-#   If this is set to True then Klipper will probe with the device in
-#   "touch_mode". The default is False (probing in "pin_down" mode).
+#   當該選項被啟用，Klipper 會以「touch_mode」（觸控模式）使用
+#   探針。
+#   預設為False （禁用，使用「pin_down」模式探測）。
 #pin_up_reports_not_triggered: True
-#   Set if the BLTouch consistently reports the probe in a "not
-#   triggered" state after a successful "pin_up" command. This should
-#   be True for all genuine BLTouch devices. Read the directions in
-#   docs/BLTouch.md before setting this to False. The default is True.
+#   只在 BLTouch 在 "pin_up" 命令后穩定彙報探針在一個「not triggered（未
+#   觸發）」的狀態時需要設定。所有正版的 BLTouch 都應該設為 True（啟
+#   用）。 在設為False（禁用）前，請先閱讀 docs/BLTouch.md 中的說明。
+#   預設是True（啟用）。
 #pin_up_touch_mode_reports_triggered: True
-#   Set if the BLTouch consistently reports a "triggered" state after
-#   the commands "pin_up" followed by "touch_mode". This should be
-#   True for all genuine BLTouch devices. Read the directions in
-#   docs/BLTouch.md before setting this to False. The default is True.
+#   只在 BLTouch 在 "pin_up" 和 「touch_mode" 命令后穩定彙報探針在一個「not
+#    triggered（未觸發）」的狀態時需要設定。所有正版的 BLTouch 都應該設為 
+#   True（啟用）。 在設為False（禁用）前，請先閱讀 docs/BLTouch.md 中的說明。
+#   預設是True（啟用）。
 #set_output_mode:
-#   Request a specific sensor pin output mode on the BLTouch V3.0 (and
-#   later). This setting should not be used on other types of probes.
-#   Set to "5V" to request a sensor pin output of 5 Volts (only use if
-#   the controller board needs 5V mode and is 5V tolerant on its input
-#   signal line). Set to "OD" to request the sensor pin output use
-#   open drain mode. The default is to not request an output mode.
+#   向BLTouch V3.0 （和更新版本）請求一個特定的 sensor 引腳輸出模式 。
+#   這個設定不應該在其他型別的探針上使用。設為「5v」會請求 sensor 引腳
+#   以5V輸出（僅在控制板需要使用5V模式並且這個訊號輸入引腳可以耐受5V
+#   時）。設為「OD」來請求 sensor 引腳輸出使用開漏模式。
+#   預設不請求輸出模式。
 #x_offset:
 #y_offset:
 #z_offset:
@@ -1577,10 +1547,10 @@ control_pin:
 #samples_result:
 #samples_tolerance:
 #samples_tolerance_retries:
-#   See the "probe" section for information on these parameters.
+#   這些參數詳見」探針「章節。
 ```
 
-## Additional stepper motors and extruders
+## 額外的步進電機和擠出機
 
 ### [stepper_z1]
 
@@ -1603,7 +1573,7 @@ Multi-stepper axes. On a cartesian style printer, the stepper controlling a give
 
 ### [extruder1]
 
-In a multi-extruder printer add an additional extruder section for each additional extruder. The additional extruder sections should be named "extruder1", "extruder2", "extruder3", and so on. See the "extruder" section for a description of available parameters.
+在一個多擠出機的印表機中，為每個額外的擠出機新增一個額外擠出機分段。額外擠出機分段應被命名為"extruder1"、"extruder2"、"extruder3"，以此類推。有關可用參數，參見"extruder"章節。
 
 See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an example configuration.
 
@@ -1627,8 +1597,8 @@ See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration.
 ```
 [dual_carriage]
 axis:
-#   The axis this extra carriage is on (either x or y). This parameter
-#   must be provided.
+#   額外滑車所在的軸（x或者y）。
+#   必須提供這個參數。
 #step_pin:
 #dir_pin:
 #enable_pin:
@@ -1638,7 +1608,7 @@ axis:
 #position_endstop:
 #position_min:
 #position_max:
-#   See the "stepper" section for the definition of the above parameters.
+#   以上參數的定義請查閱「stepper」分段。
 ```
 
 ### [extruder_stepper]
@@ -1667,33 +1637,32 @@ See the [command reference](G-Codes.md#extruder) for more information.
 Manual steppers (one may define any number of sections with a "manual_stepper" prefix). These are steppers that are controlled by the MANUAL_STEPPER g-code command. For example: "MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5". See [G-Codes](G-Codes.md#manual_stepper) file for a description of the MANUAL_STEPPER command. The steppers are not connected to the normal printer kinematics.
 
 ```
-[manual_stepper my_stepper]
+[manual_stepper my_stepper]。
 #step_pin:
 #dir_pin:
 #enable_pin:
 #microsteps:
 #rotation_distance:
-#   See the "stepper" section for a description of these parameters.
+#   有關這些參數的描述請見"stepper"分段。
 #velocity:
-#   Set the default velocity (in mm/s) for the stepper. This value
-#   will be used if a MANUAL_STEPPER command does not specify a SPEED
-#   parameter. The default is 5mm/s.
+#   設定步進電機的預設速度（單位：mm/s）。這個值會在 MANUAL_STEPPER
+#   命令沒有指定一個 SPEED 參數時會被使用。
+#   預設為 5 mm/s。
 #accel:
-#   Set the default acceleration (in mm/s^2) for the stepper. An
-#   acceleration of zero will result in no acceleration. This value
-#   will be used if a MANUAL_STEPPER command does not specify an ACCEL
-#   parameter. The default is zero.
+#   設定步進電機的預設加速度（單位：mm/s^2）。設定加速度為零將導致
+#   沒有加速度。這個值會在 MANUAL_STEPPER 命令沒有指定 ACCEL 參數時
+#   會被使用。
+#   預設為 0。
 #endstop_pin:
-#   Endstop switch detection pin. If specified, then one may perform
-#   "homing moves" by adding a STOP_ON_ENDSTOP parameter to
-#   MANUAL_STEPPER movement commands.
+#   限位開關檢測引腳。如果定義了這個參數，可以通過在 MANUAL_STEPPER
+#   運動命令中新增一個 STOP_ON_ENDSTOP 參數來執行 "歸位動作" 。
 ```
 
-## Custom heaters and sensors
+## 自定義加熱器和感測器
 
 ### [verify_heater]
 
-Heater and temperature sensor verification. Heater verification is automatically enabled for each heater that is configured on the printer. Use verify_heater sections to change the default settings.
+加熱器和溫度感測器驗證。預設在印表機上每個配置的加熱器上啟用加熱器驗證。使用 verify_heater 分段來覆蓋預設設定。
 
 ```
 [verify_heater heater_config_name]
@@ -1734,19 +1703,18 @@ Tool to disable heaters when homing or probing an axis.
 ```
 [homing_heaters]
 #steppers:
-#   A comma separated list of steppers that should cause heaters to be
-#   disabled. The default is to disable heaters for any homing/probing
-#   move.
-#   Typical example: stepper_z
+#   會使加熱器被禁用的步進電機逗號分隔列表。
+#   預設在歸零和探測時禁用全部加熱器。
+#   例如：stepper_z
 #heaters:
-#   A comma separated list of heaters to disable during homing/probing
-#   moves. The default is to disable all heaters.
-#   Typical example: extruder, heater_bed
+#   歸零和探測時會被禁用的加熱器的逗號分隔列表。
+#   預設禁用全部加熱器。
+#   例如：extruder, heater_bed
 ```
 
 ### [thermistor]
 
-Custom thermistors (one may define any number of sections with a "thermistor" prefix). A custom thermistor may be used in the sensor_type field of a heater config section. (For example, if one defines a "[thermistor my_thermistor]" section then one may use a "sensor_type: my_thermistor" when defining a heater.) Be sure to place the thermistor section in the config file above its first use in a heater section.
+自定義熱敏電阻（可以定義任意數量的帶有「熱敏電阻」字首的分段）。可以在加熱器配置分段的 sensor_type 欄位中使用自定義熱敏電阻。 （例如，如果定義了「[thermistor my_thermistor]」分段，那麼在定義加熱器時可以使用「sensor_type: my_thermistor」。）確保將熱敏電阻分段放在配置檔案中第一次使用這個感測器的加熱器分段的上方。
 
 ```
 [thermistor my_thermistor]
@@ -1769,7 +1737,7 @@ Custom thermistors (one may define any number of sections with a "thermistor" pr
 
 ### [adc_temperature]
 
-Custom ADC temperature sensors (one may define any number of sections with an "adc_temperature" prefix). This allows one to define a custom temperature sensor that measures a voltage on an Analog to Digital Converter (ADC) pin and uses linear interpolation between a set of configured temperature/voltage (or temperature/resistance) measurements to determine the temperature. The resulting sensor can be used as a sensor_type in a heater section. (For example, if one defines a "[adc_temperature my_sensor]" section then one may use a "sensor_type: my_sensor" when defining a heater.) Be sure to place the sensor section in the config file above its first use in a heater section.
+自定義 ADC 溫度感測器（可以使用 「adc_temperature」 字首定義任意數量的分段）。這允許定義一個自定義溫度感測器，該感測器測量一個模數轉換器 (ADC) 引腳上的電壓，並在一組配置的溫度/電壓（或溫度/電阻）測量值之間使用線性插值來確定溫度。設定的感測器可被用作加熱器分段中的 sensor_type。 （例如，如果定義了 「[adc_temperature my_sensor]」 分段，則在定義加熱器時可以使用 「sensor_type: my_sensor」 。）確保將感測器分段放在配置檔案中第一次使用這個感測器的加熱器分段的上方。
 
 ```
 [adc_temperature my_sensor]
@@ -1778,22 +1746,19 @@ Custom ADC temperature sensors (one may define any number of sections with an "a
 #temperature2:
 #voltage2:
 #...
-#   A set of temperatures (in Celsius) and voltages (in Volts) to use
-#   as reference when converting a temperature. A heater section using
-#   this sensor may also specify adc_voltage and voltage_offset
-#   parameters to define the ADC voltage (see "Common temperature
-#   amplifiers" section for details). At least two measurements must
-#   be provided.
+#   一組用作溫度轉換的參考溫度（以攝氏度為單位）和電壓（以
+#   伏特為單位）。使用這個感測器的加熱器分段也可以指定
+#   adc_voltage 和 voltage_offset 參數來定義 ADC 電壓（詳見「常用溫度
+#   放大器」章節）。至少要提供兩個測量點。
 #temperature1:
 #resistance1:
 #temperature2:
 #resistance2:
 #...
-#   Alternatively one may specify a set of temperatures (in Celsius)
-#   and resistance (in Ohms) to use as reference when converting a
-#   temperature. A heater section using this sensor may also specify a
-#   pullup_resistor parameter (see "extruder" section for details). At
-#   least two measurements must be provided.
+#   作為替代，也可以指定一組用作溫度轉換的參考溫度（以攝氏度為
+#   單位）和阻值（以歐姆為單位）。使用這個感測器的加熱器分段也
+#   可以指定一個 pullup_resistor 參數（詳見「擠出機」章節）。至少要
+#   提供兩個測量點。
 ```
 
 ### [heater_generic]
@@ -1803,8 +1768,8 @@ Generic heaters (one may define any number of sections with a "heater_generic" p
 ```
 [heater_generic my_generic_heater]
 #gcode_id:
-#   The id to use when reporting the temperature in the M105 command.
-#   This parameter must be provided.
+#   使用M105查詢溫度時使用的ID。
+#   必須提供此參數。
 #heater_pin:
 #max_power:
 #sensor_type:
@@ -1817,13 +1782,12 @@ Generic heaters (one may define any number of sections with a "heater_generic" p
 #pwm_cycle_time:
 #min_temp:
 #max_temp:
-#   See the "extruder" section for the definition of the above
-#   parameters.
+#   以上參數詳見「extruder」分段。
 ```
 
 ### [temperature_sensor]
 
-Generic temperature sensors. One can define any number of additional temperature sensors that are reported via the M105 command.
+通用溫度感測器（可以定義任意數量的通用溫度感測器）。通過 M105 命令查詢溫度。
 
 ```
 [temperature_sensor my_sensor]
@@ -1840,11 +1804,11 @@ Generic temperature sensors. One can define any number of additional temperature
 
 ## Temperature sensors
 
-Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heated_bed]` section).
+Klipper 包括許多型別的溫度感測器的定義。這些感測器可以在任何需要溫度感測器的配置分段中使用（例如`[extruder]`或`[heated_bed]`分段）。
 
-### Common thermistors
+### 常見熱敏電阻
 
-Common thermistors. The following parameters are available in heater sections that use one of these sensors.
+常見的熱敏電阻。在使用這些感測器之一的加熱器分段中可以使用以下參數。
 
 ```
 sensor_type:
@@ -1864,9 +1828,9 @@ sensor_pin:
 #   The default is 0 ohms.
 ```
 
-### Common temperature amplifiers
+### 常見溫度放大器
 
-Common temperature amplifiers. The following parameters are available in heater sections that use one of these sensors.
+常見溫度放大器。在使用這些感測器之一的加熱器分段中可以使用以下參數。
 
 ```
 sensor_type:
@@ -1881,9 +1845,9 @@ sensor_pin:
 #   The ADC voltage offset (in Volts). The default is 0.
 ```
 
-### Directly connected PT1000 sensor
+### 直接連線的 PT1000 感測器
 
-Directly connected PT1000 sensor. The following parameters are available in heater sections that use one of these sensors.
+直接連線到控制板的 PT1000 感測器。以下參數可用於使用這些感測器之一的加熱器分段。
 
 ```
 sensor_type: PT1000
@@ -1895,9 +1859,9 @@ sensor_pin:
 #   default is 4700 ohms.
 ```
 
-### MAXxxxxx temperature sensors
+### MAXxxxxx 溫度感測器
 
-MAXxxxxx serial peripheral interface (SPI) temperature based sensors. The following parameters are available in heater sections that use one of these sensor types.
+MAXxxxxx 序列外設介面（SPI）溫度感測器。以下參數在使用該型別感測器的加熱器分段中可用。
 
 ```
 sensor_type:
@@ -1929,9 +1893,9 @@ sensor_pin:
 #   name in the above list.
 ```
 
-### BMP280/BME280/BME680 temperature sensor
+### BMP280/BME280/BME680 溫度感測器
 
-BMP280/BME280/BME680 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C), pressure (hPa), relative humidity and in case of the BME680 gas level. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report pressure and humidity in addition to temperature.
+BMP280/BME280/BME680 兩線介面 (I2C) 環境感測器。注意，這些感測器不適用于擠出機和加熱床。它們可以用於監測環境溫度 (C)、壓力 (hPa)、相對濕度以及氣體水平（僅在BME680上）。請參閱 [sample-macros.cfg](../config/sample-macros.cfg) 以獲取可用於報告壓力和濕度以及溫度的gcode_macro。
 
 ```
 sensor_type: BME280
@@ -1945,9 +1909,9 @@ sensor_type: BME280
 #   above parameters.
 ```
 
-### HTU21D sensor
+### HTU21D 感測器
 
-HTU21D family two wire interface (I2C) environmental sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
+HTU21D 系列雙線介面（I2C）環境感測器。注意，這種感測器不適用于擠出機和加熱床，它們可以用於監測環境溫度（C）和相對濕度。參見 [sample-macros.cfg](../config/sample-macros.cfg) 中可以報告溫度和濕度的 gcode_macro。
 
 ```
 sensor_type:
@@ -1975,7 +1939,7 @@ sensor_type:
 #   Interval in seconds between readings. Default is 30
 ```
 
-### LM75 temperature sensor
+### LM75 溫度感測器
 
 LM75/LM75A two wire (I2C) connected temperature sensors. These sensors have a range of -55~125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers.
 
@@ -1995,7 +1959,7 @@ sensor_type: LM75
 #   0.5.
 ```
 
-### Builtin micro-controller temperature sensor
+### 微控制器的內建溫度感測器
 
 The atsam, atsamd, and stm32 micro-controllers contain an internal temperature sensor. One can use the "temperature_mcu" sensor to monitor these temperatures.
 
@@ -2027,7 +1991,7 @@ sensor_type: temperature_mcu
 #   micro-controller specification.
 ```
 
-### Host temperature sensor
+### 主機溫度感測器
 
 Temperature from the machine (eg Raspberry Pi) running the host software.
 
@@ -2039,9 +2003,9 @@ sensor_type: temperature_host
 #   system file on a Raspberry Pi computer.
 ```
 
-### DS18B20 temperature sensor
+### DS18B20 溫度感測器
 
-DS18B20 is a 1-wire (w1) digital temperature sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C). These sensors have range up to 125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers. DS18B20 sensors are only supported on the "host mcu", e.g. the Raspberry Pi. The w1-gpio Linux kernel module must be installed.
+DS18B20 是一個單匯流排 (1-wire (w1)) 數值溫度感測器。注意，這個感測器不是被設計用於熱端或熱床， 而是用於監測環境溫度(C)。這些感測器最高量程是125 C，因此可用於例如箱體溫度監測。它們也可以被當作簡單的風扇/加熱器控制器。DS18B20 感測器僅在「主機 mcu」上支援，例如樹莓派。w1-gpio Linux 內核模組必須被安裝。
 
 ```
 sensor_type: DS18B20
@@ -2056,30 +2020,28 @@ serial_no:
 #   The micro-controller to read from. Must be the host_mcu
 ```
 
-## Fans
+## 風扇
 
 ### [fan]
 
-Print cooling fan.
+列印冷卻風扇。
 
 ```
 [fan]
 pin:
-#   Output pin controlling the fan. This parameter must be provided.
+#   控制風扇的輸出引腳。
+#   必須提供此參數。
 #max_power: 1.0
-#   The maximum power (expressed as a value from 0.0 to 1.0) that the
-#   pin may be set to. The value 1.0 allows the pin to be set fully
-#   enabled for extended periods, while a value of 0.5 would allow the
-#   pin to be enabled for no more than half the time. This setting may
-#   be used to limit the total power output (over extended periods) to
-#   the fan. If this value is less than 1.0 then fan speed requests
-#   will be scaled between zero and max_power (for example, if
-#   max_power is .9 and a fan speed of 80% is requested then the fan
-#   power will be set to 72%). The default is 1.0.
+#   引腳允許被設定的最大占空比（在0.0和1.0之間）。
+#   1.0 允許引腳被長時間完全啟用，而0.5會只允許引腳只在一半的時間裡
+#   被啟用。這個設定可以限制風扇的最大功率（平均功率）。如果這個值
+#   小於 1.0 則風速請求會被縮放到 0 和 max_power 之間（例如，如果
+#   max_power 是 0.9，請求 80% 風速速度會使風扇功率設為72%）。
+#   預設為1.0。
 #shutdown_speed: 0
-#   The desired fan speed (expressed as a value from 0.0 to 1.0) if
-#   the micro-controller software enters an error state. The default
-#   is 0.
+#   在微控制器進入錯誤狀態時期望的（一個在0.0和1.0之間的值）
+#   風扇速度。
+#   預設為 0。
 #cycle_time: 0.010
 #   The amount of time (in seconds) for each PWM power cycle to the
 #   fan. It is recommended this be 10 milliseconds or greater when
@@ -2125,7 +2087,7 @@ pin:
 
 ### [heater_fan]
 
-Heater cooling fans (one may define any number of sections with a "heater_fan" prefix). A "heater fan" is a fan that will be enabled whenever its associated heater is active. By default, a heater_fan has a shutdown_speed equal to max_power.
+加熱器冷卻風扇（可以用"heater_fan"字首定義任意數量的分段）。"加熱器風扇"是一種當其關聯的加熱器活躍時會啟用的風扇。預設情況下，heater_fan shutdown_speed 等於 max_power。
 
 ```
 [heater_fan my_nozzle_fan]
@@ -2139,24 +2101,23 @@ Heater cooling fans (one may define any number of sections with a "heater_fan" p
 #tachometer_pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
-#   See the "fan" section for a description of the above parameters.
+#   以上參數詳見「fan」章節。
 #heater: extruder
-#   Name of the config section defining the heater that this fan is
-#   associated with. If a comma separated list of heater names is
-#   provided here, then the fan will be enabled when any of the given
-#   heaters are enabled. The default is "extruder".
+#   該風扇關聯的加熱器配置分段名稱。如果提供了一個逗號分隔的
+#   加熱器列表，則風扇將會在任一加熱器被啟用時啟動。
+#   預設為"extruder"。
 #heater_temp: 50.0
-#   A temperature (in Celsius) that the heater must drop below before
-#   the fan is disabled. The default is 50 Celsius.
+#   風扇可以被禁用的最高加熱器溫度（以攝氏度為單位）。加熱器
+#   必須被降低到該溫度以下風扇才會被禁用。
+#   預設為 50 攝氏度。
 #fan_speed: 1.0
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when its associated heater is enabled. The default
-#   is 1.0
+#   當相關聯的加熱器活躍時該風扇的速度（在0.0和1.0之間）。
+#   預設為 1.0
 ```
 
 ### [controller_fan]
 
-Controller cooling fan (one may define any number of sections with a "controller_fan" prefix). A "controller fan" is a fan that will be enabled whenever its associated heater or its associated stepper driver is active. The fan will stop whenever an idle_timeout is reached to ensure no overheating will occur after deactivating a watched component.
+控制器冷卻風扇（可以定義任意數量帶有"controller_fan"字首的分段）。"控制器風扇"(Controller fan)是一個只要關聯的加熱器或步進驅動程式處於活動狀態就會啟動的風扇。風扇會在空閑超時(idle_timeout)后停止，以確保被監視元件不再活躍后不會過熱。
 
 ```
 [controller_fan my_controller_fan]
@@ -2170,26 +2131,25 @@ Controller cooling fan (one may define any number of sections with a "controller
 #tachometer_pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
-#   See the "fan" section for a description of the above parameters.
+#  以上參數請見「風扇」(fan)分段。
 #fan_speed: 1.0
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when a heater or stepper driver is active.
-#   The default is 1.0
+#   當一個加熱器或步進電機活躍時的風扇速度（以一個0.0到1.0
+#   的數值表示）。
+#   預設為 1.0。
 #idle_timeout:
-#   The amount of time (in seconds) after a stepper driver or heater
-#   was active and the fan should be kept running. The default
-#   is 30 seconds.
+#   在步進電機或加熱器不再活躍后風扇持續執行的時間（以秒
+#   為單位）。
+#   預設為 30秒。
 #idle_speed:
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when a heater or stepper driver was active and
-#   before the idle_timeout is reached. The default is fan_speed.
+#   當一個加熱器或步進電機不再活躍，但沒有達到空閑超時(
+#   idle_timeout)時的風扇速度（以一個0.0到1.0的數值表示）。
+#   預設為 fan_speed。
 #heater:
 #stepper:
-#   Name of the config section defining the heater/stepper that this fan
-#   is associated with. If a comma separated list of heater/stepper names
-#   is provided here, then the fan will be enabled when any of the given
-#   heaters/steppers are enabled. The default heater is "extruder", the
-#   default stepper is all of them.
+#   與這個風扇關聯的加熱器/步進驅動配置分段名稱。如果提
+#   供一個逗號分隔的加熱器/步進驅動名稱，任意一個列表中
+#   的裝置啟用時風扇將會啟動。
+#   預設加熱器是「擠出機」（extruder)，預設步進驅動是全部步進驅動。
 ```
 
 ### [temperature_fan]
@@ -2254,10 +2214,10 @@ Manually controlled fan (one may define any number of sections with a "fan_gener
 #tachometer_pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
-#   See the "fan" section for a description of the above parameters.
+#   以上參數介紹請見「fan」（風扇）章節。
 ```
 
-## Additional servos, LEDs, buttons, and other pins
+## 額外的舵機，LED，按鍵，和其他引腳。
 
 ### [servo]
 
@@ -2319,21 +2279,19 @@ Dotstar (aka APA102) LED support (one may define any number of sections with a "
 ```
 [dotstar my_dotstar]
 data_pin:
-#   The pin connected to the data line of the dotstar. This parameter
-#   must be provided.
+#   連線到dotstar data（數據）線的引腳。必須提供這個參數。
 clock_pin:
-#   The pin connected to the clock line of the dotstar. This parameter
-#   must be provided.
+# 連線到dotstar clock（時鐘）線的引腳。必須提供這個參數。
 #chain_count:
-#initial_RED: 0.0
+#initial_RED:0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
-#   See the "neopixel" section for information on these parameters.
+#   有關這些參數的資訊，請參見 "Neopixel " 章節。
 ```
 
 ### [PCA9533]
 
-PCA9533 LED support. The PCA9533 is used on the mightyboard.
+PCA9533 LED支援。PCA9533 在 mightyboard上出現。
 
 ```
 [pca9533 my_pca9533]
@@ -2357,28 +2315,25 @@ PCA9533 LED support. The PCA9533 is used on the mightyboard.
 
 ### [gcode_button]
 
-Execute gcode when a button is pressed or released (or when a pin changes state). You can check the state of the button by using `QUERY_BUTTON button=my_gcode_button`.
+在一個按鈕被按下或放開（或當一個引腳狀態發生變化時）時執行G程式碼。你可以使用 `QUERY_BUTTON button=my_gcode_button` 來查詢按鈕的狀態。
 
 ```
 [gcode_button my_gcode_button]
 pin:
-#   The pin on which the button is connected. This parameter must be
-#   provided.
+#   連線到按鈕的引腳。
+#   必須提供此參數。
 #analog_range:
-#   Two comma separated resistances (in Ohms) specifying the minimum
-#   and maximum resistance range for the button. If analog_range is
-#   provided then the pin must be an analog capable pin. The default
-#   is to use digital gpio for the button.
-#analog_pullup_resistor:
-#   The pullup resistance (in Ohms) when analog_range is specified.
-#   The default is 4700 ohms.
+#   兩個逗號分隔的阻值(單位：歐姆)，指定了按鈕的最小和最大電阻。
+#   如果提供了 analog_range ，必須使用一個模擬功能的引腳。預設
+#   情況下為按鈕使用數字GPIO。
+#   analog_pullup_resistor:
+#   當定義 analog_range 時的上拉電阻(歐姆)。預設為4700歐姆。
 #press_gcode:
-#   A list of G-Code commands to execute when the button is pressed.
-#   G-Code templates are supported. This parameter must be provided.
+#   當按鈕被按下時要執行的 G-Code 命令序列，支援G-Code模板。
+#   必須提供此參數。
 #release_gcode:
-#   A list of G-Code commands to execute when the button is released.
-#   G-Code templates are supported. The default is to not run any
-#   commands on a button release.
+#   當按鈕被釋放時要執行的G-Code命令序列，支援G-Code模板。
+#   預設在按鈕釋放時不執行任何命令。
 ```
 
 ### [output_pin]
@@ -2453,8 +2408,8 @@ Multiple pin outputs (one may define any number of sections with a "multi_pin" p
 ```
 [multi_pin my_multi_pin]
 pins:
-#   A comma separated list of pins associated with this alias. This
-#   parameter must be provided.
+#   與此別名關聯的引腳的逗號分隔列表。
+#   必須提供此參數。
 ```
 
 ## TMC stepper driver configuration
@@ -2463,7 +2418,7 @@ Configuration of Trinamic stepper motor drivers in UART/SPI mode. Additional inf
 
 ### [tmc2130]
 
-Configure a TMC2130 stepper motor driver via SPI bus. To use this feature, define a config section with a "tmc2130" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2130 stepper_x]").
+通過 SPI 匯流排配置 TMC2130 步進電機驅動。要使用此功能，請定義一個帶有「tmc2130」字首並後跟步進驅動配置分段相應名稱的配置分段（例如，「[tmc2130 stepper_x]」）。
 
 ```
 [tmc2130 stepper_x]
@@ -2534,7 +2489,7 @@ run_current:
 
 ### [tmc2208]
 
-Configure a TMC2208 (or TMC2224) stepper motor driver via single wire UART. To use this feature, define a config section with a "tmc2208" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2208 stepper_x]").
+通過單線 UART 配置 TMC2208（或 TMC2224）步進電機驅動。要使用此功能，請定義一個帶有 「tmc2208」 字首並後跟步進驅動配置分段相應名稱的配置分段（例如，「[tmc2208 stepper_x]」）。
 
 ```
 [tmc2208 stepper_x]
@@ -2592,7 +2547,7 @@ run_current:
 
 ### [tmc2209]
 
-Configure a TMC2209 stepper motor driver via single wire UART. To use this feature, define a config section with a "tmc2209" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2209 stepper_x]").
+通過單線 UART 配置 TMC2209 步進電機驅動。要使用此功能，請定義一個帶有 「tmc2209」 字首並後跟步進驅動配置分段相應名稱的配置分段（例如，「[tmc2209 stepper_x]」）。
 
 ```
 [tmc2209 stepper_x]
@@ -2639,7 +2594,7 @@ run_current:
 
 ### [tmc2660]
 
-Configure a TMC2660 stepper motor driver via SPI bus. To use this feature, define a config section with a tmc2660 prefix followed by the name of the corresponding stepper config section (for example, "[tmc2660 stepper_x]").
+通過 SPI 匯流排配置 TMC2660 步進電機驅動。要使用此功能，請定義一個帶有 「tmc 2660」 字首並後跟步進驅動配置分段相應名稱的配置分段（例如，「[tmc2660 stepper_x]」）。
 
 ```
 [tmc2660 stepper_x]
@@ -2708,7 +2663,7 @@ run_current:
 
 ### [tmc5160]
 
-Configure a TMC5160 stepper motor driver via SPI bus. To use this feature, define a config section with a "tmc5160" prefix followed by the name of the corresponding stepper config section (for example, "[tmc5160 stepper_x]").
+通過 SPI 匯流排配置 TMC5160 步進電機驅動。要使用此功能，請定義一個帶有 「tmc5160」 字首並後跟步進驅動配置分段相應名稱的配置分段（例如，「[tmc5160 stepper_x]」）。
 
 ```
 [tmc5160 stepper_x]
@@ -2801,36 +2756,31 @@ Statically configured AD5206 digipots connected via SPI bus (one may define any 
 ```
 [ad5206 my_digipot]
 enable_pin:
-#   The pin corresponding to the AD5206 chip select line. This pin
-#   will be set to low at the start of SPI messages and raised to high
-#   after the message completes. This parameter must be provided.
+#   對應AD5206 晶片選擇(chip select)線路的引腳。這個引腳將
+#   在 SPI 訊息開始時拉低，並在訊息結束后拉高。必須提供
+#   這個參數。
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   以上參數的定義請檢視 "常規 SPI 設定" 章節
 #channel_1:
 #channel_2:
 #channel_3:
 #channel_4:
 #channel_5:
 #channel_6:
-#   The value to statically set the given AD5206 channel to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest resistance and 0.0 being the lowest resistance. However,
-#   the range may be changed with the 'scale' parameter (see below).
-#   If a channel is not specified then it is left unconfigured.
+#   設定AD5206通道的靜態值。通常在0.0和1.0之間，1.0為最高
+#   電阻，而0.0為最低電阻。然而，這個範圍也可以被 『scale』 參
+#   數配置。（見下文）如果一個通道沒有參數則它不會被配置。
 #scale:
-#   This parameter can be used to alter how the 'channel_x' parameters
-#   are interpreted. If provided, then the 'channel_x' parameters
-#   should be between 0.0 and 'scale'. This may be useful when the
-#   AD5206 is used to set stepper voltage references. The 'scale' can
-#   be set to the equivalent stepper amperage if the AD5206 were at
-#   its highest resistance, and then the 'channel_x' parameters can be
-#   specified using the desired amperage value for the stepper. The
-#   default is to not scale the 'channel_x' parameters.
+#   這個參數可以用來修改 『channel_x』 參數的定義。如被提供，
+#   則 『channel_x』 的範圍會在 0.0 和 『scale』 之間。在 AD5206 被作
+#   為步進電機參考電壓時可能很有幫助。當AD5206在最高電阻時
+#   『scale』 可以被設定為步進電機的電流， 然後 『channel_x』 參數可
+#   以設定為步進電機的期望電流安培。預設為不對 'channel_x' 參
+#   數進行縮放。
 ```
 
 ### [mcp4451]
@@ -2909,9 +2859,11 @@ Statically configured MCP4018 digipot connected via two gpio "bit banging" pins 
 ```
 [mcp4018 my_digipot]
 scl_pin:
-#   The SCL "clock" pin. This parameter must be provided.
+#   SCL "時鐘"引腳。
+#   必須提供此參數。
 sda_pin:
-#   The SDA "data" pin. This parameter must be provided.
+#   SCL "數據"引腳。
+#   必須提供此參數。
 wiper:
 #   The value to statically set the given MCP4018 "wiper" to. This is
 #   typically set to a number between 0.0 and 1.0 with 1.0 being the
@@ -2929,7 +2881,7 @@ wiper:
 #   scale the 'wiper' parameter.
 ```
 
-## Display support
+## 顯示屏支援
 
 ### [display]
 
@@ -2938,212 +2890,199 @@ Support for a display attached to the micro-controller.
 ```
 [display]
 lcd_type:
-#   The type of LCD chip in use. This may be "hd44780", "hd44780_spi",
-#   "st7920", "emulated_st7920", "uc1701", "ssd1306", or "sh1106".
-#   See the display sections below for information on each type and
-#   additional parameters they provide. This parameter must be
-#   provided.
+#   使用的 LCD 晶片型別。這可以是「hd44780」、「hd44780_spi」、
+#   「st7920」、「emulated_st7920」、「uc1701」、「ssd1306」、或「sh1106」。
+#   有關不同的LCD晶片型別和它們特有的參數，請檢視下面的顯示屏分段。
+#   必須提供此參數。
 #display_group:
-#   The name of the display_data group to show on the display. This
-#   controls the content of the screen (see the "display_data" section
-#   for more information). The default is _default_20x4 for hd44780
-#   displays and _default_16x4 for other displays.
+#   顯示在這個顯示屏上的 display_data 組。它決定了這個螢幕顯示
+#   的內容（詳見「display_data」分段）。
+#   hd44780 預設使用 _default_20x4，其他顯示屏則預設使用 _default_16x4。
 #menu_timeout:
-#   Timeout for menu. Being inactive this amount of seconds will
-#   trigger menu exit or return to root menu when having autorun
-#   enabled. The default is 0 seconds (disabled)
+#   菜單超時時間。在不活躍給定時間后將會退出菜單或在 autorun 啟用時
+#   回到根菜單。
+#   預設為 0 秒（禁用）。
 #menu_root:
-#   Name of the main menu section to show when clicking the encoder
-#   on the home screen. The defaults is __main, and this shows the
-#   the default menus as defined in klippy/extras/display/menu.cfg
+#   在主螢幕按下編碼器時顯示的主菜單段名稱。
+#   預設為 __main，這會顯示在 klippy/extras/display/menu.cfg中定義的主菜單。
 #menu_reverse_navigation:
-#   When enabled it will reverse up and down directions for list
-#   navigation. The default is False. This parameter is optional.
+#   啟用時反轉上滾動和下滾動。
+#   預設為False。這是一個可選參數。
 #encoder_pins:
-#   The pins connected to encoder. 2 pins must be provided when using
-#   encoder. This parameter must be provided when using menu.
+#   連線到編碼器的引腳。使用編碼器時必須提供兩個引腳。
+#   使用菜單時必須提供此參數。
 #encoder_steps_per_detent:
-#   How many steps the encoder emits per detent ("click"). If the
-#   encoder takes two detents to move between entries or moves two
-#   entries from one detent, try changing this. Allowed values are 2
-#   (half-stepping) or 4 (full-stepping). The default is 4.
+#   編碼器在每一個凹陷處（"click"）發出多少步。如果編碼器需要轉過兩個凹
+#   陷才能在條目之間移動，或者轉過一個凹痕會在兩個詞條之間移動/跳過
+#   一個詞條，可以嘗試改變這個值。
+#   允許的值是2 （半步）或 4（全步）。
+#   預設為 4。
 #click_pin:
-#   The pin connected to 'enter' button or encoder 'click'. This
-#   parameter must be provided when using menu. The presence of an
-#   'analog_range_click_pin' config parameter turns this parameter
-#   from digital to analog.
+#   連線到 "enter" 按鈕或編碼器按壓的引腳。
+#   使用菜單時必須提供此參數。
+#   如果定義了 「analog_range_click_pin」配置參數，則這個參數的引腳需要
+#   是模擬引腳。
 #back_pin:
-#   The pin connected to 'back' button. This parameter is optional,
-#   menu can be used without it. The presence of an
-#   'analog_range_back_pin' config parameter turns this parameter from
-#   digital to analog.
+#   連線到「back」按鈕的引腳。這是一個可選參數，菜單不需要這個按鈕。
+#   如果定義了 「analog_range_back_pin」配置參數，則這個參數的引腳需要
+#   是模擬引腳。
 #up_pin:
-#   The pin connected to 'up' button. This parameter must be provided
-#   when using menu without encoder. The presence of an
-#   'analog_range_up_pin' config parameter turns this parameter from
-#   digital to analog.
+#   連線到「up」按鈕的引腳。在不使用編碼器時使用菜單必須提供這個參數。
+#   如果定義了 「analog_range_up_pin」配置參數，則這個參數的引腳需要
+#   是模擬引腳。
 #down_pin:
-#   The pin connected to 'down' button. This parameter must be
-#   provided when using menu without encoder. The presence of an
-#   'analog_range_down_pin' config parameter turns this parameter from
-#   digital to analog.
+#   連線到「down」按鈕的引腳。 在不使用編碼器時使用菜單必須提供這個參數。
+#   如果定義了 「analog_range_down_pin」配置參數，則這個參數的引腳需要
+#   是模擬引腳。
 #kill_pin:
-#   The pin connected to 'kill' button. This button will call
-#   emergency stop. The presence of an 'analog_range_kill_pin' config
-#   parameter turns this parameter from digital to analog.
+#   連線到「kill」按鈕的引腳。 這個按鈕將會觸發緊急停止。
+#   如果定義了 「analog_range_kill_pin」配置參數，則這個參數的引腳需要
+#   是模擬引腳。
 #analog_pullup_resistor: 4700
-#   The resistance (in ohms) of the pullup attached to the analog
-#   button. The default is 4700 ohms.
+#   連線到模擬按鈕的拉高電阻阻值(ohms)
+#   預設為 4700 ohms。
 #analog_range_click_pin:
-#   The resistance range for a 'enter' button. Range minimum and
-#   maximum comma-separated values must be provided when using analog
-#   button.
+#   'enter'按鈕的阻值範圍。
+#   在使用模擬按鈕時必須提供由逗號分隔最小和最大值。
 #analog_range_back_pin:
-#   The resistance range for a 'back' button. Range minimum and
-#   maximum comma-separated values must be provided when using analog
-#   button.
+#   'back'按鈕的阻值範圍。
+#   在使用模擬按鈕時必須提供由逗號分隔最小和最大值。
 #analog_range_up_pin:
-#   The resistance range for a 'up' button. Range minimum and maximum
-#   comma-separated values must be provided when using analog button.
+#   'up'按鈕的阻值範圍。
+#   在使用模擬按鈕時必須提供由逗號分隔最小和最大值。
 #analog_range_down_pin:
-#   The resistance range for a 'down' button. Range minimum and
-#   maximum comma-separated values must be provided when using analog
-#   button.
+#   'down'按鈕的阻值範圍。
+#   在使用模擬按鈕時必須提供由逗號分隔最小和最大值。
 #analog_range_kill_pin:
-#   The resistance range for a 'kill' button. Range minimum and
-#   maximum comma-separated values must be provided when using analog
-#   button.
+#   'kill'按鈕的阻值範圍。
+#   在使用模擬按鈕時必須提供由逗號分隔最小和最大值。
 ```
 
-### hd44780 display
+### hd44780顯示器
 
-Information on configuring hd44780 displays (which is used in "RepRapDiscount 2004 Smart Controller" type displays).
+有關配置 hd44780 顯示器（在"RepRapDiscount 2004 Smart Controller"型別顯示屏中可以找到）的資訊。
 
 ```
 [display]
 lcd_type: hd44780
-#   Set to "hd44780" for hd44780 displays.
+#   對於hd44780顯示屏，填寫 "hd44780"。
 rs_pin:
 e_pin:
 d4_pin:
 d5_pin:
 d6_pin:
 d7_pin:
-#   The pins connected to an hd44780 type lcd. These parameters must
-#   be provided.
+#   連線到hd44780 類LCD的引腳。
+#   必須提供這些參數
 #hd44780_protocol_init: True
-#   Perform 8-bit/4-bit protocol initialization on an hd44780 display.
-#   This is necessary on real hd44780 devices. However, one may need
-#   to disable this on some "clone" devices. The default is True.
+#   在一個 hd44780 顯示器上執行 8-bit/4-bit 協議初始化。對於所有
+#   正版的 hd44780 裝置，這是必須的。但是，在一些克隆的裝置上
+#   可能需要禁用。
+#   預設為True（啟用）。
 #line_length:
-#   Set the number of characters per line for an hd44780 type lcd.
-#   Possible values are 20 (default) and 16. The number of lines is
-#   fixed to 4.
+#   設定 hd44780 類LCD 每行顯示的字元數。可能的數值有20（預設）
+#   和16。行數被鎖定為4行。
 ...
 ```
 
-### hd44780_spi display
+### hd44780_spi顯示器
 
-Information on configuring an hd44780_spi display - a 20x04 display controlled via a hardware "shift register" (which is used in mightyboard based printers).
+有關配置 hd44780_spi 顯示屏的資訊 - 通過硬體"移位暫存器"（用於基於 mightyboard 的印表機）控制的20x04顯示器。
 
 ```
 [display]
 lcd_type: hd44780_spi
-#   Set to "hd44780_spi" for hd44780_spi displays.
+#   對於hd44780_spi 顯示器，設定為「hd44780_spi」。
 latch_pin:
 spi_software_sclk_pin:
 spi_software_mosi_pin:
 spi_software_miso_pin:
-#   The pins connected to the shift register controlling the display.
-#   The spi_software_miso_pin needs to be set to an unused pin of the
-#   printer mainboard as the shift register does not have a MISO pin,
-#   but the software spi implementation requires this pin to be
-#   configured.
+#   控制顯示器的移位暫存器的引腳。由於位移暫存器沒有 MISO 引
+#   腳，但是軟體 SPI 實現需要這個引腳被配置，
+#   spi_software_miso_pin 需要被設定為一個印表機主板上未被使
+#   用的引腳。
 #hd44780_protocol_init: True
-#   Perform 8-bit/4-bit protocol initialization on an hd44780 display.
-#   This is necessary on real hd44780 devices. However, one may need
-#   to disable this on some "clone" devices. The default is True.
+#   在 hd44780 顯示器上執行 8-bit/4-bit 協議初始化。正版的
+#   hd44780 裝置必須執行此操作，但是某些克隆裝置上可能需要
+#   禁用。
+#   預設為True（啟用）。
 #line_length:
-#   Set the number of characters per line for an hd44780 type lcd.
-#   Possible values are 20 (default) and 16. The number of lines is
-#   fixed to 4.
+#   設定一個 hd44780 類 LCD 每行顯示的字元數量。可能的值為20
+#   （預設）和 16。行數固定為4。
 ...
 ```
 
 ### st7920 display
 
-Information on configuring st7920 displays (which is used in "RepRapDiscount 12864 Full Graphic Smart Controller" type displays).
+有關配置 st7920 類顯示屏的資訊（可用於 "RepRapDiscount 12864 Full Graphic Smart Controller" 型別的顯示器）。
 
 ```
 [display]
 lcd_type: st7920
-#   Set to "st7920" for st7920 displays.
+#   為st7920顯示器設定為 "st7920"。
 cs_pin:
 sclk_pin:
 sid_pin:
-#   The pins connected to an st7920 type lcd. These parameters must be
-#   provided.
+#   連線到 st7920 類LCD的引腳。
+#   這些參數必須被提供。
 ...
 ```
 
-### emulated_st7920 display
+### emulated_st7920（模擬ST7920）顯示屏
 
-Information on configuring an emulated st7920 display - found in some "2.4 inch touchscreen devices" and similar.
+有關配置模擬 st7920 顯示屏的資訊 —它可以在一些"2.4 寸觸控式螢幕"和其他類似裝置中找到。
 
 ```
 [display]
 lcd_type: emulated_st7920
-#   Set to "emulated_st7920" for emulated_st7920 displays.
+#   對於 emulated_st7920 顯示屏，設定為"emulated_st7920"。
 en_pin:
 spi_software_sclk_pin:
 spi_software_mosi_pin:
 spi_software_miso_pin:
-#   The pins connected to an emulated_st7920 type lcd. The en_pin
-#   corresponds to the cs_pin of the st7920 type lcd,
-#   spi_software_sclk_pin corresponds to sclk_pin and
-#   spi_software_mosi_pin corresponds to sid_pin. The
-#   spi_software_miso_pin needs to be set to an unused pin of the
-#   printer mainboard as the st7920 as no MISO pin but the software
-#   spi implementation requires this pin to be configured.
+#   連線到 emulated_st7920 類LCD的引腳。 en_pin 對應
+#   st7920 類LCD的 cs_pin。spi_software_sclk_pin 對應 sclk_pin，
+#   還有 spi_software_mosi_pin 對應 sid_pin。由於軟體SPI實現
+#   的方式，雖然 ST7920 不使用 MISO 引腳， 依舊需要將
+#   spi_software_miso_pin設為一個印表機控制板上一個沒有被
+#   使用的引腳。
 ...
 ```
 
 ### uc1701 display
 
-Information on configuring uc1701 displays (which is used in "MKS Mini 12864" type displays).
+有關配置 uc1701 顯示屏的資訊（用於「MKS Mini 12864」型顯示屏）。
 
 ```
 [display]
 lcd_type: uc1701
-#   Set to "uc1701" for uc1701 displays.
+#   uc1701 顯示屏應設為"uc1701"。
 cs_pin:
 a0_pin:
-#   The pins connected to a uc1701 type lcd. These parameters must be
-#   provided.
+#   連線到 uc1701 類LCD的引腳。
+#   必須提供這些參數。
 #rst_pin:
-#   The pin connected to the "rst" pin on the lcd. If it is not
-#   specified then the hardware must have a pull-up on the
-#   corresponding lcd line.
+#   連線到 LCD "rst" 的引腳。 如果沒有定義，則硬體必須在LCD
+#   相應的線路上帶一個LCD引腳。
 #contrast:
-#   The contrast to set. The value may range from 0 to 63 and the
-#   default is 40.
+#   顯示屏的對比度。必須在0和63之間。
+#   預設為40。
 ...
 ```
 
 ### ssd1306 and sh1106 displays
 
-Information on configuring ssd1306 and sh1106 displays.
+ssd1306 和 sh1106 顯示屏的配置資訊。
 
 ```
 [display]
 lcd_type:
-#   Set to either "ssd1306" or "sh1106" for the given display type.
+#   對於給定的顯示屏型別，設定為 「ssd1306" 或 "sh1106"。
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   Optional parameters available for displays connected via an i2c
-#   bus. See the "common I2C settings" section for a description of
-#   the above parameters.
+#   連線到I2C匯流排的顯示屏的可選參數， 以上參數詳見通
+#   用 I2C 設定章節。
 #cs_pin:
 #dc_pin:
 #spi_speed:
@@ -3151,27 +3090,25 @@ lcd_type:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   The pins connected to the lcd when in "4-wire" spi mode. See the
-#   "common SPI settings" section for a description of the parameters
-#   that start with "spi_". The default is to use i2c mode for the
-#   display.
+#   使用4線 SPI 模式時連線到 lcd 的引腳。以 "spi_" 開頭的
+#   參數詳見 「通用 SPI 設定」 章節。
+#   顯示屏預設使用 I2C 模式
 #reset_pin:
-#   A reset pin may be specified on the display. If it is not
-#   specified then the hardware must have a pull-up on the
-#   corresponding lcd line.
+#   可以指定一個顯示屏上的重置引腳，如果不指定，硬體
+#   必須在相應的 lcd 線路上有一個拉高電阻。
 #contrast:
-#   The contrast to set. The value may range from 0 to 256 and the
-#   default is 239.
+#   可設定的對比度。
+#   數值必須在 0 和 256 之間，預設為 239。
 #vcomh: 0
-#   Set the Vcomh value on the display. This value is associated with
-#   a "smearing" effect on some OLED displays. The value may range
-#   from 0 to 63. Default is 0.
+#   設定顯示屏的 Vcomh 值。這個值與一些OLED顯示屏的
+#   模糊效果有關。這個數值可以在 0 和 63 之間。
+#   預設為0。
 #invert: False
-#   TRUE inverts the pixels on certain OLED displays.  The default is
-#   False.
+#   TRUE 可以在一些OLED顯示屏上反轉畫素
+#   預設為 False。
 #x_offset: 0
-#   Set the horizontal offset value on SH1106 displays. The default is
-#   0.
+#   設定在 SH1106 顯示屏上的水平偏移。
+#   預設為0。
 ...
 ```
 
@@ -3179,214 +3116,204 @@ lcd_type:
 
 Support for displaying custom data on an lcd screen. One may create any number of display groups and any number of data items under those groups. The display will show all the data items for a given group if the display_group option in the [display] section is set to the given group name.
 
-A [default set of display groups](../klippy/extras/display/display.cfg) are automatically created. One can replace or extend these display_data items by overriding the defaults in the main printer.cfg config file.
+一套[預設顯示組](../klippy/extras/display/display.cfg)將被自動建立。通過覆蓋印表機的 printer.cfg 主配置檔案中的預設值可以替換或擴充套件這些 display_data 項。
 
 ```
 [display_data my_group_name my_data_name]
 position:
-#   Comma separated row and column of the display position that should
-#   be used to display the information. This parameter must be
-#   provided.
+#   用於顯示資訊的螢幕位置，由逗號分隔行與列表示。
+#   這個參數必須被提供。
 text:
-#   The text to show at the given position. This field is evaluated
-#   using command templates (see docs/Command_Templates.md). This
-#   parameter must be provided.
+#   在指定位置顯示的文字。本欄位必須用命令樣板進行評估。
+#   （檢視 docs/Command_Templates.md）。
+#   這個參數必須被提供。
 ```
 
 ## [display_template]
 
-Display data text "macros" (one may define any number of sections with a display_template prefix). This feature allows one to reduce repetitive definitions in display_data sections. One may use the builtin render() function in display_data sections to evaluate a template. For example, if one were to define `[display_template my_template]` then one could use `{ render('my_template') }` in a display_data section.
+顯示數據文字「宏」（可以使用 display_template 字首定義任意數量的部分）。此功能可以幫助減少 display_data 部分中重複的定義。可以使用 display_data 部分中的內建 render() 函式來預覽模板。例如，如果要定義 `[display_template my_template]` 則可以在 display_data 部分使用 `{ render('my_template') }` 。
 
 ```
-[display_template my_template_name]
-#param_<name>:
-#   One may specify any number of options with a "param_" prefix. The
-#   given name will be assigned the given value (parsed as a Python
-#   literal) and will be available during macro expansion. If the
-#   parameter is passed in the call to render() then that value will
-#   be used during macro expansion. For example, a config with
-#   "param_speed = 75" might have a caller with
-#   "render('my_template_name', param_speed=80)". Parameter names may
-#   not use upper case characters.
+[display_template 模版名稱]
+#param_<名稱>:
+#   可以使用"param_"字首定義任意數量的選項。定義的名稱將被
+#   關聯到給定的值（被解析為Python literal）並在macro解釋時可
+#   以被使用。如果參數被render()的呼叫傳入，則這個值會被用於
+#   宏擴充套件。例如，配置 "param_speed = 75" 允許呼叫
+#   "render('my_template_name', param_speed=80)"。
+#   參數名不能包含大寫字元。
 #text:
-#   The text to return when the render() function is called for this
-#   template. This field is evaluated using command templates (see
-#   docs/Command_Templates.md). This parameter must be provided.
+#   當 render() 函式因為這個模板被呼叫時會顯示的文字。這個
+#   欄位使用命令模板（請見docs/Command_Templates.md）。
+#   必須提供此參數。
 ```
 
 ## [display_glyph]
 
-Display a custom glyph on displays that support it. The given name will be assigned the given display data which can then be referenced in the display templates by their name surrounded by two "tilde" symbols i.e. `~my_display_glyph~`
+在支援自定義字形的顯示器上顯示一個自定義字形。給定的名稱將被分配給給定的顯示數據，然後可以在顯示模板中通過用「波浪形（～）」符號包圍的名稱來引用，即 `~my_display_glyph~` 。
 
 See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples.
 
 ```
 [display_glyph my_display_glyph]
 #data:
-#   The display data, stored as 16 lines consisting of 16 bits (1 per
-#   pixel) where '.' is a blank pixel and '*' is an on pixel (e.g.,
-#   "****************" to display a solid horizontal line).
-#   Alternatively, one can use '0' for a blank pixel and '1' for an on
-#   pixel. Put each display line into a separate config line. The
-#   glyph must consist of exactly 16 lines with 16 bits each. This
-#   parameter is optional.
+#   被儲存為16 行，每行 16 位（1位代表1個畫素）的顯示數據。「.」是一個
+#   空白的畫素，而『*』是一個開啟的畫素（例如，"****************"
+#   可以用來顯示一條橫向的實線。除此以外，也可以用「0」作為空
+#   白的畫素，而『1』作為開啟的畫素。需要將每個顯示的行放到配置檔案
+#   中獨立的一行。每個字形都必須包含且僅包含 16 行，每行 16 位。
+#   這是一個可選參數。
 #hd44780_data:
-#   Glyph to use on 20x4 hd44780 displays. The glyph must consist of
-#   exactly 8 lines with 5 bits each. This parameter is optional.
+#   用於 20x4 hd44780 顯示屏的字形。字形必須包含且僅包含 8 行，
+#   每行 5 位。
+#   這是一個可選參數。
 #hd44780_slot:
-#   The hd44780 hardware index (0..7) to store the glyph at. If
-#   multiple distinct images use the same slot then make sure to only
-#   use one of those images in any given screen. This parameter is
-#   required if hd44780_data is specified.
+#   用於儲存字形的 hd44780 硬體索引（0..7）。如果多個獨特的圖片使用
+#   了相同的索引位置，需要保證在任何螢幕上只使用其中一個圖片。
+#   如果定義了 hd44780_data ，則必須提供此參數。
 ```
 
 ## [display my_extra_display]
 
-If a primary [display] section has been defined in printer.cfg as shown above it is possible to define multiple auxiliary displays. Note that auxiliary displays do not currently support menu functionality, thus they do not support the "menu" options or button configuration.
+如果如上所示在 printer.cfg 中定義了主要的 [display] 分段，還可以定義多個輔助顯示器。注意，輔助顯示器目前不支援菜單功能，因此它們不支援「menu」選項或按鈕配置。
 
 ```
-[display my_extra_display]
-# See the "display" section for available parameters.
+[display my_extra_display] 。
+#   可用參數參見 "顯示 "分段。
 ```
 
 ## [menu]
 
-Customizable lcd display menus.
+可自定義液晶顯示屏菜單。
 
-A [default set of menus](../klippy/extras/display/menu.cfg) are automatically created. One can replace or extend the menu by overriding the defaults in the main printer.cfg config file.
+一套[預設菜單](../klippy/extras/display/menu.cfg)將被自動建立。通過覆蓋 printer.cfg 主配置檔案中的預設值可以替換或擴充套件該菜單。
 
 See the [command template document](Command_Templates.md#menu-templates) for information on menu attributes available during template rendering.
 
 ```
-# Common parameters available for all menu config sections.
+# 所有的菜單配置分段都有的通用參數。
 #[menu __some_list __some_name]
 #type: disabled
-#   Permanently disabled menu element, only required attribute is 'type'.
-#   Allows you to easily disable/hide existing menu items.
-
+#   永久禁用這個菜單元素，唯一需要的屬性是 "型別"。
+#   允許你簡單啊的禁用/隱藏現有的菜單專案。
 #[menu some_name]
 #type:
-#   One of command, input, list, text:
-#       command - basic menu element with various script triggers
-#       input   - same like 'command' but has value changing capabilities.
-#                 Press will start/stop edit mode.
-#       list    - it allows for menu items to be grouped together in a
-#                 scrollable list.  Add to the list by creating menu
-#                 configurations using "some_list" as a prefix - for
-#                 example: [menu some_list some_item_in_the_list]
-#       vsdlist - same as 'list' but will append files from virtual sdcard
-#                 (will be removed in the future)
+#   command（命令）, input（輸入）, list（列表）, text（文字）之一：
+#       command - 可以觸發各種指令碼的基本菜單元素。
+#       input   - 類似 「command」 但是可以修改數值。
+#                 點選來進入/退出修改模式。
+#       list    - 這允許菜單項被組織成一個可滾動的列表。通過建立由 "some_list"
+#                 開頭的菜單配置 - 例如：[menu some_list some_item_in_the_list]
+#       vsdlist - 和「list」一樣，但是會自動從虛擬SD卡中新增檔案。
+#                 （將在未來被移除）
 #name:
-#   Name of menu item - evaluated as a template.
+#   菜單項的名稱 - 被視為模板
 #enable:
-#   Template that evaluates to True or False.
+#   視為 True 或 False 的模板。
 #index:
-#   Position where an item needs to be inserted in list. By default
-#   the item is added at the end.
+#   專案插入到列表的位置。
+#   預設新增到結尾。
 
 #[menu some_list]
 #type: list
 #name:
 #enable:
-#   See above for a description of these parameters.
+#   見上文對這些參數的描述。
 
 #[menu some_list some_command]
 #type: command
 #name:
 #enable:
-#   See above for a description of these parameters.
+#   見上文對這些參數的描述。
 #gcode:
-#   Script to run on button click or long click. Evaluated as a
-#   template.
-
+#   點選按鈕或長按時執行的G程式碼指令碼。被視為模板。
 #[menu some_list some_input]
 #type: input
 #name:
 #enable:
-#   See above for a description of these parameters.
+#   見上文對這些參數的描述。
 #input:
-#   Initial value to use when editing - evaluated as a template.
-#   Result must be float.
+#   用於修改的初始數值 - 被視為模板。
+#   結果必須為浮點數。
 #input_min:
-#   Minimum value of range - evaluated as a template. Default -99999.
+#   範圍的最小值 - 被視為模板。預設-99999。
 #input_max:
-#   Maximum value of range - evaluated as a template. Default 99999.
+#   範圍的最大值 - 被視為模板。 預設-99999。
 #input_step:
-#   Editing step - Must be a positive integer or float value. It has
-#   internal fast rate step. When "(input_max - input_min) /
-#   input_step > 100" then fast rate step is 10 * input_step else fast
-#   rate step is same input_step.
+#   修改的步長 - 必須是一個正整數或浮點數。它有內建快進
+#   步長。當"(input_max - input_min) /
+#   input_step > 100" 時，快進步長是 10 * input_step， 否則
+#   步長和 input_step 相同。
 #realtime:
-#   This attribute accepts static boolean value. When enabled then
-#   gcode script is run after each value change. The default is False.
+#   此屬性接受靜態布爾值。 在啟用時，G程式碼指令碼將會在每
+#   次數值變化時執行。
+#   預設為False（否）。
 #gcode:
-#   Script to run on button click, long click or value change.
-#   Evaluated as a template. The button click will trigger the edit
-#   mode start or end.
+#   點選按鈕、長按或數值變化時執行的G程式碼指令碼。
+#   被視為模板。點選按鈕會進入或退出修改模式。
 ```
 
-## Filament sensors
+## 耗材感測器
 
 ### [filament_switch_sensor]
 
-Filament Switch Sensor. Support for filament insert and runout detection using a switch sensor, such as an endstop switch.
+耗材開關感測器。支援使用開關感測器（如限位開關）進行耗材插入和耗盡檢測。
 
 See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
 
 ```
-[filament_switch_sensor my_sensor]
+[filament_switch_sensor my_sensor]。
 #pause_on_runout: True
-#   When set to True, a PAUSE will execute immediately after a runout
-#   is detected. Note that if pause_on_runout is False and the
-#   runout_gcode is omitted then runout detection is disabled. Default
-#   is True.
+#   當設定為 "True "時，會在檢測到耗盡后立即暫停印表機。
+#   請注意, 如果 pause_on_runout 為 False 並且沒有定義。
+#   runout_gcode的話, 耗盡檢測將被禁用。
+#   預設為 True。
 #runout_gcode:
-#   A list of G-Code commands to execute after a filament runout is
-#   detected. See docs/Command_Templates.md for G-Code format. If
-#   pause_on_runout is set to True this G-Code will run after the
-#   PAUSE is complete. The default is not to run any G-Code commands.
+#   在檢測到耗材耗盡後會執行的G程式碼命令列表。
+#   有關G-Code 格式請見 docs/Command_Templates.md。
+#   如果 pause_on_runout 被設定為 True，這個G-Code將在
+#   暫停后執行。
+#   預設情況是不執行任何 G-Code 命令。
 #insert_gcode:
-#   A list of G-Code commands to execute after a filament insert is
-#   detected. See docs/Command_Templates.md for G-Code format. The
-#   default is not to run any G-Code commands, which disables insert
-#   detection.
+#   在檢測到耗材插入後會執行的 G-Code 命令列表。
+#   關於G程式碼格式，請參見 docs/Command_Templates.md。
+#   預設不執行任何 G-Code 命令，這將禁用耗材插入檢測。
 #event_delay: 3.0
-#   The minimum amount of time in seconds to delay between events.
-#   Events triggered during this time period will be silently
-#   ignored. The default is 3 seconds.
+#   事件之間的最小延遲時間（秒）。
+#   在這個時間段內觸發的事件將被默許忽略。
+#   預設為3秒。
 #pause_delay: 0.5
-#   The amount of time to delay, in seconds, between the pause command
-#   dispatch and execution of the runout_gcode. It may be useful to
-#   increase this delay if OctoPrint exhibits strange pause behavior.
-#   Default is 0.5 seconds.
+#   暫停命令和執行 runout_gcode 之間的延遲時間, 單位是秒。
+#   如果在OctoPrint的情況下，增加這個延遲可能改善暫
+#   停的可靠性。如果OctoPrint表現出奇怪的暫停行為，
+#   考慮增加這個延遲。
+#   預設為0.5秒。
 #switch_pin:
-#   The pin on which the switch is connected. This parameter must be
-#   provided.
+#   連線到檢測開關的引腳。
+#   必須提供此參數。
 ```
 
 ### [filament_motion_sensor]
 
-Filament Motion Sensor. Support for filament insert and runout detection using an encoder that toggles the output pin during filament movement through the sensor.
+耗材移動感測器。使用一個在耗材通過感測器時輸出引腳狀態會發生變化來檢測耗材插入和耗盡。
 
 See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
 
 ```
 [filament_motion_sensor my_sensor]
 detection_length: 7.0
-#   The minimum length of filament pulled through the sensor to trigger
-#   a state change on the switch_pin
-#   Default is 7 mm.
+#   觸發感測器 switch_pin 引腳狀態變化的最小距離。
+#   預設為 7 mm。
 extruder:
-#   The name of the extruder section this sensor is associated with.
-#   This parameter must be provided.
+#   該感測器相關聯的擠出機。
+#   必須提供此參數。
 switch_pin:
 #pause_on_runout:
 #runout_gcode:
 #insert_gcode:
 #event_delay:
 #pause_delay:
-#   See the "filament_switch_sensor" section for a description of the
-#   above parameters.
+#   以上參數詳見「filament_switch_sensor」章節。
 ```
 
 ### [tsl1401cl_filament_width_sensor]
@@ -3405,64 +3332,63 @@ TSLl401CL Based Filament Width Sensor. See the [guide](TSL1401CL_Filament_Width_
 
 ### [hall_filament_width_sensor]
 
-Hall filament width sensor (see [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)).
+霍爾耗材寬度感測器（詳見[霍爾耗材寬度感測器](Hall_Filament_Width_Sensor.md)）。
 
 ```
 [hall_filament_width_sensor]
 adc1:
 adc2:
-#   Analog input pins connected to the sensor. These parameters must
-#   be provided.
+#   連線到感測器的模擬輸入引腳。
+#   必須提供這些參數。
 #cal_dia1: 1.50
 #cal_dia2: 2.00
-#   The calibration values (in mm) for the sensors. The default is
-#   1.50 for cal_dia1 and 2.00 for cal_dia2.
+#   感測器的校準值（單位：毫米）。
+#   預設 cal_dia1 為1.50，cal_dia2 為 2.00。
 #raw_dia1: 9500
 #raw_dia2: 10500
-#   The raw calibration values for the sensors. The default is 9500
-#   for raw_dia1 and 10500 for raw_dia2.
+#   感測器的原始校準值。預設raw_dial1 為 9500
+#   而 raw_dia2 為 10500。
 #default_nominal_filament_diameter: 1.75
-#   The nominal filament diameter. This parameter must be provided.
+#   標稱耗材直徑。
+#   必須提供此參數。
 #max_difference: 0.200
-#   Maximum allowed filament diameter difference in millimeters (mm).
-#   If difference between nominal filament diameter and sensor output
-#   is more than +- max_difference, extrusion multiplier is set back
-#   to %100. The default is 0.200.
+#   允許的耗材最大直徑差異，單位是毫米（mm）。
+#   如果耗材標稱直徑和感測器輸出之間的差異
+#   超過正負 max_difference，擠出倍數將被設回
+#   到100%。
+#   預設為0.200。
 #measurement_delay: 70
-#   The distance from sensor to the melting chamber/hot-end in
-#   millimeters (mm). The filament between the sensor and the hot-end
-#   will be treated as the default_nominal_filament_diameter. Host
-#   module works with FIFO logic. It keeps each sensor value and
-#   position in an array and POP them back in correct position. This
-#   parameter must be provided.
-#enable: False
-#   Sensor enabled or disabled after power on. The default is to
-#   disable.
+#   從感測器到熔腔/熱端的距離，單位是毫米 (mm)。
+#   感測器和熱端之間的耗材將被視為標稱直徑。主機
+#   模組採用先進先出的邏輯工作。它將每個感測器的值和
+#   位置在一個陣列中，並會在正確的位置使用感測器值。
+#   必須提供這個參數。
+#enable:False
+#   感測器在開機后啟用或禁用。
+#   預設是 False。
 #measurement_interval: 10
-#   The approximate distance (in mm) between sensor readings. The
-#   default is 10mm.
-#logging: False
-#   Out diameter to terminal and klipper.log can be turn on|of by
-#   command.
+#   感測器讀數之間的近似距離(mm)。
+#   預設為10mm。
+#logging:False
+#   輸出直徑到終端和 klipper.log，可以通過命令啟用或禁用。
 #min_diameter: 1.0
-#   Minimal diameter for trigger virtual filament_switch_sensor.
+#   觸發虛擬 filament_switch_sensor 的最小直徑。
 #use_current_dia_while_delay: False
-#   Use the current diameter instead of the nominal diameter while
-#   the measurement delay has not run through.
+#   在未被測量的 measurement_delay 部分耗材使用目前耗材
+#   感測器報告的直徑而不是標稱直徑。
 #pause_on_runout:
 #runout_gcode:
 #insert_gcode:
 #event_delay:
 #pause_delay:
-#   See the "filament_switch_sensor" section for a description of the
-#   above parameters.
+#   關於上述參數的描述請參見"filament_switch_sensor"章節。
 ```
 
-## Board specific hardware support
+## 控制板特定硬體支援
 
 ### [sx1509]
 
-Configure an SX1509 I2C to GPIO expander. Due to the delay incurred by I2C communication you should NOT use SX1509 pins as stepper enable, step or dir pins or any other pin that requires fast bit-banging. They are best used as static or gcode controlled digital outputs or hardware-pwm pins for e.g. fans. One may define any number of sections with an "sx1509" prefix. Each expander provides a set of 16 pins (sx1509_my_sx1509:PIN_0 to sx1509_my_sx1509:PIN_15) which can be used in the printer configuration.
+將一個 SX1509 I2C 配置為 GPIO 擴充套件器。由於 I2C 通訊本身的延遲，不應將 SX1509 引腳用作步進電機的 enable （啟用)、step（步進）或 dir （方向）引腳或任何其他需要快速 bit-banging（位拆裂）的引腳。它們最適合用作靜態或G程式碼控制的數字輸出或硬體 pwm 引腳，例如風扇。可以使用「sx1509」字首定義任意數量的分段。每個擴充套件器提供可用於印表機配置的一組 16 個引腳（sx1509_my_sx1509:PIN_0 到 sx1509_my_sx1509:PIN_15）。
 
 See the [generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg) file for an example.
 
@@ -3510,22 +3436,19 @@ clk_pin:
 
 ### [adc_scaled]
 
-Duet2 Maestro analog scaling by vref and vssa readings. Defining an adc_scaled section enables virtual adc pins (such as "my_name:PB0") that are automatically adjusted by the board's vref and vssa monitoring pins. Be sure to define this config section above any config sections that use one these virtual pins.
+Duet 2 Maestro 通過vref和vssa讀數進行模擬縮放。定義一個adc_scaled分段來啟用根據板載vref和vssa監視引腳調節的虛擬adc引腳（例如「my_name:PB0"）。虛擬引腳必須先被Duet 2 Maestro 通過vref和vssa讀數進行模擬縮放。定義一個adc_scaled分段來啟用根據板載vref和vssa監視引腳調節的虛擬adc引腳（例如「my_name:PB0"）。虛擬引腳必須先被定義才能用在其他配置分段中。
 
 See the [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) file for an example.
 
 ```
 [adc_scaled my_name]
 vref_pin:
-#   The ADC pin to use for VREF monitoring. This parameter must be
-#   provided.
+#   用於監測 VREF 的 ADC 引腳。這個參數必須被提供。
 vssa_pin:
-#   The ADC pin to use for VSSA monitoring. This parameter must be
-#   provided.
+#   用於監測 VSSA 的 ADC 引腳。這個參數必須被提供。
 #smooth_time: 2.0
-#   A time value (in seconds) over which the vref and vssa
-#   measurements will be smoothed to reduce the impact of measurement
-#   noise. The default is 2 seconds.
+#   一個時間參數（以秒為計）區間用於平滑 VREF 和
+#   VSSA 測量來減少測量的干擾。預設為2秒。
 ```
 
 ### [replicape]
@@ -3592,37 +3515,40 @@ host_mcu:
 #   (True sets CFG5 high, False sets it low). The default is True.
 ```
 
-## Other Custom Modules
+## 其他自定義模組
 
 ### [palette2]
 
-Palette 2 multimaterial support - provides a tighter integration supporting Palette 2 devices in connected mode.
+Palette 2 多材料支援 - 提供更緊密的整合，支援處於連線模式的 Palette 2 裝置。
 
 This modules also requires `[virtual_sdcard]` and `[pause_resume]` for full functionality.
 
-If you use this module, do not use the Palette 2 plugin for Octoprint as they will conflict, and 1 will fail to initialize properly likely aborting your print.
+不要和 Octoprint 的 Palette 2外掛一起使用這個模組，因為它們會發生衝突，造成初始化和列印失敗。
 
-If you use Octoprint and stream gcode over the serial port instead of printing from virtual_sd, then remo **M1** and **M0** from *Pausing commands* in *Settings > Serial Connection > Firmware & protocol* will prevent the need to start print on the Palette 2 and unpausing in Octoprint for your print to begin.
+如果使用 OctoPrint 並通過串列埠流式傳輸 G-Code，而不通過 virtual_sd 列印，將 * 設定>序列連線>韌體和協議 * 中的「暫停命令」 設定為**M1** 和 **M0** 可以避免在開始列印時需要在Palette 2 上選擇開始列印並在 OctoPrint 中取消暫停。
 
 ```
 [palette2]
 serial:
-#   The serial port to connect to the Palette 2.
+#   連線到 Palette 2 的串列埠。
 #baud: 115200
-#   The baud rate to use. The default is 115200.
+#   使用的波特率。
+#   預設為115200。
 #feedrate_splice: 0.8
-#   The feedrate to use when splicing, default is 0.8
+#   融接時的給進率
+#   預設為0.8。
 #feedrate_normal: 1.0
-#   The feedrate to use after splicing, default is 1.0
+#   不在融接時的給進率 1.0
 #auto_load_speed: 2
-#   Extrude feedrate when autoloading, default is 2 (mm/s)
+#   自動換料時的給近率
+#   預設 2 (mm/s)
 #auto_cancel_variation: 0.1
-#   Auto cancel print when ping varation is above this threshold
+#   # 當 ping 值變化高於此閾值時自動取消列印
 ```
 
-## Common bus parameters
+## 通用匯流排參數
 
-### Common SPI settings
+### 常見 SPI 設定
 
 The following parameters are generally available for devices using an SPI bus.
 
@@ -3643,23 +3569,22 @@ The following parameters are generally available for devices using an SPI bus.
 #   "software spi".
 ```
 
-### Common I2C settings
+### 通用 I2C 設定
 
 The following parameters are generally available for devices using an I2C bus.
 
 ```
 #i2c_address:
-#   The i2c address of the device. This must specified as a decimal
-#   number (not in hex). The default depends on the type of device.
+#   裝置的 I2C 地址。必須是一個十進制數字（而不是十六進制）。
+#   預設值取決於裝置的型別。
 #i2c_mcu:
-#   The name of the micro-controller that the chip is connected to.
-#   The default is "mcu".
+#   晶片所連線的微控制器的名稱。
+#   預設為"mcu"。
 #i2c_bus:
-#   If the micro-controller supports multiple I2C busses then one may
-#   specify the micro-controller bus name here. The default depends on
-#   the type of micro-controller.
+# 如果微控制器支援多個 I2C 匯流排，可以指定微控制器的匯流排名稱。
+#   預設值取決於微控制器的型別。
 #i2c_speed:
-#   The I2C speed (in Hz) to use when communicating with the device.
-#   On some micro-controllers changing this value has no effect. The
-#   default is 100000.
+#   與裝置通訊時使用的I2C速度（Hz）。在某些微控制器上，
+#   該數值無效。
+#   預設值是預設為100000。
 ```
