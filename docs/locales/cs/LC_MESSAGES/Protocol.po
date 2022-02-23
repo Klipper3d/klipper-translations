@@ -1,9 +1,16 @@
-#
+# Vojtech Horvath <wojtas@email.cz>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-02-23 05:12+0000\n"
+"Last-Translator: Vojtech Horvath <wojtas@email.cz>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/protocol/"
+"cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "The Klipper messaging protocol is used for low-level communication between "
@@ -468,4 +475,4 @@ msgstr ""
 
 #: docs/Protocol.md:block 1 (header)
 msgid "Protocol"
-msgstr ""
+msgstr "Protokol"
