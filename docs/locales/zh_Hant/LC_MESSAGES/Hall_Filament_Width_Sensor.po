@@ -1,9 +1,9 @@
-# Fred Chan <fred2088@gmail.com>, 2022.
+# Fred Chan <fred2088@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:31+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Fred Chan <fred2088@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/klipper/hall_filament_width_sensor/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -62,7 +62,9 @@ msgid ""
 "**DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at "
 "power-on, set the `logging` parameter to `true`."
 msgstr ""
-"發送**ENABLE_FILAMENT_WIDTH_LOG**命令開始記錄，發送**DISABLE_FILAMENT_WIDTH_LOG**命令停止記錄。如果想在開機時啟用日誌記錄，請將`logging`配置參數設定為`true`。"
+"發送**ENABLE_FILAMENT_WIDTH_LOG**命令開始記錄，發送**DISABLE_FILAMENT_WIDTH_L"
+"OG**命令停止記錄。如果想在開機時啟用日誌記錄，請將`logging`配置參數設定為`tru"
+"e`。"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 31 (paragraph)
 msgid ""
@@ -75,13 +77,16 @@ msgid ""
 "[Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video is"
 " also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
-"你可以在[Thingiverse](https://www.thingiverse.com/thing:4138933)上找到設計，在[Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)上也有一個裝配視訊"
+"你可以在[Thingiverse](https://www.thingiverse.com/"
+"thing:4138933)上找到設計，在[Youtube](https://www.youtube.com/"
+"watch?v=TDO9tME8vp4)上也有一個裝配視訊"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 10 (paragraph)
 msgid ""
 "To get raw sensor value you can use menu item or **QUERY_RAW_FILAMENT_WIDTH** "
 "command in terminal."
-msgstr "要獲得原始感測器值，你可以使用菜單中的選項或在終端發送**QUERY_RAW_FILAMENT_WIDTH**命令。"
+msgstr "要獲得原始感測器值，你可以使用菜單中的選項或在終端發送**QUERY_RAW_FILAMENT_WI"
+"DTH**命令。"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 4 (paragraph)
 msgid ""
@@ -89,14 +94,16 @@ msgid ""
 "Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
 "documentation](G-Codes.md#hall_filament_width_sensor)."
 msgstr ""
-"要使用霍爾耗材線徑感測器，請閱讀[配置參考](Config_Reference.md#hall_filament_width_sensor)和[G-Code"
-" 文件](G-Codes.md#hall_filament_width_sensor)。"
+"要使用霍爾耗材線徑感測器，請閱讀[配置參考]"
+"(Config_Reference.md#hall_filament_width_sensor)和[G-Code 文件]"
+"(G-Codes.md#hall_filament_width_sensor)。"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 14 (paragraph)
 msgid ""
 "To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
 "the `enable` parameter to `true`."
-msgstr "要啟用感測器，發送**ENABLE_FILAMENT_WIDTH_SENSOR**命令或將`enable`參數改為`true`。"
+msgstr "要啟用感測器，發送**ENABLE_FILAMENT_WIDTH_SENSOR**命令或將`enable`參數改為`tr"
+"ue`。"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 2 (paragraph)
 msgid ""
