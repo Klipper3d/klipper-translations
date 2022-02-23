@@ -1,4 +1,4 @@
-# Snímač šířky filamentu TSL1401CL
+# TSL1401CL filament width sensor
 
 This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on TSL1401CL linear sensor array but it can work with any sensor array that has analog output. You can find designs at [Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor).
 

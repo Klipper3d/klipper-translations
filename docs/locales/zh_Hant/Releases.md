@@ -1,4 +1,4 @@
-# Vydání
+# Releases
 
 History of Klipper releases. Please see [installation](Installation.md) for information on installing Klipper.
 
