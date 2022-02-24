@@ -14,6 +14,14 @@ If you are a translation contributor, you can create a pull request to update th
 
 ### This is very early beta documentation!
 
+## Traditional Chinese 繁體中文
+
+狀態：進行中(Last updated 2022-02-24)
+
+[Klipper繁體中文檔案](https://github.com/KevinOConnor/klipper-translations/tree/translations/docs/locales/zh-hant)
+
+http://www.facebook.com/HKMakers.hk
+
 ## Simplified Chinese 简体中文
 
 ### 这是测试版文档！
