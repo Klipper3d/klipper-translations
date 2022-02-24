@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-23 12:56+0000\n"
+"PO-Revision-Date: 2022-02-24 08:58+0000\n"
 "Last-Translator: Fred Chan <fred2088@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "klipper/config_reference/zh_Hant/>\n"
@@ -382,7 +382,7 @@ msgid "Optional G-Code features"
 msgstr "可選的 G-Code 特性"
 
 msgid "[virtual_sdcard]"
-msgstr ""
+msgstr "[virtual_sdcard]"
 
 msgid ""
 "A virtual sdcard may be useful if the host machine is not fast enough to run"

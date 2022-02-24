@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-23 12:56+0000\n"
+"PO-Revision-Date: 2022-02-24 08:58+0000\n"
 "Last-Translator: Fred Chan <fred2088@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "klipper/api_server/zh_Hant/>\n"
@@ -209,7 +209,7 @@ msgid ""
 msgstr ""
 
 msgid "emergency_stop"
-msgstr ""
+msgstr "emergency_stop"
 
 msgid ""
 "The \"emergency_stop\" endpoint is used to instruct Klipper to transition to"
@@ -218,7 +218,7 @@ msgid ""
 msgstr ""
 
 msgid "register_remote_method"
-msgstr ""
+msgstr "register_remote_method"
 
 msgid ""
 "This endpoint allows clients to register methods that can be called from "
@@ -245,7 +245,7 @@ msgid ""
 msgstr ""
 
 msgid "objects/list"
-msgstr ""
+msgstr "objects/list"
 
 msgid ""
 "This endpoint queries the list of available printer \"objects\" that one may"
@@ -256,7 +256,7 @@ msgid ""
 msgstr ""
 
 msgid "objects/query"
-msgstr ""
+msgstr "objects/query"
 
 msgid ""
 "This endpoint allows one to query information from printer objects. For "
@@ -288,7 +288,7 @@ msgid ""
 msgstr ""
 
 msgid "objects/subscribe"
-msgstr ""
+msgstr "objects/subscribe"
 
 msgid ""
 "This endpoint allows one to query and then subscribe to information from "
@@ -304,7 +304,7 @@ msgid ""
 msgstr ""
 
 msgid "gcode/help"
-msgstr ""
+msgstr "gcode/help"
 
 msgid ""
 "This endpoint allows one to query available G-Code commands that have a help"
@@ -315,7 +315,7 @@ msgid ""
 msgstr ""
 
 msgid "gcode/script"
-msgstr ""
+msgstr "gcode/script"
 
 msgid ""
 "This endpoint allows one to run a series of G-Code commands. For example: "
@@ -338,7 +338,7 @@ msgid ""
 msgstr ""
 
 msgid "gcode/restart"
-msgstr ""
+msgstr "gcode/restart"
 
 msgid ""
 "This endpoint allows one to request a restart - it is similar to running the"
@@ -352,7 +352,7 @@ msgid ""
 msgstr ""
 
 msgid "gcode/firmware_restart"
-msgstr ""
+msgstr "gcode/firmware_restart"
 
 msgid ""
 "This is similar to the \"gcode/restart\" endpoint - it implements the G-Code"
@@ -379,7 +379,7 @@ msgid ""
 msgstr ""
 
 msgid "pause_resume/cancel"
-msgstr ""
+msgstr "pause_resume/cancel"
 
 msgid ""
 "This endpoint is similar to running the \"PRINT_CANCEL\" G-Code command. For"
@@ -387,7 +387,7 @@ msgid ""
 msgstr ""
 
 msgid "pause_resume/pause"
-msgstr ""
+msgstr "pause_resume/pause"
 
 msgid ""
 "This endpoint is similar to running the \"PAUSE\" G-Code command. For "
@@ -395,7 +395,7 @@ msgid ""
 msgstr ""
 
 msgid "pause_resume/resume"
-msgstr ""
+msgstr "pause_resume/resume"
 
 msgid ""
 "This endpoint is similar to running the \"RESUME\" G-Code command. For "
@@ -403,7 +403,7 @@ msgid ""
 msgstr ""
 
 msgid "query_endstops/status"
-msgstr ""
+msgstr "query_endstops/status"
 
 msgid ""
 "This endpoint will query the active endpoints and return their status. For "
@@ -416,12 +416,14 @@ msgid ""
 "~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a "
 "/tmp/klippy_uds -l /tmp/klippy.log\n"
 msgstr ""
+"~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/"
+"klippy_uds -l /tmp/klippy.log\n"
 
 msgid "<json_object_1><0x03><json_object_2><0x03>...\n"
-msgstr ""
+msgstr "<json_object_1><0x03><json_object_2><0x03>...\n"
 
 msgid "~/klipper/scripts/whconsole.py /tmp/klippy_uds\n"
-msgstr ""
+msgstr "~/klipper/scripts/whconsole.py /tmp/klippy_uds\n"
 
 msgid ""
 "[gcode_macro PANELDUE_BEEP]\n"
@@ -435,7 +437,7 @@ msgstr "API 伺服器"
 
 #: docs/API_Server.md:block 71 (header)
 msgid "motion_report/dump_stepper"
-msgstr ""
+msgstr "motion_report/dump_stepper"
 
 #: docs/API_Server.md:block 72 (paragraph)
 msgid ""
@@ -467,7 +469,7 @@ msgstr ""
 
 #: docs/API_Server.md:block 75 (header)
 msgid "motion_report/dump_trapq"
-msgstr ""
+msgstr "motion_report/dump_trapq"
 
 #: docs/API_Server.md:block 76 (paragraph)
 msgid ""
@@ -491,7 +493,7 @@ msgstr ""
 
 #: docs/API_Server.md:block 79 (header)
 msgid "adxl345/dump_adxl345"
-msgstr ""
+msgstr "adxl345/dump_adxl345"
 
 #: docs/API_Server.md:block 80 (paragraph)
 msgid ""
