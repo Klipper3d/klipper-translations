@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-23 12:56+0000\n"
+"PO-Revision-Date: 2022-02-24 08:58+0000\n"
 "Last-Translator: Fred Chan <fred2088@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "klipper/g-codes/zh_Hant/>\n"
@@ -1069,7 +1069,7 @@ msgstr "[adxl345]"
 msgid ""
 "The following commands are available when an [adxl345 config "
 "section](Config_Reference.md#adxl345) is enabled."
-msgstr ""
+msgstr "當[adxl345配置分段](Config_Reference.md#adxl345)被啟用時，以下命令可用."
 
 #: docs/G-Codes.md:block 14 (header)
 msgid "ACCELEROMETER_MEASURE"
@@ -1222,7 +1222,7 @@ msgstr "[configfile]"
 
 #: docs/G-Codes.md:block 51 (paragraph)
 msgid "The configfile module is automatically loaded."
-msgstr "configfile模組被自動載入."
+msgstr "模組configfile已自動載入."
 
 #: docs/G-Codes.md:block 52 (header)
 msgid "SAVE_CONFIG"
@@ -1241,7 +1241,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 56 (header)
 msgid "UPDATE_DELAYED_GCODE"
-msgstr ""
+msgstr "UPDATE_DELAYED_GCODE"
 
 #: docs/G-Codes.md:block 58 (header)
 msgid "[delta_calibrate]"
@@ -1373,7 +1373,7 @@ msgstr "SET_EXTRUDER_STEP_DISTANCE"
 
 #: docs/G-Codes.md:block 90 (paragraph)
 msgid "This command is deprecated and will be removed in the near future."
-msgstr ""
+msgstr "此命令已棄用，並將在不久的將來被刪除。"
 
 #: docs/G-Codes.md:block 91 (header)
 msgid "SYNC_STEPPER_TO_EXTRUDER"
@@ -1484,7 +1484,7 @@ msgstr "[gcode]"
 
 #: docs/G-Codes.md:block 123 (paragraph)
 msgid "The gcode module is automatically loaded."
-msgstr ""
+msgstr "模組gcode module已自動載入."
 
 #: docs/G-Codes.md:block 124 (header)
 msgid "RESTART"
@@ -1527,7 +1527,7 @@ msgstr "[gcode_move]"
 
 #: docs/G-Codes.md:block 140 (paragraph)
 msgid "The gcode_move module is automatically loaded."
-msgstr ""
+msgstr "模組gcode_move 已自動載入."
 
 #: docs/G-Codes.md:block 141 (header)
 msgid "GET_POSITION"
@@ -1635,7 +1635,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 167 (header)
 msgid "TURN_OFF_HEATERS"
-msgstr ""
+msgstr "TURN_OFF_HEATERS"
 
 #: docs/G-Codes.md:block 169 (header)
 msgid "TEMPERATURE_WAIT"
@@ -1651,7 +1651,7 @@ msgstr "[idle_timeout]"
 
 #: docs/G-Codes.md:block 174 (paragraph)
 msgid "The idle_timeout module is automatically loaded."
-msgstr ""
+msgstr "模組idle_timeout已自動載入."
 
 #: docs/G-Codes.md:block 175 (header)
 msgid "SET_IDLE_TIMEOUT"
@@ -1678,7 +1678,7 @@ msgstr "[manual_probe]"
 
 #: docs/G-Codes.md:block 182 (paragraph)
 msgid "The manual_probe module is automatically loaded."
-msgstr ""
+msgstr "模組manual_probe已自動載入."
 
 #: docs/G-Codes.md:block 183 (header)
 msgid "MANUAL_PROBE"
@@ -1686,11 +1686,11 @@ msgstr "MANUAL_PROBE"
 
 #: docs/G-Codes.md:block 186 (header)
 msgid "Z_ENDSTOP_CALIBRATE"
-msgstr ""
+msgstr "Z_ENDSTOP_CALIBRATE"
 
 #: docs/G-Codes.md:block 188 (header)
 msgid "Z_OFFSET_APPLY_ENDSTOP"
-msgstr ""
+msgstr "Z_OFFSET_APPLY_ENDSTOP"
 
 #: docs/G-Codes.md:block 190 (header)
 msgid "[manual_stepper]"
@@ -1838,7 +1838,7 @@ msgstr "PROBE_CALIBRATE"
 
 #: docs/G-Codes.md:block 241 (header)
 msgid "Z_OFFSET_APPLY_PROBE"
-msgstr ""
+msgstr "Z_OFFSET_APPLY_PROBE"
 
 #: docs/G-Codes.md:block 243 (header)
 msgid "[query_adc]"
@@ -1846,7 +1846,7 @@ msgstr "[query_adc]"
 
 #: docs/G-Codes.md:block 244 (paragraph)
 msgid "The query_endstops module is automatically loaded."
-msgstr ""
+msgstr "模組query_endstops已自動載入."
 
 #: docs/G-Codes.md:block 245 (header)
 msgid "QUERY_ADC"
@@ -2055,7 +2055,7 @@ msgstr "[stepper_enable]"
 
 #: docs/G-Codes.md:block 297 (paragraph)
 msgid "The stepper_enable module is automatically loaded."
-msgstr ""
+msgstr "模組stepper_enable已自動載入."
 
 #: docs/G-Codes.md:block 298 (header)
 msgid "SET_STEPPER_ENABLE"
@@ -2089,7 +2089,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 304 (header)
 msgid "[tmcXXXX]"
-msgstr ""
+msgstr "[tmcXXXX]"
 
 #: docs/G-Codes.md:block 305 (paragraph)
 msgid ""
@@ -2122,11 +2122,11 @@ msgstr "SET_TMC_FIELD"
 
 #: docs/G-Codes.md:block 314 (header)
 msgid "[toolhead]"
-msgstr ""
+msgstr "[toolhead]"
 
 #: docs/G-Codes.md:block 315 (paragraph)
 msgid "The toolhead module is automatically loaded."
-msgstr ""
+msgstr "模組toolhead已自動載入."
 
 #: docs/G-Codes.md:block 316 (header)
 msgid "SET_VELOCITY_LIMIT"
@@ -2134,15 +2134,15 @@ msgstr "SET_VELOCITY_LIMIT"
 
 #: docs/G-Codes.md:block 318 (header)
 msgid "[tuning_tower]"
-msgstr ""
+msgstr "[tuning_tower]"
 
 #: docs/G-Codes.md:block 319 (paragraph)
 msgid "The tuning_tower module is automatically loaded."
-msgstr ""
+msgstr "模組 tuning_tower已自動載入."
 
 #: docs/G-Codes.md:block 320 (header)
 msgid "TUNING_TOWER"
-msgstr ""
+msgstr "TUNING_TOWER"
 
 #: docs/G-Codes.md:block 322 (unordered list)
 msgid ""
@@ -2174,7 +2174,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 323 (header)
 msgid "[virtual_sdcard]"
-msgstr ""
+msgstr "[virtual_sdcard]"
 
 #: docs/G-Codes.md:block 324 (paragraph)
 msgid ""

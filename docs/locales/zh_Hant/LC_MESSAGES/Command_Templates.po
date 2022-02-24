@@ -1,17 +1,24 @@
-#
+# Fred Chan <fred2088@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-02-24 08:58+0000\n"
+"Last-Translator: Fred Chan <fred2088@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"klipper/command_templates/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "This document provides information on implementing G-Code command sequences "
 "in gcode_macro (and similar) config sections."
-msgstr ""
+msgstr "本文件描述了 gcode_macro（和其他類似）配置分段中實現 G-Code 命令序列的方法。"
 
 msgid "G-Code Macro Naming"
-msgstr ""
+msgstr "G 程式碼宏命名"
 
 msgid ""
 "Case is not important for the G-Code macro name - MY_MACRO and my_macro will"
@@ -19,32 +26,34 @@ msgid ""
 "numbers are used in the macro name then they must all be at the end of the "
 "name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not)."
 msgstr ""
+"G-Code 宏的名稱大小寫並不重要。比如，MY_MACRO 和 my_macro 是等效的，可以用大寫或小寫來呼叫。如果在宏的名稱中使用任何數字，那麼它"
+"們必須都在名稱的末尾（例如，TEST_MACRO25是合法的，但MACRO25_TEST3是不合法的）。"
 
 msgid "Formatting of G-Code in the config"
-msgstr ""
+msgstr "配置中 G 程式碼的格式"
 
 msgid ""
 "Indentation is important when defining a macro in the config file. To "
 "specify a multi-line G-Code sequence it is important for each line to have "
 "proper indentation. For example:"
-msgstr ""
+msgstr "在配置檔案中定義一個宏時需要注意縮排。在定義多行的G程式碼序列時每行都要有適當的縮排。例如："
 
 msgid ""
 "Note how the `gcode:` config option always starts at the beginning of the "
 "line and subsequent lines in the G-Code macro never start at the beginning."
-msgstr ""
+msgstr "請注意，`gcode:` 配置選項總是從行首開始，而 G-Code 宏中的後續行從不從行首開始。"
 
 msgid "Add a description to your macro"
-msgstr ""
+msgstr "向宏新增描述"
 
 msgid ""
 "To help identify the functionality a short description can be added. Add "
 "`description:` with a short text to describe the functionality. Default is "
 "\"G-Code macro\" if not specified. For example:"
-msgstr ""
+msgstr "可以通過新增 `description:` 和簡短的描述來幫助理解該功能。如果沒有指定，預設為\"G-Code macro\"。例如："
 
 msgid "Save/Restore state for G-Code moves"
-msgstr ""
+msgstr "儲存/恢復 G-Code 移動的狀態"
 
 msgid ""
 "Unfortunately, the G-Code command language can be challenging to use. The "
@@ -56,11 +65,16 @@ msgid ""
 "state prior to issuing a `G1` command. (Otherwise, there is a risk the `G1` "
 "command will make an undesirable request.)"
 msgstr ""
+"不幸的是，G-Code 命令語言在使用上有些難度。移動工具頭的標準機制是通過 `G1` 命令（`G0` 命令是 `G1` "
+"的別名，它們互換使用）。然而，這個命令依賴於由`M82`、`M83`、`G90`、`G91`、`G92`, 以及先前的`G1`命令所設定的\"G-"
+"Code解析狀態\"。在建立 G-Code 宏時，最好在發出`G1`命令之前，先明確 G-Code 解析狀態。(否則，`G1` "
+"命令就有可能提出一個不符合預期的請求。）"
 
 msgid ""
 "A common way to accomplish that is to wrap the `G1` moves in "
 "`SAVE_GCODE_STATE`, `G91`, and `RESTORE_GCODE_STATE`. For example:"
 msgstr ""
+"實現這一目標的常見方法是將 `G1` 移動包裝在 `SAVE_GCODE_STATE`、`G91`和`RESTORE_GCODE_STATE`中。例如："
 
 msgid ""
 "The `G91` command places the G-Code parsing state into \"relative move "
@@ -70,7 +84,7 @@ msgid ""
 msgstr ""
 
 msgid "Template expansion"
-msgstr ""
+msgstr "模板擴充套件"
 
 msgid ""
 "The gcode_macro `gcode:` config section is evaluated using the Jinja2 "
@@ -81,10 +95,10 @@ msgid ""
 msgstr ""
 
 msgid "An example of a complex macro:"
-msgstr ""
+msgstr "一個更復雜的宏示例："
 
 msgid "Macro parameters"
-msgstr ""
+msgstr "宏觀參數"
 
 msgid ""
 "It is often useful to inspect parameters passed to the macro when it is "
@@ -105,7 +119,7 @@ msgid ""
 msgstr ""
 
 msgid "The \"printer\" Variable"
-msgstr ""
+msgstr "\"printer\"變數"
 
 msgid ""
 "It is possible to inspect (and alter) the current state of the printer via "
@@ -143,7 +157,7 @@ msgid ""
 msgstr ""
 
 msgid "Actions"
-msgstr ""
+msgstr "可用操作"
 
 msgid ""
 "There are some commands available that can alter the state of the printer. "
@@ -154,7 +168,7 @@ msgid ""
 msgstr ""
 
 msgid "Available \"action\" commands:"
-msgstr ""
+msgstr "可用的「操作」命令："
 
 msgid ""
 "`action_respond_info(msg)`: Write the given `msg` to the /tmp/printer "
@@ -182,7 +196,7 @@ msgid ""
 msgstr ""
 
 msgid "Variables"
-msgstr ""
+msgstr "變數"
 
 msgid ""
 "The SET_GCODE_VARIABLE command may be useful for saving state between macro "
@@ -228,7 +242,7 @@ msgid ""
 msgstr ""
 
 msgid "Menu templates"
-msgstr ""
+msgstr "功能表範本"
 
 msgid ""
 "If a [display config section](Config_Reference.md#display) is enabled, then "
@@ -246,13 +260,13 @@ msgid "`menu.ns` - element namespace"
 msgstr ""
 
 msgid "`menu.event` - name of the event that triggered the script"
-msgstr ""
+msgstr "\"menu.event\" - 觸發腳本的事件的名稱"
 
 msgid "`menu.input` - input value, only available in input script context"
 msgstr ""
 
 msgid "The following actions are available in menu templates:"
-msgstr ""
+msgstr "選單範本中提供了以下操作："
 
 msgid ""
 "`menu.back(force, update)`: will execute menu back command, optional boolean"
@@ -275,7 +289,7 @@ msgid ""
 msgstr ""
 
 msgid "Save Variables to disk"
-msgstr ""
+msgstr "將變數保存到磁碟"
 
 msgid ""
 "If a [save_variables config section](Config_Reference.md#save_variables) has"
@@ -418,7 +432,7 @@ msgstr ""
 
 #: docs/Command_Templates.md:block 1 (header)
 msgid "Commands templates"
-msgstr ""
+msgstr "命令模板"
 
 #: docs/Command_Templates.md:block 28 (header)
 msgid "The \"rawparams\" variable"

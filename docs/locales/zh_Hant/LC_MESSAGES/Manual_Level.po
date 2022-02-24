@@ -1,21 +1,28 @@
-#
+# Fred Chan <fred2088@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-02-24 08:58+0000\n"
+"Last-Translator: Fred Chan <fred2088@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"klipper/manual_level/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 msgid ""
 "This document describes tools for calibrating a Z endstop and for performing"
 " adjustments to bed leveling screws."
-msgstr ""
+msgstr "本文介紹了用於校準Z限位和對列印床調品螺絲進行調整的工具。"
 
 msgid "Calibrating a Z endstop"
-msgstr ""
+msgstr "校準 Z 限位"
 
 msgid ""
 "An accurate Z endstop position is critical to obtaining high quality prints."
-msgstr ""
+msgstr "準確的 Z 軸限位位置對於獲得高質量列印至關重要。"
 
 msgid ""
 "Note, though, the accuracy of the Z endstop switch itself can be a limiting "
@@ -23,6 +30,8 @@ msgid ""
 "enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy"
 " of the switch."
 msgstr ""
+"請注意，Z 限位開關本身的精度限制了調平的精度。如果使用 Trinamic 步進電機驅動，那麼可以考慮啟用[限位相位](Endstop_Phase."
+"md)檢測以提高開關的精度。"
 
 msgid ""
 "To perform a Z endstop calibration, home the printer, command the head to "
@@ -61,7 +70,7 @@ msgid ""
 msgstr ""
 
 msgid "Adjusting bed leveling screws"
-msgstr ""
+msgstr "調整列印調平螺絲"
 
 msgid ""
 "The secret to getting good bed leveling with bed leveling screws is to "
@@ -198,7 +207,7 @@ msgid "Z_ENDSTOP_CALIBRATE\n"
 msgstr ""
 
 msgid "SAVE_CONFIG\n"
-msgstr ""
+msgstr "SAVE_CONFIG\n"
 
 msgid "BED_SCREWS_ADJUST\n"
 msgstr ""
@@ -234,7 +243,7 @@ msgstr ""
 
 #: docs/Manual_Level.md:block 1 (header)
 msgid "Manual leveling"
-msgstr ""
+msgstr "手動調平"
 
 #: docs/Manual_Level.md:block 37 (unordered list)
 msgid "front left screw is the reference point you must not change it."
