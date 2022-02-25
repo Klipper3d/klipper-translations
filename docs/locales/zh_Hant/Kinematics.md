@@ -1,60 +1,60 @@
-# Kinematics
+# 運動學
 
-This document provides an overview of how Klipper implements robot motion (its [kinematics](https://en.wikipedia.org/wiki/Kinematics)). The contents may be of interest to both developers interested in working on the Klipper software as well as users interested in better understanding the mechanics of their machines.
+該文件提供Klipper實現機械[運動學](https://en.wikipedia.org/wiki/Kinematics)控制的概述，以供 致力於完善Klipper的開發者 或 希望對自己的裝置的機械原理有進一步瞭解的愛好者 參考。
 
-## Acceleration
+## 加速
 
-Klipper implements a constant acceleration scheme whenever the print head changes velocity - the velocity is gradually changed to the new speed instead of suddenly jerking to it. Klipper always enforces acceleration between the tool head and the print. The filament leaving the extruder can be quite fragile - rapid jerks and/or extruder flow changes lead to poor quality and poor bed adhesion. Even when not extruding, if the print head is at the same level as the print then rapid jerking of the head can cause disruption of recently deposited filament. Limiting speed changes of the print head (relative to the print) reduces risks of disrupting the print.
+Klipper總使用常加速度策略——列印頭的速度總是梯度變化到新的速度，而非使用速度突變的方式。Klipper著眼於列印件和列印頭之間的速度變化。離開擠出機的耗材十分脆弱，突然的移動速度和/或擠出流量突變可能會導致造成列印質量或床黏著能力的下降。甚至在無擠出時，如果列印頭和列印件頂端在同一水平面時，噴嘴的速度突變有可能對剛擠出的耗材進行剮蹭。限制列印頭相對於列印件的速度，可以減少剮蹭列印件的風險。
 
-It is also important to limit acceleration so that the stepper motors do not skip or put excessive stress on the machine. Klipper limits the torque on each stepper by virtue of limiting the acceleration of the print head. Enforcing acceleration at the print head naturally also limits the torque of the steppers that move the print head (the inverse is not always true).
+限制減速度也能減少步進電機丟步和炸機的狀況。Klipper通過限制列印頭的加速度來限制每個步進電機的力矩。限制列印頭的加速度自然也限制了移動列印頭的步進器的扭矩（反之則不一定）。
 
-Klipper implements constant acceleration. The key formula for constant acceleration is:
+Klipper實現恒加速度控制，關鍵的方程如下：
 
 ```
 velocity(time) = start_velocity + accel*time
 ```
 
-## Trapezoid generator
+## 梯形發生器
 
-Klipper uses a traditional "trapezoid generator" to model the motion of each move - each move has a start speed, it accelerates to a cruising speed at constant acceleration, it cruises at a constant speed, and then decelerates to the end speed using constant acceleration.
+Klipper 使用傳統的"梯形發生器"來產生每個動作的運動--每個動作都有一個起始速度，先恒定的加速度加速到一個巡航速度，再以恒定的速度巡航，最後用恒定的加速度減速到終點速度。
 
 ![trapezoid](img/trapezoid.svg.png)
 
-It's called a "trapezoid generator" because a velocity diagram of the move looks like a trapezoid.
+因為移動時的速度圖看起來像一個梯形，它被稱為 "梯形發生器"。
 
-The cruising speed is always greater than or equal to both the start speed and the end speed. The acceleration phase may be of zero duration (if the start speed is equal to the cruising speed), the cruising phase may be of zero duration (if the move immediately starts decelerating after acceleration), and/or the deceleration phase may be of zero duration (if the end speed is equal to the cruising speed).
+巡航速度總是大於等於起始和終端速度。加速度階段可能持續時間為0（如果起始速度等於巡航速度），巡航速度的持續時間也可為0（如果在加速結束后馬上進行減速），減速階段也能為0（如果終端速度等於巡航速度）。
 
 ![trapezoids](img/trapezoids.svg.png)
 
-## Look-ahead
+## 預計算（look-ahead）
 
-The "look-ahead" system is used to determine cornering speeds between moves.
+拐角速度使用預計算系統進行處理。
 
-Consider the following two moves contained on an XY plane:
+考慮以下兩個在 XY 平面上的移動：
 
 ![corner](img/corner.svg.png)
 
-In the above situation it is possible to fully decelerate after the first move and then fully accelerate at the start of the next move, but that is not ideal as all that acceleration and deceleration would greatly increase the print time and the frequent changes in extruder flow would result in poor print quality.
+在上述的狀況下，印表機可以在第一步時減速至停止，並在第二步開始時加速至巡航速度。但這種運動策略並不理想，完全減速和完全加速會大幅增加列印時間，同時擠出量會頻繁變動，從而導致列印質量的下降。
 
-To solve this, the "look-ahead" mechanism queues multiple incoming moves and analyzes the angles between moves to determine a reasonable speed that can be obtained during the "junction" between two moves. If the next move is nearly in the same direction then the head need only slow down a little (if at all).
+要解決這種情況，klipper引入了預計算機制，預先依次計算後續的數個移動，分析其中的拐角並確定合適的拐角速度。如果下一步的速度與現時的移動速度相近，則滑車速度僅會稍微減少。
 
 ![lookahead](img/lookahead.svg.png)
 
-However, if the next move forms an acute angle (the head is going to travel in nearly a reverse direction on the next move) then only a small junction speed is permitted.
+然而，如果下一步形成一個尖銳的拐角（滑車將在下一步進行近於反方向的移動），則只能採用一個很低的拐角速度。
 
 ![lookahead](img/lookahead-slow.svg.png)
 
 The junction speeds are determined using "approximated centripetal acceleration". Best [described by the author](https://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/). However, in Klipper, junction speeds are configured by specifying the desired speed that a 90° corner should have (the "square corner velocity"), and the junction speeds for other angles are derived from that.
 
-Key formula for look-ahead:
+預計算的關鍵方程：
 
 ```
 end_velocity^2 = start_velocity^2 + 2*accel*move_distance
 ```
 
-### Smoothed look-ahead
+### 預計算結果平滑
 
-Klipper also implements a mechanism for smoothing out the motions of short "zigzag" moves. Consider the following moves:
+Klipper 實現了一種用於平滑短距離之字形移動的機制。參考以下移動：
 
 ![zigzag](img/zigzag.svg.png)
 

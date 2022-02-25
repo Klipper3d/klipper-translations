@@ -1,38 +1,38 @@
-# Resonance Compensation
+# 共振補償
 
-Klipper supports Input Shaping - a technique that can be used to reduce ringing (also known as echoing, ghosting or rippling) in prints. Ringing is a surface printing defect when, typically, elements like edges repeat themselves on a printed surface as a subtle 'echo':
+Klipper支援Input Shaping -一種可以用來減少列印件上振紋（也被稱為echo、ghosting或ripping）的技術。振紋是一種表面打印缺陷，通常在邊角的位置表面重複出現，成為一種微妙的水波狀紋路：
 
-|![Ringing test](img/ringing-test.jpg)|![3D Benchy](img/ringing-3dbenchy.jpg)|
+|![振紋測試](img/ringing-test.jpg)|![3D Benchy](img/ringing-3dbenchy.jpg)|
 
-Ringing is caused by mechanical vibrations in the printer due to quick changes of the printing direction. Note that ringing usually has mechanical origins: insufficiently rigid printer frame, non-tight or too springy belts, alignment issues of mechanical parts, heavy moving mass, etc. Those should be checked and fixed first, if possible.
+振紋是由印表機在快速改變列印方向時機械振動引起的。請注意，振紋通常源於機械方面的問題：印表機框架強度不足，皮帶不夠緊或太有彈性，機械部件的對準問題，移動質量大等。如果可能的話，應首先檢查和解決這些問題。
 
-[Input shaping](https://en.wikipedia.org/wiki/Input_shaping) is an open-loop control technique which creates a commanding signal that cancels its own vibrations. Input shaping requires some tuning and measurements before it can be enabled. Besides ringing, Input Shaping typically reduces the vibrations and shaking of the printer in general, and may also improve the reliability of the stealthChop mode of Trinamic stepper drivers.
+[Input Shaping](https://en.wikipedia.org/wiki/Input_shaping)是一種開環控制技術，它通過產生一個控制訊號來抵消自身的振動。輸入整形在啟用之前需要進行一些調整和測量。除了振紋之外，輸入整形通常可以減少印表機的振動和搖晃，也可以提高 Trinamic 步進驅動器的StealthChop模式的可靠性。
 
 ## 調整
 
 Basic tuning requires measuring the ringing frequencies of the printer by printing a test model.
 
-Slice the ringing test model, which can be found in [docs/prints/ringing_tower.stl](prints/ringing_tower.stl), in the slicer:
+將振紋測試模型切片，該模型可以在[docs/prints/ringing_tower.stl](prints/ringing_tower.stl)中找到，在切片軟體中：
 
-* Suggested layer height is 0.2 or 0.25 mm.
-* Infill and top layers can be set to 0.
+* 建議的層高為 0.2 或 0.25 毫米。
+* 填充和頂層層數可以被設定為0。
 * Use 1-2 perimeters, or even better the smooth vase mode with 1-2 mm base.
 * Use sufficiently high speed, around 80-100 mm/sec, for **external** perimeters.
-* Make sure that the minimum layer time is **at most** 3 seconds.
-* Make sure any "dynamic acceleration control" is disabled in the slicer.
-* Do not turn the model. The model has X and Y marks at the back of the model. Note the unusual location of the marks vs. the axes of the printer - it is not a mistake. The marks can be used later in the tuning process as a reference, because they show which axis the measurements correspond to.
+* 確保最短的層耗時**最多是**3秒。
+* 確保切片軟體中禁用任何"動態加速度控制"功能。
+* 不要轉動模型。模型的背面標記了X和Y。注意這些標記與印表機軸線方向不相同--這不是一個錯誤。這些標記可以在以後的調整過程中作為參考，因為它們顯示了測量結果對應的軸。
 
-### Ringing frequency
+### 振紋頻率
 
-First, measure the **ringing frequency**.
+首先，測量**振紋頻率**。
 
 1. If `square_corner_velocity` parameter was changed, revert it back to 5.0. It is not advised to increase it when using input shaper because it can cause more smoothing in parts - it is better to use higher acceleration value instead.
 1. Increase `max_accel_to_decel` by issuing the following command: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
 1. Disable Pressure Advance: `SET_PRESSURE_ADVANCE ADVANCE=0`
-1. If you have already added `[input_shaper]` section to the printer.cfg, execute `SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0` command. If you get "Unknown command" error, you can safely ignore it at this point and continue with the measurements.
+1. 如果你已經將`[input_shaper]`分段新增到print.cfg中，執行`SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0`命令。如果你得到"未知命令"錯誤，此時你可以安全地忽略它，繼續進行測量。
 1. Execute the command: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5` Basically, we try to make ringing more pronounced by setting different large values for acceleration. This command will increase the acceleration every 5 mm starting from 1500 mm/sec^2: 1500 mm/sec^2, 2000 mm/sec^2, 2500 mm/sec^2 and so forth up until 7000 mm/sec^2 at the last band.
-1. Print the test model sliced with the suggested parameters.
-1. You can stop the print earlier if the ringing is clearly visible and you see that acceleration gets too high for your printer (e.g. printer shakes too much or starts skipping steps).
+1. 列印用建議的參數切片的測試模型。
+1. 如果振紋清晰可見，並且發現加速度對你的印表機來說太高了（如印表機抖動太厲害或開始丟步），你可以提前停止列印。
 
    1. Use X and Y marks at the back of the model for reference. The measurements from the side with X mark should be used for X axis *configuration*, and Y mark - for Y axis configuration. Measure the distance *D* (in mm) between several oscillations on the part with X mark, near the notches, preferably skipping the first oscillation or two. To measure the distance between oscillations more easily, mark the oscillations first, then measure the distance between the marks with a ruler or calipers:|![Mark ringing](img/ringing-mark.jpg)|![Measure ringing](img/ringing-measure.jpg)|
 1. Count how many oscillations *N* the measured distance *D* corresponds to. If you are unsure how to count the oscillations, refer to the picture above, which shows *N* = 6 oscillations.
@@ -81,7 +81,7 @@ Print the ringing test model as follows:
 1. Disable Pressure Advance: `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. Execute: `SET_INPUT_SHAPER SHAPER_TYPE=MZV`
 1. Execute the command: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
-1. Print the test model sliced with the suggested parameters.
+1. 列印用建議的參數切片的測試模型。
 
 If you see no ringing at this point, then MZV shaper can be recommended for use.
 

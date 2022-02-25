@@ -1,14 +1,14 @@
-# Commands templates
+# 命令模板
 
-This document provides information on implementing G-Code command sequences in gcode_macro (and similar) config sections.
+本文件描述了 gcode_macro（和其他類似）配置分段中實現 G-Code 命令序列的方法。
 
-## G-Code Macro Naming
+## G 程式碼宏命名
 
-Case is not important for the G-Code macro name - MY_MACRO and my_macro will evaluate the same and may be called in either upper or lower case. If any numbers are used in the macro name then they must all be at the end of the name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not).
+G-Code 宏的名稱大小寫並不重要。比如，MY_MACRO 和 my_macro 是等效的，可以用大寫或小寫來呼叫。如果在宏的名稱中使用任何數字，那麼它們必須都在名稱的末尾（例如，TEST_MACRO25是合法的，但MACRO25_TEST3是不合法的）。
 
-## Formatting of G-Code in the config
+## 配置中 G 程式碼的格式
 
-Indentation is important when defining a macro in the config file. To specify a multi-line G-Code sequence it is important for each line to have proper indentation. For example:
+在配置檔案中定義一個宏時需要注意縮排。在定義多行的G程式碼序列時每行都要有適當的縮排。例如：
 
 ```
 [gcode_macro blink_led]
@@ -18,11 +18,11 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 ```
 
-Note how the `gcode:` config option always starts at the beginning of the line and subsequent lines in the G-Code macro never start at the beginning.
+請注意，`gcode:` 配置選項總是從行首開始，而 G-Code 宏中的後續行從不從行首開始。
 
-## Add a description to your macro
+## 向宏新增描述
 
-To help identify the functionality a short description can be added. Add `description:` with a short text to describe the functionality. Default is "G-Code macro" if not specified. For example:
+可以通過新增 `description:` 和簡短的描述來幫助理解該功能。如果沒有指定，預設為"G-Code macro"。例如：
 
 ```
 [gcode_macro blink_led]
@@ -35,11 +35,11 @@ gcode:
 
 The terminal will display the description when you use the `HELP` command or the autocomplete function.
 
-## Save/Restore state for G-Code moves
+## 儲存/恢復 G-Code 移動的狀態
 
-Unfortunately, the G-Code command language can be challenging to use. The standard mechanism to move the toolhead is via the `G1` command (the `G0` command is an alias for `G1` and it can be used interchangeably with it). However, this command relies on the "G-Code parsing state" setup by `M82`, `M83`, `G90`, `G91`, `G92`, and previous `G1` commands. When creating a G-Code macro it is a good idea to always explicitly set the G-Code parsing state prior to issuing a `G1` command. (Otherwise, there is a risk the `G1` command will make an undesirable request.)
+不幸的是，G-Code 命令語言在使用上有些難度。移動工具頭的標準機制是通過 `G1` 命令（`G0` 命令是 `G1` 的別名，它們互換使用）。然而，這個命令依賴於由`M82`、`M83`、`G90`、`G91`、`G92`, 以及先前的`G1`命令所設定的"G-Code解析狀態"。在建立 G-Code 宏時，最好在發出`G1`命令之前，先明確 G-Code 解析狀態。(否則，`G1` 命令就有可能提出一個不符合預期的請求。）
 
-A common way to accomplish that is to wrap the `G1` moves in `SAVE_GCODE_STATE`, `G91`, and `RESTORE_GCODE_STATE`. For example:
+實現這一目標的常見方法是將 `G1` 移動包裝在 `SAVE_GCODE_STATE`、`G91`和`RESTORE_GCODE_STATE`中。例如：
 
 ```
 [gcode_macro MOVE_UP]
@@ -52,11 +52,11 @@ gcode:
 
 The `G91` command places the G-Code parsing state into "relative move mode" and the `RESTORE_GCODE_STATE` command restores the state to what it was prior to entering the macro. Be sure to specify an explicit speed (via the `F` parameter) on the first `G1` command.
 
-## Template expansion
+## 模板擴充套件
 
 The gcode_macro `gcode:` config section is evaluated using the Jinja2 template language. One can evaluate expressions at run-time by wrapping them in `{ }` characters or use conditional statements wrapped in `{% %}`. See the [Jinja2 documentation](http://jinja.pocoo.org/docs/2.10/templates/) for further information on the syntax.
 
-An example of a complex macro:
+一個更復雜的宏示例：
 
 ```
 [gcode_macro clean_nozzle]
@@ -73,7 +73,7 @@ gcode:
   RESTORE_GCODE_STATE NAME=clean_nozzle_state
 ```
 
-### Macro parameters
+### 宏觀參數
 
 It is often useful to inspect parameters passed to the macro when it is called. These parameters are available via the `params` pseudo-variable. For example, if the macro:
 
@@ -108,7 +108,7 @@ gcode:
   M118 { rawparams }
 ```
 
-### The "printer" Variable
+### "printer"變數
 
 It is possible to inspect (and alter) the current state of the printer via the `printer` pseudo-variable. For example:
 
@@ -133,18 +133,18 @@ gcode:
     M117 Temp:{sensor.temperature} Humidity:{sensor.humidity}
 ```
 
-## Actions
+## 可用操作
 
 There are some commands available that can alter the state of the printer. For example, `{ action_emergency_stop() }` would cause the printer to go into a shutdown state. Note that these actions are taken at the time that the macro is evaluated, which may be a significant amount of time before the generated g-code commands are executed.
 
-Available "action" commands:
+可用的「操作」命令：
 
 - `action_respond_info(msg)`: Write the given `msg` to the /tmp/printer pseudo-terminal. Each line of `msg` will be sent with a "// " prefix.
 - `action_raise_error(msg)`: Abort the current macro (and any calling macros) and write the given `msg` to the /tmp/printer pseudo-terminal. The first line of `msg` will be sent with a "!! " prefix and subsequent lines will have a "// " prefix.
 - `action_emergency_stop(msg)`: Transition the printer to a shutdown state. The `msg` parameter is optional, it may be useful to describe the reason for the shutdown.
 - `action_call_remote_method(method_name)`: Calls a method registered by a remote client. If the method takes parameters they should be provided via keyword arguments, ie: `action_call_remote_method("print_stuff", my_arg="hello_world")`
 
-## Variables
+## 變數
 
 The SET_GCODE_VARIABLE command may be useful for saving state between macro calls. Variable names may not contain any upper case characters. For example:
 
@@ -215,7 +215,7 @@ The above delayed_gcode will send "// Extruder Temp: [ex0_temp]" to Octoprint ev
 UPDATE_DELAYED_GCODE ID=report_temp DURATION=0
 ```
 
-## Menu templates
+## 功能表範本
 
 If a [display config section](Config_Reference.md#display) is enabled, then it is possible to customize the menu with [menu](Config_Reference.md#menu) config sections.
 
@@ -223,10 +223,10 @@ The following read-only attributes are available in menu templates:
 
 * `menu.width` - element width (number of display columns)
 * `menu.ns` - element namespace
-* `menu.event` - name of the event that triggered the script
+* "menu.event" - 觸發腳本的事件的名稱
 * `menu.input` - input value, only available in input script context
 
-The following actions are available in menu templates:
+選單範本中提供了以下操作：
 
 * `menu.back(force, update)`: will execute menu back command, optional boolean parameters `<force>` and `<update>`.
    * When `<force>` is set True then it will also stop editing. Default value is False.
@@ -234,7 +234,7 @@ The following actions are available in menu templates:
 * `menu.exit(force)` - will execute menu exit command, optional boolean parameter `<force>` default value False.
    * When `<force>` is set True then it will also stop editing. Default value is False.
 
-## Save Variables to disk
+## 將變數保存到磁碟
 
 If a [save_variables config section](Config_Reference.md#save_variables) has been enabled, `SAVE_VARIABLE VARIABLE=<name> VALUE=<value>` can be used to save the variable to disk so that it can be used across restarts. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. to avoid overly long lines you can add the following at the top of the macro:
 

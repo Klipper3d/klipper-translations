@@ -1,12 +1,12 @@
 # 壓力提前
 
-This document provides information on tuning the "pressure advance" configuration variable for a particular nozzle and filament. The pressure advance feature can be helpful in reducing ooze. For more information on how pressure advance is implemented see the [kinematics](Kinematics.md) document.
+本文件提供了關於調整特定噴嘴和耗材「壓力提前」配置變數的方法。壓力提前功能可以減少漏料。關於如何實現壓力提前的更多資訊，見[運動學](Kinematics.md)檔案。
 
-## Tuning pressure advance
+## 調整壓力提前
 
-Pressure advance does two useful things - it reduces ooze during non-extrude moves and it reduces blobbing during cornering. This guide uses the second feature (reducing blobbing during cornering) as a mechanism for tuning.
+壓力提前有兩個作用 - 它可以減少非擠出移動過程中的溢料和減少轉彎時的凸起。本指南使用第二個功能（減少轉彎過程中的凸起）作為優化機制。
 
-In order to calibrate pressure advance the printer must be configured and operational as the tuning test involves printing and inspecting a test object. It is a good idea to read this document in full prior to running the test.
+爲了校準壓力提前，印表機必須已經配置完成並可以正常工作。因為調優測試涉及列印和檢查測試對象。在執行測試之前，最好完整閱讀本文件。
 
 Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" is disabled in the slicer.
 

@@ -20,19 +20,19 @@ Basic tuning requires measuring the ringing frequencies of the printer by printi
 * Use sufficiently high speed, around 80-100 mm/sec, for **external** perimeters.
 * 确保最短的层耗时**最多是**3秒。
 * 确保切片软件中禁用任何"动态加速度控制"功能。
-* Do not turn the model. The model has X and Y marks at the back of the model. Note the unusual location of the marks vs. the axes of the printer - it is not a mistake. The marks can be used later in the tuning process as a reference, because they show which axis the measurements correspond to.
+* 不要转动模型。模型的背面标记了X和Y。注意这些标记与打印机轴线方向不相同--这不是一个错误。这些标记可以在以后的调整过程中作为参考，因为它们显示了测量结果对应的轴。
 
-### Ringing frequency
+### 振纹频率
 
-First, measure the **ringing frequency**.
+首先，测量**振纹频率**。
 
 1. If `square_corner_velocity` parameter was changed, revert it back to 5.0. It is not advised to increase it when using input shaper because it can cause more smoothing in parts - it is better to use higher acceleration value instead.
 1. Increase `max_accel_to_decel` by issuing the following command: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
 1. Disable Pressure Advance: `SET_PRESSURE_ADVANCE ADVANCE=0`
-1. If you have already added `[input_shaper]` section to the printer.cfg, execute `SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0` command. If you get "Unknown command" error, you can safely ignore it at this point and continue with the measurements.
+1. 如果你已经将`[input_shaper]`分段添加到print.cfg中，执行`SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0`命令。如果你得到"未知命令"错误，此时你可以安全地忽略它，继续进行测量。
 1. Execute the command: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5` Basically, we try to make ringing more pronounced by setting different large values for acceleration. This command will increase the acceleration every 5 mm starting from 1500 mm/sec^2: 1500 mm/sec^2, 2000 mm/sec^2, 2500 mm/sec^2 and so forth up until 7000 mm/sec^2 at the last band.
-1. Print the test model sliced with the suggested parameters.
-1. You can stop the print earlier if the ringing is clearly visible and you see that acceleration gets too high for your printer (e.g. printer shakes too much or starts skipping steps).
+1. 打印用建议的参数切片的测试模型。
+1. 如果振纹清晰可见，并且发现加速度对你的打印机来说太高了（如打印机抖动太厉害或开始丢步），你可以提前停止打印。
 
    1. Use X and Y marks at the back of the model for reference. The measurements from the side with X mark should be used for X axis *configuration*, and Y mark - for Y axis configuration. Measure the distance *D* (in mm) between several oscillations on the part with X mark, near the notches, preferably skipping the first oscillation or two. To measure the distance between oscillations more easily, mark the oscillations first, then measure the distance between the marks with a ruler or calipers:|![Mark ringing](img/ringing-mark.jpg)|![Measure ringing](img/ringing-measure.jpg)|
 1. Count how many oscillations *N* the measured distance *D* corresponds to. If you are unsure how to count the oscillations, refer to the picture above, which shows *N* = 6 oscillations.
@@ -81,7 +81,7 @@ Print the ringing test model as follows:
 1. Disable Pressure Advance: `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. Execute: `SET_INPUT_SHAPER SHAPER_TYPE=MZV`
 1. Execute the command: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
-1. Print the test model sliced with the suggested parameters.
+1. 打印用建议的参数切片的测试模型。
 
 If you see no ringing at this point, then MZV shaper can be recommended for use.
 
