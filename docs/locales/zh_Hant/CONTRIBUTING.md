@@ -94,22 +94,22 @@ To help with a review, follow the steps outlined in [what to expect in a review]
 
 We also appreciate testing of submissions. If the code was tested then please add a comment to the GitHub Pull Request with the results of your test - success or failure. Please explicitly state that the code was tested and the results - for example something like "I tested this code on my Acme900Z printer with a vase print and the results were good".
 
-### Reviewers
+### 檢閱人仕
 
-The Klipper "reviewers" are:
+以下為Klipper檢閱人仕:
 
-| Name | GitHub Id | Areas of interest |
+| 項目名稱 | GitHub Id | Areas of interest |
 | --- | --- | --- |
 | Dmitry Butyugin | @dmbutyugin | Input shaping, resonance testing, kinematics |
-| Eric Callahan | @Arksine | Bed leveling, MCU flashing |
+| Eric Callahan | @Arksine | 列印床調平中,MCU 更新中 |
 | Kevin O'Connor | @KevinOConnor | Core motion system, Micro-controller code |
-| Paul McGowan | @mental405 | Configuration files, documentation |
+| Paul McGowan | @mental405 | 配置檔案, 文件 |
 
 Please do not "ping" any of the reviewers and please do not direct submissions at them. All of the reviewers monitor the forums and PRs, and will take on reviews when they have time to.
 
 The Klipper "maintainers" are:
 
-| Name | GitHub name |
+| 項目名稱 | GitHub項目名稱 |
 | --- | --- |
 | Kevin O'Connor | @KevinOConnor |
 
@@ -142,7 +142,7 @@ In the above example, `module` should be the name of a file or directory in the 
 
 - [ ] 75% 總覆蓋率
 - [ ] 涵蓋所有大標題（H1）
-- [ ] klipper-translations 中提供一個更新導航層次的 PR。
+- [ ] 在klipper-translations 中提供一個更新導航層次的 PR。
 
 導航層級在`docs\_klipper3d\mkdocs.yml`中。
 

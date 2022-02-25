@@ -1,6 +1,6 @@
-# 發行版
+# 版本發佈
 
-History of Klipper releases. Please see [installation](Installation.md) for information on installing Klipper.
+Klipper版本發佈。如何安裝Klipper ，請檢視[installation](Installation.md)。
 
 ## Klipper 0.10.0
 
@@ -18,37 +18,37 @@ Available on 20210929. Major changes in this release:
 * Support for the rp2040 micro-controller (Raspberry Pi Pico boards).
 * The "make menuconfig" system now utilizes kconfiglib.
 * Many additional modules added: ds18b20, duplicate_pin_override, filament_motion_sensor, palette2, motion_report, pca9533, pulse_counter, save_variables, sdcard_loop, temperature_host, temperature_mcu
-* Several bug fixes and code cleanups.
+* 幾個錯誤的修復和程式碼的清理。
 
 ## Klipper 0.9.0
 
-Available on 20201020. Major changes in this release:
+發佈于2020年10月20日，此版本更新內容:
 
-* Support for "Input Shaping" - a mechanism to counteract printer resonance. It can reduce or eliminate "ringing" in prints.
-* New "Smooth Pressure Advance" system. This implements "Pressure Advance" without introducing instantaneous velocity changes. It is also now possible to tune pressure advance using a "Tuning Tower" method.
-* New "webhooks" API server. This provides a programmable JSON interface to Klipper.
-* The LCD display and menu are now configurable using the Jinja2 template language.
-* The TMC2208 stepper motor drivers can now be used in "standalone" mode with Klipper.
-* Improved BL-Touch v3 support.
-* Improved USB identification. Klipper now has its own USB identification code and micro-controllers can now report their unique serial numbers during USB identification.
-* New kinematic support for "Rotary Delta" and "CoreXZ" printers.
-* Micro-controller improvements: support for stm32f070, support for stm32f207, support for GPIO pins on "Linux MCU", stm32 "HID bootloader" support, Chitu bootloader support, MKS Robin bootloader support.
-* Improved handling of Python "garbage collection" events.
-* Many additional modules added: adc_scaled, adxl345, bme280, display_status, extruder_stepper, fan_generic, hall_filament_width_sensor, htu21d, homing_heaters, input_shaper, lm75, print_stats, resonance_tester, shaper_calibrate, query_adc, graph_accelerometer, graph_extruder, graph_motion, graph_shaper, graph_temp_sensor, whconsole
-* Several bug fixes and code cleanups.
+* 支援使用「Input Shaping」功能 - 此功能主要作用是抵消印表機共振。它可以減少甚至消除列印中產生的「ringing」振紋。
+* 「Smooth Pressure Advance」全新的擠出演算法機制。這實現了「Pressure Advance」(列印擠出）同時不會引起擠出速度瞬間的改變，相反會變得更加平滑。現在也可以使用「Tuning Tower」方法來調整「Pressure Advance」(列印擠出）。
+* 「webhooks」全新的API 伺服器。 這次 Klipper 新增了可程式設計的 JSON 介面。
+* 現在可以使用 Jinja2 模板語言配置 LCD 顯示和菜單。
+* 現在TMC2208 步進電機驅動器可以在 Klipper系統中 使用「standalone」模式。
+* 支援並優化使用BL-Touch v3 。
+* 改進了USB識別。Klipper現在有自己的USB識別程式碼，微控制器現在可以在USB識別期間報告其唯一的序列號。
+* 對 "Rotary Delta "和 "CoreXZ "印表機的新運動學支援。
+* 微控制器的改進：支援stm32f070，支援stm32f207，支援 "Linux MCU "的GPIO引腳，支援stm32 "HID啟動載入程式"，支援Chitu啟動載入程式，支援MKS Robin啟動載入程式。
+* 改進了對Python "垃圾收集 "事件的處理。
+* 增加了許多額外的模組：adc_scaled, adxl345, bme280, display_status, extruder_stepper, fan_generic, hall_filament_width_sensor, htu21d, homing_heaters, input_shaper, lm75, print_stats, resonance_tester, shaper_calibrate, query_adc, graph_accelerometer, graph_extruder, graph_motion, graph_shaper, graph_temp_sensor, whconsole
+* 幾個錯誤的修復和程式碼的清理。
 
 ### Klipper 0.9.1
 
-Available on 20201028. Release containing only bug fixes.
+在20201028發佈。只包含錯誤修復。
 
 ## Klipper 0.8.0
 
-Available on 20191021. Major changes in this release:
+在20191021年發佈。此版本的主要變化：
 
-* New G-Code command template support. G-Code in the config file is now evaluated with the Jinja2 template language.
-* Improvements to Trinamic stepper drivers:
-   * New support for TMC2209 and TMC5160 drivers.
-   * Improved DUMP_TMC, SET_TMC_CURRENT, and INIT_TMC G-Code commands.
+* 新的G-Code命令模板支援。配置檔案中的G-Code現在可以用Jinja2模板語言進行編寫。
+* 對Trinamic步進驅動器的改進：
+   * 新增對TMC2209和TMC5160驅動器的支援。
+   * 改進了 DUMP_TMC、SET_TMC_CURRENT 和 INIT_TMC G-Code 命令。
    * Improved support for TMC UART handling with an analog mux.
 * Improved homing, probing, and bed leveling support:
    * New manual_probe, bed_screws, screws_tilt_adjust, skew_correction, safe_z_home modules added.
@@ -68,7 +68,7 @@ Available on 20191021. Major changes in this release:
 * The config file can now include other config files.
 * Many additional modules added: board_pins, controller_fan, delayed_gcode, dotstar, filament_switch_sensor, firmware_retraction, gcode_arcs, gcode_button, heater_generic, manual_stepper, mcp4018, mcp4728, neopixel, pause_resume, respond, temperature_sensor tsl1401cl_filament_width_sensor, tuning_tower
 * Many additional commands added: RESTORE_GCODE_STATE, SAVE_GCODE_STATE, SET_GCODE_VARIABLE, SET_HEATER_TEMPERATURE, SET_IDLE_TIMEOUT, SET_TEMPERATURE_FAN_TARGET
-* Several bug fixes and code cleanups.
+* 幾個錯誤的修復和程式碼的清理。
 
 ## Klipper 0.7.0
 

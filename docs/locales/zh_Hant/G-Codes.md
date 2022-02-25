@@ -45,7 +45,7 @@ This section is organized my Klipper module name, which generally follows the se
 
 ### [adxl345]
 
-The following commands are available when an [adxl345 config section](Config_Reference.md#adxl345) is enabled.
+當[adxl345配置分段](Config_Reference.md#adxl345)被啟用時，以下命令可用.
 
 #### ACCELEROMETER_MEASURE
 
@@ -121,7 +121,7 @@ The following command is available when a [bltouch config section](Config_Refere
 
 ### [configfile]
 
-configfile模組被自動載入.
+模組configfile已自動載入.
 
 #### SAVE_CONFIG
 
@@ -200,11 +200,11 @@ The following commands are available if an [extruder config section](Config_Refe
 
 #### SET_EXTRUDER_STEP_DISTANCE
 
-This command is deprecated and will be removed in the near future.
+此命令已棄用，並將在不久的將來被刪除。
 
 #### SYNC_STEPPER_TO_EXTRUDER
 
-This command is deprecated and will be removed in the near future.
+此命令已棄用，並將在不久的將來被刪除。
 
 ### [fan_generic]
 
@@ -268,7 +268,7 @@ The force_move module is automatically loaded, however some commands require set
 
 ### [gcode]
 
-The gcode module is automatically loaded.
+模組gcode module已自動載入.
 
 #### RESTART
 
@@ -302,7 +302,7 @@ The following command is available when a [gcode_macro config section](Config_Re
 
 ### [gcode_move]
 
-The gcode_move module is automatically loaded.
+模組gcode_move 已自動載入.
 
 #### GET_POSITION
 
@@ -370,7 +370,7 @@ The heaters module is automatically loaded if a heater is defined in the config 
 
 ### [idle_timeout]
 
-The idle_timeout module is automatically loaded.
+模組idle_timeout已自動載入.
 
 #### SET_IDLE_TIMEOUT
 
@@ -386,7 +386,7 @@ The following command is enabled if an [input_shaper config section](Config_Refe
 
 ### [manual_probe]
 
-The manual_probe module is automatically loaded.
+模組manual_probe已自動載入.
 
 #### MANUAL_PROBE
 
@@ -512,7 +512,7 @@ The following commands are available when a [probe config section](Config_Refere
 
 ### [query_adc]
 
-The query_endstops module is automatically loaded.
+模組query_endstops已自動載入.
 
 #### QUERY_ADC
 
@@ -622,7 +622,7 @@ The following commands are available when the [skew_correction config section](C
 
 ### [stepper_enable]
 
-The stepper_enable module is automatically loaded.
+模組stepper_enable已自動載入.
 
 #### SET_STEPPER_ENABLE
 
@@ -658,7 +658,7 @@ The following commands are available when any of the [tmcXXXX config sections](C
 
 ### [toolhead]
 
-The toolhead module is automatically loaded.
+模組toolhead已自動載入.
 
 #### SET_VELOCITY_LIMIT
 
@@ -666,7 +666,7 @@ The toolhead module is automatically loaded.
 
 ### [tuning_tower]
 
-The tuning_tower module is automatically loaded.
+模組 tuning_tower已自動載入.
 
 #### TUNING_TOWER
 

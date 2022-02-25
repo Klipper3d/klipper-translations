@@ -1,12 +1,12 @@
-# Manual leveling
+# 手動調平
 
-This document describes tools for calibrating a Z endstop and for performing adjustments to bed leveling screws.
+本文介紹了用於校準Z限位和對列印床調品螺絲進行調整的工具。
 
-## Calibrating a Z endstop
+## 校準 Z 限位
 
-An accurate Z endstop position is critical to obtaining high quality prints.
+準確的 Z 軸限位位置對於獲得高質量列印至關重要。
 
-Note, though, the accuracy of the Z endstop switch itself can be a limiting factor. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of the switch.
+請注意，Z 限位開關本身的精度限制了調平的精度。如果使用 Trinamic 步進電機驅動，那麼可以考慮啟用[限位相位](Endstop_Phase.md)檢測以提高開關的精度。
 
 To perform a Z endstop calibration, home the printer, command the head to move to a Z position that is at least five millimeters above the bed (if it is not already), command the head to move to an XY position near the center of the bed, then navigate to the OctoPrint terminal tab and run:
 
@@ -24,7 +24,7 @@ It's preferable to use a Z endstop switch on the opposite end of the Z axis from
 
 Some printers have the ability to manually adjust the location of the physical endstop switch. However, it's recommended to perform Z endstop positioning in software with Klipper - once the physical location of the endstop is in a convenient location, one can make any further adjustments by running Z_ENDSTOP_CALIBRATE or by manually updating the Z position_endstop in the configuration file.
 
-## Adjusting bed leveling screws
+## 調整列印調平螺絲
 
 The secret to getting good bed leveling with bed leveling screws is to utilize the printer's high precision motion system during the bed leveling process itself. This is done by commanding the nozzle to a position near each bed screw and then adjusting that screw until the bed is a set distance from the nozzle. Klipper has a tool to assist with this. In order to use the tool it is necessary to specify each screw XY location.
 

@@ -1,51 +1,51 @@
-# Measuring Resonances
+# 共振值測量
 
-Klipper has built-in support for ADXL345 accelerometer, which can be used to measure resonance frequencies of the printer for different axes, and auto-tune [input shapers](Resonance_Compensation.md) to compensate for resonances. Note that using ADXL345 requires some soldering and crimping. ADXL345 can be connected to a Raspberry Pi directly, or to an SPI interface of an MCU board (it needs to be reasonably fast).
+Klipper內建有ADXL345加速度感測器驅動，可用以測量印表機不同運動軸發生共振的頻率，從而自動進行 [輸入整形](Resonance_Compensation.md) 以實現共振補償。注意使用ADXL345需要進行焊接和壓線。ADXL345可以直接連線到樹莓派，也可以連線到MCU的SPI匯流排（注意MCU有一定的效能需求）。
 
 When sourcing ADXL345, be aware that there is a variety of different PCB board designs and different clones of them. Make sure that the board supports SPI mode (small number of boards appear to be hard-configured for I2C by pulling SDO to GND), and, if it is going to be connected to a 5V printer MCU, that it has a voltage regulator and a level shifter.
 
-## Installation instructions
+## 安裝指南
 
-### Wiring
+### 接線
 
-You need to connect ADXL345 to your Raspberry Pi via SPI. Note that the I2C connection, which is suggested by ADXL345 documentation, has too low throughput and **will not work**. The recommended connection scheme:
+我們需要將ADXL345連線到樹莓派的SPI介面。注意，儘管ADXL345文件推薦使用I2C，但其數據吞吐能力不足，**不能**實現共振測量的要求。推薦的接線圖為：
 
-| ADXL345 pin | RPi pin | RPi pin name |
+| ADXL345引腳 | 樹莓派引腳 | 樹莓派引腳名稱 |
 | :-: | :-: | :-: |
-| 3V3 (or VCC) | 01 | 3.3v DC power |
-| GND | 06 | Ground |
-| CS | 24 | GPIO08 (SPI0_CE0_N) |
+| 3V3 或 VCC | 01 | 3.3v 直流（DC）電源 |
+| GND | 06 | 地（GND） |
+| CS（晶片選定） | 24 | GPIO08 (SPI0_CE0_N) |
 | SDO | 21 | GPIO09 (SPI0_MISO) |
 | SDA | 19 | GPIO10 (SPI0_MOSI) |
 | SCL | 23 | GPIO11 (SPI0_SCLK) |
 
-Fritzing wiring diagrams for some of the ADXL345 boards:
+部分ADXL345開發板的Fritzing接線圖如下：
 
-![ADXL345-Rpi](img/adxl345-fritzing.png)
+![ADXL345-樹莓派](img/adxl345-fritzing.png)
 
-Double-check your wiring before powering up the Raspberry Pi to prevent damaging it or the accelerometer.
+為避免損害樹莓派或加速度感測器，請再三確認接線正確再對樹莓派上電。
 
-### Mounting the accelerometer
+### 固定加速度感測器
 
-The accelerometer must be attached to the toolhead. One needs to design a proper mount that fits their own 3D printer. It is better to align the axes of the accelerometer with the printer's axes (but if it makes it more convenient, axes can be swapped - i.e. no need to align X axis with X and so forth - it should be fine even if Z axis of accelerometer is X axis of the printer, etc.).
+加速度感測器應固定在列印頭上。應根據印表機的情況設計合適的固定件。推薦將加速度的測量軸與印表機執行軸的方向進行對齊。然而，如果軸對齊極其麻煩，可以將印表機的軸使用其他測量軸對齊，比如印表機+X對應感測器-X，甚至印表機+X對應感測器-Z等。
 
-An example of mounting ADXL345 on the SmartEffector:
+下面是ADXL345固定到SmartEffector的示例：
 
-![ADXL345 on SmartEffector](img/adxl345-mount.jpg)
+![ADXL345固定在SmartEffector](img/adxl345-mount.jpg)
 
-Note that on a bed slinger printer one must design 2 mounts: one for the toolhead and one for the bed, and run the measurements twice. See the corresponding [section](#bed-slinger-printers) for more details.
+注意，滑床式印表機需要設計兩個固定件：一個安裝于列印頭，另一個用於熱床，並進行兩次測量。詳見 [對應分節](#bed-slinger-printers)。
 
-**Attention:** make sure the accelerometer and any screws that hold it in place do not touch any metal parts of the printer. Basically, the mount must be designed such as to ensure the electrical isolation of the accelerometer from the printer frame. Failing to ensure that can create a ground loop in the system that may damage the electronics.
+**注意**：務必確保加速度感測器和任何螺絲都不應該接觸到印表機的金屬部分。緊韌體必須設計成在加速度感測器和印表機框體間形成電氣絕緣。錯誤的設計可能會形成短路，從而損毀電氣元件。
 
-### Software installation
+### 軟體設定
 
-Note that resonance measurements and shaper auto-calibration require additional software dependencies not installed by default. First, you will have to run on your Raspberry Pi the following command:
+共振測量和自動整形校正需要額外的依賴項，這些依賴在Klipper安裝時未作部署，因此，需要在樹莓派上執行下面的命令：
 
 ```
 ~/klippy-env/bin/pip install -v numpy
 ```
 
-to install `numpy` package. Note that, depending on the performance of the CPU, it may take *a lot* of time, up to 10-20 minutes. Be patient and wait for the completion of the installation. On some occasions, if the board has too little RAM, the installation may fail and you will need to enable swap.
+安裝`numpy`包。numpy需要在安裝時進行編譯。編譯時間據主機的CPU算力而異，需要*耗費大量時間*，最大可至半小時（PiZero），請耐心等待編譯安裝完成。少部分情況下，主機的RAM不足會導致安裝失敗，需要開啟swap功能以實現安裝。
 
 Next, run the following commands to install the additional dependencies:
 
@@ -54,11 +54,11 @@ sudo apt update
 sudo apt install python3-numpy python3-matplotlib
 ```
 
-Afterwards, check and follow the instructions in the [RPi Microcontroller document](RPi_microcontroller.md) to setup the "linux mcu" on the Raspberry Pi.
+之後，參考[樹莓派作為微控制器文件](RPi_microcontroller.md)的指引完成「LINUX微處理器」的設定。
 
-Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and enabling SPI under the "Interfacing options" menu.
+通過執行`sudo raspi-config` 后的 "Interfacing options"菜單中啟用 SPI 以確保Linux SPI 驅動已啟用。
 
-Add the following to the printer.cfg file:
+在printer.cfg附上下面的內容：
 
 ```
 [mcu rpi]
@@ -73,40 +73,40 @@ probe_points:
     100, 100, 20  # an example
 ```
 
-It is advised to start with 1 probe point, in the middle of the print bed, slightly above it.
+建議在測試開始前，用探針在熱床中央進行一次探測，觸發后稍微上移。
 
-Restart Klipper via the `RESTART` command.
+通過`RESTART`命令重啟Klipper。
 
-## Measuring the resonances
+## 測量共振值
 
-### Checking the setup
+### 檢查設定
 
-Now you can test a connection.
+首先測試加速度感測器的連線。
 
-- For "non bed-slingers" (e.g. one accelerometer), in Octoprint, enter `ACCELEROMETER_QUERY`
-- For "bed-slingers" (e.g. more than one accelerometer), enter `ACCELEROMETER_QUERY CHIP=<chip>` where `<chip>` is the name of the chip as-entered, e.g. `CHIP=bed` (see: [bed-slinger](#bed-slinger-printers)) for all installed accelerometer chips.
+- 對於只有一個加速度感測器的情況，在Octoprint，輸入`ACCELEROMETER_QUERY`（遍歷已連線的加速度感測器）
+- 對於「滑動床」（即有多個加速度感測器），輸入`ACCELEROMETER_QUERY CHIP=<chip>`，其中`<chip>`是設定文件中的加速度感測器命名，例如 `CHIP=bed`(參見：[bed-slinger](#bed-slinger-printers))。
 
-You should see the current measurements from the accelerometer, including the free-fall acceleration, e.g.
+畫面將輸出加速度感測器的讀值，板子自由落體加速度，例如：
 
 ```
 Recv: // adxl345 values (x, y, z): 470.719200, 941.438400, 9728.196800
 ```
 
-If you get an error like `Invalid adxl345 id (got xx vs e5)`, where `xx` is some other ID, it is indicative of the connection problem with ADXL345, or the faulty sensor. Double-check the power, the wiring (that it matches the schematics, no wire is broken or loose, etc.), and soldering quality.
+如果輸出類似 `Invalid adxl345 id (got xx vs e5)`，其中'xx'為e5以外ID，這表示出現連線問題（如，連線錯誤、線纜電阻過大、干擾等），或感測器錯誤（如，殘次感測器 或 錯誤的感測器）。請在此檢查電源，接線（再三確定接線正確，沒有破損、鬆動的電線）或焊接問題。
 
-Next, try running `MEASURE_AXES_NOISE` in Octoprint, you should get some baseline numbers for the noise of accelerometer on the axes (should be somewhere in the range of ~1-100). Too high axes noise (e.g. 1000 and more) can be indicative of the sensor issues, problems with its power, or too noisy imbalanced fans on a 3D printer.
+下一步，在Octoprint中輸入 `MEASURE_AXES_NOISE`，之後將會顯示各個軸的基準測量噪聲（其值應在1-100之間）。如果軸的噪聲極高（例如 1000 或更高）可能意味著3D印表機上存在感測器問題、電源問題或不平衡的風扇。
 
-### Measuring the resonances
+### 測量共振值
 
-Now you can run some real-life tests. Run the following command:
+現在可以執行進行實測。執行以下命令:
 
 ```
 TEST_RESONANCES AXIS=X
 ```
 
-Note that it will create vibrations on X axis. It will also disable input shaping if it was enabled previously, as it is not valid to run the resonance testing with the input shaper enabled.
+注意，這將在X軸上產生振動。如果之前啟用了輸入整形，它也將禁用輸入整形，因為在啟用輸入整形的情況下執行共振測試是無效的。
 
-**Attention!** Be sure to observe the printer for the first time, to make sure the vibrations do not become too violent (`M112` command can be used to abort the test in case of emergency; hopefully it will not come to this though). If the vibrations do get too strong, you can attempt to specify a lower than the default value for `accel_per_hz` parameter in `[resonance_tester]` section, e.g.
+**注意！**請確保第一次執行時時刻觀察印表機，以確保振動不會太劇烈（`M112`命令可以在緊急情況下中止測試；但願不會到這一步）。如果振動確實太強烈，你可以嘗試在`[Resonance_tester]`分段中為`accel_per_hz`參數指定一個低於預設值的值，例如:
 
 ```
 [resonance_tester]
@@ -115,7 +115,7 @@ accel_per_hz: 50  # default is 75
 probe_points: ...
 ```
 
-If it works for X axis, run for Y axis as well:
+如果它適用於 X 軸，則也可以為 Y 軸執行：
 
 ```
 TEST_RESONANCES AXIS=Y
@@ -277,9 +277,9 @@ and use `graph_accelerometer.py` to process the generated files, e.g.
 ~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
 ```
 
-which will generate `/tmp/resonances.png` comparing the resonances.
+以產生`/tmp/resonances.png`，對比共振的數據。
 
-For Delta printers with the default tower placement (tower A ~= 210 degrees, B ~= 330 degrees, and C ~= 90 degrees), execute
+對標準構型的三角洲印表機（A塔210°，B塔330°，C塔~90°），執行
 
 ```
 TEST_RESONANCES AXIS=0,1 OUTPUT=raw_data
@@ -287,13 +287,13 @@ TEST_RESONANCES AXIS=-0.866025404,-0.5 OUTPUT=raw_data
 TEST_RESONANCES AXIS=0.866025404,-0.5 OUTPUT=raw_data
 ```
 
-and then use the same command
+然後使用同樣的命令
 
 ```
 ~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
 ```
 
-to generate `/tmp/resonances.png` comparing the resonances.
+以產生`/tmp/resonances.png`，對比共振的數據。
 
 ## Input Shaper auto-calibration
 
@@ -306,18 +306,18 @@ SHAPER_CALIBRATE
 This will run the full test for both axes and generate the csv output (`/tmp/calibration_data_*.csv` by default) for the frequency response and the suggested input shapers. You will also get the suggested frequencies for each input shaper, as well as which input shaper is recommended for your setup, on Octoprint console. For example:
 
 ```
-Calculating the best input shaper parameters for y axis
-Fitted shaper 'zv' frequency = 39.0 Hz (vibrations = 13.2%, smoothing ~= 0.105)
-To avoid too much smoothing with 'zv', suggested max_accel <= 5900 mm/sec^2
-Fitted shaper 'mzv' frequency = 36.8 Hz (vibrations = 1.7%, smoothing ~= 0.150)
-To avoid too much smoothing with 'mzv', suggested max_accel <= 4000 mm/sec^2
-Fitted shaper 'ei' frequency = 36.6 Hz (vibrations = 2.2%, smoothing ~= 0.240)
-To avoid too much smoothing with 'ei', suggested max_accel <= 2500 mm/sec^2
-Fitted shaper '2hump_ei' frequency = 48.0 Hz (vibrations = 0.0%, smoothing ~= 0.234)
-To avoid too much smoothing with '2hump_ei', suggested max_accel <= 2500 mm/sec^2
-Fitted shaper '3hump_ei' frequency = 59.0 Hz (vibrations = 0.0%, smoothing ~= 0.235)
-To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2500 mm/sec^2
-Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz
+Calculating the best input shaper parameters for y axis # 正在計算y軸的最佳輸入整形參數
+Fitted shaper 'zv' frequency = 39.0 Hz (vibrations = 13.2%, smoothing ~= 0.105) # 擬合整形「zv」
+To avoid too much smoothing with 'zv', suggested max_accel <= 5900 mm/sec^2 # 為避免使用「zv」方法產生過度平滑，建議最大加速度<=5900 mm/sec^2
+Fitted shaper 'mzv' frequency = 36.8 Hz (vibrations = 1.7%, smoothing ~= 0.150) # 擬合整形「mzv」
+To avoid too much smoothing with 'mzv', suggested max_accel <= 4000 mm/sec^2 # 為避免使用「mzv」方法產生過度平滑，建議最大加速度<=4000 mm/sec^2
+Fitted shaper 'ei' frequency = 36.6 Hz (vibrations = 2.2%, smoothing ~= 0.240) # 擬合整形「ei」
+To avoid too much smoothing with 'ei', suggested max_accel <= 2500 mm/sec^2 # 為避免使用「ei」方法產生過度平滑，建議最大加速度<=2500 mm/sec^2
+Fitted shaper '2hump_ei' frequency = 48.0 Hz (vibrations = 0.0%, smoothing ~= 0.234) # 擬合整形「2hump_ei」
+To avoid too much smoothing with '2hump_ei', suggested max_accel <= 2500 mm/sec^2 # 為避免使用「2hump_ei」方法產生過度平滑，建議最大加速度<=2500 mm/sec^2
+Fitted shaper '3hump_ei' frequency = 59.0 Hz (vibrations = 0.0%, smoothing ~= 0.235) # 擬合整形「3hump_ei」
+To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2500 mm/sec^2 # 為避免使用「3hump_ei」方法產生過度平滑，建議最大加速度<=2500 mm/sec^2
+Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz # 建議shaper_type_y = mzv, shaper_freq_y = 36.8 Hz
 ```
 
 If you agree with the suggested parameters, you can execute `SAVE_CONFIG` now to save them and restart the Klipper. Note that this will not update `max_accel` value in `[printer]` section. You should update it manually following the considerations in [Selecting max_accel](#selecting-max_accel) section.
