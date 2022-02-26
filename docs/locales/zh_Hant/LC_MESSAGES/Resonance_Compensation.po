@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-24 08:58+0000\n"
+"PO-Revision-Date: 2022-02-26 04:55+0000\n"
 "Last-Translator: Fred Chan <fred2088@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "klipper/resonance_compensation/zh_Hant/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.11.1-dev\n"
 
 msgid "Resonance Compensation"
 msgstr "共振補償"
@@ -419,7 +419,7 @@ msgid ""
 msgstr ""
 
 msgid "`RESTART`"
-msgstr ""
+msgstr "`RESTART`"
 
 msgid ""
 "and print the model. Then print the model again, but before printing run "
@@ -578,73 +578,73 @@ msgid "Vibration reduction 10x <br> (10% vibration tolerance)"
 msgstr ""
 
 msgid "ZV"
-msgstr ""
+msgstr "ZV"
 
 msgid "0.5 / shaper_freq"
-msgstr ""
+msgstr "0.5 / shaper_freq"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "± 5% shaper_freq"
-msgstr ""
+msgstr "± 5% shaper_freq"
 
 msgid "MZV"
-msgstr ""
+msgstr "MZV"
 
 msgid "0.75 / shaper_freq"
-msgstr ""
+msgstr "0.75 / shaper_freq"
 
 msgid "± 4% shaper_freq"
-msgstr ""
+msgstr "± 4% shaper_freq"
 
 msgid "-10%...+15% shaper_freq"
-msgstr ""
+msgstr "-10%...+15% shaper_freq"
 
 msgid "ZVD"
-msgstr ""
+msgstr "ZVD"
 
 msgid "1 / shaper_freq"
-msgstr ""
+msgstr "1 / shaper_freq"
 
 msgid "± 15% shaper_freq"
-msgstr ""
+msgstr "± 15% shaper_freq"
 
 msgid "± 22% shaper_freq"
-msgstr ""
+msgstr "± 22% shaper_freq"
 
 msgid "EI"
-msgstr ""
+msgstr "EI"
 
 msgid "± 20% shaper_freq"
-msgstr ""
+msgstr "± 20% shaper_freq"
 
 msgid "± 25% shaper_freq"
-msgstr ""
+msgstr "± 25% shaper_freq"
 
 msgid "2HUMP_EI"
-msgstr ""
+msgstr "2HUMP_EI"
 
 msgid "1.5 / shaper_freq"
-msgstr ""
+msgstr "1.5 / shaper_freq"
 
 msgid "± 35% shaper_freq"
-msgstr ""
+msgstr "± 35% shaper_freq"
 
 msgid "± 40 shaper_freq"
-msgstr ""
+msgstr "± 40 shaper_freq"
 
 msgid "3HUMP_EI"
-msgstr ""
+msgstr "3HUMP_EI"
 
 msgid "2 / shaper_freq"
-msgstr ""
+msgstr "2 / shaper_freq"
 
 msgid "-45...+50% shaper_freq"
-msgstr ""
+msgstr "-45...+50% shaper_freq"
 
 msgid "-50%...+55% shaper_freq"
-msgstr ""
+msgstr "-50%...+55% shaper_freq"
 
 msgid ""
 "A note on vibration reduction: the values in the table above are "
@@ -710,6 +710,9 @@ msgid ""
 "shaper_freq_x: ...  # frequency for the X mark of the test model\n"
 "shaper_freq_y: ...  # frequency for the Y mark of the test model\n"
 msgstr ""
+"[input_shaper]\n"
+"shaper_freq_x: ...  # frequency for the X mark of the test model\n"
+"shaper_freq_y: ...  # frequency for the Y mark of the test model\n"
 
 msgid ""
 "[input_shaper]\n"
@@ -717,6 +720,10 @@ msgid ""
 "shaper_freq_y: ...\n"
 "shaper_type: mzv\n"
 msgstr ""
+"[input_shaper]\n"
+"shaper_freq_x: ...\n"
+"shaper_freq_y: ...\n"
+"shaper_type: mzv\n"
 
 msgid ""
 "[input_shaper]\n"
@@ -724,6 +731,10 @@ msgid ""
 "shaper_freq_y: 50\n"
 "shaper_type: 2hump_ei\n"
 msgstr ""
+"[input_shaper]\n"
+"shaper_freq_x: 50\n"
+"shaper_freq_y: 50\n"
+"shaper_type: 2hump_ei\n"
 
 msgid ""
 "SET_DUAL_CARRIAGE CARRIAGE=1\n"
@@ -865,36 +876,41 @@ msgstr ""
 
 #: docs/Resonance_Compensation.md:block 61 (ordered list)
 msgid "`SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`"
-msgstr ""
+msgstr "`SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`"
 
 #: docs/Resonance_Compensation.md:block 61 (ordered list)
 msgid "`SET_PRESSURE_ADVANCE ADVANCE=0`"
-msgstr ""
+msgstr "`SET_PRESSURE_ADVANCE ADVANCE=0`"
 
 #: docs/Resonance_Compensation.md:block 61 (ordered list)
 msgid ""
 "`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=60 SHAPER_FREQ_Y=60`"
 msgstr ""
+"`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=60 SHAPER_FREQ_Y=60`"
 
 #: docs/Resonance_Compensation.md:block 61 (ordered list)
 msgid ""
 "`TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 "
 "STEP_DELTA=500 STEP_HEIGHT=5`"
 msgstr ""
+"`TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 "
+"STEP_DELTA=500 STEP_HEIGHT=5`"
 
 #: docs/Resonance_Compensation.md:block 63 (ordered list)
 msgid ""
 "`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=50 SHAPER_FREQ_Y=50`"
 msgstr ""
+"`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=50 SHAPER_FREQ_Y=50`"
 
 #: docs/Resonance_Compensation.md:block 65 (ordered list)
 msgid ""
 "`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=40 SHAPER_FREQ_Y=40`"
 msgstr ""
+"`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=40 SHAPER_FREQ_Y=40`"
 
 #: docs/Resonance_Compensation.md:block 72 (ordered list)
 msgid "`SET_INPUT_SHAPER SHAPER_TYPE=EI SHAPER_FREQ_X=... SHAPER_FREQ_Y=...`"
-msgstr ""
+msgstr "`SET_INPUT_SHAPER SHAPER_TYPE=EI SHAPER_FREQ_X=... SHAPER_FREQ_Y=...`"
 
 #~ msgid ""
 #~ "Basic tuning requires measuring the ringing frequencies of the printer and "

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-24 08:58+0000\n"
+"PO-Revision-Date: 2022-02-26 04:55+0000\n"
 "Last-Translator: Fred Chan <fred2088@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "klipper/releases/zh_Hant/>\n"
@@ -10,18 +10,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.11.1-dev\n"
 
 msgid ""
 "History of Klipper releases. Please see [installation](Installation.md) for "
 "information on installing Klipper."
-msgstr "Klipper版本發佈。如何安裝Klipper ，請檢視[installation](Installation.md)。"
+msgstr "Klipper版本發佈歷史。如何安裝Klipper，請檢視[installation](Installation.md)。"
 
 msgid "Klipper 0.9.0"
 msgstr "Klipper 0.9.0"
 
 msgid "Available on 20201020. Major changes in this release:"
-msgstr "發佈于2020年10月20日，此版本更新內容:"
+msgstr "在20201020發佈，此版本的主要更新："
 
 msgid ""
 "Support for \"Input Shaping\" - a mechanism to counteract printer resonance."
@@ -101,7 +101,7 @@ msgid "Klipper 0.8.0"
 msgstr "Klipper 0.8.0"
 
 msgid "Available on 20191021. Major changes in this release:"
-msgstr "在20191021年發佈。此版本的主要變化："
+msgstr "在20191021發佈。此版本的主要更新："
 
 msgid ""
 "New G-Code command template support. G-Code in the config file is now "
@@ -121,7 +121,7 @@ msgid "Improved support for TMC UART handling with an analog mux."
 msgstr ""
 
 msgid "Improved homing, probing, and bed leveling support:"
-msgstr ""
+msgstr "改進的歸位、探測和床校平支持："
 
 msgid ""
 "New manual_probe, bed_screws, screws_tilt_adjust, skew_correction, "
@@ -129,7 +129,7 @@ msgid ""
 msgstr ""
 
 msgid "Enhanced multi-sample probing with median, average, and retry logic."
-msgstr ""
+msgstr "使用中值、平均和重試邏輯增強多樣本探測。"
 
 msgid ""
 "Improved documentation for BL-Touch, probe calibration, endstop calibration,"
@@ -137,40 +137,40 @@ msgid ""
 msgstr ""
 
 msgid "Improved homing support on a large Z axis."
-msgstr ""
+msgstr "改進了大 Z 軸上的歸位支持。"
 
 msgid "Many Klipper micro-controller improvements:"
-msgstr ""
+msgstr "許多 Klipper 微控制器改進："
 
 msgid "Klipper ported to: SAM3X8C, SAM4S8C, SAMD51, STM32F042, STM32F4"
-msgstr ""
+msgstr "Klipper 移植到：SAM3X8C、SAM4S8C、SAMD51、STM32F042、STM32F4"
 
 msgid "New USB CDC driver implementations on SAM3X, SAM4, STM32F4."
-msgstr ""
+msgstr "在 SAM3X、SAM4、STM32F4 上實現新的 USB CDC 驅動程序。"
 
 msgid "Enhanced support for flashing Klipper over USB."
-msgstr ""
+msgstr "增強了對通過 USB 刷新 Klipper 的支持。"
 
 msgid "Software SPI support."
-msgstr ""
+msgstr "軟件 SPI 支援。"
 
 msgid "Greatly improved temperature filtering on the LPC176x."
-msgstr ""
+msgstr "大大改進了 LPC176x 上的溫度過濾。"
 
 msgid "Early output pin settings can be configured in the micro-controller."
-msgstr ""
+msgstr "早期的輸出引腳設置可以在微控制器中進行配置。"
 
 msgid "New website with the Klipper documentation: http://klipper3d.org/"
-msgstr ""
+msgstr "帶有 Klipper 文檔的新網站：http://klipper3d.org/"
 
 msgid "Klipper now has a logo."
-msgstr ""
+msgstr "Klipper 現在有了一個標誌。"
 
 msgid "Experimental support for polar and \"cable winch\" kinematics."
-msgstr ""
+msgstr "對polar和“cable winch”運動學作實驗性支持。"
 
 msgid "The config file can now include other config files."
-msgstr ""
+msgstr "配置文件現在可以包含其他配置文件。"
 
 msgid ""
 "Many additional modules added: board_pins, controller_fan, delayed_gcode, "
@@ -185,20 +185,22 @@ msgid ""
 "SET_GCODE_VARIABLE, SET_HEATER_TEMPERATURE, SET_IDLE_TIMEOUT, "
 "SET_TEMPERATURE_FAN_TARGET"
 msgstr ""
+"添加了許多附加命令：RESTORE_GCODE_STATE、SAVE_GCODE_STATE、SET_GCODE_VARIABLE"
+"、SET_HEATER_TEMPERATURE、SET_IDLE_TIMEOUT、SET_TEMPERATURE_FAN_TARGET"
 
 msgid "Klipper 0.7.0"
-msgstr ""
+msgstr "Klipper 0.7.0"
 
 msgid "Available on 20181220. Major changes in this release:"
-msgstr ""
+msgstr "在20181220發佈。此版本的主要更新："
 
 msgid "Klipper now supports \"mesh\" bed leveling"
-msgstr ""
+msgstr "Klipper 現在支持“網狀”床調平"
 
 msgid ""
 "New support for \"enhanced\" delta calibration (calibrates print x/y "
 "dimensions on delta printers)"
-msgstr ""
+msgstr "對三角機型的強化校準的新支持（校準三角機型打印機上的打印 x/y 尺寸）"
 
 msgid ""
 "Support for run-time configuration of Trinamic stepper motor drivers "
@@ -222,66 +224,69 @@ msgid ""
 msgstr ""
 
 msgid "Expanded LCD display support:"
-msgstr ""
+msgstr "擴充的 LCD 顯示支援："
 
 msgid "Support for run-time menus"
 msgstr ""
 
 msgid "New display icons"
-msgstr ""
+msgstr "新的顯示圖標"
 
 msgid "Support for \"uc1701\" and \"ssd1306\" displays"
-msgstr ""
+msgstr "支援“uc1701”和“ssd1306”顯示屏"
 
 msgid "Additional micro-controller support:"
-msgstr ""
+msgstr "支援更多的微控制器:"
 
 msgid ""
 "Klipper ported to: LPC176x (Smoothieboards), SAM4E8E (Duet2), SAMD21 "
 "(Arduino Zero), STM32F103 (\"Blue pill\" devices), atmega32u4"
 msgstr ""
+"Klipper 移植到：LPC176x (Smoothieboards), SAM4E8E (Duet2), SAMD21 (Arduino "
+"Zero), STM32F103 (\"Blue pill\" devices), atmega32u4"
 
 msgid ""
 "New Generic USB CDC driver implemented on AVR, LPC176x, SAMD21, and "
 "STM32F103"
-msgstr ""
+msgstr "在 AVR、LPC176x、SAMD21 和 STM32F103 上實現的新通用 USB CDC 驅動程序"
 
 msgid "Performance improvements on ARM processors"
-msgstr ""
+msgstr "對ARM 處理器的性能改進"
 
 msgid "The kinematics code was rewritten to use an \"iterative solver\""
 msgstr ""
 
 msgid "New automatic test cases for the Klipper host software"
-msgstr ""
+msgstr "Klipper 主機軟件的新自動測試用例"
 
 msgid "Many new example config files for common off-the-shelf printers"
-msgstr ""
+msgstr "常見的現成打印機的許多新示例配置文件"
 
 msgid ""
 "Documentation updates for bootloaders, benchmarking, micro-controller "
 "porting, config checks, pin mapping, slicer settings, packaging, and more"
-msgstr ""
+msgstr "引導加載程序、基準測試、微控制器移植、配置檢查、引腳映射、切片器設置、封裝等"
+"的文檔更新"
 
 msgid "Several bug fixes and code cleanups"
-msgstr ""
+msgstr "幾個錯誤修復和代碼清理"
 
 msgid "Klipper 0.6.0"
-msgstr ""
+msgstr "Klipper 0.6.0"
 
 msgid "Available on 20180331. Major changes in this release:"
-msgstr ""
+msgstr "在20180331發佈。此版本的主要更新："
 
 msgid "Enhanced heater and thermistor hardware failure checks"
-msgstr ""
+msgstr "增強的加熱器和熱敏電阻硬件故障檢查"
 
 msgid "Support for Z probes"
-msgstr ""
+msgstr "支援 Z 探頭"
 
 msgid ""
 "Initial support for automatic parameter calibration on deltas (via a new "
 "delta_calibrate command)"
-msgstr ""
+msgstr "對三角機型的自動參數校準作初步支持（通過新的 delta_calibrate 命令）"
 
 msgid ""
 "Initial support for bed tilt compensation (via bed_tilt_calibrate command)"
@@ -293,13 +298,13 @@ msgstr ""
 msgid ""
 "Initial support for displaying status on RepRapDiscount style 2004 and 12864"
 " displays"
-msgstr ""
+msgstr "初步支持在 RepRapDiscount 樣式 2004 和 12864 顯示屏上顯示狀態"
 
 msgid "New multi-extruder improvements:"
-msgstr ""
+msgstr "新增對多擠出機支援的改善："
 
 msgid "Support for shared heaters"
-msgstr ""
+msgstr "支援共享加熱頭"
 
 msgid "Initial support for dual carriages"
 msgstr ""
@@ -323,31 +328,32 @@ msgid ""
 "Support for G-Code M220/M221 commands (speed factor override / extrude "
 "factor override)"
 msgstr ""
+"支持 G-Code M220/M221 命令 (speed factor override / extrude factor override)"
 
 msgid "Several documentation updates:"
-msgstr ""
+msgstr "幾個文檔更新："
 
 msgid "New multiple MCU config example"
 msgstr ""
 
 msgid "New bltouch sensor config example"
-msgstr ""
+msgstr "新的 bltouch 傳感器配置示例"
 
 msgid "New FAQ, config check, and G-Code documents"
-msgstr ""
+msgstr "新的常見問題解答、配置檢查和 G-Code文件檔"
 
 msgid ""
 "Initial support for continuous integration testing on all github commits"
 msgstr ""
 
 msgid "Klipper 0.5.0"
-msgstr ""
+msgstr "Klipper 0.5.0"
 
 msgid "Available on 20171025. Major changes in this release:"
-msgstr ""
+msgstr "在20171025發佈。此版本的主要更新："
 
 msgid "Support for printers with multiple extruders."
-msgstr ""
+msgstr "支援具有多個擠出機的打印機。"
 
 msgid ""
 "Initial support for running on the Beaglebone PRU. Initial support for the "
@@ -375,10 +381,10 @@ msgid ""
 msgstr ""
 
 msgid "Klipper 0.4.0"
-msgstr ""
+msgstr "Klipper 0.4.0"
 
 msgid "Available on 20170503. Major changes in this release:"
-msgstr ""
+msgstr "在20170503發佈。此版本的主要更新："
 
 msgid ""
 "Improved installation on Raspberry Pi machines. Most of the install is now "
@@ -391,7 +397,7 @@ msgstr ""
 msgid ""
 "Documentation updates: New Kinematics document, new Pressure Advance tuning "
 "guide, new example config files, and more"
-msgstr ""
+msgstr "文檔更新：新的運動學文檔、新的 Pressure Advance 調整指南、新的示例配置文件等"
 
 msgid ""
 "Stepper performance improvements (20Mhz AVRs over 175K steps per second, "
@@ -409,37 +415,37 @@ msgid ""
 msgstr ""
 
 msgid "Support for limiting the top speed of short zigzag moves"
-msgstr ""
+msgstr "支援限制短之字形移動的最高速度"
 
 msgid "Support for AD595 sensors"
-msgstr ""
+msgstr "支援 AD595 傳感器"
 
 msgid "Klipper 0.3.0"
-msgstr ""
+msgstr "Klipper 0.3.0"
 
 msgid "Available on 20161223. Major changes in this release:"
-msgstr ""
+msgstr "在20161223發佈。此版本的主要更新："
 
 msgid "Improved documentation"
-msgstr ""
+msgstr "改進的文件檔"
 
 msgid "Support for robots with delta kinematics"
-msgstr ""
+msgstr "支持具有 三角機型的機器"
 
 msgid "Support for Arduino Due micro-controller (ARM cortex-M3)"
-msgstr ""
+msgstr "支持 Arduino Due 微控制器 (ARM cortex-M3)"
 
 msgid "Support for USB based AVR micro-controllers"
-msgstr ""
+msgstr "支持基於 USB 的 AVR 微控制器"
 
 msgid ""
 "Support for \"pressure advance\" algorithm - it reduces ooze during prints."
-msgstr ""
+msgstr "支持“pressure advance\" 算法 - 它減少了打印過程中的滲出。"
 
 msgid ""
 "New \"stepper phased based endstop\" feature - enables higher precision on "
 "endstop homing."
-msgstr ""
+msgstr "新的“基於步進相控的限位器”功能 - 可實現更高精度的限位器歸位。"
 
 msgid ""
 "Support for \"extended g-code\" commands such as \"help\", \"restart\", and "
@@ -461,7 +467,7 @@ msgid ""
 msgstr ""
 
 msgid "Klipper 0.2.0"
-msgstr ""
+msgstr "Klipper 0.2.0"
 
 msgid ""
 "Initial release of Klipper. Available on 20160525. Major features available "
@@ -471,17 +477,17 @@ msgstr ""
 msgid ""
 "Basic support for cartesian printers (steppers, extruder, heated bed, "
 "cooling fan)."
-msgstr ""
+msgstr "對獨立XY打印機（步進機、擠出機、加熱床、冷卻風扇）的基本支持。"
 
 msgid ""
 "Support for common g-code commands. Support for interfacing with OctoPrint."
 msgstr ""
 
 msgid "Acceleration and lookahead handling"
-msgstr ""
+msgstr "加速和前瞻處理"
 
 msgid "Support for AVR micro-controllers via standard serial ports"
-msgstr ""
+msgstr "通過標準串行端口支援 AVR 微控制器"
 
 #: docs/Releases.md:block 1 (header)
 msgid "Releases"
@@ -489,11 +495,11 @@ msgstr "版本發佈"
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.10.0"
-msgstr ""
+msgstr "Klipper 0.10.0"
 
 #: docs/Releases.md:block 4 (paragraph)
 msgid "Available on 20210929. Major changes in this release:"
-msgstr ""
+msgstr "在20210929發佈，此版本的主要更新："
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -507,6 +513,8 @@ msgid ""
 "Klipper now has a [Community Discord Server](https://discord.klipper3d.org) "
 "and a [Community Discourse Server](https://community.klipper3d.org)."
 msgstr ""
+"Klipper 現在有一個 [Community Discord Server](https://discord.klipper3d.org) "
+"和一個 [Community Discourse Server](https://community.klipper3d.org)。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -517,7 +525,7 @@ msgstr ""
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Automated support for flashing firmware via sdcard on many boards."
-msgstr ""
+msgstr "在許多板上通過 sdcard 自動支持刷新固件。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "New kinematic support for \"Hybrid CoreXY\" and \"Hybrid CoreXZ\" printers."
@@ -527,7 +535,7 @@ msgstr ""
 msgid ""
 "Klipper now uses `rotation_distance` to configure stepper motor travel "
 "distances."
-msgstr ""
+msgstr "Klipper 現在使用 `rotation_distance` 來配置步進電機的行程距離。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -549,7 +557,7 @@ msgstr ""
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Support for the rp2040 micro-controller (Raspberry Pi Pico boards)."
-msgstr ""
+msgstr "支持 rp2040 微控制器（Raspberry Pi Pico 板）。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "The \"make menuconfig\" system now utilizes kconfiglib."
