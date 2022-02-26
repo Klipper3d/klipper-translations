@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-26 04:55+0000\n"
+"PO-Revision-Date: 2022-02-26 13:56+0000\n"
 "Last-Translator: Fred Chan <fred2088@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "klipper/resonance_compensation/zh_Hant/>\n"
@@ -278,7 +278,7 @@ msgid ""
 msgstr ""
 
 msgid "Selecting max_accel"
-msgstr ""
+msgstr "選擇 max_accel"
 
 msgid ""
 "In order to select a suitable max_accel value, inspect the model for the "
