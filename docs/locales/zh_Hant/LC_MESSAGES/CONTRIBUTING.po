@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-24 08:58+0000\n"
+"PO-Revision-Date: 2022-02-26 04:55+0000\n"
 "Last-Translator: Fred Chan <fred2088@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "klipper/contributing/zh_Hant/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.11.1-dev\n"
 
 msgid "Contributing to Klipper"
 msgstr "為 Klipper 做貢獻"
@@ -409,13 +409,17 @@ msgid ""
 "to both the submitter and the reviewer, and it is not explicitly stated "
 "during a review."
 msgstr ""
+"審閱人仕需要至少在自己的腦海中確定大致的“目標受眾是誰”、“受眾規模”的粗略尺度"
+"、他們將獲得的“好處”、“好處是如何衡量的”，以及“這些測量測試的結果”。在大多數"
+"情況下，這對於提交者和審閱者來說都是顯而易見的，並且在審閱期間沒有明確說明。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "Submissions to the master Klipper branch are expected to have a noteworthy "
 "target audience. As a general \"rule of thumb\", submissions should target a"
 " user base of at least a 100 real-world users."
-msgstr ""
+msgstr "向 Klipper 主分支提交的內容預計會有值得注意的目標受眾。作為一般的“經驗法則”，"
+"提交內容應針對至少 100 個真實用戶的用戶群。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -423,6 +427,9 @@ msgid ""
 "don't consider it criticism. Being able to understand the real-world "
 "benefits of a change is a natural part of a review."
 msgstr ""
+"If a reviewer asks for details on the \"benefit\" of a submission, please "
+"don't consider it criticism. Being able to understand the real-world "
+"benefits of a change is a natural part of a review."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -441,6 +448,14 @@ msgid ""
 "Klipper's most notable features took years of discussion, rework, testing, "
 "and documentation prior to being merged into the master branch."
 msgstr ""
+"在討論好處時，最好討論“事實和測量”而不是“觀點和理論”。一般來說，審閱人仕不會"
+"尋找“此提交可能會因為……而提高質量”形式的回复，也不會尋找“有人可能會發現選項 "
+"X 有用”形式的回复，也不會尋找以下回复表單“此提交添加了固件 X "
+"實現的功能”。相反，通常最好討論如何衡量質量改進的細節以及這些測量的結果 - "
+"例如，“Acme X1000 打印機上的測試顯示改進的角落，如圖所示......”，或例如“在 "
+"Foomatic X900 打印機上打印真實世界對象 X 的時間從 4 小時變為 3.5 "
+"小時”。可以理解，這種類型的測試可能需要大量的時間和精力。在合併到主分支之前，"
+"Klipper 的一些最顯著的功能經過多年的討論、返工、測試和文檔編制。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -449,6 +464,8 @@ msgid ""
 "that they can not reasonably configure nor do we want to burden them with "
 "options that don't provide a notable benefit."
 msgstr ""
+"所有新模塊、配置選項、命令、命令參數和文檔都應該具有“高影響”。我們不想讓用戶"
+"負擔他們無法合理配置的選項，也不想讓他們負擔不提供顯著好處的選項。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -457,12 +474,16 @@ msgid ""
 "\"users of the MegaX500 are expected to set option X to 99.3 while users of "
 "the Elite100Y are expected to calibrate option X using procedure ...\"."
 msgstr ""
+"審閱者可能會要求澄清用戶如何配置選項 - 理想的回復將包含有關過程的詳細信息 - "
+"例如，“MegaX500 的用戶預計將選項 X 設置為 99.3，而 Elite100Y "
+"的用戶預計將使用程序校準選項 X ...\"。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "If the goal of an option is to make the code more modular then prefer using "
 "code constants instead of user facing config options."
-msgstr ""
+msgstr "如果選項的目標是使代碼更加模塊化，那麼更喜歡使用代碼常量而不是面向用戶的配置"
+"選項。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -470,7 +491,8 @@ msgid ""
 "functionality to existing modules - if the differences are arbitrary than "
 "it's preferable to utilize the existing system or refactor the existing "
 "code."
-msgstr ""
+msgstr "新模塊、新選項和新參數不應提供與現有模塊類似的功能 - "
+"如果差異是任意的，則最好利用現有系統或重構現有代碼。"
 
 #: docs/CONTRIBUTING.md:block 14 (paragraph)
 msgid ""
@@ -481,6 +503,9 @@ msgid ""
 "preferable for that new code to follow an internally consistent style and to"
 " generally follow industry wide coding norms."
 msgstr ""
+"Klipper 沒有實現嚴格的“編碼風格指南”，但對現有代碼的修改應該遵循現有代碼的高"
+"級代碼流、代碼縮進風格和格式。新模塊和系統的提交在編碼風格上具有更大的靈活性"
+"，但新代碼最好遵循內部一致的風格並通常遵循行業範圍的編碼規範。"
 
 #: docs/CONTRIBUTING.md:block 15 (paragraph)
 msgid ""
@@ -490,6 +515,9 @@ msgid ""
 "In particular, if reviewers can not convince themselves that a submission is"
 " free of defects then changes may be necessary."
 msgstr ""
+"討論“更好的實現”不是審查的目標。但是，如果審閱者難以理解提交的實施，那麼他們"
+"可能會要求進行更改以使實施更加透明。特別是，如果審閱者無法說服自己提交的內容"
+"沒有缺陷，則可能需要進行更改。"
 
 #: docs/CONTRIBUTING.md:block 16 (paragraph)
 msgid ""
@@ -500,6 +528,9 @@ msgid ""
 "implementation. Both situations are a normal result of a review and should "
 "not be considered criticism of the original submission."
 msgstr ""
+"作為審查的一部分，審查者可以為一個主題創建一個備用的拉取請求。這樣做可以避免"
+"在次要程序項目上過度“來回”，從而簡化提交過程。也可以這樣做，因為討論激發了審"
+"閱者構建替代實現。這兩種情況都是審查的正常結果，不應被視為對原始提交的批評。"
 
 #: docs/CONTRIBUTING.md:block 17 (header)
 msgid "Helping with reviews"
@@ -511,6 +542,8 @@ msgid ""
 "reviewer](#reviewers) to perform a review. Submitters of GitHub Pull "
 "Requests are also encouraged to review their own submissions."
 msgstr ""
+"我們感謝評論方面的幫助！無需成為 [列出的審閱者](#reviewers) 即可進行審閱。"
+"還鼓勵 GitHub 拉取請求的提交者審查他們自己的提交。"
 
 #: docs/CONTRIBUTING.md:block 19 (paragraph)
 msgid ""
@@ -526,6 +559,13 @@ msgid ""
 " but I reviewed everything else in the CONTRIBUTING document and it looks "
 "good\"."
 msgstr ""
+"為了幫助進行審核，請按照 [審核中的預期內容](#what-to-expect-in-a-review) "
+"中概述的步驟來驗證提交。完成審查後，在 GitHub "
+"拉取請求中添加評論以及您的發現。如果提交通過了審核，請在評論中明確說明 - "
+"例如“我根據 CONTRIBUTING 文檔中的步驟審核了此更改，並且對我來說一切都很好”。"
+"如果無法完成審查中的某些步驟，請明確說明哪些步驟已審查，哪些步驟未審查 - "
+"例如“我沒有檢查代碼是否存在缺陷，但我審查了 CONTRIBUTING "
+"文檔中的所有其他內容，並且它看起來不錯”。"
 
 #: docs/CONTRIBUTING.md:block 20 (paragraph)
 msgid ""
@@ -535,6 +575,9 @@ msgid ""
 "and the results - for example something like \"I tested this code on my "
 "Acme900Z printer with a vase print and the results were good\"."
 msgstr ""
+"我們也感謝對提交的測試。如果代碼已經過測試，請在 GitHub 拉取請求中添加評論，"
+"並附上您的測試結果 - 成功或失敗。請明確說明代碼已經過測試和結果——例如“我在 "
+"Acme900Z 打印機上用花瓶打印測試了這段代碼，結果很好”。"
 
 #: docs/CONTRIBUTING.md:block 21 (header)
 msgid "Reviewers"
@@ -554,7 +597,7 @@ msgstr "GitHub Id"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Areas of interest"
-msgstr ""
+msgstr "興趣範圍"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Dmitry Butyugin"
@@ -566,7 +609,7 @@ msgstr "@dmbutyugin"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Input shaping, resonance testing, kinematics"
-msgstr ""
+msgstr "輸入整形、共振測試、運動學"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Eric Callahan"
@@ -590,7 +633,7 @@ msgstr "@KevinOConnor"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Core motion system, Micro-controller code"
-msgstr ""
+msgstr "核心運動系統，微控制器代碼"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Paul McGowan"
@@ -609,11 +652,12 @@ msgid ""
 "Please do not \"ping\" any of the reviewers and please do not direct "
 "submissions at them. All of the reviewers monitor the forums and PRs, and "
 "will take on reviews when they have time to."
-msgstr ""
+msgstr "請不要“ping”任何審閱人仕，也不要直接向他們投稿。所有審閱人仕都會監控論壇和 "
+"PR，並會在有時間時進行審閱。"
 
 #: docs/CONTRIBUTING.md:block 25 (paragraph)
 msgid "The Klipper \"maintainers\" are:"
-msgstr ""
+msgstr "Klipper 的“維護者”是："
 
 #: docs/CONTRIBUTING.md:block 26 (table)
 msgid "GitHub name"
@@ -621,12 +665,12 @@ msgstr "GitHub項目名稱"
 
 #: docs/CONTRIBUTING.md:block 27 (header)
 msgid "Format of commit messages"
-msgstr ""
+msgstr "提交消息的格式"
 
 #: docs/CONTRIBUTING.md:block 28 (paragraph)
 msgid ""
 "Each commit should have a commit message formatted similar to the following:"
-msgstr ""
+msgstr "每個提交都應該有一個類似於以下格式的提交消息："
 
 #: docs/CONTRIBUTING.md:block 30 (paragraph)
 msgid ""
@@ -635,6 +679,10 @@ msgid ""
 " in pause() call at connect time`. The purpose of specifying a module name "
 "in the commit message is to help provide context for the commit comments."
 msgstr ""
+"在上面的示例中，`module` "
+"應該是存儲庫中文件或目錄的名稱（沒有文件擴展名）。例如，`clocksync："
+"修復連接時 pause() "
+"調用中的拼寫錯誤`。在提交消息中指定模塊名稱的目的是幫助為提交註釋提供上下文。"
 
 #~ msgid ""
 #~ "Thank you for contributing to Klipper! Please take a moment to read this "
