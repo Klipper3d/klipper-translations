@@ -2,13 +2,13 @@
 
 本文件描述了 gcode_macro（和其他類似）配置分段中實現 G-Code 命令序列的方法。
 
-## G 程式碼宏命名
+## G-Code巨集命名
 
-G-Code 宏的名稱大小寫並不重要。比如，MY_MACRO 和 my_macro 是等效的，可以用大寫或小寫來呼叫。如果在宏的名稱中使用任何數字，那麼它們必須都在名稱的末尾（例如，TEST_MACRO25是合法的，但MACRO25_TEST3是不合法的）。
+G-Code 巨集的名稱大小寫並不重要。比如，MY_MACRO 和 my_macro 是等效的，可以用大寫或小寫來呼叫。如果在宏的名稱中使用任何數字，那麼它們必須都在名稱的末尾（例如，TEST_MACRO25是合法的，但MACRO25_TEST3是不合法的）。
 
 ## 配置中 G 程式碼的格式
 
-在配置檔案中定義一個宏時需要注意縮排。在定義多行的G程式碼序列時每行都要有適當的縮排。例如：
+在配置檔案中定義一個宏時需要注意縮排。在定義多行的G-Code序列時每行都要有適當的縮排。例如：
 
 ```
 [gcode_macro blink_led]
@@ -18,9 +18,9 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 ```
 
-請注意，`gcode:` 配置選項總是從行首開始，而 G-Code 宏中的後續行從不從行首開始。
+請注意，`gcode:` 配置選項總是從行首開始，而 G-Code 巨集中的後續行從不從行首開始。
 
-## 向宏新增描述
+## 新增巨集描述
 
 可以通過新增 `description:` 和簡短的描述來幫助理解該功能。如果沒有指定，預設為"G-Code macro"。例如：
 
@@ -50,7 +50,7 @@ gcode:
   RESTORE_GCODE_STATE NAME=my_move_up_state
 ```
 
-The `G91` command places the G-Code parsing state into "relative move mode" and the `RESTORE_GCODE_STATE` command restores the state to what it was prior to entering the macro. Be sure to specify an explicit speed (via the `F` parameter) on the first `G1` command.
+`G91` 命令將 G-Code解析狀態置於“相對移動模式”，而 `RESTORE_GCODE_STATE` 命令將狀態恢復到進入宏之前的狀態。確保在第一個“G1”命令上指定一個明確的速度（通過“F”參數）。
 
 ## 模板擴充套件
 
@@ -73,7 +73,7 @@ gcode:
   RESTORE_GCODE_STATE NAME=clean_nozzle_state
 ```
 
-### 宏觀參數
+### 巨集參數
 
 It is often useful to inspect parameters passed to the macro when it is called. These parameters are available via the `params` pseudo-variable. For example, if the macro:
 
@@ -94,11 +94,11 @@ gcode:
   M140 S{bed_temp}
 ```
 
-### The "rawparams" variable
+### "rawparams"變數
 
-The full unparsed parameters for the running macro can be access via the `rawparams` pseudo-variable.
+運行巨集的完整未解析參數可以通過 `rawparams` 偽變數訪問。
 
-This is quite useful if you want to change the behavior of certain commands like the `M117`. For example:
+如果您想更改某些命令（如“M117”）的行為，這非常有用。例如：
 
 ```
 [gcode_macro M117]
@@ -146,7 +146,7 @@ There are some commands available that can alter the state of the printer. For e
 
 ## 變數
 
-The SET_GCODE_VARIABLE command may be useful for saving state between macro calls. Variable names may not contain any upper case characters. For example:
+SET_GCODE_VARIABLE 命令可能有助於在巨集調用之間保存狀態。變量名不能包含任何大寫字符。例如：
 
 ```
 [gcode_macro start_probe]
@@ -167,9 +167,9 @@ gcode:
   M140 S{printer["gcode_macro start_probe"].bed_temp}
 ```
 
-Be sure to take the timing of macro evaluation and command execution into account when using SET_GCODE_VARIABLE.
+使用 SET_GCODE_VARIABLE 時，請務必考慮宏評估和命令執行的時間。
 
-## Delayed Gcodes
+## 延遲 G-Code
 
 The [delayed_gcode] configuration option can be used to execute a delayed gcode sequence:
 
@@ -219,7 +219,7 @@ UPDATE_DELAYED_GCODE ID=report_temp DURATION=0
 
 If a [display config section](Config_Reference.md#display) is enabled, then it is possible to customize the menu with [menu](Config_Reference.md#menu) config sections.
 
-The following read-only attributes are available in menu templates:
+菜單模板中提供以下只讀屬性：
 
 * `menu.width` - element width (number of display columns)
 * `menu.ns` - element namespace
@@ -242,7 +242,7 @@ If a [save_variables config section](Config_Reference.md#save_variables) has bee
 {% set svv = printer.save_variables.variables %}
 ```
 
-As an example, it could be used to save the state of 2-in-1-out hotend and when starting a print ensure that the active extruder is used, instead of T0:
+例如，它可用於保存 二入一出 熱頭 的狀態，並在開始打印時確保使用有效的擠出機，而不是 T0：
 
 ```
 [gcode_macro T1]
