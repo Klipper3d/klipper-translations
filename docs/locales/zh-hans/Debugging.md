@@ -2,7 +2,7 @@
 
 本文档描述了一些 Klipper 调试工具。
 
-## Running the regression tests
+## 运行回归测试
 
 The main Klipper GitHub repository uses "github actions" to run a series of regression tests. It can be useful to run some of these tests locally.
 
@@ -141,7 +141,7 @@ cp /tmp/klippy.log .
 ~/klipper/scripts/logextract.py ./klippy.log
 ```
 
-The script will extract the printer config file and will extract MCU shutdown information. The information dumps from an MCU shutdown (if present) will be reordered by timestamp to assist in diagnosing cause and effect scenarios.
+该脚本将提取打印机的配置文件，并提取 MCU 的关闭信息。来自 MCU 关闭的信息转储（如果存在的话）将按时间戳重新排序，以协助诊断因果关系的情况。
 
 ## 用 simulavr 测试
 

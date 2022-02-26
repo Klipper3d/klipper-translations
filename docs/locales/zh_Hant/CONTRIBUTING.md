@@ -64,58 +64,58 @@
 
    空格的修改不應該與功能修改混在一起。一般來說，無意義的空格修改是不被接受的，除非是來自被修改程式碼的既定 "所有者"。
 
-   1. 提交的檔案是否為執行真實世界任務的真實世界使用者提供了 "高度影響"的好處？Reviewers need to identify, at least in their own minds, roughly "who the target audience is", a rough scale of "the size of that audience", the "benefit" they will obtain, how the "benefit is measured", and the "results of those measurement tests". In most cases this will be obvious to both the submitter and the reviewer, and it is not explicitly stated during a review.
+   1. 提交的檔案是否為執行真實世界任務的真實世界使用者提供了 "高度影響"的好處？審閱人仕需要至少在自己的腦海中確定大致的“目標受眾是誰”、“受眾規模”的粗略尺度、他們將獲得的“好處”、“好處是如何衡量的”，以及“這些測量測試的結果”。在大多數情況下，這對於提交者和審閱者來說都是顯而易見的，並且在審閱期間沒有明確說明。
 
-   Submissions to the master Klipper branch are expected to have a noteworthy target audience. As a general "rule of thumb", submissions should target a user base of at least a 100 real-world users.
+   向 Klipper 主分支提交的內容預計會有值得注意的目標受眾。作為一般的“經驗法則”，提交內容應針對至少 100 個真實用戶的用戶群。
 
    If a reviewer asks for details on the "benefit" of a submission, please don't consider it criticism. Being able to understand the real-world benefits of a change is a natural part of a review.
 
-   When discussing benefits it is preferable to discuss "facts and measurements" instead of "opinions and theories". In general, reviewers are not looking for responses of the form "this submission may improve quality because of ...", nor are they looking for responses of the form "someone may find option X useful", nor are they looking for responses of the form "this submission adds a feature that firmware X implements". Instead, it is generally preferable to discuss details on how the quality improvement was measured and what were the results of those measurements - for example, "tests on Acme X1000 printers show improved corners as seen in picture ...", or for example "print time of real-world object X on a Foomatic X900 printer went from 4 hours to 3.5 hours". It is understood that testing of this type can take significant time and effort. Some of Klipper's most notable features took years of discussion, rework, testing, and documentation prior to being merged into the master branch.
+   在討論好處時，最好討論“事實和測量”而不是“觀點和理論”。一般來說，審閱人仕不會尋找“此提交可能會因為……而提高質量”形式的回复，也不會尋找“有人可能會發現選項 X 有用”形式的回复，也不會尋找以下回复表單“此提交添加了固件 X 實現的功能”。相反，通常最好討論如何衡量質量改進的細節以及這些測量的結果 - 例如，“Acme X1000 打印機上的測試顯示改進的角落，如圖所示......”，或例如“在 Foomatic X900 打印機上打印真實世界對象 X 的時間從 4 小時變為 3.5 小時”。可以理解，這種類型的測試可能需要大量的時間和精力。在合併到主分支之前，Klipper 的一些最顯著的功能經過多年的討論、返工、測試和文檔編制。
 
-   All new modules, config options, commands, command parameters, and documents should have "high impact". We do not want to burden users with options that they can not reasonably configure nor do we want to burden them with options that don't provide a notable benefit.
+   所有新模塊、配置選項、命令、命令參數和文檔都應該具有“高影響”。我們不想讓用戶負擔他們無法合理配置的選項，也不想讓他們負擔不提供顯著好處的選項。
 
-   A reviewer may ask for clarification on how a user is to configure an option - an ideal response will contain details on the process - for example, "users of the MegaX500 are expected to set option X to 99.3 while users of the Elite100Y are expected to calibrate option X using procedure ...".
+   審閱者可能會要求澄清用戶如何配置選項 - 理想的回復將包含有關過程的詳細信息 - 例如，“MegaX500 的用戶預計將選項 X 設置為 99.3，而 Elite100Y 的用戶預計將使用程序校準選項 X ..."。
 
-   If the goal of an option is to make the code more modular then prefer using code constants instead of user facing config options.
+   如果選項的目標是使代碼更加模塊化，那麼更喜歡使用代碼常量而不是面向用戶的配置選項。
 
-   New modules, new options, and new parameters should not provide similar functionality to existing modules - if the differences are arbitrary than it's preferable to utilize the existing system or refactor the existing code.
+   新模塊、新選項和新參數不應提供與現有模塊類似的功能 - 如果差異是任意的，則最好利用現有系統或重構現有代碼。
 
-Klipper does not implement a strict "coding style guide", but modifications to existing code should follow the high-level code flow, code indentation style, and format of that existing code. Submissions of new modules and systems have more flexibility in coding style, but it is preferable for that new code to follow an internally consistent style and to generally follow industry wide coding norms.
+Klipper 沒有實現嚴格的“編碼風格指南”，但對現有代碼的修改應該遵循現有代碼的高級代碼流、代碼縮進風格和格式。新模塊和系統的提交在編碼風格上具有更大的靈活性，但新代碼最好遵循內部一致的風格並通常遵循行業範圍的編碼規範。
 
-It is not a goal of a review to discuss "better implementations". However, if a reviewer struggles to understand the implementation of a submission, then they may ask for changes to make the implementation more transparent. In particular, if reviewers can not convince themselves that a submission is free of defects then changes may be necessary.
+討論“更好的實現”不是審查的目標。但是，如果審閱者難以理解提交的實施，那麼他們可能會要求進行更改以使實施更加透明。特別是，如果審閱者無法說服自己提交的內容沒有缺陷，則可能需要進行更改。
 
-As part of a review, a reviewer may create an alternate Pull Request for a topic. This may be done to avoid excessive "back and forth" on minor procedural items and thus streamline the submission process. It may also be done because the discussion inspires a reviewer to build an alternative implementation. Both situations are a normal result of a review and should not be considered criticism of the original submission.
+作為審查的一部分，審查者可以為一個主題創建一個備用的拉取請求。這樣做可以避免在次要程序項目上過度“來回”，從而簡化提交過程。也可以這樣做，因為討論激發了審閱者構建替代實現。這兩種情況都是審查的正常結果，不應被視為對原始提交的批評。
 
 ### 協助評論
 
-We appreciate help with reviews! It is not necessary to be a [listed reviewer](#reviewers) to perform a review. Submitters of GitHub Pull Requests are also encouraged to review their own submissions.
+我們感謝評論方面的幫助！無需成為 [列出的審閱者](#reviewers) 即可進行審閱。還鼓勵 GitHub 拉取請求的提交者審查他們自己的提交。
 
-To help with a review, follow the steps outlined in [what to expect in a review](#what-to-expect-in-a-review) to verify the submission. After completing the review, add a comment to the GitHub Pull Request with your findings. If the submission passes the review then please state that explicitly in the comment - for example something like "I reviewed this change according to the steps in the CONTRIBUTING document and everything looks good to me". If unable to complete some steps in the review then please explicitly state which steps were reviewed and which steps were not reviewed - for example something like "I didn't check the code for defects, but I reviewed everything else in the CONTRIBUTING document and it looks good".
+為了幫助進行審核，請按照 [審核中的預期內容](#what-to-expect-in-a-review) 中概述的步驟來驗證提交。完成審查後，在 GitHub 拉取請求中添加評論以及您的發現。如果提交通過了審核，請在評論中明確說明 - 例如“我根據 CONTRIBUTING 文檔中的步驟審核了此更改，並且對我來說一切都很好”。如果無法完成審查中的某些步驟，請明確說明哪些步驟已審查，哪些步驟未審查 - 例如“我沒有檢查代碼是否存在缺陷，但我審查了 CONTRIBUTING 文檔中的所有其他內容，並且它看起來不錯”。
 
-We also appreciate testing of submissions. If the code was tested then please add a comment to the GitHub Pull Request with the results of your test - success or failure. Please explicitly state that the code was tested and the results - for example something like "I tested this code on my Acme900Z printer with a vase print and the results were good".
+我們也感謝對提交的測試。如果代碼已經過測試，請在 GitHub 拉取請求中添加評論，並附上您的測試結果 - 成功或失敗。請明確說明代碼已經過測試和結果——例如“我在 Acme900Z 打印機上用花瓶打印測試了這段代碼，結果很好”。
 
 ### 檢閱人仕
 
 以下為Klipper檢閱人仕:
 
-| 項目名稱 | GitHub Id | Areas of interest |
+| 項目名稱 | GitHub Id | 興趣範圍 |
 | --- | --- | --- |
-| Dmitry Butyugin | @dmbutyugin | Input shaping, resonance testing, kinematics |
+| Dmitry Butyugin | @dmbutyugin | 輸入整形、共振測試、運動學 |
 | Eric Callahan | @Arksine | 列印床調平中,MCU 更新中 |
-| Kevin O'Connor | @KevinOConnor | Core motion system, Micro-controller code |
+| Kevin O'Connor | @KevinOConnor | 核心運動系統，微控制器代碼 |
 | Paul McGowan | @mental405 | 配置檔案, 文件 |
 
-Please do not "ping" any of the reviewers and please do not direct submissions at them. All of the reviewers monitor the forums and PRs, and will take on reviews when they have time to.
+請不要“ping”任何審閱人仕，也不要直接向他們投稿。所有審閱人仕都會監控論壇和 PR，並會在有時間時進行審閱。
 
-The Klipper "maintainers" are:
+Klipper 的“維護者”是：
 
 | 項目名稱 | GitHub項目名稱 |
 | --- | --- |
 | Kevin O'Connor | @KevinOConnor |
 
-## Format of commit messages
+## 提交消息的格式
 
-Each commit should have a commit message formatted similar to the following:
+每個提交都應該有一個類似於以下格式的提交消息：
 
 ```
 模組名: 大寫、簡短的摘要（50個字元或更少）
@@ -132,7 +132,7 @@ Each commit should have a commit message formatted similar to the following:
 Signed-off-by: 姓名< myemail@example.org >
 ```
 
-In the above example, `module` should be the name of a file or directory in the repository (without a file extension). For example, `clocksync: Fix typo in pause() call at connect time`. The purpose of specifying a module name in the commit message is to help provide context for the commit comments.
+在上面的示例中，`module` 應該是存儲庫中文件或目錄的名稱（沒有文件擴展名）。例如，`clocksync：修復連接時 pause() 調用中的拼寫錯誤`。在提交消息中指定模塊名稱的目的是幫助為提交註釋提供上下文。
 
 在每個提交上必須有一個 "Signed-off-by "行--它證明你同意[開發者起源證書](developer-certificate-of-origin)。它必須包含你的真實姓名（對不起，沒有假名或匿名的貢獻）和一個可用的電子郵件地址。
 

@@ -58,7 +58,7 @@ serial:
 #   請參閱"mcu"分段的配置參數。
 ```
 
-## 常用的運動學設定
+## 常用的機型設定
 
 ### [printer]
 
@@ -97,7 +97,7 @@ max_accel:
 
 ### [stepper]
 
-步進電機定義。 不同的印表機型別（由 [列印] 配置部分中的「運動學」選項指定）步進器需要定義不同的名稱（例如，`stepper_x` 與 `stepper_a`）。 以下是常見的步進器定義。
+步進電機定義。 不同的印表機型別（由 [列印] 配置部分中的「機型」選項指定）步進器需要定義不同的名稱（例如，`stepper_x` 與 `stepper_a`）。 以下是常見的步進器定義。
 
 See the [rotation distance document](Rotation_Distance.md) for information on calculating the `rotation_distance` parameter. See the [Multi-MCU homing](Multi_MCU_Homing.md) document for information on homing using multiple micro-controllers.
 
@@ -175,9 +175,9 @@ position_max:
 #   if near position_min.
 ```
 
-### 笛卡爾運動學
+### 笛卡爾機型
 
-有關示例笛卡爾運動學配置檔案，請參閱 [example-cartesian.cfg](../config/example-cartesian.cfg)。
+有關示例XYZ機型配置檔案，請參閱 [example-cartesian.cfg](../config/example-cartesian.cfg)。
 
 此處描述的參數只適用於笛卡爾印表機，有關可用參數，請參閱 [常用運動設定](#common-kinematic-settings)。
 
@@ -207,9 +207,9 @@ max_z_accel:
 [stepper_z]
 ```
 
-### 線性三角洲運動學
+### 線性三角洲機型
 
-有關示例線性三角洲運動學配置檔案，請參閱 [example-delta.cfg](../config/example-delta.cfg)。 有關校準的資訊，請參閱 [三角洲校準指南](Delta_Calibrate.md)。
+有關示例線性三角洲機型配置檔案，請參閱 [example-delta.cfg](../config/example-delta.cfg)。 有關校準的資訊，請參閱 [三角洲校準指南](Delta_Calibrate.md)。
 
 此處僅描述了線性三角洲印表機的特定參數 - 有關可用參數，請參閱 [常用運動設定](#common-kinematic-settings)。
 
@@ -288,11 +288,11 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-### CoreXY 運動學
+### CoreXY 機型
 
-See [example-corexy.cfg](../config/example-corexy.cfg) for an example corexy (and h-bot) kinematics file.
+有關 corexy（及 H-BOT）機型文件的示例，請參見 [example-corexy.cfg](../config/example-corexy.cfg)。
 
-這裡只描述了 CoreXY 印表機特有的參數 -- 有關可用參數，請參閱 [常見運動學設定](#common-kinematic-settings)。
+這裡只描述了 CoreXY 印表機特有的參數 -- 有關可用參數，請參閱 [常見機型設定](#common-kinematic-settings)。
 
 ```
 [printer]
@@ -320,11 +320,11 @@ max_z_accel:
 [stepper_z]
 ```
 
-### CoreXY 運動學
+### CoreX 機型
 
-See [example-corexz.cfg](../config/example-corexz.cfg) for an example corexz kinematics config file.
+有關 corexz 機型配置文件的示例，請參見 [example-corexz.cfg](../config/example-corexz.cfg)。
 
-此處描述的參數只適用於笛卡爾印表機—有關全部可用參數，請參閱 [常用的運動學設定](#common-kinematic-settings)。
+此處描述的參數只適用於笛卡爾印表機—有關全部可用參數，請參閱 [常用的機型設定](#common-kinematic-settings)。
 
 ```
 [printer]
@@ -349,13 +349,13 @@ max_z_accel:
 [stepper_z]
 ```
 
-### 混合型 CoreXY 運動學
+### 混合型 CoreXY 機型
 
-See [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) for an example hybrid corexy kinematics config file.
+有關示例混合 corexy 機型配置文件，請參見 [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg)。
 
-This kinematic is also known as Markforged kinematic.
+這種機型也稱為 Markforged 機型。
 
-此處僅描述了線性三角洲印表機的特定參數—有關全部可用參數，請參閱 [常用的運動學設定](#common-kinematic-settings)。
+此處僅描述了線性三角洲印表機的特定參數—有關全部可用參數，請參閱 [常用的機型設定](#common-kinematic-settings)。
 
 ```
 [printer]
@@ -380,13 +380,13 @@ max_z_accel:
 [stepper_z]
 ```
 
-### 混合型 CoreXZ 運動學
+### 混合型 CoreXZ 機型
 
-See [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) for an example hybrid corexz kinematics config file.
+有關示例混合 corexz 機型配置文件，請參見 [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg)。
 
-This kinematic is also known as Markforged kinematic.
+這種機型也稱為 Markforged 機型。
 
-此處僅描述了線性三角洲印表機的特定參數—有關全部可用參數，請參閱 [常用的運動學設定](#common-kinematic-settings)。
+此處僅描述了線性三角洲印表機的特定參數—有關全部可用參數，請參閱 [常用的機型設定](#common-kinematic-settings)。
 
 ```
 [printer]
@@ -411,11 +411,11 @@ max_z_accel:
 [stepper_z]
 ```
 
-### 極座標運動學
+### Polar機型
 
-See [example-polar.cfg](../config/example-polar.cfg) for an example polar kinematics config file.
+有關Polar機型配置文件的示例，請參見 [example-polar.cfg](../config/example-polar.cfg)。
 
-這裡只描述了極地印表機特有的參數—全部可用的參數請見[常用的運動學設定](#common-kinematic-settings)。
+這裡只描述了極地印表機特有的參數—全部可用的參數請見[常用的機型設定](#common-kinematic-settings)。
 
 POLAR KINEMATICS ARE A WORK IN PROGRESS. Moves around the 0, 0 position are known to not work properly.
 
@@ -450,11 +450,11 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Rotary delta Kinematics
+### 旋轉三角洲機型
 
-See [example-rotary-delta.cfg](../config/example-rotary-delta.cfg) for an example rotary delta kinematics config file.
+有關旋轉三角洲機型配置文件的示例，請參見 [example-rotary-delta.cfg](../config/example-rotary-delta.cfg)。
 
-此處僅介紹特定於旋轉三角洲印表機的參數—有關可用參數，請參閱[常用的運動學設定](#common-kinematic-settings)。
+此處僅介紹特定於旋轉三角洲印表機的參數—有關可用參數，請參閱[常用的機型設定](#common-kinematic-settings)。
 
 ROTARY DELTA KINEMATICS ARE A WORK IN PROGRESS. Homing moves may timeout and some boundary checks are not implemented.
 
@@ -536,11 +536,11 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-### 纜繩絞盤運動學
+### 纜繩絞盤機型
 
 See the [example-winch.cfg](../config/example-winch.cfg) for an example cable winch kinematics config file.
 
-這裡只描述了纜繩鉸盤式印表機特有的參數 — 全部可用的參數見[常用的運動學設定](#common-kinematic-settings)。
+這裡只描述了纜繩鉸盤式印表機特有的參數 — 全部可用的參數見[常用的機型設定](#common-kinematic-settings)。
 
 CABLE WINCH SUPPORT IS EXPERIMENTAL. Homing is not implemented on cable winch kinematics. In order to home the printer, manually send movement commands until the toolhead is at 0, 0, 0 and then issue a `G28` command.
 
@@ -563,9 +563,9 @@ anchor_z:
 #   These parameters must be provided.
 ```
 
-### 無運動學
+### 無機型
 
-可以定義特殊的 "none" 運動學來禁用 Klipper 中的運動學支援。可以用於控制不是 3D 印表機的裝置或除錯。
+可以定義特殊的 "none" 機型來禁用 Klipper 中的機型支援。可以用於控制不是 3D 印表機的裝置或除錯。
 
 ```
 [printer]
@@ -689,7 +689,7 @@ max_temp:
 
 ### [heater_bed]
 
-The heater_bed section describes a heated bed. It uses the same heater settings described in the "extruder" section.
+heat_bed 部分描述了一個加熱床。它使用與“擠出機”部分中描述的相同的加熱器設置。
 
 ```
 [heater_bed]
@@ -708,7 +708,7 @@ max_temp:
 
 網床調平。定義一個 bed_mesh 配置分段來啟用基於探測點產生網格的 Z 軸偏移移動變換。當使用探針歸位 Z 軸時，建議通過 printer.cfg 中定義一個 safe_z_home 分段使 Z 軸歸位在列印區域的中心執行。
 
-See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#bed_mesh) for additional information.
+有關更多信息，請參閱 [床網格指南](Bed_Mesh.md) 和 [命令參考](G-Codes.md#bed_mesh)。
 
 視覺化示例：
 
@@ -821,7 +821,7 @@ See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#bed_mes
 
 列印床傾斜補償。可以定義一個 bed_tilt 配置分段來啟用移動變換傾斜列印床補償。請注意，bed_mesh 和 bed_tilt 不相容：兩者無法同時被定義。
 
-See the [command reference](G-Codes.md#bed_tilt) for additional information.
+有關更多信息，請參閱 [命令參考](G-Codes.md#bed_tilt)。
 
 ```
 [bed_tilt]
@@ -983,7 +983,7 @@ Moving gantry leveling using 4 independently controlled Z motors. Corrects hyper
  ----------------
 ```
 
-Where x is the 0, 0 point on the bed
+其中 X 是床上的0、0點
 
 ```
 [quad_gantry_level]
@@ -1164,7 +1164,7 @@ filename:
 
 ### [idle_timeout]
 
-空閑超時。預設啟用空閑超時 - 新增顯式 idle_timeout 配置分段以更改預設設定。
+閒置超時。預設啟用閒置超時 - 新增顯式 idle_timeout 配置分段以更改預設設定。
 
 ```
 [idle_timeout]
@@ -1197,7 +1197,7 @@ path:
 
 Some printers with stage-clearing features, such as a part ejector or a belt printer, can find use in looping sections of the sdcard file. (For example, to print the same part over and over, or repeat the a section of a part for a chain or other repeated pattern).
 
-See the [command reference](G-Codes.md#sdcard_loop) for supported commands. See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin compatible M808 G-Code macro.
+有關支持的命令，請參閱 [命令參考](G-Codes.md#sdcard_loop)。請參閱 [sample-macros.cfg](../config/sample-macros.cfg) 文件了解 Marlin 兼容的 M808 G-Code碼。
 
 ```
 [sdcard_loop]
@@ -1248,7 +1248,7 @@ Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCO
 
 ### [gcode_arcs]
 
-Support for gcode arc (G2/G3) commands.
+支持 G-Code arc (G2/G3) 命令。
 
 ```
 [gcode_arcs]
@@ -1575,7 +1575,7 @@ Multi-stepper axes. On a cartesian style printer, the stepper controlling a give
 
 在一個多擠出機的印表機中，為每個額外的擠出機新增一個額外擠出機分段。額外擠出機分段應被命名為"extruder1"、"extruder2"、"extruder3"，以此類推。有關可用參數，參見"extruder"章節。
 
-See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an example configuration.
+有關示例配置，請參見 [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg)。
 
 ```
 [extruder1]
@@ -1592,7 +1592,7 @@ See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an exam
 
 Support for cartesian printers with dual carriages on a single axis. The active carriage is set via the SET_DUAL_CARRIAGE extended g-code command. The "SET_DUAL_CARRIAGE CARRIAGE=1" command will activate the carriage defined in this section (CARRIAGE=0 will return activation to the primary carriage). Dual carriage support is typically combined with extra extruders - the SET_DUAL_CARRIAGE command is often called at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the carriages during deactivation.
 
-See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration.
+有關示例配置，請參閱 [sample-idex.cfg](../config/sample-idex.cfg)。
 
 ```
 [dual_carriage]
@@ -1615,7 +1615,7 @@ axis:
 
 Support for additional steppers synchronized to the movement of an extruder (one may define any number of sections with an "extruder_stepper" prefix).
 
-See the [command reference](G-Codes.md#extruder) for more information.
+有關詳細信息，請參閱 [命令參考](G-Codes.md#extruder)。
 
 ```
 [extruder_stepper my_extra_stepper]
@@ -1802,7 +1802,7 @@ Generic heaters (one may define any number of sections with a "heater_generic" p
 #   parameter.
 ```
 
-## Temperature sensors
+## 溫度傳感器
 
 Klipper 包括許多型別的溫度感測器的定義。這些感測器可以在任何需要溫度感測器的配置分段中使用（例如`[extruder]`或`[heated_bed]`分段）。
 
@@ -2412,7 +2412,7 @@ pins:
 #   必須提供此參數。
 ```
 
-## TMC stepper driver configuration
+## TMC 步進驅動器配置
 
 Configuration of Trinamic stepper motor drivers in UART/SPI mode. Additional information is in the [TMC Drivers guide](TMC_Drivers.md) and in the [command reference](G-Codes.md#tmcxxxx).
 
@@ -2885,7 +2885,7 @@ wiper:
 
 ### [display]
 
-Support for a display attached to the micro-controller.
+支持連接到微控制器的顯示屏。
 
 ```
 [display]
@@ -2958,9 +2958,9 @@ lcd_type:
 #   在使用模擬按鈕時必須提供由逗號分隔最小和最大值。
 ```
 
-### hd44780顯示器
+### hd44780顯示屏
 
-有關配置 hd44780 顯示器（在"RepRapDiscount 2004 Smart Controller"型別顯示屏中可以找到）的資訊。
+有關配置 hd44780 顯示屏（在"RepRapDiscount 2004 Smart Controller"型別顯示屏中可以找到）的資訊。
 
 ```
 [display]
@@ -2975,7 +2975,7 @@ d7_pin:
 #   連線到hd44780 類LCD的引腳。
 #   必須提供這些參數
 #hd44780_protocol_init: True
-#   在一個 hd44780 顯示器上執行 8-bit/4-bit 協議初始化。對於所有
+#   在一個 hd44780 顯示屏上執行 8-bit/4-bit 協議初始化。對於所有
 #   正版的 hd44780 裝置，這是必須的。但是，在一些克隆的裝置上
 #   可能需要禁用。
 #   預設為True（啟用）。
@@ -2985,24 +2985,24 @@ d7_pin:
 ...
 ```
 
-### hd44780_spi顯示器
+### hd44780_spi顯示屏
 
-有關配置 hd44780_spi 顯示屏的資訊 - 通過硬體"移位暫存器"（用於基於 mightyboard 的印表機）控制的20x04顯示器。
+有關配置 hd44780_spi 顯示屏的資訊 - 通過硬體"移位暫存器"（用於基於 mightyboard 的印表機）控制的20x04顯示屏。
 
 ```
 [display]
 lcd_type: hd44780_spi
-#   對於hd44780_spi 顯示器，設定為「hd44780_spi」。
+#   對於hd44780_spi 顯示屏，設定為「hd44780_spi」。
 latch_pin:
 spi_software_sclk_pin:
 spi_software_mosi_pin:
 spi_software_miso_pin:
-#   控制顯示器的移位暫存器的引腳。由於位移暫存器沒有 MISO 引
+#   控制顯示屏的移位暫存器的引腳。由於位移暫存器沒有 MISO 引
 #   腳，但是軟體 SPI 實現需要這個引腳被配置，
 #   spi_software_miso_pin 需要被設定為一個印表機主板上未被使
 #   用的引腳。
 #hd44780_protocol_init: True
-#   在 hd44780 顯示器上執行 8-bit/4-bit 協議初始化。正版的
+#   在 hd44780 顯示屏上執行 8-bit/4-bit 協議初始化。正版的
 #   hd44780 裝置必須執行此操作，但是某些克隆裝置上可能需要
 #   禁用。
 #   預設為True（啟用）。
@@ -3012,14 +3012,14 @@ spi_software_miso_pin:
 ...
 ```
 
-### st7920 display
+### st7920 顯示屏
 
-有關配置 st7920 類顯示屏的資訊（可用於 "RepRapDiscount 12864 Full Graphic Smart Controller" 型別的顯示器）。
+有關配置 st7920 類顯示屏的資訊（可用於 "RepRapDiscount 12864 Full Graphic Smart Controller" 型別的顯示屏）。
 
 ```
 [display]
 lcd_type: st7920
-#   為st7920顯示器設定為 "st7920"。
+#   為st7920顯示屏設定為 "st7920"。
 cs_pin:
 sclk_pin:
 sid_pin:
@@ -3049,7 +3049,7 @@ spi_software_miso_pin:
 ...
 ```
 
-### uc1701 display
+### uc1701顯示屏
 
 有關配置 uc1701 顯示屏的資訊（用於「MKS Mini 12864」型顯示屏）。
 
@@ -3070,7 +3070,7 @@ a0_pin:
 ...
 ```
 
-### ssd1306 and sh1106 displays
+### ssd1306 和 sh1106 顯示屏
 
 ssd1306 和 sh1106 顯示屏的配置資訊.
 
@@ -3150,9 +3150,9 @@ text:
 
 ## [display_glyph]
 
-在支援自定義字形的顯示器上顯示一個自定義字形。給定的名稱將被分配給給定的顯示數據，然後可以在顯示模板中通過用「波浪形（～）」符號包圍的名稱來引用，即 `~my_display_glyph~`
+在支援自定義字形的顯示屏上顯示一個自定義字形。給定的名稱將被分配給給定的顯示數據，然後可以在顯示模板中通過用「波浪形（～）」符號包圍的名稱來引用，即 `~my_display_glyph~`
 
-See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples.
+有關一些示例，請參閱 [sample-glyphs.cfg](../config/sample-glyphs.cfg)。
 
 ```
 [display_glyph my_display_glyph]
@@ -3175,7 +3175,7 @@ See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples.
 
 ## [display my_extra_display]
 
-如果如上所示在 printer.cfg 中定義了主要的 [display] 分段，還可以定義多個輔助顯示器。注意，輔助顯示器目前不支援菜單功能，因此它們不支援「menu」選項或按鈕配置。
+如果如上所示在 printer.cfg 中定義了主要的 [display] 分段，還可以定義多個輔助顯示屏。注意，輔助顯示屏目前不支援菜單功能，因此它們不支援「menu」選項或按鈕配置。
 
 ```
 [display my_extra_display] 。
@@ -3259,7 +3259,7 @@ See the [command template document](Command_Templates.md#menu-templates) for inf
 
 耗材開關感測器。支援使用開關感測器（如限位開關）進行耗材插入和耗盡檢測。
 
-See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
+有關詳細信息，請參閱 [命令參考](G-Codes.md#filament_switch_sensor)。
 
 ```
 [filament_switch_sensor my_sensor]。
@@ -3297,7 +3297,7 @@ See the [command reference](G-Codes.md#filament_switch_sensor) for more informat
 
 耗材移動感測器。使用一個在耗材通過感測器時輸出引腳狀態會發生變化來檢測耗材插入和耗盡。
 
-See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
+有關詳細信息，請參閱 [命令參考](G-Codes.md#filament_switch_sensor)。
 
 ```
 [filament_motion_sensor my_sensor]
@@ -3550,7 +3550,7 @@ serial:
 
 ### 常見 SPI 設定
 
-The following parameters are generally available for devices using an SPI bus.
+以下參數通常適用於使用 SPI 總線的設備。
 
 ```
 #spi_speed:
@@ -3571,7 +3571,7 @@ The following parameters are generally available for devices using an SPI bus.
 
 ### 通用 I2C 設定
 
-The following parameters are generally available for devices using an I2C bus.
+以下參數通常適用於使用 I2C 總線的設備。
 
 ```
 #i2c_address:
