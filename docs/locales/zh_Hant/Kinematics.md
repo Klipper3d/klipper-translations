@@ -44,7 +44,7 @@ Klipper 使用傳統的"梯形發生器"來產生每個動作的運動--每個�
 
 ![lookahead](img/lookahead-slow.svg.png)
 
-The junction speeds are determined using "approximated centripetal acceleration". Best [described by the author](https://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/). However, in Klipper, junction speeds are configured by specifying the desired speed that a 90° corner should have (the "square corner velocity"), and the junction speeds for other angles are derived from that.
+結點速度使用“近似向心加速度”確定。最佳 [作者描述](https://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/)。但是，在 Klipper 中，通過指定 90° 角應具有的所需速度（“方形角速度”）來配置結點速度，並由此得出其他角度的結點速度。
 
 預計算的關鍵方程：
 
@@ -58,31 +58,31 @@ Klipper 實現了一種用於平滑短距離之字形移動的機制。參考以
 
 ![zigzag](img/zigzag.svg.png)
 
-In the above, the frequent changes from acceleration to deceleration can cause the machine to vibrate which causes stress on the machine and increases the noise. To reduce this, Klipper tracks both regular move acceleration as well as a virtual "acceleration to deceleration" rate. Using this system, the top speed of these short "zigzag" moves are limited to smooth out the printer motion:
+在上述情況下，從加速到減速的頻繁變化會導致機器振動，從而對機器造成壓力並增加噪音。為了減少這種情況，Klipper 跟踪常規移動加速度以及虛擬“加速到減速”率。使用這個系統，這些短的“之字形”移動的最高速度被限制為平滑打印機運動：
 
 ![smoothed](img/smoothed.svg.png)
 
-Specifically, the code calculates what the velocity of each move would be if it were limited to this virtual "acceleration to deceleration" rate (half the normal acceleration rate by default). In the above picture the dashed gray lines represent this virtual acceleration rate for the first move. If a move can not reach its full cruising speed using this virtual acceleration rate then its top speed is reduced to the maximum speed it could obtain at this virtual acceleration rate. For most moves the limit will be at or above the move's existing limits and no change in behavior is induced. For short zigzag moves, however, this limit reduces the top speed. Note that it does not change the actual acceleration within the move - the move continues to use the normal acceleration scheme up to its adjusted top-speed.
+具體來說，代碼計算每次移動的速度，如果它被限制在這個虛擬的“加速到減速”率（默認情況下為正常加速率的一半）。在上圖中，灰色虛線表示第一步的虛擬加速度。如果使用此虛擬加速度無法達到其全巡航速度，則其最高速度將降低到在此虛擬加速度下可以達到的最大速度。對於大多數移動，限制將等於或高於移動的現有限制，並且不會引起行為變化。然而，對於短的之字形移動，這個限制會降低最高速度。請注意，它不會改變移動中的實際加速度 - 移動將繼續使用正常加速方案，直至其調整後的最高速度。
 
-## Generating steps
+## 生成步驟
 
-Once the look-ahead process completes, the print head movement for the given move is fully known (time, start position, end position, velocity at each point) and it is possible to generate the step times for the move. This process is done within "kinematic classes" in the Klipper code. Outside of these kinematic classes, everything is tracked in millimeters, seconds, and in cartesian coordinate space. It's the task of the kinematic classes to convert from this generic coordinate system to the hardware specifics of the particular printer.
+一旦前瞻過程完成，給定移動的打印頭移動是完全已知的（時間、開始位置、結束位置、每個點的速度），並且可以生成移動的步進時間。此過程在 Klipper 代碼中的“運動學類”中完成。在這些運動學類之外，一切都以毫米、秒和笛卡爾坐標空間為單位進行跟踪。運動學類的任務是將通用坐標系轉換為特定打印機的硬件細節。
 
-Klipper uses an [iterative solver](https://en.wikipedia.org/wiki/Root-finding_algorithm) to generate the step times for each stepper. The code contains the formulas to calculate the ideal cartesian coordinates of the head at each moment in time, and it has the kinematic formulas to calculate the ideal stepper positions based on those cartesian coordinates. With these formulas, Klipper can determine the ideal time that the stepper should be at each step position. The given steps are then scheduled at these calculated times.
+Klipper 使用 [iterative solver](https://en.wikipedia.org/wiki/Root-finding_algorithm) 為每個步進器生成步進時間。該代碼包含計算每個時刻頭部理想XYZ坐標的公式，並且它具有根據這些XYZ坐標計算理想步進器位置的動作公式。通過這些公式，Klipper 可以確定步進器應該在每個步進位置的理想時間。然後在這些計算的時間安排給定的步驟。
 
-The key formula to determine how far a move should travel under constant acceleration is:
+確定在恆定加速度下移動應該行進多遠的關鍵公式是：
 
 ```
 move_distance = (start_velocity + .5 * accel * move_time) * move_time
 ```
 
-and the key formula for movement with constant velocity is:
+勻速動作的關鍵公式是：
 
 ```
 move_distance = cruise_velocity * move_time
 ```
 
-The key formulas for determining the cartesian coordinate of a move given a move distance is:
+在給定移動距離的情況下，確定移動的XYZ坐標的關鍵公式是：
 
 ```
 cartesian_x_position = start_x + move_distance * total_x_movement / total_movement
@@ -90,11 +90,11 @@ cartesian_y_position = start_y + move_distance * total_y_movement / total_moveme
 cartesian_z_position = start_z + move_distance * total_z_movement / total_movement
 ```
 
-### Cartesian Robots
+### XYZ 機型
 
-Generating steps for cartesian printers is the simplest case. The movement on each axis is directly related to the movement in cartesian space.
+為XYZ機型打印機生成執行動作是最簡單。每個軸上的動作與各XYZ空間直接相關。
 
-Key formulas:
+關鍵公式：
 
 ```
 stepper_x_position = cartesian_x_position
@@ -102,9 +102,9 @@ stepper_y_position = cartesian_y_position
 stepper_z_position = cartesian_z_position
 ```
 
-### CoreXY Robots
+### CoreXY 機型
 
-Generating steps on a CoreXY machine is only a little more complex than basic cartesian robots. The key formulas are:
+在 CoreXY 機器上生成動作只比基本的XYZ機型的打印機複雜一點。關鍵公式是：
 
 ```
 stepper_a_position = cartesian_x_position + cartesian_y_position
@@ -112,9 +112,9 @@ stepper_b_position = cartesian_x_position - cartesian_y_position
 stepper_z_position = cartesian_z_position
 ```
 
-### Delta Robots
+### 三角洲機型
 
-Step generation on a delta robot is based on Pythagoras's theorem:
+三角洲機型的動作生成基於畢達哥拉斯定理：
 
 ```
 stepper_position = (sqrt(arm_length^2
@@ -123,45 +123,45 @@ stepper_position = (sqrt(arm_length^2
                     + cartesian_z_position)
 ```
 
-### Stepper motor acceleration limits
+### 步進電機加速度限制
 
-With delta kinematics it is possible for a move that is accelerating in cartesian space to require an acceleration on a particular stepper motor greater than the move's acceleration. This can occur when a stepper arm is more horizontal than vertical and the line of movement passes near that stepper's tower. Although these moves could require a stepper motor acceleration greater than the printer's maximum configured move acceleration, the effective mass moved by that stepper would be smaller. Thus the higher stepper acceleration does not result in significantly higher stepper torque and it is therefore considered harmless.
+使用三角洲機型時，在XYZ空間中加速的動作可能需要特定步進電機上的加速度大於運動的加速度。當步進臂比垂直更水平並且運動線通過步進器塔附近時，可能會發生這種情況。儘管這些移動可能需要一個大於打印機配置的最大移動加速度的步進電機加速度，但該步進電機移動的有效質量會更小。因此，更高的步進加速度不會導致顯著更高的步進扭矩，因此被認為是無害的。
 
-However, to avoid extreme cases, Klipper enforces a maximum ceiling on stepper acceleration of three times the printer's configured maximum move acceleration. (Similarly, the maximum velocity of the stepper is limited to three times the maximum move velocity.) In order to enforce this limit, moves at the extreme edge of the build envelope (where a stepper arm may be nearly horizontal) will have a lower maximum acceleration and velocity.
+但是，為避免極端情況，Klipper 將步進加速度的最大上限設置為打印機配置的最大移動加速度的三倍。 （類似地，步進器的最大速度被限制為最大移動速度的三倍。）為了強制執行此限制，在構建包絡的最邊緣（步進器臂可能幾乎水平）的移動將具有較低的最大加速度和速度。
 
-### Extruder kinematics
+### 擠出機動作
 
-Klipper implements extruder motion in its own kinematic class. Since the timing and speed of each print head movement is fully known for each move, it's possible to calculate the step times for the extruder independently from the step time calculations of the print head movement.
+Klipper 在其自己的動作類別中實現了擠出機動作。由於每個打印頭移動的時間和速度對於每次移動都是完全已知的，因此可以獨立於打印頭移動的步進時間計算來計算擠出機的步進時間。
 
-Basic extruder movement is simple to calculate. The step time generation uses the same formulas that cartesian robots use:
+基本的擠出機運動很容易計算。步時間生成使用與笛卡爾機器人相同的公式：
 
 ```
 stepper_position = requested_e_position
 ```
 
-### 壓力提前
+### Pressure advance
 
-Experimentation has shown that it's possible to improve the modeling of the extruder beyond the basic extruder formula. In the ideal case, as an extrusion move progresses, the same volume of filament should be deposited at each point along the move and there should be no volume extruded after the move. Unfortunately, it's common to find that the basic extrusion formulas cause too little filament to exit the extruder at the start of extrusion moves and for excess filament to extrude after extrusion ends. This is often referred to as "ooze".
+實驗表明，除了基本的擠出機配方外，還可以改進擠出機的建模。在理想情況下，隨著擠出移動的進行，沿移動的每個點應沉積相同體積的細絲，並且移動後不應有擠出體積。不幸的是，通常會發現基本擠出配方會導致在擠出運動開始時離開擠出機的細絲太少，而在擠出結束後擠出過多的細絲。這通常被稱為"ooze"。
 
 ![ooze](img/ooze.svg.png)
 
-The "pressure advance" system attempts to account for this by using a different model for the extruder. Instead of naively believing that each mm^3 of filament fed into the extruder will result in that amount of mm^3 immediately exiting the extruder, it uses a model based on pressure. Pressure increases when filament is pushed into the extruder (as in [Hooke's law](https://en.wikipedia.org/wiki/Hooke%27s_law)) and the pressure necessary to extrude is dominated by the flow rate through the nozzle orifice (as in [Poiseuille's law](https://en.wikipedia.org/wiki/Poiseuille_law)). The key idea is that the relationship between filament, pressure, and flow rate can be modeled using a linear coefficient:
+"pressure advance"系統試圖通過使用不同型號的擠出機來解決這個問題。與其天真地相信每 mm^3 的長絲送入擠出機都會導致該量的 mm^3 立即離開擠出機，而是使用基於壓力的模型。當長絲被推入擠出機時壓力增加（如[胡克定律]（https://en.wikipedia.org/wiki/Hooke%27s_law）），擠出所需的壓力由通過噴嘴孔的流速決定（如 [Poiseuille 定律](https://en.wikipedia.org/wiki/Poiseuille_law)）。關鍵思想是燈絲、壓力和流量之間的關係可以使用線性係數進行建模：
 
 ```
 pa_position = nominal_position + pressure_advance_coefficient * nominal_velocity
 ```
 
-See the [pressure advance](Pressure_Advance.md) document for information on how to find this pressure advance coefficient.
+有關如何查找此壓力提前係數的信息，請參閱 [壓力提前](Pressure_Advance.md) 文檔。
 
-The basic pressure advance formula can cause the extruder motor to make sudden velocity changes. Klipper implements "smoothing" of the extruder movement to avoid this.
+基本的壓力提前公式會導致擠出機電機發生突然的速度變化。 Klipper 實現了擠出機運動的“平滑”以避免這種情況。
 
 ![pressure-advance](img/pressure-velocity.png)
 
-The above graph shows an example of two extrusion moves with a non-zero cornering velocity between them. Note that the pressure advance system causes additional filament to be pushed into the extruder during acceleration. The higher the desired filament flow rate, the more filament must be pushed in during acceleration to account for pressure. During head deceleration the extra filament is retracted (the extruder will have a negative velocity).
+上圖顯示了兩個擠壓移動的示例，它們之間的轉彎速度為非零。請注意，壓力推進系統會在加速過程中將額外的細絲推入擠出機。所需的燈絲流速越高，在加速過程中必須推入的燈絲越多以解決壓力問題。在機頭減速期間，額外的細絲縮回（擠出機將具有負速度）。
 
-The "smoothing" is implemented using a weighted average of the extruder position over a small time period (as specified by the `pressure_advance_smooth_time` config parameter). This averaging can span multiple g-code moves. Note how the extruder motor will start moving prior to the nominal start of the first extrusion move and will continue to move after the nominal end of the last extrusion move.
+“平滑”是使用擠出機位置在一小段時間內的加權平均值來實現的（由 `pressure_advance_smooth_time` 配置參數指定）。這種平均可以跨越多個 g 代碼移動。請注意擠出機電機將如何在第一次擠出移動的標稱開始之前開始移動，並將在最後一次擠出移動的標稱結束後繼續移動。
 
-Key formula for "smoothed pressure advance":
+"smoothed pressure advance"的關鍵公式：
 
 ```
 smooth_pa_position(t) =

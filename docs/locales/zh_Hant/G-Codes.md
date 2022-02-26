@@ -41,7 +41,7 @@ Klipper的目標是支援常見第三方軟體（如OctoPrint、Printrun、Slic3
 
 Klipper使用 "extended" 的G程式碼命令來進行一般的配置和狀態。這些擴充套件命令都遵循一個類似的格式--它們以一個命令名開始，後面可能有一個或多個參數。比如說：`SET_SERVO SERVO=myservo ANGLE=5.3`。在本檔案中，命令和參數以大寫字母顯示，但它們不分大小寫。(所以，"SET_SERVO "和 "set_servo "都是執行同一個命令）
 
-This section is organized my Klipper module name, which generally follows the section names specified in the [printer configuration file](Config_Reference.md). Note that some modules are automatically loaded.
+這部分是組織我的Klipper模塊名稱，一般遵循[printer configuration file](Config_Reference.md)中指定的部分名稱。請注意，某些模塊會自動載入。
 
 ### [adxl345]
 
@@ -65,7 +65,7 @@ This section is organized my Klipper module name, which generally follows the se
 
 ### [bed_mesh]
 
-The following commands are available when the [bed_mesh config section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh guide](Bed_Mesh.md)).
+當啟用 [bed_mesh config section](Config_Reference.md#bed_mesh) 時，以下命令可用（另請參閱 [bed mesh guide](Bed_Mesh.md)）。
 
 #### BED_MESH_CALIBRATE
 
@@ -93,7 +93,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 ### [bed_screws]
 
-The following commands are available when the [bed_screws config section](Config_Reference.md#bed_screws) is enabled (also see the [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws)).
+當啟用 [bed_screws config section](Config_Reference.md#bed_screws) 時，以下命令可用（另請參閱 [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws)）。
 
 #### BED_SCREWS_ADJUST
 
@@ -101,7 +101,7 @@ The following commands are available when the [bed_screws config section](Config
 
 ### [bed_tilt]
 
-The following commands are available when the [bed_tilt config section](Config_Reference.md#bed_tilt) is enabled.
+當啟用 [bed_tilt config section](Config_Reference.md#bed_tilt) 時，以下命令可用。
 
 #### BED_TILT_CALIBRATE
 
@@ -109,7 +109,7 @@ The following commands are available when the [bed_tilt config section](Config_R
 
 ### [bltouch]
 
-The following command is available when a [bltouch config section](Config_Reference.md#bltouch) is enabled (also see the [BL-Touch guide](BLTouch.md)).
+當啟用 [bltouch config section](Config_Reference.md#bltouch) 時，以下命令可用（另請參閱 [BL-Touch guide](BLTouch.md)）。
 
 #### BLTOUCH_DEBUG
 
@@ -129,7 +129,7 @@ The following command is available when a [bltouch config section](Config_Refere
 
 ### [delayed_gcode]
 
-The following command is enabled if a [delayed_gcode config section](Config_Reference.md#delayed_gcode) has been enabled (also see the [template guide](Command_Templates.md#delayed-gcodes)).
+如果啟用了 [delayed_gcode config section](Config_Reference.md#delayed_gcode)，則啟用以下命令（另請參閱 [template guide](Command_Templates.md#delayed-gcodes)）。
 
 #### UPDATE_DELAYED_GCODE
 
@@ -137,7 +137,7 @@ The following command is enabled if a [delayed_gcode config section](Config_Refe
 
 ### [delta_calibrate]
 
-The following commands are available when the [delta_calibrate config section](Config_Reference.md#linear-delta-kinematics) is enabled (also see the [delta calibrate guide](Delta_Calibrate.md)).
+當啟用 [delta_calibrate config section](Config_Reference.md#linear-delta-kinematics) 時，以下命令可用（另請參見 [delta calibrate guide](Delta_Calibrate.md)）。
 
 #### DELTA_CALIBRATE
 
@@ -149,7 +149,7 @@ The following commands are available when the [delta_calibrate config section](C
 
 ### [display]
 
-The following command is available when a [display config section](Config_Reference.md#gcode_macro) is enabled.
+當啟用 [display config section](Config_Reference.md#gcode_macro) 時，以下命令可用。
 
 #### SET_DISPLAY_GROUP
 
@@ -157,14 +157,14 @@ The following command is available when a [display config section](Config_Refere
 
 ### [display_status]
 
-The display_status module is automatically loaded if a [display config section](Config_Reference.md#display) is enabled. It provides the following standard G-Code commands:
+如果啟用了 [display config section](Config_Reference.md#display)，則會自動載入 display_status 模塊。它提供以下標準 G-Code命令：
 
 - 顯示資訊： `M117 <message> `
 - 設定構建百分比：`M73 P<percent>`
 
 ### [dual_carriage]
 
-The following command is available when the [dual_carriage config section](Config_Reference.md#dual_carriage) is enabled.
+當啟用 [dual_carriage config section](Config_Reference.md#dual_carriage) 時，以下命令可用。
 
 #### SET_DUAL_CARRIAGE
 
@@ -172,7 +172,7 @@ The following command is available when the [dual_carriage config section](Confi
 
 ### [endstop_phase]
 
-The following commands are available when an [endstop_phase config section](Config_Reference.md#endstop_phase) is enabled (also see the [endstop phase guide](Endstop_Phase.md)).
+當啟用 [endstop_phase config section](Config_Reference.md#endstop_phase) 時，以下命令可用（另請參閱 [endstop phase guide](Endstop_Phase.md)）。
 
 #### ENDSTOP_PHASE_CALIBRATE
 
@@ -180,7 +180,7 @@ The following commands are available when an [endstop_phase config section](Conf
 
 ### [extruder]
 
-The following commands are available if an [extruder config section](Config_Reference.md#extruder) is enabled:
+如果啟用了 [extruder config section](Config_Reference.md#extruder)，則以下命令可用：
 
 #### ACTIVATE_EXTRUDER
 
@@ -192,11 +192,11 @@ The following commands are available if an [extruder config section](Config_Refe
 
 #### SET_EXTRUDER_ROTATION_DISTANCE
 
-`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: Set a new value for the provided extruder's "rotation distance". If the rotation distance is a negative number then the stepper motion will be inverted (relative to the stepper direction specified in the config file). Changed settings are not retained on Klipper reset. Use with caution as small changes can result in excessive pressure between extruder and hot end. Do proper calibration with filament before use. If 'DISTANCE' value is not included command will return current rotation distance.
+`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`：為提供的擠出機的“旋轉距離”設置一個新值。如果旋轉距離為負數，則步進運動將反轉（相對於配置文件中指定的步進方向）。 Klipper 重置時不會保留更改的設置。小心使用，因為微小的變化會導致擠出機和熱端之間的壓力過大。使用前用燈絲進行適當的校準。如果不包含“DISTANCE”值，命令將返回當前旋轉距離。
 
 #### SYNC_EXTRUDER_MOTION
 
-`SYNC_EXTRUDER_MOTION EXTRUDER=<name> MOTION_QUEUE=<name>`: This command will cause the stepper specified by EXTRUDER (as defined in an [extruder](Config_Reference#extruder) or [extruder_stepper](Config_Reference#extruder_stepper) config section) to become synchronized to the movement of an extruder specified by MOTION_QUEUE (as defined in an [extruder](Config_Reference#extruder) config section). If MOTION_QUEUE is an empty string then the stepper will be desynchronized from all extruder movement.
+`SYNC_EXTRUDER_MOTION EXTRUDER=<name> MOTION_QUEUE=<name>`：此命令將導致由 EXTRUDER 指定的步進器（在 [extruder](Config_Reference#extruder) 或 [extruder_stepper](Config_Reference#extruder_stepper) 配置部分中定義）變為與 MOTION_QUEUE 指定的擠出機的運動同步（如 [extruder](Config_Reference#extruder) 配置部分中定義的）。如果 MOTION_QUEUE 是一個空字符串，那麼步進器將與所有擠出機運動不同步。
 
 #### SET_EXTRUDER_STEP_DISTANCE
 
@@ -208,7 +208,7 @@ The following commands are available if an [extruder config section](Config_Refe
 
 ### [fan_generic]
 
-The following command is available when a [fan_generic config section](Config_Reference.md#fan_generic) is enabled.
+當啟用 [fan_generic config section](Config_Reference.md#fan_generic) 時，以下命令可用。
 
 #### SET_FAN_SPEED
 
@@ -216,7 +216,7 @@ The following command is available when a [fan_generic config section](Config_Re
 
 ### [firmware_retraction]
 
-The following standard G-Code commands are available when the [firmware_retraction config section](Config_Reference.md#firmware_retraction) is enabled. These commands allow you to utilize the firmware retraction feature available in many slicers, to reduce stringing during non-extrusion moves from one part of the print to another. Appropriately configuring pressure advance reduces the length of retraction required.
+當啟用 [firmware_retraction config section](Config_Reference.md#firmware_retraction) 時，以下標準 G-Code命令可用。這些命令允許您利用許多切片機中可用的固件回縮功能，以減少從打印件的一個部分到另一部分的非擠出移動期間的拉絲。適當配置壓力提前可減少所需的回縮長度。
 
 - `G10`：使用目前配置的參數回抽擠出機。
 - `G11`：不使用目前配置的參數回抽擠出機。
@@ -233,7 +233,7 @@ The following standard G-Code commands are available when the [firmware_retracti
 
 ### [filament_switch_sensor]
 
-The following command is available when a [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) or [filament_motion_sensor](Config_Reference.md#filament_motion_sensor) config section is enabled.
+當啟用 [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) 或 [filament_motion_sensor](Config_Reference.md#filament_motion_sensor) 配置部分時，以下命令可用。
 
 #### QUERY_FILAMENT_SENSOR
 
@@ -252,7 +252,7 @@ The following command is available when a [filament_switch_sensor](Config_Refere
 
 ### [force_move]
 
-The force_move module is automatically loaded, however some commands require setting `enable_force_move` in the [printer config](Config_Reference#force_move).
+模組force_move已自動載入，但是某些命令需要在 [printer config](Config_Reference#force_move) 中設置 `enable_force_move`。
 
 #### STEPPER_BUZZ
 
@@ -294,7 +294,7 @@ The force_move module is automatically loaded, however some commands require set
 
 ### [gcode_macro]
 
-The following command is available when a [gcode_macro config section](Config_Reference.md#gcode_macro) is enabled (also see the [command templates guide](Command_Templates.md)).
+當啟用 [gcode_macro config section](Config_Reference.md#gcode_macro) 時，以下命令可用（另請參閱 [command templates guide](Command_Templates.md)）。
 
 #### SET_GCODE_VARIABLE
 
@@ -322,7 +322,7 @@ The following command is available when a [gcode_macro config section](Config_Re
 
 ### [hall_filament_width_sensor]
 
-The following commands are available when the [tsl1401cl filament width sensor config section](Config_Reference.md#tsl1401cl_filament_width_sensor) or [hall filament width sensor config section](Config_Reference.md#hall_filament_width_sensor) is enabled (also see [TSLl401CL Filament Width Sensor](TSL1401CL_Filament_Width_Sensor.md) and [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)):
+當啟用 [tsl1401cl filament width sensor config section](Config_Reference.md#tsl1401cl_filament_width_sensor) 或 [hall filament width sensor config section](Config_Reference.md#hall_filament_width_sensor) 時，以下命令可用（另請參閱 [TSLl401CL Filament Width Sensor](TSL1401CL_Filament_Width_Sensor.md) 和 [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md))：
 
 #### QUERY_FILAMENT_WIDTH
 
@@ -354,7 +354,7 @@ The following commands are available when the [tsl1401cl filament width sensor c
 
 ### [heaters]
 
-The heaters module is automatically loaded if a heater is defined in the config file.
+如果在配置文件中定義了加熱器，則會自動載入加熱器模塊。
 
 #### TURN_OFF_HEATERS
 
@@ -378,7 +378,7 @@ The heaters module is automatically loaded if a heater is defined in the config 
 
 ### [input_shaper]
 
-The following command is enabled if an [input_shaper config section](Config_Reference.md#input_shaper) has been enabled (also see the [resonance compensation guide](Resonance_Compensation.md)).
+如果啟用了 [input_shaper config section](Config_Reference.md#input_shaper)，則啟用以下命令（另請參閱 [resonance compensation guide](Resonance_Compensation.md)）。
 
 #### SET_INPUT_SHAPER
 
@@ -414,7 +414,7 @@ The following command is enabled if an [input_shaper config section](Config_Refe
 
 ### [neopixel]
 
-The following command is available when a [neopixel config section](Config_Reference.md#neopixel) or [dotstar config section](Config_Reference.md#dotstar) is enabled.
+當啟用 [neopixel config section](Config_Reference.md#neopixel) 或 [dotstar config section](Config_Reference.md#dotstar) 時，以下命令可用。
 
 #### SET_LED
 
@@ -422,7 +422,7 @@ The following command is available when a [neopixel config section](Config_Refer
 
 ### [output_pin]
 
-The following command is available when an [output_pin config section](Config_Reference.md#output_pin) is enabled.
+當啟用 [output_pin config section](Config_Reference.md#output_pin) 時，以下命令可用。
 
 #### SET_PIN
 
@@ -430,7 +430,7 @@ The following command is available when an [output_pin config section](Config_Re
 
 ### [palette2]
 
-The following commands are available when the [palette2 config section](Config_Reference.md#palette2) is enabled.
+啟用 [palette2 config section](Config_Reference.md#palette2) 時，以下命令可用。
 
 Palette列印通過在GCode檔案中嵌入特殊的OCodes（Omega Codes）來工作:
 
@@ -460,7 +460,7 @@ Palette列印通過在GCode檔案中嵌入特殊的OCodes（Omega Codes）來工
 
 ### [pid_calibrate]
 
-The pid_calibrate module is automatically loaded if a heater is defined in the config file.
+如果在配置文件中定義了加熱器，則會自動載入 pid_calibrate 模塊。
 
 #### PID_CALIBRATE
 
@@ -488,7 +488,7 @@ The pid_calibrate module is automatically loaded if a heater is defined in the c
 
 ### [probe]
 
-The following commands are available when a [probe config section](Config_Reference.md#probe) or [bltouch config section](Config_Reference.md#bltouch) is enabled (also see the [probe calibrate guide](Probe_Calibrate.md)).
+當啟用 [probe config section](Config_Reference.md#probe) 或 [bltouch config section](Config_Reference.md#bltouch) 時，以下命令可用（另請參閱 [probe calibrate guide](Probe_Calibrate.md)）。
 
 #### PROBE
 
@@ -520,7 +520,7 @@ The following commands are available when a [probe config section](Config_Refere
 
 ### [query_endstops]
 
-The query_endstops module is automatically loaded. The following standard G-Code commands are currently available, but using them is not recommended:
+模組query_endstops已自動載入。目前可以使用以下標準 G-Code命令，但不建議使用它們：
 
 - 獲取限位狀態：`M119` (使用QUERY_ENDSTOPS代替)
 
@@ -530,7 +530,7 @@ The query_endstops module is automatically loaded. The following standard G-Code
 
 ### [resonance_tester]
 
-The following commands are available when a [resonance_tester config section](Config_Reference.md#resonance_tester) is enabled (also see the [measuring resonances guide](Measuring_Resonances.md)).
+當啟用 [resonance_tester config section](Config_Reference.md#resonance_tester) 時，以下命令可用（另請參閱 [measuring resonances guide](Measuring_Resonances.md)）。
 
 #### MEASURE_AXES_NOISE
 
@@ -538,7 +538,7 @@ The following commands are available when a [resonance_tester config section](Co
 
 #### TEST_RESONANCES
 
-`TEST_RESONANCES AXIS=<axis> OUTPUT=<resonances,raw_data> [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [INPUT_SHAPING=[<0:1>]]`: Runs the resonance test in all configured probe points for the requested "axis" and measures the acceleration using the accelerometer chips configured for the respective axis. "axis" can either be X or Y, or specify an arbitrary direction as `AXIS=dx,dy`, where dx and dy are floating point numbers defining a direction vector (e.g. `AXIS=X`, `AXIS=Y`, or `AXIS=1,-1` to define a diagonal direction). Note that `AXIS=dx,dy` and `AXIS=-dx,-dy` is equivalent. If `INPUT_SHAPING=0` or not set (default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. `OUTPUT` parameter is a comma-separated list of which outputs will be written. If `raw_data` is requested, then the raw accelerometer data is written into a file or a series of files `/tmp/raw_data_<axis>_[<point>_]<name>.csv` with (`<point>_` part of the name generated only if more than 1 probe point is configured). If `resonances` is specified, the frequency response is calculated (across all probe points) and written into `/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to `resonances`, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.
+`TEST_RESONANCES AXIS=<axis> OUTPUT=<resonances,raw_data> [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [INPUT_SHAPING=[<0:1 >]]`：在請求的“軸”的所有配置探針點中運行共振測試，並使用為相應軸配置的加速度計芯片測量加速度。 "axis" 可以是 X 或 Y，或者指定任意方向為 `AXIS=dx,dy`，其中 dx 和 dy 是定義方向向量的浮點數（例如 `AXIS=X`、`AXIS=Y`、或 `AXIS=1,-1` 定義對角線方向）。請注意，`AXIS=dx,dy` 和 `AXIS=-dx,-dy` 是等價的。如果 `INPUT_SHAPING=0` 或未設置（默認），則禁用諧振測試的輸入整形，因為在啟用輸入整形器的情況下運行諧振測試是無效的。 `OUTPUT` 參數是以逗號分隔的列表，其中將寫入輸出。如果請求 `raw_data`，則將原始加速度計數據寫入一個文件或一系列文件 `/tmp/raw_data_<axis>_[<point>_]<name>.csv` 與 (`<point>_ ` 僅在配置超過 1 個探測點時生成的部分名稱）。如果指定了 `resonances`，則計算頻率響應（跨所有探測點）並寫入 `/tmp/resonances_<axis>_<name>.csv` 文件。如果未設置，則 OUTPUT 默認為“共振”，NAME 默認為“YYYYMMDD_HHMMSS”格式的當前時間。
 
 #### SHAPER_CALIBRATE
 
@@ -546,7 +546,7 @@ The following commands are available when a [resonance_tester config section](Co
 
 ### [respond]
 
-The following standard G-Code commands are available when the [respond config section](Config_Reference.md#respond) is enabled:
+當啟用 [respond config section](Config_Reference.md#respond) 時，以下標準 G-Code 命令可用：
 
 - `M118 <message>`：回顯配置了預設字首的資訊（如果沒有配置字首，則返回`echo: `）。
 
@@ -562,7 +562,7 @@ The following standard G-Code commands are available when the [respond config se
 
 ### [save_variables]
 
-The following command is enabled if a [save_variables config section](Config_Reference.md#save_variables) has been enabled.
+如果啟用了 [save_variables config section](Config_Reference.md#save_variables)，則啟用以下命令。
 
 #### SAVE_VARIABLE
 
@@ -570,7 +570,7 @@ The following command is enabled if a [save_variables config section](Config_Ref
 
 ### [screws_tilt_adjust]
 
-The following commands are available when the [screws_tilt_adjust config section](Config_Reference.md#screws_tilt_adjust) is enabled (also see the [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe)).
+當啟用 [screws_tilt_adjust config section](Config_Reference.md#screws_tilt_adjust) 時，以下命令可用（另請參閱 [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe ））。
 
 #### SCREWS_TILT_CALCULATE
 
@@ -578,7 +578,7 @@ The following commands are available when the [screws_tilt_adjust config section
 
 ### [sdcard_loop]
 
-When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is enabled, the following extended commands are available.
+當 [sdcard_loop config section](Config_Reference.md#sdcard_loop) 啟用時，以下擴展命令可用。
 
 #### SDCARD_LOOP_BEGIN
 
@@ -594,7 +594,7 @@ When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is enable
 
 ### [servo]
 
-The following commands are available when a [servo config section](Config_Reference.md#servo) is enabled.
+當啟用[servo config section](Config_Reference.md#servo) 時，以下命令可用。
 
 #### SET_SERVO
 
@@ -602,7 +602,7 @@ The following commands are available when a [servo config section](Config_Refere
 
 ### [skew_correction]
 
-The following commands are available when the [skew_correction config section](Config_Reference.md#skew_correction) is enabled (also see the [Skew Correction](Skew_Correction.md) guide).
+當啟用 [skew_correction config section](Config_Reference.md#skew_correction) 時，以下命令可用（另請參閱 [Skew Correction](Skew_Correction.md) 指南）。
 
 #### SET_SKEW
 
@@ -630,7 +630,7 @@ The following commands are available when the [skew_correction config section](C
 
 ### [temperature_fan]
 
-The following command is available when a [temperature_fan config section](Config_Reference.md#temperature_fan) is enabled.
+當啟用 [temperature_fan config section](Config_Reference.md#temperature_fan) 時，以下命令可用。
 
 #### SET_TEMPERATURE_FAN_TARGET
 
@@ -638,7 +638,7 @@ The following command is available when a [temperature_fan config section](Confi
 
 ### [tmcXXXX]
 
-The following commands are available when any of the [tmcXXXX config sections](Config_Reference.md#tmc-stepper-driver-configuration) are enabled.
+當啟用任何 [tmcXXXX config sections](Config_Reference.md#tmc-stepper-driver-configuration) 時，以下命令可用。
 
 #### DUMP_TMC
 
@@ -674,7 +674,7 @@ The following commands are available when any of the [tmcXXXX config sections](C
 
 - `FACTOR`：數值以`factor`每毫米的速度變化。使用的公式是：`value = start + factor * z_height`。你可以將最佳的 Z 高度直接插入該公式，以確定最佳的參數值。
 - `FACTOR` 和 `BAND`：該值以`factor`每毫米的平均速度變化，但在離散的環上，每`BAND`毫米的Z高度才會進行調整。使用的公式是：`value = start + factor * ((floor(z_height / band) + .5) * band)`。
-- `STEP_DELTA` and `STEP_HEIGHT`: The value changes by `STEP_DELTA` every `STEP_HEIGHT` millimeters. The formula used is: `value = start + step_delta * floor(z_height / step_height)`. You can simply count bands or read tuning tower labels to determine the optimum value.
+- `STEP_DELTA` 和 `STEP_HEIGHT`：值每 `STEP_HEIGHT` 毫米變化 `STEP_DELTA`。使用的公式是：`value = start + step_delta * floor(z_height / step_height)`。您可以簡單地計算頻段或閱讀調諧塔標籤以確定最佳值。
 
 ### [virtual_sdcard]
 
@@ -700,7 +700,7 @@ The following commands are available when any of the [tmcXXXX config sections](C
 
 ### [z_tilt]
 
-The following commands are available when the [z_tilt config section](Config_Reference.md#z_tilt) is enabled.
+當啟用 [z_tilt config section](Config_Reference.md#z_tilt) 時，以下命令可用。
 
 #### Z_TILT_ADJUST
 
