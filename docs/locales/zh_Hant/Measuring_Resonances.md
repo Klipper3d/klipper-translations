@@ -128,7 +128,7 @@ TEST_RESONANCES AXIS=Y
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_y_*.csv -o /tmp/shaper_calibrate_y.png
 ```
 
-This script will generate the charts `/tmp/shaper_calibrate_x.png` and `/tmp/shaper_calibrate_y.png` with frequency responses. You will also get the suggested frequencies for each input shaper, as well as which input shaper is recommended for your setup. For example:
+該腳本將生成帶有頻率響應的圖表`/tmp/shaper_calibrate_x.png`和`/tmp/shaper_calibrate_y.png`。您還將獲得每個輸入整形器的建議頻率，以及為您的設置推薦的輸入整形器。例如：
 
 ![Resonances](img/calibrate-y.png)
 
@@ -146,7 +146,7 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2800 mm/sec^
 Recommended shaper is mzv @ 34.6 Hz
 ```
 
-The suggested configuration can be added to `[input_shaper]` section of `printer.cfg`, e.g.:
+建議的配置可以添加到 `printer.cfg` 的 `[input_shaper]` 部分，例如：
 
 ```
 [input_shaper]
@@ -159,15 +159,15 @@ shaper_type_y: mzv
 max_accel: 3000  # should not exceed the estimated max_accel for X and Y axes
 ```
 
-or you can choose some other configuration yourself based on the generated charts: peaks in the power spectral density on the charts correspond to the resonance frequencies of the printer.
+或者您可以根據生成的圖表自行選擇其他配置：圖表上功率譜密度的峰值對應於打印機的共振頻率。
 
-Note that alternatively you can run the input shaper autocalibration from Klipper [directly](#input-shaper-auto-calibration), which can be convenient, for example, for the input shaper [re-calibration](#input-shaper-re-calibration).
+請注意，您也可以從 Klipper [直接](#input-shaper-auto-calibration) 運行輸入整形器自動校準，例如，對於輸入整形器 [re-calibration](#input-shaper-re -校準）。
 
-### Bed-slinger printers
+### Bed-slinger打印機
 
-If your printer is a bed slinger printer, you will need to change the location of the accelerometer between the measurements for X and Y axes: measure the resonances of X axis with the accelerometer attached to the toolhead and the resonances of Y axis - to the bed (the usual bed slinger setup).
+如果您的打印機是拋床打印機，您將需要在 X 軸和 Y 軸測量值之間更改加速度計的位置：用連接到工具頭的加速度計測量 X 軸的共振和 Y 軸的共振 - 到床（通常的床吊具設置）。
 
-However, you can also connect two accelerometers simultaneously, though they must be connected to different boards (say, to an RPi and printer MCU board), or to two different physical SPI interfaces on the same board (rarely available). Then they can be configured in the following manner:
+但是，您也可以同時連接兩個加速度計，儘管它們必須連接到不同的板（例如，連接到 RPi 和打印機 MCU 板），或者連接到同一板上的兩個不同的物理 SPI 接口（很少可用）。然後可以通過以下方式配置它們：
 
 ```
 [adxl345 hotend]
@@ -185,11 +185,11 @@ accel_chip_y: adxl345 bed
 probe_points: ...
 ```
 
-Then the commands `TEST_RESONANCES AXIS=X` and `TEST_RESONANCES AXIS=Y` will use the correct accelerometer for each axis.
+然後命令 `TEST_RESONANCES AXIS=X` 和 `TEST_RESONANCES AXIS=Y` 將為每個軸使用正確的加速度計。
 
 ### 最大平滑度
 
-Keep in mind that the input shaper can create some smoothing in parts. Automatic tuning of the input shaper performed by `calibrate_shaper.py` script or `SHAPER_CALIBRATE` command tries not to exacerbate the smoothing, but at the same time they try to minimize the resulting vibrations. Sometimes they can make a sub-optimal choice of the shaper frequency, or maybe you simply prefer to have less smoothing in parts at the expense of a larger remaining vibrations. In these cases, you can request to limit the maximum smoothing from the input shaper.
+請記住，輸入整形器可以在部分中創建一些平滑。由 `calibrate_shaper.py` 腳本或 `SHAPER_CALIBRATE` 命令執行的輸入整形器的自動調整試圖不加劇平滑，但同時它們試圖最小化產生的振動。有時他們可以對整形器頻率做出次優選擇，或者您可能只是希望以較大的剩余振動為代價來減少零件的平滑度。在這些情況下，您可以請求限制輸入整形器的最大平滑。
 
 讓我們考慮以下自動調整的結果：
 
@@ -248,15 +248,15 @@ probe_points: ...
 max_smoothing: 0.25  # an example
 ```
 
-Then, if you [rerun](#input-shaper-re-calibration) the input shaper auto-tuning using `SHAPER_CALIBRATE` Klipper command in the future, it will use the stored `max_smoothing` value as a reference.
+然後，如果您將來使用 `SHAPER_CALIBRATE` Klipper 命令 [重新運行](#input-shaper-re-calibration) 輸入整形器自動調整，它將使用存儲的 `max_smoothing` 值作為參考。
 
 ### 選擇 max_accel
 
-Since the input shaper can create some smoothing in parts, especially at high accelerations, you will still need to choose the `max_accel` value that does not create too much smoothing in the printed parts. A calibration script provides an estimate for `max_accel` parameter that should not create too much smoothing. Note that the `max_accel` as displayed by the calibration script is only a theoretical maximum at which the respective shaper is still able to work without producing too much smoothing. It is by no means a recommendation to set this acceleration for printing. The maximum acceleration your printer is able to sustain depends on its mechanical properties and the maximum torque of the used stepper motors. Therefore, it is suggested to set `max_accel` in `[printer]` section that does not exceed the estimated values for X and Y axes, likely with some conservative safety margin.
+由於輸入整形器可以在零件中創建一些平滑，尤其是在高加速度時，您仍然需要選擇不會在打印零件中創建太多平滑的“max_accel”值。校準腳本提供了“max_accel”參數的估計值，該參數不應產生過多的平滑。請注意，校準腳本顯示的“max_accel”只是理論上的最大值，在該最大值時，各個整形器仍然能夠工作而不會產生過多的平滑。絕對不建議為打印設置此加速。您的打印機能夠承受的最大加速度取決於其機械性能和所用步進電機的最大扭矩。因此，建議在 `[printer]` 部分設置不超過 X 和 Y 軸的估計值的 `max_accel`，可能有一些保守的安全餘量。
 
-Alternatively, follow [this](Resonance_Compensation.md#selecting-max_accel) part of the input shaper tuning guide and print the test model to choose `max_accel` parameter experimentally.
+或者，按照輸入整形器調整指南的 [this](Resonance_Compensation.md#selecting-max_accel) 部分並打印測試模型以實驗性地選擇“max_accel”參數。
 
-The same notice applies to the input shaper [auto-calibration](#input-shaper-auto-calibration) with `SHAPER_CALIBRATE` command: it is still necessary to choose the right `max_accel` value after the auto-calibration, and the suggested acceleration limits will not be applied automatically.
+相同的注意事項適用於使用 `SHAPER_CALIBRATE` 命令的輸入整形器 [auto-calibration](#input-shaper-auto-calibration)：自動校准後仍然需要選擇正確的 `max_accel` 值，建議加速度限制不會自動應用。
 
 如果您正在重新校準整形器，並且建議的整形器配置報告的平滑度與您在之前校準期間得到的幾乎相同，則可以跳過此步驟。
 
@@ -303,7 +303,7 @@ TEST_RESONANCES AXIS=0.866025404,-0.5 OUTPUT=raw_data
 SHAPER_CALIBRATE
 ```
 
-This will run the full test for both axes and generate the csv output (`/tmp/calibration_data_*.csv` by default) for the frequency response and the suggested input shapers. You will also get the suggested frequencies for each input shaper, as well as which input shaper is recommended for your setup, on Octoprint console. For example:
+這將為兩個軸運行完整測試，並為頻率響應和建議的輸入整形器生成 csv 輸出（默認為`/tmp/calibration_data_*.csv`）。您還將在 Octoprint 控制台上獲得每個輸入整形器的建議頻率，以及為您的設置推薦的輸入整形器。例如：
 
 ```
 Calculating the best input shaper parameters for y axis # 正在計算y軸的最佳輸入整形參數
@@ -320,27 +320,27 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2500 mm/sec^
 Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz # 建議shaper_type_y = mzv, shaper_freq_y = 36.8 Hz
 ```
 
-If you agree with the suggested parameters, you can execute `SAVE_CONFIG` now to save them and restart the Klipper. Note that this will not update `max_accel` value in `[printer]` section. You should update it manually following the considerations in [Selecting max_accel](#selecting-max_accel) section.
+如果您同意建議的參數，您現在可以執行 `SAVE_CONFIG` 來保存它們並重新啟動 Klipper。請注意，這不會更新 `[printer]` 部分中的 `max_accel` 值。您應該按照 [Selecting max_accel](#selecting-max_accel) 部分中的注意事項手動更新它。
 
-If your printer is a bed slinger printer, you can specify which axis to test, so that you can change the accelerometer mounting point between the tests (by default the test is performed for both axes):
+如果您的打印機是拋床打印機，您可以指定要測試的軸，以便您可以在測試之間更改加速度計安裝點（默認情況下，兩個軸都執行測試）：
 
 ```
 SHAPER_CALIBRATE AXIS=Y
 ```
 
-You can execute `SAVE_CONFIG` twice - after calibrating each axis.
+您可以在校準每個軸之後執行兩次“SAVE_CONFIG”。
 
-However, if you connected two accelerometers simultaneously, you simply run `SHAPER_CALIBRATE` without specifying an axis to calibrate the input shaper for both axes in one go.
+但是，如果您同時連接兩個加速度計，您只需運行“SHAPER_CALIBRATE”，而無需指定一個軸來一次性校準兩個軸的輸入整形器。
 
-### Input Shaper re-calibration
+### 輸入整形器重新校準
 
-`SHAPER_CALIBRATE` command can be also used to re-calibrate the input shaper in the future, especially if some changes to the printer that can affect its kinematics are made. One can either re-run the full calibration using `SHAPER_CALIBRATE` command, or restrict the auto-calibration to a single axis by supplying `AXIS=` parameter, like
+`SHAPER_CALIBRATE` 命令也可用於將來重新校準輸入整形器，尤其是在對打印機進行一些可能影響其運動學的更改時。可以使用“SHAPER_CALIBRATE”命令重新運行完整校準，或者通過提供“AXIS=”參數將自動校準限制在單個軸上，例如
 
 ```
 SHAPER_CALIBRATE AXIS=X
 ```
 
-**Warning!** It is not advisable to run the shaper autocalibration very frequently (e.g. before every print, or every day). In order to determine resonance frequencies, autocalibration creates intensive vibrations on each of the axes. Generally, 3D printers are not designed to withstand a prolonged exposure to vibrations near the resonance frequencies. Doing so may increase wear of the printer components and reduce their lifespan. There is also an increased risk of some parts unscrewing or becoming loose. Always check that all parts of the printer (including the ones that may normally not move) are securely fixed in place after each auto-tuning.
+**警告！**不建議非常頻繁地運行成型機自動校準（例如，在每次打印之前或每天）。為了確定共振頻率，自動校準會在每個軸上產生強烈的振動。通常，3D 打印機的設計不能承受長時間暴露於共振頻率附近的振動。這樣做可能會增加打印機組件的磨損並縮短其使用壽命。某些零件擰鬆或鬆動的風險也會增加。每次自動調整後，請務必檢查打印機的所有部件（包括通常不會移動的部件）是否牢固地固定到位。
 
 此外，由於測量中的一些噪聲，調諧結果可能會從一次校準運行到另一次校準運行略有不同。不過，預計噪音不會對打印質量產生太大影響。但是，仍然建議仔細檢查建議的參數，並在使用前打印一些測試打印以確認它們是好的。
 
@@ -353,14 +353,14 @@ SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0
 TEST_RESONANCES AXIS=X OUTPUT=raw_data
 ```
 
-ignoring any errors for `SET_INPUT_SHAPER` command. For `TEST_RESONANCES` command, specify the desired test axis. The raw data will be written into `/tmp` directory on the RPi.
+忽略 `SET_INPUT_SHAPER` 命令的任何錯誤。對於 `TEST_RESONANCES` 命令，指定所需的測試軸。原始數據將被寫入 RPi 上的 `/tmp` 目錄。
 
 原始數據也可以通過在一些正常的打印機活動期間運行命令“ACCELEROMETER_MEASURE”命令兩次來獲得 - 首先開始測量，然後停止測量並寫入輸出文件。詳情請參閱 [G-Codes](G-Codes.md#adxl345)
 
 稍後可以通過以下腳本處理數據：`scripts/graph_accelerometer.py` 和 `scripts/calibrate_shaper.py`。根據模式，它們都接受一個或多個原始 csv 文件作為輸入。 graph_accelerometer.py 腳本支持多種操作模式：
 
 * 繪製原始加速度計數據（使用 `-r` 參數），僅支持 1 個輸入;
-* plotting a frequency response (no extra parameters required), if multiple inputs are specified, the average frequency response is computed;
+* 繪製頻率響應（不需要額外的參數），如果指定了多個輸入，則計算平均頻率響應；
 * 比較幾個輸入之間的頻率響應（使用“-c”參數）；您還可以通過“-a x”、“-a y”或“-a z”參數指定要考慮的加速度計軸（如果未指定，則使用所有軸的振動總和）；
 * 繪製頻譜圖（使用 `-s` 參數），僅支持 1 個輸入；您還可以通過“-a x”、“-a y”或“-a z”參數指定要考慮的加速度計軸（如果未指定，則使用所有軸的振動總和）。
 

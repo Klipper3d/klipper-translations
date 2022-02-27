@@ -2,13 +2,13 @@
 
 本文件描述了 gcode_macro（和其他類似）配置分段中實現 G-Code 命令序列的方法。
 
-## G-Code巨集命名
+## G 程式碼宏命名
 
-G-Code 巨集的名稱大小寫並不重要。比如，MY_MACRO 和 my_macro 是等效的，可以用大寫或小寫來呼叫。如果在宏的名稱中使用任何數字，那麼它們必須都在名稱的末尾（例如，TEST_MACRO25是合法的，但MACRO25_TEST3是不合法的）。
+G-Code 宏的名稱大小寫並不重要。比如，MY_MACRO 和 my_macro 是等效的，可以用大寫或小寫來呼叫。如果在宏的名稱中使用任何數字，那麼它們必須都在名稱的末尾（例如，TEST_MACRO25是合法的，但MACRO25_TEST3是不合法的）。
 
-## 配置中 G 程式碼的格式
+## 配置中 G-Code的格式
 
-在配置檔案中定義一個宏時需要注意縮排。在定義多行的G-Code序列時每行都要有適當的縮排。例如：
+在配置檔案中定義一個宏時需要注意縮排。在定義多行的G程式碼序列時每行都要有適當的縮排。例如：
 
 ```
 [gcode_macro blink_led]
@@ -18,9 +18,9 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 ```
 
-請注意，`gcode:` 配置選項總是從行首開始，而 G-Code 巨集中的後續行從不從行首開始。
+請注意，`gcode:` 配置選項總是從行首開始，而 G-Code 宏中的後續行從不從行首開始。
 
-## 新增巨集描述
+## 向宏新增描述
 
 可以通過新增 `description:` 和簡短的描述來幫助理解該功能。如果沒有指定，預設為"G-Code macro"。例如：
 
@@ -33,7 +33,7 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 ```
 
-The terminal will display the description when you use the `HELP` command or the autocomplete function.
+當您使用“HELP”命令或自動完成功能時，終端將顯示描述。
 
 ## 儲存/恢復 G-Code 移動的狀態
 
@@ -50,11 +50,11 @@ gcode:
   RESTORE_GCODE_STATE NAME=my_move_up_state
 ```
 
-`G91` 命令將 G-Code解析狀態置於“相對移動模式”，而 `RESTORE_GCODE_STATE` 命令將狀態恢復到進入宏之前的狀態。確保在第一個“G1”命令上指定一個明確的速度（通過“F”參數）。
+`G91` 命令將 G-Code解析狀態置於“相對移動模式”，而 `RESTORE_GCODE_STATE` 命令將狀態恢復到進入巨集之前的狀態。確保在第一個“G1”命令上指定一個明確的速度（通過“F”參數）。
 
 ## 模板擴充套件
 
-The gcode_macro `gcode:` config section is evaluated using the Jinja2 template language. One can evaluate expressions at run-time by wrapping them in `{ }` characters or use conditional statements wrapped in `{% %}`. See the [Jinja2 documentation](http://jinja.pocoo.org/docs/2.10/templates/) for further information on the syntax.
+gcode_macro `gcode:` 配置部分使用 Jinja2 模板語言進行評估。可以通過將表達式包裝在“{}”字符中或使用條件語句包裝在“{% %}”中來在運行時評估表達式。有關語法的更多信息，請參閱 [Jinja2 文檔](http://jinja.pocoo.org/docs/2.10/templates/).
 
 一個更復雜的宏示例：
 
@@ -73,9 +73,9 @@ gcode:
   RESTORE_GCODE_STATE NAME=clean_nozzle_state
 ```
 
-### 巨集參數
+### 宏觀參數
 
-It is often useful to inspect parameters passed to the macro when it is called. These parameters are available via the `params` pseudo-variable. For example, if the macro:
+在調用巨集時檢查傳遞給巨集的參數通常很有用。這些參數可通過 `params` 偽變數獲得。例如，如果巨集：
 
 ```
 [gcode_macro SET_PERCENT]
@@ -83,9 +83,9 @@ gcode:
   M117 Now at { params.VALUE|float * 100 }%
 ```
 
-were invoked as `SET_PERCENT VALUE=.2` it would evaluate to `M117 Now at 20%`. Note that parameter names are always in upper-case when evaluated in the macro and are always passed as strings. If performing math then they must be explicitly converted to integers or floats.
+被調用為“SET_PERCENT VALUE=.2”，它將評估為“M117 Now at 20%”。請注意，在宏中求值時，參數名稱始終為大寫，並且始終作為字符串傳遞。如果執行數學運算，則必須將它們顯式轉換為整數或浮點數。
 
-It's common to use the Jinja2 `set` directive to use a default parameter and assign the result to a local name. For example:
+通常使用 Jinja2 `set` 指令來使用默認參數並將結果分配給本地名稱。例如：
 
 ```
 [gcode_macro SET_BED_TEMPERATURE]
@@ -94,7 +94,7 @@ gcode:
   M140 S{bed_temp}
 ```
 
-### "rawparams"變數
+### "rawparams" 變數
 
 運行巨集的完整未解析參數可以通過 `rawparams` 偽變數訪問。
 
@@ -110,7 +110,7 @@ gcode:
 
 ### "printer"變數
 
-It is possible to inspect (and alter) the current state of the printer via the `printer` pseudo-variable. For example:
+可以通過 `printer` 偽變數檢查（和更改）打印機的當前狀態。例如：
 
 ```
 [gcode_macro slow_fan]
@@ -118,13 +118,13 @@ gcode:
   M106 S{ printer.fan.speed * 0.9 * 255}
 ```
 
-Available fields are defined in the [Status Reference](Status_Reference.md) document.
+[Status Reference](Status_Reference.md) 文檔中定義了可用字段。
 
-Important! Macros are first evaluated in entirety and only then are the resulting commands executed. If a macro issues a command that alters the state of the printer, the results of that state change will not be visible during the evaluation of the macro. This can also result in subtle behavior when a macro generates commands that call other macros, as the called macro is evaluated when it is invoked (which is after the entire evaluation of the calling macro).
+重要！首先對巨集進行整體評估，然後才執行結果命令。如果宏發出更改打印機狀態的命令，則在評估宏期間將看不到該狀態更改的結果。當巨集生成調用其他巨集的命令時，這也可能導致微妙的行為，因為被調用的巨集在調用時進行評估（這是在調用巨集的整個評估之後）。
 
-By convention, the name immediately following `printer` is the name of a config section. So, for example, `printer.fan` refers to the fan object created by the `[fan]` config section. There are some exceptions to this rule - notably the `gcode_move` and `toolhead` objects. If the config section contains spaces in it, then one can access it via the `[ ]` accessor - for example: `printer["generic_heater my_chamber_heater"].temperature`.
+按照慣例，緊跟在 `printer` 後面的名稱是配置部分的名稱。因此，例如，`printer.fan` 指的是由 `[fan]` 配置部分創建的風扇對象。這條規則有一些例外——特別是 `gcode_move` 和 `toolhead` 對象。如果配置部分包含空格，則可以通過 `[ ]` 訪問器訪問它 - 例如：`printer["generic_heater my_chamber_heater"].temperature`。
 
-Note that the Jinja2 `set` directive can assign a local name to an object in the `printer` hierarchy. This can make macros more readable and reduce typing. For example:
+請注意，Jinja2 `set` 指令可以為 `printer` 層次結構中的對象分配本地名稱。這可以使宏更具可讀性並減少鍵入。例如：
 
 ```
 [gcode_macro QUERY_HTU21D]
@@ -135,14 +135,14 @@ gcode:
 
 ## 可用操作
 
-There are some commands available that can alter the state of the printer. For example, `{ action_emergency_stop() }` would cause the printer to go into a shutdown state. Note that these actions are taken at the time that the macro is evaluated, which may be a significant amount of time before the generated g-code commands are executed.
+有一些可用的命令可以改變打印機的狀態。例如，`{ action_emergency_stop() }` 會導致打印機進入關機狀態。請注意，這些操作是在評估宏時執行的，這可能是執行生成的 G-Code命令之前的大量時間。
 
 可用的「操作」命令：
 
-- `action_respond_info(msg)`: Write the given `msg` to the /tmp/printer pseudo-terminal. Each line of `msg` will be sent with a "// " prefix.
-- `action_raise_error(msg)`: Abort the current macro (and any calling macros) and write the given `msg` to the /tmp/printer pseudo-terminal. The first line of `msg` will be sent with a "!! " prefix and subsequent lines will have a "// " prefix.
-- `action_emergency_stop(msg)`: Transition the printer to a shutdown state. The `msg` parameter is optional, it may be useful to describe the reason for the shutdown.
-- `action_call_remote_method(method_name)`: Calls a method registered by a remote client. If the method takes parameters they should be provided via keyword arguments, ie: `action_call_remote_method("print_stuff", my_arg="hello_world")`
+- `action_respond_info(msg)`：將給定的`msg`寫入/tmp/printer偽終端。 `msg` 的每一行都會以“//”前綴發送。
+- `action_raise_error(msg)`：中止當前巨集（和任何調用巨集）並將給定的`msg`寫入/tmp/printer偽終端。 `msg` 的第一行將使用“!!”前綴發送，後續行將使用“//”前綴。
+- `action_emergency_stop(msg)`：將打印機轉換為關機狀態。 `msg` 參數是可選的，它可能有助於描述關閉的原因。
+- `action_call_remote_method(method_name)`：調用遠程客戶端註冊的方法。如果方法採用參數，則應通過關鍵字參數提供，即：`action_call_remote_method("print_stuff", my_arg="hello_world")`
 
 ## 變數
 
@@ -167,11 +167,11 @@ gcode:
   M140 S{printer["gcode_macro start_probe"].bed_temp}
 ```
 
-使用 SET_GCODE_VARIABLE 時，請務必考慮宏評估和命令執行的時間。
+使用 SET_GCODE_VARIABLE 時，請務必考慮巨集評估和命令執行的時間。
 
 ## 延遲 G-Code
 
-The [delayed_gcode] configuration option can be used to execute a delayed gcode sequence:
+[delayed_gcode] 配置選項可用於執行延遲的 G-Code 序列：
 
 ```
 [delayed_gcode clear_display]
@@ -188,9 +188,9 @@ gcode:
  UPDATE_DELAYED_GCODE ID=clear_display DURATION=10
 ```
 
-When the `load_filament` macro above executes, it will display a "Load Complete!" message after the extrusion is finished. The last line of gcode enables the "clear_display" delayed_gcode, set to execute in 10 seconds.
+當上面的`load_filament`宏執行時，它會顯示“加載完成！”擠壓完成後的消息。 G-Code 的最後一行啟用了“clear_display”delayed_gcode，設置為在 10 秒內執行。
 
-The `initial_duration` config option can be set to execute the delayed_gcode on printer startup. The countdown begins when the printer enters the "ready" state. For example, the below delayed_gcode will execute 5 seconds after the printer is ready, initializing the display with a "Welcome!" message:
+`initial_duration` 配置選項可以設置為在打印機啟動時執行delayed_gcode。當打印機進入“就緒”狀態時開始倒計時。例如，下面的delayed_gcode將在打印機準備好5秒後執行，用“歡迎！”初始化顯示信息：
 
 ```
 [delayed_gcode welcome]
@@ -199,7 +199,7 @@ gcode:
   M117 Welcome!
 ```
 
-Its possible for a delayed gcode to repeat by updating itself in the gcode option:
+通過在 G-Code 選項中自我更新，延遲的 G-Code 可能會重複：
 
 ```
 [delayed_gcode report_temp]
@@ -209,7 +209,7 @@ gcode:
   UPDATE_DELAYED_GCODE ID=report_temp DURATION=2
 ```
 
-The above delayed_gcode will send "// Extruder Temp: [ex0_temp]" to Octoprint every 2 seconds. This can be canceled with the following gcode:
+上面的delayed_gcode 將每2 秒向Octoprint 發送“// Extruder Temp: [ex0_temp]”。這可以使用以下 G-Code 取消：
 
 ```
 UPDATE_DELAYED_GCODE ID=report_temp DURATION=0
@@ -217,32 +217,32 @@ UPDATE_DELAYED_GCODE ID=report_temp DURATION=0
 
 ## 功能表範本
 
-If a [display config section](Config_Reference.md#display) is enabled, then it is possible to customize the menu with [menu](Config_Reference.md#menu) config sections.
+如果啟用了 [display config section](Config_Reference.md#display)，則可以使用 [menu](Config_Reference.md#menu) 配置部分自定義菜單。
 
 菜單模板中提供以下只讀屬性：
 
-* `menu.width` - element width (number of display columns)
-* `menu.ns` - element namespace
+* `menu.width` - 元素寬度（顯示列數）
+* `menu.ns` - 元素命名空間
 * "menu.event" - 觸發腳本的事件的名稱
-* `menu.input` - input value, only available in input script context
+* `menu.input` - 輸入數值，僅在輸入腳本上下文中可用
 
 選單範本中提供了以下操作：
 
-* `menu.back(force, update)`: will execute menu back command, optional boolean parameters `<force>` and `<update>`.
-   * When `<force>` is set True then it will also stop editing. Default value is False.
-   * When `<update>` is set False then parent container items are not updated. Default value is True.
-* `menu.exit(force)` - will execute menu exit command, optional boolean parameter `<force>` default value False.
-   * When `<force>` is set True then it will also stop editing. Default value is False.
+* `menu.back(force, update)`：將執行菜單返回命令，可選"是/否"參數`<force>`和`<update>`。
+   * 當 `<force>` 設置為"是"時，它也會停止編輯。默認值為"否"。
+   * 當 `<update>` 設置為 "否" 時，不會更新父容器項。默認值為"是"。
+* `menu.exit(force)` - 將執行菜單退出命令，可選"是/否"參數 `<force>` 默認值為 "否"。
+   * 當 `<force>` 設置為"是"時，它也會停止編輯。默認值為"否"。
 
 ## 將變數保存到磁碟
 
-If a [save_variables config section](Config_Reference.md#save_variables) has been enabled, `SAVE_VARIABLE VARIABLE=<name> VALUE=<value>` can be used to save the variable to disk so that it can be used across restarts. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. to avoid overly long lines you can add the following at the top of the macro:
+如果啟用了 [save_variables config section](Config_Reference.md#save_variables)，則可以使用 `SAVE_VARIABLE VARIABLE=<name> VALUE=<value>` 將變數保存到磁盤，以便在重新啟動時使用它。所有存儲的變數都會在啟動時加載到`printer.save_variables.variables` dict 中，並且可以在G-Code 巨集中使用。為避免行過長，您可以在巨集頂部添加以下內容：
 
 ```
 {% set svv = printer.save_variables.variables %}
 ```
 
-例如，它可用於保存 二入一出 熱頭 的狀態，並在開始打印時確保使用有效的擠出機，而不是 T0：
+例如，它可用於保存 二入一出熱頭的狀態，並在開始打印時確保使用活動的擠出機，而不是 T0：
 
 ```
 [gcode_macro T1]
