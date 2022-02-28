@@ -1,16 +1,18 @@
 # system3rdb <system3rd@gmail.com>, 2021.
 # brian park <gouache95@gmail.com>, 2021.
+# 이정희 <daemul72@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-23 02:32+0000\n"
-"Last-Translator: brian park <gouache95@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/canbus/ko/>\n"
+"PO-Revision-Date: 2022-02-28 15:55+0000\n"
+"Last-Translator: 이정희 <daemul72@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/canbus/ko/"
+">\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8.1-dev\n"
+"X-Generator: Weblate 4.11.1-dev\n"
 
 msgid "This document describes Klipper's CAN bus support."
 msgstr "이 문서는 Klipper의 CAN bus 지원에 대해 설명합니다."
@@ -119,7 +121,7 @@ msgstr ""
 "이상 목록에 나타나지 않습니다."
 
 msgid "Configuring Klipper"
-msgstr "Klipper 설정"
+msgstr "Klipper 구성 중"
 
 msgid ""
 "Update the Klipper [mcu configuration](Config_Reference.md#mcu) to use the "
