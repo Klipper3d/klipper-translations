@@ -214,6 +214,18 @@ The following command is available when a [fan_generic config section](Config_Re
 
 `SET_FAN_SPEED FAN=config_name SPEED=<速度>`该命令设置风扇的速度。"速度" 必须在0.0到1.0之间。
 
+### [filament_switch_sensor]
+
+The following command is available when a [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) or [filament_motion_sensor](Config_Reference.md#filament_motion_sensor) config section is enabled.
+
+#### QUERY_FILAMENT_SENSOR
+
+`QUERY_FILAMENT_SENSOR SENSOR=<传感器名>`：查询耗材传感器的当前状态。在终端中显示的数据将取决于配置中定义的传感器类型。
+
+#### SET_FILAMENT_SENSOR
+
+`SET_FILAMENT_SENSOR SENSOR=<sensor_name> ENABLE=[0|1]` ：设置灯丝传感器的开/关。如果 ENABLE 设置为 0，耗材传感器将被禁用，如果设置为 1是启用。
+
 ### [firmware_retraction]
 
 The following standard G-Code commands are available when the [firmware_retraction config section](Config_Reference.md#firmware_retraction) is enabled. These commands allow you to utilize the firmware retraction feature available in many slicers, to reduce stringing during non-extrusion moves from one part of the print to another. Appropriately configuring pressure advance reduces the length of retraction required.
@@ -230,25 +242,6 @@ The following standard G-Code commands are available when the [firmware_retracti
 #### GET_RETRACTION
 
 `GET_RETRACTION`:查询当前固件回抽所使用的参数并在终端显示。
-
-### [filament_switch_sensor]
-
-The following command is available when a [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) or [filament_motion_sensor](Config_Reference.md#filament_motion_sensor) config section is enabled.
-
-#### QUERY_FILAMENT_SENSOR
-
-`QUERY_FILAMENT_SENSOR SENSOR=<传感器名>`：查询耗材传感器的当前状态。在终端中显示的数据将取决于配置中定义的传感器类型。
-
-#### SET_FILAMENT_SENSOR
-
-`SET_FILAMENT_SENSOR SENSOR=<sensor_name> ENABLE=[0|1]` ：设置灯丝传感器的开/关。如果 ENABLE 设置为 0，耗材传感器将被禁用，如果设置为 1是启用。
-
-### [firmware_retraction]
-
-如果启用了[firmware_retraction 配置分段](Config_Reference.md#firmware_retraction)，则以下标准G代码命令可用：
-
-- 回抽：`G10`
-- 回填：`G11`
 
 ### [force_move]
 

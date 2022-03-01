@@ -138,25 +138,22 @@ Signed-off-by: 姓名< myemail@example.org >
 
 ## 為 Klipper 翻譯做出貢獻
 
-[Klipper翻譯專案](https://github.com/Klipper3d/klipper-translations)是一個致力於將Klipper翻譯成不同語言的專案。[Weblate](https://hosted.weblate.org/projects/klipper/) 託管所有 Gettext 字串以進行翻譯和審查。一旦符合以下要求，本地化可以被合併到 Klipper 專案中：
+[Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) is a project dedicated to translating Klipper to different languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all the Gettext strings for translating and reviewing. Locales can be displayed on [klipper3d.org](https://www.klipper3d.org) once they satisfy the following requirements:
 
 - [ ] 75% 總覆蓋率
-- [ ] 涵蓋所有大標題（H1）
+- [ ] All titles (H1) are translated
 - [ ] 在klipper-translations 中提供一個更新導航層次的 PR。
-
-導航層級在`docs\_klipper3d\mkdocs.yml`中。
 
 爲了減少翻譯特定領域術語的疑惑，並讓更多人瞭解正在進行的翻譯，你可以提交一個修改[Klipper-translations 專案](https://github.com/Klipper3d/klipper-translations) `readme.md` 檔案的PR。一旦翻譯完成，也可以對 Klipper 專案進行相應的修改。
 
 如果一個已經存在於 Klipper 程式碼庫中的翻譯不再符合上述的檢查清單，那麼在一個月沒有更新后，它將被標記為過期。
 
-請按以下格式編寫 `mkdocs.yml` 的導航層次結構：
+Once the requirements are met, you need to:
 
-```yml
-nav:
-  - existing hierachy
-  - <language>:
-    - locales/<language code>/md file
-```
+1. update klipper-tranlations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
+1. Optional: add a manual-index.md file in klipper-translations repository's `docs\locals\<lang>` folder to replace the language specific index.md (generated index.md does not render correctly).
 
-注意：目前，還沒有翻譯圖片中文字的方法。
+Known Issues:
+
+1. Currently, there isn't a method for correctly translating pictures in the documentation
+1. It is impossible to translate titles in mkdocs.yml.

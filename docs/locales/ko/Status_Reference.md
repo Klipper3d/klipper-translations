@@ -9,6 +9,7 @@
 [bed_mesh](Config_Reference.md#bed_mesh) 개체에서 다음 정보를 사용할 수 있습니다:
 
 - `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: 현재 활성화된 bed_mesh에 대한 정보입니다.
+- `profiles`: The set of currently defined profiles as setup using BED_MESH_PROFILE.
 
 ## configfile
 

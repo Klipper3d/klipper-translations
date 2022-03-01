@@ -138,25 +138,22 @@ In the above example, `module` should be the name of a file or directory in the 
 
 ## Klipper 번역에 기여하기
 
-[Klipper-번역 프로젝트](https://github.com/Klipper3d/klipper-translations)는 Klipper를 다양한 언어로 번역하는 프로젝트입니다. [Weblate](https://hosted.weblate.org/projects/klipper/)는 번역 및 검토를 위한 모든 Gettext 문자열을 호스팅합니다. 로케일은 다음 요구 사항을 충족하면 Klipper 프로젝트에 병합할 수 있습니다:
+[Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) is a project dedicated to translating Klipper to different languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all the Gettext strings for translating and reviewing. Locales can be displayed on [klipper3d.org](https://www.klipper3d.org) once they satisfy the following requirements:
 
 - [ ] 75% 전체 적용 범위
-- [ ] 모든 제목(H1)이 포함됩니다
+- [ ] All titles (H1) are translated
 - [ ] Klipper 번역에서 업데이트된 탐색 계층 구조 PR입니다.
-
-The navigation hierarchy is in `docs\_klipper3d\mkdocs.yml`.
 
 To reduce the frustration of translating domain-specific terms and gain awareness of the ongoing translations, you can submit a PR modifying the [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md`. Once a translation is ready, the corresponding modification to the Klipper project can be made.
 
 번역이 Klipper 저장소에 이미 존재하고 위의 체크리스트를 더 이상 충족하지 않는 경우 업데이트 없이 한 달이 지나면 오래된 것으로 표시됩니다.
 
-Please follow the following format for `mkdocs.yml` navigation hierarchy:
+Once the requirements are met, you need to:
 
-```yml
-nav:
-  - existing hierachy
-  - <language>:
-    - locales/<language code>/md file
-```
+1. update klipper-tranlations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
+1. Optional: add a manual-index.md file in klipper-translations repository's `docs\locals\<lang>` folder to replace the language specific index.md (generated index.md does not render correctly).
 
-참고: 현재, 설명서에 있는 그림을 올바르게 번역하는 방법이 없습니다.
+Known Issues:
+
+1. Currently, there isn't a method for correctly translating pictures in the documentation
+1. It is impossible to translate titles in mkdocs.yml.

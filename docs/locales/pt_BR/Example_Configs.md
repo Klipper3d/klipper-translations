@@ -6,13 +6,14 @@ Note that the [Klipper Community Discourse server](https://community.klipper3d.o
 
 ## Guidelines
 
-1. Select the appropriate config filename prefix.
+1. Select the appropriate config filename prefix:
    1. The `printer` prefix is used for stock printers sold by a mainstream manufacturer.
    1. The `generic` prefix is used for a 3d printer board that may be used in many different types of printers.
    1. The `kit` prefix is for 3d printers that are assembled according to a widely used specification. These "kit" printers are generally distinct from normal "printers" in that they are not sold by a manufacturer.
    1. The `sample` prefix is used for config "snippets" that one may copy-and-paste into the main config file.
    1. The `example` prefix is used to describe printer kinematics. This type of config is typically only added along with code for a new type of printer kinematics.
-1. Use the appropriate filename suffix. The `printer` config files must end in a year followed by `.cfg` (eg, `-2019.cfg`). In this case, the year is an approximate year the given printer was sold. All example configuration files must end in `.cfg`.
+1. All configuration files must end in a `.cfg` suffix. The `printer` config files must end in a year followed by `.cfg` (eg, `-2019.cfg`). In this case, the year is an approximate year the given printer was sold.
+1. Do not use spaces or special characters in the config filename. The filename should contain only characters `A-Z`, `a-z`, `0-9`, `-`, and `.`.
 1. Klipper must be able to start `printer`, `generic`, and `kit` example config file without error. These config files should be added to the [test/klippy/printers.test](../test/klippy/printers.test) regression test case. Add new config files to that test case in the appropriate section and in alphabetical order within that section.
 1. The example configuration should be for the "stock" configuration of the printer. (There are too many "customized" configurations to track in the main Klipper repository.) Similarly, we only add example config files for printers, kits, and boards that have mainstream popularity (eg, there should be at least a 100 of them in active use). Consider using the [Klipper Community Discourse server](https://community.klipper3d.org) for other configs.
 1. Only specify those devices present on the given printer or board. Do not specify settings specific to your particular setup.
@@ -29,7 +30,7 @@ Note that the [Klipper Community Discourse server](https://community.klipper3d.o
    1. Avoid defining field values that are set to their default value. For example, one should not specify `min_extrude_temp: 170` as that is already the default value.
    1. Where possible, lines should not exceed 80 columns.
    1. Avoid adding attribution or revision messages to the config files. (For example, avoid adding lines like "this file was created by ...".) Place attribution and change history in the git commit message.
-1. Do not use any deprecated features in the example config file. The `step_distance` and `pin_map` parameters are deprecated and should not be in any example config file.
+1. Do not use any deprecated features in the example config file.
 1. Do not disable a default safety system in an example config file. For example, a config should not specify a custom `max_extrude_cross_section`. Do not enable debugging features. For example there should not be a `force_move` config section.
 
 Example config files are submitted by creating a github "pull request". Please also follow the directions in the [contributing document](CONTRIBUTING.md).

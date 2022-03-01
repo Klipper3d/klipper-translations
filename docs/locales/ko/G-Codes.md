@@ -214,6 +214,18 @@ The following command is available when a [fan_generic config section](Config_Re
 
 `SET_FAN_SPEED FAN=config_name SPEED=<speed>` This command sets the speed of a fan. "speed" must be between 0.0 and 1.0.
 
+### [filament_switch_sensor]
+
+The following command is available when a [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) or [filament_motion_sensor](Config_Reference.md#filament_motion_sensor) config section is enabled.
+
+#### QUERY_FILAMENT_SENSOR
+
+`QUERY_FILAMENT_SENSOR SENSOR=<sensor_name>`: Queries the current status of the filament sensor. The data displayed on the terminal will depend on the sensor type defined in the configuration.
+
+#### SET_FILAMENT_SENSOR
+
+`SET_FILAMENT_SENSOR SENSOR=<sensor_name> ENABLE=[0|1]`: 필라멘트 센서를 켜거나 끕니다. ENABLE이 0 으로 설정되면 필라멘트 센서가 비활성화되고 1 로 설정되면 활성화됩니다.
+
 ### [firmware_retraction]
 
 The following standard G-Code commands are available when the [firmware_retraction config section](Config_Reference.md#firmware_retraction) is enabled. These commands allow you to utilize the firmware retraction feature available in many slicers, to reduce stringing during non-extrusion moves from one part of the print to another. Appropriately configuring pressure advance reduces the length of retraction required.
@@ -230,25 +242,6 @@ The following additional commands are also available.
 #### GET_RETRACTION
 
 `GET_RETRACTION`: Firmware Retraction 에 사용되는 현재 매개변수를 쿼리하고 터미널에 표시합니다.
-
-### [filament_switch_sensor]
-
-The following command is available when a [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) or [filament_motion_sensor](Config_Reference.md#filament_motion_sensor) config section is enabled.
-
-#### QUERY_FILAMENT_SENSOR
-
-`QUERY_FILAMENT_SENSOR SENSOR=<sensor_name>`: Queries the current status of the filament sensor. The data displayed on the terminal will depend on the sensor type defined in the configuration.
-
-#### SET_FILAMENT_SENSOR
-
-`SET_FILAMENT_SENSOR SENSOR=<sensor_name> ENABLE=[0|1]`: 필라멘트 센서를 켜거나 끕니다. ENABLE이 0 으로 설정되면 필라멘트 센서가 비활성화되고 1 로 설정되면 활성화됩니다.
-
-### [firmware_retraction]
-
-[firmware_retraction config section](Config_Reference.md#firmware_retraction) 이 활성화된 경우 다음 표준 G-Code 명령을 사용할 수 있습니다.
-
-- 리트렉트: `G10`
-- 언리트렉트: `G11`
 
 ### [force_move]
 

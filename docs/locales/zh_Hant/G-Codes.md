@@ -214,6 +214,18 @@ Klipper使用 "extended" 的G程式碼命令來進行一般的配置和狀態。
 
 `SET_FAN_SPEED FAN=config_name SPEED=<速度>`該命令設定風扇的速度。"速度" 必須在0.0到1.0之間。
 
+### [filament_switch_sensor]
+
+當啟用 [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) 或 [filament_motion_sensor](Config_Reference.md#filament_motion_sensor) 配置部分時，以下命令可用。
+
+#### QUERY_FILAMENT_SENSOR
+
+`QUERY_FILAMENT_SENSOR SENSOR=<感測器名>`：查詢耗材感測器的當前狀態。在終端中顯示的數據將取決於配置中定義的感測器型別。
+
+#### SET_FILAMENT_SENSOR
+
+`SET_FILAMENT_SENSOR SENSOR=<sensor_name> ENABLE=[0|1]` ：設定燈絲感測器的開/關。如果 ENABLE 設定為 0，耗材感測器將被禁用，如果設定為 1是啟用。
+
 ### [firmware_retraction]
 
 當啟用 [firmware_retraction config section](Config_Reference.md#firmware_retraction) 時，以下標準 G-Code命令可用。這些命令允許您利用許多切片機中可用的固件回縮功能，以減少從打印件的一個部分到另一部分的非擠出移動期間的拉絲。適當配置壓力提前可減少所需的回縮長度。
@@ -230,25 +242,6 @@ Klipper使用 "extended" 的G程式碼命令來進行一般的配置和狀態。
 #### GET_RETRACTION
 
 `GET_RETRACTION`:查詢目前韌體回抽所使用的參數並在終端顯示。
-
-### [filament_switch_sensor]
-
-當啟用 [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) 或 [filament_motion_sensor](Config_Reference.md#filament_motion_sensor) 配置部分時，以下命令可用。
-
-#### QUERY_FILAMENT_SENSOR
-
-`QUERY_FILAMENT_SENSOR SENSOR=<感測器名>`：查詢耗材感測器的當前狀態。在終端中顯示的數據將取決於配置中定義的感測器型別。
-
-#### SET_FILAMENT_SENSOR
-
-`SET_FILAMENT_SENSOR SENSOR=<sensor_name> ENABLE=[0|1]` ：設定燈絲感測器的開/關。如果 ENABLE 設定為 0，耗材感測器將被禁用，如果設定為 1是啟用。
-
-### [firmware_retraction]
-
-如果啟用了[firmware_retraction 配置分段](Config_Reference.md#firmware_retraction)，則以下標準G程式碼命令可用：
-
-- 回抽：`G10`
-- 回填：`G11`
 
 ### [force_move]
 
