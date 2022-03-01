@@ -1,23 +1,23 @@
 # 설치
 
-이 문서는 OctoPrint가 Raspberry Pi 에서 실행된다고 가정합니다. Raspberry Pi 2, 3 또는 4를 사용하는 것이 좋습니다 ([FAQ](FAQ.md#Raspberry-Pi-3-이외의-다른-기기에서-Klipper를-실행할-수-있습니까) 참조).
+이 지침은 소프트웨어가 OctoPrint와 함께 Raspberry Pi 컴퓨터에서 실행된다고 가정합니다. Raspberry Pi 2, 3 또는 4 컴퓨터를 호스트 컴퓨터로 사용하는 것이 좋습니다(다른 기기에 대해서는 [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) 참조).
 
 Klipper currently supports a number of Atmel ATmega based micro-controllers, [ARM based micro-controllers](Features.md#step-benchmarks), and [Beaglebone PRU](Beaglebone.md) based printers.
 
-## 설치 이미지 준비
+## OS 이미지 준비
 
 Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry Pi computer. Use OctoPi v0.17.0 or later - see the [OctoPi releases](https://github.com/guysoft/OctoPi/releases) for release information. One should verify that OctoPi boots and that the OctoPrint web server works. After connecting to the OctoPrint web page, follow the prompt to upgrade OctoPrint to v1.4.2 or later.
 
-OctoPi를 설치하고 OctoPrint를 업그레이드한 후 몇 가지 시스템 명령을 실행하려면 대상 시스템에 ssh해야 합니다. Linux 또는 MacOS 데스크탑을 사용하는 경우 "ssh" 소프트웨어가 이미 설치되어 있어야 합니다. 윈도우 OS 에서는 [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) 처럼 무료로 사용할 수 있는 ssh 클라이언트가 있습니다. ssh 유틸리티를 사용하여 Raspberry Pi(ssh pi@octpi -- 암호는 "raspberry")에 연결하고 다음 명령을 실행합니다:
+OctoPi를 설치하고 OctoPrint를 업그레이드한 후, 소수의 시스템 명령을 실행하려면 대상 머신에 ssh해야 합니다. Linux 또는 MacOS 데스크탑을 사용하는 경우 "ssh" 소프트웨어가 데스크탑에 이미 설치되어 있어야 합니다. 다른 데스크톱에서 사용할 수 있는 무료 ssh 클라이언트가 있습니다(예: [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). ssh 유틸리티를 사용하여 Raspberry Pi(ssh pi@octpi -- 암호는 "raspberry")에 연결하고 다음 명령을 실행합니다:
 
 ```
 git clone https://github.com/Klipper3d/klipper
 ./klipper/scripts/install-octopi.sh
 ```
 
-위의 내용은 Klipper를 다운로드하고, 시스템에 필요한 패키지를 설치하고, 시스템 시작 시 Klipper 가 자동으로 실행되도록 설정하고, Klipper 호스트 소프트웨어를 시작합니다. 인터넷 연결이 필요하며 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+위의 내용은 Klipper를 다운로드하고, 일부 시스템 종속성을 설치하고, 시스템 시작 시 실행되도록 Klipper를 설정하고, Klipper 호스트 소프트웨어를 시작합니다. 인터넷 연결이 필요하며 완료하는 데 몇 분이 소요될 수 있습니다.
 
-## 컴파일 및 펌웨어 업로드
+## 마이크로 컨트롤러 빌드 및 플래싱
 
 마이크로 컨트롤러 코드를 컴파일하려면 먼저 Raspberry Pi에서 다음 명령을 실행하십시오:
 
@@ -32,7 +32,7 @@ make menuconfig
 make
 ```
 
-마이크로 컨트롤러에 연결된 시리얼 포트를 결정해야 합니다. USB를 통해 연결하는 마이크로 컨트롤러의 경우 다음을 실행합니다:
+마이크로 컨트롤러에 연결된 직렬 포트를 결정해야 합니다. USB를 통해 연결하는 마이크로 컨트롤러의 경우 다음을 실행합니다:
 
 ```
 ls /dev/serial/by-id/*
@@ -58,25 +58,25 @@ sudo service klipper start
 
 처음 펌업 할 때 OctoPrint가 프린터에 직접 연결되어 있지 않은지 확인하십시오 (OctoPrint 웹 페이지의 "Connection" 섹션에서 "Disconnect" 클릭).
 
-## Klipper 를 사용하기 위한 Octoprint 설정
+## Klipper를 사용하도록 OctoPrint 구성중
 
 OctoPrint 웹 서버는 Klipper 호스트 소프트웨어와 통신하도록 구성해야 합니다. 웹 브라우저를 사용하여 OctoPrint 웹 페이지에 로그인한 후 다음 항목을 구성합니다:
 
-설정 탭(페이지 상단의 렌치 아이콘)으로 이동합니다. "Additional serial ports"의 "Serial Connection"에서 "/tmp/printer"를 추가합니다. 그런 다음 "Save"를 클릭하십시오.
+설정 탭(페이지 상단의 렌치 아이콘)으로 이동합니다. "추가 직렬 포트"의 "직렬 연결"에서 "/tmp/printer"를 추가합니다. 그런 다음 "저장"을 클릭하십시오.
 
-설정 탭으로 다시 들어가 "Serial Connection"에서 "Serial Port" 설정을 "/tmp/printer"로 변경합니다.
+설정 탭으로 다시 들어가 "직렬 연결"에서 "직렬 포트" 설정을 "/tmp/printer"로 변경하십시오.
 
-설정 탭에서 "Behavior" 하위 탭으로 이동하여 "Cancel any ongoing prints but stay connected to the printer" 옵션을 선택합니다. "Save"를 클릭합니다.
+설정 탭에서 "동작" 하위 탭으로 이동하여 "진행 중인 인쇄를 취소하지만 프린터에 연결된 상태로 유지" 옵션을 선택합니다. "저장"을 클릭합니다.
 
-메인 페이지의 "Connection" 섹션(페이지 왼쪽 상단)에서 "Serial Port"가 "/tmp/printer"로 설정되어 있는지 확인하고 "Connect"을 클릭합니다. ("/tmp/printer"를 선택할 수 없는 경우 페이지를 다시 로드해 보십시오.)
+메인 페이지의 "연결" 섹션(페이지 왼쪽 상단)에서 "직렬 포트"가 "/tmp/printer"로 설정되어 있는지 확인하고 "연결"을 클릭합니다. ("/tmp/printer"를 선택할 수 없는 경우 페이지를 다시 로드해 보십시오.)
 
-일단 연결되면 "Terminal" 탭으로 이동하여 명령 입력 상자에 "status" (따옴표 제외)를 입력하고 "Send"를 클릭합니다. 터미널 창은 config 파일을 여는 동안 오류가 발생했다고 보고할 것입니다. 이는 OctoPrint가 Klipper와 성공적으로 통신하고 있음을 의미합니다. 다음 섹션으로 이동합니다.
+연결되면 "터미널" 탭으로 이동하여 명령 입력 상자에 "상태"(따옴표 제외)를 입력하고 "보내기"를 클릭합니다. 터미널 창은 구성 파일을 여는 동안 오류가 발생했다고 보고할 것입니다. 이는 OctoPrint가 Klipper와 성공적으로 통신하고 있음을 의미합니다. 다음 섹션으로 이동합니다.
 
-## Klipper 설정
+## Klipper 구성 중
 
 The Klipper configuration is stored in a text file on the Raspberry Pi. Take a look at the example config files in the [config directory](../config/). The [Config Reference](Config_Reference.md) contains documentation on config parameters.
 
-논란의 여지 없이 Klipper 구성 파일을 업데이트하는 가장 쉬운 방법은 "scp" 및/또는 "sftp" 프로토콜을 통한 파일 편집을 지원하는 데스크탑 편집기를 사용하는 것입니다. 이를 지원하는 무료 도구가 있습니다(예: Notepad++, WinSCP 및 Cyberduck). 예제 구성 파일 중 하나를 시작점으로 사용하고 pi 사용자의 홈 디렉토리(즉, /home/pi/printer.cfg)에 "printer.cfg"라는 파일로 저장합니다.
+논란의 여지 없이 Klipper 구성 파일을 업데이트하는 가장 쉬운 방법은 "scp" 및/또는 "sftp" 프로토콜을 통한 파일 편집을 지원하는 데스크톱 편집기를 사용하는 것입니다. 이를 지원하는 무료 도구가 있습니다(예: Notepad++, WinSCP 및 Cyberduck). 예제 구성 파일 중 하나를 시작점으로 사용하고 pi 사용자의 홈 디렉터리(즉, /home/pi/printer.cfg)에 "printer.cfg"라는 파일로 저장합니다.
 
 또는 ssh를 통해 Raspberry Pi에서 직접 파일을 복사하고 편집할 수도 있습니다. 예를 들면 다음과 같습니다:
 
@@ -85,7 +85,7 @@ cp ~/klipper/config/example-cartesian.cfg ~/printer.cfg
 nano ~/printer.cfg
 ```
 
-printer.cfg 파일 내용을 하드웨어에 적합한 각 설정을 검토하고 업데이트하십시오.
+하드웨어에 적합한 각 설정을 검토하고 업데이트해야 합니다.
 
 각 프린터마다 마이크로 컨트롤러에 대해 고유한 이름이 있는 것이 일반적입니다. Klipper 플래싱 후에 이름이 변경될 수 있으므로 `ls /dev/serial/by-id/*` 명령을 다시 실행한 다음 구성 파일을 고유한 이름으로 업데이트하십시오. 예를 들어 `[mcu]` 섹션을 다음과 유사하게 업데이트합니다:
 
@@ -102,6 +102,6 @@ Klipper는 OctoPrint terminal 탭을 통해 오류 메시지를 보고합니다.
 
 Klipper가 프린터가 준비되었다고 보고한 후 [config check document](Config_checks.md)로 이동하여 config 파일의 핀 정의에 대한 몇 가지 기본 검사를 수행합니다.
 
-## 개발자에게 문의
+## 개발자에게 연락하기
 
 몇 가지 일반적인 질문에 대한 답변은 [FAQ](FAQ.md)를 참조하십시오. 버그를 보고하거나 개발자에게 연락하려면 [contact page](Contact.md)를 참조하세요.
