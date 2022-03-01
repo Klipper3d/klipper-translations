@@ -4,7 +4,7 @@ Thank you for contributing to Klipper! This document describes the process for c
 
 Please see the [contact page](Contact.md) for information on reporting an issue or for details on contacting the developers.
 
-## Overview of Contribution Process
+## 기여 프로세스 개요
 
 Contributions to Klipper generally follow a high-level process:
 
@@ -14,7 +14,7 @@ Contributions to Klipper generally follow a high-level process:
 
 When working on enhancements, consider starting (or contributing to) a topic on [Klipper Discourse](Contact.md). An ongoing discussion on the forum can improve visibility of development work and may attract others interested in testing new work.
 
-## What to expect in a review
+## 검토에서 예상되는 사항
 
 Contributions to Klipper are reviewed before merging. The primary goal of the review process is to check for defects and to check that the submission follows guidelines specified in the Klipper documentation.
 
@@ -136,19 +136,19 @@ In the above example, `module` should be the name of a file or directory in the 
 
 각 commit에 "서명자" 라인이 있는 것이 중요합니다. 이는 개발자 인증서[developer certificate of origin](developer-certificate-of-origin)에 동의함을 증명합니다. 실명을 포함해야 하며(가명이나 익명의 기여는 불가) 현재 이메일 주소를 포함해야 합니다.
 
-## Contributing to Klipper Translations
+## Klipper 번역에 기여하기
 
-[Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) is a project dedicated to translating Klipper to different languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all the Gettext strings for translating and reviewing. Locales can merge into the Klipper project once they satisfy the following requirements:
+[Klipper-번역 프로젝트](https://github.com/Klipper3d/klipper-translations)는 Klipper를 다양한 언어로 번역하는 프로젝트입니다. [Weblate](https://hosted.weblate.org/projects/klipper/)는 번역 및 검토를 위한 모든 Gettext 문자열을 호스팅합니다. 로케일은 다음 요구 사항을 충족하면 Klipper 프로젝트에 병합할 수 있습니다:
 
-- [ ] 75% Total coverage
-- [ ] All titles (H1) are covered
-- [ ] An updated navigation hierarchy PR in klipper-translations.
+- [ ] 75% 전체 적용 범위
+- [ ] 모든 제목(H1)이 포함됩니다
+- [ ] Klipper 번역에서 업데이트된 탐색 계층 구조 PR입니다.
 
 The navigation hierarchy is in `docs\_klipper3d\mkdocs.yml`.
 
 To reduce the frustration of translating domain-specific terms and gain awareness of the ongoing translations, you can submit a PR modifying the [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md`. Once a translation is ready, the corresponding modification to the Klipper project can be made.
 
-If a translation already exists in the Klipper repository and no longer meets the checklist above, it will be marked out-of-date after a month without updates.
+번역이 Klipper 저장소에 이미 존재하고 위의 체크리스트를 더 이상 충족하지 않는 경우 업데이트 없이 한 달이 지나면 오래된 것으로 표시됩니다.
 
 Please follow the following format for `mkdocs.yml` navigation hierarchy:
 
@@ -159,4 +159,4 @@ nav:
     - locales/<language code>/md file
 ```
 
-Note: Currently, there isn't a method for correctly translating pictures in the documentation.
+참고: 현재, 설명서에 있는 그림을 올바르게 번역하는 방법이 없습니다.

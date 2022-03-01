@@ -52,7 +52,7 @@ Found canbus_uuid=11aa22bb33cc
 
 `canbus_query.py `도구는 초기화되지 않은 장치만 보고합니다. 만약 Klipper(또는 유사한 도구)가 장치를 구성하면 더 이상 목록에 나타나지 않습니다.
 
-## Klipper 설정
+## Klipper 구성 중
 
 장치와 통신하기 위해 CAN bus를 사용하도록 Klipper [mcu configuration](Config_Reference.md#mcu) 을 업데이트합니다. 예를 들면 다음과 같습니다:
 
