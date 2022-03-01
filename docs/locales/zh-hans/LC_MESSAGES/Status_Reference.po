@@ -832,6 +832,12 @@ msgstr "`Diameter`：上一次传感器读数，单位为 mm。"
 msgid "`Raw`: The last raw ADC reading from the sensor."
 msgstr "`Raw`：上一次传感器原始 ADC 读数。"
 
+#: docs/Status_Reference.md:block 6 (unordered list)
+msgid ""
+"`profiles`: The set of currently defined profiles as setup using "
+"BED_MESH_PROFILE."
+msgstr ""
+
 #~ msgid "`Diameter`, `Raw`: The last read values from the sensor."
 #~ msgstr "`Diameter`、`Raw`：最后一次从传感器读取的值。"
 

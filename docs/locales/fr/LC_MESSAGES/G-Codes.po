@@ -168,18 +168,6 @@ msgstr ""
 "Controlled Arc Move (G2 or G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] "
 "[F<speed>] I<value> J<value>`"
 
-msgid ""
-"The following standard G-Code commands are available if a "
-"[firmware_retraction config "
-"section](Config_Reference.md#firmware_retraction) is enabled:"
-msgstr ""
-
-msgid "Retract: `G10`"
-msgstr "Rétractation : `G10`"
-
-msgid "Unretract: `G11`"
-msgstr ""
-
 msgid "Display Message: `M117 <message>`"
 msgstr "Afficher un message : `M117 <message> `"
 
@@ -2359,6 +2347,18 @@ msgstr ""
 #: docs/G-Codes.md:block 333 (header)
 msgid "Z_TILT_ADJUST"
 msgstr ""
+
+#~ msgid ""
+#~ "The following standard G-Code commands are available if a "
+#~ "[firmware_retraction config "
+#~ "section](Config_Reference.md#firmware_retraction) is enabled:"
+#~ msgstr ""
+
+#~ msgid "Retract: `G10`"
+#~ msgstr "Rétractation : `G10`"
+
+#~ msgid "Unretract: `G11`"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Klipper's goal is to support the G-Code commands produced by common 3rd "

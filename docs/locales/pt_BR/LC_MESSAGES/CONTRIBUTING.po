@@ -34,29 +34,12 @@ msgstr ""
 msgid "Contributing to Klipper Translations"
 msgstr ""
 
-#: docs/CONTRIBUTING.md:block 10 (paragraph)
-msgid ""
-"[Klipper-translations Project](https://github.com/Klipper3d/klipper-"
-"translations) is a project dedicated to translating Klipper to different "
-"languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all"
-" the Gettext strings for translating and reviewing. Locales can merge into "
-"the Klipper project once they satisfy the following requirements:"
-msgstr ""
-
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "75% Total coverage"
 msgstr ""
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
-msgid "All titles (H1) are covered"
-msgstr ""
-
-#: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "An updated navigation hierarchy PR in klipper-translations."
-msgstr ""
-
-#: docs/CONTRIBUTING.md:block 12 (paragraph)
-msgid "The navigation hierarchy is in `docs\\_klipper3d\\mkdocs.yml`."
 msgstr ""
 
 #: docs/CONTRIBUTING.md:block 13 (paragraph)
@@ -73,25 +56,6 @@ msgid ""
 "If a translation already exists in the Klipper repository and no longer "
 "meets the checklist above, it will be marked out-of-date after a month "
 "without updates."
-msgstr ""
-
-#: docs/CONTRIBUTING.md:block 15 (paragraph)
-msgid ""
-"Please follow the following format for `mkdocs.yml` navigation hierarchy:"
-msgstr ""
-
-#: docs/CONTRIBUTING.md:block 16 (code)
-msgid ""
-"nav:\n"
-"  - existing hierachy\n"
-"  - <language>:\n"
-"    - locales/<language code>/md file\n"
-msgstr ""
-
-#: docs/CONTRIBUTING.md:block 17 (paragraph)
-msgid ""
-"Note: Currently, there isn't a method for correctly translating pictures in "
-"the documentation."
 msgstr ""
 
 #: docs/CONTRIBUTING.md:block 2 (paragraph)
@@ -581,6 +545,82 @@ msgid ""
 " in pause() call at connect time`. The purpose of specifying a module name "
 "in the commit message is to help provide context for the commit comments."
 msgstr ""
+
+#: docs/CONTRIBUTING.md:block 33 (paragraph)
+msgid ""
+"[Klipper-translations Project](https://github.com/Klipper3d/klipper-"
+"translations) is a project dedicated to translating Klipper to different "
+"languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all"
+" the Gettext strings for translating and reviewing. Locales can be displayed"
+" on [klipper3d.org](https://www.klipper3d.org) once they satisfy the "
+"following requirements:"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 34 (unordered list)
+msgid "All titles (H1) are translated"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 37 (paragraph)
+msgid "Once the requirements are met, you need to:"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 38 (ordered list)
+msgid ""
+"update klipper-tranlations repository "
+"[active_translations](https://github.com/Klipper3d/klipper-"
+"translations/blob/translations/active_translations)"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 38 (ordered list)
+msgid ""
+"Optional: add a manual-index.md file in klipper-translations repository's "
+"`docs\\locals\\<lang>` folder to replace the language specific index.md "
+"(generated index.md does not render correctly)."
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 39 (paragraph)
+msgid "Known Issues:"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 40 (ordered list)
+msgid ""
+"Currently, there isn't a method for correctly translating pictures in the "
+"documentation"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 40 (ordered list)
+msgid "It is impossible to translate titles in mkdocs.yml."
+msgstr ""
+
+#~ msgid ""
+#~ "[Klipper-translations Project](https://github.com/Klipper3d/klipper-"
+#~ "translations) is a project dedicated to translating Klipper to different "
+#~ "languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all"
+#~ " the Gettext strings for translating and reviewing. Locales can merge into "
+#~ "the Klipper project once they satisfy the following requirements:"
+#~ msgstr ""
+
+#~ msgid "All titles (H1) are covered"
+#~ msgstr ""
+
+#~ msgid "The navigation hierarchy is in `docs\\_klipper3d\\mkdocs.yml`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Please follow the following format for `mkdocs.yml` navigation hierarchy:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "nav:\n"
+#~ "  - existing hierachy\n"
+#~ "  - <language>:\n"
+#~ "    - locales/<language code>/md file\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Note: Currently, there isn't a method for correctly translating pictures in "
+#~ "the documentation."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Thank you for contributing to Klipper! Please take a moment to read this "

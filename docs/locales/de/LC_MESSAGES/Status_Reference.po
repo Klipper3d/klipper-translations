@@ -749,6 +749,12 @@ msgstr ""
 msgid "`Raw`: The last raw ADC reading from the sensor."
 msgstr ""
 
+#: docs/Status_Reference.md:block 6 (unordered list)
+msgid ""
+"`profiles`: The set of currently defined profiles as setup using "
+"BED_MESH_PROFILE."
+msgstr ""
+
 #~ msgid "`Diameter`, `Raw`: The last read values from the sensor."
 #~ msgstr ""
 

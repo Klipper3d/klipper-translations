@@ -52,13 +52,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Use the appropriate filename suffix. The `printer` config files must end in "
-"a year followed by `.cfg` (eg, `-2019.cfg`). In this case, the year is an "
-"approximate year the given printer was sold. All example configuration files"
-" must end in `.cfg`."
-msgstr ""
-
-msgid ""
 "Klipper must be able to start `printer`, `generic`, and `kit` example config"
 " file without error. These config files should be added to the "
 "[test/klippy/printers.test](../test/klippy/printers.test) regression test "
@@ -154,12 +147,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Do not use any deprecated features in the example config file. The "
-"`step_distance` and `pin_map` parameters are deprecated and should not be in"
-" any example config file."
-msgstr ""
-
-msgid ""
 "Do not disable a default safety system in an example config file. For "
 "example, a config should not specify a custom `max_extrude_cross_section`. "
 "Do not enable debugging features. For example there should not be a "
@@ -173,10 +160,6 @@ msgid ""
 msgstr ""
 
 #: docs/Example_Configs.md:block 4 (ordered list)
-msgid "Select the appropriate config filename prefix."
-msgstr ""
-
-#: docs/Example_Configs.md:block 4 (ordered list)
 msgid ""
 "The `printer` prefix is used for stock printers sold by a mainstream "
 "manufacturer."
@@ -185,6 +168,43 @@ msgstr ""
 #: docs/Example_Configs.md:block 1 (header)
 msgid "Example configurations"
 msgstr ""
+
+#: docs/Example_Configs.md:block 5 (ordered list)
+msgid "Select the appropriate config filename prefix:"
+msgstr ""
+
+#: docs/Example_Configs.md:block 5 (ordered list)
+msgid ""
+"All configuration files must end in a `.cfg` suffix. The `printer` config "
+"files must end in a year followed by `.cfg` (eg, `-2019.cfg`). In this case,"
+" the year is an approximate year the given printer was sold."
+msgstr ""
+
+#: docs/Example_Configs.md:block 5 (ordered list)
+msgid ""
+"Do not use spaces or special characters in the config filename. The filename"
+" should contain only characters `A-Z`, `a-z`, `0-9`, `-`, and `.`."
+msgstr ""
+
+#: docs/Example_Configs.md:block 7 (ordered list)
+msgid "Do not use any deprecated features in the example config file."
+msgstr ""
+
+#~ msgid ""
+#~ "Use the appropriate filename suffix. The `printer` config files must end in "
+#~ "a year followed by `.cfg` (eg, `-2019.cfg`). In this case, the year is an "
+#~ "approximate year the given printer was sold. All example configuration files"
+#~ " must end in `.cfg`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Do not use any deprecated features in the example config file. The "
+#~ "`step_distance` and `pin_map` parameters are deprecated and should not be in"
+#~ " any example config file."
+#~ msgstr ""
+
+#~ msgid "Select the appropriate config filename prefix."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Select the appropriate config filename prefix.The `printer` prefix is used "

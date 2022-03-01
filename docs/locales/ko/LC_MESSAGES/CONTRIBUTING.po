@@ -6,8 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2022-02-28 15:55+0000\n"
 "Last-Translator: 이정희 <daemul72@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
-"contributing/ko/>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/contributing/ko/>\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,35 +57,13 @@ msgstr ""
 msgid "Contributing to Klipper Translations"
 msgstr "Klipper 번역에 기여하기"
 
-#: docs/CONTRIBUTING.md:block 10 (paragraph)
-msgid ""
-"[Klipper-translations Project](https://github.com/Klipper3d/klipper-"
-"translations) is a project dedicated to translating Klipper to different "
-"languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all"
-" the Gettext strings for translating and reviewing. Locales can merge into "
-"the Klipper project once they satisfy the following requirements:"
-msgstr ""
-"[Klipper-번역 프로젝트](https://github.com/Klipper3d/klipper-translations)는 "
-"Klipper를 다양한 언어로 번역하는 프로젝트입니다. [Weblate](https://hosted."
-"weblate.org/projects/klipper/)는 번역 및 검토를 위한 모든 Gettext 문자열을 "
-"호스팅합니다. 로케일은 다음 요구 사항을 충족하면 Klipper 프로젝트에 병합할 "
-"수 있습니다:"
-
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "75% Total coverage"
 msgstr "75% 전체 적용 범위"
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
-msgid "All titles (H1) are covered"
-msgstr "모든 제목(H1)이 포함됩니다"
-
-#: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "An updated navigation hierarchy PR in klipper-translations."
 msgstr "Klipper 번역에서 업데이트된 탐색 계층 구조 PR입니다."
-
-#: docs/CONTRIBUTING.md:block 12 (paragraph)
-msgid "The navigation hierarchy is in `docs\\_klipper3d\\mkdocs.yml`."
-msgstr ""
 
 #: docs/CONTRIBUTING.md:block 13 (paragraph)
 msgid ""
@@ -103,27 +80,8 @@ msgid ""
 "meets the checklist above, it will be marked out-of-date after a month "
 "without updates."
 msgstr ""
-"번역이 Klipper 저장소에 이미 존재하고 위의 체크리스트를 더 이상 충족하지 "
-"않는 경우 업데이트 없이 한 달이 지나면 오래된 것으로 표시됩니다."
-
-#: docs/CONTRIBUTING.md:block 15 (paragraph)
-msgid ""
-"Please follow the following format for `mkdocs.yml` navigation hierarchy:"
-msgstr ""
-
-#: docs/CONTRIBUTING.md:block 16 (code)
-msgid ""
-"nav:\n"
-"  - existing hierachy\n"
-"  - <language>:\n"
-"    - locales/<language code>/md file\n"
-msgstr ""
-
-#: docs/CONTRIBUTING.md:block 17 (paragraph)
-msgid ""
-"Note: Currently, there isn't a method for correctly translating pictures in "
-"the documentation."
-msgstr "참고: 현재, 설명서에 있는 그림을 올바르게 번역하는 방법이 없습니다."
+"번역이 Klipper 저장소에 이미 존재하고 위의 체크리스트를 더 이상 충족하지 않는 경우 업데이트 없이 한 달이 지나면 오래된 것으로 "
+"표시됩니다."
 
 #: docs/CONTRIBUTING.md:block 2 (paragraph)
 msgid ""
@@ -612,6 +570,86 @@ msgid ""
 " in pause() call at connect time`. The purpose of specifying a module name "
 "in the commit message is to help provide context for the commit comments."
 msgstr ""
+
+#: docs/CONTRIBUTING.md:block 33 (paragraph)
+msgid ""
+"[Klipper-translations Project](https://github.com/Klipper3d/klipper-"
+"translations) is a project dedicated to translating Klipper to different "
+"languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all"
+" the Gettext strings for translating and reviewing. Locales can be displayed"
+" on [klipper3d.org](https://www.klipper3d.org) once they satisfy the "
+"following requirements:"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 34 (unordered list)
+msgid "All titles (H1) are translated"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 37 (paragraph)
+msgid "Once the requirements are met, you need to:"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 38 (ordered list)
+msgid ""
+"update klipper-tranlations repository "
+"[active_translations](https://github.com/Klipper3d/klipper-"
+"translations/blob/translations/active_translations)"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 38 (ordered list)
+msgid ""
+"Optional: add a manual-index.md file in klipper-translations repository's "
+"`docs\\locals\\<lang>` folder to replace the language specific index.md "
+"(generated index.md does not render correctly)."
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 39 (paragraph)
+msgid "Known Issues:"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 40 (ordered list)
+msgid ""
+"Currently, there isn't a method for correctly translating pictures in the "
+"documentation"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 40 (ordered list)
+msgid "It is impossible to translate titles in mkdocs.yml."
+msgstr ""
+
+#~ msgid ""
+#~ "[Klipper-translations Project](https://github.com/Klipper3d/klipper-"
+#~ "translations) is a project dedicated to translating Klipper to different "
+#~ "languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all"
+#~ " the Gettext strings for translating and reviewing. Locales can merge into "
+#~ "the Klipper project once they satisfy the following requirements:"
+#~ msgstr ""
+#~ "[Klipper-번역 프로젝트](https://github.com/Klipper3d/klipper-translations)는 "
+#~ "Klipper를 다양한 언어로 번역하는 프로젝트입니다. "
+#~ "[Weblate](https://hosted.weblate.org/projects/klipper/)는 번역 및 검토를 위한 모든 "
+#~ "Gettext 문자열을 호스팅합니다. 로케일은 다음 요구 사항을 충족하면 Klipper 프로젝트에 병합할 수 있습니다:"
+
+#~ msgid "All titles (H1) are covered"
+#~ msgstr "모든 제목(H1)이 포함됩니다"
+
+#~ msgid "The navigation hierarchy is in `docs\\_klipper3d\\mkdocs.yml`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Please follow the following format for `mkdocs.yml` navigation hierarchy:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "nav:\n"
+#~ "  - existing hierachy\n"
+#~ "  - <language>:\n"
+#~ "    - locales/<language code>/md file\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Note: Currently, there isn't a method for correctly translating pictures in "
+#~ "the documentation."
+#~ msgstr "참고: 현재, 설명서에 있는 그림을 올바르게 번역하는 방법이 없습니다."
 
 #~ msgid ""
 #~ "Thank you for contributing to Klipper! Please take a moment to read this "
