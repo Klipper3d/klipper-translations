@@ -214,6 +214,18 @@ The following command is available when a [fan_generic config section](Config_Re
 
 `SET_FAN_SPEED FAN=config_name SPEED=<speed>` This command sets the speed of a fan. "speed" must be between 0.0 and 1.0.
 
+### [filament_switch_sensor]
+
+The following command is available when a [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) or [filament_motion_sensor](Config_Reference.md#filament_motion_sensor) config section is enabled.
+
+#### QUERY_FILAMENT_SENSOR
+
+`QUERY_FILAMENT_SENSOR SENSOR=<sensor_name>`: Queries the current status of the filament sensor. The data displayed on the terminal will depend on the sensor type defined in the configuration.
+
+#### SET_FILAMENT_SENSOR
+
+`SET_FILAMENT_SENSOR SENSOR=<sensor_name> ENABLE=[0|1]`: Sets the filament sensor on/off. If ENABLE is set to 0, the filament sensor will be disabled, if set to 1 it is enabled.
+
 ### [firmware_retraction]
 
 The following standard G-Code commands are available when the [firmware_retraction config section](Config_Reference.md#firmware_retraction) is enabled. These commands allow you to utilize the firmware retraction feature available in many slicers, to reduce stringing during non-extrusion moves from one part of the print to another. Appropriately configuring pressure advance reduces the length of retraction required.
@@ -230,25 +242,6 @@ The following additional commands are also available.
 #### GET_RETRACTION
 
 `GET_RETRACTION`: Queries the current parameters used by firmware retraction and displays them on the terminal.
-
-### [filament_switch_sensor]
-
-The following command is available when a [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) or [filament_motion_sensor](Config_Reference.md#filament_motion_sensor) config section is enabled.
-
-#### QUERY_FILAMENT_SENSOR
-
-`QUERY_FILAMENT_SENSOR SENSOR=<sensor_name>`: Queries the current status of the filament sensor. The data displayed on the terminal will depend on the sensor type defined in the configuration.
-
-#### SET_FILAMENT_SENSOR
-
-`SET_FILAMENT_SENSOR SENSOR=<sensor_name> ENABLE=[0|1]`: Sets the filament sensor on/off. If ENABLE is set to 0, the filament sensor will be disabled, if set to 1 it is enabled.
-
-### [firmware_retraction]
-
-The following standard G-Code commands are available if a [firmware_retraction config section](Config_Reference.md#firmware_retraction) is enabled:
-
-- Retract: `G10`
-- Unretract: `G11`
 
 ### [force_move]
 

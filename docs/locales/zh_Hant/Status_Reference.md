@@ -9,6 +9,7 @@
 [bed_mesh](Config_Reference.md#bed_mesh) 對像中提供了以下資訊：
 
 - `profile_name`、`mesh_min`、`mesh_max`、`probed_matrix`、`mesh_matrix`：關於目前活躍的 bed_mesh 配置資訊。
+- `profiles`: The set of currently defined profiles as setup using BED_MESH_PROFILE.
 
 ## configfile
 
