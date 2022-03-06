@@ -1,16 +1,18 @@
 # Wivik <seb+weblate@zedas.fr>, 2021.
 # Phil Clifford <philip.clifford@gmail.com>, 2021, 2022.
+# MOULINIER <moulinier.r@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-19 21:06+0000\n"
-"Last-Translator: Phil Clifford <philip.clifford@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/config_reference/fr/>\n"
+"PO-Revision-Date: 2022-03-05 22:43+0000\n"
+"Last-Translator: MOULINIER <moulinier.r@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"config_reference/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -469,7 +471,7 @@ msgid ""
 msgstr ""
 
 msgid "Additional stepper motors and extruders"
-msgstr ""
+msgstr "Moteurs pas à  pas et extrudeurs additionnels"
 
 msgid "[stepper_z1]"
 msgstr ""
