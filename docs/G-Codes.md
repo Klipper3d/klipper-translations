@@ -42,7 +42,10 @@ Klipper's goal is to support the G-Code commands produced by common
 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in
 their standard configurations. It is not a goal to support every
 possible G-Code command. Instead, Klipper prefers human readable
-["extended G-Code commands"](#additional-commands).
+["extended G-Code commands"](#additional-commands). Similarly, the
+G-Code terminal output is only intended to be human readable - see the
+[API Server document](API_Server.md) if controlling Klipper from
+external software.
 
 If one requires a less common G-Code command then it may be possible
 to implement it with a custom
@@ -471,7 +474,9 @@ The gcode_move module is automatically loaded.
 
 #### GET_POSITION
 `GET_POSITION`: Return information on the current location of the
-toolhead.
+toolhead. See the developer documentation of
+[GET_POSITION output](Code_Overview.md#coordinate-systems) for more
+information.
 
 #### SET_GCODE_OFFSET
 `SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>]
