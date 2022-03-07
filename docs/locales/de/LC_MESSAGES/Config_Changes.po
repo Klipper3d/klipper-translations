@@ -580,6 +580,14 @@ msgid ""
 "[SYNC_EXTRUDER_MOTION](G-Codes.md#sync_extruder_motion)."
 msgstr ""
 
+#: docs/Config_Changes.md:block 5 (paragraph)
+msgid ""
+"20220304: There is no longer a default for the `extruder` parameter of "
+"[extruder_stepper](Config_Reference.md#extruder_stepper) config sections. If"
+" desired, specify `extruder: extruder` explicitly to associate the stepper "
+"motor with the \"extruder\" motion queue at startup."
+msgstr ""
+
 #~ msgid ""
 #~ "20211104: The \"step pulse duration\" option in \"make menuconfig\" has been"
 #~ " removed. A new `step_pulse_duration` setting in the [stepper config "
