@@ -1,19 +1,20 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-15 06:32+0200\n"
-"PO-Revision-Date: 2021-08-03 14:32+0000\n"
+"PO-Revision-Date: 2022-03-07 03:55+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/example_configs/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/example_configs/zh_Hans/>\n"
 "Language: zh-hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid ""
 "This document contains guidelines for contributing an example Klipper "
@@ -197,7 +198,7 @@ msgstr "配置示例"
 
 #: docs/Example_Configs.md:block 5 (ordered list)
 msgid "Select the appropriate config filename prefix:"
-msgstr ""
+msgstr "选择适当的配置文件名前缀："
 
 #: docs/Example_Configs.md:block 5 (ordered list)
 msgid ""
@@ -205,16 +206,19 @@ msgid ""
 "files must end in a year followed by `.cfg` (eg, `-2019.cfg`). In this case,"
 " the year is an approximate year the given printer was sold."
 msgstr ""
+"所有的配置文件必须以`.cfg`后缀结尾。`printer`配置文件必须以`."
+"cfg`结尾（例如，`2019.cfg`）。在这种情况下，年份是对应打印机的大致发售年份。"
 
 #: docs/Example_Configs.md:block 5 (ordered list)
 msgid ""
 "Do not use spaces or special characters in the config filename. The filename"
 " should contain only characters `A-Z`, `a-z`, `0-9`, `-`, and `.`."
-msgstr ""
+msgstr "不要在配置文件名中使用空格或特殊字符。文件名应该只包含字符`A-Z`, `a-z`, `0-9`"
+", `-`, 和`.`。"
 
 #: docs/Example_Configs.md:block 7 (ordered list)
 msgid "Do not use any deprecated features in the example config file."
-msgstr ""
+msgstr "不要在示例配置文件中使用任何已废弃的功能。"
 
 #~ msgid ""
 #~ "Use the appropriate filename suffix. The `printer` config files must end in "
