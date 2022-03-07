@@ -1,0 +1,60 @@
+# Allan Nordhøy <epost@anotheragency.no>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Petter Reinholdtsen <pere-weblate@hungry.com>, 2021.
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2021-12-17 08:52+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/index/nb_NO/>\n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.10\n"
+
+#: docs/index.md:block 1 (paragraph)
+msgid "hide:"
+msgstr "hide:"
+
+#: docs/index.md:block 2 (unordered list)
+msgid "toc title: Welcome"
+msgstr "toc title: Velkommen"
+
+#: docs/index.md:block 3 (paragraph)
+msgid "![](img/klipper-logo.png){ .center-image }"
+msgstr "![](img/klipper-logo.png){ .center-image }"
+
+#: docs/index.md:block 4 (paragraph)
+msgid ""
+"Klipper is a 3d-Printer firmware. It combines the power of a general purpose"
+" computer with one or more micro-controllers. See the "
+"[features](Features.md) document for more information on why you should use "
+"Klipper."
+msgstr ""
+"Klipper er 3D-skriverfastvare. Det kombinerer kraften av en generell "
+"datamaskin med én eller flere mikrokontrollere. Sjekk "
+"[funksjoner](Features.md)-dokumenter for mer info om hvorfor du bør bruke "
+"Klipper."
+
+#: docs/index.md:block 5 (paragraph)
+msgid "To begin using Klipper start by [installing](Installation.md) it."
+msgstr ""
+"For å begynne å bruke Klipper kan du begynne med "
+"[installasjonen](installasjonen.md) av det."
+
+#: docs/index.md:block 6 (paragraph)
+msgid ""
+"Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
+" Klipper code on github](https://github.com/Klipper3d/klipper)."
+msgstr ""
+"Klipper er fri programvare. Sjekk [dokumentasjonen](Overview.md) eller ta en"
+" titt på [Klipper-koden på GitHub](https://github.com/Klipper3d/klipper)."
+
+#, fuzzy
+#~ msgid ""
+#~ "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
+#~ " Klipper code on github](https://github.com/KevinOConnor/klipper)."
+#~ msgstr ""
+#~ "Klipper er fri programvare. Les [dokumentasjonen](Overview.md) eller sjekk "
+#~ "[Klipper-kildekoden på GitHub](https://github.com/KevinOConnor/klipper)."

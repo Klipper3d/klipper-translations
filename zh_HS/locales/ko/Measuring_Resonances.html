@@ -1,0 +1,1659 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+    
+    
+      
+        <title>공진 측정 - Klipper documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.edf004c2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../_klipper3d/css/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-138371409-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Klipper documentation" class="md-header__button md-logo" aria-label="Klipper documentation" data-md-component="logo">
+      
+  <img src="../../../img/klipper.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Klipper documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              공진 측정
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2 0-.68.06-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.923 7.923 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8.008 8.008 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.65 15.65 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="../../../locales/ko/Measuring_Resonances.html" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="Measuring_Resonances.html" hreflang="zh_HS" class="md-select__link">
+                    简体中文
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="../../../zh_HT/locales/ko/Measuring_Resonances.html" hreflang="zh_HT" class="md-select__link">
+                    繁體中文
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Klipper3d/klipper/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Klipper3d/klipper
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Klipper documentation" class="md-nav__button md-logo" aria-label="Klipper documentation" data-md-component="logo">
+      
+  <img src="../../../img/klipper.svg" alt="logo">
+
+    </a>
+    Klipper documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Klipper3d/klipper/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Klipper3d/klipper
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview.html" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Features.html" class="md-nav__link">
+        功能
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ.html" class="md-nav__link">
+        常见问题
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Releases.html" class="md-nav__link">
+        版本发布
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Config_Changes.html" class="md-nav__link">
+        配置变更
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Contact.html" class="md-nav__link">
+        联系方式
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Installation and Configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Installation and Configuration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Installation and Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Installation.html" class="md-nav__link">
+        安装
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_2">
+          Configuration Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Configuration Reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Config_Reference.html" class="md-nav__link">
+        配置参考
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rotation_Distance.html" class="md-nav__link">
+        旋转距离
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Config_checks.html" class="md-nav__link">
+        配置检查
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_4" type="checkbox" id="__nav_7_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_4">
+          Bed Level
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bed Level" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          Bed Level
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bed_Level.html" class="md-nav__link">
+        打印床调平
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Delta_Calibrate.html" class="md-nav__link">
+        三角校正
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probe_Calibrate.html" class="md-nav__link">
+        探针校准
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BLTouch.html" class="md-nav__link">
+        BL-Touch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Manual_Level.html" class="md-nav__link">
+        手动调平
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bed_Mesh.html" class="md-nav__link">
+        床网
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Endstop_Phase.html" class="md-nav__link">
+        限位相位
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_5" type="checkbox" id="__nav_7_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_5">
+          Resonance Compensation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Resonance Compensation" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          Resonance Compensation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Resonance_Compensation.html" class="md-nav__link">
+        共振补偿
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Measuring_Resonances.html" class="md-nav__link">
+        共振值测量
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Pressure_Advance.html" class="md-nav__link">
+        压力提前
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../G-Codes.html" class="md-nav__link">
+        G-Codes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_8" type="checkbox" id="__nav_7_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_8">
+          Command templates
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Command templates" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_8">
+          <span class="md-nav__icon md-icon"></span>
+          Command templates
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Command_Templates.html" class="md-nav__link">
+        命令模板
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Status_Reference.html" class="md-nav__link">
+        状态参考
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TMC_Drivers.html" class="md-nav__link">
+        TMC 驱动器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Multi_MCU_Homing.html" class="md-nav__link">
+        复数微控制器归零与探高
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Slicers.html" class="md-nav__link">
+        切片软件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Skew_Correction.html" class="md-nav__link">
+        偏斜校正
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Using_PWM_Tools.html" class="md-nav__link">
+        使用 PWM 工具
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Developer Documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developer Documentation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Developer Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code_Overview.html" class="md-nav__link">
+        代码总览
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kinematics.html" class="md-nav__link">
+        运动学
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Protocol.html" class="md-nav__link">
+        协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API_Server.html" class="md-nav__link">
+        API 服务器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MCU_Commands.html" class="md-nav__link">
+        MCU命令
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CANBUS_protocol.html" class="md-nav__link">
+        CANBUS 协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Debugging.html" class="md-nav__link">
+        调试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Benchmarks.html" class="md-nav__link">
+        基准测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CONTRIBUTING.html" class="md-nav__link">
+        为 Klipper 做贡献
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Packaging.html" class="md-nav__link">
+        打包 Klipper
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Device Specific Documents
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Device Specific Documents" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Device Specific Documents
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Example_Configs.html" class="md-nav__link">
+        配置示例
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SDCard_Updates.html" class="md-nav__link">
+        通过SD卡更新
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RPi_microcontroller.html" class="md-nav__link">
+        RPi 微控制器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Beaglebone.html" class="md-nav__link">
+        Beaglebone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bootloaders.html" class="md-nav__link">
+        底层引导程序
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CANBUS.html" class="md-nav__link">
+        CAN 总线
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TSL1401CL_Filament_Width_Sensor.html" class="md-nav__link">
+        TSL1401CL 耗材宽度传感器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hall_Filament_Width_Sensor.html" class="md-nav__link">
+        霍尔耗材线径传感器
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    설치 방법
+  </a>
+  
+    <nav class="md-nav" aria-label="설치 방법">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    배선
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    가속도계 장착
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    소프트웨어 설치
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    공진 측정
+  </a>
+  
+    <nav class="md-nav" aria-label="공진 측정">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    설정 확인
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    공진 측정
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bed-slinger" class="md-nav__link">
+    Bed-slinger 프린터
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max-smoothing" class="md-nav__link">
+    Max smoothing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max_accel" class="md-nav__link">
+    max_accel 선택
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    사용자 정의 축 테스트
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    사용자 정의 축 테스트
+  </a>
+  
+    <nav class="md-nav" aria-label="사용자 정의 축 테스트">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-shaper" class="md-nav__link">
+    Input Shaper 재보정
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    가속도계 데이터의 오프라인 처리
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/Klipper3d/klipper/blob/master/docs/locales/ko/Measuring_Resonances.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="_1">공진 측정<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Klipper는 다양한 축에 대한 프린터의 공진 주파수를 측정하는 데 사용할 수 있는 ADXL345 가속도계를 기본적으로 지원하고 공진을 보상하기 위해 <a href="Resonance_Compensation.html">input shapers</a> 를 자동 조정합니다. ADXL345 를 사용하려면 약간의 납땜 및 압착이 필요합니다. ADXL345는 Raspberry Pi에 직접 연결하거나 MCU 보드의 SPI 인터페이스에 연결할 수 있습니다 (빠른 속도가 필요하기 때문에).</p>
+<p>When sourcing ADXL345, be aware that there is a variety of different PCB board designs and different clones of them. Make sure that the board supports SPI mode (small number of boards appear to be hard-configured for I2C by pulling SDO to GND), and, if it is going to be connected to a 5V printer MCU, that it has a voltage regulator and a level shifter.</p>
+<h2 id="_2">설치 방법<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">배선<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>SPI 를 통해 ADXL345 를 Raspberry Pi에 연결해야 합니다. ADXL345 문서에서 제안하는 I2C 연결은 처리량이 너무 낮아 <strong>작동하지 않습니다</strong>. 권장 연결 방식:</p>
+<table>
+<thead>
+<tr>
+<th align="center">ADXL345 핀</th>
+<th align="center">RPi 핀</th>
+<th align="center">RPi 핀 이름</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">3V3 (또는 VCC)</td>
+<td align="center">01</td>
+<td align="center">3.3v 직류 전원</td>
+</tr>
+<tr>
+<td align="center">GND</td>
+<td align="center">06</td>
+<td align="center">Ground</td>
+</tr>
+<tr>
+<td align="center">CS</td>
+<td align="center">24</td>
+<td align="center">GPIO08 (SPI0_CE0_N)</td>
+</tr>
+<tr>
+<td align="center">SDO</td>
+<td align="center">21</td>
+<td align="center">GPIO09 (SPI0_MISO)</td>
+</tr>
+<tr>
+<td align="center">SDA</td>
+<td align="center">19</td>
+<td align="center">GPIO10 (SPI0_MOSI)</td>
+</tr>
+<tr>
+<td align="center">SCL</td>
+<td align="center">23</td>
+<td align="center">GPIO11 (SPI0_SCLK)</td>
+</tr>
+</tbody>
+</table>
+<p>ADXL345 보드에 대한 Fritzing 배선 다이어그램:</p>
+<p><img alt="ADXL345-Rpi" src="img/adxl345-fritzing.png" /></p>
+<p>Raspberry Pi 또는 가속도계의 손상을 방지하기 위해 Raspberry Pi의 전원을 켜기 전에 배선을 다시 확인하십시오.</p>
+<h3 id="_4">가속도계 장착<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>가속도계는 툴헤드에 부착되어야 합니다. 자신의 3D 프린터에 맞는 적절한 마운트를 설계해야 합니다. 가속도계의 축을 프린터의 축과 정렬하는 것이 좋습니다 (그러나 더 편리하게 만들면 축을 바꿀 수 있습니다. 즉, X축을 X와 정렬할 필요가 없습니다. Z축이 다음과 같아도 괜찮습니다. 가속도계는 프린터의 X축 등).</p>
+<p>SmartEffector 에 ADXL345 를 장착하는 예:</p>
+<p><img alt="ADXL345 on SmartEffector" src="img/adxl345-mount.jpg" /></p>
+<p>BED Slingers 프린터에서 하나는 2개의 마운트를 설계해야 합니다. 하나는 헤드용, 다른 하나는 베드용이고 측정을 두 번 실행합니다. 자세한 내용은 해당 <a href="#bed-slinger-printers">section</a> 을 참조하세요.</p>
+<p><strong>주의:</strong> 가속도계와 이를 고정하는 나사가 프린터의 금속 부분에 닿지 않도록 하십시오. 기본적으로 마운트는 프린터 프레임에서 가속도계의 전기적 절연을 보장하도록 설계되어야 합니다. 시스템에 접지가 되지 않으면 전자장치를 손상시킬 수 있습니다.</p>
+<h3 id="_5">소프트웨어 설치<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>공진 측정 및 셰이퍼 자동 보정에는 기본적으로 설치가 필요한 소프트웨어가 있습니다. 먼저 Raspberry Pi에서 다음 명령을 실행해야 합니다:</p>
+<div class="highlight"><pre><span></span><code>~/klippy-env/bin/pip install -v numpy
+</code></pre></div>
+
+<p><code>numpy</code> 패키지를 설치합니다. CPU 성능에 따라 최대 10-20분까지 <em>많은</em> 시간이 소요될 수 있습니다. 인내심을 갖고 설치가 완료될 때까지 기다리십시오. 경우에 따라 보드에 RAM이 너무 적으면 설치에 실패할 수 있으며 스왑을 활성화해야 합니다.</p>
+<p>그런 다음 동일한 명령을 사용하여 설치 하십시오:</p>
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt install python3-numpy python3-matplotlib
+</code></pre></div>
+
+<p>이후 <a href="RPi_microcontroller.html">RPi Microcontroller document</a> 의 지시사항에 따라 라즈베리파이에 "linux mcu"를 설정합니다.</p>
+<p><code>sudo raspi-config</code> 를 실행하고 "Interfacing options" 메뉴에서 SPI를 활성화하여 Linux SPI 드라이버가 활성화되어 있는지 확인합니다.</p>
+<p>다음을 printer.cfg 파일에 추가합니다:</p>
+<div class="highlight"><pre><span></span><code>[mcu rpi]
+serial: /tmp/klipper_host_mcu
+
+[adxl345]
+cs_pin: rpi:None
+
+[resonance_tester]
+accel_chip: adxl345
+probe_points:
+    100, 100, 20  # an example
+</code></pre></div>
+
+<p>프린터 BED 중간, 약간 위에서 프로브 포인트 1개로 시작하는 것이 좋습니다.</p>
+<p><code>RESTART</code> 명령을 통해 Klipper를 다시 시작하십시오.</p>
+<h2 id="_6">공진 측정<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="_7">설정 확인<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>이제 연결을 테스트할 수 있습니다.</p>
+<ul>
+<li>"non bed-slingers"(예: 가속도계 1개) 의 경운 Octoprint에 <code>ACCELEROMETER_QUERY</code> 를 입력하세요</li>
+<li>"bed-slingers" (예: 둘 이상의 가속도계) 의 경우 <code>ACCELERROMETER_QUERY CHIP=&lt;chip&gt;</code>을 입력합니다. 여기서 <code>&lt;chip&gt;</code>은 입력된 칩의 이름입니다. 예: 설치된 가속도 칩에 대해 <code>CHIP=bed</code>(참조: <a href="#bed-slinger-printers">bed-slinger</a>).</li>
+</ul>
+<p>자유 낙하 가속도를 포함하여 가속도계의 현재 측정값이 표시되어야 합니다. 예는 아래와 같습니다.</p>
+<div class="highlight"><pre><span></span><code>Recv: // adxl345 values (x, y, z): 470.719200, 941.438400, 9728.196800
+</code></pre></div>
+
+<p><code>Invalid adxl345 id (got xx vs e5)</code> 와 같은 오류가 발생하면 (여기서 'xx'는 다른 ID임) ADXL345의 연결 문제 또는 센서 결함을 나타냅니다. 전원, 배선(회로도와 일치하는지, 와이어가 끊어지거나 느슨하지 않은지 등) 및 납땜 품질을 다시 확인하십시오.</p>
+<p>다음으로 Octoprint에서 <code>MEASURE_AXES_NOISE</code>를 실행해 보십시오. 축의 가속도계 노이즈에 대한 기준 수치를 얻어야 합니다 (~1-100 범위 어딘가에 있어야 함). 너무 높은 축 노이즈(예: 1000개 이상)는 센서 문제, 전원 문제 또는 3D 프린터의 너무 시끄러운 팬이 원인일 수 있습니다.</p>
+<h3 id="_8">공진 측정<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>이제 실제 테스트를 실행할 수 있습니다. 다음 명령을 실행합니다:</p>
+<div class="highlight"><pre><span></span><code>TEST_RESONANCES AXIS=X
+</code></pre></div>
+
+<p>X축에 진동을 생성합니다. 또한 입력 셰이퍼가 활성화된 상태에서 공진 테스트를 실행하는 것이 유효하지 않기 때문에 이전에 활성화된 경우 입력 셰이핑을 비활성화합니다.</p>
+<p><strong>주의!</strong> 진동이 너무 심하지 않도록 프린터를 처음 관찰해야 합니다('M112' 명령은 비상시 테스트를 중단하는 데 사용할 수 있습니다. 그러나 이것은 자주 사용되지 않았으면 합니다). 진동이 너무 강해지면 <code>[resonance_tester]</code> 섹션에서 <code>accel_per_hz</code> 매개변수의 기본값보다 낮은 값을 지정할 수 있습니다. 예를 들어.</p>
+<div class="highlight"><pre><span></span><code>[resonance_tester]
+accel_chip: adxl345
+accel_per_hz: 50  # default is 75
+probe_points: ...
+</code></pre></div>
+
+<p>X축에 대해 작동하는 경우 Y축에 대해서도 실행합니다:</p>
+<div class="highlight"><pre><span></span><code>TEST_RESONANCES AXIS=Y
+</code></pre></div>
+
+<p>This will generate 2 CSV files (<code>/tmp/resonances_x_*.csv</code> and <code>/tmp/resonances_y_*.csv</code>). These files can be processed with the stand-alone script on a Raspberry Pi. To do that, run the following commands:</p>
+<div class="highlight"><pre><span></span><code>~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png
+~/klipper/scripts/calibrate_shaper.py /tmp/resonances_y_*.csv -o /tmp/shaper_calibrate_y.png
+</code></pre></div>
+
+<p>이 스크립트는 주파수 응답과 함께 <code>/tmp/shaper_calibration_x.png</code> 및 <code>/tmp/shaper_calibration_y.png</code> 차트를 생성합니다. 또한 각 입력 셰이퍼에 대해 제안된 주파수와 설정에 권장되는 입력 셰이퍼를 얻을 수 있습니다. 예를 들어:</p>
+<p><img alt="Resonances" src="img/calibrate-y.png" /></p>
+<div class="highlight"><pre><span></span><code>Fitted shaper &#39;zv&#39; frequency = 34.4 Hz (vibrations = 4.0%, smoothing ~= 0.132)
+To avoid too much smoothing with &#39;zv&#39;, suggested max_accel &lt;= 4500 mm/sec^2
+Fitted shaper &#39;mzv&#39; frequency = 34.6 Hz (vibrations = 0.0%, smoothing ~= 0.170)
+To avoid too much smoothing with &#39;mzv&#39;, suggested max_accel &lt;= 3500 mm/sec^2
+Fitted shaper &#39;ei&#39; frequency = 41.4 Hz (vibrations = 0.0%, smoothing ~= 0.188)
+To avoid too much smoothing with &#39;ei&#39;, suggested max_accel &lt;= 3200 mm/sec^2
+Fitted shaper &#39;2hump_ei&#39; frequency = 51.8 Hz (vibrations = 0.0%, smoothing ~= 0.201)
+To avoid too much smoothing with &#39;2hump_ei&#39;, suggested max_accel &lt;= 3000 mm/sec^2
+Fitted shaper &#39;3hump_ei&#39; frequency = 61.8 Hz (vibrations = 0.0%, smoothing ~= 0.215)
+To avoid too much smoothing with &#39;3hump_ei&#39;, suggested max_accel &lt;= 2800 mm/sec^2
+Recommended shaper is mzv @ 34.6 Hz
+</code></pre></div>
+
+<p>제안된 구성은 <code>printer.cfg</code>의 <code>[input_shaper]</code> 섹션에 추가할 수 있습니다. 예:</p>
+<div class="highlight"><pre><span></span><code>[input_shaper]
+shaper_freq_x: ...
+shaper_type_x: ...
+shaper_freq_y: 34.6
+shaper_type_y: mzv
+
+[printer]
+max_accel: 3000  # should not exceed the estimated max_accel for X and Y axes
+</code></pre></div>
+
+<p>또는 생성된 차트를 기반으로 다른 구성을 직접 선택할 수 있습니다. 차트의 전력 스펙트럼 밀도 피크는 프린터의 공진 주파수에 해당합니다.</p>
+<p>Klipper에서 <a href="#input-shaper-auto-calibration">directly</a> 입력 셰이퍼 자동 보정을 실행하는게 편리할 수 있습니다, 예를 들어 입력 셰이퍼의 경우 <a href="#input-shaper-re-calibration">re-calibration</a> 을 사용합니다.</p>
+<h3 id="bed-slinger">Bed-slinger 프린터<a class="headerlink" href="#bed-slinger" title="Permanent link">&para;</a></h3>
+<p>프린터가 bed slinger 프린터인 경우 X축과 Y축 측정 사이에 가속도계의 위치를 변경해야 합니다. 툴 헤드에 부착된 가속도계로 X축의 공명과 Y축의 공진을 측정합니다. BED (일반적인 bed slinger 설정).</p>
+<p>그러나 두 개의 가속도계를 동시에 연결할 수도 있지만 서로 다른 보드(예: RPi 및 프린터 MCU 보드)에 연결하거나 동일한 보드에 있는 두 개의 서로 다른 물리적 SPI 인터페이스(드물게 사용 가능)에 연결해야 합니다. 그런 다음 다음과 같은 방식으로 구성할 수 있습니다:</p>
+<div class="highlight"><pre><span></span><code>[adxl345 hotend]
+# Assuming `hotend` chip is connected to an RPi
+cs_pin: rpi:None
+
+[adxl345 bed]
+# Assuming `bed` chip is connected to a printer MCU board
+cs_pin: ...  # Printer board SPI chip select (CS) pin
+
+[resonance_tester]
+# Assuming the typical setup of the bed slinger printer
+accel_chip_x: adxl345 hotend
+accel_chip_y: adxl345 bed
+probe_points: ...
+</code></pre></div>
+
+<p>그런 다음 <code>TEST_RESONANCES AXIS=X</code> 및 <code>TEST_RESONANCES AXIS=Y</code> 명령을 각 축 가속도계에 사용합니다.</p>
+<h3 id="max-smoothing">Max smoothing<a class="headerlink" href="#max-smoothing" title="Permanent link">&para;</a></h3>
+<p>입력 셰이퍼는 부분에 약간의 smoothing을 생성할 수 있습니다. <code>calibration_shaper.py</code> 스크립트 또는 <code>SHAPER_CALIBRATE</code> 명령에 의해 수행되는 입력 셰이퍼의 자동 조정은 smoothing을 악화시키지 않으려고 시도합니다, 그러나 동시에 그들은 결과적인 진동을 최소화하려고 노력합니다. 때때로 그들은 셰이퍼 주파수의 차선책을 선택하거나 더 큰 잔여 진동을 희생시키면서 부품의 smoothing을 줄이는 것을 선호할 수 있습니다. 이러한 경우 입력 셰이퍼에서 최대 스무딩을 제한하도록 요청할 수 있습니다.</p>
+<p>자동 튜닝의 결과를 다음과 같이 가정해 보겠습니다:</p>
+<p><img alt="Resonances" src="img/calibrate-x.png" /></p>
+<div class="highlight"><pre><span></span><code>Fitted shaper &#39;zv&#39; frequency = 57.8 Hz (vibrations = 20.3%, smoothing ~= 0.053)
+To avoid too much smoothing with &#39;zv&#39;, suggested max_accel &lt;= 13000 mm/sec^2
+Fitted shaper &#39;mzv&#39; frequency = 34.8 Hz (vibrations = 3.6%, smoothing ~= 0.168)
+To avoid too much smoothing with &#39;mzv&#39;, suggested max_accel &lt;= 3600 mm/sec^2
+Fitted shaper &#39;ei&#39; frequency = 48.8 Hz (vibrations = 4.9%, smoothing ~= 0.135)
+To avoid too much smoothing with &#39;ei&#39;, suggested max_accel &lt;= 4400 mm/sec^2
+Fitted shaper &#39;2hump_ei&#39; frequency = 45.2 Hz (vibrations = 0.1%, smoothing ~= 0.264)
+To avoid too much smoothing with &#39;2hump_ei&#39;, suggested max_accel &lt;= 2200 mm/sec^2
+Fitted shaper &#39;3hump_ei&#39; frequency = 48.0 Hz (vibrations = 0.0%, smoothing ~= 0.356)
+To avoid too much smoothing with &#39;3hump_ei&#39;, suggested max_accel &lt;= 1500 mm/sec^2
+Recommended shaper is 2hump_ei @ 45.2 Hz
+</code></pre></div>
+
+<p>보고된 <code>smoothing</code> 값은 일부 추상적으로 투영 값입니다. 이 값은 다양한 구성을 비교하는 데 사용할 수 있습니다. 값이 높을수록 셰이퍼가 더 부드럽게 만듭니다. 그러나 이러한 smoothing 점수는 smoothing 의 실제 측정을 나타내지 않습니다. 실제 smoothing 은 <a href="#selecting-max-accel"><code>max_accel</code></a> 및 <code>square_corner_velocity</code> 매개변수에 의존하기 때문입니다. 따라서 선택한 구성이 정확히 얼마나 스무딩을 생성하는지 확인하려면 몇 가지 테스트 인쇄를 인쇄해야 합니다.</p>
+<p>위의 예에서 제안된 셰이퍼 매개변수는 나쁘지 않지만 만약 X축에서 스무딩을 줄이고 싶다면? 다음 명령을 사용하여 최대 셰이퍼 smoothing 을 제한할 수 있습니다:</p>
+<div class="highlight"><pre><span></span><code>~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --max_smoothing=0.2
+</code></pre></div>
+
+<p>smoothing을 0.2 점수로 제한합니다. 이제 다음과 같은 결과를 얻을 수 있습니다:</p>
+<p><img alt="Resonances" src="img/calibrate-x-max-smoothing.png" /></p>
+<div class="highlight"><pre><span></span><code>Fitted shaper &#39;zv&#39; frequency = 55.4 Hz (vibrations = 19.7%, smoothing ~= 0.057)
+To avoid too much smoothing with &#39;zv&#39;, suggested max_accel &lt;= 12000 mm/sec^2
+Fitted shaper &#39;mzv&#39; frequency = 34.6 Hz (vibrations = 3.6%, smoothing ~= 0.170)
+To avoid too much smoothing with &#39;mzv&#39;, suggested max_accel &lt;= 3500 mm/sec^2
+Fitted shaper &#39;ei&#39; frequency = 48.2 Hz (vibrations = 4.8%, smoothing ~= 0.139)
+To avoid too much smoothing with &#39;ei&#39;, suggested max_accel &lt;= 4300 mm/sec^2
+Fitted shaper &#39;2hump_ei&#39; frequency = 52.0 Hz (vibrations = 2.7%, smoothing ~= 0.200)
+To avoid too much smoothing with &#39;2hump_ei&#39;, suggested max_accel &lt;= 3000 mm/sec^2
+Fitted shaper &#39;3hump_ei&#39; frequency = 72.6 Hz (vibrations = 1.4%, smoothing ~= 0.155)
+To avoid too much smoothing with &#39;3hump_ei&#39;, suggested max_accel &lt;= 3900 mm/sec^2
+Recommended shaper is 3hump_ei @ 72.6 Hz
+</code></pre></div>
+
+<p>앞서 제안한 파라미터와 비교하면 진동은 조금 더 크지만 이전보다 스무딩이 현저히 작아 최대 가속도가 더 커졌습니다.</p>
+<p>선택할 <code>max_smoothing</code> 매개변수를 결정할 때 시행착오를 거칠 수 있습니다. 몇 가지 다른 값을 시도하고 어떤 결과를 얻을 수 있는지 확인하십시오. 입력 셰이퍼에 의해 생성된 실제 smoothing 은 주로 프린터의 가장 낮은 공진 주파수에 따라 달라집니다. 가장 낮은 공진의 주파수가 높을수록 smoothing이 작아집니다. 따라서 비현실적으로 작은 smoothing 으로 입력 셰이퍼의 구성을 찾도록 스크립트를 요청하는 경우 가장 낮은 공명 주파수(일반적으로 인쇄물에서도 더 두드러지게 나타남) 에서 링잉이 증가하게 됩니다. 따라서 스크립트에서 보고한 예상 잔여 진동을 항상 다시 확인하고 너무 높지 않은지 확인하십시오.</p>
+<p>두 축에 대해 좋은 <code>max_smoothing</code> 값을 선택했다면 <code>printer.cfg</code>에 다음과 같이 저장할 수 있습니다</p>
+<div class="highlight"><pre><span></span><code>[resonance_tester]
+accel_chip: ...
+probe_points: ...
+max_smoothing: 0.25  # an example
+</code></pre></div>
+
+<p>그런 다음 나중에 <code>SHAPER_CALIBRATE</code> Klipper 명령을 사용하여 입력 shaper 자동 튜닝을 <a href="#input-shaper-re-calibration">rerun</a> 실행하면 저장된 <code>max_smoothing</code> 값을 참조로 사용합니다.</p>
+<h3 id="max_accel">max_accel 선택<a class="headerlink" href="#max_accel" title="Permanent link">&para;</a></h3>
+<p>입력 셰이퍼는 특히 높은 가속에서 부품에 약간의 smoothing 을 생성할 수 있으므로 인쇄된 부품에 너무 많은 smoothing 을 생성하지 않는 'max_accel' 값을 선택해야 합니다. 보정 스크립트는 smoothing을 너무 많이 생성하지 않아야 하는 'max_accel' 매개변수에 대한 추정치를 제공합니다. 보정 스크립트에 의해 표시되는 'max_accel'은 각 셰이퍼가 너무 많은 smoothing 을 생성하지 않고 여전히 작동할 수 있는 이론적인 최대값일 뿐입니다. 인쇄를 위해 이 가속을 설정하는 것은 결코 권장되지 않습니다. 프린터가 유지할 수 있는 최대 가속도는 기계적 특성과 사용된 스테퍼 모터의 최대 토크에 따라 다릅니다. 따라서 <code>[printer]</code> 섹션에서 <code>max_accel</code> 을 X 및 Y축의 예상 값을 초과하지 않도록 설정하는 것이 좋습니다. 약간의 보수적인 안전 제한이 있을 수 있습니다.</p>
+<p>또는 입력 셰이퍼 튜닝 가이드의 <a href="Resonance_Compensation.html#selecting-max_accel">this</a> 부분을 따르고 테스트 모델을 인쇄하여 <code>max_accel</code> 매개변수를 실험적으로 선택합니다.</p>
+<p>동일한 알림이 <code>SHAPER_CALIBRATE</code> 명령을 사용하여 입력 셰이퍼 <a href="#input-shaper-auto-calibration">auto-calibration</a> 에 적용됩니다: 자동 보정 후에도 올바른 <code>max_accel</code> 값을 선택해야 하며 제안된 가속 제한은 자동으로 적용되지 않습니다.</p>
+<p>만약 셰이퍼 재보정을 수행하고 제안된 셰이퍼 구성에 대해 보고된 smoothing 이 이전 보정 중에 얻은 것과 거의 동일한 경우 이 단계를 건너뛸 수 있습니다.</p>
+<h3 id="_9">사용자 정의 축 테스트<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p><code>TEST_RESONANCES</code> 명령은 사용자 지정 축을 지원합니다. 이것은 입력 셰이퍼 보정에 실제로 유용하지 않지만 프린터 공진을 심층적으로 연구하고 예를 들어 벨트 장력을 확인하는 데 사용할 수 있습니다.</p>
+<p>CoreXY 프린터의 벨트 장력을 확인하려면 다음을 실행하십시오</p>
+<div class="highlight"><pre><span></span><code>TEST_RESONANCES AXIS=1,1 OUTPUT=raw_data
+TEST_RESONANCES AXIS=1,-1 OUTPUT=raw_data
+</code></pre></div>
+
+<p>생성된 파일을 처리하기 위해 <code>graph_accelerometer.py</code>를 사용합니다, 예들들어.</p>
+<div class="highlight"><pre><span></span><code>~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
+</code></pre></div>
+
+<p>이것은 공명을 비교하는 <code>/tmp/resonances.png</code>를 생성합니다.</p>
+<p>기본 타워 배치(타워 A ~= 210도, B ~= 330도 및 C ~= 90도)가 있는 Delta 프린터의 경우 다음을 실행합니다</p>
+<div class="highlight"><pre><span></span><code>TEST_RESONANCES AXIS=0,1 OUTPUT=raw_data
+TEST_RESONANCES AXIS=-0.866025404,-0.5 OUTPUT=raw_data
+TEST_RESONANCES AXIS=0.866025404,-0.5 OUTPUT=raw_data
+</code></pre></div>
+
+<p>그런 다음 동일한 명령을 사용하십시오</p>
+<div class="highlight"><pre><span></span><code>~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
+</code></pre></div>
+
+<p>그러면 공명을 비교하는 <code>/tmp/resonances.png</code>를 생성합니다.</p>
+<h2 id="_10">사용자 정의 축 테스트<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>입력 셰이퍼 기능에 대한 적절한 매개변수를 수동으로 선택하는 것 외에도 Klipper에서 직접 입력 셰이퍼에 대한 자동 조정을 실행할 수도 있습니다. Octoprint 터미널을 통해 다음 명령을 실행합니다:</p>
+<div class="highlight"><pre><span></span><code>SHAPER_CALIBRATE
+</code></pre></div>
+
+<p>그러면 두 축에 대한 전체 테스트가 실행되고 주파수 응답 및 제안된 입력 셰이퍼에 대한 csv 출력 (기본적으로 <code>/tmp/calibration_data_*.csv</code>) 이 생성됩니다. 또한 Octoprint 콘솔에서 각 입력 셰이퍼에 대해 제안된 주파수와 설정에 권장되는 입력 셰이퍼를 얻을 수 있습니다. 예를 들어:</p>
+<div class="highlight"><pre><span></span><code>Calculating the best input shaper parameters for y axis
+Fitted shaper &#39;zv&#39; frequency = 39.0 Hz (vibrations = 13.2%, smoothing ~= 0.105)
+To avoid too much smoothing with &#39;zv&#39;, suggested max_accel &lt;= 5900 mm/sec^2
+Fitted shaper &#39;mzv&#39; frequency = 36.8 Hz (vibrations = 1.7%, smoothing ~= 0.150)
+To avoid too much smoothing with &#39;mzv&#39;, suggested max_accel &lt;= 4000 mm/sec^2
+Fitted shaper &#39;ei&#39; frequency = 36.6 Hz (vibrations = 2.2%, smoothing ~= 0.240)
+To avoid too much smoothing with &#39;ei&#39;, suggested max_accel &lt;= 2500 mm/sec^2
+Fitted shaper &#39;2hump_ei&#39; frequency = 48.0 Hz (vibrations = 0.0%, smoothing ~= 0.234)
+To avoid too much smoothing with &#39;2hump_ei&#39;, suggested max_accel &lt;= 2500 mm/sec^2
+Fitted shaper &#39;3hump_ei&#39; frequency = 59.0 Hz (vibrations = 0.0%, smoothing ~= 0.235)
+To avoid too much smoothing with &#39;3hump_ei&#39;, suggested max_accel &lt;= 2500 mm/sec^2
+Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz
+</code></pre></div>
+
+<p>제안된 매개변수에 동의하면 지금 <code>SAVE_CONFIG</code> 를 실행하여 저장하고 Klipper를 다시 시작할 수 있습니다. 이것은 <code>[printer]</code> 섹션의 <code>max_accel</code> 값을 업데이트하지 않습니다. <a href="#selecting-max_accel">Selecting max_accel</a> 섹션을 수동으로 업데이트해야 합니다.</p>
+<p>프린터가 bed slinger 프린터인 경우 테스트할 축을 지정할 수 있으므로 테스트 사이에 가속도계 장착 지점을 변경할 수 있습니다 (기본적으로 테스트는 두 축 모두에 대해 수행됨):</p>
+<div class="highlight"><pre><span></span><code>SHAPER_CALIBRATE AXIS=Y
+</code></pre></div>
+
+<p>각 축을 보정한 후 <code>SAVE_CONFIG</code>를 두 번 실행할 수 있습니다.</p>
+<p>그러나 두 개의 가속도계를 동시에 연결한 경우 축을 지정하지 않고 <code>SHAPER_CALIBRATE</code>를 실행하여 두 축에 대한 입력 셰이퍼를 한 번에 보정하기만 하면 됩니다.</p>
+<h3 id="input-shaper">Input Shaper 재보정<a class="headerlink" href="#input-shaper" title="Permanent link">&para;</a></h3>
+<p><code>SHAPER_CALIBRATE</code> 명령은 향후 입력 셰이퍼를 다시 보정하는 데 사용할 수도 있습니다. 특히 운동학에 영향을 줄 수 있는 프린터 변경 사항이 있는 경우 더욱 그렇습니다. <code>SHAPER_CALIBRATE</code> 명령을 사용하여 전체 보정을 다시 실행하거나 다음과 같이 <code>AXIS=</code> 매개변수를 제공하여 자동 보정을 단일 축으로 제한할 수 있습니다</p>
+<div class="highlight"><pre><span></span><code>SHAPER_CALIBRATE AXIS=X
+</code></pre></div>
+
+<p><strong>경고!</strong> 셰이퍼 자동 보정을 매우 자주 실행하지 않는 것이 좋습니다 (예: 인쇄할 때마다 또는 매일). 공진 주파수를 결정하기 위해 자동 보정은 각 축에 집중적인 진동을 생성합니다. 일반적으로 3D 프린터는 공진 주파수 근처의 진동에 장기간 노출되는 것을 견디도록 설계되지 않았습니다. 그렇게 하면 프린터 구성 요소의 마모가 증가하고 수명이 단축될 수 있습니다. 또한 일부 부품이 풀리거나 느슨해질 위험이 증가합니다. 각 자동 조정 후에 프린터의 모든 부품 (일반적으로 움직이지 않는 부품 포함) 이 제자리에 단단히 고정되어 있는지 항상 확인하십시오.</p>
+<p>또한 측정의 일부 노이즈로 인해 조정 결과가 교정 실행마다 약간 다를 수 있습니다. 그러나 노이즈가 인쇄 품질에 너무 많은 영향을 줄 것으로 예상되지는 않습니다. 그러나 여전히 제안된 매개변수를 다시 확인하고 테스트 인쇄물을 인쇄하여 사용하기 전에 양호한지 확인하는 것이 좋습니다.</p>
+<h2 id="_11">가속도계 데이터의 오프라인 처리<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>예를 들어 공진을 찾기 위해 원시 가속도계 데이터를 생성하고 오프라인으로(예: 호스트 머신에서) 처리할 수 있습니다. 그렇게 하려면 Octoprint 터미널을 통해 다음 명령을 실행하십시오:</p>
+<div class="highlight"><pre><span></span><code>SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0
+TEST_RESONANCES AXIS=X OUTPUT=raw_data
+</code></pre></div>
+
+<p><code>SET_INPUT_SHAPER</code> 명령에 대한 오류를 무시합니다. <code>TEST_RESONANCES</code> 명령의 경우 원하는 테스트 축을 지정합니다. 원시 데이터는 RPi의 <code>/tmp</code> 디렉토리에 기록됩니다.</p>
+<p>The raw data can also be obtained by running the command <code>ACCELEROMETER_MEASURE</code> command twice during some normal printer activity - first to start the measurements, and then to stop them and write the output file. Refer to <a href="G-Codes.html#adxl345">G-Codes</a> for more details.</p>
+<p>데이터는 나중에 다음 스크립트로 처리할 수 있습니다: <code>scripts/graph_accelerometer.py</code> 및 <code>scripts/calibrate_shaper.py</code>. 둘 다 모드에 따라 하나 또는 여러 개의 원시 csv 파일을 입력으로 허용합니다. graph_accelerometer.py 스크립트는 여러 작동 모드를 지원합니다:</p>
+<ul>
+<li>원시 가속도계 데이터 플로팅(<code>-r</code> 매개변수 사용), 1개의 입력만 지원됩니다;</li>
+<li>주파수 응답을 플로팅(추가 매개변수가 필요하지 않음), 다중 입력이 지정된 경우 평균 주파수 응답이 계산됩니다;</li>
+<li>여러 입력 간의 주파수 응답 비교(<code>-c</code> 매개변수 사용) <code>-a x</code>, <code>-a y</code> 또는 <code>-a z</code> 매개변수를 통해 고려할 가속도계 축을 추가로 지정할 수 있습니다(지정되지 않은 경우 모든 축의 진동 합계가 사용됨);</li>
+<li>스펙트로그램 플로팅(<code>-s</code> 매개변수 사용), 1개의 입력만 지원됩니다. <code>-a x</code>, <code>-a y</code> 또는 <code>-a z</code> 매개변수를 통해 고려할 가속도계 축을 추가로 지정할 수 있습니다(지정되지 않은 경우 모든 축의 진동 합계가 사용됨).</li>
+</ul>
+<p>graph_accelerometer.py 스크립트는 raw_data*.csv 파일만 지원하고 resonances*.csv 또는 calibration_data*.csv 파일은 지원하지 않습니다.</p>
+<p>예를 들어,</p>
+<div class="highlight"><pre><span></span><code>~/klipper/scripts/graph_accelerometer.py /tmp/raw_data_x_*.csv -o /tmp/resonances_x.png -c -a z
+</code></pre></div>
+
+<p>Z 축에 대한 여러 <code>/tmp/raw_data_x_*.csv</code> 파일을 <code>/tmp/resonances_x.png</code> 파일과 비교하여 플롯합니다.</p>
+<p>shaper_calibration.py 스크립트는 하나 이상의 입력을 허용하고 입력 shaper의 자동 조정을 실행할 수 있고 제공된 모든 입력에 대해 잘 작동하는 최상의 매개변수를 제안할 수 있습니다. 제안된 매개변수를 콘솔에 출력하고 <code>-o output.png</code> 매개변수가 제공된 경우 차트를 추가로 생성하거나 <code>-c output.csv</code> 매개변수가 지정된 경우 CSV 파일을 생성할 수 있습니다.</p>
+<p>shaper_calibration.py 스크립트에 여러 입력을 제공하면 입력 셰이퍼의 일부 고급 조정을 실행하는 경우 유용할 수 있습니다. 예를 들면 다음과 같습니다:</p>
+<ul>
+<li>처음에는 툴 헤드에 가속도계가 부착된 bed slinger 프린터에서 단일 축에 대해 <code>TEST_RESONANCES AXIS=X OUTPUT=raw_data</code>(및 <code>Y</code> 축)를 두 번 실행하고 두 번째로 베드에 가속도계를 부착한 순서대로 실행 축 교차 공명을 감지하고 입력 셰이퍼로 취소하려고 시도합니다.</li>
+<li>유리 베드와 자성 표면 (더 가벼움)이 있는 bed slinger에서 <code>TEST_RESONANCES AXIS=Y OUTPUT=raw_data</code>를 두 번 실행하여 모든 인쇄 표면 구성에 잘 작동하는 입력 셰이퍼 매개변수를 찾습니다.</li>
+<li>여러 테스트 지점의 공진 데이터 결합.</li>
+<li>2축의 공명 데이터 결합 (예: bed slinger 프린터에서 X축과 Y축 모두에서 X축 input_shaper 를 구성하는 공진은 X축 방향으로 이동할 때 노즐이 인쇄물을 '치는' 경우 <em>BED</em> 의 진동을 취소하기 위해 공진).</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "search.suggest", "search.highlight", "search.share"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      
+    
+  </body>
+</html>

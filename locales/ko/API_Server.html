@@ -1,0 +1,1511 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+    
+    
+      
+        <title>API 서버 - Klipper documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.edf004c2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../_klipper3d/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-138371409-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Klipper documentation" class="md-header__button md-logo" aria-label="Klipper documentation" data-md-component="logo">
+      
+  <img src="../../img/klipper.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Klipper documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API 서버
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2 0-.68.06-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.923 7.923 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8.008 8.008 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.65 15.65 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="API_Server.html" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="../../zh_HS/locales/ko/API_Server.html" hreflang="zh_HS" class="md-select__link">
+                    简体中文
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="../../zh_HT/locales/ko/API_Server.html" hreflang="zh_HT" class="md-select__link">
+                    繁體中文
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Klipper3d/klipper/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Klipper3d/klipper
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Klipper documentation" class="md-nav__button md-logo" aria-label="Klipper documentation" data-md-component="logo">
+      
+  <img src="../../img/klipper.svg" alt="logo">
+
+    </a>
+    Klipper documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Klipper3d/klipper/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Klipper3d/klipper
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Overview.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Features.html" class="md-nav__link">
+        Features
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ.html" class="md-nav__link">
+        Frequently Asked Questions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Releases.html" class="md-nav__link">
+        Releases
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Config_Changes.html" class="md-nav__link">
+        Configuration Changes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Contact.html" class="md-nav__link">
+        Contact
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Installation and Configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Installation and Configuration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Installation and Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Installation.html" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_2" type="checkbox" id="__nav_7_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_2">
+          Configuration Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Configuration Reference" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Config_Reference.html" class="md-nav__link">
+        Configuration reference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rotation_Distance.html" class="md-nav__link">
+        Rotation distance
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Config_checks.html" class="md-nav__link">
+        Configuration checks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_4" type="checkbox" id="__nav_7_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_4">
+          Bed Level
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bed Level" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          Bed Level
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bed_Level.html" class="md-nav__link">
+        Bed leveling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Delta_Calibrate.html" class="md-nav__link">
+        Delta calibration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probe_Calibrate.html" class="md-nav__link">
+        Probe calibration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BLTouch.html" class="md-nav__link">
+        BL-Touch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Manual_Level.html" class="md-nav__link">
+        Manual leveling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bed_Mesh.html" class="md-nav__link">
+        Bed Mesh
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Endstop_Phase.html" class="md-nav__link">
+        Endstop phase
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_5" type="checkbox" id="__nav_7_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_5">
+          Resonance Compensation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Resonance Compensation" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          Resonance Compensation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Resonance_Compensation.html" class="md-nav__link">
+        Resonance Compensation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Measuring_Resonances.html" class="md-nav__link">
+        Measuring Resonances
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Pressure_Advance.html" class="md-nav__link">
+        Pressure advance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../G-Codes.html" class="md-nav__link">
+        G-Codes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_8" type="checkbox" id="__nav_7_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_8">
+          Command templates
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Command templates" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_8">
+          <span class="md-nav__icon md-icon"></span>
+          Command templates
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Command_Templates.html" class="md-nav__link">
+        Commands templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Status_Reference.html" class="md-nav__link">
+        Status reference
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TMC_Drivers.html" class="md-nav__link">
+        TMC drivers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Multi_MCU_Homing.html" class="md-nav__link">
+        Multiple Micro-controller Homing and Probing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Slicers.html" class="md-nav__link">
+        Slicers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Skew_Correction.html" class="md-nav__link">
+        Skew correction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Using_PWM_Tools.html" class="md-nav__link">
+        Using PWM tools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Developer Documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developer Documentation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Developer Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Code_Overview.html" class="md-nav__link">
+        Code overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Kinematics.html" class="md-nav__link">
+        Kinematics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Protocol.html" class="md-nav__link">
+        Protocol
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../API_Server.html" class="md-nav__link">
+        API server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MCU_Commands.html" class="md-nav__link">
+        MCU commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CANBUS_protocol.html" class="md-nav__link">
+        CANBUS protocol
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Debugging.html" class="md-nav__link">
+        Debugging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Benchmarks.html" class="md-nav__link">
+        Benchmarks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CONTRIBUTING.html" class="md-nav__link">
+        Contributing to Klipper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Packaging.html" class="md-nav__link">
+        Packaging Klipper
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Device Specific Documents
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Device Specific Documents" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Device Specific Documents
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Example_Configs.html" class="md-nav__link">
+        Example configurations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SDCard_Updates.html" class="md-nav__link">
+        SDCard updates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RPi_microcontroller.html" class="md-nav__link">
+        RPi microcontroller
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Beaglebone.html" class="md-nav__link">
+        Beaglebone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bootloaders.html" class="md-nav__link">
+        Bootloaders
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CANBUS.html" class="md-nav__link">
+        CANBUS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TSL1401CL_Filament_Width_Sensor.html" class="md-nav__link">
+        TSL1401CL filament width sensor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hall_Filament_Width_Sensor.html" class="md-nav__link">
+        Hall filament width sensor
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api-socket" class="md-nav__link">
+    API Socket 활성화
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    요청 포맷
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api_1" class="md-nav__link">
+    API 프로토콜
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    구독
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints" class="md-nav__link">
+    사용가능한 "endpoints"
+  </a>
+  
+    <nav class="md-nav" aria-label="사용가능한 "endpoints"">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    정보
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    비상정지
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    레지스터 원격 메쏘드
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    객체/리스트
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    객체/쿼리
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    객체/서브스크라이브
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gcode" class="md-nav__link">
+    gcode/도움말
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gcode_1" class="md-nav__link">
+    gcode/스크립트
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gcode_2" class="md-nav__link">
+    gcode/재시작
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gcode_3" class="md-nav__link">
+    gcode/펌웨어 재실행
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gcode_" class="md-nav__link">
+    gcode/서브스크라이브_출력
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motion_reportdump_stepper" class="md-nav__link">
+    motion_report/dump_stepper
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motion_reportdump_trapq" class="md-nav__link">
+    motion_report/dump_trapq
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adxl345dump_adxl345" class="md-nav__link">
+    adxl345/dump_adxl345
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_" class="md-nav__link">
+    멈춤_재개/취소
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__1" class="md-nav__link">
+    멈춤_재개/멈춤
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__2" class="md-nav__link">
+    멈춤_재개/재개
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#__3" class="md-nav__link">
+    쿼리_엔드스탑/상태
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/Klipper3d/klipper/blob/master/docs/locales/ko/API_Server.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="api">API 서버<a class="headerlink" href="#api" title="Permanent link">&para;</a></h1>
+<p>이 문서는 클리퍼 API 에 대해 기술하고 있습니다. 이 인터페이스는 외부 어플리케이션을 쿼리할 수 있게 해주고 클리퍼 호스트 소프트웨어를 조정할 수 있게 해줍니다.</p>
+<h2 id="api-socket">API Socket 활성화<a class="headerlink" href="#api-socket" title="Permanent link">&para;</a></h2>
+<p>API 서버를 사용하기 위해서, klippy.py 호스트 소프트웨어가 <code>-a</code> 파라메터와 함께 시작되어야 합니다. 예를 들어:</p>
+<div class="highlight"><pre><span></span><code>~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
+</code></pre></div>
+
+<p>이는 호스트 소프트웨어가 Unix Domain Socket 을 생성하도록 하며 그 이후 클라이언트가 그 Socket의 연결을 오픈하고, 클리퍼에서 명령을 보낼 수 있습니다.</p>
+<h2 id="_1">요청 포맷<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>소켓에 보내지고 수신된 메시지들은 JSON 인코딩된 문자열입니다. 이 문자열들은 ASCII 0x03 문자로 종료됩니다:</p>
+<div class="highlight"><pre><span></span><code>&lt;json_object_1&gt;&lt;0x03&gt;&lt;json_object_2&gt;&lt;0x03&gt;...
+</code></pre></div>
+
+<p>Klipper 는 <code>scripts/whconsole.py</code> 도구를 포함하고 있습니다.이 도구는 상위 메시지 프레이밍을 수행할 수 있습니다. 예를 들어 :</p>
+<div class="highlight"><pre><span></span><code>~/klipper/scripts/whconsole.py /tmp/klippy_uds
+</code></pre></div>
+
+<p>이 도구는 stdin 으로부터 연속된 JSON 명령어들을 읽을 수 있습니다. 또한 그 읽은 명령어들을 Klipper 로 보내고 결과를 보고할 수 있습니다. 그 도구는 각 JSON 명령을 한줄로 인식하며 요청을 보낼때 자동으로 0x03 종료자를 추가할 것입니다. (Klipper API 서버는 newline 요청을 가지고 있지 않습니다.)</p>
+<h2 id="api_1">API 프로토콜<a class="headerlink" href="#api_1" title="Permanent link">&para;</a></h2>
+<p>통신소켓에 사용된 명령 프로토콜은 <a href="https://www.jsonrpc.org/">json-rpc</a> 에 영감을 받았습니다.</p>
+<p>요청은 다음과 같은 형식입니다 :</p>
+<p><code>{"id": 123, "method": "info", "params": {}}</code></p>
+<p>그리고 응답값은 아래와 같은 유형입니다 :</p>
+<p><code>{"id": 123, "result": {"state_message": "Printer is ready", "klipper_path": "/home/pi/klipper", "config_file": "/home/pi/printer.cfg", "software_version": "v0.8.0-823-g883b1cb6", "hostname": "octopi", "cpu_info": "4 core ARMv7 Processor rev 4 (v7l)", "state": "ready", "python_path": "/home/pi/klippy-env/bin/python", "log_file": "/tmp/klippy.log"}}2</code></p>
+<p>각 요청은 JSON 딕셔너리여야 합니다. (이 문서는 "JSON object" - key/value 쌍은 <code>{}</code>를 포함하여 맵핑 - 를 표현하기 위해 파이썬 용어 사전을 사용합니다.)</p>
+<p>요청 딕셔너리는 "method" 파라메터를 반드시 포함해야 합니다. 이 파라메터는 사용가능한 Klipper "endpoint"의 문자열 이름입니다.</p>
+<p>요청 딕셔너리는 "params" 파라메터를 포함할 수 있습니다. 이 파라메터는 반드시 딕셔너리 타입이어야 합니다. "params" 는 클리퍼 "endpoint"가 요청을 다룰 수 있도록 추가적인 파라메터를 제공합니다. 그 내용은 "endpoint"에 특정됩니다.</p>
+<p>요청 딕셔너리는 "id" 파라메터를 포함할 수 있습니다. 이 파라메터는 JSON 타입이 될 수 있습니다. 만일 "id" 가 존재한다면 클리퍼는 "id"를 포함한 응답 메시지와 함께 요청에 응답할 것입니다. 민일 "id" 가 생략되어 있다면 (혹은 JSON "null"값이 셋팅되어 있다면) 클리퍼는 요청에 대해 어떤 응답도 제공하지 않을 것입니다.
+응답 메시지는 "id" 와 "result" 를 포함한 JSON 딕셔너리입니다. "result" 는 항상 딕셔너리 입니다. 그것의 내용은 요청을 다루는 "endpoint"에 특정됩니다.</p>
+<p>만일 요청한 프로세싱이 오류면, 응답메시지는 "result" 필드 대신에 "error" 필드를 포함할 것입니다. 예를 들어, 다음과 같은 요청이 들어가면 : <code>{"id": 123, "method": "gcode/script", "params": {"script": "G1 X200"}}</code> 이런 에러메시지의 결과를 냅니다 : <code>{"id": 123, "error": {"message": "Must home axis first: 200.000 0.000 0.000 [0.000]", "error": "WebRequestError"}}</code></p>
+<p>클리퍼는 항상 받은 순서대로 요청 프로세싱을 시작합니다. 하지만 몇몇 요청들은 즉각 완료되지 않을 수 있습니다. 이로인해 관련응답이 다른 요청에 대한 응답순서를 벗어날 수도 있습니다. JSON 요청은 절대로 미래의 JSON 요청의 프로세싱을 중단시키지 않을 것입니다.</p>
+<h2 id="_2">구독<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>몇몇 클리퍼의 "endpoint" 요청들은 미래의 비동기적인 업데이트 메시지를 나타내줍니다.</p>
+<p>예를 들면:</p>
+<p><code>{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{"key": 345}}}</code></p>
+<p>이것은 기본적으로 다음과 같이 응답합니다:</p>
+<p><code>{"id": 123, "result": {}}</code></p>
+<p>그리고, 클리퍼로 하여금 다음과 같은 미래 메시지들을 보내게 합니다:</p>
+<p><code>{"params": {"response": "ok B:22.8 /0.0 T0:22.4 /0.0"}, "key": 345}</code></p>
+<p>메시지출력 요청은 "params" 필드 요청에 "response_template" 딕셔너리를 받아들입니다. "response_template" 딕셔너리는 미래 비동기 메시지를 위한 템플릿으로 사용됩니다. 그것은 임의의 키/값 쌍을 포함할 수 있습니다. 이러한 미래 비동기 메시지들을 보내려 할 때 클리퍼는 응답 템플릿에 "endpoint" 특정 딕셔너리 내용을 포함하고 있는 "params" 필드를 더할 것입니다. 그리고, 그 템플릿을 보내게 됩니다. 만약 "response_template" 필드가 제공되지 않는다면 빈 딕셔너리 (<code>{}</code>) 를 디폴트로 보내게 됩니다.</p>
+<h2 id="endpoints">사용가능한 "endpoints"<a class="headerlink" href="#endpoints" title="Permanent link">&para;</a></h2>
+<p>관행적으로 클리퍼 "endpoints"는 <code>&lt;module_name&gt;/&lt;some_name&gt;</code> 형식으로 이뤄집니다. "endpoint" 에 요청을 하고자 할 때, full name 은 요청 딕셔너리의 "method" 파라메터에 셋팅되어 있어야만 합니다. (예, <code>{"method"="gcode/restart"}</code>).</p>
+<h3 id="_3">정보<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>"info" endpoint 는 클리퍼로 부터 시스템과 버전 정보를 가져올 수 있습니다. 또한 클리퍼에 클라이언트 버전 정보르 제공하는데도 사용될 수 있습니다. 예시 : <code>{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}</code></p>
+<p>만일 정보가 존재한다면, "client_info" 파라메터는 딕셔너리여야만 합니다. 그러나 그 딕셔너리는 임의의 내용들을 가질 수 있습니다. 클라이언트는 처음 클리퍼 API 서버와 연결될 때 클라이언트의 이름이나 소프트웨어 버전을 제공할 수 있습니다.</p>
+<h3 id="_4">비상정지<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>"emergency_stop" endpoint 는 클리퍼가 "shutdown" 상태로 가도록 지시하는데 사용합니다. 그것은 <code>M112</code> gcode 와 비슷하게 행동합니다. 예시 : <code>{"id": 123, "method": "emergency_stop"}</code></p>
+<h3 id="_5">레지스터 원격 메쏘드<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>이 endpoint 는 클라이언트가 클리퍼로부터 불려지 수 있도록 메쏘드를 등록하게 해줍니다. 이는 성공시 비어있는 객체를 반환합니다.</p>
+<p>예시 : <code>{"id": 123, "method": "register_remote_method", "params": {"response_template": {"action": "run_paneldue_beep"}, "remote_method": "paneldue_beep"}}</code> 반환값 :<code>{"id": 123, "result": {}}</code></p>
+<p>원격 메쏘드 <code>paneldue_beep</code> 는 클리퍼로 부터 불려질 수 있습니다. 만일 메쏘드가 파라메터들을 가지게 되면 그것들은 키워드 아규먼트들로써 제공될 수 있음을 기억하십시오. 아래 어떻게 gcode 메크로에서 불러올 수 있는지에 대한 예시가 있습니다. :</p>
+<div class="highlight"><pre><span></span><code>[gcode_macro PANELDUE_BEEP] 
+gcode:
+  {action_call_remote_method(&quot;paneldue_beep&quot;, frequency=300, duration=1.0)}
+</code></pre></div>
+
+<p>PANELDUE_BEEP gcode 매크로가 실행되면 클리퍼는 소켓위에 아래와 같은 것을 내보낼 것이다.: <code>{"action": "run_paneldue_beep", "params": {"frequency": 300, "duration": 1.0}}</code></p>
+<h3 id="_6">객체/리스트<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>이 endpoint는 쿼리할 수 있는 사용가능한 프린터 "objects"객체들의 리스트를 쿼리합니다. ("objects/query" endpoint 를 통하여). 예를 들면: <code>{"id": 123, "method": "objects/list"}</code> 이것은 다음과 같은 결과를 돌려줄 것입니다.: <code>{"id": 123, "result": {"objects": ["webhooks", "configfile", "heaters", "gcode_move", "query_endstops", "idle_timeout", "toolhead", "extruder"]}}</code></p>
+<h3 id="_7">객체/쿼리<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>이 endpoint 는 프린터 객체들로 부터 정보를 쿼리할 수 있게 해줍니다. 예를 들어: <code>{"id": 123, "method": "objects/query", "params": {"objects": {"toolhead": ["position"], "webhooks": null}}}</code> 이렇게 입력하면, 다음과 같은 값을 돌려줍니다. : <code>{"id": 123, "result": {"status": {"webhooks": {"state": "ready", "state_message": "Printer is ready"}, "toolhead": {"position": [0.0, 0.0, 0.0, 0.0]}}, "eventtime": 3051555.377933684}}</code></p>
+<p>요청에 들어 있는 "objects" 파라메터는 쿼리되어질 수 있는 프린터 객체를 포함하고 있는 딕셔너리여야 합니다. - 핵심 포함요소는 프린터 객체 이름과 키값이 "null" 이거나 필드 이름의 리스트여야 합니다.</p>
+<p>응답 메시지는 쿼리된 정보를 가지고 있는 딕셔너리에 포함된 "status" 필드를 포함할 것입니다. 프린터 이름을 포함해야 하며 그 값은 그것을 포함하고 있는 딕셔너리입니다. 응답 메시지는 또한 쿼리가 가져와질때의 타임스탬프를 포함한 "eventtime"필드를 포함할 것입니다.</p>
+<p>가능한 필드들은 다음 문서에 있습니다. <a href="Status_Reference.html">Status Reference</a> 문서.</p>
+<h3 id="_8">객체/서브스크라이브<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>이 endpoint 는 프린터 객체로 부터 정보를 쿼리하고 서브스크라이브 할 수 있게 해줍니다. 이 endpoint 의 요청과 응답은 "objects/query" endpoint 와 동일합니다. 예를 들어 : <code>{"id": 123, "method": "objects/subscribe", "params": {"objects":{"toolhead": ["position"], "webhooks": ["state"]}, "response_template":{}}}</code> 이것은 다음을 돌려줄 것입니다. : <code>{"id": 123, "result": {"status": {"webhooks": {"state": "ready"}, "toolhead": {"position": [0.0, 0.0, 0.0, 0.0]}}, "eventtime": 3052153.382083195}}</code> 그리고 다음과 같은 연속된 비동기형 메시지를 내보내줄 것입니다. <code>{"params": {"status": {"webhooks": {"state": "shutdown"}}, "eventtime": 3052165.418815847}}</code></p>
+<h3 id="gcode">gcode/도움말<a class="headerlink" href="#gcode" title="Permanent link">&para;</a></h3>
+<p>이 endpoint 는 정의된 help 문자열을 가지고 있는 가능한 G-Code 명령을 쿼리할 수 있게 해줍니다. 예를 들어 : <code>{"id": 123, "method": "gcode/help"}</code> 이것은 다음을 돌려줄 것입니다.: <code>{"id": 123, "result": {"RESTORE_GCODE_STATE": "Restore a previously saved G-Code state", "PID_CALIBRATE": "Run PID calibration test", "QUERY_ADC": "Report the last value of an analog pin", ...}}</code></p>
+<h3 id="gcode_1">gcode/스크립트<a class="headerlink" href="#gcode_1" title="Permanent link">&para;</a></h3>
+<p>이 endpoint 는 일련의 G-code 명령어들을 실행할 수 있게 해줍니다. 예를들어 : <code>{"id": 123, "method": "gcode/script", "params": {"script": "G90"}}</code></p>
+<p>만일 제공된 G-code 스크립트가 에러를 내면, 에러응답이 생성됩니다. 그러나 만일 G-code 명령이 터미널 결과값을 생성해내면 그 터미널 결과값은 응답값으로 제공되지 않습니다. (G-code 터미널 결과값을 얻고자 한다면 "gcode/subscribe_output" endpoint 를 사용하십시오)</p>
+<p>만일 요청이 받아들여졌을때 프로세싱되는 G-code 명령이 있다면, 제공된 스크립트는 순서를 기다리게 될 것이다. 이 지연은 매우 중요할 수 있다. (예를 들어 온도 명령을 기다리는 G-code 가 작동될 때와 같이 말이다) JSON 응답 메시지는 스크립트의 프로세싱을 완전히 끝마쳤을때 보내진다.</p>
+<h3 id="gcode_2">gcode/재시작<a class="headerlink" href="#gcode_2" title="Permanent link">&para;</a></h3>
+<p>이 endpoint 는 재시작 요청을 수행할 수 있게 해준다. 이것은 "RESTART" G-Code 명령 실행과 유사하다. 예를 들면 : <code>{"id": 123, "method": "gcode/restart"}</code></p>
+<p>"gcode/script" endpoint 와 같이 사용할 때 이 endpoint 는 지연된 G-Code 명령들이 완료된 후에만 오직 끝마칠 수 있다.</p>
+<h3 id="gcode_3">gcode/펌웨어 재실행<a class="headerlink" href="#gcode_3" title="Permanent link">&para;</a></h3>
+<p>이것은 "gcode/restart" endpoint 와 유사하다. - 그것도 "FIRMWARE_RESTART" G-Code 명령을 수행합니다. 예를 들면 : <code>{"id": 123, "method": "gcode/firmware_restart"}</code></p>
+<p>"gcode/script" endpoint 와 같이 사용할 때 이 endpoint 는 지연된 G-Code 명령들이 완료된 후에만 오직 끝마칠 수 있다.</p>
+<h3 id="gcode_">gcode/서브스크라이브_출력<a class="headerlink" href="#gcode_" title="Permanent link">&para;</a></h3>
+<p>이 endpoint 는 클리퍼에 의해 생성된 G-code 터미널 메시지를 표시할 때 사용됩니다. 예를 들어 : <code>{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{}}}</code> 이것은 후에 다음과 같은 비동기형 메시지를 내보낼 수 있습니다. : <code>{"params": {"response": "// Klipper state: Shutdown"}}</code></p>
+<p>이 endpoint 는 터미널창 인터페이스를 통해 인간과 상호작용을 하도록 도와줄 수 있게 합니다. G-code 터미널 출력으로 부터의 파싱 내용은 낙담케(?) 된다. 클리퍼 상태에 대한 업데이트 내용을 얻고자 할 때는 "objects/subscribe" endpoint 를 사용하라.</p>
+<h3 id="motion_reportdump_stepper">motion_report/dump_stepper<a class="headerlink" href="#motion_reportdump_stepper" title="Permanent link">&para;</a></h3>
+<p>This endpoint is used to subscribe to Klipper's internal stepper queue_step command stream for a stepper. Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.</p>
+<p>A request may look like: <code>{"id": 123, "method":"motion_report/dump_stepper", "params": {"name": "stepper_x", "response_template": {}}}</code> and might return: <code>{"id": 123, "result": {"header": ["interval", "count", "add"]}}</code> and might later produce asynchronous messages such as: <code>{"params": {"first_clock": 179601081, "first_time": 8.98, "first_position": 0, "last_clock": 219686097, "last_time": 10.984, "data": [[179601081, 1, 0], [29573, 2, -8685], [16230, 4, -1525], [10559, 6, -160], [10000, 976, 0], [10000, 1000, 0], [10000, 1000, 0], [10000, 1000, 0], [9855, 5, 187], [11632, 4, 1534], [20756, 2, 9442]]}}</code></p>
+<p>The "header" field in the initial query response is used to describe the fields found in later "data" responses.</p>
+<h3 id="motion_reportdump_trapq">motion_report/dump_trapq<a class="headerlink" href="#motion_reportdump_trapq" title="Permanent link">&para;</a></h3>
+<p>This endpoint is used to subscribe to Klipper's internal "trapezoid motion queue". Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.</p>
+<p>A request may look like: <code>{"id": 123, "method": "motion_report/dump_trapq", "params": {"name": "toolhead", "response_template":{}}}</code> and might return: <code>{"id": 1, "result": {"header": ["time", "duration", "start_velocity", "acceleration", "start_position", "direction"]}}</code> and might later produce asynchronous messages such as: <code>{"params": {"data": [[4.05, 1.0, 0.0, 0.0, [300.0, 0.0, 0.0], [0.0, 0.0, 0.0]], [5.054, 0.001, 0.0, 3000.0, [300.0, 0.0, 0.0], [-1.0, 0.0, 0.0]]]}}</code></p>
+<p>The "header" field in the initial query response is used to describe the fields found in later "data" responses.</p>
+<h3 id="adxl345dump_adxl345">adxl345/dump_adxl345<a class="headerlink" href="#adxl345dump_adxl345" title="Permanent link">&para;</a></h3>
+<p>This endpoint is used to subscribe to ADXL345 accelerometer data. Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.</p>
+<p>A request may look like: <code>{"id": 123, "method":"adxl345/dump_adxl345", "params": {"sensor": "adxl345", "response_template": {}}}</code> and might return: <code>{"id": 123,"result":{"header":["time","x_acceleration","y_acceleration", "z_acceleration"]}}</code> and might later produce asynchronous messages such as: <code>{"params":{"overflows":0,"data":[[3292.432935,-535.44309,-1529.8374,9561.4], [3292.433256,-382.45935,-1606.32927,9561.48375]]}}</code></p>
+<p>The "header" field in the initial query response is used to describe the fields found in later "data" responses.</p>
+<h3 id="_">멈춤_재개/취소<a class="headerlink" href="#_" title="Permanent link">&para;</a></h3>
+<p>이 endpoint 는 "PRINT_CANCEL" G-Code 명령을 실행하는 것과 유사하다. 예를 들어 : <code>{"id": 123, "method": "pause_resume/cancel"}</code></p>
+<p>"gcode/script" endpoint 와 같이 사용할 때 이 endpoint 는 지연된 G-Code 명령들이 완료된 후에만 오직 끝마칠 수 있다.</p>
+<h3 id="__1">멈춤_재개/멈춤<a class="headerlink" href="#__1" title="Permanent link">&para;</a></h3>
+<p>이 endpoint 는 "PAUSE" G-Code 명령을 실행하는 것과 유사하다. 예를 들어 : <code>{"id": 123, "method": "pause_resume/pause"}</code></p>
+<p>"gcode/script" endpoint 와 같이 사용할 때 이 endpoint 는 지연된 G-Code 명령들이 완료된 후에만 오직 끝마칠 수 있다.</p>
+<h3 id="__2">멈춤_재개/재개<a class="headerlink" href="#__2" title="Permanent link">&para;</a></h3>
+<p>이 endpoint 는 "RESUME" G-Code 명령을 실행하는 것과 유사하다. 예를 들어 : <code>{"id": 123, "method": "pause_resume/resume"}</code></p>
+<p>"gcode/script" endpoint 와 같이 사용할 때 이 endpoint 는 지연된 G-Code 명령들이 완료된 후에만 오직 끝마칠 수 있다.</p>
+<h3 id="__3">쿼리_엔드스탑/상태<a class="headerlink" href="#__3" title="Permanent link">&para;</a></h3>
+<p>이 endpoint 는 실행 endpoint들을 쿼리하고 그들의 상태를 반환해줄것이다. 예를 들어 : <code>{"id": 123, "method": "query_endstops/status"}</code> 이것은 다음을 반환할 것이다. : <code>{"id": 123, "result": {"y": "open", "x": "open", "z": "TRIGGERED"}}</code></p>
+<p>"gcode/script" endpoint 와 같이 사용할 때 이 endpoint 는 지연된 G-Code 명령들이 완료된 후에만 오직 끝마칠 수 있다.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "search.suggest", "search.highlight", "search.share"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      
+    
+  </body>
+</html>
