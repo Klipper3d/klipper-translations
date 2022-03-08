@@ -33,7 +33,7 @@ Klipper支持以下标准的G-Code命令：
 
 有关上述命令的更多详细信息，请参阅 [RepRap G-Code documentation](http://reprap.org/wiki/G-code)
 
-Klipper的目标是支持常见第三方软件（如OctoPrint、Printrun、Slic3r、Cura等）在其标准配置中产生的 G 代码命令。支持所有可能的 G-Code 命令并不是我们的目标。相反，Klipper更喜欢人类可读的["扩展G-Code命令"](#additional-commands)。
+Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable ["extended G-Code commands"](#additional-commands). Similarly, the G-Code terminal output is only intended to be human readable - see the [API Server document](API_Server.md) if controlling Klipper from external software.
 
 如果一个人需要一个不太常见的G-Code命令，那么可以用一个自定义的[gcode_macro config section](Config_Reference.md#gcode_macro)来实现它。例如，我们可以用这个来实现。`G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1` ，etc
 
@@ -299,7 +299,7 @@ The gcode_move module is automatically loaded.
 
 #### GET_POSITION
 
-`GET_POSITION`：返回工具当前位置信息
+`GET_POSITION`: Return information on the current location of the toolhead. See the developer documentation of [GET_POSITION output](Code_Overview.md#coordinate-systems) for more information.
 
 #### SET_GCODE_OFFSET
 

@@ -580,7 +580,7 @@ max_accel: 1
 
 ### [extruder]
 
-The extruder section is used to describe both the stepper controlling the printer extruder and the heater parameters for the nozzle. See the [pressure advance guide](Pressure_Advance.md) for information on tuning pressure advance.
+The extruder section is used to describe the heater parameters for the nozzle hotend along with the stepper controlling the extruder. See the [command reference](G-Codes.md#extruder) for additional information. See the [pressure advance guide](Pressure_Advance.md) for information on tuning pressure advance.
 
 ```
 [extruder]
@@ -591,100 +591,116 @@ microsteps:
 rotation_distance:
 #full_steps_per_rotation:
 #gear_ratio:
-#   以上参数详见“stepper”章节。
+#   See the "stepper" section for a description of the above
+#   parameters. If none of the above parameters are specified then no
+#   stepper will be associated with the nozzle hotend (though a
+#   SYNC_EXTRUDER_MOTION command may associate one at run-time).
 nozzle_diameter:
-#   喷嘴的孔径（mm）。
-#   必须提供此参数。
+#   Diameter of the nozzle orifice (in mm). This parameter must be
+#   provided.
 filament_diameter:
-#   进入挤出机前耗材的常规直径（mm）。
-#   必须提供此参数。
+#   The nominal diameter of the raw filament (in mm) as it enters the
+#   extruder. This parameter must be provided.
 #max_extrude_cross_section:
-#   挤出的最大截面积（mm^2）。
-#   例如，挤出宽度乘以层高。
-#   这个参数避免了在微小的 XY 移动中挤出了过多的耗材。如果
-#   一个移动请求了超过该参数限制的挤出速率，打印机会报告错误。
-#   默认为：4.0 * nozzle_diameter^2
+#   Maximum area (in mm^2) of an extrusion cross section (eg,
+#   extrusion width multiplied by layer height). This setting prevents
+#   excessive amounts of extrusion during relatively small XY moves.
+#   If a move requests an extrusion rate that would exceed this value
+#   it will cause an error to be returned. The default is: 4.0 *
+#   nozzle_diameter^2
 #instantaneous_corner_velocity: 1.000
-#   在两个移动之间挤出头最大的瞬时速度变化（mm/s)。
-#   默认为 1mm/s。
+#   The maximum instantaneous velocity change (in mm/s) of the
+#   extruder during the junction of two moves. The default is 1mm/s.
 #max_extrude_only_distance: 50.0
-#   仅回抽或仅挤出时挤出机允许的最长移动（mm 耗材长度）。
-#   如果一个仅回抽或仅挤出动作请求了超过该参数限制的挤出速率，
-#   打印机会报告错误。
-#   默认为 50mm。
+#   Maximum length (in mm of raw filament) that a retraction or
+#   extrude-only move may have. If a retraction or extrude-only move
+#   requests a distance greater than this value it will cause an error
+#   to be returned. The default is 50mm.
 #max_extrude_only_velocity:
 #max_extrude_only_accel:
-#   挤出机电机回抽和仅挤出移动时的最大速度（mm/s）和加速度
-#   （mm/s^2）。这些设置不影响常规打印移动。如果没有被定义，
-#   会根据一个 XY 截面是 4.0*nozzle_diameter^2 的打印移动计算一个
-#   相应的限制。
+#   Maximum velocity (in mm/s) and acceleration (in mm/s^2) of the
+#   extruder motor for retractions and extrude-only moves. These
+#   settings do not have any impact on normal printing moves. If not
+#   specified then they are calculated to match the limit an XY
+#   printing move with a cross section of 4.0*nozzle_diameter^2 would
+#   have.
 #pressure_advance: 0.0
-#   加速时挤出机的原始耗材长度。等于减速时挤出机回抽的耗材长度。
-#   以mm/(mm/s)为单位。
-#   默认为 0，禁用压力提前。
+#   The amount of raw filament to push into the extruder during
+#   extruder acceleration. An equal amount of filament is retracted
+#   during deceleration. It is measured in millimeters per
+#   millimeter/second. The default is 0, which disables pressure
+#   advance.
 #pressure_advance_smooth_time: 0.040
-#   一个用来计算压力提前平均挤出机速度的时间范围（以秒为单位）。
-#   更大的值可以产生更流畅的挤出机运动。
-#   这个参数不能超过 200ms。
-#   仅在压力提前不为 0 时起效。
-#   默认为 0.040 (40 毫秒)。
+#   A time range (in seconds) to use when calculating the average
+#   extruder velocity for pressure advance. A larger value results in
+#   smoother extruder movements. This parameter may not exceed 200ms.
+#   This setting only applies if pressure_advance is non-zero. The
+#   default is 0.040 (40 milliseconds).
 #
-#   以下参数描述了挤出头加热器。
+# The remaining variables describe the extruder heater.
 heater_pin:
-#   控制加热器的 PWM 输出引脚。
-#   必须提供此参数。
+#   PWM output pin controlling the heater. This parameter must be
+#   provided.
 #max_power: 1.0
-#   heater_pin 允许的最大功率（一个0.0和1.0之间的值）。1.0允许加热器
-#   引脚一直被拉高，而0.5会只允许加热器引脚在一半的时间里被拉高。
-#   这个参数可以限制加热器的功率（平均功率）。
-#   默认为1.0。
+#   The maximum power (expressed as a value from 0.0 to 1.0) that the
+#   heater_pin may be set to. The value 1.0 allows the pin to be set
+#   fully enabled for extended periods, while a value of 0.5 would
+#   allow the pin to be enabled for no more than half the time. This
+#   setting may be used to limit the total power output (over extended
+#   periods) to the heater. The default is 1.0.
 sensor_type:
-#   温度传感器类型，可以是 "EPCOS 100K B57560G104F"、
-#   "ATC Semitec 104GT-2"、"ATC Semitec 104NT-4-R025H42G"、"Generic
-#   3950"、"Honeywell 100K 135-104LAG-J01"、"NTC 100K MGB18-104F39050L32"、
-#   "SliceEngineering 450"或"TDK NTCG104LH104JT1"。
-#   有关其他温度传感器，请见“温度传感器”章节。
-#   必须提供此参数。
+#   Type of sensor - common thermistors are "EPCOS 100K B57560G104F",
+#   "ATC Semitec 104GT-2", "ATC Semitec 104NT-4-R025H42G", "Generic
+#   3950","Honeywell 100K 135-104LAG-J01", "NTC 100K MGB18-104F39050L32",
+#   "SliceEngineering 450", and "TDK NTCG104LH104JT1". See the
+#   "Temperature sensors" section for other sensors. This parameter
+#   must be provided.
 sensor_pin:
-#   连接到传感器的模拟引脚。
-#   必须提供此参数。
+#   Analog input pin connected to the sensor. This parameter must be
+#   provided.
 #pullup_resistor: 4700
-#   连接到热敏电阻的拉高电阻阻值（ohms）。
-#   仅在使用热敏电阻时有效。
-#   默认为 4700 ohms。
+#   The resistance (in ohms) of the pullup attached to the thermistor.
+#   This parameter is only valid when the sensor is a thermistor. The
+#   default is 4700 ohms.
 #smooth_time: 1.0
-#   减少噪音造成温度测量影响的平滑时间（秒）
-#   默认为1秒
+#   A time value (in seconds) over which temperature measurements will
+#   be smoothed to reduce the impact of measurement noise. The default
+#   is 1 seconds.
 control:
-#   控制算法（可以是 pid 或 watermark）。
-#   必须提供此参数。
+#   Control algorithm (either pid or watermark). This parameter must
+#   be provided.
 pid_Kp:
-#   Kp 是 PID 算法的"比例"常数。
-#   PID 加热器必须提供此参数
+#   Kp is the "proportional" constant for the pid. This parameter must
+#   be provided for PID heaters.
 pid_Ki:
-#   Ki 是 PID 算法的"积分"常数。
-#   PID 加热器必须提供此参数
+#   Ki is the "integral" constant for the pid. This parameter must be
+#   provided for PID heaters.
 pid_Kd:
-#   Kd 是 PID 算法的"微分"常数。
-#   PID 加热器必须提供此参数
+#   Kd is the "derivative" constant for the pid. This parameter must
+#   be provided for PID heaters.
 #max_delta: 2.0
-#   在 “watermark” 控制的加热器上高于设定温度时关闭加热器或
-#   低于设定温度时打开加热器的温差。
-#   默认为 2 摄氏度
+#   On 'watermark' controlled heaters this is the number of degrees in
+#   Celsius above the target temperature before disabling the heater
+#   as well as the number of degrees below the target before
+#   re-enabling the heater. The default is 2 degrees Celsius.
 #pwm_cycle_time: 0.100
-#   加热器每个软件PWM周期的时间，单位为秒。不推荐修改这个值，
-#   除非有电气上的需求，必须以超过 10 次每秒的频率开关加热器。
-#   默认是 0.100 秒。
+#   Time in seconds for each software PWM cycle of the heater. It is
+#   not recommended to set this unless there is an electrical
+#   requirement to switch the heater faster than 10 times a second.
+#   The default is 0.100 seconds.
 #min_extrude_temp: 170
-#   允许挤出机移动的最低温度（摄氏度）。
-#   默认为 170 摄氏度。
+#   The minimum temperature (in Celsius) at which extruder move
+#   commands may be issued. The default is 170 Celsius.
 min_temp:
 max_temp:
-#   加热器必须保持的最大有效温度范围（摄氏度）。这是一个在微
-#   处理器中的安全功能 - 一旦测量温度超出这个范围，微处理器会
-#   进入关闭模式。这项检查可以检测到一些加热器或温度传感器故障。
-#   将两个值设置的足够宽以避免在正常运行时报错。
-#   必须提供这些参数。
+#   The maximum range of valid temperatures (in Celsius) that the
+#   heater must remain within. This controls a safety feature
+#   implemented in the micro-controller code - should the measured
+#   temperature ever fall outside this range then the micro-controller
+#   will go into a shutdown state. This check can help detect some
+#   heater and sensor hardware failures. Set this range just wide
+#   enough so that reasonable temperatures do not result in an error.
+#   These parameters must be provided.
 ```
 
 ### [heater_bed]
@@ -1619,10 +1635,10 @@ See the [command reference](G-Codes.md#extruder) for more information.
 
 ```
 [extruder_stepper my_extra_stepper]
-#extruder: extruder
+extruder:
 #   The extruder this stepper is synchronized to. If this is set to an
 #   empty string then the stepper will not be synchronized to an
-#   extruder. The default is "extruder".
+#   extruder. This parameter must be provided.
 #step_pin:
 #dir_pin:
 #enable_pin:

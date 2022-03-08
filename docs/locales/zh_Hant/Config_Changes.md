@@ -6,6 +6,8 @@
 
 ## 變更
 
+20220304: There is no longer a default for the `extruder` parameter of [extruder_stepper](Config_Reference.md#extruder_stepper) config sections. If desired, specify `extruder: extruder` explicitly to associate the stepper motor with the "extruder" motion queue at startup.
+
 20220210：`SYNC_STEPPER_TO_EXTRUDER`、`SET_EXTRUDER_STEP_DISTANCE`、[extruder](Config_Reference.md#extruder)的 `shared_heater` 配置選項已棄用。這些功能將在不久的將來被刪除。將`SET_EXTRUDER_STEP_DISTANCE`替換為`SET_EXTRUDER_ROTATION_DISTANCE`，`SYNC_STEPPER_TO_EXTRUDER`替換為`SYNC_EXTRUDER_MOTION`，使用 `shared_heater` 與 [extruder_stepper](Config_Reference.md#extruder_stepper)配置分段替換 extruder 配置分段，並更新所有啟用宏以使用 [SYNC_EXTRUDER_MOTION](G-Codes.md#sync_extruder_motion)。
 
 20220116: 變更了tmc2130、tmc2208、tmc2209和tmc2660的 `run_current` 計算程式碼。對於一些 `run_current`設定，驅動程式現在的配置結果可能被和原來不同。新的配置應該更準確，但它可能導致前的tmc驅動調諧失效。

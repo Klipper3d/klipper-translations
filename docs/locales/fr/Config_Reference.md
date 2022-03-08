@@ -580,7 +580,7 @@ max_accel: 1
 
 ### [extruder]
 
-The extruder section is used to describe both the stepper controlling the printer extruder and the heater parameters for the nozzle. See the [pressure advance guide](Pressure_Advance.md) for information on tuning pressure advance.
+The extruder section is used to describe the heater parameters for the nozzle hotend along with the stepper controlling the extruder. See the [command reference](G-Codes.md#extruder) for additional information. See the [pressure advance guide](Pressure_Advance.md) for information on tuning pressure advance.
 
 ```
 [extruder]
@@ -591,7 +591,10 @@ microsteps:
 rotation_distance:
 #full_steps_per_rotation:
 #gear_ratio:
-#   See the "stepper" section for a description of the above parameters.
+#   See the "stepper" section for a description of the above
+#   parameters. If none of the above parameters are specified then no
+#   stepper will be associated with the nozzle hotend (though a
+#   SYNC_EXTRUDER_MOTION command may associate one at run-time).
 nozzle_diameter:
 #   Diameter of the nozzle orifice (in mm). This parameter must be
 #   provided.
@@ -1580,7 +1583,7 @@ control_pin:
 #   See the "probe" section for information on these parameters.
 ```
 
-## Additional stepper motors and extruders
+## Moteurs pas à pas et extrudeurs additionnels
 
 ### [stepper_z1]
 
@@ -1649,10 +1652,10 @@ See the [command reference](G-Codes.md#extruder) for more information.
 
 ```
 [extruder_stepper my_extra_stepper]
-#extruder: extruder
+extruder:
 #   The extruder this stepper is synchronized to. If this is set to an
 #   empty string then the stepper will not be synchronized to an
-#   extruder. The default is "extruder".
+#   extruder. This parameter must be provided.
 #step_pin:
 #dir_pin:
 #enable_pin:

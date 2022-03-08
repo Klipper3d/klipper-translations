@@ -1,10 +1,10 @@
 # Configuration checks
 
-This document provides a list of steps to help confirm the pin settings in the Klipper printer.cfg file. It is a good idea to run through these steps after following the steps in the [installation document](Installation.md).
+Bu döküman Klipper printer.cfg dosyasında bulunan pin ayarları için bir dizi adım içermektedir. Bu adımların [installation document](Installation.md) içinde yer alan adımları takip ettikten sonra izlenmesi tavsiye edilir.
 
-During this guide, it may be necessary to make changes to the Klipper config file. Be sure to issue a RESTART command after every change to the config file to ensure that the change takes effect (type "restart" in the Octoprint terminal tab and then click "Send"). It's also a good idea to issue a STATUS command after every RESTART to verify that the config file is successfully loaded.
+Bu klavuz çerçevesinde Klipper ayarlar dosyasında değişiklik yapılması gerekebilir. Ayarlar dosyasında herhangi bir değişiklikten sonra RESTART komutu vererek yeniden başlattığınızdan emin olunuz (Terminalde "restart" yazarak gerçekleştirilebilinir). Her yeniden başlatmadan sonra STATUS komutu vererek ayar değişikliklerinin etkin olduğunu kontrol etmeniz tavsiy edilir.
 
-## Verify temperature
+## Sıcaklığı doğrula
 
 Start by verifying that temperatures are being properly reported. Navigate to the Octoprint temperature tab.
 

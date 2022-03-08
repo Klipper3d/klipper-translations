@@ -6,14 +6,14 @@
 
 ## 准则
 
-1. Select the appropriate config filename prefix:
+1. 选择适当的配置文件名前缀：
    1. `printer`前缀用于主流制造商出售的打印机。
    1. `generic`前缀用于通用3D打印机主板。
    1. `kit`的前缀用于按照公开规范组装的3D打印机（例如Voron V2.4）。这些 "套件 "打印机通常与普通的打印机不同在它们通常不被制造商销售。
    1. `sample`前缀用于可以被复制到主配置文件中的配置 "片段"。
    1. `example`前缀是用来描述打印机运动学。这种类型的配置通常只与新类型的打印机运动学的代码一起添加。
-1. All configuration files must end in a `.cfg` suffix. The `printer` config files must end in a year followed by `.cfg` (eg, `-2019.cfg`). In this case, the year is an approximate year the given printer was sold.
-1. Do not use spaces or special characters in the config filename. The filename should contain only characters `A-Z`, `a-z`, `0-9`, `-`, and `.`.
+1. 所有的配置文件必须以`.cfg`后缀结尾。`printer`配置文件必须以`.cfg`结尾（例如，`2019.cfg`）。在这种情况下，年份是对应打印机的大致发售年份。
+1. 不要在配置文件名中使用空格或特殊字符。文件名应该只包含字符`A-Z`, `a-z`, `0-9`, `-`, 和`.`。
 1. `printer`, `generic`, 和 `kit` 示例配置文件必须保证 Klipper 能够正常启动而不出错。这些配置文件应该被添加到 [test/klippy/printers.test](../test/klippy/printers.test) 回归测试用例中。将新的配置文件添加到该测试用例的适当部分，并按该部分的字母顺序排列。
 1. 该配置示例应该是打印机的 "stock "配置。(在klipper的仓库中有太多定制的配置。)同样地，我们只为具有主流流行性的打印机、套件和板子添加配置文件的例子（至少应该有100个正在使用中）。考虑使用[Klipper Community Discourse server](https://community.klipper3d.org)进行其他配置。
 1. Only specify those devices present on the given printer or board. Do not specify settings specific to your particular setup.
@@ -30,7 +30,7 @@
    1. 避免定义那些被设置为默认值的字段值。例如，不应该指定`min_extrude_temp: 170`，因为这已经是默认值。
    1. 在可能的情况下，行数不应超过80列。
    1. 避免在配置文件中添加归属或修订信息。例如，避免添加类似 "此文件由......创建 "的行。）将归属和修改历史放在git提交信息中。
-1. Do not use any deprecated features in the example config file.
+1. 不要在示例配置文件中使用任何已废弃的功能。
 1. 不要在示例配置文件中禁用默认安全系统。例如，一个配置不应该指定一个自定义的 `max_extrude_cross_section`。不要启用调试功能。例如，不应该有一个 `force_move` 配置部分。
 
 通过创建github "pull request "来提交配置文件示例。也请遵循[contribution document](CONTRIBUTING.md)中的指示。

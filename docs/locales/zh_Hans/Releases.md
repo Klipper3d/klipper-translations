@@ -49,23 +49,23 @@ Available on 20210929. Major changes in this release:
 * 对Trinamic步进驱动器的改进：
    * 新增对TMC2209和TMC5160驱动器的支持。
    * 改进了 DUMP_TMC、SET_TMC_CURRENT 和 INIT_TMC G-Code 命令。
-   * Improved support for TMC UART handling with an analog mux.
-* Improved homing, probing, and bed leveling support:
-   * New manual_probe, bed_screws, screws_tilt_adjust, skew_correction, safe_z_home modules added.
-   * Enhanced multi-sample probing with median, average, and retry logic.
-   * Improved documentation for BL-Touch, probe calibration, endstop calibration, delta calibration, sensorless homing, and endstop phase calibration.
-   * Improved homing support on a large Z axis.
-* Many Klipper micro-controller improvements:
-   * Klipper ported to: SAM3X8C, SAM4S8C, SAMD51, STM32F042, STM32F4
-   * New USB CDC driver implementations on SAM3X, SAM4, STM32F4.
-   * Enhanced support for flashing Klipper over USB.
-   * Software SPI support.
-   * Greatly improved temperature filtering on the LPC176x.
+   * 通过模拟一个多路复用器改进了对 TMC UART 处理的支持。
+* 改进了对归位、探测和床位平整的支持：
+   * 新增 manual_probe, bed_screws, screws_tilt_adjust, skew_correction, safe_z_home 模块。
+   * 通过使用中位数、平均值和重试逻辑改进了多样本探测。
+   * 改进了 BL-Touch、探针校准、限位校准、三角洲校准、无传感器归位和限位相位校准的文档。
+   * 改进了长 Z 轴上的归位支持。
+* 许多 Klipper 微控制器改进：
+   * Klipper 被移植到：sam3x8c、sam4s8c、samd51、stm32f042和stm32f4
+   * SAM3X、SAM4、STM32F4 上现在的使用了一个人新的 USB CDC 驱动程序实现。
+   * 改进了对通过 USB 刷写 Klipper 的支持。
+   * 支持软件 SPI。
+   * 大大改善了 LPC176x 的温度滤波。
    * Early output pin settings can be configured in the micro-controller.
-* New website with the Klipper documentation: http://klipper3d.org/
-   * Klipper now has a logo.
-* Experimental support for polar and "cable winch" kinematics.
-* The config file can now include other config files.
+* Klipper 文档的新网站：http://klipper3d.org/
+   * Klipper 现在有了一个标志。
+* 对polar和"cable winch"运动学的实验性支持。
+* 配置文件现在可以包括其他配置文件。
 * Many additional modules added: board_pins, controller_fan, delayed_gcode, dotstar, filament_switch_sensor, firmware_retraction, gcode_arcs, gcode_button, heater_generic, manual_stepper, mcp4018, mcp4728, neopixel, pause_resume, respond, temperature_sensor tsl1401cl_filament_width_sensor, tuning_tower
 * Many additional commands added: RESTORE_GCODE_STATE, SAVE_GCODE_STATE, SET_GCODE_VARIABLE, SET_HEATER_TEMPERATURE, SET_IDLE_TIMEOUT, SET_TEMPERATURE_FAN_TARGET
 * 几个错误的修复和代码的清理。
