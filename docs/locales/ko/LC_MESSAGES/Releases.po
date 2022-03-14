@@ -1,10 +1,10 @@
 # brian park <gouache95@gmail.com>, 2021, 2025.
-# 이정희 <daemul72@gmail.com>, 2022.
+# 이정희 <daemul72@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:25+0000\n"
-"Last-Translator: brian park <gouache95@gmail.com>\n"
+"Last-Translator: 이정희 <daemul72@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/releases/"
 "ko/>\n"
 "Language: ko\n"
@@ -558,7 +558,8 @@ msgid ""
 "and a [Community Discourse Server](https://community.klipper3d.org)."
 msgstr ""
 "Klipper는 이제 [Community Discord Server](https://discord.klipper3d.org)와 "
-"[Community Discourse Server](https://community.klipper3d.org)를 보유하고 있습니다."
+"[Community Discourse Server](https://community.klipper3d.org)를 보유하고 "
+"있습니다."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -566,8 +567,9 @@ msgid ""
 "infrastructure. There is also a [Klipper "
 "Translations](https://github.com/Klipper3d/klipper-translations) project."
 msgstr ""
-"[Klipper 웹사이트](https://www.klipper3d.org)는 이제 \"mkdocs\" 인프라를 사용합니다. [Klipper "
-"번역](https://github.com/Klipper3d/klipper-translations) 프로젝트도 있습니다."
+"[Klipper 웹사이트](https://www.klipper3d.org)는 이제 \"mkdocs\" 인프라를 "
+"사용합니다. [Klipper 번역](https://github.com/Klipper3d/klipper-translations)"
+" 프로젝트도 있습니다."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Automated support for flashing firmware via sdcard on many boards."
