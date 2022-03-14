@@ -1,10 +1,10 @@
 # system3rdb <system3rd@gmail.com>, 2021, 2025.
-# 이정희 <daemul72@gmail.com>, 2022.
+# 이정희 <daemul72@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: system3rdb <system3rd@gmail.com>\n"
+"Last-Translator: 이정희 <daemul72@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
 "config_checks/ko/>\n"
 "Language: ko\n"
@@ -187,9 +187,10 @@ msgid ""
 "is necessary to calibrate the PID settings on each printer (PID settings found"
 " in other firmwares or in the example configuration files often work poorly)."
 msgstr ""
-"클리퍼는 압출기 및 베드 히터에 대해 [PID 제어](https://en.wikipedia.org/wiki/PID_controller)를 "
-"지원합니다. 이 제어 메커니즘을 사용하려면 각 프린터의 PID 설정을 보정해야 합니다(다른 펌웨어 또는 예제 구성 파일에서 찾은 PID "
-"설정은 종종 제대로 작동하지 않음)."
+"클리퍼는 압출기 및 베드 히터에 대해 [PID 제어](https://en.wikipedia.org/wiki/"
+"PID_controller)를 지원합니다. 이 제어 메커니즘을 사용하려면 각 프린터의 PID "
+"설정을 보정해야 합니다(다른 펌웨어 또는 예제 구성 파일에서 찾은 PID 설정은 "
+"종종 제대로 작동하지 않음)."
 
 #: docs/Config_checks.md:block 5 (paragraph)
 msgid ""
