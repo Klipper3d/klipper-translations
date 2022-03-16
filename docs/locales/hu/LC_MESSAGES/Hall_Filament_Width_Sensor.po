@@ -1,21 +1,28 @@
-#
+# Zs.Antal <zsikaiantal@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-03-16 14:56+0000\n"
+"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"hall_filament_width_sensor/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 1 (header)
 msgid "Hall filament width sensor"
-msgstr ""
+msgstr "Hall nyomtatószál szélesség érzékelő"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 4 (header)
 msgid "How does it work?"
-msgstr ""
+msgstr "Hogyan működik?"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 20 (header)
 msgid "Template for menu variables"
-msgstr ""
+msgstr "Menüváltozók sablonja"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 21 (code)
 msgid ""
@@ -31,39 +38,57 @@ msgid ""
 "name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}\n"
 "index: 1\n"
 msgstr ""
+"[menu __main __filament __width_current]\n"
+"type: command\n"
+"enable: {'hall_filament_width_sensor' in printer}\n"
+"name: Dia: {'%.2F' % printer.hall_filament_width_sensor.Diameter}\n"
+"index: 0\n"
+"\n"
+"[menu __main __filament __raw_width_current]\n"
+"type: command\n"
+"enable: {'hall_filament_width_sensor' in printer}\n"
+"name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}\n"
+"index: 1\n"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 22 (header)
 msgid "Calibration procedure"
-msgstr ""
+msgstr "Kalibrálási eljárás"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid "Insert first calibration rod (1.5 mm size) get first raw sensor value"
 msgstr ""
+"Helyezze be az első kalibráló rudat (1,5 mm-es méret), hogy megkapja az első "
+"nyers szenzorértéket"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid ""
 "Insert second calibration rod (2.0 mm size) get second raw sensor value"
 msgstr ""
+"Helyezze be a második kalibráló rudat (2,0 mm-es méret), hogy megkapja a "
+"második nyers szenzorértékét"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid "Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`"
 msgstr ""
+"Mentse a nyers szenzorértékeket a `Raw_dia1` és a `Raw_dia2` konfigurációs "
+"paraméterekbe"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 25 (header)
 msgid "How to enable sensor"
-msgstr ""
+msgstr "Az érzékelő engedélyezése"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 26 (paragraph)
 msgid "By default, the sensor is disabled at power-on."
-msgstr ""
+msgstr "Alapértelmezés szerint az érzékelő le van tiltva bekapcsoláskor."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 28 (header)
 msgid "Logging"
-msgstr ""
+msgstr "Naplózás"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 29 (paragraph)
 msgid "By default, diameter logging is disabled at power-on."
 msgstr ""
+"Alapértelmezés szerint az átmérő naplózása bekapcsoláskor le van tiltva."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 30 (paragraph)
 msgid ""
@@ -71,12 +96,18 @@ msgid ""
 "**DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at"
 " power-on, set the `logging` parameter to `true`."
 msgstr ""
+"Adja ki az **ENABLE_FILAMENT_WIDTH_LOG** parancsot a naplózás elindításához, "
+"és adja ki a **DISABLE_FILAMENT_WIDTH_LOG** parancsot a naplózás "
+"leállításához. A bekapcsoláskor történő naplózás engedélyezéséhez állítsa a `"
+"logging paramétert `true` értékre."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 31 (paragraph)
 msgid ""
 "Filament diameter is logged on every measurement interval (10 mm by "
 "default)."
 msgstr ""
+"A nyomtatószál átmérője minden mérési intervallumban naplózásra kerül ("
+"alapértelmezés szerint 10 mm)."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 2 (paragraph)
 msgid ""
@@ -86,6 +117,12 @@ msgid ""
 "operation: two hall sensors work in differential mode, temperature drift "
 "same for sensor. Special temperature compensation not needed."
 msgstr ""
+"Ez a dokumentum az izzószálszélesség-érzékelő gazdagép modulját írja le. A "
+"gazdamodul fejlesztéséhez használt hardver két Hall lineáris érzékelőn "
+"alapul (például ss49e). Az érzékelők a testben ellentétes oldalon "
+"helyezkednek el. Működési elv: két Hall érzékelő differenciál üzemmódban "
+"működik, a hőmérséklet csúszás ugyanaz a szenzornál. Speciális hőmérséklet "
+"kompenzáció nem szükséges."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 3 (paragraph)
 msgid ""
@@ -93,6 +130,9 @@ msgid ""
 "[Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video "
 "is also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
+"Terveket a [Thingiverse] oldalon találja (https://www.thingiverse.com/"
+"thing:4138933), az összeszerelési videó a [Youtube]-on is elérhető "
+"(https://www.youtube.com/watch?v=TDO9tME8vp4 )"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 6 (paragraph)
 msgid ""
@@ -102,12 +142,20 @@ msgid ""
 "connector on ramps-like board analog11 and analog12 pins. You can use "
 "different pins and differenr boards."
 msgstr ""
+"Az érzékelő két analóg kimenetet generál az izzószál számított szélessége "
+"alapján. A kimeneti feszültség összege mindig megegyezik az izzószál "
+"érzékelt szélességével. A gazdamodul figyeli a feszültségváltozásokat és "
+"beállítja az extrudálási szorzót. Aux2 csatlakozót használok a RAMPS kártya "
+"analóg11 és analóg12 érintkezőin. Különböző csapokat és különböző táblákat "
+"használhat."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 10 (paragraph)
 msgid ""
 "To get raw sensor value you can use menu item or "
 "**QUERY_RAW_FILAMENT_WIDTH** command in terminal."
 msgstr ""
+"Az érzékelő nyers értékének meghatározásához használhatja a menüelemet vagy "
+"a **QUERY_RAW_FILAMENT_WIDTH** parancsot a terminálban."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 4 (paragraph)
 msgid ""
@@ -115,12 +163,17 @@ msgid ""
 "Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
 "documentation](G-Codes.md#hall_filament_width_sensor)."
 msgstr ""
+"A Hall nyomtatószál szélesség érzékelő használatához olvassa el a [Config "
+"Reference](Config_Reference.md#hall_filament_width_sensor) és a [G-Code "
+"dokumentáció](G-Codes.md#hall_filament_width_sensor) részt."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 14 (paragraph)
 msgid ""
 "To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
 "the `enable` parameter to `true`."
 msgstr ""
+"Az érzékelő engedélyezéséhez adja ki az **ENABLE_FILAMENT_WIDTH_SENSOR** "
+"parancsot, vagy állítsa az `enable` paramétert `true` értékre."
 
 #~ msgid ""
 #~ "To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
