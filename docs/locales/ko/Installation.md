@@ -2,11 +2,11 @@
 
 이 지침은 소프트웨어가 OctoPrint와 함께 Raspberry Pi 컴퓨터에서 실행된다고 가정합니다. Raspberry Pi 2, 3 또는 4 컴퓨터를 호스트 컴퓨터로 사용하는 것이 좋습니다(다른 기기에 대해서는 [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) 참조).
 
-Klipper currently supports a number of Atmel ATmega based micro-controllers, [ARM based micro-controllers](Features.md#step-benchmarks), and [Beaglebone PRU](Beaglebone.md) based printers.
+Klipper는 현재 다수의 Atmel ATmega 기반 마이크로 컨트롤러, [ARM 기반 마이크로 컨트롤러](Features.md#step-benchmarks) 및 [Beaglebone PRU](Beaglebone.md) 기반 프린터를 지원합니다.
 
 ## OS 이미지 준비
 
-Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry Pi computer. Use OctoPi v0.17.0 or later - see the [OctoPi releases](https://github.com/guysoft/OctoPi/releases) for release information. One should verify that OctoPi boots and that the OctoPrint web server works. After connecting to the OctoPrint web page, follow the prompt to upgrade OctoPrint to v1.4.2 or later.
+Raspberry Pi 컴퓨터에 [OctoPi](https://github.com/guysoft/OctoPi)를 설치하여 시작합니다. OctoPi v0.17.0 이상 사용 - 릴리스 정보는 [OctoPi 릴리스](https://github.com/guysoft/OctoPi/releases)를 참조하십시오. OctoPi가 부팅되고 OctoPrint 웹 서버가 작동하는지 확인해야 합니다. OctoPrint 웹 페이지에 연결한 후 화면의 지시에 따라 OctoPrint를 v1.4.2 이상으로 업그레이드하십시오.
 
 OctoPi를 설치하고 OctoPrint를 업그레이드한 후, 소수의 시스템 명령을 실행하려면 대상 머신에 ssh해야 합니다. Linux 또는 MacOS 데스크탑을 사용하는 경우 "ssh" 소프트웨어가 데스크탑에 이미 설치되어 있어야 합니다. 다른 데스크톱에서 사용할 수 있는 무료 ssh 클라이언트가 있습니다(예: [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). ssh 유틸리티를 사용하여 Raspberry Pi(ssh pi@octpi -- 암호는 "raspberry")에 연결하고 다음 명령을 실행합니다:
 
@@ -74,7 +74,7 @@ OctoPrint 웹 서버는 Klipper 호스트 소프트웨어와 통신하도록 구
 
 ## Klipper 구성 중
 
-The Klipper configuration is stored in a text file on the Raspberry Pi. Take a look at the example config files in the [config directory](../config/). The [Config Reference](Config_Reference.md) contains documentation on config parameters.
+Klipper 구성은 Raspberry Pi의 텍스트 파일에 저장됩니다. [config directory](../config/)에 있는 예제 구성 파일을 살펴보십시오. [Config Reference](Config_Reference.md)에는 구성 매개변수에 대한 문서가 포함되어 있습니다.
 
 논란의 여지 없이 Klipper 구성 파일을 업데이트하는 가장 쉬운 방법은 "scp" 및/또는 "sftp" 프로토콜을 통한 파일 편집을 지원하는 데스크톱 편집기를 사용하는 것입니다. 이를 지원하는 무료 도구가 있습니다(예: Notepad++, WinSCP 및 Cyberduck). 예제 구성 파일 중 하나를 시작점으로 사용하고 pi 사용자의 홈 디렉터리(즉, /home/pi/printer.cfg)에 "printer.cfg"라는 파일로 저장합니다.
 

@@ -4,11 +4,11 @@ Klipper 배포의 역사. Klipper 설치에 대한 정보는 [installation](Inst
 
 ## Klipper 0.10.0
 
-Available on 20210929. Major changes in this release:
+20210929에 사용할 수 있음. 이 릴리스의 주요 변경 사항:
 
 * Support for "Multi-MCU Homing". It is now possible for a stepper motor and its endstop to be wired to separate micro-controllers. This simplifies wiring of Z probes on "toolhead boards".
-* Klipper now has a [Community Discord Server](https://discord.klipper3d.org) and a [Community Discourse Server](https://community.klipper3d.org).
-* The [Klipper website](https://www.klipper3d.org) now uses the "mkdocs" infrastructure. There is also a [Klipper Translations](https://github.com/Klipper3d/klipper-translations) project.
+* Klipper는 이제 [Community Discord Server](https://discord.klipper3d.org)와 [Community Discourse Server](https://community.klipper3d.org)를 보유하고 있습니다.
+* [Klipper website](https://www.klipper3d.org)는 이제 "mkdocs" 인프라를 사용합니다. [Klipper Translations](https://github.com/Klipper3d/klipper-translations) 프로젝트도 있습니다.
 * Automated support for flashing firmware via sdcard on many boards.
 * New kinematic support for "Hybrid CoreXY" and "Hybrid CoreXZ" printers.
 * Klipper now uses `rotation_distance` to configure stepper motor travel distances.
