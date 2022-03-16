@@ -1,28 +1,43 @@
-#
+# Zs.Antal <zsikaiantal@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-03-16 14:56+0000\n"
+"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"tsl1401cl_filament_width_sensor/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid "How does it work?"
-msgstr ""
+msgstr "Hogyan működik?"
 
 msgid ""
 "Sensor generates analog output based on calculated filament width. Output "
 "voltage always equals to detected filament width (Ex. 1.65v, 1.70v, 3.0v). "
 "Host module monitors voltage changes and adjusts extrusion multiplier."
 msgstr ""
+"Az érzékelő analóg kimenetet generál a számított nyomtatószál szélessége "
+"alapján. A kimeneti feszültség mindig megegyezik a nyomtatószál érzékelt "
+"szélességével (pl. 1,65 V, 1,70 V, 3,0 V). A gazdamodul figyeli a "
+"feszültségváltozásokat és beállítja az extrudálási szorzót."
 
 msgid ""
 "Sensor readings done with 10 mm intervals by default. If necessary you are "
 "free to change this setting by editing ***MEASUREMENT_INTERVAL_MM*** "
 "parameter in **filament_width_sensor.py** file."
 msgstr ""
+"Az érzékelő leolvasása alapértelmezés szerint 10 mm-es időközönként "
+"történik. Ha szükséges, szabadon módosíthatja ezt a beállítást a "
+"***MEASUREMENT_INTERVAL_MM*** paraméter szerkesztésével a "
+"**filament_width_sensor.py** fájlban."
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 1 (header)
 msgid "TSL1401CL filament width sensor"
-msgstr ""
+msgstr "TSL1401CL nyomtatószál szélesség érzékelő"
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 2 (paragraph)
 msgid ""
@@ -32,10 +47,15 @@ msgid ""
 "designs at "
 "[Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor)."
 msgstr ""
+"Ez a dokumentum az nyomtatószál szélesség érzékelő gazdagép modulját írja "
+"le. A gazdamodul fejlesztéséhez használt hardver a TSL1401CL lineáris "
+"érzékelőtömbön alapul, de bármilyen analóg kimenettel rendelkező "
+"érzékelőtömbbel működik. A terveket a [Thingiverse] oldalon találja "
+"(https://www.thingiverse.com/search?q=filament%20width%20sensor)."
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 6 (header)
 msgid "Note:"
-msgstr ""
+msgstr "Jegyzet:"
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 3 (paragraph)
 msgid ""
@@ -43,6 +63,9 @@ msgid ""
 "Reference](Config_Reference.md#tsl1401cl_filament_width_sensor) and [G-Code "
 "documentation](G-Codes.md#hall_filament_width_sensor)."
 msgstr ""
+"Érzékelőtömb nyomtatószál szélesség érzékelőként való használatához olvassa "
+"el a [Config Reference](Config_Reference.md#tsl1401cl_filament_width_sensor) "
+"és a [G-Code documentation](G-Codes.md#hall_filament_width_sensor) részt."
 
 #~ msgid ""
 #~ "To use a sensor array as a filament width sensor, read [Config "
