@@ -1,18 +1,18 @@
 # Configuration checks
 
-Esse documento fornece uma lista de passo a passo para ajudar a confirmar as configurações de pinos no arquivo printer.cfg do Klipper. É uma boa ideia executar através seguindo esses passos depois de seguir o passo a passo de instalação conforme o arquivo de instalação. (Installation.md)
+Ez a dokumentum a Klipper printer.cfg fájl pin beállításainak megerősítéséhez szükséges lépések listáját tartalmazza. Célszerű ezeket a lépéseket a [telepítési dokumentum](Installation.md) lépéseinek követése után végrehajtani.
 
-During this guide, it may be necessary to make changes to the Klipper config file. Be sure to issue a RESTART command after every change to the config file to ensure that the change takes effect (type "restart" in the Octoprint terminal tab and then click "Send"). It's also a good idea to issue a STATUS command after every RESTART to verify that the config file is successfully loaded.
+Az útmutató során szükség lehet a Klipper konfigurációs fájljának módosítására. Ügyeljen arra, hogy a konfigurációs fájl minden módosítása után adjon ki egy RESTART parancsot, hogy megbizonyosodjon arról, hogy a változtatás érvénybe lép (írja be a "restart" kifejezést az Octoprint terminál lapjára, majd kattintson a "Küldés" gombra). Az is jó ötlet, hogy minden ÚJRAINDÍTÁS után kiad egy STATUS parancsot a konfigurációs fájl sikeres betöltésének ellenőrzésére.
 
-## Verify temperature
+## Ellenőrizze a hőmérsékletet
 
-Start by verifying that temperatures are being properly reported. Navigate to the Octoprint temperature tab.
+Kezdje azzal, hogy ellenőrizze, hogy a hőmérsékleteket megfelelően jelentették-e. Lépjen az Octoprint hőmérséklet lapra.
 
 ![octoprint-temperature](img/octoprint-temperature.png)
 
-Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.
+Ellenőrizze, hogy a fúvóka és az ágy hőmérséklete (ha van) jelen van-e, és nem emelkedik. Ha növekszik, kapcsolja ki a nyomtatót. Ha a hőmérsékletek nem pontosak, tekintse át a fúvóka és/vagy ágy "sensor_type" és "sensor_pin" beállításait.
 
-## Verify M112
+## Ellenőrzés M112
 
 Navigate to the Octoprint terminal tab and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause Octoprint to disconnect from Klipper - navigate to the Connection area and click on "Connect" to cause Octoprint to reconnect. Then navigate to the Octoprint temperature tab and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
 
