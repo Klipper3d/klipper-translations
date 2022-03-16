@@ -52,7 +52,7 @@ STEPPER_BUZZ 명령을 사용하여 각 스테퍼 모터의 연결을 확인합�
 
 ## PID 설정 보정
 
-Klipper supports [PID control](https://en.wikipedia.org/wiki/PID_controller) for the extruder and bed heaters. In order to use this control mechanism, it is necessary to calibrate the PID settings on each printer (PID settings found in other firmwares or in the example configuration files often work poorly).
+클리퍼는 압출기 및 베드 히터에 대해 [PID 제어](https://en.wikipedia.org/wiki/PID_controller)를 지원합니다. 이 제어 메커니즘을 사용하려면 각 프린터의 PID 설정을 보정해야 합니다(다른 펌웨어 또는 예제 구성 파일에서 찾은 PID 설정은 종종 제대로 작동하지 않음).
 
 압출기를 보정하려면 OctoPrint 터미널 탭으로 이동하여 PID_CALIBRATE 명령을 실행하십시오. 예시: `PID_CALIBRATE HEATER=extruder TARGET=170`
 
