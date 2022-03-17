@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-03-16 14:56+0000\n"
+"PO-Revision-Date: 2022-03-17 13:56+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "beaglebone/hu/>\n"
@@ -20,10 +20,12 @@ msgstr "Beaglebone"
 msgid ""
 "This document describes the process of running Klipper on a Beaglebone PRU."
 msgstr ""
+"Ez a dokumentum a Klipper futtatásának folyamatát írja le egy Beaglebone "
+"PRU-n."
 
 #: docs/Beaglebone.md:block 3 (header)
 msgid "Building an OS image"
-msgstr ""
+msgstr "OS-képfájl készítése"
 
 #: docs/Beaglebone.md:block 4 (paragraph)
 msgid ""
@@ -32,26 +34,34 @@ msgid ""
 "from either a micro-SD card or from builtin eMMC. If using the eMMC, install"
 " it to eMMC now by following the instructions from the above link."
 msgstr ""
+"Kezdd a [Debian 9.9 2019-08-03 4GB SD IoT](https://beagleboard.org/latest-"
+"images) lemezkép telepítésével. A lemezképet futtathatjuk micro-SD kártyáról "
+"vagy beépített eMMC-ről is. Ha az eMMC-t használjuk, akkor most telepítsük "
+"az eMMC-re a fenti link utasításait követve."
 
 #: docs/Beaglebone.md:block 5 (paragraph)
 msgid ""
 "Then ssh into the Beaglebone machine (`ssh debian@beaglebone` -- password is"
 " `temppwd`) and install Klipper by running the following commands:"
 msgstr ""
+"Ezután lépj be SSH-n a Beaglebone gépre (`ssh debian@beaglebone` -- a jelszó "
+"`temppwd`) és telepítsd a Klippert a következő parancsok futtatásával:"
 
 #: docs/Beaglebone.md:block 6 (code)
 msgid ""
 "git clone https://github.com/Klipper3d/klipper\n"
 "./klipper/scripts/install-beaglebone.sh\n"
 msgstr ""
+"git clone https://github.com/Klipper3d/klipper\n"
+"./klipper/scripts/install-beaglebone.sh\n"
 
 #: docs/Beaglebone.md:block 7 (header)
 msgid "Install Octoprint"
-msgstr ""
+msgstr "Octoprint telepítése"
 
 #: docs/Beaglebone.md:block 8 (paragraph)
 msgid "One may then install Octoprint:"
-msgstr ""
+msgstr "Ezután telepíthetjük az Octoprintet:"
 
 #: docs/Beaglebone.md:block 9 (code)
 msgid ""
@@ -60,10 +70,14 @@ msgid ""
 "virtualenv venv\n"
 "./venv/bin/python setup.py install\n"
 msgstr ""
+"git clone https://github.com/foosel/OctoPrint.git\n"
+"cd OctoPrint/\n"
+"virtualenv venv\n"
+"./venv/bin/python setup.py install\n"
 
 #: docs/Beaglebone.md:block 10 (paragraph)
 msgid "And setup OctoPrint to start at bootup:"
-msgstr ""
+msgstr "És állítsa be az OctoPrintet úgy, hogy az indításkor elinduljon:"
 
 #: docs/Beaglebone.md:block 11 (code)
 msgid ""
@@ -72,6 +86,10 @@ msgid ""
 "sudo cp ~/OctoPrint/scripts/octoprint.default /etc/default/octoprint\n"
 "sudo update-rc.d octoprint defaults\n"
 msgstr ""
+"sudo cp ~/OctoPrint/scripts/octoprint.init /etc/init.d/octoprint\n"
+"sudo chmod +x /etc/init.d/octoprint\n"
+"sudo cp ~/OctoPrint/scripts/octoprint.default /etc/default/octoprint\n"
+"sudo update-rc.d octoprint defaults\n"
 
 #: docs/Beaglebone.md:block 12 (paragraph)
 msgid ""
@@ -81,34 +99,43 @@ msgid ""
 "`DAEMON` settings and change the references from `/home/pi/` to "
 "`/home/debian/`:"
 msgstr ""
+"Módosítani kell az OctoPrint **/etc/default/octoprint** konfigurációs "
+"fájlját. Meg kell változtatni a `OCTOPRINT_USER` felhasználót `debian`-ra, "
+"változtassuk meg a `NICELEVEL`-t `0`-ra, vegyük ki a `BASEDIR` megjegyzést, "
+"`CONFIGFILE`, és `DAEMON` beállításokat, és módosítsa a hivatkozásokat `/"
+"home/pi/`-ről `/home/debian/`-re:"
 
 #: docs/Beaglebone.md:block 13 (code)
 msgid "sudo nano /etc/default/octoprint\n"
-msgstr ""
+msgstr "sudo nano /etc/default/octoprint\n"
 
 #: docs/Beaglebone.md:block 14 (paragraph)
 msgid "Then start the Octoprint service:"
-msgstr ""
+msgstr "Ezután indítsa el az Octoprint szolgáltatást:"
 
 #: docs/Beaglebone.md:block 15 (code)
 msgid "sudo systemctl start octoprint\n"
-msgstr ""
+msgstr "sudo systemctl start octoprint\n"
 
 #: docs/Beaglebone.md:block 16 (paragraph)
 msgid ""
 "Make sure the OctoPrint web server is accessible - it should be at: "
 "<http://beaglebone:5000/>"
 msgstr ""
+"Győződjön meg róla, hogy az OctoPrint webszerver elérhető - a következő "
+"címen kell lennie: <http://beaglebone:5000/>"
 
 #: docs/Beaglebone.md:block 17 (header)
 msgid "Building the micro-controller code"
-msgstr ""
+msgstr "A mikrokontroller kódjának elkészítése"
 
 #: docs/Beaglebone.md:block 18 (paragraph)
 msgid ""
 "To compile the Klipper micro-controller code, start by configuring it for "
 "the \"Beaglebone PRU\":"
 msgstr ""
+"A Klipper mikrokontroller kódjának lefordításához kezdjük a \"Beaglebone "
+"PRU\" konfigurálásával:"
 
 #: docs/Beaglebone.md:block 19 (code)
 msgid ""
@@ -121,6 +148,8 @@ msgstr ""
 #: docs/Beaglebone.md:block 20 (paragraph)
 msgid "To build and install the new micro-controller code, run:"
 msgstr ""
+"Az új mikrokontroller kódjának elkészítéséhez és telepítéséhez futtassa a "
+"következőt:"
 
 #: docs/Beaglebone.md:block 21 (code)
 msgid ""
@@ -128,24 +157,30 @@ msgid ""
 "make flash\n"
 "sudo service klipper start\n"
 msgstr ""
+"sudo service klipper stop\n"
+"make flash\n"
+"sudo service klipper start\n"
 
 #: docs/Beaglebone.md:block 22 (paragraph)
 msgid ""
 "It is also necessary to compile and install the micro-controller code for a "
 "Linux host process. Configure it a second time for a \"Linux process\":"
 msgstr ""
+"Szükséges továbbá a mikrokontroller kódjának lefordítása és telepítése egy "
+"Linux gazdafolyamathoz. Konfigurálja másodszor is egy \"Linux folyamat\" "
+"számára:"
 
 #: docs/Beaglebone.md:block 23 (code)
 msgid "make menuconfig\n"
-msgstr ""
+msgstr "make menuconfig\n"
 
 #: docs/Beaglebone.md:block 24 (paragraph)
 msgid "Then install this micro-controller code as well:"
-msgstr ""
+msgstr "Ezután telepítse ezt a mikrokontroller kódot is:"
 
 #: docs/Beaglebone.md:block 26 (header)
 msgid "Remaining configuration"
-msgstr ""
+msgstr "Hátralevő konfiguráció"
 
 #: docs/Beaglebone.md:block 27 (paragraph)
 msgid ""
@@ -153,10 +188,13 @@ msgid ""
 " instructions in the main [Installation](Installation.md#configuring-"
 "klipper) document."
 msgstr ""
+"Fejezze be a telepítést a Klipper és az Octoprint konfigurálásával a "
+"[Telepítés](Installation.md#configuring-klipper) fődokumentumban található "
+"utasítások szerint."
 
 #: docs/Beaglebone.md:block 28 (header)
 msgid "Printing on the Beaglebone"
-msgstr ""
+msgstr "Nyomtatás a Beaglebone-on"
 
 #: docs/Beaglebone.md:block 29 (paragraph)
 msgid ""
@@ -167,3 +205,9 @@ msgid ""
 "Reference](Config_Reference.md#virtual_sdcard) for details) to print "
 "directly from Klipper."
 msgstr ""
+"Sajnos a Beaglebone processzor néha nehezen tudja jól futtatni az "
+"OctoPrintet. Előfordult már, hogy összetett nyomtatásoknál a nyomtatás "
+"akadozott (a nyomtató gyorsabban mozog, mint ahogy az OctoPrint mozgatási "
+"parancsokat tud küldeni). Ha ez előfordul, fontolja meg a \"virtual_sdcard\" "
+"funkció használatát (a részletekért lásd [Config Reference](Config_Reference."
+"md#virtual_sdcard)), hogy közvetlenül a Klipperből nyomtasson."

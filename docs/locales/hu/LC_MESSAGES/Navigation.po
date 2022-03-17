@@ -1,38 +1,40 @@
+# Zs.Antal <zsikaiantal@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2022-03-16 08:53+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-03-17 13:56+0000\n"
+"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"navigation/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 3.6.0\n"
-
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid "Klipper documentation"
-msgstr ""
+msgstr "Klipper dokumentáció"
 
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "Telepítés és konfiguráció"
 
 msgid "Configuration Reference"
-msgstr ""
+msgstr "Konfigurációs hivatkozás"
 
 msgid "Bed Level"
-msgstr ""
+msgstr "Ágy szint"
 
 msgid "Resonance Compensation"
-msgstr ""
+msgstr "Rezonancia kompenzáció"
 
 msgid "Command templates"
-msgstr ""
+msgstr "Parancs sablonok"
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "Fejlesztői dokumentáció"
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "Eszközspecifikus dokumentumok"

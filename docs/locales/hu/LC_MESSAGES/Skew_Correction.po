@@ -1,13 +1,20 @@
-#
+# Zs.Antal <zsikaiantal@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-03-17 13:56+0000\n"
+"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"skew_correction/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: docs/Skew_Correction.md:block 1 (header)
 msgid "Skew correction"
-msgstr ""
+msgstr "Ferdeség korrekció"
 
 #: docs/Skew_Correction.md:block 2 (paragraph)
 msgid ""
@@ -17,10 +24,15 @@ msgid ""
 "use mechanical means to get your printer as square as possible prior to "
 "applying software based correction."
 msgstr ""
+"A szoftveralapú ferdeség korrekció segíthet a nem tökéletesen szögletes "
+"nyomtatóegységből eredő méretpontatlanságok feloldásában. Vegye figyelembe, "
+"hogy ha a nyomtatója jelentősen ferde, erősen ajánlott először mechanikai "
+"eszközökkel a nyomtatót a lehető legegyenletesebbre állítani, mielőtt a "
+"szoftveralapú korrekciót alkalmazná."
 
 #: docs/Skew_Correction.md:block 3 (header)
 msgid "Print a Calibration Object"
-msgstr ""
+msgstr "Kalibrációs objektum nyomtatása"
 
 #: docs/Skew_Correction.md:block 4 (paragraph)
 msgid ""
@@ -31,6 +43,11 @@ msgid ""
 "in one model. You want the object oriented so that corner A is toward the "
 "origin of the plane."
 msgstr ""
+"A ferdeség korrekciójának első lépése egy [kalibrációs objektum](https://www."
+"thingiverse.com/thing:2563185/files) nyomtatása a korrigálni kívánt sík "
+"mentén. Létezik egy [kalibrációs objektum](https://www.thingiverse.com/"
+"thing:2972743) is, amely egy modell összes síkját tartalmazza. Az objektumot "
+"úgy kell tájolni, hogy az A sarok a sík origója felé legyen."
 
 #: docs/Skew_Correction.md:block 5 (paragraph)
 msgid ""
@@ -38,10 +55,13 @@ msgid ""
 "this by either removing the `[skew_correction]` module from printer.cfg or "
 "by issuing a `SET_SKEW CLEAR=1` gcode."
 msgstr ""
+"Győződjön meg róla, hogy a nyomtatás során nem alkalmaz ferdeségkorrekciót. "
+"Ezt úgy teheti meg, hogy vagy eltávolítja a `[skew_correction]` modult a "
+"printer.cfg fájlból, vagy kiad egy `SET_SKEW CLEAR=1` parancsot."
 
 #: docs/Skew_Correction.md:block 6 (header)
 msgid "Take your measurements"
-msgstr ""
+msgstr "Mérje meg"
 
 #: docs/Skew_Correction.md:block 7 (paragraph)
 msgid ""
@@ -51,14 +71,19 @@ msgid ""
 "measuring length AD do not include the flats on the corners that some test "
 "objects provide."
 msgstr ""
+"A `[skew_correcton]` modul minden egyes korrigálandó síkhoz 3 mérést igényel;"
+" az A saroktól a C sarokig terjedő hosszúságot, a B saroktól a D sarokig "
+"terjedő hosszúságot és az A saroktól a D sarokig terjedő hosszúságot. Az AD "
+"hosszmérésnél ne vegye figyelembe a sarkokon lévő síkokat, amelyeket néhány "
+"tesztobjektum mutat."
 
 #: docs/Skew_Correction.md:block 8 (paragraph)
 msgid "![skew_lengths](img/skew_lengths.png)"
-msgstr ""
+msgstr "![skew_lengths](img/skew_lengths.png)"
 
 #: docs/Skew_Correction.md:block 9 (header)
 msgid "Configure your skew"
-msgstr ""
+msgstr "Konfigurálja a ferdeséget"
 
 #: docs/Skew_Correction.md:block 10 (paragraph)
 msgid ""
@@ -66,6 +91,9 @@ msgid ""
 "`SET_SKEW` gcode to configure skew_correcton. For example, if your measured "
 "lengths along XY are as follows:"
 msgstr ""
+"Győződjön meg róla, hogy a `[skew_correction]` szerepel a printer.cfg "
+"fájlban. Most már használhatja a `SET_SKEW` gkódot a skew_correction "
+"beállításához. Például, ha az XY mentén mért hosszok a következők:"
 
 #: docs/Skew_Correction.md:block 11 (code)
 msgid ""
@@ -73,22 +101,25 @@ msgid ""
 "Length BD = 142.8\n"
 "Length AD = 99.8\n"
 msgstr ""
+"Length AC = 140.4\n"
+"Length BD = 142.8\n"
+"Length AD = 99.8\n"
 
 #: docs/Skew_Correction.md:block 12 (paragraph)
 msgid "`SET_SKEW` can be used to configure skew correction for the XY plane."
-msgstr ""
+msgstr "`SET_SKEW` az XY-sík ferdeségkorrekciójának beállítására használható."
 
 #: docs/Skew_Correction.md:block 13 (code)
 msgid "SET_SKEW XY=140.4,142.8,99.8\n"
-msgstr ""
+msgstr "SET_SKEW XY=140.4,142.8,99.8\n"
 
 #: docs/Skew_Correction.md:block 14 (paragraph)
 msgid "You may also add measurements for XZ and YZ to the gcode:"
-msgstr ""
+msgstr "Az XZ és YZ méréseket is hozzáadhatja a gkódhoz:"
 
 #: docs/Skew_Correction.md:block 15 (code)
 msgid "SET_SKEW XY=140.4,142.8,99.8 XZ=141.6,141.4,99.8 YZ=142.4,140.5,99.5\n"
-msgstr ""
+msgstr "SET_SKEW XY=140.4,142.8,99.8 XZ=141.6,141.4,99.8 YZ=142.4,140.5,99.5\n"
 
 #: docs/Skew_Correction.md:block 16 (paragraph)
 msgid ""
@@ -96,10 +127,13 @@ msgid ""
 "similar to `[bed_mesh]`. After setting skew using the `SET_SKEW` gcode, you "
 "may use the `SKEW_PROFILE` gcode to save it:"
 msgstr ""
+"A `[skew_correction]` modul a `[bed_mesh]` modulhoz hasonló módon támogatja "
+"a profilkezelést is. Miután a `SET_SKEW` gkóddal beállította a ferdeséget, a "
+"`SKEW_PROFILE` gkóddal elmentheti azt:"
 
 #: docs/Skew_Correction.md:block 17 (code)
 msgid "SKEW_PROFILE SAVE=my_skew_profile\n"
-msgstr ""
+msgstr "SKEW_PROFILE SAVE=my_skew_profile\n"
 
 #: docs/Skew_Correction.md:block 18 (paragraph)
 msgid ""
@@ -108,32 +142,38 @@ msgid ""
 "`my_skew_profile` then a new profile will be created. If the named profile "
 "exists it will be overwritten."
 msgstr ""
+"A parancs után a rendszer felszólítja a `SAVE_CONFIG` gkód kiadását a profil "
+"tartós tárolóba történő mentéséhez. Ha nincs `my_skew_profile` nevű profil, "
+"akkor egy új profil jön létre. Ha a megnevezett profil létezik, akkor azt "
+"felülírja."
 
 #: docs/Skew_Correction.md:block 19 (paragraph)
 msgid "Once you have a saved profile, you may load it:"
-msgstr ""
+msgstr "Ha már van mentett profilja, betöltheti azt:"
 
 #: docs/Skew_Correction.md:block 20 (code)
 msgid "SKEW_PROFILE LOAD=my_skew_profile\n"
-msgstr ""
+msgstr "SKEW_PROFILE LOAD=my_skew_profile\n"
 
 #: docs/Skew_Correction.md:block 21 (paragraph)
 msgid "It is also possible to remove an old or out of date profile:"
-msgstr ""
+msgstr "Lehetőség van régi vagy elavult profilok eltávolítására is:"
 
 #: docs/Skew_Correction.md:block 22 (code)
 msgid "SKEW_PROFILE REMOVE=my_skew_profile\n"
-msgstr ""
+msgstr "SKEW_PROFILE REMOVE=my_skew_profile\n"
 
 #: docs/Skew_Correction.md:block 23 (paragraph)
 msgid ""
 "After removing a profile you will be prompted to issue a `SAVE_CONFIG` to "
 "make this change persist."
 msgstr ""
+"A profil eltávolítása után a rendszer felszólítja, hogy adjon ki egy "
+"`SAVE_CONFIG` parancsot, hogy a módosítás mentésre kerüljön."
 
 #: docs/Skew_Correction.md:block 24 (header)
 msgid "Verifying your correction"
-msgstr ""
+msgstr "A korrekció ellenőrzése"
 
 #: docs/Skew_Correction.md:block 25 (paragraph)
 msgid ""
@@ -142,14 +182,18 @@ msgid ""
 "each plane. The results should be lower than those reported via "
 "`GET_CURRENT_SKEW`."
 msgstr ""
+"A skew_correction beállítása után újra kinyomtathatja a kalibrációs részt a "
+"korrekció engedélyezésével. A következő gkóddal ellenőrizheti a ferdeséget "
+"minden síkban. Az eredményeknek alacsonyabbaknak kell lenniük, mint a "
+"`GET_CURRENT_SKEW` segítségével jelentett eredmények."
 
 #: docs/Skew_Correction.md:block 26 (code)
 msgid "CALC_MEASURED_SKEW AC=<ac_length> BD=<bd_length> AD=<ad_length>\n"
-msgstr ""
+msgstr "CALC_MEASURED_SKEW AC=<ac_length> BD=<bd_length> AD=<ad_length>\n"
 
 #: docs/Skew_Correction.md:block 27 (header)
 msgid "Caveats"
-msgstr ""
+msgstr "Óvintézkedések"
 
 #: docs/Skew_Correction.md:block 28 (paragraph)
 msgid ""
@@ -159,6 +203,12 @@ msgid ""
 "the `SET_SKEW` or `SKEW_PROFILE` gcodes to accomplish this. It is also "
 "recommended to issue a `SET_SKEW CLEAR=1` in your end gcode."
 msgstr ""
+"A ferdeségkorrekció természetéből adódóan ajánlott a ferdeséget az indító "
+"gkódban konfigurálni, a kezdőpont felvétel és minden olyan mozgás után, "
+"amely a nyomtatási terület széléhez közelít, mint például a tisztítás vagy a "
+"fúvóka törlése. Ehhez használhatja a `SET_SKEW` vagy a `SKEW_PROFILE` "
+"gkódokat. Ajánlott továbbá a `SET_SKEW CLEAR=1` parancs kiadása a befejező "
+"gkódban."
 
 #: docs/Skew_Correction.md:block 29 (paragraph)
 msgid ""
@@ -167,3 +217,7 @@ msgid ""
 "and/or Y axes. It is recommended to arrange parts away from the edges when "
 "using `[skew_correction]`."
 msgstr ""
+"Ne feledje! Lehetséges, hogy a `[skew_correction]` olyan korrekciót generál, "
+"amely a fejet az X és/vagy Y tengelyen a nyomtató határain túlra helyezi. A "
+"`[skew_correction]` használatakor ajánlott a nyomtatófejet a szélektől "
+"távolabb elhelyezni."
