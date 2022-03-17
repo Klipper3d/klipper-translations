@@ -1,9 +1,16 @@
-#
+# Zs.Antal <zsikaiantal@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-03-17 13:56+0000\n"
+"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"overview/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -114,7 +121,7 @@ msgid "[G-Codes](G-Codes.md): Information on commands supported by Klipper."
 msgstr ""
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "Fejlesztői dokumentáció"
 
 msgid "[Code overview](Code_Overview.md): Developers should read this first."
 msgstr ""
@@ -160,7 +167,7 @@ msgid "[Packaging](Packaging.md): Information on building OS packages."
 msgstr ""
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "Eszközspecifikus dokumentumok"
 
 msgid ""
 "[Example configs](Example_Configs.md): Information on adding an example "
@@ -194,7 +201,7 @@ msgstr ""
 
 #: docs/Overview.md:block 5 (header)
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "Telepítés és konfiguráció"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
