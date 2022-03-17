@@ -1,6 +1,6 @@
 # MCU parancsok
 
-This document provides information on the low-level micro-controller commands that are sent from the Klipper "host" software and processed by the Klipper micro-controller software. This document is not an authoritative reference for these commands, nor is it an exclusive list of all available commands.
+Ez a dokumentum a Klipper "gazdagép" szoftvere által küldött és a Klipper mikrokontroller szoftvere által feldolgozott alacsony szintű mikrokontroller-parancsokról nyújt információt. Ez a dokumentum nem hiteles hivatkozás ezekre a parancsokra, és nem is az összes rendelkezésre álló parancs kizárólagos listája.
 
 This document may be useful for developers interested in understanding the low-level micro-controller commands.
 

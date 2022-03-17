@@ -20,7 +20,7 @@ sudo cp "./scripts/klipper-mcu-start.sh" /etc/init.d/klipper_mcu
 sudo update-rc.d klipper_mcu defaults
 ```
 
-## Building the micro-controller code
+## A mikrokontroller kódjának elkészítése
 
 To compile the Klipper micro-controller code, start by configuring it for the "Linux process":
 
@@ -31,7 +31,7 @@ make menuconfig
 
 In the menu, set "Microcontroller Architecture" to "Linux process," then save and exit.
 
-To build and install the new micro-controller code, run:
+Az új mikrokontroller kódjának elkészítéséhez és telepítéséhez futtassa a következőt:
 
 ```
 sudo service klipper stop
@@ -45,7 +45,7 @@ If klippy.log reports a "Permission denied" error when attempting to connect to 
 sudo usermod -a -G tty pi
 ```
 
-## Remaining configuration
+## Hátralevő konfiguráció
 
 Complete the installation by configuring Klipper secondary MCU following the instructions in [RaspberryPi sample config](../config/sample-raspberry-pi.cfg) and [Multi MCU sample config](../config/sample-multi-mcu.cfg).
 

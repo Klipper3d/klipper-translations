@@ -1,21 +1,21 @@
 # Beaglebone
 
-This document describes the process of running Klipper on a Beaglebone PRU.
+Ez a dokumentum a Klipper futtatásának folyamatát írja le egy Beaglebone PRU-n.
 
-## Building an OS image
+## OS-képfájl készítése
 
-Start by installing the [Debian 9.9 2019-08-03 4GB SD IoT](https://beagleboard.org/latest-images) image. One may run the image from either a micro-SD card or from builtin eMMC. If using the eMMC, install it to eMMC now by following the instructions from the above link.
+Kezdd a [Debian 9.9 2019-08-03 4GB SD IoT](https://beagleboard.org/latest-images) lemezkép telepítésével. A lemezképet futtathatjuk micro-SD kártyáról vagy beépített eMMC-ről is. Ha az eMMC-t használjuk, akkor most telepítsük az eMMC-re a fenti link utasításait követve.
 
-Then ssh into the Beaglebone machine (`ssh debian@beaglebone` -- password is `temppwd`) and install Klipper by running the following commands:
+Ezután lépj be SSH-n a Beaglebone gépre (`ssh debian@beaglebone` -- a jelszó `temppwd`) és telepítsd a Klippert a következő parancsok futtatásával:
 
 ```
 git clone https://github.com/Klipper3d/klipper
 ./klipper/scripts/install-beaglebone.sh
 ```
 
-## Install Octoprint
+## Octoprint telepítése
 
-One may then install Octoprint:
+Ezután telepíthetjük az Octoprintet:
 
 ```
 git clone https://github.com/foosel/OctoPrint.git
@@ -24,7 +24,7 @@ virtualenv venv
 ./venv/bin/python setup.py install
 ```
 
-And setup OctoPrint to start at bootup:
+És állítsa be az OctoPrintet úgy, hogy az indításkor elinduljon:
 
 ```
 sudo cp ~/OctoPrint/scripts/octoprint.init /etc/init.d/octoprint
@@ -33,30 +33,30 @@ sudo cp ~/OctoPrint/scripts/octoprint.default /etc/default/octoprint
 sudo update-rc.d octoprint defaults
 ```
 
-It is necessary to modify OctoPrint's **/etc/default/octoprint** configuration file. One must change the `OCTOPRINT_USER` user to `debian`, change `NICELEVEL` to `0`, uncomment the `BASEDIR`, `CONFIGFILE`, and `DAEMON` settings and change the references from `/home/pi/` to `/home/debian/`:
+Módosítani kell az OctoPrint **/etc/default/octoprint** konfigurációs fájlját. Meg kell változtatni a `OCTOPRINT_USER` felhasználót `debian`-ra, változtassuk meg a `NICELEVEL`-t `0`-ra, vegyük ki a `BASEDIR` megjegyzést, `CONFIGFILE`, és `DAEMON` beállításokat, és módosítsa a hivatkozásokat `/home/pi/`-ről `/home/debian/`-re:
 
 ```
 sudo nano /etc/default/octoprint
 ```
 
-Then start the Octoprint service:
+Ezután indítsa el az Octoprint szolgáltatást:
 
 ```
 sudo systemctl start octoprint
 ```
 
-Make sure the OctoPrint web server is accessible - it should be at: <http://beaglebone:5000/>
+Győződjön meg róla, hogy az OctoPrint webszerver elérhető - a következő címen kell lennie: <http://beaglebone:5000/>
 
-## Building the micro-controller code
+## A mikrokontroller kódjának elkészítése
 
-To compile the Klipper micro-controller code, start by configuring it for the "Beaglebone PRU":
+A Klipper mikrokontroller kódjának lefordításához kezdjük a "Beaglebone PRU" konfigurálásával:
 
 ```
 cd ~/klipper/
 make menuconfig
 ```
 
-To build and install the new micro-controller code, run:
+Az új mikrokontroller kódjának elkészítéséhez és telepítéséhez futtassa a következőt:
 
 ```
 sudo service klipper stop
@@ -64,13 +64,13 @@ make flash
 sudo service klipper start
 ```
 
-It is also necessary to compile and install the micro-controller code for a Linux host process. Configure it a second time for a "Linux process":
+Szükséges továbbá a mikrokontroller kódjának lefordítása és telepítése egy Linux gazdafolyamathoz. Konfigurálja másodszor is egy "Linux folyamat" számára:
 
 ```
 make menuconfig
 ```
 
-Then install this micro-controller code as well:
+Ezután telepítse ezt a mikrokontroller kódot is:
 
 ```
 sudo service klipper stop
@@ -78,10 +78,10 @@ make flash
 sudo service klipper start
 ```
 
-## Remaining configuration
+## Hátralevő konfiguráció
 
-Complete the installation by configuring Klipper and Octoprint following the instructions in the main [Installation](Installation.md#configuring-klipper) document.
+Fejezze be a telepítést a Klipper és az Octoprint konfigurálásával a [Telepítés](Installation.md#configuring-klipper) fődokumentumban található utasítások szerint.
 
-## Printing on the Beaglebone
+## Nyomtatás a Beaglebone-on
 
-Unfortunately, the Beaglebone processor can sometimes struggle to run OctoPrint well. Print stalls have been known to occur on complex prints (the printer may move faster than OctoPrint can send movement commands). If this occurs, consider using the "virtual_sdcard" feature (see [Config Reference](Config_Reference.md#virtual_sdcard) for details) to print directly from Klipper.
+Sajnos a Beaglebone processzor néha nehezen tudja jól futtatni az OctoPrintet. Előfordult már, hogy összetett nyomtatásoknál a nyomtatás akadozott (a nyomtató gyorsabban mozog, mint ahogy az OctoPrint mozgatási parancsokat tud küldeni). Ha ez előfordul, fontolja meg a "virtual_sdcard" funkció használatát (a részletekért lásd [Config Reference](Config_Reference.md#virtual_sdcard)), hogy közvetlenül a Klipperből nyomtasson.
