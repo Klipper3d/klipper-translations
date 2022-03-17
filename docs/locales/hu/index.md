@@ -1,15 +1,15 @@
 ***
 
-hide:
+elrejt:
 
-- toc title: Welcome
+- toc title: Üdvözlünk
 
 ***
 
 ![](img/klipper-logo.png){ .center-image }
 
-Klipper is a 3d-Printer firmware. It combines the power of a general purpose computer with one or more micro-controllers. See the [features](Features.md) document for more information on why you should use Klipper.
+A Klipper egy 3d-nyomtató firmware. Egyesíti egy általános célú számítógép és egy vagy több mikrokontroller teljesítményét. A [features](Features.md) dokumentumban találsz további információkat arról, hogy miért érdemes a Klippert használni.
 
-To begin using Klipper start by [installing](Installation.md) it.
+A Klipper használatának megkezdéséhez kezdje a [telepítést](Installation.md).
 
-Klipper is Free Software. Read the [documentation](Overview.md) or view [the Klipper code on github](https://github.com/Klipper3d/klipper).
+A Klipper szabad szoftver. Olvassa el a [dokumentációt](Overview.md) vagy tekintse meg [a Klipper kódját a githubon](https://github.com/Klipper3d/klipper).

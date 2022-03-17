@@ -1,62 +1,62 @@
-# Probe calibration
+# Szonda kalibrálása
 
-This document describes the method for calibrating the X, Y, and Z offsets of an "automatic z probe" in Klipper. This is useful for users that have a `[probe]` or `[bltouch]` section in their config file.
+Ez a dokumentum a Klipperben található "automatikus z szonda" X, Y és Z eltolásának kalibrálási módszerét írja le. Ez azon felhasználók számára hasznos, akiknek van egy `[probe]` vagy `[bltouch]` szakasz a konfigurációs fájljukban.
 
-## Calibrating probe X and Y offsets
+## A szonda X- és Y-eltolásának kalibrálása
 
-To calibrate the X and Y offset, navigate to the OctoPrint "Control" tab, home the printer, and then use the OctoPrint jogging buttons to move the head to a position near the center of the bed.
+Az X és Y eltolás kalibrálásához navigáljon az OctoPrint "Control" fülre, állítsa be a nyomtatót, majd az OctoPrint léptető gombjaival mozgassa a fejet az ágy közepéhez közeli pozícióba.
 
-Place a piece of blue painters tape (or similar) on the bed underneath the probe. Navigate to the OctoPrint "Terminal" tab and issue a PROBE command:
+Helyezzen egy darab kék festőszalagot (vagy hasonlót) az ágyra a szonda alá. Navigáljon az OctoPrint "Terminal" fülre, és adjon ki egy PROBE parancsot:
 
 ```
 PROBE
 ```
 
-Place a mark on the tape directly under where the probe is (or use a similar method to note the location on the bed).
+Helyezzen egy jelet a szalagra közvetlenül a szonda alatt (vagy hasonló módszerrel jegyezze fel a helyet az ágyon).
 
-Issue a `GET_POSITION` command and record the toolhead XY location reported by that command. For example if one sees:
+Adjon ki egy `GET_POSITION` parancsot, és rögzítse a parancs által jelentett szerszámfej X-Y pozícióját. Például, ha a következőket látjuk:
 
 ```
 Recv: // toolhead: X:46.500000 Y:27.000000 Z:15.000000 E:0.000000
 ```
 
-then one would record a probe X position of 46.5 and probe Y position of 27.
+akkor a szonda X pozíciója 46,5 és Y pozíciója 27.
 
-After recording the probe position, issue a series of G1 commands until the nozzle is directly above the mark on the bed. For example, one might issue:
+A szonda pozíciójának rögzítése után adjon ki egy sor G1 parancsot, amíg a fúvóka közvetlenül az ágyon lévő jelölés fölé nem kerül. Például a következőket:
 
 ```
 G1 F300 X57 Y30 Z15
 ```
 
-to move the nozzle to an X position of 57 and Y of 30. Once one finds the position directly above the mark, use the `GET_POSITION` command to report that position. This is the nozzle position.
+a fúvóka 57-es X-pozícióba és 30-as Y-pozícióba történő mozgatásához. Ha megtaláltuk a közvetlenül a jelölés feletti pozíciót, a `GET_POSITION` paranccsal jelenthetjük ezt a pozíciót. Ez a fúvóka pozíciója.
 
-The x_offset is then the `nozzle_x_position - probe_x_position` and y_offset is similarly the `nozzle_y_position - probe_y_position`. Update the printer.cfg file with the given values, remove the tape/marks from the bed, and then issue a `RESTART` command so that the new values take effect.
+Az x_offset ekkor a `nozzle_x_position - probe_x_position` és az y_offset hasonlóan a `nozzle_y_position - probe_y_position`. Frissítse a printer.cfg fájlt a megadott értékekkel, távolítsa el a szalagot/jeleket az ágyról, majd adjon ki egy `RESTART` parancsot, hogy az új értékek hatályba lépjenek.
 
-## Calibrating probe Z offset
+## A szonda Z eltolás kalibrálása
 
-Providing an accurate probe z_offset is critical to obtaining high quality prints. The z_offset is the distance between the nozzle and bed when the probe triggers. The Klipper `PROBE_CALIBRATE` tool can be used to obtain this value - it will run an automatic probe to measure the probe's Z trigger position and then start a manual probe to obtain the nozzle Z height. The probe z_offset will then be calculated from these measurements.
+A pontos z_offset beállítása kritikus fontos a jó minőségű nyomatok előállításához. A z_offset a fúvóka és az ágy közötti távolság, amikor a szonda működésbe lép. A Klipper `PROBE_CALIBRATE` eszköz használható ennek az értéknek a meghatározására - ez egy automatikus szondát futtat a szonda Z kioldási pozíciójának mérésére, majd egy kézi szondát indít a fúvóka Z magasságának meghatározására. A szonda z_offset értékét ezután ezekből a mérésekből számítja ki.
 
-Start by homing the printer and then move the head to a position near the center of the bed. Navigate to the OctoPrint terminal tab and run the `PROBE_CALIBRATE` command to start the tool.
+Kezdje a nyomtató alaphelyzetbe állításával, majd mozgassa a fejet az ágy közepéhez közeli pozícióba. Navigáljon az OctoPrint terminál fülre, és futtassa a `PROBE_CALIBRATE` parancsot az eszköz indításához.
 
-This tool will perform an automatic probe, then lift the head, move the nozzle over the location of the probe point, and start the manual probe tool. If the nozzle does not move to a position above the automatic probe point, then `ABORT` the manual probe tool and perform the XY probe offset calibration described above.
+Ez az eszköz automatikus mérést hajt végre, majd felemeli a fejet, mozgatja a fúvókát a mérőpont helye fölé, és elindítja a kézi mérést. Ha a fúvóka nem mozdul el az automatikus mérőpont feletti pozícióba, akkor `ABORT` a kézi mérőeszközzel, hajtsa végre a fent leírt X-Y szondaeltolás kalibrálását.
 
-Once the manual probe tool starts, follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test)) to determine the actual distance between the nozzle and bed at the given location. Once those steps are complete one can `ACCEPT` the position and save the results to the config file with:
+Miután a kézi mérő eszköz elindult, kövesse a ["a papírteszt"](Bed_Level.md#the-paper-test)] pontban leírt lépéseket a fúvóka és az ágy közötti tényleges távolság meghatározásához az adott helyen. Ha ezek a lépések befejeződtek, akkor `ACCEPT` a pozíció és elmentheti az eredményeket a config fájlba a következővel:
 
 ```
 SAVE_CONFIG
 ```
 
-Note that if a change is made to the printer's motion system, hotend position, or probe location then it will invalidate the results of PROBE_CALIBRATE.
+Vegye figyelembe, hogy ha a nyomtató mozgásrendszerét, a nyomtatófej pozícióját vagy a szonda helyét megváltoztatja, az érvényteleníti a PROBE_CALIBRATE eredményeit.
 
-If the probe has an X or Y offset and the bed tilt is changed (eg, by adjusting bed screws, running DELTA_CALIBRATE, running Z_TILT_ADJUST, running QUAD_GANTRY_LEVEL, or similar) then it will invalidate the results of PROBE_CALIBRATE. After making any of the above adjustments it will be necessary to run PROBE_CALIBRATE again.
+Ha a szonda X vagy Y eltolással rendelkezik, és az ágy dőlése megváltozik (pl. szintezőcsavarok beállításával, DELTA_CALIBRATE futtatásával, Z_TILT_ADJUST futtatásával, QUAD_GANTRY_LEVEL futtatásával vagy hasonlóval), akkor ez érvényteleníti a PROBE_CALIBRATE eredményeit. A fenti beállítások bármelyikének módosítása után újra kell kezdeni a PROBE_CALIBRATE futtatását.
 
-If the results of PROBE_CALIBRATE are invalidated, then any previous [bed mesh](Bed_Mesh.md) results that were obtained using the probe are also invalidated - it will be necessary to rerun BED_MESH_CALIBRATE after recalibrating the probe.
+Ha a PROBE_CALIBRATE eredményei érvénytelenek, akkor a szondával kapott korábbi [ágyháló](Bed_Mesh.md) eredmények is érvénytelenek - a szonda újrakalibrálása után újra kell futtatni a BED_MESH_CALIBRATE programot.
 
-## Repeatability check
+## Ismételt mérési teszt
 
-After calibrating the probe X, Y, and Z offsets it is a good idea to verify that the probe provides repeatable results. Start by homing the printer and then move the head to a position near the center of the bed. Navigate to the OctoPrint terminal tab and run the `PROBE_ACCURACY` command.
+A szonda X, Y és Z eltolásának kalibrálása után érdemes ellenőrizni, hogy a szonda megismételhető mérési eredményeket szolgáltat-e. Kezdje a nyomtató alaphelyzetbe állításával, majd mozgassa a fejet az ágy közepéhez közeli pozícióba. Navigáljon az OctoPrint terminál fülre, és futtassa a `PROBE_ACCURACY` parancsot.
 
-This command will run the probe ten times and produce output similar to the following:
+Ez a parancs tízszer futtatja le a mérést, és az alábbiakhoz hasonló kimenetet ad:
 
 ```
 Recv: // probe accuracy: at X:0.000 Y:0.000 Z:10.000
@@ -74,30 +74,30 @@ Recv: // probe at -0.003,0.005 is z=2.506948
 Recv: // probe accuracy results: maximum 2.519448, minimum 2.506948, range 0.012500, average 2.513198, median 2.513198, standard deviation 0.006250
 ```
 
-Ideally the tool will report an identical maximum and minimum value. (That is, ideally the probe obtains an identical result on all ten probes.) However, it's normal for the minimum and maximum values to differ by one Z "step distance" or up to 5 microns (.005mm). A "step distance" is `rotation_distance/(full_steps_per_rotation*microsteps)`. The distance between the minimum and the maximum value is called the range. So, in the above example, since the printer uses a Z step distance of .0125, a range of 0.012500 would be considered normal.
+Ideális esetben az eszköz azonos maximális és minimális értéket mutat. (Vagyis ideális esetben a szonda mind a tíz mérésen azonos eredményt ad.) Azonban normális, hogy a minimális és maximális értékek egy Z "lépésköz" vagy akár 5 mikron (.005 mm) eltéréssel különböznek. A "lépésköz" `rotation_distance/(full_steps_per_rotation*microsteps)`. A minimális és a maximális érték közötti távolságot nevezzük tartománynak. Tehát a fenti példában, mivel a nyomtató 0,0125 Z-lépéstávolságot használ, a 0,01252500 tartományt tekintjük normálisnak.
 
-If the results of the test show a range value that is greater than 25 microns (.025mm) then the probe does not have sufficient accuracy for typical bed leveling procedures. It may be possible to tune the probe speed and/or probe start height to improve the repeatability of the probe. The `PROBE_ACCURACY` command allows one to run tests with different parameters to see their impact - see the [G-Codes document](G-Codes.md#probe_accuracy) for further details. If the probe generally obtains repeatable results but has an occasional outlier, then it may be possible to account for that by using multiple samples on each probe - read the description of the probe `samples` config parameters in the [config reference](Config_Reference.md#probe) for more details.
+Ha a teszt eredménye 25 mikronnál (0,025 mm-nél) nagyobb tartományértéket mutat, akkor a szonda nem elég pontos a tipikus szintezési eljárásokhoz. Lehetséges a szonda sebességének és/vagy indulási magasságának hangolása a mérés ismételhetőségének javítása érdekében. A `PROBE_ACCURACY` parancs lehetővé teszi a tesztek futtatását különböző paraméterekkel, hogy lássa a hatásukat. További részletekért lásd a [G-Kódok dokumentumot](G-Codes.md#probe_accuracy). Ha a szonda általában egyforma eredményeket ad, de időnként előfordulnak kiugró értékek, akkor ezt úgy lehet kiküszöbölni, hogy minden egyes mérőponton több mérést hajtunk végre. Olvassa el a szonda `samples` konfigurációs paramétereinek leírását a [config hivatkozásban ](Config_Reference.md#probe) további részletekért.
 
-If new probe speed, samples count, or other settings are needed, then update the printer.cfg file and issue a `RESTART` command. If so, it is a good idea to [calibrate the z_offset](#calibrating-probe-z-offset) again. If repeatable results can not be obtained then don't use the probe for bed leveling. Klipper has several manual probing tools that can be used instead - see the [Bed Level document](Bed_Level.md) for further details.
+Ha új mérési sebességre, mérésszámra vagy egyéb beállításokra van szükség, akkor frissítse a printer.cfg fájlt, és adjon ki egy `RESTART` parancsot. Ha igen, akkor érdemes újra [kalibrálni a z_offsetet](#calibrating-probe-z-offset). Ha nem kap ismétlődő eredményeket, akkor ne használja a szondát ágy szintezésére. A Klipper számos kézi mérőeszközzel rendelkezik, amelyek helyette használhatók - további részletekért lásd a [Ágy szintezése dokumentumot](Bed_Level.md).
 
-## Location Bias Check
+## Elhelyezkedés ellenőrzése
 
-Some probes can have a systemic bias that corrupts the results of the probe at certain toolhead locations. For example, if the probe mount tilts slightly when moving along the Y axis then it could result in the probe reporting biased results at different Y positions.
+Egyes szondák rendszerszintű torzítással rendelkezhetnek, amely bizonyos szerszámfejhelyeken elrontja a mérés eredményeit. Például, ha a szonda tartója az Y tengely mentén történő mozgás közben kissé megdől, akkor ez azt eredményezheti, hogy a szonda különböző Y pozíciókban torz eredményeket ad ki.
 
-This is a common issue with probes on delta printers, however it can occur on all printers.
+Ez egy gyakori probléma a delta nyomtatók szondáinál, de más nyomtatónál is előfordulhat.
 
-One can check for a location bias by using the `PROBE_CALIBRATE` command to measuring the probe z_offset at various X and Y locations. Ideally, the probe z_offset would be a constant value at every printer location.
+A helyeltolódás ellenőrzése a `PROBE_CALIBRATE` parancs segítségével történhet a szonda z_offsetjének mérésével különböző X és Y helyeken. Ideális esetben a szonda z_offset értéke minden pozícióban állandó.
 
-For delta printers, try measuring the z_offset at a position near the A tower, at a position near the B tower, and at a position near the C tower. For cartesian, corexy, and similar printers, try measuring the z_offset at positions near the four corners of the bed.
+A deltanyomtatók esetében próbálja meg a z_offset mérését az A, a B, és a C torony közelében is. Cartesian, corexy és hasonló nyomtatók esetében próbálja meg a z_offsetet az ágy négy sarkának közelében lévő pozíciókban mérni.
 
-Before starting this test, first calibrate the probe X, Y, and Z offsets as described at the beginning of this document. Then home the printer and navigate to the first XY position. Follow the steps at [calibrating probe Z offset](#calibrating-probe-z-offset) to run the `PROBE_CALIBRATE` command, `TESTZ` commands, and `ACCEPT` command, but do not run `SAVE_CONFIG`. Note the reported z_offset found. Then navigate to the other XY positions, repeat these `PROBE_CALIBRATE` steps, and note the reported z_offset.
+A vizsgálat megkezdése előtt először kalibrálja a szonda X-, Y- és Z-eltolódását a dokumentum elején leírtak szerint. Ezután állítsa be a nyomtatót, és navigáljon az első X-Y pozícióba. A `PROBE_CALIBRATE` parancs futtatásához kövesse a [calibrating probe Z offset](#calibrating-probe-z-offset) pontban leírt lépéseket, `TESTZ` parancsot, és az `ACCEPT` parancsot, de ne futtassa a `SAVE_CONFIG` parancsot. Figyeljük meg a talált z_offset értéket. Ezután navigáljon a többi X-Y pozícióhoz, ismételje meg ezeket a `PROBE_CALIBRATE` lépéseket, és jegyezze fel a mért z_offsetet.
 
-If the difference between the minimum reported z_offset and the maximum reported z_offset is greater than 25 microns (.025mm) then the probe is not suitable for typical bed leveling procedures. See the [Bed Level document](Bed_Level.md) for manual probe alternatives.
+Ha a minimálisan és a maximálisan jelentett z_offset közötti különbség nagyobb, mint 25 mikron (.025 mm), akkor a szonda nem alkalmas a tipikus ágyszintezési műveletekre. A kézi mérési alternatívákat lásd az [Ágy szintezése dokumentumban](Bed_Level.md).
 
-## Temperature Bias
+## Hőmérséklet torzítás
 
-Many probes have a systemic bias when probing at different temperatures. For example, the probe may consistently trigger at a lower height when the probe is at a higher temperature.
+Sok szondának van egy rendszerszintű torzítása, amikor különböző hőmérsékleten mérnek. Például a szonda következetesen alacsonyabb magasságban mérhet a magasabb hőmérséklet következtében.
 
-It is recommended to run the bed leveling tools at a consistent temperature to account for this bias. For example, either always run the tools when the printer is at room temperature, or always run the tools after the printer has obtained a consistent print temperature. In either case, it is a good idea to wait several minutes after the desired temperature is reached, so that the printer apparatus is consistently at the desired temperature.
+Javasoljuk, hogy az ágy szintező szerszámokat állandó hőmérsékleten működtesse, hogy figyelembe vegyék ezt a torzítást. Vagy szobahőmérsékleten szintezzen, vagy szintezzen miután a nyomtató elérte a nyomtatási hőmérsékletet. Mindkét esetben érdemes néhány percet várni a kívánt hőmérséklet elérése után, hogy a berendezés folyamatosan a kívánt hőmérsékleten legyen.
 
-To check for a temperature bias, start with the printer at room temperature and then home the printer, move the head to a position near the center of the bed, and run the `PROBE_ACCURACY` command. Note the results. Then, without homing or disabling the stepper motors, heat the printer nozzle and bed to printing temperature, and run the `PROBE_ACCURACY` command again. Ideally, the command will report identical results. As above, if the probe does have a temperature bias then be careful to always use the probe at a consistent temperature.
+A hőmérsékleti torzítás ellenőrzéséhez kezdje szobahőmérsékleten, majd állítsa be a nyomtatót. Mozgassa a fejet az ágy közepéhez közeli pozícióba, és futtassa a `PROBE_ACCURACY` parancsot. Figyelje meg az eredményeket. Ezután a léptetőmotorok kezdőpont felvétele vagy kikapcsolása nélkül melegítse fel a nyomtató fúvókáját és ágyát nyomtatási hőmérsékletre, és futtassa le ismét a `PROBE_ACCURACY` parancsot. Ideális esetben a parancs azonos eredményeket fog mutatni. A fentiekhez hasonlóan, ha a szondának valóban van hőmérsékleti torzítása, akkor ügyeljen arra, hogy mindig egyenletes hőmérsékleten használja méréskor.

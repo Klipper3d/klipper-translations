@@ -1,45 +1,45 @@
 # Szeletelők
 
-This document provides some tips for configuring a "slicer" application for use with Klipper. Common slicers used with Klipper are Slic3r, Cura, Simplify3D, etc.
+Ez a dokumentum néhány tippet ad a Klipperrel használható "szeletelő" alkalmazás konfigurálásához. A Klipperrel együtt használt gyakori szeletelőprogramok a Slic3r, Cura, Simplify3D stb.
 
-## Set the G-Code flavor to Marlin
+## Állítsa be a G-kód ízét Marlinra
 
-Many slicers have an option to configure the "G-Code flavor". The default is frequently "Marlin" and that works well with Klipper. The "Smoothieware" setting also works well with Klipper.
+Sok szeletelőprogram rendelkezik a "G-kód ízének" konfigurálási lehetőséggel. Az alapértelmezett gyakran a "Marlin", és ez jól működik a Klipperrel. A "Smoothieware" beállítás szintén jól működik a Klipperrel.
 
 ## Klipper gcode_macro
 
-Slicers will often allow one to configure "Start G-Code" and "End G-Code" sequences. It is often convenient to define custom macros in the Klipper config file instead - such as: `[gcode_macro START_PRINT]` and `[gcode_macro END_PRINT]`. Then one can just run START_PRINT and END_PRINT in the slicer's configuration. Defining these actions in the Klipper configuration may make it easier to tweak the printer's start and end steps as changes do not require re-slicing.
+A szeletelők gyakran lehetővé teszik a "Start G-kód" és "End G-kód" szekvenciák konfigurálását. Ehelyett gyakran kényelmes egyéni makrókat definiálni a Klipper config fájlban - például: `[gcode_macro START_PRINT]` és `[gcode_macro END_PRINT]`. Ezután csak a START_PRINT és END_PRINT futtatását kell elvégezni a szeletelő konfigurációjában. Ha ezeket a műveleteket a Klipper konfigurációban definiáljuk, könnyebbé válhat a nyomtató indítási és befejezési lépéseinek finomhangolása, mivel a változtatások nem igényelnek újbóli szeletelést.
 
-See [sample-macros.cfg](../config/sample-macros.cfg) for example START_PRINT and END_PRINT macros.
+Lásd a [sample-macros.cfg](../config/sample-macros.cfg) a START_PRINT és END_PRINT makrók példáját.
 
-See the [config reference](Config_Reference.md#gcode_macro) for details on defining a gcode_macro.
+A gcode_macro definiálásának részleteiért lásd a [config reference](Config_Reference.md#gcode_macro).
 
-## Large retraction settings may require tuning Klipper
+## Nagy visszahúzási értékek beállítása szükségessé tehetik a Klipper hangolását
 
-The maximum speed and acceleration of retraction moves are controlled in Klipper by the `max_extrude_only_velocity` and `max_extrude_only_accel` config settings. These settings have a default value that should work well on many printers. However, if one has configured a large retraction in the slicer (eg, 5mm or greater) then one may find they limit the desired speed of retractions.
+A behúzási mozgások maximális sebességét és gyorsulását a Klipperben a `max_extrude_only_velocity` és `max_extrude_only_accel` konfigurációs beállítások szabályozzák. Ezeknek a beállításoknak van egy alapértelmezett értéke, amely sok nyomtatónál jól fog működni. Ha azonban valaki nagy behúzást állított be a szeletelőben (pl. 5 mm vagy nagyobb), akkor előfordulhat, hogy ezek korlátozzák a kívánt behúzási sebességet.
 
-If using a large retraction, consider tuning Klipper's [pressure advance](Pressure_Advance.md) instead. Otherwise, if one finds the toolhead seems to "pause" during retraction and priming, then consider explicitly defining `max_extrude_only_velocity` and `max_extrude_only_accel` in the Klipper config file.
+Ha nagy visszahúzást használ, fontolja meg a Klipper [nyomás szabályozás](Pressure_Advance.md) beállítását. Ellenkező esetben, ha úgy találjuk, hogy a szerszámfej úgy tűnik, hogy "szünetel" a behúzás és az alapozás során, akkor fontolja meg a `max_extrude_only_velocity` és `max_extrude_only_accel` kifejezett meghatározását a Klipper konfigurációs fájlban.
 
-## Do not enable "coasting"
+## Ne engedélyezze a "coasting-ot"
 
-The "coasting" feature is likely to result in poor quality prints with Klipper. Consider using Klipper's [pressure advance](Pressure_Advance.md) instead.
+A "coasting" funkció valószínűleg rossz minőségű nyomatokat eredményez a Klipperrel. Fontolja meg helyette a Klipper [pressure advance](Pressure_Advance.md) használatát.
 
-Specifically, if the slicer dramatically changes the extrusion rate between moves then Klipper will perform deceleration and acceleration between moves. This is likely to make blobbing worse, not better.
+Konkrétan, ha a szeletelő drasztikusan megváltoztatja az extrudálási sebességet a mozgások között, akkor a Klipper lassítást és gyorsítást hajt végre a mozgások között. Ez valószínűleg rontja a blobbingot, nem pedig javítja.
 
-In contrast, it is okay (and often helpful) to use a slicer's "retract" setting, "wipe" setting, and/or "wipe on retract" setting.
+Ezzel szemben a szeletelőgép "visszahúzás" beállítása, "törlés" beállítása és/vagy "törlés visszahúzáskor" beállítása rendben van (és gyakran hasznos).
 
-## Do not use "extra restart distance" on Simplify3d
+## Ne használja az "extra újraindítási távolságot" a Simplify3d-nél
 
-This setting can cause dramatic changes to extrusion rates which can trigger Klipper's maximum extrusion cross-section check. Consider using Klipper's [pressure advance](Pressure_Advance.md) or the regular Simplify3d retract setting instead.
+Ez a beállítás drámai változásokat okozhat az extrudálási sebességben, ami kiválthatja a Klipper maximális extrudálási keresztmetszet ellenőrzését. Fontolja meg a Klipper [nyomás szabályozás](Pressure_Advance.md) vagy a normál Simplify3d visszahúzási beállítás használatát helyette.
 
-## Disable "PreloadVE" on KISSlicer
+## A "PreloadVE" letiltása a KISSlicer-en
 
-If using KISSlicer slicing software then set "PreloadVE" to zero. Consider using Klipper's [pressure advance](Pressure_Advance.md) instead.
+Ha a KISSlicer szeletelőszoftvert használja, akkor állítsa a "PreloadVE" értéket nullára. Fontolja meg helyette a Klipper [nyomás szabályozás](Pressure_Advance.md) használatát.
 
-## Disable any "advanced extruder pressure" settings
+## Tiltja a "fejlett nyomás szabályozás" beállításokat
 
-Some slicers advertise an "advanced extruder pressure" capability. It is recommended to keep these options disabled when using Klipper as they are likely to result in poor quality prints. Consider using Klipper's [pressure advance](Pressure_Advance.md) instead.
+Néhány szeletelőgép "fejlett nyomás szabályozás" képességet hirdet. A Klipper használata esetén ajánlott ezeket az opciókat kikapcsolva tartani, mivel valószínűleg rossz minőségű nyomatokat eredményeznek. Fontolja meg ehelyett a Klipper [nyomás szabályozás](Pressure_Advance.md) használatát.
 
-Specifically, these slicer settings can instruct the firmware to make wild changes to the extrusion rate in the hope that the firmware will approximate those requests and the printer will roughly obtain a desirable extruder pressure. Klipper, however, utilizes precise kinematic calculations and timing. When Klipper is commanded to make significant changes to the extrusion rate it will plan out the corresponding changes to velocity, acceleration, and extruder movement - which is not the slicer's intent. The slicer may even command excessive extrusion rates to the point that it triggers Klipper's maximum extrusion cross-section check.
+Konkrétan ezek a szeletelő beállítások utasíthatják a firmware-t, hogy vad változtatásokat végezzen az extrudálási sebességben, abban a reményben, hogy a firmware közelíteni fogja ezeket a kéréseket, és a nyomtató nagyjából a kívánt extrudernyomást fogja elérni. A Klipper azonban pontos kinematikai számításokat és időzítést használ. Amikor a Klipper parancsot kap az extrudálási sebesség jelentős változtatására, megtervezi a sebesség, a gyorsulás és az extruder mozgásának megfelelő változásait - ami nem a szeletelő szándékában áll. A szeletelő akár túlzott extrudálási sebességet is parancsolhat, olyannyira, hogy az kiváltja a Klipper maximális extrudálási keresztmetszet ellenőrzését.
 
-In contrast, it is okay (and often helpful) to use a slicer's "retract" setting, "wipe" setting, and/or "wipe on retract" setting.
+Ezzel szemben a szeletelőgép "visszahúzás" beállítása, "törlés" beállítása és/vagy "törlés visszahúzáskor" beállítása rendben van (és gyakran hasznos).

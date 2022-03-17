@@ -1,4 +1,4 @@
-# Configuration checks
+# Konfigurációs ellenőrzések
 
 Ez a dokumentum a Klipper printer.cfg fájl pin beállításainak megerősítéséhez szükséges lépések listáját tartalmazza. Célszerű ezeket a lépéseket a [telepítési dokumentum](Installation.md) lépéseinek követése után végrehajtani.
 
@@ -14,56 +14,56 @@ Ellenőrizze, hogy a fúvóka és az ágy hőmérséklete (ha van) jelen van-e, 
 
 ## Ellenőrzés M112
 
-Navigate to the Octoprint terminal tab and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause Octoprint to disconnect from Klipper - navigate to the Connection area and click on "Connect" to cause Octoprint to reconnect. Then navigate to the Octoprint temperature tab and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
+Navigáljon az Octoprint terminál fülre, és adjon ki egy M112 parancsot a terminálmezőben. Ez a parancs arra kéri a Klippert, hogy lépjen "leállási" állapotba. Ennek hatására az Octoprint megszakítja a kapcsolatot a Klipperrel - navigáljon a Connection (Kapcsolat) területre, és kattintson a "Connect" gombra, hogy az Octoprint újra csatlakozzon. Ezután navigáljon az Octoprint hőmérséklet fülre, és ellenőrizze, hogy a hőmérsékletek továbbra is frissülnek-e, és a hőmérsékletek nem emelkednek-e. Ha a hőmérsékletek emelkednek, kapcsolja ki a nyomtatót a hálózatból.
 
-The M112 command causes Klipper to go into a "shutdown" state. To clear this state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab.
+Az M112 parancs hatására a Klipper "leállítás" állapotba kerül. Ennek az állapotnak a törléséhez adjon ki egy FIRMWARE_RESTART parancsot az Octoprint terminál lapon.
 
-## Verify heaters
+## Ellenőrizze a fűtőtesteket
 
-Navigate to the Octoprint temperature tab and type in 50 followed by enter in the "Tool" temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the "Tool" temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
+Navigáljon az Octoprint hőmérséklet fülre, és írja be az 50-et, majd nyomjon Entert az "Eszköz" hőmérséklet mezőbe. Az extruder hőmérsékletének a grafikonon növekednie kell (körülbelül 30 másodpercen belül). Ezután lépjen a "Tool" hőmérséklet legördülő mezőbe, és válassza az "Off" lehetőséget. Néhány perc múlva a hőmérsékletnek el kell kezdenie visszaesni a kezdeti hőmérséklet felé. Ha a hőmérséklet nem emelkedik, akkor ellenőrizze a "heater_pin" beállítását a konfigurációs fájban.
 
-If the printer has a heated bed then perform the above test again with the bed.
+Ha a nyomtató fűtött ággyal rendelkezik, akkor végezze el a fenti vizsgálatot az ággyal is.
 
-## Verify stepper motor enable pin
+## A léptetőmotor engedélyező pin ellenőrzése
 
-Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !ar38").
+Ellenőrizze, hogy a nyomtató minden tengelye manuálisan szabadon mozog-e (a léptetőmotorok ki vannak kapcsolva). Ha nem, adjon ki egy M84 parancsot a motorok letiltására. Ha valamelyik tengely még mindig nem tud szabadon mozogni, akkor ellenőrizze a léptető "enable_pin" konfigurációt az adott tengelyhez. A legtöbb hagyományos léptetőmotor-meghajtónál a motor engedélyező pin "aktív alacsony", ezért az engedélyező pin előtt egy "!" jelnek kell állnia (például "enable_pin: !ar38").
 
-## Verify endstops
+## Végállások ellenőrzése
 
-Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the Octoprint terminal tab. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
+Kézzel mozgassa az összes nyomtatótengelyt úgy, hogy egyikük se érintkezzen végállással. Küldjön QUERY_ENDSTOPS parancsot az Octoprint terminál lapján keresztül. A nyomtatónak válaszolnia kell az összes konfigurált végállás aktuális állapotával, és mindegyiknek "nyitott" állapotot kell jelentenie. Az egyes végleállások esetében futtassa újra a QUERY_ENDSTOPS parancsot, miközben manuálisan indítja el a végleállást. A QUERY_ENDSTOPS parancsnak jelentenie kell a végállást, mint "TRIGGERED".
 
-If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!ar3"), or remove the "!" if there is already one present.
+Ha a végállás inverznek tűnik (a kiváltáskor "nyitott" jelzést ad, és fordítva), akkor adjunk hozzá egy "!" -t a pin definícióhoz (például "endstop_pin: ^!ar3"), vagy távolítsuk el a "!" -t, ha már van ilyen.
 
-If the endstop does not change at all then it generally indicates that the endstop is connected to a different pin. However, it may also require a change to the pullup setting of the pin (the '^' at the start of the endstop_pin name - most printers will use a pullup resistor and the '^' should be present).
+Ha a végállás egyáltalán nem változik, akkor ez általában azt jelzi, hogy a végállás egy másik pinhez van csatlakoztatva. Azonban az is előfordulhat, hogy a pin pullup beállításának megváltoztatására van szükség (a '^' az endstop_pin név elején - a legtöbb nyomtató pullup ellenállást használ, és a '^' -nek jelen kell lennie).
 
-## Verify stepper motors
+## Léptetőmotorok ellenőrzése
 
-Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor. Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x`. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
+A STEPPER_BUZZ parancs segítségével ellenőrizze az egyes léptetőmotorok csatlakozását. Kezdje az adott tengely kézi pozicionálásával egy középső pontra, majd futtassa a `STEPPER_BUZZ STEPPER=stepper_x` parancsot. A STEPPER_BUZZ parancs hatására az adott stepper egy millimétert mozdul pozitív irányba, majd visszatér a kiindulási helyzetébe. (Ha a végállást a position_endstop=0 értéken definiáljuk, akkor minden egyes mozgás kezdetén a léptető a végállástól távolodik). Ezt az mozgást tízszer fogja végrehajtani.
 
-If the stepper does not move at all, then verify the "enable_pin" and "step_pin" settings for the stepper. If the stepper motor moves but does not return to its original position then verify the "dir_pin" setting. If the stepper motor oscillates in an incorrect direction, then it generally indicates that the "dir_pin" for the axis needs to be inverted. This is done by adding a '!' to the "dir_pin" in the printer config file (or removing it if one is already there). If the motor moves significantly more or significantly less than one millimeter then verify the "rotation_distance" setting.
+Ha a léptető egyáltalán nem mozog, akkor ellenőrizze az "enable_pin" és "step_pin" beállításokat a léptetőnél. Ha a léptetőmotor mozog, de nem tér vissza az eredeti helyzetébe, akkor ellenőrizze a "dir_pin" beállítást. Ha a léptetőmotor helytelen irányban mozog, akkor ez általában azt jelzi, hogy a tengely "dir_pin" beállítását meg kell fordítani. Ezt úgy lehet megtenni, hogy a nyomtató konfigurációs fájlban a "dir_pin" értékhez hozzáadunk egy '!' jelet (vagy eltávolítjuk, ha már van ilyen). Ha a motor egy milliméternél lényegesen többet vagy lényegesen kevesebbet mozog, akkor ellenőrizze a "rotation_distance" beállítást.
 
-Run the above test for each stepper motor defined in the config file. (Set the STEPPER parameter of the STEPPER_BUZZ command to the name of the config section that is to be tested.) If there is no filament in the extruder then one can use STEPPER_BUZZ to verify the extruder motor connectivity (use STEPPER=extruder). Otherwise, it's best to test the extruder motor separately (see the next section).
+Futtassa a fenti tesztet a konfigurációs fájlban definiált minden egyes léptetőmotorra. (Állítsa a STEPPER_BUZZ parancs STEPPER paraméterét a tesztelendő konfigurációs szakasz nevére). Ha nincs nyomtatószál az extruderben, akkor a STEPPER_BUZZ paranccsal ellenőrizheti az extruder motor csatlakozását (használja a STEPPER=extruder parancsot). Ellenkező esetben a legjobb ha az extruder motort külön teszteljük (lásd a következő szakaszt).
 
-After verifying all endstops and verifying all stepper motors the homing mechanism should be tested. Issue a G28 command to home all axes. Remove power from the printer if it does not home properly. Rerun the endstop and stepper motor verification steps if necessary.
+Az összes végállás és léptetőmotor ellenőrzése után a célba állítási mechanizmust tesztelni kell. Adjon ki egy G28 parancsot az összes tengely alaphelyzetbe állításához. Ha a nyomtató nem állítható be megfelelően, kapcsolja ki a nyomtatót. Ha szükséges, ismételje meg a végállás és a léptetőmotorok ellenőrzését.
 
-## Verify extruder motor
+## Extruder motor ellenőrzése
 
-To test the extruder motor it will be necessary to heat the extruder to a printing temperature. Navigate to the Octoprint temperature tab and select a target temperature from the temperature drop-down box (or manually enter an appropriate temperature). Wait for the printer to reach the desired temperature. Then navigate to the Octoprint control tab and click the "Extrude" button. Verify that the extruder motor turns in the correct direction. If it does not, see the troubleshooting tips in the previous section to confirm the "enable_pin", "step_pin", and "dir_pin" settings for the extruder.
+Az extruder motor teszteléséhez az extrudert nyomtatási hőmérsékletre kell melegíteni. Navigáljon az Octoprint hőmérséklet fülre, és válasszon ki egy célhőmérsékletet a hőmérséklet legördülő menüből (vagy adja meg manuálisan a megfelelő hőmérsékletet). Várja meg, amíg a nyomtató eléri a kívánt hőmérsékletet. Ezután navigáljon az Octoprint vezérlő lapra, és kattintson az "Extrudálás" gombra. Ellenőrizze, hogy az extruder motorja a megfelelő irányba forog-e. Ha nem, akkor az előző szakaszban található hibaelhárítási tippek alapján ellenőrizze az extruder "enable_pin", "step_pin" és "dir_pin" beállításait.
 
-## Calibrate PID settings
+## PID beállítások kalibrálása
 
-Klipper supports [PID control](https://en.wikipedia.org/wiki/PID_controller) for the extruder and bed heaters. In order to use this control mechanism, it is necessary to calibrate the PID settings on each printer (PID settings found in other firmwares or in the example configuration files often work poorly).
+A Klipper támogatja a [PID-szabályozást](https://en.wikipedia.org/wiki/PID_controller) az extruder és az ágyfűtés számára. Ahhoz, hogy ezt a vezérlési mechanizmust használni lehessen, a PID-beállításokat minden nyomtatónál kalibrálni kell (a más firmware-ekben vagy a példakonfigurációs fájlokban található PID-beállítások gyakran rosszul működnek).
 
-To calibrate the extruder, navigate to the OctoPrint terminal tab and run the PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder TARGET=170`
+Az extruder kalibrálásához navigáljon az OctoPrint terminál fülre, és futtassa a PID_CALIBRATE parancsot. Például: `PID_CALIBRATE HEATER=extruder TARGET=170`
 
-At the completion of the tuning test run `SAVE_CONFIG` to update the printer.cfg file the new PID settings.
+A hangolási teszt végén futtassa a `SAVE_CONFIG` parancsot a printer.cfg fájl új PID-beállításainak frissítéséhez.
 
-If the printer has a heated bed and it supports being driven by PWM (Pulse Width Modulation) then it is recommended to use PID control for the bed. (When the bed heater is controlled using the PID algorithm it may turn on and off ten times a second, which may not be suitable for heaters using a mechanical switch.) A typical bed PID calibration command is: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
+Ha a nyomtató fűtött ággyal rendelkezik, és az támogatja a PWM (impulzusszélesség-moduláció) vezérlést, akkor ajánlott PID vezérlést használni az ágyhoz. (Ha az ágyfűtést PID algoritmussal vezérli, akkor másodpercenként tízszer is be- és kikapcsolhat, ami nem biztos, hogy megfelelő a mechanikus kapcsolót használó fűtőberendezésekhez.) A tipikus ágy PID-kalibrálási parancs: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
 
-## Next steps
+## Következő lépések
 
-This guide is intended to help with basic verification of pin settings in the Klipper configuration file. Be sure to read the [bed leveling](Bed_Level.md) guide. Also see the [Slicers](Slicers.md) document for information on configuring a slicer with Klipper.
+Ez az útmutató a Klipper konfigurációs fájlban lévő pin-beállítások alapvető ellenőrzéséhez nyújt segítséget. Mindenképpen olvassa el az [ágy szintezése](Bed_Level.md) útmutatót. A Klipperrel történő szeletelő konfigurálásával kapcsolatos információkért olvassa el a [Slicers](Slicers.md) dokumentumot is.
 
-After one has verified that basic printing works, it is a good idea to consider calibrating [pressure advance](Pressure_Advance.md).
+Miután meggyőződtünk arról, hogy az alapnyomtatás működik, érdemes megfontolni a [nyomás szabályozás](Pressure_Advance.md) kalibrálását.
 
-It may be necessary to perform other types of detailed printer calibration - a number of guides are available online to help with this (for example, do a web search for "3d printer calibration"). As an example, if you experience the effect called ringing, you may try following [resonance compensation](Resonance_Compensation.md) tuning guide.
+Előfordulhat, hogy más típusú részletes nyomtató-kalibrálásra is szükség lehet - ehhez számos útmutató áll rendelkezésre az interneten (keressen rá például a "3d nyomtató kalibrálás" szövegre). Ha például a csengésnek nevezett hatást tapasztalja, megpróbálhatja követni a [rezonancia-kompenzáció](Resonance_Compensation.md) hangolási útmutatót.

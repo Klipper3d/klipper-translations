@@ -1,15 +1,15 @@
-# Multiple Micro-controller Homing and Probing
+# Több mikrovezélős kezdőpnt és szondázás
 
-Klipper supports a mechanism for homing with an endstop attached to one micro-controller while its stepper motors are on a different micro-controller. This support is referred to as "multi-mcu homing". This feature is also used when a Z probe is on a different micro-controller than the Z stepper motors.
+A Klipper támogatja a kezdőpont mechanizmusát egy végállással, amely egy mikrokontrollerhez van csatlakoztatva, míg a léptetőmotorok egy másik mikrokontrollerhez vannak csatlakoztatva. Ezt a támogatást nevezik "multi-mcu homing" -nak. Ez a funkció akkor is használatos, ha a Z-érzékelő más mikrokontrollerre van kötve, mint a Z léptetőmotorok.
 
-This feature can be useful to simplify wiring, as it may be more convenient to attach an endstop or probe to a closer micro-controller. However, using this feature may result in "overshoot" of the stepper motors during homing and probing operations.
+Ez a funkció hasznos lehet a vezetékezés egyszerűsítése érdekében, mivel kényelmesebb lehet egy végálláskapcsolót vagy szondát egy közelebbi mikrokontrollerhez csatlakoztatni. Ennek a funkciónak a használata azonban a léptetőmotorok "túllendülését" eredményezheti a kezdőpont és a szondázási műveletek során.
 
-The overshoot occurs due to possible message transmission delays between the micro-controller monitoring the endstop and the micro-controllers moving the stepper motors. The Klipper code is designed to limit this delay to no more than 25ms. (When multi-mcu homing is activated, the micro-controllers send periodic status messages and check that corresponding status messages are received within 25ms.)
+A túllövés a végállást figyelő mikrovezérlő és a léptetőmotorokat mozgató mikrovezérlők közötti esetleges üzenetátviteli késések miatt következik be. A Klipper kódot úgy tervezték, hogy ezt a késleltetést legfeljebb 25 ms-ra korlátozza. (Ha a multi-mcu homing aktiválva van, a mikrovezérlők időszakos állapotüzeneteket küldenek, és ellenőrzik, hogy a megfelelő állapotüzenetek 25 ms-on belül érkeznek-e meg.)
 
-So, for example, if homing at 10mm/s then it is possible for an overshoot of up to 0.250mm (10mm/s * .025s == 0.250mm). Care should be taken when configuring multi-mcu homing to account for this type of overshoot. Using slower homing or probing speeds can reduce the overshoot.
+Így például, ha 10 mm/s sebességgel történik a kezdőpont felvétele, akkor akár 0,250 mm-es túllövés is lehetséges (10 mm/s * .025s == 0,250 mm). A multi-mcu homing konfigurálásakor gondosan kell eljárni, hogy az ilyen típusú túllövést figyelembe vegyük. Lassabb kezdőpont fevétel vagy tapintási sebességek használata csökkentheti a túlcsúszást.
 
-Stepper motor overshoot should not adversely impact the precision of the homing and probing procedure. The Klipper code will detect the overshoot and account for it in its calculations. However, it is important that the hardware design is capable of handling overshoot without causing damage to the machine.
+A léptetőmotor túllendülése nem befolyásolhatja hátrányosan az alaphelyzetbe állítási és tapintási eljárás pontosságát. A Klipper kód észleli a túllendülést, és számításai során figyelembe veszi azt. Fontos azonban, hogy a hardvertervezés képes legyen kezelni a túllendülést anélkül, hogy a gépben kárt okozna.
 
-Should Klipper detect a communication issue between micro-controllers during multi-mcu homing then it will raise a "Communication timeout during homing" error.
+Ha a Klipper kommunikációs problémát észlel a mikrovezérlők között a multi-mcu homing során, akkor egy "Kommunikációs időkiesés a kezdőpont felvétel során" hibát jelez.
 
-Note that an axis with multiple steppers (eg, `stepper_z` and `stepper_z1`) need to be on the same micro-controller in order to use multi-mcu homing. For example, if an endstop is on a separate micro-controller from `stepper_z` then `stepper_z1` must be on the same micro-controller as `stepper_z`.
+Vegye figyelembe, hogy a több stepperrel rendelkező tengelyeknek (pl. `stepper_z` és `stepper_z1`) ugyanazon a mikrokontrolleren kell lenniük a multi-mcu homing használatához. Például, ha egy végállás a `stepper_z` mikrokontrollertől külön mikrokontrolleren van, akkor a `stepper_z1`-nek ugyanazon a mikrokontrolleren kell lennie, mint a `stepper_z`.

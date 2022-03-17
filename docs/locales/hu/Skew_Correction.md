@@ -1,22 +1,22 @@
-# Skew correction
+# Ferdeség korrekció
 
-Software based skew correction can help resolve dimensional inaccuracies resulting from a printer assembly that is not perfectly square. Note that if your printer is significantly skewed it is strongly recommended to first use mechanical means to get your printer as square as possible prior to applying software based correction.
+A szoftveralapú ferdeség korrekció segíthet a nem tökéletesen szögletes nyomtatóegységből eredő méretpontatlanságok feloldásában. Vegye figyelembe, hogy ha a nyomtatója jelentősen ferde, erősen ajánlott először mechanikai eszközökkel a nyomtatót a lehető legegyenletesebbre állítani, mielőtt a szoftveralapú korrekciót alkalmazná.
 
-## Print a Calibration Object
+## Kalibrációs objektum nyomtatása
 
-The first step in correcting skew is to print a [calibration object](https://www.thingiverse.com/thing:2563185/files) along the plane you want to correct. There is also a [calibration object](https://www.thingiverse.com/thing:2972743) that includes all planes in one model. You want the object oriented so that corner A is toward the origin of the plane.
+A ferdeség korrekciójának első lépése egy [kalibrációs objektum](https://www.thingiverse.com/thing:2563185/files) nyomtatása a korrigálni kívánt sík mentén. Létezik egy [kalibrációs objektum](https://www.thingiverse.com/thing:2972743) is, amely egy modell összes síkját tartalmazza. Az objektumot úgy kell tájolni, hogy az A sarok a sík origója felé legyen.
 
-Make sure that no skew correction is applied during this print. You may do this by either removing the `[skew_correction]` module from printer.cfg or by issuing a `SET_SKEW CLEAR=1` gcode.
+Győződjön meg róla, hogy a nyomtatás során nem alkalmaz ferdeségkorrekciót. Ezt úgy teheti meg, hogy vagy eltávolítja a `[skew_correction]` modult a printer.cfg fájlból, vagy kiad egy `SET_SKEW CLEAR=1` parancsot.
 
-## Take your measurements
+## Mérje meg
 
-The `[skew_correcton]` module requires 3 measurements for each plane you want to correct; the length from Corner A to Corner C, the length from Corner B to Corner D, and the length from Corner A to Corner D. When measuring length AD do not include the flats on the corners that some test objects provide.
+A `[skew_correcton]` modul minden egyes korrigálandó síkhoz 3 mérést igényel; az A saroktól a C sarokig terjedő hosszúságot, a B saroktól a D sarokig terjedő hosszúságot és az A saroktól a D sarokig terjedő hosszúságot. Az AD hosszmérésnél ne vegye figyelembe a sarkokon lévő síkokat, amelyeket néhány tesztobjektum mutat.
 
 ![skew_lengths](img/skew_lengths.png)
 
-## Configure your skew
+## Konfigurálja a ferdeséget
 
-Make sure `[skew_correction]` is in printer.cfg. You may now use the `SET_SKEW` gcode to configure skew_correcton. For example, if your measured lengths along XY are as follows:
+Győződjön meg róla, hogy a `[skew_correction]` szerepel a printer.cfg fájlban. Most már használhatja a `SET_SKEW` gkódot a skew_correction beállításához. Például, ha az XY mentén mért hosszok a következők:
 
 ```
 Length AC = 140.4
@@ -24,50 +24,50 @@ Length BD = 142.8
 Length AD = 99.8
 ```
 
-`SET_SKEW` can be used to configure skew correction for the XY plane.
+`SET_SKEW` az XY-sík ferdeségkorrekciójának beállítására használható.
 
 ```
 SET_SKEW XY=140.4,142.8,99.8
 ```
 
-You may also add measurements for XZ and YZ to the gcode:
+Az XZ és YZ méréseket is hozzáadhatja a gkódhoz:
 
 ```
 SET_SKEW XY=140.4,142.8,99.8 XZ=141.6,141.4,99.8 YZ=142.4,140.5,99.5
 ```
 
-The `[skew_correction]` module also supports profile management in a manner similar to `[bed_mesh]`. After setting skew using the `SET_SKEW` gcode, you may use the `SKEW_PROFILE` gcode to save it:
+A `[skew_correction]` modul a `[bed_mesh]` modulhoz hasonló módon támogatja a profilkezelést is. Miután a `SET_SKEW` gkóddal beállította a ferdeséget, a `SKEW_PROFILE` gkóddal elmentheti azt:
 
 ```
 SKEW_PROFILE SAVE=my_skew_profile
 ```
 
-After this command you will be prompted to issue a `SAVE_CONFIG` gcode to save the profile to persistent storage. If no profile is named `my_skew_profile` then a new profile will be created. If the named profile exists it will be overwritten.
+A parancs után a rendszer felszólítja a `SAVE_CONFIG` gkód kiadását a profil tartós tárolóba történő mentéséhez. Ha nincs `my_skew_profile` nevű profil, akkor egy új profil jön létre. Ha a megnevezett profil létezik, akkor azt felülírja.
 
-Once you have a saved profile, you may load it:
+Ha már van mentett profilja, betöltheti azt:
 
 ```
 SKEW_PROFILE LOAD=my_skew_profile
 ```
 
-It is also possible to remove an old or out of date profile:
+Lehetőség van régi vagy elavult profilok eltávolítására is:
 
 ```
 SKEW_PROFILE REMOVE=my_skew_profile
 ```
 
-After removing a profile you will be prompted to issue a `SAVE_CONFIG` to make this change persist.
+A profil eltávolítása után a rendszer felszólítja, hogy adjon ki egy `SAVE_CONFIG` parancsot, hogy a módosítás mentésre kerüljön.
 
-## Verifying your correction
+## A korrekció ellenőrzése
 
-After skew_correction has been configured you may reprint the calibration part with correction enabled. Use the following gcode to check your skew on each plane. The results should be lower than those reported via `GET_CURRENT_SKEW`.
+A skew_correction beállítása után újra kinyomtathatja a kalibrációs részt a korrekció engedélyezésével. A következő gkóddal ellenőrizheti a ferdeséget minden síkban. Az eredményeknek alacsonyabbaknak kell lenniük, mint a `GET_CURRENT_SKEW` segítségével jelentett eredmények.
 
 ```
 CALC_MEASURED_SKEW AC=<ac_length> BD=<bd_length> AD=<ad_length>
 ```
 
-## Caveats
+## Óvintézkedések
 
-Due to the nature of skew correction it is recommended to configure skew in your start gcode, after homing and any kind of movement that travels near the edge of the print area such as a purge or nozzle wipe. You may use use the `SET_SKEW` or `SKEW_PROFILE` gcodes to accomplish this. It is also recommended to issue a `SET_SKEW CLEAR=1` in your end gcode.
+A ferdeségkorrekció természetéből adódóan ajánlott a ferdeséget az indító gkódban konfigurálni, a kezdőpont felvétel és minden olyan mozgás után, amely a nyomtatási terület széléhez közelít, mint például a tisztítás vagy a fúvóka törlése. Ehhez használhatja a `SET_SKEW` vagy a `SKEW_PROFILE` gkódokat. Ajánlott továbbá a `SET_SKEW CLEAR=1` parancs kiadása a befejező gkódban.
 
-Keep in mind that it is possible for `[skew_correction]` to generate a correction that moves the tool beyond the printer's boundaries on the X and/or Y axes. It is recommended to arrange parts away from the edges when using `[skew_correction]`.
+Ne feledje! Lehetséges, hogy a `[skew_correction]` olyan korrekciót generál, amely a fejet az X és/vagy Y tengelyen a nyomtató határain túlra helyezi. A `[skew_correction]` használatakor ajánlott a nyomtatófejet a szélektől távolabb elhelyezni.

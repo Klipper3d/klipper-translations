@@ -1,19 +1,19 @@
-# Packaging Klipper
+# Klipper Csomagolás
 
-Klipper is somewhat of a packaging anomaly among python programs, as it doesn't use setuptools to build and install. Some notes regarding how best to package it are as follows:
+A Klipper egyfajta csomagolási anomália a python programok között, mivel nem használja a setuptools-t a szerkesztéshez és a telepítéshez. Néhány megjegyzés arra vonatkozóan, hogy hogyan lehet a legjobban csomagolni, a következő:
 
-## C modules
+## C modulok
 
-Klipper uses a C module to handle some kinematics calculations more quickly. This module needs to be compiled at packaging time to avoid introducing a runtime dependency on a compiler. To compile the C module, run `python2 klippy/chelper/__init__.py`.
+A Klipper egy C modult használ néhány kinematikai számítás gyorsabb elvégzésére. Ezt a modult a csomagolási időben kell lefordítani, hogy elkerüljük a fordítóprogramtól való futásidejű függőséget. A C modul lefordításához futtassuk a `python2 klippy/chelper/__init__.py` fájlt.
 
-## Compiling python code
+## Python-kód összeállítása
 
-Many distributions have a policy of compiling all python code before packaging to improve startup time. You can do this by running `python2 -m compileall klippy`.
+Sok disztribúciónak van egy olyan irányelve, hogy az indítási idő javítása érdekében minden python kódot lefordít a csomagolás előtt. Ezt a `python2 -m compileall klippy` futtatásával érheted el.
 
-## Versioning
+## Verziókezelés
 
-If you are building a package of Klipper from git, it is usual practice not to ship a .git directory, so the versioning must be handled without git. To do this, use the script shipped in `scripts/make_version.py` which should be run as follows: `python2 scripts/make_version.py YOURDISTRONAME > klippy/.version`.
+Ha a Klipper csomagot git-ből építed, a szokásos gyakorlat szerint nem szállítasz .git könyvtárat, így a verziókezelést git nélkül kell megoldanod. Ehhez használd a `scripts/make_version.py` alatt szállított szkriptet, amelyet a következőképpen kell futtatni: `python2 scripts/make_version.py YOURDISTRONAME > klippy/.version`.
 
-## Sample packaging script
+## Minta csomagolási szkript
 
-klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).
+A klipper-git az Arch Linuxhoz van csomagolva, és a PKGBUILD (csomagépítő szkript) elérhető az [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git) oldalon.

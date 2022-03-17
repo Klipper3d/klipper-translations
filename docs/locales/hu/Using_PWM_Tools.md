@@ -1,48 +1,48 @@
-# Using PWM tools
+# PWM eszközök használata
 
-This document describes how to setup a PWM-controlled laser or spindle using `output_pin` and some macros.
+Ez a dokumentum leírja, hogyan állíthat be egy PWM-vezérelt lézert vagy orsót az `output_pin` és néhány makró segítségével.
 
 ## Hogyan működik?
 
-With re-purposing the printhead's fan pwm output, you can control lasers or spindles. This is useful if you use switchable print heads, for example the E3D toolchanger or a DIY solution. Usually, cam-tools such as LaserWeb can be configured to use `M3-M5` commands, which stand for *spindle speed CW* (`M3 S[0-255]`), *spindle speed CCW* (`M4 S[0-255]`) and *spindle stop* (`M5`).
+A nyomtatófej ventilátor pwm kimenetének felhasználásával lézereket vagy orsókat vezérelhet. Ez akkor hasznos, ha kapcsolható nyomtatófejeket használ, például az E3D toolchanger vagy egy barkácsmegoldás. Általában az olyan cam-toolok, mint a LaserWeb, úgy konfigurálhatók, hogy `M3-M5` parancsokat használjanak, amelyek *spindle speed CW* (`M3 S[0-255]`), *orsó fordulatszám * (`M4 S[0-255]`) és *orsóstop* (`M5`).
 
-**Warning:** When driving a laser, keep all security precautions that you can think of! Diode lasers are usually inverted. This means, that when the MCU restarts, the laser will be *fully on* for the time it takes the MCU to start up again. For good measure, it is recommended to *always* wear appropriate laser-goggles of the right wavelength if the laser is powered; and to disconnect the laser when it is not needed. Also, you should configure a safety timeout, so that when your host or MCU encounters an error, the tool will stop.
+**Figyelmeztetés:** A lézer vezetésekor tartson be minden biztonsági óvintézkedést, ami csak eszébe jut! A diódalézerek általában invertáltak. Ez azt jelenti, hogy amikor az MCU újraindul, a lézer *teljesen be lesz kapcsolva* arra az időre, amíg az MCU újraindul. A biztonság kedvéért ajánlott *mindig* megfelelő hullámhosszúságú lézerszemüveget viselni, ha a lézer be van kapcsolva; és a lézert le kell kapcsolni, ha nincs rá szükség. Emellett be kell állítania egy biztonsági időkorlátot, hogy ha a gazdagép vagy az MCU hibát észlel, a szerszám leálljon.
 
-For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
+Egy példakonfigurációért lásd [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
 
-## Current Limitations
+## Jelenlegi korlátozások
 
-There is a limitation of how frequent PWM updates may occur. While being very precise, a PWM update may only occur every 0.1 seconds, rendering it almost useless for raster engraving. However, there exists an [experimental branch](https://github.com/Cirromulus/klipper/tree/laser_tool) with its own tradeoffs. In long term, it is planned to add this functionality to main-line klipper.
+Korlátozott, hogy milyen gyakoriak lehetnek a PWM-frissítések. Bár nagyon pontos, a PWM frissítés csak 0,1 másodpercenként fordulhat elő, így szinte használhatatlanná válik a rasztergravírozáshoz. Létezik azonban egy [kísérleti ág](https://github.com/Cirromulus/klipper/tree/laser_tool), amelynek saját kompromisszumai vannak. Hosszú távon azt tervezik, hogy ezt a funkciót hozzáadják a fővonali klipperhez.
 
-## Commands
+## Parancsok
 
-`M3/M4 S<value>` : Set PWM duty-cycle. Values between 0 and 255. `M5` : Stop PWM output to shutdown value.
+`M3/M4 S<value>` : PWM-üzemmód beállítása. Értékek 0 és 255 között. `M5` : PWM kimenet leállítása a kikapcsolási értékre.
 
-## Laserweb Configuration
+## Laserweb konfiguráció
 
-If you use Laserweb, a working configuration would be:
+Ha a Laserwebet használja, akkor a következő konfiguráció működhet:
 
     GCODE START:
-        M5            ; Disable Laser
-        G21           ; Set units to mm
-        G90           ; Absolute positioning
-        G0 Z0 F7000   ; Set Non-Cutting speed
+        M5 ; Lézer kikapcsolása
+        G21 ; Egységek beállítása mm-re
+        G90 ; Abszolút pozicionálás
+        G0 Z0 F7000 ; Nem vágási sebesség beállítása
     
     GCODE END:
-        M5            ; Disable Laser
-        G91           ; relative
+        M5 ; Lézer kikapcsolása
+        G91 ; relatív
         G0 Z+20 F4000 ;
-        G90           ; absolute
+        G90 ; abszolút
     
     GCODE HOMING:
-        M5            ; Disable Laser
-        G28           ; Home all axis
+        M5 ; Lézer kikapcsolása
+        G28 ; Minden tengely alaphelyzetbe állítása
     
     TOOL ON:
         M3 $INTENSITY
     
     TOOL OFF:
-        M5            ; Disable Laser
+        M5 ; Lézer kikapcsolása
     
     LASER INTENSITY:
         S

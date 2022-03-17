@@ -1,4 +1,4 @@
-# Resonance Compensation
+# Rezonancia kompenzáció
 
 Klipper supports Input Shaping - a technique that can be used to reduce ringing (also known as echoing, ghosting or rippling) in prints. Ringing is a surface printing defect when, typically, elements like edges repeat themselves on a printed surface as a subtle 'echo':
 

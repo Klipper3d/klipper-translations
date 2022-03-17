@@ -1,37 +1,37 @@
-# CANBUS protocol
+# CANBUS protokoll
 
-This document describes the protocol Klipper uses to communicate over [CAN bus](https://en.wikipedia.org/wiki/CAN_bus). See <CANBUS.md> for information on configuring Klipper with CAN bus.
+Ez a dokumentum a Klipper által a [CAN-buszon](https://en.wikipedia.org/wiki/CAN_bus) keresztül történő kommunikációhoz használt protokollt írja le. A Klipper CAN-busszal való konfigurálásával kapcsolatos információkért lásd a <CANBUS.md> című dokumentumot.
 
-## Micro-controller id assignment
+## Mikrokontroller azonosító hozzárendelése
 
-Klipper uses only CAN 2.0A standard size CAN bus packets, which are limited to 8 data bytes and an 11-bit CAN bus identifier. In order to support efficient communication, each micro-controller is assigned at run-time a unique 1-byte CAN bus nodeid (`canbus_nodeid`) for general Klipper command and response traffic. Klipper command messages going from host to micro-controller use the CAN bus id of `canbus_nodeid * 2 + 256`, while Klipper response messages from micro-controller to host use `canbus_nodeid * 2 + 256 + 1`.
+A Klipper csak a CAN 2.0A szabványos méretű CAN-busz csomagokat használja, amelyek 8 adatbájtra és egy 11 bites CAN-busz azonosítóra korlátozódnak. A hatékony kommunikáció támogatása érdekében minden mikrokontrollerhez futáskor egy egyedi, 1 bájtos CAN-busz nodeid (`canbus_nodeid`) van rendelve az általános Klipper parancs- és válaszforgalomhoz. A hosztról a mikrokontroller felé irányuló Klipper-parancsüzenetek a `canbus_nodeid * 2 + 256` CAN-busz azonosítót használják, míg a mikrokontrollerről a hoszt felé irányuló Klipper-válaszüzenetek a `canbus_nodeid * 2 + 256 + 1` azonosítót.
 
-Each micro-controller has a factory assigned unique chip identifier that is used during id assignment. This identifier can exceed the length of one CAN packet, so a hash function is used to generate a unique 6-byte id (`canbus_uuid`) from the factory id.
+Minden mikrokontroller rendelkezik egy gyárilag hozzárendelt egyedi chipazonosítóval, amelyet az azonosító hozzárendelése során használnak. Ez az azonosító meghaladhatja egy CAN csomag hosszát, ezért egy hash függvényt használunk arra, hogy a gyári azonosítóból egy egyedi 6 bájtos azonosítót (`canbus_uuid`) generáljunk.
 
-## Admin messages
+## Rendszergazdai üzenetek
 
-Admin messages are used for id assignment. Admin messages sent from host to micro-controller use the CAN bus id `0x3f0` and messages sent from micro-controller to host use the CAN bus id `0x3f1`. All micro-controllers listen to messages on id `0x3f0`; that id can be thought of as a "broadcast address".
+Az rendszergazdai üzeneteket az azonosító hozzárendeléséhez használják. A gazdatesttől a mikrokontrollerhez küldött admin üzenetek a CAN-buszon a `0x3f0`, a mikrokontrollerről a gazdatesthez küldött üzenetek pedig a CAN-buszon a `0x3f1` azonosítót használják. Minden mikrovezérlő a `0x3f0` azonosítón fogadja az üzeneteket; ez az azonosító egy "broadcast cím" -nek tekinthető.
 
-### CMD_QUERY_UNASSIGNED message
+### CMD_QUERY_UNASSIGNED üzenet
 
-This command queries all micro-controllers that have not yet been assigned a `canbus_nodeid`. Unassigned micro-controllers will respond with a RESP_NEED_NODEID response message.
+Ez a parancs lekérdezi az összes olyan mikrovezérlőt, amely még nem kapott `canbus_nodeid` azonosítót. A nem hozzárendelt mikrovezérlők RESP_NEED_NODEID válaszüzenettel válaszolnak.
 
-The CMD_QUERY_UNASSIGNED message format is: `<1-byte message_id = 0x00>`
+A CMD_QUERY_UNASSIGNED üzenet formátuma: `<1-byte message_id = 0x00>`
 
-### CMD_SET_NODEID message
+### CMD_SET_NODEID üzenet
 
-This command assigns a `canbus_nodeid` to the micro-controller with a given `canbus_uuid`.
+Ez a parancs hozzárendel egy `canbus_nodeid` mikrokontrollert egy adott `canbus_uuid` mikrokontrollerhez.
 
-The CMD_SET_NODEID message format is: `<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`
+A CMD_SET_NODEID üzenet formátuma a következő: `<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`
 
-### RESP_NEED_NODEID message
+### RESP_NEED_NODEID üzenet
 
-The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte canbus_uuid>`
+A RESP_NEED_NODEID üzenet formátuma a következő: `<1-byte message_id = 0x20><6-byte canbus_uuid>`
 
-## Data Packets
+## Adatcsomagok
 
-A micro-controller that has been assigned a nodeid via the CMD_SET_NODEID command can send and receive data packets.
+A CMD_SET_NODEID paranccsal nodeid-t kapott mikrokontroller adatcsomagokat küldhet és fogadhat.
 
-The packet data in messages using the node's receive CAN bus id (`canbus_nodeid * 2 + 256`) are simply appended to a buffer, and when a complete [mcu protocol message](Protocol.md) is found its contents are parsed and processed. The data is treated as a byte stream - there is no requirement for the start of a Klipper message block to align with the start of a CAN bus packet.
+A csomópontot használó üzenetek csomagadatai (`canbus_nodeid * 2 + 256`) egyszerűen egy pufferbe kerülnek, és amikor egy teljes [mcu protokoll üzenet](Protocol.md) található, annak tartalmát elemezzük és feldolgozzuk. Az adatokat bájtfolyamként kezelik - nem követelmény, hogy a Klipper üzenetblokk kezdete egyezzen a CAN-buszcsomag kezdetével.
 
-Similarly, mcu protocol message responses are sent from micro-controller to host by copying the message data into one or more packets with the node's transmit CAN bus id (`canbus_nodeid * 2 + 256 + 1`).
+Hasonlóképpen, az MCU protokoll üzenetválaszok a mikrokontrollerről a gazdagéphez úgy kerülnek elküldésre, hogy az üzenetadatokat egy vagy több csomagba másolják a csomópontnak a CAN-buszon való átvitelére vonatkozó azonosítójával (`canbus_nodeid * 2 + 256 + 1`).
