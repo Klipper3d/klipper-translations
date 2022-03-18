@@ -1,18 +1,18 @@
 # Bed leveling
 
-Bed leveling (sometimes also referred to as "bed tramming") is critical to getting high quality prints. If a bed is not properly "leveled" it can lead to poor bed adhesion, "warping", and subtle problems throughout the print. This document serves as a guide to performing bed leveling in Klipper.
+Az ágyszintezés (néha más néven "bed tramming") kritikus fontosságú a jó minőségű nyomatok előállításához. Ha az ágy nem megfelelően van "szintezve", az rossz tapadáshoz, "vetemedéshez" és finom problémákhoz vezethet a nyomtatás során. Ez a dokumentum útmutatóként szolgál az ágyszintzés Klipperben történő elvégzéséhez.
 
-It's important to understand the goal of bed leveling. If the printer is commanded to a position `X0 Y0 Z10` during a print, then the goal is for the printer's nozzle to be exactly 10mm from the printer's bed. Further, should the printer then be commanded to a position of `X50 Z10` the goal is for the nozzle to maintain an exact distance of 10mm from the bed during that entire horizontal move.
+Fontos megérteni az ágy szintezésének célját. Ha a nyomtatót egy `X0 Y0 Z10` pozícióba irányítjuk a nyomtatás során, akkor a cél az, hogy a nyomtató fúvókája pontosan 10 mm-re legyen a nyomtató ágyától. Továbbá, ha a nyomtatót ezután a `X50 Z10` pozícióba irányítjuk, a cél az, hogy a fúvóka pontosan 10 mm távolságot tartson az ágytól a teljes vízszintes mozgás során.
 
-In order to get good quality prints the printer should be calibrated so that Z distances are accurate to within about 25 microns (.025mm). This is a small distance - significantly smaller than the width of a typical human hair. This scale can not be measured "by eye". Subtle effects (such as heat expansion) impact measurements at this scale. The secret to getting high accuracy is to use a repeatable process and to use a leveling method that leverages the high accuracy of the printer's own motion system.
+A jó minőségű nyomatok érdekében a nyomtatót úgy kell kalibrálni, hogy a Z távolságok körülbelül 25 mikron (.025 mm) pontosságúak legyenek. Ez egy kis távolság - lényegesen kisebb, mint egy átlagos emberi hajszál szélessége. Ez a méretarány nem mérhető "szemmel". Finom hatások (mint például a hőtágulás) befolyásolják az ilyen skálán végzett méréseket. A nagy pontosság elérésének titka az ismételhető folyamat és a nyomtató saját mozgásrendszerének nagy pontosságát kihasználó szintezési módszer alkalmazása.
 
-## Choose the appropriate calibration mechanism
+## Válassza ki a megfelelő kalibrációs mechanizmust
 
-Different types of printers use different methods for performing bed leveling. All of them ultimately depend on the "paper test" (described below). However, the actual process for a particular type of printer is described in other documents.
+A különböző típusú nyomtatók különböző módszereket használnak az ágyszintezés elvégzésére. Ezek mindegyike végső soron a "papírteszt" (lásd alább) függvénye. Az adott nyomtatótípusra vonatkozó tényleges eljárást azonban más dokumentumok írják le.
 
-Prior to running any of these calibration tools, be sure to run the checks described in the [config check document](Config_checks.md). It is necessary to verify basic printer motion before performing bed leveling.
+A kalibrációs eszközök futtatása előtt feltétlenül futtassa le a [config check dokumentumban](Config_checks.md) leírt ellenőrzéseket. A nyomtató alapvető mozgásának ellenőrzése szükséges az ágyszintezés elvégzése előtt.
 
-For printers with an "automatic Z probe" be sure to calibrate the probe following the directions in the [Probe Calibrate](Probe_Calibrate.md) document. For delta printers, see the [Delta Calibrate](Delta_Calibrate.md) document. For printers with bed screws and traditional Z endstops, see the [Manual Level](Manual_Level.md) document.
+A "automatikus Z-szondával" rendelkező nyomtatók esetében a szondát mindenképpen kalibrálja a [Probe Calibrate](Probe_Calibrate.md) dokumentumban található utasítások szerint. Delta nyomtatók esetében lásd a [Delta Calibrate](Delta_Calibrate.md) dokumentumot. Szintezőcsavarokkal és hagyományos Z végállással rendelkező nyomtatók esetében lásd a [Manual Level](Manual_Level.md) dokumentumot.
 
 During calibration it may be necessary to set the printer's Z `position_min` to a negative number (eg, `position_min = -2`). The printer enforces boundary checks even during calibration routines. Setting a negative number allows the printer to move below the nominal position of the bed, which may help when trying to determine the actual bed position.
 
