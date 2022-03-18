@@ -1,17 +1,18 @@
 # Roberto Besser <rmbesser@gmail.com>, 2021.
-# gbonaspetti <gbonaspetti@hotmail.com>, 2022.
+# gbonaspetti <gbonaspetti@hotmail.com>, 2022, 2025.
 # Tiago Lucas Flach <tiagolucas9830@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-11-30 20:05+0000\n"
-"Last-Translator: Tiago Lucas Flach <tiagolucas9830@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/klipper/config_checks/pt_BR/>\n"
+"PO-Revision-Date: 2025-05-03 07:28+0000\n"
+"Last-Translator: gbonaspetti <gbonaspetti@hotmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/config_checks/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in the"
@@ -202,12 +203,12 @@ msgid ""
 "is necessary to calibrate the PID settings on each printer (PID settings found"
 " in other firmwares or in the example configuration files often work poorly)."
 msgstr ""
-"Klipper suporta o [controlador "
-"PID](https://pt.wikipedia.org/wiki/Controlador_proporcional_integral_derivativo)"
-" para a extrusora e aquecedores de cama. Para usar este mecanismo de controle,"
-" é necessário calibrar as configurações PID em cada impressora (configurações "
-"PID encontradas em outros firmwares ou nos arquivos de configuração de exemplo"
-" muitas vezes funcionam mal)."
+"Klipper suporta o [controlador PID](https://pt.wikipedia.org/wiki/"
+"Controlador_proporcional_integral_derivativo) para a extrusora e aquecedores "
+"de cama. Para usar este mecanismo de controle, é necessário calibrar as "
+"configurações PID em cada impressora (configurações PID encontradas em "
+"outros firmwares ou nos arquivos de configuração de exemplo muitas vezes "
+"funcionam mal)."
 
 #: docs/Config_checks.md:block 5 (paragraph)
 msgid ""
