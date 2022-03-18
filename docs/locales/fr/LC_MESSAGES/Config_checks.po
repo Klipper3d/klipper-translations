@@ -1,6 +1,6 @@
 # wilmouths <wilmouthsteven@gmail.com>, 2021, 2025.
 # Wivik <seb+weblate@zedas.fr>, 2021, 2025.
-# gbonaspetti <gbonaspetti@hotmail.com>, 2022.
+# gbonaspetti <gbonaspetti@hotmail.com>, 2022, 2025.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # jean-luc MATTEI <jlucm@free.fr>, 2023.
 # Sébastien Thieury <dev.sebthieu@serendip-it.fr>, 2024.
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Last-Translator: gbonaspetti <gbonaspetti@hotmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "config_checks/fr/>\n"
 "Language: fr\n"
@@ -207,12 +207,12 @@ msgid ""
 "is necessary to calibrate the PID settings on each printer (PID settings found"
 " in other firmwares or in the example configuration files often work poorly)."
 msgstr ""
-"Klipper prend en charge le [régulateur "
-"PID](https://fr.wikipedia.org/wiki/R%C3%A9gulateur_PID) pour l'extrudeuse et "
-"le chauffage du lit. Afin d'utiliser ce mécanisme de contrôle, il est "
-"nécessaire de calibrer les paramètres PID sur chaque imprimante (les "
-"paramètres PID trouvés dans d'autres micrologiciels ou dans les fichiers de "
-"configuration d'exemple fonctionnent souvent mal)."
+"Klipper prend en charge le [régulateur PID](https://fr.wikipedia.org/wiki/"
+"R%C3%A9gulateur_PID) pour l'extrudeuse et le chauffage du lit. Afin "
+"d'utiliser ce mécanisme de contrôle, il est nécessaire de calibrer les "
+"paramètres PID sur chaque imprimante (les paramètres PID trouvés dans "
+"d'autres micrologiciels ou dans les fichiers de configuration d'exemple "
+"fonctionnent souvent mal)."
 
 #: docs/Config_checks.md:block 5 (paragraph)
 msgid ""
