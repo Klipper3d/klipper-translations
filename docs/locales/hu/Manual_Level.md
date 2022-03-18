@@ -1,34 +1,34 @@
-# Manual leveling
+# Kézi szintezés
 
-This document describes tools for calibrating a Z endstop and for performing adjustments to bed leveling screws.
+Ez a dokumentum a Z végállás kalibrálásához és az ágyat kiegyenlítő csavarok beállításához szükséges eszközöket ismerteti.
 
-## Calibrating a Z endstop
+## Z végállás kalibrálása
 
-An accurate Z endstop position is critical to obtaining high quality prints.
+A pontos Z végállás pozíciója kritikus fontosságú a jó minőségű nyomatok elkészítéséhez.
 
-Note, though, the accuracy of the Z endstop switch itself can be a limiting factor. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of the switch.
+Vegye figyelembe azonban, hogy maga a Z végálláskapcsoló pontossága korlátozó tényező lehet. Ha Trinamic léptetőmotor-meghajtókat használunk, akkor fontoljuk meg a [végstop fázis](Endstop_Phase.md) érzékelés engedélyezését a kapcsoló pontosságának javítása érdekében.
 
-To perform a Z endstop calibration, home the printer, command the head to move to a Z position that is at least five millimeters above the bed (if it is not already), command the head to move to an XY position near the center of the bed, then navigate to the OctoPrint terminal tab and run:
+A Z végpont kalibrálásának végrehajtásához kapcsolja be a nyomtatót, utasítsa a fejet, hogy mozogjon egy Z pozícióba, amely legalább öt milliméterrel az ágy felett van (ha még nincs), utasítsa a fejet, hogy mozogjon egy X-Y pozícióba, közel a nyomtató közepéhez az ágyra, majd navigáljon az OctoPrint terminál fülre, és futtassa:
 
 ```
 Z_ENDSTOP_CALIBRATE
 ```
 
-Then follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test) to determine the actual distance between the nozzle and bed at the given location. Once those steps are complete one can `ACCEPT` the position and save the results to the config file with:
+Ezután kövesse a ["a papírteszt"](Bed_Level.md#the-paper-test) pontban leírt lépéseket a fúvóka és az ágy közötti tényleges távolság meghatározásához az adott helyen. Ha ezek a lépések befejeződtek, akkor `ACCEPT` és elmentheti az eredményeket a config fájlba a következővel:
 
 ```
 SAVE_CONFIG
 ```
 
-It's preferable to use a Z endstop switch on the opposite end of the Z axis from the bed. (Homing away from the bed is more robust as then it is generally always safe to home the Z.) However, if one must home towards the bed it is recommended to adjust the endstop so that it triggers a small distance (eg, .5mm) above the bed. Almost all endstop switches can safely be depressed a small distance beyond their trigger point. When this is done, one should find that the `Z_ENDSTOP_CALIBRATE` command reports a small positive value (eg, .5mm) for the Z position_endstop. Triggering the endstop while it is still some distance from the bed reduces the risk of inadvertent bed crashes.
+Előnyösebb, ha a Z végálláskapcsolót a Z tengelynek az ággyal ellentétes végére helyezzük. (Az ágytól távolabb történő kezdőpont keresés robusztusabb, mivel akkor általában mindig biztonságosan lehet a Z-t kezdőpontra állítani.) Ha azonban az ágy felé kell kezdőpontot felvenni, ajánlott a végálláskapcsolót úgy beállítani, hogy az kis távolságra (pl. 0,5 mm-re) az ágy fölött kapcsoljon. Majdnem minden végálláskapcsoló biztonságosan lenyomható egy kis távolsággal a kioldási ponton túl. Ha ez megtörtént, azt kell tapasztalni, hogy a `Z_ENDSTOP_CALIBRATE` parancs egy kis pozitív értéket (pl. .5mm) jelez a Z pozíció végálláshoz. A végállás érzékelése akkor, amikor az még bizonyos távolságra van az ágytól, csökkenti a véletlen ágyba ütközések kockázatát.
 
-Some printers have the ability to manually adjust the location of the physical endstop switch. However, it's recommended to perform Z endstop positioning in software with Klipper - once the physical location of the endstop is in a convenient location, one can make any further adjustments by running Z_ENDSTOP_CALIBRATE or by manually updating the Z position_endstop in the configuration file.
+Egyes nyomtatókon lehetőség van a fizikai végálláskapcsoló helyének kézi beállítására. Azonban ajánlott a Z végállás pozícionálását szoftveresen elvégezni a Klipperrel. Ha a végállás fizikai helyzete megfelelő helyen van, a további beállításokat a Z_ENDSTOP_CALIBRATE futtatásával vagy a Z position_endstop konfigurációs fájlban lévő Z position_endstop manuális frissítésével lehet elvégezni.
 
-## Adjusting bed leveling screws
+## Ágyszintező csavarok beállítása
 
-The secret to getting good bed leveling with bed leveling screws is to utilize the printer's high precision motion system during the bed leveling process itself. This is done by commanding the nozzle to a position near each bed screw and then adjusting that screw until the bed is a set distance from the nozzle. Klipper has a tool to assist with this. In order to use the tool it is necessary to specify each screw XY location.
+Az ágyat kiegyenlítő csavarokkal történő jó szintezés titka a nyomtató nagy pontosságú mozgásrendszerének kihasználása a szintezési folyamat során. Ez úgy történik, hogy a fúvókát az egyes szintezőcsavarok közelében lévő pozícióba navigáljuk, majd az adott csavart addig állítjuk, amíg az ágy egy meghatározott távolságra nem kerül a fúvókától. A Klipper rendelkezik egy eszközzel, amely ezt segíti. Az eszköz használatához meg kell adni az egyes csavarok X-Y helyzetét.
 
-This is done by creating a `[bed_screws]` config section. For example, it might look something similar to:
+Ezt egy `[bed_screws]` konfigurációs szakasz létrehozásával érhetjük el. Ez például valahogy így nézhet ki:
 
 ```
 [bed_screws]
@@ -37,31 +37,31 @@ screw2: 100, 150
 screw3: 150, 100
 ```
 
-If a bed screw is under the bed, then specify the XY position directly above the screw. If the screw is outside the bed then specify an XY position closest to the screw that is still within the range of the bed.
+Ha egy ágycsavar az ágy alatt van, akkor adja meg az X-Y pozíciót közvetlenül a csavar felett. Ha a csavar az ágyon kívül van, akkor adja meg a csavarhoz legközelebbi X-Y-pozíciót, amely még az ágy hatótávolságán belül van.
 
-Once the config file is ready, run `RESTART` to load that config, and then one can start the tool by running:
+Miután a konfigurációs fájl készen áll, futtassa a `RESTART` parancsot a konfiguráció betöltéséhez, majd elindíthatja az eszközt a következő futtatásával:
 
 ```
 BED_SCREWS_ADJUST
 ```
 
-This tool will move the printer's nozzle to each screw XY location and then move the nozzle to a Z=0 height. At this point one can use the "paper test" to adjust the bed screw directly under the nozzle. See the information described in ["the paper test"](Bed_Level.md#the-paper-test), but adjust the bed screw instead of commanding the nozzle to different heights. Adjust the bed screw until there is a small amount of friction when pushing the paper back and forth.
+Ez az eszköz a nyomtató fúvókát minden egyes csavar X-Y helyére mozgatja, majd a fúvókát Z=0 magasságba mozgatja. Ezen a ponton a "papírteszt" segítségével közvetlenül a fúvóka alatt lehet beállítani az ágy csavarját. Lásd a ["a papírteszt"](Bed_Level.md#the-paper-test)-ben leírtakat. De a fúvóka különböző magasságokba navigálása helyett az ágycsavart állítsa be. Addig állítsa a csavart, amíg a papír előre-hátra tolása közben kis súrlódás nem keletkezik.
 
-Once the screw is adjusted so that a small amount of friction is felt, run either the `ACCEPT` or `ADJUSTED` command. Use the `ADJUSTED` command if the bed screw needed an adjustment (typically anything more than about 1/8th of a turn of the screw). Use the `ACCEPT` command if no significant adjustment is necessary. Both commands will cause the tool to proceed to the next screw. (When an `ADJUSTED` command is used, the tool will schedule an additional cycle of bed screw adjustments; the tool completes successfully when all bed screws are verified to not require any significant adjustments.) One can use the `ABORT` command to exit the tool early.
+Miután a csavart úgy állítottuk be, hogy egy kis súrlódás érezhető legyen, futtassuk az `ACCEPT` vagy az `ADJUSTED` parancsot. Használja az `ADJUSTED` parancsot, ha a szintezőcsavar beállítására van szükség (általában bármi, ami több mint 1/8 csavarfordulat). Használja az `ACCEPT` parancsot, ha nincs szükség jelentős beállításra. Mindkét parancs hatására a szerszám a következő csavarhoz lép. (Ha az `ADJUSTED` parancsot használja, a szerszám egy további szintezőcsavar-beállítási ciklust ütemez be. A szerszám sikeresen befejezi, ha az összes szintezőcsavarról bebizonyosodik, hogy nem igényel jelentős beállítást.) Az `ABORT` paranccsal idő előtt ki lehet lépni a szintezésből.
 
-This system works best when the printer has a flat printing surface (such as glass) and has straight rails. Upon successful completion of the bed leveling tool the bed should be ready for printing.
+Ez a rendszer akkor működik a legjobban, ha a nyomtató sík nyomtatási felülettel (például üveggel) és egyenes sínekkel rendelkezik. Az ágyszintező eszköz sikeres elvégzése után az ágy készen áll a nyomtatásra.
 
-### Fine grained bed screw adjustments
+### Finom menetes ágycsavar beállítások
 
-If the printer uses three bed screws and all three screws are under the bed, then it may be possible to perform a second "high precision" bed leveling step. This is done by commanding the nozzle to locations where the bed moves a larger distance with each bed screw adjustment.
+Ha a nyomtató három szintezőcsavart használ, és mindhárom csavar az ágy alatt van, akkor lehetséges egy második "nagy pontosságú" szintezési lépés elvégzése. Ez úgy történik, hogy a fúvókát olyan helyekre irányítja, ahol az ágy minden egyes szintezőcsavar beállítással nagyobb távolságot mozdul el.
 
-For example, consider a bed with screws at locations A, B, and C:
+Vegyünk például egy ágyat, amelynek A, B és C helyén csavarok vannak:
 
 ![bed_screws](img/bed_screws.svg.png)
 
-For each adjustment made to the bed screw at location C, the bed will swing along a pendulum defined by the remaining two bed screws (shown here as a green line). In this situation, each adjustment to the bed screw at C will move the bed at position D a further amount than directly at C. It is thus possible to make an improved C screw adjustment when the nozzle is at position D.
+A C helyen lévő szintezőcsavar minden egyes beállítása esetén az ágy a fennmaradó két szintezőcsavar által meghatározott inga mentén fog lengeni (itt zöld vonalként látható). Ebben a helyzetben a szintezőcsavar állítása a C helyzetben az ágyat kissebb a D helyzetben egy nagyobb mértékben mozdítja el.
 
-To enable this feature, one would determine the additional nozzle coordinates and add them to the config file. For example, it might look like:
+A funkció engedélyezéséhez meg kell határozni a további fúvókakoordinátákat, és hozzá kell adni őket a konfigurációs fájlhoz. Ez például így nézhet ki:
 
 ```
 [bed_screws]
@@ -73,13 +73,13 @@ screw3: 150, 100
 screw3_fine_adjust: 0, 100
 ```
 
-When this feature is enabled, the `BED_SCREWS_ADJUST` tool will first prompt for coarse adjustments directly above each screw position, and once those are accepted, it will prompt for fine adjustments at the additional locations. Continue to use `ACCEPT` and `ADJUSTED` at each position.
+Ha ez a funkció engedélyezve van, a `BED_SCREWS_ADJUST` eszköz először közvetlenül az egyes csavarok pozíciói felett kér durva beállításokat, és ha ezeket elfogadta, akkor a további helyeken finom beállításokat kér. Folytassa az `ACCEPT` és `ADJUSTED` használatával minden egyes pozícióban.
 
-## Adjusting bed leveling screws using the bed probe
+## Az ágy szintezőcsavarjainak beállítása mérőszonda segítségével
 
-This is another way to calibrate the bed level using the bed probe. To use it you must have a Z probe (BL Touch, Inductive sensor, etc).
+Ez egy másik módja az ágyszint kalibrálásának a mérőszonda segítségével. Használatához rendelkeznie kell Z-szondával (BL Touch, induktív érzékelő stb.).
 
-To enable this feature, one would determine the nozzle coordinates such that the Z probe is above the screws, and then add them to the config file. For example, it might look like:
+A funkció engedélyezéséhez meg kell határozni a fúvóka koordinátáit úgy, hogy a Z szonda a csavarok felett legyen, majd hozzá kell adni a konfigurációs fájlhoz. Ez például így nézhet ki:
 
 ```
 [screws_tilt_adjust]
@@ -96,7 +96,7 @@ speed: 50.
 screw_thread: CW-M3
 ```
 
-The screw1 is always the reference point for the others, so the system assumes that screw1 is at the correct height. Always run `G28` first and then run `SCREWS_TILT_CALCULATE` - it should produce output similar to:
+Az 1. csavar mindig a referenciapont a többi csavar számára, így a rendszer feltételezi, hogy az 1. csavar a megfelelő magasságban van. Először mindig futtassa le a `G28` G-kódot, majd futtassa le a `SCREWS_TILT_CALCULATE` parancsot. Ennek a következőhöz hasonló kimenetet kell eredményeznie:
 
 ```
 Send: G28
@@ -110,17 +110,17 @@ Recv: // read left screw : x=-5.0, y=190.0, z=2.47250 : adjust CW 00:02
 Recv: ok
 ```
 
-This means that:
+Ez azt jelenti, hogy:
 
-- front left screw is the reference point you must not change it.
-- front right screw must be turned clockwise 1 full turn and a quarter turn
-- rear right screw must be turned counter-clockwise 50 minutes
-- rear left screw must be turned clockwise 2 minutes (not need it's ok)
+- a bal első csavar a referenciapont, nem szabad megváltoztatni.
+- a jobb első csavart az óramutató járásával megegyező irányban kell elfordítani 1 teljes és negyed fordulatot
+- a jobb hátsó csavart az óramutató járásával ellentétes irányba kell forgatni 50 percnyi fordulatot
+- bal hátsó csavart az óramutató járásával megegyező irányba kell forgatni 2 percnyit (nem kell tökéletesnek lennie)
 
-Repeat the process several times until you get a good level bed - normally when all adjustments are below 6 minutes.
+Ismételje meg a folyamatot többször, amíg egy jó vízszintes ágyat nem kap - általában akkor jó, ha minden beállítás 6 perc alatt van.
 
-If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that adjusting the bed tilt will invalidate any previous probe calibration that was performed with a tilted bed. Be sure to run [probe calibration](Probe_Calibrate.md) after the bed screws have been adjusted.
+Ha olyan szondát használ, amely a nyomtatófej oldalára van szerelve (azaz X vagy Y eltolással rendelkezik), akkor vegye figyelembe, hogy az ágy dőlésének beállítása érvényteleníti a korábbi, dőlésszögű ágyon végzett szintkalibrálást. Az ágy csavarjainak beállítása után mindenképpen futtassa le a [szonda kalibrálása](Probe_Calibrate.md) parancsot.
 
-The `MAX_DEVIATION` parameter is useful when a saved bed mesh is used, to ensure that the bed level has not drifted too far from where it was when the mesh was created. For example, `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` can be added to the custom start gcode of the slicer before the mesh is loaded. It will abort the print if the configured limit is exceeded (0.01mm in this example), giving the user a chance to adjust the screws and restart the print.
+A `MAX_DEVIATION` paraméter akkor hasznos, ha egy mentett ágyhálót használunk, hogy biztosítsuk, hogy az ágy szintje ne térjen el túlságosan attól a helytől, ahol a háló létrehozásakor volt. Például a `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` hozzáadható a szeletelő egyéni indító G-kódjához a háló betöltése előtt. Ez megszakítja a nyomtatást, ha a beállított határértéket túllépi (ebben a példában 0,01 mm), lehetőséget adva a felhasználónak a csavarok beállítására és a nyomtatás újraindítására.
 
-The `DIRECTION` parameter is useful if you can turn your bed adjustment screws in one direction only. For example, you might have screws that start tightened in their lowest (or highest) possible position, which can only be turned in a single direction, to raise (or lower) the bed. If you can only turn the screws clockwise, run `SCREWS_TILT_CALCULATE DIRECTION=CW`. If you can only turn them counter-clockwise, run `SCREWS_TILT_CALCULATE DIRECTION=CCW`. A suitable reference point will be chosen such that the bed can be leveled by turning all the screws in the given direction.
+A `DIRECTION` paraméter akkor hasznos, ha az ágy szintező csavarjait csak egy irányba tudja elfordítani. Például lehetnek olyan csavarjai, amelyek a lehető legalacsonyabb (vagy legmagasabb) pozícióban vannak meghúzva, és csak egy irányba forgathatók az ágy emeléséhez (vagy süllyesztéséhez). Ha a csavarokat csak az óramutató járásával megegyező irányban tudja elfordítani, futtassa a `SCREWS_TILT_CALCULATE DIRECTION=CW` parancsot. Ha csak az óramutató járásával ellentétes irányban tudja elforgatni őket, futtassa a `SCREWS_TILT_CALCULATE DIRECTION=CCW` parancsot. A program kiválaszt egy megfelelő referenciapontot, hogy az ágyat az összes csavar adott irányba történő elfordításával szintezhesse.

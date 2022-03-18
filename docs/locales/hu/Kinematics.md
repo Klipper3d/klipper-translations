@@ -1,36 +1,36 @@
 # Kinematics
 
-This document provides an overview of how Klipper implements robot motion (its [kinematics](https://en.wikipedia.org/wiki/Kinematics)). The contents may be of interest to both developers interested in working on the Klipper software as well as users interested in better understanding the mechanics of their machines.
+Ez a dokumentum áttekintést nyújt arról, hogy a Klipper hogyan valósítja meg a robot mozgását (a [kinematika](https://en.wikipedia.org/wiki/Kinematics)). A tartalom mind a Klipper szoftveren dolgozni kívánó fejlesztők, mind a gépük mechanikájának jobb megértése iránt érdeklődő felhasználók számára érdekes lehet.
 
-## Acceleration
+## Gyorsulás
 
-Klipper implements a constant acceleration scheme whenever the print head changes velocity - the velocity is gradually changed to the new speed instead of suddenly jerking to it. Klipper always enforces acceleration between the tool head and the print. The filament leaving the extruder can be quite fragile - rapid jerks and/or extruder flow changes lead to poor quality and poor bed adhesion. Even when not extruding, if the print head is at the same level as the print then rapid jerking of the head can cause disruption of recently deposited filament. Limiting speed changes of the print head (relative to the print) reduces risks of disrupting the print.
+A Klipper állandó gyorsítási rendszert alkalmaz, amikor a nyomtatófej sebességet változtat. A sebesség fokozatosan változik az új sebességre, ahelyett, hogy hirtelen rángatózna. A Klipper mindig kikényszeríti a gyorsulást a szerszámfej és a nyomtatás között. Az extruderből kilépő szál meglehetősen törékeny lehet. A gyors rángások és/vagy az extruder áramlásának változása rossz minőséghez és rossz tapadáshoz vezet. Még ha nem is extrudál, ha a nyomtatófej a nyomtatással egy magasságban van, akkor a fej gyors rángása a nemrég letapadt anyag felválását okozhatja. A nyomtatófej sebességváltoztatásának korlátozása (a nyomtatáshoz képest) csökkenti a nyomat felválásának kockázatát.
 
-It is also important to limit acceleration so that the stepper motors do not skip or put excessive stress on the machine. Klipper limits the torque on each stepper by virtue of limiting the acceleration of the print head. Enforcing acceleration at the print head naturally also limits the torque of the steppers that move the print head (the inverse is not always true).
+Fontos a gyorsulás korlátozása is, hogy a léptetőmotorok ne ugorjanak, és ne terheljék túlzottan a gépet. A Klipper a nyomtatófej gyorsulásának korlátozásával korlátozza az egyes léptetőmotorok nyomatékát. A nyomtatófej gyorsulásának kikényszerítése természetesen a nyomtatófejet mozgató léptetőmotorok nyomatékát is korlátozza (a fordítottja nem mindig igaz).
 
-Klipper implements constant acceleration. The key formula for constant acceleration is:
+A Klipper állandó gyorsulást valósít meg. Az állandó gyorsulás legfontosabb képlete a következő:
 
 ```
 velocity(time) = start_velocity + accel*time
 ```
 
-## Trapezoid generator
+## Trapéz generátor
 
-Klipper uses a traditional "trapezoid generator" to model the motion of each move - each move has a start speed, it accelerates to a cruising speed at constant acceleration, it cruises at a constant speed, and then decelerates to the end speed using constant acceleration.
+A Klipper hagyományos "trapézgenerátort" használ az egyes mozgások modellezésére. Minden lépésnek van kezdősebessége, állandó gyorsítás mellett utazósebességre gyorsul, állandó sebességgel utazik, majd állandó gyorsítással lelassít a végsebességre .
 
 ![trapezoid](img/trapezoid.svg.png)
 
-It's called a "trapezoid generator" because a velocity diagram of the move looks like a trapezoid.
+Ezt "trapézgenerátornak" nevezik, mert a mozgás sebességdiagramja úgy néz ki, mint egy trapéz.
 
-The cruising speed is always greater than or equal to both the start speed and the end speed. The acceleration phase may be of zero duration (if the start speed is equal to the cruising speed), the cruising phase may be of zero duration (if the move immediately starts decelerating after acceleration), and/or the deceleration phase may be of zero duration (if the end speed is equal to the cruising speed).
+Az utazósebesség mindig nagyobb vagy egyenlő a kezdő- és a végsebességgel. A gyorsulási fázis lehet nulla időtartamú (ha a kezdősebesség egyenlő az utazósebességgel), az utazási fázis lehet nulla időtartamú (ha a mozgás a gyorsulás után azonnal lassulni kezd), és/vagy a lassulási fázis lehet nulla időtartamú (ha a végsebesség egyenlő az utazósebességgel).
 
 ![trapezoids](img/trapezoids.svg.png)
 
-## Look-ahead
+## Előretekintő
 
-The "look-ahead" system is used to determine cornering speeds between moves.
+A "look-ahead" rendszert a kanyarsebességek meghatározására használják a mozgások között.
 
-Consider the following two moves contained on an XY plane:
+Tekintsük a következő két mozgást, amelyek egy X-Y-síkon helyezkednek el:
 
 ![corner](img/corner.svg.png)
 

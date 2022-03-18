@@ -51,7 +51,7 @@ serial:
 
 ### [mcu my_extra_mcu]
 
-Additional micro-controllers (one may define any number of sections with an "mcu" prefix). Additional micro-controllers introduce additional pins that may be configured as heaters, steppers, fans, etc.. For example, if an "[mcu extra_mcu]" section is introduced, then pins such as "extra_mcu:ar9" may then be used elsewhere in the config (where "ar9" is a hardware pin name or alias name on the given mcu).
+További mikrovezérlők (az "mcu" előtaggal tetszőleges számú szekciót lehet definiálni). A további mikrovezérlők további pineket vezetnek be, amelyek fűtőberendezésként, léptetőberendezésként, ventilátorként stb. konfigurálhatók. Például, ha egy "[mcu extra_mcu]" szekciót vezetünk be, akkor az olyan pinek, mint az "extra_mcu:ar9" a konfigurációban máshol is használhatók (ahol "ar9" az adott mcu hardveres pin neve vagy álneve).
 
 ```
 [mcu my_extra_mcu]
@@ -1583,7 +1583,7 @@ control_pin:
 #   See the "probe" section for information on these parameters.
 ```
 
-## Additional stepper motors and extruders
+## További léptetőmotorok és extruderek
 
 ### [stepper_z1]
 
@@ -1781,22 +1781,21 @@ Custom ADC temperature sensors (one may define any number of sections with an "a
 #temperature2:
 #voltage2:
 #...
-#   A set of temperatures (in Celsius) and voltages (in Volts) to use
-#   as reference when converting a temperature. A heater section using
-#   this sensor may also specify adc_voltage and voltage_offset
-#   parameters to define the ADC voltage (see "Common temperature
-#   amplifiers" section for details). At least two measurements must
-#   be provided.
+# A használandó hőmérsékletek (Celsiusban) és feszültségek (Voltban) halmaza
+# referenciaként használjuk a hőmérséklet átváltásakor. Egy fűtőszekció, amely a
+# ezt az érzékelőt használva adc_voltage és voltage_offset értékeket is megadhat.
+# paramétereket az ADC-feszültség meghatározásához (lásd "Közönséges hőmérséklet
+# erősítők" szakaszban a részletekért). Legalább két mérésnek kell lennie.
 #temperature1:
-#resistance1:
-#temperature2:
+#ellenállás1:
+#hőmérséklet2:
 #resistance2:
 #...
-#   Alternatively one may specify a set of temperatures (in Celsius)
-#   and resistance (in Ohms) to use as reference when converting a
-#   temperature. A heater section using this sensor may also specify a
-#   pullup_resistor parameter (see "extruder" section for details). At
-#   least two measurements must be provided.
+# Alternatívaként megadhatunk egy sorban hőmérsékletet (Celsiusban) is
+# és ellenállást (Ohmban), hogy referenciaként használhassuk, amikor átalakítunk egy
+# hőmérsékletet. Ezt az érzékelőt használó fűtőszekcióban megadhatunk egy
+# pullup_resistor paramétert (a részleteket lásd az "extruder" szakaszban).
+# A címen legalább két mérést kell megadni.
 ```
 
 ### [heater_generic]
@@ -2260,7 +2259,7 @@ Manually controlled fan (one may define any number of sections with a "fan_gener
 #   See the "fan" section for a description of the above parameters.
 ```
 
-## Additional servos, LEDs, buttons, and other pins
+## További szervók, LED-ek, gombok és egyéb érintkezők
 
 ### [servo]
 
@@ -2804,36 +2803,36 @@ Statically configured AD5206 digipots connected via SPI bus (one may define any 
 ```
 [ad5206 my_digipot]
 enable_pin:
-#   The pin corresponding to the AD5206 chip select line. This pin
-#   will be set to low at the start of SPI messages and raised to high
-#   after the message completes. This parameter must be provided.
+# Az AD5206 chip kiválasztási vonalának megfelelő pin. Ez a pin
+# az SPI-üzenetek elején alacsonyra lesz állítva, és magasra emelkedik
+# az üzenet befejezése után. Ezt a paramétert meg kell adni.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+# Lásd az "általános SPI-beállítások" című leírást a
+# fenti paraméterek megadásához.
 #channel_1:
 #channel_2:
 #channel_3:
 #channel_4:
 #channel_5:
 #channel_6:
-#   The value to statically set the given AD5206 channel to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest resistance and 0.0 being the lowest resistance. However,
-#   the range may be changed with the 'scale' parameter (see below).
-#   If a channel is not specified then it is left unconfigured.
+# Az adott AD5206 csatorna statikus beállítására szolgáló érték. Ez
+# általában 0,0 és 1,0 közötti számra van állítva, ahol az 1,0 a
+# legnagyobb ellenállás és 0,0 a legkisebb ellenállás. Azonban,
+# a tartomány megváltoztatható a 'scale' paraméterrel (lásd alább).
+# Ha egy csatorna nincs megadva, akkor konfigurálatlanul marad.
 #scale:
-#   This parameter can be used to alter how the 'channel_x' parameters
-#   are interpreted. If provided, then the 'channel_x' parameters
-#   should be between 0.0 and 'scale'. This may be useful when the
-#   AD5206 is used to set stepper voltage references. The 'scale' can
-#   be set to the equivalent stepper amperage if the AD5206 were at
-#   its highest resistance, and then the 'channel_x' parameters can be
-#   specified using the desired amperage value for the stepper. The
-#   default is to not scale the 'channel_x' parameters.
+# Ezzel a paraméterrel módosítható a 'channel_x' paraméter
+# értelmezése. Ha megadja, akkor a 'channel_x' paramétereknek
+# 0,0 és 'scale' között kell lennie. Ez akkor lehet hasznos, ha az
+# AD5206 a léptető feszültség referenciák beállítására szolgál. A „mérleg” tud
+# egyenértékű léptető áramerősséget állítani, ha az AD5206 értéken lenne
+# a legnagyobb ellenállása, majd a 'channel_x' paraméterek lehetnek
+# megadva a léptető kívánt amperértékével. Az
+# alapértelmezés szerint nem skálázza a 'channel_x' paramétereket.
 ```
 
 ### [mcp4451]
@@ -3520,15 +3519,13 @@ See the [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) file fo
 ```
 [adc_scaled my_name]
 vref_pin:
-#   The ADC pin to use for VREF monitoring. This parameter must be
-#   provided.
+# A VREF monitorozásához használt ADC pin. Ezt a paramétert meg kell adni.
 vssa_pin:
-#   The ADC pin to use for VSSA monitoring. This parameter must be
-#   provided.
+# A VSSA monitorozásához használandó ADC pin. Ezt a paramétert meg kell adni.
 #smooth_time: 2.0
-#   A time value (in seconds) over which the vref and vssa
-#   measurements will be smoothed to reduce the impact of measurement
-#   noise. The default is 2 seconds.
+# Egy időérték (másodpercben), amely alatt a vref és a vssa
+# mérések simításra kerülnek, hogy csökkentsék a mérés hatását
+# zaj csökkentése érdekében. Az alapértelmezett érték 2 másodperc.
 ```
 
 ### [replicape]
