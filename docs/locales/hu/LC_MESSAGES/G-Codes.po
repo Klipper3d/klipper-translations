@@ -1,9 +1,16 @@
-#
+# Zs.Antal <zsikaiantal@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-03-19 05:56+0000\n"
+"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"g-codes/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -237,6 +244,8 @@ msgid ""
 "`ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: In a printer with multiple "
 "extruders this command is used to change the active extruder."
 msgstr ""
+"`ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: Több extruderrel rendelkező "
+"nyomtató esetén ez a parancs az aktív extruder megváltoztatására szolgál."
 
 msgid ""
 "`SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] "
@@ -271,9 +280,11 @@ msgid ""
 "`ACCEPT`: This command accepts the current Z position and concludes the "
 "manual probing tool."
 msgstr ""
+"`ACCEPT`: Ez a parancs elfogadja az aktuális Z pozíciót, és lezárja a kézi "
+"szintező eszközt."
 
 msgid "`ABORT`: This command terminates the manual probing tool."
-msgstr ""
+msgstr "`ABORT`: Ez a parancs megszakítja a kézi szintezést."
 
 msgid ""
 "`TESTZ Z=<value>`: This command moves the nozzle up or down by the amount "
@@ -445,6 +456,14 @@ msgid ""
 "command above for details on the additional commands available while this "
 "tool is active."
 msgstr ""
+"`BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] "
+"[<mesh_parameter>=<value>]`: Ez a parancs az ágyat a konfigurációban "
+"megadott paraméterek által generált pontok segítségével szintezi. A "
+"szintezés után egy háló generálódik, és a Z elmozdulás a hálónak megfelelően "
+"kerül beállításra. Az opcionális szintező paraméterekkel kapcsolatos "
+"részletekért lásd a PROBE parancsot. Ha a METHOD=manual parancsot adta meg, "
+"akkor a kézi szintező eszköz aktiválódik. Az eszköz aktiválása közben "
+"elérhető további parancsok részleteit lásd a fenti MANUAL_PROBE parancsban."
 
 msgid ""
 "`BED_MESH_MAP`: Like to BED_MESH_OUTPUT, this command prints the current "
@@ -458,6 +477,8 @@ msgid ""
 "`BED_MESH_CLEAR`: This command clears the mesh and removes all z adjustment."
 " It is recommended to put this in your end-gcode."
 msgstr ""
+"`BED_MESH_CLEAR`: Ez a parancs törli a hálót és eltávolít minden Z-"
+"beállítást. Ajánlott ezt a parancsot befejező G-kódba tenni."
 
 msgid ""
 "`BED_MESH_OFFSET [X=<value>] [Y=<value>]`: Applies X and/or Y offsets to the"
@@ -793,6 +814,17 @@ msgid ""
 "the accelerometer does not have a name in its config section (simply "
 "`[adxl345]`) then `<chip>` part of the name is not generated."
 msgstr ""
+"`ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]`: A gyorsulásmérő "
+"mérések elindítása a kért másodpercenkénti mintavételek számával. Ha a CHIP "
+"nincs megadva, az alapértelmezett érték \"adxl345\". A parancs start-stop "
+"üzemmódban működik: az első végrehajtáskor elindítja a méréseket, a "
+"következő végrehajtáskor leállítja azokat. A mérések eredményei a `/tmp/"
+"adxl345-<chip>-<name> .csv nevű fájlba kerülnek kiírásra`, ahol `<chip>` a "
+"gyorsulásmérő chip neve (`my_chip_name` from `[adxl345 my_chip_name]`) és "
+"`<name>` az opcionális NAME paraméter. Ha a NAME nincs megadva, akkor az "
+"alapértelmezett érték az aktuális idő \"ÉÉÉÉÉHHNN_ÓÓPPMM\" formátumban. Ha a "
+"gyorsulásmérőnek nincs neve a konfigurációs szakaszban (egyszerűen "
+"`[adxl345]`), akkor a `<chip>` névrész nem generálódik."
 
 #: docs/G-Codes.md:block 120 (unordered list)
 msgid ""
@@ -803,6 +835,12 @@ msgid ""
 "of the returned values should be a free-fall acceleration (+/- some noise of"
 " the chip)."
 msgstr ""
+"`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: lekérdezi a "
+"gyorsulásmérő aktuális értékét. Ha a CHIP nincs megadva, az "
+"alapértelmezett\"adxl345\". Ha a RATE nincs megadva, az alapértelmezett "
+"értéket használja. Ez a parancs hasznos az ADXL345 gyorsulásmérővel való "
+"kapcsolat tesztelésére. A visszaadott értékek egyikének a szabadeséses "
+"gyorsulásnak kell lennie (+/- a chip alapzaja)."
 
 #: docs/G-Codes.md:block 105 (unordered list)
 msgid ""
@@ -825,7 +863,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 9 (header)
 msgid "Additional Commands"
-msgstr ""
+msgstr "További parancsok"
 
 #: docs/G-Codes.md:block 11 (paragraph)
 msgid ""
@@ -836,7 +874,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 12 (header)
 msgid "[adxl345]"
-msgstr ""
+msgstr "[adxl345]"
 
 #: docs/G-Codes.md:block 13 (paragraph)
 msgid ""
@@ -846,15 +884,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 14 (header)
 msgid "ACCELEROMETER_MEASURE"
-msgstr ""
+msgstr "ACCELEROMETER_MEASURE"
 
 #: docs/G-Codes.md:block 16 (header)
 msgid "ACCELEROMETER_QUERY"
-msgstr ""
+msgstr "ACCELEROMETER_QUERY"
 
 #: docs/G-Codes.md:block 18 (header)
 msgid "ACCELEROMETER_DEBUG_READ"
-msgstr ""
+msgstr "ACCELEROMETER_DEBUG_READ"
 
 #: docs/G-Codes.md:block 19 (paragraph)
 msgid ""
@@ -862,10 +900,13 @@ msgid ""
 "ADXL345 register \"register\" (e.g. 44 or 0x2C). Can be useful for debugging"
 " purposes."
 msgstr ""
+"`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: lekérdezi az "
+"ADXL345 \"register\" (pl. 44 vagy 0x2C) regiszterét. Hasznos lehet "
+"hibakeresési célokra."
 
 #: docs/G-Codes.md:block 20 (header)
 msgid "ACCELEROMETER_DEBUG_WRITE"
-msgstr ""
+msgstr "ACCELEROMETER_DEBUG_WRITE"
 
 #: docs/G-Codes.md:block 21 (paragraph)
 msgid ""
@@ -874,10 +915,14 @@ msgid ""
 "\"register\" can be a decimal or a hexadecimal integer. Use with care, and "
 "refer to ADXL345 data sheet for the reference."
 msgstr ""
+"`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: "
+"Nyers \"érték\" írása a \"register\"-be. Mind az \"érték\", mind a \"register"
+"\" lehet decimális vagy hexadecimális egész szám. Használja óvatosan, és "
+"hivatkozzon az ADXL345 adatlapjára."
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[bed_mesh]"
-msgstr ""
+msgstr "[bed_mesh]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
@@ -888,7 +933,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 24 (header)
 msgid "BED_MESH_CALIBRATE"
-msgstr ""
+msgstr "BED_MESH_CALIBRATE"
 
 #: docs/G-Codes.md:block 26 (header)
 msgid "BED_MESH_OUTPUT"
@@ -896,11 +941,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 28 (header)
 msgid "BED_MESH_MAP"
-msgstr ""
+msgstr "BED_MESH_MAP"
 
 #: docs/G-Codes.md:block 30 (header)
 msgid "BED_MESH_CLEAR"
-msgstr ""
+msgstr "BED_MESH_CLEAR"
 
 #: docs/G-Codes.md:block 32 (header)
 msgid "BED_MESH_PROFILE"
@@ -1090,7 +1135,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 81 (header)
 msgid "ACTIVATE_EXTRUDER"
-msgstr ""
+msgstr "ACTIVATE_EXTRUDER"
 
 #: docs/G-Codes.md:block 83 (header)
 msgid "SET_PRESSURE_ADVANCE"
