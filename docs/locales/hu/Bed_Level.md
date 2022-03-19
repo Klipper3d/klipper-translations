@@ -1,4 +1,4 @@
-# Bed leveling
+# Ágyszintezés
 
 Az ágyszintezés (néha más néven "bed tramming") kritikus fontosságú a jó minőségű nyomatok előállításához. Ha az ágy nem megfelelően van "szintezve", az rossz tapadáshoz, "vetemedéshez" és finom problémákhoz vezethet a nyomtatás során. Ez a dokumentum útmutatóként szolgál az ágyszintzés Klipperben történő elvégzéséhez.
 
@@ -14,35 +14,35 @@ A kalibrációs eszközök futtatása előtt feltétlenül futtassa le a [config
 
 A "automatikus Z-szondával" rendelkező nyomtatók esetében a szondát mindenképpen kalibrálja a [Probe Calibrate](Probe_Calibrate.md) dokumentumban található utasítások szerint. Delta nyomtatók esetében lásd a [Delta Calibrate](Delta_Calibrate.md) dokumentumot. Szintezőcsavarokkal és hagyományos Z végállással rendelkező nyomtatók esetében lásd a [Manual Level](Manual_Level.md) dokumentumot.
 
-During calibration it may be necessary to set the printer's Z `position_min` to a negative number (eg, `position_min = -2`). The printer enforces boundary checks even during calibration routines. Setting a negative number allows the printer to move below the nominal position of the bed, which may help when trying to determine the actual bed position.
+A kalibrálás során szükség lehet arra, hogy a nyomtató Z `position_min` értékét negatív számra állítsa be (pl. `position_min = -2`). A nyomtató a kalibrációs rutinok során is végrehajtja a határérték-ellenőrzést. A negatív szám beállítása lehetővé teszi, hogy a nyomtató az ágy névleges pozíciója alá mozogjon, ami segíthet az ágy tényleges pozíciójának meghatározásakor.
 
-## The "paper test"
+## A "papírteszt"
 
-The primary bed calibration mechanism is the "paper test". It involves placing a regular piece of "copy machine paper" between the printer's bed and nozzle, and then commanding the nozzle to different Z heights until one feels a small amount of friction when pushing the paper back and forth.
+Az elsődleges ágyszintezési mechanizmus a "papírteszt". Ennek során egy normál "fénymásolópapírt" helyezünk a nyomtató ágya és a fúvóka közé, majd a fúvókát különböző Z magasságba állítjuk, amíg a papír előre-hátra tolása közben egy kis súrlódást nem érzünk.
 
-It is important to understand the "paper test" even if one has an "automatic Z probe". The probe itself often needs to be calibrated to get good results. That probe calibration is done using this "paper test".
+Fontos megérteni a "papírtesztet" még akkor is, ha valakinek van "automatikus szintezője". Magát a szondát gyakran kalibrálni kell a jó eredmények eléréséhez. A szonda kalibrálása a "papírteszt" segítségével történik.
 
-In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a thickness of around 100 microns (0.100mm). (The exact thickness of the paper isn't crucial.)
+A papírteszt elvégzéséhez vágjon ki egy kis téglalap alakú papírdarabot egy ollóval (pl. 5x3 cm). A papír vastagsága általában körülbelül 100 mikron (0,100 mm). (A papír pontos vastagsága nem döntő fontosságú.)
 
-The first step of the paper test is to inspect the printer's nozzle and bed. Make sure there is no plastic (or other debris) on the nozzle or bed.
+A papírteszt első lépése a nyomtató fúvókájának és ágyának ellenőrzése. Győződjön meg róla, hogy nincs műanyag (vagy más törmelék) a fúvókán vagy az ágyon.
 
-**Inspect the nozzle and bed to ensure no plastic is present!**
+**Ellenőrizze a fúvókát és az ágyat, hogy nincs-e benne/rajta műanyag!**
 
-If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a thickness and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.
+Ha valaki mindig egy adott lapra vagy felületre nyomtat, akkor a papírtesztet az adott lappal/felülettel a helyén végezheti el. Vegye azonban figyelembe, hogy maga a lap vastagsággal rendelkezik, és a különböző lapok (vagy bármely más nyomtatási felület) hatással lesznek a Z mérésekre. Mindenképpen végezze el újra a papírtesztet, hogy minden egyes használt felülettípust megmérjen.
 
-If there is plastic on the nozzle then heat up the extruder and use a metal tweezers to remove that plastic. Wait for the extruder to fully cool to room temperature before continuing with the paper test. While the nozzle is cooling, use the metal tweezers to remove any plastic that may ooze out.
+Ha műanyag van a fúvókán, akkor melegítse fel az extrudert, és egy fém csipesszel távolítsa el a műanyagot. Várja meg, amíg az extruder teljesen lehűl szobahőmérsékletűre, mielőtt folytatja a papírtesztet. Amíg a fúvóka hűl, a fémcsipesszel távolítsa el az esetlegesen kiszivárgó műanyagot.
 
-**Always perform the paper test when both nozzle and bed are at room temperature!**
+**A papírtesztet mindig akkor végezze el, amikor a fúvóka és az ágy szobahőmérsékleten van!**
 
-When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same thickness as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact thickness of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two distances).
+A fúvóka melegítésekor a hőtágulás miatt megváltozik a helyzete (az ágyhoz képest). Ez a hőtágulás jellemzően 100 mikron körüli, ami körülbelül ugyanolyan méret, mint egy tipikus nyomtatópapír. A hőtágulás pontos mértéke nem döntő, ahogyan a papír pontos vastagsága sem döntő. Induljunk ki abból a feltételezésből, hogy a kettő egyenlő (a két távolság közötti különbség meghatározásának módszerét lásd alább).
 
-It may seem odd to calibrate the distance at room temperature when the goal is to have a consistent distance when heated. However, if one calibrates when the nozzle is heated, it tends to impart small amounts of molten plastic on to the paper, which changes the amount of friction felt. That makes it harder to get a good calibration. Calibrating while the bed/nozzle is hot also greatly increases the risk of burning oneself. The amount of thermal expansion is stable, so it is easily accounted for later in the calibration process.
+Furcsának tűnhet, hogy a távolságot szobahőmérsékleten kalibráljuk, amikor a cél az, hogy melegítéskor egyenletes távolságot érjünk el. Ha azonban a fúvókát melegítve kalibráljuk, akkor hajlamos kis mennyiségű olvadt műanyagot juttatni a papírra, ami megváltoztatja az érzékelt súrlódás mértékét. Ez megnehezíti a jó kalibrációt. Ha a szintezés felfűtött állapotban történik, akkor nagymértékben megnő a megégés veszélye is. A hőtágulás mértéke stabil, így a kalibrálás során később könnyen figyelembe vehető.
 
-**Use an automated tool to determine precise Z heights!**
+**Automatizált eszközzel határozza meg a pontos Z magasságot!**
 
-Klipper has several helper scripts available (eg, MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). See the documents [described above](#choose-the-appropriate-calibration-mechanism) to choose one of them.
+A Klipperben számos segédszkript áll rendelkezésre (pl. MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). Lásd a documentumokat [fentebb leírva](#choose-the-appropriate-calibration-mechanism), hogy válassz közülük egyet.
 
-Run the appropriate command in the OctoPrint terminal window. The script will prompt for user interaction in the OctoPrint terminal output. It will look something like:
+Futtassa a megfelelő parancsot az OctoPrint konzoljában. A szkript az OctoPrint terminál kimenetén kéri a felhasználó beavatkozását. Valahogy így fog kinézni:
 
 ```
 Recv: // Starting manual Z probe. Use TESTZ to adjust position.
@@ -50,50 +50,50 @@ Recv: // Finish with ACCEPT or ABORT command.
 Recv: // Z position: ?????? --> 5.000 <-- ??????
 ```
 
-The current height of the nozzle (as the printer currently understands it) is shown between the "--> <--". The number to the right is the height of the last probe attempt just greater than the current height, and to the left is the last probe attempt less than the current height (or ?????? if no attempt has been made).
+A fúvóka aktuális magassága (ahogyan azt a nyomtató jelenleg értelmezi) a "--> <--" között jelenik meg. A jobb oldali szám a legutóbbi mérés magassága, amely éppen nagyobb, mint az aktuális magasság, a bal oldali pedig a legutóbbi mérés magassága, amely kisebb, mint az aktuális magasság (vagy ??????, ha nem történt kísérlet).
 
-Place the paper between the nozzle and bed. It can be useful to fold a corner of the paper so that it is easier to grab. (Try not to push down on the bed when moving the paper back and forth.)
+Helyezze a papírt a fúvóka és az ágy közé. Hasznos lehet a papír egyik sarkát behajtani, hogy könnyebb legyen megfogni. (Próbálja úgy, hogy ne nyomja le az ágyat, amikor a papírt előre-hátra mozgatja).
 
 ![paper-test](img/paper-test.jpg)
 
-Use the TESTZ command to request the nozzle to move closer to the paper. For example:
+A TESTZ paranccsal kérheti, hogy a fúvóka közelebb menjen a papírhoz. Például:
 
 ```
 TESTZ Z=-.1
 ```
 
-The TESTZ command will move the nozzle a relative distance from the nozzle's current position. (So, `Z=-.1` requests the nozzle to move closer to the bed by .1mm.) After the nozzle stops moving, push the paper back and forth to check if the nozzle is in contact with the paper and to feel the amount of friction. Continue issuing TESTZ commands until one feels a small amount of friction when testing with the paper.
+A TESTZ parancs a fúvókát az aktuális pozíciójától relatív távolságra mozgatja. (Tehát a `Z=-.1` azt kéri, hogy a fúvóka 0,1 mm-rel közelebb kerüljön az ágyhoz). Miután a fúvóka megállt, tolja előre-hátra a papírt, hogy ellenőrizze, hogy a fúvóka érintkezik-e a papírral, és hogy érezze a súrlódás mértékét. Folytassa a TESTZ parancsok kiadását mindaddig, amíg a papírral való tesztelésekkor nem érez egy kis súrlódást.
 
-If too much friction is found then one can use a positive Z value to move the nozzle up. It is also possible to use `TESTZ Z=+` or `TESTZ Z=-` to "bisect" the last position - that is to move to a position half way between two positions. For example, if one received the following prompt from a TESTZ command:
+Ha túl nagy a súrlódás, akkor egy pozitív Z értéket használhatunk a fúvóka felfelé mozgatására. Lehetőség van a `TESTZ Z=+` vagy a `TESTZ Z=-` használatára is, hogy "felezzük" az utolsó pozíciót - azaz két pozíció között félúton lévő pozícióba lépjünk. Például, ha a TESTZ parancs a következő felszólítást adná:
 
 ```
 Recv: // Z position: 0.130 --> 0.230 <-- 0.280
 ```
 
-Then a `TESTZ Z=-` would move the nozzle to a Z position of 0.180 (half way between 0.130 and 0.230). One can use this feature to help rapidly narrow down to a consistent friction. It is also possible to use `Z=++` and `Z=--` to return directly to a past measurement - for example, after the above prompt a `TESTZ Z=--` command would move the nozzle to a Z position of 0.130.
+Ezután egy `TESTZ Z=-` a fúvókát 0,180 Z pozícióba (a 0,130 és 0,230 közötti félútra) mozgatja. Ezt a funkciót arra lehet használni, hogy segítsen gyorsan leszűkíteni egy konzisztens súrlódást. A `Z=++` és `Z=--` parancsok használatával közvetlenül visszatérhetünk egy korábbi méréshez - például a fenti felszólítás után a `TESTZ Z=--` parancs a fúvókát a 0,130-as Z pozícióba mozgatná.
 
-After finding a small amount of friction run the ACCEPT command:
+Miután érzékelhető egy kis súrlódás, adja ki az ACCEPT parancsot:
 
 ```
 ACCEPT
 ```
 
-This will accept the given Z height and proceed with the given calibration tool.
+Ez elfogadja a megadott Z magasságot, és az adott kalibrációs eszközzel folytatja a munkát.
 
-The exact amount of friction felt isn't crucial, just as the amount of thermal expansion and exact width of the paper isn't crucial. Just try to obtain the same amount of friction each time one runs the test.
+Az érzékelt súrlódás pontos mértéke nem döntő fontosságú, ahogyan a hőtágulás mértéke és a papír pontos szélessége sem döntő fontosságú. Csak próbáljon meg minden egyes alkalommal ugyanannyi súrlódást elérni, amikor a tesztet lefuttatja.
 
-If something goes wrong during the test, one can use the `ABORT` command to exit the calibration tool.
+Ha a teszt során valami rosszul megy, az `ABORT` paranccsal kiléphetünk a kalibrációs eszközből.
 
-## Determining Thermal Expansion
+## A hőtágulás meghatározása
 
-After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "thickness of the paper", and "amount of friction felt during the paper test".
+Miután sikeresen elvégezte az ágyszintezést, pontosabb értéket lehet kiszámítani a "hőtágulás", "a papír vastagsága" és "a papírteszt során érzékelhető súrlódás" együttes hatására.
 
-This type of calculation is generally not needed as most users find the simple "paper test" provides good results.
+Ilyen típusú számításokra általában nincs szükség, mivel a legtöbb felhasználó szerint az egyszerű "papírteszt" jó eredményeket ad.
 
-The easiest way to make this calculation is to print a test object that has straight walls on all sides. The large hollow square found in [docs/prints/square.stl](prints/square.stl) can be used for this. When slicing the object, make sure the slicer uses the same layer height and extrusion widths for the first level that it does for all subsequent layers. Use a coarse layer height (the layer height should be around 75% of the nozzle diameter) and do not use a brim or raft.
+A számítás legegyszerűbben úgy végezhető el, ha kinyomtatunk egy olyan tesztobjektumot, amelynek minden oldalán egyenes falak vannak. Ehhez a [docs/prints/square.stl](prints/square.stl) fájlban található nagy, üreges négyzetet használhatjuk. Az objektum szeletelésekor győződjön meg róla, hogy a szeletelő az első szinthez ugyanazt a rétegmagasságot és extrudálási szélességet használja, mint az összes további réteghez. Használjon durva rétegmagasságot (a rétegmagasságnak a fúvóka átmérőjének körülbelül 75%-ának kell lennie), és ne használjon peremet vagy szoknyát.
 
-Print the test object, wait for it to cool, and remove it from the bed. Inspect the lowest layer of the object. (It may also be useful to run a finger or nail along the bottom edge.) If one finds the bottom layer bulges out slightly along all sides of the object then it indicates the nozzle was slightly closer to the bed then it should be. One can issue a `SET_GCODE_OFFSET Z=+.010` command to increase the height. In subsequent prints one can inspect for this behavior and make further adjustment as needed. Adjustments of this type are typically in 10s of microns (.010mm).
+Nyomtassa ki a tesztobjektumot, várja meg, amíg lehűl, és vegye le az ágyról. Ellenőrizze a tárgy legalsó rétegét. (Az is hasznos lehet, ha ujját vagy körmét végighúzza az alsó szélén.) Ha azt tapasztaljuk, hogy az alsó réteg a tárgy minden oldala mentén kissé kidudorodik, akkor ez azt jelzi, hogy a fúvóka kissé közelebb volt az ágyhoz, mint kellett volna. A magasság növeléséhez kiadhatunk egy `SET_GCODE_OFFSET Z=+.010` parancsot. A későbbi nyomtatásokban ellenőrizhetjük ezt a viselkedést, és szükség szerint további kiigazításokat végezhetünk. Az ilyen típusú beállítások jellemzően 10 mikronokban (.010mm) történnek.
 
-If the bottom layer consistently appears narrower than subsequent layers then one can use the SET_GCODE_OFFSET command to make a negative Z adjustment. If one is unsure, then one can decrease the Z adjustment until the bottom layer of prints exhibit a small bulge, and then back-off until it disappears.
+Ha az alsó réteg keskenyebbnek tűnik, mint a következő rétegek, akkor a SET_GCODE_OFFSET paranccsal negatív Z-beállítást végezhetünk. Ha bizonytalanok vagyunk, akkor a Z-beállítást addig csökkenthetjük, amíg a nyomatok alsó rétege egy kis dudort nem mutat, majd addig csökkenthetjük, amíg az el nem tűnik.
 
-The easiest way to apply the desired Z adjustment is to create a START_PRINT g-code macro, arrange for the slicer to call that macro during the start of each print, and add a SET_GCODE_OFFSET command to that macro. See the [slicers](Slicers.md) document for further details.
+A legegyszerűbb módja a kívánt Z-korrigálásnak, ha létrehoz egy START_PRINT G-kód makrót. A szeletelő úgy intézi, hogy a makró minden nyomtatás kezdetekor meghívja ezt a parancsot, és hozzáad egy SET_GCODE_OFFSET parancsot. További részletekért lásd a [szeletelők](Slicers.md) dokumentumot.

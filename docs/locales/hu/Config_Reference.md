@@ -1135,28 +1135,28 @@ G-Code macros (one may define any number of sections with a "gcode_macro" prefix
 ```
 [gcode_macro my_cmd]
 #gcode:
-#   A list of G-Code commands to execute in place of "my_cmd". See
-#   docs/Command_Templates.md for G-Code format. This parameter must
-#   be provided.
+# A "my_cmd" helyett végrehajtandó G-kód parancsok listája. Lásd
+# docs/Command_Templates.md a G-kód formátumhoz. Ezt a paramétert
+# meg kell adni.
 #variable_<name>:
-#   One may specify any number of options with a "variable_" prefix.
-#   The given variable name will be assigned the given value (parsed
-#   as a Python literal) and will be available during macro expansion.
-#   For example, a config with "variable_fan_speed = 75" might have
-#   gcode commands containing "M106 S{ fan_speed * 255 }". Variables
-#   can be changed at run-time using the SET_GCODE_VARIABLE command
-#   (see docs/Command_Templates.md for details). Variable names may
-#   not use upper case characters.
+# Megadhatunk tetszőleges számú opciót "variable_" előtaggal.
+# A megadott változó névhez a megadott értéket kapja (elemzett
+# Python literálként), és a makró bővítése során elérhető lesz.
+# Például a "variable_fan_speed = 75" változóval rendelkező konfigurációnak a következő lehet a következő értéke
+# gcode parancsok, amelyek tartalmazzák a "M106 S{ fan_speed * 255 }". Változók
+# futás közben a SET_GCODE_VARIABLE paranccsal módosíthatók.
+# (a részleteket lásd a docs/Command_Templates.md fájlban). A változók nevei lehetnek kisbetűk
+# nem kötelező használni nagybetűket.
 #rename_existing:
-#   This option will cause the macro to override an existing G-Code
-#   command and provide the previous definition of the command via the
-#   name provided here. This can be used to override builtin G-Code
-#   commands. Care should be taken when overriding commands as it can
-#   cause complex and unexpected results. The default is to not
-#   override an existing G-Code command.
-#description: G-Code macro
-#   This will add a short description used at the HELP command or while
-#   using the auto completion feature. Default "G-Code macro"
+# Ezzel az opcióval a makró felülír egy meglévő G-kód
+# parancsot, és a parancs korábbi definícióját adja át a
+# itt megadott névvel. Ez arra használható, hogy felülírja a beépített G-kód
+# parancsokat. A parancsok felülbírálásakor óvatosan kell eljárni, mivel ez
+# bonyolult és váratlan eredményeket okozhat. Az alapértelmezés szerint nem
+# meglévő G-Code parancsot nem írja felül.
+#description: G-kód makró
+# Ez egy rövid leírást ad hozzá, amelyet a HELP parancsnál vagy
+# az automatikus kitöltés funkció használatakor. Alapértelmezett "G-kód makró"
 ```
 
 ### [delayed_gcode]
@@ -1259,16 +1259,16 @@ Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCO
 ```
 [firmware_retraction]
 #retract_length: 0
-#   The length of filament (in mm) to retract when G10 is activated,
-#   and to unretract when G11 is activated (but see
-#   unretract_extra_length below). The default is 0 mm.
+# A G10 aktiválásakor visszahúzandó szál hossza (mm-ben),
+# és a G11 aktiválásakor visszahúzandó (de lásd: G11).
+# unretract_extra_length alább). Az alapértelmezett érték 0 mm.
 #retract_speed: 20
-#   The speed of retraction, in mm/s. The default is 20 mm/s.
+# A behúzás sebessége mm/s-ban. Az alapértelmezett érték 20 mm/s.
 #unretract_extra_length: 0
-#   The length (in mm) of *additional* filament to add when
-#   unretracting.
+# A *kiegészítő* szál hossza (mm-ben), amelyet hozzáadunk, ha
+# visszahúzás feloldásakor.
 #unretract_speed: 10
-#   The speed of unretraction, in mm/s. The default is 10 mm/s.
+# A visszahúzás feloldásának sebessége mm/s-ban. Az alapértelmezett érték 10 mm/s.
 ```
 
 ### [gcode_arcs]
@@ -1447,7 +1447,7 @@ aliases_<name>:
 
 ### [include]
 
-Include file support. One may include additional config file from the main printer config file. Wildcards may also be used (eg, "configs/*.cfg").
+Include fájl támogatás. A nyomtató fő konfigurációs fájljához további konfigurációs fájlokat lehet csatolni. Helyettesítő karakterek is használhatók (pl. "configs/*.cfg").
 
 ```
 [include my_other_config.cfg]
@@ -1949,7 +1949,7 @@ sensor_type: BME280
 
 ### HTU21D sensor
 
-HTU21D family two wire interface (I2C) environmental sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
+HTU21D kétvezetékes interfész (I2C) környezeti érzékelő. Vegye figyelembe, hogy ezt az érzékelőt nem extruderekkel és fűtőágyakkal való használatra szánják, hanem a környezeti hőmérséklet (C) és a relatív páratartalom ellenőrzésére. Lásd [sample-macros.cfg](../config/sample-macros.cfg) egy gcode_macro-t, amely a hőmérséklet mellett a páratartalom jelentésére is használható.
 
 ```
 sensor_type:
@@ -2065,64 +2065,64 @@ serial_no:
 Print cooling fan.
 
 ```
-[fan]
+[ventilátor]
 pin:
-#   Output pin controlling the fan. This parameter must be provided.
+# A ventilátort vezérlő kimeneti pin. Ezt a paramétert meg kell adni.
 #max_power: 1.0
-#   The maximum power (expressed as a value from 0.0 to 1.0) that the
-#   pin may be set to. The value 1.0 allows the pin to be set fully
-#   enabled for extended periods, while a value of 0.5 would allow the
-#   pin to be enabled for no more than half the time. This setting may
-#   be used to limit the total power output (over extended periods) to
-#   the fan. If this value is less than 1.0 then fan speed requests
-#   will be scaled between zero and max_power (for example, if
-#   max_power is .9 and a fan speed of 80% is requested then the fan
-#   power will be set to 72%). The default is 1.0.
+# A maximális teljesítmény (0.0 és 1.0 közötti értékként kifejezve), amely a
+# pinen beállítható. Az 1.0 érték lehetővé teszi, hogy a pin teljesen beállítható legyen.
+# Hosszabb időre is engedélyezve legyen, míg a 0.5 érték lehetővé teszi, hogy a pin
+# legfeljebb az idő felére legyen engedélyezve. Ez a beállítás
+# használható a teljes kimeneti teljesítmény korlátozására a ventilátornál (hosszabb időszakok alatt).
+# Ha ez az érték kisebb, mint 1.0, akkor a ventilátor fordulatszám kérése
+# nulla és a max_power között lesz skálázva (például, ha
+# max_power .9, és a ventilátor 80%-os sebességet kér, akkor a ventilátor
+# teljesítménye 72%-ra lesz beállítva). Az alapértelmezett érték 1.0.
 #shutdown_speed: 0
-#   The desired fan speed (expressed as a value from 0.0 to 1.0) if
-#   the micro-controller software enters an error state. The default
-#   is 0.
+# A kívánt ventilátorsebesség (0,0 és 1,0 közötti értékként kifejezve) ha
+# a mikrokontroller szoftver hibaállapotba kerül. Az alapértelmezett
+# 0.
 #cycle_time: 0.010
-#   The amount of time (in seconds) for each PWM power cycle to the
-#   fan. It is recommended this be 10 milliseconds or greater when
-#   using software based PWM. The default is 0.010 seconds.
+# Az az idő (másodpercben), amely alatt minden PWM ciklus kikerül a
+# ventilátorhoz. Ajánlatos, hogy ez 10 milliszekundum vagy nagyobb legyen, a
+# szoftveralapú PWM használata esetén. Az alapértelmezett érték 0,010 másodperc.
 #hardware_pwm: False
-#   Enable this to use hardware PWM instead of software PWM. Most fans
-#   do not work well with hardware PWM, so it is not recommended to
-#   enable this unless there is an electrical requirement to switch at
-#   very high speeds. When using hardware PWM the actual cycle time is
-#   constrained by the implementation and may be significantly
-#   different than the requested cycle_time. The default is False.
+# Engedélyezze ezt a hardveres PWM használatához a szoftveres PWM helyett. A legtöbb ventilátor
+# nem működik jól a hardveres PWM-mel, ezért nem ajánlott annak
+# engedélyezése, hacsak nincs elektromos követelmény, hogy a kapcsolás
+# nagyon nagy sebességgel történjen. Hardveres PWM használatakor a tényleges ciklusidő
+# a megvalósítást korlátozza, és jelentősen nagyobb mértékben
+# eltérhet a kért ciklusidőtől. Az alapértelmezett érték False.
 #kick_start_time: 0.100
-#   Time (in seconds) to run the fan at full speed when either first
-#   enabling or increasing it by more than 50% (helps get the fan
-#   spinning). The default is 0.100 seconds.
+# Az idő (másodpercben), amíg a ventilátor teljes fordulatszámra pörög, amikor először
+# engedélyezi vagy 50%-nál nagyobb mértékre növeli (segít a ventilátor működésbe hozásában).
+# Az alapértelmezett érték 0,100 másodperc.
 #off_below: 0.0
-#   The minimum input speed which will power the fan (expressed as a
-#   value from 0.0 to 1.0). When a speed lower than off_below is
-#   requested the fan will instead be turned off. This setting may be
-#   used to prevent fan stalls and to ensure kick starts are
-#   effective. The default is 0.0.
+# A minimális bemeneti sebesség, amely a ventilátort működtetni fogja (kifejezve egy
+# 0.0 és 1.0 közötti értékben). Ha az off_below-nál alacsonyabb sebességet
+# kért, a ventilátor inkább kikapcsol. Ez a beállítás lehet
+# a ventilátor leállásának megakadályozására és a kick-indítás biztosítására használható.
+# Az alapértelmezett érték 0.0.
 #
-#   This setting should be recalibrated whenever max_power is adjusted.
-#   To calibrate this setting, start with off_below set to 0.0 and the
-#   fan spinning. Gradually lower the fan speed to determine the lowest
-#   input speed which reliably drives the fan without stalls. Set
-#   off_below to the duty cycle corresponding to this value (for
-#   example, 12% -> 0.12) or slightly higher.
+# Ezt a beállítást mindig újra kell kalibrálni, amikor a max_power-t módosítjuk.
+# A beállítás kalibrálásához kezdjük úgy, hogy az off_below értéke 0.0.
+# Fokozatosan csökkentse a ventilátor fordulatszámát a legalacsonyabb érték meghatározásához.
+# Válassza azt a bemeneti sebességet, amely megbízhatóan, leállás nélkül hajtja a ventilátort. Állítsa be a
+# off_below-t az ennek az értéknek megfelelő munkaszünetre (a
+# például 12% -> 0,12) vagy valamivel magasabb értéket.
 #tachometer_pin:
-#   Tachometer input pin for monitoring fan speed. A pullup is generally
-#   required. This parameter is optional.
+# Tachométer bemeneti pin a ventilátor fordulatszámának ellenőrzésére. A pullup általában
+# szükséges. Ez a paraméter opcionális.
 #tachometer_ppr: 2
-#   When tachometer_pin is specified, this is the number of pulses per
-#   revolution of the tachometer signal. For a BLDC fan this is
-#   normally half the number of poles. The default is 2.
-#tachometer_poll_interval: 0.0015
-#   When tachometer_pin is specified, this is the polling period of the
-#   tachometer pin, in seconds. The default is 0.0015, which is fast
-#   enough for fans below 10000 RPM at 2 PPR. This must be smaller than
-#   30/(tachometer_ppr*rpm), with some margin, where rpm is the
-#   maximum speed (in RPM) of the fan.
+# Ha a tachometer_pin meg van adva, akkor ez az impulzusok száma per
+# fordulatonként a tachométer jelének impulzusainak száma. Egy BLDC ventilátor esetében ez
+# általában a pólusok számának fele. Az alapértelmezett érték 2.
+#tachometer_poll_intervall: 0.0015
+# Ha a tachometer_pin meg van adva, ez a lekérdezési periódus a
+# tachometer pin, másodpercben. Az alapértelmezett érték 0.0015, ami gyors.
+# elég gyors a 10000 RPM alatti ventilátorokhoz 2 PPR mellett. Ennek kisebbnek kell lennie, mint
+# 30/(tachometer_ppr*rpm), némi mozgástérrel, ahol az rpm a fordulatszám.
+# A ventilátor maximális fordulatszáma (fordulatszámban).
 ```
 
 ### [heater_fan]
@@ -3602,22 +3602,22 @@ This modules also requires `[virtual_sdcard]` and `[pause_resume]` for full func
 
 If you use this module, do not use the Palette 2 plugin for Octoprint as they will conflict, and 1 will fail to initialize properly likely aborting your print.
 
-If you use Octoprint and stream gcode over the serial port instead of printing from virtual_sd, then remo **M1** and **M0** from *Pausing commands* in *Settings > Serial Connection > Firmware & protocol* will prevent the need to start print on the Palette 2 and unpausing in Octoprint for your print to begin.
+Ha az Octoprintet használja és a gcode-ot a soros porton keresztül streameli a virtual_sd-ről való nyomtatás helyett, akkor a **M1** és **M0** parancsok *Pausing parancsok* a *Settings >. alatt remo; Serial Connection > Firmware & protocol* megakadályozzák, hogy a nyomtatás megkezdéséhez a Paletta 2-n el kelljen indítani a nyomtatást, és az Octoprintben fel kelljen oldani a szünetet.
 
 ```
-[palette2]
+[paletta2]
 serial:
-#   The serial port to connect to the Palette 2.
+# A soros port, amelyhez a Palette 2 csatlakozik.
 #baud: 115200
-#   The baud rate to use. The default is 115200.
+# A használandó baud-ráta. Az alapértelmezett érték 115200.
 #feedrate_splice: 0.8
-#   The feedrate to use when splicing, default is 0.8
+# A toldáskor használandó feedrate, alapértelmezett 0.8.
 #feedrate_normal: 1.0
-#   The feedrate to use after splicing, default is 1.0
+# A toldás után használandó feedrate, alapértelmezett értéke 1.0.
 #auto_load_speed: 2
-#   Extrude feedrate when autoloading, default is 2 (mm/s)
+# Extrudálási előtolási sebesség automatikus betöltéskor, alapértelmezett 2 (mm/s)
 #auto_cancel_variation: 0.1
-#   Auto cancel print when ping varation is above this threshold
+# Automatikusan törli a nyomtatást, ha a ping variáció meghaladja ezt a küszöbértéket.
 ```
 
 ## Common bus parameters
@@ -3649,17 +3649,17 @@ The following parameters are generally available for devices using an I2C bus.
 
 ```
 #i2c_address:
-#   The i2c address of the device. This must specified as a decimal
-#   number (not in hex). The default depends on the type of device.
+# Az eszköz I2C címe. Ezt decimális értékként kell megadni.
+# számként kell megadni (nem hexa számként). Az alapértelmezett érték az eszköz típusától függ.
 #i2c_mcu:
-#   The name of the micro-controller that the chip is connected to.
-#   The default is "mcu".
+# Annak a mikrokontrollernek a neve, amelyhez a chip csatlakozik.
+# Az alapértelmezett érték "mcu".
 #i2c_bus:
-#   If the micro-controller supports multiple I2C busses then one may
-#   specify the micro-controller bus name here. The default depends on
-#   the type of micro-controller.
+# Ha a mikrokontroller több I2C-buszt is támogat, akkor az egyiket
+# itt megadhatjuk a mikrokontroller buszának nevével. Az alapértelmezés függ a
+# a mikrokontroller típusától.
 #i2c_speed:
-#   The I2C speed (in Hz) to use when communicating with the device.
-#   On some micro-controllers changing this value has no effect. The
-#   default is 100000.
+# Az eszközzel való kommunikáció során használandó I2C sebesség (Hz-ben).
+# Egyes mikrovezérlőknél ennek az értéknek a megváltoztatása nincs hatással. Az
+# alapértelmezett érték 100000.
 ```

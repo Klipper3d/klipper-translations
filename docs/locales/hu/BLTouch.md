@@ -1,10 +1,10 @@
 # BL-Touch
 
-## Connecting BL-Touch
+## BL-Touch csatlakoztatása
 
-A **warning** before you start: Avoid touching the BL-Touch pin with your bare fingers, since it is quite sensitive to finger grease. And if you do touch it, be very gentle, in order to not bend or push anything.
+Egy **figyelmeztetés** mielőtt elkezdené: Kerülje a BL-Touch tűjének puszta ujjal való érintését, mivel meglehetősen érzékeny az zsírra. Ha pedig mégis hozzáér, legyen nagyon óvatos, hogy ne hajlítsa vagy nyomja meg a tüskét.
 
-Hook up the BL-Touch "servo" connector to a `control_pin` according to the BL-Touch documentation or your MCU documentation. Using the original wiring, the yellow wire from the triple is the `control_pin` and the white wire from the pair is the `sensor_pin`. You need to configure these pins according to your wiring. Most BL-Touch devices require a pullup on the sensor pin (prefix the pin name with "^"). For example:
+Csatlakoztassa a BL-Touch "servo" csatlakozót a `control_pin` csatlakozóhoz a BL-Touch dokumentáció vagy az MCU dokumentációja szerint. Az eredeti kábelezést használva a hármasból a sárga vezeték a `control_pin` és a vezetékpárból a fehér lesz a `sensor_pin`. Ezeket a pineket a kábelezésnek megfelelően kell konfigurálnia. A legtöbb BL-Touch pullup jelet igényel a pinbeállításnál (ezért a csatlakozás nevének előtagja "^"). Például:
 
 ```
 [bltouch]
@@ -22,15 +22,15 @@ z_hop: 10                 # Move up 10mm
 z_hop_speed: 5
 ```
 
-It's important that the z_hop movement in safe_z_home is high enough that the probe doesn't hit anything even if the probe pin happens to be in its lowest state.
+Fontos, hogy a z_hop mozgás a safe_z_home-ban elég nagy legyen ahhoz, hogy a mérőcsúcs ne ütközzön semmibe, még akkor sem, ha a BL-Touch mérőtüskéje a legalacsonyabb állásban van.
 
-## Initial tests
+## Kezdeti tesztek
 
-Before moving on, verify that the BL-Touch is mounted at the correct height, the pin should be roughly 2 mm above the nozzle when retracted
+Mielőtt továbblépne, ellenőrizze, hogy a BL-Touch a megfelelő magasságban van-e felszerelve. A mérőtüskének behúzott állapotban nagyjából 2 mm-rel a fúvóka fölött kell lennie
 
-When you turn on the printer, the BL-Touch probe should perform a self-test and move the pin up and down a couple of times. Once the self-test is completed, the pin should be retracted and the red LED on the probe should be lit. If there are any errors, for example the probe is flashing red or the pin is down instead of up, please turn off the printer and check the wiring and configuration.
+Amikor bekapcsolja a nyomtatót, a BL-Touch szondának önellenőrzést kell végeznie, és néhányszor fel-le kell mozgatnia a mérőtüskét. Az önellenőrzés befejezése után a mérőtüskének vissza kell húzódnia, és a szondán lévő piros LED-nek világítania kell. Ha bármilyen hibát észlel, például a szonda pirosan villog, vagy a mérőtüske lefelé van, nem pedig behúzva, kérjük kapcsolja ki a nyomtatót, és ellenőrizze a kábelezést és a konfigurációt.
 
-If the above is looking good, it's time to test that the control pin is working correctly. First run `BLTOUCH_DEBUG COMMAND=pin_down` in your printer terminal. Verify that the pin moves down and that the red LED on the probe turns off. If not, check your wiring and configuration again. Next issue a `BLTOUCH_DEBUG COMMAND=pin_up`, verify that the pin moves up, and that the red light turns on again. If it's flashing then there's some problem.
+Ha a fentiek rendben vannak, itt az ideje tesztelni, hogy a vezérlés megfelelően működik-e. Először futtassuk le a `BLTOUCH_DEBUG COMMAND=pin_down` parancsot a konzolban. Ellenőrizze, hogy a mérőtüske lefelé mozog-e, és hogy a BL-Touchon lévő piros LED kialszik-e. Ha nem, ellenőrizze újra a kábelezést és a konfigurációt. Ezután adjon ki egy `BLTOUCH_DEBUG COMMAND=pin_up` parancsot. Ellenőrizze, hogy a mérőtüske felfelé mozdul-e, és hogy a piros LED ismét világít-e. Ha villog, akkor valamilyen probléma van.
 
 The next step is to confirm that the sensor pin is working correctly. Run `BLTOUCH_DEBUG COMMAND=pin_down`, verify that the pin moves down, run `BLTOUCH_DEBUG COMMAND=touch_mode`, run `QUERY_PROBE`, and verify that command reports "probe: open". Then while gently pushing the pin up slightly with the nail of your finger run `QUERY_PROBE` again. Verify the command reports "probe: TRIGGERED". If either query does not report the correct message then it usually indicates an incorrect wiring or configuration (though some [clones](#bl-touch-clones) may require special handling). At the completion of this test run `BLTOUCH_DEBUG COMMAND=pin_up` and verify that the pin moves up.
 

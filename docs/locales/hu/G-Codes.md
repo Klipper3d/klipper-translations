@@ -37,7 +37,7 @@ Klipper's goal is to support the G-Code commands produced by common 3rd party so
 
 If one requires a less common G-Code command then it may be possible to implement it with a custom [gcode_macro config section](Config_Reference.md#gcode_macro). For example, one might use this to implement: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`, etc.
 
-## Additional Commands
+## További parancsok
 
 Klipper uses "extended" G-Code commands for general configuration and status. These extended commands all follow a similar format - they start with a command name and may be followed by one or more parameters. For example: `SET_SERVO SERVO=myservo ANGLE=5.3`. In this document, the commands and parameters are shown in uppercase, however they are not case sensitive. (So, "SET_SERVO" and "set_servo" both run the same command.)
 
@@ -49,19 +49,19 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 #### ACCELEROMETER_MEASURE
 
-`ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]`: Starts accelerometer measurements at the requested number of samples per second. If CHIP is not specified it defaults to "adxl345". The command works in a start-stop mode: when executed for the first time, it starts the measurements, next execution stops them. The results of measurements are written to a file named `/tmp/adxl345-<chip>-<name>.csv` where `<chip>` is the name of the accelerometer chip (`my_chip_name` from `[adxl345 my_chip_name]`) and `<name>` is the optional NAME parameter. If NAME is not specified it defaults to the current time in "YYYYMMDD_HHMMSS" format. If the accelerometer does not have a name in its config section (simply `[adxl345]`) then `<chip>` part of the name is not generated.
+`ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]`: A gyorsulásmérő mérések elindítása a kért másodpercenkénti mintavételek számával. Ha a CHIP nincs megadva, az alapértelmezett érték "adxl345". A parancs start-stop üzemmódban működik: az első végrehajtáskor elindítja a méréseket, a következő végrehajtáskor leállítja azokat. A mérések eredményei a `/tmp/adxl345-<chip>-<name> .csv nevű fájlba kerülnek kiírásra`, ahol `<chip>` a gyorsulásmérő chip neve (`my_chip_name` from `[adxl345 my_chip_name]`) és `<name>` az opcionális NAME paraméter. Ha a NAME nincs megadva, akkor az alapértelmezett érték az aktuális idő "ÉÉÉÉÉHHNN_ÓÓPPMM" formátumban. Ha a gyorsulásmérőnek nincs neve a konfigurációs szakaszban (egyszerűen `[adxl345]`), akkor a `<chip>` névrész nem generálódik.
 
 #### ACCELEROMETER_QUERY
 
-`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).
+`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: lekérdezi a gyorsulásmérő aktuális értékét. Ha a CHIP nincs megadva, az alapértelmezett"adxl345". Ha a RATE nincs megadva, az alapértelmezett értéket használja. Ez a parancs hasznos az ADXL345 gyorsulásmérővel való kapcsolat tesztelésére. A visszaadott értékek egyikének a szabadeséses gyorsulásnak kell lennie (+/- a chip alapzaja).
 
 #### ACCELEROMETER_DEBUG_READ
 
-`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries ADXL345 register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes.
+`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: lekérdezi az ADXL345 "register" (pl. 44 vagy 0x2C) regiszterét. Hasznos lehet hibakeresési célokra.
 
 #### ACCELEROMETER_DEBUG_WRITE
 
-`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Writes raw "value" into a register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.
+`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Nyers "érték" írása a "register"-be. Mind az "érték", mind a "register" lehet decimális vagy hexadecimális egész szám. Használja óvatosan, és hivatkozzon az ADXL345 adatlapjára.
 
 ### [bed_mesh]
 
@@ -69,7 +69,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 #### BED_MESH_CALIBRATE
 
-`BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: This command probes the bed using generated points specified by the parameters in the config. After probing, a mesh is generated and z-movement is adjusted according to the mesh. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active.
+`BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: Ez a parancs az ágyat a konfigurációban megadott paraméterek által generált pontok segítségével szintezi. A szintezés után egy háló generálódik, és a Z elmozdulás a hálónak megfelelően kerül beállításra. Az opcionális szintező paraméterekkel kapcsolatos részletekért lásd a PROBE parancsot. Ha a METHOD=manual parancsot adta meg, akkor a kézi szintező eszköz aktiválódik. Az eszköz aktiválása közben elérhető további parancsok részleteit lásd a fenti MANUAL_PROBE parancsban.
 
 #### BED_MESH_OUTPUT
 
@@ -81,7 +81,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 #### BED_MESH_CLEAR
 
-`BED_MESH_CLEAR`: This command clears the mesh and removes all z adjustment. It is recommended to put this in your end-gcode.
+`BED_MESH_CLEAR`: Ez a parancs törli a hálót és eltávolít minden Z-beállítást. Ajánlott ezt a parancsot befejező G-kódba tenni.
 
 #### BED_MESH_PROFILE
 
@@ -184,7 +184,7 @@ The following commands are available if an [extruder config section](Config_Refe
 
 #### ACTIVATE_EXTRUDER
 
-`ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: In a printer with multiple extruders this command is used to change the active extruder.
+`ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: Több extruderrel rendelkező nyomtató esetén ez a parancs az aktív extruder megváltoztatására szolgál.
 
 #### SET_PRESSURE_ADVANCE
 
@@ -385,8 +385,8 @@ The manual_probe module is automatically loaded.
 
 `MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:
 
-- `ACCEPT`: This command accepts the current Z position and concludes the manual probing tool.
-- `ABORT`: This command terminates the manual probing tool.
+- `ACCEPT`: Ez a parancs elfogadja az aktuális Z pozíciót, és lezárja a kézi szintező eszközt.
+- `ABORT`: Ez a parancs megszakítja a kézi szintezést.
 - `TESTZ Z=<value>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
 
 #### Z_ENDSTOP_CALIBRATE
