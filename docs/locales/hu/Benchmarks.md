@@ -1,12 +1,12 @@
 # Benchmarks
 
-This document describes Klipper benchmarks.
+Ez a dokumentum a Klipper referenciaértékeit ismerteti.
 
-## Micro-controller Benchmarks
+## Mikrokontroller referenciaértékek
 
-This section describes the mechanism used to generate the Klipper micro-controller step rate benchmarks.
+Ez a szakasz ismerteti a Klipper mikrokontroller lépési sebességreferencia létrehozására használt mechanizmust.
 
-The primary goal of the benchmarks is to provide a consistent mechanism for measuring the impact of coding changes within the software. A secondary goal is to provide high-level metrics for comparing the performance between chips and between software platforms.
+A referenciamutatók elsődleges célja, hogy következetes mechanizmust biztosítsanak a szoftveren belüli kódolási változtatások hatásának mérésére. Másodlagos cél, hogy magas szintű mérőszámokat biztosítson a chipek és a szoftverplatformok teljesítményének összehasonlításához.
 
 The step rate benchmark is designed to find the maximum stepping rate that the hardware and software can reach. This benchmark stepping rate is not achievable in day-to-day use as Klipper needs to perform other tasks (eg, mcu/host communication, temperature reading, endstop checking) in any real-world usage.
 

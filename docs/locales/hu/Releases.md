@@ -1,6 +1,6 @@
 # Kiadás
 
-History of Klipper releases. Please see [installation](Installation.md) for information on installing Klipper.
+A Klipper kiadások története. A Klipper telepítésével kapcsolatos információkért lásd [telepítés](Installation.md).
 
 ## Klipper 0.10.0
 
@@ -22,9 +22,9 @@ Available on 20210929. Major changes in this release:
 
 ## Klipper 0.9.0
 
-Available on 20201020. Major changes in this release:
+Elérhető a 20201020. Főbb változások ebben a kiadásban:
 
-* Support for "Input Shaping" - a mechanism to counteract printer resonance. It can reduce or eliminate "ringing" in prints.
+* Az "Input Shaping" a nyomtató rezonanciájának ellensúlyozására szolgáló mechanizmus támogatása. Csökkentheti vagy megszüntetheti a "gyűrődést" a nyomatokon.
 * New "Smooth Pressure Advance" system. This implements "Pressure Advance" without introducing instantaneous velocity changes. It is also now possible to tune pressure advance using a "Tuning Tower" method.
 * New "webhooks" API server. This provides a programmable JSON interface to Klipper.
 * The LCD display and menu are now configurable using the Jinja2 template language.

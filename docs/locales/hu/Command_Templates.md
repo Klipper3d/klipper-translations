@@ -1,12 +1,12 @@
 # Commands templates
 
-This document provides information on implementing G-Code command sequences in gcode_macro (and similar) config sections.
+Ez a dokumentum a G-Kód parancssorozatok gcode_macro (és hasonló) konfigurációs szakaszokban történő implementálásáról nyújt információt.
 
-## G-Code Macro Naming
+## G-kód makró elnevezése
 
-Case is not important for the G-Code macro name - MY_MACRO and my_macro will evaluate the same and may be called in either upper or lower case. If any numbers are used in the macro name then they must all be at the end of the name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not).
+A G-kódos makronév esetében a nagy- és kisbetűs írásmód nem fontos - a MY_MACRO és a my_macro ugyanúgy kiértékelődik, és kicsi vagy nagybetűvel is meghívható. Ha a makronévben számokat használunk, akkor azoknak a név végén kell állniuk (pl. a TEST_MACRO25 érvényes, de a MACRO25_TEST3 nem).
 
-## Formatting of G-Code in the config
+## A G-kód formázása a konfigurációban
 
 Indentation is important when defining a macro in the config file. To specify a multi-line G-Code sequence it is important for each line to have proper indentation. For example:
 

@@ -1,12 +1,12 @@
 # Status reference
 
-This document is a reference of printer status information available in Klipper [macros](Command_Templates.md), [display fields](Config_Reference.md#display), and via the [API Server](API_Server.md).
+Ez a dokumentum a Klipper [makrók](Command_Templates.md), [megjelenítési mezők](Config_Reference.md#display) és az [API Szerver](API_Server.md) segítségével elérhető nyomtató állapotinformációk referenciája.
 
-The fields in this document are subject to change - if using an attribute be sure to review the [Config Changes document](Config_Changes.md) when upgrading the Klipper software.
+Az ebben a dokumentumban szereplő mezők változhatnak. Ha egy attribútumot használ, a Klipper szoftver frissítésekor mindenképpen nézze át a [Config Changes dokumentumot](Config_Changes.md).
 
 ## bed_mesh
 
-The following information is available in the [bed_mesh](Config_Reference.md#bed_mesh) object:
+A következő információk az [ágyháló](Config_Reference.md#bed_mesh) objektumban érhetők el:
 
 - `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: Information on the currently active bed_mesh.
 - `profiles`: The set of currently defined profiles as setup using BED_MESH_PROFILE.

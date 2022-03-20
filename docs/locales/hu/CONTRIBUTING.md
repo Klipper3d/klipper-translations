@@ -1,4 +1,4 @@
-# Contributing to Klipper
+# Hozzájárulás a Klipperhez
 
 Thank you for contributing to Klipper! This document describes the process for contributing changes to Klipper.
 
@@ -118,25 +118,25 @@ The Klipper "maintainers" are:
 Each commit should have a commit message formatted similar to the following:
 
 ```
-module: Capitalized, short (50 chars or less) summary
+modul: Nagybetűs, rövid (legfeljebb 50 karakteres) összefoglaló.
 
-More detailed explanatory text, if necessary.  Wrap it to about 75
-characters or so.  In some contexts, the first line is treated as the
-subject of an email and the rest of the text as the body.  The blank
-line separating the summary from the body is critical (unless you omit
-the body entirely); tools like rebase can get confused if you run the
-two together.
+Szükség esetén részletesebb magyarázó szöveg.  Körülbelül 75
+karakter.  Bizonyos kontextusokban az első sort úgy kezelik, mint a
+az e-mail tárgya, a szöveg többi részét pedig szövegtestként.  Az üres
+sor, amely elválasztja az összefoglalót a szövegtesttől, kritikus (kivéve, ha kihagyja a
+a törzsszöveget teljesen); az olyan eszközök, mint a rebase, összezavarodhatnak, ha a
+a kettőt együtt futtatják.
 
-Further paragraphs come after blank lines..
+Az üres sorok után további bekezdések következnek..
 
-Signed-off-by: My Name <myemail@example.org>
+Aláírás: Név <myemail@example.org>
 ```
 
 In the above example, `module` should be the name of a file or directory in the repository (without a file extension). For example, `clocksync: Fix typo in pause() call at connect time`. The purpose of specifying a module name in the commit message is to help provide context for the commit comments.
 
-It is important to have a "Signed-off-by" line on each commit - it certifies that you agree to the [developer certificate of origin](developer-certificate-of-origin). It must contain your real name (sorry, no pseudonyms or anonymous contributions) and contain a current email address.
+Fontos, hogy minden kérésnél legyen egy "Signed-off-by" sor. Ez igazolja, hogy egyetértesz a [fejlesztői eredetigazolással](developer-certificate-of-origin). Tartalmaznia kell a valódi nevét (sajnálom, nincs álnév vagy névtelen hozzájárulás), és tartalmaznia kell egy aktuális e-mail címet.
 
-## Contributing to Klipper Translations
+## Hozzájárulás a Klipper Fordításokhoz
 
 [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) is a project dedicated to translating Klipper to different languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all the Gettext strings for translating and reviewing. Locales can be displayed on [klipper3d.org](https://www.klipper3d.org) once they satisfy the following requirements:
 

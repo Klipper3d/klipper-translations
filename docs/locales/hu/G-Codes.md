@@ -1,10 +1,10 @@
 # G-Codes
 
-This document describes the commands that Klipper supports. These are commands that one may enter into the OctoPrint terminal tab.
+Ez a dokumentum a Klipper által támogatott parancsokat írja le. Ezek olyan parancsok, amelyeket az OctoPrint konzoljába lehet beírni.
 
-## G-Code commands
+## G-kód parancsok
 
-Klipper supports the following standard G-Code commands:
+A Klipper a következő szabványos G-kód parancsokat támogatja:
 
 - Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
 - Dwell: `G4 P<milliseconds>`

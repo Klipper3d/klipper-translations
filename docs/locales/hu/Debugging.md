@@ -1,6 +1,6 @@
 # Debugging
 
-This document describes some of the Klipper debugging tools.
+Ez a dokumentum a Klipper hibakeresési eszközeinek egy részét ismerteti.
 
 ## Running the regression tests
 
@@ -31,11 +31,11 @@ See the "HELP" command within the tool for more information on its functionality
 
 Some command-line options are available. For more information run: `~/klippy-env/bin/python ./klippy/console.py --help`
 
-## Translating gcode files to micro-controller commands
+## A G-kód fájlok lefordítása mikrokontroller-parancsokra
 
-The Klippy host code can run in a batch mode to produce the low-level micro-controller commands associated with a gcode file. Inspecting these low-level commands is useful when trying to understand the actions of the low-level hardware. It can also be useful to compare the difference in micro-controller commands after a code change.
+A Klippy gazdagép kódja futhat kötegelt üzemmódban, hogy előállítsa a G-kód fájlhoz tartozó alacsony szintű mikrokontroller-parancsokat. Ezeknek az alacsony szintű parancsoknak a vizsgálata hasznos, amikor megpróbálja megérteni az alacsony szintű hardver műveleteit. Az is hasznos lehet, hogy összehasonlítsuk a mikrokontroller-parancsok közötti különbséget egy kódváltás után.
 
-To run Klippy in this batch mode, there is a one time step necessary to generate the micro-controller "data dictionary". This is done by compiling the micro-controller code to obtain the **out/klipper.dict** file:
+A Klippy futtatásához ebben a kötegelt üzemmódban egy egyszeri lépés szükséges a mikrokontroller "adatszótár" létrehozásához. Ez a mikrokontroller kódjának lefordításával történik, hogy megkapjuk a **out/klipper.dict** fájlt:
 
 ```
 make menuconfig
