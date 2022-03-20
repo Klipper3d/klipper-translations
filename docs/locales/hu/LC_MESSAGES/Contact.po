@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-03-16 14:56+0000\n"
+"PO-Revision-Date: 2022-03-20 07:56+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "contact/hu/>\n"
@@ -13,16 +13,16 @@ msgstr ""
 "X-Generator: Weblate 4.12-dev\n"
 
 msgid "This document provides contact information for Klipper."
-msgstr ""
+msgstr "Ez a dokumentum a Klipper csapatának elérhetőségét tartalmazza."
 
 msgid "[Community Forum](#community-forum)"
-msgstr ""
+msgstr "[Közösségi fórum](#community-forum)"
 
 msgid "[Discord Chat](#discord-chat)"
-msgstr ""
+msgstr "[Discord Chat](#discord-chat)"
 
 msgid "[I have a question about Klipper](#i-have-a-question-about-klipper)"
-msgstr ""
+msgstr "[Kérdésem van a Klipperről](#i-have-a-question-about-klipper)"
 
 msgid "[I have a feature request](#i-have-a-feature-request)"
 msgstr ""
