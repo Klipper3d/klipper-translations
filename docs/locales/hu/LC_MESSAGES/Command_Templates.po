@@ -1,17 +1,26 @@
-#
+# Zs.Antal <zsikaiantal@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-03-20 07:56+0000\n"
+"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"command_templates/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid ""
 "This document provides information on implementing G-Code command sequences "
 "in gcode_macro (and similar) config sections."
 msgstr ""
+"Ez a dokumentum a G-Kód parancssorozatok gcode_macro (és hasonló) "
+"konfigurációs szakaszokban történő implementálásáról nyújt információt."
 
 msgid "G-Code Macro Naming"
-msgstr ""
+msgstr "G-kód makró elnevezése"
 
 msgid ""
 "Case is not important for the G-Code macro name - MY_MACRO and my_macro will"
@@ -19,9 +28,13 @@ msgid ""
 "numbers are used in the macro name then they must all be at the end of the "
 "name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not)."
 msgstr ""
+"A G-kódos makronév esetében a nagy- és kisbetűs írásmód nem fontos - a "
+"MY_MACRO és a my_macro ugyanúgy kiértékelődik, és kicsi vagy nagybetűvel is "
+"meghívható. Ha a makronévben számokat használunk, akkor azoknak a név végén "
+"kell állniuk (pl. a TEST_MACRO25 érvényes, de a MACRO25_TEST3 nem)."
 
 msgid "Formatting of G-Code in the config"
-msgstr ""
+msgstr "A G-kód formázása a konfigurációban"
 
 msgid ""
 "Indentation is important when defining a macro in the config file. To "

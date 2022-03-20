@@ -1,20 +1,29 @@
-#
+# Zs.Antal <zsikaiantal@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-03-20 07:56+0000\n"
+"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"benchmarks/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid "This document describes Klipper benchmarks."
-msgstr ""
+msgstr "Ez a dokumentum a Klipper referenciaértékeit ismerteti."
 
 msgid "Micro-controller Benchmarks"
-msgstr ""
+msgstr "Mikrokontroller referenciaértékek"
 
 msgid ""
 "This section describes the mechanism used to generate the Klipper micro-"
 "controller step rate benchmarks."
 msgstr ""
+"Ez a szakasz ismerteti a Klipper mikrokontroller lépési sebességreferencia "
+"létrehozására használt mechanizmust."
 
 msgid ""
 "The primary goal of the benchmarks is to provide a consistent mechanism for "
@@ -22,6 +31,10 @@ msgid ""
 " is to provide high-level metrics for comparing the performance between "
 "chips and between software platforms."
 msgstr ""
+"A referenciamutatók elsődleges célja, hogy következetes mechanizmust "
+"biztosítsanak a szoftveren belüli kódolási változtatások hatásának mérésére. "
+"Másodlagos cél, hogy magas szintű mérőszámokat biztosítson a chipek és a "
+"szoftverplatformok teljesítményének összehasonlításához."
 
 msgid ""
 "The step rate benchmark is designed to find the maximum stepping rate that "

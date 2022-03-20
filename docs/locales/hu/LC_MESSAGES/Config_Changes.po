@@ -1,26 +1,39 @@
-#
+# Zs.Antal <zsikaiantal@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-03-20 07:56+0000\n"
+"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"config_changes/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid ""
 "This document covers recent software changes to the config file that are not"
 " backwards compatible. It is a good idea to review this document when "
 "upgrading the Klipper software."
 msgstr ""
+"Ez a dokumentum a konfigurációs fájl legújabb szoftveres változtatásait "
+"tartalmazza, amelyek nem kompatibilisek visszafelé. A Klipper szoftver "
+"frissítésekor érdemes áttanulmányozni ezt a dokumentumot."
 
 msgid "All dates in this document are approximate."
-msgstr ""
+msgstr "A dokumentumban szereplő valamennyi dátum hozzávetőleges."
 
 msgid "Changes"
-msgstr ""
+msgstr "Változások"
 
 msgid ""
 "20210612: The `pid_integral_max` config option in heater and temperature_fan"
 " sections is deprecated. The option will be removed in the near future."
 msgstr ""
+"20210612: A `pid_integral_max` konfigurációs opció a fűtés és a "
+"temperature_fan szakaszokban elavult. Az opció a közeljövőben eltávolításra "
+"kerül."
 
 msgid ""
 "20210430: The SET_VELOCITY_LIMIT (and M204) command may now set a velocity, "

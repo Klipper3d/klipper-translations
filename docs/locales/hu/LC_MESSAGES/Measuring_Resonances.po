@@ -1,12 +1,19 @@
-#
+# Zs.Antal <zsikaiantal@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-03-20 07:56+0000\n"
+"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"measuring_resonances/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid "Measuring Resonances"
-msgstr ""
+msgstr "Rezonanciák mérése"
 
 msgid ""
 "Klipper has built-in support for ADXL345 accelerometer, which can be used to"
@@ -16,12 +23,19 @@ msgid ""
 "ADXL345 can be connected to a Raspberry Pi directly, or to an SPI interface "
 "of an MCU board (it needs to be reasonably fast)."
 msgstr ""
+"A Klipper beépített támogatással rendelkezik az ADXL345 gyorsulásmérőhöz, "
+"amely a nyomtató rezonanciáinak mérésére használható a különböző tengelyek "
+"esetében, és automatikus hangolással [rezonancia "
+"kompenzáció](Resonance_Compensation.md) a rezonanciák kompenzálására. Vegye "
+"figyelembe, hogy az ADXL345 használata némi forrasztást és krimpelést "
+"igényel. Az ADXL345 közvetlenül csatlakoztatható egy Raspberry Pi-hez, vagy "
+"egy MCU-kártya SPI-interfészéhez (meglehetősen gyorsnak kell lennie)."
 
 msgid "Installation instructions"
-msgstr ""
+msgstr "Telepítési utasítások"
 
 msgid "Wiring"
-msgstr ""
+msgstr "Vezetékek"
 
 msgid ""
 "You need to connect ADXL345 to your Raspberry Pi via SPI. Note that the I2C "
