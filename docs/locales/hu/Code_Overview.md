@@ -6,47 +6,47 @@ Ez a dokumentum a Klipper általános kódelrendezését és főbb kódfolyamát
 
 Az **src/** könyvtár tartalmazza a mikrovezérlő kódjának C forrását. Az **src/atsam/**, **src/atsamd/**, **src/avr/**, **src/linux/**, **src/lpc176x/**, **src/ A pru/** és **src/stm32/** könyvtárak architektúra-specifikus mikrovezérlő kódot tartalmaznak. Az **src/simulator/** kódcsonkokat tartalmaz, amelyek lehetővé teszik a mikrokontroller tesztelését más architektúrákon. Az **src/generic/** könyvtár segédkódot tartalmaz, amely hasznos lehet a különböző architektúrákban. A build gondoskodik arról, hogy az include "board/somefile.h" először az aktuális architektúra könyvtárban (pl. src/avr/somefile.h), majd az általános könyvtárban (pl. src/generic/somefile.h) keressen.
 
-The **klippy/** directory contains the host software. Most of the host software is written in Python, however the **klippy/chelper/** directory contains some C code helpers. The **klippy/kinematics/** directory contains the robot kinematics code. The **klippy/extras/** directory contains the host code extensible "modules".
+A **klippy/** könyvtár tartalmazza a gazdaszoftvert. A gazdaszoftver nagy része Python nyelven íródott, azonban a **klippy/chelper/** könyvtár tartalmaz néhány C kódú segédprogramot. A **klippy/kinematics/** könyvtár tartalmazza a robot kinematikai kódját. A **klippy/extras/** könyvtár tartalmazza a gazdakód bővíthető "moduljait".
 
-The **lib/** directory contains external 3rd-party library code that is necessary to build some targets.
+A **lib/** könyvtár külső, harmadik féltől származó könyvtári kódot tartalmaz, amely néhány célprogram elkészítéséhez szükséges.
 
-The **config/** directory contains example printer configuration files.
+A **config/** könyvtár a nyomtató konfigurációs példafájljait tartalmazza.
 
-The **scripts/** directory contains build-time scripts useful for compiling the micro-controller code.
+Az **scripts/** könyvtár felépítési idejű szkripteket tartalmaz, amelyek hasznosak a mikrovezérlő kódjának fordításához.
 
-The **test/** directory contains automated test cases.
+A **test/** könyvtár automatikus teszteseteket tartalmaz.
 
-During compilation, the build may create an **out/** directory. This contains temporary build time objects. The final micro-controller object that is built is **out/klipper.elf.hex** on AVR and **out/klipper.bin** on ARM.
+Fordítás során a build létrehozhat egy **out/** könyvtárat. Ez ideiglenes építési idejű objektumokat tartalmaz. A végső mikrokontroller objektum, amely felépül, AVR esetén **out/klipper.elf.hex**, ARM esetén **out/klipper.bin**.
 
-## Micro-controller code flow
+## Mikrokontroller kódfolyamat
 
-Execution of the micro-controller code starts in architecture specific code (eg, **src/avr/main.c**) which ultimately calls sched_main() located in **src/sched.c**. The sched_main() code starts by running all functions that have been tagged with the DECL_INIT() macro. It then goes on to repeatedly run all functions tagged with the DECL_TASK() macro.
+A mikrokontroller kódjának végrehajtása az architektúra-specifikus kódban kezdődik (pl. **src/avr/main.c**), amely végül a **src/sched.c**-ban található sched_main() parancsot hívja meg. A sched_main() kód a DECL_INIT() makróval jelölt összes függvény futtatásával kezdődik. Ezután a DECL_TASK() makróval megjelölt függvények ismételt futtatására kerül sor.
 
-One of the main task functions is command_dispatch() located in **src/command.c**. This function is called from the board specific input/output code (eg, **src/avr/serial.c**, **src/generic/serial_irq.c**) and it runs the command functions associated with the commands found in the input stream. Command functions are declared using the DECL_COMMAND() macro (see the [protocol](Protocol.md) document for more information).
+Az egyik fő feladatfüggvény a command_dispatch(), amely a **src/command.c** fájlban található. Ezt a függvényt a kártyaspecifikus bemeneti/kimeneti kódból (pl. **src/avr/serial.c**, **src/generic/serial_irq.c**) hívjuk meg, és a bemeneti folyamban található parancsokhoz tartozó parancsfüggvényeket futtatja. A parancsfüggvények deklarálása a DECL_COMMAND() makróval történik (további információkért lásd a [protokol](Protocol.md) dokumentumot).
 
-Task, init, and command functions always run with interrupts enabled (however, they can temporarily disable interrupts if needed). These functions should never pause, delay, or do any work that lasts more than a few micro-seconds. These functions schedule work at specific times by scheduling timers.
+A feladat-, init- és parancsfüggvények mindig engedélyezett megszakításokkal futnak (szükség esetén azonban ideiglenesen letilthatják a megszakításokat). Ezek a függvények soha nem tarthatnak szünetet, nem késleltethetnek, és nem végezhetnek olyan munkát, amely néhány mikroszekundumnál tovább tart. Ezek a függvények a munkát meghatározott időpontokra ütemezik időzítők segítségével.
 
-Timer functions are scheduled by calling sched_add_timer() (located in **src/sched.c**). The scheduler code will arrange for the given function to be called at the requested clock time. Timer interrupts are initially handled in an architecture specific interrupt handler (eg, **src/avr/timer.c**) which calls sched_timer_dispatch() located in **src/sched.c**. The timer interrupt leads to execution of schedule timer functions. Timer functions always run with interrupts disabled. The timer functions should always complete within a few micro-seconds. At completion of the timer event, the function may choose to reschedule itself.
+Az időzítő függvények ütemezése a sched_add_timer() meghívásával történik (a **src/sched.c** fájlban található). Az ütemező kód gondoskodik arról, hogy az adott függvényt a kért időben hívja meg. Az időzítő megszakítások kezelése kezdetben egy architektúra-specifikus megszakításkezelőben történik (pl. **src/avr/timer.c**), amely a **src/sched.c**-ban található sched_timer_dispatch() funkciót hívja. Az időzítő megszakítása az ütemező időzítő függvények végrehajtásához vezet. Az időzítő függvények mindig megszakítások kikapcsolásával futnak. Az időzítőfüggvényeknek mindig néhány mikroszekundumon belül kell befejeződniük. Az időzítő esemény befejezésekor a függvény dönthet úgy, hogy átütemezi magát.
 
-In the event an error is detected the code can invoke shutdown() (a macro which calls sched_shutdown() located in **src/sched.c**). Invoking shutdown() causes all functions tagged with the DECL_SHUTDOWN() macro to be run. Shutdown functions always run with interrupts disabled.
+Hiba észlelése esetén a kód meghívhatja a shutdown() funkciót (egy makró, amely a **src/sched.c**-ben található sched_shutdown() funkciót hívja). A shutdown() meghívása a DECL_SHUTDOWN() makróval jelölt összes függvény futtatását eredményezi. A leállítási függvények mindig megszakítások letiltásával futnak.
 
-Much of the functionality of the micro-controller involves working with General-Purpose Input/Output pins (GPIO). In order to abstract the low-level architecture specific code from the high-level task code, all GPIO events are implemented in architecture specific wrappers (eg, **src/avr/gpio.c**). The code is compiled with gcc's "-flto -fwhole-program" optimization which does an excellent job of inlining functions across compilation units, so most of these tiny gpio functions are inlined into their callers, and there is no run-time cost to using them.
+A mikrokontroller funkcióinak nagy része az általános célú bemeneti/kimeneti érintkezőkkel (GPIO) való munkát foglalja magában. Annak érdekében, hogy az alacsony szintű architektúra-specifikus kódot elvonatkoztassuk a magas szintű feladatkódtól, minden GPIO eseményt architektúra-specifikus burkolatokban valósítunk meg (pl. **src/avr/gpio.c**). A kódot a gcc's "-flto -fwhole-program" optimalizálással fordítottuk, amely kiváló munkát végez a függvények inline-olásában a fordítási egységeken keresztül, így a legtöbb ilyen apró GPIO függvény inline-olva van a hívóikban, és nincs futásidejű költsége a használatuknak.
 
-## Klippy code overview
+## Klippy kód áttekintése
 
-The host code (Klippy) is intended to run on a low-cost computer (such as a Raspberry Pi) paired with the micro-controller. The code is primarily written in Python, however it does use CFFI to implement some functionality in C code.
+A gazdakódot (Klippy) egy olcsó számítógépen (például egy Raspberry Pi) kell futtatni a mikrokontrollerrel párosítva. A kód elsősorban Pythonban íródott, azonban a CFFI-t használja néhány funkció C kódban történő megvalósításához.
 
-Initial execution starts in **klippy/klippy.py**. This reads the command-line arguments, opens the printer config file, instantiates the main printer objects, and starts the serial connection. The main execution of G-code commands is in the process_commands() method in **klippy/gcode.py**. This code translates the G-code commands into printer object calls, which frequently translate the actions to commands to be executed on the micro-controller (as declared via the DECL_COMMAND macro in the micro-controller code).
+A kezdeti végrehajtás a **klippy/klippy.py** fájlban kezdődik. Ez beolvassa a parancssori argumentumokat, megnyitja a nyomtató konfigurációs fájlját, példányosítja a fő nyomtatóobjektumokat, és elindítja a soros kapcsolatot. A G-kód parancsok fő végrehajtása a process_commands() metódusban történik az **klippy/gcode.py** fájlban. Ez a kód a G-kód parancsokat nyomtatóobjektum-hívásokká fordítja le, amelyek gyakran a műveleteket a mikrovezérlőn végrehajtandó parancsokká alakítják (a mikrovezérlő kódjában a DECL_COMMAND makrón keresztül).
 
-There are four threads in the Klippy host code. The main thread handles incoming gcode commands. A second thread (which resides entirely in the **klippy/chelper/serialqueue.c** C code) handles low-level IO with the serial port. The third thread is used to process response messages from the micro-controller in the Python code (see **klippy/serialhdl.py**). The fourth thread writes debug messages to the log (see **klippy/queuelogger.py**) so that the other threads never block on log writes.
+A Klippy gazdagép kódjában négy szál van. A fő szál kezeli a bejövő G-kód parancsokat. Egy második szál (amely teljes egészében a **klippy/chelper/serialqueue.c** C kódban található) az alacsony szintű IO-t kezeli a soros porttal. A harmadik szál a Python kódban (lásd **klippy/serialhdl.py**) a mikrokontroller válaszüzeneteinek feldolgozására szolgál. A negyedik szál hibakeresési üzeneteket ír a naplóba (lásd **klippy/queuelogger.py**), hogy a többi szál soha ne blokkoljon a naplóíráskor.
 
-## Code flow of a move command
+## Mozgásparancs kódfolyama
 
-A typical printer movement starts when a "G1" command is sent to the Klippy host and it completes when the corresponding step pulses are produced on the micro-controller. This section outlines the code flow of a typical move command. The [kinematics](Kinematics.md) document provides further information on the mechanics of moves.
+Egy tipikus nyomtatómozgás akkor kezdődik, amikor egy "G1" parancsot küldünk a Klippy gazdagépnek, és akkor fejeződik be, amikor a megfelelő lépésimpulzusok megjelennek a mikrokontrolleren. Ez a szakasz egy tipikus mozgatási parancs kódfolyamatát vázolja fel. A [kinematika](Kinematics.md) dokumentum további információkat tartalmaz a mozgások mechanikájáról.
 
-* Processing for a move command starts in gcode.py. The goal of gcode.py is to translate G-code into internal calls. A G1 command will invoke cmd_G1() in klippy/extras/gcode_move.py. The gcode_move.py code handles changes in origin (eg, G92), changes in relative vs absolute positions (eg, G90), and unit changes (eg, F6000=100mm/s). The code path for a move is: `_process_data() -> _process_commands() -> cmd_G1()`. Ultimately the ToolHead class is invoked to execute the actual request: `cmd_G1() -> ToolHead.move()`
-* The ToolHead class (in toolhead.py) handles "look-ahead" and tracks the timing of printing actions. The main codepath for a move is: `ToolHead.move() -> MoveQueue.add_move() -> MoveQueue.flush() -> Move.set_junction() -> ToolHead._process_moves()`.
-   * ToolHead.move() creates a Move() object with the parameters of the move (in cartesian space and in units of seconds and millimeters).
+* A mozgás parancs feldolgozása a gcode.py fájlban kezdődik. A gcode.py célja a G-kód lefordítása belső hívásokká. Egy G1 parancs a klippy/extras/gcode_move.py állományban lévő cmd_G1() parancsot hívja meg. A gcode_move.py kód kezeli az eredetváltozásokat (pl. G92), a relatív és abszolút pozíciók közötti változásokat (pl. G90) és az egységváltozásokat (pl. F6000=100mm/s). A kód útvonala a mozgatáshoz a következő: `_process_data() -> _process_commands() -> cmd_G1()`. Végül a ToolHead osztályt hívjuk meg a tényleges kérés végrehajtásához: `cmd_G1() -> ToolHead.move()`
+* A ToolHead osztály (a toolhead.py állományban) kezeli a "look-ahead" és követi a nyomtatási műveletek időzítését. A fő kódútvonal egy mozdulathoz a következő: `ToolHead.move() -> MoveQueue.add_move() -> MoveQueue.flush() -> Move.set_junction() -> ToolHead._process_moves()`.
+   * A ToolHead.move() létrehoz egy Move() objektumot a mozgás paramétereivel (cartesian térben, másodperc és milliméter egységekben).
    * The kinematics class is given the opportunity to audit each move (`ToolHead.move() -> kin.check_move()`). The kinematics classes are located in the klippy/kinematics/ directory. The check_move() code may raise an error if the move is not valid. If check_move() completes successfully then the underlying kinematics must be able to handle the move.
    * MoveQueue.add_move() places the move object on the "look-ahead" queue.
    * MoveQueue.flush() determines the start and end velocities of each move.

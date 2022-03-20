@@ -1,12 +1,12 @@
 # Bootloaders
 
-This document provides information on common bootloaders found on micro-controllers that Klipper supports.
+Ez a dokumentum a Klipper által támogatott mikrovezérlőkön található gyakori bootloaderekkel kapcsolatos információkat tartalmazza.
 
-The bootloader is 3rd-party software that runs on the micro-controller when it is first powered on. It is typically used to flash a new application (eg, Klipper) to the micro-controller without requiring specialized hardware. Unfortunately, there is no industry wide standard for flashing a micro-controller, nor is there a standard bootloader that works across all micro-controllers. Worse, it is common for each bootloader to require a different set of steps to flash an application.
+A bootloader egy harmadik féltől származó szoftver, amely a mikrovezérlőn fut, amikor az először bekapcsol. Általában egy új alkalmazás (pl. Klipper) égetésére használják a mikrokontrollerre anélkül, hogy speciális hardverre lenne szükség. Sajnos a mikrokontrollerek égetésére nincs iparági szabvány, és nincs olyan szabványos bootloader sem, amely minden mikrokontrolleren működik. Ami még rosszabb, hogy minden egyes bootloader más és más lépéseket igényel az alkalmazás égetéséhez.
 
-If one can flash a bootloader to a micro-controller then one can generally also use that mechanism to flash an application, but care should be taken when doing this as one may inadvertently remove the bootloader. In contrast, a bootloader will generally only permit a user to flash an application. It is therefore recommended to use a bootloader to flash an application where possible.
+Ha egy mikrokontrollerre tudunk bootloadert égetni, akkor általában ezt a mechanizmust használhatjuk egy alkalmazás égetésére is, de óvatosan kell eljárni, mert véletlenül eltávolíthatjuk a bootloadert. Ezzel szemben a bootloader általában csak egy alkalmazás égetését teszi lehetővé. Ezért ajánlott, ha lehetséges, bootloadert használni egy alkalmazás égetésére.
 
-This document attempts to describe common bootloaders, the steps needed to flash a bootloader, and the steps needed to flash an application. This document is not an authoritative reference; it is intended as a collection of useful information that the Klipper developers have accumulated.
+Ez a dokumentum megpróbálja leírni a gyakori bootloadereket, a bootloader égetéséhez szükséges lépéseket és az alkalmazás égetéséhez szükséges lépéseket. Ez a dokumentum nem tekintélyes hivatkozás. A Klipper fejlesztői által összegyűjtött hasznos információk gyűjteményének szánjuk.
 
 ## AVR micro-controllers
 

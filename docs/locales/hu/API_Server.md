@@ -1,16 +1,16 @@
 # API server
 
-This document describes Klipper's Application Programmer Interface (API). This interface enables external applications to query and control the Klipper host software.
+Ez a dokumentum leírja a Klipper Alkalmazás Programozói Interfészt (API). Ez az interfész lehetővé teszi külső alkalmazások számára a Klipper gazdaszoftver lekérdezését és vezérlését.
 
-## Enabling the API socket
+## Az API foglalat engedélyezése
 
-In order to use the API server, the klippy.py host software must be started with the `-a` parameter. For example:
+Az API-kiszolgáló használatához a klippy.py host szoftvert a `-a` paraméterrel kell elindítani. Például:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 ```
 
-This causes the host software to create a Unix Domain Socket. A client can then open a connection on that socket and send commands to Klipper.
+Ennek hatására a gazdaszoftver létrehoz egy Unix Domain Socketet. Az ügyfél ezután kapcsolatot nyithat ezen keresztül, és parancsokat küldhet a Klippernek.
 
 ## Request format
 

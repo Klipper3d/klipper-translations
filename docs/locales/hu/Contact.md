@@ -1,10 +1,10 @@
 # Kapcsolat
 
-This document provides contact information for Klipper.
+Ez a dokumentum a Klipper csapatának elérhetőségét tartalmazza.
 
-1. [Community Forum](#community-forum)
+1. [Közösségi fórum](#community-forum)
 1. [Discord Chat](#discord-chat)
-1. [I have a question about Klipper](#i-have-a-question-about-klipper)
+1. [Kérdésem van a Klipperről](#i-have-a-question-about-klipper)
 1. [I have a feature request](#i-have-a-feature-request)
 1. [Help! It doesn't work!](#help-it-doesnt-work)
 1. [I have diagnosed a defect in the Klipper software](#i-have-diagnosed-a-defect-in-the-klipper-software)

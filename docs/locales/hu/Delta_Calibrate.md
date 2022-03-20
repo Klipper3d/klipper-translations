@@ -1,12 +1,12 @@
 # Delta calibration
 
-This document describes Klipper's automatic calibration system for "delta" style printers.
+Ez a dokumentum a Klipper "delta" stílusú nyomtatók automatikus kalibrációs rendszerét írja le.
 
-Delta calibration involves finding the tower endstop positions, tower angles, delta radius, and delta arm lengths. These settings control printer motion on a delta printer. Each one of these parameters has a non-obvious and non-linear impact and it is difficult to calibrate them manually. In contrast, the software calibration code can provide excellent results with just a few minutes of time. No special probing hardware is necessary.
+A deltakalibrálás magában foglalja a torony végállásának, a torony szögének, a deltasugárnak és a deltakarok hosszának meghatározását. Ezek a beállítások szabályozzák a nyomtató mozgását a delta nyomtatónál. E paraméterek mindegyike nem nyilvánvaló és nem lineáris hatással bír, és manuálisan nehéz kalibrálni őket. Ezzel szemben a szoftver kalibrációs kódja néhány perc ráfordítással kiváló eredményt adhat. Nincs szükség speciális szintező hardverre.
 
-Ultimately, the delta calibration is dependent on the precision of the tower endstop switches. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of those switches.
+A delta-kalibrálás végső soron a torony végálláskapcsolóinak pontosságától függ. Ha valaki Trinamic léptetőmotor-meghajtókat használ, akkor fontolja meg a [végállási fázis](Endstop_Phase.md) érzékelés engedélyezését, hogy javítsa e kapcsolók pontosságát.
 
-## Automatic vs manual probing
+## Automatikus vagy kézi szintezés
 
 Klipper supports calibrating the delta parameters via a manual probing method or via an automatic Z probe.
 

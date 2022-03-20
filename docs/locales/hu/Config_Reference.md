@@ -1,12 +1,12 @@
 # Configuration reference
 
-This document is a reference for options available in the Klipper config file.
+Ez a dokumentum a Klipper konfigurációs fájlban elérhető beállítások referenciája.
 
-The descriptions in this document are formatted so that it is possible to cut-and-paste them into a printer config file. See the [installation document](Installation.md) for information on setting up Klipper and choosing an initial config file.
+Az ebben a dokumentumban található leírások úgy vannak formázva, hogy kivághatóak és beilleszthetőek legyenek egy nyomtató konfigurációs fájljába. A Klipper beállításával és a kezdeti konfigurációs fájl kiválasztásával kapcsolatos információkért lásd a [telepítési dokumentumot](Installation.md).
 
-## Micro-controller configuration
+## Mikrokontroller konfiguráció
 
-### Format of micro-controller pin names
+### A mikrokontroller pin neveinek formátuma
 
 Many config options require the name of a micro-controller pin. Klipper uses the hardware names for these pins - for example `PA4`.
 
