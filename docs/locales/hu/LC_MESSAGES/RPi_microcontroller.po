@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-03-20 07:56+0000\n"
+"PO-Revision-Date: 2022-03-21 23:29+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "rpi_microcontroller/hu/>\n"
@@ -327,7 +327,7 @@ msgstr ""
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "18"
@@ -335,11 +335,11 @@ msgstr ""
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "13"

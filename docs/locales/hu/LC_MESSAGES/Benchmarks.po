@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-03-20 07:56+0000\n"
+"PO-Revision-Date: 2022-03-21 23:29+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "benchmarks/hu/>\n"
@@ -403,7 +403,7 @@ msgid "66"
 msgstr ""
 
 msgid "5"
-msgstr ""
+msgstr "5"
 
 msgid "22"
 msgstr ""
