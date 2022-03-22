@@ -1,4 +1,4 @@
-# Rotation distance
+# Forgatási távolság
 
 A Klipper léptetőmotor-meghajtók minden [léptető konfigurációs szakaszban](Config_Reference.md#stepper) megkövetelnek egy `rotation_distance` paramétert. A `rotation_distance` az a távolság, amelyet a tengely a léptetőmotor egy teljes fordulatával elmozdít. Ez a dokumentum leírja, hogyan lehet ezt az értéket beállítani.
 
@@ -20,7 +20,7 @@ A `<full_steps_per_rotation>` beállítást a léptetőmotor típusa határozza 
 
 A `<mikrolépések>` beállítást a léptetőmotor-meghajtó határozza meg. A legtöbb meghajtó 16 mikrolépést használ. Ha bizonytalan, állítsa be a `microsteps: 16` a konfigurációban, és használja a 16-ot a fenti képletben.
 
-Almost all printers should have a whole number for `rotation_distance` on X, Y, and Z type axes. If the above formula results in a rotation_distance that is within .01 of a whole number then round the final value to that whole_number.
+Szinte minden nyomtatónak egész számot kell megadnia a `rotation_distance` X, Y és Z típusú tengelyeknél. Ha a fenti képlet olyan rotation_distance-ot eredményez, amely 0,01 egész számon belül van, akkor kerekítse a végső értéket erre az egész számra.
 
 ## A rotation_distance kalibrálása extrudereken
 
@@ -32,7 +32,7 @@ Ezután a következő eljárást alkalmazza a "mérés és igazítás" elvégzé
 
 1. Győződjön meg arról, hogy az extruderben van-e nyomtatószál, a hotend megfelelő hőmérsékletre van-e melegítve, és a nyomtató készen áll-e az extrudálásra.
 1. Jelölje meg a nyomtatószálat egy jelölővel az extrudertest szívónyílásától kb. 70 mm-re. Ezután egy digitális tolómérővel mérje meg a lehető legpontosabban ennek a jelölésnek a tényleges távolságát. Ezt jegyezze fel `<initial_mark_distance>`.
-1. Extrude 50mm of filament with the following command sequence: `G91` followed by `G1 E50 F60`. Note 50mm as `<requested_extrude_distance>`. Wait for the extruder to finish the move (it will take about 50 seconds). It is important to use the slow extrusion rate for this test as a faster rate can cause high pressure in the extruder which will skew the results. (Do not use the "extrude button" on graphical front-ends for this test as they extrude at a fast rate.)
+1. Extrudáljon 50 mm nyomtatószálat a következő parancsokkal: `G91`, majd `G1 E50 F60`. Az 50 mm-t jegyezze meg `<requested_extrude_distance>`. Várja meg, amíg az extruder befejezi a mozgást (ez körülbelül 50 másodpercig tart). Fontos, hogy lassú extrudálási sebességet használjon ehhez a teszthez, mivel a gyorsabb sebesség magas nyomást okozhat az extruderben, ami torzítja az eredményeket. (Ne használja az "extrude gombot" a grafikus előlapon ehhez a teszthez, mivel azok gyors ütemben extrudálnak.)
 1. A digitális tolómérővel mérje meg az extruder teste és a szálon lévő jelölés közötti új távolságot. Ezt jegyezze fel `<subsequent_mark_distance>`. Ezután számítsa ki: `actual_extrude_distance = <initial_mark_distance> - <subsequent_mark_distance>`
 1. A rotation_distance kiszámítása: `rotation_distance = <previous_rotation_distance> * <actual_extrude_distance> / <requested_extrude_distance>` Az új rotation_distance-t három tizedesjegyre kerekítjük.
 
@@ -84,8 +84,8 @@ Ha `gear_ratio` be van állítva, a `rotation_distance` azt a távolságot jelö
 
 A szíjakkal és szíjtárcsákkal megvalósított hajtóművek esetében a fogaskerekek fogainak megszámlálásával lehet meghatározni a gear_ratio-t. Ha például egy 16 fogazású szíjtárcsával rendelkező léptető meghajtja a, 80 fogazású szíjtárcsát, akkor a `gear_ratio: 80:16` értéket használjuk. Valóban, ki lehetne nyitni egy közönséges, "fogaskerékdobozt" és megszámolni a benne lévő fogakat, hogy megerősítsük a fogaskerék áttételét.
 
-Note that sometimes a gearbox will have a slightly different gear ratio than what it is advertised as. The common BMG extruder motor gears are an example of this - they are advertised as "3:1" but actually use "50:17" gearing. (Using teeth numbers without a common denominator may improve overall gear wear as the teeth don't always mesh the same way with each revolution.) The common "5.18:1 planetary gearbox", is more accurately configured with `gear_ratio: 57:11`.
+Vegye figyelembe, hogy néha egy áttétel kissé eltér a hirdetett értéktől. A BMG extrudermotorok közös fogaskerekei példát mutatnak erre. A reklámok szerint "3:1", de valójában "50:17" áttételt használnak. (A közös nevező nélküli fogszámok használata javíthatja a fogaskerekek általános kopását, mivel a fogak nem mindig ugyanúgy fognak össze minden egyes fordulatnál.) A gyakori "5,18:1 bolygóműves sebességváltó", pontosabban a `gear_ratio: 57:11` értékkel van konfigurálva.
 
-If several gears are used on an axis then it is possible to provide a comma separated list to gear_ratio. For example, a "5:1" gear box driving a 16 toothed to 80 toothed pulley could use `gear_ratio: 5:1, 80:16`.
+Ha egy tengelyen több fogaskerék van használatban, akkor a gear_ratio-nak egy vesszővel elválasztott listát lehet megadni. Például egy "5:1" fogaskerék, amely egy 16 fogazású és egy 80 fogazású tárcsát hajt, használhatja a `gear_ratio: 5:1, 80:16` értékeket.
 
-In most cases, gear_ratio should be defined with whole numbers as common gears and pulleys have a whole number of teeth on them. However, in cases where a belt drives a pulley using friction instead of teeth, it may make sense to use a floating point number in the gear ratio (eg, `gear_ratio: 107.237:16`).
+A legtöbb esetben a gear_ratio értékét egész számokkal kell megadni, mivel a fogaskerekek és a szíjtárcsák fogainak száma általában egész. Azokban az esetekben azonban, amikor a szíj fogak helyett súrlódással hajtja a szíjtárcsát, érdemes lehet lebegőpontos számot használni a fogaskerék-áttételben (pl. `gear_ratio: 107,237:16`).

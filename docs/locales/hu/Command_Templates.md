@@ -8,7 +8,7 @@ A G-kódos makronév esetében a nagy- és kisbetűs írásmód nem fontos - a M
 
 ## A G-kód formázása a konfigurációban
 
-Indentation is important when defining a macro in the config file. To specify a multi-line G-Code sequence it is important for each line to have proper indentation. For example:
+A behúzás fontos, amikor makrót definiál a konfigurációs fájlban. Többsoros G-kód szekvencia megadásához fontos, hogy minden sorban megfelelő behúzás legyen. Például:
 
 ```
 [gcode_macro blink_led]

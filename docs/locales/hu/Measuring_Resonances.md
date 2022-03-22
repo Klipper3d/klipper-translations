@@ -8,7 +8,7 @@ When sourcing ADXL345, be aware that there is a variety of different PCB board d
 
 ### Vezetékek
 
-You need to connect ADXL345 to your Raspberry Pi via SPI. Note that the I2C connection, which is suggested by ADXL345 documentation, has too low throughput and **will not work**. The recommended connection scheme:
+Az ADXL345-öt SPI-n keresztül kell csatlakoztatnia a Raspberry Pi-hez. Vegye figyelembe, hogy az ADXL345 dokumentációja által javasolt I2C kapcsolatnak túl alacsony az adatforgalmi képessége, és **nem fog működni**. Az ajánlott kapcsolási séma:
 
 | ADXL345 pin | RPi pin | RPi pin name |
 | :-: | :-: | :-: |

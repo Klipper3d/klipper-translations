@@ -34,7 +34,7 @@ Tekintsük a következő két mozgást, amelyek egy X-Y-síkon helyezkednek el:
 
 ![corner](img/corner.svg.png)
 
-In the above situation it is possible to fully decelerate after the first move and then fully accelerate at the start of the next move, but that is not ideal as all that acceleration and deceleration would greatly increase the print time and the frequent changes in extruder flow would result in poor print quality.
+A fenti helyzetben lehetséges az első lépés után teljesen lelassítani, majd a következő lépés kezdetén teljesen felgyorsítani, de ez nem ideális, mivel ez a sok gyorsítás és lassítás jelentősen megnövelné a nyomtatási időt, és az anyagáramlás gyakori változása rossz nyomtatási minőséget eredményezne.
 
 To solve this, the "look-ahead" mechanism queues multiple incoming moves and analyzes the angles between moves to determine a reasonable speed that can be obtained during the "junction" between two moves. If the next move is nearly in the same direction then the head need only slow down a little (if at all).
 

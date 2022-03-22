@@ -19,7 +19,7 @@ mesh_max: 240, 198
 probe_count: 5, 3
 ```
 
-- `speed: 120` *Default Value: 50* The speed in which the tool moves between points.
+- `sebesség: 120` * Alapértelmezett érték: 50* A sebesség, amellyel a fej a pontok között mozog.
 - `horizontal_move_z: 5` *Default Value: 5* The Z coordinate the probe rises to prior to traveling between points.
 - `mesh_min: 35, 6` *Required* The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.
 - `mesh_max: 240, 198` *Required* The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with `mesh_min`, this coordiante is relative to the probe's location.

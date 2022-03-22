@@ -12,13 +12,13 @@ sensor_pin: ^P1.24
 control_pin: P1.26
 ```
 
-If the BL-Touch will be used to home the Z axis then set `endstop_pin: probe:z_virtual_endstop` and remove `position_endstop` in the `[stepper_z]` config section, then add a `[safe_z_home]` config section to raise the z axis, home the xy axes, move to the center of the bed, and home the z axis. For example:
+Ha a BL-Touch-ot a Z tengely alaphelyzetbe állítására használjuk, akkor állítsuk be az `endstop_pin:probe:z_virtual_endstop`-ra és távolítsa el a `position_endstop` és a `[stepper_z]`-t a config szakaszban, majd adjuk hozzá a `[safe_z_home]` config szakaszt a Z tengely megemeléséhez, az X,Y tengelyek kezdőpont felvételére az ágy közepére való elmozduláshoz és a Z tengely kezdőpont felvételére. Például:
 
 ```
 [safe_z_home]
-home_xy_position: 100, 100 # Change coordinates to the center of your print bed
+home_xy_position: 100, 100 # A koordinátákat az ágy közepére módosítjuk.
 speed: 50
-z_hop: 10                 # Move up 10mm
+z_hop: 10 # Mozgás felfelé 10mm
 z_hop_speed: 5
 ```
 
@@ -32,7 +32,7 @@ Amikor bekapcsolja a nyomtatót, a BL-Touch szondának önellenőrzést kell vé
 
 Ha a fentiek rendben vannak, itt az ideje tesztelni, hogy a vezérlés megfelelően működik-e. Először futtassuk le a `BLTOUCH_DEBUG COMMAND=pin_down` parancsot a konzolban. Ellenőrizze, hogy a mérőtüske lefelé mozog-e, és hogy a BL-Touchon lévő piros LED kialszik-e. Ha nem, ellenőrizze újra a kábelezést és a konfigurációt. Ezután adjon ki egy `BLTOUCH_DEBUG COMMAND=pin_up` parancsot. Ellenőrizze, hogy a mérőtüske felfelé mozdul-e, és hogy a piros LED ismét világít-e. Ha villog, akkor valamilyen probléma van.
 
-The next step is to confirm that the sensor pin is working correctly. Run `BLTOUCH_DEBUG COMMAND=pin_down`, verify that the pin moves down, run `BLTOUCH_DEBUG COMMAND=touch_mode`, run `QUERY_PROBE`, and verify that command reports "probe: open". Then while gently pushing the pin up slightly with the nail of your finger run `QUERY_PROBE` again. Verify the command reports "probe: TRIGGERED". If either query does not report the correct message then it usually indicates an incorrect wiring or configuration (though some [clones](#bl-touch-clones) may require special handling). At the completion of this test run `BLTOUCH_DEBUG COMMAND=pin_up` and verify that the pin moves up.
+A következő lépés annak megerősítése, hogy a mérőtüske megfelelően működik. Futtassa a `BLTOUCH_DEBUG COMMAND=pin_down` parancsot, és ellenőrizze, hogy a mérőtüske lefelé mozdul-e. Majd futtassa a `BLTOUCH_DEBUG COMMAND=touch_mode` parancsot. Futtassa a `QUERY_PROBE` parancsot, és ellenőrizze, hogy az üzenet "probe: OPEN". Ezután, miközben a körmével finoman felfelé nyomja a mérőtüskét, futtassa le újra a `QUERY_PROBE` parancsot. Ellenőrizze, hogy az üzenet a "probe: TRIGGERED". Ha bármelyik lekérdezés nem a megfelelő üzenetet írja, akkor az általában hibás bekötést vagy konfigurációt jelez (bár egyes [klónok](#bl-touch-clones) speciális kezelést igényelhetnek). A teszt befejezésekor futtassuk le a `BLTOUCH_DEBUG COMMAND=pin_up` parancsot, és ellenőrizzük, hogy a mérőtüske felfelé mozdul.
 
 A BL-Touch vezérlő és érzékelőtüskék tesztelésének befejezése után itt az ideje a szintezés tesztelésének, de egy kis csavarral. Ahelyett, hogy a mérőtüske az ágyat érintené, a körmünkel fogjuk megérinteni. Helyezze a nyomtatófejet messze az ágytól, adjon ki egy `G28` (vagy `PROBE`, ha nem használja a probe:z_virtual_endstopot) parancsot, várjon míg a nyomtatófej elkezd lefelé mozogni, és állítsa meg a mozgást úgy, hogy nagyon óvatosan megérinti a mérőtüskét a körmével. Lehet, hogy ezt kétszer kell megtennie, mivel az alapértelmezett kezdőpont konfiguráció kétszer mér. Készüljön fel arra is, hogy kikapcsolja a nyomtatót, ha az nem áll meg, amikor megérinti a mérőtüskét.
 
@@ -50,11 +50,11 @@ Előfordulhat azonban az is, hogy a BL-Touch már nem tudja magát kalibrálni. 
 
 ## BL-Touch "klónok"
 
-Many BL-Touch "clone" devices work correctly with Klipper using the default configuration. However, some "clone" devices may not support the `QUERY_PROBE` command and some "clone" devices may require configuration of `pin_up_reports_not_triggered` or `pin_up_touch_mode_reports_triggered`.
+Sok BL-Touch "klón" működik megfelelően a Klipperrel az alapértelmezett konfigurációval. Néhány "klón" azonban nem támogatja a `QUERY_PROBE` parancsot, és néhány "klón" készülékek a `pin_up_reports_not_triggered` vagy a `pin_up_touch_mode_reports_triggered` parancsok használatát követelik meg.
 
 Fontos! Ne állítsa a `pin_up_reports_not_triggered` vagy a `pin_up_touch_mode_reports_triggered` értékét False értékre anélkül, hogy előbb ne követné ezeket az utasításokat. Ne állítsa egyiket sem False értékre egy valódi BL-Touch esetében. Ezek helytelen beállítása hamis értékre növelheti a mérési időt, és növelheti a nyomtató károsodásának kockázatát.
 
-Some "clone" devices do not support `touch_mode` and as a result the `QUERY_PROBE` command does not work. Despite this, it may still be possible to perform probing and homing with these devices. On these devices the `QUERY_PROBE` command during the [initial tests](#initial-tests) will not succeed, however the subsequent `G28` (or `PROBE`) test does succeed. It may be possible to use these "clone" devices with Klipper if one does not utilize the `QUERY_PROBE` command and one does not enable the `probe_with_touch_mode` feature.
+Néhány "klón" nem támogatja a `touch_mode` parancsot, és ennek eredményeként a `QUERY_PROBE` parancs sem működik. Ennek ellenére lehetséges, hogy ezekkel az eszközökkel még mindig lehet mérést és kezdőpont felvételt végezni. Ezeken az eszközökön a [kezdeti tesztek](#initial-tests) során a `QUERY_PROBE` parancs nem lesz sikeres, azonban az ezt követő `G28` (vagy `PROBE`) teszt sikerül. Lehetséges, hogy ezeket a "klónokat" Klipperrel lehet használni, ha nem használjuk a `QUERY_PROBE` parancsot, és nem engedélyezzük a `probe_with_touch_mode` funkciót.
 
 Néhány "klón" eszköz nem képes elvégezni a Klipper belső érzékelő ellenőrző tesztjét. Ezeken az eszközökön a kezdőpont vagy a szonda próbálkozásai a Klipper "BLTouch failed to verify sensor state" hibát jelentenek. Ha ez bekövetkezik, akkor kézzel futtassa le a [kezdeti tesztek szakaszban](#initial-tests) leírt lépéseket az érzékelőtüske működésének megerősítésére. Ha a `QUERY_PROBE` parancsok ebben a tesztben mindig a várt eredményt adják, és a "BLTouch failed to verify sensor state" hiba továbbra is előfordul, akkor szükséges lehet a Klipper konfigurációs fájlban a `pin_up_touch_mode_reports_triggered` értékét False-ra állítani.
 
@@ -64,36 +64,36 @@ Néhány régi "klón" készülék nem képes jelenteni, ha sikeresen felemelte 
 
 Egyes BL-Touch v3.0 és BL-Touch 3.1 eszközök esetében előfordulhat, hogy a nyomtató konfigurációs fájljában a `probe_with_touch_mode` beállítása szükséges.
 
-If the BL-Touch v3.0 has its signal wire connected to an endstop pin (with a noise filtering capacitor), then the BL-Touch v3.0 may not be able to consistently send a signal during homing and probing. If the `QUERY_PROBE` commands in the [initial tests section](#initial-tests) always produce the expected results, but the toolhead does not always stop during G28/PROBE commands, then it is indicative of this issue. A workaround is to set `probe_with_touch_mode: True` in the config file.
+Ha a BL-Touch v3.0 jelkábelét egy (zajszűrő kondenzátorral ellátott) végállás csatlakozóhoz csatlakoztatja, akkor előfordulhat, hogy a BL-Touch v3.0 nem tud következetesen jelet küldeni a kezdőpont felvétel és a mérés során. Ha a [kezdeti tesztek szakaszban](#initial-tests) található `QUERY_PROBE` parancsok mindig a várt eredményt adják, de a nyomtatófej nem mindig áll meg a G28/PROBE parancsok alatt, akkor ez erre a problémára utal. A megoldás a `probe_with_touch_mode: True` beállítása a konfigurációs fájlban.
 
-The BL-Touch v3.1 may incorrectly enter an error state after a successful probe attempt. The symptoms are an occasional flashing light on the BL-Touch v3.1 that lasts for a couple of seconds after it successfully contacts the bed. Klipper should clear this error automatically and it is generally harmless. However, one may set `probe_with_touch_mode` in the config file to avoid this issue.
+Előfordulhat, hogy a BL-Touch v3.1 egy sikeres mérési kísérlet után hibaállapotba kerül. Ennek tünete a BL-Touch v3.1 időnként villogó fénye, amely néhány másodpercig tart, miután sikeresen érintkezik az ággyal. A Klippernek ezt a hibát automatikusan törölnie kell, és általában ártalmatlan. A konfigurációs fájlban azonban beállíthatjuk a `probe_with_touch_mode` értéket, hogy elkerüljük ezt a problémát.
 
-Important! Some "clone" devices and the BL-Touch v2.0 (and earlier) may have reduced accuracy when `probe_with_touch_mode` is set to True. Setting this to True also increases the time it takes to deploy the probe. If configuring this value on a "clone" or older BL-Touch device, be sure to test the probe accuracy before and after setting this value (use the `PROBE_ACCURACY` command to test).
+Fontos! Néhány "klón" eszköz és a BL-Touch v2.0 (és korábbi) csökkent pontosságú lehet, ha a `probe_with_touch_mode` értéke True. Ennek True értékre állítása a szonda telepítésének idejét is megnöveli. Ha ezt az értéket egy "klón" vagy régebbi BL-Touch eszközön konfigurálja, mindenképpen tesztelje a szonda pontosságát az érték beállítása előtt és után (a teszteléshez használja a `PROBE_ACCURACY` parancsot).
 
-## Multi-probing without stowing
+## Többszöri szúrópróbaszerű mérés
 
-By default, Klipper will deploy the probe at the start of each probe attempt and then stow the probe afterwards. This repetitive deploying and stowing of the probe may increase the total time of calibration sequences that involve many probe measurements. Klipper supports leaving the probe deployed between consecutive probes, which can reduce the total time of probing. This mode is enabled by configuring `stow_on_each_sample` to False in the config file.
+Alapértelmezés szerint a Klipper minden egyes méréskísérlet kezdetén kitelepíti a mérőtüskét, majd utána elrakja. A szonda ismételt be és kitelepítése megnövelheti a sok mérést tartalmazó kalibrálási folyamatok teljes időtartamát. A Klipper támogatja, hogy a mérőtüskét az egymást követő mérések között is kihelyezve hagyja, ami csökkentheti a mérések teljes idejét. Ez az üzemmód a `stow_on_each_sample` False értékre való beállításával engedélyezhető a konfigurációs fájlban.
 
-Important! Setting `stow_on_each_sample` to False can lead to Klipper making horizontal toolhead movements while the probe is deployed. Be sure to verify all probing operations have sufficient Z clearance prior to setting this value to False. If there is insufficient clearance then a horizontal move may cause the pin to catch on an obstruction and result in damage to the printer.
+Fontos! A `stow_on_each_sample` False (Hamis) beállítása ahhoz vezethet, hogy a Klipper vízszintes nyomtatófej mozgásokat végez, miközben a szonda ki van helyezve. Győződjön meg róla, hogy minden szondázási műveletnél elegendő Z-távolság van, mielőtt ezt az értéket False értékre állítaná. Ha nincs elegendő szabad tér, akkor a vízszintes mozgások során a mérőtüske beleakadhat egy akadályba, ami a nyomtató vagy mérőeszköz károsodását eredményezheti.
 
-Important! It is recommended to use `probe_with_touch_mode` configured to True when using `stow_on_each_sample` configured to False. Some "clone" devices may not detect a subsequent bed contact if `probe_with_touch_mode` is not set. On all devices, using the combination of these two settings simplifies the device signaling, which can improve overall stability.
+Fontos! Ajánlott a True értékre konfigurált `probe_with_touch_mode` használata, ha a False értékre konfigurált `stow_on_each_sample` értéket használja. Néhány "klón" eszköz nem érzékeli az ágy későbbi érintését, ha a `probe_with_touch_mode` nincs beállítva. Minden eszközön e két beállítás kombinációjának használata egyszerűsíti az eszköz jelzését, ami javíthatja az általános stabilitást.
 
-Note, however, that some "clone" devices and the BL-Touch v2.0 (and earlier) may have reduced accuracy when `probe_with_touch_mode` is set to True. On these devices it is a good idea to test the probe accuracy before and after setting `probe_with_touch_mode` (use the `PROBE_ACCURACY` command to test).
+Vegye figyelembe azonban, hogy néhány "klón" eszköz és a BL-Touch v2.0 (és korábbi) csökkentett pontosságú lehet, ha a `probe_with_touch_mode` értéke True. Ezeken az eszközökön érdemes tesztelni a szonda pontosságát a `probe_with_touch_mode` beállítása előtt és után (a teszteléshez használja a `PROBE_ACCURACY` parancsot).
 
-## Calibrating the BL-Touch offsets
+## A BL-Touch eltolások kalibrálása
 
-Follow the directions in the [Probe Calibrate](Probe_Calibrate.md) guide to set the x_offset, y_offset, and z_offset config parameters.
+Az x_offset, y_offset és z_offset konfigurációs paraméterek beállításához kövesse a [Szintező Kalibrálása](Probe_Calibrate.md) útmutatóban található utasításokat.
 
-It's a good idea to verify that the Z offset is close to 1mm. If not, then you probably want to move the probe up or down to fix this. You want it to trigger well before the nozzle hits the bed, so that possible stuck filament or a warped bed doesn't affect any probing action. But at the same time, you want the retracted position to be as far above the nozzle as possible to avoid it touching printed parts. If an adjustment is made to the probe position, then rerun the probe calibration steps.
+Jó ötlet ellenőrizni, hogy a Z eltolás közel 1 mm. Ha nem, akkor valószínűleg felfelé vagy lefelé kell mozgatni a szondát, hogy ezt kijavítsa. Azt szeretné, hogy aktiválódjon, mielőtt a fúvóka az ágyhoz ér, hogy a fúvókához ragadt nyomtatószál vagy a meggörbült ágy ne befolyásolja a mérési műveletet. Ugyanakkor azonban azt szeretné, ha a visszahúzott pozíció a lehető legmesszebb lenne a fúvóka felett, hogy elkerülje a nyomtatott tárgyak érintkezését. Ha a szonda pozíciójáballítása megtörtént, akkor ismételje meg a kalibrálás lépéseit.
 
-## BL-Touch output mode
+## BL-Touch kimeneti mód
 
 
-   * A BL-Touch V3.0 supports setting a 5V or OPEN-DRAIN output mode, a BL-Touch V3.1 supports this too, but can also store this in its internal EEPROM. If your controller board needs the fixed 5V high logic level of the 5V mode you may set the 'set_output_mode' parameter in the [bltouch] section of the printer config file to "5V".*** Only use the 5V mode if your controller boards input line is 5V tolerant. This is why the default configuration of these BL-Touch versions is OPEN-DRAIN mode. You could potentially damage your controller boards CPU ***
+   * A BL-Touch V3.0 támogatja az 5V vagy OPEN-DRAIN kimeneti mód beállítását, a BL-Touch V3.1 szintén támogatja ezt, de ezt a belső EEPROM-jában is el tudja tárolni. Ha az alaplapjának szüksége van az 5V-os üzemmód fix 5V magas logikai szintjére, akkor a nyomtató konfigurációs fájl [bltouch] szakaszában a 'set_output_mode' paramétert "5V" értékre állíthatja.*** Csak akkor használja az 5V-os üzemmódot, ha az alaplapnak a bemeneti vonala 5V-os toleráns. Ezért ezeknek a BL-Touch verzióknak az alapértelmezett konfigurációja a OPEN-DRAIN üzemmód. Ezzel potenciálisan károsíthatja az alaplap CPU-ját ***
 
-   So therefore: If a controller board NEEDs 5V mode AND it is 5V tolerant on its input signal line AND if
+   Ezért tehát: Ha egy alaplapnak 5V-os üzemmódra van szüksége ÉS 5V-os toleráns a bemeneti jelvonalon ÉS ha
 
-   - you have a BL-Touch Smart V3.0, you need the use 'set_output_mode: 5V' parameter to ensure this setting at each startup, since the probe cannot remember the needed setting.
-   - you have a BL-Touch Smart V3.1, you have the choice of using 'set_output_mode: 5V' or storing the mode once by use of a 'BLTOUCH_STORE MODE=5V' command manually and NOT using the parameter 'set_output_mode:'.
-   - you have some other probe: Some probes have a trace on the circuit board to cut or a jumper to set in order to (permanently) set the output mode. In that case, omit the 'set_output_mode' parameter completely.
-If you have a V3.1, do not automate or repeat storing the output mode to avoid wearing out the EEPROM of the probe.The BLTouch EEPROM is good for about 100.000 updates. 100 stores per day would add up to about 3 years of operation prior to wearing it out. Thus, storing the output mode in a V3.1 is designed by the vendor to be a complicated operation (the factory default being a safe OPEN DRAIN mode) and is not suited to be repeatedly issued by any slicer, macro or anything else, it is preferably only to be used when first integrating the probe into a printers electronics.
+   - Ha önnek BL-Touch Smart V3.0-ja van, akkor a 'set_output_mode-ot: 5V' paramétert kell megadni, hogy minden egyes indításkor biztosítsa ezt a beállítást, mivel a szonda nem tudja megjegyezni a szükséges beállítást.
+   - Ha önnek BL-Touch Smart V3.1-je van, akkor választhat a 'set_output_mode: 5V' vagy az üzemmód egyszeri tárolása a 'BLTOUCH_STORE MODE=5V' parancsok közül, kézzel és NEM a 'set_output_mode:' paraméter használatával.
+   - ha van más szondája is: A kimeneti üzemmód (végleges) beállításához néhány szondának van egy bekötése az alaplapon, amelyet el kell vágni, vagy egy jumperrel kell beállítani. Ebben az esetben hagyja ki teljesen a 'set_output_mode' paramétert.
+Ha V3.1 szondával rendelkezik, ne automatizálja vagy ismételje a kimeneti üzemmód tárolását, hogy elkerülje a szonda EEPROM-jának elhasználódását. A BLTouch EEPROM körülbelül 100.000 frissítésre alkalmas. A napi 100 tárolás körülbelül 3 évnyi működést jelentene, mielőtt elhasználódna. Így a kimeneti üzemmód tárolását a V3.1-ben a gyártó bonyolult műveletnek tervezte (a gyári alapértelmezett egy biztonságos OPEN DRAIN üzemmód), és nem alkalmas arra, hogy bármilyen szeletelő, makró vagy bármi más által ismételten kiadja, lehetőleg csak akkor használható, amikor először integrálják a szondát egy nyomtató alaplapjára.

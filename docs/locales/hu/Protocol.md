@@ -46,21 +46,21 @@ A fenti egy "állapot" válaszüzenetet küld, amely két egész paramétert ("�
 
 A gazdagép gondoskodhat arról, hogy minden válaszhoz visszahívási funkciót regisztráljon. Tehát valójában a parancsok lehetővé teszik a gazdagép számára, hogy meghívja a C függvényeket a mikrovezérlőben, a válaszok pedig lehetővé teszik, hogy a mikrovezérlő szoftvere kódot hívjon meg a gazdagépben.
 
-The sendf() macro should only be invoked from command or task handlers, and it should not be invoked from interrupts or timers. The code does not need to issue a sendf() in response to a received command, it is not limited in the number of times sendf() may be invoked, and it may invoke sendf() at any time from a task handler.
+A sendf() makró csak parancs vagy feladatkezelőkből hívható meg, és nem hívható meg megszakításokból vagy időzítőkből. A kódnak nem kell sendf()-t kiadnia a kapott parancsra válaszul, nincs korlátozva a sendf() meghívásának száma, és a sendf()-t bármikor meghívhatja egy feladatkezelőből.
 
-#### Output responses
+#### Kimeneti válaszok
 
-To simplify debugging, there is also an output() C function. For example:
+A hibakeresés egyszerűsítése érdekében van egy output() C függvény is. Például:
 
 ```
 output("The value of %u is %s with size %u.", x, buf, buf_len);
 ```
 
-The output() function is similar in usage to printf() - it is intended to generate and format arbitrary messages for human consumption.
+Az output() függvény a printf() függvényhez hasonlóan használható. Célja tetszőleges üzenetek generálása és formázása emberi feldolgozásra.
 
-### Declaring enumerations
+### Felsorolások deklarálása
 
-Enumerations allow the host code to use string identifiers for parameters that the micro-controller handles as integers. They are declared in the micro-controller code - for example:
+A felsorolások lehetővé teszik a gazdakód számára, hogy a mikrokontroller által egész számokként kezelt paraméterekhez karakterlánc-azonosítókat használjon. Ezeket a mikrokontroller kódjában kell deklarálni - például:
 
 ```
 DECL_ENUMERATION("spi_bus", "spi", 0);
@@ -68,45 +68,45 @@ DECL_ENUMERATION("spi_bus", "spi", 0);
 DECL_ENUMERATION_RANGE("pin", "PC0", 16, 8);
 ```
 
-If the first example, the DECL_ENUMERATION() macro defines an enumeration for any command/response message with a parameter name of "spi_bus" or parameter name with a suffix of "_spi_bus". For those parameters the string "spi" is a valid value and it will be transmitted with an integer value of zero.
+Ha az első példában a DECL_ENUMERATION() makró felsorolást definiál minden olyan parancs/válasz üzenethez, amelynek paraméterneve "spi_bus" vagy "_spi_bus" utótaggal rendelkezik. E paraméterek esetében az "SPI" karakterlánc érvényes érték, és nullás egész számértékkel kerül továbbításra.
 
-It's also possible to declare an enumeration range. In the second example, a "pin" parameter (or any parameter with a suffix of "_pin") would accept PC0, PC1, PC2, ..., PC7 as valid values. The strings will be transmitted with integers 16, 17, 18, ..., 23.
+Lehetőség van felsorolási tartomány kijelölésére is. A második példában egy "pin" paraméter (vagy bármely paraméter, amelynek utótagja "_pin") elfogadná a PC0, PC1, PC2, ..., PC7 értékeket. A karakterláncokat a 16, 17, 18, ..., ..., 23 egész számokkal kell továbbítani.
 
-### Declaring constants
+### Állandók deklarálása
 
-Constants can also be exported. For example, the following:
+A konstansok is exportálhatók. Például a következőképp:
 
 ```
 DECL_CONSTANT("SERIAL_BAUD", 250000);
 ```
 
-would export a constant named "SERIAL_BAUD" with a value of 250000 from the micro-controller to the host. It is also possible to declare a constant that is a string - for example:
+egy "SERIAL_BAUD" nevű, 250000 értékű konstanst exportálna a mikrokontrollerből a gazdagépre. Lehetőség van olyan konstans deklarálására is, amely egy karakterlánc - például:
 
 ```
 DECL_CONSTANT_STR("MCU", "pru");
 ```
 
-## Low-level message encoding
+## Alacsony szintű üzenetkódolás
 
-To accomplish the above RPC mechanism, each command and response is encoded into a binary format for transmission. This section describes the transmission system.
+A fenti RPC-mechanizmus megvalósításához minden egyes parancs és válasz bináris formátumba van kódolva az átvitelhez. Ez a szakasz az átviteli rendszert írja le.
 
-### Message Blocks
+### Üzenetblokkok
 
-All data sent from host to micro-controller and vice-versa are contained in "message blocks". A message block has a two byte header and a three byte trailer. The format of a message block is:
+A gazdagéptől a mikrovezérlőnek és fordítva küldött összes adat "üzenetblokkban" található. Az üzenetblokk két bájtos fejléccel és három bájtos üzenettel rendelkezik. Az üzenetblokkok formátuma a következő:
 
 ```
 <1 byte length><1 byte sequence><n-byte content><2 byte crc><1 byte sync>
 ```
 
-The length byte contains the number of bytes in the message block including the header and trailer bytes (thus the minimum message length is 5 bytes). The maximum message block length is currently 64 bytes. The sequence byte contains a 4 bit sequence number in the low-order bits and the high-order bits always contain 0x10 (the high-order bits are reserved for future use). The content bytes contain arbitrary data and its format is described in the following section. The crc bytes contain a 16bit CCITT [CRC](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) of the message block including the header bytes but excluding the trailer bytes. The sync byte is 0x7e.
+A hosszbájt tartalmazza az üzenetblokkban lévő bájtok számát, beleértve a fejlécet és a követőbájtokat (így az üzenet minimális hossza 5 bájt). Az üzenetblokk maximális hossza jelenleg 64 bájt. A szekvencia bájt egy 4 bites szekvencia számot tartalmaz az alacsony rendű bitekben, a magas rendű bitek pedig mindig 0x10-et tartalmaznak (a magas rendű bitek későbbi használatra vannak fenntartva). A tartalmi bájtok tetszőleges adatokat tartalmaznak, és formátumukat a következő szakasz ismerteti. A crc bájtok tartalmazzák az üzenetblokk 16 bites CCITT [CRC](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) értékét, beleértve a fejlécbájtokat, de kivéve az üzenetbájtokat. A szinkronizálási bájt 0x7e.
 
-The format of the message block is inspired by [HDLC](https://en.wikipedia.org/wiki/High-Level_Data_Link_Control) message frames. Like in HDLC, the message block may optionally contain an additional sync character at the start of the block. Unlike in HDLC, a sync character is not exclusive to the framing and may be present in the message block content.
+Az üzenetblokk formátumát a [HDLC](https://en.wikipedia.org/wiki/High-Level_Data_Link_Control) üzenetkeretek ihlették. A HDLC-hez hasonlóan az üzenetblokk opcionálisan tartalmazhat egy további szinkronizálási karaktert a blokk elején. A HDLC-vel ellentétben a szinkronizálási karakter nem kizárólagos a keretben, és jelen lehet az üzenetblokk tartalmában.
 
-### Message Block Contents
+### Üzenetblokk tartalma
 
-Each message block sent from host to micro-controller contains a series of zero or more message commands in its contents. Each command starts with a [Variable Length Quantity](#variable-length-quantities) (VLQ) encoded integer command-id followed by zero or more VLQ parameters for the given command.
+Minden egyes, a gazdagépről a mikrokontrollernek küldött üzenetblokk tartalma nulla vagy több üzenetparancsból álló sorozatot tartalmaz. Minden parancs egy [Változó hosszúságú mennyiség](#variable-length-quantities) (VLQ) kódolt egész számú parancs azonosítóval kezdődik, amelyet az adott parancsra vonatkozó nulla vagy több VLQ paraméter követ.
 
-As an example, the following four commands might be placed in a single message block:
+A következő négy parancsot például egyetlen üzenetblokkba helyezhetjük:
 
 ```
 update_digital_out oid=6 value=1
@@ -115,21 +115,21 @@ get_config
 get_clock
 ```
 
-and encoded into the following eight VLQ integers:
+és a következő nyolc VLQ egész számba kódolva:
 
 ```
 <id_update_digital_out><6><1><id_update_digital_out><5><0><id_get_config><id_get_clock>
 ```
 
-In order to encode and parse the message contents, both the host and micro-controller must agree on the command ids and the number of parameters each command has. So, in the above example, both the host and micro-controller would know that "id_update_digital_out" is always followed by two parameters, and "id_get_config" and "id_get_clock" have zero parameters. The host and micro-controller share a "data dictionary" that maps the command descriptions (eg, "update_digital_out oid=%c value=%c") to their integer command-ids. When processing the data, the parser will know to expect a specific number of VLQ encoded parameters following a given command id.
+Az üzenet tartalmának kódolásához és elemzéséhez a gazdagépnek és a mikrokontrollernek meg kell egyeznie a parancs azonosítóiban és az egyes parancsok paramétereinek számában. Így a fenti példában mind a gazdagép, mind a mikrokontroller tudja, hogy az "id_update_digital_out" parancsot mindig két paraméter követi, és az "id_get_config" és a "id_get_clock" parancsnak nulla paramétere van. A gazdagép és a mikrokontroller megosztja az "adatszótárat", amely a parancsleírásokat (pl. "update_digital_out oid=%c value=%c") egész számú parancs-azonosítókra képezi le. Az adatok feldolgozása során az elemző tudni fogja, hogy egy adott parancs-id után meghatározott számú VLQ-kódolt paramétert várjon.
 
-The message contents for blocks sent from micro-controller to host follow the same format. The identifiers in these messages are "response ids", but they serve the same purpose and follow the same encoding rules. In practice, message blocks sent from the micro-controller to the host never contain more than one response in the message block contents.
+A mikrokontrollerről a gazdagépnek küldött blokkok üzenettartalma ugyanezt a formátumot követi. Ezekben az üzenetekben szereplő azonosítók "válasz azonosítók", de ugyanazt a célt szolgálják és ugyanazokat a kódolási szabályokat követik. A gyakorlatban a mikrokontrollerről a gazdagépnek küldött üzenetblokkok soha nem tartalmaznak egynél több választ az üzenetblokk tartalmában.
 
-#### Variable Length Quantities
+#### Változó hosszúságú mennyiségek
 
-See the [wikipedia article](https://en.wikipedia.org/wiki/Variable-length_quantity) for more information on the general format of VLQ encoded integers. Klipper uses an encoding scheme that supports both positive and negative integers. Integers close to zero use less bytes to encode and positive integers typically encode using less bytes than negative integers. The following table shows the number of bytes each integer takes to encode:
+A VLQ kódolt egész számok általános formátumáról lásd a [wikipedia cikket](https://en.wikipedia.org/wiki/Variable-length_quantity). A Klipper olyan kódolási sémát használ, amely támogatja a pozitív és negatív egész számokat is. A nullához közeli egészek kevesebb bájtot használnak a kódoláshoz, és a pozitív egészek kódolása általában kevesebb bájtot használ, mint a negatív egészeké. A következő táblázat mutatja, hogy az egyes egész számok kódolásához hány bájtra van szükség:
 
-| Integer | Encoded size |
+| Egész | Kódolt méret |
 | --- | --- |
 | -32 .. 95 | 1 |
 | -4096 .. 12287 | 2 |
@@ -137,21 +137,21 @@ See the [wikipedia article](https://en.wikipedia.org/wiki/Variable-length_quanti
 | -67108864 .. 201326591 | 4 |
 | -2147483648 .. 4294967295 | 5 |
 
-#### Variable length strings
+#### Változó hosszúságú karakterláncok
 
-As an exception to the above encoding rules, if a parameter to a command or response is a dynamic string then the parameter is not encoded as a simple VLQ integer. Instead it is encoded by transmitting the length as a VLQ encoded integer followed by the contents itself:
+A fenti kódolási szabályok alóli kivételként, ha egy parancs vagy válasz paramétere dinamikus karakterlánc, akkor a paraméter nem egyszerű VLQ egész számként kódolódik. Ehelyett a kódolás úgy történik, hogy a hosszt VLQ kódolt egész számként továbbítják, amelyet maga a tartalom követ:
 
 ```
 <VLQ encoded length><n-byte contents>
 ```
 
-The command descriptions found in the data dictionary allow both the host and micro-controller to know which command parameters use simple VLQ encoding and which parameters use string encoding.
+Az adatszótárban található parancsleírások lehetővé teszik a gazdagép és a mikrokontroller számára, hogy tudja, mely parancsparaméterek használnak egyszerű VLQ kódolást, és mely paraméterek string kódolást.
 
-## Data Dictionary
+## Adatszótár
 
-In order for meaningful communications to be established between micro-controller and host, both sides must agree on a "data dictionary". This data dictionary contains the integer identifiers for commands and responses along with their descriptions.
+Ahhoz, hogy a mikrokontroller és a gazdagép között értelmes kommunikáció jöjjön létre, mindkét félnek meg kell állapodnia egy "adatszótárban". Ez az adatszótár tartalmazza a parancsok és válaszok egészértékű azonosítóit és azok leírását.
 
-The micro-controller build uses the contents of DECL_COMMAND() and sendf() macros to generate the data dictionary. The build automatically assigns unique identifiers to each command and response. This system allows both the host and micro-controller code to seamlessly use descriptive human-readable names while still using minimal bandwidth.
+A mikrokontroller buildje a DECL_COMMAND() és sendf() makrók tartalmát használja az adatszótár létrehozásához. A build automatikusan egyedi azonosítókat rendel minden parancshoz és válaszhoz. Ez a rendszer lehetővé teszi, hogy a gazdagép, és a mikrokontroller kódja zökkenőmentesen használjon leíró, ember által olvasható neveket, miközben minimális sávszélességet használ.
 
 The host queries the data dictionary when it first connects to the micro-controller. Once the host downloads the data dictionary from the micro-controller, it uses that data dictionary to encode all commands and to parse all responses from the micro-controller. The host must therefore handle a dynamic data dictionary. However, to keep the micro-controller software simple, the micro-controller always uses its static (compiled in) data dictionary.
 
