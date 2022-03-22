@@ -8,7 +8,7 @@ Az ebben a dokumentumban található leírások úgy vannak formázva, hogy kiv�
 
 ### A mikrokontroller pin neveinek formátuma
 
-Many config options require the name of a micro-controller pin. Klipper uses the hardware names for these pins - for example `PA4`.
+Számos konfigurációs beállításhoz egy mikrokontroller-tű nevére van szükség. A Klipper a hardveres neveket használja ezekhez a csapokhoz - például `PA4`.
 
 Pin names may be preceded by `!` to indicate that a reverse polarity should be used (eg, trigger on low instead of high).
 
@@ -1348,29 +1348,30 @@ Support for ADXL345 accelerometers. This support allows one to query acceleromet
 ```
 [adxl345]
 cs_pin:
-#   The SPI enable pin for the sensor. This parameter must be provided.
+# Az érzékelő SPI engedélyező tűje. Ezt a paramétert meg kell adni.
 #spi_speed: 5000000
-#   The SPI speed (in hz) to use when communicating with the chip.
-#   The default is 5000000.
+# A chippel való kommunikáció során használandó SPI sebesség (hz-ben).
+# Az alapértelmezett érték 5000000.
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+# Lásd az "általános SPI-beállítások" című szakaszt a
+# fenti paraméterek leírásához.
 #axes_map: x, y, z
-#   The accelerometer axis for each of the printer's X, Y, and Z axes.
-#   This may be useful if the accelerometer is mounted in an
-#   orientation that does not match the printer orientation. For
-#   example, one could set this to "y, x, z" to swap the X and Y axes.
-#   It is also possible to negate an axis if the accelerometer
-#   direction is reversed (eg, "x, z, -y"). The default is "x, y, z".
+# A gyorsulásmérő a nyomtató X, Y és Z tengelyeihez kell.
+# Ez akkor lehet hasznos, ha a gyorsulásmérő olyan
+# orientációban van beszerelve, amely nem egyezik a nyomtatóéval. Ebben az esetében
+# például beállíthatjuk ezt a "Y, X, Z" értékre, hogy felcseréljük az X és Y tengelyeket.
+# Lehetőség van arra is, hogy negáljunk egy tengelyt, ha a gyorsulásmérő
+# iránya fordított (pl. "X, Z, -Y"). Az alapértelmezett érték "X, Y, Z",.
 #rate: 3200
-#   Output data rate for ADXL345. ADXL345 supports the following data
-#   rates: 3200, 1600, 800, 400, 200, 100, 50, and 25. Note that it is
-#   not recommended to change this rate from the default 3200, and
-#   rates below 800 will considerably affect the quality of resonance
-#   measurements.
+# Kimeneti adatátviteli sebesség az ADXL345 esetében. Az ADXL345 a következő
+# sebességeket támogatja
+# sebességek: 3200, 1600, 800, 400, 200, 100, 50 és 25. Vegye figyelembe, hogy
+# nem ajánlott megváltoztatni ezt a sebességet az alapértelmezett 3200-ról, és
+# a 800 alatti sebességek jelentősen befolyásolják a rezonancia mérés
+# eredményeinek minőségét.
 ```
 
 ### [resonance_tester]
@@ -3181,7 +3182,7 @@ lcd_type:
 
 Support for displaying custom data on an lcd screen. One may create any number of display groups and any number of data items under those groups. The display will show all the data items for a given group if the display_group option in the [display] section is set to the given group name.
 
-A [default set of display groups](../klippy/extras/display/display.cfg) are automatically created. One can replace or extend these display_data items by overriding the defaults in the main printer.cfg config file.
+Az [alapértelmezett kijelzőcsoportok](../klippy/extras/display/display.cfg) automatikusan létrejönnek. Ezeket a display_data elemeket a printer.cfg konfigurációs fájlban lévő alapértelmezett értékek felülírásával lehet helyettesíteni vagy bővíteni.
 
 ```
 [display_data my_group_name my_data_name]
@@ -3255,7 +3256,7 @@ If a primary [display] section has been defined in printer.cfg as shown above it
 
 Customizable lcd display menus.
 
-A [default set of menus](../klippy/extras/display/menu.cfg) are automatically created. One can replace or extend the menu by overriding the defaults in the main printer.cfg config file.
+Egy [alapértelmezett menükészlet](../klippy/extras/display/menu.cfg) automatikusan létrejön. A menüt a fő printer.cfg konfigurációs fájlban lévő alapértelmezett értékek felülbírálásával lehet helyettesíteni vagy bővíteni.
 
 See the [command template document](Command_Templates.md#menu-templates) for information on menu attributes available during template rendering.
 
