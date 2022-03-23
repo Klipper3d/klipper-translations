@@ -1,4 +1,4 @@
-# RPi microcontroller
+# RPi mikrokontroller
 
 Ez a dokumentum leírja a Klipper futtatásának folyamatát egy RPi-n, és ugyanazt az RPi-t használja másodlagos MCU-ként.
 
@@ -8,11 +8,11 @@ A 3D nyomtatók vezérlésére szolgáló MCU-k gyakran korlátozott és előre 
 
 **Figyelmeztetés**: Ha az Ön platformja egy *Beaglebone*, és helyesen követte a telepítés lépéseit, a Linux MCU már telepítve és konfigurálva van a rendszeréhez.
 
-## Install the rc script
+## Az rc szkript telepítése
 
-If you want to use the host as a secondary MCU the klipper_mcu process must run before the klippy process.
+Ha a gazdagépet másodlagos MCU-ként szeretné használni, a klipper_mcu folyamatnak a klippy folyamat előtt kell futnia.
 
-After installing Klipper, install the script. run:
+A Klipper telepítése után telepítse a szkriptet. run:
 
 ```
 cd ~/klipper/
@@ -22,14 +22,14 @@ sudo update-rc.d klipper_mcu defaults
 
 ## A mikrokontroller kódjának elkészítése
 
-To compile the Klipper micro-controller code, start by configuring it for the "Linux process":
+A Klipper mikrokontroller kódjának lefordításához kezdje a "Linux folyamat" konfigurálásával:
 
 ```
 cd ~/klipper/
 make menuconfig
 ```
 
-In the menu, set "Microcontroller Architecture" to "Linux process," then save and exit.
+A menüben állítsa be a "Mikrokontroller architektúra" értéket "Linux process,"-re, majd mentse és lépjen ki.
 
 Az új mikrokontroller kódjának elkészítéséhez és telepítéséhez futtassa a következőt:
 
@@ -39,7 +39,7 @@ make flash
 sudo service klipper start
 ```
 
-If klippy.log reports a "Permission denied" error when attempting to connect to `/tmp/klipper_host_mcu` then you need to add your user to the tty group. The following command will add the "pi" user to the tty group:
+Ha a klippy.log a `/tmp/klipper_host_mcu`-hoz való kapcsolódási kísérletnél "Permission denied" hibát jelez, akkor a felhasználót hozzá kell adnia a tty csoporthoz. A következő parancs hozzáadja a "pi" felhasználót a tty csoporthoz:
 
 ```
 sudo usermod -a -G tty pi
@@ -47,39 +47,39 @@ sudo usermod -a -G tty pi
 
 ## Hátralevő konfiguráció
 
-Complete the installation by configuring Klipper secondary MCU following the instructions in [RaspberryPi sample config](../config/sample-raspberry-pi.cfg) and [Multi MCU sample config](../config/sample-multi-mcu.cfg).
+Fejezze be a telepítést a Klipper másodlagos MCU konfigurálásával a [RaspberryPi sample config](../config/sample-raspberry-pi.cfg) és a [Multi MCU sample config](../config/sample-multi-mcu.cfg) utasításai szerint.
 
-## Optional: Enabling SPI
+## Választható: SPI engedélyezése
 
-Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and enabling SPI under the "Interfacing options" menu.
+Győződjünk meg róla, hogy a Linux SPI-illesztőprogram engedélyezve van a `sudo raspi-config` futtatásával és az SPI engedélyezésével az "Interfacing options" menüben.
 
-## Optional: Identify the correct gpiochip
+## Választható: A megfelelő gpiochip azonosítása
 
-On Rasperry and on many clones the pins exposed on the GPIO belong to the first gpiochip. They can therefore be used on klipper simply by referring them with the name `gpio0..n`. However, there are cases in which the exposed pins belong to gpiochips other than the first. For example in the case of some OrangePi models or if a Port Expander is used. In these cases it is useful to use the commands to access the *Linux GPIO character device* to verify the configuration.
+A Rasperry-n és sok klónon a GPIO-n látható pinek az első gpiochiphez tartoznak. Ezért a klipperben egyszerűen úgy használhatók, hogy a `gpio0..n` névvel hivatkozunk rájuk. Vannak azonban olyan esetek, amikor a kitett pinek az elsőtől eltérő gpiochipekhez tartoznak. Például egyes OrangePi modellek esetében, vagy ha Port Expander-t használunk. Ezekben az esetekben hasznos a *Linux GPIO karakteres eszköz *Linux GPIO eszköz * elérésére szolgáló parancsok használata a konfiguráció ellenőrzéséhez.
 
-To install the *Linux GPIO character device - binary* on a debian based distro like octopi run:
+A *Linux GPIO character device - binary* telepítéséhez egy debian alapú disztribúció kell, mint például az octopi. Futtassa:
 
 ```
 sudo apt-get install gpiod
 ```
 
-To check available gpiochip run:
+A rendelkezésre álló gpiochip ellenőrzéséhez futtassa:
 
 ```
 gpiodetect
 ```
 
-To check the pin number and the pin availability tun:
+A pin szám és a pin elérhetőségének ellenőrzésére futtassa:
 
 ```
 gpioinfo
 ```
 
-The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the`gpioinfo` command.
+A kiválasztott pin így a konfiguráción belül `gpiochip<n>/gpio<o> néven használható;` ahol **n** a `gpiodetect` által látott chipszám parancs által látott sorszám, és **o** a`gpioinfo` parancs által látott sorszám.
 
-***Warning:*** only gpio marked as `unused` can be used. It is not possible for a *line* to be used by multiple processes simultaneously.
+**Figyelmeztetés:** csak `unused` jelöléssel rendelkező gpio használható. A *line* nem használható egyszerre több folyamatban.
 
-For example on a RPi 3B+ where klipper use the GPIO20 for a switch:
+Például egy RPi 3B+, ahol a klipper használja a GPIO20-at, egy kapcsoló:
 
 ```
 $ gpiodetect
@@ -153,26 +153,26 @@ gpiochip1 - 8 lines:
         line   7:      unnamed       unused   input  active-high
 ```
 
-## Optional: Hardware PWM
+## Választható: Hardveres PWM
 
-Raspberry Pi's have two PWM channels (PWM0 and PWM1) which are exposed on the header or if not, can be routed to existing gpio pins. The Linux mcu daemon uses the pwmchip sysfs interface to control hardware pwm devices on Linux hosts. The pwm sysfs interface is not exposed by default on a Raspberry and can be activated by adding a line to `/boot/config.txt`:
+A Raspberry Pi két PWM csatornával (PWM0 és PWM1) rendelkezik, amelyek a fejlécen láthatók, vagy ha nem, akkor a meglévő GPIO érintkezőkhöz irányíthatók. A Linux mcu démon a pwmchip sysfs interfészt használja a hardveres PWM eszközök vezérlésére a Linux gazdagépeken. A PWM sysfs interfész alapértelmezés szerint nincs kitéve a Raspberry-n, és a `/boot/config.txt` egy sor hozzáadásával aktiválható:
 
 ```
 # Enable pwmchip sysfs interface
 dtoverlay=pwm,pin=12,func=4
 ```
 
-This example enables only PWM0 and routes it to gpio12. If both PWM channels need to be enabled you can use `pwm-2chan`.
+Ez a példa csak a PWM0-t engedélyezi, és a GPIO12-re irányítja. Ha mindkét PWM csatornát engedélyezni kell, használhatja a `pwm-2chan` parancsot.
 
-The overlay does not expose the pwm line on sysfs on boot and needs to be exported by echo'ing the number of the pwm channel to `/sys/class/pwm/pwmchip0/export`:
+Az overlay nem teszi ki a PWM sort a sysfs-en a rendszerindításkor, és azt a PWM csatorna számát a `/sys/class/pwm/pwmchip0/export` echo'ing-be kell exportálni:
 
 ```
 echo 0 > /sys/class/pwm/pwmchip0/export
 ```
 
-This will create device `/sys/class/pwm/pwmchip0/pwm0` in the filesystem. The easiest way to do this is by adding this to `/etc/rc.local` before the `exit 0` line.
+Ez létrehozza a `/sys/class/pwm/pwmchip0/pwm0` eszközt a fájlrendszerben. A legegyszerűbb, ha ezt a `/etc/rc.local` sor előtt az `exit 0` sorba írjuk be.
 
-With the sysfs in place, you can now use either the pwm channel(s) by adding the following piece of configuration to your `printer.cfg`:
+Ha a sysfs a helyén van, akkor most már használhatja a PWM csatornát vagy csatornákat, ha a következő konfigurációt hozzáadja a `printer.cfg` fájlhoz:
 
 ```
 [output_pin caselight]
@@ -182,9 +182,9 @@ hardware_pwm: True
 cycle_time: 0.000001
 ```
 
-This will add hardware pwm control to gpio12 on the Pi (because the overlay was configured to route pwm0 to pin=12).
+Ez hozzáadja a hardveres PWM vezérlést a Pi GPIO12-höz (mivel az overlay úgy volt konfigurálva, hogy a PWM0-t a pin=12-re irányítsa).
 
-PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and gpio19:
+A PWM0 a GPIO12 és a GPIO18 a PWM1 a GPIO13 és a GPIO19 felé irányítható:
 
 | PWM | gpio PIN | Func |
 | --- | --- | --- |

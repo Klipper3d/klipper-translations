@@ -2,81 +2,81 @@
 
 Ez a dokumentum a Klipper csapatának elérhetőségét tartalmazza.
 
-1. [Közösségi fórum](#community-forum)
+1. [Közösségi Fórum](#community-forum)
 1. [Discord Chat](#discord-chat)
 1. [Kérdésem van a Klipperről](#i-have-a-question-about-klipper)
-1. [I have a feature request](#i-have-a-feature-request)
-1. [Help! It doesn't work!](#help-it-doesnt-work)
-1. [I have diagnosed a defect in the Klipper software](#i-have-diagnosed-a-defect-in-the-klipper-software)
-1. [I am making changes that I'd like to include in Klipper](#i-am-making-changes-that-id-like-to-include-in-klipper)
+1. [Van egy funkciókérelmem](#i-have-a-feature-request)
+1. [Segítség! Nem működik!](#help-it-doesnt-work)
+1. [Hibát diagnosztizáltam a Klipper szoftverben](#i-have-diagnosed-a-defect-in-the-klipper-software)
+1. [Olyan változtatásokat végzek, amelyeket szeretnék beépíteni a Klipperbe](#i-am-making-changes-that-id-like-to-include-in-klipper)
 
-## Community Forum
+## Közösségi Fórum
 
-There is a [Klipper Community Discourse server](https://community.klipper3d.org) for discussions on Klipper.
+Van egy [Klipper Közösségi Társalgó szerver](https://community.klipper3d.org) a Klipperrel kapcsolatos beszélgetésekhez.
 
-## Discord Chat
+## Discord csevegés
 
-There is a Discord server dedicated to Klipper at: <https://discord.klipper3d.org>.
+Van egy Klippernek szentelt Discord szerver a következő címen: <https://discord.klipper3d.org>.
 
-This server is run by a community of Klipper enthusiasts dedicated to discussions on Klipper. It allows users to chat with other users in real-time.
+Ezt a szervert egy Klipper-rajongókból álló közösség működteti, amely a Klipperrel kapcsolatos vitáknak szenteli magát. Lehetővé teszi a felhasználók számára, hogy valós időben csevegjenek más felhasználókkal.
 
-## I have a question about Klipper
+## Kérdésem van a Klipperrel kapcsolatban
 
-Many questions we receive are already answered in the [Klipper documentation](Overview.md). Please be sure to to read the documentation and follow the directions provided there.
+Sok kérdésre már választ kaptunk a [Klipper dokumentációban](Overview.md). Kérjük, mindenképpen olvassa el a dokumentációt és kövesse az ott megadott utasításokat.
 
-It is also possible to search for similar questions in the [Klipper Community Forum](#community-forum).
+Lehetőség van hasonló kérdések keresésére a [Klipper Közösségi Fórum](#community-forum) oldalon is.
 
-If you are interested in sharing your knowledge and experience with other Klipper users then you can join the [Klipper Community Forum](#community-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
+Ha szeretnéd megosztani tudásodat és tapasztalataidat más Klipper felhasználókkal, akkor csatlakozhatsz a [Klipper Közösségi Fórum](#community-forum) vagy a [Klipper Discord Chat](#discord-chat) hez. Mindkettő olyan közösség, ahol a Klipper felhasználók megvitathatják a Klippert más felhasználókkal.
 
-Many questions we receive are general 3d-printing questions that are not specific to Klipper. If you have a general question or are experiencing general printing problems, then you will likely get a better response by asking in a general 3d-printing forum or a forum dedicated to your printer hardware.
+Sok kérdés, amit kapunk, általános 3D-nyomtatással kapcsolatos, amely nem kifejezetten a Klipperre vonatkozik. Ha általános kérdése van, vagy általános nyomtatási problémákkal küzd, akkor valószínűleg jobb választ kap, ha egy általános 3D-nyomtatási fórumon vagy a nyomtató hardverével foglalkozó fórumon teszi fel a kérdést.
 
-Do not open a Klipper github issue to ask a question.
+Ne nyisson GitHub-on a Klippernél problémajelentést-t, ha kérdést szeretne feltenni.
 
-## I have a feature request
+## Van egy funkció kérésem
 
-All new features require someone interested and able to implement that feature. If you are interested in helping to implement or test a new feature, you can search for ongoing developments in the [Klipper Community Forum](#community-forum). There is also [Klipper Discord Chat](#discord-chat) for discussions between collaborators.
+Minden új funkcióhoz szükség van valakire, akit érdekel és képes az adott funkció megvalósítására. Ha szeretnél segíteni egy új funkció megvalósításában vagy tesztelésében, akkor a [Klipper Közösségi Fórum](#community-forum) oldalon keresheted a folyamatban lévő fejlesztéseket. A [Klipper Discord Chat](#discord-chat) is rendelkezésre áll a munkatársak közötti megbeszélésekhez.
 
-Do not open a Klipper github issue to request a feature.
+Ne nyisson GitHub-on a Klippernél problémajelentést, hogy funkciót kérjen.
 
-## Help! It doesn't work!
+## Segítség! Nem működik!
 
-Unfortunately, we receive many more requests for help than we could possibly answer. Most problem reports we see are eventually tracked down to:
+Sajnos sokkal több segítségkérés érkezik hozzánk, mint amennyit meg tudnánk válaszolni. A legtöbb problémás bejelentés, amit látunk végül a következőkre vezethető vissza:
 
-1. Subtle errors in the hardware, or
-1. Not following all the steps described in the Klipper documentation.
+1. Finom hibák a hardverben, vagy
+1. Nem követi a Klipper dokumentációban leírt összes lépést.
 
-If you are experiencing problems we recommend you carefully read the [Klipper documentation](Overview.md) and double check that all steps were followed.
+Ha problémákat tapasztal, javasoljuk, hogy figyelmesen olvassa el a [Klipper dokumentációt](Overview.md), és ellenőrizze, hogy minden lépést követett-e.
 
-If you are experiencing a printing problem, then we recommend carefully inspecting the printer hardware (all joints, wires, screws, etc.) and verify nothing is abnormal. We find most printing problems are not related to the Klipper software. If you do find a problem with the printer hardware then you will likely get a better response by searching in a general 3d-printing forum or in a forum dedicated to your printer hardware.
+Ha nyomtatási problémát tapasztal, akkor javasoljuk, hogy alaposan vizsgálja meg a nyomtató hardverét (minden illesztést, vezetéket, csavart stb.), és győződjön meg arról, hogy semmi rendellenes nincs. Úgy találjuk, hogy a legtöbb nyomtatási probléma nem a Klipper szoftverrel kapcsolatos. Ha a nyomtató hardverével kapcsolatos problémát talál, akkor valószínűleg jobb választ kap, ha egy általános 3D-nyomtatási fórumon vagy egy, a nyomtató hardverével foglalkozó fórumon keres.
 
-It is also possible to search for similar issues in the [Klipper Community Forum](#community-forum).
+A [Klipper Közösségi Fórumban](#community-forum) is kereshetsz hasonló kérdéseket.
 
-If you are interested in sharing your knowledge and experience with other Klipper users then you can join the [Klipper Community Forum](#community-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
+Ha szeretnéd megosztani tudásodat és tapasztalataidat más Klipper felhasználókkal, akkor csatlakozhatsz a [Klipper Közösségi Fórum](#community-forum) vagy a [Klipper Discord Chat](#discord-chat) hez. Mindkettő olyan közösség, ahol a Klipper felhasználók megvitathatják a Klippert más felhasználókkal.
 
-Do not open a Klipper github issue to request help.
+Ne nyisson GitHub-on a Klippernél problémajelentést, hogy segítséget kérjen.
 
-## I have diagnosed a defect in the Klipper software
+## Diagnosztizáltam egy hibát a Klipper szoftverben
 
-Klipper is an open-source project and we appreciate when collaborators diagnose errors in the software.
+A Klipper egy nyílt forráskódú projekt, és nagyra értékeljük, ha a munkatársak diagnosztizálják a szoftver hibáit.
 
-There is important information that will be needed in order to fix a bug. Please follow these steps:
+Fontos információkra lesz szükség a hiba kijavításához. Kérjük, kövesse az alábbi lépéseket:
 
-1. Be sure the bug is in the Klipper software. If you are thinking "there is a problem, I can't figure out why, and therefore it is a Klipper bug", then **do not** open a github issue. In that case, someone interested and able will need to first research and diagnose the root cause of the problem. If you would like to share the results of your research or check if other users are experiencing similar issues then you can search the [Klipper Community Forum](#community-forum).
-1. Make sure you are running unmodified code from <https://github.com/Klipper3d/klipper>. If the code has been modified or is obtained from another source, then you will need to reproduce the problem on the unmodified code from <https://github.com/Klipper3d/klipper> prior to reporting an issue.
-1. If possible, run an `M112` command in the OctoPrint terminal window immediately after the undesirable event occurs. This causes Klipper to go into a "shutdown state" and it will cause additional debugging information to be written to the log file.
-1. Obtain the Klipper log file from the event. The log file has been engineered to answer common questions the Klipper developers have about the software and its environment (software version, hardware type, configuration, event timing, and hundreds of other questions).
-   1. The Klipper log file is located in `/tmp/klippy.log` on the Klipper "host" computer (the Raspberry Pi).
-   1. An "scp" or "sftp" utility is needed to copy this log file to your desktop computer. The "scp" utility comes standard with Linux and MacOS desktops. There are freely available scp utilities for other desktops (eg, WinSCP). If using a graphical scp utility that can not directly copy `/tmp/klippy.log` then repeatedly click on `..` or `parent folder` until you get to the root directory, click on the `tmp` folder, and then select the `klippy.log` file.
-   1. Copy the log file to your desktop so that it can be attached to an issue report.
-   1. Do not modify the log file in any way; do not provide a snippet of the log. Only the full unmodified log file provides the necessary information.
-   1. If the log file is very large (eg, greater than 2MB) then one may need to compress the log with zip or gzip.
+1. Győződjön meg róla, hogy a hiba a Klipper szoftverben van. Ha úgy gondolja, hogy "van egy probléma, nem tudom kitalálni, hogy miért, és ezért ez egy Klipper hiba", akkor **ne** nyiss egy github problémabejelentést. Ebben az esetben valakinek, akit érdekel és képes rá, először fel kell kutatnia és diagnosztizálnia a probléma kiváltó okát. Ha szeretnéd megosztani a kutatásod eredményét, vagy megnézni, hogy más felhasználók is hasonló problémákkal küzdenek-e, akkor keresd meg a [Klipper Közösségi Fórum](#community-forum) oldalát.
+1. Győződjön meg róla, hogy a <https://github.com/Klipper3d/klipper> változatlan kódját futtatja. Ha a kódot módosították, vagy más forrásból származik, akkor a hiba bejelentése előtt reprodukálnia kell a problémát a <https://github.com/Klipper3d/klipper> nem módosított kóddal.
+1. Ha lehetséges, futtasson egy `M112` parancsot az OctoPrint konzoljában közvetlenül a nemkívánatos esemény bekövetkezése után. Ennek hatására a Klipper "leállítási állapotba" kerül, és további hibakeresési információk íródnak a naplófájlba.
+1. Szerezze be a Klipper naplófájlt az eseményből. A naplófájlt úgy alakították ki, hogy választ adjon a Klipper fejlesztőinek a szoftverrel és környezetével kapcsolatos gyakori kérdéseire (szoftver verzió, hardvertípus, konfiguráció, eseményidőzítés és több száz egyéb kérdés).
+   1. A Klipper naplófájlja a `/tmp/klippy.log` címen található a Klipper "gazdagépen" (vagyis a Raspberry Pi-n).
+   1. Egy "SCP" vagy "SFTP" segédprogram szükséges a naplófájlnak az asztali számítógépre való másolásához. Az "SCP" segédprogram alapfelszereltségként jár a Linux és MacOS asztali számítógépekhez. Más asztali számítógépekhez szabadon elérhető SCP segédprogramok is léteznek (pl. WinSCP). Ha olyan grafikus SCP segédprogramot használ, amely nem tudja közvetlenül másolni a `/tmp/klippy.log`, akkor kattintson többször a `...` vagy `parent folder`, amíg el nem jutunk a gyökérkönyvtárba, kattintsunk a `tmp` mappára, majd válasszuk ki a `klippy.log` fájlt.
+   1. Másolja a naplófájlt az asztalára, hogy csatolni tudja egy problémajelentéshez.
+   1. Ne módosítsa a naplófájlt semmilyen módon; ne adjon meg egy részletet a naplóból. Csak a teljes, változatlan naplófájl nyújtja a szükséges információkat.
+   1. Ha a naplófájl nagyon nagy (pl. 2 MB-nál nagyobb), akkor szükség lehet a napló zip vagy gzip tömörítésére.
 
-   1. Open a new github issue at <https://github.com/Klipper3d/klipper/issues> and provide a clear description of the problem. The Klipper developers need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The Klipper log file **must be attached** to that ticket:![attach-issue](img/attach-issue.png)
+   1. Nyiss egy új GitHub problémabejelentést a <https://github.com/Klipper3d/klipper/issues> címen, és írd le egyértelműen a problémát. A Klipper fejlesztőinek meg kell érteniük, hogy milyen lépéseket tettek, mi volt a kívánt eredmény, és milyen eredmény történt valójában. A Klipper naplófájlt **csatolni kell** a hibajegyhez:![attach-issue](img/attach-issue.png)
 
-## I am making changes that I'd like to include in Klipper
+## Változtatásokat végzek, amelyeket szeretnék a Klipperbe beépíteni
 
-Klipper is open-source software and we appreciate new contributions.
+A Klipper nyílt forráskódú szoftver, és örömmel fogadjuk az új hozzájárulásokat.
 
-New contributions (for both code and documentation) are submitted via Github Pull Requests. See the [CONTRIBUTING document](CONTRIBUTING.md) for important information.
+Az új hozzájárulásokat (mind a kódot, mind a dokumentációt illetően) a GitHub Pull Requests-en keresztül küldheted be. Lásd a [CONTRIBUTING dokumentumot](CONTRIBUTING.md) a fontos információkért.
 
-There are several [documents for developers](Overview.md#developer-documentation). If you have questions on the code then you can also ask in the [Klipper Community Forum](#community-forum) or on the [Klipper Community Discord](#discord-chat). If you would like to provide an update on your current progress then you can open a Github issue with the location of your code, an overview of the changes, and a description of its current status.
+Számos [Fejlesztői dokumentum](Overview.md#developer-documentation) van fejlesztőknek. Ha kérdése van a kóddal kapcsolatban, akkor a [Klipper Közösségi Fórum](#community-forum) vagy a [Klipper Közösségi Discord](#discord-chat) oldalon is felteheti a kérdést. Ha frissíteni szeretné az aktuális fejlesztést, akkor megnyithat egy GitHub-problémát a kód helyével, a módosítások áttekintésével és az aktuális állapot leírásával.

@@ -33,16 +33,16 @@ A Klipper számos szabványos 3D nyomtató funkciót támogat:
 * A Klipper egy olyan "léptetőfázis végállás" algoritmust valósít meg, amely javíthatja a tipikus végálláskapcsolók pontosságát. Megfelelő beállítás esetén javíthatja a nyomtatás első réteg ágyhoz tapadását.
 * Support for filament presence sensors, filament motion sensors, and filament width sensors.
 * A rezgések mérésének és rögzítésének támogatása adxl345 gyorsulásmérővel.
-* Support for limiting the top speed of short "zigzag" moves to reduce printer vibration and noise. See the [kinematics](Kinematics.md) document for more information.
-* Sample configuration files are available for many common printers. Check the [config directory](../config/) for a list.
+* A nyomtató rezgésének és zajának csökkentése érdekében a rövid "cikcakk" mozgások csúcssebességének korlátozásának támogatása. További információkért lásd a [Kinematika](Kinematics.md) dokumentumot.
+* Számos gyakori nyomtatóhoz rendelkezésre állnak minta konfigurációs fájlok. Listát a [config könyvtárban](../config/) találja.
 
-To get started with Klipper, read the [installation](Installation.md) guide.
+A Klipper használatának megkezdéséhez olvassa el a [Telepítés](Installation.md) útmutatót.
 
-## Step Benchmarks
+## Lépés Teljesítményérték
 
-Below are the results of stepper performance tests. The numbers shown represent total number of steps per second on the micro-controller.
+Az alábbiakban a léptető teljesítménytesztek eredményeit mutatjuk be. A feltüntetett számok a mikrokontroller másodpercenkénti összes lépésszámát jelentik.
 
-| Micro-controller | 1 stepper active | 3 steppers active |
+| Mikrokontroller | 1 stepper active | 3 aktív léptető |
 | --- | --- | --- |
 | 16Mhz AVR | 157K | 99K |
 | 20Mhz AVR | 196K | 123K |
