@@ -1,9 +1,19 @@
-#
+# Pepe <ec288eb6-6bd6-473b-93a5-5c8fb60ceb16@simplelogin.fr>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-03-24 10:48+0000\n"
+"Last-Translator: Pepe <ec288eb6-6bd6-473b-93a5-5c8fb60ceb16@simplelogin.fr>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"contributing/es/>\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid "Contributing to Klipper"
-msgstr ""
+msgstr "Contribuir a Klipper"
 
 msgid ""
 "It is important to have a \"Signed-off-by\" line on each commit - it "
@@ -60,12 +70,17 @@ msgid ""
 "Thank you for contributing to Klipper! This document describes the process "
 "for contributing changes to Klipper."
 msgstr ""
+"Gracias por contribuir a Klipper! Este document describe el proceso de "
+"contribuir a Klipper."
 
 #: docs/CONTRIBUTING.md:block 3 (paragraph)
 msgid ""
 "Please see the [contact page](Contact.md) for information on reporting an "
 "issue or for details on contacting the developers."
 msgstr ""
+"Por favor, eche un vistazo a la [página de contacto](Contact.md) para más "
+"información sobre reportar problemas o para más detalles a la hora de "
+"contactar con los desarrolladores."
 
 #: docs/CONTRIBUTING.md:block 4 (header)
 msgid "Overview of Contribution Process"
