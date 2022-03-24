@@ -1,9 +1,9 @@
-# Features
+# Funkciók
 
 A Klipper számos lenyűgöző tulajdonsággal rendelkezik:
 
 * Nagy pontosságú léptető mozgás. A Klipper egy alkalmazásprocesszort (például egy olcsó Raspberry Pi-t) használ a nyomtató mozgásának kiszámításához. Az alkalmazásprocesszor határozza meg, hogy mikor lépjenek az egyes léptetőmotorok, tömöríti ezeket az eseményeket, továbbítja őket a mikrokontrollerhez, majd a mikrokontroller végrehajtja az eseményeket a kért időpontban. Minden egyes léptetőmozgást 25 mikroszekundumos vagy annál jobb pontossággal ütemezünk. A szoftver nem használ kinematikai becsléseket (mint például a Bresenham-algoritmus). Ehelyett a gyorsulás fizikája és a gép kinematikájának fizikája alapján számítja ki a pontos lépésidőket. A pontosabb léptetőmozgás a nyomtató csendesebb és stabilabb működését eredményezi.
-* Best in class performance. Klipper is able to achieve high stepping rates on both new and old micro-controllers. Even old 8bit micro-controllers can obtain rates over 175K steps per second. On more recent micro-controllers, several million steps per second are possible. Higher stepper rates enable higher print velocities. The stepper event timing remains precise even at high speeds which improves overall stability.
+* Kategóriájában legjobb teljesítmény. A Klipper képes magas léptetési sebességet elérni mind az új, mind a régi mikrokontrollereken. Még a régi 8 bites mikrovezérlők is képesek 175 000 lépés/másodperc feletti sebességet elérni. Az újabb mikrokontrollereken másodpercenként több millió lépés is lehetséges. A nagyobb léptetési sebesség nagyobb nyomtatási sebességet tesz lehetővé. A léptetések időzítése még nagy sebességnél is pontos marad, ami javítja az általános stabilitást.
 * A Klipper támogatja a több mikrovezérlővel rendelkező nyomtatókat. Például egy mikrokontroller használható az extruder vezérlésére, míg egy másik a nyomtató fűtőberendezését, míg egy harmadik a nyomtató többi részét vezérli. A Klipper gazdaszoftver órajel-szinkronizációt valósít meg a mikrovezérlők közötti órajel-eltolódás figyelembevétele érdekében. A több mikrovezérlő engedélyezéséhez nincs szükség külön kódra - csak néhány extra sorra a konfigurációs fájlban.
 * Konfiguráció egyszerű konfigurációs fájlon keresztül. Nincs szükség a mikrokontroller újrafrissítésére a beállítások megváltoztatásához. Az összes Klipper konfiguráció egy szabványos konfigurációs fájlban van tárolva, amely könnyen szerkeszthető. Ez megkönnyíti a hardver beállítását és karbantartását.
 * A Klipper támogatja a "Smooth Pressure Advance" - egy olyan mechanizmust, amely figyelembe veszi a nyomást az extruderben. Ez csökkenti az extruder "szivárgását" és javítja a nyomtatási sarkok minőségét. A Klipper beavatkozása nem vezet be pillanatnyi extruder sebességváltozást, ami javítja az általános stabilitást és robusztusságot.
@@ -19,19 +19,19 @@ A Klipper számos lenyűgöző tulajdonsággal rendelkezik:
 A Klipper számos szabványos 3D nyomtató funkciót támogat:
 
 * Együttműködik az Octoprint-tel. Ez lehetővé teszi a nyomtató vezérlését egy hagyományos webböngészővel. Ugyanaz a Raspberry Pi, amelyen a Klipper fut, képes az Octoprint futtatására is.
-* Standard G-Code support. Common g-code commands that are produced by typical "slicers" (SuperSlicer, Cura, PrusaSlicer, etc.) are supported.
+* Standard G-kód támogatás. A tipikus "szeletelők" (SuperSlicer, Cura, PrusaSlicer, stb.) által előállított általános G-kód parancsok támogatottak.
 * Több extruder támogatása. A közös fűtőberendezéssel rendelkező extrudereket és a független kocsikon (IDEX) lévő extrudereket is támogatják.
-* Support for cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, rotary delta, polar, and cable winch style printers.
+* Támogatja a cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, rotary delta, polár és kábelcsörlő stílusú nyomtatókat.
 * Automatikus ágyszintező támogatás. A Klipper konfigurálható alapszintű ágydőlés-érzékelésre vagy teljes hálós ágyszintezésre. Ha az ágy több Z steppert használ, akkor a Klipper a Z stepperek független manipulálásával is képes szintezni. A legtöbb Z magasságmérő szonda támogatott, beleértve a BL-Touch szondákat és a szervómotoros szondákat is.
 * Automatikus delta kalibráció támogatása. A kalibráló eszköz alapvető magassági kalibrálást, valamint továbbfejlesztett X és Y dimenzió kalibrálást végezhet. A kalibrálás elvégezhető Z magasságmérővel vagy kézi szintezővel.
-* Support for common temperature sensors (eg, common thermistors, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20, and LM75). Custom thermistors and custom analog temperature sensors can also be configured. One can monitor the internal micro-controller temperature sensor and the internal temperature sensor of a Raspberry Pi.
+* Az általános hőmérséklet-érzékelők támogatása (pl. általános termisztorok, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20 és LM75). Egyedi termisztorok és egyedi analóg hőmérséklet-érzékelők is konfigurálhatók. Lehet figyelni a mikrokontroller hőmérsékletét és a Raspberry Pi processzor hőmérsékletét.
 * Alapértelmezés szerint a fűtésvédelem engedélyezett.
-* Support for standard fans, nozzle fans, and temperature controlled fans. No need to keep fans running when the printer is idle. Fan speed can be monitored on fans that have a tachometer.
+* Standard ventilátorok, fejhűtő ventilátorok és hőmérséklet-szabályozott ventilátorok támogatása. Nincs szükség arra, hogy a ventilátorok folyamatosan működjenek, amikor a nyomtató üresjáratban van. A fordulatszámmérővel ellátott ventilátoroknál a ventilátorok fordulatszáma ellenőrizhető.
 * A TMC2130, TMC2208/TMC2224, TMC2209, TMC2660 és TMC5160 léptetőmotor-meghajtók futásidejű konfigurációjának támogatása. A hagyományos léptetőmotor-meghajtók AD5206, MCP4451, MCP4728, MCP4018 és PWM-csapokon keresztül történő áramszabályozásának támogatása is biztosított.
 * Közvetlenül a nyomtatóhoz csatlakoztatott általános LCD-kijelzők támogatása. Egy alapértelmezett menü is rendelkezésre áll. A kijelző és a menü tartalma a konfigurációs fájlon keresztül teljesen testreszabható.
 * Állandó gyorsulás és "look-ahead" támogatás. Minden mozgás fokozatosan gyorsul fel álló helyzetből utazósebességre, majd lassul vissza álló helyzetbe. A beérkező G-kódos mozgásparancsok sorba kerülnek és elemzik őket. A hasonló irányú mozgások közötti gyorsulás optimalizálva lesz a nyomtatási hibák csökkentése és a teljes nyomtatási idő javítása érdekében.
 * A Klipper egy olyan "léptetőfázis végállás" algoritmust valósít meg, amely javíthatja a tipikus végálláskapcsolók pontosságát. Megfelelő beállítás esetén javíthatja a nyomtatás első réteg ágyhoz tapadását.
-* Support for filament presence sensors, filament motion sensors, and filament width sensors.
+* Száljelenlét-, szálmozgás- és szálszélesség-érzékelők támogatása.
 * A rezgések mérésének és rögzítésének támogatása adxl345 gyorsulásmérővel.
 * A nyomtató rezgésének és zajának csökkentése érdekében a rövid "cikcakk" mozgások csúcssebességének korlátozásának támogatása. További információkért lásd a [Kinematika](Kinematics.md) dokumentumot.
 * Számos gyakori nyomtatóhoz rendelkezésre állnak minta konfigurációs fájlok. Listát a [config könyvtárban](../config/) találja.
@@ -42,7 +42,7 @@ A Klipper használatának megkezdéséhez olvassa el a [Telepítés](Installatio
 
 Az alábbiakban a léptető teljesítménytesztek eredményeit mutatjuk be. A feltüntetett számok a mikrokontroller másodpercenkénti összes lépésszámát jelentik.
 
-| Mikrokontroller | 1 stepper active | 3 aktív léptető |
+| Mikrokontroller | 1 aktív léptető | 3 aktív léptető |
 | --- | --- | --- |
 | 16Mhz AVR | 157K | 99K |
 | 20Mhz AVR | 196K | 123K |
@@ -61,4 +61,4 @@ Az alábbiakban a léptető teljesítménytesztek eredményeit mutatjuk be. A fe
 | BigTreeTech SKR Pro (STM32F407) | 3652K | 2459K |
 | Fysetc Spider (STM32F446) | 3913K | 2634K |
 
-Further details on the benchmarks are available in the [Benchmarks document](Benchmarks.md).
+A referenciaértékekkel kapcsolatos további részletek a [Referenciaértékek dokumentumban](Benchmarks.md) találhatók.

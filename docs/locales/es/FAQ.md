@@ -1,47 +1,47 @@
 # Frequently Asked Questions
 
-1. [How can I donate to the project?](#how-can-i-donate-to-the-project)
-1. [How do I calculate the rotation_distance config parameter?](#how-do-i-calculate-the-rotation_distance-config-parameter)
-1. [Where's my serial port?](#wheres-my-serial-port)
-1. [When the micro-controller restarts the device changes to /dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1)
-1. [The "make flash" command doesn't work](#the-make-flash-command-doesnt-work)
+1. [¿Cómo puedo donar al proyecto?](#how-can-i-donate-to-the-project)
+1. [¿Cómo puedo calcular el parámetro de configuración rotation_distance?](#how-do-i-calculate-the-rotation_distance-config-parameter)
+1. [¿Dónde está mi puerto serial?](#wheres-my-serial-port)
+1. [Cuando el microcontrolador se reinicia el dispositivo cambia a /dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1)
+1. [El comando "make flash" no funciona](#the-make-flash-command-doesnt-work)
 1. [How do I change the serial baud rate?](#how-do-i-change-the-serial-baud-rate)
-1. [Can I run Klipper on something other than a Raspberry Pi 3?](#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)
-1. [Can I run multiple instances of Klipper on the same host machine?](#can-i-run-multiple-instances-of-klipper-on-the-same-host-machine)
-1. [Do I have to use OctoPrint?](#do-i-have-to-use-octoprint)
+1. [¿Puedo ejecutar Klipper en otro dispositivo que no sea una Raspberry Pi 3?](#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)
+1. [¿Puedo ejecutar varias instancias de Klipper en la misma máquina?](#can-i-run-multiple-instances-of-klipper-on-the-same-host-machine)
+1. [¿Tengo que usar OctoPrint?](#do-i-have-to-use-octoprint)
 1. [Why can't I move the stepper before homing the printer?](#why-cant-i-move-the-stepper-before-homing-the-printer)
-1. [Why is the Z position_endstop set to 0.5 in the default configs?](#why-is-the-z-position_endstop-set-to-05-in-the-default-configs)
+1. [¿Por qué la position_endstop de Z está puesta a 0.5 en la configuración por defecto?](#why-is-the-z-position_endstop-set-to-05-in-the-default-configs)
 1. [I converted my config from Marlin and the X/Y axes work fine, but I just get a screeching noise when homing the Z axis](#i-converted-my-config-from-marlin-and-the-xy-axes-work-fine-but-i-just-get-a-screeching-noise-when-homing-the-z-axis)
 1. [My TMC motor driver turns off in the middle of a print](#my-tmc-motor-driver-turns-off-in-the-middle-of-a-print)
 1. [I keep getting random "Lost communication with MCU" errors](#i-keep-getting-random-lost-communication-with-mcu-errors)
-1. [My Raspberry Pi keeps rebooting during prints](#my-raspberry-pi-keeps-rebooting-during-prints)
+1. [Mi Raspberry Pi continua reiniciando durante las impresiones](#my-raspberry-pi-keeps-rebooting-during-prints)
 1. [When I set `restart_method=command` my AVR device just hangs on a restart](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-restart)
 1. [Will the heaters be left on if the Raspberry Pi crashes?](#will-the-heaters-be-left-on-if-the-raspberry-pi-crashes)
 1. [How do I convert a Marlin pin number to a Klipper pin name?](#how-do-i-convert-a-marlin-pin-number-to-a-klipper-pin-name)
-1. [Do I have to wire my device to a specific type of micro-controller pin?](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin)
+1. [¿Tengo que conectar mi dispositivo a un pin de un microcontrolador específico?](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin)
 1. [How do I cancel an M109/M190 "wait for temperature" request?](#how-do-i-cancel-an-m109m190-wait-for-temperature-request)
-1. [Can I find out whether the printer has lost steps?](#can-i-find-out-whether-the-printer-has-lost-steps)
-1. [Why does Klipper report errors? I lost my print!](#why-does-klipper-report-errors-i-lost-my-print)
-1. [How do I upgrade to the latest software?](#how-do-i-upgrade-to-the-latest-software)
-1. [How do I uninstall klipper?](#how-do-i-uninstall-klipper)
+1. [¿Cómo puedo saber si la impresora se ha saltado pasos?](#can-i-find-out-whether-the-printer-has-lost-steps)
+1. [¿Por qué Klipper reporta los errores? ¡He perdido mi impresión!](#why-does-klipper-report-errors-i-lost-my-print)
+1. [¿Cómo actualizo a la versión de software más reciente?](#how-do-i-upgrade-to-the-latest-software)
+1. [¿Cómo desinstalo Klippler?](#how-do-i-uninstall-klipper)
 
-## How can I donate to the project?
+## ¿Cómo puedo donar al proyecto?
 
 Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>
 
-## How do I calculate the rotation_distance config parameter?
+## ¿Cómo calculo el parámetro de configuración rotation_distance?
 
-See the [rotation distance document](Rotation_Distance.md).
+Ojee el [documento sobre la distancia de rotación](Rotation_Distance.md).
 
-## Where's my serial port?
+## ¿Dónde está mi puerto serial?
 
-The general way to find a USB serial port is to run `ls /dev/serial/by-id/*` from an ssh terminal on the host machine. It will likely produce output similar to the following:
+La principal manera de encontrar un puerto serial USB es ejecutar `ls /dev/serial/by-id/*`desde una terminal ssh en la máquina inquilina. Seguramente devuelva lo siguiente por pantalla:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-The name found in the above command is stable and it is possible to use it in the config file and while flashing the micro-controller code. For example, a flash command might look similar to:
+El nombre devuelto por el comando anterior es estable y es posible utilizarlo en el fichero de configuración y mientras se flashee el código del microcontrolador. Por ejemplo, un comando de flasheo posiblemente parezca similar a esto:
 
 ```
 sudo service klipper stop
@@ -49,24 +49,24 @@ make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 ```
 
-and the updated config might look like:
+y la configuración actualizada luciría así:
 
 ```
 [mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-Be sure to copy-and-paste the name from the "ls" command that you ran above as the name will be different for each printer.
+Asegúrate de copiar y pegar el nombre desde el comando "ls" que has ejecutado antes ya que el nombre será diferente para cada impresora.
 
-If you are using multiple micro-controllers and they do not have unique ids (common on boards with a CH340 USB chip) then follow the directions above using the command `ls /dev/serial/by-path/*` instead.
+Si estás usando múltiples microcontroladores y no tiene identificadores únicos (común en placas con chips CH340 USB) entonces sigue las indicaciones de arriba utilizando el comando `ls /dev/serial/by-path/*`en este caso.
 
-## When the micro-controller restarts the device changes to /dev/ttyUSB1
+## Cuando el microcontrolador se reinicia el dispositivo cambia a /dev/ttyUSB1
 
-Follow the directions in the "[Where's my serial port?](#wheres-my-serial-port)" section to prevent this from occurring.
+Sigue las indicaciones en la sección "[¿Dónde está mi puerto serial?](#wheres-my-serial-port)" para evitar que esto ocurra.
 
-## The "make flash" command doesn't work
+## El comando "make flash" no funciona
 
-The code attempts to flash the device using the most common method for each platform. Unfortunately, there is a lot of variance in flashing methods, so the "make flash" command may not work on all boards.
+El código intenta «flashear» el dispositivo utilizando el método más común para cada plataforma. Desafortunadamente, hay un bastante disparidad entre métodos, así que el comando "make flash" puedo no funcionar en todas las placas.
 
 If you're having an intermittent failure or you do have a standard setup, then double check that Klipper isn't running when flashing (sudo service klipper stop), make sure OctoPrint isn't trying to connect directly to the device (open the Connection tab in the web page and click Disconnect if the Serial Port is set to the device), and make sure FLASH_DEVICE is set correctly for your board (see the [question above](#wheres-my-serial-port)).
 
@@ -87,11 +87,11 @@ The baud rate shown on the OctoPrint web page has no impact on the internal Klip
 
 The Klipper micro-controller baud rate is not related to the baud rate of the micro-controller's bootloader. See the [bootloader document](Bootloaders.md) for additional information on bootloaders.
 
-## Can I run Klipper on something other than a Raspberry Pi 3?
+## ¿Puedo ejecutar Klipper en algo distinto a una Raspberry Pi 3?
 
-The recommended hardware is a Raspberry Pi 2, Raspberry Pi 3, or Raspberry Pi 4.
+El hardware recomendado son las Raspberry Pi 2, Raspberry Pi 3 y Raspberry Pi 4.
 
-Klipper will run on a Raspberry Pi 1 and on the Raspberry Pi Zero, but these boards don't have enough processing power to run OctoPrint well. It is common for print stalls to occur on these slower machines when printing directly from OctoPrint. (The printer may move faster than OctoPrint can send movement commands.) If you wish to run on one one of these slower boards anyway, consider using the "virtual_sdcard" feature when printing (see [config reference](Config_Reference.md#virtual_sdcard) for details).
+Klipper es capaz de ejecutarse en una Raspberry Pi 1 y en la Raspberry Pi Zero, pero este tipo de placas no tienen el suficiente poder de cómputo como para ejecutar OctoPrint correctamente. Es común que las impresiones se detenga en máquinas más lentas cuando se imprime directamente desde OctoPrint. (La impresora podría moverse más rápido de lo que OctoPrint sería capaz de enviar los comandos de movimiento.) Si deseas ejecutarlo en uno de estos dispositivos igualmente, considera utilizar la característica «virtual_sdcard» cuando imprimas (ver la [configuración de referencia](Config_Reference.md#virtual_sdcard) para más detalles).
 
 For running on the Beaglebone, see the [Beaglebone specific installation instructions](Beaglebone.md).
 
@@ -103,7 +103,7 @@ If you are looking to run the Klipper host software on a shared general-purpose 
 
 Note: If you are not using an OctoPi image, be aware that several Linux distributions enable a "ModemManager" (or similar) package that can disrupt serial communication. (Which can cause Klipper to report seemingly random "Lost communication with MCU" errors.) If you install Klipper on one of these distributions you may need to disable that package.
 
-## Can I run multiple instances of Klipper on the same host machine?
+## ¿Puedo ejecutar múltiples instancias de Klipper en la misma máquina?
 
 It is possible to run multiple instances of the Klipper host software, but doing so requires Linux admin knowledge. The Klipper installation scripts ultimately cause the following Unix command to be run:
 
@@ -119,7 +119,7 @@ One can run multiple instances of the above command as long as each instance has
 
 If you choose to do this, you will need to implement the necessary start, stop, and installation scripts (if any). The [install-octopi.sh](../scripts/install-octopi.sh) script and the [klipper-start.sh](../scripts/klipper-start.sh) script may be useful as examples.
 
-## Do I have to use OctoPrint?
+## ¿Tengo que utilizar OctoPrint?
 
 The Klipper software is not dependent on OctoPrint. It is possible to use alternative software to send commands to Klipper, but doing so requires Linux admin knowledge.
 
