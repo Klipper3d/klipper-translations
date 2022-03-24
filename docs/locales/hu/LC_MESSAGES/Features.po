@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-03-23 07:56+0000\n"
+"PO-Revision-Date: 2022-03-24 10:48+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "features/hu/>\n"
@@ -303,41 +303,45 @@ msgid "Duet2 Maestro (SAM4S8C)"
 msgstr "Duet2 Maestro (SAM4S8C)"
 
 msgid "Smoothieboard (LPC1768)"
-msgstr ""
+msgstr "Smoothieboard (LPC1768)"
 
 msgid "Smoothieboard (LPC1769)"
-msgstr ""
+msgstr "Smoothieboard (LPC1769)"
 
 msgid "Beaglebone PRU"
-msgstr ""
+msgstr "Beaglebone PRU"
 
 msgid "Duet2 Wifi/Eth (SAM4E8E)"
-msgstr ""
+msgstr "Duet2 Wifi/Eth (SAM4E8E)"
 
 msgid "686K"
-msgstr ""
+msgstr "686K"
 
 msgid "Adafruit Metro M4 (SAMD51)"
-msgstr ""
+msgstr "Adafruit Metro M4 (SAMD51)"
 
 msgid "BigTreeTech SKR Pro (STM32F407)"
-msgstr ""
+msgstr "BigTreeTech SKR Pro (STM32F407)"
 
 #: docs/Features.md:block 1 (header)
 msgid "Features"
-msgstr ""
+msgstr "Funkciók"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Standard G-Code support. Common g-code commands that are produced by typical"
 " \"slicers\" (SuperSlicer, Cura, PrusaSlicer, etc.) are supported."
 msgstr ""
+"Standard G-kód támogatás. A tipikus \"szeletelők\" (SuperSlicer, Cura, "
+"PrusaSlicer, stb.) által előállított általános G-kód parancsok támogatottak."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, "
 "rotary delta, polar, and cable winch style printers."
 msgstr ""
+"Támogatja a cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, "
+"rotary delta, polár és kábelcsörlő stílusú nyomtatókat."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -348,6 +352,11 @@ msgid ""
 "micro-controller temperature sensor and the internal temperature sensor of a"
 " Raspberry Pi."
 msgstr ""
+"Az általános hőmérséklet-érzékelők támogatása (pl. általános termisztorok, "
+"AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, "
+"BME280, HTU21D, DS18B20 és LM75). Egyedi termisztorok és egyedi analóg "
+"hőmérséklet-érzékelők is konfigurálhatók. Lehet figyelni a mikrokontroller "
+"hőmérsékletét és a Raspberry Pi processzor hőmérsékletét."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -355,12 +364,17 @@ msgid ""
 "need to keep fans running when the printer is idle. Fan speed can be "
 "monitored on fans that have a tachometer."
 msgstr ""
+"Standard ventilátorok, fejhűtő ventilátorok és hőmérséklet-szabályozott "
+"ventilátorok támogatása. Nincs szükség arra, hogy a ventilátorok "
+"folyamatosan működjenek, amikor a nyomtató üresjáratban van. A "
+"fordulatszámmérővel ellátott ventilátoroknál a ventilátorok fordulatszáma "
+"ellenőrizhető."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for filament presence sensors, filament motion sensors, and filament"
 " width sensors."
-msgstr ""
+msgstr "Száljelenlét-, szálmozgás- és szálszélesség-érzékelők támogatása."
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -371,156 +385,165 @@ msgid ""
 "higher print velocities. The stepper event timing remains precise even at "
 "high speeds which improves overall stability."
 msgstr ""
+"Kategóriájában legjobb teljesítmény. A Klipper képes magas léptetési "
+"sebességet elérni mind az új, mind a régi mikrokontrollereken. Még a régi 8 "
+"bites mikrovezérlők is képesek 175 000 lépés/másodperc feletti sebességet "
+"elérni. Az újabb mikrokontrollereken másodpercenként több millió lépés is "
+"lehetséges. A nagyobb léptetési sebesség nagyobb nyomtatási sebességet tesz "
+"lehetővé. A léptetések időzítése még nagy sebességnél is pontos marad, ami "
+"javítja az általános stabilitást."
 
 #: docs/Features.md:block 10 (table)
 msgid "1 stepper active"
-msgstr ""
+msgstr "1 aktív léptető"
 
 #: docs/Features.md:block 10 (table)
 msgid "157K"
-msgstr ""
+msgstr "157K"
 
 #: docs/Features.md:block 10 (table)
 msgid "99K"
-msgstr ""
+msgstr "99K"
 
 #: docs/Features.md:block 10 (table)
 msgid "196K"
-msgstr ""
+msgstr "196K"
 
 #: docs/Features.md:block 10 (table)
 msgid "123K"
-msgstr ""
+msgstr "123K"
 
 #: docs/Features.md:block 10 (table)
 msgid "471K"
-msgstr ""
+msgstr "471K"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32F042"
-msgstr ""
+msgstr "STM32F042"
 
 #: docs/Features.md:block 10 (table)
 msgid "814K"
-msgstr ""
+msgstr "814K"
 
 #: docs/Features.md:block 10 (table)
 msgid "578K"
-msgstr ""
+msgstr "578K"
 
 #: docs/Features.md:block 10 (table)
 msgid "866K"
-msgstr ""
+msgstr "866K"
 
 #: docs/Features.md:block 10 (table)
 msgid "708K"
-msgstr ""
+msgstr "708K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1180K"
-msgstr ""
+msgstr "1180K"
 
 #: docs/Features.md:block 10 (table)
 msgid "818K"
-msgstr ""
+msgstr "818K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1273K"
-msgstr ""
+msgstr "1273K"
 
 #: docs/Features.md:block 10 (table)
 msgid "981K"
-msgstr ""
+msgstr "981K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1690K"
-msgstr ""
+msgstr "1690K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1385K"
-msgstr ""
+msgstr "1385K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1923K"
-msgstr ""
+msgstr "1923K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1351K"
-msgstr ""
+msgstr "1351K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2353K"
-msgstr ""
+msgstr "2353K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1622K"
-msgstr ""
+msgstr "1622K"
 
 #: docs/Features.md:block 10 (table)
 msgid "Raspberry Pi Pico (RP2040)"
-msgstr ""
+msgstr "Raspberry Pi Pico (RP2040)"
 
 #: docs/Features.md:block 10 (table)
 msgid "2400K"
-msgstr ""
+msgstr "2400K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1636K"
-msgstr ""
+msgstr "1636K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2500K"
-msgstr ""
+msgstr "2500K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1674K"
-msgstr ""
+msgstr "1674K"
 
 #: docs/Features.md:block 10 (table)
 msgid "3077K"
-msgstr ""
+msgstr "3077K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1885K"
-msgstr ""
+msgstr "1885K"
 
 #: docs/Features.md:block 10 (table)
 msgid "3652K"
-msgstr ""
+msgstr "3652K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2459K"
-msgstr ""
+msgstr "2459K"
 
 #: docs/Features.md:block 10 (table)
 msgid "Fysetc Spider (STM32F446)"
-msgstr ""
+msgstr "Fysetc Spider (STM32F446)"
 
 #: docs/Features.md:block 10 (table)
 msgid "3913K"
-msgstr ""
+msgstr "3913K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2634K"
-msgstr ""
+msgstr "2634K"
 
 #: docs/Features.md:block 11 (paragraph)
 msgid ""
 "Further details on the benchmarks are available in the [Benchmarks "
 "document](Benchmarks.md)."
 msgstr ""
+"A referenciaértékekkel kapcsolatos további részletek a [Referenciaértékek "
+"dokumentumban](Benchmarks.md) találhatók."
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32G0B1"
-msgstr ""
+msgstr "STM32G0B1"
 
 #: docs/Features.md:block 10 (table)
 msgid "1103K"
-msgstr ""
+msgstr "1103K"
 
 #: docs/Features.md:block 10 (table)
 msgid "790K"
-msgstr ""
+msgstr "790K"
 
 #~ msgid ""
 #~ "Best in class performance. Klipper is able to achieve high stepping rates on"
