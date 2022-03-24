@@ -1,8 +1,8 @@
-# Contributing to Klipper
+# Contribuir a Klipper
 
-Thank you for contributing to Klipper! This document describes the process for contributing changes to Klipper.
+Gracias por contribuir a Klipper! Este document describe el proceso de contribuir a Klipper.
 
-Please see the [contact page](Contact.md) for information on reporting an issue or for details on contacting the developers.
+Por favor, eche un vistazo a la [página de contacto](Contact.md) para más información sobre reportar problemas o para más detalles a la hora de contactar con los desarrolladores.
 
 ## Overview of Contribution Process
 
