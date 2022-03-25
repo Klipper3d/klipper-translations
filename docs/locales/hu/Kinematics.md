@@ -1,4 +1,4 @@
-# Kinematics
+# Kinematika
 
 Ez a dokumentum áttekintést nyújt arról, hogy a Klipper hogyan valósítja meg a robot mozgását (a [kinematika](https://en.wikipedia.org/wiki/Kinematics)). A tartalom mind a Klipper szoftveren dolgozni kívánó fejlesztők, mind a gépük mechanikájának jobb megértése iránt érdeklődő felhasználók számára érdekes lehet.
 
@@ -36,53 +36,53 @@ Tekintsük a következő két mozgást, amelyek egy X-Y-síkon helyezkednek el:
 
 A fenti helyzetben lehetséges az első lépés után teljesen lelassítani, majd a következő lépés kezdetén teljesen felgyorsítani, de ez nem ideális, mivel ez a sok gyorsítás és lassítás jelentősen megnövelné a nyomtatási időt, és az anyagáramlás gyakori változása rossz nyomtatási minőséget eredményezne.
 
-To solve this, the "look-ahead" mechanism queues multiple incoming moves and analyzes the angles between moves to determine a reasonable speed that can be obtained during the "junction" between two moves. If the next move is nearly in the same direction then the head need only slow down a little (if at all).
+Ennek megoldására a "look-ahead" mechanizmus több bejövő mozgást sorba állít, és elemzi a mozgások közötti szögeket, hogy meghatározzon egy ésszerű sebességet, amelyet a két mozgás közötti "kereszteződés" alatt lehet elérni. Ha a következő lépés közel azonos irányba mutat, akkor a fejnek csak egy kicsit kell lassítania (ha egyáltalán kell).
 
 ![lookahead](img/lookahead.svg.png)
 
-However, if the next move forms an acute angle (the head is going to travel in nearly a reverse direction on the next move) then only a small junction speed is permitted.
+Ha azonban a következő mozdulat hegyesszöget zár be (a fej a következő mozdulatnál majdnem fordított irányban fog haladni), akkor csak egy kis csomóponti sebesség a megengedett.
 
 ![lookahead](img/lookahead-slow.svg.png)
 
-The junction speeds are determined using "approximated centripetal acceleration". Best [described by the author](https://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/). However, in Klipper, junction speeds are configured by specifying the desired speed that a 90° corner should have (the "square corner velocity"), and the junction speeds for other angles are derived from that.
+A csomóponti sebességeket a "közelítő centripetális gyorsulás" segítségével határozzuk meg. Legjobb [a szerző által leírt](https://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/). A Klipperben azonban a csomóponti sebességek úgy kerülnek beállításra, hogy megadjuk a 90°-os sarok kívánt sebességét (a "négyzetes saroksebesség"), és a többi szögre vonatkozó csomóponti sebességeket ebből vezetjük le.
 
-Key formula for look-ahead:
+Kulcsképlet az előretekintéshez:
 
 ```
 end_velocity^2 = start_velocity^2 + 2*accel*move_distance
 ```
 
-### Smoothed look-ahead
+### Simított előretekintés
 
-Klipper also implements a mechanism for smoothing out the motions of short "zigzag" moves. Consider the following moves:
+A Klipper egy olyan mechanizmust is megvalósít, amely kisimítja a rövid "cikkcakk" mozgásokat. Tekintsük a következő mozgásokat:
 
 ![zigzag](img/zigzag.svg.png)
 
-In the above, the frequent changes from acceleration to deceleration can cause the machine to vibrate which causes stress on the machine and increases the noise. To reduce this, Klipper tracks both regular move acceleration as well as a virtual "acceleration to deceleration" rate. Using this system, the top speed of these short "zigzag" moves are limited to smooth out the printer motion:
+A fentiekben a gyorsításról lassításra történő gyakori váltás a gép rezgését okozhatja, ami a gépet terheli, és növeli a zajt. Ennek csökkentése érdekében a Klipper mind a rendszeres mozgási gyorsulást, mind pedig a virtuális "gyorsításról lassításra" sebességet követi. Ezzel a rendszerrel a nyomtató mozgásának kiegyenlítése érdekében a rövid "cikkcakkos" mozgások csúcssebessége korlátozott:
 
 ![smoothed](img/smoothed.svg.png)
 
-Specifically, the code calculates what the velocity of each move would be if it were limited to this virtual "acceleration to deceleration" rate (half the normal acceleration rate by default). In the above picture the dashed gray lines represent this virtual acceleration rate for the first move. If a move can not reach its full cruising speed using this virtual acceleration rate then its top speed is reduced to the maximum speed it could obtain at this virtual acceleration rate. For most moves the limit will be at or above the move's existing limits and no change in behavior is induced. For short zigzag moves, however, this limit reduces the top speed. Note that it does not change the actual acceleration within the move - the move continues to use the normal acceleration scheme up to its adjusted top-speed.
+Konkrétan, a kód kiszámítja, hogy mi lenne az egyes mozgások sebessége, ha az adott virtuális "gyorsulás-lassulás" sebességre korlátozódna (alapértelmezés szerint a normál gyorsulási sebesség fele). A fenti képen a szaggatott szürke vonalak ezt a virtuális gyorsulási sebességet jelölik az első mozdulatnál. Ha egy mozgás nem tudja elérni a teljes utazósebességét ezzel a virtuális gyorsulási sebességgel, akkor a végsebessége arra a maximális sebességre csökken, amelyet ezzel a virtuális gyorsulási sebességgel elérhetne. A legtöbb mozgás esetében ez a határérték a mozgás meglévő határértékeinél vagy azok felett lesz, és nem változik a viselkedés. Rövid cikk-cakk mozgások esetén azonban ez a határ csökkenti a csúcssebességet. Vegye figyelembe, hogy ez nem változtatja meg a tényleges gyorsulást a mozgáson belül. A mozgás továbbra is a normál gyorsulási sémát használja a beállított csúcssebességig.
 
-## Generating steps
+## Lépések generálása
 
-Once the look-ahead process completes, the print head movement for the given move is fully known (time, start position, end position, velocity at each point) and it is possible to generate the step times for the move. This process is done within "kinematic classes" in the Klipper code. Outside of these kinematic classes, everything is tracked in millimeters, seconds, and in cartesian coordinate space. It's the task of the kinematic classes to convert from this generic coordinate system to the hardware specifics of the particular printer.
+Miután a look-ahead folyamat befejeződött, a nyomtatófej mozgása az adott mozgáshoz teljes mértékben ismert (idő, kezdő pozíció, végpozíció, sebesség minden egyes ponton), és lehetséges a lépésidők generálása a mozgáshoz. Ez a folyamat a Klipper kódban a "kinematikai osztályokon" belül történik. Ezeken a kinematikai osztályokon kívül minden milliméterben, másodpercben és cartesian koordináta térben követhető. A kinematikai osztályok feladata, hogy ebből az általános koordináta-rendszerből az adott nyomtató hardveres sajátosságaihoz igazítsák.
 
-Klipper uses an [iterative solver](https://en.wikipedia.org/wiki/Root-finding_algorithm) to generate the step times for each stepper. The code contains the formulas to calculate the ideal cartesian coordinates of the head at each moment in time, and it has the kinematic formulas to calculate the ideal stepper positions based on those cartesian coordinates. With these formulas, Klipper can determine the ideal time that the stepper should be at each step position. The given steps are then scheduled at these calculated times.
+A Klipper egy [iteratív megoldót](https://en.wikipedia.org/wiki/Root-finding_algorithm) használ az egyes léptetők lépésidejének létrehozásához. A kód tartalmazza a képleteket a fej ideális cartesian koordinátáinak kiszámításához minden egyes időpontban, és rendelkezik a kinematikai képletekkel az ideális stepper pozíciók kiszámításához ezen cartesian koordináták alapján. Ezekkel a képletekkel a Klipper meg tudja határozni azt az ideális időt, amikor a steppernek az egyes lépéshelyzetekben kell lennie. Az adott lépéseket ezután ezekre a kiszámított időpontokra ütemezi.
 
-The key formula to determine how far a move should travel under constant acceleration is:
+A legfontosabb képlet annak meghatározására, hogy egy mozgásnak milyen messzire kell eljutnia állandó gyorsulás mellett, a következő:
 
 ```
 move_distance = (start_velocity + .5 * accel * move_time) * move_time
 ```
 
-and the key formula for movement with constant velocity is:
+és az állandó sebességű mozgásra vonatkozó kulcsképlet a következő:
 
 ```
 move_distance = cruise_velocity * move_time
 ```
 
-The key formulas for determining the cartesian coordinate of a move given a move distance is:
+A mozgások cartesian koordinátáinak meghatározására szolgáló kulcsképletek a következők:
 
 ```
 cartesian_x_position = start_x + move_distance * total_x_movement / total_movement
@@ -90,11 +90,11 @@ cartesian_y_position = start_y + move_distance * total_y_movement / total_moveme
 cartesian_z_position = start_z + move_distance * total_z_movement / total_movement
 ```
 
-### Cartesian Robots
+### Cartesian robotok
 
-Generating steps for cartesian printers is the simplest case. The movement on each axis is directly related to the movement in cartesian space.
+A legegyszerűbb eset a lépések generálása a kartotéknyomtatókhoz. Az egyes tengelyeken történő mozgás közvetlenül kapcsolódik a cartesian térben történő mozgáshoz.
 
-Key formulas:
+Kulcsképletek:
 
 ```
 stepper_x_position = cartesian_x_position
@@ -102,9 +102,9 @@ stepper_y_position = cartesian_y_position
 stepper_z_position = cartesian_z_position
 ```
 
-### CoreXY Robots
+### CoreXY robotok
 
-Generating steps on a CoreXY machine is only a little more complex than basic cartesian robots. The key formulas are:
+A lépések generálása egy CoreXY gépen csak egy kicsit bonyolultabb, mint az egyszerű cartesian robotoké. A legfontosabb képletek a következők:
 
 ```
 stepper_a_position = cartesian_x_position + cartesian_y_position
@@ -112,9 +112,9 @@ stepper_b_position = cartesian_x_position - cartesian_y_position
 stepper_z_position = cartesian_z_position
 ```
 
-### Delta Robots
+### Delta robotok
 
-Step generation on a delta robot is based on Pythagoras's theorem:
+A delta roboton történő lépésgenerálás a Pitagorasz-tételen alapul:
 
 ```
 stepper_position = (sqrt(arm_length^2
@@ -123,17 +123,17 @@ stepper_position = (sqrt(arm_length^2
                     + cartesian_z_position)
 ```
 
-### Stepper motor acceleration limits
+### Léptetőmotor gyorsulási határértékei
 
-With delta kinematics it is possible for a move that is accelerating in cartesian space to require an acceleration on a particular stepper motor greater than the move's acceleration. This can occur when a stepper arm is more horizontal than vertical and the line of movement passes near that stepper's tower. Although these moves could require a stepper motor acceleration greater than the printer's maximum configured move acceleration, the effective mass moved by that stepper would be smaller. Thus the higher stepper acceleration does not result in significantly higher stepper torque and it is therefore considered harmless.
+A delta kinematikával lehetséges, hogy egy cartesian térben gyorsuló mozgás nagyobb gyorsulást igényel egy adott léptetőmotoron, mint a mozgás gyorsulása. Ez akkor fordulhat elő, ha egy mozgatott kar inkább vízszintes, mint függőleges, és a mozgás vonala az adott léptető torony közelében halad el. Bár ezekhez a mozgásokhoz nagyobb léptetőmotor-gyorsulásra lehet szükség, mint a nyomtató maximálisan konfigurált mozgásgyorsulása, az adott léptető által mozgatott effektív tömeg kisebb lesz. Így a nagyobb léptető gyorsulás nem eredményez jelentősen nagyobb léptető nyomatékot, és ezért ártalmatlannak tekinthető.
 
-However, to avoid extreme cases, Klipper enforces a maximum ceiling on stepper acceleration of three times the printer's configured maximum move acceleration. (Similarly, the maximum velocity of the stepper is limited to three times the maximum move velocity.) In order to enforce this limit, moves at the extreme edge of the build envelope (where a stepper arm may be nearly horizontal) will have a lower maximum acceleration and velocity.
+A szélsőséges esetek elkerülése érdekében azonban a Klipper a nyomtató konfigurált maximális mozgási gyorsulásának háromszorosában határozza meg a léptető gyorsulásának felső határát. (Hasonlóképpen, a léptető maximális sebessége a maximális mozgatási sebesség háromszorosára van korlátozva). E korlát betartása érdekében az építési terület szélső szélén (ahol a léptető kar közel vízszintes lehet) a mozgások maximális gyorsulása és sebessége alacsonyabb lesz.
 
-### Extruder kinematics
+### Extruder kinematika
 
-Klipper implements extruder motion in its own kinematic class. Since the timing and speed of each print head movement is fully known for each move, it's possible to calculate the step times for the extruder independently from the step time calculations of the print head movement.
+A Klipper az extruder mozgását saját kinematikai osztályában valósítja meg. Mivel a nyomtatófej mozgásának időzítése és sebessége minden egyes mozgásnál teljesen ismert, az extruder lépésidejét a nyomtatófej mozgásának lépésidő-számításaitól függetlenül lehet kiszámítani.
 
-Basic extruder movement is simple to calculate. The step time generation uses the same formulas that cartesian robots use:
+Az extruder alapmozgása egyszerűen kiszámítható. A lépésidő generálása ugyanazokat a képleteket használja, mint a cartesian gépek:
 
 ```
 stepper_position = requested_e_position
@@ -141,27 +141,27 @@ stepper_position = requested_e_position
 
 ### Nyomás előrehaladás
 
-Experimentation has shown that it's possible to improve the modeling of the extruder beyond the basic extruder formula. In the ideal case, as an extrusion move progresses, the same volume of filament should be deposited at each point along the move and there should be no volume extruded after the move. Unfortunately, it's common to find that the basic extrusion formulas cause too little filament to exit the extruder at the start of extrusion moves and for excess filament to extrude after extrusion ends. This is often referred to as "ooze".
+A kísérletek azt mutatták, hogy az extruder modellezését az alap extruder képleten túl is lehet javítani. Ideális esetben az extrudálási mozgás előrehaladtával a mozgás minden egyes pontján ugyanannyi szálnak kell lerakódnia, és a mozgás után nem szabad extrudálódnia. Sajnos gyakran előfordul, hogy az alap extrudálási képletek miatt az extrudálási mozgások kezdetén túl kevés szál kerül ki az extruderből, és az extrudálás befejezése után többletszál kerül extrudálásra. Ezt gyakran nevezik "ooze"-nak.
 
 ![ooze](img/ooze.svg.png)
 
-The "pressure advance" system attempts to account for this by using a different model for the extruder. Instead of naively believing that each mm^3 of filament fed into the extruder will result in that amount of mm^3 immediately exiting the extruder, it uses a model based on pressure. Pressure increases when filament is pushed into the extruder (as in [Hooke's law](https://en.wikipedia.org/wiki/Hooke%27s_law)) and the pressure necessary to extrude is dominated by the flow rate through the nozzle orifice (as in [Poiseuille's law](https://en.wikipedia.org/wiki/Poiseuille_law)). The key idea is that the relationship between filament, pressure, and flow rate can be modeled using a linear coefficient:
+A "nyomásszabályozás" rendszer ezt úgy próbálja figyelembe venni, hogy az extruderhez egy másik modellt használ. Ahelyett, hogy naivan azt hinné, hogy az extruderbe táplált minden egyes mm^3 szálat az extruderből azonnal ugyanannyi mm^3 fog kilépni, a rendszer egy nyomáson alapuló modellt használ. A nyomás nő, amikor a szál az extruderbe kerül (mint a [Hooke törvény](https://en.wikipedia.org/wiki/Hooke%27s_law) szerint), és az extrudáláshoz szükséges nyomást a fúvóka nyílásán keresztül történő áramlási sebesség uralja (mint a [Poiseuille törvény](https://en.wikipedia.org/wiki/Poiseuille_law) szerint). A kulcsgondolat az, hogy a szál, a nyomás és az áramlási sebesség közötti kapcsolat egy lineáris együtthatóval modellezhető:
 
 ```
 pa_position = nominal_position + pressure_advance_coefficient * nominal_velocity
 ```
 
-See the [pressure advance](Pressure_Advance.md) document for information on how to find this pressure advance coefficient.
+A nyomásszabályozás együttható meghatározásához lásd a [nyomásszabályozás](Pressure_Advance.md) dokumentumot.
 
-The basic pressure advance formula can cause the extruder motor to make sudden velocity changes. Klipper implements "smoothing" of the extruder movement to avoid this.
+Az alapvető nyomásszabályozás képlete az extruder motorjának hirtelen sebességváltozásait okozhatja. A Klipper ennek elkerülése érdekében az extruder mozgásának "simítását" alkalmazza.
 
 ![pressure-advance](img/pressure-velocity.png)
 
-The above graph shows an example of two extrusion moves with a non-zero cornering velocity between them. Note that the pressure advance system causes additional filament to be pushed into the extruder during acceleration. The higher the desired filament flow rate, the more filament must be pushed in during acceleration to account for pressure. During head deceleration the extra filament is retracted (the extruder will have a negative velocity).
+A fenti grafikon egy példát mutat két olyan extrudálási mozgásra, amelyek között a kanyarsebesség nem nulla. Vegye figyelembe, hogy a nyomásszabályozás rendszer miatt a gyorsítás során további szálak kerülnek az extruderbe. Minél nagyobb a kívánt száláramlási sebesség, annál több szálat kell betolni a gyorsítás során a nyomás miatt. A fej lassítása során a plusz szál visszahúzódik (az extruder sebessége negatív lesz).
 
-The "smoothing" is implemented using a weighted average of the extruder position over a small time period (as specified by the `pressure_advance_smooth_time` config parameter). This averaging can span multiple g-code moves. Note how the extruder motor will start moving prior to the nominal start of the first extrusion move and will continue to move after the nominal end of the last extrusion move.
+A "simítás" az extruder pozíciójának súlyozott átlagával történik egy kis időintervallumban (ahogyan azt a `pressure_advance_smooth_time` konfigurációs paraméter megadja). Ez az átlagolás több G-kód mozgást is átfoghat. Figyelje meg, hogy az extrudermotor az első extrudermozgás névleges kezdete előtt elkezd mozogni, és az utolsó extrudermozgás névleges vége után is mozogni fog.
 
-Key formula for "smoothed pressure advance":
+Kulcsképlet a "simított nyomásszabályozáshoz":
 
 ```
 smooth_pa_position(t) =
