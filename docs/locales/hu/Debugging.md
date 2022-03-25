@@ -1,35 +1,35 @@
-# Debugging
+# Hibakeresés
 
 Ez a dokumentum a Klipper hibakeresési eszközeinek egy részét ismerteti.
 
-## Running the regression tests
+## A regressziós tesztek futtatása
 
-The main Klipper GitHub repository uses "github actions" to run a series of regression tests. It can be useful to run some of these tests locally.
+A Klipper GitHub fő tárolója a "github actions" -t használja egy sor regressziós teszt futtatásához. Hasznos lehet néhány ilyen tesztet helyben futtatni.
 
-The source code "whitespace check" can be run with:
+A forráskód "whitespace check" a következővel futtatható:
 
 ```
 ./scripts/check_whitespace.sh
 ```
 
-The Klippy regression test suite requires "data dictionaries" from many platforms. The easiest way to obtain them is to [download them from github](https://github.com/Klipper3d/klipper/issues/1438). Once the data dictionaries are downloaded, use the following to run the regression suite:
+A Klippy regressziós tesztcsomag számos platformról igényel "adatszótárakat". A legegyszerűbben úgy szerezhetjük be őket, ha [letöltjük őket a githubról](https://github.com/Klipper3d/klipper/issues/1438). Miután letöltöttük az adatszótárakat, a regressziós csomag futtatásához használjuk a következőket:
 
 ```
 tar xfz klipper-dict-20??????.tar.gz
 ~/klippy-env/bin/python ~/klipper/scripts/test_klippy.py -d dict/ ~/klipper/test/klippy/*.test
 ```
 
-## Manually sending commands to the micro-controller
+## Parancsok kézi küldése a mikrokontrollernek
 
-Normally, the host klippy.py process would be used to translate gcode commands to Klipper micro-controller commands. However, it's also possible to manually send these MCU commands (functions marked with the DECL_COMMAND() macro in the Klipper source code). To do so, run:
+Normális esetben a G-kód parancsokat a klippy.py folyamat fordítja Klipper mikrokontroller parancsokra. Azonban az is lehetséges, hogy manuálisan küldjük el ezeket az MCU-parancsokat (a Klipper forráskódjában a DECL_COMMAND() makróval jelölt függvények). Ehhez futtassa a következőket:
 
 ```
 ~/klippy-env/bin/python ./klippy/console.py /tmp/pseudoserial
 ```
 
-See the "HELP" command within the tool for more information on its functionality.
+Az eszközön belül a "HELP" parancsban talál további információkat a funkcióiról.
 
-Some command-line options are available. For more information run: `~/klippy-env/bin/python ./klippy/console.py --help`
+Néhány parancssori opció is rendelkezésre áll. További információkért futtassa a: `~/klippy-env/bin/python ./klippy/console.py --help` parancsot
 
 ## A G-kód fájlok lefordítása mikrokontroller-parancsokra
 
@@ -42,97 +42,97 @@ make menuconfig
 make
 ```
 
-Once the above is done it is possible to run Klipper in batch mode (see [installation](Installation.md) for the steps necessary to build the python virtual environment and a printer.cfg file):
+Ha a fentiek megtörténtek, a Klipper futtatása batch üzemmódban is lehetséges (a python virtuális környezet és a printer.cfg) fájl létrehozásához szükséges lépéseket lásd [Telepítés](Installation.md):
 
 ```
 ~/klippy-env/bin/python ./klippy/klippy.py ~/printer.cfg -i test.gcode -o test.serial -v -d out/klipper.dict
 ```
 
-The above will produce a file **test.serial** with the binary serial output. This output can be translated to readable text with:
+A fenti művelet egy **test.serial** fájlt fog létrehozni a bináris soros kimenettel. Ez a kimenet lefordítható olvasható szöveggé a következővel:
 
 ```
 ~/klippy-env/bin/python ./klippy/parsedump.py out/klipper.dict test.serial > test.txt
 ```
 
-The resulting file **test.txt** contains a human readable list of micro-controller commands.
+Az eredményül kapott **test.txt** fájl a mikrokontroller parancsok ember által olvasható listáját tartalmazza.
 
-The batch mode disables certain response / request commands in order to function. As a result, there will be some differences between actual commands and the above output. The generated data is useful for testing and inspection; it is not useful for sending to a real micro-controller.
+A kötegelt üzemmód letilt bizonyos válasz/kérési parancsokat a működés érdekében. Ennek eredményeképpen a tényleges parancsok és a fenti kimenet között némi eltérés lesz. A generált adatok teszteléshez és ellenőrzéshez hasznosak; nem használhatóak valódi mikrokontrollerhez való elküldésre.
 
-## Motion analysis and data logging
+## Mozgáselemzés és adatnaplózás
 
-Klipper supports logging its internal motion history, which can be later analyzed. To use this feature, Klipper must be started with the [API Server](API_Server.md) enabled.
+A Klipper támogatja a belső mozgástörténet naplózását, amely később elemezhető. Ennek a funkciónak a használatához a Klippert az [API Szerver](API_Server.md) engedélyezésével kell elindítani.
 
-Data logging is enabled with the `data_logger.py` tool. For example:
+Az adatnaplózást a `data_logger.py` eszközzel lehet engedélyezni. Például:
 
 ```
 ~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog
 ```
 
-This command will connect to the Klipper API Server, subscribe to status and motion information, and log the results. Two files are generated - a compressed data file and an index file (eg, `mylog.json.gz` and `mylog.index.gz`). After starting the logging, it is possible to complete prints and other actions - the logging will continue in the background. When done logging, hit `ctrl-c` to exit from the `data_logger.py` tool.
+Ez a parancs csatlakozik a Klipper API-kiszolgálóhoz, feliratkozik az állapot- és mozgásinformációkra, és naplózza az eredményeket. Két fájl jön létre. Egy tömörített adatfájl és egy indexfájl (pl. `mylog.json.gz` és `mylog.index.gz`). A naplózás elindítása után lehetőség van nyomtatások és egyéb műveletek elvégzésére. A naplózás a háttérben folytatódik. Ha befejeztük a naplózást, nyomjuk meg a `ctrl-c` billentyűkombinációt a `data_logger.py` eszközből való kilépéshez.
 
-The resulting files can be read and graphed using the `motan_graph.py` tool. To generate graphs on a Raspberry Pi, a one time step is necessary to install the "matplotlib" package:
+Az így kapott fájlok a `motan_graph.py` eszközzel olvashatók és grafikusan ábrázolhatók. A grafikonok Raspberry Pi-n történő generálásához egyszeri lépésben telepíteni kell a "matplotlib" csomagot:
 
 ```
 sudo apt-get update
 sudo apt-get install python-matplotlib
 ```
 
-However, it may be more convenient to copy the data files to a desktop class machine along with the Python code in the `scripts/motan/` directory. The motion analysis scripts should run on any machine with a recent version of [Python](https://python.org) and [Matplotlib](https://matplotlib.org/) installed.
+Kényelmesebb lehet azonban az adatfájlokat a `scripts/motan/` könyvtárban található Python-kóddal együtt egy asztali gépre másolni. A mozgáselemző szkripteknek minden olyan gépen futniuk kell, amelyre a [Python](https://python.org) és a [Matplotlib](https://matplotlib.org/) legújabb verziója telepítve van.
 
-Graphs can be generated with a command like the following:
+A grafikonok a következő parancs segítségével hozhatók létre:
 
 ```
 ~/klipper/scripts/motan/motan_graph.py mylog -o mygraph.png
 ```
 
-One can use the `-g` option to specify the datasets to graph (it takes a Python literal containing a list of lists). For example:
+A `-g` opciót használhatjuk a grafikusan ábrázolandó adatkészletek megadására (ez egy Python literal-t fogad el, amely listák listáját tartalmazza). Például:
 
 ```
 ~/klipper/scripts/motan/motan_graph.py mylog -g '[["trapq(toolhead,velocity)"], ["trapq(toolhead,accel)"]]'
 ```
 
-The list of available datasets can be found using the `-l` option - for example:
+Az elérhető adatkészletek listája a `-l` opcióval érhető el. Például:
 
 ```
 ~/klipper/scripts/motan/motan_graph.py -l
 ```
 
-It is also possible to specify matplotlib plot options for each dataset:
+Lehetőség van arra is, hogy minden egyes adatkészlethez matplotlib ábrázolási opciókat adjon meg:
 
 ```
 ~/klipper/scripts/motan/motan_graph.py mylog -g '[["trapq(toolhead,velocity)?color=red&alpha=0.4"]]'
 ```
 
-Many matplotlib options are available; some examples are "color", "label", "alpha", and "linestyle".
+Számos matplotlib opció áll rendelkezésre; néhány példa: "color", "label", "alpha" és "linestyle".
 
-The `motan_graph.py` tool supports several other command-line options - use the `--help` option to see a list. It may also be convenient to view/modify the [motan_graph.py](../scripts/motan/motan_graph.py) script itself.
+A `motan_graph.py` eszköz számos más parancssori opciót is támogat a `--help` opcióval megtekintheti a listát. Kényelmes lehet magát a [motan_graph.py](../scripts/motan/motan_graph.py) szkriptet is megtekinteni/módosítani.
 
-The raw data logs produced by the `data_logger.py` tool follow the format described in the [API Server](API_Server.md). It may be useful to inspect the data with a Unix command like the following: `gunzip < mylog.json.gz | tr '\03' '\n' | less`
+A `data_logger.py` eszköz által előállított nyers adatnaplók az [API Szerver](API_Server.md) című dokumentumban leírt formátumot követik. Hasznos lehet az adatokat egy Unix-paranccsal megvizsgálni, mint például a következő: `gunzip < mylog.json.gz | tr '\03' '\n' | less`
 
-## Generating load graphs
+## Terhelési grafikonok generálása
 
-The Klippy log file (/tmp/klippy.log) stores statistics on bandwidth, micro-controller load, and host buffer load. It can be useful to graph these statistics after a print.
+A Klippy naplófájl (/tmp/klippy.log) tárolja a sávszélességre, a mikrokontroller terhelésre és a gazdagép pufferterhelésre vonatkozó statisztikákat. Hasznos lehet ezeket a statisztikákat grafikusan ábrázolni a nyomtatás után.
 
-To generate a graph, a one time step is necessary to install the "matplotlib" package:
+A grafikon generálásához egy alkalommal telepíteni kell a "matplotlib" csomagot:
 
 ```
 sudo apt-get update
 sudo apt-get install python-matplotlib
 ```
 
-Then graphs can be produced with:
+Ezután grafikonok készíthetők:
 
 ```
 ~/klipper/scripts/graphstats.py /tmp/klippy.log -o loadgraph.png
 ```
 
-One can then view the resulting **loadgraph.png** file.
+Ezután megtekinthetjük az eredményül kapott **loadgraph.png** fájlt.
 
-Different graphs can be produced. For more information run: `~/klipper/scripts/graphstats.py --help`
+Különböző grafikonok készíthetők. További információért futtassa: `~/klipper/scripts/graphstats.py --help `
 
-## Extracting information from the klippy.log file
+## Információk kinyerése a klippy.log fájlból
 
-The Klippy log file (/tmp/klippy.log) also contains debugging information. There is a logextract.py script that may be useful when analyzing a micro-controller shutdown or similar problem. It is typically run with something like:
+A Klippy naplófájl (/tmp/klippy.log) szintén tartalmaz hibakeresési információkat. Van egy logextract.py szkript, amely hasznos lehet egy mikrokontroller leállásának vagy hasonló problémának az elemzésekor. Általában valami ilyesmivel futtatható:
 
 ```
 mkdir work_directory
@@ -141,13 +141,13 @@ cp /tmp/klippy.log .
 ~/klipper/scripts/logextract.py ./klippy.log
 ```
 
-The script will extract the printer config file and will extract MCU shutdown information. The information dumps from an MCU shutdown (if present) will be reordered by timestamp to assist in diagnosing cause and effect scenarios.
+A szkript kinyeri a nyomtató konfigurációs fájlját, és kinyeri az MCU leállítási adatait. Az MCU leállításából származó információsor (ha van ilyen) időbélyegek szerint át lesz rendezve, hogy segítse az ok-okozati forgatókönyvek diagnosztizálását.
 
-## Testing with simulavr
+## Tesztelés simulavr-rel
 
-The [simulavr](http://www.nongnu.org/simulavr/) tool enables one to simulate an Atmel ATmega micro-controller. This section describes how one can run test gcode files through simulavr. It is recommended to run this on a desktop class machine (not a Raspberry Pi) as it does require significant cpu to run efficiently.
+A [simulavr](http://www.nongnu.org/simulavr/) eszköz lehetővé teszi egy Atmel ATmega mikrokontroller szimulálását. Ez a szakasz leírja, hogyan lehet teszt G-kód fájlokat futtatni a simulavr segítségével. Javasoljuk, hogy ezt egy asztali gépen futtassuk (nem Raspberry Pi), mivel a hatékony futtatáshoz erős CPU-ra van szükség.
 
-To use simulavr, download the simulavr package and compile with python support. Note that the build system may need to have some packages (such as swig) installed in order to build the python module.
+A simulavr használatához töltse le a simulavr csomagot, és fordítsa le python támogatással. Vegye figyelembe, hogy a build rendszernek telepítenie kell néhány csomagot (például a swig-et) ahhoz, hogy a python modult fel tudja építeni.
 
 ```
 git clone git://git.savannah.nongnu.org/simulavr.git
@@ -156,15 +156,15 @@ make python
 make build
 ```
 
-Make sure a file like **./build/pysimulavr/_pysimulavr.*.so** is present after the above compilation:
+Győződjünk meg róla, hogy a fenti fordítás után a **./build/pysimulavr/_pysimulavr.*.so** fájl jött létre:
 
 ```
 ls ./build/pysimulavr/_pysimulavr.*.so
 ```
 
-This commmand should report a specific file (e.g. **./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not an error.
+Ennek a parancsnak egy adott fájlt kell jelentenie (pl. **./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**), nem pedig hibát.
 
-If you are on a Debian-based system (Debian, Ubuntu, etc.) you can install the following packages and generate *.deb files for system-wide installation of simulavr:
+Ha Debian-alapú rendszert használsz (Debian, Ubuntu, stb.), akkor telepítheted a következő csomagokat, és *.deb fájlokat generálhatsz a simulavr rendszerszintű telepítéséhez:
 
 ```
 sudo apt update
@@ -173,40 +173,40 @@ make cfgclean python debian
 sudo dpkg -i build/debian/python3-simulavr*.deb
 ```
 
-To compile Klipper for use in simulavr, run:
+A Klipper lefordításához a simulavr-ben való használathoz futtassa a következőt:
 
 ```
 cd /path/to/klipper
 make menuconfig
 ```
 
-and compile the micro-controller software for an AVR atmega644p and select SIMULAVR software emulation support. Then one can compile Klipper (run `make`) and then start the simulation with:
+és fordítsa le a mikrokontroller szoftvert egy AVR atmega644p számára, és válassza a SIMULAVR szoftver emulációs támogatást. Ezután lefordíthatjuk a Klippert (futtassuk `make`), majd indítsuk el a szimulációt a következőkkel:
 
 ```
 PYTHONPATH=/path/to/simulavr/build/pysimulavr/ ./scripts/avrsim.py out/klipper.elf
 ```
 
-Note that if you have installed python3-simulavr system-wide, you do not need to set `PYTHONPATH`, and can simply run the simulator as
+Vegyük észre, hogy ha a python3-simulavr-t az egész rendszerre telepítettük, akkor nem kell beállítanunk a `PYTHONPATH` értéket, és egyszerűen futtathatjuk a szimulátort mint
 
 ```
 ./scripts/avrsim.py out/klipper.elf
 ```
 
-Then, with simulavr running in another window, one can run the following to read gcode from a file (eg, "test.gcode"), process it with Klippy, and send it to Klipper running in simulavr (see [installation](Installation.md) for the steps necessary to build the python virtual environment):
+Ezután, ha a simulavr egy másik ablakban fut, futtathatjuk a következőt, hogy G-kódot olvassunk be egy fájlból (pl. "test.gcode"), feldolgozzuk a Klippy-vel, és elküldjük a simulavr-ben futó Klipper-nek (lásd [Telepítés](Installation.md) a python virtuális környezet létrehozásához szükséges lépéseket):
 
 ```
 ~/klippy-env/bin/python ./klippy/klippy.py config/generic-simulavr.cfg -i test.gcode -v
 ```
 
-### Using simulavr with gtkwave
+### A simulavr használata gtkwave-vel
 
-One useful feature of simulavr is its ability to create signal wave generation files with the exact timing of events. To do this, follow the directions above, but run avrsim.py with a command-line like the following:
+A simulavr egyik hasznos funkciója, hogy képes jelhullámgeneráló fájlokat létrehozni az események pontos időzítésével. Ehhez kövesse a fenti utasításokat, de futtassa az avrsim.py programot a következő parancssorral:
 
 ```
 PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py out/klipper.elf -t PORTA.PORT,PORTC.PORT
 ```
 
-The above would create a file **avrsim.vcd** with information on each change to the GPIOs on PORTA and PORTB. This could then be viewed using gtkwave with:
+A fentiek létrehoznak egy **avrsim.vcd** fájlt a PORTA és PORTB GPIO-k minden egyes módosításával kapcsolatos információkkal. Ezt aztán a gtkwave segítségével meg lehetne nézni a következővel:
 
 ```
 gtkwave avrsim.vcd

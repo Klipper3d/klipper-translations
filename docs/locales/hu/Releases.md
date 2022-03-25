@@ -4,20 +4,20 @@ A Klipper kiadások története. A Klipper telepítésével kapcsolatos informá
 
 ## Klipper 0.10.0
 
-Available on 20210929. Major changes in this release:
+Elérhető a 20210929 oldalon. Fontosabb változások ebben a kiadásban:
 
-* Support for "Multi-MCU Homing". It is now possible for a stepper motor and its endstop to be wired to separate micro-controllers. This simplifies wiring of Z probes on "toolhead boards".
-* Klipper now has a [Community Discord Server](https://discord.klipper3d.org) and a [Community Discourse Server](https://community.klipper3d.org).
-* The [Klipper website](https://www.klipper3d.org) now uses the "mkdocs" infrastructure. There is also a [Klipper Translations](https://github.com/Klipper3d/klipper-translations) project.
-* Automated support for flashing firmware via sdcard on many boards.
-* New kinematic support for "Hybrid CoreXY" and "Hybrid CoreXZ" printers.
-* Klipper now uses `rotation_distance` to configure stepper motor travel distances.
-* The main Klipper host code can now directly communicate with micro-controllers using CAN bus.
-* New "motion analysis" system. Klipper's internal motion updates and sensor results can be tracked and logged for analysis.
-* Trinamic stepper motor drivers are now continuously monitored for error conditions.
-* Support for the rp2040 micro-controller (Raspberry Pi Pico boards).
-* The "make menuconfig" system now utilizes kconfiglib.
-* Many additional modules added: ds18b20, duplicate_pin_override, filament_motion_sensor, palette2, motion_report, pca9533, pulse_counter, save_variables, sdcard_loop, temperature_host, temperature_mcu
+* A "Multi-MCU Homing" támogatása. Mostantól lehetőség van arra, hogy egy léptetőmotor és a végállás külön mikrovezérlőkhöz legyen csatlakoztatva. Ez leegyszerűsíti a Z-érzékelők kábelezését a "nyomtatófejen".
+* Klipper mostantól rendelkezik egy [Közösségi Discord Szerver](https://discord.klipper3d.org) és egy [Közösségi Társalgó Szerver](https://community.klipper3d.org)-rel.
+* A [Klipper weboldal](https://www.klipper3d.org) mostantól az "mkdocs" infrastruktúrát használja. Létezik egy [Klipper Fordítások](https://github.com/Klipper3d/klipper-translations) projekt is.
+* Automatizált támogatás a firmware SDkártyán keresztüli égetéséhez számos lapon.
+* Új kinematikai támogatás a "Hybrid CoreXY" és "Hybrid CoreXZ" nyomtatókhoz.
+* A Klipper mostantól a `rotation_distance` funkciót használja a léptetőmotorok mozgási távolságának beállításához.
+* A Klipper fő gazdakódja mostantól közvetlenül kommunikálhat a mikrovezérlőkkel a CAN-buszon keresztül.
+* Új "mozgáselemző" rendszer. A Klipper 'belső mozgásfrissítések és az érzékelő eredményei nyomon követhetők és naplózhatók elemzés céljából.
+* A Trinamic léptetőmotor-meghajtókat mostantól folyamatosan ellenőrzik a hibaállapotok szempontjából.
+* Az rp2040 mikrokontroller támogatása (Raspberry Pi Pico lapok).
+* A "make menuconfig" rendszer mostantól a kconfiglib-et használja.
+* Hozzáadva számos további modul: ds18b20, duplicate_pin_override, filament_motion_sensor, palette2, motion_report, pca9533, pulse_counter, save_variables, sdcard_loop, temperature_host, temperature_mcu
 * Számos hibajavítás és kódtisztítás.
 
 ## Klipper 0.9.0
@@ -75,98 +75,98 @@ Elérhető a 20191021 verzió. Főbb változások ebben a kiadásban:
 Elérhetőek a 20181220 kiadásban a főbb változások:
 
 * A Klipper mostantól támogatja a "háló" ágyszintezés állítást
-* New support for "enhanced" delta calibration (calibrates print x/y dimensions on delta printers)
-* Support for run-time configuration of Trinamic stepper motor drivers (tmc2130, tmc2208, tmc2660)
-* Improved temperature sensor support: MAX6675, MAX31855, MAX31856, MAX31865, custom thermistors, common pt100 style sensors
-* Several new modules: temperature_fan, sx1509, force_move, mcp4451, z_tilt, quad_gantry_level, endstop_phase, bltouch
-* Several new commands added: SAVE_CONFIG, SET_PRESSURE_ADVANCE, SET_GCODE_OFFSET, SET_VELOCITY_LIMIT, STEPPER_BUZZ, TURN_OFF_HEATERS, M204, custom g-code macros
-* Expanded LCD display support:
-   * Support for run-time menus
-   * New display icons
-   * Support for "uc1701" and "ssd1306" displays
-* Additional micro-controller support:
-   * Klipper ported to: LPC176x (Smoothieboards), SAM4E8E (Duet2), SAMD21 (Arduino Zero), STM32F103 ("Blue pill" devices), atmega32u4
-   * New Generic USB CDC driver implemented on AVR, LPC176x, SAMD21, and STM32F103
-   * Performance improvements on ARM processors
-* The kinematics code was rewritten to use an "iterative solver"
-* New automatic test cases for the Klipper host software
-* Many new example config files for common off-the-shelf printers
-* Documentation updates for bootloaders, benchmarking, micro-controller porting, config checks, pin mapping, slicer settings, packaging, and more
-* Several bug fixes and code cleanups
+* Új támogatás a "továbbfejlesztett" delta kalibrációhoz (kalibrálja a nyomtatás x/y méreteit delta nyomtatókon)
+* A Trinamic léptetőmotor-meghajtók (tmc2130, tmc2208, tmc2660) futásidejű konfigurációjának támogatása
+* Javított hőmérséklet-érzékelő támogatás: MAX6675, MAX31855, MAX31856, MAX31865, egyedi termisztorok, általános PT100 típusú érzékelők
+* Számos új modul: temperature_fan, sx1509, force_move, mcp4451, z_tilt, quad_gantry_level, endstop_phase, bltouch
+* Számos új parancs hozzáadása: SAVE_CONFIG, SET_PRESSURE_ADVANCE, SET_GCODE_OFFSET, SET_VELOCITY_LIMIT, STEPPER_BUZZ, TURN_OFF_HEATERS, M204, egyedi g-kód makrók
+* Kibővített LCD-kijelző támogatás:
+   * Futásidejű menük támogatása
+   * Új kijelző ikonok
+   * A "uc1701" és "ssd1306" kijelzők támogatása
+* További mikrokontroller-támogatás:
+   * Klipper portolva: LPC176x (Smoothieboards), SAM4E8E (Duet2), SAMD21 (Arduino Zero), STM32F103 ("Blue pill" eszközök), atmega32u4
+   * Új generikus USB CDC vezérlő implementálva AVR, LPC176x, SAMD21 és STM32F103 platformokra
+   * Teljesítményjavulás ARM processzorokon
+* A kinematikai kódot átírtuk, hogy egy "iteratív megoldót" használjon
+* Új automatikus tesztelési esetek a Klipper gazdagép szoftverhez
+* Számos új példa konfigurációs fájl a szokásos nyomtatókhoz
+* Dokumentációfrissítések rendszerbetöltőkhöz, teljesítményértékeléshez, mikrovezérlő portoláshoz, konfigurációs ellenőrzésekhez, pin-hozzárendeléshez, szeletelőbeállításokhoz, csomagoláshoz és egyebekhez
+* Számos hibajavítás és kódtisztítás
 
 ## Klipper 0.6.0
 
-Available on 20180331. Major changes in this release:
+Elérhető a 20180331 kiadás. Főbb változások ebben a kiadásban:
 
-* Enhanced heater and thermistor hardware failure checks
-* Support for Z probes
-* Initial support for automatic parameter calibration on deltas (via a new delta_calibrate command)
-* Initial support for bed tilt compensation (via bed_tilt_calibrate command)
-* Initial support for "safe homing" and homing overrides
-* Initial support for displaying status on RepRapDiscount style 2004 and 12864 displays
-* New multi-extruder improvements:
-   * Support for shared heaters
-   * Initial support for dual carriages
-* Support for configuring multiple steppers per axis (eg, dual Z)
-* Support for custom digital and pwm output pins (with a new SET_PIN command)
-* Initial support for a "virtual sdcard" that allows printing directly from Klipper (helps on machines too slow to run OctoPrint well)
-* Support for setting different arm lengths on each tower of a delta
-* Support for G-Code M220/M221 commands (speed factor override / extrude factor override)
-* Several documentation updates:
-   * Many new example config files for common off-the-shelf printers
-   * New multiple MCU config example
-   * New bltouch sensor config example
-   * New FAQ, config check, and G-Code documents
-* Initial support for continuous integration testing on all github commits
-* Several bug fixes and code cleanups
+* Továbbfejlesztett fűtőberendezés és termisztor hardverhiba ellenőrzések
+* Z-szondák támogatása
+* A delták automatikus paraméterkalibrálásának kezdeti támogatása (egy új delta_calibrate parancson keresztül)
+* Az ágy dőléskiegyenlítésének kezdeti támogatása (a bed_tilt_calibrate paranccsal)
+* A "biztonságos kezdőpont" és a kezdőpont felülbírálásának kezdeti támogatása
+* Kezdeti támogatás az állapot megjelenítéséhez a RepRapDiscount 2004 és 12864 stílusú kijelzőkön
+* Új multi-extruder fejlesztések:
+   * A megosztott fűtőtestek támogatása
+   * Kezdeti támogatás kettős kocsikhoz
+* Több léptető tengelyenkénti konfigurálásának támogatása (pl. kettős Z)
+* Egyedi digitális és PWM kimeneti pinek támogatása (új SET_PIN paranccsal)
+* Kezdeti támogatás egy "virtuális SDcard" számára, amely lehetővé teszi a nyomtatást közvetlenül a Klipperről (segít a túl lassú gépeken, hogy az OctoPrint jól fusson)
+* Különböző karhosszúságok beállításának támogatása a delta minden egyes tornyán
+* A G-kód M220/M221 parancsok támogatása (sebességtényező felülbírálása / extrudálási tényező felülbírálása)
+* Számos dokumentáció frissítés:
+   * Számos új példa konfigurációs fájl a szokásos nyomtatókhoz
+   * Új több MCU konfigurációs példa
+   * Új BL-Touch érzékelő konfigurációs példa
+   * Új GYIK, konfigurációs ellenőrzés és G-kód dokumentumok
+* Kezdeti támogatás a folyamatos integráció teszteléséhez az összes végleges GitHub fejlesztésben
+* Számos hibajavítás és kódtisztítás
 
 ## Klipper 0.5.0
 
-Available on 20171025. Major changes in this release:
+Elérhető 20171025. Főbb változások ebben a kiadásban:
 
-* Support for printers with multiple extruders.
-* Initial support for running on the Beaglebone PRU. Initial support for the Replicape board.
-* Initial support for running the micro-controller code in a real-time Linux process.
-* Support for multiple micro-controllers. (For example, one could control an extruder with one micro-controller and the rest of the printer with another.) Software clock synchronization is implemented to coordinate actions between micro-controllers.
-* Stepper performance improvements (20Mhz AVRs up to 189K steps per second).
-* Support for controlling servos and support for defining nozzle cooling fans.
-* Several bug fixes and code cleanups
+* Több extruderrel rendelkező nyomtatók támogatása.
+* Kezdeti támogatás a Beaglebone PRU-n való futtatáshoz. Kezdeti támogatás a Replicape alaplaphoz.
+* Kezdeti támogatás a mikrokontroller kódjának valós idejű Linux-folyamatban történő futtatásához.
+* Több mikrovezérlő támogatása. (Például egy extruder vezérelhető egy mikrokontrollerrel, a nyomtató többi része pedig egy másikkal.) A mikrovezérlők közötti műveletek összehangolásához szoftveres órajel-szinkronizálás van implementálva.
+* Lépegető teljesítményének javítása (20Mhz-es AVR-ek akár 189K lépés/másodpercig).
+* Támogatás a szervók vezérléséhez és a fejhűtő ventilátorok meghatározásához.
+* Számos hibajavítás és kódtisztítás
 
 ## Klipper 0.4.0
 
-Available on 20170503. Major changes in this release:
+Elérhető 20170503. Főbb változások ebben a kiadásban:
 
-* Improved installation on Raspberry Pi machines. Most of the install is now scripted.
-* Support for corexy kinematics
-* Documentation updates: New Kinematics document, new Pressure Advance tuning guide, new example config files, and more
-* Stepper performance improvements (20Mhz AVRs over 175K steps per second, Arduino Due over 460K)
-* Support for automatic micro-controller resets. Support for resets via toggling USB power on Raspberry Pi.
-* The pressure advance algorithm now works with look-ahead to reduce pressure changes during cornering.
-* Support for limiting the top speed of short zigzag moves
-* Support for AD595 sensors
-* Several bug fixes and code cleanups
+* Javított telepítés Raspberry Pi gépekre. A telepítés nagy része most már szkriptelt.
+* A corexy kinematika támogatása
+* Dokumentáció frissítések: Új Kinematika dokumentum, új Pressure Advance tuning útmutató, új példa konfigurációs fájlok, stb
+* Léptető teljesítmény javulása (20Mhz AVR több mint 175K lépés/másodperc, Arduino Due több mint 460K)
+* A mikrokontroller automatikus visszaállításának támogatása. A Raspberry Pi USB tápellátásának kapcsolásával történő visszaállítás támogatása.
+* A nyomásszabályozás algoritmus mostantól look-ahead funkcióval működik, hogy csökkentse a kanyarodás közbeni nyomásváltozásokat.
+* A rövid cikcakk mozgások maximális sebességének korlátozása
+* AD595 érzékelők támogatása
+* Számos hibajavítás és kódtisztítás
 
 ## Klipper 0.3.0
 
-Available on 20161223. Major changes in this release:
+Elérhető 20161223. Főbb változások ebben a kiadásban:
 
-* Improved documentation
-* Support for robots with delta kinematics
-* Support for Arduino Due micro-controller (ARM cortex-M3)
-* Support for USB based AVR micro-controllers
-* Support for "pressure advance" algorithm - it reduces ooze during prints.
-* New "stepper phased based endstop" feature - enables higher precision on endstop homing.
-* Support for "extended g-code" commands such as "help", "restart", and "status".
-* Support for reloading the Klipper config and restarting the host software by issuing a "restart" command from the terminal.
-* Stepper performance improvements (20Mhz AVRs up to 158K steps per second).
-* Improved error reporting. Most errors now shown via the terminal along with help on how to resolve.
-* Several bug fixes and code cleanups
+* Javított dokumentáció
+* Delta kinematikai robotok támogatása
+* Arduino Due mikrokontroller támogatása (ARM cortex-M3)
+* USB alapú AVR mikrovezérlők támogatása
+* Támogatás a "nyomás szabályozás" algoritmushoz - ez csökkenti a nyomatok során keletkező szivárgást.
+* Új "léptetőfázis-alapú végállás" funkció - nagyobb pontosságot tesz lehetővé a kezdőpont végállásában.
+* A "kiterjesztett G-kód" parancsok támogatása, mint például a "help", "restart" és "status".
+* A Klipper konfiguráció újratöltésének és a gazdaszoftver újraindításának támogatása a "restart" parancs terminálból történő kiadásával.
+* Lépegető teljesítményének javítása (20Mhz-es AVR-ek akár 158K lépés/másodpercig).
+* Javított hibajelentés. A legtöbb hiba mostantól a terminálon keresztül jelenik meg, a megoldásra vonatkozó segítséggel együtt.
+* Számos hibajavítás és kódtisztítás
 
 ## Klipper 0.2.0
 
-Initial release of Klipper. Available on 20160525. Major features available in the initial release include:
+A Klipper első kiadása. Elérhető 20160525. A kezdeti kiadásban elérhető főbb funkciók a következők:
 
-* Basic support for cartesian printers (steppers, extruder, heated bed, cooling fan).
-* Support for common g-code commands. Support for interfacing with OctoPrint.
-* Acceleration and lookahead handling
-* Support for AVR micro-controllers via standard serial ports
+* Alapvető támogatás cartesian nyomtatókhoz (stepperek, extruder, fűtött ágy, hűtőventilátor).
+* A gyakori G-kód parancsok támogatása. Az OctoPrint interfész támogatása.
+* Gyorsulás és előretekintő kezelés
+* AVR mikrovezérlők támogatása szabványos soros portokon keresztül
