@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-03-20 07:56+0000\n"
+"PO-Revision-Date: 2022-03-27 17:08+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "contributing/hu/>\n"
@@ -61,7 +61,7 @@ msgstr "Hozzájárulás a Klipper Fordításokhoz"
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "75% Total coverage"
-msgstr ""
+msgstr "75% Teljes lefedettség"
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "An updated navigation hierarchy PR in klipper-translations."
