@@ -14,10 +14,10 @@ Basic tuning requires measuring the ringing frequencies of the printer by printi
 
 将振纹测试模型切片，该模型可以在[docs/prints/ringing_tower.stl](prints/ringing_tower.stl)中找到，在切片软件中：
 
-* 建议的层高为 0.2 或 0.25 毫米。
+* 建议将层高为 0.2 或 0.25 毫米。
 * 填充和顶层层数可以被设置为0。
-* Use 1-2 perimeters, or even better the smooth vase mode with 1-2 mm base.
-* Use sufficiently high speed, around 80-100 mm/sec, for **external** perimeters.
+* 使用1-2圈壁，使用1-2毫米厚底坐和花瓶模式(vasemode)的效果更好。
+* 使用足够高的速度，大约80-100毫米/秒，用于**外部**周长（壁）。
 * 确保最短的层耗时**最多是**3秒。
 * 确保切片软件中禁用任何"动态加速度控制"功能。
 * 不要转动模型。模型的背面标记了X和Y。注意这些标记与打印机轴线方向不相同--这不是一个错误。这些标记可以在以后的调整过程中作为参考，因为它们显示了测量结果对应的轴。
@@ -35,11 +35,11 @@ Basic tuning requires measuring the ringing frequencies of the printer by printi
 1. 如果振纹清晰可见，并且发现加速度对你的打印机来说太高了（如打印机抖动太厉害或开始丢步），你可以提前停止打印。
 
    1. Use X and Y marks at the back of the model for reference. The measurements from the side with X mark should be used for X axis *configuration*, and Y mark - for Y axis configuration. Measure the distance *D* (in mm) between several oscillations on the part with X mark, near the notches, preferably skipping the first oscillation or two. To measure the distance between oscillations more easily, mark the oscillations first, then measure the distance between the marks with a ruler or calipers:|![Mark ringing](img/ringing-mark.jpg)|![Measure ringing](img/ringing-measure.jpg)|
-1. Count how many oscillations *N* the measured distance *D* corresponds to. If you are unsure how to count the oscillations, refer to the picture above, which shows *N* = 6 oscillations.
+1. 数一数测量的距离*D*中有多少个振荡*D*。如果你不确定如何计算振荡，请参考上图，其中显示*N*=6次振荡。
 1. Compute the ringing frequency of X axis as *V* &middot; *N* / *D* (Hz), where *V* is the velocity for outer perimeters (mm/sec). For the example above, we marked 6 oscillations, and the test was printed at 100 mm/sec velocity, so the frequency is 100 * 6 / 12.14 ≈ 49.4 Hz.
 1. Do (8) - (10) for Y mark as well.
 
-Note that ringing on the test print should follow the pattern of the curved notches, as in the picture above. If it doesn't, then this defect is not really a ringing and has a different origin - either mechanical, or an extruder issue. It should be fixed first before enabling and tuning input shapers.
+请注意，测试打印件上的振纹应遵循弧形凹槽的模式，如上图所示。如果不是这样，那么这个缺陷就不是真正的振纹，而是有不同的原因--要么是机械问题，要么是挤出机问题。在启用和调整输入整形器之前，应该先解决这个问题。
 
 If the measurements are not reliable because, say, the distance between the oscillations is not stable, it might mean that the printer has several resonance frequencies on the same axis. One may try to follow the tuning process described in [Unreliable measurements of ringing frequencies](#unreliable-measurements-of-ringing-frequencies) section instead and still get something out of the input shaping technique.
 
@@ -47,18 +47,18 @@ Ringing frequency can depend on the position of the model within the buildplate 
 
 If the measured ringing frequency is very low (below approx 20-25 Hz), it might be a good idea to invest into stiffening the printer or decreasing the moving mass - depending on what is applicable in your case - before proceeding with further input shaping tuning, and re-measuring the frequencies afterwards. For many popular printer models there are often some solutions available already.
 
-Note that the ringing frequencies can change if the changes are made to the printer that affect the moving mass or change the stiffness of the system, for example:
+请注意，如果对打印机进行了改动，改变了移动质量或系统的刚度，共振（振纹）频率会发生变化。例如：
 
-* Some tools are installed, removed or replaced on the toolhead that change its mass, e.g. a new (heavier or lighter) stepper motor for direct extruder or a new hotend is installed, heavy fan with a duct is added, etc.
-* Belts are tightened.
-* Some addons to increase frame rigidity are installed.
+* 安装、移除、更换了一些在打印头上的工具，从而改变了其质量，例如，为近程挤出机更换一个新的（更重或更轻的）步进电机，或安装一个新的热端，增加一个带风道的重型风扇，等等。
+* 同步带被拉紧。
+* 安装了一些增加框架刚性的配件。
 * Different bed is installed on a bed-slinger printer, or glass added, etc.
 
-If such changes are made, it is a good idea to at least measure the ringing frequencies to see if they have changed.
+如果进行了此类更改，则最好至少测量共振（振纹）频率以查看它们是否发生变化。
 
-### Input shaper configuration
+### 输入整形器配置
 
-After the ringing frequencies for X and Y axes are measured, you can add the following section to your `printer.cfg`:
+测量 X 和 Y 轴的共振频率后，您可以将以下分段中添加到 `printer.cfg`：
 
 ```
 [input_shaper]
@@ -66,13 +66,13 @@ shaper_freq_x: ...  # frequency for the X mark of the test model
 shaper_freq_y: ...  # frequency for the Y mark of the test model
 ```
 
-For the example above, we get shaper_freq_x/y = 49.4.
+对于上述例子，我们得到 shaper_freq_x/y = 49.4。
 
-### Choosing input shaper
+### 选择输入整形器
 
 Klipper supports several input shapers. They differ in their sensitivity to errors determining the resonance frequency and how much smoothing they cause in the printed parts. Also, some of the shapers like 2HUMP_EI and 3HUMP_EI should usually not be used with shaper_freq = resonance frequency - they are configured from different considerations to reduce several resonances at once.
 
-For most of the printers, either MZV or EI shapers can be recommended. This section describes a testing process to choose between them, and figure out a few other related parameters.
+对于大多数打印机，推荐 MZV 或E I整形器。章节介绍了在它们之间进行选择，并找出其他一些相关参数的测试过程。
 
 Print the ringing test model as follows:
 
@@ -83,7 +83,7 @@ Print the ringing test model as follows:
 1. Execute the command: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
 1. 打印用建议的参数切片的测试模型。
 
-If you see no ringing at this point, then MZV shaper can be recommended for use.
+如果你在这个位置没有看到振铃，那么推荐使用 MZV 整形器。
 
 If you do see some ringing, re-measure the frequencies using steps (8)-(10) described in [Ringing frequency](#ringing-frequency) section. If the frequencies differ significantly from the values you obtained earlier, a more complex input shaper configuration is needed. You can refer to Technical details of [Input shapers](#input-shapers) section. Otherwise, proceed to the next step.
 

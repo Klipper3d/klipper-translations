@@ -33,7 +33,7 @@ Klipper支持以下标准的G-Code命令：
 
 有关上述命令的更多详细信息，请参阅 [RepRap G-Code documentation](http://reprap.org/wiki/G-code)
 
-Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable ["extended G-Code commands"](#additional-commands). Similarly, the G-Code terminal output is only intended to be human readable - see the [API Server document](API_Server.md) if controlling Klipper from external software.
+Klipper 的目标是支持普通第三方软件（如OctoPrint、Printrun、Slic3r、Cura等）使用标准配置产生的G代码命令。支持所有可能的G-Code命令并不是我们的目标。相反，Klipper 更喜欢人类可读的["扩展的G-Code命令"](#additional-commands)。同样地，G-Code终端输出也只是为了让人可读--如果从外部软件控制Klipper，请参阅[API服务器文件](API_Server.md)。
 
 如果一个人需要一个不太常见的G-Code命令，那么可以用一个自定义的[gcode_macro config section](Config_Reference.md#gcode_macro)来实现它。例如，我们可以用这个来实现。`G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1` ，etc
 
@@ -109,7 +109,7 @@ The following commands are available when the [bed_tilt config section](Config_R
 
 ### [bltouch]
 
-The following command is available when a [bltouch config section](Config_Reference.md#bltouch) is enabled (also see the [BL-Touch guide](BLTouch.md)).
+当[bltouch 配置分段](Config_Reference.md#bltouch)被启用时，以下命令可用（也可参见[BL-Touch guide](BLTouch.md)）。
 
 #### BLTOUCH_DEBUG
 
@@ -149,7 +149,7 @@ The following commands are available when the [delta_calibrate config section](C
 
 ### [display]
 
-The following command is available when a [display config section](Config_Reference.md#gcode_macro) is enabled.
+当[display 配置分段](Config_Reference.md#gcode_macro)被启用时，以下命令可用：
 
 #### SET_DISPLAY_GROUP
 
@@ -157,14 +157,14 @@ The following command is available when a [display config section](Config_Refere
 
 ### [display_status]
 
-The display_status module is automatically loaded if a [display config section](Config_Reference.md#display) is enabled. It provides the following standard G-Code commands:
+如果使用了[display config 配置分段](Config_Reference.md#display)，display_status模块会自动加载。它提供了以下标准的G代码命令：
 
 - 显示信息： `M117 <message> `
 - 设置构建百分比：`M73 P<percent>`
 
 ### [dual_carriage]
 
-The following command is available when the [dual_carriage config section](Config_Reference.md#dual_carriage) is enabled.
+使用[dual_carriage 配置分段](Config_Reference.md#dual_carriage)时，以下命令可用：
 
 #### SET_DUAL_CARRIAGE
 
@@ -192,7 +192,7 @@ The following commands are available if an [extruder config section](Config_Refe
 
 #### SET_EXTRUDER_ROTATION_DISTANCE
 
-`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: Set a new value for the provided extruder's "rotation distance". If the rotation distance is a negative number then the stepper motion will be inverted (relative to the stepper direction specified in the config file). Changed settings are not retained on Klipper reset. Use with caution as small changes can result in excessive pressure between extruder and hot end. Do proper calibration with filament before use. If 'DISTANCE' value is not included command will return current rotation distance.
+`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<配置名> [DISTANCE=<距离>]`：将给定挤出机'的"旋转距离"替换为一个新值。如果旋转距离是负数，那么步进运动将被反转（相对于配置文件中指定的步进方向）。在 Klipper 复位时，改变的设置不会被保留。谨慎使用，因为小的变化会导致挤出机和热端之间的压力过大。在使用前，请用耗材做适当的校准。如果不包含`DISTANCE`值，命令将返回当前的旋转距离。
 
 #### SYNC_EXTRUDER_MOTION
 
@@ -208,7 +208,7 @@ This command is deprecated and will be removed in the near future.
 
 ### [fan_generic]
 
-The following command is available when a [fan_generic config section](Config_Reference.md#fan_generic) is enabled.
+当[fan_generic 配置分段](Config_Reference.md#fan_generic)被启用时，以下命令可用：
 
 #### SET_FAN_SPEED
 
@@ -216,7 +216,7 @@ The following command is available when a [fan_generic config section](Config_Re
 
 ### [filament_switch_sensor]
 
-The following command is available when a [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) or [filament_motion_sensor](Config_Reference.md#filament_motion_sensor) config section is enabled.
+启用[filament_switch_sensor](Config_Reference.md#filament_switch_sensor)或[filament_motion_sensor](Config_Reference.md#filament_motion_sensor)配置分段后，可使用以下命令：
 
 #### QUERY_FILAMENT_SENSOR
 
@@ -287,7 +287,7 @@ The gcode module is automatically loaded.
 
 ### [gcode_macro]
 
-The following command is available when a [gcode_macro config section](Config_Reference.md#gcode_macro) is enabled (also see the [command templates guide](Command_Templates.md)).
+当[gcode_macro配置分段](Config_Reference.md#gcode_macro)被启用时，以下命令可用（也可参见[命令模板指南](Command_Templates.md)）：
 
 #### SET_GCODE_VARIABLE
 
@@ -299,7 +299,7 @@ The gcode_move module is automatically loaded.
 
 #### GET_POSITION
 
-`GET_POSITION`: Return information on the current location of the toolhead. See the developer documentation of [GET_POSITION output](Code_Overview.md#coordinate-systems) for more information.
+`GET_POSITION`：返回打印头的当前位置信息。更多信息请参见[GET_POSITION输出](Code_Overview.md#coordinate-systems)的开发者文档。
 
 #### SET_GCODE_OFFSET
 
@@ -407,7 +407,7 @@ The manual_probe module is automatically loaded.
 
 ### [neopixel]
 
-The following command is available when a [neopixel config section](Config_Reference.md#neopixel) or [dotstar config section](Config_Reference.md#dotstar) is enabled.
+当使用了[neopixel](Config_Reference.md#neopixel)或[dotstar](Config_Reference.md#dotstar)配置分段时，以下命令可用：
 
 #### SET_LED
 
@@ -415,7 +415,7 @@ The following command is available when a [neopixel config section](Config_Refer
 
 ### [output_pin]
 
-The following command is available when an [output_pin config section](Config_Reference.md#output_pin) is enabled.
+使用[output_pin 配置分段](Config_Reference.md#output_pin)时，以下命令可用：
 
 #### SET_PIN
 
@@ -623,7 +623,7 @@ The stepper_enable module is automatically loaded.
 
 ### [temperature_fan]
 
-The following command is available when a [temperature_fan config section](Config_Reference.md#temperature_fan) is enabled.
+使用[temperature_fan配置分段](Config_Reference.md#temperature_fan)时，以下命令可用：
 
 #### SET_TEMPERATURE_FAN_TARGET
 
