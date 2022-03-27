@@ -6,7 +6,7 @@ A Klipper támogatja a bemeneti formázást - egy olyan technikát, amely a nyom
 
 A gyűrődést a nyomtatási irány gyors változása miatt fellépő mechanikus rezgések okozzák. Vegye figyelembe, hogy a gyűrődés általában mechanikai eredetű: nem elég merev nyomtatókeret, nem feszes vagy túlságosan rugós szíjak, a mechanikus alkatrészek beállítási problémái, nagy mozgó tömeg stb. Ezeket kell először ellenőrizni és lehetőség szerint javítani.
 
-[Input shaping](https://en.wikipedia.org/wiki/Input_shaping) is an open-loop control technique which creates a commanding signal that cancels its own vibrations. Input shaping requires some tuning and measurements before it can be enabled. Besides ringing, Input Shaping typically reduces the vibrations and shaking of the printer in general, and may also improve the reliability of the stealthChop mode of Trinamic stepper drivers.
+Az [Input shaping](https://en.wikipedia.org/wiki/Input_shaping) egy olyan nyílt hurkú vezérlési technika, amely olyan utasító jelet hoz létre, amely megszünteti a saját rezgéseit. A bemeneti alakítás némi hangolást és méréseket igényel, mielőtt engedélyezhető lenne. A csengésen kívül az Input Shaping általában csökkenti a nyomtató rezgéseit és rázkódását, és javíthatja a Trinamic léptető meghajtók StealthChop üzemmódjának megbízhatóságát is.
 
 ## Tuning
 

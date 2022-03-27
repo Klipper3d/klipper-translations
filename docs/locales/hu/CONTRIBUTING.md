@@ -140,7 +140,7 @@ Fontos, hogy minden kérésnél legyen egy "Signed-off-by" sor. Ez igazolja, hog
 
 [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) is a project dedicated to translating Klipper to different languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all the Gettext strings for translating and reviewing. Locales can be displayed on [klipper3d.org](https://www.klipper3d.org) once they satisfy the following requirements:
 
-- [ ] 75% Total coverage
+- [ ] 75% Teljes lefedettség
 - [ ] All titles (H1) are translated
 - [ ] An updated navigation hierarchy PR in klipper-translations.
 
