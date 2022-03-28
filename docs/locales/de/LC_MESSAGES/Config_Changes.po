@@ -588,6 +588,11 @@ msgid ""
 "motor with the \"extruder\" motion queue at startup."
 msgstr ""
 
+#: docs/Config_Changes.md:block 5 (paragraph)
+msgid ""
+"20220307: `M73` will no longer set print progress to 0 if `P` is missing."
+msgstr ""
+
 #~ msgid ""
 #~ "20211104: The \"step pulse duration\" option in \"make menuconfig\" has been"
 #~ " removed. A new `step_pulse_duration` setting in the [stepper config "
