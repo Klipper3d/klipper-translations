@@ -55,7 +55,7 @@ Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and ena
 
 ## 선택 사항: 올바른 gpiochip 식별
 
-Rasperry 및 많은 클론에서 GPIO에 노출된 핀은 첫 번째 gpiochip에 속합니다. 따라서 `gpio0..n`이라는 이름으로 참조하기만 하면 Klipper에서 사용할 수 있습니다. 다만, 노출된 핀이 1차 이외의 gpiochip에 속하는 경우가 있습니다. 예를들어 일부 OrangePi 모델의 경우 또는 포트 확장기가 사용되는 경우. 이러한 경우 명령을 사용하여 *Linux GPIO 문자 장치* 에 액세스하여 구성을 확인하는 것이 유용합니다.
+On Raspberry Pi and on many clones the pins exposed on the GPIO belong to the first gpiochip. They can therefore be used on klipper simply by referring them with the name `gpio0..n`. However, there are cases in which the exposed pins belong to gpiochips other than the first. For example in the case of some OrangePi models or if a Port Expander is used. In these cases it is useful to use the commands to access the *Linux GPIO character device* to verify the configuration.
 
 octopi와 같은 데비안 기반 배포판에 *Linux GPIO 문자 장치 - 바이너리* 를 설치하려면 다음을 실행합니다:
 

@@ -1,6 +1,6 @@
 # Packaging Klipper
 
-Klipper è in qualche modo un'anomalia tra i programmi Python per quanto riguarda impacchettamento, in quanto non usa setuptools per costruire e installare. Alcune note riguardanti il modo migliore per impacchettarlo sono le seguenti: advance
+Klipper è in qualche modo un'anomalia tra i programmi Python per quanto riguarda impacchettamento, in quanto non usa setuptools per costruire e installare. Alcune note riguardanti il modo migliore per impacchettarlo sono le seguenti:
 
 ## C modules
 

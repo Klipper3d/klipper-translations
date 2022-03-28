@@ -55,7 +55,7 @@ Győződjünk meg róla, hogy a Linux SPI-illesztőprogram engedélyezve van a `
 
 ## Választható: A megfelelő gpiochip azonosítása
 
-A Rasperry-n és sok klónon a GPIO-n látható pinek az első gpiochiphez tartoznak. Ezért a klipperben egyszerűen úgy használhatók, hogy a `gpio0..n` névvel hivatkozunk rájuk. Vannak azonban olyan esetek, amikor a kitett pinek az elsőtől eltérő gpiochipekhez tartoznak. Például egyes OrangePi modellek esetében, vagy ha Port Expander-t használunk. Ezekben az esetekben hasznos a *Linux GPIO karakteres eszköz *Linux GPIO eszköz * elérésére szolgáló parancsok használata a konfiguráció ellenőrzéséhez.
+On Raspberry Pi and on many clones the pins exposed on the GPIO belong to the first gpiochip. They can therefore be used on klipper simply by referring them with the name `gpio0..n`. However, there are cases in which the exposed pins belong to gpiochips other than the first. For example in the case of some OrangePi models or if a Port Expander is used. In these cases it is useful to use the commands to access the *Linux GPIO character device* to verify the configuration.
 
 A *Linux GPIO character device - binary* telepítéséhez egy debian alapú disztribúció kell, mint például az octopi. Futtassa:
 

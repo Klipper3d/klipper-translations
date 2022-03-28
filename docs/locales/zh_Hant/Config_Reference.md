@@ -422,15 +422,6 @@ POLAR 機型支援還在進行中。已知在 0、0 位置附近移動無法正�
 ```
 [printer]
 kinematics: polar
-
-# The stepper_bed section is used to describe the stepper controlling
-# the bed.
-[stepper_bed]
-gear_ratio:
-#   A gear_ratio must be specified and rotation_distance may not be
-#   specified. For example, if the bed has an 80 toothed pulley driven
-#   by a stepper with a 16 toothed pulley then one would specify a
-#   gear ratio of "80:16". This parameter must be provided.
 max_z_velocity:
 #   This sets the maximum velocity (in mm/s) of movement along the z
 #   axis. This setting can be used to restrict the maximum speed of
@@ -440,6 +431,15 @@ max_z_accel:
 #   This sets the maximum acceleration (in mm/s^2) of movement along
 #   the z axis. It limits the acceleration of the z stepper motor. The
 #   default is to use max_accel for max_z_accel.
+
+# The stepper_bed section is used to describe the stepper controlling
+# the bed.
+[stepper_bed]
+gear_ratio:
+#   A gear_ratio must be specified and rotation_distance may not be
+#   specified. For example, if the bed has an 80 toothed pulley driven
+#   by a stepper with a 16 toothed pulley then one would specify a
+#   gear ratio of "80:16". This parameter must be provided.
 
 # The stepper_arm section is used to describe the stepper controlling
 # the carriage on the arm.
@@ -1521,49 +1521,51 @@ BLTouch 探針。可以定義這個分段（而不是探針（probe）分段）�
 ```
 [bltouch]
 sensor_pin:
-#   連線到 BLTouch sensor 引腳的引腳。大多數 BLTouch 需要在
-#   sensor 引腳上有一個拉高電阻（在引腳名前加上「^」）。
-#   必須提供這個參數。
+#   Pin connected to the BLTouch sensor pin. Most BLTouch devices
+#   require a pullup on the sensor pin (prefix the pin name with "^").
+#   This parameter must be provided.
 control_pin:
-#   連線到 BLTouch control 引腳的引腳。 
-#   必須提供這個參數。
+#   Pin connected to the BLTouch control pin. This parameter must be
+#   provided.
 #pin_move_time: 0.680
-#   等待 BLTouch探針收放的時間（以秒為單位）。
-#   預設為 0.680 秒。
+#   The amount of time (in seconds) to wait for the BLTouch pin to
+#   move up or down. The default is 0.680 seconds.
 #stow_on_each_sample: True
-#   這個參數決定了 Klipper 是否會在進行多次探測的每次探測之間
-#   收放探針。在禁用這個動作前請先閱讀 docs/BLTouch.md。
-#   預設為True（啟用）。
+#   This determines if Klipper should command the pin to move up
+#   between each probe attempt when performing a multiple probe
+#   sequence. Read the directions in docs/BLTouch.md before setting
+#   this to False. The default is True.
 #probe_with_touch_mode: False
-#   當該選項被啟用，Klipper 會以「touch_mode」（觸控模式）使用
-#   探針。
-#   預設為False （禁用，使用「pin_down」模式探測）。
+#   If this is set to True then Klipper will probe with the device in
+#   "touch_mode". The default is False (probing in "pin_down" mode).
 #pin_up_reports_not_triggered: True
-#   只在 BLTouch 在 "pin_up" 命令后穩定彙報探針在一個「not triggered（未
-#   觸發）」的狀態時需要設定。所有正版的 BLTouch 都應該設為 True（啟
-#   用）。 在設為False（禁用）前，請先閱讀 docs/BLTouch.md 中的說明。
-#   預設是True（啟用）。
+#   Set if the BLTouch consistently reports the probe in a "not
+#   triggered" state after a successful "pin_up" command. This should
+#   be True for all genuine BLTouch devices. Read the directions in
+#   docs/BLTouch.md before setting this to False. The default is True.
 #pin_up_touch_mode_reports_triggered: True
-#   只在 BLTouch 在 "pin_up" 和 「touch_mode" 命令后穩定彙報探針在一個「not
-#    triggered（未觸發）」的狀態時需要設定。所有正版的 BLTouch 都應該設為 
-#   True（啟用）。 在設為False（禁用）前，請先閱讀 docs/BLTouch.md 中的說明。
-#   預設是True（啟用）。
+#   Set if the BLTouch consistently reports a "triggered" state after
+#   the commands "pin_up" followed by "touch_mode". This should be
+#   True for all genuine BLTouch devices. Read the directions in
+#   docs/BLTouch.md before setting this to False. The default is True.
 #set_output_mode:
-#   向BLTouch V3.0 （和更新版本）請求一個特定的 sensor 引腳輸出模式 。
-#   這個設定不應該在其他型別的探針上使用。設為「5v」會請求 sensor 引腳
-#   以5V輸出（僅在控制板需要使用5V模式並且這個訊號輸入引腳可以耐受5V
-#   時）。設為「OD」來請求 sensor 引腳輸出使用開漏模式。
-#   預設不請求輸出模式。
+#   Request a specific sensor pin output mode on the BLTouch V3.0 (and
+#   later). This setting should not be used on other types of probes.
+#   Set to "5V" to request a sensor pin output of 5 Volts (only use if
+#   the controller board needs 5V mode and is 5V tolerant on its input
+#   signal line). Set to "OD" to request the sensor pin output use
+#   open drain mode. The default is to not request an output mode.
 #x_offset:
 #y_offset:
 #z_offset:
 #speed:
+#lift_speed:
 #samples:
 #sample_retract_dist:
 #samples_result:
 #samples_tolerance:
 #samples_tolerance_retries:
-#   這些參數詳見」探針「章節。
+#   See the "probe" section for information on these parameters.
 ```
 
 ## 額外的步進電機和擠出機
@@ -2271,21 +2273,22 @@ Neopixel（又名 WS2812）LED 支持（可以定義任意數量的帶有“neop
 ```
 [neopixel my_neopixel]
 pin:
-# 連接到neopixel的引腳。該參數必須是
-＃   設置。
+#   The pin connected to the neopixel. This parameter must be
+#   provided.
 #chain_count:
-# “菊花鏈”到的 Neopixel 芯片的數量
-# 提供的引腳。默認值為 1（表示只有一個
-# Neopixel 連接到引腳）。
+#   The number of Neopixel chips that are "daisy chained" to the
+#   provided pin. The default is 1 (which indicates only a single
+#   Neopixel is connected to the pin).
 #color_order: GRB
-# 設置LED硬件所需的像素順序。選項是 GRB，#   RGB, BRG, GRBW, or RGBW. The default is GRB.
+#   Set the pixel order required by the LED hardware. Options are GRB,
+#   RGB, BRG, BGR, GRBW, or RGBW. The default is GRB.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-# 設置 Neopixel 的初始 LED 顏色。每個值應該是
-# 介於 0.0 和 1.0 之間。 WHITE 選項僅在 RGBW 上可用
-# LED。每種顏色的默認值為 0。
+#   Sets the initial LED color of the Neopixel. Each value should be
+#   between 0.0 and 1.0. The WHITE option is only available on RGBW
+#   LEDs. The default for each color is 0.
 ```
 
 ### [dotstar]
@@ -2327,6 +2330,27 @@ PCA9533 LED支援。PCA9533 在 mightyboard上出現。
 #   mightyboard, the white led is not populated.
 #   Use GCODE to modify led values after startup.
 #   set_led led=my_pca9533 red=1 green=1 blue=1
+```
+
+### [PCA9632]
+
+PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
+
+```
+[pca9632 my_pca9632]
+scl_pin:
+# The SCL "clock" pin. This parameter must be provided.
+sda_pin:
+# The SDA "data" pin. This parameter must be provided.
+#initial_RED: 0
+#initial_GREEN: 0
+#initial_BLUE: 0
+#initial_WHITE: 0
+# PCA9632 supports individual LED PWM.
+# Values range from 0.0 to 1.0. The default is 0.0.
+# On the FlashForge Dreamer, the white led is not populated.
+# Use GCODE to modify led values after startup.
+# set_led led=my_pca9632 red=1.0 green=1.0 blue=1.0 white=0.0
 ```
 
 ### [gcode_button]
@@ -2974,7 +2998,7 @@ lcd_type:
 #   在使用模擬按鈕時必須提供由逗號分隔最小和最大值。
 ```
 
-### hd44780顯示屏
+#### hd44780顯示屏
 
 有關配置 hd44780 顯示屏（在"RepRapDiscount 2004 Smart Controller"型別顯示屏中可以找到）的資訊。
 
@@ -3001,7 +3025,7 @@ d7_pin:
 ...
 ```
 
-### hd44780_spi顯示屏
+#### hd44780_spi顯示屏
 
 有關配置 hd44780_spi 顯示屏的資訊 - 通過硬體"移位暫存器"（用於基於 mightyboard 的印表機）控制的20x04顯示屏。
 
@@ -3028,7 +3052,7 @@ spi_software_miso_pin:
 ...
 ```
 
-### st7920 顯示屏
+#### st7920 顯示屏
 
 有關配置 st7920 類顯示屏的資訊（可用於 "RepRapDiscount 12864 Full Graphic Smart Controller" 型別的顯示屏）。
 
@@ -3044,7 +3068,7 @@ sid_pin:
 ...
 ```
 
-### emulated_st7920（模擬ST7920）顯示屏
+#### emulated_st7920（模擬ST7920）顯示屏
 
 有關配置模擬 st7920 顯示屏的資訊 —它可以在一些"2.4 寸觸控式螢幕"和其他類似裝置中找到。
 
@@ -3065,7 +3089,7 @@ spi_software_miso_pin:
 ...
 ```
 
-### uc1701顯示屏
+#### uc1701顯示屏
 
 有關配置 uc1701 顯示屏的資訊（用於「MKS Mini 12864」型顯示屏）。
 
@@ -3086,7 +3110,7 @@ a0_pin:
 ...
 ```
 
-### ssd1306 和 sh1106 顯示屏
+#### ssd1306 和 sh1106 顯示屏
 
 ssd1306 和 sh1106 顯示屏的配置資訊.
 
@@ -3128,7 +3152,7 @@ lcd_type:
 ...
 ```
 
-## [display_data]
+### [display_data]
 
 支持在液晶屏上顯示自定義數據。可以在這些組下創建任意數量的顯示組和任意數量的數據項。如果 [display] 部分中的 display_group 選項設置為給定組名稱，則顯示將顯示給定組的所有數據項。
 
@@ -3145,7 +3169,7 @@ text:
 #   這個參數必須被提供。
 ```
 
-## [display_template]
+### [display_template]
 
 顯示數據文字「宏」（可以使用 display_template 字首定義任意數量的部分）。此功能可以幫助減少 display_data 部分中重複的定義。可以使用 display_data 部分中的內建 render() 函式來預覽模板。例如，如果要定義 `[display_template my_template]` 則可以在 display_data 部分使用 `{ render('my_template') }` 。
 
@@ -3164,7 +3188,7 @@ text:
 #   必須提供此參數。
 ```
 
-## [display_glyph]
+### [display_glyph]
 
 在支援自定義字形的顯示屏上顯示一個自定義字形。給定的名稱將被分配給給定的顯示數據，然後可以在顯示模板中通過用「波浪形（～）」符號包圍的名稱來引用，即 `~my_display_glyph~`
 
@@ -3189,7 +3213,7 @@ text:
 #   如果定義了 hd44780_data ，則必須提供此參數。
 ```
 
-## [display my_extra_display]
+### [display my_extra_display]
 
 如果如上所示在 printer.cfg 中定義了主要的 [display] 分段，還可以定義多個輔助顯示屏。注意，輔助顯示屏目前不支援菜單功能，因此它們不支援「menu」選項或按鈕配置。
 
@@ -3198,7 +3222,7 @@ text:
 #   可用參數參見 "顯示 "分段。
 ```
 
-## [menu]
+### [menu]
 
 可自定義液晶顯示屏菜單。
 

@@ -184,15 +184,15 @@ Klipper使用 "extended" 的G程式碼命令來進行一般的配置和狀態。
 
 #### ACTIVATE_EXTRUDER
 
-`ACTIVATE_EXTRUDER EXTRUDER=<config_name>`：這個命令在具有多個擠出機的印表機中用於更改活動擠出機。
+`ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: In a printer with multiple [extruder](Config_Reference.md#extruder) config sections, this command changes the active hotend.
 
 #### SET_PRESSURE_ADVANCE
 
-`SET_PRESSURE_ADVANCE [EXTRUDER=<擠出機名稱>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]` ：設定壓力提前的參數。如果沒有指定擠出機，則預設為活動的擠出機。
+`SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Set pressure advance parameters of an extruder stepper (as defined in an [extruder](Config_Reference#extruder) or [extruder_stepper](Config_Reference#extruder_stepper) config section). If EXTRUDER is not specified, it defaults to the stepper defined in the active hotend.
 
 #### SET_EXTRUDER_ROTATION_DISTANCE
 
-`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`：為提供的擠出機的“旋轉距離”設置一個新值。如果旋轉距離為負數，則步進運動將反轉（相對於配置文件中指定的步進方向）。 Klipper 重置時不會保留更改的設置。小心使用，因為微小的變化會導致擠出機和熱端之間的壓力過大。使用前用燈絲進行適當的校準。如果不包含“DISTANCE”值，命令將返回當前旋轉距離。
+`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: Set a new value for the provided extruder stepper's "rotation distance" (as defined in an [extruder](Config_Reference#extruder) or [extruder_stepper](Config_Reference#extruder_stepper) config section). If the rotation distance is a negative number then the stepper motion will be inverted (relative to the stepper direction specified in the config file). Changed settings are not retained on Klipper reset. Use with caution as small changes can result in excessive pressure between extruder and hotend. Do proper calibration with filament before use. If 'DISTANCE' value is not provided then this command will return the current rotation distance.
 
 #### SYNC_EXTRUDER_MOTION
 

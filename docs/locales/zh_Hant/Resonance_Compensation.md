@@ -121,7 +121,7 @@ shaper_type: mzv
 
 請注意在您的測試打印中間隙仍然非常小時的加速度。如果您看到凸起，但壁上根本沒有間隙，即使在高加速度下，也可能是由於禁用了壓力推進，尤其是在鮑登擠出機上。如果是這種情況，您可能需要在啟用 PA 的情況下重複打印。這也可能是由於燈絲流量校準錯誤（過高）造成的，因此最好也檢查一下。
 
-從兩個加速度值（來自環紋和平滑）中選擇最小值，並將其作為“max_accel”放入printer.cfg。
+從兩個加速度值（來自環紋和平滑）中選擇最小值，並將其作為`max_accel`放入printer.cfg。
 
 需要注意的是，即使在較低的加速度下，EI 整形器也可能會導致過度平滑——尤其是在低環紋頻率下。在這種情況下，MZV 可能是更好的選擇，因為它可能允許更高的加速度值。
 
@@ -136,7 +136,7 @@ shaper_type: mzv
 假設您已使用建議的參數對環紋模型進行切片，請針對 X 軸和 Y 軸中的每一個完成以下步驟：
 
 1. 準備測試：`SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
-1. 確保Pressure Advance被禁用：`SET_PRESSURE_ADVANCE ADVANCE=0
+1. 確保Pressure Advance被禁用：`SET_PRESSURE_ADVANCE ADVANCE=0`
 1. 執行：`SET_INPUT_SHAPER SHAPER_TYPE=ZV`
 1. 從具有您選擇的 input shaper的現有環紋測試模型中選擇顯示環紋足夠好的加速度，並將其設置為：`SET_VELOCITY_LIMIT ACCEL=...`
 1. 計算 `TUNING_TOWER` 命令調整 `shaper_freq_x` 參數的必要參數如下： start = shaper_freq_x * 83 / 132 和 factor = shaper_freq_x / 66，其中 `shaper_freq_x` 這裡是 `printer.cfg` 中的當前值。
@@ -146,7 +146,7 @@ shaper_type: mzv
 1. 找到環紋最少的區間，從 1 開始從底部開始計數。
 1. 通過舊的 shaper_freq_x * (39 + 5 * #band-number) / 66 計算新的 shaper_freq_x 值。
 
-以相同的方式對 Y 軸重複這些步驟，將 X 軸的引用替換為 Y 軸（例如，在公式和“TUNING_TOWER”命令中將“shaper_freq_x”替換為“shaper_freq_y”）。
+以相同的方式對 Y 軸重複這些步驟，將 X 軸的引用替換為 Y 軸（例如，在公式和`TUNING_TOWER`命令中將`shaper_freq_x`替換為`shaper_freq_y`）。
 
 例如，假設您已經測量了一個軸的環紋頻率等於 45 Hz。這給出了“TUNING_TOWER”命令的 start = 45 * 83 / 132 = 28.30 和 factor = 45 / 66 = 0.6818 值。現在讓我們假設在打印測試模型後，從底部開始的第四個波段的環紋最少。這給出了更新的 shaper_freq_?值等於 45 * (39 + 5 * 4) / 66 ≈ 40.23。
 
@@ -216,7 +216,7 @@ shaper_type: 2hump_ei
 
 ### 啟用 [input_shaper] 後，打印部分過於平滑，細節丟失
 
-檢查 [選擇 max_accel](#selecting-max_accel) 部分中的注意事項。如果諧振頻率較低，則不應設置過高的 max_accel 或增加 square_corner_velocity 參數。最好選擇 MZV 甚至 ZV input shaper而不是 EI（或 2HUMP_EI 和 3HUMP_EI 整形器）。
+檢查 [選擇 max_accel](#selecting-max_accel) 部分中的注意事項。如果諧振頻率較低，則不應設置過高的 max_accel 或增加 square_corner_velocity 參數。最好選擇 MZV 甚至 ZV input shaper 而不是 EI（或 2HUMP_EI 和 3HUMP_EI 整形器）。
 
 ### 成功打印一段時間後沒有環紋，它似乎又回來了
 

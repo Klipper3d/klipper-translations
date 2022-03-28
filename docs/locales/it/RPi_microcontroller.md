@@ -55,7 +55,7 @@ Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and ena
 
 ## Opzionale: Identificare il gpiochip corretto
 
-Su Rasperry e su molti cloni i pin esposti sul GPIO appartengono al primo gpiochip. Possono quindi essere utilizzati su klipper semplicemente riferendoli con il nome `gpio0..n`. Tuttavia, ci sono casi in cui i pin esposti appartengono a gpiochip diversi dal primo. Per esempio nel caso di alcuni modelli OrangePi o se viene utilizzato un Port Expander. In questi casi è utile utilizzare i comandi per accedere al dispositivo *Linux GPIO character* per verificare la configurazione.
+On Raspberry Pi and on many clones the pins exposed on the GPIO belong to the first gpiochip. They can therefore be used on klipper simply by referring them with the name `gpio0..n`. However, there are cases in which the exposed pins belong to gpiochips other than the first. For example in the case of some OrangePi models or if a Port Expander is used. In these cases it is useful to use the commands to access the *Linux GPIO character device* to verify the configuration.
 
 Per installare il *Linux GPIO character device - binary* su una distro basata su debian come octopi eseguire:
 
