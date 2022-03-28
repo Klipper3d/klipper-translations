@@ -55,7 +55,7 @@ sudo usermod -a -G tty pi
 
 ## 可選步驟：識別正確的 gpiochip
 
-在樹莓派和許多克隆上，暴露在 GPIO 上的引腳屬於第一個 gpiochip。因此，它們只需用`gpio0...n`的名字來引用就可以在 Klipper 上直接使用。然而，在有些情況下，暴露的引腳不屬於第一個 gpiochip。例如，在使用一些 OrangePi 型號時或者使用了埠擴充套件器。在這些情況下，使用命令訪問 *Linux GPIO character device* 來驗證實際配置。
+On Raspberry Pi and on many clones the pins exposed on the GPIO belong to the first gpiochip. They can therefore be used on klipper simply by referring them with the name `gpio0..n`. However, there are cases in which the exposed pins belong to gpiochips other than the first. For example in the case of some OrangePi models or if a Port Expander is used. In these cases it is useful to use the commands to access the *Linux GPIO character device* to verify the configuration.
 
 要在基於 Debian 的發行版（如 OctoPi）上安裝 *Linux GPIO character device - binary*，請執行：
 

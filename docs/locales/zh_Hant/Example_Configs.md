@@ -26,7 +26,7 @@
    1. 不要將欄位文件複製到示例配置檔案中。（這樣做會造成維護方面的負擔，因為對文件的更新需要在很多地方進行修改。）
    1. 配置檔案的例子不應包含 "SAVE_CONFIG "部分。如果有必要，把SAVE_CONFIG部分的相關欄位複製到主配置區的適當部分。
    1. 使用`field: value`的語法，而不要使用`field=value`。
-   1. 當新增一個擠出機的`rotation_distance`時，如果擠出機有一個齒輪機構，最好是指定一個`rotation_distance`。我們希望示例配置中的旋轉距離與擠出機中滾齒的周長相關--它通常在20到35毫米之間。當指定`gear_ratio`時，最好是指定機構上的實際齒輪（例如，最好是`gear_ratio: 80:20`而不是`gear_ratio: 4:1`）。
+   1. When adding an extruder `rotation_distance` it is preferable to specify a `gear_ratio` if the extruder has a gearing mechanism. We expect the rotation_distance in the example configs to correlate with the circumference of the hobbed gear in the extruder - it is normally in the range of 20 to 35mm. When specifying a `gear_ratio` it is preferable to specify the actual gears on the mechanism (eg, prefer `gear_ratio: 80:20` over `gear_ratio: 4:1`). See the [rotation distance document](Rotation_Distance.md#using-a-gear_ratio) for more information.
    1. 避免定義那些被設定為預設值的欄位值。例如，不應該指定`min_extrude_temp: 170`，因為這已經是預設值。
    1. 在可能的情況下，行數不應超過80列。
    1. 避免在配置檔案中新增歸屬或修訂資訊。例如，避免新增類似 "此檔案由......建立 "的行。）將歸屬和修改歷史放在git提交資訊中。
