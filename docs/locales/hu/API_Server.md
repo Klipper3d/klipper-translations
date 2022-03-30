@@ -12,7 +12,7 @@ Az API-kiszolgáló használatához a klippy.py host szoftvert a `-a` paraméter
 
 Ennek hatására a gazdaszoftver létrehoz egy Unix Domain Socketet. Az ügyfél ezután kapcsolatot nyithat ezen keresztül, és parancsokat küldhet a Klippernek.
 
-## Request format
+## Kérelem formátuma
 
 Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:
 

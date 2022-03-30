@@ -142,7 +142,7 @@ Fontos, hogy minden kérésnél legyen egy "Signed-off-by" sor. Ez igazolja, hog
 
 - [ ] 75% Teljes lefedettség
 - [ ] All titles (H1) are translated
-- [ ] An updated navigation hierarchy PR in klipper-translations.
+- [ ] Egy frissített navigációs hierarchia PR a klipper-fordításokban.
 
 To reduce the frustration of translating domain-specific terms and gain awareness of the ongoing translations, you can submit a PR modifying the [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md`. Once a translation is ready, the corresponding modification to the Klipper project can be made.
 

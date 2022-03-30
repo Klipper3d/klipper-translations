@@ -718,7 +718,7 @@ max_temp:
 #   See the "extruder" section for a description of the above parameters.
 ```
 
-## Bed level support
+## Ágyszint támogatás
 
 ### [bed_mesh]
 

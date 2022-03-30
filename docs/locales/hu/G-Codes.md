@@ -7,8 +7,8 @@ Ez a dokumentum a Klipper által támogatott parancsokat írja le. Ezek olyan pa
 A Klipper a következő szabványos G-kód parancsokat támogatja:
 
 - Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
-- Dwell: `G4 P<milliseconds>`
-- Move to origin: `G28 [X] [Y] [Z]`
+- Tartózkodás: `G4 P<milliszekundum>`
+- Ugrás a forrásra: `G28 [X] [Y] [Z]`
 - Turn off motors: `M18` or `M84`
 - Wait for current moves to finish: `M400`
 - Use absolute/relative distances for extrusion: `M82`, `M83`

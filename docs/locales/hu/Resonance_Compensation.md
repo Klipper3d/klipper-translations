@@ -8,7 +8,7 @@ A gyűrődést a nyomtatási irány gyors változása miatt fellépő mechanikus
 
 Az [Input shaping](https://en.wikipedia.org/wiki/Input_shaping) egy olyan nyílt hurkú vezérlési technika, amely olyan utasító jelet hoz létre, amely megszünteti a saját rezgéseit. A bemeneti alakítás némi hangolást és méréseket igényel, mielőtt engedélyezhető lenne. A csengésen kívül az Input Shaping általában csökkenti a nyomtató rezgéseit és rázkódását, és javíthatja a Trinamic léptető meghajtók StealthChop üzemmódjának megbízhatóságát is.
 
-## Tuning
+## Hangolás
 
 Basic tuning requires measuring the ringing frequencies of the printer by printing a test model.
 

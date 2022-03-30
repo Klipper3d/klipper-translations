@@ -8,7 +8,7 @@ Ez a szakasz ismerteti a Klipper mikrokontroller lépési sebességreferencia l�
 
 A referenciamutatók elsődleges célja, hogy következetes mechanizmust biztosítsanak a szoftveren belüli kódolási változtatások hatásának mérésére. Másodlagos cél, hogy magas szintű mérőszámokat biztosítson a chipek és a szoftverplatformok teljesítményének összehasonlításához.
 
-The step rate benchmark is designed to find the maximum stepping rate that the hardware and software can reach. This benchmark stepping rate is not achievable in day-to-day use as Klipper needs to perform other tasks (eg, mcu/host communication, temperature reading, endstop checking) in any real-world usage.
+A lépésszám-összehasonlítás célja a hardver és a szoftver által elérhető maximális lépésszám meghatározása. Ez az összehasonlító lépési sebesség a mindennapi használat során nem érhető el, mivel a Klippernek más feladatokat is el kell látnia (pl. mcu/host kommunikáció, hőmérséklet-leolvasás, végállás-ellenőrzés) minden valós használat során.
 
 In general, the pins for the benchmark tests are chosen to flash LEDs or other innocuous pins. **Always verify that it is safe to drive the configured pins prior to running a benchmark.** It is not recommended to drive an actual stepper during a benchmark.
 

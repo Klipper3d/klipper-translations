@@ -10,7 +10,7 @@ When sourcing ADXL345, be aware that there is a variety of different PCB board d
 
 Az ADXL345-öt SPI-n keresztül kell csatlakoztatnia a Raspberry Pi-hez. Vegye figyelembe, hogy az ADXL345 dokumentációja által javasolt I2C kapcsolatnak túl alacsony az adatforgalmi képessége, és **nem fog működni**. Az ajánlott kapcsolási séma:
 
-| ADXL345 pin | RPi pin | RPi pin name |
+| ADXL345 tű | RPi pin | RPi pin name |
 | :-: | :-: | :-: |
 | 3V3 (or VCC) | 01 | 3.3v DC power |
 | GND | 06 | Ground |
