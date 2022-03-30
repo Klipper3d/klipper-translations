@@ -30,7 +30,7 @@ TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 FACTOR=.020
 
 Then print the object. When fully printed the test print looks like:
 
-![tuning_tower](img/tuning_tower.jpg)
+![测试塔](img/tuning_tower.jpg)
 
 The above TUNING_TOWER command instructs Klipper to alter the pressure_advance setting on each layer of the print. Higher layers in the print will have a larger pressure advance value set. Layers below the ideal pressure_advance setting will have blobbing at the corners, and layers above the ideal setting can lead to rounded corners and poor extrusion leading up to the corner.
 

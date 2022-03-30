@@ -46,7 +46,7 @@ Klipper使用`scripts/whconsole.py`的代码进行上述的数据帧打包。例
 
 请求字典可能包含”params”参数，并其值应为一个字典类型。”params”提供Klipper”endpoint”处理请求所需的额外数据，其内容依”endpoint”而定。
 
-The request dictionary may contain an "id" parameter which may be of any JSON type. If "id" is present then Klipper will respond to the request with a response message containing that "id". If "id" is omitted (or set to a JSON "null" value) then Klipper will not provide any response to the request. A response message is a JSON dictionary containing "id" and "result". The "result" is always a dictionary - its contents are specific to the "endpoint" handling the request.
+请求的字典可以包含一个可以是任何 JSON类型的"id"参数。如果"id"存在，那么 Klipper 将用一个包含该"id"的响应信息来回应请求。如果"id"被省略（或设置为 JSON 的 "null" 值），那么 Klipper 将不会对该请求进行任何响应。响应信息是一个 包含 "id" 和 "result"的 JSON 字典。"result"总是一个字典--它的内容是特定于处理请求的"endstop"。
 
 如果处理的请求造成了错误，则响应消息将包含"error"字段，而不是"result"字段。例如，请求： `{"id"： 123， "method"： "gcode/script"， "params"： {"script"： "G1 X200"}}` 可能会返回错误响应，例如： `{"id"： 123， "error"： {"message"： "Must home axis first： 200.000 0.000 0.000 [0.000]"， "error"： "WebRequestError"}}`
 

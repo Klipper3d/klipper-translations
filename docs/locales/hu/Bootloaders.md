@@ -8,7 +8,7 @@ Ha egy mikrokontrollerre tudunk bootloadert égetni, akkor általában ezt a mec
 
 Ez a dokumentum megpróbálja leírni a gyakori bootloadereket, a bootloader égetéséhez szükséges lépéseket és az alkalmazás égetéséhez szükséges lépéseket. Ez a dokumentum nem tekintélyes hivatkozás. A Klipper fejlesztői által összegyűjtött hasznos információk gyűjteményének szánjuk.
 
-## AVR micro-controllers
+## AVR mikrovezérlők
 
 In general, the Arduino project is a good reference for bootloaders and flashing procedures on the 8-bit Atmel Atmega micro-controllers. In particular, the "boards.txt" file: <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> is a useful reference.
 
