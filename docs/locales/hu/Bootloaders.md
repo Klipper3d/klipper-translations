@@ -14,7 +14,7 @@ In general, the Arduino project is a good reference for bootloaders and flashing
 
 To flash a bootloader itself, the AVR chips require an external hardware flashing tool (which communicates with the chip using SPI). This tool can be purchased (for example, do a web search for "avr isp", "arduino isp", or "usb tiny isp"). It is also possible to use another Arduino or Raspberry Pi to flash an AVR bootloader (for example, do a web search for "program an avr using raspberry pi"). The examples below are written assuming an "AVR ISP Mk2" type device is in use.
 
-The "avrdude" program is the most common tool used to flash atmega chips (both bootloader flashing and application flashing).
+Az "avrdude" program a leggyakrabban használt eszköz az atmega chipek égetésére (mind a bootloader, mind az alkalmazások égetésére).
 
 ### Atmega2560
 

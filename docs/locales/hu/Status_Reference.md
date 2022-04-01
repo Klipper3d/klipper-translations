@@ -8,12 +8,12 @@ Az ebben a dokumentumban szereplő mezők változhatnak. Ha egy attribútumot ha
 
 A következő információk az [ágyháló](Config_Reference.md#bed_mesh) objektumban érhetők el:
 
-- `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: Information on the currently active bed_mesh.
+- `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: Az aktuálisan aktív bed_mesh-re vonatkozó információk.
 - `profiles`: The set of currently defined profiles as setup using BED_MESH_PROFILE.
 
 ## konfigurációs fájl
 
-The following information is available in the `configfile` object (this object is always available):
+A következő információk a `configfile` objektumban találhatók (ez az objektum mindig elérhető):
 
 - `settings.<section>.<option>`: Returns the given config file setting (or default value) during the last software start or restart. (Any settings changed at run-time will not be reflected here.)
 - `config.<section>.<option>`: Returns the given raw config file setting as read by Klipper during the last software start or restart. (Any settings changed at run-time will not be reflected here.) All values are returned as strings.

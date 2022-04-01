@@ -10,7 +10,7 @@ Az ebben a dokumentumban található leírások úgy vannak formázva, hogy kiv�
 
 Számos konfigurációs beállításhoz egy mikrokontroller-tű nevére van szükség. A Klipper a hardveres neveket használja ezekhez a csapokhoz - például `PA4`.
 
-Pin names may be preceded by `!` to indicate that a reverse polarity should be used (eg, trigger on low instead of high).
+A pin nevek előtt `!` állhat, hogy jelezze ilyenkor fordított polaritást használ (pl. magas helyett alacsony értéken történő triggerelés).
 
 Input pins may be preceded by `^` to indicate that a hardware pull-up resistor should be enabled for the pin. If the micro-controller supports pull-down resistors then an input pin may alternatively be preceded by `~`.
 
