@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-03-30 03:09+0000\n"
+"PO-Revision-Date: 2022-04-01 02:09+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "measuring_resonances/hu/>\n"
@@ -51,10 +51,10 @@ msgid "ADXL345 pin"
 msgstr "ADXL345 tű"
 
 msgid "RPi pin"
-msgstr ""
+msgstr "RPi tű"
 
 msgid "RPi pin name"
-msgstr ""
+msgstr "RPi tű név"
 
 msgid "3V3 (or VCC)"
 msgstr ""
