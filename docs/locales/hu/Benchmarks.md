@@ -12,7 +12,7 @@ A lépésszám-összehasonlítás célja a hardver és a szoftver által elérhe
 
 In general, the pins for the benchmark tests are chosen to flash LEDs or other innocuous pins. **Always verify that it is safe to drive the configured pins prior to running a benchmark.** It is not recommended to drive an actual stepper during a benchmark.
 
-### Step rate benchmark test
+### Léptetőarányos referenciaérték-teszt
 
 The test is performed using the console.py tool (described in <Debugging.md>). The micro-controller is configured for the particular hardware platform (see below) and then the following is cut-and-paste into the console.py terminal window:
 

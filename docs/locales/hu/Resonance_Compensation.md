@@ -12,9 +12,9 @@ Az [Input shaping](https://en.wikipedia.org/wiki/Input_shaping) egy olyan nyílt
 
 Basic tuning requires measuring the ringing frequencies of the printer by printing a test model.
 
-Slice the ringing test model, which can be found in [docs/prints/ringing_tower.stl](prints/ringing_tower.stl), in the slicer:
+Szeletelje fel a [docs/prints/ringing_tower.stl](prints/ringing_tower.stl) fájlban található gyűrűzési tesztmodellt a szeletelőben:
 
-* Suggested layer height is 0.2 or 0.25 mm.
+* A javasolt rétegmagasság 0,2 vagy 0,25 mm.
 * Infill and top layers can be set to 0.
 * Use 1-2 perimeters, or even better the smooth vase mode with 1-2 mm base.
 * Use sufficiently high speed, around 80-100 mm/sec, for **external** perimeters.

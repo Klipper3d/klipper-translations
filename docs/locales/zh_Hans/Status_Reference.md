@@ -9,7 +9,7 @@
 [bed_mesh](Config_Reference.md#bed_mesh) 对象中提供了以下信息：
 
 - `profile_name`、`mesh_min`、`mesh_max`、`probed_matrix`、`mesh_matrix`：关于当前活跃的 bed_mesh 配置信息。
-- `profiles`: The set of currently defined profiles as setup using BED_MESH_PROFILE.
+- `profiles`：当前定义的配置，使用 BED_MESH_PROFILE 进行设置。
 
 ## configfile
 

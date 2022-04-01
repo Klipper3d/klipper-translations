@@ -14,69 +14,69 @@ Ennek hatására a gazdaszoftver létrehoz egy Unix Domain Socketet. Az ügyfél
 
 ## Kérelem formátuma
 
-Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:
+A socket-en küldött és fogadott üzenetek JSON kódolású karakterláncok, amelyeket egy ASCII 0x03 karakter zár le:
 
 ```
 <json_object_1><0x03><json_object_2><0x03>...
 ```
 
-Klipper contains a `scripts/whconsole.py` tool that can perform the above message framing. For example:
+A Klipper tartalmaz egy `scripts/whconsole.py` eszközt, amely képes a fenti üzenetkeretezést elvégezni. Például:
 
 ```
 ~/klipper/scripts/whconsole.py /tmp/klippy_uds
 ```
 
-This tool can read a series of JSON commands from stdin, send them to Klipper, and report the results. The tool expects each JSON command to be on a single line, and it will automatically append the 0x03 terminator when transmitting a request. (The Klipper API server does not have a newline requirement.)
+Ez az eszköz képes beolvasni egy sor JSON parancsot az stdin-ből, elküldeni őket a Klippernek, és jelenteni az eredményeket. Az eszköz elvárja, hogy minden JSON parancs egyetlen sorban legyen, és a kérés elküldésekor automatikusan hozzáadja a 0x03 végrehajtót. (A Klipper API szervernek nincs újsor követelménye.)
 
-## API Protocol
+## API Protokoll
 
-The command protocol used on the communication socket is inspired by [json-rpc](https://www.jsonrpc.org/).
+A kommunikációs foglalat által használt parancsprotokollt a [json-rpc](https://www.jsonrpc.org/) ihlette.
 
-A request might look like:
+Egy kérés így nézhet ki:
 
 `{"id": 123, "method": "info", "params": {}}`
 
-and a response might look like:
+és a válasz így nézhet ki:
 
 `{"id": 123, "result": {"state_message": "Printer is ready", "klipper_path": "/home/pi/klipper", "config_file": "/home/pi/printer.cfg", "software_version": "v0.8.0-823-g883b1cb6", "hostname": "octopi", "cpu_info": "4 core ARMv7 Processor rev 4 (v7l)", "state": "ready", "python_path": "/home/pi/klippy-env/bin/python", "log_file": "/tmp/klippy.log"}}`
 
-Each request must be a JSON dictionary. (This document uses the Python term "dictionary" to describe a "JSON object" - a mapping of key/value pairs contained within `{}`.)
+Minden egyes kérésnek egy JSON szótárnak kell lennie. (Ez a dokumentum a Pythonban a "szótár" kifejezést használja a "JSON objektum" - a `</x>{}`-ban található kulcs/érték párok leképezése, leírására.)
 
-The request dictionary must contain a "method" parameter that is the string name of an available Klipper "endpoint".
+A kérési szótárnak tartalmaznia kell egy "method" paramétert, amely egy elérhető Klipper "végpont" húr neve.
 
-The request dictionary may contain a "params" parameter which must be of a dictionary type. The "params" provide additional parameter information to the Klipper "endpoint" handling the request. Its content is specific to the "endpoint".
+A kérési szótár tartalmazhat egy "params" paramétert, amelynek szótár típusúnak kell lennie. A "params" további paraméterinformációkat biztosít a kérést kezelő Klipper "végpont" számára. Tartalma a "végpontra" jellemző.
 
-The request dictionary may contain an "id" parameter which may be of any JSON type. If "id" is present then Klipper will respond to the request with a response message containing that "id". If "id" is omitted (or set to a JSON "null" value) then Klipper will not provide any response to the request. A response message is a JSON dictionary containing "id" and "result". The "result" is always a dictionary - its contents are specific to the "endpoint" handling the request.
+A kérési szótár tartalmazhat egy "id" paramétert, amely bármilyen JSON típusú lehet. Ha az "id" paraméter jelen van, akkor a Klipper egy válaszüzenettel válaszol a kérésre, amely tartalmazza ezt az "id" paramétert. Ha az "id" nincs megadva (vagy egy JSON "null" értékre van beállítva), akkor a Klipper nem ad választ a kérésre. A válaszüzenet egy JSON szótár, amely tartalmazza az "id" és az "eredmény" értékeket. A "result" mindig egy szótár melynek tartalma a kérést kezelő "végpontra" jellemző.
 
-If the processing of a request results in an error, then the response message will contain an "error" field instead of a "result" field. For example, the request: `{"id": 123, "method": "gcode/script", "params": {"script": "G1 X200"}}` might result in an error response such as: `{"id": 123, "error": {"message": "Must home axis first: 200.000 0.000 0.000 [0.000]", "error": "WebRequestError"}}`
+Ha egy kérés feldolgozása hibát eredményez, akkor a válaszüzenet egy "hiba" mezőt fog tartalmazni az "eredmény" mező helyett. Például a kérés: `{"id": 123, "method": "gcode/script", "params": {"script": "G1 X200"}}}` egy olyan hibás választ eredményezhet, mint például: `{"id": 123, "error": {"message": "Must home axis first: 200.000 0.000 0.000 0.000 [0.000]", "error": "WebRequestError"}}`
 
-Klipper will always start processing requests in the order that they are received. However, some request may not complete immediately, which could cause the associated response to be sent out of order with respect to responses from other requests. A JSON request will never pause the processing of future JSON requests.
+A Klipper mindig a beérkezésük sorrendjében kezdi meg a kérések feldolgozását. Előfordulhat azonban, hogy egyes kérések nem fejeződnek be azonnal, ami azt eredményezheti, hogy a kapcsolódó válasz más kérések válaszaihoz képest nem a megfelelő sorrendben kerül elküldésre. Egy JSON-kérés soha nem fogja szüneteltetni a jövőbeli JSON-kérések feldolgozását.
 
-## Subscriptions
+## Feliratkozások
 
-Some Klipper "endpoint" requests allow one to "subscribe" to future asynchronous update messages.
+Néhány Klipper "végpont" kérés lehetővé teszi a "feliratkozást" a jövőbeli aszinkron frissítési üzenetekre.
 
-For example:
+Például:
 
 `{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{"key": 345}}}`
 
-may initially respond with:
+kezdetben válaszolhat:
 
 `{"id": 123, "result": {}}`
 
-and cause Klipper to send future messages similar to:
+és a Klipper a következőhöz hasonló üzeneteket fog küldeni a jövőben:
 
 `{"params": {"response": "ok B:22.8 /0.0 T0:22.4 /0.0"}, "key": 345}`
 
-A subscription request accepts a "response_template" dictionary in the "params" field of the request. That "response_template" dictionary is used as a template for future asynchronous messages - it may contain arbitrary key/value pairs. When sending these future asynchronous messages, Klipper will add a "params" field containing a dictionary with "endpoint" specific contents to the response template and then send that template. If a "response_template" field is not provided then it defaults to an empty dictionary (`{}`).
+Az előfizetési kérés elfogad egy "response_template" szótárat a kérés "params" mezőjében. Ez a "response_template" szótár sablonként szolgál a jövőbeli aszinkron üzenetekhez. Tetszőleges kulcs/érték párokat tartalmazhat. Ezen jövőbeli aszinkron üzenetek küldésekor a Klipper hozzáad egy "params" mezőt, amely egy "endpoint" specifikus tartalmú szótárat tartalmaz a válaszsablonnak, majd elküldi ezt a sablont. Ha nem adunk meg egy "response_template" mezőt, akkor az alapértelmezés szerint egy üres szótár lesz (`{}`).
 
-## Available "endpoints"
+## Elérhető "végpontok"
 
-By convention, Klipper "endpoints" are of the form `<module_name>/<some_name>`. When making a request to an "endpoint", the full name must be set in the "method" parameter of the request dictionary (eg, `{"method"="gcode/restart"}`).
+A Klipper "végpontok" a konvenció szerint a `<module_name>/<some_name>` formájúak. Ha egy "végponthoz" intézünk kérést, a teljes nevet a kérési szótár "method" paraméterében kell megadni (pl. `{"method"="gcode/restart"}`).
 
-### info
+### infó
 
-The "info" endpoint is used to obtain system and version information from Klipper. It is also used to provide the client's version information to Klipper. For example: `{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}`
+Az "info" végpontot a Klipper rendszert és verzióinformációinak lekérdezésére használjuk. Arra is szolgál, hogy a kliens'verziót a Klipper számára megadja. Például: `{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}}`
 
 If present, the "client_info" parameter must be a dictionary, but that dictionary may have arbitrary contents. Clients are encouraged to provide the name of the client and its software version when first connecting to the Klipper API server.
 

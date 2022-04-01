@@ -144,7 +144,7 @@ Fontos, hogy minden kérésnél legyen egy "Signed-off-by" sor. Ez igazolja, hog
 - [ ] All titles (H1) are translated
 - [ ] Egy frissített navigációs hierarchia PR a klipper-fordításokban.
 
-To reduce the frustration of translating domain-specific terms and gain awareness of the ongoing translations, you can submit a PR modifying the [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md`. Once a translation is ready, the corresponding modification to the Klipper project can be made.
+A domain-specifikus kifejezések fordításával járó frusztráció csökkentése és a folyamatban lévő fordítások megismerése érdekében küldhet PR-t, amely módosítja a [Klipper-fordítási Projekt](https://github.com/Klipper3d/klipper-translations) `readme.md` fájlt. Amint a fordítás elkészült, a Klipper-projekt megfelelő módosítása elvégezhető.
 
 If a translation already exists in the Klipper repository and no longer meets the checklist above, it will be marked out-of-date after a month without updates.
 
