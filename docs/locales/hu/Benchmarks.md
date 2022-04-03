@@ -10,7 +10,7 @@ A referenciamutatók elsődleges célja, hogy következetes mechanizmust biztos�
 
 A lépésszám-összehasonlítás célja a hardver és a szoftver által elérhető maximális lépésszám meghatározása. Ez az összehasonlító lépési sebesség a mindennapi használat során nem érhető el, mivel a Klippernek más feladatokat is el kell látnia (pl. mcu/host kommunikáció, hőmérséklet-leolvasás, végállás-ellenőrzés) minden valós használat során.
 
-In general, the pins for the benchmark tests are chosen to flash LEDs or other innocuous pins. **Always verify that it is safe to drive the configured pins prior to running a benchmark.** It is not recommended to drive an actual stepper during a benchmark.
+Általában a referencia-tesztekhez használt tűket úgy választják ki, hogy LED-eket vagy más ártalmatlan eszközöket működtessen. **A referencia futtatása előtt mindig ellenőrizze, hogy a konfigurált tűk meghajtása biztonságos-e. ** Nem ajánlott a tényleges léptetők használata a referencia során.
 
 ### Léptetőarányos referenciaérték-teszt
 
@@ -39,9 +39,9 @@ set_next_step_dir oid=2 dir=1
 queue_step oid=2 interval=3000 count=1 add=0
 ```
 
-The above tests three steppers simultaneously stepping. If running the above results in a "Rescheduled timer in the past" or "Stepper too far in past" error then it indicates the `ticks` parameter is too low (it results in a stepping rate that is too fast). The goal is to find the lowest setting of the ticks parameter that reliably results in a successful completion of the test. It should be possible to bisect the ticks parameter until a stable value is found.
+A fentiekben három léptető egyidejű léptetését teszteljük. Ha a fentiek futtatása egy "Rescheduled timer in the past" a "Stepper too far in pas" hibát eredményez, akkor ez azt jelzi, hogy a `ticks` paraméter túl alacsony (túl gyors léptetési sebességet eredményez). A cél az, hogy megtaláljuk a ticks paraméter legalacsonyabb beállítását, amely megbízhatóan eredményezi a teszt sikeres befejezését. A ticks paramétert addig kell felezni, amíg stabil értéket nem találunk.
 
-On a failure, one can copy-and-paste the following to clear the error in preparation for the next test:
+Sikertelenség esetén az alábbiakat másolva és beillesztve törölheti a hibát a következő tesztre való felkészüléshez:
 
 ```
 clear_shutdown
@@ -57,9 +57,9 @@ ECHO Test result is: {"%.0fK" % (3. * freq / ticks / 1000.)}
 
 The benchmarks are run with parameters suitable for TMC Drivers. For micro-controllers that support `STEPPER_BOTH_EDGE=1` (as reported in the `MCU config` line when console.py first starts) use `step_pulse_duration=0` and `invert_step=-1` to enable optimized stepping on both edges of the step pulse. For other micro-controllers use a `step_pulse_duration` corresponding to 100ns.
 
-### AVR step rate benchmark
+### AVR lépési sebesség referenciaérték
 
-The following configuration sequence is used on AVR chips:
+Az AVR chipeknél a következő konfigurációs sorrend használatos:
 
 ```
 allocate_oids count=3
@@ -71,14 +71,14 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `avr-gcc (GCC) 5.4.0`. Both the 16Mhz and 20Mhz tests were run using simulavr configured for an atmega644p (previous tests have confirmed simulavr results match tests on both a 16Mhz at90usb and a 16Mhz atmega2560).
 
-| avr | ticks |
+| avr | trükkök |
 | --- | --- |
-| 1 stepper | 102 |
-| 3 stepper | 486 |
+| 1 léptető | 102 |
+| 3 léptető | 486 |
 
-### Arduino Due step rate benchmark
+### Arduino Due lépésszám referencia
 
-The following configuration sequence is used on the Due:
+A következő konfigurációs sorrendet használjuk a Due-n:
 
 ```
 allocate_oids count=3
@@ -90,10 +90,10 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
-| sam3x8e | ticks |
+| sam3x8e | trükkök |
 | --- | --- |
-| 1 stepper | 66 |
-| 3 stepper | 257 |
+| 1 léptető | 66 |
+| 3 léptető | 257 |
 
 ### Duet Maestro step rate benchmark
 
@@ -109,10 +109,10 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
-| sam4s8c | ticks |
+| sam4s8c | trükkök |
 | --- | --- |
-| 1 stepper | 71 |
-| 3 stepper | 260 |
+| 1 léptető | 71 |
+| 3 léptető | 260 |
 
 ### Duet Wifi step rate benchmark
 
@@ -128,10 +128,10 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `gcc version 10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`.
 
-| sam4e8e | ticks |
+| sam4e8e | trükkök |
 | --- | --- |
-| 1 stepper | 48 |
-| 3 stepper | 215 |
+| 1 léptető | 48 |
+| 3 léptető | 215 |
 
 ### Beaglebone PRU step rate benchmark
 
@@ -147,10 +147,10 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `pru-gcc (GCC) 8.0.0 20170530 (experimental)`.
 
-| pru | ticks |
+| pru | trükkök |
 | --- | --- |
-| 1 stepper | 231 |
-| 3 stepper | 847 |
+| 1 léptető | 231 |
+| 3 léptető | 847 |
 
 ### STM32F042 step rate benchmark
 
@@ -166,10 +166,10 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
-| stm32f042 | ticks |
+| stm32f042 | trükkök |
 | --- | --- |
-| 1 stepper | 59 |
-| 3 stepper | 249 |
+| 1 léptető | 59 |
+| 3 léptető | 249 |
 
 ### STM32F103 step rate benchmark
 
@@ -185,10 +185,10 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
-| stm32f103 | ticks |
+| stm32f103 | trükkök |
 | --- | --- |
-| 1 stepper | 61 |
-| 3 stepper | 264 |
+| 1 léptető | 61 |
+| 3 léptető | 264 |
 
 ### STM32F4 step rate benchmark
 
@@ -204,15 +204,15 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The STM32F407 results were obtained by running an STM32F407 binary on an STM32F446 (and thus using a 168Mhz clock).
 
-| stm32f446 | ticks |
+| stm32f446 | trükkök |
 | --- | --- |
-| 1 stepper | 46 |
-| 3 stepper | 205 |
+| 1 léptető | 46 |
+| 3 léptető | 205 |
 
-| stm32f407 | ticks |
+| stm32f407 | trükkök |
 | --- | --- |
-| 1 stepper | 46 |
-| 3 stepper | 205 |
+| 1 léptető | 46 |
+| 3 léptető | 205 |
 
 ### STM32G0B1 step rate benchmark
 
@@ -228,10 +228,10 @@ finalize_config crc=0
 
 The test was last run on commit `247cd753` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
-| stm32f042 | ticks |
+| stm32f042 | trükkök |
 | --- | --- |
-| 1 stepper | 58 |
-| 3 stepper | 243 |
+| 1 léptető | 58 |
+| 3 léptető | 243 |
 
 ### LPC176x step rate benchmark
 
@@ -247,15 +247,15 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The 120Mhz LPC1769 results were obtained by overclocking an LPC1768 to 120Mhz.
 
-| lpc1768 | ticks |
+| lpc1768 | trükkök |
 | --- | --- |
-| 1 stepper | 52 |
-| 3 stepper | 222 |
+| 1 léptető | 52 |
+| 3 léptető | 222 |
 
-| lpc1769 | ticks |
+| lpc1769 | trükkök |
 | --- | --- |
-| 1 stepper | 51 |
-| 3 stepper | 222 |
+| 1 léptető | 51 |
+| 3 léptető | 222 |
 
 ### SAMD21 step rate benchmark
 
@@ -271,10 +271,10 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD21G18 micro-controller.
 
-| samd21 | ticks |
+| samd21 | trükkök |
 | --- | --- |
-| 1 stepper | 70 |
-| 3 stepper | 306 |
+| 1 léptető | 70 |
+| 3 léptető | 306 |
 
 ### SAMD51 step rate benchmark
 
@@ -290,10 +290,10 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD51J19A micro-controller.
 
-| samd51 | ticks |
+| samd51 | trükkök |
 | --- | --- |
-| 1 stepper | 39 |
-| 3 stepper | 191 |
+| 1 léptető | 39 |
+| 3 léptető | 191 |
 | 1 stepper (200Mhz) | 39 |
 | 3 stepper (200Mhz) | 181 |
 
@@ -311,10 +311,10 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a Raspberry Pi Pico board.
 
-| rp2040 | ticks |
+| rp2040 | trükkök |
 | --- | --- |
-| 1 stepper | 5 |
-| 3 stepper | 22 |
+| 1 léptető | 5 |
+| 3 léptető | 22 |
 
 ### Linux MCU step rate benchmark
 
@@ -330,10 +330,10 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `gcc (Raspbian 8.3.0-6+rpi1) 8.3.0` on a Raspberry Pi 3 (revision a02082). It was difficult to get stable results in this benchmark.
 
-| Linux (RPi3) | ticks |
+| Linux (RPi3) | trükkök |
 | --- | --- |
-| 1 stepper | 160 |
-| 3 stepper | 380 |
+| 1 léptető | 160 |
+| 3 léptető | 380 |
 
 ## Command dispatch benchmark
 
