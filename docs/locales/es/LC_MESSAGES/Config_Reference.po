@@ -1,5 +1,5 @@
 # c0d3x27 <banginpadr27@aol.com>, 2021.
-# Francisco Serrador <fserrador@gmail.com>, 2022.
+# Francisco Serrador <fserrador@gmail.com>, 2022, 2025.
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
 # Cecilia Mora <cecilia-mora22@hotmail.com>, 2022.
 # JACK EDWARD INGA NAUPA <jinganaupa@gmail.com>, 2023.
@@ -9,14 +9,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-11-27 06:32+0000\n"
-"Last-Translator: Ars_Codicis <cto@piruxinc.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/config_reference/es/>\n"
+"PO-Revision-Date: 2025-05-03 07:21+0000\n"
+"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"config_reference/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #, fuzzy
 msgid ""
