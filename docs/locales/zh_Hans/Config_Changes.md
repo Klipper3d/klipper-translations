@@ -6,9 +6,9 @@
 
 ## 变更
 
-20220307: `M73` will no longer set print progress to 0 if `P` is missing.
+20220307:`M73`如果不给定`P`，则不再将打印进度设置为0。
 
-20220304: There is no longer a default for the `extruder` parameter of [extruder_stepper](Config_Reference.md#extruder_stepper) config sections. If desired, specify `extruder: extruder` explicitly to associate the stepper motor with the "extruder" motion queue at startup.
+20220304：[extruder_stepper](Config_Reference.md#extruder_stepper)配置分段的`extruder`参数不再有默认设置。如果需要，可以明确指定`extruder: extruder`，以便在启动时关联步进电机和"extruder"运动序列。
 
 20220210：`SYNC_STEPPER_TO_EXTRUDER`、`SET_EXTRUDER_STEP_DISTANCE`、[extruder](Config_Reference.md#extruder)的 `shared_heater` 配置选项已弃用。这些功能将在不久的将来被删除。将`SET_EXTRUDER_STEP_DISTANCE`替换为`SET_EXTRUDER_ROTATION_DISTANCE`，`SYNC_STEPPER_TO_EXTRUDER`替换为`SYNC_EXTRUDER_MOTION`，使用 `shared_heater` 与 [extruder_stepper](Config_Reference.md#extruder_stepper)配置分段替换 extruder 配置分段，并更新所有激活宏以使用 [SYNC_EXTRUDER_MOTION](G-Codes.md#sync_extruder_motion)。
 

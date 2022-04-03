@@ -26,7 +26,7 @@
    1. 不要将字段文档复制到示例配置文件中。（这样做会造成维护方面的负担，因为对文档的更新需要在很多地方进行修改。）
    1. 配置文件的例子不应包含 "SAVE_CONFIG "部分。如果有必要，把SAVE_CONFIG部分的相关字段复制到主配置区的适当部分。
    1. 使用`field: value`的语法，而不要使用`field=value`。
-   1. When adding an extruder `rotation_distance` it is preferable to specify a `gear_ratio` if the extruder has a gearing mechanism. We expect the rotation_distance in the example configs to correlate with the circumference of the hobbed gear in the extruder - it is normally in the range of 20 to 35mm. When specifying a `gear_ratio` it is preferable to specify the actual gears on the mechanism (eg, prefer `gear_ratio: 80:20` over `gear_ratio: 4:1`). See the [rotation distance document](Rotation_Distance.md#using-a-gear_ratio) for more information.
+   1. 当设定一个挤出机的`rotation_distance`时，如果挤出机有一个齿轮机构，最好指定`gear_ratio`。我们希望示例配置中的旋转距离与挤出轮的周长相关--它通常在20到35毫米之间。当指定`gear_ratio`时，最好指定机构上的实际齿轮齿数（例如，优先选择`gear_ratio: 80:20`而不是`gear_ratio: 4:1`）。参见[旋转距离文档](Rotation_Distance.md#using-a-gear_ratio)以获得更多信息。
    1. 避免定义那些被设置为默认值的字段值。例如，不应该指定`min_extrude_temp: 170`，因为这已经是默认值。
    1. 在可能的情况下，行数不应超过80列。
    1. 避免在配置文件中添加归属或修订信息。例如，避免添加类似 "此文件由......创建 "的行。）将归属和修改历史放在git提交信息中。
