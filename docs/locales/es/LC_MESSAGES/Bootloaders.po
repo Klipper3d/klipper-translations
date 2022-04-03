@@ -1,9 +1,9 @@
-# Francisco Serrador <fserrador@gmail.com>, 2022.
+# Francisco Serrador <fserrador@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "bootloaders/es/>\n"
 "Language: es\n"
