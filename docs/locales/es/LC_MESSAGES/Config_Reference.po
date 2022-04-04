@@ -1,15 +1,17 @@
 # c0d3x27 <banginpadr27@aol.com>, 2021.
+# Francisco Serrador <fserrador@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-10-11 09:46+0000\n"
-"Last-Translator: c0d3x27 <banginpadr27@aol.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/config_reference/es/>\n"
+"PO-Revision-Date: 2022-04-04 12:07+0000\n"
+"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"config_reference/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -227,7 +229,7 @@ msgid "Common extruder and heated bed support"
 msgstr ""
 
 msgid "[extruder]"
-msgstr ""
+msgstr "[extruder]"
 
 msgid "[heater_bed]"
 msgstr ""
@@ -241,7 +243,7 @@ msgid "Bed level support"
 msgstr ""
 
 msgid "[bed_mesh]"
-msgstr ""
+msgstr "[bed_mesh]"
 
 msgid ""
 "Mesh Bed Leveling. One may define a bed_mesh config section to enable move "
@@ -255,7 +257,7 @@ msgid "Visual Examples:"
 msgstr ""
 
 msgid "[bed_tilt]"
-msgstr ""
+msgstr "[bed_tilt]"
 
 msgid ""
 "Bed tilt compensation. One may define a bed_tilt config section to enable "
@@ -264,7 +266,7 @@ msgid ""
 msgstr ""
 
 msgid "[bed_screws]"
-msgstr ""
+msgstr "[bed_screws]"
 
 msgid ""
 "Tool to help adjust bed leveling screws. One may define a [bed_screws] "
@@ -272,7 +274,7 @@ msgid ""
 msgstr ""
 
 msgid "[screws_tilt_adjust]"
-msgstr ""
+msgstr "[screws_tilt_adjust]"
 
 msgid ""
 "Tool to help adjust bed screws tilt using Z probe. One may define a "
@@ -281,7 +283,7 @@ msgid ""
 msgstr ""
 
 msgid "[z_tilt]"
-msgstr ""
+msgstr "[z_tilt]"
 
 msgid "[quad_gantry_level]"
 msgstr ""
@@ -296,7 +298,7 @@ msgid ""
 msgstr ""
 
 msgid "[skew_correction]"
-msgstr ""
+msgstr "[skew_correction]"
 
 msgid "Customized homing"
 msgstr ""
@@ -314,7 +316,7 @@ msgid ""
 msgstr ""
 
 msgid "[endstop_phase]"
-msgstr ""
+msgstr "[endstop_phase]"
 
 msgid ""
 "Stepper phase adjusted endstops. To use this feature, define a config "
@@ -329,7 +331,7 @@ msgid "G-Code macros and events"
 msgstr ""
 
 msgid "[gcode_macro]"
-msgstr ""
+msgstr "[gcode_macro]"
 
 msgid ""
 "G-Code macros (one may define any number of sections with a \"gcode_macro\" "
@@ -338,13 +340,13 @@ msgid ""
 msgstr ""
 
 msgid "[delayed_gcode]"
-msgstr ""
+msgstr "[delayed_gcode]"
 
 msgid "[save_variables]"
-msgstr ""
+msgstr "[save_variables]"
 
 msgid "[idle_timeout]"
-msgstr ""
+msgstr "[idle_timeout]"
 
 msgid ""
 "Idle timeout. An idle timeout is automatically enabled - add an explicit "
@@ -355,7 +357,7 @@ msgid "Optional G-Code features"
 msgstr ""
 
 msgid "[virtual_sdcard]"
-msgstr ""
+msgstr "[virtual_sdcard]"
 
 msgid ""
 "A virtual sdcard may be useful if the host machine is not fast enough to run"
@@ -365,7 +367,7 @@ msgid ""
 msgstr ""
 
 msgid "[sdcard_loop]"
-msgstr ""
+msgstr "[sdcard_loop]"
 
 msgid ""
 "Some printers with stage-clearing features, such as a part ejector or a belt"
@@ -375,34 +377,34 @@ msgid ""
 msgstr ""
 
 msgid "[force_move]"
-msgstr ""
+msgstr "[force_move]"
 
 msgid "[pause_resume]"
-msgstr ""
+msgstr "[pause_resume]"
 
 msgid "[firmware_retraction]"
-msgstr ""
+msgstr "[firmware_retraction]"
 
 msgid "[gcode_arcs]"
-msgstr ""
+msgstr "[gcode_arcs]"
 
 msgid "Support for gcode arc (G2/G3) commands."
 msgstr ""
 
 msgid "[respond]"
-msgstr ""
+msgstr "[respond]"
 
 msgid "Resonance compensation"
 msgstr ""
 
 msgid "[input_shaper]"
-msgstr ""
+msgstr "[input_shaper]"
 
 msgid "[adxl345]"
-msgstr ""
+msgstr "[adxl345]"
 
 msgid "[resonance_tester]"
-msgstr ""
+msgstr "[resonance_tester]"
 
 msgid "Config file helpers"
 msgstr ""
@@ -428,7 +430,7 @@ msgid "Bed probing hardware"
 msgstr ""
 
 msgid "[probe]"
-msgstr ""
+msgstr "[probe]"
 
 msgid ""
 "Z height probe. One may define this section to enable Z height probing "
@@ -442,7 +444,7 @@ msgid ""
 msgstr ""
 
 msgid "[bltouch]"
-msgstr ""
+msgstr "[bltouch]"
 
 msgid ""
 "BLTouch probe. One may define this section (instead of a probe section) to "
@@ -482,7 +484,7 @@ msgid ""
 msgstr ""
 
 msgid "[dual_carriage]"
-msgstr ""
+msgstr "[dual_carriage]"
 
 msgid ""
 "Support for cartesian printers with dual carriages on a single axis. The "
@@ -509,7 +511,7 @@ msgid ""
 msgstr ""
 
 msgid "[manual_stepper]"
-msgstr ""
+msgstr "[manual_stepper]"
 
 msgid "Custom heaters and sensors"
 msgstr ""
@@ -586,7 +588,7 @@ msgid ""
 msgstr ""
 
 msgid "Common temperature amplifiers"
-msgstr "Anplificador de temperaturas comunes"
+msgstr "Amplificadores de temperaturas comunes"
 
 msgid ""
 "Common temperature amplifiers. The following parameters are available in "
@@ -679,7 +681,7 @@ msgid "[controller_fan]"
 msgstr ""
 
 msgid "[temperature_fan]"
-msgstr ""
+msgstr "[temperature_fan]"
 
 msgid ""
 "Temperature-triggered cooling fans (one may define any number of sections "
@@ -689,16 +691,16 @@ msgid ""
 msgstr ""
 
 msgid "[fan_generic]"
-msgstr ""
+msgstr "[fan_generic]"
 
 msgid "Additional servos, LEDs, buttons, and other pins"
 msgstr ""
 
 msgid "[servo]"
-msgstr ""
+msgstr "[servo]"
 
 msgid "[neopixel]"
-msgstr ""
+msgstr "[neopixel]"
 
 msgid "[dotstar]"
 msgstr ""
@@ -719,7 +721,7 @@ msgid ""
 msgstr ""
 
 msgid "[output_pin]"
-msgstr ""
+msgstr "[output_pin]"
 
 msgid "[static_digital_output]"
 msgstr ""
@@ -835,7 +837,7 @@ msgid "Display support"
 msgstr ""
 
 msgid "[display]"
-msgstr ""
+msgstr "[display]"
 
 msgid "Support for a display attached to the micro-controller."
 msgstr ""
@@ -961,7 +963,7 @@ msgid "Filament sensors"
 msgstr ""
 
 msgid "[filament_switch_sensor]"
-msgstr ""
+msgstr "[filament_switch_sensor]"
 
 msgid ""
 "Filament Switch Sensor. Support for filament insert and runout detection "
@@ -986,7 +988,7 @@ msgid ""
 msgstr ""
 
 msgid "[hall_filament_width_sensor]"
-msgstr ""
+msgstr "[hall_filament_width_sensor]"
 
 msgid "Board specific hardware support"
 msgstr ""
@@ -1035,7 +1037,7 @@ msgid "Other Custom Modules"
 msgstr ""
 
 msgid "[palette2]"
-msgstr ""
+msgstr "[palette2]"
 
 msgid ""
 "Palette 2 multimaterial support - provides a tighter integration supporting "

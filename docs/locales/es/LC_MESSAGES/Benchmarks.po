@@ -1,6 +1,16 @@
-#
+# Francisco Serrador <fserrador@gmail.com>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-04-04 12:07+0000\n"
+"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"benchmarks/es/>\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr ""
@@ -60,10 +70,10 @@ msgid "The following configuration sequence is used on AVR chips:"
 msgstr ""
 
 msgid "avr"
-msgstr ""
+msgstr "avr"
 
 msgid "ticks"
-msgstr ""
+msgstr "ticks"
 
 msgid "1 stepper"
 msgstr ""
@@ -90,7 +100,7 @@ msgid "sam4s8c"
 msgstr ""
 
 msgid "70"
-msgstr ""
+msgstr "70"
 
 msgid "Duet Wifi step rate benchmark"
 msgstr ""
@@ -99,7 +109,7 @@ msgid "The following configuration sequence is used on the Duet Wifi:"
 msgstr ""
 
 msgid "sam4e8e"
-msgstr ""
+msgstr "sam4e8e"
 
 msgid "Beaglebone PRU step rate benchmark"
 msgstr ""
@@ -108,7 +118,7 @@ msgid "The following configuration sequence is used on the PRU:"
 msgstr ""
 
 msgid "pru"
-msgstr ""
+msgstr "pru"
 
 msgid "STM32F042 step rate benchmark"
 msgstr ""
@@ -126,10 +136,10 @@ msgid "The following configuration sequence is used on the STM32F103:"
 msgstr ""
 
 msgid "stm32f103"
-msgstr ""
+msgstr "stm32f103"
 
 msgid "71"
-msgstr ""
+msgstr "71"
 
 msgid "STM32F4 step rate benchmark"
 msgstr ""
@@ -138,16 +148,16 @@ msgid "The following configuration sequence is used on the STM32F4:"
 msgstr ""
 
 msgid "stm32f446"
-msgstr ""
+msgstr "stm32f446"
 
 msgid "51"
-msgstr ""
+msgstr "51"
 
 msgid "stm32f407"
 msgstr ""
 
 msgid "52"
-msgstr ""
+msgstr "52"
 
 msgid "LPC176x step rate benchmark"
 msgstr ""
@@ -168,7 +178,7 @@ msgid "The following configuration sequence is used on the SAMD21:"
 msgstr ""
 
 msgid "samd21"
-msgstr ""
+msgstr "samd21"
 
 msgid "SAMD51 step rate benchmark"
 msgstr ""
@@ -192,7 +202,7 @@ msgid "The following configuration sequence is used on a Raspberry Pi:"
 msgstr ""
 
 msgid "Linux (RPi3)"
-msgstr ""
+msgstr "Linux (RPi3)"
 
 msgid "Command dispatch benchmark"
 msgstr ""
@@ -212,25 +222,25 @@ msgid ""
 msgstr ""
 
 msgid "MCU"
-msgstr ""
+msgstr "MCU"
 
 msgid "Rate"
-msgstr ""
+msgstr "Proporción"
 
 msgid "Build"
-msgstr ""
+msgstr "Compilación"
 
 msgid "Build compiler"
-msgstr ""
+msgstr "Compilador de construcción"
 
 msgid "stm32f042 (CAN)"
-msgstr ""
+msgstr "stm32f042 (CAN)"
 
 msgid "18K"
-msgstr ""
+msgstr "18K"
 
 msgid "c105adc8"
-msgstr ""
+msgstr "c105adc8"
 
 msgid "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
 msgstr ""
@@ -239,7 +249,7 @@ msgid "atmega2560 (serial)"
 msgstr ""
 
 msgid "23K"
-msgstr ""
+msgstr "23K"
 
 msgid "b161a69e"
 msgstr ""
@@ -257,13 +267,13 @@ msgid "at90usb1286 (USB)"
 msgstr ""
 
 msgid "75K"
-msgstr ""
+msgstr "75K"
 
 msgid "01d2183f"
-msgstr ""
+msgstr "01d2183f"
 
 msgid "avr-gcc (GCC) 5.4.0"
-msgstr ""
+msgstr "avr-gcc (GCC) 5.4.0"
 
 msgid "samd21 (USB)"
 msgstr ""
@@ -278,58 +288,58 @@ msgid "pru (shared memory)"
 msgstr ""
 
 msgid "260K"
-msgstr ""
+msgstr "260K"
 
 msgid "c5968a08"
-msgstr ""
+msgstr "c5968a08"
 
 msgid "pru-gcc (GCC) 8.0.0 20170530 (experimental)"
-msgstr ""
+msgstr "pru-gcc (GCC) 8.0.0 20170530 (experimental)"
 
 msgid "stm32f103 (USB)"
 msgstr ""
 
 msgid "355K"
-msgstr ""
+msgstr "355K"
 
 msgid "sam3x8e (USB)"
-msgstr ""
+msgstr "sam3x8e (USB)"
 
 msgid "418K"
-msgstr ""
+msgstr "418K"
 
 msgid "lpc1768 (USB)"
-msgstr ""
+msgstr "lpc1768 (USB)"
 
 msgid "534K"
-msgstr ""
+msgstr "534K"
 
 msgid "lpc1769 (USB)"
-msgstr ""
+msgstr "lpc1769 (USB)"
 
 msgid "628K"
-msgstr ""
+msgstr "628K"
 
 msgid "sam4s8c (USB)"
-msgstr ""
+msgstr "sam4s8c (USB)"
 
 msgid "650K"
-msgstr ""
+msgstr "650K"
 
 msgid "8d4a5c16"
-msgstr ""
+msgstr "8d4a5c16"
 
 msgid "samd51 (USB)"
-msgstr ""
+msgstr "samd51 (USB)"
 
 msgid "864K"
-msgstr ""
+msgstr "864K"
 
 msgid "stm32f446 (USB)"
 msgstr ""
 
 msgid "870K"
-msgstr ""
+msgstr "870K"
 
 msgid "Host Benchmarks"
 msgstr ""
@@ -356,6 +366,26 @@ msgid ""
 "set_next_step_dir oid=2 dir=1\n"
 "queue_step oid=2 interval=3000 count=1 add=0\n"
 msgstr ""
+"SET start_clock {clock+freq}\n"
+"SET ticks 1000\n"
+"\n"
+"reset_step_clock oid=0 clock={start_clock}\n"
+"set_next_step_dir oid=0 dir=0\n"
+"queue_step oid=0 interval={ticks} count=60000 add=0\n"
+"set_next_step_dir oid=0 dir=1\n"
+"queue_step oid=0 interval=3000 count=1 add=0\n"
+"\n"
+"reset_step_clock oid=1 clock={start_clock}\n"
+"set_next_step_dir oid=1 dir=0\n"
+"queue_step oid=1 interval={ticks} count=60000 add=0\n"
+"set_next_step_dir oid=1 dir=1\n"
+"queue_step oid=1 interval=3000 count=1 add=0\n"
+"\n"
+"reset_step_clock oid=2 clock={start_clock}\n"
+"set_next_step_dir oid=2 dir=0\n"
+"queue_step oid=2 interval={ticks} count=60000 add=0\n"
+"set_next_step_dir oid=2 dir=1\n"
+"queue_step oid=2 interval=3000 count=1 add=0\n"
 
 msgid "clear_shutdown\n"
 msgstr ""
@@ -381,25 +411,25 @@ msgid "The following configuration sequence is used on the RP2040:"
 msgstr ""
 
 msgid "rp2040"
-msgstr ""
+msgstr "rp2040"
 
 msgid "66"
-msgstr ""
+msgstr "66"
 
 msgid "5"
-msgstr ""
+msgstr "5"
 
 msgid "22"
-msgstr ""
+msgstr "22"
 
 msgid "rp2040 (USB)"
-msgstr ""
+msgstr "rp2040 (USB)"
 
 msgid "873K"
-msgstr ""
+msgstr "873K"
 
 msgid "c5667193"
-msgstr ""
+msgstr "c5667193"
 
 msgid "arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0"
 msgstr ""
@@ -473,7 +503,7 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 22 (table)
 msgid "486"
-msgstr ""
+msgstr "486"
 
 #: docs/Benchmarks.md:block 25 (code)
 msgid ""
@@ -483,6 +513,14 @@ msgid ""
 "config_stepper oid=2 step_pin=PA21 dir_pin=PC30 invert_step=-1 step_pulse_ticks=0\n"
 "finalize_config crc=0\n"
 msgstr ""
+"allocate_oids count=3\n"
+"config_stepper oid=0 step_pin=PB27 dir_pin=PA21 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=1 step_pin=PB26 dir_pin=PC30 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=2 step_pin=PA21 dir_pin=PC30 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"finalize_config crc=0\n"
 
 #: docs/Benchmarks.md:block 26 (paragraph)
 msgid ""
@@ -492,7 +530,7 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 27 (table)
 msgid "257"
-msgstr ""
+msgstr "257"
 
 #: docs/Benchmarks.md:block 30 (code)
 msgid ""
@@ -502,6 +540,14 @@ msgid ""
 "config_stepper oid=2 step_pin=PC26 dir_pin=PB4 invert_step=-1 step_pulse_ticks=0\n"
 "finalize_config crc=0\n"
 msgstr ""
+"allocate_oids count=3\n"
+"config_stepper oid=0 step_pin=PC26 dir_pin=PC18 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=1 step_pin=PC26 dir_pin=PA8 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=2 step_pin=PC26 dir_pin=PB4 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"finalize_config crc=0\n"
 
 #: docs/Benchmarks.md:block 32 (table)
 msgid "260"
@@ -524,11 +570,11 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 37 (table)
 msgid "48"
-msgstr ""
+msgstr "48"
 
 #: docs/Benchmarks.md:block 37 (table)
 msgid "215"
-msgstr ""
+msgstr "215"
 
 #: docs/Benchmarks.md:block 40 (code)
 msgid ""
@@ -538,6 +584,14 @@ msgid ""
 "config_stepper oid=2 step_pin=gpio0_22 dir_pin=gpio2_1 invert_step=0 step_pulse_ticks=20\n"
 "finalize_config crc=0\n"
 msgstr ""
+"allocate_oids count=3\n"
+"config_stepper oid=0 step_pin=gpio0_23 dir_pin=gpio1_12 invert_step=0 "
+"step_pulse_ticks=20\n"
+"config_stepper oid=1 step_pin=gpio1_15 dir_pin=gpio0_26 invert_step=0 "
+"step_pulse_ticks=20\n"
+"config_stepper oid=2 step_pin=gpio0_22 dir_pin=gpio2_1 invert_step=0 "
+"step_pulse_ticks=20\n"
+"finalize_config crc=0\n"
 
 #: docs/Benchmarks.md:block 41 (paragraph)
 msgid ""
@@ -568,7 +622,7 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 47 (table)
 msgid "249"
-msgstr ""
+msgstr "249"
 
 #: docs/Benchmarks.md:block 50 (code)
 msgid ""
@@ -578,14 +632,22 @@ msgid ""
 "config_stepper oid=2 step_pin=PA4 dir_pin=PB7 invert_step=-1 step_pulse_ticks=0\n"
 "finalize_config crc=0\n"
 msgstr ""
+"allocate_oids count=3\n"
+"config_stepper oid=0 step_pin=PC13 dir_pin=PB5 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=1 step_pin=PB3 dir_pin=PB6 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=2 step_pin=PA4 dir_pin=PB7 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"finalize_config crc=0\n"
 
 #: docs/Benchmarks.md:block 52 (table)
 msgid "61"
-msgstr ""
+msgstr "61"
 
 #: docs/Benchmarks.md:block 52 (table)
 msgid "264"
-msgstr ""
+msgstr "264"
 
 #: docs/Benchmarks.md:block 55 (code)
 msgid ""
@@ -595,6 +657,14 @@ msgid ""
 "config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=0\n"
 "finalize_config crc=0\n"
 msgstr ""
+"allocate_oids count=3\n"
+"config_stepper oid=0 step_pin=PA5 dir_pin=PB5 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=1 step_pin=PB2 dir_pin=PB6 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"finalize_config crc=0\n"
 
 #: docs/Benchmarks.md:block 56 (paragraph)
 msgid ""
@@ -658,6 +728,14 @@ msgid ""
 "config_stepper oid=2 step_pin=PA22 dir_pin=PA19 invert_step=-1 step_pulse_ticks=0\n"
 "finalize_config crc=0\n"
 msgstr ""
+"allocate_oids count=3\n"
+"config_stepper oid=0 step_pin=PA22 dir_pin=PA20 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=1 step_pin=PA22 dir_pin=PA21 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=2 step_pin=PA22 dir_pin=PA19 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"finalize_config crc=0\n"
 
 #: docs/Benchmarks.md:block 73 (paragraph)
 msgid ""
