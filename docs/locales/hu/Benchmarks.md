@@ -1,4 +1,4 @@
-# Benchmarks
+# Referenciaértékek
 
 Ez a dokumentum a Klipper referenciaértékeit ismerteti.
 
@@ -14,7 +14,7 @@ A lépésszám-összehasonlítás célja a hardver és a szoftver által elérhe
 
 ### Léptetőarányos referenciaérték-teszt
 
-The test is performed using the console.py tool (described in <Debugging.md>). The micro-controller is configured for the particular hardware platform (see below) and then the following is cut-and-paste into the console.py terminal window:
+A teszt a console.py eszközzel történik (a <Debugging.md> című fejezetben leírtak szerint). A mikrokontrollert az adott hardverplatformhoz konfiguráljuk (lásd alább), majd a következőket vágjuk ki és illesszük be a console.py terminálablakba:
 
 ```
 SET start_clock {clock+freq}
@@ -47,15 +47,15 @@ Sikertelenség esetén az alábbiakat másolva és beillesztve törölheti a hib
 clear_shutdown
 ```
 
-To obtain the single stepper benchmarks, the same configuration sequence is used, but only the first block of the above test is cut-and-paste into the console.py window.
+Az egylépcsős referenciaértékek eléréséhez ugyanazt a konfigurációs sorrendet kell használni, de a fenti tesztnek csak az első blokkja a másolás és beillesztés a console.py ablakba.
 
-To produce the benchmarks found in the [Features](Features.md) document, the total number of steps per second is calculated by multiplying the number of active steppers with the nominal mcu frequency and dividing by the final ticks parameter. The results are rounded to the nearest K. For example, with three active steppers:
+A [Jellemzők](Features.md) dokumentumban található referenciatesztek előállításához a másodpercenkénti lépések teljes számát úgy kell kiszámítani, hogy az aktív léptetők számát megszorozzuk a névleges MCU frekvenciával, és elosztjuk a végső "ticks" paraméterrel. Az eredményeket a legközelebbi K-ra kerekítjük. Például három aktív léptetővel:
 
 ```
-ECHO Test result is: {"%.0fK" % (3. * freq / ticks / 1000.)}
+Az ECHO teszt eredménye: {"%.0fK" % (3. * freq / ticks / 1000.)}
 ```
 
-The benchmarks are run with parameters suitable for TMC Drivers. For micro-controllers that support `STEPPER_BOTH_EDGE=1` (as reported in the `MCU config` line when console.py first starts) use `step_pulse_duration=0` and `invert_step=-1` to enable optimized stepping on both edges of the step pulse. For other micro-controllers use a `step_pulse_duration` corresponding to 100ns.
+A referenciaértékeket a TMC-vezérlők számára megfelelő paraméterekkel futtatjuk. Az olyan mikrovezérlők esetében, amelyek támogatják a `STEPPER_BOTH_EDGE=1` (amint azt az `MCU config` sorban a konzolnál console.py első indításakor) a `step_pulse_duration=0` és `invert_step=-1` használatával engedélyezzük az optimalizált lépést a lépésimpulzus mindkét élére. Más mikrovezérlők esetében használja a 100ns-nak megfelelő `step_pulse_duration` értéket.
 
 ### AVR lépési sebesség referenciaérték
 
@@ -69,7 +69,7 @@ config_stepper oid=2 step_pin=PC7 dir_pin=PC6 invert_step=0 step_pulse_ticks=32
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `avr-gcc (GCC) 5.4.0`. Both the 16Mhz and 20Mhz tests were run using simulavr configured for an atmega644p (previous tests have confirmed simulavr results match tests on both a 16Mhz at90usb and a 16Mhz atmega2560).
+A tesztet utoljára a `59314d99` megbízáson futtattuk, a gcc `avr-gcc (GCC) 5.4.0` verziójával. Mind a 16Mhz-es, mind a 20Mhz-es teszteket egy atmega644p-re konfigurált simulavr segítségével futtattuk (korábbi tesztek megerősítették, hogy a simulavr eredményei egyeznek a 16Mhz-es at90usb és a 16Mhz-es atmega2560-as tesztekkel).
 
 | avr | trükkök |
 | --- | --- |
@@ -88,16 +88,16 @@ config_stepper oid=2 step_pin=PA21 dir_pin=PC30 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+A tesztet utoljára a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` futtatta.
 
 | sam3x8e | trükkök |
 | --- | --- |
 | 1 léptető | 66 |
 | 3 léptető | 257 |
 
-### Duet Maestro step rate benchmark
+### Duet Maestro lépésszám referenciaérték
 
-The following configuration sequence is used on the Duet Maestro:
+A Duet Maestro a következő konfigurációs sorrendet használja:
 
 ```
 allocate_oids count=3
@@ -107,16 +107,16 @@ config_stepper oid=2 step_pin=PC26 dir_pin=PB4 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+A tesztet utoljára a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` futtatta.
 
 | sam4s8c | trükkök |
 | --- | --- |
 | 1 léptető | 71 |
 | 3 léptető | 260 |
 
-### Duet Wifi step rate benchmark
+### Duet WiFi lépésszám referencia
 
-The following configuration sequence is used on the Duet Wifi:
+A Duet WiFi esetében a következő konfigurációs sorrendet használjuk:
 
 ```
 allocate_oids count=3
@@ -126,16 +126,16 @@ config_stepper oid=2 step_pin=PD8 dir_pin=PD13 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `gcc version 10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`.
+A tesztet utoljára a `59314d99` megbízási gcc verzióval `gcc 10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)` futtatta.
 
 | sam4e8e | trükkök |
 | --- | --- |
 | 1 léptető | 48 |
 | 3 léptető | 215 |
 
-### Beaglebone PRU step rate benchmark
+### Beaglebone PRU lépésszám referenciaérték
 
-The following configuration sequence is used on the PRU:
+A PRU-n a következő konfigurációs sorrendet kell alkalmazni:
 
 ```
 allocate_oids count=3
@@ -145,16 +145,16 @@ config_stepper oid=2 step_pin=gpio0_22 dir_pin=gpio2_1 invert_step=0 step_pulse_
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `pru-gcc (GCC) 8.0.0 20170530 (experimental)`.
+A tesztet utoljára a `59314d99` megbízási gcc verzióval `pru-gcc (GCC) 8.0.0 20170530 (experimental)` futtatta.
 
 | pru | trükkök |
 | --- | --- |
 | 1 léptető | 231 |
 | 3 léptető | 847 |
 
-### STM32F042 step rate benchmark
+### STM32F042 lépésszám referencia
 
-The following configuration sequence is used on the STM32F042:
+Az STM32F042-nél a következő konfigurációs sorrendet használjuk:
 
 ```
 allocate_oids count=3
@@ -164,16 +164,16 @@ config_stepper oid=2 step_pin=PB8 dir_pin=PA2 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+A tesztet utoljára a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` futtatta.
 
 | stm32f042 | trükkök |
 | --- | --- |
 | 1 léptető | 59 |
 | 3 léptető | 249 |
 
-### STM32F103 step rate benchmark
+### STM32F103 lépésszám referencia
 
-The following configuration sequence is used on the STM32F103:
+Az STM32F103 esetében a következő konfigurációs sorrendet használjuk:
 
 ```
 allocate_oids count=3
@@ -183,16 +183,16 @@ config_stepper oid=2 step_pin=PA4 dir_pin=PB7 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+A tesztet utoljára a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` futtatta.
 
 | stm32f103 | trükkök |
 | --- | --- |
 | 1 léptető | 61 |
 | 3 léptető | 264 |
 
-### STM32F4 step rate benchmark
+### STM32F4 lépésszám referenciaérték
 
-The following configuration sequence is used on the STM32F4:
+Az STM32F4 esetében a következő konfigurációs sorrendet használjuk:
 
 ```
 allocate_oids count=3
@@ -202,7 +202,7 @@ config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The STM32F407 results were obtained by running an STM32F407 binary on an STM32F446 (and thus using a 168Mhz clock).
+A tesztet utoljára a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` futtatta. Az STM32F407-es eredményeket úgy kaptuk, hogy egy STM32F407-es bináris programot futtattunk egy STM32F446-oson (és így 168 MHz-es órajelet használtunk).
 
 | stm32f446 | trükkök |
 | --- | --- |
@@ -214,9 +214,9 @@ The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (
 | 1 léptető | 46 |
 | 3 léptető | 205 |
 
-### STM32G0B1 step rate benchmark
+### STM32G0B1 lépésszám referencia
 
-The following configuration sequence is used on the STM32G0B1:
+Az STM32G0B1 esetében a következő konfigurációs sorrendet használjuk:
 
 ```
 allocate_oids count=3
@@ -226,16 +226,16 @@ config_stepper oid=2 step_pin=PB0 dir_pin=PC5 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `247cd753` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+A tesztet utoljára a `247cd753` megbízási gcc verzióval `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` futtatta.
 
 | stm32f042 | trükkök |
 | --- | --- |
 | 1 léptető | 58 |
 | 3 léptető | 243 |
 
-### LPC176x step rate benchmark
+### LPC176x lépésszám referenciaérték
 
-The following configuration sequence is used on the LPC176x:
+Az LPC176x esetében a következő konfigurációs sorrendet használjuk:
 
 ```
 allocate_oids count=3
@@ -245,7 +245,7 @@ config_stepper oid=2 step_pin=P1.23 dir_pin=P1.18 invert_step=-1 step_pulse_tick
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The 120Mhz LPC1769 results were obtained by overclocking an LPC1768 to 120Mhz.
+A tesztet utoljára a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` futtatta. A 120Mhz-es LPC1769-es eredményeket egy LPC1768-as 120Mhz-re való túlhajtásával kaptuk.
 
 | lpc1768 | trükkök |
 | --- | --- |
@@ -257,9 +257,9 @@ The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (
 | 1 léptető | 51 |
 | 3 léptető | 222 |
 
-### SAMD21 step rate benchmark
+### SAMD21 lépési sebesség referenciaérték
 
-The following configuration sequence is used on the SAMD21:
+A SAMD21 esetében a következő konfigurációs sorrendet kell alkalmazni:
 
 ```
 allocate_oids count=3
@@ -269,16 +269,16 @@ config_stepper oid=2 step_pin=PA17 dir_pin=PA21 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD21G18 micro-controller.
+A tesztet legutóbb a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` futtatta egy SAMD21G18 mikrokontrollerrel.
 
 | samd21 | trükkök |
 | --- | --- |
 | 1 léptető | 70 |
 | 3 léptető | 306 |
 
-### SAMD51 step rate benchmark
+### SAMD51 lépési sebesség referenciaérték
 
-The following configuration sequence is used on the SAMD51:
+A SAMD51 esetében a következő konfigurációs sorrendet kell alkalmazni:
 
 ```
 allocate_oids count=3
@@ -288,18 +288,18 @@ config_stepper oid=2 step_pin=PA22 dir_pin=PA19 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD51J19A micro-controller.
+A tesztet legutóbb a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` futtatta egy SAMD51J19A mikrokontrollerrel.
 
 | samd51 | trükkök |
 | --- | --- |
 | 1 léptető | 39 |
 | 3 léptető | 191 |
-| 1 stepper (200Mhz) | 39 |
-| 3 stepper (200Mhz) | 181 |
+| 1 lépés (200Mhz) | 39 |
+| 3 lépés (200Mhz) | 181 |
 
-### RP2040 step rate benchmark
+### RP2040 léptetési referenciaérték
 
-The following configuration sequence is used on the RP2040:
+Az RP2040 esetében a következő konfigurációs sorrendet kell alkalmazni:
 
 ```
 allocate_oids count=3
@@ -309,16 +309,16 @@ config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=-1 step_pulse_tic
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a Raspberry Pi Pico board.
+A tesztet legutóbb a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` Raspberry Pi Pico kártyán futtattuk.
 
 | rp2040 | trükkök |
 | --- | --- |
 | 1 léptető | 5 |
 | 3 léptető | 22 |
 
-### Linux MCU step rate benchmark
+### Linux MCU lépésszám referenciaérték
 
-The following configuration sequence is used on a Raspberry Pi:
+A következő konfigurációs sorrendet egy Raspberry Pi esetében használjuk:
 
 ```
 allocate_oids count=3
@@ -328,16 +328,16 @@ config_stepper oid=2 step_pin=gpio6 dir_pin=gpio17 invert_step=0 step_pulse_tick
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `gcc (Raspbian 8.3.0-6+rpi1) 8.3.0` on a Raspberry Pi 3 (revision a02082). It was difficult to get stable results in this benchmark.
+A tesztet legutóbb a `59314d99` megbízási gcc verzióval `gcc (Raspbian 8.3.0-6+rpi1) 8.3.0` Raspberry Pi 3-on (revision a02082) futtatták. Ebben a referenciatesztben nehéz volt stabil eredményeket elérni.
 
 | Linux (RPi3) | trükkök |
 | --- | --- |
 | 1 léptető | 160 |
 | 3 léptető | 380 |
 
-## Command dispatch benchmark
+## Parancsküldési referencia
 
-The command dispatch benchmark tests how many "dummy" commands the micro-controller can process. It is primarily a test of the hardware communication mechanism. The test is run using the console.py tool (described in <Debugging.md>). The following is cut-and-paste into the console.py terminal window:
+A parancskiadási referenciateszt azt teszteli, hogy a mikrokontroller hány "dummy" parancsot képes feldolgozni. Ez elsősorban a hardveres kommunikációs mechanizmus tesztje. A tesztet a console.py eszközzel futtatjuk (a <Debugging.md> című fejezetben leírtak szerint). Az alábbiakat másoljuk ki és illesszük be a console.py terminálablakba:
 
 ```
 DELAY {clock + 2*freq} get_uptime
@@ -345,18 +345,18 @@ FLOOD 100000 0.0 debug_nop
 get_uptime
 ```
 
-When the test completes, determine the difference between the clocks reported in the two "uptime" response messages. The total number of commands per second is then `100000 * mcu_frequency / clock_diff`.
+A teszt befejezésekor határozza meg a két "üzemidő" válaszüzenetben jelentett órák közötti különbséget. A másodpercenkénti parancsok teljes száma ekkor `100000 * mcu_frequency / clock_diff`.
 
-Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If running on a Raspberry Pi, Beaglebone, or similar host computer then increase the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the benchmarks below are with console.py running on a desktop class machine with the device connected via a high-speed hub.
+Vegye figyelembe, hogy ez a teszt telítheti a Raspberry Pi USB/CPU kapacitását. Ha Raspberry Pi, Beaglebone vagy hasonló gazdagépen fut, akkor növelje a késleltetést (pl. `DELAY {clock + 20*freq} get_uptime`). Ahol alkalmazható, az alábbi referenciák a console.py futtatásával készültek egy asztali számítógépen, ahol az eszköz egy nagy sebességű hubon keresztül van csatlakoztatva.
 
-| MCU | Rate | Build | Build compiler |
+| MCU | Arány | Gyári szám | Fordító program |
 | --- | --- | --- | --- |
 | stm32f042 (CAN) | 18K | c105adc8 | arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1 |
 | atmega2560 (serial) | 23K | b161a69e | avr-gcc (GCC) 4.8.1 |
 | sam3x8e (serial) | 23K | b161a69e | arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0 |
 | at90usb1286 (USB) | 75K | 01d2183f | avr-gcc (GCC) 5.4.0 |
 | samd21 (USB) | 223K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
-| pru (shared memory) | 260K | c5968a08 | pru-gcc (GCC) 8.0.0 20170530 (experimental) |
+| pru (megosztott memória) | 260K | c5968a08 | pru-gcc (GCC) 8.0.0 20170530 (experimental) |
 | stm32f103 (USB) | 355K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | sam3x8e (USB) | 418K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | lpc1768 (USB) | 534K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
@@ -366,9 +366,9 @@ Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If runn
 | stm32f446 (USB) | 870K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | rp2040 (USB) | 873K | c5667193 | arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0 |
 
-## Host Benchmarks
+## Gazdagép referenciaértékei
 
-It is possible to run timing tests on the host software using the "batch mode" processing mechanism (described in <Debugging.md>). This is typically done by choosing a large and complex G-Code file and timing how long it takes for the host software to process it. For example:
+Lehetőség van időzítési tesztek futtatására a gazdagépen a "batch mode" feldolgozási mechanizmus használatával (a <Debugging.md> című fejezetben leírtak szerint). Ez általában úgy történik, hogy kiválasztunk egy nagy és összetett G-kód fájlt, és megmérjük, hogy mennyi idő alatt dolgozza fel a gazdaszoftver. Például:
 
 ```
 time ~/klippy-env/bin/python ./klippy/klippy.py config/example-cartesian.cfg -i something_complex.gcode -o /dev/null -d out/klipper.dict

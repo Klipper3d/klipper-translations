@@ -2,7 +2,7 @@
 
 This document describes the commands that Klipper supports. These are commands that one may enter into the OctoPrint terminal tab.
 
-## G-Code commands
+## Instrucciones G-Code
 
 Klipper supports the following standard G-Code commands:
 
@@ -18,7 +18,7 @@ Klipper supports the following standard G-Code commands:
 - Set extrude factor override percentage: `M221 S<percent>`
 - Set acceleration: `M204 S<value>` OR `M204 P<value> T<value>`
    - Note: If S is not specified and both P and T are specified, then the acceleration is set to the minimum of P and T. If only one of P or T is specified, the command has no effect.
-- Get extruder temperature: `M105`
+- Obtener temperatura extraída: `M105`
 - Set extruder temperature: `M104 [T<index>] [S<temperature>]`
 - Set extruder temperature and wait: `M109 [T<index>] S<temperature>`
    - Note: M109 always waits for temperature to settle at requested value
@@ -37,7 +37,7 @@ Klipper's goal is to support the G-Code commands produced by common 3rd party so
 
 If one requires a less common G-Code command then it may be possible to implement it with a custom [gcode_macro config section](Config_Reference.md#gcode_macro). For example, one might use this to implement: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`, etc.
 
-## Additional Commands
+## Instrucciones Adicionales
 
 Klipper uses "extended" G-Code commands for general configuration and status. These extended commands all follow a similar format - they start with a command name and may be followed by one or more parameters. For example: `SET_SERVO SERVO=myservo ANGLE=5.3`. In this document, the commands and parameters are shown in uppercase, however they are not case sensitive. (So, "SET_SERVO" and "set_servo" both run the same command.)
 
@@ -121,7 +121,7 @@ The following command is available when a [bltouch config section](Config_Refere
 
 ### [configfile]
 
-The configfile module is automatically loaded.
+El módulo configfile es cargado automáticamente.
 
 #### SAVE_CONFIG
 
@@ -233,7 +233,7 @@ The following standard G-Code commands are available when the [firmware_retracti
 - `G10`: Retracts the extruder using the currently configured parameters.
 - `G11`: Unretracts the extruder using the currently configured parameters.
 
-The following additional commands are also available.
+Las siguientes instrucciones adicionales también están disponibles.
 
 #### SET_RETRACTION
 
@@ -386,7 +386,7 @@ The manual_probe module is automatically loaded.
 `MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:
 
 - `ACCEPT`: This command accepts the current Z position and concludes the manual probing tool.
-- `ABORTAR`: Este comando interrumpe la herramienta de sondeo manual.
+- `ABORT`: Esta instrucción interrumpe la herramienta de sondeo manual.
 - `TESTZ Z=<value>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
 
 #### Z_ENDSTOP_CALIBRATE
@@ -429,7 +429,7 @@ Palette prints work by embedding special OCodes (Omega Codes) in the GCode file:
 
 - `O1`...`O32`: These codes are read from the GCode stream and processed by this module and passed to the Palette 2 device.
 
-The following additional commands are also available.
+Las siguientes instrucciones adicionales también están disponibles.
 
 #### PALETTE_CONNECT
 
@@ -543,7 +543,7 @@ The following standard G-Code commands are available when the [respond config se
 
 - `M118 <message>`: echo the message prepended with the configured default prefix (or `echo: ` if no prefix is configured).
 
-The following additional commands are also available.
+Las siguientes instrucciones adicionales también están disponibles.
 
 #### RESPOND
 
@@ -674,7 +674,7 @@ The tuning_tower module is automatically loaded.
 Klipper supports the following standard G-Code commands if the [virtual_sdcard config section](Config_Reference.md#virtual_sdcard) is enabled:
 
 - List SD card: `M20`
-- Initialize SD card: `M21`
+- Inicializa cartucho SD: `M21`
 - Select SD file: `M23 <filename>`
 - Start/resume SD print: `M24`
 - Pause SD print: `M25`

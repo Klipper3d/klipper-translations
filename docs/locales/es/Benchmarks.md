@@ -349,7 +349,7 @@ When the test completes, determine the difference between the clocks reported in
 
 Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If running on a Raspberry Pi, Beaglebone, or similar host computer then increase the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the benchmarks below are with console.py running on a desktop class machine with the device connected via a high-speed hub.
 
-| MCU | Rate | Build | Build compiler |
+| MCU | Proporción | Compilación | Compilador de construcción |
 | --- | --- | --- | --- |
 | stm32f042 (CAN) | 18K | c105adc8 | arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1 |
 | atmega2560 (serial) | 23K | b161a69e | avr-gcc (GCC) 4.8.1 |

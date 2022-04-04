@@ -1,4 +1,4 @@
-# Resonance Compensation
+# Compensación de Resonancia
 
 Klipper supports Input Shaping - a technique that can be used to reduce ringing (also known as echoing, ghosting or rippling) in prints. Ringing is a surface printing defect when, typically, elements like edges repeat themselves on a printed surface as a subtle 'echo':
 
@@ -245,8 +245,8 @@ Input shapers used in Klipper are rather standard, and one can find more in-dept
 
 | Input <br> shaper | Shaper <br> duration | Vibration reduction 20x <br> (5% vibration tolerance) | Vibration reduction 10x <br> (10% vibration tolerance) |
 | :-: | :-: | :-: | :-: |
-| ZV | 0.5 / shaper_freq | N/A | ± 5% shaper_freq |
-| MZV | 0.75 / shaper_freq | ± 4% shaper_freq | -10%...+15% shaper_freq |
+| ZV | 0'5 / shaper_freq | N/D | ± 5% shaper_freq |
+| MZV | 0'75 / shaper_freq | ± 4% shaper_freq | -10%...+15% shaper_freq |
 | ZVD | 1 / shaper_freq | ± 15% shaper_freq | ± 22% shaper_freq |
 | EI | 1 / shaper_freq | ± 20% shaper_freq | ± 25% shaper_freq |
 | 2HUMP_EI | 1.5 / shaper_freq | ± 35% shaper_freq | ± 40 shaper_freq |
@@ -256,7 +256,7 @@ A note on vibration reduction: the values in the table above are approximate. If
 
 Also note that EI, 2HUMP_EI, and 3HUMP_EI are tuned to reduce vibrations to 5%, so the values for 10% vibration tolerance are provided only for the reference.
 
-**How to use this table:**
+**Cómo se utiliza esta tabla:**
 
 * Shaper duration affects the smoothing in parts - the larger it is, the more smooth the parts are. This dependency is not linear, but can give a sense of which shapers 'smooth' more for the same frequency. The ordering by smoothing is like this: ZV < MZV < ZVD ≈ EI < 2HUMP_EI < 3HUMP_EI. Also, it is rarely practical to set shaper_freq = resonance freq for shapers 2HUMP_EI and 3HUMP_EI (they should be used to reduce vibrations for several frequencies).
 * One can estimate a range of frequencies in which the shaper reduces vibrations. For example, MZV with shaper_freq = 35 Hz reduces vibrations to 5% for frequencies [33.6, 36.4] Hz. 3HUMP_EI with shaper_freq = 50 Hz reduces vibrations to 5% in range [27.5, 75] Hz.

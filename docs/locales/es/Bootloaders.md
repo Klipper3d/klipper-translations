@@ -1,4 +1,4 @@
-# Bootloaders
+# Arrancadores
 
 This document provides information on common bootloaders found on micro-controllers that Klipper supports.
 
@@ -259,7 +259,7 @@ stm32f1x mass_erase 0
 program hid_btt_skr_mini_e3.bin verify 0x08000000
 ```
 
-NOTES:
+NOTAS:
 
 - The example above erases the chip then programs the bootloader. Regardless of the method chosen to flash it is recommended to erase the chip prior to flashing.
 - Prior flashing the SKR Mini E3 with this bootloader you should be aware that you will no longer be able to update firmware via the sdcard.
@@ -356,7 +356,7 @@ make
 make install
 ```
 
-### Configure OpenOCD
+### Configurar OpenOCD
 
 Create an OpenOCD config file:
 
@@ -435,7 +435,7 @@ cd /path/to/klipper/
 gdb out/klipper.elf
 ```
 
-Within gdb run:
+Dentro del gdb ejecute:
 
 ```
 target remote octopi:44444
