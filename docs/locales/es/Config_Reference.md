@@ -1868,7 +1868,7 @@ sensor_pin:
 #   The default is 0 ohms.
 ```
 
-### Anplificador de temperaturas comunes
+### Amplificadores de temperaturas comunes
 
 Common temperature amplifiers. The following parameters are available in heater sections that use one of these sensors.
 
