@@ -1,6 +1,16 @@
-#
+# Francisco Serrador <fserrador@gmail.com>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-04-04 12:07+0000\n"
+"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/protocol/"
+"es/>\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid ""
 "The Klipper messaging protocol is used for low-level communication between "
@@ -283,7 +293,7 @@ msgid "-2147483648 .. 4294967295"
 msgstr ""
 
 msgid "5"
-msgstr ""
+msgstr "5"
 
 msgid "Variable length strings"
 msgstr ""
