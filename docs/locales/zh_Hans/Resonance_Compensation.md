@@ -34,25 +34,25 @@ Basic tuning requires measuring the ringing frequencies of the printer by printi
 1. 打印用建议的参数切片的测试模型。
 1. 如果振纹清晰可见，并且发现加速度对你的打印机来说太高了（如打印机抖动太厉害或开始丢步），你可以提前停止打印。
 
-   1. Use X and Y marks at the back of the model for reference. The measurements from the side with X mark should be used for X axis *configuration*, and Y mark - for Y axis configuration. Measure the distance *D* (in mm) between several oscillations on the part with X mark, near the notches, preferably skipping the first oscillation or two. To measure the distance between oscillations more easily, mark the oscillations first, then measure the distance between the marks with a ruler or calipers:|![Mark ringing](img/ringing-mark.jpg)|![Measure ringing](img/ringing-measure.jpg)|
+   1. 使用模型后侧的XY标志作为校准的参考。X标志所在一侧的测量结果用于X轴的*配置*，而Y标志所在一侧则作为Y轴的配置。以X轴为例，测量X标志所在一侧的数个振纹周期的长度*D*（单位mm）：首先确定凹槽的位置，为了测量准确可以忽略最靠近凹槽的数个纹路，用记号笔标记起始和结束的数个振纹，然后用尺子或卡尺进行测量：|![标记振纹（Mark ringing）](img/ringing-mark.jpg)|![Measure ringing](img/ringing-measure.jpg)|
 1. 数一数测量的距离*D*中有多少个振荡*D*。如果你不确定如何计算振荡，请参考上图，其中显示*N*=6次振荡。
-1. Compute the ringing frequency of X axis as *V* &middot; *N* / *D* (Hz), where *V* is the velocity for outer perimeters (mm/sec). For the example above, we marked 6 oscillations, and the test was printed at 100 mm/sec velocity, so the frequency is 100 * 6 / 12.14 ≈ 49.4 Hz.
+1. 通过 *V* &middot; *N* / *D* (Hz) 计算振铃的频率，其中*V* 是外壁的加速度（mm/秒）。在上述例子中，我们标记了6个振纹，同时测试件是以100 mm/秒的速度进行印制，因此振动频率为100 * 6 / 12.14 ≈ 49.4 Hz。
 1. Do (8) - (10) for Y mark as well.
 
 请注意，测试打印件上的振纹应遵循弧形凹槽的模式，如上图所示。如果不是这样，那么这个缺陷就不是真正的振纹，而是有不同的原因--要么是机械问题，要么是挤出机问题。在启用和调整输入整形器之前，应该先解决这个问题。
 
-If the measurements are not reliable because, say, the distance between the oscillations is not stable, it might mean that the printer has several resonance frequencies on the same axis. One may try to follow the tuning process described in [Unreliable measurements of ringing frequencies](#unreliable-measurements-of-ringing-frequencies) section instead and still get something out of the input shaping technique.
+如果打印机存在多个共振频率，那么测量的结果将变得不可靠，表现为振纹之间的距离不恒定。我们可以通过 [修正不可靠的共振频率测量（Unreliable measurements of ringing frequencies）](#unreliable-measurements-of-ringing-frequencies)章节的步骤进行修正，以发挥输入整形的效用。
 
-Ringing frequency can depend on the position of the model within the buildplate and Z height, *especially on delta printers*; you can check if you see the differences in frequencies at different positions along the sides of the test model and at different heights. You can calculate the average ringing frequencies over X and Y axes if that is the case.
+振铃频率会基于工件在床上的位置和打印的Z高度而变化，这种情况在*三角洲打印机上*特为显著；我们可以通过检查工件的不同位置和高度上的振纹是否出现显著变化而确定。如果出现上述状况，可以通过计算不同位置的振铃频率，并基于x轴和y轴计算平均值。
 
-If the measured ringing frequency is very low (below approx 20-25 Hz), it might be a good idea to invest into stiffening the printer or decreasing the moving mass - depending on what is applicable in your case - before proceeding with further input shaping tuning, and re-measuring the frequencies afterwards. For many popular printer models there are often some solutions available already.
+如果测量到的振铃频率非常低（约低于20-25 Hz），则建议根据应用的目的，在进行进一步输入整形调试前，提高打印机框架的刚性，或减少动部件的质量。对大多主流打印机而言，上述改造的方式可简单搜索获得。
 
 请注意，如果对打印机进行了改动，改变了移动质量或系统的刚度，共振（振纹）频率会发生变化。例如：
 
 * 安装、移除、更换了一些在打印头上的工具，从而改变了其质量，例如，为近程挤出机更换一个新的（更重或更轻的）步进电机，或安装一个新的热端，增加一个带风道的重型风扇，等等。
 * 同步带被拉紧。
 * 安装了一些增加框架刚性的配件。
-* Different bed is installed on a bed-slinger printer, or glass added, etc.
+* 对平移热床式打印机而言，使用了不同的热床面板，或者加装了玻璃面板等操作。
 
 如果进行了此类更改，则最好至少测量共振（振纹）频率以查看它们是否发生变化。
 
@@ -70,7 +70,7 @@ shaper_freq_y: ...  # frequency for the Y mark of the test model
 
 ### 选择输入整形器
 
-Klipper supports several input shapers. They differ in their sensitivity to errors determining the resonance frequency and how much smoothing they cause in the printed parts. Also, some of the shapers like 2HUMP_EI and 3HUMP_EI should usually not be used with shaper_freq = resonance frequency - they are configured from different considerations to reduce several resonances at once.
+Klipper支持数种输入整形器。这些整形器之间的差异在于
 
 对于大多数打印机，推荐 MZV 或E I整形器。章节介绍了在它们之间进行选择，并找出其他一些相关参数的测试过程。
 

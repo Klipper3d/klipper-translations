@@ -38,9 +38,9 @@ TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 FACTOR=.020
 
 观察打印件，然后用游标卡尺量度转角质量最佳的层对应的高度。如果不能确定哪里最佳，请优先选择较小的高度。
 
-![tune_pa](img/tune_pa.jpg)
+![对高度进行测量](img/tune_pa.jpg)
 
-压力提前的设定值可以通过`pressure_advance = <start> + <measured_height> * <factor>`进行计算，如测出的最优层高（measured_height）为12.9 mm，测试起始点（start）为0 mm，增量（factor）为0.02，则计算结果为 `0 + 12.90 *.020` 。
+压力提前的设定值可以通过`pressure_advance = <start> + <measured_height> * <factor>`进行计算，如测出的最优层高（measured_height）为12.9 mm，测试起始点（start）为0 mm，增量（factor）为0.02，则计算结果为 `0 + 12.90 *.020=0.258`。
 
 为获得最佳的压力提前设定值，您可以自定义 起始高度（START）和增量（FACTOR）。切记在开始打印前通过调试塔（TUNING_TOWER）命令设置测试值。
 
