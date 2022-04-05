@@ -44,7 +44,7 @@ Klipper 使用传统的"梯形发生器"来产生每个动作的运动--每个�
 
 ![lookahead](img/lookahead-slow.svg.png)
 
-The junction speeds are determined using "approximated centripetal acceleration". Best [described by the author](https://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/). However, in Klipper, junction speeds are configured by specifying the desired speed that a 90° corner should have (the "square corner velocity"), and the junction speeds for other angles are derived from that.
+转角速度由“近似向心加速度”确定。最好[由作者描述](https://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/)。然而在Klipper中转角速度是通过指定90°角应该有的理想速度（“直角速度”）并且其他的角度的转角速度也是根据它推导出来的。
 
 预计算的关键方程：
 
@@ -58,7 +58,7 @@ Klipper 实现了一种用于平滑短距离之字形移动的机制。参考以
 
 ![zigzag](img/zigzag.svg.png)
 
-In the above, the frequent changes from acceleration to deceleration can cause the machine to vibrate which causes stress on the machine and increases the noise. To reduce this, Klipper tracks both regular move acceleration as well as a virtual "acceleration to deceleration" rate. Using this system, the top speed of these short "zigzag" moves are limited to smooth out the printer motion:
+在上述情况下，从加速到减速的频繁变化会导致机器振动并且会对机器造成压力和加噪音。为了减少这种情况，Klipper既跟踪常规的移动加速度并且也跟踪虚拟的"加减速率"。利用这个系统，这些短的"zigzag"移动的最高速度被限制以使得打印机的运动可以更加平滑：
 
 ![smoothed](img/smoothed.svg.png)
 

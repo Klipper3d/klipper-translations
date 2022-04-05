@@ -73,71 +73,71 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20201112: A `print_stats.print_duration` által bejelentett idő megváltozott. Az első észlelt extrudálás előtti időtartamot mostantól nem veszi figyelembe.
 
-20201029: The neopixel `color_order_GRB` config option has been removed. If necessary, update the config to set the new `color_order` option to RGB, GRB, RGBW, or GRBW.
+20201029: A neopixel `color_order_GRB` config opciót eltávolítottuk. Szükség esetén frissítse a configot, hogy az új `color_order` opciót RGB, GRB, RGBW vagy GRBW értékre állítsa be.
 
-20201029: The serial option in the mcu config section no longer defaults to /dev/ttyS0. In the rare situation where /dev/ttyS0 is the desired serial port, it must be specified explicitly.
+20201029: A serial opció az mcu config szakaszban már nem /dev/ttyS0 az alapértelmezett érték. Abban a ritka helyzetben, amikor a /dev/ttyS0 a kívánt soros port, azt kifejezetten meg kell adni.
 
-20201020: Klipper v0.9.0 released.
+20201020: Klipper v0.9.0 megjelent.
 
-20200902: The RTD resistance-to-temperature calculation for MAX31865 converters has been corrected to not read low. If you are using such a device, you should recalibrate your print temperature and PID settings.
+20200902: A MAX31865 átalakítók RTD ellenállás-hőmérséklet számítása javításra került, hogy ne legyen alacsony. Ha ilyen eszközt használ, akkor kalibrálja újra a nyomtatási hőmérsékletet és a PID-beállításokat.
 
-20200816: The gcode macro `printer.gcode` object has been renamed to `printer.gcode_move`. Several undocumented variables in `printer.toolhead` and `printer.gcode` have been removed. See docs/Command_Templates.md for a list of available template variables.
+20200816: A G-kód makró `printer.gcode` objektumot átneveztük `printer.gcode_move` objektumra. A `printer.toolhead` és `printer.gcode` objektumokból több nem dokumentált változót eltávolítottunk. A rendelkezésre álló sablonváltozók listáját lásd a docs/Command_Templates.md fájlban.
 
-20200816: The gcode macro "action_" system has changed. Replace any calls to `printer.gcode.action_emergency_stop()` with `action_emergency_stop()`, `printer.gcode.action_respond_info()` with `action_respond_info()`, and `printer.gcode.action_respond_error()` with `action_raise_error()`.
+20200816: A G-kód makró "action_" rendszere megváltozott. Cserélje ki a `printer.gcode.action_emergency_stop()` hívásokat `action_emergency_stop()`, `printer.gcode.action_respond_info()` a `action_respond_info()`, és `printer.gcode.action_respond_error()` a `action_raise_error()`-el.
 
-20200809: The menu system has been rewritten. If the menu has been customized then it will be necessary to update to the new configuration. See config/example-menu.cfg for configuration details and see klippy/extras/display/menu.cfg for examples.
+20200809: A menürendszer átírásra került. Ha a menüt testre szabták, akkor frissíteni kell az új konfigurációra. A konfiguráció részleteiért lásd a config/example-menu.cfg fájlt, a példákért pedig a klippy/extras/display/menu.cfg fájlt.
 
-20200731: The behavior of the `progress` attribute reported by the `virtual_sdcard` printer object has changed. Progress is no longer reset to 0 when a print is paused. It will now always report progress based on the internal file position, or 0 if no file is currently loaded.
+20200731: A `progress` attribútum viselkedése megváltozott, amelyet a `virtual_sdcard` nyomtatóobjektum jelentett. A nyomtatás szüneteltetésekor a Progress már nem áll vissza 0-ra. Mostantól mindig a belső fájl pozíciója alapján jelenti a haladást. Vagy 0, ha nincs betöltve fájl.
 
-20200725: The servo `enable` config parameter and the SET_SERVO `ENABLE` parameter have been removed. Update any macros to use `SET_SERVO SERVO=my_servo WIDTH=0` to disable a servo.
+20200725: A szervo `enable` konfigurációs paraméter és a SET_SERVO `ENABLE` paraméter eltávolításra került. Frissítsen minden makrót, hogy a `SET_SERVO SERVO=my_servo WIDTH=0` paramétert használja a szervó letiltásához.
 
-20200608: The LCD display support has changed the name of some internal "glyphs". If a custom display layout was implemented it may be necessary to update to the latest glyph names (see klippy/extras/display/display.cfg for a list of available glyphs).
+20200608: Az LCD-kijelző támogatása megváltoztatta néhány belső "írásjel" nevét. Ha egyéni kijelző elrendezés került implementálásra, akkor szükséges lehet frissíteni a legújabb gliph nevekre (lásd klippy/extras/display/display.cfg az elérhető gliph-ek listáját).
 
-20200606: The pin names on linux mcu have changed. Pins now have names of the form `gpiochip<chipid>/gpio<gpio>`. For gpiochip0 you can also use a short `gpio<gpio>`. For example, what was previously referred to as `P20` now becomes `gpio20` or `gpiochip0/gpio20`.
+20200606: A linux MCU pin nevei megváltoztak. A pin nevek mostantól a `gpiochip<chipid>/gpio<gpio>` formájúak. A gpiochip0 esetében egy rövid `gpio<gpio>` is használható. Például, amire korábban `P20` néven hivatkoztunk, az most `gpio20` vagy `gpiochip0/gpio20` lesz.
 
-20200603: The default 16x4 LCD layout will no longer show the estimated time remaining in a print. (Only the elapsed time will be shown.) If the old behavior is desired one can customize the menu display with that information (see the description of display_data in config/example-extras.cfg for details).
+20200603: Az alapértelmezett 16x4-es LCD kijelzőn már nem jelenik meg a nyomtatásból hátralévő becsült idő. (Csak az eltelt idő jelenik meg.) Ha a régi működést szeretnénk, akkor a menü kijelzőjét testre lehet szabni ezzel az információval (a részletekért lásd a config/example-extras.cfg fájlban a display_data leírását).
 
-20200531: The default USB vendor/product id is now 0x1d50/0x614e. These new ids are reserved for Klipper (thanks to the openmoko project). This change should not require any config changes, but the new ids may appear in system logs.
+20200531: Az alapértelmezett USB gyártó/termék azonosító mostantól 0x1d50/0x614e. Ezek az új azonosítók a Klipper számára vannak fenntartva (köszönet az openmoko projektnek). Ez a változás nem igényel semmilyen konfigurációs módosítást, de az új azonosítók megjelenhetnek a rendszer naplóiban.
 
-20200524: The default value for the tmc5160 pwm_freq field is now zero (instead of one).
+20200524: A TMC5160 pwm_freq mező alapértelmezett értéke mostantól nulla (egy helyett).
 
-20200425: The gcode_macro command template variable `printer.heater` was renamed to `printer.heaters`.
+20200425: A gcode_macro parancs sablonváltozója `printer.heater` át lett nevezve `printer.heaters`-re.
 
-20200313: The default lcd layout for multi-extruder printers with a 16x4 screen has changed. The single extruder screen layout is now the default and it will show the currently active extruder. To use the previous display layout set "display_group: _multiextruder_16x4" in the [display] section of the printer.cfg file.
+20200313: A 16x4-es képernyővel és a több extruderrel rendelkező nyomtatók alapértelmezett LCD-kiosztása megváltozott. Mostantól az egy extruderrel rendelkező képernyő elrendezése az alapértelmezett, és az aktuálisan aktív extrudert mutatja. A korábbi kijelző elrendezés használatához állítsa be a "display_group: _multiextruder_16x4" a printer.cfg fájl [display] szakaszában.
 
-20200308: The default `__test` menu item was removed. If the config file has a custom menu then be sure to remove all references to this `__test` menu item.
+20200308: Az alapértelmezett `__test` menüpont eltávolításra került. Ha a konfigurációs fájlban egyéni menü van, akkor mindenképpen távolítson el minden hivatkozást erre a `__test` menüpontra.
 
-20200308: The menu "deck" and "card" options were removed. To customize the layout of an lcd screen use the new display_data config sections (see config/example-extras.cfg for the details).
+20200308: A "pakli" és "kártya" menüpontok eltávolításra kerültek. Az LCD képernyő elrendezésének testreszabásához használd az új display_data config szakaszokat (a részletekért lásd a config/example-extras.cfg fájlt).
 
-20200109: The bed_mesh module now references the probe's location in for the mesh configuration. As such, some configuration options have been renamed to more accurately reflect their intended functionality. For rectangular beds, `min_point` and `max_point` have been renamed to `mesh_min` and `mesh_max` respectively. For round beds, `bed_radius` has been renamed to `mesh_radius`. A new `mesh_origin` option has also been added for round beds. Note that these changes are also incompatible with previously saved mesh profiles. If an incompatible profile is detected it will be ignored and scheduled for removal. The removal process can be completed by issuing the SAVE_CONFIG command. The user will need to re-calibrate each profile.
+20200109: A bed_mesh modul most már hivatkozik a szonda helyére a hálókonfigurációban. Ennek megfelelően néhány konfigurációs opciót átneveztek, hogy pontosabban tükrözze a tervezett funkciójukat. Téglalap alakú ágyak esetében a `min_point` és `max_point` átnevezésre került `mesh_min` és `mesh_max`-ra. A kerek ágyak esetében a `bed_radius` át lett nevezve `mesh_radius`-ra. A kerek ágyakhoz egy új `mesh_origin` opció is hozzá lett adva. Vegye figyelembe, hogy ezek a változások a korábban elmentett hálóprofilokkal is inkompatibilisek. Ha egy inkompatibilis profilt észlelünk, azt figyelmen kívül hagyjuk és eltávolításra ütemezzük. Az eltávolítási folyamat a SAVE_CONFIG parancs kiadásával fejezhető be. A felhasználónak minden egyes profilt újra kell kalibrálnia.
 
-20191218: The display config section no longer supports "lcd_type: st7567". Use the "uc1701" display type instead - set "lcd_type: uc1701" and change the "rs_pin: some_pin" to "rst_pin: some_pin". It may also be necessary to add a "contrast: 60" config setting.
+20191218: A display config szakasz már nem támogatja az "lcd_type: st7567". Használja helyette az "uc1701" kijelzőtípust. Állítsa be az "lcd_type: uc1701" értéket, és módosítsa az "rs_pin: some_pin" értéket "rst_pin: some_pin" értékre. Szükség lehet még egy "contrast: 60" konfigurációs beállítás hozzáadására.
 
-20191210: The builtin T0, T1, T2, ... commands have been removed. The extruder activate_gcode and deactivate_gcode config options have been removed. If these commands (and scripts) are needed then define individual [gcode_macro T0] style macros that call the ACTIVATE_EXTRUDER command. See the config/sample-idex.cfg and sample-multi-extruder.cfg files for examples.
+20191210: A beépített T0, T1, T2, ... parancsok eltávolításra kerültek. Az extruder activate_gcode és deactivate_gcode konfigurációs opciók eltávolításra kerültek. Ha szükség van ezekre a parancsokra (és szkriptekre), akkor definiáljon egyedi [gcode_macro T0] stílusú makrókat, amelyek meghívják az ACTIVATE_EXTRUDER parancsot. Példákért lásd a config/sample-idex.cfg és sample-multi-extruder.cfg fájlokat.
 
-20191210: Support for the M206 command has been removed. Replace with calls to SET_GCODE_OFFSET. If support for M206 is needed, add a [gcode_macro M206] config section that calls SET_GCODE_OFFSET. (For example "SET_GCODE_OFFSET Z=-{params.Z}".)
+20191210: Az M206 parancs támogatása megszűnt. A SET_GCODE_OFFSET hívásával helyettesítjük. Ha szükség van az M206 támogatására, adjunk hozzá egy [gcode_macro M206] config szakaszt, amely meghívja a SET_GCODE_OFFSET-et. (Például "SET_GCODE_OFFSET Z=-{params.Z}".)
 
-20191202: Support for the undocumented "S" parameter of the "G4" command has been removed. Replace any occurrences of S with the standard "P" parameter (the delay specified in milliseconds).
+20191202: A "G4" parancs nem dokumentált "S" paraméterének támogatása megszűnt. Az S minden előfordulását a szabványos "P" paraméterrel helyettesíti (a milliszekundumokban megadott késleltetés).
 
-20191126: The USB names have changed on micro-controllers with native USB support. They now use a unique chip id by default (where available). If an "mcu" config section uses a "serial" setting that starts with "/dev/serial/by-id/" then it may be necessary to update the config. Run "ls /dev/serial/by-id/*" in an ssh terminal to determine the new id.
+20191126: Az USB nevek megváltoztak a natív USB-támogatással rendelkező mikrovezérlőkön. Mostantól alapértelmezés szerint egyedi chip-azonosítót használnak (ahol van ilyen). Ha egy "MCU" config szakasz olyan "serial" beállítást használ, amely "/dev/serial/by-id/" kezdetű, akkor szükség lehet a config frissítésére. Futtassa a "ls /dev/serial/by-id/*" parancsot egy SSH terminálban az új azonosító meghatározásához.
 
-20191121: The pressure_advance_lookahead_time parameter has been removed. See example.cfg for alternate configuration settings.
+20191121: A pressure_advance_lookahead_time paramétert eltávolítottuk. Az alternatív konfigurációs beállításokat lásd a example.cfg fájlban.
 
-20191112: The tmc stepper driver virtual enable capability is now automatically enabled if the stepper does not have a dedicated stepper enable pin. Remove references to tmcXXXX:virtual_enable from the config. The ability to control multiple pins in the stepper enable_pin config has been removed. If multiple pins are needed then use a multi_pin config section.
+20191112: A TMC léptető vezérlő virtuális engedélyezési képessége mostantól automatikusan engedélyezve van, ha a léptető nem rendelkezik dedikált léptető engedélyező pin-nel. A tmcXXXX:virtual_enable-re való hivatkozások eltávolítása a konfigurációból. A stepper enable_pin konfigurációban több pin vezérlésének lehetősége megszűnt. Ha több pinre van szükség, akkor használjon egy multi_pin config szekciót.
 
-20191107: The primary extruder config section must be specified as "extruder" and may no longer be specified as "extruder0". Gcode command templates that query the extruder status are now accessed via "{printer.extruder}".
+20191107: Az elsődleges extruder konfigurációs szakaszát "extruder" néven kell megadni, és már nem lehet "extruder0" néven megadni. Az extruder állapotát lekérdező Gcode parancssablonokat mostantól a "{printer.extruder}" segítségével lehet elérni.
 
-20191021: Klipper v0.8.0 released
+20191021: Klipper v0.8.0 megjelent
 
-20191003: The move_to_previous option in [safe_z_homing] now defaults to False. (It was effectively False prior to 20190918.)
+20191003: A move_to_previous opció a [safe_z_homing]-ban mostantól alapértelmezés szerint False. (A 20190918 előtt ténylegesen False volt.)
 
-20190918: The zhop option in [safe_z_homing] is always re-applied after Z axis homing completed. This might need users to update custom scripts based on this module.
+20190918: A z-hop opció a [safe_z_homing]-ban mindig újra alkalmazásra kerül, miután a Z tengelyre történő homing befejeződött. Ez szükségessé teheti a felhasználók számára, hogy frissítsék az ezen a modulon alapuló egyéni szkripteket.
 
-20190806: The SET_NEOPIXEL command has been renamed to SET_LED.
+20190806: A SET_NEOPIXEL parancsot átnevezték SET_LED-re.
 
-20190726: The mcp4728 digital-to-analog code has changed. The default i2c_address is now 0x60 and the voltage reference is now relative to the mcp4728's internal 2.048 volt reference.
+20190726: Az mcp4728 digitális-analóg kódja megváltozott. Az alapértelmezett i2c_address most 0x60, és a feszültségreferencia most az mcp4728's belső 2,048 voltos referenciához viszonyítva van.
 
-20190710: The z_hop option was removed from the [firmware_retract] config section. The z_hop support was incomplete and could cause incorrect behavior with several common slicers.
+20190710: A [firmware_retract] konfigurációs szakaszból eltávolították a z_hop opciót. A z_hop támogatása hiányos volt, és több gyakori szeletelővel hibás viselkedést okozott.
 
 20190710: The optional parameters of the PROBE_ACCURACY command have changed. It may be necessary to update any macros or scripts that use that command.
 
