@@ -1,11 +1,12 @@
 # mirokymac <toufubomb@gmail.com>, 2021, 2022, 2025.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2025.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
+# "Neko.vecter" <Vecterfang@icloud.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:20+0000\n"
-"Last-Translator: mirokymac <toufubomb@gmail.com>\n"
+"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/kinematics/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -153,7 +154,10 @@ msgid ""
 " speed that a 90° corner should have (the \"square corner velocity\"), and the"
 " junction speeds for other angles are derived from that."
 msgstr ""
-"转角速度由“近似向心加速度”确定。最好[由作者描述](https://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/)。然而在Klipper中转角速度是通过指定90°角应该有的理想速度（“直角速度”）并且其他的角度的转角速度也是根据它推导出来的。"
+"转角速度由“近似向心加速度”确定。最好[由作者描述](https://"
+"onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/"
+")。然而在Klipper中转角速度是通过指定90°角应该有的理想速度（“直角速度”）并且其"
+"他的角度的转角速度也是根据它推导出来的。"
 
 msgid "Key formula for look-ahead:"
 msgstr "预计算的关键方程："
