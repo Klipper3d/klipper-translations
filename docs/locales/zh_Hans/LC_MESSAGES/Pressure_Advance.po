@@ -1,11 +1,11 @@
 # mirokymac <toufubomb@gmail.com>, 2021, 2022.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # mouren 120 <mouren1101@outlook.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-04-04 12:07+0000\n"
-"Last-Translator: mirokymac <toufubomb@gmail.com>\n"
+"PO-Revision-Date: 2022-04-05 05:48+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/pressure_advance/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -95,11 +95,9 @@ msgid ""
 msgstr "观察打印件，然后用游标卡尺量度转角质量最佳的层对应的高度。如果不能确定哪里最"
 "佳，请优先选择较小的高度。"
 
-#, fuzzy
 msgid "![tune_pa](img/tune_pa.jpg)"
-msgstr "![tune_pa](img/tune_pa.jpg)"
+msgstr "![对高度进行测量](img/tune_pa.jpg)"
 
-#, fuzzy
 msgid ""
 "The pressure_advance value can then be calculated as `pressure_advance = "
 "<start> + <measured_height> * <factor>`. (For example, `0 + 12.90 * .020` "
@@ -107,8 +105,8 @@ msgid ""
 msgstr ""
 "压力提前的设定值可以通过`pressure_advance = <start> + <measured_height> * "
 "<factor>`进行计算，如测出的最优层高（measured_height）为12.9 "
-"mm，测试起始点（start）为0 mm，增量（factor）为0.02，则计算结果为 ` 0 + "
-"12.90 *.020 ` 。"
+"mm，测试起始点（start）为0 mm，增量（factor）为0.02，则计算结果为 `0 + 12.90 "
+"*.020=0.258`。"
 
 msgid ""
 "It is possible to choose custom settings for START and FACTOR if that helps "
@@ -248,11 +246,9 @@ msgstr ""
 "挤出机加减速时出现非常大的挤出机运动量。暂时，Klipper配置文件中没有任何设置对"
 "压力提前的额外挤出机运动进行设限。"
 
-#, fuzzy
 msgid "SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500\n"
 msgstr "SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500\n"
 
-#, fuzzy
 msgid ""
 "TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 "
 "FACTOR=.005\n"
@@ -260,7 +256,6 @@ msgstr ""
 "TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 FACTOR=."
 "005\n"
 
-#, fuzzy
 msgid ""
 "TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 "
 "FACTOR=.020\n"
