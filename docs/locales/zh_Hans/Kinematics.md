@@ -64,7 +64,7 @@ Klipper 实现了一种用于平滑短距离之字形移动的机制。参考以
 
 Specifically, the code calculates what the velocity of each move would be if it were limited to this virtual "acceleration to deceleration" rate (half the normal acceleration rate by default). In the above picture the dashed gray lines represent this virtual acceleration rate for the first move. If a move can not reach its full cruising speed using this virtual acceleration rate then its top speed is reduced to the maximum speed it could obtain at this virtual acceleration rate. For most moves the limit will be at or above the move's existing limits and no change in behavior is induced. For short zigzag moves, however, this limit reduces the top speed. Note that it does not change the actual acceleration within the move - the move continues to use the normal acceleration scheme up to its adjusted top-speed.
 
-## Generating steps
+## 生成步数（Generating steps）
 
 Once the look-ahead process completes, the print head movement for the given move is fully known (time, start position, end position, velocity at each point) and it is possible to generate the step times for the move. This process is done within "kinematic classes" in the Klipper code. Outside of these kinematic classes, everything is tracked in millimeters, seconds, and in cartesian coordinate space. It's the task of the kinematic classes to convert from this generic coordinate system to the hardware specifics of the particular printer.
 
@@ -76,13 +76,13 @@ The key formula to determine how far a move should travel under constant acceler
 move_distance = (start_velocity + .5 * accel * move_time) * move_time
 ```
 
-and the key formula for movement with constant velocity is:
+并且匀速运动的关键公式是：
 
 ```
 move_distance = cruise_velocity * move_time
 ```
 
-The key formulas for determining the cartesian coordinate of a move given a move distance is:
+在给定移动距离的情况下用于确定移动的笛卡尔坐标的关键公式为：
 
 ```
 cartesian_x_position = start_x + move_distance * total_x_movement / total_movement
@@ -90,7 +90,7 @@ cartesian_y_position = start_y + move_distance * total_y_movement / total_moveme
 cartesian_z_position = start_z + move_distance * total_z_movement / total_movement
 ```
 
-### Cartesian Robots
+### 笛卡尔机器
 
 Generating steps for cartesian printers is the simplest case. The movement on each axis is directly related to the movement in cartesian space.
 
@@ -112,7 +112,7 @@ stepper_b_position = cartesian_x_position - cartesian_y_position
 stepper_z_position = cartesian_z_position
 ```
 
-### Delta Robots
+### 三角洲机器
 
 Step generation on a delta robot is based on Pythagoras's theorem:
 
@@ -161,7 +161,7 @@ The above graph shows an example of two extrusion moves with a non-zero cornerin
 
 The "smoothing" is implemented using a weighted average of the extruder position over a small time period (as specified by the `pressure_advance_smooth_time` config parameter). This averaging can span multiple g-code moves. Note how the extruder motor will start moving prior to the nominal start of the first extrusion move and will continue to move after the nominal end of the last extrusion move.
 
-Key formula for "smoothed pressure advance":
+"平滑压力提前"的关键公式：
 
 ```
 smooth_pa_position(t) =
