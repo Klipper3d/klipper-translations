@@ -2,7 +2,7 @@
 
 Az ágyháló modul használható az ágyfelület egyenetlenségeinek kiegyenlítésére, hogy jobb első réteget érjen el az egész ágyon. Meg kell jegyezni, hogy a szoftveralapú korrekció nem fog tökéletes eredményt elérni, csak megközelítő értékekkel tudatja az ágy alakját. A Bed Mesh szintén nem tudja kompenzálni a mechanikai és elektromos problémákat. Ha egy tengely ferde vagy egy szonda nem pontos, akkor a bed_mesh modul nem fog pontos eredményeket kapni a szintezésről.
 
-Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information.
+A hálókalibrálás előtt meg kell győződnie arról, hogy a szonda Z-eltolása kalibrálva van. Ha végállást használ a Z-kezdőponthoz, akkor azt is kalibrálni kell. További információkért lásd a [Szonda Kalibrálás](Probe_Calibrate.md) és a Z_ENDSTOP_CALIBRATE című fejezetben [Kézi Szintezést](Manual_Level.md).
 
 ## Alapvető konfiguráció
 
@@ -21,17 +21,17 @@ probe_count: 5, 3
 
 - `sebesség: 120` * Alapértelmezett érték: 50* A sebesség, amellyel a fej a pontok között mozog.
 - `horizontal_move_z: 5` *Alapértelmezett érték: 5* A Z koordináta, amelyre a szonda a mérőpontok közötti utazás előtt emelkedik.
-- `mesh_min: 35, 6` *Required* The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.
-- `mesh_max: 240, 198` *Required* The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with `mesh_min`, this coordiante is relative to the probe's location.
-- `probe_count: 5, 3` *Default Value: 3, 3* The number of points to probe on each axis, specified as X, Y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie `probe_count: 3`. Note that a mesh requires a minimum probe_count of 3 along each axis.
+- `mesh_min: 35, 6` *Ajánlott* Az első, az origóhoz legközelebbi koordináta. Ez a koordináta a szonda helyéhez képest relatív.
+- `mesh_max: 240, 198` *Ajánlott* Az origótól legtávolabb eső mért koordináta. Ez nem feltétlenül az utolsó mért pont, mivel a mérés cikcakkos módon történik. A `mesh_min` koordinátához hasonlóan ez a koordináta is a szonda helyéhez van viszonyítva.
+- `probe_count: 5, 3` *Alapértelmezett érték: 3,3* Az egyes tengelyeken mérendő pontok száma, X, Y egész értékként megadva. Ebben a példában az X tengely mentén 5 pont lesz mérve, az Y tengely mentén 3 pont, összesen 15 mért pont. Vegye figyelembe, hogy ha négyzetrácsot szeretne, például 3x3, akkor ezt egyetlen egész számértékként is megadhatja, amelyet mindkét tengelyre használ, azaz `probe_count: 3`. Vegye figyelembe, hogy egy hálóhoz mindkét tengely mentén legalább 3 darab mérési számra van szükség.
 
-The illustration below demonstrates how the `mesh_min`, `mesh_max`, and `probe_count` options are used to generate probe points. The arrows indicate the direction of the probing procedure, beginning at `mesh_min`. For reference, when the probe is at `mesh_min` the nozzle will be at (11, 1), and when the probe is at `mesh_max`, the nozzle will be at (206, 193).
+Az alábbi ábra azt mutatja, hogy a `mesh_min`, `mesh_max` és `probe_count` opciók hogyan használhatók a mérőpontok létrehozására. A nyilak jelzik a mérési eljárás irányát, kezdve a `mesh_min` ponttól. Hivatkozásképpen, amikor a szonda a `mesh_min` pontnál van, a fúvóka a (11, 1) pontnál lesz, és amikor a szonda a `mesh_max` pontnál van, a fúvóka a (206, 193) pontnál lesz.
 
 ![bedmesh_rect_basic](img/bedmesh_rect_basic.svg)
 
-### Round beds
+### Kerek ágyak
 
-This example assumes a printer equipped with a round bed radius of 100mm. We will use the same probe offsets as the rectangular example, 24 mm on X and 5 mm on Y.
+Ez a példa egy 100 mm-es kerek ágysugárral felszerelt nyomtatót feltételez. Ugyanazokat a szondaeltolásokat fogjuk használni, mint a téglalap alakú példánál, 24 mm-t X-en és 5 mm-t Y-on.
 
 ```
 [bed_mesh]
@@ -42,21 +42,21 @@ mesh_origin: 0, 0
 round_probe_count: 5
 ```
 
-- `mesh_radius: 75` *Required* The radius of the probed mesh in mm, relative to the `mesh_origin`. Note that the probe's offsets limit the size of the mesh radius. In this example, a radius larger than 76 would move the tool beyond the range of the printer.
-- `mesh_origin: 0, 0` *Default Value: 0, 0* The center point of the mesh. This coordinate is relative to the probe's location. While the default is 0, 0, it may be useful to adjust the origin in an effort to probe a larger portion of the bed. See the illustration below.
-- `round_probe_count: 5` *Default Value: 5* This is an integer value that defines the maximum number of probed points along the X and Y axes. By "maximum", we mean the number of points probed along the mesh origin. This value must be an odd number, as it is required that the center of the mesh is probed.
+- `mesh_radius: 75` *Required* A vizsgált háló sugara mm-ben, a `mesh_origin`-hez képest. Vegye figyelembe, hogy a szonda eltolásai korlátozzák a háló sugarának méretét. Ebben a példában a 76-nál nagyobb sugár a szerszámot a nyomtató hatótávolságán kívülre helyezné.
+- `mesh_origin: 0, 0` *Alapértelmezett érték: 0, 0* A háló középpontja. Ez a koordináta a szonda helyéhez képest relatív. Bár az alapértelmezett érték 0, 0 hasznos lehet az origó beállítása, ha az ágy nagyobb részét szeretné megmérni. Lásd az alábbi ábrát.
+- `round_probe_count: 5` *Alapértelmezett érték: 5* Ez egy egész szám, amely meghatározza az X és Y tengely mentén mért pontok maximális számát. A "maximális" alatt a háló origója mentén mért pontok számát értjük. Ennek az értéknek páratlan számnak kell lennie, mivel a háló középpontját kell megvizsgálni.
 
-The illustration below shows how the probed points are generated. As you can see, setting the `mesh_origin` to (-10, 0) allows us to specifiy a larger mesh radius of 85.
+Az alábbi ábra mutatja, hogyan generálódnak a mért pontok. Mint látható, a `mesh_origin` (-10, 0) értékre állítása lehetővé teszi, hogy nagyobb, 85-ös hálósugarat adjunk meg.
 
 ![bedmesh_round_basic](img/bedmesh_round_basic.svg)
 
-## Advanced Configuration
+## Speciális konfiguráció
 
-Below the more advanced configuration options are explained in detail. Each example will build upon the basic rectangular bed configuration shown above. Each of the advanced options apply to round beds in the same manner.
+Az alábbiakban részletesen ismertetjük a fejlettebb konfigurációs lehetőségeket. Minden példa a fent bemutatott téglalap alakú alapkonfigurációra épül. A speciális lehetőségek mindegyike ugyanúgy alkalmazható a kerek ágyakra is.
 
-### Mesh Interpolation
+### Háló interpoláció
 
-While its possible to sample the probed matrix directly using simple bilinear interpolation to determine the Z-Values between probed points, it is often useful to interpolate extra points using more advanced interpolation algorithms to increase mesh density. These algorithms add curvature to the mesh, attempting to simulate the material properties of the bed. Bed Mesh offers lagrange and bicubic interpolation to accomplish this.
+Bár a mért mátrixot közvetlenül egyszerű bilineáris interpolációval lehet mintavételezni a mért pontok közötti Z-értékek meghatározásához, a háló sűrűségének növelése érdekében gyakran hasznos a további pontok interpolálása fejlettebb interpolációs algoritmusok segítségével. Ezek az algoritmusok görbületet adnak a hálóhoz, megkísérelve szimulálni a meder anyagi tulajdonságait. A Bed Mesh ehhez Lagrange és bikubik interpolációt kínál.
 
 ```
 [bed_mesh]
@@ -70,17 +70,17 @@ algorithm: bicubic
 bicubic_tension: 0.2
 ```
 
-- `mesh_pps: 2, 3` *Default Value: 2, 2* The `mesh_pps` option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like `probe_count`, `mesh_pps` is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x8 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.
-- `algorithm: lagrange` *Default Value: lagrange* The algorithm used to interpolate the mesh. May be `lagrange` or `bicubic`. Lagrange interpolation is capped at 6 probed points as oscillation tends to occur with a larger number of samples. Bicubic interpolation requires a minimum of 4 probed points along each axis, if less than 4 points are specified then lagrange sampling is forced. If `mesh_pps` is set to 0 then this value is ignored as no mesh interpolation is done.
-- `bicubic_tension: 0.2` *Default Value: 0.2* If the `algorithm` option is set to bicubic it is possible to specify the tension value. The higher the tension the more slope is interpolated. Be careful when adjusting this, as higher values also create more overshoot, which will result in interpolated values higher or lower than your probed points.
+- `mesh_pps: 2, 3` *Alapértelmezett érték: 2, 2* A `mesh_pps` opció a Hálópontok szegmensenkénti rövidítése. Ez az opció azt adja meg, hogy hány pontot interpoláljon minden egyes szegmenshez az X és Y tengely mentén. Tekintsük egy 'szegmensnek' az egyes mért pontok közötti teret. A `probe_count`-hoz hasonlóan a `mesh_pps` is X, Y egész számpárként adható meg, de megadható egyetlen egész szám is, amely mindkét tengelyre vonatkozik. Ebben a példában 4 szegmens van az X tengely mentén és 2 szegmens az Y tengely mentén. Ez 8 interpolált pontot jelent az X mentén, 6 interpolált pontot az Y mentén, ami egy 13x8-as hálót eredményez. Vegye figyelembe, hogy ha a mesh_pps értéke 0, akkor a hálóinterpoláció le van tiltva, és a mért mátrixot közvetlenül mintavételezi a rendszer.
+- `algorithm: lagrange` * Alapértelmezett érték: lagrange* A háló interpolálásához használt algoritmus. Lehet `lagrange` vagy `bicubic`. A Lagrange-interpoláció 6 szondázott pontnál van korlátozva, mivel nagyobb számú minta esetén oszcilláció lép fel. A bikubik interpolációhoz mindkét tengely mentén legalább 4 szondázott pont szükséges, ha 4 pontnál kevesebb van megadva, akkor a Lagrange mintavételezés kikényszerül. Ha a `mesh_pps` 0-ra van állítva, akkor ez az érték figyelmen kívül marad, mivel nem történik hálóinterpoláció.
+- `bicubic_tension: 0.2` *Alapértelmezett érték: 0.2* Ha az `algorithm` opció bikubikra van állítva, akkor lehet megadni a feszültség értékét. Minél nagyobb a feszültség, annál nagyobb meredekséget interpolál. Legyen óvatos ennek beállításakor, mivel a magasabb értékek több túlhúzást is eredményeznek, ami a mért pontoknál magasabb vagy alacsonyabb interpolált értékeket eredményez.
 
-The illustration below shows how the options above are used to generate an interpolated mesh.
+Az alábbi ábra azt mutatja, hogy a fenti opciókat hogyan használjuk egy interpolált háló létrehozásához.
 
 ![bedmesh_interpolated](img/bedmesh_interpolated.svg)
 
-### Move Splitting
+### Mozgás felosztás
 
-Bed Mesh works by intercepting gcode move commands and applying a transform to their Z coordinate. Long moves must be split into smaller moves to correctly follow the shape of the bed. The options below control the splitting behavior.
+Az ágy háló úgy működik, hogy megkapja a G-kód mozgatási parancsokat és transzformációt alkalmaz a Z koordinátájukra. A hosszú mozgásokat kisebb mozgásokra kell bontani, hogy helyesen kövessék az ágy alakját. Az alábbi opciók a felosztási viselkedést szabályozzák.
 
 ```
 [bed_mesh]
@@ -93,14 +93,14 @@ move_check_distance: 5
 split_delta_z: .025
 ```
 
-- `move_check_distance: 5` *Default Value: 5* The minimum distance to check for the desired change in Z before performing a split. In this example, a move longer than 5mm will be traversed by the algorithm. Each 5mm a mesh Z lookup will occur, comparing it with the Z value of the previous move. If the delta meets the threshold set by `split_delta_z`, the move will be split and traversal will continue. This process repeats until the end of the move is reached, where a final adjustment will be applied. Moves shorter than the `move_check_distance` have the correct Z adjustment applied directly to the move without traversal or splitting.
-- `split_delta_z: .025` *Default Value: .025* As mentioned above, this is the minimum deviation required to trigger a move split. In this example, any Z value with a deviation +/- .025mm will trigger a split.
+- `move_check_distance: 5` *Alapértelmezett érték: 5* A minimális távolság, amellyel a kívánt Z-változást ellenőrizni kell a felosztás végrehajtása előtt. Ebben a példában az 5 mm-nél hosszabb mozgást fog az algoritmus végigjárni. Minden 5 mm-enként egy háló Z mérés történik, összehasonlítva azt az előző lépés Z értékével. Ha a delta eléri a `split_delta_z` által beállított küszöbértéket, akkor a mozgás felosztásra kerül, és a bejárás folytatódik. Ez a folyamat addig ismétlődik, amíg a lépés végére nem érünk, ahol egy végső kiigazítás történik. A `move_check_distance` értéknél rövidebb mozgásoknál a helyes Z kiigazítást közvetlenül a mozgásra alkalmazzák, áthaladás vagy felosztás nélkül.
+- `split_delta_z: .025` *Alapértelmezett érték: .025* Mint fentebb említettük, ez a minimális eltérés szükséges a mozgás felosztásának elindításához. Ebben a példában bármely Z-érték +/- .025 mm eltérés kiváltja a felosztást.
 
-Generally the default values for these options are sufficient, in fact the default value of 5mm for the `move_check_distance` may be overkill. However an advanced user may wish to experiment with these options in an effort to squeeze out the optimial first layer.
+Általában az alapértelmezett értékek elegendőek ezekhez az opciókhoz, sőt, a `move_check_distance` alapértelmezett 5 mm-es értéke túlzás lehet. Egy haladó felhasználó azonban kísérletezhet ezekkel az opciókkal, hogy megpróbálja kiszorítani az optimális első réteget.
 
-### Mesh Fade
+### Háló elhalványulás
 
-When "fade" is enabled Z adjustment is phased out over a distance defined by the configuration. This is accomplished by applying small adjustments to the layer height, either increasing or decreasing depending on the shape of the bed. When fade has completed, Z adjustment is no longer applied, allowing the top of the print to be flat rather than mirror the shape of the bed. Fade also may have some undesirable traits, if you fade too quickly it can result in visible artifacts on the print. Also, if your bed is significantly warped, fade can shrink or stretch the Z height of the print. As such, fade is disabled by default.
+Ha a "fade" engedélyezve van, a Z-beállítás a konfiguráció által meghatározott távolságon belül fokozatosan megszűnik. Ez a rétegmagasság kis kiigazításával érhető el, az ágy alakjától függően növelve vagy csökkentve. Ha a fade befejeződött, a Z-beállítás már nem kerül alkalmazásra, így a nyomtatás teteje sík lesz, nem pedig az ágy alakját tükrözi. A fakításnak lehetnek nemkívánatos tulajdonságai is, ha túl gyorsan fakít, akkor látható leleteket eredményezhet a nyomaton. Továbbá, ha az ágy jelentősen megvetemedett, a fade zsugoríthatja vagy megnyújthatja a nyomat Z magasságát. Ezért a fade alapértelmezés szerint ki van kapcsolva.
 
 ```
 [bed_mesh]
@@ -114,13 +114,13 @@ fade_end: 10
 fade_target: 0
 ```
 
-- `fade_start: 1` *Default Value: 1* The Z height in which to start phasing out adjustment. It is a good idea to get a few layers down before starting the fade process.
-- `fade_end: 10` *Default Value: 0* The Z height in which fade should complete. If this value is lower than `fade_start` then fade is disabled. This value may be adjusted depending on how warped the print surface is. A significantly warped surface should fade out over a longer distance. A near flat surface may be able to reduce this value to phase out more quickly. 10mm is a sane value to begin with if using the default value of 1 for `fade_start`.
-- `fade_target: 0` *Default Value: The average Z value of the mesh* The `fade_target` can be thought of as an additional Z offset applied to the entire bed after fade completes. Generally speaking we would like this value to be 0, however there are circumstances where it should not be. For example, lets assume your homing position on the bed is an outlier, its .2 mm lower than the average probed height of the bed. If the `fade_target` is 0, fade will shrink the print by an average of .2 mm across the bed. By setting the `fade_target` to .2, the homed area will expand by .2 mm, however the rest of the bed will have an accurately sized. Generally its a good idea to leave `fade_target` out of the configuration so the average height of the mesh is used, however it may be desirable to manually adjust the fade target if one wants to print on a specific portion of the bed.
+- `fade_start: 1` *Alapértelmezett érték: 1* A Z magasság, amelyben a fokozatos kiigazítást el kell kezdeni. Jó ötlet, ha a fade folyamat megkezdése előtt néhány réteggel lejjebb kerül.
+- `fade_end: 10` *Alapértelmezett érték: 0* A Z magasság, amelyben a fade-nek be kell fejeződnie. Ha ez az érték kisebb, mint `fade_start` akkor a fade le van tiltva. Ezt az értéket a nyomtatási felület torzulásától függően lehet módosítani. Egy jelentősen görbült felületnek hosszabb távon kell elhalványulnia. Egy közel sík felület esetében ez az érték csökkenthető, hogy gyorsabban fakuljon ki. A 10 mm egy ésszerű érték, ha a `fade_start` alapértelmezett 1 értékét használjuk.
+- `fade_target: 0` *Alapértelmezett érték: A háló átlagos Z értéke* A `fade_target` úgy képzelhető el, mint egy további Z eltolás, amelyet a fade befejezése után a teljes ágyra alkalmaznak. Általánosságban azt szeretnénk, ha ez az érték 0 lenne, azonban vannak olyan körülmények, amikor nem kell, hogy így legyen. Tegyük fel például, hogy az ágyon a kezdőpont pozíciója egy kiugró érték, amely 0,2 mm-rel alacsonyabb, mint az ágy átlagos mért magassága. Ha a `fade_target` értéke 0, akkor a fade átlagosan 0,2 mm-rel zsugorítja a nyomtatást az ágyon. Ha a `fade_target` értékét .2-re állítja, akkor a kezdőponti terület .2 mm-rel fog tágulni, azonban az ágy többi része pontosan méretezett lesz. Általában jó ötlet a `fade_target` elhagyása a konfigurációból, így a háló átlagos magassága kerül felhasználásra, azonban kívánatos lehet a fade target kézi beállítása, ha az ágy egy adott részére szeretnénk nyomtatni.
 
-### The Relative Reference Index
+### A relatív referenciaindex
 
-Most probes are suceptible to drift, ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particuarly at different bed temperatures. As such, some printers use an endstop for homing the Z axis, and a probe for calibrating the mesh. These printers can benefit from configuring the relative reference index.
+A legtöbb szonda hajlamos a driftre, azaz: a hő vagy interferencia által okozott pontatlanságokra. Ez kihívássá teheti a szonda z-eltolásának kiszámítását, különösen különböző ágyhőmérsékleteken. Ezért egyes nyomtatók a Z tengely beállításához végállást, a háló kalibrálásához pedig szondát használnak. Ezeknek a nyomtatóknak előnyös lehet a relatív referenciaindex konfigurálása.
 
 ```
 [bed_mesh]
@@ -132,15 +132,15 @@ probe_count: 5, 3
 relative_reference_index: 7
 ```
 
-- `relative_reference_index: 7` *Default Value: None (disabled)* When the probed points are generated they are each assigned an index. You can look up this index in klippy.log or by using BED_MESH_OUTPUT (see the section on Bed Mesh GCodes below for more information). If you assign an index to the `relative_reference_index` option, the value probed at this coordinate will replace the probe's z_offset. This effectively makes this coordinate the "zero" reference for the mesh.
+- `relative_reference_index: 7` *Alapértelmezett érték: Nincs (letiltva)* A mért pontok létrehozásakor mindegyikhez indexet rendelünk. Ezt az indexet a klippy.log fájlban vagy a BED_MESH_OUTPUT segítségével kereshetjük meg (további információkért lásd az alábbi, Bed Mesh GCodes című részt). Ha indexet rendel a `relative_reference_index` opcióhoz, akkor az ezen a koordinátán mért érték fogja helyettesíteni a szonda z_offset-ét. Ezáltal ez a koordináta gyakorlatilag a háló "nulla" referenciájává válik.
 
-When using the relative reference index, you should choose the index nearest to the spot on the bed where Z endstop calibration was done. Note that when looking up the index using the log or BED_MESH_OUTPUT, you should use the coordinates listed under the "Probe" header to find the correct index.
+A relatív referenciaindex használatakor azt az indexet kell választania, amelyik a legközelebb van ahhoz a ponthoz az ágyon, ahol a Z végállás kalibrálása történt. Vegye figyelembe, hogy ha az indexet a napló vagy a BED_MESH_OUTPUT segítségével keresi meg, akkor a "Probe" fejléc alatt felsorolt koordinátákat kell használnia a helyes index megtalálásához.
 
-### Faulty Regions
+### Hibás régiók
 
-It is possible for some areas of a bed to report inaccurate results when probing due to a "fault" at specific locations. The best example of this are beds with series of integrated magnets used to retain removable steel sheets. The magnetic field at and around these magnets may cause an inductive probe to trigger at a distance higher or lower than it would otherwise, resulting in a mesh that does not accurately represent the surface at these locations. **Note: This should not be confused with probe location bias, which produces inaccurate results across the entire bed.**
+Előfordulhat, hogy az ágy egyes területei pontatlan eredményeket jeleznek a mérés során, mivel bizonyos helyeken "hiba" van. Erre a legjobb példa a levehető acéllemezek rögzítésére használt integrált mágnesek sorozatával ellátott ágyak. Ezeknél a mágneseknél és körülöttük lévő mágneses mező hatására az induktív szonda magasabb vagy alacsonyabb távolságban mérhet, mint egyébként tenné, ami azt eredményezi, hogy a háló nem pontosan reprezentálja a felületet ezeken a helyeken. **Figyelem: Ez nem tévesztendő össze a szonda helyének torzításával, amely pontatlan eredményeket eredményez az egész ágyon.**
 
-The `faulty_region` options may be configured to compensate for this affect. If a generated point lies within a faulty region bed mesh will attempt to probe up to 4 points at the boundaries of this region. These probed values will be averaged and inserted in the mesh as the Z value at the generated (X, Y) coordinate.
+A `faulty_region` opciókat úgy lehet beállítani, hogy kompenzálják ezt a hatást. Ha egy generált pont egy hibás régióba esik, akkor a bed mesh megpróbál akár 4 pontot is megvizsgálni a régió határainál. Ezeket a mért értékeket átlagolja és beilleszti a hálóba Z értékként a generált (X, Y) koordinátán.
 
 ```
 [bed_mesh]
@@ -159,59 +159,59 @@ faulty_region_4_min: 30.0, 170.0
 faulty_region_4_max: 45.0, 210.0
 ```
 
-- `faulty_region_{1...99}_min` `faulty_region_{1..99}_max` *Default Value: None (disabled)* Faulty Regions are defined in a way similar to that of mesh itself, where minimum and maximum (X, Y) coordinates must be specified for each region. A faulty region may extend outside of a mesh, however the alternate points generated will always be within the mesh boundary. No two regions may overlap.
+- `faulty_region_{1...99}_min` `faulty_region_{1...99}_max` *Alapértelmezett érték: Nincs (letiltva)* A hibás régiók meghatározása hasonlóan történik, mint magának a hálónak a meghatározása, ahol minden egyes régióhoz meg kell adni a minimális és maximális (X, Y) koordinátákat. Egy hibás régió a hálón kívülre is kiterjedhet, azonban a generált váltakozó pontok mindig a háló határán belül lesznek. Két régió nem fedheti egymást.
 
-The image below illustrates how replacement points are generated when a generated point lies within a faulty region. The regions shown match those in the sample config above. The replacement points and their coordinates are identified in green.
+Az alábbi kép azt szemlélteti, hogyan generálódnak a cserepontok, ha egy generált pont egy hibás területen belül van. Az ábrázolt régiók megegyeznek a fenti mintakonfigurációban szereplő régiókkal. A cserepontok és koordinátáik zöld színnel vannak jelölve.
 
 ![bedmesh_interpolated](img/bedmesh_faulty_regions.svg)
 
-## Bed Mesh Gcodes
+## Ágy háló G-kódok
 
-### Calibration
+### Kalibráció
 
-`BED_MESH_CALIBRATE PROFILE=<name> METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: default* *Default Method: automatic if a probe is detected, otherwise manual*
+`BED_MESH_CALIBRATE PROFILE=<name> METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` * Alapértelmezett profil: alapértelmezett* *Alapértelmezett módszer: automatikus, ha érzékelőt észlel, egyébként manuális*
 
-Initiates the probing procedure for Bed Mesh Calibration.
+Elindítja a mérési eljárást az ágyháló kalibrálásához.
 
-The mesh will be saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. If `METHOD=manual` is selected then manual probing will occur. When switching between automatic and manual probing the generated mesh points will automatically be adjusted.
+A háló a `PROFILE` paraméter által megadott profilba kerül mentésre, vagy `default`, ha nincs megadva. Ha a `METHOD=manual` paramétert választjuk, akkor kézi mérés történik. Az automatikus és a kézi mérés közötti váltáskor a generált hálópontok automatikusan kiigazításra kerülnek.
 
-It is possible to specify mesh parameters to modify the probed area. The following parameters are available:
+Lehetőség van hálóparaméterek megadására a mért terület módosítására. A következő paraméterek állnak rendelkezésre:
 
-- Rectangular beds (cartesian):
+- Téglalap alakú ágyak (cartesian):
    - `MESH_MIN`
    - `MESH_MAX`
    - `PROBE_COUNT`
-- Round beds (delta):
+- Kerek ágyak (delta):
    - `MESH_RADIUS`
    - `MESH_ORIGIN`
    - `ROUND_PROBE_COUNT`
-- All beds:
+- Minden ágy:
    - `RELATIVE_REFERNCE_INDEX`
    - `ALGORITHM`
 
-See the configuration documentation above for details on how each parameter applies to the mesh.
+Az egyes paraméterek hálóra való alkalmazásának részleteit lásd a fenti konfigurációs dokumentációban.
 
-### Profiles
+### Profilok
 
 `BED_MESH_PROFILE SAVE=<name> LOAD=<name> REMOVE=<name>`
 
-After a BED_MESH_CALIBRATE has been performed, it is possible to save the current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using `BED_MESH_PROFILE SAVE=<name>` the `SAVE_CONFIG` gcode may be executed to write the profile to printer.cfg.
+A BED_MESH_CALIBRATE elvégzése után lehetőség van a háló aktuális állapotának elmentésére egy megnevezett profilba. Ez lehetővé teszi a háló betöltését az ágy újbóli mérése nélkül. Miután egy profilt a `BED_MESH_PROFILE SAVE=<name>` segítségével elmentettünk, a `SAVE_CONFIG` G-kód végrehajtható a profil printer.cfg fájlba való írásához.
 
-Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=<name>`.
+A profilok a `BED_MESH_PROFILE LOAD=<name>` parancs végrehajtásával tölthetők be.
 
-It should be noted that each time a BED_MESH_CALIBRATE occurs, the current state is automatically saved to the *default* profile. If this profile exists it is automatically loaded when Klipper starts. If this behavior is not desirable the *default* profile can be removed as follows:
+Meg kell jegyezni, hogy minden alkalommal, amikor a BED_MESH_CALIBRATE használatba kerül, az aktuális állapot automatikusan az *alapértelmezett* profilba kerül mentésre. Ha ez a profil létezik, akkor a Klipper indításakor automatikusan betöltődik. Ha ez a viselkedés nem kívánatos, a *default* profil a következőképpen távolítható el:
 
 `BED_MESH_PROFILE REMOVE=default`
 
-Any other saved profile can be removed in the same fashion, replacing *default* with the named profile you wish to remove.
+Bármely más elmentett profil ugyanígy eltávolítható, a *default* helyettesítve az eltávolítani kívánt névvel.
 
-### Output
+### Kimenet
 
 `BED_MESH_OUTPUT PGP=[0 | 1]`
 
-Outputs the current mesh state to the terminal. Note that the mesh itself is output
+Az aktuális hálóállapotot adja ki a terminálra. Vegyük észre, hogy maga a háló is kimenetre kerül
 
-The PGP parameter is shorthand for "Print Generated Points". If `PGP=1` is set, the generated probed points will be output to the terminal:
+A PGP paraméter a "Print Generated Points" rövidítése. Ha `PGP=1` van beállítva, a generált mért pontok a terminálra kerülnek:
 
 ```
 // bed_mesh: generated points
@@ -233,16 +233,16 @@ The PGP parameter is shorthand for "Print Generated Points". If `PGP=1` is set, 
 // 14 | (216.0, 193.0) | (240.0, 198.0)
 ```
 
-The "Tool Adjusted" points refer to the nozzle location for each point, and the "Probe" points refer to the probe location. Note that when manually probing the "Probe" points will refer to both the tool and nozzle locations.
+A "Tool Adjusted" pontok az egyes pontok fúvókájának helyére, a "Probe" pontok pedig a szonda helyére utalnak. Vegye figyelembe, hogy kézi mérés esetén a "Probe" pontok mind a szerszám, mind a fúvóka helyére vonatkoznak.
 
-### Clear Mesh State
+### Tiszta hálós állapot
 
 `BED_MESH_CLEAR`
 
-This gcode may be used to clear the internal mesh state.
+Ez a G-kód használható a belső háló állapotának törlésére.
 
-### Apply X/Y offsets
+### X/Y eltolások alkalmazása
 
 `BED_MESH_OFFSET [X=<value>] [Y=<value>]`
 
-This is useful for printers with multiple independent extruders, as an offset is necessary to produce correct Z adjustment after a tool change. Offsets should be specified relative to the primary extruder. That is, a positive X offset should be specified if the secondary extruder is mounted to the right of the primary extruder, and a positive Y offset should be specified if the secondary extruder is mounted "behind" the primary extruder.
+Ez több független extruderrel rendelkező nyomtatóknál hasznos, mivel a szerszámcsere utáni helyes Z-beállításhoz szükség van egy eltolásra. Az eltolásokat az elsődleges extruderhez képest kell megadni. Vagyis pozitív X eltolást kell megadni, ha a másodlagos extruder az elsődleges extrudertől jobbra van felszerelve, és pozitív Y eltolást kell megadni, ha a másodlagos extruder az elsődleges extruder mögött van felszerelve.

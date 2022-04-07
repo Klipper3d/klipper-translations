@@ -42,17 +42,17 @@ If using stealthChop mode then the positional inaccuracy from interpolation is s
 
 ## Érzékelő nélküli kezdőpont
 
-Sensorless homing allows to home an axis without the need for a physical limit switch. Instead, the carriage on the axis is moved into the mechanical limit making the stepper motor lose steps. The stepper driver senses the lost steps and indicates this to the controlling MCU (Klipper) by toggling a pin. This information can be used by Klipper as end stop for the axis.
+Az érzékelő nélküli kezdőpont lehetővé teszi a tengely kezdőpont felvételét fizikai végálláskapcsoló nélkül. Ehelyett a tengelyen lévő kocsit a mechanikus végállásba mozgatja, így a léptetőmotor lépéseket veszít. A léptető meghajtó érzékeli az elveszett lépéseket, és ezt egy pin kapcsolásával jelzi a vezérlő MCU-nak (Klipper). Ezt az információt a Klipper a tengely végállásaként használhatja.
 
-This guide covers the setup of sensorless homing for the X axis of your (cartesian) printer. However, it works the same with all other axes (that require an end stop). You should configure and tune it for one axis at a time.
+Ez az útmutató az érzékelő nélküli kezdőpont fevétel beállítását mutatja be a (cartesian) nyomtató X tengelyére. Ez azonban ugyanígy működik az összes többi tengely esetében is (amelyek végállást igényelnek). Egyszerre csak egy tengelyre kell beállítani és hangolni.
 
 ### Korlátozások
 
-Be sure that your mechanical components are able to handle the load of the carriage bumping into the limit of the axis repeatedly. Especially leadscrews might generate a lot of force. Homing a Z axis by bumping the nozzle into the printing surface might not be a good idea. For best results, verify that the axis carriage will make a firm contact with the axis limit.
+Győződjön meg arról, hogy a mechanikus alkatrészek képesek kezelni a tengely határértékének ismételt ütközéséből eredő terhelést. Különösen a szíjak nagy erőt fejthetnek ki. A Z tengelynek a fúvókával az ágyba való ütközéssel történő szintezése nem biztos, hogy jó ötlet. A legjobb eredmény érdekében ellenőrizze, hogy a tengelyn lévő kocsi szilárdan érintkezik-e a tengelyhatárral.
 
-Further, sensorless homing might not be accurate enough for your printer. While homing X and Y axes on a cartesian machine can work well, homing the Z axis is generally not accurate enough and may result in an inconsistent first layer height. Homing a delta printer sensorless is not advisable due to missing accuracy.
+Továbbá, az érzékelő nélküli kezdőpont felvétel nem biztos, hogy elég pontos az Ön nyomtatója számára. Míg az X és Y tengelyek kezdőpont felvétele egy cartesian gépen jól működhet, a Z tengely kezdőpont felvétele általában nem elég pontos, és következetlen első rétegmagasságot eredményezhet. A delta nyomtató érzékelő nélküli kezdőpont felvétele a pontatlanság miatt nem tanácsos.
 
-Further, the stall detection of the stepper driver is dependent on the mechanical load on the motor, the motor current and the motor temperature (coil resistance).
+Továbbá a léptető meghajtó elakadásérzékelése a motor mechanikai terhelésétől, a motoráramtól és a motor hőmérsékletétől (tekercsellenállástól) is függ.
 
 Sensorless homing works best at medium motor speeds. For very slow speeds (less than 10 RPM) the motor does not generate significant back EMF and the TMC cannot reliably detect motor stalls. Further, at very high speeds, the back EMF of the motor approaches the supply voltage of the motor, so the TMC cannot detect stalls anymore. It is advised to have a look in the datasheet of your specific TMCs. There you can also find more details on limitations of this setup.
 

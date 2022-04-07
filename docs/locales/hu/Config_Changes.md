@@ -1,4 +1,4 @@
-# Configuration Changes
+# Konfigurációs változások
 
 Ez a dokumentum a konfigurációs fájl legújabb szoftveres változtatásait tartalmazza, amelyek nem kompatibilisek visszafelé. A Klipper szoftver frissítésekor érdemes áttanulmányozni ezt a dokumentumot.
 
@@ -6,39 +6,39 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 ## Változások
 
-20220307: `M73` will no longer set print progress to 0 if `P` is missing.
+20220307: `M73` már nem állítja 0-ra a nyomtatás előrehaladását, ha `P` hiányzik.
 
-20220304: There is no longer a default for the `extruder` parameter of [extruder_stepper](Config_Reference.md#extruder_stepper) config sections. If desired, specify `extruder: extruder` explicitly to associate the stepper motor with the "extruder" motion queue at startup.
+20220304: Az [extruder_stepper](Config_Reference.md#extruder_stepper) konfigurációs szakaszok `extruder` paramétere már nem alapértelmezett. Ha szükséges, adja meg kifejezetten az `extruder: extruder` paramétert, hogy a léptetőmotort indításkor az "extruder" mozgássorhoz társítsa.
 
-20220210: The `SYNC_STEPPER_TO_EXTRUDER` command is deprecated; the `SET_EXTRUDER_STEP_DISTANCE` command is deprecated; the [extruder](Config_Reference.md#extruder) `shared_heater` config option is deprecated. These features will be removed in the near future. Replace `SET_EXTRUDER_STEP_DISTANCE` with `SET_EXTRUDER_ROTATION_DISTANCE`. Replace `SYNC_STEPPER_TO_EXTRUDER` with `SYNC_EXTRUDER_MOTION`. Replace extruder config sections using `shared_heater` with [extruder_stepper](Config_Reference.md#extruder_stepper) config sections and update any activation macros to use [SYNC_EXTRUDER_MOTION](G-Codes.md#sync_extruder_motion).
+20220210: A `SYNC_STEPPER_TO_EXTRUDER` parancs elavult; a `SET_EXTRUDER_STEP_DISTANCE` parancs elavult; az [extruder](Config_Reference.md#extruder) `shared_heater` config opció elavult. Ezek a funkciók a közeljövőben eltávolításra kerülnek. A `SET_EXTRUDER_STEP_DISTANCE` helyett `SET_EXTRUDER_ROTATION_DISTANCE`. Cserélje ki a `SYNC_STEPPER_TO_EXTRUDER` értéket a `SYNC_EXTRUDER_MOTION` értékre. Cserélje ki a `shared_heater` extruder konfigurációs szakaszokat [extruder_stepper](Config_Reference.md#extruder_stepper) konfigurációs szakaszokra, és frissítse az aktiválási makrókat a [SYNC_EXTRUDER_MOTION](G-Codes.md#sync_extruder_motion) használatára.
 
-20220116: The tmc2130, tmc2208, tmc2209, and tmc2660 `run_current` calculation code has changed. For some `run_current` settings the drivers may now be configured differently. This new configuration should be more accurate, but it may invalidate previous tmc driver tuning.
+20220116: A tmc2130, tmc2208, tmc2209 és tmc2660 `run_current` számítási kód megváltozott. Egyes `run_current` beállításoknál az illesztőprogramok most másképp konfigurálhatók. Ennek az új konfigurációnak pontosabbnak kell lennie, de érvénytelenítheti a korábbi TMC illesztőprogram-hangolást.
 
-20211230: Scripts to tune input shaper (`scripts/calibrate_shaper.py` and `scripts/graph_accelerometer.py`) were migrated to use Python3 by default. As a result, users must install Python3 versions of certain packages (e.g. `sudo apt install python3-numpy python3-matplotlib`) to continue using these scripts. For more details, refer to [Software installation](Measuring_Resonances.md#software-installation). Alternatively, users can temporarily force the execution of these scripts under Python 2 by explicitly calling Python2 interpretor in the console: `python2 ~/klipper/scripts/calibrate_shaper.py ...`
+20211230: A bemeneti alakító hangolására szolgáló szkriptek (`scripts/calibrate_shaper.py` és `scripts/graph_accelerometer.py`) alapértelmezés szerint Python3-at használnak. Ennek eredményeképpen a felhasználóknak telepíteniük kell bizonyos csomagok Python3 verzióit (pl. `sudo apt install python3-numpy python3-matplotlib`), hogy továbbra is használni tudják ezeket a szkripteket. További részletekért lásd a [Szoftvertelepítés](Measuring_Resonances.md#software-installation) című részt. Alternatívaként a felhasználók ideiglenesen kikényszeríthetik ezeknek a szkripteknek a Python 2 alatti végrehajtását a Python2 interpretor explicit meghívásával a konzolon: `python2 ~/klipper/scripts/calibrate_shaper.py ...`
 
-20211110: The "NTC 100K beta 3950" temperature sensor is deprecated. This sensor will be removed in the near future. Most users will find the "Generic 3950" temperature sensor more accurate. To continue to use the older (typically less accurate) definition, define a custom [thermistor](Config_Reference.md#thermistor) with `temperature1: 25`, `resistance1: 100000`, and `beta: 3950`.
+20211110: Az "NTC 100K beta 3950" hőmérséklet-érzékelő elavult. Ez az érzékelő a közeljövőben eltávolításra kerül. A legtöbb felhasználó a "Generic 3950" hőmérséklet-érzékelőt pontosabbnak fogja találni. Ha továbbra is a régebbi (jellemzően kevésbé pontos) definíciót szeretné használni, definiáljon egy egyéni [termisztort](Config_Reference.md#thermistor) a `temperature1: 25`, `resistance1: 100000`, és `beta: 3950` értékeken.
 
-20211104: The "step pulse duration" option in "make menuconfig" has been removed. The default step duration for TMC drivers configured in UART or SPI mode is now 100ns. A new `step_pulse_duration` setting in the [stepper config section](Config_Reference.md#stepper) should be set for all steppers that need a custom pulse duration.
+20211104: A "step pulse duration" opció a "make menuconfig" menüből eltávolításra került. Az UART vagy SPI módban konfigurált TMC-meghajtók alapértelmezett lépésimpulzus időtartama mostantól 100ns. Egy új `step_pulse_duration` beállítást kell megadni a [stepper config szakaszban](Config_Reference.md#stepper) minden olyan stepper esetében, amely egyéni impulzus időtartamot igényel.
 
-20211102: Several deprecated features have been removed. The stepper `step_distance` option has been removed (deprecated on 20201222). The `rpi_temperature` sensor alias has been removed (deprecated on 20210219). The mcu `pin_map` option has been removed (deprecated on 20210325). The gcode_macro `default_parameter_<name>` and macro access to command parameters other than via the `params` pseudo-variable has been removed (deprecated on 20210503). The heater `pid_integral_max` option has been removed (deprecated on 20210612).
+20211102: Számos elavult funkciót eltávolítottunk. A léptető `step_distance` opciót eltávolítottuk (20201222-től elavult). Az `rpi_temperature` érzékelő álnév eltávolításra került (elavult 20210219). Az MCU `pin_map` opció eltávolításra került (elavult 20210325). A gcode_macro `default_parameter_<name>` és a parancsparaméterekhez való, `params` pszeudováltozótól eltérő makróhoz való hozzáférés eltávolításra került (elavult 20210503). A fűtés `pid_integral_max` opciót eltávolítottuk (elavult 20210612).
 
-20210929: Klipper v0.10.0 released.
+20210929: Klipper v0.10.0 megjelent.
 
-20210903: The default [`smooth_time`](Config_Reference.md#extruder) for heaters has changed to 1 second (from 2 seconds). For most printers this will result in more stable temperature control.
+20210903: Az alapértelmezett [`smooth_time`](Config_Reference.md#extruder) a fűtőberendezésekhez 1 másodpercre változott (2 másodpercről). A legtöbb nyomtatónál ez stabilabb hőmérséklet-szabályozást eredményez.
 
-20210830: The default adxl345 name is now "adxl345". The default CHIP parameter for the `ACCELEROMETER_MEASURE` and `ACCELEROMETER_QUERY` is now also "adxl345".
+20210830: Az alapértelmezett adxl345 név mostantól "adxl345". Az `ACCELEROMETER_MEASURE` és `ACCELEROMETER_QUERY` alapértelmezett CHIP paramétere mostantól szintén "adxl345".
 
-20210830: The adxl345 ACCELEROMETER_MEASURE command no longer supports a RATE parameter. To alter the query rate, update the printer.cfg file and issue a RESTART command.
+20210830: Az adxl345 ACCELEROMETER_MEASURE parancs már nem támogatja a RATE paramétert. A lekérdezési sebesség módosításához frissítse a printer.cfg fájlt, és adjon ki egy RESTART parancsot.
 
-20210821: Several config settings in `printer.configfile.settings` will now be reported as lists instead of raw strings. If the actual raw string is desired, use `printer.configfile.config` instead.
+20210821: A `printer.configfile.settings` több konfigurációs beállítása mostantól listaként lesz jelentve a nyers karakterláncok helyett. Ha a tényleges nyers karakterláncra van szükség, használja helyette a `printer.configfile.config`-t.
 
-20210819: In some cases, a `G28` homing move may end in a position that is nominally outside the valid movement range. In rare situations this may result in confusing "Move out of range" errors after homing. If this occurs, change your start scripts to move the toolhead to a valid position immediately after homing.
+20210819: Bizonyos esetekben egy `G28` célbaérési mozgás olyan pozícióban végződhet, amely névlegesen az érvényes mozgási tartományon kívül esik. Ritka helyzetekben ez zavaró "Move out of range" hibákat eredményezhet a kezdőpont felvétele után. Ha ez előfordul, módosítsa az indítási szkripteket úgy, hogy a szerszámfej a kezdőpont felvétel után azonnal érvényes pozícióba kerüljön.
 
-20210814: The analog only pseudo-pins on the atmega168 and atmega328 have been renamed from PE0/PE1 to PE2/PE3.
+20210814: Az atmega168 és atmega328 csak analóg pszeudo-tüskéi PE0/PE1-ről PE2/PE3-ra lettek átnevezve.
 
-20210720: A controller_fan section now monitors all stepper motors by default (not just the kinematic stepper motors). If the previous behavior is desired, see the `stepper` config option in the [config reference](Config_Reference.md#controller_fan).
+20210720: A controller_fan szakasz most már alapértelmezés szerint az összes léptetőmotort figyeli (nem csak a kinematikus léptetőmotorokat). Ha a korábbi működést szeretnénk, lásd a [konfigurációs referencia](Config_Reference.md#controller_fan)-ban a `stepper` config opciót.
 
-20210703: A `samd_sercom` config section must now specify the sercom bus it is configuring via the `sercom` option.
+20210703: A `samd_sercom` konfigurációs szakasznak mostantól meg kell adnia az általa konfigurált sercom buszt a `sercom` opcióval.
 
 20210612: A `pid_integral_max` konfigurációs opció a fűtés és a temperature_fan szakaszokban elavult. Az opció a közeljövőben eltávolításra kerül.
 
@@ -139,38 +139,38 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20190710: A [firmware_retract] konfigurációs szakaszból eltávolították a z_hop opciót. A z_hop támogatása hiányos volt, és több gyakori szeletelővel hibás viselkedést okozott.
 
-20190710: The optional parameters of the PROBE_ACCURACY command have changed. It may be necessary to update any macros or scripts that use that command.
+20190710: A PROBE_ACCURACY parancs opcionális paraméterei megváltoztak. Szükség lehet a parancsot használó makrók vagy szkriptek frissítésére.
 
-20190628: All configuration options have been removed from the [skew_correction] section. Configuration for skew_correction is now done via the SET_SKEW gcode. See [Skew Correction](Skew_Correction.md) for recommended usage.
+20190628: A [skew_correction] szakaszból eltávolítottuk az összes konfigurációs opciót. A skew_correction konfigurálása mostantól a SET_SKEW G-kódon keresztül történik. Lásd a [Ferdeség Korrekció](Skew_Correction.md) ajánlott használatát.
 
-20190607: The "variable_X" parameters of gcode_macro (along with the VALUE parameter of SET_GCODE_VARIABLE) are now parsed as Python literals. If a value needs to be assigned a string then wrap the value in quotes so that it is evaluated as a string.
+20190607: A gcode_macro "variable_X" paraméterei (a SET_GCODE_VARIABLE VALUE paraméterével együtt) mostantól Python literálokként kerülnek értelmezésre. Ha egy értékhez karakterláncot kell rendelni, akkor csomagolja az értéket idézőjelekbe, hogy karakterláncként kerüljön kiértékelésre.
 
-20190606: The "samples", "samples_result", and "sample_retract_dist" config options have been moved to the "probe" config section. These options are no longer supported in the "delta_calibrate", "bed_tilt", "bed_mesh", "screws_tilt_adjust", "z_tilt", or "quad_gantry_level" config sections.
+20190606: A "samples", "samples_result" és "sample_retract_dist" konfigurációs beállítások átkerültek a "probe" konfigurációs szakaszba. Ezek az opciók már nem támogatottak a "delta_calibrate", "bed_tilt", "bed_mesh", "screws_tilt_adjust", "z_tilt", vagy "quad_gantry_level" config szakaszokban.
 
-20190528: The magic "status" variable in gcode_macro template evaluation has been renamed to "printer".
+20190528: A gcode_macro sablon kiértékelésében a mágikus "status" változót átneveztük "printer" -re.
 
-20190520: The SET_GCODE_OFFSET command has changed; update any g-code macros accordingly. The command will no longer apply the requested offset to the next G1 command. The old behavior may be approximated by using the new "MOVE=1" parameter.
+20190520: A SET_GCODE_OFFSET parancs megváltozott; ennek megfelelően frissítse a G-kód makrókat. A parancs már nem alkalmazza a kért eltolást a következő G1 parancsra. A régi viselkedés megközelíthető az új "MOVE=1" paraméter használatával.
 
-20190404: The Python host software packages were updated. Users will need to rerun the ~/klipper/scripts/install-octopi.sh script (or otherwise upgrade the python dependencies if not using a standard OctoPi installation).
+20190404: A Python gazda szoftvercsomagok frissítésre kerültek. A felhasználóknak újra kell futtatniuk a ~/klipper/scripts/install-octopi.sh szkriptet (vagy más módon frissíteniük kell a python függőségeket, ha nem standard OctoPi telepítést használnak).
 
-20190404: The i2c_bus and spi_bus parameters (in various config sections) now take a bus name instead of a number.
+20190404: Az i2c_bus és spi_bus paraméterek (a különböző konfigurációs szakaszokban) mostantól szám helyett busznevet fogadnak el.
 
-20190404: The sx1509 config parameters have changed. The 'address' parameter is now 'i2c_address' and it must be specified as a decimal number. Where 0x3E was previously used, specify 62.
+20190404: Az sx1509 konfigurációs paraméterei megváltoztak. Az 'address' paraméter mostantól 'i2c_address', és decimális számként kell megadni. A korábban használt 0x3E helyett 62-t kell megadni.
 
-20190328: The min_speed value in [temperature_fan] config will now be respected and the fan will always run at this speed or higher in PID mode.
+20190328: A [temperature_fan] konfigurációban megadott min_speed értéket mostantól tiszteletben tartjuk, és a ventilátor PID üzemmódban mindig ezen vagy annál magasabb fordulatszámon fog működni.
 
-20190322: The default value for "driver_HEND" in [tmc2660] config sections was changed from 6 to 3. The "driver_VSENSE" field was removed (it is now automatically calculated from run_current).
+20190322: A "driver_HEND" alapértelmezett értéke a [tmc2660] konfigurációs szakaszokban 6-ról 3-ra változott. A "driver_VSENSE" mezőt eltávolítottuk (mostantól automatikusan a run_current-ből számítják ki).
 
-20190310: The [controller_fan] config section now always takes a name (such as [controller_fan my_controller_fan]).
+20190310: A [controller_fan] config szakasz mostantól mindig kap egy nevet (például [controller_fan my_controller_fan]).
 
-20190308: The "driver_BLANK_TIME_SELECT" field in [tmc2130] and [tmc2208] config sections has been renamed to "driver_TBL".
+20190308: A [tmc2130] és [tmc2208] konfigurációs szakaszok "driver_BLANK_TIME_SELECT" mezője át lett nevezve "driver_TBL" -re.
 
-20190308: The [tmc2660] config section has changed. A new sense_resistor config parameter must now be provided. The meaning of several of the driver_XXX parameters has changed.
+20190308: A [tmc2660] config szakasz megváltozott. Mostantól egy új sense_resistor config paramétert kell megadni. A driver_XXX paraméterek közül többnek a jelentése is megváltozott.
 
-20190228: Users of SPI or I2C on SAMD21 boards must now specify the bus pins via a [samd_sercom] config section.
+20190228: A SAMD21 kártyákon SPI vagy I2C-t használóknak mostantól a [samd_sercom] config szakaszban kell megadniuk a BUSZ csatlakozásait.
 
-20190224: The bed_shape option has been removed from bed_mesh. The radius option has been renamed to bed_radius. Users with round beds should supply the bed_radius and round_probe_count options.
+20190224: A bed_shape opciót eltávolítottuk a bed_mesh-ből. A radius opciót átneveztük bed_radiusra. A kerek ágyakkal rendelkező felhasználóknak a bed_radius és a round_probe_count opciókat kell megadniuk.
 
-20190107: The i2c_address parameter in the mcp4451 config section changed. This is a common setting on Smoothieboards. The new value is half the old value (88 should be changed to 44, and 90 should be changed to 45).
+20190107: Az i2c_address paraméter az mcp4451 config szakaszban megváltozott. Ez egy gyakori beállítás a Smoothie alaplapokon. Az új érték a régi érték fele (a 88-as értéket 44-re, a 90-es értéket pedig 45-re kell módosítani).
 
-20181220: Klipper v0.7.0 released
+20181220: Klipper v0.7.0 megjelent
