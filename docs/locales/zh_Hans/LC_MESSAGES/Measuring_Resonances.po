@@ -1,16 +1,18 @@
 # mirokymac <toufubomb@gmail.com>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
+# Neko.vecter <Vecterfang@icloud.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-14 07:25+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/measuring_resonances/zh_Hans/>\n"
-"Language: zh-hans\n"
+"PO-Revision-Date: 2022-04-08 21:09+0000\n"
+"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/measuring_resonances/zh_Hans/>\n"
+"Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "共振值测量"
@@ -182,7 +184,7 @@ msgstr ""
 "驱动已启用。"
 
 msgid "Add the following to the printer.cfg file:"
-msgstr "在printer.cfg附上下面的内容："
+msgstr "在printer.cfg中添加以下内容："
 
 msgid ""
 "It is advised to start with 1 probe point, in the middle of the print bed, "
