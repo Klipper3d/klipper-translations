@@ -8,19 +8,19 @@
 
 请注意，Z 限位开关本身的精度限制了调平的精度。如果使用 Trinamic 步进电机驱动，那么可以考虑启用[限位相位](Endstop_Phase.md)检测以提高开关的精度。
 
-To perform a Z endstop calibration, home the printer, command the head to move to a Z position that is at least five millimeters above the bed (if it is not already), command the head to move to an XY position near the center of the bed, then navigate to the OctoPrint terminal tab and run:
+要进行Z轴限位校准，请复位打印机，命令打印头移动到离床身至少5毫米的Z轴位置（如果还没有），命令打印头移动到靠近床身中心的XY位置，然后到OctoPrint终端中并且运行：
 
 ```
 Z_ENDSTOP_CALIBRATE
 ```
 
-Then follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test) to determine the actual distance between the nozzle and bed at the given location. Once those steps are complete one can `ACCEPT` the position and save the results to the config file with:
+塞纸测试然后按照["塞纸测试"](Bed_Level.md#the-paper-test)描述的步骤，确定喷嘴和床身在给定位置的实际距离。一旦这些步骤完成，就可以`ACCEPT`该位置，并将结果保存到配置文件中：
 
 ```
 SAVE_CONFIG
 ```
 
-It's preferable to use a Z endstop switch on the opposite end of the Z axis from the bed. (Homing away from the bed is more robust as then it is generally always safe to home the Z.) However, if one must home towards the bed it is recommended to adjust the endstop so that it triggers a small distance (eg, .5mm) above the bed. Almost all endstop switches can safely be depressed a small distance beyond their trigger point. When this is done, one should find that the `Z_ENDSTOP_CALIBRATE` command reports a small positive value (eg, .5mm) for the Z position_endstop. Triggering the endstop while it is still some distance from the bed reduces the risk of inadvertent bed crashes.
+最好是在Z轴与床面相对的一端使用Z轴止动器开关（远离床面的止动器更加坚固，因为这样的话，Z轴的原点通常是安全的）。然而，如果必须向床头归位，建议调整逆止器，使其在床头上方一小段距离（例如0.5毫米）触发。几乎所有的止动器开关都可以在触发点以外的一小段距离安全地压下。当这样做时，你会发现`Z_ENDSTOP_CALIBRATE`命令报告了一个小的正值（比如0.5毫米）的Z限位位置。在
 
 Some printers have the ability to manually adjust the location of the physical endstop switch. However, it's recommended to perform Z endstop positioning in software with Klipper - once the physical location of the endstop is in a convenient location, one can make any further adjustments by running Z_ENDSTOP_CALIBRATE or by manually updating the Z position_endstop in the configuration file.
 

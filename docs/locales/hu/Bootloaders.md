@@ -12,7 +12,7 @@ Ez a dokumentum megpróbálja leírni a gyakori bootloadereket, a bootloader ég
 
 In general, the Arduino project is a good reference for bootloaders and flashing procedures on the 8-bit Atmel Atmega micro-controllers. In particular, the "boards.txt" file: <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> is a useful reference.
 
-To flash a bootloader itself, the AVR chips require an external hardware flashing tool (which communicates with the chip using SPI). This tool can be purchased (for example, do a web search for "avr isp", "arduino isp", or "usb tiny isp"). It is also possible to use another Arduino or Raspberry Pi to flash an AVR bootloader (for example, do a web search for "program an avr using raspberry pi"). The examples below are written assuming an "AVR ISP Mk2" type device is in use.
+A bootloader égetéséhez az AVR chipekhez külső hardveres égető eszközre van szükség (amely SPI segítségével kommunikál a chippel). Ez az eszköz megvásárolható (például keressen rá az interneten az "avr isp", "arduino isp" vagy "usb tiny isp" szavakra). Az is lehetséges, hogy egy másik Arduino vagy Raspberry Pi segítségével égessen egy AVR bootloadert (például keressen rá az interneten a "program an avr using raspberry pi" kifejezésre). Az alábbi példákat egy "AVR ISP Mk2" típusú eszköz használatát feltételezve írtuk.
 
 Az "avrdude" program a leggyakrabban használt eszköz az atmega chipek égetésére (mind a bootloader, mind az alkalmazások égetésére).
 

@@ -10,7 +10,7 @@ Klipper 에 오신것을 환영합니다. Klipper를 처음 사용하는 경우�
 - [Config changes](Config_Changes.md): 사용자가 프린터 config 파일을 업데이트해야 할 수 있는 최근 소프트웨어 변경 사항.
 - [연락처](Contact.md): 버그 보고 및 Klipper 개발자와의 일반적인 커뮤니케이션에 대한 정보.
 
-## 설치 및 설정
+## 설치 및 구성
 
 - [설치](Installation.md): 클리퍼 설치 안내입니다.
 - [Config Reference](Config_Reference.md): config 매개변수에 대한 설명.
@@ -48,7 +48,7 @@ Klipper 에 오신것을 환영합니다. Klipper를 처음 사용하는 경우�
 - [기여](CONTRIBUTING.md): 개선 사항을 Klipper에 제출하는 방법에 대한 정보.
 - [패키징](Packaging.md): OS 패키지 빌드에 대한 정보.
 
-## 기기별 문서
+## 장치 관련 문서
 
 - [config 예제](Example_Configs.md): 예제 config 파일을 Klipper에 추가하는 방법에 대한 정보.
 - [SDCard 업데이트](SDCard_Updates.md): sdcard 에 바이너리를 복사하여 마이크로 컨트롤러 펌웨어 업데이르 하는 방법.

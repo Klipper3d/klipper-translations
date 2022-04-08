@@ -31,10 +31,10 @@ BED 레벨링 나사로 BED 레벨링을 잘 하는 비결은 BED 레벨링 과�
 이것은 `[bed_screws]` config 섹션을 생성하여 수행됩니다. 예를 들어 다음과 유사할 수 있습니다:
 
 ```
-[bed_screws]
-screw1: 100, 50
-screw2: 100, 150
-screw3: 150, 100
+[베드_나사]
+나사1: 100, 50
+나사2: 100, 150
+나사3: 150, 100
 ```
 
 BED 나사가 BED 아래에 있는 경우 나사 바로 위에 XY 위치를 지정합니다. 나사가 BED 외부에 있으면 여전히 BED 범위 내에 있는 나사에 가장 가까운 XY 위치를 지정합니다.
@@ -57,20 +57,20 @@ BED_SCREWS_ADJUST
 
 예를 들어 위치 A, B 및 C에 나사가 있는 BED를 생각할 수 있습니다:
 
-![bed_screws](img/bed_screws.svg.png)
+![베드_나사](img/bed_screws.svg.png)
 
 위치 C에서 BED 나사를 조정할 때마다 BED는 나머지 2개의 BED 나사 (여기서는 녹색 선으로 표시)에 의해 정의된 선을 따라 양쪽으로 기울어 집니다. 이 상황에서 C에서 BED 나사를 조정할 때마다 C에서 보다 D 위치에서 BED가 더 많이 움직입니다. 따라서 노즐이 위치 D에 있을 때 C 나사 조정을 개선할 수 있습니다.
 
 이 기능을 활성화하려면 추가 노즐 좌표를 결정하고 config 파일에 추가해야 합니다. 예를 들어 다음과 같을 수 있습니다:
 
 ```
-[bed_screws]
-screw1: 100, 50
-screw1_fine_adjust: 0, 0
-screw2: 100, 150
-screw2_fine_adjust: 300, 300
-screw3: 150, 100
-screw3_fine_adjust: 0, 100
+[베드_나사]
+나사1: 100, 50
+나사1_미세_조정: 0, 0
+나사2: 100, 150
+나사2_미세_조정: 300, 300
+나사3: 150, 100
+나사3_미세_조정: 0, 100
 ```
 
 이 기능이 활성화되면 `BED_SCREWS_ADJUST` 도구는 먼저 각 나사 위치 바로 위의 대략적인 조정을 요청하고 일단 수락되면 추가 위치에서 미세 조정을 요청합니다. 각 위치에서 `ACCEPT` 및 `ADJUSTED` 를 계속 사용합니다.
@@ -82,40 +82,40 @@ screw3_fine_adjust: 0, 100
 이 기능을 활성화하려면 Z 프로브가 나사 위에 있도록 노즐 좌표를 결정한 다음 구성 파일에 추가합니다. 예를 들어 다음과 같을 수 있습니다:
 
 ```
-[screws_tilt_adjust]
-screw1: -5, 30
-screw1_name: front left screw
-screw2: 155, 30
-screw2_name: front right screw
-screw3: 155, 190
-screw3_name: rear right screw
-screw4: -5, 190
-screw4_name: rear left screw
-horizontal_move_z: 10.
-speed: 50.
-screw_thread: CW-M3
+[나사_틸트_조정]
+나사1: -5, 30
+나사1_이름: 전면 왼쪽 나사
+나사2: 155, 30
+나사2_이름: 전면 오른쪽 나사
+나사3: 155, 190
+나사3_이름: 후면 오른쪽 나사
+나사4: -5, 190
+나사4_이름: 후면 왼쪽 나사
+수평_이동_z: 10.
+속도: 50.
+나사_스레드: CW-M3
 ```
 
 나사1은 항상 다른 기준점이므로 시스템은 나사1이 올바른 높이에 있다고 가정합니다. 항상 `G28`을 먼저 실행한 다음 `SCREWS_TILT_CALCULATE`를 실행하십시오. 다음과 유사한 출력이 생성되어야 합니다:
 
 ```
 Send: G28
-Recv: ok
-Send: SCREWS_TILT_CALCULATE
-Recv: // 01:20 means 1 full turn and 20 minutes, CW=clockwise, CCW=counter-clockwise
-Recv: // front left screw (base) : x=-5.0, y=30.0, z=2.48750
-Recv: // front right screw : x=155.0, y=30.0, z=2.36000 : adjust CW 01:15
-Recv: // rear right screw : y=155.0, y=190.0, z=2.71500 : adjust CCW 00:50
-Recv: // read left screw : x=-5.0, y=190.0, z=2.47250 : adjust CW 00:02
-Recv: ok
+Recv: 확인
+Send: 나사_틸트_계산하기
+Recv: // 01:20은 1회전 20분을 의미합니다. CW=시계 방향, CCW=반시계 방향
+Recv: // 전면 왼쪽 나사 (출발점) : x=-5.0, y=30.0, z=2.48750
+Recv: // 전면 오른쪽 나사 : x=155.0, y=30.0, z=2.36000 : 조정 CW 01:15
+Recv: // 후면 오른쪽 나사 : y=155.0, y=190.0, z=2.71500 : 조정 CCW 00:50
+Recv: // 후면 왼쪽 나사 : x=-5.0, y=190.0, z=2.47250 : 조정 CW 00:02
+Recv: 확인
 ```
 
 이는 다음을 의미합니다:
 
-- front left screw is the reference point you must not change it.
-- front right screw must be turned clockwise 1 full turn and a quarter turn
-- rear right screw must be turned counter-clockwise 50 minutes
-- rear left screw must be turned clockwise 2 minutes (not need it's ok)
+- 전면 왼쪽 나사는 변경해서는 안 되는 기준점입니다.
+- 전면 오른쪽 나사는 시계 방향으로 1회전하고 1/4회전해야 합니다
+- 후면 오른쪽 나사는 시계 반대 방향으로 50분 돌려야 합니다
+- 후면 왼쪽 나사는 시계 방향으로 2분 돌려야 합니다(필요 없음)
 
 BED가 수평이 될 때까지 이 과정을 여러 번 반복합니다. 일반적으로 6분 미만의 시간이 필요합니다.
 

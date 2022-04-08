@@ -1,4 +1,4 @@
-# TMC drivers
+# TMC meghajtók
 
 Ez a dokumentum a Trinamic léptetőmotor-meghajtók SPI/UART üzemmódban történő Klipperben való használatáról nyújt információt.
 
@@ -6,9 +6,9 @@ A Klipper a Trinamic illesztőprogramokat is tudja használni "standalone módba
 
 Ezen a dokumentumon kívül feltétlenül tekintse át a [TMC illesztőprogram-konfigurációs hivatkozást](Config_Reference.md#tmc-stepper-driver-configuration).
 
-## Tuning motor current
+## Motoráram hangolása
 
-A higher driver current increases positional accuracy and torque. However, a higher current also increases the heat produced by the stepper motor and the stepper motor driver. If the stepper motor driver gets too hot it will disable itself and Klipper will report an error. If the stepper motor gets too hot, it loses torque and positional accuracy. (If it gets very hot it may also melt plastic parts attached to it or near it.)
+A nagyobb meghajtóáram növeli a pozicionálási pontosságot és a nyomatékot. A nagyobb áram azonban növeli a léptetőmotor és a léptetőmotor-meghajtó által termelt hőt is. Ha a léptetőmotor-meghajtó túlságosan felmelegszik, akkor kikapcsolja magát, és a Klipper hibát jelez. Ha a léptetőmotor túlságosan felmelegszik, veszít a nyomatékból és a pozícionálási pontosságból. (Ha nagyon felforrósodik, akkor a hozzáérő vagy a közelében lévő műanyag alkatrészeket is megolvaszthatja.)
 
 As a general tuning tip, prefer higher current values as long as the stepper motor does not get too hot and the stepper motor driver does not report warnings or errors. In general, it is okay for the stepper motor to feel warm, but it should not become so hot that it is painful to touch.
 
@@ -24,13 +24,13 @@ Some printers with dedicated Z motors that are idle during normal printing moves
 
 ## Setting "spreadCycle" vs "stealthChop" Mode
 
-By default, Klipper places the TMC drivers in "spreadCycle" mode. If the driver supports "stealthChop" then it can be enabled by adding `stealthchop_threshold: 999999` to the TMC config section.
+Alapértelmezés szerint a Klipper a TMC meghajtókat "spreadCycle" üzemmódba helyezi. Ha a meghajtó támogatja a "stealthChop" módot, akkor azt a `stealthchop_threshold hozzáadásával lehet engedélyezni: 999999` a TMC konfigurációs szakaszához.
 
 In general, spreadCycle mode provides greater torque and greater positional accuracy than stealthChop mode. However, stealthChop mode may produce significantly lower audible noise on some printers.
 
 Tests comparing modes have shown an increased "positional lag" of around 75% of a full-step during constant velocity moves when using stealthChop mode (for example, on a printer with 40mm rotation_distance and 200 steps_per_rotation, position deviation of constant speed moves increased by ~0.150mm). However, this "delay in obtaining the requested position" may not manifest as a significant print defect and one may prefer the quieter behavior of stealthChop mode.
 
-It is recommended to always use "spreadCycle" mode (by not specifying `stealthchop_threshold`) or to always use "stealthChop" mode (by setting `stealthchop_threshold` to 999999). Unfortunately, the drivers often produce poor and confusing results if the mode changes while the motor is at a non-zero velocity.
+Javasoljuk, hogy mindig a "spreadCycle" módot használja (nem megadva a `stealthchop_threshold` értéket) vagy mindig a "stealthChop" módot (a `stealthchop_threshold` 999999-re állítva). Sajnos a meghajtók gyakran rossz és zavaros eredményeket produkálnak, ha a mód változik, miközben a motor nem álló állapotban van.
 
 ## TMC interpolate setting introduces small position deviation
 
@@ -54,33 +54,33 @@ Továbbá, az érzékelő nélküli kezdőpont felvétel nem biztos, hogy elég 
 
 Továbbá a léptető meghajtó elakadásérzékelése a motor mechanikai terhelésétől, a motoráramtól és a motor hőmérsékletétől (tekercsellenállástól) is függ.
 
-Sensorless homing works best at medium motor speeds. For very slow speeds (less than 10 RPM) the motor does not generate significant back EMF and the TMC cannot reliably detect motor stalls. Further, at very high speeds, the back EMF of the motor approaches the supply voltage of the motor, so the TMC cannot detect stalls anymore. It is advised to have a look in the datasheet of your specific TMCs. There you can also find more details on limitations of this setup.
+Az érzékelő nélküli kezdőpont felvétel közepes motorsebességnél működik a legjobban. Nagyon lassú fordulatszámoknál (kevesebb mint 10 fordulat/perc) a motor nem termel jelentős ellenáramot, és a TMC nem képes megbízhatóan érzékelni a motor leállását. Továbbá, nagyon nagy fordulatszámon a motor ellen-EMF-je megközelíti a motor tápfeszültségét, így a TMC már nem képes érzékelni a leállást. Javasoljuk, hogy tekintse meg az adott TMC-k adatlapját. Ott további részleteket is találhat ennek a beállításnak a korlátairól.
 
-### Prerequisites
+### Előfeltételek
 
-A few prerequisites are needed to use sensorless homing:
+Néhány előfeltétel szükséges az érzékelő nélküli kezdőpont felvétel használatához:
 
-1. A stallGuard capable TMC stepper driver (tmc2130, tmc2209, tmc2660, or tmc5160).
-1. SPI / UART interface of the TMC driver wired to micro-controller (stand-alone mode does not work).
-1. The appropriate "DIAG" or "SG_TST" pin of TMC driver connected to the micro-controller.
-1. The steps in the [config checks](Config_checks.md) document must be run to confirm the stepper motors are configured and working properly.
+1. StallGuard-képes TMC léptetőmeghajtó (TMC2130, TMC2209, TMC2660 vagy TMC5160).
+1. A TMC-meghajtók SPI/UART interfésze mikrokontrollerrel összekötve (a stand-alone üzemmód nem működik).
+1. A TMC motorvezérlő megfelelő "DIAG" vagy "SG_TST" tűje a mikrovezérlőhöz csatlakoztatva.
+1. A [konfiguráció ellenőrzések](Config_checks.md) dokumentumban szereplő lépéseket kell lefuttatni annak megerősítésére, hogy a léptetőmotorok megfelelően vannak konfigurálva és működnek.
 
 ### Hangolás
 
-The procedure described here has six major steps:
+Az itt leírt eljárás hat fő lépésből áll:
 
-1. Choose a homing speed.
-1. Configure the `printer.cfg` file to enable sensorless homing.
-1. Find the stallguard setting with highest sensitivity that successfully homes.
-1. Find the stallguard setting with lowest sensitivity that successfully homes with a single touch.
-1. Update the `printer.cfg` with the desired stallguard setting.
-1. Create or update `printer.cfg` macros to home consistently.
+1. Válassza ki a kezdőpont felvételi sebességet.
+1. Konfigurálja a `printer.cfg` fájlt, hogy engedélyezze az érzékelő nélküli kezdőpont felvételt.
+1. Keresse meg a legnagyobb érzékenységű StallGuard beállítást, amely sikeresen felveszi a kezdőpontot.
+1. Keresse meg a legalacsonyabb érzékenységű StallGuard-beállítást, amely egyetlen érintéssel sikeres megállást jelez.
+1. Frissítse a `printer.cfg` állományt a kívánt StallGuard beállítással.
+1. Hozzon létre vagy frissítse a `printer.cfg` makrókat, hogy kéznél legyenek.
 
-#### Choose homing speed
+#### Válassza ki a kezdőpont felvételi sebességet
 
-The homing speed is an important choice when performing sensorless homing. It's desirable to use a slow homing speed so that the carriage does not exert excessive force on the frame when making contact with the end of the rail. However, the TMC drivers can't reliably detect a stall at very slow speeds.
+A kezdőpont felvételi sebesség fontos választás az érzékelő nélküli kezdőpont felvétel során. Ajánlott lassú állítási sebességet használni, hogy a kocsi ne gyakoroljon túlzott erőt a keretre, amikor a sín végével érintkezik. A TMC vezérlők azonban nagyon lassú sebességeknél nem képesek megbízhatóan érzékelni az elakadást.
 
-A good starting point for the homing speed is for the stepper motor to make a full rotation every two seconds. For many axes this will be the `rotation_distance` divided by two. For example:
+Az indítási sebességnek jó kiindulópontja az, hogy a léptetőmotor két másodpercenként egy teljes fordulatot végezzen. Sok tengely esetében ez a `rotation_distance` osztva kettővel. Például:
 
 ```
 [stepper_x]
@@ -89,18 +89,18 @@ homing_speed: 20
 ...
 ```
 
-#### Configure printer.cfg for sensorless homing
+#### A printer.cfg beállítása érzékelő nélküli kezdőpont felvételhez
 
-The `homing_retract_dist` setting must be set to zero in the `stepper_x` config section to disable the second homing move. The second homing attempt does not add value when using sensorless homing, it will not work reliably, and it will confuse the tuning process.
+A `homing_retract_dist` beállítást nullára kell állítani a `stepper_x` config szakaszban a második kezdőpont felvételi mozdulat letiltásához. A második kezdőpont felvételi kísérlet nem ad hozzáadott értéket az érzékelő nélküli kezdőpont felvételhez, nem fog megbízhatóan működni, és összezavarja a hangolási folyamatot.
 
-Be sure that a `hold_current` setting is not specified in the TMC driver section of the config. (If a hold_current is set then after contact is made, the motor stops while the carriage is pressed against the end of the rail, and reducing the current while in that position may cause the carriage to move - that results in poor performance and will confuse the tuning process.)
+Győződjön meg róla, hogy a konfiguráció TMC meghajtó részlegében nincs megadva `hold_current` beállítás. (Ha hold_current használatban van, akkor a kapcsolat létrejötte után a motor megáll, miközben a kocsi a sín végéhez van nyomva, és az áram csökkentése ebben a helyzetben a kocsi mozgását okozhatja. Ez rossz teljesítményt eredményez, és összezavarja a hangolási folyamatot.)
 
-It is necessary to configure the sensorless homing pins and to configure initial "stallguard" settings. A tmc2209 example configuration for an X axis might look like:
+Szükséges a szenzor nélküli kezdőpont felvételi tűk konfigurálása és a kezdeti "StallGuard" beállítások konfigurálása. Egy TMC2209 példakonfiguráció egy X tengelyhez így nézhet ki:
 
 ```
 [tmc2209 stepper_x]
-diag_pin: ^PA1      # Set to MCU pin connected to TMC DIAG pin
-driver_SGTHRS: 255  # 255 is most sensitive value, 0 is least sensitive
+diag_pin: ^PA1       # A TMC DIAG tűhöz csatlakoztatott MCU tűre állítva.
+driver_SGTHRS: 255  # 255 a legérzékenyebb érték, 0 a legkevésbé érzékeny.
 ...
 
 [stepper_x]
@@ -109,12 +109,12 @@ homing_retract_dist: 0
 ...
 ```
 
-An example tmc2130 or tmc5160 config might look like:
+Egy TMC2130 vagy TMC5160 konfiguráció például így nézhet ki:
 
 ```
 [tmc2130 stepper_x]
-diag1_pin: ^!PA1 # Pin connected to TMC DIAG1 pin (or use diag0_pin / DIAG0 pin)
-driver_SGT: -64  # -64 is most sensitive value, 63 is least sensitive
+diag1_pin: ^!PA1 # A TMC DIAG1 tűhöz csatlakoztatott tű (vagy használja a diag0_pin / DIAG0 tűt)
+driver_SGT: -64  # -64 a legérzékenyebb érték, 63 a legkevésbé érzékeny.
 ...
 
 [stepper_x]
@@ -123,70 +123,70 @@ homing_retract_dist: 0
 ...
 ```
 
-An example tmc2660 config might look like:
+Egy TMC2660 konfiguráció így nézhet ki:
 
 ```
 [tmc2660 stepper_x]
-driver_SGT: -64     # -64 is most sensitive value, 63 is least sensitive
+driver_SGT: -64      # -64 a legérzékenyebb érték, 63 a legkevésbé érzékeny.
 ...
 
 [stepper_x]
-endstop_pin: ^PA1   # Pin connected to TMC SG_TST pin
+endstop_pin: ^PA1    # A TMC SG_TST tűjéhez csatlakoztatott tű.
 homing_retract_dist: 0
 ...
 ```
 
-The examples above only show settings specific to sensorless homing. See the [config reference](Config_Reference.md#tmc-stepper-driver-configuration) for all the available options.
+A fenti példák csak az érzékelő nélküli kezdőpont felvételre jellemző beállításokat mutatják. Az összes elérhető beállításért lásd a [konfigurációs referencia](Config_Reference.md#tmc-stepper-driver-configuration) dokumentumot.
 
-#### Find highest sensitivity that successfully homes
+#### Keresse meg a legmagasabb érzékenységet, amely sikeresen jelzi a kezdőpontot
 
-Place the carriage near the center of the rail. Use the SET_TMC_FIELD command to set the highest sensitivity. For tmc2209:
+Helyezze a kocsit a sín közepéhez közel. A SET_TMC_FIELD paranccsal állítsa be a legnagyobb érzékenységet. A TMC2209 esetében:
 
 ```
 SET_TMC_FIELD STEPPER=stepper_x FIELD=SGTHRS VALUE=255
 ```
 
-For tmc2130, tmc5160, and tmc2660:
+A TMC2130, TMC5160 és a TMC2660 modellekhez:
 
 ```
 SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 ```
 
-Then issue a `G28 X0` command and verify the axis does not move at all. If the axis does move, then issue an `M112` to halt the printer - something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.
+Ezután adjon ki egy `G28 X0` parancsot, és ellenőrizze, hogy a tengely egyáltalán nem mozog. Ha a tengely mozog, akkor adjon ki egy `M112` parancsot a nyomtató leállításához. Valami nem stimmel a diag/sg_tst pin kábelezésével vagy konfigurációjával, ezt a folytatás előtt ki kell javítani.
 
-Next, continually decrease the sensitivity of the `VALUE` setting and run the `SET_TMC_FIELD` `G28 X0` commands again to find the highest sensitivity that results in the carriage successfully moving all the way to the endstop and halting. (For tmc2209 drivers this will be decreasing SGTHRS, for other drivers it will be increasing sgt.) Be sure to start each attempt with the carriage near the center of the rail (if needed issue `M84` and then manually move the carriage to the center). It should be possible to find the highest sensitivity that homes reliably (settings with higher sensitivity result in small or no movement). Note the found value as *maximum_sensitivity*. (If the minimum possible sensitivity (SGTHRS=0 or sgt=63) is obtained without any carriage movement then something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.)
+Ezután folyamatosan csökkentse a `VALUE` beállítás érzékenységét, és futtassa le újra a `SET_TMC_FIELD` `G28 X0` parancsokat, hogy megtalálja a legnagyobb érzékenységet, amely a kocsi sikeres mozgását eredményezi a végállásig és a megállásig. (A TMC2209 meghajtók esetében ez az SGTHRS csökkentése, más meghajtók esetében az sgt növelése lesz.) Ügyeljen arra, hogy minden kísérletet úgy kezdjen, hogy a kocsi a sín közepéhez közel legyen (ha szükséges, adjon ki egy `M84` parancsot, majd kézzel mozgassa a kocsit középállásba). Meg kell találni a legnagyobb érzékenységet, amely megbízhatóan jelzi a végállást (a nagyobb érzékenységű beállítások kicsi vagy semmilyen mozgást nem eredményeznek). Jegyezze fel a kapott értéket *maximum_sensitivity* néven. (Ha a lehető legkisebb érzékenységet (SGTHRS=0 vagy sgt=63) kapjuk a kocsi elmozdulása nélkül, akkor valami nincs rendben a diag/sg_tst tűk bekötésével vagy konfigurációjával, és a folytatás előtt ki kell javítani.)
 
-When searching for maximum_sensitivity, it may be convenient to jump to different VALUE settings (so as to bisect the VALUE parameter). If doing this then be prepared to issue an `M112` command to halt the printer, as a setting with a very low sensitivity may cause the axis to repeatedly "bang" into the end of the rail.
+A maximum_sensitivity keresésekor kényelmes lehet a különböző VALUE beállításokra ugrani (a VALUE paraméter kettéosztása érdekében). Ha ezt tesszük, akkor készüljünk fel arra, hogy a nyomtató leállításához adjunk ki egy `M112` parancsot, mivel egy nagyon alacsony érzékenységű beállítás miatt a tengely többször "beleütközhet" a sín végébe.
 
-Be sure to wait a couple of seconds between each homing attempt. After the TMC driver detects a stall it may take a little time for it to clear its internal indicator and be capable of detecting another stall.
+Ügyeljen arra, hogy várjon néhány másodpercet minden egyes végállási kísérlet között. Miután a TMC-illesztőprogram érzékeli az elakadást, eltarthat egy kis ideig, amíg a belső visszajelzője törlődik, és képes lesz egy újabb megállást érzékelni.
 
-During these tuning tests, if a `G28 X0` command does not move all the way to the axis limit, then be careful with issuing any regular movement commands (eg, `G1`). Klipper will not have a correct understanding of the carriage position and a move command may cause undesirable and confusing results.
+Ha a hangolási tesztek során a `G28 X0` parancs nem mozdul el egészen a tengelyhatárig, akkor óvatosan kell eljárni a szabályos mozgatási parancsok kiadásával (pl. `G1`). A Klipper nem fogja helyesen értelmezni a kocsi helyzetét, és a mozgatási parancs nemkívánatos és zavaros eredményeket okozhat.
 
-#### Find lowest sensitivity that homes with one touch
+#### Keresse meg a legalacsonyabb érzékenységet, amely egyetlen érintéssel kezdőponton van
 
-When homing with the found *maximum_sensitivity* value, the axis should move to the end of the rail and stop with a "single touch" - that is, there should not be a "clicking" or "banging" sound. (If there is a banging or clicking sound at maximum_sensitivity then the homing_speed may be too low, the driver current may be too low, or sensorless homing may not be a good choice for the axis.)
+Ha a talált *maximum_sensitivity* értékkel állítja be a tengelyt a sín végére, és egy "egyszeri érintéssel" áll meg, azaz nem szabad, hogy "kattogó" vagy "csattanó" hangot halljon. (Ha a maximális érzékenység mellett csattanó vagy kattogó hang hallatszik, akkor a homing_speed túl alacsony, a meghajtóáram túl alacsony, vagy az érzékelő nélküli kezdőpont felvétel nem jó választás a tengely számára.)
 
-The next step is to again continually move the carriage to a position near the center of the rail, decrease the sensitivity, and run the `SET_TMC_FIELD` `G28 X0` commands - the goal is now to find the lowest sensitivity that still results in the carriage successfully homing with a "single touch". That is, it does not "bang" or "click" when contacting the end of the rail. Note the found value as *minimum_sensitivity*.
+A következő lépés az, hogy a kocsit ismét a sín közepére mozgatjuk, csökkentjük az érzékenységet, és futtatjuk a `SET_TMC_FIELD` `G28 X0` parancsokat. A cél most az, hogy megtaláljuk a legkisebb érzékenységet, amely még mindig azt eredményezi, hogy a kocsi egy "egyetlen érintéssel" sikeresen célba ér. Vagyis nem "bumm" vagy "csatt" a sín végének érintésekor. Jegyezze meg a talált értéket *minimum_sensitivity*.
 
-#### Update printer.cfg with sensitivity value
+#### Frissítse a printer.cfg fájlt az érzékenységi értékkel
 
-After finding *maximum_sensitivity* and *minimum_sensitivity*, use a calculator to obtain the recommend sensitivity as *minimum_sensitivity + (maximum_sensitivity - minimum_sensitivity)/3*. The recommended sensitivity should be in the range between the minimum and maximum, but slightly closer to the minimum. Round the final value to the nearest integer value.
+A *maximum_sensitivity* és *minimum_sensitivity* megállapítása után számológép segítségével kapjuk meg az ajánlott érzékenységet a *minimum_sensitivity + (maximum_sensitivity - minimum_sensitivity)/3* képlettel. Az ajánlott érzékenységnek a minimális és maximális értékek közötti tartományban kell lennie, de valamivel közelebb a minimális értékhez. A végső értéket kerekítse a legközelebbi egész értékre.
 
-For tmc2209 set this in the config as `driver_SGTHRS`, for other TMC drivers set this in the config as `driver_SGT`.
+A TMC2209 esetében ezt a konfigurációban a `driver_SGTHRS`, más TMC-illesztőprogramok esetében a `driver_SGT` értékkel kell beállítani.
 
-If the range between *maximum_sensitivity* and *minimum_sensitivity* is small (eg, less than 5) then it may result in unstable homing. A faster homing speed may increase the range and make the operation more stable.
+Ha a *maximum_sensitivity* és *minimum_sensitivity* közötti tartomány kicsi (pl. 5-nél kisebb), akkor ez instabil kezdőpont felvételt eredményezhet. A gyorsabb kezdőpont felvételi sebesség növelheti a hatótávolságot és stabilabbá teheti a működést.
 
-Note that if any change is made to driver current, homing speed, or a notable change is made to the printer hardware, then it will be necessary to run the tuning process again.
+Vegye figyelembe, hogy ha bármilyen változás történik az illesztőprogram áramában, az indítási sebességben vagy a nyomtató hardverén, akkor a hangolási folyamatot újra el kell végezni.
 
-#### Using Macros when Homing
+#### Makrók használata a kezdőpont felvétel során
 
-After sensorless homing completes the carriage will be pressed against the end of the rail and the stepper will exert a force on the frame until the carriage is moved away. It is a good idea to create a macro to home the axis and immediately move the carriage away from the end of the rail.
+Az érzékelő nélküli kezdőpont felvétel befejezése után a kocsi a sín végéhez lesz nyomva, és a léptető erőt fejt ki a keretre, amíg a kocsi el nem mozdul. Jó ötlet egy makrót létrehozni a tengely kezdőpont felvételéhez, és azonnal elmozdítani a kocsit a sín végétől.
 
-It is a good idea for the macro to pause at least 2 seconds prior to starting sensorless homing (or otherwise ensure that there has been no movement on the stepper for 2 seconds). Without a delay it is possible for the driver's internal stall flag to still be set from a previous move.
+Jó ötlet, ha a makró legalább 2 másodperc szünetet tart az érzékelő nélküli kezdőpont felvétel elindítása előtt (vagy más módon biztosítja, hogy a léptetőn 2 másodpercig nem volt mozgás). A késleltetés nélkül lehetséges, hogy a meghajtó belső leállási jelzője még mindig be van állítva egy korábbi mozgás miatt.
 
 It can also be useful to have that macro set the driver current before homing and set a new current after the carriage has moved away.
 
-An example macro might look something like:
+Egy példamakró így nézhet ki:
 
 ```
 [gcode_macro SENSORLESS_HOME_X]
@@ -207,90 +207,90 @@ gcode:
     SET_TMC_CURRENT STEPPER=stepper_x CURRENT={RUN_CUR}
 ```
 
-The resulting macro can be called from a [homing_override config section](Config_Reference.md#homing_override) or from a [START_PRINT macro](Slicers.md#klipper-gcode_macro).
+Az így kapott makró meghívható a [homing_override konfigurációs szakasz](Config_Reference.md#homing_override) vagy a [START_PRINT makró](Slicers.md#klipper-gcode_macro) segítségével.
 
-Note that if the driver current during homing is changed, then the tuning process should be run again.
+Vegye figyelembe, hogy ha a vezérlő áramát a kezdőpont felvétel során megváltoztatják, akkor a hangolási folyamatot újra el kell végezni.
 
-### Tips for sensorless homing on CoreXY
+### Tippek CoreXY gépek szenzor nélküli kezdőpont felvételéhez
 
-It is possible to use sensorless homing on the X and Y carriages of a CoreXY printer. Klipper uses the `[stepper_x]` stepper to detect stalls when homing the X carriage and uses the `[stepper_y]` stepper to detect stalls when homing the Y carriage.
+A CoreXY nyomtató X és Y kocsiknál érzékelő nélküli kezdőpont felvételre is van lehetőség. A Klipper a `[stepper_x]` léptetőt használja az X kocsi kezdőpont felvételekor az elakadások érzékelésére, az Y kocsi kezdőpont felvételekor pedig a `[stepper_y]` léptetőt.
 
-Use the tuning guide described above to find the appropriate "stall sensitivity" for each carriage, but be aware of the following restrictions:
+Használja a fent leírt hangolási útmutatót, hogy megtalálja a megfelelő "elakadás érzékenységet" az egyes kocsikhoz, de vegye figyelembe a következő korlátozásokat:
 
 1. When using sensorless homing on CoreXY, make sure there is no `hold_current` configured for either stepper.
-1. While tuning, make sure both the X and Y carriages are near the center of their rails before each home attempt.
-1. After tuning is complete, when homing both X and Y, use macros to ensure that one axis is homed first, then move that carriage away from the axis limit, pause for at least 2 seconds, and then start the homing of the other carriage. The move away from the axis avoids homing one axis while the other is pressed against the axis limit (which may skew the stall detection). The pause is necessary to ensure the driver's stall flag is cleared prior to homing again.
+1. A hangolás során győződjön meg arról, hogy az X és az Y kocsik a sínek közepénél vannak-e minden egyes kezdőpont felvételi kísérlet előtt.
+1. A hangolás befejezése után az X és Y kezdőpont felvételét makrók segítségével biztosítsa, hogy először az egyik tengely vegye fel a kezdőpontot, majd mozgassa el a kocsit a tengelyhatártól, tartson legalább 2 másodperc szünetet, majd kezdje el a másik kocsi kezdőpont felvételét. A tengelytől való eltávolodással elkerülhető, hogy az egyik tengelyt akkor indítsuk el, amikor a másik a tengelyhatárhoz van nyomva (ami eltorzíthatja az akadásérzékelést). A szünetre azért van szükség, hogy a meghajtó az újraindítás előtt törölje az elakadás érzékelő puffert.
 
-## Querying and diagnosing driver settings
+## Az illesztőprogram beállításainak lekérdezése és diagnosztizálása
 
 The `[DUMP_TMC command](G-Codes.md#dump_tmc) is a useful tool when configuring and diagnosing the drivers. It will report all fields configured by Klipper as well as all fields that can be queried from the driver.
 
-All of the reported fields are defined in the Trinamic datasheet for each driver. These datasheets can be found on the [Trinamic website](https://www.trinamic.com/). Obtain and review the Trinamic datasheet for the driver to interpret the results of DUMP_TMC.
+Az összes bejelentett mezőt az egyes meghajtók Trinamic adatlapja határozza meg. Ezek az adatlapok megtalálhatók a [Trinamic weboldalán](https://www.trinamic.com/). A DUMP_TMC eredményeinek értelmezéséhez szerezze be és tekintse át a meghajtó Trinamic adatlapját.
 
-## Configuring driver_XXX settings
+## A driver_XXX beállítások konfigurálása
 
-Klipper supports configuring many low-level driver fields using `driver_XXX` settings. The [TMC driver config reference](Config_Reference.md#tmc-stepper-driver-configuration) has the full list of fields available for each type of driver.
+A Klipper támogatja számos alacsony szintű illesztőprogram-mező konfigurálását a `driver_XXX` beállítások használatával. A [TMC meghajtó konfigurációs hivatkozás](Config_Reference.md#tmc-stepper-driver-configuration) tartalmazza az egyes meghajtótípusokhoz elérhető mezők teljes listáját.
 
 In addition, almost all fields can be modified at run-time using the [SET_TMC_FIELD command](G-Codes.md#set_tmc_field).
 
-Each of these fields is defined in the Trinamic datasheet for each driver. These datasheets can be found on the [Trinamic website](https://www.trinamic.com/).
+E mezők mindegyikét az egyes meghajtók Trinamic adatlapja határozza meg. Ezek az adatlapok megtalálhatók a [Trinamic weboldalán](https://www.trinamic.com/).
 
-Note that the Trinamic datasheets sometime use wording that can confuse a high-level setting (such as "hysteresis end") with a low-level field value (eg, "HEND"). In Klipper, `driver_XXX` and SET_TMC_FIELD always set the low-level field value that is actually written to the driver. So, for example, if the Trinamic datasheet states that a value of 3 must be written to the HEND field to obtain a "hysteresis end" of 0, then set `driver_HEND=3` to obtain the high-level value of 0.
+Vegye figyelembe, hogy a Trinamic adatlapok néha olyan megfogalmazást használnak, amely összetéveszthet egy magas szintű beállítást (például "hiszterézis vége") egy alacsony szintű mezőértékkel (pl. "HEND"). A Klipperben a `driver_XXX` és a SET_TMC_FIELD mindig azt az alacsony szintű mezőértéket állítja be, amely ténylegesen a meghajtóba íródik. Így például, ha a Trinamic adatlapja szerint 3 értéket kell írni a HEND mezőbe, hogy a "hiszterézis vége" 0 legyen, akkor a `driver_HEND=3` beállításával a 0 magas szintű értéket kapjuk.
 
-## Common Questions
+## Gyakori kérdések
 
-### Can I use stealthChop mode on an extruder with pressure advance?
+### Használhatom a StealthChop üzemmódot nyomásszabályozással rendelkező extruderen?
 
-Many people successfully use "stealthChop" mode with Klipper's pressure advance. Klipper implements [smooth pressure advance](Kinematics.md#pressure-advance) which does not introduce any instantaneous velocity changes.
+Sokan sikeresen használják a "StealthChop" üzemmódot a Klipper nyomásszabályozással. A Klipper [smooth pressure advance](Kinematics.md#pressure-advance), amely nem vezet be pillanatnyi sebesség változást.
 
-However, "stealthChop" mode may produce lower motor torque and/or produce higher motor heat. It may or may not be an adequate mode for your particular printer.
+A "StealthChop" üzemmód azonban alacsonyabb motornyomatékot és/vagy nagyobb motorhőt eredményezhet. Lehet, hogy ez az üzemmód megfelelő az Ön adott nyomtatója számára, de az is lehet, hogy nem.
 
-### I keep getting "Unable to read tmc uart 'stepper_x' register IFCNT" errors?
+### Folyamatosan kap "Nem tudom olvasni a tmc uart 'stepper_x' regiszter IFCNT" hibákat?
 
-This occurs when Klipper is unable to communicate with a tmc2208 or tmc2209 driver.
+Ez akkor fordul elő, ha a Klipper nem tud kommunikálni egy TMC2208 vagy TMC2209 meghajtóval.
 
-Make sure that the motor power is enabled, as the stepper motor driver generally needs motor power before it can communicate with the micro-controller.
+Győződjön meg róla, hogy a motor tápellátása engedélyezve van, mivel a léptetőmotor-meghajtónak általában motoráramra van szüksége, mielőtt kommunikálni tudna a mikrokontrollerrel.
 
-If this error occurs after flashing Klipper for the first time, then the stepper driver may have been previously programmed in a state that is not compatible with Klipper. To reset the state, remove all power from the printer for several seconds (physically unplug both USB and power plugs).
+Ha ez a hiba a Klipper első égetése után jelentkezik, akkor a léptető meghajtó korábban olyan állapotba programozódott, amely nem kompatibilis a Klipperrel. Az állapot visszaállításához néhány másodpercre távolítsa el a nyomtatót az áramellátástól (fizikailag húzza ki az USB-t és a hálózati csatlakozót).
 
-Otherwise, this error is typically the result of incorrect UART pin wiring or an incorrect Klipper configuration of the UART pin settings.
+Ellenkező esetben ez a hiba általában az UART-tű helytelen huzalozásának vagy az UART-pinbeállítások helytelen Klipper konfigurációjának eredménye.
 
-### I keep getting "Unable to write tmc spi 'stepper_x' register ..." errors?
+### Folyamatosan kap "Nem lehet írni tmc spi "stepper_x" register ..." hibát?
 
-This occurs when Klipper is unable to communicate with a tmc2130 or tmc5160 driver.
+Ez akkor fordul elő, ha a Klipper nem tud kommunikálni egy TMC2208 vagy TMC2209 meghajtóval.
 
-Make sure that the motor power is enabled, as the stepper motor driver generally needs motor power before it can communicate with the micro-controller.
+Győződjön meg róla, hogy a motor tápellátása engedélyezve van, mivel a léptetőmotor-meghajtónak általában motoráramra van szüksége, mielőtt kommunikálni tudna a mikrokontrollerrel.
 
-Otherwise, this error is typically the result of incorrect SPI wiring, an incorrect Klipper configuration of the SPI settings, or an incomplete configuration of devices on an SPI bus.
+Ellenkező esetben ez a hiba általában a helytelen SPI-vezetékezés, az SPI-beállítások helytelen Klipper-konfigurációja vagy az SPI-buszon lévő eszközök hiányos konfigurációjának eredménye.
 
-Note that if the driver is on a shared SPI bus with multiple devices then be sure to fully configure every device on that shared SPI bus in Klipper. If a device on a shared SPI bus is not configured, then it may incorrectly respond to commands not intended for it and corrupt the communication to the intended device. If there is a device on a shared SPI bus that can not be configured in Klipper, then use a [static_digital_output config section](Config_Reference.md#static_digital_output) to set the CS pin of the unused device high (so that it will not attempt to use the SPI bus). The board's schematic is often a useful reference for finding which devices are on an SPI bus and their associated pins.
+Ne feledje, hogy ha az illesztőprogram egy megosztott SPI-buszon van több eszközzel, akkor győződjön meg róla, hogy teljes mértékben konfigurálja a Klipperben lévő megosztott SPI-busz minden eszközét. Ha egy megosztott SPI-buszon lévő eszköz nincs konfigurálva, akkor előfordulhat, hogy helytelenül reagál a nem erre szánt parancsokra, és meghiúsul a kívánt eszközzel folytatott kommunikáció. Ha van olyan eszköz egy megosztott SPI-buszon, amelyet nem lehet konfigurálni a Klipperben, akkor a [static_digital_output konfigurációs szakasz](Config_Reference.md#static_digital_output) segítségével állítsa magasra a nem használt eszköz CS-pinjét (hogy ne kísérelje meg használni az SPI-buszt). A tábla vázlata gyakran hasznos referencia annak megállapításához, hogy mely eszközök vannak egy SPI-buszon és a hozzájuk tartozó tűkön.
 
-### Why did I get a "TMC reports error: ..." error?
+### Miért kaptam egy "TMC jelentés hiba: ..." hibaüzenetet?
 
-This type of error indicates the TMC driver detected a problem and has disabled itself. That is, the driver stopped holding its position and ignored movement commands. If Klipper detects that an active driver has disabled itself, it will transition the printer into a "shutdown" state.
+Az ilyen típusú hiba azt jelzi, hogy a TMC-illesztőprogram hibát észlelt, és letiltotta magát. Vagyis a meghajtó abbahagyta a pozícióját, és figyelmen kívül hagyta a mozgási parancsokat. Ha a Klipper azt észleli, hogy egy aktív illesztőprogram letiltotta magát, a nyomtatót "leállítás" állapotba állítja.
 
-It's also possible that a **TMC reports error** shutdown occurs due to SPI errors that prevent communication with the driver (on tmc2130, tmc5160, or tmc2660). If this occurs, it's common for the reported driver status to show `00000000` or `ffffffff` - for example: `TMC reports error: DRV_STATUS: ffffffff ...` OR `TMC reports error: READRSP@RDSEL2: 00000000 ...`. Such a failure may be due to an SPI wiring problem or may be due to a self-reset or failure of the TMC driver.
+Az is lehetséges, hogy a **TMC hiba** leállítása SPI hibák miatt következik be, amelyek megakadályozzák az illesztőprogrammal való kommunikációt (TMC2130, TMC5160 vagy TMC2660). Ebben az esetben gyakori, hogy a jelentett illesztőprogram állapota `000000000` vagy `ffffffffff` - például: `TMC hibát jelent: DRV_STATUS: ffffffff ... ` VAGY `TMC jelentések hiba: READRSP@RDSEL2: 00000000 ... `. Az ilyen hiba oka lehet egy SPI vezetékezési probléma, vagy lehet, hogy a visszaállítás vagy a TMC illesztőprogram meghibásodása.
 
-Some common errors and tips for diagnosing them:
+Néhány gyakori hiba és tipp a diagnosztizáláshoz:
 
 #### TMC reports error: `... ot=1(OvertempError!)`
 
-This indicates the motor driver disabled itself because it became too hot. Typical solutions are to decrease the stepper motor current, increase cooling on the stepper motor driver, and/or increase cooling on the stepper motor.
+Ez azt jelzi, hogy a motorvezérlő kikapcsolta magát, mert túl meleg lett. A tipikus megoldások a léptetőmotor áramának csökkentése, a léptetőmotor-meghajtó hűtésének növelése és/vagy a léptetőmotor hűtésének növelése.
 
 #### TMC reports error: `... ShortToGND` OR `LowSideShort`
 
-This indicates the driver has disabled itself because it detected very high current passing through the driver. This may indicate a loose or shorted wire to the stepper motor or within the stepper motor itself.
+Ez azt jelzi, hogy a meghajtó letiltotta magát, mert nagyon magas áramot érzékelt a meghajtón keresztül. Ez azt jelezheti, hogy meglazult vagy rövidre zárt vezeték van a léptetőmotorban vagy magához a léptetőmotorhoz futó vezeték hibás.
 
-This error may also occur if using stealthChop mode and the TMC driver is not able to accurately predict the mechanical load of the motor. (If the driver makes a poor prediction then it may send too much current through the motor and trigger its own over-current detection.) To test this, disable stealthChop mode and check if the errors continue to occur.
+Ez a hiba akkor is előfordulhat, ha StealthChop üzemmódot használ, és a TMC vezérlő nem képes pontosan megjósolni a motor mechanikai terhelését. (Ha a meghajtó rosszul jósol, akkor előfordulhat, hogy túl nagy áramot küld a motoron keresztül, és ezzel kiváltja saját túláram-érzékelését). Ennek teszteléséhez kapcsolja ki a StealthChop üzemmódot, és ellenőrizze, hogy a hibák továbbra is előfordulnak-e.
 
 #### TMC reports error: `... reset=1(Reset)` OR `CS_ACTUAL=0(Reset?)` OR `SE=0(Reset?)`
 
-This indicates that the driver has reset itself mid-print. This may be due to voltage or wiring issues.
+Ez azt jelzi, hogy az illesztőprogram a nyomtatás közepén visszaállította magát. Ennek oka lehet feszültség vagy vezetékezési probléma.
 
 #### TMC reports error: `... uv_cp=1(Undervoltage!)`
 
-This indicates the driver has detected a low-voltage event and has disabled itself. This may be due to wiring or power supply issues.
+Ez azt jelzi, hogy a meghajtó alacsony feszültséget észlelt, és letiltotta magát. Ennek oka lehet vezetékezési vagy tápellátási probléma.
 
-### How do I tune spreadCycle/coolStep/etc. mode on my drivers?
+### Hogyan tudom beállítani a spreadCycle/coolStep/etc. üzemmódot a motorvezérlőimhez?
 
-The [Trinamic website](https://www.trinamic.com/) has guides on configuring the drivers. These guides are often technical, low-level, and may require specialized hardware. Regardless, they are the best source of information.
+A [Trinamic weboldal](https://www.trinamic.com/) tartalmaz útmutatókat az illesztőprogramok konfigurálásához. Ezek az útmutatók gyakran technikai jellegűek, alacsony szintűek, és speciális hardvert igényelhetnek. Ettől függetlenül ez a legjobb információforrás.

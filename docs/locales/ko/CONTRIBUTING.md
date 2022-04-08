@@ -1,12 +1,12 @@
-# 클리퍼에 기여하기
+# Klipper에 기여하기
 
-Thank you for contributing to Klipper! This document describes the process for contributing changes to Klipper.
+Klipper에 기여해주셔서 감사합니다! 이 문서는 Klipper에 변경 사항을 기여하는 프로세스를 설명합니다.
 
-Please see the [contact page](Contact.md) for information on reporting an issue or for details on contacting the developers.
+문제 신고 및 개발자 연락에 대한 자세한 내용은 [문의 페이지](Contact.md)를 참조하십시오.
 
 ## 기여 프로세스 개요
 
-Contributions to Klipper generally follow a high-level process:
+Klipper에 대한 기여는 일반적으로 높은 수준의 프로세스를 따릅니다:
 
 1. A submitter starts by creating a [GitHub Pull Request](https://github.com/Klipper3d/klipper/pulls) when a submission is ready for widespread deployment.
 1. When a [reviewer](#reviewers) is available to [review](#what-to-expect-in-a-review) the submission, they will assign themselves to the Pull Request on GitHub. The goal of the review is to look for defects and to check that the submission follows documented guidelines.
@@ -120,12 +120,11 @@ Each commit should have a commit message formatted similar to the following:
 ```
 모듈: 대문자, 짧은(50자 이하) 요약
 
-필요한 경우 더 자세한 설명 텍스트 작성. 약 75
-자 정도로 줄바꿈합니다. 일부 상황에서 첫 번째 줄은 이메일
-의 제목으로 처리되고 나머지 텍스트는 본문으로 처리됩니다.
-본문과 요약을 구분하는 빈 줄은 중요합니다(본문을 완전히 생략하지 않는 한).
-두 가지를 함께 실행하면 rebase와 같은 도구가 혼동될 수 있
-습니다.
+필요한 경우 보다 자세한 설명 텍스트입니다. 약 75자 정도로
+줄바꿈합니다. 일부 상황에서 첫 번째 줄은 이메일의 제목으로
+처리되고 나머지 텍스트는 본문으로 처리됩니다. 본문과 요약을
+구분하는 빈 줄은 중요합니다.(본문을 완전히 생략하지 않는 한)
+두 가지를 함께 실행하면 rebase와 같은 도구가 혼동될 수 있습니다.
 
 빈 줄 뒤에 추가 단락이 옵니다..
 

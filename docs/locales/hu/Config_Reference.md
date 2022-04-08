@@ -12,9 +12,9 @@ Számos konfigurációs beállításhoz egy mikrokontroller-tű nevére van szü
 
 A pin nevek előtt `!` állhat, hogy jelezze ilyenkor fordított polaritást használ (pl. magas helyett alacsony értéken történő triggerelés).
 
-Input pins may be preceded by `^` to indicate that a hardware pull-up resistor should be enabled for the pin. If the micro-controller supports pull-down resistors then an input pin may alternatively be preceded by `~`.
+A bemeneti tűk előtt `^` jelezheti, hogy a tűhöz hardveres pull-up ellenállást kell engedélyezni. Ha a mikrokontroller támogatja a pull-down ellenállásokat, akkor egy bemeneti tű előtt `~` állhat.
 
-Note, some config sections may "create" additional pins. Where this occurs, the config section defining the pins must be listed in the config file before any sections using those pins.
+Megjegyzés: egyes konfigurációs szakaszok további tűket hozhatnak létre. Ahol ez előfordul, ott a tűket definiáló konfigurációs szekciót a konfigurációs fájlban az ezeket a tűket használó szekciók előtt kell felsorolni.
 
 ### [mcu]
 
