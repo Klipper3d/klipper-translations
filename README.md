@@ -26,7 +26,7 @@ http://www.facebook.com/HKMakers.hk
 
 ### 这是测试版文档！
 
-状态：进行中(Last updated 2021-07-11)
+状态：已上线(Last updated 2022-04-08)
 
 [Klipper中文文档](https://github.com/KevinOConnor/klipper-translations/tree/translations/docs/locales/zh-hans)
 
