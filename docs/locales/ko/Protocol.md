@@ -1,4 +1,4 @@
-# Protocol
+# 프로토콜
 
 Klipper 메시징 프로토콜은 Klipper 호스트 소프트웨어와 Klipper 마이크로 컨트롤러 소프트웨어 간의 저수준 통신에 사용됩니다. 높은 수준에서 프로토콜은 압축, 전송 및 수신 측에서 처리되는 일련의 명령 및 응답 문자열로 생각할 수 있습니다. 사람이 읽을 수 있는 압축되지 않은 형식의 예제 명령은 다음과 같습니다:
 
@@ -39,7 +39,7 @@ DECL_COMMAND(command_update_digital_out, "update_digital_out oid=%c value=%c");
 마이크로 컨트롤러에서 호스트로 정보를 보내기 위해 "response" 가 생성됩니다. 이것들은 모두 sendf() C 매크로를 사용하여 선언되고 전송됩니다. 예를 들어:
 
 ```
-sendf("status clock=%u status=%c", sched_read_time(), sched_is_shutdown());
+sendf("상태 시계=%u 상태=%c", sched_read_time(), sched_is_shutdown());
 ```
 
 위는 두 개의 정수 매개변수("clock" 및 "status")를 포함하는 "status" 응답 메시지를 전송합니다. 마이크로 컨트롤러 빌드는 모든 sendf() 호출을 자동으로 찾고 이에 대한 인코더를 생성합니다. sendf() 함수의 첫 번째 매개변수는 응답을 설명하며 명령 선언과 동일한 형식입니다.
@@ -53,7 +53,7 @@ sendf() 매크로는 명령 또는 작업 처리기에서만 호출해야 하며
 디버깅을 단순화하기 위해 output() C 함수도 있습니다. 예를 들어:
 
 ```
-output("The value of %u is %s with size %u.", x, buf, buf_len);
+output("%u의 값은 크기가 %u인 %s입니다.", x, buf, buf_len);
 ```
 
 output() 함수는 printf()와 사용법이 유사합니다 - 이는 사람이 소비할 임의의 메시지를 생성하고 형식화하기 위한 것입니다.
@@ -129,7 +129,7 @@ get_clock
 
 VLQ 로 인코딩된 정수의 일반 형식에 대한 자세한 내용은 [wikipedia article](https://en.wikipedia.org/wiki/Variable-length_quantity) 를 참조하세요. Klipper는 양수 및 음수 정수를 모두 지원하는 인코딩 체계를 사용합니다. 0 에 가까운 정수는 인코딩하는 데 더 적은 바이트를 사용하고 양의 정수는 일반적으로 음의 정수보다 적은 바이트를 사용하여 인코딩합니다. 다음 표는 각 정수가 인코딩하는 데 걸리는 바이트 수를 보여줍니다:
 
-| Integer | Encoded size |
+| 정수 | 인코딩된 크기 |
 | --- | --- |
 | -32 .. 95 | 1 |
 | -4096 .. 12287 | 2 |

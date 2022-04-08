@@ -8,8 +8,8 @@ Klipper 배포의 역사. Klipper 설치에 대한 정보는 [installation](Inst
 
 * Support for "Multi-MCU Homing". It is now possible for a stepper motor and its endstop to be wired to separate micro-controllers. This simplifies wiring of Z probes on "toolhead boards".
 * Klipper는 이제 [Community Discord Server](https://discord.klipper3d.org)와 [Community Discourse Server](https://community.klipper3d.org)를 보유하고 있습니다.
-* [Klipper website](https://www.klipper3d.org)는 이제 "mkdocs" 인프라를 사용합니다. [Klipper Translations](https://github.com/Klipper3d/klipper-translations) 프로젝트도 있습니다.
-* Automated support for flashing firmware via sdcard on many boards.
+* [Klipper 웹사이트](https://www.klipper3d.org)는 이제 "mkdocs" 인프라를 사용합니다. [Klipper 번역](https://github.com/Klipper3d/klipper-translations) 프로젝트도 있습니다.
+* 많은 보드에서 sdcard를 통해 펌웨어를 업데이트하도록 자동으로 지원합니다.
 * New kinematic support for "Hybrid CoreXY" and "Hybrid CoreXZ" printers.
 * Klipper now uses `rotation_distance` to configure stepper motor travel distances.
 * The main Klipper host code can now directly communicate with micro-controllers using CAN bus.
