@@ -498,6 +498,29 @@ msgid ""
 " [3292.433256,-382.45935,-1606.32927,9561.48375]]}}`"
 msgstr ""
 
+#: docs/API_Server.md:block 83 (header)
+msgid "angle/dump_angle"
+msgstr ""
+
+#: docs/API_Server.md:block 84 (paragraph)
+msgid ""
+"This endpoint is used to subscribe to [angle sensor "
+"data](Config_Reference.md#angle). Obtaining these low-level motion updates "
+"may be useful for diagnostic and debugging purposes. Using this endpoint may"
+" increase Klipper's system load."
+msgstr ""
+
+#: docs/API_Server.md:block 85 (paragraph)
+msgid ""
+"A request may look like: `{\"id\": 123, \"method\":\"angle/dump_angle\", "
+"\"params\": {\"sensor\": \"my_angle_sensor\", \"response_template\": {}}}` "
+"and might return: `{\"id\": "
+"123,\"result\":{\"header\":[\"time\",\"angle\"]}}` and might later produce "
+"asynchronous messages such as: "
+"`{\"params\":{\"position_offset\":3.151562,\"errors\":0, "
+"\"data\":[[1290.951905,-5063],[1290.952321,-5065]]}}`"
+msgstr ""
+
 #~ msgid ""
 #~ "When the PANELDUE_BEEP gcode macro is executed, Klipper would send something"
 #~ " like the following over the socket: `{\"action\": \"run_paneldue_beep\", "

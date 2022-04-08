@@ -285,6 +285,12 @@ msgstr ""
 msgid "rear left screw must be turned clockwise 2 minutes (not need it's ok)"
 msgstr ""
 
+#: docs/Manual_Level.md:block 38 (paragraph)
+msgid ""
+"Note that \"minutes\" refers to \"minutes of a clock face\". So, for "
+"example, 15 minutes is a quarter of a full turn."
+msgstr ""
+
 #~ msgid "read left screw must be turned clockwise 2 minutes (not need it's ok)"
 #~ msgstr ""
 

@@ -5,8 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2022-04-08 06:09+0000\n"
 "Last-Translator: 이정희 <daemul72@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
-"manual_level/ko/>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/manual_level/ko/>\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -386,6 +385,12 @@ msgstr ""
 #: docs/Manual_Level.md:block 37 (unordered list)
 msgid "rear left screw must be turned clockwise 2 minutes (not need it's ok)"
 msgstr "후면 왼쪽 나사는 시계 방향으로 2분 돌려야 합니다(필요 없음)"
+
+#: docs/Manual_Level.md:block 38 (paragraph)
+msgid ""
+"Note that \"minutes\" refers to \"minutes of a clock face\". So, for "
+"example, 15 minutes is a quarter of a full turn."
+msgstr ""
 
 #~ msgid "read left screw must be turned clockwise 2 minutes (not need it's ok)"
 #~ msgstr ""
