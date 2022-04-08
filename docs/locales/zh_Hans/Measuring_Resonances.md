@@ -58,7 +58,7 @@ sudo apt install python3-numpy python3-matplotlib
 
 通过运行`sudo raspi-config` 后的 "Interfacing options"菜单中启用 SPI 以确保Linux SPI 驱动已启用。
 
-在printer.cfg附上下面的内容：
+在printer.cfg中添加以下内容：
 
 ```
 [mcu rpi]
