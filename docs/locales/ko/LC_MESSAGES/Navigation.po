@@ -1,38 +1,40 @@
+# 이정희 <daemul72@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2022-03-06 16:54+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-04-08 06:09+0000\n"
+"Last-Translator: 이정희 <daemul72@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
+"navigation/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 3.6.0\n"
-
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid "Klipper documentation"
-msgstr ""
+msgstr "Klipper 문서"
 
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "설치 및 구성"
 
 msgid "Configuration Reference"
-msgstr ""
+msgstr "구성 참조"
 
 msgid "Bed Level"
-msgstr ""
+msgstr "베드 수평"
 
 msgid "Resonance Compensation"
-msgstr ""
+msgstr "공진 보상"
 
 msgid "Command templates"
-msgstr ""
+msgstr "명령 서식"
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "개발자 문서"
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "장치 관련 문서"

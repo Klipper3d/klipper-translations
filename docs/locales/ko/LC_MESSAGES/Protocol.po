@@ -1,15 +1,17 @@
 # brian park <gouache95@gmail.com>, 2021.
+# 이정희 <daemul72@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-22 00:41+0000\n"
-"Last-Translator: brian park <gouache95@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/protocol/ko/>\n"
+"PO-Revision-Date: 2022-04-08 06:09+0000\n"
+"Last-Translator: 이정희 <daemul72@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/protocol/"
+"ko/>\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8.1-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid ""
 "The Klipper messaging protocol is used for low-level communication between "
@@ -335,10 +337,10 @@ msgstr ""
 "수를 보여줍니다:"
 
 msgid "Integer"
-msgstr "Integer"
+msgstr "정수"
 
 msgid "Encoded size"
-msgstr "Encoded size"
+msgstr "인코딩된 크기"
 
 msgid "-32 .. 95"
 msgstr "-32 .. 95"
@@ -564,12 +566,10 @@ msgstr ""
 msgid ""
 "sendf(\"status clock=%u status=%c\", sched_read_time(), "
 "sched_is_shutdown());\n"
-msgstr ""
-"sendf(\"status clock=%u status=%c\", sched_read_time(), "
-"sched_is_shutdown());\n"
+msgstr "sendf(\"상태 시계=%u 상태=%c\", sched_read_time(), sched_is_shutdown());\n"
 
 msgid "output(\"The value of %u is %s with size %u.\", x, buf, buf_len);\n"
-msgstr "output(\"The value of %u is %s with size %u.\", x, buf, buf_len);\n"
+msgstr "output(\"%u의 값은 크기가 %u인 %s입니다.\", x, buf, buf_len);\n"
 
 msgid ""
 "DECL_ENUMERATION(\"spi_bus\", \"spi\", 0);\n"
@@ -612,4 +612,4 @@ msgstr "<VLQ encoded length><n-byte contents>\n"
 
 #: docs/Protocol.md:block 1 (header)
 msgid "Protocol"
-msgstr "Protocol"
+msgstr "프로토콜"
