@@ -1,16 +1,17 @@
-# Neko.vecter <Vecterfang@icloud.com>, 2021.
+# Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-19 21:06+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/bltouch/zh_Hans/>\n"
-"Language: zh-hans\n"
+"PO-Revision-Date: 2022-04-08 06:09+0000\n"
+"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/bltouch/zh_Hans/>\n"
+"Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid "Connecting BL-Touch"
 msgstr "连接到 BL-Touch"
@@ -92,7 +93,7 @@ msgid ""
 msgstr "如果成功了，再做一次`G28`（或`PROBE`），但是这次让它触碰到热床。"
 
 msgid "BL-Touch gone bad"
-msgstr "BL-Touch 坏了"
+msgstr "BL-Touch 出现故障"
 
 msgid ""
 "Once the BL-Touch is in inconsistent state, it starts blinking red. You can "

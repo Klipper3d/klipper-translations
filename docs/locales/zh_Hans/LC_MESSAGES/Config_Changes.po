@@ -1,13 +1,13 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
-# Neko.vecter <Vecterfang@icloud.com>, 2021.
+# Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 # Arda <pengfei.fu@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2022-04-02 17:09+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"PO-Revision-Date: 2022-04-08 06:09+0000\n"
+"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/config_changes/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -24,7 +24,7 @@ msgid ""
 msgstr "本文档涵盖了软件更新中对配置文件不向后兼容的部分。在升级 Klipper 时，最好也查看一下这份文档。"
 
 msgid "All dates in this document are approximate."
-msgstr "本文档中的所有日期都是不精确的。"
+msgstr "文档的所有日期都是大概时间。"
 
 msgid "Changes"
 msgstr "变更"
