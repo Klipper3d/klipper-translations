@@ -146,19 +146,19 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="Config_checks.html" hreflang="en" class="md-select__link">
+                  <a href="/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HS/locales/ko/Config_checks.html" hreflang="zh_HS" class="md-select__link">
+                  <a href="/zh/" hreflang="zh" class="md-select__link">
                     简体中文
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HT/locales/ko/Config_checks.html" hreflang="zh_HT" class="md-select__link">
+                  <a href="/zh-Hant/" hreflang="zh-Hant" class="md-select__link">
                     繁體中文
                   </a>
                 </li>
@@ -1284,7 +1284,7 @@
 <h2 id="_5">압출기 모터 확인<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>압출기 모터를 테스트하려면 압출기를 인쇄 온도로 가열해야 합니다. Octoprint 온도 탭으로 이동하여 온도 드롭다운 상자에서 목표 온도를 선택합니다(또는 적절한 온도를 수동으로 입력). 프린터가 원하는 온도에 도달할 때까지 기다립니다. 그런 다음 Octoprint 제어 탭으로 이동하여 "Extrude" 버튼을 클릭합니다. 압출기 모터가 올바른 방향으로 회전하는지 확인합니다. 그렇지 않은 경우 이전 섹션의 문제 해결 팁을 참조하여 압출기의 "enable_pin", "step_pin" 및 "dir_pin" 설정을 확인하십시오.</p>
 <h2 id="pid">PID 설정 보정<a class="headerlink" href="#pid" title="Permanent link">&para;</a></h2>
-<p>Klipper supports <a href="https://en.wikipedia.org/wiki/PID_controller">PID control</a> for the extruder and bed heaters. In order to use this control mechanism, it is necessary to calibrate the PID settings on each printer (PID settings found in other firmwares or in the example configuration files often work poorly).</p>
+<p>클리퍼는 압출기 및 베드 히터에 대해 <a href="https://en.wikipedia.org/wiki/PID_controller">PID 제어</a>를 지원합니다. 이 제어 메커니즘을 사용하려면 각 프린터의 PID 설정을 보정해야 합니다(다른 펌웨어 또는 예제 구성 파일에서 찾은 PID 설정은 종종 제대로 작동하지 않음).</p>
 <p>압출기를 보정하려면 OctoPrint 터미널 탭으로 이동하여 PID_CALIBRATE 명령을 실행하십시오. 예시: <code>PID_CALIBRATE HEATER=extruder TARGET=170</code></p>
 <p>조정 테스트가 완료되면 <code>SAVE_CONFIG</code>를 실행하여 printer.cfg 파일을 업데이트하여 새 PID 설정을 업데이트합니다.</p>
 <p>프린터에 히팅베드가 있고 PWM(Pulse Width Modulation) 구동을 지원하는 경우 베드에 PID 제어를 사용하는 것이 좋습니다. (베드 히터가 PID 알고리즘을 사용하여 제어될 경우 1초에 10번씩 켜지고 꺼질 수 있으므로 기계식 스위치를 사용하는 히터에는 적합하지 않을 수 있습니다.) 일반적인 베드 PID 교정 명령은 다음과 같습니다: <code>PID_CALIBRATE HEATER=heater_bed TARGET=60</code></p>

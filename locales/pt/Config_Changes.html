@@ -146,19 +146,19 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="Config_Changes.html" hreflang="en" class="md-select__link">
+                  <a href="/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HS/locales/pt/Config_Changes.html" hreflang="zh_HS" class="md-select__link">
+                  <a href="/zh/" hreflang="zh" class="md-select__link">
                     简体中文
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HT/locales/pt/Config_Changes.html" hreflang="zh_HT" class="md-select__link">
+                  <a href="/zh-Hant/" hreflang="zh-Hant" class="md-select__link">
                     繁體中文
                   </a>
                 </li>
@@ -1205,6 +1205,8 @@
 <p>This document covers recent software changes to the config file that are not backwards compatible. It is a good idea to review this document when upgrading the Klipper software.</p>
 <p>All dates in this document are approximate.</p>
 <h2 id="changes">Changes<a class="headerlink" href="#changes" title="Permanent link">&para;</a></h2>
+<p>20220307: <code>M73</code> will no longer set print progress to 0 if <code>P</code> is missing.</p>
+<p>20220304: There is no longer a default for the <code>extruder</code> parameter of <a href="Config_Reference.html#extruder_stepper">extruder_stepper</a> config sections. If desired, specify <code>extruder: extruder</code> explicitly to associate the stepper motor with the "extruder" motion queue at startup.</p>
 <p>20220210: The <code>SYNC_STEPPER_TO_EXTRUDER</code> command is deprecated; the <code>SET_EXTRUDER_STEP_DISTANCE</code> command is deprecated; the <a href="Config_Reference.html#extruder">extruder</a> <code>shared_heater</code> config option is deprecated. These features will be removed in the near future. Replace <code>SET_EXTRUDER_STEP_DISTANCE</code> with <code>SET_EXTRUDER_ROTATION_DISTANCE</code>. Replace <code>SYNC_STEPPER_TO_EXTRUDER</code> with <code>SYNC_EXTRUDER_MOTION</code>. Replace extruder config sections using <code>shared_heater</code> with <a href="Config_Reference.html#extruder_stepper">extruder_stepper</a> config sections and update any activation macros to use <a href="G-Codes.html#sync_extruder_motion">SYNC_EXTRUDER_MOTION</a>.</p>
 <p>20220116: The tmc2130, tmc2208, tmc2209, and tmc2660 <code>run_current</code> calculation code has changed. For some <code>run_current</code> settings the drivers may now be configured differently. This new configuration should be more accurate, but it may invalidate previous tmc driver tuning.</p>
 <p>20211230: Scripts to tune input shaper (<code>scripts/calibrate_shaper.py</code> and <code>scripts/graph_accelerometer.py</code>) were migrated to use Python3 by default. As a result, users must install Python3 versions of certain packages (e.g. <code>sudo apt install python3-numpy python3-matplotlib</code>) to continue using these scripts. For more details, refer to <a href="Measuring_Resonances.html#software-installation">Software installation</a>. Alternatively, users can temporarily force the execution of these scripts under Python 2 by explicitly calling Python2 interpretor in the console: <code>python2 ~/klipper/scripts/calibrate_shaper.py ...</code></p>

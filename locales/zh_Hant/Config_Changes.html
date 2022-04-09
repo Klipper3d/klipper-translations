@@ -146,19 +146,19 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="Config_Changes.html" hreflang="en" class="md-select__link">
+                  <a href="/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HS/locales/zh_Hant/Config_Changes.html" hreflang="zh_HS" class="md-select__link">
+                  <a href="/zh/" hreflang="zh" class="md-select__link">
                     简体中文
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HT/locales/zh_Hant/Config_Changes.html" hreflang="zh_HT" class="md-select__link">
+                  <a href="/zh-Hant/" hreflang="zh-Hant" class="md-select__link">
                     繁體中文
                   </a>
                 </li>
@@ -1205,6 +1205,8 @@
 <p>本文件涵蓋了軟體更新中對配置檔案不向后相容的部分。在升級 Klipper 時，最好也檢視一下這份文件。</p>
 <p>本文件中的所有日期都是不精確的。</p>
 <h2 id="_2">變更<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>20220307: <code>M73</code> will no longer set print progress to 0 if <code>P</code> is missing.</p>
+<p>20220304: There is no longer a default for the <code>extruder</code> parameter of <a href="Config_Reference.html#extruder_stepper">extruder_stepper</a> config sections. If desired, specify <code>extruder: extruder</code> explicitly to associate the stepper motor with the "extruder" motion queue at startup.</p>
 <p>20220210：<code>SYNC_STEPPER_TO_EXTRUDER</code>、<code>SET_EXTRUDER_STEP_DISTANCE</code>、<a href="Config_Reference.html#extruder">extruder</a>的 <code>shared_heater</code> 配置選項已棄用。這些功能將在不久的將來被刪除。將<code>SET_EXTRUDER_STEP_DISTANCE</code>替換為<code>SET_EXTRUDER_ROTATION_DISTANCE</code>，<code>SYNC_STEPPER_TO_EXTRUDER</code>替換為<code>SYNC_EXTRUDER_MOTION</code>，使用 <code>shared_heater</code> 與 <a href="Config_Reference.html#extruder_stepper">extruder_stepper</a>配置分段替換 extruder 配置分段，並更新所有啟用宏以使用 <a href="G-Codes.html#sync_extruder_motion">SYNC_EXTRUDER_MOTION</a>。</p>
 <p>20220116: 變更了tmc2130、tmc2208、tmc2209和tmc2660的 <code>run_current</code> 計算程式碼。對於一些 <code>run_current</code>設定，驅動程式現在的配置結果可能被和原來不同。新的配置應該更準確，但它可能導致前的tmc驅動調諧失效。</p>
 <p>20211230: 遷移輸入整形器調整指令碼（<code>scripts/calibrate_shaper.py</code>和<code>scripts/graph_accelerometer.py</code>），新指令碼預設使用Python3。因此，必須安裝Python3版本的某些軟體包（例如，<code>sudo apt install python3-numpy python3-matplotlib</code>）才能繼續使用這些指令碼。更多細節，請參考<a href="Measuring_Resonances.html#software-installation">軟體安裝</a>。另外，使用者可以通過在控制檯顯性呼叫Python2直譯器，臨時強制在Python 2下執行這些指令碼：<code>python2 ~/klipper/scripts/calibrate_shaper.py ...</code></p>

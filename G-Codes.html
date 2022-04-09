@@ -146,19 +146,19 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="G-Codes.html" hreflang="en" class="md-select__link">
+                  <a href="/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="zh_HS/G-Codes.html" hreflang="zh_HS" class="md-select__link">
+                  <a href="/zh/" hreflang="zh" class="md-select__link">
                     简体中文
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="zh_HT/G-Codes.html" hreflang="zh_HT" class="md-select__link">
+                  <a href="/zh-Hant/" hreflang="zh-Hant" class="md-select__link">
                     繁體中文
                   </a>
                 </li>
@@ -768,6 +768,40 @@
           <li class="md-nav__item">
   <a href="#accelerometer_debug_write" class="md-nav__link">
     ACCELEROMETER_DEBUG_WRITE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angle" class="md-nav__link">
+    [angle]
+  </a>
+  
+    <nav class="md-nav" aria-label="[angle]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#angle_calibrate" class="md-nav__link">
+    ANGLE_CALIBRATE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angle_debug_read" class="md-nav__link">
+    ANGLE_DEBUG_READ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angle_debug_write" class="md-nav__link">
+    ANGLE_DEBUG_WRITE
   </a>
   
 </li>
@@ -1496,16 +1530,23 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#neopixel" class="md-nav__link">
-    [neopixel]
+  <a href="#led" class="md-nav__link">
+    [led]
   </a>
   
-    <nav class="md-nav" aria-label="[neopixel]">
+    <nav class="md-nav" aria-label="[led]">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#set_led" class="md-nav__link">
     SET_LED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_led_template" class="md-nav__link">
+    SET_LED_TEMPLATE
   </a>
   
 </li>
@@ -2643,6 +2684,40 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#angle" class="md-nav__link">
+    [angle]
+  </a>
+  
+    <nav class="md-nav" aria-label="[angle]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#angle_calibrate" class="md-nav__link">
+    ANGLE_CALIBRATE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angle_debug_read" class="md-nav__link">
+    ANGLE_DEBUG_READ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angle_debug_write" class="md-nav__link">
+    ANGLE_DEBUG_WRITE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#bed_mesh" class="md-nav__link">
     [bed_mesh]
   </a>
@@ -3361,16 +3436,23 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#neopixel" class="md-nav__link">
-    [neopixel]
+  <a href="#led" class="md-nav__link">
+    [led]
   </a>
   
-    <nav class="md-nav" aria-label="[neopixel]">
+    <nav class="md-nav" aria-label="[led]">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#set_led" class="md-nav__link">
     SET_LED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_led_template" class="md-nav__link">
+    SET_LED_TEMPLATE
   </a>
   
 </li>
@@ -4023,7 +4105,10 @@ commands that one may enter into the OctoPrint terminal tab.</p>
 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in
 their standard configurations. It is not a goal to support every
 possible G-Code command. Instead, Klipper prefers human readable
-<a href="#additional-commands">"extended G-Code commands"</a>.</p>
+<a href="#additional-commands">"extended G-Code commands"</a>. Similarly, the
+G-Code terminal output is only intended to be human readable - see the
+<a href="API_Server.html">API Server document</a> if controlling Klipper from
+external software.</p>
 <p>If one requires a less common G-Code command then it may be possible
 to implement it with a custom
 <a href="Config_Reference.html#gcode_macro">gcode_macro config section</a>. For
@@ -4073,6 +4158,34 @@ for debugging purposes.</p>
 VAL=&lt;value&gt;</code>: Writes raw "value" into a register "register". Both
 "value" and "register" can be a decimal or a hexadecimal integer. Use
 with care, and refer to ADXL345 data sheet for the reference.</p>
+<h3 id="angle">[angle]<a class="headerlink" href="#angle" title="Permanent link">&para;</a></h3>
+<p>The following commands are available when an
+<a href="Config_Reference.html#angle">angle config section</a> is enabled.</p>
+<h4 id="angle_calibrate">ANGLE_CALIBRATE<a class="headerlink" href="#angle_calibrate" title="Permanent link">&para;</a></h4>
+<p><code>ANGLE_CALIBRATE CHIP=&lt;chip_name&gt;</code>: Perform angle calibration on the
+given sensor (there must be an <code>[angle chip_name]</code> config section that
+has specified a <code>stepper</code> parameter). IMPORTANT - this tool will
+command the stepper motor to move without checking the normal
+kinematic boundary limits. Ideally the motor should be disconnected
+from any printer carriage before performing calibration. If the
+stepper can not be disconnected from the printer, make sure the
+carriage is near the center of its rail before starting calibration.
+(The stepper motor may move forwards or backwards two full rotations
+during this test.) After completing this test use the <code>SAVE_CONFIG</code>
+command to save the calibration data to the config file. In order to
+use this tool the Python "numpy" package must be installed (see the
+<a href="Measuring_Resonances.html#software-installation">measuring resonance document</a>
+for more information).</p>
+<h4 id="angle_debug_read">ANGLE_DEBUG_READ<a class="headerlink" href="#angle_debug_read" title="Permanent link">&para;</a></h4>
+<p><code>ANGLE_DEBUG_READ CHIP=&lt;config_name&gt; REG=&lt;register&gt;</code>: Queries sensor
+register "register" (e.g. 44 or 0x2C). Can be useful for debugging
+purposes. This is only available for tle5012b chips.</p>
+<h4 id="angle_debug_write">ANGLE_DEBUG_WRITE<a class="headerlink" href="#angle_debug_write" title="Permanent link">&para;</a></h4>
+<p><code>ANGLE_DEBUG_WRITE CHIP=&lt;config_name&gt; REG=&lt;register&gt; VAL=&lt;value&gt;</code>:
+Writes raw "value" into register "register". Both "value" and
+"register" can be a decimal or a hexadecimal integer. Use with care,
+and refer to sensor data sheet for the reference. This is only
+available for tle5012b chips.</p>
 <h3 id="bed_mesh">[bed_mesh]<a class="headerlink" href="#bed_mesh" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when the
 <a href="Config_Reference.html#bed_mesh">bed_mesh config section</a> is enabled
@@ -4222,23 +4335,30 @@ command).</p>
 <a href="Config_Reference.html#extruder">extruder config section</a> is enabled:</p>
 <h4 id="activate_extruder">ACTIVATE_EXTRUDER<a class="headerlink" href="#activate_extruder" title="Permanent link">&para;</a></h4>
 <p><code>ACTIVATE_EXTRUDER EXTRUDER=&lt;config_name&gt;</code>: In a printer with multiple
-extruders this command is used to change the active extruder.</p>
+<a href="Config_Reference.html#extruder">extruder</a> config sections, this command
+changes the active hotend.</p>
 <h4 id="set_pressure_advance">SET_PRESSURE_ADVANCE<a class="headerlink" href="#set_pressure_advance" title="Permanent link">&para;</a></h4>
 <p><code>SET_PRESSURE_ADVANCE [EXTRUDER=&lt;config_name&gt;]
 [ADVANCE=&lt;pressure_advance&gt;]
 [SMOOTH_TIME=&lt;pressure_advance_smooth_time&gt;]</code>: Set pressure advance
-parameters. If EXTRUDER is not specified, it defaults to the active
-extruder.</p>
+parameters of an extruder stepper (as defined in an
+<a href="Config_Reference#extruder">extruder</a> or
+<a href="Config_Reference#extruder_stepper">extruder_stepper</a> config section).
+If EXTRUDER is not specified, it defaults to the stepper defined in
+the active hotend.</p>
 <h4 id="set_extruder_rotation_distance">SET_EXTRUDER_ROTATION_DISTANCE<a class="headerlink" href="#set_extruder_rotation_distance" title="Permanent link">&para;</a></h4>
 <p><code>SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=&lt;config_name&gt;
-[DISTANCE=&lt;distance&gt;]</code>: Set a new value for the provided extruder's
-"rotation distance". If the rotation distance is a negative number
-then the stepper motion will be inverted (relative to the stepper
-direction specified in the config file). Changed settings are not
-retained on Klipper reset. Use with caution as small changes can
-result in excessive pressure between extruder and hot end. Do proper
-calibration with filament before use. If 'DISTANCE' value is not
-included command will return current rotation distance.</p>
+[DISTANCE=&lt;distance&gt;]</code>: Set a new value for the provided extruder
+stepper's "rotation distance" (as defined in an
+<a href="Config_Reference#extruder">extruder</a> or
+<a href="Config_Reference#extruder_stepper">extruder_stepper</a> config section).
+If the rotation distance is a negative number then the stepper motion
+will be inverted (relative to the stepper direction specified in the
+config file). Changed settings are not retained on Klipper reset. Use
+with caution as small changes can result in excessive pressure between
+extruder and hotend. Do proper calibration with filament before use.
+If 'DISTANCE' value is not provided then this command will return the
+current rotation distance.</p>
 <h4 id="sync_extruder_motion">SYNC_EXTRUDER_MOTION<a class="headerlink" href="#sync_extruder_motion" title="Permanent link">&para;</a></h4>
 <p><code>SYNC_EXTRUDER_MOTION EXTRUDER=&lt;name&gt; MOTION_QUEUE=&lt;name&gt;</code>: This
 command will cause the stepper specified by EXTRUDER (as defined in an
@@ -4370,7 +4490,9 @@ at run-time. The provided VALUE is parsed as a Python literal.</p>
 <p>The gcode_move module is automatically loaded.</p>
 <h4 id="get_position">GET_POSITION<a class="headerlink" href="#get_position" title="Permanent link">&para;</a></h4>
 <p><code>GET_POSITION</code>: Return information on the current location of the
-toolhead.</p>
+toolhead. See the developer documentation of
+<a href="Code_Overview.html#coordinate-systems">GET_POSITION output</a> for more
+information.</p>
 <h4 id="set_gcode_offset">SET_GCODE_OFFSET<a class="headerlink" href="#set_gcode_offset" title="Permanent link">&para;</a></h4>
 <p><code>SET_GCODE_OFFSET [X=&lt;pos&gt;|X_ADJUST=&lt;adjust&gt;]
 [Y=&lt;pos&gt;|Y_ADJUST=&lt;adjust&gt;] [Z=&lt;pos&gt;|Z_ADJUST=&lt;adjust&gt;] [MOVE=1
@@ -4514,27 +4636,45 @@ reports not triggered). Normally future G-Code commands will be
 scheduled to run after the stepper move completes, however if a manual
 stepper move uses SYNC=0 then future G-Code movement commands may run
 in parallel with the stepper movement.</p>
-<h3 id="neopixel">[neopixel]<a class="headerlink" href="#neopixel" title="Permanent link">&para;</a></h3>
-<p>The following command is available when a
-<a href="Config_Reference.html#neopixel">neopixel config section</a> or
-<a href="Config_Reference.html#dotstar">dotstar config section</a> is enabled.</p>
+<h3 id="led">[led]<a class="headerlink" href="#led" title="Permanent link">&para;</a></h3>
+<p>The following command is available when any of the
+<a href="Config_Reference.html#leds">led config sections</a> are enabled.</p>
 <h4 id="set_led">SET_LED<a class="headerlink" href="#set_led" title="Permanent link">&para;</a></h4>
 <p><code>SET_LED LED=&lt;config_name&gt; RED=&lt;value&gt; GREEN=&lt;value&gt; BLUE=&lt;value&gt;
 WHITE=&lt;value&gt; [INDEX=&lt;index&gt;] [TRANSMIT=0] [SYNC=1]</code>: This sets the
 LED output. Each color <code>&lt;value&gt;</code> must be between 0.0 and 1.0. The
-WHITE option is only valid on RGBW LEDs. If multiple LED chips are
-daisy-chained then one may specify INDEX to alter the color of just
-the given chip (1 for the first chip, 2 for the second, etc.). If
-INDEX is not provided then all LEDs in the daisy-chain will be set to
-the provided color. If TRANSMIT=0 is specified then the color change
-will only be made on the next SET_LED command that does not specify
-TRANSMIT=0; this may be useful in combination with the INDEX parameter
-to batch multiple updates in a daisy-chain. By default, the SET_LED
-command will sync it's changes with other ongoing gcode commands.
-This can lead to undesirable behavior if LEDs are being set while the
-printer is not printing as it will reset the idle timeout. If careful
-timing is not needed, the optional SYNC=0 parameter can be specified
-to apply the changes instantly and not reset the idle timeout.</p>
+WHITE option is only valid on RGBW LEDs. If the LED supports multiple
+chips in a daisy-chain then one may specify INDEX to alter the color
+of just the given chip (1 for the first chip, 2 for the second,
+etc.). If INDEX is not provided then all LEDs in the daisy-chain will
+be set to the provided color. If TRANSMIT=0 is specified then the
+color change will only be made on the next SET_LED command that does
+not specify TRANSMIT=0; this may be useful in combination with the
+INDEX parameter to batch multiple updates in a daisy-chain. By
+default, the SET_LED command will sync it's changes with other ongoing
+gcode commands.  This can lead to undesirable behavior if LEDs are
+being set while the printer is not printing as it will reset the idle
+timeout. If careful timing is not needed, the optional SYNC=0
+parameter can be specified to apply the changes without resetting the
+idle timeout.</p>
+<h4 id="set_led_template">SET_LED_TEMPLATE<a class="headerlink" href="#set_led_template" title="Permanent link">&para;</a></h4>
+<p><code>SET_LED_TEMPLATE LED=&lt;led_name&gt; TEMPLATE=&lt;template_name&gt;
+[&lt;param_x&gt;=&lt;literal&gt;] [INDEX=&lt;index&gt;]</code>: Assign a
+<a href="Config_Reference.html#display_template">display_template</a> to a given
+<a href="Config_Reference.html#leds">LED</a>. For example, if one defined a
+<code>[display_template my_led_template]</code> config section then one could
+assign <code>TEMPLATE=my_led_template</code> here. The display_template should
+produce a comma separated string containing four floating point
+numbers corresponding to red, green, blue, and white color settings.
+The template will be continuously evaluated and the LED will be
+automatically set to the resulting colors. One may set
+display_template parameters to use during template evaluation
+(parameters will be parsed as Python literals). If INDEX is not
+specified then all chips in the LED's daisy-chain will be set to the
+template, otherwise only the chip with the given index will be
+updated. If TEMPLATE is an empty string then this command will clear
+any previous template assigned to the LED (one can then use <code>SET_LED</code>
+commands to manage the LED's color settings).</p>
 <h3 id="output_pin">[output_pin]<a class="headerlink" href="#output_pin" title="Permanent link">&para;</a></h3>
 <p>The following command is available when an
 <a href="Config_Reference.html#output_pin">output_pin config section</a> is

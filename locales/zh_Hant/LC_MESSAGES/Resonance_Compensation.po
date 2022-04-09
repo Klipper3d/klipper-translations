@@ -1,15 +1,16 @@
 # Fred Chan <fred2088@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-27 14:54+0000\n"
-"Last-Translator: Fred Chan <fred2088@gmail.com>\n"
+"PO-Revision-Date: 2022-03-28 23:17+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/klipper/resonance_compensation/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11.1-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid "Resonance Compensation"
 msgstr "共振補償"
@@ -434,7 +435,7 @@ msgid ""
 " in the formulae and in the `TUNING_TOWER` command)."
 msgstr ""
 "以相同的方式對 Y 軸重複這些步驟，將 X 軸的引用替換為 Y "
-"軸（例如，在公式和“TUNING_TOWER”命令中將“shaper_freq_x”替換為“shaper_freq_y”）。"
+"軸（例如，在公式和`TUNING_TOWER`命令中將`shaper_freq_x`替換為`shaper_freq_y`）。"
 
 msgid ""
 "As an example, let's assume you have had measured the ringing frequency for "
@@ -583,7 +584,7 @@ msgid ""
 "3HUMP_EI shapers)."
 msgstr ""
 "檢查 [選擇 max_accel](#selecting-max_accel) 部分中的注意事項。如果諧振頻率較低，則不應設置過高的 max_accel"
-" 或增加 square_corner_velocity 參數。最好選擇 MZV 甚至 ZV  input shaper而不是 EI（或 2HUMP_EI"
+" 或增加 square_corner_velocity 參數。最好選擇 MZV 甚至 ZV input shaper 而不是 EI（或 2HUMP_EI"
 " 和 3HUMP_EI 整形器）。"
 
 msgid ""
@@ -944,7 +945,7 @@ msgstr ""
 msgid ""
 "Choose the minimum out of the two acceleration values (from ringing and "
 "smoothing), and put it as `max_accel` into printer.cfg."
-msgstr "從兩個加速度值（來自環紋和平滑）中選擇最小值，並將其作為“max_accel”放入printer.cfg。"
+msgstr "從兩個加速度值（來自環紋和平滑）中選擇最小值，並將其作為`max_accel`放入printer.cfg。"
 
 #: docs/Resonance_Compensation.md:block 51 (paragraph)
 msgid ""
@@ -955,7 +956,7 @@ msgstr "假設您已使用建議的參數對環紋模型進行切片，請針對
 #: docs/Resonance_Compensation.md:block 52 (ordered list)
 msgid ""
 "Make sure Pressure Advance is disabled: `SET_PRESSURE_ADVANCE ADVANCE=0`"
-msgstr "確保Pressure Advance被禁用：`SET_PRESSURE_ADVANCE ADVANCE=0"
+msgstr "確保Pressure Advance被禁用：`SET_PRESSURE_ADVANCE ADVANCE=0`"
 
 #: docs/Resonance_Compensation.md:block 52 (ordered list)
 msgid "Execute: `SET_INPUT_SHAPER SHAPER_TYPE=ZV`"

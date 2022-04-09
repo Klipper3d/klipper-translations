@@ -1,0 +1,56 @@
+# Zs.Antal <zsikaiantal@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-03-17 13:56+0000\n"
+"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/index/hu/>\n"
+"Language: hu\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
+
+#: docs/index.md:block 1 (paragraph)
+msgid "hide:"
+msgstr "elrejt:"
+
+#: docs/index.md:block 2 (unordered list)
+msgid "toc title: Welcome"
+msgstr "toc title: Üdvözlünk"
+
+#: docs/index.md:block 3 (paragraph)
+msgid "![](img/klipper-logo.png){ .center-image }"
+msgstr "![](img/klipper-logo.png){ .center-image }"
+
+#: docs/index.md:block 4 (paragraph)
+msgid ""
+"Klipper is a 3d-Printer firmware. It combines the power of a general purpose"
+" computer with one or more micro-controllers. See the "
+"[features](Features.md) document for more information on why you should use "
+"Klipper."
+msgstr ""
+"A Klipper egy 3d-nyomtató firmware. Egyesíti egy általános célú számítógép "
+"és egy vagy több mikrokontroller teljesítményét. A [features](Features.md) "
+"dokumentumban találsz további információkat arról, hogy miért érdemes a "
+"Klippert használni."
+
+#: docs/index.md:block 5 (paragraph)
+msgid "To begin using Klipper start by [installing](Installation.md) it."
+msgstr ""
+"A Klipper használatának megkezdéséhez kezdje a "
+"[telepítést](Installation.md)."
+
+#: docs/index.md:block 6 (paragraph)
+msgid ""
+"Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
+" Klipper code on github](https://github.com/Klipper3d/klipper)."
+msgstr ""
+"A Klipper szabad szoftver. Olvassa el a [dokumentációt](Overview.md) vagy "
+"tekintse meg [a Klipper kódját a "
+"githubon](https://github.com/Klipper3d/klipper)."
+
+#~ msgid ""
+#~ "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
+#~ " Klipper code on github](https://github.com/KevinOConnor/klipper)."
+#~ msgstr ""

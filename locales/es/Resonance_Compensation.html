@@ -13,7 +13,7 @@
     
     
       
-        <title>Resonance Compensation - Klipper documentation</title>
+        <title>Compensación de Resonancia - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#resonance-compensation" class="md-skip">
+        <a href="#compensacion-de-resonancia" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Resonance Compensation
+              Compensación de Resonancia
             
           </span>
         </div>
@@ -146,19 +146,19 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="Resonance_Compensation.html" hreflang="en" class="md-select__link">
+                  <a href="/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HS/locales/es/Resonance_Compensation.html" hreflang="zh_HS" class="md-select__link">
+                  <a href="/zh/" hreflang="zh" class="md-select__link">
                     简体中文
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HT/locales/es/Resonance_Compensation.html" hreflang="zh_HT" class="md-select__link">
+                  <a href="/zh-Hant/" hreflang="zh-Hant" class="md-select__link">
                     繁體中文
                   </a>
                 </li>
@@ -1324,7 +1324,7 @@
 </a>
 
 
-<h1 id="resonance-compensation">Resonance Compensation<a class="headerlink" href="#resonance-compensation" title="Permanent link">&para;</a></h1>
+<h1 id="compensacion-de-resonancia">Compensación de Resonancia<a class="headerlink" href="#compensacion-de-resonancia" title="Permanent link">&para;</a></h1>
 <p>Klipper supports Input Shaping - a technique that can be used to reduce ringing (also known as echoing, ghosting or rippling) in prints. Ringing is a surface printing defect when, typically, elements like edges repeat themselves on a printed surface as a subtle 'echo':</p>
 <p>|<img alt="Ringing test" src="img/ringing-test.jpg" />|<img alt="3D Benchy" src="img/ringing-3dbenchy.jpg" />|</p>
 <p>Ringing is caused by mechanical vibrations in the printer due to quick changes of the printing direction. Note that ringing usually has mechanical origins: insufficiently rigid printer frame, non-tight or too springy belts, alignment issues of mechanical parts, heavy moving mass, etc. Those should be checked and fixed first, if possible.</p>
@@ -1514,13 +1514,13 @@ SET_INPUT_SHAPER SHAPER_FREQ_X=... SHAPER_FREQ_Y=...
 <tbody>
 <tr>
 <td align="center">ZV</td>
-<td align="center">0.5 / shaper_freq</td>
-<td align="center">N/A</td>
+<td align="center">0'5 / shaper_freq</td>
+<td align="center">N/D</td>
 <td align="center">± 5% shaper_freq</td>
 </tr>
 <tr>
 <td align="center">MZV</td>
-<td align="center">0.75 / shaper_freq</td>
+<td align="center">0'75 / shaper_freq</td>
 <td align="center">± 4% shaper_freq</td>
 <td align="center">-10%...+15% shaper_freq</td>
 </tr>
@@ -1552,7 +1552,7 @@ SET_INPUT_SHAPER SHAPER_FREQ_X=... SHAPER_FREQ_Y=...
 </table>
 <p>A note on vibration reduction: the values in the table above are approximate. If the damping ratio of the printer is known for each axis, the shaper can be configured more precisely and it will then reduce the resonances in a bit wider range of frequencies. However, the damping ratio is usually unknown and is hard to estimate without a special equipment, so Klipper uses 0.1 value by default, which is a good all-round value. The frequency ranges in the table cover a number of different possible damping ratios around that value (approx. from 0.05 to 0.2).</p>
 <p>Also note that EI, 2HUMP_EI, and 3HUMP_EI are tuned to reduce vibrations to 5%, so the values for 10% vibration tolerance are provided only for the reference.</p>
-<p><strong>How to use this table:</strong></p>
+<p><strong>Cómo se utiliza esta tabla:</strong></p>
 <ul>
 <li>Shaper duration affects the smoothing in parts - the larger it is, the more smooth the parts are. This dependency is not linear, but can give a sense of which shapers 'smooth' more for the same frequency. The ordering by smoothing is like this: ZV &lt; MZV &lt; ZVD ≈ EI &lt; 2HUMP_EI &lt; 3HUMP_EI. Also, it is rarely practical to set shaper_freq = resonance freq for shapers 2HUMP_EI and 3HUMP_EI (they should be used to reduce vibrations for several frequencies).</li>
 <li>One can estimate a range of frequencies in which the shaper reduces vibrations. For example, MZV with shaper_freq = 35 Hz reduces vibrations to 5% for frequencies [33.6, 36.4] Hz. 3HUMP_EI with shaper_freq = 50 Hz reduces vibrations to 5% in range [27.5, 75] Hz.</li>

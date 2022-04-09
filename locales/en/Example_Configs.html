@@ -146,19 +146,19 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="Example_Configs.html" hreflang="en" class="md-select__link">
+                  <a href="/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HS/locales/en/Example_Configs.html" hreflang="zh_HS" class="md-select__link">
+                  <a href="/zh/" hreflang="zh" class="md-select__link">
                     简体中文
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HT/locales/en/Example_Configs.html" hreflang="zh_HT" class="md-select__link">
+                  <a href="/zh-Hant/" hreflang="zh-Hant" class="md-select__link">
                     繁體中文
                   </a>
                 </li>
@@ -1230,7 +1230,7 @@
 <li>Do not copy the field documentation into the example config files. (Doing so creates a maintenance burden as an update to the documentation would then require changing it in many places.)</li>
 <li>Example config files should not contain a "SAVE_CONFIG" section. If necessary, copy the relevant fields from the SAVE_CONFIG section to the appropriate section in the main config area.</li>
 <li>Use <code>field: value</code> syntax instead of <code>field=value</code>.</li>
-<li>When adding an extruder <code>rotation_distance</code> it is preferable to specify a <code>gear_ratio</code> if the extruder has a gearing mechanism. We expect the rotation_distance in the example configs to correlate with the circumference of the hobbed gear in the extruder - it is normally in the range of 20 to 35mm. When specifying a <code>gear_ratio</code> it is preferable to specify the actual gears on the mechanism (eg, prefer <code>gear_ratio: 80:20</code> over <code>gear_ratio: 4:1</code>).</li>
+<li>When adding an extruder <code>rotation_distance</code> it is preferable to specify a <code>gear_ratio</code> if the extruder has a gearing mechanism. We expect the rotation_distance in the example configs to correlate with the circumference of the hobbed gear in the extruder - it is normally in the range of 20 to 35mm. When specifying a <code>gear_ratio</code> it is preferable to specify the actual gears on the mechanism (eg, prefer <code>gear_ratio: 80:20</code> over <code>gear_ratio: 4:1</code>). See the <a href="Rotation_Distance.html#using-a-gear_ratio">rotation distance document</a> for more information.</li>
 <li>Avoid defining field values that are set to their default value. For example, one should not specify <code>min_extrude_temp: 170</code> as that is already the default value.</li>
 <li>Where possible, lines should not exceed 80 columns.</li>
 <li>Avoid adding attribution or revision messages to the config files. (For example, avoid adding lines like "this file was created by ...".) Place attribution and change history in the git commit message.</li>

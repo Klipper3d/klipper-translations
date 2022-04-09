@@ -146,19 +146,19 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="Config_Reference.html" hreflang="en" class="md-select__link">
+                  <a href="/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HS/locales/zh_Hant/Config_Reference.html" hreflang="zh_HS" class="md-select__link">
+                  <a href="/zh/" hreflang="zh" class="md-select__link">
                     简体中文
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HT/locales/zh_Hant/Config_Reference.html" hreflang="zh_HT" class="md-select__link">
+                  <a href="/zh-Hant/" hreflang="zh-Hant" class="md-select__link">
                     繁體中文
                   </a>
                 </li>
@@ -1900,6 +1900,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pca9632" class="md-nav__link">
+    [PCA9632]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#gcode_button" class="md-nav__link">
     [gcode_button]
   </a>
@@ -2034,7 +2041,8 @@
     [display]
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="[display]">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#hd44780" class="md-nav__link">
@@ -2082,39 +2090,44 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#display_data" class="md-nav__link">
     [display_data]
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#display_template" class="md-nav__link">
     [display_template]
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#display_glyph" class="md-nav__link">
     [display_glyph]
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#display-my_extra_display" class="md-nav__link">
     [display my_extra_display]
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#menu" class="md-nav__link">
     [menu]
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2634,15 +2647,6 @@ max_z_accel:
 <p>POLAR 機型支援還在進行中。已知在 0、0 位置附近移動無法正常工作。</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics: polar
-
-# The stepper_bed section is used to describe the stepper controlling
-# the bed.
-[stepper_bed]
-gear_ratio:
-#   A gear_ratio must be specified and rotation_distance may not be
-#   specified. For example, if the bed has an 80 toothed pulley driven
-#   by a stepper with a 16 toothed pulley then one would specify a
-#   gear ratio of &quot;80:16&quot;. This parameter must be provided.
 max_z_velocity:
 #   This sets the maximum velocity (in mm/s) of movement along the z
 #   axis. This setting can be used to restrict the maximum speed of
@@ -2652,6 +2656,15 @@ max_z_accel:
 #   This sets the maximum acceleration (in mm/s^2) of movement along
 #   the z axis. It limits the acceleration of the z stepper motor. The
 #   default is to use max_accel for max_z_accel.
+
+# The stepper_bed section is used to describe the stepper controlling
+# the bed.
+[stepper_bed]
+gear_ratio:
+#   A gear_ratio must be specified and rotation_distance may not be
+#   specified. For example, if the bed has an 80 toothed pulley driven
+#   by a stepper with a 16 toothed pulley then one would specify a
+#   gear ratio of &quot;80:16&quot;. This parameter must be provided.
 
 # The stepper_arm section is used to describe the stepper controlling
 # the carriage on the arm.
@@ -2777,7 +2790,7 @@ max_accel: 1
 
 <h2 id="_10">通用擠出機和熱床支援<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <h3 id="extruder">[extruder]<a class="headerlink" href="#extruder" title="Permanent link">&para;</a></h3>
-<p>擠出機部分用於描述控制打印機擠出機的步進器和噴嘴的加熱器參數。有關調整壓力提前的信息，請參閱 <a href="Pressure_Advance.html">pressure advance guide</a>。</p>
+<p>The extruder section is used to describe the heater parameters for the nozzle hotend along with the stepper controlling the extruder. See the <a href="G-Codes.html#extruder">command reference</a> for additional information. See the <a href="Pressure_Advance.html">pressure advance guide</a> for information on tuning pressure advance.</p>
 <div class="highlight"><pre><span></span><code>[extruder]
 step_pin:
 dir_pin:
@@ -2786,100 +2799,116 @@ microsteps:
 rotation_distance:
 #full_steps_per_rotation:
 #gear_ratio:
-#   以上參數詳見「stepper」章節。
+#   See the &quot;stepper&quot; section for a description of the above
+#   parameters. If none of the above parameters are specified then no
+#   stepper will be associated with the nozzle hotend (though a
+#   SYNC_EXTRUDER_MOTION command may associate one at run-time).
 nozzle_diameter:
-#   噴嘴的孔徑（mm）。
-#   必須提供此參數。
+#   Diameter of the nozzle orifice (in mm). This parameter must be
+#   provided.
 filament_diameter:
-#   進入擠出機前耗材的常規直徑（mm）。
-#   必須提供此參數。
+#   The nominal diameter of the raw filament (in mm) as it enters the
+#   extruder. This parameter must be provided.
 #max_extrude_cross_section:
-#   擠出的最大截面積（mm^2）。
-#   例如，擠出寬度乘以層高。
-#   這個參數避免了在微小的 XY 移動中擠出了過多的耗材。如果
-#   一個移動請求了超過該參數限制的擠出速率，印表機會報告錯誤。
-#   預設為：4.0 * nozzle_diameter^2
+#   Maximum area (in mm^2) of an extrusion cross section (eg,
+#   extrusion width multiplied by layer height). This setting prevents
+#   excessive amounts of extrusion during relatively small XY moves.
+#   If a move requests an extrusion rate that would exceed this value
+#   it will cause an error to be returned. The default is: 4.0 *
+#   nozzle_diameter^2
 #instantaneous_corner_velocity: 1.000
-#   在兩個移動之間擠出頭最大的瞬時速度變化（mm/s)。
-#   預設為 1mm/s。
+#   The maximum instantaneous velocity change (in mm/s) of the
+#   extruder during the junction of two moves. The default is 1mm/s.
 #max_extrude_only_distance: 50.0
-#   僅回抽或僅擠出時擠出機允許的最長移動（mm 耗材長度）。
-#   如果一個僅回抽或僅擠出動作請求了超過該參數限制的擠出速率，
-#   印表機會報告錯誤。
-#   預設為 50mm。
+#   Maximum length (in mm of raw filament) that a retraction or
+#   extrude-only move may have. If a retraction or extrude-only move
+#   requests a distance greater than this value it will cause an error
+#   to be returned. The default is 50mm.
 #max_extrude_only_velocity:
 #max_extrude_only_accel:
-#   擠出機電機回抽和僅擠出移動時的最大速度（mm/s）和加速度
-#   （mm/s^2）。這些設定不影響常規列印移動。如果沒有被定義，
-#   會根據一個 XY 截面是 4.0*nozzle_diameter^2 的列印移動計算一個
-#   相應的限制。
+#   Maximum velocity (in mm/s) and acceleration (in mm/s^2) of the
+#   extruder motor for retractions and extrude-only moves. These
+#   settings do not have any impact on normal printing moves. If not
+#   specified then they are calculated to match the limit an XY
+#   printing move with a cross section of 4.0*nozzle_diameter^2 would
+#   have.
 #pressure_advance: 0.0
-#   加速時擠出機的原始耗材長度。等於減速時擠出機回抽的耗材長度。
-#   以mm/(mm/s)為單位。
-#   預設為 0，禁用壓力提前。
+#   The amount of raw filament to push into the extruder during
+#   extruder acceleration. An equal amount of filament is retracted
+#   during deceleration. It is measured in millimeters per
+#   millimeter/second. The default is 0, which disables pressure
+#   advance.
 #pressure_advance_smooth_time: 0.040
-#   一個用來計算壓力提前平均擠出機速度的時間範圍（以秒為單位）。
-#   更大的值可以產生更流暢的擠出機運動。
-#   這個參數不能超過 200ms。
-#   僅在壓力提前不為 0 時起效。
-#   預設為 0.040 (40 毫秒)。
+#   A time range (in seconds) to use when calculating the average
+#   extruder velocity for pressure advance. A larger value results in
+#   smoother extruder movements. This parameter may not exceed 200ms.
+#   This setting only applies if pressure_advance is non-zero. The
+#   default is 0.040 (40 milliseconds).
 #
-#   以下參數描述了擠出頭加熱器。
+# The remaining variables describe the extruder heater.
 heater_pin:
-#   控制加熱器的 PWM 輸出引腳。
-#   必須提供此參數。
+#   PWM output pin controlling the heater. This parameter must be
+#   provided.
 #max_power: 1.0
-#   heater_pin 允許的最大功率（一個0.0和1.0之間的值）。1.0允許加熱器
-#   引腳一直被拉高，而0.5會只允許加熱器引腳在一半的時間裡被拉高。
-#   這個參數可以限制加熱器的功率（平均功率）。
-#   預設為1.0。
+#   The maximum power (expressed as a value from 0.0 to 1.0) that the
+#   heater_pin may be set to. The value 1.0 allows the pin to be set
+#   fully enabled for extended periods, while a value of 0.5 would
+#   allow the pin to be enabled for no more than half the time. This
+#   setting may be used to limit the total power output (over extended
+#   periods) to the heater. The default is 1.0.
 sensor_type:
-#   溫度感測器型別，可以是 &quot;EPCOS 100K B57560G104F&quot;、
-#   &quot;ATC Semitec 104GT-2&quot;、&quot;ATC Semitec 104NT-4-R025H42G&quot;、&quot;Generic
-#   3950&quot;、&quot;Honeywell 100K 135-104LAG-J01&quot;、&quot;NTC 100K MGB18-104F39050L32&quot;、
-#   &quot;SliceEngineering 450&quot;或&quot;TDK NTCG104LH104JT1&quot;。
-#   有關其他溫度感測器，請見「溫度感測器」章節。
-#   必須提供此參數。
+#   Type of sensor - common thermistors are &quot;EPCOS 100K B57560G104F&quot;,
+#   &quot;ATC Semitec 104GT-2&quot;, &quot;ATC Semitec 104NT-4-R025H42G&quot;, &quot;Generic
+#   3950&quot;,&quot;Honeywell 100K 135-104LAG-J01&quot;, &quot;NTC 100K MGB18-104F39050L32&quot;,
+#   &quot;SliceEngineering 450&quot;, and &quot;TDK NTCG104LH104JT1&quot;. See the
+#   &quot;Temperature sensors&quot; section for other sensors. This parameter
+#   must be provided.
 sensor_pin:
-#   連線到感測器的模擬引腳。
-#   必須提供此參數。
+#   Analog input pin connected to the sensor. This parameter must be
+#   provided.
 #pullup_resistor: 4700
-#   連線到熱敏電阻的拉高電阻阻值（ohms）。
-#   僅在使用熱敏電阻時有效。
-#   預設為 4700 ohms。
+#   The resistance (in ohms) of the pullup attached to the thermistor.
+#   This parameter is only valid when the sensor is a thermistor. The
+#   default is 4700 ohms.
 #smooth_time: 1.0
-#   減少噪音造成溫度測量影響的平滑時間（秒）
-#   預設為1秒
+#   A time value (in seconds) over which temperature measurements will
+#   be smoothed to reduce the impact of measurement noise. The default
+#   is 1 seconds.
 control:
-#   控制演算法（可以是 pid 或 watermark）。
-#   必須提供此參數。
+#   Control algorithm (either pid or watermark). This parameter must
+#   be provided.
 pid_Kp:
-#   Kp 是 PID 演算法的&quot;比例&quot;常數。
-#   PID 加熱器必須提供此參數
+#   Kp is the &quot;proportional&quot; constant for the pid. This parameter must
+#   be provided for PID heaters.
 pid_Ki:
-#   Ki 是 PID 演算法的&quot;積分&quot;常數。
-#   PID 加熱器必須提供此參數
+#   Ki is the &quot;integral&quot; constant for the pid. This parameter must be
+#   provided for PID heaters.
 pid_Kd:
-#   Kd 是 PID 演算法的&quot;微分&quot;常數。
-#   PID 加熱器必須提供此參數
+#   Kd is the &quot;derivative&quot; constant for the pid. This parameter must
+#   be provided for PID heaters.
 #max_delta: 2.0
-#   在 「watermark」 控制的加熱器上高於設定溫度時關閉加熱器或
-#   低於設定溫度時打開加熱器的溫差。
-#   預設為 2 攝氏度
+#   On &#39;watermark&#39; controlled heaters this is the number of degrees in
+#   Celsius above the target temperature before disabling the heater
+#   as well as the number of degrees below the target before
+#   re-enabling the heater. The default is 2 degrees Celsius.
 #pwm_cycle_time: 0.100
-#   加熱器每個軟體PWM週期的時間，單位為秒。不推薦修改這個值，
-#   除非有電氣上的需求，必須以超過 10 次每秒的頻率開關加熱器。
-#   預設是 0.100 秒。
+#   Time in seconds for each software PWM cycle of the heater. It is
+#   not recommended to set this unless there is an electrical
+#   requirement to switch the heater faster than 10 times a second.
+#   The default is 0.100 seconds.
 #min_extrude_temp: 170
-#   允許擠出機移動的最低溫度（攝氏度）。
-#   預設為 170 攝氏度。
+#   The minimum temperature (in Celsius) at which extruder move
+#   commands may be issued. The default is 170 Celsius.
 min_temp:
 max_temp:
-#   加熱器必須保持的最大有效溫度範圍（攝氏度）。這是一個在微
-#   處理器中的安全功能 - 一旦測量溫度超出這個範圍，微處理器會
-#   進入關閉模式。這項檢查可以檢測到一些加熱器或溫度感測器故障。
-#   將兩個值設定的足夠寬以避免在正常執行時報錯。
-#   必須提供這些參數。
+#   The maximum range of valid temperatures (in Celsius) that the
+#   heater must remain within. This controls a safety feature
+#   implemented in the micro-controller code - should the measured
+#   temperature ever fall outside this range then the micro-controller
+#   will go into a shutdown state. This check can help detect some
+#   heater and sensor hardware failures. Set this range just wide
+#   enough so that reasonable temperatures do not result in an error.
+#   These parameters must be provided.
 </code></pre></div>
 
 <h3 id="heater_bed">[heater_bed]<a class="headerlink" href="#heater_bed" title="Permanent link">&para;</a></h3>
@@ -3593,49 +3622,51 @@ z_offset:
 <p>BLTouch 探針。可以定義這個分段（而不是探針（probe）分段）來啟用 BLTouch 探針。更多資訊見<a href="BLTouch.html">BL-Touch 指南</a>和<a href="G-Code.md#bltouch">命令參考</a>。一個虛擬的 "probe:z_virtual_endstop "引腳也會被同時建立（詳見 "probe "章節）。</p>
 <div class="highlight"><pre><span></span><code>[bltouch]
 sensor_pin:
-#   連線到 BLTouch sensor 引腳的引腳。大多數 BLTouch 需要在
-#   sensor 引腳上有一個拉高電阻（在引腳名前加上「^」）。
-#   必須提供這個參數。
+#   Pin connected to the BLTouch sensor pin. Most BLTouch devices
+#   require a pullup on the sensor pin (prefix the pin name with &quot;^&quot;).
+#   This parameter must be provided.
 control_pin:
-#   連線到 BLTouch control 引腳的引腳。 
-#   必須提供這個參數。
+#   Pin connected to the BLTouch control pin. This parameter must be
+#   provided.
 #pin_move_time: 0.680
-#   等待 BLTouch探針收放的時間（以秒為單位）。
-#   預設為 0.680 秒。
+#   The amount of time (in seconds) to wait for the BLTouch pin to
+#   move up or down. The default is 0.680 seconds.
 #stow_on_each_sample: True
-#   這個參數決定了 Klipper 是否會在進行多次探測的每次探測之間
-#   收放探針。在禁用這個動作前請先閱讀 docs/BLTouch.md。
-#   預設為True（啟用）。
+#   This determines if Klipper should command the pin to move up
+#   between each probe attempt when performing a multiple probe
+#   sequence. Read the directions in docs/BLTouch.md before setting
+#   this to False. The default is True.
 #probe_with_touch_mode: False
-#   當該選項被啟用，Klipper 會以「touch_mode」（觸控模式）使用
-#   探針。
-#   預設為False （禁用，使用「pin_down」模式探測）。
+#   If this is set to True then Klipper will probe with the device in
+#   &quot;touch_mode&quot;. The default is False (probing in &quot;pin_down&quot; mode).
 #pin_up_reports_not_triggered: True
-#   只在 BLTouch 在 &quot;pin_up&quot; 命令后穩定彙報探針在一個「not triggered（未
-#   觸發）」的狀態時需要設定。所有正版的 BLTouch 都應該設為 True（啟
-#   用）。 在設為False（禁用）前，請先閱讀 docs/BLTouch.md 中的說明。
-#   預設是True（啟用）。
+#   Set if the BLTouch consistently reports the probe in a &quot;not
+#   triggered&quot; state after a successful &quot;pin_up&quot; command. This should
+#   be True for all genuine BLTouch devices. Read the directions in
+#   docs/BLTouch.md before setting this to False. The default is True.
 #pin_up_touch_mode_reports_triggered: True
-#   只在 BLTouch 在 &quot;pin_up&quot; 和 「touch_mode&quot; 命令后穩定彙報探針在一個「not
-#    triggered（未觸發）」的狀態時需要設定。所有正版的 BLTouch 都應該設為 
-#   True（啟用）。 在設為False（禁用）前，請先閱讀 docs/BLTouch.md 中的說明。
-#   預設是True（啟用）。
+#   Set if the BLTouch consistently reports a &quot;triggered&quot; state after
+#   the commands &quot;pin_up&quot; followed by &quot;touch_mode&quot;. This should be
+#   True for all genuine BLTouch devices. Read the directions in
+#   docs/BLTouch.md before setting this to False. The default is True.
 #set_output_mode:
-#   向BLTouch V3.0 （和更新版本）請求一個特定的 sensor 引腳輸出模式 。
-#   這個設定不應該在其他型別的探針上使用。設為「5v」會請求 sensor 引腳
-#   以5V輸出（僅在控制板需要使用5V模式並且這個訊號輸入引腳可以耐受5V
-#   時）。設為「OD」來請求 sensor 引腳輸出使用開漏模式。
-#   預設不請求輸出模式。
+#   Request a specific sensor pin output mode on the BLTouch V3.0 (and
+#   later). This setting should not be used on other types of probes.
+#   Set to &quot;5V&quot; to request a sensor pin output of 5 Volts (only use if
+#   the controller board needs 5V mode and is 5V tolerant on its input
+#   signal line). Set to &quot;OD&quot; to request the sensor pin output use
+#   open drain mode. The default is to not request an output mode.
 #x_offset:
 #y_offset:
 #z_offset:
 #speed:
+#lift_speed:
 #samples:
 #sample_retract_dist:
 #samples_result:
 #samples_tolerance:
 #samples_tolerance_retries:
-#   這些參數詳見」探針「章節。
+#   See the &quot;probe&quot; section for information on these parameters.
 </code></pre></div>
 
 <h2 id="_16">額外的步進電機和擠出機<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
@@ -3691,16 +3722,17 @@ axis:
 <p>支持與擠出機運動同步的附加步進器（可以定義任意數量的帶有“extruder_stepper”前綴的部分）。</p>
 <p>有關詳細信息，請參閱 <a href="G-Codes.html#extruder">命令參考</a>。</p>
 <div class="highlight"><pre><span></span><code>[extruder_stepper my_extra_stepper]
-#extruder: extruder
-# 此步進器同步到的擠出機。如果這設置為
-# 空字符串，那麼步進器將不會同步到
-#擠出機。默認為“擠出機”。#step_pin:
+extruder:
+#   The extruder this stepper is synchronized to. If this is set to an
+#   empty string then the stepper will not be synchronized to an
+#   extruder. This parameter must be provided.
+#step_pin:
 #dir_pin:
 #enable_pin:
 #microsteps:
 #rotation_distance:
-# 上面的定義見“stepper”部分
-#  的參數。
+#   See the &quot;stepper&quot; section for the definition of the above
+#   parameters.
 </code></pre></div>
 
 <h3 id="manual_stepper">[manual_stepper]<a class="headerlink" href="#manual_stepper" title="Permanent link">&para;</a></h3>
@@ -4248,21 +4280,22 @@ pin:
 <p>Neopixel（又名 WS2812）LED 支持（可以定義任意數量的帶有“neopixel”前綴的部分）。可以通過“SET_LED LED=my_neopixel RED=0.1 GREEN=0.1 BLUE=0.1”類型擴展 <a href="G-Codes.html#neopixel">g-code commands</a> 設置 LED 顏色。</p>
 <div class="highlight"><pre><span></span><code>[neopixel my_neopixel]
 pin:
-# 連接到neopixel的引腳。該參數必須是
-＃   設置。
+#   The pin connected to the neopixel. This parameter must be
+#   provided.
 #chain_count:
-# “菊花鏈”到的 Neopixel 芯片的數量
-# 提供的引腳。默認值為 1（表示只有一個
-# Neopixel 連接到引腳）。
+#   The number of Neopixel chips that are &quot;daisy chained&quot; to the
+#   provided pin. The default is 1 (which indicates only a single
+#   Neopixel is connected to the pin).
 #color_order: GRB
-# 設置LED硬件所需的像素順序。選項是 GRB，#   RGB, BRG, GRBW, or RGBW. The default is GRB.
+#   Set the pixel order required by the LED hardware. Options are GRB,
+#   RGB, BRG, BGR, GRBW, or RGBW. The default is GRB.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-# 設置 Neopixel 的初始 LED 顏色。每個值應該是
-# 介於 0.0 和 1.0 之間。 WHITE 選項僅在 RGBW 上可用
-# LED。每種顏色的默認值為 0。
+#   Sets the initial LED color of the Neopixel. Each value should be
+#   between 0.0 and 1.0. The WHITE option is only available on RGBW
+#   LEDs. The default for each color is 0.
 </code></pre></div>
 
 <h3 id="dotstar">[dotstar]<a class="headerlink" href="#dotstar" title="Permanent link">&para;</a></h3>
@@ -4298,6 +4331,24 @@ clock_pin:
 #   mightyboard, the white led is not populated.
 #   Use GCODE to modify led values after startup.
 #   set_led led=my_pca9533 red=1 green=1 blue=1
+</code></pre></div>
+
+<h3 id="pca9632">[PCA9632]<a class="headerlink" href="#pca9632" title="Permanent link">&para;</a></h3>
+<p>PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.</p>
+<div class="highlight"><pre><span></span><code>[pca9632 my_pca9632]
+scl_pin:
+# The SCL &quot;clock&quot; pin. This parameter must be provided.
+sda_pin:
+# The SDA &quot;data&quot; pin. This parameter must be provided.
+#initial_RED: 0
+#initial_GREEN: 0
+#initial_BLUE: 0
+#initial_WHITE: 0
+# PCA9632 supports individual LED PWM.
+# Values range from 0.0 to 1.0. The default is 0.0.
+# On the FlashForge Dreamer, the white led is not populated.
+# Use GCODE to modify led values after startup.
+# set_led led=my_pca9632 red=1.0 green=1.0 blue=1.0 white=0.0
 </code></pre></div>
 
 <h3 id="gcode_button">[gcode_button]<a class="headerlink" href="#gcode_button" title="Permanent link">&para;</a></h3>
@@ -4899,7 +4950,7 @@ lcd_type:
 #   在使用模擬按鈕時必須提供由逗號分隔最小和最大值。
 </code></pre></div>
 
-<h3 id="hd44780">hd44780顯示屏<a class="headerlink" href="#hd44780" title="Permanent link">&para;</a></h3>
+<h4 id="hd44780">hd44780顯示屏<a class="headerlink" href="#hd44780" title="Permanent link">&para;</a></h4>
 <p>有關配置 hd44780 顯示屏（在"RepRapDiscount 2004 Smart Controller"型別顯示屏中可以找到）的資訊。</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: hd44780
@@ -4923,7 +4974,7 @@ d7_pin:
 ...
 </code></pre></div>
 
-<h3 id="hd44780_spi">hd44780_spi顯示屏<a class="headerlink" href="#hd44780_spi" title="Permanent link">&para;</a></h3>
+<h4 id="hd44780_spi">hd44780_spi顯示屏<a class="headerlink" href="#hd44780_spi" title="Permanent link">&para;</a></h4>
 <p>有關配置 hd44780_spi 顯示屏的資訊 - 通過硬體"移位暫存器"（用於基於 mightyboard 的印表機）控制的20x04顯示屏。</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: hd44780_spi
@@ -4947,7 +4998,7 @@ spi_software_miso_pin:
 ...
 </code></pre></div>
 
-<h3 id="st7920">st7920 顯示屏<a class="headerlink" href="#st7920" title="Permanent link">&para;</a></h3>
+<h4 id="st7920">st7920 顯示屏<a class="headerlink" href="#st7920" title="Permanent link">&para;</a></h4>
 <p>有關配置 st7920 類顯示屏的資訊（可用於 "RepRapDiscount 12864 Full Graphic Smart Controller" 型別的顯示屏）。</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: st7920
@@ -4960,7 +5011,7 @@ sid_pin:
 ...
 </code></pre></div>
 
-<h3 id="emulated_st7920st7920">emulated_st7920（模擬ST7920）顯示屏<a class="headerlink" href="#emulated_st7920st7920" title="Permanent link">&para;</a></h3>
+<h4 id="emulated_st7920st7920">emulated_st7920（模擬ST7920）顯示屏<a class="headerlink" href="#emulated_st7920st7920" title="Permanent link">&para;</a></h4>
 <p>有關配置模擬 st7920 顯示屏的資訊 —它可以在一些"2.4 寸觸控式螢幕"和其他類似裝置中找到。</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: emulated_st7920
@@ -4978,7 +5029,7 @@ spi_software_miso_pin:
 ...
 </code></pre></div>
 
-<h3 id="uc1701">uc1701顯示屏<a class="headerlink" href="#uc1701" title="Permanent link">&para;</a></h3>
+<h4 id="uc1701">uc1701顯示屏<a class="headerlink" href="#uc1701" title="Permanent link">&para;</a></h4>
 <p>有關配置 uc1701 顯示屏的資訊（用於「MKS Mini 12864」型顯示屏）。</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: uc1701
@@ -4996,7 +5047,7 @@ a0_pin:
 ...
 </code></pre></div>
 
-<h3 id="ssd1306-sh1106">ssd1306 和 sh1106 顯示屏<a class="headerlink" href="#ssd1306-sh1106" title="Permanent link">&para;</a></h3>
+<h4 id="ssd1306-sh1106">ssd1306 和 sh1106 顯示屏<a class="headerlink" href="#ssd1306-sh1106" title="Permanent link">&para;</a></h4>
 <p>ssd1306 和 sh1106 顯示屏的配置資訊.</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type:
@@ -5035,7 +5086,7 @@ lcd_type:
 ...
 </code></pre></div>
 
-<h2 id="display_data">[display_data]<a class="headerlink" href="#display_data" title="Permanent link">&para;</a></h2>
+<h3 id="display_data">[display_data]<a class="headerlink" href="#display_data" title="Permanent link">&para;</a></h3>
 <p>支持在液晶屏上顯示自定義數據。可以在這些組下創建任意數量的顯示組和任意數量的數據項。如果 [display] 部分中的 display_group 選項設置為給定組名稱，則顯示將顯示給定組的所有數據項。</p>
 <p>一套<a href="https://github.com/Klipper3d/klipper/blob/master/klippy/extras/display/display.cfg">預設顯示組</a>將被自動建立。通過覆蓋印表機的 printer.cfg 主配置檔案中的預設值可以替換或擴充套件這些 display_data 項。</p>
 <div class="highlight"><pre><span></span><code>[display_data my_group_name my_data_name]
@@ -5048,7 +5099,7 @@ text:
 #   這個參數必須被提供。
 </code></pre></div>
 
-<h2 id="display_template">[display_template]<a class="headerlink" href="#display_template" title="Permanent link">&para;</a></h2>
+<h3 id="display_template">[display_template]<a class="headerlink" href="#display_template" title="Permanent link">&para;</a></h3>
 <p>顯示數據文字「宏」（可以使用 display_template 字首定義任意數量的部分）。此功能可以幫助減少 display_data 部分中重複的定義。可以使用 display_data 部分中的內建 render() 函式來預覽模板。例如，如果要定義 <code>[display_template my_template]</code> 則可以在 display_data 部分使用 <code>{ render('my_template') }</code> 。</p>
 <div class="highlight"><pre><span></span><code>[display_template 模版名稱]
 #param_&lt;名稱&gt;:
@@ -5064,7 +5115,7 @@ text:
 #   必須提供此參數。
 </code></pre></div>
 
-<h2 id="display_glyph">[display_glyph]<a class="headerlink" href="#display_glyph" title="Permanent link">&para;</a></h2>
+<h3 id="display_glyph">[display_glyph]<a class="headerlink" href="#display_glyph" title="Permanent link">&para;</a></h3>
 <p>在支援自定義字形的顯示屏上顯示一個自定義字形。給定的名稱將被分配給給定的顯示數據，然後可以在顯示模板中通過用「波浪形（～）」符號包圍的名稱來引用，即 <code>~my_display_glyph~</code></p>
 <p>有關一些示例，請參閱 <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-glyphs.cfg">sample-glyphs.cfg</a>。</p>
 <div class="highlight"><pre><span></span><code>[display_glyph my_display_glyph]
@@ -5085,13 +5136,13 @@ text:
 #   如果定義了 hd44780_data ，則必須提供此參數。
 </code></pre></div>
 
-<h2 id="display-my_extra_display">[display my_extra_display]<a class="headerlink" href="#display-my_extra_display" title="Permanent link">&para;</a></h2>
+<h3 id="display-my_extra_display">[display my_extra_display]<a class="headerlink" href="#display-my_extra_display" title="Permanent link">&para;</a></h3>
 <p>如果如上所示在 printer.cfg 中定義了主要的 [display] 分段，還可以定義多個輔助顯示屏。注意，輔助顯示屏目前不支援菜單功能，因此它們不支援「menu」選項或按鈕配置。</p>
 <div class="highlight"><pre><span></span><code>[display my_extra_display] 。
 #   可用參數參見 &quot;顯示 &quot;分段。
 </code></pre></div>
 
-<h2 id="menu">[menu]<a class="headerlink" href="#menu" title="Permanent link">&para;</a></h2>
+<h3 id="menu">[menu]<a class="headerlink" href="#menu" title="Permanent link">&para;</a></h3>
 <p>可自定義液晶顯示屏菜單。</p>
 <p>一套<a href="https://github.com/Klipper3d/klipper/blob/master/klippy/extras/display/menu.cfg">預設菜單</a>將被自動建立。通過覆蓋 printer.cfg 主配置檔案中的預設值可以替換或擴充套件該菜單。</p>
 <p>有關模板呈現期間可用的菜單屬性的信息，請參閱 <a href="Command_Templates.html#menu-templates">command template document</a>。</p>

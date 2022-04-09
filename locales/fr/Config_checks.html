@@ -146,19 +146,19 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="Config_checks.html" hreflang="en" class="md-select__link">
+                  <a href="/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HS/locales/fr/Config_checks.html" hreflang="zh_HS" class="md-select__link">
+                  <a href="/zh/" hreflang="zh" class="md-select__link">
                     简体中文
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HT/locales/fr/Config_checks.html" hreflang="zh_HT" class="md-select__link">
+                  <a href="/zh-Hant/" hreflang="zh-Hant" class="md-select__link">
                     繁體中文
                   </a>
                 </li>
@@ -1284,7 +1284,7 @@
 <h2 id="verifier-le-moteur-de-lextrudeur">Vérifier le moteur de l'extrudeur<a class="headerlink" href="#verifier-le-moteur-de-lextrudeur" title="Permanent link">&para;</a></h2>
 <p>Pour tester le moteur de l'extrudeur, il sera nécessaire de chauffer l'extrudeur à une température d'impression. Naviguez vers l'onglet température d'Octoprint et sélectionnez une température cible dans la boîte déroulante de température (ou entrez manuellement une température appropriée). Attendez que l'imprimante atteigne la température désirée. Naviguez ensuite vers l'onglet de contrôle Octoprint et cliquez sur le bouton "Extrude". Vérifiez que le moteur de l'extrudeur tourne dans la bonne direction. Si ce n'est pas le cas, consultez les conseils de dépannage de la section précédente pour confirmer les paramètres "enable_pin", "step_pin" et "dir_pin" de l'extrudeur.</p>
 <h2 id="calibrer-les-parametres-pid">Calibrer les paramètres PID<a class="headerlink" href="#calibrer-les-parametres-pid" title="Permanent link">&para;</a></h2>
-<p>Klipper supports <a href="https://en.wikipedia.org/wiki/PID_controller">PID control</a> for the extruder and bed heaters. In order to use this control mechanism, it is necessary to calibrate the PID settings on each printer (PID settings found in other firmwares or in the example configuration files often work poorly).</p>
+<p>Klipper prend en charge le <a href="https://fr.wikipedia.org/wiki/R%C3%A9gulateur_PID">régulateur PID</a> pour l'extrudeuse et le chauffage du lit. Afin d'utiliser ce mécanisme de contrôle, il est nécessaire de calibrer les paramètres PID sur chaque imprimante (les paramètres PID trouvés dans d'autres micrologiciels ou dans les fichiers de configuration d'exemple fonctionnent souvent mal).</p>
 <p>Pour calibrer l'extrudeur, naviguez dans l'onglet du terminal OctoPrint et exécutez la commande PID_CALIBRATE. Par exemple : <code>PID_CALIBRATE HEATER=extruder TARGET=170</code></p>
 <p>A la fin du test de réglage, exécutez <code>SAVE_CONFIG</code> pour mettre à jour le fichier printer.cfg avec les nouveaux paramètres PID.</p>
 <p>Si l'imprimante est équipée d'un lit chauffant et qu'elle peut être pilotée par PWM (Pulse Width Modulation), il est recommandé d'utiliser la commande PID pour le plateau (lorsque le chauffage du lit est contrôlé à l'aide de l'algorithme PID, il peut s'allumer et s'éteindre dix fois par seconde, ce qui peut ne pas convenir aux chauffages utilisant un interrupteur mécanique). Une commande typique de calibrage PID du plateau est : <code>PID_CALIBRATE HEATER=heater_bed TARGET=60</code></p>

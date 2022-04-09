@@ -146,19 +146,19 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="Releases.html" hreflang="en" class="md-select__link">
+                  <a href="/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HS/locales/de/Releases.html" hreflang="zh_HS" class="md-select__link">
+                  <a href="/zh/" hreflang="zh" class="md-select__link">
                     简体中文
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HT/locales/de/Releases.html" hreflang="zh_HT" class="md-select__link">
+                  <a href="/zh-Hant/" hreflang="zh-Hant" class="md-select__link">
                     繁體中文
                   </a>
                 </li>
@@ -1287,7 +1287,7 @@
 <li>Support for the rp2040 micro-controller (Raspberry Pi Pico boards).</li>
 <li>The "make menuconfig" system now utilizes kconfiglib.</li>
 <li>Many additional modules added: ds18b20, duplicate_pin_override, filament_motion_sensor, palette2, motion_report, pca9533, pulse_counter, save_variables, sdcard_loop, temperature_host, temperature_mcu</li>
-<li>Several bug fixes and code cleanups.</li>
+<li>Mehrere Fehlerkorrekturen und Code-Bereinigungen.</li>
 </ul>
 <h2 id="klipper-090">Klipper 0.9.0<a class="headerlink" href="#klipper-090" title="Permanent link">&para;</a></h2>
 <p>Available on 20201020. Major changes in this release:</p>
@@ -1295,15 +1295,15 @@
 <li>Support for "Input Shaping" - a mechanism to counteract printer resonance. It can reduce or eliminate "ringing" in prints.</li>
 <li>New "Smooth Pressure Advance" system. This implements "Pressure Advance" without introducing instantaneous velocity changes. It is also now possible to tune pressure advance using a "Tuning Tower" method.</li>
 <li>New "webhooks" API server. This provides a programmable JSON interface to Klipper.</li>
-<li>The LCD display and menu are now configurable using the Jinja2 template language.</li>
+<li>Die LCD-Anzeige und das Menü sind jetzt mit der Vorlagensprache Jinja2 konfigurierbar.</li>
 <li>The TMC2208 stepper motor drivers can now be used in "standalone" mode with Klipper.</li>
-<li>Improved BL-Touch v3 support.</li>
-<li>Improved USB identification. Klipper now has its own USB identification code and micro-controllers can now report their unique serial numbers during USB identification.</li>
+<li>Verbesserte BL-Touch v3-Unterstützung.</li>
+<li>Verbesserte USB-Identifikation. Klipper hat jetzt seinen eigenen USB-Identifikationscode und Mikrocontroller können jetzt ihre eindeutigen Seriennummern während der USB-Identifikation melden.</li>
 <li>New kinematic support for "Rotary Delta" and "CoreXZ" printers.</li>
 <li>Micro-controller improvements: support for stm32f070, support for stm32f207, support for GPIO pins on "Linux MCU", stm32 "HID bootloader" support, Chitu bootloader support, MKS Robin bootloader support.</li>
-<li>Improved handling of Python "garbage collection" events.</li>
+<li>Verbesserte Behandlung von Python-"garbage collection" Ereignissen.</li>
 <li>Many additional modules added: adc_scaled, adxl345, bme280, display_status, extruder_stepper, fan_generic, hall_filament_width_sensor, htu21d, homing_heaters, input_shaper, lm75, print_stats, resonance_tester, shaper_calibrate, query_adc, graph_accelerometer, graph_extruder, graph_motion, graph_shaper, graph_temp_sensor, whconsole</li>
-<li>Several bug fixes and code cleanups.</li>
+<li>Mehrere Fehlerkorrekturen und Code-Bereinigungen.</li>
 </ul>
 <h3 id="klipper-091">Klipper 0.9.1<a class="headerlink" href="#klipper-091" title="Permanent link">&para;</a></h3>
 <p>Available on 20201028. Release containing only bug fixes.</p>
@@ -1311,10 +1311,10 @@
 <p>Available on 20191021. Major changes in this release:</p>
 <ul>
 <li>New G-Code command template support. G-Code in the config file is now evaluated with the Jinja2 template language.</li>
-<li>Improvements to Trinamic stepper drivers:<ul>
-<li>New support for TMC2209 and TMC5160 drivers.</li>
+<li>Verbesserungen an Trinamic Schritttreibern:<ul>
+<li>Neue Unterstützung für TMC2209 und TMC5160 Treiber.</li>
 <li>Improved DUMP_TMC, SET_TMC_CURRENT, and INIT_TMC G-Code commands.</li>
-<li>Improved support for TMC UART handling with an analog mux.</li>
+<li>Verbesserte Unterstützung für die Handhabung von TMC UART mit einem analogen mux.</li>
 </ul>
 </li>
 <li>Improved homing, probing, and bed leveling support:<ul>
@@ -1341,7 +1341,7 @@
 <li>The config file can now include other config files.</li>
 <li>Many additional modules added: board_pins, controller_fan, delayed_gcode, dotstar, filament_switch_sensor, firmware_retraction, gcode_arcs, gcode_button, heater_generic, manual_stepper, mcp4018, mcp4728, neopixel, pause_resume, respond, temperature_sensor tsl1401cl_filament_width_sensor, tuning_tower</li>
 <li>Many additional commands added: RESTORE_GCODE_STATE, SAVE_GCODE_STATE, SET_GCODE_VARIABLE, SET_HEATER_TEMPERATURE, SET_IDLE_TIMEOUT, SET_TEMPERATURE_FAN_TARGET</li>
-<li>Several bug fixes and code cleanups.</li>
+<li>Mehrere Fehlerkorrekturen und Code-Bereinigungen.</li>
 </ul>
 <h2 id="klipper-070">Klipper 0.7.0<a class="headerlink" href="#klipper-070" title="Permanent link">&para;</a></h2>
 <p>Available on 20181220. Major changes in this release:</p>

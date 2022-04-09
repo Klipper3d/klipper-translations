@@ -146,19 +146,19 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="Resonance_Compensation.html" hreflang="en" class="md-select__link">
+                  <a href="/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HS/locales/zh_Hant/Resonance_Compensation.html" hreflang="zh_HS" class="md-select__link">
+                  <a href="/zh/" hreflang="zh" class="md-select__link">
                     简体中文
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HT/locales/zh_Hant/Resonance_Compensation.html" hreflang="zh_HT" class="md-select__link">
+                  <a href="/zh-Hant/" hreflang="zh-Hant" class="md-select__link">
                     繁體中文
                   </a>
                 </li>
@@ -1416,7 +1416,7 @@ shaper_type: mzv
 <p><img alt="Shaper smoothing" src="img/shaper-smoothing.jpg" /></p>
 <p>在這張圖片中，加速度從左到右增加，間隙從 3500 mm/sec^2（左起第 5 個波段）開始增加。因此，在這種情況下，max_accel = 3000 (mm/sec^2) 的良好值可以避免過度平滑。</p>
 <p>請注意在您的測試打印中間隙仍然非常小時的加速度。如果您看到凸起，但壁上根本沒有間隙，即使在高加速度下，也可能是由於禁用了壓力推進，尤其是在鮑登擠出機上。如果是這種情況，您可能需要在啟用 PA 的情況下重複打印。這也可能是由於燈絲流量校準錯誤（過高）造成的，因此最好也檢查一下。</p>
-<p>從兩個加速度值（來自環紋和平滑）中選擇最小值，並將其作為“max_accel”放入printer.cfg。</p>
+<p>從兩個加速度值（來自環紋和平滑）中選擇最小值，並將其作為<code>max_accel</code>放入printer.cfg。</p>
 <p>需要注意的是，即使在較低的加速度下，EI 整形器也可能會導致過度平滑——尤其是在低環紋頻率下。在這種情況下，MZV 可能是更好的選擇，因為它可能允許更高的加速度值。</p>
 <p>在非常低的環紋頻率（~25 Hz 及以下）下，即使是 MZV 整形器也可能會產生過多的平滑。如果是這種情況，您也可以嘗試使用 ZV 整形器重複 <a href="#choosing-input-shaper">Choosing input shaper</a> 部分中的步驟，改用 <code>SET_INPUT_SHAPER SHAPER_TYPE=ZV</code> 命令。 ZV 整形器應該比 MZV 顯示更少的平滑，但對測量環紋頻率的誤差更敏感。</p>
 <p>另一個考慮因素是，如果共振頻率太低（低於 20-25 Hz），增加打印機剛度或減少移動質量可能是個好主意。否則，加速度和打印速度可能會由於現在過於平滑而不是環紋而受到限制。</p>
@@ -1425,7 +1425,7 @@ shaper_type: mzv
 <p>假設您已使用建議的參數對環紋模型進行切片，請針對 X 軸和 Y 軸中的每一個完成以下步驟：</p>
 <ol>
 <li>準備測試：<code>SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000</code></li>
-<li>確保Pressure Advance被禁用：`SET_PRESSURE_ADVANCE ADVANCE=0</li>
+<li>確保Pressure Advance被禁用：<code>SET_PRESSURE_ADVANCE ADVANCE=0</code></li>
 <li>執行：<code>SET_INPUT_SHAPER SHAPER_TYPE=ZV</code></li>
 <li>從具有您選擇的 input shaper的現有環紋測試模型中選擇顯示環紋足夠好的加速度，並將其設置為：<code>SET_VELOCITY_LIMIT ACCEL=...</code></li>
 <li>計算 <code>TUNING_TOWER</code> 命令調整 <code>shaper_freq_x</code> 參數的必要參數如下： start = shaper_freq_x * 83 / 132 和 factor = shaper_freq_x / 66，其中 <code>shaper_freq_x</code> 這裡是 <code>printer.cfg</code> 中的當前值。</li>
@@ -1435,7 +1435,7 @@ shaper_type: mzv
 <li>找到環紋最少的區間，從 1 開始從底部開始計數。</li>
 <li>通過舊的 shaper_freq_x * (39 + 5 * #band-number) / 66 計算新的 shaper_freq_x 值。</li>
 </ol>
-<p>以相同的方式對 Y 軸重複這些步驟，將 X 軸的引用替換為 Y 軸（例如，在公式和“TUNING_TOWER”命令中將“shaper_freq_x”替換為“shaper_freq_y”）。</p>
+<p>以相同的方式對 Y 軸重複這些步驟，將 X 軸的引用替換為 Y 軸（例如，在公式和<code>TUNING_TOWER</code>命令中將<code>shaper_freq_x</code>替換為<code>shaper_freq_y</code>）。</p>
 <p>例如，假設您已經測量了一個軸的環紋頻率等於 45 Hz。這給出了“TUNING_TOWER”命令的 start = 45 * 83 / 132 = 28.30 和 factor = 45 / 66 = 0.6818 值。現在讓我們假設在打印測試模型後，從底部開始的第四個波段的環紋最少。這給出了更新的 shaper_freq_?值等於 45 * (39 + 5 * 4) / 66 ≈ 40.23。</p>
 <p>在計算出新的 <code>shaper_freq_x</code> 和 <code>shaper_freq_y</code> 參數後，您可以使用新的 <code>shaper_freq_x</code> 和 <code>shaper_freq_y</code> 值更新 <code>printer.cfg</code> 中的 <code>[input_shaper]</code> 部分。</p>
 <h3 id="pressure-advance">Pressure Advance<a class="headerlink" href="#pressure-advance" title="Permanent link">&para;</a></h3>
@@ -1487,7 +1487,7 @@ shaper_type: 2hump_ei
 <h3 id="_7">我無法可靠地測量共振頻率<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>首先，確保打印機不是響鈴而不是其他問題。如果測量結果不可靠，例如，振蕩之間的距離不穩定，則可能意味著打印機在同一軸上有多個共振頻率。可以嘗試遵循 <a href="#unreliable-measurements-of-ringing-frequencies">Unreliable measurements of ringing frequencies</a> 部分中描述的調整過程，仍然可以從input shaper技術中獲得一些東西。另一種可能性是安裝加速度計，[測量]</p>
 <h3 id="input_shaper">啟用 [input_shaper] 後，打印部分過於平滑，細節丟失<a class="headerlink" href="#input_shaper" title="Permanent link">&para;</a></h3>
-<p>檢查 <a href="#selecting-max_accel">選擇 max_accel</a> 部分中的注意事項。如果諧振頻率較低，則不應設置過高的 max_accel 或增加 square_corner_velocity 參數。最好選擇 MZV 甚至 ZV input shaper而不是 EI（或 2HUMP_EI 和 3HUMP_EI 整形器）。</p>
+<p>檢查 <a href="#selecting-max_accel">選擇 max_accel</a> 部分中的注意事項。如果諧振頻率較低，則不應設置過高的 max_accel 或增加 square_corner_velocity 參數。最好選擇 MZV 甚至 ZV input shaper 而不是 EI（或 2HUMP_EI 和 3HUMP_EI 整形器）。</p>
 <h3 id="_8">成功打印一段時間後沒有環紋，它似乎又回來了<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>有可能在一段時間後共振頻率發生了變化。例如。可能是皮帶張力發生了變化（皮帶變得更鬆了）等。最好按照 <a href="#ringing-frequency">Ringing frequency</a> 部分中的說明檢查並重新測量環紋頻率，並在必要時更新配置文件.</p>
 <h3 id="input-shaper_2">input shaper是否支持雙步進匣設置？<a class="headerlink" href="#input-shaper_2" title="Permanent link">&para;</a></h3>

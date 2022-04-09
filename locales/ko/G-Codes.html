@@ -146,19 +146,19 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="G-Codes.html" hreflang="en" class="md-select__link">
+                  <a href="/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HS/locales/ko/G-Codes.html" hreflang="zh_HS" class="md-select__link">
+                  <a href="/zh/" hreflang="zh" class="md-select__link">
                     简体中文
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HT/locales/ko/G-Codes.html" hreflang="zh_HT" class="md-select__link">
+                  <a href="/zh-Hant/" hreflang="zh-Hant" class="md-select__link">
                     繁體中文
                   </a>
                 </li>
@@ -2604,7 +2604,7 @@
 <li>펌웨어 버전 가져오기: <code>M115</code></li>
 </ul>
 <p>위 명령어에 대한 자세한 내용은 <a href="http://reprap.org/wiki/G-code">RepRap G-Code documentation</a> 를 참조하십시오.</p>
-<p>Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable <a href="#additional-commands">"extended G-Code commands"</a>.</p>
+<p>Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable <a href="#additional-commands">"extended G-Code commands"</a>. Similarly, the G-Code terminal output is only intended to be human readable - see the <a href="API_Server.html">API Server document</a> if controlling Klipper from external software.</p>
 <p>일반적인 G-Code 명령이 아닌 사용자 지정 <a href="Config_Reference.html#gcode_macro">gcode_macro config section</a> 으로도 구현할 수 있습니다. 예를 들어, <code>G12</code>, <code>G29</code>, <code>G30</code>, <code>G31</code>, <code>M42</code>, <code>M80</code>, <code>M81</code>, <code>T1</code> 등을 구현하는 데 사용할 수 있습니다.</p>
 <h2 id="additional-commands">Additional Commands<a class="headerlink" href="#additional-commands" title="Permanent link">&para;</a></h2>
 <p>Klipper는 일반 구성 및 상태에 대해 "확장된" G-Code 명령을 사용합니다. 이러한 확장 명령은 모두 유사한 형식을 따릅니다. 명령 이름으로 시작하고 하나 이상의 매개변수가 뒤따를 수 있습니다. 예제: <code>SET_SERVO SERVO=myservo ANGLE=5.3</code>. 이 문서에서 명령과 매개변수는 대문자로 표시되지만 대소문자를 구분하지 않습니다. (따라서 "SET_SERVO"와 "set_servo"는 모두 동일한 명령을 실행합니다.)</p>
@@ -2682,11 +2682,11 @@
 <h3 id="extruder">[extruder]<a class="headerlink" href="#extruder" title="Permanent link">&para;</a></h3>
 <p>The following commands are available if an <a href="Config_Reference.html#extruder">extruder config section</a> is enabled:</p>
 <h4 id="activate_extruder">ACTIVATE_EXTRUDER<a class="headerlink" href="#activate_extruder" title="Permanent link">&para;</a></h4>
-<p><code>ACTIVATE_EXTRUDER EXTRUDER=&lt;config_name&gt;</code>: 여러 압출기가 있는 프린터에서 이 명령은 활성 압출기를 변경하는 데 사용됩니다.</p>
+<p><code>ACTIVATE_EXTRUDER EXTRUDER=&lt;config_name&gt;</code>: In a printer with multiple <a href="Config_Reference.html#extruder">extruder</a> config sections, this command changes the active hotend.</p>
 <h4 id="set_pressure_advance">SET_PRESSURE_ADVANCE<a class="headerlink" href="#set_pressure_advance" title="Permanent link">&para;</a></h4>
-<p><code>SET_PRESSURE_ADVANCE [EXTRUDER=&lt;config_name&gt;] [ADVANCE=&lt;pressure_advance&gt;] [SMOOTH_TIME=&lt;pressure_advance_smooth_time&gt;]</code>: pressure advance 매개변수를 설정합니다. EXTRUDER를 지정하지 않으면 기본적으로 현재 사용중인 익스트루더가 설정됩니다.</p>
+<p><code>SET_PRESSURE_ADVANCE [EXTRUDER=&lt;config_name&gt;] [ADVANCE=&lt;pressure_advance&gt;] [SMOOTH_TIME=&lt;pressure_advance_smooth_time&gt;]</code>: Set pressure advance parameters of an extruder stepper (as defined in an <a href="Config_Reference#extruder">extruder</a> or <a href="Config_Reference#extruder_stepper">extruder_stepper</a> config section). If EXTRUDER is not specified, it defaults to the stepper defined in the active hotend.</p>
 <h4 id="set_extruder_rotation_distance">SET_EXTRUDER_ROTATION_DISTANCE<a class="headerlink" href="#set_extruder_rotation_distance" title="Permanent link">&para;</a></h4>
-<p><code>SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=&lt;config_name&gt; [DISTANCE=&lt;distance&gt;]</code>: Set a new value for the provided extruder's "rotation distance". If the rotation distance is a negative number then the stepper motion will be inverted (relative to the stepper direction specified in the config file). Changed settings are not retained on Klipper reset. Use with caution as small changes can result in excessive pressure between extruder and hot end. Do proper calibration with filament before use. If 'DISTANCE' value is not included command will return current rotation distance.</p>
+<p><code>SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=&lt;config_name&gt; [DISTANCE=&lt;distance&gt;]</code>: Set a new value for the provided extruder stepper's "rotation distance" (as defined in an <a href="Config_Reference#extruder">extruder</a> or <a href="Config_Reference#extruder_stepper">extruder_stepper</a> config section). If the rotation distance is a negative number then the stepper motion will be inverted (relative to the stepper direction specified in the config file). Changed settings are not retained on Klipper reset. Use with caution as small changes can result in excessive pressure between extruder and hotend. Do proper calibration with filament before use. If 'DISTANCE' value is not provided then this command will return the current rotation distance.</p>
 <h4 id="sync_extruder_motion">SYNC_EXTRUDER_MOTION<a class="headerlink" href="#sync_extruder_motion" title="Permanent link">&para;</a></h4>
 <p><code>SYNC_EXTRUDER_MOTION EXTRUDER=&lt;name&gt; MOTION_QUEUE=&lt;name&gt;</code>: This command will cause the stepper specified by EXTRUDER (as defined in an <a href="Config_Reference#extruder">extruder</a> or <a href="Config_Reference#extruder_stepper">extruder_stepper</a> config section) to become synchronized to the movement of an extruder specified by MOTION_QUEUE (as defined in an <a href="Config_Reference#extruder">extruder</a> config section). If MOTION_QUEUE is an empty string then the stepper will be desynchronized from all extruder movement.</p>
 <h4 id="set_extruder_step_distance">SET_EXTRUDER_STEP_DISTANCE<a class="headerlink" href="#set_extruder_step_distance" title="Permanent link">&para;</a></h4>
@@ -2744,7 +2744,7 @@
 <h3 id="gcode_move">[gcode_move]<a class="headerlink" href="#gcode_move" title="Permanent link">&para;</a></h3>
 <p>The gcode_move module is automatically loaded.</p>
 <h4 id="get_position">GET_POSITION<a class="headerlink" href="#get_position" title="Permanent link">&para;</a></h4>
-<p><code>GET_POSITION</code>: 툴헤드의 현재 위치에 대한 정보를 반환합니다.</p>
+<p><code>GET_POSITION</code>: Return information on the current location of the toolhead. See the developer documentation of <a href="Code_Overview.html#coordinate-systems">GET_POSITION output</a> for more information.</p>
 <h4 id="set_gcode_offset">SET_GCODE_OFFSET<a class="headerlink" href="#set_gcode_offset" title="Permanent link">&para;</a></h4>
 <p><code>SET_GCODE_OFFSET [X=&lt;pos&gt;|X_ADJUST=&lt;adjust&gt;] [Y=&lt;pos&gt;|Y_ADJUST=&lt;adjust&gt;] [Z=&lt;pos&gt;|Z_ADJUST=&lt;adjust&gt;] [MOVE=1 [MOVE_SPEED=&lt;speed&gt;]]</code>: 향후 G-Code 명령에 적용할 위치 오프셋을 설정합니다. 이것은 일반적으로 Z 베드 오프셋을 가상으로 변경하거나 압출기를 전환할 때 노즐 XY 오프셋을 설정하는 데 사용됩니다. 예를 들어 "SET_GCODE_OFFSET Z=0.2"가 전송되면 향후 G-Code 이동은 Z 높이에 0.2mm가 추가됩니다.X_ADJUST 스타일 매개변수를 사용하는 경우 조정이 기존 오프셋에 추가됩니다. (예: "SET_GCODE_OFFSET Z = -0.2" 다음에 "SET_GCODE_OFFSET Z_ADJUST = 0.3"을 입력하면 총 Z 오프셋이 0.1이 됩니다.) "MOVE=1"이 지정되면 지정된 오프셋을 적용하기 위해 툴 헤드 이동이 실행됩니다. (그렇지 않으면 오프셋은 주어진 축을 지정하는 다음 절대 G 코드 이동에 적용됩니다.) "MOVE_SPEED"가 지정되면 지정된 속도(mm/s)로 툴 헤드 이동이 수행됩니다; 그렇지 않으면 툴 헤드 이동은 마지막으로 지정된 G 코드 속도를 사용합니다.</p>
 <h4 id="save_gcode_state">SAVE_GCODE_STATE<a class="headerlink" href="#save_gcode_state" title="Permanent link">&para;</a></h4>

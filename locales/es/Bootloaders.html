@@ -13,7 +13,7 @@
     
     
       
-        <title>Bootloaders - Klipper documentation</title>
+        <title>Arrancadores - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bootloaders" class="md-skip">
+        <a href="#arrancadores" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bootloaders
+              Arrancadores
             
           </span>
         </div>
@@ -146,19 +146,19 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="Bootloaders.html" hreflang="en" class="md-select__link">
+                  <a href="/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HS/locales/es/Bootloaders.html" hreflang="zh_HS" class="md-select__link">
+                  <a href="/zh/" hreflang="zh" class="md-select__link">
                     简体中文
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HT/locales/es/Bootloaders.html" hreflang="zh_HT" class="md-select__link">
+                  <a href="/zh-Hant/" hreflang="zh-Hant" class="md-select__link">
                     繁體中文
                   </a>
                 </li>
@@ -1303,8 +1303,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configure-openocd" class="md-nav__link">
-    Configure OpenOCD
+  <a href="#configurar-openocd" class="md-nav__link">
+    Configurar OpenOCD
   </a>
   
 </li>
@@ -1352,7 +1352,7 @@
 </a>
 
 
-<h1 id="bootloaders">Bootloaders<a class="headerlink" href="#bootloaders" title="Permanent link">&para;</a></h1>
+<h1 id="arrancadores">Arrancadores<a class="headerlink" href="#arrancadores" title="Permanent link">&para;</a></h1>
 <p>This document provides information on common bootloaders found on micro-controllers that Klipper supports.</p>
 <p>The bootloader is 3rd-party software that runs on the micro-controller when it is first powered on. It is typically used to flash a new application (eg, Klipper) to the micro-controller without requiring specialized hardware. Unfortunately, there is no industry wide standard for flashing a micro-controller, nor is there a standard bootloader that works across all micro-controllers. Worse, it is common for each bootloader to require a different set of steps to flash an application.</p>
 <p>If one can flash a bootloader to a micro-controller then one can generally also use that mechanism to flash an application, but care should be taken when doing this as one may inadvertently remove the bootloader. In contrast, a bootloader will generally only permit a user to flash an application. It is therefore recommended to use a bootloader to flash an application where possible.</p>
@@ -1521,7 +1521,7 @@ stm32flash -w generic_boot20_pc13.bin -v -g 0 /dev/ttyAMA0
 program hid_btt_skr_mini_e3.bin verify 0x08000000
 </code></pre></div>
 
-<p>NOTES:</p>
+<p>NOTAS:</p>
 <ul>
 <li>The example above erases the chip then programs the bootloader. Regardless of the method chosen to flash it is recommended to erase the chip prior to flashing.</li>
 <li>Prior flashing the SKR Mini E3 with this bootloader you should be aware that you will no longer be able to update firmware via the sdcard.</li>
@@ -1591,7 +1591,7 @@ make
 make install
 </code></pre></div>
 
-<h3 id="configure-openocd">Configure OpenOCD<a class="headerlink" href="#configure-openocd" title="Permanent link">&para;</a></h3>
+<h3 id="configurar-openocd">Configurar OpenOCD<a class="headerlink" href="#configurar-openocd" title="Permanent link">&para;</a></h3>
 <p>Create an OpenOCD config file:</p>
 <div class="highlight"><pre><span></span><code>nano ~/openocd/openocd.cfg
 </code></pre></div>
@@ -1648,7 +1648,7 @@ gdb_port 44444
 gdb out/klipper.elf
 </code></pre></div>
 
-<p>Within gdb run:</p>
+<p>Dentro del gdb ejecute:</p>
 <div class="highlight"><pre><span></span><code>target remote octopi:44444
 </code></pre></div>
 

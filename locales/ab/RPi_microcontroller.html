@@ -146,19 +146,19 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="RPi_microcontroller.html" hreflang="en" class="md-select__link">
+                  <a href="/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HS/locales/ab/RPi_microcontroller.html" hreflang="zh_HS" class="md-select__link">
+                  <a href="/zh/" hreflang="zh" class="md-select__link">
                     简体中文
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HT/locales/ab/RPi_microcontroller.html" hreflang="zh_HT" class="md-select__link">
+                  <a href="/zh-Hant/" hreflang="zh-Hant" class="md-select__link">
                     繁體中文
                   </a>
                 </li>
@@ -1278,7 +1278,7 @@ sudo service klipper start
 <h2 id="optional-enabling-spi">Optional: Enabling SPI<a class="headerlink" href="#optional-enabling-spi" title="Permanent link">&para;</a></h2>
 <p>Make sure the Linux SPI driver is enabled by running <code>sudo raspi-config</code> and enabling SPI under the "Interfacing options" menu.</p>
 <h2 id="optional-identify-the-correct-gpiochip">Optional: Identify the correct gpiochip<a class="headerlink" href="#optional-identify-the-correct-gpiochip" title="Permanent link">&para;</a></h2>
-<p>On Rasperry and on many clones the pins exposed on the GPIO belong to the first gpiochip. They can therefore be used on klipper simply by referring them with the name <code>gpio0..n</code>. However, there are cases in which the exposed pins belong to gpiochips other than the first. For example in the case of some OrangePi models or if a Port Expander is used. In these cases it is useful to use the commands to access the <em>Linux GPIO character device</em> to verify the configuration.</p>
+<p>On Raspberry Pi and on many clones the pins exposed on the GPIO belong to the first gpiochip. They can therefore be used on klipper simply by referring them with the name <code>gpio0..n</code>. However, there are cases in which the exposed pins belong to gpiochips other than the first. For example in the case of some OrangePi models or if a Port Expander is used. In these cases it is useful to use the commands to access the <em>Linux GPIO character device</em> to verify the configuration.</p>
 <p>To install the <em>Linux GPIO character device - binary</em> on a debian based distro like octopi run:</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get install gpiod
 </code></pre></div>

@@ -1,6 +1,15 @@
-#
+# Francisco Serrador <fserrador@gmail.com>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-04-04 12:07+0000\n"
+"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/bootloaders/es/>\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid ""
 "This document provides information on common bootloaders found on micro-"
@@ -66,7 +75,7 @@ msgid "To flash an application use something like:"
 msgstr ""
 
 msgid "Atmega1280"
-msgstr ""
+msgstr "Atmega1280"
 
 msgid "This chip is typically found in earlier versions of the \"Arduino Mega\"."
 msgstr ""
@@ -84,7 +93,7 @@ msgid ""
 msgstr ""
 
 msgid "At90usb1286"
-msgstr ""
+msgstr "At90usb1286"
 
 msgid ""
 "This document does not cover the method to flash a bootloader to the "
@@ -92,7 +101,7 @@ msgid ""
 msgstr ""
 
 msgid "Atmega168"
-msgstr ""
+msgstr "Atmega168"
 
 msgid ""
 "The atmega168 has limited flash space. If using a bootloader, it is "
@@ -244,7 +253,7 @@ msgid "finally, you can flash with commands similar to:"
 msgstr ""
 
 msgid "NOTES:"
-msgstr ""
+msgstr "NOTAS:"
 
 msgid ""
 "The example above erases the chip then programs the bootloader. Regardless "
@@ -331,7 +340,7 @@ msgid ""
 msgstr ""
 
 msgid "Configure OpenOCD"
-msgstr ""
+msgstr "Configurar OpenOCD"
 
 msgid "Create an OpenOCD config file:"
 msgstr ""
@@ -395,7 +404,7 @@ msgid ""
 msgstr ""
 
 msgid "Within gdb run:"
-msgstr ""
+msgstr "Dentro del gdb ejecute:"
 
 msgid ""
 "(Replace \"octopi\" with the host name of the Raspberry Pi.) Once gdb is "
@@ -435,19 +444,30 @@ msgid ""
 "avrdude -cavrispv2 -patmega1284p -P/dev/ttyACM0 -b115200 -U flash:w:optiboot_atmega1284p.hex\n"
 "avrdude -cavrispv2 -patmega1284p -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m\n"
 msgstr ""
+"wget 'https://github.com/Lauszus/Sanguino/raw/1.0.2/bootloaders/optiboot/optiboot_atmega1284p.hex'\n"
+"\n"
+"avrdude -cavrispv2 -patmega1284p -P/dev/ttyACM0 -b115200 -e -u -U lock:w:0x3F:m -U efuse:w:0xFD:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m\n"
+"avrdude -cavrispv2 -patmega1284p -P/dev/ttyACM0 -b115200 -U flash:w:optiboot_atmega1284p.hex\n"
+"avrdude -cavrispv2 -patmega1284p -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m\n"
 
+#, fuzzy
 msgid ""
 "avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b115200 -D "
 "-Uflash:w:out/klipper.elf.hex:i\n"
 msgstr ""
+"avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b115200 -D "
+"-Uflash:w:out/klipper.elf.hex:i\n"
 
+#, fuzzy
 msgid ""
 "avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b57600 -D "
 "-Uflash:w:out/klipper.elf.hex:i\n"
 msgstr ""
+"avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b57600 -D "
+"-Uflash:w:out/klipper.elf.hex:i\n"
 
 msgid "teensy_loader_cli --mcu=at90usb1286 out/klipper.elf.hex -v\n"
-msgstr ""
+msgstr "teensy_loader_cli --mcu=at90usb1286 out/klipper.elf.hex -v\n"
 
 msgid ""
 "wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/optiboot/optiboot_atmega168.hex'\n"
@@ -456,19 +476,29 @@ msgid ""
 "avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U flash:w:optiboot_atmega168.hex\n"
 "avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m\n"
 msgstr ""
+"wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/optiboot/optiboot_atmega168.hex'\n"
+"\n"
+"avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -e -u -U lock:w:0x3F:m -U efuse:w:0x04:m -U hfuse:w:0xDD:m -U lfuse:w:0xFF:m\n"
+"avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U flash:w:optiboot_atmega168.hex\n"
+"avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m\n"
 
 msgid ""
 "avrdude -carduino -patmega168 -P/dev/ttyACM0 -b115200 -D "
 "-Uflash:w:out/klipper.elf.hex:i\n"
 msgstr ""
+"avrdude -carduino -patmega168 -P/dev/ttyACM0 -b115200 -D "
+"-Uflash:w:out/klipper.elf.hex:i\n"
 
 msgid ""
 "bossac -U -p /dev/ttyACM0 -a -e -w out/klipper.bin -v -b\n"
 "bossac -U -p /dev/ttyACM0 -R\n"
 msgstr ""
+"bossac -U -p /dev/ttyACM0 -a -e -w out/klipper.bin -v -b\n"
+"bossac -U -p /dev/ttyACM0 -R\n"
 
+#, fuzzy
 msgid "bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin\n"
-msgstr ""
+msgstr "bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin\n"
 
 msgid "source [find target/at91samdXX.cfg]\n"
 msgstr ""
@@ -477,37 +507,50 @@ msgid ""
 "wget 'https://github.com/arduino/ArduinoCore-"
 "samd/raw/1.8.3/bootloaders/zero/samd21_sam_ba.bin'\n"
 msgstr ""
+"wget 'https://github.com/arduino/ArduinoCore-"
+"samd/raw/1.8.3/bootloaders/zero/samd21_sam_ba.bin'\n"
 
 msgid ""
 "at91samd bootloader 0\n"
 "program samd21_sam_ba.bin verify\n"
 msgstr ""
+"at91samd bootloader 0\n"
+"program samd21_sam_ba.bin verify\n"
 
 msgid "bossac -U -p /dev/ttyACM0 --offset=0x2000 -w out/klipper.bin -v -b -R\n"
-msgstr ""
+msgstr "bossac -U -p /dev/ttyACM0 --offset=0x2000 -w out/klipper.bin -v -b -R\n"
 
 msgid ""
 "avrdude -c stk500v2 -p atmega2560 -P /dev/ttyACM0 -u "
 "-Uflash:w:out/klipper.elf.hex:i\n"
 msgstr ""
+"avrdude -c stk500v2 -p atmega2560 -P /dev/ttyACM0 -u "
+"-Uflash:w:out/klipper.elf.hex:i\n"
 
 msgid "source [find target/atsame5x.cfg]\n"
-msgstr ""
+msgstr "source [find target/atsame5x.cfg]\n"
 
+#, fuzzy
 msgid ""
 "wget "
 "'https://github.com/adafruit/uf2-samdx1/releases/download/v3.7.0/bootloader-"
 "itsybitsy_m4-v3.7.0.bin'\n"
 msgstr ""
+"wget "
+"'https://github.com/adafruit/uf2-samdx1/releases/download/v3.7.0/bootloader-"
+"itsybitsy_m4-v3.7.0.bin'\n"
 
 msgid ""
 "at91samd bootloader 0\n"
 "program bootloader-itsybitsy_m4-v3.7.0.bin verify\n"
 "at91samd bootloader 16384\n"
 msgstr ""
+"at91samd bootloader 0\n"
+"program bootloader-itsybitsy_m4-v3.7.0.bin verify\n"
+"at91samd bootloader 16384\n"
 
 msgid "bossac -U -p /dev/ttyACM0 --offset=0x4000 -w out/klipper.bin -v -b -R\n"
-msgstr ""
+msgstr "bossac -U -p /dev/ttyACM0 --offset=0x4000 -w out/klipper.bin -v -b -R\n"
 
 msgid "stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0\n"
 msgstr ""
@@ -635,7 +678,7 @@ msgstr ""
 
 #: docs/Bootloaders.md:block 1 (header)
 msgid "Bootloaders"
-msgstr ""
+msgstr "Arrancadores"
 
 #: docs/Bootloaders.md:block 7 (paragraph)
 msgid ""

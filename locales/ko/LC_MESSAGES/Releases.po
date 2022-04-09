@@ -1,15 +1,16 @@
 # brian park <gouache95@gmail.com>, 2021.
+# 이정희 <daemul72@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-24 10:33+0000\n"
-"Last-Translator: brian park <gouache95@gmail.com>\n"
+"PO-Revision-Date: 2022-04-08 06:09+0000\n"
+"Last-Translator: 이정희 <daemul72@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/releases/ko/>\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8.1-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid ""
 "History of Klipper releases. Please see [installation](Installation.md) for "
@@ -518,11 +519,11 @@ msgstr "릴리즈"
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.10.0"
-msgstr ""
+msgstr "Klipper 0.10.0"
 
 #: docs/Releases.md:block 4 (paragraph)
 msgid "Available on 20210929. Major changes in this release:"
-msgstr ""
+msgstr "20210929에 사용할 수 있음. 이 릴리스의 주요 변경 사항:"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -536,6 +537,8 @@ msgid ""
 "Klipper now has a [Community Discord Server](https://discord.klipper3d.org) "
 "and a [Community Discourse Server](https://community.klipper3d.org)."
 msgstr ""
+"Klipper는 이제 [Community Discord Server](https://discord.klipper3d.org)와 "
+"[Community Discourse Server](https://community.klipper3d.org)를 보유하고 있습니다."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -543,10 +546,12 @@ msgid ""
 "infrastructure. There is also a [Klipper "
 "Translations](https://github.com/Klipper3d/klipper-translations) project."
 msgstr ""
+"[Klipper 웹사이트](https://www.klipper3d.org)는 이제 \"mkdocs\" 인프라를 사용합니다. "
+"[Klipper 번역](https://github.com/Klipper3d/klipper-translations) 프로젝트도 있습니다."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Automated support for flashing firmware via sdcard on many boards."
-msgstr ""
+msgstr "많은 보드에서 sdcard를 통해 펌웨어를 업데이트하도록 자동으로 지원합니다."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "New kinematic support for \"Hybrid CoreXY\" and \"Hybrid CoreXZ\" printers."

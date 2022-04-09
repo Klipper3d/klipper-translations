@@ -146,19 +146,19 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="Config_Reference.html" hreflang="en" class="md-select__link">
+                  <a href="/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HS/locales/ab/Config_Reference.html" hreflang="zh_HS" class="md-select__link">
+                  <a href="/zh/" hreflang="zh" class="md-select__link">
                     简体中文
                   </a>
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../zh_HT/locales/ab/Config_Reference.html" hreflang="zh_HT" class="md-select__link">
+                  <a href="/zh-Hant/" hreflang="zh-Hant" class="md-select__link">
                     繁體中文
                   </a>
                 </li>
@@ -1900,6 +1900,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pca9632" class="md-nav__link">
+    [PCA9632]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#gcode_button" class="md-nav__link">
     [gcode_button]
   </a>
@@ -2034,7 +2041,8 @@
     [display]
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="[display]">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#hd44780-display" class="md-nav__link">
@@ -2082,39 +2090,44 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#display_data" class="md-nav__link">
     [display_data]
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#display_template" class="md-nav__link">
     [display_template]
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#display_glyph" class="md-nav__link">
     [display_glyph]
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#display-my_extra_display" class="md-nav__link">
     [display my_extra_display]
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#menu" class="md-nav__link">
     [menu]
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2634,15 +2647,6 @@ max_z_accel:
 <p>POLAR KINEMATICS ARE A WORK IN PROGRESS. Moves around the 0, 0 position are known to not work properly.</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics: polar
-
-# The stepper_bed section is used to describe the stepper controlling
-# the bed.
-[stepper_bed]
-gear_ratio:
-#   A gear_ratio must be specified and rotation_distance may not be
-#   specified. For example, if the bed has an 80 toothed pulley driven
-#   by a stepper with a 16 toothed pulley then one would specify a
-#   gear ratio of &quot;80:16&quot;. This parameter must be provided.
 max_z_velocity:
 #   This sets the maximum velocity (in mm/s) of movement along the z
 #   axis. This setting can be used to restrict the maximum speed of
@@ -2652,6 +2656,15 @@ max_z_accel:
 #   This sets the maximum acceleration (in mm/s^2) of movement along
 #   the z axis. It limits the acceleration of the z stepper motor. The
 #   default is to use max_accel for max_z_accel.
+
+# The stepper_bed section is used to describe the stepper controlling
+# the bed.
+[stepper_bed]
+gear_ratio:
+#   A gear_ratio must be specified and rotation_distance may not be
+#   specified. For example, if the bed has an 80 toothed pulley driven
+#   by a stepper with a 16 toothed pulley then one would specify a
+#   gear ratio of &quot;80:16&quot;. This parameter must be provided.
 
 # The stepper_arm section is used to describe the stepper controlling
 # the carriage on the arm.
@@ -2777,7 +2790,7 @@ max_accel: 1
 
 <h2 id="common-extruder-and-heated-bed-support">Common extruder and heated bed support<a class="headerlink" href="#common-extruder-and-heated-bed-support" title="Permanent link">&para;</a></h2>
 <h3 id="extruder">[extruder]<a class="headerlink" href="#extruder" title="Permanent link">&para;</a></h3>
-<p>The extruder section is used to describe both the stepper controlling the printer extruder and the heater parameters for the nozzle. See the <a href="Pressure_Advance.html">pressure advance guide</a> for information on tuning pressure advance.</p>
+<p>The extruder section is used to describe the heater parameters for the nozzle hotend along with the stepper controlling the extruder. See the <a href="G-Codes.html#extruder">command reference</a> for additional information. See the <a href="Pressure_Advance.html">pressure advance guide</a> for information on tuning pressure advance.</p>
 <div class="highlight"><pre><span></span><code>[extruder]
 step_pin:
 dir_pin:
@@ -2786,7 +2799,10 @@ microsteps:
 rotation_distance:
 #full_steps_per_rotation:
 #gear_ratio:
-#   See the &quot;stepper&quot; section for a description of the above parameters.
+#   See the &quot;stepper&quot; section for a description of the above
+#   parameters. If none of the above parameters are specified then no
+#   stepper will be associated with the nozzle hotend (though a
+#   SYNC_EXTRUDER_MOTION command may associate one at run-time).
 nozzle_diameter:
 #   Diameter of the nozzle orifice (in mm). This parameter must be
 #   provided.
@@ -3660,6 +3676,7 @@ control_pin:
 #y_offset:
 #z_offset:
 #speed:
+#lift_speed:
 #samples:
 #sample_retract_dist:
 #samples_result:
@@ -3721,10 +3738,10 @@ axis:
 <p>Support for additional steppers synchronized to the movement of an extruder (one may define any number of sections with an "extruder_stepper" prefix).</p>
 <p>See the <a href="G-Codes.html#extruder">command reference</a> for more information.</p>
 <div class="highlight"><pre><span></span><code>[extruder_stepper my_extra_stepper]
-#extruder: extruder
+extruder:
 #   The extruder this stepper is synchronized to. If this is set to an
 #   empty string then the stepper will not be synchronized to an
-#   extruder. The default is &quot;extruder&quot;.
+#   extruder. This parameter must be provided.
 #step_pin:
 #dir_pin:
 #enable_pin:
@@ -4296,7 +4313,7 @@ pin:
 #   Neopixel is connected to the pin).
 #color_order: GRB
 #   Set the pixel order required by the LED hardware. Options are GRB,
-#   RGB, BRG, GRBW, or RGBW. The default is GRB.
+#   RGB, BRG, BGR, GRBW, or RGBW. The default is GRB.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
@@ -4341,6 +4358,24 @@ clock_pin:
 #   mightyboard, the white led is not populated.
 #   Use GCODE to modify led values after startup.
 #   set_led led=my_pca9533 red=1 green=1 blue=1
+</code></pre></div>
+
+<h3 id="pca9632">[PCA9632]<a class="headerlink" href="#pca9632" title="Permanent link">&para;</a></h3>
+<p>PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.</p>
+<div class="highlight"><pre><span></span><code>[pca9632 my_pca9632]
+scl_pin:
+# The SCL &quot;clock&quot; pin. This parameter must be provided.
+sda_pin:
+# The SDA &quot;data&quot; pin. This parameter must be provided.
+#initial_RED: 0
+#initial_GREEN: 0
+#initial_BLUE: 0
+#initial_WHITE: 0
+# PCA9632 supports individual LED PWM.
+# Values range from 0.0 to 1.0. The default is 0.0.
+# On the FlashForge Dreamer, the white led is not populated.
+# Use GCODE to modify led values after startup.
+# set_led led=my_pca9632 red=1.0 green=1.0 blue=1.0 white=0.0
 </code></pre></div>
 
 <h3 id="gcode_button">[gcode_button]<a class="headerlink" href="#gcode_button" title="Permanent link">&para;</a></h3>
@@ -4957,7 +4992,7 @@ lcd_type:
 #   button.
 </code></pre></div>
 
-<h3 id="hd44780-display">hd44780 display<a class="headerlink" href="#hd44780-display" title="Permanent link">&para;</a></h3>
+<h4 id="hd44780-display">hd44780 display<a class="headerlink" href="#hd44780-display" title="Permanent link">&para;</a></h4>
 <p>Information on configuring hd44780 displays (which is used in "RepRapDiscount 2004 Smart Controller" type displays).</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: hd44780
@@ -4981,7 +5016,7 @@ d7_pin:
 ...
 </code></pre></div>
 
-<h3 id="hd44780_spi-display">hd44780_spi display<a class="headerlink" href="#hd44780_spi-display" title="Permanent link">&para;</a></h3>
+<h4 id="hd44780_spi-display">hd44780_spi display<a class="headerlink" href="#hd44780_spi-display" title="Permanent link">&para;</a></h4>
 <p>Information on configuring an hd44780_spi display - a 20x04 display controlled via a hardware "shift register" (which is used in mightyboard based printers).</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: hd44780_spi
@@ -5006,7 +5041,7 @@ spi_software_miso_pin:
 ...
 </code></pre></div>
 
-<h3 id="st7920-display">st7920 display<a class="headerlink" href="#st7920-display" title="Permanent link">&para;</a></h3>
+<h4 id="st7920-display">st7920 display<a class="headerlink" href="#st7920-display" title="Permanent link">&para;</a></h4>
 <p>Information on configuring st7920 displays (which is used in "RepRapDiscount 12864 Full Graphic Smart Controller" type displays).</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: st7920
@@ -5019,7 +5054,7 @@ sid_pin:
 ...
 </code></pre></div>
 
-<h3 id="emulated_st7920-display">emulated_st7920 display<a class="headerlink" href="#emulated_st7920-display" title="Permanent link">&para;</a></h3>
+<h4 id="emulated_st7920-display">emulated_st7920 display<a class="headerlink" href="#emulated_st7920-display" title="Permanent link">&para;</a></h4>
 <p>Information on configuring an emulated st7920 display - found in some "2.4 inch touchscreen devices" and similar.</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: emulated_st7920
@@ -5038,7 +5073,7 @@ spi_software_miso_pin:
 ...
 </code></pre></div>
 
-<h3 id="uc1701-display">uc1701 display<a class="headerlink" href="#uc1701-display" title="Permanent link">&para;</a></h3>
+<h4 id="uc1701-display">uc1701 display<a class="headerlink" href="#uc1701-display" title="Permanent link">&para;</a></h4>
 <p>Information on configuring uc1701 displays (which is used in "MKS Mini 12864" type displays).</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: uc1701
@@ -5057,7 +5092,7 @@ a0_pin:
 ...
 </code></pre></div>
 
-<h3 id="ssd1306-and-sh1106-displays">ssd1306 and sh1106 displays<a class="headerlink" href="#ssd1306-and-sh1106-displays" title="Permanent link">&para;</a></h3>
+<h4 id="ssd1306-and-sh1106-displays">ssd1306 and sh1106 displays<a class="headerlink" href="#ssd1306-and-sh1106-displays" title="Permanent link">&para;</a></h4>
 <p>Information on configuring ssd1306 and sh1106 displays.</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type:
@@ -5099,7 +5134,7 @@ lcd_type:
 ...
 </code></pre></div>
 
-<h2 id="display_data">[display_data]<a class="headerlink" href="#display_data" title="Permanent link">&para;</a></h2>
+<h3 id="display_data">[display_data]<a class="headerlink" href="#display_data" title="Permanent link">&para;</a></h3>
 <p>Support for displaying custom data on an lcd screen. One may create any number of display groups and any number of data items under those groups. The display will show all the data items for a given group if the display_group option in the [display] section is set to the given group name.</p>
 <p>A <a href="https://github.com/Klipper3d/klipper/blob/master/klippy/extras/display/display.cfg">default set of display groups</a> are automatically created. One can replace or extend these display_data items by overriding the defaults in the main printer.cfg config file.</p>
 <div class="highlight"><pre><span></span><code>[display_data my_group_name my_data_name]
@@ -5113,7 +5148,7 @@ text:
 #   parameter must be provided.
 </code></pre></div>
 
-<h2 id="display_template">[display_template]<a class="headerlink" href="#display_template" title="Permanent link">&para;</a></h2>
+<h3 id="display_template">[display_template]<a class="headerlink" href="#display_template" title="Permanent link">&para;</a></h3>
 <p>Display data text "macros" (one may define any number of sections with a display_template prefix). This feature allows one to reduce repetitive definitions in display_data sections. One may use the builtin render() function in display_data sections to evaluate a template. For example, if one were to define <code>[display_template my_template]</code> then one could use <code>{ render('my_template') }</code> in a display_data section.</p>
 <div class="highlight"><pre><span></span><code>[display_template my_template_name]
 #param_&lt;name&gt;:
@@ -5131,7 +5166,7 @@ text:
 #   docs/Command_Templates.md). This parameter must be provided.
 </code></pre></div>
 
-<h2 id="display_glyph">[display_glyph]<a class="headerlink" href="#display_glyph" title="Permanent link">&para;</a></h2>
+<h3 id="display_glyph">[display_glyph]<a class="headerlink" href="#display_glyph" title="Permanent link">&para;</a></h3>
 <p>Display a custom glyph on displays that support it. The given name will be assigned the given display data which can then be referenced in the display templates by their name surrounded by two "tilde" symbols i.e. <code>~my_display_glyph~</code></p>
 <p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-glyphs.cfg">sample-glyphs.cfg</a> for some examples.</p>
 <div class="highlight"><pre><span></span><code>[display_glyph my_display_glyph]
@@ -5153,13 +5188,13 @@ text:
 #   required if hd44780_data is specified.
 </code></pre></div>
 
-<h2 id="display-my_extra_display">[display my_extra_display]<a class="headerlink" href="#display-my_extra_display" title="Permanent link">&para;</a></h2>
+<h3 id="display-my_extra_display">[display my_extra_display]<a class="headerlink" href="#display-my_extra_display" title="Permanent link">&para;</a></h3>
 <p>If a primary [display] section has been defined in printer.cfg as shown above it is possible to define multiple auxiliary displays. Note that auxiliary displays do not currently support menu functionality, thus they do not support the "menu" options or button configuration.</p>
 <div class="highlight"><pre><span></span><code>[display my_extra_display]
 # See the &quot;display&quot; section for available parameters.
 </code></pre></div>
 
-<h2 id="menu">[menu]<a class="headerlink" href="#menu" title="Permanent link">&para;</a></h2>
+<h3 id="menu">[menu]<a class="headerlink" href="#menu" title="Permanent link">&para;</a></h3>
 <p>Customizable lcd display menus.</p>
 <p>A <a href="https://github.com/Klipper3d/klipper/blob/master/klippy/extras/display/menu.cfg">default set of menus</a> are automatically created. One can replace or extend the menu by overriding the defaults in the main printer.cfg config file.</p>
 <p>See the <a href="Command_Templates.html#menu-templates">command template document</a> for information on menu attributes available during template rendering.</p>
