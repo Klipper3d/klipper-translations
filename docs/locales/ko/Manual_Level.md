@@ -117,6 +117,8 @@ Recv: 확인
 - 후면 오른쪽 나사는 시계 반대 방향으로 50분 돌려야 합니다
 - 후면 왼쪽 나사는 시계 방향으로 2분 돌려야 합니다(필요 없음)
 
+Note that "minutes" refers to "minutes of a clock face". So, for example, 15 minutes is a quarter of a full turn.
+
 BED가 수평이 될 때까지 이 과정을 여러 번 반복합니다. 일반적으로 6분 미만의 시간이 필요합니다.
 
 핫엔드 측면에 장착된 프로브를 사용하는 경우(즉, X 또는 Y 오프셋이 있음) BED 기울기를 조정하면 기울어진 BED 에서 수행된 이전 프로브 교정이 무효화됩니다. 반드시 BED 나사를 조정한 후 [probe calibration](Probe_Calibrate.md) 을 실행하세요.

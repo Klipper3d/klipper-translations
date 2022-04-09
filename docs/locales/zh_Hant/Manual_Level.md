@@ -117,6 +117,8 @@ Recv: ok
 - 右後螺絲必須逆時針轉動至 50 分鐘方向
 - 左後螺絲必須順時針轉動至 2 分鐘方向（不需要就可以了）
 
+Note that "minutes" refers to "minutes of a clock face". So, for example, 15 minutes is a quarter of a full turn.
+
 重複這個過程幾次，直到你得到一個好的水平床——通常當所有的調整都低於 6 分鐘。
 
 如果使用安裝在熱端側面的探頭（即，它具有 X 或 Y 偏移），請注意調整床傾斜度將使之前使用傾斜床執行的任何探頭校準無效。確保在調整底座螺絲後運行 [探頭校準](Probe_Calibrate.md)。

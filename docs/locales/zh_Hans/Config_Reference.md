@@ -670,14 +670,17 @@ control:
 #   Control algorithm (either pid or watermark). This parameter must
 #   be provided.
 pid_Kp:
-#   Kp is the "proportional" constant for the pid. This parameter must
-#   be provided for PID heaters.
 pid_Ki:
-#   Ki is the "integral" constant for the pid. This parameter must be
-#   provided for PID heaters.
 pid_Kd:
-#   Kd is the "derivative" constant for the pid. This parameter must
-#   be provided for PID heaters.
+#   The proportional (pid_Kp), integral (pid_Ki), and derivative
+#   (pid_Kd) settings for the PID feedback control system. Klipper
+#   evaluates the PID settings with the following general formula:
+#     heater_pwm = (Kp*error + Ki*integral(error) - Kd*derivative(error)) / 255
+#   Where "error" is "requested_temperature - measured_temperature"
+#   and "heater_pwm" is the requested heating rate with 0.0 being full
+#   off and 1.0 being full on. Consider using the PID_CALIBRATE
+#   command to obtain these parameters. The pid_Kp, pid_Ki, and pid_Kd
+#   parameters must be provided for PID heaters.
 #max_delta: 2.0
 #   On 'watermark' controlled heaters this is the number of degrees in
 #   Celsius above the target temperature before disabling the heater
@@ -751,86 +754,85 @@ See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#bed_mes
 ```
 [bed_mesh]
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+# 校准期间非探测移动的速度(mm/s)
+# 默认是 50.
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+# 在探测中喷头的高度单位是mm
+# 默认值是5
 #mesh_radius:
-#   Defines the radius of the mesh to probe for round beds. Note that
-#   the radius is relative to the coordinate specified by the
-#   mesh_origin option. This parameter must be provided for round beds
-#   and omitted for rectangular beds.
+# 定义探测圆形热床的网格半径
+# 半径是相对于mesh_origin指定的坐标
+# 此选项只适用于圆形热床
 #mesh_origin:
-#   Defines the center X, Y coordinate of the mesh for round beds. This
-#   coordinate is relative to the probe's location. It may be useful
-#   to adjust the mesh_origin in an effort to maximize the size of the
-#   mesh radius. Default is 0, 0. This parameter must be omitted for
-#   rectangular beds.
+# 定义圆形热床的中心X Y坐标 
+# 此坐标相对于探头的位置
+# 调整 mesh_origin可能会对最大化mesh_radius有帮助
+# 默认值是0,0
+# 此选项只适用于圆形热床
 #mesh_min:
-#   Defines the minimum X, Y coordinate of the mesh for rectangular
-#   beds. This coordinate is relative to the probe's location. This
-#   will be the first point probed, nearest to the origin. This
-#   parameter must be provided for rectangular beds.
+# 定义矩形热床的最小X Y 坐标
+# 这个坐标是相对于
+# 这是探测的第一个点在原点附近
+# 矩形热床必须要提供此参数
 #mesh_max:
-#   Defines the maximum X, Y coordinate of the mesh for rectangular
-#   beds. Adheres to the same principle as mesh_min, however this will
-#   be the furthest point probed from the bed's origin. This parameter
-#   must be provided for rectangular beds.
+# 定义矩形热床的最大X Y 坐标
+# 与mesh_min相同但是这将是离床的原点最远的探测点
+# 矩形热床必须要提供此参数
 #probe_count: 3, 3
-#   For rectangular beds, this is a comma separate pair of integer
-#   values X, Y defining the number of points to probe along each
-#   axis. A single value is also valid, in which case that value will
-#   be applied to both axes. Default is 3, 3.
+# 对于矩形热床，这个逗号分开了在X Y 轴需要探测的点数
+# 单个值也是有效的，在这个情况下值会被应用到两个轴
+# 默认值是 3, 3
 #round_probe_count: 5
-#   For round beds, this integer value defines the maximum number of
-#   points to probe along each axis. This value must be an odd number.
-#   Default is 5.
+# 对于圆形热床，这个值去定义了每个轴最大的探测点的数量
+# 这个值必须要是奇数
+# 默认值是 5
 #fade_start: 1.0
-#   The gcode z position in which to start phasing out z-adjustment
-#   when fade is enabled. Default is 1.0.
+# 启用fade_start时开始分阶段调整的gcode z位置
+# 默认值是 1.0.
 #fade_end: 0.0
-#   The gcode z position in which phasing out completes. When set to a
-#   value below fade_start, fade is disabled. It should be noted that
-#   fade may add unwanted scaling along the z-axis of a print. If a
-#   user wishes to enable fade, a value of 10.0 is recommended.
-#   Default is 0.0, which disables fade.
+# 在完成渐变后的gcode z 位置
+# 当值比 fade_start低的时候会禁用此功能
+# 注意这个功能可能会在打印的时候往z轴添加不需要的缩放
+# 如果希望启用过度那么, 推荐值为10.0
+# 默认值是 0.0 不启用过度
 #fade_target:
-#   The z position in which fade should converge. When this value is
-#   set to a non-zero value it must be within the range of z-values in
-#   the mesh. Users that wish to converge to the z homing position
-#   should set this to 0. Default is the average z value of the mesh.
+# 淡化应该聚集的z位置
+# 当这个值被设置为非零值时那么就必须在网格中的Z值范围内
+# 用户希望汇聚的时候z原点的位置
+# 应该被设置为0
+# 默认是网格的平均值
 #split_delta_z: .025
-#   The amount of Z difference (in mm) along a move that will trigger
-#   a split. Default is .025.
+# 触发分层的沿途Z差量 (mm)
+# 默认值是 .025.
 #move_check_distance: 5.0
-#   The distance (in mm) along a move to check for split_delta_z.
-#   This is also the minimum length that a move can be split. Default
-#   is 5.0.
+# 检查split_delta_z的距离
+# 这也是一个动作可以分层的最小长度。
+# 默认值是 5.0
 #mesh_pps: 2, 2
-#   A comma separated pair of integers X, Y defining the number of
-#   points per segment to interpolate in the mesh along each axis. A
-#   "segment" can be defined as the space between each probed point.
-#   The user may enter a single value which will be applied to both
-#   axes. Default is 2, 2.
+# 一对以逗号分隔的整数X、Y，定义每段的点的数量
+# 在网格中沿每个轴插值的点数
+# "segment "可以被定义为每个探测点之间的空间
+# 如果用户输入了一个值那么将会应用到两个轴上
+# 默认值上 2, 2
 #algorithm: lagrange
-#   The interpolation algorithm to use. May be either "lagrange" or
-#   "bicubic". This option will not affect 3x3 grids, which are forced
-#   to use lagrange sampling. Default is lagrange.
+# 要使用的插值算法
+# 可以是"lagrange"或者"bicubic"
+# 这个选项不会影响 3x3 的网格因为3x3 的网格会强制使用lagrange采样
+# 默认值是lagrange
 #bicubic_tension: .2
-#   When using the bicubic algorithm the tension parameter above may
-#   be applied to change the amount of slope interpolated. Larger
-#   numbers will increase the amount of slope, which results in more
-#   curvature in the mesh. Default is .2.
+# 当使用bicubic算法时使用bicubic_tension参数来改变插值的斜率量
+# 较大的数字会增加斜率的数量会在网格中产生更多的弯曲
+# 默认值是 .2
 #relative_reference_index:
-#   A point index in the mesh to reference all z values to. Enabling
-#   this parameter produces a mesh relative to the probed z position
-#   at the provided index.
+# 网格中的一个点索引，用来引用所有的Z值
+# 启用这个参数可以产生一个相对于所提供的索引处的
+# 探测到的Z位置的网格
 #faulty_region_1_min:
 #faulty_region_1_max:
-#   Optional points that define a faulty region.  See docs/Bed_Mesh.md
-#   for details on faulty regions.  Up to 99 faulty regions may be added.
-#   By default no faulty regions are set.
+# 可选点被定义为故障区域
+# 更多对于故障区域多信息See docs/Bed_Mesh.md
+# 最多可添加 99 个故障区域。
+# 默认没有设置故障区域
 ```
 
 ### [bed_tilt]
@@ -875,37 +877,34 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 
 ```
 [bed_screws]
-#screw1:
-#   The X, Y coordinate of the first bed leveling screw. This is a
-#   position to command the nozzle to that is directly above the bed
-#   screw (or as close as possible while still being above the bed).
-#   This parameter must be provided.
-#screw1_name:
-#   An arbitrary name for the given screw. This name is displayed when
-#   the helper script runs. The default is to use a name based upon
-#   the screw XY location.
-#screw1_fine_adjust:
-#   An X, Y coordinate to command the nozzle to so that one can fine
-#   tune the bed leveling screw. The default is to not perform fine
-#   adjustments on the bed screw.
-#screw2:
-#screw2_name:
-#screw2_fine_adjust:
+#screw1：
+#   第一颗打印机调平螺丝的X,Y坐标。这是将命令喷嘴移动到螺丝正
+#   上方时的位置（或在床上方时尽可能接近的位置）。
+#   必须提供此参数。
+#screw1_name：
+#   给定螺丝的名称。当调平助手脚本运行时会使用该名称。
+#   默认值是螺丝的 XY 位置。
+#screw1_fine_adjust：
+#   用于精细调整第一颗调平螺丝时的喷嘴被命令移动到的X,Y坐标。
+#   默认值为不执行对打印床螺丝的精细调整。
+#screw2：
+#screw2_name：
+#screw2_fine_adjust：
 #...
-#   Additional bed leveling screws. At least three screws must be
-#   defined.
-#horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   when moving from one screw location to the next. The default is 5.
-#probe_height: 0
-#   The height of the probe (in mm) after adjusting for the thermal
-#   expansion of bed and nozzle. The default is zero.
-#speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
-#probe_speed: 5
-#   The speed (in mm/s) when moving from a horizontal_move_z position
-#   to a probe_height position. The default is 5.
+#   额外的调平螺丝。
+#   至少必须定义三个螺丝
+#horizontal_move_z： 5
+#   打印头在两个螺丝位置间移动时应被命令移动到的高度（以毫米为单位）
+#   默认值为 5。
+#probe_height： 0
+#   探针高度（毫米）在打印床和热端热膨胀后探针的高度。
+#   默认值为零。
+#speed： 50
+#   校准过程中非探测移动的速度（以毫米/秒为单位）。
+#   默认值为 50。
+#probe_speed： 5
+#   从 horizontal_move_z 位置移动到 probe_height 位置的速度（以毫米/秒为单位）。
+#   默认值为 5。
 ```
 
 ### [screws_tilt_adjust]
@@ -2235,7 +2234,134 @@ Manually controlled fan (one may define any number of sections with a "fan_gener
 #   以上参数介绍请见“fan”（风扇）章节。
 ```
 
-## 额外的舵机，LED，按键，和其他引脚。
+## LEDs
+
+### [led]
+
+Support for LEDs (and LED strips) controlled via micro-controller PWM pins (one may define any number of sections with an "led" prefix). See the [command reference](G-Codes.md#led) for more information.
+
+```
+[led my_led]
+#red_pin:
+#green_pin:
+#blue_pin:
+#white_pin:
+#   The pin controlling the given LED color. At least one of the above
+#   parameters must be provided.
+#cycle_time: 0.010
+#   The amount of time (in seconds) per PWM cycle. It is recommended
+#   this be 10 milliseconds or greater when using software based PWM.
+#   The default is 0.010 seconds.
+#hardware_pwm: False
+#   Enable this to use hardware PWM instead of software PWM. When
+#   using hardware PWM the actual cycle time is constrained by the
+#   implementation and may be significantly different than the
+#   requested cycle_time. The default is False.
+#initial_RED: 0.0
+#initial_GREEN: 0.0
+#initial_BLUE: 0.0
+#initial_WHITE: 0.0
+#   Sets the initial LED color. Each value should be between 0.0 and
+#   1.0. The default for each color is 0.
+```
+
+### [neopixel]
+
+Neopixel (aka WS2812) LED support (one may define any number of sections with a "neopixel" prefix). See the [command reference](G-Codes.md#led) for more information.
+
+Note that the [linux mcu](RPi_microcontroller.md) implementation does not currently support directly connected neopixels.
+
+```
+[neopixel my_neopixel]
+pin:
+#   The pin connected to the neopixel. This parameter must be
+#   provided.
+#chain_count:
+#   The number of Neopixel chips that are "daisy chained" to the
+#   provided pin. The default is 1 (which indicates only a single
+#   Neopixel is connected to the pin).
+#color_order: GRB
+#   Set the pixel order required by the LED hardware (using a string
+#   containing the letters R, G, B, W with W optional). The default is
+#   GRB.
+#initial_RED: 0.0
+#initial_GREEN: 0.0
+#initial_BLUE: 0.0
+#initial_WHITE: 0.0
+#   See the "led" section for information on these parameters.
+```
+
+### [dotstar]
+
+Dotstar (aka APA102) LED support (one may define any number of sections with a "dotstar" prefix). See the [command reference](G-Codes.md#led) for more information.
+
+```
+[dotstar my_dotstar]
+data_pin:
+#   The pin connected to the data line of the dotstar. This parameter
+#   must be provided.
+clock_pin:
+#   The pin connected to the clock line of the dotstar. This parameter
+#   must be provided.
+#chain_count:
+#   See the "neopixel" section for information on this parameter.
+#initial_RED: 0.0
+#initial_GREEN: 0.0
+#initial_BLUE: 0.0
+#   See the "led" section for information on these parameters.
+```
+
+### [pca9533]
+
+PCA9533 LED支持。PCA9533 在 mightyboard上出现。
+
+```
+[pca9533 my_pca9533]
+#i2c_address: 98
+#   The i2c address that the chip is using on the i2c bus. Use 98 for
+#   the PCA9533/1, 99 for the PCA9533/2. The default is 98.
+#i2c_mcu:
+#i2c_bus:
+#i2c_speed:
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
+#initial_RED: 0.0
+#initial_GREEN: 0.0
+#initial_BLUE: 0.0
+#initial_WHITE: 0.0
+#   See the "led" section for information on these parameters.
+```
+
+### [pca9632]
+
+PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
+
+```
+[pca9632 my_pca9632]
+#i2c_address: 98
+#   The i2c address that the chip is using on the i2c bus. This may be
+#   96, 97, 98, or 99.  The default is 98.
+#i2c_mcu:
+#i2c_bus:
+#i2c_speed:
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
+#scl_pin:
+#sda_pin:
+#   Alternatively, if the pca9632 is not connected to a hardware I2C
+#   bus, then one may specify the "clock" (scl_pin) and "data"
+#   (sda_pin) pins. The default is to use hardware I2C.
+#color_order: RGBW
+#   Set the pixel order of the LED (using a string containing the
+#   letters R, G, B, W). The default is RGBW.
+#initial_RED: 0.0
+#initial_GREEN: 0.0
+#initial_BLUE: 0.0
+#initial_WHITE: 0.0
+#   See the "led" section for information on these parameters.
+```
+
+## Additional servos, buttons, and other pins
 
 ### [servo]
 
@@ -2263,93 +2389,6 @@ pin:
 #   Initial pulse width time (in seconds) to set the servo to. (This
 #   is only valid if initial_angle is not set.) The default is to not
 #   send any signal at startup.
-```
-
-### [neopixel]
-
-Neopixel (aka WS2812) LED support (one may define any number of sections with a "neopixel" prefix). One may set the LED color via "SET_LED LED=my_neopixel RED=0.1 GREEN=0.1 BLUE=0.1" type extended [g-code commands](G-Codes.md#neopixel).
-
-```
-[neopixel my_neopixel]
-pin:
-#   The pin connected to the neopixel. This parameter must be
-#   provided.
-#chain_count:
-#   The number of Neopixel chips that are "daisy chained" to the
-#   provided pin. The default is 1 (which indicates only a single
-#   Neopixel is connected to the pin).
-#color_order: GRB
-#   Set the pixel order required by the LED hardware. Options are GRB,
-#   RGB, BRG, BGR, GRBW, or RGBW. The default is GRB.
-#initial_RED: 0.0
-#initial_GREEN: 0.0
-#initial_BLUE: 0.0
-#initial_WHITE: 0.0
-#   Sets the initial LED color of the Neopixel. Each value should be
-#   between 0.0 and 1.0. The WHITE option is only available on RGBW
-#   LEDs. The default for each color is 0.
-```
-
-### [dotstar]
-
-Dotstar (aka APA102) LED support (one may define any number of sections with a "dotstar" prefix). One may set the LED color via "SET_LED LED=my_dotstar RED=0.1 GREEN=0.1 BLUE=0.1" type extended [g-code commands](G-Codes.md#neopixel).
-
-```
-[dotstar my_dotstar]
-data_pin:
-#   连接到dotstar data（数据）线的引脚。必须提供这个参数。
-clock_pin:
-# 连接到dotstar clock（时钟）线的引脚。必须提供这个参数。
-#chain_count:
-#initial_RED:0.0
-#initial_GREEN: 0.0
-#initial_BLUE: 0.0
-#   有关这些参数的信息，请参见 "Neopixel " 章节。
-```
-
-### [PCA9533]
-
-PCA9533 LED支持。PCA9533 在 mightyboard上出现。
-
-```
-[pca9533 my_pca9533]
-#i2c_address: 98
-#   The i2c address that the chip is using on the i2c bus. Use 98 for
-#   the PCA9533/1, 99 for the PCA9533/2. The default is 98.
-#i2c_mcu:
-#i2c_bus:
-#i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
-#initial_RED: 0
-#initial_GREEN: 0
-#initial_BLUE: 0
-#initial_WHITE: 0
-#   The PCA9533 only supports 1 or 0. The default is 0. On the
-#   mightyboard, the white led is not populated.
-#   Use GCODE to modify led values after startup.
-#   set_led led=my_pca9533 red=1 green=1 blue=1
-```
-
-### [PCA9632]
-
-PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
-
-```
-[pca9632 my_pca9632]
-scl_pin:
-# The SCL "clock" pin. This parameter must be provided.
-sda_pin:
-# The SDA "data" pin. This parameter must be provided.
-#initial_RED: 0
-#initial_GREEN: 0
-#initial_BLUE: 0
-#initial_WHITE: 0
-# PCA9632 supports individual LED PWM.
-# Values range from 0.0 to 1.0. The default is 0.0.
-# On the FlashForge Dreamer, the white led is not populated.
-# Use GCODE to modify led values after startup.
-# set_led led=my_pca9632 red=1.0 green=1.0 blue=1.0 white=0.0
 ```
 
 ### [gcode_button]
@@ -3170,21 +3209,27 @@ text:
 
 ### [display_template]
 
-显示数据文本“宏”（可以使用 display_template 前缀定义任意数量的部分）。此功能可以帮助减少 display_data 部分中重复的定义。可以使用 display_data 部分中的内置 render() 函数来预览模板。例如，如果要定义 `[display_template my_template]` 则可以在 display_data 部分使用 `{ render('my_template') }` 。
+Display data text "macros" (one may define any number of sections with a display_template prefix). See the [command templates](Command_Templates.md) document for information on template evaluation.
+
+This feature allows one to reduce repetitive definitions in display_data sections. One may use the builtin `render()` function in display_data sections to evaluate a template. For example, if one were to define `[display_template my_template]` then one could use `{ render('my_template') }` in a display_data section.
+
+This feature can also be used for continuous LED updates using the [SET_LED_TEMPLATE](G-Codes.md#set_led_template) command.
 
 ```
-[display_template 模版名称]
-#param_<名称>:
-#   可以使用"param_"前缀定义任意数量的选项。定义的名称将被
-#   关联到给定的值（被解析为Python literal）并在macro解释时可
-#   以被使用。如果参数被render()的调用传入，则这个值会被用于
-#   宏扩展。例如，配置 "param_speed = 75" 允许调用
-#   "render('my_template_name', param_speed=80)"。
-#   参数名不能包含大写字符。
-#text:
-#   当 render() 函数因为这个模板被调用时会显示的文本。这个
-#   字段使用命令模板（请见docs/Command_Templates.md）。
-#   必须提供此参数。
+[display_template my_template_name]
+#param_<name>:
+#   One may specify any number of options with a "param_" prefix. The
+#   given name will be assigned the given value (parsed as a Python
+#   literal) and will be available during macro expansion. If the
+#   parameter is passed in the call to render() then that value will
+#   be used during macro expansion. For example, a config with
+#   "param_speed = 75" might have a caller with
+#   "render('my_template_name', param_speed=80)". Parameter names may
+#   not use upper case characters.
+text:
+#   The text to return when the this template is rendered. This field
+#   is evaluated using command templates (see
+#   docs/Command_Templates.md). This parameter must be provided.
 ```
 
 ### [display_glyph]
@@ -3583,6 +3628,36 @@ serial:
 #   默认 2 (mm/s)
 #auto_cancel_variation: 0.1
 #   # 当 ping 值变化高于此阈值时自动取消打印
+```
+
+### [angle]
+
+Magnetic hall angle sensor support for reading stepper motor angle shaft measurements using a1333, as5047d, or tle5012b SPI chips. The measurements are available via the [API Server](API_Server.md) and [motion analysis tool](Debugging.md#motion-analysis-and-data-logging). See the [G-Code reference](G-Codes.md#angle) for available commands.
+
+```
+[angle my_angle_sensor]
+sensor_type:
+#   The type of the magnetic hall sensor chip. Available choices are
+#   "a1333", "as5047d", and "tle5012b". This parameter must be
+#   specified.
+#sample_period: 0.000400
+#   The query period (in seconds) to use during measurements. The
+#   default is 0.000400 (which is 2500 samples per second).
+#stepper:
+#   The name of the stepper that the angle sensor is attached to (eg,
+#   "stepper_x"). Setting this value enables an angle calibration
+#   tool. To use this feature, the Python "numpy" package must be
+#   installed. The default is to not enable angle calibration for the
+#   angle sensor.
+cs_pin:
+#   The SPI enable pin for the sensor. This parameter must be provided.
+#spi_speed:
+#spi_bus:
+#spi_software_sclk_pin:
+#spi_software_mosi_pin:
+#spi_software_miso_pin:
+#   See the "common SPI settings" section for a description of the
+#   above parameters.
 ```
 
 ## 通用总线参数

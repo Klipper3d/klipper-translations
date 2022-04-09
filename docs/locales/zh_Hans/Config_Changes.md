@@ -6,6 +6,12 @@
 
 ## 变更
 
+20220407: The temperature_fan `pid_integral_max` config option has been removed (it was deprecated on 20210612).
+
+20220407: The default color order for pca9632 LEDs is now "RGBW". Add an explicit `color_order: RBGW` setting to the pca9632 config section to obtain the previous behavior.
+
+20220330: The format of the `printer.neopixel.color_data` status information for neopixel and dotstar modules has changed. The information is now stored as a list of color lists (instead of a list of dictionaries). See the [status reference](Status_Reference.md#led) for details.
+
 20220307:`M73`如果不给定`P`，则不再将打印进度设置为0。
 
 20220304：[extruder_stepper](Config_Reference.md#extruder_stepper)配置分段的`extruder`参数不再有默认设置。如果需要，可以明确指定`extruder: extruder`，以便在启动时关联步进电机和"extruder"运动序列。
