@@ -4,6 +4,12 @@
 
 本文档中的字段可能会发生变化 - 如果使用了任何字段，在更新 Klipper 时，请务必查看[配置变化文档](Config_Changes.md)。
 
+## angle
+
+The following information is available in [angle some_name](Config_Reference.md#angle) objects:
+
+- `temperature`: The last temperature reading (in Celsius) from a tle5012b magnetic hall sensor. This value is only available if the angle sensor is a tle5012b chip and if measurements are in progress (otherwise it reports `None`).
+
 ## bed_mesh
 
 [bed_mesh](Config_Reference.md#bed_mesh) 对象中提供了以下信息：
@@ -111,6 +117,12 @@
 
 - `state`：由 idle_timeout 模块跟踪的打印机的当前状态。它可以是以下字符串之一："Idle", "Printing", "Ready"。
 - `printing_time`：打印机处于“Printing”状态的时间（以秒为单位）（由 idle_timeout 模块跟踪）。
+
+## led
+
+The following information is available for each `[led led_name]`, `[neopixel led_name]`, `[dotstar led_name]`, `[pca9533 led_name]`, and `[pca9632 led_name]` config section defined in printer.cfg:
+
+- `color_data`: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underyling LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at `printer["neopixel <config_name>"].color_data[1][2]`.
 
 ## mcu
 
@@ -259,9 +271,3 @@
 `z_tilt` 对象提供了以下信息（如果定义了 z_tilt，则该对象可用）：
 
 - `applied`：如果 z 倾斜调平过程已运行并成功完成，则为 True。
-
-## neopixel / dotstar
-
-以下信息适用于每个在 printer.cfg 中定义的 `[neopixel led_name]` 和 `[dotstar led_name]`：
-
-- `color_data`：对象数组，每个对象包含链中一个 LED 的 RGBW 值。请注意，并非所有配置都包含白色值。每个值都是从 0 到 1 的浮点数。例如，链中第二个 neopixel 的蓝色值可以通过`printer["neopixel <config_name>"].color_data[1].B`访问。

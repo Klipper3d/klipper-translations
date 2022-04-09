@@ -117,6 +117,8 @@ This means that:
 - rear right screw must be turned counter-clockwise 50 minutes
 - rear left screw must be turned clockwise 2 minutes (not need it's ok)
 
+Note that "minutes" refers to "minutes of a clock face". So, for example, 15 minutes is a quarter of a full turn.
+
 Repeat the process several times until you get a good level bed - normally when all adjustments are below 6 minutes.
 
 If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that adjusting the bed tilt will invalidate any previous probe calibration that was performed with a tilted bed. Be sure to run [probe calibration](Probe_Calibrate.md) after the bed screws have been adjusted.

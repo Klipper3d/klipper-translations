@@ -172,6 +172,14 @@ gcode:
 
 初始查詢響應中的“header”字段用於描述在以後的“data”響應中找到的字段。
 
+### angle/dump_angle
+
+This endpoint is used to subscribe to [angle sensor data](Config_Reference.md#angle). Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.
+
+A request may look like: `{"id": 123, "method":"angle/dump_angle", "params": {"sensor": "my_angle_sensor", "response_template": {}}}` and might return: `{"id": 123,"result":{"header":["time","angle"]}}` and might later produce asynchronous messages such as: `{"params":{"position_offset":3.151562,"errors":0, "data":[[1290.951905,-5063],[1290.952321,-5065]]}}`
+
+初始查詢響應中的“header”字段用於描述在以後的“data”響應中找到的字段。
+
 ### pause_resume/cancel
 
 此端點類似於運行“PRINT_CANCEL”G 代碼命令。例如：`{"id": 123, "method": "pause_resume/cancel"}`

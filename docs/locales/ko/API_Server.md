@@ -173,6 +173,14 @@ A request may look like: `{"id": 123, "method":"adxl345/dump_adxl345", "params":
 
 The "header" field in the initial query response is used to describe the fields found in later "data" responses.
 
+### angle/dump_angle
+
+This endpoint is used to subscribe to [angle sensor data](Config_Reference.md#angle). Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.
+
+A request may look like: `{"id": 123, "method":"angle/dump_angle", "params": {"sensor": "my_angle_sensor", "response_template": {}}}` and might return: `{"id": 123,"result":{"header":["time","angle"]}}` and might later produce asynchronous messages such as: `{"params":{"position_offset":3.151562,"errors":0, "data":[[1290.951905,-5063],[1290.952321,-5065]]}}`
+
+The "header" field in the initial query response is used to describe the fields found in later "data" responses.
+
 ### 멈춤_재개/취소
 
 이 endpoint 는 "PRINT_CANCEL" G-Code 명령을 실행하는 것과 유사하다. 예를 들어 : `{"id": 123, "method": "pause_resume/cancel"}`

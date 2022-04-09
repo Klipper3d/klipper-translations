@@ -63,6 +63,22 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 `ACCELEROMETER_DEBUG_WRITE [CHIP=<配置名>] REG=<寄存器> VAL=<值>`：将原始的"值"写进寄存器"寄存器"。"值"和"寄存器"都可以是一个十进制或十六进制的整数。请谨慎使用，并参考 ADXL345 数据手册。
 
+### [angle]
+
+The following commands are available when an [angle config section](Config_Reference.md#angle) is enabled.
+
+#### ANGLE_CALIBRATE
+
+`ANGLE_CALIBRATE CHIP=<chip_name>`: Perform angle calibration on the given sensor (there must be an `[angle chip_name]` config section that has specified a `stepper` parameter). IMPORTANT - this tool will command the stepper motor to move without checking the normal kinematic boundary limits. Ideally the motor should be disconnected from any printer carriage before performing calibration. If the stepper can not be disconnected from the printer, make sure the carriage is near the center of its rail before starting calibration. (The stepper motor may move forwards or backwards two full rotations during this test.) After completing this test use the `SAVE_CONFIG` command to save the calibration data to the config file. In order to use this tool the Python "numpy" package must be installed (see the [measuring resonance document](Measuring_Resonances.md#software-installation) for more information).
+
+#### ANGLE_DEBUG_READ
+
+`ANGLE_DEBUG_READ CHIP=<config_name> REG=<register>`: Queries sensor register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes. This is only available for tle5012b chips.
+
+#### ANGLE_DEBUG_WRITE
+
+`ANGLE_DEBUG_WRITE CHIP=<config_name> REG=<register> VAL=<value>`: Writes raw "value" into register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to sensor data sheet for the reference. This is only available for tle5012b chips.
+
 ### [bed_mesh]
 
 The following commands are available when the [bed_mesh config section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh guide](Bed_Mesh.md)).
@@ -405,13 +421,17 @@ The manual_probe module is automatically loaded.
 
 `MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|-1|-2]] [SYNC=0]]`：该命令将改变步进器的状态。使用ENABLE参数来启用/禁用步进。使用SET_POSITION参数，迫使步进认为它处于给定的位置。使用MOVE参数，要求移动到给定位置。如果指定了SPEED或者ACCEL，那么将使用给定的值而不是配置文件中指定的默认值。如果指定ACCEL为0，那么将不执行加速。如果STOP_ON_ENDSTOP=1被指定，那么如果止动器报告被触发，动作将提前结束（使用STOP_ON_ENDSTOP=2来完成动作，即使止动器没有被触发也不会出错，使用-1或-2来在止动器报告没有被触发时停止）。通常情况下，未来的G-Code命令将被安排在步进运动完成后运行，但是如果手动步进运动使用SYNC=0，那么未来的G-Code运动命令可能与步进运动平行运行。
 
-### [neopixel]
+### [led]
 
-当使用了[neopixel](Config_Reference.md#neopixel)或[dotstar](Config_Reference.md#dotstar)配置分段时，以下命令可用：
+The following command is available when any of the [led config sections](Config_Reference.md#leds) are enabled.
 
 #### SET_LED
 
-`SET_LED LED=<配置中的名称> RED=<值> GREEN=<值> BLUE=<值> WHITE=<值> [INDEX=<索引>] [TRANSMIT=0] [SYNC=1]`：这条指令设置LED的输出。每个颜色的 `<值>` 必须在0.0和1.0之间。WHITE（白色）参数仅在 RGBW LED上有效果。如果多个 LED 芯片是通过菊链连接的，可以用INDEX参数来指定改变指定芯片的颜色（1是第一颗芯片，2是第二颗芯片…）。如果不提供 INDEX 则全部菊链中的 LED 将被设置为给定的颜色。如果指定了 TRANSMIT=0 ，色彩变化只会在下一条不是 TRANSMIT=0 的 SET_LED命令发送后发生。这个特性和 INDEX 参数一起使用可以在菊链中批量改变LED的颜色。默认情况下，SET_LED命令将与其他正在进行的G代码命令同步其变化。 因为修改LED状态会重置空闲超时，这可能在不打印时造成不期望的行为。 如果精确的时序不重要，可选的 SYNC=0 参数可以立刻应用LED变化而不重置LED超时。
+`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: This sets the LED output. Each color `<value>` must be between 0.0 and 1.0. The WHITE option is only valid on RGBW LEDs. If the LED supports multiple chips in a daisy-chain then one may specify INDEX to alter the color of just the given chip (1 for the first chip, 2 for the second, etc.). If INDEX is not provided then all LEDs in the daisy-chain will be set to the provided color. If TRANSMIT=0 is specified then the color change will only be made on the next SET_LED command that does not specify TRANSMIT=0; this may be useful in combination with the INDEX parameter to batch multiple updates in a daisy-chain. By default, the SET_LED command will sync it's changes with other ongoing gcode commands. This can lead to undesirable behavior if LEDs are being set while the printer is not printing as it will reset the idle timeout. If careful timing is not needed, the optional SYNC=0 parameter can be specified to apply the changes without resetting the idle timeout.
+
+#### SET_LED_TEMPLATE
+
+`SET_LED_TEMPLATE LED=<led_name> TEMPLATE=<template_name> [<param_x>=<literal>] [INDEX=<index>]`: Assign a [display_template](Config_Reference.md#display_template) to a given [LED](Config_Reference.md#leds). For example, if one defined a `[display_template my_led_template]` config section then one could assign `TEMPLATE=my_led_template` here. The display_template should produce a comma separated string containing four floating point numbers corresponding to red, green, blue, and white color settings. The template will be continuously evaluated and the LED will be automatically set to the resulting colors. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If INDEX is not specified then all chips in the LED's daisy-chain will be set to the template, otherwise only the chip with the given index will be updated. If TEMPLATE is an empty string then this command will clear any previous template assigned to the LED (one can then use `SET_LED` commands to manage the LED's color settings).
 
 ### [output_pin]
 

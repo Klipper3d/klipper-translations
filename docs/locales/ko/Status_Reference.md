@@ -4,6 +4,12 @@
 
 이 문서의 필드는 변경될 수 있습니다. 속성을 사용하는 경우 Klipper 소프트웨어를 업그레이드할 때 [구성 변경 문서](Config_Changes.md)를 검토해야 합니다.
 
+## angle
+
+The following information is available in [angle some_name](Config_Reference.md#angle) objects:
+
+- `temperature`: The last temperature reading (in Celsius) from a tle5012b magnetic hall sensor. This value is only available if the angle sensor is a tle5012b chip and if measurements are in progress (otherwise it reports `None`).
+
 ## bed_mesh
 
 [bed_mesh](Config_Reference.md#bed_mesh) 개체에서 다음 정보를 사용할 수 있습니다:
@@ -111,6 +117,12 @@
 
 - `state`: idle_timeout 모듈에서 추적한 프린터의 현재 상태입니다. "Idle", "Printing", "Ready" 문자열 중 하나입니다.
 - `printing_time`: 프린터가 "인쇄 중" 상태에 있었던 시간(초)입니다 (idle_timeout 모듈에 의해 추적됨).
+
+## led
+
+The following information is available for each `[led led_name]`, `[neopixel led_name]`, `[dotstar led_name]`, `[pca9533 led_name]`, and `[pca9632 led_name]` config section defined in printer.cfg:
+
+- `color_data`: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underyling LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at `printer["neopixel <config_name>"].color_data[1][2]`.
 
 ## mcu
 
@@ -259,9 +271,3 @@ The following information is available in [TMC stepper driver](Config_Reference.
 다음 정보는 `z_tilt` 개체에서 사용할 수 있습니다(이 개체는 z_tilt가 정의된 경우 사용할 수 있음):
 
 - `applied`: z-tilt 레벨링 프로세스가 성공적으로 실행되고 완료된 경우 True 입니다.
-
-## neopixel / dotstar
-
-다음 정보는 printer.cfg 에 정의된 각 `[neopixel led_name]` 및 `[dotstar led_name]`에 대해 사용할 수 있습니다:
-
-- `color_data`: 체인의 led에 대한 RGBW 값을 포함하는 각 개체가 있는 개체의 배열입니다. 모든 구성에 흰색 값이 포함되는 것은 아닙니다. 각 값은 0에서 1 사이의 부동 소수점으로 표시됩니다. 예를 들어 체인에서 두 번째 네오픽셀의 파란색 값은 `printer["neopixel <config_name>"].colordata[1].B` 에서 액세스할 수 있습니다.

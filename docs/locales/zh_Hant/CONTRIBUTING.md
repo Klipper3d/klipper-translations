@@ -43,7 +43,7 @@
 
    If a reviewer asks for details on the "benefit" of a submission, please don't consider it criticism. Being able to understand the real-world benefits of a change is a natural part of a review.
 
-   在討論好處時，最好討論“事實和測量”而不是“觀點和理論”。一般來說，審閱人仕不會尋找“此提交可能會因為……而提高質量”形式的回复，也不會尋找“有人可能會發現選項 X 有用”形式的回复，也不會尋找以下回复表單“此提交添加了固件 X 實現的功能”。相反，通常最好討論如何衡量質量改進的細節以及這些測量的結果 - 例如，“Acme X1000 打印機上的測試顯示改進的角落，如圖所示......”，或例如“在 Foomatic X900 打印機上打印真實世界對象 X 的時間從 4 小時變為 3.5 小時”。可以理解，這種類型的測試可能需要大量的時間和精力。在合併到主分支之前，Klipper 的一些最顯著的功能經過多年的討論、返工、測試和文檔編制。
+   When discussing benefits it is preferable to discuss "facts and measurements". In general, reviewers are not looking for responses of the form "someone may find option X useful", nor are they looking for responses of the form "this submission adds a feature that firmware X implements". Instead, it is generally preferable to discuss details on how the quality improvement was measured and what were the results of those measurements - for example, "tests on Acme X1000 printers show improved corners as seen in picture ...", or for example "print time of real-world object X on a Foomatic X900 printer went from 4 hours to 3.5 hours". It is understood that testing of this type can take significant time and effort. Some of Klipper's most notable features took months of discussion, rework, testing, and documentation prior to being merged into the master branch.
 
    所有新模塊、配置選項、命令、命令參數和文檔都應該具有“高影響”。我們不想讓用戶負擔他們無法合理配置的選項，也不想讓他們負擔不提供顯著好處的選項。
 
