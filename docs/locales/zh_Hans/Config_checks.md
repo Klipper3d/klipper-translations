@@ -62,7 +62,7 @@ Klipper支持挤出机和热床加热器的[PID控制](https://en.wikipedia.org/
 
 ## 下一步
 
-本指南旨在帮助对 Klipper 配置文件中的引脚设置进行基本验证。 请务必阅读 [床位调平](Bed_Level.md) 指南。 另请参阅 [Slicers](Slicers.md) 文档，了解有关使用 Klipper 配置切片器的信息。
+本指南旨在帮助对 Klipper 配置文件中的引脚设置进行基本验证。 请务必阅读 [床位调平](Bed_Level.md) 指南。 另请参阅 [切片软件](Slicers.md) 文档，了解有关使用 Klipper 配置切片软件的信息。
 
 在验证基本打印工作后，最好考虑校准 [压力提前](Pressure_Advance.md)。
 

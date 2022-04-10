@@ -24,7 +24,7 @@ Available on 20210929. Major changes in this release:
 
 发布于2020年10月20日，此版本更新内容:
 
-* 支持使用“Input Shaping”功能 - 此功能主要作用是抵消打印机共振。它可以减少甚至消除打印中产生的“ringing”振纹。
+* 支持使用“输入整形”功能 - 此功能主要作用是抵消打印机共振。它可以减少甚至消除打印中产生的“ringing”振纹。
 * “Smooth Pressure Advance”全新的挤出算法机制。这实现了“Pressure Advance”(打印挤出）同时不会引起挤出速度瞬间的改变，相反会变得更加平滑。现在也可以使用“Tuning Tower”方法来调整“Pressure Advance”(打印挤出）。
 * “webhooks”全新的API 服务器。 这次 Klipper 添加了可编程的 JSON 接口。
 * 现在可以使用 Jinja2 模板语言配置 LCD 显示和菜单。
