@@ -74,7 +74,7 @@ OctoPrint網路伺服器需要進行配置，以便與Klipper host 軟體進行�
 
 ## 配置 Klipper
 
-Klipper 配置儲存在樹莓派上的一個文字檔案中。請檢視在[config資料夾](..../config/)中的配置示例。[配置參考](Config_Reference.md)中有配置參數的文件。
+Klipper 配置儲存在樹莓派上的一個文字檔案中。請檢視在[config資料夾](../config/)中的配置示例。[配置參考](Config_Reference.md)中有配置參數的文件。
 
 可以說，更新Klipper configuration 檔案的最簡單方法是使用一個支援通過 "scp "或 "sftp "協議編輯檔案的桌面編輯器。有一些免費的工具支援這個功能（例如，Notepad++、WinSCP和Cyberduck）。使用其中一個配置檔案的例子作為起點，並將其儲存為pi使用者的主目錄中名為 "printer.cfg "的檔案（例如，/home/pi/printer.cfg）。
 
