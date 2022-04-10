@@ -1,14 +1,13 @@
 name: klipper3d deploy(test)
 on:
-  schedule:
-    - cron: "0 0 * * *"
   push:
     branches:
       - translations
     paths:
       - docs/**
       - mkdocs.yml
-      - .github/workflows/klipper3d-deploy.yaml
+      - .github/workflows/klipper3d-deploy-test.yaml
+  pull_request:
 jobs:
   deploy:
     runs-on: ubuntu-latest
