@@ -1,9 +1,9 @@
 # 常见问题
 
-1. [我怎样才能支持项目？](#how-can-i-donate-to-the-project)
+1. [如何对项目捐款？](#how-can-i-donate-to-the-project)
 1. [如何计算rotation_distance配置参数？](#how-do-i-calculate-the-rotation_distance-config-parameter)
-1. [我的串口在哪里找？](#wheres-my-serial-port)
-1. [当微控制器重启设备更改为/dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1)
+1. [在哪里找串口号？](#wheres-my-serial-port)
+1. [当微控制器重启时串口变成了/dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1)
 1. [“make flash”命令不起作用](#the-make-flash-command-doesnt-work)
 1. [如何更改串口波特率？](#how-do-i-change-the-serial-baud-rate)
 1. [我可以在 Raspberry Pi 3 以外的其他设备上运行 Klipper 吗？](#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)

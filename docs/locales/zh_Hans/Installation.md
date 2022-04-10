@@ -1,6 +1,6 @@
 # 安装
 
-本教程假定软件将会在树莓派上和 Octoprint 一起运行。推荐使用树莓派2/3/4作为主机（关于其他设备，请见[常见问题](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)）。
+本教程假定软件将会在树莓派上和 Octoprint 一起运行。推荐使用树莓派2/3/4作为主机（关于其他设备，请见[常见问题](FAQ.md#我可以在-Raspberry-Pi-3-以外的其他设备上运行-Klipper-吗？)）。
 
 Klipper 目前支持多种基于 Atmel ATmega 微控制器、[基于 ARM 微控制器](Features.md#step-benchmarks) 和基于 [Beaglebone 可编程实时单元](Beaglebone.md) 的打印机。
 
@@ -8,7 +8,7 @@ Klipper 目前支持多种基于 Atmel ATmega 微控制器、[基于 ARM 微控�
 
 先在树莓派上安装 [OctoPi](https://github.com/guysoft/OctoPi)。请使用OctoPi v0.17.0或更高版本，查看 [Octopi 发行版](https://github.com/guysoft/OctoPi/releases)来获取最新发布版本。安装完系统后，请先验证 OctoPi 能正常启动，并且 OctoPrint 网络服务器正常运行。连接到 OctoPrint 网页后，按照提示将 OctoPrint 更新到v1.4.2或更高版本。
 
-在安装 OctoPi 和升级 OctoPrint后，用 ssh 进入目标设备，以运行少量的系统命令。如果使用Linux或MacOS系统，那么 "ssh"软件应该已经预装在系统上。有一些免费的ssh客户端可用于其他操作系统（例如，[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)）。使用ssh工具连接到Raspberry Pi（ssh pi@octopi --密码是 "raspberry"），并运行以下命令：
+在安装 OctoPi 和升级 OctoPrint 后，用 ssh 连接目标设备，以运行少量的系统命令。如果使用Linux或MacOS系统，那么 "ssh"软件应该已经预装在系统上。有一些免费的ssh客户端可用于其他操作系统（例如，[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)）。使用ssh工具连接到Raspberry Pi（ssh pi@octopi --密码是 "raspberry"），并运行以下命令：
 
 ```
 git clone https://github.com/Klipper3d/klipper
@@ -19,7 +19,7 @@ git clone https://github.com/Klipper3d/klipper
 
 ## 构建和刷写微控制器
 
-在编译微控制器代码之前，首先在树莓派上运行这些命令：
+在编译微控制器代码之前，先在树莓派上运行这些命令：
 
 ```
 cd ~/klipper/
@@ -100,7 +100,7 @@ Klipper通过OctoPrint终端标签报告错误信息。可以使用 "status "命
 
 除此之外常见的g-code命令之外，Klipper还支持一些扩展命令"status "和 "restart "就是这些命令的例子。使用 "help "命令可以获得其他扩展命令的列表。
 
-在Klipper反馈打印机已经准备好后，进入[config check document](Config_checks.md)对配置文件中的引脚定义进行一些基本检查。
+在Klipper反馈打印机已经准备好后，进入[配置检查文档](Config_checks.md)对配置文件中的引脚定义进行一些基本检查。
 
 ## 联系开发者
 

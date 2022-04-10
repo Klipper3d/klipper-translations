@@ -2,7 +2,7 @@
 
 本文档是 Klipper 配置文件中可用配置分段的参考。
 
-本文档中的描述已经格式化，以便可以将它们剪切并粘贴到打印机配置文件中。 见 [installation document](Installation.md) 有关设置 Klipper 和选择初始配置文件的信息。
+本文档中的描述已经格式化，以便可以将它们剪切并粘贴到打印机配置文件中。 见 [安装文档](Installation.md) 有关设置 Klipper 和选择初始配置文件的信息。
 
 ## 微控制器配置
 
@@ -542,7 +542,7 @@ See the [example-winch.cfg](../config/example-winch.cfg) for an example cable wi
 
 这里只描述了缆绳铰盘式打印机特有的参数 — 全部可用的参数见[常用的运动学设置](#common-kinematic-settings)。
 
-CABLE WINCH的支持是实验性的。归位在cable winch运动学中没有实现。为了使打印机复位需要手动发送运动指令，直到工具头处于0, 0, 0位置然后发出`G28`去复位。
+缆绳铰盘支持是实验性的。归位在缆绳绞盘运动学中没有实现。在打印机归位时需要手动发送运动指令将工具头处于0, 0, 0位置，然后发出`G28`归位。
 
 ```
 [printer]

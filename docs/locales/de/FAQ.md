@@ -4,44 +4,44 @@
 1. [Wie berechne ich den rotation_distance-Parameter?](#how-do-i-calculate-the-rotation_distance-config-parameter)
 1. [Wo ist meine serieller Anschluss?](#wheres-my-serial-port)
 1. [Nach einem Neustart wechselt das Gerät zu /dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1)
-1. [The "make flash" command doesn't work](#the-make-flash-command-doesnt-work)
-1. [How do I change the serial baud rate?](#how-do-i-change-the-serial-baud-rate)
-1. [Can I run Klipper on something other than a Raspberry Pi 3?](#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)
-1. [Can I run multiple instances of Klipper on the same host machine?](#can-i-run-multiple-instances-of-klipper-on-the-same-host-machine)
-1. [Do I have to use OctoPrint?](#do-i-have-to-use-octoprint)
+1. [Der "make flash" Befehl funktioniert nicht](#the-make-flash-command-doesnt-work)
+1. [Wie ändere ich die serielle Baudrate?](#how-do-i-change-the-serial-baud-rate)
+1. [Kann ich Klipper auf etwas anderem als einem Raspberry Pi 3 betreiben?](#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)
+1. [Kann ich mehrere Instanzen von Klipper auf demselben Rechner laufen lassen?](#can-i-run-multiple-instances-of-klipper-on-the-same-host-machine)
+1. [Muss ich OctoPrint verwenden?](#do-i-have-to-use-octoprint)
 1. [Why can't I move the stepper before homing the printer?](#why-cant-i-move-the-stepper-before-homing-the-printer)
-1. [Why is the Z position_endstop set to 0.5 in the default configs?](#why-is-the-z-position_endstop-set-to-05-in-the-default-configs)
-1. [I converted my config from Marlin and the X/Y axes work fine, but I just get a screeching noise when homing the Z axis](#i-converted-my-config-from-marlin-and-the-xy-axes-work-fine-but-i-just-get-a-screeching-noise-when-homing-the-z-axis)
-1. [My TMC motor driver turns off in the middle of a print](#my-tmc-motor-driver-turns-off-in-the-middle-of-a-print)
-1. [I keep getting random "Lost communication with MCU" errors](#i-keep-getting-random-lost-communication-with-mcu-errors)
-1. [My Raspberry Pi keeps rebooting during prints](#my-raspberry-pi-keeps-rebooting-during-prints)
+1. [Warum ist der Z-Positions-Endstop in den Standardkonfigurationen auf 0,5 gesetzt?](#why-is-the-z-position_endstop-set-to-05-in-the-default-configs)
+1. [Ich habe meine Konfiguration von Marlin konvertiert und die X/Y-Achsen funktionieren einwandfrei, aber ich bekomme ein kreischendes Geräusch, wenn ich die Z-Achse anfahre](#i-converted-my-config-from-marlin-and-the-xy-axes-work-fine-but-i-just-get-a-screeching-noise-when-homing-the-z-axis)
+1. [Mein TMC-Motortreiber schaltet sich mitten im Druck aus](#my-tmc-motor-driver-turns-off-in-the-middle-of-a-print)
+1. [Ich erhalte immer wieder zufällige "Lost communication with MCU" Fehler](#i-keep-getting-random-lost-communication-with-mcu-errors)
+1. [Mein Raspberry Pi startet während des Druckens immer wieder neu](#my-raspberry-pi-keeps-rebooting-during-prints)
 1. [When I set `restart_method=command` my AVR device just hangs on a restart](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-restart)
-1. [Will the heaters be left on if the Raspberry Pi crashes?](#will-the-heaters-be-left-on-if-the-raspberry-pi-crashes)
-1. [How do I convert a Marlin pin number to a Klipper pin name?](#how-do-i-convert-a-marlin-pin-number-to-a-klipper-pin-name)
-1. [Do I have to wire my device to a specific type of micro-controller pin?](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin)
-1. [How do I cancel an M109/M190 "wait for temperature" request?](#how-do-i-cancel-an-m109m190-wait-for-temperature-request)
-1. [Can I find out whether the printer has lost steps?](#can-i-find-out-whether-the-printer-has-lost-steps)
-1. [Why does Klipper report errors? I lost my print!](#why-does-klipper-report-errors-i-lost-my-print)
-1. [How do I upgrade to the latest software?](#how-do-i-upgrade-to-the-latest-software)
-1. [How do I uninstall klipper?](#how-do-i-uninstall-klipper)
+1. [Bleibt die Heizung an, wenn der Raspberry Pi abstürzt?](#will-the-heaters-be-left-on-if-the-raspberry-pi-crashes)
+1. [Wie konvertiere ich eine Marlin-Pin-Nummer in einen Klipper-Pin-Namen?](#how-do-i-convert-a-marlin-pin-number-to-a-klipper-pin-name)
+1. [Muss ich mein Gerät mit einem bestimmten Typ von Mikrocontroller-Pin verdrahten?](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin)
+1. [Wie breche ich eine M109/M190 "Warten auf Temperatur" Anfrage ab?](#how-do-i-cancel-an-m109m190-wait-for-temperature-request)
+1. [Kann ich herausfinden, ob der Drucker Schritte verloren hat?](#can-i-find-out-whether-the-printer-has-lost-steps)
+1. [Warum meldet Klipper Fehler? Ich habe meinen Druck verloren!](#why-does-klipper-report-errors-i-lost-my-print)
+1. [Wie führe ich ein Upgrade auf die neueste Software durch?](#how-do-i-upgrade-to-the-latest-software)
+1. [Wie deinstalliere ich Klipper?](#how-do-i-uninstall-klipper)
 
-## How can I donate to the project?
+## Wie kann ich für das Projekt spenden?
 
 Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>
 
-## How do I calculate the rotation_distance config parameter?
+## Wie berechne ich den Konfigurationsparameter rotation_distance?
 
-See the [rotation distance document](Rotation_Distance.md).
+Siehe das Dokument [Rotationsabstand](Rotation_Distance.md).
 
-## Where's my serial port?
+## Wo ist meine serielle Schnittstelle?
 
-The general way to find a USB serial port is to run `ls /dev/serial/by-id/*` from an ssh terminal on the host machine. It will likely produce output similar to the following:
+Die allgemeine Methode, einen seriellen USB-Anschluss zu finden, besteht darin, `ls /dev/serial/by-id/*` von einem ssh-Terminal auf dem Host-Rechner aus auszuführen. Dies wird wahrscheinlich eine ähnliche Ausgabe wie die folgende erzeugen:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-The name found in the above command is stable and it is possible to use it in the config file and while flashing the micro-controller code. For example, a flash command might look similar to:
+Der im obigen Befehl gefundene Name ist stabil und es ist möglich, ihn in der Konfigurationsdatei und beim Flashen des Mikrocontroller-Codes zu verwenden. Ein Flash-Befehl könnte zum Beispiel so aussehen:
 
 ```
 sudo service klipper stop
@@ -49,22 +49,22 @@ make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 ```
 
-and the updated config might look like:
+und die aktualisierte Konfiguration könnte wie folgt aussehen:
 
 ```
 [mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-Be sure to copy-and-paste the name from the "ls" command that you ran above as the name will be different for each printer.
+Stellen Sie sicher, dass Sie den Namen aus dem Befehl "ls", den Sie oben ausgeführt haben, kopieren und einfügen, da der Name für jeden Drucker anders ist.
 
-If you are using multiple micro-controllers and they do not have unique ids (common on boards with a CH340 USB chip) then follow the directions above using the command `ls /dev/serial/by-path/*` instead.
+Wenn Sie mehrere Mikrocontroller verwenden und diese keine eindeutigen IDs haben (üblich bei Boards mit einem CH340-USB-Chip), folgen Sie den obigen Anweisungen und verwenden Sie stattdessen den Befehl `ls /dev/serial/by-path/*`.
 
-## When the micro-controller restarts the device changes to /dev/ttyUSB1
+## Wenn der Mikrocontroller neu startet, wechselt das Gerät zu /dev/ttyUSB1
 
-Follow the directions in the "[Where's my serial port?](#wheres-my-serial-port)" section to prevent this from occurring.
+Folgen Sie den Anweisungen im "[Wo ist meine serielle Schnittstelle?](#wheres-my-serial-port)" Abschnitt, um dies zu verhindern.
 
-## The "make flash" command doesn't work
+## Der Befehl "make flash" funktioniert nicht
 
 The code attempts to flash the device using the most common method for each platform. Unfortunately, there is a lot of variance in flashing methods, so the "make flash" command may not work on all boards.
 
