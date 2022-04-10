@@ -1,15 +1,17 @@
 # Fred Chan <fred2088@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-23 12:56+0000\n"
-"Last-Translator: Fred Chan <fred2088@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/klipper/features/zh_Hant/>\n"
+"PO-Revision-Date: 2022-04-10 07:49+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"klipper/features/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid "Klipper has several compelling features:"
 msgstr "Klipper 有幾個引人注目的功能："
@@ -191,7 +193,7 @@ msgstr "支援限制短距離「之」字形移動的最高速度，以減少印
 msgid ""
 "Sample configuration files are available for many common printers. Check the"
 " [config directory](../config/) for a list."
-msgstr "許多常見的印表機都有樣本配置檔案。檢視[配置資料夾](..../config/)中的列表。"
+msgstr "許多常見的印表機都有樣本配置檔案。檢視[配置資料夾](../config/)中的列表。"
 
 msgid ""
 "To get started with Klipper, read the [installation](Installation.md) guide."
