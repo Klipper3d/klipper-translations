@@ -174,9 +174,9 @@ A kezdeti lekérdezési válasz "header" mezője a későbbi "data" válaszokban
 
 ### angle/dump_angle
 
-This endpoint is used to subscribe to [angle sensor data](Config_Reference.md#angle). Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.
+Ez a végpont a [szögérzékelő adatainak](Config_Reference.md#angle) feliratkozására szolgál. Ezeknek az alacsony szintű mozgásfrissítéseknek a lekérése hasznos lehet diagnosztikai és hibakeresési célokra. Ennek a végpontnak a használata növelheti a Klipper rendszer terhelését.
 
-A request may look like: `{"id": 123, "method":"angle/dump_angle", "params": {"sensor": "my_angle_sensor", "response_template": {}}}` and might return: `{"id": 123,"result":{"header":["time","angle"]}}` and might later produce asynchronous messages such as: `{"params":{"position_offset":3.151562,"errors":0, "data":[[1290.951905,-5063],[1290.952321,-5065]]}}`
+Egy kérés így nézhet ki: `{"id": 123, "method":"angle/dump_angle", "params": {"sensor": "my_angle_sensor", "response_template": {}}}` és esetleg visszatér: `{"id": 123,"result":{"header":["time","angle"]}}}` és később olyan aszinkron üzeneteket produkálhat, mint például: `{"params":{"position_offset":3.151562,"errors":0, "data":[[1290.951905,-5063],[1290.952321,-5065]]}}`
 
 A kezdeti lekérdezési válasz "header" mezője a későbbi "data" válaszokban található mezők leírására szolgál.
 

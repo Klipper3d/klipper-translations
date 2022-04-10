@@ -1,4 +1,4 @@
-# Bootloaders
+# Bootloaderek
 
 Ez a dokumentum a Klipper által támogatott mikrovezérlőkön található gyakori bootloaderekkel kapcsolatos információkat tartalmazza.
 
@@ -10,7 +10,7 @@ Ez a dokumentum megpróbálja leírni a gyakori bootloadereket, a bootloader ég
 
 ## AVR mikrovezérlők
 
-In general, the Arduino project is a good reference for bootloaders and flashing procedures on the 8-bit Atmel Atmega micro-controllers. In particular, the "boards.txt" file: <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> is a useful reference.
+Általánosságban az Arduino projekt jó referencia a 8 bites Atmel Atmega mikrovezérlők bootloadereiről és a égetési eljárásokról. Különösen a "boards.txt" fájl: <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> hasznos referencia.
 
 A bootloader égetéséhez az AVR chipekhez külső hardveres égető eszközre van szükség (amely SPI segítségével kommunikál a chippel). Ez az eszköz megvásárolható (például keressen rá az interneten az "avr isp", "arduino isp" vagy "usb tiny isp" szavakra). Az is lehetséges, hogy egy másik Arduino vagy Raspberry Pi segítségével égessen egy AVR bootloadert (például keressen rá az interneten a "program an avr using raspberry pi" kifejezésre). Az alábbi példákat egy "AVR ISP Mk2" típusú eszköz használatát feltételezve írtuk.
 
@@ -18,9 +18,9 @@ Az "avrdude" program a leggyakrabban használt eszköz az atmega chipek égetés
 
 ### Atmega2560
 
-This chip is typically found in the "Arduino Mega" and is very common in 3d printer boards.
+Ez a chip jellemzően az "Arduino Mega" chipben található, és nagyon gyakori a 3D nyomtató lapokban.
 
-To flash the bootloader itself use something like:
+Magának a bootloadernek az égetéséhez használjon valami olyasmit, mint:
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/stk500v2/stk500boot_v2_mega2560.hex'
@@ -30,7 +30,7 @@ avrdude -cavrispv2 -patmega2560 -P/dev/ttyACM0 -b115200 -U flash:w:stk500boot_v2
 avrdude -cavrispv2 -patmega2560 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-To flash an application use something like:
+Egy alkalmazás égetéséhez használjon valami olyasmit, mint:
 
 ```
 avrdude -cwiring -patmega2560 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
@@ -38,9 +38,9 @@ avrdude -cwiring -patmega2560 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.e
 
 ### Atmega1280
 
-This chip is typically found in earlier versions of the "Arduino Mega".
+Ez a chip jellemzően az "Arduino Mega" korábbi verzióiban található.
 
-To flash the bootloader itself use something like:
+Magának a bootloadernek az égetéséhez használjon valami olyasmit, mint:
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/atmega/ATmegaBOOT_168_atmega1280.hex'
@@ -50,7 +50,7 @@ avrdude -cavrispv2 -patmega1280 -P/dev/ttyACM0 -b115200 -U flash:w:ATmegaBOOT_16
 avrdude -cavrispv2 -patmega1280 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-To flash an application use something like:
+Egy alkalmazás égetéséhez használjon valami olyasmit, mint:
 
 ```
 avrdude -carduino -patmega1280 -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.elf.hex:i
@@ -58,9 +58,9 @@ avrdude -carduino -patmega1280 -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.e
 
 ### Atmega1284p
 
-This chip is commonly found in "Melzi" style 3d printer boards.
+Ez a chip gyakran megtalálható a "Melzi" stílusú 3D nyomtató alaplapokban.
 
-To flash the bootloader itself use something like:
+Magának a bootloadernek az égetéséhez használjon valami olyasmit, mint:
 
 ```
 wget 'https://github.com/Lauszus/Sanguino/raw/1.0.2/bootloaders/optiboot/optiboot_atmega1284p.hex'
@@ -70,13 +70,13 @@ avrdude -cavrispv2 -patmega1284p -P/dev/ttyACM0 -b115200 -U flash:w:optiboot_atm
 avrdude -cavrispv2 -patmega1284p -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-To flash an application use something like:
+Egy alkalmazás égetéséhez használjon valami olyasmit, mint:
 
 ```
 avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
 ```
 
-Note that a number of "Melzi" style boards come preloaded with a bootloader that uses a baud rate of 57600. In this case, to flash an application use something like this instead:
+Megjegyzendő, hogy számos "Melzi" stílusú alaplap előre betöltött bootloaderrel érkezik, amely 57600-as átviteli sebesség használatával működik. Ebben az esetben egy alkalmazás égetéséhez használjon helyette valami ilyesmit:
 
 ```
 avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.elf.hex:i
@@ -84,9 +84,9 @@ avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.
 
 ### At90usb1286
 
-This document does not cover the method to flash a bootloader to the At90usb1286 nor does it cover general application flashing to this device.
+Ez a dokumentum nem foglalkozik az At90usb1286 bootloader égetési módszerével, és nem foglalkozik az általános alkalmazás égetésével sem.
 
-The Teensy++ device from pjrc.com comes with a proprietary bootloader. It requires a custom flashing tool from <https://github.com/PaulStoffregen/teensy_loader_cli>. One can flash an application with it using something like:
+A pjrc.com Teensy++ eszköze saját bootloaderrel rendelkezik. Ehhez egy egyedi égető eszközre van szükség a <https://github.com/PaulStoffregen/teensy_loader_cli> oldalról. Egy alkalmazást lehet vele égetni valami ilyesmivel:
 
 ```
 teensy_loader_cli --mcu=at90usb1286 out/klipper.elf.hex -v
@@ -94,7 +94,7 @@ teensy_loader_cli --mcu=at90usb1286 out/klipper.elf.hex -v
 
 ### Atmega168
 
-The atmega168 has limited flash space. If using a bootloader, it is recommended to use the Optiboot bootloader. To flash that bootloader use something like:
+Az atmega168 korlátozott flash-tárhellyel rendelkezik. Ha bootloadert használ, ajánlott az Optiboot bootloadert használni. A bootloader égetéséhez használjon valami hasonlót:
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/optiboot/optiboot_atmega168.hex'
@@ -104,91 +104,91 @@ avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U flash:w:optiboot_atmeg
 avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-To flash an application via the Optiboot bootloader use something like:
+Az Optiboot bootloaderrel történő alkalmazás égetéséhez használjon valami hasonlót:
 
 ```
 avrdude -carduino -patmega168 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
 ```
 
-## SAM3 micro-controllers (Arduino Due)
+## SAM3 mikrovezérlők (Arduino Due)
 
-It is not common to use a bootloader with the SAM3 mcu. The chip itself has a ROM that allows the flash to be programmed from 3.3V serial port or from USB.
+A SAM3 MCU-val nem szokás bootloadert használni. Maga a chip rendelkezik egy ROM-mal, amely lehetővé teszi a flash programozását 3,3V-os soros portról vagy USB-ről.
 
-To enable the ROM, the "erase" pin is held high during a reset, which erases the flash contents, and causes the ROM to run. On an Arduino Due, this sequence can be accomplished by setting a baud rate of 1200 on the "programming usb port" (the USB port closest to the power supply).
+A ROM engedélyezéséhez az "erase" csapot magasan kell tartani a visszaállítás során, ami törli a flash tartalmát, és a ROM-ot elindítja. Egy Arduino Due-n ez a szekvencia úgy valósítható meg, hogy a "programozó usb port" (a tápegységhez legközelebbi USB port) 1200-as baud sebességet állít be.
 
-The code at <https://github.com/shumatech/BOSSA> can be used to program the SAM3. It is recommended to use version 1.9 or later.
+A <https://github.com/shumatech/BOSSA> alatti kód használható a SAM3 programozásához. Az 1.9-es vagy újabb verzió használata ajánlott.
 
-To flash an application use something like:
+Egy alkalmazás égetéséhez használjon valami olyasmit, mint:
 
 ```
 bossac -U -p /dev/ttyACM0 -a -e -w out/klipper.bin -v -b
 bossac -U -p /dev/ttyACM0 -R
 ```
 
-## SAM4 micro-controllers (Duet Wifi)
+## SAM4 mikrovezérlők (Duet Wifi)
 
-It is not common to use a bootloader with the SAM4 mcu. The chip itself has a ROM that allows the flash to be programmed from 3.3V serial port or from USB.
+A SAM4 MCU-val nem szokás bootloadert használni. Maga a chip rendelkezik egy ROM-mal, amely lehetővé teszi a flash programozását 3,3V-os soros portról vagy USB-ről.
 
-To enable the ROM, the "erase" pin is held high during a reset, which erases the flash contents, and causes the ROM to run.
+A ROM engedélyezéséhez az "erase" csapot magasan kell tartani a visszaállítás során, ami törli a flash tartalmát, és a ROM-ot elindítja.
 
-The code at <https://github.com/shumatech/BOSSA> can be used to program the SAM4. It is necessary to use version `1.8.0` or higher.
+A <https://github.com/shumatech/BOSSA> kód használható a SAM4 programozásához. Szükséges az `1.8.0` vagy magasabb verzió használata.
 
-To flash an application use something like:
+Egy alkalmazás égetéséhez használjon valami olyasmit, mint:
 
 ```
 bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 ```
 
-## SAMD21 micro-controllers (Arduino Zero)
+## SAMD21 mikrovezérlők (Arduino Zero)
 
-The SAMD21 bootloader is flashed via the ARM Serial Wire Debug (SWD) interface. This is commonly done with a dedicated SWD hardware dongle. Alternatively, one can use a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi).
+A SAMD21 bootloader az ARM Serial Wire Debug (SWD) interfészen keresztül töltődik fel. Ez általában egy dedikált SWD hardver dongle segítségével történik. Alternatívaként használhatunk egy [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi).
 
-To flash a bootloader with OpenOCD use the following chip config:
+A bootloader OpenOCD-vel történő égetéséhez használja a következő chipkonfigurációt:
 
 ```
-source [find target/at91samdXX.cfg]
+forrás [find target/at91samdXX.cfg]
 ```
 
-Obtain a bootloader - for example:
+Szerezzen be egy bootloadert - például:
 
 ```
 wget 'https://github.com/arduino/ArduinoCore-samd/raw/1.8.3/bootloaders/zero/samd21_sam_ba.bin'
 ```
 
-Flash with OpenOCD commands similar to:
+Égetés az OpenOCD parancsokhoz hasonló parancsokkal:
 
 ```
 at91samd bootloader 0
 program samd21_sam_ba.bin verify
 ```
 
-The most common bootloader on the SAMD21 is the one found on the "Arduino Zero". It uses an 8KiB bootloader (the application must be compiled with a start address of 8KiB). One can enter this bootloader by double clicking the reset button. To flash an application use something like:
+A SAMD21 leggyakoribb bootloadere az "Arduino Zero" -ban található. Ez egy 8KiB-es bootloadert használ (az alkalmazást 8KiB kezdőcímmel kell lefordítani). Ebbe a bootloaderbe a reset gombra való dupla kattintással lehet belépni. Egy alkalmazás égetéséhez használjon valami hasonlót:
 
 ```
 bossac -U -p /dev/ttyACM0 --offset=0x2000 -w out/klipper.bin -v -b -R
 ```
 
-In contrast, the "Arduino M0" uses a 16KiB bootloader (the application must be compiled with a start address of 16KiB). To flash an application on this bootloader, reset the micro-controller and run the flash command within the first few seconds of boot - something like:
+Ezzel szemben az "Arduino M0" 16KiB bootloadert használ (az alkalmazást 16KiB kezdőcímmel kell lefordítani). Egy alkalmazás égetéséhez ezen a bootloaderen, állítsa vissza a mikrokontrollert, és futtassa a flash parancsot a bootolás első néhány másodpercében. Valami ilyesmi:
 
 ```
 avrdude -c stk500v2 -p atmega2560 -P /dev/ttyACM0 -u -Uflash:w:out/klipper.elf.hex:i
 ```
 
-## SAMD51 micro-controllers (Adafruit Metro-M4 and similar)
+## SAMD51 mikrovezérlők (Adafruit Metro-M4 és hasonló)
 
-Like the SAMD21, the SAMD51 bootloader is flashed via the ARM Serial Wire Debug (SWD) interface. To flash a bootloader with [OpenOCD on a Raspberry Pi](#running-openocd-on-the-raspberry-pi) use the following chip config:
+A SAMD21-hez hasonlóan a SAMD51 bootloader is az ARM Serial Wire Debug (SWD) interfészen keresztül töltődik fel. Az [OpenOCD on a Raspberry Pi](#running-openocd-on-the-raspberry-pi) bootloader égetéséhez használja a következő chipkonfigurációt:
 
 ```
-source [find target/atsame5x.cfg]
+forrás [find target/atsame5x.cfg]
 ```
 
-Obtain a bootloader - several bootloaders are available from <https://github.com/adafruit/uf2-samdx1/releases/latest>. For example:
+Szerezzen be egy bootloadert. Számos bootloader elérhető a <https://github.com/adafruit/uf2-samdx1/releases/latest> oldalon. Például:
 
 ```
 wget 'https://github.com/adafruit/uf2-samdx1/releases/download/v3.7.0/bootloader-itsybitsy_m4-v3.7.0.bin'
 ```
 
-Flash with OpenOCD commands similar to:
+Égetés az OpenOCD parancsokhoz hasonló parancsokkal:
 
 ```
 at91samd bootloader 0
@@ -196,29 +196,29 @@ program bootloader-itsybitsy_m4-v3.7.0.bin verify
 at91samd bootloader 16384
 ```
 
-The SAMD51 uses a 16KiB bootloader (the application must be compiled with a start address of 16KiB). To flash an application use something like:
+A SAMD51 16KiB-es bootloadert használ (az alkalmazást 16KiB kezdőcímmel kell lefordítani). Egy alkalmazás égetéséhez használjon valami hasonlót:
 
 ```
 bossac -U -p /dev/ttyACM0 --offset=0x4000 -w out/klipper.bin -v -b -R
 ```
 
-## STM32F103 micro-controllers (Blue Pill devices)
+## STM32F103 mikrovezérlők (Blue Pill eszközök)
 
-The STM32F103 devices have a ROM that can flash a bootloader or application via 3.3V serial. To access this ROM, one should connect the "boot 0" pin to high and "boot 1" pin to low, and then reset the device. The "stm32flash" package can then be used to flash the device using something like:
+Az STM32F103 eszközök rendelkeznek egy ROM-mal, amely 3,3V-os soros kapcsolaton keresztül képes bootloadert vagy alkalmazást égetni. A ROM eléréséhez a "boot 0" csapot magasra, a "boot 1" csapot pedig alacsonyra kell kapcsolni, majd vissza kell állítani az eszközt. Az "stm32flash" csomagot ezután használhatjuk az eszköz égetéséhez, például a következőkkel:
 
 ```
 stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0
 ```
 
-Note that if one is using a Raspberry Pi for the 3.3V serial, the stm32flash protocol uses a serial parity mode which the Raspberry Pi's "mini UART" does not support. See <https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts> for details on enabling the full uart on the Raspberry Pi GPIO pins.
+Vegye figyelembe, hogy ha Raspberry Pi-t használ a 3,3V-os soros kapcsolathoz, az stm32flash protokoll olyan soros paritásmódot használ, amelyet a Raspberry Pi "mini UART" nem támogat. Lásd <https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts> a teljes uart engedélyezéséről a Raspberry Pi GPIO tűin.
 
-After flashing, set both "boot 0" and "boot 1" back to low so that future resets boot from flash.
+Az égetés után állítsa vissza a "boot 0" és a "boot 1" értéket alacsonyra, hogy a jövőben az égetésről induló rendszer újrainduljon.
 
-### STM32F103 with stm32duino bootloader
+### STM32F103 stm32duino bootloaderrel
 
-The "stm32duino" project has a USB capable bootloader - see: <https://github.com/rogerclarkmelbourne/STM32duino-bootloader>
+Az "stm32duino" projekt rendelkezik USB-képes bootloaderrel. Lásd: <https://github.com/rogerclarkmelbourne/STM32duino-bootloader>
 
-This bootloader can be flashed via 3.3V serial with something like:
+Ez a bootloader 3,3V-os soros kapcsolaton keresztül égethető valami hasonlóval:
 
 ```
 wget 'https://github.com/rogerclarkmelbourne/STM32duino-bootloader/raw/master/binaries/generic_boot20_pc13.bin'
@@ -226,43 +226,43 @@ wget 'https://github.com/rogerclarkmelbourne/STM32duino-bootloader/raw/master/bi
 stm32flash -w generic_boot20_pc13.bin -v -g 0 /dev/ttyAMA0
 ```
 
-This bootloader uses 8KiB of flash space (the application must be compiled with a start address of 8KiB). Flash an application with something like:
+Ez a bootloader 8KiB-es flash memóriát használ (az alkalmazást 8KiB kezdőcímmel kell lefordítani). Égessen egy alkalmazást valami ilyesmivel:
 
 ```
 dfu-util -d 1eaf:0003 -a 2 -R -D out/klipper.bin
 ```
 
-The bootloader typically runs for only a short period after boot. It may be necessary to time the above command so that it runs while the bootloader is still active (the bootloader will flash a board led while it is running). Alternatively, set the "boot 0" pin to low and "boot 1" pin to high to stay in the bootloader after a reset.
+A bootloader általában csak rövid ideig fut a rendszerindítás után. Szükség lehet arra, hogy a fenti parancsot úgy időzítsük, hogy az akkor fusson le, amikor a bootloader még aktív (a bootloader üzem közben villogtat egy a lapon lévő ledet). Alternatív megoldásként a "boot 0" csapot állítsa alacsonyra, a "boot 1" csapot pedig magasra, hogy a bootloaderben maradjon a reset után.
 
-### STM32F103 with HID bootloader
+### STM32F103 HID bootloaderrel
 
-The [HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader) is a compact, driverless bootloader capable of flashing over USB. Also available is a [fork with builds specific to the SKR Mini E3 1.2](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
+A [HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader) egy kompakt, driver nélküli bootloader, amely képes USB-n keresztül égetni. Szintén elérhető egy [fork az SKR Mini E3 1.2 specifikus buildekkel](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
 
-For generic STM32F103 boards such as the blue pill it is possible to flash the bootloader via 3.3v serial using stm32flash as noted in the stm32duino section above, substituting the file name for the desired hid bootloader binary (ie: hid_generic_pc13.bin for the blue pill).
+Az általános STM32F103 alaplapok, mint például a blue pill esetében a bootloader 3,3V-os soros égetése lehetséges az stm32flash használatával, amint azt a fenti stm32duino szakaszban említettük, a kívánt hid bootloader bináris fájlnevének behelyettesítésével (azaz: hid_generic_pc13.bin a blue pillhez).
 
-It is not possible to use stm32flash for the SKR Mini E3 as the boot0 pin is tied directly to ground and not broken out via header pins. It is recommended to use a STLink V2 with STM32Cubeprogrammer to flash the bootloader. If you don't have access to a STLink it is also possible to use a [Raspberry Pi and OpenOCD](#running-openocd-on-the-raspberry-pi) with the following chip config:
+Az SKR Mini E3 esetében nem lehet stm32flash-t használni, mivel a boot0 pin közvetlenül a földre van kötve, és nincs alaplapi tűkiállása. A bootloader égetéséhez ajánlott STLink V2-t használni STM32Cube programozóval. Ha nincs vagy nem fér hozzá egy STLinkhez, akkor lehetséges egy [Raspberry Pi és OpenOCD](#running-openocd-on-the-raspberry-pi) használata is a következő chipkonfigurációval:
 
 ```
-source [find target/stm32f1x.cfg]
+forrás [find target/stm32f1x.cfg]
 ```
 
-If you wish you can make a backup of the current flash with the following command. Note that it may take some time to complete:
+Ha szeretné, a következő paranccsal készíthet biztonsági másolatot az aktuális flash memóriáról. Vegye figyelembe, hogy ez némi időt vehet igénybe:
 
 ```
 flash read_bank 0 btt_skr_mini_e3_backup.bin
 ```
 
-finally, you can flash with commands similar to:
+végül, a következő parancsokhoz hasonló parancsokkal égethet:
 
 ```
 stm32f1x mass_erase 0
 program hid_btt_skr_mini_e3.bin verify 0x08000000
 ```
 
-NOTES:
+MEGJEGYZÉSEK:
 
-- The example above erases the chip then programs the bootloader. Regardless of the method chosen to flash it is recommended to erase the chip prior to flashing.
-- Prior flashing the SKR Mini E3 with this bootloader you should be aware that you will no longer be able to update firmware via the sdcard.
+- A fenti példa törli a chipet, majd beprogramozza a bootloadert. Az égetéshez választott módszertől függetlenül ajánlott a chipet az égetés előtt törölni.
+- Mielőtt az SKR Mini E3-at ezzel a bootloaderrel égetnéd, tudnod kell, hogy a firmware frissítése már nem lesz lehetséges az SD-kártyán keresztül.
 - You may need to hold down the reset button on the board while launching OpenOCD. It should display something like:
    ```
    Open On-Chip Debugger 0.10.0+dev-01204-gc60252ac-dirty (2020-04-27-16:00)
@@ -279,11 +279,11 @@ Info : stm32f1x.cpu: external reset detected
 Info : starting gdb server for stm32f1x.cpu on 3333
 Info : Listening on port 3333 for gdb connections
    ```
-After which you can release the reset button.
+Ezt követően elengedheti a reset gombot.
 
-This bootloader requires 2KiB of flash space (the application must be compiled with a start address of 2KiB).
+Ez a bootloader 2KiB-os flash memóriát igényel (az alkalmazást 2KiB kezdőcímmel kell lefordítani).
 
-The hid-flash program is used to upload a binary to the bootloader. You can install this software with the following commands:
+A hid-flash program egy bináris fájl feltöltésére szolgál a bootloaderre. Ezt a szoftvert a következő parancsokkal telepítheti:
 
 ```
 sudo apt install libusb-1.0
@@ -291,31 +291,31 @@ cd ~/klipper/lib/hidflash
 make
 ```
 
-If the bootloader is running you can flash with something like:
+Ha a bootloader fut, akkor égethetsz valami olyasmivel, mint:
 
 ```
 ~/klipper/lib/hidflash/hid-flash ~/klipper/out/klipper.bin
 ```
 
-alternatively, you can use `make flash` to flash klipper directly:
+alternatívaként használhatod a `make flash` parancsot a klipper közvetlen égetéséhez:
 
 ```
 make flash FLASH_DEVICE=1209:BEBA
 ```
 
-OR if klipper has been previously flashed:
+VAGY ha a klippert korábban már égették:
 
 ```
 make flash FLASH_DEVICE=/dev/ttyACM0
 ```
 
-It may be necessary to manually enter the bootloader, this can be done by setting "boot 0" low and "boot 1" high. On the SKR Mini E3 "Boot 1" is not available, so it may be done by setting pin PA2 low if you flashed "hid_btt_skr_mini_e3.bin". This pin is labeld "TX0" on the TFT header in the SKR Mini E3's "PIN" document. There is a ground pin next to PA2 which you can use to pull PA2 low.
+Szükség lehet a bootloader manuális belépésére, ezt a "boot 0" alacsony és "boot 1" magas értékek beállításával lehet megtenni. Az SKR Mini E3 esetében a "Boot 1" nem áll rendelkezésre, ezért a PA2 tű alacsonyra állításával lehet elvégezni, ha a "hid_btt_skr_mini_e3.bin" fájlt égetjük. Ez a tű az SKR Mini E3 "PIN" dokumentumban "TX0"-ként van jelölve a TFT fejlécen. A PA2 mellett van egy földelt tű, amellyel a PA2-t alacsonyra húzhatja.
 
-## STM32F4 micro-controllers (SKR Pro 1.1)
+## STM32F4 mikrovezérlők (SKR Pro 1.1)
 
-STM32F4 microcontrollers come equipped with a built-in system bootloader capable of flashing over USB (via DFU), 3.3v Serial, and various other methods (see STM Document AN2606 for more information). Some STM32F4 boards, such as the SKR Pro 1.1, are not able to enter the DFU bootloader. The HID bootloader is available for STM32F405/407 based boards should the user prefer flashing over USB over using the sdcard. Note that you may need to configure and build a version specific to your board, a [build for the SKR Pro 1.1 is available here](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
+Az STM32F4 mikrokontrollerek beépített rendszerbetöltővel rendelkeznek, amely képes USB-n keresztül (DFU-n keresztül), 3,3V-os soros és különböző más módszerekkel is égetni (további információkért lásd az STM AN2606 dokumentumát). Egyes STM32F4 lapok, mint például az SKR Pro 1.1, nem képesek belépni a DFU bootloaderbe. A HID bootloader elérhető az STM32F405/407 alapú lapokhoz, amennyiben a felhasználó az USB-n keresztül történő égetést részesíti előnyben az SD-kártya használatával szemben. Ne feledje, hogy szükség lehet egy, a lapjára specifikus verzió konfigurálására és építésére, egy [az SKR Pro 1.1-es verzióra vonatkozó építés elérhető itt](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
 
-Unless your board is DFU capable the most accessable flashing method is likely via 3.3v serial, which follows the same procedure as [flashing the STM32F103 using stm32flash](#stm32f103-micro-controllers-blue-pill-devices). For example:
+Hacsak a lapod nem DFU-képes, a legkönnyebben elérhető égetési módszer valószínűleg a 3,3V-os soros, amely ugyanazt az eljárást követi, mint [az STM32F103 égetése az stm32flash segítségével](#stm32f103-micro-controllers-blue-pill-devices). Például:
 
 ```
 wget https://github.com/Arksine/STM32_HID_Bootloader/releases/download/v0.5-beta/hid_bootloader_SKR_PRO.bin
@@ -323,25 +323,25 @@ wget https://github.com/Arksine/STM32_HID_Bootloader/releases/download/v0.5-beta
 stm32flash -w hid_bootloader_SKR_PRO.bin -v -g 0 /dev/ttyAMA0
 ```
 
-This bootloader requires 16Kib of flash space on the STM32F4 (the application must be compiled with a start address of 16KiB).
+Ez a bootloader 16Kib-es flash memóriát igényel az STM32F4-en (az alkalmazást 16KiB kezdőcímmel kell lefordítani).
 
-As with the STM32F1, the STM32F4 uses the hid-flash tool to upload binaries to the MCU. See the instructions above for details on how to build and use hid-flash.
+Az STM32F1-hez hasonlóan az STM32F4 is a hid-flash eszközt használja a binárisok MCU-ra történő feltöltéséhez. A hid-flash elkészítésének és használatának részletei a fenti utasításokban találhatók.
 
-It may be necessary to manually enter the bootloader, this can be done by setting "boot 0" low, "boot 1" high and plugging in the device. After programming is complete unplug the device and set "boot 1" back to low so the application will be loaded.
+Szükség lehet a bootloader manuális belépésére, ez a "boot 0" alacsony, "boot 1" magas érték beállításával és az eszköz csatlakoztatásával történhet. A programozás befejezése után húzza ki az eszközt, és állítsa vissza a "boot 1" értéket alacsonyra, hogy az alkalmazás betöltődjön.
 
-## LPC176x micro-controllers (Smoothieboards)
+## LPC176x mikrovezérlők (Smoothieboards)
 
-This document does not describe the method to flash a bootloader itself - see: <http://smoothieware.org/flashing-the-bootloader> for further information on that topic.
+Ez a dokumentum nem írja le a bootloader égetésének módszerét. Lásd: <http://smoothieware.org/flashing-the-bootloader> a témával kapcsolatos további információkért.
 
-It is common for Smoothieboards to come with a bootloader from: <https://github.com/triffid/LPC17xx-DFU-Bootloader>. When using this bootloader the application must be compiled with a start address of 16KiB. The easiest way to flash an application with this bootloader is to copy the application file (eg, `out/klipper.bin`) to a file named `firmware.bin` on an SD card, and then to reboot the micro-controller with that SD card.
+A Smoothieboardok általában a következő bootloaderrel érkeznek: <https://github.com/triffid/LPC17xx-DFU-Bootloader>. Ha ezt a bootloadert használjuk, az alkalmazást 16KiB kezdőcímmel kell lefordítani. Az alkalmazás égetésének legegyszerűbb módja ezzel a bootloaderrel az alkalmazásfájl (pl. `out/klipper.bin`) másolása egy SD-kártyán lévő `firmware.bin` nevű fájlra, majd a mikrokontroller újraindítása ezzel az SD-kártyával.
 
-## Running OpenOCD on the Raspberry PI
+## Az OpenOCD futtatása a Raspberry PI-n
 
-OpenOCD is a software package that can perform low-level chip flashing and debugging. It can use the GPIO pins on a Raspberry Pi to communicate with a variety of ARM chips.
+Az OpenOCD egy olyan szoftvercsomag, amely képes alacsony szintű égetésekre és hibakeresésre. A Raspberry Pi GPIO-tűit használhatja a különböző ARM-chipekkel való kommunikációra.
 
-This section describes how one can install and launch OpenOCD. It is derived from the instructions at: <https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi>
+Ez a szakasz leírja, hogyan lehet telepíteni és elindítani az OpenOCD-t. A következő oldalon található utasításokból származik: <https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi>
 
-Begin by downloading and compiling the software (each step may take several minutes and the "make" step may take 30+ minutes):
+Kezdje a szoftver letöltésével és fordításával (minden lépés több percet vehet igénybe, és a "make" lépés több mint 30 percet is igénybe vehet):
 
 ```
 sudo apt-get update
@@ -356,89 +356,89 @@ make
 make install
 ```
 
-### Configure OpenOCD
+### Az OpenOCD konfigurálása
 
-Create an OpenOCD config file:
+OpenOCD konfigurációs fájl létrehozása:
 
 ```
 nano ~/openocd/openocd.cfg
 ```
 
-Use a config similar to the following:
+Használjon a következőhöz hasonló konfigurációt:
 
 ```
-# Uses RPi pins: GPIO25 for SWDCLK, GPIO24 for SWDIO, GPIO18 for nRST
-source [find interface/raspberrypi2-native.cfg]
+# RPi tűket használ: GPIO25 az SWDCLK-hoz, GPIO24 az SWDIO-hoz, GPIO18 az nRST-hez.
+forrás [find interface/raspberrypi2-native.cfg]
 bcm2835gpio_swd_nums 25 24
 bcm2835gpio_srst_num 18
-transport select swd
+szállítás kiválasztása swd
 
-# Use hardware reset wire for chip resets
+# Hardveres reset vezeték használata a chip reseteléséhez
 reset_config srst_only
 adapter_nsrst_delay 100
 adapter_nsrst_assert_width 100
 
-# Specify the chip type
+# A chip típusának megadása
 source [find target/atsame5x.cfg]
 
-# Set the adapter speed
+# Adja meg az adapter sebességét
 adapter_khz 40
 
-# Connect to chip
+# Csatlakozás a chiphez
 init
 targets
 reset halt
 ```
 
-### Wire the Raspberry Pi to the target chip
+### A Raspberry Pi és a célchip összekötése
 
-Poweroff both the the Raspberry Pi and the target chip before wiring! Verify the target chip uses 3.3V prior to connecting to a Raspberry Pi!
+Kapcsolja ki mind a Raspberry Pi-t, mind a célchipet a kábelezés előtt! Ellenőrizze, hogy a célchip 3,3V-ot használ-e a Raspberry Pi csatlakoztatása előtt!
 
-Connect GND, SWDCLK, SWDIO, and RST on the target chip to GND, GPIO25, GPIO24, and GPIO18 respectively on the Raspberry Pi.
+Csatlakoztassa a célchip GND, SWDCLK, SWDIO és RST értékeit a Raspberry Pi GND, GPIO25, GPIO24 és GPIO18 értékéhez.
 
-Then power up the Raspberry Pi and provide power to the target chip.
+Ezután kapcsolja be a Raspberry Pi-t, és táplálja a célchipet.
 
-### Run OpenOCD
+### OpenOCD futtatása
 
-Run OpenOCD:
+Futtassa az OpenOCD-t:
 
 ```
 cd ~/openocd/
 sudo ~/openocd/install/bin/openocd -f ~/openocd/openocd.cfg
 ```
 
-The above should cause OpenOCD to emit some text messages and then wait (it should not immediately return to the Unix shell prompt). If OpenOCD exits on its own or if it continues to emit text messages then double check the wiring.
+A fentieknek hatására az OpenOCD-nek ki kell adnia néhány szöveges üzenetet, majd várnia kell (nem szabad azonnal visszatérnie az Unix shell prompthoz). Ha az OpenOCD magától kilép, vagy ha továbbra is szöveges üzeneteket ad ki, akkor ellenőrizze kétszer a kábelezést.
 
-Once OpenOCD is running and is stable, one can send it commands via telnet. Open another ssh session and run the following:
+Ha az OpenOCD fut és stabilan működik, akkor telneten keresztül parancsokat küldhetünk neki. Nyissunk egy másik SSH munkamenetet, és futtassuk a következőket:
 
 ```
 telnet 127.0.0.1 4444
 ```
 
-(One can exit telnet by pressing ctrl+] and then running the "quit" command.)
+(A telnetből a ctrl+] billentyűkombinációval, majd a "quit" parancs futtatásával lehet kilépni.)
 
-### OpenOCD and gdb
+### OpenOCD és gdb
 
-It is possible to use OpenOCD with gdb to debug Klipper. The following commands assume one is running gdb on a desktop class machine.
+Lehetőség van az OpenOCD és a gdb használatára a Klipper hibakeresésére. A következő parancsok feltételezik, hogy a gdb egy asztali gépen fut.
 
-Add the following to the OpenOCD config file:
+Adja hozzá a következőket az OpenOCD konfigurációs fájljához:
 
 ```
 bindto 0.0.0.0
 gdb_port 44444
 ```
 
-Restart OpenOCD on the Raspberry Pi and then run the following Unix command on the desktop machine:
+Indítsa újra az OpenOCD-t a Raspberry Pi-n, majd futtassa a következő Unix parancsot az asztali gépen:
 
 ```
 cd /path/to/klipper/
 gdb out/klipper.elf
 ```
 
-Within gdb run:
+A gdb futtatása:
 
 ```
 target remote octopi:44444
 ```
 
-(Replace "octopi" with the host name of the Raspberry Pi.) Once gdb is running it is possible to set breakpoints and to inspect registers.
+(Cserélje ki a "octopi" -t a Raspberry Pi gazdagép nevére.) Ha a gdb fut, lehetőség van töréspontok beállítására és a regiszterek vizsgálatára.

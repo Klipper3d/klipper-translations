@@ -6,9 +6,9 @@
 
 ## angle
 
-The following information is available in [angle some_name](Config_Reference.md#angle) objects:
+[angle some_name](Config_Reference.md#angle) 对象提供了以下信息：
 
-- `temperature`: The last temperature reading (in Celsius) from a tle5012b magnetic hall sensor. This value is only available if the angle sensor is a tle5012b chip and if measurements are in progress (otherwise it reports `None`).
+- `temperature`：tle5012b 磁性霍尔传感器的最后一次温度读数（以摄氏度为单位）。该值仅在角度传感器是 tle5012b 芯片并且正在进行测量时可用（否则它会报告 `None`）。
 
 ## bed_mesh
 
@@ -120,7 +120,7 @@ The following information is available in [angle some_name](Config_Reference.md#
 
 ## led
 
-The following information is available for each `[led led_name]`, `[neopixel led_name]`, `[dotstar led_name]`, `[pca9533 led_name]`, and `[pca9632 led_name]` config section defined in printer.cfg:
+以下信息适用于每个在printer.cfg中定义了的 `[led led_name]`、`[neopixel led_name]`、`[dotstar led_name]`、`[pca9533 led_name]` , 和 `[pca9632 led_name]` 配置分段：
 
 - `color_data`: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underyling LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at `printer["neopixel <config_name>"].color_data[1][2]`.
 

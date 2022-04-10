@@ -49,7 +49,7 @@ serial:
 #   communicates over a serial port, 'command' otherwise.
 ```
 
-### 额外的mcu [mcu my_extra_mcu]
+### [mcu my_extra_mcu]
 
 额外的微控制器（可以定义任意数量的带有“mcu”前缀的部分）。 额外的微控制器引入了额外的引脚，这些引脚可以配置为加热器、步进器、风扇等。例如，如果引入了“[mcu extra_mcu]”部分，那么诸如“extra_mcu:ar9”之类的引脚就可以在其他地方使用 ，在配置中（其中“ar9”是给定 mcu 上的硬件引脚名称或别名）。
 
@@ -58,7 +58,7 @@ serial:
 #   请参阅"mcu"分段的配置参数。
 ```
 
-## 常用的运动学设置
+## 常见的运动学设置
 
 ### [printer]
 
@@ -177,7 +177,7 @@ position_max:
 
 ### 笛卡尔运动学
 
-有关示例笛卡尔运动学配置文件，请参阅 [example-cartesian.cfg](../config/example-cartesian.cfg)。
+cartesian 运动学配置文件参考[example-cartesian.cfg](../config/example-cartesian.cfg)
 
 此处描述的参数只适用于笛卡尔打印机，有关可用参数，请参阅 [常用运动设置](#common-kinematic-settings)。
 
@@ -209,7 +209,7 @@ max_z_accel:
 
 ### 线性三角洲运动学
 
-有关示例线性三角洲运动学配置文件，请参阅 [example-delta.cfg](../config/example-delta.cfg)。 有关校准的信息，请参阅 [三角洲校准指南](Delta_Calibrate.md)。
+linear delta运动学配置文件参考[example-delta.cfg](../config/example-delta.cfg)。 关于校准方法 [三角洲校准指南](Delta_Calibrate.md)。
 
 此处仅描述了线性三角洲打印机的特定参数 - 有关可用参数，请参阅 [常用运动设置](#common-kinematic-settings)。
 
@@ -290,7 +290,7 @@ radius:
 
 ### CoreXY 运动学
 
-See [example-corexy.cfg](../config/example-corexy.cfg) for an example corexy (and h-bot) kinematics file.
+corexy或者h-bot运动学配置文件参考[example-corexy.cfg](./config/example-corexy.cfg)
 
 这里只描述了 CoreXY 打印机特有的参数 -- 有关可用参数，请参阅 [常见运动学设置](#common-kinematic-settings)。
 
@@ -322,7 +322,7 @@ max_z_accel:
 
 ### CoreXY 运动学
 
-See [example-corexz.cfg](../config/example-corexz.cfg) for an example corexz kinematics config file.
+corexz 运动学配置文件参考[example-corexz.cfg](../config/example-corexz.cfg)
 
 此处描述的参数只适用于笛卡尔打印机—有关全部可用参数，请参阅 [常用的运动学设置](#common-kinematic-settings)。
 
@@ -349,9 +349,9 @@ max_z_accel:
 [stepper_z]
 ```
 
-### 混合型 CoreXY 运动学
+### Hybrid-CoreXY (混合型 CoreXY) 运动学
 
-See [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) for an example hybrid corexy kinematics config file.
+hybrid corexy运动学配置文件参考[example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg)
 
 This kinematic is also known as Markforged kinematic.
 
@@ -380,9 +380,9 @@ max_z_accel:
 [stepper_z]
 ```
 
-### 混合型 CoreXZ 运动学
+### Hybrid-CoreXZ (混合型 CoreXZ) 运动学
 
-See [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) for an example hybrid corexz kinematics config file.
+hybrid corexz 运动学配置文件参考 [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg)
 
 This kinematic is also known as Markforged kinematic.
 
@@ -413,7 +413,7 @@ max_z_accel:
 
 ### 极坐标运动学
 
-See [example-polar.cfg](../config/example-polar.cfg) for an example polar kinematics config file.
+polar运动学配置文件参考 [example-polar.cfg](../config/example-polar.cfg)
 
 这里只描述了极地打印机特有的参数—全部可用的参数请见[常用的运动学设置](#common-kinematic-settings)。
 
@@ -450,13 +450,13 @@ gear_ratio:
 [stepper_z]
 ```
 
-### Rotary delta Kinematics
+### Rotary delta 运动学
 
-See [example-rotary-delta.cfg](../config/example-rotary-delta.cfg) for an example rotary delta kinematics config file.
+Rotary Delta运动学配置文件参考[example-rotary-delta.cfg](../config/example-rotary-delta.cfg)
 
 此处仅介绍特定于旋转三角洲打印机的参数—有关可用参数，请参阅[常用的运动学设置](#common-kinematic-settings)。
 
-ROTARY DELTA KINEMATICS ARE A WORK IN PROGRESS. Homing moves may timeout and some boundary checks are not implemented.
+ROTARY DELTA运动学正在进行的修复工作。归位动作可能会超时并且一些边界检查也没有实现。
 
 ```
 [printer]
@@ -542,7 +542,7 @@ See the [example-winch.cfg](../config/example-winch.cfg) for an example cable wi
 
 这里只描述了缆绳铰盘式打印机特有的参数 — 全部可用的参数见[常用的运动学设置](#common-kinematic-settings)。
 
-CABLE WINCH SUPPORT IS EXPERIMENTAL. Homing is not implemented on cable winch kinematics. In order to home the printer, manually send movement commands until the toolhead is at 0, 0, 0 and then issue a `G28` command.
+CABLE WINCH的支持是实验性的。归位在cable winch运动学中没有实现。为了使打印机复位需要手动发送运动指令，直到工具头处于0, 0, 0位置然后发出`G28`去复位。
 
 ```
 [printer]
@@ -576,7 +576,7 @@ max_accel: 1
 #   values are not used for "none" kinematics.
 ```
 
-## 通用挤出机和热床支持
+## 常见的挤出机和热床支持
 
 ### [extruder]
 
@@ -877,34 +877,33 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 
 ```
 [bed_screws]
-#screw1：
-#   第一颗打印机调平螺丝的X,Y坐标。这是将命令喷嘴移动到螺丝正
-#   上方时的位置（或在床上方时尽可能接近的位置）。
-#   必须提供此参数。
-#screw1_name：
-#   给定螺丝的名称。当调平助手脚本运行时会使用该名称。
-#   默认值是螺丝的 XY 位置。
-#screw1_fine_adjust：
-#   用于精细调整第一颗调平螺丝时的喷嘴被命令移动到的X,Y坐标。
-#   默认值为不执行对打印床螺丝的精细调整。
-#screw2：
-#screw2_name：
-#screw2_fine_adjust：
+#screw1:
+# 第一颗打印机调平螺丝的X,Y坐标。这是将命令喷嘴移动到螺丝正
+# 上方时的位置（或在床上方时尽可能接近的位置）。
+# 必须提供此参数。
+#screw1_name:
+# 给定螺丝的名称。当调平助手脚本运行时会使用该名称。
+# 默认值是螺丝的 XY 位置
+#screw1_fine_adjust:
+# 用于精细调整第一颗调平螺丝时的喷嘴被命令移动到的X,Y坐标。
+# 默认值为不执行对打印床螺丝的精细调整。
+#screw2:
+#screw2_name:
+#screw2_fine_adjust:
 #...
-#   额外的调平螺丝。
-#   至少必须定义三个螺丝
-#horizontal_move_z： 5
-#   打印头在两个螺丝位置间移动时应被命令移动到的高度（以毫米为单位）
-#   默认值为 5。
-#probe_height： 0
-#   探针高度（毫米）在打印床和热端热膨胀后探针的高度。
-#   默认值为零。
-#speed： 50
-#   校准过程中非探测移动的速度（以毫米/秒为单位）。
-#   默认值为 50。
-#probe_speed： 5
-#   从 horizontal_move_z 位置移动到 probe_height 位置的速度（以毫米/秒为单位）。
-#   默认值为 5。
+# 可以有而外的调平螺丝但是至少需要3个
+#horizontal_move_z: 5
+# 打印头在两个点之间移动时候的高度
+# 默认值为 5
+#probe_height: 0
+# 探针高度 (mm) 在打印床和热端热膨胀后探针的高度。
+# 默认值为 0
+#speed: 50
+# 校准过程中非探测移动的速度 (mm/s)
+# 默认值为 50
+#probe_speed: 5
+# 从 horizontal_move_z 位置移动到 probe_height 位置的速度 (mm/s)
+# 默认值为 5
 ```
 
 ### [screws_tilt_adjust]
@@ -1232,13 +1231,13 @@ Support manually moving stepper motors for diagnostic purposes. Note, using this
 
 ### [pause_resume]
 
-Pause/Resume functionality with support of position capture and restore. See the [command reference](G-Codes.md#pause_resume) for more information.
+暂停/恢复功能，支持位置储存和恢复。更多信息见[命令参考](G-Code.md#pause_resume)。
 
 ```
 [pause_resume]
 #recover_velocity: 50.
-#   当捕捉/恢复功能被启用时，返回到捕获的位置的速度(单位：毫米/秒)。
-#   默认为50.0 mm/s。
+# 当捕捉/恢复功能被启用时，返回到捕获的位置的速度(单位：毫米/秒)。
+# 默认为50.0 mm/s。
 ```
 
 ### [firmware_retraction]
@@ -1248,17 +1247,17 @@ Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCO
 ```
 [firmware_retraction]
 #retract_length: 0
-#   当 G10 被运行时回抽的长度（以毫米(mm)为单位）
-#   和当 G11 被运行时退回的长度（但同时也包括
-#   以下的unretract_extra_length）。
-#   默认为0毫米。
+# 当 G10 被运行时回抽的长度（以毫米(mm)为单位）
+# 和当 G11 被运行时退回的长度（但同时也包括
+# 以下的unretract_extra_length）。
+# 默认为0毫米。
 #retract_speed: 20
-#   回抽速度，以毫米每秒(mm/s)为单位。默认为每秒20毫米。
+# 回抽速度，以毫米每秒(mm/s)为单位。默认为每秒20毫米。
 #unretract_extra_length: 0
-#   退回时增加*额外*长度（以毫米(mm)为单位）的耗材。
+# 退回时增加*额外*长度（以毫米(mm)为单位）的耗材。
 #unretract_speed: 10
-#   退回速度，以毫米(mm)为单位。
-#   默认为每秒10毫米
+# 退回速度，以毫米(mm)为单位。
+# 默认值为10mm/s
 ```
 
 ### [gcode_arcs]
@@ -1448,7 +1447,7 @@ pins:
 #   必须提供此参数。
 ```
 
-## 打印床探测硬件
+## 热床探测硬件
 
 ### [probe]
 
@@ -1592,7 +1591,7 @@ Multi-stepper axes. On a cartesian style printer, the stepper controlling a give
 
 在一个多挤出机的打印机中，为每个额外的挤出机添加一个额外挤出机分段。额外挤出机分段应被命名为"extruder1"、"extruder2"、"extruder3"，以此类推。有关可用参数，参见"extruder"章节。
 
-See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an example configuration.
+多挤出机参考示例[sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg)
 
 ```
 [extruder1]
@@ -1609,7 +1608,7 @@ See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an exam
 
 Support for cartesian printers with dual carriages on a single axis. The active carriage is set via the SET_DUAL_CARRIAGE extended g-code command. The "SET_DUAL_CARRIAGE CARRIAGE=1" command will activate the carriage defined in this section (CARRIAGE=0 will return activation to the primary carriage). Dual carriage support is typically combined with extra extruders - the SET_DUAL_CARRIAGE command is often called at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the carriages during deactivation.
 
-See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration.
+Idex参考示例[sample-idex.cfg](../config/sample-idex.cfg)
 
 ```
 [dual_carriage]
@@ -1862,7 +1861,7 @@ sensor_pin:
 #   The ADC voltage offset (in Volts). The default is 0.
 ```
 
-### 直接连接的 PT1000 传感器
+### 直接连接PT1000 传感器
 
 直接连接到控制板的 PT1000 传感器。以下参数可用于使用这些传感器之一的加热器分段。
 
@@ -1958,7 +1957,7 @@ sensor_type:
 
 ### LM75 温度传感器
 
-LM75/LM75A two wire (I2C) connected temperature sensors. These sensors have a range of -55~125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers.
+LM75/LM75A两线（I2C）连接的温度传感器。这些传感器的温度范围为-55~125 C，因此可用于例如试验室温度监测。它们还可以作为简单的风扇/加热器控制器使用。
 
 ```
 sensor_type: LM75
@@ -2313,7 +2312,7 @@ clock_pin:
 
 ### [pca9533]
 
-PCA9533 LED支持。PCA9533 在 mightyboard上出现。
+PCA9533 LED支持。PCA9533 在mightyboard上使用。
 
 ```
 [pca9533 my_pca9533]
@@ -2334,7 +2333,7 @@ PCA9533 LED支持。PCA9533 在 mightyboard上出现。
 
 ### [pca9632]
 
-PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
+PCA9632 LED支持。PCA9632在FlashForge Dreamer上使用。
 
 ```
 [pca9632 my_pca9632]
@@ -2492,7 +2491,7 @@ pins:
 
 ## TMC stepper driver configuration
 
-Configuration of Trinamic stepper motor drivers in UART/SPI mode. Additional information is in the [TMC Drivers guide](TMC_Drivers.md) and in the [command reference](G-Codes.md#tmcxxxx).
+在UART/SPI模式下配置Trinamic步进电机驱动器。其他信息在[TMC驱动程序指南](TMC_Drivers.md)和[命令参考](G-Code.md#tmcxxxx)中。
 
 ### [tmc2130]
 
@@ -2825,7 +2824,7 @@ run_current:
 #   sensorless homing.
 ```
 
-## Run-time stepper motor current configuration
+## 运行时步进电机电流配置
 
 ### [ad5206]
 
@@ -3209,7 +3208,7 @@ text:
 
 ### [display_template]
 
-Display data text "macros" (one may define any number of sections with a display_template prefix). See the [command templates](Command_Templates.md) document for information on template evaluation.
+显示数据文本"macros"（可以定义任意数量的带有display_template前缀的部分）。有关模板评估的信息，请参阅[命令模板](Command_Templates.md)文件。
 
 This feature allows one to reduce repetitive definitions in display_data sections. One may use the builtin `render()` function in display_data sections to evaluate a template. For example, if one were to define `[display_template my_template]` then one could use `{ render('my_template') }` in a display_data section.
 
@@ -3236,7 +3235,7 @@ text:
 
 在支持自定义字形的显示器上显示一个自定义字形。给定的名称将被分配给给定的显示数据，然后可以在显示模板中通过用“波浪形（～）”符号包围的名称来引用，即 `~my_display_glyph~` 。
 
-See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples.
+更多示例 [sample-glyphs.cfg](../config/sample-glyphs.cfg)
 
 ```
 [display_glyph my_display_glyph]
@@ -3537,7 +3536,7 @@ vssa_pin:
 
 ### [replicape]
 
-Replicape support - see the [beaglebone guide](Beaglebone.md) and the [generic-replicape.cfg](../config/generic-replicape.cfg) file for an example.
+Replicape支持 - 参考[beaglebone guide](Beaglebone.md)和[generic-replicape.cfg](./config/generic-replicape.cfg)
 
 ```
 # The "replicape" config section adds "replicape:stepper_x_enable"
@@ -3637,30 +3636,28 @@ Magnetic hall angle sensor support for reading stepper motor angle shaft measure
 ```
 [angle my_angle_sensor]
 sensor_type:
-#   The type of the magnetic hall sensor chip. Available choices are
-#   "a1333", "as5047d", and "tle5012b". This parameter must be
-#   specified.
+# 磁性霍尔传感器芯片的类型。
+# 可用的选择是 "a1333" "as5047d "和 "tle5012b"。
+# 这个参数必须被指定。
 #sample_period: 0.000400
-#   The query period (in seconds) to use during measurements. The
-#   default is 0.000400 (which is 2500 samples per second).
+# 测量时使用的查询周期（以秒为单位）。
+# 默认值是 0.000400 （每秒钟2500个样本）
 #stepper:
-#   The name of the stepper that the angle sensor is attached to (eg,
-#   "stepper_x"). Setting this value enables an angle calibration
-#   tool. To use this feature, the Python "numpy" package must be
-#   installed. The default is to not enable angle calibration for the
-#   angle sensor.
+# 角度传感器连接的步进电机名称（例如，"stepper_x"）。
+# 设置这个值可以启用一个角度校准工具
+# 要使用这个功能需要安装Python "numpy "包。
+# 默认是不启用角度传感器的角度校准。
 cs_pin:
-#   The SPI enable pin for the sensor. This parameter must be provided.
+# 传感器的SPI引脚。必须提供此参数。
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+# 有关上述参数的描述，参考 "common SPI settings "
 ```
 
-## 通用总线参数
+## 常见的总线参数
 
 ### 常见 SPI 设置
 
@@ -3683,7 +3680,7 @@ The following parameters are generally available for devices using an SPI bus.
 #   "software spi".
 ```
 
-### 通用 I2C 设置
+### 常见的I2C 设置
 
 The following parameters are generally available for devices using an I2C bus.
 

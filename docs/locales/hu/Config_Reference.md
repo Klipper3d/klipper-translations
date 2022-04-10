@@ -18,7 +18,7 @@ Megjegyzés: egyes konfigurációs szakaszok további tűket hozhatnak létre. A
 
 ### [mcu]
 
-Configuration of the primary micro-controller.
+Az elsődleges mikrokontroller konfigurálása.
 
 ```
 [mcu]
@@ -754,91 +754,88 @@ Visual Examples:
 ```
 [bed_mesh]
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+# A kalibrálás során a nem próbamozgások sebessége (mm/s-ban).
+# Az alapértelmezett érték 50.
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+# Az a magasság (mm-ben), amelyre a fejnek parancsot kell adni a mozgásra közvetlenül
+# a szondaművelet megkezdése előtt. Az alapértelmezett érték 5.
 #mesh_radius:
-#   Defines the radius of the mesh to probe for round beds. Note that
-#   the radius is relative to the coordinate specified by the
-#   mesh_origin option. This parameter must be provided for round beds
-#   and omitted for rectangular beds.
+# Meghatározza a mérni kívánt háló sugarát a kerek ágyak esetében. Vegye figyelembe, hogy
+# a sugár relatív a koordinátához képest, amelyet a
+# mesh_origin opció által meghatározott koordináta ad. Ezt a paramétert kerek ágyak esetében meg kell adni.
+# De elhagyható a téglalap alakú ágyak esetében.
 #mesh_origin:
-#   Defines the center X, Y coordinate of the mesh for round beds. This
-#   coordinate is relative to the probe's location. It may be useful
-#   to adjust the mesh_origin in an effort to maximize the size of the
-#   mesh radius. Default is 0, 0. This parameter must be omitted for
-#   rectangular beds.
+# Meghatározza a háló középpontjának X, Y koordinátáját kerek ágyak esetén. Ez a
+# koordináta a szonda helyéhez képest relatív. Hasznos lehet a mesh_origin beállítása,
+# hogy maximalizáljuk a háló méretét. Az alapértelmezett érték 0, 0.
+# Ezt a paramétert el kell hagyni téglalap alakú ágyak esetén.
 #mesh_min:
-#   Defines the minimum X, Y coordinate of the mesh for rectangular
-#   beds. This coordinate is relative to the probe's location. This
-#   will be the first point probed, nearest to the origin. This
-#   parameter must be provided for rectangular beds.
+# Meghatározza a háló minimális X, Y koordinátáját téglalap alakú ágyak esetén.
+# Ez a koordináta a szonda helyéhez képest relatív. Ez a lesz az első szondázott pont, amely a legközelebb van az origóhoz. Ezt a paramétert téglalap alakú ágyak esetén meg kell adni.
 #mesh_max:
-#   Defines the maximum X, Y coordinate of the mesh for rectangular
-#   beds. Adheres to the same principle as mesh_min, however this will
-#   be the furthest point probed from the bed's origin. This parameter
-#   must be provided for rectangular beds.
+# Meghatározza a háló maximális X, Y koordinátáját téglalap alakú ágyak esetén.
+# Ugyanazon az elven működik, mint a mesh_min, azonban ez a paraméter
+# a legtávolabbi pont lesz, amelyet az ágy origójától vizsgálunk. Ezt a paramétert
+# téglalap alakú ágyak esetén meg kell adni.
 #probe_count: 3, 3
-#   For rectangular beds, this is a comma separate pair of integer
-#   values X, Y defining the number of points to probe along each
-#   axis. A single value is also valid, in which case that value will
-#   be applied to both axes. Default is 3, 3.
+# Téglalap alakú ágyak esetén ez egy vesszővel elválasztott egész számpár.
+# X, Y értékek, amelyek meghatározzák a mérni kívánt pontok számát az egyes tengelyek mentén.
+# Egyetlen érték is érvényes, ebben az esetben ez az érték mindkét tengelyre vonatkozik.
+# Az alapértelmezett érték 3, 3.
 #round_probe_count: 5
-#   For round beds, this integer value defines the maximum number of
-#   points to probe along each axis. This value must be an odd number.
-#   Default is 5.
+# A kerek ágyak esetében ez az egész érték határozza meg a maximális számú
+# pontok számát, amelyeket minden tengely mentén meg kell vizsgálni. Ennek az értéknek páratlan számnak kell lennie.
+# Az alapértelmezett érték 5.
 #fade_start: 1.0
-#   The gcode z position in which to start phasing out z-adjustment
-#   when fade is enabled. Default is 1.0.
+# A G-kód Z pozíciója, ahol a Z-korrekció fokozatos megszüntetése elkezdődik
+# amikor a fade engedélyezve van. Az alapértelmezett érték 1.0.
 #fade_end: 0.0
-#   The gcode z position in which phasing out completes. When set to a
-#   value below fade_start, fade is disabled. It should be noted that
-#   fade may add unwanted scaling along the z-axis of a print. If a
-#   user wishes to enable fade, a value of 10.0 is recommended.
-#   Default is 0.0, which disables fade.
+# A G-kód Z pozíciója, amelyben a fading out befejeződik. Ha be van állítva egy
+# fade_start alatti értékre a fade ki van kapcsolva. Meg kell jegyezni, hogy
+# a fade nem kívánt skálázást adhat a nyomtatás Z tengelye mentén. Ha egy
+# felhasználó engedélyezni kívánja a fade-et, a 10.0 érték ajánlott.
+# Az alapértelmezett érték 0.0, amely kikapcsolja a fade-et.
 #fade_target:
-#   The z position in which fade should converge. When this value is
-#   set to a non-zero value it must be within the range of z-values in
-#   the mesh. Users that wish to converge to the z homing position
-#   should set this to 0. Default is the average z value of the mesh.
+# A Z pozíció, amelyben a fade-nek konvergálnia kell. Ha ez az érték
+# nem nulla értékre van beállítva, akkor annak a Z-értékek tartományán belül kell lennie a
+# a hálóban. Azok a felhasználók, akik a Z kezdőponthoz kívánnak konvergálni,
+# 0-ra kell állítaniuk. Az alapértelmezett érték a háló átlagos Z értéke.
 #split_delta_z: .025
-#   The amount of Z difference (in mm) along a move that will trigger
-#   a split. Default is .025.
+# A Z különbség mértéke (mm-ben) a mozgás mentén, amely kivált egy osztást.
+# Az alapértelmezett érték .025.
 #move_check_distance: 5.0
-#   The distance (in mm) along a move to check for split_delta_z.
-#   This is also the minimum length that a move can be split. Default
-#   is 5.0.
+# A távolság (mm-ben) a mozgás mentén, amelynél a split_delta_z-t ellenőrizni kell.
+# Ez egyben a minimális hossz, ameddig egy mozgást fel lehet osztani. Alapértelmezett
+# 5.0.
 #mesh_pps: 2, 2
-#   A comma separated pair of integers X, Y defining the number of
-#   points per segment to interpolate in the mesh along each axis. A
-#   "segment" can be defined as the space between each probed point.
-#   The user may enter a single value which will be applied to both
-#   axes. Default is 2, 2.
-#algorithm: lagrange
-#   The interpolation algorithm to use. May be either "lagrange" or
-#   "bicubic". This option will not affect 3x3 grids, which are forced
-#   to use lagrange sampling. Default is lagrange.
+# Egy vesszővel elválasztott egész számpár X, Y, amely meghatározza a következő pontok
+# számát szegmensenként, amelyeket interpolálni kell a hálóban az egyes tengelyek mentén.
+# A "szegmens" úgy definiálható, mint az egyes mért pontok közötti tér.
+# A felhasználó egyetlen értéket adhat meg, amely mindkét tengelyre vonatkozik.
+# Az alapértelmezett érték 2, 2.
+#algoritmus: lagrange
+# Az alkalmazandó interpolációs algoritmus. Lehet akár "lagrange" vagy
+# "bicubic". Ez az opció nem érinti a 3x3-as rácsokat, amelyek kényszerített
+# lagrange mintavételt használnak. Az alapértelmezett lagrange.
 #bicubic_tension: .2
-#   When using the bicubic algorithm the tension parameter above may
-#   be applied to change the amount of slope interpolated. Larger
-#   numbers will increase the amount of slope, which results in more
-#   curvature in the mesh. Default is .2.
+# A bikubik algoritmus használatakor a fenti feszültség paraméter alkalmazható az
+# interpolált meredekség mértékének megváltoztatására. Nagyobb számok növelik
+# a meredekség mértékét, ami nagyobb görbületet eredményez a hálóban. 
+# Az alapértelmezett érték .2.
 #relative_reference_index:
-#   A point index in the mesh to reference all z values to. Enabling
-#   this parameter produces a mesh relative to the probed z position
-#   at the provided index.
+# Egy pontindex a hálóban, amelyre minden Z értéket hivatkozni kell. Az engedélyezése
+# ennek a paraméternek a bekapcsolása a vizsgált Z pozícióhoz viszonyított hálót eredményez
+# a megadott indexhez képest.
 #faulty_region_1_min:
 #faulty_region_1_max:
-#   Optional points that define a faulty region.  See docs/Bed_Mesh.md
-#   for details on faulty regions.  Up to 99 faulty regions may be added.
-#   By default no faulty regions are set.
+# A hibás régiót meghatározó opcionális pontok. Lásd docs/Bed_Mesh.md
+# A hibás régiókkal kapcsolatos részletekért. Legfeljebb 99 hibás régió adható hozzá.
+# Alapértelmezés szerint nincsenek hibás régiók beállítva.
 ```
 
 ### [bed_tilt]
 
-Bed tilt compensation. One may define a bed_tilt config section to enable move transformations that account for a tilted bed. Note that bed_mesh and bed_tilt are incompatible; both cannot be defined.
+Ágydőlés kompenzáció. Definiálhatunk egy bed_tilt config szekciót, hogy lehetővé tegyük a ferde ágyat figyelembe vevő mozgástranszformációkat. Vegye figyelembe, hogy a bed_mesh és a bed_tilt nem kompatibilisek. Mindkettő nem definiálható.
 
 See the [command reference](G-Codes.md#bed_tilt) for additional information.
 
@@ -879,36 +876,35 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 ```
 [bed_screws]
 #screw1:
-#   The X, Y coordinate of the first bed leveling screw. This is a
-#   position to command the nozzle to that is directly above the bed
-#   screw (or as close as possible while still being above the bed).
-#   This parameter must be provided.
+# Az első ágykiegyenlítő csavar X, Y koordinátája. Ez egy
+# olyan pozíció, ahová a fúvókát kell irányítani, mely közvetlenül az ágy felett van
+# (vagy a lehető legközelebb, de még mindig az ágy felett).
+# Ezt a paramétert meg kell adni.
 #screw1_name:
-#   An arbitrary name for the given screw. This name is displayed when
-#   the helper script runs. The default is to use a name based upon
-#   the screw XY location.
+# Az adott csavar tetszőleges neve. Ez a név jelenik meg, amikor a segédszkript fut.
+# Az alapértelmezés szerint a név alapja a csavar XY helye.
 #screw1_fine_adjust:
-#   An X, Y coordinate to command the nozzle to so that one can fine
-#   tune the bed leveling screw. The default is to not perform fine
-#   adjustments on the bed screw.
+# Egy X, Y koordináta, amelyre a fúvókát irányítani
+# kell, hogy finomítani lehessen az ágy szintező csavart.
+# Az alapértelmezés szerint a finombeállítás nem történik meg az ágy csavarján.
 #screw2:
 #screw2_name:
 #screw2_fine_adjust:
 #...
-#   Additional bed leveling screws. At least three screws must be
-#   defined.
+# További ágyszintállító csavarok. Legalább három csavarnak kell lennie.
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   when moving from one screw location to the next. The default is 5.
+# Az a magasság (mm-ben), ahová a fejnek parancsot kell adni a mozgásra amikor az egyik
+# csavar helyéről a másikra mozog.
+# Az alapértelmezett érték 5.
 #probe_height: 0
-#   The height of the probe (in mm) after adjusting for the thermal
-#   expansion of bed and nozzle. The default is zero.
+# A szonda magassága (mm-ben) a hőfokszabályozás után.
+# Az ágy és a fúvóka hőtágulása után. Az alapértelmezett érték nulla.
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+# A kalibrálás során a nem mérési mozgások sebessége (mm/s-ban).
+# Az alapértelmezett érték 50.
 #probe_speed: 5
-#   The speed (in mm/s) when moving from a horizontal_move_z position
-#   to a probe_height position. The default is 5.
+# A sebesség (mm/s-ban) a horizontális_move_z pozícióból történő mozgáskor.
+# A probe_height pozíciója. Az alapértelmezett érték 5.
 ```
 
 ### [screws_tilt_adjust]
@@ -1211,7 +1207,7 @@ Idle timeout. An idle timeout is automatically enabled - add an explicit idle_ti
 
 ### [virtual_sdcard]
 
-A virtual sdcard may be useful if the host machine is not fast enough to run OctoPrint well. It allows the Klipper host software to directly print gcode files stored in a directory on the host using standard sdcard G-Code commands (eg, M24).
+A virtuális sdcard hasznos lehet, ha a gazdaszámítógép nem elég gyors az OctoPrint megfelelő futtatásához. Ez lehetővé teszi a Klipper gazdagép szoftver számára, hogy közvetlenül kinyomtassa a G-kód fájlokat, amelyeket a gazdagépen lévő könyvtárban tárolnak a szabványos sdcard G-kód parancsok (pl. M24) használatával.
 
 ```
 [virtual_sdcard]
@@ -1469,7 +1465,7 @@ pins:
 #   provided.
 ```
 
-## Bed probing hardware
+## Ágy szintető hardver
 
 ### [probe]
 
@@ -2391,7 +2387,7 @@ PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
 #   See the "led" section for information on these parameters.
 ```
 
-## Additional servos, buttons, and other pins
+## További szervók, gombok és egyéb tűk
 
 ### [servo]
 
@@ -3695,27 +3691,25 @@ Magnetic hall angle sensor support for reading stepper motor angle shaft measure
 ```
 [angle my_angle_sensor]
 sensor_type:
-#   The type of the magnetic hall sensor chip. Available choices are
-#   "a1333", "as5047d", and "tle5012b". This parameter must be
-#   specified.
+# A mágneses hall chip típusa. A rendelkezésre álló lehetőségek a következők
+# "a1333", "as5047d" és "tle5012b". Ennek a paraméternek a következőnek kell lennie
+# meg kell adni.
 #sample_period: 0.000400
-#   The query period (in seconds) to use during measurements. The
-#   default is 0.000400 (which is 2500 samples per second).
+# A mérések során használandó lekérdezési időszak (másodpercben). Az
+# alapértelmezett értéke 0.000400 (ami 2500 mintát jelent másodpercenként).
 #stepper:
-#   The name of the stepper that the angle sensor is attached to (eg,
-#   "stepper_x"). Setting this value enables an angle calibration
-#   tool. To use this feature, the Python "numpy" package must be
-#   installed. The default is to not enable angle calibration for the
-#   angle sensor.
+# Annak a léptetőnek a neve, amelyhez a szögérzékelő csatlakozik (pl,
+# "stepper_x"). Ennek az értéknek a beállítása lehetővé teszi a szögkalibrálást.
+# A funkció használatához a Python "numpy" csomagot kell használni telepíteni.
+# Az alapértelmezett beállítás szerint nem engedélyezi a szögkalibrációt.
 cs_pin:
-#   The SPI enable pin for the sensor. This parameter must be provided.
+# Az érzékelő SPI engedélyező tűje. Ezt a paramétert meg kell adni.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+# Lásd a "közös SPI beállítások" fejezetet a hiányzó paraméterek leírásával.
 ```
 
 ## Common bus parameters

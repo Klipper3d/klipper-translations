@@ -1,4 +1,4 @@
-# Frequently Asked Questions
+# Gyakran ismételt kérdések
 
 1. [Hogyan adományozhatok a projektnek?](#how-can-i-donate-to-the-project)
 1. [Hogyan számíthatom ki a rotation_distance konfigurációs paramétert?](#how-do-i-calculate-the-rotation_distance-config-parameter)
@@ -7,41 +7,41 @@
 1. [A "make flash" parancs nem működik](#the-make-flash-command-doesnt-work)
 1. [Hogyan változtathatom meg a soros port átviteli sebességét?](#how-do-i-change-the-serial-baud-rate)
 1. [Futtathatom a Klippert máson is, mint egy Raspberry Pi 3?](#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)
-1. [Can I run multiple instances of Klipper on the same host machine?](#can-i-run-multiple-instances-of-klipper-on-the-same-host-machine)
-1. [Do I have to use OctoPrint?](#do-i-have-to-use-octoprint)
-1. [Why can't I move the stepper before homing the printer?](#why-cant-i-move-the-stepper-before-homing-the-printer)
-1. [Why is the Z position_endstop set to 0.5 in the default configs?](#why-is-the-z-position_endstop-set-to-05-in-the-default-configs)
-1. [I converted my config from Marlin and the X/Y axes work fine, but I just get a screeching noise when homing the Z axis](#i-converted-my-config-from-marlin-and-the-xy-axes-work-fine-but-i-just-get-a-screeching-noise-when-homing-the-z-axis)
-1. [My TMC motor driver turns off in the middle of a print](#my-tmc-motor-driver-turns-off-in-the-middle-of-a-print)
-1. [I keep getting random "Lost communication with MCU" errors](#i-keep-getting-random-lost-communication-with-mcu-errors)
-1. [My Raspberry Pi keeps rebooting during prints](#my-raspberry-pi-keeps-rebooting-during-prints)
-1. [When I set `restart_method=command` my AVR device just hangs on a restart](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-restart)
-1. [Will the heaters be left on if the Raspberry Pi crashes?](#will-the-heaters-be-left-on-if-the-raspberry-pi-crashes)
-1. [How do I convert a Marlin pin number to a Klipper pin name?](#how-do-i-convert-a-marlin-pin-number-to-a-klipper-pin-name)
-1. [Do I have to wire my device to a specific type of micro-controller pin?](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin)
-1. [How do I cancel an M109/M190 "wait for temperature" request?](#how-do-i-cancel-an-m109m190-wait-for-temperature-request)
-1. [Can I find out whether the printer has lost steps?](#can-i-find-out-whether-the-printer-has-lost-steps)
-1. [Why does Klipper report errors? I lost my print!](#why-does-klipper-report-errors-i-lost-my-print)
-1. [How do I upgrade to the latest software?](#how-do-i-upgrade-to-the-latest-software)
-1. [How do I uninstall klipper?](#how-do-i-uninstall-klipper)
+1. [Futtathatom a Klipper több példányát ugyanazon a gépen?](#can-i-run-multiple-instances-of-klipper-on-the-same-host-machine)
+1. [Muszáj az OctoPrintet használnom?](#do-i-have-to-use-octoprint)
+1. [Miért nem tudom mozgatni a léptetőt a nyomtató indítása előtt?](#why-cant-i-move-the-stepper-before-homing-the-printer)
+1. [Miért van a Z position_endstop 0.5-re állítva az alapértelmezett konfigurációban?](#why-is-the-z-position_endstop-set-to-05-in-the-default-configs)
+1. [Átkonvertáltam a konfigurációmat Marlinból, és az X/Y tengelyek jól működnek, de a Z tengely kezdőpont felvételekor csak egy csikorgó zajt hallok](#i-converted-my-config-from-marlin-and-the-xy-axes-work-fine-but-i-just-get-a-screeching-noise-when-homing-the-z-axis)
+1. [A TMC motorvezérlő kikapcsol a nyomtatás közepén](#my-tmc-motor-driver-turns-off-in-the-middle-of-a-print)
+1. [Véletlenszerű "Elveszett a kommunikáció az MCU-val" hibák](#i-keep-getting-random-lost-communication-with-mcu-errors)
+1. [A Raspberry Pi újraindul nyomtatás közben](#my-raspberry-pi-keeps-rebooting-during-prints)
+1. [Amikor beállítom `restart_method=command` az AVR készülékem újraindításkor csak lefagy](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-restart)
+1. [A fűtőelemek bekapcsolva maradnak, ha a Raspberry Pi összeomlik?](#will-the-heaters-be-left-on-if-the-raspberry-pi-crashes)
+1. [Hogyan konvertálhatok egy Marlin tűszámot egy Klipper tűnévre?](#how-do-i-convert-a-marlin-pin-number-to-a-klipper-pin-name)
+1. [Az eszközömet egy adott típusú mikrokontroller tűhöz kell csatlakoztatnom?](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin)
+1. [Hogyan tudom törölni az M109/M190 "várakozás a hőmérsékletre" kérést?](#how-do-i-cancel-an-m109m190-wait-for-temperature-request)
+1. [Megtudhatom, hogy a nyomtató vesztett-e lépéseket?](#can-i-find-out-whether-the-printer-has-lost-steps)
+1. [Miért jelent hibát a Klipper? Elrontotta a nyomtatásomat!](#why-does-klipper-report-errors-i-lost-my-print)
+1. [Hogyan frissíthetek a legújabb szoftverre?](#how-do-i-upgrade-to-the-latest-software)
+1. [Hogyan távolítsam el a klippert?](#how-do-i-uninstall-klipper)
 
-## How can I donate to the project?
+## Hogyan adományozhatok a projektnek?
 
-Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>
+Köszönöm. Kevinnek van egy Patreon oldala: <https://www.patreon.com/koconnor>
 
-## How do I calculate the rotation_distance config parameter?
+## Hogyan számítom ki a rotation_distance konfigurációs paramétert?
 
-See the [rotation distance document](Rotation_Distance.md).
+Lásd a [forgási távolság dokumentumot](Rotation_Distance.md).
 
-## Where's my serial port?
+## Hol van a soros portom?
 
-The general way to find a USB serial port is to run `ls /dev/serial/by-id/*` from an ssh terminal on the host machine. It will likely produce output similar to the following:
+Az USB soros port megtalálásának általános módja az `ls /dev/serial/by-id/*` futtatása a gazdaszámítógép SSH termináljáról. Valószínűleg a következőhöz hasonló kimenetet fog eredményezni:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-The name found in the above command is stable and it is possible to use it in the config file and while flashing the micro-controller code. For example, a flash command might look similar to:
+A fenti parancsban található név stabil, és használható a konfigurációs fájlban és a mikrokontroller kódjának égetése során. Egy égetés parancs például így nézhet ki:
 
 ```
 sudo service klipper stop
@@ -49,187 +49,187 @@ make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 ```
 
-and the updated config might look like:
+és a frissített konfiguráció így nézhet ki:
 
 ```
 [mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-Be sure to copy-and-paste the name from the "ls" command that you ran above as the name will be different for each printer.
+Ügyeljen arra, hogy a fent lefuttatott "ls" parancsból másolja be a nevet, mivel a név minden nyomtatónál más lesz.
 
-If you are using multiple micro-controllers and they do not have unique ids (common on boards with a CH340 USB chip) then follow the directions above using the command `ls /dev/serial/by-path/*` instead.
+Ha több mikrovezérlőt használsz, és ezek nem rendelkeznek egyedi azonosítóval (ez gyakori a CH340 USB-chippel ellátott lapokon), akkor kövesd a fenti utasításokat a `ls /dev/serial/by-path/*` parancs használatával.
 
-## When the micro-controller restarts the device changes to /dev/ttyUSB1
+## A mikrokontroller újraindításakor az eszköz /dev/ttyUSB1-re változik
 
-Follow the directions in the "[Where's my serial port?](#wheres-my-serial-port)" section to prevent this from occurring.
+Kövesse a "[Hol van a soros portom?](#wheres-my-serial-port)" szakaszban található utasításokat, hogy ezt megakadályozza.
 
-## The "make flash" command doesn't work
+## A "make flash" parancs nem működik
 
-The code attempts to flash the device using the most common method for each platform. Unfortunately, there is a lot of variance in flashing methods, so the "make flash" command may not work on all boards.
+A kód megpróbálja az eszközt az egyes platformok esetében legelterjedtebb módszerrel égetni. Sajnos az égetési módszerek között nagy eltérések vannak, így a "make flash" parancs nem biztos, hogy minden lapon működik.
 
-If you're having an intermittent failure or you do have a standard setup, then double check that Klipper isn't running when flashing (sudo service klipper stop), make sure OctoPrint isn't trying to connect directly to the device (open the Connection tab in the web page and click Disconnect if the Serial Port is set to the device), and make sure FLASH_DEVICE is set correctly for your board (see the [question above](#wheres-my-serial-port)).
+Ha időszakos hiba van, vagy szabványos beállításod van, akkor ellenőrizd, hogy a Klipper nem fut-e égetés közben (sudo service klipper stop), győződj meg róla, hogy az OctoPrint nem próbál közvetlenül az eszközhöz csatlakozni (nyisd meg a weblapon a Kapcsolat lapot, és kattints a Kapcsolat megszakítása gombra, ha a soros port az eszközhöz van beállítva), és győződj meg róla, hogy a FLASH_DEVICE helyesen van beállítva a lapodhoz (lásd a fenti [kérdést](#wheres-my-serial-port)).
 
-However, if "make flash" just doesn't work for your board, then you will need to manually flash. See if there is a config file in the [config directory](../config) with specific instructions for flashing the device. Also, check the board manufacturer's documentation to see if it describes how to flash the device. Finally, it may be possible to manually flash the device using tools such as "avrdude" or "bossac" - see the [bootloader document](Bootloaders.md) for additional information.
+Ha azonban a "make flash" egyszerűen nem működik az alaplapján, akkor manuálisan kell égetnie. Nézze meg, hogy van-e a [config könyvtárban](../config) egy config fájl, amely konkrét utasításokat tartalmaz az eszköz égetésére. Ellenőrizze a kártya gyártójának dokumentációját is, hogy leírja-e, hogyan kell égetni az eszközt. Végül, lehetséges lehet, hogy manuálisan égessük az eszközt olyan eszközökkel, mint az "avrdude" vagy a "bossac" - további információkért lásd a [bootloader dokumentumot](Bootloaders.md).
 
-## How do I change the serial baud rate?
+## Hogyan változtathatom meg a soros port sebességét?
 
-The recommended baud rate for Klipper is 250000. This baud rate works well on all micro-controller boards that Klipper supports. If you've found an online guide recommending a different baud rate, then ignore that part of the guide and continue with the default value of 250000.
+A Klipper ajánlott átviteli sebessége 250000. Ez az átviteli ráta jól működik minden olyan mikrokontroller kártyán, amelyet a Klipper támogat. Ha talált egy online útmutatót, amely más átviteli sebességet javasol, akkor hagyja figyelmen kívül az útmutatónak ezt a részét, és folytassa az alapértelmezett 250000 értékkel.
 
-If you want to change the baud rate anyway, then the new rate will need to be configured in the micro-controller (during **make menuconfig**) and that updated code will need to be compiled and flashed to the micro-controller. The Klipper printer.cfg file will also need to be updated to match that baud rate (see the [config reference](Config_Reference.md#mcu) for details). For example:
+Ha mindenképpen meg akarja változtatni az átviteli sebességet, akkor az új sebességet a mikrokontrollerben kell beállítani (a **make menuconfig** alatt), és a frissített kódot le kell fordítani és be kell égetni a mikrokontrollerbe. A Klipper printer.cfg fájlt is frissíteni kell, hogy megfeleljen ennek az átviteli sebességnek (lásd a [konfigurációs hivatkozást](Config_Reference.md#mcu) a részleteket). Például:
 
 ```
 [mcu]
 baud: 250000
 ```
 
-The baud rate shown on the OctoPrint web page has no impact on the internal Klipper micro-controller baud rate. Always set the OctoPrint baud rate to 250000 when using Klipper.
+Az OctoPrint weboldalon feltüntetett átviteli sebesség nincs hatással a Klipper mikrokontroller belső átviteli sebességére. Klipper használatakor az OctoPrint átviteli sebességét mindig 250000-re állítsa be.
 
-The Klipper micro-controller baud rate is not related to the baud rate of the micro-controller's bootloader. See the [bootloader document](Bootloaders.md) for additional information on bootloaders.
+A Klipper mikrovezérlő átviteli sebessége nem függ a mikrovezérlő bootloader átviteli sebességétől. A [bootloader dokumentum](Bootloaders.md) további információkat tartalmaz a bootloaderekkel kapcsolatban.
 
-## Can I run Klipper on something other than a Raspberry Pi 3?
+## Futtathatom a Klippert a Raspberry Pi 3-on kívül máson is?
 
-The recommended hardware is a Raspberry Pi 2, Raspberry Pi 3, or Raspberry Pi 4.
+Az ajánlott hardver egy Raspberry Pi 2, Raspberry Pi 3 vagy Raspberry Pi 4.
 
-Klipper will run on a Raspberry Pi 1 and on the Raspberry Pi Zero, but these boards don't have enough processing power to run OctoPrint well. It is common for print stalls to occur on these slower machines when printing directly from OctoPrint. (The printer may move faster than OctoPrint can send movement commands.) If you wish to run on one one of these slower boards anyway, consider using the "virtual_sdcard" feature when printing (see [config reference](Config_Reference.md#virtual_sdcard) for details).
+A Klipper fut a Raspberry Pi 1-en és a Raspberry Pi Zero-n, de ezek a lapok nem tartalmaznak elegendő feldolgozási teljesítményt az OctoPrint jó futtatásához. Gyakori, hogy ezeken a lassabb gépeken a nyomtatás akadozik, amikor közvetlenül az OctoPrintből nyomtat. (Előfordulhat, hogy a nyomtató gyorsabban mozog, mint ahogy az OctoPrint a mozgásparancsokat el tudja küldeni.) Ha mindenképpen ezek közül a lassabb lapok közül valamelyiken szeretne futni, fontolja meg a "virtual_sdcard" funkció használatát nyomtatáskor (a részletekért lásd [konfigurációs hivatkozást](Config_Reference.md#virtual_sdcard)).
 
-For running on the Beaglebone, see the [Beaglebone specific installation instructions](Beaglebone.md).
+A Beaglebone-on való futtatáshoz lásd a [Beaglebone-specifikus telepítési utasításokat](Beaglebone.md).
 
-Klipper has been run on other machines. The Klipper host software only requires Python running on a Linux (or similar) computer. However, if you wish to run it on a different machine you will need Linux admin knowledge to install the system prerequisites for that particular machine. See the [install-octopi.sh](../scripts/install-octopi.sh) script for further information on the necessary Linux admin steps.
+A Klipper más gépeken is futott. A Klipper gazdagép szoftverhez csak Python szükséges, amely Linux (vagy hasonló) számítógépen fut. Ha azonban más gépen szeretné futtatni, akkor Linux adminisztrátori ismeretekre lesz szüksége az adott gép rendszerkövetelményeinek telepítéséhez. A szükséges Linux-adminisztrátori lépésekről további információt az [install-octopi.sh](../scripts/install-octopi.sh) szkriptben talál.
 
-If you are looking to run the Klipper host software on a low-end chip, then be aware that, at a minimum, a machine with "double precision floating point" hardware is required.
+Ha a Klipper gazdagép szoftvert egy low-end chipen szeretné futtatni, akkor vegye figyelembe, hogy legalább egy "dupla pontosságú lebegőpontos" hardverrel rendelkező gépre van szükség.
 
-If you are looking to run the Klipper host software on a shared general-purpose desktop or server class machine, then note that Klipper has some real-time scheduling requirements. If, during a print, the host computer also performs an intensive general-purpose computing task (such as defragmenting a hard drive, 3d rendering, heavy swapping, etc.), then it may cause Klipper to report print errors.
+Ha a Klipper gazdagép szoftvert egy megosztott általános célú asztali vagy szerver osztályú gépen szeretné futtatni, akkor vegye figyelembe, hogy a Klippernek vannak bizonyos valós idejű ütemezési követelményei. Ha a nyomtatás során a gazdaszámítógép egyidejűleg intenzív általános célú számítási feladatot is végez (például merevlemez defragmentálása, 3D renderelés, nagymértékű swapolás stb.), akkor a Klipper nyomtatási hibákat jelenthet.
 
-Note: If you are not using an OctoPi image, be aware that several Linux distributions enable a "ModemManager" (or similar) package that can disrupt serial communication. (Which can cause Klipper to report seemingly random "Lost communication with MCU" errors.) If you install Klipper on one of these distributions you may need to disable that package.
+Megjegyzés: Ha nem OctoPi-képet használsz, vedd figyelembe, hogy számos Linux-disztribúció engedélyez egy "ModemManager" (vagy hasonló) csomagot, amely megzavarhatja a soros kommunikációt. (Ami miatt a Klipper véletlenszerűnek tűnő "Elveszett a kommunikáció az MCU-val" hibákat jelenthet.) Ha a Klippert ilyen disztribúcióra telepíti, akkor lehet, hogy le kell tiltania ezt a csomagot.
 
-## Can I run multiple instances of Klipper on the same host machine?
+## Futtathatom a Klipper több példányát ugyanazon a gépen?
 
-It is possible to run multiple instances of the Klipper host software, but doing so requires Linux admin knowledge. The Klipper installation scripts ultimately cause the following Unix command to be run:
+Lehetséges a Klipper gazdagép szoftver több példányának futtatása, de ehhez Linux adminisztrátori ismeretekre van szükség. A Klipper telepítési szkriptek végül a következő Unix parancs futtatását eredményezik:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -l /tmp/klippy.log
 ```
 
-One can run multiple instances of the above command as long as each instance has its own printer config file, its own log file, and its own pseudo-tty. For example:
+A fenti parancs több példányban is futtatható, amennyiben minden példánynak saját nyomtató-konfigurációs fájlja, saját naplófájlja és saját pszeudo-tty-je van. Például:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer2.cfg -l /tmp/klippy2.log -I /tmp/printer2
 ```
 
-If you choose to do this, you will need to implement the necessary start, stop, and installation scripts (if any). The [install-octopi.sh](../scripts/install-octopi.sh) script and the [klipper-start.sh](../scripts/klipper-start.sh) script may be useful as examples.
+Ha ezt választja, akkor a szükséges indítási, leállítási és telepítési parancsfájlokat (ha vannak ilyenek) kell végrehajtania. Az [install-octopi.sh](../scripts/install-octopi.sh) szkript és a [klipper-start.sh](../scripts/klipper-start.sh) szkript hasznos lehet példaként.
 
-## Do I have to use OctoPrint?
+## Muszáj az OctoPrintet használnom?
 
-The Klipper software is not dependent on OctoPrint. It is possible to use alternative software to send commands to Klipper, but doing so requires Linux admin knowledge.
+A Klipper szoftver nem függ az OctoPrint-től. Lehetséges alternatív szoftvereket használni a Klipper parancsok küldésére, de ehhez Linux adminisztrátori ismeretekre van szükség.
 
-Klipper creates a "virtual serial port" via the "/tmp/printer" file, and it emulates a classic 3d-printer serial interface via that file. In general, alternative software may work with Klipper as long as it can be configured to use "/tmp/printer" for the printer serial port.
+A Klipper létrehoz egy "virtuális soros portot" a "/tmp/printer" fájlon keresztül, és ezen keresztül emulál egy klasszikus 3D-nyomtató soros interfészt. Általánosságban elmondható, hogy alternatív szoftverek is működhetnek a Klipperrel, amennyiben konfigurálhatóak úgy, hogy a "/tmp/printer" -t használják a nyomtató soros portjaként.
 
-## Why can't I move the stepper before homing the printer?
+## Miért nem tudom mozgatni a léptetőmotort a nyomtató beállítása előtt?
 
-The code does this to reduce the chance of accidentally commanding the head into the bed or a wall. Once the printer is homed the software attempts to verify each move is within the position_min/max defined in the config file. If the motors are disabled (via an M84 or M18 command) then the motors will need to be homed again prior to movement.
+A kód ezt azért teszi, hogy csökkentse annak esélyét, hogy a fejet véletlenül az ágyba vagy a falba ütköztesse. Miután a nyomtató kezdőponthoz ért, a szoftver megpróbálja ellenőrizni, hogy minden egyes mozgás a konfigurációs fájlban meghatározott position_min/max értéken belül van-e. Ha a motorok ki vannak kapcsolva (M84 vagy M18 parancs segítségével), akkor a motorokat a mozgás előtt újra be kell állítani.
 
-If you want to move the head after canceling a print via OctoPrint, consider changing the OctoPrint cancel sequence to do that for you. It's configured in OctoPrint via a web browser under: Settings->GCODE Scripts
+Ha a fejet az OctoPrint segítségével történő nyomtatás törlése után szeretné elmozdítani, fontolja meg az OctoPrint törlési sorrendjének módosítását, hogy ezt megtegye Ön helyett. Ez az OctoPrintben a webböngészőn keresztül konfigurálható a következő menüpont alatt: Beállítások->GCODE szkriptek
 
-If you want to move the head after a print finishes, consider adding the desired movement to the "custom g-code" section of your slicer.
+Ha a nyomtatás befejezése után szeretné mozgatni a fejet, fontolja meg a kívánt mozgás hozzáadását a szeletelő "custom g-code" szakaszához.
 
-If the printer requires some additional movement as part of the homing process itself (or fundamentally does not have a homing process) then consider using a safe_z_home or homing_override section in the config file. If you need to move a stepper for diagnostic or debugging purposes then consider adding a force_move section to the config file. See [config reference](Config_Reference.md#customized_homing) for further details on these options.
+Ha a nyomtatónak szüksége van további mozgatásra a kezdőpont felvételi folyamat részeként (vagy alapvetően nincs kezdőpont felvételi folyamat), akkor fontolja meg a safe_z_home vagy homing_override szakasz használatát a konfigurációs fájlban. Ha diagnosztikai vagy hibakeresési célokra kell mozgatni egy léptetőmotort, akkor fontolja meg egy force_move szakasz hozzáadását a konfigurációs fájlhoz. Lásd [konfigurációs hivatkozást](Config_Reference.md#customized_homing) az ezen opciókkal kapcsolatos további részletekért.
 
-## Why is the Z position_endstop set to 0.5 in the default configs?
+## Miért van a Z position_endstop 0,5-re állítva az alapértelmezett konfigurációban?
 
-For cartesian style printers the Z position_endstop specifies how far the nozzle is from the bed when the endstop triggers. If possible, it is recommended to use a Z-max endstop and home away from the bed (as this reduces the potential for bed collisions). However, if one must home towards the bed then it is recommended to position the endstop so it triggers when the nozzle is still a small distance away from the bed. This way, when homing the axis, it will stop before the nozzle touches the bed. See the [bed level document](Bed_Level.md) for more information.
+A cartesian stílusú nyomtatók esetében a Z position_endstop megadja, hogy a fúvóka milyen messze van az ágytól, amikor a végállás működésbe lép. Ha lehetséges, ajánlott Z-max végállást használni, és az ágytól távolabb elhelyezni (mivel ez csökkenti az ágy ütközés lehetőségét). Ha azonban az ágy felé kell elindulni, akkor a végállást úgy kell beállítani, hogy akkor lépjen működésbe, amikor a fúvóka még mindig kis távolságra van az ágytól. Így a tengely homingolásakor a fúvóka még azelőtt megáll, hogy a fúvóka hozzáérne az ágyhoz. További információért lásd az [ágy szintezés dokumentumot](Bed_Level.md).
 
-## I converted my config from Marlin and the X/Y axes work fine, but I just get a screeching noise when homing the Z axis
+## Átkonvertáltam a Marlinból származó konfigurációmat, és az X/Y tengelyek jól működnek, de a Z tengely kezdőpont fílvételekor csikorgó hangot hallok
 
-Short answer: First, make sure you have verified the stepper configuration as described in the [config check document](Config_checks.md). If the problem persists, try reducing the max_z_velocity setting in the printer config.
+Rövid válasz: Először is ellenőrizze, hogy a [config check dokumentumban](Config_checks.md) leírtak szerint ellenőrizte-e a léptető konfigurációját. Ha a probléma továbbra is fennáll, próbálja meg csökkenteni a max_z_velocity értéket a nyomtató konfigurációjában.
 
-Long answer: In practice Marlin can typically only step at a rate of around 10000 steps per second. If it is requested to move at a speed that would require a higher step rate then Marlin will generally just step as fast as it can. Klipper is able to achieve much higher step rates, but the stepper motor may not have sufficient torque to move at a higher speed. So, for a Z axis with a high gearing ratio or high microsteps setting the actual obtainable max_z_velocity may be smaller than what is configured in Marlin.
+Hosszú válasz: A gyakorlatban a Marlin jellemzően csak körülbelül 10000 lépés/másodperc sebességgel tud lépni. Ha olyan sebességgel kell mozognia, amely nagyobb lépésszámot igényel, akkor a Marlin általában csak olyan gyorsan lép, amilyen gyorsan csak tud. A Klipper sokkal nagyobb lépésszámot képes elérni, de a léptetőmotornak nem biztos, hogy elegendő nyomatéka van a nagyobb sebességű mozgáshoz. Tehát egy nagy áttételszámú vagy nagy mikrolépésszámú Z tengely esetében a ténylegesen elérhető max_z_sebesség kisebb lehet, mint ami a Marlinban be van állítva.
 
-## My TMC motor driver turns off in the middle of a print
+## A TMC motorvezérlő kikapcsol a nyomtatás közben
 
-If using the TMC2208 (or TMC2224) driver in "standalone mode" then make sure to use the [latest version of Klipper](#how-do-i-upgrade-to-the-latest-software). A workaround for a TMC2208 "stealthchop" driver problem was added to Klipper in mid-March of 2020.
+Ha a TMC2208 (vagy TMC2224) motorvezérlőt "standalone módban" használja, akkor győződjön meg róla, hogy a [Klipper legújabb verzióját](#how-do-i-upgrade-to-the-latest-software) használja. A TMC2208 "stealthchop" motorvezérlő problémájának megoldása 2020 március közepén került hozzá a Klipperhez.
 
-## I keep getting random "Lost communication with MCU" errors
+## Folyamatosan kapok "Elveszett a kommunikáció az MCU-val" hibákat
 
-This is commonly caused by hardware errors on the USB connection between the host machine and the micro-controller. Things to look for:
+Ezt általában a gazdagép és a mikrokontroller közötti USB-kapcsolat hardverhibái okozzák. Amit keresni kell:
 
-- Use a good quality USB cable between the host machine and micro-controller. Make sure the plugs are secure.
-- If using a Raspberry Pi, use a [good quality power supply](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply) for the Raspberry Pi and use a [good quality USB cable](https://forums.raspberrypi.com/viewtopic.php?p=589877#p589877) to connect that power supply to the Pi. If you get "under voltage" warnings from OctoPrint, this is related to the power supply and it must be fixed.
-- Make sure the printer's power supply is not being overloaded. (Power fluctuations to the micro-controller's USB chip may result in resets of that chip.)
-- Verify stepper, heater, and other printer wires are not crimped or frayed. (Printer movement may place stress on a faulty wire causing it to lose contact, briefly short, or generate excessive noise.)
-- There have been reports of high USB noise when both the printer's power supply and the host's 5V power supply are mixed. (If you find that the micro-controller powers on when either the printer's power supply is on or the USB cable is plugged in, then it indicates the 5V power supplies are being mixed.) It may help to configure the micro-controller to use power from only one source. (Alternatively, if the micro-controller board can not configure its power source, one may modify a USB cable so that it does not carry 5V power between the host and micro-controller.)
+- Használjon jó minőségű USB-kábelt a gazdagép és a mikrokontroller között. Győződjön meg róla, hogy a csatlakozók biztonságosan csatlakoznak.
+- Ha Raspberry Pi-t használ, használjon [jó minőségű tápegységet](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply) a Raspberry Pi számára, és egy [jó minőségű USB-kábellel](https://forums.raspberrypi.com/viewtopic.php?p=589877#p589877) csatlakoztassa a tápegységet a Pihez. Ha az OctoPrint "feszültség alatt" figyelmeztetéseket kap, az a tápegységgel függ össze, és ezt meg kell javítani.
+- Győződjön meg róla, hogy a nyomtató áramellátása nincs túlterhelve. (A mikrovezérlő USB-chip áramellátásának ingadozása a chip újraindítását eredményezheti.)
+- Ellenőrizze, hogy a léptető, fűtő és egyéb nyomtatóvezetékek nem szakadtak vagy rongálódtak. (A nyomtató mozgása megterhelheti a hibás vezetéket, ami érintkezési hibákhoz, rövidzárlathoz vagy túlzott zajkeltéshez vezethet.)
+- Jelentéseket kaptunk magas USB-zajról, amikor a nyomtató, és a gazdagép 5V-os tápellátása keveredik. (Ha azt tapasztalja, hogy a mikrokontroller bekapcsol, amikor a gazdagép tápellátása be van kapcsolva, vagy az USB-kábel be van dugva, akkor ez azt jelzi, hogy az 5V-os tápegységek keverednek.) Segíthet, ha úgy konfigurálja a mikrokontrollert, hogy csak az egyik forrásból származó áramot használja. (Alternatív megoldásként, ha a mikrokontroller lapja nem tudja konfigurálni az áramforrását, módosíthatunk egy USB-kábelt úgy, hogy az ne szállítson 5V-os áramot a gazdagép és a mikrokontroller között.)
 
-## My Raspberry Pi keeps rebooting during prints
+## A Raspberry Pi folyamatosan újraindul nyomtatás közben
 
-This is most likely do to voltage fluctuations. Follow the same troubleshooting steps for a ["Lost communication with MCU"](#i-keep-getting-random-lost-communication-with-mcu-errors) error.
+Ez valószínűleg a feszültségingadozások miatt van. Kövesse ugyanazokat a hibaelhárítási lépéseket az ["Elveszett kommunikáció az MCU-val"](#i-keep-getting-random-lost-communication-with-mcu-errors) hiba esetén.
 
-## When I set `restart_method=command` my AVR device just hangs on a restart
+## Amikor beállítom a `restart_method=command` az AVR készülékem újraindításkor egyszerűen lefagy
 
-Some old versions of the AVR bootloader have a known bug in watchdog event handling. This typically manifests when the printer.cfg file has restart_method set to "command". When the bug occurs, the AVR device will be unresponsive until power is removed and reapplied to the device (the power or status LEDs may also blink repeatedly until the power is removed).
+Az AVR bootloader néhány régi verziójának ismert hibája van a watchdog esemény kezelésében. Ez általában akkor jelentkezik, ha a printer.cfg fájlban a restart_method beállítása "command". Amikor a hiba előfordul, az AVR eszköz nem reagál, amíg a tápellátást el nem veszik és újra be nem kapcsolják az eszközbe (a tápellátás vagy az állapotjelző LED-ek is többször villoghatnak, amíg a tápellátást el nem veszik).
 
-The workaround is to use a restart_method other than "command" or to flash an updated bootloader to the AVR device. Flashing a new bootloader is a one time step that typically requires an external programmer - see [Bootloaders](Bootloaders.md) for further details.
+A megoldás a "command" -tól eltérő restart_method használata, vagy egy frissített bootloader égetése az AVR eszközre. Egy új bootloader égetése egy egyszeri lépés, amelyhez általában külső programozóra van szükség - további részletekért lásd [Bootloaderek](Bootloaders.md) dokumentumot.
 
-## Will the heaters be left on if the Raspberry Pi crashes?
+## A fűtőelemek bekapcsolva maradnak, ha a Raspberry Pi összeomlik?
 
-The software has been designed to prevent that. Once the host enables a heater, the host software needs to confirm that enablement every 5 seconds. If the micro-controller does not receive a confirmation every 5 seconds it goes into a "shutdown" state which is designed to turn off all heaters and stepper motors.
+A szoftvert úgy tervezték, hogy ezt megakadályozza. Ha a gazdagép egyszer engedélyezi a fűtőberendezést, a szoftverének 5 másodpercenként meg kell erősítenie az engedélyezést. Ha a mikrokontroller nem kap 5 másodpercenként megerősítést, akkor "leállítás" állapotba kerül, amelynek célja, hogy kikapcsolja az összes fűtőberendezést és léptetőmotort.
 
-See the "config_digital_out" command in the [MCU commands](MCU_Commands.md) document for further details.
+További részletekért lásd az [MCU-parancsok](MCU_Commands.md) dokumentumban található "config_digital_out" parancsot.
 
-In addition, the micro-controller software is configured with a minimum and maximum temperature range for each heater at startup (see the min_temp and max_temp parameters in the [config reference](Config_Reference.md#extruder) for details). If the micro-controller detects that the temperature is outside of that range then it will also enter a "shutdown" state.
+Ezenkívül a mikrovezérlő szoftver indításkor minden fűtőberendezéshez be van állítva egy minimális és maximális hőmérséklettartomány (a részletekért lásd a [konfigurációs hivatkozásban](Config_Reference.md#extruder) található min_temp és max_temp paramétereket). Ha a mikrokontroller azt érzékeli, hogy a hőmérséklet e tartományon kívül esik, akkor szintén "leállítás" állapotba lép.
 
-Separately, the host software also implements code to check that heaters and temperature sensors are functioning correctly. See the [config reference](Config_Reference.md#verify_heater) for further details.
+A gazdaszoftver külön kódot is tartalmaz a fűtőelemek és a hőmérséklet-érzékelők helyes működésének ellenőrzésére. További részletekért lásd a [konfigurációs hivatkozás](Config_Reference.md#verify_heater) dokumentumot.
 
-## How do I convert a Marlin pin number to a Klipper pin name?
+## Hogyan alakíthatok át egy Marlin tű számot Klipper tű névre?
 
-Short answer: A mapping is available in the [sample-aliases.cfg](../config/sample-aliases.cfg) file. Use that file as a guide to finding the actual micro-controller pin names. (It is also possible to copy the relevant [board_pins](Config_Reference.md#board_pins) config section into your config file and use the aliases in your config, but it is preferable to translate and use the actual micro-controller pin names.) Note that the sample-aliases.cfg file uses pin names that start with the prefix "ar" instead of "D" (eg, Arduino pin `D23` is Klipper alias `ar23`) and the prefix "analog" instead of "A" (eg, Arduino pin `A14` is Klipper alias `analog14`).
+Rövid válasz: [sample-aliases.cfg](../config/sample-aliases.cfg) fájlban található leképezés. Használja ezt a fájlt útmutatóként a tényleges mikrokontroller tű nevek megtalálásához. (Az is lehetséges, hogy a vonatkozó [board_pins](Config_Reference.md#board_pins) config szakaszt átmásolja a config fájljába, és használja az álneveket a configban, de előnyösebb a tényleges mikrokontroller tű nevek lefordítása és használata.) Vegye figyelembe, hogy a sample-aliases.cfg fájl olyan tű neveket használ, amelyek "ar" előtaggal kezdődnek "D" helyett (pl. az Arduino pin `D23` a Klipper álnév `ar23`) és az "analog" helyett "A" (pl. az Arduino pin `A14` a Klipper álnév `analog14`).
 
-Long answer: Klipper uses the standard pin names defined by the micro-controller. On the Atmega chips these hardware pins have names like `PA4`, `PC7`, or `PD2`.
+Hosszú válasz: Klipper a mikrokontroller által meghatározott szabványos tű neveket használja. Az Atmega chipeken ezek a hardveres tűk olyan neveket viselnek, mint `PA4`, `PC7`, vagy `PD2`.
 
-Long ago, the Arduino project decided to avoid using the standard hardware names in favor of their own pin names based on incrementing numbers - these Arduino names generally look like `D23` or `A14`. This was an unfortunate choice that has lead to a great deal of confusion. In particular the Arduino pin numbers frequently don't translate to the same hardware names. For example, `D21` is `PD0` on one common Arduino board, but is `PC7` on another common Arduino board.
+Régen az Arduino projekt úgy döntött, hogy nem használja a szabványos hardverneveket, hanem saját, növekvő számokon alapuló tű neveket használ. Ezek az Arduino nevek általában úgy néznek ki, mint `D23` vagy `A14`. Ez egy szerencsétlen választás volt, amely sok zavart okozott. Különösen az Arduino tű-számok gyakran nem fordítják le ugyanazokat a hardveres neveket. Például a `D21` az `PD0` egy közös Arduino lapon, de `PC7` egy másik közös Arduino lapon.
 
-To avoid this confusion, the core Klipper code uses the standard pin names defined by the micro-controller.
+A zavar elkerülése érdekében a Klipper alapkódja a mikrokontroller által meghatározott szabványos tű neveket használja.
 
-## Do I have to wire my device to a specific type of micro-controller pin?
+## Az eszközömet egy adott típusú mikrokontroller tűhöz kell csatlakoztatnom?
 
-It depends on the type of device and type of pin:
+Ez az eszköz típusától és a tű típusától függ:
 
-ADC pins (or Analog pins): For thermistors and similar "analog" sensors, the device must be wired to an "analog" or "ADC" capable pin on the micro-controller. If you configure Klipper to use a pin that is not analog capable, Klipper will report a "Not a valid ADC pin" error.
+ADC tűk (vagy analóg tűk): Termisztorok és hasonló "analóg" érzékelők esetén az eszközt a mikrokontroller egy "analóg" vagy "ADC" -képes tűjére kell csatlakoztatni. Ha a Klippert olyan tű használatára konfigurálja, amely nem analóg képes, a Klipper egy "Nem érvényes ADC tű" hibát fog jelenteni.
 
-PWM pins (or Timer pins): Klipper does not use hardware PWM by default for any device. So, in general, one may wire heaters, fans, and similar devices to any general purpose IO pin. However, fans and output_pin devices may be optionally configured to use `hardware_pwm: True`, in which case the micro-controller must support hardware PWM on the pin (otherwise, Klipper will report a "Not a valid PWM pin" error).
+PWM tűk (vagy időzítő tűk): A Klipper alapértelmezés szerint nem használ hardveres PWM-et egyetlen eszköz esetében sem. Tehát általában a fűtőtesteket, ventilátorokat és hasonló eszközöket bármelyik általános célú IO tűre lehet vezetékezni. A ventilátorok és az output_pin eszközök azonban opcionálisan úgy konfigurálhatók, hogy `hardware_pwm: True` értéket használnak, amely esetben a mikrokontrollernek támogatnia kell a hardveres PWM-et a tűn (ellenkező esetben a Klipper egy "Not a valid PWM pin" hibát fog jelezni).
 
-IRQ pins (or Interrupt pins): Klipper does not use hardware interrupts on IO pins, so it is never necessary to wire a device to one of these micro-controller pins.
+IRQ-tűk (vagy megszakítási tűk): A Klipper nem használ hardveres megszakításokat az IO tűkön, ezért soha nem szükséges egy eszközt ezen mikrokontroller tűk egyikére vezetni.
 
-SPI pins: When using hardware SPI it is necessary to wire the pins to the micro-controller's SPI capable pins. However, most devices can be configured to use "software SPI", in which case any general purpose IO pins may be used.
+SPI-tűk: A hardveres SPI használatakor a tűket a mikrokontroller SPI-képes tűihez kell csatlakoztatni. A legtöbb eszköz azonban konfigurálható a "szoftveres SPI" használatára, amely esetben bármely általános célú IO-tű használható.
 
-I2C pins: When using I2C it is necessary to wire the pins to the micro-controller's I2C capable pins.
+I2C tűk: I2C használatakor a tűket a mikrokontroller I2C-képes tűihez kell csatlakoztatni.
 
-Other devices may be wired to any general purpose IO pin. For example, steppers, heaters, fans, Z probes, servos, LEDs, common hd44780/st7920 LCD displays, the Trinamic UART control line may be wired to any general purpose IO pin.
+Más eszközök bármelyik általános célú IO tűre csatlakoztathatók. Például léptetők, fűtők, ventilátorok, Z-szondák, szervók, LED-ek, közös hd44780/st7920 LCD-kijelzők, a Trinamic UART vezérlővonal bármely általános célú IO-tűhöz csatlakoztatható.
 
-## How do I cancel an M109/M190 "wait for temperature" request?
+## Hogyan tudom törölni az M109/M190 "hőmérsékletre várni" kérést?
 
-Navigate to the OctoPrint terminal tab and issue an M112 command in the terminal box. The M112 command will cause Klipper to enter into a "shutdown" state, and it will cause OctoPrint to disconnect from Klipper. Navigate to the OctoPrint connection area and click on "Connect" to cause OctoPrint to reconnect. Navigate back to the terminal tab and issue a FIRMWARE_RESTART command to clear the Klipper error state. After completing this sequence, the previous heating request will be canceled and a new print may be started.
+Navigáljon az OctoPrint terminál fülre, és adjon ki egy M112 parancsot a terminálmezőben. Az M112 parancs hatására a Klipper "leállítás" állapotba kerül, és az OctoPrint megszakítja a kapcsolatot a Klipperrel. Navigáljon az OctoPrint csatlakozási területére, és kattintson a "Connect" gombra, hogy az OctoPrint újra csatlakozzon. Navigáljon vissza a terminál fülre, és adjon ki egy FIRMWARE_RESTART parancsot a Klipper hibaállapotának törléséhez. E műveletsor befejezése után az előző fűtéskérés törlődik, és új nyomtatás indítható.
 
-## Can I find out whether the printer has lost steps?
+## Meg tudom állapítani, hogy a nyomtató vesztett-e lépéseket?
 
-In a way, yes. Home the printer, issue a `GET_POSITION` command, run your print, home again and issue another `GET_POSITION`. Then compare the values in the `mcu:` line.
+Bizonyos értelemben igen. Indítsa el a nyomtatót, adjon ki egy `GET_POSITION` parancsot, indítsa el a nyomtatást, indítsa el újra, és adjon ki egy újabb `GET_POSITION` parancsot. Ezután hasonlítsa össze az `mcu:` sorban szereplő értékeket.
 
-This might be helpful to tune settings like stepper motor currents, accelerations and speeds without needing to actually print something and waste filament: just run some high-speed moves in between the `GET_POSITION` commands.
+Ez hasznos lehet a beállítások, például a léptetőmotorok áramának, gyorsulásának és sebességének beállításához anélkül, hogy ténylegesen nyomtatnod kellene valamit és pazarolnod kellene a szálakat: csak futtass néhány nagy sebességű mozgást a `GET_POSITION` parancsok között.
 
-Note that endstop switches themselves tend to trigger at slightly different positions, so a difference of a couple of microsteps is likely the result of endstop inaccuracies. A stepper motor itself can only lose steps in increments of 4 full steps. (So, if one is using 16 microsteps, then a lost step on the stepper would result in the "mcu:" step counter being off by a multiple of 64 microsteps.)
+Vegye figyelembe, hogy a végálláskapcsolók maguk is hajlamosak kissé eltérő pozícióban kioldani, így a néhány mikrolépésnyi különbség valószínűleg a végállás pontatlanságának eredménye. Maga a léptetőmotor csak 4 teljes lépésenként képes lépéseket veszíteni. (Tehát, ha 16 mikrolépést használunk, akkor a léptető egy elvesztett lépése azt eredményezi, hogy az "mcu:" lépésszámláló 64 mikrolépés többszörösével téved.)
 
-## Why does Klipper report errors? I lost my print!
+## Miért jelent hibát a Klipper? Elrontotta a nyomtatásomat!
 
-Short answer: We want to know if our printers detect a problem so that the underlying issue can be fixed and we can obtain great quality prints. We definitely do not want our printers to silently produce low quality prints.
+Rövid válasz: A nyomtatóink problémákat észlelnek, hogy a mögöttes problémát orvosolni lehessen, és kiváló minőségű nyomatokat kaphassunk. Semmiképpen sem szeretnénk, ha a nyomtatóink csendben rossz minőségű nyomatokat készítenének.
 
-Long answer: Klipper has been engineered to automatically workaround many transient problems. For example, it automatically detects communication errors and will retransmit; it schedules actions in advance and buffers commands at multiple layers to enable precise timing even with intermittent interference. However, should the software detect an error that it can not recover from, if it is commanded to take an invalid action, or if it detects it is hopelessly unable to perform its commanded task, then Klipper will report an error. In these situations there is a high risk of producing a low-quality print (or worse). It is hoped that alerting the user will empower them to fix the underlying issue and improve the overall quality of their prints.
+Hosszú válasz: A Klipper úgy lett megtervezve, hogy automatikusan megoldjon számos átmeneti problémát. Például automatikusan észleli a kommunikációs hibákat, és újratovábbítja azokat; előre ütemezi a műveleteket, és több rétegben puffereli a parancsokat, hogy még időszakos interferencia esetén is pontos időzítést tegyen lehetővé. Ha azonban a szoftver olyan hibát észlel, amelyből nem tud helyreállni, ha érvénytelen műveletre kap parancsot, vagy ha azt észleli, hogy reménytelenül képtelen végrehajtani a parancsolt feladatot, akkor a Klipper hibát jelent. Ezekben a helyzetekben nagy a kockázata annak, hogy rossz minőségű nyomtatás készül (vagy rosszabb). Reméljük, hogy a felhasználó figyelmeztetése lehetővé teszi számára, hogy megoldja a kiváltó problémát, és javítsa a nyomatok általános minőségét.
 
-There are some related questions: Why doesn't Klipper pause the print instead? Report a warning instead? Check for errors before the print? Ignore errors in user typed commands? etc? Currently Klipper reads commands using the G-Code protocol, and unfortunately the G-Code command protocol is not flexible enough to make these alternatives practical today. There is developer interest in improving the user experience during abnormal events, but it is expected that will require notable infrastructure work (including a shift away from G-Code).
+Van néhány kapcsolódó kérdés: Miért nem szünetelteti a Klipper a nyomtatást? Nem jelent figyelmeztetést helyette? A nyomtatás előtt nem ellenőrzi a hibákat? Figyelmen kívül hagyja a hibákat a felhasználó által begépelt parancsokban? stb. Jelenleg a Klipper a G-kód protokollt használva olvassa a parancsokat, és sajnos a G-kód parancsprotokoll nem elég rugalmas ahhoz, hogy ezek az alternatívák ma már praktikusak legyenek. A fejlesztők érdeklődnek a felhasználói élmény javítása iránt a rendellenes események során, de ez várhatóan jelentős infrastrukturális munkát igényel (beleértve a G-kódtól való eltávolodást).
 
-## How do I upgrade to the latest software?
+## Hogyan frissíthetek a legújabb szoftverre?
 
-The first step to upgrading the software is to review the latest [config changes](Config_Changes.md) document. On occasion, changes are made to the software that require users to update their settings as part of a software upgrade. It is a good idea to review this document prior to upgrading.
+A szoftver frissítésének első lépése a legfrissebb [konfigurációs változások](Config_Changes.md) dokumentum áttekintése. Alkalmanként olyan változások történnek a szoftverben, amelyek miatt a felhasználóknak frissíteniük kell a beállításaikat a szoftverfrissítés részeként. A frissítés előtt érdemes átnézni ezt a dokumentumot.
 
-When ready to upgrade, the general method is to ssh into the Raspberry Pi and run:
+Ha készen áll a frissítésre, az általános módszer az, hogy SSH-t használunk a Raspberry Pi-n, és futtatjuk:
 
 ```
 cd ~/klipper
@@ -237,7 +237,7 @@ git pull
 ~/klipper/scripts/install-octopi.sh
 ```
 
-Then one can recompile and flash the micro-controller code. For example:
+Ezután újrafordíthatjuk és égethetjük a mikrokontroller kódját. Például:
 
 ```
 make menuconfig
@@ -249,7 +249,7 @@ make flash FLASH_DEVICE=/dev/ttyACM0
 sudo service klipper start
 ```
 
-However, it's often the case that only the host software changes. In this case, one can update and restart just the host software with:
+Azonban gyakran előfordul, hogy csak a gazdaszoftver változik. Ebben az esetben csak a gazdaszoftvert frissíthetjük és indíthatjuk újra:
 
 ```
 cd ~/klipper
@@ -257,17 +257,17 @@ git pull
 sudo service klipper restart
 ```
 
-If after using this shortcut the software warns about needing to reflash the micro-controller or some other unusual error occurs, then follow the full upgrade steps outlined above.
+Ha e parancs használata után a szoftver arra figyelmeztet, hogy a mikrokontrollert újra kell égetni, vagy más szokatlan hiba lép fel, akkor kövesse a fent leírt teljes frissítési lépéseket.
 
-If any errors persist then double check the [config changes](Config_Changes.md) document, as you may need to modify the printer configuration.
+Ha továbbra is fennállnak a hibák, akkor ellenőrizze a [konfigurációs változások](Config_Changes.md) dokumentumot, mivel lehet, hogy módosítani kell a nyomtató konfigurációját.
 
-Note that the RESTART and FIRMWARE_RESTART g-code commands do not load new software - the above "sudo service klipper restart" and "make flash" commands are needed for a software change to take effect.
+Ne feledje, hogy a RESTART és FIRMWARE_RESTART G-kód parancsok nem töltenek be új szoftvert a fenti "sudo service klipper restart" és "make flash" parancsok szükségesek a szoftverváltás érvénybe lépéséhez.
 
-## How do I uninstall Klipper?
+## Hogyan tudom eltávolítani a Klippert?
 
-On the firmware end, nothing special needs to happen. Just follow the flashing directions for the new firmware.
+A firmware oldalon semmi különösnek nem kell történnie. Csak kövesse az új firmware égetési utasításait.
 
-On the raspberry pi end, an uninstall script is available in [scripts/klipper-uninstall.sh](../scripts/klipper-uninstall.sh). For example:
+A Raspberry Pi oldalon egy eltávolító szkript elérhető a [scripts/klipper-uninstall.sh](../scripts/klipper-uninstall.sh) alatt. Például:
 
 ```
 sudo ~/klipper/scripts/klipper-uninstall.sh
