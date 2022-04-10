@@ -10,10 +10,10 @@ A Klipper a következő szabványos G-kód parancsokat támogatja:
 - Tartózkodás: `G4 P<milliszekundum>`
 - Ugrás a forrásra: `G28 [X] [Y] [Z]`
 - Kapcsolja ki a motorokat: `M18` vagy `M84`.
-- Wait for current moves to finish: `M400`
-- Use absolute/relative distances for extrusion: `M82`, `M83`
-- Use absolute/relative coordinates: `G90`, `G91`
-- Set position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
+- Várja meg, amíg az aktuális mozdulat befejeződik: `M400`
+- Használjon abszolút/relatív távolságokat az extrudáláshoz: `M82`, `M83`.
+- Abszolút/relatív koordináták használata: `G90`, `G91`.
+- Állítsa be a pozíciót: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
 - Set speed factor override percentage: `M220 S<percent>`
 - Set extrude factor override percentage: `M221 S<percent>`
 - Set acceleration: `M204 S<value>` OR `M204 P<value> T<value>`

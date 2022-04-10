@@ -2,7 +2,7 @@
 
 A Klipper beépített támogatással rendelkezik az ADXL345 gyorsulásmérőhöz, amely a nyomtató rezonanciáinak mérésére használható a különböző tengelyek esetében, és automatikus hangolással [rezonancia kompenzáció](Resonance_Compensation.md) a rezonanciák kompenzálására. Vegye figyelembe, hogy az ADXL345 használata némi forrasztást és krimpelést igényel. Az ADXL345 közvetlenül csatlakoztatható egy Raspberry Pi-hez, vagy egy MCU-kártya SPI-interfészéhez (meglehetősen gyorsnak kell lennie).
 
-When sourcing ADXL345, be aware that there is a variety of different PCB board designs and different clones of them. Make sure that the board supports SPI mode (small number of boards appear to be hard-configured for I2C by pulling SDO to GND), and, if it is going to be connected to a 5V printer MCU, that it has a voltage regulator and a level shifter.
+Az ADXL345 beszerzésekor vegye figyelembe, hogy számos különböző NYÁK lapkakialakítás és különböző klónok léteznek. Győződjön meg róla, hogy a kártya támogatja az SPI módot (kis számú kártya úgy tűnik, hogy szorosan konfigurálva van az I2C-re az SDO GND-re húzásával), és ha 5V-os nyomtató MCU-hoz csatlakozik ellenőrizze,hogy rendelkezik feszültségszabályozóval és szintválasztóval.
 
 ## Telepítési utasítások
 
@@ -12,53 +12,53 @@ Az ADXL345-öt SPI-n keresztül kell csatlakoztatnia a Raspberry Pi-hez. Vegye f
 
 | ADXL345 tű | RPi tű | RPi tű név |
 | :-: | :-: | :-: |
-| 3V3 (or VCC) | 01 | 3.3v DC power |
-| GND | 06 | Ground |
+| 3V3 (or VCC) | 01 | 3.3v DC feszültség |
+| GND | 06 | Föld |
 | CS | 24 | GPIO08 (SPI0_CE0_N) |
 | SDO | 21 | GPIO09 (SPI0_MISO) |
 | SDA | 19 | GPIO10 (SPI0_MOSI) |
 | SCL | 23 | GPIO11 (SPI0_SCLK) |
 
-Fritzing wiring diagrams for some of the ADXL345 boards:
+Fritzing kapcsolási rajzok néhány ADXL345 laphoz:
 
 ![ADXL345-Rpi](img/adxl345-fritzing.png)
 
-Double-check your wiring before powering up the Raspberry Pi to prevent damaging it or the accelerometer.
+A Raspberry Pi bekapcsolása előtt ellenőrizze kétszer is a vezetékeket, nehogy megsérüljön a Raspberry Pi vagy a gyorsulásmérő.
 
-### Mounting the accelerometer
+### A gyorsulásmérő felszerelése
 
-The accelerometer must be attached to the toolhead. One needs to design a proper mount that fits their own 3D printer. It is better to align the axes of the accelerometer with the printer's axes (but if it makes it more convenient, axes can be swapped - i.e. no need to align X axis with X and so forth - it should be fine even if Z axis of accelerometer is X axis of the printer, etc.).
+A gyorsulásmérőt a szerszámfejhez kell csatlakoztatni. Meg kell tervezni egy megfelelő rögzítést, amely illeszkedik a saját 3D nyomtatóhoz. A gyorsulásmérő tengelyeit jobb a nyomtató tengelyeihez igazítani (de ha ez kényelmesebbé teszi, a tengelyek felcserélhetők - azaz nem kell az X tengelyt X-hez igazítani, és így tovább. Akkor is rendben kell lennie, ha a gyorsulásmérő Z tengelye a nyomtató X tengelye, stb).
 
-An example of mounting ADXL345 on the SmartEffector:
+Példa az ADXL345 SmartEffectorra történő felszerelésére:
 
 ![ADXL345 on SmartEffector](img/adxl345-mount.jpg)
 
-Note that on a bed slinger printer one must design 2 mounts: one for the toolhead and one for the bed, and run the measurements twice. See the corresponding [section](#bed-slinger-printers) for more details.
+Vegye figyelembe, hogy egy ágycsúsztatós nyomtatónál 2 rögzítést kell tervezni: egyet a szerszámfejhez és egyet az ágyhoz, és a méréseket kétszer kell elvégezni. További részletekért lásd a megfelelő [szakasz](#bed-slinger-printers).
 
-**Attention:** make sure the accelerometer and any screws that hold it in place do not touch any metal parts of the printer. Basically, the mount must be designed such as to ensure the electrical isolation of the accelerometer from the printer frame. Failing to ensure that can create a ground loop in the system that may damage the electronics.
+**Figyelem:** győződjön meg arról, hogy a gyorsulásmérő és a helyére rögzítő csavarok nem érnek a nyomtató fém részeihez. Alapvetően a rögzítést úgy kell kialakítani, hogy biztosítsa a gyorsulásmérő elektromos szigetelését a nyomtató keretétől. Ennek elmulasztása földhurkot hozhat létre a rendszerben, ami károsíthatja az elektronikát.
 
-### Software installation
+### Szoftver telepítése
 
-Note that resonance measurements and shaper auto-calibration require additional software dependencies not installed by default. First, you will have to run on your Raspberry Pi the following command:
+Vegye figyelembe, hogy a rezonanciamérések és a shaper automatikus kalibrálása további, alapértelmezés szerint nem telepített szoftverfüggőségeket igényel. Először is, a Raspberry Pi-n a következő parancsot kell futtatnia:
 
 ```
 ~/klippy-env/bin/pip install -v numpy
 ```
 
-to install `numpy` package. Note that, depending on the performance of the CPU, it may take *a lot* of time, up to 10-20 minutes. Be patient and wait for the completion of the installation. On some occasions, if the board has too little RAM, the installation may fail and you will need to enable swap.
+a `numpy` csomag telepítéséhez. Vegye figyelembe, hogy a CPU teljesítményétől függően ez *sok* időt vehet igénybe, akár 10-20 percet is. Legyen türelmes, és várja meg a telepítés befejezését. Bizonyos esetekben, ha a kártyán túl kevés RAM van, a telepítés meghiúsulhat, és engedélyeznie kell a swapot.
 
-Next, run the following commands to install the additional dependencies:
+Ezután futtassa a következő parancsokat a további függőségek telepítéséhez:
 
 ```
 sudo apt update
 sudo apt install python3-numpy python3-matplotlib
 ```
 
-Afterwards, check and follow the instructions in the [RPi Microcontroller document](RPi_microcontroller.md) to setup the "linux mcu" on the Raspberry Pi.
+Ezután ellenőrizze és kövesse az [RPi Microcontroller dokumentum](RPi_microcontroller.md) utasításait a "linux mcu" beállításához a Raspberry Pi-n.
 
 Győződjünk meg róla, hogy a Linux SPI-illesztőprogram engedélyezve van a `sudo raspi-config` futtatásával és az SPI engedélyezésével az "Interfacing options" menüben.
 
-Add the following to the printer.cfg file:
+Adja hozzá a következőket a printer.cfg fájlhoz:
 
 ```
 [mcu rpi]
@@ -70,43 +70,43 @@ cs_pin: rpi:None
 [resonance_tester]
 accel_chip: adxl345
 probe_points:
-    100, 100, 20  # an example
+    100, 100, 20 # egy példa
 ```
 
-It is advised to start with 1 probe point, in the middle of the print bed, slightly above it.
+Javasoljuk, hogy 1 mérőpontal kezdje, a nyomtatási ágy közepén, kissé felette.
 
-Restart Klipper via the `RESTART` command.
+Indítsa újra a Klippert a `RESTART` paranccsal.
 
-## Measuring the resonances
+## A rezonanciák mérése
 
-### Checking the setup
+### A beállítás ellenőrzése
 
-Now you can test a connection.
+Most már tesztelheti a kapcsolatot.
 
-- For "non bed-slingers" (e.g. one accelerometer), in Octoprint, enter `ACCELEROMETER_QUERY`
-- For "bed-slingers" (e.g. more than one accelerometer), enter `ACCELEROMETER_QUERY CHIP=<chip>` where `<chip>` is the name of the chip as-entered, e.g. `CHIP=bed` (see: [bed-slinger](#bed-slinger-printers)) for all installed accelerometer chips.
+- A "nem ágyat érintő" (pl. egy gyorsulásmérő), az Octoprintben írja be a `ACCELEROMETER_QUERY` bejegyzést
+- A "bed-slingers" (pl. egynél több gyorsulásmérő) esetében írja be a `ACCELEROMETER_QUERY CHIP=<chip>` ahol `<chip>` a chip neve a beírt formában, pl. `CHIP=bed` (lásd: [bed-slinger](#bed-slinger-printers)) az összes telepített gyorsulásmérő chiphez.
 
-You should see the current measurements from the accelerometer, including the free-fall acceleration, e.g.
+A gyorsulásmérő aktuális méréseit kell látnia, beleértve a szabadesés gyorsulását is, pl.
 
 ```
-Recv: // adxl345 values (x, y, z): 470.719200, 941.438400, 9728.196800
+Visszahívás: // adxl345 értékek (x, y, z): 470.719200, 941.438400, 9728.196800
 ```
 
-If you get an error like `Invalid adxl345 id (got xx vs e5)`, where `xx` is some other ID, it is indicative of the connection problem with ADXL345, or the faulty sensor. Double-check the power, the wiring (that it matches the schematics, no wire is broken or loose, etc.), and soldering quality.
+Ha olyan hibát kap, mint `Invalid adxl345 id (got xx vs e5)`, ahol `xx` valami más azonosító, azaz ADXL345-öt érintő kapcsolati problémára vagy a hibás érzékelőre utal. Ellenőrizze kétszer is a tápellátást, a kábelezést (hogy megfelel-e a kapcsolási rajzoknak, nincs-e törött vagy laza vezeték stb.) és a forrasztás minőségét.
 
-Next, try running `MEASURE_AXES_NOISE` in Octoprint, you should get some baseline numbers for the noise of accelerometer on the axes (should be somewhere in the range of ~1-100). Too high axes noise (e.g. 1000 and more) can be indicative of the sensor issues, problems with its power, or too noisy imbalanced fans on a 3D printer.
+Ezután próbáld meg futtatni a `MEASURE_AXES_NOISE` parancsot az Octoprintben, így kaphatsz néhány alapszámot a gyorsulásmérő zajára a tengelyeken (valahol a ~1-100-as tartományban kell lennie). A túl magas tengelyzaj (pl. 1000 és több) az érzékelő problémáira, a tápellátásával kapcsolatos problémákra vagy a 3D nyomtató túl zajos, kiegyensúlyozatlan ventilátoraira utalhat.
 
-### Measuring the resonances
+### A rezonanciák mérése
 
-Now you can run some real-life tests. Run the following command:
+Most már lefuttathat néhány valós tesztet. Futtassa a következő parancsot:
 
 ```
 TEST_RESONANCES AXIS=X
 ```
 
-Note that it will create vibrations on X axis. It will also disable input shaping if it was enabled previously, as it is not valid to run the resonance testing with the input shaper enabled.
+Vegye figyelembe, hogy az X tengelyen rezgéseket hoz létre. A bemeneti alakítást is letiltja, ha az korábban engedélyezve volt, mivel a rezonancia tesztelés nem érvényes a bemeneti alakító engedélyezésével.
 
-**Attention!** Be sure to observe the printer for the first time, to make sure the vibrations do not become too violent (`M112` command can be used to abort the test in case of emergency; hopefully it will not come to this though). If the vibrations do get too strong, you can attempt to specify a lower than the default value for `accel_per_hz` parameter in `[resonance_tester]` section, e.g.
+**Figyelem!** Az első alkalommal mindenképpen figyelje meg a nyomtatót, hogy a rezgések ne legyenek túl hevesek (az `M112` paranccsal vészhelyzet esetén megszakítható a teszt; remélhetőleg azonban erre nem kerül sor). Ha a rezgések mégis túl erősek lesznek, megpróbálhat az alapértelmezettnél alacsonyabb értéket megadni az `accel_per_hz` paraméterhez a `[resonance_tester]` szakaszban, pl.
 
 ```
 [resonance_tester]
@@ -115,38 +115,38 @@ accel_per_hz: 50  # default is 75
 probe_points: ...
 ```
 
-If it works for X axis, run for Y axis as well:
+Ha az X tengelyen működik, futtassa az Y tengelyen is:
 
 ```
 TEST_RESONANCES AXIS=Y
 ```
 
-This will generate 2 CSV files (`/tmp/resonances_x_*.csv` and `/tmp/resonances_y_*.csv`). These files can be processed with the stand-alone script on a Raspberry Pi. To do that, run the following commands:
+Ez 2 CSV fájlt fog létrehozni (`/tmp/resonances_x_*.csv` és `/tmp/resonances_y_*.csv`) Ezeket a fájlokat a Raspberry Pi-n lévő önálló szkript segítségével lehet feldolgozni. Ehhez futtassa a következő parancsokat:
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_y_*.csv -o /tmp/shaper_calibrate_y.png
 ```
 
-This script will generate the charts `/tmp/shaper_calibrate_x.png` and `/tmp/shaper_calibrate_y.png` with frequency responses. You will also get the suggested frequencies for each input shaper, as well as which input shaper is recommended for your setup. For example:
+Ez a szkript létrehozza a `/tmp/shaper_calibrate_x.png` és `/tmp/shaper_calibrate_y.png` diagramokat a frekvenciaválaszokkal. Az egyes bemeneti shaperek javasolt frekvenciáit is megkapja, valamint azt, hogy melyik bemeneti shaper ajánlott az Ön beállításához. Például:
 
 ![Resonances](img/calibrate-y.png)
 
 ```
-Fitted shaper 'zv' frequency = 34.4 Hz (vibrations = 4.0%, smoothing ~= 0.132)
-To avoid too much smoothing with 'zv', suggested max_accel <= 4500 mm/sec^2
-Fitted shaper 'mzv' frequency = 34.6 Hz (vibrations = 0.0%, smoothing ~= 0.170)
-To avoid too much smoothing with 'mzv', suggested max_accel <= 3500 mm/sec^2
-Fitted shaper 'ei' frequency = 41.4 Hz (vibrations = 0.0%, smoothing ~= 0.188)
-To avoid too much smoothing with 'ei', suggested max_accel <= 3200 mm/sec^2
-Fitted shaper '2hump_ei' frequency = 51.8 Hz (vibrations = 0.0%, smoothing ~= 0.201)
-To avoid too much smoothing with '2hump_ei', suggested max_accel <= 3000 mm/sec^2
-Fitted shaper '3hump_ei' frequency = 61.8 Hz (vibrations = 0.0%, smoothing ~= 0.215)
-To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2800 mm/sec^2
-Recommended shaper is mzv @ 34.6 Hz
+illesztett alakító 'zv' frekvencia = 34,4 Hz (rezgések = 4,0%, simítás ~= 0,132)
+A túl nagy simítás elkerülése érdekében a 'zv', javasolt max_accel <= 4500 mm/sec^2
+Alkalmazott alakító 'mzv' frekvencia = 34,6 Hz (rezgések = 0,0%, simítás ~= 0,170)
+A túl nagy simítás elkerülése érdekében az 'mzv' esetében javasolt max_accel <= 3500 mm/sec^2
+Alkalmazott alakító 'ei' frekvencia = 41,4 Hz (rezgések = 0,0%, simítás ~= 0,188)
+A túl nagy simítás elkerülése érdekében az 'ei', javasolt max_accel <= 3200 mm/sec^2
+Alkalmazott alakító '2hump_ei' frekvencia = 51,8 Hz (rezgések = 0,0%, simítás ~= 0,201)
+A túl nagy simítás elkerülése érdekében a '2hump_ei' esetében javasolt max_accel <= 3000 mm/sec^2
+Alkalmazott alakító '3hump_ei' frekvencia = 61,8 Hz (rezgések = 0,0%, simítás ~= 0,215)
+A túl nagy simítás elkerülése érdekében a '3hump_ei' esetében javasolt max_accel <= 2800 mm/sec^2
+Az ajánlott shaper az mzv @ 34,6 Hz.
 ```
 
-The suggested configuration can be added to `[input_shaper]` section of `printer.cfg`, e.g.:
+A javasolt konfiguráció hozzáadható az `[input_shaper]` szakaszhoz a `printer.cfg` részben, például:
 
 ```
 [input_shaper]
@@ -156,130 +156,130 @@ shaper_freq_y: 34.6
 shaper_type_y: mzv
 
 [printer]
-max_accel: 3000  # should not exceed the estimated max_accel for X and Y axes
+max_accel: 3000 # nem haladhatja meg a becsült max_accel értéket az X és Y tengelyeknél.
 ```
 
-or you can choose some other configuration yourself based on the generated charts: peaks in the power spectral density on the charts correspond to the resonance frequencies of the printer.
+vagy választhat más konfigurációt is a generált diagramok alapján: a diagramokon a teljesítményspektrális sűrűség csúcsai megfelelnek a nyomtató rezonanciafrekvenciáinak.
 
-Note that alternatively you can run the input shaper autocalibration from Klipper [directly](#input-shaper-auto-calibration), which can be convenient, for example, for the input shaper [re-calibration](#input-shaper-re-calibration).
+Megjegyzendő, hogy alternatívaként a bemeneti alakító automatikus kalibrációját a Klipperből [közvetlenül](#input-shaper-auto-calibration) is futtathatja, ami például a bemeneti alakító [re-kalibrációjához](#input-shaper-re-calibration) lehet hasznos.
 
-### Bed-slinger printers
+### Bed-slinger nyomtatók
 
-If your printer is a bed slinger printer, you will need to change the location of the accelerometer between the measurements for X and Y axes: measure the resonances of X axis with the accelerometer attached to the toolhead and the resonances of Y axis - to the bed (the usual bed slinger setup).
+Ha az Ön nyomtatója ágya Y tengelyen van, akkor meg kell változtatnia a gyorsulásmérő helyét az X és Y tengelyek mérései között: az X tengely rezonanciáit a szerszámfejre szerelt gyorsulásmérővel, az Y tengely rezonanciáit pedig az ágyra szerelt gyorsulásmérővel kell mérnie (a szokásos nyomtató beállítással).
 
-However, you can also connect two accelerometers simultaneously, though they must be connected to different boards (say, to an RPi and printer MCU board), or to two different physical SPI interfaces on the same board (rarely available). Then they can be configured in the following manner:
+Azonban két gyorsulásmérőt is csatlakoztathatsz egyszerre, bár ezeket különböző lapokhoz kell csatlakoztatni (mondjuk egy RPi és egy nyomtató MCU laphoz), vagy két különböző fizikai SPI interfészhez ugyanazon a lapon (ritkán elérhető). Ezután a következő módon lehet őket konfigurálni:
 
 ```
 [adxl345 hotend]
-# Assuming `hotend` chip is connected to an RPi
+# Feltételezve, hogy a `hotend` chip egy RPihez van csatlakoztatva.
 cs_pin: rpi:None
 
 [adxl345 bed]
-# Assuming `bed` chip is connected to a printer MCU board
-cs_pin: ...  # Printer board SPI chip select (CS) pin
+# Feltételezve, hogy a `bed` chip egy nyomtató MCU lapkához van csatlakoztatva.
+cs_pin: ...  # nyomtató alaplap SPI chip select (CS) pinje
 
 [resonance_tester]
-# Assuming the typical setup of the bed slinger printer
+# Feltételezve az Y ágyas nyomtató tipikus beállítását.
 accel_chip_x: adxl345 hotend
 accel_chip_y: adxl345 bed
 probe_points: ...
 ```
 
-Then the commands `TEST_RESONANCES AXIS=X` and `TEST_RESONANCES AXIS=Y` will use the correct accelerometer for each axis.
+Ekkor a `TEST_RESONANCES AXIS=X` és `TEST_RESONANCES AXIS=Y` parancsok a megfelelő gyorsulásmérőt fogják használni minden tengelyhez.
 
-### Max smoothing
+### Max simítás
 
-Keep in mind that the input shaper can create some smoothing in parts. Automatic tuning of the input shaper performed by `calibrate_shaper.py` script or `SHAPER_CALIBRATE` command tries not to exacerbate the smoothing, but at the same time they try to minimize the resulting vibrations. Sometimes they can make a sub-optimal choice of the shaper frequency, or maybe you simply prefer to have less smoothing in parts at the expense of a larger remaining vibrations. In these cases, you can request to limit the maximum smoothing from the input shaper.
+Ne feledje, hogy a bemeneti formázó simítást hozhat létre az alkatrészekben. A `calibrate_shaper.py` szkript vagy `SHAPER_CALIBRATE` parancs által végrehajtott bemeneti formázó automatikus hangolása nem súlyosbítja a simítást, ugyanakkor megpróbálja minimalizálni az ebből eredő rezgéseket. Néha az alakformáló frekvencia optimálistól elmaradó választását hozhatják, vagy talán egyszerűen csak kevésbé simítják az alkatrészeket a nagyobb fennmaradó rezgések rovására. Ezekben az esetekben kérheti a bemeneti formázó maximális simításának korlátozását.
 
-Let's consider the following results from the automatic tuning:
+Nézzük meg az automatikus hangolás következő eredményeit:
 
 ![Resonances](img/calibrate-x.png)
 
 ```
-Fitted shaper 'zv' frequency = 57.8 Hz (vibrations = 20.3%, smoothing ~= 0.053)
-To avoid too much smoothing with 'zv', suggested max_accel <= 13000 mm/sec^2
-Fitted shaper 'mzv' frequency = 34.8 Hz (vibrations = 3.6%, smoothing ~= 0.168)
-To avoid too much smoothing with 'mzv', suggested max_accel <= 3600 mm/sec^2
-Fitted shaper 'ei' frequency = 48.8 Hz (vibrations = 4.9%, smoothing ~= 0.135)
-To avoid too much smoothing with 'ei', suggested max_accel <= 4400 mm/sec^2
-Fitted shaper '2hump_ei' frequency = 45.2 Hz (vibrations = 0.1%, smoothing ~= 0.264)
-To avoid too much smoothing with '2hump_ei', suggested max_accel <= 2200 mm/sec^2
-Fitted shaper '3hump_ei' frequency = 48.0 Hz (vibrations = 0.0%, smoothing ~= 0.356)
-To avoid too much smoothing with '3hump_ei', suggested max_accel <= 1500 mm/sec^2
-Recommended shaper is 2hump_ei @ 45.2 Hz
+illesztett alakító 'zv' frekvencia = 57,8 Hz (rezgések = 20,3%, simítás ~= 0,053)
+A túl nagy simítás elkerülése érdekében a 'zv', javasolt max_accel <= 13000 mm/sec^2
+Alkalmazott alakító 'mzv' frekvencia = 34,8 Hz (rezgések = 3,6%, simítás ~= 0,168)
+A túl nagy simítás elkerülése érdekében az 'mzv' esetében javasolt max_accel <= 3600 mm/sec^2
+Alkalmazott alakító 'ei' frekvencia = 48,8 Hz (rezgések = 4,9%, simítás ~= 0,135)
+A túl nagy simítás elkerülése érdekében az 'ei', javasolt max_accel <= 4400 mm/sec^2
+Alkalmazott alakító '2hump_ei' frekvencia = 45,2 Hz (rezgések = 0,1%, simítás ~= 0,264)
+A túl nagy simítás elkerülése érdekében a '2hump_ei' esetében javasolt max_accel <= 2200 mm/sec^2
+Alkalmazott alakító '3hump_ei' frekvencia = 48,0 Hz (rezgések = 0,0%, simítás ~= 0,356)
+A túl nagy simítás elkerülése érdekében a '3hump_ei' esetében javasolt max_accel <= 1500 mm/sec^2
+Az ajánlott alakító 2hump_ei @ 45,2 Hz.
 ```
 
-Note that the reported `smoothing` values are some abstract projected values. These values can be used to compare different configurations: the higher the value, the more smoothing a shaper will create. However, these smoothing scores do not represent any real measure of smoothing, because the actual smoothing depends on [`max_accel`](#selecting-max-accel) and `square_corner_velocity` parameters. Therefore, you should print some test prints to see how much smoothing exactly a chosen configuration creates.
+Vegye figyelembe, hogy a bejelentett `simítás` értékek absztrakt vetített értékek. Ezek az értékek különböző konfigurációk összehasonlítására használhatók: minél magasabb az érték, annál nagyobb simítást hoz létre a formázó. Ezek a simítási értékek azonban nem jelentik a simítás valódi mértékét, mivel a tényleges simítás a [`max_accel`](#selecting-max-accel) és `square_corner_velocity` paraméterektől függ. Ezért érdemes néhány tesztnyomatot nyomtatni, hogy lássuk, pontosan mekkora simítást hoz létre a kiválasztott konfiguráció.
 
-In the example above the suggested shaper parameters are not bad, but what if you want to get less smoothing on the X axis? You can try to limit the maximum shaper smoothing using the following command:
+A fenti példában a javasolt alakító paraméterek nem rosszak, de mi van akkor, ha az X tengelyen kevesebb simítást szeretne elérni? Megpróbálhatja korlátozni a maximális alakító simítást a következő paranccsal:
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --max_smoothing=0.2
 ```
 
-which limits the smoothing to 0.2 score. Now you can get the following result:
+amely a simítást 0,2 pontszámra korlátozza. Most a következő eredményt kaphatja:
 
 ![Resonances](img/calibrate-x-max-smoothing.png)
 
 ```
-Fitted shaper 'zv' frequency = 55.4 Hz (vibrations = 19.7%, smoothing ~= 0.057)
-To avoid too much smoothing with 'zv', suggested max_accel <= 12000 mm/sec^2
-Fitted shaper 'mzv' frequency = 34.6 Hz (vibrations = 3.6%, smoothing ~= 0.170)
-To avoid too much smoothing with 'mzv', suggested max_accel <= 3500 mm/sec^2
-Fitted shaper 'ei' frequency = 48.2 Hz (vibrations = 4.8%, smoothing ~= 0.139)
-To avoid too much smoothing with 'ei', suggested max_accel <= 4300 mm/sec^2
-Fitted shaper '2hump_ei' frequency = 52.0 Hz (vibrations = 2.7%, smoothing ~= 0.200)
-To avoid too much smoothing with '2hump_ei', suggested max_accel <= 3000 mm/sec^2
-Fitted shaper '3hump_ei' frequency = 72.6 Hz (vibrations = 1.4%, smoothing ~= 0.155)
-To avoid too much smoothing with '3hump_ei', suggested max_accel <= 3900 mm/sec^2
-Recommended shaper is 3hump_ei @ 72.6 Hz
+illesztett alakító 'zv' frekvencia = 55,4 Hz (rezgések = 19,7%, simítás ~= 0,057)
+A túl nagy simítás elkerülése érdekében a 'zv', javasolt max_accel <= 12000 mm/sec^2
+Alkalmazott alakító 'mzv' frekvencia = 34,6 Hz (rezgések = 3,6%, simítás ~= 0,170)
+A túl nagy simítás elkerülése érdekében az 'mzv' esetében javasolt max_accel <= 3500 mm/sec^2
+Alkalmazott alakító 'ei' frekvencia = 48,2 Hz (rezgések = 4,8%, simítás ~= 0,139)
+A túl nagy simítás elkerülése érdekében az 'ei' esetében javasolt max_accel <= 4300 mm/sec^2
+Alkalmazott alakító '2hump_ei' frekvencia = 52,0 Hz (rezgések = 2,7%, simítás ~= 0,200)
+A túl nagy simítás elkerülése érdekében a '2hump_ei' esetében javasolt max_accel <= 3000 mm/sec^2
+Alkalmazott alakító '3hump_ei' frekvencia = 72,6 Hz (rezgések = 1,4%, simítás ~= 0,155)
+A túl nagy simítás elkerülése érdekében a '3hump_ei' esetében javasolt max_accel <= 3900 mm/sec^2
+Az ajánlott alakító 3hump_ei @ 72,6 Hz.
 ```
 
-If you compare to the previously suggested parameters, the vibrations are a bit larger, but the smoothing is significantly smaller than previously, allowing larger maximum acceleration.
+Ha összehasonlítjuk a korábban javasolt paraméterekkel, a rezgések kicsit nagyobbak, de a simítás lényegesen kisebb, mint korábban, ami nagyobb maximális gyorsulást tesz lehetővé.
 
-When deciding which `max_smoothing` parameter to choose, you can use a trial-and-error approach. Try a few different values and see which results you get. Note that the actual smoothing produced by the input shaper depends, primarily, on the lowest resonance frequency of the printer: the higher the frequency of the lowest resonance - the smaller the smoothing. Therefore, if you request the script to find a configuration of the input shaper with the unrealistically small smoothing, it will be at the expense of increased ringing at the lowest resonance frequencies (which are, typically, also more prominently visible in prints). So, always double-check the projected remaining vibrations reported by the script and make sure they are not too high.
+A `max_smoothing` paraméter kiválasztásakor a próbálgatás és a tévedés módszerét alkalmazhatjuk. Próbáljon ki néhány különböző értéket, és nézze meg, milyen eredményeket kap. Vegye figyelembe, hogy a bemeneti alakító által előállított tényleges simítás elsősorban a nyomtató legalacsonyabb rezonanciafrekvenciájától függ: minél magasabb a legalacsonyabb rezonancia frekvenciája - annál kisebb a simítás. Ezért ha azt kéri a parancsfájltól, hogy a bemeneti alakító olyan konfigurációját keresse meg, amely irreálisan kis simítással rendelkezik, akkor ez a legalacsonyabb rezonanciafrekvenciákon (amelyek jellemzően a nyomatokon is jobban láthatóak) megnövekedett rezgés árán fog történni. Ezért mindig ellenőrizze kétszeresen a szkript által jelzett vetített maradó rezgéseket, és győződjön meg róla, hogy azok nem túl magasak.
 
-Note that if you chose a good `max_smoothing` value for both of your axes, you can store it in the `printer.cfg` as
+Ha mindkét tengelyhez jó `max_smoothing` értéket választott, akkor azt a `printer.cfg` állományban tárolhatja a következő módon:
 
 ```
 [resonance_tester]
 accel_chip: ...
 probe_points: ...
-max_smoothing: 0.25  # an example
+max_smoothing: 0.25 # egy példa
 ```
 
-Then, if you [rerun](#input-shaper-re-calibration) the input shaper auto-tuning using `SHAPER_CALIBRATE` Klipper command in the future, it will use the stored `max_smoothing` value as a reference.
+Ezután, ha a jövőben [újraindítja](#input-shaper-re-calibration) a bemeneti alakító automatikus hangolását a `SHAPER_CALIBRATE` Klipper parancs segítségével, akkor a tárolt `max_smoothing` értéket fogja referenciaként használni.
 
-### Selecting max_accel
+### A max_accel kiválasztása
 
-Since the input shaper can create some smoothing in parts, especially at high accelerations, you will still need to choose the `max_accel` value that does not create too much smoothing in the printed parts. A calibration script provides an estimate for `max_accel` parameter that should not create too much smoothing. Note that the `max_accel` as displayed by the calibration script is only a theoretical maximum at which the respective shaper is still able to work without producing too much smoothing. It is by no means a recommendation to set this acceleration for printing. The maximum acceleration your printer is able to sustain depends on its mechanical properties and the maximum torque of the used stepper motors. Therefore, it is suggested to set `max_accel` in `[printer]` section that does not exceed the estimated values for X and Y axes, likely with some conservative safety margin.
+Mivel a bemeneti alakító némi simítást okozhat az elemekben, különösen nagy gyorsulásoknál, továbbra is meg kell választani a `max_accel` értéket, amely nem okoz túl nagy simítást a nyomtatott alkatrészekben. Egy kalibrációs szkript becslést ad a `max_accel` paraméterre, amely nem okozhat túl nagy simítást. Vegye figyelembe, hogy a kalibrációs szkript által megjelenített `max_accel` csak egy elméleti maximum, amelynél az adott alakító még képes úgy dolgozni, hogy nem okoz túl nagy simítást. Semmiképpen sem ajánlott ezt a gyorsulást beállítani a nyomtatáshoz. A nyomtatója által elviselhető maximális gyorsulás a nyomtató mechanikai tulajdonságaitól és a használt léptetőmotorok maximális nyomatékától függ. Ezért javasolt a `max_accel` beállítása a `[nyomtató]` szakaszban, amely nem haladja meg az X és Y tengelyek becsült értékeit, valószínűleg némi konzervatív biztonsági tartalékkal.
 
-Alternatively, follow [this](Resonance_Compensation.md#selecting-max_accel) part of the input shaper tuning guide and print the test model to choose `max_accel` parameter experimentally.
+Alternatívaként kövesse [ezt](Resonance_Compensation.md#selecting-max_accel) a részt a bemeneti alakító hangolási útmutatójában, és nyomtassa ki a tesztmodellt a `max_accel` paraméter kísérleti kiválasztásához.
 
-The same notice applies to the input shaper [auto-calibration](#input-shaper-auto-calibration) with `SHAPER_CALIBRATE` command: it is still necessary to choose the right `max_accel` value after the auto-calibration, and the suggested acceleration limits will not be applied automatically.
+Ugyanez a figyelmeztetés vonatkozik a bemeneti alakító [auto-kalibrálás](#input-shaper-auto-calibration) `SHAPER_CALIBRATE` paranccsal történő használatára is: az auto-kalibrálás után továbbra is szükséges a megfelelő `max_accel` érték kiválasztása, és a javasolt gyorsulási korlátok nem lesznek automatikusan alkalmazva.
 
-If you are doing a shaper re-calibration and the reported smoothing for the suggested shaper configuration is almost the same as what you got during the previous calibration, this step can be skipped.
+Ha a formázó újrakalibrálását végzi, és a javasolt formázó konfigurációhoz tartozó simítás majdnem megegyezik az előző kalibrálás során kapott értékkel, ez a lépés kihagyható.
 
-### Testing custom axes
+### Egyéni tengelyek tesztelése
 
-`TEST_RESONANCES` command supports custom axes. While this is not really useful for input shaper calibration, it can be used to study printer resonances in-depth and to check, for example, belt tension.
+`TEST_RESONANCES` parancs támogatja az egyéni tengelyeket. Bár ez nem igazán hasznos a bemeneti alakító kalibrálásához, a nyomtató rezonanciáinak alapos tanulmányozására és például a szíjfeszítés ellenőrzésére használható.
 
-To check the belt tension on CoreXY printers, execute
+A CoreXY nyomtatókon a szíjfeszítés ellenőrzéséhez hajtsa végre a következőt
 
 ```
 TEST_RESONANCES AXIS=1,1 OUTPUT=raw_data
 TEST_RESONANCES AXIS=1,-1 OUTPUT=raw_data
 ```
 
-and use `graph_accelerometer.py` to process the generated files, e.g.
+és használjuk a `graph_accelerometer.py` fájlt a generált fájlok feldolgozásához, pl.
 
 ```
 ~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
 ```
 
-which will generate `/tmp/resonances.png` comparing the resonances.
+amely a rezonanciákat összehasonlítva `/tmp/resonances.png` képet hoz létre.
 
-For Delta printers with the default tower placement (tower A ~= 210 degrees, B ~= 330 degrees, and C ~= 90 degrees), execute
+Az alapértelmezett toronyelhelyezésű Delta nyomtatók esetében (A torony ~= 210 fok, B ~= 330 fok és C ~= 90 fok), hajtsa végre a következőt
 
 ```
 TEST_RESONANCES AXIS=0,1 OUTPUT=raw_data
@@ -287,98 +287,98 @@ TEST_RESONANCES AXIS=-0.866025404,-0.5 OUTPUT=raw_data
 TEST_RESONANCES AXIS=0.866025404,-0.5 OUTPUT=raw_data
 ```
 
-and then use the same command
+majd használja ugyanazt a parancsot
 
 ```
 ~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
 ```
 
-to generate `/tmp/resonances.png` comparing the resonances.
+`/tmp/resonances.png` létrehozásához, amely összehasonlítja a rezonanciákat.
 
-## Input Shaper auto-calibration
+## Bemeneti formázó automatikus kalibrálása
 
-Besides manually choosing the appropriate parameters for the input shaper feature, it is also possible to run the auto-tuning for the input shaper directly from Klipper. Run the following command via Octoprint terminal:
+A bemeneti formázó funkció megfelelő paramétereinek kézi kiválasztása mellett a bemeneti alakító automatikus hangolása közvetlenül a Klipperből is elvégezhető. Futtassa a következő parancsot az Octoprint terminálon keresztül:
 
 ```
 SHAPER_CALIBRATE
 ```
 
-This will run the full test for both axes and generate the csv output (`/tmp/calibration_data_*.csv` by default) for the frequency response and the suggested input shapers. You will also get the suggested frequencies for each input shaper, as well as which input shaper is recommended for your setup, on Octoprint console. For example:
+Ez lefuttatja a teljes tesztet mindkét tengelyre, és létrehozza a csv-kimenetet (`/tmp/calibration_data_*.csv` alapértelmezés szerint) a frekvenciaválaszról és a javasolt bemeneti alakítókról. Az Octoprint konzolon megkapja az egyes bemeneti alakítók javasolt frekvenciáit is, valamint azt, hogy melyik bemeneti alakítót ajánljuk az Ön beállításához. Például:
 
 ```
-Calculating the best input shaper parameters for y axis
-Fitted shaper 'zv' frequency = 39.0 Hz (vibrations = 13.2%, smoothing ~= 0.105)
-To avoid too much smoothing with 'zv', suggested max_accel <= 5900 mm/sec^2
-Fitted shaper 'mzv' frequency = 36.8 Hz (vibrations = 1.7%, smoothing ~= 0.150)
-To avoid too much smoothing with 'mzv', suggested max_accel <= 4000 mm/sec^2
-Fitted shaper 'ei' frequency = 36.6 Hz (vibrations = 2.2%, smoothing ~= 0.240)
-To avoid too much smoothing with 'ei', suggested max_accel <= 2500 mm/sec^2
-Fitted shaper '2hump_ei' frequency = 48.0 Hz (vibrations = 0.0%, smoothing ~= 0.234)
-To avoid too much smoothing with '2hump_ei', suggested max_accel <= 2500 mm/sec^2
-Fitted shaper '3hump_ei' frequency = 59.0 Hz (vibrations = 0.0%, smoothing ~= 0.235)
-To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2500 mm/sec^2
-Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz
+A legjobb bemeneti alakító paraméterek kiszámítása az y tengelyhez
+Beillesztett alakító 'zv' frekvencia = 39,0 Hz (rezgések = 13,2%, simítás ~= 0,105)
+A túl nagy simítás elkerülése érdekében a 'zv', javasolt max_accel <= 5900 mm/sec^2
+Alkalmazott alakító 'mzv' frekvencia = 36,8 Hz (rezgések = 1,7%, simítás ~= 0,150)
+A túl nagy simítás elkerülése érdekében az 'mzv' esetében javasolt max_accel <= 4000 mm/sec^2
+Alkalmazott alakító 'ei' frekvencia = 36,6 Hz (rezgések = 2,2%, simítás ~= 0,240)
+A túl nagy simítás elkerülése érdekében az 'ei', javasolt max_accel <= 2500 mm/sec^2
+Alkalmazott alakító '2hump_ei' frekvencia = 48,0 Hz (rezgések = 0,0%, simítás ~= 0,234)
+A túl nagy simítás elkerülése érdekében a '2hump_ei' esetében javasolt max_accel <= 2500 mm/sec^2
+Alkalmazott alakító '3hump_ei' frekvencia = 59,0 Hz (rezgések = 0,0%, simítás ~= 0,235)
+A túl nagy simítás elkerülése érdekében a '3hump_ei' esetében javasolt max_accel <= 2500 mm/sec^2
+Ajánlott shaper_type_y = mzv, shaper_freq_y = 36,8 Hz
 ```
 
-If you agree with the suggested parameters, you can execute `SAVE_CONFIG` now to save them and restart the Klipper. Note that this will not update `max_accel` value in `[printer]` section. You should update it manually following the considerations in [Selecting max_accel](#selecting-max_accel) section.
+Ha egyetért a javasolt paraméterekkel, akkor a `SAVE_CONFIG` parancsot most végre lehet hajtani a paraméterek mentéséhez és a Klipper újraindításához. Vegye figyelembe, hogy ez nem frissíti a `max_accel` értéket a `[printer]` szakaszban. Ezt manuálisan kell frissítenie a [max_accel kiválasztása](#selecting-max_accel) szakaszban leírtak szerint.
 
-If your printer is a bed slinger printer, you can specify which axis to test, so that you can change the accelerometer mounting point between the tests (by default the test is performed for both axes):
+Ha a nyomtatója Y tengelyén van az ágy akkor megadhatja, hogy melyik tengelyt kívánja tesztelni, így a tesztek között megváltoztathatja a gyorsulásmérő rögzítési pontját (alapértelmezés szerint a teszt mindkét tengelyen végrehajtásra kerül):
 
 ```
 SHAPER_CALIBRATE AXIS=Y
 ```
 
-You can execute `SAVE_CONFIG` twice - after calibrating each axis.
+A `SAVE_CONFIG` parancsot kétszer - minden egyes tengely kalibrálása után - lehet végrehajtani.
 
-However, if you connected two accelerometers simultaneously, you simply run `SHAPER_CALIBRATE` without specifying an axis to calibrate the input shaper for both axes in one go.
+Ha azonban egyszerre két gyorsulásmérőt csatlakoztatott, egyszerűen futtassa a `SHAPER_CALIBRATE` parancsot tengely megadása nélkül, hogy a bemeneti alakítót mindkét tengelyre egy menetben kalibrálja.
 
-### Input Shaper re-calibration
+### Bemeneti formázó újrakalibrálása
 
-`SHAPER_CALIBRATE` command can be also used to re-calibrate the input shaper in the future, especially if some changes to the printer that can affect its kinematics are made. One can either re-run the full calibration using `SHAPER_CALIBRATE` command, or restrict the auto-calibration to a single axis by supplying `AXIS=` parameter, like
+`SHAPER_CALIBRATE` parancs arra is használható, hogy a bemeneti alakítót a jövőben újra kalibrálja, különösen akkor, ha a nyomtató kinematikáját befolyásoló változások történnek. A teljes kalibrációt vagy a `SHAPER_CALIBRATE` paranccsal lehet újra lefuttatni, vagy az automatikus kalibrálást egyetlen tengelyre lehet korlátozni az `AXIS=` paraméter megadásával, például a következő módon
 
 ```
 SHAPER_CALIBRATE AXIS=X
 ```
 
-**Warning!** It is not advisable to run the shaper autocalibration very frequently (e.g. before every print, or every day). In order to determine resonance frequencies, autocalibration creates intensive vibrations on each of the axes. Generally, 3D printers are not designed to withstand a prolonged exposure to vibrations near the resonance frequencies. Doing so may increase wear of the printer components and reduce their lifespan. There is also an increased risk of some parts unscrewing or becoming loose. Always check that all parts of the printer (including the ones that may normally not move) are securely fixed in place after each auto-tuning.
+**Figyelmeztetés!** Nem tanácsos a formázógép automatikus kalibrációját nagyon gyakran futtatni (pl. minden nyomtatás előtt vagy minden nap). A rezonanciafrekvenciák meghatározása érdekében az autokalibrálás intenzív rezgéseket hoz létre az egyes tengelyeken. A 3D nyomtatókat általában nem úgy tervezték, hogy a rezonanciafrekvenciákhoz közeli rezgéseknek tartósan ellenálljanak. Ez növelheti a nyomtató alkatrészeinek kopását és csökkentheti élettartamukat. Megnő a kockázata annak is, hogy egyes alkatrészek kicsavarodnak vagy meglazulnak. Minden egyes automatikus hangolás után mindig ellenőrizze, hogy a nyomtató minden alkatrésze (beleértve azokat is, amelyek normál esetben nem mozoghatnak) biztonságosan a helyén van-e rögzítve.
 
-Also, due to some noise in measurements, it is possible that the tuning results will be slightly different from one calibration run to another one. Still, it is not expected that the noise will affect the print quality too much. However, it is still advised to double-check the suggested parameters, and print some test prints before using them to confirm they are good.
+Továbbá a mérések zajossága miatt lehetséges, hogy a hangolási eredmények kissé eltérnek az egyes kalibrálási folyamatok között. Ennek ellenére nem várható, hogy a zaj túlságosan befolyásolja a nyomtatási minőséget. Mindazonáltal továbbra is tanácsos kétszer is ellenőrizni a javasolt paramétereket, és használat előtt nyomtatni néhány próbanyomatot, hogy megbizonyosodjon arról, hogy azok megfelelőek.
 
-## Offline processing of the accelerometer data
+## A gyorsulásmérő adatainak offline feldolgozása
 
-It is possible to generate the raw accelerometer data and process it offline (e.g. on a host machine), for example to find resonances. In order to do so, run the following commands via Octoprint terminal:
+Lehetőség van a nyers gyorsulásmérő adatok előállítására és offline feldolgozására (pl. egy központi gépen), például rezonanciák keresésére. Ehhez futtassa a következő parancsokat az Octoprint terminálon keresztül:
 
 ```
 SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0
 TEST_RESONANCES AXIS=X OUTPUT=raw_data
 ```
 
-ignoring any errors for `SET_INPUT_SHAPER` command. For `TEST_RESONANCES` command, specify the desired test axis. The raw data will be written into `/tmp` directory on the RPi.
+a `SET_INPUT_SHAPER` parancs hibáinak figyelmen kívül hagyása. A `TEST_RESONANCES` parancshoz adja meg a kívánt teszttengelyt. A nyers adatok az RPi `/tmp` könyvtárába kerülnek kiírásra.
 
-The raw data can also be obtained by running the command `ACCELEROMETER_MEASURE` command twice during some normal printer activity - first to start the measurements, and then to stop them and write the output file. Refer to [G-Codes](G-Codes.md#adxl345) for more details.
+A nyers adatokat úgy is megkaphatjuk, ha a `ACCELEROMETER_MEASURE` parancsot kétszer futtatjuk valamilyen normál nyomtatási tevékenység közben - először a mérések elindításához, majd azok leállításához és a kimeneti fájl írásához. További részletekért lásd a [G-kódok](G-Codes.md#adxl345) című dokumentumot.
 
-The data can be processed later by the following scripts: `scripts/graph_accelerometer.py` and `scripts/calibrate_shaper.py`. Both of them accept one or several raw csv files as the input depending on the mode. The graph_accelerometer.py script supports several modes of operation:
+Az adatokat később a következő szkriptekkel lehet feldolgozni: `scripts/graph_accelerometer.py` és `scripts/calibrate_shaper.py`. Mindkettő egy vagy több nyers csv-fájlt fogad el bemenetként a módtól függően. A graph_accelerometer.py szkript többféle üzemmódot támogat:
 
-* plotting raw accelerometer data (use `-r` parameter), only 1 input is supported;
-* plotting a frequency response (no extra parameters required), if multiple inputs are specified, the average frequency response is computed;
-* comparison of the frequency response between several inputs (use `-c` parameter); you can additionally specify which accelerometer axis to consider via `-a x`, `-a y` or `-a z` parameter (if none specified, the sum of vibrations for all axes is used);
-* plotting the spectrogram (use `-s` parameter), only 1 input is supported; you can additionally specify which accelerometer axis to consider via `-a x`, `-a y` or `-a z` parameter (if none specified, the sum of vibrations for all axes is used).
+* nyers gyorsulásmérő adatok ábrázolása (használja a `-r` paramétert), csak 1 bemenet támogatott;
+* frekvenciaválasz ábrázolása (nincs szükség további paraméterekre), ha több bemenet van megadva, az átlagos frekvenciaválasz kerül kiszámításra;
+* több bemenet frekvenciaválaszának összehasonlítása (használja a `-c` paramétert); a `-a x`, `-a y` vagy `-a z` paraméterrel ezen felül megadhatja, hogy melyik gyorsulásmérő tengelyt vegye figyelembe (ha nincs megadva, az összes tengely rezgéseinek összegét használja);
+* a spektrogram ábrázolása (használja a `-s` paramétert), csak 1 bemenet támogatott; a `-a x`, `-a y` vagy `-a z` paraméterrel ezen felül megadhatja, hogy melyik gyorsulásmérő tengelyt vegye figyelembe (ha nincs megadva, akkor az összes tengely rezgéseinek összegét használja).
 
-Note that graph_accelerometer.py script supports only the raw_data\*.csv files and not resonances\*.csv or calibration_data\*.csv files.
+Vegye figyelembe, hogy a graph_accelerometer.py szkript csak a raw_data\*.csv fájlokat támogatja, a resonances\*.csv vagy calibration_data\*.csv fájlokat nem.
 
-For example,
+Például,
 
 ```
 ~/klipper/scripts/graph_accelerometer.py /tmp/raw_data_x_*.csv -o /tmp/resonances_x.png -c -a z
 ```
 
-will plot the comparison of several `/tmp/raw_data_x_*.csv` files for Z axis to `/tmp/resonances_x.png` file.
+több `/tmp/raw_data_x_*.csv` fájl és `/tmp/resonances_x.png` fájl összehasonlítását ábrázolja a Z tengelyen.
 
-The shaper_calibrate.py script accepts 1 or several inputs and can run automatic tuning of the input shaper and suggest the best parameters that work well for all provided inputs. It prints the suggested parameters to the console, and can additionally generate the chart if `-o output.png` parameter is provided, or the CSV file if `-c output.csv` parameter is specified.
+A shaper_calibrate.py szkript 1 vagy több bemenetet fogad el, és képes a bemeneti formázó automatikus hangolására, valamint a legjobb paraméterek kiválasztására, amelyek jól működnek az összes megadott bemeneten. A javasolt paramétereket kiírja a konzolra, és emellett képes létrehozni a grafikont, ha `-o output.png` paramétert adunk meg, vagy a CSV fájlt, ha `-c output.csv` paramétert adunk meg.
 
-Providing several inputs to shaper_calibrate.py script can be useful if running some advanced tuning of the input shapers, for example:
+Több bemenet megadása a shaper_calibrate.py szkriptnek hasznos lehet, ha például a bemeneti formázók haladó hangolását végezzük:
 
-* Running `TEST_RESONANCES AXIS=X OUTPUT=raw_data` (and `Y` axis) for a single axis twice on a bed slinger printer with the accelerometer attached to the toolhead the first time, and the accelerometer attached to the bed the second time in order to detect axes cross-resonances and attempt to cancel them with input shapers.
-* Running `TEST_RESONANCES AXIS=Y OUTPUT=raw_data` twice on a bed slinger with a glass bed and a magnetic surfaces (which is lighter) to find the input shaper parameters that work well for any print surface configuration.
-* Combining the resonance data from multiple test points.
-* Combining the resonance data from 2 axis (e.g. on a bed slinger printer to configure X-axis input_shaper from both X and Y axes resonances to cancel vibrations of the *bed* in case the nozzle 'catches' a print when moving in X axis direction).
+* A `TEST_RESONANCES AXIS=X OUTPUT=raw_data` (és `Y` tengely) futtatása egy tengelyre kétszer egy Y ágyas nyomtatón úgy, hogy a gyorsulásmérő először a szerszámfejhez, másodszor pedig az ágyhoz csatlakozik, hogy a tengelyek keresztrezonanciáit felismerjük, és megpróbáljuk azokat a bemeneti alakítókkal megszüntetni.
+* A `TEST_RESONANCES AXIS=Y OUTPUT=raw_data` kétszeri futtatása egy üvegágyas és egy mágneses felületű (amelyik könnyebb) ágyon, hogy megtaláljuk azokat a bemeneti alakító paramétereket, amelyek jól működnek bármilyen nyomtatási felületkonfiguráció esetén.
+* A több vizsgálati pontból származó rezonanciaadatok kombinálása.
+* A 2 tengely rezonanciaadatainak kombinálása (pl. egy Y tengelyen lévő ágyas nyomtatónál az X-tengely input_shaper konfigurálása mind az X-, mind az Y-tengely rezonanciáiból, hogy az *ágy* rezgéseit megszüntesse, ha a fúvóka 'elkap' egy nyomtatást, amikor X tengely irányában mozog).

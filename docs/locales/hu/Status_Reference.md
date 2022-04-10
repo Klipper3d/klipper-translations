@@ -22,13 +22,13 @@ A következő információk az [ágyháló](Config_Reference.md#bed_mesh) objekt
 A következő információk a `configfile` objektumban találhatók (ez az objektum mindig elérhető):
 
 - `settings.<section>.<option>`: Visszaadja az adott konfigurációs fájl beállítását (vagy alapértelmezett értékét) a szoftver utolsó indítása vagy újraindítása során. (A használat közben megváltoztatott beállítások nem jelennek meg itt.)
-- `config.<section>.<option>`: Returns the given raw config file setting as read by Klipper during the last software start or restart. (Any settings changed at run-time will not be reflected here.) All values are returned as strings.
+- `config.<section>.<option>`: Visszaadja az adott nyers konfigurációs fájl beállítását, ahogyan azt a Klipper a legutóbbi szoftverindítás vagy újraindítás során beolvasta. (A működés közben megváltoztatott beállítások nem jelennek meg itt.) Minden értéket stringként ad vissza.
 - `save_config_pending`: Returns true if there are updates that a `SAVE_CONFIG` command may persist to disk.
 - `warnings`: A list of warnings about config options. Each entry in the list will be a dictionary containing a `type` and `message` field (both strings). Additional fields may be available depending on the type of warning.
 
 ## display_status
 
-The following information is available in the `display_status` object (this object is automatically available if a [display](Config_Reference.md#display) config section is defined):
+A következő információk a `display_status` objektumban érhetők el (ez az objektum automatikusan elérhető, ha a [kijelző](Config_Reference.md#display) konfigurációs szakasz definiálva van):
 
 - `progress`: The progress value of the last `M73` G-Code command (or `virtual_sdcard.progress` if no recent `M73` received).
 - `message`: The message contained in the last `M117` G-Code command.

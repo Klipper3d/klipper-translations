@@ -145,7 +145,7 @@ cp /tmp/klippy.log .
 
 ## 用 simulavr 测试
 
-[simulavr](http://www.nongnu.org/simulavr/)工具使人们可以模拟Atmel ATmega微控制器。本节描述了如何通过simulavr运行测试gcode文件。建议在台式机（而不是Raspberry Pi）上运行这个工具，因为它需要大量的cpu来有效运行。
+[simulavr](http://www.nongnu.org/simulavr/)工具可以模拟 Atmel ATmega 微控制器。本章描述了如何通过simulavr运行测试gcode文件。由于该工具需要大量cpu资源，建议在台式机（而不是树莓派）上运行。
 
 To use simulavr, download the simulavr package and compile with python support. Note that the build system may need to have some packages (such as swig) installed in order to build the python module.
 

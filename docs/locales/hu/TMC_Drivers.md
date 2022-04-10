@@ -18,7 +18,7 @@ Ha beállítunk egy `hold_current` értéket, akkor a TMC motorvezérlő csökke
 
 A legtöbb léptetőmotornak a normál nyomtatás során nem jelent jelentős előnyt az áram csökkentése, mivel kevés nyomtatási művelet hagyja a léptetőmotort elég hosszú ideig üresen ahhoz, hogy aktiválja a `hold_current` funkciót. És nem valószínű, hogy az ember finom nyomtatási műveleteket akarna bevezetni abba a néhány nyomtatási mozdulatba, amely elég hosszú ideig hagyja üresen a léptetőmotort.
 
-If one wishes to reduce current to motors during print start routines, then consider issuing [SET_TMC_CURRENT](G-Codes.md#set_tmc_current) commands in a [START_PRINT macro](Slicers.md#klipper-gcode_macro) to adjust the current before and after normal printing moves.
+Ha csökkenteni szeretné a motorok áramát a nyomtatási indítási rutinok során, akkor fontolja meg a [SET_TMC_CURRENT](G-Codes.md#set_tmc_current) parancsok kiadását egy [START_PRINT makróban](Slicers.md#klipper-gcode_macro), hogy beállítsa az áramot a normál nyomtatási mozgások előtt és után.
 
 Néhány olyan, dedikált Z-motorral rendelkező nyomtató, amely a normál nyomtatási műveletek során (nincs bed_mesh, nincs bed_tilt, nincs Z skew_correction, nincs "vase mode" nyomtatás stb.) üresjáratban van, azt tapasztalhatja, hogy a Z-motorok hűvösebbek a `hold_current` beállítással. Ha ezt használja, akkor mindenképpen vegye figyelembe ezt a fajta parancs nélküli Z tengelymozgást ágykiegyenlítés, ágyszintezés, szondakalibrálás és hasonlók során. A `driver_TPOWERDOWN` és `driver_IHOLDDELAY` értékeket is ennek megfelelően kell kalibrálni. Ha bizonytalan, inkább ne adja meg a `hold_current` értéket.
 
@@ -184,7 +184,7 @@ Az érzékelő nélküli kezdőpont felvétel befejezése után a kocsi a sín v
 
 Jó ötlet, ha a makró legalább 2 másodperc szünetet tart az érzékelő nélküli kezdőpont felvétel elindítása előtt (vagy más módon biztosítja, hogy a léptetőn 2 másodpercig nem volt mozgás). A késleltetés nélkül lehetséges, hogy a meghajtó belső leállási jelzője még mindig be van állítva egy korábbi mozgás miatt.
 
-It can also be useful to have that macro set the driver current before homing and set a new current after the carriage has moved away.
+Az is hasznos lehet, ha ez a makró beállítja a meghajtó áramát a kezdőpont felvétel előtt, és új áramot állít be, miután a kocsi elindult.
 
 Egy példamakró így nézhet ki:
 
@@ -194,16 +194,16 @@ gcode:
     {% set HOME_CUR = 0.700 %}
     {% set driver_config = printer.configfile.settings['tmc2209 stepper_x'] %}
     {% set RUN_CUR = driver_config.run_current %}
-    # Set current for sensorless homing
+    # Állítsuk be az áramot az érzékelő nélküli kezdőpont felvételhez
     SET_TMC_CURRENT STEPPER=stepper_x CURRENT={HOME_CUR}
-    # Pause to ensure driver stall flag is clear
+    # Szünet annak biztosítására, hogy a meghajtó leállási jelzője törlődjön.
     G4 P2000
-    # Home
+    # Kezdőpont
     G28 X0
-    # Move away
+    # Elmozdulás
     G90
     G1 X5 F1200
-    # Set current during print
+    # Állítsa be az áramerősséget nyomtatás közben
     SET_TMC_CURRENT STEPPER=stepper_x CURRENT={RUN_CUR}
 ```
 
@@ -217,13 +217,13 @@ A CoreXY nyomtató X és Y kocsiknál érzékelő nélküli kezdőpont felvétel
 
 Használja a fent leírt hangolási útmutatót, hogy megtalálja a megfelelő "elakadás érzékenységet" az egyes kocsikhoz, de vegye figyelembe a következő korlátozásokat:
 
-1. When using sensorless homing on CoreXY, make sure there is no `hold_current` configured for either stepper.
+1. Ha a CoreXY-n érzékelő nélküli kezdőpont felvételt használ, győződjön meg róla, hogy egyik léptetőhöz sincs beállítva `hold_current`.
 1. A hangolás során győződjön meg arról, hogy az X és az Y kocsik a sínek közepénél vannak-e minden egyes kezdőpont felvételi kísérlet előtt.
 1. A hangolás befejezése után az X és Y kezdőpont felvételét makrók segítségével biztosítsa, hogy először az egyik tengely vegye fel a kezdőpontot, majd mozgassa el a kocsit a tengelyhatártól, tartson legalább 2 másodperc szünetet, majd kezdje el a másik kocsi kezdőpont felvételét. A tengelytől való eltávolodással elkerülhető, hogy az egyik tengelyt akkor indítsuk el, amikor a másik a tengelyhatárhoz van nyomva (ami eltorzíthatja az akadásérzékelést). A szünetre azért van szükség, hogy a meghajtó az újraindítás előtt törölje az elakadás érzékelő puffert.
 
 ## A motorvezérlő beállításainak lekérdezése és diagnosztizálása
 
-The `[DUMP_TMC command](G-Codes.md#dump_tmc) is a useful tool when configuring and diagnosing the drivers. It will report all fields configured by Klipper as well as all fields that can be queried from the driver.
+A `[DUMP_TMC parancs](G-Codes.md#dump_tmc) hasznos eszköz a motorvezérlők konfigurálásához és diagnosztizálásához. A Klipper által konfigurált összes mezőt, valamint a motorvezérlőt lekérdezhető összes mezőt jelenti.
 
 Az összes bejelentett mezőt az egyes motorvezérlők Trinamic adatlapja határozza meg. Ezek az adatlapok megtalálhatók a [Trinamic weboldalán](https://www.trinamic.com/). A DUMP_TMC eredményeinek értelmezéséhez szerezze be és tekintse át a meghajtó Trinamic adatlapját.
 
@@ -231,7 +231,7 @@ Az összes bejelentett mezőt az egyes motorvezérlők Trinamic adatlapja határ
 
 A Klipper támogatja számos alacsony szintű motorvezérlő konfigurálását a `driver_XXX` beállítások használatával. A [TMC meghajtó konfigurációs hivatkozás](Config_Reference.md#tmc-stepper-driver-configuration) tartalmazza az egyes meghajtótípusokhoz elérhető mezők teljes listáját.
 
-In addition, almost all fields can be modified at run-time using the [SET_TMC_FIELD command](G-Codes.md#set_tmc_field).
+Ezenkívül szinte minden mező módosítható használat közben a [SET_TMC_FIELD parancs](G-Codes.md#set_tmc_field) segítségével.
 
 E mezők mindegyikét az egyes meghajtók Trinamic adatlapja határozza meg. Ezek az adatlapok megtalálhatók a [Trinamic weboldalán](https://www.trinamic.com/).
 

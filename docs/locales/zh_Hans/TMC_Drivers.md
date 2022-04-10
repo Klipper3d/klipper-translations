@@ -28,7 +28,7 @@ Klipper也可以在其 "standalone mode"下使用Trinamic驱动。然而，当�
 
 一般来说，spreadCycle模式比stealthChop模式提供更大的扭矩和更高的定位精度。然而，在某些打印机上，stealthChop 模式显著降低可听到的噪音。
 
-比较模式的测试表明，在使用stealthChop模式时，在恒速移动过程中，"位置滞后 "增加了约为整步的75%（例如，在一台旋转距离（rotation_distance ）为40mm、每圈200步（steps_per_rotation）的打印机上，恒速移动的位置偏差增加了约0.150mm）。然而，这种 "获得所需位置的延迟 "可能不会表现为明显的打印缺陷，人们可能更喜欢stealthChop模式带来的更安静的打印。
+对两个模式的比较测试显示，在使用stealthChop模式时，恒速移动过程时有大约为一个整步75%的"位置滞后 "（例如，在一台旋转距离（rotation_distance ）为40mm、每圈200步（steps_per_rotation）的打印机上，恒速移动的位置偏差增加了约0.150mm）。然而，这种 "获得所需位置的延迟 "可能不会表现为明显的打印缺陷，大多数人可能更喜欢stealthChop模式更安静的打印。
 
 建议总是使用 "spreadCycle "模式（通过不指定`stealthchop_threshold`）或总是使用 "stealthChop "模式（通过设置`stealthchop_threshold`为99999）。不幸的是，如果在电机处于非零速度时改变模式，驱动器往往会产生糟糕和混乱的结果。
 

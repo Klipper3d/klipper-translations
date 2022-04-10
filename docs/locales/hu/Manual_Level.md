@@ -117,7 +117,7 @@ Ez azt jelenti, hogy:
 - a jobb hátsó csavart az óramutató járásával ellentétes irányba kell forgatni 50 percnyi fordulatot
 - bal hátsó csavart az óramutató járásával megegyező irányba kell forgatni 2 percnyit (nem kell tökéletesnek lennie)
 
-Note that "minutes" refers to "minutes of a clock face". So, for example, 15 minutes is a quarter of a full turn.
+Vegye figyelembe, hogy a "percek" az "óra számlapjának perceire" utalnak. Így például 15 perc egy teljes fordulat negyedének felel meg.
 
 Ismételje meg a folyamatot többször, amíg egy jó vízszintes ágyat nem kap - általában akkor jó, ha minden beállítás 6 perc alatt van.
 

@@ -6,11 +6,11 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 ## Változások
 
-20220407: The temperature_fan `pid_integral_max` config option has been removed (it was deprecated on 20210612).
+20220407: A temperature_fan `pid_integral_max` konfigurációs opciót eltávolítottuk (a 20210612-es verzióval elavult).
 
-20220407: The default color order for pca9632 LEDs is now "RGBW". Add an explicit `color_order: RBGW` setting to the pca9632 config section to obtain the previous behavior.
+20220407: A pca9632 LED-ek alapértelmezett színsorrendje mostantól "RGBW". Adjunk hozzá egy explicit `color_ordert: RBGW` beállítást a pca9632 konfigurációs szakaszába a korábbi működés visszaállításához.
 
-20220330: The format of the `printer.neopixel.color_data` status information for neopixel and dotstar modules has changed. The information is now stored as a list of color lists (instead of a list of dictionaries). See the [status reference](Status_Reference.md#led) for details.
+20220330: A `printer.neopixel.color_data` állapotinformáció formátuma megváltozott a neopixel és dotstar modulok esetében. Az információ mostantól színlisták listájaként tárolódik (szótárak listája helyett). A részletekért lásd a [állapot hivatkozás](Status_Reference.md#led) című dokumentumot.
 
 20220307: `M73` már nem állítja 0-ra a nyomtatás előrehaladását, ha `P` hiányzik.
 
