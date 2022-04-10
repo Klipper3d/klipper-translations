@@ -1,16 +1,17 @@
 # mirokymac <toufubomb@gmail.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-12-22 05:21+0000\n"
-"Last-Translator: mirokymac <toufubomb@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/code_overview/zh_Hans/>\n"
-"Language: zh-hans\n"
+"PO-Revision-Date: 2022-04-10 06:13+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/code_overview/zh_Hans/>\n"
+"Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid ""
 "This document describes the overall code layout and major code flow of "
@@ -522,7 +523,8 @@ msgid ""
 "requires software development skills - though one should only need to update"
 " the host software."
 msgstr ""
-"本节将提供为Klipper增加新运动学模型的提示。这需要对目标运动学方程有深入的了解。这同时需要一定的软件开发技巧——尽管人们应该只需要更新上位机软件。"
+"本节将提供为Klipper增加新运动学模型的提示。这需要对目标运动学方程有深入的了解"
+"。这同时需要一定的软件开发技巧—尽管大多情况下只需要更新上位机软件。"
 
 msgid "Useful steps:"
 msgstr "步骤："
