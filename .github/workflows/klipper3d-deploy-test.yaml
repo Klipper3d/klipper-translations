@@ -25,5 +25,7 @@ jobs:
             ${{ runner.os }}-pip-
       - name: Install dependencies
         run: pip install -r docs/_klipper3d/mkdocs-requirements.txt
+      - name: Remove reduntant files
+        run: rm -rf docs/locales
       - name: Build MkDocs Pages
         run: docs/_klipper3d/build-translations.sh
