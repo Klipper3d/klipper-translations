@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-04-10 15:14+0000\n"
+"PO-Revision-Date: 2022-04-10 20:37+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "config_reference/hu/>\n"
@@ -196,7 +196,7 @@ msgstr ""
 "](#common-kinematic-settings) pontban."
 
 msgid "Hybrid-CoreXY Kinematics"
-msgstr ""
+msgstr "Hybrid-CoreXY Kinematika"
 
 msgid ""
 "See [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) for an "
