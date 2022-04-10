@@ -1178,6 +1178,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#angle" class="md-nav__link">
+    angle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bed_mesh" class="md-nav__link">
     bed_mesh
   </a>
@@ -1271,6 +1278,13 @@
         <li class="md-nav__item">
   <a href="#idle_timeout" class="md-nav__link">
     idle_timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#led" class="md-nav__link">
+    led
   </a>
   
 </li>
@@ -1415,13 +1429,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#neopixel-dotstar" class="md-nav__link">
-    neopixel / dotstar
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1442,6 +1449,11 @@
 <h1 id="status-reference">Status reference<a class="headerlink" href="#status-reference" title="Permanent link">&para;</a></h1>
 <p>This document is a reference of printer status information available in Klipper <a href="Command_Templates.html">macros</a>, <a href="Config_Reference.html#display">display fields</a>, and via the <a href="API_Server.html">API Server</a>.</p>
 <p>The fields in this document are subject to change - if using an attribute be sure to review the <a href="Config_Changes.html">Config Changes document</a> when upgrading the Klipper software.</p>
+<h2 id="angle">angle<a class="headerlink" href="#angle" title="Permanent link">&para;</a></h2>
+<p>The following information is available in <a href="Config_Reference.html#angle">angle some_name</a> objects:</p>
+<ul>
+<li><code>temperature</code>: The last temperature reading (in Celsius) from a tle5012b magnetic hall sensor. This value is only available if the angle sensor is a tle5012b chip and if measurements are in progress (otherwise it reports <code>None</code>).</li>
+</ul>
 <h2 id="bed_mesh">bed_mesh<a class="headerlink" href="#bed_mesh" title="Permanent link">&para;</a></h2>
 <p>The following information is available in the <a href="Config_Reference.html#bed_mesh">bed_mesh</a> object:</p>
 <ul>
@@ -1535,6 +1547,11 @@
 <ul>
 <li><code>state</code>: The current state of the printer as tracked by the idle_timeout module. It is one of the following strings: "Idle", "Printing", "Ready".</li>
 <li><code>printing_time</code>: The amount of time (in seconds) the printer has been in the "Printing" state (as tracked by the idle_timeout module).</li>
+</ul>
+<h2 id="led">led<a class="headerlink" href="#led" title="Permanent link">&para;</a></h2>
+<p>The following information is available for each <code>[led led_name]</code>, <code>[neopixel led_name]</code>, <code>[dotstar led_name]</code>, <code>[pca9533 led_name]</code>, and <code>[pca9632 led_name]</code> config section defined in printer.cfg:</p>
+<ul>
+<li><code>color_data</code>: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underyling LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at <code>printer["neopixel &lt;config_name&gt;"].color_data[1][2]</code>.</li>
 </ul>
 <h2 id="mcu">mcu<a class="headerlink" href="#mcu" title="Permanent link">&para;</a></h2>
 <p>The following information is available in <a href="Config_Reference.html#mcu">mcu</a> and <a href="Config_Reference.html#mcu-my_extra_mcu">mcu some_name</a> objects:</p>
@@ -1662,11 +1679,6 @@
 <p>The following information is available in the <code>z_tilt</code> object (this object is available if z_tilt is defined):</p>
 <ul>
 <li><code>applied</code>: True if the z-tilt leveling process has been run and completed successfully.</li>
-</ul>
-<h2 id="neopixel-dotstar">neopixel / dotstar<a class="headerlink" href="#neopixel-dotstar" title="Permanent link">&para;</a></h2>
-<p>The following information is available for each <code>[neopixel led_name]</code> and <code>[dotstar led_name]</code> defined in printer.cfg:</p>
-<ul>
-<li><code>color_data</code>: An array of objects, with each object containing the RGBW values for a led in the chain. Note that not all configurations will contain a white value. Each value is represented as a float from 0 to 1. For example, the blue value of the second neopixel in a chain could be accessed at <code>printer["neopixel &lt;config_name&gt;"].color_data[1].B</code>.</li>
 </ul>
 
               

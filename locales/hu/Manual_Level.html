@@ -1312,6 +1312,7 @@ Recv: ok
 <li>a jobb hátsó csavart az óramutató járásával ellentétes irányba kell forgatni 50 percnyi fordulatot</li>
 <li>bal hátsó csavart az óramutató járásával megegyező irányba kell forgatni 2 percnyit (nem kell tökéletesnek lennie)</li>
 </ul>
+<p>Note that "minutes" refers to "minutes of a clock face". So, for example, 15 minutes is a quarter of a full turn.</p>
 <p>Ismételje meg a folyamatot többször, amíg egy jó vízszintes ágyat nem kap - általában akkor jó, ha minden beállítás 6 perc alatt van.</p>
 <p>Ha olyan szondát használ, amely a nyomtatófej oldalára van szerelve (azaz X vagy Y eltolással rendelkezik), akkor vegye figyelembe, hogy az ágy dőlésének beállítása érvényteleníti a korábbi, dőlésszögű ágyon végzett szintkalibrálást. Az ágy csavarjainak beállítása után mindenképpen futtassa le a <a href="Probe_Calibrate.html">szonda kalibrálása</a> parancsot.</p>
 <p>A <code>MAX_DEVIATION</code> paraméter akkor hasznos, ha egy mentett ágyhálót használunk, hogy biztosítsuk, hogy az ágy szintje ne térjen el túlságosan attól a helytől, ahol a háló létrehozásakor volt. Például a <code>SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01</code> hozzáadható a szeletelő egyéni indító G-kódjához a háló betöltése előtt. Ez megszakítja a nyomtatást, ha a beállított határértéket túllépi (ebben a példában 0,01 mm), lehetőséget adva a felhasználónak a csavarok beállítására és a nyomtatás újraindítására.</p>

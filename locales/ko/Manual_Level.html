@@ -1312,6 +1312,7 @@ Recv: 확인
 <li>후면 오른쪽 나사는 시계 반대 방향으로 50분 돌려야 합니다</li>
 <li>후면 왼쪽 나사는 시계 방향으로 2분 돌려야 합니다(필요 없음)</li>
 </ul>
+<p>Note that "minutes" refers to "minutes of a clock face". So, for example, 15 minutes is a quarter of a full turn.</p>
 <p>BED가 수평이 될 때까지 이 과정을 여러 번 반복합니다. 일반적으로 6분 미만의 시간이 필요합니다.</p>
 <p>핫엔드 측면에 장착된 프로브를 사용하는 경우(즉, X 또는 Y 오프셋이 있음) BED 기울기를 조정하면 기울어진 BED 에서 수행된 이전 프로브 교정이 무효화됩니다. 반드시 BED 나사를 조정한 후 <a href="Probe_Calibrate.html">probe calibration</a> 을 실행하세요.</p>
 <p><code>MAX_DEVIATION</code> 매개변수는 저장된 BED MESH 가 사용될 때 BED 레벨이 MESH 가 생성되었을 때의 위치에서 너무 멀어지지 않았는지 확인하는 데 유용합니다. 예를 들어 메시가 로드되기 전에 슬라이서의 사용자 정의 start gcode에 <code>SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01</code>을 추가할 수 있습니다. 구성된 제한(이 예에서는 0.01mm)을 초과하면 인쇄가 중단되어 사용자가 나사를 조정하고 인쇄를 다시 시작할 수 있습니다.</p>

@@ -1178,6 +1178,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#angle" class="md-nav__link">
+    angle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bed_mesh" class="md-nav__link">
     bed_mesh
   </a>
@@ -1271,6 +1278,13 @@
         <li class="md-nav__item">
   <a href="#idle_timeout" class="md-nav__link">
     idle_timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#led" class="md-nav__link">
+    led
   </a>
   
 </li>
@@ -1415,13 +1429,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#neopixel-dotstar" class="md-nav__link">
-    neopixel / dotstar
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1442,6 +1449,11 @@
 <h1 id="status-reference">Status reference<a class="headerlink" href="#status-reference" title="Permanent link">&para;</a></h1>
 <p>이 문서는 Klipper <a href="Command_Templates.html">매크로</a>, <a href="Config_Reference.html#display">디스플레이 필드</a> 및 <a href="API_Server.html">API 서버</a>를 통해 사용할 수 있는 프린터 상태 정보에 대한 참조입니다.</p>
 <p>이 문서의 필드는 변경될 수 있습니다. 속성을 사용하는 경우 Klipper 소프트웨어를 업그레이드할 때 <a href="Config_Changes.html">구성 변경 문서</a>를 검토해야 합니다.</p>
+<h2 id="angle">angle<a class="headerlink" href="#angle" title="Permanent link">&para;</a></h2>
+<p>The following information is available in <a href="Config_Reference.html#angle">angle some_name</a> objects:</p>
+<ul>
+<li><code>temperature</code>: The last temperature reading (in Celsius) from a tle5012b magnetic hall sensor. This value is only available if the angle sensor is a tle5012b chip and if measurements are in progress (otherwise it reports <code>None</code>).</li>
+</ul>
 <h2 id="bed_mesh">bed_mesh<a class="headerlink" href="#bed_mesh" title="Permanent link">&para;</a></h2>
 <p><a href="Config_Reference.html#bed_mesh">bed_mesh</a> 개체에서 다음 정보를 사용할 수 있습니다:</p>
 <ul>
@@ -1535,6 +1547,11 @@
 <ul>
 <li><code>state</code>: idle_timeout 모듈에서 추적한 프린터의 현재 상태입니다. "Idle", "Printing", "Ready" 문자열 중 하나입니다.</li>
 <li><code>printing_time</code>: 프린터가 "인쇄 중" 상태에 있었던 시간(초)입니다 (idle_timeout 모듈에 의해 추적됨).</li>
+</ul>
+<h2 id="led">led<a class="headerlink" href="#led" title="Permanent link">&para;</a></h2>
+<p>The following information is available for each <code>[led led_name]</code>, <code>[neopixel led_name]</code>, <code>[dotstar led_name]</code>, <code>[pca9533 led_name]</code>, and <code>[pca9632 led_name]</code> config section defined in printer.cfg:</p>
+<ul>
+<li><code>color_data</code>: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underyling LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at <code>printer["neopixel &lt;config_name&gt;"].color_data[1][2]</code>.</li>
 </ul>
 <h2 id="mcu">mcu<a class="headerlink" href="#mcu" title="Permanent link">&para;</a></h2>
 <p>다음 정보는 <a href="Config_Reference.html#mcu">mcu</a> 및 <a href="Config_Reference.html#mcu-my_extra_mcu">mcu some_name</a> 개체에서 사용할 수 있습니다:</p>
@@ -1662,11 +1679,6 @@
 <p>다음 정보는 <code>z_tilt</code> 개체에서 사용할 수 있습니다(이 개체는 z_tilt가 정의된 경우 사용할 수 있음):</p>
 <ul>
 <li><code>applied</code>: z-tilt 레벨링 프로세스가 성공적으로 실행되고 완료된 경우 True 입니다.</li>
-</ul>
-<h2 id="neopixel-dotstar">neopixel / dotstar<a class="headerlink" href="#neopixel-dotstar" title="Permanent link">&para;</a></h2>
-<p>다음 정보는 printer.cfg 에 정의된 각 <code>[neopixel led_name]</code> 및 <code>[dotstar led_name]</code>에 대해 사용할 수 있습니다:</p>
-<ul>
-<li><code>color_data</code>: 체인의 led에 대한 RGBW 값을 포함하는 각 개체가 있는 개체의 배열입니다. 모든 구성에 흰색 값이 포함되는 것은 아닙니다. 각 값은 0에서 1 사이의 부동 소수점으로 표시됩니다. 예를 들어 체인에서 두 번째 네오픽셀의 파란색 값은 <code>printer["neopixel &lt;config_name&gt;"].colordata[1].B</code> 에서 액세스할 수 있습니다.</li>
 </ul>
 
               
