@@ -1,5 +1,5 @@
 # Florian Schaupp <fschaupp@hotmail.com>, 2021.
-# Kenny Kropp <kenny@bitgr.id>, 2022.
+# Kenny Kropp <kenny@bitgr.id>, 2022, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 # Mathieu Graf <mathieu.graf@proton.me>, 2024.
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:36+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Kenny Kropp <kenny@bitgr.id>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/faq/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -45,9 +45,9 @@ msgid ""
 "the config file and while flashing the micro-controller code. For example, a "
 "flash command might look similar to:"
 msgstr ""
-"Der im obigen Befehl gefundene Name ist stabil und es ist möglich, ihn in der "
-"Konfigurationsdatei und beim Flashen des Mikrocontroller-Codes zu verwenden. "
-"Ein Flash-Befehl könnte zum Beispiel so aussehen:"
+"Der im obigen Befehl gefundene Name ist stabil und es ist möglich, ihn in "
+"der Konfigurationsdatei und beim Flashen des Mikrocontroller-Codes zu "
+"verwenden. Ein Flash-Befehl könnte zum Beispiel so aussehen:"
 
 msgid "and the updated config might look like:"
 msgstr "und die aktualisierte Konfiguration könnte wie folgt aussehen:"
@@ -57,8 +57,8 @@ msgid ""
 "as the name will be different for each printer."
 msgstr ""
 "Stellen Sie sicher, dass Sie den Namen aus dem Befehl \"ls\", den Sie oben "
-"ausgeführt haben, kopieren und einfügen, da der Name für jeden Drucker anders "
-"ist."
+"ausgeführt haben, kopieren und einfügen, da der Name für jeden Drucker "
+"anders ist."
 
 #, fuzzy
 msgid ""
@@ -68,8 +68,8 @@ msgid ""
 msgstr ""
 "Wenn Sie mehrere Mikrocontroller verwenden und diese keine eindeutigen IDs "
 "haben (üblich bei Boards mit einem CH340-USB-Chip), folgen Sie den obigen "
-"Anweisungen und verwenden Sie stattdessen den Befehl `ls /dev/serial/by-"
-"path/*`."
+"Anweisungen und verwenden Sie stattdessen den Befehl `ls /dev/serial/by-path/"
+"*`."
 
 #, fuzzy
 msgid "When the micro-controller restarts the device changes to /dev/ttyUSB1"
@@ -80,8 +80,9 @@ msgid ""
 "Follow the directions in the \"[Where's my serial port?](#wheres-my-serial-"
 "port)\" section to prevent this from occurring."
 msgstr ""
-"Folgen Sie den Anweisungen im \"[Wo ist meine serielle "
-"Schnittstelle?](#wheres-my-serial-port)\" Abschnitt, um dies zu verhindern."
+"Folgen Sie den Anweisungen im "
+"\"[Wo ist meine serielle Schnittstelle?](#wheres-my-serial-port)\" "
+"Abschnitt, um dies zu verhindern."
 
 msgid "The \"make flash\" command doesn't work"
 msgstr "Der Befehl \"make flash\" funktioniert nicht"
