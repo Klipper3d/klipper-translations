@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-04-10 07:49+0000\n"
+"PO-Revision-Date: 2022-04-10 08:10+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "resonance_compensation/hu/>\n"
@@ -1139,27 +1139,47 @@ msgid ""
 "`square_corner_velocity`, so it is not advisable to increase it above the "
 "default 5 mm/sec to prevent increased smoothing."
 msgstr ""
+"Az előző lépésben kiválasztott formázóhoz nyomtatott tesztet kell készítenie "
+"(ha nem nyomtatja ki a [javasolt paraméterekkel](#tuning) felszeletelt "
+"tesztmodellt a nyomás szabályozás kikapcsolásával `SET_PRESSURE_ADVANCE "
+"ADVANCE=0` és a tuningtorony engedélyezésével `TUNING_TOWER "
+"COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 "
+"STEP_HEIGHT=5`). Vegye figyelembe, hogy nagyon nagy gyorsulásoknál a "
+"rezonanciafrekvenciától és a választott bemeneti alakítótól függően (pl. az "
+"EI alakító nagyobb simítást hoz létre, mint az MZV) a bemeneti alakítás túl "
+"nagy simítást és az alkatrészek lekerekítését okozhatja. A max_accel értéket "
+"tehát úgy kell megválasztani, hogy ezt megakadályozza. Egy másik paraméter, "
+"amely hatással lehet a simításra, az `square_corner_velocity`, ezért nem "
+"tanácsos az alapértelmezett 5 mm/sec fölé növelni, hogy megakadályozzuk a "
+"fokozott simítást."
 
 #: docs/Resonance_Compensation.md:block 45 (paragraph)
 msgid ""
 "Choose the minimum out of the two acceleration values (from ringing and "
 "smoothing), and put it as `max_accel` into printer.cfg."
 msgstr ""
+"Válassza ki a két gyorsulási érték közül a legkisebbet (a gyűrődésből és a "
+"simításból), és írja be `max_accel` néven a printer.cfg fájlba."
 
 #: docs/Resonance_Compensation.md:block 51 (paragraph)
 msgid ""
 "Assuming that you have sliced the ringing model with suggested parameters, "
 "complete the following steps for each of the axes X and Y:"
 msgstr ""
+"Feltételezve, hogy felszeletelte a gyűrődési modellt a javasolt "
+"paraméterekkel, hajtsa végre a következő lépéseket az X és Y tengelyek "
+"mindegyikén:"
 
 #: docs/Resonance_Compensation.md:block 52 (ordered list)
 msgid ""
 "Make sure Pressure Advance is disabled: `SET_PRESSURE_ADVANCE ADVANCE=0`"
 msgstr ""
+"Győződjön meg róla, hogy a Pressure Advance ki van kapcsolva: `"
+"SET_PRESSURE_ADVANCE ADVANCE=0`"
 
 #: docs/Resonance_Compensation.md:block 52 (ordered list)
 msgid "Execute: `SET_INPUT_SHAPER SHAPER_TYPE=ZV`"
-msgstr ""
+msgstr "Adja ki a parancsot: `SET_INPUT_SHAPER SHAPER_TYPE=ZV `"
 
 #: docs/Resonance_Compensation.md:block 52 (ordered list)
 msgid ""
@@ -1167,6 +1187,9 @@ msgid ""
 "the acceleration that shows ringing sufficiently well, and set it with: "
 "`SET_VELOCITY_LIMIT ACCEL=...`"
 msgstr ""
+"A meglévő gyűrődési tesztmodellből a kiválasztott bemeneti alakítóval "
+"válassza ki azt a gyorsulást, amely kellően jól mutatja a gyűrődést, és "
+"állítsa be a következővel: `SET_VELOCITY_LIMIT ACCEL=...`"
 
 #: docs/Resonance_Compensation.md:block 52 (ordered list)
 msgid ""
@@ -1174,6 +1197,9 @@ msgid ""
 "PARAMETER=SHAPER_FREQ_X START=start FACTOR=factor BAND=5` using `start` and "
 "`factor` values calculated at step (5)."
 msgstr ""
+"Adja ki a parancsot: `TUNING_TOWER COMMAND=SET_INPUT_SHAPER "
+"PARAMETER=SHAPER_FREQ_X START=start FACTOR=factor BAND=5` a `start` és "
+"`factor` értékek felhasználásával, amelyeket az (5.) lépésben számítottunk."
 
 #: docs/Resonance_Compensation.md:block 57 (paragraph)
 msgid ""
@@ -1182,6 +1208,10 @@ msgid ""
 "value, if it differs from the previous one. Make sure to restart Klipper "
 "before tuning Pressure Advance."
 msgstr ""
+"Ha Pressure Advance-t használ, akkor lehet, hogy újra kell hangolni. Kövesse "
+"az [utasításokat](Pressure_Advance.md#tuning-pressure-advance) az új érték "
+"megtalálásához, ha az eltér az előzőtől. A Pressure Advance beállítása előtt "
+"mindenképpen indítsa újra a Klippert."
 
 #: docs/Resonance_Compensation.md:block 60 (paragraph)
 msgid ""
@@ -1189,39 +1219,48 @@ msgid ""
 "assuming that you have sliced the ringing model with suggested parameters, "
 "print the test model 3 times as follows. First time, prior to printing, run"
 msgstr ""
+"A hangoláshoz adjunk hozzá üres `[input_shaper]` szakaszt a `printer.cfg` "
+"fájlhoz. Ezután, feltételezve, hogy a javasolt paraméterekkel felszeletelte "
+"a gyűrődési modellt, nyomtassa ki 3-szor az alábbiak szerint. Első "
+"alkalommal, a nyomtatás előtt futtassa le a"
 
 #: docs/Resonance_Compensation.md:block 61 (ordered list)
 msgid "`SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`"
-msgstr ""
+msgstr "`SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`"
 
 #: docs/Resonance_Compensation.md:block 61 (ordered list)
 msgid "`SET_PRESSURE_ADVANCE ADVANCE=0`"
-msgstr ""
+msgstr "`SET_PRESSURE_ADVANCE ADVANCE=0`"
 
 #: docs/Resonance_Compensation.md:block 61 (ordered list)
 msgid ""
 "`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=60 SHAPER_FREQ_Y=60`"
 msgstr ""
+"`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=60 SHAPER_FREQ_Y=60`"
 
 #: docs/Resonance_Compensation.md:block 61 (ordered list)
 msgid ""
 "`TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 "
 "STEP_DELTA=500 STEP_HEIGHT=5`"
 msgstr ""
+"`TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 "
+"STEP_DELTA=500 STEP_HEIGHT=5`"
 
 #: docs/Resonance_Compensation.md:block 63 (ordered list)
 msgid ""
 "`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=50 SHAPER_FREQ_Y=50`"
 msgstr ""
+"`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=50 SHAPER_FREQ_Y=50`"
 
 #: docs/Resonance_Compensation.md:block 65 (ordered list)
 msgid ""
 "`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=40 SHAPER_FREQ_Y=40`"
 msgstr ""
+"`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=40 SHAPER_FREQ_Y=40`"
 
 #: docs/Resonance_Compensation.md:block 72 (ordered list)
 msgid "`SET_INPUT_SHAPER SHAPER_TYPE=EI SHAPER_FREQ_X=... SHAPER_FREQ_Y=...`"
-msgstr ""
+msgstr "`SET_INPUT_SHAPER SHAPER_TYPE=EI SHAPER_FREQ_X=... SHAPER_FREQ_Y=...`"
 
 #~ msgid ""
 #~ "Basic tuning requires measuring the ringing frequencies of the printer and "
