@@ -10,7 +10,7 @@ Az [Input shaping](https://en.wikipedia.org/wiki/Input_shaping) egy olyan nyílt
 
 ## Hangolás
 
-Basic tuning requires measuring the ringing frequencies of the printer by printing a test model.
+Az alaphangoláshoz a nyomtató gyűrődési frekvenciájának mérése szükséges egy tesztmodell nyomtatásával.
 
 Szeletelje fel a [docs/prints/ringing_tower.stl](prints/ringing_tower.stl) fájlban található gyűrűzési tesztmodellt a szeletelőben:
 
@@ -26,70 +26,70 @@ Szeletelje fel a [docs/prints/ringing_tower.stl](prints/ringing_tower.stl) fájl
 
 Először is mérje meg a **gyűrődési frekvenciát**.
 
-1. If `square_corner_velocity` parameter was changed, revert it back to 5.0. It is not advised to increase it when using input shaper because it can cause more smoothing in parts - it is better to use higher acceleration value instead.
-1. Increase `max_accel_to_decel` by issuing the following command: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
-1. Disable Pressure Advance: `SET_PRESSURE_ADVANCE ADVANCE=0`
+1. Ha a `square_corner_velocity` paramétert megváltoztattuk, állítsuk vissza az 5.0-ra. Nem tanácsos növelni, ha bemeneti alakítót használ, mert ez nagyobb simítást okozhat az alkatrészekben - helyette jobb, ha nagyobb gyorsulási értéket használ.
+1. Növelje a `max_accel_to_decel` értéket a következő parancs kiadásával: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
+1. Nyomás szabályozás kikapcsolása: `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. Ha már hozzáadta az `[input_shaper]` részt a printer.cfg fájlhoz, akkor hajtsa végre a `SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0` parancsot. Ha "Ismeretlen parancs" hibát kap, nyugodtan figyelmen kívül hagyhatja ezen a ponton, és folytathatja a méréseket.
-1. Execute the command: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5` Basically, we try to make ringing more pronounced by setting different large values for acceleration. This command will increase the acceleration every 5 mm starting from 1500 mm/sec^2: 1500 mm/sec^2, 2000 mm/sec^2, 2500 mm/sec^2 and so forth up until 7000 mm/sec^2 at the last band.
+1. Végezze el a parancsot: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5` Alapvetően a gyorsulás különböző nagy értékeinek beállításával próbáljuk a gyűrődést hangsúlyosabbá tenni. Ez a parancs 1500 mm/sec^2-től kezdve 5 mm-enként növeli a gyorsulást: 1500 mm/sec^2, 2000 mm/sec^2, 2500 mm/sec^2 és így tovább, egészen 7000 mm/sec^2-ig az utolsó sávra.
 1. Nyomtassa ki a szeletelt tesztmodellt a javasolt paraméterekkel.
 1. A nyomtatást korábban is leállíthatja, ha a gyűrődés jól látható, és úgy látja, hogy a gyorsulás túl nagy lesz a nyomtató számára (pl. a nyomtató túlságosan remeg, vagy elkezd lépéseket kihagyni).
 
    1. Használja a modell hátulján található X és Y jeleket a tájékozódáshoz. Az X-jelöléssel ellátott oldalról történő méréseket kell használni az X tengely *konfigurációhoz*, az Y-jelölést pedig az Y tengely konfigurációjához. Mérje meg a távolságot *D* (mm-ben) több rezgés között az X jelzésű alkatrészen, a bevágások közelében, lehetőleg az első egy-két rezgést kihagyva. Az oszcillációk közötti távolság könnyebb méréséhez először jelölje meg az oszcillációkat, majd mérje meg a jelölések közötti távolságot vonalzóval vagy tolómérővel:|![Mark ringing](img/ringing-mark.jpg)|![Measure ringing](img/ringing-measure.jpg)|
 1. Számolja meg, hogy a mért távolság *N* hány rezgésnek *D* felel meg. Ha nem vagy biztos benne, hogyan számold a rezgéseket, nézd meg a fenti képet, ahol *N* = 6 rezgés.
 1. Számítsuk ki az X tengely gyűrődési frekvenciáját *V* &middot; *N* / *D* (Hz), ahol *V* a külső kerületekre vonatkozó sebesség (mm/mp). A fenti példánál 6 rezgést jelöltünk meg, és a tesztet 100 mm/mp sebességgel nyomtattuk, így a frekvencia 100 * 6 / 12,14 ≈ 49,4 Hz.
-1. Do (8) - (10) for Y mark as well.
+1. A (8)-(10) pontokat az Y jel esetében is végezzük el.
 
 Vegye figyelembe, hogy a próbanyomaton a gyűrődésnek a fenti képen látható íves bevágások mintáját kell követnie. Ha nem így van, akkor ez a hiba nem igazán gyűrődés, és más eredetű - vagy mechanikai, vagy extruderprobléma. Ezt kell először kijavítani, mielőtt engedélyeznénk és hangolnánk a bemeneti formázókat.
 
 Ha a mérések nem megbízhatóak, mert például a rezgések közötti távolság nem stabil, az azt jelentheti, hogy a nyomtatónak több rezonanciafrekvenciája van ugyanazon a tengelyen. Megpróbálhatjuk helyette a [Megbízhatatlan mérések a gyűrődési frekvenciákról](#unreliable-measurements-of-ringing-frequencies) szakaszban leírt hangolási eljárást követni, és még mindig kaphatunk valami infót a bemeneti alakítási technikáról.
 
-Ringing frequency can depend on the position of the model within the buildplate and Z height, *especially on delta printers*; you can check if you see the differences in frequencies at different positions along the sides of the test model and at different heights. You can calculate the average ringing frequencies over X and Y axes if that is the case.
+A gyűrődési frekvencia függhet a modell ágyon belüli helyzetétől és a Z magasságtól, *különösen a delta nyomtatóknál*; ellenőrizheti, hogy a tesztmodell oldalai mentén és különböző magasságokban különböző pozíciókban lát-e különbséget a frekvenciákban. Ha ez a helyzet, akkor kiszámíthatja az X és Y tengelyen mért átlagos gyűrődési frekvenciákat.
 
-If the measured ringing frequency is very low (below approx 20-25 Hz), it might be a good idea to invest into stiffening the printer or decreasing the moving mass - depending on what is applicable in your case - before proceeding with further input shaping tuning, and re-measuring the frequencies afterwards. For many popular printer models there are often some solutions available already.
+Ha a mért gyűrődési frekvencia nagyon alacsony (kb. 20-25 Hz alatti), akkor érdemes lehet a nyomtató merevítésére vagy a mozgó tömeg csökkentésére beruházni - attól függően, hogy mi alkalmazható az Ön esetében -, mielőtt a bemeneti alakítás további hangolását folytatná, és utána újra megmérné a frekvenciákat. Sok népszerű nyomtatómodell esetében gyakran már rendelkezésre áll néhány megoldás.
 
-Note that the ringing frequencies can change if the changes are made to the printer that affect the moving mass or change the stiffness of the system, for example:
+Vegye figyelembe, hogy a gyűrődési frekvenciák változhatnak, ha a nyomtatóban olyan változtatásokat végeznek, amelyek hatással vannak a mozgó tömegre, vagy például megváltoztatják a gépváz merevségét:
 
-* Some tools are installed, removed or replaced on the toolhead that change its mass, e.g. a new (heavier or lighter) stepper motor for direct extruder or a new hotend is installed, heavy fan with a duct is added, etc.
-* Belts are tightened.
-* Some addons to increase frame rigidity are installed.
-* Different bed is installed on a bed-slinger printer, or glass added, etc.
+* A szerszámfejre néhány olyan eszközt telepítenek, eltávolítanak vagy kicserélnek, amelyek megváltoztatják annak tömegét, pl. új (nehezebb vagy könnyebb) léptetőmotor a közvetlen extrudernek vagy új nyomtatófej telepítése, nehéz, tárgyhűtővel ellátott ventilátor beépítése stb.
+* A szíjak meghúzása.
+* A váz merevségének növelésére szolgáló néhány kiegészítés telepítve van.
+* Különböző ágy van telepítve egy Y ágyas nyomtatóra, vagy üveg hozzáadása stb.
 
-If such changes are made, it is a good idea to at least measure the ringing frequencies to see if they have changed.
+Ha ilyen változtatásokat hajtanak végre, akkor érdemes legalább a gyűrődési frekvenciákat megmérni, hogy lássák, változtak-e azok.
 
-### Input shaper configuration
+### Bemeneti formázó konfigurációja
 
-After the ringing frequencies for X and Y axes are measured, you can add the following section to your `printer.cfg`:
+Az X és Y tengelyek gyűrődési frekvenciájának mérése után a következő szakaszt adhatja hozzá a `printer.cfg` fájlhoz:
 
 ```
 [input_shaper]
-shaper_freq_x: ...  # frequency for the X mark of the test model
-shaper_freq_y: ...  # frequency for the Y mark of the test model
+shaper_freq_x: ...  # a tesztmodell X jelének frekvenciája
+shaper_freq_y: ...  # a tesztmodell Y jelének frekvenciája
 ```
 
-For the example above, we get shaper_freq_x/y = 49.4.
+A fenti példában a shaper_freq_x/y = 49.4.
 
-### Choosing input shaper
+### Bemeneti formázó kiválasztása
 
-Klipper supports several input shapers. They differ in their sensitivity to errors determining the resonance frequency and how much smoothing they cause in the printed parts. Also, some of the shapers like 2HUMP_EI and 3HUMP_EI should usually not be used with shaper_freq = resonance frequency - they are configured from different considerations to reduce several resonances at once.
+A Klipper számos bemeneti formázót támogat. Ezek a rezonanciafrekvenciát meghatározó hibákra való érzékenységükben és abban különböznek, hogy milyen mértékű simítást okoznak a nyomtatott alkatrészekben. Emellett néhány shapert, például a 2HUMP_EI és a 3HUMP_EI formázókat általában nem szabad használni shaper_freq = rezonanciafrekvenciával - ezek különböző megfontolásokból vannak beállítva, hogy egyszerre több rezonanciát csökkentsenek.
 
-For most of the printers, either MZV or EI shapers can be recommended. This section describes a testing process to choose between them, and figure out a few other related parameters.
+A legtöbb nyomtatóhoz MZV vagy EI alakítók ajánlhatók. Ez a szakasz egy tesztelési eljárást ír le a kettő közötti választáshoz, valamint néhány egyéb kapcsolódó paraméter meghatározásához.
 
-Print the ringing test model as follows:
+Nyomtassa ki a gyűrődési tesztmodellt az alábbiak szerint:
 
-1. Restart the firmware: `RESTART`
-1. Prepare for test: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
-1. Disable Pressure Advance: `SET_PRESSURE_ADVANCE ADVANCE=0`
-1. Execute: `SET_INPUT_SHAPER SHAPER_TYPE=MZV`
-1. Execute the command: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
+1. Indítsa újra a firmware-t: `RESTART`
+1. Készüljön fel a tesztre: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
+1. Nyomás szabályozás kikapcsolása: `SET_PRESSURE_ADVANCE ADVANCE=0`
+1. Adja ki a parancsot: `SET_INPUT_SHAPER SHAPER_TYPE=MZV `
+1. Adja ki a parancsot: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
 1. Nyomtassa ki a szeletelt tesztmodellt a javasolt paraméterekkel.
 
-If you see no ringing at this point, then MZV shaper can be recommended for use.
+Ha ezen a ponton nem lát gyűrődést, akkor az MZV formázó használatát lehet javasolni.
 
-If you do see some ringing, re-measure the frequencies using steps (8)-(10) described in [Ringing frequency](#ringing-frequency) section. If the frequencies differ significantly from the values you obtained earlier, a more complex input shaper configuration is needed. You can refer to Technical details of [Input shapers](#input-shapers) section. Otherwise, proceed to the next step.
+Ha mégis gyűrődést észlel, mérje meg újra a frekvenciákat a [Gyűrődési frekvencia](#ringing-frequency) szakaszban leírt (8)-(10) lépésekkel. Ha a frekvenciák jelentősen eltérnek a korábban kapott értékektől, akkor összetettebb bemeneti alakító konfigurációra van szükség. Lásd a [Bemeneti alakítók](#input-shapers) szakasz műszaki részleteit. Ellenkező esetben folytassa a következő lépéssel.
 
-Now try EI input shaper. To try it, repeat steps (1)-(6) from above, but executing at step 4 the following command instead: `SET_INPUT_SHAPER SHAPER_TYPE=EI`.
+Most próbálja ki az EI bemeneti alakítót. Ehhez ismételje meg a fenti (1)-(6) lépéseket, de a 4. lépésnél hajtsa végre a következő parancsot: `SET_INPUT_SHAPER SHAPER_TYPE=EI`.
 
-Compare two prints with MZV and EI input shaper. If EI shows noticeably better results than MZV, use EI shaper, otherwise prefer MZV. Note that EI shaper will cause more smoothing in printed parts (see the next section for further details). Add `shaper_type: mzv` (or ei) parameter to [input_shaper] section, e.g.:
+Két nyomat összehasonlítása MZV és EI bemeneti alakítóval. Ha az EI észrevehetően jobb eredményt mutat, mint az MZV, akkor használja az EI alakítót, egyébként inkább az MZV-t. Vegye figyelembe, hogy az EI shaper több simítást okoz a nyomtatott alkatrészeken (további részletekért lásd a következő szakaszt). Adja hozzá a `shaper_type: mzv` (vagy ei) paramétert az [input_shaper] szakaszhoz, pl.:
 
 ```
 [input_shaper]
@@ -98,67 +98,67 @@ shaper_freq_y: ...
 shaper_type: mzv
 ```
 
-A few notes on shaper selection:
+Néhány megjegyzés a formázó kiválasztásáról:
 
-* EI shaper may be more suited for bed slinger printers (if the resonance frequency and resulting smoothing allows): as more filament is deposited on the moving bed, the mass of the bed increases and the resonance frequency will decrease. Since EI shaper is more robust to resonance frequency changes, it may work better when printing large parts.
-* Due to the nature of delta kinematics, resonance frequencies can differ a lot in different parts of the build volume. Therefore, EI shaper can be a better fit for delta printers rather than MZV or ZV, and should be considered for the use. If the resonance frequency is sufficiently large (more than 50-60 Hz), then one can even attempt to test 2HUMP_EI shaper (by running the suggested test above with `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI`), but check the considerations in the [section below](#selecting-max_accel) before enabling it.
+* Az EI-formázó alkalmasabb lehet az Y ágyas nyomtatókhoz (ha a rezonanciafrekvencia és az ebből eredő simítás lehetővé teszi): mivel több szál kerül a mozgó ágyra, az ágy tömege nő, és a rezonanciafrekvencia csökken. Mivel az EI shaper robusztusabb a rezonanciafrekvencia-változásokkal szemben, jobban működhet nagy méretű alkatrészek nyomtatásakor.
+* A delta kinematika természetéből adódóan a rezonanciafrekvenciák a térfogat különböző részein nagymértékben eltérhetnek. Ezért az EI alakító jobban illeszkedhet a delta nyomtatókhoz, mint az MZV vagy a ZV, és megfontolandó a használata. Ha a rezonanciafrekvencia kellően nagy (50-60 Hz-nél nagyobb), akkor akár meg is próbálkozhatunk a 2HUMP_EI shaper tesztelésével (a fent javasolt teszt futtatásával a `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI`), de ellenőrizze a [lenti](#selecting-max_accel) szakaszban található megfontolásokat, mielőtt engedélyezné.
 
 ### A max_accel kiválasztása
 
 You should have a printed test for the shaper you chose from the previous step (if you don't, print the test model sliced with the [suggested parameters](#tuning) with the pressure advance disabled `SET_PRESSURE_ADVANCE ADVANCE=0` and with the tuning tower enabled as `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`). Note that at very high accelerations, depending on the resonance frequency and the input shaper you chose (e.g. EI shaper creates more smoothing than MZV), input shaping may cause too much smoothing and rounding of the parts. So, max_accel should be chosen such as to prevent that. Another parameter that can impact smoothing is `square_corner_velocity`, so it is not advisable to increase it above the default 5 mm/sec to prevent increased smoothing.
 
-In order to select a suitable max_accel value, inspect the model for the chosen input shaper. First, take a note at which acceleration ringing is still small - that you are comfortable with it.
+A megfelelő max_accel érték kiválasztásához vizsgálja meg a kiválasztott bemeneti alakító modelljét. Először is jegyezze meg, hogy melyik gyorsulásnál még kicsi a gyorsulás-gyűrődése hogy Önnek ez megfeleljen.
 
-Next, check the smoothing. To help with that, the test model has a small gap in the wall (0.15 mm):
+Ezután ellenőrizze a simítást. Ennek elősegítése érdekében a tesztmodellben egy kis rés van a falon (0,15 mm):
 
 ![Test gap](img/smoothing-test.png)
 
-As the acceleration increases, so does the smoothing, and the actual gap in the print widens:
+Ahogy nő a gyorsulás, úgy nő a simítás is, és a tényleges rés a nyomtatásban kiszélesedik:
 
 ![Shaper smoothing](img/shaper-smoothing.jpg)
 
-In this picture, the acceleration increases left to right, and the gap starts to grow starting from 3500 mm/sec^2 (5-th band from the left). So the good value for max_accel = 3000 (mm/sec^2) in this case to avoid the excessive smoothing.
+Ezen a képen a gyorsulás balról jobbra növekszik, és a rés 3500 mm/sec^2-től (balról az 5. sáv) kezd nőni. Tehát ebben az esetben a max_accel = 3000 (mm/sec^2) a jó érték, hogy elkerüljük a túlzott simítást.
 
-Note the acceleration when the gap is still very small in your test print. If you see bulges, but no gap in the wall at all, even at high accelerations, it may be due to disabled Pressure Advance, especially on Bowden extruders. If that is the case, you may need to repeat the print with the PA enabled. It may also be a result of a miscalibrated (too high) filament flow, so it is a good idea to check that too.
+Figyelje meg a gyorsulást, amikor a rés még mindig nagyon kicsi a próbanyomaton. Ha kidudorodásokat lát, de a falon egyáltalán nincs rés, még nagy gyorsulásnál is, az a kikapcsolt nyomáselőtolás miatt lehet, különösen a bowdenes extrudereken. Ha ez a helyzet, akkor lehet, hogy meg kell ismételni a nyomtatást engedélyezett PA-val. Ez lehet a rosszul kalibrált (túl magas) nyomtatószál-áramlás eredménye is, ezért ezt is érdemes ellenőrizni.
 
 Choose the minimum out of the two acceleration values (from ringing and smoothing), and put it as `max_accel` into printer.cfg.
 
-As a note, it may happen - especially at low ringing frequencies - that EI shaper will cause too much smoothing even at lower accelerations. In this case, MZV may be a better choice, because it may allow higher acceleration values.
+Megjegyzendő, hogy előfordulhat - különösen alacsony gyűrődési frekvenciáknál -, hogy az EI shaper még kisebb gyorsulásoknál is túl nagy simítást okoz. Ebben az esetben az MZV jobb választás lehet, mert nagyobb gyorsulási értékeket engedhet meg.
 
-At very low ringing frequencies (~25 Hz and below) even MZV shaper may create too much smoothing. If that is the case, you can also try to repeat the steps in [Choosing input shaper](#choosing-input-shaper) section with ZV shaper, by using `SET_INPUT_SHAPER SHAPER_TYPE=ZV` command instead. ZV shaper should show even less smoothing than MZV, but is more sensitive to errors in measuring the ringing frequencies.
+Nagyon alacsony gyűrődési frekvenciákon (~25 Hz és az alatt) még az MZV shaper is túl sok simítást hozhat létre. Ha ez a helyzet, akkor megpróbálhatja megismételni a [Bemeneti formázó kiválasztása](#choosing-input-shaper) szakaszban leírt lépéseket ZV shaperrel is, a `SET_INPUT_SHAPER SHAPER_TYPE=ZV` parancs használatával. A ZV shapernek még kevesebb simítást kell mutatnia, mint az MZV-nek, de érzékenyebb a gyűrődési frekvenciák mérési hibáira.
 
-Another consideration is that if a resonance frequency is too low (below 20-25 Hz), it might be a good idea to increase the printer stiffness or reduce the moving mass. Otherwise, acceleration and printing speed may be limited due too much smoothing now instead of ringing.
+Egy másik szempont, hogy ha a rezonanciafrekvencia túl alacsony (20-25 Hz alatt), akkor érdemes lehet növelni a nyomtató vázának merevségét vagy csökkenteni a mozgó tömeget. Ellenkező esetben a gyorsulás és a nyomtatási sebesség korlátozódhat a túl sok simítás miatt most a gyűrődés helyett.
 
-### Fine-tuning resonance frequencies
+### A rezonanciafrekvenciák finomhangolása
 
-Note that the precision of the resonance frequencies measurements using the ringing test model is sufficient for most purposes, so further tuning is not advised. If you still want to try to double-check your results (e.g. if you still see some ringing after printing a test model with an input shaper of your choice with the same frequencies as you have measured earlier), you can follow the steps in this section. Note that if you see ringing at different frequencies after enabling [input_shaper], this section will not help with that.
+Megjegyzendő, hogy a rezonanciafrekvenciák mérésének pontossága a gyűrődési tesztmodell segítségével a legtöbb célra elegendő, így további hangolás nem javasolt. Ha mégis meg akarja próbálni kétszeresen ellenőrizni az eredményeit (például ha még mindig lát némi gyűrődést, miután kinyomtatott egy tesztmodellt egy tetszőleges bemeneti alakítóval, ugyanazokkal a frekvenciákkal, mint amiket korábban mért), akkor kövesse az ebben a szakaszban leírt lépéseket. Vegye figyelembe, hogy ha az [input_shaper] engedélyezése után különböző frekvenciákon lát gyűrődést, ez a szakasz nem fog segíteni.
 
 Assuming that you have sliced the ringing model with suggested parameters, complete the following steps for each of the axes X and Y:
 
-1. Prepare for test: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
+1. Készüljön fel a tesztre: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
 1. Make sure Pressure Advance is disabled: `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. Execute: `SET_INPUT_SHAPER SHAPER_TYPE=ZV`
 1. From the existing ringing test model with your chosen input shaper select the acceleration that shows ringing sufficiently well, and set it with: `SET_VELOCITY_LIMIT ACCEL=...`
-1. Calculate the necessary parameters for the `TUNING_TOWER` command to tune `shaper_freq_x` parameter as follows: start = shaper_freq_x * 83 / 132 and factor = shaper_freq_x / 66, where `shaper_freq_x` here is the current value in `printer.cfg`.
+1. Számítsa ki a `TUNING_TOWER` parancshoz szükséges paramétereket a `shaper_freq_x` paraméter hangolásához az alábbiak szerint: Itt a `shaper_freq_x` paraméter a nyomtató aktuális értéke a `printer.cfg` fájlban megadva.
 1. Execute the command: `TUNING_TOWER COMMAND=SET_INPUT_SHAPER PARAMETER=SHAPER_FREQ_X START=start FACTOR=factor BAND=5` using `start` and `factor` values calculated at step (5).
-1. Print the test model.
-1. Reset the original frequency value: `SET_INPUT_SHAPER SHAPER_FREQ_X=...`.
-1. Find the band which shows ringing the least and count its number from the bottom starting at 1.
-1. Calculate the new shaper_freq_x value via old shaper_freq_x * (39 + 5 * #band-number) / 66.
+1. Nyomtassa ki a tesztmodellt.
+1. Az eredeti frekvenciaérték visszaállítása: `SET_INPUT_SHAPER SHAPER_FREQ_X=...`.
+1. Keresse meg azt a sávot, amelyik a legkevésbé gyűrött, és számolja meg a számát alulról 1-től kezdve.
+1. Az új shaper_freq_x érték kiszámítása a régi shaper_freq_x * (39 + 5 * #band-number) / 66 segítségével.
 
-Repeat these steps for the Y axis in the same manner, replacing references to X axis with the axis Y (e.g. replace `shaper_freq_x` with `shaper_freq_y` in the formulae and in the `TUNING_TOWER` command).
+Ismételje meg ezeket a lépéseket az Y tengelyre ugyanígy, az X tengelyre való hivatkozásokat az Y tengelyre való hivatkozással helyettesítve (pl. cserélje ki a `shaper_freq_x`-t `shaper_freq_y`-ra a képletekben és a `TUNING_TOWER` parancsban).
 
-As an example, let's assume you have had measured the ringing frequency for one of the axis equal to 45 Hz. This gives start = 45 * 83 / 132 = 28.30 and factor = 45 / 66 = 0.6818 values for `TUNING_TOWER` command. Now let's assume that after printing the test model, the fourth band from the bottom gives the least ringing. This gives the updated shaper_freq_? value equal to 45 * (39 + 5 * 4) / 66 ≈ 40.23.
+Példaként tegyük fel, hogy az egyik tengelyen 45 Hz-es gyűrődési frekvenciát mértünk. Ez a start = 45 * 83 / 132 = 28,30 és a faktor = 45 / 66 = 0,6818 értéket ad a `TUNING_TOWER` parancshoz. Most tegyük fel, hogy a tesztmodell kinyomtatása után az alulról számított negyedik sáv adja a legkevesebb gyűrődést. Ekkor a frissített shaper_freq_? érték 45 * (39 + 5 * 4) / 66 ≈ 40,23.
 
-After both new `shaper_freq_x` and `shaper_freq_y` parameters have been calculated, you can update `[input_shaper]` section in `printer.cfg` with the new `shaper_freq_x` and `shaper_freq_y` values.
+Miután mindkét új `shaper_freq_x` és `shaper_freq_y` paramétert kiszámította, frissítheti az `[input_shaper]` szakaszát a nyomtató `printer.cfg` fájljában az új `shaper_freq_x` és `shaper_freq_y` értékekkel.
 
-### Pressure Advance
+### Nyomás szabályozás
 
 If you use Pressure Advance, it may need to be re-tuned. Follow the [instructions](Pressure_Advance.md#tuning-pressure-advance) to find the new value, if it differs from the previous one. Make sure to restart Klipper before tuning Pressure Advance.
 
-### Unreliable measurements of ringing frequencies
+### A gyűrődési frekvenciák megbízhatatlan mérései
 
-If you are unable to measure the ringing frequencies, e.g. if the distance between the oscillations is not stable, you may still be able to take advantage of input shaping techniques, but the results may not be as good as with proper measurements of the frequencies, and will require a bit more tuning and printing the test model. Note that another possibility is to purchase and install an accelerometer and measure the resonances with it (refer to the [docs](Measuring_Resonances.md) describing the required hardware and the setup process) - but this option requires some crimping and soldering.
+Ha nem tudja mérni a gyűrődési frekvenciákat, pl. ha a rezgések közötti távolság nem stabil, akkor még mindig kihasználhatja a bemeneti alakítási technikákat, de az eredmények nem biztos, hogy olyan jók lesznek, mint a frekvenciák megfelelő mérésével. Valamint egy kicsit több hangolást és a tesztmodell nyomtatását igényli. Megjegyzendő, hogy egy másik lehetőség egy gyorsulásmérő beszerzése és felszerelése, valamint a rezonanciák mérése (lásd a [dokumentumot](Measuring_Resonances.md), amely leírja a szükséges hardvert és a beállítási folyamatot) - de ez a lehetőség némi kézügyességet, krimpelést és forrasztást igényel.
 
 For tuning, add empty `[input_shaper]` section to your `printer.cfg`. Then, assuming that you have sliced the ringing model with suggested parameters, print the test model 3 times as follows. First time, prior to printing, run
 
@@ -168,36 +168,36 @@ For tuning, add empty `[input_shaper]` section to your `printer.cfg`. Then, assu
 1. `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=60 SHAPER_FREQ_Y=60`
 1. `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
 
-and print the model. Then print the model again, but before printing run instead
+és nyomtassa ki a modellt. Ezután nyomtassa ki a modellt újra, de a nyomtatás előtt futtassa az alábbiakat
 
 1. `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=50 SHAPER_FREQ_Y=50`
 1. `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
 
-Then print the model for the 3rd time, but now run
+Ezután nyomtassuk ki a modellt harmadszorra, de most futtassuk le a következőt
 
 1. `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=40 SHAPER_FREQ_Y=40`
 1. `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
 
-Essentially, we are printing the ringing test model with TUNING_TOWER using 2HUMP_EI shaper with shaper_freq = 60 Hz, 50 Hz, and 40 Hz.
+Lényegében a gyűrődési tesztmodellt TUNING_TOWER segítségével nyomtatjuk ki, 2HUMP_EI shaperrel, shaper_freq = 60 Hz, 50 Hz és 40 Hz.
 
-If none of the models demonstrate improvements in ringing, then, unfortunately, it does not look like the input shaping techniques can help with your case.
+Ha egyik modell sem mutat javulást a gyűrődésben, akkor sajnos úgy tűnik, hogy a bemeneti alakítási technikák nem segíthetnek az Ön esetében.
 
-Otherwise, it may be that all models show no ringing, or some show the ringing and some - not so much. Choose the test model with the highest frequency that still shows good improvements in ringing. For example, if 40 Hz and 50 Hz models show almost no ringing, and 60 Hz model already shows some more ringing, stick with 50 Hz.
+Máskülönben előfordulhat, hogy az összes modell nem mutat gyűrődést, vagy néhány modell gyűrődést mutat, néhány pedig nem annyira. Válassza ki azt a tesztmodellt, amelyik a legmagasabb frekvenciával készült, és még mindig jó javulást mutat a gyűrődések tekintetében. Ha például a 40 Hz-es és az 50 Hz-es modellek szinte egyáltalán nem mutatnak gyűrődést, a 60 Hz-es modell pedig már némileg több gyűrődést mutat, maradjon az 50 Hz-esnél.
 
-Now check if EI shaper would be good enough in your case. Choose EI shaper frequency based on the frequency of 2HUMP_EI shaper you chose:
+Most ellenőrizze, hogy az EI alakító elég jó lenne-e az Ön esetében. Válassza ki az EI alakító frekvenciáját az Ön által választott 2HUMP_EI alakító frekvenciája alapján:
 
-* For 2HUMP_EI 60 Hz shaper, use EI shaper with shaper_freq = 50 Hz.
-* For 2HUMP_EI 50 Hz shaper, use EI shaper with shaper_freq = 40 Hz.
-* For 2HUMP_EI 40 Hz shaper, use EI shaper with shaper_freq = 33 Hz.
+* A 2HUMP_EI 60 Hz-es formázó esetében használjon EI formázót shaper_freq = 50 Hz-es frekvenciával.
+* A 2HUMP_EI 50 Hz-es formázóhoz használjon EI formázót shaper_freq = 40 Hz értékkel.
+* A 2HUMP_EI 40 Hz-es formázóhoz használjon EI formázót shaper_freq = 33 Hz értékkel.
 
-Now print the test model one more time, running
+Most nyomtassuk ki a tesztmodellt még egyszer, a következő futtatásával
 
 1. `SET_INPUT_SHAPER SHAPER_TYPE=EI SHAPER_FREQ_X=... SHAPER_FREQ_Y=...`
 1. `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
 
-providing the shaper_freq_x=... and shaper_freq_y=... as determined previously.
+a korábban meghatározott shaper_freq_x=... és shaper_freq_y=... értékek megadásával.
 
-If EI shaper shows very comparable good results as 2HUMP_EI shaper, stick with EI shaper and the frequency determined earlier, otherwise use 2HUMP_EI shaper with the corresponding frequency. Add the results to `printer.cfg` as, e.g.
+Ha az EI alakító a 2HUMP_EI alakítóhoz hasonlóan jó eredményeket mutat, maradjon az EI alakító és a korábban meghatározott frekvencia mellett, ellenkező esetben használja a 2HUMP_EI alakítót a megfelelő frekvenciával. Adja hozzá az eredményeket a `printer.cfg` fájlhoz, pl. a következő módon.
 
 ```
 [input_shaper]
@@ -206,44 +206,44 @@ shaper_freq_y: 50
 shaper_type: 2hump_ei
 ```
 
-Continue the tuning with [Selecting max_accel](#selecting-max_accel) section.
+Folytassa a hangolást a [max_accel kiválasztása](#selecting-max_accel) szakaszban.
 
-## Troubleshooting and FAQ
+## Hibaelhárítás és GYIK
 
-### I cannot get reliable measurements of resonance frequencies
+### Nem tudok megbízható méréseket végezni a rezonanciafrekvenciákról
 
-First, make sure it is not some other problem with the printer instead of ringing. If the measurements are not reliable because, say, the distance between the oscillations is not stable, it might mean that the printer has several resonance frequencies on the same axis. One may try to follow the tuning process described in [Unreliable measurements of ringing frequencies](#unreliable-measurements-of-ringing-frequencies) section and still get something out of the input shaping technique. Another possibility is to install an accelerometer, [measure](Measuring_Resonances.md) the resonances with it, and auto-tune the input shaper using the results of those measurements.
+Először is győződjön meg róla, hogy a gyűrődés helyett nem más probléma van a nyomtatóval. Ha a mérések nem megbízhatóak, mert például a rezgések közötti távolság nem stabil, az azt jelentheti, hogy a nyomtatónak több rezonanciafrekvenciája van ugyanazon a tengelyen. Megpróbálhatjuk követni a [Megbízhatatlan mérések a gyűrődési frekvenciákról](#unreliable-measurements-of-ringing-frequencies) szakaszban leírt hangolási eljárást, és még mindig ki lehet hozni valamit a bemeneti alakítási technikából. Egy másik lehetőség egy gyorsulásmérő beszerelése, majd rezonanciák [mérése](Measuring_Resonances.md) vele, és a bemeneti alakító automatikus hangolása e mérések eredményeinek felhasználásával.
 
-### After enabling [input_shaper], I get too smoothed printed parts and fine details are lost
+### Az [input_shaper] engedélyezése után túlságosan simított nyomtatott alkatrészeket kapok, és a finom részletek elvesznek
 
-Check the considerations in [Selecting max_accel](#selecting-max_accel) section. If the resonance frequency is low, one should not set too high max_accel or increase square_corner_velocity parameters. It might also be better to choose MZV or even ZV input shapers over EI (or 2HUMP_EI and 3HUMP_EI shapers).
+Ellenőrizze a [Max_accel kiválasztása](#selecting-max_accel) szakaszban található szempontokat. Ha a rezonanciafrekvencia alacsony, nem szabad túl magas max_accel értéket beállítani, vagy növelni a square_corner_velocity paramétereket. Az is lehet, hogy az EI (vagy a 2HUMP_EI és 3HUMP_EI) változók helyett jobb az MZV vagy akár a ZV bemeneti változókat választani.
 
-### After successfully printing for some time without ringing, it appears to come back
+### Miután egy ideig sikeresen nyomtatott gyűrődések nélkül, most úgy tűnik, hogy visszajött
 
-It is possible that after some time the resonance frequencies have changed. E.g. maybe the belts tension has changed (belts got more loose), etc. It is a good idea to check and re-measure the ringing frequencies as described in [Ringing frequency](#ringing-frequency) section and update your config file if necessary.
+Lehetséges, hogy egy idő után a rezonanciafrekvenciák megváltoztak. Pl. talán a szíjak feszessége megváltozott (a szíjak lazábbak lettek) stb. Jó ötlet a [Gyűrődési frekvencia](#ringing-frequency) szakaszban leírtak szerint ellenőrizni és újra megmérni a rezonanciafrekvenciákat, és szükség esetén frissíteni a konfigurációs fájlt.
 
-### Is dual carriage setup supported with input shapers?
+### Támogatott a kettős kocsi beállítása a bemeneti formázókkal?
 
-There is no dedicated support for dual carriages with input shapers, but it does not mean this setup will not work. One should run the tuning twice for each of the carriages, and calculate the ringing frequencies for X and Y axes for each of the carriages independently. Then put the values for carriage 0 into [input_shaper] section, and change the values on the fly when changing carriages, e.g. as a part of some macro:
+Nincs külön támogatás a bemeneti formázókkal ellátott kettős kocsikhoz, de ez nem jelenti azt, hogy ez a beállítás nem fog működni. A hangolást kétszer kell lefuttatni mindkét kocsira, és az X- és Y-tengelyek gyűrődési frekvenciáit mindkét kocsira függetlenül kell kiszámítani. Ezután a 0. kocsira vonatkozó értékeket tegye az [input_shaper] szakaszba, és a kocsik váltásakor menet közben változtassa meg az értékeket, például valamilyen makró segítségével:
 
 ```
 SET_DUAL_CARRIAGE CARRIAGE=1
 SET_INPUT_SHAPER SHAPER_FREQ_X=... SHAPER_FREQ_Y=...
 ```
 
-And similarly when switching back to carriage 0.
+És ugyanígy a 0 kocsira való visszakapcsoláskor is.
 
-### Does input_shaper affect print time?
+### Az input_shaper befolyásolja a nyomtatási időt?
 
-No, `input_shaper` feature has pretty much no impact on the print times by itself. However, the value of `max_accel` certainly does (tuning of this parameter described in [this section](#selecting-max_accel)).
+Nem, a `input_shaper` funkció önmagában nincs hatással a nyomtatási időre. A `max_accel` értéke azonban bizonyosan befolyásolja (ennek a paraméternek a hangolása [ebben a szakaszban](#selecting-max_accel) le van írva).
 
-## Technical details
+## Műszaki részletek
 
-### Input shapers
+### Bemeneti változók
 
-Input shapers used in Klipper are rather standard, and one can find more in-depth overview in the articles describing the corresponding shapers. This section contains a brief overview of some technical aspects of the supported input shapers. The table below shows some (usually approximate) parameters of each shaper.
+A Klipperben használt bemeneti formázók meglehetősen szabványosak, és részletesebb áttekintést a megfelelő formázókat leíró cikkekben találhatunk. Ez a szakasz a támogatott bemeneti formázók néhány technikai szempontjának rövid áttekintését tartalmazza. Az alábbi táblázat az egyes shaperek néhány (általában hozzávetőleges) paraméterét mutatja.
 
-| Input <br> shaper | Shaper <br> duration | Vibration reduction 20x <br> (5% vibration tolerance) | Vibration reduction 10x <br> (10% vibration tolerance) |
+| Bemeneti <br> változó | Változó <br> időtartam | Rezonancia csökkentés 20x <br> (5% rezgéstűrés) | Rezonancia csökkentés 10x <br> (10% rezgéstűrés) |
 | :-: | :-: | :-: | :-: |
 | ZV | 0.5 / shaper_freq | N/A | ± 5% shaper_freq |
 | MZV | 0.75 / shaper_freq | ± 4% shaper_freq | -10%...+15% shaper_freq |
@@ -252,13 +252,13 @@ Input shapers used in Klipper are rather standard, and one can find more in-dept
 | 2HUMP_EI | 1.5 / shaper_freq | ± 35% shaper_freq | ± 40 shaper_freq |
 | 3HUMP_EI | 2 / shaper_freq | -45...+50% shaper_freq | -50%...+55% shaper_freq |
 
-A note on vibration reduction: the values in the table above are approximate. If the damping ratio of the printer is known for each axis, the shaper can be configured more precisely and it will then reduce the resonances in a bit wider range of frequencies. However, the damping ratio is usually unknown and is hard to estimate without a special equipment, so Klipper uses 0.1 value by default, which is a good all-round value. The frequency ranges in the table cover a number of different possible damping ratios around that value (approx. from 0.05 to 0.2).
+Megjegyzés a rezonancia csökkentéssel kapcsolatban: a fenti táblázatban szereplő értékek hozzávetőlegesek. Ha a nyomtató csillapítási aránya minden egyes tengely esetében ismert, akkor a formázó pontosabban konfigurálható, és ekkor a rezonanciákat egy kicsit szélesebb frekvenciatartományban csökkenti. A csillapítási arány azonban általában ismeretlen, és speciális berendezés nélkül nehéz megbecsülni, ezért a Klipper alapértelmezés szerint 0,1 értéket használ, ami egy jó általános érték. A táblázatban szereplő frekvenciatartományok számos különböző lehetséges csillapítási arányt fednek le ezen érték körül (kb. 0,05-től 0,2-ig).
 
-Also note that EI, 2HUMP_EI, and 3HUMP_EI are tuned to reduce vibrations to 5%, so the values for 10% vibration tolerance are provided only for the reference.
+Vegye figyelembe azt is, hogy az EI, 2HUMP_EI és 3HUMP_EI úgy van beállítva, hogy a rezonanciákat 5%-ra csökkentse, ezért a 10%-os rezonanciára vonatkozó értékek csak referenciaként szolgálnak.
 
-**How to use this table:**
+**Hogyan használjuk ezt a táblázatot:**
 
-* Shaper duration affects the smoothing in parts - the larger it is, the more smooth the parts are. This dependency is not linear, but can give a sense of which shapers 'smooth' more for the same frequency. The ordering by smoothing is like this: ZV < MZV < ZVD ≈ EI < 2HUMP_EI < 3HUMP_EI. Also, it is rarely practical to set shaper_freq = resonance freq for shapers 2HUMP_EI and 3HUMP_EI (they should be used to reduce vibrations for several frequencies).
-* One can estimate a range of frequencies in which the shaper reduces vibrations. For example, MZV with shaper_freq = 35 Hz reduces vibrations to 5% for frequencies [33.6, 36.4] Hz. 3HUMP_EI with shaper_freq = 50 Hz reduces vibrations to 5% in range [27.5, 75] Hz.
-* One can use this table to check which shaper they should be using if they need to reduce vibrations at several frequencies. For example, if one has resonances at 35 Hz and 60 Hz on the same axis: a) EI shaper needs to have shaper_freq = 35 / (1 - 0.2) = 43.75 Hz, and it will reduce resonances until 43.75 * (1 + 0.2) = 52.5 Hz, so it is not sufficient; b) 2HUMP_EI shaper needs to have shaper_freq = 35 / (1 - 0.35) = 53.85 Hz and will reduce vibrations until 53.85 * (1 + 0.35) = 72.7 Hz - so this is an acceptable configuration. Always try to use as high shaper_freq as possible for a given shaper (perhaps with some safety margin, so in this example shaper_freq ≈ 50-52 Hz would work best), and try to use a shaper with as small shaper duration as possible.
-* If one needs to reduce vibrations at several very different frequencies (say, 30 Hz and 100 Hz), they may see that the table above does not provide enough information. In this case one may have more luck with [scripts/graph_shaper.py](../scripts/graph_shaper.py) script, which is more flexible.
+* A formázó időtartama befolyásolja az alkatrészek simítását - minél nagyobb, annál simábbak az alkatrészek. Ez a függőség nem lineáris, de érzékelteti, hogy ugyanazon frekvencia esetén melyik shaper 'simító' simít jobban. A simítás szerinti sorrend így néz ki: ZV < MZV < ZVD ≈ EI < 2HUMP_EI < 3HUMP_EI. Továbbá, a 2HUMP_EI és 3HUMP_EI alakítók esetében ritkán praktikus a shaper_freq = rezonancia frekvencia értéket beállítani (ezeket több frekvencia rezgéseinek csökkentésére kell használni).
+* Megbecsülhető az a frekvenciatartomány, amelyben a formázó csökkenti a rezgéseket. Például a shaper_freq = 35 Hz-es MZV a [33,6, 36,4] Hz-es frekvencián 5%-ra csökkenti a rezgéseket. A 3HUMP_EI shaper_freq = 50 Hz esetén a [27,5, 75] Hz tartományban 5%-ra csökkenti a rezgéseket.
+* A táblázat segítségével ellenőrizheti, hogy melyik változót kell használnia, ha több frekvencián kell csökkentenie a rezgéseket. Például, ha ugyanazon a tengelyen 35 Hz-es és 60 Hz-es rezonanciák vannak: a) az EI alakítónak a shaper_freq = 35 / (1 - 0,2) = 43,75 Hz-re van szüksége, és 43,75 * (1 + 0,2) = 52-ig csökkenti a rezonanciákat tehát az 52.5 Hz, nem elegendő. b) a 2HUMP_EI alakítónak shaper_freq = 35 / (1 - 0,35) = 53,85 Hz-nek kell lennie, és 53,85 * (1 + 0,35) = 72,7 Hz-ig csökkenti a rezgéseket - tehát ez egy elfogadható konfiguráció. Mindig próbáljon meg minél magasabb shaper_freq-et használni egy adott shaperhez (esetleg némi biztonsági tartalékkal, így ebben a példában a shaper_freq ≈ 50-52 Hz lenne a legjobb), és próbáljon meg minél kisebb shaper időtartamú értéket használni.
+* Ha valakinek több nagyon különböző frekvencián (mondjuk 30 Hz és 100 Hz) kell csökkentenie a rezgéseket, láthatja, hogy a fenti táblázat nem nyújt elegendő információt. Ebben az esetben több szerencsénk lehet a [scripts/graph_shaper.py](../scripts/graph_shaper.py) szkripttel, amely rugalmasabb.
