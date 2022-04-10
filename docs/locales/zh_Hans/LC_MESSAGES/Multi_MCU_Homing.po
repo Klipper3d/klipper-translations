@@ -1,19 +1,20 @@
 # mirokymac <toufubomb@gmail.com>, 2021.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
-# Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # Temparo <temperacket@outlook.com>, 2024.
 # hani-lengxi <2836842270@qq.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-11-30 15:00+0000\n"
-"Last-Translator: hani-lengxi <2836842270@qq.com>\n"
-"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/projects/klipper/multi_mcu_homing/zh_Hans/>\n"
+"PO-Revision-Date: 2025-05-03 07:27+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
+"projects/klipper/multi_mcu_homing/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/Multi_MCU_Homing.md:block 1 (header)
 msgid "Multiple Micro-controller Homing and Probing"
@@ -26,7 +27,8 @@ msgid ""
 "support is referred to as \"multi-mcu homing\". This feature is also used when"
 " a Z probe is on a different micro-controller than the Z stepper motors."
 msgstr ""
-"Klipper支持将归位限位开关和动作的步进电机连接到不同的微控制器上。该功能被称为“多 mcu 归位”。该功能也支持将探针连接到不同的微控制器上。"
+"Klipper支持将归位限位开关和动作的步进电机连接到不同的微控制器上。该功能被称为"
+"“多 mcu 归位”。该功能也支持将探针连接到不同的微控制器上。"
 
 #: docs/Multi_MCU_Homing.md:block 3 (paragraph)
 msgid ""
