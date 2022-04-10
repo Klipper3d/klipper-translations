@@ -14,28 +14,28 @@ A Klipper a következő szabványos G-kód parancsokat támogatja:
 - Használjon abszolút/relatív távolságokat az extrudáláshoz: `M82`, `M83`.
 - Abszolút/relatív koordináták használata: `G90`, `G91`.
 - Állítsa be a pozíciót: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
-- Set speed factor override percentage: `M220 S<percent>`
-- Set extrude factor override percentage: `M221 S<percent>`
-- Set acceleration: `M204 S<value>` OR `M204 P<value> T<value>`
-   - Note: If S is not specified and both P and T are specified, then the acceleration is set to the minimum of P and T. If only one of P or T is specified, the command has no effect.
-- Get extruder temperature: `M105`
-- Set extruder temperature: `M104 [T<index>] [S<temperature>]`
-- Set extruder temperature and wait: `M109 [T<index>] S<temperature>`
-   - Note: M109 always waits for temperature to settle at requested value
-- Set bed temperature: `M140 [S<temperature>]`
-- Set bed temperature and wait: `M190 S<temperature>`
-   - Note: M190 always waits for temperature to settle at requested value
-- Set fan speed: `M106 S<value>`
-- Turn fan off: `M107`
-- Emergency stop: `M112`
-- Get current position: `M114`
-- Get firmware version: `M115`
+- A sebességtényező felülbírálási százalékának beállítása: `M220 S<percent>`
+- Extrudálási tényező felülbírálási százalékának beállítása: `M221 S<percent>`
+- Gyorsítás beállítása: `M204 S<value>` VAGY `M204 P<value> T<value>`
+   - Megjegyzés: Ha az S nincs megadva, de a P és a T meg van adva, akkor a gyorsulás a P és a T közül a minimumra van beállítva. Ha a P vagy a T közül csak az egyik van megadva, a parancsnak nincs hatása.
+- Extruder hőmérsékletének lekérdezése: `M105`
+- Az extruder hőmérsékletének beállítása: `M104 [T<index>] [S<temperature>]`
+- Beállítja az extruder hőmérsékletét és várakozik: `M109 [T<index>] S<temperature>`
+   - Megjegyzés: Az M109 mindig megvárja, míg a hőmérséklet beáll a kért értékre.
+- Beállítja az ágy hőmérsékletét: `M140 [S<temperature>]`
+- Beállítja az ágy hőmérsékletét és várakozik: `M190 S<temperature>`
+   - Megjegyzés: Az M190 mindig megvárja, hogy a hőmérséklet beálljon a kért értékre.
+- A ventilátor sebességének beállítása: `M106 S<value>`
+- Kikapcsolja a ventilátort: `M107`
+- Vészleállító: `M112`
+- Jelenlegi pozíció lekérdezése: `M114`
+- A firmware verziójának lekérdezése: `M115`
 
-For further details on the above commands see the [RepRap G-Code documentation](http://reprap.org/wiki/G-code).
+A fenti parancsokkal kapcsolatos további részletekért lásd a [RepRap G-kód dokumentáció](http://reprap.org/wiki/G-code) fájlt.
 
 Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable ["extended G-Code commands"](#additional-commands). Similarly, the G-Code terminal output is only intended to be human readable - see the [API Server document](API_Server.md) if controlling Klipper from external software.
 
-If one requires a less common G-Code command then it may be possible to implement it with a custom [gcode_macro config section](Config_Reference.md#gcode_macro). For example, one might use this to implement: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`, etc.
+Ha egy kevésbé gyakori G-kód parancsra van szükség, akkor azt egy egyéni [gcode_macro config section](Config_Reference.md#gcode_macro) segítségével lehet megvalósítani. Például ezt használhatnánk a következőkre: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1` stb.
 
 ## További parancsok
 

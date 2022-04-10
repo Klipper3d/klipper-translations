@@ -7,7 +7,7 @@
 Klipper支持以下标准的G-Code命令：
 
 - 移动 (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
-- 停留时间：`G4 P<milliseconds>`
+- 驻留：`G4 P<毫秒>`
 - 返回原点：`G28 [X] [Y] [Z]`
 - 关闭步进电机：`M18`或`M84`
 - 等待当前移动完成： `M400`
@@ -247,7 +247,7 @@ This command is deprecated and will be removed in the near future.
 The following standard G-Code commands are available when the [firmware_retraction config section](Config_Reference.md#firmware_retraction) is enabled. These commands allow you to utilize the firmware retraction feature available in many slicers, to reduce stringing during non-extrusion moves from one part of the print to another. Appropriately configuring pressure advance reduces the length of retraction required.
 
 - `G10`：使用当前配置的参数回抽挤出机。
-- `G11`：不使用当前配置的参数回抽挤出机。
+- `G11`：使用当前配置的参数回填挤出机。
 
 还可以使用以下额外命令：
 
