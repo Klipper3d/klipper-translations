@@ -1,5 +1,5 @@
 # mirokymac <toufubomb@gmail.com>, 2021, 2025.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2025.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 # Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023, 2025.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2025.
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/code_overview/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -521,7 +521,8 @@ msgid ""
 " software development skills - though one should only need to update the host "
 "software."
 msgstr ""
-"本节将提供为Klipper增加新运动学模型的提示。这需要对目标运动学方程有深入的了解。这同时需要一定的软件开发技巧—尽管大多情况下只需要更新上位机软件。"
+"本节将提供为Klipper增加新运动学模型的提示。这需要对目标运动学方程有深入的了解"
+"。这同时需要一定的软件开发技巧—尽管大多情况下只需要更新上位机软件。"
 
 msgid "Useful steps:"
 msgstr "有用的步骤："
@@ -870,8 +871,10 @@ msgid ""
 "970831ee](https://github.com/Klipper3d/klipper/commit/970831ee0d3b91897196e92270d98b2a3067427f)"
 " as an example of steps 1-5 done for the LPC176x architecture."
 msgstr ""
-"增加对硬件中断的定时器调度的支持。参见 Klipper [commit "
-"970831ee](https://github.com/Klipper3d/klipper/commit/970831ee0d3b91897196e92270d98b2a3067427f)，作为针对LPC176x架构的步骤1-5的例子。"
+"增加对硬件中断的定时器调度的支持。参见 Klipper [commit 970831ee](https://"
+"github.com/Klipper3d/klipper/commit/"
+"970831ee0d3b91897196e92270d98b2a3067427f)，作为针对LPC176x架构的步骤1-5的例子"
+"。"
 
 #: docs/Code_Overview.md:block 38 (ordered list)
 msgid ""
@@ -879,8 +882,8 @@ msgid ""
 "c78b9076](https://github.com/Klipper3d/klipper/commit/c78b90767f19c9e8510c3155b89fb7ad64ca3c54)"
 " as an example of this."
 msgstr ""
-"提供基本的 GPIO 输入和输出支持。参见 Klipper [commit "
-"c78b9076](https://github.com/Klipper3d/klipper/commit/c78b90767f19c9e8510c3155b89fb7ad64ca3c54)"
+"提供基本的 GPIO 输入和输出支持。参见 Klipper [commit c78b9076](https://"
+"github.com/Klipper3d/klipper/commit/c78b90767f19c9e8510c3155b89fb7ad64ca3c54)"
 " 作为一个例子。"
 
 #: docs/Code_Overview.md:block 38 (ordered list)
@@ -892,8 +895,11 @@ msgid ""
 " and "
 "[c381d03a](https://github.com/Klipper3d/klipper/commit/c381d03aad5c3ee761169b7c7bced519cc14da29)."
 msgstr ""
-"启动其他外围设备-"
-"参阅Klipper提交[65613aed](https://github.com/Klipper3d/klipper/commit/65613aeddfb9ef86905cb1dade9e773a02ef3c27)，[c812a40a](https://github.com/Klipper3d/klipper/commit/c812a40a3782415e454b04bf7bd2158a6f0ec8b5)，和[c381d03a](https://github.com/Klipper3d/klipper/commit/c381d03aad5c3ee761169b7c7bced519cc14da29)的例子。"
+"启动其他外围设备-参阅Klipper提交[65613aed](https://github.com/Klipper3d/"
+"klipper/commit/65613aeddfb9ef86905cb1dade9e773a02ef3c27)，[c812a40a](https://"
+"github.com/Klipper3d/klipper/commit/"
+"c812a40a3782415e454b04bf7bd2158a6f0ec8b5)，和[c381d03a](https://github.com/"
+"Klipper3d/klipper/commit/c381d03aad5c3ee761169b7c7bced519cc14da29)的例子。"
 
 #: docs/Code_Overview.md:block 30 (unordered list)
 msgid ""
@@ -1000,9 +1006,11 @@ msgid ""
 "reboots.) These functions schedule work at specific times by scheduling "
 "timers."
 msgstr ""
-"任务、初始化和命令函数始终在启用中断的情况下运行（但是，如果需要，它们可以暂时禁用中断）。这些函数应避免长时间的暂停、延迟或执行持续很长时间的工作。（这些“任务”功能中的长时间延迟会导致其他“任务”的调度抖动"
-" - "
-"超过100us的延迟可能会变得明显，超过500us的延迟可能导致命令重传，超过100ms的延迟可能导致看门狗触发重启。这些函数通过调度计时器在特定时间安排工作。"
+"任务、初始化和命令函数始终在启用中断的情况下运行（但是，如果需要，它们可以暂"
+"时禁用中断）。这些函数应避免长时间的暂停、延迟或执行持续很长时间的工作。（这"
+"些“任务”功能中的长时间延迟会导致其他“任务”的调度抖动 - "
+"超过100us的延迟可能会变得明显，超过500us的延迟可能导致命令重传，超过100ms的延"
+"迟可能导致看门狗触发重启。这些函数通过调度计时器在特定时间安排工作。"
 
 #: docs/Code_Overview.md:block 24 (unordered list)
 msgid ""
