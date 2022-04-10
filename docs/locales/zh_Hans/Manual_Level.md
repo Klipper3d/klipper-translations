@@ -22,7 +22,7 @@ SAVE_CONFIG
 
 最好是在Z轴与床面相对的一端使用Z轴止动器开关（远离床面的止动器更加坚固，因为这样的话，Z轴的原点通常是安全的）。然而，如果必须向床头归位，建议调整逆止器，使其在床头上方一小段距离（例如0.5毫米）触发。几乎所有的止动器开关都可以在触发点以外的一小段距离安全地压下。当这样做时，你会发现`Z_ENDSTOP_CALIBRATE`命令报告了一个小的正值（比如0.5毫米）的Z限位位置。在
 
-Some printers have the ability to manually adjust the location of the physical endstop switch. However, it's recommended to perform Z endstop positioning in software with Klipper - once the physical location of the endstop is in a convenient location, one can make any further adjustments by running Z_ENDSTOP_CALIBRATE or by manually updating the Z position_endstop in the configuration file.
+某些打印机能够手动调整限位开关的物理位置，但是建议使用 Klipper 在软件中执行 Z 限位定位-在将限位的物理位置固定于方便微调的位置，就可以通过运行 Z_ENDSTOP_CALIBRATE 或通过手动更新配置文件中的 Z position_endstop 来进行进一步的调整。
 
 ## 调整打印调平螺丝
 

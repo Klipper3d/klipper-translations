@@ -58,11 +58,11 @@ További mikrovezérlők (az "mcu" előtaggal tetszőleges számú szekciót leh
 # See the "mcu" section for configuration parameters.
 ```
 
-## Common kinematic settings
+## Közös kinematikai beállítások
 
 ### [printer]
 
-The printer section controls high level printer settings.
+A nyomtató szakasz a nyomtató magas szintű beállításait vezérli.
 
 ```
 [printer]
@@ -97,7 +97,7 @@ max_accel:
 
 ### [stepper]
 
-Stepper motor definitions. Different printer types (as specified by the "kinematics" option in the [printer] config section) require different names for the stepper (eg, `stepper_x` vs `stepper_a`). Below are common stepper definitions.
+Léptetőmotor meghatározások. A különböző nyomtatótípusok (a [printer] config szakasz "kinematika" opciója által meghatározottak szerint) eltérő neveket igényelnek a léptető számára (pl. `stepper_x` vs `stepper_a`). Az alábbiakban a stepperek általános definíciói következnek.
 
 See the [rotation distance document](Rotation_Distance.md) for information on calculating the `rotation_distance` parameter. See the [Multi-MCU homing](Multi_MCU_Homing.md) document for information on homing using multiple micro-controllers.
 
@@ -175,11 +175,11 @@ position_max:
 #   if near position_min.
 ```
 
-### Cartesian Kinematics
+### Cartesian Kinematika
 
-See [example-cartesian.cfg](../config/example-cartesian.cfg) for an example cartesian kinematics config file.
+Lásd [example-cartesian.cfg](../config/example-cartesian.cfg) egy példa cartesian kinematika konfigurációs fájlhoz.
 
-Only parameters specific to cartesian printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Itt csak a cartesian nyomtatókra jellemző paraméterek kerülnek leírásra. A rendelkezésre álló paramétereket lásd a [általános kinematikai beállítások](#common-kinematic-settings) pontban.
 
 ```
 [printer]
@@ -207,11 +207,11 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Linear Delta Kinematics
+### Lineáris delta kinematika
 
-See [example-delta.cfg](../config/example-delta.cfg) for an example linear delta kinematics config file. See the [delta calibrate guide](Delta_Calibrate.md) for information on calibration.
+Lásd az [example-delta.cfg](../config/example-delta.cfg) példát a lineáris delta kinematika konfigurációs fájljához. A kalibrálással kapcsolatos információkért lásd a [delta kalibrációs útmutató](Delta_Calibrate.md) dokumentumot.
 
-Only parameters specific to linear delta printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Itt csak a lineáris delta nyomtatókra jellemző paraméterek kerülnek leírásra. A rendelkezésre álló paramétereket lásd az [általános kinematikai beállítások](#common-kinematic-settings) pontban.
 
 ```
 [printer]
@@ -288,11 +288,11 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-### CoreXY Kinematics
+### CoreXY Kinematika
 
-See [example-corexy.cfg](../config/example-corexy.cfg) for an example corexy (and h-bot) kinematics file.
+Lásd [example-corexy.cfg](../config/example-corexy.cfg) egy példa corexy (és h-bot) kinematikai fájlt.
 
-Only parameters specific to corexy printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Itt csak a CoreXY nyomtatókra jellemző paraméterek kerülnek leírásra. A rendelkezésre álló paramétereket lásd az [általános kinematikai beállítások](#common-kinematic-settings) pontban.
 
 ```
 [printer]
@@ -320,11 +320,11 @@ max_z_accel:
 [stepper_z]
 ```
 
-### CoreXZ Kinematics
+### CoreXZ Kinematika
 
-See [example-corexz.cfg](../config/example-corexz.cfg) for an example corexz kinematics config file.
+Lásd [example-corexz.cfg](../config/example-corexz.cfg) egy példa CoreXZ kinematikai konfigurációs fájlhoz.
 
-Only parameters specific to corexz printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Itt csak a CoreXZ nyomtatókra jellemző paraméterek kerülnek leírásra. A rendelkezésre álló paramétereket lásd az [általános kinematikai beállítások](#common-kinematic-settings) pontban.
 
 ```
 [printer]
