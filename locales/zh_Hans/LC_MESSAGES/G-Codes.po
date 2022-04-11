@@ -1,14 +1,15 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # mirokymac <toufubomb@gmail.com>, 2021.
-# Neko.vecter <Vecterfang@icloud.com>, 2021.
+# Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-13 14:53+0200\n"
-"PO-Revision-Date: 2022-03-27 17:08+0000\n"
+"PO-Revision-Date: 2022-04-10 15:14+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/g-codes/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/g-codes/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +32,7 @@ msgid "Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`"
 msgstr "移动 (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`"
 
 msgid "Dwell: `G4 P<milliseconds>`"
-msgstr "停留时间：`G4 P<milliseconds>`"
+msgstr "驻留：`G4 P<毫秒>`"
 
 msgid "Move to origin: `G28 [X] [Y] [Z]`"
 msgstr "返回原点：`G28 [X] [Y] [Z]`"
@@ -225,10 +226,12 @@ msgid ""
 "is provided it allows one to name the saved state to the given string. If "
 "NAME is not provided it defaults to \"default\"."
 msgstr ""
-"`SAVE_GCODE_STATE [NAME=<state_name>]`：保存当前的g-code坐标解析状态。保存和恢复g-"
-"code状态在脚本和宏中很有用。该命令保存当前g-"
-"code绝对坐标模式（G90/G91）绝对挤出模式（M82/M83）原点（G92）偏移量（SET_GCODE_OFFSET）速度覆盖（M220）挤出机覆盖（M221）移动速度。当前XYZ位置和相对挤出机"
-" \"E \"位置。如果提供NAME，它允许人们将保存的状态命名为给定的字符串。如果没有提供NAME，则默认为 \"default\""
+"`SAVE_GCODE_STATE [NAME=<state_name>]`：保存当前的g-code坐标解析状态"
+"。保存和恢复g-code状态在脚本和宏中很有用。该命令保存当前g-code绝对坐标模式（"
+"G90/G91）绝对挤出模式（M82/M83）原点（G92）偏移量（SET_GCODE_OFFSET）速度覆盖"
+"（M220）挤出机覆盖（M221）移动速度。当前XYZ位置和相对挤出机 \"E \"位置"
+"。如果提供NAME，它可以将保存的状态命名为给定的字符串。如果没有提供NAME，"
+"则默认为 \"default\""
 
 msgid ""
 "`RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`: "
@@ -383,8 +386,9 @@ msgid ""
 "command allows one to change the value of a gcode_macro variable at run-"
 "time. The provided VALUE is parsed as a Python literal."
 msgstr ""
-"`SET_GCODE_VARIABLE MACRO=<macro_name> VARIABLE=<name> "
-"VALUE=<value>`：这条命令允许人们在运行时改变 gcode_macro 变量的值。所提供的 VALUE 会被解析为一个 Python 字面。"
+"`SET_GCODE_VARIABLE MACRO=<macro_name> VARIABLE=<name> VALUE=<value>`："
+"这条命令允许在运行时对 gcode_macro 变量的值进行修改。所提供的 VALUE "
+"会被解析为一个 Python 字面。"
 
 msgid ""
 "`SET_SERVO SERVO=config_name [ANGLE=<degrees> | WIDTH=<seconds>]`: Set the "
@@ -729,7 +733,7 @@ msgstr "`G10`：使用当前配置的参数回抽挤出机。"
 
 msgid ""
 "`G11`: Unretracts the extruder using the currently configured parameters."
-msgstr "`G11`：不使用当前配置的参数回抽挤出机。"
+msgstr "`G11`：使用当前配置的参数回填挤出机。"
 
 msgid ""
 "`SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] "
@@ -2190,8 +2194,9 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
+#, fuzzy
 msgid "[angle]"
-msgstr ""
+msgstr "[angle]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""

@@ -163,6 +163,12 @@
                   </a>
                 </li>
                 
+                <li class="md-select__item">
+                  <a href="/hu/" hreflang="hu" class="md-select__link">
+                    Magyar
+                  </a>
+                </li>
+                
             </ul>
           </div>
         </div>
@@ -1461,8 +1467,8 @@ gcode:
 <p>Egy kérés így nézhet ki: <code>{"id": 123, "method":"adxl345/dump_adxl345", "params": {"sensor": "adxl345", "response_template": {}}}</code> és esetleg visszatér: <code>{"id": 123,"result":{"header":["time","x_acceleration","y_acceleration", "z_acceleration"]}}}</code> és később olyan aszinkron üzeneteket produkálhat, mint például: <code>{"params":{"overflows":0,"data":[[3292.432935,-535.44309,-1529.8374,9561.4], [3292.433256,-382.45935,-1606.32927,9561.48375]]}}</code></p>
 <p>A kezdeti lekérdezési válasz "header" mezője a későbbi "data" válaszokban található mezők leírására szolgál.</p>
 <h3 id="angledump_angle">angle/dump_angle<a class="headerlink" href="#angledump_angle" title="Permanent link">&para;</a></h3>
-<p>This endpoint is used to subscribe to <a href="Config_Reference.html#angle">angle sensor data</a>. Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.</p>
-<p>A request may look like: <code>{"id": 123, "method":"angle/dump_angle", "params": {"sensor": "my_angle_sensor", "response_template": {}}}</code> and might return: <code>{"id": 123,"result":{"header":["time","angle"]}}</code> and might later produce asynchronous messages such as: <code>{"params":{"position_offset":3.151562,"errors":0, "data":[[1290.951905,-5063],[1290.952321,-5065]]}}</code></p>
+<p>Ez a végpont a <a href="Config_Reference.html#angle">szögérzékelő adatainak</a> feliratkozására szolgál. Ezeknek az alacsony szintű mozgásfrissítéseknek a lekérése hasznos lehet diagnosztikai és hibakeresési célokra. Ennek a végpontnak a használata növelheti a Klipper rendszer terhelését.</p>
+<p>Egy kérés így nézhet ki: <code>{"id": 123, "method":"angle/dump_angle", "params": {"sensor": "my_angle_sensor", "response_template": {}}}</code> és esetleg visszatér: <code>{"id": 123,"result":{"header":["time","angle"]}}}</code> és később olyan aszinkron üzeneteket produkálhat, mint például: <code>{"params":{"position_offset":3.151562,"errors":0, "data":[[1290.951905,-5063],[1290.952321,-5065]]}}</code></p>
 <p>A kezdeti lekérdezési válasz "header" mezője a későbbi "data" válaszokban található mezők leírására szolgál.</p>
 <h3 id="pause_resumecancel">pause_resume/cancel<a class="headerlink" href="#pause_resumecancel" title="Permanent link">&para;</a></h3>
 <p>Ez a végpont hasonló a "PRINT_CANCEL" G-kód parancs futtatásához. Például: <code>{"id": }</code></p>

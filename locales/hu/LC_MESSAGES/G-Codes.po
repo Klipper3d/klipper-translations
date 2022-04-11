@@ -2,9 +2,10 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-04-01 02:09+0000\n"
+"PO-Revision-Date: 2022-04-10 15:14+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/g-codes/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"g-codes/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,72 +38,86 @@ msgid "Turn off motors: `M18` or `M84`"
 msgstr "Kapcsolja ki a motorokat: `M18` vagy `M84`."
 
 msgid "Wait for current moves to finish: `M400`"
-msgstr ""
+msgstr "Várja meg, amíg az aktuális mozdulat befejeződik: `M400`"
 
 msgid "Use absolute/relative distances for extrusion: `M82`, `M83`"
 msgstr ""
+"Használjon abszolút/relatív távolságokat az extrudáláshoz: `M82`, `M83`."
 
 msgid "Use absolute/relative coordinates: `G90`, `G91`"
-msgstr ""
+msgstr "Abszolút/relatív koordináták használata: `G90`, `G91`."
 
 msgid "Set position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`"
-msgstr ""
+msgstr "Állítsa be a pozíciót: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`"
 
 msgid "Set speed factor override percentage: `M220 S<percent>`"
 msgstr ""
+"A sebességtényező felülbírálási százalékának beállítása: `M220 S<percent>`"
 
 msgid "Set extrude factor override percentage: `M221 S<percent>`"
 msgstr ""
+"Extrudálási tényező felülbírálási százalékának beállítása: `M221 S<percent>`"
 
 msgid "Set acceleration: `M204 S<value>` OR `M204 P<value> T<value>`"
-msgstr ""
+msgstr "Gyorsítás beállítása: `M204 S<value>` VAGY `M204 P<value> T<value>`"
 
 msgid ""
 "Note: If S is not specified and both P and T are specified, then the "
 "acceleration is set to the minimum of P and T. If only one of P or T is "
 "specified, the command has no effect."
 msgstr ""
+"Megjegyzés: Ha az S nincs megadva, de a P és a T meg van adva, akkor a "
+"gyorsulás a P és a T közül a minimumra van beállítva. Ha a P vagy a T közül "
+"csak az egyik van megadva, a parancsnak nincs hatása."
 
 msgid "Get extruder temperature: `M105`"
-msgstr ""
+msgstr "Extruder hőmérsékletének lekérdezése: `M105`"
 
 msgid "Set extruder temperature: `M104 [T<index>] [S<temperature>]`"
 msgstr ""
+"Az extruder hőmérsékletének beállítása: `M104 [T<index>] [S<temperature>]`"
 
 msgid "Set extruder temperature and wait: `M109 [T<index>] S<temperature>`"
 msgstr ""
+"Beállítja az extruder hőmérsékletét és várakozik: `M109 [T<index>] "
+"S<temperature>`"
 
 msgid "Note: M109 always waits for temperature to settle at requested value"
 msgstr ""
+"Megjegyzés: Az M109 mindig megvárja, míg a hőmérséklet beáll a kért értékre."
 
 msgid "Set bed temperature: `M140 [S<temperature>]`"
-msgstr ""
+msgstr "Beállítja az ágy hőmérsékletét: `M140 [S<temperature>]`"
 
 msgid "Set bed temperature and wait: `M190 S<temperature>`"
-msgstr ""
+msgstr "Beállítja az ágy hőmérsékletét és várakozik: `M190 S<temperature>`"
 
 msgid "Note: M190 always waits for temperature to settle at requested value"
 msgstr ""
+"Megjegyzés: Az M190 mindig megvárja, hogy a hőmérséklet beálljon a kért "
+"értékre."
 
 msgid "Set fan speed: `M106 S<value>`"
-msgstr ""
+msgstr "A ventilátor sebességének beállítása: `M106 S<value>`"
 
 msgid "Turn fan off: `M107`"
-msgstr ""
+msgstr "Kikapcsolja a ventilátort: `M107`"
 
 msgid "Emergency stop: `M112`"
-msgstr ""
+msgstr "Vészleállító: `M112`"
 
 msgid "Get current position: `M114`"
-msgstr ""
+msgstr "Jelenlegi pozíció lekérdezése: `M114`"
 
 msgid "Get firmware version: `M115`"
-msgstr ""
+msgstr "A firmware verziójának lekérdezése: `M115`"
 
 msgid ""
 "For further details on the above commands see the [RepRap G-Code "
 "documentation](http://reprap.org/wiki/G-code)."
 msgstr ""
+"A fenti parancsokkal kapcsolatos további részletekért lásd a [RepRap G-kód "
+"dokumentáció](http://reprap.org/wiki/G-code) fájlt."
 
 msgid ""
 "If one requires a less common G-Code command then it may be possible to "
@@ -110,6 +125,10 @@ msgid ""
 "section](Config_Reference.md#gcode_macro). For example, one might use this "
 "to implement: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`, etc."
 msgstr ""
+"Ha egy kevésbé gyakori G-kód parancsra van szükség, akkor azt egy egyéni ["
+"gcode_macro config section](Config_Reference.md#gcode_macro) segítségével "
+"lehet megvalósítani. Például ezt használhatnánk a következőkre: `G12`, `G29`"
+", `G30`, `G31`, `M42`, `M80`, `M81`, `T1` stb."
 
 msgid "List SD card: `M20`"
 msgstr ""
@@ -937,7 +956,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 36 (header)
 msgid "[bed_screws]"
-msgstr ""
+msgstr "[bed_screws]"
 
 #: docs/G-Codes.md:block 37 (paragraph)
 msgid ""
@@ -952,7 +971,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 40 (header)
 msgid "[bed_tilt]"
-msgstr ""
+msgstr "[bed_tilt]"
 
 #: docs/G-Codes.md:block 41 (paragraph)
 msgid ""
@@ -2009,7 +2028,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[angle]"
-msgstr ""
+msgstr "[angle]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""

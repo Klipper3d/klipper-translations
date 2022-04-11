@@ -163,6 +163,12 @@
                   </a>
                 </li>
                 
+                <li class="md-select__item">
+                  <a href="/hu/" hreflang="hu" class="md-select__link">
+                    Magyar
+                  </a>
+                </li>
+                
             </ul>
           </div>
         </div>
@@ -2617,36 +2623,36 @@
 <li>Tartózkodás: <code>G4 P&lt;milliszekundum&gt;</code></li>
 <li>Ugrás a forrásra: <code>G28 [X] [Y] [Z]</code></li>
 <li>Kapcsolja ki a motorokat: <code>M18</code> vagy <code>M84</code>.</li>
-<li>Wait for current moves to finish: <code>M400</code></li>
-<li>Use absolute/relative distances for extrusion: <code>M82</code>, <code>M83</code></li>
-<li>Use absolute/relative coordinates: <code>G90</code>, <code>G91</code></li>
-<li>Set position: <code>G92 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;]</code></li>
-<li>Set speed factor override percentage: <code>M220 S&lt;percent&gt;</code></li>
-<li>Set extrude factor override percentage: <code>M221 S&lt;percent&gt;</code></li>
-<li>Set acceleration: <code>M204 S&lt;value&gt;</code> OR <code>M204 P&lt;value&gt; T&lt;value&gt;</code><ul>
-<li>Note: If S is not specified and both P and T are specified, then the acceleration is set to the minimum of P and T. If only one of P or T is specified, the command has no effect.</li>
+<li>Várja meg, amíg az aktuális mozdulat befejeződik: <code>M400</code></li>
+<li>Használjon abszolút/relatív távolságokat az extrudáláshoz: <code>M82</code>, <code>M83</code>.</li>
+<li>Abszolút/relatív koordináták használata: <code>G90</code>, <code>G91</code>.</li>
+<li>Állítsa be a pozíciót: <code>G92 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;]</code></li>
+<li>A sebességtényező felülbírálási százalékának beállítása: <code>M220 S&lt;percent&gt;</code></li>
+<li>Extrudálási tényező felülbírálási százalékának beállítása: <code>M221 S&lt;percent&gt;</code></li>
+<li>Gyorsítás beállítása: <code>M204 S&lt;value&gt;</code> VAGY <code>M204 P&lt;value&gt; T&lt;value&gt;</code><ul>
+<li>Megjegyzés: Ha az S nincs megadva, de a P és a T meg van adva, akkor a gyorsulás a P és a T közül a minimumra van beállítva. Ha a P vagy a T közül csak az egyik van megadva, a parancsnak nincs hatása.</li>
 </ul>
 </li>
-<li>Get extruder temperature: <code>M105</code></li>
-<li>Set extruder temperature: <code>M104 [T&lt;index&gt;] [S&lt;temperature&gt;]</code></li>
-<li>Set extruder temperature and wait: <code>M109 [T&lt;index&gt;] S&lt;temperature&gt;</code><ul>
-<li>Note: M109 always waits for temperature to settle at requested value</li>
+<li>Extruder hőmérsékletének lekérdezése: <code>M105</code></li>
+<li>Az extruder hőmérsékletének beállítása: <code>M104 [T&lt;index&gt;] [S&lt;temperature&gt;]</code></li>
+<li>Beállítja az extruder hőmérsékletét és várakozik: <code>M109 [T&lt;index&gt;] S&lt;temperature&gt;</code><ul>
+<li>Megjegyzés: Az M109 mindig megvárja, míg a hőmérséklet beáll a kért értékre.</li>
 </ul>
 </li>
-<li>Set bed temperature: <code>M140 [S&lt;temperature&gt;]</code></li>
-<li>Set bed temperature and wait: <code>M190 S&lt;temperature&gt;</code><ul>
-<li>Note: M190 always waits for temperature to settle at requested value</li>
+<li>Beállítja az ágy hőmérsékletét: <code>M140 [S&lt;temperature&gt;]</code></li>
+<li>Beállítja az ágy hőmérsékletét és várakozik: <code>M190 S&lt;temperature&gt;</code><ul>
+<li>Megjegyzés: Az M190 mindig megvárja, hogy a hőmérséklet beálljon a kért értékre.</li>
 </ul>
 </li>
-<li>Set fan speed: <code>M106 S&lt;value&gt;</code></li>
-<li>Turn fan off: <code>M107</code></li>
-<li>Emergency stop: <code>M112</code></li>
-<li>Get current position: <code>M114</code></li>
-<li>Get firmware version: <code>M115</code></li>
+<li>A ventilátor sebességének beállítása: <code>M106 S&lt;value&gt;</code></li>
+<li>Kikapcsolja a ventilátort: <code>M107</code></li>
+<li>Vészleállító: <code>M112</code></li>
+<li>Jelenlegi pozíció lekérdezése: <code>M114</code></li>
+<li>A firmware verziójának lekérdezése: <code>M115</code></li>
 </ul>
-<p>For further details on the above commands see the <a href="http://reprap.org/wiki/G-code">RepRap G-Code documentation</a>.</p>
+<p>A fenti parancsokkal kapcsolatos további részletekért lásd a <a href="http://reprap.org/wiki/G-code">RepRap G-kód dokumentáció</a> fájlt.</p>
 <p>Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable <a href="#additional-commands">"extended G-Code commands"</a>. Similarly, the G-Code terminal output is only intended to be human readable - see the <a href="API_Server.html">API Server document</a> if controlling Klipper from external software.</p>
-<p>If one requires a less common G-Code command then it may be possible to implement it with a custom <a href="Config_Reference.html#gcode_macro">gcode_macro config section</a>. For example, one might use this to implement: <code>G12</code>, <code>G29</code>, <code>G30</code>, <code>G31</code>, <code>M42</code>, <code>M80</code>, <code>M81</code>, <code>T1</code>, etc.</p>
+<p>Ha egy kevésbé gyakori G-kód parancsra van szükség, akkor azt egy egyéni <a href="Config_Reference.html#gcode_macro">gcode_macro config section</a> segítségével lehet megvalósítani. Például ezt használhatnánk a következőkre: <code>G12</code>, <code>G29</code>, <code>G30</code>, <code>G31</code>, <code>M42</code>, <code>M80</code>, <code>M81</code>, <code>T1</code> stb.</p>
 <h2 id="tovabbi-parancsok">További parancsok<a class="headerlink" href="#tovabbi-parancsok" title="Permanent link">&para;</a></h2>
 <p>Klipper uses "extended" G-Code commands for general configuration and status. These extended commands all follow a similar format - they start with a command name and may be followed by one or more parameters. For example: <code>SET_SERVO SERVO=myservo ANGLE=5.3</code>. In this document, the commands and parameters are shown in uppercase, however they are not case sensitive. (So, "SET_SERVO" and "set_servo" both run the same command.)</p>
 <p>This section is organized my Klipper module name, which generally follows the section names specified in the <a href="Config_Reference.html">printer configuration file</a>. Note that some modules are automatically loaded.</p>

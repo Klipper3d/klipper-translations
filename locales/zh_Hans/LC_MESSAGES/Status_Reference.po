@@ -2,9 +2,10 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-04-01 02:09+0000\n"
+"PO-Revision-Date: 2022-04-10 06:13+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/status_reference/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/status_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -825,7 +826,7 @@ msgstr ""
 msgid ""
 "The following information is available in [angle "
 "some_name](Config_Reference.md#angle) objects:"
-msgstr ""
+msgstr "[angle some_name](Config_Reference.md#angle) 对象提供了以下信息："
 
 #: docs/Status_Reference.md:block 6 (unordered list)
 msgid ""
@@ -834,10 +835,13 @@ msgid ""
 "tle5012b chip and if measurements are in progress (otherwise it reports "
 "`None`)."
 msgstr ""
+"`temperature`：tle5012b 磁性霍尔传感器的最后一次温度读数（以摄氏度为单位）。"
+"该值仅在角度传感器是 tle5012b 芯片并且正在进行测量时可用（否则它会报告 "
+"`None`）。"
 
 #: docs/Status_Reference.md:block 49 (header)
 msgid "led"
-msgstr ""
+msgstr "led"
 
 #: docs/Status_Reference.md:block 50 (paragraph)
 msgid ""
@@ -845,6 +849,9 @@ msgid ""
 " led_name]`, `[dotstar led_name]`, `[pca9533 led_name]`, and `[pca9632 "
 "led_name]` config section defined in printer.cfg:"
 msgstr ""
+"以下信息适用于每个在printer.cfg中定义了的 `[led led_name]`、`[neopixel "
+"led_name]`、`[dotstar led_name]`、`[pca9533 led_name]` , 和 `[pca9632 "
+"led_name]` 配置分段："
 
 #: docs/Status_Reference.md:block 51 (unordered list)
 msgid ""
