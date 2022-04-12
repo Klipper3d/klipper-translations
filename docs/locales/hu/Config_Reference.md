@@ -351,11 +351,11 @@ max_z_accel:
 
 ### Hybrid-CoreXY Kinematika
 
-See [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) for an example hybrid corexy kinematics config file.
+Lásd az [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) példát egy hibrid CoreXY kinematikai konfigurációs fájlhoz.
 
-This kinematic is also known as Markforged kinematic.
+Ez a kinematika Markforged kinematikaként is ismert.
 
-Only parameters specific to hybrid corexy printers are described here see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Itt csak a hibrid CoreXY nyomtatókra jellemző paramétereket írjuk le, a rendelkezésre álló paramétereket lásd az [általános kinematikai beállítások](#common-kinematic-settings) pontban.
 
 ```
 [printer]
@@ -380,13 +380,13 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Hybrid-CoreXZ Kinematics
+### Hybrid-CoreXZ Kinematika
 
-See [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) for an example hybrid corexz kinematics config file.
+Lásd az [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) példát egy hibrid CoreXZ kinematikai konfigurációs fájlhoz.
 
-This kinematic is also known as Markforged kinematic.
+Ez a kinematika Markforged kinematikaként is ismert.
 
-Only parameters specific to hybrid corexy printers are described here see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Itt csak a hibrid CoreXY nyomtatókra jellemző paramétereket írjuk le, a rendelkezésre álló paramétereket lásd az [általános kinematikai beállítások](#common-kinematic-settings) pontban.
 
 ```
 [printer]
@@ -411,11 +411,11 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Polar Kinematics
+### Polar Kinematika
 
-See [example-polar.cfg](../config/example-polar.cfg) for an example polar kinematics config file.
+Lásd az [example-polar.cfg](../config/example-polar.cfg) egy példa a Polar kinematika konfigurációs fájljához.
 
-Only parameters specific to polar printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Itt csak a Polar nyomtatókra jellemző paraméterek kerülnek leírásra. A rendelkezésre álló paramétereket lásd az [általános kinematikai beállítások](#common-kinematic-settings) pontban.
 
 POLAR KINEMATICS ARE A WORK IN PROGRESS. Moves around the 0, 0 position are known to not work properly.
 
@@ -450,13 +450,13 @@ gear_ratio:
 [stepper_z]
 ```
 
-### Rotary delta Kinematics
+### Forgó delta Kinematika
 
-See [example-rotary-delta.cfg](../config/example-rotary-delta.cfg) for an example rotary delta kinematics config file.
+Lásd az [example-rotary-delta.cfg](../config/example-rotary-delta.cfg) egy példa a forgó delta kinematika konfigurációs fájljához.
 
-Only parameters specific to rotary delta printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Itt csak a forgó delta nyomtatókra jellemző paraméterek kerülnek leírásra. A rendelkezésre álló paramétereket lásd az [általános kinematikai beállítások](#common-kinematic-settings) pontban.
 
-ROTARY DELTA KINEMATICS ARE A WORK IN PROGRESS. Homing moves may timeout and some boundary checks are not implemented.
+A FORGÓ DELTA KINEMATIKA MÉG FOLYAMATBAN VAN. A célkövető mozgások időzítettek lehetnek, és néhány határellenőrzés nincs implementálva.
 
 ```
 [printer]
@@ -536,11 +536,11 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-### Cable winch Kinematics
+### Kábelcsörlős Kinematika
 
-See the [example-winch.cfg](../config/example-winch.cfg) for an example cable winch kinematics config file.
+Lásd az [example-winch.cfg](../config/example-winch.cfg) egy példát a kábelcsörlős kinematika konfigurációs fájljához.
 
-Only parameters specific to cable winch printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Itt csak a kábelcsörlős nyomtatókra jellemző paraméterek kerülnek leírásra. A rendelkezésre álló paramétereket lásd az [általános kinematikai beállítások](#common-kinematic-settings) pontban.
 
 CABLE WINCH SUPPORT IS EXPERIMENTAL. Homing is not implemented on cable winch kinematics. In order to home the printer, manually send movement commands until the toolhead is at 0, 0, 0 and then issue a `G28` command.
 
@@ -563,9 +563,9 @@ anchor_z:
 #   These parameters must be provided.
 ```
 
-### None Kinematics
+### Nincs Kinematika
 
-It is possible to define a special "none" kinematics to disable kinematic support in Klipper. This may be useful for controlling devices that are not typical 3d-printers or for debugging purposes.
+Lehetőség van egy speciális "none" kinematika definiálására a Klipper kinematikai támogatásának kikapcsolásához. Ez hasznos lehet olyan eszközök vezérléséhez, amelyek nem tipikus 3D-nyomtatók, vagy hibakeresési célok.
 
 ```
 [printer]
@@ -576,7 +576,7 @@ max_accel: 1
 #   values are not used for "none" kinematics.
 ```
 
-## Common extruder and heated bed support
+## Közös extruder és fűtött ágy támogatás
 
 ### [extruder]
 
@@ -708,7 +708,7 @@ max_temp:
 
 ### [heater_bed]
 
-The heater_bed section describes a heated bed. It uses the same heater settings described in the "extruder" section.
+A heater_bed szakasz egy fűtött ágyat ír le. Ugyanazokat a fűtési beállításokat használja, amelyeket az "extruder" szakaszban leírtunk.
 
 ```
 [heater_bed]
@@ -725,11 +725,11 @@ max_temp:
 
 ### [bed_mesh]
 
-Mesh Bed Leveling. One may define a bed_mesh config section to enable move transformations that offset the z axis based on a mesh generated from probed points. When using a probe to home the z-axis, it is recommended to define a safe_z_home section in printer.cfg to home toward the center of the print area.
+Ágy Háló Kiegyenlítés. Definiálhatunk egy bed_mesh konfigurációs szakaszt, hogy engedélyezzük a Z tengelyt eltoló mozgatási transzformációkat a mért pontokból generált háló alapján. Ha szondát használunk a Z-tengely alaphelyzetbe állítására, ajánlott a printer.cfg fájlban egy safe_z_home szakaszt definiálni a nyomtatási terület közepére történő alaphelyzetbe állításhoz.
 
 See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#bed_mesh) for additional information.
 
-Visual Examples:
+Vizuális példák:
 
 ```
  rectangular bed, probe_count = 3, 3:
@@ -869,7 +869,7 @@ See the [command reference](G-Codes.md#bed_tilt) for additional information.
 
 ### [bed_screws]
 
-Tool to help adjust bed leveling screws. One may define a [bed_screws] config section to enable a BED_SCREWS_ADJUST g-code command.
+Szerszám az ágy szintbeállító csavarok beállításához. Meghatározható egy [bed_screws] config szakasz a BED_SCREWS_ADJUST G-Kód parancs engedélyezéséhez.
 
 See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [command reference](G-Codes.md#bed_screws) for additional information.
 
@@ -909,7 +909,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 
 ### [screws_tilt_adjust]
 
-Tool to help adjust bed screws tilt using Z probe. One may define a screws_tilt_adjust config section to enable a SCREWS_TILT_CALCULATE g-code command.
+Eszköz az ágycsavarok dőlésszögének beállításához Z-szondával. Meghatározható egy screws_tilt_adjust konfigurációs szakasz a SCREWS_TILT_CALCULATE G-Kód parancsal.
 
 See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) and [command reference](G-Codes.md#screws_tilt_adjust) for additional information.
 
@@ -985,7 +985,7 @@ Multiple Z stepper tilt adjustment. This feature enables independent adjustment 
 
 ### [quad_gantry_level]
 
-Moving gantry leveling using 4 independently controlled Z motors. Corrects hyperbolic parabola effects (potato chip) on moving gantry which is more flexible. WARNING: Using this on a moving bed may lead to undesirable results. If this section is present then a QUAD_GANTRY_LEVEL extended G-Code command becomes available. This routine assumes the following Z motor configuration:
+Mozgó állvány szintezése 4 egymástól függetlenül vezérelt Z-motorral. Korrigálja a hiperbolikus parabola hatását (krumplichip) a mozgó portálon, amely rugalmasabb. FIGYELMEZTETÉS: Mozgó ágyon történő használata nemkívánatos eredményekhez vezethet. Ha ez a szakasz jelen van, akkor elérhetővé válik a QUAD_GANTRY_LEVEL kiterjesztett G-Kód parancs. Ez a rutin a következő Z motor konfigurációt feltételezi:
 
 ```
  ----------------
@@ -1037,7 +1037,7 @@ Printer Skew Correction. It is possible to use software to correct printer skew 
 [skew_correction]
 ```
 
-## Customized homing
+## Testreszabott kezdőpont felvétel
 
 ### [safe_z_home]
 
@@ -1068,7 +1068,7 @@ home_xy_position:
 
 ### [homing_override]
 
-Homing override. One may use this mechanism to run a series of g-code commands in place of a G28 found in the normal g-code input. This may be useful on printers that require a specific procedure to home the machine.
+Kezdőpont felvétel felülbírálása. Ezt a mechanizmust arra lehet használni, hogy a normál G-Kód bemenetben található G28 helyett egy sor G-Kód parancsot futtassunk. Ez olyan nyomtatóknál lehet hasznos, amelyeknél a gép beindításához speciális eljárásra van szükség.
 
 ```
 [homing_override]
@@ -1097,7 +1097,7 @@ gcode:
 
 ### [endstop_phase]
 
-Stepper phase adjusted endstops. To use this feature, define a config section with an "endstop_phase" prefix followed by the name of the corresponding stepper config section (for example, "[endstop_phase stepper_z]"). This feature can improve the accuracy of endstop switches. Add a bare "[endstop_phase]" declaration to enable the ENDSTOP_PHASE_CALIBRATE command.
+Léptető fázissal beállított végállások. A funkció használatához definiáljon egy konfigurációs részt egy "endstop_phase" előtaggal, amelyet a megfelelő stepper konfigurációs rész neve követ (például "[endstop_phase stepper_z]"). Ez a funkció javíthatja a végálláskapcsolók pontosságát. Adjon hozzá egy csupasz "[endstop_phase]" deklarációt az ENDSTOP_PHASE_CALIBRATE parancs engedélyezéséhez.
 
 See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes.md#endstop_phase) for additional information.
 
@@ -1125,11 +1125,11 @@ See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes
 #   layer will occur on a full step.) The default is False.
 ```
 
-## G-Code macros and events
+## G-Kód makrók és események
 
 ### [gcode_macro]
 
-G-Code macros (one may define any number of sections with a "gcode_macro" prefix). See the [command template guide](Command_Templates.md) for more information.
+G-Kód makrók (a "gcode_macro" előtaggal tetszőleges számú szakasz definiálható). További információkért lásd a [parancssablonok útmutatóját](Command_Templates.md).
 
 ```
 [gcode_macro my_cmd]
@@ -1190,7 +1190,7 @@ filename:
 
 ### [idle_timeout]
 
-Idle timeout. An idle timeout is automatically enabled - add an explicit idle_timeout config section to change the default settings.
+Üresjárati időtúllépés. Az üresjárati időtúllépés automatikusan engedélyezve van. Az alapértelmezett beállítások módosításához adjon hozzá egy explicit idle_timeout konfigurációs szakaszt.
 
 ```
 [idle_timeout]
@@ -1203,7 +1203,7 @@ Idle timeout. An idle timeout is automatically enabled - add an explicit idle_ti
 #   commands. The default is 600 seconds.
 ```
 
-## Optional G-Code features
+## Választható G-Kód funkciók
 
 ### [virtual_sdcard]
 
@@ -1221,7 +1221,7 @@ path:
 
 ### [sdcard_loop]
 
-Some printers with stage-clearing features, such as a part ejector or a belt printer, can find use in looping sections of the sdcard file. (For example, to print the same part over and over, or repeat the a section of a part for a chain or other repeated pattern).
+Néhány szakaszok törlésével rendelkező nyomtató, például alkatrész-kidobó vagy szalagnyomtató, hasznát veheti az SD-kártya fájl hurkolt szakaszainak. (Például ugyanazon alkatrész újra és újra történő kinyomtatásához, vagy egy alkatrész egy szakaszának megismétléséhez egy lánc vagy más ismétlődő mintához).
 
 See the [command reference](G-Codes.md#sdcard_loop) for supported commands. See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin compatible M808 G-Code macro.
 
@@ -1272,7 +1272,7 @@ Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCO
 
 ### [gcode_arcs]
 
-Support for gcode arc (G2/G3) commands.
+A G-Kód ív (G2/G3) parancsok támogatása.
 
 ```
 [gcode_arcs]
@@ -1424,11 +1424,11 @@ Support for resonance testing and automatic input shaper calibration. In order t
 #   (Hz/sec == sec^-2).
 ```
 
-## Config file helpers
+## Konfigurációs fájl segédletek
 
 ### [board_pins]
 
-Board pin aliases (one may define any number of sections with a "board_pins" prefix). Use this to define aliases for the pins on a micro-controller.
+Alaplap tű álnevek (tetszőleges számú szekciót definiálhatunk "board_pins" előtaggal). Ezzel definiálhat álneveket a mikrokontroller tűihez.
 
 ```
 [board_pins my_aliases]
@@ -1469,7 +1469,7 @@ pins:
 
 ### [probe]
 
-Z height probe. One may define this section to enable Z height probing hardware. When this section is enabled, PROBE and QUERY_PROBE extended [g-code commands](G-Codes.md#probe) become available. Also, see the [probe calibrate guide](Probe_Calibrate.md). The probe section also creates a virtual "probe:z_virtual_endstop" pin. One may set the stepper_z endstop_pin to this virtual pin on cartesian style printers that use the probe in place of a z endstop. If using "probe:z_virtual_endstop" then do not define a position_endstop in the stepper_z config section.
+Z magasságmérő szonda. Ezt a szakaszt a Z magasságmérő hardver engedélyezéséhez lehet definiálni. Ha ez a szakasz engedélyezve van, a PROBE és a QUERY_PROBE kiterjesztett [G-Kód parancsok](G-Codes.md#probe) elérhetővé válnak. Lásd még a [szonda kalibrálási útmutatót](Probe_Calibrate.md). A szondaszekció létrehoz egy virtuális "probe:z_virtual_endstop" tűt is. A stepper_z endstop_pin-t erre a virtuális tűre állíthatjuk a cartesian stílusú nyomtatókon, amelyek a szondát használják a Z végállás helyett. Ha a "probe:z_virtual_endstop" típust használjuk, akkor ne definiáljunk position_endsto-pot a stepper_z konfigurációs szakaszban.
 
 ```
 [probe]
@@ -1532,7 +1532,7 @@ z_offset:
 
 ### [bltouch]
 
-BLTouch probe. One may define this section (instead of a probe section) to enable a BLTouch probe. See [BL-Touch guide](BLTouch.md) and [command reference](G-Codes.md#bltouch) for further information. A virtual "probe:z_virtual_endstop" pin is also created (see the "probe" section for the details).
+BLTouch szonda. Ezt a szakaszt (a szondaszakasz helyett) a BLTouch szonda engedélyezéséhez lehet definiálni. További információkért lásd a [BL-Touch útmutató](BLTouch.md) és a [parancsreferencia](G-Codes.md#bltouch) című dokumentumot. Egy virtuális "probe:z_virtual_endstop" tű is létrejön (a részleteket lásd a "probe" szakaszban).
 
 ```
 [bltouch]
@@ -1588,7 +1588,7 @@ control_pin:
 
 ### [stepper_z1]
 
-Multi-stepper axes. On a cartesian style printer, the stepper controlling a given axis may have additional config blocks defining steppers that should be stepped in concert with the primary stepper. One may define any number of sections with a numeric suffix starting at 1 (for example, "stepper_z1", "stepper_z2", etc.).
+Több léptetőmotoros tengelyek. Egy cartesian stílusú nyomtatónál az adott tengelyt vezérlő léptető további konfigurációs blokkokkal rendelkezhet, amelyek olyan léptetőket határoznak meg, amelyeket az elsődleges léptetővel együtt kell léptetni. Bármennyi szakasz definiálható 1-től kezdődő numerikus utótaggal (például "stepper_z1", "stepper_z2" stb.).
 
 ```
 [stepper_z1]
@@ -1607,9 +1607,9 @@ Multi-stepper axes. On a cartesian style printer, the stepper controlling a give
 
 ### [extruder1]
 
-In a multi-extruder printer add an additional extruder section for each additional extruder. The additional extruder sections should be named "extruder1", "extruder2", "extruder3", and so on. See the "extruder" section for a description of available parameters.
+Több extruderes nyomtató esetén minden további extruder után adjon hozzá egy új extruder szakaszt. A további extruder szakaszok neve legyen "extruder1", "extruder2", "extruder3", és így tovább. A rendelkezésre álló paraméterek leírását lásd az "extruder" szakaszban.
 
-See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an example configuration.
+Lásd a [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) példakonfigurációt.
 
 ```
 [extruder1]
@@ -1624,9 +1624,9 @@ See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an exam
 
 ### [dual_carriage]
 
-Support for cartesian printers with dual carriages on a single axis. The active carriage is set via the SET_DUAL_CARRIAGE extended g-code command. The "SET_DUAL_CARRIAGE CARRIAGE=1" command will activate the carriage defined in this section (CARRIAGE=0 will return activation to the primary carriage). Dual carriage support is typically combined with extra extruders - the SET_DUAL_CARRIAGE command is often called at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the carriages during deactivation.
+Az egy tengelyen két kocsival rendelkező cartesian nyomtatók támogatása. Az aktív kocsit a SET_DUAL_CARRIAGE kiterjesztett G-Kód parancs segítségével állíthatjuk be. A "SET_DUAL_CARRIAGE CARRIAGE=1" parancs az ebben a szakaszban meghatározott kocsit aktiválja (a CARRIAGE=0 az elsődleges kocsi aktiválását állítja vissza). A kettős kocsitámogatást általában extra extruderekkel kombinálják. A SET_DUAL_CARRIAGE parancsot gyakran az ACTIVATE_EXTRUDER paranccsal egyidejűleg hívják meg. Ügyeljen arra, hogy a kocsikat a deaktiválás során parkoló állásba küldje.
 
-See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration.
+Lásd a [sample-idex.cfg](../config/sample-idex.cfg) példakonfigurációt.
 
 ```
 [dual_carriage]
@@ -1647,7 +1647,7 @@ axis:
 
 ### [extruder_stepper]
 
-Support for additional steppers synchronized to the movement of an extruder (one may define any number of sections with an "extruder_stepper" prefix).
+Az extruder mozgásához szinkronizált további léptetők támogatása (tetszőleges számú szakasz definiálható "extruder_stepper" előtaggal).
 
 See the [command reference](G-Codes.md#extruder) for more information.
 
@@ -1693,11 +1693,11 @@ Manual steppers (one may define any number of sections with a "manual_stepper" p
 #   MANUAL_STEPPER movement commands.
 ```
 
-## Custom heaters and sensors
+## Egyedi fűtőtestek és érzékelők
 
 ### [verify_heater]
 
-Heater and temperature sensor verification. Heater verification is automatically enabled for each heater that is configured on the printer. Use verify_heater sections to change the default settings.
+A fűtés és a hőmérséklet-érzékelő ellenőrzése. A fűtőelemek ellenőrzése automatikusan engedélyezve van minden olyan fűtőelemhez, amely a nyomtatón be van állítva. Az alapértelmezett beállítások módosításához használja a verify_heater szakaszokat.
 
 ```
 [verify_heater heater_config_name]
@@ -1733,7 +1733,7 @@ Heater and temperature sensor verification. Heater verification is automatically
 
 ### [homing_heaters]
 
-Tool to disable heaters when homing or probing an axis.
+Eszköz a fűtőberendezések letiltására, amikor egy tengely kezdőpont felvételt vagy szintezést csinál.
 
 ```
 [homing_heaters]
@@ -1750,7 +1750,7 @@ Tool to disable heaters when homing or probing an axis.
 
 ### [thermistor]
 
-Custom thermistors (one may define any number of sections with a "thermistor" prefix). A custom thermistor may be used in the sensor_type field of a heater config section. (For example, if one defines a "[thermistor my_thermistor]" section then one may use a "sensor_type: my_thermistor" when defining a heater.) Be sure to place the thermistor section in the config file above its first use in a heater section.
+Egyéni termisztorok (tetszőleges számú szakasz definiálható "termisztor" előtaggal). Egyéni termisztor használható a fűtőberendezés konfigurációs szakaszának sensor_type mezőjében. (Ha például egy "[thermistor my_thermistor]" szekciót definiálunk, akkor a fűtőelem definiálásakor használhatjuk a "sensor_type: my_thermistor" mezőt.). Ügyeljen arra, hogy a termisztor szekciót a konfigurációs fájlban az első fűtőszekcióban való használata fölé helyezze.
 
 ```
 [thermistor my_thermistor]
@@ -1773,7 +1773,7 @@ Custom thermistors (one may define any number of sections with a "thermistor" pr
 
 ### [adc_temperature]
 
-Custom ADC temperature sensors (one may define any number of sections with an "adc_temperature" prefix). This allows one to define a custom temperature sensor that measures a voltage on an Analog to Digital Converter (ADC) pin and uses linear interpolation between a set of configured temperature/voltage (or temperature/resistance) measurements to determine the temperature. The resulting sensor can be used as a sensor_type in a heater section. (For example, if one defines a "[adc_temperature my_sensor]" section then one may use a "sensor_type: my_sensor" when defining a heater.) Be sure to place the sensor section in the config file above its first use in a heater section.
+Egyedi ADC hőmérséklet-érzékelők (tetszőleges számú szekciót lehet definiálni "adc_temperature" előtaggal). Ez lehetővé teszi egy olyan egyéni hőmérséklet-érzékelő definiálását, amely egy feszültséget mér egy analóg-digitális átalakító (ADC) tűn, és lineáris interpolációt használ a konfigurált hőmérséklet/feszültség (vagy hőmérséklet/ellenállás) mérések között a hőmérséklet meghatározásához. Az így kapott érzékelő sensor_type-ként használható egy fűtőszekcióban. (Ha például egy "[adc_temperature my_sensor]" szekciót definiálunk, akkor egy fűtőelem definiálásakor használhatjuk a "sensor_type: my_sensor" szekciót). Ügyeljen arra, hogy a szenzor szekciót a config fájlban az első felhasználása fölé helyezze a fűtőszekcióban.
 
 ```
 [adc_temperature my_sensor]
@@ -1826,7 +1826,7 @@ Generic heaters (one may define any number of sections with a "heater_generic" p
 
 ### [temperature_sensor]
 
-Generic temperature sensors. One can define any number of additional temperature sensors that are reported via the M105 command.
+Általános hőmérséklet-érzékelők. Tetszőleges számú további hőmérséklet-érzékelőt lehet definiálni, amelyek az M105 parancson keresztül jelentenek.
 
 ```
 [temperature_sensor my_sensor]
@@ -1841,7 +1841,7 @@ Generic temperature sensors. One can define any number of additional temperature
 #   parameter.
 ```
 
-## Temperature sensors
+## Hőmérséklet-érzékelők
 
 Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heated_bed]` section).
 
