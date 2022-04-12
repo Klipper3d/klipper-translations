@@ -1,6 +1,6 @@
 # Kiadás
 
-A Klipper kiadások története. A Klipper telepítésével kapcsolatos információkért lásd [telepítés](Installation.md).
+A Klipper kiadások története. A Klipper telepítésével kapcsolatos információkért lásd a [telepítés](Installation.md) dokumentumot.
 
 ## Klipper 0.10.0
 
