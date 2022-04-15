@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-13 14:53+0200\n"
-"PO-Revision-Date: 2022-04-10 15:14+0000\n"
+"PO-Revision-Date: 2022-04-15 04:10+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/g-codes/zh_Hans/>\n"
@@ -2194,7 +2194,6 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
-#, fuzzy
 msgid "[angle]"
 msgstr "[angle]"
 

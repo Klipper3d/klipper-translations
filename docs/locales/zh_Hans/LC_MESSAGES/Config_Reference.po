@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
-"PO-Revision-Date: 2022-04-10 20:37+0000\n"
+"PO-Revision-Date: 2022-04-15 04:10+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/config_reference/zh_Hans/>\n"
@@ -5623,7 +5623,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 283 (header)
 msgid "Additional servos, buttons, and other pins"
-msgstr ""
+msgstr "额外的舵机、按钮和其他引脚"
 
 #: docs/Config_Reference.md:block 356 (paragraph)
 msgid ""
@@ -5668,7 +5668,6 @@ msgid ""
 msgstr ""
 
 #: docs/Config_Reference.md:block 409 (header)
-#, fuzzy
 msgid "[angle]"
 msgstr "[angle]"
 
