@@ -1,11 +1,13 @@
 # brian park <gouache95@gmail.com>, 2021.
 # 이정희 <daemul72@gmail.com>, 2022.
+# 김설중 <ksj6623@naver.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-04-08 06:09+0000\n"
-"Last-Translator: 이정희 <daemul72@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/overview/ko/>\n"
+"PO-Revision-Date: 2022-04-15 04:10+0000\n"
+"Last-Translator: 김설중 <ksj6623@naver.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/overview/"
+"ko/>\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -221,13 +223,14 @@ msgstr "설치 및 구성"
 msgid ""
 "[Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple "
 "micro-controllers."
-msgstr ""
+msgstr "[멀티 MCU 호밍](멀티_MCU_Homing.md): 여러 마이크로 컨트롤러를 사용한 호밍 및 "
+"프로빙."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Skew correction](Skew_Correction.md): Adjustments for axes not perfectly "
 "square."
-msgstr ""
+msgstr "[꼬임 보정](꼬임 보정.md): 축의 조정은 완전히 정사각형이 아닙니다."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
