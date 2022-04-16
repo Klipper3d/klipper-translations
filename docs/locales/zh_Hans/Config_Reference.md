@@ -2360,7 +2360,7 @@ PCA9632 LED支持。PCA9632在FlashForge Dreamer上使用。
 #   See the "led" section for information on these parameters.
 ```
 
-## Additional servos, buttons, and other pins
+## 额外的舵机、按钮和其他引脚
 
 ### [servo]
 
@@ -3277,7 +3277,7 @@ See the [command template document](Command_Templates.md#menu-templates) for inf
 # 所有的菜单配置分段都有的通用参数。
 #[menu __some_list __some_name]
 #type: disabled
-#   永久禁用这个菜单元素，唯一需要的属性是 "类型"。
+#   永久禁用这个菜单元素，唯一需要的属性是 "type"。
 #   允许你简单啊的禁用/隐藏现有的菜单项目。
 #[menu some_name]
 #type:

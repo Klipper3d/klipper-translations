@@ -33,7 +33,7 @@ A Klipper a következő szabványos G-kód parancsokat támogatja:
 
 A fenti parancsokkal kapcsolatos további részletekért lásd a [RepRap G-kód dokumentáció](http://reprap.org/wiki/G-code) fájlt.
 
-Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable ["extended G-Code commands"](#additional-commands). Similarly, the G-Code terminal output is only intended to be human readable - see the [API Server document](API_Server.md) if controlling Klipper from external software.
+A Klipper célja, hogy támogassa az általános 3. féltől származó szoftverek (pl. OctoPrint, Printrun, Slic3r, Cura, stb.) által generált G-Kód parancsokat a szabványos konfigurációikban. Nem cél, hogy minden lehetséges G-Kód parancsot támogasson. Ehelyett a Klipper az ember által olvasható ["kiterjesztett G-Kód"](#additional-commands) parancsokat részesíti előnyben. Hasonlóképpen, a G-Kód terminál kimenete is csak ember által olvasható. Lásd az [API Szerver dokumentumot](API_Server.md), ha a Klippert külső szoftverből irányítod.
 
 Ha egy kevésbé gyakori G-kód parancsra van szükség, akkor azt egy egyéni [gcode_macro config section](Config_Reference.md#gcode_macro) segítségével lehet megvalósítani. Például ezt használhatnánk a következőkre: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1` stb.
 
@@ -41,11 +41,11 @@ Ha egy kevésbé gyakori G-kód parancsra van szükség, akkor azt egy egyéni [
 
 A Klipper "kiterjesztett" G-kód parancsokat használ az általános konfigurációhoz és állapothoz. Ezek a kiterjesztett parancsok mind hasonló formátumot követnek, egy parancsnévvel kezdődnek, és egy vagy több paraméter követheti őket. Például: `SET_SERVO SERVO=myservo ANGLE=5.3`. Ebben a parancssorban a parancsok és paraméterek nagybetűvel szerepelnek, azonban a nagy- és kisbetűket nem kell figyelembe venni. (Tehát a "SET_SERVO" és a "set_servo" mindkettő ugyanazt jelenti.)
 
-This section is organized my Klipper module name, which generally follows the section names specified in the [printer configuration file](Config_Reference.md). Note that some modules are automatically loaded.
+Ez a szakasz a Klipper-modul nevével van generálva, amely általában a [nyomtató konfigurációs fájlban](Config_Reference.md) megadott szakaszneveket követi. Vegye figyelembe, hogy néhány modul automatikusan betöltődik.
 
 ### [adxl345]
 
-The following commands are available when an [adxl345 config section](Config_Reference.md#adxl345) is enabled.
+A következő parancsok akkor érhetők el, ha az [adxl345 konfigurációs szakasz](Config_Reference.md#adxl345) engedélyezve van.
 
 #### ACCELEROMETER_MEASURE
 
@@ -65,23 +65,23 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 ### [angle]
 
-The following commands are available when an [angle config section](Config_Reference.md#angle) is enabled.
+A következő parancsok akkor érhetők el, ha az [szög konfigurációs szakasz](Config_Reference.md#angle) engedélyezve van.
 
 #### ANGLE_CALIBRATE
 
-`ANGLE_CALIBRATE CHIP=<chip_name>`: Perform angle calibration on the given sensor (there must be an `[angle chip_name]` config section that has specified a `stepper` parameter). IMPORTANT - this tool will command the stepper motor to move without checking the normal kinematic boundary limits. Ideally the motor should be disconnected from any printer carriage before performing calibration. If the stepper can not be disconnected from the printer, make sure the carriage is near the center of its rail before starting calibration. (The stepper motor may move forwards or backwards two full rotations during this test.) After completing this test use the `SAVE_CONFIG` command to save the calibration data to the config file. In order to use this tool the Python "numpy" package must be installed (see the [measuring resonance document](Measuring_Resonances.md#software-installation) for more information).
+`ANGLE_CALIBRATE CHIP=<chip_name>`: Szögkalibrálás végrehajtása az adott érzékelőn (kell lennie egy `[angle chip_name]` konfigurációs szakasznak, amely megadta a `stepper` paramétert). FONTOS! Ez az eszköz a normál kinematikai határértékek ellenőrzése nélkül adja ki a léptetőmotor mozgását. Ideális esetben a motort a kalibrálás elvégzése előtt le kell választani az adott kocsiról. Ha a léptetőmotor nem kapcsolható le a nyomtatóról, győződjön meg róla, hogy a kocsi a kalibrálás megkezdése előtt a sín közepénél van. (A léptetőmotor két teljes fordulatot előre vagy hátra mozoghat a teszt során.) A teszt elvégzése után használja a `SAVE_CONFIG` parancsot a kalibrációs adatok printer.cfg fájlba történő mentéséhez. Az eszköz használatához telepíteni kell a Python "numpy" csomagot (további információkért lásd a [rezonancia mérése dokumentumot](Measuring_Resonances.md#software-installation).
 
 #### ANGLE_DEBUG_READ
 
-`ANGLE_DEBUG_READ CHIP=<config_name> REG=<register>`: Queries sensor register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes. This is only available for tle5012b chips.
+`ANGLE_DEBUG_READ CHIP=<config_name> REG=<register>`: A "regiszter" (pl. 44 vagy 0x2C) érzékelőregiszter lekérdezése. Hasznos lehet hibakeresési célokra. Ez csak a TLE5012B chipek esetében érhető el.
 
 #### ANGLE_DEBUG_WRITE
 
-`ANGLE_DEBUG_WRITE CHIP=<config_name> REG=<register> VAL=<value>`: Writes raw "value" into register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to sensor data sheet for the reference. This is only available for tle5012b chips.
+`ANGLE_DEBUG_WRITE CHIP=<config_name> REG=<register> VAL=<value>`: Nyers "érték" írása a "register" regiszterébe. Mind az "érték", mind a "regiszter" lehet decimális vagy hexadecimális egész szám. Használja óvatosan, és hivatkozzon az érzékelő adatlapjára. Ez csak a TLE5012B chipek esetében érhető el.
 
 ### [bed_mesh]
 
-The following commands are available when the [bed_mesh config section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh guide](Bed_Mesh.md)).
+A következő parancsok akkor érhetők el, ha a [bed_mesh konfigurációs szakasz](Config_Reference.md#bed_mesh) engedélyezve van (lásd még az [ágy háló útmutatót](Bed_Mesh.md)).
 
 #### BED_MESH_CALIBRATE
 
@@ -89,7 +89,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 #### BED_MESH_OUTPUT
 
-`BED_MESH_OUTPUT PGP=[<0:1>]`: This command outputs the current probed z values and current mesh values to the terminal. If PGP=1 is specified the X, Y coordinates generated by bed_mesh, along with their associated indices, will be output to the terminal.
+`BED_MESH_OUTPUT PGP=[<0:1>]`: Ez a parancs az aktuális mért Z értékeket és az aktuális hálóértékeket adja ki a terminálra. A PGP=1 megadása esetén a bed_mesh által generált X, Y koordináták és a hozzájuk tartozó indexek kerülnek a terminálra.
 
 #### BED_MESH_MAP
 
@@ -101,7 +101,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 #### BED_MESH_PROFILE
 
-`BED_MESH_PROFILE LOAD=<name> SAVE=<name> REMOVE=<name>`: This command provides profile management for mesh state. LOAD will restore the mesh state from the profile matching the supplied name. SAVE will save the current mesh state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to persistent memory permanent.
+`BED_MESH_PROFILE LOAD=<name> SAVE=<name> REMOVE=<name>`: Ez a parancs a háló állapotának profilkezelését biztosítja. A LOAD a háló állapotát a megadott névnek megfelelő profilból állítja vissza. A SAVE parancs az aktuális hálóállapotot a megadott névnek megfelelő profilba menti. A REMOVE a megadott névnek megfelelő profilt törli a tartós memóriából. Megjegyzendő, hogy a SAVE vagy REMOVE műveletek lefuttatása után a SAVE_CONFIG parancsot kell futtatni, hogy a tartós memóriában végrehajtott változtatások véglegesek legyenek.
 
 #### BED_MESH_OFFSET
 
@@ -109,7 +109,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 ### [bed_screws]
 
-The following commands are available when the [bed_screws config section](Config_Reference.md#bed_screws) is enabled (also see the [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws)).
+A következő parancsok akkor érhetők el, ha az [ágyszintező csavarok konfigurációs szakasz](Config_Reference.md#bed_screws) engedélyezve van (lásd még a [kézi szintezés útmutatót](Manual_Level.md#adjusting-bed-leveling-screws)).
 
 #### BED_SCREWS_ADJUST
 
@@ -117,7 +117,7 @@ The following commands are available when the [bed_screws config section](Config
 
 ### [bed_tilt]
 
-The following commands are available when the [bed_tilt config section](Config_Reference.md#bed_tilt) is enabled.
+A következő parancsok akkor érhetők el, ha a [bed_tilt konfigurációs szakasz](Config_Reference.md#bed_tilt) engedélyezve van.
 
 #### BED_TILT_CALIBRATE
 
@@ -125,11 +125,11 @@ The following commands are available when the [bed_tilt config section](Config_R
 
 ### [bltouch]
 
-The following command is available when a [bltouch config section](Config_Reference.md#bltouch) is enabled (also see the [BL-Touch guide](BLTouch.md)).
+A következő parancs akkor érhető el, ha a [bltouch konfigurációs szakasz](Config_Reference.md#bltouch) engedélyezve van (lásd még a [BL-Touch útmutatót](BLTouch.md)).
 
 #### BLTOUCH_DEBUG
 
-`BLTOUCH_DEBUG COMMAND=<command>`: This sends a command to the BLTouch. It may be useful for debugging. Available commands are: `pin_down`, `touch_mode`, `pin_up`, `self_test`, `reset`. A BL-Touch V3.0 or V3.1 may also support `set_5V_output_mode`, `set_OD_output_mode`, `output_mode_store` commands.
+`BLTOUCH_DEBUG COMMAND=<command>`: Ez egy parancsot küld a BLTouch-nak. Hasznos lehet a hibakereséshez. A rendelkezésre álló parancsok a következők: `pin_down`, `touch_mode`, `pin_up`, `self_test`, `reset`. A BL-Touch V3.0 vagy V3.1 támogathatja a `set_5V_output_mode`, `set_OD_output_mode`, `output_mode_store` parancsokat is.
 
 #### BLTOUCH_STORE
 
@@ -137,7 +137,7 @@ The following command is available when a [bltouch config section](Config_Refere
 
 ### [configfile]
 
-The configfile module is automatically loaded.
+A configfile modul automatikusan betöltődik.
 
 #### SAVE_CONFIG
 
@@ -145,7 +145,7 @@ The configfile module is automatically loaded.
 
 ### [delayed_gcode]
 
-The following command is enabled if a [delayed_gcode config section](Config_Reference.md#delayed_gcode) has been enabled (also see the [template guide](Command_Templates.md#delayed-gcodes)).
+A következő parancs akkor engedélyezett, ha a [delayed_gcode konfigurációs szakasz](Config_Reference.md#delayed_gcode) engedélyezve van (lásd még a [parancssablon útmutatót](Command_Templates.md#delayed-gcodes)).
 
 #### UPDATE_DELAYED_GCODE
 
@@ -153,7 +153,7 @@ The following command is enabled if a [delayed_gcode config section](Config_Refe
 
 ### [delta_calibrate]
 
-The following commands are available when the [delta_calibrate config section](Config_Reference.md#linear-delta-kinematics) is enabled (also see the [delta calibrate guide](Delta_Calibrate.md)).
+A következő parancsok akkor érhetők el, ha a [delta_kalibrate konfigurációs szakasz](Config_Reference.md#linear-delta-kinematics) engedélyezve van (lásd még a [delta kalibrációs útmutatót](Delta_Calibrate.md)).
 
 #### DELTA_CALIBRATE
 
@@ -165,7 +165,7 @@ The following commands are available when the [delta_calibrate config section](C
 
 ### [display]
 
-The following command is available when a [display config section](Config_Reference.md#gcode_macro) is enabled.
+A következő parancs akkor érhető el, ha a [konfigurációs szakasz megjelenítése](Config_Reference.md#gcode_macro) engedélyezve van.
 
 #### SET_DISPLAY_GROUP
 
@@ -173,14 +173,14 @@ The following command is available when a [display config section](Config_Refere
 
 ### [display_status]
 
-The display_status module is automatically loaded if a [display config section](Config_Reference.md#display) is enabled. It provides the following standard G-Code commands:
+A display_status modul automatikusan betöltődik, ha a [display konfigurációs szakasz](Config_Reference.md#display) engedélyezve van. A következő szabványos G-Kód parancsokat biztosítja:
 
 - Üzenet megjelenítése: `M117 <message>`
 - Nyomtatási folyamat százalékos arány beállítása: `M73 P<percent>`
 
 ### [dual_carriage]
 
-The following command is available when the [dual_carriage config section](Config_Reference.md#dual_carriage) is enabled.
+A következő parancs akkor érhető el, ha a [dual_carriage konfigurációs szakasz](Config_Reference.md#dual_carriage) engedélyezve van.
 
 #### SET_DUAL_CARRIAGE
 
@@ -188,7 +188,7 @@ The following command is available when the [dual_carriage config section](Confi
 
 ### [endstop_phase]
 
-The following commands are available when an [endstop_phase config section](Config_Reference.md#endstop_phase) is enabled (also see the [endstop phase guide](Endstop_Phase.md)).
+A következő parancsok akkor érhetők el, ha az [endstop_phase konfigurációs szakasz](Config_Reference.md#endstop_phase) engedélyezve van (lásd még a [végállás fázis útmutatót](Endstop_Phase.md)).
 
 #### ENDSTOP_PHASE_CALIBRATE
 
@@ -196,47 +196,47 @@ The following commands are available when an [endstop_phase config section](Conf
 
 ### [extruder]
 
-The following commands are available if an [extruder config section](Config_Reference.md#extruder) is enabled:
+A következő parancsok akkor érhetők el, ha az [extruder konfigurációs szakasz](Config_Reference.md#extruder) engedélyezve van:
 
 #### ACTIVATE_EXTRUDER
 
-`ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: In a printer with multiple [extruder](Config_Reference.md#extruder) config sections, this command changes the active hotend.
+`ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: Több [extruder](Config_Reference.md#extruder) konfigurációs szakaszokkal rendelkező nyomtatóban ez a parancs megváltoztatja az aktív nyomtatófejet.
 
 #### SET_PRESSURE_ADVANCE
 
-`SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Set pressure advance parameters of an extruder stepper (as defined in an [extruder](Config_Reference#extruder) or [extruder_stepper](Config_Reference#extruder_stepper) config section). If EXTRUDER is not specified, it defaults to the stepper defined in the active hotend.
+`SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Az extruder léptető nyomásszabályozási paramétereinek beállítása (ahogyan az [extruder](Config_Reference#extruder) vagy [extruder_stepper](Config_Reference#extruder_stepper) konfigurációs szakaszban definiálva van). Ha az EXTRUDER nincs megadva, akkor az alapértelmezett érték az aktív nyomtatófejhez definiált léptető.
 
 #### SET_EXTRUDER_ROTATION_DISTANCE
 
-`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: Set a new value for the provided extruder stepper's "rotation distance" (as defined in an [extruder](Config_Reference#extruder) or [extruder_stepper](Config_Reference#extruder_stepper) config section). If the rotation distance is a negative number then the stepper motion will be inverted (relative to the stepper direction specified in the config file). Changed settings are not retained on Klipper reset. Use with caution as small changes can result in excessive pressure between extruder and hotend. Do proper calibration with filament before use. If 'DISTANCE' value is not provided then this command will return the current rotation distance.
+`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: Új értéket állít be a megadott extruder léptető "rotation distance" (ahogyan az egy [extruder](Config_Reference#extruder) vagy [extruder_stepper](Config_Reference#extruder_stepper) config szakaszban definiálva van). Ha a forgási távolság negatív szám, akkor a léptető mozgása fordított lesz (a konfigurációs fájlban megadott léptető irányhoz képest). A megváltoztatott beállítások nem maradnak meg a Klipper visszaállításakor. Óvatosan használja, mivel a kis változtatások túlzott nyomást eredményezhetnek az extruder és a nyomtatófej között. Használat előtt végezze el a megfelelő kalibrációt a nyomtatószállal. Ha a 'DISTANCE' érték nincs megadva, akkor ez a parancs az aktuális forgási távolságot adja vissza.
 
 #### SYNC_EXTRUDER_MOTION
 
-`SYNC_EXTRUDER_MOTION EXTRUDER=<name> MOTION_QUEUE=<name>`: This command will cause the stepper specified by EXTRUDER (as defined in an [extruder](Config_Reference#extruder) or [extruder_stepper](Config_Reference#extruder_stepper) config section) to become synchronized to the movement of an extruder specified by MOTION_QUEUE (as defined in an [extruder](Config_Reference#extruder) config section). If MOTION_QUEUE is an empty string then the stepper will be desynchronized from all extruder movement.
+`SYNC_EXTRUDER_MOTION EXTRUDER=<name> MOTION_QUEUE=<name>`: Ezzel a paranccsal az EXTRUDER által meghatározott (az [extruder](Config_Reference#extruder) vagy [extruder_stepper](Config_Reference#extruder_stepper) konfigurációs szakaszban meghatározott) léptető szinkronizálódik a MOTION_QUEUE által meghatározott (az [extruder](Config_Reference#extruder) konfigurációs szakaszban meghatározott) extruder mozgásához. Ha a MOTION_QUEUE üres karakterlánc, akkor a léptető deszinkronizálódik minden extruder mozgásra.
 
 #### SET_EXTRUDER_STEP_DISTANCE
 
-This command is deprecated and will be removed in the near future.
+Ez a parancs elavult, és a közeljövőben eltávolításra kerül.
 
 #### SYNC_STEPPER_TO_EXTRUDER
 
-This command is deprecated and will be removed in the near future.
+Ez a parancs elavult, és a közeljövőben eltávolításra kerül.
 
 ### [fan_generic]
 
-The following command is available when a [fan_generic config section](Config_Reference.md#fan_generic) is enabled.
+A következő parancs akkor érhető el, ha a [fan_generic konfigurációs szakasz](Config_Reference.md#fan_generic) engedélyezve van.
 
 #### SET_FAN_SPEED
 
-`SET_FAN_SPEED FAN=config_name SPEED=<speed>` This command sets the speed of a fan. "speed" must be between 0.0 and 1.0.
+`SET_FAN_SPEED FAN=config_name SPEED=<speed>` Ez a parancs beállítja a ventilátor sebességét. "speed" 0.0 és 1.0 között kell lennie.
 
 ### [filament_switch_sensor]
 
-The following command is available when a [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) or [filament_motion_sensor](Config_Reference.md#filament_motion_sensor) config section is enabled.
+A következő parancs akkor érhető el, ha a [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) vagy [filament_motion_sensor](Config_Reference.md#filament_motion_sensor) konfigurációs szakasz engedélyezve van.
 
 #### QUERY_FILAMENT_SENSOR
 
-`QUERY_FILAMENT_SENSOR SENSOR=<sensor_name>`: Queries the current status of the filament sensor. The data displayed on the terminal will depend on the sensor type defined in the configuration.
+`QUERY_FILAMENT_SENSOR SENSOR=<sensor_name>`: A nyomtatószál-érzékelő aktuális állapotának lekérdezése. A terminálon megjelenő adatok a konfigurációban meghatározott érzékelőtípustól függnek.
 
 #### SET_FILAMENT_SENSOR
 
@@ -244,12 +244,12 @@ The following command is available when a [filament_switch_sensor](Config_Refere
 
 ### [firmware_retraction]
 
-The following standard G-Code commands are available when the [firmware_retraction config section](Config_Reference.md#firmware_retraction) is enabled. These commands allow you to utilize the firmware retraction feature available in many slicers, to reduce stringing during non-extrusion moves from one part of the print to another. Appropriately configuring pressure advance reduces the length of retraction required.
+A következő szabványos G-Kódú parancsok állnak rendelkezésre, ha a [firmware_retraction konfigurációs szakasz](Config_Reference.md#firmware_retraction) engedélyezve van. Ezek a parancsok lehetővé teszik a szeletelőkben elérhető firmware retraction funkció kihasználását, hogy csökkentse a húrosodást a nem extrudálásos mozgások során a nyomtatás egyik részéből a másikba. A nyomásszabályozás megfelelő beállítása csökkenti a szükséges visszahúzás hosszát.
 
 - `G10`: Visszahúzza a nyomtatószálat a konfigurált paraméterek szerint.
 - `G11`: Betölti a nyomtatószálat a konfigurált paraméterek szerint.
 
-The following additional commands are also available.
+A következő további parancsok is rendelkezésre állnak.
 
 #### SET_RETRACTION
 
@@ -261,7 +261,7 @@ The following additional commands are also available.
 
 ### [force_move]
 
-The force_move module is automatically loaded, however some commands require setting `enable_force_move` in the [printer config](Config_Reference#force_move).
+A force_move modul automatikusan betöltődik, azonban néhány parancshoz szükséges az `enable_force_move` beállítása a [nyomtató konfigurációban](Config_Reference#force_move).
 
 #### STEPPER_BUZZ
 
@@ -277,7 +277,7 @@ The force_move module is automatically loaded, however some commands require set
 
 ### [gcode]
 
-The gcode module is automatically loaded.
+A G-Kód modul automatikusan betöltődik.
 
 #### RESTART
 
@@ -291,7 +291,7 @@ The gcode module is automatically loaded.
 
 `STATUS`: Jelentse a Klipper gazdagép szoftver állapotát.
 
-#### HELP
+#### SÚGÓ
 
 `HELP`: A rendelkezésre álló kiterjesztett G-Kód parancsok listájának megjelenítése.
 
@@ -303,7 +303,7 @@ A következő szabványos G-kód parancsok elérhetők, ha a [gcode_arcs config 
 
 ### [gcode_macro]
 
-The following command is available when a [gcode_macro config section](Config_Reference.md#gcode_macro) is enabled (also see the [command templates guide](Command_Templates.md)).
+A következő parancs akkor érhető el, ha a [gcode_macro konfigurációs szakasz](Config_Reference.md#gcode_macro) engedélyezve van (lásd még a [parancssablonok útmutatóját](Command_Templates.md)).
 
 #### SET_GCODE_VARIABLE
 
@@ -311,11 +311,11 @@ The following command is available when a [gcode_macro config section](Config_Re
 
 ### [gcode_move]
 
-The gcode_move module is automatically loaded.
+A gcode_move modul automatikusan betöltődik.
 
 #### GET_POSITION
 
-`GET_POSITION`: Return information on the current location of the toolhead. See the developer documentation of [GET_POSITION output](Code_Overview.md#coordinate-systems) for more information.
+`GET_POSITION`: A nyomtatófej aktuális helyzetére vonatkozó információk visszaadása. További információkért lásd a [GET_POSITION kimenet](Code_Overview.md#coordinate-systems) fejlesztői dokumentációját.
 
 #### SET_GCODE_OFFSET
 
@@ -331,39 +331,39 @@ The gcode_move module is automatically loaded.
 
 ### [hall_filament_width_sensor]
 
-The following commands are available when the [tsl1401cl filament width sensor config section](Config_Reference.md#tsl1401cl_filament_width_sensor) or [hall filament width sensor config section](Config_Reference.md#hall_filament_width_sensor) is enabled (also see [TSLl401CL Filament Width Sensor](TSL1401CL_Filament_Width_Sensor.md) and [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)):
+A következő parancsok akkor érhetők el, ha a [tsl1401cl szálszélesség érzékelő konfigurációs szakasz](Config_Reference.md#tsl1401cl_filament_width_sensor) vagy a [hall szálszélesség érzékelő konfigurációs szakasz](Config_Reference.md#hall_filament_width_sensor) engedélyezve van (lásd még [TSLll401CL Szálszélesség érzékelő](TSL1401CL_Filament_Width_Sensor.md) és a [Hall Szálszélesség érzékelő](Hall_Filament_Width_Sensor.md) dokumentumot):
 
 #### QUERY_FILAMENT_WIDTH
 
-`QUERY_FILAMENT_WIDTH`: Return the current measured filament width.
+`QUERY_FILAMENT_WIDTH`: Visszaadja az aktuálisan mért izzószál szélességet.
 
 #### RESET_FILAMENT_WIDTH_SENSOR
 
-`RESET_FILAMENT_WIDTH_SENSOR`: Clear all sensor readings. Helpful after filament change.
+`RESET_FILAMENT_WIDTH_SENSOR`: Törli az összes érzékelő leolvasását. Hasznos nyomtatószál csere után.
 
 #### DISABLE_FILAMENT_WIDTH_SENSOR
 
-`DISABLE_FILAMENT_WIDTH_SENSOR`: Turn off the filament width sensor and stop using it for flow control.
+`DISABLE_FILAMENT_WIDTH_SENSOR`: Kapcsolja ki a szálszélesség érzékelőt, és ne használja áramlásszabályozáshoz.
 
 #### ENABLE_FILAMENT_WIDTH_SENSOR
 
-`ENABLE_FILAMENT_WIDTH_SENSOR`: Turn on the filament width sensor and start using it for flow control.
+`ENABLE_FILAMENT_WIDTH_SENSOR`: Kapcsolja be a szálszélesség érzékelőt, és kezdje el használni az áramlásszabályozáshoz.
 
 #### QUERY_RAW_FILAMENT_WIDTH
 
-`QUERY_RAW_FILAMENT_WIDTH`: Return the current ADC channel readings and RAW sensor value for calibration points.
+`QUERY_RAW_FILAMENT_WIDTH`: Visszaadja az ADC-csatorna aktuális leolvasását és a RAW-érzékelő értékét a kalibrációs pontokhoz.
 
 #### ENABLE_FILAMENT_WIDTH_LOG
 
-`ENABLE_FILAMENT_WIDTH_LOG`: Turn on diameter logging.
+`ENABLE_FILAMENT_WIDTH_LOG`: Az átmérő naplózásának bekapcsolása.
 
 #### DISABLE_FILAMENT_WIDTH_LOG
 
-`DISABLE_FILAMENT_WIDTH_LOG`: Turn off diameter logging.
+`DISABLE_FILAMENT_WIDTH_LOG`: Az átmérő naplózásának kikapcsolása.
 
 ### [heaters]
 
-The heaters module is automatically loaded if a heater is defined in the config file.
+A fűtőmodul automatikusan betöltődik, ha a konfigurációs fájlban van fűtőelem definiálva.
 
 #### TURN_OFF_HEATERS
 
@@ -379,7 +379,7 @@ The heaters module is automatically loaded if a heater is defined in the config 
 
 ### [idle_timeout]
 
-The idle_timeout module is automatically loaded.
+Az idle_timeout modul automatikusan betöltődik.
 
 #### SET_IDLE_TIMEOUT
 
@@ -387,7 +387,7 @@ The idle_timeout module is automatically loaded.
 
 ### [input_shaper]
 
-The following command is enabled if an [input_shaper config section](Config_Reference.md#input_shaper) has been enabled (also see the [resonance compensation guide](Resonance_Compensation.md)).
+A következő parancs akkor engedélyezett, ha az [input_shaper konfigurációs szakasz](Config_Reference.md#input_shaper) engedélyezve van (lásd még a [rezonancia kompenzációs útmutatót](Resonance_Compensation.md)).
 
 #### SET_INPUT_SHAPER
 
@@ -395,7 +395,7 @@ The following command is enabled if an [input_shaper config section](Config_Refe
 
 ### [manual_probe]
 
-The manual_probe module is automatically loaded.
+A manual_probe modul automatikusan betöltődik.
 
 #### MANUAL_PROBE
 
@@ -415,7 +415,7 @@ The manual_probe module is automatically loaded.
 
 ### [manual_stepper]
 
-The following command is available when a [manual_stepper config section](Config_Reference.md#manual_stepper) is enabled.
+A következő parancs akkor érhető el, ha a [manual_stepper konfigurációs szakasz](Config_Reference.md#manual_stepper) engedélyezve van.
 
 #### MANUAL_STEPPER
 
@@ -423,33 +423,33 @@ The following command is available when a [manual_stepper config section](Config
 
 ### [led]
 
-The following command is available when any of the [led config sections](Config_Reference.md#leds) are enabled.
+A következő parancs akkor érhető el, ha a [LED konfigurációs szakaszok](Config_Reference.md#leds) bármelyike engedélyezve van.
 
 #### SET_LED
 
-`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: This sets the LED output. Each color `<value>` must be between 0.0 and 1.0. The WHITE option is only valid on RGBW LEDs. If the LED supports multiple chips in a daisy-chain then one may specify INDEX to alter the color of just the given chip (1 for the first chip, 2 for the second, etc.). If INDEX is not provided then all LEDs in the daisy-chain will be set to the provided color. If TRANSMIT=0 is specified then the color change will only be made on the next SET_LED command that does not specify TRANSMIT=0; this may be useful in combination with the INDEX parameter to batch multiple updates in a daisy-chain. By default, the SET_LED command will sync it's changes with other ongoing gcode commands. This can lead to undesirable behavior if LEDs are being set while the printer is not printing as it will reset the idle timeout. If careful timing is not needed, the optional SYNC=0 parameter can be specified to apply the changes without resetting the idle timeout.
+`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: Ez állítja be a LED kimenetet. Minden szín `<value>` 0,0 és 1,0 között kell lennie. A WHITE opció csak RGBW LED-ek esetén érvényes. Ha a LED több chipet támogat egy daisy-chainben, akkor megadhatjuk az INDEX-et, hogy csak az adott chip színét változtassuk meg (1 az első chiphez, 2 a másodikhoz stb.). Ha az INDEX nincs megadva, akkor a daisy-chain összes LED-je a megadott színre lesz beállítva. Ha TRANSMIT=0 van megadva, akkor a színváltoztatás csak a következő SET_LED parancsnál történik meg, amely nem ad meg TRANSMIT=0-t. Ez hasznos lehet az INDEX paraméterrel kombinálva, ha egy daisy-chainben több frissítést szeretnénk kötegelni. Alapértelmezés szerint a SET_LED parancs szinkronizálja a változtatásokat a többi folyamatban lévő G-Kód paranccsal. Ez nemkívánatos viselkedéshez vezethet, ha a LED-ek beállítása akkor történik, amikor a nyomtató nem nyomtat, mivel ez visszaállítja az üresjárati időkorlátot. Ha nincs szükség gondos időzítésre, az opcionális SYNC=0 paraméter megadható, hogy a módosításokat az üresjárati időkorlát visszaállítása nélkül alkalmazza.
 
 #### SET_LED_TEMPLATE
 
-`SET_LED_TEMPLATE LED=<led_name> TEMPLATE=<template_name> [<param_x>=<literal>] [INDEX=<index>]`: Assign a [display_template](Config_Reference.md#display_template) to a given [LED](Config_Reference.md#leds). For example, if one defined a `[display_template my_led_template]` config section then one could assign `TEMPLATE=my_led_template` here. The display_template should produce a comma separated string containing four floating point numbers corresponding to red, green, blue, and white color settings. The template will be continuously evaluated and the LED will be automatically set to the resulting colors. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If INDEX is not specified then all chips in the LED's daisy-chain will be set to the template, otherwise only the chip with the given index will be updated. If TEMPLATE is an empty string then this command will clear any previous template assigned to the LED (one can then use `SET_LED` commands to manage the LED's color settings).
+`SET_LED_TEMPLATE LED=<led_name> TEMPLATE=<template_name> [<param_x>=<literal>] [INDEX=<index>]`: Egy [display_template](Config_Reference.md#display_template) hozzárendelése egy adott [LED-hez](Config_Reference.md#leds). Például, ha definiáltunk egy `[display_template my_led_template]` konfigurációs szakaszt, akkor itt hozzárendelhetjük a `TEMPLATE=my_led_template`. A display_template-nek egy vesszővel elválasztott karakterláncot kell létrehoznia, amely négy lebegőpontos számot tartalmaz, amelyek megfelelnek a piros, zöld, kék és fehér színbeállításoknak. A sablon folyamatosan kiértékelésre kerül, és a LED automatikusan az így kapott színekre lesz beállítva. A sablon kiértékelése során használandó display_template paramétereket lehet beállítani (a paraméterek Python literálokként lesznek elemezve). Ha az INDEX nincs megadva, akkor a LED's daisy-chain összes chipje a sablonra lesz beállítva, ellenkező esetben csak a megadott indexszel rendelkező chip lesz frissítve. Ha a TEMPLATE üres karakterlánc, akkor ez a parancs törli a LED-hez rendelt korábbi sablonokat (ekkor a `SET_LED` parancsokat használhatjuk a LED színbeállításainak kezelésére).
 
 ### [output_pin]
 
-The following command is available when an [output_pin config section](Config_Reference.md#output_pin) is enabled.
+A következő parancs akkor érhető el, ha az [output_pin konfigurációs szakasz](Config_Reference.md#output_pin) engedélyezve van.
 
 #### SET_PIN
 
-`SET_PIN PIN=config_name VALUE=<value> CYCLE_TIME=<cycle_time>`: Note - hardware PWM does not currently support the CYCLE_TIME parameter and will use the cycle time defined in the config.
+`SET_PIN PIN=config_name VALUE=<value> CYCLE_TIME=<cycle_time>`: Megjegyzés: A hardveres PWM jelenleg nem támogatja a CYCLE_TIME paramétert, és a konfigurációban meghatározott ciklusidőt használja.
 
 ### [palette2]
 
-The following commands are available when the [palette2 config section](Config_Reference.md#palette2) is enabled.
+A következő parancsok akkor érhetők el, ha a [palette2 konfigurációs szakasz](Config_Reference.md#palette2) engedélyezve van.
 
 A paletta nyomtatások speciális OCode-ok (Omega-kódok) beágyazásával működnek a G-Kód fájlban:
 
 - `O1`...`O32`: Ezeket a kódokat a G-Kód folyamatból olvassa be és dolgozza fel ez a modul, majd továbbítja a Palette 2 eszköznek.
 
-The following additional commands are also available.
+A következő további parancsok is rendelkezésre állnak.
 
 #### PALETTE_CONNECT
 
@@ -473,7 +473,7 @@ The following additional commands are also available.
 
 ### [pid_calibrate]
 
-The pid_calibrate module is automatically loaded if a heater is defined in the config file.
+A pid_calibrate modul automatikusan betöltődik, ha a konfigurációs fájlban van egy fűtés definiálva.
 
 #### PID_CALIBRATE
 
@@ -501,7 +501,7 @@ A következő parancsok akkor érhetők el, ha a [pause_resume konfigurációs s
 
 ### [probe]
 
-The following commands are available when a [probe config section](Config_Reference.md#probe) or [bltouch config section](Config_Reference.md#bltouch) is enabled (also see the [probe calibrate guide](Probe_Calibrate.md)).
+A következő parancsok akkor érhetők el, ha a [szonda konfigurációs szakasz](Config_Reference.md#probe) vagy a [bltouch konfigurációs szakasz](Config_Reference.md#bltouch) engedélyezve van (lásd még a [szonda kalibrációs útmutatót](Probe_Calibrate.md)).
 
 #### PROBE
 
@@ -525,7 +525,7 @@ The following commands are available when a [probe config section](Config_Refere
 
 ### [query_adc]
 
-The query_endstops module is automatically loaded.
+A query_endstops modul automatikusan betöltődik.
 
 #### QUERY_ADC
 
@@ -533,7 +533,7 @@ The query_endstops module is automatically loaded.
 
 ### [query_endstops]
 
-The query_endstops module is automatically loaded. The following standard G-Code commands are currently available, but using them is not recommended:
+A query_endstops modul automatikusan betöltődik. Jelenleg a következő szabványos G-Kód parancsok állnak rendelkezésre, de használatuk nem ajánlott:
 
 - Végállás állapotának lekérdezése: `M119` (Használja QUERY_ENDSTOPS helyett.)
 
@@ -543,7 +543,7 @@ The query_endstops module is automatically loaded. The following standard G-Code
 
 ### [resonance_tester]
 
-The following commands are available when a [resonance_tester config section](Config_Reference.md#resonance_tester) is enabled (also see the [measuring resonances guide](Measuring_Resonances.md)).
+A következő parancsok akkor érhetők el, ha a [resonance_tester konfigurációs szakasz](Config_Reference.md#resonance_tester) engedélyezve van (lásd még a [rezonanciák mérése útmutatót](Measuring_Resonances.md)).
 
 #### MEASURE_AXES_NOISE
 
@@ -551,7 +551,7 @@ The following commands are available when a [resonance_tester config section](Co
 
 #### TEST_RESONANCES
 
-`TEST_RESONANCES AXIS=<axis> OUTPUT=<resonances,raw_data> [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [INPUT_SHAPING=[<0:1>]]`: Runs the resonance test in all configured probe points for the requested "axis" and measures the acceleration using the accelerometer chips configured for the respective axis. "axis" can either be X or Y, or specify an arbitrary direction as `AXIS=dx,dy`, where dx and dy are floating point numbers defining a direction vector (e.g. `AXIS=X`, `AXIS=Y`, or `AXIS=1,-1` to define a diagonal direction). Note that `AXIS=dx,dy` and `AXIS=-dx,-dy` is equivalent. If `INPUT_SHAPING=0` or not set (default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. `OUTPUT` parameter is a comma-separated list of which outputs will be written. If `raw_data` is requested, then the raw accelerometer data is written into a file or a series of files `/tmp/raw_data_<axis>_[<point>_]<name>.csv` with (`<point>_` part of the name generated only if more than 1 probe point is configured). If `resonances` is specified, the frequency response is calculated (across all probe points) and written into `/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to `resonances`, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.
+`TEST_RESONANCES AXIS=<axis> OUTPUT=<resonances,raw_data> [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [INPUT_SHAPING=[<0:1>]]`: Lefuttatja a rezonancia tesztet a kért "tengely" összes konfigurált mérőpontján, és méri a gyorsulást az adott tengelyhez konfigurált gyorsulásmérő chipek segítségével. A "tengely" lehet X vagy Y, vagy megadhat egy tetszőleges irányt `AXIS=dx,dy`, ahol dx és dy egy irányvektort meghatározó lebegőpontos számok (pl. `AXIS=X`, `AXIS=Y`, vagy `AXIS=1,-1` az átlós irány meghatározásához). Vegyük figyelembe, hogy az `AXIS=dx,dy` és az `AXIS=-dx,-dy` egyenértékű. Ha `INPUT_SHAPING=0` vagy nincs beállítva (alapértelmezett), letiltja a bemeneti változót a rezonancia teszteléshez, mivel a rezonancia tesztelés nem érvényes a bemeneti változó engedélyezésével. `OUTPUT` paraméter egy vesszővel elválasztott lista arról, hogy mely kimenetek kerülnek kiírásra. Ha `raw_data` paramétert kér, akkor a nyers gyorsulásmérő adatok egy `/tmp/raw_data_<axis>_[<point>_]<name>.csv` fájlba vagy fájlsorozatba íródnak. A (`<point>_` névrészletével, amely csak akkor generálódik, ha 1-nél több mérőpont van konfigurálva). Ha `resonances` van megadva, a frekvenciaválasz kiszámításra kerül (az összes mérőpontra vonatkozóan) és a `/tmp/resonances_<axis>_<name>.csv` fájlba íródik. Ha nincs beállítva, az OUTPUT alapértelmezés szerint `resonances`, a NAME pedig alapértelmezés szerint az aktuális időpontot jelenti "ÉÉÉÉHHNN_ÓÓPPMPMP" formátumban.
 
 #### SHAPER_CALIBRATE
 
@@ -559,23 +559,23 @@ The following commands are available when a [resonance_tester config section](Co
 
 ### [respond]
 
-The following standard G-Code commands are available when the [respond config section](Config_Reference.md#respond) is enabled:
+A következő szabványos G-Kódú parancsok állnak rendelkezésre, ha a [respond konfigurációs szakasz](Config_Reference.md#respond) engedélyezve van:
 
 - `M118 <message>`: visszhangozza az üzenetet a konfigurált alapértelmezett előtaggal (vagy `echo: `, ha nincs konfigurálva előtag).
 
-The following additional commands are also available.
+A következő további parancsok is rendelkezésre állnak.
 
 #### RESPOND
 
 - `RESPOND MSG="<message>"`: visszhangozza az üzenetet a konfigurált alapértelmezett előtaggal kiegészítve (vagy `echo: `, ha nincs konfigurálva előtag).
 - `RESPOND TYPE=echo MSG="<message>"`: visszhangozza az üzenetet, amelyet `echo: ` küld.
-- `RESPOND TYPE=command MSG="<message>"`: echo the message prepended with `// `. OctoPrint can be configured to respond to these messages (e.g. `RESPOND TYPE=command MSG=action:pause`).
+- `RESPOND TYPE=command MSG="<message>"`: visszhangozza az üzenetet `// `. Az OctoPrint konfigurálható úgy, hogy válaszoljon ezekre az üzenetekre (pl. `RESPOND TYPE=command MSG=action:pause`).
 - `RESPOND TYPE=error MSG="<message>"`: visszhangozza az üzenetet `!! `.
 - `RESPOND PREFIX=<prefix> MSG="<message>"`: visszhangozza az üzenetet `<prefix>` előtaggal kiegészítve. (A `PREFIX` paraméter elsőbbséget élvez a `TYPE` paraméterrel szemben.)
 
 ### [save_variables]
 
-The following command is enabled if a [save_variables config section](Config_Reference.md#save_variables) has been enabled.
+A következő parancs akkor engedélyezett, ha a [save_variables konfigurációs szakasz](Config_Reference.md#save_variables) engedélyezve van.
 
 #### SAVE_VARIABLE
 
@@ -583,7 +583,7 @@ The following command is enabled if a [save_variables config section](Config_Ref
 
 ### [screws_tilt_adjust]
 
-The following commands are available when the [screws_tilt_adjust config section](Config_Reference.md#screws_tilt_adjust) is enabled (also see the [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe)).
+A következő parancsok akkor érhetők el, ha a [screws_tilt_adjust konfigurációs szakasz](Config_Reference.md#screws_tilt_adjust) engedélyezve van (lásd még a [kézi szintbeállítási útmutatót](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe)).
 
 #### SCREWS_TILT_CALCULATE
 
@@ -591,11 +591,11 @@ The following commands are available when the [screws_tilt_adjust config section
 
 ### [sdcard_loop]
 
-When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is enabled, the following extended commands are available.
+Ha az [sdcard_loop konfigurációs szakasz](Config_Reference.md#sdcard_loop) engedélyezve van, a következő kiterjesztett parancsok állnak rendelkezésre.
 
 #### SDCARD_LOOP_BEGIN
 
-`SDCARD_LOOP_BEGIN COUNT=<count>`: Begin a looped section in the SD print. A count of 0 indicates that the section should be looped indefinitely.
+`SDCARD_LOOP_BEGIN COUNT=<count>`: Egy hurokszerű szakasz kezdete az SD nyomtatásban. A 0-ás szám azt jelzi, hogy a szakasz végtelenített hurokba kerüljön.
 
 #### SDCARD_LOOP_END
 
@@ -607,7 +607,7 @@ When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is enable
 
 ### [servo]
 
-The following commands are available when a [servo config section](Config_Reference.md#servo) is enabled.
+A következő parancsok akkor érhetők el, ha a [szervó konfigurációs szakasz](Config_Reference.md#servo) engedélyezve van.
 
 #### SET_SERVO
 
@@ -615,7 +615,7 @@ The following commands are available when a [servo config section](Config_Refere
 
 ### [skew_correction]
 
-The following commands are available when the [skew_correction config section](Config_Reference.md#skew_correction) is enabled (also see the [Skew Correction](Skew_Correction.md) guide).
+A következő parancsok akkor érhetők el, ha a [skew_correction konfigurációs szakasz](Config_Reference.md#skew_correction) engedélyezve van (lásd még a [Ferdeségi korrekció](Skew_Correction.md) útmutatót).
 
 #### SET_SKEW
 
@@ -627,15 +627,15 @@ The following commands are available when the [skew_correction config section](C
 
 #### CALC_MEASURED_SKEW
 
-`CALC_MEASURED_SKEW [AC=<ac_length>] [BD=<bd_length>] [AD=<ad_length>]`: Calculates and reports the skew (in radians and degrees) based on a measured print. This can be useful for determining the printer's current skew after correction has been applied. It may also be useful before correction is applied to determine if skew correction is necessary. See [Skew Correction](Skew_Correction.md) for details on skew calibration objects and measurements.
+`CALC_MEASURED_SKEW [AC=<ac_length>] [BD=<bd_length>] [AD=<ad_length>]`: Kiszámítja és jelenti a ferdeséget (radiánban és fokban) egy mért lenyomat alapján. Ez hasznos lehet a nyomtató aktuális ferdeségének meghatározásához a korrekció alkalmazása után. A korrekció alkalmazása előtt is hasznos lehet annak meghatározásához, hogy szükséges-e a ferdeségkorrekció. A ferdeség kalibrációs objektumok és mérések részleteiért lásd a [Ferdeség korrekció](Skew_Correction.md) dokumentumot.
 
 #### SKEW_PROFILE
 
-`SKEW_PROFILE [LOAD=<name>] [SAVE=<name>] [REMOVE=<name>]`: Profile management for skew_correction. LOAD will restore skew state from the profile matching the supplied name. SAVE will save the current skew state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to persistent memory permanent.
+`SKEW_PROFILE [LOAD=<name>] [SAVE=<name>] [REMOVE=<name>]`: Profilkezelés a skew_correction számára. A LOAD visszaállítja a ferdeség állapotát a megadott névnek megfelelő profilból. A SAVE a megadott névnek megfelelő profilba menti az aktuális ferdeségállapotot. A REMOVE törli a megadott névnek megfelelő profilt a tartós memóriából. Megjegyzendő, hogy a SAVE vagy REMOVE műveletek lefuttatása után a SAVE_CONFIG parancsot kell futtatni, hogy a tartós memóriában végrehajtott változtatások véglegesek legyenek.
 
 ### [stepper_enable]
 
-The stepper_enable module is automatically loaded.
+A stepper_enable modul automatikusan betöltődik.
 
 #### SET_STEPPER_ENABLE
 
@@ -643,15 +643,15 @@ The stepper_enable module is automatically loaded.
 
 ### [temperature_fan]
 
-The following command is available when a [temperature_fan config section](Config_Reference.md#temperature_fan) is enabled.
+A következő parancs akkor érhető el, ha a [temperature_fan konfigurációs szakasz](Config_Reference.md#temperature_fan) engedélyezve van.
 
 #### SET_TEMPERATURE_FAN_TARGET
 
-`SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_name> [target=<target_temperature>] [min_speed=<min_speed>] [max_speed=<max_speed>]`: Sets the target temperature for a temperature_fan. If a target is not supplied, it is set to the specified temperature in the config file. If speeds are not supplied, no change is applied.
+`SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_name> [target=<target_temperature>] [min_speed=<min_speed>] [max_speed=<max_speed>]`: A temperature_fan célhőmérsékletének beállítása. Ha nincs megadva célérték, akkor a konfigurációs fájlban megadott hőmérsékletet állítja be. Ha a sebességek nincsenek megadva, akkor nem történik változás.
 
 ### [tmcXXXX]
 
-The following commands are available when any of the [tmcXXXX config sections](Config_Reference.md#tmc-stepper-driver-configuration) are enabled.
+A következő parancsok akkor érhetők el, ha a [tmcXXXXXX konfigurációs szakaszok](Config_Reference.md#tmc-stepper-driver-configuration) bármelyike engedélyezve van.
 
 #### DUMP_TMC
 
@@ -659,7 +659,7 @@ The following commands are available when any of the [tmcXXXX config sections](C
 
 #### INIT_TMC
 
-`INIT_TMC STEPPER=<name>`: This command will initialize the TMC registers. Needed to re-enable the driver if power to the chip is turned off then back on.
+`INIT_TMC STEPPER=<name>`: Ez a parancs inicializálja a TMC regisztereket. A meghajtó újraaktiválásához szükséges, ha a chip áramellátása kikapcsol, majd visszakapcsol.
 
 #### SET_TMC_CURRENT
 
@@ -671,7 +671,7 @@ The following commands are available when any of the [tmcXXXX config sections](C
 
 ### [toolhead]
 
-The toolhead module is automatically loaded.
+A nyomtatófejmodul automatikusan betöltődik.
 
 #### SET_VELOCITY_LIMIT
 
@@ -679,19 +679,19 @@ The toolhead module is automatically loaded.
 
 ### [tuning_tower]
 
-The tuning_tower module is automatically loaded.
+A tuning_tower modul automatikusan betöltődik.
 
 #### TUNING_TOWER
 
 `TUNING_TOWER COMMAND=<command> PARAMETER=<name> START=<value> [SKIP=<value>] [FACTOR=<value> [BAND=<value>]] | [STEP_DELTA=<value> STEP_HEIGHT=<value>]`: Egy eszköz egy paraméter beállítására minden egyes Z magasságon a nyomtatás során. Az eszköz az adott `COMMAND` parancsot a megadott `PARAMETER` értékhez rendelt `Z` értékkel egy képlet szerint változó értékkel futtatja. Használja a `FACTOR` lehetőséget, ha vonalzóval vagy tolómérővel fogja mérni az optimális Z magasságot, vagy `STEP_DELTA` és `STEP_HEIGHT`, ha a hangolótorony modellje diszkrét értékek sávjaival rendelkezik, mint ahogy az a hőmérséklet-tornyoknál gyakori. Ha `SKIP=<value>` van megadva, akkor a hangolási folyamat nem kezdődik meg, amíg a Z magasság `<value>` elérését, és ez alatt az érték `START` értékre lesz beállítva; ebben az esetben az alábbi képletekben használt `z_height` valójában `max(z - skip, 0)`. Három lehetséges kombináció létezik:
 
-- `FACTOR`: The value changes at a rate of `factor` per millimeter. The formula used is: `value = start + factor * z_height`. You can plug the optimum Z height directly into the formula to determine the optimum parameter value.
-- `FACTOR` and `BAND`: The value changes at an average rate of `factor` per millimeter, but in discrete bands where the adjustment will only be made every `BAND` millimeters of Z height. The formula used is: `value = start + factor * ((floor(z_height / band) + .5) * band)`.
-- `STEP_DELTA` and `STEP_HEIGHT`: The value changes by `STEP_DELTA` every `STEP_HEIGHT` millimeters. The formula used is: `value = start + step_delta * floor(z_height / step_height)`. You can simply count bands or read tuning tower labels to determine the optimum value.
+- `FACTOR`: Az érték `factor` milliméterenként változik. Az alkalmazott képlet: `value = start + factor * z_height`. Az optimális Z magasságot közvetlenül a képletbe illesztheti az optimális paraméterérték meghatározásához.
+- `FACTOR` és `BAND`: Az érték átlagosan `Faktor` milliméterenként változik, de diszkrét sávokban, ahol a kiigazítás csak minden `BAND` milliméterenként történik a Z magasságban. A használt képlet a következő: `value= start + factor* ((floor(z_height / band) + .5) * band)`.
+- `STEP_DELTA` és `STEP_HEIGHT`: Az érték `STEP_DELTA` minden `STEP_HEIGHT` milliméterrel változik. A használt képlet a következő: `value = start + step_delta * floor(z_height / step_height)`. Az optimális érték meghatározásához egyszerűen megszámolhatja a sávokat vagy leolvashatja a hangolótorony értékeit.
 
 ### [virtual_sdcard]
 
-Klipper supports the following standard G-Code commands if the [virtual_sdcard config section](Config_Reference.md#virtual_sdcard) is enabled:
+A Klipper támogatja a következő szabványos G-Kód parancsokat, ha a [virtual_sdcard konfigurációs szakasz](Config_Reference.md#virtual_sdcard) engedélyezve van:
 
 - SD-kártya listázása: `M20`
 - SD-kártya inicializálása: `M21`
@@ -701,19 +701,19 @@ Klipper supports the following standard G-Code commands if the [virtual_sdcard c
 - SD pozíció beállítása: `M26 S<offset>`
 - SD nyomtatási státusz jelentése: `M27`
 
-In addition, the following extended commands are available when the "virtual_sdcard" config section is enabled.
+Ezenkívül a következő kiterjesztett parancsok is elérhetők, ha a "virtual_sdcard" konfigurációs szakasz engedélyezve van.
 
 #### SDCARD_PRINT_FILE
 
-`SDCARD_PRINT_FILE FILENAME=<filename>`: Load a file and start SD print.
+`SDCARD_PRINT_FILE FILENAME=<filename>`: Egy fájl betöltése és az SD-nyomtatás elindítása.
 
 #### SDCARD_RESET_FILE
 
-`SDCARD_RESET_FILE`: Unload file and clear SD state.
+`SDCARD_RESET_FILE`: A fájl eltávolítása és az SD állapotának törlése.
 
 ### [z_tilt]
 
-The following commands are available when the [z_tilt config section](Config_Reference.md#z_tilt) is enabled.
+A következő parancsok akkor érhetők el, ha a [z_tilt konfigurációs szakasz](Config_Reference.md#z_tilt) engedélyezve van.
 
 #### Z_TILT_ADJUST
 
