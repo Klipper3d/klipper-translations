@@ -30,9 +30,9 @@ Klipper 에 오신것을 환영합니다. Klipper를 처음 사용하는 경우�
 - [Command Templates](Command_Templates.md): G-Code 매크로 및 조건부 평가.
    - [Status Reference](Status_Reference.md): 매크로(및 유사)에 사용할 수 있는 정보.
 - [TMC 드라이버](TMC_Drivers.md): Klipper와 함께 Trinamic 스테퍼 모터 드라이버 사용.
-- [Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple micro-controllers.
+- [멀티 MCU 호밍](멀티_MCU_Homing.md): 여러 마이크로 컨트롤러를 사용한 호밍 및 프로빙.
 - [슬라이서](Slicers.md): Klipper용 "슬라이서" 소프트웨어 구성.
-- [Skew correction](Skew_Correction.md): Adjustments for axes not perfectly square.
+- [꼬임 보정](꼬임 보정.md): 축의 조정은 완전히 정사각형이 아닙니다.
 - [PWM tools](Using_PWM_Tools.md): 레이저 또는 스핀들과 같은 PWM 제어 도구를 사용하는 방법에 대한 안내.
 
 ## 개발자 문서

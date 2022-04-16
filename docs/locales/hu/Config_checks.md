@@ -2,7 +2,7 @@
 
 Ez a dokumentum a Klipper printer.cfg fájl pin beállításainak megerősítéséhez szükséges lépések listáját tartalmazza. Célszerű ezeket a lépéseket a [telepítési dokumentum](Installation.md) lépéseinek követése után végrehajtani.
 
-Az útmutató során szükség lehet a Klipper konfigurációs fájljának módosítására. Ügyeljen arra, hogy a konfigurációs fájl minden módosítása után adjon ki egy RESTART parancsot, hogy megbizonyosodjon arról, hogy a változtatás érvénybe lép (írja be a "restart" kifejezést az Octoprint terminál lapjára, majd kattintson a "Küldés" gombra). Az is jó ötlet, hogy minden ÚJRAINDÍTÁS után kiad egy STATUS parancsot a konfigurációs fájl sikeres betöltésének ellenőrzésére.
+Az útmutató során szükség lehet a Klipper konfigurációs fájljának módosítására. Ügyeljen arra, hogy a konfigurációs fájl minden módosítása után adjon ki egy RESTART parancsot, hogy megbizonyosodjon arról, hogy a változtatás érvénybe lép (írja be a "restart" kifejezést az Octoprint terminál lapjára, majd kattintson a "Küldés" gombra). Az is jó ötlet, hogy minden RESTART után kiad egy STATUS parancsot a konfigurációs fájl sikeres betöltésének ellenőrzésére.
 
 ## Ellenőrizze a hőmérsékletet
 
@@ -14,25 +14,25 @@ Ellenőrizze, hogy a fúvóka és az ágy hőmérséklete (ha van) jelen van-e, 
 
 ## Ellenőrzés M112
 
-Navigáljon az Octoprint terminál fülre, és adjon ki egy M112 parancsot a terminálmezőben. Ez a parancs arra kéri a Klippert, hogy lépjen "leállási" állapotba. Ennek hatására az Octoprint megszakítja a kapcsolatot a Klipperrel - navigáljon a Connection (Kapcsolat) területre, és kattintson a "Connect" gombra, hogy az Octoprint újra csatlakozzon. Ezután navigáljon az Octoprint hőmérséklet fülre, és ellenőrizze, hogy a hőmérsékletek továbbra is frissülnek-e, és a hőmérsékletek nem emelkednek-e. Ha a hőmérsékletek emelkednek, kapcsolja ki a nyomtatót a hálózatból.
+Navigáljon az Octoprint terminál fülre, és adjon ki egy M112 parancsot a terminálmezőben. Ez a parancs arra kéri a Klippert, hogy lépjen "leállási" állapotba. Ennek hatására az Octoprint megszakítja a kapcsolatot a Klipperrel. Navigáljon a Connection (Kapcsolat) területre, és kattintson a "Kapcsolódás" gombra, hogy az Octoprint újra csatlakozzon. Ezután navigáljon az Octoprint hőmérséklet fülre, és ellenőrizze, hogy a hőmérsékletek továbbra is frissülnek-e, és a hőmérsékletek nem emelkednek-e. Ha a hőmérsékletek emelkednek, kapcsolja ki a nyomtatót a hálózatból.
 
 Az M112 parancs hatására a Klipper "leállítás" állapotba kerül. Ennek az állapotnak a törléséhez adjon ki egy FIRMWARE_RESTART parancsot az Octoprint terminál lapon.
 
 ## Ellenőrizze a fűtőtesteket
 
-Navigáljon az Octoprint hőmérséklet fülre, és írja be az 50-et, majd nyomjon Entert az "Eszköz" hőmérséklet mezőbe. Az extruder hőmérsékletének a grafikonon növekednie kell (körülbelül 30 másodpercen belül). Ezután lépjen a "Tool" hőmérséklet legördülő mezőbe, és válassza az "Off" lehetőséget. Néhány perc múlva a hőmérsékletnek el kell kezdenie visszaesni a kezdeti hőmérséklet felé. Ha a hőmérséklet nem emelkedik, akkor ellenőrizze a "heater_pin" beállítását a konfigurációs fájban.
+Navigáljon az Octoprint hőmérséklet fülre, és írja be az 50-et, majd nyomjon Entert az "Eszköz" hőmérséklet mezőbe. Az extruder hőmérsékletének a grafikonon növekednie kell (körülbelül 30 másodpercen belül). Ezután lépjen a "Eszköz" hőmérséklet legördülő mezőbe, és válassza az "Off" lehetőséget. Néhány perc múlva a hőmérsékletnek el kell kezdenie visszaesni a kezdeti hőmérséklet felé. Ha a hőmérséklet nem emelkedik, akkor ellenőrizze a "heater_pin" beállítását a konfigurációs fájban.
 
-Ha a nyomtató fűtött ággyal rendelkezik, akkor végezze el a fenti vizsgálatot az ággyal is.
+Ha a nyomtató fűtött ággyal rendelkezik, akkor végezze el a fenti vizsgálatot az ágynál is.
 
-## A léptetőmotor engedélyező pin ellenőrzése
+## A léptetőmotor engedélyező tű ellenőrzése
 
-Ellenőrizze, hogy a nyomtató minden tengelye manuálisan szabadon mozog-e (a léptetőmotorok ki vannak kapcsolva). Ha nem, adjon ki egy M84 parancsot a motorok letiltására. Ha valamelyik tengely még mindig nem tud szabadon mozogni, akkor ellenőrizze a léptető "enable_pin" konfigurációt az adott tengelyhez. A legtöbb hagyományos léptetőmotor-meghajtónál a motor engedélyező pin "aktív alacsony", ezért az engedélyező pin előtt egy "!" jelnek kell állnia (például "enable_pin: !ar38").
+Ellenőrizze, hogy a nyomtató minden tengelye manuálisan szabadon mozog-e (a léptetőmotorok ki vannak kapcsolva). Ha nem, adjon ki egy M84 parancsot a motorok letiltására. Ha valamelyik tengely még mindig nem tud szabadon mozogni, akkor ellenőrizze a léptető "enable_pin" konfigurációt az adott tengelyhez. A legtöbb hagyományos léptetőmotor-meghajtónál a motor engedélyező tű "aktív alacsony", ezért az engedélyező tű előtt egy "!" jelnek kell állnia (például "enable_pin: !ar38").
 
 ## Végállások ellenőrzése
 
-Kézzel mozgassa az összes nyomtatótengelyt úgy, hogy egyikük se érintkezzen végállással. Küldjön QUERY_ENDSTOPS parancsot az Octoprint terminál lapján keresztül. A nyomtatónak válaszolnia kell az összes konfigurált végállás aktuális állapotával, és mindegyiknek "nyitott" állapotot kell jelentenie. Az egyes végleállások esetében futtassa újra a QUERY_ENDSTOPS parancsot, miközben manuálisan indítja el a végleállást. A QUERY_ENDSTOPS parancsnak jelentenie kell a végállást, mint "TRIGGERED".
+Kézzel mozgassa az összes nyomtatótengelyt úgy, hogy egyikük se érintkezzen végállással. Küldjön QUERY_ENDSTOPS parancsot az Octoprint terminál lapján keresztül. A nyomtatónak válaszolnia kell az összes konfigurált végállás aktuális állapotával, és mindegyiknek "nyitott" állapotot kell jeleznie. Az egyes végleállások esetében futtassa újra a QUERY_ENDSTOPS parancsot, miközben manuálisan indítja el a végleállást. A QUERY_ENDSTOPS parancsnak jeleznie kell a végállást, mint "TRIGGERED".
 
-Ha a végállás inverznek tűnik (a kiváltáskor "nyitott" jelzést ad, és fordítva), akkor adjunk hozzá egy "!" -t a pin definícióhoz (például "endstop_pin: ^!ar3"), vagy távolítsuk el a "!" -t, ha már van ilyen.
+Ha a végállás inverznek tűnik (a kiváltáskor "nyitott" jelzést ad, és fordítva), akkor adjunk hozzá egy "!" -t a tű definícióhoz (például "endstop_pin: ^!ar3"), vagy távolítsuk el a "!" -t, ha már van ilyen.
 
 Ha a végállás egyáltalán nem változik, akkor ez általában azt jelzi, hogy a végállás egy másik pinhez van csatlakoztatva. Azonban az is előfordulhat, hogy a pin pullup beállításának megváltoztatására van szükség (a '^' az endstop_pin név elején - a legtöbb nyomtató pullup ellenállást használ, és a '^' -nek jelen kell lennie).
 
