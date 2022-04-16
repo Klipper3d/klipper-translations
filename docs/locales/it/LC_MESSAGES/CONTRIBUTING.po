@@ -1,17 +1,18 @@
-# elovalvoc047faba7aa1427f <ernesto.lovalvo@unipa.it>, 2022.
+# elovalvoc047faba7aa1427f <ernesto.lovalvo@unipa.it>, 2022, 2025.
 # Ale Ale <ale.99.ale@gmail.com>, 2022, 2023.
 # Alfredo Monclus <alfredomonclus@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-12-27 15:10+0000\n"
-"Last-Translator: Alfredo Monclus <alfredomonclus@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/contributing/it/>\n"
+"PO-Revision-Date: 2025-05-03 07:26+0000\n"
+"Last-Translator: elovalvoc047faba7aa1427f <ernesto.lovalvo@unipa.it>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"contributing/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid "Contributing to Klipper"
 msgstr "Contribuire a Klipper"
@@ -61,8 +62,8 @@ msgid ""
 "updates."
 msgstr ""
 "Se una traduzione esiste già nel repository Klipper e non soddisfa più "
-"l'elenco di controllo di cui sopra, verrà contrassegnata come obsoleta dopo un"
-" mese senza aggiornamenti."
+"l'elenco di controllo di cui sopra, verrà contrassegnata come obsoleta dopo "
+"un mese senza aggiornamenti."
 
 #: docs/CONTRIBUTING.md:block 2 (paragraph)
 msgid ""
