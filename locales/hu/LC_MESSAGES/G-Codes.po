@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-04-15 04:10+0000\n"
+"PO-Revision-Date: 2022-04-16 02:46+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "g-codes/hu/>\n"
@@ -2088,41 +2088,43 @@ msgstr "QUERY_PROBE"
 
 #: docs/G-Codes.md:block 237 (header)
 msgid "PROBE_ACCURACY"
-msgstr ""
+msgstr "PROBE_ACCURACY"
 
 #: docs/G-Codes.md:block 239 (header)
 msgid "PROBE_CALIBRATE"
-msgstr ""
+msgstr "PROBE_CALIBRATE"
 
 #: docs/G-Codes.md:block 241 (header)
 msgid "Z_OFFSET_APPLY_PROBE"
-msgstr ""
+msgstr "Z_OFFSET_APPLY_PROBE"
 
 #: docs/G-Codes.md:block 243 (header)
 msgid "[query_adc]"
-msgstr ""
+msgstr "[query_adc]"
 
 #: docs/G-Codes.md:block 244 (paragraph)
 msgid "The query_endstops module is automatically loaded."
-msgstr ""
+msgstr "A query_endstops modul automatikusan betöltődik."
 
 #: docs/G-Codes.md:block 245 (header)
 msgid "QUERY_ADC"
-msgstr ""
+msgstr "QUERY_ADC"
 
 #: docs/G-Codes.md:block 247 (header)
 msgid "[query_endstops]"
-msgstr ""
+msgstr "[query_endstops]"
 
 #: docs/G-Codes.md:block 248 (paragraph)
 msgid ""
 "The query_endstops module is automatically loaded. The following standard "
 "G-Code commands are currently available, but using them is not recommended:"
 msgstr ""
+"A query_endstops modul automatikusan betöltődik. Jelenleg a következő "
+"szabványos G-Kód parancsok állnak rendelkezésre, de használatuk nem ajánlott:"
 
 #: docs/G-Codes.md:block 250 (header)
 msgid "QUERY_ENDSTOPS"
-msgstr ""
+msgstr "QUERY_ENDSTOPS"
 
 #: docs/G-Codes.md:block 252 (header)
 msgid "[resonance_tester]"
@@ -2134,14 +2136,17 @@ msgid ""
 "section](Config_Reference.md#resonance_tester) is enabled (also see the "
 "[measuring resonances guide](Measuring_Resonances.md))."
 msgstr ""
+"A következő parancsok akkor érhetők el, ha a [resonance_tester konfigurációs "
+"szakasz](Config_Reference.md#resonance_tester) engedélyezve van (lásd még a ["
+"rezonanciák mérése útmutatót](Measuring_Resonances.md))."
 
 #: docs/G-Codes.md:block 254 (header)
 msgid "MEASURE_AXES_NOISE"
-msgstr ""
+msgstr "MEASURE_AXES_NOISE"
 
 #: docs/G-Codes.md:block 256 (header)
 msgid "TEST_RESONANCES"
-msgstr ""
+msgstr "TEST_RESONANCES"
 
 #: docs/G-Codes.md:block 257 (paragraph)
 msgid ""
@@ -2166,10 +2171,31 @@ msgid ""
 "unset, OUTPUT defaults to `resonances`, and NAME defaults to the current "
 "time in \"YYYYMMDD_HHMMSS\" format."
 msgstr ""
+"`TEST_RESONANCES AXIS=<axis> OUTPUT=<resonances,raw_data> [NAME=<name>] "
+"[FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] "
+"[INPUT_SHAPING=[<0:1>]]`: Lefuttatja a rezonancia tesztet a kért \"tengely\" "
+"összes konfigurált mérőpontján, és méri a gyorsulást az adott tengelyhez "
+"konfigurált gyorsulásmérő chipek segítségével. A \"tengely\" lehet X vagy Y, "
+"vagy megadhat egy tetszőleges irányt `AXIS=dx,dy`, ahol dx és dy egy "
+"irányvektort meghatározó lebegőpontos számok (pl. `AXIS=X`, `AXIS=Y`, vagy "
+"`AXIS=1,-1` az átlós irány meghatározásához). Vegyük figyelembe, hogy az "
+"`AXIS=dx,dy` és az `AXIS=-dx,-dy` egyenértékű. Ha `INPUT_SHAPING=0` vagy "
+"nincs beállítva (alapértelmezett), letiltja a bemeneti változót a rezonancia "
+"teszteléshez, mivel a rezonancia tesztelés nem érvényes a bemeneti változó "
+"engedélyezésével. `OUTPUT` paraméter egy vesszővel elválasztott lista arról, "
+"hogy mely kimenetek kerülnek kiírásra. Ha `raw_data` paramétert kér, akkor a "
+"nyers gyorsulásmérő adatok egy `/tmp/raw_data_<axis>_[<point>_]<name>.csv` "
+"fájlba vagy fájlsorozatba íródnak. A (`<point>_` névrészletével, amely csak "
+"akkor generálódik, ha 1-nél több mérőpont van konfigurálva). Ha `resonances` "
+"van megadva, a frekvenciaválasz kiszámításra kerül (az összes mérőpontra "
+"vonatkozóan) és a `/tmp/resonances_<axis>_<name>.csv` fájlba íródik. Ha "
+"nincs beállítva, az OUTPUT alapértelmezés szerint `resonances`, a NAME pedig "
+"alapértelmezés szerint az aktuális időpontot jelenti \"ÉÉÉÉHHNN_ÓÓPPMPMP\" "
+"formátumban."
 
 #: docs/G-Codes.md:block 258 (header)
 msgid "SHAPER_CALIBRATE"
-msgstr ""
+msgstr "SHAPER_CALIBRATE"
 
 #: docs/G-Codes.md:block 260 (header)
 msgid "[respond]"
@@ -2180,10 +2206,12 @@ msgid ""
 "The following standard G-Code commands are available when the [respond "
 "config section](Config_Reference.md#respond) is enabled:"
 msgstr ""
+"A következő szabványos G-Kódú parancsok állnak rendelkezésre, ha a [respond "
+"konfigurációs szakasz](Config_Reference.md#respond) engedélyezve van:"
 
 #: docs/G-Codes.md:block 264 (header)
 msgid "RESPOND"
-msgstr ""
+msgstr "RESPOND"
 
 #: docs/G-Codes.md:block 265 (unordered list)
 msgid ""
@@ -2191,6 +2219,9 @@ msgid ""
 "`// `. OctoPrint can be configured to respond to these messages (e.g. "
 "`RESPOND TYPE=command MSG=action:pause`)."
 msgstr ""
+"`RESPOND TYPE=command MSG=\"<message>\"`: visszhangozza az üzenetet `// `. "
+"Az OctoPrint konfigurálható úgy, hogy válaszoljon ezekre az üzenetekre (pl. `"
+"RESPOND TYPE=command MSG=action:pause`)."
 
 #: docs/G-Codes.md:block 266 (header)
 msgid "[save_variables]"
@@ -2201,10 +2232,12 @@ msgid ""
 "The following command is enabled if a [save_variables config "
 "section](Config_Reference.md#save_variables) has been enabled."
 msgstr ""
+"A következő parancs akkor engedélyezett, ha a [save_variables konfigurációs "
+"szakasz](Config_Reference.md#save_variables) engedélyezve van."
 
 #: docs/G-Codes.md:block 268 (header)
 msgid "SAVE_VARIABLE"
-msgstr ""
+msgstr "SAVE_VARIABLE"
 
 #: docs/G-Codes.md:block 270 (header)
 msgid "[screws_tilt_adjust]"
@@ -2217,10 +2250,14 @@ msgid ""
 "[manual level guide](Manual_Level.md#adjusting-bed-leveling-screws-using-"
 "the-bed-probe))."
 msgstr ""
+"A következő parancsok akkor érhetők el, ha a [screws_tilt_adjust "
+"konfigurációs szakasz](Config_Reference.md#screws_tilt_adjust) engedélyezve "
+"van (lásd még a [kézi szintbeállítási útmutatót](Manual_Level.md#adjusting-"
+"bed-leveling-screws-using-the-bed-probe))."
 
 #: docs/G-Codes.md:block 272 (header)
 msgid "SCREWS_TILT_CALCULATE"
-msgstr ""
+msgstr "SCREWS_TILT_CALCULATE"
 
 #: docs/G-Codes.md:block 274 (header)
 msgid "[sdcard_loop]"
@@ -2231,24 +2268,29 @@ msgid ""
 "When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is "
 "enabled, the following extended commands are available."
 msgstr ""
+"Ha az [sdcard_loop konfigurációs szakasz](Config_Reference.md#sdcard_loop) "
+"engedélyezve van, a következő kiterjesztett parancsok állnak rendelkezésre."
 
 #: docs/G-Codes.md:block 276 (header)
 msgid "SDCARD_LOOP_BEGIN"
-msgstr ""
+msgstr "SDCARD_LOOP_BEGIN"
 
 #: docs/G-Codes.md:block 277 (paragraph)
 msgid ""
 "`SDCARD_LOOP_BEGIN COUNT=<count>`: Begin a looped section in the SD print. A"
 " count of 0 indicates that the section should be looped indefinitely."
 msgstr ""
+"`SDCARD_LOOP_BEGIN COUNT=<count>`: Egy hurokszerű szakasz kezdete az SD "
+"nyomtatásban. A 0-ás szám azt jelzi, hogy a szakasz végtelenített hurokba "
+"kerüljön."
 
 #: docs/G-Codes.md:block 278 (header)
 msgid "SDCARD_LOOP_END"
-msgstr ""
+msgstr "SDCARD_LOOP_END"
 
 #: docs/G-Codes.md:block 280 (header)
 msgid "SDCARD_LOOP_DESIST"
-msgstr ""
+msgstr "SDCARD_LOOP_DESIST"
 
 #: docs/G-Codes.md:block 282 (header)
 msgid "[servo]"
@@ -2259,10 +2301,12 @@ msgid ""
 "The following commands are available when a [servo config "
 "section](Config_Reference.md#servo) is enabled."
 msgstr ""
+"A következő parancsok akkor érhetők el, ha a [szervó konfigurációs "
+"szakasz](Config_Reference.md#servo) engedélyezve van."
 
 #: docs/G-Codes.md:block 284 (header)
 msgid "SET_SERVO"
-msgstr ""
+msgstr "SET_SERVO"
 
 #: docs/G-Codes.md:block 286 (header)
 msgid "[skew_correction]"
@@ -2274,14 +2318,17 @@ msgid ""
 "section](Config_Reference.md#skew_correction) is enabled (also see the [Skew"
 " Correction](Skew_Correction.md) guide)."
 msgstr ""
+"A következő parancsok akkor érhetők el, ha a [skew_correction konfigurációs "
+"szakasz](Config_Reference.md#skew_correction) engedélyezve van (lásd még a ["
+"Ferdeségi korrekció](Skew_Correction.md) útmutatót)."
 
 #: docs/G-Codes.md:block 288 (header)
 msgid "SET_SKEW"
-msgstr ""
+msgstr "SET_SKEW"
 
 #: docs/G-Codes.md:block 290 (header)
 msgid "GET_CURRENT_SKEW"
-msgstr ""
+msgstr "GET_CURRENT_SKEW"
 
 #: docs/G-Codes.md:block 292 (header)
 msgid "CALC_MEASURED_SKEW"
@@ -2289,7 +2336,7 @@ msgstr "CALC_MEASURED_SKEW"
 
 #: docs/G-Codes.md:block 294 (header)
 msgid "SKEW_PROFILE"
-msgstr ""
+msgstr "SKEW_PROFILE"
 
 #: docs/G-Codes.md:block 295 (paragraph)
 msgid ""
@@ -2301,18 +2348,25 @@ msgid ""
 "REMOVE operations have been run the SAVE_CONFIG gcode must be run to make "
 "the changes to persistent memory permanent."
 msgstr ""
+"`SKEW_PROFILE [LOAD=<name>] [SAVE=<name>] [REMOVE=<name>]`: Profilkezelés a "
+"skew_correction számára. A LOAD visszaállítja a ferdeség állapotát a "
+"megadott névnek megfelelő profilból. A SAVE a megadott névnek megfelelő "
+"profilba menti az aktuális ferdeségállapotot. A REMOVE törli a megadott "
+"névnek megfelelő profilt a tartós memóriából. Megjegyzendő, hogy a SAVE vagy "
+"REMOVE műveletek lefuttatása után a SAVE_CONFIG parancsot kell futtatni, "
+"hogy a tartós memóriában végrehajtott változtatások véglegesek legyenek."
 
 #: docs/G-Codes.md:block 296 (header)
 msgid "[stepper_enable]"
-msgstr ""
+msgstr "[stepper_enable]"
 
 #: docs/G-Codes.md:block 297 (paragraph)
 msgid "The stepper_enable module is automatically loaded."
-msgstr ""
+msgstr "A stepper_enable modul automatikusan betöltődik."
 
 #: docs/G-Codes.md:block 298 (header)
 msgid "SET_STEPPER_ENABLE"
-msgstr ""
+msgstr "SET_STEPPER_ENABLE"
 
 #: docs/G-Codes.md:block 300 (header)
 msgid "[temperature_fan]"
@@ -2323,10 +2377,12 @@ msgid ""
 "The following command is available when a [temperature_fan config "
 "section](Config_Reference.md#temperature_fan) is enabled."
 msgstr ""
+"A következő parancs akkor érhető el, ha a [temperature_fan konfigurációs "
+"szakasz](Config_Reference.md#temperature_fan) engedélyezve van."
 
 #: docs/G-Codes.md:block 302 (header)
 msgid "SET_TEMPERATURE_FAN_TARGET"
-msgstr ""
+msgstr "SET_TEMPERATURE_FAN_TARGET"
 
 #: docs/G-Codes.md:block 303 (paragraph)
 msgid ""
@@ -2336,16 +2392,25 @@ msgid ""
 " If a target is not supplied, it is set to the specified temperature in the "
 "config file. If speeds are not supplied, no change is applied."
 msgstr ""
+"`SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_name> "
+"[target=<target_temperature>] [min_speed=<min_speed>] "
+"[max_speed=<max_speed>]`: A temperature_fan célhőmérsékletének beállítása. "
+"Ha nincs megadva célérték, akkor a konfigurációs fájlban megadott "
+"hőmérsékletet állítja be. Ha a sebességek nincsenek megadva, akkor nem "
+"történik változás."
 
 #: docs/G-Codes.md:block 304 (header)
 msgid "[tmcXXXX]"
-msgstr ""
+msgstr "[tmcXXXX]"
 
 #: docs/G-Codes.md:block 305 (paragraph)
 msgid ""
 "The following commands are available when any of the [tmcXXXX config "
 "sections](Config_Reference.md#tmc-stepper-driver-configuration) are enabled."
 msgstr ""
+"A következő parancsok akkor érhetők el, ha a [tmcXXXXXX konfigurációs "
+"szakaszok](Config_Reference.md#tmc-stepper-driver-configuration) bármelyike "
+"engedélyezve van."
 
 #: docs/G-Codes.md:block 306 (header)
 msgid "DUMP_TMC"
@@ -2353,7 +2418,7 @@ msgstr "DUMP_TMC"
 
 #: docs/G-Codes.md:block 308 (header)
 msgid "INIT_TMC"
-msgstr ""
+msgstr "INIT_TMC"
 
 #: docs/G-Codes.md:block 309 (paragraph)
 msgid ""
@@ -2361,38 +2426,41 @@ msgid ""
 "Needed to re-enable the driver if power to the chip is turned off then back "
 "on."
 msgstr ""
+"`INIT_TMC STEPPER=<name>`: Ez a parancs inicializálja a TMC regisztereket. A "
+"meghajtó újraaktiválásához szükséges, ha a chip áramellátása kikapcsol, majd "
+"visszakapcsol."
 
 #: docs/G-Codes.md:block 310 (header)
 msgid "SET_TMC_CURRENT"
-msgstr ""
+msgstr "SET_TMC_CURRENT"
 
 #: docs/G-Codes.md:block 312 (header)
 msgid "SET_TMC_FIELD"
-msgstr ""
+msgstr "SET_TMC_FIELD"
 
 #: docs/G-Codes.md:block 314 (header)
 msgid "[toolhead]"
-msgstr ""
+msgstr "[toolhead]"
 
 #: docs/G-Codes.md:block 315 (paragraph)
 msgid "The toolhead module is automatically loaded."
-msgstr ""
+msgstr "A nyomtatófejmodul automatikusan betöltődik."
 
 #: docs/G-Codes.md:block 316 (header)
 msgid "SET_VELOCITY_LIMIT"
-msgstr ""
+msgstr "SET_VELOCITY_LIMIT"
 
 #: docs/G-Codes.md:block 318 (header)
 msgid "[tuning_tower]"
-msgstr ""
+msgstr "[tuning_tower]"
 
 #: docs/G-Codes.md:block 319 (paragraph)
 msgid "The tuning_tower module is automatically loaded."
-msgstr ""
+msgstr "A tuning_tower modul automatikusan betöltődik."
 
 #: docs/G-Codes.md:block 320 (header)
 msgid "TUNING_TOWER"
-msgstr ""
+msgstr "TUNING_TOWER"
 
 #: docs/G-Codes.md:block 322 (unordered list)
 msgid ""
@@ -2401,6 +2469,9 @@ msgid ""
 "optimum Z height directly into the formula to determine the optimum "
 "parameter value."
 msgstr ""
+"`FACTOR`: Az érték `factor` milliméterenként változik. Az alkalmazott képlet:"
+" `value = start + factor * z_height`. Az optimális Z magasságot közvetlenül "
+"a képletbe illesztheti az optimális paraméterérték meghatározásához."
 
 #: docs/G-Codes.md:block 322 (unordered list)
 msgid ""
@@ -2421,6 +2492,11 @@ msgid ""
 "* floor(z_height / step_height)`. You can simply count bands or read tuning "
 "tower labels to determine the optimum value."
 msgstr ""
+"`STEP_DELTA` és `STEP_HEIGHT`: Az érték `STEP_DELTA` minden `STEP_HEIGHT` "
+"milliméterrel változik. A használt képlet a következő: `value = start + "
+"step_delta * floor(z_height / step_height)`. Az optimális érték "
+"meghatározásához egyszerűen megszámolhatja a sávokat vagy leolvashatja a "
+"hangolótorony értékeit."
 
 #: docs/G-Codes.md:block 323 (header)
 msgid "[virtual_sdcard]"
@@ -2432,29 +2508,36 @@ msgid ""
 "[virtual_sdcard config section](Config_Reference.md#virtual_sdcard) is "
 "enabled:"
 msgstr ""
+"A Klipper támogatja a következő szabványos G-Kód parancsokat, ha a ["
+"virtual_sdcard konfigurációs szakasz](Config_Reference.md#virtual_sdcard) "
+"engedélyezve van:"
 
 #: docs/G-Codes.md:block 326 (paragraph)
 msgid ""
 "In addition, the following extended commands are available when the "
 "\"virtual_sdcard\" config section is enabled."
 msgstr ""
+"Ezenkívül a következő kiterjesztett parancsok is elérhetők, ha a "
+"\"virtual_sdcard\" konfigurációs szakasz engedélyezve van."
 
 #: docs/G-Codes.md:block 327 (header)
 msgid "SDCARD_PRINT_FILE"
-msgstr ""
+msgstr "SDCARD_PRINT_FILE"
 
 #: docs/G-Codes.md:block 328 (paragraph)
 msgid ""
 "`SDCARD_PRINT_FILE FILENAME=<filename>`: Load a file and start SD print."
 msgstr ""
+"`SDCARD_PRINT_FILE FILENAME=<filename>`: Egy fájl betöltése és az SD-"
+"nyomtatás elindítása."
 
 #: docs/G-Codes.md:block 329 (header)
 msgid "SDCARD_RESET_FILE"
-msgstr ""
+msgstr "SDCARD_RESET_FILE"
 
 #: docs/G-Codes.md:block 330 (paragraph)
 msgid "`SDCARD_RESET_FILE`: Unload file and clear SD state."
-msgstr ""
+msgstr "`SDCARD_RESET_FILE`: A fájl eltávolítása és az SD állapotának törlése."
 
 #: docs/G-Codes.md:block 331 (header)
 msgid "[z_tilt]"
@@ -2465,10 +2548,12 @@ msgid ""
 "The following commands are available when the [z_tilt config "
 "section](Config_Reference.md#z_tilt) is enabled."
 msgstr ""
+"A következő parancsok akkor érhetők el, ha a [z_tilt konfigurációs "
+"szakasz](Config_Reference.md#z_tilt) engedélyezve van."
 
 #: docs/G-Codes.md:block 333 (header)
 msgid "Z_TILT_ADJUST"
-msgstr ""
+msgstr "Z_TILT_ADJUST"
 
 #: docs/G-Codes.md:block 7 (paragraph)
 msgid ""
@@ -2480,6 +2565,14 @@ msgid ""
 "only intended to be human readable - see the [API Server "
 "document](API_Server.md) if controlling Klipper from external software."
 msgstr ""
+"A Klipper célja, hogy támogassa az általános 3. féltől származó szoftverek ("
+"pl. OctoPrint, Printrun, Slic3r, Cura, stb.) által generált G-Kód "
+"parancsokat a szabványos konfigurációikban. Nem cél, hogy minden lehetséges "
+"G-Kód parancsot támogasson. Ehelyett a Klipper az ember által olvasható ["
+"\"kiterjesztett G-Kód\"](#additional-commands) parancsokat részesíti "
+"előnyben. Hasonlóképpen, a G-Kód terminál kimenete is csak ember által "
+"olvasható. Lásd az [API Szerver dokumentumot](API_Server.md), ha a Klippert "
+"külső szoftverből irányítod."
 
 #: docs/G-Codes.md:block 139 (paragraph)
 msgid ""
@@ -2487,6 +2580,9 @@ msgid ""
 "See the developer documentation of [GET_POSITION "
 "output](Code_Overview.md#coordinate-systems) for more information."
 msgstr ""
+"`GET_POSITION`: A nyomtatófej aktuális helyzetére vonatkozó információk "
+"visszaadása. További információkért lásd a [GET_POSITION "
+"kimenet](Code_Overview.md#coordinate-systems) fejlesztői dokumentációját."
 
 #: docs/G-Codes.md:block 82 (paragraph)
 msgid ""
@@ -2508,6 +2604,13 @@ msgid ""
 "EXTRUDER is not specified, it defaults to the stepper defined in the active "
 "hotend."
 msgstr ""
+"`SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] "
+"[SMOOTH_TIME=<pressure_advance_smooth_time>]`: Az extruder léptető "
+"nyomásszabályozási paramétereinek beállítása (ahogyan az "
+"[extruder](Config_Reference#extruder) vagy "
+"[extruder_stepper](Config_Reference#extruder_stepper) konfigurációs "
+"szakaszban definiálva van). Ha az EXTRUDER nincs megadva, akkor az "
+"alapértelmezett érték az aktív nyomtatófejhez definiált léptető."
 
 #: docs/G-Codes.md:block 86 (paragraph)
 msgid ""
@@ -2523,6 +2626,17 @@ msgid ""
 "Do proper calibration with filament before use. If 'DISTANCE' value is not "
 "provided then this command will return the current rotation distance."
 msgstr ""
+"`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> "
+"[DISTANCE=<distance>]`: Új értéket állít be a megadott extruder léptető "
+"\"rotation distance\" (ahogyan az egy [extruder](Config_Reference#extruder) "
+"vagy [extruder_stepper](Config_Reference#extruder_stepper) config szakaszban "
+"definiálva van). Ha a forgási távolság negatív szám, akkor a léptető mozgása "
+"fordított lesz (a konfigurációs fájlban megadott léptető irányhoz képest). A "
+"megváltoztatott beállítások nem maradnak meg a Klipper visszaállításakor. "
+"Óvatosan használja, mivel a kis változtatások túlzott nyomást "
+"eredményezhetnek az extruder és a nyomtatófej között. Használat előtt "
+"végezze el a megfelelő kalibrációt a nyomtatószállal. Ha a 'DISTANCE' érték "
+"nincs megadva, akkor ez a parancs az aktuális forgási távolságot adja vissza."
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[angle]"
@@ -2533,6 +2647,8 @@ msgid ""
 "The following commands are available when an [angle config "
 "section](Config_Reference.md#angle) is enabled."
 msgstr ""
+"A következő parancsok akkor érhetők el, ha az [szög konfigurációs "
+"szakasz](Config_Reference.md#angle) engedélyezve van."
 
 #: docs/G-Codes.md:block 24 (header)
 msgid "ANGLE_CALIBRATE"
@@ -2602,13 +2718,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 199 (header)
 msgid "[led]"
-msgstr ""
+msgstr "[led]"
 
 #: docs/G-Codes.md:block 200 (paragraph)
 msgid ""
 "The following command is available when any of the [led config "
 "sections](Config_Reference.md#leds) are enabled."
 msgstr ""
+"A következő parancs akkor érhető el, ha a [LED konfigurációs "
+"szakaszok](Config_Reference.md#leds) bármelyike engedélyezve van."
 
 #: docs/G-Codes.md:block 202 (paragraph)
 msgid ""
@@ -2628,10 +2746,27 @@ msgid ""
 "timeout. If careful timing is not needed, the optional SYNC=0 parameter can "
 "be specified to apply the changes without resetting the idle timeout."
 msgstr ""
+"`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> "
+"WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: Ez állítja be a LED "
+"kimenetet. Minden szín `<value>` 0,0 és 1,0 között kell lennie. A WHITE "
+"opció csak RGBW LED-ek esetén érvényes. Ha a LED több chipet támogat egy "
+"daisy-chainben, akkor megadhatjuk az INDEX-et, hogy csak az adott chip "
+"színét változtassuk meg (1 az első chiphez, 2 a másodikhoz stb.). Ha az "
+"INDEX nincs megadva, akkor a daisy-chain összes LED-je a megadott színre "
+"lesz beállítva. Ha TRANSMIT=0 van megadva, akkor a színváltoztatás csak a "
+"következő SET_LED parancsnál történik meg, amely nem ad meg TRANSMIT=0-t. Ez "
+"hasznos lehet az INDEX paraméterrel kombinálva, ha egy daisy-chainben több "
+"frissítést szeretnénk kötegelni. Alapértelmezés szerint a SET_LED parancs "
+"szinkronizálja a változtatásokat a többi folyamatban lévő G-Kód paranccsal. "
+"Ez nemkívánatos viselkedéshez vezethet, ha a LED-ek beállítása akkor "
+"történik, amikor a nyomtató nem nyomtat, mivel ez visszaállítja az "
+"üresjárati időkorlátot. Ha nincs szükség gondos időzítésre, az opcionális "
+"SYNC=0 paraméter megadható, hogy a módosításokat az üresjárati időkorlát "
+"visszaállítása nélkül alkalmazza."
 
 #: docs/G-Codes.md:block 203 (header)
 msgid "SET_LED_TEMPLATE"
-msgstr ""
+msgstr "SET_LED_TEMPLATE"
 
 #: docs/G-Codes.md:block 204 (paragraph)
 msgid ""
@@ -2652,6 +2787,23 @@ msgid ""
 "template assigned to the LED (one can then use `SET_LED` commands to manage "
 "the LED's color settings)."
 msgstr ""
+"`SET_LED_TEMPLATE LED=<led_name> TEMPLATE=<template_name> "
+"[<param_x>=<literal>] [INDEX=<index>]`: Egy "
+"[display_template](Config_Reference.md#display_template) hozzárendelése egy "
+"adott [LED-hez](Config_Reference.md#leds). Például, ha definiáltunk egy `["
+"display_template my_led_template]` konfigurációs szakaszt, akkor itt "
+"hozzárendelhetjük a `TEMPLATE=my_led_template`. A display_template-nek egy "
+"vesszővel elválasztott karakterláncot kell létrehoznia, amely négy "
+"lebegőpontos számot tartalmaz, amelyek megfelelnek a piros, zöld, kék és "
+"fehér színbeállításoknak. A sablon folyamatosan kiértékelésre kerül, és a "
+"LED automatikusan az így kapott színekre lesz beállítva. A sablon "
+"kiértékelése során használandó display_template paramétereket lehet "
+"beállítani (a paraméterek Python literálokként lesznek elemezve). Ha az "
+"INDEX nincs megadva, akkor a LED's daisy-chain összes chipje a sablonra lesz "
+"beállítva, ellenkező esetben csak a megadott indexszel rendelkező chip lesz "
+"frissítve. Ha a TEMPLATE üres karakterlánc, akkor ez a parancs törli a LED-"
+"hez rendelt korábbi sablonokat (ekkor a `SET_LED` parancsokat használhatjuk "
+"a LED színbeállításainak kezelésére)."
 
 #~ msgid ""
 #~ "`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> "
