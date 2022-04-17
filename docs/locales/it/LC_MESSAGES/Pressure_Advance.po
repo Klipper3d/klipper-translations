@@ -1,15 +1,17 @@
 # Dex94 <Dasvaresu@dr.com>, 2022.
+# elovalvoc047faba7aa1427f <ernesto.lovalvo@unipa.it>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-27 10:52+0000\n"
-"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/pressure_advance/it/>\n"
+"PO-Revision-Date: 2022-04-17 08:08+0000\n"
+"Last-Translator: elovalvoc047faba7aa1427f <ernesto.lovalvo@unipa.it>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"pressure_advance/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid ""
 "This document provides information on tuning the \"pressure advance\" "
@@ -209,4 +211,4 @@ msgstr ""
 
 #: docs/Pressure_Advance.md:block 1 (header)
 msgid "Pressure advance"
-msgstr "Anticipodi pressione"
+msgstr "Anticipo di pressione"

@@ -1,12 +1,19 @@
-#
+# elovalvoc047faba7aa1427f <ernesto.lovalvo@unipa.it>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-04-17 08:08+0000\n"
+"Last-Translator: elovalvoc047faba7aa1427f <ernesto.lovalvo@unipa.it>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"contributing/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid "Contributing to Klipper"
-msgstr ""
+msgstr "Contribuire a Klipper"
 
 msgid ""
 "It is important to have a \"Signed-off-by\" line on each commit - it "
@@ -14,6 +21,11 @@ msgid ""
 "certificate-of-origin). It must contain your real name (sorry, no pseudonyms"
 " or anonymous contributions) and contain a current email address."
 msgstr ""
+"È importante avere una riga \"Signed-off-by\" su ogni commit - certifica che "
+"accetti il [certificato di origine dello sviluppatore] (certificato di "
+"origine dello sviluppatore). Deve contenere il tuo vero nome (mi dispiace, "
+"niente pseudonimi o contributi anonimi) e contenere un indirizzo email "
+"corrente."
 
 msgid ""
 "module: Capitalized, short (50 chars or less) summary\n"
@@ -32,11 +44,11 @@ msgstr ""
 
 #: docs/CONTRIBUTING.md:block 9 (header)
 msgid "Contributing to Klipper Translations"
-msgstr ""
+msgstr "Contribuire a Traduzioni Klipper"
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "75% Total coverage"
-msgstr ""
+msgstr "75% Copertura totale"
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "An updated navigation hierarchy PR in klipper-translations."
@@ -57,18 +69,26 @@ msgid ""
 "meets the checklist above, it will be marked out-of-date after a month "
 "without updates."
 msgstr ""
+"Se una traduzione esiste già nel repository Klipper e non soddisfa più "
+"l'elenco di controllo di cui sopra, verrà contrassegnata come obsoleta dopo "
+"un mese senza aggiornamenti."
 
 #: docs/CONTRIBUTING.md:block 2 (paragraph)
 msgid ""
 "Thank you for contributing to Klipper! This document describes the process "
 "for contributing changes to Klipper."
 msgstr ""
+"Grazie per aver contribuito a Klipper! Questo documento descrive il processo "
+"per contribuire alle modifiche di Klipper."
 
 #: docs/CONTRIBUTING.md:block 3 (paragraph)
 msgid ""
 "Please see the [contact page](Contact.md) for information on reporting an "
 "issue or for details on contacting the developers."
 msgstr ""
+"Consulta la [pagina dei contatti] (Contact.md) per informazioni sulla "
+"segnalazione di un problema o per i dettagli su come contattare gli "
+"sviluppatori."
 
 #: docs/CONTRIBUTING.md:block 4 (header)
 msgid "Overview of Contribution Process"
@@ -77,6 +97,7 @@ msgstr ""
 #: docs/CONTRIBUTING.md:block 5 (paragraph)
 msgid "Contributions to Klipper generally follow a high-level process:"
 msgstr ""
+"I contributi a Klipper seguono generalmente un processo di alto livello:"
 
 #: docs/CONTRIBUTING.md:block 6 (ordered list)
 msgid ""
