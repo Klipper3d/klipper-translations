@@ -1519,51 +1519,51 @@ BLTouch 探针。可以定义这个分段（而不是探针（probe）分段）�
 ```
 [bltouch]
 sensor_pin:
-#   Pin connected to the BLTouch sensor pin. Most BLTouch devices
-#   require a pullup on the sensor pin (prefix the pin name with "^").
-#   This parameter must be provided.
+#   连接到 BLTouch sensor 针脚的引脚。大多数 BLTouch 需要在传感器引脚
+#   上有一个上拉（在引脚名称前加上"^"）。
+#   必须提供这个参数。
 control_pin:
-#   Pin connected to the BLTouch control pin. This parameter must be
-#   provided.
+#   连接到 BLTouch control 引脚的引脚。
+#   必须提供这个参数。
 #pin_move_time: 0.680
-#   The amount of time (in seconds) to wait for the BLTouch pin to
-#   move up or down. The default is 0.680 seconds.
+#   等待 BLTouch 引脚向上或向下移动的时间（秒）。
+#   默认为0.680秒。
 #stow_on_each_sample: True
-#   This determines if Klipper should command the pin to move up
-#   between each probe attempt when performing a multiple probe
-#   sequence. Read the directions in docs/BLTouch.md before setting
-#   this to False. The default is True.
+#   决定 Klipper 在多次探测的序列中每一次探测间是否命令缩回探针。
+#   在设置为False之前，请阅读docs/BLTouch.md中的说明。
+#   默认值是True。
 #probe_with_touch_mode: False
-#   If this is set to True then Klipper will probe with the device in
-#   "touch_mode". The default is False (probing in "pin_down" mode).
+#   如果为True，那么Klipper将在设备处于"touch_mode"模式下进行
+#   探测。
+#   默认为False(在"pin_down"模式下探测)。
 #pin_up_reports_not_triggered: True
-#   Set if the BLTouch consistently reports the probe in a "not
-#   triggered" state after a successful "pin_up" command. This should
-#   be True for all genuine BLTouch devices. Read the directions in
-#   docs/BLTouch.md before setting this to False. The default is True.
-#pin_up_touch_mode_reports_triggered: True
-#   Set if the BLTouch consistently reports a "triggered" state after
-#   the commands "pin_up" followed by "touch_mode". This should be
-#   True for all genuine BLTouch devices. Read the directions in
-#   docs/BLTouch.md before setting this to False. The default is True.
+#   设置 BLTouch 在每次成功的发送“pin_up"命令收针后时候会持续
+#   报告探针处于"未触发"状态。所有正版的 BLTouch 都应该是 True。
+#   在设置为False前请阅读docs/BLTouch.md中的说明。
+#   默认为True。
+#pin_up_touch_mode_reports_triggered:True
+#   设置 BLTouch 在连续发送"pin_up"和"touch_mode"后是否持续报告
+#   "触发"状态。所有正版 BLTouch 都是True。在设置为False之前，请先阅读
+#   docs/BLTouch.md中的说明。
+#   默认为True。
 #set_output_mode:
-#   Request a specific sensor pin output mode on the BLTouch V3.0 (and
-#   later). This setting should not be used on other types of probes.
-#   Set to "5V" to request a sensor pin output of 5 Volts (only use if
-#   the controller board needs 5V mode and is 5V tolerant on its input
-#   signal line). Set to "OD" to request the sensor pin output use
-#   open drain mode. The default is to not request an output mode.
+#   在BLTouch V3.0(及以后的版本)上请求一个特定的传感器引脚输出模式。
+#   在其他类型的探针上不应该请求任何输出模式。设置为"5V"以要求传感
+#   器引脚输出5伏电压（只在打印机主板引脚需要 5V 模式，并且其输入的
+#   信号线可以容忍5V时可以使用）。设置为"OD"以要求传感器引脚输出
+#   使用开漏(open drain)模式。
+#   默认不要求输出模式。
 #x_offset:
 #y_offset:
-#z_offset:
+#z_offset: #z_offset:
 #speed:
 #lift_speed:
 #samples:
 #sample_retract_dist:
 #samples_result:
 #samples_tolerance:
-#samples_tolerance_retries:
-#   See the "probe" section for information on these parameters.
+#samples_tolerance_retries: #samples_tolerance_retries:
+#   有关这些参数的信息，请参见"probe"分段。
 ```
 
 ## 额外的步进电机和挤出机

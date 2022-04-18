@@ -8,7 +8,7 @@ Ez a szakasz ismerteti a Klipper mikrokontroller lépési sebességreferencia l�
 
 A referenciamutatók elsődleges célja, hogy következetes mechanizmust biztosítsanak a szoftveren belüli kódolási változtatások hatásának mérésére. Másodlagos cél, hogy magas szintű mérőszámokat biztosítson a chipek és a szoftverplatformok teljesítményének összehasonlításához.
 
-A lépésszám-összehasonlítás célja a hardver és a szoftver által elérhető maximális lépésszám meghatározása. Ez az összehasonlító lépési sebesség a mindennapi használat során nem érhető el, mivel a Klippernek más feladatokat is el kell látnia (pl. mcu/host kommunikáció, hőmérséklet-leolvasás, végállás-ellenőrzés) minden valós használat során.
+A lépésszám-összehasonlítás célja a hardver és a szoftver által elérhető maximális lépésszám meghatározása. Ez az összehasonlító lépési sebesség a mindennapi használat során nem érhető el, mivel a Klippernek más feladatokat is el kell látnia (pl. mcu/host kommunikáció, hőmérséklet leolvasás, végállás ellenőrzés) minden valós használat során.
 
 Általában a referencia-tesztekhez használt tűket úgy választják ki, hogy LED-eket vagy más ártalmatlan eszközöket működtessen. **A referencia futtatása előtt mindig ellenőrizze, hogy a konfigurált tűk meghajtása biztonságos-e. ** Nem ajánlott a tényleges léptetők használata a referencia során.
 
