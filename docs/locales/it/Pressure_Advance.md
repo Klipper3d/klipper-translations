@@ -1,4 +1,4 @@
-# Anticipodi pressione
+# Anticipo di pressione
 
 Questo documento fornisce informazioni sulla messa a punto della variabile di regolazione de "l'anticipo della pressione" per un particolare ugello e filamento. La funzione di anticipo della pressione può essere utile per ridurre i filamenti. Per maggiori informazioni su come viene implementato l'anticipo di pressione, vedere il documento [kinematics](Kinematics.md).
 

@@ -1,4 +1,4 @@
-# Comandi della MCU
+# Comandi MCU
 
 Questo documento fornisce informazioni sui comandi di basso livello del microcontrollore che sono inviati dal software "host" Klipper e processati dal software del microcontrollore Klipper. Questo documento non è un riferimento autorevole per questi comandi, né una lista esclusiva di tutti i comandi disponibili.
 
