@@ -1,15 +1,17 @@
 # Dex94 <Dasvaresu@dr.com>, 2022.
+# elovalvoc047faba7aa1427f <ernesto.lovalvo@unipa.it>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-27 10:52+0000\n"
-"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/tsl1401cl_filament_width_sensor/it/>\n"
+"PO-Revision-Date: 2022-04-17 08:08+0000\n"
+"Last-Translator: elovalvoc047faba7aa1427f <ernesto.lovalvo@unipa.it>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"tsl1401cl_filament_width_sensor/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 msgid "How does it work?"
 msgstr "Come funziona?"
@@ -28,7 +30,7 @@ msgstr ""
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 1 (header)
 msgid "TSL1401CL filament width sensor"
-msgstr "Sensore di larghezza del filamento TSL1401CL"
+msgstr "Sensore TSL1401CL di larghezza del filamento"
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 2 (paragraph)
 msgid ""
