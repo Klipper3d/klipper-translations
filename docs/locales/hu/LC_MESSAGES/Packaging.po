@@ -2,9 +2,10 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-03-17 13:56+0000\n"
+"PO-Revision-Date: 2022-04-18 14:11+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/packaging/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"packaging/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -68,7 +69,7 @@ msgstr "Minta csomagolási szkript"
 
 #: docs/Packaging.md:block 1 (header)
 msgid "Packaging Klipper"
-msgstr "Klipper Csomagolás"
+msgstr "Klipper csomagolás"
 
 #: docs/Packaging.md:block 10 (paragraph)
 msgid ""
@@ -78,9 +79,8 @@ msgid ""
 "git)."
 msgstr ""
 "A klipper-git az Arch Linuxhoz van csomagolva, és a PKGBUILD (csomagépítő "
-"szkript) elérhető az [Arch User "
-"Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-"
-"git) oldalon."
+"szkript) elérhető az [Arch Felhasználói adattár](https://aur.archlinux.org/"
+"cgit/aur.git/tree/PKGBUILD?h=klipper-git) oldalon."
 
 #~ msgid "Packaging klipper"
 #~ msgstr ""
