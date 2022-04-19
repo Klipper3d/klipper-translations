@@ -13,7 +13,7 @@
     
     
       
-        <title>Contributing to Klipper - Klipper documentation</title>
+        <title>Contribuire a Klipper - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#contributing-to-klipper" class="md-skip">
+        <a href="#contribuire-a-klipper" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Contributing to Klipper
+              Contribuire a Klipper
             
           </span>
         </div>
@@ -1225,8 +1225,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#contributing-to-klipper-translations" class="md-nav__link">
-    Contributing to Klipper Translations
+  <a href="#contribuire-a-traduzioni-klipper" class="md-nav__link">
+    Contribuire a Traduzioni Klipper
   </a>
   
 </li>
@@ -1248,11 +1248,11 @@
 </a>
 
 
-<h1 id="contributing-to-klipper">Contributing to Klipper<a class="headerlink" href="#contributing-to-klipper" title="Permanent link">&para;</a></h1>
-<p>Thank you for contributing to Klipper! This document describes the process for contributing changes to Klipper.</p>
-<p>Please see the <a href="Contact.html">contact page</a> for information on reporting an issue or for details on contacting the developers.</p>
+<h1 id="contribuire-a-klipper">Contribuire a Klipper<a class="headerlink" href="#contribuire-a-klipper" title="Permanent link">&para;</a></h1>
+<p>Grazie per aver contribuito a Klipper! Questo documento descrive il processo per contribuire alle modifiche di Klipper.</p>
+<p>Consulta la [pagina dei contatti] (Contact.md) per informazioni sulla segnalazione di un problema o per i dettagli su come contattare gli sviluppatori.</p>
 <h2 id="overview-of-contribution-process">Overview of Contribution Process<a class="headerlink" href="#overview-of-contribution-process" title="Permanent link">&para;</a></h2>
-<p>Contributions to Klipper generally follow a high-level process:</p>
+<p>I contributi a Klipper seguono generalmente un processo di alto livello:</p>
 <ol>
 <li>A submitter starts by creating a <a href="https://github.com/Klipper3d/klipper/pulls">GitHub Pull Request</a> when a submission is ready for widespread deployment.</li>
 <li>When a <a href="#reviewers">reviewer</a> is available to <a href="#what-to-expect-in-a-review">review</a> the submission, they will assign themselves to the Pull Request on GitHub. The goal of the review is to look for defects and to check that the submission follows documented guidelines.</li>
@@ -1384,16 +1384,16 @@ Signed-off-by: My Name &lt;myemail@example.org&gt;
 </code></pre></div>
 
 <p>In the above example, <code>module</code> should be the name of a file or directory in the repository (without a file extension). For example, <code>clocksync: Fix typo in pause() call at connect time</code>. The purpose of specifying a module name in the commit message is to help provide context for the commit comments.</p>
-<p>It is important to have a "Signed-off-by" line on each commit - it certifies that you agree to the <a href="developer-certificate-of-origin">developer certificate of origin</a>. It must contain your real name (sorry, no pseudonyms or anonymous contributions) and contain a current email address.</p>
-<h2 id="contributing-to-klipper-translations">Contributing to Klipper Translations<a class="headerlink" href="#contributing-to-klipper-translations" title="Permanent link">&para;</a></h2>
+<p>È importante avere una riga "Signed-off-by" su ogni commit - certifica che accetti il [certificato di origine dello sviluppatore] (certificato di origine dello sviluppatore). Deve contenere il tuo vero nome (mi dispiace, niente pseudonimi o contributi anonimi) e contenere un indirizzo email corrente.</p>
+<h2 id="contribuire-a-traduzioni-klipper">Contribuire a Traduzioni Klipper<a class="headerlink" href="#contribuire-a-traduzioni-klipper" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/Klipper3d/klipper-translations">Klipper-translations Project</a> is a project dedicated to translating Klipper to different languages. <a href="https://hosted.weblate.org/projects/klipper/">Weblate</a> hosts all the Gettext strings for translating and reviewing. Locales can be displayed on <a href="https://www.klipper3d.org">klipper3d.org</a> once they satisfy the following requirements:</p>
 <ul>
-<li><input disabled="disabled" type="checkbox" /> 75% Total coverage</li>
+<li><input disabled="disabled" type="checkbox" /> 75% Copertura totale</li>
 <li><input disabled="disabled" type="checkbox" /> All titles (H1) are translated</li>
 <li><input disabled="disabled" type="checkbox" /> An updated navigation hierarchy PR in klipper-translations.</li>
 </ul>
 <p>To reduce the frustration of translating domain-specific terms and gain awareness of the ongoing translations, you can submit a PR modifying the <a href="https://github.com/Klipper3d/klipper-translations">Klipper-translations Project</a> <code>readme.md</code>. Once a translation is ready, the corresponding modification to the Klipper project can be made.</p>
-<p>If a translation already exists in the Klipper repository and no longer meets the checklist above, it will be marked out-of-date after a month without updates.</p>
+<p>Se una traduzione esiste già nel repository Klipper e non soddisfa più l'elenco di controllo di cui sopra, verrà contrassegnata come obsoleta dopo un mese senza aggiornamenti.</p>
 <p>Once the requirements are met, you need to:</p>
 <ol>
 <li>update klipper-tranlations repository <a href="https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations">active_translations</a></li>
