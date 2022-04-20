@@ -1211,7 +1211,7 @@ filename:
 
 ### [virtual_sdcard]
 
-A virtuális sdcard hasznos lehet, ha a gazdaszámítógép nem elég gyors az OctoPrint megfelelő futtatásához. Ez lehetővé teszi a Klipper gazdagép szoftver számára, hogy közvetlenül kinyomtassa a G-kód fájlokat, amelyeket a gazdagépen lévő könyvtárban tárolnak a szabványos sdcard G-kód parancsok (pl. M24) használatával.
+A virtuális sdcard hasznos lehet, ha a gazdaszámítógép nem elég gyors az OctoPrint megfelelő futtatásához. Ez lehetővé teszi a Klipper gazdagép szoftver számára, hogy közvetlenül kinyomtassa a G-Kód fájlokat, amelyeket a gazdagépen lévő könyvtárban tárolnak a szabványos sdcard G-Kód parancsok (pl. M24) használatával.
 
 ```
 [virtual_sdcard]
@@ -1803,11 +1803,11 @@ Egyedi ADC hőmérséklet-érzékelők (tetszőleges számú szekciót lehet def
 #temperature2:
 #voltage2:
 #...
-#   A használandó hőmérsékletek (Celsiusban) és feszültségek (Voltban) halmaza
-#   referenciaként használjuk a hőmérséklet átváltásakor. Egy fűtőszekció, amely a
-#   ezt az érzékelőt használva adc_voltage és voltage_offset értékeket is megadhat.
-#   paramétereket az ADC-feszültség meghatározásához (lásd "Közönséges hőmérséklet
-#   erősítők" szakaszban a részletekért). Legalább két mérésnek kell lennie.
+#   Hőmérsékletek (Celsiusban) és feszültségek (V-ban) készlete referenciaként
+#   a hőmérséklet konvertálásakor. Az érzékelőt használó fűtőrész az adc_voltage
+#   és a voltage_offset paramétereket is megadhatja az ADC feszültség meghatározásához
+#   (a részletekért lásd a "Általános hőmérsékleterősítők" részt).
+#   Legalább két mérést kell megadni.
 #temperature1:
 #resistance1:
 #temperature2:
@@ -3122,7 +3122,7 @@ lcd_type:
 #   maximális értékeit vesszővel elválasztva kell megadni.
 ```
 
-#### HD44780 kijelző
+#### hd44780 kijelző
 
 Információk a HD44780 kijelzők konfigurálásáról (amelyet a "RepRapDiscount 2004 Smart Controller" típusú kijelzőkben használnak).
 
@@ -3150,7 +3150,7 @@ d7_pin:
 ...
 ```
 
-#### HD44780_SPI kijelző
+#### hd44780_spi kijelző
 
 Információ a HD44780_spi kijelző konfigurálásáról egy 20x04-es kijelző, egy hardveres "shift register" (amelyet a mightyboard alapú nyomtatókban használnak).
 
@@ -3178,7 +3178,7 @@ spi_software_miso_pin:
 ...
 ```
 
-#### ST7920 kijelző
+#### st7920 kijelző
 
 Információk az ST7920 kijelzők konfigurálásáról (amelyet a "RepRapDiscount 12864 Full Graphic Smart Controller" típusú kijelzőknél használnak).
 
@@ -3215,7 +3215,7 @@ spi_software_miso_pin:
 ...
 ```
 
-#### UC1701 kijelző
+#### uc1701 kijelző
 
 Információk az UC1701 kijelzők konfigurálásáról (amelyet az "MKS Mini 12864" típusú kijelzőknél használnak).
 
@@ -3237,7 +3237,7 @@ a0_pin:
 ...
 ```
 
-#### SSD1306 és SH1106 kijelzők
+#### ssd1306 és sh1106 kijelzők
 
 Az SSD1306 és SH1106 kijelzők konfigurálásával kapcsolatos információk.
 
@@ -3327,7 +3327,7 @@ text:
 
 ### [display_glyph]
 
-Egy egyéni írásjel megjelenítése az azt támogató kijelzőkön. A megadott névhez hozzárendeli a megadott megjelenítési adatokat, amelyekre aztán a megjelenítési sablonokban a két "tilde" szimbólummal körülvett nevükkel lehet hivatkozni, pl. `~my_display_glyph~`.
+Egy egyéni írásjel megjelenítése az azt támogató kijelzőkön. A megadott névhez hozzárendeli a megadott megjelenítési adatokat, amelyekre aztán a megjelenítési sablonokban a két "tilde" szimbólummal körülvett nevükkel lehet hivatkozni, pl. `~my_display_glyph~`
 
 Lásd a [sample-glyphs.cfg](../config/sample-glyphs.cfg) néhány példáját.
 

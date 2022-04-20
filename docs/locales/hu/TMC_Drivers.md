@@ -152,7 +152,7 @@ A TMC2130, TMC5160 és a TMC2660 modellekhez:
 SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 ```
 
-Ezután adjon ki egy `G28 X0` parancsot, és ellenőrizze, hogy a tengely egyáltalán nem mozog. Ha a tengely mozog, akkor adjon ki egy `M112` parancsot a nyomtató leállításához. Valami nem stimmel a diag/sg_tst pin kábelezésével vagy konfigurációjával, ezt a folytatás előtt ki kell javítani.
+Ezután adjon ki egy `G28 X0` parancsot, és ellenőrizze, hogy a tengely egyáltalán nem mozog. Ha a tengely mozog, akkor adjon ki egy `M112` parancsot a nyomtató leállításához. Valami nem stimmel a diag/sg_tst tű kábelezésével vagy konfigurációjával, ezt a folytatás előtt ki kell javítani.
 
 Ezután folyamatosan csökkentse a `VALUE` beállítás érzékenységét, és futtassa le újra a `SET_TMC_FIELD` `G28 X0` parancsokat, hogy megtalálja a legnagyobb érzékenységet, amely a kocsi sikeres mozgását eredményezi a végállásig és a megállásig. (A TMC2209 motorvezérlők esetében ez az SGTHRS csökkentése, más vezérlők esetében az sgt növelése lesz.) Ügyeljen arra, hogy minden kísérletet úgy kezdjen, hogy a kocsi a sín közepéhez közel legyen (ha szükséges, adjon ki egy `M84` parancsot, majd kézzel mozgassa a kocsit középállásba). Meg kell találni a legnagyobb érzékenységet, amely megbízhatóan jelzi a végállást (a nagyobb érzékenységű beállítások kicsi vagy semmilyen mozgást nem eredményeznek). Jegyezze fel a kapott értéket *maximum_sensitivity* néven. (Ha a lehető legkisebb érzékenységet (SGTHRS=0 vagy sgt=63) kapjuk a kocsi elmozdulása nélkül, akkor valami nincs rendben a diag/sg_tst tűk bekötésével vagy konfigurációjával, és a folytatás előtt ki kell javítani.)
 
@@ -287,7 +287,7 @@ Ez a hiba akkor is előfordulhat, ha StealthChop üzemmódot használ, és a TMC
 
 Ez azt jelzi, hogy a motorvezérlő a nyomtatás közepén visszaállította magát. Ennek oka lehet feszültség vagy vezetékezési probléma.
 
-#### A TMC hibát jelent: `... uv_cp=1(Undervoltage!)`...
+#### A TMC hibát jelent: `... uv_cp=1(Undervoltage!)`
 
 Ez azt jelzi, hogy a motorvezérlő alacsony feszültséget észlelt, és letiltotta magát. Ennek oka lehet vezetékezési vagy tápellátási probléma.
 

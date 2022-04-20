@@ -64,6 +64,6 @@ Ha a nyomtató fűtött ággyal rendelkezik, és az támogatja a PWM (impulzussz
 
 Ez az útmutató a Klipper konfigurációs fájlban lévő tű-beállítások alapvető ellenőrzéséhez nyújt segítséget. Mindenképpen olvassa el az [ágy szintezése](Bed_Level.md) útmutatót. A Klipperrel történő szeletelő konfigurálásával kapcsolatos információkért olvassa el a [Szeletelők](Slicers.md) dokumentumot is.
 
-Miután meggyőződtünk arról, hogy az alapnyomtatás működik, érdemes megfontolni a [nyomás szabályozás](Pressure_Advance.md) kalibrálását.
+Miután meggyőződtünk arról, hogy az alapnyomtatás működik, érdemes megfontolni a [nyomásszabályozás](Pressure_Advance.md) kalibrálását.
 
 Előfordulhat, hogy más típusú részletes nyomtató-kalibrálásra is szükség lehet. Ehhez számos útmutató áll rendelkezésre az interneten (keressen rá például a "3d nyomtató kalibrálás" szövegre). Ha például a gyűrődésnek nevezett hatást tapasztalja, megpróbálhatja követni a [rezonancia kompenzáció](Resonance_Compensation.md) hangolási útmutatót.

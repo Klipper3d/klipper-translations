@@ -69,15 +69,15 @@ The following commands are available when an [angle config section](Config_Refer
 
 #### ANGLE_CALIBRATE
 
-`ANGLE_CALIBRATE CHIP=<chip_name>`: Perform angle calibration on the given sensor (there must be an `[angle chip_name]` config section that has specified a `stepper` parameter). IMPORTANT - this tool will command the stepper motor to move without checking the normal kinematic boundary limits. Ideally the motor should be disconnected from any printer carriage before performing calibration. If the stepper can not be disconnected from the printer, make sure the carriage is near the center of its rail before starting calibration. (The stepper motor may move forwards or backwards two full rotations during this test.) After completing this test use the `SAVE_CONFIG` command to save the calibration data to the config file. In order to use this tool the Python "numpy" package must be installed (see the [measuring resonance document](Measuring_Resonances.md#software-installation) for more information).
+`ANGLE_CALIBRATE CHIP=<芯片名>`：在指定传感器上执行角度校准（必须有一个`[angle 芯片名]`的配置分段，并指定一个`stepper`参数）。重要的是 - 这个工具将命令步进电机移动而不检查正常的运动学边界限制。理想情况下，在执行校准之前，电机不应被连接到任何打印机的滑块。如果不能断开步进电机和打印机滑块的连接，在开始校准之前，确保滑车接近其轨道的中心。(在这个测试中，步进电机可能会向前或向后移动两圈）。完成这个测试后，使用`SAVE_CONFIG`命令，将校准数据保存到配置文件中。为了使用这个工具，必须安装Python "numpy"软件包（更多信息见[测量谐振文档](Measuring_Resonances.md#software-installation)）。
 
 #### ANGLE_DEBUG_READ
 
-`ANGLE_DEBUG_READ CHIP=<config_name> REG=<register>`: Queries sensor register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes. This is only available for tle5012b chips.
+`ANGLE_DEBUG_READ CHIP=<配置名> REG=<寄存器>`：查询传感器寄存器"寄存器"（例如：44或0x2C）。该命令常用于调试，仅适用于tle5012b芯片。
 
 #### ANGLE_DEBUG_WRITE
 
-`ANGLE_DEBUG_WRITE CHIP=<config_name> REG=<register> VAL=<value>`: Writes raw "value" into register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to sensor data sheet for the reference. This is only available for tle5012b chips.
+`ANGLE_DEBUG_WRITE CHIP=<配置名> REG=<寄存器> VAL=<值>`：将“值”写入“寄存器”。“值”和“寄存器”可以是十进制或十六进制整数。请小心使用，并参考传感器数据手册。仅适用于 tle5012b芯片。
 
 ### [bed_mesh]
 
@@ -200,7 +200,7 @@ The following commands are available if an [extruder config section](Config_Refe
 
 #### ACTIVATE_EXTRUDER
 
-`ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: In a printer with multiple [extruder](Config_Reference.md#extruder) config sections, this command changes the active hotend.
+`ACTIVATE_EXTRUDER EXTRUDER=<配置名>`：在有多个[extruder](Config_Reference.md#extruder)配置分段的打印机中，该命令会改变活跃的热端。
 
 #### SET_PRESSURE_ADVANCE
 
@@ -551,7 +551,7 @@ The following commands are available when a [resonance_tester config section](Co
 
 #### TEST_RESONANCES
 
-`TEST_RESONANCES AXIS=<axis> OUTPUT=<resonances,raw_data> [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [INPUT_SHAPING=[<0:1>]]`: Runs the resonance test in all configured probe points for the requested "axis" and measures the acceleration using the accelerometer chips configured for the respective axis. "axis" can either be X or Y, or specify an arbitrary direction as `AXIS=dx,dy`, where dx and dy are floating point numbers defining a direction vector (e.g. `AXIS=X`, `AXIS=Y`, or `AXIS=1,-1` to define a diagonal direction). Note that `AXIS=dx,dy` and `AXIS=-dx,-dy` is equivalent. If `INPUT_SHAPING=0` or not set (default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. `OUTPUT` parameter is a comma-separated list of which outputs will be written. If `raw_data` is requested, then the raw accelerometer data is written into a file or a series of files `/tmp/raw_data_<axis>_[<point>_]<name>.csv` with (`<point>_` part of the name generated only if more than 1 probe point is configured). If `resonances` is specified, the frequency response is calculated (across all probe points) and written into `/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to `resonances`, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.
+`TEST_RESONANCES AXIS=<轴> OUTPUT=<resonance，raw_data> [NAME=<名称>] [FREQ_START=<开始频率>] [FREQ_END=<结束频率>] [HZ_PER_SEC=<hz每秒>] [INPUT_SHAPING=[<0:1>]]`：在指定“轴”所有配置的探测点上运行谐振测试，并使用为相应轴配置的加速度计芯片测量加速度。“轴”可以是 X 或 Y，也可以将任意方向指定为 `AXIS=dx，dy`，其中 dx 和 dy 是定义方向矢量的浮点数（例如 `AXIS=X`、`AXIS=Y`或 `AXIS=1，-1` 来定义对角线方向）。请注意，`AXIS=dx，dy` 和 `AXIS=-dx，-dy` 是等效的。如果 ` INPUT_SHAPING=0` 或未设置（默认），则禁用谐振测试的输入整形，因为在启用输入整形器的情况下运行谐振测试是无效的。`OUTPUT` 参数是一个以逗号分隔的列表，其中将写入输出。如果请求 `raw_data`，则原始加速度计数据将写入一个文件或一系列文件 `/tmp/raw_data_<轴>_[<测试点>_]<名称>.csv` 且 （文件名中的`<测试点>_` 部分仅在配置了 1 个以上的探测点时生成）。如果指定了 `resonance`，则计算频率响应（在所有探测点上），并将其写入 `/tmp/resonances_<轴>_<名称>.csv` 文件中。如果未设置，则 OUTPUT 默认为 ` resonance`，NAME 默认为“YYYYMMDD_HHMMSS”格式的当前时间。
 
 #### SHAPER_CALIBRATE
 

@@ -133,7 +133,7 @@ Ez a szkript létrehozza a `/tmp/shaper_calibrate_x.png` és `/tmp/shaper_calibr
 ![Resonances](img/calibrate-y.png)
 
 ```
-illesztett alakító 'zv' frekvencia = 34,4 Hz (rezgések = 4,0%, simítás ~= 0,132)
+Illesztett alakító 'zv' frekvencia = 34,4 Hz (rezgések = 4,0%, simítás ~= 0,132)
 A túl nagy simítás elkerülése érdekében a 'zv', javasolt max_accel <= 4500 mm/sec^2
 Alkalmazott alakító 'mzv' frekvencia = 34,6 Hz (rezgések = 0,0%, simítás ~= 0,170)
 A túl nagy simítás elkerülése érdekében az 'mzv' esetében javasolt max_accel <= 3500 mm/sec^2
@@ -196,7 +196,7 @@ Nézzük meg az automatikus hangolás következő eredményeit:
 ![Resonances](img/calibrate-x.png)
 
 ```
-illesztett alakító 'zv' frekvencia = 57,8 Hz (rezgések = 20,3%, simítás ~= 0,053)
+Illesztett alakító 'zv' frekvencia = 57,8 Hz (rezgések = 20,3%, simítás ~= 0,053)
 A túl nagy simítás elkerülése érdekében a 'zv', javasolt max_accel <= 13000 mm/sec^2
 Alkalmazott alakító 'mzv' frekvencia = 34,8 Hz (rezgések = 3,6%, simítás ~= 0,168)
 A túl nagy simítás elkerülése érdekében az 'mzv' esetében javasolt max_accel <= 3600 mm/sec^2
@@ -222,7 +222,7 @@ amely a simítást 0,2 pontszámra korlátozza. Most a következő eredményt ka
 ![Resonances](img/calibrate-x-max-smoothing.png)
 
 ```
-illesztett alakító 'zv' frekvencia = 55,4 Hz (rezgések = 19,7%, simítás ~= 0,057)
+Illesztett alakító 'zv' frekvencia = 55,4 Hz (rezgések = 19,7%, simítás ~= 0,057)
 A túl nagy simítás elkerülése érdekében a 'zv', javasolt max_accel <= 12000 mm/sec^2
 Alkalmazott alakító 'mzv' frekvencia = 34,6 Hz (rezgések = 3,6%, simítás ~= 0,170)
 A túl nagy simítás elkerülése érdekében az 'mzv' esetében javasolt max_accel <= 3500 mm/sec^2
@@ -239,7 +239,7 @@ Ha összehasonlítjuk a korábban javasolt paraméterekkel, a rezgések kicsit n
 
 A `max_smoothing` paraméter kiválasztásakor a próbálgatás és a tévedés módszerét alkalmazhatjuk. Próbáljon ki néhány különböző értéket, és nézze meg, milyen eredményeket kap. Vegye figyelembe, hogy a bemeneti alakító által előállított tényleges simítás elsősorban a nyomtató legalacsonyabb rezonanciafrekvenciájától függ: minél magasabb a legalacsonyabb rezonancia frekvenciája - annál kisebb a simítás. Ezért ha azt kéri a parancsfájltól, hogy a bemeneti alakító olyan konfigurációját keresse meg, amely irreálisan kis simítással rendelkezik, akkor ez a legalacsonyabb rezonanciafrekvenciákon (amelyek jellemzően a nyomatokon is jobban láthatóak) megnövekedett rezgés árán fog történni. Ezért mindig ellenőrizze kétszeresen a szkript által jelzett vetített maradó rezgéseket, és győződjön meg róla, hogy azok nem túl magasak.
 
-Ha mindkét tengelyhez jó `max_smoothing` értéket választott, akkor azt a `printer.cfg` állományban tárolhatja a következő módon:
+Ha mindkét tengelyhez jó `max_smoothing` értéket választott, akkor azt a `printer.cfg` állományban tárolhatja a következő módon
 
 ```
 [resonance_tester]
