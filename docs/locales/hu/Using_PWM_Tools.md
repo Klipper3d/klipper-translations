@@ -4,9 +4,9 @@ Ez a dokumentum leírja, hogyan állíthat be egy PWM-vezérelt lézert vagy ors
 
 ## Hogyan működik?
 
-A nyomtatófej ventilátor pwm kimenetének felhasználásával lézereket vagy orsókat vezérelhet. Ez akkor hasznos, ha kapcsolható nyomtatófejeket használ, például az E3D toolchanger vagy egy barkácsmegoldás. Általában az olyan cam-toolok, mint a LaserWeb, úgy konfigurálhatók, hogy `M3-M5` parancsokat használjanak, amelyek *spindle speed CW* (`M3 S[0-255]`), *orsó fordulatszám * (`M4 S[0-255]`) és *orsóstop* (`M5`).
+A nyomtatófej ventilátor PWM kimenetének felhasználásával lézereket vagy orsókat vezérelhet. Ez akkor hasznos, ha kapcsolható nyomtatófejeket használ, például az E3D szerszámváltó vagy egy barkácsmegoldás. Általában az olyan cam-tool, mint a LaserWeb, úgy konfigurálhatók, hogy `M3-M5` parancsokat használjanak, amelyek *spindle speed CW* (`M3 S[0-255]`), *orsó fordulatszám * (`M4 S[0-255]`) és *orsóstop* (`M5`).
 
-**Figyelmeztetés:** A lézer vezetésekor tartson be minden biztonsági óvintézkedést, ami csak eszébe jut! A diódalézerek általában invertáltak. Ez azt jelenti, hogy amikor az MCU újraindul, a lézer *teljesen be lesz kapcsolva* arra az időre, amíg az MCU újraindul. A biztonság kedvéért ajánlott *mindig* megfelelő hullámhosszúságú lézerszemüveget viselni, ha a lézer be van kapcsolva; és a lézert le kell kapcsolni, ha nincs rá szükség. Emellett be kell állítania egy biztonsági időkorlátot, hogy ha a gazdagép vagy az MCU hibát észlel, a szerszám leálljon.
+**Figyelmeztetés:** A lézer használatakor tartson be minden biztonsági óvintézkedést, amit csak lehet! A diódalézerek általában invertáltak. Ez azt jelenti, hogy amikor az MCU újraindul, a lézer *teljesen be lesz kapcsolva* arra az időre. A biztonság kedvéért ajánlott *mindig* megfelelő hullámhosszúságú lézerszemüveget viselni, ha a lézer be van kapcsolva, és a lézert le kell kapcsolni, ha nincs rá szükség. Emellett be kell állítania egy biztonsági időkorlátot, hogy ha a gazdagép vagy az MCU hibát észlel, a szerszám leálljon.
 
 Egy példakonfigurációért lásd [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
 
@@ -23,26 +23,26 @@ Korlátozott, hogy milyen gyakoriak lehetnek a PWM-frissítések. Bár nagyon po
 Ha a Laserwebet használja, akkor a következő konfiguráció működhet:
 
     GCODE START:
-        M5 ; Lézer kikapcsolása
-        G21 ; Egységek beállítása mm-re
-        G90 ; Abszolút pozicionálás
-        G0 Z0 F7000 ; Nem vágási sebesség beállítása
+        M5            ; Lézer letiltása
+        G21           ;Állítsa az egységeket mm-re
+        G90           ; Abszolút pozicionálás
+        G0 Z0 F7000   ;Állítsa be a nem vágási sebességet
     
     GCODE END:
-        M5 ; Lézer kikapcsolása
-        G91 ; relatív
+        M5            ; Lézer letiltása
+        G91           ; relatív
         G0 Z+20 F4000 ;
-        G90 ; abszolút
+        G90           ; abszolút
     
     GCODE HOMING:
-        M5 ; Lézer kikapcsolása
-        G28 ; Minden tengely alaphelyzetbe állítása
+        M5            ; Lézer letiltása
+        G28           ; Kezdőpontfelvétel minden tengelyen
     
     TOOL ON:
         M3 $INTENSITY
     
     TOOL OFF:
-        M5 ; Lézer kikapcsolása
+        M5            ; Lézer letiltása
     
     LASER INTENSITY:
         S

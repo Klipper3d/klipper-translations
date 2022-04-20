@@ -88,7 +88,7 @@ A következő mezők adhatók meg:
 
 - `mcu`: Az mcu típusa. Ezt a készlet `make menuconfig` segítségével történő konfigurálása után a `cat .config | grep CONFIG_MCU` futtatásával lehet visszakeresni. Ez a mező kötelezően kitöltendő.
 - `spi_bus`: Az SD-kártyához csatlakoztatott SPI-busz. Ezt a tábla kapcsolási rajzából kell visszakeresni. Ez a mező kötelező.
-- `cs_pin`: Az SD-kártyához csatlakoztatott chipkiválasztó pin. Ezt a kártya kapcsolási rajzából kell visszakeresni. Ez a mező kötelező.
+- `cs_pin`: Az SD-kártyához csatlakoztatott chipkiválasztó tű. Ezt a kártya kapcsolási rajzából kell visszakeresni. Ez a mező kötelező.
 - `firmware_path`: Az SD-kártyán lévő elérési útvonal, ahová a firmware-t át kell vinni. Az alapértelmezett érték `firmware.bin`.
 - `current_firmware_path` Az SD-kártyán lévő elérési útvonal, ahol az átnevezett firmware fájl található a sikeres flashelés után. Az alapértelmezett érték `firmware.cur`.
 

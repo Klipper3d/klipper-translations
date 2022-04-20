@@ -1,6 +1,6 @@
 # Rezonanciák mérése
 
-A Klipper beépített támogatással rendelkezik az ADXL345 gyorsulásmérőhöz, amely a nyomtató rezonanciáinak mérésére használható a különböző tengelyek esetében, és automatikus hangolással [rezonancia kompenzáció](Resonance_Compensation.md) a rezonanciák kompenzálására. Vegye figyelembe, hogy az ADXL345 használata némi forrasztást és krimpelést igényel. Az ADXL345 közvetlenül csatlakoztatható egy Raspberry Pi-hez, vagy egy MCU-kártya SPI-interfészéhez (meglehetősen gyorsnak kell lennie).
+A Klipper beépített támogatással rendelkezik az ADXL345 gyorsulásmérőhöz, amely a nyomtató rezonanciáinak mérésére használható a különböző tengelyek esetében, és automatikus hangolással [rezonancia kompenzációval](Resonance_Compensation.md) a rezonanciák kompenzálására. Vegye figyelembe, hogy az ADXL345 használata némi forrasztást és krimpelést igényel. Az ADXL345 közvetlenül csatlakoztatható egy Raspberry Pi-hez, vagy egy MCU-kártya SPI-interfészéhez (meglehetősen gyorsnak kell lennie).
 
 Az ADXL345 beszerzésekor vegye figyelembe, hogy számos különböző NYÁK lapkakialakítás és különböző klónok léteznek. Győződjön meg róla, hogy a kártya támogatja az SPI módot (kis számú kártya úgy tűnik, hogy szorosan konfigurálva van az I2C-re az SDO GND-re húzásával), és ha 5V-os nyomtató MCU-hoz csatlakozik ellenőrizze,hogy rendelkezik feszültségszabályozóval és szintválasztóval.
 
@@ -33,7 +33,7 @@ Példa az ADXL345 SmartEffectorra történő felszerelésére:
 
 ![ADXL345 on SmartEffector](img/adxl345-mount.jpg)
 
-Vegye figyelembe, hogy egy ágycsúsztatós nyomtatónál 2 rögzítést kell tervezni: egyet a szerszámfejhez és egyet az ágyhoz, és a méréseket kétszer kell elvégezni. További részletekért lásd a megfelelő [szakasz](#bed-slinger-printers).
+Vegye figyelembe, hogy egy ágycsúsztatós nyomtatónál 2 rögzítést kell tervezni: egyet a szerszámfejhez és egyet az ágyhoz, és a méréseket kétszer kell elvégezni. További részletekért lásd a megfelelő [szakaszt](#bed-slinger-printers).
 
 **Figyelem:** győződjön meg arról, hogy a gyorsulásmérő és a helyére rögzítő csavarok nem érnek a nyomtató fém részeihez. Alapvetően a rögzítést úgy kell kialakítani, hogy biztosítsa a gyorsulásmérő elektromos szigetelését a nyomtató keretétől. Ennek elmulasztása földhurkot hozhat létre a rendszerben, ami károsíthatja az elektronikát.
 
@@ -171,12 +171,12 @@ Azonban két gyorsulásmérőt is csatlakoztathatsz egyszerre, bár ezeket kül�
 
 ```
 [adxl345 hotend]
-# Feltételezve, hogy a `hotend` chip egy RPihez van csatlakoztatva.
+# Feltételezve, hogy a `hotend` chip egy RPi-hez van csatlakoztatva.
 cs_pin: rpi:None
 
 [adxl345 bed]
 # Feltételezve, hogy a `bed` chip egy nyomtató MCU lapkához van csatlakoztatva.
-cs_pin: ...  # nyomtató alaplap SPI chip select (CS) pinje
+cs_pin: ...  # nyomtató alaplap SPI chip kiválasztó (CS) tűje
 
 [resonance_tester]
 # Feltételezve az Y ágyas nyomtató tipikus beállítását.
@@ -256,7 +256,7 @@ Mivel a bemeneti alakító némi simítást okozhat az elemekben, különösen n
 
 Alternatívaként kövesse [ezt](Resonance_Compensation.md#selecting-max_accel) a részt a bemeneti alakító hangolási útmutatójában, és nyomtassa ki a tesztmodellt a `max_accel` paraméter kísérleti kiválasztásához.
 
-Ugyanez a figyelmeztetés vonatkozik a bemeneti alakító [auto-kalibrálás](#input-shaper-auto-calibration) `SHAPER_CALIBRATE` paranccsal történő használatára is: az auto-kalibrálás után továbbra is szükséges a megfelelő `max_accel` érték kiválasztása, és a javasolt gyorsulási korlátok nem lesznek automatikusan alkalmazva.
+Ugyanez a figyelmeztetés vonatkozik a bemeneti alakító [automatikus kalibrálás](#input-shaper-auto-calibration) `SHAPER_CALIBRATE` paranccsal történő használatára is: az automatikus kalibrálás után továbbra is szükséges a megfelelő `max_accel` érték kiválasztása, és a javasolt gyorsulási korlátok nem lesznek automatikusan alkalmazva.
 
 Ha a formázó újrakalibrálását végzi, és a javasolt formázó konfigurációhoz tartozó simítás majdnem megegyezik az előző kalibrálás során kapott értékkel, ez a lépés kihagyható.
 
@@ -340,7 +340,7 @@ Ha azonban egyszerre két gyorsulásmérőt csatlakoztatott, egyszerűen futtass
 SHAPER_CALIBRATE AXIS=X
 ```
 
-**Figyelmeztetés!** Nem tanácsos a formázógép automatikus kalibrációját nagyon gyakran futtatni (pl. minden nyomtatás előtt vagy minden nap). A rezonanciafrekvenciák meghatározása érdekében az autokalibrálás intenzív rezgéseket hoz létre az egyes tengelyeken. A 3D nyomtatókat általában nem úgy tervezték, hogy a rezonanciafrekvenciákhoz közeli rezgéseknek tartósan ellenálljanak. Ez növelheti a nyomtató alkatrészeinek kopását és csökkentheti élettartamukat. Megnő a kockázata annak is, hogy egyes alkatrészek kicsavarodnak vagy meglazulnak. Minden egyes automatikus hangolás után mindig ellenőrizze, hogy a nyomtató minden alkatrésze (beleértve azokat is, amelyek normál esetben nem mozoghatnak) biztonságosan a helyén van-e rögzítve.
+**Figyelmeztetés!** Nem tanácsos a gépen az automatikus kalibrációt nagyon gyakran futtatni (pl. minden nyomtatás előtt vagy minden nap). A rezonanciafrekvenciák meghatározása érdekében az automatikus kalibrálás intenzív rezgéseket hoz létre az egyes tengelyeken. A 3D nyomtatókat általában nem úgy tervezték, hogy a rezonanciafrekvenciákhoz közeli rezgéseknek tartósan ellenálljanak. Ez növelheti a nyomtató alkatrészeinek kopását és csökkentheti élettartamukat. Megnő a kockázata annak is, hogy egyes alkatrészek kicsavarodnak vagy meglazulnak. Minden egyes automatikus hangolás után mindig ellenőrizze, hogy a nyomtató minden alkatrésze (beleértve azokat is, amelyek normál esetben nem mozoghatnak) biztonságosan a helyén van-e rögzítve.
 
 Továbbá a mérések zajossága miatt lehetséges, hogy a hangolási eredmények kissé eltérnek az egyes kalibrálási folyamatok között. Ennek ellenére nem várható, hogy a zaj túlságosan befolyásolja a nyomtatási minőséget. Mindazonáltal továbbra is tanácsos kétszer is ellenőrizni a javasolt paramétereket, és használat előtt nyomtatni néhány próbanyomatot, hogy megbizonyosodjon arról, hogy azok megfelelőek.
 
@@ -355,7 +355,7 @@ TEST_RESONANCES AXIS=X OUTPUT=raw_data
 
 a `SET_INPUT_SHAPER` parancs hibáinak figyelmen kívül hagyása. A `TEST_RESONANCES` parancshoz adja meg a kívánt teszttengelyt. A nyers adatok az RPi `/tmp` könyvtárába kerülnek kiírásra.
 
-A nyers adatokat úgy is megkaphatjuk, ha a `ACCELEROMETER_MEASURE` parancsot kétszer futtatjuk valamilyen normál nyomtatási tevékenység közben - először a mérések elindításához, majd azok leállításához és a kimeneti fájl írásához. További részletekért lásd a [G-kódok](G-Codes.md#adxl345) című dokumentumot.
+A nyers adatokat úgy is megkaphatjuk, ha a `ACCELEROMETER_MEASURE` parancsot kétszer futtatjuk valamilyen normál nyomtatási tevékenység közben - először a mérések elindításához, majd azok leállításához és a kimeneti fájl írásához. További részletekért lásd a [G-Kódok](G-Codes.md#adxl345) című dokumentumot.
 
 Az adatokat később a következő szkriptekkel lehet feldolgozni: `scripts/graph_accelerometer.py` és `scripts/calibrate_shaper.py`. Mindkettő egy vagy több nyers csv-fájlt fogad el bemenetként a módtól függően. A graph_accelerometer.py szkript többféle üzemmódot támogat:
 

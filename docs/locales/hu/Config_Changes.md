@@ -53,7 +53,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20210430: A SET_VELOCITY_LIMIT (és az M204) parancs mostantól a konfigurációs fájlban megadott értékeknél nagyobb sebességet, gyorsulást és square_corner_velocity-t is beállíthat.
 
-20210325: A `pin_map` config opció támogatása elavult. Használja a [sample-aliases.cfg](../config/sample-aliases.cfg) fájlt a tényleges mikrokontroller pin nevekre való fordításhoz. A `pin_map` config opció a közeljövőben eltávolításra kerül.
+20210325: A `pin_map` config opció támogatása elavult. Használja a [sample-aliases.cfg](../config/sample-aliases.cfg) fájlt a tényleges mikrokontroller tű nevekre való fordításhoz. A `pin_map` config opció a közeljövőben eltávolításra kerül.
 
 20210313: A Klipper CAN-busszal kommunikáló mikrovezérlők támogatása megváltozott. Ha CAN-buszt használ, akkor az összes mikrokontrollert újra kell égetni és a [Klipper konfigurációt frissíteni kell](CANBUS.md).
 
@@ -99,7 +99,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20200608: Az LCD-kijelző támogatása megváltoztatta néhány belső "írásjel" nevét. Ha egyéni kijelző elrendezés került implementálásra, akkor szükséges lehet frissíteni a legújabb gliph nevekre (lásd klippy/extras/display/display.cfg az elérhető gliph-ek listáját).
 
-20200606: A linux MCU pin nevei megváltoztak. A pin nevek mostantól a `gpiochip<chipid>/gpio<gpio>` formájúak. A gpiochip0 esetében egy rövid `gpio<gpio>` is használható. Például, amire korábban `P20` néven hivatkoztunk, az most `gpio20` vagy `gpiochip0/gpio20` lesz.
+20200606: A linux MCU tű nevei megváltoztak. A tűnevek mostantól a `gpiochip<chipid>/gpio<gpio>` formájúak. A gpiochip0 esetében egy rövid `gpio<gpio>` is használható. Például, amire korábban `P20` néven hivatkoztunk, az most `gpio20` vagy `gpiochip0/gpio20` lesz.
 
 20200603: Az alapértelmezett 16x4-es LCD kijelzőn már nem jelenik meg a nyomtatásból hátralévő becsült idő. (Csak az eltelt idő jelenik meg.) Ha a régi működést szeretnénk, akkor a menü kijelzőjét testre lehet szabni ezzel az információval (a részletekért lásd a config/example-extras.cfg fájlban a display_data leírását).
 

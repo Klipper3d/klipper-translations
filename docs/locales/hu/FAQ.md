@@ -123,7 +123,7 @@ Ha ezt választja, akkor a szükséges indítási, leállítási és telepítés
 
 A Klipper szoftver nem függ az OctoPrint-től. Lehetséges alternatív szoftvereket használni a Klipper parancsok küldésére, de ehhez Linux adminisztrátori ismeretekre van szükség.
 
-A Klipper létrehoz egy "virtuális soros portot" a "/tmp/printer" fájlon keresztül, és ezen keresztül emulál egy klasszikus 3D-nyomtató soros interfészt. Általánosságban elmondható, hogy alternatív szoftverek is működhetnek a Klipperrel, amennyiben konfigurálhatóak úgy, hogy a "/tmp/printer" -t használják a nyomtató soros portjaként.
+A Klipper létrehoz egy "virtuális soros portot" a "/tmp/printer" fájlon keresztül, és ezen keresztül emulál egy klasszikus 3D nyomtató soros interfészt. Általánosságban elmondható, hogy alternatív szoftverek is működhetnek a Klipperrel, amennyiben konfigurálhatóak úgy, hogy a "/tmp/printer" -t használják a nyomtató soros portjaként.
 
 ## Miért nem tudom mozgatni a léptetőmotort a nyomtató beállítása előtt?
 

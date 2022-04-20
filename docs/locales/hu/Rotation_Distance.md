@@ -1,16 +1,16 @@
 # Forgatási távolság
 
-A Klipper léptetőmotor-meghajtók minden [léptető konfigurációs szakaszban](Config_Reference.md#stepper) megkövetelnek egy `rotation_distance` paramétert. A `rotation_distance` az a távolság, amelyet a tengely a léptetőmotor egy teljes fordulatával elmozdít. Ez a dokumentum leírja, hogyan lehet ezt az értéket beállítani.
+A Klipper léptetőmotor meghajtók minden [léptető konfigurációs szakaszban](Config_Reference.md#stepper) megkövetelnek egy `rotation_distance` paramétert. A `rotation_distance` az a távolság, amelyet a tengely a léptetőmotor egy teljes fordulatával elmozdít. Ez a dokumentum leírja, hogyan lehet ezt az értéket beállítani.
 
 ## A rotation_distance kinyerése a steps_per_mm (vagy step_distance) értékből
 
-A 3d nyomtató tervezői eredetileg `steps_per_mm` forgási távolságból számították ki. Ha ismeri a steps_per_mm értéket, akkor ezzel az általános képlettel megkaphatja ezt az eredeti forgási távolságot:
+A 3D nyomtató tervezői eredetileg `steps_per_mm` forgási távolságból számították ki. Ha ismeri a steps_per_mm értéket, akkor ezzel az általános képlettel megkaphatja ezt az eredeti forgási távolságot:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
 ```
 
-Vagy ha régebbi Klipper-konfigurációval rendelkezik, és ismeri a `step_distance` paramétert, akkor használhatja ezt a képletet:
+Vagy ha régebbi Klipper konfigurációval rendelkezik, és ismeri a `step_distance` paramétert, akkor használhatja ezt a képletet:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
@@ -31,14 +31,14 @@ Először is kezdjük a forgási távolság kezdeti becslésével. Ezt a [steps_
 Ezután a következő eljárást alkalmazza a "mérés és igazítás" elvégzéséhez:
 
 1. Győződjön meg arról, hogy az extruderben van-e nyomtatószál, a hotend megfelelő hőmérsékletre van-e melegítve, és a nyomtató készen áll-e az extrudálásra.
-1. Jelölje meg a nyomtatószálat egy jelölővel az extrudertest szívónyílásától kb. 70 mm-re. Ezután egy digitális tolómérővel mérje meg a lehető legpontosabban ennek a jelölésnek a tényleges távolságát. Ezt jegyezze fel `<initial_mark_distance>`.
+1. Jelölje meg a nyomtatószálat egy jelölővel az extrudertest bemenő nyílásától kb. 70 mm-re. Ezután egy digitális tolómérővel mérje meg a lehető legpontosabban ennek a jelölésnek a tényleges távolságát. Ezt jegyezze fel `<initial_mark_distance>`.
 1. Extrudáljon 50 mm nyomtatószálat a következő parancsokkal: `G91`, majd `G1 E50 F60`. Az 50 mm-t jegyezze meg `<requested_extrude_distance>`. Várja meg, amíg az extruder befejezi a mozgást (ez körülbelül 50 másodpercig tart). Fontos, hogy lassú extrudálási sebességet használjon ehhez a teszthez, mivel a gyorsabb sebesség magas nyomást okozhat az extruderben, ami torzítja az eredményeket. (Ne használja az "extrude gombot" a grafikus előlapon ehhez a teszthez, mivel azok gyors ütemben extrudálnak.)
 1. A digitális tolómérővel mérje meg az extruder teste és a szálon lévő jelölés közötti új távolságot. Ezt jegyezze fel `<subsequent_mark_distance>`. Ezután számítsa ki: `actual_extrude_distance = <initial_mark_distance> - <subsequent_mark_distance>`
 1. A rotation_distance kiszámítása: `rotation_distance = <previous_rotation_distance> * <actual_extrude_distance> / <requested_extrude_distance>` Az új rotation_distance-t három tizedesjegyre kerekítjük.
 
 Ha az actual_extrude_distance több mint 2 mm-rel eltér a requested_extrude_distance-tól, akkor érdemes a fenti lépéseket másodszor is elvégezni.
 
-Megjegyzés: Ne használjon *nem* "mérés és trimmelés" típusú módszert az x, y vagy z típusú tengelyek kalibrálására. A "measure and trim" módszer nem elég pontos ezekhez a tengelyekhez, és valószínűleg rosszabb konfigurációhoz vezet. Ehelyett, ha szükséges, ezeket a tengelyeket [a szíjak, a szíjtárcsák és az ólomcsavarok hardverének mérésével](#obtaining-rotation_distance-by-inspecting-the-hardware) lehet meghatározni.
+Megjegyzés: *Ne* használjon "mérés és trimmelés" típusú módszert az X, Y vagy Z típusú tengelyek kalibrálására. A "measure and trim" módszer nem elég pontos ezekhez a tengelyekhez, és valószínűleg rosszabb konfigurációhoz vezet. Ehelyett, ha szükséges, ezeket a tengelyeket [a szíjak, szíjtárcsák és az orsók hardverének mérésével](#obtaining-rotation_distance-by-inspecting-the-hardware) lehet meghatározni.
 
 ## A rotation_distance meghatározása a hardver vizsgálatával
 
@@ -48,7 +48,7 @@ Lehetséges a rotation_distance kiszámítása a léptetőmotorok és a nyomtat�
 
 Egyszerű kiszámítani a rotation_distance-t egy szíjat és csigát használó lineáris tengely esetében.
 
-Először határozza meg a szíj típusát. A legtöbb nyomtató 2 mm-es fogosztást használ (azaz a szalag minden egyes foga 2 mm távolságra van egymástól). Ezután számolja meg a léptetőmotor szíjtárcsájának fogainak számát. A rotation_distance ezután a következőképpen számítható ki:
+Először határozza meg a szíj típusát. A legtöbb nyomtató 2 mm-es fogosztást használ (azaz a szíj minden egyes foga 2 mm távolságra van egymástól). Ezután számolja meg a léptetőmotor szíjtárcsája fogainak számát. A rotation_distance ezután a következőképpen számítható ki:
 
 ```
 rotation_distance = <belt_pitch> * <number_of_teeth_on_pulley>
@@ -72,11 +72,11 @@ A "menetes szárakkal" ellátott régebbi nyomtatóknak csak egy "menet" van a m
 
 Az extruderek kezdeti forgási távolságát úgy lehet meghatározni, hogy megmérjük a "szálmozgató kerék" átmérőjét, amely a szálakat tolja, és a következő képletet használjuk: `rotation_distance = <diameter> * 3.14`
 
-Ha az extruder fogaskerekeket használ, akkor [meg kell határozni és be kell állítani a gear_ratio-t](#using-a-gear_ratio) értéket az extruderhez.
+Ha az extruder fogaskerekeket használ, akkor [meg kell határozni és be kell állítani a gear_ratio](#using-a-gear_ratio) értéket az extruderhez.
 
-Az extruder tényleges forgási távolsága nyomtatóról nyomtatóra változik, mivel a "szálmozgató kerék" fogása, amely a szálakkal érintkezik, változhat. Ez még az egyes száltekercsek között is változhat. A kezdeti rotation_distance meghatározása után használja a [mérés és trimmelés eljárás](#calibrating-rotation_distance-on-extruders) műveletet a pontosabb beállításhoz.
+Az extruder tényleges forgási távolsága nyomtatóról nyomtatóra változik, mivel a "szálmozgató kerék" fogazása, amely a szálakkal érintkezik, változhat. Ez még az egyes száltekercsek között is változhat. A kezdeti rotation_distance meghatározása után használja a [mérés és trimmelés eljárás](#calibrating-rotation_distance-on-extruders) műveletet a pontosabb beállításhoz.
 
-## Gear_ratio használata
+## A gear_ratio használata
 
 A `gear_ratio` beállítása megkönnyítheti a `rotation_distance` konfigurálását olyan léptetőknél, amelyekhez áttétel (vagy hasonló) van csatlakoztatva. A legtöbb léptető nem rendelkezik áttétellel. Ha nem biztos benne, akkor ne állítsa be a `gear_ratio` értéket a konfigurációban.
 

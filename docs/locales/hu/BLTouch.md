@@ -4,7 +4,7 @@
 
 Egy **figyelmeztetés** mielőtt elkezdené: Kerülje a BL-Touch tűjének puszta ujjal való érintését, mivel meglehetősen érzékeny az zsírra. Ha pedig mégis hozzáér, legyen nagyon óvatos, hogy ne hajlítsa vagy nyomja meg a tüskét.
 
-Csatlakoztassa a BL-Touch "servo" csatlakozót a `control_pin` csatlakozóhoz a BL-Touch dokumentáció vagy az MCU dokumentációja szerint. Az eredeti kábelezést használva a hármasból a sárga vezeték a `control_pin` és a vezetékpárból a fehér lesz a `sensor_pin`. Ezeket a pineket a kábelezésnek megfelelően kell konfigurálnia. A legtöbb BL-Touch pullup jelet igényel a pinbeállításnál (ezért a csatlakozás nevének előtagja "^"). Például:
+Csatlakoztassa a BL-Touch "servo" csatlakozót a `control_pin` csatlakozóhoz a BL-Touch dokumentáció vagy az MCU dokumentációja szerint. Az eredeti kábelezést használva a hármasból a sárga vezeték a `control_pin` és a vezetékpárból a fehér lesz a `sensor_pin`. Ezeket a tűket a kábelezésnek megfelelően kell konfigurálnia. A legtöbb BL-Touch pullup jelet igényel a tűbeállításnál (ezért a csatlakozás nevének előtagja "^"). Például:
 
 ```
 [bltouch]

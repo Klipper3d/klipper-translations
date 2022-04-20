@@ -25,7 +25,7 @@ Elérhető a 20210929 oldalon. Fontosabb változások ebben a kiadásban:
 Elérhető a 20201020. Főbb változások ebben a kiadásban:
 
 * Az "Input Shaping" a nyomtató rezonanciájának ellensúlyozására szolgáló mechanizmus támogatása. Csökkentheti vagy megszüntetheti a "gyűrődést" a nyomatokon.
-* Új "Smooth Pressure Advance" rendszer. Ezt a "Pressure Advance" rendszert a pillanatnyi sebességváltozások bevezetése nélkül valósítja meg. Mostantól lehetőség van a nyomásszabályozás beállítására is a "Tuning Tower" módszerrel.
+* Új "Smooth Pressure Advance" rendszer. Ezt a "Pressure Advance" rendszert a pillanatnyi sebesség változások bevezetése nélkül valósítja meg. Mostantól lehetőség van a nyomásszabályozás beállítására is a "Tuning Tower" módszerrel.
 * Új "webhooks" API-kiszolgáló. Ez egy programozható JSON interfészt biztosít a Klipperhez.
 * Az LCD kijelző és a menü mostantól a Jinja2 sablonnyelv segítségével konfigurálható.
 * A TMC2208 léptetőmotor-meghajtók mostantól "standalone" üzemmódban is használhatók a Klipperrel.
@@ -84,14 +84,14 @@ Elérhetőek a 20181220 kiadásban a főbb változások:
    * Futásidejű menük támogatása
    * Új kijelző ikonok
    * A "uc1701" és "ssd1306" kijelzők támogatása
-* További mikrokontroller-támogatás:
+* További mikrokontroller támogatás:
    * Klipper portolva: LPC176x (Smoothieboards), SAM4E8E (Duet2), SAMD21 (Arduino Zero), STM32F103 ("Blue pill" eszközök), atmega32u4
    * Új generikus USB CDC vezérlő implementálva AVR, LPC176x, SAMD21 és STM32F103 platformokra
    * Teljesítményjavulás ARM processzorokon
 * A kinematikai kódot átírtuk, hogy egy "iteratív megoldót" használjon
 * Új automatikus tesztelési esetek a Klipper gazdagép szoftverhez
 * Számos új példa konfigurációs fájl a szokásos nyomtatókhoz
-* Dokumentációfrissítések rendszerbetöltőkhöz, teljesítményértékeléshez, mikrovezérlő portoláshoz, konfigurációs ellenőrzésekhez, pin-hozzárendeléshez, szeletelőbeállításokhoz, csomagoláshoz és egyebekhez
+* Dokumentációfrissítések rendszerbetöltőkhöz, teljesítményértékeléshez, mikrovezérlő portoláshoz, konfigurációs ellenőrzésekhez, tű hozzárendeléshez, szeletelőbeállításokhoz, csomagoláshoz és egyebekhez
 * Számos hibajavítás és kódtisztítás
 
 ## Klipper 0.6.0
@@ -108,7 +108,7 @@ Elérhető a 20180331 kiadás. Főbb változások ebben a kiadásban:
    * A megosztott fűtőtestek támogatása
    * Kezdeti támogatás kettős kocsikhoz
 * Több léptető tengelyenkénti konfigurálásának támogatása (pl. kettős Z)
-* Egyedi digitális és PWM kimeneti pinek támogatása (új SET_PIN paranccsal)
+* Egyedi digitális és PWM kimeneti tűk támogatása (új SET_PIN paranccsal)
 * Kezdeti támogatás egy "virtuális SDcard" számára, amely lehetővé teszi a nyomtatást közvetlenül a Klipperről (segít a túl lassú gépeken, hogy az OctoPrint jól fusson)
 * Különböző karhosszúságok beállításának támogatása a delta minden egyes tornyán
 * A G-kód M220/M221 parancsok támogatása (sebességtényező felülbírálása / extrudálási tényező felülbírálása)
@@ -156,7 +156,7 @@ Elérhető 20161223. Főbb változások ebben a kiadásban:
 * USB alapú AVR mikrovezérlők támogatása
 * Támogatás a "nyomás szabályozás" algoritmushoz - ez csökkenti a nyomatok során keletkező szivárgást.
 * Új "léptetőfázis-alapú végállás" funkció - nagyobb pontosságot tesz lehetővé a kezdőpont végállásában.
-* A "kiterjesztett G-kód" parancsok támogatása, mint például a "help", "restart" és "status".
+* A "kiterjesztett G-Kód" parancsok támogatása, mint például a "help", "restart" és "status".
 * A Klipper konfiguráció újratöltésének és a gazdaszoftver újraindításának támogatása a "restart" parancs terminálból történő kiadásával.
 * Lépegető teljesítményének javítása (20Mhz-es AVR-ek akár 158K lépés/másodpercig).
 * Javított hibajelentés. A legtöbb hiba mostantól a terminálon keresztül jelenik meg, a megoldásra vonatkozó segítséggel együtt.
@@ -167,6 +167,6 @@ Elérhető 20161223. Főbb változások ebben a kiadásban:
 A Klipper első kiadása. Elérhető 20160525. A kezdeti kiadásban elérhető főbb funkciók a következők:
 
 * Alapvető támogatás cartesian nyomtatókhoz (stepperek, extruder, fűtött ágy, hűtőventilátor).
-* A gyakori G-kód parancsok támogatása. Az OctoPrint interfész támogatása.
+* A gyakori G-Kód parancsok támogatása. Az OctoPrint interfész támogatása.
 * Gyorsulás és előretekintő kezelés
 * AVR mikrovezérlők támogatása szabványos soros portokon keresztül
