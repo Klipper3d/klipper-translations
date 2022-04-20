@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-13 14:53+0200\n"
-"PO-Revision-Date: 2022-04-15 04:10+0000\n"
+"PO-Revision-Date: 2022-04-20 07:28+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/g-codes/zh_Hans/>\n"
@@ -2166,6 +2166,8 @@ msgid ""
 "[extruder](Config_Reference.md#extruder) config sections, this command "
 "changes the active hotend."
 msgstr ""
+"`ACTIVATE_EXTRUDER EXTRUDER=<配置名>`：在有多个[extruder](Config_Reference."
+"md#extruder)配置分段的打印机中，该命令会改变活跃的热端。"
 
 #: docs/G-Codes.md:block 84 (paragraph)
 msgid ""
@@ -2205,7 +2207,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 24 (header)
 msgid "ANGLE_CALIBRATE"
-msgstr ""
+msgstr "ANGLE_CALIBRATE"
 
 #: docs/G-Codes.md:block 25 (paragraph)
 msgid ""
@@ -2223,10 +2225,18 @@ msgid ""
 "the [measuring resonance document](Measuring_Resonances.md#software-"
 "installation) for more information)."
 msgstr ""
+"`ANGLE_CALIBRATE CHIP=<芯片名>`：在指定传感器上执行角度校准（必须有一个`["
+"angle 芯片名]`的配置分段，并指定一个`stepper`参数）。重要的是 - 这个工具将命"
+"令步进电机移动而不检查正常的运动学边界限制。理想情况下，在执行校准之前，电机"
+"不应被连接到任何打印机的滑块。如果不能断开步进电机和打印机滑块的连接，在开始"
+"校准之前，确保滑车接近其轨道的中心。(在这个测试中，步进电机可能会向前或向后移"
+"动两圈）。完成这个测试后，使用`SAVE_CONFIG`命令，将校准数据保存到配置文件中。"
+"为了使用这个工具，必须安装Python \"numpy\"软件包"
+"（更多信息见[测量谐振文档](Measuring_Resonances.md#software-installation)）。"
 
 #: docs/G-Codes.md:block 26 (header)
 msgid "ANGLE_DEBUG_READ"
-msgstr ""
+msgstr "ANGLE_DEBUG_READ"
 
 #: docs/G-Codes.md:block 27 (paragraph)
 msgid ""
@@ -2234,10 +2244,12 @@ msgid ""
 "register \"register\" (e.g. 44 or 0x2C). Can be useful for debugging "
 "purposes. This is only available for tle5012b chips."
 msgstr ""
+"`ANGLE_DEBUG_READ CHIP=<配置名> REG=<寄存器>`：查询传感器寄存器\"寄存器\""
+"（例如：44或0x2C）。该命令常用于调试，仅适用于tle5012b芯片。"
 
 #: docs/G-Codes.md:block 28 (header)
 msgid "ANGLE_DEBUG_WRITE"
-msgstr ""
+msgstr "ANGLE_DEBUG_WRITE"
 
 #: docs/G-Codes.md:block 29 (paragraph)
 msgid ""
@@ -2247,10 +2259,13 @@ msgid ""
 "sensor data sheet for the reference. This is only available for tle5012b "
 "chips."
 msgstr ""
+"`ANGLE_DEBUG_WRITE CHIP=<配置名> REG=<寄存器> VAL=<值>`：将“值”写入“寄存器”。"
+"“值”和“寄存器”可以是十进制或十六进制整数。请小心使用，并参考传感器数据手册。"
+"仅适用于 tle5012b芯片。"
 
 #: docs/G-Codes.md:block 199 (header)
 msgid "[led]"
-msgstr ""
+msgstr "[led]"
 
 #: docs/G-Codes.md:block 200 (paragraph)
 msgid ""

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-04-10 06:13+0000\n"
+"PO-Revision-Date: 2022-04-20 07:28+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/status_reference/zh_Hans/>\n"
@@ -820,7 +820,7 @@ msgstr "`profiles`：当前定义的配置，使用 BED_MESH_PROFILE 进行设�
 
 #: docs/Status_Reference.md:block 4 (header)
 msgid "angle"
-msgstr ""
+msgstr "angle"
 
 #: docs/Status_Reference.md:block 5 (paragraph)
 msgid ""
@@ -862,6 +862,10 @@ msgid ""
 "color list) of the second neopixel in a chain could be accessed at "
 "`printer[\"neopixel <config_name>\"].color_data[1][2]`."
 msgstr ""
+"`color_data`：一个包含链中每个LED的RGBW值的颜色列表的列表。每个值都以0.0到1.0"
+"的浮点数表示。每个颜色列表包含4个项目（红、绿、蓝、白），即使底层的LED支持较"
+"少的颜色通道。例如，可以通过`printer[\"neopixel <配置名>\"]."
+"color_data[1][2]`访问链中第二个neopixel的蓝色值（颜色列表中的第三项）。"
 
 #~ msgid "neopixel / dotstar"
 #~ msgstr "neopixel / dotstar"
