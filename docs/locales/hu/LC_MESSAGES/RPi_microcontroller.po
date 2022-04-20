@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-04-19 12:23+0000\n"
+"PO-Revision-Date: 2022-04-18 14:11+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "rpi_microcontroller/hu/>\n"
@@ -108,7 +108,7 @@ msgstr ""
 "szerint."
 
 msgid "Optional: Identify the correct gpiochip"
-msgstr "Választható: A megfelelő GPIO chip azonosítása"
+msgstr "Választható: A megfelelő gpiochip azonosítása"
 
 msgid ""
 "To install the *Linux GPIO character device - binary* on a debian based "
@@ -118,7 +118,7 @@ msgstr ""
 "disztribúció kell, mint például az octopi. Futtassa:"
 
 msgid "To check available gpiochip run:"
-msgstr "A rendelkezésre álló GPIO chip ellenőrzéséhez futtassa:"
+msgstr "A rendelkezésre álló gpiochip ellenőrzéséhez futtassa:"
 
 msgid "To check the pin number and the pin availability tun:"
 msgstr "A tű számának és a tű elérhetőségének ellenőrzésére futtassa:"
