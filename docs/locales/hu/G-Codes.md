@@ -2,17 +2,17 @@
 
 Ez a dokumentum a Klipper által támogatott parancsokat írja le. Ezek olyan parancsok, amelyeket az OctoPrint konzoljába lehet beírni.
 
-## G-kód parancsok
+## G-Kód parancsok
 
-A Klipper a következő szabványos G-kód parancsokat támogatja:
+A Klipper a következő szabványos G-Kód parancsokat támogatja:
 
 - Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
 - Tartózkodás: `G4 P<milliszekundum>`
 - Ugrás a forrásra: `G28 [X] [Y] [Z]`
-- Kapcsolja ki a motorokat: `M18` vagy `M84`.
+- Kapcsolja ki a motorokat: `M18` vagy `M84`
 - Várja meg, amíg az aktuális mozdulat befejeződik: `M400`
-- Használjon abszolút/relatív távolságokat az extrudáláshoz: `M82`, `M83`.
-- Abszolút/relatív koordináták használata: `G90`, `G91`.
+- Használjon abszolút/relatív távolságokat az extrudáláshoz: `M82`, `M83`
+- Abszolút/relatív koordináták használata: `G90`, `G91`
 - Állítsa be a pozíciót: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
 - A sebességtényező felülbírálási százalékának beállítása: `M220 S<percent>`
 - Extrudálási tényező felülbírálási százalékának beállítása: `M221 S<percent>`
@@ -21,25 +21,25 @@ A Klipper a következő szabványos G-kód parancsokat támogatja:
 - Extruder hőmérsékletének lekérdezése: `M105`
 - Az extruder hőmérsékletének beállítása: `M104 [T<index>] [S<temperature>]`
 - Beállítja az extruder hőmérsékletét és várakozik: `M109 [T<index>] S<temperature>`
-   - Megjegyzés: Az M109 mindig megvárja, míg a hőmérséklet beáll a kért értékre.
+   - Megjegyzés: Az M109 mindig megvárja, míg a hőmérséklet beáll a kért értékre
 - Beállítja az ágy hőmérsékletét: `M140 [S<temperature>]`
 - Beállítja az ágy hőmérsékletét és várakozik: `M190 S<temperature>`
-   - Megjegyzés: Az M190 mindig megvárja, hogy a hőmérséklet beálljon a kért értékre.
+   - Megjegyzés: Az M190 mindig megvárja, hogy a hőmérséklet beálljon a kért értékre
 - A ventilátor sebességének beállítása: `M106 S<value>`
 - Kikapcsolja a ventilátort: `M107`
 - Vészleállító: `M112`
 - Jelenlegi pozíció lekérdezése: `M114`
 - A firmware verziójának lekérdezése: `M115`
 
-A fenti parancsokkal kapcsolatos további részletekért lásd a [RepRap G-kód dokumentáció](http://reprap.org/wiki/G-code) fájlt.
+A fenti parancsokkal kapcsolatos további részletekért lásd a [RepRap G-Kód dokumentáció](http://reprap.org/wiki/G-code) fájlt.
 
 A Klipper célja, hogy támogassa az általános 3. féltől származó szoftverek (pl. OctoPrint, Printrun, Slic3r, Cura, stb.) által generált G-Kód parancsokat a szabványos konfigurációikban. Nem cél, hogy minden lehetséges G-Kód parancsot támogasson. Ehelyett a Klipper az ember által olvasható ["kiterjesztett G-Kód"](#additional-commands) parancsokat részesíti előnyben. Hasonlóképpen, a G-Kód terminál kimenete is csak ember által olvasható. Lásd az [API Szerver dokumentumot](API_Server.md), ha a Klippert külső szoftverből irányítod.
 
-Ha egy kevésbé gyakori G-kód parancsra van szükség, akkor azt egy egyéni [gcode_macro config section](Config_Reference.md#gcode_macro) segítségével lehet megvalósítani. Például ezt használhatnánk a következőkre: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1` stb.
+Ha egy kevésbé gyakori G-Kód parancsra van szükség, akkor azt egy egyéni [gcode_macro config section](Config_Reference.md#gcode_macro) segítségével lehet megvalósítani. Például ezt használhatnánk a következőkre: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1` stb.
 
 ## További parancsok
 
-A Klipper "kiterjesztett" G-kód parancsokat használ az általános konfigurációhoz és állapothoz. Ezek a kiterjesztett parancsok mind hasonló formátumot követnek, egy parancsnévvel kezdődnek, és egy vagy több paraméter követheti őket. Például: `SET_SERVO SERVO=myservo ANGLE=5.3`. Ebben a parancssorban a parancsok és paraméterek nagybetűvel szerepelnek, azonban a nagy- és kisbetűket nem kell figyelembe venni. (Tehát a "SET_SERVO" és a "set_servo" mindkettő ugyanazt jelenti.)
+A Klipper "kiterjesztett" G-Kód parancsokat használ az általános konfigurációhoz és állapothoz. Ezek a kiterjesztett parancsok mind hasonló formátumot követnek, egy parancsnévvel kezdődnek, és egy vagy több paraméter követheti őket. Például: `SET_SERVO SERVO=myservo ANGLE=5.3`. Ebben a parancssorban a parancsok és paraméterek nagybetűvel szerepelnek, azonban a nagy- és kisbetűket nem kell figyelembe venni. (Tehát a "SET_SERVO" és a "set_servo" mindkettő ugyanazt jelenti.)
 
 Ez a szakasz a Klipper-modul nevével van generálva, amely általában a [nyomtató konfigurációs fájlban](Config_Reference.md) megadott szakaszneveket követi. Vegye figyelembe, hogy néhány modul automatikusan betöltődik.
 
@@ -97,7 +97,7 @@ A következő parancsok akkor érhetők el, ha a [bed_mesh konfigurációs szaka
 
 #### BED_MESH_CLEAR
 
-`BED_MESH_CLEAR`: Ez a parancs törli a hálót és eltávolít minden Z-beállítást. Ajánlott ezt a parancsot befejező G-kódba tenni.
+`BED_MESH_CLEAR`: Ez a parancs törli a hálót és eltávolít minden Z-beállítást. Ajánlott ezt a parancsot befejező G-Kódba tenni.
 
 #### BED_MESH_PROFILE
 
@@ -133,7 +133,7 @@ A következő parancs akkor érhető el, ha a [bltouch konfigurációs szakasz](
 
 #### BLTOUCH_STORE
 
-`BLTOUCH_STORE MODE=<output_mode>`: Ez egy kimeneti módot tárol a BLTouch V3.1 EEPROM-jában: `5V`, `OD`.
+`BLTOUCH_STORE MODE=<output_mode>`: Ez egy kimeneti módot tárol a BLTouch V3.1 EEPROM-jában: `5V`, `OD`
 
 ### [configfile]
 
@@ -297,7 +297,7 @@ A G-Kód modul automatikusan betöltődik.
 
 ### [gcode_arcs]
 
-A következő szabványos G-kód parancsok elérhetők, ha a [gcode_arcs config section](Config_Reference.md#gcode_arcs) engedélyezve van:
+A következő szabványos G-Kód parancsok elérhetők, ha a [gcode_arcs config section](Config_Reference.md#gcode_arcs) engedélyezve van:
 
 - Vezérelt ívmozgás (G2 vagy G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>`
 
@@ -319,7 +319,7 @@ A gcode_move modul automatikusan betöltődik.
 
 #### SET_GCODE_OFFSET
 
-`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Pozíciós eltolás beállítása, amelyet a későbbi G-kód parancsokra kell alkalmazni. Ezt általában a Z ágy eltolás virtuális megváltoztatására vagy a fúvókák XY eltolásának beállítására használják extruder váltáskor. Például, ha a "SET_GCODE_OFFSET Z=0.2" parancsot küldjük, akkor a jövőbeli G-kód mozgások Z magasságához 0,2 mm-t adunk hozzá. Ha az X_ADJUST stílusparamétereket használjuk, akkor a kiigazítás hozzáadódik a meglévő eltoláshoz (pl. a "SET_GCODE_OFFSET Z=-0.2" és a "SET_GCODE_OFFSET Z_ADJUST=0.3" utána a teljes Z eltolás 0.1 lesz). Ha a "MOVE=1" van megadva, akkor a nyomtatófej mozgatása a megadott eltolás alkalmazására történik (egyébként az eltolás a következő abszolút G-kódú mozgatáskor lép hatályba, amely az adott tengelyt adja meg). Ha a "MOVE_SPEED" meg van adva, akkor a szerszámfej mozgatása a megadott sebességgel (mm/mp-ben) történik; egyébként a nyomtatófej mozgatása az utoljára megadott G-kód sebességet fogja használni.
+`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Pozíciós eltolás beállítása, amelyet a későbbi G-Kód parancsokra kell alkalmazni. Ezt általában a Z ágy eltolás virtuális megváltoztatására vagy a fúvókák XY eltolásának beállítására használják extruder váltáskor. Például, ha a "SET_GCODE_OFFSET Z=0.2" parancsot küldjük, akkor a jövőbeli G-Kód mozgások Z magasságához 0,2 mm-t adunk hozzá. Ha az X_ADJUST stílusparamétereket használjuk, akkor a kiigazítás hozzáadódik a meglévő eltoláshoz (pl. a "SET_GCODE_OFFSET Z=-0.2" és a "SET_GCODE_OFFSET Z_ADJUST=0.3" utána a teljes Z eltolás 0.1 lesz). Ha a "MOVE=1" van megadva, akkor a nyomtatófej mozgatása a megadott eltolás alkalmazására történik (egyébként az eltolás a következő abszolút G-Kódú mozgatáskor lép hatályba, amely az adott tengelyt adja meg). Ha a "MOVE_SPEED" meg van adva, akkor a szerszámfej mozgatása a megadott sebességgel (mm/mp-ben) történik; egyébként a nyomtatófej mozgatása az utoljára megadott G-Kód sebességet fogja használni.
 
 #### SAVE_GCODE_STATE
 
@@ -419,7 +419,7 @@ A következő parancs akkor érhető el, ha a [manual_stepper konfigurációs sz
 
 #### MANUAL_STEPPER
 
-`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|2|-1|-2]] [SYNC=0]]]`: Ez a parancs megváltoztatja a léptető állapotát. Az ENABLE paraméterrel engedélyezheti/letilthatja a léptetőt. A SET_POSITION paraméterrel kényszerítheti a léptetőt arra, hogy azt higgye, az adott helyzetben van. A MOVE paraméterrel kezdeményezhet mozgást egy adott pozícióba. Ha a SPEED és/vagy az ACCEL paraméter meg van adva, akkor a rendszer a megadott értékeket használja a konfigurációs fájlban megadott alapértelmezett értékek helyett. Ha nulla ACCEL-t ad meg, akkor nem történik gyorsítás. Ha STOP_ON_ENDSTOP=1 van megadva, akkor a lépés korán véget ér. Ha a végálláskapcsoló aktiválódik (a STOP_ON_ENDSTOP=2 paranccsal hiba nélkül befejezheti a mozgást, még akkor is, ha a végálláskapcsoló nem aktiválódott. Használja a -1 vagy a -2 jelölést, hogy leálljon, amikor a végálláskapcsoló még nem aktiválódott). Normális esetben a későbbi G-Kód parancsok a léptetőmozgás befejezése után kerülnek ütemezésre, azonban ha a kézi léptetőmozgás parancs a SYNC=0 értéket használja, akkor a későbbi G-kód mozgatási parancsok a léptetőmozgással párhuzamosan is futhatnak.
+`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|2|-1|-2]] [SYNC=0]]]`: Ez a parancs megváltoztatja a léptető állapotát. Az ENABLE paraméterrel engedélyezheti/letilthatja a léptetőt. A SET_POSITION paraméterrel kényszerítheti a léptetőt arra, hogy azt higgye, az adott helyzetben van. A MOVE paraméterrel kezdeményezhet mozgást egy adott pozícióba. Ha a SPEED és/vagy az ACCEL paraméter meg van adva, akkor a rendszer a megadott értékeket használja a konfigurációs fájlban megadott alapértelmezett értékek helyett. Ha nulla ACCEL-t ad meg, akkor nem történik gyorsítás. Ha STOP_ON_ENDSTOP=1 van megadva, akkor a lépés korán véget ér. Ha a végálláskapcsoló aktiválódik (a STOP_ON_ENDSTOP=2 paranccsal hiba nélkül befejezheti a mozgást, még akkor is, ha a végálláskapcsoló nem aktiválódott. Használja a -1 vagy a -2 jelölést, hogy leálljon, amikor a végálláskapcsoló még nem aktiválódott). Normális esetben a későbbi G-Kód parancsok a léptetőmozgás befejezése után kerülnek ütemezésre, azonban ha a kézi léptetőmozgás parancs a SYNC=0 értéket használja, akkor a későbbi G-Kód mozgatási parancsok a léptetőmozgással párhuzamosan is futhatnak.
 
 ### [led]
 

@@ -80,7 +80,7 @@ Az alábbi ábra azt mutatja, hogy a fenti opciókat hogyan használjuk egy inte
 
 ### Mozgás felosztás
 
-Az ágy háló úgy működik, hogy megkapja a G-kód mozgatási parancsokat és transzformációt alkalmaz a Z koordinátájukra. A hosszú mozgásokat kisebb mozgásokra kell bontani, hogy helyesen kövessék az ágy alakját. Az alábbi opciók a felosztási viselkedést szabályozzák.
+Az ágy háló úgy működik, hogy megkapja a G-Kód mozgatási parancsokat és transzformációt alkalmaz a Z koordinátájukra. A hosszú mozgásokat kisebb mozgásokra kell bontani, hogy helyesen kövessék az ágy alakját. Az alábbi opciók a felosztási viselkedést szabályozzák.
 
 ```
 [bed_mesh]
@@ -165,7 +165,7 @@ Az alábbi kép azt szemlélteti, hogyan generálódnak a cserepontok, ha egy ge
 
 ![bedmesh_interpolated](img/bedmesh_faulty_regions.svg)
 
-## Ágy háló G-kódok
+## Ágy háló G-Kódok
 
 ### Kalibráció
 
@@ -195,7 +195,7 @@ Az egyes paraméterek hálóra való alkalmazásának részleteit lásd a fenti 
 
 `BED_MESH_PROFILE SAVE=<name> LOAD=<name> REMOVE=<name>`
 
-A BED_MESH_CALIBRATE elvégzése után lehetőség van a háló aktuális állapotának elmentésére egy megnevezett profilba. Ez lehetővé teszi a háló betöltését az ágy újbóli mérése nélkül. Miután egy profilt a `BED_MESH_PROFILE SAVE=<name>` segítségével elmentettünk, a `SAVE_CONFIG` G-kód végrehajtható a profil printer.cfg fájlba való írásához.
+A BED_MESH_CALIBRATE elvégzése után lehetőség van a háló aktuális állapotának elmentésére egy megnevezett profilba. Ez lehetővé teszi a háló betöltését az ágy újbóli mérése nélkül. Miután egy profilt a `BED_MESH_PROFILE SAVE=<name>` segítségével elmentettünk, a `SAVE_CONFIG` G-Kód végrehajtható a profil printer.cfg fájlba való írásához.
 
 A profilok a `BED_MESH_PROFILE LOAD=<name>` parancs végrehajtásával tölthetők be.
 
@@ -239,7 +239,7 @@ A "Tool Adjusted" pontok az egyes pontok fúvókájának helyére, a "Probe" pon
 
 `BED_MESH_CLEAR`
 
-Ez a G-kód használható a belső háló állapotának törlésére.
+Ez a G-Kód használható a belső háló állapotának törlésére.
 
 ### X/Y eltolások alkalmazása
 

@@ -2,13 +2,13 @@
 
 Ez a dokumentum a G-Kód parancssorozatok gcode_macro (és hasonló) konfigurációs szakaszokban történő implementálásáról nyújt információt.
 
-## G-kód makró elnevezése
+## G-Kód makró elnevezése
 
-A G-kódos makronév esetében a nagy- és kisbetűs írásmód nem fontos - a MY_MACRO és a my_macro ugyanúgy kiértékelődik, és kicsi vagy nagybetűvel is meghívható. Ha a makronévben számokat használunk, akkor azoknak a név végén kell állniuk (pl. a TEST_MACRO25 érvényes, de a MACRO25_TEST3 nem).
+A G-Kódos makronév esetében a nagy- és kisbetűs írásmód nem fontos - a MY_MACRO és a my_macro ugyanúgy kiértékelődik, és kicsi vagy nagybetűvel is meghívható. Ha a makronévben számokat használunk, akkor azoknak a név végén kell állniuk (pl. a TEST_MACRO25 érvényes, de a MACRO25_TEST3 nem).
 
-## A G-kód formázása a konfigurációban
+## A G-Kód formázása a konfigurációban
 
-A behúzás fontos, amikor makrót definiál a konfigurációs fájlban. Többsoros G-kód szekvencia megadásához fontos, hogy minden sorban megfelelő behúzás legyen. Például:
+A behúzás fontos, amikor makrót definiál a konfigurációs fájlban. Többsoros G-Kód szekvencia megadásához fontos, hogy minden sorban megfelelő behúzás legyen. Például:
 
 ```
 [gcode_macro blink_led]
@@ -18,11 +18,11 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 ```
 
-Figyeljük meg, hogy a `gcode:` config opció mindig a sor elején kezdődik, valamint a G-kód makró további sorai soha nem kezdődnek a sor elején.
+Figyeljük meg, hogy a `gcode:` config opció mindig a sor elején kezdődik, valamint a G-Kód makró további sorai soha nem kezdődnek a sor elején.
 
 ## Leírás hozzáadása a makróhoz
 
-A funkció azonosításának megkönnyítése érdekében rövid leírás adható hozzá. Adjunk hozzá `description:` egy rövid szöveget a funkció leírására. Ha nincs megadva, az alapértelmezett érték "G-kód makró". Például:
+A funkció azonosításának megkönnyítése érdekében rövid leírás adható hozzá. Adjunk hozzá `description:` egy rövid szöveget a funkció leírására. Ha nincs megadva, az alapértelmezett érték "G-Kód makró". Például:
 
 ```
 [gcode_macro blink_led]
@@ -35,9 +35,9 @@ gcode:
 
 A terminál megjeleníti a leírást, ha a `HELP` parancsot vagy az automatikus kitöltés funkciót használja.
 
-## Állapot mentése/visszaállítása G-kódos mozgásokhoz
+## Állapot mentése/visszaállítása G-Kódos mozgásokhoz
 
-Sajnos a G-kód parancsnyelv használata kihívást jelenthet. A nyomtatófej mozgatásának szabványos mechanizmusa a `G1` parancson keresztül történik (a `G0` parancs a `G1` parancs álnevének tekinthető, és felcserélhető vele). Ez a parancs azonban a "G-kód elemzési állapotára" támaszkodik: `M82`, `M83`, `G90` általi beállításra, `G91`, `G92` és a korábbi `G1` parancsok is. Egy G-kód makró létrehozásakor célszerű mindig kifejezetten beállítani a G-kód elemzési állapotát a `G1` parancs kiadása előtt. (Ellenkező esetben fennáll annak a veszélye, hogy a `G1` parancs nemkívánatos kérést fog végrehajtani.)
+Sajnos a G-Kód parancsnyelv használata kihívást jelenthet. A nyomtatófej mozgatásának szabványos mechanizmusa a `G1` parancson keresztül történik (a `G0` parancs a `G1` parancs álnevének tekinthető, és felcserélhető vele). Ez a parancs azonban a "G-Kód elemzési állapotára" támaszkodik: `M82`, `M83`, `G90` általi beállításra, `G91`, `G92` és a korábbi `G1` parancsok is. Egy G-Kód makró létrehozásakor célszerű mindig kifejezetten beállítani a G-Kód elemzési állapotát a `G1` parancs kiadása előtt. (Ellenkező esetben fennáll annak a veszélye, hogy a `G1` parancs nemkívánatos kérést fog végrehajtani.)
 
 Ennek egyik gyakori módja, hogy a `G1` mozdulatokat `SAVE_GCODE_STATE`-be csomagoljuk, `G91`, és `RESTORE_GCODE_STATE`-ba. Például:
 
@@ -50,7 +50,7 @@ gcode:
   RESTORE_GCODE_STATE NAME=my_move_up_state
 ```
 
-A `G91` parancs a G-kód elemzési állapotot "relatív mozgatási módba" helyezi, a `RESTORE_GCODE_STATE` parancs pedig visszaállítja a makró belépése előtti állapotot. Ügyeljen arra, hogy az első `G1` parancsnál adjon meg explicit sebességet (az `F` paraméterrel).
+A `G91` parancs a G-Kód elemzési állapotot "relatív mozgatási módba" helyezi, a `RESTORE_GCODE_STATE` parancs pedig visszaállítja a makró belépése előtti állapotot. Ügyeljen arra, hogy az első `G1` parancsnál adjon meg explicit sebességet (az `F` paraméterrel).
 
 ## Sablon bővítés
 
@@ -135,7 +135,7 @@ gcode:
 
 ## Tevékenységek
 
-A nyomtató állapotának megváltoztatására néhány parancs áll rendelkezésre. Például az `{ action_emergency_stop() }` a nyomtatót leállítási állapotba helyezi. Vegye figyelembe, hogy ezek a műveletek a makró kiértékelésének időpontjában történnek, ami jelentős idővel a generált G-kód parancsok végrehajtása előtt történhet.
+A nyomtató állapotának megváltoztatására néhány parancs áll rendelkezésre. Például az `{ action_emergency_stop() }` a nyomtatót leállítási állapotba helyezi. Vegye figyelembe, hogy ezek a műveletek a makró kiértékelésének időpontjában történnek, ami jelentős idővel a generált G-Kód parancsok végrehajtása előtt történhet.
 
 Elérhető "művelet" parancsok:
 
@@ -169,9 +169,9 @@ gcode:
 
 A SET_GCODE_VARIABLE használatakor mindenképpen vegye figyelembe a makró kiértékelésének és a parancs végrehajtásának időzítését.
 
-## Késleltetett G-kódok
+## Késleltetett G-Kódok
 
-A [delayed_gcode] konfigurációs opció késleltetett G-kód szekvencia végrehajtásához használható:
+A [delayed_gcode] konfigurációs opció késleltetett G-Kód szekvencia végrehajtásához használható:
 
 ```
 [delayed_gcode clear_display]
@@ -188,7 +188,7 @@ gcode:
  UPDATE_DELAYED_GCODE ID=clear_display DURATION=10
 ```
 
-Amikor a fenti `load_filament` makró végrehajtódik, az extrudálás befejezése után megjelenik egy "Load Complete!" üzenet. A G-kód utolsó sora engedélyezi a "clear_display" delayed_gcode-ot, amely 10 másodperc múlva végrehajtásra van beállítva.
+Amikor a fenti `load_filament` makró végrehajtódik, az extrudálás befejezése után megjelenik egy "Load Complete!" üzenet. A G-Kód utolsó sora engedélyezi a "clear_display" delayed_gcode-ot, amely 10 másodperc múlva végrehajtásra van beállítva.
 
 Az `initial_duration` konfigurációs beállítás beállítható úgy, hogy a nyomtató indításakor végrehajtsa a delayed_gcode parancsot. A visszaszámlálás akkor kezdődik, amikor a nyomtató a "ready" állapotba lép. Az alábbi delayed_gcode például a nyomtató elkészülte után 5 másodperccel végrehajtja a műveletet, és a kijelzőt "Üdvözlés!" üzenettel inicializálja:
 
@@ -199,7 +199,7 @@ gcode:
   M117 Welcome!
 ```
 
-Lehetséges, hogy egy késleltetett G-kód megismétlődik a G-kód opcióban történő frissítéssel:
+Lehetséges, hogy egy késleltetett G-Kód megismétlődik a G-Kód opcióban történő frissítéssel:
 
 ```
 [delayed_gcode report_temp]
@@ -209,7 +209,7 @@ gcode:
   UPDATE_DELAYED_GCODE ID=report_temp DURATION=2
 ```
 
-A fenti delayed_gcode 2 másodpercenként elküldi az "// Extruder Temp: [ex0_temp]" kódot az Octoprintnek. Ez a következő G-kóddal törölhető:
+A fenti delayed_gcode 2 másodpercenként elküldi az "// Extruder Temp: [ex0_temp]" kódot az Octoprintnek. Ez a következő G-Kóddal törölhető:
 
 ```
 UPDATE_DELAYED_GCODE ID=report_temp DURATION=0
@@ -236,7 +236,7 @@ A menüsablonokban a következő műveletek érhetők el:
 
 ## Változók mentése lemezre
 
-Ha a [save_variables config section](Config_Reference.md#save_variables) engedélyezve van, a `SAVE_VARIABLE VARIABLE=<name> VALUE=<value>` használható a változó lemezre mentésére, hogy az újraindítások során is használható legyen. Minden tárolt változó betöltődik a `printer.save_variables.variables` dict-be indításkor, és felhasználható a G-kód makrókban. A túl hosszú sorok elkerülése érdekében a makró elejére a következőket írhatjuk:
+Ha a [save_variables config section](Config_Reference.md#save_variables) engedélyezve van, a `SAVE_VARIABLE VARIABLE=<name> VALUE=<value>` használható a változó lemezre mentésére, hogy az újraindítások során is használható legyen. Minden tárolt változó betöltődik a `printer.save_variables.variables` dict-be indításkor, és felhasználható a G-Kód makrókban. A túl hosszú sorok elkerülése érdekében a makró elejére a következőket írhatjuk:
 
 ```
 {% set svv = printer.save_variables.variables %}

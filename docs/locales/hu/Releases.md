@@ -45,10 +45,10 @@ Elérhető a 20201028-as verzió. Csak hibajavításokat tartalmazó kiadás.
 
 Elérhető a 20191021 verzió. Főbb változások ebben a kiadásban:
 
-* Új G-kód parancssablon támogatás. A konfigurációs fájlban lévő G-kódot mostantól a Jinja2 sablonnyelvvel értékeli ki a rendszer.
+* Új G-Kód parancssablon támogatás. A konfigurációs fájlban lévő G-Kódot mostantól a Jinja2 sablonnyelvvel értékeli ki a rendszer.
 * A Trinamic léptető meghajtók javítása:
    * Új támogatás a TMC2209 és TMC5160 illesztőprogramokhoz.
-   * Továbbfejlesztett DUMP_TMC, SET_TMC_CURRENT és INIT_TMC G-kód parancsok.
+   * Továbbfejlesztett DUMP_TMC, SET_TMC_CURRENT és INIT_TMC G-Kód parancsok.
    * Javított támogatás a TMC UART kezeléséhez analóg mux-al.
 * Javított célmeghatározás, mérés és ágyszintezés támogatása:
    * Új manual_probe, bed_screws, screws_tilt_adjust, skew_correction, safe_z_home modulok hozzáadása.
@@ -111,12 +111,12 @@ Elérhető a 20180331 kiadás. Főbb változások ebben a kiadásban:
 * Egyedi digitális és PWM kimeneti tűk támogatása (új SET_PIN paranccsal)
 * Kezdeti támogatás egy "virtuális SDcard" számára, amely lehetővé teszi a nyomtatást közvetlenül a Klipperről (segít a túl lassú gépeken, hogy az OctoPrint jól fusson)
 * Különböző karhosszúságok beállításának támogatása a delta minden egyes tornyán
-* A G-kód M220/M221 parancsok támogatása (sebességtényező felülbírálása / extrudálási tényező felülbírálása)
+* A G-Kód M220/M221 parancsok támogatása (sebességtényező felülbírálása / extrudálási tényező felülbírálása)
 * Számos dokumentáció frissítés:
    * Számos új példa konfigurációs fájl a szokásos nyomtatókhoz
    * Új több MCU konfigurációs példa
    * Új BL-Touch érzékelő konfigurációs példa
-   * Új GYIK, konfigurációs ellenőrzés és G-kód dokumentumok
+   * Új GYIK, konfigurációs ellenőrzés és G-Kód dokumentumok
 * Kezdeti támogatás a folyamatos integráció teszteléséhez az összes végleges GitHub fejlesztésben
 * Számos hibajavítás és kódtisztítás
 
@@ -154,7 +154,7 @@ Elérhető 20161223. Főbb változások ebben a kiadásban:
 * Delta kinematikai robotok támogatása
 * Arduino Due mikrokontroller támogatása (ARM cortex-M3)
 * USB alapú AVR mikrovezérlők támogatása
-* Támogatás a "nyomás szabályozás" algoritmushoz - ez csökkenti a nyomatok során keletkező szivárgást.
+* Támogatás a "nyomásszabályozás" algoritmushoz - ez csökkenti a nyomatok során keletkező szivárgást.
 * Új "léptetőfázis-alapú végállás" funkció - nagyobb pontosságot tesz lehetővé a kezdőpont végállásában.
 * A "kiterjesztett G-Kód" parancsok támogatása, mint például a "help", "restart" és "status".
 * A Klipper konfiguráció újratöltésének és a gazdaszoftver újraindításának támogatása a "restart" parancs terminálból történő kiadásával.

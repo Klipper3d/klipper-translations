@@ -96,4 +96,4 @@ Nyomtassa ki a tesztobjektumot, várja meg, amíg lehűl, és vegye le az ágyr�
 
 Ha az alsó réteg keskenyebbnek tűnik, mint a következő rétegek, akkor a SET_GCODE_OFFSET paranccsal negatív Z-beállítást végezhetünk. Ha bizonytalanok vagyunk, akkor a Z-beállítást addig csökkenthetjük, amíg a nyomatok alsó rétege egy kis dudort nem mutat, majd addig csökkenthetjük, amíg az el nem tűnik.
 
-A legegyszerűbb módja a kívánt Z-korrigálásnak, ha létrehoz egy START_PRINT G-kód makrót. A szeletelő úgy intézi, hogy a makró minden nyomtatás kezdetekor meghívja ezt a parancsot, és hozzáad egy SET_GCODE_OFFSET parancsot. További részletekért lásd a [szeletelők](Slicers.md) dokumentumot.
+A legegyszerűbb módja a kívánt Z-korrigálásnak, ha létrehoz egy START_PRINT G-Kód makrót. A szeletelő úgy intézi, hogy a makró minden nyomtatás kezdetekor meghívja ezt a parancsot, és hozzáad egy SET_GCODE_OFFSET parancsot. További részletekért lásd a [szeletelők](Slicers.md) dokumentumot.

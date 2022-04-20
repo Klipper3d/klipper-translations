@@ -151,7 +151,7 @@ A "gcode homing" az a hely, amelyet a G-Kód origójaként (a konfigurációs f�
 
 ## Idő
 
-A Klipper működésének alapvető eleme az órák, időpontok és időbélyegek kezelése. A Klipper a nyomtatón végrehajtott műveleteket a közeljövőben bekövetkező események ütemezésével hajtja végre. Például egy ventilátor bekapcsolásához a kód ütemezheti egy GPIO-tű változását 100 ms alatt. Ritkán fordul elő, hogy a kód azonnali műveletet próbál végrehajtani. Ezért az idő kezelése a Klipperben kritikus fontosságú a helyes működés szempontjából.
+A Klipper működésének alapvető eleme az órák, időpontok és időbélyegek kezelése. A Klipper a nyomtatón végrehajtott műveleteket a közeljövőben bekövetkező események ütemezésével hajtja végre. Például egy ventilátor bekapcsolásához a kód ütemezheti egy GPIO-tű változását 100ms alatt. Ritkán fordul elő, hogy a kód azonnali műveletet próbál végrehajtani. Ezért az idő kezelése a Klipperben kritikus fontosságú a helyes működés szempontjából.
 
 A Klipper gazdaszoftverben háromféle időtípust követhetünk nyomon:
 

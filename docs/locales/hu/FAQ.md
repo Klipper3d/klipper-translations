@@ -181,7 +181,7 @@ A gazdaszoftver külön kódot is tartalmaz a fűtőelemek és a hőmérséklet-
 
 ## Hogyan alakíthatok át egy Marlin tű számot Klipper tű névre?
 
-Rövid válasz: [sample-aliases.cfg](../config/sample-aliases.cfg) fájlban található leképezés. Használja ezt a fájlt útmutatóként a tényleges mikrokontroller tű nevek megtalálásához. (Az is lehetséges, hogy a vonatkozó [board_pins](Config_Reference.md#board_pins) config szakaszt átmásolja a config fájljába, és használja az álneveket a configban, de előnyösebb a tényleges mikrokontroller tű nevek lefordítása és használata.) Vegye figyelembe, hogy a sample-aliases.cfg fájl olyan tű neveket használ, amelyek "ar" előtaggal kezdődnek "D" helyett (pl. az Arduino pin `D23` a Klipper álnév `ar23`) és az "analog" helyett "A" (pl. az Arduino pin `A14` a Klipper álnév `analog14`).
+Rövid válasz: [sample-aliases.cfg](../config/sample-aliases.cfg) fájlban található leképezés. Használja ezt a fájlt útmutatóként a tényleges mikrokontroller tű nevek megtalálásához. (Az is lehetséges, hogy a vonatkozó [board_pins](Config_Reference.md#board_pins) config szakaszt átmásolja a config fájljába, és használja az álneveket a configban, de előnyösebb a tényleges mikrokontroller tű nevek lefordítása és használata.) Vegye figyelembe, hogy a sample-aliases.cfg fájl olyan tű neveket használ, amelyek "ar" előtaggal kezdődnek "D" helyett (pl. az Arduino tű `D23` a Klipper álnév `ar23`) és az "analog" helyett "A" (pl. az Arduino tű `A14` a Klipper álnév `analog14`).
 
 Hosszú válasz: Klipper a mikrokontroller által meghatározott szabványos tű neveket használja. Az Atmega chipeken ezek a hardveres tűk olyan neveket viselnek, mint `PA4`, `PC7`, vagy `PD2`.
 
@@ -223,7 +223,7 @@ Rövid válasz: A nyomtatóink problémákat észlelnek, hogy a mögöttes probl
 
 Hosszú válasz: A Klipper úgy lett megtervezve, hogy automatikusan megoldjon számos átmeneti problémát. Például automatikusan észleli a kommunikációs hibákat, és újratovábbítja azokat; előre ütemezi a műveleteket, és több rétegben puffereli a parancsokat, hogy még időszakos interferencia esetén is pontos időzítést tegyen lehetővé. Ha azonban a szoftver olyan hibát észlel, amelyből nem tud helyreállni, ha érvénytelen műveletre kap parancsot, vagy ha azt észleli, hogy reménytelenül képtelen végrehajtani a parancsolt feladatot, akkor a Klipper hibát jelent. Ezekben a helyzetekben nagy a kockázata annak, hogy rossz minőségű nyomtatás készül (vagy rosszabb). Reméljük, hogy a felhasználó figyelmeztetése lehetővé teszi számára, hogy megoldja a kiváltó problémát, és javítsa a nyomatok általános minőségét.
 
-Van néhány kapcsolódó kérdés: Miért nem szünetelteti a Klipper a nyomtatást? Nem jelent figyelmeztetést helyette? A nyomtatás előtt nem ellenőrzi a hibákat? Figyelmen kívül hagyja a hibákat a felhasználó által begépelt parancsokban? stb. Jelenleg a Klipper a G-kód protokollt használva olvassa a parancsokat, és sajnos a G-kód parancsprotokoll nem elég rugalmas ahhoz, hogy ezek az alternatívák ma már praktikusak legyenek. A fejlesztők érdeklődnek a felhasználói élmény javítása iránt a rendellenes események során, de ez várhatóan jelentős infrastrukturális munkát igényel (beleértve a G-kódtól való eltávolodást).
+Van néhány kapcsolódó kérdés: Miért nem szünetelteti a Klipper a nyomtatást? Nem jelent figyelmeztetést helyette? A nyomtatás előtt nem ellenőrzi a hibákat? Figyelmen kívül hagyja a hibákat a felhasználó által begépelt parancsokban? stb. Jelenleg a Klipper a G-Kód protokollt használva olvassa a parancsokat, és sajnos a G-Kód parancsprotokoll nem elég rugalmas ahhoz, hogy ezek az alternatívák ma már praktikusak legyenek. A fejlesztők érdeklődnek a felhasználói élmény javítása iránt a rendellenes események során, de ez várhatóan jelentős infrastrukturális munkát igényel (beleértve a G-Kódtól való eltávolodást).
 
 ## Hogyan frissíthetek a legújabb szoftverre?
 
@@ -261,7 +261,7 @@ Ha e parancs használata után a szoftver arra figyelmeztet, hogy a mikrokontrol
 
 Ha továbbra is fennállnak a hibák, akkor ellenőrizze a [konfigurációs változások](Config_Changes.md) dokumentumot, mivel lehet, hogy módosítani kell a nyomtató konfigurációját.
 
-Ne feledje, hogy a RESTART és FIRMWARE_RESTART G-kód parancsok nem töltenek be új szoftvert a fenti "sudo service klipper restart" és "make flash" parancsok szükségesek a szoftverváltás érvénybe lépéséhez.
+Ne feledje, hogy a RESTART és FIRMWARE_RESTART G-Kód parancsok nem töltenek be új szoftvert a fenti "sudo service klipper restart" és "make flash" parancsok szükségesek a szoftverváltás érvénybe lépéséhez.
 
 ## Hogyan tudom eltávolítani a Klippert?
 

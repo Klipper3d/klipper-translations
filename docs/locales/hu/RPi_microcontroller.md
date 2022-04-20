@@ -186,7 +186,7 @@ Ez hozzáadja a hardveres PWM vezérlést a Pi GPIO12-höz (mivel az átfedés �
 
 A PWM0 a GPIO12 és a GPIO18 a PWM1 a GPIO13 és a GPIO19 felé irányítható:
 
-| PWM | GPIO PIN | Func |
+| PWM | gpio PIN | Func |
 | --- | --- | --- |
 | 0 | 12 | 4 |
 | 0 | 18 | 2 |
