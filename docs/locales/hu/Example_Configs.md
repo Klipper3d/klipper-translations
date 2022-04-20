@@ -8,8 +8,8 @@ Ne feledje, hogy a [Klipper Community Discourse szerver](https://community.klipp
 
 1. Válassza ki a megfelelő konfigurációs fájlnév előtagot:
    1. A `printer` előtagot az általános gyártó által értékesített nyomtatókra használják.
-   1. Az `általános` előtagot olyan 3d nyomtató alaplapra használják, amely számos különböző típusú nyomtatóban használható.
-   1. A `kit` előtag olyan 3d nyomtatókra vonatkozik, amelyeket egy széles körben használt specifikáció szerint állítanak össze. Ezek a "kit" nyomtatók általában abban különböznek a normál "nyomtatóktól", hogy nem egy gyártó értékesíti őket.
+   1. Az `általános` előtagot olyan 3D nyomtató alaplapra használják, amely számos különböző típusú nyomtatóban használható.
+   1. A `kit` előtag olyan 3D nyomtatókra vonatkozik, amelyeket egy széles körben használt specifikáció szerint állítanak össze. Ezek a "kit" nyomtatók általában abban különböznek a normál "nyomtatóktól", hogy nem egy gyártó értékesíti őket.
    1. A `sample` előtagot a konfigurációs "snippetek" számára használjuk, amelyeket másolva beilleszthetünk a fő konfigurációs fájlba.
    1. A `példa` előtag a nyomtató kinematikájának leírására szolgál. Az ilyen típusú konfiguráció jellemzően csak a nyomtató kinematikájának új típusához tartozó kóddal együtt kerül hozzáadásra.
 1. Minden konfigurációs fájlnak `.cfg` végződéssel kell végződnie. A `printer` konfigurációs fájloknak egy évszámmal kell végződniük, amelyet a `.cfg` végződés követ (pl. `-2019.cfg`). Ebben az esetben az évszám az adott nyomtató eladásának hozzávetőleges éve.

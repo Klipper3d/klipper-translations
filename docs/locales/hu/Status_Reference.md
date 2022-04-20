@@ -2,7 +2,7 @@
 
 Ez a dokumentum a Klipper [makrók](Command_Templates.md), [megjelenítési mezők](Config_Reference.md#display) és az [API Szerver](API_Server.md) segítségével elérhető nyomtató állapotinformációk referenciája.
 
-Az ebben a dokumentumban szereplő mezők változhatnak. Ha egy attribútumot használ, a Klipper szoftver frissítésekor mindenképpen nézze át a [Config Changes dokumentumot](Config_Changes.md).
+Az ebben a dokumentumban szereplő mezők változhatnak. Ha egy attribútumot használ, a Klipper szoftver frissítésekor mindenképpen nézze át a [Konfigurációs változások dokumentumot](Config_Changes.md).
 
 ## angle
 
@@ -30,8 +30,8 @@ A következő információk a `configfile` objektumban találhatók (ez az objek
 
 A következő információk a `display_status` objektumban érhetők el (ez az objektum automatikusan elérhető, ha a [kijelző](Config_Reference.md#display) konfigurációs szakasz definiálva van):
 
-- `progress`: A legutóbbi `M73` G-kód parancs progress értéke (vagy `virtual_sdcard.progress`, ha nem érkezett legutóbbi `M73`).
-- `message`: Az utolsó `M117` G-kódú parancsban szereplő üzenet.
+- `progress`: A legutóbbi `M73` G-Kód parancs progress értéke (vagy `virtual_sdcard.progress`, ha nem érkezett legutóbbi `M73`).
+- `message`: Az utolsó `M117` G-Kódú parancsban szereplő üzenet.
 
 ## endstop_phase
 
@@ -43,7 +43,7 @@ A következő információk az [endstop_phase](Config_Reference.md#endstop_phase
 
 ## fan
 
-A következő információk a [fan](Config_Reference.md#fan), [heater_fan some_name](Config_Reference.md#heater_fan) és [controller_fan some_name](Config_Reference.md#controller_fan) objektumokban érhetők el:
+A következő információk a [ventilátor](Config_Reference.md#fan), [heater_fan some_name](Config_Reference.md#heater_fan) és [controller_fan some_name](Config_Reference.md#controller_fan) objektumokban érhetők el:
 
 - `speed`: A ventilátor fordulatszáma lebegőértékként 0.0 és 1.0 között.
 - `rpm`: A ventilátor mért fordulatszáma percenkénti fordulatszámban, ha a ventilátor rendelkezik tachometer_pin kimenettel.
@@ -78,9 +78,9 @@ A következő információk a [gcode_macro some_name](Config_Reference.md#gcode_
 
 A következő információk a `gcode_move` objektumban érhetők el (ez az objektum mindig elérhető):
 
-- `gcode_position`: A nyomtatófej aktuális pozíciója az aktuális G-kód origóhoz képest. Vagyis olyan pozíciók, amelyeket közvetlenül egy `G1` parancsnak küldhetünk. Lehetőség van e pozíció x, y, z és az e komponensének elérésére (pl. `gcode_position.x`).
-- `position`: A nyomtatófej utolsó kiadott pozíciója a konfigurációs fájlban megadott koordináta rendszerrel. Lehetőség van ennek a pozíciónak az x, y, z és az e komponenséhez hozzáférni (pl. `position.x`).
-- `homing_origin`: A G-kód koordináta rendszer origója (a config fájlban megadott koordináta rendszerhez képest), amelyet a `G28` parancs után használni kell. A `SET_GCODE_OFFSET` parancs megváltoztathatja ezt a pozíciót. Lehetőség van ennek a pozíciónak az x, y és z komponenséhez hozzáférni (pl. `homing_origin.x`).
+- `gcode_position`: A nyomtatófej aktuális pozíciója az aktuális G-Kód origóhoz képest. Vagyis olyan pozíciók, amelyeket közvetlenül egy `G1` parancsnak küldhetünk. Lehetőség van e pozíció X, Y, Z és az E, komponensének elérésére (pl. `gcode_position.x`).
+- `position`: A nyomtatófej utolsó kiadott pozíciója a konfigurációs fájlban megadott koordináta rendszerrel. Lehetőség van ennek a pozíciónak az X, Y, Z és az E, komponenséhez hozzáférni (pl. `position.x`).
+- `homing_origin`: A G-Kód koordináta rendszer origója (a config fájlban megadott koordináta rendszerhez képest), amelyet a `G28` parancs után használni kell. A `SET_GCODE_OFFSET` parancs megváltoztathatja ezt a pozíciót. Lehetőség van ennek a pozíciónak az X, Y és Z komponenséhez hozzáférni (pl. `homing_origin.x`).
 - `speed`: Az utolsó, `G1` parancsban beállított sebesség (mm/mp-ben).
 - `speed_factor`: Az `M220` parancs által beállított "sebességtényező felülbírálása". Ez egy lebegőpontos érték, így 1.0 azt jelenti, hogy nincs felülbírálat, és például a 2.0 megduplázza a kért sebességet.
 - `extrude_factor`: Az `M221` parancs által beállított "extrude factor override". Ez egy lebegőpontos érték, így 1.0 azt jelenti, hogy nincs felülbírálat, és például a 2.0 megduplázza a kért extrudálásokat.
@@ -97,7 +97,7 @@ A következő információk a [hall_filament_width_sensor](Config_Reference.md#h
 
 ## heater
 
-A következő információk az olyan fűtőobjektumokhoz állnak rendelkezésre, mint az [extruder](Config_Reference.md#extruder), [heater_bed](Config_Reference.md#heater_bed) és [heater_generic](Config_Reference.md#heater_generic):
+A következő információk az olyan fűtőelemekhez állnak rendelkezésre, mint az [extruder](Config_Reference.md#extruder), [heater_bed](Config_Reference.md#heater_bed) és [heater_generic](Config_Reference.md#heater_generic):
 
 - `temperature`: Az adott fűtőberendezés legutóbb jelentett hőmérséklete (Celsiusban, lebegőértékként).
 - `target`: Az adott fűtőberendezés aktuális célhőmérséklete (Celsiusban, lebegőértékként).
@@ -130,8 +130,8 @@ A következő információk az [mcu](Config_Reference.md#mcu) és [mcu some_name
 
 - `mcu_version`: A mikrokontroller által jelentett Klipper kód verziója.
 - `mcu_build_versions`: A mikrokontroller kódjának generálásához használt építőeszközökre vonatkozó információk (a mikrokontroller által jelentett módon).
-- `mcu_constants.<constant_name>`: A mikrokontroller által jelentett fordítási idejű konstansok. A rendelkezésre álló konstansok mikrokontroller-architektúránként és kódrevíziónként eltérőek lehetnek.
-- `last_stats.<statistics_name>`: Statisztikai információk a mikrokontroller-kapcsolatról.
+- `mcu_constants.<constant_name>`: A mikrokontroller által jelentett fordítási idejű konstansok. A rendelkezésre álló konstansok mikrokontroller architektúránként és kódrevíziónként eltérőek lehetnek.
+- `last_stats.<statistics_name>`: Statisztikai információk a mikrokontroller kapcsolatról.
 
 ## motion_report
 
@@ -145,7 +145,7 @@ A következő információk a `motion_report` objektumban érhetők el (ez az ob
 
 A következő információk a [output_pin some_name](Config_Reference.md#output_pin) objektumokban érhetők el:
 
-- `value`: A `SET_PIN` paranccsal beállított "érték" a tű értéke.
+- `value`: A `SET_PIN` paranccsal beállított "value" a tű értéke.
 
 ## palette2
 
@@ -169,7 +169,7 @@ A következő információk a `print_stats` objektumban érhetők el (ez az obje
 
 ## probe
 
-A következő információk a [probe](Config_Reference.md#probe) objektumban érhetők el (ez az objektum akkor is elérhető, ha egy [bltouch](Config_Reference.md#bltouch) konfigurációs szakasz van definiálva):
+A következő információk a [szonda](Config_Reference.md#probe) objektumban érhetők el (ez az objektum akkor is elérhető, ha egy [bltouch](Config_Reference.md#bltouch) konfigurációs szakasz van definiálva):
 
 - `last_query`: True értéket ad vissza, ha a szondát az utolsó QUERY_PROBE parancs során "triggered" -ként jelentették. Megjegyzés: ha ezt egy makróban használjuk, a sablon bővítési sorrendje miatt a QUERY_PROBE parancsot akkor ezt a hivatkozást tartalmazó makró előtt kell lefuttatni.
 - `last_z_result`: Az utolsó PROBE parancs Z eredményének értékét adja vissza. Figyelem, ha ezt egy makróban használjuk, a sablon bővítési sorrendje miatt a PROBE (vagy hasonló) parancsot akkor ezt a hivatkozást tartalmazó makró előtt kell lefuttatni.
@@ -188,9 +188,9 @@ A következő információk a `query_endstops` objektumban érhetők el (ez az o
 
 ## servo
 
-A következő információk a [servo some_name](Config_Reference.md#servo) objektumokban érhetők el:
+A következő információk a [szervó some_name](Config_Reference.md#servo) objektumokban érhetők el:
 
-- `printer["servo <config_name>"].value`: A szervóhoz tartozó PWM-tű utolsó beállítása (0,0 és 1,0 közötti érték).
+- `printer["servo <config_name>"].value`: A szervóhoz tartozó PWM tű utolsó beállítása (0,0 és 1,0 közötti érték).
 
 ## system_stats
 
@@ -198,7 +198,7 @@ A következő információk a `system_stats` objektumban érhetők el (ez az obj
 
 - `sysload`, `cputime`, `memavail`: Információ a gazdagép operációs rendszeréről és a folyamatok terheléséről.
 
-## temperature sensors
+## hőmérséklet érzékelők
 
 A következő információk a következő dokumentumban találhatók
 
@@ -221,7 +221,7 @@ A következő információk a [temperature_sensor some_name](Config_Reference.md
 - `temperature`: Az érzékelőtől utoljára kapott hőmérséklet.
 - `measured_min_temp`, `measured_max_temp`: Az érzékelő által a Klipper gazdagép szoftver utolsó újraindítása óta mért legalacsonyabb és legmagasabb hőmérséklet.
 
-## tmc drivers
+## tmc motorvezérlők
 
 A következő információk a [TMC léptető motorvezérlők](Config_Reference.md#tmc-stepper-driver-configuration) objektumban érhetők el (pl. `[tmc2208 stepper_x]`):
 
@@ -235,12 +235,12 @@ A következő információk a [TMC léptető motorvezérlők](Config_Reference.m
 
 A következő információk a `toolhead` objektumban érhetők el (ez az objektum mindig elérhető):
 
-- `position`: A nyomtatófej utolsó parancsolt pozíciója a konfigurációs fájlban megadott koordináta rendszerhez képest. Lehetőség van ennek a pozíciónak az x, y, z és az e komponenséhez hozzáférni (pl. `position.x`).
+- `position`: A nyomtatófej utolsó parancsolt pozíciója a konfigurációs fájlban megadott koordináta rendszerhez képest. Lehetőség van ennek a pozíciónak az X, Y, Z és az E, komponenséhez hozzáférni (pl. `position.x`).
 - `extruder`: A jelenleg aktív extruder neve. Például egy makróban használhatjuk a `printer[printer.toolhead.extruder].target` parancsot, hogy megkapjuk az aktuális extruder célhőmérsékletét.
-- `homed_axes`: Az aktuálisan "homed" állapotban lévőnek tekintett cartesian tengelyek. Ez egy karakterlánc, amely egy vagy több "x", "y", "z" értéket tartalmaz.
-- `axis_minimum`, `axis_maximum`: A tengely mozgásának határai (mm) a kezdőpont felvétel után. Lehetőség van e határérték x, y, z összetevőinek elérésére (pl. `axis_minimum.x`, `axis_maximum.z`).
+- `homed_axes`: Az aktuálisan "homed" állapotban lévőnek tekintett cartesian tengelyek. Ez egy karakterlánc, amely egy vagy több "X", "Y", "Z" értéket tartalmaz.
+- `axis_minimum`, `axis_maximum`: A tengely mozgásának határai (mm) a kezdőpont felvétel után. Lehetőség van e határérték X, Y, Z összetevőinek elérésére (pl. `axis_minimum.x`, `axis_maximum.z`).
 - `max_velocity`, `max_accel`, `max_accel_to_decel`, `square_corner_velocity`: Az aktuálisan érvényben lévő nyomtatási korlátok. Ez eltérhet a konfigurációs fájl beállításaitól, ha a `SET_VELOCITY_LIMIT` (vagy `M204`) parancs megváltoztatja azokat használat közben.
-- `stalls`: Az összes alkalom száma (az utolsó újraindítás óta), amikor a nyomtatót szüneteltetni kellett, mert a nyomtatófej gyorsabban mozgott, mint ahány mozdulatot a G-kód bemenetről be lehetett olvasni.
+- `stalls`: Az összes alkalom száma (az utolsó újraindítás óta), amikor a nyomtatót szüneteltetni kellett, mert a nyomtatófej gyorsabban mozgott, mint ahány mozdulatot a G-Kód bemenetről be lehetett olvasni.
 
 ## dual_carriage
 
@@ -270,4 +270,4 @@ A következő információk a `webhooks` objektumban érhetők el (ez az objektu
 
 A következő információk a `z_tilt` objektumban érhetők el (ez az objektum akkor érhető el, ha a z_tilt definiálva van):
 
-- `applied`: True, ha a Z-végállás kiegyenlítési folyamat lefutott és sikeresen befejeződött.
+- `applied`: True, ha a Z végállás kiegyenlítési folyamat lefutott és sikeresen befejeződött.

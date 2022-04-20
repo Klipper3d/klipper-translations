@@ -22,7 +22,7 @@ SAVE_CONFIG
 
 Előnyösebb, ha a Z végálláskapcsolót a Z tengelynek az ággyal ellentétes végére helyezzük. (Az ágytól távolabb történő kezdőpont keresés robusztusabb, mivel akkor általában mindig biztonságosan lehet a Z-t kezdőpontra állítani.) Ha azonban az ágy felé kell kezdőpontot felvenni, ajánlott a végálláskapcsolót úgy beállítani, hogy az kis távolságra (pl. 0,5 mm-re) az ágy fölött kapcsoljon. Majdnem minden végálláskapcsoló biztonságosan lenyomható egy kis távolsággal a kioldási ponton túl. Ha ez megtörtént, azt kell tapasztalni, hogy a `Z_ENDSTOP_CALIBRATE` parancs egy kis pozitív értéket (pl. .5mm) jelez a Z pozíció végálláshoz. A végállás érzékelése akkor, amikor az még bizonyos távolságra van az ágytól, csökkenti a véletlen ágyba ütközések kockázatát.
 
-Egyes nyomtatókon lehetőség van a fizikai végálláskapcsoló helyének kézi beállítására. Azonban ajánlott a Z végállás pozícionálását szoftveresen elvégezni a Klipperrel. Ha a végállás fizikai helyzete megfelelő helyen van, a további beállításokat a Z_ENDSTOP_CALIBRATE futtatásával vagy a Z position_endstop konfigurációs fájlban lévő Z position_endstop manuális frissítésével lehet elvégezni.
+Egyes nyomtatókon lehetőség van a fizikai végálláskapcsoló helyének kézi beállítására. Azonban ajánlott a Z végállás pozíciónálását szoftveresen elvégezni a Klipperrel. Ha a végállás fizikai helyzete megfelelő helyen van, a további beállításokat a Z_ENDSTOP_CALIBRATE futtatásával vagy a Z position_endstop konfigurációs fájlban lévő Z position_endstop manuális frissítésével lehet elvégezni.
 
 ## Ágyszintező csavarok beállítása
 
@@ -96,7 +96,7 @@ speed: 50.
 screw_thread: CW-M3
 ```
 
-Az 1. csavar mindig a referenciapont a többi csavar számára, így a rendszer feltételezi, hogy az 1. csavar a megfelelő magasságban van. Először mindig futtassa le a `G28` G-kódot, majd futtassa le a `SCREWS_TILT_CALCULATE` parancsot. Ennek a következőhöz hasonló kimenetet kell eredményeznie:
+Az 1. csavar mindig a referenciapont a többi csavar számára, így a rendszer feltételezi, hogy az 1. csavar a megfelelő magasságban van. Először mindig futtassa le a `G28` G-Kódot, majd futtassa le a `SCREWS_TILT_CALCULATE` parancsot. Ennek a következőhöz hasonló kimenetet kell eredményeznie:
 
 ```
 Send: G28
@@ -119,10 +119,10 @@ Ez azt jelenti, hogy:
 
 Vegye figyelembe, hogy a "percek" az "óra számlapjának perceire" utalnak. Így például 15 perc egy teljes fordulat negyedének felel meg.
 
-Ismételje meg a folyamatot többször, amíg egy jó vízszintes ágyat nem kap - általában akkor jó, ha minden beállítás 6 perc alatt van.
+Ismételje meg a folyamatot többször, amíg egy jó vízszintes ágyat nem kap. Általában akkor jó, ha minden beállítás 6 percnyi fordulat alatt van.
 
 Ha olyan szondát használ, amely a nyomtatófej oldalára van szerelve (azaz X vagy Y eltolással rendelkezik), akkor vegye figyelembe, hogy az ágy dőlésének beállítása érvényteleníti a korábbi, dőlésszögű ágyon végzett szintkalibrálást. Az ágy csavarjainak beállítása után mindenképpen futtassa le a [szonda kalibrálása](Probe_Calibrate.md) parancsot.
 
-A `MAX_DEVIATION` paraméter akkor hasznos, ha egy mentett ágyhálót használunk, hogy biztosítsuk, hogy az ágy szintje ne térjen el túlságosan attól a helytől, ahol a háló létrehozásakor volt. Például a `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` hozzáadható a szeletelő egyéni indító G-kódjához a háló betöltése előtt. Ez megszakítja a nyomtatást, ha a beállított határértéket túllépi (ebben a példában 0,01 mm), lehetőséget adva a felhasználónak a csavarok beállítására és a nyomtatás újraindítására.
+A `MAX_DEVIATION` paraméter akkor hasznos, ha egy mentett ágyhálót használunk, hogy biztosítsuk, hogy az ágy szintje ne térjen el túlságosan attól a helytől, ahol a háló létrehozásakor volt. Például a `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` hozzáadható a szeletelő egyéni indító G-Kódjához a háló betöltése előtt. Ez megszakítja a nyomtatást, ha a beállított határértéket túllépi (ebben a példában 0,01 mm), lehetőséget adva a felhasználónak a csavarok beállítására és a nyomtatás újraindítására.
 
 A `DIRECTION` paraméter akkor hasznos, ha az ágy szintező csavarjait csak egy irányba tudja elfordítani. Például lehetnek olyan csavarjai, amelyek a lehető legalacsonyabb (vagy legmagasabb) pozícióban vannak meghúzva, és csak egy irányba forgathatók az ágy emeléséhez (vagy süllyesztéséhez). Ha a csavarokat csak az óramutató járásával megegyező irányban tudja elfordítani, futtassa a `SCREWS_TILT_CALCULATE DIRECTION=CW` parancsot. Ha csak az óramutató járásával ellentétes irányban tudja elforgatni őket, futtassa a `SCREWS_TILT_CALCULATE DIRECTION=CCW` parancsot. A program kiválaszt egy megfelelő referenciapontot, hogy az ágyat az összes csavar adott irányba történő elfordításával szintezhesse.

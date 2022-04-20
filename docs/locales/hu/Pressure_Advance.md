@@ -1,16 +1,16 @@
-# Nyomás előrehaladás
+# Nyomásszabályozás
 
-Ez a dokumentum a "nyomás szabályozás" konfigurációs változó adott fúvókához és nyomtatószálhoz való beállításával kapcsolatos információkat tartalmaz. A nyomás szabályozás funkció hasznos lehet a nyákosodás csökkentésében. A nyomás szabályozás megvalósításáról további információkat a [kinematics](Kinematics.md) dokumentumban talál.
+Ez a dokumentum a "nyomás szabályozás" konfigurációs változó adott fúvókához és nyomtatószálhoz való beállításával kapcsolatos információkat tartalmaz. A nyomás szabályozás funkció hasznos lehet a nyákosodás csökkentésében. A nyomás szabályozás megvalósításáról további információkat a [kinematika](Kinematics.md) dokumentumban talál.
 
-## Nnyomás szabályozás hangolása
+## Nyomás szabályozás hangolása
 
-A nyomás szabályozás két hasznos dolgot tesz - csökkenti a nem extrudált mozgások során fellépő nyákosodást, és csökkenti a kanyarodás során fellépő puffadást. Ez az útmutató a második funkciót (kanyarodás közbeni puffadás csökkentése) használja a hangolás mechanizmusaként.
+A nyomás szabályozás két hasznos dolgot tesz. Csökkenti a nem extrudált mozgások során fellépő nyákosodást, és csökkenti a kanyarodás során fellépő puffadást. Ez az útmutató a második funkciót (kanyarodás közbeni puffadás csökkentése) használja a hangolás mechanizmusaként.
 
 A nyomás szabályozás kalibrálásához a nyomtatónak konfiguráltnak és működőképesnek kell lennie, mivel a hangolási teszt egy tesztobjektum nyomtatásával és vizsgálatával jár. A teszt lefuttatása előtt érdemes ezt a dokumentumot teljes egészében elolvasni.
 
-A [docs/prints/square_tower.stl](prints/square_tower.stl) fájlban található nagy üreges négyzet g-kódjának létrehozásához használjon egy szeletelőt. Használjon nagy sebességet (pl. 100 mm/s), nulla kitöltést és durva rétegmagasságot (a rétegmagasságnak a fúvóka átmérőjének 75%-a körül kell lennie). Győződjön meg róla, hogy a szeletelőben minden "dinamikus gyorsításvezérlés" ki van kapcsolva.
+A [docs/prints/square_tower.stl](prints/square_tower.stl) fájlban található nagy üreges négyzet G-Kódjának létrehozásához használjon egy szeletelőt. Használjon nagy sebességet (pl. 100 mm/s), nulla kitöltést és durva rétegmagasságot (a rétegmagasságnak a fúvóka átmérőjének 75%-a körül kell lennie). Győződjön meg róla, hogy a szeletelőben minden "dinamikus gyorsításvezérlés" ki van kapcsolva.
 
-Készüljön fel a tesztre a következő G-kód parancs kiadásával:
+Készüljön fel a tesztre a következő G-Kód parancs kiadásával:
 
 ```
 SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500
@@ -53,7 +53,7 @@ A teszt befejezésekor állítsa be a `pressure_advance = <calculated_value>` é
 ## Fontos megjegyzések
 
 * A nyomás szabályozás értéke az extruder, a fúvóka és a szál függvénye. Gyakori, hogy a különböző gyártóktól származó vagy különböző pigmenteket tartalmazó nyomtatószálak jelentősen eltérő nyomás szabályozási értékeket igényelnek. Ezért minden nyomtatónál és minden egyes tekercs nyomtatószálnál kalibrálni kell a nyomás szabályozást.
-* A nyomtatási hőmérséklet és az extrudálási sebesség befolyásolhatja a nyomást. A nyomás szabályozás beállítása előtt mindenképpen hangolja be az [extruder rotation_distance](Rotation_Distance.md#calibrating-rotation_distance-on-extruders) és a [nozzle temperature](http://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide#Nozzle_Temperature) értékeket.
+* A nyomtatási hőmérséklet és az extrudálási sebesség befolyásolhatja a nyomást. A nyomás szabályozás beállítása előtt mindenképpen hangolja be az [extruder rotation_distance](Rotation_Distance.md#calibrating-rotation_distance-on-extruders) és a [fúvóka hőmérséklet](http://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide#Nozzle_Temperature) értékeket.
 * A tesztnyomtatást úgy tervezték, hogy nagy extruder-áramlási sebességgel, de egyébként "normál" szeletelő beállításokkal fusson. A nagy áramlási sebességet nagy nyomtatási sebesség (pl. 100 mm/s) és durva rétegmagasság (jellemzően a fúvóka átmérőjének kb. 75%-a) alkalmazásával érjük el. A többi szeletelőbeállításnak hasonlónak kell lennie az alapértelmezettekhez (pl. 2 vagy 3 soros kerület, normál behúzási mennyiség). Hasznos lehet a külső kerület sebességét a nyomtatás többi részével megegyező sebességre állítani, de ez nem követelmény.
 * Gyakori, hogy a tesztnyomtatás minden egyes sarkon eltérő viselkedést mutat. Gyakran előfordul, hogy a szeletelő az egyik sarkon rétegváltást hajt végre, ami azt eredményezheti, hogy az a sarok jelentősen eltér a többi három saroktól. Ha ez előfordul, akkor hagyja figyelmen kívül ezt a sarkot, és a másik három sarkot használva hangolja a nyomás szabályozást. Az is gyakori, hogy a fennmaradó sarkok kissé eltérnek. (Ez azért fordulhat elő, mert a nyomtató kerete kis eltérésekkel reagál a bizonyos irányokba történő kanyarodásra.) Próbáljon meg olyan értéket választani, amely az összes többi saroknál jól működik. Ha kétségei vannak, válasszon inkább egy alacsonyabb nyomás szabályozási értéket.
 * Ha magas nyomás szabályozási értéket (pl. 0,200 fölött) használunk, akkor előfordulhat, hogy az extruder kihagy, amikor visszatér a nyomtató normál gyorsuláshoz. A nyomás szabályozási rendszer úgy veszi figyelembe a nyomást, hogy gyorsításkor extra szálat tol, és lassításkor visszahúzza ezt a szálat. Nagy gyorsítás és nagy nyomás szabályozás esetén előfordulhat, hogy az extruder nem rendelkezik elegendő nyomatékkal a szükséges szálak kinyomásához. Ha ez bekövetkezik, vagy használjon alacsonyabb gyorsítási értéket, vagy tiltsa le a nyomás szabályozási funkciót.

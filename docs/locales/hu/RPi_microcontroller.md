@@ -4,7 +4,7 @@ Ez a dokumentum leírja a Klipper futtatásának folyamatát egy RPi-n, és ugya
 
 ## Miért érdemes az RPi-t másodlagos MCU-ként használni?
 
-A 3D nyomtatók vezérlésére szolgáló MCU-k gyakran korlátozott és előre konfigurált számú szabad kimenettel rendelkeznek a fő nyomtatási funkciók (hőellenállások, extruderek, léptetők stb.) kezelésére. Az RPi használata, ahol a Klipper másodlagos MCU-ként van telepítve, lehetővé teszi a GPIO-k és az RPi kimeneteinek (I2C, SPI) közvetlen használatát a klipperben anélkül, hogy Octoprint bővítményeket (ha van ilyen) vagy külső programokat használva, amelyek lehetővé teszik, hogy mindent vezéreljen a Klipper-en belül a nyomtatási G-kód.
+A 3D nyomtatók vezérlésére szolgáló MCU-k gyakran korlátozott és előre konfigurált számú szabad kimenettel rendelkeznek a fő nyomtatási funkciók (hőellenállások, extruderek, léptetők stb.) kezelésére. Az RPi használata, ahol a Klipper másodlagos MCU-ként van telepítve, lehetővé teszi a GPIO-k és az RPi kimeneteinek (I2C, SPI) közvetlen használatát a klipperben anélkül, hogy Octoprint bővítményeket (ha van ilyen) vagy külső programokat használva, amelyek lehetővé teszik, hogy mindent vezéreljen a Klipper-en belül a nyomtatási G-Kód.
 
 **Figyelmeztetés**: Ha az Ön platformja egy *Beaglebone*, és helyesen követte a telepítés lépéseit, a Linux MCU már telepítve és konfigurálva van a rendszeréhez.
 
@@ -47,13 +47,13 @@ sudo usermod -a -G tty pi
 
 ## Hátralevő konfiguráció
 
-Fejezze be a telepítést a Klipper másodlagos MCU konfigurálásával a [RaspberryPi sample config](../config/sample-raspberry-pi.cfg) és a [Multi MCU sample config](../config/sample-multi-mcu.cfg) utasításai szerint.
+Fejezze be a telepítést a Klipper másodlagos MCU konfigurálásával a [RaspberryPi minta konfiguráció](../config/sample-raspberry-pi.cfg) és a [Multi MCU minta konfiguráció](../config/sample-multi-mcu.cfg) utasításai szerint.
 
 ## Választható: SPI engedélyezése
 
 Győződjünk meg róla, hogy a Linux SPI-illesztőprogram engedélyezve van a `sudo raspi-config` futtatásával és az SPI engedélyezésével az "Interfacing options" menüben.
 
-## Választható: A megfelelő gpiochip azonosítása
+## Választható: A megfelelő GPIO chip azonosítása
 
 A Raspberry Pi-n és sok klónon a GPIO-n látható tűk az első GPIO chiphez tartoznak. Ezért a klipperben egyszerűen úgy használhatók, hogy a `gpio0..n` névvel hivatkozunk rájuk. Vannak azonban olyan esetek, amikor a kitett tűk az elsőtől eltérő GPIO chipekhez tartoznak. Például egyes OrangePi modellek esetében, vagy ha Port Expander-t használunk. Ezekben az esetekben hasznos a *Linux GPIO karakteres eszköz *Linux GPIO eszköz* elérésére szolgáló parancsok használata a konfiguráció ellenőrzéséhez.
 
@@ -63,21 +63,21 @@ A *Linux GPIO character device - binary* telepítéséhez egy debian alapú disz
 sudo apt-get install gpiod
 ```
 
-A rendelkezésre álló gpiochip ellenőrzéséhez futtassa:
+A rendelkezésre álló GPIO chip ellenőrzéséhez futtassa:
 
 ```
 gpiodetect
 ```
 
-A pin szám és a pin elérhetőségének ellenőrzésére futtassa:
+A tű számának és a tű elérhetőségének ellenőrzésére futtassa:
 
 ```
 gpioinfo
 ```
 
-A kiválasztott pin így a konfiguráción belül `gpiochip<n>/gpio<o> néven használható;` ahol **n** a `gpiodetect` által látott chipszám parancs által látott sorszám, és **o** a`gpioinfo` parancs által látott sorszám.
+A kiválasztott tű így a konfiguráción belül `gpiochip<n>/gpio<o> néven használható;` ahol **n** a `gpiodetect` által látott chipszám parancs által látott sorszám, és **o** a`gpioinfo` parancs által látott sorszám.
 
-**Figyelmeztetés:** csak `unused` jelöléssel rendelkező gpio használható. A *line* nem használható egyszerre több folyamatban.
+**Figyelmeztetés:** csak `unused` jelöléssel rendelkező GPIO használható. A *line* nem használható egyszerre több folyamatban.
 
 Például egy RPi 3B+, ahol a klipper használja a GPIO20-at, egy kapcsoló:
 
@@ -158,13 +158,13 @@ gpiochip1 - 8 lines:
 A Raspberry Pi két PWM csatornával (PWM0 és PWM1) rendelkezik, amelyek a fejlécen láthatók, vagy ha nem, akkor a meglévő GPIO érintkezőkhöz irányíthatók. A Linux mcu démon a pwmchip sysfs interfészt használja a hardveres PWM eszközök vezérlésére a Linux gazdagépeken. A PWM sysfs interfész alapértelmezés szerint nincs kitéve a Raspberry-n, és a `/boot/config.txt` egy sor hozzáadásával aktiválható:
 
 ```
-# Enable pwmchip sysfs interface
+# A pwmchip sysfs felület engedélyezése
 dtoverlay=pwm,pin=12,func=4
 ```
 
 Ez a példa csak a PWM0-t engedélyezi, és a GPIO12-re irányítja. Ha mindkét PWM csatornát engedélyezni kell, használhatja a `pwm-2chan` parancsot.
 
-Az overlay nem teszi ki a PWM sort a sysfs-en a rendszerindításkor, és azt a PWM csatorna számát a `/sys/class/pwm/pwmchip0/export` echo'ing-be kell exportálni:
+Az átfedés nem teszi ki a PWM sort a sysfs-en a rendszerindításkor, és azt a PWM csatorna számát a `/sys/class/pwm/pwmchip0/export` echo'ing-be kell exportálni:
 
 ```
 echo 0 > /sys/class/pwm/pwmchip0/export
@@ -182,11 +182,11 @@ hardware_pwm: True
 cycle_time: 0.000001
 ```
 
-Ez hozzáadja a hardveres PWM vezérlést a Pi GPIO12-höz (mivel az overlay úgy volt konfigurálva, hogy a PWM0-t a pin=12-re irányítsa).
+Ez hozzáadja a hardveres PWM vezérlést a Pi GPIO12-höz (mivel az átfedés úgy volt konfigurálva, hogy a PWM0-t a pin=12-re irányítsa).
 
 A PWM0 a GPIO12 és a GPIO18 a PWM1 a GPIO13 és a GPIO19 felé irányítható:
 
-| PWM | gpio PIN | Func |
+| PWM | GPIO PIN | Func |
 | --- | --- | --- |
 | 0 | 12 | 4 |
 | 0 | 18 | 2 |

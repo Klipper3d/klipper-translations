@@ -1,4 +1,4 @@
-# Klipper Csomagolás
+# Klipper csomagolás
 
 A Klipper egyfajta csomagolási anomália a python programok között, mivel nem használja a setuptools-t a szerkesztéshez és a telepítéshez. Néhány megjegyzés arra vonatkozóan, hogy hogyan lehet a legjobban csomagolni, a következő:
 
@@ -16,4 +16,4 @@ Ha a Klipper csomagot git-ből építed, a szokásos gyakorlat szerint nem szál
 
 ## Minta csomagolási szkript
 
-A klipper-git az Arch Linuxhoz van csomagolva, és a PKGBUILD (csomagépítő szkript) elérhető az [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git) oldalon.
+A klipper-git az Arch Linuxhoz van csomagolva, és a PKGBUILD (csomagépítő szkript) elérhető az [Arch Felhasználói adattár](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git) oldalon.

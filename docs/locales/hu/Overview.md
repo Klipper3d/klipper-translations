@@ -15,7 +15,7 @@
 - [Telepítés](Installation.md): Klipper telepítési útmutató.
 - [Konfigurációs hivatkozás](Config_Reference.md): A konfigurációs paraméterek leírása.
    - [Rotációs távolság](Rotation_Distance.md): A rotation_distance léptető paraméter kiszámítása.
-- [Konfigurációs ellenőrzések](Config_checks.md): Alapvető pin-beállítások ellenőrzése a konfigurációs fájlban.
+- [Konfigurációs ellenőrzések](Config_checks.md): Alapvető tűbeállítások ellenőrzése a konfigurációs fájlban.
 - [Ágyszintezés](Bed_Level.md): Információ az "ágyszintezésről" a Klipperben.
    - [Delta kalibrálás](Delta_Calibrate.md): A delta kinematika kalibrálása.
    - [Szonda kalibrálása](Probe_Calibrate.md): Automatikus Z-szondák kalibrálása.
