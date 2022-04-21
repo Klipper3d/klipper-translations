@@ -82,7 +82,7 @@ Ha jelen van a "client_info" paraméter egy szótárnak kell lennie, de a szót�
 
 ### emergency_stop
 
-Az "emergency_stop" végpont arra szolgál, hogy utasítsa a Klippert a "shutdown" állapotba való átmenetre. Hasonlóan viselkedik, mint a G-Kód `M112` parancs. Például: `{"id": 123, "method": "emergency_stop"}`
+Az "emergency_stop" végpont arra szolgál, hogy utasítsa a Klippert a "shutdown" állapotba való átmenetre. Hasonlóan viselkedik, mint a G-kód `M112` parancs. Például: `{"id": 123, "method": "emergency_stop"}`
 
 ### register_remote_method
 
@@ -98,7 +98,7 @@ gcode:
   {action_call_remote_method("paneldue_beep", frequency=300, duration=1.0)}
 ```
 
-Amikor a PANELDUE_BEEP G-Kód makró végrehajtódik, a Klipper valami ilyesmit küld a kapcsolaton keresztül: `{"action": "run_paneldue_beep", "params": {"frequency": 300, "duration": 1.0}}`
+Amikor a PANELDUE_BEEP G-kód makró végrehajtódik, a Klipper valami ilyesmit küld a kapcsolaton keresztül: `{"action": "run_paneldue_beep", "params": {"frequency": 300, "duration": 1.0}}`
 
 ### objects/list
 
@@ -120,33 +120,33 @@ Ez a végpont lehetővé teszi a nyomtató objektumokból származó informáci�
 
 ### gcode/help
 
-Ez a végpont lehetővé teszi a rendelkezésre álló G-Kód parancsok lekérdezését, amelyekhez súgószöveg van definiálva. Például: `{"id": 123, "method": "gcode/help"}` visszatérhet: `{"id": 123, "result": {"RESTORE_GCODE_STATE": "Egy korábban elmentett G-Kód állapot visszaállítása", "PID_CALIBRATE": "PID kalibrációs teszt futtatása", "QUERY_ADC": "Egy analóg tű utolsó értékének jelentése", ...}}`
+Ez a végpont lehetővé teszi a rendelkezésre álló G-kód parancsok lekérdezését, amelyekhez súgószöveg van definiálva. Például: `{"id": 123, "method": "gcode/help"}` visszatérhet: `{"id": 123, "result": {"RESTORE_GCODE_STATE": "Egy korábban elmentett G-kód állapot visszaállítása", "PID_CALIBRATE": "PID kalibrációs teszt futtatása", "QUERY_ADC": "Egy analóg tű utolsó értékének jelentése", ...}}`
 
 ### gcode/script
 
-Ez a végpont lehetővé teszi egy sor G-Kód parancs futtatását. Például: `{"id": 123, "method": "gcode/script", "params": {"script": "G90"}}}`
+Ez a végpont lehetővé teszi egy sor G-kód parancs futtatását. Például: `{"id": 123, "method": "gcode/script", "params": {"script": "G90"}}}`
 
-Ha a megadott G-Kód szkript hibát okoz, akkor a rendszer hibaválaszt generál. Ha azonban a G-Kód parancs terminál kimenetet eredményez, a terminál kimenete nem szerepel a válaszban. (A "gcode/subscribe_output" végpontot használja a G-Kód terminálkimenethez.)
+Ha a megadott G-kód szkript hibát okoz, akkor a rendszer hibaválaszt generál. Ha azonban a G-kód parancs terminál kimenetet eredményez, a terminál kimenete nem szerepel a válaszban. (A "gcode/subscribe_output" végpontot használja a G-kód terminálkimenethez.)
 
-Ha a kérés beérkezésekor éppen egy G-Kód parancsot dolgoznak fel, akkor a megadott szkript sorba kerül. Ez a késedelem jelentős lehet (pl. ha egy G-Kódos hőmérsékleti várakozás parancs fut). A JSON válaszüzenet akkor kerül elküldésre, amikor a parancsfájl feldolgozása teljesen befejeződött.
+Ha a kérés beérkezésekor éppen egy G-kód parancsot dolgoznak fel, akkor a megadott szkript sorba kerül. Ez a késedelem jelentős lehet (pl. ha egy G-kódos hőmérsékleti várakozás parancs fut). A JSON válaszüzenet akkor kerül elküldésre, amikor a parancsfájl feldolgozása teljesen befejeződött.
 
 ### gcode/restart
 
-Ez a végpont lehetővé teszi az újraindítás kérését, hasonlóan a G-Kód "RESTART" parancs futtatásához. Például: `{"id": }`<x id="123, "method": "gcode/restart"}`
+Ez a végpont lehetővé teszi az újraindítás kérését, hasonlóan a G-kód "RESTART" parancs futtatásához. Például: `{"id": }`<x id="123, "method": "gcode/restart"}`
 
-A "gcode/script" végponthoz hasonlóan ez a végpont is csak a függőben lévő G-Kód parancsok befejezése után fejeződik be.
+A "gcode/script" végponthoz hasonlóan ez a végpont is csak a függőben lévő G-kód parancsok befejezése után fejeződik be.
 
 ### gcode/firmware_restart
 
-Ez hasonló a "gcode/restart" végponthoz. A G-Kód "FIRMWARE_RESTART" parancsot valósítja meg. Például: `{"id": 123, "method": "gcode/firmware_restart"}`
+Ez hasonló a "gcode/restart" végponthoz. A G-kód "FIRMWARE_RESTART" parancsot valósítja meg. Például: `{"id": 123, "method": "gcode/firmware_restart"}`
 
-A "gcode/script" végponthoz hasonlóan ez a végpont is csak a függőben lévő G-Kód parancsok befejezése után fejeződik be.
+A "gcode/script" végponthoz hasonlóan ez a végpont is csak a függőben lévő G-kód parancsok befejezése után fejeződik be.
 
 ### gcode/subscribe_output
 
-Ez a végpont a Klipper által generált G-Kódos terminálüzenetekre való feliratkozásra szolgál. Például: `{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{}}}}` később olyan aszinkron üzeneteket eredményezhet, mint például: `{"params": {"response": "// Klipper state: Shutdown"}}`
+Ez a végpont a Klipper által generált G-kódos terminálüzenetekre való feliratkozásra szolgál. Például: `{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{}}}}` később olyan aszinkron üzeneteket eredményezhet, mint például: `{"params": {"response": "// Klipper state: Shutdown"}}`
 
-Ez a végpont az emberi interakciót hivatott támogatni egy "terminálablak" interfészen keresztül. A G-Kód terminál kimenetéből származó tartalom elemzése nem javasolt. A Klipper állapotának frissítéséhez használja az "objects/subscribe" végpontot.
+Ez a végpont az emberi interakciót hivatott támogatni egy "terminálablak" interfészen keresztül. A G-kód terminál kimenetéből származó tartalom elemzése nem javasolt. A Klipper állapotának frissítéséhez használja az "objects/subscribe" végpontot.
 
 ### motion_report/dump_stepper
 
@@ -182,24 +182,24 @@ A kezdeti lekérdezési válasz "header" mezője a későbbi "data" válaszokban
 
 ### pause_resume/cancel
 
-Ez a végpont hasonló a "PRINT_CANCEL" G-Kód parancs futtatásához. Például: `{"id": }`
+Ez a végpont hasonló a "PRINT_CANCEL" G-kód parancs futtatásához. Például: `{"id": }`
 
-A "gcode/script" végponthoz hasonlóan ez a végpont is csak a függőben lévő G-Kód parancsok befejezése után fejeződik be.
+A "gcode/script" végponthoz hasonlóan ez a végpont is csak a függőben lévő G-kód parancsok befejezése után fejeződik be.
 
 ### pause_resume/pause
 
-Ez a végpont hasonló a "PAUSE" G-Kód parancs futtatásához. Például: `{"id": }`
+Ez a végpont hasonló a "PAUSE" G-kód parancs futtatásához. Például: `{"id": }`
 
-A "gcode/script" végponthoz hasonlóan ez a végpont is csak a függőben lévő G-Kód parancsok befejezése után fejeződik be.
+A "gcode/script" végponthoz hasonlóan ez a végpont is csak a függőben lévő G-kód parancsok befejezése után fejeződik be.
 
 ### pause_resume/resume
 
-Ez a végpont hasonló a "RESUME" G-Kód parancs futtatásához. Például: `{"id": }`
+Ez a végpont hasonló a "RESUME" G-kód parancs futtatásához. Például: `{"id": }`
 
-A "gcode/script" végponthoz hasonlóan ez a végpont is csak a függőben lévő G-Kód parancsok befejezése után fejeződik be.
+A "gcode/script" végponthoz hasonlóan ez a végpont is csak a függőben lévő G-kód parancsok befejezése után fejeződik be.
 
 ### query_endstops/status
 
 Ez a végpont lekérdezi az aktív végpontokat és visszaadja azok állapotát. Például: `{"id": 123, "method": "query_endstops/status"}` visszatérhet: `{"id": 123, "result": {"y": "open", "x": "open", "z": "TRIGGERED"}}`
 
-A "gcode/script" végponthoz hasonlóan ez a végpont is csak a függőben lévő G-Kód parancsok befejezése után fejeződik be.
+A "gcode/script" végponthoz hasonlóan ez a végpont is csak a függőben lévő G-kód parancsok befejezése után fejeződik be.

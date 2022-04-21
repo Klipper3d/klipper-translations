@@ -30,8 +30,8 @@ A következő információk a `configfile` objektumban találhatók (ez az objek
 
 A következő információk a `display_status` objektumban érhetők el (ez az objektum automatikusan elérhető, ha a [kijelző](Config_Reference.md#display) konfigurációs szakasz definiálva van):
 
-- `progress`: A legutóbbi `M73` G-Kód parancs progress értéke (vagy `virtual_sdcard.progress`, ha nem érkezett legutóbbi `M73`).
-- `message`: Az utolsó `M117` G-Kódú parancsban szereplő üzenet.
+- `progress`: A legutóbbi `M73` G-kód parancs progress értéke (vagy `virtual_sdcard.progress`, ha nem érkezett legutóbbi `M73`).
+- `message`: Az utolsó `M117` G-kódú parancsban szereplő üzenet.
 
 ## endstop_phase
 
@@ -78,9 +78,9 @@ A következő információk a [gcode_macro some_name](Config_Reference.md#gcode_
 
 A következő információk a `gcode_move` objektumban érhetők el (ez az objektum mindig elérhető):
 
-- `gcode_position`: A nyomtatófej aktuális pozíciója az aktuális G-Kód origóhoz képest. Vagyis olyan pozíciók, amelyeket közvetlenül egy `G1` parancsnak küldhetünk. Lehetőség van e pozíció X, Y, Z és az E, komponensének elérésére (pl. `gcode_position.x`).
+- `gcode_position`: A nyomtatófej aktuális pozíciója az aktuális G-kód origóhoz képest. Vagyis olyan pozíciók, amelyeket közvetlenül egy `G1` parancsnak küldhetünk. Lehetőség van e pozíció X, Y, Z és az E, komponensének elérésére (pl. `gcode_position.x`).
 - `position`: A nyomtatófej utolsó kiadott pozíciója a konfigurációs fájlban megadott koordináta rendszerrel. Lehetőség van ennek a pozíciónak az X, Y, Z és az E, komponenséhez hozzáférni (pl. `position.x`).
-- `homing_origin`: A G-Kód koordináta rendszer origója (a config fájlban megadott koordináta rendszerhez képest), amelyet a `G28` parancs után használni kell. A `SET_GCODE_OFFSET` parancs megváltoztathatja ezt a pozíciót. Lehetőség van ennek a pozíciónak az X, Y és Z komponenséhez hozzáférni (pl. `homing_origin.x`).
+- `homing_origin`: A G-kód koordináta rendszer origója (a config fájlban megadott koordináta rendszerhez képest), amelyet a `G28` parancs után használni kell. A `SET_GCODE_OFFSET` parancs megváltoztathatja ezt a pozíciót. Lehetőség van ennek a pozíciónak az X, Y és Z komponenséhez hozzáférni (pl. `homing_origin.x`).
 - `speed`: Az utolsó, `G1` parancsban beállított sebesség (mm/mp-ben).
 - `speed_factor`: Az `M220` parancs által beállított "sebességtényező felülbírálása". Ez egy lebegőpontos érték, így 1.0 azt jelenti, hogy nincs felülbírálat, és például a 2.0 megduplázza a kért sebességet.
 - `extrude_factor`: Az `M221` parancs által beállított "extrude factor override". Ez egy lebegőpontos érték, így 1.0 azt jelenti, hogy nincs felülbírálat, és például a 2.0 megduplázza a kért extrudálásokat.
@@ -240,7 +240,7 @@ A következő információk a `toolhead` objektumban érhetők el (ez az objektu
 - `homed_axes`: Az aktuálisan "homed" állapotban lévőnek tekintett cartesian tengelyek. Ez egy karakterlánc, amely egy vagy több "X", "Y", "Z" értéket tartalmaz.
 - `axis_minimum`, `axis_maximum`: A tengely mozgásának határai (mm) a kezdőpont felvétel után. Lehetőség van e határérték X, Y, Z összetevőinek elérésére (pl. `axis_minimum.x`, `axis_maximum.z`).
 - `max_velocity`, `max_accel`, `max_accel_to_decel`, `square_corner_velocity`: Az aktuálisan érvényben lévő nyomtatási korlátok. Ez eltérhet a konfigurációs fájl beállításaitól, ha a `SET_VELOCITY_LIMIT` (vagy `M204`) parancs megváltoztatja azokat használat közben.
-- `stalls`: Az összes alkalom száma (az utolsó újraindítás óta), amikor a nyomtatót szüneteltetni kellett, mert a nyomtatófej gyorsabban mozgott, mint ahány mozdulatot a G-Kód bemenetről be lehetett olvasni.
+- `stalls`: Az összes alkalom száma (az utolsó újraindítás óta), amikor a nyomtatót szüneteltetni kellett, mert a nyomtatófej gyorsabban mozgott, mint ahány mozdulatot a G-kód bemenetről be lehetett olvasni.
 
 ## dual_carriage
 

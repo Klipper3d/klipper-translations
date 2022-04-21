@@ -274,7 +274,7 @@ arm_length:
 [stepper_c]
 
 # A delta_calibrate szakasz lehetővé teszi a DELTA_CALIBRATE
-# kiterjesztett G-Kód parancsot, amely képes kalibrálni a torony
+# kiterjesztett G-kód parancsot, amely képes kalibrálni a torony
 # végállásának pozícióit és szögeit.
 [delta_calibrate]
 radius:
@@ -509,7 +509,7 @@ lower_arm_length:
 # A stepper_c szakasz az első kart vezérlő léptetőt írja le (270 fokban).
 [stepper_c]
 
-# A delta_calibrate szakasz lehetővé teszi a DELTA_CALIBRATE kiterjesztett G-Kód
+# A delta_calibrate szakasz lehetővé teszi a DELTA_CALIBRATE kiterjesztett G-kód
 # parancsot, amely képes kalibrálni a felső gömbcsuklók végállás pozícióit.
 [delta_calibrate]
 radius:
@@ -778,11 +778,11 @@ Vizuális példák:
 #   meg kell vizsgálni. Ennek az értéknek páratlan számnak kell lennie.
 #   Az alapértelmezett érték 5.
 #fade_start: 1.0
-#   A G-Kód Z pozíciója, ahol a Z-korrekció fokozatos megszüntetése
+#   A G-kód Z pozíciója, ahol a Z-korrekció fokozatos megszüntetése
 #   elkezdődik amikor a fade engedélyezve van.
 #   Az alapértelmezett érték 1.0.
 #fade_end: 0.0
-#   A G-Kód Z pozíciója, amelyben a fading out befejeződik. Ha be van
+#   A G-kód Z pozíciója, amelyben a fading out befejeződik. Ha be van
 #   állítva egy fade_start alatti értékre a fade ki van kapcsolva.
 #   Meg kell jegyezni, hogy a fade nem kívánt skálázást adhat a
 #   nyomtatás Z tengelye mentén. Ha egy felhasználó engedélyezni
@@ -847,7 +847,7 @@ További információkért lásd a [parancsreferencia](G-Codes.md#bed_tilt) doku
 #z_adjust: 0
 #   A Z magassághoz hozzáadandó érték, amikor a fúvóka névlegesen 0, 0.
 #   Az alapértelmezett érték 0.
-# A többi paraméter egy BED_TILT_CALIBRATE kiterjesztett G-Kód
+# A többi paraméter egy BED_TILT_CALIBRATE kiterjesztett G-kód
 # parancsot vezérel, amely a megfelelő X és Y beállítási paraméterek
 # kalibrálására használható.
 #points:
@@ -867,7 +867,7 @@ További információkért lásd a [parancsreferencia](G-Codes.md#bed_tilt) doku
 
 ### [bed_screws]
 
-Szerszám az ágy szintbeállító csavarok beállításához. Meghatározható egy [bed_screws] config szakasz a BED_SCREWS_ADJUST G-Kód parancs engedélyezéséhez.
+Szerszám az ágy szintbeállító csavarok beállításához. Meghatározható egy [bed_screws] config szakasz a BED_SCREWS_ADJUST G-kód parancs engedélyezéséhez.
 
 További információkért lásd a [szintezési útmutató](Manual_Level.md#adjusting-bed-leveling-screws) és a [parancs hivatkozás](G-Codes.md#bed_screws) dokumentumot.
 
@@ -907,7 +907,7 @@ További információkért lásd a [szintezési útmutató](Manual_Level.md#adju
 
 ### [screws_tilt_adjust]
 
-Eszköz az ágycsavarok dőlésszögének beállításához Z-szondával. Meghatározható egy screws_tilt_adjust konfigurációs szakasz a SCREWS_TILT_CALCULATE G-Kód parancsal.
+Eszköz az ágycsavarok dőlésszögének beállításához Z-szondával. Meghatározható egy screws_tilt_adjust konfigurációs szakasz a SCREWS_TILT_CALCULATE G-kód parancsal.
 
 További információkért lásd a [szintezési útmutató](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) és a [parancs hivatkozás](G-Codes.md#screws_tilt_adjust) dokumentumot.
 
@@ -945,7 +945,7 @@ További információkért lásd a [szintezési útmutató](Manual_Level.md#adju
 
 ### [z_tilt]
 
-Többszörös Z léptető dőlésszög beállítása. Ez a funkció lehetővé teszi több Z léptető független beállítását (lásd a "stepper_z1" szakaszt) a dőlés beállításához. Ha ez a szakasz jelen van, akkor elérhetővé válik a Z_TILT_ADJUST kiterjesztett [G-Kód parancs](G-Codes.md#z_tilt).
+Többszörös Z léptető dőlésszög beállítása. Ez a funkció lehetővé teszi több Z léptető független beállítását (lásd a "stepper_z1" szakaszt) a dőlés beállításához. Ha ez a szakasz jelen van, akkor elérhetővé válik a Z_TILT_ADJUST kiterjesztett [G-kód parancs](G-Codes.md#z_tilt).
 
 ```
 [z_tilt]
@@ -984,7 +984,7 @@ Többszörös Z léptető dőlésszög beállítása. Ez a funkció lehetővé t
 
 ### [quad_gantry_level]
 
-Mozgó állvány szintezése 4 egymástól függetlenül vezérelt Z-motorral. Korrigálja a hiperbolikus parabola hatását (krumplichip) a mozgó portálon, amely rugalmasabb. FIGYELMEZTETÉS: Mozgó ágyon történő használata nemkívánatos eredményekhez vezethet. Ha ez a szakasz jelen van, akkor elérhetővé válik a QUAD_GANTRY_LEVEL kiterjesztett G-Kód parancs. Ez a rutin a következő Z motor konfigurációt feltételezi:
+Mozgó állvány szintezése 4 egymástól függetlenül vezérelt Z-motorral. Korrigálja a hiperbolikus parabola hatását (krumplichip) a mozgó portálon, amely rugalmasabb. FIGYELMEZTETÉS: Mozgó ágyon történő használata nemkívánatos eredményekhez vezethet. Ha ez a szakasz jelen van, akkor elérhetővé válik a QUAD_GANTRY_LEVEL kiterjesztett G-kód parancs. Ez a rutin a következő Z motor konfigurációt feltételezi:
 
 ```
  ----------------
@@ -1031,7 +1031,7 @@ Ahol X az ágy 0, 0 pontja
 
 ### [skew_correction]
 
-Nyomtató ferdeségkorrekció. Lehetőség van a nyomtató ferdeségének szoftveres korrekciójára 3 síkban: XY, XZ, YZ. Ez úgy történik, hogy egy kalibrációs modellt nyomtatunk egy sík mentén, és három hosszúságot mérünk. A ferdeségkorrekció jellegéből adódóan ezeket a hosszokat G-Kóddal kell beállítani. Lásd a [Ferdeség korrekció](Skew_Correction.md) és a [Parancs hivatkozás](G-Codes.md#skew_correction) című fejezetekben található részleteket.
+Nyomtató ferdeségkorrekció. Lehetőség van a nyomtató ferdeségének szoftveres korrekciójára 3 síkban: XY, XZ, YZ. Ez úgy történik, hogy egy kalibrációs modellt nyomtatunk egy sík mentén, és három hosszúságot mérünk. A ferdeségkorrekció jellegéből adódóan ezeket a hosszokat G-kódal kell beállítani. Lásd a [Ferdeség korrekció](Skew_Correction.md) és a [Parancs hivatkozás](G-Codes.md#skew_correction) című fejezetekben található részleteket.
 
 ```
 [skew_correction]
@@ -1069,14 +1069,14 @@ home_xy_position:
 
 ### [homing_override]
 
-Kezdőpont felvétel felülbírálása. Ezt a mechanizmust arra lehet használni, hogy a normál G-Kód bemenetben található G28 helyett egy sor G-Kód parancsot futtassunk. Ez olyan nyomtatóknál lehet hasznos, amelyeknél a gép beindításához speciális eljárásra van szükség.
+Kezdőpont felvétel felülbírálása. Ezt a mechanizmust arra lehet használni, hogy a normál G-kód bemenetben található G28 helyett egy sor G-kód parancsot futtassunk. Ez olyan nyomtatóknál lehet hasznos, amelyeknél a gép beindításához speciális eljárásra van szükség.
 
 ```
 [homing_override]
 gcode:
-#   A normál G-Kód bemenetben található G28 parancsok helyett
-#   végrehajtandó G-Kód parancsok listája. Lásd a
-#   docs/Command_Templates.md fájlt a G-Kód formátumokhoz.
+#   A normál G-kód bemenetben található G28 parancsok helyett
+#   végrehajtandó G-kód parancsok listája. Lásd a
+#   docs/Command_Templates.md fájlt a G-kód formátumokhoz.
 #   Ha a parancsok listája G28-at tartalmaz, akkor az a nyomtatófej normál
 #   elhelyezési eljárását indítja el. Az itt felsorolt parancsoknak minden
 #   tengelyt kezdőponthoz kell irányítaniuk. Ezt a paramétert meg kell adni.
@@ -1091,7 +1091,7 @@ gcode:
 #set_position_y:
 #set_position_z:
 #   Ha meg van adva, a nyomtató feltételezi, hogy a tengely a megadott
-#   pozícióban van a fenti G-Kód parancsok futtatása előtt. Ennek a
+#   pozícióban van a fenti G-kód parancsok futtatása előtt. Ennek a
 #   beállításával letiltja az adott tengelyre vonatkozó kezdőpont
 #   ellenőrzéseket. Ez akkor lehet hasznos, ha a nyomtatófejnek el kell
 #   mozdulnia, mielőtt a normál G28 parancsot meghívná egy tengelyre.
@@ -1129,34 +1129,34 @@ További információkért lásd a [végállási fázisok útmutató](Endstop_Ph
 #   jelenik meg.) Az alapértelmezett érték False.
 ```
 
-## G-Kód makrók és események
+## G-kód makrók és események
 
 ### [gcode_macro]
 
-G-Kód makrók (a "gcode_macro" előtaggal tetszőleges számú szakasz definiálható). További információkért lásd a [parancssablonok útmutatóját](Command_Templates.md).
+G-kód makrók (a "gcode_macro" előtaggal tetszőleges számú szakasz definiálható). További információkért lásd a [parancssablonok útmutatóját](Command_Templates.md).
 
 ```
 [gcode_macro my_cmd]
 #gcode:
-#   A "my_cmd" helyett végrehajtandó G-Kód-parancsok listája. Lásd a
-#   docs/Command_Templates.md fájlt a G-Kód formátumhoz.
+#   A "my_cmd" helyett végrehajtandó G-kód-parancsok listája. Lásd a
+#   docs/Command_Templates.md fájlt a G-kód formátumhoz.
 #   Ezt a paramétert meg kell adni.
 #variable_<name>:
 #   Bármilyen számú beállítás megadható a "változó_" előtaggal.
 #   Az adott változónévhez a rendszer hozzárendeli az adott értéket
 #   (Python literálként értelmezi), és elérhető lesz a makróbővítés
-#   során. Például egy "variable_fan_speed = 75" konfigurációjú G-Kód
+#   során. Például egy "variable_fan_speed = 75" konfigurációjú G-kód
 #   parancsok tartalmazhatják az "M106 S{ fan_speed * 255 }" értéket.
 #   A változók futás közben módosíthatók a SET_GCODE_VARIABLE
 #   paranccsal (a részletekért lásd a docs/Command_Templates.md fájlt).
 #   A változónevek nem tartalmazhatnak nagybetűket.
 #rename_existing:
-#   Ezzel az opcióval a makró felülír egy meglévő G-Kód parancsot, és
+#   Ezzel az opcióval a makró felülír egy meglévő G-kód parancsot, és
 #   megadja a parancs korábbi definícióját az itt megadott néven. Ez
-#   használható a beépített G-Kód parancsok felülbírálására. Óvatosan
+#   használható a beépített G-kód parancsok felülbírálására. Óvatosan
 #   kell eljárni a parancsok felülbírálásakor, mivel az összetett és váratlan
 #   eredményeket okozhat. Az alapértelmezés szerint nem írnak felül
-#   meglévő G-Kód parancsot.
+#   meglévő G-kód parancsot.
 #description: G-Code macro
 #   Ez hozzáad egy rövid leírást, amelyet a HELP parancsnál vagy az
 #   automatikus kiegészítés funkció használatakor használnak.
@@ -1165,12 +1165,12 @@ G-Kód makrók (a "gcode_macro" előtaggal tetszőleges számú szakasz definiá
 
 ### [delayed_gcode]
 
-Egy G-Kód végrehajtása beállított késleltetéssel. További információkért lásd a [parancssablon útmutató](Command_Templates.md#delayed-gcodes) és a [Parancs hivatkozás](G-Codes.md#delayed_gcode) dokumentumot.
+Egy G-kód végrehajtása beállított késleltetéssel. További információkért lásd a [parancssablon útmutató](Command_Templates.md#delayed-gcodes) és a [Parancs hivatkozás](G-Codes.md#delayed_gcode) dokumentumot.
 
 ```
 [delayed_gcode my_delayed_gcode]
 gcode:
-#   A késleltetési idő letelte után végrehajtandó G-Kód parancsok listája.
+#   A késleltetési idő letelte után végrehajtandó G-kód parancsok listája.
 #   A G-Code sablonok támogatottak. Ezt a paramétert meg kell adni.
 #initial_duration: 0.0
 #   A kezdeti késleltetés időtartama (másodpercben). Ha nullától eltérő
@@ -1183,7 +1183,7 @@ gcode:
 
 ### [save_variables]
 
-A változók lemezre mentésének támogatása, hogy azok az újraindítások során is megmaradjanak. További információkért lásd [Parancs hivatkozás](Command_Templates.md#save-variables-to-disk) és a [G-Kód hivatkozás](G-Codes.md#save_variables) dokumentumot.
+A változók lemezre mentésének támogatása, hogy azok az újraindítások során is megmaradjanak. További információkért lásd [Parancs hivatkozás](Command_Templates.md#save-variables-to-disk) és a [G-kód hivatkozás](G-Codes.md#save_variables) dokumentumot.
 
 ```
 [save_variables]
@@ -1199,24 +1199,24 @@ filename:
 ```
 [idle_timeout]
 #gcode:
-#   Az üresjárati időtúllépéskor végrehajtandó G-Kód parancsok listája.
-#   Lásd a docs/Command_Templates.md fájlt a G-Kód formátumhoz.
+#   Az üresjárati időtúllépéskor végrehajtandó G-kód parancsok listája.
+#   Lásd a docs/Command_Templates.md fájlt a G-kód formátumhoz.
 #   Az alapértelmezett a „TURN_OFF_HEATERS” és „M84” futtatása.
 #timeout: 600
-#   A fenti G-Kód parancsok futtatása előtti várakozási idő (másodpercben).
+#   A fenti G-kód parancsok futtatása előtti várakozási idő (másodpercben).
 #   Az alapértelmezett érték a 600 másodperc.
 ```
 
-## Választható G-Kód funkciók
+## Választható G-kód funkciók
 
 ### [virtual_sdcard]
 
-A virtuális sdcard hasznos lehet, ha a gazdaszámítógép nem elég gyors az OctoPrint megfelelő futtatásához. Ez lehetővé teszi a Klipper gazdagép szoftver számára, hogy közvetlenül kinyomtassa a G-Kód fájlokat, amelyeket a gazdagépen lévő könyvtárban tárolnak a szabványos sdcard G-Kód parancsok (pl. M24) használatával.
+A virtuális sdcard hasznos lehet, ha a gazdaszámítógép nem elég gyors az OctoPrint megfelelő futtatásához. Ez lehetővé teszi a Klipper gazdagép szoftver számára, hogy közvetlenül kinyomtassa a G-kód fájlokat, amelyeket a gazdagépen lévő könyvtárban tárolnak a szabványos sdcard G-kód parancsok (pl. M24) használatával.
 
 ```
 [virtual_sdcard]
 path:
-#   A helyi könyvtár elérési útja a gazdagépen a G-Kód fájlok kereséséhez.
+#   A helyi könyvtár elérési útja a gazdagépen a G-kód fájlok kereséséhez.
 #   Ez egy csak olvasható könyvtár (az sdcard fájl írása nem támogatott).
 #   Ezzel rámutathatunk az OctoPrint feltöltési könyvtárára
 #   (általában ~/.octoprint/uploads/ ). Ezt a paramétert meg kell adni.
@@ -1226,7 +1226,7 @@ path:
 
 Néhány szakaszok törlésével rendelkező nyomtató, például alkatrész-kidobó vagy szalagnyomtató, hasznát veheti az SD-kártya fájl hurkolt szakaszainak. (Például ugyanazon alkatrész újra és újra történő kinyomtatásához, vagy egy alkatrész egy szakaszának megismétléséhez egy lánc vagy más ismétlődő mintához).
 
-A támogatott parancsokat lásd a [Parancs hivatkozásban](G-Codes.md#sdcard_loop). Vagy lásd a [sample-macros.cfg](../config/sample-macros.cfg) fájlt egy Marlin kompatibilis M808 G-Kód makróért.
+A támogatott parancsokat lásd a [Parancs hivatkozásban](G-Codes.md#sdcard_loop). Vagy lásd a [sample-macros.cfg](../config/sample-macros.cfg) fájlt egy Marlin kompatibilis M808 G-kód makróért.
 
 ```
 [sdcard_loop]
@@ -1240,7 +1240,7 @@ Támogatja a lépegetőmotorok kézi mozgatását diagnosztikai célokra. Figyel
 [force_move]
 #enable_force_move: False
 #   A FORCE_MOVE és a SET_KINEMATIC_POSITION engedélyezéséhez
-#   állítsuk True-ra a kiterjesztett G-Kód parancsot.
+#   állítsuk True-ra a kiterjesztett G-kód parancsot.
 #   Az alapértelmezett érték False.
 ```
 
@@ -1258,7 +1258,7 @@ Szüneteltetési/folytatási funkció a pozíció rögzítésének és visszaál
 
 ### [firmware_retraction]
 
-Firmware szál visszahúzás. Ez lehetővé teszi a G10 (visszahúzás) és G11 (visszahúzás megszüntetése) G-Kód parancsokat, amelyeket sok szeletelő program használ. Az alábbi paraméterek az indítási alapértelmezett értékeket adják meg, bár az értékek a SET_RETRACTION [parancs](G-Codes.md#firmware_retraction)) segítségével módosíthatók, lehetővé téve a szálankénti beállításokat és a futásidejű hangolást.
+Firmware szál visszahúzás. Ez lehetővé teszi a G10 (visszahúzás) és G11 (visszahúzás megszüntetése) G-kód parancsokat, amelyeket sok szeletelő program használ. Az alábbi paraméterek az indítási alapértelmezett értékeket adják meg, bár az értékek a SET_RETRACTION [parancs](G-Codes.md#firmware_retraction)) segítségével módosíthatók, lehetővé téve a szálankénti beállításokat és a futásidejű hangolást.
 
 ```
 [firmware_retraction]
@@ -1279,7 +1279,7 @@ Firmware szál visszahúzás. Ez lehetővé teszi a G10 (visszahúzás) és G11 
 
 ### [gcode_arcs]
 
-A G-Kód ív (G2/G3) parancsok támogatása.
+A G-kód ív (G2/G3) parancsok támogatása.
 
 ```
 [gcode_arcs]
@@ -1350,7 +1350,7 @@ Engedélyezi a [rezonancia kompenzációt](Resonance_Compensation.md). Lásd mé
 
 ### [adxl345]
 
-ADXL345 gyorsulásmérők támogatása. Ez a támogatás lehetővé teszi a gyorsulásmérő méréseinek lekérdezését az érzékelőtől. Ez lehetővé teszi az ACCELEROMETER_MEASURE parancsot (további információkért lásd a [G-Kódok](G-Codes.md#adxl345) dokumentumot). Az alapértelmezett chipnév "default", de megadhatunk egy explicit nevet (pl. [adxl345 my_chip_name]).
+ADXL345 gyorsulásmérők támogatása. Ez a támogatás lehetővé teszi a gyorsulásmérő méréseinek lekérdezését az érzékelőtől. Ez lehetővé teszi az ACCELEROMETER_MEASURE parancsot (további információkért lásd a [G-kódok](G-Codes.md#adxl345) dokumentumot). Az alapértelmezett chipnév "default", de megadhatunk egy explicit nevet (pl. [adxl345 my_chip_name]).
 
 ```
 [adxl345]
@@ -1480,7 +1480,7 @@ pins:
 
 ### [probe]
 
-Z magasságmérő szonda. Ezt a szakaszt a Z magasságmérő hardver engedélyezéséhez lehet definiálni. Ha ez a szakasz engedélyezve van, a PROBE és a QUERY_PROBE kiterjesztett [G-Kód parancsok](G-Codes.md#probe) elérhetővé válnak. Lásd még a [szonda kalibrálási útmutatót](Probe_Calibrate.md). A szondaszekció létrehoz egy virtuális "probe:z_virtual_endstop" tűt is. A stepper_z endstop_pin-t erre a virtuális tűre állíthatjuk a cartesian stílusú nyomtatókon, amelyek a szondát használják a Z végállás helyett. Ha a "probe:z_virtual_endstop" típust használjuk, akkor ne definiáljunk position_endsto-pot a stepper_z konfigurációs szakaszban.
+Z magasságmérő szonda. Ezt a szakaszt a Z magasságmérő hardver engedélyezéséhez lehet definiálni. Ha ez a szakasz engedélyezve van, a PROBE és a QUERY_PROBE kiterjesztett [G-kód parancsok](G-Codes.md#probe) elérhetővé válnak. Lásd még a [szonda kalibrálási útmutatót](Probe_Calibrate.md). A szondaszekció létrehoz egy virtuális "probe:z_virtual_endstop" tűt is. A stepper_z endstop_pin-t erre a virtuális tűre állíthatjuk a cartesian stílusú nyomtatókon, amelyek a szondát használják a Z végállás helyett. Ha a "probe:z_virtual_endstop" típust használjuk, akkor ne definiáljunk position_endsto-pot a stepper_z konfigurációs szakaszban.
 
 ```
 [probe]
@@ -1490,7 +1490,7 @@ pin:
 #   Ezt a paramétert meg kell adni.
 #deactivate_on_each_sample: True
 #   Ez határozza meg, hogy a Klippernek végre kell-e hajtania a deaktiváló
-#   G-Kódot minden egyes vizsgálati kísérlet között, amikor több vizsgálati
+#   G-kódot minden egyes vizsgálati kísérlet között, amikor több vizsgálati
 #   sorozatot hajt végre. Az alapértelmezett érték True.
 #x_offset: 0.0
 #   A távolság (mm-ben) a szonda és a fúvóka között az X tengely mentén.
@@ -1531,18 +1531,18 @@ z_offset:
 #   hibaüzenet jelenik meg. Az alapértelmezett nulla, ami hibát okoz az első
 #   mérésen, amely meghaladja a samples_tolerance értéket.
 #activate_gcode:
-#   Az egyes mérési kísérletek előtt végrehajtandó G-Kód parancsok listája.
-#   Lásd a docs/Command_Templates.md fájlt a G-Kód formátumhoz. Ez
+#   Az egyes mérési kísérletek előtt végrehajtandó G-kód parancsok listája.
+#   Lásd a docs/Command_Templates.md fájlt a G-kód formátumhoz. Ez
 #   akkor lehet hasznos, ha a szondát valamilyen módon aktiválni kell. Ne
 #   adjon ki itt olyan parancsot, amely mozgatja a nyomtatófejet (pl. G1).
-#   Az alapértelmezés szerint nem fut semmilyen speciális G-Kód parancs
+#   Az alapértelmezés szerint nem fut semmilyen speciális G-kód parancs
 #   aktiváláskor.
 #deactivate_gcode:
-#   Az egyes mérési kísérletek befejezése után végrehajtandó G-Kód
-#   parancsok listája. Lásd a docs/Command_Templates.md fájlt a G-Kód
+#   Az egyes mérési kísérletek befejezése után végrehajtandó G-kód
+#   parancsok listája. Lásd a docs/Command_Templates.md fájlt a G-kód
 #   formátumhoz. Ne adjon ki itt olyan parancsot, amely mozgatja a
 #   nyomtatófejet. Az alapértelmezés az, hogy deaktiváláskor ne futtassunk
-#   semmilyen speciális G-Kód parancsot.
+#   semmilyen speciális G-kód parancsot.
 ```
 
 ### [bltouch]
@@ -1645,7 +1645,7 @@ Lásd a [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) példak
 
 ### [dual_carriage]
 
-Az egy tengelyen két kocsival rendelkező cartesian nyomtatók támogatása. Az aktív kocsit a SET_DUAL_CARRIAGE kiterjesztett G-Kód parancs segítségével állíthatjuk be. A "SET_DUAL_CARRIAGE CARRIAGE=1" parancs az ebben a szakaszban meghatározott kocsit aktiválja (a CARRIAGE=0 az elsődleges kocsi aktiválását állítja vissza). A kettős kocsitámogatást általában extra extruderekkel kombinálják. A SET_DUAL_CARRIAGE parancsot gyakran az ACTIVATE_EXTRUDER paranccsal egyidejűleg hívják meg. Ügyeljen arra, hogy a kocsikat a deaktiválás során parkoló állásba küldje.
+Az egy tengelyen két kocsival rendelkező cartesian nyomtatók támogatása. Az aktív kocsit a SET_DUAL_CARRIAGE kiterjesztett G-kód parancs segítségével állíthatjuk be. A "SET_DUAL_CARRIAGE CARRIAGE=1" parancs az ebben a szakaszban meghatározott kocsit aktiválja (a CARRIAGE=0 az elsődleges kocsi aktiválását állítja vissza). A kettős kocsitámogatást általában extra extruderekkel kombinálják. A SET_DUAL_CARRIAGE parancsot gyakran az ACTIVATE_EXTRUDER paranccsal egyidejűleg hívják meg. Ügyeljen arra, hogy a kocsikat a deaktiválás során parkoló állásba küldje.
 
 Lásd a [sample-idex.cfg](../config/sample-idex.cfg) példakonfigurációt.
 
@@ -1688,7 +1688,7 @@ extruder:
 
 ### [manual_stepper]
 
-Kézi léptetők (tetszőleges számú szakasz definiálható "manual_stepper" előtaggal). Ezeket a léptetőket a MANUAL_STEPPER G-Kód parancs vezérli. Például: "MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5". A MANUAL_STEPPER parancs leírását lásd a [G-Kódok](G-Codes.md#manual_stepper) fájlban. A léptetők nem kapcsolódnak a nyomtató normál kinematikájához.
+Kézi léptetők (tetszőleges számú szakasz definiálható "manual_stepper" előtaggal). Ezeket a léptetőket a MANUAL_STEPPER G-kód parancs vezérli. Például: "MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5". A MANUAL_STEPPER parancs leírását lásd a [G-kódok](G-Codes.md#manual_stepper) fájlban. A léptetők nem kapcsolódnak a nyomtató normál kinematikájához.
 
 ```
 [manual_stepper my_stepper]
@@ -1822,7 +1822,7 @@ Egyedi ADC hőmérséklet-érzékelők (tetszőleges számú szekciót lehet def
 
 ### [heater_generic]
 
-Általános fűtőtestek (tetszőleges számú szakasz definiálható a "heater_generic" előtaggal). Ezek a fűtőberendezések a standard fűtőberendezésekhez (extruderek, fűtött ágy) hasonlóan viselkednek. A SET_HEATER_TEMPERATURE paranccsal (lásd a [G-Kódok](G-Codes.md#heaters) dokumentumban) állíthatjuk be a célhőmérsékletet.
+Általános fűtőtestek (tetszőleges számú szakasz definiálható a "heater_generic" előtaggal). Ezek a fűtőberendezések a standard fűtőberendezésekhez (extruderek, fűtött ágy) hasonlóan viselkednek. A SET_HEATER_TEMPERATURE paranccsal (lásd a [G-kódok](G-Codes.md#heaters) dokumentumban) állíthatjuk be a célhőmérsékletet.
 
 ```
 [heater_generic my_generic_heater]
@@ -2281,7 +2281,7 @@ További információkért lásd a [parancs hivatkozást](G-Codes.md#temperature
 
 ### [fan_generic]
 
-Kézi vezérlésű ventilátor (a "fan_generic" előtaggal tetszőleges számú szekciót lehet definiálni). A kézi vezérlésű ventilátor fordulatszámát a SET_FAN_SPEED [G-Kód](G-Codes.md#fan_generic) paranccsal lehet beállítani.
+Kézi vezérlésű ventilátor (a "fan_generic" előtaggal tetszőleges számú szekciót lehet definiálni). A kézi vezérlésű ventilátor fordulatszámát a SET_FAN_SPEED [G-kód](G-Codes.md#fan_generic) paranccsal lehet beállítani.
 
 ```
 [fan_generic extruder_partfan]
@@ -2431,7 +2431,7 @@ PCA9632 LED támogatás. A PCA9632-t a FlashForge Dreamer-ben használják.
 
 ### [servo]
 
-Szervók (a "servo" előtaggal tetszőleges számú szekciót lehet definiálni). A szervók a SET_SERVO [G-Kód parancs](G-Codes.md#servo) segítségével vezérelhetők. Például: SET_SERVO SERVO=my_servo ANGLE=180
+Szervók (a "servo" előtaggal tetszőleges számú szekciót lehet definiálni). A szervók a SET_SERVO [G-kód parancs](G-Codes.md#servo) segítségével vezérelhetők. Például: SET_SERVO SERVO=my_servo ANGLE=180
 
 ```
 [servo my_servo]
@@ -2460,7 +2460,7 @@ pin:
 
 ### [gcode_button]
 
-A G-Kód végrehajtása, amikor egy gombot megnyomnak vagy elengednek (vagy amikor egy tű állapota megváltozik). A gomb állapotát a `QUERY_BUTTON button=my_gcode_button` segítségével ellenőrizhetjük.
+A G-kód végrehajtása, amikor egy gombot megnyomnak vagy elengednek (vagy amikor egy tű állapota megváltozik). A gomb állapotát a `QUERY_BUTTON button=my_gcode_button` segítségével ellenőrizhetjük.
 
 ```
 [gcode_button my_gcode_button]
@@ -2475,17 +2475,17 @@ pin:
 #   A felhúzási ellenállás (ohmban), ha az analog_range meg van adva.
 #   Az alapértelmezett érték 4700 ohm.
 #press_gcode:
-#   A gomb megnyomásakor végrehajtandó G-Kód parancsok listája.
-#   A G-Kód sablonok támogatottak. Ezt a paramétert meg kell adni.
+#   A gomb megnyomásakor végrehajtandó G-kód parancsok listája.
+#   A G-kód sablonok támogatottak. Ezt a paramétert meg kell adni.
 #release_gcode:
-#   A gomb elengedésekor végrehajtandó G-Kód parancsok listája.
-#   A G-Kód sablonok támogatottak. Az alapértelmezés szerint nem
+#   A gomb elengedésekor végrehajtandó G-kód parancsok listája.
+#   A G-kód sablonok támogatottak. Az alapértelmezés szerint nem
 #   futnak le parancsok a gombok felengedésekor.
 ```
 
 ### [output_pin]
 
-Futtatási időben konfigurálható kimeneti tűk (tetszőleges számú szekciót lehet definiálni "output_pin" előtaggal). Az itt konfigurált tűk kimeneti tűkként lesznek beállítva, és futtatási időben a "SET_PIN PIN=my_pin VALUE=.1" típusú kiterjesztett [G-Kód parancsok](G-Codes.md#output_pin) segítségével módosíthatjuk őket.
+Futtatási időben konfigurálható kimeneti tűk (tetszőleges számú szekciót lehet definiálni "output_pin" előtaggal). Az itt konfigurált tűk kimeneti tűkként lesznek beállítva, és futtatási időben a "SET_PIN PIN=my_pin VALUE=.1" típusú kiterjesztett [G-kód parancsok](G-Codes.md#output_pin) segítségével módosíthatjuk őket.
 
 ```
 [output_pin my_pin]
@@ -3436,7 +3436,7 @@ A sablonok renderelése során elérhető menüattribútumokról a [parancssablo
 #   a bemeneti_lépés.
 #realtime:
 #   Ez az attribútum statikus logikai értéket fogad el. Ha engedélyezve
-#   van, akkor a G-Kód szkript minden értékváltozás után lefut.
+#   van, akkor a G-kód szkript minden értékváltozás után lefut.
 #   Az alapértelmezett érték False.
 #gcode:
 #   Gombkattintással, hosszú kattintással vagy értékmódosítással
@@ -3460,14 +3460,14 @@ További információkért lásd a [parancs hivatkozást](G-Codes.md#filament_sw
 #   értéke False, és a runout_gcode kimarad, akkor a kifutás észlelése le
 #   van tiltva. Az alapértelmezett érték True.
 #runout_gcode:
-#   A nyomtatószál kifutását követően végrehajtandó G-Kód parancsok listája.
-#   Lásd a docs/Command_Templates.md fájlt a G-Kód formátumhoz. Ha a
-#   pause_on_runout értéke True, ez a G-Kód a PAUSE befejezése után fog
-#   futni. Az alapértelmezés szerint nem fut semmilyen G-Kód parancs.
+#   A nyomtatószál kifutását követően végrehajtandó G-kód parancsok listája.
+#   Lásd a docs/Command_Templates.md fájlt a G-kód formátumhoz. Ha a
+#   pause_on_runout értéke True, ez a G-kód a PAUSE befejezése után fog
+#   futni. Az alapértelmezés szerint nem fut semmilyen G-kód parancs.
 #insert_gcode:
-#   A nyomtatószál-beillesztés észlelése után végrehajtandó G-Kód parancsok
-#   listája. Lásd a docs/Command_Templates.md fájlt a G-Kód formátumhoz.
-#   Az alapértelmezés szerint nem fut semmilyen G-Kód parancs, ami letiltja
+#   A nyomtatószál-beillesztés észlelése után végrehajtandó G-kód parancsok
+#   listája. Lásd a docs/Command_Templates.md fájlt a G-kód formátumhoz.
+#   Az alapértelmezés szerint nem fut semmilyen G-kód parancs, ami letiltja
 #   a beszúrás észlelését.
 #event_delay: 3.0
 #   Az események közötti késleltetés minimális időtartama másodpercben.
@@ -3582,7 +3582,7 @@ adc2:
 
 ### [sx1509]
 
-Konfiguráljon egy SX1509 I2C-GPIO bővítőt. Az I2C-kommunikáció által okozott késleltetés miatt NEM szabad az SX1509 tűit motorvezérlő engedélyező, STEP vagy DIR tűként vagy bármilyen más olyan tűként használni, amely gyors bit-impulzust igényel. Legjobban statikus vagy G-Kód vezérelt digitális kimenetekként vagy hardveres PWM tűként használhatók pl. ventilátorokhoz. Bármennyi szekciót definiálhatunk "sx1509" előtaggal. Minden egyes bővítő egy 16 tűből álló készletet biztosít (sx1509_my_sx1509:PIN_0-tól sx1509_my_sx1509:PIN_15-ig), amelyek a nyomtató konfigurációjában használhatók.
+Konfiguráljon egy SX1509 I2C-GPIO bővítőt. Az I2C-kommunikáció által okozott késleltetés miatt NEM szabad az SX1509 tűit motorvezérlő engedélyező, STEP vagy DIR tűként vagy bármilyen más olyan tűként használni, amely gyors bit-impulzust igényel. Legjobban statikus vagy G-kód vezérelt digitális kimenetekként vagy hardveres PWM tűként használhatók pl. ventilátorokhoz. Bármennyi szekciót definiálhatunk "sx1509" előtaggal. Minden egyes bővítő egy 16 tűből álló készletet biztosít (sx1509_my_sx1509:PIN_0-tól sx1509_my_sx1509:PIN_15-ig), amelyek a nyomtató konfigurációjában használhatók.
 
 Lásd a [generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg) fájlt egy példáért.
 
@@ -3640,9 +3640,9 @@ Lásd a [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) fájlt 
 ```
 [adc_scaled my_name]
 vref_pin:
-#   A VREF monitorozásához használt ADC pin. Ezt a paramétert meg kell adni.
+#   A VREF monitorozásához használt ADC tű. Ezt a paramétert meg kell adni.
 vssa_pin:
-#   A VSSA monitorozásához használandó ADC pin. Ezt a paramétert meg kell adni.
+#   A VSSA monitorozásához használandó ADC tű. Ezt a paramétert meg kell adni.
 #smooth_time: 2.0
 #   Egy időérték (másodpercben), amely alatt a vref és a vssa
 #   mérések simításra kerülnek, hogy csökkentsék a mérés hatását
@@ -3746,7 +3746,7 @@ serial:
 
 ### [angle]
 
-Mágneses Hall-szögérzékelő támogatása A1333, AS5047D vagy TLE5012B SPI-chipek használatával a léptetőmotorok szögtengelyének méréseinek leolvasásához. A mérések az [API Szerver](API_Server.md) és a [mozgáselemző eszköz](Debugging.md#motion-analysis-and-data-logging) segítségével érhetők el. A rendelkezésre álló parancsokat lásd a [G-Kód hivatkozásban](G-Codes.md#angle).
+Mágneses Hall-szögérzékelő támogatása A1333, AS5047D vagy TLE5012B SPI-chipek használatával a léptetőmotorok szögtengelyének méréseinek leolvasásához. A mérések az [API Szerver](API_Server.md) és a [mozgáselemző eszköz](Debugging.md#motion-analysis-and-data-logging) segítségével érhetők el. A rendelkezésre álló parancsokat lásd a [G-kód hivatkozásban](G-Codes.md#angle).
 
 ```
 [angle my_angle_sensor]

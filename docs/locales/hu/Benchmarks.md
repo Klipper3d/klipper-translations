@@ -368,7 +368,7 @@ Vegye figyelembe, hogy ez a teszt telítheti a Raspberry Pi USB/CPU kapacitásá
 
 ## Gazdagép referenciaértékei
 
-Lehetőség van időzítési tesztek futtatására a gazdagépen a "batch mode" feldolgozási mechanizmus használatával (a <Debugging.md> című fejezetben leírtak szerint). Ez általában úgy történik, hogy kiválasztunk egy nagy és összetett G-Kód fájlt, és megmérjük, hogy mennyi idő alatt dolgozza fel a gazdaszoftver. Például:
+Lehetőség van időzítési tesztek futtatására a gazdagépen a "batch mode" feldolgozási mechanizmus használatával (a <Debugging.md> című fejezetben leírtak szerint). Ez általában úgy történik, hogy kiválasztunk egy nagy és összetett G-kód fájlt, és megmérjük, hogy mennyi idő alatt dolgozza fel a gazdaszoftver. Például:
 
 ```
 time ~/klippy-env/bin/python ./klippy/klippy.py config/example-cartesian.cfg -i something_complex.gcode -o /dev/null -d out/klipper.dict

@@ -1,10 +1,10 @@
-# G-Kódok
+# G-kódok
 
 Ez a dokumentum a Klipper által támogatott parancsokat írja le. Ezek olyan parancsok, amelyeket az OctoPrint konzoljába lehet beírni.
 
-## G-Kód parancsok
+## G-kód parancsok
 
-A Klipper a következő szabványos G-Kód parancsokat támogatja:
+A Klipper a következő szabványos G-kód parancsokat támogatja:
 
 - Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
 - Tartózkodás: `G4 P<milliszekundum>`
@@ -31,15 +31,15 @@ A Klipper a következő szabványos G-Kód parancsokat támogatja:
 - Jelenlegi pozíció lekérdezése: `M114`
 - A firmware verziójának lekérdezése: `M115`
 
-A fenti parancsokkal kapcsolatos további részletekért lásd a [RepRap G-Kód dokumentáció](http://reprap.org/wiki/G-code) fájlt.
+A fenti parancsokkal kapcsolatos további részletekért lásd a [RepRap G-kód dokumentáció](http://reprap.org/wiki/G-code) fájlt.
 
-A Klipper célja, hogy támogassa az általános 3. féltől származó szoftverek (pl. OctoPrint, Printrun, Slic3r, Cura, stb.) által generált G-Kód parancsokat a szabványos konfigurációikban. Nem cél, hogy minden lehetséges G-Kód parancsot támogasson. Ehelyett a Klipper az ember által olvasható ["kiterjesztett G-Kód"](#additional-commands) parancsokat részesíti előnyben. Hasonlóképpen, a G-Kód terminál kimenete is csak ember által olvasható. Lásd az [API Szerver dokumentumot](API_Server.md), ha a Klippert külső szoftverből irányítod.
+A Klipper célja, hogy támogassa az általános 3. féltől származó szoftverek (pl. OctoPrint, Printrun, Slic3r, Cura, stb.) által generált G-kód parancsokat a szabványos konfigurációikban. Nem cél, hogy minden lehetséges G-kód parancsot támogasson. Ehelyett a Klipper az ember által olvasható ["kiterjesztett G-kód"](#additional-commands) parancsokat részesíti előnyben. Hasonlóképpen, a G-kód terminál kimenete is csak ember által olvasható. Lásd az [API Szerver dokumentumot](API_Server.md), ha a Klippert külső szoftverből irányítod.
 
-Ha egy kevésbé gyakori G-Kód parancsra van szükség, akkor azt egy egyéni [gcode_macro config section](Config_Reference.md#gcode_macro) segítségével lehet megvalósítani. Például ezt használhatnánk a következőkre: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1` stb.
+Ha egy kevésbé gyakori G-kód parancsra van szükség, akkor azt egy egyéni [gcode_macro config section](Config_Reference.md#gcode_macro) segítségével lehet megvalósítani. Például ezt használhatnánk a következőkre: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1` stb.
 
 ## További parancsok
 
-A Klipper "kiterjesztett" G-Kód parancsokat használ az általános konfigurációhoz és állapothoz. Ezek a kiterjesztett parancsok mind hasonló formátumot követnek, egy parancsnévvel kezdődnek, és egy vagy több paraméter követheti őket. Például: `SET_SERVO SERVO=myservo ANGLE=5.3`. Ebben a parancssorban a parancsok és paraméterek nagybetűvel szerepelnek, azonban a nagy- és kisbetűket nem kell figyelembe venni. (Tehát a "SET_SERVO" és a "set_servo" mindkettő ugyanazt jelenti.)
+A Klipper "kiterjesztett" G-kód parancsokat használ az általános konfigurációhoz és állapothoz. Ezek a kiterjesztett parancsok mind hasonló formátumot követnek, egy parancsnévvel kezdődnek, és egy vagy több paraméter követheti őket. Például: `SET_SERVO SERVO=myservo ANGLE=5.3`. Ebben a parancssorban a parancsok és paraméterek nagybetűvel szerepelnek, azonban a nagy- és kisbetűket nem kell figyelembe venni. (Tehát a "SET_SERVO" és a "set_servo" mindkettő ugyanazt jelenti.)
 
 Ez a szakasz a Klipper-modul nevével van generálva, amely általában a [nyomtató konfigurációs fájlban](Config_Reference.md) megadott szakaszneveket követi. Vegye figyelembe, hogy néhány modul automatikusan betöltődik.
 
@@ -97,7 +97,7 @@ A következő parancsok akkor érhetők el, ha a [bed_mesh konfigurációs szaka
 
 #### BED_MESH_CLEAR
 
-`BED_MESH_CLEAR`: Ez a parancs törli a hálót és eltávolít minden Z-beállítást. Ajánlott ezt a parancsot befejező G-Kódba tenni.
+`BED_MESH_CLEAR`: Ez a parancs törli a hálót és eltávolít minden Z-beállítást. Ajánlott ezt a parancsot befejező G-kódba tenni.
 
 #### BED_MESH_PROFILE
 
@@ -149,7 +149,7 @@ A következő parancs akkor engedélyezett, ha a [delayed_gcode konfigurációs 
 
 #### UPDATE_DELAYED_GCODE
 
-`UPDATE_DELAYED_GCODE [ID=<name>] [DURATION=<seconds>]`: Frissíti az azonosított [delayed_gcode] késleltetési időtartamát és elindítja a G-Kód végrehajtásának időzítőjét. A 0 érték törli a függőben lévő késleltetett G-Kód végrehajtását.
+`UPDATE_DELAYED_GCODE [ID=<name>] [DURATION=<seconds>]`: Frissíti az azonosított [delayed_gcode] késleltetési időtartamát és elindítja a G-kód végrehajtásának időzítőjét. A 0 érték törli a függőben lévő késleltetett G-kód végrehajtását.
 
 ### [delta_calibrate]
 
@@ -169,11 +169,11 @@ A következő parancs akkor érhető el, ha a [konfigurációs szakasz megjelen�
 
 #### SET_DISPLAY_GROUP
 
-`SET_DISPLAY_GROUP [DISPLAY=<display>] GROUP=<group>`: Az LCD-kijelző aktív kijelzőcsoportjának beállítása. Ez lehetővé teszi több kijelző adatcsoport definiálását a konfigurációban, pl. `[display_data <group> <elementname>]` és a köztük való váltást ezzel a kiterjesztett G-Kód paranccsal. Ha a DISPLAY nincs megadva, akkor alapértelmezés szerint "display" (az elsődleges kijelző).
+`SET_DISPLAY_GROUP [DISPLAY=<display>] GROUP=<group>`: Az LCD-kijelző aktív kijelzőcsoportjának beállítása. Ez lehetővé teszi több kijelző adatcsoport definiálását a konfigurációban, pl. `[display_data <group> <elementname>]` és a köztük való váltást ezzel a kiterjesztett G-kód paranccsal. Ha a DISPLAY nincs megadva, akkor alapértelmezés szerint "display" (az elsődleges kijelző).
 
 ### [display_status]
 
-A display_status modul automatikusan betöltődik, ha a [display konfigurációs szakasz](Config_Reference.md#display) engedélyezve van. A következő szabványos G-Kód parancsokat biztosítja:
+A display_status modul automatikusan betöltődik, ha a [display konfigurációs szakasz](Config_Reference.md#display) engedélyezve van. A következő szabványos G-kód parancsokat biztosítja:
 
 - Üzenet megjelenítése: `M117 <message>`
 - Nyomtatási folyamat százalékos arány beállítása: `M73 P<percent>`
@@ -244,7 +244,7 @@ A következő parancs akkor érhető el, ha a [filament_switch_sensor](Config_Re
 
 ### [firmware_retraction]
 
-A következő szabványos G-Kódú parancsok állnak rendelkezésre, ha a [firmware_retraction konfigurációs szakasz](Config_Reference.md#firmware_retraction) engedélyezve van. Ezek a parancsok lehetővé teszik a szeletelőkben elérhető firmware retraction funkció kihasználását, hogy csökkentse a húrosodást a nem extrudálásos mozgások során a nyomtatás egyik részéből a másikba. A nyomásszabályozás megfelelő beállítása csökkenti a szükséges visszahúzás hosszát.
+A következő szabványos G-kódú parancsok állnak rendelkezésre, ha a [firmware_retraction konfigurációs szakasz](Config_Reference.md#firmware_retraction) engedélyezve van. Ezek a parancsok lehetővé teszik a szeletelőkben elérhető firmware retraction funkció kihasználását, hogy csökkentse a húrosodást a nem extrudálásos mozgások során a nyomtatás egyik részéből a másikba. A nyomásszabályozás megfelelő beállítása csökkenti a szükséges visszahúzás hosszát.
 
 - `G10`: Visszahúzza a nyomtatószálat a konfigurált paraméterek szerint.
 - `G11`: Betölti a nyomtatószálat a konfigurált paraméterek szerint.
@@ -277,7 +277,7 @@ A force_move modul automatikusan betöltődik, azonban néhány parancshoz szük
 
 ### [gcode]
 
-A G-Kód modul automatikusan betöltődik.
+A G-kód modul automatikusan betöltődik.
 
 #### RESTART
 
@@ -293,11 +293,11 @@ A G-Kód modul automatikusan betöltődik.
 
 #### SÚGÓ
 
-`HELP`: A rendelkezésre álló kiterjesztett G-Kód parancsok listájának megjelenítése.
+`HELP`: A rendelkezésre álló kiterjesztett G-kód parancsok listájának megjelenítése.
 
 ### [gcode_arcs]
 
-A következő szabványos G-Kód parancsok elérhetők, ha a [gcode_arcs config section](Config_Reference.md#gcode_arcs) engedélyezve van:
+A következő szabványos G-kód parancsok elérhetők, ha a [gcode_arcs config section](Config_Reference.md#gcode_arcs) engedélyezve van:
 
 - Vezérelt ívmozgás (G2 vagy G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>`
 
@@ -319,15 +319,15 @@ A gcode_move modul automatikusan betöltődik.
 
 #### SET_GCODE_OFFSET
 
-`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Pozíciós eltolás beállítása, amelyet a későbbi G-Kód parancsokra kell alkalmazni. Ezt általában a Z ágy eltolás virtuális megváltoztatására vagy a fúvókák XY eltolásának beállítására használják extruder váltáskor. Például, ha a "SET_GCODE_OFFSET Z=0.2" parancsot küldjük, akkor a jövőbeli G-Kód mozgások Z magasságához 0,2 mm-t adunk hozzá. Ha az X_ADJUST stílusparamétereket használjuk, akkor a kiigazítás hozzáadódik a meglévő eltoláshoz (pl. a "SET_GCODE_OFFSET Z=-0.2" és a "SET_GCODE_OFFSET Z_ADJUST=0.3" utána a teljes Z eltolás 0.1 lesz). Ha a "MOVE=1" van megadva, akkor a nyomtatófej mozgatása a megadott eltolás alkalmazására történik (egyébként az eltolás a következő abszolút G-Kódú mozgatáskor lép hatályba, amely az adott tengelyt adja meg). Ha a "MOVE_SPEED" meg van adva, akkor a szerszámfej mozgatása a megadott sebességgel (mm/mp-ben) történik; egyébként a nyomtatófej mozgatása az utoljára megadott G-Kód sebességet fogja használni.
+`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Pozíciós eltolás beállítása, amelyet a későbbi G-kód parancsokra kell alkalmazni. Ezt általában a Z ágy eltolás virtuális megváltoztatására vagy a fúvókák XY eltolásának beállítására használják extruder váltáskor. Például, ha a "SET_GCODE_OFFSET Z=0.2" parancsot küldjük, akkor a jövőbeli G-kód mozgások Z magasságához 0,2 mm-t adunk hozzá. Ha az X_ADJUST stílusparamétereket használjuk, akkor a kiigazítás hozzáadódik a meglévő eltoláshoz (pl. a "SET_GCODE_OFFSET Z=-0.2" és a "SET_GCODE_OFFSET Z_ADJUST=0.3" utána a teljes Z eltolás 0.1 lesz). Ha a "MOVE=1" van megadva, akkor a nyomtatófej mozgatása a megadott eltolás alkalmazására történik (egyébként az eltolás a következő abszolút G-kódú mozgatáskor lép hatályba, amely az adott tengelyt adja meg). Ha a "MOVE_SPEED" meg van adva, akkor a szerszámfej mozgatása a megadott sebességgel (mm/mp-ben) történik; egyébként a nyomtatófej mozgatása az utoljára megadott G-kód sebességet fogja használni.
 
 #### SAVE_GCODE_STATE
 
-`SAVE_GCODE_STATE [NAME=<state_name>]`: Az aktuális G-Kód koordináták elemzési állapotának mentése. A G-Kód állapotának mentése és visszaállítása hasznos a szkriptekben és makrókban. Ez a parancs elmenti az aktuális G-Kód abszolút koordinátamódot (G90/G91), az abszolút extrudálási módot (M82/M83), az origót (G92), az eltolást (SET_GCODE_OFFSET), a sebesség felülbírálását (M220), az extruder felülbírálását (M221), a mozgási sebességet, az aktuális XYZ pozíciót és a relatív extruder "E" pozíciót. A NAME megadása esetén lehetővé teszi, hogy a mentett állapotot a megadott karakterláncnak nevezzük el. Ha a NAME nincs megadva, az alapértelmezett érték "default".
+`SAVE_GCODE_STATE [NAME=<state_name>]`: Az aktuális G-kód koordináták elemzési állapotának mentése. A G-kód állapotának mentése és visszaállítása hasznos a szkriptekben és makrókban. Ez a parancs elmenti az aktuális G-kód abszolút koordinátamódot (G90/G91), az abszolút extrudálási módot (M82/M83), az origót (G92), az eltolást (SET_GCODE_OFFSET), a sebesség felülbírálását (M220), az extruder felülbírálását (M221), a mozgási sebességet, az aktuális XYZ pozíciót és a relatív extruder "E" pozíciót. A NAME megadása esetén lehetővé teszi, hogy a mentett állapotot a megadott karakterláncnak nevezzük el. Ha a NAME nincs megadva, az alapértelmezett érték "default".
 
 #### RESTORE_GCODE_STATE
 
-`RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`: A SAVE_GCODE_STATE segítségével korábban elmentett állapot visszaállítása. Ha "MOVE=1" van megadva, akkor a nyomtatófej mozgatása az előző XYZ-pozícióba való visszalépéshez történik. Ha "MOVE_SPEED" van megadva, akkor a nyomtatófej mozgatása a megadott sebességgel (mm/mp-ben) történik; egyébként a nyomtatófej mozgatása a visszaállított G-Kód sebességét használja.
+`RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`: A SAVE_GCODE_STATE segítségével korábban elmentett állapot visszaállítása. Ha "MOVE=1" van megadva, akkor a nyomtatófej mozgatása az előző XYZ-pozícióba való visszalépéshez történik. Ha "MOVE_SPEED" van megadva, akkor a nyomtatófej mozgatása a megadott sebességgel (mm/mp-ben) történik; egyébként a nyomtatófej mozgatása a visszaállított G-kód sebességét használja.
 
 ### [hall_filament_width_sensor]
 
@@ -411,7 +411,7 @@ A manual_probe modul automatikusan betöltődik.
 
 #### Z_OFFSET_APPLY_ENDSTOP
 
-`Z_OFFSET_APPLY_ENDSTOP`: Vegyük az aktuális Z G-Kód eltolást (más néven mikrolépés), és vonjuk ki a stepper_z endstop_positionból. Ez egy gyakran használt mikrolépés értéket vesz, és "állandóvá teszi". Egy `SAVE_CONFIG` szükséges a hatálybalépéshez.
+`Z_OFFSET_APPLY_ENDSTOP`: Vegyük az aktuális Z G-kód eltolást (más néven mikrolépés), és vonjuk ki a stepper_z endstop_positionból. Ez egy gyakran használt mikrolépés értéket vesz, és "állandóvá teszi". Egy `SAVE_CONFIG` szükséges a hatálybalépéshez.
 
 ### [manual_stepper]
 
@@ -419,7 +419,7 @@ A következő parancs akkor érhető el, ha a [manual_stepper konfigurációs sz
 
 #### MANUAL_STEPPER
 
-`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|2|-1|-2]] [SYNC=0]]]`: Ez a parancs megváltoztatja a léptető állapotát. Az ENABLE paraméterrel engedélyezheti/letilthatja a léptetőt. A SET_POSITION paraméterrel kényszerítheti a léptetőt arra, hogy azt higgye, az adott helyzetben van. A MOVE paraméterrel kezdeményezhet mozgást egy adott pozícióba. Ha a SPEED és/vagy az ACCEL paraméter meg van adva, akkor a rendszer a megadott értékeket használja a konfigurációs fájlban megadott alapértelmezett értékek helyett. Ha nulla ACCEL-t ad meg, akkor nem történik gyorsítás. Ha STOP_ON_ENDSTOP=1 van megadva, akkor a lépés korán véget ér. Ha a végálláskapcsoló aktiválódik (a STOP_ON_ENDSTOP=2 paranccsal hiba nélkül befejezheti a mozgást, még akkor is, ha a végálláskapcsoló nem aktiválódott. Használja a -1 vagy a -2 jelölést, hogy leálljon, amikor a végálláskapcsoló még nem aktiválódott). Normális esetben a későbbi G-Kód parancsok a léptetőmozgás befejezése után kerülnek ütemezésre, azonban ha a kézi léptetőmozgás parancs a SYNC=0 értéket használja, akkor a későbbi G-Kód mozgatási parancsok a léptetőmozgással párhuzamosan is futhatnak.
+`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|2|-1|-2]] [SYNC=0]]]`: Ez a parancs megváltoztatja a léptető állapotát. Az ENABLE paraméterrel engedélyezheti/letilthatja a léptetőt. A SET_POSITION paraméterrel kényszerítheti a léptetőt arra, hogy azt higgye, az adott helyzetben van. A MOVE paraméterrel kezdeményezhet mozgást egy adott pozícióba. Ha a SPEED és/vagy az ACCEL paraméter meg van adva, akkor a rendszer a megadott értékeket használja a konfigurációs fájlban megadott alapértelmezett értékek helyett. Ha nulla ACCEL-t ad meg, akkor nem történik gyorsítás. Ha STOP_ON_ENDSTOP=1 van megadva, akkor a lépés korán véget ér. Ha a végálláskapcsoló aktiválódik (a STOP_ON_ENDSTOP=2 paranccsal hiba nélkül befejezheti a mozgást, még akkor is, ha a végálláskapcsoló nem aktiválódott. Használja a -1 vagy a -2 jelölést, hogy leálljon, amikor a végálláskapcsoló még nem aktiválódott). Normális esetben a későbbi G-kód parancsok a léptetőmozgás befejezése után kerülnek ütemezésre, azonban ha a kézi léptetőmozgás parancs a SYNC=0 értéket használja, akkor a későbbi G-kód mozgatási parancsok a léptetőmozgással párhuzamosan is futhatnak.
 
 ### [led]
 
@@ -427,7 +427,7 @@ A következő parancs akkor érhető el, ha a [LED konfigurációs szakaszok](Co
 
 #### SET_LED
 
-`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: Ez állítja be a LED kimenetet. Minden szín `<value>` 0,0 és 1,0 között kell lennie. A WHITE opció csak RGBW LED-ek esetén érvényes. Ha a LED több chipet támogat egy daisy-chainben, akkor megadhatjuk az INDEX-et, hogy csak az adott chip színét változtassuk meg (1 az első chiphez, 2 a másodikhoz stb.). Ha az INDEX nincs megadva, akkor a daisy-chain összes LED-je a megadott színre lesz beállítva. Ha TRANSMIT=0 van megadva, akkor a színváltoztatás csak a következő SET_LED parancsnál történik meg, amely nem ad meg TRANSMIT=0-t. Ez hasznos lehet az INDEX paraméterrel kombinálva, ha egy daisy-chainben több frissítést szeretnénk kötegelni. Alapértelmezés szerint a SET_LED parancs szinkronizálja a változtatásokat a többi folyamatban lévő G-Kód paranccsal. Ez nemkívánatos viselkedéshez vezethet, ha a LED-ek beállítása akkor történik, amikor a nyomtató nem nyomtat, mivel ez visszaállítja az üresjárati időkorlátot. Ha nincs szükség gondos időzítésre, az opcionális SYNC=0 paraméter megadható, hogy a módosításokat az üresjárati időkorlát visszaállítása nélkül alkalmazza.
+`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: Ez állítja be a LED kimenetet. Minden szín `<value>` 0,0 és 1,0 között kell lennie. A WHITE opció csak RGBW LED-ek esetén érvényes. Ha a LED több chipet támogat egy daisy-chainben, akkor megadhatjuk az INDEX-et, hogy csak az adott chip színét változtassuk meg (1 az első chiphez, 2 a másodikhoz stb.). Ha az INDEX nincs megadva, akkor a daisy-chain összes LED-je a megadott színre lesz beállítva. Ha TRANSMIT=0 van megadva, akkor a színváltoztatás csak a következő SET_LED parancsnál történik meg, amely nem ad meg TRANSMIT=0-t. Ez hasznos lehet az INDEX paraméterrel kombinálva, ha egy daisy-chainben több frissítést szeretnénk kötegelni. Alapértelmezés szerint a SET_LED parancs szinkronizálja a változtatásokat a többi folyamatban lévő G-kód paranccsal. Ez nemkívánatos viselkedéshez vezethet, ha a LED-ek beállítása akkor történik, amikor a nyomtató nem nyomtat, mivel ez visszaállítja az üresjárati időkorlátot. Ha nincs szükség gondos időzítésre, az opcionális SYNC=0 paraméter megadható, hogy a módosításokat az üresjárati időkorlát visszaállítása nélkül alkalmazza.
 
 #### SET_LED_TEMPLATE
 
@@ -445,9 +445,9 @@ A következő parancs akkor érhető el, ha az [output_pin konfigurációs szaka
 
 A következő parancsok akkor érhetők el, ha a [palette2 konfigurációs szakasz](Config_Reference.md#palette2) engedélyezve van.
 
-A paletta nyomtatások speciális OCode-ok (Omega-kódok) beágyazásával működnek a G-Kód fájlban:
+A paletta nyomtatások speciális OCode-ok (Omega-kódok) beágyazásával működnek a G-kód fájlban:
 
-- `O1`...`O32`: Ezeket a kódokat a G-Kód folyamatból olvassa be és dolgozza fel ez a modul, majd továbbítja a Palette 2 eszköznek.
+- `O1`...`O32`: Ezeket a kódokat a G-kód folyamatból olvassa be és dolgozza fel ez a modul, majd továbbítja a Palette 2 eszköznek.
 
 A következő további parancsok is rendelkezésre állnak.
 
@@ -493,7 +493,7 @@ A következő parancsok akkor érhetők el, ha a [pause_resume konfigurációs s
 
 #### CLEAR_PAUSE
 
-`CLEAR_PAUSE`: Törli az aktuális szüneteltetett állapotot a nyomtatás folytatása nélkül. Ez akkor hasznos, ha valaki úgy dönt, hogy PAUSE után megszakítja a nyomtatást. Ajánlatos ezt hozzáadni az indító G-Kódhoz, hogy a szüneteltetett állapot minden nyomtatásnál friss legyen.
+`CLEAR_PAUSE`: Törli az aktuális szüneteltetett állapotot a nyomtatás folytatása nélkül. Ez akkor hasznos, ha valaki úgy dönt, hogy PAUSE után megszakítja a nyomtatást. Ajánlatos ezt hozzáadni az indító G-kódhoz, hogy a szüneteltetett állapot minden nyomtatásnál friss legyen.
 
 #### CANCEL_PRINT
 
@@ -521,7 +521,7 @@ A következő parancsok akkor érhetők el, ha a [szonda konfigurációs szakasz
 
 #### Z_OFFSET_APPLY_PROBE
 
-`Z_OFFSET_APPLY_PROBE`: Vegyük az aktuális Z G-Kód eltolást (más néven mikrolépés), és vonjuk ki a szonda z_offset-jéből. Ez egy gyakran használt mikrolépés értéket vesz, és "állandóvá teszi". Egy `SAVE_CONFIG` szükséges a hatálybalépéshez.
+`Z_OFFSET_APPLY_PROBE`: Vegyük az aktuális Z G-kód eltolást (más néven mikrolépés), és vonjuk ki a szonda z_offset-jéből. Ez egy gyakran használt mikrolépés értéket vesz, és "állandóvá teszi". Egy `SAVE_CONFIG` szükséges a hatálybalépéshez.
 
 ### [query_adc]
 
@@ -533,7 +533,7 @@ A query_endstops modul automatikusan betöltődik.
 
 ### [query_endstops]
 
-A query_endstops modul automatikusan betöltődik. Jelenleg a következő szabványos G-Kód parancsok állnak rendelkezésre, de használatuk nem ajánlott:
+A query_endstops modul automatikusan betöltődik. Jelenleg a következő szabványos G-kód parancsok állnak rendelkezésre, de használatuk nem ajánlott:
 
 - Végállás állapotának lekérdezése: `M119` (Használja QUERY_ENDSTOPS helyett.)
 
@@ -559,7 +559,7 @@ A következő parancsok akkor érhetők el, ha a [resonance_tester konfiguráci�
 
 ### [respond]
 
-A következő szabványos G-Kódú parancsok állnak rendelkezésre, ha a [respond konfigurációs szakasz](Config_Reference.md#respond) engedélyezve van:
+A következő szabványos G-kódú parancsok állnak rendelkezésre, ha a [respond konfigurációs szakasz](Config_Reference.md#respond) engedélyezve van:
 
 - `M118 <message>`: visszhangozza az üzenetet a konfigurált alapértelmezett előtaggal (vagy `echo: `, ha nincs konfigurálva előtag).
 
@@ -579,7 +579,7 @@ A következő parancs akkor engedélyezett, ha a [save_variables konfigurációs
 
 #### SAVE_VARIABLE
 
-`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: A változót a lemezre menti, hogy újraindításkor is használható legyen. Minden tárolt változó betöltődik a `printer.save_variables.variables` dict indításkor, és használható a G-Kód makrókban. A megadott VALUE-t Python literálként elemzi.
+`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: A változót a lemezre menti, hogy újraindításkor is használható legyen. Minden tárolt változó betöltődik a `printer.save_variables.variables` dict indításkor, és használható a G-kód makrókban. A megadott VALUE-t Python literálként elemzi.
 
 ### [screws_tilt_adjust]
 
@@ -623,7 +623,7 @@ A következő parancsok akkor érhetők el, ha a [skew_correction konfiguráció
 
 #### GET_CURRENT_SKEW
 
-`GET_CURRENT_SKEW`: A nyomtató aktuális ferdeségét jelenti minden síkhoz radiánban és fokban. A ferdeség kiszámítása a `SET_SKEW` G-Kóddal megadott paraméterek alapján történik.
+`GET_CURRENT_SKEW`: A nyomtató aktuális ferdeségét jelenti minden síkhoz radiánban és fokban. A ferdeség kiszámítása a `SET_SKEW` G-kódal megadott paraméterek alapján történik.
 
 #### CALC_MEASURED_SKEW
 
@@ -691,7 +691,7 @@ A tuning_tower modul automatikusan betöltődik.
 
 ### [virtual_sdcard]
 
-A Klipper támogatja a következő szabványos G-Kód parancsokat, ha a [virtual_sdcard konfigurációs szakasz](Config_Reference.md#virtual_sdcard) engedélyezve van:
+A Klipper támogatja a következő szabványos G-kód parancsokat, ha a [virtual_sdcard konfigurációs szakasz](Config_Reference.md#virtual_sdcard) engedélyezve van:
 
 - SD-kártya listázása: `M20`
 - SD-kártya inicializálása: `M21`

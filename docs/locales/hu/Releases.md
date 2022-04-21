@@ -4,7 +4,7 @@ A Klipper kiadások története. A Klipper telepítésével kapcsolatos informá
 
 ## Klipper 0.10.0
 
-Elérhető a 20210929 oldalon. Fontosabb változások ebben a kiadásban:
+Elérhető a 20210929. Fontosabb változások ebben a kiadásban:
 
 * A "Multi-MCU Homing" támogatása. Mostantól lehetőség van arra, hogy egy léptetőmotor és a végállás külön mikrovezérlőkhöz legyen csatlakoztatva. Ez leegyszerűsíti a Z-érzékelők kábelezését a "nyomtatófejen".
 * Klipper mostantól rendelkezik egy [Közösségi Discord Szerver](https://discord.klipper3d.org) és egy [Közösségi Társalgó Szerver](https://community.klipper3d.org)-rel.
@@ -39,16 +39,16 @@ Elérhető a 20201020. Főbb változások ebben a kiadásban:
 
 ### Klipper 0.9.1
 
-Elérhető a 20201028-as verzió. Csak hibajavításokat tartalmazó kiadás.
+Elérhető a 20201028. Csak hibajavításokat tartalmazó kiadás.
 
 ## Klipper 0.8.0
 
-Elérhető a 20191021 verzió. Főbb változások ebben a kiadásban:
+Elérhető a 20191021. Főbb változások ebben a kiadásban:
 
-* Új G-Kód parancssablon támogatás. A konfigurációs fájlban lévő G-Kódot mostantól a Jinja2 sablonnyelvvel értékeli ki a rendszer.
+* Új G-kód parancssablon támogatás. A konfigurációs fájlban lévő G-kódot mostantól a Jinja2 sablonnyelvvel értékeli ki a rendszer.
 * A Trinamic léptető meghajtók javítása:
    * Új támogatás a TMC2209 és TMC5160 illesztőprogramokhoz.
-   * Továbbfejlesztett DUMP_TMC, SET_TMC_CURRENT és INIT_TMC G-Kód parancsok.
+   * Továbbfejlesztett DUMP_TMC, SET_TMC_CURRENT és INIT_TMC G-kód parancsok.
    * Javított támogatás a TMC UART kezeléséhez analóg mux-al.
 * Javított célmeghatározás, mérés és ágyszintezés támogatása:
    * Új manual_probe, bed_screws, screws_tilt_adjust, skew_correction, safe_z_home modulok hozzáadása.
@@ -72,7 +72,7 @@ Elérhető a 20191021 verzió. Főbb változások ebben a kiadásban:
 
 ## Klipper 0.7.0
 
-Elérhetőek a 20181220 kiadásban a főbb változások:
+Elérhető a 20181220. Főbb változások a kiadásban:
 
 * A Klipper mostantól támogatja a "háló" ágyszintezés állítást
 * Új támogatás a "továbbfejlesztett" delta kalibrációhoz (kalibrálja a nyomtatás x/y méreteit delta nyomtatókon)
@@ -96,7 +96,7 @@ Elérhetőek a 20181220 kiadásban a főbb változások:
 
 ## Klipper 0.6.0
 
-Elérhető a 20180331 kiadás. Főbb változások ebben a kiadásban:
+Elérhető a 20180331. Főbb változások ebben a kiadásban:
 
 * Továbbfejlesztett fűtőberendezés és termisztor hardverhiba ellenőrzések
 * Z-szondák támogatása
@@ -111,18 +111,18 @@ Elérhető a 20180331 kiadás. Főbb változások ebben a kiadásban:
 * Egyedi digitális és PWM kimeneti tűk támogatása (új SET_PIN paranccsal)
 * Kezdeti támogatás egy "virtuális SDcard" számára, amely lehetővé teszi a nyomtatást közvetlenül a Klipperről (segít a túl lassú gépeken, hogy az OctoPrint jól fusson)
 * Különböző karhosszúságok beállításának támogatása a delta minden egyes tornyán
-* A G-Kód M220/M221 parancsok támogatása (sebességtényező felülbírálása / extrudálási tényező felülbírálása)
+* A G-kód M220/M221 parancsok támogatása (sebességtényező felülbírálása / extrudálási tényező felülbírálása)
 * Számos dokumentáció frissítés:
    * Számos új példa konfigurációs fájl a szokásos nyomtatókhoz
    * Új több MCU konfigurációs példa
    * Új BL-Touch érzékelő konfigurációs példa
-   * Új GYIK, konfigurációs ellenőrzés és G-Kód dokumentumok
+   * Új GYIK, konfigurációs ellenőrzés és G-kód dokumentumok
 * Kezdeti támogatás a folyamatos integráció teszteléséhez az összes végleges GitHub fejlesztésben
 * Számos hibajavítás és kódtisztítás
 
 ## Klipper 0.5.0
 
-Elérhető 20171025. Főbb változások ebben a kiadásban:
+Elérhető a 20171025. Főbb változások ebben a kiadásban:
 
 * Több extruderrel rendelkező nyomtatók támogatása.
 * Kezdeti támogatás a Beaglebone PRU-n való futtatáshoz. Kezdeti támogatás a Replicape alaplaphoz.
@@ -134,7 +134,7 @@ Elérhető 20171025. Főbb változások ebben a kiadásban:
 
 ## Klipper 0.4.0
 
-Elérhető 20170503. Főbb változások ebben a kiadásban:
+Elérhető a 20170503. Főbb változások ebben a kiadásban:
 
 * Javított telepítés Raspberry Pi gépekre. A telepítés nagy része most már szkriptelt.
 * A corexy kinematika támogatása
@@ -148,7 +148,7 @@ Elérhető 20170503. Főbb változások ebben a kiadásban:
 
 ## Klipper 0.3.0
 
-Elérhető 20161223. Főbb változások ebben a kiadásban:
+Elérhető a 20161223. Főbb változások ebben a kiadásban:
 
 * Javított dokumentáció
 * Delta kinematikai robotok támogatása
@@ -156,7 +156,7 @@ Elérhető 20161223. Főbb változások ebben a kiadásban:
 * USB alapú AVR mikrovezérlők támogatása
 * Támogatás a "nyomásszabályozás" algoritmushoz - ez csökkenti a nyomatok során keletkező szivárgást.
 * Új "léptetőfázis-alapú végállás" funkció - nagyobb pontosságot tesz lehetővé a kezdőpont végállásában.
-* A "kiterjesztett G-Kód" parancsok támogatása, mint például a "help", "restart" és "status".
+* A "kiterjesztett G-kód" parancsok támogatása, mint például a "help", "restart" és "status".
 * A Klipper konfiguráció újratöltésének és a gazdaszoftver újraindításának támogatása a "restart" parancs terminálból történő kiadásával.
 * Lépegető teljesítményének javítása (20Mhz-es AVR-ek akár 158K lépés/másodpercig).
 * Javított hibajelentés. A legtöbb hiba mostantól a terminálon keresztül jelenik meg, a megoldásra vonatkozó segítséggel együtt.
@@ -164,9 +164,9 @@ Elérhető 20161223. Főbb változások ebben a kiadásban:
 
 ## Klipper 0.2.0
 
-A Klipper első kiadása. Elérhető 20160525. A kezdeti kiadásban elérhető főbb funkciók a következők:
+A Klipper első kiadása. Elérhető a 20160525. A kezdeti kiadásban elérhető főbb funkciók a következők:
 
 * Alapvető támogatás cartesian nyomtatókhoz (stepperek, extruder, fűtött ágy, hűtőventilátor).
-* A gyakori G-Kód parancsok támogatása. Az OctoPrint interfész támogatása.
+* A gyakori G-kód parancsok támogatása. Az OctoPrint interfész támogatása.
 * Gyorsulás és előretekintő kezelés
 * AVR mikrovezérlők támogatása szabványos soros portokon keresztül

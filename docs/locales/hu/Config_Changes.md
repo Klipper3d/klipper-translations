@@ -87,9 +87,9 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20200902: A MAX31865 átalakítók RTD ellenállás-hőmérséklet számítása javításra került, hogy ne legyen alacsony. Ha ilyen eszközt használ, akkor kalibrálja újra a nyomtatási hőmérsékletet és a PID-beállításokat.
 
-20200816: A G-Kód makró `printer.gcode` objektumot átneveztük `printer.gcode_move` objektumra. A `printer.toolhead` és `printer.gcode` objektumokból több nem dokumentált változót eltávolítottunk. A rendelkezésre álló sablonváltozók listáját lásd a docs/Command_Templates.md fájlban.
+20200816: A G-kód makró `printer.gcode` objektumot átneveztük `printer.gcode_move` objektumra. A `printer.toolhead` és `printer.gcode` objektumokból több nem dokumentált változót eltávolítottunk. A rendelkezésre álló sablonváltozók listáját lásd a docs/Command_Templates.md fájlban.
 
-20200816: A G-Kód makró "action_" rendszere megváltozott. Cserélje ki a `printer.gcode.action_emergency_stop()` hívásokat `action_emergency_stop()`, `printer.gcode.action_respond_info()` a `action_respond_info()`, és `printer.gcode.action_respond_error()` a `action_raise_error()`-el.
+20200816: A G-kód makró "action_" rendszere megváltozott. Cserélje ki a `printer.gcode.action_emergency_stop()` hívásokat `action_emergency_stop()`, `printer.gcode.action_respond_info()` a `action_respond_info()`, és `printer.gcode.action_respond_error()` a `action_raise_error()`-el.
 
 20200809: A menürendszer átírásra került. Ha a menüt testre szabták, akkor frissíteni kell az új konfigurációra. A konfiguráció részleteiért lásd a config/example-menu.cfg fájlt, a példákért pedig a klippy/extras/display/menu.cfg fájlt.
 
@@ -129,9 +129,9 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20191121: A pressure_advance_lookahead_time paramétert eltávolítottuk. Az alternatív konfigurációs beállításokat lásd a example.cfg fájlban.
 
-20191112: A TMC léptető vezérlő virtuális engedélyezési képessége mostantól automatikusan engedélyezve van, ha a léptető nem rendelkezik dedikált léptető engedélyező tűvel. A tmcXXXX:virtual_enable-re való hivatkozások eltávolítása a konfigurációból. A stepper enable_pin konfigurációban több pin vezérlésének lehetősége megszűnt. Ha több pinre van szükség, akkor használjon egy multi_pin config szekciót.
+20191112: A TMC léptető vezérlő virtuális engedélyezési képessége mostantól automatikusan engedélyezve van, ha a léptető nem rendelkezik dedikált léptető engedélyező tűvel. A tmcXXXX:virtual_enable-re való hivatkozások eltávolítása a konfigurációból. A stepper enable_pin konfigurációban több tű vezérlésének lehetősége megszűnt. Ha több tűre van szükség, akkor használjon egy multi_pin config szekciót.
 
-20191107: Az elsődleges extruder konfigurációs szakaszát "extruder" néven kell megadni, és már nem lehet "extruder0" néven megadni. Az extruder állapotát lekérdező Gcode parancssablonokat mostantól a "{printer.extruder}" segítségével lehet elérni.
+20191107: Az elsődleges extruder konfigurációs szakaszát "extruder" néven kell megadni, és már nem lehet "extruder0" néven megadni. Az extruder állapotát lekérdező G-kód parancssablonokat mostantól a "{printer.extruder}" segítségével lehet elérni.
 
 20191021: Klipper v0.8.0 megjelent
 
@@ -147,7 +147,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20190710: A PROBE_ACCURACY parancs opcionális paraméterei megváltoztak. Szükség lehet a parancsot használó makrók vagy szkriptek frissítésére.
 
-20190628: A [skew_correction] szakaszból eltávolítottuk az összes konfigurációs opciót. A skew_correction konfigurálása mostantól a SET_SKEW G-Kódon keresztül történik. Lásd a [Ferdeség Korrekció](Skew_Correction.md) ajánlott használatát.
+20190628: A [skew_correction] szakaszból eltávolítottuk az összes konfigurációs opciót. A skew_correction konfigurálása mostantól a SET_SKEW G-kódon keresztül történik. Lásd a [Ferdeség Korrekció](Skew_Correction.md) ajánlott használatát.
 
 20190607: A gcode_macro "variable_X" paraméterei (a SET_GCODE_VARIABLE VALUE paraméterével együtt) mostantól Python literálokként kerülnek értelmezésre. Ha egy értékhez karakterláncot kell rendelni, akkor csomagolja az értéket idézőjelekbe, hogy karakterláncként kerüljön kiértékelésre.
 
@@ -155,7 +155,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20190528: A gcode_macro sablon kiértékelésében a mágikus "status" változót átneveztük "printer" -re.
 
-20190520: A SET_GCODE_OFFSET parancs megváltozott; ennek megfelelően frissítse a G-Kód makrókat. A parancs már nem alkalmazza a kért eltolást a következő G1 parancsra. A régi viselkedés megközelíthető az új "MOVE=1" paraméter használatával.
+20190520: A SET_GCODE_OFFSET parancs megváltozott; ennek megfelelően frissítse a G-kód makrókat. A parancs már nem alkalmazza a kért eltolást a következő G1 parancsra. A régi viselkedés megközelíthető az új "MOVE=1" paraméter használatával.
 
 20190404: A Python gazda szoftvercsomagok frissítésre kerültek. A felhasználóknak újra kell futtatniuk a ~/klipper/scripts/install-octopi.sh szkriptet (vagy más módon frissíteniük kell a python függőségeket, ha nem standard OctoPi telepítést használnak).
 
