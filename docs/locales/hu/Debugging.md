@@ -21,7 +21,7 @@ tar xfz klipper-dict-20??????.tar.gz
 
 ## Parancsok kézi küldése a mikrokontrollernek
 
-Normális esetben a G-Kód parancsokat a klippy.py folyamat fordítja Klipper mikrokontroller parancsokra. Azonban az is lehetséges, hogy manuálisan küldjük el ezeket az MCU-parancsokat (a Klipper forráskódjában a DECL_COMMAND() makróval jelölt függvények). Ehhez futtassa a következőket:
+Normális esetben a G-kód parancsokat a klippy.py folyamat fordítja Klipper mikrokontroller parancsokra. Azonban az is lehetséges, hogy manuálisan küldjük el ezeket az MCU-parancsokat (a Klipper forráskódjában a DECL_COMMAND() makróval jelölt függvények). Ehhez futtassa a következőket:
 
 ```
 ~/klippy-env/bin/python ./klippy/console.py /tmp/pseudoserial
@@ -31,9 +31,9 @@ Az eszközön belül a "HELP" parancsban talál további információkat a funkc
 
 Néhány parancssori opció is rendelkezésre áll. További információkért futtassa a: `~/klippy-env/bin/python ./klippy/console.py --help` parancsot
 
-## A G-Kód fájlok lefordítása mikrokontroller-parancsokra
+## A G-kód fájlok lefordítása mikrokontroller-parancsokra
 
-A Klippy gazdagép kódja futhat kötegelt üzemmódban, hogy előállítsa a G-Kód fájlhoz tartozó alacsony szintű mikrokontroller-parancsokat. Ezeknek az alacsony szintű parancsoknak a vizsgálata hasznos, amikor megpróbálja megérteni az alacsony szintű hardver műveleteit. Az is hasznos lehet, hogy összehasonlítsuk a mikrokontroller-parancsok közötti különbséget egy kódváltás után.
+A Klippy gazdagép kódja futhat kötegelt üzemmódban, hogy előállítsa a G-kód fájlhoz tartozó alacsony szintű mikrokontroller-parancsokat. Ezeknek az alacsony szintű parancsoknak a vizsgálata hasznos, amikor megpróbálja megérteni az alacsony szintű hardver műveleteit. Az is hasznos lehet, hogy összehasonlítsuk a mikrokontroller-parancsok közötti különbséget egy kódváltás után.
 
 A Klippy futtatásához ebben a kötegelt üzemmódban egy egyszeri lépés szükséges a mikrokontroller "adatszótár" létrehozásához. Ez a mikrokontroller kódjának lefordításával történik, hogy megkapjuk a **out/klipper.dict** fájlt:
 
@@ -145,7 +145,7 @@ A szkript kinyeri a nyomtató konfigurációs fájlját, és kinyeri az MCU leá
 
 ## Tesztelés simulavr-rel
 
-A [simulavr](http://www.nongnu.org/simulavr/) eszköz lehetővé teszi egy Atmel ATmega mikrokontroller szimulálását. Ez a szakasz leírja, hogyan lehet teszt G-Kód fájlokat futtatni a simulavr segítségével. Javasoljuk, hogy ezt egy asztali gépen futtassuk (nem Raspberry Pi), mivel a hatékony futtatáshoz erős CPU-ra van szükség.
+A [simulavr](http://www.nongnu.org/simulavr/) eszköz lehetővé teszi egy Atmel ATmega mikrokontroller szimulálását. Ez a szakasz leírja, hogyan lehet teszt G-kód fájlokat futtatni a simulavr segítségével. Javasoljuk, hogy ezt egy asztali gépen futtassuk (nem Raspberry Pi), mivel a hatékony futtatáshoz erős CPU-ra van szükség.
 
 A simulavr használatához töltse le a simulavr csomagot, és fordítsa le python támogatással. Vegye figyelembe, hogy a build rendszernek telepítenie kell néhány csomagot (például a swig-et) ahhoz, hogy a python modult fel tudja építeni.
 
@@ -192,7 +192,7 @@ Vegyük észre, hogy ha a python3-simulavr-t az egész rendszerre telepítettük
 ./scripts/avrsim.py out/klipper.elf
 ```
 
-Ezután, ha a simulavr egy másik ablakban fut, futtathatjuk a következőt, hogy G-Kódot olvassunk be egy fájlból (pl. "test.gcode"), feldolgozzuk a Klippy-vel, és elküldjük a simulavr-ben futó Klipper-nek (lásd [Telepítés](Installation.md) a python virtuális környezet létrehozásához szükséges lépéseket):
+Ezután, ha a simulavr egy másik ablakban fut, futtathatjuk a következőt, hogy G-kódot olvassunk be egy fájlból (pl. "test.gcode"), feldolgozzuk a Klippy-vel, és elküldjük a simulavr-ben futó Klipper-nek (lásd [Telepítés](Installation.md) a python virtuális környezet létrehozásához szükséges lépéseket):
 
 ```
 ~/klippy-env/bin/python ./klippy/klippy.py config/generic-simulavr.cfg -i test.gcode -v
