@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-04-18 14:11+0000\n"
+"PO-Revision-Date: 2022-04-21 19:08+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "benchmarks/hu/>\n"
@@ -516,7 +516,7 @@ msgstr ""
 "Lehetőség van időzítési tesztek futtatására a gazdagépen a \"batch mode\" "
 "feldolgozási mechanizmus használatával (a <Debugging.md> című fejezetben "
 "leírtak szerint). Ez általában úgy történik, hogy kiválasztunk egy nagy és "
-"összetett G-Kód fájlt, és megmérjük, hogy mennyi idő alatt dolgozza fel a "
+"összetett G-kód fájlt, és megmérjük, hogy mennyi idő alatt dolgozza fel a "
 "gazdaszoftver. Például:"
 
 #: docs/Benchmarks.md:block 14 (paragraph)
