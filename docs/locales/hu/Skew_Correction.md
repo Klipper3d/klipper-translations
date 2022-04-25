@@ -19,9 +19,9 @@ A `[skew_correcton]` modul minden egyes korrigálandó síkhoz 3 mérést igény
 Győződjön meg róla, hogy a `[skew_correction]` szerepel a printer.cfg fájlban. Most már használhatja a `SET_SKEW` gkódot a skew_correction beállításához. Például, ha az XY mentén mért hosszok a következők:
 
 ```
-Hossz AC = 140.4
-Hossz BD = 142.8
-Hossz AD = 99.8
+Length AC = 140.4
+Length BD = 142.8
+Length AD = 99.8
 ```
 
 `SET_SKEW` az XY-sík ferdeségkorrekciójának beállítására használható.
