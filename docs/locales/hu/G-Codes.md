@@ -525,7 +525,7 @@ A következő parancsok akkor érhetők el, ha a [szonda konfigurációs szakasz
 
 ### [query_adc]
 
-A query_endstops modul automatikusan betöltődik.
+The query_adc module is automatically loaded.
 
 #### QUERY_ADC
 
@@ -632,6 +632,18 @@ A következő parancsok akkor érhetők el, ha a [skew_correction konfiguráció
 #### SKEW_PROFILE
 
 `SKEW_PROFILE [LOAD=<name>] [SAVE=<name>] [REMOVE=<name>]`: Profilkezelés a skew_correction számára. A LOAD visszaállítja a ferdeség állapotát a megadott névnek megfelelő profilból. A SAVE a megadott névnek megfelelő profilba menti az aktuális ferdeségállapotot. A REMOVE törli a megadott névnek megfelelő profilt a tartós memóriából. Megjegyzendő, hogy a SAVE vagy REMOVE műveletek lefuttatása után a SAVE_CONFIG parancsot kell futtatni, hogy a tartós memóriában végrehajtott változtatások véglegesek legyenek.
+
+### [smart_effector]
+
+Several commands are available when a [smart_effector config section](Config_Reference.md#smart_effector) is enabled. Be sure to check the official documentation for the Smart Effector on the [Duet3D Wiki](https://duet3d.dozuki.com/Wiki/Smart_effector_and_carriage_adapters_for_delta_printer) before changing the Smart Effector parameters. Also check the [probe calibration guide](Probe_Calibrate.md).
+
+#### SET_SMART_EFFECTOR
+
+`SET_SMART_EFFECTOR [SENSITIVITY=<sensitivity>] [ACCEL=<accel>] [RECOVERY_TIME=<time>]`: Set the Smart Effector parameters. When `SENSITIVITY` is specified, the respective value is written to the SmartEffector EEPROM (requires `control_pin` to be provided). Acceptable `<sensitivity>` values are 0..255, the default is 50. Lower values require less nozzle contact force to trigger (but there is a higher risk of false triggering due to vibrations during probing), and higher values reduce false triggering (but require larger contact force to trigger). Since the sensitivity is written to EEPROM, it is preserved after the shutdown, and so it does not need to be configured on every printer startup. `ACCEL` and `RECOVERY_TIME` allow to override the corresponding parameters at run-time, see the [config section](Config_Reference.md#smart_effector) of Smart Effector for more info on those parameters.
+
+#### RESET_SMART_EFFECTOR
+
+`RESET_SMART_EFFECTOR`: Resets Smart Effector sensitivity to its factory settings. Requires `control_pin` to be provided in the config section.
 
 ### [stepper_enable]
 

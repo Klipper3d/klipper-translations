@@ -525,7 +525,7 @@ The following commands are available when a [probe config section](Config_Refere
 
 ### [query_adc]
 
-The query_endstops module is automatically loaded.
+The query_adc module is automatically loaded.
 
 #### QUERY_ADC
 
@@ -632,6 +632,18 @@ The following commands are available when the [skew_correction config section](C
 #### SKEW_PROFILE
 
 `SKEW_PROFILE [LOAD=<名称>] [SAVE=<名称>] [REMOVE=<名称>]`：skew_correction 配置管理命令。 LOAD 将从与提供的名称匹配的配置中载入偏斜状态。 SAVE 会将当前偏斜状态保存到与提供的名称匹配的配置中。 REMOVE 将从持久内存中删除与提供的名称匹配的配置。请注意，在运行 SAVE 或 REMOVE 操作后，必须运行 SAVE_CONFIG G代码才能保存更改。
+
+### [smart_effector]
+
+Several commands are available when a [smart_effector config section](Config_Reference.md#smart_effector) is enabled. Be sure to check the official documentation for the Smart Effector on the [Duet3D Wiki](https://duet3d.dozuki.com/Wiki/Smart_effector_and_carriage_adapters_for_delta_printer) before changing the Smart Effector parameters. Also check the [probe calibration guide](Probe_Calibrate.md).
+
+#### SET_SMART_EFFECTOR
+
+`SET_SMART_EFFECTOR [SENSITIVITY=<sensitivity>] [ACCEL=<accel>] [RECOVERY_TIME=<time>]`: Set the Smart Effector parameters. When `SENSITIVITY` is specified, the respective value is written to the SmartEffector EEPROM (requires `control_pin` to be provided). Acceptable `<sensitivity>` values are 0..255, the default is 50. Lower values require less nozzle contact force to trigger (but there is a higher risk of false triggering due to vibrations during probing), and higher values reduce false triggering (but require larger contact force to trigger). Since the sensitivity is written to EEPROM, it is preserved after the shutdown, and so it does not need to be configured on every printer startup. `ACCEL` and `RECOVERY_TIME` allow to override the corresponding parameters at run-time, see the [config section](Config_Reference.md#smart_effector) of Smart Effector for more info on those parameters.
+
+#### RESET_SMART_EFFECTOR
+
+`RESET_SMART_EFFECTOR`: Resets Smart Effector sensitivity to its factory settings. Requires `control_pin` to be provided in the config section.
 
 ### [stepper_enable]
 
