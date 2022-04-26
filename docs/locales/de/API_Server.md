@@ -12,6 +12,8 @@ Um den API-Server zu nutzen, muss die klippy.py Host-Software mit dem Parameter 
 
 Dies veranlasst die Host-Software, einen Unix Domain Socket zu erstellen. Ein Client kann dann eine Verbindung zu diesem Socket öffnen und Befehle an Klipper senden.
 
+See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.
+
 ## Anfrageformat
 
 Über den Socket gesendete und empfangene Nachrichten sind JSON-kodierte Strings, die mit einem ASCII-Zeichen 0x03 abgeschlossen werden:

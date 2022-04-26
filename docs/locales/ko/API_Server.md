@@ -12,6 +12,8 @@ API 서버를 사용하기 위해서, klippy.py 호스트 소프트웨어가 `-a
 
 이는 호스트 소프트웨어가 Unix Domain Socket 을 생성하도록 하며 그 이후 클라이언트가 그 Socket의 연결을 오픈하고, 클리퍼에서 명령을 보낼 수 있습니다.
 
+See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.
+
 ## 요청 포맷
 
 소켓에 보내지고 수신된 메시지들은 JSON 인코딩된 문자열입니다. 이 문자열들은 ASCII 0x03 문자로 종료됩니다:

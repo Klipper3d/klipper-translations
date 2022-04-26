@@ -12,6 +12,8 @@ Az API-kiszolgáló használatához a klippy.py host szoftvert a `-a` paraméter
 
 Ennek hatására a gazdaszoftver létrehoz egy Unix Domain Socketet. Az ügyfél ezután kapcsolatot nyithat ezen keresztül, és parancsokat küldhet a Klippernek.
 
+See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.
+
 ## Kérelem formátuma
 
 A socket-en küldött és fogadott üzenetek JSON kódolású karakterláncok, amelyeket egy ASCII 0x03 karakter zár le:

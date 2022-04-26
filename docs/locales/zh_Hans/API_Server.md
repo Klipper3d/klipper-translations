@@ -12,6 +12,8 @@
 
 上述操作会使主机创建一个Unix本地套接字。之后，客户应用程序可以创建一个套接字链接，从而给Klipper发送命令。
 
+See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.
+
 ## 请求格式
 
 套接字进出的数据包应使用JSON编码的字符串，并以ASCII字符0x03作为结尾：

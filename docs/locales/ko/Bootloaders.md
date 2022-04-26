@@ -311,6 +311,22 @@ make flash FLASH_DEVICE=/dev/ttyACM0
 
 수동으로 부트로더에 들어가야 할 수도 있다. 이를 위해서 "boot 0" 은 low로 하고 "boot 1" 은 high로 설정하면 된다. SKR Mini E3에선 "Boot 1" 은 사용할 수 없다. 그래서 "hid_btt_skr_mini_e3.bin" 를 설치했다면 PA2핀을 low로 설정하여 진행할 수 있다. 이 핀은 SKR Mini E3의 핀 문서에 TFT 헤더상에 "TX0"라고 라벨이 붙어 있다. PA2 핀 옆에는 그라운드 핀이 있어 이걸 이용해 PA2 를 low 로 셋팅할 수 있다.
 
+### STM32F103/STM32F072 with MSC bootloader
+
+The [MSC bootloader](https://github.com/Telekatz/MSC-stm32f103-bootloader) is a driverless bootloader capable of flashing over USB.
+
+It is possible to flash the bootloader via 3.3v serial using stm32flash as noted in the stm32duino section above, substituting the file name for the desired MSC bootloader binary (ie: MSCboot-Bluepill.bin for the blue pill).
+
+For STM32F072 boards it is also possible to flash the bootloader over USB (via DFU) with something like:
+
+```
+ dfu-util -d 0483:df11 -a 0 -R -D  MSCboot-STM32F072.bin -s0x08000000:leave
+```
+
+This bootloader uses 8KiB or 16KiB of flash space, see description of the bootloader (the application must be compiled with with the corresponding starting address).
+
+The bootloader can be activated by pressing the reset button of the board twice. As soon as the bootloader is activated, the board appears as a USB flash drive onto which the klipper.bin file can be copied.
+
 ## STM32F4 마이크로 컨트롤러 (SKR Pro 1.1)
 
 STM32F4 microcontrollers come equipped with a built-in system bootloader capable of flashing over USB (via DFU), 3.3v Serial, and various other methods (see STM Document AN2606 for more information). Some STM32F4 boards, such as the SKR Pro 1.1, are not able to enter the DFU bootloader. The HID bootloader is available for STM32F405/407 based boards should the user prefer flashing over USB over using the sdcard. Note that you may need to configure and build a version specific to your board, a [build for the SKR Pro 1.1 is available here](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).

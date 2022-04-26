@@ -12,6 +12,8 @@ API sunucunun kontrol edilebilmesi için, klippy.py ana yazılımının `-a` par
 
 Bu komut ana yazılımın Unix Domain Soketi oluşturmasını sağlar. Kullanıcı sokete bağlanarak Klipper'e komutlar yollayabilir.
 
+See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.
+
 ## İstek Formatı
 
 Soketten alınan ve sokete yollanan mesajların ASCII 0x03 karakteriyle bitirilip JSON olarak kodlanması gerekmektedir. Örneğin:

@@ -12,6 +12,8 @@
 
 ‎Isso faz com que o software host crie um Soquete de domínio Unix, um cliente pode então abrir uma conexão nesse soquete e enviar comandos para ‎‎Klipper‎‎.‎
 
+See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.
+
 ## Request format
 
 Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:
