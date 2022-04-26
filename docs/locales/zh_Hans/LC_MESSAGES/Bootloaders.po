@@ -913,6 +913,49 @@ msgstr ""
 " Pro "
 "1.1的构建可以在这里找到](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest)。"
 
+#: docs/Bootloaders.md:block 105 (header)
+msgid "STM32F103/STM32F072 with MSC bootloader"
+msgstr ""
+
+#: docs/Bootloaders.md:block 106 (paragraph)
+msgid ""
+"The [MSC bootloader](https://github.com/Telekatz/MSC-stm32f103-bootloader) "
+"is a driverless bootloader capable of flashing over USB."
+msgstr ""
+
+#: docs/Bootloaders.md:block 107 (paragraph)
+msgid ""
+"It is possible to flash the bootloader via 3.3v serial using stm32flash as "
+"noted in the stm32duino section above, substituting the file name for the "
+"desired MSC bootloader binary (ie: MSCboot-Bluepill.bin for the blue pill)."
+msgstr ""
+
+#: docs/Bootloaders.md:block 108 (paragraph)
+msgid ""
+"For STM32F072 boards it is also possible to flash the bootloader over USB "
+"(via DFU) with something like:"
+msgstr ""
+
+#: docs/Bootloaders.md:block 109 (code)
+msgid ""
+" dfu-util -d 0483:df11 -a 0 -R -D  MSCboot-STM32F072.bin "
+"-s0x08000000:leave\n"
+msgstr ""
+
+#: docs/Bootloaders.md:block 110 (paragraph)
+msgid ""
+"This bootloader uses 8KiB or 16KiB of flash space, see description of the "
+"bootloader (the application must be compiled with with the corresponding "
+"starting address)."
+msgstr ""
+
+#: docs/Bootloaders.md:block 111 (paragraph)
+msgid ""
+"The bootloader can be activated by pressing the reset button of the board "
+"twice. As soon as the bootloader is activated, the board appears as a USB "
+"flash drive onto which the klipper.bin file can be copied."
+msgstr ""
+
 #~ msgid ""
 #~ "The [HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader) is a"
 #~ " compact, driverless bootloader capable of flashing over USB. Also available"
