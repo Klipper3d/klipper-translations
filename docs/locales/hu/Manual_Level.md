@@ -22,7 +22,7 @@ SAVE_CONFIG
 
 Előnyösebb, ha a Z végálláskapcsolót a Z tengelynek az ággyal ellentétes végére helyezzük. (Az ágytól távolabb történő kezdőpont keresés robusztusabb, mivel akkor általában mindig biztonságosan lehet a Z-t kezdőpontra állítani.) Ha azonban az ágy felé kell kezdőpontot felvenni, ajánlott a végálláskapcsolót úgy beállítani, hogy az kis távolságra (pl. 0,5 mm-re) az ágy fölött kapcsoljon. Majdnem minden végálláskapcsoló biztonságosan lenyomható egy kis távolsággal a kioldási ponton túl. Ha ez megtörtént, azt kell tapasztalni, hogy a `Z_ENDSTOP_CALIBRATE` parancs egy kis pozitív értéket (pl. .5mm) jelez a Z pozíció végálláshoz. A végállás érzékelése akkor, amikor az még bizonyos távolságra van az ágytól, csökkenti a véletlen ágyba ütközések kockázatát.
 
-Egyes nyomtatókon lehetőség van a fizikai végálláskapcsoló helyének kézi beállítására. Azonban ajánlott a Z végállás pozícionálását szoftveresen elvégezni a Klipperrel. Ha a végállás fizikai helyzete megfelelő helyen van, a további beállításokat a Z_ENDSTOP_CALIBRATE futtatásával vagy a Z position_endstop konfigurációs fájlban lévő Z position_endstop manuális frissítésével lehet elvégezni.
+Egyes nyomtatókon lehetőség van a fizikai végálláskapcsoló helyének kézi beállítására. Azonban ajánlott a Z végállás pozíciónálását szoftveresen elvégezni a Klipperrel. Ha a végállás fizikai helyzete megfelelő helyen van, a további beállításokat a Z_ENDSTOP_CALIBRATE futtatásával vagy a Z position_endstop konfigurációs fájlban lévő Z position_endstop manuális frissítésével lehet elvégezni.
 
 ## Ágyszintező csavarok beállítása
 
@@ -119,7 +119,7 @@ Ez azt jelenti, hogy:
 
 Vegye figyelembe, hogy a "percek" az "óra számlapjának perceire" utalnak. Így például 15 perc egy teljes fordulat negyedének felel meg.
 
-Ismételje meg a folyamatot többször, amíg egy jó vízszintes ágyat nem kap - általában akkor jó, ha minden beállítás 6 perc alatt van.
+Ismételje meg a folyamatot többször, amíg egy jó vízszintes ágyat nem kap. Általában akkor jó, ha minden beállítás 6 percnyi fordulat alatt van.
 
 Ha olyan szondát használ, amely a nyomtatófej oldalára van szerelve (azaz X vagy Y eltolással rendelkezik), akkor vegye figyelembe, hogy az ágy dőlésének beállítása érvényteleníti a korábbi, dőlésszögű ágyon végzett szintkalibrálást. Az ágy csavarjainak beállítása után mindenképpen futtassa le a [szonda kalibrálása](Probe_Calibrate.md) parancsot.
 

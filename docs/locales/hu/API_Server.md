@@ -26,7 +26,7 @@ A Klipper tartalmaz egy `scripts/whconsole.py` eszközt, amely képes a fenti ü
 ~/klipper/scripts/whconsole.py /tmp/klippy_uds
 ```
 
-Ez az eszköz képes beolvasni egy sor JSON parancsot az stdin-ből, elküldeni őket a Klippernek, és jelenteni az eredményeket. Az eszköz elvárja, hogy minden JSON parancs egyetlen sorban legyen, és a kérés elküldésekor automatikusan hozzáadja a 0x03 végrehajtót. (A Klipper API szervernek nincs újsor követelménye.)
+Ez az eszköz képes beolvasni egy sor JSON parancsot az stdin-ből, elküldeni őket a Klippernek, és jelenteni az eredményeket. Az eszköz elvárja, hogy minden JSON parancs egyetlen sorban legyen, és a kérés elküldésekor automatikusan hozzáadja a 0x03 végrehajtót. (A Klipper API szervernek nincs új sor követelménye.)
 
 ## API Protokoll
 
@@ -76,7 +76,7 @@ A Klipper "végpontok" a konvenció szerint a `<module_name>/<some_name>` formá
 
 ### infó
 
-Az "info" végpontot a Klipper rendszert és verzióinformációinak lekérdezésére használjuk. Arra is szolgál, hogy a kliens'verziót a Klipper számára megadja. Például: `{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}}`
+Az "info" végpontot a Klipper rendszert és verzióinformációinak lekérdezésére használjuk. Arra is szolgál, hogy a kliens verziót a Klipper számára megadja. Például: `{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}}`
 
 Ha jelen van a "client_info" paraméter egy szótárnak kell lennie, de a szótár tetszőleges tartalmú lehet. A felhasználóknak ajánlott megadniuk az ügyfél nevét és a szoftver verzióját, amikor először csatlakoznak a Klipper API kiszolgálóhoz.
 
@@ -146,7 +146,7 @@ A "gcode/script" végponthoz hasonlóan ez a végpont is csak a függőben lév�
 
 Ez a végpont a Klipper által generált G-kódos terminálüzenetekre való feliratkozásra szolgál. Például: `{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{}}}}` később olyan aszinkron üzeneteket eredményezhet, mint például: `{"params": {"response": "// Klipper state: Shutdown"}}`
 
-Ez a végpont az emberi interakciót hivatott támogatni egy "terminálablak" interfészen keresztül. A G-kód terminál kimenetéből származó tartalom elemzése nem javasolt. A Klipper'állapotának frissítéséhez használja az "objects/subscribe" végpontot.
+Ez a végpont az emberi interakciót hivatott támogatni egy "terminálablak" interfészen keresztül. A G-kód terminál kimenetéből származó tartalom elemzése nem javasolt. A Klipper állapotának frissítéséhez használja az "objects/subscribe" végpontot.
 
 ### motion_report/dump_stepper
 
@@ -158,7 +158,7 @@ A kezdeti lekérdezési válasz "header" mezője a későbbi "data" válaszokban
 
 ### motion_report/dump_trapq
 
-Ezt a végpontot a Klipper belső "trapézmozgás-várólistára" való feliratkozásra használják. Ezeknek az alacsony szintű mozgásfrissítéseknek a lekérése hasznos lehet diagnosztikai és hibakeresési célokra. Ennek a végpontnak a használata növelheti a Klipper rendszer terhelését.
+Ezt a végpontot a Klipper belső "trapézmozgás várólistára" való feliratkozásra használják. Ezeknek az alacsony szintű mozgásfrissítéseknek a lekérése hasznos lehet diagnosztikai és hibakeresési célokra. Ennek a végpontnak a használata növelheti a Klipper rendszer terhelését.
 
 Egy kérés így nézhet ki: `{"id": 123, "method": "motion_report/dump_trapq", "params": {"name": "toolhead", "response_template":{}}}` és esetleg visszatér: `{"id": 1, "result": {"header": ["time", "duration", "start_velocity", "acceleration", "start_position", "direction"]}}}` és később aszinkron üzeneteket produkálhat, mint például: `{"params": {"data": [[4.05, 1.0, 0.0, 0.0, 0.0, [300.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0]], [5.054, 0.001, 0.0, 3000.0, [300.0, 0.0, 0.0, 0.0], [-1.0, 0.0, 0.0, 0.0]]}}`
 

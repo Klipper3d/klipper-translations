@@ -2,7 +2,7 @@
 
 Ez a dokumentum a Klipperben található "automatikus z szonda" X, Y és Z eltolásának kalibrálási módszerét írja le. Ez azon felhasználók számára hasznos, akiknek van egy `[probe]` vagy `[bltouch]` szakasz a konfigurációs fájljukban.
 
-## A szonda X- és Y-eltolásának kalibrálása
+## A szonda X és Y eltolásának kalibrálása
 
 Az X és Y eltolás kalibrálásához navigáljon az OctoPrint "Control" fülre, állítsa be a nyomtatót, majd az OctoPrint léptető gombjaival mozgassa a fejet az ágy közepéhez közeli pozícióba.
 
@@ -50,7 +50,7 @@ Vegye figyelembe, hogy ha a nyomtató mozgásrendszerét, a nyomtatófej pozíci
 
 Ha a szonda X vagy Y eltolással rendelkezik, és az ágy dőlése megváltozik (pl. szintezőcsavarok beállításával, DELTA_CALIBRATE futtatásával, Z_TILT_ADJUST futtatásával, QUAD_GANTRY_LEVEL futtatásával vagy hasonlóval), akkor ez érvényteleníti a PROBE_CALIBRATE eredményeit. A fenti beállítások bármelyikének módosítása után újra kell kezdeni a PROBE_CALIBRATE futtatását.
 
-Ha a PROBE_CALIBRATE eredményei érvénytelenek, akkor a szondával kapott korábbi [ágyháló](Bed_Mesh.md) eredmények is érvénytelenek - a szonda újrakalibrálása után újra kell futtatni a BED_MESH_CALIBRATE programot.
+Ha a PROBE_CALIBRATE eredményei érvénytelenek, akkor a szondával kapott korábbi [ágyháló](Bed_Mesh.md) eredmények is érvénytelenek. A szonda újrakalibrálása után újra kell futtatni a BED_MESH_CALIBRATE programot.
 
 ## Ismételt mérési teszt
 
@@ -76,7 +76,7 @@ Recv: // probe accuracy results: maximum 2.519448, minimum 2.506948, range 0.012
 
 Ideális esetben az eszköz azonos maximális és minimális értéket mutat. (Vagyis ideális esetben a szonda mind a tíz mérésen azonos eredményt ad.) Azonban normális, hogy a minimális és maximális értékek egy Z "lépésköz" vagy akár 5 mikron (.005 mm) eltéréssel különböznek. A "lépésköz" `rotation_distance/(full_steps_per_rotation*microsteps)`. A minimális és a maximális érték közötti távolságot nevezzük tartománynak. Tehát a fenti példában, mivel a nyomtató 0,0125 Z-lépéstávolságot használ, a 0,01252500 tartományt tekintjük normálisnak.
 
-Ha a teszt eredménye 25 mikronnál (0,025 mm-nél) nagyobb tartományértéket mutat, akkor a szonda nem elég pontos a tipikus szintezési eljárásokhoz. Lehetséges a szonda sebességének és/vagy indulási magasságának hangolása a mérés ismételhetőségének javítása érdekében. A `PROBE_ACCURACY` parancs lehetővé teszi a tesztek futtatását különböző paraméterekkel, hogy lássa a hatásukat. További részletekért lásd a [G-Kódok dokumentumot](G-Codes.md#probe_accuracy). Ha a szonda általában egyforma eredményeket ad, de időnként előfordulnak kiugró értékek, akkor ezt úgy lehet kiküszöbölni, hogy minden egyes mérőponton több mérést hajtunk végre. Olvassa el a szonda `samples` konfigurációs paramétereinek leírását a [config hivatkozásban ](Config_Reference.md#probe) további részletekért.
+Ha a teszt eredménye 25 mikronnál (0,025 mm-nél) nagyobb tartományértéket mutat, akkor a szonda nem elég pontos a tipikus szintezési eljárásokhoz. Lehetséges a szonda sebességének és/vagy indulási magasságának hangolása a mérés ismételhetőségének javítása érdekében. A `PROBE_ACCURACY` parancs lehetővé teszi a tesztek futtatását különböző paraméterekkel, hogy lássa a hatásukat. További részletekért lásd a [G-kódok dokumentumot](G-Codes.md#probe_accuracy). Ha a szonda általában egyforma eredményeket ad, de időnként előfordulnak kiugró értékek, akkor ezt úgy lehet kiküszöbölni, hogy minden egyes mérőponton több mérést hajtunk végre. Olvassa el a szonda `samples` konfigurációs paramétereinek leírását a [config hivatkozásban ](Config_Reference.md#probe) további részletekért.
 
 Ha új mérési sebességre, mérésszámra vagy egyéb beállításokra van szükség, akkor frissítse a printer.cfg fájlt, és adjon ki egy `RESTART` parancsot. Ha igen, akkor érdemes újra [kalibrálni a z_offsetet](#calibrating-probe-z-offset). Ha nem kap ismétlődő eredményeket, akkor ne használja a szondát ágy szintezésére. A Klipper számos kézi mérőeszközzel rendelkezik, amelyek helyette használhatók - további részletekért lásd a [Ágy szintezése dokumentumot](Bed_Level.md).
 

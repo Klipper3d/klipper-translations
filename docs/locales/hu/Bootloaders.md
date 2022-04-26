@@ -240,7 +240,7 @@ A [HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader) egy kompak
 
 Az általános STM32F103 alaplapok, mint például a blue pill esetében a bootloader 3,3V-os soros égetése lehetséges az stm32flash használatával, amint azt a fenti stm32duino szakaszban említettük, a kívánt hid bootloader bináris fájlnevének behelyettesítésével (azaz: hid_generic_pc13.bin a blue pillhez).
 
-Az SKR Mini E3 esetében nem lehet stm32flash-t használni, mivel a boot0 pin közvetlenül a földre van kötve, és nincs alaplapi tűkiállása. A bootloader égetéséhez ajánlott STLink V2-t használni STM32Cube programozóval. Ha nincs vagy nem fér hozzá egy STLinkhez, akkor lehetséges egy [Raspberry Pi és OpenOCD](#running-openocd-on-the-raspberry-pi) használata is a következő chipkonfigurációval:
+Az SKR Mini E3 esetében nem lehet stm32flash-t használni, mivel a boot0 láb közvetlenül a földre van kötve, és nincs alaplapi tűkiállása. A bootloader égetéséhez ajánlott STLink V2-t használni STM32Cube programozóval. Ha nincs vagy nem fér hozzá egy STLinkhez, akkor lehetséges egy [Raspberry Pi és OpenOCD](#running-openocd-on-the-raspberry-pi) használata is a következő chipkonfigurációval:
 
 ```
 forrás [find target/stm32f1x.cfg]

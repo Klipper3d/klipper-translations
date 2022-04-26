@@ -8,11 +8,11 @@ Ez a szakasz ismerteti a Klipper mikrokontroller lépési sebességreferencia l�
 
 A referenciamutatók elsődleges célja, hogy következetes mechanizmust biztosítsanak a szoftveren belüli kódolási változtatások hatásának mérésére. Másodlagos cél, hogy magas szintű mérőszámokat biztosítson a chipek és a szoftverplatformok teljesítményének összehasonlításához.
 
-A lépésszám-összehasonlítás célja a hardver és a szoftver által elérhető maximális lépésszám meghatározása. Ez az összehasonlító lépési sebesség a mindennapi használat során nem érhető el, mivel a Klippernek más feladatokat is el kell látnia (pl. mcu/host kommunikáció, hőmérséklet-leolvasás, végállás-ellenőrzés) minden valós használat során.
+A lépésszám-összehasonlítás célja a hardver és a szoftver által elérhető maximális lépésszám meghatározása. Ez az összehasonlító lépési sebesség a mindennapi használat során nem érhető el, mivel a Klippernek más feladatokat is el kell látnia (pl. mcu/host kommunikáció, hőmérséklet leolvasás, végállás ellenőrzés) minden valós használat során.
 
-Általában a referencia-tesztekhez használt tűket úgy választják ki, hogy LED-eket vagy más ártalmatlan eszközöket működtessen. **A referencia futtatása előtt mindig ellenőrizze, hogy a konfigurált tűk meghajtása biztonságos-e. ** Nem ajánlott a tényleges léptetők használata a referencia során.
+Általában a referencia-tesztekhez használt tűket úgy választják ki, hogy LED-eket vagy más ártalmatlan eszközöket működtessen. **A referencia futtatása előtt mindig ellenőrizze, hogy a konfigurált tűk meghajtása biztonságos-e.** Nem ajánlott a tényleges léptetők használata a referencia során.
 
-### Léptetőarányos referenciaérték-teszt
+### Léptetőarányos referenciaérték teszt
 
 A teszt a console.py eszközzel történik (a <Debugging.md> című fejezetben leírtak szerint). A mikrokontrollert az adott hardverplatformhoz konfiguráljuk (lásd alább), majd a következőket vágjuk ki és illesszük be a console.py terminálablakba:
 
@@ -52,10 +52,10 @@ Az egylépcsős referenciaértékek eléréséhez ugyanazt a konfigurációs sor
 A [Jellemzők](Features.md) dokumentumban található referenciatesztek előállításához a másodpercenkénti lépések teljes számát úgy kell kiszámítani, hogy az aktív léptetők számát megszorozzuk a névleges MCU frekvenciával, és elosztjuk a végső "ticks" paraméterrel. Az eredményeket a legközelebbi K-ra kerekítjük. Például három aktív léptetővel:
 
 ```
-Az ECHO teszt eredménye: {"%.0fK" % (3. * freq / ticks / 1000.)}
+ECHO A teszt eredménye: {"%.0fK" % (3. * freq / ticks / 1000.)}
 ```
 
-A referenciaértékeket a TMC-vezérlők számára megfelelő paraméterekkel futtatjuk. Az olyan mikrovezérlők esetében, amelyek támogatják a `STEPPER_BOTH_EDGE=1` (amint azt az `MCU config` sorban a konzolnál console.py első indításakor) a `step_pulse_duration=0` és `invert_step=-1` használatával engedélyezzük az optimalizált lépést a lépésimpulzus mindkét élére. Más mikrovezérlők esetében használja a 100ns-nak megfelelő `step_pulse_duration` értéket.
+A referenciaértékeket a TMC vezérlők számára megfelelő paraméterekkel futtatjuk. Az olyan mikrovezérlők esetében, amelyek támogatják a `STEPPER_BOTH_EDGE=1` (amint azt az `MCU config` sorban a konzolnál console.py első indításakor) a `step_pulse_duration=0` és `invert_step=-1` használatával engedélyezzük az optimalizált lépést a lépésimpulzus mindkét élére. Más mikrovezérlők esetében használja a 100ns-nak megfelelő `step_pulse_duration` értéket.
 
 ### AVR lépési sebesség referenciaérték
 
@@ -95,7 +95,7 @@ A tesztet utoljára a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (
 | 1 léptető | 66 |
 | 3 léptető | 257 |
 
-### Duet Maestro lépésszám referenciaérték
+### Duet Maestro lépésszám referencia
 
 A Duet Maestro a következő konfigurációs sorrendet használja:
 
@@ -133,7 +133,7 @@ A tesztet utoljára a `59314d99` megbízási gcc verzióval `gcc 10.3.1 20210621
 | 1 léptető | 48 |
 | 3 léptető | 215 |
 
-### Beaglebone PRU lépésszám referenciaérték
+### Beaglebone PRU lépésszám referencia
 
 A PRU-n a következő konfigurációs sorrendet kell alkalmazni:
 
@@ -190,7 +190,7 @@ A tesztet utoljára a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (
 | 1 léptető | 61 |
 | 3 léptető | 264 |
 
-### STM32F4 lépésszám referenciaérték
+### STM32F4 lépésszám referencia
 
 Az STM32F4 esetében a következő konfigurációs sorrendet használjuk:
 
@@ -233,7 +233,7 @@ A tesztet utoljára a `247cd753` megbízási gcc verzióval `arm-none-eabi-gcc (
 | 1 léptető | 58 |
 | 3 léptető | 243 |
 
-### LPC176x lépésszám referenciaérték
+### LPC176x lépésszám referencia
 
 Az LPC176x esetében a következő konfigurációs sorrendet használjuk:
 
@@ -257,7 +257,7 @@ A tesztet utoljára a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (
 | 1 léptető | 51 |
 | 3 léptető | 222 |
 
-### SAMD21 lépési sebesség referenciaérték
+### SAMD21 lépési sebesség referencia
 
 A SAMD21 esetében a következő konfigurációs sorrendet kell alkalmazni:
 
@@ -276,7 +276,7 @@ A tesztet legutóbb a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (
 | 1 léptető | 70 |
 | 3 léptető | 306 |
 
-### SAMD51 lépési sebesség referenciaérték
+### SAMD51 lépési sebesség referencia
 
 A SAMD51 esetében a következő konfigurációs sorrendet kell alkalmazni:
 
@@ -297,7 +297,7 @@ A tesztet legutóbb a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (
 | 1 lépés (200Mhz) | 39 |
 | 3 lépés (200Mhz) | 181 |
 
-### RP2040 léptetési referenciaérték
+### RP2040 léptetési referencia
 
 Az RP2040 esetében a következő konfigurációs sorrendet kell alkalmazni:
 
@@ -316,7 +316,7 @@ A tesztet legutóbb a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (
 | 1 léptető | 5 |
 | 3 léptető | 22 |
 
-### Linux MCU lépésszám referenciaérték
+### Linux MCU lépésszám referencia
 
 A következő konfigurációs sorrendet egy Raspberry Pi esetében használjuk:
 
@@ -347,7 +347,7 @@ get_uptime
 
 A teszt befejezésekor határozza meg a két "üzemidő" válaszüzenetben jelentett órák közötti különbséget. A másodpercenkénti parancsok teljes száma ekkor `100000 * mcu_frequency / clock_diff`.
 
-Vegye figyelembe, hogy ez a teszt telítheti a Raspberry Pi USB/CPU kapacitását. Ha Raspberry Pi, Beaglebone vagy hasonló gazdagépen fut, akkor növelje a késleltetést (pl. `DELAY {clock + 20*freq} get_uptime`). Ahol alkalmazható, az alábbi referenciák a console.py futtatásával készültek egy asztali számítógépen, ahol az eszköz egy nagy sebességű hubon keresztül van csatlakoztatva.
+Vegye figyelembe, hogy ez a teszt telítheti a Raspberry Pi USB/CPU kapacitását. Ha Raspberry Pi, Beaglebone vagy hasonló gazdagépen fut, akkor növelje a késleltetést (pl. `DELAY {clock + 20*freq} get_uptime`). Ahol alkalmazható, az alábbi referenciák a console.py futtatásával készültek egy asztali számítógépen, ahol az eszköz egy nagy sebességű HUB-on keresztül van csatlakoztatva.
 
 | MCU | Arány | Gyári szám | Fordító program |
 | --- | --- | --- | --- |
@@ -356,7 +356,7 @@ Vegye figyelembe, hogy ez a teszt telítheti a Raspberry Pi USB/CPU kapacitásá
 | sam3x8e (serial) | 23K | b161a69e | arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0 |
 | at90usb1286 (USB) | 75K | 01d2183f | avr-gcc (GCC) 5.4.0 |
 | samd21 (USB) | 223K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
-| pru (megosztott memória) | 260K | c5968a08 | pru-gcc (GCC) 8.0.0 20170530 (experimental) |
+| pru (megosztott memória) | 260K | c5968a08 | pru-gcc (GCC) 8.0.0 20170530 (kísérleti) |
 | stm32f103 (USB) | 355K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | sam3x8e (USB) | 418K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | lpc1768 (USB) | 534K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |

@@ -1,12 +1,12 @@
-# Contributing to Klipper
+# Contribuire a Klipper
 
-Thank you for contributing to Klipper! This document describes the process for contributing changes to Klipper.
+Grazie per aver contribuito a Klipper! Questo documento descrive il processo per contribuire alle modifiche di Klipper.
 
-Please see the [contact page](Contact.md) for information on reporting an issue or for details on contacting the developers.
+Consulta la [pagina dei contatti] (Contact.md) per informazioni sulla segnalazione di un problema o per i dettagli su come contattare gli sviluppatori.
 
 ## Overview of Contribution Process
 
-Contributions to Klipper generally follow a high-level process:
+I contributi a Klipper seguono generalmente un processo di alto livello:
 
 1. A submitter starts by creating a [GitHub Pull Request](https://github.com/Klipper3d/klipper/pulls) when a submission is ready for widespread deployment.
 1. When a [reviewer](#reviewers) is available to [review](#what-to-expect-in-a-review) the submission, they will assign themselves to the Pull Request on GitHub. The goal of the review is to look for defects and to check that the submission follows documented guidelines.
@@ -134,19 +134,19 @@ Signed-off-by: My Name <myemail@example.org>
 
 In the above example, `module` should be the name of a file or directory in the repository (without a file extension). For example, `clocksync: Fix typo in pause() call at connect time`. The purpose of specifying a module name in the commit message is to help provide context for the commit comments.
 
-It is important to have a "Signed-off-by" line on each commit - it certifies that you agree to the [developer certificate of origin](developer-certificate-of-origin). It must contain your real name (sorry, no pseudonyms or anonymous contributions) and contain a current email address.
+È importante avere una riga "Signed-off-by" su ogni commit - certifica che accetti il [certificato di origine dello sviluppatore] (certificato di origine dello sviluppatore). Deve contenere il tuo vero nome (mi dispiace, niente pseudonimi o contributi anonimi) e contenere un indirizzo email corrente.
 
-## Contributing to Klipper Translations
+## Contribuire a Traduzioni Klipper
 
 [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) is a project dedicated to translating Klipper to different languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all the Gettext strings for translating and reviewing. Locales can be displayed on [klipper3d.org](https://www.klipper3d.org) once they satisfy the following requirements:
 
-- [ ] 75% Total coverage
+- [ ] 75% Copertura totale
 - [ ] All titles (H1) are translated
 - [ ] An updated navigation hierarchy PR in klipper-translations.
 
 To reduce the frustration of translating domain-specific terms and gain awareness of the ongoing translations, you can submit a PR modifying the [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md`. Once a translation is ready, the corresponding modification to the Klipper project can be made.
 
-If a translation already exists in the Klipper repository and no longer meets the checklist above, it will be marked out-of-date after a month without updates.
+Se una traduzione esiste già nel repository Klipper e non soddisfa più l'elenco di controllo di cui sopra, verrà contrassegnata come obsoleta dopo un mese senza aggiornamenti.
 
 Once the requirements are met, you need to:
 

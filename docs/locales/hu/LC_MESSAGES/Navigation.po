@@ -1,10 +1,10 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2022-03-16 08:53+0200\n"
-"PO-Revision-Date: 2022-04-12 12:42+0000\n"
+"PO-Revision-Date: 2022-04-19 12:23+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "navigation/hu/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Poedit 3.0.1\n"
 
 msgid "Klipper documentation"
 msgstr "Klipper dokumentáció"
@@ -22,16 +22,16 @@ msgid "Installation and Configuration"
 msgstr "Telepítés és Konfiguráció"
 
 msgid "Configuration Reference"
-msgstr "Konfigurációs hivatkozás"
+msgstr "Konfigurációs Hivatkozás"
 
 msgid "Bed Level"
 msgstr "Ágy szint"
 
 msgid "Resonance Compensation"
-msgstr "Rezonancia kompenzáció"
+msgstr "Rezonancia Kompenzáció"
 
 msgid "Command templates"
-msgstr "Parancs sablonok"
+msgstr "Parancssablonok"
 
 msgid "Developer Documentation"
 msgstr "Fejlesztői Dokumentáció"

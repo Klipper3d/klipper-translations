@@ -15,7 +15,7 @@
 - [Telepítés](Installation.md): Klipper telepítési útmutató.
 - [Konfigurációs hivatkozás](Config_Reference.md): A konfigurációs paraméterek leírása.
    - [Rotációs távolság](Rotation_Distance.md): A rotation_distance léptető paraméter kiszámítása.
-- [Konfigurációs ellenőrzések](Config_checks.md): Alapvető pin-beállítások ellenőrzése a konfigurációs fájlban.
+- [Konfigurációs ellenőrzések](Config_checks.md): Alapvető tűbeállítások ellenőrzése a konfigurációs fájlban.
 - [Ágyszintezés](Bed_Level.md): Információ az "ágyszintezésről" a Klipperben.
    - [Delta kalibrálás](Delta_Calibrate.md): A delta kinematika kalibrálása.
    - [Szonda kalibrálása](Probe_Calibrate.md): Automatikus Z-szondák kalibrálása.
@@ -26,8 +26,8 @@
 - [Rezonanciakompenzáció](Resonance_Compensation.md): Egy eszköz a nyomatok gyűrődésének (ringing) csökkentésére.
    - [Rezonanciák mérése](Measuring_Resonances.md): adxl345 gyorsulásmérő hardver használatával kapcsolatos információk a rezonancia méréséhez.
 - [Nyomás előtolás](Pressure_Advance.md): Az extruder nyomásának kalibrálása.
-- [G-Kódok](G-Codes.md): Információk a Klipper által támogatott parancsokról.
-- [Parancssablonok](Command_Templates.md): G-Kód makrók és feltételes kiértékelés.
+- [G-kódok](G-Codes.md): Információk a Klipper által támogatott parancsokról.
+- [Parancssablonok](Command_Templates.md): G-kód makrók és feltételes kiértékelés.
    - [Állapot referencia](Status_Reference.md): A makrók (és hasonlók) számára elérhető információk.
 - [TMC Meghajtók](TMC_Drivers.md): Trinamic léptetőmotor-meghajtók használata Klipperrel.
 - [Multi-MCU Kezdőpont](Multi_MCU_Homing.md): Kezdőpont felvétel és szintezés több mikrovezérlő használatával.

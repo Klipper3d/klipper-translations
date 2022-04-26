@@ -1,6 +1,6 @@
 # Protokoll
 
-A Klipper üzenetküldő protokoll a Klipper gazdagép szoftver és a Klipper mikrovezérlő szoftver közötti alacsony szintű kommunikációra szolgál. Magas szinten a protokoll felfogható parancs- és válaszkarakterláncok sorozatának, amelyeket tömörítenek, továbbítanak, majd feldolgoznak a fogadó oldalon. Egy példa parancssorozat tömörítetlen, ember által olvasható formátumban így nézhet ki:
+A Klipper üzenetküldő protokoll a Klipper gazdagép szoftver és a Klipper mikrovezérlő szoftver közötti alacsony szintű kommunikációra szolgál. Magas szinten a protokoll felfogható parancs és válaszkarakterláncok sorozatának, amelyeket tömörítenek, továbbítanak, majd feldolgoznak a fogadó oldalon. Egy példa parancssorozat tömörítetlen, ember által olvasható formátumban így nézhet ki:
 
 ```
 set_digital_out pin=PA3 value=1
@@ -10,9 +10,9 @@ queue_step oid=7 interval=7458 count=10 add=331
 queue_step oid=7 interval=11717 count=4 add=1281
 ```
 
-Az elérhető parancsokról az [mcu commands](MCU_Commands.md) dokumentumban olvashat bővebben. Tekintse meg a [debugging](Debugging.md) dokumentumot a G-kód fájl megfelelő, ember által olvasható mikrovezérlő parancsaira történő lefordításával kapcsolatban.
+Az elérhető parancsokról az [mcu parancsok](MCU_Commands.md) dokumentumban olvashat bővebben. Tekintse meg a [hibakeresés](Debugging.md) dokumentumot a G-kód fájl megfelelő, ember által olvasható mikrovezérlő parancsaira történő lefordításával kapcsolatban.
 
-Ez az oldal magának a Klipper üzenetküldő protokollnak a magas szintű leírását tartalmazza. Leírja az üzenetek deklarálását, bináris formátumú kódolását (a "tömörítési" séma) és továbbítását.
+Ez az oldal magának a Klipper üzenetküldő protokollnak a magas szintű leírását tartalmazza. Leírja az üzenetek deklarálását, bináris formátumú kódolását (a séma "tömörítését") és továbbítását.
 
 A protokoll célja, hogy hibamentes kommunikációs csatornát tegyen lehetővé a gazdagép és a mikrovezérlő között, amely alacsony késleltetésű, alacsony sávszélességű és alacsony bonyolultságú a mikrovezérlő számára.
 
@@ -28,9 +28,9 @@ A mikrokontroller szoftvere deklarál egy "parancsot" a DECL_COMMAND() makró ha
 DECL_COMMAND(command_update_digital_out, "update_digital_out oid=%c value=%c");
 ```
 
-A fenti egy "update_digital_out" nevű parancsot deklarál. Ez lehetővé teszi a gazdagép számára, hogy "meghívja" ezt a parancsot, ami a command_update_digital_out() C függvény végrehajtását eredményezi a mikrovezérlőben. A fentiek azt is jelzik, hogy a parancs két egész paramétert vesz fel. A command_update_digital_out() C kód végrehajtásakor egy tömb kerül átadásra, amely ezt a két egész számot tartalmazza – az első az „oid”-nak, a második az „értéknek” felel meg.
+A fenti egy "update_digital_out" nevű parancsot deklarál. Ez lehetővé teszi a gazdagép számára, hogy ezt a parancsot "invoke", ami a command_update_digital_out() C függvény végrehajtását eredményezi a mikrovezérlőben. A fentiek azt is jelzik, hogy a parancs két egész paramétert vesz fel. A command_update_digital_out() C kód végrehajtásakor egy tömb kerül átadásra, amely ezt a két egész számot tartalmazza. Az első az 'oid'-nak, a második a 'value'-nak felel meg.
 
-Általában a paraméterek leírása printf() stílusú szintaxissal történik (pl. "%u"). A formázás közvetlenül megfelel a parancsok ember által olvasható nézetének (pl. "update_digital_out oid=7 value=1"). A fenti példában az "value=" a paraméter neve, a "%c" pedig azt jelzi, hogy a paraméter egész szám. Belsőleg a paraméternév csak dokumentációként használatos. Ebben a példában a "%c" is használható dokumentációként, amely jelzi, hogy a várt egész szám 1 bájt méretű (a deklarált egész szám nem befolyásolja az elemzést vagy a kódolást).
+Általában a paraméterek leírása printf() stílusú szintaxissal történik (pl. "%u"). A formázás közvetlenül megfelel a parancsok ember által olvasható nézetének (pl. "update_digital_out oid=7 value=1"). A fenti példában a "value=" a paraméter neve, a "%c" pedig azt jelzi, hogy a paraméter egész szám. Belsőleg a paraméternév csak dokumentációként használatos. Ebben a példában a "%c" is használható dokumentációként, amely jelzi, hogy a várt egész szám 1 bájt méretű (a deklarált egész szám nem befolyásolja az elemzést vagy a kódolást).
 
 A mikrovezérlő szerkesztő összegyűjti a DECL_COMMAND()-al deklarált összes parancsot, meghatározza azok paramétereit, és gondoskodik a meghívásukról.
 
@@ -155,7 +155,7 @@ A mikrokontroller buildje a DECL_COMMAND() és sendf() makrók tartalmát haszn�
 
 A gazdagép lekérdezi az adatszótárat, amikor először csatlakozik a mikrokontrollerhez. Amint ez megtörtént az adatszótárat használja az összes parancs kódolására és a mikrokontroller összes válaszának elemzésére. A gazdagépnek tehát dinamikus adatszótárat kell kezelnie. A mikrokontroller szoftverének egyszerűségének megőrzése érdekében azonban a mikrokontroller mindig a statikus (befordított) adatszótárát használja.
 
-Az adatszótárat a mikrokontrollerhez küldött "identify" parancsok segítségével lehet lekérdezni. A mikrokontroller minden egyes identify parancsra egy "identify_response" üzenettel válaszol. Mivel erre a két parancsra az adatszótár lekérdezése előtt van szükség, az egész számok azonosítói és a paramétertípusok mind a mikrokontrollerben, mind a gazdagépben szorosan kódolva vannak. Az "identify_response" válasz azonosítója 0, az "identify" parancs azonosítója 1. A keményen kódolt azonosítókon kívül az identify parancs és válasz ugyanúgy kerül deklarálásra és továbbításra, mint a többi parancs és válasz. Egyetlen más parancs vagy válasz sincs szorosan kódolva.
+Az adatszótárat a mikrokontrollerhez küldött "azonosító" parancsok segítségével lehet lekérdezni. A mikrokontroller minden egyes azonosító parancsra egy "identify_response" üzenettel válaszol. Mivel erre a két parancsra az adatszótár lekérdezése előtt van szükség, az egész számok azonosítói és a paramétertípusok mind a mikrokontrollerben, mind a gazdagépben szorosan kódolva vannak. Az "identify_response" válasz azonosítója 0, az "azonosító" parancs azonosítója 1. A keményen kódolt azonosítókon kívül az azonosító parancs és válasz ugyanúgy kerül deklarálásra és továbbításra, mint a többi parancs és válasz. Egyetlen más parancs vagy válasz sincs szorosan kódolva.
 
 A továbbított adatszótár formátuma egy zlib tömörített JSON karakterlánc. A mikrokontroller építési folyamata létrehozza a karakterláncot, tömöríti, és a mikrokontroller flash-jének szöveges részében tárolja. Az adatszótár jóval nagyobb lehet, mint a maximális üzenetblokk mérete. A gazdagép úgy tölti le, hogy több azonosító parancsot küld, amelyek az adatszótár progresszív darabjait kérik. Ha az összes darabot megkapta, a gazdagép összeállítja a darabokat, kitömöríti az adatokat, és elemzi a tartalmukat.
 
@@ -169,6 +169,6 @@ Az alacsony szintű gazdagép kód egy automatikus újraküldési rendszert val�
 
 Az "ack" egy üres tartalmú (azaz 5 bájtos) üzenetblokk, amelynek sorszáma nagyobb, mint az utolsó fogadott gazdagép sorszáma. A "nak" egy üres tartalmú üzenetblokk, amelynek sorszáma kisebb, mint az utolsó fogadott gazdagép sorszáma.
 
-A protokoll megkönnyíti az "ablakos" átviteli rendszert, így a fogadó egyszerre több függőben lévő üzenetblokkkal rendelkezhet. (Ez azon a sok parancson kívül, amelyek egy adott üzenetblokkban jelen lehetnek.) Ez lehetővé teszi a sávszélesség maximális kihasználását még átviteli késedelem esetén is. Az időkorlátozás, az újraküldés, az ablakozás és az ack mechanizmus a [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) hasonló mechanizmusai alapján készült.
+A protokoll megkönnyíti az "ablakos" átviteli rendszert, így a fogadó egyszerre több függőben lévő üzenetblokkal rendelkezhet. (Ez azon a sok parancson kívül, amelyek egy adott üzenetblokkban jelen lehetnek.) Ez lehetővé teszi a sávszélesség maximális kihasználását még átviteli késedelem esetén is. Az időkorlátozás, az újraküldés, az ablakozás és az ack mechanizmus a [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) hasonló mechanizmusai alapján készült.
 
 A másik irányban a mikrokontrollerről a gazdagéphez küldött üzenetblokkokat úgy tervezték, hogy hibamentesek legyenek, de nincs biztosított átvitelük. (A válaszok nem lehetnek hibásak, de előfordulhat, hogy eltűnnek.) Ez azért történik, hogy a mikrokontrollerben egyszerű legyen a megvalósítás. Nincs automatikus újraküldési rendszer a válaszok számára. A magas szintű kódtól elvárható, hogy képes legyen kezelni az esetenként hiányzó válaszokat (általában a tartalom újrakérdezésével vagy a válaszküldés ismétlődő ütemezésének beállításával). Az állomásnak küldött üzenetblokkok sorszámmezője mindig eggyel nagyobb, mint az utolsó, az állomásról kapott üzenetblokkok sorszáma. Nem a válaszüzenetblokkok sorrendjének nyomon követésére szolgál.

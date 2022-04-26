@@ -1,6 +1,6 @@
 # Rezonanciák mérése
 
-A Klipper beépített támogatással rendelkezik az ADXL345 gyorsulásmérőhöz, amely a nyomtató rezonanciáinak mérésére használható a különböző tengelyek esetében, és automatikus hangolással [rezonancia kompenzáció](Resonance_Compensation.md) a rezonanciák kompenzálására. Vegye figyelembe, hogy az ADXL345 használata némi forrasztást és krimpelést igényel. Az ADXL345 közvetlenül csatlakoztatható egy Raspberry Pi-hez, vagy egy MCU-kártya SPI-interfészéhez (meglehetősen gyorsnak kell lennie).
+A Klipper beépített támogatással rendelkezik az ADXL345 gyorsulásmérőhöz, amely a nyomtató rezonanciáinak mérésére használható a különböző tengelyek esetében, és automatikus hangolással [rezonancia kompenzációval](Resonance_Compensation.md) a rezonanciák kompenzálására. Vegye figyelembe, hogy az ADXL345 használata némi forrasztást és krimpelést igényel. Az ADXL345 közvetlenül csatlakoztatható egy Raspberry Pi-hez, vagy egy MCU-kártya SPI-interfészéhez (meglehetősen gyorsnak kell lennie).
 
 Az ADXL345 beszerzésekor vegye figyelembe, hogy számos különböző NYÁK lapkakialakítás és különböző klónok léteznek. Győződjön meg róla, hogy a kártya támogatja az SPI módot (kis számú kártya úgy tűnik, hogy szorosan konfigurálva van az I2C-re az SDO GND-re húzásával), és ha 5V-os nyomtató MCU-hoz csatlakozik ellenőrizze,hogy rendelkezik feszültségszabályozóval és szintválasztóval.
 
@@ -33,7 +33,7 @@ Példa az ADXL345 SmartEffectorra történő felszerelésére:
 
 ![ADXL345 on SmartEffector](img/adxl345-mount.jpg)
 
-Vegye figyelembe, hogy egy ágycsúsztatós nyomtatónál 2 rögzítést kell tervezni: egyet a szerszámfejhez és egyet az ágyhoz, és a méréseket kétszer kell elvégezni. További részletekért lásd a megfelelő [szakasz](#bed-slinger-printers).
+Vegye figyelembe, hogy egy ágycsúsztatós nyomtatónál 2 rögzítést kell tervezni: egyet a szerszámfejhez és egyet az ágyhoz, és a méréseket kétszer kell elvégezni. További részletekért lásd a megfelelő [szakaszt](#bed-slinger-printers).
 
 **Figyelem:** győződjön meg arról, hogy a gyorsulásmérő és a helyére rögzítő csavarok nem érnek a nyomtató fém részeihez. Alapvetően a rögzítést úgy kell kialakítani, hogy biztosítsa a gyorsulásmérő elektromos szigetelését a nyomtató keretétől. Ennek elmulasztása földhurkot hozhat létre a rendszerben, ami károsíthatja az elektronikát.
 
@@ -133,7 +133,7 @@ Ez a szkript létrehozza a `/tmp/shaper_calibrate_x.png` és `/tmp/shaper_calibr
 ![Resonances](img/calibrate-y.png)
 
 ```
-illesztett alakító 'zv' frekvencia = 34,4 Hz (rezgések = 4,0%, simítás ~= 0,132)
+Illesztett alakító 'zv' frekvencia = 34,4 Hz (rezgések = 4,0%, simítás ~= 0,132)
 A túl nagy simítás elkerülése érdekében a 'zv', javasolt max_accel <= 4500 mm/sec^2
 Alkalmazott alakító 'mzv' frekvencia = 34,6 Hz (rezgések = 0,0%, simítás ~= 0,170)
 A túl nagy simítás elkerülése érdekében az 'mzv' esetében javasolt max_accel <= 3500 mm/sec^2
@@ -171,12 +171,12 @@ Azonban két gyorsulásmérőt is csatlakoztathatsz egyszerre, bár ezeket kül�
 
 ```
 [adxl345 hotend]
-# Feltételezve, hogy a `hotend` chip egy RPihez van csatlakoztatva.
+# Feltételezve, hogy a `hotend` chip egy RPi-hez van csatlakoztatva.
 cs_pin: rpi:None
 
 [adxl345 bed]
 # Feltételezve, hogy a `bed` chip egy nyomtató MCU lapkához van csatlakoztatva.
-cs_pin: ...  # nyomtató alaplap SPI chip select (CS) pinje
+cs_pin: ...  # nyomtató alaplap SPI chip kiválasztó (CS) tűje
 
 [resonance_tester]
 # Feltételezve az Y ágyas nyomtató tipikus beállítását.
@@ -196,7 +196,7 @@ Nézzük meg az automatikus hangolás következő eredményeit:
 ![Resonances](img/calibrate-x.png)
 
 ```
-illesztett alakító 'zv' frekvencia = 57,8 Hz (rezgések = 20,3%, simítás ~= 0,053)
+Illesztett alakító 'zv' frekvencia = 57,8 Hz (rezgések = 20,3%, simítás ~= 0,053)
 A túl nagy simítás elkerülése érdekében a 'zv', javasolt max_accel <= 13000 mm/sec^2
 Alkalmazott alakító 'mzv' frekvencia = 34,8 Hz (rezgések = 3,6%, simítás ~= 0,168)
 A túl nagy simítás elkerülése érdekében az 'mzv' esetében javasolt max_accel <= 3600 mm/sec^2
@@ -222,7 +222,7 @@ amely a simítást 0,2 pontszámra korlátozza. Most a következő eredményt ka
 ![Resonances](img/calibrate-x-max-smoothing.png)
 
 ```
-illesztett alakító 'zv' frekvencia = 55,4 Hz (rezgések = 19,7%, simítás ~= 0,057)
+Illesztett alakító 'zv' frekvencia = 55,4 Hz (rezgések = 19,7%, simítás ~= 0,057)
 A túl nagy simítás elkerülése érdekében a 'zv', javasolt max_accel <= 12000 mm/sec^2
 Alkalmazott alakító 'mzv' frekvencia = 34,6 Hz (rezgések = 3,6%, simítás ~= 0,170)
 A túl nagy simítás elkerülése érdekében az 'mzv' esetében javasolt max_accel <= 3500 mm/sec^2
@@ -239,7 +239,7 @@ Ha összehasonlítjuk a korábban javasolt paraméterekkel, a rezgések kicsit n
 
 A `max_smoothing` paraméter kiválasztásakor a próbálgatás és a tévedés módszerét alkalmazhatjuk. Próbáljon ki néhány különböző értéket, és nézze meg, milyen eredményeket kap. Vegye figyelembe, hogy a bemeneti alakító által előállított tényleges simítás elsősorban a nyomtató legalacsonyabb rezonanciafrekvenciájától függ: minél magasabb a legalacsonyabb rezonancia frekvenciája - annál kisebb a simítás. Ezért ha azt kéri a parancsfájltól, hogy a bemeneti alakító olyan konfigurációját keresse meg, amely irreálisan kis simítással rendelkezik, akkor ez a legalacsonyabb rezonanciafrekvenciákon (amelyek jellemzően a nyomatokon is jobban láthatóak) megnövekedett rezgés árán fog történni. Ezért mindig ellenőrizze kétszeresen a szkript által jelzett vetített maradó rezgéseket, és győződjön meg róla, hogy azok nem túl magasak.
 
-Ha mindkét tengelyhez jó `max_smoothing` értéket választott, akkor azt a `printer.cfg` állományban tárolhatja a következő módon:
+Ha mindkét tengelyhez jó `max_smoothing` értéket választott, akkor azt a `printer.cfg` állományban tárolhatja a következő módon
 
 ```
 [resonance_tester]
@@ -256,7 +256,7 @@ Mivel a bemeneti alakító némi simítást okozhat az elemekben, különösen n
 
 Alternatívaként kövesse [ezt](Resonance_Compensation.md#selecting-max_accel) a részt a bemeneti alakító hangolási útmutatójában, és nyomtassa ki a tesztmodellt a `max_accel` paraméter kísérleti kiválasztásához.
 
-Ugyanez a figyelmeztetés vonatkozik a bemeneti alakító [auto-kalibrálás](#input-shaper-auto-calibration) `SHAPER_CALIBRATE` paranccsal történő használatára is: az auto-kalibrálás után továbbra is szükséges a megfelelő `max_accel` érték kiválasztása, és a javasolt gyorsulási korlátok nem lesznek automatikusan alkalmazva.
+Ugyanez a figyelmeztetés vonatkozik a bemeneti alakító [automatikus kalibrálás](#input-shaper-auto-calibration) `SHAPER_CALIBRATE` paranccsal történő használatára is: az automatikus kalibrálás után továbbra is szükséges a megfelelő `max_accel` érték kiválasztása, és a javasolt gyorsulási korlátok nem lesznek automatikusan alkalmazva.
 
 Ha a formázó újrakalibrálását végzi, és a javasolt formázó konfigurációhoz tartozó simítás majdnem megegyezik az előző kalibrálás során kapott értékkel, ez a lépés kihagyható.
 
@@ -340,7 +340,7 @@ Ha azonban egyszerre két gyorsulásmérőt csatlakoztatott, egyszerűen futtass
 SHAPER_CALIBRATE AXIS=X
 ```
 
-**Figyelmeztetés!** Nem tanácsos a formázógép automatikus kalibrációját nagyon gyakran futtatni (pl. minden nyomtatás előtt vagy minden nap). A rezonanciafrekvenciák meghatározása érdekében az autokalibrálás intenzív rezgéseket hoz létre az egyes tengelyeken. A 3D nyomtatókat általában nem úgy tervezték, hogy a rezonanciafrekvenciákhoz közeli rezgéseknek tartósan ellenálljanak. Ez növelheti a nyomtató alkatrészeinek kopását és csökkentheti élettartamukat. Megnő a kockázata annak is, hogy egyes alkatrészek kicsavarodnak vagy meglazulnak. Minden egyes automatikus hangolás után mindig ellenőrizze, hogy a nyomtató minden alkatrésze (beleértve azokat is, amelyek normál esetben nem mozoghatnak) biztonságosan a helyén van-e rögzítve.
+**Figyelmeztetés!** Nem tanácsos a gépen az automatikus kalibrációt nagyon gyakran futtatni (pl. minden nyomtatás előtt vagy minden nap). A rezonanciafrekvenciák meghatározása érdekében az automatikus kalibrálás intenzív rezgéseket hoz létre az egyes tengelyeken. A 3D nyomtatókat általában nem úgy tervezték, hogy a rezonanciafrekvenciákhoz közeli rezgéseknek tartósan ellenálljanak. Ez növelheti a nyomtató alkatrészeinek kopását és csökkentheti élettartamukat. Megnő a kockázata annak is, hogy egyes alkatrészek kicsavarodnak vagy meglazulnak. Minden egyes automatikus hangolás után mindig ellenőrizze, hogy a nyomtató minden alkatrésze (beleértve azokat is, amelyek normál esetben nem mozoghatnak) biztonságosan a helyén van-e rögzítve.
 
 Továbbá a mérések zajossága miatt lehetséges, hogy a hangolási eredmények kissé eltérnek az egyes kalibrálási folyamatok között. Ennek ellenére nem várható, hogy a zaj túlságosan befolyásolja a nyomtatási minőséget. Mindazonáltal továbbra is tanácsos kétszer is ellenőrizni a javasolt paramétereket, és használat előtt nyomtatni néhány próbanyomatot, hogy megbizonyosodjon arról, hogy azok megfelelőek.
 

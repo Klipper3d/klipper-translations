@@ -4,7 +4,7 @@ Ez a dokumentum a Trinamic léptetőmotor-meghajtók SPI/UART üzemmódban tört
 
 A Klipper a Trinamic motorvezérlőket is tudja használni "standalone módban". Ha azonban a motorvezérlők ebben az üzemmódban vannak, nincs szükség speciális Klipper konfigurációra, és az ebben a dokumentumban tárgyalt fejlett Klipper funkciók nem állnak rendelkezésre.
 
-Ezen a dokumentumon kívül feltétlenül tekintse át a [TMC motorvezérlő-konfigurációs hivatkozást](Config_Reference.md#tmc-stepper-driver-configuration).
+Ezen a dokumentumon kívül feltétlenül tekintse át a [TMC motorvezérlő konfigurációs hivatkozást](Config_Reference.md#tmc-stepper-driver-configuration).
 
 ## Motoráram hangolása
 
@@ -20,7 +20,7 @@ A legtöbb léptetőmotornak a normál nyomtatás során nem jelent jelentős el
 
 Ha csökkenteni szeretné a motorok áramát a nyomtatási indítási rutinok során, akkor fontolja meg a [SET_TMC_CURRENT](G-Codes.md#set_tmc_current) parancsok kiadását egy [START_PRINT makróban](Slicers.md#klipper-gcode_macro), hogy beállítsa az áramot a normál nyomtatási mozgások előtt és után.
 
-Néhány olyan, dedikált Z-motorral rendelkező nyomtató, amely a normál nyomtatási műveletek során (nincs bed_mesh, nincs bed_tilt, nincs Z skew_correction, nincs "vase mode" nyomtatás stb.) üresjáratban van, azt tapasztalhatja, hogy a Z-motorok hűvösebbek a `hold_current` beállítással. Ha ezt használja, akkor mindenképpen vegye figyelembe ezt a fajta parancs nélküli Z tengelymozgást ágykiegyenlítés, ágyszintezés, szondakalibrálás és hasonlók során. A `driver_TPOWERDOWN` és `driver_IHOLDDELAY` értékeket is ennek megfelelően kell kalibrálni. Ha bizonytalan, inkább ne adja meg a `hold_current` értéket.
+Néhány olyan, dedikált Z-motorral rendelkező nyomtató, amely a normál nyomtatási műveletek során (nincs bed_mesh, nincs bed_tilt, nincs Z skew_correction, nincs "vase mode" nyomtatás stb.) üresjáratban van, azt tapasztalhatja, hogy a Z motorok hűvösebbek a `hold_current` beállítással. Ha ezt használja, akkor mindenképpen vegye figyelembe ezt a fajta parancs nélküli Z tengelymozgást ágykiegyenlítés, ágyszintezés, szondakalibrálás és hasonlók során. A `driver_TPOWERDOWN` és `driver_IHOLDDELAY` értékeket is ennek megfelelően kell kalibrálni. Ha bizonytalan, inkább ne adja meg a `hold_current` értéket.
 
 ## "SpreadCycle" vs "StealthChop" mód beállítása
 
@@ -28,7 +28,7 @@ Alapértelmezés szerint a Klipper a TMC motorvezérlőket "SpreadCycle" üzemm�
 
 Általában a SpreadCycle üzemmód nagyobb nyomatékot és nagyobb helymeghatározási pontosságot biztosít, mint a StealthChop üzemmód. A StealthChop üzemmód azonban néhány nyomtatónál lényegesen kisebb hallható zajjal járhat.
 
-Az üzemmódok összehasonlító tesztjei azt mutatták, hogy a StealthChop üzemmód használata esetén a "pozíciós késés" az állandó sebességű mozgások során a teljes lépés 75%-ával nőtt (például egy 40 mm-es forgási távolsággal és 200 lépés/fordulatszámmal rendelkező nyomtatónál az állandó sebességű mozgások pozícióeltérése ~0,150 mm-rel nőtt). Ez a "késedelem a kért pozíció elérésében" azonban nem biztos, hogy jelentős nyomtatási hibaként jelentkezik, és lehet, hogy jobban tetszik a StealthChop mód csendesebb működése.
+Az üzemmódok összehasonlító tesztjei azt mutatták, hogy a StealthChop üzemmód használata esetén a "pozíciós késés" az állandó sebességű mozgások során a teljes lépés 75%-al nőtt (például egy 40 mm-es forgási távolsággal és 200 lépés/fordulatszámmal rendelkező nyomtatónál az állandó sebességű mozgások pozícióeltérése ~0,150 mm-rel nőtt). Ez a "késedelem a kért pozíció elérésében" azonban nem biztos, hogy jelentős nyomtatási hibaként jelentkezik, és lehet, hogy jobban tetszik a StealthChop mód csendesebb működése.
 
 Javasoljuk, hogy mindig a "SpreadCycle" módot használja (nem megadva a `stealthchop_threshold` értéket) vagy mindig a "StealthChop" módot (a `stealthchop_threshold` 999999-re állítva). Sajnos a meghajtók gyakran rossz és zavaros eredményeket produkálnak, ha a mód változik, miközben a motor nem álló állapotban van.
 
@@ -44,7 +44,7 @@ Ha a StealthChop módot használja, akkor az interpolációból eredő helyzeti 
 
 Az érzékelő nélküli kezdőpont felvétel lehetővé teszi a tengely kezdőpont felvételét fizikai végálláskapcsoló nélkül. Ehelyett a tengelyen lévő kocsit a mechanikus végállásba mozgatja, így a léptetőmotor lépéseket veszít. A léptető meghajtó érzékeli az elveszett lépéseket, és ezt egy tű csatlakozáson jelzi a vezérlő MCU-nak (Klipper). Ezt az információt a Klipper a tengely végállásaként használhatja.
 
-Ez az útmutató az érzékelő nélküli kezdőpont fevétel beállítását mutatja be a (cartesian) nyomtató X tengelyére. Ez azonban ugyanígy működik az összes többi tengely esetében is (amelyek végállást igényelnek). Egyszerre csak egy tengelyre kell beállítani és hangolni.
+Ez az útmutató az érzékelő nélküli kezdőpont felvétel beállítását mutatja be a (cartesian) nyomtató X tengelyére. Ez azonban ugyanígy működik az összes többi tengely esetében is (amelyek végállást igényelnek). Egyszerre csak egy tengelyre kell beállítani és hangolni.
 
 ### Korlátozások
 
@@ -152,13 +152,13 @@ A TMC2130, TMC5160 és a TMC2660 modellekhez:
 SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 ```
 
-Ezután adjon ki egy `G28 X0` parancsot, és ellenőrizze, hogy a tengely egyáltalán nem mozog. Ha a tengely mozog, akkor adjon ki egy `M112` parancsot a nyomtató leállításához. Valami nem stimmel a diag/sg_tst pin kábelezésével vagy konfigurációjával, ezt a folytatás előtt ki kell javítani.
+Ezután adjon ki egy `G28 X0` parancsot, és ellenőrizze, hogy a tengely egyáltalán nem mozog. Ha a tengely mozog, akkor adjon ki egy `M112` parancsot a nyomtató leállításához. Valami nem stimmel a diag/sg_tst tű kábelezésével vagy konfigurációjával, ezt a folytatás előtt ki kell javítani.
 
 Ezután folyamatosan csökkentse a `VALUE` beállítás érzékenységét, és futtassa le újra a `SET_TMC_FIELD` `G28 X0` parancsokat, hogy megtalálja a legnagyobb érzékenységet, amely a kocsi sikeres mozgását eredményezi a végállásig és a megállásig. (A TMC2209 motorvezérlők esetében ez az SGTHRS csökkentése, más vezérlők esetében az sgt növelése lesz.) Ügyeljen arra, hogy minden kísérletet úgy kezdjen, hogy a kocsi a sín közepéhez közel legyen (ha szükséges, adjon ki egy `M84` parancsot, majd kézzel mozgassa a kocsit középállásba). Meg kell találni a legnagyobb érzékenységet, amely megbízhatóan jelzi a végállást (a nagyobb érzékenységű beállítások kicsi vagy semmilyen mozgást nem eredményeznek). Jegyezze fel a kapott értéket *maximum_sensitivity* néven. (Ha a lehető legkisebb érzékenységet (SGTHRS=0 vagy sgt=63) kapjuk a kocsi elmozdulása nélkül, akkor valami nincs rendben a diag/sg_tst tűk bekötésével vagy konfigurációjával, és a folytatás előtt ki kell javítani.)
 
 A maximum_sensitivity keresésekor kényelmes lehet a különböző VALUE beállításokra ugrani (a VALUE paraméter kettéosztása érdekében). Ha ezt tesszük, akkor készüljünk fel arra, hogy a nyomtató leállításához adjunk ki egy `M112` parancsot, mivel egy nagyon alacsony érzékenységű beállítás miatt a tengely többször "beleütközhet" a sín végébe.
 
-Ügyeljen arra, hogy várjon néhány másodpercet minden egyes végállási kísérlet között. Miután a TMC-motorvezérlő érzékeli az elakadást, eltarthat egy kis ideig, amíg a belső visszajelzője törlődik, és képes lesz egy újabb megállást érzékelni.
+Ügyeljen arra, hogy várjon néhány másodpercet minden egyes végállási kísérlet között. Miután a TMC motorvezérlő érzékeli az elakadást, eltarthat egy kis ideig, amíg a belső visszajelzője törlődik, és képes lesz egy újabb megállást érzékelni.
 
 Ha a hangolási tesztek során a `G28 X0` parancs nem mozdul el egészen a tengelyhatárig, akkor óvatosan kell eljárni a szabályos mozgatási parancsok kiadásával (pl. `G1`). A Klipper nem fogja helyesen értelmezni a kocsi helyzetét, és a mozgatási parancs nemkívánatos és zavaros eredményeket okozhat.
 
@@ -172,7 +172,7 @@ A következő lépés az, hogy a kocsit ismét a sín közepére mozgatjuk, csö
 
 A *maximum_sensitivity* és *minimum_sensitivity* megállapítása után számológép segítségével kapjuk meg az ajánlott érzékenységet a *minimum_sensitivity + (maximum_sensitivity - minimum_sensitivity)/3* képlettel. Az ajánlott érzékenységnek a minimális és maximális értékek közötti tartományban kell lennie, de valamivel közelebb a minimális értékhez. A végső értéket kerekítse a legközelebbi egész értékre.
 
-A TMC2209 esetében ezt a konfigurációban a `driver_SGTHRS`, más TMC-motorvezérlők esetében a `driver_SGT` értékkel kell beállítani.
+A TMC2209 esetében ezt a konfigurációban a `driver_SGTHRS`, más TMC motorvezérlők esetében a `driver_SGT` értékkel kell beállítani.
 
 Ha a *maximum_sensitivity* és *minimum_sensitivity* közötti tartomány kicsi (pl. 5-nél kisebb), akkor ez instabil kezdőpont felvételt eredményezhet. A gyorsabb kezdőpont felvételi sebesség növelheti a hatótávolságot és stabilabbá teheti a működést.
 
@@ -235,13 +235,13 @@ Ezenkívül szinte minden mező módosítható használat közben a [SET_TMC_FIE
 
 E mezők mindegyikét az egyes meghajtók Trinamic adatlapja határozza meg. Ezek az adatlapok megtalálhatók a [Trinamic weboldalán](https://www.trinamic.com/).
 
-Vegye figyelembe, hogy a Trinamic adatlapok néha olyan megfogalmazást használnak, amely összetéveszthet egy magas szintű beállítást (például "hiszterézis vége") egy alacsony szintű mezőértékkel (pl. "HEND"). A Klipperben a `driver_XXX` és a SET_TMC_FIELD mindig azt az alacsony szintű mezőértéket állítja be, amely ténylegesen a meghajtóba íródik. Így például, ha a Trinamic adatlapja szerint 3 értéket kell írni a HEND mezőbe, hogy a "hiszterézis vége" 0 legyen, akkor a `driver_HEND=3` beállításával a 0 magas szintű értéket kapjuk.
+Vegye figyelembe, hogy a Trinamic adatlapok néha olyan megfogalmazást használnak, amely összetéveszthet egy magas szintű beállítást (például "hysteresis end") egy alacsony szintű mezőértékkel (pl. "HEND"). A Klipperben a `driver_XXX` és a SET_TMC_FIELD mindig azt az alacsony szintű mezőértéket állítja be, amely ténylegesen a meghajtóba íródik. Így például, ha a Trinamic adatlapja szerint 3 értéket kell írni a HEND mezőbe, hogy a "hiszterézis vége" 0 legyen, akkor a `driver_HEND=3` beállításával a 0 magas szintű értéket kapjuk.
 
 ## Gyakori kérdések
 
 ### Használhatom a StealthChop üzemmódot nyomásszabályozással rendelkező extruderen?
 
-Sokan sikeresen használják a "StealthChop" üzemmódot a Klipper nyomásszabályozással. A Klipper [smooth pressure advance](Kinematics.md#pressure-advance), amely nem vezet be pillanatnyi sebesség változást.
+Sokan sikeresen használják a "StealthChop" üzemmódot a Klipper nyomásszabályozással. A Klipper [simított nyomásszabályozása](Kinematics.md#pressure-advance), amely nem vezet be pillanatnyi sebesség változást.
 
 A "StealthChop" üzemmód azonban alacsonyabb motornyomatékot és/vagy nagyobb motorhőt eredményezhet. Lehet, hogy ez az üzemmód megfelelő az Ön adott nyomtatója számára, de az is lehet, hogy nem.
 
@@ -253,7 +253,7 @@ Győződjön meg róla, hogy a motor tápellátása engedélyezve van, mivel a l
 
 Ha ez a hiba a Klipper első égetése után jelentkezik, akkor a léptető meghajtó korábban olyan állapotba programozódott, amely nem kompatibilis a Klipperrel. Az állapot visszaállításához néhány másodpercre távolítsa el a nyomtatót az áramellátástól (fizikailag húzza ki az USB-t és a hálózati csatlakozót).
 
-Ellenkező esetben ez a hiba általában az UART-tű helytelen vezetékezésének vagy az UART-tűbeállítások helytelen Klipper konfigurációjának eredménye.
+Ellenkező esetben ez a hiba általában az UART tű helytelen vezetékezésének vagy az UART tűbeállítások helytelen Klipper konfigurációjának eredménye.
 
 ### Folyamatosan kap "Nem lehet írni tmc spi "stepper_x" register ..." hibát?
 
@@ -261,19 +261,19 @@ Ez akkor fordul elő, ha a Klipper nem tud kommunikálni egy TMC2208 vagy TMC220
 
 Győződjön meg róla, hogy a motor tápellátása engedélyezve van, mivel a léptetőmotor-meghajtónak általában motoráramra van szüksége, mielőtt kommunikálni tudna a mikrokontrollerrel.
 
-Ellenkező esetben ez a hiba általában a helytelen SPI-vezetékezés, az SPI-beállítások helytelen Klipper-konfigurációja vagy az SPI-buszon lévő eszközök hiányos konfigurációjának eredménye.
+Ellenkező esetben ez a hiba általában a helytelen SPI vezetékezés, az SPI beállítások helytelen Klipper-konfigurációja vagy az SPI buszon lévő eszközök hiányos konfigurációjának eredménye.
 
-Ne feledje, hogy ha a motorvezérlő egy megosztott SPI-buszon van több eszközzel, akkor győződjön meg róla, hogy teljes mértékben konfigurálja a Klipperben lévő megosztott SPI-busz minden eszközét. Ha egy megosztott SPI-buszon lévő eszköz nincs konfigurálva, akkor előfordulhat, hogy helytelenül reagál a nem erre szánt parancsokra, és meghiúsul a kívánt eszközzel folytatott kommunikáció. Ha van olyan eszköz egy megosztott SPI-buszon, amelyet nem lehet konfigurálni a Klipperben, akkor a [static_digital_output konfigurációs szakasz](Config_Reference.md#static_digital_output) segítségével állítsa magasra a nem használt eszköz CS-pinjét (hogy ne kísérelje meg használni az SPI-buszt). A tábla vázlata gyakran hasznos referencia annak megállapításához, hogy mely eszközök vannak egy SPI-buszon és a hozzájuk tartozó tűkön.
+Ne feledje, hogy ha a motorvezérlő egy megosztott SPI buszon van több eszközzel, akkor győződjön meg róla, hogy teljes mértékben konfigurálja a Klipperben lévő megosztott SPI busz minden eszközét. Ha egy megosztott SPI buszon lévő eszköz nincs konfigurálva, akkor előfordulhat, hogy helytelenül reagál a nem erre szánt parancsokra, és meghiúsul a kívánt eszközzel folytatott kommunikáció. Ha van olyan eszköz egy megosztott SPI buszon, amelyet nem lehet konfigurálni a Klipperben, akkor a [static_digital_output konfigurációs szakasz](Config_Reference.md#static_digital_output) segítségével állítsa magasra a nem használt eszköz CS tűjét (hogy ne kísérelje meg használni az SPI buszt). A tábla vázlata gyakran hasznos referencia annak megállapításához, hogy mely eszközök vannak egy SPI buszon és a hozzájuk tartozó tűkön.
 
 ### Miért kaptam egy "TMC jelentés hiba: ..." hibaüzenetet?
 
-Az ilyen típusú hiba azt jelzi, hogy a TMC-motorvezérlő hibát észlelt, és letiltotta magát. Vagyis a meghajtó abbahagyta a pozícióját, és figyelmen kívül hagyta a mozgási parancsokat. Ha a Klipper azt észleli, hogy egy aktív motorvezérlő letiltotta magát, a nyomtatót "leállítás" állapotba állítja.
+Az ilyen típusú hiba azt jelzi, hogy a TMC motorvezérlő hibát észlelt, és letiltotta magát. Vagyis a meghajtó abbahagyta a pozícióját, és figyelmen kívül hagyta a mozgási parancsokat. Ha a Klipper azt észleli, hogy egy aktív motorvezérlő letiltotta magát, a nyomtatót "leállítás" állapotba állítja.
 
 Az is lehetséges, hogy a **TMC hiba** leállítása SPI hibák miatt következik be, amelyek megakadályozzák a motorvezérlőkkel való kommunikációt (TMC2130, TMC5160 vagy TMC2660). Ebben az esetben gyakori, hogy a jelentett motorvezérlő állapota `000000000` vagy `ffffffffff` - például: `TMC hibát jelent: DRV_STATUS: ffffffff ... ` VAGY `TMC jelentések hiba: READRSP@RDSEL2: 00000000 ... `. Az ilyen hiba oka lehet egy SPI vezetékezési probléma, vagy lehet a visszaállítás, vagy a TMC motorvezérlő.
 
 Néhány gyakori hiba és tipp a diagnosztizáláshoz:
 
-#### TMC reports error: `... ot=1(OvertempError!)`
+#### TMC hibát jelent: `... ot=1(OvertempError!)`
 
 Ez azt jelzi, hogy a motorvezérlő kikapcsolta magát, mert túlmelegedett. A tipikus megoldások a léptetőmotor áramának csökkentése, a motorvezérlő és/vagy a léptetőmotor hűtése.
 
@@ -287,7 +287,7 @@ Ez a hiba akkor is előfordulhat, ha StealthChop üzemmódot használ, és a TMC
 
 Ez azt jelzi, hogy a motorvezérlő a nyomtatás közepén visszaállította magát. Ennek oka lehet feszültség vagy vezetékezési probléma.
 
-#### A TMC hibát jelent: `... uv_cp=1(Undervoltage!)`...
+#### A TMC hibát jelent: `... uv_cp=1(Undervoltage!)`
 
 Ez azt jelzi, hogy a motorvezérlő alacsony feszültséget észlelt, és letiltotta magát. Ennek oka lehet vezetékezési vagy tápellátási probléma.
 

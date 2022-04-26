@@ -1,6 +1,6 @@
 # Parancssablonok
 
-Ez a dokumentum a G-Kód parancssorozatok gcode_macro (és hasonló) konfigurációs szakaszokban történő implementálásáról nyújt információt.
+Ez a dokumentum a G-kód parancssorozatok gcode_macro (és hasonló) konfigurációs szakaszokban történő implementálásáról nyújt információt.
 
 ## G-kód makró elnevezése
 
