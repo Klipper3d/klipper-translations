@@ -999,10 +999,10 @@ information.
 [screws_tilt_adjust]
 #screw1:
 #   The (X, Y) coordinate of the first bed leveling screw. This is a
-#   position to command the nozzle to that is directly above the bed
-#   screw (or as close as possible while still being above the bed).
-#   This is the base screw used in calculations. This parameter must
-#   be provided.
+#   position to command the nozzle to so that the probe is directly
+#   above the bed screw (or as close as possible while still being
+#   above the bed). This is the base screw used in calculations. This
+#   parameter must be provided.
 #screw1_name:
 #   An arbitrary name for the given screw. This name is displayed when
 #   the helper script runs. The default is to use a name based upon
@@ -2629,8 +2629,9 @@ pin:
 #   Neopixel is connected to the pin).
 #color_order: GRB
 #   Set the pixel order required by the LED hardware (using a string
-#   containing the letters R, G, B, W with W optional). The default is
-#   GRB.
+#   containing the letters R, G, B, W with W optional). Alternatively,
+#   this may be a comma separated list of pixel orders - one for each
+#   LED in the chain. The default is GRB.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
