@@ -521,6 +521,13 @@ msgid ""
 "\"data\":[[1290.951905,-5063],[1290.952321,-5065]]}}`"
 msgstr ""
 
+#: docs/API_Server.md:block 7 (paragraph)
+msgid ""
+"See the [Moonraker](https://github.com/Arksine/moonraker) project for a "
+"popular tool that can forward HTTP requests to Klipper's API Server Unix "
+"Domain Socket."
+msgstr ""
+
 #~ msgid ""
 #~ "When the PANELDUE_BEEP gcode macro is executed, Klipper would send something"
 #~ " like the following over the socket: `{\"action\": \"run_paneldue_beep\", "

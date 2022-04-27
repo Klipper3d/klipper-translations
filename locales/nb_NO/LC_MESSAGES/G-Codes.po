@@ -1545,10 +1545,6 @@ msgstr ""
 msgid "[query_adc]"
 msgstr ""
 
-#: docs/G-Codes.md:block 244 (paragraph)
-msgid "The query_endstops module is automatically loaded."
-msgstr ""
-
 #: docs/G-Codes.md:block 245 (header)
 msgid "QUERY_ADC"
 msgstr ""
@@ -2067,6 +2063,58 @@ msgid ""
 "template assigned to the LED (one can then use `SET_LED` commands to manage "
 "the LED's color settings)."
 msgstr ""
+
+#: docs/G-Codes.md:block 251 (paragraph)
+msgid "The query_adc module is automatically loaded."
+msgstr ""
+
+#: docs/G-Codes.md:block 303 (header)
+msgid "[smart_effector]"
+msgstr ""
+
+#: docs/G-Codes.md:block 304 (paragraph)
+msgid ""
+"Several commands are available when a [smart_effector config "
+"section](Config_Reference.md#smart_effector) is enabled. Be sure to check "
+"the official documentation for the Smart Effector on the [Duet3D "
+"Wiki](https://duet3d.dozuki.com/Wiki/Smart_effector_and_carriage_adapters_for_delta_printer)"
+" before changing the Smart Effector parameters. Also check the [probe "
+"calibration guide](Probe_Calibrate.md)."
+msgstr ""
+
+#: docs/G-Codes.md:block 305 (header)
+msgid "SET_SMART_EFFECTOR"
+msgstr ""
+
+#: docs/G-Codes.md:block 306 (paragraph)
+msgid ""
+"`SET_SMART_EFFECTOR [SENSITIVITY=<sensitivity>] [ACCEL=<accel>] "
+"[RECOVERY_TIME=<time>]`: Set the Smart Effector parameters. When "
+"`SENSITIVITY` is specified, the respective value is written to the "
+"SmartEffector EEPROM (requires `control_pin` to be provided). Acceptable "
+"`<sensitivity>` values are 0..255, the default is 50. Lower values require "
+"less nozzle contact force to trigger (but there is a higher risk of false "
+"triggering due to vibrations during probing), and higher values reduce false"
+" triggering (but require larger contact force to trigger). Since the "
+"sensitivity is written to EEPROM, it is preserved after the shutdown, and so"
+" it does not need to be configured on every printer startup. `ACCEL` and "
+"`RECOVERY_TIME` allow to override the corresponding parameters at run-time, "
+"see the [config section](Config_Reference.md#smart_effector) of Smart "
+"Effector for more info on those parameters."
+msgstr ""
+
+#: docs/G-Codes.md:block 307 (header)
+msgid "RESET_SMART_EFFECTOR"
+msgstr ""
+
+#: docs/G-Codes.md:block 308 (paragraph)
+msgid ""
+"`RESET_SMART_EFFECTOR`: Resets Smart Effector sensitivity to its factory "
+"settings. Requires `control_pin` to be provided in the config section."
+msgstr ""
+
+#~ msgid "The query_endstops module is automatically loaded."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> "

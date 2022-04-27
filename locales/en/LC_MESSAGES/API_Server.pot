@@ -505,3 +505,10 @@ msgid ""
 "`{\"params\":{\"position_offset\":3.151562,\"errors\":0, "
 "\"data\":[[1290.951905,-5063],[1290.952321,-5065]]}}`"
 msgstr ""
+
+#: docs/API_Server.md:block 7 (paragraph)
+msgid ""
+"See the [Moonraker](https://github.com/Arksine/moonraker) project for a "
+"popular tool that can forward HTTP requests to Klipper's API Server Unix "
+"Domain Socket."
+msgstr ""
