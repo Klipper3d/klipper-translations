@@ -2425,6 +2425,33 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#smart_effector" class="md-nav__link">
+    [smart_effector]
+  </a>
+  
+    <nav class="md-nav" aria-label="[smart_effector]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set_smart_effector" class="md-nav__link">
+    SET_SMART_EFFECTOR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset_smart_effector" class="md-nav__link">
+    RESET_SMART_EFFECTOR
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#stepper_enable" class="md-nav__link">
     [stepper_enable]
   </a>
@@ -2909,7 +2936,7 @@
 <h4 id="z_offset_apply_probe">Z_OFFSET_APPLY_PROBE<a class="headerlink" href="#z_offset_apply_probe" title="Permanent link">&para;</a></h4>
 <p><code>Z_OFFSET_APPLY_PROBE</code>: Take the current Z Gcode offset (aka, babystepping), and subtract if from the probe's z_offset. This acts to take a frequently used babystepping value, and "make it permanent". Requires a <code>SAVE_CONFIG</code> to take effect.</p>
 <h3 id="query_adc">[query_adc]<a class="headerlink" href="#query_adc" title="Permanent link">&para;</a></h3>
-<p>The query_endstops module is automatically loaded.</p>
+<p>The query_adc module is automatically loaded.</p>
 <h4 id="query_adc_1">QUERY_ADC<a class="headerlink" href="#query_adc_1" title="Permanent link">&para;</a></h4>
 <p><code>QUERY_ADC [NAME=&lt;nom_de_la_configuration&gt;] [PULLUP=&lt;valeur&gt;]</code> : Rapporte la dernière valeur analogique reçue pour une broche analogique donnée. Si NAME n'est pas fourni, la liste des noms d'adc disponibles est retournée. Si PULLUP est fourni (comme une valeur en Ohms), la valeur analogique brute ainsi que la résistance équivalente relative à ce pullup est retournée.</p>
 <h3 id="query_endstops">[query_endstops]<a class="headerlink" href="#query_endstops" title="Permanent link">&para;</a></h3>
@@ -2971,6 +2998,12 @@
 <p><code>CALC_MEASURED_SKEW [AC=&lt;ac_length&gt;] [BD=&lt;bd_length&gt;] [AD=&lt;ad_length&gt;]</code>: Calculates and reports the skew (in radians and degrees) based on a measured print. This can be useful for determining the printer's current skew after correction has been applied. It may also be useful before correction is applied to determine if skew correction is necessary. See <a href="Skew_Correction.html">Skew Correction</a> for details on skew calibration objects and measurements.</p>
 <h4 id="skew_profile">SKEW_PROFILE<a class="headerlink" href="#skew_profile" title="Permanent link">&para;</a></h4>
 <p><code>SKEW_PROFILE [LOAD=&lt;name&gt;] [SAVE=&lt;name&gt;] [REMOVE=&lt;name&gt;]</code>: Profile management for skew_correction. LOAD will restore skew state from the profile matching the supplied name. SAVE will save the current skew state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to persistent memory permanent.</p>
+<h3 id="smart_effector">[smart_effector]<a class="headerlink" href="#smart_effector" title="Permanent link">&para;</a></h3>
+<p>Several commands are available when a <a href="Config_Reference.html#smart_effector">smart_effector config section</a> is enabled. Be sure to check the official documentation for the Smart Effector on the <a href="https://duet3d.dozuki.com/Wiki/Smart_effector_and_carriage_adapters_for_delta_printer">Duet3D Wiki</a> before changing the Smart Effector parameters. Also check the <a href="Probe_Calibrate.html">probe calibration guide</a>.</p>
+<h4 id="set_smart_effector">SET_SMART_EFFECTOR<a class="headerlink" href="#set_smart_effector" title="Permanent link">&para;</a></h4>
+<p><code>SET_SMART_EFFECTOR [SENSITIVITY=&lt;sensitivity&gt;] [ACCEL=&lt;accel&gt;] [RECOVERY_TIME=&lt;time&gt;]</code>: Set the Smart Effector parameters. When <code>SENSITIVITY</code> is specified, the respective value is written to the SmartEffector EEPROM (requires <code>control_pin</code> to be provided). Acceptable <code>&lt;sensitivity&gt;</code> values are 0..255, the default is 50. Lower values require less nozzle contact force to trigger (but there is a higher risk of false triggering due to vibrations during probing), and higher values reduce false triggering (but require larger contact force to trigger). Since the sensitivity is written to EEPROM, it is preserved after the shutdown, and so it does not need to be configured on every printer startup. <code>ACCEL</code> and <code>RECOVERY_TIME</code> allow to override the corresponding parameters at run-time, see the <a href="Config_Reference.html#smart_effector">config section</a> of Smart Effector for more info on those parameters.</p>
+<h4 id="reset_smart_effector">RESET_SMART_EFFECTOR<a class="headerlink" href="#reset_smart_effector" title="Permanent link">&para;</a></h4>
+<p><code>RESET_SMART_EFFECTOR</code>: Resets Smart Effector sensitivity to its factory settings. Requires <code>control_pin</code> to be provided in the config section.</p>
 <h3 id="stepper_enable">[stepper_enable]<a class="headerlink" href="#stepper_enable" title="Permanent link">&para;</a></h3>
 <p>The stepper_enable module is automatically loaded.</p>
 <h4 id="set_stepper_enable">SET_STEPPER_ENABLE<a class="headerlink" href="#set_stepper_enable" title="Permanent link">&para;</a></h4>

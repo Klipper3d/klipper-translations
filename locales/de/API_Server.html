@@ -1382,6 +1382,7 @@
 </code></pre></div>
 
 <p>Dies veranlasst die Host-Software, einen Unix Domain Socket zu erstellen. Ein Client kann dann eine Verbindung zu diesem Socket öffnen und Befehle an Klipper senden.</p>
+<p>See the <a href="https://github.com/Arksine/moonraker">Moonraker</a> project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.</p>
 <h2 id="anfrageformat">Anfrageformat<a class="headerlink" href="#anfrageformat" title="Permanent link">&para;</a></h2>
 <p>Über den Socket gesendete und empfangene Nachrichten sind JSON-kodierte Strings, die mit einem ASCII-Zeichen 0x03 abgeschlossen werden:</p>
 <div class="highlight"><pre><span></span><code>&lt;json_object_1&gt;&lt;0x03&gt;&lt;json_object_2&gt;&lt;0x03&gt;...

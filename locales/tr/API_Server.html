@@ -1382,6 +1382,7 @@
 </code></pre></div>
 
 <p>Bu komut ana yazılımın Unix Domain Soketi oluşturmasını sağlar. Kullanıcı sokete bağlanarak Klipper'e komutlar yollayabilir.</p>
+<p>See the <a href="https://github.com/Arksine/moonraker">Moonraker</a> project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.</p>
 <h2 id="istek-format">İstek Formatı<a class="headerlink" href="#istek-format" title="Permanent link">&para;</a></h2>
 <p>Soketten alınan ve sokete yollanan mesajların ASCII 0x03 karakteriyle bitirilip JSON olarak kodlanması gerekmektedir. Örneğin:</p>
 <div class="highlight"><pre><span></span><code>&lt;json_object_1&gt;&lt;0x03&gt;&lt;json_object_2&gt;&lt;0x03&gt;...
