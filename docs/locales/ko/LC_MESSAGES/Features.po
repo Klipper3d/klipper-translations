@@ -246,38 +246,11 @@ msgstr "16Mhz AVR"
 msgid "20Mhz AVR"
 msgstr "20Mhz AVR"
 
-msgid "Arduino Zero (SAMD21)"
-msgstr "Arduino Zero (SAMD21)"
-
-msgid "\"Blue Pill\" (STM32F103)"
-msgstr "\"Blue Pill\" (STM32F103)"
-
-msgid "Arduino Due (SAM3X8E)"
-msgstr "Arduino Due (SAM3X8E)"
-
-msgid "Duet2 Maestro (SAM4S8C)"
-msgstr "Duet2 Maestro (SAM4S8C)"
-
-msgid "Smoothieboard (LPC1768)"
-msgstr "Smoothieboard (LPC1768)"
-
-msgid "Smoothieboard (LPC1769)"
-msgstr "Smoothieboard (LPC1769)"
-
 msgid "Beaglebone PRU"
 msgstr "Beaglebone PRU"
 
-msgid "Duet2 Wifi/Eth (SAM4E8E)"
-msgstr "Duet2 Wifi/Eth (SAM4E8E)"
-
 msgid "686K"
 msgstr "686K"
-
-msgid "Adafruit Metro M4 (SAMD51)"
-msgstr "Adafruit Metro M4 (SAMD51)"
-
-msgid "BigTreeTech SKR Pro (STM32F407)"
-msgstr "BigTreeTech SKR Pro (STM32F407)"
 
 #: docs/Features.md:block 1 (header)
 msgid "Features"
@@ -413,10 +386,6 @@ msgid "1622K"
 msgstr ""
 
 #: docs/Features.md:block 10 (table)
-msgid "Raspberry Pi Pico (RP2040)"
-msgstr ""
-
-#: docs/Features.md:block 10 (table)
 msgid "2400K"
 msgstr ""
 
@@ -449,10 +418,6 @@ msgid "2459K"
 msgstr ""
 
 #: docs/Features.md:block 10 (table)
-msgid "Fysetc Spider (STM32F446)"
-msgstr ""
-
-#: docs/Features.md:block 10 (table)
 msgid "3913K"
 msgstr ""
 
@@ -477,6 +442,90 @@ msgstr ""
 #: docs/Features.md:block 10 (table)
 msgid "790K"
 msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "SAMD21"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "STM32F103"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "SAM3X8E"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "SAM4S8C"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "LPC1768"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "LPC1769"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "RP2040"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "SAM4E8E"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "SAMD51"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "STM32F407"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "STM32F446"
+msgstr ""
+
+#: docs/Features.md:block 11 (paragraph)
+msgid ""
+"If unsure of the micro-controller on a particular board, find the "
+"appropriate [config file](../config/), and look for the micro-controller "
+"name in the comments at the top of that file."
+msgstr ""
+
+#~ msgid "Arduino Zero (SAMD21)"
+#~ msgstr "Arduino Zero (SAMD21)"
+
+#~ msgid "\"Blue Pill\" (STM32F103)"
+#~ msgstr "\"Blue Pill\" (STM32F103)"
+
+#~ msgid "Arduino Due (SAM3X8E)"
+#~ msgstr "Arduino Due (SAM3X8E)"
+
+#~ msgid "Duet2 Maestro (SAM4S8C)"
+#~ msgstr "Duet2 Maestro (SAM4S8C)"
+
+#~ msgid "Smoothieboard (LPC1768)"
+#~ msgstr "Smoothieboard (LPC1768)"
+
+#~ msgid "Smoothieboard (LPC1769)"
+#~ msgstr "Smoothieboard (LPC1769)"
+
+#~ msgid "Duet2 Wifi/Eth (SAM4E8E)"
+#~ msgstr "Duet2 Wifi/Eth (SAM4E8E)"
+
+#~ msgid "Adafruit Metro M4 (SAMD51)"
+#~ msgstr "Adafruit Metro M4 (SAMD51)"
+
+#~ msgid "BigTreeTech SKR Pro (STM32F407)"
+#~ msgstr "BigTreeTech SKR Pro (STM32F407)"
+
+#~ msgid "Raspberry Pi Pico (RP2040)"
+#~ msgstr ""
+
+#~ msgid "Fysetc Spider (STM32F446)"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Best in class performance. Klipper is able to achieve high stepping rates on"
