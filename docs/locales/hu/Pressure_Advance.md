@@ -1,8 +1,8 @@
-# Nyomásszabályozás
+# Nyomás előtolás
 
 Ez a dokumentum a "nyomásszabályozás" konfigurációs változó adott fúvókához és nyomtatószálhoz való beállításával kapcsolatos információkat tartalmaz. A nyomásszabályozás funkció hasznos lehet a szálazás csökkentésében. A nyomásszabályozás megvalósításáról további információkat a [kinematika](Kinematics.md) dokumentumban talál.
 
-## Nyomás szabályozás hangolása
+## Nyomás előtolás hangolása
 
 A nyomásszabályozás két hasznos dolgot tesz. Csökkenti a nem extrudált mozgások során fellépő szálazás, és csökkenti a kanyarodás során fellépő puffadást. Ez az útmutató a második funkciót (kanyarodás közbeni puffadás csökkentése) használja a hangolás mechanizmusaként.
 

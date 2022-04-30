@@ -28,7 +28,7 @@ Először is mérje meg a **gyűrődési frekvenciát**.
 
 1. Ha a `square_corner_velocity` paramétert megváltoztattuk, állítsuk vissza az 5.0-ra. Nem tanácsos növelni, ha bemeneti alakítót használ, mert ez nagyobb simítást okozhat az alkatrészekben - helyette jobb, ha nagyobb gyorsulási értéket használ.
 1. Növelje a `max_accel_to_decel` értéket a következő parancs kiadásával: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
-1. Nyomásszabályozás kikapcsolása: `SET_PRESSURE_ADVANCE ADVANCE=0`
+1. Nyomás előtolás kikapcsolása: `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. Ha már hozzáadta az `[input_shaper]` részt a printer.cfg fájlhoz, akkor hajtsa végre a `SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0` parancsot. Ha "Unknown command" hibát kap, nyugodtan figyelmen kívül hagyhatja ezen a ponton, és folytathatja a méréseket.
 1. Végezze el a parancsot: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5` Alapvetően a gyorsulás különböző nagy értékeinek beállításával próbáljuk a gyűrődést hangsúlyosabbá tenni. Ez a parancs 1500 mm/sec^2-től kezdve 5 mm-enként növeli a gyorsulást: 1500 mm/sec^2, 2000 mm/sec^2, 2500 mm/sec^2 és így tovább, egészen 7000 mm/sec^2-ig az utolsó sávra.
 1. Nyomtassa ki a szeletelt tesztmodellt a javasolt paraméterekkel.
@@ -78,7 +78,7 @@ Nyomtassa ki a gyűrődési tesztmodellt az alábbiak szerint:
 
 1. Indítsa újra a firmware-t: `RESTART`
 1. Készüljön fel a tesztre: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
-1. Nyomásszabályozás kikapcsolása: `SET_PRESSURE_ADVANCE ADVANCE=0`
+1. Nyomás előtolás kikapcsolása: `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. Adja ki a parancsot: `SET_INPUT_SHAPER SHAPER_TYPE=MZV `
 1. Adja ki a parancsot: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
 1. Nyomtassa ki a szeletelt tesztmodellt a javasolt paraméterekkel.
@@ -152,7 +152,7 @@ Példaként tegyük fel, hogy az egyik tengelyen 45 Hz-es gyűrődési frekvenci
 
 Miután mindkét új `shaper_freq_x` és `shaper_freq_y` paramétert kiszámította, frissítheti az `[input_shaper]` szakaszát a nyomtató `printer.cfg` fájljában az új `shaper_freq_x` és `shaper_freq_y` értékekkel.
 
-### Nyomásszabályozás
+### Nyomás előtolás
 
 Ha Pressure Advance-t használ, akkor lehet, hogy újra kell hangolni. Kövesse az [utasításokat](Pressure_Advance.md#tuning-pressure-advance) az új érték megtalálásához, ha az eltér az előzőtől. A Pressure Advance beállítása előtt mindenképpen indítsa újra a Klippert.
 

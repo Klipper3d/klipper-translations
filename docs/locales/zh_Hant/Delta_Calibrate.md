@@ -45,7 +45,7 @@ SAVE_CONFIG
 
 校準流程需要列印一個測試模型並用遊標卡尺測量模型的尺寸。
 
-在進行進階三角洲校準時，必須先完成三角洲校準（通過DELTA_CALIBRATE命令）並儲存結果（通過SAVE_CONFIG 命令）。
+Prior to running an enhanced delta calibration one must run the basic delta calibration (via the DELTA_CALIBRATE command) and save the results (via the SAVE_CONFIG command). Make sure there hasn't been any notable change to the printer configuration nor hardware since last performing a basic delta calibration (if unsure, rerun the [basic delta calibration](#basic-delta-calibration), including SAVE_CONFIG, just prior to printing the test object described below.)
 
 用切片器對[docs/prints/calibrate_size.stl](prints/calibrate_size.stl)的模型進行切片，產生G-Code。速度設定使用低速（例如 40mm/s）。如可能使用剛性塑料（如PLA）。模型的外徑為140mm。如果尺寸太大則按照熱床大小進行縮小（但應注意X和Y應按比例進行縮放）。如果印表機的熱床足夠大，也可以放大該模型。大尺寸可以提高測量的準確性，但是模型的床附著對測量準確性影響更大。
 

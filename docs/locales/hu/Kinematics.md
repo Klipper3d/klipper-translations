@@ -139,7 +139,7 @@ Az extruder alapmozgása egyszerűen kiszámítható. A lépésidő generálása
 stepper_position = requested_e_position
 ```
 
-### Nyomásszabályozás
+### Nyomás előtolás
 
 A kísérletek azt mutatták, hogy az extruder modellezését az alap extruder képleten túl is lehet javítani. Ideális esetben az extrudálási mozgás előrehaladtával a mozgás minden egyes pontján ugyanannyi szálnak kell lerakódnia, és a mozgás után nem szabad extrudálódnia. Sajnos gyakran előfordul, hogy az alap extrudálási képletek miatt az extrudálási mozgások kezdetén túl kevés szál kerül ki az extruderből, és az extrudálás befejezése után többletszál kerül extrudálásra. Ezt gyakran nevezik "ooze"-nak.
 

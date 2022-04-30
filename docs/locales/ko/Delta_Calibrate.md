@@ -45,7 +45,7 @@ The basic delta calibration generally does a good job of calculating delta param
 
 This calibration procedure requires printing a test object and measuring parts of that test object with digital calipers.
 
-Prior to running an enhanced delta calibration one must run the basic delta calibration (via the DELTA_CALIBRATE command) and save the results (via the SAVE_CONFIG command).
+Prior to running an enhanced delta calibration one must run the basic delta calibration (via the DELTA_CALIBRATE command) and save the results (via the SAVE_CONFIG command). Make sure there hasn't been any notable change to the printer configuration nor hardware since last performing a basic delta calibration (if unsure, rerun the [basic delta calibration](#basic-delta-calibration), including SAVE_CONFIG, just prior to printing the test object described below.)
 
 Use a slicer to generate G-Code from the [docs/prints/calibrate_size.stl](prints/calibrate_size.stl) file. Slice the object using a slow speed (eg, 40mm/s). If possible, use a stiff plastic (such as PLA) for the object. The object has a diameter of 140mm. If this is too large for the printer then one can scale it down (but be sure to uniformly scale both the X and Y axes). If the printer supports significantly larger prints then this object can also be increased in size. A larger size can improve the measurement accuracy, but good print adhesion is more important than a larger print size.
 
