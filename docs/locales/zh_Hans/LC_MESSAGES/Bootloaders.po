@@ -1,18 +1,19 @@
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
 # mirokymac <toufubomb@gmail.com>, 2021.
 # Arda <pengfei.fu@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-20 09:17+0000\n"
-"Last-Translator: Arda <pengfei.fu@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/bootloaders/zh_Hans/>\n"
-"Language: zh-hans\n"
+"PO-Revision-Date: 2022-04-30 17:03+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/bootloaders/zh_Hans/>\n"
+"Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.12.1\n"
 
 msgid ""
 "This document provides information on common bootloaders found on micro-"
@@ -915,13 +916,15 @@ msgstr ""
 
 #: docs/Bootloaders.md:block 105 (header)
 msgid "STM32F103/STM32F072 with MSC bootloader"
-msgstr ""
+msgstr "带MSC引导程序的STM32F103/STM32F072"
 
 #: docs/Bootloaders.md:block 106 (paragraph)
 msgid ""
 "The [MSC bootloader](https://github.com/Telekatz/MSC-stm32f103-bootloader) "
 "is a driverless bootloader capable of flashing over USB."
 msgstr ""
+"[MSC 引导程序](https://github.com/Telekatz/MSC-stm32f103-bootloader) "
+"是一个能够进行 USB 刷写的免驱引导程序。"
 
 #: docs/Bootloaders.md:block 107 (paragraph)
 msgid ""
@@ -929,25 +932,30 @@ msgid ""
 "noted in the stm32duino section above, substituting the file name for the "
 "desired MSC bootloader binary (ie: MSCboot-Bluepill.bin for the blue pill)."
 msgstr ""
+"可以使用 stm32flash 通过 3.3v 串行刷写引导程序，如上面的 stm32duino "
+"章节所述，将文件名替换为所需的 MSC 引导加载程序二进制文件（例如：Blue Pill "
+"使用 MSCboot-Bluepill.bin）。"
 
 #: docs/Bootloaders.md:block 108 (paragraph)
 msgid ""
 "For STM32F072 boards it is also possible to flash the bootloader over USB "
 "(via DFU) with something like:"
-msgstr ""
+msgstr "STM32F072板也可以通过USB（通过DFU）刷写引导程序，如下所示："
 
 #: docs/Bootloaders.md:block 109 (code)
 msgid ""
 " dfu-util -d 0483:df11 -a 0 -R -D  MSCboot-STM32F072.bin "
 "-s0x08000000:leave\n"
 msgstr ""
+" dfu-util -d 0483:df11 -a 0 -R -D  MSCboot-STM32F072.bin -s0x08000000:leave\n"
 
 #: docs/Bootloaders.md:block 110 (paragraph)
 msgid ""
 "This bootloader uses 8KiB or 16KiB of flash space, see description of the "
 "bootloader (the application must be compiled with with the corresponding "
 "starting address)."
-msgstr ""
+msgstr "此引导加载程序使用 8KiB 或 16KiB "
+"的闪存空间，请参阅引导加载程序的说明（必须使用相应的起始地址编译应用程序）。"
 
 #: docs/Bootloaders.md:block 111 (paragraph)
 msgid ""
@@ -955,6 +963,8 @@ msgid ""
 "twice. As soon as the bootloader is activated, the board appears as a USB "
 "flash drive onto which the klipper.bin file can be copied."
 msgstr ""
+"可以通过按两次电路板上的复位按钮来激活引导程序。一旦启动引导程序，"
+"该板就会显示为一个 USB 闪存驱动器，可以将 klipper.bin 文件复制到该驱动器上。"
 
 #~ msgid ""
 #~ "The [HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader) is a"
