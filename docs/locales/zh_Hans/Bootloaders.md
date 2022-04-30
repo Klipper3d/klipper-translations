@@ -311,21 +311,21 @@ make flash FLASH_DEVICE=/dev/ttyACM0
 
 可能需要手动进入引导程序，这可以通过设置 "boot 0 "的低电平和 "boot 1 "的高电平来完成。在SKR Mini E3上，"Boot 1 "是不可用的，所以如果你写入过"hid_btt_skr_mini_e3.bin"，可以通过设置PA2的低电平来完成。在SKR Mini E3的 "PIN "文件中，这个引脚在TFT插座上被标记为 "TX0"。在PA2旁边有一个接地引脚，你可以用它来把PA2拉低。
 
-### STM32F103/STM32F072 with MSC bootloader
+### 带MSC引导程序的STM32F103/STM32F072
 
-The [MSC bootloader](https://github.com/Telekatz/MSC-stm32f103-bootloader) is a driverless bootloader capable of flashing over USB.
+[MSC 引导程序](https://github.com/Telekatz/MSC-stm32f103-bootloader) 是一个能够进行 USB 刷写的免驱引导程序。
 
-It is possible to flash the bootloader via 3.3v serial using stm32flash as noted in the stm32duino section above, substituting the file name for the desired MSC bootloader binary (ie: MSCboot-Bluepill.bin for the blue pill).
+可以使用 stm32flash 通过 3.3v 串行刷写引导程序，如上面的 stm32duino 章节所述，将文件名替换为所需的 MSC 引导加载程序二进制文件（例如：Blue Pill 使用 MSCboot-Bluepill.bin）。
 
-For STM32F072 boards it is also possible to flash the bootloader over USB (via DFU) with something like:
+STM32F072板也可以通过USB（通过DFU）刷写引导程序，如下所示：
 
 ```
  dfu-util -d 0483:df11 -a 0 -R -D  MSCboot-STM32F072.bin -s0x08000000:leave
 ```
 
-This bootloader uses 8KiB or 16KiB of flash space, see description of the bootloader (the application must be compiled with with the corresponding starting address).
+此引导加载程序使用 8KiB 或 16KiB 的闪存空间，请参阅引导加载程序的说明（必须使用相应的起始地址编译应用程序）。
 
-The bootloader can be activated by pressing the reset button of the board twice. As soon as the bootloader is activated, the board appears as a USB flash drive onto which the klipper.bin file can be copied.
+可以通过按两次电路板上的复位按钮来激活引导程序。一旦启动引导程序，该板就会显示为一个 USB 闪存驱动器，可以将 klipper.bin 文件复制到该驱动器上。
 
 ## STM32F4 微控制器 (SKR Pro 1.1)
 
