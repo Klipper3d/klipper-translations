@@ -568,7 +568,7 @@ max_accel: 1
 
 ### [extruder]
 
-Az extruder szakasz a fúvóka fűtőberendezés paramétereinek leírására szolgál, az extruder vezérlését végző léptetővel együtt. További információkért lásd a [parancs hivatkozás](G-Codes.md#extruder) című részt. A nyomásszabályozás hangolásával kapcsolatos információkért lásd a [nyomásszabályozási útmutatót](Pressure_Advance.md).
+Az extruder szakasz a fúvóka fűtőberendezés paramétereinek leírására szolgál, az extruder vezérlését végző léptetővel együtt. További információkért lásd a [parancs hivatkozás](G-Codes.md#extruder) című részt. A nyomás előtolás hangolásával kapcsolatos információkért lásd a [nyomás előtolási útmutatót](Pressure_Advance.md).
 
 ```
 [extruder]
@@ -616,7 +616,7 @@ filament_diameter:
 #   Az alapértelmezett érték 0, ami letiltja a nyomásnövelést.
 #pressure_advance_smooth_time: 0.040
 #   Időtartomány (másodpercben), amelyet az extruder átlagos sebességének
-#   kiszámításához használnak a nyomásszabályozáshoz. A nagyobb érték simább
+#   kiszámításához használnak a nyomás előtoláshoz. A nagyobb érték simább
 #   extrudermozgásokat eredményez. Ez a paraméter nem haladhatja meg a
 #   200 ezredmásodpercet. Ez a beállítás csak akkor érvényes, ha a
 #   pressure_advance értéke nem nulla.
@@ -914,33 +914,35 @@ További információkért lásd a [szintezési útmutató](Manual_Level.md#adju
 ```
 [screws_tilt_adjust]
 #screw1:
-#   The (X, Y) coordinate of the first bed leveling screw. This is a
-#   position to command the nozzle to so that the probe is directly
-#   above the bed screw (or as close as possible while still being
-#   above the bed). This is the base screw used in calculations. This
-#   parameter must be provided.
+#   Az első ágykiegyenlítő csavar (X, Y) koordinátája. Ez a helyzet a fúvóka
+#   utasításához úgy, hogy a szonda közvetlenül az ágycsavar felett
+#   legyen (vagy a lehető legközelebb, miközben továbbra is az ágy felett
+#   van). Ez a számításoknál használt alapcsavar.
+#   Ezt a paramétert meg kell adni.
 #screw1_name:
-#   An arbitrary name for the given screw. This name is displayed when
-#   the helper script runs. The default is to use a name based upon
-#   the screw XY location.
+#   Az adott csavar tetszőleges neve. Ez a név jelenik meg a segédszkript
+#   futtatásakor. Az alapértelmezés szerint a név a a csavar X-Y
+#   helyére épül.
 #screw2:
 #screw2_name:
 #...
-#   Additional bed leveling screws. At least two screws must be
-#   defined.
+#   További ágykiegyenlítő csavarok.
+#   Legalább két csavart kell meghatározott.
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+#   A kalibrálás során a nem mérő mozgások sebessége (mm/mp-ben).
+#   Az alapértelmezett érték 50.
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+#   A magasság (mm-ben), ahová a fejnek el kell mozdulnia.
+#   Közvetlenül a szondaművelet megkezdése előtt.
+#   Az alapértelmezett érték 5.
 #screw_thread: CW-M3
-#   The type of screw used for bed level, M3, M4 or M5 and the
-#   direction of the knob used to level the bed, clockwise decrease
-#   counter-clockwise decrease.
-#   Accepted values: CW-M3, CCW-M3, CW-M4, CCW-M4, CW-M5, CCW-M5.
-#   Default value is CW-M3, most printers use an M3 screw and
-#   turning the knob clockwise decrease distance.
+#   Az ágy szintjéhez használt csavar típusa, M3, M4 vagy M5, valamint az
+#   ágy szintbeállításához használt gomb iránya, az óramutató járásával
+#   megegyező irányú csökkenés az óramutató járásával ellentétes irányú
+#   csökkenés. Elfogadott értékek: CW-M3, CCW-M3, CW-M4, CCW-M4,
+#   CW-M5, CCW-M5. Az alapértelmezett érték CW-M3, a legtöbb nyomtató
+#   M3-as csavart és a gombot az óramutató járásával megegyező irányba
+#   forgatva csökken a távolság.
 ```
 
 ### [z_tilt]
@@ -1389,48 +1391,53 @@ A rezonancia tesztelés és az automatikus bemeneti alakító kalibráció támo
 ```
 [resonance_tester]
 #probe_points:
-#   A list of X, Y, Z coordinates of points (one point per line) to test
-#   resonances at. At least one point is required. Make sure that all
-#   points with some safety margin in XY plane (~a few centimeters)
-#   are reachable by the toolhead.
+#   A rezonanciák teszteléséhez szükséges pontok X, Y, Z koordinátáinak
+#   listája (soronként egy pont). Legalább egy pont szükséges.
+#   Győződjön meg róla, hogy minden pont az X-Y síkban némi
+#   biztonsági tartalékkal rendelkezik és (~ néhány centiméter)
+#   elérhetőek a nyomtatófejjel.
 #accel_chip:
-#   A name of the accelerometer chip to use for measurements. If
-#   adxl345 chip was defined without an explicit name, this parameter
-#   can simply reference it as "accel_chip: adxl345", otherwise an
-#   explicit name must be supplied as well, e.g. "accel_chip: adxl345
-#   my_chip_name". Either this, or the next two parameters must be
-#   set.
+#   A mérésekhez használt gyorsulásmérő chip neve. Ha adxl345 chipet
+#   explicit név nélkül definiálták, ez a paraméter egyszerűen
+#   hivatkozhat rá "accel_chip: adxl345"-ként, ellenkező esetben egy
+#   "accel_chip: adxl345" paramétert kell megadni. Explicit nevet is meg
+#   kell adni, pl. "accel_chip: adxl345" my_chip_név".
+#   Vagy ezt, vagy a következő két paramétert kell beállítani.
 #accel_chip_x:
 #accel_chip_y:
-#   Names of the accelerometer chips to use for measurements for each
-#   of the axis. Can be useful, for instance, on bed slinger printer,
-#   if two separate accelerometers are mounted on the bed (for Y axis)
-#   and on the toolhead (for X axis). These parameters have the same
-#   format as 'accel_chip' parameter. Only 'accel_chip' or these two
-#   parameters must be provided.
+#   Az egyes tengelyek méréséhez használandó gyorsulásmérő chipek
+#   neve. Hasznos lehet például ágyazó-csúszó nyomtatónál, ha két
+#   külön gyorsulásmérő van felszerelve az ágyra (az Y tengelyhez) és a
+#   nyomtatófejre (az X tengelyhez). Ezek a paraméterek ugyanolyan
+#   formátumúak, mint az "accel_chip" paraméter. Csak az 'accel_chip'
+#   vagy ez a két paramétert kell megadni.
 #max_smoothing:
-#   Maximum input shaper smoothing to allow for each axis during shaper
-#   auto-calibration (with 'SHAPER_CALIBRATE' command). By default no
-#   maximum smoothing is specified. Refer to Measuring_Resonances guide
-#   for more details on using this feature.
+#   Az egyes tengelyek maximális bemeneti alakító simítása az alakító
+#   automatikus kalibrálása során (a 'SHAPER_CALIBRATE' paranccsal).
+#   Alapértelmezés szerint nincs megadva maximális simítás.
+#   Lásd a Measuring_Resonances útmutatót. a funkció használatának
+#   további részleteiért.
 #min_freq: 5
-#   Minimum frequency to test for resonances. The default is 5 Hz.
+#   Minimális frekvencia a rezonancia vizsgálatához.
+#   Az alapértelmezett érték 5 Hz.
 #max_freq: 133.33
-#   Maximum frequency to test for resonances. The default is 133.33 Hz.
+#   Maximális frekvencia a rezonancia vizsgálatához.
+#   Az alapértelmezett érték 133,33 Hz.
 #accel_per_hz: 75
-#   This parameter is used to determine which acceleration to use to
-#   test a specific frequency: accel = accel_per_hz * freq. Higher the
-#   value, the higher is the energy of the oscillations. Can be set to
-#   a lower than the default value if the resonances get too strong on
-#   the printer. However, lower values make measurements of
-#   high-frequency resonances less precise. The default value is 75
-#   (mm/sec).
+#   Ez a paraméter annak meghatározására szolgál, hogy egy adott
+#   frekvencia teszteléséhez milyen gyorsulást használjunk:
+#   accel = accel_per_hz * freq. Minél nagyobb az érték, annál nagyobb
+#   a rezgések energiája. Az alapértelmezett értéknél alacsonyabbra is
+#   beállítható, ha a rezonanciák túl erősek lesznek a nyomtatón.
+#   Az alacsonyabb értékek azonban a nagyfrekvenciás rezonanciák
+#   mérését pontatlanabbá teszik.
+#   Az alapértelmezett érték 75 (mm/mp).
 #hz_per_sec: 1
-#   Determines the speed of the test. When testing all frequencies in
-#   range [min_freq, max_freq], each second the frequency increases by
-#   hz_per_sec. Small values make the test slow, and the large values
-#   will decrease the precision of the test. The default value is 1.0
-#   (Hz/sec == sec^-2).
+#   Meghatározza a teszt sebességét. A [min_freq, max_freq]
+#   tartományban lévő összes frekvencia tesztelésekor a frekvencia
+#   minden másodpercben hz_per_sec értékkel nő. A kis értékek
+#   lassúvá teszik a tesztet, a nagy értékek pedig csökkentik a teszt
+#   pontosságát. Az alapértelmezett érték 1.0 (Hz/sec == sec^-2).
 ```
 
 ## Konfigurációs fájl segédletek
@@ -1605,43 +1612,49 @@ control_pin:
 
 ### [smart_effector]
 
-The "Smart Effector" from Duet3d implements a Z probe using a force sensor. One may define this section instead of `[probe]` to enable the Smart Effector specific features. This also enables [runtime commands](G-Codes.md#smart_effector) to adjust the parameters of the Smart Effector at run time.
+A "Smart Effector" a Duet3d-től egy Z-szondát valósít meg egy erőérzékelő segítségével. Ezt a részt a `[probe]` helyett definiálhatjuk a Smart Effector specifikus funkcióinak engedélyezéséhez. Ez lehetővé teszi a [futásidejű parancsok](G-Codes.md#smart_effector) használatát is a Smart Effector paramétereinek futásidejű beállításához.
 
 ```
 [smart_effector]
 pin:
-#   Pin connected to the Smart Effector Z Probe output pin (pin 5). Note that
-#   pullup resistor on the board is generally not required. However, if the
-#   output pin is connected to the board pin with a pullup resistor, that
-#   resistor must be high value (e.g. 10K Ohm or more). Some boards have a low
-#   value pullup resistor on the Z probe input, which will likely result in an
-#   always-triggered probe state. In this case, connect the Smart Effector to
-#   a different pin on the board. This parameter is required.
+#   A Smart Effector Z Probe kimeneti tűjéhez (5. csap) csatlakoztatott tű. Vegye
+#   figyelembe, hogy a lapon lévő pullup ellenállás általában nem szükséges.
+#   Ha azonban a kimeneti tűn pullup ellenállással csatlakoztatják a lapon
+#   lévő tűhöz, akkor ennek az ellenállásnak nagy értékűnek kell lennie
+#   (pl. 10K Ohm vagy több). Néhány lapon alacsony értékű pullup ellenállás
+#   van a Z szonda bemenetén, ami valószínűleg egy mindig kioldott szonda
+#   állapotot fog eredményezni. Ebben az esetben csatlakoztassa a
+#   Smart Effector-t a következőhöz a kártya egy másik tűjéhez.
+#   Ez a paraméter szükséges.
 #control_pin:
-#   Pin connected to the Smart Effector control input pin (pin 7). If provided,
-#   Smart Effector sensitivity programming commands become available.
+#   A Smart Effector vezérlő bemeneti pinjéhez (7-es pin) csatlakoztatott pin.
+#   Ha van, a Smart Effector érzékenység programozási parancsai válnak
+#   elérhetővé.
 #probe_accel:
-#   If set, limits the acceleration of the probing moves (in mm/sec^2).
-#   A sudden large acceleration at the beginning of the probing move may
-#   cause spurious probe triggering, especially if the hotend is heavy.
-#   To prevent that, it may be necessary to reduce the acceleration of
-#   the probing moves via this parameter.
+#   Ha be van állítva, korlátozza a tapogató mozgások gyorsulását
+#   (mm/mp^2-ben). A hirtelen nagy gyorsulás a tapogató mozgás kezdetén
+#   téves tapintásindítást okozhat, különösen, ha a hotend nehéz. Ennek
+#   megakadályozására szükség lehet a gyorsulás csökkentésére a
+#   szondázó mozgások gyorsulásával ezzel a paraméterrel.
 #recovery_time: 0.4
-#   A delay between the travel moves and the probing moves in seconds. A fast
-#   travel move prior to probing may result in a spurious probe triggering.
-#   This may cause 'Probe triggered prior to movement' errors if no delay
-#   is set. Value 0 disables the recovery delay.
-#   Default value is 0.4.
+#   Az utazási mozgások és a tapogató mozgások közötti késleltetés
+#   másodpercben. A szondázás előtti gyors mozgatás téves
+#   szondakapcsolást eredményezhet. Ez "A szonda a mozgást megelőzően
+#   kioldott" hibát okozhat, ha nincs késleltetés beállítva.
+#   A 0 érték kikapcsolja a helyreállítási késleltetést.
+#   Az alapértelmezett érték 0,4.
 #x_offset:
 #y_offset:
-#   Should be left unset (or set to 0).
+#   Nem kell beállítani (vagy 0-ra kell állítani).
 z_offset:
-#   Trigger height of the probe. Start with -0.1 (mm), and adjust later using
-#   `PROBE_CALIBRATE` command. This parameter must be provided.
+#   A szonda kioldási magassága. Kezdje -0,1 (mm) értékkel, és később
+#   állítsa be a következővel `PROBE_CALIBRATE` paranccsal.
+#   Ezt a paramétert meg kell adni.
 #speed:
-#   Speed (in mm/s) of the Z axis when probing. It is recommended to start
-#   with the probing speed of 20 mm/s and adjust it as necessary to improve
-#   the accuracy and repeatability of the probe triggering.
+#   A Z tengely sebessége (mm/mp-ben) tapogatáskor. Javasoljuk, hogy a
+#   tapintási sebességet 20 mm/mp sebességgel kezdjük, és szükség
+#   szerint állítsuk be, hogy javítsuk a a tapintás kioldásának pontosságát
+#   és megismételhetőségét.
 #samples:
 #sample_retract_dist:
 #samples_result:
@@ -1650,7 +1663,8 @@ z_offset:
 #activate_gcode:
 #deactivate_gcode:
 #deactivate_on_each_sample:
-#   See the "probe" section for more information on the parameters above.
+#   A fenti paraméterekkel kapcsolatos további információkért
+#   lásd a "szonda" részt.
 ```
 
 ## További léptetőmotorok és extruderek
@@ -2299,43 +2313,46 @@ További információkért lásd a [parancs hivatkozást](G-Codes.md#temperature
 #tachometer_pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
-#   See the "fan" section for a description of the above parameters.
+#   A fenti paraméterek leírását lásd a "ventilátor" szakaszban.
 #sensor_type:
 #sensor_pin:
 #control:
 #max_delta:
 #min_temp:
 #max_temp:
-#   See the "extruder" section for a description of the above parameters.
+#   A fenti paraméterek leírását lásd az "Extruder" fejezetben.
 #pid_Kp:
 #pid_Ki:
 #pid_Kd:
-#   The proportional (pid_Kp), integral (pid_Ki), and derivative
-#   (pid_Kd) settings for the PID feedback control system. Klipper
-#   evaluates the PID settings with the following general formula:
+#   A PID-visszacsatolásos szabályozórendszer arányos (pid_Kp), integrál
+#   (pid_Ki) és derivált (pid_Kd) beállításai. Klipper a PID-beállításokat a
+#   következő általános képlettel értékeli ki:
 #     fan_pwm = max_power - (Kp*e + Ki*integral(e) - Kd*derivative(e)) / 255
-#   Where "e" is "target_temperature - measured_temperature" and
-#   "fan_pwm" is the requested fan rate with 0.0 being full off and
-#   1.0 being full on. The pid_Kp, pid_Ki, and pid_Kd parameters must
-#   be provided when the PID control algorithm is enabled.
+#   ahol "e" a "célhőmérséklet - mért hőmérséklet" és "fan_pwm" a kért
+#   ventilátorsebesség, ahol 0,0 a teljes kikapcsolás és 1,0 a teljes
+#   bekapcsolás. A pid_Kp, pid_Ki és pid_Kd paramétereknek a
+#   következőknek kell lenniük kell megadni, ha a PID-szabályozási
+#   algoritmus engedélyezve van.
 #pid_deriv_time: 2.0
-#   A time value (in seconds) over which temperature measurements will
-#   be smoothed when using the PID control algorithm. This may reduce
-#   the impact of measurement noise. The default is 2 seconds.
+#   Az az időérték (másodpercben), amely alatt a hőmérsékletmérések
+#   simításra kerülnek a PID-szabályozási algoritmus használatakor.
+#   Ez csökkentheti a a mérési zaj hatását.
+#   Az alapértelmezett érték 2 másodperc.
 #target_temp: 40.0
-#   A temperature (in Celsius) that will be the target temperature.
-#   The default is 40 degrees.
+#   Egy hőmérséklet (Celsiusban), amely a célhőmérséklet lesz.
+#   Az alapértelmezett érték 40 fok.
 #max_speed: 1.0
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when the sensor temperature exceeds the set value.
-#   The default is 1.0.
+#   A ventilátor fordulatszáma (0,0 és 1,0 közötti értékként kifejezve),
+#   amelyre a ventilátor akkor áll be, ha az érzékelő hőmérséklete
+#   meghaladja a beállított értéket. Az alapértelmezett érték 1.0.
 #min_speed: 0.3
-#   The minimum fan speed (expressed as a value from 0.0 to 1.0) that
-#   the fan will be set to for PID temperature fans.
-#   The default is 0.3.
+#   A ventilátor minimális fordulatszáma (0,0 és 1,0 közötti értékként
+#   kifejezve), amely a ventilátor a PID-hőmérsékletű ventilátorok
+#   esetében beállítható. Az alapértelmezett érték 0,3.
 #gcode_id:
-#   If set, the temperature will be reported in M105 queries using the
-#   given id. The default is to not report the temperature via M105.
+#   Ha be van állítva, akkor a hőmérsékletet az M105 lekérdezésekben
+#   a megadott azonosító alapján. Az alapértelmezett beállítás szerint
+#   a hőmérsékletet nem jelentik az M105-ön keresztül.
 ```
 
 ### [fan_generic]
@@ -2392,27 +2409,28 @@ A mikrokontroller PWM tűin keresztül vezérelt LED-ek (és LED-csíkok) támog
 
 Neopixel (más néven WS2812) LED támogatás (tetszőleges számú szekciót definiálhatunk "neopixel" előtaggal). További információkért lásd a [parancs hivatkozást](G-Codes.md#led).
 
-Note that the [linux mcu](RPi_microcontroller.md) implementation does not currently support directly connected neopixels. The current design using the Linux kernel interface does not allow this scenario because the kernel GPIO interface is not fast enough to provide the required pulse rates.
+Vegye figyelembe, hogy a [linux mcu](RPi_microcontroller.md) implementáció jelenleg nem támogatja a közvetlenül csatlakoztatott neopixeleket. A Linux kernel interfészt használó jelenlegi tervezet nem teszi lehetővé ezt a forgatókönyvet, mivel a kernel GPIO interfésze nem elég gyors a szükséges impulzusszámok biztosításához.
 
 ```
 [neopixel my_neopixel]
 pin:
-#   The pin connected to the neopixel. This parameter must be
-#   provided.
+#   A neopixelhez csatlakoztatott tű.
+#   Ennek a paraméternek a következőnek kell lennie.
 #chain_count:
-#   The number of Neopixel chips that are "daisy chained" to the
-#   provided pin. The default is 1 (which indicates only a single
-#   Neopixel is connected to the pin).
+#   A megadott tűhöz "láncolt" Neopixel chipek száma.
+#   Az alapértelmezett érték 1 (ami azt jelenti, hogy csak egy
+#   Neopixel csatlakozik a tűhöz).
 #color_order: GRB
-#   Set the pixel order required by the LED hardware (using a string
-#   containing the letters R, G, B, W with W optional). Alternatively,
-#   this may be a comma separated list of pixel orders - one for each
-#   LED in the chain. The default is GRB.
+#   Állítsa be a LED hardver által megkövetelt pixelsorrendjét
+#   (az R, G, B, W betűket tartalmazó karakterláncot használva, a
+#   W opcionális). Alternatívaként ez lehet a pixelsorrendek vesszővel
+#   elválasztott listája is - egy minden egyes pixelhez LED-hez a láncban.
+#   Az alapértelmezett érték GRB.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-#   See the "led" section for information on these parameters.
+#   Ezekről a paraméterekről lásd a "LED" részt.
 ```
 
 ### [dotstar]

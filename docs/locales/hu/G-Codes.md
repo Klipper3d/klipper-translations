@@ -204,7 +204,7 @@ A következő parancsok akkor érhetők el, ha az [extruder konfigurációs szak
 
 #### SET_PRESSURE_ADVANCE
 
-`SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Az extruder léptető nyomásszabályozási paramétereinek beállítása (ahogyan az [extruder](Config_Reference#extruder) vagy [extruder_stepper](Config_Reference#extruder_stepper) konfigurációs szakaszban definiálva van). Ha az EXTRUDER nincs megadva, akkor az alapértelmezett érték az aktív nyomtatófejhez definiált léptető.
+`SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Az extruder léptető nyomás előtolási paramétereinek beállítása (ahogyan az [extruder](Config_Reference#extruder) vagy [extruder_stepper](Config_Reference#extruder_stepper) konfigurációs szakaszban definiálva van). Ha az EXTRUDER nincs megadva, akkor az alapértelmezett érték az aktív nyomtatófejhez definiált léptető.
 
 #### SET_EXTRUDER_ROTATION_DISTANCE
 
@@ -244,7 +244,7 @@ A következő parancs akkor érhető el, ha a [filament_switch_sensor](Config_Re
 
 ### [firmware_retraction]
 
-A következő szabványos G-kódú parancsok állnak rendelkezésre, ha a [firmware_retraction konfigurációs szakasz](Config_Reference.md#firmware_retraction) engedélyezve van. Ezek a parancsok lehetővé teszik a szeletelőkben elérhető firmware retraction funkció kihasználását, hogy csökkentse a húrosodást a nem extrudálásos mozgások során a nyomtatás egyik részéből a másikba. A nyomásszabályozás megfelelő beállítása csökkenti a szükséges visszahúzás hosszát.
+A következő szabványos G-kódú parancsok állnak rendelkezésre, ha a [firmware_retraction konfigurációs szakasz](Config_Reference.md#firmware_retraction) engedélyezve van. Ezek a parancsok lehetővé teszik a szeletelőkben elérhető firmware retraction funkció kihasználását, hogy csökkentse a húrosodást a nem extrudálásos mozgások során a nyomtatás egyik részéből a másikba. A nyomás előtolás megfelelő beállítása csökkenti a szükséges visszahúzás hosszát.
 
 - `G10`: Visszahúzza a nyomtatószálat a konfigurált paraméterek szerint.
 - `G11`: Betölti a nyomtatószálat a konfigurált paraméterek szerint.
@@ -525,7 +525,7 @@ A következő parancsok akkor érhetők el, ha a [szonda konfigurációs szakasz
 
 ### [query_adc]
 
-The query_adc module is automatically loaded.
+A query_adc modul automatikusan betöltődik.
 
 #### QUERY_ADC
 
@@ -635,15 +635,15 @@ A következő parancsok akkor érhetők el, ha a [skew_correction konfiguráció
 
 ### [smart_effector]
 
-Several commands are available when a [smart_effector config section](Config_Reference.md#smart_effector) is enabled. Be sure to check the official documentation for the Smart Effector on the [Duet3D Wiki](https://duet3d.dozuki.com/Wiki/Smart_effector_and_carriage_adapters_for_delta_printer) before changing the Smart Effector parameters. Also check the [probe calibration guide](Probe_Calibrate.md).
+Több parancs is elérhető, ha a [smart_effector konfigurációs szakasz](Config_Reference.md#smart_effector) engedélyezve van. A Smart Effector paramétereinek módosítása előtt mindenképpen nézze meg a Smart Effector hivatalos dokumentációját a [Duet3D Wiki](https://duet3d.dozuki.com/Wiki/Smart_effector_and_carriage_adapters_for_delta_printer) oldalon. Ellenőrizze továbbá a [szonda kalibrációs útmutató](Probe_Calibrate.md) című dokumenmot is.
 
 #### SET_SMART_EFFECTOR
 
-`SET_SMART_EFFECTOR [SENSITIVITY=<sensitivity>] [ACCEL=<accel>] [RECOVERY_TIME=<time>]`: Set the Smart Effector parameters. When `SENSITIVITY` is specified, the respective value is written to the SmartEffector EEPROM (requires `control_pin` to be provided). Acceptable `<sensitivity>` values are 0..255, the default is 50. Lower values require less nozzle contact force to trigger (but there is a higher risk of false triggering due to vibrations during probing), and higher values reduce false triggering (but require larger contact force to trigger). Since the sensitivity is written to EEPROM, it is preserved after the shutdown, and so it does not need to be configured on every printer startup. `ACCEL` and `RECOVERY_TIME` allow to override the corresponding parameters at run-time, see the [config section](Config_Reference.md#smart_effector) of Smart Effector for more info on those parameters.
+`SET_SMART_EFFECTOR [SENSITIVITY=<sensitivity>] [ACCEL=<accel>] [RECOVERY_TIME=<time>]`: A Smart Effector paramétereinek beállítása. Ha `SENSITIVITY` van megadva, a megfelelő érték a SmartEffector EEPROM-ba íródik (`control_pin` biztosítása szükséges). Az elfogadható `<sensitivity>` értékek 0..255, az alapértelmezett érték 50..255. Az alacsonyabb értékek kisebb fúvóka-érintkezési erőt igényelnek a kioldáshoz (de nagyobb a téves kioldás kockázata a szondázás közbeni rezgések miatt), a magasabb értékek pedig csökkentik a téves kioldást (de nagyobb érintkezési erőt igényelnek a kioldáshoz). Mivel az érzékenység az EEPROM-ba íródik, a leállítás után is megmarad, így nem kell minden nyomtató indításakor konfigurálni. `ACCEL` és `RECOVERY_TIME` lehetővé teszi a megfelelő paraméterek futásidőben történő felülbírálását, a Smart Effector [konfigurációs szakasz](Config_Reference.md#smart_effector) további információkat tartalmaz ezekről a paraméterekről.
 
 #### RESET_SMART_EFFECTOR
 
-`RESET_SMART_EFFECTOR`: Resets Smart Effector sensitivity to its factory settings. Requires `control_pin` to be provided in the config section.
+`RESET_SMART_EFFECTOR`: Visszaállítja a Smart Effector érzékenységét a gyári beállításokra. Szükséges a `control_pin` megadása a config szakaszban.
 
 ### [stepper_enable]
 

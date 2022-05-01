@@ -25,7 +25,7 @@ Elérhető a 20210929. Fontosabb változások ebben a kiadásban:
 Elérhető a 20201020. Főbb változások ebben a kiadásban:
 
 * Az "Input Shaping" a nyomtató rezonanciájának ellensúlyozására szolgáló mechanizmus támogatása. Csökkentheti vagy megszüntetheti a "gyűrődést" a nyomatokon.
-* Új "Smooth Pressure Advance" rendszer. Ezt a "Pressure Advance" rendszert a pillanatnyi sebesség változások bevezetése nélkül valósítja meg. Mostantól lehetőség van a nyomásszabályozás beállítására is a "Tuning Tower" módszerrel.
+* Új "Smooth Pressure Advance" rendszer. Ezt a "Pressure Advance" rendszert a pillanatnyi sebesség változások bevezetése nélkül valósítja meg. Mostantól lehetőség van a nyomás előtolás beállítására is a "Tuning Tower" módszerrel.
 * Új "webhooks" API-kiszolgáló. Ez egy programozható JSON interfészt biztosít a Klipperhez.
 * Az LCD kijelző és a menü mostantól a Jinja2 sablonnyelv segítségével konfigurálható.
 * A TMC2208 léptetőmotor-meghajtók mostantól "standalone" üzemmódban is használhatók a Klipperrel.
@@ -141,7 +141,7 @@ Elérhető a 20170503. Főbb változások ebben a kiadásban:
 * Dokumentáció frissítések: Új Kinematika dokumentum, új Pressure Advance tuning útmutató, új példa konfigurációs fájlok, stb
 * Léptető teljesítmény javulása (20Mhz AVR több mint 175K lépés/másodperc, Arduino Due több mint 460K)
 * A mikrokontroller automatikus visszaállításának támogatása. A Raspberry Pi USB tápellátásának kapcsolásával történő visszaállítás támogatása.
-* A nyomásszabályozás algoritmus mostantól look-ahead funkcióval működik, hogy csökkentse a kanyarodás közbeni nyomásváltozásokat.
+* A nyomás előtolás algoritmus mostantól look-ahead funkcióval működik, hogy csökkentse a kanyarodás közbeni nyomásváltozásokat.
 * A rövid cikcakk mozgások maximális sebességének korlátozása
 * AD595 érzékelők támogatása
 * Számos hibajavítás és kódtisztítás
@@ -154,7 +154,7 @@ Elérhető a 20161223. Főbb változások ebben a kiadásban:
 * Delta kinematikai robotok támogatása
 * Arduino Due mikrokontroller támogatása (ARM cortex-M3)
 * USB alapú AVR mikrovezérlők támogatása
-* Támogatás a "nyomásszabályozás" algoritmushoz - ez csökkenti a nyomatok során keletkező szivárgást.
+* Támogatás a "nyomás előtolás" algoritmushoz - ez csökkenti a nyomatok során keletkező szivárgást.
 * Új "léptetőfázis-alapú végállás" funkció - nagyobb pontosságot tesz lehetővé a kezdőpont végállásában.
 * A "kiterjesztett G-kód" parancsok támogatása, mint például a "help", "restart" és "status".
 * A Klipper konfiguráció újratöltésének és a gazdaszoftver újraindításának támogatása a "restart" parancs terminálból történő kiadásával.
