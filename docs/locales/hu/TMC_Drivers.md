@@ -239,9 +239,9 @@ Vegye figyelembe, hogy a Trinamic adatlapok néha olyan megfogalmazást használ
 
 ## Gyakori kérdések
 
-### Használhatom a StealthChop üzemmódot nyomásszabályozással rendelkező extruderen?
+### Használhatom a StealthChop üzemmódot nyomás előtolással rendelkező extruderen?
 
-Sokan sikeresen használják a "StealthChop" üzemmódot a Klipper nyomásszabályozással. A Klipper [simított nyomásszabályozása](Kinematics.md#pressure-advance), amely nem vezet be pillanatnyi sebesség változást.
+Sokan sikeresen használják a "StealthChop" üzemmódot a Klipper nyomás előtolással. A Klipper [simított nyomás előtolása](Kinematics.md#pressure-advance), amely nem vezet be pillanatnyi sebesség változást.
 
 A "StealthChop" üzemmód azonban alacsonyabb motornyomatékot és/vagy nagyobb motorhőt eredményezhet. Lehet, hogy ez az üzemmód megfelelő az Ön adott nyomtatója számára, de az is lehet, hogy nem.
 

@@ -311,21 +311,21 @@ make flash FLASH_DEVICE=/dev/ttyACM0
 
 Szükség lehet a bootloader manuális belépésére, ezt a "boot 0" alacsony és "boot 1" magas értékek beállításával lehet megtenni. Az SKR Mini E3 esetében a "Boot 1" nem áll rendelkezésre, ezért a PA2 tű alacsonyra állításával lehet elvégezni, ha a "hid_btt_skr_mini_e3.bin" fájlt égetjük. Ez a tű az SKR Mini E3 "PIN" dokumentumban "TX0"-ként van jelölve a TFT fejlécen. A PA2 mellett van egy földelt tű, amellyel a PA2-t alacsonyra húzhatja.
 
-### STM32F103/STM32F072 with MSC bootloader
+### STM32F103/STM32F072 MSC bootloaderrel
 
-The [MSC bootloader](https://github.com/Telekatz/MSC-stm32f103-bootloader) is a driverless bootloader capable of flashing over USB.
+Az [MSC bootloader](https://github.com/Telekatz/MSC-stm32f103-bootloader) egy USB-n keresztül égethető, driver nélküli bootloader.
 
-It is possible to flash the bootloader via 3.3v serial using stm32flash as noted in the stm32duino section above, substituting the file name for the desired MSC bootloader binary (ie: MSCboot-Bluepill.bin for the blue pill).
+Lehetőség van a bootloader 3,3V-os soros égetésére az stm32flash használatával, ahogyan azt a fenti stm32duino szakaszban említettük, a kívánt MSC bootloader bináris fájlnevének behelyettesítésével (azaz: MSCboot-Bluepill.bin a Bluepill-hez).
 
-For STM32F072 boards it is also possible to flash the bootloader over USB (via DFU) with something like:
+Az STM32F072 lapok esetében a bootloader USB-n keresztül (DFU-n keresztül) is égethető, például a következőkkel:
 
 ```
  dfu-util -d 0483:df11 -a 0 -R -D  MSCboot-STM32F072.bin -s0x08000000:leave
 ```
 
-This bootloader uses 8KiB or 16KiB of flash space, see description of the bootloader (the application must be compiled with with the corresponding starting address).
+Ez a bootloader 8KiB vagy 16KiB flash helyet használ, lásd a bootloader leírását (az alkalmazást a megfelelő kezdőcímmel kell lefordítani).
 
-The bootloader can be activated by pressing the reset button of the board twice. As soon as the bootloader is activated, the board appears as a USB flash drive onto which the klipper.bin file can be copied.
+A bootloader a kártya reset gombjának kétszeri megnyomásával aktiválható. Amint a bootloader aktiválódik, a kártya USB flash meghajtóként jelenik meg, amelyre a klipper.bin fájl másolható.
 
 ## STM32F4 mikrovezérlők (SKR Pro 1.1)
 

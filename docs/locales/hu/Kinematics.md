@@ -145,23 +145,23 @@ A kísérletek azt mutatták, hogy az extruder modellezését az alap extruder k
 
 ![ooze](img/ooze.svg.png)
 
-A "nyomásszabályozás" rendszer ezt úgy próbálja figyelembe venni, hogy az extruderhez egy másik modellt használ. Ahelyett, hogy naivan azt hinné, hogy az extruderbe táplált minden egyes mm^3 szálat az extruderből azonnal ugyanannyi mm^3 fog kilépni, a rendszer egy nyomáson alapuló modellt használ. A nyomás nő, amikor a szál az extruderbe kerül (mint a [Hooke törvény](https://en.wikipedia.org/wiki/Hooke%27s_law) szerint), és az extrudáláshoz szükséges nyomást a fúvóka nyílásán keresztül történő áramlási sebesség uralja (mint a [Poiseuille törvény](https://en.wikipedia.org/wiki/Poiseuille_law) szerint). A kulcsgondolat az, hogy a szál, a nyomás és az áramlási sebesség közötti kapcsolat egy lineáris együtthatóval modellezhető:
+A "nyomás előtolás" rendszer ezt úgy próbálja figyelembe venni, hogy az extruderhez egy másik modellt használ. Ahelyett, hogy naivan azt hinné, hogy az extruderbe táplált minden egyes mm^3 szálat az extruderből azonnal ugyanannyi mm^3 fog kilépni, a rendszer egy nyomáson alapuló modellt használ. A nyomás nő, amikor a szál az extruderbe kerül (mint a [Hooke törvény](https://en.wikipedia.org/wiki/Hooke%27s_law) szerint), és az extrudáláshoz szükséges nyomást a fúvóka nyílásán keresztül történő áramlási sebesség uralja (mint a [Poiseuille törvény](https://en.wikipedia.org/wiki/Poiseuille_law) szerint). A kulcsgondolat az, hogy a szál, a nyomás és az áramlási sebesség közötti kapcsolat egy lineáris együtthatóval modellezhető:
 
 ```
 pa_position = nominal_position + pressure_advance_coefficient * nominal_velocity
 ```
 
-A nyomásszabályozás együttható meghatározásához lásd a [nyomásszabályozás](Pressure_Advance.md) dokumentumot.
+A nyomás előtolás együttható meghatározásához lásd a [nyomás előtolás](Pressure_Advance.md) dokumentumot.
 
-Az alapvető nyomásszabályozás képlete az extruder motorjának hirtelen sebességváltozásait okozhatja. A Klipper ennek elkerülése érdekében az extruder mozgásának "simítását" alkalmazza.
+Az alapvető nyomás előtolás képlete az extruder motorjának hirtelen sebességváltozásait okozhatja. A Klipper ennek elkerülése érdekében az extruder mozgásának "simítását" alkalmazza.
 
 ![pressure-advance](img/pressure-velocity.png)
 
-A fenti grafikon egy példát mutat két olyan extrudálási mozgásra, amelyek között a kanyarsebesség nem nulla. Vegye figyelembe, hogy a nyomásszabályozás rendszer miatt a gyorsítás során további szálak kerülnek az extruderbe. Minél nagyobb a kívánt száláramlási sebesség, annál több szálat kell betolni a gyorsítás során a nyomás miatt. A fej lassítása során a plusz szál visszahúzódik (az extruder sebessége negatív lesz).
+A fenti grafikon egy példát mutat két olyan extrudálási mozgásra, amelyek között a kanyarsebesség nem nulla. Vegye figyelembe, hogy a nyomás előtolás rendszer miatt a gyorsítás során további szálak kerülnek az extruderbe. Minél nagyobb a kívánt száláramlási sebesség, annál több szálat kell betolni a gyorsítás során a nyomás miatt. A fej lassítása során a plusz szál visszahúzódik (az extruder sebessége negatív lesz).
 
 A "simítás" az extruder pozíciójának súlyozott átlagával történik egy kis időintervallumban (ahogyan azt a `pressure_advance_smooth_time` konfigurációs paraméter megadja). Ez az átlagolás több G-kód mozgást is átfoghat. Figyelje meg, hogy az extrudermotor az első extrudermozgás névleges kezdete előtt elkezd mozogni, és az utolsó extrudermozgás névleges vége után is mozogni fog.
 
-Kulcsképlet a "simított nyomásszabályozáshoz":
+Kulcsképlet a "simított nyomás előtoláshoz":
 
 ```
 smooth_pa_position(t) =
