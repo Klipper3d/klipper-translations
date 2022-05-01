@@ -148,12 +148,6 @@ msgid ""
 msgstr "校準流程需要列印一個測試模型並用遊標卡尺測量模型的尺寸。"
 
 msgid ""
-"Prior to running an enhanced delta calibration one must run the basic delta "
-"calibration (via the DELTA_CALIBRATE command) and save the results (via the "
-"SAVE_CONFIG command)."
-msgstr "在進行進階三角洲校準時，必須先完成三角洲校準（通過DELTA_CALIBRATE命令）並儲存結果（通過SAVE_CONFIG 命令）。"
-
-msgid ""
 "Use a slicer to generate G-Code from the "
 "[docs/prints/calibrate_size.stl](prints/calibrate_size.stl) file. Slice the "
 "object using a slow speed (eg, 40mm/s). If possible, use a stiff plastic "
@@ -379,3 +373,20 @@ msgstr "DELTA_ANALYZE CALIBRATE=extended\n"
 #: docs/Delta_Calibrate.md:block 1 (header)
 msgid "Delta calibration"
 msgstr "三角校正"
+
+#: docs/Delta_Calibrate.md:block 22 (paragraph)
+msgid ""
+"Prior to running an enhanced delta calibration one must run the basic delta "
+"calibration (via the DELTA_CALIBRATE command) and save the results (via the "
+"SAVE_CONFIG command). Make sure there hasn't been any notable change to the "
+"printer configuration nor hardware since last performing a basic delta "
+"calibration (if unsure, rerun the [basic delta calibration](#basic-delta-"
+"calibration), including SAVE_CONFIG, just prior to printing the test object "
+"described below.)"
+msgstr ""
+
+#~ msgid ""
+#~ "Prior to running an enhanced delta calibration one must run the basic delta "
+#~ "calibration (via the DELTA_CALIBRATE command) and save the results (via the "
+#~ "SAVE_CONFIG command)."
+#~ msgstr "在進行進階三角洲校準時，必須先完成三角洲校準（通過DELTA_CALIBRATE命令）並儲存結果（通過SAVE_CONFIG 命令）。"
