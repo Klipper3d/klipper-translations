@@ -1,15 +1,17 @@
 # vikdevelop <super-vik1@protonmail.com>, 2022.
+# vikdevelop <vikdevelop@proton.me>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-05-02 04:16+0000\n"
-"Last-Translator: vikdevelop <super-vik1@protonmail.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/readme/cs/>\n"
+"PO-Revision-Date: 2025-05-03 07:31+0000\n"
+"Last-Translator: vikdevelop <vikdevelop@proton.me>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/readme/cs/>"
+"\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.12.1\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. The [overview document](Overview.md) is "
