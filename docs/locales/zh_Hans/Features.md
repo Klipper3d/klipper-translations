@@ -61,6 +61,6 @@ Klipper 支持许多标准的 3d 打印机功能：
 | STM32F407 | 3652K | 2459K |
 | STM32F446 | 3913K | 2634K |
 
-If unsure of the micro-controller on a particular board, find the appropriate [config file](../config/), and look for the micro-controller name in the comments at the top of that file.
+如果不确定一个控制板上的微控制器型号，可以先找到相应的[配置文件](../config/)，并在该文件顶部的注释中寻找微控制器的型号。
 
 关于基准测试的更多详细信息可在[基准测试文档](Benchmarks.md)中找到。

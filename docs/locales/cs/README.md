@@ -1,1 +1,1 @@
-Welcome to the Klipper documentation. The [overview document](Overview.md) is a good starting point.
+Vítejte v dokumentaci programu Klipper. [overview document](Overview.md) je dobrý startovací bod.
