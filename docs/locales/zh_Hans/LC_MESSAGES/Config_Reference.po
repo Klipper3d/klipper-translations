@@ -1,7 +1,7 @@
 # badpoi <a1635835119@gmail.com>, 2021, 2025.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023, 2025.
 # Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
-# 王攀 <41330784@qq.com>, 2022.
+# 王攀 <41330784@qq.com>, 2022, 2025.
 # Kai <2857693944@qq.com>, 2022.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2023, 2024, 2025.
 # Alfredo Monclus <alfredomonclus@gmail.com>, 2023.
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Xpol Wan <xpolife@gmail.com>\n"
+"Last-Translator: 王攀 <41330784@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/config_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -1387,8 +1387,9 @@ msgid ""
 "guide](Command_Templates.md#delayed-gcodes) and [command "
 "reference](G-Codes.md#delayed_gcode) for more information."
 msgstr ""
-"在设定的延迟上执行 gcode。 有关详细信息，请参阅 [命令模板指南](Command_Templates.md#delayed-gcodes) 和 "
-"[命令参考](G-Codes.md#delayed_gcode)。"
+"在设定的延迟上执行 gcode。 有关详细信息，请参阅 [命令模板指南]"
+"(Command_Templates.md#delayed-gcodes) 和 [命令参考]"
+"(G-Codes.md#delayed_gcode)。"
 
 #: docs/Config_Reference.md:block 124 (paragraph)
 msgid ""
@@ -1444,7 +1445,8 @@ msgid ""
 "Enables [resonance compensation](Resonance_Compensation.md). Also see the "
 "[command reference](G-Codes.md#input_shaper)."
 msgstr ""
-"启用 [共振补偿](Resonance_Compensation.md)。 另请参阅 [命令参考](G-Codes.md#input_shaper)。"
+"启用 [共振补偿](Resonance_Compensation.md)。 另请参阅 [命令参考]"
+"(G-Codes.md#input_shaper)。"
 
 #: docs/Config_Reference.md:block 157 (paragraph)
 msgid ""
@@ -1613,8 +1615,8 @@ msgid ""
 " \"dotstar\" prefix). See the [command reference](G-Codes.md#led) for more "
 "information."
 msgstr ""
-"Dotstar（又名 APA102）LED 支持（可以使用“dotstar”前缀定义任意数量的部分）。 有关详细信息，请参阅 "
-"[命令参考](G-Codes.md#led)。"
+"Dotstar（又名 APA102）LED 支持（可以使用“dotstar”前缀定义任意数量的部分）。 "
+"有关详细信息，请参阅 [命令参考](G-Codes.md#led)。"
 
 #: docs/Config_Reference.md:block 277 (header)
 msgid "[pca9533]"
