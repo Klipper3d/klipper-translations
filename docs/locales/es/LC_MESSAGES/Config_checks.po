@@ -1,6 +1,6 @@
 # Isaac Castro Mateos <isaac@humanlearning.com>, 2021, 2025.
 # Matemática A3K <matematica.a3k@gmail.com>, 2021, 2025.
-# Alejandro Alcaide <alex@blueselene.com>, 2022.
+# Alejandro Alcaide <alex@blueselene.com>, 2022, 2025.
 # gallegonovato <fran-carro@hotmail.es>, 2023, 2024.
 # Francisco Serrador <fserrador@gmail.com>, 2024.
 # Deleted User <noreply+48943@weblate.org>, 2025.
@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-13 12:32+0200\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Matemática A3K <matematica.a3k@gmail.com>\n"
+"Last-Translator: Alejandro Alcaide <alex@blueselene.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "config_checks/es/>\n"
 "Language: es\n"
@@ -208,11 +208,11 @@ msgid ""
 "is necessary to calibrate the PID settings on each printer (PID settings found"
 " in other firmwares or in the example configuration files often work poorly)."
 msgstr ""
-"Klipper soporta [controladores "
-"PID](https://es.wikipedia.org/wiki/Controlador_PID) para el extrusor y "
-"calienta camas. Para usar este mecanismo de control, es necesario calibrar los"
-" ajustes PID en cada impresora (Los ajustes PID de otros firmwares y los de "
-"los archivos de configuracion de ejemplo trabajan pobremente)."
+"Klipper soporta [controladores PID](https://es.wikipedia.org/wiki/"
+"Controlador_PID) para el extrusor y calienta camas. Para usar este mecanismo "
+"de control, es necesario calibrar los ajustes PID en cada impresora (Los "
+"ajustes PID de otros firmwares y los de los archivos de configuracion de "
+"ejemplo trabajan pobremente)."
 
 #: docs/Config_checks.md:block 5 (paragraph)
 msgid ""
