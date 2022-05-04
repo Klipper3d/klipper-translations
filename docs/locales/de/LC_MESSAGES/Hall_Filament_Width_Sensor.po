@@ -1,5 +1,5 @@
 # Florian Schaupp <fschaupp@hotmail.com>, 2021.
-# Stefan Dej <meteyou@gmail.com>, 2022.
+# Stefan Dej <meteyou@gmail.com>, 2022, 2025.
 # Christian S <schnellrieder.cs@gmail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:34+0200\n"
 "PO-Revision-Date: 2025-05-03 07:28+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Stefan Dej <meteyou@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "hall_filament_width_sensor/de/>\n"
 "Language: de\n"
