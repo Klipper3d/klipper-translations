@@ -10,7 +10,7 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 20220407: A pca9632 LED-ek alapértelmezett színsorrendje mostantól "RGBW". Adjunk hozzá egy explicit `color_ordert: RBGW` beállítást a pca9632 konfigurációs szakaszába a korábbi működés visszaállításához.
 
-20220330: A `printer.neopixel.color_data` állapotinformáció formátuma megváltozott a neopixel és dotstar modulok esetében. Az információ mostantól színlisták listájaként tárolódik (szótárak listája helyett). A részletekért lásd a [állapot hivatkozás](Status_Reference.md#led) című dokumentumot.
+20220330: A `printer.neopixel.color_data` állapotinformáció formátuma megváltozott a neopixel és dotstar modulok esetében. Az információ mostantól színlisták listájaként tárolódik (szótárak listája helyett). A részletekért lásd az [állapot hivatkozás](Status_Reference.md#led) című dokumentumot.
 
 20220307: `M73` már nem állítja 0-ra a nyomtatás előrehaladását, ha `P` hiányzik.
 

@@ -52,7 +52,7 @@ Para probar el motor del extrusor será necesario el calentar el extrusor a una 
 
 ## Calibrar las configuraciones de PID
 
-Klipper supports [PID control](https://en.wikipedia.org/wiki/PID_controller) for the extruder and bed heaters. In order to use this control mechanism, it is necessary to calibrate the PID settings on each printer (PID settings found in other firmwares or in the example configuration files often work poorly).
+Klipper soporta [controladores PID](https://es.wikipedia.org/wiki/Controlador_PID) para el extrusor y calienta camas. Para usar este mecanismo de control, es necesario calibrar los ajustes PID en cada impresora (Los ajustes PID de otros firmwares y los de los archivos de configuracion de ejemplo trabajan pobremente).
 
 Para calibrar el extrusor, navegue hasta la pestaña de terminal OctoPrint y ejecute el comando PID_CALIBRATE. Por ejemplo: `PID_CALIBRATE HEATER=extruder TARGET=170`
 

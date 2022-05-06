@@ -843,30 +843,30 @@ See the [command reference](G-Codes.md#bed_tilt) for additional information.
 
 ```
 [bed_tilt]
-#x_adjust: 0
-#   The amount to add to each move's Z height for each mm on the X
-#   axis. The default is 0.
-#y_adjust: 0
-#   The amount to add to each move's Z height for each mm on the Y
-#   axis. The default is 0.
-#z_adjust: 0
-#   The amount to add to the Z height when the nozzle is nominally at
-#   0, 0. The default is 0.
-# The remaining parameters control a BED_TILT_CALIBRATE extended
-# g-code command that may be used to calibrate appropriate x and y
-# adjustment parameters.
-#points:
-#   A list of X, Y coordinates (one per line; subsequent lines
-#   indented) that should be probed during a BED_TILT_CALIBRATE
-#   command. Specify coordinates of the nozzle and be sure the probe
-#   is above the bed at the given nozzle coordinates. The default is
-#   to not enable the command.
-#speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
-#horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+#x_调整：0
+# 在 X 轴上每 mm 添加到每次移动的 Z 高度的量
+# 轴。默认值为 0。
+#y_调整：0
+# 在 Y 轴上每 mm 添加到每次移动的 Z 高度的量
+# 轴。默认值为 0。
+#z_调整：0
+# 喷嘴标称位置时添加到 Z 高度的量
+# 0, 0。默认为 0。
+# 其余参数控制一个 BED_TILT_CALIBRATE 扩展
+# g-code 命令，可用于校准适当的 x 和 y
+#调整参数。
+#点：
+# X、Y 坐标列表（每行一个；后续行
+# indented) 应该在 BED_TILT_CALIBRATE 期间探测
+＃   命令。指定喷嘴的坐标并确保探头
+# 在给定喷嘴坐标处的床上方。默认是
+# 不启用命令。
+#速度：50
+# 校准期间非探测移动的速度（以 mm/s 为单位）。
+# 默认为 50。
+#horizontal_move_z：5
+# 头部应该被命令移动到的高度（以毫米为单位）
+# 就在开始探测操作之前。默认值为 5。
 ```
 
 ### [bed_screws]
@@ -1150,7 +1150,7 @@ G-Code宏（"gcode_macro"前缀定义的G-Code 宏分段没有数量限制）。
 
 ### [delayed_gcode]
 
-Execute a gcode on a set delay. See the [command template guide](Command_Templates.md#delayed-gcodes) and [command reference](G-Codes.md#delayed_gcode) for more information.
+在设定的延迟上执行 gcode。 有关详细信息，请参阅 [命令模板指南](Command_Templates.md#delayed-gcodes) 和 [命令参考](G-Codes.md#delayed_gcode)。
 
 ```
 [delayed_gcode my_delayed_gcode]。
@@ -1276,7 +1276,7 @@ Support for gcode arc (G2/G3) commands.
 
 ### [respond]
 
-Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#respond).
+启用“M118”和“RESPOND”扩展 [commands](G-Codes.md#respond)。
 
 ```
 [respond]
@@ -1295,7 +1295,7 @@ Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#respond).
 
 ### [input_shaper]
 
-Enables [resonance compensation](Resonance_Compensation.md). Also see the [command reference](G-Codes.md#input_shaper).
+启用 [共振补偿](Resonance_Compensation.md)。 另请参阅 [命令参考](G-Codes.md#input_shaper)。
 
 ```
 [input_shaper]
@@ -1644,14 +1644,14 @@ Multi-stepper axes. On a cartesian style printer, the stepper controlling a give
 多挤出机参考示例[sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg)
 
 ```
-[extruder1]
-#step_pin:
-#dir_pin:
+[挤出机1]
+#step_pin：
+#dir_pin：
 #...
-#   See the "extruder" section for available stepper and heater
-#   parameters.
-#shared_heater:
-#   This option is deprecated and should no longer be specified.
+# 有关可用的步进器和加热器，请参阅“挤出机”部分
+＃   参数。
+#shared_heater：
+# 此选项已弃用，不应再指定。
 ```
 
 ### [dual_carriage]
@@ -2354,22 +2354,22 @@ pin:
 
 ### [dotstar]
 
-Dotstar (aka APA102) LED support (one may define any number of sections with a "dotstar" prefix). See the [command reference](G-Codes.md#led) for more information.
+Dotstar（又名 APA102）LED 支持（可以使用“dotstar”前缀定义任意数量的部分）。 有关详细信息，请参阅 [命令参考](G-Codes.md#led)。
 
 ```
 [dotstar my_dotstar]
-data_pin:
-#   The pin connected to the data line of the dotstar. This parameter
-#   must be provided.
-clock_pin:
-#   The pin connected to the clock line of the dotstar. This parameter
-#   must be provided.
-#chain_count:
-#   See the "neopixel" section for information on this parameter.
-#initial_RED: 0.0
-#initial_GREEN: 0.0
-#initial_BLUE: 0.0
-#   See the "led" section for information on these parameters.
+数据引脚：
+# 接点星数据线的管脚。 这个参数
+＃   必须提供。
+时钟引脚：
+# 连接到dotstar时钟线的引脚。 这个参数
+＃   必须提供。
+#chain_count：
+# 有关此参数的信息，请参阅“neopixel”部分。
+#initial_RED：0.0
+#initial_GREEN：0.0
+#initial_BLUE：0.0
+# 有关这些参数的信息，请参阅“led”部分。
 ```
 
 ### [pca9533]
@@ -3277,20 +3277,20 @@ This feature allows one to reduce repetitive definitions in display_data section
 This feature can also be used for continuous LED updates using the [SET_LED_TEMPLATE](G-Codes.md#set_led_template) command.
 
 ```
-[display_template my_template_name]
-#param_<name>:
-#   One may specify any number of options with a "param_" prefix. The
-#   given name will be assigned the given value (parsed as a Python
-#   literal) and will be available during macro expansion. If the
-#   parameter is passed in the call to render() then that value will
-#   be used during macro expansion. For example, a config with
-#   "param_speed = 75" might have a caller with
-#   "render('my_template_name', param_speed=80)". Parameter names may
-#   not use upper case characters.
-text:
-#   The text to return when the this template is rendered. This field
-#   is evaluated using command templates (see
-#   docs/Command_Templates.md). This parameter must be provided.
+[显示模板我的模板名称]
+#param_<名称>：
+# 可以指定任意数量的带有“param_”前缀的选项。 这
+# 给定的名称将被赋予给定的值（解析为 Python
+# 字面量）并且在宏扩展期间可用。 如果
+# 参数在调用 render() 时传递，然后该值将
+# 在宏扩展时使用。 例如，一个配置
+# "param_speed = 75" 可能有一个调用者
+# "render('my_template_name', param_speed=80)". 参数名称可以
+# 不使用大写字符。
+文本：
+# 渲染此模板时要返回的文本。 这个领域
+# 使用命令模板进行评估（参见
+# docs/Command_Templates.md）。 必须提供此参数。
 ```
 
 ### [display_glyph]
