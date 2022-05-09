@@ -1184,15 +1184,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#verify-temperature" class="md-nav__link">
-    Verify temperature
+  <a href="#verificare-le-temperature" class="md-nav__link">
+    Verificare le temperature
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#verify-m112" class="md-nav__link">
-    Verify M112
+  <a href="#verificare-m112" class="md-nav__link">
+    Verificare M112
   </a>
   
 </li>
@@ -1265,14 +1265,14 @@
 
 <h1 id="configuration-checks">Configuration checks<a class="headerlink" href="#configuration-checks" title="Permanent link">&para;</a></h1>
 <p>Questo documento fornisce una lista di step per confermare le impostazioni dei pin nel file printer.cfg di Klipper. È una buona idea eseguire questi passi dopo aver seguito i passi nel <a href="Installation.html">documento di installazione</a>.</p>
-<p>During this guide, it may be necessary to make changes to the Klipper config file. Be sure to issue a RESTART command after every change to the config file to ensure that the change takes effect (type "restart" in the Octoprint terminal tab and then click "Send"). It's also a good idea to issue a STATUS command after every RESTART to verify that the config file is successfully loaded.</p>
-<h2 id="verify-temperature">Verify temperature<a class="headerlink" href="#verify-temperature" title="Permanent link">&para;</a></h2>
-<p>Start by verifying that temperatures are being properly reported. Navigate to the Octoprint temperature tab.</p>
+<p>In alcuni passaggi di questa guida, potrebbe essere necessario modificare il file di configurazione di Klipper. Assicuratevi di dare il comando RESTART, dopo ogni modifica al file di configurazione, per accertarsi che le modifiche abbiano effetto(scrivere "restart" nella scheda del terminale di Octoprint e cliccare su INVIA). E' anche consigliabile utilizzare il comando STATUS, dopo ogni RESTART, per verificare che il file di configurazione sia stato caricato correttamente.</p>
+<h2 id="verificare-le-temperature">Verificare le temperature<a class="headerlink" href="#verificare-le-temperature" title="Permanent link">&para;</a></h2>
+<p>Iniziare verificando che le temperature siano correttamente riportate. Selezionare la scheda temperature di Octoprint.</p>
 <p><img alt="octoprint-temperature" src="img/octoprint-temperature.png" /></p>
-<p>Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.</p>
-<h2 id="verify-m112">Verify M112<a class="headerlink" href="#verify-m112" title="Permanent link">&para;</a></h2>
-<p>Navigate to the Octoprint terminal tab and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause Octoprint to disconnect from Klipper - navigate to the Connection area and click on "Connect" to cause Octoprint to reconnect. Then navigate to the Octoprint temperature tab and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.</p>
-<p>The M112 command causes Klipper to go into a "shutdown" state. To clear this state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab.</p>
+<p>Verificare che la temperatura dell' ugello e del piatto(se presente) siano presenti e non stiano aumentando. Se stessero aumentando staccare l'alimentazione alla stampante. Se le temperature non sono precise, ricontrollare le impostazioni "sensor_type" e "sensor_pin" per l'ugello e/o il piatto.</p>
+<h2 id="verificare-m112">Verificare M112<a class="headerlink" href="#verificare-m112" title="Permanent link">&para;</a></h2>
+<p>Selezionare la scheda terminale e dare il comando M112 nel riquadro del terminale. Questo comando richiede a Klipper di porsi in uno stato di spengimento. Questo causerà la disconnessione di Octoprint da Klipper - selezionate il menu connessione e premete il pulsante "Connetti" per far riconnettere Octoprint. Selezionate poi la scheda temperatura e verificate che le temperature si stiano aggiornando e che non stiano aumentando. Se stanno aumentando, staccate l'alimentazione della stampante.</p>
+<p>Il comando M112 mette Klipper in uno stato di spegnimento. Per farlo uscire da questo stato, dare il comando FIRMWARE_RESTART nella scheda terminale di Octoprint.</p>
 <h2 id="verify-heaters">Verify heaters<a class="headerlink" href="#verify-heaters" title="Permanent link">&para;</a></h2>
 <p>Navigate to the Octoprint temperature tab and type in 50 followed by enter in the "Tool" temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the "Tool" temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.</p>
 <p>If the printer has a heated bed then perform the above test again with the bed.</p>
