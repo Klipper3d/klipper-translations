@@ -6,7 +6,7 @@ title: Üdvözlünk
 
 ![](img/klipper-logo.png){ .center-image }
 
-A Klipper egy 3d-nyomtató firmware. Egyesíti egy általános célú számítógép és egy vagy több mikrokontroller teljesítményét. A [features](Features.md) dokumentumban találsz további információkat arról, hogy miért érdemes a Klippert használni.
+A Klipper egy 3D nyomtató firmware. Egyesíti egy általános célú számítógép és egy vagy több mikrokontroller teljesítményét. A [jellemzők](Features.md) dokumentumban találsz további információkat arról, hogy miért érdemes a Klippert használni.
 
 A Klipper használatának megkezdéséhez kezdje a [telepítést](Installation.md).
 
