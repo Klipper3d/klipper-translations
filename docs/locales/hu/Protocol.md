@@ -18,7 +18,7 @@ A protokoll célja, hogy hibamentes kommunikációs csatornát tegyen lehetővé
 
 ## Mikrovezérlő interfész
 
-A Klipper átviteli protokoll egy [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) mechanizmusnak tekinthető a mikrovezérlő és a gazdagép között. A mikrovezérlő szoftver deklarálja azokat a parancsokat, amelyeket a gazdagép meghívhat, az általa generált válaszüzenetekkel együtt. A gazdagép ezeket az információkat arra használja fel, hogy parancsot adjon a mikrokontrollernek a műveletek végrehajtására és az eredmények értelmezésére.
+A Klipper átviteli protokoll egy [RPC](https://hu.wikipedia.org/wiki/Remote_procedure_call) mechanizmusnak tekinthető a mikrovezérlő és a gazdagép között. A mikrovezérlő szoftver deklarálja azokat a parancsokat, amelyeket a gazdagép meghívhat, az általa generált válaszüzenetekkel együtt. A gazdagép ezeket az információkat arra használja fel, hogy parancsot adjon a mikrokontrollernek a műveletek végrehajtására és az eredmények értelmezésére.
 
 ### Parancsok deklarálása
 
@@ -104,7 +104,7 @@ Az üzenetblokk formátumát a [HDLC](https://en.wikipedia.org/wiki/High-Level_D
 
 ### Üzenetblokk tartalma
 
-Minden egyes, a gazdagépről a mikrokontrollernek küldött üzenetblokk tartalma nulla vagy több üzenetparancsból álló sorozatot tartalmaz. Minden parancs egy [Változó hosszúságú mennyiség](#variable-length-quantities) (VLQ) kódolt egész számú parancs azonosítóval kezdődik, amelyet az adott parancsra vonatkozó nulla vagy több VLQ paraméter követ.
+Minden egyes, a gazdagépről a mikrokontrollernek küldött üzenetblokk tartalma nulla vagy több üzenetparancsból álló sorozatot tartalmaz. Minden parancs egy [Változó hosszúságú mennyiség](#valtozo-hosszusagu-mennyisegek) (VLQ) kódolt egész számú parancs azonosítóval kezdődik, amelyet az adott parancsra vonatkozó nulla vagy több VLQ paraméter követ.
 
 A következő négy parancsot például egyetlen üzenetblokkba helyezhetjük:
 
@@ -169,6 +169,6 @@ Az alacsony szintű gazdagép kód egy automatikus újraküldési rendszert val�
 
 Az "ack" egy üres tartalmú (azaz 5 bájtos) üzenetblokk, amelynek sorszáma nagyobb, mint az utolsó fogadott gazdagép sorszáma. A "nak" egy üres tartalmú üzenetblokk, amelynek sorszáma kisebb, mint az utolsó fogadott gazdagép sorszáma.
 
-A protokoll megkönnyíti az "ablakos" átviteli rendszert, így a fogadó egyszerre több függőben lévő üzenetblokkal rendelkezhet. (Ez azon a sok parancson kívül, amelyek egy adott üzenetblokkban jelen lehetnek.) Ez lehetővé teszi a sávszélesség maximális kihasználását még átviteli késedelem esetén is. Az időkorlátozás, az újraküldés, az ablakozás és az ack mechanizmus a [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) hasonló mechanizmusai alapján készült.
+A protokoll megkönnyíti az "ablakos" átviteli rendszert, így a fogadó egyszerre több függőben lévő üzenetblokkal rendelkezhet. (Ez azon a sok parancson kívül, amelyek egy adott üzenetblokkban jelen lehetnek.) Ez lehetővé teszi a sávszélesség maximális kihasználását még átviteli késedelem esetén is. Az időkorlátozás, az újraküldés, az ablakozás és az ack mechanizmus a [TCP](https://hu.wikipedia.org/wiki/Transmission_Control_Protocol) hasonló mechanizmusai alapján készült.
 
 A másik irányban a mikrokontrollerről a gazdagéphez küldött üzenetblokkokat úgy tervezték, hogy hibamentesek legyenek, de nincs biztosított átvitelük. (A válaszok nem lehetnek hibásak, de előfordulhat, hogy eltűnnek.) Ez azért történik, hogy a mikrokontrollerben egyszerű legyen a megvalósítás. Nincs automatikus újraküldési rendszer a válaszok számára. A magas szintű kódtól elvárható, hogy képes legyen kezelni az esetenként hiányzó válaszokat (általában a tartalom újrakérdezésével vagy a válaszküldés ismétlődő ütemezésének beállításával). Az állomásnak küldött üzenetblokkok sorszámmezője mindig eggyel nagyobb, mint az utolsó, az állomásról kapott üzenetblokkok sorszáma. Nem a válaszüzenetblokkok sorrendjének nyomon követésére szolgál.
