@@ -1,6 +1,6 @@
 # CANBUS protokoll
 
-Ez a dokumentum a Klipper által a [CAN-buszon](https://en.wikipedia.org/wiki/CAN_bus) keresztül történő kommunikációhoz használt protokollt írja le. A Klipper CAN-busszal való konfigurálásával kapcsolatos információkért lásd a <CANBUS.md> című dokumentumot.
+Ez a dokumentum a Klipper által a [CAN-buszon](https://hu.wikipedia.org/wiki/CAN-busz) keresztül történő kommunikációhoz használt protokollt írja le. A Klipper CAN-busszal való konfigurálásával kapcsolatos információkért lásd a <CANBUS.md> című dokumentumot.
 
 ## Mikrokontroller azonosító hozzárendelése
 

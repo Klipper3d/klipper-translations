@@ -4,7 +4,7 @@ Ez a dokumentum a Trinamic léptetőmotor-meghajtók SPI/UART üzemmódban tört
 
 A Klipper a Trinamic motorvezérlőket is tudja használni "standalone módban". Ha azonban a motorvezérlők ebben az üzemmódban vannak, nincs szükség speciális Klipper konfigurációra, és az ebben a dokumentumban tárgyalt fejlett Klipper funkciók nem állnak rendelkezésre.
 
-Ezen a dokumentumon kívül feltétlenül tekintse át a [TMC motorvezérlő konfigurációs hivatkozást](Config_Reference.md#tmc-stepper-driver-configuration).
+Ezen a dokumentumon kívül feltétlenül tekintse át a [TMC motorvezérlő konfigurációs hivatkozást](Config_Reference.md#tmc-motorvezerlo-konfiguracioja).
 
 ## Motoráram hangolása
 

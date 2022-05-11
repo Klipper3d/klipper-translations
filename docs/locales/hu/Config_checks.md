@@ -52,7 +52,7 @@ Az extruder motor teszteléséhez a nyomtatófejet nyomtatási hőmérsékletre 
 
 ## PID beállítások kalibrálása
 
-A Klipper támogatja a [PID-szabályozást](https://en.wikipedia.org/wiki/PID_controller) az extruder és az ágyfűtés számára. Ahhoz, hogy ezt a vezérlési mechanizmust használni lehessen, a PID-beállításokat minden nyomtatónál kalibrálni kell (a más firmware-ekben vagy a példakonfigurációs fájlokban található PID-beállítások gyakran rosszul működnek).
+A Klipper támogatja a [PID-szabályozást](https://hu.wikipedia.org/wiki/PID_szab%C3%A1lyoz%C3%B3) az extruder és az ágyfűtés számára. Ahhoz, hogy ezt a vezérlési mechanizmust használni lehessen, a PID-beállításokat minden nyomtatónál kalibrálni kell (a más firmware-ekben vagy a példakonfigurációs fájlokban található PID-beállítások gyakran rosszul működnek).
 
 Az extruder kalibrálásához navigáljon az OctoPrint terminál fülre, és futtassa a PID_CALIBRATE parancsot. Például: `PID_CALIBRATE HEATER=extruder TARGET=170`
 

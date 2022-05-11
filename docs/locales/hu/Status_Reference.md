@@ -223,7 +223,7 @@ A következő információk a [temperature_sensor some_name](Config_Reference.md
 
 ## tmc motorvezérlők
 
-A következő információk a [TMC léptető motorvezérlők](Config_Reference.md#tmc-stepper-driver-configuration) objektumban érhetők el (pl. `[tmc2208 stepper_x]`):
+A következő információk a [TMC léptető motorvezérlők](Config_Reference.md#tmc-motorvezerlo-konfiguracioja) objektumban érhetők el (pl. `[tmc2208 stepper_x]`):
 
 - `mcu_phase_offset`: A mikrokontroller léptető pozíciója, amely megfelel a meghajtó "nulla" fázisának. Ez a mező lehet nulla, ha a fáziseltolás nem ismert.
 - `phase_offset_position`: A vezető "nulladik" fázisának megfelelő "parancsolt pozíció". Ez a mező lehet nulla, ha a fáziseltolás nem ismert.
