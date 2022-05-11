@@ -1,11 +1,11 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
-# Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # "Zs.Antal" <antonio092130@icloud.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:33+0000\n"
-"Last-Translator: \"Zs.Antal\" <antonio092130@icloud.com>\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "canbus_protocol/hu/>\n"
 "Language: hu\n"
@@ -126,11 +126,10 @@ msgid ""
 "bus](https://en.wikipedia.org/wiki/CAN_bus). See <CANBUS.md> for information "
 "on configuring Klipper with CAN bus."
 msgstr ""
-"Ez a dokumentum a Klipper által a [CAN-"
-"buszon](https://hu.wikipedia.org/wiki/CAN-busz) keresztül történő "
-"kommunikációhoz használt protokollt írja le. A Klipper CAN-busszal való "
-"konfigurálásával kapcsolatos információkért lásd a <CANBUS.md> című "
-"dokumentumot."
+"Ez a dokumentum a Klipper által a [CAN-buszon](https://hu.wikipedia.org/wiki/"
+"CAN-busz) keresztül történő kommunikációhoz használt protokollt írja le. A "
+"Klipper CAN-busszal való konfigurálásával kapcsolatos információkért lásd a "
+"<CANBUS.md> című dokumentumot."
 
 #: docs/CANBUS_protocol.md:block 11 (header)
 msgid "CMD_SET_KLIPPER_NODEID message"
