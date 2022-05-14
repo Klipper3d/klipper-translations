@@ -1,13 +1,13 @@
 # nieraldo <nierybecar@gmail.com>, 2021, 2025.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
 # Bernardo M.M <bmendizabalm@gmail.com>, 2022.
-# Alvaro <alvaro@null.net>, 2022.
+# Alvaro <alvaro@null.net>, 2022, 2025.
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: nieraldo <nierybecar@gmail.com>\n"
+"Last-Translator: Alvaro <alvaro@null.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "bed_level/es/>\n"
 "Language: es\n"
