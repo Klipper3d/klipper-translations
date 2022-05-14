@@ -1,17 +1,18 @@
-# Alvaro <alvaro@null.net>, 2022.
+# Alvaro <alvaro@null.net>, 2022, 2025.
 # Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023.
 # Francisco Serrador <fserrador@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-10-16 22:36+0000\n"
-"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/sdcard_updates/es/>\n"
+"PO-Revision-Date: 2025-05-03 07:21+0000\n"
+"Last-Translator: Alvaro <alvaro@null.net>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"sdcard_updates/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #, fuzzy
 msgid ""
