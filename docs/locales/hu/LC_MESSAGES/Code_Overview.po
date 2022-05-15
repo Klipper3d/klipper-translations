@@ -1,5 +1,5 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
-# Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # "Zs.Antal" <zsikaiantal@icloud.com>, 2024.
 # "Zs.Antal" <antonio092130@icloud.com>, 2025.
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-05-03 07:34+0000\n"
-"Last-Translator: \"Zs.Antal\" <antonio092130@icloud.com>\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "code_overview/hu/>\n"
 "Language: hu\n"
@@ -603,8 +603,8 @@ msgid ""
 "Start by studying the \"[code flow of a move](#code-flow-of-a-move-command)\" "
 "section and the [Kinematics document](Kinematics.md)."
 msgstr ""
-"Kezdd \"[Egy mozgás kódfolyamata](#code-flow-of-a-move-command)\" szakasz és a"
-" [Kinematika dokumentum](Kinematics.md) tanulmányozásával."
+"Kezdd \"[Egy mozgás kódfolyamata](#code-flow-of-a-move-command)\" szakasz és "
+"a [Kinematika dokumentum](Kinematics.md) tanulmányozásával."
 
 msgid ""
 "Review the existing kinematic classes in the klippy/kinematics/ directory. The"
