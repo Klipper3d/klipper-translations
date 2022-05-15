@@ -136,7 +136,7 @@ homing_retract_dist: 0
 ...
 ```
 
-A fenti példák csak az érzékelő nélküli kezdőpont felvételre jellemző beállításokat mutatják. Az összes elérhető beállításért lásd a [konfigurációs referencia](Config_Reference.md#tmc-stepper-driver-configuration) dokumentumot.
+A fenti példák csak az érzékelő nélküli kezdőpont felvételre jellemző beállításokat mutatják. Az összes elérhető beállításért lásd a [konfigurációs referencia](Config_Reference.md#tmc-motorvezerlo-konfiguracioja) dokumentumot.
 
 #### Keresse meg a legmagasabb érzékenységet, amely sikeresen jelzi a kezdőpontot
 
@@ -229,7 +229,7 @@ Az összes bejelentett mezőt az egyes motorvezérlők Trinamic adatlapja határ
 
 ## A driver_XXX beállítások konfigurálása
 
-A Klipper támogatja számos alacsony szintű motorvezérlő konfigurálását a `driver_XXX` beállítások használatával. A [TMC meghajtó konfigurációs hivatkozás](Config_Reference.md#tmc-stepper-driver-configuration) tartalmazza az egyes meghajtótípusokhoz elérhető mezők teljes listáját.
+A Klipper támogatja számos alacsony szintű motorvezérlő konfigurálását a `driver_XXX` beállítások használatával. A [TMC meghajtó konfigurációs hivatkozás](Config_Reference.md#tmc-motorvezerlo-konfiguracioja) tartalmazza az egyes meghajtótípusokhoz elérhető mezők teljes listáját.
 
 Ezenkívül szinte minden mező módosítható használat közben a [SET_TMC_FIELD parancs](G-Codes.md#set_tmc_field) segítségével.
 

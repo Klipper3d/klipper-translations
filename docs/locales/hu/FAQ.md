@@ -17,13 +17,13 @@
 1. [A Raspberry Pi újraindul nyomtatás közben](#a-raspberry-pi-folyamatosan-ujraindul-nyomtatas-kozben)
 1. [Amikor beállítom `restart_method=command` az AVR készülékem újraindításkor csak lefagy](#amikor-beallitom-a-restart_methodcommand-az-avr-keszulekem-ujrainditaskor-egyszeruen-lefagy)
 1. [A fűtőelemek bekapcsolva maradnak, ha a Raspberry Pi összeomlik?](#a-futoelemek-bekapcsolva-maradnak-ha-a-raspberry-pi-osszeomlik)
-1. [Hogyan konvertálhatok egy Marlin tűszámot egy Klipper tűnévre?](#hogyan-alakithatok-at-egy-marlin-tu-szamot-klipper-tu-nevre)
-1. [Az eszközömet egy adott típusú mikrokontroller tűhöz kell csatlakoztatnom?](#az-eszkozomet-egy-adott-tipusu-mikrokontroller-tuhoz-kell-csatlakoztatnom)
+1. [Hogyan alakíthatok át egy Marlin tű számot Klipper tű névre?](#how-do-i-convert-a-marlin-pin-number-to-a-klipper-pin-name)
+1. [Az eszközömet egy adott típusú mikrokontroller tűhöz kell csatlakoztatnom?](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin)
 1. [Hogyan tudom törölni az M109/M190 "várakozás a hőmérsékletre" kérést?](#hogyan-tudom-torolni-az-m109m190-homersekletre-varni-kerest)
-1. [Megtudhatom, hogy a nyomtató vesztett-e lépéseket?](#meg-tudom-allapitani-hogy-a-nyomtato-vesztett-e-lepeseket)
-1. [Miért jelent hibát a Klipper? Elrontotta a nyomtatásomat!](#miert-jelent-hibat-a-klipper-elrontotta-a-nyomtatasomat)
+1. [Megtudhatom, hogy a nyomtató vesztett-e lépéseket?](#can-i-find-out-whether-the-printer-has-lost-steps)
+1. [Miért jelent hibát a Klipper? Elrontotta a nyomtatásomat!](#why-does-klipper-report-errors-i-lost-my-print)
 1. [Hogyan frissíthetek a legújabb szoftverre?](#hogyan-frissithetek-a-legujabb-szoftverre)
-1. [Hogyan távolítsam el a klippert?](#hogyan-tudom-eltavolitani-a-klippert)
+1. [Hogyan távolítsam el a klippert?](#how-do-i-uninstall-klipper)
 
 ## Hogyan adományozhatok a projektnek?
 
@@ -62,13 +62,13 @@ Ha több mikrovezérlőt használsz, és ezek nem rendelkeznek egyedi azonosít�
 
 ## A mikrokontroller újraindításakor az eszköz /dev/ttyUSB1-re változik
 
-Kövesse a "[Hol van a soros portom?](#hol-van-a-soros-portom)" szakaszban található utasításokat, hogy ezt megakadályozza.
+Kövesse a "[Hol van a soros portom?](#wheres-my-serial-port)" szakaszban található utasításokat, hogy ezt megakadályozza.
 
 ## A "make flash" parancs nem működik
 
 A kód megpróbálja az eszközt az egyes platformok esetében legelterjedtebb módszerrel égetni. Sajnos az égetési módszerek között nagy eltérések vannak, így a "make flash" parancs nem biztos, hogy minden lapon működik.
 
-Ha időszakos hiba van, vagy szabványos beállításod van, akkor ellenőrizd, hogy a Klipper nem fut-e égetés közben (sudo service klipper stop), győződj meg róla, hogy az OctoPrint nem próbál közvetlenül az eszközhöz csatlakozni (nyisd meg a weblapon a Kapcsolat lapot, és kattints a Kapcsolat megszakítása gombra, ha a soros port az eszközhöz van beállítva), és győződj meg róla, hogy a FLASH_DEVICE helyesen van beállítva a lapodhoz (lásd a fenti [kérdést](#hol-van-a-soros-portom)).
+Ha időszakos hiba van, vagy szabványos beállításod van, akkor ellenőrizd, hogy a Klipper nem fut-e égetés közben (sudo service klipper stop), győződj meg róla, hogy az OctoPrint nem próbál közvetlenül az eszközhöz csatlakozni (nyisd meg a weblapon a Kapcsolat lapot, és kattints a Kapcsolat megszakítása gombra, ha a soros port az eszközhöz van beállítva), és győződj meg róla, hogy a FLASH_DEVICE helyesen van beállítva a lapodhoz (lásd a fenti [kérdést](#wheres-my-serial-port)).
 
 Ha azonban a "make flash" egyszerűen nem működik az alaplapján, akkor manuálisan kell égetnie. Nézze meg, hogy van-e a [config könyvtárban](../config) egy config fájl, amely konkrét utasításokat tartalmaz az eszköz égetésére. Ellenőrizze a kártya gyártójának dokumentációját is, hogy leírja-e, hogyan kell égetni az eszközt. Végül, lehetséges lehet, hogy manuálisan égessük az eszközt olyan eszközökkel, mint az "avrdude" vagy a "bossac" - további információkért lásd a [bootloader dokumentumot](Bootloaders.md).
 
@@ -177,7 +177,7 @@ További részletekért lásd az [MCU-parancsok](MCU_Commands.md) dokumentumban 
 
 Ezenkívül a mikrovezérlő szoftver indításkor minden fűtőberendezéshez be van állítva egy minimális és maximális hőmérséklettartomány (a részletekért lásd a [konfigurációs hivatkozásban](Config_Reference.md#extruder) található min_temp és max_temp paramétereket). Ha a mikrokontroller azt érzékeli, hogy a hőmérséklet e tartományon kívül esik, akkor szintén "leállítás" állapotba lép.
 
-A gazdaszoftver külön kódot is tartalmaz a fűtőelemek és a hőmérséklet-érzékelők helyes működésének ellenőrzésére. További részletekért lásd a [konfigurációs hivatkozás](Config_Reference.md#verify_heater) dokumentumot.
+A gazdaszoftver külön kódot is tartalmaz a fűtőelemek és a hőmérséklet érzékelők helyes működésének ellenőrzésére. További részletekért lásd a [konfigurációs hivatkozás](Config_Reference.md#verify_heater) dokumentumot.
 
 ## Hogyan alakíthatok át egy Marlin tű számot Klipper tű névre?
 

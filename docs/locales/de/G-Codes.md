@@ -41,7 +41,7 @@ If one requires a less common G-Code command then it may be possible to implemen
 
 Klipper uses "extended" G-Code commands for general configuration and status. These extended commands all follow a similar format - they start with a command name and may be followed by one or more parameters. For example: `SET_SERVO SERVO=myservo ANGLE=5.3`. In this document, the commands and parameters are shown in uppercase, however they are not case sensitive. (So, "SET_SERVO" and "set_servo" both run the same command.)
 
-This section is organized my Klipper module name, which generally follows the section names specified in the [printer configuration file](Config_Reference.md). Note that some modules are automatically loaded.
+This section is organized by Klipper module name, which generally follows the section names specified in the [printer configuration file](Config_Reference.md). Note that some modules are automatically loaded.
 
 ### [adxl345]
 

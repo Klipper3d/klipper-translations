@@ -228,7 +228,7 @@ finalize_config crc=0
 
 A tesztet utoljára a `247cd753` megbízási gcc verzióval `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` futtatta.
 
-| stm32f042 | trükkök |
+| stm32g0b1 | trükkök |
 | --- | --- |
 | 1 léptető | 58 |
 | 3 léptető | 243 |

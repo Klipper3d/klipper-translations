@@ -72,7 +72,7 @@ Klipper 会按照收到请求的顺序依次处理请求。然而，一些请求
 
 A subscription request accepts a "response_template" dictionary in the "params" field of the request. That "response_template" dictionary is used as a template for future asynchronous messages - it may contain arbitrary key/value pairs. When sending these future asynchronous messages, Klipper will add a "params" field containing a dictionary with "endpoint" specific contents to the response template and then send that template. If a "response_template" field is not provided then it defaults to an empty dictionary (`{}`).
 
-## Available "endpoints"
+## 可用的"endpoint"
 
 By convention, Klipper "endpoints" are of the form `<module_name>/<some_name>`. When making a request to an "endpoint", the full name must be set in the "method" parameter of the request dictionary (eg, `{"method"="gcode/restart"}`).
 

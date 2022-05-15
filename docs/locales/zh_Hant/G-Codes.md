@@ -41,7 +41,7 @@ Klipper's goal is to support the G-Code commands produced by common 3rd party so
 
 Klipper使用 "extended" 的G程式碼命令來進行一般的配置和狀態。這些擴充套件命令都遵循一個類似的格式--它們以一個命令名開始，後面可能有一個或多個參數。比如說：`SET_SERVO SERVO=myservo ANGLE=5.3`。在本檔案中，命令和參數以大寫字母顯示，但它們不分大小寫。(所以，"SET_SERVO "和 "set_servo "都是執行同一個命令）
 
-這部分是組織我的Klipper模塊名稱，一般遵循[printer configuration file](Config_Reference.md)中指定的部分名稱。請注意，某些模塊會自動載入。
+This section is organized by Klipper module name, which generally follows the section names specified in the [printer configuration file](Config_Reference.md). Note that some modules are automatically loaded.
 
 ### [adxl345]
 

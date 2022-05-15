@@ -41,7 +41,7 @@ Si vous avez besoin d'une commande G-Code moins courante, il est possible de l'i
 
 Klipper utilise des commandes G-Code "étendues" pour la configuration générale et l'état. Ces commandes étendues suivent toutes un format similaire : elles commencent par le nom de la commande et peuvent être suivies d'un ou plusieurs paramètres. Par exemple : `SET_SERVO SERVO=myservo ANGLE=5.3 `. Dans ce document, les commandes et les paramètres sont indiqués en majuscules, mais ils ne sont pas sensibles à la casse. (Ainsi, "SET_SERVO" et "set_servo" exécuteront tous deux la même commande).
 
-This section is organized my Klipper module name, which generally follows the section names specified in the [printer configuration file](Config_Reference.md). Note that some modules are automatically loaded.
+This section is organized by Klipper module name, which generally follows the section names specified in the [printer configuration file](Config_Reference.md). Note that some modules are automatically loaded.
 
 ### [adxl345]
 

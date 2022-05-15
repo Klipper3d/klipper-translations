@@ -228,7 +228,7 @@ finalize_config crc=0
 
 测试最后在提交 `247cd753` 上运行，gcc 版本为 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`。
 
-| stm32f042 | ticks |
+| stm32g0b1 | ticks |
 | --- | --- |
 | 1个步进电机 | 58 |
 | 3个步进电机 | 243 |

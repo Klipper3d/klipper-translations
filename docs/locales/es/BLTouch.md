@@ -1,6 +1,6 @@
 # BL-Touch
 
-## Connecting BL-Touch
+## Conectando BL-Touch
 
 A **warning** before you start: Avoid touching the BL-Touch pin with your bare fingers, since it is quite sensitive to finger grease. And if you do touch it, be very gentle, in order to not bend or push anything.
 
@@ -24,7 +24,7 @@ z_hop_speed: 5
 
 It's important that the z_hop movement in safe_z_home is high enough that the probe doesn't hit anything even if the probe pin happens to be in its lowest state.
 
-## Initial tests
+## Pruebas iniciales
 
 Before moving on, verify that the BL-Touch is mounted at the correct height, the pin should be roughly 2 mm above the nozzle when retracted
 
@@ -48,7 +48,7 @@ This may happen if its calibration is interrupted by the probe being blocked fro
 
 However, the BL-Touch may also not be able to calibrate itself anymore. This happens if the screw on its top is in the wrong position or the magnetic core inside the probe pin has moved. If it has moved up so that it sticks to the screw, it may not be able to lower its pin anymore. With this behavior you need to open the screw and use a ball-point pen to push it gently back into place. Re-Insert the pin into the BL-Touch so that it falls into the extracted position. Carefully readjust the headless screw into place. You need to find the right position so it is able to lower and raise the pin and the red light turns on and of. Use the `reset`, `pin_up` and `pin_down` commands to achieve this.
 
-## BL-Touch "clones"
+## "Clones" BL-Touch
 
 Many BL-Touch "clone" devices work correctly with Klipper using the default configuration. However, some "clone" devices may not support the `QUERY_PROBE` command and some "clone" devices may require configuration of `pin_up_reports_not_triggered` or `pin_up_touch_mode_reports_triggered`.
 

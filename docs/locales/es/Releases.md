@@ -1,6 +1,6 @@
-# Releases
+# Versiones
 
-History of Klipper releases. Please see [installation](Installation.md) for information on installing Klipper.
+Historial de versiones de Klipper. Por favor vea [instalación](Installation.md) para más información instalando Klipper.
 
 ## Klipper 0.10.0
 
@@ -15,21 +15,21 @@ Available on 20210929. Major changes in this release:
 * The main Klipper host code can now directly communicate with micro-controllers using CAN bus.
 * New "motion analysis" system. Klipper's internal motion updates and sensor results can be tracked and logged for analysis.
 * Trinamic stepper motor drivers are now continuously monitored for error conditions.
-* Support for the rp2040 micro-controller (Raspberry Pi Pico boards).
+* Soporte para el micro controlador rp2040 (Raspberry Pi Pico boards).
 * The "make menuconfig" system now utilizes kconfiglib.
 * Many additional modules added: ds18b20, duplicate_pin_override, filament_motion_sensor, palette2, motion_report, pca9533, pulse_counter, save_variables, sdcard_loop, temperature_host, temperature_mcu
 * Several bug fixes and code cleanups.
 
 ## Klipper 0.9.0
 
-Available on 20201020. Major changes in this release:
+Disponible en 20201020. Principales cambios en esta versión:
 
 * Support for "Input Shaping" - a mechanism to counteract printer resonance. It can reduce or eliminate "ringing" in prints.
 * New "Smooth Pressure Advance" system. This implements "Pressure Advance" without introducing instantaneous velocity changes. It is also now possible to tune pressure advance using a "Tuning Tower" method.
 * New "webhooks" API server. This provides a programmable JSON interface to Klipper.
 * The LCD display and menu are now configurable using the Jinja2 template language.
 * The TMC2208 stepper motor drivers can now be used in "standalone" mode with Klipper.
-* Improved BL-Touch v3 support.
+* Soporte para BL-Touch v3 mejorado.
 * Improved USB identification. Klipper now has its own USB identification code and micro-controllers can now report their unique serial numbers during USB identification.
 * New kinematic support for "Rotary Delta" and "CoreXZ" printers.
 * Micro-controller improvements: support for stm32f070, support for stm32f207, support for GPIO pins on "Linux MCU", stm32 "HID bootloader" support, Chitu bootloader support, MKS Robin bootloader support.
@@ -63,7 +63,7 @@ Available on 20191021. Major changes in this release:
    * Greatly improved temperature filtering on the LPC176x.
    * Early output pin settings can be configured in the micro-controller.
 * New website with the Klipper documentation: http://klipper3d.org/
-   * Klipper now has a logo.
+   * Klipper ahora tiene un logo.
 * Experimental support for polar and "cable winch" kinematics.
 * The config file can now include other config files.
 * Many additional modules added: board_pins, controller_fan, delayed_gcode, dotstar, filament_switch_sensor, firmware_retraction, gcode_arcs, gcode_button, heater_generic, manual_stepper, mcp4018, mcp4728, neopixel, pause_resume, respond, temperature_sensor tsl1401cl_filament_width_sensor, tuning_tower
@@ -87,7 +87,7 @@ Available on 20181220. Major changes in this release:
 * Additional micro-controller support:
    * Klipper ported to: LPC176x (Smoothieboards), SAM4E8E (Duet2), SAMD21 (Arduino Zero), STM32F103 ("Blue pill" devices), atmega32u4
    * New Generic USB CDC driver implemented on AVR, LPC176x, SAMD21, and STM32F103
-   * Performance improvements on ARM processors
+   * Mejoras de rendimiento en procesadores ARM
 * The kinematics code was rewritten to use an "iterative solver"
 * New automatic test cases for the Klipper host software
 * Many new example config files for common off-the-shelf printers
@@ -143,20 +143,20 @@ Available on 20170503. Major changes in this release:
 * Support for automatic micro-controller resets. Support for resets via toggling USB power on Raspberry Pi.
 * The pressure advance algorithm now works with look-ahead to reduce pressure changes during cornering.
 * Support for limiting the top speed of short zigzag moves
-* Support for AD595 sensors
+* Soporte para sensores AD595
 * Several bug fixes and code cleanups
 
 ## Klipper 0.3.0
 
 Available on 20161223. Major changes in this release:
 
-* Improved documentation
+* Documentación mejorada
 * Support for robots with delta kinematics
-* Support for Arduino Due micro-controller (ARM cortex-M3)
+* Soporte para Arduino Due micro-controller (ARM cortex-M3)
 * Support for USB based AVR micro-controllers
 * Support for "pressure advance" algorithm - it reduces ooze during prints.
 * New "stepper phased based endstop" feature - enables higher precision on endstop homing.
-* Support for "extended g-code" commands such as "help", "restart", and "status".
+* Soporte para comandos "extended g-code" como "help", "restart", and "status".
 * Support for reloading the Klipper config and restarting the host software by issuing a "restart" command from the terminal.
 * Stepper performance improvements (20Mhz AVRs up to 158K steps per second).
 * Improved error reporting. Most errors now shown via the terminal along with help on how to resolve.
@@ -167,6 +167,6 @@ Available on 20161223. Major changes in this release:
 Initial release of Klipper. Available on 20160525. Major features available in the initial release include:
 
 * Basic support for cartesian printers (steppers, extruder, heated bed, cooling fan).
-* Support for common g-code commands. Support for interfacing with OctoPrint.
+* Soporte para comandos g-code comunes. Soporte para interconexión con OctoPrint.
 * Acceleration and lookahead handling
 * Support for AVR micro-controllers via standard serial ports
