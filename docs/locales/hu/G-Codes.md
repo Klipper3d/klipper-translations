@@ -41,7 +41,7 @@ Ha egy kevésbé gyakori G-kód parancsra van szükség, akkor azt egy egyéni [
 
 A Klipper "kiterjesztett" G-kód parancsokat használ az általános konfigurációhoz és állapothoz. Ezek a kiterjesztett parancsok mind hasonló formátumot követnek, egy parancsnévvel kezdődnek, és egy vagy több paraméter követheti őket. Például: `SET_SERVO SERVO=myservo ANGLE=5.3`. Ebben a parancssorban a parancsok és paraméterek nagybetűvel szerepelnek, azonban a nagy- és kisbetűket nem kell figyelembe venni. (Tehát a "SET_SERVO" és a "set_servo" mindkettő ugyanazt jelenti.)
 
-This section is organized by Klipper module name, which generally follows the section names specified in the [printer configuration file](Config_Reference.md). Note that some modules are automatically loaded.
+Ez a szakasz a Klipper modul neve szerint van rendezve, amely általában a [nyomtató konfigurációs fájlban](Config_Reference.md) megadott szakaszneveket követi. Vegye figyelembe, hogy egyes modulok automatikusan betöltődnek.
 
 ### [adxl345]
 

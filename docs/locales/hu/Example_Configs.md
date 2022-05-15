@@ -32,6 +32,6 @@ Ne feledje, hogy a [Klipper Community Discourse szerver](https://community.klipp
    1. Kerülje el az attribúciós vagy revíziós üzenetek hozzáadását a konfigurációs fájlokhoz. (Például kerülje az olyan sorok hozzáadását, mint a "this file was created by ..."). Helyezze el az attribúciót és a változtatási előzményeket a git commit üzenetben.
 1. Ne használjon semmilyen elavult funkciót a példakonfigurációs fájlban.
 1. Ne tiltson le egy alapértelmezett biztonsági rendszert egy példakonfig-fájlban. Például egy konfiguráció nem adhat meg egy egyéni `max_extrude_cross_section` értéket. Ne engedélyezze a hibakeresési funkciókat. Például ne legyen `force_move` config szakasz.
-1. All known boards that Klipper supports can use the default serial baud rate of 250000. Do not recommend a different baud rate in an example config file.
+1. A Klipper által támogatott összes ismert kártya az alapértelmezett 250000-es soros adatátvitelt tudja használni. Ne javasoljon eltérő adatátvitel beállítását egy példa konfigurációs fájlban.
 
 A példa konfigurációs fájlok elküldése egy github "pull request" létrehozásával történik. Kérjük, kövesse a [közreműködő dokumentum](CONTRIBUTING.md) utasításait is.
