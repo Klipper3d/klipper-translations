@@ -204,7 +204,7 @@ bossac -U -p /dev/ttyACM0 --offset=0x4000 -w out/klipper.bin -v -b -R
 
 ## STM32F103 mikrovezérlők (Blue Pill eszközök)
 
-The STM32F103 devices have a ROM that can flash a bootloader or application via 3.3V serial. Typically one would wire the PA10 (MCU Rx) and PA9 (MCU Tx) pins to a 3.3V UART adapter. To access the ROM, one should connect the "boot 0" pin to high and "boot 1" pin to low, and then reset the device. The "stm32flash" package can then be used to flash the device using something like:
+Az STM32F103 eszközök rendelkeznek egy ROM-mal, amely 3,3 V-os soros kapcsolaton keresztül képes bootloadert vagy alkalmazást égetni. Általában a PA10 (MCU Rx) és PA9 (MCU Tx) tűket egy 3,3V-os UART adapterhez kell csatlakoztatni. A ROM eléréséhez a "boot 0" tűt magasra, a "boot 1" tűt pedig alacsonyra kell kapcsolni, majd vissza kell állítani az eszközt. Az "stm32flash" csomagot ezután használhatjuk az eszköz égetésére, például a következőkkel:
 
 ```
 stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0
@@ -327,31 +327,31 @@ Ez a bootloader 8KiB vagy 16KiB flash helyet használ, lásd a bootloader leír�
 
 A bootloader a kártya reset gombjának kétszeri megnyomásával aktiválható. Amint a bootloader aktiválódik, a kártya USB flash meghajtóként jelenik meg, amelyre a klipper.bin fájl másolható.
 
-### STM32F103/STM32F0x2 with CanBoot bootloader
+### STM32F103/STM32F0x2 CanBoot bootloaderrel
 
-The [CanBoot](https://github.com/Arksine/CanBoot) bootloader provides an option for uploading Klipper firmware over the CANBUS. The bootloader itself is derived from Klipper's source code. Currently CanBoot supports the STM32F103, STM32F042, and STM32F072 models.
+A [CanBoot](https://github.com/Arksine/CanBoot) bootloader lehetőséget biztosít a Klipper firmware feltöltésére CANBUS-on keresztül. Maga a bootloader a Klipper forráskódjából származik. A CanBoot jelenleg az STM32F103, STM32F042 és STM32F072 modelleket támogatja.
 
-It is recommended to use a ST-Link Programmer to flash CanBoot, however it should be possible to flash using `stm32flash` on STM32F103 devices, and `dfu-util` on STM32F042/STM32F072 devices. See the previous sections in this document for instructions on these flashing methods, substituting `canboot.bin` for the file name where appropriate. The CanBoot repo linked above provides instructions for building the bootloader.
+A CanBoot égetéséhez ajánlott ST-Link programozót használni, azonban STM32F103 eszközökön az `stm32flash`, STM32F103 eszközökön pedig a `dfu-util` használatával is lehet égetni. A dokumentum korábbi szakaszaiban találhatók az utasítások ezekre az égetési módszerekre vonatkozóan, adott esetben a fájlnevet `canboot.bin`-el helyettesítve. A fentebb linkelt CanBoot repo tartalmaz utasításokat a bootloader elkészítéséhez.
 
-The first time CanBoot has been flashed it should detect that no application is present and enter the bootloader. If this doesn't occur it is possible to enter the bootloader by pressing the reset button twice in succession.
+A CanBoot első égetésénél észlelnie kell, hogy nincs jelen alkalmazás, és be kell lépnie a bootloaderbe. Ha ez nem történik meg, akkor a reset gomb kétszer egymás utáni megnyomásával lehet belépni a bootloaderbe.
 
-The `flash_can.py` utility supplied in the `lib/canboot` folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:
+A Klipper firmware feltöltéséhez a `flash_can.py` segédprogram használható, amely a `lib/canboot` mappában található. Az égetéshez szükséges az eszköz UUID azonosítója. Ha nincs meg az UUID, akkor a bootloadert jelenleg futtató csomópontok lekérdezése lehetséges:
 
 ```
 python3 flash_can.py -q
 ```
 
-This will return UUIDs for all connected nodes not currently assigned a UUID. This should include all nodes currently in the bootloader.
+Ez visszaadja az összes olyan csatlakoztatott csomópont UUID-jét, amelyhez jelenleg nem tartozik UUID. Ennek tartalmaznia kell a jelenlegi bootloaderben lévő összes csomópontot.
 
-Once you have a UUID, you may upload firmware with following command:
+Ha megvan az UUID, a következő paranccsal tölthet fel firmware-t:
 
 ```
 python3 flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u aabbccddeeff
 ```
 
-Where `aabbccddeeff` is replaced by your UUID. Note that the `-i` and `-f` options may be omitted, they default to `can0` and `~/klipper/out/klipper.bin` respectively.
+Ahol `aabbccddeeff` helyébe az Ön UUID-je lép. Vegye figyelembe, hogy a `-i` és `-f` opciók elhagyhatók, ezek alapértelmezett értéke `can0` és `~/klipper/out/klipper.bin`.
 
-When building Klipper for use with CanBoot, select the 8 KiB Bootloader option.
+Amikor a Klippert a CanBoot-al való használatra építi, válassza a 8 KiB-os bootloader opciót.
 
 ## STM32F4 mikrovezérlők (SKR Pro 1.1)
 

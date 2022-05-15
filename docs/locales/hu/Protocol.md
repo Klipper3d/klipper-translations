@@ -104,7 +104,7 @@ Az üzenetblokk formátumát a [HDLC](https://en.wikipedia.org/wiki/High-Level_D
 
 ### Üzenetblokk tartalma
 
-Minden egyes, a gazdagépről a mikrokontrollernek küldött üzenetblokk tartalma nulla vagy több üzenetparancsból álló sorozatot tartalmaz. Minden parancs egy [Változó hosszúságú mennyiség](#valtozo-hosszusagu-mennyisegek) (VLQ) kódolt egész számú parancs azonosítóval kezdődik, amelyet az adott parancsra vonatkozó nulla vagy több VLQ paraméter követ.
+Minden egyes, a gazdagépről a mikrokontrollernek küldött üzenetblokk tartalma nulla vagy több üzenetparancsból álló sorozatot tartalmaz. Minden parancs egy [Változó hosszúságú mennyiség](#valtozo-hosszusagu-mennyiseg) (VLQ) kódolt egész számú parancs azonosítóval kezdődik, amelyet az adott parancsra vonatkozó nulla vagy több VLQ paraméter követ.
 
 A következő négy parancsot például egyetlen üzenetblokkba helyezhetjük:
 
