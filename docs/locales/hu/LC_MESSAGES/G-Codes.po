@@ -1,11 +1,12 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-05-01 04:09+0000\n"
-"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
+"PO-Revision-Date: 2022-05-15 07:10+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "g-codes/hu/>\n"
 "Language: hu\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12.1\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -2416,7 +2417,7 @@ msgid ""
 "sections](Config_Reference.md#tmc-stepper-driver-configuration) are enabled."
 msgstr ""
 "A következő parancsok akkor érhetők el, ha a [tmcXXXXXX konfigurációs "
-"szakaszok](Config_Reference.md#tmc-stepper-driver-configuration) bármelyike "
+"szakaszok](Config_Reference.md#tmc-motorvezerlo-konfiguracioja) bármelyike "
 "engedélyezve van."
 
 #: docs/G-Codes.md:block 306 (header)
