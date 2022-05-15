@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-04-21 19:08+0000\n"
+"PO-Revision-Date: 2022-05-15 20:09+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/benchmarks/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"benchmarks/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "Ez a dokumentum a Klipper referenciaértékeit ismerteti."
@@ -958,7 +959,7 @@ msgstr "243"
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "stm32g0b1"
-msgstr ""
+msgstr "stm32g0b1"
 
 #~ msgid ""
 #~ "To produce the benchmarks found in the Features.md document, the total "
