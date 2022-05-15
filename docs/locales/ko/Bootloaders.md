@@ -204,7 +204,7 @@ bossac -U -p /dev/ttyACM0 --offset=0x4000 -w out/klipper.bin -v -b -R
 
 ## STM32F103 마이크로 컨트롤러 (Blue Pill 디바이스)
 
-STM32F103 디바이스는 3.3V 시리얼을 통해 부트로더나 어플리케이션을 구울수 있는 ROM을 갖고 있다. 이 ROM 에 접근하려면 "boot 0" 핀은 high 로, "boot 1" 핀은 low로 연결하고 장치를 리셋하도록 하라. "stm32flash" 패키지는 아래와 같이 하여 디바이스를 굽는데 사용할 수 있다.:
+The STM32F103 devices have a ROM that can flash a bootloader or application via 3.3V serial. Typically one would wire the PA10 (MCU Rx) and PA9 (MCU Tx) pins to a 3.3V UART adapter. To access the ROM, one should connect the "boot 0" pin to high and "boot 1" pin to low, and then reset the device. The "stm32flash" package can then be used to flash the device using something like:
 
 ```
 stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0
@@ -326,6 +326,32 @@ For STM32F072 boards it is also possible to flash the bootloader over USB (via D
 This bootloader uses 8KiB or 16KiB of flash space, see description of the bootloader (the application must be compiled with with the corresponding starting address).
 
 The bootloader can be activated by pressing the reset button of the board twice. As soon as the bootloader is activated, the board appears as a USB flash drive onto which the klipper.bin file can be copied.
+
+### STM32F103/STM32F0x2 with CanBoot bootloader
+
+The [CanBoot](https://github.com/Arksine/CanBoot) bootloader provides an option for uploading Klipper firmware over the CANBUS. The bootloader itself is derived from Klipper's source code. Currently CanBoot supports the STM32F103, STM32F042, and STM32F072 models.
+
+It is recommended to use a ST-Link Programmer to flash CanBoot, however it should be possible to flash using `stm32flash` on STM32F103 devices, and `dfu-util` on STM32F042/STM32F072 devices. See the previous sections in this document for instructions on these flashing methods, substituting `canboot.bin` for the file name where appropriate. The CanBoot repo linked above provides instructions for building the bootloader.
+
+The first time CanBoot has been flashed it should detect that no application is present and enter the bootloader. If this doesn't occur it is possible to enter the bootloader by pressing the reset button twice in succession.
+
+The `flash_can.py` utility supplied in the `lib/canboot` folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:
+
+```
+python3 flash_can.py -q
+```
+
+This will return UUIDs for all connected nodes not currently assigned a UUID. This should include all nodes currently in the bootloader.
+
+Once you have a UUID, you may upload firmware with following command:
+
+```
+python3 flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u aabbccddeeff
+```
+
+Where `aabbccddeeff` is replaced by your UUID. Note that the `-i` and `-f` options may be omitted, they default to `can0` and `~/klipper/out/klipper.bin` respectively.
+
+When building Klipper for use with CanBoot, select the 8 KiB Bootloader option.
 
 ## STM32F4 마이크로 컨트롤러 (SKR Pro 1.1)
 

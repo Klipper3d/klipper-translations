@@ -41,7 +41,7 @@ Klipper's goal is to support the G-Code commands produced by common 3rd party so
 
 Klipper는 일반 구성 및 상태에 대해 "확장된" G-Code 명령을 사용합니다. 이러한 확장 명령은 모두 유사한 형식을 따릅니다. 명령 이름으로 시작하고 하나 이상의 매개변수가 뒤따를 수 있습니다. 예제: `SET_SERVO SERVO=myservo ANGLE=5.3`. 이 문서에서 명령과 매개변수는 대문자로 표시되지만 대소문자를 구분하지 않습니다. (따라서 "SET_SERVO"와 "set_servo"는 모두 동일한 명령을 실행합니다.)
 
-This section is organized my Klipper module name, which generally follows the section names specified in the [printer configuration file](Config_Reference.md). Note that some modules are automatically loaded.
+This section is organized by Klipper module name, which generally follows the section names specified in the [printer configuration file](Config_Reference.md). Note that some modules are automatically loaded.
 
 ### [adxl345]
 

@@ -32,5 +32,6 @@
    1. 避免在配置文件中添加归属或修订信息。例如，避免添加类似 "此文件由......创建 "的行。）将归属和修改历史放在git提交信息中。
 1. 不要在示例配置文件中使用任何已废弃的功能。
 1. 不要在示例配置文件中禁用默认安全系统。例如，一个配置不应该指定一个自定义的 `max_extrude_cross_section`。不要启用调试功能。例如，不应该有一个 `force_move` 配置部分。
+1. All known boards that Klipper supports can use the default serial baud rate of 250000. Do not recommend a different baud rate in an example config file.
 
 通过创建github "pull request "来提交配置文件示例。也请遵循[contribution document](CONTRIBUTING.md)中的指示。

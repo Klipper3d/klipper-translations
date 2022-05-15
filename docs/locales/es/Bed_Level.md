@@ -75,7 +75,7 @@ Entonces un `TESTZ Z=-` movería la boquilla a una posición Z de 0,180 (a medio
 Después de encontrar una pequeña cantidad de fricción envíe el comando ACEPTAR :
 
 ```
-ACCEPT
+ACEPTAR
 ```
 
 Esto aceptará la altura en Z dada y continuara con la herramienta de calibración.
@@ -88,7 +88,7 @@ Si algo va mal durante la prueba, se puede utilizar el comando `ABORT` para sali
 
 After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "thickness of the paper", and "amount of friction felt during the paper test".
 
-This type of calculation is generally not needed as most users find the simple "paper test" provides good results.
+Este tipo de cálculos no son normalmente necesarios ya que la mayoría de usuarios encuentran que el simple "test de papel" da buenos resultados.
 
 The easiest way to make this calculation is to print a test object that has straight walls on all sides. The large hollow square found in [docs/prints/square.stl](prints/square.stl) can be used for this. When slicing the object, make sure the slicer uses the same layer height and extrusion widths for the first level that it does for all subsequent layers. Use a coarse layer height (the layer height should be around 75% of the nozzle diameter) and do not use a brim or raft.
 
