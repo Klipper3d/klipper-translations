@@ -1,5 +1,5 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
-# Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # "Zs.Antal" <zsikaiantal@gmail.com>, 2023.
 # "Zs.Antal" <zsikaiantal@icloud.com>, 2024.
 # "Zs.Antal" <antonio092130@icloud.com>, 2024, 2025.
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-05-03 07:34+0000\n"
-"Last-Translator: \"Zs.Antal\" <antonio092130@icloud.com>\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "g-codes/hu/>\n"
 "Language: hu\n"
@@ -2106,9 +2106,9 @@ msgid ""
 "The following commands are available when any of the [tmcXXXX config "
 "sections](Config_Reference.md#tmc-stepper-driver-configuration) are enabled."
 msgstr ""
-"A következő parancsok akkor érhetők el, ha a [tmcXXXXXX konfigurációs "
-"szakaszok](Config_Reference.md#tmc-motorvezerlo-konfiguracioja) bármelyike "
-"engedélyezve van."
+"A következő parancsok akkor érhetők el, ha a "
+"[tmcXXXXXX konfigurációs szakaszok](Config_Reference.md#tmc-motorvezerlo-"
+"konfiguracioja) bármelyike engedélyezve van."
 
 #: docs/G-Codes.md:block 306 (header)
 msgid "DUMP_TMC"
