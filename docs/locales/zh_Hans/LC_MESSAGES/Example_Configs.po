@@ -220,6 +220,12 @@ msgstr ""
 "80:20`而不是`gear_ratio: 4:1`）。参见[旋转距离文档](Rotation_Distance.md#using-a-"
 "gear_ratio)以获得更多信息。"
 
+#: docs/Example_Configs.md:block 7 (ordered list)
+msgid ""
+"All known boards that Klipper supports can use the default serial baud rate "
+"of 250000. Do not recommend a different baud rate in an example config file."
+msgstr ""
+
 #~ msgid ""
 #~ "When adding an extruder `rotation_distance` it is preferable to specify a "
 #~ "`gear_ratio` if the extruder has a gearing mechanism. We expect the "
