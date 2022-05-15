@@ -1,5 +1,5 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
-# Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # "Zs.Antal" <zsikaiantal@gmail.com>, 2023.
 # "Zs.Antal" <antonio092130@icloud.com>, 2025.
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-05-03 07:33+0000\n"
-"Last-Translator: \"Zs.Antal\" <antonio092130@icloud.com>\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "tmc_drivers/hu/>\n"
 "Language: hu\n"
@@ -266,8 +266,9 @@ msgid ""
 "all the available options."
 msgstr ""
 "A fenti példák csak az érzékelő nélküli kezdőpont felvételre jellemző "
-"beállításokat mutatják. Az összes elérhető beállításért lásd a [konfigurációs "
-"referencia](Config_Reference.md#tmc-motorvezerlo-konfiguracioja) dokumentumot."
+"beállításokat mutatják. Az összes elérhető beállításért lásd a "
+"[konfigurációs referencia](Config_Reference.md#tmc-motorvezerlo-"
+"konfiguracioja) dokumentumot."
 
 msgid "Find highest sensitivity that successfully homes"
 msgstr ""
@@ -539,9 +540,10 @@ msgid ""
 "driver."
 msgstr ""
 "A Klipper támogatja számos alacsony szintű motorvezérlő konfigurálását a "
-"`driver_XXX` beállítások használatával. A [TMC meghajtó konfigurációs "
-"hivatkozás](Config_Reference.md#tmc-motorvezerlo-konfiguracioja) tartalmazza "
-"az egyes meghajtótípusokhoz elérhető mezők teljes listáját."
+"`driver_XXX` beállítások használatával. A "
+"[TMC meghajtó konfigurációs hivatkozás](Config_Reference.md#tmc-motorvezerlo-"
+"konfiguracioja) tartalmazza az egyes meghajtótípusokhoz elérhető mezők "
+"teljes listáját."
 
 msgid ""
 "Each of these fields is defined in the Trinamic datasheet for each driver. "
