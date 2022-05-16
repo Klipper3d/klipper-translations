@@ -973,15 +973,6 @@ msgstr ""
 msgid "Additional Commands"
 msgstr "其他命令"
 
-#: docs/G-Codes.md:block 11 (paragraph)
-msgid ""
-"This section is organized my Klipper module name, which generally follows "
-"the section names specified in the [printer configuration "
-"file](Config_Reference.md). Note that some modules are automatically loaded."
-msgstr ""
-"這部分是組織我的Klipper模塊名稱，一般遵循[printer configuration "
-"file](Config_Reference.md)中指定的部分名稱。請注意，某些模塊會自動載入。"
-
 #: docs/G-Codes.md:block 12 (header)
 msgid "[adxl345]"
 msgstr "[adxl345]"
@@ -2406,6 +2397,21 @@ msgid ""
 "`RESET_SMART_EFFECTOR`: Resets Smart Effector sensitivity to its factory "
 "settings. Requires `control_pin` to be provided in the config section."
 msgstr ""
+
+#: docs/G-Codes.md:block 11 (paragraph)
+msgid ""
+"This section is organized by Klipper module name, which generally follows "
+"the section names specified in the [printer configuration "
+"file](Config_Reference.md). Note that some modules are automatically loaded."
+msgstr ""
+
+#~ msgid ""
+#~ "This section is organized my Klipper module name, which generally follows "
+#~ "the section names specified in the [printer configuration "
+#~ "file](Config_Reference.md). Note that some modules are automatically loaded."
+#~ msgstr ""
+#~ "這部分是組織我的Klipper模塊名稱，一般遵循[printer configuration "
+#~ "file](Config_Reference.md)中指定的部分名稱。請注意，某些模塊會自動載入。"
 
 #~ msgid "The query_endstops module is automatically loaded."
 #~ msgstr "模組query_endstops已自動載入."

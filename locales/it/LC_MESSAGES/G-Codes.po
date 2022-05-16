@@ -805,13 +805,6 @@ msgstr ""
 msgid "Additional Commands"
 msgstr ""
 
-#: docs/G-Codes.md:block 11 (paragraph)
-msgid ""
-"This section is organized my Klipper module name, which generally follows "
-"the section names specified in the [printer configuration "
-"file](Config_Reference.md). Note that some modules are automatically loaded."
-msgstr ""
-
 #: docs/G-Codes.md:block 12 (header)
 msgid "[adxl345]"
 msgstr ""
@@ -2123,6 +2116,19 @@ msgid ""
 "`RESET_SMART_EFFECTOR`: Resets Smart Effector sensitivity to its factory "
 "settings. Requires `control_pin` to be provided in the config section."
 msgstr ""
+
+#: docs/G-Codes.md:block 11 (paragraph)
+msgid ""
+"This section is organized by Klipper module name, which generally follows "
+"the section names specified in the [printer configuration "
+"file](Config_Reference.md). Note that some modules are automatically loaded."
+msgstr ""
+
+#~ msgid ""
+#~ "This section is organized my Klipper module name, which generally follows "
+#~ "the section names specified in the [printer configuration "
+#~ "file](Config_Reference.md). Note that some modules are automatically loaded."
+#~ msgstr ""
 
 #~ msgid "The query_endstops module is automatically loaded."
 #~ msgstr ""

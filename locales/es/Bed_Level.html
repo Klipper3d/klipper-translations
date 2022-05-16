@@ -1263,7 +1263,7 @@ Recv: // Z position: ?????? --&gt; 5.000 &lt;-- ??????
 
 <p>Entonces un <code>TESTZ Z=-</code> movería la boquilla a una posición Z de 0,180 (a medio camino entre 0,130 y 0,230). Se puede utilizar esta función para ayudar a reducir rápidamente a una fricción consistente. También es posible utilizar <code>Z=++</code> y <code>Z=--</code> para volver directamente a una medición pasada - por ejemplo, después de la indicación anterior un comando <code>TESTZ Z=--</code> movería la boquilla a una posición Z de 0.130.</p>
 <p>Después de encontrar una pequeña cantidad de fricción envíe el comando ACEPTAR :</p>
-<div class="highlight"><pre><span></span><code>ACCEPT
+<div class="highlight"><pre><span></span><code>ACEPTAR
 </code></pre></div>
 
 <p>Esto aceptará la altura en Z dada y continuara con la herramienta de calibración.</p>
@@ -1271,7 +1271,7 @@ Recv: // Z position: ?????? --&gt; 5.000 &lt;-- ??????
 <p>Si algo va mal durante la prueba, se puede utilizar el comando <code>ABORT</code> para salir de la herramienta de calibración.</p>
 <h2 id="determinando-la-expansion-termica">Determinando la Expansión Térmica<a class="headerlink" href="#determinando-la-expansion-termica" title="Permanent link">&para;</a></h2>
 <p>After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "thickness of the paper", and "amount of friction felt during the paper test".</p>
-<p>This type of calculation is generally not needed as most users find the simple "paper test" provides good results.</p>
+<p>Este tipo de cálculos no son normalmente necesarios ya que la mayoría de usuarios encuentran que el simple "test de papel" da buenos resultados.</p>
 <p>The easiest way to make this calculation is to print a test object that has straight walls on all sides. The large hollow square found in <a href="prints/square.stl">docs/prints/square.stl</a> can be used for this. When slicing the object, make sure the slicer uses the same layer height and extrusion widths for the first level that it does for all subsequent layers. Use a coarse layer height (the layer height should be around 75% of the nozzle diameter) and do not use a brim or raft.</p>
 <p>Print the test object, wait for it to cool, and remove it from the bed. Inspect the lowest layer of the object. (It may also be useful to run a finger or nail along the bottom edge.) If one finds the bottom layer bulges out slightly along all sides of the object then it indicates the nozzle was slightly closer to the bed then it should be. One can issue a <code>SET_GCODE_OFFSET Z=+.010</code> command to increase the height. In subsequent prints one can inspect for this behavior and make further adjustment as needed. Adjustments of this type are typically in 10s of microns (.010mm).</p>
 <p>If the bottom layer consistently appears narrower than subsequent layers then one can use the SET_GCODE_OFFSET command to make a negative Z adjustment. If one is unsure, then one can decrease the Z adjustment until the bottom layer of prints exhibit a small bulge, and then back-off until it disappears.</p>

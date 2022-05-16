@@ -1,17 +1,18 @@
 # nieraldo <nierybecar@gmail.com>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
 # Bernardo M.M <bmendizabalm@gmail.com>, 2022.
+# Alvaro <alvaro@null.net>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-09 13:53+0000\n"
-"Last-Translator: Bernardo M.M <bmendizabalm@gmail.com>\n"
+"PO-Revision-Date: 2022-05-14 22:16+0000\n"
+"Last-Translator: Alvaro <alvaro@null.net>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/bed_level/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 msgid ""
 "Bed leveling (sometimes also referred to as \"bed tramming\") is critical to"
@@ -329,6 +330,8 @@ msgid ""
 "This type of calculation is generally not needed as most users find the "
 "simple \"paper test\" provides good results."
 msgstr ""
+"Este tipo de cálculos no son normalmente necesarios ya que la mayoría de "
+"usuarios encuentran que el simple \"test de papel\" da buenos resultados."
 
 msgid ""
 "The easiest way to make this calculation is to print a test object that has "
@@ -379,7 +382,7 @@ msgid "Recv: // Z position: 0.130 --> 0.230 <-- 0.280\n"
 msgstr ""
 
 msgid "ACCEPT\n"
-msgstr ""
+msgstr "ACEPTAR\n"
 
 #: docs/Bed_Level.md:block 1 (header)
 msgid "Bed leveling"

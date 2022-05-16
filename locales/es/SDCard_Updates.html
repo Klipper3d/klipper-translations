@@ -1191,15 +1191,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-usage" class="md-nav__link">
-    Advanced Usage
+  <a href="#uso-avanzado" class="md-nav__link">
+    Uso Avanzado
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#caveats" class="md-nav__link">
-    Caveats
+  <a href="#advertencias" class="md-nav__link">
+    Advertencias
   </a>
   
 </li>
@@ -1243,12 +1243,12 @@ sudo service klipper start
 </code></pre></div>
 
 <p>It is up to the user to determine the device location and board name. If a user needs to flash multiple boards, <code>flash-sdcard.sh</code> (or <code>make flash</code> if appropriate) should be run for each board prior to restarting the Klipper service.</p>
-<p>Supported boards can be listed with the following command:</p>
+<p>Las placas soportadas se pueden listar con el siguiente comando:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -l
 </code></pre></div>
 
 <p>If you do not see your board listed it may be necessary to add a new board definition as <a href="#board-definitions">described below</a>.</p>
-<h2 id="advanced-usage">Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permanent link">&para;</a></h2>
+<h2 id="uso-avanzado">Uso Avanzado<a class="headerlink" href="#uso-avanzado" title="Permanent link">&para;</a></h2>
 <p>The above commands assume that your MCU connects at the default baud rate of 250000 and the firmware is located at <code>~/klipper/out/klipper.bin</code>. The <code>flash-sdcard.sh</code> script provides options for changing these defaults. All options can be viewed by the help screen:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -h
 SD Card upload utility for Klipper
@@ -1276,7 +1276,7 @@ optional arguments:
 </code></pre></div>
 
 <p>Note that when upgrading a MKS Robin E3 it is not necessary to manually run <code>update_mks_robin.py</code> and supply the resulting binary to <code>flash-sdcard.sh</code>. This procedure is automated during the upload process.</p>
-<h2 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link">&para;</a></h2>
+<h2 id="advertencias">Advertencias<a class="headerlink" href="#advertencias" title="Permanent link">&para;</a></h2>
 <ul>
 <li>As mentioned in the introduction, this method only works for upgrading firmware. The initial flashing procedure must be done manually per the instructions that apply to your controller board.</li>
 <li>While it is possible to flash a build that changes the Serial Baud or connection interface (ie: from USB to UART), verification will always fail as the script will be unable to reconnect to the MCU to verify the current version.</li>

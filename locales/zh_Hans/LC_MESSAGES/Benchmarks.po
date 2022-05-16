@@ -903,6 +903,10 @@ msgstr "58"
 msgid "243"
 msgstr "243"
 
+#: docs/Benchmarks.md:block 63 (table)
+msgid "stm32g0b1"
+msgstr ""
+
 #~ msgid ""
 #~ "To produce the benchmarks found in the Features.md document, the total "
 #~ "number of steps per second is calculated by multiplying the number of active"

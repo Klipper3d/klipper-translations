@@ -191,6 +191,12 @@ msgid ""
 "gear_ratio) for more information."
 msgstr ""
 
+#: docs/Example_Configs.md:block 7 (ordered list)
+msgid ""
+"All known boards that Klipper supports can use the default serial baud rate "
+"of 250000. Do not recommend a different baud rate in an example config file."
+msgstr ""
+
 #~ msgid ""
 #~ "When adding an extruder `rotation_distance` it is preferable to specify a "
 #~ "`gear_ratio` if the extruder has a gearing mechanism. We expect the "

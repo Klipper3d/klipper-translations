@@ -1,9 +1,18 @@
-#
+# Alvaro <alvaro@null.net>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-05-14 22:16+0000\n"
+"Last-Translator: Alvaro <alvaro@null.net>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/bltouch/es/>\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 msgid "Connecting BL-Touch"
-msgstr ""
+msgstr "Conectando BL-Touch"
 
 msgid ""
 "A **warning** before you start: Avoid touching the BL-Touch pin with your "
@@ -27,7 +36,7 @@ msgid ""
 msgstr ""
 
 msgid "Initial tests"
-msgstr ""
+msgstr "Pruebas iniciales"
 
 msgid ""
 "Before moving on, verify that the BL-Touch is mounted at the correct height,"
@@ -77,8 +86,9 @@ msgid ""
 "force it to leave that state by issuing:"
 msgstr ""
 
+#, fuzzy
 msgid "BLTOUCH_DEBUG COMMAND=reset"
-msgstr ""
+msgstr "BLTOUCH_DEBUG COMMAND=reset"
 
 msgid ""
 "This may happen if its calibration is interrupted by the probe being blocked"
@@ -99,7 +109,7 @@ msgid ""
 msgstr ""
 
 msgid "BL-Touch \"clones\""
-msgstr ""
+msgstr "\"Clones\" BL-Touch"
 
 msgid ""
 "Important! Do not configure `pin_up_reports_not_triggered` or "
@@ -137,7 +147,7 @@ msgid ""
 msgstr ""
 
 msgid "BL-Touch v3"
-msgstr ""
+msgstr "BL-Touch v3"
 
 msgid ""
 "Some BL-Touch v3.0 and BL-Touch 3.1 devices may require configuring "
@@ -285,10 +295,13 @@ msgid ""
 "sensor_pin: ^P1.24\n"
 "control_pin: P1.26\n"
 msgstr ""
+"[bltouch]\n"
+"sensor_pin: ^P1.24\n"
+"control_pin: P1.26\n"
 
 #: docs/BLTouch.md:block 1 (header)
 msgid "BL-Touch"
-msgstr ""
+msgstr "BL-Touch"
 
 #: docs/BLTouch.md:block 6 (paragraph)
 msgid ""

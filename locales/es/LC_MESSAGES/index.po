@@ -1,6 +1,15 @@
-#
+# Alvaro <alvaro@null.net>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-05-15 06:49+0000\n"
+"Last-Translator: Alvaro <alvaro@null.net>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/index/es/>\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 #: docs/index.md:block 1 (paragraph)
 msgid "hide:"
@@ -12,7 +21,7 @@ msgstr ""
 
 #: docs/index.md:block 3 (paragraph)
 msgid "![](img/klipper-logo.png){ .center-image }"
-msgstr ""
+msgstr "![](img/klipper-logo.png){ .center-image }"
 
 #: docs/index.md:block 4 (paragraph)
 msgid ""

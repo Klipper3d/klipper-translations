@@ -1184,15 +1184,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#connecting-bl-touch" class="md-nav__link">
-    Connecting BL-Touch
+  <a href="#conectando-bl-touch" class="md-nav__link">
+    Conectando BL-Touch
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#initial-tests" class="md-nav__link">
-    Initial tests
+  <a href="#pruebas-iniciales" class="md-nav__link">
+    Pruebas iniciales
   </a>
   
 </li>
@@ -1205,8 +1205,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bl-touch-clones" class="md-nav__link">
-    BL-Touch "clones"
+  <a href="#clones-bl-touch" class="md-nav__link">
+    "Clones" BL-Touch
   </a>
   
 </li>
@@ -1257,7 +1257,7 @@
 
 
 <h1 id="bl-touch">BL-Touch<a class="headerlink" href="#bl-touch" title="Permanent link">&para;</a></h1>
-<h2 id="connecting-bl-touch">Connecting BL-Touch<a class="headerlink" href="#connecting-bl-touch" title="Permanent link">&para;</a></h2>
+<h2 id="conectando-bl-touch">Conectando BL-Touch<a class="headerlink" href="#conectando-bl-touch" title="Permanent link">&para;</a></h2>
 <p>A <strong>warning</strong> before you start: Avoid touching the BL-Touch pin with your bare fingers, since it is quite sensitive to finger grease. And if you do touch it, be very gentle, in order to not bend or push anything.</p>
 <p>Hook up the BL-Touch "servo" connector to a <code>control_pin</code> according to the BL-Touch documentation or your MCU documentation. Using the original wiring, the yellow wire from the triple is the <code>control_pin</code> and the white wire from the pair is the <code>sensor_pin</code>. You need to configure these pins according to your wiring. Most BL-Touch devices require a pullup on the sensor pin (prefix the pin name with "^"). For example:</p>
 <div class="highlight"><pre><span></span><code>[bltouch]
@@ -1274,7 +1274,7 @@ z_hop_speed: 5
 </code></pre></div>
 
 <p>It's important that the z_hop movement in safe_z_home is high enough that the probe doesn't hit anything even if the probe pin happens to be in its lowest state.</p>
-<h2 id="initial-tests">Initial tests<a class="headerlink" href="#initial-tests" title="Permanent link">&para;</a></h2>
+<h2 id="pruebas-iniciales">Pruebas iniciales<a class="headerlink" href="#pruebas-iniciales" title="Permanent link">&para;</a></h2>
 <p>Before moving on, verify that the BL-Touch is mounted at the correct height, the pin should be roughly 2 mm above the nozzle when retracted</p>
 <p>When you turn on the printer, the BL-Touch probe should perform a self-test and move the pin up and down a couple of times. Once the self-test is completed, the pin should be retracted and the red LED on the probe should be lit. If there are any errors, for example the probe is flashing red or the pin is down instead of up, please turn off the printer and check the wiring and configuration.</p>
 <p>If the above is looking good, it's time to test that the control pin is working correctly. First run <code>BLTOUCH_DEBUG COMMAND=pin_down</code> in your printer terminal. Verify that the pin moves down and that the red LED on the probe turns off. If not, check your wiring and configuration again. Next issue a <code>BLTOUCH_DEBUG COMMAND=pin_up</code>, verify that the pin moves up, and that the red light turns on again. If it's flashing then there's some problem.</p>
@@ -1286,7 +1286,7 @@ z_hop_speed: 5
 <p>BLTOUCH_DEBUG COMMAND=reset</p>
 <p>This may happen if its calibration is interrupted by the probe being blocked from being extracted.</p>
 <p>However, the BL-Touch may also not be able to calibrate itself anymore. This happens if the screw on its top is in the wrong position or the magnetic core inside the probe pin has moved. If it has moved up so that it sticks to the screw, it may not be able to lower its pin anymore. With this behavior you need to open the screw and use a ball-point pen to push it gently back into place. Re-Insert the pin into the BL-Touch so that it falls into the extracted position. Carefully readjust the headless screw into place. You need to find the right position so it is able to lower and raise the pin and the red light turns on and of. Use the <code>reset</code>, <code>pin_up</code> and <code>pin_down</code> commands to achieve this.</p>
-<h2 id="bl-touch-clones">BL-Touch "clones"<a class="headerlink" href="#bl-touch-clones" title="Permanent link">&para;</a></h2>
+<h2 id="clones-bl-touch">"Clones" BL-Touch<a class="headerlink" href="#clones-bl-touch" title="Permanent link">&para;</a></h2>
 <p>Many BL-Touch "clone" devices work correctly with Klipper using the default configuration. However, some "clone" devices may not support the <code>QUERY_PROBE</code> command and some "clone" devices may require configuration of <code>pin_up_reports_not_triggered</code> or <code>pin_up_touch_mode_reports_triggered</code>.</p>
 <p>Important! Do not configure <code>pin_up_reports_not_triggered</code> or <code>pin_up_touch_mode_reports_triggered</code> to False without first following these directions. Do not configure either of these to False on a genuine BL-Touch. Incorrectly setting these to False can increase probing time and can increase the risk of damaging the printer.</p>
 <p>Some "clone" devices do not support <code>touch_mode</code> and as a result the <code>QUERY_PROBE</code> command does not work. Despite this, it may still be possible to perform probing and homing with these devices. On these devices the <code>QUERY_PROBE</code> command during the <a href="#initial-tests">initial tests</a> will not succeed, however the subsequent <code>G28</code> (or <code>PROBE</code>) test does succeed. It may be possible to use these "clone" devices with Klipper if one does not utilize the <code>QUERY_PROBE</code> command and one does not enable the <code>probe_with_touch_mode</code> feature.</p>

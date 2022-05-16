@@ -1,17 +1,28 @@
-#
+# Alvaro <alvaro@null.net>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-05-15 06:49+0000\n"
+"Last-Translator: Alvaro <alvaro@null.net>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/releases/es/>\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 msgid ""
 "History of Klipper releases. Please see [installation](Installation.md) for "
 "information on installing Klipper."
 msgstr ""
+"Historial de versiones de Klipper. Por favor vea "
+"[instalación](Installation.md) para más información instalando Klipper."
 
 msgid "Klipper 0.9.0"
-msgstr ""
+msgstr "Klipper 0.9.0"
 
 msgid "Available on 20201020. Major changes in this release:"
-msgstr ""
+msgstr "Disponible en 20201020. Principales cambios en esta versión:"
 
 msgid ""
 "Support for \"Input Shaping\" - a mechanism to counteract printer resonance."
@@ -40,7 +51,7 @@ msgid ""
 msgstr ""
 
 msgid "Improved BL-Touch v3 support."
-msgstr ""
+msgstr "Soporte para BL-Touch v3 mejorado."
 
 msgid ""
 "Improved USB identification. Klipper now has its own USB identification code"
@@ -72,13 +83,13 @@ msgid "Several bug fixes and code cleanups."
 msgstr ""
 
 msgid "Klipper 0.9.1"
-msgstr ""
+msgstr "Klipper 0.9.1"
 
 msgid "Available on 20201028. Release containing only bug fixes."
 msgstr ""
 
 msgid "Klipper 0.8.0"
-msgstr ""
+msgstr "Klipper 0.8.0"
 
 msgid "Available on 20191021. Major changes in this release:"
 msgstr ""
@@ -144,7 +155,7 @@ msgid "New website with the Klipper documentation: http://klipper3d.org/"
 msgstr ""
 
 msgid "Klipper now has a logo."
-msgstr ""
+msgstr "Klipper ahora tiene un logo."
 
 msgid "Experimental support for polar and \"cable winch\" kinematics."
 msgstr ""
@@ -167,7 +178,7 @@ msgid ""
 msgstr ""
 
 msgid "Klipper 0.7.0"
-msgstr ""
+msgstr "Klipper 0.7.0"
 
 msgid "Available on 20181220. Major changes in this release:"
 msgstr ""
@@ -227,7 +238,7 @@ msgid ""
 msgstr ""
 
 msgid "Performance improvements on ARM processors"
-msgstr ""
+msgstr "Mejoras de rendimiento en procesadores ARM"
 
 msgid "The kinematics code was rewritten to use an \"iterative solver\""
 msgstr ""
@@ -247,7 +258,7 @@ msgid "Several bug fixes and code cleanups"
 msgstr ""
 
 msgid "Klipper 0.6.0"
-msgstr ""
+msgstr "Klipper 0.6.0"
 
 msgid "Available on 20180331. Major changes in this release:"
 msgstr ""
@@ -321,7 +332,7 @@ msgid ""
 msgstr ""
 
 msgid "Klipper 0.5.0"
-msgstr ""
+msgstr "Klipper 0.5.0"
 
 msgid "Available on 20171025. Major changes in this release:"
 msgstr ""
@@ -355,7 +366,7 @@ msgid ""
 msgstr ""
 
 msgid "Klipper 0.4.0"
-msgstr ""
+msgstr "Klipper 0.4.0"
 
 msgid "Available on 20170503. Major changes in this release:"
 msgstr ""
@@ -392,22 +403,22 @@ msgid "Support for limiting the top speed of short zigzag moves"
 msgstr ""
 
 msgid "Support for AD595 sensors"
-msgstr ""
+msgstr "Soporte para sensores AD595"
 
 msgid "Klipper 0.3.0"
-msgstr ""
+msgstr "Klipper 0.3.0"
 
 msgid "Available on 20161223. Major changes in this release:"
 msgstr ""
 
 msgid "Improved documentation"
-msgstr ""
+msgstr "Documentación mejorada"
 
 msgid "Support for robots with delta kinematics"
 msgstr ""
 
 msgid "Support for Arduino Due micro-controller (ARM cortex-M3)"
-msgstr ""
+msgstr "Soporte para Arduino Due micro-controller (ARM cortex-M3)"
 
 msgid "Support for USB based AVR micro-controllers"
 msgstr ""
@@ -424,7 +435,7 @@ msgstr ""
 msgid ""
 "Support for \"extended g-code\" commands such as \"help\", \"restart\", and "
 "\"status\"."
-msgstr ""
+msgstr "Soporte para comandos \"extended g-code\" como \"help\", \"restart\", and \"status\"."
 
 msgid ""
 "Support for reloading the Klipper config and restarting the host software by"
@@ -441,7 +452,7 @@ msgid ""
 msgstr ""
 
 msgid "Klipper 0.2.0"
-msgstr ""
+msgstr "Klipper 0.2.0"
 
 msgid ""
 "Initial release of Klipper. Available on 20160525. Major features available "
@@ -456,6 +467,8 @@ msgstr ""
 msgid ""
 "Support for common g-code commands. Support for interfacing with OctoPrint."
 msgstr ""
+"Soporte para comandos g-code comunes. Soporte para interconexión con "
+"OctoPrint."
 
 msgid "Acceleration and lookahead handling"
 msgstr ""
@@ -465,11 +478,11 @@ msgstr ""
 
 #: docs/Releases.md:block 1 (header)
 msgid "Releases"
-msgstr ""
+msgstr "Versiones"
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.10.0"
-msgstr ""
+msgstr "Klipper 0.10.0"
 
 #: docs/Releases.md:block 4 (paragraph)
 msgid "Available on 20210929. Major changes in this release:"
@@ -529,7 +542,7 @@ msgstr ""
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Support for the rp2040 micro-controller (Raspberry Pi Pico boards)."
-msgstr ""
+msgstr "Soporte para el micro controlador rp2040 (Raspberry Pi Pico boards)."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "The \"make menuconfig\" system now utilizes kconfiglib."
