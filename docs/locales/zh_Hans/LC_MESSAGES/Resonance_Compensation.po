@@ -4,11 +4,12 @@
 # mirokymac <toufubomb@gmail.com>, 2022.
 # xm Y <3260838022@qq.com>, 2023.
 # Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023.
+# "Neko.vecter" <Vecterfang@icloud.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/resonance_compensation/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -156,9 +157,9 @@ msgid ""
 "marked 6 oscillations, and the test was printed at 100 mm/sec velocity, so the"
 " frequency is 100 * 6 / 12.14 ≈ 49.4 Hz."
 msgstr ""
-"通过 *V* &middot; *N* / *D* (Hz) 计算振铃的频率，其中*V* "
-"是外壁的加速度（mm/秒）。在上述例子中，我们标记了6个振纹，同时测试件是以100 mm/秒的速度进行印制，因此振动频率为100 * 6 / 12.14 ≈"
-" 49.4 Hz。"
+"通过 *V* &middot; *N* / *D* (Hz) 计算振铃的频率，其中*V* 是外壁的加速度（mm/"
+"秒）。在上述例子中，我们标记了6个振纹，同时测试件是以100 mm/"
+"秒的速度进行印制，因此振动频率为100 * 6 / 12.14 ≈ 49.4 Hz。"
 
 msgid ""
 "Note that ringing on the test print should follow the pattern of the curved "
