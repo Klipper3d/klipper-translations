@@ -1,5 +1,5 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
-# Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # "Zs.Antal" <zsikaiantal@gmail.com>, 2023.
 # "Zs.Antal" <antonio092130@icloud.com>, 2025.
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-05-03 07:34+0000\n"
-"Last-Translator: \"Zs.Antal\" <antonio092130@icloud.com>\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "contact/hu/>\n"
 "Language: hu\n"
@@ -82,8 +82,8 @@ msgid ""
 "It is also possible to search for similar questions in the [Klipper Community "
 "Forum](#community-forum)."
 msgstr ""
-"Lehetőség van hasonló kérdések keresésére a [Klipper Közösségi "
-"Fórum](#kozossegi-forum) oldalon is."
+"Lehetőség van hasonló kérdések keresésére a [Klipper Közösségi Fórum]"
+"(#kozossegi-forum) oldalon is."
 
 msgid ""
 "If you are interested in sharing your knowledge and experience with other "
