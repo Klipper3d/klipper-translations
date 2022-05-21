@@ -1,20 +1,24 @@
 # Roberto Besser <rmbesser@gmail.com>, 2021.
+# Zeldazul <b.ferreirargs@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-11-12 23:51+0000\n"
-"Last-Translator: Roberto Besser <rmbesser@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/klipper/config_reference/pt_BR/>\n"
+"PO-Revision-Date: 2022-05-21 12:13+0000\n"
+"Last-Translator: Zeldazul <b.ferreirargs@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/config_reference/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.9.1-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
 "file."
 msgstr ""
+"Esse documento é uma referência às opções disponíveis no arquivo de "
+"configurações do Klipper."
 
 msgid ""
 "The descriptions in this document are formatted so that it is possible to "
