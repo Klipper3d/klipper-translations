@@ -26,7 +26,7 @@ Sok kérdésre már választ kaptunk a [Klipper dokumentációban](Overview.md).
 
 Lehetőség van hasonló kérdések keresésére a [Klipper Közösségi Fórum](#kozossegi-forum) oldalon is.
 
-Ha szeretnéd megosztani tudásodat és tapasztalataidat más Klipper felhasználókkal, akkor csatlakozhatsz a [Klipper Közösségi Fórum](#kozossegi-forum) vagy a [Klipper Discord Csevegés](#Klipper-discord-cseveges)-hez. Mindkettő olyan közösség, ahol a Klipper felhasználók megvitathatják a Klippert más felhasználókkal.
+Ha szeretnéd megosztani tudásodat és tapasztalataidat más Klipper felhasználókkal, akkor csatlakozhatsz a [Klipper Közösségi Fórum](#kozossegi-forum) vagy a [Klipper Discord Csevegés](#klipper-discord-cseveges)-hez. Mindkettő olyan közösség, ahol a Klipper felhasználók megvitathatják a Klippert más felhasználókkal.
 
 Sok kérdés, amit kapunk, általános 3D-nyomtatással kapcsolatos, amely nem kifejezetten a Klipperre vonatkozik. Ha általános kérdése van, vagy általános nyomtatási problémákkal küzd, akkor valószínűleg jobb választ kap, ha egy általános 3D-nyomtatási fórumon vagy a nyomtató hardverével foglalkozó fórumon teszi fel a kérdést.
 
@@ -34,7 +34,7 @@ Ne nyisson GitHub-on a Klippernél problémajelentést-t, ha kérdést szeretne 
 
 ## Van egy funkció kérésem
 
-Minden új funkcióhoz szükség van valakire, akit érdekel és képes az adott funkció megvalósítására. Ha szeretnél segíteni egy új funkció megvalósításában vagy tesztelésében, akkor a [Klipper Közösségi Fórum](#kozossegi-forum) oldalon keresheted a folyamatban lévő fejlesztéseket. A [Klipper Discord Cseveges](#discord-cseveges) is rendelkezésre áll a munkatársak közötti megbeszélésekhez.
+Minden új funkcióhoz szükség van valakire, akit érdekel és képes az adott funkció megvalósítására. Ha szeretnél segíteni egy új funkció megvalósításában vagy tesztelésében, akkor a [Klipper Közösségi Fórum](#kozossegi-forum) oldalon keresheted a folyamatban lévő fejlesztéseket. A [Klipper Discord Cseveges](#klipper-discord-cseveges) is rendelkezésre áll a munkatársak közötti megbeszélésekhez.
 
 Ne nyisson GitHub-on a Klippernél problémajelentést, hogy funkciót kérjen.
 
@@ -51,7 +51,7 @@ Ha nyomtatási problémát tapasztal, akkor javasoljuk, hogy alaposan vizsgálja
 
 A [Klipper Közösségi Fórumban](#kozossegi-forum) is kereshetsz hasonló kérdéseket.
 
-Ha szeretnéd megosztani tudásodat és tapasztalataidat más Klipper felhasználókkal, akkor csatlakozhatsz a [Klipper Közösségi Fórum](#kozossegi-forum) vagy a [Klipper Discord Csevegés](#Klipper-discord-cseveges)-hez. Mindkettő olyan közösség, ahol a Klipper felhasználók megvitathatják a Klippert más felhasználókkal.
+Ha szeretnéd megosztani tudásodat és tapasztalataidat más Klipper felhasználókkal, akkor csatlakozhatsz a [Klipper Közösségi Fórum](#kozossegi-forum) vagy a [Klipper Discord Csevegés](#klipper-discord-cseveges)-hez. Mindkettő olyan közösség, ahol a Klipper felhasználók megvitathatják a Klippert más felhasználókkal.
 
 Ne nyisson GitHub-on a Klippernél problémajelentést, hogy segítséget kérjen.
 
