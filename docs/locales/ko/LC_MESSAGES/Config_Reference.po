@@ -1,13 +1,12 @@
 # brian park <gouache95@gmail.com>, 2021.
 # 赵美丽 <kaiyue.zhao@leyantech.com>, 2022.
-# Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # ElectricalBoy <15651807+ElectricalBoy@users.noreply.github.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:25+0000\n"
-"Last-Translator: ElectricalBoy "
-"<15651807+ElectricalBoy@users.noreply.github.com>\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
 "config_reference/ko/>\n"
 "Language: ko\n"
