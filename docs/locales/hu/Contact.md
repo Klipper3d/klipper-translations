@@ -4,11 +4,11 @@ Ez a dokumentum a Klipper csapatának elérhetőségét tartalmazza.
 
 1. [Közösségi Fórum](#kozossegi-forum)
 1. [Discord Csevegés](#discord-cseveges)
-1. [Kérdésem van a Klipperről](#kerdesem-van-a-klipperrol)
+1. [Kérdésem van a Klipperrel kapcsolatban](#kerdesem-van-a-klipperrel-kapcsolatban)
 1. [Van egy funkciókérelmem](#van-egy-funkciokerelmem)
 1. [Segítség! Nem működik!](#segitseg-nem-mukodik)
 1. [Hibát diagnosztizáltam a Klipper szoftverben](#hibat-diagnosztizaltam-a-klipper-szoftverben)
-1. [Olyan változtatásokat végzek, amelyeket szeretnék beépíteni a Klipperbe](#olyan-valtoztatasokat-vegzek-amelyeket-szeretnek-beepiteni-a-klipperbe)
+1. [Változtatásokat végzek, amelyeket szeretnék a Klipperbe beépíteni](#valtoztatasokat-vegzek-amelyeket-szeretnek-a-klipperbe-beepiteni)
 
 ## Közösségi Fórum
 
@@ -32,7 +32,7 @@ Sok kérdés, amit kapunk, általános 3D-nyomtatással kapcsolatos, amely nem k
 
 Ne nyisson GitHub-on a Klippernél problémajelentést-t, ha kérdést szeretne feltenni.
 
-## Van egy funkció kérésem
+## Van egy funkciókérelmem
 
 Minden új funkcióhoz szükség van valakire, akit érdekel és képes az adott funkció megvalósítására. Ha szeretnél segíteni egy új funkció megvalósításában vagy tesztelésében, akkor a [Klipper Közösségi Fórum](#kozossegi-forum) oldalon keresheted a folyamatban lévő fejlesztéseket. A [Klipper Discord Cseveges](#klipper-discord-cseveges) is rendelkezésre áll a munkatársak közötti megbeszélésekhez.
 
@@ -55,7 +55,7 @@ Ha szeretnéd megosztani tudásodat és tapasztalataidat más Klipper felhaszná
 
 Ne nyisson GitHub-on a Klippernél problémajelentést, hogy segítséget kérjen.
 
-## Diagnosztizáltam egy hibát a Klipper szoftverben
+## Hibát diagnosztizáltam a Klipper szoftverben
 
 A Klipper egy nyílt forráskódú projekt, és nagyra értékeljük, ha a munkatársak diagnosztizálják a szoftver hibáit.
 
