@@ -2922,7 +2922,7 @@ run_current:
 
 ## Run-time stepper motor current configuration
 
-### [ad5206]
+### 哈哈哈
 
 Statically configured AD5206 digipots connected via SPI bus (one may define any number of sections with an "ad5206" prefix).
 
