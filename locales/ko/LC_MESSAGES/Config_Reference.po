@@ -1,10 +1,11 @@
 # brian park <gouache95@gmail.com>, 2021.
 # 赵美丽 <kaiyue.zhao@leyantech.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-05-24 04:18+0000\n"
-"Last-Translator: 赵美丽 <kaiyue.zhao@leyantech.com>\n"
+"PO-Revision-Date: 2022-05-25 17:15+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
 "config_reference/ko/>\n"
 "Language: ko\n"
@@ -796,7 +797,7 @@ msgid "Run-time stepper motor current configuration"
 msgstr ""
 
 msgid "[ad5206]"
-msgstr "哈哈哈"
+msgstr "[ad5206]"
 
 msgid ""
 "Statically configured AD5206 digipots connected via SPI bus (one may define "
