@@ -26,7 +26,7 @@ Sok kérdésre már választ kaptunk a [Klipper dokumentációban](Overview.md).
 
 Lehetőség van hasonló kérdések keresésére a [Klipper Közösségi Fórum](#kozossegi-forum) oldalon is.
 
-Ha szeretnéd megosztani tudásodat és tapasztalataidat más Klipper felhasználókkal, akkor csatlakozhatsz a [Klipper Közösségi Fórum](#kozossegi-forum) vagy a [Klipper Discord Csevegés](#klipper-discord-cseveges)-hez. Mindkettő olyan közösség, ahol a Klipper felhasználók megvitathatják a Klippert más felhasználókkal.
+Ha szeretnéd megosztani tudásodat és tapasztalataidat más Klipper felhasználókkal, akkor csatlakozhatsz a [Klipper Közösségi Fórum](#kozossegi-forum) vagy a [Discord Csevegés](#discord-cseveges)-hez. Mindkettő olyan közösség, ahol a Klipper felhasználók megvitathatják a Klippert más felhasználókkal.
 
 Sok kérdés, amit kapunk, általános 3D-nyomtatással kapcsolatos, amely nem kifejezetten a Klipperre vonatkozik. Ha általános kérdése van, vagy általános nyomtatási problémákkal küzd, akkor valószínűleg jobb választ kap, ha egy általános 3D-nyomtatási fórumon vagy a nyomtató hardverével foglalkozó fórumon teszi fel a kérdést.
 
@@ -34,7 +34,7 @@ Ne nyisson GitHub-on a Klippernél problémajelentést-t, ha kérdést szeretne 
 
 ## Van egy funkciókérelmem
 
-Minden új funkcióhoz szükség van valakire, akit érdekel és képes az adott funkció megvalósítására. Ha szeretnél segíteni egy új funkció megvalósításában vagy tesztelésében, akkor a [Klipper Közösségi Fórum](#kozossegi-forum) oldalon keresheted a folyamatban lévő fejlesztéseket. A [Klipper Discord Cseveges](#klipper-discord-cseveges) is rendelkezésre áll a munkatársak közötti megbeszélésekhez.
+Minden új funkcióhoz szükség van valakire, akit érdekel és képes az adott funkció megvalósítására. Ha szeretnél segíteni egy új funkció megvalósításában vagy tesztelésében, akkor a [Klipper Közösségi Fórum](#kozossegi-forum) oldalon keresheted a folyamatban lévő fejlesztéseket. A [Discord Csevegés](#discord-cseveges) is rendelkezésre áll a munkatársak közötti megbeszélésekhez.
 
 Ne nyisson GitHub-on a Klippernél problémajelentést, hogy funkciót kérjen.
 
@@ -51,7 +51,7 @@ Ha nyomtatási problémát tapasztal, akkor javasoljuk, hogy alaposan vizsgálja
 
 A [Klipper Közösségi Fórumban](#kozossegi-forum) is kereshetsz hasonló kérdéseket.
 
-Ha szeretnéd megosztani tudásodat és tapasztalataidat más Klipper felhasználókkal, akkor csatlakozhatsz a [Klipper Közösségi Fórum](#kozossegi-forum) vagy a [Klipper Discord Csevegés](#klipper-discord-cseveges)-hez. Mindkettő olyan közösség, ahol a Klipper felhasználók megvitathatják a Klippert más felhasználókkal.
+Ha szeretnéd megosztani tudásodat és tapasztalataidat más Klipper felhasználókkal, akkor csatlakozhatsz a [Klipper Közösségi Fórum](#kozossegi-forum) vagy a [Discord Csevegés](#discord-cseveges)-hez. Mindkettő olyan közösség, ahol a Klipper felhasználók megvitathatják a Klippert más felhasználókkal.
 
 Ne nyisson GitHub-on a Klippernél problémajelentést, hogy segítséget kérjen.
 
@@ -79,4 +79,4 @@ A Klipper nyílt forráskódú szoftver, és örömmel fogadjuk az új hozzájá
 
 Az új hozzájárulásokat (mind a kódot, mind a dokumentációt illetően) a GitHub Pull Requests-en keresztül küldheted be. Lásd a [CONTRIBUTING dokumentumot](CONTRIBUTING.md) a fontos információkért.
 
-Számos [Fejlesztői dokumentum](Overview.md#developer-documentation) van fejlesztőknek. Ha kérdése van a kóddal kapcsolatban, akkor a [Klipper Közösségi Fórum](#kozossegi-forum) vagy a [Klipper Közösségi Discord](#klipper-kozossegi-discord) oldalon is felteheti a kérdést. Ha frissíteni szeretné az aktuális fejlesztést, akkor megnyithat egy GitHub-problémát a kód helyével, a módosítások áttekintésével és az aktuális állapot leírásával.
+Számos [Fejlesztői dokumentum](Overview.md#developer-documentation) van fejlesztőknek. Ha kérdése van a kóddal kapcsolatban, akkor a [Klipper Közösségi Fórum](#kozossegi-forum) vagy a [Discord Csevegés](#discord-cseveges) oldalon is felteheti a kérdést. Ha frissíteni szeretné az aktuális fejlesztést, akkor megnyithat egy GitHub-problémát a kód helyével, a módosítások áttekintésével és az aktuális állapot leírásával.
