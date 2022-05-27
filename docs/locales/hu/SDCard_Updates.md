@@ -107,4 +107,4 @@ BOARD_ALIASES = {
 }
 ```
 
-Ha új alaplap definícióra van szükséged, és nem tetszik a fent leírt eljárás, akkor ajánlott, hogy a [Klipper Community Discord](Contact.md#discord) segítségével kérj egyet.
+Ha új alaplap definícióra van szükséged, és nem tetszik a fent leírt eljárás, akkor ajánlott, hogy a [Klipper Közösségi Discord](Contact.md#discord) segítségével kérj egyet.
