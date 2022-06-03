@@ -208,7 +208,7 @@ A következő parancsok akkor érhetők el, ha az [extruder konfigurációs szak
 
 #### SET_EXTRUDER_ROTATION_DISTANCE
 
-`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: Új értéket állít be a megadott extruder léptető "rotation distance" (ahogyan az egy [extruder](Config_Reference#extruder) vagy [extruder_stepper](Config_Reference#extruder_stepper) config szakaszban definiálva van). Ha a forgási távolság negatív szám, akkor a léptető mozgása fordított lesz (a konfigurációs fájlban megadott léptető irányhoz képest). A megváltoztatott beállítások nem maradnak meg a Klipper visszaállításakor. Óvatosan használja, mivel a kis változtatások túlzott nyomást eredményezhetnek az extruder és a nyomtatófej között. Használat előtt végezze el a megfelelő kalibrációt a nyomtatószállal. Ha a 'DISTANCE' érték nincs megadva, akkor ez a parancs az aktuális forgási távolságot adja vissza.
+`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: Új értéket állít be a megadott extruder léptető "rotation distance" (ahogyan az egy [extruder](Config_Reference#extruder) vagy [extruder_stepper](Config_Reference#extruder_stepper) config szakaszban definiálva van). Ha a forgatási távolság negatív szám, akkor a léptető mozgása fordított lesz (a konfigurációs fájlban megadott léptető irányhoz képest). A megváltoztatott beállítások nem maradnak meg a Klipper visszaállításakor. Óvatosan használja, mivel a kis változtatások túlzott nyomást eredményezhetnek az extruder és a nyomtatófej között. Használat előtt végezze el a megfelelő kalibrációt a nyomtatószállal. Ha a 'DISTANCE' érték nincs megadva, akkor ez a parancs az aktuális forgatási távolságot adja vissza.
 
 #### SYNC_EXTRUDER_MOTION
 

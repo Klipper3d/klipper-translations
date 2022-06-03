@@ -14,7 +14,7 @@ A Klipper számos lenyűgöző tulajdonsággal rendelkezik:
 * Egyéni programozható makrók. Új G-kód parancsok definiálhatók a nyomtató konfigurációs fájljában (nincs szükség kódmódosításra). Ezek a parancsok programozhatók lehetővé téve, hogy a nyomtató állapotától függően különböző műveleteket hajtsanak végre.
 * Beépített API-kiszolgáló. A Klipper a szabványos G-kódos interfész mellett egy gazdag JSON-alapú alkalmazási felületet is támogat. Ez lehetővé teszi a programozók számára, hogy külső alkalmazásokat készítsenek a nyomtató részletes vezérlésével.
 
-## További jellemzők
+## További funkciók
 
 A Klipper számos szabványos 3D nyomtató funkciót támogat:
 
@@ -22,7 +22,7 @@ A Klipper számos szabványos 3D nyomtató funkciót támogat:
 * Standard G-kód támogatás. A tipikus "szeletelők" (SuperSlicer, Cura, PrusaSlicer, stb.) által előállított általános G-kód parancsok támogatottak.
 * Több extruder támogatása. A közös fűtőberendezéssel rendelkező extrudereket és a független kocsikon (IDEX) lévő extrudereket is támogatják.
 * Támogatja a cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, rotary delta, polár és kábelcsörlő stílusú nyomtatókat.
-* Automatikus ágyszintező támogatás. A Klipper konfigurálható alapszintű ágydőlés-érzékelésre vagy teljes hálós ágyszintezésre. Ha az ágy több Z steppert használ, akkor a Klipper a Z stepperek független manipulálásával is képes szintezni. A legtöbb Z magasságmérő szonda támogatott, beleértve a BL-Touch szondákat és a szervómotoros szondákat is.
+* Ágy szintezésének automatikus támogatása. A Klipper konfigurálható alapszintű ágydőlés-érzékelésre vagy az ágy teljes hálós szintezésére. Ha az ágy több Z steppert használ, akkor a Klipper a Z stepperek független manipulálásával is képes szintezni. A legtöbb Z magasságmérő szonda támogatott, beleértve a BL-Touch szondákat és a szervómotoros szondákat is.
 * Automatikus delta kalibráció támogatása. A kalibráló eszköz alapvető magassági kalibrálást, valamint továbbfejlesztett X és Y dimenzió kalibrálást végezhet. A kalibrálás elvégezhető Z magasságmérővel vagy kézi szintezővel.
 * Az általános hőmérséklet-érzékelők támogatása (pl. általános termisztorok, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20 és LM75). Egyedi termisztorok és egyedi analóg hőmérséklet-érzékelők is konfigurálhatók. Lehet figyelni a mikrokontroller hőmérsékletét és a Raspberry Pi processzor hőmérsékletét.
 * Alapértelmezés szerint a fűtésvédelem engedélyezett.

@@ -1,10 +1,10 @@
 # Áttekintés
 
-Üdvözöljük a Klipper dokumentációjában. Ha még nem ismeri a Klippert, kezdje a [jellemzők](Features.md) és [telepítés](Installation.md) dokumentumokkal.
+Üdvözöljük a Klipper dokumentációjában. Ha még nem ismeri a Klippert, kezdje a [funkciók](Features.md) és [telepítés](Installation.md) dokumentumokkal.
 
 ## Áttekintő információk
 
-- [Jellemzők](Features.md): A Klipper jellemzőinek magas szintű listája.
+- [Funkciók](Features.md): A Klipper funkcióinak magas szintű listája.
 - [GYIK](FAQ.md): Gyakran ismételt kérdések.
 - [Kiadások](Releases.md): Klipper kiadások története.
 - [Konfigurációs változások](Config_Changes.md): A legújabb szoftverváltozások, amelyek miatt a felhasználóknak frissíteniük kell a nyomtató konfigurációs fájlját.
@@ -16,7 +16,7 @@
 - [Konfigurációs hivatkozás](Config_Reference.md): A konfigurációs paraméterek leírása.
    - [Rotációs távolság](Rotation_Distance.md): A rotation_distance léptető paraméter kiszámítása.
 - [Konfigurációs ellenőrzések](Config_checks.md): Alapvető tűbeállítások ellenőrzése a konfigurációs fájlban.
-- [Ágyszintezés](Bed_Level.md): Információ az "ágyszintezésről" a Klipperben.
+- [Ágy szintezése](Bed_Level.md): Információ az "ágy szintezéséről" a Klipperben.
    - [Delta kalibrálás](Delta_Calibrate.md): A delta kinematika kalibrálása.
    - [Szonda kalibrálása](Probe_Calibrate.md): Automatikus Z-szondák kalibrálása.
    - [BL-Touch](BLTouch.md): "BL-Touch" Z szonda konfigurálása.

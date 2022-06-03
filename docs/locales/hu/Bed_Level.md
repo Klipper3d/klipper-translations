@@ -1,6 +1,6 @@
-# Ágyszintezés
+# Ágy szintezése
 
-Az ágyszintezés (néha más néven "bed tramming") kritikus fontosságú a jó minőségű nyomatok előállításához. Ha az ágy nem megfelelően van "szintezve", az rossz tapadáshoz, "vetemedéshez" és finom problémákhoz vezethet a nyomtatás során. Ez a dokumentum útmutatóként szolgál az ágyszintzés Klipperben történő elvégzéséhez.
+Az ágy szintezése (néha más néven "bed tramming") kritikus fontosságú a jó minőségű nyomatok előállításához. Ha az ágy nem megfelelően van "szintezve", az rossz tapadáshoz, "vetemedéshez" és finom problémákhoz vezethet a nyomtatás során. Ez a dokumentum útmutatóként szolgál az ágyszintzés Klipperben történő elvégzéséhez.
 
 Fontos megérteni az ágy szintezésének célját. Ha a nyomtatót egy `X0 Y0 Z10` pozícióba irányítjuk a nyomtatás során, akkor a cél az, hogy a nyomtató fúvókája pontosan 10 mm-re legyen a nyomtató ágyától. Továbbá, ha a nyomtatót ezután a `X50 Z10` pozícióba irányítjuk, a cél az, hogy a fúvóka pontosan 10 mm távolságot tartson az ágytól a teljes vízszintes mozgás során.
 
@@ -8,9 +8,9 @@ A jó minőségű nyomatok érdekében a nyomtatót úgy kell kalibrálni, hogy 
 
 ## Válassza ki a megfelelő kalibrációs mechanizmust
 
-A különböző típusú nyomtatók különböző módszereket használnak az ágyszintezés elvégzésére. Ezek mindegyike végső soron a "papírteszt" (lásd alább) függvénye. Az adott nyomtatótípusra vonatkozó tényleges eljárást azonban más dokumentumok írják le.
+A különböző típusú nyomtatók különböző módszereket használnak az ágy szintezésének elvégzésére. Ezek mindegyike végső soron a "papírteszt" (lásd alább) függvénye. Az adott nyomtatótípusra vonatkozó tényleges eljárást azonban más dokumentumok írják le.
 
-A kalibrációs eszközök futtatása előtt feltétlenül futtassa le a [config check dokumentumban](Config_checks.md) leírt ellenőrzéseket. A nyomtató alapvető mozgásának ellenőrzése szükséges az ágyszintezés elvégzése előtt.
+A kalibrációs eszközök futtatása előtt feltétlenül futtassa le a [Konfigurációs ellenőrzések dokumentumban](Config_checks.md) leírt ellenőrzéseket. A nyomtató alapvető mozgásának ellenőrzése szükséges az ágy szintezésének elvégzése előtt.
 
 A "automatikus Z-szondával" rendelkező nyomtatók esetében a szondát mindenképpen kalibrálja a [Probe Calibrate](Probe_Calibrate.md) dokumentumban található utasítások szerint. Delta nyomtatók esetében lásd a [Delta Calibrate](Delta_Calibrate.md) dokumentumot. Szintezőcsavarokkal és hagyományos Z végállással rendelkező nyomtatók esetében lásd a [Manual Level](Manual_Level.md) dokumentumot.
 
@@ -18,7 +18,7 @@ A kalibrálás során szükség lehet arra, hogy a nyomtató Z `position_min` é
 
 ## A "papírteszt"
 
-Az elsődleges ágyszintezési mechanizmus a "papírteszt". Ennek során egy normál "fénymásolópapírt" helyezünk a nyomtató ágya és a fúvóka közé, majd a fúvókát különböző Z magasságba állítjuk, amíg a papír előre-hátra tolása közben egy kis súrlódást nem érzünk.
+Az ágy szintezésének elsődleges mechanizmusa a "papírteszt". Ennek során egy normál "fénymásolópapírt" helyezünk a nyomtató ágya és a fúvóka közé, majd a fúvókát különböző Z magasságba állítjuk, amíg a papír előre-hátra tolása közben egy kis súrlódást nem érzünk.
 
 Fontos megérteni a "papírtesztet" még akkor is, ha valakinek van "automatikus szintezője". Magát a szondát gyakran kalibrálni kell a jó eredmények eléréséhez. A szonda kalibrálása a "papírteszt" segítségével történik.
 
@@ -86,7 +86,7 @@ Ha a teszt során valami rosszul megy, az `ABORT` paranccsal kiléphetünk a kal
 
 ## A hőtágulás meghatározása
 
-Miután sikeresen elvégezte az ágyszintezést, pontosabb értéket lehet kiszámítani a "hőtágulás", "a papír vastagsága" és "a papírteszt során érzékelhető súrlódás" együttes hatására.
+Miután sikeresen elvégezte az ágy szintezését, pontosabb értéket lehet kiszámítani a "hőtágulás", "a papír vastagsága" és "a papírteszt során érzékelhető súrlódás" együttes hatására.
 
 Ilyen típusú számításokra általában nincs szükség, mivel a legtöbb felhasználó szerint az egyszerű "papírteszt" jó eredményeket ad.
 

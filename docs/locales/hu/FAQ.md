@@ -3,35 +3,35 @@
 1. [Hogyan adományozhatok a projektnek?](#hogyan-adomanyozhatok-a-projektnek)
 1. [Hogyan számíthatom ki a rotation_distance konfigurációs paramétert?](#hogyan-szamitom-ki-a-rotation_distance-konfiguracios-parametert)
 1. [Hol van a soros portom?](#hol-van-a-soros-portom)
-1. [Amikor a mikrokontroller újraindítja az eszközt /dev/ttyUSB1-re változik](#a-mikrokontroller-ujrainditasakor-az-eszkoz-devttyusb1-re-valtozik)
+1. [A mikrokontroller újraindításakor az eszköz /dev/ttyUSB1-re vált](#a-mikrokontroller-ujrainditasakor-az-eszkoz-devttyusb1-re-valt)
 1. [A "make flash" parancs nem működik](#a-make-flash-parancs-nem-mukodik)
-1. [Hogyan változtathatom meg a soros port átviteli sebességét?](#hogyan-valtoztathatom-meg-a-soros-port-sebesseget)
-1. [Futtathatom a Klippert máson is, mint egy Raspberry Pi 3?](#futtathatom-a-klippert-a-raspberry-pi-3-on-kivul-mason-is)
+1. [Hogyan változtathatom meg a soros port átviteli sebességét?](#hogyan-valtoztathatom-meg-a-soros-port-atviteli-sebesseget)
+1. [Futtathatom a Klippert a Raspberry Pi 3-on kívül máson is?](#futtathatom-a-klippert-a-raspberry-pi-3-on-kivul-mason-is)
 1. [Futtathatom a Klipper több példányát ugyanazon a gépen?](#futtathatom-a-klipper-tobb-peldanyat-ugyanazon-a-gepen)
 1. [Muszáj az OctoPrintet használnom?](#muszaj-az-octoprintet-hasznalnom)
-1. [Miért nem tudom mozgatni a léptetőt a nyomtató indítása előtt?](#miert-nem-tudom-mozgatni-a-leptetomotort-a-nyomtato-beallitasa-elott)
+1. [Miért nem tudom mozgatni a léptetőmotort a nyomtató kezdőpont felvétele előtt?](#miert-nem-tudom-mozgatni-a-leptetomotort-a-nyomtato-kezdopont-felvetele-elott)
 1. [Miért van a Z position_endstop 0.5-re állítva az alapértelmezett konfigurációban?](#miert-van-a-z-position_endstop-05-re-allitva-az-alapertelmezett-konfiguracioban)
-1. [Átkonvertáltam a konfigurációmat Marlinból, és az X/Y tengelyek jól működnek, de a Z tengely kezdőpont felvételekor csak egy csikorgó zajt hallok](#atkonvertaltam-a-marlinbol-szarmazo-konfiguraciomat-es-az-xy-tengelyek-jol-mukodnek-de-a-z-tengely-kezdopont-filvetelekor-csikorgo-hangot-hallok)
-1. [A TMC motorvezérlő kikapcsol a nyomtatás közepén](#a-tmc-motorvezerlo-kikapcsol-a-nyomtatas-kozben)
-1. [Véletlenszerű "Elveszett a kommunikáció az MCU-val" hibák](#folyamatosan-kapok-elveszett-a-kommunikacio-az-mcu-val-hibakat)
-1. [A Raspberry Pi újraindul nyomtatás közben](#a-raspberry-pi-folyamatosan-ujraindul-nyomtatas-kozben)
-1. [Amikor beállítom `restart_method=command` az AVR készülékem újraindításkor csak lefagy](#amikor-beallitom-a-restart_methodcommand-az-avr-keszulekem-ujrainditaskor-egyszeruen-lefagy)
+1. [Átkonvertáltam a konfigurációmat Marlinból, és az X/Y tengelyek jól működnek, de a Z tengely kezdőpont felvételekor csak egy csikorgó zajt hallok](#atkonvertaltam-a-konfiguraciomat-marlinbol-es-az-xy-tengelyek-jol-mukodnek-de-a-z-tengely-kezdopont-felvetelekor-csak-egy-csikorgo-zajt-hallok)
+1. [A TMC motorvezérlő kikapcsol nyomtatás közben](#a-tmc-motorvezerlo-kikapcsol-nyomtatas-kozben)
+1. [Véletlenszerű "Elveszett a kommunikáció az MCU-val" hibák](#veletlenszeru-elveszett-a-kommunikacio-az-mcu-val-hibak)
+1. [A Raspberry Pi újraindul nyomtatás közben](#a-raspberry-pi-ujraindul-nyomtatas-kozben)
+1. [Amikor beállítom `restart_method=command` az AVR készülékem újraindításkor lefagy](#amikor-beallitom-a-restart_methodcommand-az-avr-keszulekem-ujrainditaskor-lefagy)
 1. [A fűtőelemek bekapcsolva maradnak, ha a Raspberry Pi összeomlik?](#a-futoelemek-bekapcsolva-maradnak-ha-a-raspberry-pi-osszeomlik)
-1. [Hogyan alakíthatok át egy Marlin tű számot Klipper tű névre?](#how-do-i-convert-a-marlin-pin-number-to-a-klipper-pin-name)
-1. [Az eszközömet egy adott típusú mikrokontroller tűhöz kell csatlakoztatnom?](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin)
-1. [Hogyan tudom törölni az M109/M190 "várakozás a hőmérsékletre" kérést?](#hogyan-tudom-torolni-az-m109m190-homersekletre-varni-kerest)
-1. [Megtudhatom, hogy a nyomtató vesztett-e lépéseket?](#can-i-find-out-whether-the-printer-has-lost-steps)
-1. [Miért jelent hibát a Klipper? Elrontotta a nyomtatásomat!](#why-does-klipper-report-errors-i-lost-my-print)
+1. [Hogyan alakíthatok át egy Marlin tű számot Klipper tű névre?](#hogyan-alakithatok-at-egy-marlin-tu-szamot-klipper-tu-nevre)
+1. [Az eszközömet egy adott típusú mikrokontroller tűhöz kell csatlakoztatnom?](#az-eszkozomet-egy-adott-tipusu-mikrokontroller-tuhoz-kell-csatlakoztatnom)
+1. [Hogyan tudom törölni az M109/M190 "várakozás a hőmérsékletre" kérést?](#hogyan-tudom-torolni-az-m109m190-varakozas-a-homersekletre-kerest)
+1. [Meg tudom állapítani, hogy a nyomtató vesztett-e lépéseket?](#meg-tudom-allapitani-hogy-a-nyomtato-vesztette-lepeseket)
+1. [Miért jelent hibát a Klipper? Elrontotta a nyomtatásomat!](#miert-jelent-hibat-a-klipper-elrontotta-a-nyomtatasomat)
 1. [Hogyan frissíthetek a legújabb szoftverre?](#hogyan-frissithetek-a-legujabb-szoftverre)
-1. [Hogyan távolítsam el a klippert?](#how-do-i-uninstall-klipper)
+1. [Hogyan távolítsam el a klippert?](#hogyan-tavolitsam-el-a-klippert)
 
 ## Hogyan adományozhatok a projektnek?
 
 Köszönöm. Kevinnek van egy Patreon oldala: <https://www.patreon.com/koconnor>
 
-## Hogyan számítom ki a rotation_distance konfigurációs paramétert?
+## Hogyan számíthatom ki a rotation_distance konfigurációs paramétert?
 
-Lásd a [forgási távolság dokumentumot](Rotation_Distance.md).
+Lásd a [forgatási távolság dokumentumot](Rotation_Distance.md).
 
 ## Hol van a soros portom?
 
@@ -60,19 +60,19 @@ serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 
 Ha több mikrovezérlőt használsz, és ezek nem rendelkeznek egyedi azonosítóval (ez gyakori a CH340 USB-chippel ellátott lapokon), akkor kövesd a fenti utasításokat a `ls /dev/serial/by-path/*` parancs használatával.
 
-## A mikrokontroller újraindításakor az eszköz /dev/ttyUSB1-re változik
+## A mikrokontroller újraindításakor az eszköz /dev/ttyUSB1-re vált
 
-Kövesse a "[Hol van a soros portom?](#wheres-my-serial-port)" szakaszban található utasításokat, hogy ezt megakadályozza.
+Kövesse a "[Hol van a soros portom?](#hol-van-a-soros-portom)" szakaszban található utasításokat, hogy ezt megakadályozza.
 
 ## A "make flash" parancs nem működik
 
 A kód megpróbálja az eszközt az egyes platformok esetében legelterjedtebb módszerrel égetni. Sajnos az égetési módszerek között nagy eltérések vannak, így a "make flash" parancs nem biztos, hogy minden lapon működik.
 
-Ha időszakos hiba van, vagy szabványos beállításod van, akkor ellenőrizd, hogy a Klipper nem fut-e égetés közben (sudo service klipper stop), győződj meg róla, hogy az OctoPrint nem próbál közvetlenül az eszközhöz csatlakozni (nyisd meg a weblapon a Kapcsolat lapot, és kattints a Kapcsolat megszakítása gombra, ha a soros port az eszközhöz van beállítva), és győződj meg róla, hogy a FLASH_DEVICE helyesen van beállítva a lapodhoz (lásd a fenti [kérdést](#wheres-my-serial-port)).
+Ha időszakos hiba van, vagy szabványos beállításod van, akkor ellenőrizd, hogy a Klipper nem fut-e égetés közben (sudo service klipper stop), győződj meg róla, hogy az OctoPrint nem próbál közvetlenül az eszközhöz csatlakozni (nyisd meg a weblapon a Kapcsolat lapot, és kattints a Kapcsolat megszakítása gombra, ha a soros port az eszközhöz van beállítva), és győződj meg róla, hogy a FLASH_DEVICE helyesen van beállítva a lapodhoz (lásd a fenti [kérdést](#hol-van-a-soros-portom)).
 
 Ha azonban a "make flash" egyszerűen nem működik az alaplapján, akkor manuálisan kell égetnie. Nézze meg, hogy van-e a [config könyvtárban](../config) egy config fájl, amely konkrét utasításokat tartalmaz az eszköz égetésére. Ellenőrizze a kártya gyártójának dokumentációját is, hogy leírja-e, hogyan kell égetni az eszközt. Végül, lehetséges lehet, hogy manuálisan égessük az eszközt olyan eszközökkel, mint az "avrdude" vagy a "bossac" - további információkért lásd a [bootloader dokumentumot](Bootloaders.md).
 
-## Hogyan változtathatom meg a soros port sebességét?
+## Hogyan változtathatom meg a soros port átviteli sebességét?
 
 A Klipper ajánlott átviteli sebessége 250000. Ez az átviteli ráta jól működik minden olyan mikrokontroller kártyán, amelyet a Klipper támogat. Ha talált egy online útmutatót, amely más átviteli sebességet javasol, akkor hagyja figyelmen kívül az útmutatónak ezt a részét, és folytassa az alapértelmezett 250000 értékkel.
 
@@ -125,7 +125,7 @@ A Klipper szoftver nem függ az OctoPrint-től. Lehetséges alternatív szoftver
 
 A Klipper létrehoz egy "virtuális soros portot" a "/tmp/printer" fájlon keresztül, és ezen keresztül emulál egy klasszikus 3D nyomtató soros interfészt. Általánosságban elmondható, hogy alternatív szoftverek is működhetnek a Klipperrel, amennyiben konfigurálhatóak úgy, hogy a "/tmp/printer" -t használják a nyomtató soros portjaként.
 
-## Miért nem tudom mozgatni a léptetőmotort a nyomtató beállítása előtt?
+## Miért nem tudom mozgatni a léptetőmotort a nyomtató kezdőpont felvétele előtt?
 
 A kód ezt azért teszi, hogy csökkentse annak esélyét, hogy a fejet véletlenül az ágyba vagy a falba ütköztesse. Miután a nyomtató kezdőponthoz ért, a szoftver megpróbálja ellenőrizni, hogy minden egyes mozgás a konfigurációs fájlban meghatározott position_min/max értéken belül van-e. Ha a motorok ki vannak kapcsolva (M84 vagy M18 parancs segítségével), akkor a motorokat a mozgás előtt újra be kell állítani.
 
@@ -139,17 +139,17 @@ Ha a nyomtatónak szüksége van további mozgatásra a kezdőpont felvételi fo
 
 A cartesian stílusú nyomtatók esetében a Z position_endstop megadja, hogy a fúvóka milyen messze van az ágytól, amikor a végállás működésbe lép. Ha lehetséges, ajánlott Z-max végállást használni, és az ágytól távolabb elhelyezni (mivel ez csökkenti az ágy ütközés lehetőségét). Ha azonban az ágy felé kell elindulni, akkor a végállást úgy kell beállítani, hogy akkor lépjen működésbe, amikor a fúvóka még mindig kis távolságra van az ágytól. Így a tengely homingolásakor a fúvóka még azelőtt megáll, hogy a fúvóka hozzáérne az ágyhoz. További információért lásd az [ágy szintezés dokumentumot](Bed_Level.md).
 
-## Átkonvertáltam a Marlinból származó konfigurációmat, és az X/Y tengelyek jól működnek, de a Z tengely kezdőpont fílvételekor csikorgó hangot hallok
+## Átkonvertáltam a konfigurációmat Marlinból, és az X/Y tengelyek jól működnek, de a Z tengely kezdőpont felvételekor csak egy csikorgó zajt hallok
 
-Rövid válasz: Először is ellenőrizze, hogy a [config check dokumentumban](Config_checks.md) leírtak szerint ellenőrizte-e a léptető konfigurációját. Ha a probléma továbbra is fennáll, próbálja meg csökkenteni a max_z_velocity értéket a nyomtató konfigurációjában.
+Rövid válasz: Először is ellenőrizze, hogy a [konfigurációs ellenőrzések dokumentumban](Config_checks.md) leírtak szerint ellenőrizte-e a léptető konfigurációját. Ha a probléma továbbra is fennáll, próbálja meg csökkenteni a max_z_velocity értéket a nyomtató konfigurációjában.
 
 Hosszú válasz: A gyakorlatban a Marlin jellemzően csak körülbelül 10000 lépés/másodperc sebességgel tud lépni. Ha olyan sebességgel kell mozognia, amely nagyobb lépésszámot igényel, akkor a Marlin általában csak olyan gyorsan lép, amilyen gyorsan csak tud. A Klipper sokkal nagyobb lépésszámot képes elérni, de a léptetőmotornak nem biztos, hogy elegendő nyomatéka van a nagyobb sebességű mozgáshoz. Tehát egy nagy áttételszámú vagy nagy mikrolépésszámú Z tengely esetében a ténylegesen elérhető max_z_sebesség kisebb lehet, mint ami a Marlinban be van állítva.
 
-## A TMC motorvezérlő kikapcsol a nyomtatás közben
+## A TMC motorvezérlő kikapcsol nyomtatás közben
 
 Ha a TMC2208 (vagy TMC2224) motorvezérlőt "standalone módban" használja, akkor győződjön meg róla, hogy a [Klipper legújabb verzióját](#hogyan-frissithetek-a-legujabb-szoftverre) használja. A TMC2208 "stealthchop" motorvezérlő problémájának megoldása 2020 március közepén került hozzá a Klipperhez.
 
-## Folyamatosan kapok "Elveszett a kommunikáció az MCU-val" hibákat
+## Véletlenszerű "Elveszett a kommunikáció az MCU-val" hibák
 
 Ezt általában a gazdagép és a mikrokontroller közötti USB-kapcsolat hardverhibái okozzák. Amit keresni kell:
 
@@ -159,11 +159,11 @@ Ezt általában a gazdagép és a mikrokontroller közötti USB-kapcsolat hardve
 - Ellenőrizze, hogy a léptető, fűtő és egyéb nyomtatóvezetékek nem szakadtak vagy rongálódtak. (A nyomtató mozgása megterhelheti a hibás vezetéket, ami érintkezési hibákhoz, rövidzárlathoz vagy túlzott zajkeltéshez vezethet.)
 - Jelentéseket kaptunk magas USB-zajról, amikor a nyomtató, és a gazdagép 5V-os tápellátása keveredik. (Ha azt tapasztalja, hogy a mikrokontroller bekapcsol, amikor a gazdagép tápellátása be van kapcsolva, vagy az USB-kábel be van dugva, akkor ez azt jelzi, hogy az 5V-os tápegységek keverednek.) Segíthet, ha úgy konfigurálja a mikrokontrollert, hogy csak az egyik forrásból származó áramot használja. (Alternatív megoldásként, ha a mikrokontroller lapja nem tudja konfigurálni az áramforrását, módosíthatunk egy USB-kábelt úgy, hogy az ne szállítson 5V-os áramot a gazdagép és a mikrokontroller között.)
 
-## A Raspberry Pi folyamatosan újraindul nyomtatás közben
+## A Raspberry Pi újraindul nyomtatás közben
 
-Ez valószínűleg a feszültségingadozások miatt van. Kövesse ugyanazokat a hibaelhárítási lépéseket az ["Elveszett kommunikáció az MCU-val"](#folyamatosan-kapok-elveszett-a-kommunikacio-az-mcu-val-hibakat) hiba esetén.
+Ez valószínűleg a feszültségingadozások miatt van. Kövesse ugyanazokat a hibaelhárítási lépéseket a [Véletlenszerű "Elveszett a kommunikáció az MCU-val" hibák](#veletlenszeru-elveszett-a-kommunikacio-az-mcu-val-hibak) esetén.
 
-## Amikor beállítom a `restart_method=command` az AVR készülékem újraindításkor egyszerűen lefagy
+## Amikor beállítom `restart_method=command` az AVR készülékem újraindításkor lefagy
 
 Az AVR bootloader néhány régi verziójának ismert hibája van a watchdog esemény kezelésében. Ez általában akkor jelentkezik, ha a printer.cfg fájlban a restart_method beállítása "command". Amikor a hiba előfordul, az AVR eszköz nem reagál, amíg a tápellátást el nem veszik és újra be nem kapcsolják az eszközbe (a tápellátás vagy az állapotjelző LED-ek is többször villoghatnak, amíg a tápellátást el nem veszik).
 
@@ -205,7 +205,7 @@ I2C tűk: I2C használatakor a tűket a mikrokontroller I2C-képes tűihez kell 
 
 Más eszközök bármelyik általános célú IO tűre csatlakoztathatók. Például léptetők, fűtők, ventilátorok, Z-szondák, szervók, LED-ek, közös hd44780/st7920 LCD-kijelzők, a Trinamic UART vezérlővonal bármely általános célú IO-tűhöz csatlakoztatható.
 
-## Hogyan tudom törölni az M109/M190 "hőmérsékletre várni" kérést?
+## Hogyan tudom törölni az M109/M190 "várakozás a hőmérsékletre" kérést?
 
 Navigáljon az OctoPrint terminál fülre, és adjon ki egy M112 parancsot a terminálmezőben. Az M112 parancs hatására a Klipper "leállítás" állapotba kerül, és az OctoPrint megszakítja a kapcsolatot a Klipperrel. Navigáljon az OctoPrint csatlakozási területére, és kattintson a "Connect" gombra, hogy az OctoPrint újra csatlakozzon. Navigáljon vissza a terminál fülre, és adjon ki egy FIRMWARE_RESTART parancsot a Klipper hibaállapotának törléséhez. E műveletsor befejezése után az előző fűtéskérés törlődik, és új nyomtatás indítható.
 
@@ -263,7 +263,7 @@ Ha továbbra is fennállnak a hibák, akkor ellenőrizze a [konfigurációs vál
 
 Ne feledje, hogy a RESTART és FIRMWARE_RESTART G-kód parancsok nem töltenek be új szoftvert a fenti "sudo service klipper restart" és "make flash" parancsok szükségesek a szoftverváltás érvénybe lépéséhez.
 
-## Hogyan tudom eltávolítani a Klippert?
+## Hogyan távolítsam el a klippert?
 
 A firmware oldalon semmi különösnek nem kell történnie. Csak kövesse az új firmware égetési utasításait.
 
