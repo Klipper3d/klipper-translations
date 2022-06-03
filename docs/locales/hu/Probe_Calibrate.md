@@ -92,7 +92,7 @@ A deltanyomtatók esetében próbálja meg a z_offset mérését az A, a B, és 
 
 A vizsgálat megkezdése előtt először kalibrálja a szonda X-, Y- és Z-eltolódását a dokumentum elején leírtak szerint. Ezután állítsa be a nyomtatót, és navigáljon az első X-Y pozícióba. A `PROBE_CALIBRATE` parancs futtatásához kövesse a [calibrating probe Z offset](#calibrating-probe-z-offset) pontban leírt lépéseket, `TESTZ` parancsot, és az `ACCEPT` parancsot, de ne futtassa a `SAVE_CONFIG` parancsot. Figyeljük meg a talált z_offset értéket. Ezután navigáljon a többi X-Y pozícióhoz, ismételje meg ezeket a `PROBE_CALIBRATE` lépéseket, és jegyezze fel a mért z_offsetet.
 
-Ha a minimálisan és a maximálisan jelentett z_offset közötti különbség nagyobb, mint 25 mikron (.025 mm), akkor a szonda nem alkalmas a tipikus ágyszintezési műveletekre. A kézi mérési alternatívákat lásd az [Ágy szintezése dokumentumban](Bed_Level.md).
+Ha a minimálisan és a maximálisan jelentett z_offset közötti különbség nagyobb, mint 25 mikron (.025 mm), akkor a szonda nem alkalmas a tipikus ágy szintezési műveletekre. A kézi mérési alternatívákat lásd az [Ágy szintezése dokumentumban](Bed_Level.md).
 
 ## Hőmérséklet torzítás
 

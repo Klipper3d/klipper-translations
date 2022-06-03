@@ -102,7 +102,7 @@ max_accel:
 
 Léptetőmotor meghatározások. A különböző nyomtatótípusok (a [printer] config szakasz "kinematika" opciója által meghatározottak szerint) eltérő neveket igényelnek a léptető számára (pl. `stepper_x` vs `stepper_a`). Az alábbiakban a stepperek általános definíciói következnek.
 
-A `rotation_distance` paraméter kiszámításával kapcsolatos információkért lásd a [forgási távolság dokumentumot](Rotation_Distance.md). A több mikrovezérlővel történő kezdőpont felvétellel kapcsolatos információkért lásd a [Multi-MCU kezdőpont](Multi_MCU_Homing.md) dokumentumot.
+A `rotation_distance` paraméter kiszámításával kapcsolatos információkért lásd a [forgatási távolság dokumentumot](Rotation_Distance.md). A több mikrovezérlővel történő kezdőpont felvétellel kapcsolatos információkért lásd a [Multi-MCU kezdőpont](Multi_MCU_Homing.md) dokumentumot.
 
 ```
 [stepper_x]

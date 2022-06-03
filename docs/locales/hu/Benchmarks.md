@@ -49,7 +49,7 @@ clear_shutdown
 
 Az egylépcsős referenciaértékek eléréséhez ugyanazt a konfigurációs sorrendet kell használni, de a fenti tesztnek csak az első blokkja a másolás és beillesztés a console.py ablakba.
 
-A [Jellemzők](Features.md) dokumentumban található referenciatesztek előállításához a másodpercenkénti lépések teljes számát úgy kell kiszámítani, hogy az aktív léptetők számát megszorozzuk a névleges MCU frekvenciával, és elosztjuk a végső "ticks" paraméterrel. Az eredményeket a legközelebbi K-ra kerekítjük. Például három aktív léptetővel:
+A [Funkciók](Features.md) dokumentumban található referenciatesztek előállításához a másodpercenkénti lépések teljes számát úgy kell kiszámítani, hogy az aktív léptetők számát megszorozzuk a névleges MCU frekvenciával, és elosztjuk a végső "ticks" paraméterrel. Az eredményeket a legközelebbi K-ra kerekítjük. Például három aktív léptetővel:
 
 ```
 ECHO A teszt eredménye: {"%.0fK" % (3. * freq / ticks / 1000.)}

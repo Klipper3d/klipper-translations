@@ -50,7 +50,7 @@ Elérhető a 20191021. Főbb változások ebben a kiadásban:
    * Új támogatás a TMC2209 és TMC5160 illesztőprogramokhoz.
    * Továbbfejlesztett DUMP_TMC, SET_TMC_CURRENT és INIT_TMC G-kód parancsok.
    * Javított támogatás a TMC UART kezeléséhez analóg mux-al.
-* Javított célmeghatározás, mérés és ágyszintezés támogatása:
+* Javított célmeghatározás, mérés és ágy szintezési támogatás:
    * Új manual_probe, bed_screws, screws_tilt_adjust, skew_correction, safe_z_home modulok hozzáadása.
    * Továbbfejlesztett többmintás mérés mediánnal, átlagolással és újrapróbálási logikával.
    * Javított dokumentáció a BL-Touch, a szondakalibrálás, a végállás kalibrálás, a delta kalibrálás, az érzékelő nélküli kezdőpont és a végállás fázis kalibrálásához.
@@ -74,7 +74,7 @@ Elérhető a 20191021. Főbb változások ebben a kiadásban:
 
 Elérhető a 20181220. Főbb változások a kiadásban:
 
-* A Klipper mostantól támogatja a "háló" ágyszintezés állítást
+* A Klipper mostantól támogatja a "háló" ágy szintezés állítást
 * Új támogatás a "továbbfejlesztett" delta kalibrációhoz (kalibrálja a nyomtatás x/y méreteit delta nyomtatókon)
 * A Trinamic léptetőmotor-meghajtók (tmc2130, tmc2208, tmc2660) futásidejű konfigurációjának támogatása
 * Javított hőmérséklet-érzékelő támogatás: MAX6675, MAX31855, MAX31856, MAX31865, egyedi termisztorok, általános PT100 típusú érzékelők
