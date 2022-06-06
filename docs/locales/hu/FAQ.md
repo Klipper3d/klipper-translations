@@ -1,7 +1,7 @@
 # Gyakran ismételt kérdések
 
 1. [Hogyan adományozhatok a projektnek?](#hogyan-adomanyozhatok-a-projektnek)
-1. [Hogyan számíthatom ki a rotation_distance konfigurációs paramétert?](#hogyan-szamitom-ki-a-rotation_distance-konfiguracios-parametert)
+1. [Hogyan számíthatom ki a rotation_distance konfigurációs paramétert?](#hogyan-szamithatom-ki-a-rotation_distance-konfiguracios-parametert)
 1. [Hol van a soros portom?](#hol-van-a-soros-portom)
 1. [A mikrokontroller újraindításakor az eszköz /dev/ttyUSB1-re vált](#a-mikrokontroller-ujrainditasakor-az-eszkoz-devttyusb1-re-valt)
 1. [A "make flash" parancs nem működik](#a-make-flash-parancs-nem-mukodik)
@@ -15,12 +15,12 @@
 1. [A TMC motorvezérlő kikapcsol nyomtatás közben](#a-tmc-motorvezerlo-kikapcsol-nyomtatas-kozben)
 1. [Véletlenszerű "Elveszett a kommunikáció az MCU-val" hibák](#veletlenszeru-elveszett-a-kommunikacio-az-mcu-val-hibak)
 1. [A Raspberry Pi újraindul nyomtatás közben](#a-raspberry-pi-ujraindul-nyomtatas-kozben)
-1. [Amikor beállítom `restart_method=command` az AVR készülékem újraindításkor lefagy](#amikor-beallitom-a-restart_methodcommand-az-avr-keszulekem-ujrainditaskor-lefagy)
+1. [Amikor beállítom a `restart_method=command` az AVR készülékem újraindításkor lefagy](#amikor-beallitom-a-restart_methodcommand-az-avr-keszulekem-ujrainditaskor-lefagy)
 1. [A fűtőelemek bekapcsolva maradnak, ha a Raspberry Pi összeomlik?](#a-futoelemek-bekapcsolva-maradnak-ha-a-raspberry-pi-osszeomlik)
 1. [Hogyan alakíthatok át egy Marlin tű számot Klipper tű névre?](#hogyan-alakithatok-at-egy-marlin-tu-szamot-klipper-tu-nevre)
 1. [Az eszközömet egy adott típusú mikrokontroller tűhöz kell csatlakoztatnom?](#az-eszkozomet-egy-adott-tipusu-mikrokontroller-tuhoz-kell-csatlakoztatnom)
 1. [Hogyan tudom törölni az M109/M190 "várakozás a hőmérsékletre" kérést?](#hogyan-tudom-torolni-az-m109m190-varakozas-a-homersekletre-kerest)
-1. [Meg tudom állapítani, hogy a nyomtató vesztett-e lépéseket?](#meg-tudom-allapitani-hogy-a-nyomtato-vesztette-lepeseket)
+1. [Meg tudom állapítani, hogy a nyomtató vesztett-e lépéseket?](#meg-tudom-allapitani-hogy-a-nyomtato-vesztett-e-lepeseket)
 1. [Miért jelent hibát a Klipper? Elrontotta a nyomtatásomat!](#miert-jelent-hibat-a-klipper-elrontotta-a-nyomtatasomat)
 1. [Hogyan frissíthetek a legújabb szoftverre?](#hogyan-frissithetek-a-legujabb-szoftverre)
 1. [Hogyan távolítsam el a klippert?](#hogyan-tavolitsam-el-a-klippert)
@@ -163,7 +163,7 @@ Ezt általában a gazdagép és a mikrokontroller közötti USB-kapcsolat hardve
 
 Ez valószínűleg a feszültségingadozások miatt van. Kövesse ugyanazokat a hibaelhárítási lépéseket a [Véletlenszerű "Elveszett a kommunikáció az MCU-val" hibák](#veletlenszeru-elveszett-a-kommunikacio-az-mcu-val-hibak) esetén.
 
-## Amikor beállítom `restart_method=command` az AVR készülékem újraindításkor lefagy
+## Amikor beállítom a `restart_method=command` az AVR készülékem újraindításkor lefagy
 
 Az AVR bootloader néhány régi verziójának ismert hibája van a watchdog esemény kezelésében. Ez általában akkor jelentkezik, ha a printer.cfg fájlban a restart_method beállítása "command". Amikor a hiba előfordul, az AVR eszköz nem reagál, amíg a tápellátást el nem veszik és újra be nem kapcsolják az eszközbe (a tápellátás vagy az állapotjelző LED-ek is többször villoghatnak, amíg a tápellátást el nem veszik).
 
