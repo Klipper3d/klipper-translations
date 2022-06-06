@@ -146,7 +146,7 @@ SAMD21 引导加载程序通过 ARM 串行线调试 （SWD） 接口进行刷写
 要使用 OpenOCD 刷写引导加载程序，请使用以下芯片配置：
 
 ```
-来源 [查找目标/at91samdXX.cfg]
+source [find target/at91samdXX.cfg]
 ```
 
 获取引导加载程序 - 例如：
@@ -179,7 +179,7 @@ avrdude -c stk500v2 -p atmega2560 -P /dev/ttyACM0 -u -Uflash:w:out/klipper.elf.h
 和 SAMD21 一样，SAMD51 的启动引导程序也是通过 ARM 串行线调试（SWD）接口刷写的。要用[运行 OpenOCD的 Raspberry Pi](#running-openocd-on-the-raspberry-pi)刷写引导程序，请使用以下芯片配置：
 
 ```
-来源 [查找目标/atsame5x.cfg]
+source [find target/atsame5x.cfg]
 ```
 
 获得一个引导程序--很多引导程序可以从 <https://github.com/adafruit/uf2-samdx1/releases/latest>获得。例如：
@@ -204,7 +204,7 @@ bossac -U -p /dev/ttyACM0 --offset=0x4000 -w out/klipper.bin -v -b -R
 
 ## STM32F103 微控制器（Blue Pill 开发板）
 
-The STM32F103 devices have a ROM that can flash a bootloader or application via 3.3V serial. Typically one would wire the PA10 (MCU Rx) and PA9 (MCU Tx) pins to a 3.3V UART adapter. To access the ROM, one should connect the "boot 0" pin to high and "boot 1" pin to low, and then reset the device. The "stm32flash" package can then be used to flash the device using something like:
+STM32F103设备有一个ROM，可以通过3.3V串口刷写引导程序或应用程序。通常会把PA10（MCU Rx）和PA9（MCU Tx）引脚连接到3.3V UART适配器上。要访问ROM，应该把"boot 0"引脚连接到高电平，"boot 1"引脚连接到低电平，然后重置设备。然后可以用"stm32flash"包刷写设备，使用的方法如下：
 
 ```
 stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0
@@ -243,7 +243,7 @@ dfu-util -d 1eaf:0003 -a 2 -R -D out/klipper.bin
 SKR Mini E3无法使用stm32flash ，因为boot 0引脚被直接接到GND且没有跳线断开。推荐使用STLink V2通过STM32Cubeprogrammer刷写启动引导程序。如果你没有STLink ，也可以按照以下芯片配置使用[树莓派和OpenOCD](#running-openocd-on-the-raspberry-pi) 刷写：
 
 ```
-来源 [查找目标/stm32f1x.cfg]
+source [find target/stm32f1x.cfg]
 ```
 
 如果你愿意，可以使用下面的命令备份当前闪存上的程序。请注意，这可能需要一些时间来完成备份：
@@ -327,31 +327,31 @@ STM32F072板也可以通过USB（通过DFU）刷写引导程序，如下所示�
 
 可以通过按两次电路板上的复位按钮来激活引导程序。一旦启动引导程序，该板就会显示为一个 USB 闪存驱动器，可以将 klipper.bin 文件复制到该驱动器上。
 
-### STM32F103/STM32F0x2 with CanBoot bootloader
+### 带有CanBoot引导程序的STM32F103/STM32F0x2
 
-The [CanBoot](https://github.com/Arksine/CanBoot) bootloader provides an option for uploading Klipper firmware over the CANBUS. The bootloader itself is derived from Klipper's source code. Currently CanBoot supports the STM32F103, STM32F042, and STM32F072 models.
+[CanBoot](https://github.com/Arksine/CanBoot)引导程序提供了一个通过CANBUS上传Klipper固件的选项。该引导程序本身来自Klipper的源代码。目前CanBoot支持STM32F103、STM32F042和STM32F072型号。
 
-It is recommended to use a ST-Link Programmer to flash CanBoot, however it should be possible to flash using `stm32flash` on STM32F103 devices, and `dfu-util` on STM32F042/STM32F072 devices. See the previous sections in this document for instructions on these flashing methods, substituting `canboot.bin` for the file name where appropriate. The CanBoot repo linked above provides instructions for building the bootloader.
+建议使用ST-Link编程器来刷写CanBoot，然而在STM32F103设备上使用`stm32flash`，在STM32F042/STM32F072设备上使用`dfu-util`应该是可以刷写。关于这些刷写方法的说明，请参见本文的前几节，在适当的地方用`canboot.bin`代替文件名。上面链接的CanBoot repo提供了构建引导程序的说明。
 
-The first time CanBoot has been flashed it should detect that no application is present and enter the bootloader. If this doesn't occur it is possible to enter the bootloader by pressing the reset button twice in succession.
+在CanBoot第一次被写入时，应该检测到没有应用程序，并进入引导程序。如果没有出现这种情况，可以通过连续按两次复位按钮进入引导程序。
 
-The `flash_can.py` utility supplied in the `lib/canboot` folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:
+`flash_can.py`在`lib/canboot`文件夹中提供的工具可以用来上传Klipper固件。设备的UUID对于写入固件来说是必要的。如果你没有UUID可以查询当前运行引导程序的节点：
 
 ```
 python3 flash_can.py -q
 ```
 
-This will return UUIDs for all connected nodes not currently assigned a UUID. This should include all nodes currently in the bootloader.
+这会返回所有未被分配UUID的节点的UUID。这应该包括当前在bootloader中的所有节点。
 
-Once you have a UUID, you may upload firmware with following command:
+一旦你有了UUID，你可以用以下命令上传固件：
 
 ```
 python3 flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u aabbccddeeff
 ```
 
-Where `aabbccddeeff` is replaced by your UUID. Note that the `-i` and `-f` options may be omitted, they default to `can0` and `~/klipper/out/klipper.bin` respectively.
+其中`aabbccddeeff`被你的UUID取代。注意选项`-i`和`-f`可以被省略，它们分别默认为`can0`和`~/klipper/out/klipper.bin`。
 
-When building Klipper for use with CanBoot, select the 8 KiB Bootloader option.
+当构建Klipper与CanBoot一起使用时，选择8 KiB Bootloader选项。
 
 ## STM32F4 微控制器 (SKR Pro 1.1)
 
