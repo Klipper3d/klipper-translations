@@ -2,7 +2,7 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023, 2025.
 # Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 # 王攀 <41330784@qq.com>, 2022, 2025.
-# Kai <2857693944@qq.com>, 2022.
+# Kai <2857693944@qq.com>, 2022, 2025.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2023, 2024, 2025.
 # Alfredo Monclus <alfredomonclus@gmail.com>, 2023.
 # Xpol Wan <xpolife@gmail.com>, 2024, 2025.
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Arda <pengfei.fu@gmail.com>\n"
+"Last-Translator: Kai <2857693944@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/config_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -718,7 +718,8 @@ msgid ""
 "The atsam, atsamd, and stm32 micro-controllers contain an internal temperature"
 " sensor. One can use the \"temperature_mcu\" sensor to monitor these "
 "temperatures."
-msgstr "atsam、atsamd和stm32微控制器包含一个内部温度传感器。可以使用\"temperature_mcu\"传感器来监测这些温度。"
+msgstr "atsam、atsamd和stm32微控制器包含一个内部温度传感器。可以使用\"temperature_mcu"
+"\"传感器来监测这些温度。"
 
 msgid "Host temperature sensor"
 msgstr "主机温度传感器"
@@ -780,8 +781,9 @@ msgid ""
 "enabled whenever its associated sensor is above a set temperature. By default,"
 " a temperature_fan has a shutdown_speed equal to max_power."
 msgstr ""
-"温度触发的冷却风扇（可以定义任意数量的带有“temperature_fan”前缀的部分）。一个\"temperature "
-"fan\"是一个只要其相关的传感器高于设定温度就会启用的风扇。默认情况下，一个温度风扇的关闭速度等于最大功率。"
+"温度触发的冷却风扇（可以定义任意数量的带有“temperature_fan”前缀的部分）。"
+"一个\"temperature fan\"是一个只要其相关的传感器高于设定温度就会启用的风扇"
+"。默认情况下，一个温度风扇的关闭速度等于最大功率。"
 
 msgid "[fan_generic]"
 msgstr "[fan_generic]"
@@ -1434,7 +1436,9 @@ msgid ""
 "[command](G-Codes.md#firmware_retraction)), allowing per-filament settings and"
 " runtime tuning."
 msgstr ""
-"固件耗材回抽。这个选项启用了许多切片软件发布的G10（回抽）和G11（回抽后恢复挤出）GCODE指令。下面的参数提供了启动默认值，尽管这些值可以通过SET_RETRACTION[command](G-Codes.md#firmware_retraction)来允许每个耗材设置和运行时调整"
+"固件耗材回抽。这个选项启用了许多切片软件发布的G10（回抽）和G11（回抽后恢复挤"
+"出）GCODE指令。下面的参数提供了启动默认值，尽管这些值可以通过SET_RETRACTION"
+"[command](G-Codes.md#firmware_retraction)来允许每个耗材设置和运行时调整"
 
 #: docs/Config_Reference.md:block 150 (paragraph)
 msgid "Enable the \"M118\" and \"RESPOND\" extended [commands](G-Codes.md#respond)."
@@ -1504,7 +1508,9 @@ msgid ""
 " (extruders, heated beds). Use the SET_HEATER_TEMPERATURE command (see "
 "[G-Codes](G-Codes.md#heaters) for details) to set the target temperature."
 msgstr ""
-"通用的加热器（任意数量的使用\"heater_generic\"前缀定义的节）。这些加热器表现得类似于标准加热器（挤出机、热床）。使用SET_HEATER_TEMPERATURE命令（详见[G-Code](G-Code.md#heaters)）来设置目标温度。"
+"通用的加热器（任意数量的使用\"heater_generic\"前缀定义的节"
+"）。这些加热器表现得类似于标准加热器（挤出机、热床）。使用SET_HEATER_TEMPERAT"
+"URE命令（详见[G-Code](G-Code.md#heaters)）来设置目标温度。"
 
 #: docs/Config_Reference.md:block 238 (paragraph)
 msgid ""
@@ -1576,7 +1582,9 @@ msgid ""
 "advance guide](Pressure_Advance.md) for information on tuning pressure "
 "advance."
 msgstr ""
-"挤出机部分用于描述喷嘴热端以及控制挤出机的步进器的加热器参数。请参阅[命令参考](G-Code.md#extruder)了解更多信息。参见[压力提前量指南](Pressure_Advance.md)以了解关于调整压力提前量的信息。"
+"挤出机部分用于描述喷嘴热端以及控制挤出机的步进器的加热器参数。请参阅"
+"[命令参考](G-Code.md#extruder)了解更多信息。参见[压力提前量指南]"
+"(Pressure_Advance.md)以了解关于调整压力提前量的信息。"
 
 #: docs/Config_Reference.md:block 280 (paragraph)
 msgid "PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer."
@@ -1606,8 +1614,8 @@ msgid ""
 "a \"neopixel\" prefix). See the [command reference](G-Codes.md#led) for more "
 "information."
 msgstr ""
-"对于Neopixel（也就是WS2812）LED的支持（可以定义任意数量的带有“neopixel”前缀的部分）见[command "
-"reference](G-Codes.md#led)获取更多信息"
+"对于Neopixel（也就是WS2812）LED的支持（可以定义任意数量的带有“neopixel”前缀的"
+"部分）见[command reference](G-Codes.md#led)获取更多信息"
 
 #: docs/Config_Reference.md:block 275 (paragraph)
 msgid ""
