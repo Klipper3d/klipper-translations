@@ -23,30 +23,29 @@
 ```
 [mcu]
 serial:
-#   The serial port to connect to the MCU. If unsure (or if it
-#   changes) see the "Where's my serial port?" section of the FAQ.
-#   This parameter must be provided when using a serial port.
+#   连接到单片机的串行通讯接口
+#   如果你不确定的话（或可能它变更拉了），可以查看FAQ中的
+#   “Where's my serial port?”章节。
+#   当使用串口时，这个参数必须给定
 #baud: 250000
-#   The baud rate to use. The default is 250000.
+#   使用的波特率。默认是250000
 #canbus_uuid:
-#   If using a device connected to a CAN bus then this sets the unique
-#   chip identifier to connect to. This value must be provided when using
-#   CAN bus for communication.
+#   如果使用一个连接到CAN总线的设备，这个参数需要被设置为
+#   要连接的芯片的唯一ID。
+#   当使用CAN总线时，这个参数必须给定
 #canbus_interface:
-#   If using a device connected to a CAN bus then this sets the CAN
-#   network interface to use. The default is 'can0'.
+#   当使用的设备连接到CAN总线时，这个参数需要被设置为
+#   使用的网络接口
+#   默认值是can0
 #restart_method:
-#   This controls the mechanism the host will use to reset the
-#   micro-controller. The choices are 'arduino', 'cheetah', 'rpi_usb',
-#   and 'command'. The 'arduino' method (toggle DTR) is common on
-#   Arduino boards and clones. The 'cheetah' method is a special
-#   method needed for some Fysetc Cheetah boards. The 'rpi_usb' method
-#   is useful on Raspberry Pi boards with micro-controllers powered
-#   over USB - it briefly disables power to all USB ports to
-#   accomplish a micro-controller reset. The 'command' method involves
-#   sending a Klipper command to the micro-controller so that it can
-#   reset itself. The default is 'arduino' if the micro-controller
-#   communicates over a serial port, 'command' otherwise.
+#   这个参数控制着重置单片机的方式
+#   可选项是'arduino'、'cheetah'、'rpi_usb'和'command'
+#   'arduino'方法（翻转DTR）通常适用于Arduino板或其克隆板
+#   'cheetah'方法是一个特殊的方法，通常适用于一些富源盛的Cheetah板
+#   'rpi_usb'方法对于使用树莓派的USB供电的单片机十分有效
+#   它简单地关闭所有USB端口的电源来完成单片机的重置
+#   'command'方法调用向单片机发送klipper命令来重置它们自己
+#   当单片机连接到串口时默认是'arduino'，否则默认是'command'
 ```
 
 ### [mcu my_extra_mcu]
@@ -1861,7 +1860,7 @@ Tool to disable heaters when homing or probing an axis.
 #   parameter.
 ```
 
-## Temperature sensors
+## 温度传感器
 
 Klipper 包括许多类型的温度传感器的定义。这些传感器可以在任何需要温度传感器的配置分段中使用（例如`[extruder]`或`[heated_bed]`分段）。
 
@@ -2020,7 +2019,7 @@ sensor_type: LM75
 
 ### 微控制器的内置温度传感器
 
-The atsam, atsamd, and stm32 micro-controllers contain an internal temperature sensor. One can use the "temperature_mcu" sensor to monitor these temperatures.
+atsam、atsamd和stm32微控制器包含一个内部温度传感器。可以使用"temperature_mcu"传感器来监测这些温度。
 
 ```
 sensor_type: temperature_mcu
@@ -2212,7 +2211,7 @@ pin:
 
 ### [temperature_fan]
 
-Temperature-triggered cooling fans (one may define any number of sections with a "temperature_fan" prefix). A "temperature fan" is a fan that will be enabled whenever its associated sensor is above a set temperature. By default, a temperature_fan has a shutdown_speed equal to max_power.
+温度触发的冷却风扇（可以定义任意数量的带有“temperature_fan”前缀的部分）。一个"temperature fan"是一个只要其相关的传感器高于设定温度就会启用的风扇。默认情况下，一个温度风扇的关闭速度等于最大功率。
 
 See the [command reference](G-Codes.md#temperature_fan) for additional information.
 
@@ -2320,7 +2319,7 @@ Support for LEDs (and LED strips) controlled via micro-controller PWM pins (one 
 
 ### [neopixel]
 
-Neopixel (aka WS2812) LED support (one may define any number of sections with a "neopixel" prefix). See the [command reference](G-Codes.md#led) for more information.
+对于Neopixel（也就是WS2812）LED的支持（可以定义任意数量的带有“neopixel”前缀的部分）见[command reference](G-Codes.md#led)获取更多信息
 
 注意！[linux mcu](RPi_microcontroller.md)的实现目前不支持直接连接的neopixels。目前使用Linux内核接口的设计不允许这种情况发生，因为内核的GPIO接口速度不够快，无法提供所需的脉冲率。
 
@@ -2691,11 +2690,11 @@ run_current:
 #hold_current:
 #sense_resistor: 0.110
 #stealthchop_threshold: 0
-#   See the "tmc2208" section for the definition of these parameters.
+#   以上参数见"tmc2208"部分
 #uart_address:
-#   The address of the TMC2209 chip for UART messages (an integer
-#   between 0 and 3). This is typically used when multiple TMC2209
-#   chips are connected to the same UART pin. The default is zero.
+#   TMC2209的UART地址（0-3的整数）
+#   这个参数通常用于多个TMC2209连接到同个UART接口
+#   默认是0
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
 #driver_TBL: 2
@@ -2710,18 +2709,17 @@ run_current:
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
 #driver_SGTHRS: 0
-#   Set the given register during the configuration of the TMC2209
-#   chip. This may be used to set custom motor parameters. The
-#   defaults for each parameter are next to the parameter name in the
-#   above list.
+#   配置TMC2209时配置的寄存器
+#   这些参数通常用于设定自己定制的电机参数
+#   每个参数的默认值如上
 #diag_pin:
-#   The micro-controller pin attached to the DIAG line of the TMC2209
-#   chip. The pin is normally prefaced with "^" to enable a pullup.
-#   Setting this creates a "tmc2209_stepper_x:virtual_endstop" virtual
-#   pin which may be used as the stepper's endstop_pin. Doing this
-#   enables "sensorless homing". (Be sure to also set driver_SGTHRS to
-#   an appropriate sensitivity value.) The default is to not enable
-#   sensorless homing.
+#   微控制器连接到TMC2209的DIAG接口的引脚
+#   这个引脚通常使用"^"前缀来开启内部上拉
+#   设置这个会创建一个名为"tmc2209_stepper_x:virtual_endstop"的虚拟引脚
+#   用做步进电机的终止引脚。
+#   在启动"sensorless homing"（无限位归零）时设置这个。
+#   （确保同时设置了driver_SGTHRS为一个合适的灵敏度）
+#   默认是关闭了无限位归零
 ```
 
 ### [tmc2660]
@@ -3716,7 +3714,7 @@ cs_pin:
 
 ### 常见 SPI 设置
 
-The following parameters are generally available for devices using an SPI bus.
+以下参数一般适用于使用SPI总线的设备。
 
 ```
 #spi_speed:
@@ -3737,7 +3735,7 @@ The following parameters are generally available for devices using an SPI bus.
 
 ### 常见的I2C 设置
 
-The following parameters are generally available for devices using an I2C bus.
+以下参数一般适用于使用I2C总线的设备。
 
 ```
 #i2c_address:

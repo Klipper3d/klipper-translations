@@ -30,7 +30,7 @@ Az utazósebesség mindig nagyobb vagy egyenlő a kezdő- és a végsebességgel
 
 A "look-ahead" rendszert a kanyarsebességek meghatározására használják a mozgások között.
 
-Tekintsük a következő két mozgást, amelyek egy X-Y-síkon helyezkednek el:
+Nézzük meg a következő két mozgást, amelyek egy X-Y-síkon helyezkednek el:
 
 ![corner](img/corner.svg.png)
 

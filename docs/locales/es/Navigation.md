@@ -1,6 +1,6 @@
 Klipper documentation
 
-Installation and Configuration
+Instalación y configuración
 
 Configuration Reference
 
@@ -10,6 +10,6 @@ Compensación de Resonancia
 
 Command templates
 
-Developer Documentation
+Documentación para desarrolladores
 
-Device Specific Documents
+Documentos específicos de un dispositivo
