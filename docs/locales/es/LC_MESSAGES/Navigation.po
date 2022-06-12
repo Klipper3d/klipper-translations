@@ -1,24 +1,26 @@
 # Francisco Serrador <fserrador@gmail.com>, 2022.
+# Alberto <aru_hackZ.official@zohomail.eu>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2022-03-06 16:52+0200\n"
-"PO-Revision-Date: 2022-04-04 12:07+0000\n"
-"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/navigation/es/>\n"
+"PO-Revision-Date: 2022-06-12 14:19+0000\n"
+"Last-Translator: Alberto <aru_hackZ.official@zohomail.eu>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"navigation/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 msgid "Klipper documentation"
 msgstr ""
 
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "Instalación y configuración"
 
 msgid "Configuration Reference"
 msgstr ""
@@ -33,7 +35,7 @@ msgid "Command templates"
 msgstr ""
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "Documentación para desarrolladores"
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "Documentos específicos de un dispositivo"
