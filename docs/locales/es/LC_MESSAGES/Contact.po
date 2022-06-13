@@ -1,15 +1,17 @@
 # Pepe <ec288eb6-6bd6-473b-93a5-5c8fb60ceb16@simplelogin.fr>, 2022.
+# Alberto <aru_hackZ.official@zohomail.eu>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-03-24 10:48+0000\n"
-"Last-Translator: Pepe <ec288eb6-6bd6-473b-93a5-5c8fb60ceb16@simplelogin.fr>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/contact/es/>\n"
+"PO-Revision-Date: 2022-06-13 15:15+0000\n"
+"Last-Translator: Alberto <aru_hackZ.official@zohomail.eu>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/contact/"
+"es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 msgid "This document provides contact information for Klipper."
 msgstr "Este documento provee información de contacto para Klipper."
@@ -258,7 +260,7 @@ msgstr ""
 
 #: docs/Contact.md:block 1 (header)
 msgid "Contact"
-msgstr ""
+msgstr "Contacto"
 
 #: docs/Contact.md:block 7 (paragraph)
 msgid ""
