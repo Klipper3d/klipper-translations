@@ -1,19 +1,20 @@
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # Arda <pengfei.fu@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2022-01-20 09:17+0000\n"
-"Last-Translator: Arda <pengfei.fu@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/contributing/zh_Hans/>\n"
-"Language: zh-hans\n"
+"PO-Revision-Date: 2022-06-13 15:15+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/contributing/zh_Hans/>\n"
+"Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 msgid "Contributing to Klipper"
 msgstr "为 Klipper 做贡献"
@@ -353,11 +354,10 @@ msgid ""
 msgstr "空格的修改不应该与功能修改混在一起。一般来说，无意义的空格修改是不被接受的，除非是来自被修改代码的既定 \"所有者\"。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
-#, fuzzy
 msgid ""
 "Does the submission provide a \"high impact\" benefit to real-world users "
 "performing real-world tasks?"
-msgstr "提交的文件是否为执行真实世界任务的真实世界用户提供了 \"高度影响\"的好处？"
+msgstr "提交的文件是否为执行真实世界任务的用户提供了 \"高影响力\"的改进？"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -368,20 +368,25 @@ msgid ""
 "to both the submitter and the reviewer, and it is not explicitly stated "
 "during a review."
 msgstr ""
+"评审员需要确定，至少在他们自己的脑海中，大致的\"目标受众\"，\"受众的规模\"，"
+"受众将获得的\"利益\"，“如何衡量利益\"，以及”这些测试的结果“。在大多数情况下，"
+"这对提交者和评审者来说都是显而易见的，而且在评审过程不需要明确的说明。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "Submissions to the master Klipper branch are expected to have a noteworthy "
 "target audience. As a general \"rule of thumb\", submissions should target a"
 " user base of at least a 100 real-world users."
-msgstr ""
+msgstr "提交到Klipper主分支的代码应该有足够的目标受众。作为一般的经验法则，提交的内容"
+"应该针对至少100个用户的用户群体。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "If a reviewer asks for details on the \"benefit\" of a submission, please "
 "don't consider it criticism. Being able to understand the real-world "
 "benefits of a change is a natural part of a review."
-msgstr ""
+msgstr "如果审稿人询问有关提交可以带来的“好处”的细节，请不要将其视为批评。能够理解更"
+"改带来的实际好处是审查的一个自然部分。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -398,12 +403,16 @@ msgid ""
 "\"users of the MegaX500 are expected to set option X to 99.3 while users of "
 "the Elite100Y are expected to calibrate option X using procedure ...\"."
 msgstr ""
+"评审员可能会要求解释用户该如何配置一个选项，一个理想的答复将包含过程的细节，"
+"例如：\"MegaX500的用户应将选项 X 设置为99."
+"3，而Elite100Y的用户应使用程序校准选项X...\" 。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "If the goal of an option is to make the code more modular then prefer using "
 "code constants instead of user facing config options."
-msgstr ""
+msgstr "如果一个选项的目标是使代码更加模块化，那么最好使用代码常量而不是向用户开放的"
+"配置选项。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
