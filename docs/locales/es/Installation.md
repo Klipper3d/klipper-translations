@@ -1,4 +1,4 @@
-# Installation
+# Instalación
 
 En estas instrucciones se presupone que el sóftwer se ejecutará en un equipo Raspberry Pi en conjunto con OctoPrint. Es recomendable que se emplee como máquina anfitriona un Raspberry Pi 2, 3 o 4 (para otras máquinas, vea las [preguntas frecuentes](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)).
 
