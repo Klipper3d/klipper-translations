@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2022-03-06 16:52+0200\n"
-"PO-Revision-Date: 2022-06-12 14:19+0000\n"
+"PO-Revision-Date: 2022-06-13 15:21+0000\n"
 "Last-Translator: Alberto <aru_hackZ.official@zohomail.eu>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "navigation/es/>\n"
@@ -17,22 +17,22 @@ msgstr ""
 "X-Generator: Weblate 4.13-dev\n"
 
 msgid "Klipper documentation"
-msgstr ""
+msgstr "Documentación de Klipper"
 
 msgid "Installation and Configuration"
 msgstr "Instalación y configuración"
 
 msgid "Configuration Reference"
-msgstr ""
+msgstr "Referencia de configuración"
 
 msgid "Bed Level"
-msgstr ""
+msgstr "Nivel de la cama"
 
 msgid "Resonance Compensation"
 msgstr "Compensación de Resonancia"
 
 msgid "Command templates"
-msgstr ""
+msgstr "Plantillas de comandos"
 
 msgid "Developer Documentation"
 msgstr "Documentación para desarrolladores"
