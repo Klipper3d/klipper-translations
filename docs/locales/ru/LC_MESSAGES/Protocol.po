@@ -1,4 +1,4 @@
-# Comocen <Comoc_en@mail.ru>, 2022.
+# Comocen <Comoc_en@mail.ru>, 2022, 2025.
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # Vik <xasertop@gmail.com>, 2022.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: Vin <k3kelm4vw@mozmail.com>\n"
+"Last-Translator: Comocen <Comoc_en@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/protocol/"
 "ru/>\n"
 "Language: ru\n"
