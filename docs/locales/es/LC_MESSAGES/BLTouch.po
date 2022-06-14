@@ -1,10 +1,11 @@
 # Alvaro <alvaro@null.net>, 2022.
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
+# Alberto <alberto.robles.gomez@aruzeta.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:20+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Alberto <alberto.robles.gomez@aruzeta.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/bltouch/"
 "es/>\n"
 "Language: es\n"
