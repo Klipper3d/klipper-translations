@@ -1,4 +1,4 @@
-# Bed leveling
+# Nivelación de la cama
 
 El nivelado de la base (aveces tambien llamado "bed tramming") es un proceso critico para obtener impresiones de gran calidad. Si la base no esta correctamente "nivelada" puede producirse una mala adherencia, "warping" (despegue de las esquinas) asi como problemas sutiles durante la impresion. Este documento sirve como una guia para realizar el nivelado de la base en Klipper.
 
@@ -10,7 +10,7 @@ Para obtener impresiones de buena calidad, la impresora debe estar calibrada par
 
 Los distintos tipos de impresoras utilizan diferentes métodos para realizar la nivelación de la cama. Todos ellos dependen, en última instancia, de la "prueba del papel" (descrita a continuación). Sin embargo, el proceso para algun tipo particular de impresora se describe en otros documentos.
 
-Antes de ejecutar cualquiera de estas herramientas de calibración, asegúrese de realizar las comprobaciones descritas en el documento [config check](Config_checks.md). Es necesario verificar el movimiento básico de la impresora antes de realizar la nivelación de la base.
+Antes de ejecutar cualquiera de estas herramientas de calibración, asegúrese de realizar las comprobaciones descritas en el documento [Verificación de la configuración](Config_checks.md). Es necesario verificar el movimiento básico de la impresora antes de realizar la nivelación de la base.
 
 Para las impresoras con una "sensor Z automático", asegúrese de calibrar el sensor siguiendo las instrucciones del documento [Probe Calibrate](Probe_Calibrate.md). Para las impresoras delta, consulte el documento [Delta Calibrate](Delta_Calibrate.md). Para impresoras con tornillos en la base y finales de carrera tradicionales en el eje Z, consulte el documento [Manual Level](Manual_Level.md).
 
@@ -22,19 +22,19 @@ El principal mecanismo de calibración de la cama es la "prueba de papel". Consi
 
 Es importante entender la "prueba del papel" aunque se tenga un "sensor Z automático". A menudo es necesario calibrar el propio sensor para obtener buenos resultados. Esa calibración del sensor se realiza mediante esta "prueba de papel".
 
-In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a thickness of around 100 microns (0.100mm). (The exact thickness of the paper isn't crucial.)
+Para realizar la prueba del papel, corte un pequeño trozo rectangular de papel usando un par de tijeras (por ejemplo de 5x3 centímetros). El papel normalmente tiene un grosor alrededor de 100 micras (0.1 milímetros). (El grosor exacto del papel no es crucial.)
 
 El primer paso de la prueba del papel es inspeccionar la boquilla y la base de la impresora. Asegúrese de que no hay plástico (u otros residuos) en la boquilla o en la base.
 
 **¡Inspeccione la boquilla y la base para asegurarse de que no hay plástico!**
 
-If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a thickness and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.
+Si uno siempre imprime en una cinta en particular o en una superficie de impresión entonces puede realizar la prueba del papel con esa cinta/superficie en su lugar. Sin embargo, nótese que esa cinta en sí misma y otras cintas (o cualquier otra superficie de impresión) afectarán las medidas de Z. Esté seguro de repetir el test del papel para medir cada tipo de superficie que esté en uso.
 
 Si hay plástico en la boquilla, caliente el extrusor y utilize una pinza metálica para eliminar ese plástico. Espere a que el extrusor se enfríe a temperatura ambiente antes de continuar con la prueba del papel. Mientras se enfría la boquilla, utiliza las pinzas metálicas para eliminar el plástico que pueda gotear.
 
 **¡Realice siempre la prueba del papel cuando tanto la boquilla como la base se encuentren a temperatura ambiente!**
 
-When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same thickness as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact thickness of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two distances).
+Cuando la boquilla es calentada, su exposición (relativa a la cama) cambia debido a la expansión térmica. Esta expansión térmica es típicamente alrededor de 100 micras, lo cual es alrededor del mismo grosor que un trozo de papel típico para impresión. La cantidad exacta de expansión térmica no es crucial, al igual que el grosor exacto del papel no lo es. Comience con la suposición de que ambos son iguales (vea a continuación un método para determinar la diferencia entre ambas distancias).
 
 Puede parecer extraño calibrar la distancia a temperatura ambiente cuando el objetivo es tener una distancia consistente cuando se calienta. Sin embargo, si se calibra cuando la boquilla se calienta, esta tiende a filtrar pequeñas cantidades de plástico fundido sobre el papel, lo que cambia la cantidad de fricción que se siente. Esto hace más difícil conseguir una buena calibración. Calibrar mientras la cama/boquilla está caliente también aumenta en gran medida el riesgo de quemarse. La cantidad de expansión térmica es estable, por lo que se puede tener en cuenta fácilmente más adelante en el proceso de calibración.
 
@@ -64,7 +64,7 @@ TESTZ Z=-.1
 
 El comando TESTZ moverá la boquilla una distancia relativa desde la posición actual de la boquilla. (Así, `Z=-.1` comanda que la boquilla se acerque a la cama en 0,1mm). Después de que la boquilla deje de moverse, empuje el papel hacia adelante y hacia atrás para comprobar si la boquilla está en contacto con el papel y para sentir la cantidad de fricción. Continúe emitiendo comandos TESTZ hasta que se sienta una pequeña cantidad de fricción al probar con el papel.
 
-Si se encuentra demasiada fricción, se puede utilizar un valor Z positivo para mover la boquilla hacia arriba. También es posible utilizar `TESTZ Z=+` o `TESTZ Z=-` para "bifurcar" la última posición - es decir, para moverse a una posición a medio camino entre dos posiciones. Por ejemplo, si uno recibe la siguiente indicación de un comando TESTZ:
+Si se encuentra demasiada fricción, se puede utilizar un valor Z positivo para mover la boquilla hacia arriba. También es posible utilizar `TESTZ Z=+` o `TESTZ Z=-` para "bifurcar" la última posición - es decir, para moverse a una posición a medio camino entre dos posiciones. Por ejemplo, si uno recibe la siguiente indicación de un comando `TESTZ`:
 
 ```
 Recv: // Z position: 0.130 --> 0.230 <-- 0.280
@@ -90,10 +90,10 @@ After successfully performing bed leveling, one may go on to calculate a more pr
 
 Este tipo de cálculos no son normalmente necesarios ya que la mayoría de usuarios encuentran que el simple "test de papel" da buenos resultados.
 
-The easiest way to make this calculation is to print a test object that has straight walls on all sides. The large hollow square found in [docs/prints/square.stl](prints/square.stl) can be used for this. When slicing the object, make sure the slicer uses the same layer height and extrusion widths for the first level that it does for all subsequent layers. Use a coarse layer height (the layer height should be around 75% of the nozzle diameter) and do not use a brim or raft.
+La manera más sencilla de realizar este cálculo es imprimir un objeto de prueba que tiene paredes rectas en todos los lados. Podemos usar el gran cuadrado hueco encontrado en [docs/prints/square.stl](prints/square.stl) para ello. Al rebanar el objeto, asegúrese de que el rebanador usa la misma altura de capa y anchura de extrusión tanto para el primer nivel como para las subsiguientes capas. Usa una altura de capa gruesa (la altura de la capa debería ser alrededor de un 75% del diámetro de la boquilla) y no uses un borde o balsa.
 
-Print the test object, wait for it to cool, and remove it from the bed. Inspect the lowest layer of the object. (It may also be useful to run a finger or nail along the bottom edge.) If one finds the bottom layer bulges out slightly along all sides of the object then it indicates the nozzle was slightly closer to the bed then it should be. One can issue a `SET_GCODE_OFFSET Z=+.010` command to increase the height. In subsequent prints one can inspect for this behavior and make further adjustment as needed. Adjustments of this type are typically in 10s of microns (.010mm).
+Imprime el objeto de prueba, espera que se enfríe, y quítalo de la cama. Inspecciona la capa más baja del objeto. (También puede ser útil recorrer el dedo o un clavo a lo largo del eje inferior.) Si encuentras que la capa inferior se hincha al rededor de todos los lados del objeto, esto indica que la boquilla estaba levemente mas cerca de la cama de lo que debería. Puedes utilizar el comando `SET_GCODE_OFFSET Z=+.010` para incrementar la altura. En las impresiones subsecuentes puedes analizar este comportamiento y realizar ajustes adicionales según sean necesarios. Ajustes de este tipo son típicamente en decenas de micras (.010 milímetros).
 
-If the bottom layer consistently appears narrower than subsequent layers then one can use the SET_GCODE_OFFSET command to make a negative Z adjustment. If one is unsure, then one can decrease the Z adjustment until the bottom layer of prints exhibit a small bulge, and then back-off until it disappears.
+Si la capa inferior aparece consecuentemente más estrecha que las capa subsecuentes entonces puedes usar el comando SET_GCODE_OFFSET para realizar un ajuste negativo a Z. Si no estás seguro, puedes disminuir el ajuste de Z hasta que la capa inferior de las impresiones muestre un pequeño bulto, y entonces apartarse hasta que desaparezca.
 
-The easiest way to apply the desired Z adjustment is to create a START_PRINT g-code macro, arrange for the slicer to call that macro during the start of each print, and add a SET_GCODE_OFFSET command to that macro. See the [slicers](Slicers.md) document for further details.
+La forma más sencilla de aplicar el ajuste Z deseado es crear una macro g-code START_PRINT, hacer los arreglos para que el rebanador llame a la macro durante el inicio de cada impresión, y añadir un comando SET_GCODE_OFFSET a la macro. Héchale un ojo al documento [rebanadores](Slicers.md) para más detalles.
