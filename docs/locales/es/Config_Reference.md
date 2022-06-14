@@ -51,7 +51,7 @@ serial:
 
 ### [mcu my_extra_mcu]
 
-Additional micro-controllers (one may define any number of sections with an "mcu" prefix). Additional micro-controllers introduce additional pins that may be configured as heaters, steppers, fans, etc.. For example, if an "[mcu extra_mcu]" section is introduced, then pins such as "extra_mcu:ar9" may then be used elsewhere in the config (where "ar9" is a hardware pin name or alias name on the given mcu).
+Microcontroladores adicionales (uno puede definir cualquier número de secciones usando el prefijo "mcu"). Los microcontroladores adicionales introducen pines adicionales que pueden ser configurados como calentadores, motores a pasos, ventiladores, etc ... Por ejemplo, si una sección "[mcu extra_mcu]" es introducida, entonces lon pines tal que "extra_mcu:ar9"pueden ser usados en cualquier otra parte de la configuración (donde "ar9" es el nombre o alias de un pin del mcu).
 
 ```
 [mcu my_extra_mcu]
@@ -879,36 +879,36 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 ```
 [bed_screws]
 #screw1:
-#   The X, Y coordinate of the first bed leveling screw. This is a
-#   position to command the nozzle to that is directly above the bed
-#   screw (or as close as possible while still being above the bed).
-#   This parameter must be provided.
+#   La coordenada X, Y del primer tornillo de nivelación de la cama. Esta es una
+#   posición hacia la que comandar la boquilla la cual esta directamente encima del tornillo
+#   de la cama (o tan cerca como sea posible sin dejar de estar encima de la cama).
+#   Este parámetro debe ser provisto.
 #screw1_name:
-#   An arbitrary name for the given screw. This name is displayed when
-#   the helper script runs. The default is to use a name based upon
-#   the screw XY location.
+#   Un nombre arbitrario para el tornillo dado. Este nombre es mostrado cuando
+#   se ejecutan las órdenes de comando auxiliares. Por defecto se usa un nombre basado en
+#   la localización del tornillo XY.
 #screw1_fine_adjust:
-#   An X, Y coordinate to command the nozzle to so that one can fine
-#   tune the bed leveling screw. The default is to not perform fine
-#   adjustments on the bed screw.
+#   Una coordenada X, Y hacia la que comandar la boquilla de tal manera que uno puede
+#   afinar el tornillo de nivelación de la cama. Por defecto no se realizan afinaciones
+#   en el tornillo de la cama.
 #screw2:
 #screw2_name:
 #screw2_fine_adjust:
 #...
-#   Additional bed leveling screws. At least three screws must be
-#   defined.
+#   Tornillos de la cama adicionales. Al menos 3 tornillos deben ser
+#   definidos.
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   when moving from one screw location to the next. The default is 5.
+#   La altura (en milímetros) a la que la cabeza debería ser comandada para moverse
+#   cuando se mueva de la localización de un tornillo hacia el siguiente. Por defecto es 5.
 #probe_height: 0
-#   The height of the probe (in mm) after adjusting for the thermal
-#   expansion of bed and nozzle. The default is zero.
+#   La altura de la sonda (en milímetros) tras ajustarse por la expansión
+#   térmica de la cama y la boquilla. Por defecto es cero.
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+#   La velocidad (en milímetros/segundo) de los movimientos que no sean de sondeo
+#   durante la calibración. Por defecto es 50.
 #probe_speed: 5
-#   The speed (in mm/s) when moving from a horizontal_move_z position
-#   to a probe_height position. The default is 5.
+#   La velocidad (en milímetros/segundo) al moverse desde una posición
+#   movimiento_horizontal_z a una posición altura_sondeo. Por defecto es 5.
 ```
 
 ### [screws_tilt_adjust]
@@ -1305,7 +1305,7 @@ Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#respond).
 #   override the "default_type".
 ```
 
-## Resonance compensation
+## Compensación de resonancia
 
 ### [input_shaper]
 
@@ -1468,7 +1468,7 @@ pins:
 #   provided.
 ```
 
-## Bed probing hardware
+## Hardware de sondeo de cama
 
 ### [probe]
 
@@ -1637,7 +1637,7 @@ z_offset:
 #   See the "probe" section for more information on the parameters above.
 ```
 
-## Additional stepper motors and extruders
+## Motores a pasos y extrusores adicionales
 
 ### [stepper_z1]
 
@@ -1835,22 +1835,22 @@ Custom ADC temperature sensors (one may define any number of sections with an "a
 #temperature2:
 #voltage2:
 #...
-#   A set of temperatures (in Celsius) and voltages (in Volts) to use
-#   as reference when converting a temperature. A heater section using
-#   this sensor may also specify adc_voltage and voltage_offset
-#   parameters to define the ADC voltage (see "Common temperature
-#   amplifiers" section for details). At least two measurements must
-#   be provided.
+#   Un conjunto de temperaturas (en Celsius) y voltajes (en Voltios) a usar
+#   como referencia al convertir una temperatura. Una sección del calentador usando
+#   este sensor puede también especificar los parámetros adc_voltage y voltage_offset
+#   para definir el voltaje ADC (mira la sección "Amplificadores comunes de temperatura
+#   para más detalles). Al menos dos medidas deben
+#   ser previstas.
 #temperature1:
 #resistance1:
 #temperature2:
 #resistance2:
 #...
-#   Alternatively one may specify a set of temperatures (in Celsius)
-#   and resistance (in Ohms) to use as reference when converting a
-#   temperature. A heater section using this sensor may also specify a
-#   pullup_resistor parameter (see "extruder" section for details). At
-#   least two measurements must be provided.
+#   Alternativamente uno debe especificar un conjunto de temperas (en Celsius)
+#   y resistencias (en Ohms) para usar como una referencia al convertir una
+#   temperatura. Una sección del calentador usando este sensor también puede especificar un
+#   parámetro pullup_resistor (mira la sección "extrusora" para más detalles).
+#   Al menos dos medidas deben ser provistas.
 ```
 
 ### [heater_generic]
@@ -2453,7 +2453,7 @@ PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
 #   See the "led" section for information on these parameters.
 ```
 
-## Additional servos, buttons, and other pins
+## Servos, botones y otros pines adicionales
 
 ### [servo]
 
@@ -2929,36 +2929,36 @@ Statically configured AD5206 digipots connected via SPI bus (one may define any 
 ```
 [ad5206 my_digipot]
 enable_pin:
-#   The pin corresponding to the AD5206 chip select line. This pin
-#   will be set to low at the start of SPI messages and raised to high
-#   after the message completes. This parameter must be provided.
+#   El pin que corresponde a la linea de selección del chip AD5206. Este pin
+#   se pondrá como bajo en el comienzo de los mensajes SPI y subido a alto
+#   después de que el mensaje se complete. Este parámetro debe ser previsto.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   Hecha un ojo a la sección de "ajustes comunes del SPI" para una descripción de
+#   los parámetros de encima.
 #channel_1:
 #channel_2:
 #channel_3:
 #channel_4:
 #channel_5:
 #channel_6:
-#   The value to statically set the given AD5206 channel to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest resistance and 0.0 being the lowest resistance. However,
-#   the range may be changed with the 'scale' parameter (see below).
-#   If a channel is not specified then it is left unconfigured.
+#   El valor a fijar estáticamente el canal AD5206 dado. Éste es
+#   típicamente fijado a un número entre 0.0 y 1.0, siendo 1.0 la
+#   máxima resistencia y 0.0 la mínima. Sin embargo,
+#   el rango puede ser cambiado con el parámetro 'escala' (mirar abajo).
+#   Si un canal no está especificado entonces queda desconfigurado.
 #scale:
-#   This parameter can be used to alter how the 'channel_x' parameters
-#   are interpreted. If provided, then the 'channel_x' parameters
-#   should be between 0.0 and 'scale'. This may be useful when the
-#   AD5206 is used to set stepper voltage references. The 'scale' can
-#   be set to the equivalent stepper amperage if the AD5206 were at
-#   its highest resistance, and then the 'channel_x' parameters can be
-#   specified using the desired amperage value for the stepper. The
-#   default is to not scale the 'channel_x' parameters.
+#   Este parámetro puede ser usado para alterar cómo los parámetros 'canal_x'
+#   son interpretados. Si son proporcionados, entonces los parámetros 'canal_x'
+#   deberían estar entre 0.0 y 'escala'. Esto puede ser útil cuando el
+#   AD520 es usado para establecer referencias de voltaje del motor a pasos. La 'escala' puede
+#   ser establecida al amperaje del motor a pasos equivalente si el AD5206 estuviese a
+#   su máxima resistencia, y entonces los parámetros 'canal_x' pueden ser
+#   especificados usando el valor de amperaje deseado para el motor a pasos. Por
+#   defecto es que no escale los parámetros 'canal_x'.
 ```
 
 ### [mcp4451]
@@ -3307,7 +3307,7 @@ lcd_type:
 
 Support for displaying custom data on an lcd screen. One may create any number of display groups and any number of data items under those groups. The display will show all the data items for a given group if the display_group option in the [display] section is set to the given group name.
 
-A [default set of display groups](../klippy/extras/display/display.cfg) are automatically created. One can replace or extend these display_data items by overriding the defaults in the main printer.cfg config file.
+Los [conjuntos por defecto de grupos de visualización](../klippy/extras/display/display.cfg) son creados automáticamente. Uno puede reemplazar o extender estos elementos display_data cambiando los valores por defecto del fichero de configuración principal printer.cfg.
 
 ```
 [display_data my_group_name my_data_name]
@@ -3649,15 +3649,15 @@ See the [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) file fo
 ```
 [adc_scaled my_name]
 vref_pin:
-#   The ADC pin to use for VREF monitoring. This parameter must be
-#   provided.
+#   El pin ADC a usar para el seguimiento VREF. Este parámetro debe ser
+#   previsto.
 vssa_pin:
-#   The ADC pin to use for VSSA monitoring. This parameter must be
-#   provided.
+#   El pin adc a usar para el seguimiento VSSA. Este parámetro debe ser
+#   previsto.
 #smooth_time: 2.0
-#   A time value (in seconds) over which the vref and vssa
-#   measurements will be smoothed to reduce the impact of measurement
-#   noise. The default is 2 seconds.
+#   Un valor de tiempo (en segundos) sobre el cual las medida vref y vssa
+#   serán suavizadas para reducir el impacto del ruido de medición.
+#   Por defecto es 2 segundos.
 ```
 
 ### [replicape]

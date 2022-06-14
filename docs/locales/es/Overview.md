@@ -14,7 +14,7 @@ Bienvenido a la documentación de Klipper. Si eres nuevo con Klipper, comienza p
 
 - [Instalación](Installation.md): Guía de instalación de Klipper.
 - [Referencias para la Configuración](Config_Reference.md): Descripción de los parámetros de la configuración.
-   - [Distancia de Rotación](Rotation_Distance.md): Cómo calcular el parámetro de pasos distancia_de_rotacion.
+   - [Distancia de Rotación](Rotation_Distance.md): Cómo calcular el parámetro distancia_de_rotación del motor a pasos.
 - [Validación de configuración](Config_checks.md): Verificar las configuraciónes básicas del PIN en el archivo de configuración.
 - [Nivel de la cama](Bed_Level.md): Información sobre la "nivelación de la cama" en Klipper.
    - [Calibración delta](Delta_Calibrate.md): Calibración de la cinemática delta.
@@ -22,14 +22,14 @@ Bienvenido a la documentación de Klipper. Si eres nuevo con Klipper, comienza p
    - [BL-Touch](BLTouch.md): Configura una sonda Z "BL-Touch".
    - [Nivel manual](Manual_Level.md): Calibración de paradas finales de Z (y similares).
    - [Cama de malla](Bed_Mesh.md): Corrección de la altura de la cama basada en las coordenadas XY.
-   - [Fase de parada final](Endstop_Phase.md): Posicionamiento del tope Z asistido por pasos.
+   - [Fase de parada final](Endstop_Phase.md): Posicionamiento del tope Z asistido por el motor a pasos.
 - [Compensación de resonancia](Resonance_Compensation.md): Una herramienta para reducir las irregularidades en las impresiones.
    - [Resonancias de medida](Measuring_Resonances.md): Información sobre el uso del acelerómetro adxl345 para medir la resonancia.
 - [Avance de presión](Pressure_Advance.md): Calibrar la presión del extrusor.
 - [Códigos G](G-Codes.md): información relativa a las órdenes que Klipper admite.
 - [Plantillas de comandos](Command_Templates.md): Macros de código G y evaluación condicional.
    - [Referencia de estado](Status_Reference.md): Información disponible para las macros (y similares).
-- [Drivers de TMC](TMC_Drivers.md): Usando los drivers del motor de pasos trinámicos con Klipper.
+- [Controladores de TMC](TMC_Drivers.md): Usando los controladors del motor a pasos trinámicos con Klipper.
 - [Busqueda de blancos con varias MCU](Multi_MCU_Homing.md): Búsqueda y sondea usando varios micro controladores.
 - [Rebanadores](Slicers.md): Configuración del software de "rebanadores" para Klipper.
 - [Corrección de sesgos](Skew_Correction.md): Ajustes para los ejes que no estén perfectamente cuadrados.

@@ -1,26 +1,26 @@
 # Code overview
 
-This document describes the overall code layout and major code flow of Klipper.
+Esta documentación describe la estructura general del código y su flujo principal en Klipper.
 
-## Directory Layout
+## Estructura de directorios
 
-The **src/** directory contains the C source for the micro-controller code. The **src/atsam/**, **src/atsamd/**, **src/avr/**, **src/linux/**, **src/lpc176x/**, **src/pru/**, and **src/stm32/** directories contain architecture specific micro-controller code. The **src/simulator/** contains code stubs that allow the micro-controller to be test compiled on other architectures. The **src/generic/** directory contains helper code that may be useful across different architectures. The build arranges for includes of "board/somefile.h" to first look in the current architecture directory (eg, src/avr/somefile.h) and then in the generic directory (eg, src/generic/somefile.h).
+El directorio **src/** contiene la fuente en C para el código del microcontrolador. Los directorios **src/atsam/**, **src/atsamd/**, **src/avr/**, **src/linux/**, **src/lpc176x/**, **src/pru/** y **src/stm32/** contienen código de microcontroladores de arquitecturas específicas. El directorio **src/simulator/** contiene código sustituto que permite que se pueda probar el microcontrolador para compilar en otras arquitecturas. El directorio **src/generic/** contiene código auxiliar que puede resultar útil en varias arquitecturas. La compilación gestiona que las inclusiones en "board/somefile.h" primero busquen en el directoria de arquitectura actual (por ejemplo, src/avr/somefile.h) y luego en el directorio genérico (por ejemplo, src/generic/somefile.h).
 
-The **klippy/** directory contains the host software. Most of the host software is written in Python, however the **klippy/chelper/** directory contains some C code helpers. The **klippy/kinematics/** directory contains the robot kinematics code. The **klippy/extras/** directory contains the host code extensible "modules".
+El directorio **klippy/** contiene el software anfitrión. Gran parte del software anfitrión está escrito en Python, sin embargo el directorio **klippy/chelper/** contiene algo de código auxiliar en C. El directorio **klippy/kinematics/** contiene el código de cinemática del robot. El directorio **klippy/extras/** contiene el código extensible anfitrión "módulos".
 
-The **lib/** directory contains external 3rd-party library code that is necessary to build some targets.
+El directorio **lib/** contiene código de librerías externas de terceros que es necesario para compilar algunos objetivos.
 
-The **config/** directory contains example printer configuration files.
+El directorio **config/** contiene ejemplos de archivos de configuración de la impresora.
 
-The **scripts/** directory contains build-time scripts useful for compiling the micro-controller code.
+El directorio **scripts/** contiene secuencias de comandos usados durante la compilación útiles para compilar el código del microcontrolador.
 
-The **test/** directory contains automated test cases.
+El directorio **test/** contiene casos de pruebas automatizados.
 
-During compilation, the build may create an **out/** directory. This contains temporary build time objects. The final micro-controller object that is built is **out/klipper.elf.hex** on AVR and **out/klipper.bin** on ARM.
+Durante la compilación, puede llegar a crearse un directoria **out/**. Este directorio contiene objetos temporales. El objeto final del microcontrolador que sea compilado es **out/klipper.elf.hex** para AVR y **out/klipper.bin** para ARM.
 
-## Micro-controller code flow
+## Flujo del código del microcontrolador
 
-Execution of the micro-controller code starts in architecture specific code (eg, **src/avr/main.c**) which ultimately calls sched_main() located in **src/sched.c**. The sched_main() code starts by running all functions that have been tagged with the DECL_INIT() macro. It then goes on to repeatedly run all functions tagged with the DECL_TASK() macro.
+Ejecución del código del microcontrolador comienza por el código específico de la arquitectura (por ejemplo, **src/avr/main.c**) el cual llama a sched_main(), localizado en **src/sched.c**. El código de sched_main() comienza por correr todas las funciones que han sido etiquetadas con la macro DECL_INIT(). Luego va repetidamente corriendo todas las funciones etiquetadas con la macro DECL_TASK().
 
 One of the main task functions is command_dispatch() located in **src/command.c**. This function is called from the board specific input/output code (eg, **src/avr/serial.c**, **src/generic/serial_irq.c**) and it runs the command functions associated with the commands found in the input stream. Command functions are declared using the DECL_COMMAND() macro (see the [protocol](Protocol.md) document for more information).
 

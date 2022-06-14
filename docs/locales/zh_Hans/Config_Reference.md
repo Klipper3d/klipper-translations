@@ -977,7 +977,7 @@ Multiple Z stepper tilt adjustment. This feature enables independent adjustment 
 
 ### [quad_gantry_level]
 
-Moving gantry leveling using 4 independently controlled Z motors. Corrects hyperbolic parabola effects (potato chip) on moving gantry which is more flexible. WARNING: Using this on a moving bed may lead to undesirable results. If this section is present then a QUAD_GANTRY_LEVEL extended G-Code command becomes available. This routine assumes the following Z motor configuration:
+调平使用4个独立Z轴电机的动龙门。纠正动龙门架由于龙门活动性造成的双曲抛物线效应（薯片形）。警告：在移动打印床上使用该功能可能会导致不理想的结果。如果该分段存在，可以使用 QUAD_GANTRY_LEVEL 扩展G代码命令。该程序假定Z轴电机配置如下：
 
 ```
  ----------------
@@ -1692,7 +1692,7 @@ extruder:
 
 ### [manual_stepper]
 
-Manual steppers (one may define any number of sections with a "manual_stepper" prefix). These are steppers that are controlled by the MANUAL_STEPPER g-code command. For example: "MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5". See [G-Codes](G-Codes.md#manual_stepper) file for a description of the MANUAL_STEPPER command. The steppers are not connected to the normal printer kinematics.
+手动步进器（可以通过定义任何数量"manual_stepper"前缀的配置分段）。这些是由 MANUAL_STEPPER G代码命令控制的步进电机。例如："MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5"。参见[G-Code](G-Code.md#manual_stepper)文档中关于 MANUAL_STEPPER 命令的描述。手动步进器械不会连接到正常的打印机运动学中。
 
 ```
 [manual_stepper my_stepper]。
@@ -2268,7 +2268,7 @@ See the [command reference](G-Codes.md#temperature_fan) for additional informati
 
 ### [fan_generic]
 
-Manually controlled fan (one may define any number of sections with a "fan_generic" prefix). The speed of a manually controlled fan is set with the SET_FAN_SPEED [gcode command](G-Codes.md#fan_generic).
+手动控制的风扇（可以用"fan_generic"前缀定义任何数量的手动风扇分）。可以通过 SET_FAN_SPEED[gcode命令](G-Code.md#fan_generic)设置风扇速度。
 
 ```
 [fan_generic extruder_partfan]
@@ -2920,13 +2920,12 @@ Statically configured MCP4451 digipot connected via I2C bus (one may define any 
 ```
 [mcp4451 my_digipot]
 i2c_address:
-#   The i2c address that the chip is using on the i2c bus. This
-#   parameter must be provided.
+#   芯片在I2C总线上的地址。
+#   必须提供此参数。
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
+#   以上参数请见“常见的I2C设置”章节。
 #wiper_0:
 #wiper_1:
 #wiper_2:
@@ -2954,32 +2953,28 @@ Statically configured MCP4728 digital-to-analog converter connected via I2C bus 
 ```
 [mcp4728 my_dac]
 #i2c_address: 96
-#   The i2c address that the chip is using on the i2c bus. The default
-#   is 96.
+#   芯片在I2C总线上使用的地址。
+#   默认为96。
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
+#   以上参数请见“常见的I2C设置”
 #channel_a:
 #channel_b:
 #channel_c:
 #channel_d:
-#   The value to statically set the given MCP4728 channel to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest voltage (2.048V) and 0.0 being the lowest voltage.
-#   However, the range may be changed with the 'scale' parameter (see
-#   below). If a channel is not specified then it is left
-#   unconfigured.
+#   设置 MCP4728 通道为给定的静态值。通常它被设置为一个在
+#   0.0和1.0之间，1.0代表最高电压（2.048V）而0.0代表最低电压。
+#   然而，该范围可以被'scale'（ 缩放）参数改变（见下文）。没有给
+#   定值的通道不会被配置。
 #scale:
-#   This parameter can be used to alter how the 'channel_x' parameters
-#   are interpreted. If provided, then the 'channel_x' parameters
-#   should be between 0.0 and 'scale'. This may be useful when the
-#   MCP4728 is used to set stepper voltage references. The 'scale' can
+#   该参数可以改变'channel_x'参数被解释的方式。如果设定了该参数，
+#   'channel_x'参数的范围会在0.0 和 'scale'之间。该功能在使用MCP4728 产生
+#   步进电机参考电压时可能有用。The 'scale' can
 #   be set to the equivalent stepper amperage if the MCP4728 were at
 #   its highest voltage (2.048V), and then the 'channel_x' parameters
 #   can be specified using the desired amperage value for the
-#   stepper. The default is to not scale the 'channel_x' parameters.
+#   stepper.默认不对channel_x'参数进行缩放。
 ```
 
 ### [mcp4018]
@@ -2990,10 +2985,10 @@ Statically configured MCP4018 digipot connected via two gpio "bit banging" pins 
 [mcp4018 my_digipot]
 scl_pin:
 #   SCL "时钟"引脚。
-#   必须提供此参数。
+#   必须提供这个参数。
 sda_pin:
 #   SCL "数据"引脚。
-#   必须提供此参数。
+#   必须提供这个参数。
 wiper:
 #   The value to statically set the given MCP4018 "wiper" to. This is
 #   typically set to a number between 0.0 and 1.0 with 1.0 being the
@@ -3684,7 +3679,7 @@ serial:
 
 ### [angle]
 
-Magnetic hall angle sensor support for reading stepper motor angle shaft measurements using a1333, as5047d, or tle5012b SPI chips. The measurements are available via the [API Server](API_Server.md) and [motion analysis tool](Debugging.md#motion-analysis-and-data-logging). See the [G-Code reference](G-Codes.md#angle) for available commands.
+支持使用a1333、as5047d或tle5012b SPI芯片的磁性霍尔角度传感器测量并读取步进电机的角度。测量结果可以通过[API服务器](API_Server.md)和[运动分析工具](Debugging.md#motion-analysis-and-data-logging)获取。可用的命令请见[G代码参考](G-Codes.md#angle)。
 
 ```
 [angle my_angle_sensor]
@@ -3733,7 +3728,7 @@ cs_pin:
 #   "software spi".
 ```
 
-### 常见的I2C 设置
+### 常见的I2C设置
 
 以下参数一般适用于使用I2C总线的设备。
 

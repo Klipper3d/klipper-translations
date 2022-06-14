@@ -1,4 +1,4 @@
-# Contact
+# Contacto
 
 Este documento provee información de contacto para Klipper.
 
