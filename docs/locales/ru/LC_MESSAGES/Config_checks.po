@@ -1,4 +1,4 @@
-# Comocen <Comoc_en@mail.ru>, 2022.
+# Comocen <Comoc_en@mail.ru>, 2022, 2025.
 # Vik <k3kelm4vw@mozmail.com>, 2022.
 # Yuri Agapov <midnight1979@mail.ru>, 2023, 2025.
 # Russ <xruss.kz@gmail.com>, 2024.
@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:34+0000\n"
-"Last-Translator: Yuri Agapov <midnight1979@mail.ru>\n"
+"Last-Translator: Comocen <Comoc_en@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "config_checks/ru/>\n"
 "Language: ru\n"
@@ -114,8 +114,8 @@ msgstr ""
 "Запустите приведенный выше тест для каждого шагового двигателя, указанного в "
 "файле конфигурации. (Установите параметр STEPPER команды STEPPER_BUZZ на имя "
 "проверяемого раздела конфигурации.) Если в экструдере нет нити, можно "
-"использовать STEPPER_BUZZ для проверки подключения двигателя экструдера "
-"(используйте STEPPER=extruder). В противном случае лучше протестировать "
+"использовать STEPPER_BUZZ для проверки подключения двигателя экструдера ("
+"используйте STEPPER=extruder). В противном случае лучше протестировать "
 "двигатель экструдера отдельно (см. следующий раздел)."
 
 msgid ""
@@ -141,8 +141,8 @@ msgid ""
 "At the completion of the tuning test run `SAVE_CONFIG` to update the "
 "printer.cfg file the new PID settings."
 msgstr ""
-"По завершении тестовой настройки запустите `SAVE_CONFIG`, чтобы обновить файл "
-"print.cfg с новыми настройками PID."
+"По завершении тестовой настройки запустите `SAVE_CONFIG`, чтобы обновить "
+"файл print.cfg с новыми настройками PID."
 
 msgid ""
 "If the printer has a heated bed and it supports being driven by PWM (Pulse "
