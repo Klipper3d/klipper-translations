@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-06-13 15:21+0000\n"
+"PO-Revision-Date: 2022-06-15 00:56+0000\n"
 "Last-Translator: Alberto <aru_hackZ.official@zohomail.eu>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "config_reference/es/>\n"
@@ -80,7 +80,7 @@ msgstr ""
 "\"ar9\" es el nombre o alias de un pin del mcu)."
 
 msgid "Common kinematic settings"
-msgstr ""
+msgstr "Ajustes de cinemática comunes"
 
 msgid "[printer]"
 msgstr ""
@@ -99,7 +99,7 @@ msgid ""
 msgstr ""
 
 msgid "Cartesian Kinematics"
-msgstr ""
+msgstr "Cinemática cartesiana"
 
 msgid ""
 "See [example-cartesian.cfg](../config/example-cartesian.cfg) for an example "
@@ -211,7 +211,7 @@ msgid ""
 msgstr ""
 
 msgid "Cable winch Kinematics"
-msgstr ""
+msgstr "Cinemática de cable de cabrestante"
 
 msgid ""
 "See the [example-winch.cfg](../config/example-winch.cfg) for an example "
@@ -234,7 +234,7 @@ msgid ""
 msgstr ""
 
 msgid "Common extruder and heated bed support"
-msgstr ""
+msgstr "Soporte de extrusores y camas calentadas comunes"
 
 msgid "[extruder]"
 msgstr "[extruder]"
@@ -248,7 +248,7 @@ msgid ""
 msgstr ""
 
 msgid "Bed level support"
-msgstr ""
+msgstr "Soporte del nivel de la cama"
 
 msgid "[bed_mesh]"
 msgstr "[bed_mesh]"
@@ -415,10 +415,10 @@ msgid "[resonance_tester]"
 msgstr "[resonance_tester]"
 
 msgid "Config file helpers"
-msgstr ""
+msgstr "Ayudantes de archivos de configuración"
 
 msgid "[board_pins]"
-msgstr ""
+msgstr "[board_pins]"
 
 msgid ""
 "Board pin aliases (one may define any number of sections with a "
@@ -551,7 +551,6 @@ msgid ""
 "section in the config file above its first use in a heater section."
 msgstr ""
 
-#, fuzzy
 msgid "[adc_temperature]"
 msgstr "[adc_temperature]"
 
@@ -589,12 +588,14 @@ msgid ""
 msgstr ""
 
 msgid "Common thermistors"
-msgstr ""
+msgstr "Termistores comunes"
 
 msgid ""
 "Common thermistors. The following parameters are available in heater "
 "sections that use one of these sensors."
 msgstr ""
+"Termistores comunes. Los siguientes parámetros están disponibles en las "
+"secciones de calentamiento que usen uno de estos sensores."
 
 msgid "Common temperature amplifiers"
 msgstr "Amplificadores de temperaturas comunes"
@@ -603,6 +604,8 @@ msgid ""
 "Common temperature amplifiers. The following parameters are available in "
 "heater sections that use one of these sensors."
 msgstr ""
+"Amplificadores de temperatura comunes. Los siguientes parámetros están "
+"disponibles en las secciones de calentamiento que usen uno de estos sensores."
 
 msgid "Directly connected PT1000 sensor"
 msgstr ""
@@ -622,7 +625,7 @@ msgid ""
 msgstr ""
 
 msgid "BMP280/BME280/BME680 temperature sensor"
-msgstr ""
+msgstr "Sensor de temperatura BMP280/BME280/BME680"
 
 msgid "HTU21D sensor"
 msgstr ""
@@ -639,7 +642,7 @@ msgid "LM75 temperature sensor"
 msgstr ""
 
 msgid "Builtin micro-controller temperature sensor"
-msgstr ""
+msgstr "Sensor de temperatura incorporado en el microcontrolador"
 
 msgid ""
 "The atsam, atsamd, and stm32 micro-controllers contain an internal "
@@ -655,7 +658,7 @@ msgid ""
 msgstr ""
 
 msgid "DS18B20 temperature sensor"
-msgstr ""
+msgstr "Sensor de temperatura DS18B20"
 
 msgid ""
 "DS18B20 is a 1-wire (w1) digital temperature sensor. Note that this sensor "
@@ -668,16 +671,16 @@ msgid ""
 msgstr ""
 
 msgid "Fans"
-msgstr ""
+msgstr "Ventiladores"
 
 msgid "[fan]"
-msgstr ""
+msgstr "[fan]"
 
 msgid "Print cooling fan."
 msgstr ""
 
 msgid "[heater_fan]"
-msgstr ""
+msgstr "[heater_fan]"
 
 msgid ""
 "Heater cooling fans (one may define any number of sections with a "
@@ -687,7 +690,7 @@ msgid ""
 msgstr ""
 
 msgid "[controller_fan]"
-msgstr ""
+msgstr "[controller_fan]"
 
 msgid "[temperature_fan]"
 msgstr "[temperature_fan]"
@@ -709,19 +712,22 @@ msgid "[neopixel]"
 msgstr "[neopixel]"
 
 msgid "[dotstar]"
-msgstr ""
+msgstr "[dotstar]"
 
 msgid "PCA9533 LED support. The PCA9533 is used on the mightyboard."
 msgstr ""
 
 msgid "[gcode_button]"
-msgstr ""
+msgstr "[gcode_button]"
 
 msgid ""
 "Execute gcode when a button is pressed or released (or when a pin changes "
 "state). You can check the state of the button by using `QUERY_BUTTON "
 "button=my_gcode_button`."
 msgstr ""
+"Ejecuta un código G cuando un botón es pulsado o liberado (o cuando un pin "
+"cambia de estado). Puede comprobar el estado del botón usando `QUERY_BUTTON "
+"button=my_gcode_button`."
 
 msgid "[output_pin]"
 msgstr "[output_pin]"
@@ -837,7 +843,7 @@ msgid ""
 msgstr ""
 
 msgid "Display support"
-msgstr ""
+msgstr "Soporte de monitor"
 
 msgid "[display]"
 msgstr "[display]"
@@ -846,7 +852,7 @@ msgid "Support for a display attached to the micro-controller."
 msgstr ""
 
 msgid "hd44780 display"
-msgstr ""
+msgstr "Monitor hd44780"
 
 msgid ""
 "Information on configuring hd44780 displays (which is used in "
@@ -854,7 +860,7 @@ msgid ""
 msgstr ""
 
 msgid "hd44780_spi display"
-msgstr ""
+msgstr "Monitor hd44780_spi"
 
 msgid ""
 "Information on configuring an hd44780_spi display - a 20x04 display "
@@ -871,7 +877,7 @@ msgid ""
 msgstr ""
 
 msgid "emulated_st7920 display"
-msgstr ""
+msgstr "Monitor emulated_st7920"
 
 msgid ""
 "Information on configuring an emulated st7920 display - found in some \"2.4 "
@@ -893,7 +899,7 @@ msgid "Information on configuring ssd1306 and sh1106 displays."
 msgstr ""
 
 msgid "[display_data]"
-msgstr ""
+msgstr "[display_data]"
 
 msgid ""
 "Support for displaying custom data on an lcd screen. One may create any "
@@ -914,10 +920,10 @@ msgstr ""
 "fichero de configuración principal printer.cfg."
 
 msgid "[display_template]"
-msgstr ""
+msgstr "[display_templeta]"
 
 msgid "[display_glyph]"
-msgstr ""
+msgstr "[display_glyph]"
 
 msgid ""
 "Display a custom glyph on displays that support it. The given name will be "
@@ -931,7 +937,7 @@ msgid ""
 msgstr ""
 
 msgid "[display my_extra_display]"
-msgstr ""
+msgstr "[display my_extra_display]"
 
 msgid ""
 "If a primary [display] section has been defined in printer.cfg as shown "
@@ -944,13 +950,16 @@ msgid "[menu]"
 msgstr ""
 
 msgid "Customizable lcd display menus."
-msgstr ""
+msgstr "Menús de pantallas LCD personalizados."
 
 msgid ""
 "A [default set of menus](../klippy/extras/display/menu.cfg) are "
 "automatically created. One can replace or extend the menu by overriding the "
 "defaults in the main printer.cfg config file."
 msgstr ""
+"Un [conjunto por defecto de menus](../klippy/extras/display/menu.cfg) es "
+"automáticamente creado. Uno puede reemplazar o extender el menú cambiando "
+"los valores por defecto el archivo de configuración principal printer.cfg."
 
 msgid ""
 "See the [command template document](Command_Templates.md#menu-templates) for"
@@ -958,7 +967,7 @@ msgid ""
 msgstr ""
 
 msgid "Filament sensors"
-msgstr ""
+msgstr "Sensores de filamento"
 
 msgid "[filament_switch_sensor]"
 msgstr "[filament_switch_sensor]"
@@ -967,15 +976,21 @@ msgid ""
 "Filament Switch Sensor. Support for filament insert and runout detection "
 "using a switch sensor, such as an endstop switch."
 msgstr ""
+"Sensor de cambio de filamento. Soporte para la inserción y acabado de "
+"filamento usando un sensor de interrupción, tal que un interruptor de fin de "
+"carrera."
 
 msgid "[filament_motion_sensor]"
-msgstr ""
+msgstr "[filament_motion_sensor]"
 
 msgid ""
 "Filament Motion Sensor. Support for filament insert and runout detection "
 "using an encoder that toggles the output pin during filament movement "
 "through the sensor."
 msgstr ""
+"Sensor de movimiento del filamento. Soporte para la inserción y acabado de "
+"filamento usando un codificador que alterna el pin de salida durante el "
+"movimiento del filamento a través del sensor."
 
 msgid "[tsl1401cl_filament_width_sensor]"
 msgstr ""
@@ -989,7 +1004,7 @@ msgid "[hall_filament_width_sensor]"
 msgstr "[hall_filament_width_sensor]"
 
 msgid "Board specific hardware support"
-msgstr ""
+msgstr "Soporte de hardware específico a cada placa"
 
 msgid "[sx1509]"
 msgstr ""
@@ -1012,7 +1027,6 @@ msgstr ""
 msgid "[samd_sercom]"
 msgstr ""
 
-#, fuzzy
 msgid "[adc_scaled]"
 msgstr "[adc_scaled]"
 
@@ -1053,6 +1067,9 @@ msgid ""
 "they will conflict, and 1 will fail to initialize properly likely aborting "
 "your print."
 msgstr ""
+"Si usa este módulo, no use el complemento (plugin) Palette 2 para Octoprint "
+"ya que harán conflicto, y uno de ellos fallará en iniciar correctamente y "
+"probablemente aborte su impresión."
 
 msgid ""
 "If you use Octoprint and stream gcode over the serial port instead of "
@@ -1063,7 +1080,7 @@ msgid ""
 msgstr ""
 
 msgid "Common bus parameters"
-msgstr ""
+msgstr "Parámetros de bus comunes"
 
 msgid "Common SPI settings"
 msgstr "Configurazione comun de SPI"
@@ -1074,7 +1091,7 @@ msgid ""
 msgstr ""
 
 msgid "Common I2C settings"
-msgstr ""
+msgstr "Ajustes I2C comunes"
 
 msgid ""
 "The following parameters are generally available for devices using an I2C "
@@ -1571,7 +1588,7 @@ msgid ""
 msgstr ""
 
 msgid "[include my_other_config.cfg]\n"
-msgstr ""
+msgstr "[include my_other_config.cfg]\n"
 
 msgid ""
 "[stepper_z1]\n"
@@ -2506,6 +2523,8 @@ msgid ""
 "[display my_extra_display]\n"
 "# See the \"display\" section for available parameters.\n"
 msgstr ""
+"[display my_extra_display]\n"
+"# Mirese la sección \"display\" para encontrar los parámetros disponibles.\n"
 
 msgid ""
 "# Common parameters available for all menu config sections.\n"
@@ -2778,8 +2797,9 @@ msgid ""
 "#   default is 100000.\n"
 msgstr ""
 
+#, fuzzy
 msgid "[duplicate_pin_override]"
-msgstr ""
+msgstr "[duplicate_pin_override]"
 
 msgid ""
 "This tool allows a single micro-controller pin to be defined multiple times "
@@ -2828,7 +2848,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 1 (header)
 msgid "Configuration reference"
-msgstr ""
+msgstr "Referencia de la configuración"
 
 #: docs/Config_Reference.md:block 257 (paragraph)
 msgid ""
@@ -3979,17 +3999,24 @@ msgid ""
 "See the [bed mesh guide](Bed_Mesh.md) and [command "
 "reference](G-Codes.md#bed_mesh) for additional information."
 msgstr ""
+"Mírese la [guía de malla de cama](Bed_Mesh.md) y la [referencia de "
+"comandos](G-Codes.md#bed_mesh) para encontrar información adicional."
 
 #: docs/Config_Reference.md:block 84 (paragraph)
 msgid ""
 "See the [command reference](G-Codes.md#bed_tilt) for additional information."
 msgstr ""
+"Mírese la [referencia de comandos](G-Codes.md#bed_tilt) para encontrar "
+"información adicional."
 
 #: docs/Config_Reference.md:block 88 (paragraph)
 msgid ""
 "See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and "
 "[command reference](G-Codes.md#bed_screws) for additional information."
 msgstr ""
+"Mírese la [guía de nivelación](Manual_Level.md#adjusting-bed-leveling-screws)"
+" y la [referencia de comandos](G-Codes.md#bed_screws) para encontrar "
+"información adicional."
 
 #: docs/Config_Reference.md:block 92 (paragraph)
 msgid ""
@@ -3997,6 +4024,9 @@ msgid ""
 "using-the-bed-probe) and [command reference](G-Codes.md#screws_tilt_adjust) "
 "for additional information."
 msgstr ""
+"Mírese la [guía de nivelación](Manual_Level.md#adjusting-bed-leveling-screws-"
+"using-the-bed-probe) y la [referencia de comandos](G-Codes."
+"md#screws_tilt_adjust) para encontrar información adicional"
 
 #: docs/Config_Reference.md:block 95 (paragraph)
 msgid ""
@@ -4021,6 +4051,9 @@ msgid ""
 "See the [endstop phases guide](Endstop_Phase.md) and [command "
 "reference](G-Codes.md#endstop_phase) for additional information."
 msgstr ""
+"Mírese la [guía de fases de final de carrera](Endstop_Phase.md) y la ["
+"referencia de comandos](G-Codes.md#endstop_phase) para encontrar información "
+"adicional."
 
 #: docs/Config_Reference.md:block 121 (paragraph)
 msgid ""
@@ -4028,6 +4061,9 @@ msgid ""
 "guide](Command_Templates.md#delayed-gcodes) and [command "
 "reference](G-Codes.md#delayed_gcode) for more information."
 msgstr ""
+"Ejecute un código g con un dado retraso. Mírese la [guía de plantillas de "
+"comando](Command_Templates.md#delayed-gcodes) y la [referencia de "
+"comandos](G-Codes.md#delayed_gcode) para más información."
 
 #: docs/Config_Reference.md:block 124 (paragraph)
 msgid ""
@@ -4068,12 +4104,16 @@ msgstr ""
 #: docs/Config_Reference.md:block 150 (paragraph)
 msgid "Enable the \"M118\" and \"RESPOND\" extended [commands](G-Codes.md#respond)."
 msgstr ""
+"Habilita los [comandos](G-Codes.md#respond) extendidos de \"M118\" y "
+"\"RESPOND\"."
 
 #: docs/Config_Reference.md:block 154 (paragraph)
 msgid ""
 "Enables [resonance compensation](Resonance_Compensation.md). Also see the "
 "[command reference](G-Codes.md#input_shaper)."
 msgstr ""
+"Habilita la [compensación de resonancia](Resonance_Compensation.md). Mírese "
+"también la [referencia de comandos](G-Codes.md#input_shaper)."
 
 #: docs/Config_Reference.md:block 157 (paragraph)
 msgid ""
@@ -4587,7 +4627,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 409 (header)
 msgid "[angle]"
-msgstr ""
+msgstr "[angle]"
 
 #: docs/Config_Reference.md:block 410 (paragraph)
 msgid ""

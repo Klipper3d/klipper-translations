@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-06-13 15:15+0000\n"
+"PO-Revision-Date: 2022-06-15 00:56+0000\n"
 "Last-Translator: Alberto <aru_hackZ.official@zohomail.eu>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "hall_filament_width_sensor/es/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Weblate 4.13-dev\n"
 
 msgid "How does it work?"
-msgstr ""
+msgstr "Cómo funciona?"
 
 msgid "Template for menu variables"
 msgstr ""
