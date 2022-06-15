@@ -1305,7 +1305,7 @@ Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#respond).
 #   override the "default_type".
 ```
 
-## Resonance compensation
+## Компенсация резонанса
 
 ### [input_shaper]
 

@@ -1,4 +1,4 @@
-# G-Codes
+# Códigos G
 
 This document describes the commands that Klipper supports. These are commands that one may enter into the OctoPrint terminal tab.
 
@@ -57,11 +57,11 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 #### ACCELEROMETER_DEBUG_READ
 
-`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries ADXL345 register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes.
+`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: consulta al registro "register" de ADXL345 (por ejemplo, 44 o 0x2C). Puede ser útil para propósitos de depuración.
 
 #### ACCELEROMETER_DEBUG_WRITE
 
-`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Writes raw "value" into a register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.
+`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Escribe "value" sin ser procesado al registro "register". Tanto "value" como "register" puede ser un entre decimal o hexadecimal. Úselo con cuidado, y consulte la hoja de datos ADXL345 para encontrar la referencia.
 
 ### [angle]
 
@@ -97,7 +97,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 #### BED_MESH_CLEAR
 
-`BED_MESH_CLEAR`: This command clears the mesh and removes all z adjustment. It is recommended to put this in your end-gcode.
+`BED_MESH_CLEAR`: Este comando limpia la malla y borra los todos los ajustes en Z. Está recomendado que esto se ponga en su end-gcode.
 
 #### BED_MESH_PROFILE
 
@@ -401,7 +401,7 @@ The manual_probe module is automatically loaded.
 
 `MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:
 
-- `ACCEPT`: This command accepts the current Z position and concludes the manual probing tool.
+- `ACCEPT`: Este comando acepta la posición Z actual y concluye la herramienta de sondeo manual.
 - `ABORT`: Esta instrucción interrumpe la herramienta de sondeo manual.
 - `TESTZ Z=<value>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
 
