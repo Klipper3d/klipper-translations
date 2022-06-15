@@ -1,16 +1,18 @@
-# Comocen <Comoc_en@mail.ru>, 2022.
+# Comocen <Comoc_en@mail.ru>, 2022, 2025.
 # Vik <k3kelm4vw@mozmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-29 11:17+0000\n"
-"Last-Translator: Vik <k3kelm4vw@mozmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/index/ru/>\n"
+"PO-Revision-Date: 2025-05-03 07:35+0000\n"
+"Last-Translator: Comocen <Comoc_en@mail.ru>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/index/ru/"
+">\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.1\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/index.md:block 1 (paragraph)
 msgid "hide:"
@@ -38,8 +40,8 @@ msgstr ""
 #: docs/index.md:block 5 (paragraph)
 msgid "To begin using Klipper start by [installing](Installation.md) it."
 msgstr ""
-"Чтобы начать использовать Klipper, начните с его "
-"[installing](Installation.md)."
+"Чтобы начать использовать Klipper, начните с его [installing]"
+"(Installation.md)."
 
 #: docs/index.md:block 6 (paragraph)
 msgid ""
