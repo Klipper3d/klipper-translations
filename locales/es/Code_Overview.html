@@ -1184,15 +1184,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#directory-layout" class="md-nav__link">
-    Directory Layout
+  <a href="#estructura-de-directorios" class="md-nav__link">
+    Estructura de directorios
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#micro-controller-code-flow" class="md-nav__link">
-    Micro-controller code flow
+  <a href="#flujo-del-codigo-del-microcontrolador" class="md-nav__link">
+    Flujo del código del microcontrolador
   </a>
   
 </li>
@@ -1264,17 +1264,17 @@
 
 
 <h1 id="code-overview">Code overview<a class="headerlink" href="#code-overview" title="Permanent link">&para;</a></h1>
-<p>This document describes the overall code layout and major code flow of Klipper.</p>
-<h2 id="directory-layout">Directory Layout<a class="headerlink" href="#directory-layout" title="Permanent link">&para;</a></h2>
-<p>The <strong>src/</strong> directory contains the C source for the micro-controller code. The <strong>src/atsam/</strong>, <strong>src/atsamd/</strong>, <strong>src/avr/</strong>, <strong>src/linux/</strong>, <strong>src/lpc176x/</strong>, <strong>src/pru/</strong>, and <strong>src/stm32/</strong> directories contain architecture specific micro-controller code. The <strong>src/simulator/</strong> contains code stubs that allow the micro-controller to be test compiled on other architectures. The <strong>src/generic/</strong> directory contains helper code that may be useful across different architectures. The build arranges for includes of "board/somefile.h" to first look in the current architecture directory (eg, src/avr/somefile.h) and then in the generic directory (eg, src/generic/somefile.h).</p>
-<p>The <strong>klippy/</strong> directory contains the host software. Most of the host software is written in Python, however the <strong>klippy/chelper/</strong> directory contains some C code helpers. The <strong>klippy/kinematics/</strong> directory contains the robot kinematics code. The <strong>klippy/extras/</strong> directory contains the host code extensible "modules".</p>
-<p>The <strong>lib/</strong> directory contains external 3rd-party library code that is necessary to build some targets.</p>
-<p>The <strong>config/</strong> directory contains example printer configuration files.</p>
-<p>The <strong>scripts/</strong> directory contains build-time scripts useful for compiling the micro-controller code.</p>
-<p>The <strong>test/</strong> directory contains automated test cases.</p>
-<p>During compilation, the build may create an <strong>out/</strong> directory. This contains temporary build time objects. The final micro-controller object that is built is <strong>out/klipper.elf.hex</strong> on AVR and <strong>out/klipper.bin</strong> on ARM.</p>
-<h2 id="micro-controller-code-flow">Micro-controller code flow<a class="headerlink" href="#micro-controller-code-flow" title="Permanent link">&para;</a></h2>
-<p>Execution of the micro-controller code starts in architecture specific code (eg, <strong>src/avr/main.c</strong>) which ultimately calls sched_main() located in <strong>src/sched.c</strong>. The sched_main() code starts by running all functions that have been tagged with the DECL_INIT() macro. It then goes on to repeatedly run all functions tagged with the DECL_TASK() macro.</p>
+<p>Esta documentación describe la estructura general del código y su flujo principal en Klipper.</p>
+<h2 id="estructura-de-directorios">Estructura de directorios<a class="headerlink" href="#estructura-de-directorios" title="Permanent link">&para;</a></h2>
+<p>El directorio <strong>src/</strong> contiene la fuente en C para el código del microcontrolador. Los directorios <strong>src/atsam/</strong>, <strong>src/atsamd/</strong>, <strong>src/avr/</strong>, <strong>src/linux/</strong>, <strong>src/lpc176x/</strong>, <strong>src/pru/</strong> y <strong>src/stm32/</strong> contienen código de microcontroladores de arquitecturas específicas. El directorio <strong>src/simulator/</strong> contiene código sustituto que permite que se pueda probar el microcontrolador para compilar en otras arquitecturas. El directorio <strong>src/generic/</strong> contiene código auxiliar que puede resultar útil en varias arquitecturas. La compilación gestiona que las inclusiones en "board/somefile.h" primero busquen en el directoria de arquitectura actual (por ejemplo, src/avr/somefile.h) y luego en el directorio genérico (por ejemplo, src/generic/somefile.h).</p>
+<p>El directorio <strong>klippy/</strong> contiene el software anfitrión. Gran parte del software anfitrión está escrito en Python, sin embargo el directorio <strong>klippy/chelper/</strong> contiene algo de código auxiliar en C. El directorio <strong>klippy/kinematics/</strong> contiene el código de cinemática del robot. El directorio <strong>klippy/extras/</strong> contiene el código extensible anfitrión "módulos".</p>
+<p>El directorio <strong>lib/</strong> contiene código de librerías externas de terceros que es necesario para compilar algunos objetivos.</p>
+<p>El directorio <strong>config/</strong> contiene ejemplos de archivos de configuración de la impresora.</p>
+<p>El directorio <strong>scripts/</strong> contiene secuencias de comandos usados durante la compilación útiles para compilar el código del microcontrolador.</p>
+<p>El directorio <strong>test/</strong> contiene casos de pruebas automatizados.</p>
+<p>Durante la compilación, puede llegar a crearse un directoria <strong>out/</strong>. Este directorio contiene objetos temporales. El objeto final del microcontrolador que sea compilado es <strong>out/klipper.elf.hex</strong> para AVR y <strong>out/klipper.bin</strong> para ARM.</p>
+<h2 id="flujo-del-codigo-del-microcontrolador">Flujo del código del microcontrolador<a class="headerlink" href="#flujo-del-codigo-del-microcontrolador" title="Permanent link">&para;</a></h2>
+<p>Ejecución del código del microcontrolador comienza por el código específico de la arquitectura (por ejemplo, <strong>src/avr/main.c</strong>) el cual llama a sched_main(), localizado en <strong>src/sched.c</strong>. El código de sched_main() comienza por correr todas las funciones que han sido etiquetadas con la macro DECL_INIT(). Luego va repetidamente corriendo todas las funciones etiquetadas con la macro DECL_TASK().</p>
 <p>One of the main task functions is command_dispatch() located in <strong>src/command.c</strong>. This function is called from the board specific input/output code (eg, <strong>src/avr/serial.c</strong>, <strong>src/generic/serial_irq.c</strong>) and it runs the command functions associated with the commands found in the input stream. Command functions are declared using the DECL_COMMAND() macro (see the <a href="Protocol.html">protocol</a> document for more information).</p>
 <p>Task, init, and command functions always run with interrupts enabled (however, they can temporarily disable interrupts if needed). These functions should never pause, delay, or do any work that lasts more than a few micro-seconds. These functions schedule work at specific times by scheduling timers.</p>
 <p>Timer functions are scheduled by calling sched_add_timer() (located in <strong>src/sched.c</strong>). The scheduler code will arrange for the given function to be called at the requested clock time. Timer interrupts are initially handled in an architecture specific interrupt handler (eg, <strong>src/avr/timer.c</strong>) which calls sched_timer_dispatch() located in <strong>src/sched.c</strong>. The timer interrupt leads to execution of schedule timer functions. Timer functions always run with interrupts disabled. The timer functions should always complete within a few micro-seconds. At completion of the timer event, the function may choose to reschedule itself.</p>

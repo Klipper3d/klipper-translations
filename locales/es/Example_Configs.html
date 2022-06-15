@@ -13,7 +13,7 @@
     
     
       
-        <title>Example configurations - Klipper documentation</title>
+        <title>Configuraciones de ejemplo - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#example-configurations" class="md-skip">
+        <a href="#configuraciones-de-ejemplo" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Example configurations
+              Configuraciones de ejemplo
             
           </span>
         </div>
@@ -1184,8 +1184,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#guidelines" class="md-nav__link">
-    Guidelines
+  <a href="#pautas" class="md-nav__link">
+    Pautas
   </a>
   
 </li>
@@ -1207,44 +1207,44 @@
 </a>
 
 
-<h1 id="example-configurations">Example configurations<a class="headerlink" href="#example-configurations" title="Permanent link">&para;</a></h1>
-<p>This document contains guidelines for contributing an example Klipper configuration to the Klipper github repository (located in the <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config directory</a>).</p>
-<p>Note that the <a href="https://community.klipper3d.org">Klipper Community Discourse server</a> is also a useful resource for finding and sharing config files.</p>
-<h2 id="guidelines">Guidelines<a class="headerlink" href="#guidelines" title="Permanent link">&para;</a></h2>
+<h1 id="configuraciones-de-ejemplo">Configuraciones de ejemplo<a class="headerlink" href="#configuraciones-de-ejemplo" title="Permanent link">&para;</a></h1>
+<p>Este documento contiene pautas para contribuir una configuración de ejemplo de Klipper al repositorio de GitHub de Klipper (localizado en el <a href="https://github.com/Klipper3d/klipper/blob/master/config/">directorio de conifguración</a>).</p>
+<p>Nótese que el <a href="https://community.klipper3d.org">servidor de discusión de la comunidad de Klipper</a> es también un recurso útil para encontrar y compartir archivos de configuración.</p>
+<h2 id="pautas">Pautas<a class="headerlink" href="#pautas" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Select the appropriate config filename prefix:<ol>
-<li>The <code>printer</code> prefix is used for stock printers sold by a mainstream manufacturer.</li>
-<li>The <code>generic</code> prefix is used for a 3d printer board that may be used in many different types of printers.</li>
+<li>Selecciona el prefijo del nombre del archivo de configuración apropiado:<ol>
+<li>El prefijo <code>printer</code> es usado para impresoras comunes vendidas por los fabricantes principales.</li>
+<li>El prefijo <code>generic</code>es usado para una placa de impresión 3d que puede ser utilizada en varios tipos de impresoras.</li>
 <li>The <code>kit</code> prefix is for 3d printers that are assembled according to a widely used specification. These "kit" printers are generally distinct from normal "printers" in that they are not sold by a manufacturer.</li>
-<li>The <code>sample</code> prefix is used for config "snippets" that one may copy-and-paste into the main config file.</li>
-<li>The <code>example</code> prefix is used to describe printer kinematics. This type of config is typically only added along with code for a new type of printer kinematics.</li>
+<li>El prefijo <code>sample</code> es usado para "cachos" de configuración que uno puede copiar y pegar en el archivo de configuración principal.</li>
+<li>El prefijo <code>example</code> es usado para describir la cinemática de impresoras. Este tipo de configuración es típicamente añadido solamente junto a código para un nuevo tipo de cinemática de impresoras.</li>
 </ol>
 </li>
 <li>All configuration files must end in a <code>.cfg</code> suffix. The <code>printer</code> config files must end in a year followed by <code>.cfg</code> (eg, <code>-2019.cfg</code>). In this case, the year is an approximate year the given printer was sold.</li>
-<li>Do not use spaces or special characters in the config filename. The filename should contain only characters <code>A-Z</code>, <code>a-z</code>, <code>0-9</code>, <code>-</code>, and <code>.</code>.</li>
+<li>No use espacios o caracteres especiales en el nombre del archivo de configuración. El nombre del archivo debería contener solamente los caracteres <code>A-Z</code>, <code>a-z</code>, <code>0-9</code>, <code>-</code>, y <code>.</code>.</li>
 <li>Klipper must be able to start <code>printer</code>, <code>generic</code>, and <code>kit</code> example config file without error. These config files should be added to the <a href="https://github.com/Klipper3d/klipper/blob/master/test/klippy/printers.test">test/klippy/printers.test</a> regression test case. Add new config files to that test case in the appropriate section and in alphabetical order within that section.</li>
 <li>The example configuration should be for the "stock" configuration of the printer. (There are too many "customized" configurations to track in the main Klipper repository.) Similarly, we only add example config files for printers, kits, and boards that have mainstream popularity (eg, there should be at least a 100 of them in active use). Consider using the <a href="https://community.klipper3d.org">Klipper Community Discourse server</a> for other configs.</li>
 <li>Only specify those devices present on the given printer or board. Do not specify settings specific to your particular setup.<ol>
 <li>For <code>generic</code> config files, only those devices on the mainboard should be described. For example, it would not make sense to add a display config section to a "generic" config as there is no way to know if the board will be attached to that type of display. If the board has a specific hardware port to facilitate an optional peripheral (eg, a bltouch port) then one can add a "commented out" config section for the given device.</li>
 <li>Do not specify <code>pressure_advance</code> in an example config, as that value is specific to the filament, not the printer hardware. Similarly, do not specify <code>max_extrude_only_velocity</code> nor <code>max_extrude_only_accel</code> settings.</li>
-<li>Do not specify a config section containing a host path or host hardware. For example, do not specify <code>[virtual_sdcard]</code> nor <code>[temperature_host]</code> config sections.</li>
-<li>Only define macros that utilize functionality specific to the given printer or to define g-codes that are commonly emitted by slicers configured for the given printer.</li>
+<li>No especifique una sección de configuración que contenga una ruta o hardware en el anfitrión. Por ejemplo, no especifique ni la sección de configuración <code>[virtual_sdcard]</code> ni <code>[temperature_host]</code>.</li>
+<li>Solamente defina macros que utilicen funcionalidades específicas para la impresora dada o para definir códigos G que son comúnmente emitidos por los rebanadores configurados para dicha impresora.</li>
 </ol>
 </li>
 <li>Where possible, it is best to use the same wording, phrasing, indentation, and section ordering as the existing config files.<ol>
 <li>The top of each config file should list the type of micro-controller the user should select during "make menuconfig". It should also have a reference to "docs/Config_Reference.md".</li>
 <li>Do not copy the field documentation into the example config files. (Doing so creates a maintenance burden as an update to the documentation would then require changing it in many places.)</li>
 <li>Example config files should not contain a "SAVE_CONFIG" section. If necessary, copy the relevant fields from the SAVE_CONFIG section to the appropriate section in the main config area.</li>
-<li>Use <code>field: value</code> syntax instead of <code>field=value</code>.</li>
+<li>Use la sintaxis <code>campo: valor</code> en vez de <code>campo=valor</code>.</li>
 <li>When adding an extruder <code>rotation_distance</code> it is preferable to specify a <code>gear_ratio</code> if the extruder has a gearing mechanism. We expect the rotation_distance in the example configs to correlate with the circumference of the hobbed gear in the extruder - it is normally in the range of 20 to 35mm. When specifying a <code>gear_ratio</code> it is preferable to specify the actual gears on the mechanism (eg, prefer <code>gear_ratio: 80:20</code> over <code>gear_ratio: 4:1</code>). See the <a href="Rotation_Distance.html#using-a-gear_ratio">rotation distance document</a> for more information.</li>
-<li>Avoid defining field values that are set to their default value. For example, one should not specify <code>min_extrude_temp: 170</code> as that is already the default value.</li>
-<li>Where possible, lines should not exceed 80 columns.</li>
+<li>Evite definir valores de campos que estén puestos a su valor por defecto. Por ejemplo, uno no debería especificar <code>min_extrude_temp: 170</code> ya que ese ya es el valor por defecto.</li>
+<li>Donde sea posible, las líneas no deberían ser de más de 80 caracteres de largo.</li>
 <li>Avoid adding attribution or revision messages to the config files. (For example, avoid adding lines like "this file was created by ...".) Place attribution and change history in the git commit message.</li>
 </ol>
 </li>
-<li>Do not use any deprecated features in the example config file.</li>
+<li>No utilice ninguna funcionalidad obsoleta en la archivo de configuración de ejemplo.</li>
 <li>Do not disable a default safety system in an example config file. For example, a config should not specify a custom <code>max_extrude_cross_section</code>. Do not enable debugging features. For example there should not be a <code>force_move</code> config section.</li>
-<li>All known boards that Klipper supports can use the default serial baud rate of 250000. Do not recommend a different baud rate in an example config file.</li>
+<li>Todas las placas conocidas que Klipper soporta pueden usar la tasa de baudios por defecto que es 250000. No recomiende una tasa de baudios diferente en el archivo de configuración de ejemplo.</li>
 </ol>
 <p>Example config files are submitted by creating a github "pull request". Please also follow the directions in the <a href="CONTRIBUTING.html">contributing document</a>.</p>
 

@@ -1,15 +1,17 @@
 # Francisco Serrador <fserrador@gmail.com>, 2022.
+# Alberto <aru_hackZ.official@zohomail.eu>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-04-04 12:07+0000\n"
-"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/g-codes/es/>\n"
+"PO-Revision-Date: 2022-06-15 00:56+0000\n"
+"Last-Translator: Alberto <aru_hackZ.official@zohomail.eu>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/g-codes/"
+"es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -265,6 +267,8 @@ msgid ""
 "`ACCEPT`: This command accepts the current Z position and concludes the "
 "manual probing tool."
 msgstr ""
+"`ACCEPT`: Este comando acepta la posición Z actual y concluye la herramienta "
+"de sondeo manual."
 
 msgid "`ABORT`: This command terminates the manual probing tool."
 msgstr "`ABORT`: Esta instrucción interrumpe la herramienta de sondeo manual."
@@ -434,6 +438,8 @@ msgid ""
 "`BED_MESH_CLEAR`: This command clears the mesh and removes all z adjustment."
 " It is recommended to put this in your end-gcode."
 msgstr ""
+"`BED_MESH_CLEAR`: Este comando limpia la malla y borra los todos los ajustes "
+"en Z. Está recomendado que esto se ponga en su end-gcode."
 
 msgid ""
 "`BED_MESH_OFFSET [X=<value>] [Y=<value>]`: Applies X and/or Y offsets to the"
@@ -721,7 +727,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 1 (header)
 msgid "G-Codes"
-msgstr "G-Codes"
+msgstr "Códigos G"
 
 #: docs/G-Codes.md:block 29 (unordered list)
 msgid ""
@@ -831,6 +837,9 @@ msgid ""
 "ADXL345 register \"register\" (e.g. 44 or 0x2C). Can be useful for debugging"
 " purposes."
 msgstr ""
+"`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: consulta al "
+"registro \"register\" de ADXL345 (por ejemplo, 44 o 0x2C). Puede ser útil "
+"para propósitos de depuración."
 
 #: docs/G-Codes.md:block 20 (header)
 msgid "ACCELEROMETER_DEBUG_WRITE"
@@ -843,6 +852,10 @@ msgid ""
 "\"register\" can be a decimal or a hexadecimal integer. Use with care, and "
 "refer to ADXL345 data sheet for the reference."
 msgstr ""
+"`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: "
+"Escribe \"value\" sin ser procesado al registro \"register\". Tanto \"value\""
+" como \"register\" puede ser un entre decimal o hexadecimal. Úselo con "
+"cuidado, y consulte la hoja de datos ADXL345 para encontrar la referencia."
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[bed_mesh]"
@@ -1960,7 +1973,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[angle]"
-msgstr ""
+msgstr "[angle]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
@@ -1969,8 +1982,9 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 24 (header)
+#, fuzzy
 msgid "ANGLE_CALIBRATE"
-msgstr ""
+msgstr "ANGLE_CALIBRATE"
 
 #: docs/G-Codes.md:block 25 (paragraph)
 msgid ""

@@ -13,7 +13,7 @@
     
     
       
-        <title>G-Codes - Klipper documentation</title>
+        <title>Códigos G - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#g-codes" class="md-skip">
+        <a href="#codigos-g" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              G-Codes
+              Códigos G
             
           </span>
         </div>
@@ -2641,7 +2641,7 @@
 </a>
 
 
-<h1 id="g-codes">G-Codes<a class="headerlink" href="#g-codes" title="Permanent link">&para;</a></h1>
+<h1 id="codigos-g">Códigos G<a class="headerlink" href="#codigos-g" title="Permanent link">&para;</a></h1>
 <p>This document describes the commands that Klipper supports. These are commands that one may enter into the OctoPrint terminal tab.</p>
 <h2 id="instrucciones-g-code">Instrucciones G-Code<a class="headerlink" href="#instrucciones-g-code" title="Permanent link">&para;</a></h2>
 <p>Klipper supports the following standard G-Code commands:</p>
@@ -2690,9 +2690,9 @@
 <h4 id="accelerometer_query">ACCELEROMETER_QUERY<a class="headerlink" href="#accelerometer_query" title="Permanent link">&para;</a></h4>
 <p><code>ACCELEROMETER_QUERY [CHIP=&lt;config_name&gt;] [RATE=&lt;value&gt;]</code>: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).</p>
 <h4 id="accelerometer_debug_read">ACCELEROMETER_DEBUG_READ<a class="headerlink" href="#accelerometer_debug_read" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_DEBUG_READ [CHIP=&lt;config_name&gt;] REG=&lt;register&gt;</code>: queries ADXL345 register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes.</p>
+<p><code>ACCELEROMETER_DEBUG_READ [CHIP=&lt;config_name&gt;] REG=&lt;register&gt;</code>: consulta al registro "register" de ADXL345 (por ejemplo, 44 o 0x2C). Puede ser útil para propósitos de depuración.</p>
 <h4 id="accelerometer_debug_write">ACCELEROMETER_DEBUG_WRITE<a class="headerlink" href="#accelerometer_debug_write" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_DEBUG_WRITE [CHIP=&lt;config_name&gt;] REG=&lt;register&gt; VAL=&lt;value&gt;</code>: Writes raw "value" into a register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.</p>
+<p><code>ACCELEROMETER_DEBUG_WRITE [CHIP=&lt;config_name&gt;] REG=&lt;register&gt; VAL=&lt;value&gt;</code>: Escribe "value" sin ser procesado al registro "register". Tanto "value" como "register" puede ser un entre decimal o hexadecimal. Úselo con cuidado, y consulte la hoja de datos ADXL345 para encontrar la referencia.</p>
 <h3 id="angle">[angle]<a class="headerlink" href="#angle" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when an <a href="Config_Reference.html#angle">angle config section</a> is enabled.</p>
 <h4 id="angle_calibrate">ANGLE_CALIBRATE<a class="headerlink" href="#angle_calibrate" title="Permanent link">&para;</a></h4>
@@ -2710,7 +2710,7 @@
 <h4 id="bed_mesh_map">BED_MESH_MAP<a class="headerlink" href="#bed_mesh_map" title="Permanent link">&para;</a></h4>
 <p><code>BED_MESH_MAP</code>: Like to BED_MESH_OUTPUT, this command prints the current state of the mesh to the terminal. Instead of printing the values in a human readable format, the state is serialized in json format. This allows octoprint plugins to easily capture the data and generate height maps approximating the bed's surface.</p>
 <h4 id="bed_mesh_clear">BED_MESH_CLEAR<a class="headerlink" href="#bed_mesh_clear" title="Permanent link">&para;</a></h4>
-<p><code>BED_MESH_CLEAR</code>: This command clears the mesh and removes all z adjustment. It is recommended to put this in your end-gcode.</p>
+<p><code>BED_MESH_CLEAR</code>: Este comando limpia la malla y borra los todos los ajustes en Z. Está recomendado que esto se ponga en su end-gcode.</p>
 <h4 id="bed_mesh_profile">BED_MESH_PROFILE<a class="headerlink" href="#bed_mesh_profile" title="Permanent link">&para;</a></h4>
 <p><code>BED_MESH_PROFILE LOAD=&lt;name&gt; SAVE=&lt;name&gt; REMOVE=&lt;name&gt;</code>: This command provides profile management for mesh state. LOAD will restore the mesh state from the profile matching the supplied name. SAVE will save the current mesh state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to persistent memory permanent.</p>
 <h4 id="bed_mesh_offset">BED_MESH_OFFSET<a class="headerlink" href="#bed_mesh_offset" title="Permanent link">&para;</a></h4>
@@ -2870,7 +2870,7 @@
 <h4 id="manual_probe_1">MANUAL_PROBE<a class="headerlink" href="#manual_probe_1" title="Permanent link">&para;</a></h4>
 <p><code>MANUAL_PROBE [SPEED=&lt;speed&gt;]</code>: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:</p>
 <ul>
-<li><code>ACCEPT</code>: This command accepts the current Z position and concludes the manual probing tool.</li>
+<li><code>ACCEPT</code>: Este comando acepta la posición Z actual y concluye la herramienta de sondeo manual.</li>
 <li><code>ABORT</code>: Esta instrucción interrumpe la herramienta de sondeo manual.</li>
 <li><code>TESTZ Z=&lt;value&gt;</code>: This command moves the nozzle up or down by the amount specified in "value". For example, <code>TESTZ Z=-.1</code> would move the nozzle down .1mm while <code>TESTZ Z=.1</code> would move the nozzle up .1mm. The value may also be <code>+</code>, <code>-</code>, <code>++</code>, or <code>--</code> to move the nozzle up or down an amount relative to previous attempts.</li>
 </ul>
