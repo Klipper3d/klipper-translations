@@ -10,7 +10,7 @@ Para obtener impresiones de buena calidad, la impresora debe estar calibrada par
 
 Los distintos tipos de impresoras utilizan diferentes métodos para realizar la nivelación de la cama. Todos ellos dependen, en última instancia, de la "prueba del papel" (descrita a continuación). Sin embargo, el proceso para algun tipo particular de impresora se describe en otros documentos.
 
-Antes de ejecutar cualquiera de estas herramientas de calibración, asegúrese de realizar las comprobaciones descritas en el documento [Verificación de la configuración](Config_checks.md). Es necesario verificar el movimiento básico de la impresora antes de realizar la nivelación de la base.
+Antes de ejecutar cualquiera de estas herramientas de calibración, asegúrese de realizar las comprobaciones descritas en el documento [Verificación de la configuración](Config_checks.md). Es necesario verificar el movimiento básico de la impresora antes de realizar la nivelación de la cama.
 
 Para las impresoras con una "sensor Z automático", asegúrese de calibrar el sensor siguiendo las instrucciones del documento [Probe Calibrate](Probe_Calibrate.md). Para las impresoras delta, consulte el documento [Delta Calibrate](Delta_Calibrate.md). Para impresoras con tornillos en la base y finales de carrera tradicionales en el eje Z, consulte el documento [Manual Level](Manual_Level.md).
 
@@ -86,7 +86,7 @@ Si algo va mal durante la prueba, se puede utilizar el comando `ABORT` para sali
 
 ## Determinando la Expansión Térmica
 
-After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "thickness of the paper", and "amount of friction felt during the paper test".
+Tras haber realizado la nivelación de la cama con éxito, uno puede proceder a calcular un valor más preciso para el impacto combinado de la "expansión térmica", "grosor del papel", y "cantidad de fricción sentida durante la prueba del papel".
 
 Este tipo de cálculos no son normalmente necesarios ya que la mayoría de usuarios encuentran que el simple "test de papel" da buenos resultados.
 

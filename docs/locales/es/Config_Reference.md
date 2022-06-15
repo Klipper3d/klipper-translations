@@ -1,4 +1,4 @@
-# Configuration reference
+# Referencia de la configuración
 
 This document is a reference for options available in the Klipper config file.
 
@@ -58,7 +58,7 @@ Microcontroladores adicionales (uno puede definir cualquier número de secciones
 # See the "mcu" section for configuration parameters.
 ```
 
-## Common kinematic settings
+## Ajustes de cinemática comunes
 
 ### [printer]
 
@@ -175,7 +175,7 @@ position_max:
 #   if near position_min.
 ```
 
-### Cartesian Kinematics
+### Cinemática cartesiana
 
 See [example-cartesian.cfg](../config/example-cartesian.cfg) for an example cartesian kinematics config file.
 
@@ -536,7 +536,7 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-### Cable winch Kinematics
+### Cinemática de cable de cabrestante
 
 See the [example-winch.cfg](../config/example-winch.cfg) for an example cable winch kinematics config file.
 
@@ -576,7 +576,7 @@ max_accel: 1
 #   values are not used for "none" kinematics.
 ```
 
-## Common extruder and heated bed support
+## Soporte de extrusores y camas calentadas comunes
 
 ### [extruder]
 
@@ -721,13 +721,13 @@ max_temp:
 #   See the "extruder" section for a description of the above parameters.
 ```
 
-## Bed level support
+## Soporte del nivel de la cama
 
 ### [bed_mesh]
 
 Mesh Bed Leveling. One may define a bed_mesh config section to enable move transformations that offset the z axis based on a mesh generated from probed points. When using a probe to home the z-axis, it is recommended to define a safe_z_home section in printer.cfg to home toward the center of the print area.
 
-See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#bed_mesh) for additional information.
+Mírese la [guía de malla de cama](Bed_Mesh.md) y la [referencia de comandos](G-Codes.md#bed_mesh) para encontrar información adicional.
 
 Visual Examples:
 
@@ -840,7 +840,7 @@ Visual Examples:
 
 Bed tilt compensation. One may define a bed_tilt config section to enable move transformations that account for a tilted bed. Note that bed_mesh and bed_tilt are incompatible; both cannot be defined.
 
-See the [command reference](G-Codes.md#bed_tilt) for additional information.
+Mírese la [referencia de comandos](G-Codes.md#bed_tilt) para encontrar información adicional.
 
 ```
 [bed_tilt]
@@ -874,7 +874,7 @@ See the [command reference](G-Codes.md#bed_tilt) for additional information.
 
 Tool to help adjust bed leveling screws. One may define a [bed_screws] config section to enable a BED_SCREWS_ADJUST g-code command.
 
-See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [command reference](G-Codes.md#bed_screws) for additional information.
+Mírese la [guía de nivelación](Manual_Level.md#adjusting-bed-leveling-screws) y la [referencia de comandos](G-Codes.md#bed_screws) para encontrar información adicional.
 
 ```
 [bed_screws]
@@ -915,7 +915,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 
 Tool to help adjust bed screws tilt using Z probe. One may define a screws_tilt_adjust config section to enable a SCREWS_TILT_CALCULATE g-code command.
 
-See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) and [command reference](G-Codes.md#screws_tilt_adjust) for additional information.
+Mírese la [guía de nivelación](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) y la [referencia de comandos](G-Codes.md#screws_tilt_adjust) para encontrar información adicional
 
 ```
 [screws_tilt_adjust]
@@ -1103,7 +1103,7 @@ gcode:
 
 Stepper phase adjusted endstops. To use this feature, define a config section with an "endstop_phase" prefix followed by the name of the corresponding stepper config section (for example, "[endstop_phase stepper_z]"). This feature can improve the accuracy of endstop switches. Add a bare "[endstop_phase]" declaration to enable the ENDSTOP_PHASE_CALIBRATE command.
 
-See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes.md#endstop_phase) for additional information.
+Mírese la [guía de fases de final de carrera](Endstop_Phase.md) y la [referencia de comandos](G-Codes.md#endstop_phase) para encontrar información adicional.
 
 ```
 [endstop_phase stepper_z]
@@ -1164,7 +1164,7 @@ G-Code macros (one may define any number of sections with a "gcode_macro" prefix
 
 ### [delayed_gcode]
 
-Execute a gcode on a set delay. See the [command template guide](Command_Templates.md#delayed-gcodes) and [command reference](G-Codes.md#delayed_gcode) for more information.
+Ejecute un código g con un dado retraso. Mírese la [guía de plantillas de comando](Command_Templates.md#delayed-gcodes) y la [referencia de comandos](G-Codes.md#delayed_gcode) para más información.
 
 ```
 [delayed_gcode my_delayed_gcode]
@@ -1290,7 +1290,7 @@ Support for gcode arc (G2/G3) commands.
 
 ### [respond]
 
-Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#respond).
+Habilita los [comandos](G-Codes.md#respond) extendidos de "M118" y "RESPOND".
 
 ```
 [respond]
@@ -1309,7 +1309,7 @@ Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#respond).
 
 ### [input_shaper]
 
-Enables [resonance compensation](Resonance_Compensation.md). Also see the [command reference](G-Codes.md#input_shaper).
+Habilita la [compensación de resonancia](Resonance_Compensation.md). Mírese también la [referencia de comandos](G-Codes.md#input_shaper).
 
 ```
 [input_shaper]
@@ -1427,7 +1427,7 @@ Support for resonance testing and automatic input shaper calibration. In order t
 #   (Hz/sec == sec^-2).
 ```
 
-## Config file helpers
+## Ayudantes de archivos de configuración
 
 ### [board_pins]
 
@@ -1899,9 +1899,9 @@ Generic temperature sensors. One can define any number of additional temperature
 
 Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heated_bed]` section).
 
-### Common thermistors
+### Termistores comunes
 
-Common thermistors. The following parameters are available in heater sections that use one of these sensors.
+Termistores comunes. Los siguientes parámetros están disponibles en las secciones de calentamiento que usen uno de estos sensores.
 
 ```
 sensor_type:
@@ -1923,7 +1923,7 @@ sensor_pin:
 
 ### Amplificadores de temperaturas comunes
 
-Common temperature amplifiers. The following parameters are available in heater sections that use one of these sensors.
+Amplificadores de temperatura comunes. Los siguientes parámetros están disponibles en las secciones de calentamiento que usen uno de estos sensores.
 
 ```
 sensor_type:
@@ -1986,7 +1986,7 @@ sensor_pin:
 #   name in the above list.
 ```
 
-### BMP280/BME280/BME680 temperature sensor
+### Sensor de temperatura BMP280/BME280/BME680
 
 BMP280/BME280/BME680 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C), pressure (hPa), relative humidity and in case of the BME680 gas level. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report pressure and humidity in addition to temperature.
 
@@ -2052,7 +2052,7 @@ sensor_type: LM75
 #   0.5.
 ```
 
-### Builtin micro-controller temperature sensor
+### Sensor de temperatura incorporado en el microcontrolador
 
 The atsam, atsamd, and stm32 micro-controllers contain an internal temperature sensor. One can use the "temperature_mcu" sensor to monitor these temperatures.
 
@@ -2096,7 +2096,7 @@ sensor_type: temperature_host
 #   system file on a Raspberry Pi computer.
 ```
 
-### DS18B20 temperature sensor
+### Sensor de temperatura DS18B20
 
 DS18B20 is a 1-wire (w1) digital temperature sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C). These sensors have range up to 125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers. DS18B20 sensors are only supported on the "host mcu", e.g. the Raspberry Pi. The w1-gpio Linux kernel module must be installed.
 
@@ -2113,7 +2113,7 @@ serial_no:
 #   The micro-controller to read from. Must be the host_mcu
 ```
 
-## Fans
+## Ventiladores
 
 ### [fan]
 
@@ -2485,7 +2485,7 @@ pin:
 
 ### [gcode_button]
 
-Execute gcode when a button is pressed or released (or when a pin changes state). You can check the state of the button by using `QUERY_BUTTON button=my_gcode_button`.
+Ejecuta un código G cuando un botón es pulsado o liberado (o cuando un pin cambia de estado). Puede comprobar el estado del botón usando `QUERY_BUTTON button=my_gcode_button`.
 
 ```
 [gcode_button my_gcode_button]
@@ -3057,7 +3057,7 @@ wiper:
 #   scale the 'wiper' parameter.
 ```
 
-## Display support
+## Soporte de monitor
 
 ### [display]
 
@@ -3143,7 +3143,7 @@ lcd_type:
 #   button.
 ```
 
-#### hd44780 display
+#### Monitor hd44780
 
 Information on configuring hd44780 displays (which is used in "RepRapDiscount 2004 Smart Controller" type displays).
 
@@ -3170,7 +3170,7 @@ d7_pin:
 ...
 ```
 
-#### hd44780_spi display
+#### Monitor hd44780_spi
 
 Information on configuring an hd44780_spi display - a 20x04 display controlled via a hardware "shift register" (which is used in mightyboard based printers).
 
@@ -3214,7 +3214,7 @@ sid_pin:
 ...
 ```
 
-#### emulated_st7920 display
+#### Monitor emulated_st7920
 
 Information on configuring an emulated st7920 display - found in some "2.4 inch touchscreen devices" and similar.
 
@@ -3321,7 +3321,7 @@ text:
 #   parameter must be provided.
 ```
 
-### [display_template]
+### [display_templeta]
 
 Display data text "macros" (one may define any number of sections with a display_template prefix). See the [command templates](Command_Templates.md) document for information on template evaluation.
 
@@ -3378,14 +3378,14 @@ If a primary [display] section has been defined in printer.cfg as shown above it
 
 ```
 [display my_extra_display]
-# See the "display" section for available parameters.
+# Mirese la sección "display" para encontrar los parámetros disponibles.
 ```
 
 ### [menu]
 
-Customizable lcd display menus.
+Menús de pantallas LCD personalizados.
 
-A [default set of menus](../klippy/extras/display/menu.cfg) are automatically created. One can replace or extend the menu by overriding the defaults in the main printer.cfg config file.
+Un [conjunto por defecto de menus](../klippy/extras/display/menu.cfg) es automáticamente creado. Uno puede reemplazar o extender el menú cambiando los valores por defecto el archivo de configuración principal printer.cfg.
 
 See the [command template document](Command_Templates.md#menu-templates) for information on menu attributes available during template rendering.
 
@@ -3457,11 +3457,11 @@ See the [command template document](Command_Templates.md#menu-templates) for inf
 #   mode start or end.
 ```
 
-## Filament sensors
+## Sensores de filamento
 
 ### [filament_switch_sensor]
 
-Filament Switch Sensor. Support for filament insert and runout detection using a switch sensor, such as an endstop switch.
+Sensor de cambio de filamento. Soporte para la inserción y acabado de filamento usando un sensor de interrupción, tal que un interruptor de fin de carrera.
 
 See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
 
@@ -3498,7 +3498,7 @@ See the [command reference](G-Codes.md#filament_switch_sensor) for more informat
 
 ### [filament_motion_sensor]
 
-Filament Motion Sensor. Support for filament insert and runout detection using an encoder that toggles the output pin during filament movement through the sensor.
+Sensor de movimiento del filamento. Soporte para la inserción y acabado de filamento usando un codificador que alterna el pin de salida durante el movimiento del filamento a través del sensor.
 
 See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
 
@@ -3590,7 +3590,7 @@ adc2:
 #   above parameters.
 ```
 
-## Board specific hardware support
+## Soporte de hardware específico a cada placa
 
 ### [sx1509]
 
@@ -3732,7 +3732,7 @@ Palette 2 multimaterial support - provides a tighter integration supporting Pale
 
 This modules also requires `[virtual_sdcard]` and `[pause_resume]` for full functionality.
 
-If you use this module, do not use the Palette 2 plugin for Octoprint as they will conflict, and 1 will fail to initialize properly likely aborting your print.
+Si usa este módulo, no use el complemento (plugin) Palette 2 para Octoprint ya que harán conflicto, y uno de ellos fallará en iniciar correctamente y probablemente aborte su impresión.
 
 If you use Octoprint and stream gcode over the serial port instead of printing from virtual_sd, then remo **M1** and **M0** from *Pausing commands* in *Settings > Serial Connection > Firmware & protocol* will prevent the need to start print on the Palette 2 and unpausing in Octoprint for your print to begin.
 
@@ -3782,7 +3782,7 @@ cs_pin:
 #   above parameters.
 ```
 
-## Common bus parameters
+## Parámetros de bus comunes
 
 ### Configurazione comun de SPI
 
@@ -3805,7 +3805,7 @@ The following parameters are generally available for devices using an SPI bus.
 #   "software spi".
 ```
 
-### Common I2C settings
+### Ajustes I2C comunes
 
 The following parameters are generally available for devices using an I2C bus.
 

@@ -416,36 +416,32 @@ polar运动学配置文件参考 [example-polar.cfg](../config/example-polar.cfg
 
 这里只描述了极地打印机特有的参数—全部可用的参数请见[常用的运动学设置](#common-kinematic-settings)。
 
-POLAR KINEMATICS ARE A WORK IN PROGRESS. Moves around the 0, 0 position are known to not work properly.
+极坐标运动学还在开发中。在0, 0位置周围移动有一些已知问题。
 
 ```
 [printer]
 kinematics: polar
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. This setting can be used to restrict the maximum speed of
-#   the z stepper motor. The default is to use max_velocity for
-#   max_z_velocity.
+#   定义了z轴的极限速度（单位：mm/s）。该设置可以单独限制
+#   Z轴步进电机的极限速度。
+#   默认使用 max_velocity 为 max_z_velocity。
 max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. It limits the acceleration of the z stepper motor. The
-#   default is to use max_accel for max_z_accel.
+#   定义了Z轴的极限加速度（单位：mm/s^2）。该设置单独限制了
+#   Z轴步进电机的加速度。
+#   默认使用max_accel为max_z_accel。
 
-# The stepper_bed section is used to describe the stepper controlling
-# the bed.
+#   stepper_bed 分段定义了控制打印床的步进电机。
 [stepper_bed]
 gear_ratio:
-#   A gear_ratio must be specified and rotation_distance may not be
-#   specified. For example, if the bed has an 80 toothed pulley driven
-#   by a stepper with a 16 toothed pulley then one would specify a
-#   gear ratio of "80:16". This parameter must be provided.
+#   必须指定齿轮比，但不必须指定旋转距离。例如，如果打印床有
+#   一个80齿的滑轮，由一个16齿的步进电机驱动，那么可以指定
+#   齿轮比为"80:16"。
+#   必须提供此参数。
 
-# The stepper_arm section is used to describe the stepper controlling
-# the carriage on the arm.
+#   stepper_arm分段定义了控制机械臂上滑车的步进电机。
 [stepper_arm]
 
-# The stepper_z section is used to describe the stepper controlling
-# the Z axis.
+#   stepper_z 分段定义了控制Z轴的步进电机。
 [stepper_z]
 ```
 
@@ -571,8 +567,7 @@ anchor_z:
 kinematics: none
 max_velocity: 1
 max_accel: 1
-#   The max_velocity and max_accel parameters must be defined. The
-#   values are not used for "none" kinematics.
+#   必须定义 max_velocity 和 max_accel，但是 它们不会被“none”运动学使用。
 ```
 
 ## 常见的挤出机和热床支持
@@ -701,7 +696,7 @@ max_temp:
 
 ### [heater_bed]
 
-The heater_bed section describes a heated bed. It uses the same heater settings described in the "extruder" section.
+heater_bed分段定义了一个热床。它有和“extruder”分段的加热器设置选项。
 
 ```
 [heater_bed]
@@ -720,7 +715,7 @@ max_temp:
 
 网床调平。定义一个 bed_mesh 配置分段来启用基于探测点生成网格的 Z 轴偏移移动变换。当使用探针归位 Z 轴时，建议通过 printer.cfg 中定义一个 safe_z_home 分段使 Z 轴归位在打印区域的中心执行。
 
-See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#bed_mesh) for additional information.
+更多信息请参阅 [网床指南](Bed_Mesh.md)和[命令参考](G-Codes.md#bed_mesh)。
 
 可视化示例：
 
@@ -832,7 +827,7 @@ See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#bed_mes
 
 打印床倾斜补偿。可以定义一个 bed_tilt 配置分段来启用移动变换倾斜打印床补偿。请注意，bed_mesh 和 bed_tilt 不兼容：两者无法同时被定义。
 
-See the [command reference](G-Codes.md#bed_tilt) for additional information.
+更多信息请参阅[命令参考](G-Codes.md#bed_tilt) 。
 
 ```
 [bed_tilt]
@@ -939,7 +934,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the
 
 ### [z_tilt]
 
-Multiple Z stepper tilt adjustment. This feature enables independent adjustment of multiple z steppers (see the "stepper_z1" section) to adjust for tilt. If this section is present then a Z_TILT_ADJUST extended [G-Code command](G-Codes.md#z_tilt) becomes available.
+多个独立Z轴步进电机的倾斜校正。这个功能可以独立调整多个 Z 步进电机（见"stepper_z1"部分），以调整倾斜度。如果该分段存在，那么Z_TILT_ADJUST 扩展[G代码命令](G-Code.md#z_tilt)就可用。
 
 ```
 [z_tilt]
@@ -1033,7 +1028,7 @@ Printer Skew Correction. It is possible to use software to correct printer skew 
 
 ### [safe_z_home]
 
-Safe Z homing. One may use this mechanism to home the Z axis at a specific X, Y coordinate. This is useful if the toolhead, for example has to move to the center of the bed before Z can be homed.
+安全Z轴归位。可以用该机制定义Z轴归位时的 X, Y 坐标。在工具头必须先移动到打印床中央再进行Z归位时很有用。
 
 ```
 [safe_z_home]
@@ -1204,7 +1199,7 @@ path:
 
 Some printers with stage-clearing features, such as a part ejector or a belt printer, can find use in looping sections of the sdcard file. (For example, to print the same part over and over, or repeat the a section of a part for a chain or other repeated pattern).
 
-See the [command reference](G-Codes.md#sdcard_loop) for supported commands. See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin compatible M808 G-Code macro.
+有关支持的命令请参阅[命令参考](G-Codes.md#sdcard_loop)。兼容Marlin M808 的G代码宏可以在[sample-macros.cfg](../config/sample-macros.cfg)中找到。
 
 ```
 [sdcard_loop]
@@ -1255,7 +1250,7 @@ Support manually moving stepper motors for diagnostic purposes. Note, using this
 
 ### [gcode_arcs]
 
-Support for gcode arc (G2/G3) commands.
+支持G代码弧线(G2/G3)命令。
 
 ```
 [gcode_arcs]
@@ -1672,9 +1667,9 @@ axis:
 
 ### [extruder_stepper]
 
-Support for additional steppers synchronized to the movement of an extruder (one may define any number of sections with an "extruder_stepper" prefix).
+支持额外和挤出机运动同步的步进电机（可以定义任意数量的带有“extruder_stepper”前缀的分段）。
 
-See the [command reference](G-Codes.md#extruder) for more information.
+更多信息请参阅[命令参考](G-Codes.md#extruder)。
 
 ```
 [extruder_stepper my_extra_stepper]
@@ -1853,11 +1848,9 @@ Tool to disable heaters when homing or probing an axis.
 #sensor_pin:
 #min_temp:
 #max_temp:
-#   See the "extruder" section for the definition of the above
-#   parameters.
+#   以上参数的定义请见“extruder”章节。
 #gcode_id:
-#   See the "heater_generic" section for the definition of this
-#   parameter.
+#   以上参数的定义请见“heater_generic”章节。
 ```
 
 ## 温度传感器
@@ -1910,11 +1903,11 @@ sensor_pin:
 ```
 sensor_type: PT1000
 sensor_pin:
-#   Analog input pin connected to the sensor. This parameter must be
-#   provided.
+#   连接到传感器的模拟引脚。
+#   必须提供此参数。
 #pullup_resistor: 4700
-#   The resistance (in ohms) of the pullup attached to the sensor. The
-#   default is 4700 ohms.
+#   连接到传感器的上拉电阻阻值（单位：ohm）。
+#   默认为 4700 ohms。
 ```
 
 ### MAXxxxxx 温度传感器
@@ -2051,7 +2044,7 @@ sensor_type: temperature_mcu
 
 ### 主机温度传感器
 
-Temperature from the machine (eg Raspberry Pi) running the host software.
+运行主机程序的电脑（例如树莓派）的温度。
 
 ```
 sensor_type: temperature_host
@@ -2213,7 +2206,7 @@ pin:
 
 温度触发的冷却风扇（可以定义任意数量的带有“temperature_fan”前缀的部分）。一个"temperature fan"是一个只要其相关的传感器高于设定温度就会启用的风扇。默认情况下，一个温度风扇的关闭速度等于最大功率。
 
-See the [command reference](G-Codes.md#temperature_fan) for additional information.
+更多信息请参阅[command reference](G-Codes.md#temperature_fan)。
 
 ```
 [temperature_fan my_temp_fan]
@@ -2324,24 +2317,23 @@ Support for LEDs (and LED strips) controlled via micro-controller PWM pins (one 
 注意！[linux mcu](RPi_microcontroller.md)的实现目前不支持直接连接的neopixels。目前使用Linux内核接口的设计不允许这种情况发生，因为内核的GPIO接口速度不够快，无法提供所需的脉冲率。
 
 ```
-[neopixel my_neopixel]
+[neopixel 我的neopixel]
 pin:
-#   The pin connected to the neopixel. This parameter must be
-#   provided.
+#   连接到neopixel的引脚。
+#   必须提供此参数。
 #chain_count:
-#   The number of Neopixel chips that are "daisy chained" to the
-#   provided pin. The default is 1 (which indicates only a single
-#   Neopixel is connected to the pin).
+#   菊链中 neopixel 芯片的数量。
+#   默认为1（代表有一个neopixel芯片连接到了这个引脚）。
 #color_order: GRB
-#   Set the pixel order required by the LED hardware (using a string
-#   containing the letters R, G, B, W with W optional). Alternatively,
-#   this may be a comma separated list of pixel orders - one for each
-#   LED in the chain. The default is GRB.
+#   设置LED硬件的RGB像素顺序（提供一个包含字母R（红），G（绿）
+#   ，B（蓝）和W（白）的字符串，W是可选的）。或者也可以用一个
+#   逗号分隔字符列表来描述像素顺序。
+#   默认为GRB。
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-#   See the "led" section for information on these parameters.
+#  以上参数请参阅“led”章节。
 ```
 
 ### [dotstar]
@@ -2418,7 +2410,7 @@ PCA9632 LED支持。PCA9632在FlashForge Dreamer上使用。
 
 ### [servo]
 
-Servos (one may define any number of sections with a "servo" prefix). The servos may be controlled using the SET_SERVO [g-code command](G-Codes.md#servo). For example: SET_SERVO SERVO=my_servo ANGLE=180
+伺服电机（可以定义任意数量的带有“servo”前缀的分段）。可以通过SET_SERVO[G代码命令](G-Codes.md#servo)控制伺服电机。例如：SET_SERVO SERVO=my_servo ANGLE=180
 
 ```
 [servo my_servo]
@@ -2472,10 +2464,10 @@ pin:
 Run-time configurable output pins (one may define any number of sections with an "output_pin" prefix). Pins configured here will be setup as output pins and one may modify them at run-time using "SET_PIN PIN=my_pin VALUE=.1" type extended [g-code commands](G-Codes.md#output_pin).
 
 ```
-[output_pin my_pin]
+[output_pin 我的引脚]
 pin:
-#   The pin to configure as an output. This parameter must be
-#   provided.
+#   被设置为输出的引脚。
+#   必须提供此参数。
 #pwm: False
 #   Set if the output pin should be capable of pulse-width-modulation.
 #   If this is true, the value fields should be between 0 and 1; if it
@@ -2543,7 +2535,7 @@ pins:
 #   必须提供此参数。
 ```
 
-## TMC stepper driver configuration
+## TMC步进驱动配置
 
 在UART/SPI模式下配置Trinamic步进电机驱动器。其他信息在[TMC驱动程序指南](TMC_Drivers.md)和[命令参考](G-Code.md#tmcxxxx)中。
 
@@ -2984,11 +2976,11 @@ Statically configured MCP4018 digipot connected via two gpio "bit banging" pins 
 ```
 [mcp4018 my_digipot]
 scl_pin:
-#   SCL "时钟"引脚。
-#   必须提供这个参数。
+#   SCL “时钟”引脚。
+#   必须提供此参数。
 sda_pin:
-#   SCL "数据"引脚。
-#   必须提供这个参数。
+#   SDA “数据”引脚
+#   必须提供此参数
 wiper:
 #   The value to statically set the given MCP4018 "wiper" to. This is
 #   typically set to a number between 0.0 and 1.0 with 1.0 being the
@@ -3010,7 +3002,7 @@ wiper:
 
 ### [display]
 
-Support for a display attached to the micro-controller.
+支持一个连接到微控制器的屏幕
 
 ```
 [display]
@@ -3137,7 +3129,7 @@ spi_software_miso_pin:
 ...
 ```
 
-#### st7920 display
+#### st7920屏幕
 
 有关配置 st7920 类显示屏的信息（可用于 "RepRapDiscount 12864 Full Graphic Smart Controller" 类型的显示器）。
 
@@ -3195,7 +3187,7 @@ a0_pin:
 ...
 ```
 
-#### ssd1306 and sh1106 displays
+#### ssd1306和sh1106屏幕
 
 ssd1306 和 sh1106 显示屏的配置信息。
 
@@ -3390,7 +3382,7 @@ See the [command template document](Command_Templates.md#menu-templates) for inf
 
 耗材开关传感器。支持使用开关传感器（如限位开关）进行耗材插入和耗尽检测。
 
-See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
+更多信息请参阅[命令参考](G-Codes.md#filament_switch_sensor)。
 
 ```
 [filament_switch_sensor my_sensor]。
@@ -3428,7 +3420,7 @@ See the [command reference](G-Codes.md#filament_switch_sensor) for more informat
 
 耗材移动传感器。使用一个在耗材通过传感器时输出引脚状态会发生变化来检测耗材插入和耗尽。
 
-See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
+更多信息请参阅[命令参考](G-Codes.md#filament_switch_sensor)。
 
 ```
 [filament_motion_sensor my_sensor]
@@ -3521,7 +3513,7 @@ adc2:
 
 将一个 SX1509 I2C 配置为 GPIO 扩展器。由于 I2C 通信本身的延迟，不应将 SX1509 引脚用作步进电机的 enable （启用)、step（步进）或 dir （方向）引脚或任何其他需要快速 bit-banging（位拆裂）的引脚。它们最适合用作静态或G代码控制的数字输出或硬件 pwm 引脚，例如风扇。可以使用“sx1509”前缀定义任意数量的分段。每个扩展器提供可用于打印机配置的一组 16 个引脚（sx1509_my_sx1509:PIN_0 到 sx1509_my_sx1509:PIN_15）。
 
-See the [generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg) file for an example.
+请见范例配置文件[generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg)。
 
 ```
 [sx1509 my_sx1509]
@@ -3569,7 +3561,7 @@ clk_pin:
 
 Duet 2 Maestro 通过vref和vssa读数进行模拟缩放。定义一个adc_scaled分段来启用根据板载vref和vssa监视引脚调节的虚拟adc引脚（例如“my_name:PB0"）。虚拟引脚必须先被Duet 2 Maestro 通过vref和vssa读数进行模拟缩放。定义一个adc_scaled分段来启用根据板载vref和vssa监视引脚调节的虚拟adc引脚（例如“my_name:PB0"）。虚拟引脚必须先被定义才能用在其他配置分段中。
 
-See the [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) file for an example.
+请见范例配置文件[generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg)。
 
 ```
 [adc_scaled my_name]
@@ -3652,7 +3644,7 @@ host_mcu:
 
 Palette 2 多材料支持 - 提供更紧密的集成，支持处于连接模式的 Palette 2 设备。
 
-This modules also requires `[virtual_sdcard]` and `[pause_resume]` for full functionality.
+该模块的全部功能需要`[virtual_sdcard]`和`[pause_resume]`。
 
 不要和 Octoprint 的 Palette 2插件一起使用这个模块，因为它们会发生冲突，造成初始化和打印失败。
 
@@ -3709,7 +3701,7 @@ cs_pin:
 
 ### 常见 SPI 设置
 
-以下参数一般适用于使用SPI总线的设备。
+以下参数适用于多数使用SPI总线的设备。
 
 ```
 #spi_speed:
