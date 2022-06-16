@@ -838,7 +838,7 @@ Visual Examples:
 
 ### [bed_tilt]
 
-Bed tilt compensation. One may define a bed_tilt config section to enable move transformations that account for a tilted bed. Note that bed_mesh and bed_tilt are incompatible; both cannot be defined.
+Compensación de inclinación de la cama. Uno puede definir la sección de configuración bed_tilt para habilitar transformaciones de movimiento que influyen en la inclinación de la cama. Nótese que bed_mesh y bed_tilt son incompatibles; ambas opciones no pueden ser definidas.
 
 Mírese la [referencia de comandos](G-Codes.md#bed_tilt) para encontrar información adicional.
 
@@ -1211,7 +1211,7 @@ Idle timeout. An idle timeout is automatically enabled - add an explicit idle_ti
 
 ### [virtual_sdcard]
 
-A virtual sdcard may be useful if the host machine is not fast enough to run OctoPrint well. It allows the Klipper host software to directly print gcode files stored in a directory on the host using standard sdcard G-Code commands (eg, M24).
+Una tarjeta SD virtual puede ser útil si la máquina anfitrión no es lo suficientemente rápida para correr bien OctoPrint. Permite al software anfitrión de Klipper el imprimir directamente ficheros de códigos G en un directorio del anfitrión usando códigos G estándar para tarjetas SD (por ejemplo, M24).
 
 ```
 [virtual_sdcard]
@@ -1535,7 +1535,7 @@ z_offset:
 
 ### [bltouch]
 
-BLTouch probe. One may define this section (instead of a probe section) to enable a BLTouch probe. See [BL-Touch guide](BLTouch.md) and [command reference](G-Codes.md#bltouch) for further information. A virtual "probe:z_virtual_endstop" pin is also created (see the "probe" section for the details).
+Sondeo BLTouch. Uno puede definir esta sección (en vez de una sección de sondeo) para habilitar un sondeo BLTouch. Mírese la [guía de BL-Touch](BLTouch.md) y la [referencia de comandos](G-Codes.md#bltouch) para más información. Un pin virtual "probe:z_virtual_endstop" también es creado (mírese la sección "sondeo" para más detalles).
 
 ```
 [bltouch]
@@ -1988,7 +1988,7 @@ sensor_pin:
 
 ### Sensor de temperatura BMP280/BME280/BME680
 
-BMP280/BME280/BME680 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C), pressure (hPa), relative humidity and in case of the BME680 gas level. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report pressure and humidity in addition to temperature.
+Sensores del entorno de interfaces de hilos (I2C) BMP280/BME280/BME680. Nótese que estos sensores no están intencionados para ser usados junto a extrusores y calentadores de camas, sino para monitorizar la temperatura ambiental (en grados centígrados), presión (hectopascales), humedad relativa y en caso de usarse el BME680 el nivel del gas. Mírese las [macros de muestra](../config/sample-macros.cfg) para encontrar una macro de códigos G que puede ser utilizada para reportar presión y humedad junto a la temperatura.
 
 ```
 sensor_type: BME280
@@ -2587,7 +2587,7 @@ pins:
 
 ## TMC stepper driver configuration
 
-Configuration of Trinamic stepper motor drivers in UART/SPI mode. Additional information is in the [TMC Drivers guide](TMC_Drivers.md) and in the [command reference](G-Codes.md#tmcxxxx).
+Configuración de los controladores del motor de pasos trinámico en modo UART/SPI. Información adicional en la [guía de controladores de TMC](TMC_Drivers.md) y en la [referencia de comandos](G-Codes.md#tmcxxxx).
 
 ### [tmc2130]
 
