@@ -26,7 +26,7 @@ SAVE_CONFIG
 
 ## 调整打印调平螺丝
 
-The secret to getting good bed leveling with bed leveling screws is to utilize the printer's high precision motion system during the bed leveling process itself. This is done by commanding the nozzle to a position near each bed screw and then adjusting that screw until the bed is a set distance from the nozzle. Klipper has a tool to assist with this. In order to use the tool it is necessary to specify each screw XY location.
+使用打印床调平螺丝获得平整打印床的秘诀是在床身调平过程中利用打印机高精度的运动系统，通过将喷嘴命令到每个调平螺丝附近的位置，然后调整该螺丝直到床与喷嘴保持固定的距离。Klipper 的一个内置工具可以协助解决这个问题。为了使用该工具，必须指定每个螺丝的XY坐标。
 
 这是通过创建一个`[bed_screws]`配置部分来实现的。例如，它可能看起来类似于以下内容:
 
@@ -59,9 +59,9 @@ BED_SCREWS_ADJUST
 
 ![bed_screws](img/bed_screws.svg.png)
 
-For each adjustment made to the bed screw at location C, the bed will swing along a pendulum defined by the remaining two bed screws (shown here as a green line). In this situation, each adjustment to the bed screw at C will move the bed at position D a further amount than directly at C. It is thus possible to make an improved C screw adjustment when the nozzle is at position D.
+在位于C位置的螺丝每次调整间，打印床/打印头将沿着由其余两个螺丝定义的坐标摆锤摆动（此处显示为绿线）。在这种情况下，每次调整C处的床螺钉都会使打印床在位置D处移动比在C处移动更多的量。因此，可以通过将喷嘴置于D位置进行对C位置螺丝的精确调整。
 
-To enable this feature, one would determine the additional nozzle coordinates and add them to the config file. For example, it might look like:
+要启用此功能，需要定义额外的喷嘴坐标并将其添加到配置文件中。例如：
 
 ```
 [bed_screws]

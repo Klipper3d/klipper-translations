@@ -2,41 +2,41 @@
 
 В этом документе приведен список действий, которые помогут подтвердить настройки выводов (pin) в файле Klipper printer.cfg. Рекомендуется выполнить эти шаги после выполнения шагов, описанных в [документе по установке](Installation.md).
 
-During this guide, it may be necessary to make changes to the Klipper config file. Be sure to issue a RESTART command after every change to the config file to ensure that the change takes effect (type "restart" in the Octoprint terminal tab and then click "Send"). It's also a good idea to issue a STATUS command after every RESTART to verify that the config file is successfully loaded.
+Во время работы с этим руководством может потребоваться внести изменения в конфигурационный файл Klipper. Обязательно выполняйте команду RESTART после каждого изменения в файле конфигурации, чтобы убедиться, что изменение вступило в силу (введите «restart» на вкладке терминала Octoprint, а затем нажмите «Отправить»). Также рекомендуется запускать команду STATUS после каждого RESTART, чтобы убедиться, что файл конфигурации успешно загружен.
 
-## Verify temperature
+## Проверить температуру
 
-Start by verifying that temperatures are being properly reported. Navigate to the Octoprint temperature tab.
+Начните с проверки правильности регистрации температуры. Перейдите на вкладку температуры Octoprint.
 
 ![octoprint-temperature](img/octoprint-temperature.png)
 
-Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.
+Убедитесь, что температура сопла и стола (если применимо) присутствует и не повышается. Если он увеличивается, отключите питание принтера. Если температуры неточны, проверьте настройки «sensor_type» и «sensor_pin» для сопла и/или стола.
 
-## Verify M112
+## Проверить M112
 
-Navigate to the Octoprint terminal tab and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause Octoprint to disconnect from Klipper - navigate to the Connection area and click on "Connect" to cause Octoprint to reconnect. Then navigate to the Octoprint temperature tab and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
+Перейдите на вкладку терминала Octoprint и введите команду M112 в терминале. Эта команда требует от Klipper перейти в состояние «выключения». Это приведет к отключению Octoprint от Klipper — перейдите в область «Подключение» и нажмите «Подключиться», чтобы вызвать повторное подключение Octoprint. Затем перейдите на вкладку температуры Octoprint и убедитесь, что температура продолжает обновляться и не повышается. Если температура повышается, отключите питание принтера.
 
-The M112 command causes Klipper to go into a "shutdown" state. To clear this state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab.
+Команда M112 переводит Klipper в состояние «отключения». Чтобы сбросить это состояние, введите команду FIRMWARE_RESTART на вкладке терминала Octoprint.
 
-## Verify heaters
+## Проверка нагревателей
 
-Navigate to the Octoprint temperature tab and type in 50 followed by enter in the "Tool" temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the "Tool" temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
+Перейдите на вкладку температуры Octoprint и введите 50, а затем введите в поле температуры «Инструмент». Температура экструдера на графике должна начать увеличиваться (примерно через 30 секунд). Затем перейдите в раскрывающийся список температуры «Инструмент» и выберите «Выкл.». Через несколько минут температура должна начать возвращаться к исходному значению комнатной температуры. Если температура не увеличивается, проверьте настройку «heater_pin» в конфигурации.
 
-If the printer has a heated bed then perform the above test again with the bed.
+Если в принтере есть стол с подогревом, повторите вышеуказанный тест со столом.
 
-## Verify stepper motor enable pin
+## Проверьте пин включения шагового двигателя
 
-Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !ar38").
+Убедитесь, что все оси принтера могут свободно перемещаться вручную (шаговые двигатели отключены). Если нет, введите команду M84, чтобы отключить двигатели. Если какая-либо из осей по-прежнему не может свободно двигаться, проверьте конфигурацию шагового двигателя «enable_pin» для данной оси. В большинстве стандартных драйверов шаговых двигателей вывод включения двигателя имеет значение «#active low», поэтому вывод включения должен иметь «!» перед выводом (например, "enable_pin: !ar38").
 
-## Verify endstops
+## Проверить концевики
 
-Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the Octoprint terminal tab. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
+Вручную переместите все оси принтера так, чтобы ни одна из них не касалась упора. Отправьте команду QUERY_ENDSTOPS через вкладку терминала Octoprint. Он должен ответить текущим состоянием всех настроенных оконечных устройств, и все они должны сообщать о состоянии «open». Для каждой из конечных остановок повторно запустите команду QUERY_ENDSTOPS, одновременно активируя конечную остановку. Команда QUERY_ENDSTOPS должна сообщать о конечной остановке как "TRIGGERED".
 
-If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!ar3"), or remove the "!" if there is already one present.
+Если конечный упор отображается перевернутым (при срабатывании он сообщает «открыто» и наоборот), добавьте «!» к определению контакта (например, «endstop_pin: ^! ar3») или удалите «!», если он уже присутствует.
 
-If the endstop does not change at all then it generally indicates that the endstop is connected to a different pin. However, it may also require a change to the pullup setting of the pin (the '^' at the start of the endstop_pin name - most printers will use a pullup resistor and the '^' should be present).
+Если концевой упор вообще не меняется, это обычно указывает на то, что концевой упор подключен к другому контакту. Однако может также потребоваться изменение настройки подтягивания вывода (символ «^» в начале имени endstop_pin — в большинстве принтеров используется подтягивающий резистор, и символ «^» должен присутствовать).
 
-## Verify stepper motors
+## Проверка шаговых двигателей
 
 Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor. Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x`. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
 
