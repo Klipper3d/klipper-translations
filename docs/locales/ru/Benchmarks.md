@@ -1,10 +1,10 @@
 # Benchmarks
 
-This document describes Klipper benchmarks.
+В этом документе описываются эталонные тесты Klipper.
 
-## Micro-controller Benchmarks
+## Тесты микроконтроллеров
 
-This section describes the mechanism used to generate the Klipper micro-controller step rate benchmarks.
+В этом разделе описывается механизм, используемый для создания тестов скорости шага микроконтроллера Klipper.
 
 The primary goal of the benchmarks is to provide a consistent mechanism for measuring the impact of coding changes within the software. A secondary goal is to provide high-level metrics for comparing the performance between chips and between software platforms.
 
