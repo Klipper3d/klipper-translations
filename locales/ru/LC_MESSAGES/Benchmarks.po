@@ -1,20 +1,30 @@
-#
+# Comocen <Comoc_en@mail.ru>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-06-17 04:19+0000\n"
+"Last-Translator: Comocen <Comoc_en@mail.ru>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"benchmarks/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 msgid "This document describes Klipper benchmarks."
-msgstr ""
+msgstr "В этом документе описываются эталонные тесты Klipper."
 
 msgid "Micro-controller Benchmarks"
-msgstr ""
+msgstr "Тесты микроконтроллеров"
 
 msgid ""
 "This section describes the mechanism used to generate the Klipper micro-"
 "controller step rate benchmarks."
 msgstr ""
+"В этом разделе описывается механизм, используемый для создания тестов "
+"скорости шага микроконтроллера Klipper."
 
 msgid ""
 "The primary goal of the benchmarks is to provide a consistent mechanism for "
