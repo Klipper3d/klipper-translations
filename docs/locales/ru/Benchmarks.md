@@ -6,9 +6,9 @@
 
 В этом разделе описывается механизм, используемый для создания тестов скорости шага микроконтроллера Klipper.
 
-The primary goal of the benchmarks is to provide a consistent mechanism for measuring the impact of coding changes within the software. A secondary goal is to provide high-level metrics for comparing the performance between chips and between software platforms.
+Основная цель оценок состоит в том, чтобы обеспечить последовательный механизм для измерения влияния кодирования изменений в рамках программного обеспечения. Вторая цель — предоставить высокоуровневые показатели для сравнения производительности чипов и программных платформ.
 
-The step rate benchmark is designed to find the maximum stepping rate that the hardware and software can reach. This benchmark stepping rate is not achievable in day-to-day use as Klipper needs to perform other tasks (eg, mcu/host communication, temperature reading, endstop checking) in any real-world usage.
+Эталон скорости шага предназначен для определения максимальной скорости шага, которую может достичь аппаратное и программное обеспечение. Эта эталонная пошаговая скорость недостижима при повседневном использовании, поскольку Klipper необходимо выполнять другие задачи (например, связь между микроконтроллером и хостом, считывание температуры, проверка конечной остановки) при любом реальном использовании.
 
 In general, the pins for the benchmark tests are chosen to flash LEDs or other innocuous pins. **Always verify that it is safe to drive the configured pins prior to running a benchmark.** It is not recommended to drive an actual stepper during a benchmark.
 
