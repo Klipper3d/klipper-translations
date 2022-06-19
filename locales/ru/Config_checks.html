@@ -1226,22 +1226,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verify-extruder-motor" class="md-nav__link">
-    Verify extruder motor
+  <a href="#_6" class="md-nav__link">
+    Проверка двигатель экструдера
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#calibrate-pid-settings" class="md-nav__link">
-    Calibrate PID settings
+  <a href="#pid" class="md-nav__link">
+    Калибровка настроек PID
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    Next steps
+  <a href="#_7" class="md-nav__link">
+    Следующие шаги
   </a>
   
 </li>
@@ -1283,19 +1283,19 @@
 <p>Если конечный упор отображается перевернутым (при срабатывании он сообщает «открыто» и наоборот), добавьте «!» к определению контакта (например, «endstop_pin: ^! ar3») или удалите «!», если он уже присутствует.</p>
 <p>Если концевой упор вообще не меняется, это обычно указывает на то, что концевой упор подключен к другому контакту. Однако может также потребоваться изменение настройки подтягивания вывода (символ «^» в начале имени endstop_pin — в большинстве принтеров используется подтягивающий резистор, и символ «^» должен присутствовать).</p>
 <h2 id="_5">Проверка шаговых двигателей<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor. Start by manually positioning the given axis to a midway point and then run <code>STEPPER_BUZZ STEPPER=stepper_x</code>. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.</p>
-<p>If the stepper does not move at all, then verify the "enable_pin" and "step_pin" settings for the stepper. If the stepper motor moves but does not return to its original position then verify the "dir_pin" setting. If the stepper motor oscillates in an incorrect direction, then it generally indicates that the "dir_pin" for the axis needs to be inverted. This is done by adding a '!' to the "dir_pin" in the printer config file (or removing it if one is already there). If the motor moves significantly more or significantly less than one millimeter then verify the "rotation_distance" setting.</p>
-<p>Run the above test for each stepper motor defined in the config file. (Set the STEPPER parameter of the STEPPER_BUZZ command to the name of the config section that is to be tested.) If there is no filament in the extruder then one can use STEPPER_BUZZ to verify the extruder motor connectivity (use STEPPER=extruder). Otherwise, it's best to test the extruder motor separately (see the next section).</p>
-<p>After verifying all endstops and verifying all stepper motors the homing mechanism should be tested. Issue a G28 command to home all axes. Remove power from the printer if it does not home properly. Rerun the endstop and stepper motor verification steps if necessary.</p>
-<h2 id="verify-extruder-motor">Verify extruder motor<a class="headerlink" href="#verify-extruder-motor" title="Permanent link">&para;</a></h2>
-<p>To test the extruder motor it will be necessary to heat the extruder to a printing temperature. Navigate to the Octoprint temperature tab and select a target temperature from the temperature drop-down box (or manually enter an appropriate temperature). Wait for the printer to reach the desired temperature. Then navigate to the Octoprint control tab and click the "Extrude" button. Verify that the extruder motor turns in the correct direction. If it does not, see the troubleshooting tips in the previous section to confirm the "enable_pin", "step_pin", and "dir_pin" settings for the extruder.</p>
-<h2 id="calibrate-pid-settings">Calibrate PID settings<a class="headerlink" href="#calibrate-pid-settings" title="Permanent link">&para;</a></h2>
+<p>Используйте команду STEPPER_BUZZ для проверки подключения каждого шагового двигателя. Начните с ручного позиционирования данной оси в средней точке, а затем запустите <code>STEPPER_BUZZ STEPPER=stepper_x</code>. Команда STEPPER_BUZZ заставит данный шаговый двигатель переместиться на один миллиметр в положительном направлении, а затем вернется в исходное положение. (Если конечная остановка определена как position_endstop=0, то в начале каждого движения шаговый двигатель будет удаляться от конечной остановки.) Это колебание будет выполняться десять раз.</p>
+<p>Если шаговый двигатель вообще не двигается, проверьте настройки "enable_pin" и "step_pin" для шагового двигателя. Если шаговый двигатель перемещается, но не возвращается в исходное положение, проверьте настройку «dir_pin». Если шаговый двигатель колеблется в неправильном направлении, это обычно указывает на то, что «dir_pin» для оси необходимо инвертировать. Это делается путем добавления '!' в «dir_pin» в файле конфигурации принтера (или удалив его, если он уже есть). Если двигатель перемещается значительно больше или значительно меньше одного миллиметра, проверьте настройку «rotation_distance».</p>
+<p>Запустите приведенный выше тест для каждого шагового двигателя, указанного в файле конфигурации. (Установите параметр STEPPER команды STEPPER_BUZZ на имя проверяемого раздела конфигурации.) Если в экструдере нет нити, можно использовать STEPPER_BUZZ для проверки подключения двигателя экструдера (используйте STEPPER=extruder). В противном случае лучше протестировать двигатель экструдера отдельно (см. следующий раздел).</p>
+<p>После проверки всех концевых упоров и проверки всех шаговых двигателей следует проверить механизм возврата в исходное положение. Введите команду G28 для возврата всех осей в исходное положение. Отключите питание принтера, если он не возвращается в исходное положение должным образом. При необходимости повторите этапы проверки концевого упора и шагового двигателя.</p>
+<h2 id="_6">Проверка двигатель экструдера<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>Для проверки двигателя экструдера необходимо нагреть экструдер до температуры печати. Перейдите на вкладку «Температура Octoprint» и выберите целевую температуру в раскрывающемся списке температур (или введите соответствующую температуру вручную). Подождите, пока принтер не достигнет нужной температуры. Затем перейдите на вкладку управления Octoprint и нажмите кнопку «Выдавливание». Убедитесь, что двигатель экструдера вращается в правильном направлении. Если это не так, см. советы по устранению неполадок в предыдущем разделе, чтобы подтвердить настройки «enable_pin», «step_pin» и «dir_pin» для экструдера.</p>
+<h2 id="pid">Калибровка настроек PID<a class="headerlink" href="#pid" title="Permanent link">&para;</a></h2>
 <p>Klipper supports <a href="https://en.wikipedia.org/wiki/PID_controller">PID control</a> for the extruder and bed heaters. In order to use this control mechanism, it is necessary to calibrate the PID settings on each printer (PID settings found in other firmwares or in the example configuration files often work poorly).</p>
-<p>To calibrate the extruder, navigate to the OctoPrint terminal tab and run the PID_CALIBRATE command. For example: <code>PID_CALIBRATE HEATER=extruder TARGET=170</code></p>
-<p>At the completion of the tuning test run <code>SAVE_CONFIG</code> to update the printer.cfg file the new PID settings.</p>
-<p>If the printer has a heated bed and it supports being driven by PWM (Pulse Width Modulation) then it is recommended to use PID control for the bed. (When the bed heater is controlled using the PID algorithm it may turn on and off ten times a second, which may not be suitable for heaters using a mechanical switch.) A typical bed PID calibration command is: <code>PID_CALIBRATE HEATER=heater_bed TARGET=60</code></p>
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<p>This guide is intended to help with basic verification of pin settings in the Klipper configuration file. Be sure to read the <a href="Bed_Level.html">bed leveling</a> guide. Also see the <a href="Slicers.html">Slicers</a> document for information on configuring a slicer with Klipper.</p>
+<p>Чтобы откалибровать экструдер, перейдите на вкладку терминала OctoPrint и выполните команду PID_CALIBRATE. Например: <code>PID_CALIBRATE HEATER=eextruder TARGET=170</code></p>
+<p>По завершении тестовой настройки запустите <code>SAVE_CONFIG</code>, чтобы обновить файл print.cfg с новыми настройками PID.</p>
+<p>Если в принтере есть стол с подогревом и он поддерживает управление с помощью PWM (широтно-импульсной модуляции), то рекомендуется использовать ПИД-регулятор для стола. (Когда нагреватель стола управляется с помощью алгоритма PID, он может включаться и выключаться десять раз в секунду, что может не подходить для нагревателей с механическим переключателем.) Типичная команда калибровки PID стола: <code>PID_CALIBRATE HEATER=heater_bed TARGET=60</code></p>
+<h2 id="_7">Следующие шаги<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>Это руководство призвано помочь с базовой проверкой настроек контактов в файле конфигурации Klipper. Обязательно прочитайте руководство <a href="Bed_Level.html">bed leveling</a>. Также см. документ <a href="Slicers.html">Slicers</a> для получения информации о настройке слайсера с помощью Klipper.</p>
 <p>After one has verified that basic printing works, it is a good idea to consider calibrating <a href="Pressure_Advance.html">pressure advance</a>.</p>
 <p>It may be necessary to perform other types of detailed printer calibration - a number of guides are available online to help with this (for example, do a web search for "3d printer calibration"). As an example, if you experience the effect called ringing, you may try following <a href="Resonance_Compensation.html">resonance compensation</a> tuning guide.</p>
 
