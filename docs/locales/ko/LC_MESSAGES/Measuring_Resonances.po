@@ -159,23 +159,6 @@ msgid "Software installation"
 msgstr "소프트웨어 설치"
 
 msgid ""
-"Note that resonance measurements and shaper auto-calibration require "
-"additional software dependencies not installed by default. First, you will "
-"have to run on your Raspberry Pi the following command:"
-msgstr ""
-"공진 측정 및 셰이퍼 자동 보정에는 기본적으로 설치가 필요한 소프트웨어가 있습니다. 먼저 Raspberry Pi에서 다음 명령을 실행해야"
-" 합니다:"
-
-msgid ""
-"to install `numpy` package. Note that, depending on the performance of the "
-"CPU, it may take *a lot* of time, up to 10-20 minutes. Be patient and wait "
-"for the completion of the installation. On some occasions, if the board has "
-"too little RAM, the installation may fail and you will need to enable swap."
-msgstr ""
-"`numpy` 패키지를 설치합니다. CPU 성능에 따라 최대 10-20분까지 *많은* 시간이 소요될 수 있습니다. 인내심을 갖고 설치가 "
-"완료될 때까지 기다리십시오. 경우에 따라 보드에 RAM이 너무 적으면 설치에 실패할 수 있으며 스왑을 활성화해야 합니다."
-
-msgid ""
 "Afterwards, check and follow the instructions in the [RPi Microcontroller "
 "document](RPi_microcontroller.md) to setup the \"linux mcu\" on the "
 "Raspberry Pi."
@@ -189,9 +172,6 @@ msgid ""
 msgstr ""
 "`sudo raspi-config` 를 실행하고 \"Interfacing options\" 메뉴에서 SPI를 활성화하여 Linux SPI"
 " 드라이버가 활성화되어 있는지 확인합니다."
-
-msgid "Add the following to the printer.cfg file:"
-msgstr "다음을 printer.cfg 파일에 추가합니다:"
 
 msgid ""
 "It is advised to start with 1 probe point, in the middle of the print bed, "
@@ -930,11 +910,6 @@ msgstr ""
 "~/klipper/scripts/graph_accelerometer.py /tmp/raw_data_x_*.csv -o "
 "/tmp/resonances_x.png -c -a z\n"
 
-#: docs/Measuring_Resonances.md:block 21 (paragraph)
-msgid ""
-"Next, run the following commands to install the additional dependencies:"
-msgstr "그런 다음 동일한 명령을 사용하여 설치 하십시오:"
-
 #: docs/Measuring_Resonances.md:block 80 (header)
 msgid "Testing custom axes"
 msgstr "사용자 정의 축 테스트"
@@ -1010,12 +985,6 @@ msgid ""
 "printer MCU, that it has a voltage regulator and a level shifter."
 msgstr ""
 
-#: docs/Measuring_Resonances.md:block 22 (code)
-msgid ""
-"sudo apt update\n"
-"sudo apt install python3-numpy python3-matplotlib\n"
-msgstr ""
-
 #: docs/Measuring_Resonances.md:block 26 (code)
 msgid ""
 "[mcu rpi]\n"
@@ -1044,6 +1013,119 @@ msgid ""
 "first to start the measurements, and then to stop them and write the output "
 "file. Refer to [G-Codes](G-Codes.md#adxl345) for more details."
 msgstr ""
+
+#: docs/Measuring_Resonances.md:block 8 (paragraph)
+msgid ""
+"An alternative to the ADXL345 is the MPU-9250 (or MPU-6050). This "
+"accelerometer has been tested to work over I2C on the RPi at 400kbaud. "
+"Recommended connection scheme for I2C:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 9 (table)
+msgid "MPU-9250 pin"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 9 (table)
+msgid "09"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 9 (table)
+msgid "03"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 9 (table)
+msgid "GPIO02 (SDA1)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 9 (table)
+msgid "05"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 9 (table)
+msgid "GPIO03 (SCL1)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 20 (paragraph)
+msgid ""
+"Note that resonance measurements and shaper auto-calibration require "
+"additional software dependencies not installed by default. First, run on "
+"your Raspberry Pi the following commands:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 21 (code)
+msgid ""
+"sudo apt update\n"
+"sudo apt install python3-numpy python3-matplotlib libatlas-base-dev\n"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 22 (paragraph)
+msgid ""
+"Next, in order to install NumPy in the Klipper environment, run the command:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 24 (paragraph)
+msgid ""
+"Note that, depending on the performance of the CPU, it may take *a lot* of "
+"time, up to 10-20 minutes. Be patient and wait for the completion of the "
+"installation. On some occasions, if the board has too little RAM the "
+"installation may fail and you will need to enable swap."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 27 (paragraph)
+msgid "For the ADXL345, add the following to the printer.cfg file:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 30 (paragraph)
+msgid ""
+"For the MPU-9250, make sure the Linux I2C driver is enabled and the baud "
+"rate is set to 400000 (see [Enabling I2C](RPi_microcontroller.md#optional-"
+"enabling-i2c) section for more details). Then, add the following to the "
+"printer.cfg:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 31 (code)
+msgid ""
+"[mcu rpi]\n"
+"serial: /tmp/klipper_host_mcu\n"
+"\n"
+"[mpu9250]\n"
+"i2c_mcu: rpi\n"
+"i2c_bus: i2c.1\n"
+"\n"
+"[resonance_tester]\n"
+"accel_chip: mpu9250\n"
+"probe_points:\n"
+"    100, 100, 20  # an example\n"
+msgstr ""
+
+#~ msgid ""
+#~ "Note that resonance measurements and shaper auto-calibration require "
+#~ "additional software dependencies not installed by default. First, you will "
+#~ "have to run on your Raspberry Pi the following command:"
+#~ msgstr ""
+#~ "공진 측정 및 셰이퍼 자동 보정에는 기본적으로 설치가 필요한 소프트웨어가 있습니다. 먼저 Raspberry Pi에서 다음 명령을 실행해야"
+#~ " 합니다:"
+
+#~ msgid ""
+#~ "to install `numpy` package. Note that, depending on the performance of the "
+#~ "CPU, it may take *a lot* of time, up to 10-20 minutes. Be patient and wait "
+#~ "for the completion of the installation. On some occasions, if the board has "
+#~ "too little RAM, the installation may fail and you will need to enable swap."
+#~ msgstr ""
+#~ "`numpy` 패키지를 설치합니다. CPU 성능에 따라 최대 10-20분까지 *많은* 시간이 소요될 수 있습니다. 인내심을 갖고 설치가 "
+#~ "완료될 때까지 기다리십시오. 경우에 따라 보드에 RAM이 너무 적으면 설치에 실패할 수 있으며 스왑을 활성화해야 합니다."
+
+#~ msgid "Add the following to the printer.cfg file:"
+#~ msgstr "다음을 printer.cfg 파일에 추가합니다:"
+
+#~ msgid ""
+#~ "Next, run the following commands to install the additional dependencies:"
+#~ msgstr "그런 다음 동일한 명령을 사용하여 설치 하십시오:"
+
+#~ msgid ""
+#~ "sudo apt update\n"
+#~ "sudo apt install python3-numpy python3-matplotlib\n"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "This will generate 2 CSV files (`/tmp/resonances_x_*.csv` and "

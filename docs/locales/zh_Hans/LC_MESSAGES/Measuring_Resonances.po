@@ -6,8 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2022-06-17 04:19+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"klipper/measuring_resonances/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/measuring_resonances/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -157,20 +156,6 @@ msgid "Software installation"
 msgstr "软件设置"
 
 msgid ""
-"Note that resonance measurements and shaper auto-calibration require "
-"additional software dependencies not installed by default. First, you will "
-"have to run on your Raspberry Pi the following command:"
-msgstr "共振测量和自动整形校正需要额外的依赖项，这些依赖在Klipper安装时未作部署，因此，需要在树莓派上运行下面的命令："
-
-msgid ""
-"to install `numpy` package. Note that, depending on the performance of the "
-"CPU, it may take *a lot* of time, up to 10-20 minutes. Be patient and wait "
-"for the completion of the installation. On some occasions, if the board has "
-"too little RAM, the installation may fail and you will need to enable swap."
-msgstr ""
-"安装`numpy`包。numpy需要在安装时进行编译。编译时间据主机的CPU算力而异，需要*耗费大量时间*，最大可至半小时（PiZero），请耐心等待编译安装完成。少部分情况下，主机的RAM不足会导致安装失败，需要开启swap功能以实现安装。"
-
-msgid ""
 "Afterwards, check and follow the instructions in the [RPi Microcontroller "
 "document](RPi_microcontroller.md) to setup the \"linux mcu\" on the "
 "Raspberry Pi."
@@ -182,9 +167,6 @@ msgid ""
 msgstr ""
 "通过运行`sudo raspi-config` 后的 \"Interfacing options\"菜单中启用 SPI 以确保Linux SPI "
 "驱动已启用。"
-
-msgid "Add the following to the printer.cfg file:"
-msgstr "在printer.cfg中添加以下内容："
 
 msgid ""
 "It is advised to start with 1 probe point, in the middle of the print bed, "
@@ -317,15 +299,12 @@ msgid ""
 "board), or to two different physical SPI interfaces on the same board "
 "(rarely available). Then they can be configured in the following manner:"
 msgstr ""
-"也可以同时连接两个加速度计，尽管它们必须连接到不同的主板（例如，连接到树莓派"
-"和MCU），或者连接到同一板上两个不同的物理SPI接口（大多数情况下不可用）。然后"
-"可以按以下方式配置它们："
+"也可以同时连接两个加速度计，尽管它们必须连接到不同的主板（例如，连接到树莓派和MCU），或者连接到同一板上两个不同的物理SPI接口（大多数情况下不可用）。然后可以按以下方式配置它们："
 
 msgid ""
 "Then the commands `TEST_RESONANCES AXIS=X` and `TEST_RESONANCES AXIS=Y` will"
 " use the correct accelerometer for each axis."
-msgstr "然后，命令`TEST_RESONANCES AXIS=X`和`TEST_RESONANCES "
-"AXIS=Y`会使用每个轴相应的加速度计。"
+msgstr "然后，命令`TEST_RESONANCES AXIS=X`和`TEST_RESONANCES AXIS=Y`会使用每个轴相应的加速度计。"
 
 msgid "Max smoothing"
 msgstr "最大平滑度"
@@ -340,11 +319,7 @@ msgid ""
 "larger remaining vibrations. In these cases, you can request to limit the "
 "maximum smoothing from the input shaper."
 msgstr ""
-"请注意，输入整形器会在使一些打印的路径被平滑。由执行`calibrate_shaper.py`脚本"
-"或`SHAPER_CALIBRATE`命令自动得出的输入整形器会尽量不加剧平滑的同时试图最小化"
-"产生的振动。脚本可能会得出不是最优的整形器的频率，或者你可能希望以更强的剩余"
-"振动为代价来减少平滑度。在这些情况下，可以要求脚本限制输入整形器的最大平滑度"
-"。"
+"请注意，输入整形器会在使一些打印的路径被平滑。由执行`calibrate_shaper.py`脚本或`SHAPER_CALIBRATE`命令自动得出的输入整形器会尽量不加剧平滑的同时试图最小化产生的振动。脚本可能会得出不是最优的整形器的频率，或者你可能希望以更强的剩余振动为代价来减少平滑度。在这些情况下，可以要求脚本限制输入整形器的最大平滑度。"
 
 msgid "Let's consider the following results from the automatic tuning:"
 msgstr "参考以下自动调谐结果："
@@ -361,18 +336,16 @@ msgid ""
 "`square_corner_velocity` parameters. Therefore, you should print some test "
 "prints to see how much smoothing exactly a chosen configuration creates."
 msgstr ""
-"请注意，报告的 `smoothing `（平滑）值是抽象的预测值。这些值可用于比较不同的配"
-"置：值越高，整形器造成的平滑度就越高。但是，这些平滑值并不表示任何实际的平滑"
-"度的量，因为实际的平滑取决于[`max_accel`](#selecting-max-accel)和`square_corn"
-"er_velocity`参数。因此，如果希望了解所选配置造成的实际平滑效果，需要打印一些"
-"测试件。"
+"请注意，报告的 `smoothing "
+"`（平滑）值是抽象的预测值。这些值可用于比较不同的配置：值越高，整形器造成的平滑度就越高。但是，这些平滑值并不表示任何实际的平滑度的量，因为实际的平滑取决于[`max_accel`](#selecting-"
+"max-accel)和`square_corner_velocity`参数。因此，如果希望了解所选配置造成的实际平滑效果，需要打印一些测试件。"
 
 msgid ""
 "In the example above the suggested shaper parameters are not bad, but what "
 "if you want to get less smoothing on the X axis? You can try to limit the "
 "maximum shaper smoothing using the following command:"
-msgstr "在上面的示例中，脚本给出了不错的整形器参数建议，但是如果想在 X "
-"轴上减少平滑度，就需要尝试使用以下命令限制脚本挑选参数时的整形器平滑值极限："
+msgstr ""
+"在上面的示例中，脚本给出了不错的整形器参数建议，但是如果想在 X 轴上减少平滑度，就需要尝试使用以下命令限制脚本挑选参数时的整形器平滑值极限："
 
 msgid ""
 "which limits the smoothing to 0.2 score. Now you can get the following "
@@ -386,8 +359,7 @@ msgid ""
 "If you compare to the previously suggested parameters, the vibrations are a "
 "bit larger, but the smoothing is significantly smaller than previously, "
 "allowing larger maximum acceleration."
-msgstr "新的参数与之前的建议比，振动要大一些，但平滑度明显比之前小，允许打印时更高的"
-"极限加速度。"
+msgstr "新的参数与之前的建议比，振动要大一些，但平滑度明显比之前小，允许打印时更高的极限加速度。"
 
 msgid ""
 "When deciding which `max_smoothing` parameter to choose, you can use a "
@@ -771,11 +743,6 @@ msgid ""
 "/tmp/resonances_x.png -c -a z\n"
 msgstr ""
 
-#: docs/Measuring_Resonances.md:block 21 (paragraph)
-msgid ""
-"Next, run the following commands to install the additional dependencies:"
-msgstr ""
-
 #: docs/Measuring_Resonances.md:block 80 (header)
 msgid "Testing custom axes"
 msgstr ""
@@ -844,12 +811,6 @@ msgid ""
 "printer MCU, that it has a voltage regulator and a level shifter."
 msgstr ""
 
-#: docs/Measuring_Resonances.md:block 22 (code)
-msgid ""
-"sudo apt update\n"
-"sudo apt install python3-numpy python3-matplotlib\n"
-msgstr ""
-
 #: docs/Measuring_Resonances.md:block 26 (code)
 msgid ""
 "[mcu rpi]\n"
@@ -878,6 +839,116 @@ msgid ""
 "first to start the measurements, and then to stop them and write the output "
 "file. Refer to [G-Codes](G-Codes.md#adxl345) for more details."
 msgstr ""
+
+#: docs/Measuring_Resonances.md:block 8 (paragraph)
+msgid ""
+"An alternative to the ADXL345 is the MPU-9250 (or MPU-6050). This "
+"accelerometer has been tested to work over I2C on the RPi at 400kbaud. "
+"Recommended connection scheme for I2C:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 9 (table)
+msgid "MPU-9250 pin"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 9 (table)
+msgid "09"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 9 (table)
+msgid "03"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 9 (table)
+msgid "GPIO02 (SDA1)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 9 (table)
+msgid "05"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 9 (table)
+msgid "GPIO03 (SCL1)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 20 (paragraph)
+msgid ""
+"Note that resonance measurements and shaper auto-calibration require "
+"additional software dependencies not installed by default. First, run on "
+"your Raspberry Pi the following commands:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 21 (code)
+msgid ""
+"sudo apt update\n"
+"sudo apt install python3-numpy python3-matplotlib libatlas-base-dev\n"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 22 (paragraph)
+msgid ""
+"Next, in order to install NumPy in the Klipper environment, run the command:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 24 (paragraph)
+msgid ""
+"Note that, depending on the performance of the CPU, it may take *a lot* of "
+"time, up to 10-20 minutes. Be patient and wait for the completion of the "
+"installation. On some occasions, if the board has too little RAM the "
+"installation may fail and you will need to enable swap."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 27 (paragraph)
+msgid "For the ADXL345, add the following to the printer.cfg file:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 30 (paragraph)
+msgid ""
+"For the MPU-9250, make sure the Linux I2C driver is enabled and the baud "
+"rate is set to 400000 (see [Enabling I2C](RPi_microcontroller.md#optional-"
+"enabling-i2c) section for more details). Then, add the following to the "
+"printer.cfg:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 31 (code)
+msgid ""
+"[mcu rpi]\n"
+"serial: /tmp/klipper_host_mcu\n"
+"\n"
+"[mpu9250]\n"
+"i2c_mcu: rpi\n"
+"i2c_bus: i2c.1\n"
+"\n"
+"[resonance_tester]\n"
+"accel_chip: mpu9250\n"
+"probe_points:\n"
+"    100, 100, 20  # an example\n"
+msgstr ""
+
+#~ msgid ""
+#~ "Note that resonance measurements and shaper auto-calibration require "
+#~ "additional software dependencies not installed by default. First, you will "
+#~ "have to run on your Raspberry Pi the following command:"
+#~ msgstr "共振测量和自动整形校正需要额外的依赖项，这些依赖在Klipper安装时未作部署，因此，需要在树莓派上运行下面的命令："
+
+#~ msgid ""
+#~ "to install `numpy` package. Note that, depending on the performance of the "
+#~ "CPU, it may take *a lot* of time, up to 10-20 minutes. Be patient and wait "
+#~ "for the completion of the installation. On some occasions, if the board has "
+#~ "too little RAM, the installation may fail and you will need to enable swap."
+#~ msgstr ""
+#~ "安装`numpy`包。numpy需要在安装时进行编译。编译时间据主机的CPU算力而异，需要*耗费大量时间*，最大可至半小时（PiZero），请耐心等待编译安装完成。少部分情况下，主机的RAM不足会导致安装失败，需要开启swap功能以实现安装。"
+
+#~ msgid "Add the following to the printer.cfg file:"
+#~ msgstr "在printer.cfg中添加以下内容："
+
+#~ msgid ""
+#~ "Next, run the following commands to install the additional dependencies:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "sudo apt update\n"
+#~ "sudo apt install python3-numpy python3-matplotlib\n"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "This will generate 2 CSV files (`/tmp/resonances_x_*.csv` and "

@@ -777,6 +777,70 @@ msgid ""
 "`printer[\"neopixel <config_name>\"].color_data[1][2]`."
 msgstr ""
 
+#: docs/Status_Reference.md:block 12 (unordered list)
+msgid ""
+"`save_config_pending_items`: Contains the sections and options that were "
+"changed and would be persisted by a `SAVE_CONFIG`."
+msgstr ""
+
+#: docs/Status_Reference.md:block 19 (header)
+msgid "exclude_object"
+msgstr ""
+
+#: docs/Status_Reference.md:block 20 (paragraph)
+msgid ""
+"The following information is available in the "
+"[exclude_object](Exclude_Object.md) object:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 21 (unordered list)
+msgid ""
+"`objects`: An array of the known objects as provided by the "
+"`EXCLUDE_OBJECT_DEFINE` command. This is the same information provided by "
+"the `EXCLUDE_OBJECT VERBOSE=1` command. The `center` and `polygon` fields "
+"will only be present if provided in the original `EXCLUDE_OBJECT_DEFINE`"
+msgstr ""
+
+#: docs/Status_Reference.md:block 21 (unordered list)
+msgid "Here is a JSON sample:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 22 (code)
+msgid ""
+"[\n"
+"  {\n"
+"    \"polygon\": [\n"
+"      [ 156.25, 146.2511675 ],\n"
+"      [ 156.25, 153.7488325 ],\n"
+"      [ 163.75, 153.7488325 ],\n"
+"      [ 163.75, 146.2511675 ]\n"
+"    ],\n"
+"    \"name\": \"CYLINDER_2_STL_ID_2_COPY_0\",\n"
+"    \"center\": [ 160, 150 ]\n"
+"  },\n"
+"  {\n"
+"    \"polygon\": [\n"
+"      [ 146.25, 146.2511675 ],\n"
+"      [ 146.25, 153.7488325 ],\n"
+"      [ 153.75, 153.7488325 ],\n"
+"      [ 153.75, 146.2511675 ]\n"
+"    ],\n"
+"    \"name\": \"CYLINDER_2_STL_ID_1_COPY_0\",\n"
+"    \"center\": [ 150, 150 ]\n"
+"  }\n"
+"]\n"
+msgstr ""
+
+#: docs/Status_Reference.md:block 23 (unordered list)
+msgid ""
+"`excluded_objects`: An array of strings listing the names of excluded "
+"objects."
+msgstr ""
+
+#: docs/Status_Reference.md:block 23 (unordered list)
+msgid "`current_object`: The name of the object currently being printed."
+msgstr ""
+
 #~ msgid "neopixel / dotstar"
 #~ msgstr ""
 

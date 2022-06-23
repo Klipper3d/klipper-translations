@@ -218,6 +218,12 @@ msgstr ""
 msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
 msgstr ""
 
+#: docs/Overview.md:block 6 (unordered list)
+msgid ""
+"[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
+"implementation."
+msgstr ""
+
 #~ msgid ""
 #~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
 #~ "square."
