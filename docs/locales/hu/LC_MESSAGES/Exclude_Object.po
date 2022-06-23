@@ -1,10 +1,20 @@
-#
+# Zs.Antal <zsikaiantal@gmail.com>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-06-23 20:21+0000\n"
+"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"exclude_object/hu/>\n"
+"Language: hu\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 #: docs/Exclude_Object.md:block 1 (header)
 msgid "Exclude Objects"
-msgstr ""
+msgstr "Objektumok kizárása"
 
 #: docs/Exclude_Object.md:block 2 (paragraph)
 msgid ""
@@ -15,6 +25,12 @@ msgid ""
 "macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware "
 "compatible M486 G-Code macro.)"
 msgstr ""
+"Az `[exclude_object]` modul lehetővé teszi, hogy a Klipper kizárja az "
+"objektumokat a nyomtatás közben. Ennek a funkciónak az engedélyezéséhez "
+"adjon egy [exclude_object konfigurációs szakaszt](Config_Reference."
+"md#exclude_object) (lásd még a [parancs hivatkozást](G-Codes.md#exclude-"
+"object) és [sample-macros.cfg](../config/sample-macros.cfg) fájlt egy Marlin/"
+"RepRapFirmware kompatibilis M486 G-kód makróhoz.)"
 
 #: docs/Exclude_Object.md:block 3 (paragraph)
 msgid ""
@@ -25,14 +41,21 @@ msgid ""
 "contract covers the contents of the gcode file, how the internal state of "
 "the module is controlled, and how that state is provided to clients."
 msgstr ""
+"Más 3D nyomtatók firmware opcióitól eltérően a Klippert futtató nyomtató "
+"komponenscsomagot használ, és a felhasználók számos lehetőség közül "
+"választhatnak. Ezért az egységes felhasználói élmény biztosítása érdekében "
+"az `[exclude_object]` modul egyfajta szerződést vagy API-t hoz létre. A "
+"szerződés tartalmazza a gcode fájl tartalmát, a modul belső állapotának "
+"vezérlését, és azt, hogy ez az állapot hogyan kerül a kliensek rendelkezésre "
+"bocsátásra."
 
 #: docs/Exclude_Object.md:block 4 (header)
 msgid "Workflow Overview"
-msgstr ""
+msgstr "Munkafolyamat áttekintése"
 
 #: docs/Exclude_Object.md:block 5 (paragraph)
 msgid "A typical workflow for printing a file might look like this:"
-msgstr ""
+msgstr "Egy tipikus munkafolyamat egy fájl nyomtatásához így nézhet ki:"
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
@@ -41,18 +64,27 @@ msgid ""
 "the file. Alternately, slicers may be configured to prepare object exclusion"
 " markers natively, or in it's own pre-processing step."
 msgstr ""
+"A szeletelés befejeződik, és a fájl feltöltésre kerül nyomtatásra. A "
+"feltöltés során a fájl feldolgozása megtörténik, és `[exclude_object]` "
+"jelölések kerülnek a fájlhoz. A szeletelőket úgy is be lehet állítani, hogy "
+"az objektumkizáró jelöléseket natívan vagy saját előfeldolgozási lépésben "
+"készítsék el."
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "When printing starts, Klipper will reset the `[exclude_object]` "
 "[status](Status_Reference.md#exclude_object)."
 msgstr ""
+"A nyomtatás megkezdésekor a Klipper visszaállítja az `[exclude_object]` "
+"[státuszt](Status_Reference.md#exclude_object)."
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "When Klipper processes the `EXCLUDE_OBJECT_DEFINE` block, it will update the"
 " status with the known objects and pass it on to clients."
 msgstr ""
+"Amikor a Klipper feldolgozza az `EXCLUDE_OBJECT_DEFINE` blokkot, frissíti a "
+"státuszt az ismert objektumokkal, és továbbítja azt az ügyfeleknek."
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
@@ -60,34 +92,48 @@ msgid ""
 "progress can be tracked. Klipper will update the status to include the "
 "currently printing object which the client can use for display purposes."
 msgstr ""
+"Az ügyfél felhasználhatja ezeket az információkat arra, hogy egy "
+"felhasználói felületet jelenítsen meg a felhasználónak, hogy nyomon "
+"követhesse az előrehaladást. A Klipper frissíti az állapotot, hogy "
+"tartalmazza az aktuálisan nyomtatott objektumot, amelyet az ügyfél "
+"megjelenítési célokra használhat."
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "If the user requests that an object be cancelled, the client will issue an "
 "`EXCLUDE_OBJECT NAME=<name>` command to Klipper."
 msgstr ""
+"Ha a felhasználó egy objektum törlését kéri, a kliens egy `EXCLUDE_OBJECT "
+"NAME=<name>` parancsot ad a Klippernek."
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "When Klipper process the command, it will add the object to the list of "
 "excluded objects and update the status for the client."
 msgstr ""
+"Amikor a Klipper feldolgozza a parancsot, hozzáadja az objektumot a kizárt "
+"objektumok listájához, és frissíti állapotát az ügyfél felé."
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "The client will receive the updated status from Klipper and can use that "
 "information to reflect the object's status in the UI."
 msgstr ""
+"Az ügyfél megkapja a Klipper frissített állapotát, és ezt az információt "
+"felhasználhatja az objektum állapotának megjelenítéséhez a felhasználói "
+"felületen."
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "When printing finishes, the `[exclude_object]` status will continue to be "
 "available until another action resets it."
 msgstr ""
+"A nyomtatás befejezésekor az `[exclude_object]` állapot továbbra is elérhető "
+"marad, amíg egy másik művelet vissza nem állítja."
 
 #: docs/Exclude_Object.md:block 7 (header)
 msgid "The GCode File"
-msgstr ""
+msgstr "A GCode fájl"
 
 #: docs/Exclude_Object.md:block 8 (paragraph)
 msgid ""
@@ -100,10 +146,19 @@ msgid ""
 "python library, see [cancelobject-"
 "preprocessor](https://github.com/kageurufu/cancelobject-preprocessor)."
 msgstr ""
+"Az objektumok kizárásához szükséges speciális G-kód feldolgozás nem "
+"illeszkedik a Klipper alapvető tervezési céljaihoz. Ezért ez a modul "
+"megköveteli a fájl feldolgozását, mielőtt a Klippernek nyomtatásra elküldi. "
+"A fájl Klipper számára történő előkészítésére két lehetőség egy "
+"utófeldolgozó szkript használata a szeletelőben, vagy a fájl feltöltéskor "
+"történő feldolgozása a middleware segítségével. Egy referencia utófeldolgozó "
+"szkript elérhető futtatható és python könyvtárként is, lásd [az objektum "
+"előfeldolgozó törlése](https://github.com/kageurufu/cancelobject-"
+"preprocessor)."
 
 #: docs/Exclude_Object.md:block 9 (header)
 msgid "Object Definitions"
-msgstr ""
+msgstr "Objektum meghatározások"
 
 #: docs/Exclude_Object.md:block 10 (paragraph)
 msgid ""
@@ -113,6 +168,12 @@ msgid ""
 "other commands. The primary purpose of this command is to provide "
 "information to the UI without needing to parse the entire gcode file."
 msgstr ""
+"Az `EXCLUDE_OBJECT_DEFINE` parancsot arra használjuk, hogy a G-kód fájlban "
+"lévő minden egyes objektumról összefoglalót adjunk a nyomtatáshoz. A fájlban "
+"lévő objektumok összefoglalóját adja meg. Az objektumokat nem kell "
+"definiálni ahhoz, hogy más parancsok hivatkozhassanak rájuk. Ennek a "
+"parancsnak az elsődleges célja, hogy információt szolgáltasson a "
+"felhasználói felületnek anélkül, hogy a teljes G-kód fájlt elemeznie kellene."
 
 #: docs/Exclude_Object.md:block 11 (paragraph)
 msgid ""
@@ -128,46 +189,66 @@ msgid ""
 "Additional parameters will be saved as strings in the object definition and "
 "provided in status updates."
 msgstr ""
+"Az objektumdefiníciókat elnevezik, hogy a felhasználók könnyen "
+"kiválaszthassák a kizárandó objektumot, és további metaadatokat is "
+"megadhatnak a grafikus törlésmegjelenítéshez. A jelenleg definiált "
+"metaadatok közé tartozik egy `CENTER` X,Y koordináta, valamint egy `POLYGON` "
+"X,Y pontok listája, amely az objektum minimális körvonalát ábrázolja. Ez "
+"lehet egy egyszerű határoló doboz, vagy egy bonyolult burkolat a nyomtatott "
+"objektumok részletesebb megjelenítéséhez. Különösen akkor, ha a G-kód fájlok "
+"több, egymást átfedő határoló régiókkal rendelkező alkatrészt tartalmaznak, "
+"a középpontok vizuálisan nehezen megkülönböztethetők. `POLYGONS` pontokból "
+"álló json-kompatibilis tömbnek kell lennie `[X,Y]` szóközök nélkül. A "
+"további paraméterek karakterláncokként kerülnek elmentésre az "
+"objektumdefinícióban, és állapotfrissítésekben lesznek megadva."
 
 #: docs/Exclude_Object.md:block 12 (paragraph)
 msgid ""
 "`EXCLUDE_OBJECT_DEFINE NAME=calibration_pyramid CENTER=50,50 "
 "POLYGON=[[40,40],[50,60],[60,40]]`"
 msgstr ""
+"`EXCLUDE_OBJECT_DEFINE NAME=calibration_pyramid CENTER=50,50 "
+"POLYGON=[[40,40],[50,60],[60,40]]`"
 
 #: docs/Exclude_Object.md:block 13 (paragraph)
 msgid ""
 "All available G-Code commands are documented in the [G-Code "
 "Reference](./G-Codes.md#excludeobject)"
 msgstr ""
+"Az összes elérhető G-kód parancsot dokumentálja a [G-kód "
+"referencia](./G-Codes.md#excludeobject)"
 
 #: docs/Exclude_Object.md:block 14 (header)
 msgid "Status Information"
-msgstr ""
+msgstr "Állapotinformáció"
 
 #: docs/Exclude_Object.md:block 15 (paragraph)
 msgid ""
 "The state of this module is provided to clients by the [exclude_object "
 "status](Status_Reference.md#exclude_object)."
 msgstr ""
+"A modul állapotát az [exclude_object státusz](Status_Reference."
+"md#exclude_object) biztosítja az ügyfelek számára."
 
 #: docs/Exclude_Object.md:block 16 (paragraph)
 msgid "The status is reset when:"
-msgstr ""
+msgstr "Az állapot visszaáll, amikor:"
 
 #: docs/Exclude_Object.md:block 17 (unordered list)
 msgid "The Klipper firmware is restarted."
-msgstr ""
+msgstr "A Klipper firmware újraindul."
 
 #: docs/Exclude_Object.md:block 17 (unordered list)
 msgid ""
 "There is a reset of the `[virtual_sdcard]`. Notably, this is reset by "
 "Klipper at the start of a print."
 msgstr ""
+"A `[virtual_sdcard]` visszaállítása megtörtént. Figyelemre méltó, hogy ezt a "
+"Klipper a nyomtatás kezdetén visszaállítja."
 
 #: docs/Exclude_Object.md:block 17 (unordered list)
 msgid "When an `EXCLUDE_OBJECT_DEFINE RESET=1` command is issued."
-msgstr ""
+msgstr "Amikor egy `EXCLUDE_OBJECT_DEFINE RESET=1` parancsot adunk ki."
 
 #: docs/Exclude_Object.md:block 18 (paragraph)
 msgid ""
@@ -177,6 +258,11 @@ msgid ""
 "provide clients with object names and coordinates so the UI can provide a "
 "graphical representation of the objects if desired."
 msgstr ""
+"A meghatározott objektumok listája az `exclude_object.objects` "
+"állapotmezőben jelenik meg. Egy jól definiált G-kód fájlban ez a fájl elején "
+"található `EXCLUDE_OBJECT_DEFINE` parancsokkal történik. Ez biztosítja a "
+"kliensek számára az objektumok nevét és koordinátáit, így a felhasználói "
+"felület kívánság szerint grafikusan is megjelenítheti az objektumokat."
 
 #: docs/Exclude_Object.md:block 19 (paragraph)
 msgid ""
@@ -187,6 +273,13 @@ msgid ""
 "`EXCLUDE_OBJECT_START` will be added to the known objects to assist in UI "
 "hinting, without any additional metadata."
 msgstr ""
+"A nyomtatás előrehaladtával az `exclude_object.current_object` állapotmező "
+"frissül, ahogy a Klipper feldolgozza az `EXCLUDE_OBJECT_START` és "
+"`EXCLUDE_OBJECT_END` parancsokat. A `current_object` mező akkor is be lesz "
+"állítva, ha az objektumot kizárták. Az `EXCLUDE_OBJECT_START` mezővel jelölt "
+"nem definiált objektumok hozzá lesznek adva az ismert objektumokhoz, hogy "
+"segítsék a felhasználói felületre való utalásukat, minden további metaadat "
+"nélkül."
 
 #: docs/Exclude_Object.md:block 20 (paragraph)
 msgid ""
@@ -195,3 +288,7 @@ msgid ""
 " ahead to process upcoming gcode, there may be a delay between when the "
 "command is issued and when the status is updated."
 msgstr ""
+"Az `EXCLUDE_OBJECT` parancsok kiadásakor a kizárt objektumok listáját az "
+"`exclude_object.excluded_objects` tömb tartalmazza. Mivel a Klipper előre "
+"tekint, hogy feldolgozza a közelgő G-kódot, a parancs kiadása és az állapot "
+"frissítése között késés lehet."
