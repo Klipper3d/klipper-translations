@@ -225,6 +225,12 @@ msgstr "[Beaglebone](Beaglebone.md)：在 Beaglebone PRU 上執行 Klipper 的�
 msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
 msgstr "[霍爾列印絲寬度感測器](Hall_Filament_Width_Sensor.md)"
 
+#: docs/Overview.md:block 6 (unordered list)
+msgid ""
+"[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
+"implementation."
+msgstr ""
+
 #~ msgid ""
 #~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
 #~ "square."
