@@ -75,6 +75,10 @@ choice
         select MACH_STM32H7
 endchoice
 
+config MACH_STM32F103x6
+    depends on LOW_LEVEL_OPTIONS && MACH_STM32F103
+    bool "Only 10KiB of RAM (for rare stm32f103x6 variant)"
+
 config MACH_STM32F0
     bool
 config MACH_STM32F1
@@ -93,13 +97,17 @@ config MACH_STM32F4x5 # F405, F407, F429 series
     bool
 config HAVE_STM32_USBFS
     bool
-    default y if MACH_STM32F103 || MACH_STM32F0x2 || MACH_STM32F070 || MACH_STM32G0
+    default y if MACH_STM32F0x2 || MACH_STM32G0
+    default y if (MACH_STM32F103 || MACH_STM32F070) && !STM32_CLOCK_REF_INTERNAL
 config HAVE_STM32_USBOTG
     bool
     default y if MACH_STM32F2 || MACH_STM32F4 || MACH_STM32H7
 config HAVE_STM32_CANBUS
     bool
     default y if MACH_STM32F1 || MACH_STM32F2 || MACH_STM32F4x5 || MACH_STM32F446 || MACH_STM32F0x2
+config HAVE_STM32_FDCANBUS
+    bool
+    default y if MACH_STM32G0
 
 config MCU
     string
@@ -152,7 +160,8 @@ config RAM_SIZE
     default 0x1000 if MACH_STM32F031
     default 0x1800 if MACH_STM32F042
     default 0x4000 if MACH_STM32F070 || MACH_STM32F072
-    default 0x5000 if MACH_STM32F103 # Ram size of stm32f103x8 (20KiB)
+    default 0x2800 if MACH_STM32F103x6
+    default 0x5000 if MACH_STM32F103 && !MACH_STM32F103x6 # Ram size of stm32f103x8
     default 0x20000 if MACH_STM32F207
     default 0x10000 if MACH_STM32F401
     default 0x20000 if MACH_STM32F4x5 || MACH_STM32F446
@@ -200,6 +209,8 @@ choice
 
     config STM32_FLASH_START_800
         bool "2KiB bootloader (HID Bootloader)" if MACH_STM32F103
+    config STM32_FLASH_START_1000
+        bool "4KiB bootloader" if MACH_STM32F1 || MACH_STM32F0
     config STM32_FLASH_START_4000
         bool "16KiB bootloader (HID Bootloader)" if MACH_STM32F207 || MACH_STM32F401 || MACH_STM32F4x5 || MACH_STM32F103 || MACH_STM32F072
     config STM32_FLASH_START_20000
@@ -211,6 +222,7 @@ endchoice
 config FLASH_START
     hex
     default 0x8000800 if STM32_FLASH_START_800
+    default 0x8001000 if STM32_FLASH_START_1000
     default 0x8002000 if STM32_FLASH_START_2000
     default 0x8004000 if STM32_FLASH_START_4000
     default 0x8005000 if STM32_FLASH_START_5000
@@ -268,12 +280,6 @@ config STM32F0_TRIM
 # Communication inteface
 ######################################################################
 
-config USBSERIAL
-    bool
-config SERIAL
-    bool
-config CANSERIAL
-    bool
 choice
     prompt "Communication interface"
     config STM32_USB_PA11_PA12
@@ -315,7 +321,7 @@ choice
         select SERIAL
     config STM32_CANBUS_PA11_PA12
         bool "CAN bus (on PA11/PA12)"
-        depends on HAVE_STM32_CANBUS
+        depends on HAVE_STM32_CANBUS || HAVE_STM32_FDCANBUS
         select CANSERIAL
     config STM32_CANBUS_PA11_PA12_REMAP
         bool "CAN bus (on PA9/PA10)" if LOW_LEVEL_OPTIONS
@@ -323,7 +329,7 @@ choice
         select CANSERIAL
     config STM32_CANBUS_PB8_PB9
         bool "CAN bus (on PB8/PB9)" if LOW_LEVEL_OPTIONS
-        depends on HAVE_STM32_CANBUS
+        depends on HAVE_STM32_CANBUS || HAVE_STM32_FDCANBUS
         select CANSERIAL
     config STM32_CANBUS_PI9_PH13
         bool "CAN bus (on PI9/PH13)" if LOW_LEVEL_OPTIONS
@@ -341,10 +347,10 @@ choice
         bool "CAN bus (on PD0/PD1)" if LOW_LEVEL_OPTIONS
         depends on HAVE_STM32_CANBUS
         select CANSERIAL
+    config STM32_CANBUS_PB0_PB1
+        bool "CAN bus (on PB0/PB1)"
+        depends on HAVE_STM32_FDCANBUS
+        select CANSERIAL
 endchoice
-
-config CANBUS_FREQUENCY
-    int "CAN bus speed" if LOW_LEVEL_OPTIONS && CANSERIAL
-    default 500000
 
 endif
