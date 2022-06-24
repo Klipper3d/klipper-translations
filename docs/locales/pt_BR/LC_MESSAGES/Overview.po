@@ -1,5 +1,5 @@
 # William Weber Berrutti <wwberrutti@protonmail.ch>, 2021, 2025.
-# Savio Fialho <saviofialhoan@gmail.com>, 2022.
+# Savio Fialho <saviofialhoan@gmail.com>, 2022, 2025.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # Wagner Reck <wagner.reck@gmail.com>, 2022, 2025.
 # Francisco Lima <limamg@gmail.com>, 2022, 2025.
@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:28+0000\n"
-"Last-Translator: William Weber Berrutti <wwberrutti@protonmail.ch>\n"
+"Last-Translator: Savio Fialho <saviofialhoan@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/overview/pt_BR/>\n"
 "Language: pt_BR\n"
