@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-04-21 19:08+0000\n"
+"PO-Revision-Date: 2022-06-23 20:21+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/measuring_resonances/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"measuring_resonances/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "Rezonanciák mérése"
@@ -1175,30 +1176,33 @@ msgid ""
 "accelerometer has been tested to work over I2C on the RPi at 400kbaud. "
 "Recommended connection scheme for I2C:"
 msgstr ""
+"Az ADXL345 alternatívája az MPU-9250 (vagy MPU-6050). Ezt a gyorsulásmérőt "
+"úgy tesztelték, hogy az RPi-n 400kbaud-on keresztül I2C-n keresztül működik. "
+"Ajánlott csatlakozási séma az I2C-hez:"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "MPU-9250 pin"
-msgstr ""
+msgstr "MPU-9250 tű"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "09"
-msgstr ""
+msgstr "09"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "03"
-msgstr ""
+msgstr "03"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "GPIO02 (SDA1)"
-msgstr ""
+msgstr "GPIO02 (SDA1)"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "05"
-msgstr ""
+msgstr "05"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "GPIO03 (SCL1)"
-msgstr ""
+msgstr "GPIO03 (SCL1)"
 
 #: docs/Measuring_Resonances.md:block 20 (paragraph)
 msgid ""
@@ -1206,17 +1210,24 @@ msgid ""
 "additional software dependencies not installed by default. First, run on "
 "your Raspberry Pi the following commands:"
 msgstr ""
+"Vegye figyelembe, hogy a rezonanciamérések és a shaper automatikus "
+"kalibrálása további, alapértelmezés szerint nem telepített "
+"szoftverfüggőségeket igényel. Először futtassa a Raspberry Pi számítógépén a "
+"következő parancsokat:"
 
 #: docs/Measuring_Resonances.md:block 21 (code)
 msgid ""
 "sudo apt update\n"
 "sudo apt install python3-numpy python3-matplotlib libatlas-base-dev\n"
 msgstr ""
+"sudo apt update\n"
+"sudo apt install python3-numpy python3-matplotlib libatlas-base-dev\n"
 
 #: docs/Measuring_Resonances.md:block 22 (paragraph)
 msgid ""
 "Next, in order to install NumPy in the Klipper environment, run the command:"
 msgstr ""
+"Ezután a NumPy telepítéséhez a Klipper környezetbe futtassuk a parancsot:"
 
 #: docs/Measuring_Resonances.md:block 24 (paragraph)
 msgid ""
@@ -1225,10 +1236,14 @@ msgid ""
 "installation. On some occasions, if the board has too little RAM the "
 "installation may fail and you will need to enable swap."
 msgstr ""
+"Vegye figyelembe, hogy a CPU teljesítményétől függően ez *sok* időt vehet "
+"igénybe, akár 10-20 percet is. Legyen türelmes, és várja meg a telepítés "
+"befejezését. Bizonyos esetekben, ha a kártyán túl kevés RAM van, a telepítés "
+"meghiúsulhat, és engedélyeznie kell a swapot."
 
 #: docs/Measuring_Resonances.md:block 27 (paragraph)
 msgid "For the ADXL345, add the following to the printer.cfg file:"
-msgstr ""
+msgstr "Az ADXL345 esetében adja hozzá a következőket a printer.cfg fájlhoz:"
 
 #: docs/Measuring_Resonances.md:block 30 (paragraph)
 msgid ""
@@ -1237,6 +1252,11 @@ msgid ""
 "enabling-i2c) section for more details). Then, add the following to the "
 "printer.cfg:"
 msgstr ""
+"Az MPU-9250 esetében győződjön meg róla, hogy a Linux I2C illesztőprogram "
+"engedélyezve van, és az átviteli sebesség 400000-re van állítva (további "
+"részletekért lásd az [I2C engedélyezése](RPi_microcontroller.md#optional-"
+"enabling-i2c) részt). Ezután adjuk hozzá a következőket a printer.cfg "
+"fájlhoz:"
 
 #: docs/Measuring_Resonances.md:block 31 (code)
 msgid ""
@@ -1252,6 +1272,17 @@ msgid ""
 "probe_points:\n"
 "    100, 100, 20  # an example\n"
 msgstr ""
+"[mcu rpi]\n"
+"serial: /tmp/klipper_host_mcu\n"
+"\n"
+"[mpu9250]\n"
+"i2c_mcu: rpi\n"
+"i2c_bus: i2c.1\n"
+"\n"
+"[resonance_tester]\n"
+"accel_chip: mpu9250\n"
+"probe_points:\n"
+"    100, 100, 20  # an example\n"
 
 #~ msgid ""
 #~ "Note that resonance measurements and shaper auto-calibration require "
