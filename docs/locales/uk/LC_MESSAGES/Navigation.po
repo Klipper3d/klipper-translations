@@ -1,0 +1,30 @@
+#
+msgid ""
+msgstr ""
+"Language: uk\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Klipper documentation"
+msgstr ""
+
+msgid "Installation and Configuration"
+msgstr ""
+
+msgid "Configuration Reference"
+msgstr ""
+
+msgid "Bed Level"
+msgstr ""
+
+msgid "Resonance Compensation"
+msgstr ""
+
+msgid "Command templates"
+msgstr ""
+
+msgid "Developer Documentation"
+msgstr ""
+
+msgid "Device Specific Documents"
+msgstr ""
