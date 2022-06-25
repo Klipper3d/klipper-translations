@@ -1,11 +1,23 @@
-#
+# Jose Luis Navarrete <joewysnake@gmail.com>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-06-24 19:19+0000\n"
+"Last-Translator: Jose Luis Navarrete <joewysnake@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"tmc_drivers/es/>\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 msgid ""
 "This document provides information on using Trinamic stepper motor drivers "
 "in SPI/UART mode on Klipper."
 msgstr ""
+"Este documento entrega informacion para utilizar el driver de motor paso a "
+"paso Trinamic en modo SPI/UART en Klipper."
 
 msgid ""
 "Klipper can also use Trinamic drivers in their \"standalone mode\". However,"

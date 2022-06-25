@@ -1,20 +1,24 @@
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
+# Jose Luis Navarrete <joewysnake@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-06-15 00:56+0000\n"
-"Last-Translator: Alberto <aru_hackZ.official@zohomail.eu>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/using_pwm_tools/es/>\n"
+"PO-Revision-Date: 2022-06-24 19:19+0000\n"
+"Last-Translator: Jose Luis Navarrete <joewysnake@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"using_pwm_tools/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 msgid ""
 "This document describes how to setup a PWM-controlled laser or spindle using"
 " `output_pin` and some macros."
 msgstr ""
+"Este documento describe como configurar un laser controlado por PWM o un "
+"husillo usando `output_pin` y algunas macros."
 
 msgid "How does it work?"
 msgstr "Cómo funciona?"
