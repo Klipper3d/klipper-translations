@@ -4,7 +4,7 @@ Ez a dokumentum az izzószálszélesség-érzékelő gazdagép modulját írja l
 
 Terveket a [Thingiverse] oldalon találja (https://www.thingiverse.com/thing:4138933), az összeszerelési videó a [Youtube]-on is elérhető (https://www.youtube.com/watch?v=TDO9tME8vp4 )
 
-A Hall nyomtatószál szélesség érzékelő használatához olvassa el a [Konfigurációs hivatkozás](Config_Reference.md#hall_filament_width_sensor) és a [G-Code dokumentáció](G-Codes.md#hall_filament_width_sensor) részt.
+A Hall nyomtatószál szélesség érzékelő használatához olvassa el a [Konfigurációs hivatkozás](Config_Reference.md#hall_filament_width_sensor) és a [G-kód dokumentáció](G-Codes.md#hall_filament_width_sensor) részt.
 
 ## Hogyan működik?
 

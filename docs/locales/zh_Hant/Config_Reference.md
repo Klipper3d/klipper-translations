@@ -1062,9 +1062,9 @@ home_xy_position:
 #   than z_hop, then this will lift the head to a height of z_hop. If
 #   the Z axis is not already homed the head is lifted by z_hop.
 #   The default is to not implement Z hop.
-#z_hop_speed: 20.0
+#z_hop_speed: 15.0
 #   Speed (in mm/s) at which the Z axis is lifted prior to homing. The
-#   default is 20mm/s.
+#   default is 15 mm/s.
 #move_to_previous: False
 #   When set to True, the X and Y axes are reset to their previous
 #   positions after Z axis homing. The default is False.
@@ -1205,11 +1205,13 @@ filename:
 ```
 [virtual_sdcard]
 path:
-# 要查找的主機本地目錄的路徑
-# g 代碼文件。這是一個只讀目錄（sdcard 文件寫入
-# 不支持）。有人可能會將此指向 OctoPrint 的上傳
-# 目錄（通常是 ~/.octoprint/uploads/ ）。該參數必須
-＃   提供。
+#   The path of the local directory on the host machine to look for
+#   g-code files. This is a read-only directory (sdcard file writes
+#   are not supported). One may point this to OctoPrint's upload
+#   directory (generally ~/.octoprint/uploads/ ). This parameter must
+#   be provided.
+#on_error_gcode:
+#   A list of G-Code commands to execute when an error is reported.
 ```
 
 ### [sdcard_loop]
@@ -1296,6 +1298,16 @@ path:
 # 覆蓋“default_type”。
 ```
 
+### [exclude_object]
+
+Enables support to exclude or cancel individual objects during the printing process.
+
+See the [exclude objects guide](Exclude_Object.md) and [command reference](G-Codes.md#excludeobject) for additional information. See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware compatible M486 G-Code macro.
+
+```
+[exclude_object]
+```
+
 ## 共振補償
 
 ### [input_shaper]
@@ -1360,6 +1372,23 @@ cs_pin:
 #   3200、1600、800、400、200、100、50和25。請注意，不建議
 #   將此速率從預設的3200改為低於800的速率，這將大大影響
 #   共振測量的質量。
+```
+
+### [mpu9250]
+
+Support for mpu9250 and mpu6050 accelerometers (one may define any number of sections with an "mpu9250" prefix).
+
+```
+[mpu9250 my_accelerometer]
+#i2c_address:
+#   Default is 104 (0x68).
+#i2c_mcu:
+#i2c_bus:
+#i2c_speed: 400000
+#   See the "common I2C settings" section for a description of the
+#   above parameters. The default "i2c_speed" is 400000.
+#axes_map: x, y, z
+#   See the "adxl345" section for information on this parameter.
 ```
 
 ### [resonance_tester]
@@ -3754,18 +3783,24 @@ cs_pin:
 
 以下參數通常適用於使用 I2C 總線的設備。
 
+Note that Klipper's current micro-controller support for i2c is generally not tolerant to line noise. Unexpected errors on the i2c wires may result in Klipper raising a run-time error. Klipper's support for error recovery varies between each micro-controller type. It is generally recommended to only use i2c devices that are on the same printed circuit board as the micro-controller.
+
+Most Klipper micro-controller implementations only support an `i2c_speed` of 100000. The Klipper "linux" micro-controller supports a 400000 speed, but it must be [set in the operating system](RPi_microcontroller.md#optional-enabling-i2c) and the `i2c_speed` parameter is otherwise ignored. The Klipper "rp2040" micro-controller supports a rate of 400000 via the `i2c_speed` parameter. All other Klipper micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter.
+
 ```
 #i2c_address:
-#   裝置的 I2C 地址。必須是一個十進制數字（而不是十六進制）。
-#   預設值取決於裝置的型別。
+#   The i2c address of the device. This must specified as a decimal
+#   number (not in hex). The default depends on the type of device.
 #i2c_mcu:
-#   晶片所連線的微控制器的名稱。
-#   預設為"mcu"。
+#   The name of the micro-controller that the chip is connected to.
+#   The default is "mcu".
 #i2c_bus:
-# 如果微控制器支援多個 I2C 匯流排，可以指定微控制器的匯流排名稱。
-#   預設值取決於微控制器的型別。
+#   If the micro-controller supports multiple I2C busses then one may
+#   specify the micro-controller bus name here. The default depends on
+#   the type of micro-controller.
 #i2c_speed:
-#   與裝置通訊時使用的I2C速度（Hz）。在某些微控制器上，
-#   該數值無效。
-#   預設值是預設為100000。
+#   The I2C speed (in Hz) to use when communicating with the device.
+#   The Klipper implementation on most micro-controllers is hard-coded
+#   to 100000 and changing this value has no effect. The default is
+#   100000.
 ```

@@ -2,7 +2,15 @@
 
 本教程假定軟體將會在樹莓派上和 Octoprint 一起執行。推薦使用樹莓派2/3/4作為主機（關於其他裝置，請見[常見問題](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)）。
 
-Klipper 目前支援多種基於 Atmel ATmega 微控制器、[基於 ARM 微控制器](Features.md#step-benchmarks) 和基於 [Beaglebone 可程式設計實時單元](Beaglebone.md) 的印表機。
+## Obtain a Klipper Configuration File
+
+Most Klipper settings are determined by a "printer configuration file" that will be stored on the Raspberry Pi. An appropriate configuration file can often be found by looking in the Klipper [config directory](../config/) for a file starting with a "printer-" prefix that corresponds to the target printer. The Klipper configuration file contains technical information about the printer that will be needed during the installation.
+
+If there isn't an appropriate printer configuration file in the Klipper config directory then try searching the printer manufacturer's website to see if they have an appropriate Klipper configuration file.
+
+If no configuration file for the printer can be found, but the type of printer control board is known, then look for an appropriate [config file](../config/) starting with a "generic-" prefix. These example printer board files should allow one to successfully complete the initial installation, but will require some customization to obtain full printer functionality.
+
+It is also possible to define a new printer configuration from scratch. However, this requires significant technical knowledge about the printer and its electronics. It is recommended that most users start with an appropriate configuration file. If creating a new custom printer configuration file, then start with the closest example [config file](../config/) and use the Klipper [config reference](Config_Reference.md) for further information.
 
 ## 準備操作系統映象
 
@@ -26,13 +34,15 @@ cd ~/klipper/
 make menuconfig
 ```
 
-選擇恰當的微控制器並複查提供的其他選項。配置好后，執行：
+The comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) should describe the settings that need to be set during "make menuconfig". Open the file in a web browser or text editor and look for these instructions near the top of the file. Once the appropriate "menuconfig" settings have been configured, press "Q" to exit, and then "Y" to save. Then run:
 
 ```
 make
 ```
 
-必須先確定連線到微控制器的串列埠。對於通過 USB 連線的微控制器，執行以下命令：
+If the comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) describe custom steps for "flashing" the final image to the printer control board then follow those steps and then proceed to [configuring OctoPrint](#configuring-octoprint-to-use-klipper).
+
+Otherwise, the following steps are often used to "flash" the printer control board. First, it is necessary to determine the serial port connected to the micro-controller. Run the following:
 
 ```
 ls /dev/serial/by-id/*
@@ -74,34 +84,40 @@ OctoPrint網路伺服器需要進行配置，以便與Klipper host 軟體進行�
 
 ## 配置 Klipper
 
-Klipper 配置儲存在樹莓派上的一個文字檔案中。請檢視在[config資料夾](../config/)中的配置示例。[配置參考](Config_Reference.md)中有配置參數的文件。
+The next step is to copy the [printer configuration file](#obtain-a-klipper-configuration-file) to the Raspberry Pi.
 
-可以說，更新Klipper configuration 檔案的最簡單方法是使用一個支援通過 "scp "或 "sftp "協議編輯檔案的桌面編輯器。有一些免費的工具支援這個功能（例如，Notepad++、WinSCP和Cyberduck）。使用其中一個配置檔案的例子作為起點，並將其儲存為pi使用者的主目錄中名為 "printer.cfg "的檔案（例如，/home/pi/printer.cfg）。
+Arguably the easiest way to set the Klipper configuration file is to use a desktop editor that supports editing files over the "scp" and/or "sftp" protocols. There are freely available tools that support this (eg, Notepad++, WinSCP, and Cyberduck). Load the printer config file in the editor and then save it as a file named "printer.cfg" in the home directory of the pi user (ie, /home/pi/printer.cfg).
 
-另外，也可以通過ssh在Raspberry Pi上直接複製和編輯該檔案。比如說：
+Alternatively, one can also copy and edit the file directly on the Raspberry Pi via ssh. That may look something like the following (be sure to update the command to use the appropriate printer config filename):
 
 ```
 cp ~/klipper/config/example-cartesian.cfg ~/printer.cfg
 nano ~/printer.cfg
 ```
 
-確保你檢查和更新每一個設定並且與硬體相符合。
+It's common for each printer to have its own unique name for the micro-controller. The name may change after flashing Klipper, so rerun these steps again even if they were already done when flashing. Run:
 
-通常每臺印表機都有自己獨特的微控制器名稱。刷寫Klipper后這個名字可能會改變，所以重新執行`ls /dev/serial/by-id/*`命令，然後用這個唯一的名字更新配置檔案。例如，更新"[mcu]"部分，看起來類似於:
+```
+ls /dev/serial/by-id/*
+```
+
+它應該報告類似以下的內容：
+
+```
+/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
+```
+
+Then update the config file with the unique name. For example, update the `[mcu]` section to look something similar to:
 
 ```
 [mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-在建立和編輯該檔案后，有必要在OctoPrint網路終端發出 "restart"命令去重新載入config。"status" 命令將報告印表機已準備就緒。在初始設定期間出現配置錯誤是很正常的。更新印表機配置檔案併發出 "restart"命令，直到 "狀態 "報告印表機已準備就緒。
+After creating and editing the file it will be necessary to issue a "restart" command in the OctoPrint web terminal to load the config. A "status" command will report the printer is ready if the Klipper config file is successfully read and the micro-controller is successfully found and configured.
+
+When customizing the printer config file, it is not uncommon for Klipper to report a configuration error. If an error occurs, make any necessary corrections to the printer config file and issue "restart" until "status" reports the printer is ready.
 
 Klipper通過OctoPrint終端標籤報告錯誤資訊。可以使用 "status "命令來重新報告錯誤資訊。預設的Klipper啟動指令碼也在**/tmp/klippy.log**中放置一個日誌，提供更詳細的資訊。
 
-除此之外常見的g-code命令之外，Klipper還支援一些擴充套件命令"status "和 "restart "就是這些命令的例子。使用 "help "命令可以獲得其他擴充套件命令的列表。
-
-在Klipper反饋印表機已經準備好后，進入[config check document](Config_checks.md)對配置檔案中的引腳定義進行一些基本檢查。
-
-## 聯繫開發者
-
-請務必檢視[FAQ](FAQ.md)，瞭解一些常見問題的答案。請參閱[聯繫頁面](Contact.md)來報告一個錯誤或聯繫開發者。
+After Klipper reports that the printer is ready, proceed to the [config check document](Config_checks.md) to perform some basic checks on the definitions in the config file. See the main [documentation reference](Overview.md) for other information.

@@ -8,7 +8,7 @@ Sok szeletelőprogram rendelkezik a "G-kód ízének" konfigurálási lehetősé
 
 ## Klipper gcode_macro
 
-A szeletelők gyakran lehetővé teszik a "Start G-Code" és "End G-Code" szekvenciák konfigurálását. Ehelyett gyakran kényelmes egyéni makrókat definiálni a Klipper config fájlban - például: `[gcode_macro START_PRINT]` és `[gcode_macro END_PRINT]`. Ezután csak a START_PRINT és END_PRINT futtatását kell elvégezni a szeletelő konfigurációjában. Ha ezeket a műveleteket a Klipper konfigurációban definiáljuk, könnyebbé válhat a nyomtató indítási és befejezési lépéseinek finomhangolása, mivel a változtatások nem igényelnek újbóli szeletelést.
+A szeletelők gyakran lehetővé teszik a "Start G-kód" és "End G-kód" szekvenciák konfigurálását. Ehelyett gyakran kényelmes egyéni makrókat definiálni a Klipper config fájlban - például: `[gcode_macro START_PRINT]` és `[gcode_macro END_PRINT]`. Ezután csak a START_PRINT és END_PRINT futtatását kell elvégezni a szeletelő konfigurációjában. Ha ezeket a műveleteket a Klipper konfigurációban definiáljuk, könnyebbé válhat a nyomtató indítási és befejezési lépéseinek finomhangolása, mivel a változtatások nem igényelnek újbóli szeletelést.
 
 Lásd a [sample-macros.cfg](../config/sample-macros.cfg) a START_PRINT és END_PRINT makrók példáját.
 

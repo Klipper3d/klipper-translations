@@ -34,6 +34,7 @@
 - [Szeletelők](Slicers.md): A „szeletelő” szoftverek konfigurálása a Klipper számára.
 - [Ferdeség korrekció](Skew_Correction.md): A nem tökéletesen derékszögű tengelyek korrekciója.
 - [PWM eszközök](Using_PWM_Tools.md): Útmutató a PWM vezérelt szerszámok, például lézerek vagy orsók használatához.
+- [Objektum kizárása](Exclude_Object.md): Az Objektum kizárása implementációjának útmutatója.
 
 ## Fejlesztői Dokumentáció
 

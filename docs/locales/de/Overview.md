@@ -34,6 +34,7 @@ Willkommen auf der Klipper-Dokumentationsseite! Wenn Klipper für dich neu ist, 
 - [Slicers](Slicers.md): "Slicer"-Software für Klipper einrichten.
 - [Skew correction](Skew_Correction.md): Adjustments for axes not perfectly square.
 - [PWM tools](Using_PWM_Tools.md): Anleitung zum Verwenden von PWM-gesteuerten Werkzeugen (bspw. Laser oder Spindeln).
+- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs implementation.
 
 ## Entwicklerdokumentation
 

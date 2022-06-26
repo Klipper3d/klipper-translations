@@ -24,6 +24,7 @@ A következő információk a `configfile` objektumban találhatók (ez az objek
 - `settings.<section>.<option>`: Visszaadja az adott konfigurációs fájl beállítását (vagy alapértelmezett értékét) a szoftver utolsó indítása vagy újraindítása során. (A használat közben megváltoztatott beállítások nem jelennek meg itt.)
 - `config.<section>.<option>`: Visszaadja az adott nyers konfigurációs fájl beállítását, ahogyan azt a Klipper a legutóbbi szoftverindítás vagy újraindítás során beolvasta. (A működés közben megváltoztatott beállítások nem jelennek meg itt.) Minden értéket stringként ad vissza.
 - `save_config_pending`: True értéket ad, ha vannak olyan frissítések, amelyeket a `SAVE_CONFIG` parancs a lemezen is megőrizhet.
+- `save_config_pending_items`: Tartalmazza azokat a szakaszokat és opciókat, amelyeket megváltoztattak, és amelyeket egy `SAVE_CONFIG` elmenthetne.
 - `figyelmeztetések`: A konfigurációs beállításokkal kapcsolatos figyelmeztetések listája. A lista minden egyes bejegyzése egy szótár lesz, amely tartalmaz egy `type` és egy `message` mezőt (mindkettő karakterlánc). A figyelmeztetés típusától függően további mezők is rendelkezésre állhatnak.
 
 ## display_status
@@ -40,6 +41,41 @@ A következő információk az [endstop_phase](Config_Reference.md#endstop_phase
 - `last_home.<stepper name>.phase`: A léptetőmotor fázisa az utolsó kezdőpont felvételi kísérlet végén.
 - `last_home.<stepper name>.phases`: A léptetőmotoron rendelkezésre álló fázisok száma.
 - `last_home.<stepper name>.mcu_position`: A léptetőmotor pozíciója (ahogyan azt a mikrokontroller követi) a legutóbbi kezdőpont felvételi kísérlet végén. A pozíció az előremenő irányban megtett lépések száma mínusz a mikrokontroller utolsó újraindítása óta visszafelé megtett lépések számával.
+
+## exclude_object
+
+A következő információk az [exclude_object](Exclude_Object.md) objektumban találhatók:
+
+
+   - `objektumok`: Az `EXCLUDE_OBJECT_DEFINE` parancs által megadott ismert objektumok tömbje. Ez ugyanaz az információ, amelyet az `EXCLUDE_OBJECT VERBOSE=1` parancs szolgáltat. A `center` és `polygon` mezők csak akkor lesznek jelen, ha az eredeti `EXCLUDE_OBJECT_DEFINE` parancsban szerepelnek.Íme egy JSON-minta:
+
+```
+[
+  {
+    "polygon": [
+      [ 156.25, 146.2511675 ],
+      [ 156.25, 153.7488325 ],
+      [ 163.75, 153.7488325 ],
+      [ 163.75, 146.2511675 ]
+    ],
+    "name": "CYLINDER_2_STL_ID_2_COPY_0",
+    "center": [ 160, 150 ]
+  },
+  {
+    "polygon": [
+      [ 146.25, 146.2511675 ],
+      [ 146.25, 153.7488325 ],
+      [ 153.75, 153.7488325 ],
+      [ 153.75, 146.2511675 ]
+    ],
+    "name": "CYLINDER_2_STL_ID_1_COPY_0",
+    "center": [ 150, 150 ]
+  }
+]
+```
+
+- `excluded_objects`: A kizárt objektumok neveit felsoroló karakterláncok tömbje.
+- `current_object`: Az aktuálisan nyomtatott objektum neve.
 
 ## fan
 

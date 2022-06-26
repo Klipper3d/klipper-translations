@@ -194,6 +194,42 @@ The following commands are available when an [angle config section](Config_Refer
 
 `ENDSTOP_PHASE_CALIBRATE [STEPPER=<config_name>]` 。如果沒有提供STEPPER參數，那麼該命令將報告在過去的歸位操作中對端停步進相的統計。當提供STEPPER參數時，它會安排將給定的終點站相位設定寫入配置檔案中（與SAVE_CONFIG命令一起使用）。
 
+### [exclude_object]
+
+The following commands are available when an [exclude_object config section](Config_Reference.md#exclude_object) is enabled (also see the [exclude object guide](Exclude_Object.md)):
+
+#### `EXCLUDE_OBJECT`
+
+`EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]`: With no parameters, this will return a list of all currently excluded objects.
+
+When the `NAME` parameter is given, the named object will be excluded from printing.
+
+When the `CURRENT` parameter is given, the current object will be excluded from printing.
+
+When the `RESET` parameter is given, the list of excluded objects will be cleared. Additionally including `NAME` will only reset the named object. This **can** cause print failures, if layers were already skipped.
+
+#### `EXCLUDE_OBJECT_DEFINE`
+
+`EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] [RESET=1] [JSON=1]`: Provides a summary of an object in the file.
+
+With no parameters provided, this will list the defined objects known to Klipper. Returns a list of strings, unless the `JSON` parameter is given, when it will return object details in json format.
+
+When the `NAME` parameter is included, this defines an object to be excluded.
+
+- `NAME`: This parameter is required. It is the identifier used by other commands in this module.
+- `CENTER`: An X,Y coordinate for the object.
+- `POLYGON`: An array of X,Y coordinates that provide an outline for the object.
+
+When the `RESET` parameter is provided, all defined objects will be cleared, and the `[exclude_object]` module will be reset.
+
+#### `EXCLUDE_OBJECT_START`
+
+`EXCLUDE_OBJECT_START NAME=object_name`: This command takes a `NAME` parameter and denotes the start of the gcode for an object on the current layer.
+
+#### `EXCLUDE_OBJECT_END`
+
+`EXCLUDE_OBJECT_END [NAME=object_name]`: Denotes the end of the object's gcode for the layer. It is paired with `EXCLUDE_OBJECT_START`. A `NAME` parameter is optional, and will only warn when the provided name does not match the current object.
+
 ### [extruder]
 
 如果啟用了 [extruder config section](Config_Reference.md#extruder)，則以下命令可用：
@@ -204,15 +240,15 @@ The following commands are available when an [angle config section](Config_Refer
 
 #### SET_PRESSURE_ADVANCE
 
-`SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Set pressure advance parameters of an extruder stepper (as defined in an [extruder](Config_Reference#extruder) or [extruder_stepper](Config_Reference#extruder_stepper) config section). If EXTRUDER is not specified, it defaults to the stepper defined in the active hotend.
+`SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Set pressure advance parameters of an extruder stepper (as defined in an [extruder](Config_Reference.md#extruder) or [extruder_stepper](Config_Reference.md#extruder_stepper) config section). If EXTRUDER is not specified, it defaults to the stepper defined in the active hotend.
 
 #### SET_EXTRUDER_ROTATION_DISTANCE
 
-`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: Set a new value for the provided extruder stepper's "rotation distance" (as defined in an [extruder](Config_Reference#extruder) or [extruder_stepper](Config_Reference#extruder_stepper) config section). If the rotation distance is a negative number then the stepper motion will be inverted (relative to the stepper direction specified in the config file). Changed settings are not retained on Klipper reset. Use with caution as small changes can result in excessive pressure between extruder and hotend. Do proper calibration with filament before use. If 'DISTANCE' value is not provided then this command will return the current rotation distance.
+`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: Set a new value for the provided extruder stepper's "rotation distance" (as defined in an [extruder](Config_Reference.md#extruder) or [extruder_stepper](Config_Reference.md#extruder_stepper) config section). If the rotation distance is a negative number then the stepper motion will be inverted (relative to the stepper direction specified in the config file). Changed settings are not retained on Klipper reset. Use with caution as small changes can result in excessive pressure between extruder and hotend. Do proper calibration with filament before use. If 'DISTANCE' value is not provided then this command will return the current rotation distance.
 
 #### SYNC_EXTRUDER_MOTION
 
-`SYNC_EXTRUDER_MOTION EXTRUDER=<name> MOTION_QUEUE=<name>`：此命令將導致由 EXTRUDER 指定的步進器（在 [extruder](Config_Reference#extruder) 或 [extruder_stepper](Config_Reference#extruder_stepper) 配置部分中定義）變為與 MOTION_QUEUE 指定的擠出機的運動同步（如 [extruder](Config_Reference#extruder) 配置部分中定義的）。如果 MOTION_QUEUE 是一個空字符串，那麼步進器將與所有擠出機運動不同步。
+`SYNC_EXTRUDER_MOTION EXTRUDER=<name> MOTION_QUEUE=<name>`: This command will cause the stepper specified by EXTRUDER (as defined in an [extruder](Config_Reference.md#extruder) or [extruder_stepper](Config_Reference.md#extruder_stepper) config section) to become synchronized to the movement of an extruder specified by MOTION_QUEUE (as defined in an [extruder](Config_Reference.md#extruder) config section). If MOTION_QUEUE is an empty string then the stepper will be desynchronized from all extruder movement.
 
 #### SET_EXTRUDER_STEP_DISTANCE
 
@@ -261,7 +297,7 @@ The following commands are available when an [angle config section](Config_Refer
 
 ### [force_move]
 
-模組force_move已自動載入，但是某些命令需要在 [printer config](Config_Reference#force_move) 中設置 `enable_force_move`。
+The force_move module is automatically loaded, however some commands require setting `enable_force_move` in the [printer config](Config_Reference.md#force_move).
 
 #### STEPPER_BUZZ
 
@@ -551,7 +587,7 @@ The query_adc module is automatically loaded.
 
 #### TEST_RESONANCES
 
-`TEST_RESONANCES AXIS=<axis> OUTPUT=<resonances,raw_data> [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [INPUT_SHAPING=[<0:1 >]]`：在請求的“軸”的所有配置探針點中運行共振測試，並使用為相應軸配置的加速度計芯片測量加速度。 "axis" 可以是 X 或 Y，或者指定任意方向為 `AXIS=dx,dy`，其中 dx 和 dy 是定義方向向量的浮點數（例如 `AXIS=X`、`AXIS=Y`、或 `AXIS=1,-1` 定義對角線方向）。請注意，`AXIS=dx,dy` 和 `AXIS=-dx,-dy` 是等價的。如果 `INPUT_SHAPING=0` 或未設置（默認），則禁用諧振測試的輸入整形，因為在啟用輸入整形器的情況下運行諧振測試是無效的。 `OUTPUT` 參數是以逗號分隔的列表，其中將寫入輸出。如果請求 `raw_data`，則將原始加速度計數據寫入一個文件或一系列文件 `/tmp/raw_data_<axis>_[<point>_]<name>.csv` 與 (`<point>_ ` 僅在配置超過 1 個探測點時生成的部分名稱）。如果指定了 `resonances`，則計算頻率響應（跨所有探測點）並寫入 `/tmp/resonances_<axis>_<name>.csv` 文件。如果未設置，則 OUTPUT 默認為“共振”，NAME 默認為“YYYYMMDD_HHMMSS”格式的當前時間。
+`TEST_RESONANCES AXIS=<axis> OUTPUT=<resonances,raw_data> [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<adxl345_chip_name>] [POINT=x,y,z] [INPUT_SHAPING=[<0:1>]]`: Runs the resonance test in all configured probe points for the requested "axis" and measures the acceleration using the accelerometer chips configured for the respective axis. "axis" can either be X or Y, or specify an arbitrary direction as `AXIS=dx,dy`, where dx and dy are floating point numbers defining a direction vector (e.g. `AXIS=X`, `AXIS=Y`, or `AXIS=1,-1` to define a diagonal direction). Note that `AXIS=dx,dy` and `AXIS=-dx,-dy` is equivalent. `adxl345_chip_name` can be one or more configured adxl345 chip,delimited with comma, for example `CHIPS="adxl345, adxl345 rpi"`. Note that `adxl345` can be omitted from named adxl345 chips. If POINT is specified it will override the point(s) configured in `[resonance_tester]`. If `INPUT_SHAPING=0` or not set(default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. `OUTPUT` parameter is a comma-separated list of which outputs will be written. If `raw_data` is requested, then the raw accelerometer data is written into a file or a series of files `/tmp/raw_data_<axis>_[<chip_name>_][<point>_]<name>.csv` with (`<point>_` part of the name generated only if more than 1 probe point is configured or POINT is specified). If `resonances` is specified, the frequency response is calculated (across all probe points) and written into `/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to `resonances`, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.
 
 #### SHAPER_CALIBRATE
 
@@ -587,7 +623,7 @@ The query_adc module is automatically loaded.
 
 #### SCREWS_TILT_CALCULATE
 
-`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [<probe_parameter>=<value>]`：該命令將呼叫熱床絲桿調整工具。它將命令噴嘴到不同的位置（如配置檔案中定義的）探測z高度，並計算出調整床面水平的旋鈕旋轉次數。如果指定了DIRECTION，旋鈕的轉動方向都是一樣的，順時針（CW）或逆時針（CCW）。有關可選探頭參數的詳細資訊，請參見PROBE命令。重要的是：在使用這個命令之前，你必須先做一個G28。
+`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [<probe_parameter>=<value>]`: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) probing the z height and calculate the number of knob turns to adjust the bed level. If DIRECTION is specified, the knob turns will all be in the same direction, clockwise (CW) or counterclockwise (CCW). See the PROBE command for details on the optional probe parameters. IMPORTANT: You MUST always do a G28 before using this command. If MAX_DEVIATION is specified, the command will raise a gcode error if any difference in the screw height relative to the base screw height is greater than the value provided.
 
 ### [sdcard_loop]
 

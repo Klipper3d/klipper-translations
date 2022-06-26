@@ -53,6 +53,10 @@ sudo usermod -a -G tty pi
 
 通过运行`sudo raspi-config` 后的 "Interfacing options"菜单中启用 SPI 以确保Linux SPI 驱动已启用。
 
+## Optional: Enabling I2C
+
+Make sure the Linux I2C driver is enabled by running `sudo raspi-config` and enabling I2C under the "Interfacing options" menu. If planning to use I2C for the MPU accelerometer, it is also required to set the baud rate to 400000 by: adding/uncommenting `dtparam=i2c_arm=on,i2c_arm_baudrate=400000` in `/boot/config.txt` (or `/boot/firmware/config.txt` in some distros).
+
 ## 可选步骤：识别正确的 gpiochip
 
 在Raspberry Pi和许多类似的单板电脑上，暴露在 GPIO 上的引脚属于第一个gpiochip。因此，它们可以在klipper上使用，只需用`gpio0...n`的名字来引用它们。然而，在有些情况下，暴露的引脚属于第一个以外的gpiochips。例如，在一些OrangePi型号或者如果使用了一个端口扩展器的情况下，需要使用命令访问*Linux GPIO character device*来验证配置是有用的。

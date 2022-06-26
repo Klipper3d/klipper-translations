@@ -19,6 +19,15 @@ When sourcing ADXL345, be aware that there is a variety of different PCB board d
 | SDA | 19 | GPIO10 (SPI0_MOSI) |
 | SCL | 23 | GPIO11 (SPI0_SCLK) |
 
+An alternative to the ADXL345 is the MPU-9250 (or MPU-6050). This accelerometer has been tested to work over I2C on the RPi at 400kbaud. Recommended connection scheme for I2C:
+
+| MPU-9250 pin | 树莓派引脚 | 树莓派引脚名称 |
+| :-: | :-: | :-: |
+| 3V3 或 VCC | 01 | 3.3v 直流（DC）电源 |
+| GND | 09 | 地（GND） |
+| SDA | 03 | GPIO02 (SDA1) |
+| SCL | 05 | GPIO03 (SCL1) |
+
 部分ADXL345开发板的Fritzing接线图如下：
 
 ![ADXL345-树莓派](img/adxl345-fritzing.png)
@@ -39,26 +48,26 @@ When sourcing ADXL345, be aware that there is a variety of different PCB board d
 
 ### 软件设置
 
-共振测量和自动整形校正需要额外的依赖项，这些依赖在Klipper安装时未作部署，因此，需要在树莓派上运行下面的命令：
+Note that resonance measurements and shaper auto-calibration require additional software dependencies not installed by default. First, run on your Raspberry Pi the following commands:
+
+```
+sudo apt update
+sudo apt install python3-numpy python3-matplotlib libatlas-base-dev
+```
+
+Next, in order to install NumPy in the Klipper environment, run the command:
 
 ```
 ~/klippy-env/bin/pip install -v numpy
 ```
 
-安装`numpy`包。numpy需要在安装时进行编译。编译时间据主机的CPU算力而异，需要*耗费大量时间*，最大可至半小时（PiZero），请耐心等待编译安装完成。少部分情况下，主机的RAM不足会导致安装失败，需要开启swap功能以实现安装。
-
-Next, run the following commands to install the additional dependencies:
-
-```
-sudo apt update
-sudo apt install python3-numpy python3-matplotlib
-```
+Note that, depending on the performance of the CPU, it may take *a lot* of time, up to 10-20 minutes. Be patient and wait for the completion of the installation. On some occasions, if the board has too little RAM the installation may fail and you will need to enable swap.
 
 之后，参考[树莓派作为微控制器文档](RPi_microcontroller.md)的指引完成“LINUX微处理器”的设置。
 
 通过运行`sudo raspi-config` 后的 "Interfacing options"菜单中启用 SPI 以确保Linux SPI 驱动已启用。
 
-在printer.cfg中添加以下内容：
+For the ADXL345, add the following to the printer.cfg file:
 
 ```
 [mcu rpi]
@@ -74,6 +83,22 @@ probe_points:
 ```
 
 建议在测试开始前，用探针在热床中央进行一次探测，触发后稍微上移。
+
+For the MPU-9250, make sure the Linux I2C driver is enabled and the baud rate is set to 400000 (see [Enabling I2C](RPi_microcontroller.md#optional-enabling-i2c) section for more details). Then, add the following to the printer.cfg:
+
+```
+[mcu rpi]
+serial: /tmp/klipper_host_mcu
+
+[mpu9250]
+i2c_mcu: rpi
+i2c_bus: i2c.1
+
+[resonance_tester]
+accel_chip: mpu9250
+probe_points:
+    100, 100, 20  # an example
+```
 
 通过`RESTART`命令重启Klipper。
 

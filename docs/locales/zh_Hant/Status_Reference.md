@@ -24,6 +24,7 @@ The following information is available in [angle some_name](Config_Reference.md#
 - `settings.<分段>.<選項>`：返回最後一次軟體啟動或重啟時給定的配置檔案設定（或預設值）。(不會反映執行時的修改。）
 - `config.<分段>.<選項>`：返回Klipper在上次軟體啟動或重啟時讀取的原始配置檔案設定。(不會反映執行時的修改。)所有值都以字串形式返回。
 - `save_config_pending`：如果存在可以通過 `SAVE_CONFIG` 命令儲存到配置檔案的更新，則返回 True。
+- `save_config_pending_items`: Contains the sections and options that were changed and would be persisted by a `SAVE_CONFIG`.
 - `warnings`：有關配置選項的警告列表。列表中的每個條目都將是一個 dictionary，其中包含 ` type` 和 `message` 欄位（都是字串）。根據警告型別，可能還有其他可用欄位。
 
 ## display_status
@@ -40,6 +41,41 @@ The following information is available in [angle some_name](Config_Reference.md#
 - `last_home.<步進電機名>.phase`：最後一次歸為嘗試結束時步進電機的相位。
 - `last_home.<步進電機名稱>.phase`：步進電機上可用的總相數。
 - `last_home.<步進電機名稱>.mcu_position`：步進電機在上次歸位嘗試結束時的位置（由微控制器跟蹤）。該位置是自微控制器最後一次重啟以來，向前走的總步數減去反向走的總步數。
+
+## exclude_object
+
+The following information is available in the [exclude_object](Exclude_Object.md) object:
+
+
+   - `objects`: An array of the known objects as provided by the `EXCLUDE_OBJECT_DEFINE` command. This is the same information provided by the `EXCLUDE_OBJECT VERBOSE=1` command. The `center` and `polygon` fields will only be present if provided in the original `EXCLUDE_OBJECT_DEFINE`Here is a JSON sample:
+
+```
+[
+  {
+    "polygon": [
+      [ 156.25, 146.2511675 ],
+      [ 156.25, 153.7488325 ],
+      [ 163.75, 153.7488325 ],
+      [ 163.75, 146.2511675 ]
+    ],
+    "name": "CYLINDER_2_STL_ID_2_COPY_0",
+    "center": [ 160, 150 ]
+  },
+  {
+    "polygon": [
+      [ 146.25, 146.2511675 ],
+      [ 146.25, 153.7488325 ],
+      [ 153.75, 153.7488325 ],
+      [ 153.75, 146.2511675 ]
+    ],
+    "name": "CYLINDER_2_STL_ID_1_COPY_0",
+    "center": [ 150, 150 ]
+  }
+]
+```
+
+- `excluded_objects`: An array of strings listing the names of excluded objects.
+- `current_object`: The name of the object currently being printed.
 
 ## fan
 

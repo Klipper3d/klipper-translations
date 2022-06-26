@@ -1,6 +1,6 @@
 # Overview
 
-Welcome to the Klipper documentation. If new to Klipper, start with the [features](Features.md) and [installation](Installation.md) documents.
+Bem-vindo a documentação de Klipper. Se for novo com Klipper, comece com os documentos [Funcionalidades](Features.md) e [Instalação](installation.md).
 
 ## Informações gerais
 
@@ -8,23 +8,23 @@ Welcome to the Klipper documentation. If new to Klipper, start with the [feature
 - [FAQ](FAQ.md): Perguntas frequentes.
 - [Lançamentos](Releases.md): O histórico de lançamentos do Klipper.
 - [Alterações de configurações](Config_Changes.md): Alterações recentes de software que podem exigir que os usuários atualizem seu arquivo de configuração da impressora.
-- [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
+- [Contato](Contact.md): Informação sobre como reportar erros ou comunicação em geral com os desenvolvedores do Klipper.
 
 ## Installation and Configuration
 
-- [Installation](Installation.md): Guide to installing Klipper.
-- [Config Reference](Config_Reference.md): Description of config parameters.
-   - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
-- [Config checks](Config_checks.md): Verify basic pin settings in the config file.
-- [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
-   - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
-   - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
-   - [BL-Touch](BLTouch.md): Configure a "BL-Touch" Z probe.
-   - [Manual level](Manual_Level.md): Calibration of Z endstops (and similar).
-   - [Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations.
+- [Instalação](Installation.md): Guia de instalação do Klipper.
+- [Referências para Configuração](Config_Reference.md): Descrição dos parâmetros de configuração.
+   - [Distância de Rotação](Rotation_Distance.md): Como calcular o parâmetro de distância de rotação passo a passo.
+- [Verificação de Configuração](Config_checks.md): Verificar as configurações básicas do PIN no arquivo de configuração.
+- [Nível da cama](Bed_Level.md): Informação da "nivelação da cama" no Klipper.
+   - [Calibração delta](Delta_Calibrate.md): Calibração da cinemática delta.
+   - [Calibração da sonda](Probe_Calibrate.md): Calibração das sondas automáticas Z.
+   - [BL-Touch](BLTouch.md): Configure uma sonda Z "BL-Touch".
+   - [Nível manual](Manual_Level.md): Calibração das paradas finais de Z (e similares).
+   - [Cama de Malha](Bed_Mesh.md): Correção da altura da cama baseada em coordenadas XY.
    - [Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning.
-- [Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing in prints.
-   - [Measuring resonances](Measuring_Resonances.md): Information on using adxl345 accelerometer hardware to measure resonance.
+- [Compensação de ressonância](Resonance_Compensation.md): Uma ferramenta para reduzir irregularidades nas impressões.
+   - [Ressonâncias de medida](Measuring_Resonances.md): Informação sobre o uso do acelerômetro adxl345 para medir a ressonância.
 - [Pressure advance](Pressure_Advance.md): Calibrate extruder pressure.
 - [G-Codes](G-Codes.md): Information on commands supported by Klipper.
 - [Command Templates](Command_Templates.md): G-Code macros and conditional evaluation.
@@ -34,6 +34,7 @@ Welcome to the Klipper documentation. If new to Klipper, start with the [feature
 - [Slicers](Slicers.md): Configure "slicer" software for Klipper.
 - [Skew correction](Skew_Correction.md): Adjustments for axes not perfectly square.
 - [PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such as lasers or spindles.
+- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs implementation.
 
 ## Developer Documentation
 

@@ -6,6 +6,10 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 ## Változások
 
+20220616: Korábban egy rp2040-et bootloader módban lehetett égetni a `make flash FLASH_DEVICE=first` futtatásával. Az ezzel egyenértékű parancs mostantól `make flash FLASH_DEVICE=2e8a:0003`.
+
+20220612: Az rp2040 mikrokontroller mostantól rendelkezik a "rp2040-e5" USB hiba elhárításával. Ez megbízhatóbbá teszi a kezdeti USB-kapcsolatokat. Ez azonban a GPIO15 tű viselkedésének megváltozását eredményezheti. Nem valószínű, hogy a GPIO15 viselkedésének változása észrevehető lesz.
+
 20220407: A temperature_fan `pid_integral_max` konfigurációs opciót eltávolítottuk (a 20210612-es verzióval elavult).
 
 20220407: A pca9632 LED-ek alapértelmezett színsorrendje mostantól "RGBW". Adjunk hozzá egy explicit `color_ordert: RBGW` beállítást a pca9632 konfigurációs szakaszába a korábbi működés visszaállításához.

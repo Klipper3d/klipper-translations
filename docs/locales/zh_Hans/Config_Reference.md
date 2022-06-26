@@ -1045,9 +1045,9 @@ home_xy_position:
 #   than z_hop, then this will lift the head to a height of z_hop. If
 #   the Z axis is not already homed the head is lifted by z_hop.
 #   The default is to not implement Z hop.
-#z_hop_speed: 20.0
+#z_hop_speed: 15.0
 #   Speed (in mm/s) at which the Z axis is lifted prior to homing. The
-#   default is 20mm/s.
+#   default is 15 mm/s.
 #move_to_previous: False
 #   When set to True, the X and Y axes are reset to their previous
 #   positions after Z axis homing. The default is False.
@@ -1193,6 +1193,8 @@ path:
 #   are not supported). One may point this to OctoPrint's upload
 #   directory (generally ~/.octoprint/uploads/ ). This parameter must
 #   be provided.
+#on_error_gcode:
+#   A list of G-Code commands to execute when an error is reported.
 ```
 
 ### [sdcard_loop]
@@ -1279,6 +1281,16 @@ Support manually moving stepper motors for diagnostic purposes. Note, using this
 #   override the "default_type".
 ```
 
+### [exclude_object]
+
+Enables support to exclude or cancel individual objects during the printing process.
+
+See the [exclude objects guide](Exclude_Object.md) and [command reference](G-Codes.md#excludeobject) for additional information. See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware compatible M486 G-Code macro.
+
+```
+[exclude_object]
+```
+
 ## 共振补偿
 
 ### [input_shaper]
@@ -1343,6 +1355,23 @@ cs_pin:
 #   3200、1600、800、400、200、100、50和25。请注意，不建议
 #   将此速率从默认的3200改为低于800的速率，这将大大影响
 #   共振测量的质量。
+```
+
+### [mpu9250]
+
+Support for mpu9250 and mpu6050 accelerometers (one may define any number of sections with an "mpu9250" prefix).
+
+```
+[mpu9250 my_accelerometer]
+#i2c_address:
+#   Default is 104 (0x68).
+#i2c_mcu:
+#i2c_bus:
+#i2c_speed: 400000
+#   See the "common I2C settings" section for a description of the
+#   above parameters. The default "i2c_speed" is 400000.
+#axes_map: x, y, z
+#   See the "adxl345" section for information on this parameter.
 ```
 
 ### [resonance_tester]
@@ -3724,18 +3753,24 @@ cs_pin:
 
 以下参数一般适用于使用I2C总线的设备。
 
+Note that Klipper's current micro-controller support for i2c is generally not tolerant to line noise. Unexpected errors on the i2c wires may result in Klipper raising a run-time error. Klipper's support for error recovery varies between each micro-controller type. It is generally recommended to only use i2c devices that are on the same printed circuit board as the micro-controller.
+
+Most Klipper micro-controller implementations only support an `i2c_speed` of 100000. The Klipper "linux" micro-controller supports a 400000 speed, but it must be [set in the operating system](RPi_microcontroller.md#optional-enabling-i2c) and the `i2c_speed` parameter is otherwise ignored. The Klipper "rp2040" micro-controller supports a rate of 400000 via the `i2c_speed` parameter. All other Klipper micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter.
+
 ```
 #i2c_address:
-#   设备的 I2C 地址。必须是一个十进制数字（而不是十六进制）。
-#   默认值取决于设备的类型。
+#   The i2c address of the device. This must specified as a decimal
+#   number (not in hex). The default depends on the type of device.
 #i2c_mcu:
-#   芯片所连接的微控制器的名称。
-#   默认为"mcu"。
+#   The name of the micro-controller that the chip is connected to.
+#   The default is "mcu".
 #i2c_bus:
-# 如果微控制器支持多个 I2C 总线，可以指定微控制器的总线名称。
-#   默认值取决于微控制器的类型。
+#   If the micro-controller supports multiple I2C busses then one may
+#   specify the micro-controller bus name here. The default depends on
+#   the type of micro-controller.
 #i2c_speed:
-#   与设备通信时使用的I2C速度（Hz）。在某些微控制器上，
-#   该数值无效。
-#   默认值是默认为100000。
+#   The I2C speed (in Hz) to use when communicating with the device.
+#   The Klipper implementation on most micro-controllers is hard-coded
+#   to 100000 and changing this value has no effect. The default is
+#   100000.
 ```

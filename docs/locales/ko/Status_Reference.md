@@ -24,6 +24,7 @@ The following information is available in [angle some_name](Config_Reference.md#
 - `settings.<section>.<option>`: 마지막 소프트웨어 시작 또는 다시 시작 중에 지정된 구성 파일 설정(또는 기본값)을 반환합니다. (런타임에 변경된 설정은 여기에 반영되지 않습니다.)
 - `config.<section>.<option>`: 마지막 소프트웨어 시작 또는 다시 시작 중에 Klipper가 읽은 대로 주어진 원시 구성 파일 설정을 반환합니다. (런타임에 변경된 설정은 여기에 반영되지 않습니다.) 모든 값은 문자열로 반환됩니다.
 - `save_config_pending`: Returns true if there are updates that a `SAVE_CONFIG` command may persist to disk.
+- `save_config_pending_items`: Contains the sections and options that were changed and would be persisted by a `SAVE_CONFIG`.
 - `warnings`: A list of warnings about config options. Each entry in the list will be a dictionary containing a `type` and `message` field (both strings). Additional fields may be available depending on the type of warning.
 
 ## display_status
@@ -40,6 +41,41 @@ The following information is available in [angle some_name](Config_Reference.md#
 - `last_home.<stepper name>.phase`: 마지막 홈 시도 종료 시 스테퍼 모터의 위상입니다.
 - `last_home.<stepper name>.phases`: 스테퍼 모터에서 사용할 수 있는 총 위상 수입니다.
 - `last_home.<stepper name>.mcu_position`: 마지막 홈 시도가 끝날 때 스테퍼 모터의 위치(마이크로 컨트롤러에 의해 추적됨)입니다. 위치는 마이크로 컨트롤러가 마지막으로 다시 시작된 이후 순방향으로 취한 총 단계 수에서 역방향으로 취한 총 단계 수를 뺀 것입니다.
+
+## exclude_object
+
+The following information is available in the [exclude_object](Exclude_Object.md) object:
+
+
+   - `objects`: An array of the known objects as provided by the `EXCLUDE_OBJECT_DEFINE` command. This is the same information provided by the `EXCLUDE_OBJECT VERBOSE=1` command. The `center` and `polygon` fields will only be present if provided in the original `EXCLUDE_OBJECT_DEFINE`Here is a JSON sample:
+
+```
+[
+  {
+    "polygon": [
+      [ 156.25, 146.2511675 ],
+      [ 156.25, 153.7488325 ],
+      [ 163.75, 153.7488325 ],
+      [ 163.75, 146.2511675 ]
+    ],
+    "name": "CYLINDER_2_STL_ID_2_COPY_0",
+    "center": [ 160, 150 ]
+  },
+  {
+    "polygon": [
+      [ 146.25, 146.2511675 ],
+      [ 146.25, 153.7488325 ],
+      [ 153.75, 153.7488325 ],
+      [ 153.75, 146.2511675 ]
+    ],
+    "name": "CYLINDER_2_STL_ID_1_COPY_0",
+    "center": [ 150, 150 ]
+  }
+]
+```
+
+- `excluded_objects`: An array of strings listing the names of excluded objects.
+- `current_object`: The name of the object currently being printed.
 
 ## fan
 

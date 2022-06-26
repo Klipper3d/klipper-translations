@@ -53,6 +53,10 @@ Fejezze be a telepítést a Klipper másodlagos MCU konfigurálásával a [Raspb
 
 Győződjünk meg róla, hogy a Linux SPI-illesztőprogram engedélyezve van a `sudo raspi-config` futtatásával és az SPI engedélyezésével az "Interfacing options" menüben.
 
+## Választható: I2C engedélyezése
+
+Győződjünk meg róla, hogy a Linux I2C illesztőprogram engedélyezve van a `sudo raspi-config` futtatásával és az I2C engedélyezésével az "Interfacing options" menüben. Ha az MPU gyorsulásmérőjének I2C használatát tervezzük, akkor a átviteli sebességet is 400000-re kell állítani a következő módon: `dtparam=i2c_arm=on,i2c_arm_baudrate=400000` hozzáadása/elhagyása a `/boot/config-ban.txt` (vagy `/boot/firmware/config.txt` néhány disztróban).
+
 ## Választható: A megfelelő GPIO chip azonosítása
 
 A Raspberry Pi-n és sok klónon a GPIO-n látható tűk az első GPIO chiphez tartoznak. Ezért a klipperben egyszerűen úgy használhatók, hogy a `gpio0..n` névvel hivatkozunk rájuk. Vannak azonban olyan esetek, amikor a kitett tűk az elsőtől eltérő GPIO chipekhez tartoznak. Például egyes OrangePi modellek esetében, vagy ha Port Expander-t használunk. Ezekben az esetekben hasznos a *Linux GPIO karakteres eszköz *Linux GPIO eszköz* elérésére szolgáló parancsok használata a konfiguráció ellenőrzéséhez.

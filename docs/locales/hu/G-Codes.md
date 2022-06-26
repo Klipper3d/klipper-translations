@@ -194,6 +194,42 @@ A következő parancsok akkor érhetők el, ha az [endstop_phase konfigurációs
 
 `ENDSTOP_PHASE_CALIBRATE [STEPPER=<config_name>]`: Ha nincs megadva STEPPER paraméter, akkor ez a parancs a múltbeli kezdőpont felvételi műveletek során a végállási lépcsőfázisok statisztikáit jelenti. STEPPER paraméter megadása esetén gondoskodik arról, hogy a megadott végállásfázis-beállítás a konfigurációs fájlba íródjon (a SAVE_CONFIG parancs segítségével).
 
+### [exclude_object]
+
+A következő parancsok akkor érhetők el, ha az [exclude_object konfigurációs szakasz](Config_Reference.md#exclude_object) engedélyezve van (lásd még a [tárgyútmutató kizárása](Exclude_Object.md)):
+
+#### `EXCLUDE_OBJECT`
+
+`EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]`: Paraméterek nélkül az összes jelenleg kizárt objektum listáját adja vissza.
+
+Ha a `NAME` paramétert adjuk meg, a megnevezett objektumot kizárjuk a nyomtatásból.
+
+A `CURRENT` paraméter megadásakor az aktuális objektumot kizárja a nyomtatásból.
+
+A `RESET` paraméter megadásakor a kizárt objektumok listája törlődik. Ezen kívül a `NAME` bevonása csak a megnevezett objektumot fogja visszaállítani. Ez **nyomtatási** hibákat okozhat, ha a rétegek már kihagyásra kerültek.
+
+#### `EXCLUDE_OBJECT_DEFINE`
+
+`EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] [RESET=1] [JSON=1]`: A fájlban lévő objektum összefoglalóját adja meg.
+
+Ha nem adunk meg paramétereket, akkor a Klipper által ismert, definiált objektumok listája jelenik meg. Sztringek listáját adja vissza, kivéve, ha a `JSON` paramétert adjuk meg, ekkor az objektumok adatait JSON formátumban adja vissza.
+
+Ha a `NAME` paraméter szerepel, ez egy kizárandó objektumot határoz meg.
+
+- `NAME`: Ez a paraméter kötelező. Ez a modul más parancsai által használt azonosító.
+- `CENTER`: Az objektum X,Y koordinátája.
+- `POLYGON`: X,Y koordináták tömbje, amely az objektum körvonalát adja.
+
+A `RESET` paraméter megadásakor az összes definiált objektum törlődik, és az `[exclude_object]` modul visszaáll.
+
+#### `EXCLUDE_OBJECT_START`
+
+`EXCLUDE_OBJECT_START NAME=object_name`: Ez a parancs egy `NAME` paramétert vesz fel, és az aktuális rétegen lévő objektum G-kódjának kezdetét jelöli.
+
+#### `EXCLUDE_OBJECT_END`
+
+`EXCLUDE_OBJECT_END [NAME=object_name]`: Az objektum G-kódjának végét jelöli a réteghez. Az `EXCLUDE_OBJECT_START`-al párosul. A `NAME` paraméter opcionális, és csak akkor figyelmeztet, ha a megadott név nem egyezik az aktuális objektummal.
+
 ### [extruder]
 
 A következő parancsok akkor érhetők el, ha az [extruder konfigurációs szakasz](Config_Reference.md#extruder) engedélyezve van:
@@ -204,15 +240,15 @@ A következő parancsok akkor érhetők el, ha az [extruder konfigurációs szak
 
 #### SET_PRESSURE_ADVANCE
 
-`SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Az extruder léptető nyomás előtolási paramétereinek beállítása (ahogyan az [extruder](Config_Reference#extruder) vagy [extruder_stepper](Config_Reference#extruder_stepper) konfigurációs szakaszban definiálva van). Ha az EXTRUDER nincs megadva, akkor az alapértelmezett érték az aktív nyomtatófejhez definiált léptető.
+`SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Egy extruder léptető nyomástovábbítási paramétereinek beállítása (ahogyan az egy [extruder](Config_Reference.md#extruder) vagy [extruder_stepper](Config_Reference.md#extruder_stepper) konfigurációs szakaszban szerepel). Ha az EXTRUDER nincs megadva, akkor az alapértelmezett érték az aktív hotendben definiált stepper.
 
 #### SET_EXTRUDER_ROTATION_DISTANCE
 
-`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: Új értéket állít be a megadott extruder léptető "rotation distance" (ahogyan az egy [extruder](Config_Reference#extruder) vagy [extruder_stepper](Config_Reference#extruder_stepper) config szakaszban definiálva van). Ha a forgatási távolság negatív szám, akkor a léptető mozgása fordított lesz (a konfigurációs fájlban megadott léptető irányhoz képest). A megváltoztatott beállítások nem maradnak meg a Klipper visszaállításakor. Óvatosan használja, mivel a kis változtatások túlzott nyomást eredményezhetnek az extruder és a nyomtatófej között. Használat előtt végezze el a megfelelő kalibrációt a nyomtatószállal. Ha a 'DISTANCE' érték nincs megadva, akkor ez a parancs az aktuális forgatási távolságot adja vissza.
+`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: A megadott extruder léptetők "forgási távolság" új értékének beállítása (ahogyan az [extruder](Config_Reference.md#extruder) vagy [extruder_stepper](Config_Reference.md#extruder_stepper) konfigurációs szakaszban meghatározott). Ha a forgási távolság negatív szám, akkor a léptető mozgása inverz lesz (a konfigurációs fájlban megadott léptető irányhoz képest). A megváltoztatott beállítások nem maradnak meg a Klipper visszaállításakor. Óvatosan használja, mivel a kis változtatások túlzott nyomást eredményezhetnek az extruder és a hotend között. Használat előtt végezze el a megfelelő kalibrációt a filamenttel. Ha a 'DISTANCE' érték nincs megadva, akkor ez a parancs az aktuális forgási távolságot adja meg.
 
 #### SYNC_EXTRUDER_MOTION
 
-`SYNC_EXTRUDER_MOTION EXTRUDER=<name> MOTION_QUEUE=<name>`: Ezzel a paranccsal az EXTRUDER által meghatározott (az [extruder](Config_Reference#extruder) vagy [extruder_stepper](Config_Reference#extruder_stepper) konfigurációs szakaszban meghatározott) léptető szinkronizálódik a MOTION_QUEUE által meghatározott (az [extruder](Config_Reference#extruder) konfigurációs szakaszban meghatározott) extruder mozgásához. Ha a MOTION_QUEUE üres karakterlánc, akkor a léptető deszinkronizálódik minden extruder mozgásra.
+`SYNC_EXTRUDER_MOTION EXTRUDER=<name> MOTION_QUEUE=<name>`: Ez a parancs az EXTRUDER által meghatározott léptetőt (ahogyan az [extruder](Config_Reference.md#extruder) vagy [extruder_stepper](Config_Reference.md#extruder_stepper) konfigurációs szakaszban) meghatározott extruder mozgásához szinkronizálódik a MOTION_QUEUE által meghatározott extruder mozgásához (ahogyan az [extruder](Config_Reference.md#extruder) konfigurációs szakaszban definiálták). Ha a MOTION_QUEUE üres karakterlánc, akkor a léptető deszinkronizálódik az extruder minden mozgására.
 
 #### SET_EXTRUDER_STEP_DISTANCE
 
@@ -261,7 +297,7 @@ A következő további parancsok is rendelkezésre állnak.
 
 ### [force_move]
 
-A force_move modul automatikusan betöltődik, azonban néhány parancshoz szükséges az `enable_force_move` beállítása a [nyomtató konfigurációban](Config_Reference#force_move).
+A force_move modul automatikusan betöltődik, azonban néhány parancshoz szükséges az `enable_force_move` beállítása a [nyomtató konfig](Config_Reference.md#force_move)-ban.
 
 #### STEPPER_BUZZ
 
@@ -551,7 +587,7 @@ A következő parancsok akkor érhetők el, ha a [resonance_tester konfiguráci�
 
 #### TEST_RESONANCES
 
-`TEST_RESONANCES AXIS=<axis> OUTPUT=<resonances,raw_data> [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [INPUT_SHAPING=[<0:1>]]`: Lefuttatja a rezonancia tesztet a kért "tengely" összes konfigurált mérőpontján, és méri a gyorsulást az adott tengelyhez konfigurált gyorsulásmérő chipek segítségével. A "tengely" lehet X vagy Y, vagy megadhat egy tetszőleges irányt `AXIS=dx,dy`, ahol dx és dy egy irányvektort meghatározó lebegőpontos számok (pl. `AXIS=X`, `AXIS=Y`, vagy `AXIS=1,-1` az átlós irány meghatározásához). Vegyük figyelembe, hogy az `AXIS=dx,dy` és az `AXIS=-dx,-dy` egyenértékű. Ha `INPUT_SHAPING=0` vagy nincs beállítva (alapértelmezett), letiltja a bemeneti változót a rezonancia teszteléshez, mivel a rezonancia tesztelés nem érvényes a bemeneti változó engedélyezésével. `OUTPUT` paraméter egy vesszővel elválasztott lista arról, hogy mely kimenetek kerülnek kiírásra. Ha `raw_data` paramétert kér, akkor a nyers gyorsulásmérő adatok egy `/tmp/raw_data_<axis>_[<point>_]<name>.csv` fájlba vagy fájlsorozatba íródnak. A (`<point>_` névrészletével, amely csak akkor generálódik, ha 1-nél több mérőpont van konfigurálva). Ha `resonances` van megadva, a frekvenciaválasz kiszámításra kerül (az összes mérőpontra vonatkozóan) és a `/tmp/resonances_<axis>_<name>.csv` fájlba íródik. Ha nincs beállítva, az OUTPUT alapértelmezés szerint `resonances`, a NAME pedig alapértelmezés szerint az aktuális időpontot jelenti "ÉÉÉÉHHNN_ÓÓPPMPMP" formátumban.
+`TEST_RESONANCES AXIS=<axis> OUTPUT=<resonances,raw_data> [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<adxl345_chip_name>] [POINT=x,y,z] [INPUT_SHAPING=[<0:1>]]`: Lefuttatja a rezonanciatesztet a kért "tengely" összes konfigurált mérőpontjában, és méri a gyorsulást az adott tengelyhez konfigurált gyorsulásmérő chipek segítségével. A "tengely" lehet X vagy Y, vagy megadhat egy tetszőleges irányt `AXIS=dx,dy`, ahol dx és dy egy irányvektort meghatározó lebegőpontos szám (pl. `AXIS=X`, `AXIS=Y`, vagy `AXIS=1,-1` az átlós irány meghatározásához). Vegyük figyelembe, hogy az `AXIS=dx,dy` és az `AXIS=-dx,-dy` egyenértékű. Az `adxl345_chip_name` lehet egy vagy több konfigurált adxl345 chip, vesszővel elválasztva, például `CHIPS="adxl345, adxl345 rpi"`. Megjegyzendő, hogy az `adxl345` elhagyható a nevesített adxl345 chipeknél. Ha POINT van megadva, az felülírja a `[resonance_tester]` alatt konfigurált pontokat. Ha `INPUT_SHAPING=0` vagy nincs beállítva (alapértelmezett), letiltja a bemeneti alakítást a rezonancia teszteléshez, mert a rezonancia tesztelés nem érvényes a bemeneti alakító engedélyezésével. Az `OUTPUT` paraméter egy vesszővel elválasztott lista arról, hogy mely kimenetek kerülnek kiírásra. Ha `raw_data` paramétert kér, akkor a nyers gyorsulásmérő adatok egy `/tmp/raw_data_<axis>_[<chip_name>_][<point>_]<name>.csv` fájlba vagy fájlsorozatba íródnak. A (`<point>_` név részével, amely csak akkor generálódik, ha 1-nél több mérőpont van konfigurálva vagy POINT van megadva). Ha `resonances` van megadva, a frekvenciaválasz kiszámításra kerül (az összes mérőpontra vonatkozóan), és a `/tmp/resonances_<axis>_<name>.csv` fájlba íródik. Ha nincs beállítva, az OUTPUT alapértelmezés szerinti `resonances`, a NAME pedig alapértelmezés szerint az aktuális időpontot jelenti "ÉÉÉÉHHNN_ÓÓPPMPMP" formátumban.
 
 #### SHAPER_CALIBRATE
 
@@ -587,7 +623,7 @@ A következő parancsok akkor érhetők el, ha a [screws_tilt_adjust konfigurác
 
 #### SCREWS_TILT_CALCULATE
 
-`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [<probe_parameter>=<value>]`: Ez a parancs az ágy csavarjainak beállítási eszközét hívja elő. A fúvókát különböző helyekre (a konfigurációs fájlban meghatározottak szerint) parancsolja a Z magasságot mérve és kiszámítja az ágy szintjének beállításához szükséges gombfordulatok számát. Ha DIRECTION van megadva, akkor a gombfordulatok mind ugyanabba az irányba, az óramutató járásával megegyező (CW) vagy az óramutató járásával ellentétes (CCW) irányba fognak történni. Az opcionális szondaparaméterekkel kapcsolatos részletekért lásd a PROBE parancsot. FONTOS: A parancs használata előtt mindig el kell végezni egy G28-at.
+`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [<probe_parameter>=<value>]`: Ez a parancs az ágy csavarjainak beállítási eszközét hívja elő. A fúvókát különböző helyekre (a konfigurációs fájlban meghatározottak szerint) parancsolja a Z magasságot mérve, és kiszámítja az ágy szintjének beállításához szükséges gombfordulatok számát. Ha DIRECTION van megadva, akkor a gombfordulások mind ugyanabba az irányba, az óramutató járásával megegyező vagy az óramutató járásával ellentétes irányba fognak történni. Az opcionális szondaparaméterekkel kapcsolatos részletekért lásd a PROBE parancsot. FONTOS: A parancs használata előtt mindig ki kell adni egy G28 parancsot. Ha MAX_DEVIATION van megadva, a parancs G-kód hibát fog adni, ha a csavar magasságának az alapcsavar magasságához viszonyított bármilyen különbsége nagyobb, mint a megadott érték.
 
 ### [sdcard_loop]
 
