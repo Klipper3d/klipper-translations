@@ -34,6 +34,7 @@ Benvenuto nella documentazione di Klipper. Se sei nuovo di Klipper, inizia con i
 - [Slicers](Slicers.md): Configurare il software "slicer" per Klipper.
 - [Correzione dell'inclinazione](Skew_Correction.md): Regolazioni per assi non perfettamente squadrati.
 - [Strumenti PWM](Using_PWM_Tools.md): Guida su come usare gli strumenti controllati da PWM come i laser o i mandrini.
+- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs implementation.
 
 ## Documentazione per sviluppatori
 

@@ -19,6 +19,15 @@ Az ADXL345-öt SPI-n keresztül kell csatlakoztatnia a Raspberry Pi-hez. Vegye f
 | SDA | 19 | GPIO10 (SPI0_MOSI) |
 | SCL | 23 | GPIO11 (SPI0_SCLK) |
 
+Az ADXL345 alternatívája az MPU-9250 (vagy MPU-6050). Ezt a gyorsulásmérőt úgy tesztelték, hogy az RPi-n 400kbaud-on keresztül I2C-n keresztül működik. Ajánlott csatlakozási séma az I2C-hez:
+
+| MPU-9250 tű | RPi tű | RPi tű név |
+| :-: | :-: | :-: |
+| 3V3 (or VCC) | 01 | 3.3v DC feszültség |
+| GND | 09 | Föld |
+| SDA | 03 | GPIO02 (SDA1) |
+| SCL | 05 | GPIO03 (SCL1) |
+
 Fritzing kapcsolási rajzok néhány ADXL345 laphoz:
 
 ![ADXL345-Rpi](img/adxl345-fritzing.png)
@@ -39,26 +48,26 @@ Vegye figyelembe, hogy egy ágycsúsztatós nyomtatónál 2 rögzítést kell te
 
 ### Szoftver telepítése
 
-Vegye figyelembe, hogy a rezonanciamérések és a shaper automatikus kalibrálása további, alapértelmezés szerint nem telepített szoftverfüggőségeket igényel. Először is, a Raspberry Pi-n a következő parancsot kell futtatnia:
+Vegye figyelembe, hogy a rezonanciamérések és a shaper automatikus kalibrálása további, alapértelmezés szerint nem telepített szoftverfüggőségeket igényel. Először futtassa a Raspberry Pi számítógépén a következő parancsokat:
+
+```
+sudo apt update
+sudo apt install python3-numpy python3-matplotlib libatlas-base-dev
+```
+
+Ezután a NumPy telepítéséhez a Klipper környezetbe futtassuk a parancsot:
 
 ```
 ~/klippy-env/bin/pip install -v numpy
 ```
 
-a `numpy` csomag telepítéséhez. Vegye figyelembe, hogy a CPU teljesítményétől függően ez *sok* időt vehet igénybe, akár 10-20 percet is. Legyen türelmes, és várja meg a telepítés befejezését. Bizonyos esetekben, ha a kártyán túl kevés RAM van, a telepítés meghiúsulhat, és engedélyeznie kell a swapot.
-
-Ezután futtassa a következő parancsokat a további függőségek telepítéséhez:
-
-```
-sudo apt update
-sudo apt install python3-numpy python3-matplotlib
-```
+Vegye figyelembe, hogy a CPU teljesítményétől függően ez *sok* időt vehet igénybe, akár 10-20 percet is. Legyen türelmes, és várja meg a telepítés befejezését. Bizonyos esetekben, ha a kártyán túl kevés RAM van, a telepítés meghiúsulhat, és engedélyeznie kell a swapot.
 
 Ezután ellenőrizze és kövesse az [RPi Microcontroller dokumentum](RPi_microcontroller.md) utasításait a "linux mcu" beállításához a Raspberry Pi-n.
 
 Győződjünk meg róla, hogy a Linux SPI-illesztőprogram engedélyezve van a `sudo raspi-config` futtatásával és az SPI engedélyezésével az "Interfacing options" menüben.
 
-Adja hozzá a következőket a printer.cfg fájlhoz:
+Az ADXL345 esetében adja hozzá a következőket a printer.cfg fájlhoz:
 
 ```
 [mcu rpi]
@@ -74,6 +83,22 @@ probe_points:
 ```
 
 Javasoljuk, hogy 1 mérőpontal kezdje, a nyomtatási ágy közepén, kissé felette.
+
+Az MPU-9250 esetében győződjön meg róla, hogy a Linux I2C illesztőprogram engedélyezve van, és az átviteli sebesség 400000-re van állítva (további részletekért lásd az [I2C engedélyezése](RPi_microcontroller.md#optional-enabling-i2c) részt). Ezután adjuk hozzá a következőket a printer.cfg fájlhoz:
+
+```
+[mcu rpi]
+serial: /tmp/klipper_host_mcu
+
+[mpu9250]
+i2c_mcu: rpi
+i2c_bus: i2c.1
+
+[resonance_tester]
+accel_chip: mpu9250
+probe_points:
+    100, 100, 20  # an example
+```
 
 Indítsa újra a Klippert a `RESTART` paranccsal.
 

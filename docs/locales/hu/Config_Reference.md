@@ -1048,24 +1048,25 @@ Biztonságos Z kezdőpont felvétel. Ezzel a mechanizmussal a Z tengelyt egy ado
 ```
 [safe_z_home]
 home_xy_position:
-#   Egy X, Y koordináta (pl. 100, 100), ahol a Z kezdőpont felvételt végre
-#   kell hajtani. Ezt a paramétert meg kell adni.
+#   Egy X, Y koordináta (pl. 100, 100), ahol a Z homingot végre kell hajtani.
+#   Ezt a paramétert meg kell adni.
 #speed: 50.0
-#   Az a sebesség, amellyel a nyomtatófej a biztonságos Z
+#   Az a sebesség, amellyel a szerszámfej a biztonságos Z
 #   kezdőkoordinátára kerül. Az alapértelmezett érték 50 mm/mp
 #z_hop:
 #   Távolság (mm-ben) a Z tengely felemeléséhez a beállítás előtt.
-#   Ez minden irányadó parancsra vonatkozik, még akkor is, ha nem a
-#   Z tengelyre irányul. Ha a Z tengely már be van állítva, és az aktuális
-#   Z pozíció kisebb, mint z_hop, akkor ez a fejet z_hop magasságba
-#   emeli. Ha a Z tengely még nincs elhelyezve, a fejet a z_hop felemeli.
+#   Ez minden irányadó parancsra vonatkozik, még akkor is, ha nem
+#   a Z tengelyre irányul.
+#   Ha a Z tengely már be van állítva, és az aktuális Z pozíció kisebb,
+#   mint z_hop, akkor ez a fejet z_hop magasságba emeli.
+#   Ha a Z tengely még nincs behelyezve, a fejet a z_hop felemeli.
 #   Az alapértelmezett az, hogy nem valósítja meg a Z ugrást.
-#z_hop_speed: 20.0
-#   Sebesség (mm/mp-ben), amellyel a Z tengely megemelkedik a
-#   kezdőpont felvétel előtt. Az alapértelmezett érték 20mm/mp.
+#z_hop_speed: 15.0
+#   Sebesség (mm/mp-ben), amellyel a Z tengely megemelkedik
+#   a homing előtt. Az alapértelmezett érték 15mm/mp.
 #move_to_previous: False
-#   Ha True értékre van állítva, az X és Y tengelyek visszaállnak korábbi
-#   pozíciójukra a Z tengely homályosítása után.
+#   Ha True értékre van állítva, az X és Y tengelyek visszaállnak
+#   az előző pozíciójukra a Z tengely kezdőpont felvétele után.
 #   Az alapértelmezett érték False.
 ```
 
@@ -1218,10 +1219,12 @@ A virtuális sdcard hasznos lehet, ha a gazdaszámítógép nem elég gyors az O
 ```
 [virtual_sdcard]
 path:
-#   A helyi könyvtár elérési útja a gazdagépen a G-kód fájlok kereséséhez.
+#   A gazdagép helyi könyvtárának elérési útja a G-kód fájlok kereséséhez.
 #   Ez egy csak olvasható könyvtár (az sdcard fájl írása nem támogatott).
-#   Ezzel rámutathatunk az OctoPrint feltöltési könyvtárára
+#   Ezt rámutathatjuk az OctoPrint feltöltési könyvtárára
 #   (általában ~/.octoprint/uploads/ ). Ezt a paramétert meg kell adni.
+#on_error_gcode:
+#   A hibajelentéskor végrehajtandó G-kód parancsok listája.
 ```
 
 ### [sdcard_loop]
@@ -1310,6 +1313,16 @@ Engedélyezze az "M118" és "RESPOND" kiterjesztett [parancsokat](G-Codes.md#res
 #   érték felülírja a „default_type” értéket.
 ```
 
+### [exclude_object]
+
+Lehetővé teszi az egyes objektumok kizárásának vagy törlésének támogatását a nyomtatási folyamat során.
+
+További információkért lásd a [kizárandó objektumok útmutatót](Exclude_Object.md) és a [parancsreferenciát](G-Codes.md#excludeobject). Lásd a [sample-macros.cfg](../config/sample-macros.cfg) fájlt egy Marlin/RepRapFirmware kompatibilis M486 G-kód makróhoz.
+
+```
+[exclude_object]
+```
+
 ## Rezonancia kompenzáció
 
 ### [input_shaper]
@@ -1382,6 +1395,24 @@ cs_pin:
 #   ezt a sebességet az alapértelmezett 3200-ról, és a 800 alatti
 #   sebességek jelentősen befolyásolják a rezonancia mérés
 #   eredményeinek minőségét.
+```
+
+### [mpu9250]
+
+Az mpu9250 és mpu6050 gyorsulásmérők támogatása (tetszőleges számú szekciót lehet definiálni "mpu9250" előtaggal).
+
+```
+[mpu9250 my_accelerometer]
+#i2c_address:
+#   Az alapértelmezett 104 (0x68).
+#i2c_mcu:
+#i2c_bus:
+#i2c_speed: 400000
+#   A fenti paraméterek leírását lásd az
+#   "általános I2C beállítások" részben.
+#   Az alapértelmezett "i2c_speed" 400000.
+#axes_map: x, y, z
+#   Erről a paraméterről az "adxl345" szakaszban olvashat bővebben.
 ```
 
 ### [resonance_tester]
@@ -2155,7 +2186,7 @@ serial_no:
 Nyomtatás hűtőventilátor.
 
 ```
-[ventilátor]
+[fan]
 pin:
 #   A ventilátort vezérlő kimeneti tű. Ezt a paramétert meg kell adni.
 #max_power: 1.0
@@ -3880,20 +3911,25 @@ Az SPI-buszt használó eszközök esetében általában a következő paraméte
 
 A következő paraméterek általában az I2C-buszt használó eszközökhöz állnak rendelkezésre.
 
+Vegye figyelembe, hogy a Klipper jelenlegi mikrokontrollerek i2c támogatása nem tolerálja a hálózati zajt. Az i2c vezetékek nem várt hibái a Klipper futásidejű hibaüzenetét eredményezhetik. A Klipper hibaelhárítás támogatása az egyes mikrokontroller-típusok között változik. Általában csak olyan i2c eszközök használata ajánlott, amelyek ugyanazon a nyomtatott áramköri lapon vannak, mint a mikrokontroller.
+
+A legtöbb Klipper mikrokontroller implementáció csak 100000 `i2c_speed` értéket támogat. A Klipper "linux" mikrokontroller támogatja a 400000-es sebességet, de ezt [az operációs rendszerben kell beállítani](RPi_microcontroller.md#optional-enabling-i2c), és az `i2c_speed` paramétert egyébként figyelmen kívül hagyja. A Klipper "rp2040" mikrokontroller az `i2c_speed` paraméteren keresztül 400000-es sebességet támogat. Az összes többi Klipper mikrovezérlő 100000-es sebességet használ, és figyelmen kívül hagyja az `i2c_speed` paramétert.
+
 ```
 #i2c_address:
-#   Az eszköz I2C címe. Ezt decimális számként kell megadni (nem
-#   hexadecimális formában).
+#   Az eszköz i2c címe. Ezt decimális számként kell megadni
+#   (nem hexadecimális formában).
 #   Az alapértelmezett érték az eszköz típusától függ.
 #i2c_mcu:
 #   Annak a mikrovezérlőnek a neve, amelyhez a chip csatlakozik.
 #   Az alapértelmezett az "mcu".
 #i2c_bus:
-#   Ha a mikrovezérlő több I2C buszt támogat, akkor itt megadhatja
-#   a mikrovezérlő busz nevét. Az alapértelmezett érték a mikrovezérlő
-#   típusától függ.
+#   Ha a mikrovezérlő több I2C buszt támogat, akkor itt megadhatja a
+#   mikrovezérlő busz nevét.
+#   Az alapértelmezett érték a mikrovezérlő típusától függ.
 #i2c_speed:
 #   Az eszközzel való kommunikáció során használandó I2C sebesség
-#   (Hz-ben). Egyes mikrovezérlőknél ennek az értéknek a
-#   megváltoztatása nincs hatással. Az alapértelmezett érték 100 000.
+#   (Hz-ben). A Klipper implementációja a legtöbb mikrovezérlőn kódolt
+#   értéke 100000, és ennek az értéknek nincs hatása.
+#   Az alapértelmezett érték 100 000.
 ```

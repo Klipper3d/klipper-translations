@@ -2,7 +2,15 @@
 
 Ezek az utasítások feltételezik, hogy a szoftver egy Raspberry Pi számítógépen fut az OctoPrint-el együtt. Javasoljuk, hogy egy Raspberry Pi 2, 3 vagy 4-es számítógépet használjon gazdagépként (más gépekre vonatkozóan lásd a [GYIK](FAQ.md#can-i-run-klipper-on-something-other-other-than-a-raspberry-pi-3) című részt).
 
-A Klipper jelenleg számos Atmel ATmega alapú mikrovezérlőt, [ARM alapú mikrovezérlőt](Features.md#step-benchmarks) és [Beaglebone PRU](Beaglebone.md) alapú nyomtatót támogat.
+## Klipper konfigurációs fájl beszerzése
+
+A legtöbb Klipper beállítást egy "nyomtató konfigurációs fájl" határozza meg, amelyet a Raspberry Pi tárol. A megfelelő konfigurációs fájlt gyakran úgy találhatjuk meg, hogy a Klipper [config könyvtárában](../config/) keresünk egy "printer-" előtaggal kezdődő fájlt, amely megfelel a célnyomtatónak. A Klipper konfigurációs fájl tartalmazza a nyomtatóra vonatkozó technikai információkat, amelyekre a telepítés során szükség lesz.
+
+Ha nincs megfelelő nyomtató konfigurációs fájl a Klipper config könyvtárban, akkor keresse meg a nyomtató gyártójának weboldalát, hogy van-e megfelelő Klipper konfigurációs fájljuk.
+
+Ha nem találja a nyomtatóhoz tartozó konfigurációs fájlt, de a nyomtató vezérlőpanelének típusa ismert, akkor keressen egy megfelelő [config fájlt](../config/), amely "generic-" előtaggal kezdődik. Ezekkel a nyomtató vezérlőpanel példafájlokkal sikeresen elvégezhető a kezdeti telepítés, de a nyomtató teljes funkcionalitásának eléréséhez némi testreszabásra lesz szükség.
+
+Lehetőség van új nyomtatókonfiguráció nulláról történő meghatározására is. Ehhez azonban jelentős műszaki ismeretekre van szükség a nyomtatóval és annak elektronikájával kapcsolatban. A legtöbb felhasználónak ajánlott, hogy egy megfelelő konfigurációs fájllal kezdje. Ha új, egyéni nyomtató konfigurációs fájlt hoz létre, akkor a legközelebbi példával [config fájl](../config/) kezdje, és további információkért használja a Klipper [konfigurációs hivatkozás](Config_Reference.md) című dokumentumot.
 
 ## OS képfájl előkészítése
 
@@ -26,13 +34,15 @@ cd ~/klipper/
 make menuconfig
 ```
 
-Válassza ki a megfelelő mikrovezérlőt, és tekintse át a rendelkezésre álló egyéb lehetőségeket. A konfigurálás után futtassa:
+A [nyomtató konfigurációs fájl](#obtain-a-klipper-configuration-file) tetején található megjegyzéseknek le kell írniuk a beállításokat, amelyeket a "make menuconfig" során kell beállítani. Nyissa meg a fájlt egy webböngészőben vagy szövegszerkesztőben, és keresse meg ezeket az utasításokat a fájl teteje közelében. Miután a megfelelő "menuconfig" beállításokat elvégezte, nyomja meg a "Q" gombot a kilépéshez, majd az "Y" gombot a mentéshez. Ezután futtassa:
 
 ```
 make
 ```
 
-Meg kell határozni a mikrovezérlőhöz csatlakoztatott soros portot. Az USB-n keresztül csatlakozó mikrovezérlők esetében futtassa a következőt:
+Ha a [nyomtató konfigurációs fájl](#obtain-a-klipper-configuration-file) tetején található megjegyzések egyéni lépéseket írnak le a "flash" végső képnek a nyomtató vezérlőpanelére történő villogtatásához, akkor kövesse ezeket a lépéseket, majd folytassa az [OctoPrint konfigurálása](#configuring-octoprint-to-use-klipper) lépéseket.
+
+Ellenkező esetben a következő lépéseket gyakran használják a nyomtató vezérlőlapjának "flash" égetésére. Először meg kell határozni a mikrokontrollerhez csatlakoztatott soros portot. Futtassa a következőket:
 
 ```
 ls /dev/serial/by-id/*
@@ -74,34 +84,40 @@ A csatlakozás után lépjen a "Terminal" fülre, és írja be a "status" kifeje
 
 ## A Klipper beállítása
 
-A Klipper konfigurációja a Raspberry Pi szöveges fájljában van tárolva. Vessen egy pillantást a példa konfigurációs fájlokra a [Konfigurációs könyvtárban](../config/). A [Konfigurációs hivatkozás](Config_Reference.md) dokumentációt tartalmaz a konfigurációs paraméterekről.
+A következő lépés a [nyomtató konfigurációs fájl](#obtain-a-klipper-configuration-file) átmásolása a Raspberry Pi-re.
 
-A Klipper konfigurációs fájljának frissítésének legegyszerűbb módja egy olyan asztali szerkesztő használata, amely támogatja a fájlok "scp" és/vagy "sftp" protokollon keresztüli szerkesztését. Vannak ingyenesen elérhető eszközök, amelyek ezt támogatják (pl. Notepad++, WinSCP és Cyberduck). Használja az egyik példa konfigurációs fájlt kiindulási pontként, és mentse el "printer.cfg" nevű fájlként a pi felhasználó kezdőkönyvtárába (azaz /home/pi/printer.cfg).
+Vitathatatlanul a Klipper konfigurációs fájl beállításának legegyszerűbb módja egy olyan asztali szerkesztő használata, amely támogatja a fájlok szerkesztését az "scp" és/vagy "sftp" protokollokon keresztül. Vannak szabadon elérhető eszközök, amelyek támogatják ezt (pl. Notepad++, WinSCP és Cyberduck). Töltse be a nyomtató konfigurációs fájlját a szerkesztőprogramba, majd mentse el egy "printer.cfg" nevű fájlként a pi felhasználó home könyvtárába (pl. /home/pi/printer.cfg).
 
-Alternatív megoldásként a fájlt közvetlenül a Raspberry Pi-n is másolhatja és szerkesztheti SSH-n keresztül - például:
+Alternatívaként a fájlt közvetlenül a Raspberry Pi-n is lehet másolni és szerkeszteni SSH-n keresztül. Ez valahogy így nézhet ki (ügyeljünk arra, hogy a parancsot frissítsük a megfelelő nyomtató konfigurációs fájlnévvel):
 
 ```
 cp ~/klipper/config/example-cartesian.cfg ~/printer.cfg
 nano ~/printer.cfg
 ```
 
-Mindenképpen tekintse át és frissítse a hardvernek megfelelő beállításokat.
+Gyakori, hogy minden nyomtatónak saját egyedi neve van a mikrokontroller számára. A név a Klipper égetése után megváltozhat, ezért futtassa újra ezeket a lépéseket, még akkor is, ha már az égetéskor elvégezte őket. Futtatás:
 
-Gyakori, hogy minden nyomtató mikrovezérlőnek egyedi neve van a. A név megváltozhat a Klipper égetése után, ezért futtassa újra az `ls /dev/serial/by-id/*` parancsot, majd frissítse a konfigurációs fájlt az egyedi névvel. Például frissítse az `[mcu]` részt, hogy az a következőhöz hasonló legyen:
+```
+ls /dev/serial/by-id/*
+```
+
+Valami hasonlót kell kapnia az alábbiakhoz:
+
+```
+/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
+```
+
+Ezután frissítse a konfigurációs fájlt az egyedi névvel. Például frissítse az `[mcu]` részt, hogy valami hasonlót kapjon:
 
 ```
 [mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-A fájl létrehozása és szerkesztése után a konfiguráció betöltéséhez az OctoPrint webterminálban egy "restart" parancsot kell kiadni. A "status" parancs jelzi, hogy a nyomtató készen áll, ha a Klipper konfigurációs fájlja sikeresen beolvasásra került, és a mikrovezérlőt sikerült megtalálni és konfigurálni. Nem szokatlan, hogy a kezdeti beállítás során konfigurációs hibák lépnek fel – frissítse a nyomtató konfigurációs fájlját, és adja meg az „újraindítás” üzenetet, amíg az „állapot” nem jelzi, hogy a nyomtató készen áll.
+A fájl létrehozása és szerkesztése után az OctoPrint webes terminálján ki kell adni egy "újraindítás" parancsot a konfiguráció betöltéséhez. A "status" parancs azt jelenti, hogy a nyomtató készen áll, ha a Klipper config fájl sikeresen beolvasásra került, és a mikrokontroller sikeresen meg lett találva és konfigurálva.
+
+A nyomtató konfigurációs fájljának testreszabásakor nem ritka, hogy a Klipper konfigurációs hibát jelez. Ha hiba lép fel, végezze el a szükséges javításokat a nyomtató konfigurációs fájljában, és adja ki az "újraindítás" parancsot, amíg az "állapot" nem jelzi, hogy a nyomtató készen áll.
 
 A Klipper az OctoPrint terminállapon keresztül jelenti a hibaüzeneteket. A "status" paranccsal a hibaüzenetek újra jelenthetők. A Klipper alapértelmezett indítószkriptje egy naplót is elhelyez a **/tmp/klippy.log** fájlban, amely részletesebb információkat tartalmaz.
 
-A gyakori G-kód parancsokon kívül a Klipper néhány kiterjesztett parancsot is támogat. Az „állapot” és az „újraindítás” példák ezekre a parancsokra. Használja a "help" parancsot az egyéb kiterjesztett parancsok listájának megtekintéséhez.
-
-Miután a Klipper azt jelenti, hogy a nyomtató készen áll, lépjen tovább a [konfigurációs ellenőrző dokumentum](Config_checks.md) oldalra, és hajtson végre néhány alapvető ellenőrzést a tű-definíciókon a konfigurációs fájlban.
-
-## Kapcsolatfelvétel a fejlesztőkkel
-
-Nézze meg a [GYIK](FAQ.md) részt, ahol választ talál néhány gyakori kérdésre. Tekintse meg a [kapcsolati oldalt](Contact.md) a hiba bejelentéséhez vagy a fejlesztőkkel való kapcsolatfelvételhez.
+Miután a Klipper jelenti, hogy a nyomtató készen áll, folytassa a [config check](Config_checks.md) című dokumentumal, hogy elvégezzen néhány alapvető ellenőrzést a config fájlban lévő definíciókon. További információkért lásd a fő [dokumentációs hivatkozás](Overview.md) című rész.

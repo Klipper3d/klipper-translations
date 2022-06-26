@@ -10,9 +10,9 @@
 
 Эталон скорости шага предназначен для определения максимальной скорости шага, которую может достичь аппаратное и программное обеспечение. Эта эталонная пошаговая скорость недостижима при повседневном использовании, поскольку Klipper необходимо выполнять другие задачи (например, связь между микроконтроллером и хостом, считывание температуры, проверка конечной остановки) при любом реальном использовании.
 
-In general, the pins for the benchmark tests are chosen to flash LEDs or other innocuous pins. **Always verify that it is safe to drive the configured pins prior to running a benchmark.** It is not recommended to drive an actual stepper during a benchmark.
+Как правило, контакты для эталонных тестов выбираются для мигания светодиодов или других безвредных контактов. **Всегда проверяйте, безопасно ли управлять сконфигурированными выводами перед запуском теста.** Не рекомендуется управлять настоящим шаговым двигателем во время теста.
 
-### Step rate benchmark test
+### Эталонный тест скорости шага
 
 The test is performed using the console.py tool (described in <Debugging.md>). The micro-controller is configured for the particular hardware platform (see below) and then the following is cut-and-paste into the console.py terminal window:
 
