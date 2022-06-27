@@ -1198,6 +1198,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#obtain-a-klipper-configuration-file" class="md-nav__link">
+    Obtain a Klipper Configuration File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#os" class="md-nav__link">
     OS 이미지 준비
   </a>
@@ -1225,13 +1232,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    개발자에게 연락하기
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1251,7 +1251,11 @@
 
 <h1 id="_1">설치<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>이 지침은 소프트웨어가 OctoPrint와 함께 Raspberry Pi 컴퓨터에서 실행된다고 가정합니다. Raspberry Pi 2, 3 또는 4 컴퓨터를 호스트 컴퓨터로 사용하는 것이 좋습니다(다른 기기에 대해서는 <a href="FAQ.html#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3">FAQ</a> 참조).</p>
-<p>Klipper는 현재 다수의 Atmel ATmega 기반 마이크로 컨트롤러, <a href="Features.html#step-benchmarks">ARM 기반 마이크로 컨트롤러</a> 및 <a href="Beaglebone.html">Beaglebone PRU</a> 기반 프린터를 지원합니다.</p>
+<h2 id="obtain-a-klipper-configuration-file">Obtain a Klipper Configuration File<a class="headerlink" href="#obtain-a-klipper-configuration-file" title="Permanent link">&para;</a></h2>
+<p>Most Klipper settings are determined by a "printer configuration file" that will be stored on the Raspberry Pi. An appropriate configuration file can often be found by looking in the Klipper <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config directory</a> for a file starting with a "printer-" prefix that corresponds to the target printer. The Klipper configuration file contains technical information about the printer that will be needed during the installation.</p>
+<p>If there isn't an appropriate printer configuration file in the Klipper config directory then try searching the printer manufacturer's website to see if they have an appropriate Klipper configuration file.</p>
+<p>If no configuration file for the printer can be found, but the type of printer control board is known, then look for an appropriate <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config file</a> starting with a "generic-" prefix. These example printer board files should allow one to successfully complete the initial installation, but will require some customization to obtain full printer functionality.</p>
+<p>It is also possible to define a new printer configuration from scratch. However, this requires significant technical knowledge about the printer and its electronics. It is recommended that most users start with an appropriate configuration file. If creating a new custom printer configuration file, then start with the closest example <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config file</a> and use the Klipper <a href="Config_Reference.html">config reference</a> for further information.</p>
 <h2 id="os">OS 이미지 준비<a class="headerlink" href="#os" title="Permanent link">&para;</a></h2>
 <p>Raspberry Pi 컴퓨터에 <a href="https://github.com/guysoft/OctoPi">OctoPi</a>를 설치하여 시작합니다. OctoPi v0.17.0 이상 사용 - 릴리스 정보는 <a href="https://github.com/guysoft/OctoPi/releases">OctoPi 릴리스</a>를 참조하십시오. OctoPi가 부팅되고 OctoPrint 웹 서버가 작동하는지 확인해야 합니다. OctoPrint 웹 페이지에 연결한 후 화면의 지시에 따라 OctoPrint를 v1.4.2 이상으로 업그레이드하십시오.</p>
 <p>OctoPi를 설치하고 OctoPrint를 업그레이드한 후, 소수의 시스템 명령을 실행하려면 대상 머신에 ssh해야 합니다. Linux 또는 MacOS 데스크탑을 사용하는 경우 "ssh" 소프트웨어가 데스크탑에 이미 설치되어 있어야 합니다. 다른 데스크톱에서 사용할 수 있는 무료 ssh 클라이언트가 있습니다(예: <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a>). ssh 유틸리티를 사용하여 Raspberry Pi(ssh pi@octpi -- 암호는 "raspberry")에 연결하고 다음 명령을 실행합니다:</p>
@@ -1266,11 +1270,12 @@
 make menuconfig
 </code></pre></div>
 
-<p>적절한 마이크로 컨트롤러를 선택하고 제공된 다른 옵션을 검토하십시오. 구성이 완료되면 다음을 실행합니다:</p>
+<p>The comments at the top of the <a href="#obtain-a-klipper-configuration-file">printer configuration file</a> should describe the settings that need to be set during "make menuconfig". Open the file in a web browser or text editor and look for these instructions near the top of the file. Once the appropriate "menuconfig" settings have been configured, press "Q" to exit, and then "Y" to save. Then run:</p>
 <div class="highlight"><pre><span></span><code>make
 </code></pre></div>
 
-<p>마이크로 컨트롤러에 연결된 직렬 포트를 결정해야 합니다. USB를 통해 연결하는 마이크로 컨트롤러의 경우 다음을 실행합니다:</p>
+<p>If the comments at the top of the <a href="#obtain-a-klipper-configuration-file">printer configuration file</a> describe custom steps for "flashing" the final image to the printer control board then follow those steps and then proceed to <a href="#configuring-octoprint-to-use-klipper">configuring OctoPrint</a>.</p>
+<p>Otherwise, the following steps are often used to "flash" the printer control board. First, it is necessary to determine the serial port connected to the micro-controller. Run the following:</p>
 <div class="highlight"><pre><span></span><code>ls /dev/serial/by-id/*
 </code></pre></div>
 
@@ -1295,25 +1300,30 @@ sudo service klipper start
 <p>메인 페이지의 "연결" 섹션(페이지 왼쪽 상단)에서 "직렬 포트"가 "/tmp/printer"로 설정되어 있는지 확인하고 "연결"을 클릭합니다. ("/tmp/printer"를 선택할 수 없는 경우 페이지를 다시 로드해 보십시오.)</p>
 <p>연결되면 "터미널" 탭으로 이동하여 명령 입력 상자에 "상태"(따옴표 제외)를 입력하고 "보내기"를 클릭합니다. 터미널 창은 구성 파일을 여는 동안 오류가 발생했다고 보고할 것입니다. 이는 OctoPrint가 Klipper와 성공적으로 통신하고 있음을 의미합니다. 다음 섹션으로 이동합니다.</p>
 <h2 id="klipper">Klipper 구성 중<a class="headerlink" href="#klipper" title="Permanent link">&para;</a></h2>
-<p>Klipper 구성은 Raspberry Pi의 텍스트 파일에 저장됩니다. <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config directory</a>에 있는 예제 구성 파일을 살펴보십시오. <a href="Config_Reference.html">Config Reference</a>에는 구성 매개변수에 대한 문서가 포함되어 있습니다.</p>
-<p>논란의 여지 없이 Klipper 구성 파일을 업데이트하는 가장 쉬운 방법은 "scp" 및/또는 "sftp" 프로토콜을 통한 파일 편집을 지원하는 데스크톱 편집기를 사용하는 것입니다. 이를 지원하는 무료 도구가 있습니다(예: Notepad++, WinSCP 및 Cyberduck). 예제 구성 파일 중 하나를 시작점으로 사용하고 pi 사용자의 홈 디렉터리(즉, /home/pi/printer.cfg)에 "printer.cfg"라는 파일로 저장합니다.</p>
-<p>또는 ssh를 통해 Raspberry Pi에서 직접 파일을 복사하고 편집할 수도 있습니다. 예를 들면 다음과 같습니다:</p>
+<p>The next step is to copy the <a href="#obtain-a-klipper-configuration-file">printer configuration file</a> to the Raspberry Pi.</p>
+<p>Arguably the easiest way to set the Klipper configuration file is to use a desktop editor that supports editing files over the "scp" and/or "sftp" protocols. There are freely available tools that support this (eg, Notepad++, WinSCP, and Cyberduck). Load the printer config file in the editor and then save it as a file named "printer.cfg" in the home directory of the pi user (ie, /home/pi/printer.cfg).</p>
+<p>Alternatively, one can also copy and edit the file directly on the Raspberry Pi via ssh. That may look something like the following (be sure to update the command to use the appropriate printer config filename):</p>
 <div class="highlight"><pre><span></span><code>cp ~/klipper/config/example-cartesian.cfg ~/printer.cfg
 nano ~/printer.cfg
 </code></pre></div>
 
-<p>하드웨어에 적합한 각 설정을 검토하고 업데이트해야 합니다.</p>
-<p>각 프린터마다 마이크로 컨트롤러에 대해 고유한 이름이 있는 것이 일반적입니다. Klipper 플래싱 후에 이름이 변경될 수 있으므로 <code>ls /dev/serial/by-id/*</code> 명령을 다시 실행한 다음 구성 파일을 고유한 이름으로 업데이트하십시오. 예를 들어 <code>[mcu]</code> 섹션을 다음과 유사하게 업데이트합니다:</p>
+<p>It's common for each printer to have its own unique name for the micro-controller. The name may change after flashing Klipper, so rerun these steps again even if they were already done when flashing. Run:</p>
+<div class="highlight"><pre><span></span><code>ls /dev/serial/by-id/*
+</code></pre></div>
+
+<p>그럼 다음과 비슷한 결과물을 얻을 수 있습니다:</p>
+<div class="highlight"><pre><span></span><code>/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
+</code></pre></div>
+
+<p>Then update the config file with the unique name. For example, update the <code>[mcu]</code> section to look something similar to:</p>
 <div class="highlight"><pre><span></span><code>[mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 </code></pre></div>
 
-<p>파일을 만들고 편집한 후 config 를 로드하려면 OctoPrint 웹 terminal 탭에서 "restart" 명령을 실행해야 합니다. "status" 명령은 Klipper 구성 파일을 성공적으로 읽고 마이크로 컨트롤러를 성공적으로 찾아서 구성한 경우 프린터가 준비되었음을 보고합니다. 초기 설정 중에 구성 오류가 발생하는 것은 드문 일이 아닙니다. 프린터 구성 파일을 업데이트하고 "status"에서 프린터가 준비되었다고 보고할 때까지 "restart"을 실행하십시오.</p>
+<p>After creating and editing the file it will be necessary to issue a "restart" command in the OctoPrint web terminal to load the config. A "status" command will report the printer is ready if the Klipper config file is successfully read and the micro-controller is successfully found and configured.</p>
+<p>When customizing the printer config file, it is not uncommon for Klipper to report a configuration error. If an error occurs, make any necessary corrections to the printer config file and issue "restart" until "status" reports the printer is ready.</p>
 <p>Klipper는 OctoPrint terminal 탭을 통해 오류 메시지를 보고합니다. "status" 명령을 사용하여 오류 메시지를 다시 보고할 수 있습니다. Klipper 시작 스크립트는 <strong>/tmp/klippy.log</strong>를 통해 자세한 정보를 제공합니다.</p>
-<p>추가로 일반적인 gcode 명령 외에도 Klipper는 몇 가지 확장 명령을 지원합니다. "status" 및 "restart"는 이러한 명령의 예입니다. "help" 명령을 사용하여 다른 확장 명령을 확인하십시오.</p>
-<p>Klipper가 프린터가 준비되었다고 보고한 후 <a href="Config_checks.html">config check document</a>로 이동하여 config 파일의 핀 정의에 대한 몇 가지 기본 검사를 수행합니다.</p>
-<h2 id="_3">개발자에게 연락하기<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>몇 가지 일반적인 질문에 대한 답변은 <a href="FAQ.html">FAQ</a>를 참조하십시오. 버그를 보고하거나 개발자에게 연락하려면 <a href="Contact.html">contact page</a>를 참조하세요.</p>
+<p>After Klipper reports that the printer is ready, proceed to the <a href="Config_checks.html">config check document</a> to perform some basic checks on the definitions in the config file. See the main <a href="Overview.html">documentation reference</a> for other information.</p>
 
               
             </article>

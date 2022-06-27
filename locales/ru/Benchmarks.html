@@ -1206,8 +1206,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-rate-benchmark-test" class="md-nav__link">
-    Step rate benchmark test
+  <a href="#_2" class="md-nav__link">
+    Эталонный тест скорости шага
   </a>
   
 </li>
@@ -1352,8 +1352,8 @@
 <p>В этом разделе описывается механизм, используемый для создания тестов скорости шага микроконтроллера Klipper.</p>
 <p>Основная цель оценок состоит в том, чтобы обеспечить последовательный механизм для измерения влияния кодирования изменений в рамках программного обеспечения. Вторая цель — предоставить высокоуровневые показатели для сравнения производительности чипов и программных платформ.</p>
 <p>Эталон скорости шага предназначен для определения максимальной скорости шага, которую может достичь аппаратное и программное обеспечение. Эта эталонная пошаговая скорость недостижима при повседневном использовании, поскольку Klipper необходимо выполнять другие задачи (например, связь между микроконтроллером и хостом, считывание температуры, проверка конечной остановки) при любом реальном использовании.</p>
-<p>In general, the pins for the benchmark tests are chosen to flash LEDs or other innocuous pins. <strong>Always verify that it is safe to drive the configured pins prior to running a benchmark.</strong> It is not recommended to drive an actual stepper during a benchmark.</p>
-<h3 id="step-rate-benchmark-test">Step rate benchmark test<a class="headerlink" href="#step-rate-benchmark-test" title="Permanent link">&para;</a></h3>
+<p>Как правило, контакты для эталонных тестов выбираются для мигания светодиодов или других безвредных контактов. <strong>Всегда проверяйте, безопасно ли управлять сконфигурированными выводами перед запуском теста.</strong> Не рекомендуется управлять настоящим шаговым двигателем во время теста.</p>
+<h3 id="_2">Эталонный тест скорости шага<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>The test is performed using the console.py tool (described in <Debugging.md>). The micro-controller is configured for the particular hardware platform (see below) and then the following is cut-and-paste into the console.py terminal window:</p>
 <div class="highlight"><pre><span></span><code>SET start_clock {clock+freq}
 SET ticks 1000

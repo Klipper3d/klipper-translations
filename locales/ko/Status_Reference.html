@@ -1233,6 +1233,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#exclude_object" class="md-nav__link">
+    exclude_object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fan" class="md-nav__link">
     fan
   </a>
@@ -1486,6 +1493,7 @@
 <li><code>settings.&lt;section&gt;.&lt;option&gt;</code>: 마지막 소프트웨어 시작 또는 다시 시작 중에 지정된 구성 파일 설정(또는 기본값)을 반환합니다. (런타임에 변경된 설정은 여기에 반영되지 않습니다.)</li>
 <li><code>config.&lt;section&gt;.&lt;option&gt;</code>: 마지막 소프트웨어 시작 또는 다시 시작 중에 Klipper가 읽은 대로 주어진 원시 구성 파일 설정을 반환합니다. (런타임에 변경된 설정은 여기에 반영되지 않습니다.) 모든 값은 문자열로 반환됩니다.</li>
 <li><code>save_config_pending</code>: Returns true if there are updates that a <code>SAVE_CONFIG</code> command may persist to disk.</li>
+<li><code>save_config_pending_items</code>: Contains the sections and options that were changed and would be persisted by a <code>SAVE_CONFIG</code>.</li>
 <li><code>warnings</code>: A list of warnings about config options. Each entry in the list will be a dictionary containing a <code>type</code> and <code>message</code> field (both strings). Additional fields may be available depending on the type of warning.</li>
 </ul>
 <h2 id="display_status">display_status<a class="headerlink" href="#display_status" title="Permanent link">&para;</a></h2>
@@ -1500,6 +1508,39 @@
 <li><code>last_home.&lt;stepper name&gt;.phase</code>: 마지막 홈 시도 종료 시 스테퍼 모터의 위상입니다.</li>
 <li><code>last_home.&lt;stepper name&gt;.phases</code>: 스테퍼 모터에서 사용할 수 있는 총 위상 수입니다.</li>
 <li><code>last_home.&lt;stepper name&gt;.mcu_position</code>: 마지막 홈 시도가 끝날 때 스테퍼 모터의 위치(마이크로 컨트롤러에 의해 추적됨)입니다. 위치는 마이크로 컨트롤러가 마지막으로 다시 시작된 이후 순방향으로 취한 총 단계 수에서 역방향으로 취한 총 단계 수를 뺀 것입니다.</li>
+</ul>
+<h2 id="exclude_object">exclude_object<a class="headerlink" href="#exclude_object" title="Permanent link">&para;</a></h2>
+<p>The following information is available in the <a href="Exclude_Object.html">exclude_object</a> object:</p>
+<ul>
+<li><code>objects</code>: An array of the known objects as provided by the <code>EXCLUDE_OBJECT_DEFINE</code> command. This is the same information provided by the <code>EXCLUDE_OBJECT VERBOSE=1</code> command. The <code>center</code> and <code>polygon</code> fields will only be present if provided in the original <code>EXCLUDE_OBJECT_DEFINE</code>Here is a JSON sample:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>[
+  {
+    &quot;polygon&quot;: [
+      [ 156.25, 146.2511675 ],
+      [ 156.25, 153.7488325 ],
+      [ 163.75, 153.7488325 ],
+      [ 163.75, 146.2511675 ]
+    ],
+    &quot;name&quot;: &quot;CYLINDER_2_STL_ID_2_COPY_0&quot;,
+    &quot;center&quot;: [ 160, 150 ]
+  },
+  {
+    &quot;polygon&quot;: [
+      [ 146.25, 146.2511675 ],
+      [ 146.25, 153.7488325 ],
+      [ 153.75, 153.7488325 ],
+      [ 153.75, 146.2511675 ]
+    ],
+    &quot;name&quot;: &quot;CYLINDER_2_STL_ID_1_COPY_0&quot;,
+    &quot;center&quot;: [ 150, 150 ]
+  }
+]
+</code></pre></div>
+
+<ul>
+<li><code>excluded_objects</code>: An array of strings listing the names of excluded objects.</li>
+<li><code>current_object</code>: The name of the object currently being printed.</li>
 </ul>
 <h2 id="fan">fan<a class="headerlink" href="#fan" title="Permanent link">&para;</a></h2>
 <p>다음 정보는 <a href="Config_Reference.html#fan">fan</a>, <a href="Config_Reference.html#heater_fan">heater_fan some_name</a> 및 <a href="Config_Reference.html#controller_fan">controller_fan some_name</a> 개체에서 사용할 수 있습니다:</p>

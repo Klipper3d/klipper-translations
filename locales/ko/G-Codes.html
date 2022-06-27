@@ -1544,6 +1544,47 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#exclude_object" class="md-nav__link">
+    [exclude_object]
+  </a>
+  
+    <nav class="md-nav" aria-label="[exclude_object]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exclude_object_1" class="md-nav__link">
+    EXCLUDE_OBJECT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude_object_define" class="md-nav__link">
+    EXCLUDE_OBJECT_DEFINE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude_object_start" class="md-nav__link">
+    EXCLUDE_OBJECT_START
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exclude_object_end" class="md-nav__link">
+    EXCLUDE_OBJECT_END
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#extruder" class="md-nav__link">
     [extruder]
   </a>
@@ -2775,16 +2816,37 @@
 <p>The following commands are available when an <a href="Config_Reference.html#endstop_phase">endstop_phase config section</a> is enabled (also see the <a href="Endstop_Phase.html">endstop phase guide</a>).</p>
 <h4 id="endstop_phase_calibrate">ENDSTOP_PHASE_CALIBRATE<a class="headerlink" href="#endstop_phase_calibrate" title="Permanent link">&para;</a></h4>
 <p><code>ENDSTOP_PHASE_CALIBRATE [STEPPER=&lt;config_name&gt;]</code>: STEPPER 매개변수가 제공되지 않으면 이 명령은 과거 원점 복귀 작업 동안 엔드스톱 스테퍼 단계에 대한 통계를 보고합니다. STEPPER 매개변수가 제공되면 지정된 endstop 단계 설정이 SAVE_CONFIG 명령과 함께 구성 파일에 기록되도록 정렬합니다.</p>
+<h3 id="exclude_object">[exclude_object]<a class="headerlink" href="#exclude_object" title="Permanent link">&para;</a></h3>
+<p>The following commands are available when an <a href="Config_Reference.html#exclude_object">exclude_object config section</a> is enabled (also see the <a href="Exclude_Object.html">exclude object guide</a>):</p>
+<h4 id="exclude_object_1"><code>EXCLUDE_OBJECT</code><a class="headerlink" href="#exclude_object_1" title="Permanent link">&para;</a></h4>
+<p><code>EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]</code>: With no parameters, this will return a list of all currently excluded objects.</p>
+<p>When the <code>NAME</code> parameter is given, the named object will be excluded from printing.</p>
+<p>When the <code>CURRENT</code> parameter is given, the current object will be excluded from printing.</p>
+<p>When the <code>RESET</code> parameter is given, the list of excluded objects will be cleared. Additionally including <code>NAME</code> will only reset the named object. This <strong>can</strong> cause print failures, if layers were already skipped.</p>
+<h4 id="exclude_object_define"><code>EXCLUDE_OBJECT_DEFINE</code><a class="headerlink" href="#exclude_object_define" title="Permanent link">&para;</a></h4>
+<p><code>EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] [RESET=1] [JSON=1]</code>: Provides a summary of an object in the file.</p>
+<p>With no parameters provided, this will list the defined objects known to Klipper. Returns a list of strings, unless the <code>JSON</code> parameter is given, when it will return object details in json format.</p>
+<p>When the <code>NAME</code> parameter is included, this defines an object to be excluded.</p>
+<ul>
+<li><code>NAME</code>: This parameter is required. It is the identifier used by other commands in this module.</li>
+<li><code>CENTER</code>: An X,Y coordinate for the object.</li>
+<li><code>POLYGON</code>: An array of X,Y coordinates that provide an outline for the object.</li>
+</ul>
+<p>When the <code>RESET</code> parameter is provided, all defined objects will be cleared, and the <code>[exclude_object]</code> module will be reset.</p>
+<h4 id="exclude_object_start"><code>EXCLUDE_OBJECT_START</code><a class="headerlink" href="#exclude_object_start" title="Permanent link">&para;</a></h4>
+<p><code>EXCLUDE_OBJECT_START NAME=object_name</code>: This command takes a <code>NAME</code> parameter and denotes the start of the gcode for an object on the current layer.</p>
+<h4 id="exclude_object_end"><code>EXCLUDE_OBJECT_END</code><a class="headerlink" href="#exclude_object_end" title="Permanent link">&para;</a></h4>
+<p><code>EXCLUDE_OBJECT_END [NAME=object_name]</code>: Denotes the end of the object's gcode for the layer. It is paired with <code>EXCLUDE_OBJECT_START</code>. A <code>NAME</code> parameter is optional, and will only warn when the provided name does not match the current object.</p>
 <h3 id="extruder">[extruder]<a class="headerlink" href="#extruder" title="Permanent link">&para;</a></h3>
 <p>The following commands are available if an <a href="Config_Reference.html#extruder">extruder config section</a> is enabled:</p>
 <h4 id="activate_extruder">ACTIVATE_EXTRUDER<a class="headerlink" href="#activate_extruder" title="Permanent link">&para;</a></h4>
 <p><code>ACTIVATE_EXTRUDER EXTRUDER=&lt;config_name&gt;</code>: In a printer with multiple <a href="Config_Reference.html#extruder">extruder</a> config sections, this command changes the active hotend.</p>
 <h4 id="set_pressure_advance">SET_PRESSURE_ADVANCE<a class="headerlink" href="#set_pressure_advance" title="Permanent link">&para;</a></h4>
-<p><code>SET_PRESSURE_ADVANCE [EXTRUDER=&lt;config_name&gt;] [ADVANCE=&lt;pressure_advance&gt;] [SMOOTH_TIME=&lt;pressure_advance_smooth_time&gt;]</code>: Set pressure advance parameters of an extruder stepper (as defined in an <a href="Config_Reference#extruder">extruder</a> or <a href="Config_Reference#extruder_stepper">extruder_stepper</a> config section). If EXTRUDER is not specified, it defaults to the stepper defined in the active hotend.</p>
+<p><code>SET_PRESSURE_ADVANCE [EXTRUDER=&lt;config_name&gt;] [ADVANCE=&lt;pressure_advance&gt;] [SMOOTH_TIME=&lt;pressure_advance_smooth_time&gt;]</code>: Set pressure advance parameters of an extruder stepper (as defined in an <a href="Config_Reference.html#extruder">extruder</a> or <a href="Config_Reference.html#extruder_stepper">extruder_stepper</a> config section). If EXTRUDER is not specified, it defaults to the stepper defined in the active hotend.</p>
 <h4 id="set_extruder_rotation_distance">SET_EXTRUDER_ROTATION_DISTANCE<a class="headerlink" href="#set_extruder_rotation_distance" title="Permanent link">&para;</a></h4>
-<p><code>SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=&lt;config_name&gt; [DISTANCE=&lt;distance&gt;]</code>: Set a new value for the provided extruder stepper's "rotation distance" (as defined in an <a href="Config_Reference#extruder">extruder</a> or <a href="Config_Reference#extruder_stepper">extruder_stepper</a> config section). If the rotation distance is a negative number then the stepper motion will be inverted (relative to the stepper direction specified in the config file). Changed settings are not retained on Klipper reset. Use with caution as small changes can result in excessive pressure between extruder and hotend. Do proper calibration with filament before use. If 'DISTANCE' value is not provided then this command will return the current rotation distance.</p>
+<p><code>SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=&lt;config_name&gt; [DISTANCE=&lt;distance&gt;]</code>: Set a new value for the provided extruder stepper's "rotation distance" (as defined in an <a href="Config_Reference.html#extruder">extruder</a> or <a href="Config_Reference.html#extruder_stepper">extruder_stepper</a> config section). If the rotation distance is a negative number then the stepper motion will be inverted (relative to the stepper direction specified in the config file). Changed settings are not retained on Klipper reset. Use with caution as small changes can result in excessive pressure between extruder and hotend. Do proper calibration with filament before use. If 'DISTANCE' value is not provided then this command will return the current rotation distance.</p>
 <h4 id="sync_extruder_motion">SYNC_EXTRUDER_MOTION<a class="headerlink" href="#sync_extruder_motion" title="Permanent link">&para;</a></h4>
-<p><code>SYNC_EXTRUDER_MOTION EXTRUDER=&lt;name&gt; MOTION_QUEUE=&lt;name&gt;</code>: This command will cause the stepper specified by EXTRUDER (as defined in an <a href="Config_Reference#extruder">extruder</a> or <a href="Config_Reference#extruder_stepper">extruder_stepper</a> config section) to become synchronized to the movement of an extruder specified by MOTION_QUEUE (as defined in an <a href="Config_Reference#extruder">extruder</a> config section). If MOTION_QUEUE is an empty string then the stepper will be desynchronized from all extruder movement.</p>
+<p><code>SYNC_EXTRUDER_MOTION EXTRUDER=&lt;name&gt; MOTION_QUEUE=&lt;name&gt;</code>: This command will cause the stepper specified by EXTRUDER (as defined in an <a href="Config_Reference.html#extruder">extruder</a> or <a href="Config_Reference.html#extruder_stepper">extruder_stepper</a> config section) to become synchronized to the movement of an extruder specified by MOTION_QUEUE (as defined in an <a href="Config_Reference.html#extruder">extruder</a> config section). If MOTION_QUEUE is an empty string then the stepper will be desynchronized from all extruder movement.</p>
 <h4 id="set_extruder_step_distance">SET_EXTRUDER_STEP_DISTANCE<a class="headerlink" href="#set_extruder_step_distance" title="Permanent link">&para;</a></h4>
 <p>This command is deprecated and will be removed in the near future.</p>
 <h4 id="sync_stepper_to_extruder">SYNC_STEPPER_TO_EXTRUDER<a class="headerlink" href="#sync_stepper_to_extruder" title="Permanent link">&para;</a></h4>
@@ -2811,7 +2873,7 @@
 <h4 id="get_retraction">GET_RETRACTION<a class="headerlink" href="#get_retraction" title="Permanent link">&para;</a></h4>
 <p><code>GET_RETRACTION</code>: Firmware Retraction 에 사용되는 현재 매개변수를 쿼리하고 터미널에 표시합니다.</p>
 <h3 id="force_move">[force_move]<a class="headerlink" href="#force_move" title="Permanent link">&para;</a></h3>
-<p>The force_move module is automatically loaded, however some commands require setting <code>enable_force_move</code> in the <a href="Config_Reference#force_move">printer config</a>.</p>
+<p>The force_move module is automatically loaded, however some commands require setting <code>enable_force_move</code> in the <a href="Config_Reference.html#force_move">printer config</a>.</p>
 <h4 id="stepper_buzz">STEPPER_BUZZ<a class="headerlink" href="#stepper_buzz" title="Permanent link">&para;</a></h4>
 <p><code>STEPPER_BUZZ STEPPER=&lt;config_name&gt;</code>: 주어진 스테퍼를 앞으로 1mm 이동한 다음 뒤로 1mm 이동하고 10회 반복합니다. 이것은 스테퍼 연결을 확인하는 데 도움이 되는 진단 도구입니다.</p>
 <h4 id="force_move_1">FORCE_MOVE<a class="headerlink" href="#force_move_1" title="Permanent link">&para;</a></h4>
@@ -2965,7 +3027,7 @@
 <h4 id="measure_axes_noise">MEASURE_AXES_NOISE<a class="headerlink" href="#measure_axes_noise" title="Permanent link">&para;</a></h4>
 <p><code>MEASURE_AXES_NOISE</code>: 활성화된 모든 가속도계 칩의 모든 축에 대한 노이즈를 측정하고 출력합니다.</p>
 <h4 id="test_resonances">TEST_RESONANCES<a class="headerlink" href="#test_resonances" title="Permanent link">&para;</a></h4>
-<p><code>TEST_RESONANCES AXIS=&lt;axis&gt; OUTPUT=&lt;resonances,raw_data&gt; [NAME=&lt;name&gt;] [FREQ_START=&lt;min_freq&gt;] [FREQ_END=&lt;max_freq&gt;] [HZ_PER_SEC=&lt;hz_per_sec&gt;] [INPUT_SHAPING=[&lt;0:1&gt;]]</code>: Runs the resonance test in all configured probe points for the requested "axis" and measures the acceleration using the accelerometer chips configured for the respective axis. "axis" can either be X or Y, or specify an arbitrary direction as <code>AXIS=dx,dy</code>, where dx and dy are floating point numbers defining a direction vector (e.g. <code>AXIS=X</code>, <code>AXIS=Y</code>, or <code>AXIS=1,-1</code> to define a diagonal direction). Note that <code>AXIS=dx,dy</code> and <code>AXIS=-dx,-dy</code> is equivalent. If <code>INPUT_SHAPING=0</code> or not set (default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. <code>OUTPUT</code> parameter is a comma-separated list of which outputs will be written. If <code>raw_data</code> is requested, then the raw accelerometer data is written into a file or a series of files <code>/tmp/raw_data_&lt;axis&gt;_[&lt;point&gt;_]&lt;name&gt;.csv</code> with (<code>&lt;point&gt;_</code> part of the name generated only if more than 1 probe point is configured). If <code>resonances</code> is specified, the frequency response is calculated (across all probe points) and written into <code>/tmp/resonances_&lt;axis&gt;_&lt;name&gt;.csv</code> file. If unset, OUTPUT defaults to <code>resonances</code>, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.</p>
+<p><code>TEST_RESONANCES AXIS=&lt;axis&gt; OUTPUT=&lt;resonances,raw_data&gt; [NAME=&lt;name&gt;] [FREQ_START=&lt;min_freq&gt;] [FREQ_END=&lt;max_freq&gt;] [HZ_PER_SEC=&lt;hz_per_sec&gt;] [CHIPS=&lt;adxl345_chip_name&gt;] [POINT=x,y,z] [INPUT_SHAPING=[&lt;0:1&gt;]]</code>: Runs the resonance test in all configured probe points for the requested "axis" and measures the acceleration using the accelerometer chips configured for the respective axis. "axis" can either be X or Y, or specify an arbitrary direction as <code>AXIS=dx,dy</code>, where dx and dy are floating point numbers defining a direction vector (e.g. <code>AXIS=X</code>, <code>AXIS=Y</code>, or <code>AXIS=1,-1</code> to define a diagonal direction). Note that <code>AXIS=dx,dy</code> and <code>AXIS=-dx,-dy</code> is equivalent. <code>adxl345_chip_name</code> can be one or more configured adxl345 chip,delimited with comma, for example <code>CHIPS="adxl345, adxl345 rpi"</code>. Note that <code>adxl345</code> can be omitted from named adxl345 chips. If POINT is specified it will override the point(s) configured in <code>[resonance_tester]</code>. If <code>INPUT_SHAPING=0</code> or not set(default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. <code>OUTPUT</code> parameter is a comma-separated list of which outputs will be written. If <code>raw_data</code> is requested, then the raw accelerometer data is written into a file or a series of files <code>/tmp/raw_data_&lt;axis&gt;_[&lt;chip_name&gt;_][&lt;point&gt;_]&lt;name&gt;.csv</code> with (<code>&lt;point&gt;_</code> part of the name generated only if more than 1 probe point is configured or POINT is specified). If <code>resonances</code> is specified, the frequency response is calculated (across all probe points) and written into <code>/tmp/resonances_&lt;axis&gt;_&lt;name&gt;.csv</code> file. If unset, OUTPUT defaults to <code>resonances</code>, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.</p>
 <h4 id="shaper_calibrate">SHAPER_CALIBRATE<a class="headerlink" href="#shaper_calibrate" title="Permanent link">&para;</a></h4>
 <p><code>SHAPER_CALIBRATE [AXIS=&lt;axis&gt;] [NAME=&lt;name&gt;] [FREQ_START=&lt;min_freq&gt;] [FREQ_END=&lt;max_freq&gt;] [HZ_PER_SEC=&lt;hz_per_sec&gt;] [MAX_SMOOTHING=&lt;max_smoothing&gt;]</code>: <code>TEST_RESONANCES</code>와 유사하게 구성된 대로 공진 테스트를 실행하고 요청된 축(또는 <code>AXIS</code> 매개변수가 설정되지 않은 경우 X축과 Y축 모두)에 대한 입력 셰이퍼에 대한 최적의 매개변수를 찾으려고 시도합니다. <code>MAX_SMOOTHING</code>이 설정되지 않은 경우 해당 값은 <code>[resonance_tester]</code> 섹션에서 가져오고 기본값은 설정되지 않습니다. 이 기능의 사용에 대한 자세한 내용은 공진 측정 가이드의 <a href="Measuring_Resonances.html#max-smoothing">Max smoothing</a> 를 참조하세요. 조정 결과는 콘솔에 인쇄되고 주파수 응답과 다양한 입력 셰이퍼 값은 CSV 파일 <code>/tmp/calibration_data_&lt;axis&gt;_&lt;name&gt;.csv</code>에 기록됩니다. 지정하지 않는 한 NAME의 기본값은 "YYYYMMDD_HHMMSS" 형식의 현재 시간입니다. 제안된 입력 셰이퍼 매개변수는 'SAVE_CONFIG' 명령을 실행하여 구성에 유지될 수 있습니다.</p>
 <h3 id="respond">[respond]<a class="headerlink" href="#respond" title="Permanent link">&para;</a></h3>
@@ -2989,7 +3051,7 @@
 <h3 id="screws_tilt_adjust">[screws_tilt_adjust]<a class="headerlink" href="#screws_tilt_adjust" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when the <a href="Config_Reference.html#screws_tilt_adjust">screws_tilt_adjust config section</a> is enabled (also see the <a href="Manual_Level.html#adjusting-bed-leveling-screws-using-the-bed-probe">manual level guide</a>).</p>
 <h4 id="screws_tilt_calculate">SCREWS_TILT_CALCULATE<a class="headerlink" href="#screws_tilt_calculate" title="Permanent link">&para;</a></h4>
-<p><code>SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [&lt;probe_parameter&gt;=&lt;value&gt;]</code>: 이 명령은 BED 나사 조정 도구를 호출합니다. 노즐을 다른 위치 (config 파일에 정의된 대로)로 명령하여 z 높이를 조사하고 BED 레벨을 조정하기 위해 손잡이 회전 수를 계산합니다. DIRECTION이 지정되면 노브가 모두 같은 방향, 즉 시계 방향(CW) 또는 반시계 방향(CCW)으로 회전합니다. 선택적 프로브 매개변수에 대한 자세한 내용은 PROBE 명령을 참조하십시오. 중요: 이 명령을 사용하기 전에 항상 G28을 수행해야 합니다.</p>
+<p><code>SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=&lt;value&gt;] [&lt;probe_parameter&gt;=&lt;value&gt;]</code>: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) probing the z height and calculate the number of knob turns to adjust the bed level. If DIRECTION is specified, the knob turns will all be in the same direction, clockwise (CW) or counterclockwise (CCW). See the PROBE command for details on the optional probe parameters. IMPORTANT: You MUST always do a G28 before using this command. If MAX_DEVIATION is specified, the command will raise a gcode error if any difference in the screw height relative to the base screw height is greater than the value provided.</p>
 <h3 id="sdcard_loop">[sdcard_loop]<a class="headerlink" href="#sdcard_loop" title="Permanent link">&para;</a></h3>
 <p>When the <a href="Config_Reference.html#sdcard_loop">sdcard_loop config section</a> is enabled, the following extended commands are available.</p>
 <h4 id="sdcard_loop_begin">SDCARD_LOOP_BEGIN<a class="headerlink" href="#sdcard_loop_begin" title="Permanent link">&para;</a></h4>
