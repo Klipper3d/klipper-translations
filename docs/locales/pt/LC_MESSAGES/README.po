@@ -1,18 +1,19 @@
 # dfosantos <santosdiogo97@gmail.com>, 2022.
 # Giuliano Pereira <giuesgur@hotmail.com>, 2022.
 # Luiz Carlos <lcgds@live.com>, 2022.
-# Esdras Caleb Oliveira Silva <acheicaleb@gmail.com>, 2022.
+# Esdras Caleb Oliveira Silva <acheicaleb@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-06-29 01:14+0000\n"
+"PO-Revision-Date: 2025-05-03 07:29+0000\n"
 "Last-Translator: Esdras Caleb Oliveira Silva <acheicaleb@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/readme/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"readme/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. The [overview document](Overview.md) is "
