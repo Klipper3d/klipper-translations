@@ -1,22 +1,23 @@
 # dfosantos <santosdiogo97@gmail.com>, 2022.
 # Giuliano Pereira <giuesgur@hotmail.com>, 2022.
 # Luiz Carlos <lcgds@live.com>, 2022.
+# Esdras Caleb Oliveira Silva <acheicaleb@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-05-15 20:09+0000\n"
-"Last-Translator: Luiz Carlos <lcgds@live.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/readme/pt/>\n"
+"PO-Revision-Date: 2022-06-29 01:14+0000\n"
+"Last-Translator: Esdras Caleb Oliveira Silva <acheicaleb@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"readme/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
-#, fuzzy
 msgid ""
 "Welcome to the Klipper documentation. The [overview document](Overview.md) "
 "is a good starting point."
 msgstr ""
-"Bem-vindo à documentação do [Klipper]. O [resumo] (Overview.md) é um bom "
-"ponto de partida."
+"Bem-vindo à documentação do Klipper. O [overview document](Overview.md) é um "
+"bom ponto de partida."
