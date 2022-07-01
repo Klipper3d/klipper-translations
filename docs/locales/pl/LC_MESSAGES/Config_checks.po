@@ -1,7 +1,7 @@
 # Grabekk <dgrabowski@ciechocinek.zhr.pl>, 2021, 2025.
 # sportspider <radoslaw.janas@gmail.com>, 2021, 2025.
 # Den Bo <denbo.swaggins@gmail.com>, 2021, 2025.
-# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
+# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # Damian Jasinski <flasch44@gmail.com>, 2023.
 # Mateusz Kapała <lolekwielki@gmail.com>, 2023.
@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: Den Bo <denbo.swaggins@gmail.com>\n"
+"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "config_checks/pl/>\n"
 "Language: pl\n"
@@ -208,12 +208,11 @@ msgid ""
 "is necessary to calibrate the PID settings on each printer (PID settings found"
 " in other firmwares or in the example configuration files often work poorly)."
 msgstr ""
-"Klipper obsługuje [sterowanie "
-"PID](https://en.wikipedia.org/wiki/PID_controller) dla ekstrudera i grzałek "
-"stołu. Aby użyć tego mechanizmu sterowania, konieczne jest skalibrowanie "
-"ustawień PID na każdej drukarce (ustawienia PID znalezione w innych "
-"firmware'ach lub w przykładowych plikach konfiguracyjnych często działają "
-"słabo)."
+"Klipper obsługuje [sterowanie PID](https://en.wikipedia.org/wiki/"
+"PID_controller) dla ekstrudera i grzałek stołu. Aby użyć tego mechanizmu "
+"sterowania, konieczne jest skalibrowanie ustawień PID na każdej drukarce ("
+"ustawienia PID znalezione w innych firmware'ach lub w przykładowych plikach "
+"konfiguracyjnych często działają słabo)."
 
 #: docs/Config_checks.md:block 5 (paragraph)
 msgid ""
