@@ -1,18 +1,29 @@
-#
+# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/packaging/"
+"pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 msgid ""
 "Klipper is somewhat of a packaging anomaly among python programs, as it "
 "doesn't use setuptools to build and install. Some notes regarding how best "
 "to package it are as follows:"
 msgstr ""
+"Klipper jest pewną anomalią wśród programów pythonowych, ponieważ nie używa "
+"setuptools do kompilacji i instalacji. Niektóre uwagi dotyczące tego, jak "
+"najlepiej go zapakować, są następujące:"
 
 msgid "C modules"
-msgstr ""
+msgstr "Moduły C"
 
 msgid ""
 "Klipper uses a C module to handle some kinematics calculations more quickly."
