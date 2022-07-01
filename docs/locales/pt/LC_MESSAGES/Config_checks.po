@@ -1,27 +1,28 @@
 # dfosantos <santosdiogo97@gmail.com>, 2022.
 # MOISÉS RODRIGUES ALVES <MOISESINHO_RA@hotmail.com>, 2022.
+# KrulesExGamer <pedro.hvn.2018@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-03-16 09:56+0000\n"
-"Last-Translator: MOISÉS RODRIGUES ALVES <MOISESINHO_RA@hotmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/config_checks/pt/>\n"
+"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"Last-Translator: KrulesExGamer <pedro.hvn.2018@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"config_checks/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
-#, fuzzy
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in "
 "the Klipper printer.cfg file. It is a good idea to run through these steps "
 "after following the steps in the [installation document](Installation.md)."
 msgstr ""
-"Esse documento fornece uma lista de passo a passo para ajudar a confirmar as"
-" configurações de pinos no arquivo printer.cfg do Klipper. É uma boa ideia "
-"executar através seguindo esses passos depois de seguir o passo a passo de "
-"instalação conforme o arquivo de instalação. (Installation.md)"
+"Esse documento fornece uma lista de passos para ajudar a confirmar as "
+"configurações de pinos no arquivo printer.cfg do Klipper. É uma boa ideia "
+"executar esses passos depois de seguir o passo a passo de instalação "
+"conforme o arquivo de instalação (Installation.md)."
 
 msgid ""
 "During this guide, it may be necessary to make changes to the Klipper config"
