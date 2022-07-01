@@ -1,9 +1,17 @@
-#
+# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/bed_mesh/"
+"pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 msgid ""
 "The Bed Mesh module may be used to compensate for bed surface irregularties "
@@ -14,6 +22,13 @@ msgid ""
 "accurate then the bed_mesh module will not receive accurate results from the"
 " probing process."
 msgstr ""
+"Moduł Bed Mesh może być używany do kompensacji nierówności powierzchni "
+"stołu, aby uzyskać lepszą pierwszą warstwę na całym stole. Należy zauważyć, "
+"że korekta oparta na oprogramowaniu nie osiągnie idealnych rezultatów, może "
+"jedynie w przybliżeniu odwzorować kształt stołu. Bed Mesh nie może również "
+"skompensować problemów mechanicznych i elektrycznych. Jeśli oś jest "
+"przekrzywiona lub sonda nie jest dokładna, moduł Bed_mesh nie otrzyma "
+"dokładnych wyników z procesu sondowania."
 
 msgid "Basic Configuration"
 msgstr ""
@@ -400,7 +415,7 @@ msgstr ""
 
 #: docs/Bed_Mesh.md:block 1 (header)
 msgid "Bed Mesh"
-msgstr ""
+msgstr "\"Siatka\" do stołu"
 
 #: docs/Bed_Mesh.md:block 49 (paragraph)
 msgid "Initiates the probing procedure for Bed Mesh Calibration."
