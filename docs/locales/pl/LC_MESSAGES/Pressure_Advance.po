@@ -1,11 +1,11 @@
-# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
+# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
 # Mateusz Kapała <lolekwielki@gmail.com>, 2023.
 # Woo Cash <woocash87@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:27+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "pressure_advance/pl/>\n"
 "Language: pl\n"
@@ -21,11 +21,11 @@ msgid ""
 "advance feature can be helpful in reducing ooze. For more information on how "
 "pressure advance is implemented see the [kinematics](Kinematics.md) document."
 msgstr ""
-"Ten dokument zawiera informacje na temat dostrajania zmiennej konfiguracyjnej "
-"\"pressure advance\" dla konkretnej dyszy i żarnika. Funkcja pressure advance "
-"może być pomocna w redukcji ekstruzji (przeważnie na rogach elementu). Więcej "
-"informacji o tym, jak jest zaimplementowane pressure advance, można znaleźć w "
-"dokumencie [kinematics](Kinematics.md)."
+"Ten dokument zawiera informacje na temat dostrajania zmiennej "
+"konfiguracyjnej \"pressure advance\" dla konkretnej dyszy i żarnika. Funkcja "
+"pressure advance może być pomocna w redukcji ekstruzji (przeważnie na rogach "
+"elementu). Więcej informacji o tym, jak jest zaimplementowane pressure "
+"advance, można znaleźć w dokumencie [kinematics](Kinematics.md)."
 
 msgid "Tuning pressure advance"
 msgstr "Dostrajanie pressure advance"
