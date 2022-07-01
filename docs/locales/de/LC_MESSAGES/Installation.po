@@ -1,12 +1,13 @@
 # Florian Schaupp <fschaupp@hotmail.com>, 2021.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
+# Sebastian Fiedler <See1807@hotmail.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
 "PO-Revision-Date: 2022-07-02 10:22+0000\n"
-"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
+"Last-Translator: Sebastian Fiedler <See1807@hotmail.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "installation/de/>\n"
 "Language: de\n"
@@ -22,6 +23,11 @@ msgid ""
 "or 4 computer be used as the host machine (see the [FAQ](FAQ.md#can-i-run-"
 "klipper-on-something-other-than-a-raspberry-pi-3) for other machines)."
 msgstr ""
+"Diese Anweisungen gehen davon aus, dass die Software auf einem Raspberry Pi-"
+"Computer in Verbindung mit OctoPrint ausgeführt wird. Es wird empfohlen, "
+"einen Raspberry Pi 2, 3 oder 4 Computer als Host-Rechner zu verwenden (siehe "
+"[FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry -pi-3) "
+"für andere Maschinen)."
 
 msgid "Prepping an OS image"
 msgstr ""
