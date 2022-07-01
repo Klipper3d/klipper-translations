@@ -1,4 +1,4 @@
-# Ярослав <tok1shus@gmail.com>, 2022.
+# Ярослав <tok1shus@gmail.com>, 2022, 2025.
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 # Vik <xasertop@gmail.com>, 2022.
 # Mari Japaridze <mari.mari.japaridze@mail.ru>, 2022.
@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: Vin <k3kelm4vw@mozmail.com>\n"
+"Last-Translator: Ярослав <tok1shus@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/overview/"
 "ru/>\n"
 "Language: ru\n"
