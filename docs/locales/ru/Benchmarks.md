@@ -39,9 +39,9 @@ set_next_step_dir oid=2 dir=1
 queue_step oid=2 interval=3000 count=1 add=0
 ```
 
-The above tests three steppers simultaneously stepping. If running the above results in a "Rescheduled timer in the past" or "Stepper too far in past" error then it indicates the `ticks` parameter is too low (it results in a stepping rate that is too fast). The goal is to find the lowest setting of the ticks parameter that reliably results in a successful completion of the test. It should be possible to bisect the ticks parameter until a stable value is found.
+Вышеуказанные испытания осуществляют одновременно трех шаговых двигателей. Если в результате выполнения вышеперечисленного возникает ошибка «Rescheduled timer in the past» или «Stepper too far in past», то это указывает на то, что параметр `ticks` слишком мал (это приводит к слишком быстрой скорости пошагового изменения). Цель состоит в том, чтобы найти наименьшее значение параметра засечки, которое надежно приводит к успешному завершению теста. Параметр засечек можно делить пополам до тех пор, пока не будет найдено стабильное значение.
 
-On a failure, one can copy-and-paste the following to clear the error in preparation for the next test:
+В случае сбоя можно скопировать и вставить следующее, чтобы устранить ошибку при подготовке к следующему тесту:
 
 ```
 clear_shutdown
@@ -57,9 +57,9 @@ ECHO Test result is: {"%.0fK" % (3. * freq / ticks / 1000.)}
 
 The benchmarks are run with parameters suitable for TMC Drivers. For micro-controllers that support `STEPPER_BOTH_EDGE=1` (as reported in the `MCU config` line when console.py first starts) use `step_pulse_duration=0` and `invert_step=-1` to enable optimized stepping on both edges of the step pulse. For other micro-controllers use a `step_pulse_duration` corresponding to 100ns.
 
-### AVR step rate benchmark
+### Тест скорости шага AVR
 
-The following configuration sequence is used on AVR chips:
+На микросхемах AVR используется следующая последовательность конфигурации:
 
 ```
 allocate_oids count=3
@@ -73,12 +73,12 @@ The test was last run on commit `59314d99` with gcc version `avr-gcc (GCC) 5.4.0
 
 | avr | ticks |
 | --- | --- |
-| 1 stepper | 102 |
-| 3 stepper | 486 |
+| 1 шаговый двигатель | 102 |
+| 3 шаговых двигателя | 486 |
 
-### Arduino Due step rate benchmark
+### Тест скорости шага Arduino Due
 
-The following configuration sequence is used on the Due:
+На Due используется следующая последовательность настройки:
 
 ```
 allocate_oids count=3
@@ -92,12 +92,12 @@ The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (
 
 | sam3x8e | ticks |
 | --- | --- |
-| 1 stepper | 66 |
-| 3 stepper | 257 |
+| 1 шаговый двигатель | 66 |
+| 3 шаговых двигателя | 257 |
 
-### Duet Maestro step rate benchmark
+### Тест скорости шага Duet Maestro
 
-The following configuration sequence is used on the Duet Maestro:
+В Duet Maestro используется следующая последовательность настройки:
 
 ```
 allocate_oids count=3
@@ -111,12 +111,12 @@ The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (
 
 | sam4s8c | ticks |
 | --- | --- |
-| 1 stepper | 71 |
-| 3 stepper | 260 |
+| 1 шаговый двигатель | 71 |
+| 3 шаговых двигателя | 260 |
 
-### Duet Wifi step rate benchmark
+### Тест скорости шага Duet Wifi
 
-The following configuration sequence is used on the Duet Wifi:
+В Duet Wifi используется следующая последовательность настройки:
 
 ```
 allocate_oids count=3
@@ -130,12 +130,12 @@ The test was last run on commit `59314d99` with gcc version `gcc version 10.3.1 
 
 | sam4e8e | ticks |
 | --- | --- |
-| 1 stepper | 48 |
-| 3 stepper | 215 |
+| 1 шаговый двигатель | 48 |
+| 3 шаговых двигателя | 215 |
 
-### Beaglebone PRU step rate benchmark
+### Тест скорости шага Beaglebone PRU
 
-The following configuration sequence is used on the PRU:
+На PRU используется следующая последовательность конфигурации:
 
 ```
 allocate_oids count=3
@@ -149,12 +149,12 @@ The test was last run on commit `59314d99` with gcc version `pru-gcc (GCC) 8.0.0
 
 | pru | ticks |
 | --- | --- |
-| 1 stepper | 231 |
-| 3 stepper | 847 |
+| 1 шаговый двигатель | 231 |
+| 3 шаговых двигателя | 847 |
 
-### STM32F042 step rate benchmark
+### Тест скорости шага STM32F042
 
-The following configuration sequence is used on the STM32F042:
+В STM32F042 используется следующая последовательность настройки:
 
 ```
 allocate_oids count=3
@@ -168,12 +168,12 @@ The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (
 
 | stm32f042 | ticks |
 | --- | --- |
-| 1 stepper | 59 |
-| 3 stepper | 249 |
+| 1 шаговый двигатель | 59 |
+| 3 шаговых двигателя | 249 |
 
-### STM32F103 step rate benchmark
+### Тест скорости шага STM32F103
 
-The following configuration sequence is used on the STM32F103:
+В STM32F103 используется следующая последовательность настройки:
 
 ```
 allocate_oids count=3
@@ -187,12 +187,12 @@ The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (
 
 | stm32f103 | ticks |
 | --- | --- |
-| 1 stepper | 61 |
-| 3 stepper | 264 |
+| 1 шаговый двигатель | 61 |
+| 3 шаговых двигателя | 264 |
 
-### STM32F4 step rate benchmark
+### Тест скорости шага STM32F4
 
-The following configuration sequence is used on the STM32F4:
+В STM32F4 используется следующая последовательность конфигурации:
 
 ```
 allocate_oids count=3
@@ -206,13 +206,13 @@ The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (
 
 | stm32f446 | ticks |
 | --- | --- |
-| 1 stepper | 46 |
-| 3 stepper | 205 |
+| 1 шаговый двигатель | 46 |
+| 3 шаговых двигателя | 205 |
 
 | stm32f407 | ticks |
 | --- | --- |
-| 1 stepper | 46 |
-| 3 stepper | 205 |
+| 1 шаговый двигатель | 46 |
+| 3 шаговых двигателя | 205 |
 
 ### STM32G0B1 step rate benchmark
 
@@ -230,12 +230,12 @@ The test was last run on commit `247cd753` with gcc version `arm-none-eabi-gcc (
 
 | stm32g0b1 | ticks |
 | --- | --- |
-| 1 stepper | 58 |
-| 3 stepper | 243 |
+| 1 шаговый двигатель | 58 |
+| 3 шаговых двигателя | 243 |
 
-### LPC176x step rate benchmark
+### Тест скорости шага LPC176x
 
-The following configuration sequence is used on the LPC176x:
+В LPC176x используется следующая последовательность конфигурации:
 
 ```
 allocate_oids count=3
@@ -249,13 +249,13 @@ The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (
 
 | lpc1768 | ticks |
 | --- | --- |
-| 1 stepper | 52 |
-| 3 stepper | 222 |
+| 1 шаговый двигатель | 52 |
+| 3 шаговых двигателя | 222 |
 
 | lpc1769 | ticks |
 | --- | --- |
-| 1 stepper | 51 |
-| 3 stepper | 222 |
+| 1 шаговый двигатель | 51 |
+| 3 шаговых двигателя | 222 |
 
 ### SAMD21 step rate benchmark
 
@@ -273,8 +273,8 @@ The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (
 
 | samd21 | ticks |
 | --- | --- |
-| 1 stepper | 70 |
-| 3 stepper | 306 |
+| 1 шаговый двигатель | 70 |
+| 3 шаговых двигателя | 306 |
 
 ### SAMD51 step rate benchmark
 
@@ -292,8 +292,8 @@ The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (
 
 | samd51 | ticks |
 | --- | --- |
-| 1 stepper | 39 |
-| 3 stepper | 191 |
+| 1 шаговый двигатель | 39 |
+| 3 шаговых двигателя | 191 |
 | 1 stepper (200Mhz) | 39 |
 | 3 stepper (200Mhz) | 181 |
 
@@ -313,8 +313,8 @@ The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (
 
 | rp2040 | ticks |
 | --- | --- |
-| 1 stepper | 5 |
-| 3 stepper | 22 |
+| 1 шаговый двигатель | 5 |
+| 3 шаговых двигателя | 22 |
 
 ### Linux MCU step rate benchmark
 
@@ -332,8 +332,8 @@ The test was last run on commit `59314d99` with gcc version `gcc (Raspbian 8.3.0
 
 | Linux (RPi3) | ticks |
 | --- | --- |
-| 1 stepper | 160 |
-| 3 stepper | 380 |
+| 1 шаговый двигатель | 160 |
+| 3 шаговых двигателя | 380 |
 
 ## Command dispatch benchmark
 
