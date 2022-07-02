@@ -1,11 +1,12 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
+# Sven van Beckum <kontakt@partner-3d.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:34+0200\n"
-"PO-Revision-Date: 2022-07-02 10:23+0000\n"
-"Last-Translator: Sebastian Fiedler <See1807@hotmail.de>\n"
+"PO-Revision-Date: 2022-07-03 11:20+0000\n"
+"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "rotation_distance/de/>\n"
 "Language: de\n"
@@ -29,7 +30,7 @@ msgstr ""
 "beschreibt, wie man diesen Wert konfigurieren kann."
 
 msgid "Obtaining rotation_distance from steps_per_mm (or step_distance)"
-msgstr ""
+msgstr "Ermitteln der Rotationsdistanz aus steps_per_mm (oder step_distance)"
 
 msgid ""
 "The designers of your 3d printer originally calculated `steps_per_mm` from a"
