@@ -1,11 +1,11 @@
-# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
+# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
 # Mateusz Kapała <lolekwielki@gmail.com>, 2023, 2025.
 # Woo Cash <woocash87@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:27+0000\n"
-"Last-Translator: Woo Cash <woocash87@gmail.com>\n"
+"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/protocol/"
 "pl/>\n"
 "Language: pl\n"
@@ -25,8 +25,8 @@ msgid ""
 msgstr ""
 "Protokół komunikacyjny Klipper jest używany do niskopoziomowej komunikacji "
 "między oprogramowaniem hosta Klipper a oprogramowaniem mikrokontrolera "
-"Klipper. Na wysokim poziomie protokół może być postrzegany jako seria poleceń "
-"i ciągów odpowiedzi, które są kompresowane, przesyłane, a następnie "
+"Klipper. Na wysokim poziomie protokół może być postrzegany jako seria "
+"poleceń i ciągów odpowiedzi, które są kompresowane, przesyłane, a następnie "
 "przetwarzane po stronie odbiorczej. Przykładowa seria komend w "
 "nieskompresowanym formacie czytelnym dla człowieka może wyglądać tak:"
 
@@ -36,9 +36,9 @@ msgid ""
 " translate a G-Code file into its corresponding human-readable micro-"
 "controller commands."
 msgstr ""
-"Informacje o dostępnych poleceniach znajdują się w dokumencie [mcu "
-"commands](MCU_Commands.md). Zobacz dokument [debugowanie](Debugowanie.md), aby"
-" dowiedzieć się, jak przetłumaczyć plik G-Code na odpowiadające mu, czytelne "
+"Informacje o dostępnych poleceniach znajdują się w dokumencie [mcu commands]"
+"(MCU_Commands.md). Zobacz dokument [debugowanie](Debugowanie.md), aby "
+"dowiedzieć się, jak przetłumaczyć plik G-Code na odpowiadające mu, czytelne "
 "dla człowieka, polecenia mikrokontrolera."
 
 msgid ""
