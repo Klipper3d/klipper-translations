@@ -2,13 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-06-21 02:20+0000\n"
+"PO-Revision-Date: 2022-06-30 07:22+0000\n"
 "Last-Translator: Comocen <Comoc_en@mail.ru>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/benchmarks/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"benchmarks/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.13.1-dev\n"
 
 msgid "This document describes Klipper benchmarks."
@@ -74,113 +76,124 @@ msgid ""
 "the test. It should be possible to bisect the ticks parameter until a stable"
 " value is found."
 msgstr ""
+"Вышеуказанные испытания осуществляют одновременно трех шаговых двигателей. "
+"Если в результате выполнения вышеперечисленного возникает ошибка «"
+"Rescheduled timer in the past» или «Stepper too far in past», то это "
+"указывает на то, что параметр `ticks` слишком мал (это приводит к слишком "
+"быстрой скорости пошагового изменения). Цель состоит в том, чтобы найти "
+"наименьшее значение параметра засечки, которое надежно приводит к успешному "
+"завершению теста. Параметр засечек можно делить пополам до тех пор, пока не "
+"будет найдено стабильное значение."
 
 msgid ""
 "On a failure, one can copy-and-paste the following to clear the error in "
 "preparation for the next test:"
 msgstr ""
+"В случае сбоя можно скопировать и вставить следующее, чтобы устранить ошибку "
+"при подготовке к следующему тесту:"
 
 msgid "AVR step rate benchmark"
-msgstr ""
+msgstr "Тест скорости шага AVR"
 
 msgid "The following configuration sequence is used on AVR chips:"
 msgstr ""
+"На микросхемах AVR используется следующая последовательность конфигурации:"
 
 msgid "avr"
-msgstr ""
+msgstr "avr"
 
 msgid "ticks"
 msgstr ""
 
 msgid "1 stepper"
-msgstr ""
+msgstr "1 шаговый двигатель"
 
 msgid "3 stepper"
-msgstr ""
+msgstr "3 шаговых двигателя"
 
 msgid "Arduino Due step rate benchmark"
-msgstr ""
+msgstr "Тест скорости шага Arduino Due"
 
 msgid "The following configuration sequence is used on the Due:"
-msgstr ""
+msgstr "На Due используется следующая последовательность настройки:"
 
 msgid "sam3x8e"
-msgstr ""
+msgstr "sam3x8e"
 
 msgid "Duet Maestro step rate benchmark"
-msgstr ""
+msgstr "Тест скорости шага Duet Maestro"
 
 msgid "The following configuration sequence is used on the Duet Maestro:"
-msgstr ""
+msgstr "В Duet Maestro используется следующая последовательность настройки:"
 
 msgid "sam4s8c"
-msgstr ""
+msgstr "sam4s8c"
 
 msgid "70"
 msgstr ""
 
 msgid "Duet Wifi step rate benchmark"
-msgstr ""
+msgstr "Тест скорости шага Duet Wifi"
 
 msgid "The following configuration sequence is used on the Duet Wifi:"
-msgstr ""
+msgstr "В Duet Wifi используется следующая последовательность настройки:"
 
 msgid "sam4e8e"
-msgstr ""
+msgstr "sam4e8e"
 
 msgid "Beaglebone PRU step rate benchmark"
-msgstr ""
+msgstr "Тест скорости шага Beaglebone PRU"
 
 msgid "The following configuration sequence is used on the PRU:"
-msgstr ""
+msgstr "На PRU используется следующая последовательность конфигурации:"
 
 msgid "pru"
-msgstr ""
+msgstr "pru"
 
 msgid "STM32F042 step rate benchmark"
-msgstr ""
+msgstr "Тест скорости шага STM32F042"
 
 msgid "The following configuration sequence is used on the STM32F042:"
-msgstr ""
+msgstr "В STM32F042 используется следующая последовательность настройки:"
 
 msgid "stm32f042"
-msgstr ""
+msgstr "stm32f042"
 
 msgid "STM32F103 step rate benchmark"
-msgstr ""
+msgstr "Тест скорости шага STM32F103"
 
 msgid "The following configuration sequence is used on the STM32F103:"
-msgstr ""
+msgstr "В STM32F103 используется следующая последовательность настройки:"
 
 msgid "stm32f103"
-msgstr ""
+msgstr "stm32f103"
 
 msgid "71"
-msgstr ""
+msgstr "71"
 
 msgid "STM32F4 step rate benchmark"
-msgstr ""
+msgstr "Тест скорости шага STM32F4"
 
 msgid "The following configuration sequence is used on the STM32F4:"
-msgstr ""
+msgstr "В STM32F4 используется следующая последовательность конфигурации:"
 
 msgid "stm32f446"
-msgstr ""
+msgstr "stm32f446"
 
 msgid "51"
-msgstr ""
+msgstr "51"
 
 msgid "stm32f407"
-msgstr ""
+msgstr "stm32f407"
 
 msgid "52"
-msgstr ""
+msgstr "52"
 
 msgid "LPC176x step rate benchmark"
-msgstr ""
+msgstr "Тест скорости шага LPC176x"
 
 msgid "The following configuration sequence is used on the LPC176x:"
-msgstr ""
+msgstr "В LPC176x используется следующая последовательность конфигурации:"
 
 msgid "lpc1768"
 msgstr ""
