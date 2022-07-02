@@ -1,9 +1,17 @@
-#
+# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
+"endstop_phase/pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 msgid ""
 "This document describes Klipper's stepper phase adjusted endstop system. "
@@ -11,6 +19,10 @@ msgid ""
 " It is most useful when using a Trinamic stepper motor driver that has run-"
 "time configuration."
 msgstr ""
+"Dokument ten opisuje system wyłączników krańcowych z regulacją fazową firmy "
+"Klipper. Funkcjonalność ta może poprawić dokładność tradycyjnych wyłączników "
+"krańcowych. Jest ona najbardziej przydatna w przypadku stosowania sterownika "
+"silnika krokowego Trinamic, który posiada konfigurację run-time."
 
 msgid ""
 "A typical endstop switch has an accuracy of around 100 microns. (Each time "
@@ -152,4 +164,4 @@ msgstr ""
 
 #: docs/Endstop_Phase.md:block 1 (header)
 msgid "Endstop phase"
-msgstr ""
+msgstr "Faza końcowa"
