@@ -1,11 +1,12 @@
 # Christian S <schnellrieder.cs@gmail.com>, 2022.
+# Sven van Beckum <kontakt@partner-3d.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:36+0200\n"
 "PO-Revision-Date: 2022-07-03 11:20+0000\n"
-"Last-Translator: Christian S <schnellrieder.cs@gmail.com>\n"
+"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "beaglebone/de/>\n"
 "Language: de\n"
@@ -18,6 +19,8 @@ msgstr ""
 msgid ""
 "This document describes the process of running Klipper on a Beaglebone PRU."
 msgstr ""
+"Dieses Dokument beschreibt den Prozess der Ausführung von Klipper auf einer "
+"Beaglebone PRU."
 
 msgid "Building an OS image"
 msgstr "Erstellen eines Betriebssystem-Images"
