@@ -1,11 +1,11 @@
-# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
+# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
 # Daviteusz <imefiu3@gmail.com>, 2023.
 # Julia 🌸🏳️‍⚧️ <daviteusz0@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:27+0000\n"
-"Last-Translator: Julia 🌸🏳️‍⚧️ <daviteusz0@gmail.com>\n"
+"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "rotation_distance/pl/>\n"
 "Language: pl\n"
@@ -23,8 +23,8 @@ msgid ""
 "configure this value."
 msgstr ""
 "Sterowniki silników krokowych w Klipperze wymagają parametru "
-"`rotation_distance` w każdej sekcji [stepper "
-"config](Config_Reference.md#stepper). Parametr `rotation_distance` jest "
+"`rotation_distance` w każdej sekcji [stepper config]"
+"(Config_Reference.md#stepper). Parametr `rotation_distance` jest "
 "odległością, o jaką porusza się oś przy jednym pełnym obrocie silnika "
 "krokowego. Ten dokument opisuje jak można skonfigurować tę wartość."
 
