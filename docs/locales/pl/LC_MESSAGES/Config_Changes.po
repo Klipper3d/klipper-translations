@@ -1,10 +1,10 @@
-# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
+# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
 # Woo Cash <woocash87@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:27+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "config_changes/pl/>\n"
 "Language: pl\n"
@@ -19,9 +19,9 @@ msgid ""
 "backwards compatible. It is a good idea to review this document when upgrading"
 " the Klipper software."
 msgstr ""
-"Ten dokument obejmuje ostatnie zmiany oprogramowania w pliku konfiguracyjnym, "
-"które nie są kompatybilne wstecz. Warto zapoznać się z tym dokumentem podczas "
-"aktualizacji oprogramowania Klipper."
+"Ten dokument obejmuje ostatnie zmiany oprogramowania w pliku "
+"konfiguracyjnym, które nie są kompatybilne wstecz. Warto zapoznać się z tym "
+"dokumentem podczas aktualizacji oprogramowania Klipper."
 
 msgid "All dates in this document are approximate."
 msgstr "Wszystkie dane w tym dokumencie są przybliżone."
