@@ -1,4 +1,4 @@
-# Sven van Beckum <kontakt@partner-3d.de>, 2022.
+# Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
 # Sascha Petersen <zarrsito@gmail.com>, 2023.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:36+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "rpi_microcontroller/de/>\n"
 "Language: de\n"
@@ -21,8 +21,9 @@ msgid ""
 "This document describes the process of running Klipper on a RPi and use the "
 "same RPi as secondary mcu."
 msgstr ""
-"Dieses Dokument beschreibt den Prozess, Klipper auf einem Raspberry Pi laufen "
-"zu lassen und denselben Raspberry Pi als sekundäre Steuerung zu verwenden."
+"Dieses Dokument beschreibt den Prozess, Klipper auf einem Raspberry Pi "
+"laufen zu lassen und denselben Raspberry Pi als sekundäre Steuerung zu "
+"verwenden."
 
 msgid "Why use RPi as a secondary MCU?"
 msgstr "Warum sollte man den Raspberry Pi als zweite MCU verwenden?"
