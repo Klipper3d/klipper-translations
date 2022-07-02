@@ -1,4 +1,4 @@
-# Sven van Beckum <kontakt@partner-3d.de>, 2022.
+# Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:36+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "delta_calibrate/de/>\n"
 "Language: de\n"
@@ -35,8 +35,8 @@ msgstr ""
 "die Winkel des Druckturms, der Deltaradius und die Länge des Deltararms "
 "ermittelt. Diese Einstellungen steuern die Bewegung des Druckers auf einem "
 "Deltadrucker. Jeder dieser Parameter hat einen nicht offensichtlichen und "
-"nicht linearen Einfluss, und es ist schwierig, sie manuell zu kalibrieren. Im "
-"Gegensatz dazu kann der Software-Kalibrierungscode in nur wenigen Minuten "
+"nicht linearen Einfluss, und es ist schwierig, sie manuell zu kalibrieren. "
+"Im Gegensatz dazu kann der Software-Kalibrierungscode in nur wenigen Minuten "
 "hervorragende Ergebnisse liefern. Es ist keine spezielle Messhardware "
 "erforderlich."
 
