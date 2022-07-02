@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"PO-Revision-Date: 2022-07-03 11:20+0000\n"
 "Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/faq/pl/>\n"
 "Language: pl\n"
@@ -24,7 +24,7 @@ msgstr ""
 "-calculate-the-rotation_distance-config-parameter)"
 
 msgid "[Where's my serial port?](#wheres-my-serial-port)"
-msgstr ""
+msgstr "[Gdzie jest mój port szeregowy?](#wheres-my-serial-port)"
 
 msgid ""
 "[When the micro-controller restarts the device changes to "
