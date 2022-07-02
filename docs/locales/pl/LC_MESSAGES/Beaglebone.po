@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"PO-Revision-Date: 2022-07-03 11:20+0000\n"
 "Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "beaglebone/pl/>\n"
@@ -18,7 +18,7 @@ msgid ""
 msgstr "Ten dokument opisuje proces uruchamiania Klippera na Beaglebone PRU."
 
 msgid "Building an OS image"
-msgstr ""
+msgstr "Tworzenie obrazu systemu operacyjnego"
 
 msgid ""
 "Start by installing the [Debian 9.9 2019-08-03 4GB SD "
