@@ -1,11 +1,11 @@
-# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
+# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
 # Woo Cash <woocash87@gmail.com>, 2024.
 # Tomasz Matuszewski <garage.make.zone@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:36+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "exclude_object/pl/>\n"
 "Language: pl\n"
@@ -29,9 +29,9 @@ msgid ""
 "compatible M486 G-Code macro.)"
 msgstr ""
 "Moduł `[exclude_object]` pozwala Klipperowi na wykluczenie obiektów podczas "
-"drukowania. Aby włączyć tę funkcję, dołącz sekcję [exclude_object "
-"config](Config_Reference.md#exclude_object) (zobacz również [command "
-"reference](G-Codes.md#exclude-object) i [sample-macros.cfg](../config/sample-"
+"drukowania. Aby włączyć tę funkcję, dołącz sekcję [exclude_object config]"
+"(Config_Reference.md#exclude_object) (zobacz również [command reference]"
+"(G-Codes.md#exclude-object) i [sample-macros.cfg](../config/sample-"
 "macros.cfg) plik dla makra Marlin/RepRapFirmware kompatybilnego z M486 "
 "G-Code)."
 
