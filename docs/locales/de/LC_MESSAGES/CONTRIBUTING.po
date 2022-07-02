@@ -1,4 +1,4 @@
-# Sven van Beckum <kontakt@partner-3d.de>, 2022.
+# Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:36+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "contributing/de/>\n"
 "Language: de\n"
@@ -27,9 +27,9 @@ msgid ""
 msgstr ""
 "Es ist wichtig, eine \"Signed-off-by\"-Zeile auf jedem Commit zu haben - sie "
 "bescheinigt, dass Sie mit dem [Entwickler-Ursprungszeugnis](developer-"
-"certificate-of-origin) einverstanden sind. Sie muss Ihren echten Namen (sorry,"
-" keine Pseudonyme oder anonyme Beiträge) und eine aktuelle E-Mail-Adresse "
-"enthalten."
+"certificate-of-origin) einverstanden sind. Sie muss Ihren echten Namen ("
+"sorry, keine Pseudonyme oder anonyme Beiträge) und eine aktuelle E-Mail-"
+"Adresse enthalten."
 
 #: docs/CONTRIBUTING.md:block 9 (header)
 msgid "Contributing to Klipper Translations"
