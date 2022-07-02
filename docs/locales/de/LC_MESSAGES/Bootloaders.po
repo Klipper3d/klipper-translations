@@ -1,5 +1,5 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
-# Sven van Beckum <kontakt@partner-3d.de>, 2022.
+# Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 # SK Customs <kunze.steve@bluewin.ch>, 2025.
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:33+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "bootloaders/de/>\n"
 "Language: de\n"
@@ -36,13 +36,13 @@ msgid ""
 "set of steps to flash an application."
 msgstr ""
 "Der Bootloader ist eine Software eines Drittanbieters, die auf dem "
-"Mikrocontroller läuft, wenn dieser zum ersten Mal eingeschaltet wird. Er wird "
-"in der Regel verwendet, um eine neue Anwendung (z. B. Klipper) auf den "
+"Mikrocontroller läuft, wenn dieser zum ersten Mal eingeschaltet wird. Er "
+"wird in der Regel verwendet, um eine neue Anwendung (z. B. Klipper) auf den "
 "Mikrocontroller zu flashen, ohne dass spezielle Hardware erforderlich ist. "
 "Leider gibt es weder einen industrieweiten Standard für das Flashen eines "
-"Mikrocontrollers, noch einen Standard-Bootloader, der für alle Mikrocontroller"
-" funktioniert. Schlimmer noch, jeder Bootloader erfordert in der Regel eine "
-"andere Anzahl von Schritten, um eine Anwendung zu flashen."
+"Mikrocontrollers, noch einen Standard-Bootloader, der für alle "
+"Mikrocontroller funktioniert. Schlimmer noch, jeder Bootloader erfordert in "
+"der Regel eine andere Anzahl von Schritten, um eine Anwendung zu flashen."
 
 msgid ""
 "If one can flash a bootloader to a micro-controller then one can generally "
