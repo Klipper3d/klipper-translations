@@ -1,4 +1,4 @@
-# Sebastian Fiedler <See1807@hotmail.de>, 2022.
+# Sebastian Fiedler <See1807@hotmail.de>, 2022, 2025.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
 # Tobias Mohr <tobias_mohr_1991@gmx.de>, 2023.
 # Kev <leadustin@gmail.com>, 2024.
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:35+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
+"Last-Translator: Sebastian Fiedler <See1807@hotmail.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/protocol/"
 "de/>\n"
 "Language: de\n"
@@ -27,12 +27,13 @@ msgid ""
 "side. An example series of commands in uncompressed human-readable format "
 "might look like:"
 msgstr ""
-"Das Klipper-Messaging-Protokoll wird für die Low-Level-Kommunikation zwischen "
-"der Klipper-Host-Software und der Klipper-Mikrocontroller-Software verwendet. "
-"Auf hoher Ebene kann man sich das Protokoll als eine Reihe von Befehls- und "
-"Antwortzeichenfolgen vorstellen, die komprimiert, übertragen und dann auf der "
-"Empfängerseite verarbeitet werden. Eine beispielhafte Reihe von Befehlen in "
-"unkomprimiertem, für Menschen lesbarem Format könnte folgendermaßen aussehen:"
+"Das Klipper-Messaging-Protokoll wird für die Low-Level-Kommunikation "
+"zwischen der Klipper-Host-Software und der Klipper-Mikrocontroller-Software "
+"verwendet. Auf hoher Ebene kann man sich das Protokoll als eine Reihe von "
+"Befehls- und Antwortzeichenfolgen vorstellen, die komprimiert, übertragen "
+"und dann auf der Empfängerseite verarbeitet werden. Eine beispielhafte Reihe "
+"von Befehlen in unkomprimiertem, für Menschen lesbarem Format könnte "
+"folgendermaßen aussehen:"
 
 msgid ""
 "See the [mcu commands](MCU_Commands.md) document for information on available "
