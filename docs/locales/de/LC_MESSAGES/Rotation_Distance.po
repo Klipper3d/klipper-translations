@@ -1,4 +1,4 @@
-# Sebastian Fiedler <See1807@hotmail.de>, 2022.
+# Sebastian Fiedler <See1807@hotmail.de>, 2022, 2025.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:34+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
+"Last-Translator: Sebastian Fiedler <See1807@hotmail.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "rotation_distance/de/>\n"
 "Language: de\n"
@@ -24,11 +24,11 @@ msgid ""
 "full revolution of the stepper motor. This document describes how one can "
 "configure this value."
 msgstr ""
-"Schrittmotortreiber auf Klipper benötigen einen `rotation_distance`-Parameter "
-"in jedem [Stepper-Konfigurationsabschnitt](Config_Reference.md#stepper). Die "
-"`rotation_distance` ist die Strecke, um die sich die Achse mit einer vollen "
-"Umdrehung des Schrittmotors bewegt. Dieses Dokument beschreibt, wie man diesen"
-" Wert konfigurieren kann."
+"Schrittmotortreiber auf Klipper benötigen einen `rotation_distance`-"
+"Parameter in jedem [Stepper-Konfigurationsabschnitt]"
+"(Config_Reference.md#stepper). Die `rotation_distance` ist die Strecke, um "
+"die sich die Achse mit einer vollen Umdrehung des Schrittmotors bewegt. "
+"Dieses Dokument beschreibt, wie man diesen Wert konfigurieren kann."
 
 msgid "Obtaining rotation_distance from steps_per_mm (or step_distance)"
 msgstr "Ermitteln der Rotationsdistanz aus steps_per_mm (oder step_distance)"
