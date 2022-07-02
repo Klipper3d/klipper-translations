@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"PO-Revision-Date: 2022-07-03 11:20+0000\n"
 "Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/contact/"
 "pl/>\n"
@@ -17,10 +17,10 @@ msgid "This document provides contact information for Klipper."
 msgstr "Ten dokument zawiera informacje kontaktowe dla firmy Klipper."
 
 msgid "[Community Forum](#community-forum)"
-msgstr ""
+msgstr "[Forum społecznościowe](#community-forum)"
 
 msgid "[Discord Chat](#discord-chat)"
-msgstr ""
+msgstr "[Discord Chat](#discord-chat)"
 
 msgid "[I have a question about Klipper](#i-have-a-question-about-klipper)"
 msgstr ""
