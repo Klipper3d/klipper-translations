@@ -1,17 +1,27 @@
-#
+# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/releases/"
+"pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 msgid ""
 "History of Klipper releases. Please see [installation](Installation.md) for "
 "information on installing Klipper."
 msgstr ""
+"Historia wydań Klippera. Informacje na temat instalacji Klippera można "
+"znaleźć w [installation](Installation.md)."
 
 msgid "Klipper 0.9.0"
-msgstr ""
+msgstr "Klipper 0.9.0"
 
 msgid "Available on 20201020. Major changes in this release:"
 msgstr ""
@@ -468,7 +478,7 @@ msgstr ""
 
 #: docs/Releases.md:block 1 (header)
 msgid "Releases"
-msgstr ""
+msgstr "Zwolnienia"
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.10.0"
