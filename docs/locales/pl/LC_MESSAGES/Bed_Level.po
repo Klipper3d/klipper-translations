@@ -1,5 +1,5 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
-# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
+# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
 # Damian Jasinski <flasch44@gmail.com>, 2023.
 # Woo Cash <woocash87@gmail.com>, 2024, 2025.
 # Mateusz <account.srrr3@slmail.me>, 2025.
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: Woo Cash <woocash87@gmail.com>\n"
+"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/bed_level/"
 "pl/>\n"
 "Language: pl\n"
@@ -55,11 +55,11 @@ msgstr ""
 "W celu uzyskania dobrej jakości wydruków drukarka powinna być skalibrowana "
 "tak, aby odległości Z były dokładne z dokładnością do około 25 mikronów "
 "(.025mm). Jest to niewielka odległość - znacznie mniejsza niż szerokość "
-"typowego ludzkiego włosa. Skala ta nie może być mierzona \"na oko\". Subtelne "
-"efekty (takie jak rozszerzalność cieplna) wpływają na pomiary w tej skali. "
-"Sekretem uzyskania wysokiej dokładności jest zastosowanie powtarzalnego "
-"procesu oraz metody poziomowania, która wykorzystuje wysoką dokładność "
-"własnego systemu ruchu drukarki."
+"typowego ludzkiego włosa. Skala ta nie może być mierzona \"na oko\". "
+"Subtelne efekty (takie jak rozszerzalność cieplna) wpływają na pomiary w tej "
+"skali. Sekretem uzyskania wysokiej dokładności jest zastosowanie "
+"powtarzalnego procesu oraz metody poziomowania, która wykorzystuje wysoką "
+"dokładność własnego systemu ruchu drukarki."
 
 msgid "Choose the appropriate calibration mechanism"
 msgstr "Wybierz odpowiedni mechanizm kalibracji"
