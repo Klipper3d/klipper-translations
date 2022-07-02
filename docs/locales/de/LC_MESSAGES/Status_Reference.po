@@ -1,5 +1,5 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
-# Sven van Beckum <kontakt@partner-3d.de>, 2022.
+# Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
 # Tobias Pierschel <tp@netinventors.de>, 2022, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 # Mathis Mensing <github@matmen.dev>, 2025.
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:35+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Mathis Mensing <github@matmen.dev>\n"
+"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "status_reference/de/>\n"
 "Language: de\n"
@@ -35,9 +35,8 @@ msgid ""
 " the Klipper software."
 msgstr ""
 "Die Felder in diesem Dokument können sich ändern - wenn Sie ein Attribut "
-"verwenden, stellen Sie sicher, dass Sie das [Config Changes "
-"document](Config_Changes.md) lesen, wenn Sie die Klipper Software "
-"aktualisieren."
+"verwenden, stellen Sie sicher, dass Sie das [Config Changes document]"
+"(Config_Changes.md) lesen, wenn Sie die Klipper Software aktualisieren."
 
 msgid "bed_mesh"
 msgstr "bed_mesh"
