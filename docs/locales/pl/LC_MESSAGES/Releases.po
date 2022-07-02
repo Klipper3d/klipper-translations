@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"PO-Revision-Date: 2022-07-03 11:20+0000\n"
 "Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/releases/"
 "pl/>\n"
@@ -24,7 +24,7 @@ msgid "Klipper 0.9.0"
 msgstr "Klipper 0.9.0"
 
 msgid "Available on 20201020. Major changes in this release:"
-msgstr ""
+msgstr "Udostępnione w dniu 20.10.2020. Główne zmiany w tym wydaniu:"
 
 msgid ""
 "Support for \"Input Shaping\" - a mechanism to counteract printer resonance."
