@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"PO-Revision-Date: 2022-07-03 11:20+0000\n"
 "Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/bed_mesh/"
 "pl/>\n"
@@ -31,10 +31,10 @@ msgstr ""
 "dokładnych wyników z procesu sondowania."
 
 msgid "Basic Configuration"
-msgstr ""
+msgstr "Konfiguracja podstawowa"
 
 msgid "Rectangular Beds"
-msgstr ""
+msgstr "Stoły prostokątne"
 
 msgid ""
 "This example assumes a printer with a 250 mm x 220 mm rectangular bed and a "
