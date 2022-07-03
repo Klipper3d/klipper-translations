@@ -1,20 +1,22 @@
 # Benni Harmony <deathharmony09@googlemail.com>, 2021.
 # Florian Schaupp <fschaupp@hotmail.com>, 2021.
 # Mathis Mensing <gcmatmen@gmail.com>, 2021.
+# Christian S <schnellrieder.cs@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
-"PO-Revision-Date: 2021-09-29 00:47+0000\n"
-"Last-Translator: Mathis Mensing <gcmatmen@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/overview/de/>\n"
+"PO-Revision-Date: 2022-07-03 11:20+0000\n"
+"Last-Translator: Christian S <schnellrieder.cs@gmail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/overview/"
+"de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -272,7 +274,7 @@ msgstr "Übersicht"
 
 #: docs/Overview.md:block 5 (header)
 msgid "Installation and Configuration"
-msgstr "Installation und Konfiguration"
+msgstr "Installations und Einstellungen"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
