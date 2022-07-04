@@ -1,8 +1,8 @@
 ***
 
-hide:
+ukryć:
 
-- toc title: Welcome
+- tytuł toc: Witamy
 
 ***
 

@@ -1,8 +1,8 @@
 # Delta calibration
 
-This document describes Klipper's automatic calibration system for "delta" style printers.
+Dieses Dokument beschreibt das automatische Kalibrierungssystem von Klipper für "Delta"-Drucker.
 
-Delta calibration involves finding the tower endstop positions, tower angles, delta radius, and delta arm lengths. These settings control printer motion on a delta printer. Each one of these parameters has a non-obvious and non-linear impact and it is difficult to calibrate them manually. In contrast, the software calibration code can provide excellent results with just a few minutes of time. No special probing hardware is necessary.
+Bei der Deltakalibrierung werden die Endanschlagspositionen des Druckturms, die Winkel des Druckturms, der Deltaradius und die Länge des Deltararms ermittelt. Diese Einstellungen steuern die Bewegung des Druckers auf einem Deltadrucker. Jeder dieser Parameter hat einen nicht offensichtlichen und nicht linearen Einfluss, und es ist schwierig, sie manuell zu kalibrieren. Im Gegensatz dazu kann der Software-Kalibrierungscode in nur wenigen Minuten hervorragende Ergebnisse liefern. Es ist keine spezielle Messhardware erforderlich.
 
 Ultimately, the delta calibration is dependent on the precision of the tower endstop switches. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of those switches.
 

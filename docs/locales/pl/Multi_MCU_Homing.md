@@ -1,6 +1,6 @@
-# Multiple Micro-controller Homing and Probing
+# Liczne mikrokontrolery Homing i Probing
 
-Klipper supports a mechanism for homing with an endstop attached to one micro-controller while its stepper motors are on a different micro-controller. This support is referred to as "multi-mcu homing". This feature is also used when a Z probe is on a different micro-controller than the Z stepper motors.
+Klipper wspiera mechanizm homingu z endstopem podłączonym do jednego mikrokontrolera, podczas gdy jego silniki krokowe są na innym mikrokontrolerze. Ta obsługa jest określana jako "multi-mcu homing". Funkcja ta jest również wykorzystywana, gdy sonda Z znajduje się na innym mikrokontrolerze niż silniki krokowe Z.
 
 This feature can be useful to simplify wiring, as it may be more convenient to attach an endstop or probe to a closer micro-controller. However, using this feature may result in "overshoot" of the stepper motors during homing and probing operations.
 

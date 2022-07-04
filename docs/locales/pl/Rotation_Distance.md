@@ -1,8 +1,8 @@
 # Rotation distance
 
-Stepper motor drivers on Klipper require a `rotation_distance` parameter in each [stepper config section](Config_Reference.md#stepper). The `rotation_distance` is the amount of distance that the axis moves with one full revolution of the stepper motor. This document describes how one can configure this value.
+Sterowniki silników krokowych w Klipperze wymagają parametru `rotation_distance` w każdej sekcji [stepper config](Config_Reference.md#stepper). Parametr `rotation_distance` jest odległością, o jaką porusza się oś przy jednym pełnym obrocie silnika krokowego. Ten dokument opisuje jak można skonfigurować tę wartość.
 
-## Obtaining rotation_distance from steps_per_mm (or step_distance)
+## Uzyskanie rotation_distance z steps_per_mm (lub step_distance)
 
 The designers of your 3d printer originally calculated `steps_per_mm` from a rotation distance. If you know the steps_per_mm then it is possible to use this general formula to obtain that original rotation distance:
 

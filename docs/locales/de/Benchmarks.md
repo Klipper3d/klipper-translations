@@ -1,8 +1,8 @@
 # Benchmarks
 
-This document describes Klipper benchmarks.
+Dieses Dokument beschreibt die Klipper-Benchmarks.
 
-## Micro-controller Benchmarks
+## Mikrocontroller-Benchmarks
 
 This section describes the mechanism used to generate the Klipper micro-controller step rate benchmarks.
 

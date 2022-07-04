@@ -1,8 +1,8 @@
 # Frequently Asked Questions
 
-1. [How can I donate to the project?](#how-can-i-donate-to-the-project)
-1. [How do I calculate the rotation_distance config parameter?](#how-do-i-calculate-the-rotation_distance-config-parameter)
-1. [Where's my serial port?](#wheres-my-serial-port)
+1. [Jak mogę przekazać pieniądze na projekt?](#how-can-i-donate-to-the-project)
+1. [Jak obliczyć parametr konfiguracyjny rotation_distance?](#how-do-i-calculate-the-rotation_distance-config-parameter)
+1. [Gdzie jest mój port szeregowy?](#wheres-my-serial-port)
 1. [When the micro-controller restarts the device changes to /dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1)
 1. [The "make flash" command doesn't work](#the-make-flash-command-doesnt-work)
 1. [How do I change the serial baud rate?](#how-do-i-change-the-serial-baud-rate)

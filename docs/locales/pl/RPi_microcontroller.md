@@ -1,10 +1,10 @@
 # RPi microcontroller
 
-This document describes the process of running Klipper on a RPi and use the same RPi as secondary mcu.
+Ten dokument opisuje proces uruchamiania Klippera na RPi i używania tego samego RPi jako secondary mcu.
 
-## Why use RPi as a secondary MCU?
+## Dlaczego warto używać RPi jako dodatkowego MCU?
 
-Often the MCUs dedicated to controlling 3D printers have a limited and pre-configured number of exposed pins to manage the main printing functions (thermal resistors, extruders, steppers ...). Using the RPi where Klipper is installed as a secondary MCU gives the possibility to directly use the GPIOs and the buses (i2c, spi) of the RPi inside klipper without using Octoprint plugins (if used) or external programs giving the ability to control everything within the print GCODE.
+Często MCU dedykowane do sterowania drukarkami 3D mają ograniczoną i wstępnie skonfigurowaną liczbę odsłoniętych pinów do zarządzania głównymi funkcjami druku (rezystory termiczne, ekstrudery, steppery ...). Użycie RPi, na którym zainstalowany jest Klipper jako drugorzędnego MCU daje możliwość bezpośredniego wykorzystania GPIO i magistral (i2c, spi) RPi wewnątrz klippera bez użycia wtyczek Octoprint (jeśli są używane) lub zewnętrznych programów dając możliwość kontrolowania wszystkiego w ramach print GCODE.
 
 **Warning**: If your platform is a *Beaglebone* and you have correctly followed the installation steps, the linux mcu is already installed and configured for your system.
 

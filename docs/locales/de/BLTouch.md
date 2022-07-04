@@ -1,10 +1,10 @@
 # BL-Touch
 
-## Connecting BL-Touch
+## Verbindung zum BL Touch
 
-A **warning** before you start: Avoid touching the BL-Touch pin with your bare fingers, since it is quite sensitive to finger grease. And if you do touch it, be very gentle, in order to not bend or push anything.
+Eine **Warnung**, bevor Sie beginnen: Vermeiden Sie es, den BL-Touch-Stift mit bloßen Fingern zu berühren, da er sehr empfindlich auf Fingerfett reagiert. Und wenn Sie ihn doch berühren, seien Sie sehr vorsichtig, um nichts zu verbiegen oder zu drücken.
 
-Hook up the BL-Touch "servo" connector to a `control_pin` according to the BL-Touch documentation or your MCU documentation. Using the original wiring, the yellow wire from the triple is the `control_pin` and the white wire from the pair is the `sensor_pin`. You need to configure these pins according to your wiring. Most BL-Touch devices require a pullup on the sensor pin (prefix the pin name with "^"). For example:
+Verbinden Sie den BL-Touch "Servo"-Anschluss mit einem `control_pin` gemäß der BL-Touch Dokumentation oder Ihrer MCU Dokumentation. Bei der Originalverdrahtung ist der gelbe Draht des Dreifachsteckers der `control_pin` und der weiße Draht des Paares ist der `sensor_pin`. Sie müssen diese Pins entsprechend Ihrer Verdrahtung konfigurieren. Die meisten BL-Touch-Geräte erfordern einen Pullup am Sensor-Pin (stellen Sie dem Pin-Namen ein "^" voran). Zum Beispiel:
 
 ```
 [bltouch]
@@ -22,23 +22,23 @@ z_hop: 10                 # Move up 10mm
 z_hop_speed: 5
 ```
 
-It's important that the z_hop movement in safe_z_home is high enough that the probe doesn't hit anything even if the probe pin happens to be in its lowest state.
+Es ist wichtig, dass die z_hop-Bewegung in safe_z_home hoch genug ist, damit die Sonde nichts trifft, auch wenn der Sondenstift zufällig in seinem niedrigsten Zustand ist.
 
-## Initial tests
+## Erste Tests
 
-Before moving on, verify that the BL-Touch is mounted at the correct height, the pin should be roughly 2 mm above the nozzle when retracted
+Bevor Sie fortfahren, vergewissern Sie sich, dass der BL-Touch in der richtigen Höhe montiert ist. Der Stift sollte sich im eingefahrenen Zustand etwa 2 mm über der Düse befinden.
 
-When you turn on the printer, the BL-Touch probe should perform a self-test and move the pin up and down a couple of times. Once the self-test is completed, the pin should be retracted and the red LED on the probe should be lit. If there are any errors, for example the probe is flashing red or the pin is down instead of up, please turn off the printer and check the wiring and configuration.
+Wenn Sie den Drucker einschalten, sollte die BL-Touch-Sonde einen Selbsttest durchführen und den Stift ein paar Mal auf und ab bewegen. Sobald der Selbsttest abgeschlossen ist, sollte der Stift zurückgezogen werden und die rote LED an der Sonde dauerhaft leuchten. Sollten Fehler auftreten, z. B. wenn die Sonde rot blinkt oder der Stift nach unten statt nach oben zeigt, schalten Sie den Drucker aus und überprüfen Sie die Verkabelung und Konfiguration.
 
-If the above is looking good, it's time to test that the control pin is working correctly. First run `BLTOUCH_DEBUG COMMAND=pin_down` in your printer terminal. Verify that the pin moves down and that the red LED on the probe turns off. If not, check your wiring and configuration again. Next issue a `BLTOUCH_DEBUG COMMAND=pin_up`, verify that the pin moves up, and that the red light turns on again. If it's flashing then there's some problem.
+Wenn das alles gut aussieht, ist es an der Zeit, zu testen, ob der kontrollpin richtig funktioniert. Führen Sie zunächst `BLTOUCH_DEBUG COMMAND=pin_down` in Ihrem Druckerterminal aus. Vergewissern Sie sich, dass sich der Stift nach unten bewegt und dass die rote LED auf der Sonde erlischt. Falls nicht, überprüfen Sie Ihre Verkabelung und Konfiguration erneut. Geben Sie als Nächstes einen `BLTOUCH_DEBUG COMMAND=pin_up` ein und überprüfen Sie, ob sich der Stift nach oben bewegt und die rote Lampe wieder aufleuchtet. Wenn es blinkt, liegt ein Problem vor.
 
 The next step is to confirm that the sensor pin is working correctly. Run `BLTOUCH_DEBUG COMMAND=pin_down`, verify that the pin moves down, run `BLTOUCH_DEBUG COMMAND=touch_mode`, run `QUERY_PROBE`, and verify that command reports "probe: open". Then while gently pushing the pin up slightly with the nail of your finger run `QUERY_PROBE` again. Verify the command reports "probe: TRIGGERED". If either query does not report the correct message then it usually indicates an incorrect wiring or configuration (though some [clones](#bl-touch-clones) may require special handling). At the completion of this test run `BLTOUCH_DEBUG COMMAND=pin_up` and verify that the pin moves up.
 
-After completing the BL-Touch control pin and sensor pin tests, it is now time to test probing, but with a twist. Instead of letting the probe pin touch the print bed, let it touch the nail on your finger. Position the toolhead far from the bed, issue a `G28` (or `PROBE` if not using probe:z_virtual_endstop), wait until the toolhead starts to move down, and stop the movement by very gently touching the pin with your nail. You may have to do it twice, since the default homing configuration probes twice. Be prepared to turn off the printer if it doesn't stop when you touch the pin.
+Nachdem Sie die Tests für den BL-Touch-Control Pin und den Sensorstift erfolgreich abgeschlossen haben, ist es nun an der Zeit, die Abtastung zu testen, allerdings mit einer anderen Methode. Anstatt den Taststift das Druckbett berühren zu lassen, lassen Sie ihn den Nagel Ihres Fingers berühren. Positionieren Sie den Werkzeugkopf weit vom Druckbett entfernt, geben Sie ein `G28` aus (oder `PROBE`, wenn Sie nicht probe:z_virtual_endstop verwenden), warten Sie, bis der Werkzeugkopf beginnt, sich nach unten zu bewegen, und stoppen Sie die Bewegung, indem Sie den Stift ganz sanft mit Ihrem Nagel berühren. Möglicherweise müssen Sie dies zweimal tun, da die Standardkonfiguration für die Referenzpunktfahrt zweimal testet. Bereiten Sie sich darauf vor, den Drucker auszuschalten, wenn er nicht stoppen sollte sobald Sie den Stift berühren.
 
-If that was successful, do another `G28` (or `PROBE`) but this time let it touch the bed as it should.
+Wenn das erfolgreich war, machen Sie ein weiteres `G28` (oder `PROBE`), aber diesmal lassen Sie es das Bett berühren, wie im normalen Betrieb.
 
-## BL-Touch gone bad
+## BL-Touch defekt
 
 Once the BL-Touch is in inconsistent state, it starts blinking red. You can force it to leave that state by issuing:
 

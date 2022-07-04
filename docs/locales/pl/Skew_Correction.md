@@ -1,8 +1,8 @@
 # Skew correction
 
-Software based skew correction can help resolve dimensional inaccuracies resulting from a printer assembly that is not perfectly square. Note that if your printer is significantly skewed it is strongly recommended to first use mechanical means to get your printer as square as possible prior to applying software based correction.
+Programowa korekcja przekrzywienia może pomóc w rozwiązaniu problemu niedokładności wymiarowych wynikających z tego, że zespół drukarki nie jest idealnie prostopadły. Należy pamiętać, że jeśli drukarka jest znacznie przekrzywiona, zdecydowanie zaleca się najpierw użyć środków mechanicznych, aby uzyskać jak najbardziej prostopadłe położenie drukarki przed zastosowaniem korekcji programowej.
 
-## Print a Calibration Object
+## Drukowanie obiektu kalibracyjnego
 
 The first step in correcting skew is to print a [calibration object](https://www.thingiverse.com/thing:2563185/files) along the plane you want to correct. There is also a [calibration object](https://www.thingiverse.com/thing:2972743) that includes all planes in one model. You want the object oriented so that corner A is toward the origin of the plane.
 

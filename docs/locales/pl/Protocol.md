@@ -1,6 +1,6 @@
-# Protocol
+# Protokół
 
-The Klipper messaging protocol is used for low-level communication between the Klipper host software and the Klipper micro-controller software. At a high level the protocol can be thought of as a series of command and response strings that are compressed, transmitted, and then processed at the receiving side. An example series of commands in uncompressed human-readable format might look like:
+Protokół komunikacyjny Klipper jest używany do niskopoziomowej komunikacji między oprogramowaniem hosta Klipper a oprogramowaniem mikrokontrolera Klipper. Na wysokim poziomie protokół może być postrzegany jako seria poleceń i ciągów odpowiedzi, które są kompresowane, przesyłane, a następnie przetwarzane po stronie odbiorczej. Przykładowa seria komend w nieskompresowanym formacie czytelnym dla człowieka może wyglądać tak:
 
 ```
 set_digital_out pin=PA3 value=1
@@ -10,7 +10,7 @@ queue_step oid=7 interval=7458 count=10 add=331
 queue_step oid=7 interval=11717 count=4 add=1281
 ```
 
-See the [mcu commands](MCU_Commands.md) document for information on available commands. See the [debugging](Debugging.md) document for information on how to translate a G-Code file into its corresponding human-readable micro-controller commands.
+Informacje o dostępnych poleceniach znajdują się w dokumencie [mcu commands](MCU_Commands.md). Zobacz dokument [debugowanie](Debugowanie.md), aby dowiedzieć się, jak przetłumaczyć plik G-Code na odpowiadające mu, czytelne dla człowieka, polecenia mikrokontrolera.
 
 This page provides a high-level description of the Klipper messaging protocol itself. It describes how messages are declared, encoded in binary format (the "compression" scheme), and transmitted.
 

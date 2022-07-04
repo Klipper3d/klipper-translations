@@ -1,8 +1,8 @@
 # G-Codes
 
-This document describes the commands that Klipper supports. These are commands that one may enter into the OctoPrint terminal tab.
+Dieses Dokument beschreibt die von Klipper unterstützten Befehle. Dies sind Befehle, die man auf der OctoPrint Registrierkarte Terminals eingeben kann.
 
-## G-Code commands
+## G-code Befehle
 
 Klipper supports the following standard G-Code commands:
 

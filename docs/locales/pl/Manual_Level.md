@@ -1,8 +1,8 @@
 # Manual leveling
 
-This document describes tools for calibrating a Z endstop and for performing adjustments to bed leveling screws.
+W tym dokumencie opisano narzędzia do kalibracji ogranicznika krańcowego Z oraz do wykonywania regulacji śrub poziomujących stół.
 
-## Calibrating a Z endstop
+## Kalibracja ogranicznika krańcowego Z
 
 An accurate Z endstop position is critical to obtaining high quality prints.
 

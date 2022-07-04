@@ -16,7 +16,7 @@ Beginnen Sie mit der Überprüfung, ob die Temperaturen korrekt gemeldet werden.
 
 Navigieren Sie zur Registerkarte "Octoprint-Terminal" und geben Sie einen M112-Befehl in der Terminalbox ein. Dieser Befehl fordert Klipper auf, in einen "Shutdown"-Zustand zu gehen. Dies führt dazu, dass Octoprint die Verbindung zu Klipper trennt - navigieren Sie zum Bereich "Verbindung" und klicken Sie auf "Verbinden", damit Octoprint die Verbindung wieder aufnimmt. Navigieren Sie dann zur Registerkarte "Octoprint-Temperatur" und überprüfen Sie, ob die Temperaturen weiterhin aktualisiert werden und nicht ansteigen. Wenn die Temperaturen ansteigen, trennen Sie den Drucker von der Stromversorgung.
 
-Der M112-Befehl veranlasst Klipper, in einen "Shutdown"-Zustand zu gehen. Um diesen Zustand zu löschen, geben Sie einen FIRMWARE_RESTART-Befehl in der Octoprint-Terminal-Registerkarte aus.
+Der M112-Befehl veranlasst Klipper, in einen "Shutdown"-Zustand zu gehen. Um diesen Zustand zu löschen, geben Sie einen FIRMWARE_RESTART-Befehl in der Octoprint-Terminal-Registerkarte ein.
 
 ## Prüfen Sie die Heizungen
 
@@ -52,7 +52,7 @@ Um den Extrudermotor zu testen, muss der Extruder auf eine Drucktemperatur erhit
 
 ## PID-Einstellungen kalibrieren
 
-Klipper supports [PID control](https://en.wikipedia.org/wiki/PID_controller) for the extruder and bed heaters. In order to use this control mechanism, it is necessary to calibrate the PID settings on each printer (PID settings found in other firmwares or in the example configuration files often work poorly).
+Klipper unterstützt die [PID-Regelung] (https://en.wikipedia.org/wiki/PID_controller) für den Extruder und die Bettheizungen. Um diesen Regelungsmechanismus zu nutzen, ist es notwendig, die PID-Einstellungen auf jedem Drucker zu kalibrieren (PID-Einstellungen, die in anderen Programmen oder in den Beispielkonfigurationsdateien gefunden wurden, funktionieren oft schlecht).
 
 Um den Extruder zu kalibrieren, navigieren Sie zur Registerkarte Terminal in OctoPrint und führen Sie den Befehl PID_CALIBRATE aus. Zum Beispiel: `PID_CALIBRATE HEATER=extruder TARGET=170`
 

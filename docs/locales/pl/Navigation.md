@@ -1,12 +1,12 @@
-Klipper documentation
+Dokumentacja Klippera
 
-Installation and Configuration
+Instalacja i konfiguracja
 
 Configuration Reference
 
 Bed Level
 
-Resonance Compensation
+Kompensacja rezonansu
 
 Command templates
 

@@ -4,13 +4,13 @@ Witaj w dokumentacji Klipper. Jeśli jesteś nowy zapoznaj się z [zastosowaniam
 
 ## Ogólne informacje
 
-- [Features](Features.md): A high-level list of features in Klipper.
+- [Features](Features.md): Wysokopoziomowa lista funkcji w Klipperze.
 - [FAQ](FAQ.md): Frequently asked questions.
 - [Releases](Releases.md): The history of Klipper releases.
 - [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
 - [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
 
-## Installation and Configuration
+## Instalacja i konfiguracja
 
 - [Installation](Installation.md): Guide to installing Klipper.
 - [Config Reference](Config_Reference.md): Description of config parameters.

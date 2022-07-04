@@ -1,10 +1,10 @@
 # TMC drivers
 
-This document provides information on using Trinamic stepper motor drivers in SPI/UART mode on Klipper.
+Niniejszy dokument zawiera informacje na temat wykorzystania sterowników silników krokowych Trinamic w trybie SPI/UART w urządzeniu Klipper.
 
-Klipper can also use Trinamic drivers in their "standalone mode". However, when the drivers are in this mode, no special Klipper configuration is needed and the advanced Klipper features discussed in this document are not available.
+Klipper może również używać sterowników Trinamic w ich "trybie samodzielnym". Jednakże, gdy sterowniki są w tym trybie, nie jest wymagana żadna specjalna konfiguracja Klippera, a zaawansowane funkcje Klippera omawiane w tym dokumencie nie są dostępne.
 
-In addition to this document, be sure to review the [TMC driver config reference](Config_Reference.md#tmc-stepper-driver-configuration).
+Oprócz tego dokumentu, należy zapoznać się z [Konfiguracja sterownika TMC](Config_Reference.md#tmc-stepper-driver-configuration).
 
 ## Tuning motor current
 

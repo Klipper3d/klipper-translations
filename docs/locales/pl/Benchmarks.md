@@ -1,10 +1,10 @@
 # Benchmarks
 
-This document describes Klipper benchmarks.
+Ten dokument opisuje benchmarki Klippera.
 
-## Micro-controller Benchmarks
+## Benchmarki mikrokontrolerów
 
-This section describes the mechanism used to generate the Klipper micro-controller step rate benchmarks.
+W tym rozdziale opisano mechanizm wykorzystany do wygenerowania benchmarków szybkości kroków mikrokontrolera Klipper.
 
 The primary goal of the benchmarks is to provide a consistent mechanism for measuring the impact of coding changes within the software. A secondary goal is to provide high-level metrics for comparing the performance between chips and between software platforms.
 

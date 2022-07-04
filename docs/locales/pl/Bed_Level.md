@@ -4,7 +4,7 @@ Poziomowanie stołu jest kluczowe w otrzymywaniu dobrej jakosci wydruków.Jesli 
 
 Bardzo ważne jest zrozumienie celu poziomowania stołu. Jeśli drukarka otrzyma komendę `X0 Y0 Z10` podczas wydruku , wtedy celem dla drukarki jest utrzymanie dyszy dokładnie 10mm nad stołem.Drukarka zanając odstęp od stołu przy komendzie `X50 Z10` będzie wstanie utrzymać dystans od stołu 10mm przez cały ruch niezależnie od płaszczyzny stołu.
 
-In order to get good quality prints the printer should be calibrated so that Z distances are accurate to within about 25 microns (.025mm). This is a small distance - significantly smaller than the width of a typical human hair. This scale can not be measured "by eye". Subtle effects (such as heat expansion) impact measurements at this scale. The secret to getting high accuracy is to use a repeatable process and to use a leveling method that leverages the high accuracy of the printer's own motion system.
+W celu uzyskania dobrej jakości wydruków drukarka powinna być skalibrowana tak, aby odległości Z były dokładne z dokładnością do około 25 mikronów (.025mm). Jest to niewielka odległość - znacznie mniejsza niż szerokość typowego ludzkiego włosa. Skala ta nie może być mierzona "na oko". Subtelne efekty (takie jak rozszerzalność cieplna) wpływają na pomiary w tej skali. Sekretem uzyskania wysokiej dokładności jest zastosowanie powtarzalnego procesu oraz metody poziomowania, która wykorzystuje wysoką dokładność własnego systemu ruchu drukarki.
 
 ## Choose the appropriate calibration mechanism
 

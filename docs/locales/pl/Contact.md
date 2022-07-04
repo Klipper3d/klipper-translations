@@ -1,8 +1,8 @@
-# Contact
+# Kontakt
 
-This document provides contact information for Klipper.
+Ten dokument zawiera informacje kontaktowe dla firmy Klipper.
 
-1. [Community Forum](#community-forum)
+1. [Forum społecznościowe](#community-forum)
 1. [Discord Chat](#discord-chat)
 1. [I have a question about Klipper](#i-have-a-question-about-klipper)
 1. [I have a feature request](#i-have-a-feature-request)

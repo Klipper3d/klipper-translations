@@ -1,10 +1,10 @@
 # BL-Touch
 
-## Connecting BL-Touch
+## Podłączanie BL-Touch
 
-A **warning** before you start: Avoid touching the BL-Touch pin with your bare fingers, since it is quite sensitive to finger grease. And if you do touch it, be very gentle, in order to not bend or push anything.
+**Ostrzeżenie** przed rozpoczęciem: Unikaj dotykania pina BL-Touch gołymi palcami, ponieważ jest on dość wrażliwy na zatłuszczenie palców. A jeśli już dotkniesz, to bardzo delikatnie, aby niczego nie wygiąć ani nie nacisnąć.
 
-Hook up the BL-Touch "servo" connector to a `control_pin` according to the BL-Touch documentation or your MCU documentation. Using the original wiring, the yellow wire from the triple is the `control_pin` and the white wire from the pair is the `sensor_pin`. You need to configure these pins according to your wiring. Most BL-Touch devices require a pullup on the sensor pin (prefix the pin name with "^"). For example:
+Podepnij złącze BL-Touch "servo" do `control_pin` zgodnie z dokumentacją BL-Touch lub dokumentacją Twojego MCU. Używając oryginalnego okablowania, żółty przewód z trójki to `control_pin`, a biały przewód z pary to `sensor_pin`. Musisz skonfigurować te piny zgodnie ze swoim okablowaniem. Większość urządzeń BL-Touch wymaga podciągnięcia na pinie czujnika (przedrostek nazwy pinu z "^"). Na przykład:
 
 ```
 [bltouch]

@@ -1,10 +1,10 @@
 # Using PWM tools
 
-This document describes how to setup a PWM-controlled laser or spindle using `output_pin` and some macros.
+Ten dokument opisuje jak skonfigurować laser lub wrzeciono sterowane PWM używając `output_pin` i kilku makr.
 
-## How does it work?
+## Jak to działa?
 
-With re-purposing the printhead's fan pwm output, you can control lasers or spindles. This is useful if you use switchable print heads, for example the E3D toolchanger or a DIY solution. Usually, cam-tools such as LaserWeb can be configured to use `M3-M5` commands, which stand for *spindle speed CW* (`M3 S[0-255]`), *spindle speed CCW* (`M4 S[0-255]`) and *spindle stop* (`M5`).
+Wykorzystując wyjście pwm wentylatora głowicy drukującej, można sterować laserami lub wrzecionami. Jest to przydatne, jeśli używasz przełączalnych głowic drukujących, na przykład E3D toolchanger lub rozwiązania DIY. Zazwyczaj, narzędzia krzywkowe takie jak LaserWeb mogą być skonfigurowane do używania komend `M3-M5`, które oznaczają *spindle speed CW* (`M3 S[0-255]`), *spindle speed CCW* (`M4 S[0-255]`) i *spindle stop* (`M5`).
 
 **Warning:** When driving a laser, keep all security precautions that you can think of! Diode lasers are usually inverted. This means, that when the MCU restarts, the laser will be *fully on* for the time it takes the MCU to start up again. For good measure, it is recommended to *always* wear appropriate laser-goggles of the right wavelength if the laser is powered; and to disconnect the laser when it is not needed. Also, you should configure a safety timeout, so that when your host or MCU encounters an error, the tool will stop.
 

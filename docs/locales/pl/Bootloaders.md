@@ -1,10 +1,10 @@
 # Bootloaders
 
-This document provides information on common bootloaders found on micro-controllers that Klipper supports.
+Ten dokument zawiera informacje o typowych bootloaderach spotykanych w mikrokontrolerach, które obsługuje Klipper.
 
-The bootloader is 3rd-party software that runs on the micro-controller when it is first powered on. It is typically used to flash a new application (eg, Klipper) to the micro-controller without requiring specialized hardware. Unfortunately, there is no industry wide standard for flashing a micro-controller, nor is there a standard bootloader that works across all micro-controllers. Worse, it is common for each bootloader to require a different set of steps to flash an application.
+Bootloader jest oprogramowaniem innej firmy, które działa na mikrokontrolerze, gdy jest on po raz pierwszy włączony. Jest on zazwyczaj używany do flashowania nowej aplikacji (np. Klipper) do mikrokontrolera bez konieczności posiadania specjalistycznego sprzętu. Niestety, nie istnieje standard przemysłowy dla flashowania mikrokontrolera, ani standardowy bootloader, który działa na wszystkich mikrokontrolerach. Co gorsza, często zdarza się, że każdy bootloader wymaga innego zestawu kroków do flashowania aplikacji.
 
-If one can flash a bootloader to a micro-controller then one can generally also use that mechanism to flash an application, but care should be taken when doing this as one may inadvertently remove the bootloader. In contrast, a bootloader will generally only permit a user to flash an application. It is therefore recommended to use a bootloader to flash an application where possible.
+Jeśli ktoś może flashować bootloader do mikrokontrolera, to generalnie może również użyć tego mechanizmu do flashowania aplikacji, ale należy zachować ostrożność podczas robienia tego, ponieważ można nieumyślnie usunąć bootloader. W przeciwieństwie do tego, bootloader generalnie pozwala użytkownikowi tylko na flashowanie aplikacji. Dlatego zaleca się używanie bootloadera do flashowania aplikacji, jeśli to możliwe.
 
 This document attempts to describe common bootloaders, the steps needed to flash a bootloader, and the steps needed to flash an application. This document is not an authoritative reference; it is intended as a collection of useful information that the Klipper developers have accumulated.
 

@@ -2,11 +2,11 @@
 
 This document describes the protocol Klipper uses to communicate over [CAN bus](https://en.wikipedia.org/wiki/CAN_bus). See <CANBUS.md> for information on configuring Klipper with CAN bus.
 
-## Micro-controller id assignment
+## Przypisanie id mikrokontrolera
 
-Klipper uses only CAN 2.0A standard size CAN bus packets, which are limited to 8 data bytes and an 11-bit CAN bus identifier. In order to support efficient communication, each micro-controller is assigned at run-time a unique 1-byte CAN bus nodeid (`canbus_nodeid`) for general Klipper command and response traffic. Klipper command messages going from host to micro-controller use the CAN bus id of `canbus_nodeid * 2 + 256`, while Klipper response messages from micro-controller to host use `canbus_nodeid * 2 + 256 + 1`.
+Klipper używa tylko pakietów magistrali CAN 2.0A o standardowym rozmiarze, które są ograniczone do 8 bajtów danych i 11-bitowego identyfikatora magistrali CAN. W celu wspierania wydajnej komunikacji, każdy mikrokontroler ma przypisany w czasie pracy unikalny 1-bajtowy identyfikator węzła magistrali CAN (`canbus_nodeid`) dla ogólnego ruchu poleceń i odpowiedzi Klippera. Wiadomości komend Klippera idące od hosta do mikrokontrolera używają id magistrali CAN `canbus_nodeid * 2 + 256`, podczas gdy wiadomości odpowiedzi Klippera od mikrokontrolera do hosta używają `canbus_nodeid * 2 + 256 + 1`.
 
-Each micro-controller has a factory assigned unique chip identifier that is used during id assignment. This identifier can exceed the length of one CAN packet, so a hash function is used to generate a unique 6-byte id (`canbus_uuid`) from the factory id.
+Każdy mikrokontroler ma fabrycznie przypisany unikalny identyfikator układu, który jest używany podczas przypisywania id. Ten identyfikator może przekroczyć długość jednego pakietu CAN, więc funkcja hashująca jest używana do generowania unikalnego 6-bajtowego id (`canbus_uuid`) z fabrycznego id.
 
 ## Admin messages
 

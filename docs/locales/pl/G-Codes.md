@@ -1,45 +1,45 @@
 # G-Codes
 
-This document describes the commands that Klipper supports. These are commands that one may enter into the OctoPrint terminal tab.
+Ten dokument opisuje polecenia, które obsługuje Klipper. Są to polecenia, które można wpisać w zakładce terminala OctoPrint.
 
-## G-Code commands
+## Polecenia G-Code
 
-Klipper supports the following standard G-Code commands:
+Klipper obsługuje następujące standardowe polecenia G-Code:
 
-- Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
-- Dwell: `G4 P<milliseconds>`
-- Move to origin: `G28 [X] [Y] [Z]`
-- Turn off motors: `M18` or `M84`
-- Wait for current moves to finish: `M400`
-- Use absolute/relative distances for extrusion: `M82`, `M83`
-- Use absolute/relative coordinates: `G90`, `G91`
-- Set position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
-- Set speed factor override percentage: `M220 S<percent>`
-- Set extrude factor override percentage: `M221 S<percent>`
-- Set acceleration: `M204 S<value>` OR `M204 P<value> T<value>`
-   - Note: If S is not specified and both P and T are specified, then the acceleration is set to the minimum of P and T. If only one of P or T is specified, the command has no effect.
-- Get extruder temperature: `M105`
-- Set extruder temperature: `M104 [T<index>] [S<temperature>]`
-- Set extruder temperature and wait: `M109 [T<index>] S<temperature>`
-   - Note: M109 always waits for temperature to settle at requested value
-- Set bed temperature: `M140 [S<temperature>]`
-- Set bed temperature and wait: `M190 S<temperature>`
-   - Note: M190 always waits for temperature to settle at requested value
-- Set fan speed: `M106 S<value>`
-- Turn fan off: `M107`
-- Emergency stop: `M112`
-- Get current position: `M114`
-- Get firmware version: `M115`
+- Przesunięcie (G0 lub G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`.
+- Przerwij: G4 P<milliseconds>`.
+- Przejdź do początku: `G28 [X] [Y] [Z]`.
+- Wyłączenie silników: `M18` lub `M84`.
+- Poczekaj na zakończenie bieżących ruchów: `M400`.
+- Użyj bezwzględnych/ względnych odległości dla ekstruzji: `M82`, `M83`.
+- Użyj współrzędnych bezwzględnych/relacyjnych: `G90`, `G91`.
+- Ustawienie pozycji: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`.
+- Ustawienie procentowego przesterowania współczynnika prędkości: `M220 S<percent>`.
+- Ustawienie procentowego nadpisania współczynnika ekstruzji: `M221 S<percent>`.
+- Ustawienie przyśpieszenia: `M204 S<wartość>` LUB `M204 P<wartość> T<wartość>`.
+   - Uwaga: Jeżeli nie określono S, a określono P i T, to przyspieszenie jest ustawiane na minimum z P i T. Jeżeli określono tylko jedno z P lub T, to polecenie nie ma wpływu.
+- Uzyskaj temperaturę ekstrudera: `M105`.
+- Ustawianie temperatury ekstrudera: `M104 [T<index>] [S<temperatura>]`.
+- Ustawić temperaturę ekstrudera i czekać: `M109 [T<index>] S<temperatura>`.
+   - Wskazówka: M109 zawsze czeka, aż temperatura ustali się na żądanej wartości.
+- Ustawienie temperatury stołu grzewczego: `M140 [S<temperatura>]`.
+- Ustawić temperaturę stołu grzewczego i czekać: `M190 S<temperatura>`.
+   - Uwaga: M190 zawsze czeka, aż temperatura osiągnie żądaną wartość.
+- Ustawianie prędkości wentylatora: `M106 S<wartość>`.
+- Wyłączenie wentylatora: `M107`.
+- Wyłącznik awaryjny: `M112`.
+- Uzyskaj aktualną pozycję: `M114`.
+- Pobierz wersję firmware: `M115`.
 
-For further details on the above commands see the [RepRap G-Code documentation](http://reprap.org/wiki/G-code).
+Więcej szczegółów dotyczących powyższych poleceń znajduje się w [dokumentacji RepRap G-Code](http://reprap.org/wiki/G-code).
 
 Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable ["extended G-Code commands"](#additional-commands). Similarly, the G-Code terminal output is only intended to be human readable - see the [API Server document](API_Server.md) if controlling Klipper from external software.
 
-If one requires a less common G-Code command then it may be possible to implement it with a custom [gcode_macro config section](Config_Reference.md#gcode_macro). For example, one might use this to implement: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`, etc.
+Jeżeli ktoś potrzebuje mniej popularnej komendy G-Code, to może być możliwe zaimplementowanie jej za pomocą własnej sekcji [gcode_macro config](Config_Reference.md#gcode_macro). Na przykład, można użyć tego do implementacji: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`, itd.
 
 ## Additional Commands
 
-Klipper uses "extended" G-Code commands for general configuration and status. These extended commands all follow a similar format - they start with a command name and may be followed by one or more parameters. For example: `SET_SERVO SERVO=myservo ANGLE=5.3`. In this document, the commands and parameters are shown in uppercase, however they are not case sensitive. (So, "SET_SERVO" and "set_servo" both run the same command.)
+Klipper używa "rozszerzonych" poleceń G-Code do ogólnej konfiguracji i statusu. Wszystkie te rozszerzone komendy mają podobny format - rozpoczynają się od nazwy komendy, po której może następować jeden lub więcej parametrów. Na przykład: `SET_SERVO SERVO=myservo ANGLE=5.3`. W tym dokumencie polecenia i parametry są wyświetlane wielkimi literami, ale nie jest rozróżniana wielkość liter. (Tak więc "SET_SERVO" i "set_servo" uruchamiają to samo polecenie).Przetłumaczono z www.DeepL.com/Translator (wersja darmowa)
 
 This section is organized by Klipper module name, which generally follows the section names specified in the [printer configuration file](Config_Reference.md). Note that some modules are automatically loaded.
 
@@ -175,8 +175,8 @@ The following command is available when a [display config section](Config_Refere
 
 The display_status module is automatically loaded if a [display config section](Config_Reference.md#display) is enabled. It provides the following standard G-Code commands:
 
-- Display Message: `M117 <message>`
-- Set build percentage: `M73 P<percent>`
+- Wyświetlenie komunikatu: `M117 <message>`.
+- Ustaw procent kompilacji: `M73 P<percent>`
 
 ### [dual_carriage]
 
@@ -333,9 +333,9 @@ The gcode module is automatically loaded.
 
 ### [gcode_arcs]
 
-The following standard G-Code commands are available if a [gcode_arcs config section](Config_Reference.md#gcode_arcs) is enabled:
+Następujące standardowe polecenia G-Code są dostępne, jeśli włączona jest sekcja konfiguracyjna [gcode_arcs](Config_Reference.md#gcode_arcs):
 
-- Controlled Arc Move (G2 or G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>`
+- Kontrolowany ruch łuku (G2 lub G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<prędkość>] I<wartość> J<wartość>`
 
 ### [gcode_macro]
 
@@ -355,15 +355,15 @@ The gcode_move module is automatically loaded.
 
 #### SET_GCODE_OFFSET
 
-`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Set a positional offset to apply to future G-Code commands. This is commonly used to virtually change the Z bed offset or to set nozzle XY offsets when switching extruders. For example, if "SET_GCODE_OFFSET Z=0.2" is sent, then future G-Code moves will have 0.2mm added to their Z height. If the X_ADJUST style parameters are used, then the adjustment will be added to any existing offset (eg, "SET_GCODE_OFFSET Z=-0.2" followed by "SET_GCODE_OFFSET Z_ADJUST=0.3" would result in a total Z offset of 0.1). If "MOVE=1" is specified then a toolhead move will be issued to apply the given offset (otherwise the offset will take effect on the next absolute G-Code move that specifies the given axis). If "MOVE_SPEED" is specified then the toolhead move will be performed with the given speed (in mm/s); otherwise the toolhead move will use the last specified G-Code speed.
+`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Ustawienie przesunięcia pozycji, aby zastosować je do przyszłych poleceń G-Code. Jest to powszechnie używane do wirtualnej zmiany przesunięcia stołu Z lub do ustawienia przesunięcia dysz XY przy przełączaniu ekstruderów. Na przykład, jeśli "SET_GCODE_OFFSET Z=0.2" jest wysłane, to przyszłe ruchy G-Code będą miały 0.2mm dodane do ich wysokości Z. Jeśli użyto parametrów stylu X_ADJUST, to korekta zostanie dodana do istniejącego przesunięcia (np. "SET_GCODE_OFFSET Z=-0.2", a następnie "SET_GCODE_OFFSET Z_ADJUST=0.3" spowoduje całkowite przesunięcie Z o 0.1). Jeśli podano "MOVE=1", to zostanie wydany ruch głowicy narzędziowej, aby zastosować podane przesunięcie (w przeciwnym razie przesunięcie zacznie obowiązywać przy następnym absolutnym ruchu G-Code, który określa daną oś). Jeżeli jest podane "MOVE_SPEED", to zostanie wykonany ruch głowicy narzędziowej z podaną prędkością (w mm/s); w przeciwnym razie zostanie zastosowana ostatnio podana prędkość G-Code.Przetłumaczono z www.DeepL.com/Translator (wersja darmowa)
 
 #### SAVE_GCODE_STATE
 
-`SAVE_GCODE_STATE [NAME=<state_name>]`: Save the current g-code coordinate parsing state. Saving and restoring the g-code state is useful in scripts and macros. This command saves the current g-code absolute coordinate mode (G90/G91), absolute extrude mode (M82/M83), origin (G92), offset (SET_GCODE_OFFSET), speed override (M220), extruder override (M221), move speed, current XYZ position, and relative extruder "E" position. If NAME is provided it allows one to name the saved state to the given string. If NAME is not provided it defaults to "default".
+`SAVE_GCODE_STATE [NAME=<state_name>]`: Zapisuje bieżący stan parsowania współrzędnych g-code. Zapisywanie i przywracanie stanu g-code jest przydatne w skryptach i makrach. Ta komenda zapisuje bieżący tryb współrzędnych bezwzględnych g-code (G90/G91), tryb ekstrudowania bezwzględnego (M82/M83), początek (G92), przesunięcie (SET_GCODE_OFFSET), nadpisanie prędkości (M220), nadpisanie ekstrudera (M221), prędkość ruchu, bieżącą pozycję XYZ i względną pozycję "E" ekstrudera. Jeśli podano NAME, pozwala to na nazwanie zapisanego stanu na podany ciąg znaków. Jeśli NAME nie jest podane, to domyślnie ustawia się na "default" (domyślnie)
 
 #### RESTORE_GCODE_STATE
 
-`RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Restore a state previously saved via SAVE_GCODE_STATE. If "MOVE=1" is specified then a toolhead move will be issued to move back to the previous XYZ position. If "MOVE_SPEED" is specified then the toolhead move will be performed with the given speed (in mm/s); otherwise the toolhead move will use the restored g-code speed.
+`RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Przywraca stan zapisany wcześniej poprzez SAVE_GCODE_STATE. Jeśli podano "MOVE=1", to zostanie wydany ruch głowicy narzędziowej, aby cofnąć się do poprzedniej pozycji XYZ. Jeżeli podano "MOVE_SPEED", to ruch głowicy narzędziowej zostanie wykonany z podaną prędkością (w mm/s); w przeciwnym razie ruch głowicy narzędziowej będzie wykorzystywać przywróconą prędkość g-kodu.
 
 ### [hall_filament_width_sensor]
 
@@ -403,7 +403,7 @@ The heaters module is automatically loaded if a heater is defined in the config 
 
 #### TURN_OFF_HEATERS
 
-`TURN_OFF_HEATERS`: Turn off all heaters.
+`TURN_OFF_HEATERS`: Wyłącz wszystkie grzałki.
 
 #### TEMPERATURE_WAIT
 
@@ -513,7 +513,7 @@ The pid_calibrate module is automatically loaded if a heater is defined in the c
 
 #### PID_CALIBRATE
 
-`PID_CALIBRATE HEATER=<config_name> TARGET=<temperature> [WRITE_FILE=1]`: Perform a PID calibration test. The specified heater will be enabled until the specified target temperature is reached, and then the heater will be turned off and on for several cycles. If the WRITE_FILE parameter is enabled, then the file /tmp/heattest.txt will be created with a log of all temperature samples taken during the test.
+`PID_CALIBRATE HEATER=<config_name> TARGET=<temperatura> [WRITE_FILE=1]`: Wykonuje test kalibracji PID. Określona grzałka zostanie włączona do momentu osiągnięcia określonej temperatury docelowej, a następnie zostanie wyłączona i włączona na kilka cykli. Jeśli parametr WRITE_FILE jest włączony, to zostanie utworzony plik /tmp/heattest.txt z zapisem wszystkich próbek temperatury pobranych podczas testu.
 
 ### [pause_resume]
 
@@ -565,17 +565,17 @@ The query_adc module is automatically loaded.
 
 #### QUERY_ADC
 
-`QUERY_ADC [NAME=<config_name>] [PULLUP=<value>]`: Report the last analog value received for a configured analog pin. If NAME is not provided, the list of available adc names are reported. If PULLUP is provided (as a value in Ohms), the raw analog value along with the equivalent resistance given that pullup is reported.
+`QUERY_ADC [NAME=<config_name>] [PULLUP=<value>]`: Raportuje ostatnią wartość analogową otrzymaną dla skonfigurowanego pinu analogowego. Jeśli NAME nie jest podane, raportowana jest lista dostępnych nazw adc. Jeśli podano PULLUP (jako wartość w Ohmach), to raportowana jest surowa wartość analogowa wraz z ekwiwalentem rezystancji przy danym podciągnięciu.
 
 ### [query_endstops]
 
 The query_endstops module is automatically loaded. The following standard G-Code commands are currently available, but using them is not recommended:
 
-- Get Endstop Status: `M119` (Use QUERY_ENDSTOPS instead.)
+- Pobierz status zakończenia: `M119` (zamiast tego użyj QUERY_ENDSTOPS).
 
 #### QUERY_ENDSTOPS
 
-`QUERY_ENDSTOPS`: Probe the axis endstops and report if they are "triggered" or in an "open" state. This command is typically used to verify that an endstop is working correctly.
+`QUERY_ENDSTOPS`: Sondowanie endstopów osi i raportowanie, czy są one "wyzwolone" lub w stanie "otwartym". To polecenie jest zwykle używane do sprawdzenia, czy wyłącznik krańcowy działa poprawnie.
 
 ### [resonance_tester]
 
@@ -741,13 +741,13 @@ The tuning_tower module is automatically loaded.
 
 Klipper supports the following standard G-Code commands if the [virtual_sdcard config section](Config_Reference.md#virtual_sdcard) is enabled:
 
-- List SD card: `M20`
-- Initialize SD card: `M21`
-- Select SD file: `M23 <filename>`
-- Start/resume SD print: `M24`
-- Pause SD print: `M25`
-- Set SD position: `M26 S<offset>`
-- Report SD print status: `M27`
+- Lista kart SD: `M20`
+- Inicjalizacja karty SD: `M21`
+- Wybierz plik SD: `M23 <filename>`.
+- Uruchomienie/wznowienie druku SD: `M24`
+- Wstrzymać druk SD: `M25`
+- Ustawienie pozycji SD: `M26 S<offset>`.
+- Raport SD status wydruku: `M27`
 
 In addition, the following extended commands are available when the "virtual_sdcard" config section is enabled.
 

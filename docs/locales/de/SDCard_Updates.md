@@ -1,8 +1,8 @@
 # SDCard updates
 
-Many of today's popular controller boards ship with a bootloader capable of updating firmware via SD Card. While this is convenient in many circumstances, these bootloaders typically provide no other way to update firmware. This can be a nuisance if your board is mounted in a location that is difficult to access or if you need to update firmware often. After Klipper has been initially flashed to a controller it is possible to transfer new firmware to the SD Card and initiate the flashing procedure via ssh.
+Viele der heute beliebten Controller-Boards werden mit einem Bootloader ausgeliefert, der die Firmware über eine SD-Karte aktualisieren kann. Obwohl dies in vielen Fällen praktisch ist, bieten diese Bootloader normalerweise keine andere Möglichkeit, die Firmware zu aktualisieren. Dies kann lästig sein, wenn Ihr Board an einem schwer zugänglichen Ort montiert ist oder wenn Sie die Firmware häufig aktualisieren müssen. Nachdem Klipper zum ersten Mal auf einen Controller geflasht wurde, ist es möglich, neue Firmware auf die SD-Karte zu übertragen und den Flash-Vorgang über ssh einzuleiten.
 
-## Typical Upgrade Procedure
+## Typische Upgrade-Prozedur
 
 The procedure for updating MCU firmware using the SD Card is similar to that of other methods. Instead of using `make flash` it is necessary to run a helper script, `flash-sdcard.sh`. Updating a BigTreeTech SKR 1.3 might look like the following:
 
