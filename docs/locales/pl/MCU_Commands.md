@@ -1,10 +1,10 @@
-# MCU commands
+# Polecenia MCU
 
-This document provides information on the low-level micro-controller commands that are sent from the Klipper "host" software and processed by the Klipper micro-controller software. This document is not an authoritative reference for these commands, nor is it an exclusive list of all available commands.
+Niniejszy dokument zawiera informacje o poleceniach niskiego poziomu mikrokontrolera, które są wysyłane z oprogramowania "host" Klipper i przetwarzane przez oprogramowanie mikrokontrolera Klipper. Niniejszy dokument nie jest miarodajnym odniesieniem do tych poleceń, ani nie stanowi wyłącznej listy wszystkich dostępnych poleceń.
 
-This document may be useful for developers interested in understanding the low-level micro-controller commands.
+Ten dokument może być przydatny dla programistów zainteresowanych zrozumieniem niskopoziomowych poleceń mikrokontrolera.
 
-See the [protocol](Protocol.md) document for more information on the format of commands and their transmission. The commands here are described using their "printf" style syntax - for those unfamiliar with that format, just note that where a '%...' sequence is seen it should be replaced with an actual integer. For example, a description with "count=%c" could be replaced with the text "count=10". Note that parameters that are considered "enumerations" (see the above protocol document) take a string value which is automatically converted to an integer value for the micro-controller. This is common with parameters named "pin" (or that have a suffix of "_pin").
+Zobacz dokument [protocol](Protocol.md) po więcej informacji na temat formatu poleceń i ich przekazywania. Polecenia tutaj opisane są przy użyciu ich składni w stylu "printf" - dla tych, którzy nie znają tego formatu, zauważ, że tam, gdzie pojawia się sekwencja '%...', powinna być ona zastąpiona rzeczywistą liczbą całkowitą. Na przykład, opis z "count=%c" może być zastąpiony tekstem "count=10". Zauważ, że parametry, które są uważane za "enumeracje" (patrz powyższy dokument protokołu) przyjmują wartość łańcuchową, która jest automatycznie konwertowana na wartość całkowitą dla mikrokontrolera. Jest to powszechne w przypadku parametrów o nazwie "pin" (lub które mają przyrostek "_pin").
 
 ## Startup Commands
 

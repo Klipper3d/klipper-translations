@@ -52,7 +52,7 @@ Aby przetestować silnik ekstrudera, konieczne będzie podgrzanie ekstrudera do 
 
 ## Skalibruj ustawienia PID
 
-Klipper supports [PID control](https://en.wikipedia.org/wiki/PID_controller) for the extruder and bed heaters. In order to use this control mechanism, it is necessary to calibrate the PID settings on each printer (PID settings found in other firmwares or in the example configuration files often work poorly).
+Klipper obsługuje [sterowanie PID](https://en.wikipedia.org/wiki/PID_controller) dla ekstrudera i grzałek stołu. Aby użyć tego mechanizmu sterowania, konieczne jest skalibrowanie ustawień PID na każdej drukarce (ustawienia PID znalezione w innych firmware'ach lub w przykładowych plikach konfiguracyjnych często działają słabo).
 
 Aby skalibrować ekstruder, przejdź do zakładki terminala OctoPrint i uruchom polecenie PID_CALIBRATE. Na przykład: `PID_CALIBRATE HEATER=extruder TARGET=170`.`
 

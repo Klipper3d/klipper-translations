@@ -1,8 +1,8 @@
 # Pressure advance
 
-This document provides information on tuning the "pressure advance" configuration variable for a particular nozzle and filament. The pressure advance feature can be helpful in reducing ooze. For more information on how pressure advance is implemented see the [kinematics](Kinematics.md) document.
+Dieses Dokument enthält Informationen zur Einstellung der Konfigurationsvariablen "Druckvorschub" für eine bestimmte Düse und ein bestimmtes Filament. Die Druckvoreilung kann bei der Reduzierung von Schlamm hilfreich sein. Weitere Informationen darüber, wie der Druckvorschub implementiert ist, finden Sie im Dokument [kinematics](Kinematics.md).
 
-## Tuning pressure advance
+## Einstellung des "Pressure Advance" Feature's
 
 Pressure advance does two useful things - it reduces ooze during non-extrude moves and it reduces blobbing during cornering. This guide uses the second feature (reducing blobbing during cornering) as a mechanism for tuning.
 

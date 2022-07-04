@@ -1,8 +1,8 @@
 # Beaglebone
 
-This document describes the process of running Klipper on a Beaglebone PRU.
+Dieses Dokument beschreibt den Prozess der Ausführung von Klipper auf einer Beaglebone PRU.
 
-## Building an OS image
+## Erstellen eines Betriebssystem-Images
 
 Start by installing the [Debian 9.9 2019-08-03 4GB SD IoT](https://beagleboard.org/latest-images) image. One may run the image from either a micro-SD card or from builtin eMMC. If using the eMMC, install it to eMMC now by following the instructions from the above link.
 

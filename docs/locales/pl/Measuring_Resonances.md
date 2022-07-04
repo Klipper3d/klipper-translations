@@ -1,10 +1,10 @@
-# Measuring Resonances
+# Pomiar rezonansów
 
-Klipper has built-in support for ADXL345 accelerometer, which can be used to measure resonance frequencies of the printer for different axes, and auto-tune [input shapers](Resonance_Compensation.md) to compensate for resonances. Note that using ADXL345 requires some soldering and crimping. ADXL345 can be connected to a Raspberry Pi directly, or to an SPI interface of an MCU board (it needs to be reasonably fast).
+Klipper ma wbudowaną obsługę akcelerometru ADXL345, który może być użyty do pomiaru częstotliwości rezonansowych drukarki dla różnych osi, oraz do automatycznego dostrajania [input shapers](Resonance_Compensation.md) w celu kompensacji rezonansów. Należy pamiętać, że użycie ADXL345 wymaga trochę lutowania i zaciskania. ADXL345 może być podłączony bezpośrednio do Raspberry Pi, lub do interfejsu SPI płytki MCU (musi być w miarę szybki).
 
 When sourcing ADXL345, be aware that there is a variety of different PCB board designs and different clones of them. Make sure that the board supports SPI mode (small number of boards appear to be hard-configured for I2C by pulling SDO to GND), and, if it is going to be connected to a 5V printer MCU, that it has a voltage regulator and a level shifter.
 
-## Installation instructions
+## Instrukcja instalacji
 
 ### Wiring
 

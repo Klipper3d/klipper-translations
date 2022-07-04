@@ -1,6 +1,6 @@
-# Releases
+# Zwolnienia
 
-History of Klipper releases. Please see [installation](Installation.md) for information on installing Klipper.
+Historia wydań Klippera. Informacje na temat instalacji Klippera można znaleźć w [installation](Installation.md).
 
 ## Klipper 0.10.0
 
@@ -22,7 +22,7 @@ Available on 20210929. Major changes in this release:
 
 ## Klipper 0.9.0
 
-Available on 20201020. Major changes in this release:
+Udostępnione w dniu 20.10.2020. Główne zmiany w tym wydaniu:
 
 * Support for "Input Shaping" - a mechanism to counteract printer resonance. It can reduce or eliminate "ringing" in prints.
 * New "Smooth Pressure Advance" system. This implements "Pressure Advance" without introducing instantaneous velocity changes. It is also now possible to tune pressure advance using a "Tuning Tower" method.

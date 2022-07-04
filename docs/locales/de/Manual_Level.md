@@ -1,8 +1,8 @@
 # Manual leveling
 
-This document describes tools for calibrating a Z endstop and for performing adjustments to bed leveling screws.
+Dieses Dokument beschreibt Werkzeuge zum Kalibrieren eines Z-Endanschlags und zum Durchführen von Anpassungen an Bettnivellierungsschrauben.
 
-## Calibrating a Z endstop
+## Kalibrieren eines Z-Endstop's
 
 An accurate Z endstop position is critical to obtaining high quality prints.
 

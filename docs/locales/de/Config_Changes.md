@@ -1,8 +1,8 @@
 # Configuration Changes
 
-This document covers recent software changes to the config file that are not backwards compatible. It is a good idea to review this document when upgrading the Klipper software.
+Dieses Dokument behandelt aktuelle Softwareänderungen an der Konfigurationsdatei, die nicht abwärtskompatibel sind. Es ist eine gute Idee, dieses Dokument zu lesen, wenn Sie die Klipper-Software aktualisieren.
 
-All dates in this document are approximate.
+Alle Daten in diesem Dokument sind ungefähre Angaben.
 
 ## Changes
 

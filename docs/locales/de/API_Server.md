@@ -1,8 +1,9 @@
 # API server
 
-This document describes Klipper's Application Programmer Interface (API). This interface enables external applications to query and control the Klipper host software.
+Dieses Document beschreibt Klipper Application Programmer Interface (API) oder zu deutsch Anwendungs programmier schnittstelle.
+Diese Schnittstelle ermöglicht es externen Anwendungen, die Host-Software von Klipper abzufragen und zu steuern
 
-## Enabling the API socket
+## Aktivieren des API-Sockets
 
 Um den API-Server zu nutzen, muss die klippy.py Host-Software mit dem Parameter `-a` gestartet werden. Zum Beispiel:
 

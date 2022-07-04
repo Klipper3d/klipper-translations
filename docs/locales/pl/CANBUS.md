@@ -1,10 +1,10 @@
 # CANBUS
 
-This document describes Klipper's CAN bus support.
+Ten dokument opisuje obsługę magistrali CAN przez Klippera.
 
-## Device Hardware
+## Urządzenie sprzętowe
 
-Klipper currently only supports CAN on stm32 chips. In addition, the micro-controller chip must support CAN and it must be on a board that has a CAN transceiver.
+Klipper obecnie obsługuje CAN tylko na układach stm32. Ponadto układ mikrokontrolera musi obsługiwać CAN i musi znajdować się na płycie, która posiada transceiver CAN.
 
 To compile for CAN, run `make menuconfig` and select "CAN bus" as the communication interface. Finally, compile the micro-controller code and flash it to the target board.
 

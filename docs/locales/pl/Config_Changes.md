@@ -1,10 +1,10 @@
 # Configuration Changes
 
-This document covers recent software changes to the config file that are not backwards compatible. It is a good idea to review this document when upgrading the Klipper software.
+Ten dokument obejmuje ostatnie zmiany oprogramowania w pliku konfiguracyjnym, które nie są kompatybilne wstecz. Warto zapoznać się z tym dokumentem podczas aktualizacji oprogramowania Klipper.
 
-All dates in this document are approximate.
+Wszystkie dane w tym dokumencie są przybliżone.
 
-## Changes
+## Zmiany
 
 20220616: It was previously possible to flash an rp2040 in bootloader mode by running `make flash FLASH_DEVICE=first`. The equivalent command is now `make flash FLASH_DEVICE=2e8a:0003`.
 

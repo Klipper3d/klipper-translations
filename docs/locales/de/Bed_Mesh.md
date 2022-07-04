@@ -1,10 +1,10 @@
 # Bed Mesh
 
-The Bed Mesh module may be used to compensate for bed surface irregularties to achieve a better first layer across the entire bed. It should be noted that software based correction will not achieve perfect results, it can only approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical and electrical issues. If an axis is skewed or a probe is not accurate then the bed_mesh module will not receive accurate results from the probing process.
+Das Bed Mesh-Modul kann verwendet werden, um Unregelmäßigkeiten der Bettoberfläche auszugleichen, um eine bessere erste Schicht über das gesamte Bett zu erzielen. Es sollte beachtet werden, dass eine softwarebasierte Korrektur keine perfekten Ergebnisse erzielt, sie kann nur die Form des Bettes annähern. Bed Mesh kann auch keine mechanischen und elektrischen Probleme ausgleichen. Wenn eine Achse schief oder eine Sonde nicht genau ist, erhält das bed_mesh-Modul keine genauen Ergebnisse aus dem Sondierungsprozess.
 
 Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information.
 
-## Basic Configuration
+## Grundkonfiguration
 
 ### Rectangular Beds
 

@@ -1,10 +1,10 @@
 # Configuration reference
 
-This document is a reference for options available in the Klipper config file.
+Niniejszy dokument jest odnośnikiem do opcji dostępnych w pliku konfiguracyjnym Klippera.
 
-The descriptions in this document are formatted so that it is possible to cut-and-paste them into a printer config file. See the [installation document](Installation.md) for information on setting up Klipper and choosing an initial config file.
+Opisy w tym dokumencie są tak sformatowane, że można je wyciąć i wkleić do pliku konfiguracyjnego drukarki. Informacje na temat konfiguracji Klippera i wyboru początkowego pliku konfiguracyjnego znajdują się w [dokumencie instalacyjnym](Installation.md).
 
-## Micro-controller configuration
+## Konfiguracja mikrokontrolera
 
 ### Format of micro-controller pin names
 
@@ -1317,7 +1317,7 @@ See the [exclude objects guide](Exclude_Object.md) and [command reference](G-Cod
 [exclude_object]
 ```
 
-## Resonance compensation
+## Kompensacja rezonansu
 
 ### [input_shaper]
 

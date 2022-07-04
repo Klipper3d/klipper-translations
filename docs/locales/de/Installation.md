@@ -1,6 +1,6 @@
 # Installation
 
-These instructions assume the software will run on a Raspberry Pi computer in conjunction with OctoPrint. It is recommended that a Raspberry Pi 2, 3, or 4 computer be used as the host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) for other machines).
+Diese Anweisungen gehen davon aus, dass die Software auf einem Raspberry Pi-Computer in Verbindung mit OctoPrint ausgeführt wird. Es wird empfohlen, einen Raspberry Pi 2, 3 oder 4 Computer als Host-Rechner zu verwenden (siehe [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry -pi-3) für andere Maschinen).
 
 ## Obtain a Klipper Configuration File
 
@@ -12,7 +12,7 @@ If no configuration file for the printer can be found, but the type of printer c
 
 It is also possible to define a new printer configuration from scratch. However, this requires significant technical knowledge about the printer and its electronics. It is recommended that most users start with an appropriate configuration file. If creating a new custom printer configuration file, then start with the closest example [config file](../config/) and use the Klipper [config reference](Config_Reference.md) for further information.
 
-## Prepping an OS image
+## Vorbereiten eines Betriebssystem-Images
 
 Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry Pi computer. Use OctoPi v0.17.0 or later - see the [OctoPi releases](https://github.com/guysoft/OctoPi/releases) for release information. One should verify that OctoPi boots and that the OctoPrint web server works. After connecting to the OctoPrint web page, follow the prompt to upgrade OctoPrint to v1.4.2 or later.
 
@@ -82,7 +82,7 @@ From the main page, under the "Connection" section (at the top left of the page)
 
 Once connected, navigate to the "Terminal" tab and type "status" (without the quotes) into the command entry box and click "Send". The terminal window will likely report there is an error opening the config file - that means OctoPrint is successfully communicating with Klipper. Proceed to the next section.
 
-## Configuring Klipper
+## Klipper einstellen
 
 The next step is to copy the [printer configuration file](#obtain-a-klipper-configuration-file) to the Raspberry Pi.
 

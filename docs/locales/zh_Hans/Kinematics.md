@@ -102,7 +102,7 @@ stepper_y_position = cartesian_y_position
 stepper_z_position = cartesian_z_position
 ```
 
-### CoreXY 机器人
+### CoreXY 机器
 
 在CoreXY的机器上生成步进只比基本的卡特尔机器人复杂一点。关键公式是：
 
@@ -125,11 +125,11 @@ stepper_position = (sqrt(arm_length^2
 
 ### 步进电机加速限制
 
-With delta kinematics it is possible for a move that is accelerating in cartesian space to require an acceleration on a particular stepper motor greater than the move's acceleration. This can occur when a stepper arm is more horizontal than vertical and the line of movement passes near that stepper's tower. Although these moves could require a stepper motor acceleration greater than the printer's maximum configured move acceleration, the effective mass moved by that stepper would be smaller. Thus the higher stepper acceleration does not result in significantly higher stepper torque and it is therefore considered harmless.
+在三角洲机器运动时，打印头在笛卡尔空间中运动进行一定加速度的加速运动，其对应轴的步进电机需要高于前述加速度的加速度。这种状况在一打印壁需提供的水平运动幅度大于垂直运动幅度，并且，运动直线靠近某一垂柱时发生。尽管这些运动会要求步进电机的加速度超过打印机的加速度设置限额，但单个步进电机需要承担的有效质量是相对较小的。因此，增加的步进电机加速度不会显著增加步进电机的扭矩需求，可认为这种现象是无害的。
 
-However, to avoid extreme cases, Klipper enforces a maximum ceiling on stepper acceleration of three times the printer's configured maximum move acceleration. (Similarly, the maximum velocity of the stepper is limited to three times the maximum move velocity.) In order to enforce this limit, moves at the extreme edge of the build envelope (where a stepper arm may be nearly horizontal) will have a lower maximum acceleration and velocity.
+然而，为了避免极端状况，Klipper强制将步进电机的加速度上限设置为打印机加速度上限的3倍。（同样，步进电机的速度上限也设置为打印机速度上限的3倍。）为了实现上述设置，在打印区域水平边沿的（存在打印臂接近水平的）位置，打印头的速度和加速度上限将相应降低。
 
-### Extruder kinematics
+### 挤出机运动学
 
 Klipper implements extruder motion in its own kinematic class. Since the timing and speed of each print head movement is fully known for each move, it's possible to calculate the step times for the extruder independently from the step time calculations of the print head movement.
 

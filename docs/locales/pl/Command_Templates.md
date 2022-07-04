@@ -1,10 +1,10 @@
 # Commands templates
 
-This document provides information on implementing G-Code command sequences in gcode_macro (and similar) config sections.
+Niniejszy dokument zawiera informacje o implementacji sekwencji poleceń G-Code w sekcjach konfiguracyjnych gcode_macro (i podobnych).
 
-## G-Code Macro Naming
+## Nazewnictwo makro G-Code
 
-Case is not important for the G-Code macro name - MY_MACRO and my_macro will evaluate the same and may be called in either upper or lower case. If any numbers are used in the macro name then they must all be at the end of the name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not).
+Wielkość liter nie jest ważna dla nazwy makra w G-Code - MY_MACRO i my_macro będą oceniane tak samo i mogą być wywoływane zarówno dużymi jak i małymi literami. Jeśli w nazwie makra są użyte jakiekolwiek liczby, to muszą one być na końcu nazwy (np. TEST_MACRO25 jest poprawny, ale MACRO25_TEST3 nie jest).
 
 ## Formatting of G-Code in the config
 

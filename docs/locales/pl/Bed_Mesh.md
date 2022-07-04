@@ -1,12 +1,12 @@
-# Bed Mesh
+# "Siatka" do stołu
 
-The Bed Mesh module may be used to compensate for bed surface irregularties to achieve a better first layer across the entire bed. It should be noted that software based correction will not achieve perfect results, it can only approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical and electrical issues. If an axis is skewed or a probe is not accurate then the bed_mesh module will not receive accurate results from the probing process.
+Moduł Bed Mesh może być używany do kompensacji nierówności powierzchni stołu, aby uzyskać lepszą pierwszą warstwę na całym stole. Należy zauważyć, że korekta oparta na oprogramowaniu nie osiągnie idealnych rezultatów, może jedynie w przybliżeniu odwzorować kształt stołu. Bed Mesh nie może również skompensować problemów mechanicznych i elektrycznych. Jeśli oś jest przekrzywiona lub sonda nie jest dokładna, moduł Bed_mesh nie otrzyma dokładnych wyników z procesu sondowania.
 
 Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information.
 
-## Basic Configuration
+## Konfiguracja podstawowa
 
-### Rectangular Beds
+### Stoły prostokątne
 
 This example assumes a printer with a 250 mm x 220 mm rectangular bed and a probe with an x-offset of 24 mm and y-offset of 5 mm.
 

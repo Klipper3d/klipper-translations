@@ -1,6 +1,6 @@
 # Configuration checks
 
-Esse documento fornece uma lista de passo a passo para ajudar a confirmar as configurações de pinos no arquivo printer.cfg do Klipper. É uma boa ideia executar através seguindo esses passos depois de seguir o passo a passo de instalação conforme o arquivo de instalação. (Installation.md)
+Esse documento fornece uma lista de passos para ajudar a confirmar as configurações de pinos no arquivo printer.cfg do Klipper. É uma boa ideia executar esses passos depois de seguir o passo a passo de instalação conforme o arquivo de instalação (Installation.md).
 
 During this guide, it may be necessary to make changes to the Klipper config file. Be sure to issue a RESTART command after every change to the config file to ensure that the change takes effect (type "restart" in the Octoprint terminal tab and then click "Send"). It's also a good idea to issue a STATUS command after every RESTART to verify that the config file is successfully loaded.
 

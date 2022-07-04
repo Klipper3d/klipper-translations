@@ -1,8 +1,8 @@
 # Configuration reference
 
-This document is a reference for options available in the Klipper config file.
+Dieses Dokument ist eine Referenz für die in der Klipper-Konfigurationsdatei verfügbaren Optionen.
 
-The descriptions in this document are formatted so that it is possible to cut-and-paste them into a printer config file. See the [installation document](Installation.md) for information on setting up Klipper and choosing an initial config file.
+Die Beschreibungen in diesem Dokument sind so formatiert, dass es möglich ist, sie auszuschneiden und in eine Druckerkonfigurationsdatei einzufügen. Siehe das [Installationsdokument](Installation.md) für Informationen über die Einrichtung von Klipper und die Auswahl einer ersten Konfigurationsdatei.
 
 ## Micro-controller configuration
 

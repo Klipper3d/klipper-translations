@@ -1,8 +1,8 @@
 # Pressure advance
 
-This document provides information on tuning the "pressure advance" configuration variable for a particular nozzle and filament. The pressure advance feature can be helpful in reducing ooze. For more information on how pressure advance is implemented see the [kinematics](Kinematics.md) document.
+Ten dokument zawiera informacje na temat dostrajania zmiennej konfiguracyjnej "pressure advance" dla konkretnej dyszy i żarnika. Funkcja pressure advance może być pomocna w redukcji ekstruzji (przeważnie na rogach elementu). Więcej informacji o tym, jak jest zaimplementowane pressure advance, można znaleźć w dokumencie [kinematics](Kinematics.md).
 
-## Tuning pressure advance
+## Dostrajanie pressure advance
 
 Pressure advance does two useful things - it reduces ooze during non-extrude moves and it reduces blobbing during cornering. This guide uses the second feature (reducing blobbing during cornering) as a mechanism for tuning.
 

@@ -1,21 +1,21 @@
 # Overview
 
-Welcome to the Klipper documentation. If new to Klipper, start with the [features](Features.md) and [installation](Installation.md) documents.
+Добро пожаловать в документацию Klipper. Если вы новичок в Klipper, начните с документации [особенности](Features.md) и [загрузки](Installation.md) документов.
 
-## Overview information
+## Обзор информации
 
-- [Features](Features.md): A high-level list of features in Klipper.
-- [FAQ](FAQ.md): Frequently asked questions.
-- [Releases](Releases.md): The history of Klipper releases.
-- [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
-- [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
+- [Функции](Features.md): это общий список возможностей Klipper.
+- [ЧАВО](FAQ.md): Часто задаваемые вопросы.
+- [Releases](Releases.md): История релизов Klipper.
+- [Изменения конфигурации](Config_Changes.md): Недавние изменения программного обеспечения, которые могут потребовать от пользователей обновления файла конфигурации принтера.
+- [Связатся](Contact.md): Информация по сообщениям об ошибках и общению с разработчиками Klipper.
 
 ## Installation and Configuration
 
-- [Installation](Installation.md): Guide to installing Klipper.
-- [Config Reference](Config_Reference.md): Description of config parameters.
-   - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
-- [Config checks](Config_checks.md): Verify basic pin settings in the config file.
+- [Установка](Installation.md): Гайд по установке Klipper.
+- [Справочник по конфигурации](Config_Reference.md): Описание параметров конфигурации.
+   - [Дистанция поворота](Rotation_Distance.md): Расчет параметра дистанции попорота(Rotation_distance).
+- [Проверка конфигов](Config_checks.md): Проверка основных настроек контактов в файле конфигурации.
 - [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
    - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
    - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
