@@ -1,12 +1,20 @@
-#
+# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
+"hall_filament_width_sensor/pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 msgid "How does it work?"
-msgstr ""
+msgstr "Jak to działa?"
 
 msgid "Template for menu variables"
 msgstr ""
@@ -43,7 +51,7 @@ msgstr ""
 
 #: docs/HallFilamentWidthSensor.md:block 1 (header)
 msgid "Hall filament width sensor"
-msgstr ""
+msgstr "Czujnik szerokości żarnika Halla"
 
 #: docs/HallFilamentWidthSensor.md:block 24 (ordered list)
 msgid "Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`"

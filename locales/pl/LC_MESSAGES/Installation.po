@@ -1,9 +1,17 @@
-#
+# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
+"installation/pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 msgid ""
 "These instructions assume the software will run on a Raspberry Pi computer "
@@ -11,9 +19,13 @@ msgid ""
 "or 4 computer be used as the host machine (see the [FAQ](FAQ.md#can-i-run-"
 "klipper-on-something-other-than-a-raspberry-pi-3) for other machines)."
 msgstr ""
+"Te instrukcje zakładają, że oprogramowanie będzie działać na Raspberry Pi w "
+"połączeniu z OctoPrint. Zaleca się, aby Raspberry Pi 2, 3 lub 4 był używany "
+"jako host (zobacz [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a"
+"-raspberry-pi-3) dla innych maszyn)."
 
 msgid "Prepping an OS image"
-msgstr ""
+msgstr "Przygotowywanie obrazu systemu operacyjnego"
 
 msgid ""
 "After installing OctoPi and upgrading OctoPrint, it will be necessary to ssh"
@@ -150,7 +162,7 @@ msgstr ""
 
 #: docs/Installation.md:block 1 (header)
 msgid "Installation"
-msgstr ""
+msgstr "Instalacja"
 
 #: docs/Installation.md:block 7 (code)
 msgid ""
