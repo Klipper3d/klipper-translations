@@ -1198,8 +1198,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tuning-pressure-advance" class="md-nav__link">
-    Tuning pressure advance
+  <a href="#einstellung-des-pressure-advance-features" class="md-nav__link">
+    Einstellung des "Pressure Advance" Feature's
   </a>
   
 </li>
@@ -1229,8 +1229,8 @@
 
 
 <h1 id="pressure-advance">Pressure advance<a class="headerlink" href="#pressure-advance" title="Permanent link">&para;</a></h1>
-<p>This document provides information on tuning the "pressure advance" configuration variable for a particular nozzle and filament. The pressure advance feature can be helpful in reducing ooze. For more information on how pressure advance is implemented see the <a href="Kinematics.html">kinematics</a> document.</p>
-<h2 id="tuning-pressure-advance">Tuning pressure advance<a class="headerlink" href="#tuning-pressure-advance" title="Permanent link">&para;</a></h2>
+<p>Dieses Dokument enthält Informationen zur Einstellung der Konfigurationsvariablen "Druckvorschub" für eine bestimmte Düse und ein bestimmtes Filament. Die Druckvoreilung kann bei der Reduzierung von Schlamm hilfreich sein. Weitere Informationen darüber, wie der Druckvorschub implementiert ist, finden Sie im Dokument <a href="Kinematics.html">kinematics</a>.</p>
+<h2 id="einstellung-des-pressure-advance-features">Einstellung des "Pressure Advance" Feature's<a class="headerlink" href="#einstellung-des-pressure-advance-features" title="Permanent link">&para;</a></h2>
 <p>Pressure advance does two useful things - it reduces ooze during non-extrude moves and it reduces blobbing during cornering. This guide uses the second feature (reducing blobbing during cornering) as a mechanism for tuning.</p>
 <p>In order to calibrate pressure advance the printer must be configured and operational as the tuning test involves printing and inspecting a test object. It is a good idea to read this document in full prior to running the test.</p>
 <p>Use a slicer to generate g-code for the large hollow square found in <a href="prints/square_tower.stl">docs/prints/square_tower.stl</a>. Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" is disabled in the slicer.</p>

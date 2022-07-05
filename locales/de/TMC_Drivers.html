@@ -1428,8 +1428,8 @@
 
 
 <h1 id="tmc-drivers">TMC drivers<a class="headerlink" href="#tmc-drivers" title="Permanent link">&para;</a></h1>
-<p>This document provides information on using Trinamic stepper motor drivers in SPI/UART mode on Klipper.</p>
-<p>Klipper can also use Trinamic drivers in their "standalone mode". However, when the drivers are in this mode, no special Klipper configuration is needed and the advanced Klipper features discussed in this document are not available.</p>
+<p>Dieses Dokument enthält Informationen zur Verwendung von Trinamic-Schrittmotortreibern im SPI/UART-Modus auf Klipper.</p>
+<p>Klipper kann die Trinamic-Treiber auch in ihrem "Standalone-Modus" verwenden. Wenn sich die Treiber jedoch in diesem Modus befinden, ist keine spezielle Klipper-Konfiguration erforderlich und die in diesem Dokument besprochenen erweiterten Klipper-Funktionen sind nicht verfügbar.</p>
 <p>In addition to this document, be sure to review the <a href="Config_Reference.html#tmc-stepper-driver-configuration">TMC driver config reference</a>.</p>
 <h2 id="tuning-motor-current">Tuning motor current<a class="headerlink" href="#tuning-motor-current" title="Permanent link">&para;</a></h2>
 <p>A higher driver current increases positional accuracy and torque. However, a higher current also increases the heat produced by the stepper motor and the stepper motor driver. If the stepper motor driver gets too hot it will disable itself and Klipper will report an error. If the stepper motor gets too hot, it loses torque and positional accuracy. (If it gets very hot it may also melt plastic parts attached to it or near it.)</p>

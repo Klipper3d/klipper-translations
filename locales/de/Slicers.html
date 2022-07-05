@@ -1198,8 +1198,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#set-the-g-code-flavor-to-marlin" class="md-nav__link">
-    Set the G-Code flavor to Marlin
+  <a href="#setzen-sie-den-g-code-flavor-auf-marlin" class="md-nav__link">
+    Setzen Sie den G-Code Flavor auf Marlin
   </a>
   
 </li>
@@ -1264,8 +1264,8 @@
 
 
 <h1 id="slicers">Slicers<a class="headerlink" href="#slicers" title="Permanent link">&para;</a></h1>
-<p>This document provides some tips for configuring a "slicer" application for use with Klipper. Common slicers used with Klipper are Slic3r, Cura, Simplify3D, etc.</p>
-<h2 id="set-the-g-code-flavor-to-marlin">Set the G-Code flavor to Marlin<a class="headerlink" href="#set-the-g-code-flavor-to-marlin" title="Permanent link">&para;</a></h2>
+<p>Dieses Dokument enthält einige Tipps zur Konfiguration einer "Slicer"-Anwendung für die Verwendung mit Klipper. Übliche Slicer, die mit Klipper verwendet werden, sind Slic3r, Cura, Simplify3D, etc.</p>
+<h2 id="setzen-sie-den-g-code-flavor-auf-marlin">Setzen Sie den G-Code Flavor auf Marlin<a class="headerlink" href="#setzen-sie-den-g-code-flavor-auf-marlin" title="Permanent link">&para;</a></h2>
 <p>Many slicers have an option to configure the "G-Code flavor". The default is frequently "Marlin" and that works well with Klipper. The "Smoothieware" setting also works well with Klipper.</p>
 <h2 id="klipper-gcode_macro">Klipper gcode_macro<a class="headerlink" href="#klipper-gcode_macro" title="Permanent link">&para;</a></h2>
 <p>Slicers will often allow one to configure "Start G-Code" and "End G-Code" sequences. It is often convenient to define custom macros in the Klipper config file instead - such as: <code>[gcode_macro START_PRINT]</code> and <code>[gcode_macro END_PRINT]</code>. Then one can just run START_PRINT and END_PRINT in the slicer's configuration. Defining these actions in the Klipper configuration may make it easier to tweak the printer's start and end steps as changes do not require re-slicing.</p>

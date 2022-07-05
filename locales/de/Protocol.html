@@ -1330,7 +1330,7 @@
 
 
 <h1 id="protocol">Protocol<a class="headerlink" href="#protocol" title="Permanent link">&para;</a></h1>
-<p>The Klipper messaging protocol is used for low-level communication between the Klipper host software and the Klipper micro-controller software. At a high level the protocol can be thought of as a series of command and response strings that are compressed, transmitted, and then processed at the receiving side. An example series of commands in uncompressed human-readable format might look like:</p>
+<p>Das Klipper-Messaging-Protokoll wird für die Low-Level-Kommunikation zwischen der Klipper-Host-Software und der Klipper-Mikrocontroller-Software verwendet. Auf hoher Ebene kann man sich das Protokoll als eine Reihe von Befehls- und Antwortzeichenfolgen vorstellen, die komprimiert, übertragen und dann auf der Empfängerseite verarbeitet werden. Eine beispielhafte Reihe von Befehlen in unkomprimiertem, für Menschen lesbarem Format könnte folgendermaßen aussehen:</p>
 <div class="highlight"><pre><span></span><code>set_digital_out pin=PA3 value=1
 set_digital_out pin=PA7 value=1
 schedule_digital_out oid=8 clock=4000000 value=0
@@ -1338,7 +1338,7 @@ queue_step oid=7 interval=7458 count=10 add=331
 queue_step oid=7 interval=11717 count=4 add=1281
 </code></pre></div>
 
-<p>See the <a href="MCU_Commands.html">mcu commands</a> document for information on available commands. See the <a href="Debugging.html">debugging</a> document for information on how to translate a G-Code file into its corresponding human-readable micro-controller commands.</p>
+<p>Siehe das Dokument <a href="MCU_Commands.html">mcu commands</a> für Informationen zu den verfügbaren Befehlen. Siehe das Dokument <a href="Debugging.html">debugging</a> für Informationen darüber, wie eine G-Code-Datei in die entsprechenden menschenlesbaren Mikrocontroller-Befehle übersetzt werden kann.</p>
 <p>This page provides a high-level description of the Klipper messaging protocol itself. It describes how messages are declared, encoded in binary format (the "compression" scheme), and transmitted.</p>
 <p>The goal of the protocol is to enable an error-free communication channel between the host and micro-controller that is low-latency, low-bandwidth, and low-complexity for the micro-controller.</p>
 <h2 id="micro-controller-interface">Micro-controller Interface<a class="headerlink" href="#micro-controller-interface" title="Permanent link">&para;</a></h2>

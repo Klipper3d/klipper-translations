@@ -1198,11 +1198,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#micro-controller-benchmarks" class="md-nav__link">
-    Micro-controller Benchmarks
+  <a href="#benchmarki-mikrokontrolerow" class="md-nav__link">
+    Benchmarki mikrokontrolerów
   </a>
   
-    <nav class="md-nav" aria-label="Micro-controller Benchmarks">
+    <nav class="md-nav" aria-label="Benchmarki mikrokontrolerów">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1347,9 +1347,9 @@
 
 
 <h1 id="benchmarks">Benchmarks<a class="headerlink" href="#benchmarks" title="Permanent link">&para;</a></h1>
-<p>This document describes Klipper benchmarks.</p>
-<h2 id="micro-controller-benchmarks">Micro-controller Benchmarks<a class="headerlink" href="#micro-controller-benchmarks" title="Permanent link">&para;</a></h2>
-<p>This section describes the mechanism used to generate the Klipper micro-controller step rate benchmarks.</p>
+<p>Ten dokument opisuje benchmarki Klippera.</p>
+<h2 id="benchmarki-mikrokontrolerow">Benchmarki mikrokontrolerów<a class="headerlink" href="#benchmarki-mikrokontrolerow" title="Permanent link">&para;</a></h2>
+<p>W tym rozdziale opisano mechanizm wykorzystany do wygenerowania benchmarków szybkości kroków mikrokontrolera Klipper.</p>
 <p>The primary goal of the benchmarks is to provide a consistent mechanism for measuring the impact of coding changes within the software. A secondary goal is to provide high-level metrics for comparing the performance between chips and between software platforms.</p>
 <p>The step rate benchmark is designed to find the maximum stepping rate that the hardware and software can reach. This benchmark stepping rate is not achievable in day-to-day use as Klipper needs to perform other tasks (eg, mcu/host communication, temperature reading, endstop checking) in any real-world usage.</p>
 <p>In general, the pins for the benchmark tests are chosen to flash LEDs or other innocuous pins. <strong>Always verify that it is safe to drive the configured pins prior to running a benchmark.</strong> It is not recommended to drive an actual stepper during a benchmark.</p>

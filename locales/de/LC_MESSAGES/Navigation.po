@@ -1,11 +1,13 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
+# Sven van Beckum <kontakt@partner-3d.de>, 2022.
+# Christian S <schnellrieder.cs@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2022-03-06 16:50+0200\n"
-"PO-Revision-Date: 2022-07-02 10:23+0000\n"
-"Last-Translator: Sebastian Fiedler <See1807@hotmail.de>\n"
+"PO-Revision-Date: 2022-07-03 11:20+0000\n"
+"Last-Translator: Christian S <schnellrieder.cs@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "navigation/de/>\n"
 "Language: de\n"
@@ -16,10 +18,10 @@ msgstr ""
 "X-Generator: Weblate 4.13.1-dev\n"
 
 msgid "Klipper documentation"
-msgstr ""
+msgstr "Klipper-Dokumentation"
 
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "Installations und Einstellungen"
 
 msgid "Configuration Reference"
 msgstr ""

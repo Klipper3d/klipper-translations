@@ -1198,8 +1198,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#connecting-bl-touch" class="md-nav__link">
-    Connecting BL-Touch
+  <a href="#podaczanie-bl-touch" class="md-nav__link">
+    Podłączanie BL-Touch
   </a>
   
 </li>
@@ -1271,9 +1271,9 @@
 
 
 <h1 id="bl-touch">BL-Touch<a class="headerlink" href="#bl-touch" title="Permanent link">&para;</a></h1>
-<h2 id="connecting-bl-touch">Connecting BL-Touch<a class="headerlink" href="#connecting-bl-touch" title="Permanent link">&para;</a></h2>
-<p>A <strong>warning</strong> before you start: Avoid touching the BL-Touch pin with your bare fingers, since it is quite sensitive to finger grease. And if you do touch it, be very gentle, in order to not bend or push anything.</p>
-<p>Hook up the BL-Touch "servo" connector to a <code>control_pin</code> according to the BL-Touch documentation or your MCU documentation. Using the original wiring, the yellow wire from the triple is the <code>control_pin</code> and the white wire from the pair is the <code>sensor_pin</code>. You need to configure these pins according to your wiring. Most BL-Touch devices require a pullup on the sensor pin (prefix the pin name with "^"). For example:</p>
+<h2 id="podaczanie-bl-touch">Podłączanie BL-Touch<a class="headerlink" href="#podaczanie-bl-touch" title="Permanent link">&para;</a></h2>
+<p><strong>Ostrzeżenie</strong> przed rozpoczęciem: Unikaj dotykania pina BL-Touch gołymi palcami, ponieważ jest on dość wrażliwy na zatłuszczenie palców. A jeśli już dotkniesz, to bardzo delikatnie, aby niczego nie wygiąć ani nie nacisnąć.</p>
+<p>Podepnij złącze BL-Touch "servo" do <code>control_pin</code> zgodnie z dokumentacją BL-Touch lub dokumentacją Twojego MCU. Używając oryginalnego okablowania, żółty przewód z trójki to <code>control_pin</code>, a biały przewód z pary to <code>sensor_pin</code>. Musisz skonfigurować te piny zgodnie ze swoim okablowaniem. Większość urządzeń BL-Touch wymaga podciągnięcia na pinie czujnika (przedrostek nazwy pinu z "^"). Na przykład:</p>
 <div class="highlight"><pre><span></span><code>[bltouch]
 sensor_pin: ^P1.24
 control_pin: P1.26

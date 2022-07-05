@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"PO-Revision-Date: 2022-07-03 11:20+0000\n"
 "Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "rotation_distance/pl/>\n"
@@ -27,7 +27,7 @@ msgstr ""
 "jak można skonfigurować tę wartość."
 
 msgid "Obtaining rotation_distance from steps_per_mm (or step_distance)"
-msgstr ""
+msgstr "Uzyskanie rotation_distance z steps_per_mm (lub step_distance)"
 
 msgid ""
 "The designers of your 3d printer originally calculated `steps_per_mm` from a"

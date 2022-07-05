@@ -1198,8 +1198,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#device-hardware" class="md-nav__link">
-    Device Hardware
+  <a href="#gerate-hardware" class="md-nav__link">
+    Geräte-Hardware
   </a>
   
 </li>
@@ -1212,22 +1212,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#terminating-resistors" class="md-nav__link">
-    Terminating Resistors
+  <a href="#endwiderstande" class="md-nav__link">
+    Endwiderstände
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#finding-the-canbus_uuid-for-new-micro-controllers" class="md-nav__link">
-    Finding the canbus_uuid for new micro-controllers
+  <a href="#suche-nach-der-canbus_uuid-fur-neue-mikrocontroller" class="md-nav__link">
+    Suche nach der canbus_uuid für neue Mikrocontroller
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuring-klipper" class="md-nav__link">
-    Configuring Klipper
+  <a href="#klipper-einstellen" class="md-nav__link">
+    Klipper einstellen
   </a>
   
 </li>
@@ -1250,41 +1250,41 @@
 
 
 <h1 id="canbus">CANBUS<a class="headerlink" href="#canbus" title="Permanent link">&para;</a></h1>
-<p>This document describes Klipper's CAN bus support.</p>
-<h2 id="device-hardware">Device Hardware<a class="headerlink" href="#device-hardware" title="Permanent link">&para;</a></h2>
-<p>Klipper currently only supports CAN on stm32 chips. In addition, the micro-controller chip must support CAN and it must be on a board that has a CAN transceiver.</p>
-<p>To compile for CAN, run <code>make menuconfig</code> and select "CAN bus" as the communication interface. Finally, compile the micro-controller code and flash it to the target board.</p>
+<p>Diese Dokumentation beschreibt die Kompatibilität zwischen Klipper und Can bus.</p>
+<h2 id="gerate-hardware">Geräte-Hardware<a class="headerlink" href="#gerate-hardware" title="Permanent link">&para;</a></h2>
+<p>Klipper unterstützt zur Zeit nur CAN von STM32 Microprozessoren. Außerdem muss der Mikrocontroller-Chip CAN unterstützen und sich auf einer Platine befinden, die über einen CAN-Transceiver verfügt.</p>
+<p>Um für CAN zu kompilieren, führen Sie <code>make menuconfig</code> aus und wählen Sie "CAN bus" als Kommunikationsschnittstelle. Schließlich kompilieren Sie den Mikrocontroller-Code und flashen ihn auf die Zielplatine.</p>
 <h2 id="host-hardware">Host Hardware<a class="headerlink" href="#host-hardware" title="Permanent link">&para;</a></h2>
-<p>In order to use a CAN bus, it is necessary to have a host adapter. There are currently two common options:</p>
+<p>Um einen CAN-Bus nutzen zu können, ist ein Host-Adapter erforderlich. Derzeit gibt es zwei gängige Optionen:</p>
 <ol>
-<li>Use a <a href="https://www.waveshare.com/rs485-can-hat.htm">Waveshare Raspberry Pi CAN hat</a> or one of its many clones.</li>
-<li>Use a USB CAN adapter (for example <a href="https://hacker-gadgets.com/product/cantact-usb-can-adapter/">https://hacker-gadgets.com/product/cantact-usb-can-adapter/</a>). There are many different USB to CAN adapters available - when choosing one, we recommend verifying it can run the <a href="https://github.com/candle-usb/candleLight_fw">candlelight firmware</a>. (Unfortunately, we've found some USB adapters run defective firmware and are locked down, so verify before purchasing.)</li>
+<li>Verwenden Sie einen <a href="https://www.waveshare.com/rs485-can-hat.htm">Waveshare Raspberry Pi CAN hat</a> oder einen seiner vielen Klone.</li>
+<li>Verwenden Sie einen USB-CAN-Adapter (zum Beispiel <a href="https://hacker-gadgets.com/product/cantact-usb-can-adapter/">https://hacker-gadgets.com/product/cantact-usb-can-adapter/</a>). Es gibt viele verschiedene USB-zu-CAN-Adapter - wenn Sie einen auswählen, empfehlen wir Ihnen zu überprüfen, ob er die <a href="https://github.com/candle-usb/candleLight_fw">Candlelight-Firmware</a> ausführen kann. (Leider haben wir festgestellt, dass einige USB-Adapter mit fehlerhafter Firmware laufen und gesperrt sind, also überprüfen Sie das vor dem Kauf).</li>
 </ol>
-<p>It is also necessary to configure the host operating system to use the adapter. This is typically done by creating a new file named <code>/etc/network/interfaces.d/can0</code> with the following contents:</p>
+<p>Es ist auch notwendig, das Host-Betriebssystem für die Verwendung des Adapters zu konfigurieren. Dazu wird normalerweise eine neue Datei mit dem Pfad <code>/etc/network/interfaces.d/can0</code> mit folgendem Inhalt erstellt:</p>
 <div class="highlight"><pre><span></span><code>auto can0
 iface can0 can static
     bitrate 500000
     up ifconfig $IFACE txqueuelen 128
 </code></pre></div>
 
-<p>Note that the "Raspberry Pi CAN hat" also requires <a href="https://www.waveshare.com/wiki/RS485_CAN_HAT">changes to config.txt</a>.</p>
-<h2 id="terminating-resistors">Terminating Resistors<a class="headerlink" href="#terminating-resistors" title="Permanent link">&para;</a></h2>
-<p>A CAN bus should have two 120 ohm resistors between the CANH and CANL wires. Ideally, one resistor located at each the end of the bus.</p>
-<p>Note that some devices have a builtin 120 ohm resistor (for example, the "Waveshare Raspberry Pi CAN hat" has a soldered on resistor that can not be easily removed). Some devices do not include a resistor at all. Other devices have a mechanism to select the resistor (typically by connecting a "pin jumper"). Be sure to check the schematics of all devices on the CAN bus to verify that there are two and only two 120 Ohm resistors on the bus.</p>
-<p>To test that the resistors are correct, one can remove power to the printer and use a multi-meter to check the resistance between the CANH and CANL wires - it should report ~60 ohms on a correctly wired CAN bus.</p>
-<h2 id="finding-the-canbus_uuid-for-new-micro-controllers">Finding the canbus_uuid for new micro-controllers<a class="headerlink" href="#finding-the-canbus_uuid-for-new-micro-controllers" title="Permanent link">&para;</a></h2>
-<p>Each micro-controller on the CAN bus is assigned a unique id based on the factory chip identifier encoded into each micro-controller. To find each micro-controller device id, make sure the hardware is powered and wired correctly, and then run:</p>
+<p>Beachten Sie, dass der "Raspberry Pi CAN hat" auch <a href="https://www.waveshare.com/wiki/RS485_CAN_HAT">Änderungen an der config.txt</a> erfordert.</p>
+<h2 id="endwiderstande">Endwiderstände<a class="headerlink" href="#endwiderstande" title="Permanent link">&para;</a></h2>
+<p>Ein CAN-Bus sollte zwei 120-Ohm-Widerstände zwischen den CANH- und CANL-Leitungen haben. Idealerweise befindet sich jeweils ein Widerstand an jedem Enden des Busses.</p>
+<p>Beachten Sie, dass einige Geräte einen eingebauten 120-Ohm-Widerstand haben (z. B. hat der "Waveshare Raspberry Pi CAN hat" einen angelöteten Widerstand, der nicht einfach entfernt werden kann). Einige Geräte wiederum haben überhaupt keinen Widerstand. Andere Geräte verfügen über einen Mechanismus zur Auswahl des Widerstands (typischerweise durch Verbinden eines "Pin-Jumpers"). Überprüfen Sie unbedingt die Schaltpläne aller Geräte am CAN-Bus, um sicherzustellen, dass sich zwei und nur zwei 120-Ohm-Widerstände auf dem Bus befinden.</p>
+<p>Um zu prüfen, ob die Widerstände korrekt sind, kann man die Stromversorgung des Druckers unterbrechen und mit einem Multimeter den Widerstand zwischen den CANH- und CANL-Drähten messen - bei einem korrekt verdrahteten CAN-Bus sollte er ~60 Ohm anzeigen.</p>
+<h2 id="suche-nach-der-canbus_uuid-fur-neue-mikrocontroller">Suche nach der canbus_uuid für neue Mikrocontroller<a class="headerlink" href="#suche-nach-der-canbus_uuid-fur-neue-mikrocontroller" title="Permanent link">&para;</a></h2>
+<p>Jedem Mikrocontroller auf dem CAN-Bus wird eine eindeutige Kennung zugewiesen, die auf der werkseitigen Chip-Kennung basiert. Diese ist in jedem Mikrocontroller fest kodiert ist. Um die Geräte-ID jedes Mikrocontrollers zu finden, stellen Sie sicher, dass die Hardware mit Strom versorgt und korrekt verdrahtet ist, und starten Sie dann:</p>
 <div class="highlight"><pre><span></span><code>~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0
 </code></pre></div>
 
-<p>If uninitialized CAN devices are detected the above command will report lines like the following:</p>
+<p>Wenn nicht initialisierte CAN-Geräte erkannt werden, meldet der obige Befehl Zeilen wie folgt:</p>
 <div class="highlight"><pre><span></span><code>Found canbus_uuid=11aa22bb33cc
 </code></pre></div>
 
-<p>Each device will have a unique identifier. In the above example, <code>11aa22bb33cc</code> is the micro-controller's "canbus_uuid".</p>
-<p>Note that the <code>canbus_query.py</code> tool will only report uninitialized devices - if Klipper (or a similar tool) configures the device then it will no longer appear in the list.</p>
-<h2 id="configuring-klipper">Configuring Klipper<a class="headerlink" href="#configuring-klipper" title="Permanent link">&para;</a></h2>
-<p>Update the Klipper <a href="Config_Reference.html#mcu">mcu configuration</a> to use the CAN bus to communicate with the device - for example:</p>
+<p>Jedes Gerät hat eine eindeutige Kennung. Im obigen Beispiel ist <code>11aa22bb33cc</code> die "canbus_uuid" des Mikrocontrollers.</p>
+<p>Beachten Sie, dass das Werkzeug <code>canbus_query.py</code> nur uninitialisierte Geräte meldet - wenn Klipper (oder ein ähnliches Werkzeug) das Gerät konfiguriert, erscheint es nicht mehr in der Liste.</p>
+<h2 id="klipper-einstellen">Klipper einstellen<a class="headerlink" href="#klipper-einstellen" title="Permanent link">&para;</a></h2>
+<p>Aktualisieren Sie die Klipper <a href="Config_Reference.html#mcu">mcu configuration</a>, um den CAN-Bus zur Kommunikation mit dem Gerät zu verwenden - zum Beispiel:</p>
 <div class="highlight"><pre><span></span><code>[mcu my_can_mcu]
 canbus_uuid: 11aa22bb33cc
 </code></pre></div>

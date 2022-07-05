@@ -1198,8 +1198,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-use-rpi-as-a-secondary-mcu" class="md-nav__link">
-    Why use RPi as a secondary MCU?
+  <a href="#warum-sollte-man-den-raspberry-pi-als-zweite-mcu-verwenden" class="md-nav__link">
+    Warum sollte man den Raspberry Pi als zweite MCU verwenden?
   </a>
   
 </li>
@@ -1271,8 +1271,8 @@
 
 
 <h1 id="rpi-microcontroller">RPi microcontroller<a class="headerlink" href="#rpi-microcontroller" title="Permanent link">&para;</a></h1>
-<p>This document describes the process of running Klipper on a RPi and use the same RPi as secondary mcu.</p>
-<h2 id="why-use-rpi-as-a-secondary-mcu">Why use RPi as a secondary MCU?<a class="headerlink" href="#why-use-rpi-as-a-secondary-mcu" title="Permanent link">&para;</a></h2>
+<p>Dieses Dokument beschreibt den Prozess, Klipper auf einem Raspberry Pi laufen zu lassen und denselben Raspberry Pi als sekundäre Steuerung zu verwenden.</p>
+<h2 id="warum-sollte-man-den-raspberry-pi-als-zweite-mcu-verwenden">Warum sollte man den Raspberry Pi als zweite MCU verwenden?<a class="headerlink" href="#warum-sollte-man-den-raspberry-pi-als-zweite-mcu-verwenden" title="Permanent link">&para;</a></h2>
 <p>Often the MCUs dedicated to controlling 3D printers have a limited and pre-configured number of exposed pins to manage the main printing functions (thermal resistors, extruders, steppers ...). Using the RPi where Klipper is installed as a secondary MCU gives the possibility to directly use the GPIOs and the buses (i2c, spi) of the RPi inside klipper without using Octoprint plugins (if used) or external programs giving the ability to control everything within the print GCODE.</p>
 <p><strong>Warning</strong>: If your platform is a <em>Beaglebone</em> and you have correctly followed the installation steps, the linux mcu is already installed and configured for your system.</p>
 <h2 id="install-the-rc-script">Install the rc script<a class="headerlink" href="#install-the-rc-script" title="Permanent link">&para;</a></h2>

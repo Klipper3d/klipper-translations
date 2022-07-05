@@ -1198,8 +1198,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#acceleration" class="md-nav__link">
-    Acceleration
+  <a href="#przyspieszenie" class="md-nav__link">
+    Przyśpieszenie
   </a>
   
 </li>
@@ -1304,8 +1304,8 @@
 
 
 <h1 id="kinematics">Kinematics<a class="headerlink" href="#kinematics" title="Permanent link">&para;</a></h1>
-<p>This document provides an overview of how Klipper implements robot motion (its <a href="https://en.wikipedia.org/wiki/Kinematics">kinematics</a>). The contents may be of interest to both developers interested in working on the Klipper software as well as users interested in better understanding the mechanics of their machines.</p>
-<h2 id="acceleration">Acceleration<a class="headerlink" href="#acceleration" title="Permanent link">&para;</a></h2>
+<p>Ten dokument stanowi przegląd tego, jak Klipper implementuje ruch robota (jego <a href="https://en.wikipedia.org/wiki/Kinematics">kinematykę</a>). Treść może być interesująca zarówno dla programistów zainteresowanych pracą nad oprogramowaniem Klipper, jak i dla użytkowników zainteresowanych lepszym zrozumieniem mechaniki swoich maszyn.</p>
+<h2 id="przyspieszenie">Przyśpieszenie<a class="headerlink" href="#przyspieszenie" title="Permanent link">&para;</a></h2>
 <p>Klipper implements a constant acceleration scheme whenever the print head changes velocity - the velocity is gradually changed to the new speed instead of suddenly jerking to it. Klipper always enforces acceleration between the tool head and the print. The filament leaving the extruder can be quite fragile - rapid jerks and/or extruder flow changes lead to poor quality and poor bed adhesion. Even when not extruding, if the print head is at the same level as the print then rapid jerking of the head can cause disruption of recently deposited filament. Limiting speed changes of the print head (relative to the print) reduces risks of disrupting the print.</p>
 <p>It is also important to limit acceleration so that the stepper motors do not skip or put excessive stress on the machine. Klipper limits the torque on each stepper by virtue of limiting the acceleration of the print head. Enforcing acceleration at the print head naturally also limits the torque of the steppers that move the print head (the inverse is not always true).</p>
 <p>Klipper implements constant acceleration. The key formula for constant acceleration is:</p>

@@ -13,7 +13,7 @@
     
     
       
-        <title>Hall filament width sensor - Klipper documentation</title>
+        <title>Czujnik szerokości żarnika Halla - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hall-filament-width-sensor" class="md-skip">
+        <a href="#czujnik-szerokosci-zarnika-halla" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hall filament width sensor
+              Czujnik szerokości żarnika Halla
             
           </span>
         </div>
@@ -1198,15 +1198,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-does-it-work" class="md-nav__link">
-    How does it work?
+  <a href="#jak-to-dziaa" class="md-nav__link">
+    Jak to działa?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#template-for-menu-variables" class="md-nav__link">
-    Template for menu variables
+  <a href="#szablon-dla-zmiennych-menu" class="md-nav__link">
+    Szablon dla zmiennych menu
   </a>
   
 </li>
@@ -1249,13 +1249,13 @@
 </a>
 
 
-<h1 id="hall-filament-width-sensor">Hall filament width sensor<a class="headerlink" href="#hall-filament-width-sensor" title="Permanent link">&para;</a></h1>
+<h1 id="czujnik-szerokosci-zarnika-halla">Czujnik szerokości żarnika Halla<a class="headerlink" href="#czujnik-szerokosci-zarnika-halla" title="Permanent link">&para;</a></h1>
 <p>This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on two Hall linear sensors (ss49e for example). Sensors in the body are located opposite sides. Principle of operation: two hall sensors work in differential mode, temperature drift same for sensor. Special temperature compensation not needed.</p>
 <p>You can find designs at <a href="https://www.thingiverse.com/thing:4138933">Thingiverse</a>, an assembly video is also available on <a href="https://www.youtube.com/watch?v=TDO9tME8vp4">Youtube</a></p>
 <p>To use Hall filament width sensor, read <a href="Config_Reference.html#hall_filament_width_sensor">Config Reference</a> and <a href="G-Codes.html#hall_filament_width_sensor">G-Code documentation</a>.</p>
-<h2 id="how-does-it-work">How does it work?<a class="headerlink" href="#how-does-it-work" title="Permanent link">&para;</a></h2>
+<h2 id="jak-to-dziaa">Jak to działa?<a class="headerlink" href="#jak-to-dziaa" title="Permanent link">&para;</a></h2>
 <p>Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use aux2 connector on ramps-like board analog11 and analog12 pins. You can use different pins and differenr boards.</p>
-<h2 id="template-for-menu-variables">Template for menu variables<a class="headerlink" href="#template-for-menu-variables" title="Permanent link">&para;</a></h2>
+<h2 id="szablon-dla-zmiennych-menu">Szablon dla zmiennych menu<a class="headerlink" href="#szablon-dla-zmiennych-menu" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>[menu __main __filament __width_current]
 type: command
 enable: {&#39;hall_filament_width_sensor&#39; in printer}

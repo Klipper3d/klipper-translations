@@ -1198,8 +1198,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#device-hardware" class="md-nav__link">
-    Device Hardware
+  <a href="#urzadzenie-sprzetowe" class="md-nav__link">
+    Urządzenie sprzętowe
   </a>
   
 </li>
@@ -1250,9 +1250,9 @@
 
 
 <h1 id="canbus">CANBUS<a class="headerlink" href="#canbus" title="Permanent link">&para;</a></h1>
-<p>This document describes Klipper's CAN bus support.</p>
-<h2 id="device-hardware">Device Hardware<a class="headerlink" href="#device-hardware" title="Permanent link">&para;</a></h2>
-<p>Klipper currently only supports CAN on stm32 chips. In addition, the micro-controller chip must support CAN and it must be on a board that has a CAN transceiver.</p>
+<p>Ten dokument opisuje obsługę magistrali CAN przez Klippera.</p>
+<h2 id="urzadzenie-sprzetowe">Urządzenie sprzętowe<a class="headerlink" href="#urzadzenie-sprzetowe" title="Permanent link">&para;</a></h2>
+<p>Klipper obecnie obsługuje CAN tylko na układach stm32. Ponadto układ mikrokontrolera musi obsługiwać CAN i musi znajdować się na płycie, która posiada transceiver CAN.</p>
 <p>To compile for CAN, run <code>make menuconfig</code> and select "CAN bus" as the communication interface. Finally, compile the micro-controller code and flash it to the target board.</p>
 <h2 id="host-hardware">Host Hardware<a class="headerlink" href="#host-hardware" title="Permanent link">&para;</a></h2>
 <p>In order to use a CAN bus, it is necessary to have a host adapter. There are currently two common options:</p>

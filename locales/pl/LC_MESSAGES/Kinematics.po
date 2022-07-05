@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"PO-Revision-Date: 2022-07-03 11:20+0000\n"
 "Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "kinematics/pl/>\n"
@@ -27,7 +27,7 @@ msgstr ""
 "zrozumieniem mechaniki swoich maszyn."
 
 msgid "Acceleration"
-msgstr ""
+msgstr "Przyśpieszenie"
 
 msgid ""
 "Klipper implements a constant acceleration scheme whenever the print head "

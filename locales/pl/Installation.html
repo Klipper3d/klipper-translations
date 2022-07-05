@@ -13,7 +13,7 @@
     
     
       
-        <title>Installation - Klipper documentation</title>
+        <title>Instalacja - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation" class="md-skip">
+        <a href="#instalacja" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installation
+              Instalacja
             
           </span>
         </div>
@@ -1205,8 +1205,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prepping-an-os-image" class="md-nav__link">
-    Prepping an OS image
+  <a href="#przygotowywanie-obrazu-systemu-operacyjnego" class="md-nav__link">
+    Przygotowywanie obrazu systemu operacyjnego
   </a>
   
 </li>
@@ -1249,16 +1249,16 @@
 </a>
 
 
-<h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h1>
-<p>These instructions assume the software will run on a Raspberry Pi computer in conjunction with OctoPrint. It is recommended that a Raspberry Pi 2, 3, or 4 computer be used as the host machine (see the <a href="FAQ.html#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3">FAQ</a> for other machines).</p>
+<h1 id="instalacja">Instalacja<a class="headerlink" href="#instalacja" title="Permanent link">&para;</a></h1>
+<p>Te instrukcje zakładają, że oprogramowanie będzie działać na Raspberry Pi w połączeniu z OctoPrint. Zaleca się, aby Raspberry Pi 2, 3 lub 4 był używany jako host (zobacz <a href="FAQ.html#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3">FAQ</a> dla innych maszyn).</p>
 <h2 id="obtain-a-klipper-configuration-file">Obtain a Klipper Configuration File<a class="headerlink" href="#obtain-a-klipper-configuration-file" title="Permanent link">&para;</a></h2>
 <p>Most Klipper settings are determined by a "printer configuration file" that will be stored on the Raspberry Pi. An appropriate configuration file can often be found by looking in the Klipper <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config directory</a> for a file starting with a "printer-" prefix that corresponds to the target printer. The Klipper configuration file contains technical information about the printer that will be needed during the installation.</p>
 <p>If there isn't an appropriate printer configuration file in the Klipper config directory then try searching the printer manufacturer's website to see if they have an appropriate Klipper configuration file.</p>
 <p>If no configuration file for the printer can be found, but the type of printer control board is known, then look for an appropriate <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config file</a> starting with a "generic-" prefix. These example printer board files should allow one to successfully complete the initial installation, but will require some customization to obtain full printer functionality.</p>
 <p>It is also possible to define a new printer configuration from scratch. However, this requires significant technical knowledge about the printer and its electronics. It is recommended that most users start with an appropriate configuration file. If creating a new custom printer configuration file, then start with the closest example <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config file</a> and use the Klipper <a href="Config_Reference.html">config reference</a> for further information.</p>
-<h2 id="prepping-an-os-image">Prepping an OS image<a class="headerlink" href="#prepping-an-os-image" title="Permanent link">&para;</a></h2>
+<h2 id="przygotowywanie-obrazu-systemu-operacyjnego">Przygotowywanie obrazu systemu operacyjnego<a class="headerlink" href="#przygotowywanie-obrazu-systemu-operacyjnego" title="Permanent link">&para;</a></h2>
 <p>Start by installing <a href="https://github.com/guysoft/OctoPi">OctoPi</a> on the Raspberry Pi computer. Use OctoPi v0.17.0 or later - see the <a href="https://github.com/guysoft/OctoPi/releases">OctoPi releases</a> for release information. One should verify that OctoPi boots and that the OctoPrint web server works. After connecting to the OctoPrint web page, follow the prompt to upgrade OctoPrint to v1.4.2 or later.</p>
-<p>After installing OctoPi and upgrading OctoPrint, it will be necessary to ssh into the target machine to run a handful of system commands. If using a Linux or MacOS desktop, then the "ssh" software should already be installed on the desktop. There are free ssh clients available for other desktops (eg, <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a>). Use the ssh utility to connect to the Raspberry Pi (ssh pi@octopi -- password is "raspberry") and run the following commands:</p>
+<p>Po zainstalowaniu OctoPi i uaktualnieniu OctoPrint, konieczne będzie ssh do maszyny docelowej, aby uruchomić garść komend systemowych. Jeśli używasz Linuxa lub MacOS, to oprogramowanie "ssh" powinno być już na nim zainstalowane. Dla innych komputerów dostępne są darmowe klienty ssh (np. <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a>). Użyj narzędzia ssh, aby połączyć się z Raspberry Pi (ssh pi@octopi -- hasło to "raspberry") i uruchom następujące polecenia:</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/Klipper3d/klipper
 ./klipper/scripts/install-octopi.sh
 </code></pre></div>

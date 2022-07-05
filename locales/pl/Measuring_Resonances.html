@@ -13,7 +13,7 @@
     
     
       
-        <title>Measuring Resonances - Klipper documentation</title>
+        <title>Pomiar rezonansów - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#measuring-resonances" class="md-skip">
+        <a href="#pomiar-rezonansow" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Measuring Resonances
+              Pomiar rezonansów
             
           </span>
         </div>
@@ -1198,11 +1198,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installation-instructions" class="md-nav__link">
-    Installation instructions
+  <a href="#instrukcja-instalacji" class="md-nav__link">
+    Instrukcja instalacji
   </a>
   
-    <nav class="md-nav" aria-label="Installation instructions">
+    <nav class="md-nav" aria-label="Instrukcja instalacji">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1330,10 +1330,10 @@
 </a>
 
 
-<h1 id="measuring-resonances">Measuring Resonances<a class="headerlink" href="#measuring-resonances" title="Permanent link">&para;</a></h1>
-<p>Klipper has built-in support for ADXL345 accelerometer, which can be used to measure resonance frequencies of the printer for different axes, and auto-tune <a href="Resonance_Compensation.html">input shapers</a> to compensate for resonances. Note that using ADXL345 requires some soldering and crimping. ADXL345 can be connected to a Raspberry Pi directly, or to an SPI interface of an MCU board (it needs to be reasonably fast).</p>
+<h1 id="pomiar-rezonansow">Pomiar rezonansów<a class="headerlink" href="#pomiar-rezonansow" title="Permanent link">&para;</a></h1>
+<p>Klipper ma wbudowaną obsługę akcelerometru ADXL345, który może być użyty do pomiaru częstotliwości rezonansowych drukarki dla różnych osi, oraz do automatycznego dostrajania <a href="Resonance_Compensation.html">input shapers</a> w celu kompensacji rezonansów. Należy pamiętać, że użycie ADXL345 wymaga trochę lutowania i zaciskania. ADXL345 może być podłączony bezpośrednio do Raspberry Pi, lub do interfejsu SPI płytki MCU (musi być w miarę szybki).</p>
 <p>When sourcing ADXL345, be aware that there is a variety of different PCB board designs and different clones of them. Make sure that the board supports SPI mode (small number of boards appear to be hard-configured for I2C by pulling SDO to GND), and, if it is going to be connected to a 5V printer MCU, that it has a voltage regulator and a level shifter.</p>
-<h2 id="installation-instructions">Installation instructions<a class="headerlink" href="#installation-instructions" title="Permanent link">&para;</a></h2>
+<h2 id="instrukcja-instalacji">Instrukcja instalacji<a class="headerlink" href="#instrukcja-instalacji" title="Permanent link">&para;</a></h2>
 <h3 id="wiring">Wiring<a class="headerlink" href="#wiring" title="Permanent link">&para;</a></h3>
 <p>You need to connect ADXL345 to your Raspberry Pi via SPI. Note that the I2C connection, which is suggested by ADXL345 documentation, has too low throughput and <strong>will not work</strong>. The recommended connection scheme:</p>
 <table>

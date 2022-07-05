@@ -13,7 +13,7 @@
     
     
       
-        <title>TSL1401CL filament width sensor - Klipper documentation</title>
+        <title>TSL1401CL czujnik szerokości filamentu - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tsl1401cl-filament-width-sensor" class="md-skip">
+        <a href="#tsl1401cl-czujnik-szerokosci-filamentu" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              TSL1401CL filament width sensor
+              TSL1401CL czujnik szerokości filamentu
             
           </span>
         </div>
@@ -1198,8 +1198,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-does-it-work" class="md-nav__link">
-    How does it work?
+  <a href="#jak-to-dziaa" class="md-nav__link">
+    Jak to działa?
   </a>
   
 </li>
@@ -1228,13 +1228,13 @@
 </a>
 
 
-<h1 id="tsl1401cl-filament-width-sensor">TSL1401CL filament width sensor<a class="headerlink" href="#tsl1401cl-filament-width-sensor" title="Permanent link">&para;</a></h1>
+<h1 id="tsl1401cl-czujnik-szerokosci-filamentu">TSL1401CL czujnik szerokości filamentu<a class="headerlink" href="#tsl1401cl-czujnik-szerokosci-filamentu" title="Permanent link">&para;</a></h1>
 <p>This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on TSL1401CL linear sensor array but it can work with any sensor array that has analog output. You can find designs at <a href="https://www.thingiverse.com/search?q=filament%20width%20sensor">Thingiverse</a>.</p>
 <p>To use a sensor array as a filament width sensor, read <a href="Config_Reference.html#tsl1401cl_filament_width_sensor">Config Reference</a> and <a href="G-Codes.html#hall_filament_width_sensor">G-Code documentation</a>.</p>
-<h2 id="how-does-it-work">How does it work?<a class="headerlink" href="#how-does-it-work" title="Permanent link">&para;</a></h2>
-<p>Sensor generates analog output based on calculated filament width. Output voltage always equals to detected filament width (Ex. 1.65v, 1.70v, 3.0v). Host module monitors voltage changes and adjusts extrusion multiplier.</p>
+<h2 id="jak-to-dziaa">Jak to działa?<a class="headerlink" href="#jak-to-dziaa" title="Permanent link">&para;</a></h2>
+<p>Czujnik generuje wyjście analogowe na podstawie obliczonej szerokości żarnika. Napięcie wyjściowe jest zawsze równe wykrytej szerokości włókna (np. 1.65v, 1.70v, 3.0v). Moduł hosta monitoruje zmiany napięcia i dostosowuje mnożnik ekstruzji.</p>
 <h2 id="note">Note:<a class="headerlink" href="#note" title="Permanent link">&para;</a></h2>
-<p>Sensor readings done with 10 mm intervals by default. If necessary you are free to change this setting by editing <strong><em>MEASUREMENT_INTERVAL_MM</em></strong> parameter in <strong>filament_width_sensor.py</strong> file.</p>
+<p>Odczyty czujnika są domyślnie wykonywane w odstępach co 10 mm. W razie potrzeby można zmienić to ustawienie poprzez edycję parametru <strong><em>MEASUREMENT_INTERVAL_MM</em></strong> w pliku <strong>filament_width_sensor.py</strong>.</p>
 
               
             </article>

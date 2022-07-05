@@ -1428,9 +1428,9 @@
 
 
 <h1 id="tmc-drivers">TMC drivers<a class="headerlink" href="#tmc-drivers" title="Permanent link">&para;</a></h1>
-<p>This document provides information on using Trinamic stepper motor drivers in SPI/UART mode on Klipper.</p>
-<p>Klipper can also use Trinamic drivers in their "standalone mode". However, when the drivers are in this mode, no special Klipper configuration is needed and the advanced Klipper features discussed in this document are not available.</p>
-<p>In addition to this document, be sure to review the <a href="Config_Reference.html#tmc-stepper-driver-configuration">TMC driver config reference</a>.</p>
+<p>Niniejszy dokument zawiera informacje na temat wykorzystania sterowników silników krokowych Trinamic w trybie SPI/UART w urządzeniu Klipper.</p>
+<p>Klipper może również używać sterowników Trinamic w ich "trybie samodzielnym". Jednakże, gdy sterowniki są w tym trybie, nie jest wymagana żadna specjalna konfiguracja Klippera, a zaawansowane funkcje Klippera omawiane w tym dokumencie nie są dostępne.</p>
+<p>Oprócz tego dokumentu, należy zapoznać się z <a href="Config_Reference.html#tmc-stepper-driver-configuration">Konfiguracja sterownika TMC</a>.</p>
 <h2 id="tuning-motor-current">Tuning motor current<a class="headerlink" href="#tuning-motor-current" title="Permanent link">&para;</a></h2>
 <p>A higher driver current increases positional accuracy and torque. However, a higher current also increases the heat produced by the stepper motor and the stepper motor driver. If the stepper motor driver gets too hot it will disable itself and Klipper will report an error. If the stepper motor gets too hot, it loses torque and positional accuracy. (If it gets very hot it may also melt plastic parts attached to it or near it.)</p>
 <p>As a general tuning tip, prefer higher current values as long as the stepper motor does not get too hot and the stepper motor driver does not report warnings or errors. In general, it is okay for the stepper motor to feel warm, but it should not become so hot that it is painful to touch.</p>

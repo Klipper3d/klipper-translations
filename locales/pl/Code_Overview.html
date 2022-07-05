@@ -1198,8 +1198,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#directory-layout" class="md-nav__link">
-    Directory Layout
+  <a href="#ukad-katalogu" class="md-nav__link">
+    Układ katalogu
   </a>
   
 </li>
@@ -1278,9 +1278,9 @@
 
 
 <h1 id="code-overview">Code overview<a class="headerlink" href="#code-overview" title="Permanent link">&para;</a></h1>
-<p>This document describes the overall code layout and major code flow of Klipper.</p>
-<h2 id="directory-layout">Directory Layout<a class="headerlink" href="#directory-layout" title="Permanent link">&para;</a></h2>
-<p>The <strong>src/</strong> directory contains the C source for the micro-controller code. The <strong>src/atsam/</strong>, <strong>src/atsamd/</strong>, <strong>src/avr/</strong>, <strong>src/linux/</strong>, <strong>src/lpc176x/</strong>, <strong>src/pru/</strong>, and <strong>src/stm32/</strong> directories contain architecture specific micro-controller code. The <strong>src/simulator/</strong> contains code stubs that allow the micro-controller to be test compiled on other architectures. The <strong>src/generic/</strong> directory contains helper code that may be useful across different architectures. The build arranges for includes of "board/somefile.h" to first look in the current architecture directory (eg, src/avr/somefile.h) and then in the generic directory (eg, src/generic/somefile.h).</p>
+<p>Ten dokument opisuje ogólny układ kodu i główny przepływ kodu Klippera.</p>
+<h2 id="ukad-katalogu">Układ katalogu<a class="headerlink" href="#ukad-katalogu" title="Permanent link">&para;</a></h2>
+<p>Katalog <strong>src/</strong> zawiera źródło C dla kodu mikrokontrolera. Katalogi <strong>src/atsam/</strong>, <strong>src/atsamd/</strong>, <strong>src/avr/</strong>, <strong>src/linux/</strong>, <strong>src/lpc176x/</strong>, <strong>src/pru/</strong>, oraz <strong>src/stm32/</strong> zawierają kod mikrokontrolera specyficzny dla danej architektury. <strong>src/simulator/</strong> zawiera stuby kodu, które pozwalają na testową kompilację mikrokontrolera na innych architekturach. Katalog <strong>src/generic/</strong> zawiera kod pomocniczy, który może być użyteczny dla różnych architektur. Kompilacja powoduje, że include'y "board/somefile.h" są najpierw szukane w katalogu aktualnej architektury (np. src/avr/somefile.h) a następnie w katalogu generycznym (np. src/generic/somefile.h).</p>
 <p>The <strong>klippy/</strong> directory contains the host software. Most of the host software is written in Python, however the <strong>klippy/chelper/</strong> directory contains some C code helpers. The <strong>klippy/kinematics/</strong> directory contains the robot kinematics code. The <strong>klippy/extras/</strong> directory contains the host code extensible "modules".</p>
 <p>The <strong>lib/</strong> directory contains external 3rd-party library code that is necessary to build some targets.</p>
 <p>The <strong>config/</strong> directory contains example printer configuration files.</p>

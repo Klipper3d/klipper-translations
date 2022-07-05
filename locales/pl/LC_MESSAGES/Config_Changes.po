@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"PO-Revision-Date: 2022-07-03 11:20+0000\n"
 "Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "config_changes/pl/>\n"
@@ -23,10 +23,10 @@ msgstr ""
 "dokumentem podczas aktualizacji oprogramowania Klipper."
 
 msgid "All dates in this document are approximate."
-msgstr ""
+msgstr "Wszystkie dane w tym dokumencie są przybliżone."
 
 msgid "Changes"
-msgstr ""
+msgstr "Zmiany"
 
 msgid ""
 "20210612: The `pid_integral_max` config option in heater and temperature_fan"

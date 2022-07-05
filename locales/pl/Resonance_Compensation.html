@@ -13,7 +13,7 @@
     
     
       
-        <title>Resonance Compensation - Klipper documentation</title>
+        <title>Kompensacja rezonansu - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#resonance-compensation" class="md-skip">
+        <a href="#kompensacja-rezonansu" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Resonance Compensation
+              Kompensacja rezonansu
             
           </span>
         </div>
@@ -1344,9 +1344,9 @@
 </a>
 
 
-<h1 id="resonance-compensation">Resonance Compensation<a class="headerlink" href="#resonance-compensation" title="Permanent link">&para;</a></h1>
-<p>Klipper supports Input Shaping - a technique that can be used to reduce ringing (also known as echoing, ghosting or rippling) in prints. Ringing is a surface printing defect when, typically, elements like edges repeat themselves on a printed surface as a subtle 'echo':</p>
-<p>|<img alt="Ringing test" src="img/ringing-test.jpg" />|<img alt="3D Benchy" src="img/ringing-3dbenchy.jpg" />|</p>
+<h1 id="kompensacja-rezonansu">Kompensacja rezonansu<a class="headerlink" href="#kompensacja-rezonansu" title="Permanent link">&para;</a></h1>
+<p>Klipper obsługuje Input Shaping - technikę, która może być użyta do redukcji ringów (znanych również jako echo, ghosting lub rippling) w wydrukach. Ghosting jest wadą druku powierzchniowego, gdy zazwyczaj elementy takie jak krawędzie powtarzają się na drukowanej powierzchni jako subtelne "echo":</p>
+<p>|<img alt="Test ringing" src="img/ringing-test.jpg" />|<img alt="3D Benchy" src="img/ringing-3dbenchy.jpg" />|</p>
 <p>Ringing is caused by mechanical vibrations in the printer due to quick changes of the printing direction. Note that ringing usually has mechanical origins: insufficiently rigid printer frame, non-tight or too springy belts, alignment issues of mechanical parts, heavy moving mass, etc. Those should be checked and fixed first, if possible.</p>
 <p><a href="https://en.wikipedia.org/wiki/Input_shaping">Input shaping</a> is an open-loop control technique which creates a commanding signal that cancels its own vibrations. Input shaping requires some tuning and measurements before it can be enabled. Besides ringing, Input Shaping typically reduces the vibrations and shaking of the printer in general, and may also improve the reliability of the stealthChop mode of Trinamic stepper drivers.</p>
 <h2 id="tuning">Tuning<a class="headerlink" href="#tuning" title="Permanent link">&para;</a></h2>

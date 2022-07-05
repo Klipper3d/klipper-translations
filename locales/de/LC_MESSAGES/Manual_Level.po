@@ -1,11 +1,12 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
+# Sven van Beckum <kontakt@partner-3d.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:34+0200\n"
-"PO-Revision-Date: 2022-07-02 10:22+0000\n"
-"Last-Translator: Sebastian Fiedler <See1807@hotmail.de>\n"
+"PO-Revision-Date: 2022-07-03 11:20+0000\n"
+"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "manual_level/de/>\n"
 "Language: de\n"
@@ -23,7 +24,7 @@ msgstr ""
 "und zum Durchführen von Anpassungen an Bettnivellierungsschrauben."
 
 msgid "Calibrating a Z endstop"
-msgstr ""
+msgstr "Kalibrieren eines Z-Endstop's"
 
 msgid ""
 "An accurate Z endstop position is critical to obtaining high quality prints."

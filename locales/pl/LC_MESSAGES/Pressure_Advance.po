@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"PO-Revision-Date: 2022-07-03 11:20+0000\n"
 "Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "pressure_advance/pl/>\n"
@@ -27,7 +27,7 @@ msgstr ""
 "advance, można znaleźć w dokumencie [kinematics](Kinematics.md)."
 
 msgid "Tuning pressure advance"
-msgstr ""
+msgstr "Dostrajanie pressure advance"
 
 msgid ""
 "Pressure advance does two useful things - it reduces ooze during non-extrude"

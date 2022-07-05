@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"PO-Revision-Date: 2022-07-03 11:20+0000\n"
 "Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "manual_level/pl/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "oraz do wykonywania regulacji śrub poziomujących stół."
 
 msgid "Calibrating a Z endstop"
-msgstr ""
+msgstr "Kalibracja ogranicznika krańcowego Z"
 
 msgid ""
 "An accurate Z endstop position is critical to obtaining high quality prints."

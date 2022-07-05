@@ -1,11 +1,12 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
+# Sven van Beckum <kontakt@partner-3d.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:33+0200\n"
-"PO-Revision-Date: 2022-07-02 10:22+0000\n"
-"Last-Translator: Sebastian Fiedler <See1807@hotmail.de>\n"
+"PO-Revision-Date: 2022-07-03 11:20+0000\n"
+"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/slicers/"
 "de/>\n"
 "Language: de\n"
@@ -25,7 +26,7 @@ msgstr ""
 "verwendet werden, sind Slic3r, Cura, Simplify3D, etc."
 
 msgid "Set the G-Code flavor to Marlin"
-msgstr ""
+msgstr "Setzen Sie den G-Code Flavor auf Marlin"
 
 msgid ""
 "Many slicers have an option to configure the \"G-Code flavor\". The default "

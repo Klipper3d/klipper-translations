@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-02 10:23+0000\n"
+"PO-Revision-Date: 2022-07-03 11:20+0000\n"
 "Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/index/pl/>"
 "\n"
@@ -19,11 +19,11 @@ msgstr "ukryć:"
 
 #: docs/index.md:block 2 (unordered list)
 msgid "toc title: Welcome"
-msgstr ""
+msgstr "tytuł toc: Witamy"
 
 #: docs/index.md:block 3 (paragraph)
 msgid "![](img/klipper-logo.png){ .center-image }"
-msgstr ""
+msgstr "![](img/klipper-logo.png){ .center-image }"
 
 #: docs/index.md:block 4 (paragraph)
 msgid ""
