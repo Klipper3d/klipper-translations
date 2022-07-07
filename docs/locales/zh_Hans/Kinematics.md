@@ -131,9 +131,9 @@ stepper_position = (sqrt(arm_length^2
 
 ### 挤出机运动学
 
-Klipper implements extruder motion in its own kinematic class. Since the timing and speed of each print head movement is fully known for each move, it's possible to calculate the step times for the extruder independently from the step time calculations of the print head movement.
+Klipper 在自身的运动学类中实现了挤出机的运动。由于每个打印头运动的时间和速度是完全已知的，因此可以独立于打印头运动的步长计算来计算挤出机的步长。
 
-Basic extruder movement is simple to calculate. The step time generation uses the same formulas that cartesian robots use:
+基本的挤出机运动计算起来很简单。步进时间的生成使用和笛卡尔结构相同的公式：
 
 ```
 stepper_position = requested_e_position
@@ -141,25 +141,25 @@ stepper_position = requested_e_position
 
 ### 压力提前
 
-Experimentation has shown that it's possible to improve the modeling of the extruder beyond the basic extruder formula. In the ideal case, as an extrusion move progresses, the same volume of filament should be deposited at each point along the move and there should be no volume extruded after the move. Unfortunately, it's common to find that the basic extrusion formulas cause too little filament to exit the extruder at the start of extrusion moves and for excess filament to extrude after extrusion ends. This is often referred to as "ooze".
+实验表明，在基本的挤出机方程之上可以改进挤出机的模型。在理想情况下，随着挤出移动的进行，沿移动的每个点应寄出相同体积的耗材，并且在移动后不应挤出任何耗材。不幸的是，在实际情况下，基本的挤出机方程会导致在挤出运动开始时挤出过少的耗材，并且在挤出结束后挤出过多的耗材。这通常被称为“溢料”。
 
-![ooze](img/ooze.svg.png)
+![溢料](img/ooze.svg.png)
 
-The "pressure advance" system attempts to account for this by using a different model for the extruder. Instead of naively believing that each mm^3 of filament fed into the extruder will result in that amount of mm^3 immediately exiting the extruder, it uses a model based on pressure. Pressure increases when filament is pushed into the extruder (as in [Hooke's law](https://en.wikipedia.org/wiki/Hooke%27s_law)) and the pressure necessary to extrude is dominated by the flow rate through the nozzle orifice (as in [Poiseuille's law](https://en.wikipedia.org/wiki/Poiseuille_law)). The key idea is that the relationship between filament, pressure, and flow rate can be modeled using a linear coefficient:
+"压力推进"系统试图通过使用一个不同的挤出机模型来解决这个问题。它不理想的假设送入挤出机的每mm^3耗材将导致该体积的mm^3立即被挤出，而是使用基于压力的模型。当耗材被推入挤出机时，压力会增加（如[胡克定律](https://en.wikipedia.org/wiki/Hooke%27s_law)），而挤出所需的压力则由通过喷嘴孔口的流速决定（如[泊伊维尔定律](https://en.wikipedia.org/wiki/Poiseuille_law)）。关键的想法是，耗材、压力和流速之间的关系可以用一个线性系数来建模：
 
 ```
 pa_position = nominal_position + pressure_advance_coefficient * nominal_velocity
 ```
 
-See the [pressure advance](Pressure_Advance.md) document for information on how to find this pressure advance coefficient.
+有关如何测量压力提前系数的信息，请参阅 [压力提前](Pressure_Advance.md) 文档。
 
-The basic pressure advance formula can cause the extruder motor to make sudden velocity changes. Klipper implements "smoothing" of the extruder movement to avoid this.
+基本的压力推进公式会对挤出机电机的速度进行很大的瞬时调整。Klipper 通过实施挤出机运动的"平滑"（smoothing）以避免这种情况。
 
 ![pressure-advance](img/pressure-velocity.png)
 
-The above graph shows an example of two extrusion moves with a non-zero cornering velocity between them. Note that the pressure advance system causes additional filament to be pushed into the extruder during acceleration. The higher the desired filament flow rate, the more filament must be pushed in during acceleration to account for pressure. During head deceleration the extra filament is retracted (the extruder will have a negative velocity).
+上图以两个挤出运动为例，它们之间的转弯速度不为零。请注意，压力推进系统在加速过程中会导致额外的耗材被推入挤出机。所需的耗材流量越高，在加速过程中必须推入更多的耗材以均衡压力。在打印头减速期间，额外的耗材会被回抽（挤出机将有一个负速度）。
 
-The "smoothing" is implemented using a weighted average of the extruder position over a small time period (as specified by the `pressure_advance_smooth_time` config parameter). This averaging can span multiple g-code moves. Note how the extruder motor will start moving prior to the nominal start of the first extrusion move and will continue to move after the nominal end of the last extrusion move.
+“平滑”由挤出机位置在一小段时间内的加权平均值实现的（由 `pressure_advance_smooth_time` 配置参数指定）。这种平均可以跨越多个 g 代码移动。请注意，挤出机电机将如何在第一次挤出运动的标称起点之前开始移动，并在最后一次挤出运动的标称结束之后继续移动。
 
 "平滑压力提前"的关键公式：
 

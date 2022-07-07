@@ -34,7 +34,7 @@
 - [切片](Slicers.md)：为 Klipper 配置切片软件。
 - [偏斜校正](Skew_Correction.md)：调整不完全垂直的轴（不完美的方形）。
 - [PWM 工具](Using_PWM_Tools.md)：关于如何使用 PWM 控制的工具，例如激光器或电钻头。
-- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs implementation.
+- [排除对象](Exclude_Object.md)：排除对象实现的指南。
 
 ## 开发者文档
 

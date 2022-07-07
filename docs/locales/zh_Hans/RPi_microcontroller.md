@@ -53,9 +53,9 @@ sudo usermod -a -G tty pi
 
 通过运行`sudo raspi-config` 后的 "Interfacing options"菜单中启用 SPI 以确保Linux SPI 驱动已启用。
 
-## Optional: Enabling I2C
+## 可选：启用 I2C
 
-Make sure the Linux I2C driver is enabled by running `sudo raspi-config` and enabling I2C under the "Interfacing options" menu. If planning to use I2C for the MPU accelerometer, it is also required to set the baud rate to 400000 by: adding/uncommenting `dtparam=i2c_arm=on,i2c_arm_baudrate=400000` in `/boot/config.txt` (or `/boot/firmware/config.txt` in some distros).
+通过运行`sudo raspi-config`并在"Interfacing options"（接口选项）菜单下启用I2C来启用Linux的I2C驱动程序。如果计划使用I2C与 MPU 加速度计进行连接，还需要将波特率设置为400000，方法是：在`/boot/config.txt`中添加/取消注释`dtparam=i2c_arm=on,i2c_arm_baudrate=400000`（在某些发行版中需要修改`/boot/firmware/config.txt`）。
 
 ## 可选步骤：识别正确的 gpiochip
 

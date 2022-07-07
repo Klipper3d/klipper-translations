@@ -228,7 +228,7 @@ A menüsablonokban a következő csak olvasható attribútumok állnak rendelkez
 
 A menüsablonokban a következő műveletek érhetők el:
 
-* `menu.back(force, update)`: végrehajtja a menü vissza parancsát, az opcionális logikai paramétereket `<force>` és `<frissítés>`.
+* `menu.back(force, update)`: végrehajtja a menü vissza parancsát, az opcionális logikai paramétereket `<force>` és `<update>`.
    * Ha a `<force>` értéke True, akkor a szerkesztés is leáll. Az alapértelmezett érték False.
    * Ha az `<update>` értéke False, akkor a felsőbb tárolóelemek nem frissülnek. Az alapértelmezett érték True.
 * `menu.exit(force)` - végrehajtja a menüből való kilépés parancsát, opcionális boolean paraméter `<force>` alapértelmezett értéke False.
