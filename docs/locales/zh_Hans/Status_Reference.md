@@ -24,7 +24,7 @@
 - `settings.<分段>.<选项>`：返回最后一次软件启动或重启时给定的配置文件设置（或默认值）。(不会反映运行时的修改。）
 - `config.<分段>.<选项>`：返回Klipper在上次软件启动或重启时读取的原始配置文件设置。(不会反映运行时的修改。)所有值都以字符串形式返回。
 - `save_config_pending`：如果存在可以通过 `SAVE_CONFIG` 命令保存到配置文件的更新，则返回 True。
-- `save_config_pending_items`: Contains the sections and options that were changed and would be persisted by a `SAVE_CONFIG`.
+- `save_config_pending_items`：包含已更改并可以由 `SAVE_CONFIG ` 保存的分段和选项。
 - `warnings`：有关配置选项的警告列表。列表中的每个条目都将是一个 dictionary，其中包含 ` type` 和 `message` 字段（都是字符串）。根据警告类型，可能还有其他可用字段。
 
 ## display_status
@@ -44,10 +44,10 @@
 
 ## exclude_object
 
-The following information is available in the [exclude_object](Exclude_Object.md) object:
+以下信息可在[exclude_object](Exclude_Object.md)对象中找到：
 
 
-   - `objects`: An array of the known objects as provided by the `EXCLUDE_OBJECT_DEFINE` command. This is the same information provided by the `EXCLUDE_OBJECT VERBOSE=1` command. The `center` and `polygon` fields will only be present if provided in the original `EXCLUDE_OBJECT_DEFINE`Here is a JSON sample:
+   - `objects`：`EXCLUDE_OBJECT_DEFINE` 命令提供的已知对象数组。这与 `EXCLUDE_OBJECT VERBOSE=1` 命令提供的信息相同。 `center` 和 `polygon` 字段只有在原始 `EXCLUDE_OBJECT_DEFINE` 中提供时才会出现这里有一个JSON样本：
 
 ```
 [
@@ -74,8 +74,8 @@ The following information is available in the [exclude_object](Exclude_Object.md
 ]
 ```
 
-- `excluded_objects`: An array of strings listing the names of excluded objects.
-- `current_object`: The name of the object currently being printed.
+- `excluded_objects`：列出已排除对象名称的字符串数组。
+- `current_object`：当前正在打印的对象的名称。
 
 ## fan
 

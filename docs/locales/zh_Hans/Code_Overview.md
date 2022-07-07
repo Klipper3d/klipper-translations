@@ -24,7 +24,7 @@
 
 其中一个主要的任务函数为**src/command.c** 中的command_dispatch()。上述函数经由微处理器特定的 输入/输出 代码调用(即**src/avr/serial.c**, **src/generic/serial_irq.c**)，并执行输入流中的命令所对应的命令函数。命令函数通过 DECL_COMMAND() 宏进行定义 (详情参照[协议](Protocol.md) 文档)。
 
-Task, init, and command functions always run with interrupts enabled (however, they can temporarily disable interrupts if needed). These functions should avoid long pauses, delays, or do work that lasts a significant time. (Long delays in these "task" functions result in scheduling jitter for other "tasks" - delays over 100us may become noticeable, delays over 500us may result in command retransmissions, delays over 100ms may result in watchdog reboots.) These functions schedule work at specific times by scheduling timers.
+任务、初始化和命令函数始终在启用中断的情况下运行（但是，如果需要，它们可以暂时禁用中断）。这些函数应避免长时间的暂停、延迟或执行持续很长时间的工作。（这些“任务”功能中的长时间延迟会导致其他“任务”的调度抖动 - 超过100us的延迟可能会变得明显，超过500us的延迟可能导致命令重传，超过100ms的延迟可能导致看门狗触发重启。这些函数通过调度计时器在特定时间安排工作。
 
 定时函数通过调用sched_add_timer() (即 **src/sched.c**)方法进行注册。调度器会在设定的时间点对注册的函数进行调用。定时器中断会在微处理器架构特定的初始化处理器中处理(例如 **src/avr/timer.c**)，该代码会调用 **src/sched.c**中的sched_timer_dispatch()。通过定时器中断执行注册的定时函数。定时函数总在中断禁用下运行。定时函数应总能在数微秒内完成。在定时函数结束时，该函数可对自身进行重新定时。
 
