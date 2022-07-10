@@ -1,17 +1,19 @@
 # Nathan <bonnemainsnathan@gmail.com>, 2021.
 # Tircown <tircown@gmail.com>, 2021.
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
+# Maxime Leroy <lisacintosh@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-10-02 09:35+0000\n"
-"Last-Translator: Francis Poulizac <fpoulizac@vivaldi.net>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/installation/fr/>\n"
+"PO-Revision-Date: 2022-07-10 07:54+0000\n"
+"Last-Translator: Maxime Leroy <lisacintosh@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"installation/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 msgid ""
 "These instructions assume the software will run on a Raspberry Pi computer "
@@ -231,6 +233,8 @@ msgid ""
 "git clone https://github.com/Klipper3d/klipper\n"
 "./klipper/scripts/install-octopi.sh\n"
 msgstr ""
+"git clone https://github.com/Klipper3d/klipper\n"
+"./klipper/scripts/install-octopi.sh\n"
 
 #: docs/Installation.md:block 5 (paragraph)
 msgid ""
@@ -244,7 +248,7 @@ msgstr ""
 
 #: docs/Installation.md:block 3 (header)
 msgid "Obtain a Klipper Configuration File"
-msgstr ""
+msgstr "Obtenir un fichier de configuration de Klipper"
 
 #: docs/Installation.md:block 4 (paragraph)
 msgid ""
@@ -301,6 +305,11 @@ msgid ""
 " image to the printer control board then follow those steps and then proceed"
 " to [configuring OctoPrint](#configuring-octoprint-to-use-klipper)."
 msgstr ""
+"Si les commentaires au haut de [printer configuration file](#obtain-a"
+"-klipper-configuration-file) décrive des étapes pour le \"flashing\" de "
+"l'image finale sur la carte de contrôle de l'imprimante alors suivez ces "
+"étapes puis procédez à [configuring OctoPrint](#configuring-octoprint-to-use-"
+"klipper)."
 
 #: docs/Installation.md:block 19 (paragraph)
 msgid ""
@@ -308,12 +317,17 @@ msgid ""
 "control board. First, it is necessary to determine the serial port connected"
 " to the micro-controller. Run the following:"
 msgstr ""
+"Sinon, les étapes suivantes sont souvent utilisées pour le \"flash\" de la "
+"carte de contrôle de l'imprimante. D'abord, il est nécessaire de déterminer "
+"le port série connecté au micro-contrôleur. Lancez ceci :"
 
 #: docs/Installation.md:block 36 (paragraph)
 msgid ""
 "The next step is to copy the [printer configuration file](#obtain-a-klipper-"
 "configuration-file) to the Raspberry Pi."
 msgstr ""
+"La prochaine étape est de copier le [printer configuration file](#obtain-a"
+"-klipper-configuration-file) dans le Raspberry Pi."
 
 #: docs/Installation.md:block 37 (paragraph)
 msgid ""
@@ -338,12 +352,19 @@ msgid ""
 "controller. The name may change after flashing Klipper, so rerun these steps"
 " again even if they were already done when flashing. Run:"
 msgstr ""
+"C'est classique pour chaque imprimante d'avoir son propre nom pour le micro-"
+"contrôleur. Le nom peut changer après le flashing de Klipper, relancez donc "
+"ces étapes à nouveau même si elles ont déjà été faites lors du flashing. "
+"Lancez :"
 
 #: docs/Installation.md:block 44 (paragraph)
 msgid ""
 "Then update the config file with the unique name. For example, update the "
 "`[mcu]` section to look something similar to:"
 msgstr ""
+"Puis mettez à jour le fichier de configuration avec un nom unique. Par "
+"exemple, mettez à jour la section `[mcu]` pour ressembler à quelque chose "
+"comme :"
 
 #: docs/Installation.md:block 46 (paragraph)
 msgid ""
