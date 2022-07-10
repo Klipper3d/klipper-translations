@@ -1,19 +1,20 @@
 # Nathan <bonnemainsnathan@gmail.com>, 2021.
 # Tircown <tircown@gmail.com>, 2021.
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
-# Maxime Leroy <lisacintosh@gmail.com>, 2022.
+# Maxime Leroy <lisacintosh@gmail.com>, 2022, 2025.
 # Francis Poulizac <francis@poulizac.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-29 09:48+0000\n"
-"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/installation/fr/>\n"
+"PO-Revision-Date: 2025-05-03 07:24+0000\n"
+"Last-Translator: Maxime Leroy <lisacintosh@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"installation/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid "Building and flashing the micro-controller"
 msgstr "Compilation et flashage du micro-contrôleur"
@@ -108,10 +109,11 @@ msgid ""
 "image to the printer control board then follow those steps and then proceed to"
 " [configuring OctoPrint](#configuring-octoprint-to-use-klipper)."
 msgstr ""
-"Si les commentaires au haut de [printer configuration file](#obtain-a-klipper-"
-"configuration-file) décrive des étapes pour le \"flashing\" de l'image finale "
-"sur la carte de contrôle de l'imprimante alors suivez ces étapes puis procédez"
-" à [configuring OctoPrint](#configuring-octoprint-to-use-klipper)."
+"Si les commentaires au haut de [printer configuration file](#obtain-a"
+"-klipper-configuration-file) décrive des étapes pour le \"flashing\" de "
+"l'image finale sur la carte de contrôle de l'imprimante alors suivez ces "
+"étapes puis procédez à [configuring OctoPrint](#configuring-octoprint-to-use-"
+"klipper)."
 
 #: docs/Installation.md:block 19 (paragraph)
 msgid ""
@@ -120,8 +122,8 @@ msgid ""
 "micro-controller. Run the following:"
 msgstr ""
 "Sinon, les étapes suivantes sont souvent utilisées pour le \"flash\" de la "
-"carte de contrôle de l'imprimante. D'abord, il est nécessaire de déterminer le"
-" port série connecté au micro-contrôleur. Lancez ceci :"
+"carte de contrôle de l'imprimante. D'abord, il est nécessaire de déterminer "
+"le port série connecté au micro-contrôleur. Lancez ceci :"
 
 #: docs/Installation.md:block 40 (paragraph)
 msgid ""
