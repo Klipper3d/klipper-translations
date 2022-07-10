@@ -73,13 +73,13 @@ screw3: 150, 100
 screw3_fine_adjust: 0, 100
 ```
 
-When this feature is enabled, the `BED_SCREWS_ADJUST` tool will first prompt for coarse adjustments directly above each screw position, and once those are accepted, it will prompt for fine adjustments at the additional locations. Continue to use `ACCEPT` and `ADJUSTED` at each position.
+当此功能被启用时，`BED_SCREWS_ADJUST`工具将先提示在每个螺钉位置正上方进行粗调，一旦这些被接受，它将提示在其他位置进行细调。继续在每个位置使用`ACCEPT`和`ADJUSTED`。
 
-## Adjusting bed leveling screws using the bed probe
+## 使用打印床探针调整打印床调平螺丝
 
-This is another way to calibrate the bed level using the bed probe. To use it you must have a Z probe (BL Touch, Inductive sensor, etc).
+这是用打印床探头调平的另一种方法。要使用它，你必须有一个Z探针（BL Touch，电感式传感器等）。
 
-To enable this feature, one would determine the nozzle coordinates such that the Z probe is above the screws, and then add them to the config file. For example, it might look like:
+要启用该功能，先要确定喷嘴坐标，使Z探头位于螺丝上方，然后将其添加到配置文件中。例如，它可能看起来像：
 
 ```
 [screws_tilt_adjust]
@@ -110,7 +110,7 @@ Recv: // read left screw : x=-5.0, y=190.0, z=2.47250 : adjust CW 00:02
 Recv: ok
 ```
 
-This means that:
+这意味着：
 
 - front left screw is the reference point you must not change it.
 - front right screw must be turned clockwise 1 full turn and a quarter turn
@@ -119,9 +119,9 @@ This means that:
 
 Note that "minutes" refers to "minutes of a clock face". So, for example, 15 minutes is a quarter of a full turn.
 
-Repeat the process several times until you get a good level bed - normally when all adjustments are below 6 minutes.
+重复这个过程几次，直到打印床变得足够水平--通常情况下，这意味着所有的位置需要的调整都小于6分钟。
 
-If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that adjusting the bed tilt will invalidate any previous probe calibration that was performed with a tilted bed. Be sure to run [probe calibration](Probe_Calibrate.md) after the bed screws have been adjusted.
+如果使用安装在热端侧面的探头（即它有一个X或Y偏移），那么请注意，调整床身倾斜度将使以前在倾斜的床身下进行的任何探针校准失效。一定要在调整打印床螺丝后运行[探针校准](Probe_Calibrate.md)。
 
 The `MAX_DEVIATION` parameter is useful when a saved bed mesh is used, to ensure that the bed level has not drifted too far from where it was when the mesh was created. For example, `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` can be added to the custom start gcode of the slicer before the mesh is loaded. It will abort the print if the configured limit is exceeded (0.01mm in this example), giving the user a chance to adjust the screws and restart the print.
 

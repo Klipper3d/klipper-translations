@@ -2,7 +2,7 @@
 
 Ces instructions supposent que le logiciel fonctionnera sur un ordinateur Raspberry Pi en conjonction avec OctoPrint. Il est recommandé d'utiliser un ordinateur Raspberry Pi 2, 3 ou 4 comme machine hôte (voir la [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) pour les autres machines).
 
-## Obtain a Klipper Configuration File
+## Obtenir un fichier de configuration de Klipper
 
 Most Klipper settings are determined by a "printer configuration file" that will be stored on the Raspberry Pi. An appropriate configuration file can often be found by looking in the Klipper [config directory](../config/) for a file starting with a "printer-" prefix that corresponds to the target printer. The Klipper configuration file contains technical information about the printer that will be needed during the installation.
 
@@ -40,9 +40,9 @@ The comments at the top of the [printer configuration file](#obtain-a-klipper-co
 make
 ```
 
-If the comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) describe custom steps for "flashing" the final image to the printer control board then follow those steps and then proceed to [configuring OctoPrint](#configuring-octoprint-to-use-klipper).
+Si les commentaires au haut de [printer configuration file](#obtain-a-klipper-configuration-file) décrive des étapes pour le "flashing" de l'image finale sur la carte de contrôle de l'imprimante alors suivez ces étapes puis procédez à [configuring OctoPrint](#configuring-octoprint-to-use-klipper).
 
-Otherwise, the following steps are often used to "flash" the printer control board. First, it is necessary to determine the serial port connected to the micro-controller. Run the following:
+Sinon, les étapes suivantes sont souvent utilisées pour le "flash" de la carte de contrôle de l'imprimante. D'abord, il est nécessaire de déterminer le port série connecté au micro-contrôleur. Lancez ceci :
 
 ```
 ls /dev/serial/by-id/*
@@ -84,7 +84,7 @@ Une fois connecté, naviguez vers l'onglet "Terminal" et tapez "status" (sans le
 
 ## Configuration de Klipper
 
-The next step is to copy the [printer configuration file](#obtain-a-klipper-configuration-file) to the Raspberry Pi.
+La prochaine étape est de copier le [printer configuration file](#obtain-a-klipper-configuration-file) dans le Raspberry Pi.
 
 Arguably the easiest way to set the Klipper configuration file is to use a desktop editor that supports editing files over the "scp" and/or "sftp" protocols. There are freely available tools that support this (eg, Notepad++, WinSCP, and Cyberduck). Load the printer config file in the editor and then save it as a file named "printer.cfg" in the home directory of the pi user (ie, /home/pi/printer.cfg).
 
@@ -95,7 +95,7 @@ cp ~/klipper/config/example-cartesian.cfg ~/printer.cfg
 nano ~/printer.cfg
 ```
 
-It's common for each printer to have its own unique name for the micro-controller. The name may change after flashing Klipper, so rerun these steps again even if they were already done when flashing. Run:
+C'est classique pour chaque imprimante d'avoir son propre nom pour le micro-contrôleur. Le nom peut changer après le flashing de Klipper, relancez donc ces étapes à nouveau même si elles ont déjà été faites lors du flashing. Lancez :
 
 ```
 ls /dev/serial/by-id/*
@@ -107,7 +107,7 @@ Il devrait retourner quelque chose de similaire à ce qui suit :
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-Then update the config file with the unique name. For example, update the `[mcu]` section to look something similar to:
+Puis mettez à jour le fichier de configuration avec un nom unique. Par exemple, mettez à jour la section `[mcu]` pour ressembler à quelque chose comme :
 
 ```
 [mcu]
