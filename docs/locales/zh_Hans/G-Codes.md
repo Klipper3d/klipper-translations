@@ -200,7 +200,7 @@ The following commands are available when an [exclude_object config section](Con
 
 #### `EXCLUDE_OBJECT`
 
-`EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]`: With no parameters, this will return a list of all currently excluded objects.
+`EXCLUDE_OBJECT [NAME=对象名称] [CURRENT=1] [RESET=1]`：在没有参数的情况下，这将返回一个当前所有被排除的对象的列表。
 
 When the `NAME` parameter is given, the named object will be excluded from printing.
 
@@ -210,25 +210,25 @@ When the `RESET` parameter is given, the list of excluded objects will be cleare
 
 #### `EXCLUDE_OBJECT_DEFINE`
 
-`EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] [RESET=1] [JSON=1]`: Provides a summary of an object in the file.
+`EXCLUDE_OBJECT_DEFINE [NAME=对象名称[CENTER=X,Y] [POLYGON=[[x,y],...]] [RESET=1] [JSON=1]`：提供文件中一个对象的摘要。
 
 With no parameters provided, this will list the defined objects known to Klipper. Returns a list of strings, unless the `JSON` parameter is given, when it will return object details in json format.
 
 When the `NAME` parameter is included, this defines an object to be excluded.
 
-- `NAME`: This parameter is required. It is the identifier used by other commands in this module.
-- `CENTER`: An X,Y coordinate for the object.
-- `POLYGON`: An array of X,Y coordinates that provide an outline for the object.
+- `NAME`：这个参数是必需的。它是本模块中其他命令所使用的标识符。
+- `CENTER`：对象的 X，Y 坐标。
+- `POLYGON`：提供对象轮廓的 X,Y 坐标数组。
 
 When the `RESET` parameter is provided, all defined objects will be cleared, and the `[exclude_object]` module will be reset.
 
 #### `EXCLUDE_OBJECT_START`
 
-`EXCLUDE_OBJECT_START NAME=object_name`: This command takes a `NAME` parameter and denotes the start of the gcode for an object on the current layer.
+`EXCLUDE_OBJECT_START NAME=对象名称`：这个命令接收一个`NAME`参数，表示当前层上一个对象的gcode开始。
 
 #### `EXCLUDE_OBJECT_END`
 
-`EXCLUDE_OBJECT_END [NAME=object_name]`: Denotes the end of the object's gcode for the layer. It is paired with `EXCLUDE_OBJECT_START`. A `NAME` parameter is optional, and will only warn when the provided name does not match the current object.
+`EXCLUDE_OBJECT_END [NAME=对象名称]`：表示对象在该层的代码的结束。它与`EXCLUDE_OBJECT_START`相配。`NAME`参数是可选的，只在提供的名称与当前对象不匹配时才会发出警告。
 
 ### [extruder]
 
@@ -244,7 +244,7 @@ The following commands are available if an [extruder config section](Config_Refe
 
 #### SET_EXTRUDER_ROTATION_DISTANCE
 
-`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: Set a new value for the provided extruder stepper's "rotation distance" (as defined in an [extruder](Config_Reference.md#extruder) or [extruder_stepper](Config_Reference.md#extruder_stepper) config section). If the rotation distance is a negative number then the stepper motion will be inverted (relative to the stepper direction specified in the config file). Changed settings are not retained on Klipper reset. Use with caution as small changes can result in excessive pressure between extruder and hotend. Do proper calibration with filament before use. If 'DISTANCE' value is not provided then this command will return the current rotation distance.
+`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<配置名> [DISTANCE=<距离>]`：为提供的挤出机步进电机的“旋转距离”（如 [挤出机](Config_Reference.md#extruder) 或 [extruder_stepper](Config_Reference.md#extruder_stepper)配置分段中定义）设置新值。如果旋转距离为负数，则步进运动将反转（相对于配置文件中指定的步进方向）。更改的设置不会在 Klipper 重置时保留。请谨慎使用，因为微小的变化会导致挤出机和热端之间的压力过大。使用前需要用耗材进行适当的校准。如果未提供“DISTANCE”值，则此命令将返回当前旋转距离。
 
 #### SYNC_EXTRUDER_MOTION
 
@@ -623,7 +623,7 @@ The following commands are available when the [screws_tilt_adjust config section
 
 #### SCREWS_TILT_CALCULATE
 
-`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [<probe_parameter>=<value>]`: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) probing the z height and calculate the number of knob turns to adjust the bed level. If DIRECTION is specified, the knob turns will all be in the same direction, clockwise (CW) or counterclockwise (CCW). See the PROBE command for details on the optional probe parameters. IMPORTANT: You MUST always do a G28 before using this command. If MAX_DEVIATION is specified, the command will raise a gcode error if any difference in the screw height relative to the base screw height is greater than the value provided.
+`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<值>] [<探针参数名>=<值>]`：这个命令将调用床身螺丝调整工具。它将命令喷嘴到不同的位置（如配置文件中定义的）探测z高度，并计算出调整床面水平的旋钮旋转次数。如果指定了DIRECTION（方向），旋钮的转动方向会是固定的，顺时针（CW）或逆时针（CCW）。有关可选探针参数的详细信息，请参见PROBE命令。重要的是：在使用这条命令之前，必须先做一个G28。如果指定了MAX_DEVIATION，如果螺杆高度相对于基础螺杆高度的任何差异大于所提供的值，该命令将引发一个G代码错误。
 
 ### [sdcard_loop]
 
@@ -679,7 +679,7 @@ Several commands are available when a [smart_effector config section](Config_Ref
 
 #### RESET_SMART_EFFECTOR
 
-`RESET_SMART_EFFECTOR`: Resets Smart Effector sensitivity to its factory settings. Requires `control_pin` to be provided in the config section.
+`RESET_SMART_EFFECTOR`：将Smart Effector灵敏度重置为出厂设置。需要在配置部分提供 `control_pin`。
 
 ### [stepper_enable]
 
