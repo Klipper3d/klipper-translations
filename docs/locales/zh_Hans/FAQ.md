@@ -1,30 +1,5 @@
 # 常见问题
 
-1. [如何对项目捐款？](#how-can-i-donate-to-the-project)
-1. [如何计算rotation_distance配置参数？](#how-do-i-calculate-the-rotation_distance-config-parameter)
-1. [在哪里找串口号？](#wheres-my-serial-port)
-1. [当微控制器重启时串口变成了/dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1)
-1. [“make flash”命令不起作用](#the-make-flash-command-doesnt-work)
-1. [如何更改串口波特率？](#how-do-i-change-the-serial-baud-rate)
-1. [我可以在 Raspberry Pi 3 以外的其他设备上运行 Klipper 吗？](#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)
-1. [我可以在同一台主机上运行多个 Klipper 实例吗？](#can-i-run-multiple-instances-of-klipper-on-the-same-host-machine)
-1. [我必须使用 OctoPrint 吗？](#do-i-have-to-use-octoprint)
-1. [为什么我不能在归位打印机之前移动步进器？](#why-cant-i-move-the-stepper-before-homing-the-printer)
-1. [为什么默认配置中的 Z position_endstop 设置为 0.5？](#why-is-the-z-position_endstop-set-to-05-in-the-default-configs)
-1. [我从 Marlin 转换了我的配置，X/Y 轴工作正常，但在 Z 轴归位时我只会听到刺耳的噪音](#i-converted-my-config-from-marlin-and-the-xy-axes-work-fine-but-i-just-get-a-screeching-noise-when-homing-the-z-axis)
-1. [我的 TMC 电机驱动程序在打印过程中关闭](#my-tmc-motor-driver-turns-off-in-the-middle-of-a-print)
-1. [我不断收到随机的“与 MCU 失去通信”错误](#i-keep-getting-random-lost-communication-with-mcu-errors)
-1. [我的树莓派在打印过程中不断重启](#my-raspberry-pi-keeps-rebooting-during-prints)
-1. [当我设置`restart_method=command`时，我的 AVR 设备在重启时挂起](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-restart)
-1. [如果 Raspberry Pi 崩溃，加热器会继续打开吗？](#will-the-heaters-be-left-on-if-the-raspberry-pi-crashes)
-1. [如何将 Marlin 引脚编号转换为 Klipper 引脚名称？](#how-do-i-convert-a-marlin-pin-number-to-a-klipper-pin-name)
-1. [我必须将我的设备连接到特定类型的微控制器引脚吗？](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin)
-1. [我如何取消 M109/M190“等待温度”请求？](#how-do-i-cancel-an-m109m190-wait-for-temperature-request)
-1. [可以查一下打印机是否丢步吗？](#can-i-find-out-whether-the-printer-has-lost-steps)
-1. [为什么Klipper会报错？ 我打印的文件丢了！](#why-does-klipper-report-errors-i-lost-my-print)
-1. [如何升级到最新软件？](#how-do-i-upgrade-to-the-latest-software)
-1. [如何卸载 klipper？](#how-do-i-uninstall-klipper)
-
 ## 我如何向项目捐款？
 
 谢谢。Kevin有一个PATREON页面，地址是： <https://www.patreon.com/koconnor>

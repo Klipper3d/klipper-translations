@@ -178,6 +178,10 @@ The following commands are available when the [delta_calibrate config section](C
 - 显示信息： `M117 <message> `
 - 设置构建百分比：`M73 P<percent>`
 
+Also provided is the following extended G-Code command:
+
+- `SET_DISPLAY_TEXT MSG=<message>`: Performs the equivalent of M117, setting the supplied `MSG` as the current display message. If `MSG` is omitted the display will be cleared.
+
 ### [dual_carriage]
 
 使用[dual_carriage 配置分段](Config_Reference.md#dual_carriage)时，以下命令可用：
@@ -605,6 +609,7 @@ The following standard G-Code commands are available when the [respond config se
 
 - `RESPOND MSG="<message>"`：回显带有配置的默认前缀的消息（没有配置前缀则默认 `echo: `为前缀 ）。
 - `RESPOND TYPE=echo MSG="<消息>"`：回显`echo:`开头消息。
+- `RESPOND TYPE=echo_no_space MSG="<message>"`: echo the message prepended with `echo:` without a space between prefix and message, helpful for compatibility with some octoprint plugins that expect very specific formatting.
 - `RESPOND TYPE=command MSG="<消息>"`：回显以`/`为前缀的消息。可以配置 OctoPrint 对这些消息进行响应（例如，`RESPOND TYPE=command MSG=action:pause`）。
 - `RESPOND TYPE=error MSG="<消息>"`：回显以 `!!`开头的消息。
 - `RESPOND PREFIX=<prefix> MSG="<message>"`: 回应以`<prefix>`为前缀的信息。(`PREFIX`参数将优先于`TYPE`参数)

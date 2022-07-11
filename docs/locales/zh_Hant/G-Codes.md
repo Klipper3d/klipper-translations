@@ -178,6 +178,10 @@ The following commands are available when an [angle config section](Config_Refer
 - 顯示資訊： `M117 <message> `
 - 設定構建百分比：`M73 P<percent>`
 
+Also provided is the following extended G-Code command:
+
+- `SET_DISPLAY_TEXT MSG=<message>`: Performs the equivalent of M117, setting the supplied `MSG` as the current display message. If `MSG` is omitted the display will be cleared.
+
 ### [dual_carriage]
 
 當啟用 [dual_carriage config section](Config_Reference.md#dual_carriage) 時，以下命令可用。
@@ -605,6 +609,7 @@ The query_adc module is automatically loaded.
 
 - `RESPOND MSG="<message>"`：回顯帶有配置的預設字首的訊息（沒有配置字首則預設 `echo: `為字首 ）。
 - `RESPOND TYPE=echo MSG="<訊息>"`：回顯`echo:`開頭訊息。
+- `RESPOND TYPE=echo_no_space MSG="<message>"`: echo the message prepended with `echo:` without a space between prefix and message, helpful for compatibility with some octoprint plugins that expect very specific formatting.
 - `RESPOND TYPE=command MSG="<訊息>"`：回顯以`/`為字首的訊息。可以配置 OctoPrint 對這些訊息進行響應（例如，`RESPOND TYPE=command MSG=action:pause`）。
 - `RESPOND TYPE=error MSG="<訊息>"`：回顯以 `!!`開頭的訊息。
 - `RESPOND PREFIX=<prefix> MSG="<message>"`: 迴應以`<prefix>`為字首的資訊。(`PREFIX`參數將優先於`TYPE`參數)

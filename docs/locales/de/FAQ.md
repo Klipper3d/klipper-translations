@@ -1,30 +1,5 @@
 # Frequently Asked Questions
 
-1. [Wie kann ich dem Projekt etwas spenden?](#how-can-i-donate-to-the-project)
-1. [Wie berechne ich den rotation_distance-Parameter?](#how-do-i-calculate-the-rotation_distance-config-parameter)
-1. [Wo ist meine serieller Anschluss?](#wheres-my-serial-port)
-1. [Nach einem Neustart wechselt das Gerät zu /dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1)
-1. [Der "make flash" Befehl funktioniert nicht](#the-make-flash-command-doesnt-work)
-1. [Wie ändere ich die serielle Baudrate?](#how-do-i-change-the-serial-baud-rate)
-1. [Kann ich Klipper auf etwas anderem als einem Raspberry Pi 3 betreiben?](#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)
-1. [Kann ich mehrere Instanzen von Klipper auf demselben Rechner laufen lassen?](#can-i-run-multiple-instances-of-klipper-on-the-same-host-machine)
-1. [Muss ich OctoPrint verwenden?](#do-i-have-to-use-octoprint)
-1. [Why can't I move the stepper before homing the printer?](#why-cant-i-move-the-stepper-before-homing-the-printer)
-1. [Warum ist der Z-Positions-Endstop in den Standardkonfigurationen auf 0,5 gesetzt?](#why-is-the-z-position_endstop-set-to-05-in-the-default-configs)
-1. [Ich habe meine Konfiguration von Marlin konvertiert und die X/Y-Achsen funktionieren einwandfrei, aber ich bekomme ein kreischendes Geräusch, wenn ich die Z-Achse anfahre](#i-converted-my-config-from-marlin-and-the-xy-axes-work-fine-but-i-just-get-a-screeching-noise-when-homing-the-z-axis)
-1. [Mein TMC-Motortreiber schaltet sich mitten im Druck aus](#my-tmc-motor-driver-turns-off-in-the-middle-of-a-print)
-1. [Ich erhalte immer wieder zufällige "Lost communication with MCU" Fehler](#i-keep-getting-random-lost-communication-with-mcu-errors)
-1. [Mein Raspberry Pi startet während des Druckens immer wieder neu](#my-raspberry-pi-keeps-rebooting-during-prints)
-1. [When I set `restart_method=command` my AVR device just hangs on a restart](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-restart)
-1. [Bleibt die Heizung an, wenn der Raspberry Pi abstürzt?](#will-the-heaters-be-left-on-if-the-raspberry-pi-crashes)
-1. [Wie konvertiere ich eine Marlin-Pin-Nummer in einen Klipper-Pin-Namen?](#how-do-i-convert-a-marlin-pin-number-to-a-klipper-pin-name)
-1. [Muss ich mein Gerät mit einem bestimmten Typ von Mikrocontroller-Pin verdrahten?](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin)
-1. [Wie breche ich eine M109/M190 "Warten auf Temperatur" Anfrage ab?](#how-do-i-cancel-an-m109m190-wait-for-temperature-request)
-1. [Kann ich herausfinden, ob der Drucker Schritte verloren hat?](#can-i-find-out-whether-the-printer-has-lost-steps)
-1. [Warum meldet Klipper Fehler? Ich habe meinen Druck verloren!](#why-does-klipper-report-errors-i-lost-my-print)
-1. [Wie führe ich ein Upgrade auf die neueste Software durch?](#how-do-i-upgrade-to-the-latest-software)
-1. [Wie deinstalliere ich Klipper?](#how-do-i-uninstall-klipper)
-
 ## Wie kann ich für das Projekt spenden?
 
 Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>

@@ -104,8 +104,13 @@ gcode:
 [gcode_macro M117]
 rename_existing: M117.1
 gcode:
-  M117.1 { rawparams }
-  M118 { rawparams }
+  {% if rawparams %}
+    {% set escaped_msg = rawparams|replace('"', '\\"') %}
+    SET_DISPLAY_TEXT MSG="{escaped_msg}"
+    RESPOND TYPE=command MSG="{escaped_msg}"
+  {% else %}
+    SET_DISPLAY_TEXT
+  {% endif %}
 ```
 
 ### "printer"變數

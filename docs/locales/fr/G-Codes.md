@@ -178,6 +178,10 @@ The display_status module is automatically loaded if a [display config section](
 - Afficher un message : `M117 <message> `
 - Définir le pourcentage de génération : `M73 P<pourcentage>`
 
+Also provided is the following extended G-Code command:
+
+- `SET_DISPLAY_TEXT MSG=<message>`: Performs the equivalent of M117, setting the supplied `MSG` as the current display message. If `MSG` is omitted the display will be cleared.
+
 ### [dual_carriage]
 
 The following command is available when the [dual_carriage config section](Config_Reference.md#dual_carriage) is enabled.
@@ -605,6 +609,7 @@ The following additional commands are also available.
 
 - `RESPOND MSG="<message>"` : Affiche le message précédé du préfixe par défaut configuré (ou `echo : ` si aucun préfixe n'est configuré).
 - `RESPOND TYPE=echo MSG="<message>" ` : affiche le message précédé par `echo : `.
+- `RESPOND TYPE=echo_no_space MSG="<message>"`: echo the message prepended with `echo:` without a space between prefix and message, helpful for compatibility with some octoprint plugins that expect very specific formatting.
 - `RESPOND TYPE=command MSG="<message>"`: echo the message prepended with `// `. OctoPrint can be configured to respond to these messages (e.g. `RESPOND TYPE=command MSG=action:pause`).
 - `RESPOND TYPE=error MSG="<message>" ` : affiche le message précédé par `!!!`.
 - `RESPOND PREFIX=<prefix> MSG="<message>"` : renvoie le message précédé de `<prefix>`. (Le paramètre `PREFIX` est prioritaire sur le paramètre `TYPE`).

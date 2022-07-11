@@ -1,30 +1,5 @@
 # Foire aux questions
 
-1. [Comment puis-je faire un don?](#how-can-i-donate-to-the-project)
-1. [Comment calculer le paramètre rotation_distance?](#how-do-i-calculate-the-rotation_distance-config-parameter)
-1. [Où est mon port série?](#wheres-my-serial-port)
-1. [Quand le microcontrôleur redémarre le port du périphérique change pour /dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1)
-1. [La commande "make flash" ne fonctionne pas](#the-make-flash-command-doesnt-work)
-1. [Comment changer le baud rate (taux bit/s) du port série?](#how-do-i-change-the-serial-baud-rate)
-1. [Puis-je faire fonctionner Klipper sur quelque chose d'autre qu'un Raspberry Pi 3?](#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)
-1. [Puis-je exécuter plusieurs instances de Klipper sur le même hôte?](#can-i-run-multiple-instances-of-klipper-on-the-same-host-machine)
-1. [Suis-je obligé d'utiliser OctoPrint?](#do-i-have-to-use-octoprint)
-1. [Pourquoi ne puis-je pas commander un déplacement avant de prendre l'origine?](#why-cant-i-move-the-stepper-before-homing-the-printer)
-1. [Pourquoi le paramètre position_endstop Z est-il défini à 0.5 dans la configuration par défaut?](#why-is-the-z-position_endstop-set-to-05-in-the-default-configs)
-1. [J'ai converti ma configuration à partir de Marlin et les axes X/Y fonctionnent correctement mais j'ai un bruit strident lors de la prise d'origine de l'axe Z](#i-converted-my-config-from-marlin-and-the-xy-axes-work-fine-but-i-just-get-a-screeching-noise-when-homing-the-z-axis)
-1. [Mes pilotes de moteur TMC s'arrêtent en plein milieu d'une impression](#my-tmc-motor-driver-turns-off-in-the-middle-of-a-print)
-1. [J'ai des erreurs aléatoires "Lost communication with MCU" (communication perdue avec le microcontrôleur)] (#i-keep-getting-random-lost-communication-with-mcu-errors)
-1. [Mon Raspberry Pi redémarre pendant les impressions](#my-raspberry-pi-keeps-rebooting-during-prints)
-1. [When I set `restart_method=command` my AVR device just hangs on a restart](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-restart)
-1. [Est-ce que les éléments chauffants restent allumés si le Raspberry Pi plante?](#will-the-heaters-be-left-on-if-the-raspberry-pi-crashes)
-1. [Comment puis-je convertir des noms broches de Marlin à Klipper?](#how-do-i-convert-a-marlin-pin-number-to-a-klipper-pin-name)
-1. [Dois-je connecter mon appareil à un type spécifique de broche de microcontrôleur?](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-pin)
-1. [Comment annuler une commande M109/M190 « attendre la température » ?](#how-do-i-cancel-an-m109m190-wait-for-temperature-request)
-1. [Comment savoir si l'imprimante a perdu des pas?](#can-i-find-out-whether-the-printer-has-lost-steps)
-1. [Pourquoi Klipper signale-t-il des erreurs? J’ai raté mon impression!](#why-does-klipper-report-errors-i-lost-my-print)
-1. [Comment mettre à jour vers la dernière version du logiciel?](#how-do-i-upgrade-to-the-latest-software)
-1. [Comment désinstaller klipper?](#how-do-i-uninstall-klipper)
-
 ## Comment puis-je faire un don au projet?
 
 Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>

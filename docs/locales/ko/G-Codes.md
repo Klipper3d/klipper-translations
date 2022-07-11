@@ -178,6 +178,10 @@ The display_status module is automatically loaded if a [display config section](
 - 메시지 표시: `M117 <message>`
 - 출력 상태(%) 설정: `M73 P<percent>`
 
+Also provided is the following extended G-Code command:
+
+- `SET_DISPLAY_TEXT MSG=<message>`: Performs the equivalent of M117, setting the supplied `MSG` as the current display message. If `MSG` is omitted the display will be cleared.
+
 ### [dual_carriage]
 
 The following command is available when the [dual_carriage config section](Config_Reference.md#dual_carriage) is enabled.
@@ -605,6 +609,7 @@ The following additional commands are also available.
 
 - `RESPOND MSG="<message>"`: 구성된 기본 접두사가 추가된 메시지를 echo합니다(또는 접두사가 구성되지 않은 경우 `echo: `).
 - `RESPOND TYPE=echo MSG="<message>"`: `echo:`가 추가된 메시지를 echo 합니다.
+- `RESPOND TYPE=echo_no_space MSG="<message>"`: echo the message prepended with `echo:` without a space between prefix and message, helpful for compatibility with some octoprint plugins that expect very specific formatting.
 - `RESPOND TYPE=command MSG="<message>"`: echo the message prepended with `// `. OctoPrint can be configured to respond to these messages (e.g. `RESPOND TYPE=command MSG=action:pause`).
 - `RESPOND TYPE=error MSG="<message>"`: `!! `가 추가된 메시지를 echo 합니다.
 - `RESPOND PREFIX=<prefix> MSG="<message>"`: `<prefix>`가 추가된 메시지를 echo 합니다. ('PREFIX' 매개변수는 'TYPE' 매개변수보다 우선합니다.)

@@ -1,30 +1,5 @@
 # Gyakran ismételt kérdések
 
-1. [Hogyan adományozhatok a projektnek?](#hogyan-adomanyozhatok-a-projektnek)
-1. [Hogyan számíthatom ki a rotation_distance konfigurációs paramétert?](#hogyan-szamithatom-ki-a-rotation_distance-konfiguracios-parametert)
-1. [Hol van a soros portom?](#hol-van-a-soros-portom)
-1. [A mikrokontroller újraindításakor az eszköz /dev/ttyUSB1-re vált](#a-mikrokontroller-ujrainditasakor-az-eszkoz-devttyusb1-re-valt)
-1. [A "make flash" parancs nem működik](#a-make-flash-parancs-nem-mukodik)
-1. [Hogyan változtathatom meg a soros port átviteli sebességét?](#hogyan-valtoztathatom-meg-a-soros-port-atviteli-sebesseget)
-1. [Futtathatom a Klippert a Raspberry Pi 3-on kívül máson is?](#futtathatom-a-klippert-a-raspberry-pi-3-on-kivul-mason-is)
-1. [Futtathatom a Klipper több példányát ugyanazon a gépen?](#futtathatom-a-klipper-tobb-peldanyat-ugyanazon-a-gepen)
-1. [Muszáj az OctoPrintet használnom?](#muszaj-az-octoprintet-hasznalnom)
-1. [Miért nem tudom mozgatni a léptetőmotort a nyomtató kezdőpont felvétele előtt?](#miert-nem-tudom-mozgatni-a-leptetomotort-a-nyomtato-kezdopont-felvetele-elott)
-1. [Miért van a Z position_endstop 0.5-re állítva az alapértelmezett konfigurációban?](#miert-van-a-z-position_endstop-05-re-allitva-az-alapertelmezett-konfiguracioban)
-1. [Átkonvertáltam a konfigurációmat Marlinból, és az X/Y tengelyek jól működnek, de a Z tengely kezdőpont felvételekor csak egy csikorgó zajt hallok](#atkonvertaltam-a-konfiguraciomat-marlinbol-es-az-xy-tengelyek-jol-mukodnek-de-a-z-tengely-kezdopont-felvetelekor-csak-egy-csikorgo-zajt-hallok)
-1. [A TMC motorvezérlő kikapcsol nyomtatás közben](#a-tmc-motorvezerlo-kikapcsol-nyomtatas-kozben)
-1. [Véletlenszerű "Elveszett a kommunikáció az MCU-val" hibák](#veletlenszeru-elveszett-a-kommunikacio-az-mcu-val-hibak)
-1. [A Raspberry Pi újraindul nyomtatás közben](#a-raspberry-pi-ujraindul-nyomtatas-kozben)
-1. [Amikor beállítom a `restart_method=command` az AVR készülékem újraindításkor lefagy](#amikor-beallitom-a-restart_methodcommand-az-avr-keszulekem-ujrainditaskor-lefagy)
-1. [A fűtőelemek bekapcsolva maradnak, ha a Raspberry Pi összeomlik?](#a-futoelemek-bekapcsolva-maradnak-ha-a-raspberry-pi-osszeomlik)
-1. [Hogyan alakíthatok át egy Marlin tű számot Klipper tű névre?](#hogyan-alakithatok-at-egy-marlin-tu-szamot-klipper-tu-nevre)
-1. [Az eszközömet egy adott típusú mikrokontroller tűhöz kell csatlakoztatnom?](#az-eszkozomet-egy-adott-tipusu-mikrokontroller-tuhoz-kell-csatlakoztatnom)
-1. [Hogyan tudom törölni az M109/M190 "várakozás a hőmérsékletre" kérést?](#hogyan-tudom-torolni-az-m109m190-varakozas-a-homersekletre-kerest)
-1. [Meg tudom állapítani, hogy a nyomtató vesztett-e lépéseket?](#meg-tudom-allapitani-hogy-a-nyomtato-vesztett-e-lepeseket)
-1. [Miért jelent hibát a Klipper? Elrontotta a nyomtatásomat!](#miert-jelent-hibat-a-klipper-elrontotta-a-nyomtatasomat)
-1. [Hogyan frissíthetek a legújabb szoftverre?](#hogyan-frissithetek-a-legujabb-szoftverre)
-1. [Hogyan távolítsam el a klippert?](#hogyan-tavolitsam-el-a-klippert)
-
 ## Hogyan adományozhatok a projektnek?
 
 Köszönöm. Kevinnek van egy Patreon oldala: <https://www.patreon.com/koconnor>

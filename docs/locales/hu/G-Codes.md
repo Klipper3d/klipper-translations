@@ -178,6 +178,10 @@ A display_status modul automatikusan betöltődik, ha a [display konfigurációs
 - Üzenet megjelenítése: `M117 <message>`
 - Nyomtatási folyamat százalékos arány beállítása: `M73 P<percent>`
 
+Also provided is the following extended G-Code command:
+
+- `SET_DISPLAY_TEXT MSG=<message>`: Performs the equivalent of M117, setting the supplied `MSG` as the current display message. If `MSG` is omitted the display will be cleared.
+
 ### [dual_carriage]
 
 A következő parancs akkor érhető el, ha a [dual_carriage konfigurációs szakasz](Config_Reference.md#dual_carriage) engedélyezve van.
@@ -605,6 +609,7 @@ A következő további parancsok is rendelkezésre állnak.
 
 - `RESPOND MSG="<message>"`: visszhangozza az üzenetet a konfigurált alapértelmezett előtaggal kiegészítve (vagy `echo: `, ha nincs konfigurálva előtag).
 - `RESPOND TYPE=echo MSG="<message>"`: visszhangozza az üzenetet, amelyet `echo: ` küld.
+- `RESPOND TYPE=echo_no_space MSG="<message>"`: echo the message prepended with `echo:` without a space between prefix and message, helpful for compatibility with some octoprint plugins that expect very specific formatting.
 - `RESPOND TYPE=command MSG="<message>"`: visszhangozza az üzenetet `// `. Az OctoPrint konfigurálható úgy, hogy válaszoljon ezekre az üzenetekre (pl. `RESPOND TYPE=command MSG=action:pause`).
 - `RESPOND TYPE=error MSG="<message>"`: visszhangozza az üzenetet `!! `.
 - `RESPOND PREFIX=<prefix> MSG="<message>"`: visszhangozza az üzenetet `<prefix>` előtaggal kiegészítve. (A `PREFIX` paraméter elsőbbséget élvez a `TYPE` paraméterrel szemben.)

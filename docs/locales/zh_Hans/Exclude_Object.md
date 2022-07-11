@@ -1,25 +1,25 @@
-# Exclude Objects
+# 排除对象
 
 The `[exclude_object]` module allows Klipper to exclude objects while a print is in progress. To enable this feature include an [exclude_object config
 section](Config_Reference.md#exclude_object) (also see the [command
 reference](G-Codes.md#exclude-object) and [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware compatible M486 G-Code macro.)
 
-Unlike other 3D printer firmware options, a printer running Klipper utilizes a suite of components and users have many options to choose from. Therefore, in order to provide a a consistent user experience, the `[exclude_object]` module will establish a contract or API of sorts. The contract covers the contents of the gcode file, how the internal state of the module is controlled, and how that state is provided to clients.
+与其他3D打印机固件选项不同，运行 Klipper 的打印机提供了一套允许用户选择许多选项的组件。因此，为了提供一致的用户体验，`[exclude_object]`模块将建立一个标准或类似的API。标准涵盖了g代码文件的内容，模块的内部状态如何被控制，以及该状态如何被提供给用户。
 
-## Workflow Overview
+## 工作流程概述
 
-A typical workflow for printing a file might look like this:
+打印文件的一个典型工作流可能如下所示：
 
-1. Slicing is completed and the file is uploaded for printing. During the upload, the file is processed and `[exclude_object]` markers are added to the file. Alternately, slicers may be configured to prepare object exclusion markers natively, or in it's own pre-processing step.
-1. When printing starts, Klipper will reset the `[exclude_object]` [status](Status_Reference.md#exclude_object).
-1. When Klipper processes the `EXCLUDE_OBJECT_DEFINE` block, it will update the status with the known objects and pass it on to clients.
-1. The client may use that information to present a UI to the user so that progress can be tracked. Klipper will update the status to include the currently printing object which the client can use for display purposes.
-1. If the user requests that an object be cancelled, the client will issue an `EXCLUDE_OBJECT NAME=<name>` command to Klipper.
-1. When Klipper process the command, it will add the object to the list of excluded objects and update the status for the client.
-1. The client will receive the updated status from Klipper and can use that information to reflect the object's status in the UI.
-1. When printing finishes, the `[exclude_object]` status will continue to be available until another action resets it.
+1. 切片完成后，文件被上传并用于打印。在上传过程中，文件被处理，`[exclude_object]`标记被添加到该文件。另外，切片软件可以被配置为原生支持生成对象排除的标记，或者在它自己的预处理步骤中进行。
+1. 当打印开始时，Klipper将重置`[exclude_object]`[状态](Status_Reference.md#exclude_object)。
+1. 当 Klipper 处理`EXCLUDE_OBJECT_DEFINE`块时，它将使用已知对象更新状态并将其传递给客户端。
+1. 客户端可以使用该信息向用户呈现 UI，以便跟踪进度。Klipper 将更新状态以包含客户端可用于显示目的的当前打印对象。
+1. 如果用户要求取消一个对象，客户端将向Klipper发出`EXCLUDE_OBJECT NAME=<名称>`命令。
+1. 当 Klipper 处理该命令时，它将把该对象添加到排除对象的列表中，并为客户更新状态。
+1. 客户端将从 Klipper 接收更新的状态，并可以使用该信息在UI中反映对象的状态。
+1. 当打印完成后，`[exclude_object]`状态将继续可用，直到另一个动作将其重置。
 
-## The GCode File
+## G代码文件
 
 The specialized gcode processing needed to support excluding objects does not fit into Klipper's core design goals. Therefore, this module requires that the file is processed before being sent to Klipper for printing. Using a post-process script in the slicer or having middleware process the file on upload are two possibilities for preparing the file for Klipper. A reference post-processing script is available both as an executable and a python library, see [cancelobject-preprocessor](https://github.com/kageurufu/cancelobject-preprocessor).
 
