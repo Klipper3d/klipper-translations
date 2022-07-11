@@ -1,10 +1,20 @@
-#
+# Yifei Ding <dingyifeiair@gmail.com>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-07-11 06:40+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/exclude_object/zh_Hans/>\n"
+"Language: zh_Hans\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.13.1-dev\n"
 
 #: docs/Exclude_Object.md:block 1 (header)
 msgid "Exclude Objects"
-msgstr ""
+msgstr "排除对象"
 
 #: docs/Exclude_Object.md:block 2 (paragraph)
 msgid ""
@@ -15,6 +25,11 @@ msgid ""
 "macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware "
 "compatible M486 G-Code macro.)"
 msgstr ""
+"`[exclude_object]`模块允许 Klipper 在打印过程中排除对象。要启用此功能，"
+"请包括一个 [exclude_object 配置分段](Config_Reference.md#exclude_object)（"
+"有关用于 Marlin/RepRapFirmware 兼容的 M486 G代码宏， 另请参阅 "
+"[命令参考](G-Codes.md#exclude-object)和 [sample-macros.cfg](../config/sample-"
+"macros.cfg)文件。）"
 
 #: docs/Exclude_Object.md:block 3 (paragraph)
 msgid ""
@@ -25,14 +40,18 @@ msgid ""
 "contract covers the contents of the gcode file, how the internal state of "
 "the module is controlled, and how that state is provided to clients."
 msgstr ""
+"与其他3D打印机固件选项不同，运行 Klipper 的打印机提供了一套允许用户选择许多选"
+"项的组件。因此，为了提供一致的用户体验，`[exclude_object]`模块将建立一个标准"
+"或类似的API。标准涵盖了g代码文件的内容，模块的内部状态如何被控制，以及该状态"
+"如何被提供给用户。"
 
 #: docs/Exclude_Object.md:block 4 (header)
 msgid "Workflow Overview"
-msgstr ""
+msgstr "工作流程概述"
 
 #: docs/Exclude_Object.md:block 5 (paragraph)
 msgid "A typical workflow for printing a file might look like this:"
-msgstr ""
+msgstr "打印文件的一个典型工作流可能如下所示："
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
@@ -41,53 +60,62 @@ msgid ""
 "the file. Alternately, slicers may be configured to prepare object exclusion"
 " markers natively, or in it's own pre-processing step."
 msgstr ""
+"切片完成后，文件被上传并用于打印。在上传过程中，文件被处理，`[exclude_object]"
+"`标记被添加到该文件。另外，切片软件可以被配置为原生支持生成对象排除的标记，或"
+"者在它自己的预处理步骤中进行。"
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "When printing starts, Klipper will reset the `[exclude_object]` "
 "[status](Status_Reference.md#exclude_object)."
 msgstr ""
+"当打印开始时，Klipper将重置`[exclude_object]`[状态](Status_Reference."
+"md#exclude_object)。"
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "When Klipper processes the `EXCLUDE_OBJECT_DEFINE` block, it will update the"
 " status with the known objects and pass it on to clients."
-msgstr ""
+msgstr "当 Klipper "
+"处理`EXCLUDE_OBJECT_DEFINE`块时，它将使用已知对象更新状态并将其传递给客户端。"
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "The client may use that information to present a UI to the user so that "
 "progress can be tracked. Klipper will update the status to include the "
 "currently printing object which the client can use for display purposes."
-msgstr ""
+msgstr "客户端可以使用该信息向用户呈现 UI，以便跟踪进度。Klipper "
+"将更新状态以包含客户端可用于显示目的的当前打印对象。"
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "If the user requests that an object be cancelled, the client will issue an "
 "`EXCLUDE_OBJECT NAME=<name>` command to Klipper."
-msgstr ""
+msgstr "如果用户要求取消一个对象，客户端将向Klipper发出`EXCLUDE_OBJECT "
+"NAME=<名称>`命令。"
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "When Klipper process the command, it will add the object to the list of "
 "excluded objects and update the status for the client."
-msgstr ""
+msgstr "当 Klipper "
+"处理该命令时，它将把该对象添加到排除对象的列表中，并为客户更新状态。"
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "The client will receive the updated status from Klipper and can use that "
 "information to reflect the object's status in the UI."
-msgstr ""
+msgstr "客户端将从 Klipper 接收更新的状态，并可以使用该信息在UI中反映对象的状态。"
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "When printing finishes, the `[exclude_object]` status will continue to be "
 "available until another action resets it."
-msgstr ""
+msgstr "当打印完成后，`[exclude_object]`状态将继续可用，直到另一个动作将其重置。"
 
 #: docs/Exclude_Object.md:block 7 (header)
 msgid "The GCode File"
-msgstr ""
+msgstr "G代码文件"
 
 #: docs/Exclude_Object.md:block 8 (paragraph)
 msgid ""
