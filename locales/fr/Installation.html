@@ -1198,8 +1198,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#obtain-a-klipper-configuration-file" class="md-nav__link">
-    Obtain a Klipper Configuration File
+  <a href="#obtenir-un-fichier-de-configuration-de-klipper" class="md-nav__link">
+    Obtenir un fichier de configuration de Klipper
   </a>
   
 </li>
@@ -1251,7 +1251,7 @@
 
 <h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h1>
 <p>Ces instructions supposent que le logiciel fonctionnera sur un ordinateur Raspberry Pi en conjonction avec OctoPrint. Il est recommandé d'utiliser un ordinateur Raspberry Pi 2, 3 ou 4 comme machine hôte (voir la <a href="FAQ.html#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3">FAQ</a> pour les autres machines).</p>
-<h2 id="obtain-a-klipper-configuration-file">Obtain a Klipper Configuration File<a class="headerlink" href="#obtain-a-klipper-configuration-file" title="Permanent link">&para;</a></h2>
+<h2 id="obtenir-un-fichier-de-configuration-de-klipper">Obtenir un fichier de configuration de Klipper<a class="headerlink" href="#obtenir-un-fichier-de-configuration-de-klipper" title="Permanent link">&para;</a></h2>
 <p>Most Klipper settings are determined by a "printer configuration file" that will be stored on the Raspberry Pi. An appropriate configuration file can often be found by looking in the Klipper <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config directory</a> for a file starting with a "printer-" prefix that corresponds to the target printer. The Klipper configuration file contains technical information about the printer that will be needed during the installation.</p>
 <p>If there isn't an appropriate printer configuration file in the Klipper config directory then try searching the printer manufacturer's website to see if they have an appropriate Klipper configuration file.</p>
 <p>If no configuration file for the printer can be found, but the type of printer control board is known, then look for an appropriate <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config file</a> starting with a "generic-" prefix. These example printer board files should allow one to successfully complete the initial installation, but will require some customization to obtain full printer functionality.</p>
@@ -1274,8 +1274,8 @@ make menuconfig
 <div class="highlight"><pre><span></span><code>make
 </code></pre></div>
 
-<p>If the comments at the top of the <a href="#obtain-a-klipper-configuration-file">printer configuration file</a> describe custom steps for "flashing" the final image to the printer control board then follow those steps and then proceed to <a href="#configuring-octoprint-to-use-klipper">configuring OctoPrint</a>.</p>
-<p>Otherwise, the following steps are often used to "flash" the printer control board. First, it is necessary to determine the serial port connected to the micro-controller. Run the following:</p>
+<p>Si les commentaires au haut de <a href="#obtain-a-klipper-configuration-file">printer configuration file</a> décrive des étapes pour le "flashing" de l'image finale sur la carte de contrôle de l'imprimante alors suivez ces étapes puis procédez à <a href="#configuring-octoprint-to-use-klipper">configuring OctoPrint</a>.</p>
+<p>Sinon, les étapes suivantes sont souvent utilisées pour le "flash" de la carte de contrôle de l'imprimante. D'abord, il est nécessaire de déterminer le port série connecté au micro-contrôleur. Lancez ceci :</p>
 <div class="highlight"><pre><span></span><code>ls /dev/serial/by-id/*
 </code></pre></div>
 
@@ -1300,14 +1300,14 @@ sudo service klipper start
 <p>Sur la page principale, dans la section "Connection" (en haut à gauche de la page), assurez-vous que le "Serial Port" est réglé sur "/tmp/printer" et cliquez sur "Connect". (si "/tmp/printer" n'est pas une sélection disponible, essayez de recharger la page.)</p>
 <p>Une fois connecté, naviguez vers l'onglet "Terminal" et tapez "status" (sans les guillemets) dans la boîte de saisie de la commande et cliquez sur "Send". La fenêtre du terminal indiquera probablement qu'il y a une erreur dans l'ouverture du fichier de configuration - cela signifie qu'OctoPrint communique avec succès avec Klipper. Passez à la section suivante.</p>
 <h2 id="configuration-de-klipper">Configuration de Klipper<a class="headerlink" href="#configuration-de-klipper" title="Permanent link">&para;</a></h2>
-<p>The next step is to copy the <a href="#obtain-a-klipper-configuration-file">printer configuration file</a> to the Raspberry Pi.</p>
+<p>La prochaine étape est de copier le <a href="#obtain-a-klipper-configuration-file">printer configuration file</a> dans le Raspberry Pi.</p>
 <p>Arguably the easiest way to set the Klipper configuration file is to use a desktop editor that supports editing files over the "scp" and/or "sftp" protocols. There are freely available tools that support this (eg, Notepad++, WinSCP, and Cyberduck). Load the printer config file in the editor and then save it as a file named "printer.cfg" in the home directory of the pi user (ie, /home/pi/printer.cfg).</p>
 <p>Alternatively, one can also copy and edit the file directly on the Raspberry Pi via ssh. That may look something like the following (be sure to update the command to use the appropriate printer config filename):</p>
 <div class="highlight"><pre><span></span><code>cp ~/klipper/config/example-cartesian.cfg ~/printer.cfg
 nano ~/printer.cfg
 </code></pre></div>
 
-<p>It's common for each printer to have its own unique name for the micro-controller. The name may change after flashing Klipper, so rerun these steps again even if they were already done when flashing. Run:</p>
+<p>C'est classique pour chaque imprimante d'avoir son propre nom pour le micro-contrôleur. Le nom peut changer après le flashing de Klipper, relancez donc ces étapes à nouveau même si elles ont déjà été faites lors du flashing. Lancez :</p>
 <div class="highlight"><pre><span></span><code>ls /dev/serial/by-id/*
 </code></pre></div>
 
@@ -1315,7 +1315,7 @@ nano ~/printer.cfg
 <div class="highlight"><pre><span></span><code>/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 </code></pre></div>
 
-<p>Then update the config file with the unique name. For example, update the <code>[mcu]</code> section to look something similar to:</p>
+<p>Puis mettez à jour le fichier de configuration avec un nom unique. Par exemple, mettez à jour la section <code>[mcu]</code> pour ressembler à quelque chose comme :</p>
 <div class="highlight"><pre><span></span><code>[mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 </code></pre></div>
