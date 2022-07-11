@@ -1,27 +1,30 @@
 # Mathis Mensing <gcmatmen@gmail.com>, 2021.
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
-"PO-Revision-Date: 2022-07-03 11:20+0000\n"
-"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/g-codes/de/>\n"
+"PO-Revision-Date: 2022-07-11 18:56+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/g-codes/"
+"de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
 "commands that one may enter into the OctoPrint terminal tab."
 msgstr ""
-"Dieses Dokument beschreibt die von Klipper unterstützten Befehle. Dies sind "
-"Befehle, die man auf der OctoPrint Registrierkarte Terminals eingeben kann."
+"Dieses Dokument beschreibt die Befehle, die Klipper unterstützt. Es handelt "
+"sich dabei um Befehle, die man in die OctoPrint-Terminal-Registerkarte "
+"eingeben kann."
 
 msgid "G-Code commands"
 msgstr "G-code Befehle"

@@ -1,15 +1,17 @@
 # Vojtech Horvath <wojtas@email.cz>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-23 05:12+0000\n"
-"Last-Translator: Vojtech Horvath <wojtas@email.cz>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/bed_mesh/cs/>\n"
+"PO-Revision-Date: 2022-07-11 18:57+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/bed_mesh/"
+"cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "The Bed Mesh module may be used to compensate for bed surface irregularties "
@@ -25,7 +27,7 @@ msgid "Basic Configuration"
 msgstr ""
 
 msgid "Rectangular Beds"
-msgstr ""
+msgstr "Obdelníková tisková plocha"
 
 msgid ""
 "This example assumes a printer with a 250 mm x 220 mm rectangular bed and a "
@@ -54,7 +56,7 @@ msgid "![bedmesh_rect_basic](img/bedmesh_rect_basic.svg)"
 msgstr ""
 
 msgid "Round beds"
-msgstr ""
+msgstr "Kulaté tiskové plochy"
 
 msgid ""
 "This example assumes a printer equipped with a round bed radius of 100mm. We"

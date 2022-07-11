@@ -1,9 +1,16 @@
-#
+# Yifei Ding <dingyifeiair@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-07-11 18:57+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/bltouch/"
+"it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid "Connecting BL-Touch"
 msgstr ""
@@ -13,6 +20,9 @@ msgid ""
 "bare fingers, since it is quite sensitive to finger grease. And if you do "
 "touch it, be very gentle, in order to not bend or push anything."
 msgstr ""
+"Attenzione **warning**  : Evita di toccare la punta del BL-Touch a mani "
+"nude, è molto sensibili al sebo delle dita. Se sei costretto usa dei guanti "
+"ed evita di spingerla o piegarla."
 
 msgid ""
 "Hook up the BL-Touch \"servo\" connector to a `control_pin` according to the"
