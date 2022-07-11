@@ -8,8 +8,7 @@ msgstr ""
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
 "PO-Revision-Date: 2022-07-03 11:20+0000\n"
 "Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/g-codes/"
-"de/>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/g-codes/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2247,6 +2246,25 @@ msgid ""
 "MAX_DEVIATION is specified, the command will raise a gcode error if any "
 "difference in the screw height relative to the base screw height is greater "
 "than the value provided."
+msgstr ""
+
+#: docs/G-Codes.md:block 79 (paragraph)
+msgid "Also provided is the following extended G-Code command:"
+msgstr ""
+
+#: docs/G-Codes.md:block 80 (unordered list)
+msgid ""
+"`SET_DISPLAY_TEXT MSG=<message>`: Performs the equivalent of M117, setting "
+"the supplied `MSG` as the current display message. If `MSG` is omitted the "
+"display will be cleared."
+msgstr ""
+
+#: docs/G-Codes.md:block 291 (unordered list)
+msgid ""
+"`RESPOND TYPE=echo_no_space MSG=\"<message>\"`: echo the message prepended "
+"with `echo:` without a space between prefix and message, helpful for "
+"compatibility with some octoprint plugins that expect very specific "
+"formatting."
 msgstr ""
 
 #~ msgid ""
