@@ -61,14 +61,14 @@ Frissítse a Klipper [mcu konfigurációt](Config_Reference.md#mcu), hogy a CAN-
 canbus_uuid: 11aa22bb33cc
 ```
 
-## USB to CAN bus bridge mode
+## USB és CAN-busz közötti híd üzemmód
 
-Some micro-controllers support selecting "USB to CAN bus bridge" mode during "make menuconfig". This mode may allow one to use a micro-controller as both a "USB to CAN bus adapter" and as a Klipper node.
+Egyes mikrovezérlők támogatják az "USB to CAN bus bridge" üzemmód kiválasztását a "make menuconfig" során. Ez az üzemmód lehetővé teheti, hogy egy mikrokontrollert "USB CAN busz adapterként" és Klipper csomópontként is használjunk.
 
-When Klipper uses this mode the micro-controller appears as a "USB CAN bus adapter" under Linux. The "Klipper bridge mcu" itself will appear as if was on this CAN bus - it can be identified via `canbus_query.py` and configured like other CAN bus Klipper nodes. It will appear alongside other devices that are actually on the CAN bus.
+Amikor a Klipper ezt az üzemmódot használja, a mikrokontroller "USB CAN busz adapterként" jelenik meg Linux alatt. Maga a "Klipper bridge mcu" úgy jelenik meg, mintha ezen a CAN buszon lenne. A `canbus_query.py` segítségével azonosítható és konfigurálható, mint a többi CAN buszos Klipper csomópont. A többi, ténylegesen a CAN-buszon lévő eszköz mellett fog megjelenni.
 
-Some important notes when using this mode:
+Néhány fontos megjegyzés ennek az üzemmódnak a használatához:
 
-* The "bridge mcu" is not actually on the CAN bus. Messages to and from it do not consume bandwidth on the CAN bus. The mcu can not be seen by other adapters that may be on the CAN bus.
-* It is necessary to configure the `can0` (or similar) interface in Linux in order to communicate with the bus. However, Linux CAN bus speed and CAN bus bit-timing options are ignored by Klipper. Currently, the CAN bus frequency is specified during "make menuconfig" and the bus speed specified in Linux is ignored.
-* Whenever the "bridge mcu" is reset, Linux will disable the corresponding `can0` interface. Generally, this may require running commands such as "ip up" to restart the interface. Thus, Klipper FIRMWARE_RESTART commands (or regular RESTART after a config change) may require restarting the `can0` interface.
+* A "bridge mcu" valójában nem a CAN-buszon van. A hozzá érkező és tőle érkező üzenetek nem fogyasztanak sávszélességet a CAN-buszon. Az MCU-t nem láthatják más adapterek, amelyek esetleg a CAN-buszon vannak.
+* A busszal való kommunikációhoz szükséges a `can0` (vagy hasonló) interfész konfigurálása Linuxban. A Linux CAN-busz sebességét és a CAN-busz bit-időzítési beállításait azonban a Klipper figyelmen kívül hagyja. Jelenleg a CAN-busz frekvenciáját a "make menuconfig" futtatása során kell megadni, és a Linuxban megadott buszsebességet figyelmen kívül hagyjuk.
+* Amikor a "bridge mcu" visszaáll, a Linux letiltja a megfelelő `can0` interfészt. Általában ehhez olyan parancsok futtatására lehet szükség, mint például az "ip up", hogy újraindítsa az interfészt. Így a Klipper FIRMWARE_RESTART parancsok (vagy egy konfigurációváltás után a szokásos RESTART) a `can0` interfész újraindítását igényelhetik.

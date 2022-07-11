@@ -6,7 +6,7 @@ Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is
 
 ## Basic Configuration
 
-### Rectangular Beds
+### Obdelníková tisková plocha
 
 This example assumes a printer with a 250 mm x 220 mm rectangular bed and a probe with an x-offset of 24 mm and y-offset of 5 mm.
 
@@ -29,7 +29,7 @@ The illustration below demonstrates how the `mesh_min`, `mesh_max`, and `probe_c
 
 ![bedmesh_rect_basic](img/bedmesh_rect_basic.svg)
 
-### Round beds
+### Kulaté tiskové plochy
 
 This example assumes a printer equipped with a round bed radius of 100mm. We will use the same probe offsets as the rectangular example, 24 mm on X and 5 mm on Y.
 

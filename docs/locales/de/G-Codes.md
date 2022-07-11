@@ -1,6 +1,6 @@
 # G-Codes
 
-Dieses Dokument beschreibt die von Klipper unterstützten Befehle. Dies sind Befehle, die man auf der OctoPrint Registrierkarte Terminals eingeben kann.
+Dieses Dokument beschreibt die Befehle, die Klipper unterstützt. Es handelt sich dabei um Befehle, die man in die OctoPrint-Terminal-Registerkarte eingeben kann.
 
 ## G-code Befehle
 

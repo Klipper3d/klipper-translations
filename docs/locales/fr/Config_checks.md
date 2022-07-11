@@ -1,6 +1,6 @@
 # Contrôles de la configuration
 
-Ce document fournit une liste d'étapes permettant de confirmer les paramètres des broches dans le fichier printer.cfg de Klipper. Il est conseillé d'exécuter ces étapes après avoir suivi les étapes du [document d'installation](Installation.md).
+Ce document fournit une liste des étapes permettant de vérifier les affectations des broches dans le fichier printer.cfg de Klipper. Il est conseillé d'exécuter ces étapes après avoir suivi les étapes du [document d'installation](Installation.md).
 
 Pendant ce guide, il peut être nécessaire d'apporter des modifications au fichier de configuration de Klipper. Veillez à émettre une commande RESTART après chaque modification du fichier de configuration pour vous assurer que la modification prend effet (tapez "restart" dans l'onglet du terminal Octoprint et cliquez ensuite sur "Send"). C'est aussi une bonne idée d'envoyer une commande STATUS après chaque RESTART pour vérifier que le fichier de configuration a été chargé avec succès.
 

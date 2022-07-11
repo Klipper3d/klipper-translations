@@ -1,6 +1,6 @@
 # Configuration reference
 
-Dieses Dokument ist eine Referenz für die in der Klipper-Konfigurationsdatei verfügbaren Optionen.
+Dieses Dokument ist eine Referenz für Optionen, die in der Klipper-Konfigurationsdatei verfügbar sind.
 
 Die Beschreibungen in diesem Dokument sind so formatiert, dass es möglich ist, sie auszuschneiden und in eine Druckerkonfigurationsdatei einzufügen. Siehe das [Installationsdokument](Installation.md) für Informationen über die Einrichtung von Klipper und die Auswahl einer ersten Konfigurationsdatei.
 

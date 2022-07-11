@@ -21,7 +21,7 @@ tar xfz klipper-dict-20??????.tar.gz
 
 ## Manually sending commands to the micro-controller
 
-Normally, the host klippy.py process would be used to translate gcode commands to Klipper micro-controller commands. However, it's also possible to manually send these MCU commands (functions marked with the DECL_COMMAND() macro in the Klipper source code). To do so, run:
+일반적으로, 호스트 klippy.py 프로세스는 gcode 명령을 Klipper 마이크로컨트롤러 명령으로 변환하는 데 사용됩니다. 그러나 이러한 MCU 명령(Klipper 소스 코드에서 DECL_COMMAND() 매크로로 표시된 함수)을 수동으로 전송할 수도 있습니다. 이렇게 하려면 다음을 실행합니다.
 
 ```
 ~/klippy-env/bin/python ./klippy/console.py /tmp/pseudoserial
@@ -31,7 +31,7 @@ See the "HELP" command within the tool for more information on its functionality
 
 Some command-line options are available. For more information run: `~/klippy-env/bin/python ./klippy/console.py --help`
 
-## Translating gcode files to micro-controller commands
+## gcode 파일을 마이크로 컨트롤러 명령으로 변환
 
 The Klippy host code can run in a batch mode to produce the low-level micro-controller commands associated with a gcode file. Inspecting these low-level commands is useful when trying to understand the actions of the low-level hardware. It can also be useful to compare the difference in micro-controller commands after a code change.
 
@@ -48,7 +48,7 @@ Once the above is done it is possible to run Klipper in batch mode (see [install
 ~/klippy-env/bin/python ./klippy/klippy.py ~/printer.cfg -i test.gcode -o test.serial -v -d out/klipper.dict
 ```
 
-The above will produce a file **test.serial** with the binary serial output. This output can be translated to readable text with:
+위의 경우 이진 직렬 출력으로 **test.serial* 파일을 생성합니다. 이 출력은 다음을 사용하여 읽을 수 있는 텍스트로 변환할 수 있습니다.
 
 ```
 ~/klippy-env/bin/python ./klippy/parsedump.py out/klipper.dict test.serial > test.txt

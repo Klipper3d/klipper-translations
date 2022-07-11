@@ -89,7 +89,7 @@ Print the ringing test model as follows:
 
 Now try EI input shaper. To try it, repeat steps (1)-(6) from above, but executing at step 4 the following command instead: `SET_INPUT_SHAPER SHAPER_TYPE=EI`.
 
-Compare two prints with MZV and EI input shaper. If EI shows noticeably better results than MZV, use EI shaper, otherwise prefer MZV. Note that EI shaper will cause more smoothing in printed parts (see the next section for further details). Add `shaper_type: mzv` (or ei) parameter to [input_shaper] section, e.g.:
+用MZV和EI输入整形器比较两个打印件。如果EI的结果明显好于MZV，则使用EI整形器，否则最好使用MZV。请注意，EI整形器将使打印件更加平滑（进一步的细节见下一节）。在[input_shaper]分段中添加`shaper_type: mzv`（或EI）参数，例如：
 
 ```
 [input_shaper]
@@ -98,20 +98,20 @@ shaper_freq_y: ...
 shaper_type: mzv
 ```
 
-A few notes on shaper selection:
+关于整形器选择的一些注意事项：
 
 * EI shaper may be more suited for bed slinger printers (if the resonance frequency and resulting smoothing allows): as more filament is deposited on the moving bed, the mass of the bed increases and the resonance frequency will decrease. Since EI shaper is more robust to resonance frequency changes, it may work better when printing large parts.
-* Due to the nature of delta kinematics, resonance frequencies can differ a lot in different parts of the build volume. Therefore, EI shaper can be a better fit for delta printers rather than MZV or ZV, and should be considered for the use. If the resonance frequency is sufficiently large (more than 50-60 Hz), then one can even attempt to test 2HUMP_EI shaper (by running the suggested test above with `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI`), but check the considerations in the [section below](#selecting-max_accel) before enabling it.
+* 由于三角洲运动学的性质，共振频率在可打印范围内不同位置会有很大的不同。因此，EI整形器可以更好地适用于三角洲打印机，而不是MZV或ZV，应该考虑使用。如果共振频率足够大（超过50-60赫兹），那么甚至可以尝试测试2HUMP_EI整形器（通过运行上面建议的测试`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI`），但在启用之前要检查[下面的章节](#selecting-max_accel)的注意事项。
 
-### Selecting max_accel
+### 选择 max_accel
 
 You should have a printed test for the shaper you chose from the previous step (if you don't, print the test model sliced with the [suggested parameters](#tuning) with the pressure advance disabled `SET_PRESSURE_ADVANCE ADVANCE=0` and with the tuning tower enabled as `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`). Note that at very high accelerations, depending on the resonance frequency and the input shaper you chose (e.g. EI shaper creates more smoothing than MZV), input shaping may cause too much smoothing and rounding of the parts. So, max_accel should be chosen such as to prevent that. Another parameter that can impact smoothing is `square_corner_velocity`, so it is not advisable to increase it above the default 5 mm/sec to prevent increased smoothing.
 
-In order to select a suitable max_accel value, inspect the model for the chosen input shaper. First, take a note at which acceleration ringing is still small - that you are comfortable with it.
+为了选择合适的 max_accel 值，请检查使用所选输入整形器打印的模型。首先，记下加速度振纹仍然很小的位置—一个满意的高度。
 
-Next, check the smoothing. To help with that, the test model has a small gap in the wall (0.15 mm):
+接下来，检查平滑度。为了帮助做到这一点，测试模型的壁上有一个小缺口（0.15毫米）：
 
-![Test gap](img/smoothing-test.png)
+![测试间隙](img/smoothing-test.png)
 
 As the acceleration increases, so does the smoothing, and the actual gap in the print widens:
 

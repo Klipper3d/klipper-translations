@@ -1,6 +1,6 @@
 # Overview
 
-Bem-vindo a documentação de Klipper. Se for novo com Klipper, comece com os documentos [Funcionalidades](Features.md) e [Instalação](installation.md).
+Bem-vindo à documentação do Klipper. Se for novo no Klipper, comece com os documentos de [recursos] (Features.md) e [Instalação] (Installation.md).
 
 ## Informações gerais
 
@@ -25,7 +25,7 @@ Bem-vindo a documentação de Klipper. Se for novo com Klipper, comece com os do
    - [Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning.
 - [Compensação de ressonância](Resonance_Compensation.md): Uma ferramenta para reduzir irregularidades nas impressões.
    - [Ressonâncias de medida](Measuring_Resonances.md): Informação sobre o uso do acelerômetro adxl345 para medir a ressonância.
-- [Pressure advance](Pressure_Advance.md): Calibrate extruder pressure.
+- [Avançar a pressão](Pressure_Advance.md): Calibrar a pressão da extrusor.
 - [G-Codes](G-Codes.md): Information on commands supported by Klipper.
 - [Command Templates](Command_Templates.md): G-Code macros and conditional evaluation.
    - [Status Reference](Status_Reference.md): Information available to macros (and similar).

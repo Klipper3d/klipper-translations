@@ -1,4 +1,4 @@
-# Resonanzkompensation
+# Resonanz-Kompensation
 
 Klipper unterstützt Input Shaping - eine Technik, die verwendet werden kann, um Ringing (auch bekannt als Echoing, Ghosting oder Rippling) in Drucken zu reduzieren. Ringing ist ein Fehler beim Flächendruck, bei dem sich typischerweise Elemente wie Kanten als subtiles "Echo" auf einer gedruckten Oberfläche wiederholen:
 
