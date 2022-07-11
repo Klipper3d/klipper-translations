@@ -1,6 +1,6 @@
 # Configuration Changes
 
-Dieses Dokument behandelt aktuelle Softwareänderungen an der Konfigurationsdatei, die nicht abwärtskompatibel sind. Es ist eine gute Idee, dieses Dokument zu lesen, wenn Sie die Klipper-Software aktualisieren.
+Dieses Dokument behandelt die jüngsten Softwareänderungen an der Konfigurationsdatei, die nicht abwärtskompatibel sind. Es ist eine gute Idee, dieses Dokument zu lesen, wenn Sie die Klipper-Software aktualisieren.
 
 Alle Daten in diesem Dokument sind ungefähre Angaben.
 

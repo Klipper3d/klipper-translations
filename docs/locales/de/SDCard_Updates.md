@@ -1,6 +1,6 @@
 # SDCard updates
 
-Viele der heute beliebten Controller-Boards werden mit einem Bootloader ausgeliefert, der die Firmware über eine SD-Karte aktualisieren kann. Obwohl dies in vielen Fällen praktisch ist, bieten diese Bootloader normalerweise keine andere Möglichkeit, die Firmware zu aktualisieren. Dies kann lästig sein, wenn Ihr Board an einem schwer zugänglichen Ort montiert ist oder wenn Sie die Firmware häufig aktualisieren müssen. Nachdem Klipper zum ersten Mal auf einen Controller geflasht wurde, ist es möglich, neue Firmware auf die SD-Karte zu übertragen und den Flash-Vorgang über ssh einzuleiten.
+Viele der heute gängigen Controller-Karten werden mit einem Bootloader ausgeliefert, der die Aktualisierung der Firmware über eine SD-Karte ermöglicht. Obwohl dies in vielen Fällen praktisch ist, bieten diese Bootloader in der Regel keine andere Möglichkeit zur Aktualisierung der Firmware. Dies kann lästig sein, wenn Ihr Board an einem schwer zugänglichen Ort montiert ist oder wenn Sie die Firmware häufig aktualisieren müssen. Nachdem Klipper auf einen Controller geflasht wurde, ist es möglich, die neue Firmware auf die SD-Karte zu übertragen und den Flashapparat über ssh zu starten.
 
 ## Typische Upgrade-Prozedur
 

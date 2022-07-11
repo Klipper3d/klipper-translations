@@ -13,7 +13,7 @@ Klipper obsługuje następujące standardowe polecenia G-Code:
 - Poczekaj na zakończenie bieżących ruchów: `M400`.
 - Użyj bezwzględnych/ względnych odległości dla ekstruzji: `M82`, `M83`.
 - Użyj współrzędnych bezwzględnych/relacyjnych: `G90`, `G91`.
-- Ustawienie pozycji: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`.
+- Ustawienie pozycji: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
 - Ustawienie procentowego przesterowania współczynnika prędkości: `M220 S<percent>`.
 - Ustawienie procentowego nadpisania współczynnika ekstruzji: `M221 S<percent>`.
 - Ustawienie przyśpieszenia: `M204 S<wartość>` LUB `M204 P<wartość> T<wartość>`.

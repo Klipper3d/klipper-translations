@@ -178,9 +178,9 @@ A display_status modul automatikusan betöltődik, ha a [display konfigurációs
 - Üzenet megjelenítése: `M117 <message>`
 - Nyomtatási folyamat százalékos arány beállítása: `M73 P<percent>`
 
-Also provided is the following extended G-Code command:
+A következő kiterjesztett G-kód parancs is rendelkezésre áll:
 
-- `SET_DISPLAY_TEXT MSG=<message>`: Performs the equivalent of M117, setting the supplied `MSG` as the current display message. If `MSG` is omitted the display will be cleared.
+- `SET_DISPLAY_TEXT MSG=<message>`: Az M117 paranccsal egyenértékű művelet, amely az `MSG` címen megadott üzenetet állítja be aktuális kijelzőüzenetként. Ha az `MSG` elmarad, a kijelző törlődik.
 
 ### [dual_carriage]
 
@@ -609,7 +609,7 @@ A következő további parancsok is rendelkezésre állnak.
 
 - `RESPOND MSG="<message>"`: visszhangozza az üzenetet a konfigurált alapértelmezett előtaggal kiegészítve (vagy `echo: `, ha nincs konfigurálva előtag).
 - `RESPOND TYPE=echo MSG="<message>"`: visszhangozza az üzenetet, amelyet `echo: ` küld.
-- `RESPOND TYPE=echo_no_space MSG="<message>"`: echo the message prepended with `echo:` without a space between prefix and message, helpful for compatibility with some octoprint plugins that expect very specific formatting.
+- `RESPOND TYPE=echo_no_space MSG="<message>"`: az üzenet visszhangja az `előtaggal kiegészítve echo:` szóköz nélkül az előtag és az üzenet között, hasznos a kompatibilitás néhány olyan octoprint pluginnal, amelyek nagyon speciális formázást várnak el.
 - `RESPOND TYPE=command MSG="<message>"`: visszhangozza az üzenetet `// `. Az OctoPrint konfigurálható úgy, hogy válaszoljon ezekre az üzenetekre (pl. `RESPOND TYPE=command MSG=action:pause`).
 - `RESPOND TYPE=error MSG="<message>"`: visszhangozza az üzenetet `!! `.
 - `RESPOND PREFIX=<prefix> MSG="<message>"`: visszhangozza az üzenetet `<prefix>` előtaggal kiegészítve. (A `PREFIX` paraméter elsőbbséget élvez a `TYPE` paraméterrel szemben.)

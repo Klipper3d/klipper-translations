@@ -1,6 +1,6 @@
 # Installation
 
-Diese Anweisungen gehen davon aus, dass die Software auf einem Raspberry Pi-Computer in Verbindung mit OctoPrint ausgeführt wird. Es wird empfohlen, einen Raspberry Pi 2, 3 oder 4 Computer als Host-Rechner zu verwenden (siehe [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry -pi-3) für andere Maschinen).
+Diese Anleitung geht davon aus, dass die Software auf einem Raspberry Pi Computer in Verbindung mit OctoPrint läuft. Es wird empfohlen, einen Raspberry Pi 2, 3 oder 4 als Host-Computer zu verwenden (siehe die [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) für andere Computer).
 
 ## Obtain a Klipper Configuration File
 
