@@ -1,25 +1,27 @@
 # wilmouths <wilmouthsteven@gmail.com>, 2021.
 # Wivik <seb+weblate@zedas.fr>, 2021.
 # gbonaspetti <gbonaspetti@hotmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-03-19 05:56+0000\n"
-"Last-Translator: gbonaspetti <gbonaspetti@hotmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/config_checks/fr/>\n"
+"PO-Revision-Date: 2022-07-11 18:57+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"config_checks/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in "
 "the Klipper printer.cfg file. It is a good idea to run through these steps "
 "after following the steps in the [installation document](Installation.md)."
 msgstr ""
-"Ce document fournit une liste d'étapes permettant de confirmer les "
-"paramètres des broches dans le fichier printer.cfg de Klipper. Il est "
+"Ce document fournit une liste des étapes permettant de vérifier les "
+"affectations des broches dans le fichier printer.cfg de Klipper. Il est "
 "conseillé d'exécuter ces étapes après avoir suivi les étapes du [document "
 "d'installation](Installation.md)."
 

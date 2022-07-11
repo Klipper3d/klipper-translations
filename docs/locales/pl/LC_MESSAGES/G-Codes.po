@@ -1,15 +1,18 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-02 10:23+0000\n"
-"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/g-codes/pl/>\n"
+"PO-Revision-Date: 2022-07-11 18:57+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/g-codes/"
+"pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -49,7 +52,7 @@ msgid "Use absolute/relative coordinates: `G90`, `G91`"
 msgstr "Użyj współrzędnych bezwzględnych/relacyjnych: `G90`, `G91`."
 
 msgid "Set position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`"
-msgstr "Ustawienie pozycji: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`."
+msgstr "Ustawienie pozycji: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`"
 
 msgid "Set speed factor override percentage: `M220 S<percent>`"
 msgstr ""
