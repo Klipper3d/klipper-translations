@@ -98,7 +98,7 @@ max_accel:
 
 步进电机定义。 不同的打印机类型（由 [打印] 配置部分中的“运动学”选项指定）步进器需要定义不同的名称（例如，`stepper_x` 与 `stepper_a`）。 以下是常见的步进器定义。
 
-See the [rotation distance document](Rotation_Distance.md) for information on calculating the `rotation_distance` parameter. See the [Multi-MCU homing](Multi_MCU_Homing.md) document for information on homing using multiple micro-controllers.
+关于计算`rotation_distance` 参数的方法，请参见[旋转距离文档](Rotation_Distance.md)。关于使用多个微控制器的归位的方法，请参见[Multi-MCU homing](Multi_MCU_Homing.md)文件。
 
 ```
 [stepper_x]
@@ -532,7 +532,7 @@ radius:
 
 ### 缆绳绞盘运动学
 
-See the [example-winch.cfg](../config/example-winch.cfg) for an example cable winch kinematics config file.
+有关缆绳绞盘运动学配置文件的例子，参见[example-winch.cfg](./config/example-winch.cfg)。
 
 这里只描述了缆绳铰盘式(cable winch)打印机特有的参数 — 全部可用的参数见[常用的运动学设置](#common-kinematic-settings)。
 
@@ -860,7 +860,7 @@ max_temp:
 
 Tool to help adjust bed leveling screws. One may define a [bed_screws] config section to enable a BED_SCREWS_ADJUST g-code command.
 
-See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [command reference](G-Codes.md#bed_screws) for additional information.
+有关更多信息，请参阅 [调平指南](Manual_Level.md#adjusting-bed-leveling-screws)和 [命令参考](G-Codes.md#bed_screws)。
 
 ```
 [bed_screws]
@@ -897,7 +897,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 
 Tool to help adjust bed screws tilt using Z probe. One may define a screws_tilt_adjust config section to enable a SCREWS_TILT_CALCULATE g-code command.
 
-See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) and [command reference](G-Codes.md#screws_tilt_adjust) for additional information.
+请参阅[调平指南](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe)和[命令参考](G-Code.md#screws_tilt_adjust)了解更多信息。
 
 ```
 [screws_tilt_adjust]
@@ -1083,7 +1083,7 @@ gcode：
 
 Stepper phase adjusted endstops. To use this feature, define a config section with an "endstop_phase" prefix followed by the name of the corresponding stepper config section (for example, "[endstop_phase stepper_z]"). This feature can improve the accuracy of endstop switches. Add a bare "[endstop_phase]" declaration to enable the ENDSTOP_PHASE_CALIBRATE command.
 
-See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes.md#endstop_phase) for additional information.
+更多信息见[相位限位指南](Endstop_Phase.md)和[命令参考](G-Code.md#endstop_phase)。
 
 ```
 [endstop_phase stepper_z]
@@ -1977,13 +1977,11 @@ BMP280/BME280/BME680 两线接口 (I2C) 环境传感器。注意，这些传感�
 ```
 sensor_type: BME280
 #i2c_address:
-#   Default is 118 (0x76). Some BME280 sensors have an address of 119
-#   (0x77).
+#   默认为118(0x76)。一些BME280传感器的地址为119(0x77).
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
+#   参见 "常见的I2C设置 "部分，以了解对上述参数的描述。
 ```
 
 ### HTU21D 传感器
@@ -2485,7 +2483,7 @@ pin:
 
 ### [output_pin]
 
-Run-time configurable output pins (one may define any number of sections with an "output_pin" prefix). Pins configured here will be setup as output pins and one may modify them at run-time using "SET_PIN PIN=my_pin VALUE=.1" type extended [g-code commands](G-Codes.md#output_pin).
+运行时可配置的输出引脚（可以定义任意数量的带有 "output_pin "前缀的分段）。在这里配置的引脚将被设置为输出引脚，可以在运行时使用 "SET_PIN PIN=my_pin VALUE=.1 "类型的扩展[G代码命令](G-Code.md#output_pin)对其进行修改。
 
 ```
 [output_pin 我的引脚]
@@ -3335,7 +3333,7 @@ This feature can also be used for continuous LED updates using the [SET_LED_TEMP
 
 一套[默认菜单](../klippy/extras/display/menu.cfg)将被自动创建。通过覆盖 printer.cfg 主配置文件中的默认值可以替换或扩展该菜单。
 
-See the [command template document](Command_Templates.md#menu-templates) for information on menu attributes available during template rendering.
+参见[命令模板文档](Command_Templates.md#menu-templates)，了解模板渲染过程中可用的菜单属性。
 
 ```
 # 所有的菜单配置分段都有的通用参数。
@@ -3558,7 +3556,7 @@ i2c_address:
 
 ### [samd_sercom]
 
-SAMD SERCOM configuration to specify which pins to use on a given SERCOM. One may define any number of sections with a "samd_sercom" prefix. Each SERCOM must be configured prior to using it as SPI or I2C peripheral. Place this config section above any other section that makes use of SPI or I2C buses.
+SAMD SERCOM配置，指定在一个给定的SERCOM上使用哪些引脚。可以用 "samd_sercom "前缀来定义任何数量的分段。每个SERCOM必须在使用它作为SPI或I2C外围设备之前进行配置。将这个配置分段必须在任何其他使用SPI或I2C总线的分段之上。
 
 ```
 [samd_sercom my_sercom]
