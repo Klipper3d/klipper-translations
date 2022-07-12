@@ -117,7 +117,7 @@ A következő információk a `gcode_move` objektumban érhetők el (ez az objek
 - `gcode_position`: A nyomtatófej aktuális pozíciója az aktuális G-kód origóhoz képest. Vagyis olyan pozíciók, amelyeket közvetlenül egy `G1` parancsnak küldhetünk. Lehetőség van e pozíció X, Y, Z és az E, komponensének elérésére (pl. `gcode_position.x`).
 - `position`: A nyomtatófej utolsó kiadott pozíciója a konfigurációs fájlban megadott koordináta rendszerrel. Lehetőség van ennek a pozíciónak az X, Y, Z és az E, komponenséhez hozzáférni (pl. `position.x`).
 - `homing_origin`: A G-kód koordináta rendszer origója (a config fájlban megadott koordináta rendszerhez képest), amelyet a `G28` parancs után használni kell. A `SET_GCODE_OFFSET` parancs megváltoztathatja ezt a pozíciót. Lehetőség van ennek a pozíciónak az X, Y és Z komponenséhez hozzáférni (pl. `homing_origin.x`).
-- `speed`: Az utolsó, `G1` parancsban beállított sebesség (mm/mp-ben).
+- `speed`: Az utolsó, `G1` parancsban beállított sebesség (mm/sec-ben).
 - `speed_factor`: Az `M220` parancs által beállított "sebességtényező felülbírálása". Ez egy lebegőpontos érték, így 1.0 azt jelenti, hogy nincs felülbírálat, és például a 2.0 megduplázza a kért sebességet.
 - `extrude_factor`: Az `M221` parancs által beállított "extrude factor override". Ez egy lebegőpontos érték, így 1.0 azt jelenti, hogy nincs felülbírálat, és például a 2.0 megduplázza a kért extrudálásokat.
 - `absolute_coordinates`: True értéket ad, ha a `G90` abszolút koordináta módban van, vagy False értéket, ha a `G91` relatív módban van.
@@ -174,8 +174,8 @@ A következő információk az [mcu](Config_Reference.md#mcu) és [mcu some_name
 A következő információk a `motion_report` objektumban érhetők el (ez az objektum automatikusan elérhető, ha bármilyen stepper konfigurációs szakasz definiálva van):
 
 - `live_position`: A nyomtatófej kért pozíciója az aktuális időre interpolálva.
-- `live_velocity`: A nyomtatófej kért sebessége (mm/mp-ben) az aktuális időpontban.
-- `live_extruder_velocity`: A kért extruder sebesség (mm/mp-ben) az aktuális időpontban.
+- `live_velocity`: A nyomtatófej kért sebessége (mm/sec-ben) az aktuális időpontban.
+- `live_extruder_velocity`: A kért extruder sebesség (mm/sec-ben) az aktuális időpontban.
 
 ## output_pin
 
