@@ -2808,6 +2808,10 @@
 <li>Display Message: <code>M117 &lt;message&gt;</code></li>
 <li>Set build percentage: <code>M73 P&lt;percent&gt;</code></li>
 </ul>
+<p>Also provided is the following extended G-Code command:</p>
+<ul>
+<li><code>SET_DISPLAY_TEXT MSG=&lt;message&gt;</code>: Performs the equivalent of M117, setting the supplied <code>MSG</code> as the current display message. If <code>MSG</code> is omitted the display will be cleared.</li>
+</ul>
 <h3 id="dual_carriage">[dual_carriage]<a class="headerlink" href="#dual_carriage" title="Permanent link">&para;</a></h3>
 <p>The following command is available when the <a href="Config_Reference.html#dual_carriage">dual_carriage config section</a> is enabled.</p>
 <h4 id="set_dual_carriage">SET_DUAL_CARRIAGE<a class="headerlink" href="#set_dual_carriage" title="Permanent link">&para;</a></h4>
@@ -3040,6 +3044,7 @@
 <ul>
 <li><code>RESPOND MSG="&lt;message&gt;"</code>: echo the message prepended with the configured default prefix (or <code>echo:</code> if no prefix is configured).</li>
 <li><code>RESPOND TYPE=echo MSG="&lt;message&gt;"</code>: echo the message prepended with <code>echo:</code>.</li>
+<li><code>RESPOND TYPE=echo_no_space MSG="&lt;message&gt;"</code>: echo the message prepended with <code>echo:</code> without a space between prefix and message, helpful for compatibility with some octoprint plugins that expect very specific formatting.</li>
 <li><code>RESPOND TYPE=command MSG="&lt;message&gt;"</code>: echo the message prepended with <code>//</code>. OctoPrint can be configured to respond to these messages (e.g. <code>RESPOND TYPE=command MSG=action:pause</code>).</li>
 <li><code>RESPOND TYPE=error MSG="&lt;message&gt;"</code>: echo the message prepended with <code>!!</code>.</li>
 <li><code>RESPOND PREFIX=&lt;prefix&gt; MSG="&lt;message&gt;"</code>: echo the message prepended with <code>&lt;prefix&gt;</code>. (The <code>PREFIX</code> parameter will take priority over the <code>TYPE</code> parameter)</li>

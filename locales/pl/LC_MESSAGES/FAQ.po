@@ -8,123 +8,8 @@ msgstr ""
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.13.1-dev\n"
-
-msgid "[How can I donate to the project?](#how-can-i-donate-to-the-project)"
-msgstr ""
-"[Jak mogę przekazać pieniądze na projekt?](#how-can-i-donate-to-the-project)"
-
-msgid ""
-"[How do I calculate the rotation_distance config parameter?](#how-do-i-"
-"calculate-the-rotation_distance-config-parameter)"
-msgstr ""
-"[Jak obliczyć parametr konfiguracyjny rotation_distance?](#how-do-i"
-"-calculate-the-rotation_distance-config-parameter)"
-
-msgid "[Where's my serial port?](#wheres-my-serial-port)"
-msgstr "[Gdzie jest mój port szeregowy?](#wheres-my-serial-port)"
-
-msgid ""
-"[When the micro-controller restarts the device changes to "
-"/dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-"
-"devttyusb1)"
-msgstr ""
-
-msgid ""
-"[The \"make flash\" command doesn't work](#the-make-flash-command-doesnt-"
-"work)"
-msgstr ""
-
-msgid ""
-"[How do I change the serial baud rate?](#how-do-i-change-the-serial-baud-"
-"rate)"
-msgstr ""
-
-msgid ""
-"[Can I run Klipper on something other than a Raspberry Pi 3?](#can-i-run-"
-"klipper-on-something-other-than-a-raspberry-pi-3)"
-msgstr ""
-
-msgid ""
-"[Can I run multiple instances of Klipper on the same host machine?](#can-i-"
-"run-multiple-instances-of-klipper-on-the-same-host-machine)"
-msgstr ""
-
-msgid "[Do I have to use OctoPrint?](#do-i-have-to-use-octoprint)"
-msgstr ""
-
-msgid ""
-"[Why can't I move the stepper before homing the printer?](#why-cant-i-move-"
-"the-stepper-before-homing-the-printer)"
-msgstr ""
-
-msgid ""
-"[Why is the Z position_endstop set to 0.5 in the default configs?](#why-is-"
-"the-z-position_endstop-set-to-05-in-the-default-configs)"
-msgstr ""
-
-msgid ""
-"[I converted my config from Marlin and the X/Y axes work fine, but I just "
-"get a screeching noise when homing the Z axis](#i-converted-my-config-from-"
-"marlin-and-the-xy-axes-work-fine-but-i-just-get-a-screeching-noise-when-"
-"homing-the-z-axis)"
-msgstr ""
-
-msgid ""
-"[My TMC motor driver turns off in the middle of a print](#my-tmc-motor-"
-"driver-turns-off-in-the-middle-of-a-print)"
-msgstr ""
-
-msgid ""
-"[I keep getting random \"Lost communication with MCU\" errors](#i-keep-"
-"getting-random-lost-communication-with-mcu-errors)"
-msgstr ""
-
-msgid ""
-"[My Raspberry Pi keeps rebooting during prints](#my-raspberry-pi-keeps-"
-"rebooting-during-prints)"
-msgstr ""
-
-msgid ""
-"[Will the heaters be left on if the Raspberry Pi crashes?](#will-the-"
-"heaters-be-left-on-if-the-raspberry-pi-crashes)"
-msgstr ""
-
-msgid ""
-"[How do I convert a Marlin pin number to a Klipper pin name?](#how-do-i-"
-"convert-a-marlin-pin-number-to-a-klipper-pin-name)"
-msgstr ""
-
-msgid ""
-"[Do I have to wire my device to a specific type of micro-controller "
-"pin?](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-"
-"pin)"
-msgstr ""
-
-msgid ""
-"[How do I cancel an M109/M190 \"wait for temperature\" request?](#how-do-i-"
-"cancel-an-m109m190-wait-for-temperature-request)"
-msgstr ""
-
-msgid ""
-"[Can I find out whether the printer has lost steps?](#can-i-find-out-"
-"whether-the-printer-has-lost-steps)"
-msgstr ""
-
-msgid ""
-"[Why does Klipper report errors? I lost my print!](#why-does-klipper-report-"
-"errors-i-lost-my-print)"
-msgstr ""
-
-msgid ""
-"[How do I upgrade to the latest software?](#how-do-i-upgrade-to-the-latest-"
-"software)"
-msgstr ""
-
-msgid "[How do I uninstall klipper?](#how-do-i-uninstall-klipper)"
-msgstr ""
 
 msgid "How can I donate to the project?"
 msgstr ""
@@ -782,17 +667,130 @@ msgid ""
 "from OctoPrint, this is related to the power supply and it must be fixed."
 msgstr ""
 
-#: docs/FAQ.md:block 2 (ordered list)
-msgid ""
-"[When I set `restart_method=command` my AVR device just hangs on a "
-"restart](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-"
-"restart)"
-msgstr ""
-
 #: docs/FAQ.md:block 62 (header)
 msgid ""
 "When I set `restart_method=command` my AVR device just hangs on a restart"
 msgstr ""
+
+#~ msgid "[How can I donate to the project?](#how-can-i-donate-to-the-project)"
+#~ msgstr ""
+#~ "[Jak mogę przekazać pieniądze na projekt?](#how-can-i-donate-to-the-project)"
+
+#~ msgid ""
+#~ "[How do I calculate the rotation_distance config parameter?](#how-do-i-"
+#~ "calculate-the-rotation_distance-config-parameter)"
+#~ msgstr ""
+#~ "[Jak obliczyć parametr konfiguracyjny rotation_distance?](#how-do-i-"
+#~ "calculate-the-rotation_distance-config-parameter)"
+
+#~ msgid "[Where's my serial port?](#wheres-my-serial-port)"
+#~ msgstr "[Gdzie jest mój port szeregowy?](#wheres-my-serial-port)"
+
+#~ msgid ""
+#~ "[When the micro-controller restarts the device changes to "
+#~ "/dev/ttyUSB1](#when-the-micro-controller-restarts-the-device-changes-to-"
+#~ "devttyusb1)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[The \"make flash\" command doesn't work](#the-make-flash-command-doesnt-"
+#~ "work)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[How do I change the serial baud rate?](#how-do-i-change-the-serial-baud-"
+#~ "rate)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[Can I run Klipper on something other than a Raspberry Pi 3?](#can-i-run-"
+#~ "klipper-on-something-other-than-a-raspberry-pi-3)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[Can I run multiple instances of Klipper on the same host machine?](#can-i-"
+#~ "run-multiple-instances-of-klipper-on-the-same-host-machine)"
+#~ msgstr ""
+
+#~ msgid "[Do I have to use OctoPrint?](#do-i-have-to-use-octoprint)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[Why can't I move the stepper before homing the printer?](#why-cant-i-move-"
+#~ "the-stepper-before-homing-the-printer)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[Why is the Z position_endstop set to 0.5 in the default configs?](#why-is-"
+#~ "the-z-position_endstop-set-to-05-in-the-default-configs)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[I converted my config from Marlin and the X/Y axes work fine, but I just "
+#~ "get a screeching noise when homing the Z axis](#i-converted-my-config-from-"
+#~ "marlin-and-the-xy-axes-work-fine-but-i-just-get-a-screeching-noise-when-"
+#~ "homing-the-z-axis)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[My TMC motor driver turns off in the middle of a print](#my-tmc-motor-"
+#~ "driver-turns-off-in-the-middle-of-a-print)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[I keep getting random \"Lost communication with MCU\" errors](#i-keep-"
+#~ "getting-random-lost-communication-with-mcu-errors)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[My Raspberry Pi keeps rebooting during prints](#my-raspberry-pi-keeps-"
+#~ "rebooting-during-prints)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[Will the heaters be left on if the Raspberry Pi crashes?](#will-the-"
+#~ "heaters-be-left-on-if-the-raspberry-pi-crashes)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[How do I convert a Marlin pin number to a Klipper pin name?](#how-do-i-"
+#~ "convert-a-marlin-pin-number-to-a-klipper-pin-name)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[Do I have to wire my device to a specific type of micro-controller "
+#~ "pin?](#do-i-have-to-wire-my-device-to-a-specific-type-of-micro-controller-"
+#~ "pin)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[How do I cancel an M109/M190 \"wait for temperature\" request?](#how-do-i-"
+#~ "cancel-an-m109m190-wait-for-temperature-request)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[Can I find out whether the printer has lost steps?](#can-i-find-out-"
+#~ "whether-the-printer-has-lost-steps)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[Why does Klipper report errors? I lost my print!](#why-does-klipper-report-"
+#~ "errors-i-lost-my-print)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[How do I upgrade to the latest software?](#how-do-i-upgrade-to-the-latest-"
+#~ "software)"
+#~ msgstr ""
+
+#~ msgid "[How do I uninstall klipper?](#how-do-i-uninstall-klipper)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[When I set `restart_method=command` my AVR device just hangs on a "
+#~ "restart](#when-i-set-restart_methodcommand-my-avr-device-just-hangs-on-a-"
+#~ "restart)"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "[When I set \"restart_method=command\" my AVR device just hangs on a "

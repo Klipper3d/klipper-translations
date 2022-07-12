@@ -2502,6 +2502,25 @@ msgid ""
 "than the value provided."
 msgstr ""
 
+#: docs/G-Codes.md:block 79 (paragraph)
+msgid "Also provided is the following extended G-Code command:"
+msgstr ""
+
+#: docs/G-Codes.md:block 80 (unordered list)
+msgid ""
+"`SET_DISPLAY_TEXT MSG=<message>`: Performs the equivalent of M117, setting "
+"the supplied `MSG` as the current display message. If `MSG` is omitted the "
+"display will be cleared."
+msgstr ""
+
+#: docs/G-Codes.md:block 291 (unordered list)
+msgid ""
+"`RESPOND TYPE=echo_no_space MSG=\"<message>\"`: echo the message prepended "
+"with `echo:` without a space between prefix and message, helpful for "
+"compatibility with some octoprint plugins that expect very specific "
+"formatting."
+msgstr ""
+
 #~ msgid ""
 #~ "`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [<probe_parameter>=<value>]`: This"
 #~ " command will invoke the bed screws adjustment tool. It will command the "

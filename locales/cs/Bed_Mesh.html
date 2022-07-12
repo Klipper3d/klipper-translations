@@ -1206,15 +1206,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rectangular-beds" class="md-nav__link">
-    Rectangular Beds
+  <a href="#obdelnikova-tiskova-plocha" class="md-nav__link">
+    Obdelníková tisková plocha
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#round-beds" class="md-nav__link">
-    Round beds
+  <a href="#kulate-tiskove-plochy" class="md-nav__link">
+    Kulaté tiskové plochy
   </a>
   
 </li>
@@ -1341,7 +1341,7 @@
 <p>The Bed Mesh module may be used to compensate for bed surface irregularties to achieve a better first layer across the entire bed. It should be noted that software based correction will not achieve perfect results, it can only approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical and electrical issues. If an axis is skewed or a probe is not accurate then the bed_mesh module will not receive accurate results from the probing process.</p>
 <p>Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See <a href="Probe_Calibrate.html">Probe Calibrate</a> and Z_ENDSTOP_CALIBRATE in <a href="Manual_Level.html">Manual Level</a> for more information.</p>
 <h2 id="basic-configuration">Basic Configuration<a class="headerlink" href="#basic-configuration" title="Permanent link">&para;</a></h2>
-<h3 id="rectangular-beds">Rectangular Beds<a class="headerlink" href="#rectangular-beds" title="Permanent link">&para;</a></h3>
+<h3 id="obdelnikova-tiskova-plocha">Obdelníková tisková plocha<a class="headerlink" href="#obdelnikova-tiskova-plocha" title="Permanent link">&para;</a></h3>
 <p>This example assumes a printer with a 250 mm x 220 mm rectangular bed and a probe with an x-offset of 24 mm and y-offset of 5 mm.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
@@ -1360,7 +1360,7 @@ probe_count: 5, 3
 </ul>
 <p>The illustration below demonstrates how the <code>mesh_min</code>, <code>mesh_max</code>, and <code>probe_count</code> options are used to generate probe points. The arrows indicate the direction of the probing procedure, beginning at <code>mesh_min</code>. For reference, when the probe is at <code>mesh_min</code> the nozzle will be at (11, 1), and when the probe is at <code>mesh_max</code>, the nozzle will be at (206, 193).</p>
 <p><img alt="bedmesh_rect_basic" src="img/bedmesh_rect_basic.svg" /></p>
-<h3 id="round-beds">Round beds<a class="headerlink" href="#round-beds" title="Permanent link">&para;</a></h3>
+<h3 id="kulate-tiskove-plochy">Kulaté tiskové plochy<a class="headerlink" href="#kulate-tiskove-plochy" title="Permanent link">&para;</a></h3>
 <p>This example assumes a printer equipped with a round bed radius of 100mm. We will use the same probe offsets as the rectangular example, 24 mm on X and 5 mm on Y.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
