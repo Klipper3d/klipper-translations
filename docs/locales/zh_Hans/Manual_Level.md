@@ -112,12 +112,12 @@ Recv: ok
 
 这意味着：
 
-- front left screw is the reference point you must not change it.
+- 左前螺丝是参考点，你不能改变它。
 - front right screw must be turned clockwise 1 full turn and a quarter turn
 - rear right screw must be turned counter-clockwise 50 minutes
 - rear left screw must be turned clockwise 2 minutes (not need it's ok)
 
-Note that "minutes" refers to "minutes of a clock face". So, for example, 15 minutes is a quarter of a full turn.
+请注意，“分钟”是指“时钟上的分钟”。因此，例如，15分钟是完整一圈的四分之一。
 
 重复这个过程几次，直到打印床变得足够水平--通常情况下，这意味着所有的位置需要的调整都小于6分钟。
 

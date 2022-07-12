@@ -61,14 +61,14 @@ Found canbus_uuid=11aa22bb33cc
 canbus_uuid: 11aa22bb33cc
 ```
 
-## USB to CAN bus bridge mode
+## USB转CAN总线桥接模式
 
-Some micro-controllers support selecting "USB to CAN bus bridge" mode during "make menuconfig". This mode may allow one to use a micro-controller as both a "USB to CAN bus adapter" and as a Klipper node.
+一些微控制器支持在 "make menuconfig "中选择 "USB 转 CAN 总线桥接"模式。这种模式可以把微控制器作为 "USB到CAN总线适配器"的同时作为Klipper节点使用。
 
-When Klipper uses this mode the micro-controller appears as a "USB CAN bus adapter" under Linux. The "Klipper bridge mcu" itself will appear as if was on this CAN bus - it can be identified via `canbus_query.py` and configured like other CAN bus Klipper nodes. It will appear alongside other devices that are actually on the CAN bus.
+当Klipper使用这种模式时，微控制器在 Linux 下会显示为一个 "USB CAN总线适配器"。“Klipper 桥接 mcu "本身将出现在这个CAN总线上--它可以通过`canbus_query.py` ，并像其他CAN总线Klipper节点一样被配置。它将与其他实际在CAN总线上的设备一起出现。
 
-Some important notes when using this mode:
+使用该模式时的一些重要注意事项：
 
-* The "bridge mcu" is not actually on the CAN bus. Messages to and from it do not consume bandwidth on the CAN bus. The mcu can not be seen by other adapters that may be on the CAN bus.
-* It is necessary to configure the `can0` (or similar) interface in Linux in order to communicate with the bus. However, Linux CAN bus speed and CAN bus bit-timing options are ignored by Klipper. Currently, the CAN bus frequency is specified during "make menuconfig" and the bus speed specified in Linux is ignored.
-* Whenever the "bridge mcu" is reset, Linux will disable the corresponding `can0` interface. Generally, this may require running commands such as "ip up" to restart the interface. Thus, Klipper FIRMWARE_RESTART commands (or regular RESTART after a config change) may require restarting the `can0` interface.
+* “桥接MCU” 实际上并不在CAN总线上。传入和传出的消息不会占用CAN总线上的带宽。因此位于CAN总线上的其他适配器无法看到MCU。
+* 有必要在Linux中配置`can0` （或类似）接口，以便与总线通信。然而，Klipper 会忽略 Linux的CAN总线速度和 CAN 总线bit-timing选项。目前，CAN总线的频率需要在 "make menuconfig "中指定。Linux中指定的总线速度会被忽略。
+* 每当 "桥接 mcu "被重置时，Linux 将禁用相应的`can0` 接口。一般来说，这可能需要运行诸如 "ip up "之类的命令来重新启动接口。因此，Klipper FIRMWARE_RESTART 命令 (或配置改变后的常规 RESTART) 可能需要重新启动`can0` 接口。
