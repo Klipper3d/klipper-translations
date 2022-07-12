@@ -309,7 +309,7 @@ A force_move modul automatikusan betöltődik, azonban néhány parancshoz szük
 
 #### FORCE_MOVE
 
-`FORCE_MOVE STEPPER=<config_name> DISTANCE=<value> VELOCITY=<value> [ACCEL=<value>]`: Ez a parancs az adott léptetőmotort az adott távolságon (mm-ben) a megadott állandó sebességgel (mm/mp-ben) kényszerrel mozgatja. Ha az ACCEL meg van adva, és nagyobb, mint nulla, akkor a megadott gyorsulás (mm/mp^2-en) kerül alkalmazásra; egyébként nem történik gyorsítás. Nem történik határérték ellenőrzés; nem történik kinematikai frissítés; a tengelyen lévő más párhuzamos léptetők nem kerülnek mozgatásra. Legyen óvatos, mert a helytelen parancs kárt okozhat! A parancs használata szinte biztosan helytelen állapotba hozza az alacsony szintű kinematikát; a kinematika visszaállításához adjon ki utána egy G28 parancsot. Ez a parancs alacsony szintű diagnosztikára és hibakeresésre szolgál.
+`FORCE_MOVE STEPPER=<config_name> DISTANCE=<value> VELOCITY=<value> [ACCEL=<value>]`: Ez a parancs az adott léptetőmotort az adott távolságon (mm-ben) a megadott állandó sebességgel (mm/sec-ben) kényszerrel mozgatja. Ha az ACCEL meg van adva, és nagyobb, mint nulla, akkor a megadott gyorsulás (mm/sec^2-en) kerül alkalmazásra; egyébként nem történik gyorsítás. Nem történik határérték ellenőrzés; nem történik kinematikai frissítés; a tengelyen lévő más párhuzamos léptetők nem kerülnek mozgatásra. Legyen óvatos, mert a helytelen parancs kárt okozhat! A parancs használata szinte biztosan helytelen állapotba hozza az alacsony szintű kinematikát; a kinematika visszaállításához adjon ki utána egy G28 parancsot. Ez a parancs alacsony szintű diagnosztikára és hibakeresésre szolgál.
 
 #### SET_KINEMATIC_POSITION
 
@@ -359,7 +359,7 @@ A gcode_move modul automatikusan betöltődik.
 
 #### SET_GCODE_OFFSET
 
-`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Pozíciós eltolás beállítása, amelyet a későbbi G-kód parancsokra kell alkalmazni. Ezt általában a Z ágy eltolás virtuális megváltoztatására vagy a fúvókák XY eltolásának beállítására használják extruder váltáskor. Például, ha a "SET_GCODE_OFFSET Z=0.2" parancsot küldjük, akkor a jövőbeli G-kód mozgások Z magasságához 0,2 mm-t adunk hozzá. Ha az X_ADJUST stílusparamétereket használjuk, akkor a kiigazítás hozzáadódik a meglévő eltoláshoz (pl. a "SET_GCODE_OFFSET Z=-0.2" és a "SET_GCODE_OFFSET Z_ADJUST=0.3" utána a teljes Z eltolás 0.1 lesz). Ha a "MOVE=1" van megadva, akkor a nyomtatófej mozgatása a megadott eltolás alkalmazására történik (egyébként az eltolás a következő abszolút G-kódú mozgatáskor lép hatályba, amely az adott tengelyt adja meg). Ha a "MOVE_SPEED" meg van adva, akkor a szerszámfej mozgatása a megadott sebességgel (mm/mp-ben) történik; egyébként a nyomtatófej mozgatása az utoljára megadott G-kód sebességet fogja használni.
+`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Pozíciós eltolás beállítása, amelyet a későbbi G-kód parancsokra kell alkalmazni. Ezt általában a Z ágy eltolás virtuális megváltoztatására vagy a fúvókák XY eltolásának beállítására használják extruder váltáskor. Például, ha a "SET_GCODE_OFFSET Z=0.2" parancsot küldjük, akkor a jövőbeli G-kód mozgások Z magasságához 0,2 mm-t adunk hozzá. Ha az X_ADJUST stílusparamétereket használjuk, akkor a kiigazítás hozzáadódik a meglévő eltoláshoz (pl. a "SET_GCODE_OFFSET Z=-0.2" és a "SET_GCODE_OFFSET Z_ADJUST=0.3" utána a teljes Z eltolás 0.1 lesz). Ha a "MOVE=1" van megadva, akkor a nyomtatófej mozgatása a megadott eltolás alkalmazására történik (egyébként az eltolás a következő abszolút G-kódú mozgatáskor lép hatályba, amely az adott tengelyt adja meg). Ha a "MOVE_SPEED" meg van adva, akkor a szerszámfej mozgatása a megadott sebességgel (mm/sec-ben) történik; egyébként a nyomtatófej mozgatása az utoljára megadott G-kód sebességet fogja használni.
 
 #### SAVE_GCODE_STATE
 
@@ -367,7 +367,7 @@ A gcode_move modul automatikusan betöltődik.
 
 #### RESTORE_GCODE_STATE
 
-`RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`: A SAVE_GCODE_STATE segítségével korábban elmentett állapot visszaállítása. Ha "MOVE=1" van megadva, akkor a nyomtatófej mozgatása az előző XYZ-pozícióba való visszalépéshez történik. Ha "MOVE_SPEED" van megadva, akkor a nyomtatófej mozgatása a megadott sebességgel (mm/mp-ben) történik; egyébként a nyomtatófej mozgatása a visszaállított G-kód sebességét használja.
+`RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`: A SAVE_GCODE_STATE segítségével korábban elmentett állapot visszaállítása. Ha "MOVE=1" van megadva, akkor a nyomtatófej mozgatása az előző XYZ-pozícióba való visszalépéshez történik. Ha "MOVE_SPEED" van megadva, akkor a nyomtatófej mozgatása a megadott sebességgel (mm/sec-ben) történik; egyébként a nyomtatófej mozgatása a visszaállított G-kód sebességét használja.
 
 ### [hall_filament_width_sensor]
 
@@ -439,7 +439,7 @@ A manual_probe modul automatikusan betöltődik.
 
 #### MANUAL_PROBE
 
-`MANUAL_PROBE [SPEED=<speed>]`: Egy segédszkript futtatása, amely hasznos a fúvóka magasságának méréséhez egy adott helyen. Ha SPEED van megadva, akkor a TESTZ parancsok sebességét állítja be (az alapértelmezett 5 mm/mp). A kézi mérés során a következő további parancsok állnak rendelkezésre:
+`MANUAL_PROBE [SPEED=<speed>]`: Egy segédszkript futtatása, amely hasznos a fúvóka magasságának méréséhez egy adott helyen. Ha SPEED van megadva, akkor a TESTZ parancsok sebességét állítja be (az alapértelmezett 5 mm/sec). A kézi mérés során a következő további parancsok állnak rendelkezésre:
 
 - `ACCEPT`: Ez a parancs elfogadja az aktuális Z pozíciót, és lezárja a kézi szintező eszközt.
 - `ABORT`: Ez a parancs megszakítja a kézi szintezést.

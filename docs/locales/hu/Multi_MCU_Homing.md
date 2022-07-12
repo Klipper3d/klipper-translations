@@ -6,7 +6,7 @@ Ez a funkció hasznos lehet a vezetékezés egyszerűsítése érdekében, mivel
 
 A túllendülés a végállást figyelő mikrovezérlő és a léptetőmotorokat mozgató mikrovezérlők közötti esetleges üzenetátviteli késések miatt következik be. A Klipper kódot úgy tervezték, hogy ezt a késleltetést legfeljebb 25 ms-ra korlátozza. (Ha a multi-mcu homing aktiválva van, a mikrovezérlők időszakos állapotüzeneteket küldenek, és ellenőrzik, hogy a megfelelő állapotüzenetek 25 ms-on belül érkeznek-e meg.)
 
-Így például, ha 10 mm/mp sebességgel történik a kezdőpont felvétele, akkor akár 0,250 mm-es túllendülés is lehetséges (10 mm/mp * .025mp == 0,250 mm). A multi-mcu homing konfigurálásakor gondosan kell eljárni, hogy az ilyen típusú túllendülésnél figyelembe vegyük. Lassabb kezdőpont felvétel vagy tapintási sebességek használata csökkentheti a túllendülést.
+Így például, ha 10 mm/sec sebességgel történik a kezdőpont felvétele, akkor akár 0,250 mm-es túllendülés is lehetséges (10 mm/sec * .025mp == 0,250 mm). A multi-mcu homing konfigurálásakor gondosan kell eljárni, hogy az ilyen típusú túllendülésnél figyelembe vegyük. Lassabb kezdőpont felvétel vagy tapintási sebességek használata csökkentheti a túllendülést.
 
 A léptetőmotor túllendülése nem befolyásolhatja hátrányosan az alaphelyzetbe állítási és tapintási eljárás pontosságát. A Klipper kód észleli a túllendülést, és számításai során figyelembe veszi azt. Fontos azonban, hogy a hardvertervezés képes legyen kezelni a túllendülést anélkül, hogy a gépben kárt okozna.
 

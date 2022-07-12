@@ -74,19 +74,19 @@ kinematics:
 #   cartesian, corexy, corexz, hibrid_korexy, hibrid_corexz, rotary_delta,
 #   delta, polar, winch, vagy semmilyen. Ezt a paramétert meg kell adni.
 max_velocity:
-#   A nyomtatófej maximális sebessége (mm/mp-ben) a (nyomathoz
+#   A nyomtatófej maximális sebessége (mm/sec-ben) a (nyomathoz
 #   viszonyítva). Ezt a paramétert meg kell adni.
 max_accel:
-#   A nyomtatófej maximális gyorsulása (mm/mp^2-en) a (nyomathoz
+#   A nyomtatófej maximális gyorsulása (mm/sec^2-en) a (nyomathoz
 #   viszonyítva). Ezt a paramétert meg kell adni.
 #max_accel_to_decel:
-#   Álgyorsulás (mm/mp^2-en), amely azt szabályozza, hogy a
+#   Álgyorsulás (mm/sec^2-en), amely azt szabályozza, hogy a
 #   nyomtatófej milyen gyorsan haladjon a gyorsulástól a lassításig.
 #   A rövid cikk-cakk mozgások maximális sebességének csökkentésére
 #   szolgál (és ezáltal csökkenti a nyomtató rezgését ezekből a
 #   lépésekből). Az alapértelmezett a max_accel értékének a fele.
 #square_corner_velocity: 5.0
-#   Az a maximális sebesség (mm/mp-ben), amellyel a nyomtatófej egy
+#   Az a maximális sebesség (mm/sec-ben), amellyel a nyomtatófej egy
 #   90 fokos sarokban haladhat. A nullától eltérő érték csökkentheti az
 #   extruder áramlási sebességének változásait azáltal, hogy lehetővé
 #   teszi a nyomtatófej pillanatnyi sebességváltozását kanyarodás
@@ -95,7 +95,7 @@ max_accel:
 #   kanyarodási sebessége nagyobb, míg a 90 foknál kisebb szögű
 #   sarkok kanyarsebessége kisebb. Ha ez nullára van állítva, akkor a
 #   nyomtatófej minden saroknál nullára lassul.
-#   Az alapértelmezett érték 5 mm/mp.
+#   Az alapértelmezett érték 5 mm/sec.
 ```
 
 ### [stepper]
@@ -157,8 +157,8 @@ position_max:
 #   a léptetőt, hogy mozogjon. Ezt a paramétert meg kell adni a derékszögű
 #   nyomtatók X, Y és Z léptetőihez.
 #homing_speed: 5.0
-#   A léptető maximális sebessége (mm/mp-ben) kezdőpont felvételkor.
-#   Az alapértelmezett érték 5 mm/mp.
+#   A léptető maximális sebessége (mm/sec-ben) kezdőpont felvételkor.
+#   Az alapértelmezett érték 5 mm/sec.
 #homing_retract_dist: 5.0
 #   Távolság a visszalépésig (mm-ben), mielőtt másodszor is beállítaná.
 #   Állítsa ezt nullára a második kezdőpont felvétel letiltásához.
@@ -168,7 +168,7 @@ position_max:
 #   után arra az esetre, ha ez eltérne a beállítási sebességtől, amely ehhez a
 #   paraméterhez az alapértelmezett.
 #second_homing_speed:
-#   A léptető sebessége (mm/mp-ben) a második kezdőpont felvétel
+#   A léptető sebessége (mm/sec-ben) a második kezdőpont felvétel
 #   végrehajtásakor. Az alapértelmezés a homing_speed/2.
 #homing_positive_dir:
 #   Ha ez True, a kezdőpont felvétel hatására a léptető pozitív irányba mozdul
@@ -188,12 +188,12 @@ Itt csak a cartesian nyomtatókra jellemző paraméterek kerülnek leírásra. A
 [printer]
 kinematics: cartesian
 max_z_velocity:
-#   Ez állítja be a Z irányú mozgás maximális sebességét (mm/mp-ben).
+#   Ez állítja be a Z irányú mozgás maximális sebességét (mm/sec-ben).
 #   Ez a beállítás használható a maximális sebesség korlátozására a
 #   a Z léptetőmotor esetében. Az alapértelmezés szerint a max_velocity a következő értékekre vonatkozik
 # max_z_velocity.
 max_z_accel:
-#   Ez állítja be a mozgás maximális gyorsulását (mm/mp^2-ben)
+#   Ez állítja be a mozgás maximális gyorsulását (mm/sec^2-ben)
 #   a Z tengely mentén. Korlátozza a Z léptetőmotor gyorsulását. Az
 #   alapértelmezett a max_accel használata a max_z_accel esetében.
 
@@ -221,13 +221,13 @@ Itt csak a lineáris delta nyomtatókra jellemző paraméterek kerülnek leírá
 kinematics: delta
 max_z_velocity:
 #   A delta nyomtatóknál ez korlátozza a Z tengely mozgásának maximális
-#   sebességét (mm/mp-ben). Ezzel a beállítással csökkenthető a fel/le
+#   sebességét (mm/sec-ben). Ezzel a beállítással csökkenthető a fel/le
 #   mozgások maximális sebessége (amely nagyobb lépésszámot igényel,
 #   mint a deltanyomtatók egyéb mozgásai). Az alapértelmezett érték a
 #   max_velocity használata a max_z_velocity értékhez.
 #max_z_accel:
 #   Ez beállítja a Z tengely mentén történő mozgás maximális gyorsulását
-#   (mm/mp^2-en). Ennek beállítása akkor lehet hasznos, ha a nyomtató
+#   (mm/sec^2-en). Ennek beállítása akkor lehet hasznos, ha a nyomtató
 #   nagyobb gyorsulást tud elérni XY mozgásnál, mint Z mozgásnál (pl.
 #   bemeneti alakformáló használatakor).
 #   Az alapértelmezés szerinti értéke a max_accel a max_z_accel értékhez.
@@ -283,7 +283,7 @@ radius:
 #   akkor válasszon elég kicsi sugarat, hogy a szonda mindig az ágy fölé
 #   férjen. Ezt a paramétert meg kell adni.
 #speed: 50
-#   A nem szondázás sebessége (mm/mp-ben) mozog a kalibrálás során.
+#   A nem szondázás sebessége (mm/sec-ben) mozog a kalibrálás során.
 #   Az alapértelmezett érték 50.
 #horizontal_move_z: 5
 #   Az a magasság (mm-ben), ameddig a fejnek el kell mozdulnia
@@ -301,12 +301,12 @@ Itt csak a CoreXY nyomtatókra jellemző paraméterek kerülnek leírásra. A re
 [printer]
 kinematics: corexy
 max_z_velocity:
-#   Ez állítja be a Z irányú mozgás maximális sebességét (mm/mp-ben).
+#   Ez állítja be a Z irányú mozgás maximális sebességét (mm/sec-ben).
 #   Ez a beállítás használható a Z léptetőmotor maximális sebességkorlátozására.
 #   Az alapértelmezés szerint a max_velocity a következő értékekre vonatkozik
 #   amely a max_z_velocity.
 max_z_accel:
-#   Ez állítja be a mozgás maximális gyorsulását (mm/mp^2 -ben)
+#   Ez állítja be a mozgás maximális gyorsulását (mm/sec^2 -ben)
 #   a Z tengely mentén. Korlátozza a Z léptetőmotor gyorsulását.
 #   Az alapértelmezett max_accel használata a max_z_accel paranccsal történik.
 
@@ -332,12 +332,12 @@ Itt csak a CoreXZ nyomtatókra jellemző paraméterek kerülnek leírásra. A re
 [printer]
 kinematics: corexz
 max_z_velocity:
-#   Ez állítja be a Z irányú mozgás maximális sebességét (mm/mp-ben).
+#   Ez állítja be a Z irányú mozgás maximális sebességét (mm/sec-ben).
 #   Ez a beállítás használható a Z léptetőmotor maximális sebességkorlátozására.
 #   Az alapértelmezés szerint a max_velocity a következő értékekre vonatkozik
 #   amely a max_z_velocity.
 max_z_accel:
-#   Ez állítja be a mozgás maximális gyorsulását (mm/mp^2 -ben)
+#   Ez állítja be a mozgás maximális gyorsulását (mm/sec^2 -ben)
 #   a Z tengely mentén. Korlátozza a Z léptetőmotor gyorsulását.
 #   Az alapértelmezett max_accel használata a max_z_accel paranccsal történik.
 
@@ -365,10 +365,10 @@ Itt csak a hibrid CoreXY nyomtatókra jellemző paramétereket írjuk le, a rend
 [printer]
 kinematics: hybrid_corexy
 max_z_velocity:
-#   Ez beállítja a Z tengely mentén történő mozgás maximális sebességét (mm/mp-ben).
+#   Ez beállítja a Z tengely mentén történő mozgás maximális sebességét (mm/sec-ben).
 #   Az alapértelmezett érték a max_velocity használata a max_z_velocity értékhez.
 max_z_accel:
-#   Ez beállítja a Z tengely mentén történő mozgás maximális gyorsulását (mm/mp^2-en).
+#   Ez beállítja a Z tengely mentén történő mozgás maximális gyorsulását (mm/sec^2-en).
 #   Az alapértelmezett érték a max_accel használata a max_z_accel értékhez.
 
 # A stepper_x szakasz az X tengely, valamint az X-Y mozgást vezérlő léptető leírására szolgál.
@@ -393,10 +393,10 @@ Itt csak a hibrid CoreXY nyomtatókra jellemző paramétereket írjuk le, a rend
 [printer]
 kinematics: hybrid_corexz
 max_z_velocity:
-#   Ez beállítja a Z tengely mentén történő mozgás maximális sebességét (mm/mp-ben).
+#   Ez beállítja a Z tengely mentén történő mozgás maximális sebességét (mm/sec-ben).
 #   Az alapértelmezett érték a max_velocity használata a max_z_velocity értékhez.
 max_z_accel:
-#   Ez beállítja a Z tengely mentén történő mozgás maximális gyorsulását (mm/mp^2-en).
+#   Ez beállítja a Z tengely mentén történő mozgás maximális gyorsulását (mm/sec^2-en).
 #   Az alapértelmezett érték a max_accel használata a max_z_accel értékhez.
 
 # A stepper_x szakasz az X tengely, valamint az X-Z mozgást vezérlő léptető leírására szolgál.
@@ -421,13 +421,13 @@ A POLÁRIS KINEMATIKA MÉG FOLYAMATBAN VAN. A 0, 0 pozíció körüli mozgásokr
 [printer]
 kinematics: polar
 max_z_velocity:
-#   Ez beállítja a maximális mozgási sebességet (mm/mp-ben) a Z tengely
+#   Ez beállítja a maximális mozgási sebességet (mm/sec-ben) a Z tengely
 #   mentén. Ezzel a beállítással korlátozható a Z léptetőmotor maximális
 #   sebessége. Az alapértelmezett érték a max_velocity használata a
 #   max_z_velocity értékhez.
 max_z_accel:
 #   Ez beállítja a Z tengely mentén történő mozgás maximális gyorsulását
-#   (mm/mp^2-en). Korlátozza a Z léptetőmotor gyorsulását.
+#   (mm/sec^2-en). Korlátozza a Z léptetőmotor gyorsulását.
 #   Az alapértelmezés szerint a max_accel értéke a max_z_accel.
 
 # A stepper_bed szakasz az ágyat vezérlő stepper leírására szolgál.
@@ -459,7 +459,7 @@ A FORGÓ DELTA KINEMATIKA MÉG FOLYAMATBAN VAN. A célkövető mozgások időzí
 kinematics: rotary_delta
 max_z_velocity:
 #   Delta nyomtatóknál ez korlátozza a Z tengely mozgásának maximális
-#   sebességét (mm/mp-ben). Ezzel a beállítással csökkenthető a fel/le
+#   sebességét (mm/sec-ben). Ezzel a beállítással csökkenthető a fel/le
 #   mozgások maximális sebessége (amely nagyobb lépésszámot igényel,
 #   mint a deltanyomtatók egyéb mozgásai). Az alapértelmezett érték a
 #   max_velocity használata a max_z_velocity értékhez.
@@ -517,7 +517,7 @@ radius:
 #   sugara; Ha X-Y eltolású automata szondát használ, akkor válasszon elég kicsi
 #   sugarat, hogy a szonda mindig az ágy fölé férjen. Ezt a paramétert meg kell adni.
 #speed: 50
-#   A nem tapintó mozgás sebessége (mm/mp-ben) a kalibrálás során.
+#   A nem tapintó mozgás sebessége (mm/sec-ben) a kalibrálás során.
 #   Az alapértelmezett 50.
 #horizontal_move_z: 5
 #   Az a magasság (mm-ben), ameddig a fejet utasítani kell, hogy mozduljon el
@@ -595,8 +595,8 @@ filament_diameter:
 #   ezt az értéket, akkor hibaüzenet jelenik meg.
 #   Az alapértelmezett érték: 4.0 * nozzle_diameter^2
 #instantaneous_corner_velocity: 1.000
-#   Az extruder maximális pillanatnyi sebességváltozása (mm/mp-ben)
-#   két mozgás találkozásánál. Az alapértelmezett 1 mm/mp.
+#   Az extruder maximális pillanatnyi sebességváltozása (mm/sec-ben)
+#   két mozgás találkozásánál. Az alapértelmezett 1 mm/sec.
 #max_extrude_only_distance: 50.0
 #   Maximális hossza (a nyers nyomtatószálnak mm-ben), amely egy
 #   visszahúzás vagy csak extrudálás esetén lehetséges. Ha egy visszahúzás
@@ -604,8 +604,8 @@ filament_diameter:
 #   hibaüzenetet ad vissza. Az alapértelmezett érték 50 mm.
 #max_extrude_only_velocity:
 #max_extrude_only_accel:
-#   Az extrudermotor maximális sebessége (mm/mp-ben) és gyorsulása
-#   (mm/mp^2-en) a visszahúzásokhoz és a csak extrudált mozgásokhoz.
+#   Az extrudermotor maximális sebessége (mm/sec-ben) és gyorsulása
+#   (mm/sec^2-en) a visszahúzásokhoz és a csak extrudált mozgásokhoz.
 #   Ezek a beállítások nincsenek hatással a normál nyomtatási sebességekre.
 #   Ha nincs megadva, akkor a számítások megfelelnek a 4.0*nozzle_diameter^2
 #   keresztmetszetű XY nyomtatási mozgás határának.
@@ -734,7 +734,7 @@ Vizuális példák:
 ```
 [bed_mesh]
 #speed: 50
-#   A kalibrálás során a nem próbamozgások sebessége (mm/mp-ben).
+#   A kalibrálás során a nem próbamozgások sebessége (mm/sec-ben).
 #   Az alapértelmezett érték 50.
 #horizontal_move_z: 5
 #   Az a magasság (mm-ben), amelyre a fejnek parancsot kell adni a
@@ -857,7 +857,7 @@ További információkért lásd a [parancsreferencia](G-Codes.md#bed_tilt) doku
 #   az ágy felett van a megadott fúvókakoordinátákon.
 #   Az alapértelmezett az, hogy nem engedélyezi a parancsot.
 #speed: 50
-#   A nem szondázás sebessége (mm/mp-ben) mozog a kalibrálás során.
+#   A nem szondázás sebessége (mm/sec-ben) mozog a kalibrálás során.
 #   Az alapértelmezett érték 50.
 #horizontal_move_z: 5
 #   Az a magasság (mm-ben), ameddig a fejnek el kell mozdulnia
@@ -898,10 +898,10 @@ További információkért lásd a [szintezési útmutató](Manual_Level.md#adju
 #   A szonda magassága (mm-ben) a hőfokszabályozás után.
 #   Az ágy és a fúvóka hőtágulása után. Az alapértelmezett érték nulla.
 #speed: 50
-#   A kalibrálás során a nem mérési mozgások sebessége (mm/mp-ben).
+#   A kalibrálás során a nem mérési mozgások sebessége (mm/sec-ben).
 #   Az alapértelmezett érték 50.
 #probe_speed: 5
-#   A sebesség (mm/mp-ben) a horizontális_move_z pozícióból történő mozgáskor.
+#   A sebesség (mm/sec-ben) a horizontális_move_z pozícióból történő mozgáskor.
 #   A probe_height pozíciója. Az alapértelmezett érték 5.
 ```
 
@@ -929,7 +929,7 @@ További információkért lásd a [szintezési útmutató](Manual_Level.md#adju
 #   További ágykiegyenlítő csavarok.
 #   Legalább két csavart kell meghatározott.
 #speed: 50
-#   A kalibrálás során a nem mérő mozgások sebessége (mm/mp-ben).
+#   A kalibrálás során a nem mérő mozgások sebessége (mm/sec-ben).
 #   Az alapértelmezett érték 50.
 #horizontal_move_z: 5
 #   A magasság (mm-ben), ahová a fejnek el kell mozdulnia.
@@ -966,7 +966,7 @@ Többszörös Z léptető dőlésszög beállítása. Ez a funkció lehetővé t
 #   felett van a megadott fúvókakoordinátákon.
 #   Ezt a paramétert meg kell adni.
 #speed: 50
-#   A nem mérési mozgás sebessége (mm/mp-ben) mozog a kalibráláskor.
+#   A nem mérési mozgás sebessége (mm/sec-ben) mozog a kalibráláskor.
 #   Az alapértelmezett érték 50.
 #horizontal_move_z: 5
 #   Az a magasság (mm-ben), ameddig a fejnek el kell mozdulnia
@@ -1014,7 +1014,7 @@ Ahol X az ágy 0, 0 pontja
 #   Ezt a paramétert meg kell adni. A maximális pontosság érdekében
 #   győződjön meg arról, hogy a szonda eltolása be van állítva.
 #speed: 50
-#   A nem mérési mozgások sebessége (mm/mp-ben) mozog a kalibráláskor.
+#   A nem mérési mozgások sebessége (mm/sec-ben) mozog a kalibráláskor.
 #   Az alapértelmezett érték 50.
 #horizontal_move_z: 5
 #   Az a magasság (mm-ben), ameddig a fejnek el kell mozdulnia közvetlenül
@@ -1052,7 +1052,7 @@ home_xy_position:
 #   Ezt a paramétert meg kell adni.
 #speed: 50.0
 #   Az a sebesség, amellyel a szerszámfej a biztonságos Z
-#   kezdőkoordinátára kerül. Az alapértelmezett érték 50 mm/mp
+#   kezdőkoordinátára kerül. Az alapértelmezett érték 50 mm/sec
 #z_hop:
 #   Távolság (mm-ben) a Z tengely felemeléséhez a beállítás előtt.
 #   Ez minden irányadó parancsra vonatkozik, még akkor is, ha nem
@@ -1062,8 +1062,8 @@ home_xy_position:
 #   Ha a Z tengely még nincs behelyezve, a fejet a z_hop felemeli.
 #   Az alapértelmezett az, hogy nem valósítja meg a Z ugrást.
 #z_hop_speed: 15.0
-#   Sebesség (mm/mp-ben), amellyel a Z tengely megemelkedik
-#   a homing előtt. Az alapértelmezett érték 15mm/mp.
+#   Sebesség (mm/sec-ben), amellyel a Z tengely megemelkedik
+#   a homing előtt. Az alapértelmezett érték 15mm/sec.
 #move_to_previous: False
 #   Ha True értékre van állítva, az X és Y tengelyek visszaállnak
 #   az előző pozíciójukra a Z tengely kezdőpont felvétele után.
@@ -1257,8 +1257,8 @@ Szüneteltetési/folytatási funkció a pozíció rögzítésének és visszaál
 [pause_resume]
 #recover_velocity: 50.
 #   Ha a rögzítés/visszaállítás engedélyezve van, akkor a megadott
-#   sebességgel, tér vissza a rögzített pozícióhoz (mm/mp-ben).
-#   Az alapértelmezett érték 50,0 mm/mp.
+#   sebességgel, tér vissza a rögzített pozícióhoz (mm/sec-ben).
+#   Az alapértelmezett érték 50,0 mm/sec.
 ```
 
 ### [firmware_retraction]
@@ -1272,14 +1272,14 @@ Firmware szál visszahúzás. Ez lehetővé teszi a G10 (visszahúzás) és G11 
 #   és a G11 aktiválásakor visszahúzandó (de lásd: G11).
 #   unretract_extra_length alább). Az alapértelmezett érték 0 mm.
 #retract_speed: 20
-#   A behúzás sebessége mm/mp-ben.
-#   Az alapértelmezett érték 20 mm/mp.
+#   A behúzás sebessége mm/sec-ben.
+#   Az alapértelmezett érték 20 mm/sec.
 #unretract_extra_length: 0
 #   Az *additional* szál hossza (mm-ben), amelyet hozzáadunk,
 #   a visszahúzás feloldásakor.
 #unretract_speed: 10
-#   A visszahúzás feloldásának sebessége mm/mp-ben.
-#   Az alapértelmezett érték 10 mm/mp.
+#   A visszahúzás feloldásának sebessége mm/sec-ben.
+#   Az alapértelmezett érték 10 mm/sec.
 ```
 
 ### [gcode_arcs]
@@ -1462,7 +1462,7 @@ A rezonancia tesztelés és az automatikus bemeneti alakító kalibráció támo
 #   beállítható, ha a rezonanciák túl erősek lesznek a nyomtatón.
 #   Az alacsonyabb értékek azonban a nagyfrekvenciás rezonanciák
 #   mérését pontatlanabbá teszik.
-#   Az alapértelmezett érték 75 (mm/mp).
+#   Az alapértelmezett érték 75 (mm/sec).
 #hz_per_sec: 1
 #   Meghatározza a teszt sebességét. A [min_freq, max_freq]
 #   tartományban lévő összes frekvencia tesztelésekor a frekvencia
@@ -1538,8 +1538,8 @@ z_offset:
 #   Az ágy és a fúvóka közötti távolság (mm-ben), amikor a szonda kiold.
 #   Ezt a paramétert meg kell adni.
 #speed: 5.0
-#   A Z tengely sebessége (mm/mp-ben) tapintáskor.
-#   Az alapértelmezett 5 mm/mp.
+#   A Z tengely sebessége (mm/sec-ben) tapintáskor.
+#   Az alapértelmezett 5 mm/sec.
 #samples: 1
 #   Az egyes pontok mérésének száma.
 #   A vizsgált Z-értékek átlagolásra kerülnek.
@@ -1549,7 +1549,7 @@ z_offset:
 #   között (egynél többszöri mérés esetén).
 #   Az alapértelmezett érték 2 mm.
 #lift_speed:
-#   A Z tengely sebessége (mm/mp-ben) a szonda felemelésekor a mérések
+#   A Z tengely sebessége (mm/sec-ben) a szonda felemelésekor a mérések
 #   között. Az alapértelmezett érték ugyanaz, mint a „speed” paraméternél.
 #samples_result: average
 #   A számítási módszer többszöri mérés esetén „median” vagy „average”.
@@ -1663,7 +1663,7 @@ pin:
 #   elérhetővé.
 #probe_accel:
 #   Ha be van állítva, korlátozza a tapogató mozgások gyorsulását
-#   (mm/mp^2-ben). A hirtelen nagy gyorsulás a tapogató mozgás kezdetén
+#   (mm/sec^2-ben). A hirtelen nagy gyorsulás a tapogató mozgás kezdetén
 #   téves tapintásindítást okozhat, különösen, ha a hotend nehéz. Ennek
 #   megakadályozására szükség lehet a gyorsulás csökkentésére a
 #   szondázó mozgások gyorsulásával ezzel a paraméterrel.
@@ -1682,8 +1682,8 @@ z_offset:
 #   állítsa be a következővel `PROBE_CALIBRATE` paranccsal.
 #   Ezt a paramétert meg kell adni.
 #speed:
-#   A Z tengely sebessége (mm/mp-ben) tapogatáskor. Javasoljuk, hogy a
-#   tapintási sebességet 20 mm/mp sebességgel kezdjük, és szükség
+#   A Z tengely sebessége (mm/sec-ben) tapogatáskor. Javasoljuk, hogy a
+#   tapintási sebességet 20 mm/sec sebességgel kezdjük, és szükség
 #   szerint állítsuk be, hogy javítsuk a a tapintás kioldásának pontosságát
 #   és megismételhetőségét.
 #samples:
@@ -1792,11 +1792,11 @@ Kézi léptetők (tetszőleges számú szakasz definiálható "manual_stepper" e
 #rotation_distance:
 #   A paraméterek leírását lásd a "léptető" részben.
 #velocity:
-#   Állítsa be a léptető alapértelmezett sebességét (mm/mp-ben).
+#   Állítsa be a léptető alapértelmezett sebességét (mm/sec-ben).
 #   Ezt az értéket használja a rendszer, ha a MANUAL_STEPPER parancs nem
-#   ad meg SPEED paramétert. Az alapértelmezett érték 5 mm/mp.
+#   ad meg SPEED paramétert. Az alapértelmezett érték 5 mm/sec.
 #accel:
-#   Állítsa be a léptető alapértelmezett gyorsulását (mm/mp^2-en). A nulla
+#   Állítsa be a léptető alapértelmezett gyorsulását (mm/sec^2-en). A nulla
 #   gyorsulás nem eredményez gyorsulást. Ezt az értéket használja a rendszer,
 #   ha a MANUAL_STEPPER parancs nem ad meg ACCEL paramétert.
 #   Az alapértelmezett érték 0.
@@ -2710,7 +2710,7 @@ run_current:
 #   Az alapértelmezett érték 0,110 ohm.
 #stealthchop_threshold: 0
 #   A „StealthChop” küszöbérték beállításához szükséges sebesség
-#   (mm/mp-ben). Ha be van állítva, a "StealthChop" mód engedélyezve
+#   (mm/sec-ben). Ha be van állítva, a "StealthChop" mód engedélyezve
 #   lesz, ha a léptetőmotor sebessége ez alatt az érték alatt van.
 #   Az alapértelmezett érték 0, ami letiltja a "StealthChop" módot.
 #driver_IHOLDDELAY: 8
@@ -2778,7 +2778,7 @@ run_current:
 #   Az alapértelmezett érték 0,110 ohm.
 #stealthchop_threshold: 0
 #   A „StealthChop” küszöbérték beállításához szükséges sebesség
-#   (mm/mp-ben). Ha be van állítva, a "StealthChop" mód engedélyezve
+#   (mm/sec-ben). Ha be van állítva, a "StealthChop" mód engedélyezve
 #   lesz, ha a léptetőmotor sebessége ez alatt az érték alatt van.
 #   Az alapértelmezett érték 0, ami letiltja a "StealthChop" módot.
 #driver_IHOLDDELAY: 8
@@ -2958,7 +2958,7 @@ run_current:
 #   Az alapértelmezett érték 0,075 ohm.
 #stealthchop_threshold: 0
 #   A „StealthChop” küszöbérték beállításához szükséges sebesség
-#   (mm/mp-ben). Ha be van állítva, a "StealthChop" mód engedélyezve
+#   (mm/sec-ben). Ha be van állítva, a "StealthChop" mód engedélyezve
 #   lesz, ha a léptetőmotor sebessége ez alatt az érték alatt van.
 #   Az alapértelmezett érték 0, ami letiltja a "StealthChop" módot.
 #driver_IHOLDDELAY: 6
@@ -3848,7 +3848,7 @@ serial:
 #feedrate_normal: 1.0
 #   A toldás után használandó feedrate, alapértelmezett értéke 1.0.
 #auto_load_speed: 2
-#   Extrudálási előtolási sebesség automatikus betöltéskor, alapértelmezett 2 (mm/mp)
+#   Extrudálási előtolási sebesség automatikus betöltéskor, alapértelmezett 2 (mm/sec)
 #auto_cancel_variation: 0.1
 #   Automatikusan törli a nyomtatást, ha a ping meghaladja ezt a küszöbértéket.
 ```
