@@ -50,11 +50,11 @@ gcode:
   RESTORE_GCODE_STATE NAME=my_move_up_state
 ```
 
-The `G91` command places the G-Code parsing state into "relative move mode" and the `RESTORE_GCODE_STATE` command restores the state to what it was prior to entering the macro. Be sure to specify an explicit speed (via the `F` parameter) on the first `G1` command.
+`G91` 命令将G代码解析状态放入 "相对移动模式"，`RESTORE_GCODE_STATE` 命令将状态恢复到进入宏之前的状态。请确保在第一条`G1` 命令中指定一个明确的速度（通过`F` 参数）。
 
 ## 模板扩展
 
-The gcode_macro `gcode:` config section is evaluated using the Jinja2 template language. One can evaluate expressions at run-time by wrapping them in `{ }` characters or use conditional statements wrapped in `{% %}`. See the [Jinja2 documentation](http://jinja.pocoo.org/docs/2.10/templates/) for further information on the syntax.
+gcode_macro`gcode:` 配置部分是使用的是Jinja2模板语言。人们可以通过用`{ }` 字符包装来在运行时使用表达式，或者使用用`{% %}` 包装的条件语句。参考[Jinja2文档](http://jinja.pocoo.org/docs/2.10/templates/)以了解更多关于语法的信息。
 
 一个更复杂的宏示例：
 
@@ -75,7 +75,7 @@ gcode:
 
 ### 宏观参数
 
-It is often useful to inspect parameters passed to the macro when it is called. These parameters are available via the `params` pseudo-variable. For example, if the macro:
+当macro被调用时，检查传递给它的参数往往是有用的。这些参数可以通过`params` 伪变量（pseudo-variable）获得。类似于以下macro：
 
 ```
 [gcode_macro SET_PERCENT]
@@ -83,9 +83,9 @@ gcode:
   M117 Now at { params.VALUE|float * 100 }%
 ```
 
-were invoked as `SET_PERCENT VALUE=.2` it would evaluate to `M117 Now at 20%`. Note that parameter names are always in upper-case when evaluated in the macro and are always passed as strings. If performing math then they must be explicitly converted to integers or floats.
+如果以`SET_PERCENT VALUE=.2` 的方式调用，则会评估为`M117 现在为 20%` 。需要注意的是在宏（macro）中进行评估时，参数名称始终使用大写字母，并且始终以字符串（strings）形式传递。如果执行数学运算，则必须明确地将其转换为整数（integers）或浮点数（floats）。
 
-It's common to use the Jinja2 `set` directive to use a default parameter and assign the result to a local name. For example:
+通常使用Jinja2的`set` 指令来使用一个默认参数，并将结果分配给一个本地名称。比如说：
 
 ```
 [gcode_macro SET_BED_TEMPERATURE]
@@ -115,7 +115,7 @@ gcode:
 
 ### "printer"变量
 
-It is possible to inspect (and alter) the current state of the printer via the `printer` pseudo-variable. For example:
+可以通过`printer` 的pseudo-variable来检查（和变更）打印机的当前状态。比如说：
 
 ```
 [gcode_macro slow_fan]
@@ -123,7 +123,7 @@ gcode:
   M106 S{ printer.fan.speed * 0.9 * 255}
 ```
 
-Available fields are defined in the [Status Reference](Status_Reference.md) document.
+[Status Reference](Status_Reference.md) 文档中定义了可用字段。
 
 Important! Macros are first evaluated in entirety and only then are the resulting commands executed. If a macro issues a command that alters the state of the printer, the results of that state change will not be visible during the evaluation of the macro. This can also result in subtle behavior when a macro generates commands that call other macros, as the called macro is evaluated when it is invoked (which is after the entire evaluation of the calling macro).
 
