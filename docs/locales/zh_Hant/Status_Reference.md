@@ -160,6 +160,15 @@ The following information is available for each `[led led_name]`, `[neopixel led
 
 - `color_data`: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underyling LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at `printer["neopixel <config_name>"].color_data[1][2]`.
 
+## manual_probe
+
+The following information is available in the `manual_probe` object:
+
+- `is_active`: Returns True if a manual probing helper script is currently active.
+- `z_position`: The current height of the nozzle (as the printer currently understands it).
+- `z_position_lower`: Last probe attempt just lower than the current height.
+- `z_position_upper`: Last probe attempt just greater than the current height.
+
 ## mcu
 
 [mcu](Config_Reference.md#mcu)和[mcu some_name](Config_Reference.md#mcu-my_extra_mcu)對像提供了以下資訊：

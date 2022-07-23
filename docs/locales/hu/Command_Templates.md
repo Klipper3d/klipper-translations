@@ -98,20 +98,9 @@ gcode:
 
 A futó makró teljes, be nem elemzett paraméterei a `rawparams` pszeudováltozóval érhetők el.
 
-Ez nagyon hasznos, ha meg akarod változtatni bizonyos parancsok viselkedését, mint például az `M117`. Például:
+Note that this will include any comments that were part of the original command.
 
-```
-[gcode_macro M117]
-rename_existing: M117.1
-gcode:
-  {% if rawparams %}
-    {% set escaped_msg = rawparams|replace('"', '\\"') %}
-    SET_DISPLAY_TEXT MSG="{escaped_msg}"
-    RESPOND TYPE=command MSG="{escaped_msg}"
-  {% else %}
-    SET_DISPLAY_TEXT
-  {% endif %}
-```
+See the [sample-macros.cfg](../config/sample-macros.cfg) file for an example showing how to override the `M117` command using `rawparams`.
 
 ### A "nyomtató" változó
 

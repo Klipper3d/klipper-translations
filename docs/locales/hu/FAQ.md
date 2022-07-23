@@ -2,7 +2,7 @@
 
 ## Hogyan adományozhatok a projektnek?
 
-Köszönöm. Kevinnek van egy Patreon oldala: <https://www.patreon.com/koconnor>
+Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
 
 ## Hogyan számíthatom ki a rotation_distance konfigurációs paramétert?
 

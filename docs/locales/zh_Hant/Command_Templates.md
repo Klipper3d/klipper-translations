@@ -98,20 +98,9 @@ gcode:
 
 運行巨集的完整未解析參數可以通過 `rawparams` 偽變數訪問。
 
-如果您想更改某些命令（如“M117”）的行為，這非常有用。例如：
+Note that this will include any comments that were part of the original command.
 
-```
-[gcode_macro M117]
-rename_existing: M117.1
-gcode:
-  {% if rawparams %}
-    {% set escaped_msg = rawparams|replace('"', '\\"') %}
-    SET_DISPLAY_TEXT MSG="{escaped_msg}"
-    RESPOND TYPE=command MSG="{escaped_msg}"
-  {% else %}
-    SET_DISPLAY_TEXT
-  {% endif %}
-```
+See the [sample-macros.cfg](../config/sample-macros.cfg) file for an example showing how to override the `M117` command using `rawparams`.
 
 ### "printer"變數
 

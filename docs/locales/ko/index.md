@@ -12,4 +12,4 @@ Klipper 는 3D 프린터 펌웨어입니다. Klipper 는 하나 이상의 마이
 
 Klipper 를 사용하려면 [installing](Installation.md)부터 시작합니다.
 
-Klipper는 자유 소프트웨어입니다. [문서](Overview.md)를 읽거나 [GitHub의 Klipper 코드](https://github.com/Klipper3d/klipper)를 보십시오.
+Klipper is Free Software. Read the [documentation](Overview.md) or view [the Klipper code on github](https://github.com/Klipper3d/klipper). We depend on the generous support from our [sponsors](Sponsors.md).

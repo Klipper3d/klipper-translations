@@ -12,4 +12,4 @@ Klipper è un firmware per stampanti 3D. Combina la potenza di un computer con u
 
 Per iniziare ad usare Klipper comincia con la sua [installazione](Installation.md).
 
-Klipper è software libero. Leggi la [documentazione](Overview.md) o esamina il [codice sorgente di Klipper su github](https://github.com/Klipper3d/klipper).
+Klipper is Free Software. Read the [documentation](Overview.md) or view [the Klipper code on github](https://github.com/Klipper3d/klipper). We depend on the generous support from our [sponsors](Sponsors.md).

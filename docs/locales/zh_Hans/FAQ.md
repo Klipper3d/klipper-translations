@@ -2,7 +2,7 @@
 
 ## 我如何向项目捐款？
 
-谢谢。Kevin有一个PATREON页面，地址是： <https://www.patreon.com/koconnor>
+Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
 
 ## 如何计算 rotation_distance 配置参数？
 

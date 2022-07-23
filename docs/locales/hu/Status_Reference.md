@@ -160,6 +160,15 @@ A következő információk állnak rendelkezésre minden egyes `[led led_name]`
 
 - `color_data`: A láncban lévő ledek RGBW értékeit tartalmazó színlisták listája. Minden értéket 0,0 és 1,0 közötti lebegőértékként ábrázolunk. Minden színlista 4 elemet tartalmaz (piros, zöld, kék, fehér), még akkor is, ha az alatta lévő LED kevesebb színcsatornát támogat. Például a lánc második neopixelének kék értéke (a színlista 3. eleme) a `printer["neopixel <config_name>"].color_data[1][2]` címen érhető el.
 
+## manual_probe
+
+The following information is available in the `manual_probe` object:
+
+- `is_active`: Returns True if a manual probing helper script is currently active.
+- `z_position`: The current height of the nozzle (as the printer currently understands it).
+- `z_position_lower`: Last probe attempt just lower than the current height.
+- `z_position_upper`: Last probe attempt just greater than the current height.
+
 ## mcu
 
 A következő információk az [mcu](Config_Reference.md#mcu) és [mcu some_name](Config_Reference.md#mcu-my_extra_mcu) objektumokban érhetők el:

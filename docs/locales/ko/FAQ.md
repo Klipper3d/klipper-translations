@@ -2,7 +2,7 @@
 
 ## 어떻게 프로젝트에 기부할수 있나요?
 
-Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>
+Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
 
 ## rotation_distance는 어떻게 계산합니까?
 

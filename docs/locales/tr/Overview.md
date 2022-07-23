@@ -13,7 +13,7 @@ Klipper dökümantasyonuna hoş geldiniz. Eğer Klipper'e yeni iseniz , [özelli
 ## Installation and Configuration
 
 - [Kurulum](Installation.md): Klipper'ı indirmek için kılavuz.
-- [Config Reference](Config_Reference.md): Description of config parameters.
+- [Yapı Referansları](Config_Reference.md): Yapılandırma değişkenlerinin açıklamaları.
    - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
 - [Config checks](Config_checks.md): Verify basic pin settings in the config file.
 - [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.

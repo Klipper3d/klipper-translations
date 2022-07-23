@@ -12,4 +12,4 @@ Klipper一个将通用计算机的运算能力与一个或多个微控制器相�
 
 要开始使用 Klipper，请从[安装文档](Installation.md)开始阅读。
 
-Klipper是自由软件。阅读[文档](Overview.md)或查看[GitHub上的Klipper代码](https://github.com/Klipper3d/klipper)。
+Klipper is Free Software. Read the [documentation](Overview.md) or view [the Klipper code on github](https://github.com/Klipper3d/klipper). We depend on the generous support from our [sponsors](Sponsors.md).

@@ -12,4 +12,4 @@ Klipper — это прошивка для 3D-принтеров. Он соче�
 
 Чтобы начать использовать Klipper, начните с его [installing](Installation.md).
 
-Klipper — это бесплатное программное обеспечение. Прочтите [documentation](Overview.md) или просмотрите [the Klipper code on github](https://github.com/Klipper3d/klipper)..
+Klipper is Free Software. Read the [documentation](Overview.md) or view [the Klipper code on github](https://github.com/Klipper3d/klipper). We depend on the generous support from our [sponsors](Sponsors.md).

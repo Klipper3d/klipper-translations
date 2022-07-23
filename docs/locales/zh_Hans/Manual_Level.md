@@ -96,7 +96,7 @@ speed: 50.
 screw_thread: CW-M3
 ```
 
-The screw1 is always the reference point for the others, so the system assumes that screw1 is at the correct height. Always run `G28` first and then run `SCREWS_TILT_CALCULATE` - it should produce output similar to:
+螺丝1始终是其他螺丝的参考点，所以系统假定螺丝1处于正确的高度。总是先运行`G28` ，然后运行`SCREWS_TILT_CALCULATE` - 它应该产生类似如下的输出：
 
 ```
 Send: G28
@@ -115,7 +115,7 @@ Recv: ok
 - 左前螺丝是参考点，你不能改变它。
 - front right screw must be turned clockwise 1 full turn and a quarter turn
 - rear right screw must be turned counter-clockwise 50 minutes
-- rear left screw must be turned clockwise 2 minutes (not need it's ok)
+- 左后方的螺丝必须顺时针旋转2分钟（不必须，足够完美）
 
 请注意，“分钟”是指“时钟上的分钟”。因此，例如，15分钟是完整一圈的四分之一。
 
@@ -123,6 +123,6 @@ Recv: ok
 
 如果使用安装在热端侧面的探头（即它有一个X或Y偏移），那么请注意，调整床身倾斜度将使以前在倾斜的床身下进行的任何探针校准失效。一定要在调整打印床螺丝后运行[探针校准](Probe_Calibrate.md)。
 
-The `MAX_DEVIATION` parameter is useful when a saved bed mesh is used, to ensure that the bed level has not drifted too far from where it was when the mesh was created. For example, `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` can be added to the custom start gcode of the slicer before the mesh is loaded. It will abort the print if the configured limit is exceeded (0.01mm in this example), giving the user a chance to adjust the screws and restart the print.
+`MAX_DEVIATION`参数在使用保存的床网时可以确保床面调平结果没有从创建床网时的位置漂移太远。例如，`SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01`可以在加载网格前添加到切片软件的自定义启动gcode中。如果超过了配置的限制（在这个例子中是0.01毫米），它将中止打印，给用户一个调整螺丝和重新开始打印的机会。
 
-The `DIRECTION` parameter is useful if you can turn your bed adjustment screws in one direction only. For example, you might have screws that start tightened in their lowest (or highest) possible position, which can only be turned in a single direction, to raise (or lower) the bed. If you can only turn the screws clockwise, run `SCREWS_TILT_CALCULATE DIRECTION=CW`. If you can only turn them counter-clockwise, run `SCREWS_TILT_CALCULATE DIRECTION=CCW`. A suitable reference point will be chosen such that the bed can be leveled by turning all the screws in the given direction.
+`DIRECTION` 参数在你只能朝一个方向旋转调平螺丝时很有用。例如，你可能从一些螺丝的最低（或最高）位置开始拧，只能向一个方向转动，以提高（或降低）床身。如果只能顺时针转动螺丝，运行`SCREWS_TILT_CALCULATE DIRECTION=CW` 。如果只能逆时针转动它们，运行`SCREWS_TILT_CALCULATE DIRECTION=CCW` 。将选择一个合适的参考点，使床可以通过向给定的方向转动所有的螺丝来调平。

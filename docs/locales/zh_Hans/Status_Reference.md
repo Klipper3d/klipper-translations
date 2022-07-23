@@ -160,6 +160,15 @@
 
 - `color_data`：一个包含链中每个LED的RGBW值的颜色列表的列表。每个值都以0.0到1.0的浮点数表示。每个颜色列表包含4个项目（红、绿、蓝、白），即使底层的LED支持较少的颜色通道。例如，可以通过`printer["neopixel <配置名>"].color_data[1][2]`访问链中第二个neopixel的蓝色值（颜色列表中的第三项）。
 
+## manual_probe
+
+The following information is available in the `manual_probe` object:
+
+- `is_active`: Returns True if a manual probing helper script is currently active.
+- `z_position`: The current height of the nozzle (as the printer currently understands it).
+- `z_position_lower`: Last probe attempt just lower than the current height.
+- `z_position_upper`: Last probe attempt just greater than the current height.
+
 ## mcu
 
 [mcu](Config_Reference.md#mcu)和[mcu some_name](Config_Reference.md#mcu-my_extra_mcu)对象提供了以下信息：

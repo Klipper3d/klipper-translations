@@ -2,7 +2,7 @@
 
 ## Comment puis-je faire un don au projet?
 
-Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>
+Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
 
 ## Comment calculer le paramètre de configuration rotation_distance?
 
