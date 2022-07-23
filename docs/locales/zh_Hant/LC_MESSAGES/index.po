@@ -39,9 +39,15 @@ msgstr "要開始使用 Klipper，請從[安裝文件](Installation.md)開始閱
 #: docs/index.md:block 6 (paragraph)
 msgid ""
 "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
-" Klipper code on github](https://github.com/Klipper3d/klipper)."
+" Klipper code on github](https://github.com/Klipper3d/klipper). We depend on"
+" the generous support from our [sponsors](Sponsors.md)."
 msgstr ""
-"Klipper是自由軟體。閱讀[文件](Overview.md)或檢視[GitHub上的Klipper程式碼](https://github.com/Klipper3d/klipper)。"
+
+#~ msgid ""
+#~ "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
+#~ " Klipper code on github](https://github.com/Klipper3d/klipper)."
+#~ msgstr ""
+#~ "Klipper是自由軟體。閱讀[文件](Overview.md)或檢視[GitHub上的Klipper程式碼](https://github.com/Klipper3d/klipper)。"
 
 #~ msgid ""
 #~ "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"

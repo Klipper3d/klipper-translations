@@ -781,11 +781,6 @@ msgstr ""
 msgid "Frequently Asked Questions"
 msgstr "常见问题"
 
-#: docs/FAQ.md:block 4 (paragraph)
-msgid ""
-"Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>"
-msgstr "谢谢。Kevin有一个PATREON页面，地址是：<https://www.patreon.com/koconnor>"
-
 #: docs/FAQ.md:block 31 (paragraph)
 msgid ""
 "For running on the Beaglebone, see the [Beaglebone specific installation "
@@ -810,6 +805,16 @@ msgstr ""
 msgid ""
 "When I set `restart_method=command` my AVR device just hangs on a restart"
 msgstr "当设置`restart_method=command`时， AVR 设备在重启时就会死机"
+
+#: docs/FAQ.md:block 3 (paragraph)
+msgid ""
+"Thank you for your support. See the [Sponsors page](Sponsors.md) for "
+"information."
+msgstr ""
+
+#~ msgid ""
+#~ "Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>"
+#~ msgstr "谢谢。Kevin有一个PATREON页面，地址是：<https://www.patreon.com/koconnor>"
 
 #~ msgid "[How can I donate to the project?](#how-can-i-donate-to-the-project)"
 #~ msgstr "[如何对项目捐款？](#how-can-i-donate-to-the-project)"
