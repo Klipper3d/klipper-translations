@@ -85,3 +85,7 @@ Status : 진행중 (Last updated ???)
 
 [Klipper 한국어 문서](https://github.com/KevinOConnor/klipper-translations/tree/translations/docs/locales/ko)
 
+Klipper is Free Software. See the [license](COPYING) or read the
+[documentation](https://www.klipper3d.org/Overview.html). We depend on
+the generous support from our
+[sponsors](https://www.klipper3d.org/Sponsors.html).
