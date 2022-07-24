@@ -439,12 +439,6 @@ msgid ""
 "`rawparams` pseudo-variable."
 msgstr ""
 
-#: docs/Command_Templates.md:block 30 (paragraph)
-msgid ""
-"This is quite useful if you want to change the behavior of certain commands "
-"like the `M117`. For example:"
-msgstr ""
-
 #: docs/Command_Templates.md:block 21 (code)
 msgid ""
 "[gcode_macro clean_nozzle]\n"
@@ -467,19 +461,35 @@ msgid ""
 " the autocomplete function."
 msgstr ""
 
-#: docs/Command_Templates.md:block 31 (code)
+#: docs/Command_Templates.md:block 30 (paragraph)
 msgid ""
-"[gcode_macro M117]\n"
-"rename_existing: M117.1\n"
-"gcode:\n"
-"  {% if rawparams %}\n"
-"    {% set escaped_msg = rawparams|replace('\"', '\\\\\"') %}\n"
-"    SET_DISPLAY_TEXT MSG=\"{escaped_msg}\"\n"
-"    RESPOND TYPE=command MSG=\"{escaped_msg}\"\n"
-"  {% else %}\n"
-"    SET_DISPLAY_TEXT\n"
-"  {% endif %}\n"
+"Note that this will include any comments that were part of the original "
+"command."
 msgstr ""
+
+#: docs/Command_Templates.md:block 31 (paragraph)
+msgid ""
+"See the [sample-macros.cfg](../config/sample-macros.cfg) file for an example"
+" showing how to override the `M117` command using `rawparams`."
+msgstr ""
+
+#~ msgid ""
+#~ "This is quite useful if you want to change the behavior of certain commands "
+#~ "like the `M117`. For example:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[gcode_macro M117]\n"
+#~ "rename_existing: M117.1\n"
+#~ "gcode:\n"
+#~ "  {% if rawparams %}\n"
+#~ "    {% set escaped_msg = rawparams|replace('\"', '\\\\\"') %}\n"
+#~ "    SET_DISPLAY_TEXT MSG=\"{escaped_msg}\"\n"
+#~ "    RESPOND TYPE=command MSG=\"{escaped_msg}\"\n"
+#~ "  {% else %}\n"
+#~ "    SET_DISPLAY_TEXT\n"
+#~ "  {% endif %}\n"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "[gcode_macro M117]\n"

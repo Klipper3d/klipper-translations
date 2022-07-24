@@ -2,14 +2,14 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-11 06:40+0000\n"
+"PO-Revision-Date: 2022-07-16 06:20+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/exclude_object/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: docs/Exclude_Object.md:block 1 (header)
 msgid "Exclude Objects"
@@ -117,10 +117,13 @@ msgid ""
 "python library, see [cancelobject-"
 "preprocessor](https://github.com/kageurufu/cancelobject-preprocessor)."
 msgstr ""
+"支持排除对象所需的专门的G代码处理并不符合Klipper'的核心设计目标。因此，本模块要求在将文件发送到Klipper进行打印之前对其进行处理。为Klipper排除对象修改G代码可以通过切片软件中使用后处理脚本或让中间层软件在上传时处理文件达成。[cancelobject-"
+"preprocessor](https://github.com/kageurufu/cancelobject-"
+"preprocessor)是一个参考后处理脚本，它可以1被当作可执行文件或python库。"
 
 #: docs/Exclude_Object.md:block 9 (header)
 msgid "Object Definitions"
-msgstr ""
+msgstr "对象定义"
 
 #: docs/Exclude_Object.md:block 10 (paragraph)
 msgid ""
@@ -130,6 +133,8 @@ msgid ""
 "other commands. The primary purpose of this command is to provide "
 "information to the UI without needing to parse the entire gcode file."
 msgstr ""
+"`EXCLUDE_OBJECT_DEFINE` "
+"命令用于提供gcode文件中每个要打印的对象的摘要。提供文件中一个对象的摘要。对象被其他命令引用时不需要被定义。这个命令的主要目的是向UI提供信息，而不需要解析整个gcode文件。"
 
 #: docs/Exclude_Object.md:block 11 (paragraph)
 msgid ""

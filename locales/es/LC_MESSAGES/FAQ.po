@@ -677,11 +677,6 @@ msgstr ""
 msgid "Frequently Asked Questions"
 msgstr ""
 
-#: docs/FAQ.md:block 4 (paragraph)
-msgid ""
-"Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>"
-msgstr ""
-
 #: docs/FAQ.md:block 31 (paragraph)
 msgid ""
 "For running on the Beaglebone, see the [Beaglebone specific installation "
@@ -702,6 +697,16 @@ msgstr ""
 msgid ""
 "When I set `restart_method=command` my AVR device just hangs on a restart"
 msgstr ""
+
+#: docs/FAQ.md:block 3 (paragraph)
+msgid ""
+"Thank you for your support. See the [Sponsors page](Sponsors.md) for "
+"information."
+msgstr ""
+
+#~ msgid ""
+#~ "Thanks. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>"
+#~ msgstr ""
 
 #~ msgid "[How can I donate to the project?](#how-can-i-donate-to-the-project)"
 #~ msgstr "[¿Cómo puedo donar al proyecto?](#how-can-i-donate-to-the-project)"

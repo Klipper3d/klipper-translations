@@ -41,10 +41,16 @@ msgstr "Klipper 를 사용하려면 [installing](Installation.md)부터 시작�
 #: docs/index.md:block 6 (paragraph)
 msgid ""
 "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
-" Klipper code on github](https://github.com/Klipper3d/klipper)."
+" Klipper code on github](https://github.com/Klipper3d/klipper). We depend on"
+" the generous support from our [sponsors](Sponsors.md)."
 msgstr ""
-"Klipper는 자유 소프트웨어입니다. [문서](Overview.md)를 읽거나 [GitHub의 Klipper "
-"코드](https://github.com/Klipper3d/klipper)를 보십시오."
+
+#~ msgid ""
+#~ "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
+#~ " Klipper code on github](https://github.com/Klipper3d/klipper)."
+#~ msgstr ""
+#~ "Klipper는 자유 소프트웨어입니다. [문서](Overview.md)를 읽거나 [GitHub의 Klipper "
+#~ "코드](https://github.com/Klipper3d/klipper)를 보십시오."
 
 #~ msgid ""
 #~ "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"

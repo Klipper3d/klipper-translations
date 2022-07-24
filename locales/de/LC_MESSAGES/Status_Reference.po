@@ -851,6 +851,36 @@ msgstr ""
 msgid "`current_object`: The name of the object currently being printed."
 msgstr ""
 
+#: docs/Status_Reference.md:block 57 (header)
+msgid "manual_probe"
+msgstr ""
+
+#: docs/Status_Reference.md:block 58 (paragraph)
+msgid "The following information is available in the `manual_probe` object:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 59 (unordered list)
+msgid ""
+"`is_active`: Returns True if a manual probing helper script is currently "
+"active."
+msgstr ""
+
+#: docs/Status_Reference.md:block 59 (unordered list)
+msgid ""
+"`z_position`: The current height of the nozzle (as the printer currently "
+"understands it)."
+msgstr ""
+
+#: docs/Status_Reference.md:block 59 (unordered list)
+msgid ""
+"`z_position_lower`: Last probe attempt just lower than the current height."
+msgstr ""
+
+#: docs/Status_Reference.md:block 59 (unordered list)
+msgid ""
+"`z_position_upper`: Last probe attempt just greater than the current height."
+msgstr ""
+
 #~ msgid "neopixel / dotstar"
 #~ msgstr ""
 

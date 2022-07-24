@@ -7,8 +7,7 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2022-07-12 20:09+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
-"status_reference/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/status_reference/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1145,3 +1144,33 @@ msgstr ""
 #: docs/Status_Reference.md:block 23 (unordered list)
 msgid "`current_object`: The name of the object currently being printed."
 msgstr "`current_object`: Az aktuálisan nyomtatott objektum neve."
+
+#: docs/Status_Reference.md:block 57 (header)
+msgid "manual_probe"
+msgstr ""
+
+#: docs/Status_Reference.md:block 58 (paragraph)
+msgid "The following information is available in the `manual_probe` object:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 59 (unordered list)
+msgid ""
+"`is_active`: Returns True if a manual probing helper script is currently "
+"active."
+msgstr ""
+
+#: docs/Status_Reference.md:block 59 (unordered list)
+msgid ""
+"`z_position`: The current height of the nozzle (as the printer currently "
+"understands it)."
+msgstr ""
+
+#: docs/Status_Reference.md:block 59 (unordered list)
+msgid ""
+"`z_position_lower`: Last probe attempt just lower than the current height."
+msgstr ""
+
+#: docs/Status_Reference.md:block 59 (unordered list)
+msgid ""
+"`z_position_upper`: Last probe attempt just greater than the current height."
+msgstr ""

@@ -46,10 +46,16 @@ msgstr ""
 #: docs/index.md:block 6 (paragraph)
 msgid ""
 "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
-" Klipper code on github](https://github.com/Klipper3d/klipper)."
+" Klipper code on github](https://github.com/Klipper3d/klipper). We depend on"
+" the generous support from our [sponsors](Sponsors.md)."
 msgstr ""
-"Klipper er fri programvare. Sjekk [dokumentasjonen](Overview.md) eller ta en"
-" titt på [Klipper-koden på GitHub](https://github.com/Klipper3d/klipper)."
+
+#~ msgid ""
+#~ "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
+#~ " Klipper code on github](https://github.com/Klipper3d/klipper)."
+#~ msgstr ""
+#~ "Klipper er fri programvare. Sjekk [dokumentasjonen](Overview.md) eller ta en"
+#~ " titt på [Klipper-koden på GitHub](https://github.com/Klipper3d/klipper)."
 
 #, fuzzy
 #~ msgid ""
