@@ -1,26 +1,40 @@
-#
+# Zs.Antal <zsikaiantal@gmail.com>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-07-24 07:20+0000\n"
+"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"sponsors/hu/>\n"
+"Language: hu\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
-msgstr ""
+msgstr "Szponzorok"
 
 #: docs/Sponsors.md:block 2 (paragraph)
 msgid ""
 "Klipper is Free Software. We depend on the generous support from sponsors. "
 "Please consider sponsoring Klipper or supporting our sponsors."
 msgstr ""
+"A Klipper szabad szoftver. A szponzorok nagylelkű támogatásától függünk. "
+"Kérjük, fontolja meg a Klipper szponzorálását vagy szponzoraink támogatását."
 
 #: docs/Sponsors.md:block 3 (header)
 msgid "BIGTREETECH"
-msgstr ""
+msgstr "BIGTREETECH"
 
 #: docs/Sponsors.md:block 4 (paragraph)
 msgid ""
 "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" />](https://bigtree-"
 "tech.com/collections/all-products)"
 msgstr ""
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" />](https://bigtree-"
+"tech.com/collections/all-products)"
 
 #: docs/Sponsors.md:block 5 (paragraph)
 msgid ""
@@ -30,57 +44,68 @@ msgid ""
 "[Facebook](https://www.facebook.com/BIGTREETECH) or "
 "[Twitter](https://twitter.com/BigTreeTech)."
 msgstr ""
+"A BIGTREETECH a Klipper hivatalos alaplapszponzora. A BIGTREETECH "
+"elkötelezett az innovatív és versenyképes termékek fejlesztése mellett, hogy "
+"a 3D nyomtatási közösséget jobban szolgálják. Kövesse őket a "
+"[Facebookon](https://www.facebook.com/BIGTREETECH) vagy a "
+"[Twitteren](https://twitter.com/BigTreeTech)."
 
 #: docs/Sponsors.md:block 6 (header)
 msgid "Klipper Developers"
-msgstr ""
+msgstr "Klipper fejlesztők"
 
 #: docs/Sponsors.md:block 7 (header)
 msgid "Kevin O'Connor"
-msgstr ""
+msgstr "Kevin O'Connor"
 
 #: docs/Sponsors.md:block 8 (paragraph)
 msgid ""
 "Kevin is the original author and current maintainer of Klipper. Kevin has a "
 "Patreon page at: <https://www.patreon.com/koconnor>"
 msgstr ""
+"Kevin a Klipper eredeti szerzője és jelenlegi karbantartója. Kevinnek van "
+"egy Patreon oldala a következő címen: <https://www.patreon.com/koconnor>"
 
 #: docs/Sponsors.md:block 9 (header)
 msgid "Eric Callahan"
-msgstr ""
+msgstr "Eric Callahan"
 
 #: docs/Sponsors.md:block 10 (paragraph)
 msgid ""
 "Eric is the author of bed_mesh, spi_flash, and several other Klipper "
 "modules. Eric has a donations page at: <https://ko-fi.com/arksine>"
 msgstr ""
+"Eric a bed_mesh, spi_flash és számos más Klipper modul szerzője. Ericnek van "
+"egy adományozási oldala a következő címen: <https://ko-fi.com/arksine>"
 
 #: docs/Sponsors.md:block 11 (header)
 msgid "Related Klipper Projects"
-msgstr ""
+msgstr "Kapcsolódó Klipper projektek"
 
 #: docs/Sponsors.md:block 12 (paragraph)
 msgid ""
 "Klipper is frequently used with other Free Software. Consider using or "
 "supporting these projects."
 msgstr ""
+"A Klippert gyakran használják más szabad szoftverekkel együtt. Fontolja meg "
+"ezeknek a projekteknek a használatát vagy támogatását."
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Moonraker](https://github.com/Arksine/moonraker)"
-msgstr ""
+msgstr "[Moonraker](https://github.com/Arksine/moonraker)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Mainsail](https://github.com/mainsail-crew/mainsail)"
-msgstr ""
+msgstr "[Mainsail](https://github.com/mainsail-crew/mainsail)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Fluidd](https://github.com/fluidd-core/fluidd)"
-msgstr ""
+msgstr "[Fluidd](https://github.com/fluidd-core/fluidd)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[OctoPrint](https://octoprint.org/)"
-msgstr ""
+msgstr "[OctoPrint](https://octoprint.org/)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[KlipperScreen](https://github.com/jordanruthe/KlipperScreen)"
-msgstr ""
+msgstr "[KlipperScreen](https://github.com/jordanruthe/KlipperScreen)"
