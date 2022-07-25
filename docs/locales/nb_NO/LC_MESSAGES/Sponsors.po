@@ -1,10 +1,20 @@
-#
+# Allan Nordhøy <epost@anotheragency.no>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-07-24 07:20+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/"
+"sponsors/nb_NO/>\n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
-msgstr ""
+msgstr "Sponsorer"
 
 #: docs/Sponsors.md:block 2 (paragraph)
 msgid ""
