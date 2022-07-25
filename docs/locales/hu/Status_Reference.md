@@ -162,12 +162,12 @@ A következő információk állnak rendelkezésre minden egyes `[led led_name]`
 
 ## manual_probe
 
-The following information is available in the `manual_probe` object:
+A következő információk a `manual_probe` objektumban találhatók:
 
-- `is_active`: Returns True if a manual probing helper script is currently active.
-- `z_position`: The current height of the nozzle (as the printer currently understands it).
-- `z_position_lower`: Last probe attempt just lower than the current height.
-- `z_position_upper`: Last probe attempt just greater than the current height.
+- `is_active`: True értéket ad vissza, ha egy kézi mérési segédszkript jelenleg aktív.
+- `z_position`: A fúvóka aktuális magassága (ahogyan azt a nyomtató jelenleg értelmezi).
+- `z_position_lower`: Az utolsó mérés kísérlet éppen az aktuális magasságnál alacsonyabb.
+- `z_position_upper`: Az utolsó mérés kísérlet éppen nagyobb, mint az aktuális magasság.
 
 ## mcu
 

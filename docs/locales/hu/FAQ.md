@@ -2,7 +2,7 @@
 
 ## Hogyan adományozhatok a projektnek?
 
-Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
+Köszönjük a támogatást. A [Szponzorok oldalon](Sponsors.md) találsz információkat.
 
 ## Hogyan számíthatom ki a rotation_distance konfigurációs paramétert?
 

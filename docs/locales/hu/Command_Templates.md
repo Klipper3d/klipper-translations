@@ -98,9 +98,9 @@ gcode:
 
 A futó makró teljes, be nem elemzett paraméterei a `rawparams` pszeudováltozóval érhetők el.
 
-Note that this will include any comments that were part of the original command.
+Vegye figyelembe, hogy ez magában foglalja az eredeti parancs részét képező megjegyzéseket is.
 
-See the [sample-macros.cfg](../config/sample-macros.cfg) file for an example showing how to override the `M117` command using `rawparams`.
+A [sample-macros.cfg](../config/sample-macros.cfg) fájlban található egy példa arra, hogyan lehet felülírni az `M117` parancsot a `rawparams` használatával.
 
 ### A "nyomtató" változó
 

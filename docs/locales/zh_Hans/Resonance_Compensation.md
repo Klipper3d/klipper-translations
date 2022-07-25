@@ -100,7 +100,7 @@ shaper_type: mzv
 
 关于整形器选择的一些注意事项：
 
-* EI shaper may be more suited for bed slinger printers (if the resonance frequency and resulting smoothing allows): as more filament is deposited on the moving bed, the mass of the bed increases and the resonance frequency will decrease. Since EI shaper is more robust to resonance frequency changes, it may work better when printing large parts.
+* EI 整形器可能更适用于平移热床的打印机（如果共振频率和由此产生的平滑度允许）：随着更多的耗材被打印到在移动的打印床上，床的质量增加，造成共振频率降低。由于 EI 整形器对共振频率的变化更为稳健，在打印大型部件时可能效果更好。
 * 由于三角洲运动学的性质，共振频率在可打印范围内不同位置会有很大的不同。因此，EI整形器可以更好地适用于三角洲打印机，而不是MZV或ZV，应该考虑使用。如果共振频率足够大（超过50-60赫兹），那么甚至可以尝试测试2HUMP_EI整形器（通过运行上面建议的测试`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI`），但在启用之前要检查[下面的章节](#selecting-max_accel)的注意事项。
 
 ### 选择 max_accel
@@ -113,19 +113,19 @@ You should have a printed test for the shaper you chose from the previous step (
 
 ![测试间隙](img/smoothing-test.png)
 
-As the acceleration increases, so does the smoothing, and the actual gap in the print widens:
+随着加速度的增加，平滑度会同时增加，而打印件上的裂缝也会扩大：
 
-![Shaper smoothing](img/shaper-smoothing.jpg)
+![整形器平滑](img/shaper-smoothing.jpg)
 
-In this picture, the acceleration increases left to right, and the gap starts to grow starting from 3500 mm/sec^2 (5-th band from the left). So the good value for max_accel = 3000 (mm/sec^2) in this case to avoid the excessive smoothing.
+在这张图中，加速度从左到右增加，裂缝从3500mm/s^2开始变宽（从左边开始数第5条条纹）。因此，在这种情况下，max_accel=3000（mm/sec^2）是一个可以避免过度平滑的值。
 
-Note the acceleration when the gap is still very small in your test print. If you see bulges, but no gap in the wall at all, even at high accelerations, it may be due to disabled Pressure Advance, especially on Bowden extruders. If that is the case, you may need to repeat the print with the PA enabled. It may also be a result of a miscalibrated (too high) filament flow, so it is a good idea to check that too.
+请注意记录下测试打印中的裂缝仍然非常小时的加速度。如果您看到凸起，但即使在高加速度下，壁上根本没有裂缝，可能是由于禁用了压力提前，特别是在远程挤出机上。如果是这种情况，您可能需要在启用压力提前的情况下重复打印。它也可能是由于校准错误（太高）的耗材流量造成的，因此最好也检查一下。
 
 Choose the minimum out of the two acceleration values (from ringing and smoothing), and put it as `max_accel` into printer.cfg.
 
-As a note, it may happen - especially at low ringing frequencies - that EI shaper will cause too much smoothing even at lower accelerations. In this case, MZV may be a better choice, because it may allow higher acceleration values.
+值得注意的，特别是在低振铃频率下，EI整形器甚至在较低的加速度下也会造成过多的平滑。在这种情况下，MZV 可能是更好的选择，因为它可能允许更高的加速度值。
 
-At very low ringing frequencies (~25 Hz and below) even MZV shaper may create too much smoothing. If that is the case, you can also try to repeat the steps in [Choosing input shaper](#choosing-input-shaper) section with ZV shaper, by using `SET_INPUT_SHAPER SHAPER_TYPE=ZV` command instead. ZV shaper should show even less smoothing than MZV, but is more sensitive to errors in measuring the ringing frequencies.
+在非常低的共振频率（大约25Hz及以下），即使是MZV整形器也可能产生过多的平滑。如果遇到这种情况，可以尝试用 ZV 整形器重复[选择输入整形器](#choosing-input-shaper)章节中的步骤，用`SET_INPUT_SHAPER SHAPER_TYPE=ZV` 命令代替。ZV整形器应该产生比MZV更少的平滑，但对测量共振频率中的误差更敏感。
 
 Another consideration is that if a resonance frequency is too low (below 20-25 Hz), it might be a good idea to increase the printer stiffness or reduce the moving mass. Otherwise, acceleration and printing speed may be limited due too much smoothing now instead of ringing.
 
