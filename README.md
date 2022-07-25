@@ -10,10 +10,7 @@ You can help translate the program at [Hosted Weblate](https://hosted.weblate.or
 
 # Temporary Contacts and Documentation Entry
 
-If you are a translator, create a pull request to update the README.md \
-with your language-specific community contact info before the translated documentation is merged into the main repository. \
-The community contact serves as a way for getting feedback. \
-Please make sure it's Klipper related and that it follows this format:
+If you are a translator, create a pull request to update the README.md with your language-specific community contact info before the translated documentation is merged into the main repository. The community contact serves as a way for getting feedback. Please make sure it's Klipper related and that it follows this format:
 
 ### This is very early beta documentation!
 
