@@ -215,75 +215,64 @@ linear delta运动学配置文件参考[example-delta.cfg](../config/example-del
 [printer]
 kinematics: delta
 max_z_velocity:
-#   For delta printers this limits the maximum velocity (in mm/s) of
-#   moves with z axis movement. This setting can be used to reduce the
-#   maximum speed of up/down moves (which require a higher step rate
-#   than other moves on a delta printer). The default is to use
-#   max_velocity for max_z_velocity.
+#   对于Delta打印机，这限制了Z轴运动的最大速度（单位：mm/s）。
+#   该设置可用于降低上/下移动的最大速度（上下移动需要比Delta
+#   打印机上的其他移动要高的步进脉冲速率）。
+#   默认使用 max_velocity 定义 max_z_velocity。
 #max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. Setting this may be useful if the printer can reach higher
-#   acceleration on XY moves than Z moves (eg, when using input shaper).
-#   The default is to use max_accel for max_z_accel.
-#minimum_z_position: 0
-#   The minimum Z position that the user may command the head to move
-#   to. The default is 0.
+#   这设置了沿Z轴移动的最大加速度（单位：mm/s^2）。
+#   Z轴的最大加速度。如果打印机在XY轴运动时加速度可以比Z轴运动
+#   速度高，可以设置这个参数。（例如，当使用输入整形器时）
+#   默认使用 max_accel 定义 max_z_accel。
+#minimum_z_position:0
+#   用户可以命令打印头移动的最小Z位置。
+#   默认为0。
 delta_radius:
-#   Radius (in mm) of the horizontal circle formed by the three linear
-#   axis towers. This parameter may also be calculated as:
-#    delta_radius = smooth_rod_offset - effector_offset - carriage_offset
-#   This parameter must be provided.
-#print_radius:
-#   The radius (in mm) of valid toolhead XY coordinates. One may use
-#   this setting to customize the range checking of toolhead moves. If
-#   a large value is specified here then it may be possible to command
-#   the toolhead into a collision with a tower. The default is to use
-#   delta_radius for print_radius (which would normally prevent a
-#   tower collision).
+#   由三个线性轴塔形成的水平圆的半径（mm）。这个参数通过以下公式计算：
+#   delta_radius = smooth_rod_offset - effector_offset - carriage_offset
+#   必须提供这个参数。
+# print_radius:
+#   有效打印头XY坐标的半径（mm）。可以使用该1设置来定制打印头
+#   移动范围的检查。如果这里指定的值很大，那么命令有可能会使打
+#   印头与轴塔发生碰撞。
+#   默认使用 delta_radius来代替print_radius（这通常足以避免碰撞）。
 
-# The stepper_a section describes the stepper controlling the front
-# left tower (at 210 degrees). This section also controls the homing
-# parameters (homing_speed, homing_retract_dist) for all towers.
+#   stepper_a 分段描述了控制左前方轴塔的的步进器（210度）。该分段
+#   还定义了归位全部轴塔的参数（归位速度，归位缩回距离）。
 [stepper_a]
 position_endstop:
-#   Distance (in mm) between the nozzle and the bed when the nozzle is
-#   in the center of the build area and the endstop triggers. This
-#   parameter must be provided for stepper_a; for stepper_b and
-#   stepper_c this parameter defaults to the value specified for
-#   stepper_a.
+#   喷嘴和床身之间的距离（mm），当喷嘴在在打印空间的中心，并且
+#   限位被触发。
+#   必须在stepper_a中被定义；对于stepper_b和stepper_c，这个参数默
+#   认为stepper_a指定的值。
 arm_length:
-#   Length (in mm) of the diagonal rod that connects this tower to the
-#   print head. This parameter must be provided for stepper_a; for
-#   stepper_b and stepper_c this parameter defaults to the value
-#   specified for stepper_a.
+#   连接该轴塔和打印头的对角线连杆长度(mm)。此参数必须提供给
+#   stepper_a；对于stepper_b和stepper_c，该参数的默认值为stepper_a
+#   指定的值。
 #angle:
-#   This option specifies the angle (in degrees) that the tower is
-#   at. The default is 210 for stepper_a, 330 for stepper_b, and 90
-#   for stepper_c.
+#   这个选项指定了轴塔的角度(度)。stepper_a的默认值是210，stepper_b
+#   的默认值是330，而stepper_c的默认值是90。
 
-# The stepper_b section describes the stepper controlling the front
-# right tower (at 330 degrees).
+#   stepper_b 分段描述了控制前右方轴塔的步进器(330度)。
 [stepper_b]
 
-# The stepper_c section describes the stepper controlling the rear
-# tower (at 90 degrees).
+#   stepper_c 分段描述了控制后方轴塔的步进器(90度)。
 [stepper_c]
 
-# The delta_calibrate section enables a DELTA_CALIBRATE extended
-# g-code command that can calibrate the tower endstop positions and
-# angles.
+#   delta_calibrate部分启用了DELTA_CALIBRATE扩展的
+#   g-code命令，可以校准塔台的端点位置和角度。
 [delta_calibrate]
 radius:
-#   Radius (in mm) of the area that may be probed. This is the radius
-#   of nozzle coordinates to be probed; if using an automatic probe
-#   with an XY offset then choose a radius small enough so that the
-#   probe always fits over the bed. This parameter must be provided.
+#   可以探测到的区域的半径（mm）。这是要探测的喷嘴坐标的半径；
+#   如果使用自动探针有一个XY偏移，那么需要选择一个足够小的半径，使
+#   探针总是在打印床上探测。
+#   必须提供此参数。
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+#   校准过程中非探测移动的速度(单位：mm/s)。
+#   默认为50。
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+#   在开始探测操作之前，探针应被命令移动到的高度（以毫米为单位）。
+#   默认值为5。
 ```
 
 ### CoreXY 运动学
@@ -296,25 +285,21 @@ corexy或者h-bot运动学配置文件参考[example-corexy.cfg](./config/exampl
 [printer]
 kinematics: corexy
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. This setting can be used to restrict the maximum speed of
-#   the z stepper motor. The default is to use max_velocity for
-#   max_z_velocity.
+#   定义了沿z轴运动的最大速度（单位：mm/s）。这个设置可以
+#   限制z步进电机的最大速度。
+#   默认使用max_velocity 定义 max_z_velocity。
 max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. It limits the acceleration of the z stepper motor. The
-#   default is to use max_accel for max_z_accel.
+#   定义了沿Z轴运动的最大加速度（单位：mm/s^2）。该设置可
+#   以限制z步进电机的加速度。
+#   默认使用max_accel 定义 max_z_accel。
 
-# The stepper_x section is used to describe the X axis as well as the
-# stepper controlling the X+Y movement.
+#   stepper_x分段描述了X轴，以及控制X+Y运动的步进器。
 [stepper_x]
 
-# The stepper_y section is used to describe the Y axis as well as the
-# stepper controlling the X-Y movement.
+#   stepper_y分段描述了Y轴，以及控制X-Y运动的步进器。
 [stepper_y]
 
-# The stepper_z section is used to describe the stepper controlling
-# the Z axis.
+#   stepper_z 分段用于描述控制Z轴的步进器。
 [stepper_z]
 ```
 
@@ -328,22 +313,19 @@ corexz 运动学配置文件参考[example-corexz.cfg](../config/example-corexz.
 [printer]
 kinematics: corexz
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. The default is to use max_velocity for max_z_velocity.
+#   定义沿z轴运动的最大速度（单位：mm/s）。
+#   默认使用max_velocity 定义 max_z_velocity。
 max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. The default is to use max_accel for max_z_accel.
+#   这设置了沿Z轴运动的最大加速度(以mm/s^2为单位)。
+#   Z轴的最大加速度。默认使用max_accel 定义 max_z_accel。
 
-# The stepper_x section is used to describe the X axis as well as the
-# stepper controlling the X+Z movement.
+#   stepper_x 分段定义了X轴以及控制X+Z的步进器。
 [stepper_x]
 
-# The stepper_y section is used to describe the stepper controlling
-# the Y axis.
+#   stepper_y 分段定义了y轴以及控制Y轴的步进器。
 [stepper_y]
 
-# The stepper_z section is used to describe the Z axis as well as the
-# stepper controlling the X-Z movement.
+#   stepper_z 分段定义了X轴以及控制X-Z的步进器。
 [stepper_z]
 ```
 
@@ -359,22 +341,19 @@ This kinematic is also known as Markforged kinematic.
 [printer]
 kinematics: hybrid_corexy
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. The default is to use max_velocity for max_z_velocity.
+#   定义了沿z轴运动的最大速度（单位：mm/s）。
+#   默认使用使用max_velocity定义max_z_velocity。
 max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. The default is to use max_accel for max_z_accel.
+#   定义了沿Z轴运动的最大加速度(以mm/s^2为单位)。
+#   默认使用max_accel定义max_z_accel。
 
-# The stepper_x section is used to describe the X axis as well as the
-# stepper controlling the X-Y movement.
+#   stepper_x分段用于描述X轴，以及控制X-Y运动的步进器。
 [stepper_x]
 
-# The stepper_y section is used to describe the stepper controlling
-# the Y axis.
+#   stepper_y分段用于描述控制Y轴的步进器。
 [stepper_y]
 
-# The stepper_z section is used to describe the stepper controlling
-# the Z axis.
+#   stepper_z分段用于描述控制Z轴的步进器。
 [stepper_z]
 ```
 
@@ -390,22 +369,19 @@ This kinematic is also known as Markforged kinematic.
 [printer]
 kinematics: hybrid_corexz
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. The default is to use max_velocity for max_z_velocity.
+#   定义了沿z轴运动的最大速度（单位：mm/s）。
+#   默认使用max_velocity定义max_z_velocity。
 max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. The default is to use max_accel for max_z_accel.
+#   定义了沿Z轴运动的最大加速度(以mm/s^2为单位)。
+#   默认使用max_accel定义max_z_accel。
 
-# The stepper_x section is used to describe the X axis as well as the
-# stepper controlling the X-Z movement.
+#   stepper_x 分段描述了X轴，以及控制X-Z运动的步进器。
 [stepper_x]
 
-# The stepper_y section is used to describe the stepper controlling
-# the Y axis.
+#   stepper_y分段描述了Y轴和控制Y轴的步进器。
 [stepper_y]
 
-# The stepper_z section is used to describe the stepper controlling
-# the Z axis.
+#   stepper_z分段描述了Z轴和控制Z轴的步进器。
 [stepper_z]
 ```
 
@@ -573,7 +549,7 @@ max_accel: 1
 
 ### [extruder]
 
-The extruder section is used to describe the heater parameters for the nozzle hotend along with the stepper controlling the extruder. See the [command reference](G-Codes.md#extruder) for additional information. See the [pressure advance guide](Pressure_Advance.md) for information on tuning pressure advance.
+挤出机部分用于描述喷嘴热端以及控制挤出机的步进器的加热器参数。请参阅[命令参考](G-Code.md#extruder)了解更多信息。参见[压力提前量指南](Pressure_Advance.md)以了解关于调整压力提前量的信息。
 
 ```
 [extruder]
@@ -1032,24 +1008,24 @@ Where x is the 0, 0 point on the bed
 ```
 [safe_z_home]
 home_xy_position:
-#   A X, Y coordinate (e.g. 100, 100) where the Z homing should be
-#   performed. This parameter must be provided.
+#   一个X，Y坐标（例如100，100），在这个坐标上应该进行Z归位。
+#   必须提供此参数
 #speed: 50.0
-#   Speed at which the toolhead is moved to the safe Z home
-#   coordinate. The default is 50 mm/s
+#   工具头移动到安全Z原点的速度。
+#   默认为50毫米/秒
 #z_hop:
-#   Distance (in mm) to lift the Z axis prior to homing. This is
-#   applied to any homing command, even if it doesn't home the Z axis.
-#   If the Z axis is already homed and the current Z position is less
-#   than z_hop, then this will lift the head to a height of z_hop. If
-#   the Z axis is not already homed the head is lifted by z_hop.
-#   The default is to not implement Z hop.
+#   在归位前抬升Z轴的距离（mm）。这将用于任何归位命令，即使
+#   它没有将Z轴归位。
+#   如果Z轴已经归位，并且当前的Z轴位置小于z_hop，那么这条命令
+#   将把打印头提升到z_hop的高度。如果
+#   Z轴尚未归位，则打印头将被提升z_hop的高度。
+#   默认不执行Z抬升。
 #z_hop_speed: 15.0
-#   Speed (in mm/s) at which the Z axis is lifted prior to homing. The
-#   default is 15 mm/s.
+#   在归位之前，Z轴抬升的速度（单位：mm/s）。
+#   默认为15mm/s。
 #move_to_previous: False
-#   When set to True, the X and Y axes are reset to their previous
-#   positions after Z axis homing. The default is False.
+#   当设置为 "True "时，X轴和Y轴在Z轴归位后会重置到之前的位置。
+#   默认为false。
 ```
 
 ### [homing_override]
@@ -1282,7 +1258,7 @@ Support manually moving stepper motors for diagnostic purposes. Note, using this
 
 启用对在打印过程中排除或取消单个对象的支持。
 
-See the [exclude objects guide](Exclude_Object.md) and [command reference](G-Codes.md#excludeobject) for additional information. See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware compatible M486 G-Code macro.
+有关其他信息，请参阅 [排除对象指南](Exclude_Object.md) 和 [命令参考](G-Codes.md#excludeobject)。请参阅 [sample-macros.cfg](../config/sample-macros.cfg) 文件了解与 Marlin/RepRapFirmware 兼容的 M486 G 代码宏。
 
 ```
 [exclude_object]
@@ -1746,33 +1722,28 @@ extruder:
 ```
 [verify_heater heater_config_name]
 #max_error: 120
-#   The maximum "cumulative temperature error" before raising an
-#   error. Smaller values result in stricter checking and larger
-#   values allow for more time before an error is reported.
-#   Specifically, the temperature is inspected once a second and if it
-#   is close to the target temperature then an internal "error
-#   counter" is reset; otherwise, if the temperature is below the
-#   target range then the counter is increased by the amount the
-#   reported temperature differs from that range. Should the counter
-#   exceed this "max_error" then an error is raised. The default is
-#   120.
+#   报错之前最大的“累计温度偏差”
+#   更小的值会导致更严格的检查，而更大的值在报错前允许更多的时间
+#   具体地说，温度会每秒检查一次。
+#   如果温度正在接近目标温度，内部的“错误计数”会重置。
+#   否则，如果温度低于目标区间，那么计数器会增加汇报的温度与目标的差
+#   当计数值超过“max_error”就会报错
+#   默认值是120
 #check_gain_time:
-#   This controls heater verification during initial heating. Smaller
-#   values result in stricter checking and larger values allow for
-#   more time before an error is reported. Specifically, during
-#   initial heating, as long as the heater increases in temperature
-#   within this time frame (specified in seconds) then the internal
-#   "error counter" is reset. The default is 20 seconds for extruders
-#   and 60 seconds for heater_bed.
+#   这个量控制着加热器初始化加热时的检查。
+#   更小的值会导致更严格的检查，而更大的值在报错前允许更多的时间
+#   具体地说，初始化加热时，只要加热器在时间片内（秒）升高温度，
+#   错误计数会重置
+#   默认值对于挤出头是20秒，热床是60秒
 #hysteresis: 5
-#   The maximum temperature difference (in Celsius) to a target
-#   temperature that is considered in range of the target. This
-#   controls the max_error range check. It is rare to customize this
-#   value. The default is 5.
+#   被认为是在目标区间内的最大温差（以摄氏度为单位）
+#   这个量控制着max_error区间检测
+#   很少定制这个值
+#   默认是5
 #heating_gain: 2
-#   The minimum temperature (in Celsius) that the heater must increase
-#   by during the check_gain_time check. It is rare to customize this
-#   value. The default is 2.
+#   在check_gain_time检查中最小需要升高的温度（以摄氏度为单位）
+#   很少定制这个值
+#   默认是2
 ```
 
 ### [homing_heaters]
@@ -1803,15 +1774,12 @@ Tool to disable heaters when homing or probing an axis.
 #resistance2:
 #temperature3:
 #resistance3:
-#   Three resistance measurements (in Ohms) at the given temperatures
-#   (in Celsius). The three measurements will be used to calculate the
-#   Steinhart-Hart coefficients for the thermistor. These parameters
-#   must be provided when using Steinhart-Hart to define the
-#   thermistor.
+#   三个在给定温度（以摄氏度为单位）下的阻值（以欧姆为单位）
+#   这三个测量值将会被用于计算热敏电阻的Steinhart-Hart系数
+#   当使用Steinhart-Hart来定义热敏电阻时这三个参数必须给定
 #beta:
-#   Alternatively, one may define temperature1, resistance1, and beta
-#   to define the thermistor parameters. This parameter must be
-#   provided when using "beta" to define the thermistor.
+#   或者，可以使用temperature1 resistance1和beta来定义热敏电阻参数
+#   当使用beta来定义热敏电阻时这个参数必须给定
 ```
 
 ### [adc_temperature]
@@ -1990,28 +1958,28 @@ HTU21D 系列双线接口（I2C）环境传感器。注意，这种传感器不�
 
 ```
 sensor_type:
-#   Must be "HTU21D" , "SI7013", "SI7020", "SI7021" or "SHT21"
+# 必须是 "HTU21D" , "SI7013", "SI7020", "SI7021" 或 "SHT21"
 #i2c_address:
-#   Default is 64 (0x40).
+#   默认为64 (0x40).
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
+#   参见 "常见的I2C设置 "章节，了解关于上述参数的描述。
 #htu21d_hold_master:
-#   If the sensor can hold the I2C buf while reading. If True no other
-#   bus communication can be performed while reading is in progress.
-#   Default is False.
+#   如果传感器在读取时可以保持I2C缓冲区。如果是 "真"，则没有其他
+#   总线通信可以在读取过程中进行。
+#   默认为 False。
 #htu21d_resolution:
-#   The resolution of temperature and humidity reading.
-#   Valid values are:
-#    'TEMP14_HUM12' -> 14bit for Temp and 12bit for humidity
-#    'TEMP13_HUM10' -> 13bit for Temp and 10bit for humidity
-#    'TEMP12_HUM08' -> 12bit for Temp and 08bit for humidity
-#    'TEMP11_HUM11' -> 11bit for Temp and 11bit for humidity
-#   Default is: "TEMP11_HUM11"
+#   温度和湿度读数的分辨率。
+#   有效值有：
+#   'TEMP14_HUM12' -> 温度为14位，湿度为12位
+#   'TEMP13_HUM10' -> 温度为13位，湿度为10位
+#   'TEMP12_HUM08' -> 温度为12位，湿度为8位
+#   'TEMP11_HUM11' -> 温度为11位，湿度为11位
+#   默认为："TEMP11_HUM11"
 #htu21d_report_time:
-#   Interval in seconds between readings. Default is 30
+#   读数之间的间隔，以秒为单位。
+#   默认为30
 ```
 
 ### LM75 温度传感器
@@ -2021,17 +1989,16 @@ LM75/LM75A两线（I2C）连接的温度传感器。这些传感器的温度范�
 ```
 sensor_type: LM75
 #i2c_address:
-#   Default is 72 (0x48). Normal range is 72-79 (0x48-0x4F) and the 3
-#   low bits of the address are configured via pins on the chip
-#   (usually with jumpers or hard wired).
+#   默认为 72 （0x48）。正常范围为 72-79（0x48-0x4F），3个地址的低位
+#   可以通过芯片上的引脚进行配置。（通常是跳线或硬接线）。
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
+#   请参阅“常见 I2C 设置”部分，了解
+#   以上参数。
 #lm75_report_time:
-#   Interval in seconds between readings. Default is 0.8, with minimum
-#   0.5.
+#   读数之间的间隔（以秒为单位）。
+#   默认值为 0.8，最小值为0.5。
 ```
 
 ### 微控制器的内置温度传感器
@@ -2085,14 +2052,16 @@ DS18B20 是一个单总线 (1-wire (w1)) 数值温度传感器。注意，这个
 ```
 sensor_type: DS18B20
 serial_no:
-#   Each 1-wire device has a unique serial number used to identify the device,
-#   usually in the format 28-031674b175ff. This parameter must be provided.
-#   Attached 1-wire devices can be listed using the following Linux command:
+#   每个1-wire 设备都有一个唯一的序列号，用于识别设备，通常格式类似
+#   28-031674b175ff。
+#   必须提供此参数。
+#   可以使用以下 Linux 命令列出连接的 1 线设备：
 #   ls /sys/bus/w1/devices/
 #ds18_report_time:
-#   Interval in seconds between readings. Default is 3.0, with a minimum of 1.0
-#sensor_mcu:
-#   The micro-controller to read from. Must be the host_mcu
+#   读数之间的间隔（以秒为单位）。
+#   默认值为 3.0，最小值为 1.0
+#sensor_mcu：
+#   读取的微控制器。必须是host_mcu
 ```
 
 ## 风扇
@@ -2639,38 +2608,36 @@ run_current:
 ```
 [tmc2208 stepper_x]
 uart_pin:
-#   The pin connected to the TMC2208 PDN_UART line. This parameter
-#   must be provided.
+#   连接到TMC2208的PDN_UART的脚
+#   这个参数必须给定
 #tx_pin:
-#   If using separate receive and transmit lines to communicate with
-#   the driver then set uart_pin to the receive pin and tx_pin to the
-#   transmit pin. The default is to use uart_pin for both reading and
-#   writing.
+#   如果使用分离接收和发送线的方式和驱动器通讯
+#   可以设置uart_pin来作为接收脚，tx_pin作为发送脚
+#   默认是使用uart_pin来读写
 #select_pins:
-#   A comma separated list of pins to set prior to accessing the
-#   tmc2208 UART. This may be useful for configuring an analog mux for
-#   UART communication. The default is to not configure any pins.
+#   一个使用（英文）逗号分隔的引脚的列表。
+#   这是访问tmc2208的UART之前要设置的引脚列表。
+#   需要配置模拟开关来实现串口通讯时可能很有用
+#   默认是不配置任何引脚
 #interpolate: True
-#   If true, enable step interpolation (the driver will internally
-#   step at a rate of 256 micro-steps). This interpolation does
-#   introduce a small systemic positional deviation - see
-#   TMC_Drivers.md for details. The default is True.
+#   如果为True，使能插补（驱动器会在内部使用256微步）
+#   这个插补会带来一个小的系统位置偏差
+#   详见TMC_Drivers.md
+#   默认值是True
 run_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   during stepper movement. This parameter must be provided.
+#   配置驱动器在驱动步进电机移动时的电流（以电流的有效值安培为单位）
+#   这个参数必须给定
 #hold_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   when the stepper is not moving. Setting a hold_current is not
-#   recommended (see TMC_Drivers.md for details). The default is to
-#   not reduce the current.
+#   配置驱动器在步进电机不移动时的电流（以电流的有效值安培为单位）
+#   不建议设置保持电流（详见TMC_Drivers.md）
+#   默认是不减少电流
 #sense_resistor: 0.110
-#   The resistance (in ohms) of the motor sense resistor. The default
-#   is 0.110 ohms.
+#   电机采样电阻阻值（以欧姆为单位）
+#   默认是0.110欧姆
 #stealthchop_threshold: 0
-#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
-#   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#   设置stealthChop模式的门槛速度（以毫米每秒为单位）
+#   当设置了这个量，步进电机速度低于这个值时会启用stealthChop模式
+#   默认是0，意味着失能了stealthChop模式
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
 #driver_TBL: 2
@@ -2684,10 +2651,9 @@ run_current:
 #driver_PWM_FREQ: 1
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
-#   Set the given register during the configuration of the TMC2208
-#   chip. This may be used to set custom motor parameters. The
-#   defaults for each parameter are next to the parameter name in the
-#   above list.
+#   配置TMC2208时设置给定的寄存器值
+#   设置定制的电机参数时使用
+#   默认值如上
 ```
 
 ### [tmc2209]
@@ -3561,22 +3527,21 @@ SAMD SERCOM配置，指定在一个给定的SERCOM上使用哪些引脚。可以
 ```
 [samd_sercom my_sercom]
 sercom:
-#   The name of the sercom bus to configure in the micro-controller.
-#   Available names are "sercom0", "sercom1", etc.. This parameter
-#   must be provided.
+#   在微控制器中配置的sercom总线的名称。可用的名称是 "sercom0"、
+#   "sercom1"，等等。
+#   必须提供此参数。
 tx_pin:
-#   MOSI pin for SPI communication, or SDA (data) pin for I2C
-#   communication. The pin must have a valid pinmux configuration
-#   for the given SERCOM peripheral. This parameter must be provided.
+#   用于SPI通信的MOSI引脚，或用于I2C通讯的SDA（数据）引脚。
+#   该引脚必须有一个用于给定的SERCOM外围设备的有效pinmux配置。
+#   必须提供此参数。
 #rx_pin:
-#   MISO pin for SPI communication. This pin is not used for I2C
-#   communication (I2C uses tx_pin for both sending and receiving).
-#   The pin must have a valid pinmux configuration for the given
-#   SERCOM peripheral. This parameter is optional.
-clk_pin:
-#   CLK pin for SPI communication, or SCL (clock) pin for I2C
-#   communication. The pin must have a valid pinmux configuration
-#   for the given SERCOM peripheral. This parameter must be provided.
+#   用于SPI通信的MISO引脚。该引脚不用于I2C通信(I2C使用tx_pin来发送和接收)。
+#   该引脚必须有一个用于给定的SERCOM外围设备的有效pinmux配置。
+#   这个参数是可选的。
+clk_pin。
+#   用于SPI通信的CLK引脚，或用于I2C通信的SCL(时钟)引脚。
+#   该引脚必须有一个用于给定的SERCOM外围设备的有效pinmux配置。
+#   必须提供此参数。
 ```
 
 ### [adc_scaled]
@@ -3746,7 +3711,7 @@ cs_pin:
 
 以下参数一般适用于使用I2C总线的设备。
 
-Note that Klipper's current micro-controller support for i2c is generally not tolerant to line noise. Unexpected errors on the i2c wires may result in Klipper raising a run-time error. Klipper's support for error recovery varies between each micro-controller type. It is generally recommended to only use i2c devices that are on the same printed circuit board as the micro-controller.
+请注意，Klipper目前的i2c微控制器实现没有对线路噪音容忍的能力。i2c线路上的意外错误可能会导致Klipper产生一个运行时错误。Klipper对从错误恢复的支持因每个微控制器类型而异。一般建议只使用与微控制器在同一印刷电路板上的i2c设备。
 
 大多数Klipper微控制器的实现只支持100000的`i2c_speed` 。Klipper 的 "linux "微控制器支持400000的速度，但是必须[在操作系统中修改设置](RPi_microcontroller.md#optional-enabling-i2c)，否则`i2c_speed` 参数会被忽略。Klipper "rp2040 "微控制器通过`i2c_speed` 参数支持400000的速率。所有其他Klipper微控制器使用100000速率，并忽略`i2c_speed` 参数。
 

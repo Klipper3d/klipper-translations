@@ -27,26 +27,26 @@ reference](G-Codes.md#exclude-object) and [sample-macros.cfg](../config/sample-m
 
 `EXCLUDE_OBJECT_DEFINE` 命令用于提供gcode文件中每个要打印的对象的摘要。提供文件中一个对象的摘要。对象被其他命令引用时不需要被定义。这个命令的主要目的是向UI提供信息，而不需要解析整个gcode文件。
 
-Object definitions are named, to allow users to easily select an object to be excluded, and additional metadata may be provided to allow for graphical cancellation displays. Currently defined metadata includes a `CENTER` X,Y coordinate, and a `POLYGON` list of X,Y points representing a minimal outline of the object. This could be a simple bounding box, or a complicated hull for showing more detailed visualizations of the printed objects. Especially when gcode files include multiple parts with overlapping bounding regions, center points become hard to visually distinguish. `POLYGONS` must be a json-compatible array of point `[X,Y]` tuples without whitespace. Additional parameters will be saved as strings in the object definition and provided in status updates.
+对象定义会被命名，以方便用户选择要排除的对象，并且可以提供额外的元数据以允许图形化的显示取消。目前定义的元数据包括一个`CENTER`（中心）X,Y坐标，以及一个`POLYGON` X,Y点的列表代表对象的最小轮廓。这可以是一个简单的边界框，也可以是一个复杂的几何体，用于显示打印对象的更详细的可视化信息。特别是当G代码文件包括具有重叠边界区域的多个实体时，中心点在视觉上会变得难以区分。`POLYGONS` 必须是一个与json兼容的点数组`[X,Y]` 图元，没有空格。额外的参数将被保存为对象定义中的字符串，并在状态更新中提供。
 
 `EXCLUDE_OBJECT_DEFINE NAME=calibration_pyramid CENTER=50,50 POLYGON=[[40,40],[50,60],[60,40]]`
 
 All available G-Code commands are documented in the [G-Code
 Reference](./G-Codes.md#excludeobject)
 
-## Status Information
+## 状态信息
 
 The state of this module is provided to clients by the [exclude_object
 status](Status_Reference.md#exclude_object).
 
-The status is reset when:
+在以下情况下会重置状态：
 
-- The Klipper firmware is restarted.
-- There is a reset of the `[virtual_sdcard]`. Notably, this is reset by Klipper at the start of a print.
-- When an `EXCLUDE_OBJECT_DEFINE RESET=1` command is issued.
+- Klipper固件被重新启动。
+- `[virtual_sdcard]` 的重置。值得注意的是，这是由Klipper在打印开始时重置的。
+- 当发出`EXCLUDE_OBJECT_DEFINE RESET=1` 命令时。
 
-The list of defined objects is represented in the `exclude_object.objects` status field. In a well defined gcode file, this will be done with `EXCLUDE_OBJECT_DEFINE` commands at the beginning of the file. This will provide clients with object names and coordinates so the UI can provide a graphical representation of the objects if desired.
+定义的对象列表在`exclude_object.object` 状态域中。在一个定义良好的G代码文件中，这一步会被用`EXCLUDE_OBJECT_DEFINE` 命令完成。这将为客户端提供对象的名称和坐标，因此如果需要，用户界面可以提供对象的图形表示。
 
-As the print progresses, the `exclude_object.current_object` status field will be updated as Klipper processes `EXCLUDE_OBJECT_START` and `EXCLUDE_OBJECT_END` commands. The `current_object` field will be set even if the object has been excluded. Undefined objects marked with a `EXCLUDE_OBJECT_START` will be added to the known objects to assist in UI hinting, without any additional metadata.
+随着打印的进行，`exclude_object.current_object` 状态字段将随着Klipper处理`EXCLUDE_OBJECT_START` 和`EXCLUDE_OBJECT_END` 命令而被更新。`current_object` 字段将被设置，即使该对象已经被排除。用`EXCLUDE_OBJECT_START` 标记的未定义对象将被添加到已知对象中，以协助UI提示，而没有任何额外的元数据。
 
-As `EXCLUDE_OBJECT` commands are issued, the list of excluded objects is provided in the `exclude_object.excluded_objects` array. Since Klipper looks ahead to process upcoming gcode, there may be a delay between when the command is issued and when the status is updated.
+当`EXCLUDE_OBJECT` 命令被发出时，被排除的对象会被包含在在`exclude_object.excludes_objects` 数组中。由于Klipper会提前处理即将执行的G代码，在命令发出和状态更新之间可能会有延迟。

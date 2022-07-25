@@ -114,11 +114,11 @@ gcode:
 
 [Status Reference](Status_Reference.md) 文档中定义了可用字段。
 
-Important! Macros are first evaluated in entirety and only then are the resulting commands executed. If a macro issues a command that alters the state of the printer, the results of that state change will not be visible during the evaluation of the macro. This can also result in subtle behavior when a macro generates commands that call other macros, as the called macro is evaluated when it is invoked (which is after the entire evaluation of the calling macro).
+注意！宏会先被进行整体计算，然后所产生的命令才会被执行。如果一个宏发出的命令改变了打印机的状态，那么在评估宏的过程中，该状态改变的结果将在执行时不可见。当一个宏产生调用其他宏的命令时，这也可能导致微妙的行为，因为被调用的宏在被调用时才被评估（这是在调用宏的整体计算过程之后）。
 
-By convention, the name immediately following `printer` is the name of a config section. So, for example, `printer.fan` refers to the fan object created by the `[fan]` config section. There are some exceptions to this rule - notably the `gcode_move` and `toolhead` objects. If the config section contains spaces in it, then one can access it via the `[ ]` accessor - for example: `printer["generic_heater my_chamber_heater"].temperature`.
+按照惯例，紧跟在`printer` 后面的名称是一个配置分段的名称。因此，例如，`printer.fan` 指的是由`[fan]` 配置分段创建的风扇对象。这条规则有一些例外 - 特别是`gcode_move` 和`toolhead` 对象。如果配置分段包含空格，那么可以通过`[ ]` 访问器访问它--例如：`printer["generic_heater my_chamber_heater"].temperature` 。
 
-Note that the Jinja2 `set` directive can assign a local name to an object in the `printer` hierarchy. This can make macros more readable and reduce typing. For example:
+请注意，Jinja2的`set` 指令可以为`printer` 层次结构中的一个对象指定一个本地名称。这可以改善宏的可读性并减少键入量。例如：
 
 ```
 [gcode_macro QUERY_HTU21D]
@@ -127,11 +127,11 @@ gcode:
     M117 Temp:{sensor.temperature} Humidity:{sensor.humidity}
 ```
 
-## Actions
+## 行动
 
 There are some commands available that can alter the state of the printer. For example, `{ action_emergency_stop() }` would cause the printer to go into a shutdown state. Note that these actions are taken at the time that the macro is evaluated, which may be a significant amount of time before the generated g-code commands are executed.
 
-Available "action" commands:
+可用的“动作”命令：
 
 - `action_respond_info(msg)`: Write the given `msg` to the /tmp/printer pseudo-terminal. Each line of `msg` will be sent with a "// " prefix.
 - `action_raise_error(msg)`: Abort the current macro (and any calling macros) and write the given `msg` to the /tmp/printer pseudo-terminal. The first line of `msg` will be sent with a "!! " prefix and subsequent lines will have a "// " prefix.

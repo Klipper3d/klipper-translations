@@ -162,12 +162,12 @@
 
 ## manual_probe
 
-The following information is available in the `manual_probe` object:
+`manual_probe` 对象中提供了以下信息：
 
-- `is_active`: Returns True if a manual probing helper script is currently active.
-- `z_position`: The current height of the nozzle (as the printer currently understands it).
-- `z_position_lower`: Last probe attempt just lower than the current height.
-- `z_position_upper`: Last probe attempt just greater than the current height.
+- `is_active`：如果手动探测助手程序脚本当前处于活动状态，则返回 True。
+- `z_position` 。喷嘴的当前高度（按照打印机目前的理解）。
+- `z_position_lower`：上次探测尝试略低于当前高度。
+- `z_position_upper`：上次探测尝试仅大于当前高度。
 
 ## mcu
 

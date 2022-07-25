@@ -2,7 +2,7 @@
 
 ## 我如何向项目捐款？
 
-Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
+感谢您的支持。请参阅[赞助商页面](Sponsors.md)以获取信息。
 
 ## 如何计算 rotation_distance 配置参数？
 

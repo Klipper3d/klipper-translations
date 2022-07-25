@@ -1,26 +1,26 @@
-# Sponsors
+# Szponzorok
 
-Klipper is Free Software. We depend on the generous support from sponsors. Please consider sponsoring Klipper or supporting our sponsors.
+A Klipper szabad szoftver. A szponzorok nagylelkű támogatásától függünk. Kérjük, fontolja meg a Klipper szponzorálását vagy szponzoraink támogatását.
 
 ## BIGTREETECH
 
 [<img src="./img/sponsors/BTT_BTT.png" width="200" />
 
-BIGTREETECH is the official mainboard sponsor of Klipper. BIGTREETECH is committed to developing innovative and competitive products to serve the 3D printing community better. Follow them on [Facebook](https://www.facebook.com/BIGTREETECH) or [Twitter](https://twitter.com/BigTreeTech).
+A BIGTREETECH a Klipper hivatalos alaplapszponzora. A BIGTREETECH elkötelezett az innovatív és versenyképes termékek fejlesztése mellett, hogy a 3D nyomtatási közösséget jobban szolgálják. Kövesse őket a [Facebookon](https://www.facebook.com/BIGTREETECH) vagy a [Twitteren](https://twitter.com/BigTreeTech).
 
-## Klipper Developers
+## Klipper fejlesztők
 
 ### Kevin O'Connor
 
-Kevin is the original author and current maintainer of Klipper. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>
+Kevin a Klipper eredeti szerzője és jelenlegi karbantartója. Kevinnek van egy Patreon oldala a következő címen: <https://www.patreon.com/koconnor>
 
 ### Eric Callahan
 
-Eric is the author of bed_mesh, spi_flash, and several other Klipper modules. Eric has a donations page at: <https://ko-fi.com/arksine>
+Eric a bed_mesh, spi_flash és számos más Klipper modul szerzője. Ericnek van egy adományozási oldala a következő címen: <https://ko-fi.com/arksine>
 
-## Related Klipper Projects
+## Kapcsolódó Klipper projektek
 
-Klipper is frequently used with other Free Software. Consider using or supporting these projects.
+A Klippert gyakran használják más szabad szoftverekkel együtt. Fontolja meg ezeknek a projekteknek a használatát vagy támogatását.
 
 * [Moonraker](https://github.com/Arksine/moonraker)
 * [Mainsail](https://github.com/mainsail-crew/mainsail)
