@@ -2,9 +2,10 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-16 06:20+0000\n"
+"PO-Revision-Date: 2022-07-24 07:20+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/exclude_object/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/exclude_object/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -150,46 +151,56 @@ msgid ""
 "Additional parameters will be saved as strings in the object definition and "
 "provided in status updates."
 msgstr ""
+"对象定义会被命名，以方便用户选择要排除的对象，并且可以提供额外的元数据以允许"
+"图形化的显示取消。目前定义的元数据包括一个`CENTER`（中心）X,Y坐标，以及一个`P"
+"OLYGON` X,Y点的列表代表对象的最小轮廓。这可以是一个简单的边界框，也可以是一个"
+"复杂的几何体，用于显示打印对象的更详细的可视化信息。特别是当G代码文件包括具有"
+"重叠边界区域的多个实体时，中心点在视觉上会变得难以区分。`POLYGONS` "
+"必须是一个与json兼容的点数组`[X,Y]` "
+"图元，没有空格。额外的参数将被保存为对象定义中的字符串，并在状态更新中提供。"
 
 #: docs/Exclude_Object.md:block 12 (paragraph)
 msgid ""
 "`EXCLUDE_OBJECT_DEFINE NAME=calibration_pyramid CENTER=50,50 "
 "POLYGON=[[40,40],[50,60],[60,40]]`"
 msgstr ""
+"`EXCLUDE_OBJECT_DEFINE NAME=calibration_pyramid CENTER=50,50 "
+"POLYGON=[[40,40],[50,60],[60,40]]`"
 
 #: docs/Exclude_Object.md:block 13 (paragraph)
 msgid ""
 "All available G-Code commands are documented in the [G-Code "
 "Reference](./G-Codes.md#excludeobject)"
-msgstr ""
+msgstr "所有可用的G代码命令都在[G代码参考](./G-Codes.md#excludeobject)中有所记载"
 
 #: docs/Exclude_Object.md:block 14 (header)
 msgid "Status Information"
-msgstr ""
+msgstr "状态信息"
 
 #: docs/Exclude_Object.md:block 15 (paragraph)
 msgid ""
 "The state of this module is provided to clients by the [exclude_object "
 "status](Status_Reference.md#exclude_object)."
-msgstr ""
+msgstr "这个模块的状态通过[exclude_object的状态](Status_Reference."
+"md#exclude_object)提供给客户端。"
 
 #: docs/Exclude_Object.md:block 16 (paragraph)
 msgid "The status is reset when:"
-msgstr ""
+msgstr "在以下情况下会重置状态："
 
 #: docs/Exclude_Object.md:block 17 (unordered list)
 msgid "The Klipper firmware is restarted."
-msgstr ""
+msgstr "Klipper固件被重新启动。"
 
 #: docs/Exclude_Object.md:block 17 (unordered list)
 msgid ""
 "There is a reset of the `[virtual_sdcard]`. Notably, this is reset by "
 "Klipper at the start of a print."
-msgstr ""
+msgstr "`[virtual_sdcard]` 的重置。值得注意的是，这是由Klipper在打印开始时重置的。"
 
 #: docs/Exclude_Object.md:block 17 (unordered list)
 msgid "When an `EXCLUDE_OBJECT_DEFINE RESET=1` command is issued."
-msgstr ""
+msgstr "当发出`EXCLUDE_OBJECT_DEFINE RESET=1` 命令时。"
 
 #: docs/Exclude_Object.md:block 18 (paragraph)
 msgid ""
@@ -199,6 +210,10 @@ msgid ""
 "provide clients with object names and coordinates so the UI can provide a "
 "graphical representation of the objects if desired."
 msgstr ""
+"定义的对象列表在`exclude_object.object` "
+"状态域中。在一个定义良好的G代码文件中，这一步会被用`EXCLUDE_OBJECT_DEFINE` 命"
+"令完成。这将为客户端提供对象的名称和坐标，因此如果需要，用户界面可以提供对象"
+"的图形表示。"
 
 #: docs/Exclude_Object.md:block 19 (paragraph)
 msgid ""
@@ -209,6 +224,11 @@ msgid ""
 "`EXCLUDE_OBJECT_START` will be added to the known objects to assist in UI "
 "hinting, without any additional metadata."
 msgstr ""
+"随着打印的进行，`exclude_object.current_object` "
+"状态字段将随着Klipper处理`EXCLUDE_OBJECT_START` 和`EXCLUDE_OBJECT_END` "
+"命令而被更新。`current_object` "
+"字段将被设置，即使该对象已经被排除。用`EXCLUDE_OBJECT_START` "
+"标记的未定义对象将被添加到已知对象中，以协助UI提示，而没有任何额外的元数据。"
 
 #: docs/Exclude_Object.md:block 20 (paragraph)
 msgid ""
@@ -217,3 +237,6 @@ msgid ""
 " ahead to process upcoming gcode, there may be a delay between when the "
 "command is issued and when the status is updated."
 msgstr ""
+"当`EXCLUDE_OBJECT` 命令被发出时，被排除的对象会被包含在在`exclude_object."
+"excludes_objects` 数组中。由于Klipper会提前处理即将执行的G代码，在命令发出和"
+"状态更新之间可能会有延迟。"

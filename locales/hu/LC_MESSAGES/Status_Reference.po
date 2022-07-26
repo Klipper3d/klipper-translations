@@ -5,9 +5,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-07-12 20:09+0000\n"
+"PO-Revision-Date: 2022-07-24 07:20+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/status_reference/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"status_reference/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1147,30 +1148,38 @@ msgstr "`current_object`: Az aktuálisan nyomtatott objektum neve."
 
 #: docs/Status_Reference.md:block 57 (header)
 msgid "manual_probe"
-msgstr ""
+msgstr "manual_probe"
 
 #: docs/Status_Reference.md:block 58 (paragraph)
 msgid "The following information is available in the `manual_probe` object:"
-msgstr ""
+msgstr "A következő információk a `manual_probe` objektumban találhatók:"
 
 #: docs/Status_Reference.md:block 59 (unordered list)
 msgid ""
 "`is_active`: Returns True if a manual probing helper script is currently "
 "active."
 msgstr ""
+"`is_active`: True értéket ad vissza, ha egy kézi mérési segédszkript "
+"jelenleg aktív."
 
 #: docs/Status_Reference.md:block 59 (unordered list)
 msgid ""
 "`z_position`: The current height of the nozzle (as the printer currently "
 "understands it)."
 msgstr ""
+"`z_position`: A fúvóka aktuális magassága (ahogyan azt a nyomtató jelenleg "
+"értelmezi)."
 
 #: docs/Status_Reference.md:block 59 (unordered list)
 msgid ""
 "`z_position_lower`: Last probe attempt just lower than the current height."
 msgstr ""
+"`z_position_lower`: Az utolsó mérés kísérlet éppen az aktuális magasságnál "
+"alacsonyabb."
 
 #: docs/Status_Reference.md:block 59 (unordered list)
 msgid ""
 "`z_position_upper`: Last probe attempt just greater than the current height."
 msgstr ""
+"`z_position_upper`: Az utolsó mérés kísérlet éppen nagyobb, mint az aktuális "
+"magasság."

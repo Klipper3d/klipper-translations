@@ -4,14 +4,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-21 23:54+0000\n"
+"PO-Revision-Date: 2022-07-22 21:20+0000\n"
 "Last-Translator: Maxime Leroy <lisacintosh@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/features/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/features/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid "Klipper has several compelling features:"
 msgstr "Klipper propose plusieurs caractéristiques intéressantes :"
@@ -506,47 +507,47 @@ msgstr "790K"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAMD21"
-msgstr ""
+msgstr "SAMD21"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32F103"
-msgstr ""
+msgstr "STM32F103"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAM3X8E"
-msgstr ""
+msgstr "SAM3X8E"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAM4S8C"
-msgstr ""
+msgstr "SAM4S8C"
 
 #: docs/Features.md:block 10 (table)
 msgid "LPC1768"
-msgstr ""
+msgstr "LPC1768"
 
 #: docs/Features.md:block 10 (table)
 msgid "LPC1769"
-msgstr ""
+msgstr "LPC1769"
 
 #: docs/Features.md:block 10 (table)
 msgid "RP2040"
-msgstr ""
+msgstr "RP2040"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAM4E8E"
-msgstr ""
+msgstr "SAM4E8E"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAMD51"
-msgstr ""
+msgstr "SAMD51"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32F407"
-msgstr ""
+msgstr "STM32F407"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32F446"
-msgstr ""
+msgstr "STM32F446"
 
 #: docs/Features.md:block 11 (paragraph)
 msgid ""
