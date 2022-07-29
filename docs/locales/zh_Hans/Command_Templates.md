@@ -129,16 +129,16 @@ gcode:
 
 ## 行动
 
-There are some commands available that can alter the state of the printer. For example, `{ action_emergency_stop() }` would cause the printer to go into a shutdown state. Note that these actions are taken at the time that the macro is evaluated, which may be a significant amount of time before the generated g-code commands are executed.
+有一些可用的命令可以改变打印机的状态。例如，`{ action_emergency_stop() }` 将导致打印机进入关闭状态。请注意，这些动作会在宏被评估的时候执行，这可能是在生成的G代码命令被执行之前的一段相当长的时间。
 
 可用的“动作”命令：
 
-- `action_respond_info(msg)`: Write the given `msg` to the /tmp/printer pseudo-terminal. Each line of `msg` will be sent with a "// " prefix.
-- `action_raise_error(msg)`: Abort the current macro (and any calling macros) and write the given `msg` to the /tmp/printer pseudo-terminal. The first line of `msg` will be sent with a "!! " prefix and subsequent lines will have a "// " prefix.
-- `action_emergency_stop(msg)`: Transition the printer to a shutdown state. The `msg` parameter is optional, it may be useful to describe the reason for the shutdown.
-- `action_call_remote_method(method_name)`: Calls a method registered by a remote client. If the method takes parameters they should be provided via keyword arguments, ie: `action_call_remote_method("print_stuff", my_arg="hello_world")`
+- `action_respond_info(msg)`：将给定的 `msg` 写入 /tmp/printer 伪终端。 `msg` 的每一行都会以“//”前缀发送。
+- `action_raise_error(消息)`：终止当前宏（以及任何调用的宏），并将给定的`消息` 写到 /tmp/printer 伪终端。`msg` 的第一行将以"！！"为前缀发送，随后几行将以"//"为前缀。
+- `action_emergency_stop(消息)`：将打印机过渡到关机状态。`消息` 参数是可选的，可以用来描述关机的原因。
+- `action_call_remote_method(方法名)`：调用一个由远程客户端注册的方法。如果该方法需要参数，应通过关键字参数提供，即：`action_call_remote_method("print_stuff", 参数="hello_world")`
 
-## Variables
+## 变量
 
 The SET_GCODE_VARIABLE command may be useful for saving state between macro calls. Variable names may not contain any upper case characters. For example:
 
@@ -163,9 +163,9 @@ gcode:
 
 Be sure to take the timing of macro evaluation and command execution into account when using SET_GCODE_VARIABLE.
 
-## Delayed Gcodes
+## 延迟G代码
 
-The [delayed_gcode] configuration option can be used to execute a delayed gcode sequence:
+[delayed_gcode]配置分段可以用来执行一个延迟的G代码序列：
 
 ```
 [delayed_gcode clear_display]
@@ -209,26 +209,26 @@ The above delayed_gcode will send "// Extruder Temp: [ex0_temp]" to Octoprint ev
 UPDATE_DELAYED_GCODE ID=report_temp DURATION=0
 ```
 
-## Menu templates
+## 菜单模板
 
 If a [display config section](Config_Reference.md#display) is enabled, then it is possible to customize the menu with [menu](Config_Reference.md#menu) config sections.
 
-The following read-only attributes are available in menu templates:
+以下只读属性在菜单模板中可用：
 
-* `menu.width` - element width (number of display columns)
-* `menu.ns` - element namespace
-* `menu.event` - name of the event that triggered the script
-* `menu.input` - input value, only available in input script context
+* `menu.width` - 元素宽度（显示列数）
+* `menu.ns` - 元素命名空间
+* `menu.event` - 触发脚本的事件名称
+* `menu.input` - 输入值，仅在输入脚本上下文中可用
 
-The following actions are available in menu templates:
+以下操作在菜单模板中可用：
 
 * `menu.back(force, update)`: will execute menu back command, optional boolean parameters `<force>` and `<update>`.
-   * When `<force>` is set True then it will also stop editing. Default value is False.
-   * When `<update>` is set False then parent container items are not updated. Default value is True.
+   * 当 `<force>` 设置为 True 时，它也将停止编辑。默认值为 False。
+   * 当`<update>` 被设置为False，那么父级容器项目就不会被更新。默认值是True。
 * `menu.exit(force)` - will execute menu exit command, optional boolean parameter `<force>` default value False.
-   * When `<force>` is set True then it will also stop editing. Default value is False.
+   * 当 `<force>` 设置为 True 时，它也将停止编辑。默认值为 False。
 
-## Save Variables to disk
+## 保存变量到磁盘
 
 If a [save_variables config section](Config_Reference.md#save_variables) has been enabled, `SAVE_VARIABLE VARIABLE=<name> VALUE=<value>` can be used to save the variable to disk so that it can be used across restarts. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. to avoid overly long lines you can add the following at the top of the macro:
 
