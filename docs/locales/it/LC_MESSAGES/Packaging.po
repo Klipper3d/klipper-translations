@@ -1,11 +1,11 @@
 # Dex94 <Dasvaresu@dr.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
-# Ale Ale <ale.99.ale@gmail.com>, 2022, 2023.
+# Ale Ale <ale.99.ale@gmail.com>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:25+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "packaging/it/>\n"
 "Language: it\n"
@@ -81,9 +81,8 @@ msgid ""
 "git)."
 msgstr ""
 "klipper-git è pacchettizzato per Arch Linux e ha un PKGBUILD (script di "
-"creazione del pacchetto) disponibile su [Arch User "
-"Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper- "
-"git)."
+"creazione del pacchetto) disponibile su [Arch User Repository](https://"
+"aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper- git)."
 
 #~ msgid ""
 #~ "klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build "
