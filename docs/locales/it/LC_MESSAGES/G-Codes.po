@@ -1,15 +1,17 @@
 # Dex94 <Dasvaresu@dr.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-27 10:52+0000\n"
-"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/it/>\n"
+"PO-Revision-Date: 2022-07-30 17:21+0000\n"
+"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/"
+"it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -130,7 +132,7 @@ msgid "Set SD position: `M26 S<offset>`"
 msgstr ""
 
 msgid "Report SD print status: `M27`"
-msgstr ""
+msgstr "Riporta lo stato di stampa SD: `M27`"
 
 msgid ""
 "The following standard G-Code commands are available if a [gcode_arcs config"
@@ -165,6 +167,9 @@ msgid ""
 "\"triggered\" or in an \"open\" state. This command is typically used to "
 "verify that an endstop is working correctly."
 msgstr ""
+"`QUERY_ENDSTOPS`: Rilevare i finecorsa degli assi e segnala se sono "
+"\"attivate\" o in uno stato \"aperto\". Questo comando viene in genere "
+"utilizzato per verificare che un finecorsa funzioni correttamente."
 
 msgid ""
 "`QUERY_ADC [NAME=<config_name>] [PULLUP=<value>]`: Report the last analog "
@@ -173,6 +178,12 @@ msgid ""
 "in Ohms), the raw analog value along with the equivalent resistance given "
 "that pullup is reported."
 msgstr ""
+"`QUERY_ADC [NAME=<config_name>] [PULLUP=<value>]`: Riporta l'ultimo valore "
+"analogico ricevuto per un pin analogico configurato. Se NAME non viene "
+"fornito, viene riportato l'elenco dei nomi dei convertitori adc disponibili. "
+"Se viene fornito PULLUP (come valore in Ohm), viene riportato il valore "
+"analogico grezzo insieme alla resistenza equivalente dato quel pullup "
+"specificato."
 
 msgid ""
 "`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] "
@@ -362,11 +373,19 @@ msgid ""
 "parameters are provided they override their equivalent setting in the [probe"
 " config section](Config_Reference.md#probe)."
 msgstr ""
+"`PROBE [PROBE_SPEED=<mm/s>] [LIFT_SPEED=<mm/s>] [SAMPLES=<count>] "
+"[SAMPLE_RETRACT_DIST=<mm>] [SAMPLES_TOLERANCE=<mm>] "
+"[SAMPLES_TOLERANCE_RETRIES=<count>] [SAMPLES_RESULT=median|average]`: Sposta "
+"il nozzle verso il basso finché la sonda non scatta. Se viene fornito uno "
+"qualsiasi dei parametri opzionali, sovrascrive l'impostazione equivalente "
+"nella sezione [probe config section](Config_Reference.md#probe)."
 
 msgid ""
 "`QUERY_PROBE`: Report the current status of the probe (\"triggered\" or "
 "\"open\")."
 msgstr ""
+"`QUERY_PROBE`: Riporta lo stato corrente della sonda (\"triggered\" o \"open"
+"\")."
 
 msgid ""
 "`PROBE_ACCURACY [PROBE_SPEED=<mm/s>] [SAMPLES=<count>] "
@@ -375,6 +394,12 @@ msgid ""
 "SAMPLES are taken. Otherwise the optional parameters default to their "
 "equivalent setting in the probe config section."
 msgstr ""
+"`PROBE_ACCURACY [PROBE_SPEED=<mm/s>] [SAMPLES=<count>] "
+"[SAMPLE_RETRACT_DIST=<mm>]`: Calcola la deviazione massima, minima, media, "
+"mediana e standard di più campionamentidella sonda. Per impostazione "
+"predefinita, vengono presi 10 CAMPIONI. In caso contrario, i parametri "
+"opzionali sono impostati per default sulla loro impostazione equivalente "
+"nella sezione di configurazione della sonda."
 
 msgid ""
 "`PROBE_CALIBRATE [SPEED=<speed>] [<probe_parameter>=<value>]`: Run a helper "
@@ -384,6 +409,13 @@ msgid ""
 "while the tool is active. Please note, the PROBE_CALIBRATE command uses the "
 "speed variable to move in XY direction as well as Z."
 msgstr ""
+"`PROBE_CALIBRATE [SPEED=<speed>] [<probe_parameter>=<value>]`: Eseguire uno "
+"script di aiuto utile per calibrare l'offset z della sonda. Vedere il "
+"comando PROBE per i dettagli sui parametri opzionali della sonda. Vedere il "
+"comando MANUAL_PROBE per i dettagli del parametro SPEED e sui comandi "
+"aggiuntivi disponibili mentre lo strumento è attivo. Nota che il comando "
+"PROBE_CALIBRATE utilizza la variabile di velocità per spostarsi in direzione "
+"XY e Z."
 
 msgid ""
 "`BLTOUCH_STORE MODE=<output_mode>`: This stores an output mode in the EEPROM"
@@ -533,11 +565,15 @@ msgid ""
 "`RESPOND MSG=\"<message>\"`: echo the message prepended with the configured "
 "default prefix (or `echo: ` if no prefix is configured)."
 msgstr ""
+"`RESPOND MSG=\"<message>\"`: echo il messaggio preceduto dal prefisso "
+"predefinito configurato (o `echo: ` se non è configurato alcun prefisso)."
 
 msgid ""
 "`RESPOND TYPE=echo MSG=\"<message>\"`: echo the message prepended with "
 "`echo: `."
 msgstr ""
+"`RESPOND TYPE=echo MSG=\"<message>\"`: echo del messaggio preceduto da `echo:"
+" `."
 
 msgid ""
 "`RESPOND TYPE=error MSG=\"<message>\"`: echo the message prepended with `!! "
@@ -549,6 +585,8 @@ msgid ""
 " `<prefix>`. (The `PREFIX` parameter will take priority over the `TYPE` "
 "parameter)"
 msgstr ""
+"`RESPOND PREFIX=<prefix> MSG=\"<message>\"`: echo il messaggio preceduto da "
+"`<prefix>`. (Il parametro `PREFIX` avrà la priorità sul parametro `TYPE`)"
 
 msgid ""
 "The following commands are available when the [pause_resume config "
@@ -1137,7 +1175,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 107 (header)
 msgid "QUERY_FILAMENT_SENSOR"
-msgstr ""
+msgstr "QUERY_FILAMENT_SENSOR"
 
 #: docs/G-Codes.md:block 108 (paragraph)
 msgid ""
@@ -1145,6 +1183,9 @@ msgid ""
 "the filament sensor. The data displayed on the terminal will depend on the "
 "sensor type defined in the configuration."
 msgstr ""
+"`QUERY_FILAMENT_SENSOR SENSOR=<sensor_name>`: Interroga lo stato del sensore "
+"di filamento. I dati visualizzati sul terminale dipenderanno dal tipo di "
+"sensore definito nella configurazione."
 
 #: docs/G-Codes.md:block 109 (header)
 msgid "SET_FILAMENT_SENSOR"
@@ -1249,21 +1290,23 @@ msgstr ""
 
 #: docs/G-Codes.md:block 151 (header)
 msgid "QUERY_FILAMENT_WIDTH"
-msgstr ""
+msgstr "QUERY_FILAMENT_WIDTH"
 
 #: docs/G-Codes.md:block 152 (paragraph)
 msgid "`QUERY_FILAMENT_WIDTH`: Return the current measured filament width."
-msgstr ""
+msgstr "`QUERY_FILAMENT_WIDTH`: Restituisce lo spessore del filamento misurato."
 
 #: docs/G-Codes.md:block 153 (header)
 msgid "RESET_FILAMENT_WIDTH_SENSOR"
-msgstr ""
+msgstr "RESET_FILAMENT_WIDTH_SENSOR"
 
 #: docs/G-Codes.md:block 154 (paragraph)
 msgid ""
 "`RESET_FILAMENT_WIDTH_SENSOR`: Clear all sensor readings. Helpful after "
 "filament change."
 msgstr ""
+"`RESET_FILAMENT_WIDTH_SENSOR`: Cancella tutte le letture del sensore. Utile "
+"dopo il cambio del filamento."
 
 #: docs/G-Codes.md:block 155 (header)
 msgid "DISABLE_FILAMENT_WIDTH_SENSOR"
@@ -1287,13 +1330,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 159 (header)
 msgid "QUERY_RAW_FILAMENT_WIDTH"
-msgstr ""
+msgstr "QUERY_RAW_FILAMENT_WIDTH"
 
 #: docs/G-Codes.md:block 160 (paragraph)
 msgid ""
 "`QUERY_RAW_FILAMENT_WIDTH`: Return the current ADC channel readings and RAW "
 "sensor value for calibration points."
 msgstr ""
+"`QUERY_RAW_FILAMENT_WIDTH`: Restituisce le letture del canale ADC corrente e "
+"il valore grezzo (raw) del sensore per i punti di calibrazione."
 
 #: docs/G-Codes.md:block 161 (header)
 msgid "ENABLE_FILAMENT_WIDTH_LOG"
@@ -1497,19 +1542,19 @@ msgstr ""
 
 #: docs/G-Codes.md:block 233 (header)
 msgid "PROBE"
-msgstr ""
+msgstr "sonda"
 
 #: docs/G-Codes.md:block 235 (header)
 msgid "QUERY_PROBE"
-msgstr ""
+msgstr "QUERY_PROBE"
 
 #: docs/G-Codes.md:block 237 (header)
 msgid "PROBE_ACCURACY"
-msgstr ""
+msgstr "PROBE_ACCURACY"
 
 #: docs/G-Codes.md:block 239 (header)
 msgid "PROBE_CALIBRATE"
-msgstr ""
+msgstr "PROBE_CALIBRATE"
 
 #: docs/G-Codes.md:block 241 (header)
 msgid "Z_OFFSET_APPLY_PROBE"
@@ -1517,15 +1562,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 243 (header)
 msgid "[query_adc]"
-msgstr ""
+msgstr "[query_adc]"
 
 #: docs/G-Codes.md:block 245 (header)
 msgid "QUERY_ADC"
-msgstr ""
+msgstr "QUERY_ADC"
 
 #: docs/G-Codes.md:block 247 (header)
 msgid "[query_endstops]"
-msgstr ""
+msgstr "[query_endstops]"
 
 #: docs/G-Codes.md:block 248 (paragraph)
 msgid ""
@@ -1535,11 +1580,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 250 (header)
 msgid "QUERY_ENDSTOPS"
-msgstr ""
+msgstr "QUERY_ENDSTOPS"
 
 #: docs/G-Codes.md:block 252 (header)
 msgid "[resonance_tester]"
-msgstr ""
+msgstr "[resonance_tester]"
 
 #: docs/G-Codes.md:block 253 (paragraph)
 msgid ""
@@ -1562,7 +1607,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 260 (header)
 msgid "[respond]"
-msgstr ""
+msgstr "[respond]"
 
 #: docs/G-Codes.md:block 261 (paragraph)
 msgid ""
@@ -1572,7 +1617,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 264 (header)
 msgid "RESPOND"
-msgstr ""
+msgstr "RESPOND"
 
 #: docs/G-Codes.md:block 265 (unordered list)
 msgid ""
@@ -1580,6 +1625,9 @@ msgid ""
 "`// `. OctoPrint can be configured to respond to these messages (e.g. "
 "`RESPOND TYPE=command MSG=action:pause`)."
 msgstr ""
+"`RESPOND TYPE=command MSG=\"<message>\"`: echo il messaggio preceduto da `// "
+"`. OctoPrint può essere configurato per rispondere a questi messaggi (ad es. "
+"`RESPOND TYPE=command MSG=action:pause`)."
 
 #: docs/G-Codes.md:block 266 (header)
 msgid "[save_variables]"
@@ -2029,13 +2077,16 @@ msgstr ""
 
 #: docs/G-Codes.md:block 307 (header)
 msgid "RESET_SMART_EFFECTOR"
-msgstr ""
+msgstr "RESET_SMART_EFFECTOR"
 
 #: docs/G-Codes.md:block 308 (paragraph)
 msgid ""
 "`RESET_SMART_EFFECTOR`: Resets Smart Effector sensitivity to its factory "
 "settings. Requires `control_pin` to be provided in the config section."
 msgstr ""
+"`RESET_SMART_EFFECTOR`: Ripristina la sensibilità di Smart Effector alle "
+"impostazioni di fabbrica. Richiede che il relativo `control_pin` sia fornito "
+"nella sezione di configurazione."
 
 #: docs/G-Codes.md:block 11 (paragraph)
 msgid ""

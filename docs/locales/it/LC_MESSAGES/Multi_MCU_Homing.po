@@ -1,10 +1,20 @@
-#
+# Ale Ale <ale.99.ale@gmail.com>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-07-30 17:21+0000\n"
+"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"multi_mcu_homing/it/>\n"
+"Language: it\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: docs/Multi_MCU_Homing.md:block 1 (header)
 msgid "Multiple Micro-controller Homing and Probing"
-msgstr ""
+msgstr "Homing e Probing con microcontrollore multiplo"
 
 #: docs/Multi_MCU_Homing.md:block 2 (paragraph)
 msgid ""
@@ -14,6 +24,11 @@ msgid ""
 "feature is also used when a Z probe is on a different micro-controller than "
 "the Z stepper motors."
 msgstr ""
+"Klipper sopporta un meccanismo per homing con un fine corsa collegato a un "
+"micro controllore mentre i motori passo-passo sono collegati ad un "
+"controllore diverso. Questa modalità è definita Homing multi-mcu. Questa "
+"funzione è usata quando una sonda Z è collegata ad un differente controllore "
+"rispetto ai motori dell'asse Z."
 
 #: docs/Multi_MCU_Homing.md:block 3 (paragraph)
 msgid ""

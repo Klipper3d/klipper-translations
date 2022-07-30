@@ -1,15 +1,17 @@
 # Dex94 <Dasvaresu@dr.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-27 10:52+0000\n"
-"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/config_reference/it/>\n"
+"PO-Revision-Date: 2022-07-30 17:21+0000\n"
+"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"config_reference/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -392,7 +394,7 @@ msgid "Support for gcode arc (G2/G3) commands."
 msgstr ""
 
 msgid "[respond]"
-msgstr ""
+msgstr "[respond]"
 
 msgid "Resonance compensation"
 msgstr "Compensazione della risonanza"
@@ -404,7 +406,7 @@ msgid "[adxl345]"
 msgstr ""
 
 msgid "[resonance_tester]"
-msgstr ""
+msgstr "[resonance_tester]"
 
 msgid "Config file helpers"
 msgstr ""
@@ -796,7 +798,7 @@ msgid "Run-time stepper motor current configuration"
 msgstr ""
 
 msgid "[ad5206]"
-msgstr ""
+msgstr "[ad5206]"
 
 msgid ""
 "Statically configured AD5206 digipots connected via SPI bus (one may define "
