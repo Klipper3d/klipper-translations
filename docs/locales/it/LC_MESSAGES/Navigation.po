@@ -1,38 +1,40 @@
-#
+# Ale Ale <ale.99.ale@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2022-03-06 16:52+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-07-30 21:21+0000\n"
+"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"navigation/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 3.6.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid "Klipper documentation"
-msgstr ""
+msgstr "Documentazione Klipper"
 
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "Installazione e configurazione"
 
 msgid "Configuration Reference"
-msgstr ""
+msgstr "Riferimenti di configurazione"
 
 msgid "Bed Level"
-msgstr ""
+msgstr "Livello del piatto"
 
 msgid "Resonance Compensation"
-msgstr ""
+msgstr "Compensazione della risonanza"
 
 msgid "Command templates"
-msgstr ""
+msgstr "Template dei comandi"
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "Documentazione per sviluppatori"
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "Documenti specifici del dispositivo"
