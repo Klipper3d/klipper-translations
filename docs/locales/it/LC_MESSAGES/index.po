@@ -1,10 +1,10 @@
 # dewi-ny-je <olaf.lists@gmail.com>, 2021, 2025.
-# Ale Ale <ale.99.ale@gmail.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: dewi-ny-je <olaf.lists@gmail.com>\n"
+"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/index/it/"
 ">\n"
 "Language: it\n"
@@ -48,9 +48,8 @@ msgid ""
 "the generous support from our [sponsors](Sponsors.md)."
 msgstr ""
 "Klipper è un software libero. Leggi la [documentazione](Overview.md) o "
-"visualizza [il codice Klipper su "
-"github](https://github.com/Klipper3d/klipper). Dipendiamo dal generoso "
-"supporto dei nostri [sponsor](Sponsor.md)."
+"visualizza [il codice Klipper su github](https://github.com/Klipper3d/"
+"klipper). Dipendiamo dal generoso supporto dei nostri [sponsor](Sponsor.md)."
 
 #~ msgid ""
 #~ "Klipper is Free Software. Read the [documentation](Overview.md) or view [the "
