@@ -276,7 +276,7 @@ The following command is available when a [filament_switch_sensor](Config_Refere
 
 #### QUERY_FILAMENT_SENSOR
 
-`QUERY_FILAMENT_SENSOR SENSOR=<sensor_name>`: Queries the current status of the filament sensor. The data displayed on the terminal will depend on the sensor type defined in the configuration.
+`QUERY_FILAMENT_SENSOR SENSOR=<sensor_name>`: Interroga lo stato del sensore di filamento. I dati visualizzati sul terminale dipenderanno dal tipo di sensore definito nella configurazione.
 
 #### SET_FILAMENT_SENSOR
 
@@ -375,11 +375,11 @@ The following commands are available when the [tsl1401cl filament width sensor c
 
 #### QUERY_FILAMENT_WIDTH
 
-`QUERY_FILAMENT_WIDTH`: Return the current measured filament width.
+`QUERY_FILAMENT_WIDTH`: Restituisce lo spessore del filamento misurato.
 
 #### RESET_FILAMENT_WIDTH_SENSOR
 
-`RESET_FILAMENT_WIDTH_SENSOR`: Clear all sensor readings. Helpful after filament change.
+`RESET_FILAMENT_WIDTH_SENSOR`: Cancella tutte le letture del sensore. Utile dopo il cambio del filamento.
 
 #### DISABLE_FILAMENT_WIDTH_SENSOR
 
@@ -391,7 +391,7 @@ The following commands are available when the [tsl1401cl filament width sensor c
 
 #### QUERY_RAW_FILAMENT_WIDTH
 
-`QUERY_RAW_FILAMENT_WIDTH`: Return the current ADC channel readings and RAW sensor value for calibration points.
+`QUERY_RAW_FILAMENT_WIDTH`: Restituisce le letture del canale ADC corrente e il valore grezzo (raw) del sensore per i punti di calibrazione.
 
 #### ENABLE_FILAMENT_WIDTH_LOG
 
@@ -543,21 +543,21 @@ The following commands are available when the [pause_resume config section](Conf
 
 The following commands are available when a [probe config section](Config_Reference.md#probe) or [bltouch config section](Config_Reference.md#bltouch) is enabled (also see the [probe calibrate guide](Probe_Calibrate.md)).
 
-#### PROBE
+#### sonda
 
-`PROBE [PROBE_SPEED=<mm/s>] [LIFT_SPEED=<mm/s>] [SAMPLES=<count>] [SAMPLE_RETRACT_DIST=<mm>] [SAMPLES_TOLERANCE=<mm>] [SAMPLES_TOLERANCE_RETRIES=<count>] [SAMPLES_RESULT=median|average]`: Move the nozzle downwards until the probe triggers. If any of the optional parameters are provided they override their equivalent setting in the [probe config section](Config_Reference.md#probe).
+`PROBE [PROBE_SPEED=<mm/s>] [LIFT_SPEED=<mm/s>] [SAMPLES=<count>] [SAMPLE_RETRACT_DIST=<mm>] [SAMPLES_TOLERANCE=<mm>] [SAMPLES_TOLERANCE_RETRIES=<count>] [SAMPLES_RESULT=median|average]`: Sposta il nozzle verso il basso finché la sonda non scatta. Se viene fornito uno qualsiasi dei parametri opzionali, sovrascrive l'impostazione equivalente nella sezione [probe config section](Config_Reference.md#probe).
 
 #### QUERY_PROBE
 
-`QUERY_PROBE`: Report the current status of the probe ("triggered" or "open").
+`QUERY_PROBE`: Riporta lo stato corrente della sonda ("triggered" o "open").
 
 #### PROBE_ACCURACY
 
-`PROBE_ACCURACY [PROBE_SPEED=<mm/s>] [SAMPLES=<count>] [SAMPLE_RETRACT_DIST=<mm>]`: Calculate the maximum, minimum, average, median, and standard deviation of multiple probe samples. By default, 10 SAMPLES are taken. Otherwise the optional parameters default to their equivalent setting in the probe config section.
+`PROBE_ACCURACY [PROBE_SPEED=<mm/s>] [SAMPLES=<count>] [SAMPLE_RETRACT_DIST=<mm>]`: Calcola la deviazione massima, minima, media, mediana e standard di più campionamentidella sonda. Per impostazione predefinita, vengono presi 10 CAMPIONI. In caso contrario, i parametri opzionali sono impostati per default sulla loro impostazione equivalente nella sezione di configurazione della sonda.
 
 #### PROBE_CALIBRATE
 
-`PROBE_CALIBRATE [SPEED=<speed>] [<probe_parameter>=<value>]`: Run a helper script useful for calibrating the probe's z_offset. See the PROBE command for details on the optional probe parameters. See the MANUAL_PROBE command for details on the SPEED parameter and the additional commands available while the tool is active. Please note, the PROBE_CALIBRATE command uses the speed variable to move in XY direction as well as Z.
+`PROBE_CALIBRATE [SPEED=<speed>] [<probe_parameter>=<value>]`: Eseguire uno script di aiuto utile per calibrare l'offset z della sonda. Vedere il comando PROBE per i dettagli sui parametri opzionali della sonda. Vedere il comando MANUAL_PROBE per i dettagli del parametro SPEED e sui comandi aggiuntivi disponibili mentre lo strumento è attivo. Nota che il comando PROBE_CALIBRATE utilizza la variabile di velocità per spostarsi in direzione XY e Z.
 
 #### Z_OFFSET_APPLY_PROBE
 
@@ -569,7 +569,7 @@ The query_adc module is automatically loaded.
 
 #### QUERY_ADC
 
-`QUERY_ADC [NAME=<config_name>] [PULLUP=<value>]`: Report the last analog value received for a configured analog pin. If NAME is not provided, the list of available adc names are reported. If PULLUP is provided (as a value in Ohms), the raw analog value along with the equivalent resistance given that pullup is reported.
+`QUERY_ADC [NAME=<config_name>] [PULLUP=<value>]`: Riporta l'ultimo valore analogico ricevuto per un pin analogico configurato. Se NAME non viene fornito, viene riportato l'elenco dei nomi dei convertitori adc disponibili. Se viene fornito PULLUP (come valore in Ohm), viene riportato il valore analogico grezzo insieme alla resistenza equivalente dato quel pullup specificato.
 
 ### [query_endstops]
 
@@ -579,7 +579,7 @@ The query_endstops module is automatically loaded. The following standard G-Code
 
 #### QUERY_ENDSTOPS
 
-`QUERY_ENDSTOPS`: Probe the axis endstops and report if they are "triggered" or in an "open" state. This command is typically used to verify that an endstop is working correctly.
+`QUERY_ENDSTOPS`: Rilevare i finecorsa degli assi e segnala se sono "attivate" o in uno stato "aperto". Questo comando viene in genere utilizzato per verificare che un finecorsa funzioni correttamente.
 
 ### [resonance_tester]
 
@@ -607,12 +607,12 @@ The following additional commands are also available.
 
 #### RESPOND
 
-- `RESPOND MSG="<message>"`: echo the message prepended with the configured default prefix (or `echo: ` if no prefix is configured).
-- `RESPOND TYPE=echo MSG="<message>"`: echo the message prepended with `echo: `.
+- `RESPOND MSG="<message>"`: echo il messaggio preceduto dal prefisso predefinito configurato (o `echo: ` se non è configurato alcun prefisso).
+- `RESPOND TYPE=echo MSG="<message>"`: echo del messaggio preceduto da `echo: `.
 - `RESPOND TYPE=echo_no_space MSG="<message>"`: echo the message prepended with `echo:` without a space between prefix and message, helpful for compatibility with some octoprint plugins that expect very specific formatting.
-- `RESPOND TYPE=command MSG="<message>"`: echo the message prepended with `// `. OctoPrint can be configured to respond to these messages (e.g. `RESPOND TYPE=command MSG=action:pause`).
+- `RESPOND TYPE=command MSG="<message>"`: echo il messaggio preceduto da `// `. OctoPrint può essere configurato per rispondere a questi messaggi (ad es. `RESPOND TYPE=command MSG=action:pause`).
 - `RESPOND TYPE=error MSG="<message>"`: echo the message prepended with `!! `.
-- `RESPOND PREFIX=<prefix> MSG="<message>"`: echo the message prepended with `<prefix>`. (The `PREFIX` parameter will take priority over the `TYPE` parameter)
+- `RESPOND PREFIX=<prefix> MSG="<message>"`: echo il messaggio preceduto da `<prefix>`. (Il parametro `PREFIX` avrà la priorità sul parametro `TYPE`)
 
 ### [save_variables]
 
@@ -684,7 +684,7 @@ Several commands are available when a [smart_effector config section](Config_Ref
 
 #### RESET_SMART_EFFECTOR
 
-`RESET_SMART_EFFECTOR`: Resets Smart Effector sensitivity to its factory settings. Requires `control_pin` to be provided in the config section.
+`RESET_SMART_EFFECTOR`: Ripristina la sensibilità di Smart Effector alle impostazioni di fabbrica. Richiede che il relativo `control_pin` sia fornito nella sezione di configurazione.
 
 ### [stepper_enable]
 
@@ -752,7 +752,7 @@ Klipper supports the following standard G-Code commands if the [virtual_sdcard c
 - Start/resume SD print: `M24`
 - Pause SD print: `M25`
 - Set SD position: `M26 S<offset>`
-- Report SD print status: `M27`
+- Riporta lo stato di stampa SD: `M27`
 
 In addition, the following extended commands are available when the "virtual_sdcard" config section is enabled.
 

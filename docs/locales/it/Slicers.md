@@ -1,4 +1,4 @@
-# Sezionatori
+# slicer
 
 Questo documento fornisce alcuni suggerimenti per configurare un'applicazione "slicer" da usare con Klipper. Gli slicer comuni usati con Klipper sono Slic3r, Cura, Simplify3D, ecc.
 

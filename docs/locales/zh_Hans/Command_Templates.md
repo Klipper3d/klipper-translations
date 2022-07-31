@@ -140,7 +140,7 @@ gcode:
 
 ## 变量
 
-The SET_GCODE_VARIABLE command may be useful for saving state between macro calls. Variable names may not contain any upper case characters. For example:
+SET_GCODE_VARIABLE 命令可以在宏调用之间保存状态。变量名不能包含任何大写字符。例如：
 
 ```
 [gcode_macro start_probe]
@@ -161,7 +161,7 @@ gcode:
   M140 S{printer["gcode_macro start_probe"].bed_temp}
 ```
 
-Be sure to take the timing of macro evaluation and command execution into account when using SET_GCODE_VARIABLE.
+在使用SET_GCODE_VARIABLE时，一定要考虑到宏评估和命令执行的时间顺序。
 
 ## 延迟G代码
 
@@ -182,7 +182,7 @@ gcode:
  UPDATE_DELAYED_GCODE ID=clear_display DURATION=10
 ```
 
-When the `load_filament` macro above executes, it will display a "Load Complete!" message after the extrusion is finished. The last line of gcode enables the "clear_display" delayed_gcode, set to execute in 10 seconds.
+当上面的`load_filament` 宏执行时，它将在挤出结束后显示一个 "Load Complete!"的信息。最后一行G代码启用 "clear_display "delayed_gcode，设置为10秒后执行。
 
 The `initial_duration` config option can be set to execute the delayed_gcode on printer startup. The countdown begins when the printer enters the "ready" state. For example, the below delayed_gcode will execute 5 seconds after the printer is ready, initializing the display with a "Welcome!" message:
 
@@ -193,7 +193,7 @@ gcode:
   M117 Welcome!
 ```
 
-Its possible for a delayed gcode to repeat by updating itself in the gcode option:
+延迟G代码可以通过在G代码选项中更新自己来重复自生：
 
 ```
 [delayed_gcode report_temp]
@@ -211,7 +211,7 @@ UPDATE_DELAYED_GCODE ID=report_temp DURATION=0
 
 ## 菜单模板
 
-If a [display config section](Config_Reference.md#display) is enabled, then it is possible to customize the menu with [menu](Config_Reference.md#menu) config sections.
+如果启用了[display配置分段](Config_Reference.md#display)，那么就可以用[menu](Config_Reference.md#menu)配置分段自定义菜单。
 
 以下只读属性在菜单模板中可用：
 

@@ -1,19 +1,19 @@
-# Packaging Klipper
+# Klipper packaging
 
 Klipper è in qualche modo un'anomalia tra i programmi Python per quanto riguarda impacchettamento, in quanto non usa setuptools per costruire e installare. Alcune note riguardanti il modo migliore per impacchettarlo sono le seguenti:
 
-## C modules
+## Moduli C
 
-Klipper uses a C module to handle some kinematics calculations more quickly. This module needs to be compiled at packaging time to avoid introducing a runtime dependency on a compiler. To compile the C module, run `python2 klippy/chelper/__init__.py`.
+Klipper utilizza un modulo C per gestire più rapidamente alcuni calcoli cinematici. Questo modulo deve essere compilato al momento per evitare di introdurre una dipendenza di runtime da un compilatore. Per compilare il modulo C, esegui `python2 klippy/chelper/__init__.py`.
 
-## Compiling python code
+## Compilazione di codice python
 
-Many distributions have a policy of compiling all python code before packaging to improve startup time. You can do this by running `python2 -m compileall klippy`.
+Molte distribuzioni hanno una politica di compilazione di tutto il codice Python prima del packaging per migliorare i tempi di avvio. Puoi farlo eseguendo `python2 -m compileall klippy`.
 
-## Versioning
+## Versione
 
-If you are building a package of Klipper from git, it is usual practice not to ship a .git directory, so the versioning must be handled without git. To do this, use the script shipped in `scripts/make_version.py` which should be run as follows: `python2 scripts/make_version.py YOURDISTRONAME > klippy/.version`.
+Se stai compilando un pacchetto di Klipper da git, è normale non spedire una directory .git, quindi il controllo delle versioni deve essere gestito senza git. Per fare ciò, usa lo script fornito in `scripts/make_version.py` che dovrebbe essere eseguito come segue: `python2 scripts/make_version.py YOURDISTRONAME > klippy/.version`.
 
-## Sample packaging script
+## Esempio di script di packaging
 
-klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).
+klipper-git è un pacchetto per Arch Linux e ha un PKGBUILD (script di compilazione del pacchetto) disponibile su [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).

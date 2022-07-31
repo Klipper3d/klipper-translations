@@ -1,13 +1,13 @@
 # Sensore TSL1401CL di larghezza del filamento
 
-This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on TSL1401CL linear sensor array but it can work with any sensor array that has analog output. You can find designs at [Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor).
+Questo documento descrive il modulo host del sensore di larghezza del filamento (Filament Width Sensor). L'hardware utilizzato per lo sviluppo di questo modulo host si basa sull'array di sensori lineari TSL1401CL, ma può funzionare con qualsiasi array di sensori dotato di uscita analogica. Puoi trovare design su [Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor).
 
-To use a sensor array as a filament width sensor, read [Config Reference](Config_Reference.md#tsl1401cl_filament_width_sensor) and [G-Code documentation](G-Codes.md#hall_filament_width_sensor).
+Per utilizzare un array di sensori come sensore di larghezza del filamento, leggere [Config Reference](Config_Reference.md#tsl1401cl_filament_width_sensor) e [G-Code documentation](G-Codes.md#hall_filament_width_sensor).
 
 ## Come funziona?
 
-Sensor generates analog output based on calculated filament width. Output voltage always equals to detected filament width (Ex. 1.65v, 1.70v, 3.0v). Host module monitors voltage changes and adjusts extrusion multiplier.
+Il sensore genera un'uscita analogica in base alla larghezza calcolata del filamento. La tensione di uscita è sempre uguale alla larghezza del filamento rilevata (es. 1.65v, 1.70v, 3.0v). Il modulo host monitora le variazioni di tensione e regola il moltiplicatore di estrusione.
 
 ## Note:
 
-Sensor readings done with 10 mm intervals by default. If necessary you are free to change this setting by editing ***MEASUREMENT_INTERVAL_MM*** parameter in **filament_width_sensor.py** file.
+Letture del sensore eseguite con intervalli di 10 mm predefiniti Se necessario, sei libero di modificare questa impostazione modificando il parametro ***MEASUREMENT_INTERVAL_MM*** nel file **filament_width_sensor.py**.
