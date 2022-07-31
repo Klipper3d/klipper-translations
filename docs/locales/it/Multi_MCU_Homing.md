@@ -1,15 +1,15 @@
-# Multiple Micro-controller Homing and Probing
+# Homing e Probing con microcontrollore multiplo
 
-Klipper supports a mechanism for homing with an endstop attached to one micro-controller while its stepper motors are on a different micro-controller. This support is referred to as "multi-mcu homing". This feature is also used when a Z probe is on a different micro-controller than the Z stepper motors.
+Klipper sopporta un meccanismo per homing con un fine corsa collegato a un micro controllore mentre i motori passo-passo sono collegati ad un controllore diverso. Questa modalità è definita Homing multi-mcu. Questa funzione è usata quando una sonda Z è collegata ad un differente controllore rispetto ai motori dell'asse Z.
 
-This feature can be useful to simplify wiring, as it may be more convenient to attach an endstop or probe to a closer micro-controller. However, using this feature may result in "overshoot" of the stepper motors during homing and probing operations.
+Questa funzione può essere utile per semplificare il cablaggio, poiché potrebbe essere più conveniente collegare un finecorsa o una sonda a un microcontrollore più vicino. Tuttavia, l'utilizzo di questa funzione può comportare un "overshoot" dei motori passo-passo durante le operazioni di homing o con sonda.
 
-The overshoot occurs due to possible message transmission delays between the micro-controller monitoring the endstop and the micro-controllers moving the stepper motors. The Klipper code is designed to limit this delay to no more than 25ms. (When multi-mcu homing is activated, the micro-controllers send periodic status messages and check that corresponding status messages are received within 25ms.)
+L' 'overshoot' si verifica a causa di possibili ritardi nella trasmissione del messaggio tra il microcontrollore che controlla il finecorsa e i microcontrollori che muovono i motori passo-passo. Il codice Klipper è progettato per limitare questo ritardo a non più di 25 ms. (Quando è attivato l'homing multi-mcu, i microcontrollori inviano messaggi di stato periodici e controllano che i messaggi di stato corrispondenti vengano ricevuti entro 25 ms.)
 
-So, for example, if homing at 10mm/s then it is possible for an overshoot of up to 0.250mm (10mm/s * .025s == 0.250mm). Care should be taken when configuring multi-mcu homing to account for this type of overshoot. Using slower homing or probing speeds can reduce the overshoot.
+Quindi, ad esempio, se si esegue l'homing a 10 mm/s, è possibile un superamento fino a 0,250 mm (10 mm/s * .025s == 0,250 mm). È necessario prestare attenzione durante la configurazione dell'homing multi-mcu per tenere conto di questo tipo di overshoot. L'uso di velocità di riferimento o di sonda più lente può ridurre la sovraelongazione (overshot).
 
-Stepper motor overshoot should not adversely impact the precision of the homing and probing procedure. The Klipper code will detect the overshoot and account for it in its calculations. However, it is important that the hardware design is capable of handling overshoot without causing damage to the machine.
+La sovraelongazione 'overshot' del motore passo-passo non dovrebbe influire negativamente sulla precisione della procedura di homing e di sonda. Il codice Klipper rileverà il superamento e ne terrà conto nei suoi calcoli. Tuttavia, è importante che il design dell'hardware sia in grado di gestire l'overshoot senza causare danni alla macchina.
 
-Should Klipper detect a communication issue between micro-controllers during multi-mcu homing then it will raise a "Communication timeout during homing" error.
+Se Klipper dovesse rilevare un problema di comunicazione tra i microcontrollori durante l'homing multi-mcu, genererà un errore "Timeout di comunicazione durante l'homing".
 
-Note that an axis with multiple steppers (eg, `stepper_z` and `stepper_z1`) need to be on the same micro-controller in order to use multi-mcu homing. For example, if an endstop is on a separate micro-controller from `stepper_z` then `stepper_z1` must be on the same micro-controller as `stepper_z`.
+Si noti che un asse con più stepper (ad esempio, `stepper_z` e `stepper_z1`) deve trovarsi sullo stesso microcontrollore per poter utilizzare l'homing multi-mcu. Ad esempio, se un endstop si trova su un microcontrollore separato da `stepper_z` allora `stepper_z1` deve trovarsi sullo stesso microcontrollore di `stepper_z`.

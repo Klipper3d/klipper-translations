@@ -1,15 +1,15 @@
-Klipper documentation
+Documentazione Klipper
 
-Installation and Configuration
+Installazione e configurazione
 
-Configuration Reference
+Riferimenti di configurazione
 
-Bed Level
+Livello del piatto
 
-Resonance Compensation
+Compensazione della risonanza
 
-Command templates
+Template dei comandi
 
-Developer Documentation
+Documentazione per sviluppatori
 
-Device Specific Documents
+Documenti specifici del dispositivo

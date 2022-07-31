@@ -2,81 +2,81 @@
 
 Questo documento fornisce informazioni di contatto per Klipper.
 
-1. [Community Forum](#community-forum)
-1. [Discord Chat](#discord-chat)
-1. [I have a question about Klipper](#i-have-a-question-about-klipper)
-1. [I have a feature request](#i-have-a-feature-request)
-1. [Help! It doesn't work!](#help-it-doesnt-work)
-1. [I have diagnosed a defect in the Klipper software](#i-have-diagnosed-a-defect-in-the-klipper-software)
-1. [I am making changes that I'd like to include in Klipper](#i-am-making-changes-that-id-like-to-include-in-klipper)
+1. [Forum della comunità](#community-forum)
+1. [Chat Discord](#discord-chat)
+1. [Ho una domanda su Klipper](#i-have-a-question-about-klipper)
+1. [Ho una richiesta per una funzionalità](#i-have-a-feature-request)
+1. [Aiuto! Non funziona!](#help-it-doesnt-work)
+1. [Ho diagnosticato un difetto nel software Klipper](#i-have-diagnosed-a-defect-in-the-klipper-software)
+1. [Sto apportando modifiche che vorrei includere in Klipper](#i-am-making-changes-that-id-like-to-include-in-klipper)
 
-## Community Forum
+## Forum della Comunità
 
-There is a [Klipper Community Discourse server](https://community.klipper3d.org) for discussions on Klipper.
+C'è un server [Klipper Community Discourse server](https://community.klipper3d.org) per discussioni su Klipper.
 
-## Discord Chat
+## Chat Discord
 
-There is a Discord server dedicated to Klipper at: <https://discord.klipper3d.org>.
+C'è un serve Discord dedicato a Klipper a: <https://discord.klipper3d.org>.
 
-This server is run by a community of Klipper enthusiasts dedicated to discussions on Klipper. It allows users to chat with other users in real-time.
+Questo server è gestito da una comunità di appassionati di Klipper dediti alle discussioni su Klipper. Consente agli utenti di chattare con altri utenti in tempo reale.
 
-## I have a question about Klipper
+## Ho una domanda su Klipper
 
-Many questions we receive are already answered in the [Klipper documentation](Overview.md). Please be sure to to read the documentation and follow the directions provided there.
+Molte domande che riceviamo hanno già una risposta nella [Klipper documentation](Overview.md). Per favore assicurati di leggere la documentazione e di seguire le indicazioni fornite.
 
-It is also possible to search for similar questions in the [Klipper Community Forum](#community-forum).
+È anche possibile cercare domande simili nel [Klipper Community Forum](#community-forum).
 
-If you are interested in sharing your knowledge and experience with other Klipper users then you can join the [Klipper Community Forum](#community-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
+Se sei interessato a condividere le tue conoscenze ed esperienze con altri utenti di Klipper, puoi unirti al [Klipper Community Forum](#community-forum) o [Klipper Discord Chat](#discord-chat). Entrambe sono comunità in cui gli utenti di Klipper possono discutere di Klipper con altri utenti.
 
-Many questions we receive are general 3d-printing questions that are not specific to Klipper. If you have a general question or are experiencing general printing problems, then you will likely get a better response by asking in a general 3d-printing forum or a forum dedicated to your printer hardware.
+Molte domande che riceviamo sono domande generiche sulla stampa 3D che non sono specifiche di Klipper. Se hai una domanda generica o stai riscontrando problemi di stampa generici, probabilmente otterrai una risposta migliore chiedendo in un forum generale sulla stampa 3D o in un forum dedicato all'hardware della tua stampante.
 
-Do not open a Klipper github issue to ask a question.
+Non aprire un problema (issue) su Klipper github per porre una domanda.
 
-## I have a feature request
+## Ho una richiesta per una funzionalità
 
-All new features require someone interested and able to implement that feature. If you are interested in helping to implement or test a new feature, you can search for ongoing developments in the [Klipper Community Forum](#community-forum). There is also [Klipper Discord Chat](#discord-chat) for discussions between collaborators.
+Tutte le nuove funzionalità richiedono qualcuno interessato e in grado di implementare tale funzionalità. Se sei interessato ad aiutare a implementare o testare una nuova funzionalità, puoi cercare gli sviluppi coinvolti nel [Klipper Community Forum](#community-forum). C'è anche [Klipper Discord Chat](#discord-chat) per le discussioni tra i collaboratori.
 
-Do not open a Klipper github issue to request a feature.
+Non aprire un problema (issue) in Klipper github per richiedere una funzionalità.
 
-## Help! It doesn't work!
+## Aiuto! Non funziona!
 
-Unfortunately, we receive many more requests for help than we could possibly answer. Most problem reports we see are eventually tracked down to:
+Sfortunatamente, riceviamo molte più richieste di aiuto di quante potremmo eventualmente rispondere. La maggior parte delle segnalazioni di problemi che vediamo vengono infine rintracciate in:
 
-1. Subtle errors in the hardware, or
-1. Not following all the steps described in the Klipper documentation.
+1. Piccoli nell'hardware, o
+1. Non seguendo tutti i passaggi descritti nella documentazione di Klipper.
 
-If you are experiencing problems we recommend you carefully read the [Klipper documentation](Overview.md) and double check that all steps were followed.
+In caso di problemi, ti consigliamo di leggere attentamente la [Klipper documentation](Overview.md) e di verificare che tutti i passaggi siano stati seguiti.
 
-If you are experiencing a printing problem, then we recommend carefully inspecting the printer hardware (all joints, wires, screws, etc.) and verify nothing is abnormal. We find most printing problems are not related to the Klipper software. If you do find a problem with the printer hardware then you will likely get a better response by searching in a general 3d-printing forum or in a forum dedicated to your printer hardware.
+Se si verifica un problema di stampa, si consiglia di ispezionare attentamente l'hardware della stampante (tutti i giunti, i cavi, le viti, ecc.) e verificare che non vi siano anomalie. Scopriamo che la maggior parte dei problemi di stampa non sono correlati al software Klipper. Se trovi un problema con l'hardware della stampante, probabilmente otterrai una risposta migliore cercando in un forum generale di stampa 3D o in un forum dedicato all'hardware della tua stampante.
 
-It is also possible to search for similar issues in the [Klipper Community Forum](#community-forum).
+È anche possibile cercare problemi simili in [Klipper Community Forum](#community-forum).
 
-If you are interested in sharing your knowledge and experience with other Klipper users then you can join the [Klipper Community Forum](#community-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
+Se sei interessato a condividere le tue conoscenze ed esperienze con altri utenti di Klipper, puoi unirti al [Klipper Community Forum](#community-forum) o [Klipper Discord Chat](#discord-chat). Entrambe sono comunità in cui gli utenti di Klipper possono discutere di Klipper con altri utenti.
 
-Do not open a Klipper github issue to request help.
+Non aprire un problema (issue) in Klipper github per richiedere assistenza.
 
-## I have diagnosed a defect in the Klipper software
+## Ho diagnosticato un difetto nel software Klipper
 
-Klipper is an open-source project and we appreciate when collaborators diagnose errors in the software.
+Klipper è un progetto open-source ed apprezziamo quando i collaboratori diagnosticano errori nel software.
 
-There is important information that will be needed in order to fix a bug. Please follow these steps:
+Ci sono informazioni importanti che saranno necessarie per correggere un bug. Per favore segui questi passaggi:
 
-1. Be sure the bug is in the Klipper software. If you are thinking "there is a problem, I can't figure out why, and therefore it is a Klipper bug", then **do not** open a github issue. In that case, someone interested and able will need to first research and diagnose the root cause of the problem. If you would like to share the results of your research or check if other users are experiencing similar issues then you can search the [Klipper Community Forum](#community-forum).
-1. Make sure you are running unmodified code from <https://github.com/Klipper3d/klipper>. If the code has been modified or is obtained from another source, then you will need to reproduce the problem on the unmodified code from <https://github.com/Klipper3d/klipper> prior to reporting an issue.
-1. If possible, run an `M112` command in the OctoPrint terminal window immediately after the undesirable event occurs. This causes Klipper to go into a "shutdown state" and it will cause additional debugging information to be written to the log file.
-1. Obtain the Klipper log file from the event. The log file has been engineered to answer common questions the Klipper developers have about the software and its environment (software version, hardware type, configuration, event timing, and hundreds of other questions).
-   1. The Klipper log file is located in `/tmp/klippy.log` on the Klipper "host" computer (the Raspberry Pi).
-   1. An "scp" or "sftp" utility is needed to copy this log file to your desktop computer. The "scp" utility comes standard with Linux and MacOS desktops. There are freely available scp utilities for other desktops (eg, WinSCP). If using a graphical scp utility that can not directly copy `/tmp/klippy.log` then repeatedly click on `..` or `parent folder` until you get to the root directory, click on the `tmp` folder, and then select the `klippy.log` file.
-   1. Copy the log file to your desktop so that it can be attached to an issue report.
-   1. Do not modify the log file in any way; do not provide a snippet of the log. Only the full unmodified log file provides the necessary information.
-   1. If the log file is very large (eg, greater than 2MB) then one may need to compress the log with zip or gzip.
+1. Assicurati che il bug sia nel software Klipper. Se stai pensando "c'è un problema, non riesco a capire perché, e quindi è un bug di Klipper", allora **non** aprire un problema (issue) con github. Nel caso qualcuno interessato e capace dovrà prima ricercare e diagnosticare la causa origine del problema. Se desideri condividere i risultati della tua ricerca o verificare se altri utenti stanno riscontrando problemi simili, puoi cercare in [Klipper Community Forum](#community-forum).
+1. Assicurati di eseguire il codice non modificato da <https://github.com/Klipper3d/klipper>. Se il codice è stato modificato o è stato ottenuto da un'altra fonte, dovrai riprodurre il problema sul codice non modificato da <https://github.com/Klipper3d/klipper> prima di segnalare un problema.
+1. Se possibile, esegui un comando `M112` nella finestra del terminale di OctoPrint subito dopo che si è verificato l'evento indesiderato. Ciò fa sì che Klipper entri in uno "stato di arresto - shutdown state" e provocherà la scrittura di ulteriori informazioni di debug nel file di registro.
+1. Ottieni il log file di Klipper dell'evento. Il file di registro è stato progettato per rispondere alle domande più comuni degli sviluppatori di Klipper sul software e sul suo ambiente (versione del software, tipo di hardware, configurazione, tempistica degli eventi e centinaia di altre domande).
+   1. Il log file di Klipper si trova in `/tmp/klippy.log` sul computer "host" di Klipper (il Raspberry Pi).
+   1. Un comando o utility "scp" o "sftp" è necessario per copiare questo file di registro sul computer desktop. L'utilità "scp" viene fornita di serie con i desktop Linux e MacOS. Ci sono utilità scp disponibili gratuitamente per altri desktop (ad es. WinSCP). Se si utilizza un'interfaccia grafica scp che non può copiare direttamente `/tmp/klippy.log`, fare clic ripetutamente su `..` o `cartella principale` fino ad arrivare alla directory principale, fare clic sulla cartella `tmp`, quindi seleziona il file `klippy.log`.
+   1. Copia il lof file sul desktop in modo che possa essere allegato a una segnalazione di problema.
+   1. Non modificare in alcun modo il log file; non editare o ritagliare il log file. Solo il file di log completo non modificato fornisce le informazioni necessarie.
+   1. Se il file di registro è molto grande (ad esempio, maggiore di 2 MB), potrebbe essere necessario comprimerlo con zip o gzip.
 
-   1. Open a new github issue at <https://github.com/Klipper3d/klipper/issues> and provide a clear description of the problem. The Klipper developers need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The Klipper log file **must be attached** to that ticket:![attach-issue](img/attach-issue.png)
+   1. Apri un nuovo problema con github su <https://github.com/Klipper3d/klipper/issues> e fornisci una descrizione chiara del problema. Gli sviluppatori di Klipper devono capire quali passi sono stati intrapresi, quale era il risultato desiderato e quale risultato si è effettivamente verificato. Il file di registro di Klipper **deve essere allegato** al ticket:![attach-issue](img/attach-issue.png)
 
-## I am making changes that I'd like to include in Klipper
+## Sto apportando modifiche che vorrei includere in Klipper
 
-Klipper is open-source software and we appreciate new contributions.
+Klipper è un software open-source e apprezziamo i nuovi contributi.
 
-New contributions (for both code and documentation) are submitted via Github Pull Requests. See the [CONTRIBUTING document](CONTRIBUTING.md) for important information.
+I nuovi contributi (sia per il codice che per la documentazione) vengono inviati tramite Github Pull Requests. Vedere [[CONTRIBUTING document](CONTRIBUTING.md) per informazioni importanti.
 
-There are several [documents for developers](Overview.md#developer-documentation). If you have questions on the code then you can also ask in the [Klipper Community Forum](#community-forum) or on the [Klipper Community Discord](#discord-chat). If you would like to provide an update on your current progress then you can open a Github issue with the location of your code, an overview of the changes, and a description of its current status.
+Esistono diversi [documenti per sviluppatori](Overview.md#developer-documentation). Se hai domande sul codice, puoi anche chiedere nel [Klipper Community Forum](#community-forum) o nel [Klipper Community Discord](#discord-chat). Se desideri fornire un aggiornamento sui tuoi progressi attuali, puoi aprire un problema (issue) con Github con la posizione del tuo codice, una panoramica delle modifiche e una descrizione del suo stato attuale.
