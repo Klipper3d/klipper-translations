@@ -1,17 +1,18 @@
 # Ernesto Lo Valvo <elovalvo@gmail.com>, 2021.
 # Dex94 <Dasvaresu@dr.com>, 2022.
-# Ale Ale <ale.99.ale@gmail.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-01 07:21+0000\n"
+"PO-Revision-Date: 2025-05-03 07:28+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/beaglebone/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"beaglebone/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "This document describes the process of running Klipper on a Beaglebone PRU."
@@ -49,18 +50,18 @@ msgid ""
 "settings and change the references from `/home/pi/` to `/home/debian/`:"
 msgstr ""
 "È necessario modificare il file di configurazione **/etc/default/octoprint** "
-"di OctoPrint. Si deve cambiare l'utente `OCTOPRINT_USER` in `debian`, cambiare"
-" `NICELEVEL` in `0`, togliere il commento alle impostazioni di `BASEDIR`, "
-"`CONFIGFILE` e `DAEMON` e cambiare i riferimenti della home da `/home/pi/` a "
-"`/home/debian/`:"
+"di OctoPrint. Si deve cambiare l'utente `OCTOPRINT_USER` in `debian`, "
+"cambiare `NICELEVEL` in `0`, togliere il commento alle impostazioni di "
+"`BASEDIR`, `CONFIGFILE` e `DAEMON` e cambiare i riferimenti della home da `/"
+"home/pi/` a `/home/debian/`:"
 
 #: docs/Beaglebone.md:block 22 (paragraph)
 msgid ""
 "It is also necessary to compile and install the micro-controller code for a "
 "Linux host process. Configure it a second time for a \"Linux process\":"
 msgstr ""
-"È inoltre necessario compilare e installare il codice del microcontrollore per"
-" un processo host Linux. Configuralo per un \"processo Linux\":"
+"È inoltre necessario compilare e installare il codice del microcontrollore "
+"per un processo host Linux. Configuralo per un \"processo Linux\":"
 
 #: docs/Beaglebone.md:block 4 (paragraph)
 msgid ""
