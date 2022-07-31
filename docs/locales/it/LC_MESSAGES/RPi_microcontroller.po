@@ -1,17 +1,19 @@
 # Ernesto Lo Valvo <elovalvo@gmail.com>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
 # Dex94 <Dasvaresu@dr.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-27 10:52+0000\n"
-"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/rpi_microcontroller/it/>\n"
+"PO-Revision-Date: 2022-07-31 07:22+0000\n"
+"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"rpi_microcontroller/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document describes the process of running Klipper on a RPi and use the "
@@ -154,18 +156,21 @@ msgid ""
 "make flash\n"
 "sudo service klipper start\n"
 msgstr ""
+"sudo service klipper stop\n"
+"make flash\n"
+"sudo service klipper start\n"
 
 msgid "sudo usermod -a -G tty pi\n"
-msgstr ""
+msgstr "sudo usermod -a -G tty pi\n"
 
 msgid "sudo apt-get install gpiod\n"
-msgstr ""
+msgstr "sudo apt-get install gpiod\n"
 
 msgid "gpiodetect\n"
-msgstr ""
+msgstr "gpiodetect\n"
 
 msgid "gpioinfo\n"
-msgstr ""
+msgstr "gpioinfo\n"
 
 msgid ""
 "$ gpiodetect\n"
@@ -238,6 +243,75 @@ msgid ""
 "        line   6:      unnamed       unused   input  active-high\n"
 "        line   7:      unnamed       unused   input  active-high\n"
 msgstr ""
+"$ gpiodetect\n"
+"gpiochip0 [pinctrl-bcm2835] (54 lines)\n"
+"gpiochip1 [raspberrypi-exp-gpio] (8 lines)\n"
+"\n"
+"$ gpioinfo\n"
+"gpiochip0 - 54 lines:\n"
+"        line   0:      unnamed       unused   input  active-high\n"
+"        line   1:      unnamed       unused   input  active-high\n"
+"        line   2:      unnamed       unused   input  active-high\n"
+"        line   3:      unnamed       unused   input  active-high\n"
+"        line   4:      unnamed       unused   input  active-high\n"
+"        line   5:      unnamed       unused   input  active-high\n"
+"        line   6:      unnamed       unused   input  active-high\n"
+"        line   7:      unnamed       unused   input  active-high\n"
+"        line   8:      unnamed       unused   input  active-high\n"
+"        line   9:      unnamed       unused   input  active-high\n"
+"        line  10:      unnamed       unused   input  active-high\n"
+"        line  11:      unnamed       unused   input  active-high\n"
+"        line  12:      unnamed       unused   input  active-high\n"
+"        line  13:      unnamed       unused   input  active-high\n"
+"        line  14:      unnamed       unused   input  active-high\n"
+"        line  15:      unnamed       unused   input  active-high\n"
+"        line  16:      unnamed       unused   input  active-high\n"
+"        line  17:      unnamed       unused   input  active-high\n"
+"        line  18:      unnamed       unused   input  active-high\n"
+"        line  19:      unnamed       unused   input  active-high\n"
+"        line  20:      unnamed    \"klipper\"  output  active-high [used]\n"
+"        line  21:      unnamed       unused   input  active-high\n"
+"        line  22:      unnamed       unused   input  active-high\n"
+"        line  23:      unnamed       unused   input  active-high\n"
+"        line  24:      unnamed       unused   input  active-high\n"
+"        line  25:      unnamed       unused   input  active-high\n"
+"        line  26:      unnamed       unused   input  active-high\n"
+"        line  27:      unnamed       unused   input  active-high\n"
+"        line  28:      unnamed       unused   input  active-high\n"
+"        line  29:      unnamed       \"led0\"  output  active-high [used]\n"
+"        line  30:      unnamed       unused   input  active-high\n"
+"        line  31:      unnamed       unused   input  active-high\n"
+"        line  32:      unnamed       unused   input  active-high\n"
+"        line  33:      unnamed       unused   input  active-high\n"
+"        line  34:      unnamed       unused   input  active-high\n"
+"        line  35:      unnamed       unused   input  active-high\n"
+"        line  36:      unnamed       unused   input  active-high\n"
+"        line  37:      unnamed       unused   input  active-high\n"
+"        line  38:      unnamed       unused   input  active-high\n"
+"        line  39:      unnamed       unused   input  active-high\n"
+"        line  40:      unnamed       unused   input  active-high\n"
+"        line  41:      unnamed       unused   input  active-high\n"
+"        line  42:      unnamed       unused   input  active-high\n"
+"        line  43:      unnamed       unused   input  active-high\n"
+"        line  44:      unnamed       unused   input  active-high\n"
+"        line  45:      unnamed       unused   input  active-high\n"
+"        line  46:      unnamed       unused   input  active-high\n"
+"        line  47:      unnamed       unused   input  active-high\n"
+"        line  48:      unnamed       unused   input  active-high\n"
+"        line  49:      unnamed       unused   input  active-high\n"
+"        line  50:      unnamed       unused   input  active-high\n"
+"        line  51:      unnamed       unused   input  active-high\n"
+"        line  52:      unnamed       unused   input  active-high\n"
+"        line  53:      unnamed       unused   input  active-high\n"
+"gpiochip1 - 8 lines:\n"
+"        line   0:      unnamed       unused   input  active-high\n"
+"        line   1:      unnamed       unused   input  active-high\n"
+"        line   2:      unnamed       \"led1\"  output   active-low [used]\n"
+"        line   3:      unnamed       unused   input  active-high\n"
+"        line   4:      unnamed       unused   input  active-high\n"
+"        line   5:      unnamed       unused   input  active-high\n"
+"        line   6:      unnamed       unused   input  active-high\n"
+"        line   7:      unnamed       unused   input  active-high\n"
 
 #: docs/RPi_microcontroller.md:block 31 (header)
 msgid "Optional: Hardware PWM"
@@ -285,7 +359,7 @@ msgstr ""
 
 #: docs/RPi_microcontroller.md:block 36 (code)
 msgid "echo 0 > /sys/class/pwm/pwmchip0/export\n"
-msgstr ""
+msgstr "echo 0 > /sys/class/pwm/pwmchip0/export\n"
 
 #: docs/RPi_microcontroller.md:block 37 (paragraph)
 msgid ""
@@ -293,6 +367,9 @@ msgid ""
 "The easiest way to do this is by adding this to `/etc/rc.local` before the "
 "`exit 0` line."
 msgstr ""
+"Questo creerà il dispositivo `/sys/class/pwm/pwmchip0/pwm0` nel filesystem. "
+"Il modo più semplice per farlo è aggiungerlo a `/etc/rc.local` prima della "
+"riga `exit 0`."
 
 #: docs/RPi_microcontroller.md:block 38 (paragraph)
 msgid ""
@@ -310,6 +387,11 @@ msgid ""
 "hardware_pwm: True\n"
 "cycle_time: 0.000001\n"
 msgstr ""
+"[output_pin caselight]\n"
+"pin: host:pwmchip0/pwm0\n"
+"pwm: True\n"
+"hardware_pwm: True\n"
+"cycle_time: 0.000001\n"
 
 #: docs/RPi_microcontroller.md:block 40 (paragraph)
 msgid ""
@@ -328,60 +410,64 @@ msgid ""
 "PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and "
 "gpio19:"
 msgstr ""
+"PWM0 può essere indirizzato su gpio12 e gpio18, PWM1 può essere indirizzato "
+"su gpio13 e gpio19:"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "PWM"
-msgstr ""
+msgstr "PWM"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "gpio PIN"
-msgstr ""
+msgstr "gpio PIN"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "Func"
-msgstr ""
+msgstr "Func"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "12"
-msgstr ""
+msgstr "12"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "18"
-msgstr ""
+msgstr "18"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "13"
-msgstr ""
+msgstr "13"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "19"
-msgstr ""
+msgstr "19"
 
 #: docs/RPi_microcontroller.md:block 20 (header)
 msgid "Optional: Enabling SPI"
-msgstr ""
+msgstr "Facoltativo: abilitazione di SPI"
 
 #: docs/RPi_microcontroller.md:block 21 (paragraph)
 msgid ""
 "Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and"
 " enabling SPI under the \"Interfacing options\" menu."
 msgstr ""
+"Assicurati che il driver SPI di Linux sia abilitato eseguendo `sudo raspi-"
+"config` e abilitando SPI nel menu \"Opzioni di interfaccia\"."
 
 #: docs/RPi_microcontroller.md:block 30 (paragraph)
 msgid ""
@@ -390,6 +476,9 @@ msgid ""
 "`gpiodetect` command and **o** is the line number seen by the`gpioinfo` "
 "command."
 msgstr ""
+"Il pin scelto può quindi essere utilizzato all'interno della configurazione "
+"come `gpiochip<n>/gpio<o>` dove **n** è il numero del chip visto dal comando "
+"`gpiodetect` e **o** è il numero di riga visto dal comando `gpioinfo`."
 
 #: docs/RPi_microcontroller.md:block 23 (paragraph)
 msgid ""
@@ -401,10 +490,17 @@ msgid ""
 "cases it is useful to use the commands to access the *Linux GPIO character "
 "device* to verify the configuration."
 msgstr ""
+"Su Raspberry Pi e su molti cloni i pin esposti sul GPIO appartengono al "
+"primo gpiochip. Possono quindi essere utilizzati su klipper semplicemente "
+"riferendoli con il nome `gpio0..n`. Tuttavia, ci sono casi in cui i pin "
+"esposti appartengono a gpiochip diversi dal primo. Ad esempio nel caso di "
+"alcuni modelli OrangePi o se viene utilizzato un Port Expander. In questi "
+"casi è utile utilizzare i comandi per accedere al *dispositivo a caratteri "
+"GPIO Linux* per verificarne la configurazione."
 
 #: docs/RPi_microcontroller.md:block 22 (header)
 msgid "Optional: Enabling I2C"
-msgstr ""
+msgstr "Opzionale: abilitazione di I2C"
 
 #: docs/RPi_microcontroller.md:block 23 (paragraph)
 msgid ""
