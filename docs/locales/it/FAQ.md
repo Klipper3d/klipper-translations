@@ -1,22 +1,22 @@
-# Frequently Asked Questions
+# Domande frequenti
 
-## How can I donate to the project?
+## Come posso donare al progetto?
 
-Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
+Grazie per il vostro sostegno. Per informazioni, vedere la [Pagina degli sponsor](Sponsor.md).
 
-## How do I calculate the rotation_distance config parameter?
+## Come faccio a calcolare il parametro di configurazione rotation_distance?
 
-See the [rotation distance document](Rotation_Distance.md).
+Vedere il [rotation distance document](Rotation_Distance.md).
 
-## Where's my serial port?
+## Dov'è la mia porta seriale?
 
-The general way to find a USB serial port is to run `ls /dev/serial/by-id/*` from an ssh terminal on the host machine. It will likely produce output similar to the following:
+Il modo generico per trovare una porta seriale USB è eseguire `ls /dev/serial/by-id/*` da un terminale ssh sulla macchina host. Probabilmente produrrà un output simile al seguente:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-The name found in the above command is stable and it is possible to use it in the config file and while flashing the micro-controller code. For example, a flash command might look similar to:
+Il nome trovato nel comando precedente è stabile ed è possibile utilizzarlo nel file di configurazione e durante il flashing del codice del microcontrollore. Ad esempio, un comando flash potrebbe essere simile a:
 
 ```
 sudo service klipper stop
@@ -24,187 +24,187 @@ make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 ```
 
-and the updated config might look like:
+e la configurazione aggiornata potrebbe essere simile a:
 
 ```
 [mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-Be sure to copy-and-paste the name from the "ls" command that you ran above as the name will be different for each printer.
+Assicurati di copiare e incollare il nome dal comando "ls" che hai eseguito sopra poiché il nome sarà diverso per ciascuna stampante.
 
-If you are using multiple micro-controllers and they do not have unique ids (common on boards with a CH340 USB chip) then follow the directions above using the command `ls /dev/serial/by-path/*` instead.
+Se stai usando più microcontrollori e non hanno ID univoci (comune sulle schede con un chip USB CH340), segui invece le indicazioni sopra usando il comando `ls /dev/serial/by-path/*`.
 
-## When the micro-controller restarts the device changes to /dev/ttyUSB1
+## Quando il microcontrollore si riavvia, il dispositivo cambia in /dev/ttyUSB1
 
-Follow the directions in the "[Where's my serial port?](#wheres-my-serial-port)" section to prevent this from occurring.
+egui le istruzioni nella sezione "[Where's my serial port?](#wheres-my-serial-port)" per evitare che ciò accada.
 
-## The "make flash" command doesn't work
+## Il comando "make flash" non funziona
 
-The code attempts to flash the device using the most common method for each platform. Unfortunately, there is a lot of variance in flashing methods, so the "make flash" command may not work on all boards.
+Il codice tenta di eseguire il flashing del dispositivo utilizzando il metodo più comune per ciascuna piattaforma. Sfortunatamente, c'è molta variabilità nei metodi di flashing, quindi il comando "make flash" potrebbe non funzionare su tutte le schede.
 
-If you're having an intermittent failure or you do have a standard setup, then double check that Klipper isn't running when flashing (sudo service klipper stop), make sure OctoPrint isn't trying to connect directly to the device (open the Connection tab in the web page and click Disconnect if the Serial Port is set to the device), and make sure FLASH_DEVICE is set correctly for your board (see the [question above](#wheres-my-serial-port)).
+Se si verifica un errore intermittente o si dispone di una configurazione standard, ricontrolla che Klipper non sia in esecuzione durante il flashing (sudo service klipper stop), assicurati che OctoPrint non stia tentando di connettersi direttamente al dispositivo (apri il scheda Connessione nella pagina Web e fare clic su Disconnetti se la porta seriale è impostata sul dispositivo) e assicurarsi che FLASH_DEVICE sia impostato correttamente per la scheda (consultare la [question above](#wheres-my-serial-port).
 
-However, if "make flash" just doesn't work for your board, then you will need to manually flash. See if there is a config file in the [config directory](../config) with specific instructions for flashing the device. Also, check the board manufacturer's documentation to see if it describes how to flash the device. Finally, it may be possible to manually flash the device using tools such as "avrdude" or "bossac" - see the [bootloader document](Bootloaders.md) for additional information.
+Tuttavia, se "make flash" non funziona per la tua scheda, dovrai eseguire il flashing manualmente. Verificare se nella [config directory](../config) è presente un file di configurazione con istruzioni specifiche per il flashing del dispositivo. Inoltre, controlla la documentazione del produttore della scheda per vedere se descrive come eseguire il flashing del dispositivo. Infine, potrebbe essere possibile eseguire manualmente il flashing del dispositivo utilizzando strumenti come "avrdude" o "bossac" - vedere il [bootloader document](Bootloaders.md) per ulteriori informazioni.
 
-## How do I change the serial baud rate?
+## Come posso modificare la velocità di trasmissione seriale?
 
-The recommended baud rate for Klipper is 250000. This baud rate works well on all micro-controller boards that Klipper supports. If you've found an online guide recommending a different baud rate, then ignore that part of the guide and continue with the default value of 250000.
+Il baud rate consigliato per Klipper è 250000. Questo baud rate funziona bene su tutte le schede di microcontrollore supportate da Klipper. Se hai trovato una guida online che consiglia una velocità di trasmissione diversa, ignora quella parte della guida e continua con il valore predefinito di 250000.
 
-If you want to change the baud rate anyway, then the new rate will need to be configured in the micro-controller (during **make menuconfig**) and that updated code will need to be compiled and flashed to the micro-controller. The Klipper printer.cfg file will also need to be updated to match that baud rate (see the [config reference](Config_Reference.md#mcu) for details). For example:
+Se si desidera comunque modificare il baud rate, sarà necessario configurare la nuova velocità nel microcontrollore (durante **make menuconfig**) e il codice aggiornato dovrà essere compilato e flashato sul microcontrollore. Anche il file Klipper printer.cfg dovrà essere aggiornato in modo che corrisponda a tale velocità di trasmissione (consultare il [config reference](Config_Reference.md#mcu) per i dettagli). Per esempio:
 
 ```
 [mcu]
 baud: 250000
 ```
 
-The baud rate shown on the OctoPrint web page has no impact on the internal Klipper micro-controller baud rate. Always set the OctoPrint baud rate to 250000 when using Klipper.
+La velocità di trasmissione mostrata sulla pagina Web di OctoPrint non ha alcun impatto sulla velocità di trasmissione interna del microcontrollore Klipper. Impostare sempre la velocità di trasmissione OctoPrint su 250000 quando si utilizza Klipper.
 
-The Klipper micro-controller baud rate is not related to the baud rate of the micro-controller's bootloader. See the [bootloader document](Bootloaders.md) for additional information on bootloaders.
+La velocità in baud del microcontrollore Klipper non è correlata alla velocità in baud del bootloader del microcontrollore. Vedere il [bootloader document](Bootloaders.md) per ulteriori informazioni sui bootloader.
 
-## Can I run Klipper on something other than a Raspberry Pi 3?
+## Posso eseguire Klipper su qualcosa di diverso da un Raspberry Pi 3?
 
-The recommended hardware is a Raspberry Pi 2, Raspberry Pi 3, or Raspberry Pi 4.
+L'hardware consigliato è un Raspberry Pi 2, Raspberry Pi 3 o Raspberry Pi 4.
 
-Klipper will run on a Raspberry Pi 1 and on the Raspberry Pi Zero, but these boards don't have enough processing power to run OctoPrint well. It is common for print stalls to occur on these slower machines when printing directly from OctoPrint. (The printer may move faster than OctoPrint can send movement commands.) If you wish to run on one one of these slower boards anyway, consider using the "virtual_sdcard" feature when printing (see [config reference](Config_Reference.md#virtual_sdcard) for details).
+Klipper funzionerà su un Raspberry Pi 1 e su Raspberry Pi Zero, ma queste schede non hanno una potenza di elaborazione sufficiente per eseguire bene OctoPrint. È normale che si verifichino interruzioni di stampa su queste macchine più lente quando si stampa direttamente da OctoPrint. (La stampante potrebbe muoversi più velocemente di quanto OctoPrint possa inviare comandi di movimento.) Se desideri comunque eseguire su una di queste schede più lente, considera l'utilizzo della funzione "virtual_sdcard" durante la stampa (consulta [config reference](Config_Reference.md#virtual_sdcard) per dettagli).
 
-For running on the Beaglebone, see the [Beaglebone specific installation instructions](Beaglebone.md).
+Per l'esecuzione su Beaglebone, vedere le [Istruzioni di installazione specifiche di Beaglebone](Beaglebone.md).
 
-Klipper has been run on other machines. The Klipper host software only requires Python running on a Linux (or similar) computer. However, if you wish to run it on a different machine you will need Linux admin knowledge to install the system prerequisites for that particular machine. See the [install-octopi.sh](../scripts/install-octopi.sh) script for further information on the necessary Linux admin steps.
+Klipper è stato eseguito su altre macchine. Il software host Klipper richiede solo Python in esecuzione su un computer Linux (o simile). Tuttavia, se desideri eseguirlo su una macchina diversa, avrai bisogno della conoscenza dell'amministratore Linux per installare i prerequisiti di sistema per quella particolare macchina. Consulta lo script [install-octopi.sh](../scripts/install-octopi.sh) per ulteriori informazioni sui passaggi necessari.
 
-If you are looking to run the Klipper host software on a low-end chip, then be aware that, at a minimum, a machine with "double precision floating point" hardware is required.
+Se stai cercando di eseguire il software host Klipper su un chip di fascia bassa, tieni presente che, come minimo, è necessaria una macchina con hardware a "virgola mobile a doppia precisione".
 
-If you are looking to run the Klipper host software on a shared general-purpose desktop or server class machine, then note that Klipper has some real-time scheduling requirements. If, during a print, the host computer also performs an intensive general-purpose computing task (such as defragmenting a hard drive, 3d rendering, heavy swapping, etc.), then it may cause Klipper to report print errors.
+Se stai cercando di eseguire il software host Klipper su un desktop generico condiviso o una macchina di classe server, tieni presente che Klipper ha alcuni requisiti di scheduling in tempo reale. Se, durante una stampa, il computer host esegue anche un'intensa attività di elaborazione generica (come deframmentazione di un disco rigido, rendering 3D, scambi pesanti e così via), Klipper potrebbe segnalare errori di stampa.
 
-Note: If you are not using an OctoPi image, be aware that several Linux distributions enable a "ModemManager" (or similar) package that can disrupt serial communication. (Which can cause Klipper to report seemingly random "Lost communication with MCU" errors.) If you install Klipper on one of these distributions you may need to disable that package.
+Nota: se non stai utilizzando un'immagine OctoPi, tieni presente che diverse distribuzioni Linux abilitano un pacchetto "ModemManager" (o simile) che può interrompere la comunicazione seriale. (Il che può far sì che Klipper riporti errori apparentemente casuali "Comunicazione persa con MCU".) Se installi Klipper su una di queste distribuzioni potresti dover disabilitare quel pacchetto.
 
-## Can I run multiple instances of Klipper on the same host machine?
+## Posso eseguire più istanze di Klipper sulla stessa macchina host?
 
-It is possible to run multiple instances of the Klipper host software, but doing so requires Linux admin knowledge. The Klipper installation scripts ultimately cause the following Unix command to be run:
+È possibile eseguire più istanze del software host Klipper, ma per farlo è necessaria la conoscenza dell'amministratore Linux. Gli script di installazione di Klipper determinano l'esecuzione del seguente comando Unix:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -l /tmp/klippy.log
 ```
 
-One can run multiple instances of the above command as long as each instance has its own printer config file, its own log file, and its own pseudo-tty. For example:
+È possibile eseguire più istanze del comando precedente purché ogni istanza abbia il proprio file di configurazione della stampante, il proprio file di registro e il proprio pseudo-tty. Per esempio:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer2.cfg -l /tmp/klippy2.log -I /tmp/printer2
 ```
 
-If you choose to do this, you will need to implement the necessary start, stop, and installation scripts (if any). The [install-octopi.sh](../scripts/install-octopi.sh) script and the [klipper-start.sh](../scripts/klipper-start.sh) script may be useful as examples.
+Se scegli di farlo, dovrai implementare gli script di avvio, arresto e installazione necessari (se presenti). Lo script [install-octopi.sh](../scripts/install-octopi.sh) e lo script [klipper-start.sh](../scripts/klipper-start.sh) possono essere utili come esempi.
 
-## Do I have to use OctoPrint?
+## Devo usare OctoPrint?
 
-The Klipper software is not dependent on OctoPrint. It is possible to use alternative software to send commands to Klipper, but doing so requires Linux admin knowledge.
+Il software Klipper non dipende da OctoPrint. È possibile utilizzare un software alternativo per inviare comandi a Klipper, ma ciò richiede la conoscenza dell'amministratore Linux.
 
-Klipper creates a "virtual serial port" via the "/tmp/printer" file, and it emulates a classic 3d-printer serial interface via that file. In general, alternative software may work with Klipper as long as it can be configured to use "/tmp/printer" for the printer serial port.
+Klipper crea una "porta seriale virtuale" tramite il file "/tmp/printer" ed emula una classica interfaccia seriale per stampante 3D tramite quel file. In generale, un software alternativo può funzionare con Klipper purché possa essere configurato per utilizzare "/tmp/printer" per la porta seriale della stampante.
 
-## Why can't I move the stepper before homing the printer?
+## Perché non riesco a spostare lo stepper prima di riposizionare la stampante?
 
-The code does this to reduce the chance of accidentally commanding the head into the bed or a wall. Once the printer is homed the software attempts to verify each move is within the position_min/max defined in the config file. If the motors are disabled (via an M84 or M18 command) then the motors will need to be homed again prior to movement.
+Il codice fa questo per ridurre la possibilità di comandare accidentalmente la testa nel piatto o altri limiti. Una volta che la stampante è stata localizzata, il software tenta di verificare che ogni mossa rientri nella posizione_min/max definita nel file di configurazione. Se i motori sono disabilitati (tramite un comando M84 o M18), i motori dovranno essere nuovamente riposizionati prima del movimento.
 
-If you want to move the head after canceling a print via OctoPrint, consider changing the OctoPrint cancel sequence to do that for you. It's configured in OctoPrint via a web browser under: Settings->GCODE Scripts
+Se desideri spostare la testina dopo aver annullato una stampa tramite OctoPrint, considera di modificare la sequenza di annullamento di OctoPrint per farlo per te. È configurato in OctoPrint tramite un browser web in: Impostazioni-> Script GCODE | Settings->GCODE Scripts
 
-If you want to move the head after a print finishes, consider adding the desired movement to the "custom g-code" section of your slicer.
+Se desideri spostare la testina al termine di una stampa, considera di aggiungere il movimento desiderato alla sezione "G-code personalizzato" del tuo slicer.
 
-If the printer requires some additional movement as part of the homing process itself (or fundamentally does not have a homing process) then consider using a safe_z_home or homing_override section in the config file. If you need to move a stepper for diagnostic or debugging purposes then consider adding a force_move section to the config file. See [config reference](Config_Reference.md#customized_homing) for further details on these options.
+Se la stampante richiede un movimento aggiuntivo come parte del processo stesso di homing (o fondamentalmente non ha un processo di homing), considera l'utilizzo di una sezione safe_z_home o homing_override nel file di configurazione. Se è necessario spostare uno stepper per scopi diagnostici o di debug, considerare l'aggiunta di una sezione force_move al file di configurazione. Vedere [config reference](Config_Reference.md#customized_homing) per ulteriori dettagli su queste opzioni.
 
-## Why is the Z position_endstop set to 0.5 in the default configs?
+## Perché Z position_endstop è impostato su 0.5 nelle configurazioni predefinite?
 
-For cartesian style printers the Z position_endstop specifies how far the nozzle is from the bed when the endstop triggers. If possible, it is recommended to use a Z-max endstop and home away from the bed (as this reduces the potential for bed collisions). However, if one must home towards the bed then it is recommended to position the endstop so it triggers when the nozzle is still a small distance away from the bed. This way, when homing the axis, it will stop before the nozzle touches the bed. See the [bed level document](Bed_Level.md) for more information.
+Per le stampanti cartesiane Z position_endstop specifica la distanza dell'ugello dal piatto quando si attiva ilfinecorsa. Se possibile, si consiglia di utilizzare un finecorsa Z-max e di tornare a casa lontano dal piatto (in quanto ciò riduce il rischio di collisioni con il piatto). Tuttavia, se ci si deve avvicinare al piatto, si consiglia di posizionare il finecorsa in modo che si attivi quando la bocchetta è ancora a una piccola distanza dal piatto. In questo modo, durante l'homing dell'asse, si fermerà prima che l'ugello tocchi il letto. Per ulteriori informazioni, vedere il [bed level document](Bed_Level.md).
 
-## I converted my config from Marlin and the X/Y axes work fine, but I just get a screeching noise when homing the Z axis
+## Ho convertito la mia configurazione da Marlin e gli assi X/Y funzionano bene, ma ottengo solo un rumore stridente durante homing dell'asse Z
 
-Short answer: First, make sure you have verified the stepper configuration as described in the [config check document](Config_checks.md). If the problem persists, try reducing the max_z_velocity setting in the printer config.
+Risposta breve: in primo luogo, assicurati di aver verificato la configurazione dello stepper come descritto nel [config check document](Config_checks.md). Se il problema persiste, provare a ridurre l'impostazione max_z_velocity nella configurazione della stampante.
 
-Long answer: In practice Marlin can typically only step at a rate of around 10000 steps per second. If it is requested to move at a speed that would require a higher step rate then Marlin will generally just step as fast as it can. Klipper is able to achieve much higher step rates, but the stepper motor may not have sufficient torque to move at a higher speed. So, for a Z axis with a high gearing ratio or high microsteps setting the actual obtainable max_z_velocity may be smaller than what is configured in Marlin.
+Risposta lunga: in pratica Marlin può in genere fare solo un passo a una velocità di circa 10000 passi al secondo. Se gli viene richiesto di muoversi a una velocità che richiederebbe una velocità di passo più alta, Marlin generalmente farà un passo più veloce possibile. Klipper è in grado di raggiungere velocità di passo molto più elevate, ma il motore passo-passo potrebbe non avere una coppia sufficiente per muoversi a una velocità più elevata. Quindi, per un asse Z con un rapporto di trasmissione elevato o un'impostazione di micropassi elevata, l'effettiva velocità max_z_ottenibile potrebbe essere inferiore a quella configurata in Marlin.
 
-## My TMC motor driver turns off in the middle of a print
+## Il mio driver TMC del motore si spegne nel mezzo di una stampa
 
-If using the TMC2208 (or TMC2224) driver in "standalone mode" then make sure to use the [latest version of Klipper](#how-do-i-upgrade-to-the-latest-software). A workaround for a TMC2208 "stealthchop" driver problem was added to Klipper in mid-March of 2020.
+Se si utilizza il driver TMC2208 (o TMC2224) in "modalità standalone", assicurarsi di utilizzare l'[latest version of Klipper](#how-do-i-upgrade-to-the-latest-software). Una soluzione alternativa per un problema del driver "stealthchop" TMC2208 è stata aggiunta a Klipper a metà marzo del 2020.
 
-## I keep getting random "Lost communication with MCU" errors
+## Continuo a ricevere errori casuali "Comunicazione persa con MCU" |"Lost communication with MCU"
 
-This is commonly caused by hardware errors on the USB connection between the host machine and the micro-controller. Things to look for:
+Ciò è comunemente causato da errori hardware sulla connessione USB tra la macchina host e il microcontrollore. Cose da cercare:
 
-- Use a good quality USB cable between the host machine and micro-controller. Make sure the plugs are secure.
-- If using a Raspberry Pi, use a [good quality power supply](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply) for the Raspberry Pi and use a [good quality USB cable](https://forums.raspberrypi.com/viewtopic.php?p=589877#p589877) to connect that power supply to the Pi. If you get "under voltage" warnings from OctoPrint, this is related to the power supply and it must be fixed.
-- Make sure the printer's power supply is not being overloaded. (Power fluctuations to the micro-controller's USB chip may result in resets of that chip.)
-- Verify stepper, heater, and other printer wires are not crimped or frayed. (Printer movement may place stress on a faulty wire causing it to lose contact, briefly short, or generate excessive noise.)
-- There have been reports of high USB noise when both the printer's power supply and the host's 5V power supply are mixed. (If you find that the micro-controller powers on when either the printer's power supply is on or the USB cable is plugged in, then it indicates the 5V power supplies are being mixed.) It may help to configure the micro-controller to use power from only one source. (Alternatively, if the micro-controller board can not configure its power source, one may modify a USB cable so that it does not carry 5V power between the host and micro-controller.)
+- Utilizzare un cavo USB di buona qualità tra la macchina host e il microcontrollore. Assicurati che i connettori siano ben saldi.
+- Se si utilizza un Raspberry Pi, utilizzare un [alimentatore di buona qualità](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply) per il Raspberry Pi e utilizzare un [cavo USB di buona qualità](https://forums.raspberrypi.com/viewtopic.php?p=589877#p589877) per collegare quell'alimentatore al Pi. Se ricevi avvisi di "sottotensione" da OctoPrint, questo è correlato all'alimentatore e deve essere risolto.
+- Assicurarsi che l'alimentazione della stampante non sia sovraccarica. (Le fluttuazioni di alimentazione del chip USB del microcontrollore possono comportare il reset di quel chip.)
+- Verificare che i cavi dello stepper, del riscaldatore e di altri cavi della stampante non siano arricciati o sfilacciati. (Il movimento della stampante può sollecitare un cavo difettoso causandone la perdita di contatto, un cortocircuito breve o la generazione di rumore eccessivo.)
+- Sono stati segnalati rumori USB elevati quando sia l'alimentazione della stampante che l'alimentazione a 5 V dell'host sono mescolate. (Se si scopre che il microcontrollore si accende quando l'alimentazione della stampante è accesa o il cavo USB è collegato, significa che gli alimentatori da 5 V vengono mescolati.) Può essere utile configurare il microcontrollore da utilizzare alimentazione da una sola fonte. (In alternativa, se la scheda del microcontrollore non è in grado di configurare la sua fonte di alimentazione, è possibile modificare un cavo USB in modo che non trasmetta alimentazione a 5V tra l'host e il microcontrollore.)
 
-## My Raspberry Pi keeps rebooting during prints
+## Il mio Raspberry Pi continua a riavviarsi durante le stampe
 
-This is most likely do to voltage fluctuations. Follow the same troubleshooting steps for a ["Lost communication with MCU"](#i-keep-getting-random-lost-communication-with-mcu-errors) error.
+Questo è molto probabilmente dovuto alle fluttuazioni di tensione. Segui gli stessi passaggi per la risoluzione dei problemi per un errore ["Comunicazione persa con MCU"](#i-keep-getting-random-lost-communication-with-mcu-errors).
 
-## When I set `restart_method=command` my AVR device just hangs on a restart
+## Quando imposto `restart_method=command` il mio dispositivo AVR si blocca al riavvio
 
-Some old versions of the AVR bootloader have a known bug in watchdog event handling. This typically manifests when the printer.cfg file has restart_method set to "command". When the bug occurs, the AVR device will be unresponsive until power is removed and reapplied to the device (the power or status LEDs may also blink repeatedly until the power is removed).
+Alcune vecchie versioni del bootloader AVR hanno un bug noto nella gestione degli eventi di watchdog. Questo in genere si manifesta quando il file printer.cfg ha restart_method impostato su "command". Quando si verifica il bug, il dispositivo AVR non risponderà fino a quando l'alimentazione non viene rimossa e ricollegata al dispositivo (anche i LED di alimentazione o di stato potrebbero lampeggiare ripetutamente fino a quando l'alimentazione non viene rimossa).
 
-The workaround is to use a restart_method other than "command" or to flash an updated bootloader to the AVR device. Flashing a new bootloader is a one time step that typically requires an external programmer - see [Bootloaders](Bootloaders.md) for further details.
+La soluzione alternativa è utilizzare un restart_method diverso da "command" o eseguire il flashing di un bootloader aggiornato sul dispositivo AVR. Il flashing di un nuovo bootloader è un passaggio che in genere richiede un programmatore esterno: vedere [Bootloaders](Bootloaders.md) per ulteriori dettagli.
 
-## Will the heaters be left on if the Raspberry Pi crashes?
+## I riscaldatori verranno lasciati accesi se il Raspberry Pi si arresta in modo anomalo?
 
-The software has been designed to prevent that. Once the host enables a heater, the host software needs to confirm that enablement every 5 seconds. If the micro-controller does not receive a confirmation every 5 seconds it goes into a "shutdown" state which is designed to turn off all heaters and stepper motors.
+Il software è stato progettato per impedirlo. Una volta che l'host abilita un riscaldatore, il software host deve confermare tale abilitazione ogni 5 secondi. Se il microcontrollore non riceve una conferma ogni 5 secondi, entra in uno stato di "spegnimento" progettato per spegnere tutti i riscaldatori e i motori passo-passo.
 
-See the "config_digital_out" command in the [MCU commands](MCU_Commands.md) document for further details.
+Per ulteriori dettagli, vedere il comando "config_digital_out" nel documento [Comandi MCU](MCU_Commands.md).
 
-In addition, the micro-controller software is configured with a minimum and maximum temperature range for each heater at startup (see the min_temp and max_temp parameters in the [config reference](Config_Reference.md#extruder) for details). If the micro-controller detects that the temperature is outside of that range then it will also enter a "shutdown" state.
+Inoltre, il software del microcontrollore è configurato con un intervallo di temperatura minimo e massimo per ciascun riscaldatore all'avvio (consultare i parametri min_temp e max_temp in [config reference](Config_Reference.md#extruder) per i dettagli). Se il microcontrollore rileva che la temperatura è al di fuori di tale intervallo, entrerà anche in uno stato di "spegnimento".
 
-Separately, the host software also implements code to check that heaters and temperature sensors are functioning correctly. See the [config reference](Config_Reference.md#verify_heater) for further details.
+Separatamente, il software host implementa anche il codice per verificare che i riscaldatori e i sensori di temperatura funzionino correttamente. Vedere il [riferimento di configurazione](Config_Reference.md#verify_heater) per ulteriori dettagli.
 
-## How do I convert a Marlin pin number to a Klipper pin name?
+## Come posso convertire un numero di pin Marlin in un nome pin di Klipper?
 
-Short answer: A mapping is available in the [sample-aliases.cfg](../config/sample-aliases.cfg) file. Use that file as a guide to finding the actual micro-controller pin names. (It is also possible to copy the relevant [board_pins](Config_Reference.md#board_pins) config section into your config file and use the aliases in your config, but it is preferable to translate and use the actual micro-controller pin names.) Note that the sample-aliases.cfg file uses pin names that start with the prefix "ar" instead of "D" (eg, Arduino pin `D23` is Klipper alias `ar23`) and the prefix "analog" instead of "A" (eg, Arduino pin `A14` is Klipper alias `analog14`).
+Risposta breve: una mappatura è disponibile nel file [sample-aliases.cfg](../config/sample-aliases.cfg). Usa quel file come guida per trovare i nomi effettivi dei pin del microcontrollorei. (È anche possibile copiare la relativa sezione di configurazione [board_pins](Config_Reference.md#board_pins) nel file di configurazione e utilizzare gli alias nella configurazione, ma è preferibile tradurre e utilizzare i nomi dei pin del microcontrollore effettivi.) Nota che il file sample-aliases.cfg usa nomi di pin che iniziano con il prefisso "ar" invece di "D" (ad esempio, il pin Arduino `D23` è alias Klipper `ar23`) e il prefisso "analog" invece di "A " (ad esempio, il pin Arduino `A14` è alias di Klipper `analog14`).
 
-Long answer: Klipper uses the standard pin names defined by the micro-controller. On the Atmega chips these hardware pins have names like `PA4`, `PC7`, or `PD2`.
+Risposta lunga: Klipper utilizza i nomi dei pin standard definiti dal microcontrollore. Sui chip Atmega questi pin hardware hanno nomi come `PA4`, `PC7` o `PD2`.
 
-Long ago, the Arduino project decided to avoid using the standard hardware names in favor of their own pin names based on incrementing numbers - these Arduino names generally look like `D23` or `A14`. This was an unfortunate choice that has lead to a great deal of confusion. In particular the Arduino pin numbers frequently don't translate to the same hardware names. For example, `D21` is `PD0` on one common Arduino board, but is `PC7` on another common Arduino board.
+Tempo fa, il progetto Arduino ha deciso di evitare di utilizzare i nomi hardware standard a favore dei propri nomi pin basati su numeri incrementali: questi nomi Arduino generalmente assomigliano a "D23" o "A14". Questa è stata una scelta sfortunata che ha portato a una grande confusione. In particolare, i numeri dei pin di Arduino spesso non si traducono negli stessi nomi hardware. Ad esempio, `D21` è `PD0` su una comune scheda Arduino, ma è `PC7` su un'altra comune scheda Arduino.
 
-To avoid this confusion, the core Klipper code uses the standard pin names defined by the micro-controller.
+Per evitare questa confusione, il codice di base di Klipper utilizza i nomi dei pin standard definiti dal microcontrollore.
 
-## Do I have to wire my device to a specific type of micro-controller pin?
+## Devo collegare il mio dispositivo a un tipo specifico di pin del microcontrollore?
 
-It depends on the type of device and type of pin:
+Dipende dal tipo di dispositivo e dal tipo di pin:
 
-ADC pins (or Analog pins): For thermistors and similar "analog" sensors, the device must be wired to an "analog" or "ADC" capable pin on the micro-controller. If you configure Klipper to use a pin that is not analog capable, Klipper will report a "Not a valid ADC pin" error.
+Pin ADC (o pin analogici): per termistori e sensori "analogici" simili, il dispositivo deve essere collegato a un pin compatibile con "analogico" o "ADC" sul microcontrollore. Se configuri Klipper per utilizzare un pin che non è compatibile con l'analogico, Klipper segnalerà un errore "Non un pin ADC valido".
 
-PWM pins (or Timer pins): Klipper does not use hardware PWM by default for any device. So, in general, one may wire heaters, fans, and similar devices to any general purpose IO pin. However, fans and output_pin devices may be optionally configured to use `hardware_pwm: True`, in which case the micro-controller must support hardware PWM on the pin (otherwise, Klipper will report a "Not a valid PWM pin" error).
+Pin PWM (o pin Timer): Klipper non utilizza PWM hardware per impostazione predefinita per nessun dispositivo. Quindi, in generale, è possibile collegare riscaldatori, ventole e dispositivi simili a qualsiasi pin IO generico. Tuttavia, le ventole e i dispositivi output_pin possono essere opzionalmente configurati per utilizzare `hardware_pwm: True`, nel qual caso il microcontrollore deve supportare PWM hardware sul pin (altrimenti, Klipper segnalerà un errore "pin PWM non valido").
 
-IRQ pins (or Interrupt pins): Klipper does not use hardware interrupts on IO pins, so it is never necessary to wire a device to one of these micro-controller pins.
+Pin IRQ (o pin di interrupt): Klipper non utilizza gli interrupt hardware sui pin IO, quindi non è mai necessario collegare un dispositivo a uno di questi pin del microcontrollore.
 
-SPI pins: When using hardware SPI it is necessary to wire the pins to the micro-controller's SPI capable pins. However, most devices can be configured to use "software SPI", in which case any general purpose IO pins may be used.
+Pin SPI: quando si utilizza l'SPI hardware, è necessario collegare i pin ai pin SPI del microcontrollore. Tuttavia, la maggior parte dei dispositivi può essere configurata per utilizzare "SPI software", nel qual caso è possibile utilizzare qualsiasi pin IO generico.
 
-I2C pins: When using I2C it is necessary to wire the pins to the micro-controller's I2C capable pins.
+Pin I2C: quando si utilizza I2C è necessario collegare i pin ai pin compatibili con I2C del microcontrollore.
 
-Other devices may be wired to any general purpose IO pin. For example, steppers, heaters, fans, Z probes, servos, LEDs, common hd44780/st7920 LCD displays, the Trinamic UART control line may be wired to any general purpose IO pin.
+Altri dispositivi possono essere collegati a qualsiasi pin IO generico. Ad esempio, stepper, riscaldatori, ventole, sonde Z, servocomandi, LED, comuni display LCD hd44780/st7920, la linea di controllo Trinamic UART può essere collegata a qualsiasi pin IO generico.
 
-## How do I cancel an M109/M190 "wait for temperature" request?
+## Come posso annullare una richiesta di "attesa temperatura" M109/M190?
 
-Navigate to the OctoPrint terminal tab and issue an M112 command in the terminal box. The M112 command will cause Klipper to enter into a "shutdown" state, and it will cause OctoPrint to disconnect from Klipper. Navigate to the OctoPrint connection area and click on "Connect" to cause OctoPrint to reconnect. Navigate back to the terminal tab and issue a FIRMWARE_RESTART command to clear the Klipper error state. After completing this sequence, the previous heating request will be canceled and a new print may be started.
+Passare alla scheda del terminale OctoPrint ed emettere un comando M112 nel terminale. Il comando M112 farà entrare Klipper in uno stato di "arresto" e causerà la disconnessione di OctoPrint da Klipper. Passare all'area di connessione di OctoPrint e fare clic su "Connetti" per fare in modo che OctoPrint si riconnetta. Torna alla scheda del terminale ed emetti un comando FIRMWARE_RESTART per cancellare lo stato di errore di Klipper. Dopo aver completato questa sequenza, la precedente richiesta di riscaldamento verrà annullata e potrebbe essere avviata una nuova stampa.
 
-## Can I find out whether the printer has lost steps?
+## Posso scoprire se la stampante ha perso dei passaggi?
 
-In a way, yes. Home the printer, issue a `GET_POSITION` command, run your print, home again and issue another `GET_POSITION`. Then compare the values in the `mcu:` line.
+In un certo senso sì. Avviare la stampante, emettere un comando `GET_POSITION`, eseguire la stampa, tornare a casa ed emettere un altro `GET_POSITION`. Quindi confronta i valori nella riga `mcu:`.
 
-This might be helpful to tune settings like stepper motor currents, accelerations and speeds without needing to actually print something and waste filament: just run some high-speed moves in between the `GET_POSITION` commands.
+Questo potrebbe essere utile per regolare impostazioni come correnti, accelerazioni e velocità del motore passo-passo senza dover effettivamente stampare qualcosa e sprecare il filamento: basta eseguire alcuni movimenti ad alta velocità tra i comandi `GET_POSITION`.
 
-Note that endstop switches themselves tend to trigger at slightly different positions, so a difference of a couple of microsteps is likely the result of endstop inaccuracies. A stepper motor itself can only lose steps in increments of 4 full steps. (So, if one is using 16 microsteps, then a lost step on the stepper would result in the "mcu:" step counter being off by a multiple of 64 microsteps.)
+Si noti che gli stessi interruttori di fine corsa tendono a attivarsi in posizioni leggermente diverse, quindi una differenza di un paio di micropassi è probabilmente il risultato di imprecisioni di fine corsa. Un motore passo-passo stesso può perdere passi solo con incrementi di 4 passi completi. (Quindi, se si utilizzano 16 micropassi, un passo perso sullo stepper comporterebbe lo spegnimento del contatore di passi "mcu:" di un multiplo di 64 micropassi.)
 
-## Why does Klipper report errors? I lost my print!
+## Perché Klipper segnala errori? Ho perso la mia stampa!
 
-Short answer: We want to know if our printers detect a problem so that the underlying issue can be fixed and we can obtain great quality prints. We definitely do not want our printers to silently produce low quality prints.
+Risposta breve: vogliamo sapere se le nostre stampanti rilevano un problema in modo che il problema sottostante possa essere risolto e possiamo ottenere stampe di ottima qualità. Non vogliamo assolutamente che le nostre stampanti producano in silenzio stampe di bassa qualità.
 
-Long answer: Klipper has been engineered to automatically workaround many transient problems. For example, it automatically detects communication errors and will retransmit; it schedules actions in advance and buffers commands at multiple layers to enable precise timing even with intermittent interference. However, should the software detect an error that it can not recover from, if it is commanded to take an invalid action, or if it detects it is hopelessly unable to perform its commanded task, then Klipper will report an error. In these situations there is a high risk of producing a low-quality print (or worse). It is hoped that alerting the user will empower them to fix the underlying issue and improve the overall quality of their prints.
+Risposta lunga: Klipper è stato progettato per risolvere automaticamente molti problemi transitori. Ad esempio, rileva automaticamente gli errori di comunicazione e li ritrasmette; pianifica le azioni in anticipo e bufferizza i comandi su più livelli per consentire tempi precisi anche con interferenze intermittenti. Tuttavia, se il software rileva un errore dal quale non può essere ripristinato, se gli viene ordinato di eseguire un'azione non valida o se rileva che è irrimediabilmente incapace di eseguire l'attività comandata, Klipper segnalerà un errore. In queste situazioni c'è un alto rischio di produrre una stampa di bassa qualità (o peggio). Si spera che avvisare gli utenti consentirà loro di risolvere il problema sottostante e migliorare la qualità complessiva delle loro stampe.
 
-There are some related questions: Why doesn't Klipper pause the print instead? Report a warning instead? Check for errors before the print? Ignore errors in user typed commands? etc? Currently Klipper reads commands using the G-Code protocol, and unfortunately the G-Code command protocol is not flexible enough to make these alternatives practical today. There is developer interest in improving the user experience during abnormal events, but it is expected that will require notable infrastructure work (including a shift away from G-Code).
+Ci sono alcune domande correlate: perché Klipper non mette invece in pausa la stampa? Segnalare invece un avviso? Verificare la presenza di errori prima della stampa? Ignorare gli errori nei comandi digitati dall'utente? eccetera? Attualmente Klipper legge i comandi utilizzando il protocollo G-Code e sfortunatamente il protocollo di comando G-Code non è sufficientemente flessibile per rendere pratiche queste alternative oggi. C'è l'interesse degli sviluppatori nel migliorare l'esperienza dell'utente durante eventi anomali, ma si prevede che ciò richiederà un notevole lavoro infrastrutturale (incluso un passaggio dal G-Code).
 
-## How do I upgrade to the latest software?
+## Come si esegue l'aggiornamento al software più recente?
 
-The first step to upgrading the software is to review the latest [config changes](Config_Changes.md) document. On occasion, changes are made to the software that require users to update their settings as part of a software upgrade. It is a good idea to review this document prior to upgrading.
+Il primo passaggio per l'aggiornamento del software consiste nell'esaminare l'ultimo documento [config changes](Config_Changes.md). A volte, vengono apportate modifiche al software che richiedono agli utenti di aggiornare le proprie impostazioni come parte di un aggiornamento del software. È una buona idea rivedere questo documento prima dell'aggiornamento.
 
-When ready to upgrade, the general method is to ssh into the Raspberry Pi and run:
+Quando sei pronto per l'aggiornamento, il metodo generale è quello di entrare in Raspberry Pi ed eseguire:
 
 ```
 cd ~/klipper
@@ -212,7 +212,7 @@ git pull
 ~/klipper/scripts/install-octopi.sh
 ```
 
-Then one can recompile and flash the micro-controller code. For example:
+Quindi si può ricompilare e flashare il codice del microcontrollore. Per esempio:
 
 ```
 make menuconfig
@@ -224,7 +224,7 @@ make flash FLASH_DEVICE=/dev/ttyACM0
 sudo service klipper start
 ```
 
-However, it's often the case that only the host software changes. In this case, one can update and restart just the host software with:
+Tuttavia, capita spesso che cambi solo il software host. In questo caso è possibile aggiornare e riavviare solo il software host con:
 
 ```
 cd ~/klipper
@@ -232,17 +232,17 @@ git pull
 sudo service klipper restart
 ```
 
-If after using this shortcut the software warns about needing to reflash the micro-controller or some other unusual error occurs, then follow the full upgrade steps outlined above.
+Se dopo aver utilizzato questo collegamento il software avverte della necessità di eseguire il reflash del microcontrollore o si verifica qualche altro errore insolito, seguire i passaggi completi di aggiornamento descritti sopra.
 
-If any errors persist then double check the [config changes](Config_Changes.md) document, as you may need to modify the printer configuration.
+Se gli errori persistono, ricontrolla il documento [config changes](Config_Changes.md), poiché potrebbe essere necessario modificare la configurazione della stampante.
 
-Note that the RESTART and FIRMWARE_RESTART g-code commands do not load new software - the above "sudo service klipper restart" and "make flash" commands are needed for a software change to take effect.
+Si noti che i comandi g-code RESTART e FIRMWARE_RESTART non caricano il nuovo software: i comandi "sudo service klipper restart" e "make flash" di cui sopra sono necessari affinché una modifica del software abbia effetto.
 
-## How do I uninstall Klipper?
+## Come faccio a disinstallare Klipper?
 
-On the firmware end, nothing special needs to happen. Just follow the flashing directions for the new firmware.
+Dal alto del firmware, non deve succedere nulla di speciale. Basta seguire le indicazioni per il flashing del nuovo firmware.
 
-On the raspberry pi end, an uninstall script is available in [scripts/klipper-uninstall.sh](../scripts/klipper-uninstall.sh). For example:
+Dal lato del raspberry pi, uno script di disinstallazione è disponibile in [scripts/klipper-uninstall.sh](../scripts/klipper-uninstall.sh). Per esempio:
 
 ```
 sudo ~/klipper/scripts/klipper-uninstall.sh

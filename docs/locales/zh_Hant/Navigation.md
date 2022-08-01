@@ -1,15 +1,15 @@
-Klipper documentation
+Klipper 文檔
 
-Installation and Configuration
+安裝和配置
 
-Configuration Reference
+配置參考
 
-Bed Level
+印床水平
 
 共振補償
 
-Command templates
+命令模板
 
-Developer Documentation
+開發者文檔
 
-Device Specific Documents
+設備特定文件

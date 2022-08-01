@@ -103,10 +103,10 @@ max_accel:
 ```
 [stepper_x]
 step_pin:
-#   Step GPIO pin (triggered high). This parameter must be provided.
+#   Step 的 GPIO 引脚 (triggered high)。这个参数必须指定。
 dir_pin:
-#   Direction GPIO pin (high indicates positive direction). This
-#   parameter must be provided.
+#   dir 的 GPIO 引脚 (high indicates positive direction).
+#  这个参数必须指定.
 enable_pin:
 #   Enable pin (default is enable high; use ! to indicate enable
 #   low). If this parameter is not provided then the stepper motor
@@ -1057,7 +1057,7 @@ gcode：
 
 ### [endstop_phase]
 
-Stepper phase adjusted endstops. To use this feature, define a config section with an "endstop_phase" prefix followed by the name of the corresponding stepper config section (for example, "[endstop_phase stepper_z]"). This feature can improve the accuracy of endstop switches. Add a bare "[endstop_phase]" declaration to enable the ENDSTOP_PHASE_CALIBRATE command.
+步进器相位调整限位（Stepper phase adjusted endstops）。要使用这个功能，需要定义一个配置部分，其前缀为 "endstop_phase"，后面是相应的步进配置部分的名称（例如，"[endstop_phase stepper_z]"）。这个功能可以提高限位开关的准确性。在配置文件添加"[endstop_phase]"的参数以启用ENDSTOP_PHASE_CALIBRATE命令。
 
 更多信息见[相位限位指南](Endstop_Phase.md)和[命令参考](G-Code.md#endstop_phase)。
 

@@ -4,31 +4,31 @@ This document describes the method for calibrating the X, Y, and Z offsets of an
 
 ## Calibrazione degli offset X e Y della sonda
 
-To calibrate the X and Y offset, navigate to the OctoPrint "Control" tab, home the printer, and then use the OctoPrint jogging buttons to move the head to a position near the center of the bed.
+Per calibrare l'offset X e Y, vai alla scheda "Controllo" di OctoPrint, avvia la stampante, quindi usa i pulsanti di spostamento di OctoPrint per spostare la testa in una posizione vicino al centro del piatto.
 
-Place a piece of blue painters tape (or similar) on the bed underneath the probe. Navigate to the OctoPrint "Terminal" tab and issue a PROBE command:
+Metti un pezzo di nastro adesivo blu (o simile) sul piatto sotto la sonda. Passare alla scheda "Terminale" di OctoPrint ed emettere un comando PROBE:
 
 ```
 PROBE
 ```
 
-Place a mark on the tape directly under where the probe is (or use a similar method to note the location on the bed).
+Metti un segno sul nastro direttamente sotto il punto in cui si trova la sonda (o usa un metodo simile per annotare la posizione sul letto).
 
-Issue a `GET_POSITION` command and record the toolhead XY location reported by that command. For example if one sees:
+Emettere un comando `GET_POSITION` e registrare la posizione XY della testa riportata da quel comando. Ad esempio se si vede:
 
 ```
 Recv: // toolhead: X:46.500000 Y:27.000000 Z:15.000000 E:0.000000
 ```
 
-then one would record a probe X position of 46.5 and probe Y position of 27.
+quindi si registrerebbe una posizione X della sonda di 46,5 e una posizione Y della sonda di 27.
 
-After recording the probe position, issue a series of G1 commands until the nozzle is directly above the mark on the bed. For example, one might issue:
+Dopo aver registrato la posizione della sonda, emettere una serie di comandi G1 fino a quando l'ugello si trova direttamente sopra il segno sul letto. Ad esempio, si potrebbe emettere:
 
 ```
 G1 F300 X57 Y30 Z15
 ```
 
-to move the nozzle to an X position of 57 and Y of 30. Once one finds the position directly above the mark, use the `GET_POSITION` command to report that position. This is the nozzle position.
+per spostare l'ugello in una posizione X di 57 e Y di 30. Una volta trovata la posizione direttamente sopra il segno, utilizzare il comando `GET_POSITION` per segnalare quella posizione. Questa è la posizione dell'ugello.
 
 The x_offset is then the `nozzle_x_position - probe_x_position` and y_offset is similarly the `nozzle_y_position - probe_y_position`. Update the printer.cfg file with the given values, remove the tape/marks from the bed, and then issue a `RESTART` command so that the new values take effect.
 

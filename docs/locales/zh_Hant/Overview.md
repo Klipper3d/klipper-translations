@@ -36,7 +36,7 @@
 - [PWM 工具](Using_PWM_Tools.md)：關於如何使用 PWM 控制的工具，例如鐳射器或電鉆頭。
 - [Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs implementation.
 
-## 開發者文件
+## 開發者文檔
 
 - [程式碼概述](Code_Overview.md)：開發者應該從這個文件開始閱讀。
 - [運動學](Kinematics.md)：關於 Klipper 如何實現運動的技術細節。
@@ -49,7 +49,7 @@
 - [貢獻](CONTRIBUTING.md)：有關如何向 Klipper 提交改進方法的資訊。
 - [打包](Packaging.md)：有關於如何構建系統包的資訊。
 
-## 裝置特定文件
+## 設備特定文件
 
 - [示列配置](Example_Configs.md)：有關於新增示列配置到 Klipper 的資訊。
 - [SD卡更新](SDCard_Updates.md)：通過將韌體拷貝到SD卡中，再通過微控制器的SD卡槽來刷寫微控制器。

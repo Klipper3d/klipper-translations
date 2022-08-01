@@ -1,16 +1,16 @@
 # Sensore di Hall per larghezza del filamento
 
-This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on two Hall linear sensors (ss49e for example). Sensors in the body are located opposite sides. Principle of operation: two hall sensors work in differential mode, temperature drift same for sensor. Special temperature compensation not needed.
+Questo documento descrive il modulo host del sensore di larghezza del filamento Filament Width Sensor. L'hardware utilizzato per lo sviluppo di questo modulo host si basa su due sensori lineari Hall (ad esempio ss49e). I sensori nel corpo si trovano ai lati opposti. Principio di funzionamento: due sensori Hall funzionano in modalità differenziale, la stessa deriva di temperatura per il sensore. Non è necessaria una speciale compensazione della temperatura.
 
-You can find designs at [Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video is also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)
+Puoi trovare i design su [Thingiverse](https://www.thingiverse.com/thing:4138933), un video di assemblaggio è disponibile anche su [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)
 
-To use Hall filament width sensor, read [Config Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code documentation](G-Codes.md#hall_filament_width_sensor).
+Per utilizzare il sensore di larghezza del filamento Hall, leggere [Config Reference](Config_Reference.md#hall_filament_width_sensor) e [G-Code documentation](G-Codes.md#hall_filament_width_sensor).
 
 ## Come funziona?
 
-Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use aux2 connector on ramps-like board analog11 and analog12 pins. You can use different pins and differenr boards.
+Il sensore genera due uscite analogiche in base alla larghezza del filamento calcolata. La somma della tensione di uscita è sempre uguale alla larghezza del filamento rilevata. Il modulo host monitora le variazioni di tensione e regola il moltiplicatore di estrusione. Uso il connettore aux2 su una scheda simile a rampe analog11 e analog12 pin. Puoi usare diversi pin e diverse schede.
 
-## Template for menu variables
+## Modello per variabili di menu
 
 ```
 [menu __main __filament __width_current]
@@ -26,24 +26,24 @@ name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}
 index: 1
 ```
 
-## Calibration procedure
+## Procedura di calibrazione
 
-To get raw sensor value you can use menu item or **QUERY_RAW_FILAMENT_WIDTH** command in terminal.
+Per ottenere il valore grezzo del sensore è possibile utilizzare la voce di menu o il comando **QUERY_RAW_FILAMENT_WIDTH** nel terminale.
 
-1. Insert first calibration rod (1.5 mm size) get first raw sensor value
-1. Insert second calibration rod (2.0 mm size) get second raw sensor value
-1. Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`
+1. Inserire la prima barra di calibrazione (dimensione 1,5 mm) ottenere il primo valore grezzo del sensore
+1. Inserire la seconda barra di calibrazione (dimensione 2,0 mm) per ottenere il secondo valore grezzo del sensore
+1. Salva i valori grezzi del sensore nel parametro di configurazione `Raw_dia1` e `Raw_dia2`
 
-## How to enable sensor
+## Come abilitare il sensore
 
-By default, the sensor is disabled at power-on.
+Per impostazione predefinita, il sensore è disabilitato all'accensione.
 
-To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set the `enable` parameter to `true`.
+Per abilitare il sensore, emettere il comando **ENABLE_FILAMENT_WIDTH_SENSOR** o impostare il parametro `enable` su `true`.
 
-## Logging
+## Registrazione
 
-By default, diameter logging is disabled at power-on.
+Per impostazione predefinita, la registrazione del diametro è disabilitata all'accensione.
 
-Issue **ENABLE_FILAMENT_WIDTH_LOG** command to start logging and issue **DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at power-on, set the `logging` parameter to `true`.
+Emettere il comando **ENABLE_FILAMENT_WIDTH_LOG** per avviare la registrazione ed emettere il comando **DISABLE_FILAMENT_WIDTH_LOG** per interrompere la registrazione. Per abilitare la registrazione all'accensione, impostare il parametro `logging` su `true`.
 
-Filament diameter is logged on every measurement interval (10 mm by default).
+Il diametro del filamento viene registrato con un intervallo di misurazione (10 mm per impostazione predefinita).

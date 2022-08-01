@@ -2,9 +2,9 @@
 
 Questo documento fornisce alcuni suggerimenti per configurare un'applicazione "slicer" da usare con Klipper. Gli slicer comuni usati con Klipper sono Slic3r, Cura, Simplify3D, ecc.
 
-## Set the G-Code flavor to Marlin
+## Imposta il Gcode su variante Marlin
 
-Many slicers have an option to configure the "G-Code flavor". The default is frequently "Marlin" and that works well with Klipper. The "Smoothieware" setting also works well with Klipper.
+Molti slicer hanno un'opzione per configurare il "gusto G-Code" G-Code flavor. L'impostazione predefinita è spesso "Marlin" e funziona bene con Klipper. L'impostazione "Smoothieware" funziona bene anche con Klipper.
 
 ## Klipper gcode_macro
 
