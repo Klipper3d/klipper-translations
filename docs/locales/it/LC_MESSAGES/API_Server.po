@@ -1,15 +1,25 @@
-#
+# Ale Ale <ale.99.ale@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-08-01 07:21+0000\n"
+"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"api_server/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document describes Klipper's Application Programmer Interface (API). "
 "This interface enables external applications to query and control the "
 "Klipper host software."
 msgstr ""
+"Questo documento descrive l'Application Programmer Interface (API) di "
+"Klipper. Questa interfaccia consente alle applicazioni esterne di "
+"interrogare e controllare il software host Klipper."
 
 msgid "Enabling the API socket"
 msgstr ""
