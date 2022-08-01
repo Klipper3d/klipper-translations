@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-31 07:18+0000\n"
+"PO-Revision-Date: 2022-08-01 07:21+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "contributing/it/>\n"
@@ -86,7 +86,7 @@ msgid ""
 "Please see the [contact page](Contact.md) for information on reporting an "
 "issue or for details on contacting the developers."
 msgstr ""
-"Consulta la [contact page](Contact.md)  per informazioni sulla segnalazione "
+"Consulta la [contact page](Contact.md) per informazioni sulla segnalazione "
 "di un problema o per i dettagli su come contattare gli sviluppatori."
 
 #: docs/CONTRIBUTING.md:block 4 (header)

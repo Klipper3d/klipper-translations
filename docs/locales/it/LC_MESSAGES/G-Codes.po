@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-30 17:21+0000\n"
+"PO-Revision-Date: 2022-08-01 07:21+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/"
 "it/>\n"
@@ -278,9 +278,11 @@ msgid ""
 "`ACCEPT`: This command accepts the current Z position and concludes the "
 "manual probing tool."
 msgstr ""
+"`ACCEPT`: questo comando accetta la posizione Z corrente e conclude il "
+"probing manuale."
 
 msgid "`ABORT`: This command terminates the manual probing tool."
-msgstr ""
+msgstr "`ABORT`: questo comando termina lo strumento di probing manuale."
 
 msgid ""
 "`TESTZ Z=<value>`: This command moves the nozzle up or down by the amount "
@@ -421,6 +423,8 @@ msgid ""
 "`BLTOUCH_STORE MODE=<output_mode>`: This stores an output mode in the EEPROM"
 " of a BLTouch V3.1 Available output_modes are: `5V`, `OD`"
 msgstr ""
+"`BLTOUCH_STORE MODE=<output_mode>`: memorizza una modalità di output nella "
+"EEPROM di un BLTouch V3.1 Le modalità di output disponibili sono: `5V`, `OD`"
 
 msgid ""
 "`DELTA_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>]`: This command "
@@ -444,6 +448,13 @@ msgid ""
 "probing tool is activated - see the MANUAL_PROBE command above for details "
 "on the additional commands available while this tool is active."
 msgstr ""
+"`BED_TILT_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>]`: Questo "
+"comando sonderà i punti specificati nella configurazione e quindi "
+"consiglierà le regolazioni dell'inclinazione x e y aggiornate. Vedere il "
+"comando PROBE per i dettagli sui parametri della sonda opzionali. Se viene "
+"specificato METHOD=manual, lo strumento di probing manuale è attivato - "
+"vedere il comando MANUAL_PROBE sopra per i dettagli sui comandi aggiuntivi "
+"disponibili mentre questo strumento è attivo."
 
 msgid ""
 "`BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] "
@@ -455,6 +466,15 @@ msgid ""
 "command above for details on the additional commands available while this "
 "tool is active."
 msgstr ""
+"`BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] "
+"[<mesh_parameter>=<value>]`: Questo comando sonda il piatto utilizzando i "
+"punti generati specificati dai parametri nella configurazione. Dopo il "
+"sondaggio, viene generata una mesh e il movimento z viene regolato in base "
+"alla mesh. Vedere il comando PROBE per i dettagli sui parametri della sonda "
+"opzionali. Se viene specificato METHOD=manual, lo strumento di probing "
+"manuale è attivato - vedere il comando MANUAL_PROBE per quanti riguarda per "
+"i dettagli sui comandi aggiuntivi disponibili mentre questo strumento è "
+"attivo."
 
 msgid ""
 "`BED_MESH_MAP`: Like to BED_MESH_OUTPUT, this command prints the current "
@@ -463,17 +483,28 @@ msgid ""
 "octoprint plugins to easily capture the data and generate height maps "
 "approximating the bed's surface."
 msgstr ""
+"`BED_MESH_MAP`: Come per BED_MESH_OUTPUT, questo comando stampa lo stato "
+"corrente della mesh sul terminale. Invece di stampare i valori in un formato "
+"leggibile, lo stato viene serializzato in formato json. Ciò consente ai plug-"
+"in di Octoprint di acquisire facilmente i dati e generare mappe di altezza "
+"che si approssimano la superficie del piatto."
 
 msgid ""
 "`BED_MESH_CLEAR`: This command clears the mesh and removes all z adjustment."
 " It is recommended to put this in your end-gcode."
 msgstr ""
+"`BED_MESH_CLEAR`: questo comando cancella la mesh e rimuove tutte le "
+"regolazioni z. Si consiglia di inserirlo nella parte finale del gcode."
 
 msgid ""
 "`BED_MESH_OFFSET [X=<value>] [Y=<value>]`: Applies X and/or Y offsets to the"
 " mesh lookup. This is useful for printers with independent extruders, as an "
 "offset is necessary to produce correct Z adjustment after a tool change."
 msgstr ""
+"`BED_MESH_OFFSET [X=<value>] [Y=<value>]`: applica gli offset X e/o Y alla "
+"ricerca della mesh. Ciò è utile per le stampanti con estrusori indipendenti, "
+"poiché è necessario un offset per produrre la corretta regolazione Z dopo un "
+"cambio utensile."
 
 msgid ""
 "`BED_SCREWS_ADJUST`: This command will invoke the bed screws adjustment "
@@ -481,6 +512,11 @@ msgid ""
 "config file) and allow one to make adjustments to the bed screws so that the"
 " bed is a constant distance from the nozzle."
 msgstr ""
+"`BED_SCREWS_ADJUST`: questo comando richiamerà lo strumento di regolazione "
+"delle viti del piatto. Comanderà l'ugello in posizioni diverse (come "
+"definito nel file di configurazione) e consentirà di effettuare regolazioni "
+"alle viti del piatto in modo che il piatto sia a una distanza costante "
+"dall'ugello."
 
 msgid ""
 "`Z_TILT_ADJUST [<probe_parameter>=<value>]`: This command will probe the "
@@ -798,6 +834,18 @@ msgid ""
 "the accelerometer does not have a name in its config section (simply "
 "`[adxl345]`) then `<chip>` part of the name is not generated."
 msgstr ""
+"`ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]`: Avvia le "
+"misurazioni dell'accelerometro al numero richiesto di campioni al secondo. "
+"Se CHIP non è specificato, il valore predefinito è \"adxl345\". Il comando "
+"funziona in modalità start-stop: alla prima esecuzione avvia le misure, alla "
+"successiva esecuzione le interrompe. I risultati delle misurazioni vengono "
+"scritti in un file denominato `/tmp/adxl345-<chip>-<name>.csv` dove `<chip>` "
+"è il nome del chip dell'accelerometro (`my_chip_name` da `[adxl345 "
+"my_chip_name]` ) e `<name>` è il parametro NAME facoltativo. Se NAME non è "
+"specificato, il valore predefinito è l'ora corrente nel formato "
+"\"AAAAMMGG_HHMMSS\". Se l'accelerometro non ha un nome nella sua sezione di "
+"configurazione (semplicemente `[adxl345]`), allora la parte `<chip>` del "
+"nome non viene generata."
 
 #: docs/G-Codes.md:block 120 (unordered list)
 msgid ""
@@ -808,6 +856,12 @@ msgid ""
 "of the returned values should be a free-fall acceleration (+/- some noise of"
 " the chip)."
 msgstr ""
+"`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: interroga "
+"l'accelerometro per il valore corrente. Se CHIP non è specificato, il valore "
+"predefinito è \"adxl345\". Se RATE non è specificato, viene utilizzato il "
+"valore predefinito. Questo comando è utile per testare la connessione "
+"all'accelerometro ADXL345: uno dei valori restituiti dovrebbe essere "
+"un'accelerazione di caduta libera (+/- un po' di rumore del chip)."
 
 #: docs/G-Codes.md:block 105 (unordered list)
 msgid ""
@@ -827,14 +881,18 @@ msgid ""
 " Y coordinates generated by bed_mesh, along with their associated indices, "
 "will be output to the terminal."
 msgstr ""
+"`BED_MESH_OUTPUT PGP=[<0:1>]`: questo comando restituisce i valori z sondati "
+"e i valori mesh correnti al terminale. Se viene specificato PGP=1, le "
+"coordinate X, Y generate da bed_mesh, insieme ai relativi indici associati, "
+"verranno inviate al terminale."
 
 #: docs/G-Codes.md:block 9 (header)
 msgid "Additional Commands"
-msgstr ""
+msgstr "Comandi aggiuntivi"
 
 #: docs/G-Codes.md:block 12 (header)
 msgid "[adxl345]"
-msgstr ""
+msgstr "[adxl345]"
 
 #: docs/G-Codes.md:block 13 (paragraph)
 msgid ""
@@ -844,15 +902,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 14 (header)
 msgid "ACCELEROMETER_MEASURE"
-msgstr ""
+msgstr "ACCELEROMETER_MEASURE"
 
 #: docs/G-Codes.md:block 16 (header)
 msgid "ACCELEROMETER_QUERY"
-msgstr ""
+msgstr "ACCELEROMETER_QUERY"
 
 #: docs/G-Codes.md:block 18 (header)
 msgid "ACCELEROMETER_DEBUG_READ"
-msgstr ""
+msgstr "ACCELEROMETER_DEBUG_READ"
 
 #: docs/G-Codes.md:block 19 (paragraph)
 msgid ""
@@ -860,10 +918,13 @@ msgid ""
 "ADXL345 register \"register\" (e.g. 44 or 0x2C). Can be useful for debugging"
 " purposes."
 msgstr ""
+"`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: interroga "
+"l'ADXL345 register \"register\" (es. 44 o 0x2C). Può essere utile per scopi "
+"di debug."
 
 #: docs/G-Codes.md:block 20 (header)
 msgid "ACCELEROMETER_DEBUG_WRITE"
-msgstr ""
+msgstr "ACCELEROMETER_DEBUG_WRITE"
 
 #: docs/G-Codes.md:block 21 (paragraph)
 msgid ""
@@ -872,10 +933,15 @@ msgid ""
 "\"register\" can be a decimal or a hexadecimal integer. Use with care, and "
 "refer to ADXL345 data sheet for the reference."
 msgstr ""
+"`ACCELEROMETER_DEBUG_WRITE [CHIP=<nome_config>] REG=<register> VAL=<value>`: "
+"Scrive il valore \"value\" grezzo in un registro \"register\". Sia \"value\" "
+"che \"registrer\" possono essere un numero intero decimale o esadecimale. "
+"Usare con cura e fare riferimento alla scheda tecnica ADXL345 per "
+"riferimento."
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[bed_mesh]"
-msgstr ""
+msgstr "[bed_mesh]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
@@ -886,23 +952,23 @@ msgstr ""
 
 #: docs/G-Codes.md:block 24 (header)
 msgid "BED_MESH_CALIBRATE"
-msgstr ""
+msgstr "BED_MESH_CALIBRATE"
 
 #: docs/G-Codes.md:block 26 (header)
 msgid "BED_MESH_OUTPUT"
-msgstr ""
+msgstr "BED_MESH_OUTPUT"
 
 #: docs/G-Codes.md:block 28 (header)
 msgid "BED_MESH_MAP"
-msgstr ""
+msgstr "BED_MESH_MAP"
 
 #: docs/G-Codes.md:block 30 (header)
 msgid "BED_MESH_CLEAR"
-msgstr ""
+msgstr "BED_MESH_CLEAR"
 
 #: docs/G-Codes.md:block 32 (header)
 msgid "BED_MESH_PROFILE"
-msgstr ""
+msgstr "BED_MESH_PROFILE"
 
 #: docs/G-Codes.md:block 33 (paragraph)
 msgid ""
@@ -914,14 +980,22 @@ msgid ""
 "SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to"
 " make the changes to persistent memory permanent."
 msgstr ""
+"`BED_MESH_PROFILE LOAD=<name> SAVE=<name> REMOVE=<name>`: questo comando "
+"fornisce la gestione del profilo per lo stato della mesh. LOAD ripristinerà "
+"lo stato della mesh dal profilo corrispondente al nome fornito. SAVE salverà "
+"lo stato della mesh corrente in un profilo che corrisponde al nome fornito. "
+"Rimuovi eliminerà il profilo corrispondente al nome fornito dalla memoria "
+"persistente. Si noti che dopo aver eseguito le operazioni SAVE o REMOVE è "
+"necessario eseguire il gcode SAVE_CONFIG per rendere permanenti le modifiche "
+"alla memoria persistente."
 
 #: docs/G-Codes.md:block 34 (header)
 msgid "BED_MESH_OFFSET"
-msgstr ""
+msgstr "BED_MESH_OFFSET"
 
 #: docs/G-Codes.md:block 36 (header)
 msgid "[bed_screws]"
-msgstr ""
+msgstr "[bed_screws]"
 
 #: docs/G-Codes.md:block 37 (paragraph)
 msgid ""
@@ -932,11 +1006,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 38 (header)
 msgid "BED_SCREWS_ADJUST"
-msgstr ""
+msgstr "BED_SCREWS_ADJUST"
 
 #: docs/G-Codes.md:block 40 (header)
 msgid "[bed_tilt]"
-msgstr ""
+msgstr "[bed_tilt]"
 
 #: docs/G-Codes.md:block 41 (paragraph)
 msgid ""
@@ -946,11 +1020,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 42 (header)
 msgid "BED_TILT_CALIBRATE"
-msgstr ""
+msgstr "BED_TILT_CALIBRATE"
 
 #: docs/G-Codes.md:block 44 (header)
 msgid "[bltouch]"
-msgstr ""
+msgstr "[bltouch]"
 
 #: docs/G-Codes.md:block 45 (paragraph)
 msgid ""
@@ -961,7 +1035,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 46 (header)
 msgid "BLTOUCH_DEBUG"
-msgstr ""
+msgstr "BLTOUCH_DEBUG"
 
 #: docs/G-Codes.md:block 47 (paragraph)
 msgid ""
@@ -974,7 +1048,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 48 (header)
 msgid "BLTOUCH_STORE"
-msgstr ""
+msgstr "BLTOUCH_STORE"
 
 #: docs/G-Codes.md:block 50 (header)
 msgid "[configfile]"
@@ -990,7 +1064,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 54 (header)
 msgid "[delayed_gcode]"
-msgstr ""
+msgstr "[delayed_gcode]"
 
 #: docs/G-Codes.md:block 55 (paragraph)
 msgid ""
@@ -1024,7 +1098,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 64 (header)
 msgid "[display]"
-msgstr ""
+msgstr "[display]"
 
 #: docs/G-Codes.md:block 65 (paragraph)
 msgid ""
@@ -1049,7 +1123,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 71 (header)
 msgid "[dual_carriage]"
-msgstr ""
+msgstr "[dual_carriage]"
 
 #: docs/G-Codes.md:block 72 (paragraph)
 msgid ""
@@ -1088,7 +1162,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 81 (header)
 msgid "ACTIVATE_EXTRUDER"
-msgstr ""
+msgstr "ACTIVATE_EXTRUDER"
 
 #: docs/G-Codes.md:block 83 (header)
 msgid "SET_PRESSURE_ADVANCE"
@@ -1722,7 +1796,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 292 (header)
 msgid "CALC_MEASURED_SKEW"
-msgstr ""
+msgstr "CALC_MEASURED_SKEW"
 
 #: docs/G-Codes.md:block 294 (header)
 msgid "SKEW_PROFILE"
@@ -1927,10 +2001,13 @@ msgid ""
 "[extruder](Config_Reference.md#extruder) config sections, this command "
 "changes the active hotend."
 msgstr ""
+"`ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: in una stampante con più sezioni "
+"di configurazione [extruder](Config_Reference.md#extruder), questo comando "
+"cambia l'hotend attivo."
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[angle]"
-msgstr ""
+msgstr "[angle]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
@@ -1940,7 +2017,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 24 (header)
 msgid "ANGLE_CALIBRATE"
-msgstr ""
+msgstr "ANGLE_CALIBRATE"
 
 #: docs/G-Codes.md:block 25 (paragraph)
 msgid ""
@@ -1958,10 +2035,25 @@ msgid ""
 "the [measuring resonance document](Measuring_Resonances.md#software-"
 "installation) for more information)."
 msgstr ""
+"`ANGLE_CALIBRATE CHIP=<chip_name>`: Esegue la calibrazione dell'angolo sul "
+"sensore dato (deve esserci una sezione di configurazione `[angle chip_name]` "
+"che ha specificato un parametro `stepper`). IMPORTANTE - questo strumento "
+"comanderà al motore passo-passo di muoversi senza controllare i normali "
+"limiti della cinematica. Idealmente, il motore dovrebbe essere scollegato da "
+"qualsiasi carrello della stampante prima di eseguire la calibrazione. Se non "
+"è possibile scollegare lo stepper dalla stampante, assicurarsi che il "
+"carrello sia vicino al centro della sua guida prima di iniziare la "
+"calibrazione. (Il motore passo-passo può spostarsi avanti o indietro di due "
+"rotazioni complete durante questo test.) Dopo aver completato questo test, "
+"utilizzare il comando `SAVE_CONFIG` per salvare i dati di calibrazione nel "
+"file di configurazione. Per utilizzare questo strumento è necessario "
+"installare il pacchetto Python \"numpy\" (consultare il [measuring resonance "
+"document](Measuring_Resonances.md#software-installation) per ulteriori "
+"informazioni)."
 
 #: docs/G-Codes.md:block 26 (header)
 msgid "ANGLE_DEBUG_READ"
-msgstr ""
+msgstr "ANGLE_DEBUG_READ"
 
 #: docs/G-Codes.md:block 27 (paragraph)
 msgid ""
@@ -1969,10 +2061,13 @@ msgid ""
 "register \"register\" (e.g. 44 or 0x2C). Can be useful for debugging "
 "purposes. This is only available for tle5012b chips."
 msgstr ""
+"`ANGLE_DEBUG_READ CHIP=<config_name> REG=<register>`: Interroga il registro "
+"del sensore \"register\" (ad es. 44 o 0x2C). Può essere utile per scopi di "
+"debug. Questo è disponibile solo per i chip tle5012b."
 
 #: docs/G-Codes.md:block 28 (header)
 msgid "ANGLE_DEBUG_WRITE"
-msgstr ""
+msgstr "ANGLE_DEBUG_WRITE"
 
 #: docs/G-Codes.md:block 29 (paragraph)
 msgid ""
@@ -1982,6 +2077,11 @@ msgid ""
 "sensor data sheet for the reference. This is only available for tle5012b "
 "chips."
 msgstr ""
+"`ANGLE_DEBUG_WRITE CHIP=<config_name> REG=<register> VAL=<value>`: scrive il "
+"valore \"value\" grezzo nel registro \"register\". Sia \"value\" che "
+"\"register\" possono essere un numero intero decimale o esadecimale. Usare "
+"con cautela e fare riferimento alla scheda tecnica del sensore per "
+"riferimento. Questo è disponibile solo per i chip tle5012b."
 
 #: docs/G-Codes.md:block 199 (header)
 msgid "[led]"
@@ -2294,7 +2394,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 79 (paragraph)
 msgid "Also provided is the following extended G-Code command:"
-msgstr ""
+msgstr "Viene inoltre fornito il seguente comando G-Code esteso:"
 
 #: docs/G-Codes.md:block 80 (unordered list)
 msgid ""
