@@ -49,17 +49,17 @@ sudo usermod -a -G tty pi
 
 Completare l'installazione configurando l'MCU secondario di Klipper seguendo le istruzioni in [RaspberryPi sample config](../config/sample-raspberry-pi.cfg) e [Multi MCU sample config](../config/sample-multi-mcu.cfg).
 
-## Optional: Enabling SPI
+## Facoltativo: abilitazione di SPI
 
-Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and enabling SPI under the "Interfacing options" menu.
+Assicurati che il driver SPI di Linux sia abilitato eseguendo `sudo raspi-config` e abilitando SPI nel menu "Opzioni di interfaccia".
 
-## Optional: Enabling I2C
+## Opzionale: abilitazione di I2C
 
-Make sure the Linux I2C driver is enabled by running `sudo raspi-config` and enabling I2C under the "Interfacing options" menu. If planning to use I2C for the MPU accelerometer, it is also required to set the baud rate to 400000 by: adding/uncommenting `dtparam=i2c_arm=on,i2c_arm_baudrate=400000` in `/boot/config.txt` (or `/boot/firmware/config.txt` in some distros).
+Assicurati che l'interfaccia Linux I2C sia abilitato eseguendo `sudo raspi-config` e abilitando I2C nel menu "Opzioni di interfaccia". Se si intende utilizzare I2C per l'accelerometro MPU, è anche necessario impostare il baud rate su 400000: aggiungendo/deselezionando `dtparam=i2c_arm=on,i2c_arm_baudrate=400000` in `/boot/config.txt` (o `/ boot/firmware/config.txt` in alcune distribuzioni).
 
 ## Opzionale: Identificare il gpiochip corretto
 
-On Raspberry Pi and on many clones the pins exposed on the GPIO belong to the first gpiochip. They can therefore be used on klipper simply by referring them with the name `gpio0..n`. However, there are cases in which the exposed pins belong to gpiochips other than the first. For example in the case of some OrangePi models or if a Port Expander is used. In these cases it is useful to use the commands to access the *Linux GPIO character device* to verify the configuration.
+Su Raspberry Pi e su molti cloni i pin esposti sul GPIO appartengono al primo gpiochip. Possono quindi essere utilizzati su klipper semplicemente riferendoli con il nome `gpio0..n`. Tuttavia, ci sono casi in cui i pin esposti appartengono a gpiochip diversi dal primo. Ad esempio nel caso di alcuni modelli OrangePi o se viene utilizzato un Port Expander. In questi casi è utile utilizzare i comandi per accedere al *dispositivo a caratteri GPIO Linux* per verificarne la configurazione.
 
 Per installare il *Linux GPIO character device - binary* su una distro basata su debian come octopi eseguire:
 
@@ -79,7 +79,7 @@ Per verificare il numero di pin e la disponibilità dei pin:
 gpioinfo
 ```
 
-The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the`gpioinfo` command.
+Il pin scelto può quindi essere utilizzato all'interno della configurazione come `gpiochip<n>/gpio<o>` dove **n** è il numero del chip visto dal comando `gpiodetect` e **o** è il numero di riga visto dal comando `gpioinfo`.
 
 ***Attenzione:*** solo i gpio contrassegnati come `inutilizzati` possono essere utilizzati. Non è possibile che una *linea* sia usata da più processi contemporaneamente.
 
@@ -174,7 +174,7 @@ L'overlay non espone la riga pwm sui sysfs all'avvio e deve essere esportata fac
 echo 0 > /sys/class/pwm/pwmchip0/export
 ```
 
-This will create device `/sys/class/pwm/pwmchip0/pwm0` in the filesystem. The easiest way to do this is by adding this to `/etc/rc.local` before the `exit 0` line.
+Questo creerà il dispositivo `/sys/class/pwm/pwmchip0/pwm0` nel filesystem. Il modo più semplice per farlo è aggiungerlo a `/etc/rc.local` prima della riga `exit 0`.
 
 Con il sysfs a posto, potete ora utilizzare il canale o i canali pwm aggiungendo il seguente pezzo di configurazione al vostro `printer.cfg`:
 
@@ -188,7 +188,7 @@ cycle_time: 0.000001
 
 Questo aggiungerà il controllo pwm hardware a gpio12 sul Pi (perché l'overlay è stato configurato per instradare pwm0 a pin = 12).
 
-PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and gpio19:
+PWM0 può essere indirizzato su gpio12 e gpio18, PWM1 può essere indirizzato su gpio13 e gpio19:
 
 | PWM | gpio PIN | Func |
 | --- | --- | --- |

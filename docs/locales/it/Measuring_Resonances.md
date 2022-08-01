@@ -65,7 +65,7 @@ Note that, depending on the performance of the CPU, it may take *a lot* of time,
 
 Afterwards, check and follow the instructions in the [RPi Microcontroller document](RPi_microcontroller.md) to setup the "linux mcu" on the Raspberry Pi.
 
-Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and enabling SPI under the "Interfacing options" menu.
+Assicurati che il driver SPI di Linux sia abilitato eseguendo `sudo raspi-config` e abilitando SPI nel menu "Opzioni di interfaccia".
 
 For the ADXL345, add the following to the printer.cfg file:
 

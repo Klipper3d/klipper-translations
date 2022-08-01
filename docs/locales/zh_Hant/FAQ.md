@@ -2,7 +2,7 @@
 
 ## 我如何向專案捐款？
 
-Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
+謝謝您的支持。有關信息，請參閱 [贊助商頁面](Sponsors.md)。
 
 ## 如何計算 rotation_distance 配置參數？
 

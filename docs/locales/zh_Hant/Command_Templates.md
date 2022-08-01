@@ -98,9 +98,9 @@ gcode:
 
 運行巨集的完整未解析參數可以通過 `rawparams` 偽變數訪問。
 
-Note that this will include any comments that were part of the original command.
+請注意，這將包括作為原始命令一部分的任何註釋。
 
-See the [sample-macros.cfg](../config/sample-macros.cfg) file for an example showing how to override the `M117` command using `rawparams`.
+請參閱 [sample-macros.cfg](../config/sample-macros.cfg) 文件，了解如何使用 `rawparams` 覆蓋 `M117` 命令的示例。
 
 ### "printer"變數
 

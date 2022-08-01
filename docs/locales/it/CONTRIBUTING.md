@@ -2,7 +2,7 @@
 
 Grazie per aver contribuito a Klipper! Questo documento descrive il processo per contribuire alle modifiche di Klipper.
 
-Consulta la [pagina dei contatti] (Contact.md) per informazioni sulla segnalazione di un problema o per i dettagli su come contattare gli sviluppatori.
+Consulta la [contact page](Contact.md) per informazioni sulla segnalazione di un problema o per i dettagli su come contattare gli sviluppatori.
 
 ## Overview of Contribution Process
 
@@ -134,7 +134,7 @@ Signed-off-by: My Name <myemail@example.org>
 
 In the above example, `module` should be the name of a file or directory in the repository (without a file extension). For example, `clocksync: Fix typo in pause() call at connect time`. The purpose of specifying a module name in the commit message is to help provide context for the commit comments.
 
-È importante avere una riga "Signed-off-by" su ogni commit - certifica che accetti il [certificato di origine dello sviluppatore] (certificato di origine dello sviluppatore). Deve contenere il tuo vero nome (mi dispiace, niente pseudonimi o contributi anonimi) e contenere un indirizzo email corrente.
+È importante avere una riga "Signed-off-by" su ogni commit - certifica che accetti il [developer certificate of origin](developer-certificate-of-origin). Deve contenere il tuo vero nome (mi dispiace, niente pseudonimi o contributi anonimi) e contenere un indirizzo email corrente.
 
 ## Contribuire a Traduzioni Klipper
 

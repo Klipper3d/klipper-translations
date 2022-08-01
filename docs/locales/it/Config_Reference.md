@@ -1,4 +1,4 @@
-# Configuration reference
+# Riferimenti configurazione
 
 Questo documento è un riferimento per le opzioni disponibili nel file di configurazione di Klipper.
 
@@ -18,7 +18,7 @@ Note, some config sections may "create" additional pins. Where this occurs, the 
 
 ### [mcu]
 
-Configuration of the primary micro-controller.
+Configurazione del microcontrollore primario.
 
 ```
 [mcu]
@@ -51,14 +51,14 @@ serial:
 
 ### [mcu my_extra_mcu]
 
-Additional micro-controllers (one may define any number of sections with an "mcu" prefix). Additional micro-controllers introduce additional pins that may be configured as heaters, steppers, fans, etc.. For example, if an "[mcu extra_mcu]" section is introduced, then pins such as "extra_mcu:ar9" may then be used elsewhere in the config (where "ar9" is a hardware pin name or alias name on the given mcu).
+Microcontrollori aggiuntivi (si può definire un numero qualsiasi di sezioni con un prefisso "mcu"). Microcontrollori aggiuntivi introducono pin aggiuntivi che possono essere configurati come riscaldatori, stepper, ventole, ecc. Ad esempio, se viene introdotta una sezione "[mcu extra_mcu]", i pin come "extra_mcu:ar9" possono quindi essere utilizzati altrove nella configurazione (dove "ar9" è un nome pin hardware o un nome alias sul dato mcu).
 
 ```
 [mcu my_extra_mcu]
 # See the "mcu" section for configuration parameters.
 ```
 
-## Common kinematic settings
+## Impostazioni cinematiche comuni
 
 ### [printer]
 
@@ -175,7 +175,7 @@ position_max:
 #   if near position_min.
 ```
 
-### Cartesian Kinematics
+### Cinematica cartesiana
 
 See [example-cartesian.cfg](../config/example-cartesian.cfg) for an example cartesian kinematics config file.
 
@@ -288,7 +288,7 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-### CoreXY Kinematics
+### Cinematica CoreXY
 
 See [example-corexy.cfg](../config/example-corexy.cfg) for an example corexy (and h-bot) kinematics file.
 
@@ -320,7 +320,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-### CoreXZ Kinematics
+### Cinematica CoreXZ
 
 See [example-corexz.cfg](../config/example-corexz.cfg) for an example corexz kinematics config file.
 
@@ -576,7 +576,7 @@ max_accel: 1
 #   values are not used for "none" kinematics.
 ```
 
-## Common extruder and heated bed support
+## Supporto per estrusore e piatto riscaldato comuni
 
 ### [extruder]
 
@@ -721,7 +721,7 @@ max_temp:
 #   See the "extruder" section for a description of the above parameters.
 ```
 
-## Bed level support
+## Supporto livellamento del piatto
 
 ### [bed_mesh]
 
@@ -838,7 +838,7 @@ Visual Examples:
 
 ### [bed_tilt]
 
-Bed tilt compensation. One may define a bed_tilt config section to enable move transformations that account for a tilted bed. Note that bed_mesh and bed_tilt are incompatible; both cannot be defined.
+Compensazione dell'inclinazione del piatto. Si può definire una sezione di configurazione bed_tilt per abilitare le trasformazioni di movimento che tengono conto di un piatto inclinato. Nota che bed_mesh e bed_tilt sono incompatibili; entrambi non possono essere definiti.
 
 See the [command reference](G-Codes.md#bed_tilt) for additional information.
 
@@ -1164,7 +1164,7 @@ G-Code macros (one may define any number of sections with a "gcode_macro" prefix
 
 ### [delayed_gcode]
 
-Execute a gcode on a set delay. See the [command template guide](Command_Templates.md#delayed-gcodes) and [command reference](G-Codes.md#delayed_gcode) for more information.
+Esegui un gcode con un ritardo impostato. Per ulteriori informazioni, consulta la [Guida template dei comandi](Command_Templates.md#delayed-gcodes) e [riferimento al comando](G-Codes.md#delayed_gcode).
 
 ```
 [delayed_gcode my_delayed_gcode]
@@ -1211,7 +1211,7 @@ Idle timeout. An idle timeout is automatically enabled - add an explicit idle_ti
 
 ### [virtual_sdcard]
 
-A virtual sdcard may be useful if the host machine is not fast enough to run OctoPrint well. It allows the Klipper host software to directly print gcode files stored in a directory on the host using standard sdcard G-Code commands (eg, M24).
+Una scheda SD virtuale può essere utile se la macchina host non è abbastanza veloce per eseguire bene OctoPrint. Consente al software host Klipper di stampare direttamente i file gcode archiviati in una directory sull'host utilizzando i comandi G-Code standard (ad esempio, M24).
 
 ```
 [virtual_sdcard]
@@ -1309,7 +1309,7 @@ Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#respond).
 
 ### [exclude_object]
 
-Enables support to exclude or cancel individual objects during the printing process.
+Abilita il supporto per escludere o cancellare singoli oggetti durante il processo di stampa.
 
 See the [exclude objects guide](Exclude_Object.md) and [command reference](G-Codes.md#excludeobject) for additional information. See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware compatible M486 G-Code macro.
 
@@ -1460,7 +1460,7 @@ Support for resonance testing and automatic input shaper calibration. In order t
 
 ### [board_pins]
 
-Board pin aliases (one may define any number of sections with a "board_pins" prefix). Use this to define aliases for the pins on a micro-controller.
+Alias pin board (si può definire un numero qualsiasi di sezioni con un prefisso "board_pins"). Usalo per definire gli alias per i pin su un microcontrollore.
 
 ```
 [board_pins my_aliases]
@@ -1492,12 +1492,12 @@ This tool allows a single micro-controller pin to be defined multiple times in a
 ```
 [duplicate_pin_override]
 pins:
-#   A comma separated list of pins that may be used multiple times in
-#   a config file without normal error checks. This parameter must be
-#   provided.
+#   Un elenco di pin separato da virgole che possono essere utilizzati più volte in
+#   un file di configurazione senza normali controlli degli errori. Questo parametro deve essere
+#   fornito.
 ```
 
-## Bed probing hardware
+## Hardware per probing del piatto
 
 ### [probe]
 
@@ -1564,7 +1564,7 @@ z_offset:
 
 ### [bltouch]
 
-BLTouch probe. One may define this section (instead of a probe section) to enable a BLTouch probe. See [BL-Touch guide](BLTouch.md) and [command reference](G-Codes.md#bltouch) for further information. A virtual "probe:z_virtual_endstop" pin is also created (see the "probe" section for the details).
+Sonda BLTouch. Si può definire questa sezione (anziché una sezione sonda) per abilitare una sonda BLTouch. Per ulteriori informazioni, vedere [BL-Touch guide](BLTouch.md) e [command reference](G-Codes.md#bltouch).. Viene anche creato un pin virtuale "probe:z_virtual_endstop" (consultare la sezione "probe" per i dettagli).
 
 ```
 [bltouch]
@@ -1666,7 +1666,7 @@ z_offset:
 #   See the "probe" section for more information on the parameters above.
 ```
 
-## Additional stepper motors and extruders
+## Motori passo-passo ed estrusori aggiuntivi
 
 ### [stepper_z1]
 
@@ -1775,7 +1775,7 @@ Manual steppers (one may define any number of sections with a "manual_stepper" p
 #   MANUAL_STEPPER movement commands.
 ```
 
-## Custom heaters and sensors
+## Riscaldatori e sensori personalizzati
 
 ### [verify_heater]
 
@@ -1832,7 +1832,7 @@ Tool to disable heaters when homing or probing an axis.
 
 ### [thermistor]
 
-Custom thermistors (one may define any number of sections with a "thermistor" prefix). A custom thermistor may be used in the sensor_type field of a heater config section. (For example, if one defines a "[thermistor my_thermistor]" section then one may use a "sensor_type: my_thermistor" when defining a heater.) Be sure to place the thermistor section in the config file above its first use in a heater section.
+Termistori personalizzati (si può definire un numero qualsiasi di sezioni con un prefisso "thermistor"). È possibile utilizzare un termistore personalizzato nel campo sensor_type di una sezione di configurazione del riscaldatore. (Ad esempio, se si definisce una sezione "[thermistor my_thermistor]", è possibile utilizzare un "sensor_type: my_thermistor" quando si definisce un riscaldatore.) Assicurati di posizionare la sezione del termistore nel file di configurazione sopra il suo primo utilizzo in una sezione del riscaldatore .
 
 ```
 [thermistor my_thermistor]
@@ -1855,7 +1855,7 @@ Custom thermistors (one may define any number of sections with a "thermistor" pr
 
 ### [adc_temperature]
 
-Custom ADC temperature sensors (one may define any number of sections with an "adc_temperature" prefix). This allows one to define a custom temperature sensor that measures a voltage on an Analog to Digital Converter (ADC) pin and uses linear interpolation between a set of configured temperature/voltage (or temperature/resistance) measurements to determine the temperature. The resulting sensor can be used as a sensor_type in a heater section. (For example, if one defines a "[adc_temperature my_sensor]" section then one may use a "sensor_type: my_sensor" when defining a heater.) Be sure to place the sensor section in the config file above its first use in a heater section.
+Sensori di temperatura ADC personalizzati (si può definire un numero qualsiasi di sezioni con un prefisso "adc_temperature"). Ciò consente di definire un sensore di temperatura personalizzato che misura una tensione su un pin del convertitore da analogico a digitale (ADC) e utilizza l'interpolazione lineare tra una serie di misurazioni di temperatura/tensione (o temperatura/resistenza) configurate per determinare la temperatura. Il sensore risultante può essere utilizzato come tipo_sensore in una sezione riscaldatore. (Ad esempio, se si definisce una sezione "[adc_temperature my_sensor]", è possibile utilizzare un "sensor_type: my_sensor" quando si definisce un riscaldatore.) Assicurati di posizionare la sezione del sensore nel file di configurazione sopra il suo primo utilizzo in una sezione del riscaldatore.
 
 ```
 [adc_temperature my_sensor]
@@ -1928,9 +1928,9 @@ Generic temperature sensors. One can define any number of additional temperature
 
 Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heated_bed]` section).
 
-### Common thermistors
+### Termistori comuni
 
-Common thermistors. The following parameters are available in heater sections that use one of these sensors.
+Termistori comuni. I seguenti parametri sono disponibili nelle sezioni del riscaldatore che utilizzano uno di questi sensori.
 
 ```
 sensor_type:
@@ -1950,9 +1950,9 @@ sensor_pin:
 #   The default is 0 ohms.
 ```
 
-### Common temperature amplifiers
+### Amplificatori di temperatura comuni
 
-Common temperature amplifiers. The following parameters are available in heater sections that use one of these sensors.
+Amplificatori di temperatura comuni. I seguenti parametri sono disponibili nelle sezioni del riscaldatore che utilizzano uno di questi sensori.
 
 ```
 sensor_type:
@@ -1967,9 +1967,9 @@ sensor_pin:
 #   The ADC voltage offset (in Volts). The default is 0.
 ```
 
-### Directly connected PT1000 sensor
+### Sensore PT1000 collegato direttamente
 
-Directly connected PT1000 sensor. The following parameters are available in heater sections that use one of these sensors.
+Sensore PT1000 collegato direttamente. I seguenti parametri sono disponibili nelle sezioni del riscaldatore che utilizzano uno di questi sensori.
 
 ```
 sensor_type: PT1000
@@ -2015,9 +2015,9 @@ sensor_pin:
 #   name in the above list.
 ```
 
-### BMP280/BME280/BME680 temperature sensor
+### Sensore di temperatura BMP280/BME280/BME680
 
-BMP280/BME280/BME680 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C), pressure (hPa), relative humidity and in case of the BME680 gas level. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report pressure and humidity in addition to temperature.
+Sensori ambientali BMP280/BME280/BME680 con interfaccia I2C. Si noti che questi sensori non sono destinati all'uso con estrusori e letti riscaldanti, ma piuttosto per il monitoraggio della temperatura ambiente (C), della pressione (hPa), dell'umidità relativa (%)e di livello del gas per il BME680. Vedere [sample-macros.cfg](../config/sample-macros.cfg) per una gcode_macro che può essere utilizzata per riportare la pressione e l'umidità oltre alla temperatura.
 
 ```
 sensor_type: BME280
@@ -2081,7 +2081,7 @@ sensor_type: LM75
 #   0.5.
 ```
 
-### Builtin micro-controller temperature sensor
+### Sensore di temperatura integrato nel microcontrollore
 
 The atsam, atsamd, and stm32 micro-controllers contain an internal temperature sensor. One can use the "temperature_mcu" sensor to monitor these temperatures.
 
@@ -2125,9 +2125,9 @@ sensor_type: temperature_host
 #   system file on a Raspberry Pi computer.
 ```
 
-### DS18B20 temperature sensor
+### Sensore di temperatura DS18B20
 
-DS18B20 is a 1-wire (w1) digital temperature sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C). These sensors have range up to 125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers. DS18B20 sensors are only supported on the "host mcu", e.g. the Raspberry Pi. The w1-gpio Linux kernel module must be installed.
+DS18B20 è un sensore di temperatura digitale a 1 filo (w1). Si noti che questo sensore non è destinato all'uso con estrusori e letti riscaldanti, ma piuttosto per il monitoraggio della temperatura ambiente (C). Questi sensori hanno una portata fino a 125 C, quindi sono utilizzabili ad es. monitoraggio della temperatura della camera. Possono anche funzionare come semplici controller per ventole/riscaldatori. I sensori DS18B20 sono supportati solo su "host mcu", ad es. il Raspberry Pi. È necessario installare il modulo del kernel Linux w1-gpio.
 
 ```
 sensor_type: DS18B20
@@ -2242,7 +2242,7 @@ Heater cooling fans (one may define any number of sections with a "heater_fan" p
 
 ### [controller_fan]
 
-Controller cooling fan (one may define any number of sections with a "controller_fan" prefix). A "controller fan" is a fan that will be enabled whenever its associated heater or its associated stepper driver is active. The fan will stop whenever an idle_timeout is reached to ensure no overheating will occur after deactivating a watched component.
+Ventola di raffreddamento del controller (è possibile definire un numero qualsiasi di sezioni con il prefisso "controller_fan"). Una "ventola del controller" è una ventola che verrà abilitata ogni volta che il riscaldatore associato o il driver stepper associato è attivo. La ventola si fermerà ogni volta che viene raggiunto un idle_timeout per garantire che non si verifichi alcun surriscaldamento dopo la disattivazione di un componente osservato.
 
 ```
 [controller_fan my_controller_fan]
@@ -2414,22 +2414,22 @@ pin:
 
 ### [dotstar]
 
-Dotstar (aka APA102) LED support (one may define any number of sections with a "dotstar" prefix). See the [command reference](G-Codes.md#led) for more information.
+Supporto LED Dotstar (conosciuti anche come APA102) (si può definire un numero qualsiasi di sezioni con un prefisso "dotstar"). Per ulteriori informazioni, vedere [command reference](G-Codes.md#led).
 
 ```
 [dotstar my_dotstar]
 data_pin:
-#   The pin connected to the data line of the dotstar. This parameter
-#   must be provided.
+#   Il pin connesso alla data line del dotstar. Questo parametro
+#   deve essere fornito.
 clock_pin:
-#   The pin connected to the clock line of the dotstar. This parameter
-#   must be provided.
+#   Il pin connesso alla clock line del dotstar. Questo parametro
+#   deve essere fornito.
 #chain_count:
-#   See the "neopixel" section for information on this parameter.
+#   Vedere la sezione "neopixel" per informazioni su questo parametro.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
-#   See the "led" section for information on these parameters.
+#   Vedere la sezione "led" per informazioni su questo parametro.
 ```
 
 ### [pca9533]
@@ -2482,7 +2482,7 @@ PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
 #   See the "led" section for information on these parameters.
 ```
 
-## Additional servos, buttons, and other pins
+## Servocomandi aggiuntivi, pulsanti e altri pin
 
 ### [servo]
 
@@ -2514,7 +2514,7 @@ pin:
 
 ### [gcode_button]
 
-Execute gcode when a button is pressed or released (or when a pin changes state). You can check the state of the button by using `QUERY_BUTTON button=my_gcode_button`.
+Esegui gcode quando un pulsante viene premuto o rilasciato (o quando un pin cambia stato). Puoi controllare lo stato del pulsante usando `QUERY_BUTTON button=my_gcode_button`.
 
 ```
 [gcode_button my_gcode_button]
@@ -2616,11 +2616,11 @@ pins:
 
 ## TMC stepper driver configuration
 
-Configuration of Trinamic stepper motor drivers in UART/SPI mode. Additional information is in the [TMC Drivers guide](TMC_Drivers.md) and in the [command reference](G-Codes.md#tmcxxxx).
+Configurazione dei driver per motori passo-passo Trinamic in modalità UART/SPI. Ulteriori informazioni si trovano nella [TMC Drivers guide](TMC_Drivers.md) e nel [command reference](G-Codes.md#tmcxxxx).
 
 ### [tmc2130]
 
-Configure a TMC2130 stepper motor driver via SPI bus. To use this feature, define a config section with a "tmc2130" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2130 stepper_x]").
+Configurare un driver per motore passo-passo TMC2130 tramite bus SPI. Per utilizzare questa funzione, definire una sezione di configurazione con un prefisso "tmc2130" seguito dal nome della sezione di configurazione dello stepper corrispondente (ad esempio, "[tmc2130 stepper_x]").
 
 ```
 [tmc2130 stepper_x]
@@ -2691,7 +2691,7 @@ run_current:
 
 ### [tmc2208]
 
-Configure a TMC2208 (or TMC2224) stepper motor driver via single wire UART. To use this feature, define a config section with a "tmc2208" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2208 stepper_x]").
+Configurare un driver per motore passo-passo TMC2208 (o TMC2224) tramite UART a filo singolo. Per utilizzare questa funzione, definire una sezione di configurazione con un prefisso "tmc2208" seguito dal nome della sezione di configurazione dello stepper corrispondente (ad esempio, "[tmc2208 stepper_x]").
 
 ```
 [tmc2208 stepper_x]
@@ -2749,7 +2749,7 @@ run_current:
 
 ### [tmc2209]
 
-Configure a TMC2209 stepper motor driver via single wire UART. To use this feature, define a config section with a "tmc2209" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2209 stepper_x]").
+Configurare un driver per motore passo-passo TMC2209 tramite UART a filo singolo. Per utilizzare questa funzione, definire una sezione di configurazione con un prefisso "tmc2209" seguito dal nome della sezione di configurazione dello stepper corrispondente (ad esempio, "[tmc2209 stepper_x]").
 
 ```
 [tmc2209 stepper_x]
@@ -2796,7 +2796,7 @@ run_current:
 
 ### [tmc2660]
 
-Configure a TMC2660 stepper motor driver via SPI bus. To use this feature, define a config section with a tmc2660 prefix followed by the name of the corresponding stepper config section (for example, "[tmc2660 stepper_x]").
+Configurare un driver per motore passo-passo TMC2660 tramite bus SPI. Per utilizzare questa funzione, definire una sezione di configurazione con un prefisso tmc2660 seguito dal nome della sezione di configurazione dello stepper corrispondente (ad esempio, "[tmc2660 stepper_x]").
 
 ```
 [tmc2660 stepper_x]
@@ -2865,7 +2865,7 @@ run_current:
 
 ### [tmc5160]
 
-Configure a TMC5160 stepper motor driver via SPI bus. To use this feature, define a config section with a "tmc5160" prefix followed by the name of the corresponding stepper config section (for example, "[tmc5160 stepper_x]").
+Configurare un driver per motore passo-passo TMC5160 tramite bus SPI. Per utilizzare questa funzione, definire una sezione di configurazione con un prefisso "tmc5160" seguito dal nome della sezione di configurazione dello stepper corrispondente (ad esempio, "[tmc5160 stepper_x]").
 
 ```
 [tmc5160 stepper_x]
@@ -3086,7 +3086,7 @@ wiper:
 #   scale the 'wiper' parameter.
 ```
 
-## Display support
+## Supporto display
 
 ### [display]
 
@@ -3243,7 +3243,7 @@ sid_pin:
 ...
 ```
 
-#### emulated_st7920 display
+#### display emulazione emulated_st7920
 
 Information on configuring an emulated st7920 display - found in some "2.4 inch touchscreen devices" and similar.
 
@@ -3336,7 +3336,7 @@ lcd_type:
 
 Support for displaying custom data on an lcd screen. One may create any number of display groups and any number of data items under those groups. The display will show all the data items for a given group if the display_group option in the [display] section is set to the given group name.
 
-A [default set of display groups](../klippy/extras/display/display.cfg) are automatically created. One can replace or extend these display_data items by overriding the defaults in the main printer.cfg config file.
+Viene creato automaticamente un [default set of display groups](../klippy/extras/display/display.cfg) . È possibile sostituire o estendere questi elementi display_data sovrascrivendo i valori predefiniti nel file di configurazione principale printer.cfg .
 
 ```
 [display_data my_group_name my_data_name]
@@ -3377,7 +3377,7 @@ text:
 
 ### [display_glyph]
 
-Display a custom glyph on displays that support it. The given name will be assigned the given display data which can then be referenced in the display templates by their name surrounded by two "tilde" symbols i.e. `~my_display_glyph~`
+Visualizza un glifo personalizzato sui display che lo supportano. Al nome dato verranno assegnati i dati di visualizzazione dati che possono quindi essere referenziati nei modelli di visualizzazione con il loro nome circondato da due simboli "tilde" per esempio `~my_display_glyph~`
 
 See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples.
 
@@ -3407,14 +3407,14 @@ If a primary [display] section has been defined in printer.cfg as shown above it
 
 ```
 [display my_extra_display]
-# See the "display" section for available parameters.
+# Vedere la sezione "display" per i parametri disponibili.
 ```
 
 ### [menu]
 
-Customizable lcd display menus.
+Menu display lcd personalizzabili.
 
-A [default set of menus](../klippy/extras/display/menu.cfg) are automatically created. One can replace or extend the menu by overriding the defaults in the main printer.cfg config file.
+Viene creato automaticamente un [default set of menus](../klippy/extras/display/menu.cfg) . È possibile sostituire o estendere il menu sovrascrivendo le impostazioni predefinite nel file di configurazione principale printer.cfg .
 
 See the [command template document](Command_Templates.md#menu-templates) for information on menu attributes available during template rendering.
 
@@ -3619,11 +3619,11 @@ adc2:
 #   above parameters.
 ```
 
-## Board specific hardware support
+## Supporto hardware per specifica scheda
 
 ### [sx1509]
 
-Configure an SX1509 I2C to GPIO expander. Due to the delay incurred by I2C communication you should NOT use SX1509 pins as stepper enable, step or dir pins or any other pin that requires fast bit-banging. They are best used as static or gcode controlled digital outputs or hardware-pwm pins for e.g. fans. One may define any number of sections with an "sx1509" prefix. Each expander provides a set of 16 pins (sx1509_my_sx1509:PIN_0 to sx1509_my_sx1509:PIN_15) which can be used in the printer configuration.
+Configurare un'espansione SX1509 da I2C a GPIO. A causa del ritardo dovuto alla comunicazione I2C, NON utilizzare i pin SX1509 come abilitazione stepper, pin step o dir o qualsiasi altro pin che richieda un bit banging veloce. Sono utilizzati al meglio come uscite digitali statiche o controllate da gcode o pin hardware-pwm per es. fan. Si può definire un numero qualsiasi di sezioni con un prefisso "sx1509". Ogni espansione fornisce un set di 16 pin (da sx1509_my_sx1509:PIN_0 a sx1509_my_sx1509:PIN_15) che possono essere utilizzati nella configurazione della stampante.
 
 See the [generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg) file for an example.
 
@@ -3671,7 +3671,7 @@ clk_pin:
 
 ### [adc_scaled]
 
-Duet2 Maestro analog scaling by vref and vssa readings. Defining an adc_scaled section enables virtual adc pins (such as "my_name:PB0") that are automatically adjusted by the board's vref and vssa monitoring pins. Be sure to define this config section above any config sections that use one these virtual pins.
+Scaling analogico di Duet2 Maestro tramite letture vref e vssa. La definizione di una sezione adc_scaled abilita pin adc virtuali (come "my_name:PB0") che vengono regolati automaticamente dai pin di monitoraggio vref e vssa della scheda. Assicurati di definire questa sezione di configurazione sopra qualsiasi sezione di configurazione che utilizza uno di questi pin virtuali.
 
 See the [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) file for an example.
 
@@ -3811,9 +3811,9 @@ cs_pin:
 #   above parameters.
 ```
 
-## Common bus parameters
+## Parametri bus comuni
 
-### Common SPI settings
+### Impostazioni SPI comuni
 
 The following parameters are generally available for devices using an SPI bus.
 
@@ -3834,7 +3834,7 @@ The following parameters are generally available for devices using an SPI bus.
 #   "software spi".
 ```
 
-### Common I2C settings
+### Impostazioni I2C comuni
 
 The following parameters are generally available for devices using an I2C bus.
 

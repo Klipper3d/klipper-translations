@@ -1,6 +1,6 @@
 # Manual leveling
 
-This document describes tools for calibrating a Z endstop and for performing adjustments to bed leveling screws.
+Questo documento descrive gli strumenti per la calibrazione di un finecorsa Z e per l'esecuzione delle regolazioni delle viti di livellamento del piatto.
 
 ## Calibrating a Z endstop
 

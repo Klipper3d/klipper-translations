@@ -4,29 +4,29 @@ Questo documento descrive il formato generale del codice e il flusso principale 
 
 ## Directory Layout
 
-The **src/** directory contains the C source for the micro-controller code. The **src/atsam/**, **src/atsamd/**, **src/avr/**, **src/linux/**, **src/lpc176x/**, **src/pru/**, and **src/stm32/** directories contain architecture specific micro-controller code. The **src/simulator/** contains code stubs that allow the micro-controller to be test compiled on other architectures. The **src/generic/** directory contains helper code that may be useful across different architectures. The build arranges for includes of "board/somefile.h" to first look in the current architecture directory (eg, src/avr/somefile.h) and then in the generic directory (eg, src/generic/somefile.h).
+La directory **src/** contiene il sorgente C per il codice del microcontrollore. **src/atsam/**, **src/atsamd/**, **src/avr/**, **src/linux/**, **src/lpc176x/**, **src/ Le directory pru/** e **src/stm32/** contengono il codice del microcontrollore specifico dell'architettura. **src/simulator/** contiene stub di codice che consentono la compilazione di test del microcontrollore su altre architetture. La directory **src/generic/** contiene codice di supporto che può essere utile in diverse architetture. La build fa in modo che le include di "board/somefile.h" guardino prima nella directory dell'architettura corrente (ad esempio, src/avr/somefile.h) e poi nella directory generica (ad esempio, src/generic/somefile.h).
 
-The **klippy/** directory contains the host software. Most of the host software is written in Python, however the **klippy/chelper/** directory contains some C code helpers. The **klippy/kinematics/** directory contains the robot kinematics code. The **klippy/extras/** directory contains the host code extensible "modules".
+La directory **klippy/** contiene il software host. La maggior parte del software host è scritto in Python, tuttavia la directory **klippy/chelper/** contiene alcuni helper del codice C. La directory **klippy/kinematics/** contiene il codice della cinematica del robot. La directory **klippy/extras/** contiene i "moduli" estensibili del codice host.
 
-The **lib/** directory contains external 3rd-party library code that is necessary to build some targets.
+La directory **lib/** contiene il codice della libreria di terze parti esterne necessarie per creare alcune destinazioni.
 
-The **config/** directory contains example printer configuration files.
+La directory **config/** contiene file di configurazione della stampante di esempio.
 
-The **scripts/** directory contains build-time scripts useful for compiling the micro-controller code.
+La directory **scripts/** contiene script di build-time utili per compilare il codice del microcontrollore.
 
-The **test/** directory contains automated test cases.
+La directory **test/** contiene test case automatizzati.
 
-During compilation, the build may create an **out/** directory. This contains temporary build time objects. The final micro-controller object that is built is **out/klipper.elf.hex** on AVR and **out/klipper.bin** on ARM.
+Durante la compilazione, la build potrebbe creare una directory **out/**. Questa contiene oggetti temporanei di compilazione. L'oggetto microcontrollore finale che viene creato è **out/klipper.elf.hex** su AVR e **out/klipper.bin** su ARM.
 
-## Micro-controller code flow
+## Flusso del codice del microcontrollore
 
-Execution of the micro-controller code starts in architecture specific code (eg, **src/avr/main.c**) which ultimately calls sched_main() located in **src/sched.c**. The sched_main() code starts by running all functions that have been tagged with the DECL_INIT() macro. It then goes on to repeatedly run all functions tagged with the DECL_TASK() macro.
+L'esecuzione del codice del microcontrollore inizia nel codice specifico dell'architettura (ad esempio, **src/avr/main.c**) che alla fine chiama sched_main() che si trova in **src/sched.c**. Il codice sched_main() inizia eseguendo tutte le funzioni che sono state contrassegnate con la macro DECL_INIT(). Quindi continua a eseguire ripetutamente tutte le funzioni contrassegnate con la macro DECL_TASK().
 
-One of the main task functions is command_dispatch() located in **src/command.c**. This function is called from the board specific input/output code (eg, **src/avr/serial.c**, **src/generic/serial_irq.c**) and it runs the command functions associated with the commands found in the input stream. Command functions are declared using the DECL_COMMAND() macro (see the [protocol](Protocol.md) document for more information).
+Una delle principali funzioni dell'attività è command_dispatch() che si trova in **src/command.c**. Questa funzione viene richiamata dal codice input/output specifico della scheda (es. **src/avr/serial.c**, **src/generic/serial_irq.c**) ed esegue le funzioni di comando associate ai comandi trovati nel flusso di input. Le funzioni di comando vengono dichiarate utilizzando la macro DECL_COMMAND() (consultare il documento [protocol](Protocol.md) per ulteriori informazioni).
 
 Task, init, and command functions always run with interrupts enabled (however, they can temporarily disable interrupts if needed). These functions should avoid long pauses, delays, or do work that lasts a significant time. (Long delays in these "task" functions result in scheduling jitter for other "tasks" - delays over 100us may become noticeable, delays over 500us may result in command retransmissions, delays over 100ms may result in watchdog reboots.) These functions schedule work at specific times by scheduling timers.
 
-Timer functions are scheduled by calling sched_add_timer() (located in **src/sched.c**). The scheduler code will arrange for the given function to be called at the requested clock time. Timer interrupts are initially handled in an architecture specific interrupt handler (eg, **src/avr/timer.c**) which calls sched_timer_dispatch() located in **src/sched.c**. The timer interrupt leads to execution of schedule timer functions. Timer functions always run with interrupts disabled. The timer functions should always complete within a few micro-seconds. At completion of the timer event, the function may choose to reschedule itself.
+Le funzioni timer vengono pianificate chiamando sched_add_timer() (che si trova in **src/sched.c**). Il codice di pianificazione farà in modo che la funzione data venga chiamata all'ora richiesta. Gli interrupt timer sono inizialmente gestiti in un gestore di interrupt specifico dell'architettura (ad esempio, **src/avr/timer.c**) che chiama sched_timer_dispatch() situato in **src/sched.c**. L'interruzione del timer porta all'esecuzione delle funzioni del timer di pianificazione. Le funzioni timer vengono eseguite sempre con gli interrupt disabilitati. Le funzioni del timer dovrebbero sempre completarsi entro pochi microsecondi. Al completamento dell'evento timer, la funzione può scegliere di riprogrammare se stessa.
 
 In the event an error is detected the code can invoke shutdown() (a macro which calls sched_shutdown() located in **src/sched.c**). Invoking shutdown() causes all functions tagged with the DECL_SHUTDOWN() macro to be run. Shutdown functions always run with interrupts disabled.
 
