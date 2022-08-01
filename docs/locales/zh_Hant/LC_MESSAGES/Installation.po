@@ -1,17 +1,18 @@
-# Fred Chan <fred2088@gmail.com>, 2022.
+# Fred Chan <fred2088@gmail.com>, 2022, 2025.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # Dysen Chi <dysen@3dprow.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-10 06:49+0000\n"
-"Last-Translator: Dysen Chi <dysen@3dprow.com>\n"
-"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/klipper/installation/zh_Hant/>\n"
+"PO-Revision-Date: 2025-05-03 07:32+0000\n"
+"Last-Translator: Fred Chan <fred2088@gmail.com>\n"
+"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
+"projects/klipper/installation/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid "Building and flashing the micro-controller"
 msgstr "構建和刷寫微控制器"
@@ -39,7 +40,9 @@ msgid ""
 "If there isn't an appropriate printer configuration file in the Klipper config"
 " directory then try searching the printer manufacturer's website to see if "
 "they have an appropriate Klipper configuration file."
-msgstr "如果 Klipper 配置目錄中沒有合適的打印機配置文件，請嘗試搜索打印機製造商的網站，看看他們是否有合適的 Klipper 配置文件。"
+msgstr "如果 Klipper "
+"配置目錄中沒有合適的打印機配置文件，請嘗試搜索打印機製造商的網站，"
+"看看他們是否有合適的 Klipper 配置文件。"
 
 #: docs/Installation.md:block 6 (paragraph)
 msgid ""
@@ -50,8 +53,10 @@ msgid ""
 "installation, but will require some customization to obtain full printer "
 "functionality."
 msgstr ""
-"如果找不到打印機的配置文件，但打印機控制板的類型已知，則查找以“generic-”前綴開頭的合適的 [config "
-"file](../config/)。這些示例打印機板文件應該允許您成功完成初始安裝，但需要進行一些自定義才能獲得完整的打印機功能。"
+"如果找不到打印機的配置文件，但打印機控制板的類型已知，則查找以“generic-”"
+"前綴開頭的合適的 [config file](../config/"
+")。這些示例打印機板文件應該允許您成功完成初始安裝，但需要進行一些自定義才能獲"
+"得完整的打印機功能。"
 
 #: docs/Installation.md:block 7 (paragraph)
 msgid ""
@@ -62,9 +67,10 @@ msgid ""
 "start with the closest example [config file](../config/) and use the Klipper "
 "[config reference](Config_Reference.md) for further information."
 msgstr ""
-"也可以從頭開始定義新的打印機配置。但是，這需要有關打印機及其電子設備的大量技術知識。建議大多數用戶從適當的配置文件開始。如果創建新的自定義打印機配置文件，請從最接近的示例"
-" [config file](../config/) 開始，並使用 Klipper [config "
-"reference](Config_Reference.md) 獲取更多信息。"
+"也可以從頭開始定義新的打印機配置。但是，這需要有關打印機及其電子設備的大量技"
+"術知識。建議大多數用戶從適當的配置文件開始。如果創建新的自定義打印機配置文件"
+"，請從最接近的示例 [config file](../config/) 開始，並使用 Klipper "
+"[config reference](Config_Reference.md) 獲取更多信息。"
 
 #: docs/Installation.md:block 16 (paragraph)
 msgid ""
@@ -76,7 +82,9 @@ msgid ""
 "\"Y\" to save. Then run:"
 msgstr ""
 "[打印機配置文件](#obtain-a-klipper-configuration-file) 頂部的註釋應描述“make "
-"menuconfig”期間需要設置的設置。在網絡瀏覽器或文本編輯器中打開文件，然後在文件頂部附近查找這些說明。一旦配置了適當的“menuconfig”設置，按“Q”退出，然後按“Y”保存。然後運行："
+"menuconfig”期間需要設置的設置。在網絡瀏覽器或文本編輯器中打開文件，然後在文件"
+"頂部附近查找這些說明。一旦配置了適當的“menuconfig”設置，按“Q”退出，然後按“Y”"
+"保存。然後運行："
 
 #: docs/Installation.md:block 18 (paragraph)
 msgid ""
@@ -86,15 +94,16 @@ msgid ""
 " [configuring OctoPrint](#configuring-octoprint-to-use-klipper)."
 msgstr ""
 "如果 [打印機配置文件](#obtain-a-klipper-configuration-file) "
-"頂部的註釋描述了將最終圖像“閃爍”到打印機控制板的自定義步驟，則按照這些步驟操作，然後繼續 [配置OctoPrint](#configuring-"
-"octoprint-to-use-klipper)。"
+"頂部的註釋描述了將最終圖像“閃爍”到打印機控制板的自定義步驟，則按照這些步驟操"
+"作，然後繼續 [配置OctoPrint](#configuring-octoprint-to-use-klipper)。"
 
 #: docs/Installation.md:block 19 (paragraph)
 msgid ""
 "Otherwise, the following steps are often used to \"flash\" the printer control"
 " board. First, it is necessary to determine the serial port connected to the "
 "micro-controller. Run the following:"
-msgstr "否則，通常使用以下步驟來“刷新”打印機控制板。首先，需要確定連接到微控制器的串口。運行以下命令："
+msgstr "否則，通常使用以下步驟來“刷新”打印機控制板。首先，需要確定連接到微控制器的串"
+"口。運行以下命令："
 
 #: docs/Installation.md:block 40 (paragraph)
 msgid ""
@@ -102,7 +111,9 @@ msgid ""
 "controller. The name may change after flashing Klipper, so rerun these steps "
 "again even if they were already done when flashing. Run:"
 msgstr ""
-"每台打印機都有自己獨特的微控制器名稱是很常見的。刷新 Klipper 後名稱可能會更改，因此即使在刷新時已經完成這些步驟，也要重新運行這些步驟。執行："
+"每台打印機都有自己獨特的微控制器名稱是很常見的。刷新 Klipper "
+"後名稱可能會更改，因此即使在刷新時已經完成這些步驟，也要重新運行這些步驟。執"
+"行："
 
 #: docs/Installation.md:block 44 (paragraph)
 msgid ""
@@ -118,7 +129,8 @@ msgid ""
 "reports the printer is ready."
 msgstr ""
 "在自定義打印機配置文件時，Klipper "
-"報告配置錯誤的情況並不少見。如果發生錯誤，請對打印機配置文件進行任何必要的更正並發出“restart”，直到“status”報告打印機已準備好。"
+"報告配置錯誤的情況並不少見。如果發生錯誤，請對打印機配置文件進行任何必要的更"
+"正並發出“restart”，直到“status”報告打印機已準備好。"
 
 #: docs/Installation.md:block 49 (paragraph)
 msgid ""
@@ -128,7 +140,8 @@ msgid ""
 "other information."
 msgstr ""
 "在 Klipper 報告打印機準備就緒後，進入 [配置檢查文檔](Config_checks.md) "
-"對配置文件中的定義進行一些基本檢查。有關其他信息，請參閱主要 [文檔參考](Overview.md)。"
+"對配置文件中的定義進行一些基本檢查。有關其他信息，請參閱主要 [文檔參考]"
+"(Overview.md)。"
 
 #: docs/Installation.md:block 2 (paragraph)
 msgid ""
