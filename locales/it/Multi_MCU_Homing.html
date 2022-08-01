@@ -13,7 +13,7 @@
     
     
       
-        <title>Multiple Micro-controller Homing and Probing - Klipper documentation</title>
+        <title>Homing e Probing con microcontrollore multiplo - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#multiple-micro-controller-homing-and-probing" class="md-skip">
+        <a href="#homing-e-probing-con-microcontrollore-multiplo" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Multiple Micro-controller Homing and Probing
+              Homing e Probing con microcontrollore multiplo
             
           </span>
         </div>
@@ -1221,14 +1221,14 @@
 </a>
 
 
-<h1 id="multiple-micro-controller-homing-and-probing">Multiple Micro-controller Homing and Probing<a class="headerlink" href="#multiple-micro-controller-homing-and-probing" title="Permanent link">&para;</a></h1>
-<p>Klipper supports a mechanism for homing with an endstop attached to one micro-controller while its stepper motors are on a different micro-controller. This support is referred to as "multi-mcu homing". This feature is also used when a Z probe is on a different micro-controller than the Z stepper motors.</p>
-<p>This feature can be useful to simplify wiring, as it may be more convenient to attach an endstop or probe to a closer micro-controller. However, using this feature may result in "overshoot" of the stepper motors during homing and probing operations.</p>
-<p>The overshoot occurs due to possible message transmission delays between the micro-controller monitoring the endstop and the micro-controllers moving the stepper motors. The Klipper code is designed to limit this delay to no more than 25ms. (When multi-mcu homing is activated, the micro-controllers send periodic status messages and check that corresponding status messages are received within 25ms.)</p>
-<p>So, for example, if homing at 10mm/s then it is possible for an overshoot of up to 0.250mm (10mm/s * .025s == 0.250mm). Care should be taken when configuring multi-mcu homing to account for this type of overshoot. Using slower homing or probing speeds can reduce the overshoot.</p>
-<p>Stepper motor overshoot should not adversely impact the precision of the homing and probing procedure. The Klipper code will detect the overshoot and account for it in its calculations. However, it is important that the hardware design is capable of handling overshoot without causing damage to the machine.</p>
-<p>Should Klipper detect a communication issue between micro-controllers during multi-mcu homing then it will raise a "Communication timeout during homing" error.</p>
-<p>Note that an axis with multiple steppers (eg, <code>stepper_z</code> and <code>stepper_z1</code>) need to be on the same micro-controller in order to use multi-mcu homing. For example, if an endstop is on a separate micro-controller from <code>stepper_z</code> then <code>stepper_z1</code> must be on the same micro-controller as <code>stepper_z</code>.</p>
+<h1 id="homing-e-probing-con-microcontrollore-multiplo">Homing e Probing con microcontrollore multiplo<a class="headerlink" href="#homing-e-probing-con-microcontrollore-multiplo" title="Permanent link">&para;</a></h1>
+<p>Klipper sopporta un meccanismo per homing con un fine corsa collegato a un micro controllore mentre i motori passo-passo sono collegati ad un controllore diverso. Questa modalità è definita Homing multi-mcu. Questa funzione è usata quando una sonda Z è collegata ad un differente controllore rispetto ai motori dell'asse Z.</p>
+<p>Questa funzione può essere utile per semplificare il cablaggio, poiché potrebbe essere più conveniente collegare un finecorsa o una sonda a un microcontrollore più vicino. Tuttavia, l'utilizzo di questa funzione può comportare un "overshoot" dei motori passo-passo durante le operazioni di homing o con sonda.</p>
+<p>L' 'overshoot' si verifica a causa di possibili ritardi nella trasmissione del messaggio tra il microcontrollore che controlla il finecorsa e i microcontrollori che muovono i motori passo-passo. Il codice Klipper è progettato per limitare questo ritardo a non più di 25 ms. (Quando è attivato l'homing multi-mcu, i microcontrollori inviano messaggi di stato periodici e controllano che i messaggi di stato corrispondenti vengano ricevuti entro 25 ms.)</p>
+<p>Quindi, ad esempio, se si esegue l'homing a 10 mm/s, è possibile un superamento fino a 0,250 mm (10 mm/s * .025s == 0,250 mm). È necessario prestare attenzione durante la configurazione dell'homing multi-mcu per tenere conto di questo tipo di overshoot. L'uso di velocità di riferimento o di sonda più lente può ridurre la sovraelongazione (overshot).</p>
+<p>La sovraelongazione 'overshot' del motore passo-passo non dovrebbe influire negativamente sulla precisione della procedura di homing e di sonda. Il codice Klipper rileverà il superamento e ne terrà conto nei suoi calcoli. Tuttavia, è importante che il design dell'hardware sia in grado di gestire l'overshoot senza causare danni alla macchina.</p>
+<p>Se Klipper dovesse rilevare un problema di comunicazione tra i microcontrollori durante l'homing multi-mcu, genererà un errore "Timeout di comunicazione durante l'homing".</p>
+<p>Si noti che un asse con più stepper (ad esempio, <code>stepper_z</code> e <code>stepper_z1</code>) deve trovarsi sullo stesso microcontrollore per poter utilizzare l'homing multi-mcu. Ad esempio, se un endstop si trova su un microcontrollore separato da <code>stepper_z</code> allora <code>stepper_z1</code> deve trovarsi sullo stesso microcontrollore di <code>stepper_z</code>.</p>
 
               
             </article>

@@ -13,7 +13,7 @@
     
     
       
-        <title>Exclude Objects - Klipper documentation</title>
+        <title>Escludi oggetti - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#exclude-objects" class="md-skip">
+        <a href="#escludi-oggetti" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exclude Objects
+              Escludi oggetti
             
           </span>
         </div>
@@ -1213,23 +1213,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-overview" class="md-nav__link">
-    Workflow Overview
+  <a href="#panoramica-del-flusso-di-lavoro" class="md-nav__link">
+    Panoramica del flusso di lavoro
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-gcode-file" class="md-nav__link">
-    The GCode File
+  <a href="#il-file-gcode" class="md-nav__link">
+    Il file GCode
   </a>
   
-    <nav class="md-nav" aria-label="The GCode File">
+    <nav class="md-nav" aria-label="Il file GCode">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#object-definitions" class="md-nav__link">
-    Object Definitions
+  <a href="#definizioni-di-oggetti" class="md-nav__link">
+    Definizioni di oggetti
   </a>
   
 </li>
@@ -1240,8 +1240,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#status-information" class="md-nav__link">
-    Status Information
+  <a href="#informazioni-sullo-stato" class="md-nav__link">
+    Informazioni sullo stato
   </a>
   
 </li>
@@ -1263,43 +1263,43 @@
 </a>
 
 
-<h1 id="exclude-objects">Exclude Objects<a class="headerlink" href="#exclude-objects" title="Permanent link">&para;</a></h1>
+<h1 id="escludi-oggetti">Escludi oggetti<a class="headerlink" href="#escludi-oggetti" title="Permanent link">&para;</a></h1>
 <p>The <code>[exclude_object]</code> module allows Klipper to exclude objects while a print is in progress. To enable this feature include an <a href="Config_Reference.html#exclude_object">exclude_object config
 section</a> (also see the <a href="G-Codes.html#exclude-object">command
 reference</a> and <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> file for a Marlin/RepRapFirmware compatible M486 G-Code macro.)</p>
-<p>Unlike other 3D printer firmware options, a printer running Klipper utilizes a suite of components and users have many options to choose from. Therefore, in order to provide a a consistent user experience, the <code>[exclude_object]</code> module will establish a contract or API of sorts. The contract covers the contents of the gcode file, how the internal state of the module is controlled, and how that state is provided to clients.</p>
-<h2 id="workflow-overview">Workflow Overview<a class="headerlink" href="#workflow-overview" title="Permanent link">&para;</a></h2>
-<p>A typical workflow for printing a file might look like this:</p>
+<p>A differenza di altre opzioni del firmware della stampante 3D, una stampante che esegue Klipper utilizza una suite di componenti e gli utenti hanno molte opzioni tra cui scegliere. Pertanto, al fine di fornire un'esperienza utente coerente, il modulo <code>[exclude_object]</code> stabilirà un contratto o una sorta di API. Il contratto copre il contenuto del file gcode, come viene controllato lo stato interno del modulo e come tale stato viene fornito ai client.</p>
+<h2 id="panoramica-del-flusso-di-lavoro">Panoramica del flusso di lavoro<a class="headerlink" href="#panoramica-del-flusso-di-lavoro" title="Permanent link">&para;</a></h2>
+<p>Un tipico flusso di lavoro per la stampa di un file potrebbe essere simile a:</p>
 <ol>
-<li>Slicing is completed and the file is uploaded for printing. During the upload, the file is processed and <code>[exclude_object]</code> markers are added to the file. Alternately, slicers may be configured to prepare object exclusion markers natively, or in it's own pre-processing step.</li>
-<li>When printing starts, Klipper will reset the <code>[exclude_object]</code> <a href="Status_Reference.html#exclude_object">status</a>.</li>
-<li>When Klipper processes the <code>EXCLUDE_OBJECT_DEFINE</code> block, it will update the status with the known objects and pass it on to clients.</li>
-<li>The client may use that information to present a UI to the user so that progress can be tracked. Klipper will update the status to include the currently printing object which the client can use for display purposes.</li>
-<li>If the user requests that an object be cancelled, the client will issue an <code>EXCLUDE_OBJECT NAME=&lt;name&gt;</code> command to Klipper.</li>
-<li>When Klipper process the command, it will add the object to the list of excluded objects and update the status for the client.</li>
-<li>The client will receive the updated status from Klipper and can use that information to reflect the object's status in the UI.</li>
-<li>When printing finishes, the <code>[exclude_object]</code> status will continue to be available until another action resets it.</li>
+<li>Lo slicing è completato e il file viene caricato per la stampa. Durante il caricamento, il file viene elaborato e gli indicatori <code>[exclude_object]</code> vengono aggiunti al file. In alternativa, i filtri dei dati possono essere configurati per preparare i marcatori di esclusione degli oggetti in modo nativo o nella propria fase di pre-elaborazione.</li>
+<li>All'avvio della stampa, Klipper ripristinerà <code>[exclude_object]</code> <a href="Status_Reference.html#exclude_object">status</a>.</li>
+<li>Quando Klipper elabora il blocco <code>EXCLUDE_OBJECT_DEFINE</code>, aggiornerà lo stato con gli oggetti conosciuti e lo passerà ai client.</li>
+<li>Il client può utilizzare tali informazioni per presentare un'interfaccia all'utente in modo che sia possibile tenere traccia dei progressi. Klipper aggiornerà lo stato per includere l'oggetto attualmente in stampa che il client può utilizzare per scopi di visualizzazione.</li>
+<li>Se l'utente richiede la cancellazione di un oggetto, il client invierà un comando <code>EXCLUDE_OBJECT NAME=&lt;nome&gt;</code> a Klipper.</li>
+<li>Quando Klipper elabora il comando, aggiungerà l'oggetto all'elenco degli oggetti esclusi e aggiornerà lo stato per i client.</li>
+<li>Il client riceverà lo stato aggiornato da Klipper e potrà utilizzare tali informazioni per aggiornare lo stato dell'oggetto nell'interfaccia utente.</li>
+<li>Al termine della stampa, lo stato <code>[exclude_object]</code> continuerà a essere disponibile fino a quando un'altra azione non lo reimposta.</li>
 </ol>
-<h2 id="the-gcode-file">The GCode File<a class="headerlink" href="#the-gcode-file" title="Permanent link">&para;</a></h2>
-<p>The specialized gcode processing needed to support excluding objects does not fit into Klipper's core design goals. Therefore, this module requires that the file is processed before being sent to Klipper for printing. Using a post-process script in the slicer or having middleware process the file on upload are two possibilities for preparing the file for Klipper. A reference post-processing script is available both as an executable and a python library, see <a href="https://github.com/kageurufu/cancelobject-preprocessor">cancelobject-preprocessor</a>.</p>
-<h3 id="object-definitions">Object Definitions<a class="headerlink" href="#object-definitions" title="Permanent link">&para;</a></h3>
-<p>The <code>EXCLUDE_OBJECT_DEFINE</code> command is used to provide a summary of each object in the gcode file to be printed. Provides a summary of an object in the file. Objects don't need to be defined in order to be referenced by other commands. The primary purpose of this command is to provide information to the UI without needing to parse the entire gcode file.</p>
-<p>Object definitions are named, to allow users to easily select an object to be excluded, and additional metadata may be provided to allow for graphical cancellation displays. Currently defined metadata includes a <code>CENTER</code> X,Y coordinate, and a <code>POLYGON</code> list of X,Y points representing a minimal outline of the object. This could be a simple bounding box, or a complicated hull for showing more detailed visualizations of the printed objects. Especially when gcode files include multiple parts with overlapping bounding regions, center points become hard to visually distinguish. <code>POLYGONS</code> must be a json-compatible array of point <code>[X,Y]</code> tuples without whitespace. Additional parameters will be saved as strings in the object definition and provided in status updates.</p>
+<h2 id="il-file-gcode">Il file GCode<a class="headerlink" href="#il-file-gcode" title="Permanent link">&para;</a></h2>
+<p>L'elaborazione specializzata del gcode necessaria per supportare l'esclusione di oggetti non rientra negli obiettivi di progettazione principali di Klipper. Pertanto, questo modulo richiede che il file venga elaborato prima di essere inviato a Klipper per la stampa. L'utilizzo di uno script di post-elaborazione nello slicer o il middleware che elabora il file durante il caricamento sono due possibilità per preparare il file per Klipper. Uno script di post-elaborazione di riferimento è disponibile sia come eseguibile che come libreria Python, vedere <a href="https://github.com/kageurufu/cancelobject-preprocessor">cancelobject-preprocessor</a>.</p>
+<h3 id="definizioni-di-oggetti">Definizioni di oggetti<a class="headerlink" href="#definizioni-di-oggetti" title="Permanent link">&para;</a></h3>
+<p>Il comando <code>EXCLUDE_OBJECT_DEFINE</code> viene utilizzato per fornire un riepilogo di ogni oggetto nel file gcode da stampare. Fornisce un riepilogo di un oggetto nel file. Gli oggetti non hanno bisogno di essere definiti per essere referenziati da altri comandi. Lo scopo principale di questo comando è fornire informazioni all'interfaccia utente senza dover analizzare l'intero file gcode.</p>
+<p>Le definizioni degli oggetti sono denominate per consentire agli utenti di selezionare facilmente un oggetto da escludere e possono essere forniti metadati aggiuntivi per consentire la visualizzazione grafica dell'annullamento. I metadati attualmente definiti includono una coordinata X,Y "CENTRO" e un elenco "POLYGON" di punti X,Y che rappresentano un contorno minimo dell'oggetto. Potrebbe trattarsi di un semplice riquadro di delimitazione o di uno guscio complicato per mostrare visualizzazioni più dettagliate degli oggetti stampati. Soprattutto quando i file gcode includono più parti con regioni di delimitazione sovrapposte, i punti centrali diventano difficili da distinguere visivamente. <code>POLYGONS</code> deve essere un array compatibile con json di tuple punto <code>[X,Y]</code> senza spazi. Ulteriori parametri verranno salvati come stringhe nella definizione dell'oggetto e forniti negli aggiornamenti di stato.</p>
 <p><code>EXCLUDE_OBJECT_DEFINE NAME=calibration_pyramid CENTER=50,50 POLYGON=[[40,40],[50,60],[60,40]]</code></p>
 <p>All available G-Code commands are documented in the <a href="G-Codes.html#excludeobject">G-Code
 Reference</a></p>
-<h2 id="status-information">Status Information<a class="headerlink" href="#status-information" title="Permanent link">&para;</a></h2>
+<h2 id="informazioni-sullo-stato">Informazioni sullo stato<a class="headerlink" href="#informazioni-sullo-stato" title="Permanent link">&para;</a></h2>
 <p>The state of this module is provided to clients by the <a href="Status_Reference.html#exclude_object">exclude_object
 status</a>.</p>
-<p>The status is reset when:</p>
+<p>Lo stato viene ripristinato quando:</p>
 <ul>
-<li>The Klipper firmware is restarted.</li>
-<li>There is a reset of the <code>[virtual_sdcard]</code>. Notably, this is reset by Klipper at the start of a print.</li>
-<li>When an <code>EXCLUDE_OBJECT_DEFINE RESET=1</code> command is issued.</li>
+<li>Il firmware di Klipper viene riavviato.</li>
+<li>C'è un reset della <code>[virtual_sdcard]</code>. In particolare, questo viene ripristinato da Klipper all'inizio di una stampa.</li>
+<li>Quando viene emesso un comando <code>EXCLUDE_OBJECT_DEFINE RESET=1</code>.</li>
 </ul>
-<p>The list of defined objects is represented in the <code>exclude_object.objects</code> status field. In a well defined gcode file, this will be done with <code>EXCLUDE_OBJECT_DEFINE</code> commands at the beginning of the file. This will provide clients with object names and coordinates so the UI can provide a graphical representation of the objects if desired.</p>
-<p>As the print progresses, the <code>exclude_object.current_object</code> status field will be updated as Klipper processes <code>EXCLUDE_OBJECT_START</code> and <code>EXCLUDE_OBJECT_END</code> commands. The <code>current_object</code> field will be set even if the object has been excluded. Undefined objects marked with a <code>EXCLUDE_OBJECT_START</code> will be added to the known objects to assist in UI hinting, without any additional metadata.</p>
-<p>As <code>EXCLUDE_OBJECT</code> commands are issued, the list of excluded objects is provided in the <code>exclude_object.excluded_objects</code> array. Since Klipper looks ahead to process upcoming gcode, there may be a delay between when the command is issued and when the status is updated.</p>
+<p>L'elenco degli oggetti definiti è rappresentato nel campo di stato <code>exclude_object.objects</code>. In un file gcode ben definito, questo sarà fatto con i comandi <code>EXCLUDE_OBJECT_DEFINE</code> all'inizio del file. Ciò fornirà ai client i nomi e le coordinate degli oggetti in modo che l'interfaccia utente possa fornire una rappresentazione grafica degli oggetti, se lo si desidera.</p>
+<p>Man mano che la stampa procede, il campo di stato <code>exclude_object.current_object</code> verrà aggiornato mentre Klipper elabora i comandi <code>EXCLUDE_OBJECT_START</code> e <code>EXCLUDE_OBJECT_END</code>. Il campo <code>oggetto_corrente</code> sarà impostato anche se l'oggetto è stato escluso. Gli oggetti non definiti contrassegnati con un <code>EXCLUDE_OBJECT_START</code> verranno aggiunti agli oggetti conosciuti per facilitare i suggerimenti dell'interfaccia utente, senza metadati aggiuntivi.</p>
+<p>Quando vengono emessi i comandi <code>EXCLUDE_OBJECT</code>, l'elenco degli oggetti esclusi viene fornito nell'array <code>exclude_object.excluded_objects</code>. Poiché Klipper guarda avanti per elaborare il prossimo gcode, potrebbe esserci un ritardo tra l'emissione del comando e l'aggiornamento dello stato.</p>
 
               
             </article>

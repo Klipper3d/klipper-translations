@@ -1,26 +1,40 @@
-#
+# Ale Ale <ale.99.ale@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-07-31 07:18+0000\n"
+"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"config_changes/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document covers recent software changes to the config file that are not"
 " backwards compatible. It is a good idea to review this document when "
 "upgrading the Klipper software."
 msgstr ""
+"Questo documento copre le modifiche software recenti al file di "
+"configurazione che non sono compatibili con le versioni precedenti. È una "
+"buona idea rivedere questo documento durante l'aggiornamento del software "
+"Klipper."
 
 msgid "All dates in this document are approximate."
-msgstr ""
+msgstr "Tutte le date in questo documento sono approssimative."
 
 msgid "Changes"
-msgstr ""
+msgstr "Cambiamenti"
 
 msgid ""
 "20210612: The `pid_integral_max` config option in heater and temperature_fan"
 " sections is deprecated. The option will be removed in the near future."
 msgstr ""
+"20210612: L'opzione di configurazione `pid_integral_max` nelle sezioni "
+"riscaldatore e temperature_fan è obsoleta. L'opzione verrà rimossa nel "
+"prossimo futuro."
 
 msgid ""
 "20210430: The SET_VELOCITY_LIMIT (and M204) command may now set a velocity, "

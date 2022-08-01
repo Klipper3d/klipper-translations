@@ -2226,8 +2226,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#probe_1" class="md-nav__link">
-    PROBE
+  <a href="#sonda" class="md-nav__link">
+    sonda
   </a>
   
 </li>
@@ -2877,7 +2877,7 @@
 <h3 id="filament_switch_sensor">[filament_switch_sensor]<a class="headerlink" href="#filament_switch_sensor" title="Permanent link">&para;</a></h3>
 <p>The following command is available when a <a href="Config_Reference.html#filament_switch_sensor">filament_switch_sensor</a> or <a href="Config_Reference.html#filament_motion_sensor">filament_motion_sensor</a> config section is enabled.</p>
 <h4 id="query_filament_sensor">QUERY_FILAMENT_SENSOR<a class="headerlink" href="#query_filament_sensor" title="Permanent link">&para;</a></h4>
-<p><code>QUERY_FILAMENT_SENSOR SENSOR=&lt;sensor_name&gt;</code>: Queries the current status of the filament sensor. The data displayed on the terminal will depend on the sensor type defined in the configuration.</p>
+<p><code>QUERY_FILAMENT_SENSOR SENSOR=&lt;sensor_name&gt;</code>: Interroga lo stato del sensore di filamento. I dati visualizzati sul terminale dipenderanno dal tipo di sensore definito nella configurazione.</p>
 <h4 id="set_filament_sensor">SET_FILAMENT_SENSOR<a class="headerlink" href="#set_filament_sensor" title="Permanent link">&para;</a></h4>
 <p><code>SET_FILAMENT_SENSOR SENSOR=&lt;sensor_name&gt; ENABLE=[0|1]</code>: Sets the filament sensor on/off. If ENABLE is set to 0, the filament sensor will be disabled, if set to 1 it is enabled.</p>
 <h3 id="firmware_retraction">[firmware_retraction]<a class="headerlink" href="#firmware_retraction" title="Permanent link">&para;</a></h3>
@@ -2931,15 +2931,15 @@
 <h3 id="hall_filament_width_sensor">[hall_filament_width_sensor]<a class="headerlink" href="#hall_filament_width_sensor" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when the <a href="Config_Reference.html#tsl1401cl_filament_width_sensor">tsl1401cl filament width sensor config section</a> or <a href="Config_Reference.html#hall_filament_width_sensor">hall filament width sensor config section</a> is enabled (also see <a href="TSL1401CL_Filament_Width_Sensor.html">TSLl401CL Filament Width Sensor</a> and <a href="Hall_Filament_Width_Sensor.html">Hall Filament Width Sensor</a>):</p>
 <h4 id="query_filament_width">QUERY_FILAMENT_WIDTH<a class="headerlink" href="#query_filament_width" title="Permanent link">&para;</a></h4>
-<p><code>QUERY_FILAMENT_WIDTH</code>: Return the current measured filament width.</p>
+<p><code>QUERY_FILAMENT_WIDTH</code>: Restituisce lo spessore del filamento misurato.</p>
 <h4 id="reset_filament_width_sensor">RESET_FILAMENT_WIDTH_SENSOR<a class="headerlink" href="#reset_filament_width_sensor" title="Permanent link">&para;</a></h4>
-<p><code>RESET_FILAMENT_WIDTH_SENSOR</code>: Clear all sensor readings. Helpful after filament change.</p>
+<p><code>RESET_FILAMENT_WIDTH_SENSOR</code>: Cancella tutte le letture del sensore. Utile dopo il cambio del filamento.</p>
 <h4 id="disable_filament_width_sensor">DISABLE_FILAMENT_WIDTH_SENSOR<a class="headerlink" href="#disable_filament_width_sensor" title="Permanent link">&para;</a></h4>
 <p><code>DISABLE_FILAMENT_WIDTH_SENSOR</code>: Turn off the filament width sensor and stop using it for flow control.</p>
 <h4 id="enable_filament_width_sensor">ENABLE_FILAMENT_WIDTH_SENSOR<a class="headerlink" href="#enable_filament_width_sensor" title="Permanent link">&para;</a></h4>
 <p><code>ENABLE_FILAMENT_WIDTH_SENSOR</code>: Turn on the filament width sensor and start using it for flow control.</p>
 <h4 id="query_raw_filament_width">QUERY_RAW_FILAMENT_WIDTH<a class="headerlink" href="#query_raw_filament_width" title="Permanent link">&para;</a></h4>
-<p><code>QUERY_RAW_FILAMENT_WIDTH</code>: Return the current ADC channel readings and RAW sensor value for calibration points.</p>
+<p><code>QUERY_RAW_FILAMENT_WIDTH</code>: Restituisce le letture del canale ADC corrente e il valore grezzo (raw) del sensore per i punti di calibrazione.</p>
 <h4 id="enable_filament_width_log">ENABLE_FILAMENT_WIDTH_LOG<a class="headerlink" href="#enable_filament_width_log" title="Permanent link">&para;</a></h4>
 <p><code>ENABLE_FILAMENT_WIDTH_LOG</code>: Turn on diameter logging.</p>
 <h4 id="disable_filament_width_log">DISABLE_FILAMENT_WIDTH_LOG<a class="headerlink" href="#disable_filament_width_log" title="Permanent link">&para;</a></h4>
@@ -3020,27 +3020,27 @@
 <p><code>CANCEL_PRINT</code>: Cancels the current print.</p>
 <h3 id="probe">[probe]<a class="headerlink" href="#probe" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when a <a href="Config_Reference.html#probe">probe config section</a> or <a href="Config_Reference.html#bltouch">bltouch config section</a> is enabled (also see the <a href="Probe_Calibrate.html">probe calibrate guide</a>).</p>
-<h4 id="probe_1">PROBE<a class="headerlink" href="#probe_1" title="Permanent link">&para;</a></h4>
-<p><code>PROBE [PROBE_SPEED=&lt;mm/s&gt;] [LIFT_SPEED=&lt;mm/s&gt;] [SAMPLES=&lt;count&gt;] [SAMPLE_RETRACT_DIST=&lt;mm&gt;] [SAMPLES_TOLERANCE=&lt;mm&gt;] [SAMPLES_TOLERANCE_RETRIES=&lt;count&gt;] [SAMPLES_RESULT=median|average]</code>: Move the nozzle downwards until the probe triggers. If any of the optional parameters are provided they override their equivalent setting in the <a href="Config_Reference.html#probe">probe config section</a>.</p>
+<h4 id="sonda">sonda<a class="headerlink" href="#sonda" title="Permanent link">&para;</a></h4>
+<p><code>PROBE [PROBE_SPEED=&lt;mm/s&gt;] [LIFT_SPEED=&lt;mm/s&gt;] [SAMPLES=&lt;count&gt;] [SAMPLE_RETRACT_DIST=&lt;mm&gt;] [SAMPLES_TOLERANCE=&lt;mm&gt;] [SAMPLES_TOLERANCE_RETRIES=&lt;count&gt;] [SAMPLES_RESULT=median|average]</code>: Sposta il nozzle verso il basso finché la sonda non scatta. Se viene fornito uno qualsiasi dei parametri opzionali, sovrascrive l'impostazione equivalente nella sezione <a href="Config_Reference.html#probe">probe config section</a>.</p>
 <h4 id="query_probe">QUERY_PROBE<a class="headerlink" href="#query_probe" title="Permanent link">&para;</a></h4>
-<p><code>QUERY_PROBE</code>: Report the current status of the probe ("triggered" or "open").</p>
+<p><code>QUERY_PROBE</code>: Riporta lo stato corrente della sonda ("triggered" o "open").</p>
 <h4 id="probe_accuracy">PROBE_ACCURACY<a class="headerlink" href="#probe_accuracy" title="Permanent link">&para;</a></h4>
-<p><code>PROBE_ACCURACY [PROBE_SPEED=&lt;mm/s&gt;] [SAMPLES=&lt;count&gt;] [SAMPLE_RETRACT_DIST=&lt;mm&gt;]</code>: Calculate the maximum, minimum, average, median, and standard deviation of multiple probe samples. By default, 10 SAMPLES are taken. Otherwise the optional parameters default to their equivalent setting in the probe config section.</p>
+<p><code>PROBE_ACCURACY [PROBE_SPEED=&lt;mm/s&gt;] [SAMPLES=&lt;count&gt;] [SAMPLE_RETRACT_DIST=&lt;mm&gt;]</code>: Calcola la deviazione massima, minima, media, mediana e standard di più campionamentidella sonda. Per impostazione predefinita, vengono presi 10 CAMPIONI. In caso contrario, i parametri opzionali sono impostati per default sulla loro impostazione equivalente nella sezione di configurazione della sonda.</p>
 <h4 id="probe_calibrate">PROBE_CALIBRATE<a class="headerlink" href="#probe_calibrate" title="Permanent link">&para;</a></h4>
-<p><code>PROBE_CALIBRATE [SPEED=&lt;speed&gt;] [&lt;probe_parameter&gt;=&lt;value&gt;]</code>: Run a helper script useful for calibrating the probe's z_offset. See the PROBE command for details on the optional probe parameters. See the MANUAL_PROBE command for details on the SPEED parameter and the additional commands available while the tool is active. Please note, the PROBE_CALIBRATE command uses the speed variable to move in XY direction as well as Z.</p>
+<p><code>PROBE_CALIBRATE [SPEED=&lt;speed&gt;] [&lt;probe_parameter&gt;=&lt;value&gt;]</code>: Eseguire uno script di aiuto utile per calibrare l'offset z della sonda. Vedere il comando PROBE per i dettagli sui parametri opzionali della sonda. Vedere il comando MANUAL_PROBE per i dettagli del parametro SPEED e sui comandi aggiuntivi disponibili mentre lo strumento è attivo. Nota che il comando PROBE_CALIBRATE utilizza la variabile di velocità per spostarsi in direzione XY e Z.</p>
 <h4 id="z_offset_apply_probe">Z_OFFSET_APPLY_PROBE<a class="headerlink" href="#z_offset_apply_probe" title="Permanent link">&para;</a></h4>
 <p><code>Z_OFFSET_APPLY_PROBE</code>: Take the current Z Gcode offset (aka, babystepping), and subtract if from the probe's z_offset. This acts to take a frequently used babystepping value, and "make it permanent". Requires a <code>SAVE_CONFIG</code> to take effect.</p>
 <h3 id="query_adc">[query_adc]<a class="headerlink" href="#query_adc" title="Permanent link">&para;</a></h3>
 <p>The query_adc module is automatically loaded.</p>
 <h4 id="query_adc_1">QUERY_ADC<a class="headerlink" href="#query_adc_1" title="Permanent link">&para;</a></h4>
-<p><code>QUERY_ADC [NAME=&lt;config_name&gt;] [PULLUP=&lt;value&gt;]</code>: Report the last analog value received for a configured analog pin. If NAME is not provided, the list of available adc names are reported. If PULLUP is provided (as a value in Ohms), the raw analog value along with the equivalent resistance given that pullup is reported.</p>
+<p><code>QUERY_ADC [NAME=&lt;config_name&gt;] [PULLUP=&lt;value&gt;]</code>: Riporta l'ultimo valore analogico ricevuto per un pin analogico configurato. Se NAME non viene fornito, viene riportato l'elenco dei nomi dei convertitori adc disponibili. Se viene fornito PULLUP (come valore in Ohm), viene riportato il valore analogico grezzo insieme alla resistenza equivalente dato quel pullup specificato.</p>
 <h3 id="query_endstops">[query_endstops]<a class="headerlink" href="#query_endstops" title="Permanent link">&para;</a></h3>
 <p>The query_endstops module is automatically loaded. The following standard G-Code commands are currently available, but using them is not recommended:</p>
 <ul>
 <li>Get Endstop Status: <code>M119</code> (Use QUERY_ENDSTOPS instead.)</li>
 </ul>
 <h4 id="query_endstops_1">QUERY_ENDSTOPS<a class="headerlink" href="#query_endstops_1" title="Permanent link">&para;</a></h4>
-<p><code>QUERY_ENDSTOPS</code>: Probe the axis endstops and report if they are "triggered" or in an "open" state. This command is typically used to verify that an endstop is working correctly.</p>
+<p><code>QUERY_ENDSTOPS</code>: Rilevare i finecorsa degli assi e segnala se sono "attivate" o in uno stato "aperto". Questo comando viene in genere utilizzato per verificare che un finecorsa funzioni correttamente.</p>
 <h3 id="resonance_tester">[resonance_tester]<a class="headerlink" href="#resonance_tester" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when a <a href="Config_Reference.html#resonance_tester">resonance_tester config section</a> is enabled (also see the <a href="Measuring_Resonances.html">measuring resonances guide</a>).</p>
 <h4 id="measure_axes_noise">MEASURE_AXES_NOISE<a class="headerlink" href="#measure_axes_noise" title="Permanent link">&para;</a></h4>
@@ -3057,12 +3057,12 @@
 <p>The following additional commands are also available.</p>
 <h4 id="respond_1">RESPOND<a class="headerlink" href="#respond_1" title="Permanent link">&para;</a></h4>
 <ul>
-<li><code>RESPOND MSG="&lt;message&gt;"</code>: echo the message prepended with the configured default prefix (or <code>echo:</code> if no prefix is configured).</li>
-<li><code>RESPOND TYPE=echo MSG="&lt;message&gt;"</code>: echo the message prepended with <code>echo:</code>.</li>
+<li><code>RESPOND MSG="&lt;message&gt;"</code>: echo il messaggio preceduto dal prefisso predefinito configurato (o <code>echo:</code> se non è configurato alcun prefisso).</li>
+<li><code>RESPOND TYPE=echo MSG="&lt;message&gt;"</code>: echo del messaggio preceduto da <code>echo:</code>.</li>
 <li><code>RESPOND TYPE=echo_no_space MSG="&lt;message&gt;"</code>: echo the message prepended with <code>echo:</code> without a space between prefix and message, helpful for compatibility with some octoprint plugins that expect very specific formatting.</li>
-<li><code>RESPOND TYPE=command MSG="&lt;message&gt;"</code>: echo the message prepended with <code>//</code>. OctoPrint can be configured to respond to these messages (e.g. <code>RESPOND TYPE=command MSG=action:pause</code>).</li>
+<li><code>RESPOND TYPE=command MSG="&lt;message&gt;"</code>: echo il messaggio preceduto da <code>//</code>. OctoPrint può essere configurato per rispondere a questi messaggi (ad es. <code>RESPOND TYPE=command MSG=action:pause</code>).</li>
 <li><code>RESPOND TYPE=error MSG="&lt;message&gt;"</code>: echo the message prepended with <code>!!</code>.</li>
-<li><code>RESPOND PREFIX=&lt;prefix&gt; MSG="&lt;message&gt;"</code>: echo the message prepended with <code>&lt;prefix&gt;</code>. (The <code>PREFIX</code> parameter will take priority over the <code>TYPE</code> parameter)</li>
+<li><code>RESPOND PREFIX=&lt;prefix&gt; MSG="&lt;message&gt;"</code>: echo il messaggio preceduto da <code>&lt;prefix&gt;</code>. (Il parametro <code>PREFIX</code> avrà la priorità sul parametro <code>TYPE</code>)</li>
 </ul>
 <h3 id="save_variables">[save_variables]<a class="headerlink" href="#save_variables" title="Permanent link">&para;</a></h3>
 <p>The following command is enabled if a <a href="Config_Reference.html#save_variables">save_variables config section</a> has been enabled.</p>
@@ -3099,7 +3099,7 @@
 <h4 id="set_smart_effector">SET_SMART_EFFECTOR<a class="headerlink" href="#set_smart_effector" title="Permanent link">&para;</a></h4>
 <p><code>SET_SMART_EFFECTOR [SENSITIVITY=&lt;sensitivity&gt;] [ACCEL=&lt;accel&gt;] [RECOVERY_TIME=&lt;time&gt;]</code>: Set the Smart Effector parameters. When <code>SENSITIVITY</code> is specified, the respective value is written to the SmartEffector EEPROM (requires <code>control_pin</code> to be provided). Acceptable <code>&lt;sensitivity&gt;</code> values are 0..255, the default is 50. Lower values require less nozzle contact force to trigger (but there is a higher risk of false triggering due to vibrations during probing), and higher values reduce false triggering (but require larger contact force to trigger). Since the sensitivity is written to EEPROM, it is preserved after the shutdown, and so it does not need to be configured on every printer startup. <code>ACCEL</code> and <code>RECOVERY_TIME</code> allow to override the corresponding parameters at run-time, see the <a href="Config_Reference.html#smart_effector">config section</a> of Smart Effector for more info on those parameters.</p>
 <h4 id="reset_smart_effector">RESET_SMART_EFFECTOR<a class="headerlink" href="#reset_smart_effector" title="Permanent link">&para;</a></h4>
-<p><code>RESET_SMART_EFFECTOR</code>: Resets Smart Effector sensitivity to its factory settings. Requires <code>control_pin</code> to be provided in the config section.</p>
+<p><code>RESET_SMART_EFFECTOR</code>: Ripristina la sensibilità di Smart Effector alle impostazioni di fabbrica. Richiede che il relativo <code>control_pin</code> sia fornito nella sezione di configurazione.</p>
 <h3 id="stepper_enable">[stepper_enable]<a class="headerlink" href="#stepper_enable" title="Permanent link">&para;</a></h3>
 <p>The stepper_enable module is automatically loaded.</p>
 <h4 id="set_stepper_enable">SET_STEPPER_ENABLE<a class="headerlink" href="#set_stepper_enable" title="Permanent link">&para;</a></h4>
@@ -3140,7 +3140,7 @@
 <li>Start/resume SD print: <code>M24</code></li>
 <li>Pause SD print: <code>M25</code></li>
 <li>Set SD position: <code>M26 S&lt;offset&gt;</code></li>
-<li>Report SD print status: <code>M27</code></li>
+<li>Riporta lo stato di stampa SD: <code>M27</code></li>
 </ul>
 <p>In addition, the following extended commands are available when the "virtual_sdcard" config section is enabled.</p>
 <h4 id="sdcard_print_file">SDCARD_PRINT_FILE<a class="headerlink" href="#sdcard_print_file" title="Permanent link">&para;</a></h4>

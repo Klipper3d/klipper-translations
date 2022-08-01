@@ -1,15 +1,17 @@
 # Dex94 <Dasvaresu@dr.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-27 10:52+0000\n"
-"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/probe_calibrate/it/>\n"
+"PO-Revision-Date: 2022-07-31 07:18+0000\n"
+"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"probe_calibrate/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid "Calibrating probe X and Y offsets"
 msgstr "Calibrazione degli offset X e Y della sonda"
@@ -231,7 +233,7 @@ msgid "G1 F300 X57 Y30 Z15\n"
 msgstr ""
 
 msgid "SAVE_CONFIG\n"
-msgstr ""
+msgstr "SAVE_CONFIG\n"
 
 msgid ""
 "Recv: // probe accuracy: at X:0.000 Y:0.000 Z:10.000\n"
