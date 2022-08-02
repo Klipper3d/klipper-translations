@@ -1,6 +1,6 @@
 # 贊助商
 
-Klipper is Free Software. We depend on the generous support from sponsors. Please consider sponsoring Klipper or supporting our sponsors.
+Klipper 是免費軟件。我們依靠贊助商的慷慨支持。請考慮贊助 Klipper 或支持我們的讚助商。
 
 ## BIGTREETECH
 
