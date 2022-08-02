@@ -1220,29 +1220,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#template-for-menu-variables" class="md-nav__link">
-    Template for menu variables
+  <a href="#modello-per-variabili-di-menu" class="md-nav__link">
+    Modello per variabili di menu
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#calibration-procedure" class="md-nav__link">
-    Calibration procedure
+  <a href="#procedura-di-calibrazione" class="md-nav__link">
+    Procedura di calibrazione
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-enable-sensor" class="md-nav__link">
-    How to enable sensor
+  <a href="#come-abilitare-il-sensore" class="md-nav__link">
+    Come abilitare il sensore
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#logging" class="md-nav__link">
-    Logging
+  <a href="#registrazione" class="md-nav__link">
+    Registrazione
   </a>
   
 </li>
@@ -1265,12 +1265,12 @@
 
 
 <h1 id="sensore-di-hall-per-larghezza-del-filamento">Sensore di Hall per larghezza del filamento<a class="headerlink" href="#sensore-di-hall-per-larghezza-del-filamento" title="Permanent link">&para;</a></h1>
-<p>This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on two Hall linear sensors (ss49e for example). Sensors in the body are located opposite sides. Principle of operation: two hall sensors work in differential mode, temperature drift same for sensor. Special temperature compensation not needed.</p>
-<p>You can find designs at <a href="https://www.thingiverse.com/thing:4138933">Thingiverse</a>, an assembly video is also available on <a href="https://www.youtube.com/watch?v=TDO9tME8vp4">Youtube</a></p>
-<p>To use Hall filament width sensor, read <a href="Config_Reference.html#hall_filament_width_sensor">Config Reference</a> and <a href="G-Codes.html#hall_filament_width_sensor">G-Code documentation</a>.</p>
+<p>Questo documento descrive il modulo host del sensore di larghezza del filamento Filament Width Sensor. L'hardware utilizzato per lo sviluppo di questo modulo host si basa su due sensori lineari Hall (ad esempio ss49e). I sensori nel corpo si trovano ai lati opposti. Principio di funzionamento: due sensori Hall funzionano in modalità differenziale, la stessa deriva di temperatura per il sensore. Non è necessaria una speciale compensazione della temperatura.</p>
+<p>Puoi trovare i design su <a href="https://www.thingiverse.com/thing:4138933">Thingiverse</a>, un video di assemblaggio è disponibile anche su <a href="https://www.youtube.com/watch?v=TDO9tME8vp4">Youtube</a></p>
+<p>Per utilizzare il sensore di larghezza del filamento Hall, leggere <a href="Config_Reference.html#hall_filament_width_sensor">Config Reference</a> e <a href="G-Codes.html#hall_filament_width_sensor">G-Code documentation</a>.</p>
 <h2 id="come-funziona">Come funziona?<a class="headerlink" href="#come-funziona" title="Permanent link">&para;</a></h2>
-<p>Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use aux2 connector on ramps-like board analog11 and analog12 pins. You can use different pins and differenr boards.</p>
-<h2 id="template-for-menu-variables">Template for menu variables<a class="headerlink" href="#template-for-menu-variables" title="Permanent link">&para;</a></h2>
+<p>Il sensore genera due uscite analogiche in base alla larghezza del filamento calcolata. La somma della tensione di uscita è sempre uguale alla larghezza del filamento rilevata. Il modulo host monitora le variazioni di tensione e regola il moltiplicatore di estrusione. Uso il connettore aux2 su una scheda simile a rampe analog11 e analog12 pin. Puoi usare diversi pin e diverse schede.</p>
+<h2 id="modello-per-variabili-di-menu">Modello per variabili di menu<a class="headerlink" href="#modello-per-variabili-di-menu" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>[menu __main __filament __width_current]
 type: command
 enable: {&#39;hall_filament_width_sensor&#39; in printer}
@@ -1284,20 +1284,20 @@ name: Raw: {&#39;%4.0F&#39; % printer.hall_filament_width_sensor.Raw}
 index: 1
 </code></pre></div>
 
-<h2 id="calibration-procedure">Calibration procedure<a class="headerlink" href="#calibration-procedure" title="Permanent link">&para;</a></h2>
-<p>To get raw sensor value you can use menu item or <strong>QUERY_RAW_FILAMENT_WIDTH</strong> command in terminal.</p>
+<h2 id="procedura-di-calibrazione">Procedura di calibrazione<a class="headerlink" href="#procedura-di-calibrazione" title="Permanent link">&para;</a></h2>
+<p>Per ottenere il valore grezzo del sensore è possibile utilizzare la voce di menu o il comando <strong>QUERY_RAW_FILAMENT_WIDTH</strong> nel terminale.</p>
 <ol>
-<li>Insert first calibration rod (1.5 mm size) get first raw sensor value</li>
-<li>Insert second calibration rod (2.0 mm size) get second raw sensor value</li>
-<li>Save raw sensor values in config parameter <code>Raw_dia1</code> and <code>Raw_dia2</code></li>
+<li>Inserire la prima barra di calibrazione (dimensione 1,5 mm) ottenere il primo valore grezzo del sensore</li>
+<li>Inserire la seconda barra di calibrazione (dimensione 2,0 mm) per ottenere il secondo valore grezzo del sensore</li>
+<li>Salva i valori grezzi del sensore nel parametro di configurazione <code>Raw_dia1</code> e <code>Raw_dia2</code></li>
 </ol>
-<h2 id="how-to-enable-sensor">How to enable sensor<a class="headerlink" href="#how-to-enable-sensor" title="Permanent link">&para;</a></h2>
-<p>By default, the sensor is disabled at power-on.</p>
-<p>To enable the sensor, issue <strong>ENABLE_FILAMENT_WIDTH_SENSOR</strong> command or set the <code>enable</code> parameter to <code>true</code>.</p>
-<h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
-<p>By default, diameter logging is disabled at power-on.</p>
-<p>Issue <strong>ENABLE_FILAMENT_WIDTH_LOG</strong> command to start logging and issue <strong>DISABLE_FILAMENT_WIDTH_LOG</strong> command to stop logging. To enable logging at power-on, set the <code>logging</code> parameter to <code>true</code>.</p>
-<p>Filament diameter is logged on every measurement interval (10 mm by default).</p>
+<h2 id="come-abilitare-il-sensore">Come abilitare il sensore<a class="headerlink" href="#come-abilitare-il-sensore" title="Permanent link">&para;</a></h2>
+<p>Per impostazione predefinita, il sensore è disabilitato all'accensione.</p>
+<p>Per abilitare il sensore, emettere il comando <strong>ENABLE_FILAMENT_WIDTH_SENSOR</strong> o impostare il parametro <code>enable</code> su <code>true</code>.</p>
+<h2 id="registrazione">Registrazione<a class="headerlink" href="#registrazione" title="Permanent link">&para;</a></h2>
+<p>Per impostazione predefinita, la registrazione del diametro è disabilitata all'accensione.</p>
+<p>Emettere il comando <strong>ENABLE_FILAMENT_WIDTH_LOG</strong> per avviare la registrazione ed emettere il comando <strong>DISABLE_FILAMENT_WIDTH_LOG</strong> per interrompere la registrazione. Per abilitare la registrazione all'accensione, impostare il parametro <code>logging</code> su <code>true</code>.</p>
+<p>Il diametro del filamento viene registrato con un intervallo di misurazione (10 mm per impostazione predefinita).</p>
 
               
             </article>

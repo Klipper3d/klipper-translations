@@ -1267,22 +1267,22 @@
 <h1 id="probe-calibration">Probe calibration<a class="headerlink" href="#probe-calibration" title="Permanent link">&para;</a></h1>
 <p>This document describes the method for calibrating the X, Y, and Z offsets of an "automatic z probe" in Klipper. This is useful for users that have a <code>[probe]</code> or <code>[bltouch]</code> section in their config file.</p>
 <h2 id="calibrazione-degli-offset-x-e-y-della-sonda">Calibrazione degli offset X e Y della sonda<a class="headerlink" href="#calibrazione-degli-offset-x-e-y-della-sonda" title="Permanent link">&para;</a></h2>
-<p>To calibrate the X and Y offset, navigate to the OctoPrint "Control" tab, home the printer, and then use the OctoPrint jogging buttons to move the head to a position near the center of the bed.</p>
-<p>Place a piece of blue painters tape (or similar) on the bed underneath the probe. Navigate to the OctoPrint "Terminal" tab and issue a PROBE command:</p>
+<p>Per calibrare l'offset X e Y, vai alla scheda "Controllo" di OctoPrint, avvia la stampante, quindi usa i pulsanti di spostamento di OctoPrint per spostare la testa in una posizione vicino al centro del piatto.</p>
+<p>Metti un pezzo di nastro adesivo blu (o simile) sul piatto sotto la sonda. Passare alla scheda "Terminale" di OctoPrint ed emettere un comando PROBE:</p>
 <div class="highlight"><pre><span></span><code>PROBE
 </code></pre></div>
 
-<p>Place a mark on the tape directly under where the probe is (or use a similar method to note the location on the bed).</p>
-<p>Issue a <code>GET_POSITION</code> command and record the toolhead XY location reported by that command. For example if one sees:</p>
+<p>Metti un segno sul nastro direttamente sotto il punto in cui si trova la sonda (o usa un metodo simile per annotare la posizione sul letto).</p>
+<p>Emettere un comando <code>GET_POSITION</code> e registrare la posizione XY della testa riportata da quel comando. Ad esempio se si vede:</p>
 <div class="highlight"><pre><span></span><code>Recv: // toolhead: X:46.500000 Y:27.000000 Z:15.000000 E:0.000000
 </code></pre></div>
 
-<p>then one would record a probe X position of 46.5 and probe Y position of 27.</p>
-<p>After recording the probe position, issue a series of G1 commands until the nozzle is directly above the mark on the bed. For example, one might issue:</p>
+<p>quindi si registrerebbe una posizione X della sonda di 46,5 e una posizione Y della sonda di 27.</p>
+<p>Dopo aver registrato la posizione della sonda, emettere una serie di comandi G1 fino a quando l'ugello si trova direttamente sopra il segno sul letto. Ad esempio, si potrebbe emettere:</p>
 <div class="highlight"><pre><span></span><code>G1 F300 X57 Y30 Z15
 </code></pre></div>
 
-<p>to move the nozzle to an X position of 57 and Y of 30. Once one finds the position directly above the mark, use the <code>GET_POSITION</code> command to report that position. This is the nozzle position.</p>
+<p>per spostare l'ugello in una posizione X di 57 e Y di 30. Una volta trovata la posizione direttamente sopra il segno, utilizzare il comando <code>GET_POSITION</code> per segnalare quella posizione. Questa è la posizione dell'ugello.</p>
 <p>The x_offset is then the <code>nozzle_x_position - probe_x_position</code> and y_offset is similarly the <code>nozzle_y_position - probe_y_position</code>. Update the printer.cfg file with the given values, remove the tape/marks from the bed, and then issue a <code>RESTART</code> command so that the new values take effect.</p>
 <h2 id="calibrating-probe-z-offset">Calibrating probe Z offset<a class="headerlink" href="#calibrating-probe-z-offset" title="Permanent link">&para;</a></h2>
 <p>Providing an accurate probe z_offset is critical to obtaining high quality prints. The z_offset is the distance between the nozzle and bed when the probe triggers. The Klipper <code>PROBE_CALIBRATE</code> tool can be used to obtain this value - it will run an automatic probe to measure the probe's Z trigger position and then start a manual probe to obtain the nozzle Z height. The probe z_offset will then be calculated from these measurements.</p>

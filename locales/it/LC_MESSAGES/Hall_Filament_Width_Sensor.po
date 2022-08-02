@@ -1,39 +1,45 @@
 # Stefano Serioli <stefano.serioli@outlook.com>, 2021.
 # Dex94 <Dasvaresu@dr.com>, 2022.
 # elovalvoc047faba7aa1427f <ernesto.lovalvo@unipa.it>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-04-17 08:08+0000\n"
-"Last-Translator: elovalvoc047faba7aa1427f <ernesto.lovalvo@unipa.it>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/hall_filament_width_sensor/it/>\n"
+"PO-Revision-Date: 2022-08-01 07:21+0000\n"
+"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"hall_filament_width_sensor/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid "How does it work?"
 msgstr "Come funziona?"
 
 msgid "Template for menu variables"
-msgstr ""
+msgstr "Modello per variabili di menu"
 
 msgid "Calibration procedure"
-msgstr ""
+msgstr "Procedura di calibrazione"
 
 msgid "Insert first calibration rod (1.5 mm size) get first raw sensor value"
 msgstr ""
+"Inserire la prima barra di calibrazione (dimensione 1,5 mm) ottenere il "
+"primo valore grezzo del sensore"
 
 msgid ""
 "Insert second calibration rod (2.0 mm size) get second raw sensor value"
 msgstr ""
+"Inserire la seconda barra di calibrazione (dimensione 2,0 mm) per ottenere "
+"il secondo valore grezzo del sensore"
 
 msgid "How to enable sensor"
-msgstr ""
+msgstr "Come abilitare il sensore"
 
 msgid "Logging"
-msgstr ""
+msgstr "Registrazione"
 
 msgid ""
 "[menu __main __filament __width_current]\n"
@@ -48,6 +54,17 @@ msgid ""
 "name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}\n"
 "index: 1\n"
 msgstr ""
+"[menu __main __filament __width_current]\n"
+"type: command\n"
+"enable: {'hall_filament_width_sensor' in printer}\n"
+"name: Dia: {'%.2F' % printer.hall_filament_width_sensor.Diameter}\n"
+"index: 0\n"
+"\n"
+"[menu __main __filament __raw_width_current]\n"
+"type: command\n"
+"enable: {'hall_filament_width_sensor' in printer}\n"
+"name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}\n"
+"index: 1\n"
 
 #: docs/HallFilamentWidthSensor.md:block 1 (header)
 msgid "Hall filament width sensor"
@@ -56,14 +73,18 @@ msgstr "Sensore di Hall per larghezza del filamento"
 #: docs/HallFilamentWidthSensor.md:block 24 (ordered list)
 msgid "Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`"
 msgstr ""
+"Salva i valori grezzi del sensore nel parametro di configurazione `Raw_dia1` "
+"e `Raw_dia2`"
 
 #: docs/HallFilamentWidthSensor.md:block 26 (paragraph)
 msgid "By default, the sensor is disabled at power-on."
-msgstr ""
+msgstr "Per impostazione predefinita, il sensore è disabilitato all'accensione."
 
 #: docs/HallFilamentWidthSensor.md:block 29 (paragraph)
 msgid "By default, diameter logging is disabled at power-on."
 msgstr ""
+"Per impostazione predefinita, la registrazione del diametro è disabilitata "
+"all'accensione."
 
 #: docs/HallFilamentWidthSensor.md:block 30 (paragraph)
 msgid ""
@@ -71,12 +92,18 @@ msgid ""
 "**DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at"
 " power-on, set the `logging` parameter to `true`."
 msgstr ""
+"Emettere il comando **ENABLE_FILAMENT_WIDTH_LOG** per avviare la "
+"registrazione ed emettere il comando **DISABLE_FILAMENT_WIDTH_LOG** per "
+"interrompere la registrazione. Per abilitare la registrazione "
+"all'accensione, impostare il parametro `logging` su `true`."
 
 #: docs/HallFilamentWidthSensor.md:block 31 (paragraph)
 msgid ""
 "Filament diameter is logged on every measurement interval (10 mm by "
 "default)."
 msgstr ""
+"Il diametro del filamento viene registrato con un intervallo di misurazione ("
+"10 mm per impostazione predefinita)."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 2 (paragraph)
 msgid ""
@@ -86,6 +113,13 @@ msgid ""
 "operation: two hall sensors work in differential mode, temperature drift "
 "same for sensor. Special temperature compensation not needed."
 msgstr ""
+"Questo documento descrive il modulo host del sensore di larghezza del "
+"filamento Filament Width Sensor. L'hardware utilizzato per lo sviluppo di "
+"questo modulo host si basa su due sensori lineari Hall (ad esempio ss49e). I "
+"sensori nel corpo si trovano ai lati opposti. Principio di funzionamento: "
+"due sensori Hall funzionano in modalità differenziale, la stessa deriva di "
+"temperatura per il sensore. Non è necessaria una speciale compensazione "
+"della temperatura."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 3 (paragraph)
 msgid ""
@@ -93,6 +127,9 @@ msgid ""
 "[Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video "
 "is also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
+"Puoi trovare i design su [Thingiverse](https://www.thingiverse.com/"
+"thing:4138933), un video di assemblaggio è disponibile anche su "
+"[Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4 )"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 6 (paragraph)
 msgid ""
@@ -102,12 +139,20 @@ msgid ""
 "connector on ramps-like board analog11 and analog12 pins. You can use "
 "different pins and differenr boards."
 msgstr ""
+"Il sensore genera due uscite analogiche in base alla larghezza del filamento "
+"calcolata. La somma della tensione di uscita è sempre uguale alla larghezza "
+"del filamento rilevata. Il modulo host monitora le variazioni di tensione e "
+"regola il moltiplicatore di estrusione. Uso il connettore aux2 su una scheda "
+"simile a rampe analog11 e analog12 pin. Puoi usare diversi pin e diverse "
+"schede."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 10 (paragraph)
 msgid ""
 "To get raw sensor value you can use menu item or "
 "**QUERY_RAW_FILAMENT_WIDTH** command in terminal."
 msgstr ""
+"Per ottenere il valore grezzo del sensore è possibile utilizzare la voce di "
+"menu o il comando **QUERY_RAW_FILAMENT_WIDTH** nel terminale."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 4 (paragraph)
 msgid ""
@@ -115,12 +160,17 @@ msgid ""
 "Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
 "documentation](G-Codes.md#hall_filament_width_sensor)."
 msgstr ""
+"Per utilizzare il sensore di larghezza del filamento Hall, leggere [Config "
+"Reference](Config_Reference.md#hall_filament_width_sensor) e [G-Code "
+"documentation](G-Codes.md#hall_filament_width_sensor)."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 14 (paragraph)
 msgid ""
 "To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
 "the `enable` parameter to `true`."
 msgstr ""
+"Per abilitare il sensore, emettere il comando "
+"**ENABLE_FILAMENT_WIDTH_SENSOR** o impostare il parametro `enable` su `true`."
 
 #~ msgid ""
 #~ "To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "

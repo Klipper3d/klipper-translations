@@ -1,9 +1,16 @@
-#
+# Ale Ale <ale.99.ale@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-08-01 07:21+0000\n"
+"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"status_reference/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -11,6 +18,9 @@ msgid ""
 "fields](Config_Reference.md#display), and via the [API "
 "Server](API_Server.md)."
 msgstr ""
+"Questo documento è un riferimento alle informazioni sullo stato della "
+"stampante disponibili in Klipper [macro](Command_Templates.md), [display "
+"fields](Config_Reference.md#display) e tramite [API Server](API_Server.md)."
 
 msgid ""
 "The fields in this document are subject to change - if using an attribute be"

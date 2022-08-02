@@ -1241,15 +1241,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#optional-enabling-spi" class="md-nav__link">
-    Optional: Enabling SPI
+  <a href="#facoltativo-abilitazione-di-spi" class="md-nav__link">
+    Facoltativo: abilitazione di SPI
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#optional-enabling-i2c" class="md-nav__link">
-    Optional: Enabling I2C
+  <a href="#opzionale-abilitazione-di-i2c" class="md-nav__link">
+    Opzionale: abilitazione di I2C
   </a>
   
 </li>
@@ -1317,12 +1317,12 @@ sudo service klipper start
 
 <h2 id="configurazione-rimanente">Configurazione rimanente<a class="headerlink" href="#configurazione-rimanente" title="Permanent link">&para;</a></h2>
 <p>Completare l'installazione configurando l'MCU secondario di Klipper seguendo le istruzioni in <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-raspberry-pi.cfg">RaspberryPi sample config</a> e <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-multi-mcu.cfg">Multi MCU sample config</a>.</p>
-<h2 id="optional-enabling-spi">Optional: Enabling SPI<a class="headerlink" href="#optional-enabling-spi" title="Permanent link">&para;</a></h2>
-<p>Make sure the Linux SPI driver is enabled by running <code>sudo raspi-config</code> and enabling SPI under the "Interfacing options" menu.</p>
-<h2 id="optional-enabling-i2c">Optional: Enabling I2C<a class="headerlink" href="#optional-enabling-i2c" title="Permanent link">&para;</a></h2>
-<p>Make sure the Linux I2C driver is enabled by running <code>sudo raspi-config</code> and enabling I2C under the "Interfacing options" menu. If planning to use I2C for the MPU accelerometer, it is also required to set the baud rate to 400000 by: adding/uncommenting <code>dtparam=i2c_arm=on,i2c_arm_baudrate=400000</code> in <code>/boot/config.txt</code> (or <code>/boot/firmware/config.txt</code> in some distros).</p>
+<h2 id="facoltativo-abilitazione-di-spi">Facoltativo: abilitazione di SPI<a class="headerlink" href="#facoltativo-abilitazione-di-spi" title="Permanent link">&para;</a></h2>
+<p>Assicurati che il driver SPI di Linux sia abilitato eseguendo <code>sudo raspi-config</code> e abilitando SPI nel menu "Opzioni di interfaccia".</p>
+<h2 id="opzionale-abilitazione-di-i2c">Opzionale: abilitazione di I2C<a class="headerlink" href="#opzionale-abilitazione-di-i2c" title="Permanent link">&para;</a></h2>
+<p>Assicurati che l'interfaccia Linux I2C sia abilitato eseguendo <code>sudo raspi-config</code> e abilitando I2C nel menu "Opzioni di interfaccia". Se si intende utilizzare I2C per l'accelerometro MPU, è anche necessario impostare il baud rate su 400000: aggiungendo/deselezionando <code>dtparam=i2c_arm=on,i2c_arm_baudrate=400000</code> in <code>/boot/config.txt</code> (o <code>/ boot/firmware/config.txt</code> in alcune distribuzioni).</p>
 <h2 id="opzionale-identificare-il-gpiochip-corretto">Opzionale: Identificare il gpiochip corretto<a class="headerlink" href="#opzionale-identificare-il-gpiochip-corretto" title="Permanent link">&para;</a></h2>
-<p>On Raspberry Pi and on many clones the pins exposed on the GPIO belong to the first gpiochip. They can therefore be used on klipper simply by referring them with the name <code>gpio0..n</code>. However, there are cases in which the exposed pins belong to gpiochips other than the first. For example in the case of some OrangePi models or if a Port Expander is used. In these cases it is useful to use the commands to access the <em>Linux GPIO character device</em> to verify the configuration.</p>
+<p>Su Raspberry Pi e su molti cloni i pin esposti sul GPIO appartengono al primo gpiochip. Possono quindi essere utilizzati su klipper semplicemente riferendoli con il nome <code>gpio0..n</code>. Tuttavia, ci sono casi in cui i pin esposti appartengono a gpiochip diversi dal primo. Ad esempio nel caso di alcuni modelli OrangePi o se viene utilizzato un Port Expander. In questi casi è utile utilizzare i comandi per accedere al <em>dispositivo a caratteri GPIO Linux</em> per verificarne la configurazione.</p>
 <p>Per installare il <em>Linux GPIO character device - binary</em> su una distro basata su debian come octopi eseguire:</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get install gpiod
 </code></pre></div>
@@ -1335,7 +1335,7 @@ sudo service klipper start
 <div class="highlight"><pre><span></span><code>gpioinfo
 </code></pre></div>
 
-<p>The chosen pin can thus be used within the configuration as <code>gpiochip&lt;n&gt;/gpio&lt;o&gt;</code> where <strong>n</strong> is the chip number as seen by the <code>gpiodetect</code> command and <strong>o</strong> is the line number seen by the<code>gpioinfo</code> command.</p>
+<p>Il pin scelto può quindi essere utilizzato all'interno della configurazione come <code>gpiochip&lt;n&gt;/gpio&lt;o&gt;</code> dove <strong>n</strong> è il numero del chip visto dal comando <code>gpiodetect</code> e <strong>o</strong> è il numero di riga visto dal comando <code>gpioinfo</code>.</p>
 <p><strong><em>Attenzione:</em></strong> solo i gpio contrassegnati come <code>inutilizzati</code> possono essere utilizzati. Non è possibile che una <em>linea</em> sia usata da più processi contemporaneamente.</p>
 <p>Per esempio su un RPi 3B+ dove klipper usa il GPIO20 per un interruttore:</p>
 <div class="highlight"><pre><span></span><code>$ gpiodetect
@@ -1420,7 +1420,7 @@ dtoverlay=pwm,pin=12,func=4
 <div class="highlight"><pre><span></span><code>echo 0 &gt; /sys/class/pwm/pwmchip0/export
 </code></pre></div>
 
-<p>This will create device <code>/sys/class/pwm/pwmchip0/pwm0</code> in the filesystem. The easiest way to do this is by adding this to <code>/etc/rc.local</code> before the <code>exit 0</code> line.</p>
+<p>Questo creerà il dispositivo <code>/sys/class/pwm/pwmchip0/pwm0</code> nel filesystem. Il modo più semplice per farlo è aggiungerlo a <code>/etc/rc.local</code> prima della riga <code>exit 0</code>.</p>
 <p>Con il sysfs a posto, potete ora utilizzare il canale o i canali pwm aggiungendo il seguente pezzo di configurazione al vostro <code>printer.cfg</code>:</p>
 <div class="highlight"><pre><span></span><code>[output_pin caselight]
 pin: host:pwmchip0/pwm0
@@ -1430,7 +1430,7 @@ cycle_time: 0.000001
 </code></pre></div>
 
 <p>Questo aggiungerà il controllo pwm hardware a gpio12 sul Pi (perché l'overlay è stato configurato per instradare pwm0 a pin = 12).</p>
-<p>PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and gpio19:</p>
+<p>PWM0 può essere indirizzato su gpio12 e gpio18, PWM1 può essere indirizzato su gpio13 e gpio19:</p>
 <table>
 <thead>
 <tr>
