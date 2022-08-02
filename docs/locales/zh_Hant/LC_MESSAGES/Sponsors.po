@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-01 07:21+0000\n"
+"PO-Revision-Date: 2022-08-02 07:24+0000\n"
 "Last-Translator: Fred Chan <fred2088@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "klipper/sponsors/zh_Hant/>\n"
@@ -20,7 +20,8 @@ msgstr "贊助商"
 msgid ""
 "Klipper is Free Software. We depend on the generous support from sponsors. "
 "Please consider sponsoring Klipper or supporting our sponsors."
-msgstr ""
+msgstr "Klipper 是免費軟件。我們依靠贊助商的慷慨支持。請考慮贊助 Klipper "
+"或支持我們的讚助商。"
 
 #: docs/Sponsors.md:block 3 (header)
 msgid "BIGTREETECH"

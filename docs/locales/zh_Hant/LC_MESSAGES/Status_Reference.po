@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-23 12:56+0000\n"
+"PO-Revision-Date: 2022-08-02 07:24+0000\n"
 "Last-Translator: Fred Chan <fred2088@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/klipper/status_reference/zh_Hant/>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"klipper/status_reference/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -816,17 +817,17 @@ msgstr "`Raw`：上一次感測器原始 ADC 讀數。"
 msgid ""
 "`profiles`: The set of currently defined profiles as setup using "
 "BED_MESH_PROFILE."
-msgstr ""
+msgstr "`profiles`：使用 BED_MESH_PROFILE 設置的當前定義的配置文件集。"
 
 #: docs/Status_Reference.md:block 4 (header)
 msgid "angle"
-msgstr ""
+msgstr "角度"
 
 #: docs/Status_Reference.md:block 5 (paragraph)
 msgid ""
 "The following information is available in [angle "
 "some_name](Config_Reference.md#angle) objects:"
-msgstr ""
+msgstr "[angle some_name](Config_Reference.md#angle) 對像中提供了以下信息："
 
 #: docs/Status_Reference.md:block 6 (unordered list)
 msgid ""
