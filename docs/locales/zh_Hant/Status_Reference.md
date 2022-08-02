@@ -4,9 +4,9 @@
 
 本文件中的欄位可能會發生變化 - 如果使用了任何欄位，在更新 Klipper 時，請務必檢視[配置變化文件](Config_Changes.md)。
 
-## angle
+## 角度
 
-The following information is available in [angle some_name](Config_Reference.md#angle) objects:
+[angle some_name](Config_Reference.md#angle) 對像中提供了以下信息：
 
 - `temperature`: The last temperature reading (in Celsius) from a tle5012b magnetic hall sensor. This value is only available if the angle sensor is a tle5012b chip and if measurements are in progress (otherwise it reports `None`).
 
@@ -15,7 +15,7 @@ The following information is available in [angle some_name](Config_Reference.md#
 [bed_mesh](Config_Reference.md#bed_mesh) 對像中提供了以下資訊：
 
 - `profile_name`、`mesh_min`、`mesh_max`、`probed_matrix`、`mesh_matrix`：關於目前活躍的 bed_mesh 配置資訊。
-- `profiles`: The set of currently defined profiles as setup using BED_MESH_PROFILE.
+- `profiles`：使用 BED_MESH_PROFILE 設置的當前定義的配置文件集。
 
 ## configfile
 

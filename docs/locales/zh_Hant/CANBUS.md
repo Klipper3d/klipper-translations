@@ -61,14 +61,14 @@ Found canbus_uuid=11aa22bb33cc
 canbus_uuid: 11aa22bb33cc
 ```
 
-## USB to CAN bus bridge mode
+## USB轉CAN bus橋接模式
 
-Some micro-controllers support selecting "USB to CAN bus bridge" mode during "make menuconfig". This mode may allow one to use a micro-controller as both a "USB to CAN bus adapter" and as a Klipper node.
+一些微控制器支持在“make menuconfig”期間選擇“USB 轉 CAN bus 橋接模式”。這種模式可以允許將微控制器用作“USB 到 CAN bus適配器”和 Klipper 節點。
 
-When Klipper uses this mode the micro-controller appears as a "USB CAN bus adapter" under Linux. The "Klipper bridge mcu" itself will appear as if was on this CAN bus - it can be identified via `canbus_query.py` and configured like other CAN bus Klipper nodes. It will appear alongside other devices that are actually on the CAN bus.
+當 Klipper 使用此模式時，微控制器在 Linux 下顯示為“USB CAN bus適配器”。 “Klipper 橋接單片機”本身將出現在此 CAN bus上 - 它可以通過`canbus_query.py`識別並像其他 CAN bus Klipper 節點一樣配置。它將與實際位於 CAN bus上的其他設備一起出現。
 
-Some important notes when using this mode:
+使用此模式時的一些重要注意事項：
 
-* The "bridge mcu" is not actually on the CAN bus. Messages to and from it do not consume bandwidth on the CAN bus. The mcu can not be seen by other adapters that may be on the CAN bus.
-* It is necessary to configure the `can0` (or similar) interface in Linux in order to communicate with the bus. However, Linux CAN bus speed and CAN bus bit-timing options are ignored by Klipper. Currently, the CAN bus frequency is specified during "make menuconfig" and the bus speed specified in Linux is ignored.
-* Whenever the "bridge mcu" is reset, Linux will disable the corresponding `can0` interface. Generally, this may require running commands such as "ip up" to restart the interface. Thus, Klipper FIRMWARE_RESTART commands (or regular RESTART after a config change) may require restarting the `can0` interface.
+* "橋接MCU”實際上不在 CAN bus上。消息進出不會消耗 CAN bus上的帶寬。可能在 CAN bus上的其他適配器無法看到該 mcu。
+* 為了與總線通信，必須在 Linux 中配置 `can0`（或類似的）接口。但是，Klipper 忽略了 Linux CAN 總線速度和 CAN 總線位定時選項。目前，CAN 總線頻率在“make menuconfig”期間指定，Linux 中指定的總線速度被忽略。
+* 每當重置“bridge mcu”時，Linux 將禁用相應的`can0`接口。通常，這可能需要運行諸如“ip up”之類的命令來重新啟動接口。因此，Klipper FIRMWARE_RESTART 命令（或配置更改後的常規 RESTART）可能需要重新啟動`can0`接口。

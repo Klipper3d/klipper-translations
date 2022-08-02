@@ -24,7 +24,7 @@
 
 其中一個主要的任務函式為**src/command.c** 中的command_dispatch()。上述函式經由微處理器特定的 輸入/輸出 程式碼呼叫(即**src/avr/serial.c**, **src/generic/serial_irq.c**)，並執行輸入流中的命令所對應的命令函式。命令函式通過 DECL_COMMAND() 宏進行定義 (詳情參照[協議](Protocol.md) 文件)。
 
-Task, init, and command functions always run with interrupts enabled (however, they can temporarily disable interrupts if needed). These functions should avoid long pauses, delays, or do work that lasts a significant time. (Long delays in these "task" functions result in scheduling jitter for other "tasks" - delays over 100us may become noticeable, delays over 500us may result in command retransmissions, delays over 100ms may result in watchdog reboots.) These functions schedule work at specific times by scheduling timers.
+任務”功能的長時間延遲會導致其他“任務”的調度抖動 - 超過 100us 的延遲可能會變得很明顯，超過 500us 的延遲可能會導致命令重傳，超過 100ms 的延遲可能會導致看門狗重新啟動。）這些功能將工作安排在通過安排計時器的特定時間。
 
 定時函式通過呼叫sched_add_timer() (即 **src/sched.c**)方法進行註冊。排程器會在設定的時間點對註冊的函式進行呼叫。定時器中斷會在微處理器架構特定的初始化處理器中處理(例如 **src/avr/timer.c**)，該程式碼會呼叫 **src/sched.c**中的sched_timer_dispatch()。通過定時器中斷執行註冊的定時函式。定時函式總在中斷禁用下執行。定時函式應總能在數微秒內完成。在定時函式結束時，該函式可對自身進行重新定時。
 

@@ -53,13 +53,13 @@ sudo usermod -a -G tty pi
 
 通過執行`sudo raspi-config` 后的 "Interfacing options"菜單中啟用 SPI 以確保Linux SPI 驅動已啟用。
 
-## Optional: Enabling I2C
+## 可選：啟用 I2C
 
-Make sure the Linux I2C driver is enabled by running `sudo raspi-config` and enabling I2C under the "Interfacing options" menu. If planning to use I2C for the MPU accelerometer, it is also required to set the baud rate to 400000 by: adding/uncommenting `dtparam=i2c_arm=on,i2c_arm_baudrate=400000` in `/boot/config.txt` (or `/boot/firmware/config.txt` in some distros).
+通過運行 `sudo raspi-config` 並在“接口選項”菜單下啟用 I2C，確保啟用了 Linux I2C 驅動程序。如果計劃將 I2C 用於 MPU 加速度計，還需要通過以下方式將波特率設置為 400000：在 `/boot/config.txt`（或 `/ boot/firmware/config.txt` 在某些發行版中）。
 
 ## 可選步驟：識別正確的 gpiochip
 
-On Raspberry Pi and on many clones the pins exposed on the GPIO belong to the first gpiochip. They can therefore be used on klipper simply by referring them with the name `gpio0..n`. However, there are cases in which the exposed pins belong to gpiochips other than the first. For example in the case of some OrangePi models or if a Port Expander is used. In these cases it is useful to use the commands to access the *Linux GPIO character device* to verify the configuration.
+在 Raspberry Pi 和許多類似主板上，GPIO 上露出的引腳屬於第一個 gpiochip。因此，它們可以在 klipper 上使用，只需使用名稱 `gpio0..n` 引用它們。但是，有些情況下，露出的引腳屬於第一個以外的 gpiochips。例如，在某些 OrangePi 型號的情況下或使用端口擴展器的情況下。在這些情況下，使用命令訪問 *Linux GPIO 字符設備* 以驗證配置很有用。
 
 要在基於 Debian 的發行版（如 OctoPi）上安裝 *Linux GPIO character device - binary*，請執行：
 

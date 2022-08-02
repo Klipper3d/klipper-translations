@@ -117,7 +117,7 @@ Recv: ok
 - 右後螺絲必須逆時針轉動至 50 分鐘方向
 - 左後螺絲必須順時針轉動至 2 分鐘方向（不需要就可以了）
 
-Note that "minutes" refers to "minutes of a clock face". So, for example, 15 minutes is a quarter of a full turn.
+請注意，“分鐘”是指“鐘面的分鐘”。因此，例如，15 分鐘是一整圈的四分之一。
 
 重複這個過程幾次，直到你得到一個好的水平床——通常當所有的調整都低於 6 分鐘。
 
