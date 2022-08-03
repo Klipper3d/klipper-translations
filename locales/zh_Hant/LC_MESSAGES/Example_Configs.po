@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-24 08:58+0000\n"
+"PO-Revision-Date: 2022-08-02 07:24+0000\n"
 "Last-Translator: Fred Chan <fred2088@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/klipper/example_configs/zh_Hant/>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"klipper/example_configs/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document contains guidelines for contributing an example Klipper "
@@ -180,7 +181,7 @@ msgstr "配置示例"
 
 #: docs/Example_Configs.md:block 5 (ordered list)
 msgid "Select the appropriate config filename prefix:"
-msgstr ""
+msgstr "選擇適當的配置文件名前綴："
 
 #: docs/Example_Configs.md:block 5 (ordered list)
 msgid ""
@@ -188,16 +189,20 @@ msgid ""
 "files must end in a year followed by `.cfg` (eg, `-2019.cfg`). In this case,"
 " the year is an approximate year the given printer was sold."
 msgstr ""
+"所有配置文件都必須以 `.cfg` 後綴結尾。 `printer` 配置文件必須以年份結尾，"
+"後跟 `.cfg`（例如，`-2019."
+"cfg`）。在這種情況下，年份是給定打印機銷售的大致年份。"
 
 #: docs/Example_Configs.md:block 5 (ordered list)
 msgid ""
 "Do not use spaces or special characters in the config filename. The filename"
 " should contain only characters `A-Z`, `a-z`, `0-9`, `-`, and `.`."
-msgstr ""
+msgstr "不要在配置文件名中使用空格或特殊字符。文件名應僅包含字符`A-Z`、`a-z`、`0-9`、"
+"`-`和`.`。"
 
 #: docs/Example_Configs.md:block 7 (ordered list)
 msgid "Do not use any deprecated features in the example config file."
-msgstr ""
+msgstr "不要在示例配置文件中使用任何已棄用的功能。"
 
 #: docs/Example_Configs.md:block 7 (ordered list)
 msgid ""
@@ -210,12 +215,18 @@ msgid ""
 "4:1`). See the [rotation distance document](Rotation_Distance.md#using-a-"
 "gear_ratio) for more information."
 msgstr ""
+"增加擠出機 `rotation_distance` 時，如果擠出機有傳動機構，最好指定 "
+"`gear_ratio`。我們希望示例配置中的 rotation_distance "
+"與擠出機中滾齒的周長相關 - 它通常在 20 到 35mm 的範圍內。當指定 `gear_ratio` "
+"時，最好指定機構上的實際齒輪（例如，更喜歡 `gear_ratio: 80:20` 而不是 "
+"`gear_ratio: 4:1`）。有關詳細信息，請參閱 [旋轉距離文檔]"
 
 #: docs/Example_Configs.md:block 7 (ordered list)
 msgid ""
 "All known boards that Klipper supports can use the default serial baud rate "
 "of 250000. Do not recommend a different baud rate in an example config file."
-msgstr ""
+msgstr "Klipper 支持的所有已知板都可以使用默認串行波特率 "
+"250000。不要在示例配置文件中推薦不同的波特率。"
 
 #~ msgid ""
 #~ "When adding an extruder `rotation_distance` it is preferable to specify a "

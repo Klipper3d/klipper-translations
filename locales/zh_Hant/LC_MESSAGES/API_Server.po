@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-26 04:55+0000\n"
+"PO-Revision-Date: 2022-08-02 07:24+0000\n"
 "Last-Translator: Fred Chan <fred2088@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/klipper/api_server/zh_Hant/>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"klipper/api_server/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11.1-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document describes Klipper's Application Programmer Interface (API). "
@@ -604,7 +605,7 @@ msgstr ""
 
 #: docs/API_Server.md:block 83 (header)
 msgid "angle/dump_angle"
-msgstr ""
+msgstr "angle/dump_angle"
 
 #: docs/API_Server.md:block 84 (paragraph)
 msgid ""
