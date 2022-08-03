@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-01 07:21+0000\n"
+"PO-Revision-Date: 2022-08-03 21:18+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/"
 "it/>\n"
@@ -1137,7 +1137,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 75 (header)
 msgid "[endstop_phase]"
-msgstr ""
+msgstr "[endstop_phase]"
 
 #: docs/G-Codes.md:block 76 (paragraph)
 msgid ""
