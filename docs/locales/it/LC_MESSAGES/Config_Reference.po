@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-01 07:21+0000\n"
+"PO-Revision-Date: 2022-08-03 21:18+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "config_reference/it/>\n"
@@ -329,7 +329,7 @@ msgid ""
 msgstr ""
 
 msgid "[endstop_phase]"
-msgstr ""
+msgstr "[endstop_phase]"
 
 msgid ""
 "Stepper phase adjusted endstops. To use this feature, define a config "
