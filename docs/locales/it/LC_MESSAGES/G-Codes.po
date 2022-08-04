@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-03 21:18+0000\n"
+"PO-Revision-Date: 2022-08-04 21:22+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/"
 "it/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "comandi che si possono inserire nella scheda del terminale OctoPrint."
 
 msgid "G-Code commands"
-msgstr ""
+msgstr "Comandi G-Code"
 
 msgid "Klipper supports the following standard G-Code commands:"
 msgstr ""
@@ -30,7 +30,7 @@ msgid "Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`"
 msgstr ""
 
 msgid "Dwell: `G4 P<milliseconds>`"
-msgstr ""
+msgstr "Sosta: `G4 P<millisecondi>`"
 
 msgid "Move to origin: `G28 [X] [Y] [Z]`"
 msgstr ""
@@ -93,10 +93,10 @@ msgid "Turn fan off: `M107`"
 msgstr ""
 
 msgid "Emergency stop: `M112`"
-msgstr ""
+msgstr "Arresto di emergenza: `M112`"
 
 msgid "Get current position: `M114`"
-msgstr ""
+msgstr "Ottieni la posizione attuale: `M114`"
 
 msgid "Get firmware version: `M115`"
 msgstr ""
@@ -105,6 +105,8 @@ msgid ""
 "For further details on the above commands see the [RepRap G-Code "
 "documentation](http://reprap.org/wiki/G-code)."
 msgstr ""
+"Per ulteriori dettagli sui comandi precedenti, vedere la [documentazione "
+"RepRap G-Code](http://reprap.org/wiki/G-code)."
 
 msgid ""
 "If one requires a less common G-Code command then it may be possible to "
@@ -143,9 +145,11 @@ msgid ""
 "Controlled Arc Move (G2 or G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] "
 "[F<speed>] I<value> J<value>`"
 msgstr ""
+"Movimento controllato dell'arco (G2 o G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] "
+"[E<pos>] [F<velocità>] I<valore> J<valore>`"
 
 msgid "Display Message: `M117 <message>`"
-msgstr ""
+msgstr "Messaggio visualizzato: `M117 <messaggio>`"
 
 msgid "Set build percentage: `M73 P<percent>`"
 msgstr ""
@@ -434,11 +438,21 @@ msgid ""
 " is activated - see the MANUAL_PROBE command above for details on the "
 "additional commands available while this tool is active."
 msgstr ""
+"`DELTA_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>]`: questo "
+"comando sonderà sette punti sul piatto e consiglierà posizioni di finecorsa, "
+"angoli della torre e raggio aggiornati. Vedere il comando PROBE per i "
+"dettagli sui parametri della sonda opzionali. Se viene specificato "
+"METHOD=manual, lo strumento di probe manuale è attivato - vedere il comando "
+"MANUAL_PROBE precedente per i dettagli sui comandi aggiuntivi disponibili "
+"mentre questo strumento è attivo."
 
 msgid ""
 "`DELTA_ANALYZE`: This command is used during enhanced delta calibration. See"
 " [Delta Calibrate](Delta_Calibrate.md) for details."
 msgstr ""
+"`DELTA_ANALYZE`: questo comando viene utilizzato durante la calibrazione "
+"avanzata delle stampanti delta. Vedere [Delta Calibrate](Delta_Calibrate.md) "
+"per i dettagli."
 
 msgid ""
 "`BED_TILT_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>]`: This "
@@ -535,6 +549,8 @@ msgid ""
 "`DUMP_TMC STEPPER=<name>`: This command will read the TMC driver registers "
 "and report their values."
 msgstr ""
+"`DUMP_TMC STEPPER=<nome>`: questo comando leggerà i registri del driver TMC "
+"e ne riporterà i valori."
 
 msgid ""
 "`SET_TMC_CURRENT STEPPER=<name> CURRENT=<amps> HOLDCURRENT=<amps>`: This "
@@ -559,6 +575,12 @@ msgid ""
 "it arranges for the given endstop phase setting to be written to the config "
 "file (in conjunction with the SAVE_CONFIG command)."
 msgstr ""
+"`ENDSTOP_PHASE_CALIBRATE [STEPPER=<config_name>]`: Se non viene fornito "
+"alcun parametro STEPPER, questo comando riporterà le statistiche sulle fasi "
+"stepper dell'arresto durante le precedenti operazioni di homing. Quando "
+"viene fornito un parametro STEPPER, fa in modo che l'impostazione della fase "
+"di fine corsa fornita sia scritta nel file di configurazione (insieme al "
+"comando SAVE_CONFIG)."
 
 msgid ""
 "`FORCE_MOVE STEPPER=<config_name> DISTANCE=<value> VELOCITY=<value> "
@@ -646,9 +668,13 @@ msgid ""
 "recommended to add this to your start gcode to make sure the paused state is"
 " fresh for each print."
 msgstr ""
+"`CLEAR_PAUSE`: cancella lo stato di pausa corrente senza riprendere la "
+"stampa. Questo è utile se si decide di annullare una stampa dopo un PAUSE. "
+"Si consiglia di aggiungerlo al gcode iniziale per assicurarsi che lo stato "
+"in pausa sia aggiornato per ogni stampa."
 
 msgid "`CANCEL_PRINT`: Cancels the current print."
-msgstr ""
+msgstr "`CANCEL_PRINT`: Annulla la stampa corrente."
 
 msgid ""
 "`SET_FILAMENT_SENSOR SENSOR=<sensor_name> ENABLE=[0|1]`: Sets the filament "
@@ -678,10 +704,12 @@ msgstr ""
 msgid ""
 "`G10`: Retracts the extruder using the currently configured parameters."
 msgstr ""
+"`G10`: Ritrae l'estrusore utilizzando i parametri attualmente configurati."
 
 msgid ""
 "`G11`: Unretracts the extruder using the currently configured parameters."
 msgstr ""
+"`G11`: Ritira l'estrusore utilizzando i parametri attualmente configurati."
 
 msgid ""
 "`SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] "
@@ -697,6 +725,9 @@ msgid ""
 "radians and degrees. The skew is calculated based on parameters provided via"
 " the `SET_SKEW` gcode."
 msgstr ""
+"`GET_CURRENT_SKEW`: Riporta l'inclinazione corrente della stampante per "
+"ciascun piano sia in radianti che in gradi. L'inclinazione  viene calcolata "
+"in base ai parametri forniti tramite il gcode `SET_SKEW`."
 
 msgid ""
 "`UPDATE_DELAYED_GCODE [ID=<name>] [DURATION=<seconds>]`: Updates the delay "
@@ -786,7 +817,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 1 (header)
 msgid "G-Codes"
-msgstr ""
+msgstr "G-Codes"
 
 #: docs/G-Codes.md:block 29 (unordered list)
 msgid ""
@@ -873,6 +904,14 @@ msgid ""
 "Correction](Skew_Correction.md) for details on skew calibration objects and "
 "measurements."
 msgstr ""
+"`CALC_MEASURED_SKEW [AC=<ac_length>] [BD=<bd_length>] [AD=<ad_length>]`: "
+"calcola e riporta l'inclinazione (in radianti e gradi) in base a una stampa "
+"di test misurata. Questo può essere utile per determinare l'inclinazione "
+"corrente della stampante dopo che è stata applicata la correzione. Può anche "
+"essere utile prima di applicare la correzione per determinare se è "
+"necessaria la correzione dell'inclinazione. Vedere [Correzione "
+"inclinazione](Correzione_inclinazione.md) per i dettagli su oggetti e "
+"misurazioni di calibrazione inclinazione."
 
 #: docs/G-Codes.md:block 63 (unordered list)
 msgid ""
@@ -1045,6 +1084,10 @@ msgid ""
 "also support `set_5V_output_mode`, `set_OD_output_mode`, `output_mode_store`"
 " commands."
 msgstr ""
+"`BLTOUCH_DEBUG COMMAND=<command>`: Invia un comando al BLTouch. Può essere "
+"utile per il debug. I comandi disponibili sono: `pin_down`, `touch_mode`, "
+"`pin_up`, `self_test`, `reset`. Un BL-Touch V3.0 o V3.1 può anche supportare "
+"i comandi `set_5V_output_mode`, `set_OD_output_mode`, `output_mode_store`."
 
 #: docs/G-Codes.md:block 48 (header)
 msgid "BLTOUCH_STORE"
@@ -1052,7 +1095,7 @@ msgstr "BLTOUCH_STORE"
 
 #: docs/G-Codes.md:block 50 (header)
 msgid "[configfile]"
-msgstr ""
+msgstr "[configfile]"
 
 #: docs/G-Codes.md:block 51 (paragraph)
 msgid "The configfile module is automatically loaded."
@@ -1079,7 +1122,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 58 (header)
 msgid "[delta_calibrate]"
-msgstr ""
+msgstr "[delta_calibrate]"
 
 #: docs/G-Codes.md:block 59 (paragraph)
 msgid ""
@@ -1090,11 +1133,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 60 (header)
 msgid "DELTA_CALIBRATE"
-msgstr ""
+msgstr "DELTA_CALIBRATE"
 
 #: docs/G-Codes.md:block 62 (header)
 msgid "DELTA_ANALYZE"
-msgstr ""
+msgstr "DELTA_ANALYZE"
 
 #: docs/G-Codes.md:block 64 (header)
 msgid "[display]"
@@ -1112,7 +1155,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 68 (header)
 msgid "[display_status]"
-msgstr ""
+msgstr "[display_status]"
 
 #: docs/G-Codes.md:block 69 (paragraph)
 msgid ""
@@ -1148,11 +1191,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 77 (header)
 msgid "ENDSTOP_PHASE_CALIBRATE"
-msgstr ""
+msgstr "ENDSTOP_PHASE_CALIBRATE"
 
 #: docs/G-Codes.md:block 79 (header)
 msgid "[extruder]"
-msgstr ""
+msgstr "[extruder]"
 
 #: docs/G-Codes.md:block 80 (paragraph)
 msgid ""
@@ -1190,7 +1233,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 93 (header)
 msgid "[fan_generic]"
-msgstr ""
+msgstr "[fan_generic]"
 
 #: docs/G-Codes.md:block 94 (paragraph)
 msgid ""
@@ -1210,7 +1253,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 97 (header)
 msgid "[firmware_retraction]"
-msgstr ""
+msgstr "[firmware_retraction]"
 
 #: docs/G-Codes.md:block 98 (paragraph)
 msgid ""
@@ -1237,7 +1280,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 105 (header)
 msgid "[filament_switch_sensor]"
-msgstr ""
+msgstr "[filament_switch_sensor]"
 
 #: docs/G-Codes.md:block 106 (paragraph)
 msgid ""
@@ -1267,7 +1310,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 114 (header)
 msgid "[force_move]"
-msgstr ""
+msgstr "[force_move]"
 
 #: docs/G-Codes.md:block 116 (header)
 msgid "STEPPER_BUZZ"
@@ -1275,7 +1318,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 118 (header)
 msgid "FORCE_MOVE"
-msgstr ""
+msgstr "FORCE_MOVE"
 
 #: docs/G-Codes.md:block 120 (header)
 msgid "SET_KINEMATIC_POSITION"
@@ -1283,7 +1326,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 122 (header)
 msgid "[gcode]"
-msgstr ""
+msgstr "[gcode]"
 
 #: docs/G-Codes.md:block 123 (paragraph)
 msgid "The gcode module is automatically loaded."
@@ -1295,7 +1338,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 126 (header)
 msgid "FIRMWARE_RESTART"
-msgstr ""
+msgstr "FIRMWARE_RESTART"
 
 #: docs/G-Codes.md:block 128 (header)
 msgid "STATUS"
@@ -1307,11 +1350,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 132 (header)
 msgid "[gcode_arcs]"
-msgstr ""
+msgstr "[gcode_arcs]"
 
 #: docs/G-Codes.md:block 135 (header)
 msgid "[gcode_macro]"
-msgstr ""
+msgstr "[gcode_macro]"
 
 #: docs/G-Codes.md:block 136 (paragraph)
 msgid ""
@@ -1326,7 +1369,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 139 (header)
 msgid "[gcode_move]"
-msgstr ""
+msgstr "[gcode_move]"
 
 #: docs/G-Codes.md:block 140 (paragraph)
 msgid "The gcode_move module is automatically loaded."
@@ -1384,23 +1427,27 @@ msgstr ""
 
 #: docs/G-Codes.md:block 155 (header)
 msgid "DISABLE_FILAMENT_WIDTH_SENSOR"
-msgstr ""
+msgstr "DISABLE_FILAMENT_WIDTH_SENSOR"
 
 #: docs/G-Codes.md:block 156 (paragraph)
 msgid ""
 "`DISABLE_FILAMENT_WIDTH_SENSOR`: Turn off the filament width sensor and stop"
 " using it for flow control."
 msgstr ""
+"`DISABLE_FILAMENT_WIDTH_SENSOR`: Spegnere il sensore di larghezza del "
+"filamento e smettere di usarlo per il controllo del flusso."
 
 #: docs/G-Codes.md:block 157 (header)
 msgid "ENABLE_FILAMENT_WIDTH_SENSOR"
-msgstr ""
+msgstr "ENABLE_FILAMENT_WIDTH_SENSOR"
 
 #: docs/G-Codes.md:block 158 (paragraph)
 msgid ""
 "`ENABLE_FILAMENT_WIDTH_SENSOR`: Turn on the filament width sensor and start "
 "using it for flow control."
 msgstr ""
+"`ENABLE_FILAMENT_WIDTH_SENSOR`: attiva il sensore di larghezza del filamento "
+"e inizia a usarlo per il controllo del flusso."
 
 #: docs/G-Codes.md:block 159 (header)
 msgid "QUERY_RAW_FILAMENT_WIDTH"
@@ -1416,19 +1463,23 @@ msgstr ""
 
 #: docs/G-Codes.md:block 161 (header)
 msgid "ENABLE_FILAMENT_WIDTH_LOG"
-msgstr ""
+msgstr "ENABLE_FILAMENT_WIDTH_LOG"
 
 #: docs/G-Codes.md:block 162 (paragraph)
 msgid "`ENABLE_FILAMENT_WIDTH_LOG`: Turn on diameter logging."
 msgstr ""
+"`ENABLE_FILAMENT_WIDTH_LOG`: attiva la registrazione del diametro del "
+"filamento."
 
 #: docs/G-Codes.md:block 163 (header)
 msgid "DISABLE_FILAMENT_WIDTH_LOG"
-msgstr ""
+msgstr "DISABLE_FILAMENT_WIDTH_LOG"
 
 #: docs/G-Codes.md:block 164 (paragraph)
 msgid "`DISABLE_FILAMENT_WIDTH_LOG`: Turn off diameter logging."
 msgstr ""
+"`DISABLE_FILAMENT_WIDTH_LOG`: Disattiva la registrazione del diametro del "
+"filamento."
 
 #: docs/G-Codes.md:block 165 (header)
 msgid "[heaters]"
@@ -1596,11 +1647,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 227 (header)
 msgid "CLEAR_PAUSE"
-msgstr ""
+msgstr "CLEAR_PAUSE"
 
 #: docs/G-Codes.md:block 229 (header)
 msgid "CANCEL_PRINT"
-msgstr ""
+msgstr "CANCEL_PRINT"
 
 #: docs/G-Codes.md:block 231 (header)
 msgid "[probe]"
@@ -1792,7 +1843,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 290 (header)
 msgid "GET_CURRENT_SKEW"
-msgstr ""
+msgstr "GET_CURRENT_SKEW"
 
 #: docs/G-Codes.md:block 292 (header)
 msgid "CALC_MEASURED_SKEW"
@@ -1860,7 +1911,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 306 (header)
 msgid "DUMP_TMC"
-msgstr ""
+msgstr "DUMP_TMC"
 
 #: docs/G-Codes.md:block 308 (header)
 msgid "INIT_TMC"
@@ -1920,6 +1971,10 @@ msgid ""
 "every `BAND` millimeters of Z height. The formula used is: `value = start + "
 "factor * ((floor(z_height / band) + .5) * band)`."
 msgstr ""
+"`FACTOR` e `BAND`: il valore cambia a una velocità media di `factor` per "
+"millimetro, ma in bande discrete in cui la regolazione verrà effettuata solo "
+"ogni `BAND` millimetri di altezza Z. La formula utilizzata è: `value = start "
+"+ factor * ((floor(z_height / band) + .5) * band)`."
 
 #: docs/G-Codes.md:block 322 (unordered list)
 msgid ""
@@ -2197,7 +2252,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 87 (header)
 msgid "[exclude_object]"
-msgstr ""
+msgstr "[exclude_object]"
 
 #: docs/G-Codes.md:block 88 (paragraph)
 msgid ""
@@ -2208,13 +2263,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 89 (header)
 msgid "`EXCLUDE_OBJECT`"
-msgstr ""
+msgstr "`EXCLUDE_OBJECT`"
 
 #: docs/G-Codes.md:block 90 (paragraph)
 msgid ""
 "`EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]`: With no "
 "parameters, this will return a list of all currently excluded objects."
 msgstr ""
+"`EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]`: Senza parametri, "
+"questo restituirà un elenco di tutti gli oggetti attualmente esclusi."
 
 #: docs/G-Codes.md:block 91 (paragraph)
 msgid ""
@@ -2237,13 +2294,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 94 (header)
 msgid "`EXCLUDE_OBJECT_DEFINE`"
-msgstr ""
+msgstr "`EXCLUDE_OBJECT_DEFINE`"
 
 #: docs/G-Codes.md:block 95 (paragraph)
 msgid ""
 "`EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] "
 "[RESET=1] [JSON=1]`: Provides a summary of an object in the file."
 msgstr ""
+"`EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] "
+"[RESET=1] [JSON=1]`: fornisce un riepilogo di un oggetto nel file."
 
 #: docs/G-Codes.md:block 96 (paragraph)
 msgid ""
@@ -2266,7 +2325,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 98 (unordered list)
 msgid "`CENTER`: An X,Y coordinate for the object."
-msgstr ""
+msgstr "`CENTER`: una coordinata X,Y per l'oggetto."
 
 #: docs/G-Codes.md:block 98 (unordered list)
 msgid ""
@@ -2282,7 +2341,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 100 (header)
 msgid "`EXCLUDE_OBJECT_START`"
-msgstr ""
+msgstr "`EXCLUDE_OBJECT_START`"
 
 #: docs/G-Codes.md:block 101 (paragraph)
 msgid ""
@@ -2290,10 +2349,12 @@ msgid ""
 "parameter and denotes the start of the gcode for an object on the current "
 "layer."
 msgstr ""
+"`EXCLUDE_OBJECT_START NAME=object_name`: questo comando prende un parametro "
+"`NAME` e marca l'inizio del gcode per un oggetto sul livello corrente."
 
 #: docs/G-Codes.md:block 102 (header)
 msgid "`EXCLUDE_OBJECT_END`"
-msgstr ""
+msgstr "`EXCLUDE_OBJECT_END`"
 
 #: docs/G-Codes.md:block 103 (paragraph)
 msgid ""
@@ -2302,6 +2363,10 @@ msgid ""
 "parameter is optional, and will only warn when the provided name does not "
 "match the current object."
 msgstr ""
+"`EXCLUDE_OBJECT_END [NAME=object_name]`: Denota la fine del gcode "
+"dell'oggetto per il livello. È accoppiato con `EXCLUDE_OBJECT_START`. Un "
+"parametro `NAME` è facoltativo e avviserà solo quando il nome fornito non "
+"corrisponde all'oggetto corrente."
 
 #: docs/G-Codes.md:block 109 (paragraph)
 msgid ""
