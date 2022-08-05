@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-04 21:22+0000\n"
+"PO-Revision-Date: 2022-08-05 11:20+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/"
 "it/>\n"
@@ -24,16 +24,17 @@ msgid "G-Code commands"
 msgstr "Comandi G-Code"
 
 msgid "Klipper supports the following standard G-Code commands:"
-msgstr ""
+msgstr "Klipper supporta i seguenti comandi G-Code standard:"
 
 msgid "Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`"
 msgstr ""
+"Movimento (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`"
 
 msgid "Dwell: `G4 P<milliseconds>`"
 msgstr "Sosta: `G4 P<millisecondi>`"
 
 msgid "Move to origin: `G28 [X] [Y] [Z]`"
-msgstr ""
+msgstr "Sposta all'origine: `G28 [X] [Y] [Z]`"
 
 msgid "Turn off motors: `M18` or `M84`"
 msgstr ""
@@ -1393,7 +1394,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 149 (header)
 msgid "[hall_filament_width_sensor]"
-msgstr ""
+msgstr "[hall_filament_width_sensor]"
 
 #: docs/G-Codes.md:block 150 (paragraph)
 msgid ""
