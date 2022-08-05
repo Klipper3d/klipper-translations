@@ -2,13 +2,13 @@
 
 Questo documento descrive i benchmark di Klipper.
 
-## Micro-controller Benchmarks
+## Benchmark del microcontrollore
 
-This section describes the mechanism used to generate the Klipper micro-controller step rate benchmarks.
+Questa sezione descrive il meccanismo utilizzato per generare i benchmark della velocità di passaggio del microcontrollore Klipper.
 
-The primary goal of the benchmarks is to provide a consistent mechanism for measuring the impact of coding changes within the software. A secondary goal is to provide high-level metrics for comparing the performance between chips and between software platforms.
+L'obiettivo principale dei benchmark è fornire un meccanismo coerente per misurare l'impatto delle modifiche alla codifica all'interno del software. Un obiettivo secondario è fornire metriche di alto livello per confrontare le prestazioni tra i chip e tra le piattaforme software.
 
-The step rate benchmark is designed to find the maximum stepping rate that the hardware and software can reach. This benchmark stepping rate is not achievable in day-to-day use as Klipper needs to perform other tasks (eg, mcu/host communication, temperature reading, endstop checking) in any real-world usage.
+Il benchmark dello step rate è progettato per trovare la velocità di stepping massima che l'hardware e il software possono raggiungere. Questa velocità di stepping del benchmark non è raggiungibile nell'uso quotidiano poiché Klipper ha bisogno di eseguire altre attività (ad esempio, comunicazione mcu/host, lettura della temperatura, controllo endstop) in qualsiasi utilizzo nel mondo reale.
 
 In general, the pins for the benchmark tests are chosen to flash LEDs or other innocuous pins. **Always verify that it is safe to drive the configured pins prior to running a benchmark.** It is not recommended to drive an actual stepper during a benchmark.
 

@@ -31,18 +31,18 @@ See the "HELP" command within the tool for more information on its functionality
 
 Some command-line options are available. For more information run: `~/klippy-env/bin/python ./klippy/console.py --help`
 
-## Translating gcode files to micro-controller commands
+## Traduzione di file gcode in comandi del microcontrollore
 
-The Klippy host code can run in a batch mode to produce the low-level micro-controller commands associated with a gcode file. Inspecting these low-level commands is useful when trying to understand the actions of the low-level hardware. It can also be useful to compare the difference in micro-controller commands after a code change.
+Il codice host Klippy può essere eseguito in modalità batch per produrre i comandi del microcontrollore di basso livello associati a un file gcode. L'ispezione di questi comandi di basso livello è utile quando si cerca di comprendere le azioni dell'hardware di basso livello. Può anche essere utile confrontare la differenza nei comandi del microcontrollore dopo una modifica del codice.
 
-To run Klippy in this batch mode, there is a one time step necessary to generate the micro-controller "data dictionary". This is done by compiling the micro-controller code to obtain the **out/klipper.dict** file:
+Per eseguire Klippy in questa modalità batch, è necessario un passaggio per generare il "dizionario dati" del microcontrollore. Questo viene fatto compilando il codice del microcontrollore per ottenere il file **out/klipper.dict**:
 
 ```
 make menuconfig
 make
 ```
 
-Once the above is done it is possible to run Klipper in batch mode (see [installation](Installation.md) for the steps necessary to build the python virtual environment and a printer.cfg file):
+Una volta fatto quanto sopra è possibile eseguire Klipper in modalità batch (vedi [installazione](Installation.md) per i passaggi necessari per costruire l'ambiente virtuale python e un file printer.cfg):
 
 ```
 ~/klippy-env/bin/python ./klippy/klippy.py ~/printer.cfg -i test.gcode -o test.serial -v -d out/klipper.dict

@@ -2,13 +2,13 @@
 
 Questo documento descrive il sistema di calibrazione automatica di Klipper per stampanti "delta".
 
-Delta calibration involves finding the tower endstop positions, tower angles, delta radius, and delta arm lengths. These settings control printer motion on a delta printer. Each one of these parameters has a non-obvious and non-linear impact and it is difficult to calibrate them manually. In contrast, the software calibration code can provide excellent results with just a few minutes of time. No special probing hardware is necessary.
+La calibrazione delta implica la ricerca delle posizioni dei finecorsa della torre, degli angoli della torre, del raggio delta e delle lunghezze del braccio delta. Queste impostazioni controllano il movimento della stampante su una stampante delta. Ognuno di questi parametri ha un impatto non evidente e non lineare ed è difficile calibrarli manualmente. Al contrario, il codice di calibrazione del software può fornire risultati eccellenti in pochi minuti di tempo. Non è necessario alcun hardware di rilevamento speciale.
 
-Ultimately, the delta calibration is dependent on the precision of the tower endstop switches. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of those switches.
+In definitiva, la calibrazione delta dipende dalla precisione degli interruttori di fine corsa della torre. Se si utilizzano i driver per motori passo-passo Trinamic, considerare l'abilitazione del rilevamento [fase endstop](Endstop_Phase.md) per migliorare la precisione di tali interruttori.
 
 ## Automatic vs manual probing
 
-Klipper supports calibrating the delta parameters via a manual probing method or via an automatic Z probe.
+Klipper supporta la calibrazione dei parametri delta tramite un metodo di sonda manuale o tramite una sonda Z automatica.
 
 A number of delta printer kits come with automatic Z probes that are not sufficiently accurate (specifically, small differences in arm length can cause effector tilt which can skew an automatic probe). If using an automatic probe then first [calibrate the probe](Probe_Calibrate.md) and then check for a [probe location bias](Probe_Calibrate.md#location-bias-check). If the automatic probe has a bias of more than 25 microns (.025mm) then use manual probing instead. Manual probing only takes a few minutes and it eliminates error introduced by the probe.
 

@@ -2,21 +2,21 @@
 
 I driver per motori passo-passo su Klipper richiedono un parametro `rotation_distance` in ciascuna [stepper config section](Config_Reference.md#stepper). La `distanza_rotazione` è la distanza percorsa dall'asse con un giro completo del motore passo-passo relativo. Questo documento descrive come configurare questo valore.
 
-## Obtaining rotation_distance from steps_per_mm (or step_distance)
+## Ottenere rotation_distance da steps_per_mm (o step_distance)
 
-The designers of your 3d printer originally calculated `steps_per_mm` from a rotation distance. If you know the steps_per_mm then it is possible to use this general formula to obtain that original rotation distance:
+I progettisti della tua stampante 3d hanno originariamente calcolato `steps_per_mm` da una distanza di rotazione. Se conosci i passi_per_mm, è possibile utilizzare questa formula generale per ottenere la distanza di rotazione originale:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
 ```
 
-Or, if you have an older Klipper configuration and know the `step_distance` parameter you can use this formula:
+Oppure, se hai una configurazione di Klipper precedente e conosci il parametro `step_distance` puoi usare questa formula:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
 ```
 
-The `<full_steps_per_rotation>` setting is determined from the type of stepper motor. Most stepper motors are "1.8 degree steppers" and therefore have 200 full steps per rotation (360 divided by 1.8 is 200). Some stepper motors are "0.9 degree steppers" and thus have 400 full steps per rotation. Other stepper motors are rare. If unsure, do not set full_steps_per_rotation in the config file and use 200 in the formula above.
+L'impostazione `<full_steps_per_rotation>` è determinata dal tipo di motore passo-passo. La maggior parte dei motori passo-passo sono "passi passo a 1,8 gradi" e quindi hanno 200 passi completi per rotazione (360 diviso 1,8 fa 200). Alcuni motori passo passo sono "passo passo a 0,9 gradi" e quindi hanno 400 passi completi per rotazione. Altri motori passo-passo sono rari. In caso di dubbi, non impostare full_steps_per_rotation nel file di configurazione e utilizzare 200 nella formula sopra.
 
 The `<microsteps>` setting is determined by the stepper motor driver. Most drivers use 16 microsteps. If unsure, set `microsteps: 16` in the config and use 16 in the formula above.
 

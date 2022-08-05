@@ -4,11 +4,11 @@ Il modulo Griglia Letto (bed mesh) può essere usato per compensare le irregolar
 
 Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information.
 
-## Basic Configuration
+## Configurazione base
 
 ### Rectangular Beds
 
-This example assumes a printer with a 250 mm x 220 mm rectangular bed and a probe with an x-offset of 24 mm and y-offset of 5 mm.
+Questo esempio presuppone una stampante con un piatto rettangolare di 250 mm x 220 mm e una sonda con un offset x di 24 mm e un offset y di 5 mm.
 
 ```
 [bed_mesh]
@@ -19,7 +19,7 @@ mesh_max: 240, 198
 probe_count: 5, 3
 ```
 
-- `speed: 120` *Default Value: 50* The speed in which the tool moves between points.
+- `speed: 120` *Valore predefinito: 50* La velocità con cui la testa di stampa si sposta tra i punti.
 - `horizontal_move_z: 5` *Default Value: 5* The Z coordinate the probe rises to prior to traveling between points.
 - `mesh_min: 35, 6` *Required* The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.
 - `mesh_max: 240, 198` *Required* The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with `mesh_min`, this coordiante is relative to the probe's location.

@@ -4,11 +4,11 @@ Questo documento descrive i comandi che Klipper supporta. Questi sono i comandi 
 
 ## Comandi G-Code
 
-Klipper supports the following standard G-Code commands:
+Klipper supporta i seguenti comandi G-Code standard:
 
-- Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
+- Movimento (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
 - Sosta: `G4 P<millisecondi>`
-- Move to origin: `G28 [X] [Y] [Z]`
+- Sposta all'origine: `G28 [X] [Y] [Z]`
 - Turn off motors: `M18` or `M84`
 - Wait for current moves to finish: `M400`
 - Use absolute/relative distances for extrusion: `M82`, `M83`
