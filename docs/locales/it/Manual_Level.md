@@ -2,11 +2,11 @@
 
 Questo documento descrive gli strumenti per la calibrazione di un finecorsa Z e per l'esecuzione delle regolazioni delle viti di livellamento del piatto.
 
-## Calibrating a Z endstop
+## Calibrazione di un finecorsa Z
 
-An accurate Z endstop position is critical to obtaining high quality prints.
+Una posizione precisa del fine corsa Z è fondamentale per ottenere stampe di alta qualità.
 
-Note, though, the accuracy of the Z endstop switch itself can be a limiting factor. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of the switch.
+Si noti, tuttavia, che la precisione dell'interruttore di fine corsa Z stesso può essere un fattore limitante. Se si utilizzano i driver per motori passo-passo Trinamic, considerare l'abilitazione del rilevamento [fase finecorsa](Endstop_Phase.md) per migliorare la precisione dell'interruttore.
 
 To perform a Z endstop calibration, home the printer, command the head to move to a Z position that is at least five millimeters above the bed (if it is not already), command the head to move to an XY position near the center of the bed, then navigate to the OctoPrint terminal tab and run:
 

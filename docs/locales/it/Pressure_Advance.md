@@ -2,15 +2,15 @@
 
 Questo documento fornisce informazioni sulla messa a punto della variabile di regolazione de "l'anticipo della pressione" per un particolare ugello e filamento. La funzione di anticipo della pressione può essere utile per ridurre i filamenti. Per maggiori informazioni su come viene implementato l'anticipo di pressione, vedere il documento [kinematics](Kinematics.md).
 
-## Tuning pressure advance
+## Regolazione del pressure advance
 
-Pressure advance does two useful things - it reduces ooze during non-extrude moves and it reduces blobbing during cornering. This guide uses the second feature (reducing blobbing during cornering) as a mechanism for tuning.
+Pressure advance fa due cose utili: riduce l 'ooze' durante i movimenti senza estrusione e riduce il blobbing durante le curve. Questa guida utilizza la seconda funzione (riduzione del blobbing durante le curve) come meccanismo per la messa a punto.
 
-In order to calibrate pressure advance the printer must be configured and operational as the tuning test involves printing and inspecting a test object. It is a good idea to read this document in full prior to running the test.
+Per calibrare la pressure advance, la stampante deve essere configurata e operativa poiché il test di ottimizzazione prevede la stampa e l'ispezione di un oggetto di prova. È una buona idea leggere questo documento per intero prima di eseguire il test.
 
-Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" is disabled in the slicer.
+Usa uno slicer per generare il codice G per il grande cubo vuoto che si trova in [docs/prints/square_tower.stl](prints/square_tower.stl). Utilizzare una velocità elevata (ad es. 100 mm/s), riempimento zero e un'altezza dello strato grossolana (l'altezza dello strato dovrebbe essere circa il 75% del diametro dell'ugello). Assicurati che qualsiasi "controllo dinamico dell'accelerazione" sia disabilitato nello slicer.
 
-Prepare for the test by issuing the following G-Code command:
+Prepararsi per il test emettendo il seguente comando G-Code:
 
 ```
 SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500

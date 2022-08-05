@@ -12,16 +12,16 @@ The following information is available in [angle some_name](Config_Reference.md#
 
 ## bed_mesh
 
-The following information is available in the [bed_mesh](Config_Reference.md#bed_mesh) object:
+Le seguenti informazioni sono disponibili in [bed_mesh](Config_Reference.md#bed_mesh):
 
 - `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: Information on the currently active bed_mesh.
 - `profiles`: The set of currently defined profiles as setup using BED_MESH_PROFILE.
 
 ## configfile
 
-The following information is available in the `configfile` object (this object is always available):
+Le seguenti informazioni sono disponibili nell'oggetto `configfile` (questo oggetto è sempre disponibile):
 
-- `settings.<section>.<option>`: Returns the given config file setting (or default value) during the last software start or restart. (Any settings changed at run-time will not be reflected here.)
+- `settings.<section>.<option>`: Restituisce l'impostazione del file di configurazione data (o il valore predefinito) durante l'ultimo avvio o riavvio del software. (Qualsiasi impostazione modificata in fase di esecuzione non si rifletterà qui.)
 - `config.<section>.<option>`: Returns the given raw config file setting as read by Klipper during the last software start or restart. (Any settings changed at run-time will not be reflected here.) All values are returned as strings.
 - `save_config_pending`: Returns true if there are updates that a `SAVE_CONFIG` command may persist to disk.
 - `save_config_pending_items`: Contains the sections and options that were changed and would be persisted by a `SAVE_CONFIG`.

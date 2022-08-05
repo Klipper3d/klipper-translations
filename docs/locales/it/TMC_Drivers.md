@@ -2,9 +2,9 @@
 
 Questo documento fornisce informazioni sull'utilizzo dei driver Trinamic per motori stepper in modalità SPI/UART su Klipper.
 
-Klipper can also use Trinamic drivers in their "standalone mode". However, when the drivers are in this mode, no special Klipper configuration is needed and the advanced Klipper features discussed in this document are not available.
+Klipper può anche utilizzare i driver Trinamic nella loro "modalità standalone". Tuttavia, quando i driver sono in questa modalità, non è necessaria alcuna configurazione speciale di Klipper e le funzionalità avanzate di Klipper discusse in questo documento non sono disponibili.
 
-In addition to this document, be sure to review the [TMC driver config reference](Config_Reference.md#tmc-stepper-driver-configuration).
+Oltre a questo documento, assicurati di rivedere il [riferimento alla configurazione del driver TMC](Config_Reference.md#tmc-stepper-driver-configuration).
 
 ## Tuning motor current
 
@@ -42,7 +42,7 @@ If using stealthChop mode then the positional inaccuracy from interpolation is s
 
 ## Sensorless Homing
 
-Sensorless homing allows to home an axis without the need for a physical limit switch. Instead, the carriage on the axis is moved into the mechanical limit making the stepper motor lose steps. The stepper driver senses the lost steps and indicates this to the controlling MCU (Klipper) by toggling a pin. This information can be used by Klipper as end stop for the axis.
+L'homing senza sensori consente di posizionare un asse senza la necessità di un finecorsa fisico. Invece, il carrello sull'asse viene spostato nel finecorsa meccanico facendo perdere passi al motore passo-passo. Il driver stepper rileva i passi persi e lo indica all'MCU di controllo (Klipper) attivando un pin. Queste informazioni possono essere utilizzate da Klipper come fine corsa per l'asse.
 
 This guide covers the setup of sensorless homing for the X axis of your (cartesian) printer. However, it works the same with all other axes (that require an end stop). You should configure and tune it for one axis at a time.
 

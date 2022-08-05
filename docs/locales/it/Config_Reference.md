@@ -2,15 +2,15 @@
 
 Questo documento è un riferimento per le opzioni disponibili nel file di configurazione di Klipper.
 
-The descriptions in this document are formatted so that it is possible to cut-and-paste them into a printer config file. See the [installation document](Installation.md) for information on setting up Klipper and choosing an initial config file.
+Le descrizioni in questo documento sono formattate in modo che sia possibile tagliarle e incollarle in un file di configurazione della stampante. Consulta il [documento di installazione](Installation.md) per informazioni sulla configurazione di Klipper e sulla scelta di un file di configurazione iniziale.
 
-## Micro-controller configuration
+## Configurazione del microcontrollore
 
-### Format of micro-controller pin names
+### Formato dei nomi dei pin del microcontrollore
 
-Many config options require the name of a micro-controller pin. Klipper uses the hardware names for these pins - for example `PA4`.
+Molte opzioni di configurazione richiedono il nome di un pin del microcontrollore. Klipper usa i nomi hardware per questi pin, ad esempio "PA4".
 
-Pin names may be preceded by `!` to indicate that a reverse polarity should be used (eg, trigger on low instead of high).
+I nomi dei pin possono essere preceduti da `!` per indicare che deve essere utilizzata una polarità inversa (ad esempio, trigger su basso anziché alto).
 
 Input pins may be preceded by `^` to indicate that a hardware pull-up resistor should be enabled for the pin. If the micro-controller supports pull-down resistors then an input pin may alternatively be preceded by `~`.
 
@@ -712,7 +712,7 @@ sensor_pin:
 control:
 min_temp:
 max_temp:
-#   See the "extruder" section for a description of the above parameters.
+#   Vedere la sezione "extruder" per una descrizione dei parametri sopra.
 ```
 
 ## Supporto livellamento del piatto
@@ -1123,11 +1123,11 @@ See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes
 #    layer si eseguirà in un step completo.) L'impostazione predefinita è False.
 ```
 
-## G-Code macros and events
+## Macro ed eventi G-Code
 
 ### [gcode_macro]
 
-G-Code macros (one may define any number of sections with a "gcode_macro" prefix). See the [command template guide](Command_Templates.md) for more information.
+Macro G-Code (è possibile definire un numero qualsiasi di sezioni con un prefisso "gcode_macro"). Per ulteriori informazioni, consulta la [Guida ai modelli di comando](Command_Templates.md).
 
 ```
 [gcode_macro my_cmd]
@@ -1774,7 +1774,7 @@ Manual steppers (one may define any number of sections with a "manual_stepper" p
 
 ### [verify_heater]
 
-Heater and temperature sensor verification. Heater verification is automatically enabled for each heater that is configured on the printer. Use verify_heater sections to change the default settings.
+Verifica riscaldatore e sensore di temperatura. La verifica del riscaldatore viene abilitata automaticamente per ogni riscaldatore configurato sulla stampante. Usa le sezioni di verifica_riscaldatore per modificare le impostazioni predefinite.
 
 ```
 [verify_heater heater_config_name]
@@ -1904,7 +1904,7 @@ Generic heaters (one may define any number of sections with a "heater_generic" p
 
 ### [temperature_sensor]
 
-Generic temperature sensors. One can define any number of additional temperature sensors that are reported via the M105 command.
+Sensori di temperatura generici. È possibile definire un numero qualsiasi di sensori di temperatura aggiuntivi che vengono riportati tramite il comando M105.
 
 ```
 [temperature_sensor my_sensor]
@@ -3167,7 +3167,7 @@ lcd_type:
 #   button.
 ```
 
-#### hd44780 display
+#### display hd44780
 
 Information on configuring hd44780 displays (which is used in "RepRapDiscount 2004 Smart Controller" type displays).
 
@@ -3194,7 +3194,7 @@ d7_pin:
 ...
 ```
 
-#### hd44780_spi display
+#### display hd44780_spi
 
 Information on configuring an hd44780_spi display - a 20x04 display controlled via a hardware "shift register" (which is used in mightyboard based printers).
 
