@@ -1,16 +1,18 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
 # Dex94 <Dasvaresu@dr.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-27 10:52+0000\n"
-"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/bed_mesh/it/>\n"
+"PO-Revision-Date: 2022-08-05 11:20+0000\n"
+"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/bed_mesh/"
+"it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "The Bed Mesh module may be used to compensate for bed surface irregularties "
@@ -30,7 +32,7 @@ msgstr ""
 "Griglia Letto non riceverà risultati accurati dal processo di ispezione."
 
 msgid "Basic Configuration"
-msgstr ""
+msgstr "Configurazione base"
 
 msgid "Rectangular Beds"
 msgstr ""
@@ -39,11 +41,15 @@ msgid ""
 "This example assumes a printer with a 250 mm x 220 mm rectangular bed and a "
 "probe with an x-offset of 24 mm and y-offset of 5 mm."
 msgstr ""
+"Questo esempio presuppone una stampante con un piatto rettangolare di 250 mm "
+"x 220 mm e una sonda con un offset x di 24 mm e un offset y di 5 mm."
 
 msgid ""
 "`speed: 120` *Default Value: 50* The speed in which the tool moves between "
 "points."
 msgstr ""
+"`speed: 120` *Valore predefinito: 50* La velocità con cui la testa di stampa "
+"si sposta tra i punti."
 
 msgid ""
 "`horizontal_move_z: 5` *Default Value: 5* The Z coordinate the probe rises "

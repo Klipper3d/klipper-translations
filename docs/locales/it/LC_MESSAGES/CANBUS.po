@@ -1,41 +1,50 @@
 # Davide Di Gloria <davidedigloria87@gmail.com>, 2022.
 # Dex94 <Dasvaresu@dr.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-27 10:52+0000\n"
-"Last-Translator: Dex94 <Dasvaresu@dr.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/canbus/it/>\n"
+"PO-Revision-Date: 2022-08-05 11:20+0000\n"
+"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/canbus/"
+"it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid "This document describes Klipper's CAN bus support."
 msgstr "Questo documento descrive il supporto del CAN bus di Klipper."
 
 msgid "Device Hardware"
-msgstr ""
+msgstr "Hardware del dispositivo"
 
 msgid ""
 "Klipper currently only supports CAN on stm32 chips. In addition, the micro-"
 "controller chip must support CAN and it must be on a board that has a CAN "
 "transceiver."
 msgstr ""
+"Klipper attualmente supporta solo CAN su chip stm32. Inoltre, il chip del "
+"microcontrollore deve supportare la CAN e deve trovarsi su una scheda dotata "
+"di un ricetrasmettitore CAN."
 
 msgid "Host Hardware"
-msgstr ""
+msgstr "Hardware Host"
 
 msgid ""
 "In order to use a CAN bus, it is necessary to have a host adapter. There are"
 " currently two common options:"
 msgstr ""
+"Per utilizzare un bus CAN, è necessario disporre di un adattatore sul host. "
+"Attualmente ci sono due opzioni comuni:"
 
 msgid ""
 "Use a [Waveshare Raspberry Pi CAN hat](https://www.waveshare.com/rs485-can-"
 "hat.htm) or one of its many clones."
 msgstr ""
+"Usa un [Waveshare Raspberry Pi CAN](https://www.waveshare.com/rs485-can-hat."
+"htm) o uno dei suoi tanti cloni."
 
 msgid ""
 "It is also necessary to configure the host operating system to use the "
