@@ -2,15 +2,15 @@
 
 La livellatura del letto è fondamentale per ottenere stampe di alta qualità. Se un letto non è adeguatamente "livellato" può portare a una scarsa adesione del letto, a una "deformazione" e a problemi minori durante la stampa. Questo documento serve come guida per eseguire il livellamento del letto in Klipper.
 
-It's important to understand the goal of bed leveling. If the printer is commanded to a position `X0 Y0 Z10` during a print, then the goal is for the printer's nozzle to be exactly 10mm from the printer's bed. Further, should the printer then be commanded to a position of `X50 Z10` the goal is for the nozzle to maintain an exact distance of 10mm from the bed during that entire horizontal move.
+È importante comprendere l'obiettivo del livellamento del piatto. Se alla stampante viene comandata una posizione `X0 Y0 Z10` durante una stampa, l'obiettivo è che l'ugello della stampante si trovi esattamente a 10 mm dal letto della stampante. Inoltre, se poi la stampante dovesse essere comandata in una posizione di `X50 Z10`, l'obiettivo è che l'ugello mantenga una distanza esatta di 10 mm dal letto durante l'intero movimento orizzontale.
 
-In order to get good quality prints the printer should be calibrated so that Z distances are accurate to within about 25 microns (.025mm). This is a small distance - significantly smaller than the width of a typical human hair. This scale can not be measured "by eye". Subtle effects (such as heat expansion) impact measurements at this scale. The secret to getting high accuracy is to use a repeatable process and to use a leveling method that leverages the high accuracy of the printer's own motion system.
+Per ottenere stampe di buona qualità, la stampante deve essere calibrata in modo che le distanze Z siano precise entro circa 25 micron (0,025 mm). Questa è una piccola distanza, significativamente più piccola della larghezza di un tipico capello umano. Questa scala non può essere misurata "a occhio". Gli effetti sottili (come l'espansione del calore) influiscono sulle misurazioni a questa scala. Il segreto per ottenere un'elevata precisione è utilizzare un processo ripetibile e un metodo di livellamento che sfrutti l'elevata precisione del sistema di movimento della stampante.
 
-## Choose the appropriate calibration mechanism
+## Scegliere il meccanismo di calibrazione appropriato
 
-Different types of printers use different methods for performing bed leveling. All of them ultimately depend on the "paper test" (described below). However, the actual process for a particular type of printer is described in other documents.
+Diversi tipi di stampanti utilizzano metodi diversi per eseguire il livellamento del piatto. Tutti alla fine dipendono dal "test cartaceo" (descritto di seguito). Tuttavia, il processo effettivo per un particolare tipo di stampante è descritto in altri documenti.
 
-Prior to running any of these calibration tools, be sure to run the checks described in the [config check document](Config_checks.md). It is necessary to verify basic printer motion before performing bed leveling.
+Prima di eseguire uno di questi strumenti di calibrazione, assicurarsi di eseguire i controlli descritti nel [document check di configurazione](Config_checks.md). È necessario verificare il movimento di base della stampante prima di eseguire il livellamento del piatto.
 
 For printers with an "automatic Z probe" be sure to calibrate the probe following the directions in the [Probe Calibrate](Probe_Calibrate.md) document. For delta printers, see the [Delta Calibrate](Delta_Calibrate.md) document. For printers with bed screws and traditional Z endstops, see the [Manual Level](Manual_Level.md) document.
 

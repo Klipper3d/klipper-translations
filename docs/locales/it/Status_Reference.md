@@ -2,7 +2,7 @@
 
 Questo documento è un riferimento alle informazioni sullo stato della stampante disponibili in Klipper [macro](Command_Templates.md), [display fields](Config_Reference.md#display) e tramite [API Server](API_Server.md).
 
-The fields in this document are subject to change - if using an attribute be sure to review the [Config Changes document](Config_Changes.md) when upgrading the Klipper software.
+I campi in questo documento sono soggetti a modifiche: se si utilizza un attributo, assicurarsi di rivedere il [documento Modifiche alla configurazione](Config_Changes.md) durante l'aggiornamento del software Klipper.
 
 ## angle
 

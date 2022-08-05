@@ -2,12 +2,12 @@
 
 Questo documento descrive i comandi che Klipper supporta. Questi sono i comandi che si possono inserire nella scheda del terminale OctoPrint.
 
-## G-Code commands
+## Comandi G-Code
 
 Klipper supports the following standard G-Code commands:
 
 - Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
-- Dwell: `G4 P<milliseconds>`
+- Sosta: `G4 P<millisecondi>`
 - Move to origin: `G28 [X] [Y] [Z]`
 - Turn off motors: `M18` or `M84`
 - Wait for current moves to finish: `M400`
@@ -27,11 +27,11 @@ Klipper supports the following standard G-Code commands:
    - Note: M190 always waits for temperature to settle at requested value
 - Set fan speed: `M106 S<value>`
 - Turn fan off: `M107`
-- Emergency stop: `M112`
-- Get current position: `M114`
+- Arresto di emergenza: `M112`
+- Ottieni la posizione attuale: `M114`
 - Get firmware version: `M115`
 
-For further details on the above commands see the [RepRap G-Code documentation](http://reprap.org/wiki/G-code).
+Per ulteriori dettagli sui comandi precedenti, vedere la [documentazione RepRap G-Code](http://reprap.org/wiki/G-code).
 
 Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable ["extended G-Code commands"](#additional-commands). Similarly, the G-Code terminal output is only intended to be human readable - see the [API Server document](API_Server.md) if controlling Klipper from external software.
 
@@ -129,7 +129,7 @@ The following command is available when a [bltouch config section](Config_Refere
 
 #### BLTOUCH_DEBUG
 
-`BLTOUCH_DEBUG COMMAND=<command>`: This sends a command to the BLTouch. It may be useful for debugging. Available commands are: `pin_down`, `touch_mode`, `pin_up`, `self_test`, `reset`. A BL-Touch V3.0 or V3.1 may also support `set_5V_output_mode`, `set_OD_output_mode`, `output_mode_store` commands.
+`BLTOUCH_DEBUG COMMAND=<command>`: Invia un comando al BLTouch. Può essere utile per il debug. I comandi disponibili sono: `pin_down`, `touch_mode`, `pin_up`, `self_test`, `reset`. Un BL-Touch V3.0 o V3.1 può anche supportare i comandi `set_5V_output_mode`, `set_OD_output_mode`, `output_mode_store`.
 
 #### BLTOUCH_STORE
 
@@ -157,11 +157,11 @@ The following commands are available when the [delta_calibrate config section](C
 
 #### DELTA_CALIBRATE
 
-`DELTA_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>]`: This command will probe seven points on the bed and recommend updated endstop positions, tower angles, and radius. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active.
+`DELTA_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>]`: questo comando sonderà sette punti sul piatto e consiglierà posizioni di finecorsa, angoli della torre e raggio aggiornati. Vedere il comando PROBE per i dettagli sui parametri della sonda opzionali. Se viene specificato METHOD=manual, lo strumento di probe manuale è attivato - vedere il comando MANUAL_PROBE precedente per i dettagli sui comandi aggiuntivi disponibili mentre questo strumento è attivo.
 
 #### DELTA_ANALYZE
 
-`DELTA_ANALYZE`: This command is used during enhanced delta calibration. See [Delta Calibrate](Delta_Calibrate.md) for details.
+`DELTA_ANALYZE`: questo comando viene utilizzato durante la calibrazione avanzata delle stampanti delta. Vedere [Delta Calibrate](Delta_Calibrate.md) per i dettagli.
 
 ### [display]
 
@@ -175,7 +175,7 @@ The following command is available when a [display config section](Config_Refere
 
 The display_status module is automatically loaded if a [display config section](Config_Reference.md#display) is enabled. It provides the following standard G-Code commands:
 
-- Display Message: `M117 <message>`
+- Messaggio visualizzato: `M117 <messaggio>`
 - Set build percentage: `M73 P<percent>`
 
 Viene inoltre fornito il seguente comando G-Code esteso:
@@ -196,7 +196,7 @@ The following commands are available when an [endstop_phase config section](Conf
 
 #### ENDSTOP_PHASE_CALIBRATE
 
-`ENDSTOP_PHASE_CALIBRATE [STEPPER=<config_name>]`: If no STEPPER parameter is provided then this command will reports statistics on endstop stepper phases during past homing operations. When a STEPPER parameter is provided it arranges for the given endstop phase setting to be written to the config file (in conjunction with the SAVE_CONFIG command).
+`ENDSTOP_PHASE_CALIBRATE [STEPPER=<config_name>]`: Se non viene fornito alcun parametro STEPPER, questo comando riporterà le statistiche sulle fasi stepper dell'arresto durante le precedenti operazioni di homing. Quando viene fornito un parametro STEPPER, fa in modo che l'impostazione della fase di fine corsa fornita sia scritta nel file di configurazione (insieme al comando SAVE_CONFIG).
 
 ### [exclude_object]
 
@@ -204,7 +204,7 @@ The following commands are available when an [exclude_object config section](Con
 
 #### `EXCLUDE_OBJECT`
 
-`EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]`: With no parameters, this will return a list of all currently excluded objects.
+`EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]`: Senza parametri, questo restituirà un elenco di tutti gli oggetti attualmente esclusi.
 
 When the `NAME` parameter is given, the named object will be excluded from printing.
 
@@ -214,25 +214,25 @@ When the `RESET` parameter is given, the list of excluded objects will be cleare
 
 #### `EXCLUDE_OBJECT_DEFINE`
 
-`EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] [RESET=1] [JSON=1]`: Provides a summary of an object in the file.
+`EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] [RESET=1] [JSON=1]`: fornisce un riepilogo di un oggetto nel file.
 
 With no parameters provided, this will list the defined objects known to Klipper. Returns a list of strings, unless the `JSON` parameter is given, when it will return object details in json format.
 
 When the `NAME` parameter is included, this defines an object to be excluded.
 
 - `NAME`: This parameter is required. It is the identifier used by other commands in this module.
-- `CENTER`: An X,Y coordinate for the object.
+- `CENTER`: una coordinata X,Y per l'oggetto.
 - `POLYGON`: An array of X,Y coordinates that provide an outline for the object.
 
 When the `RESET` parameter is provided, all defined objects will be cleared, and the `[exclude_object]` module will be reset.
 
 #### `EXCLUDE_OBJECT_START`
 
-`EXCLUDE_OBJECT_START NAME=object_name`: This command takes a `NAME` parameter and denotes the start of the gcode for an object on the current layer.
+`EXCLUDE_OBJECT_START NAME=object_name`: questo comando prende un parametro `NAME` e marca l'inizio del gcode per un oggetto sul livello corrente.
 
 #### `EXCLUDE_OBJECT_END`
 
-`EXCLUDE_OBJECT_END [NAME=object_name]`: Denotes the end of the object's gcode for the layer. It is paired with `EXCLUDE_OBJECT_START`. A `NAME` parameter is optional, and will only warn when the provided name does not match the current object.
+`EXCLUDE_OBJECT_END [NAME=object_name]`: Denota la fine del gcode dell'oggetto per il livello. È accoppiato con `EXCLUDE_OBJECT_START`. Un parametro `NAME` è facoltativo e avviserà solo quando il nome fornito non corrisponde all'oggetto corrente.
 
 ### [extruder]
 
@@ -286,8 +286,8 @@ The following command is available when a [filament_switch_sensor](Config_Refere
 
 The following standard G-Code commands are available when the [firmware_retraction config section](Config_Reference.md#firmware_retraction) is enabled. These commands allow you to utilize the firmware retraction feature available in many slicers, to reduce stringing during non-extrusion moves from one part of the print to another. Appropriately configuring pressure advance reduces the length of retraction required.
 
-- `G10`: Retracts the extruder using the currently configured parameters.
-- `G11`: Unretracts the extruder using the currently configured parameters.
+- `G10`: Ritrae l'estrusore utilizzando i parametri attualmente configurati.
+- `G11`: Ritira l'estrusore utilizzando i parametri attualmente configurati.
 
 The following additional commands are also available.
 
@@ -339,7 +339,7 @@ The gcode module is automatically loaded.
 
 The following standard G-Code commands are available if a [gcode_arcs config section](Config_Reference.md#gcode_arcs) is enabled:
 
-- Controlled Arc Move (G2 or G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>`
+- Movimento controllato dell'arco (G2 o G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<velocità>] I<valore> J<valore>`
 
 ### [gcode_macro]
 
@@ -383,11 +383,11 @@ The following commands are available when the [tsl1401cl filament width sensor c
 
 #### DISABLE_FILAMENT_WIDTH_SENSOR
 
-`DISABLE_FILAMENT_WIDTH_SENSOR`: Turn off the filament width sensor and stop using it for flow control.
+`DISABLE_FILAMENT_WIDTH_SENSOR`: Spegnere il sensore di larghezza del filamento e smettere di usarlo per il controllo del flusso.
 
 #### ENABLE_FILAMENT_WIDTH_SENSOR
 
-`ENABLE_FILAMENT_WIDTH_SENSOR`: Turn on the filament width sensor and start using it for flow control.
+`ENABLE_FILAMENT_WIDTH_SENSOR`: attiva il sensore di larghezza del filamento e inizia a usarlo per il controllo del flusso.
 
 #### QUERY_RAW_FILAMENT_WIDTH
 
@@ -395,11 +395,11 @@ The following commands are available when the [tsl1401cl filament width sensor c
 
 #### ENABLE_FILAMENT_WIDTH_LOG
 
-`ENABLE_FILAMENT_WIDTH_LOG`: Turn on diameter logging.
+`ENABLE_FILAMENT_WIDTH_LOG`: attiva la registrazione del diametro del filamento.
 
 #### DISABLE_FILAMENT_WIDTH_LOG
 
-`DISABLE_FILAMENT_WIDTH_LOG`: Turn off diameter logging.
+`DISABLE_FILAMENT_WIDTH_LOG`: Disattiva la registrazione del diametro del filamento.
 
 ### [heaters]
 
@@ -533,11 +533,11 @@ The following commands are available when the [pause_resume config section](Conf
 
 #### CLEAR_PAUSE
 
-`CLEAR_PAUSE`: Clears the current paused state without resuming the print. This is useful if one decides to cancel a print after a PAUSE. It is recommended to add this to your start gcode to make sure the paused state is fresh for each print.
+`CLEAR_PAUSE`: cancella lo stato di pausa corrente senza riprendere la stampa. Questo è utile se si decide di annullare una stampa dopo un PAUSE. Si consiglia di aggiungerlo al gcode iniziale per assicurarsi che lo stato in pausa sia aggiornato per ogni stampa.
 
 #### CANCEL_PRINT
 
-`CANCEL_PRINT`: Cancels the current print.
+`CANCEL_PRINT`: Annulla la stampa corrente.
 
 ### [probe]
 
@@ -664,11 +664,11 @@ The following commands are available when the [skew_correction config section](C
 
 #### GET_CURRENT_SKEW
 
-`GET_CURRENT_SKEW`: Reports the current printer skew for each plane in both radians and degrees. The skew is calculated based on parameters provided via the `SET_SKEW` gcode.
+`GET_CURRENT_SKEW`: Riporta l'inclinazione corrente della stampante per ciascun piano sia in radianti che in gradi. L'inclinazione viene calcolata in base ai parametri forniti tramite il gcode `SET_SKEW`.
 
 #### CALC_MEASURED_SKEW
 
-`CALC_MEASURED_SKEW [AC=<ac_length>] [BD=<bd_length>] [AD=<ad_length>]`: Calculates and reports the skew (in radians and degrees) based on a measured print. This can be useful for determining the printer's current skew after correction has been applied. It may also be useful before correction is applied to determine if skew correction is necessary. See [Skew Correction](Skew_Correction.md) for details on skew calibration objects and measurements.
+`CALC_MEASURED_SKEW [AC=<ac_length>] [BD=<bd_length>] [AD=<ad_length>]`: calcola e riporta l'inclinazione (in radianti e gradi) in base a una stampa di test misurata. Questo può essere utile per determinare l'inclinazione corrente della stampante dopo che è stata applicata la correzione. Può anche essere utile prima di applicare la correzione per determinare se è necessaria la correzione dell'inclinazione. Vedere [Correzione inclinazione](Correzione_inclinazione.md) per i dettagli su oggetti e misurazioni di calibrazione inclinazione.
 
 #### SKEW_PROFILE
 
@@ -708,7 +708,7 @@ The following commands are available when any of the [tmcXXXX config sections](C
 
 #### DUMP_TMC
 
-`DUMP_TMC STEPPER=<name>`: This command will read the TMC driver registers and report their values.
+`DUMP_TMC STEPPER=<nome>`: questo comando leggerà i registri del driver TMC e ne riporterà i valori.
 
 #### INIT_TMC
 
@@ -739,7 +739,7 @@ The tuning_tower module is automatically loaded.
 `TUNING_TOWER COMMAND=<command> PARAMETER=<name> START=<value> [SKIP=<value>] [FACTOR=<value> [BAND=<value>]] | [STEP_DELTA=<value> STEP_HEIGHT=<value>]`: A tool for tuning a parameter on each Z height during a print. The tool will run the given `COMMAND` with the given `PARAMETER` assigned to a value that varies with `Z` according to a formula. Use `FACTOR` if you will use a ruler or calipers to measure the Z height of the optimum value, or `STEP_DELTA` and `STEP_HEIGHT` if the tuning tower model has bands of discrete values as is common with temperature towers. If `SKIP=<value>` is specified, the tuning process doesn't begin until Z height `<value>` is reached, and below that the value will be set to `START`; in this case, the `z_height` used in the formulas below is actually `max(z - skip, 0)`. There are three possible combinations of options:
 
 - `FACTOR`: The value changes at a rate of `factor` per millimeter. The formula used is: `value = start + factor * z_height`. You can plug the optimum Z height directly into the formula to determine the optimum parameter value.
-- `FACTOR` and `BAND`: The value changes at an average rate of `factor` per millimeter, but in discrete bands where the adjustment will only be made every `BAND` millimeters of Z height. The formula used is: `value = start + factor * ((floor(z_height / band) + .5) * band)`.
+- `FACTOR` e `BAND`: il valore cambia a una velocità media di `factor` per millimetro, ma in bande discrete in cui la regolazione verrà effettuata solo ogni `BAND` millimetri di altezza Z. La formula utilizzata è: `value = start + factor * ((floor(z_height / band) + .5) * band)`.
 - `STEP_DELTA` and `STEP_HEIGHT`: The value changes by `STEP_DELTA` every `STEP_HEIGHT` millimeters. The formula used is: `value = start + step_delta * floor(z_height / step_height)`. You can simply count bands or read tuning tower labels to determine the optimum value.
 
 ### [virtual_sdcard]

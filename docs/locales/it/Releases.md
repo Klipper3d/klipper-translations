@@ -45,26 +45,26 @@ Disponibile su 20201028. Versione contenente solo correzioni di bug.
 
 Disponibile su 20191021. Modifiche principali in questa versione:
 
-* New G-Code command template support. G-Code in the config file is now evaluated with the Jinja2 template language.
-* Improvements to Trinamic stepper drivers:
-   * New support for TMC2209 and TMC5160 drivers.
-   * Improved DUMP_TMC, SET_TMC_CURRENT, and INIT_TMC G-Code commands.
-   * Improved support for TMC UART handling with an analog mux.
-* Improved homing, probing, and bed leveling support:
-   * New manual_probe, bed_screws, screws_tilt_adjust, skew_correction, safe_z_home modules added.
-   * Enhanced multi-sample probing with median, average, and retry logic.
-   * Improved documentation for BL-Touch, probe calibration, endstop calibration, delta calibration, sensorless homing, and endstop phase calibration.
-   * Improved homing support on a large Z axis.
-* Many Klipper micro-controller improvements:
-   * Klipper ported to: SAM3X8C, SAM4S8C, SAMD51, STM32F042, STM32F4
-   * New USB CDC driver implementations on SAM3X, SAM4, STM32F4.
-   * Enhanced support for flashing Klipper over USB.
-   * Software SPI support.
-   * Greatly improved temperature filtering on the LPC176x.
-   * Early output pin settings can be configured in the micro-controller.
-* New website with the Klipper documentation: http://klipper3d.org/
-   * Klipper now has a logo.
-* Experimental support for polar and "cable winch" kinematics.
+* Nuovo supporto per il modello dei comandi G-Code. Il G-Code nel file di configurazione viene ora valutato con il linguaggio dei template Jinja2.
+* Miglioramenti ai driver per stepper Trinamic:
+   * Nuovo supporto per i driver TMC2209 e TMC5160.
+   * Migliorati i comandi G-Code DUMP_TMC, SET_TMC_CURRENT e INIT_TMC.
+   * Supporto migliorato per la gestione di TMC UART con un mux analogico.
+* Supporto migliorato per homing, sonda e livellamento del piatto:
+   * Aggiunti nuovi moduli manual_probe, bed_screws, Screws_tilt_adjust, skew_correction, safe_z_home.
+   * Sondaggio multi-campione migliorato con logica mediana, media e tentativi.
+   * Documentazione migliorata per BL-Touch, calibrazione della sonda, calibrazione endstop, calibrazione delta, homing sensorless e calibrazione della fase finecorsa.
+   * Supporto della corsa di riferimento migliorato su un asse Z grande.
+* Molti miglioramenti del microcontrollore Klipper:
+   * Klipper portato su: SAM3X8C, SAM4S8C, SAMD51, STM32F042, STM32F4
+   * Nuove implementazioni del driver CDC USB su SAM3X, SAM4, STM32F4.
+   * Supporto avanzato per il flashing di Klipper su USB.
+   * Supporto SPI software.
+   * Filtraggio della temperatura notevolmente migliorato sull'LPC176x.
+   * Le impostazioni dei pin di uscita possono essere configurate nel microcontrollore.
+* Nuovo sito web con la documentazione di Klipper: http://klipper3d.org/
+   * Klipper ora ha un logo.
+* Supporto sperimentale alla cinematica polare e "cable winch".
 * The config file can now include other config files.
 * Many additional modules added: board_pins, controller_fan, delayed_gcode, dotstar, filament_switch_sensor, firmware_retraction, gcode_arcs, gcode_button, heater_generic, manual_stepper, mcp4018, mcp4728, neopixel, pause_resume, respond, temperature_sensor tsl1401cl_filament_width_sensor, tuning_tower
 * Many additional commands added: RESTORE_GCODE_STATE, SAVE_GCODE_STATE, SET_GCODE_VARIABLE, SET_HEATER_TEMPERATURE, SET_IDLE_TIMEOUT, SET_TEMPERATURE_FAN_TARGET

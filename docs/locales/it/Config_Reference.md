@@ -591,119 +591,113 @@ microsteps:
 rotation_distance:
 #full_steps_per_rotation:
 #gear_ratio:
-#   See the "stepper" section for a description of the above
-#   parameters. If none of the above parameters are specified then no
-#   stepper will be associated with the nozzle hotend (though a
-#   SYNC_EXTRUDER_MOTION command may associate one at run-time).
+#   Vedere la sezione "stepper" per una descrizione di quanto sopra
+#   Se nessuno dei parametri precedenti è specificato, nessuno stepper 
+#   sarà associato all'hotend dell'ugello (sebbene un comando
+#   SYNC_EXTRUDER_MOTION possa associarne uno in fase di esecuzione).
 nozzle_diameter:
-#   Diameter of the nozzle orifice (in mm). This parameter must be
-#   provided.
-filament_diameter:
-#   The nominal diameter of the raw filament (in mm) as it enters the
-#   extruder. This parameter must be provided.
+#   Diametro dell'orifizio dell'ugello (in mm). Questo parametro deve essere fornito.
+filament_diameter::
+#   Il diametro nominale del filamento grezzo (in mm) quando
+#   entra nell'estrusore. Questo parametro deve essere fornito.
 #max_extrude_cross_section:
-#   Maximum area (in mm^2) of an extrusion cross section (eg,
-#   extrusion width multiplied by layer height). This setting prevents
-#   excessive amounts of extrusion during relatively small XY moves.
-#   If a move requests an extrusion rate that would exceed this value
-#   it will cause an error to be returned. The default is: 4.0 *
-#   nozzle_diameter^2
-#instantaneous_corner_velocity: 1.000
-#   The maximum instantaneous velocity change (in mm/s) of the
-#   extruder during the junction of two moves. The default is 1mm/s.
+#   Area massima (in mm^2) di una sezione trasversale dell'estrusione
+#   (ad es. larghezza dell'estrusione moltiplicata per l'altezza dello strato).
+#   Questa impostazione previene quantità eccessive di estrusione
+#   durante spostamenti XY relativamente piccoli.
+#   Se un movimento richiede una velocità di estrusione che supererebbe questo valore
+#   causerà la restituzione di un errore. L'impostazione predefinita
+#   è: 4.0 * diametro_ugello^2
+instantaneous_corner_velocity: 1.000
+#   La variazione di velocità istantanea massima (in mm/s) del
+#   estrusore durante il collegamento di due movimenti. Il valore predefinito è 1 mm/s.
 #max_extrude_only_distance: 50.0
-#   Maximum length (in mm of raw filament) that a retraction or
-#   extrude-only move may have. If a retraction or extrude-only move
-#   requests a distance greater than this value it will cause an error
-#   to be returned. The default is 50mm.
+#   Lunghezza massima (in mm di filamento grezzo) che può avere un movimento
+#    di retrazione o di sola estrusione. Se uno spostamento di retrazione
+#    o di sola estrusione richiede una distanza maggiore di questo valore,
+#   verrà restituito un errore. Il valore predefinito è 50 mm.
 #max_extrude_only_velocity:
 #max_extrude_only_accel:
-#   Maximum velocity (in mm/s) and acceleration (in mm/s^2) of the
-#   extruder motor for retractions and extrude-only moves. These
-#   settings do not have any impact on normal printing moves. If not
-#   specified then they are calculated to match the limit an XY
-#   printing move with a cross section of 4.0*nozzle_diameter^2 would
-#   have.
+#   Velocità massima (in mm/s) e accelerazione (in mm/s^2) del
+#   motore estrusore per retrazioni e movimenti di sola estrusione.
+#   Queste impostazioni non hanno alcun impatto sui normali movimenti di stampa.
+#   Se non specificati, vengono calcolati per corrispondere al limite che avrebbe
+#   un movimento di stampa XY con una sezione trasversale di 4,0*diametro_ugello^2.
 #pressure_advance: 0.0
-#   The amount of raw filament to push into the extruder during
-#   extruder acceleration. An equal amount of filament is retracted
-#   during deceleration. It is measured in millimeters per
-#   millimeter/second. The default is 0, which disables pressure
-#   advance.
-#pressure_advance_smooth_time: 0.040
-#   A time range (in seconds) to use when calculating the average
-#   extruder velocity for pressure advance. A larger value results in
-#   smoother extruder movements. This parameter may not exceed 200ms.
-#   This setting only applies if pressure_advance is non-zero. The
-#   default is 0.040 (40 milliseconds).
+#   La quantità di filamento grezzo da spingere nell'estrusore durante
+#   accelerazione dell'estrusore. Una uguale quantità di filamento viene
+#   retratta durante la decelerazione. Si misura in millimetri per
+#   millimetro/secondo. Il valore predefinito è 0, che disabilita l'avanzamento della pressione.
+#pressure_advance_smooth_time: 0,040
+#   Un intervallo di tempo (in secondi) da utilizzare per calcolare la velocità media
+#   dell'estrusore per l'avanzamento della pressione. Un valore maggiore si traduce
+#   in movimenti più fluidi dell'estrusore. Questo parametro non può superare i 200 ms.
+#   Questa impostazione si applica solo se pressure_advance è diverso da zero.
+#   Il valore predefinito è 0,040 (40 millisecondi).
 #
-# The remaining variables describe the extruder heater.
+#   Le restanti variabili descrivono il riscaldatore dell'estrusore.
 heater_pin:
-#   PWM output pin controlling the heater. This parameter must be
-#   provided.
+#   Pin di uscita PWM che controlla il riscaldatore. Questo parametro deve essere fornito.
 #max_power: 1.0
-#   The maximum power (expressed as a value from 0.0 to 1.0) that the
-#   heater_pin may be set to. The value 1.0 allows the pin to be set
-#   fully enabled for extended periods, while a value of 0.5 would
-#   allow the pin to be enabled for no more than half the time. This
-#   setting may be used to limit the total power output (over extended
-#   periods) to the heater. The default is 1.0.
+#   La potenza massima (espressa come un valore compreso tra 0,0 e 1,0) a cui
+#   può essere impostato il riscaldatore_pin. Il valore 1.0 consente di impostare il pin
+#   completamente abilitato per periodi prolungati, mentre un valore di 0,5
+#   consentirebbe di abilitare il pin per non più della metà del tempo. Questo
+#   l'impostazione può essere utilizzata per limitare la potenza totale 
+#   (per periodi prolungati) al riscaldatore. L'impostazione predefinita è 1.0.
 sensor_type:
-#   Type of sensor - common thermistors are "EPCOS 100K B57560G104F",
-#   "ATC Semitec 104GT-2", "ATC Semitec 104NT-4-R025H42G", "Generic
+#   Tipo di sensore - i termistori comuni sono "EPCOS 100K B57560G104F",
+#   "ATC Semitec 104GT-2", "ATC Semitec 104NT-4-R025H42G", "Generico
 #   3950","Honeywell 100K 135-104LAG-J01", "NTC 100K MGB18-104F39050L32",
-#   "SliceEngineering 450", and "TDK NTCG104LH104JT1". See the
-#   "Temperature sensors" section for other sensors. This parameter
-#   must be provided.
+#   "SliceEngineering 450" e "TDK NTCG104LH104JT1". Vedere la sezione 
+#   "Sensori di temperatura" per altri sensori. Questo parametro deve essere fornito.
 sensor_pin:
-#   Analog input pin connected to the sensor. This parameter must be
-#   provided.
+#   Pin di ingresso analogico collegato al sensore. Questo parametro deve essere fornito.
 #pullup_resistor: 4700
-#   The resistance (in ohms) of the pullup attached to the thermistor.
-#   This parameter is only valid when the sensor is a thermistor. The
-#   default is 4700 ohms.
+#   La resistenza (in ohm) del pullup collegato al termistore. Questo parametro
+#   è valido solo quando il sensore è un termistore. Il valore predefinito è 4700 ohm.
 #smooth_time: 1.0
-#   A time value (in seconds) over which temperature measurements will
-#   be smoothed to reduce the impact of measurement noise. The default
-#   is 1 seconds.
+#   Un valore di tempo (in secondi) durante il quale le misurazioni della
+#   temperatura verranno uniformate per ridurre l'impatto del rumore
+#   di misurazione. Il valore predefinito è 1 secondo.
 control:
-#   Control algorithm (either pid or watermark). This parameter must
-#   be provided.
+#   Algoritmo di controllo (pid o filigrana). Questo parametro deve
+#   essere fornito.
 pid_Kp:
 pid_Ki:
 pid_Kd:
-#   The proportional (pid_Kp), integral (pid_Ki), and derivative
-#   (pid_Kd) settings for the PID feedback control system. Klipper
-#   evaluates the PID settings with the following general formula:
-#     heater_pwm = (Kp*error + Ki*integral(error) - Kd*derivative(error)) / 255
-#   Where "error" is "requested_temperature - measured_temperature"
-#   and "heater_pwm" is the requested heating rate with 0.0 being full
-#   off and 1.0 being full on. Consider using the PID_CALIBRATE
-#   command to obtain these parameters. The pid_Kp, pid_Ki, and pid_Kd
-#   parameters must be provided for PID heaters.
-#max_delta: 2.0
-#   On 'watermark' controlled heaters this is the number of degrees in
-#   Celsius above the target temperature before disabling the heater
-#   as well as the number of degrees below the target before
-#   re-enabling the heater. The default is 2 degrees Celsius.
-#pwm_cycle_time: 0.100
-#   Time in seconds for each software PWM cycle of the heater. It is
-#   not recommended to set this unless there is an electrical
-#   requirement to switch the heater faster than 10 times a second.
-#   The default is 0.100 seconds.
+#   Il proporzionale (pid_Kp), l'integrale (pid_Ki) e la derivata
+#   (pid_Kd) impostazioni per il sistema di controllo del feedback PID. Klipper
+#   valuta le impostazioni PID con la seguente formula generale:
+#   riscaldatore_pwm = (Kp*errore + Ki*integrale(errore) - Kd*derivato(errore)) / 255
+#   Dove "errore" è "temperatura_richiesta - temperatura_misurata"
+#   e "heater_pwm" è la velocità di riscaldamento richiesta con 0,0 completamente
+#   off e 1.0 completamente on. Prendi in considerazione l'utilizzo di PID_CALIBRATE
+#   comando per ottenere questi parametri. pid_Kp, pid_Ki e pid_Kd
+#   i parametri devono essere forniti per i riscaldatori PID.
+#delta_max: 2.0
+#   Sui riscaldatori controllati questo è il numero di gradi in
+#   Celsius al di sopra della temperatura target prima di disattivare il riscaldatore
+#   così come il numero di gradi sotto il target prima
+#   riattivare il riscaldatore. L'impostazione predefinita è 2 gradi Celsius.
+#pwm_cycle_time: 0,100
+#   Tempo in secondi per ogni ciclo PWM software del riscaldatore.
+#   non è consigliabile impostarlo a meno che non ci sia necessario come
+#   requisito accendere il riscaldatore più velocemente di 10 volte al secondo.
+#   Il valore predefinito è 0,100 secondi.
 #min_extrude_temp: 170
-#   The minimum temperature (in Celsius) at which extruder move
-#   commands may be issued. The default is 170 Celsius.
+#   La temperatura minima (in gradi Celsius) alla quale possono essere 
+#   impartiti comandi all'estrusore. L'impostazione predefinita è 170 gradi Celsius.
 min_temp:
 max_temp:
-#   The maximum range of valid temperatures (in Celsius) that the
-#   heater must remain within. This controls a safety feature
-#   implemented in the micro-controller code - should the measured
-#   temperature ever fall outside this range then the micro-controller
-#   will go into a shutdown state. This check can help detect some
-#   heater and sensor hardware failures. Set this range just wide
-#   enough so that reasonable temperatures do not result in an error.
-#   These parameters must be provided.
+#   L'intervallo massimo di temperature valide (in gradi Celsius) in cui
+#   il riscaldatore deve rimanere all'interno. Questo controlla una funzione di sicurezza
+#   implementata nel codice del microcontrollore , la temperatura
+#   non cadrà mai al di fuori di questo intervallo, altrimenti il microcontrollore
+#   entrerà in uno stato di arresto. Questo controllo può aiutare a rilevarne alcuni
+#   guasti hardware del riscaldatore e del sensore. Imposta questo intervallo solo in modo ampio
+#   abbastanza in modo che temperature ragionevoli non si traducano in un errore.
+#   Questi parametri devono essere forniti.
 ```
 
 ### [heater_bed]
@@ -1108,25 +1102,25 @@ See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes
 ```
 [endstop_phase stepper_z]
 #endstop_accuracy:
-#   Sets the expected accuracy (in mm) of the endstop. This represents
-#   the maximum error distance the endstop may trigger (eg, if an
-#   endstop may occasionally trigger 100um early or up to 100um late
-#   then set this to 0.200 for 200um). The default is
-#   4*rotation_distance/full_steps_per_rotation.
+#    Imposta la precisione prevista (in mm) del finecorsa. Questo rappresenta
+#    la distanza massima di errore che il finecorsa può attivare (ad es. se un
+#    finecorsa può occasionalmente attivarsi 100um in anticipo o fino a 100um in ritardo
+#    quindi impostalo su 0,200 per 200 um). L'impostazione predefinita è
+#    4*distanza_rotazione/passi_completi_per_rotazione.
 #trigger_phase:
-#   This specifies the phase of the stepper motor driver to expect
-#   when hitting the endstop. It is composed of two numbers separated
-#   by a forward slash character - the phase and the total number of
-#   phases (eg, "7/64"). Only set this value if one is sure the
-#   stepper motor driver is reset every time the mcu is reset. If this
-#   is not set, then the stepper phase will be detected on the first
-#   home and that phase will be used on all subsequent homes.
+#    Questo specifica la fase del driver del motore passo-passo da aspettarsi
+#    quando si raggiunge il finecorsa. È composto da due numeri separati
+#    da un '/' - la fase e il numero totale di
+#    fasi (ad es. "7/64"). Impostare questo valore solo se si è sicuri che il
+#    driver del motore passo-passo viene ripristinato ogni volta che viene ripristinato l'mcu. Se questo
+#    non è impostato, la prima fase verrà rilevata al primo home
+#    e quella fase sarà utilizzata su tutte le abitazioni successive.
 #endstop_align_zero: False
-#   If true then the position_endstop of the axis will effectively be
-#   modified so that the zero position for the axis occurs at a full
-#   step on the stepper motor. (If used on the Z axis and the print
-#   layer height is a multiple of a full step distance then every
-#   layer will occur on a full step.) The default is False.
+#    Se true, la posizione_endstop dell'asse sarà effettivamente
+#    modificato in modo che la posizione zero dell'asse avvenga a passo pieno
+#    sul motore. (Se utilizzato sull'asse Z e la stampa
+#    l'altezza del livello è un multiplo di una distanza di un passo intero, allora ogni
+#    layer si eseguirà in un step completo.) L'impostazione predefinita è False.
 ```
 
 ## G-Code macros and events
@@ -1242,8 +1236,8 @@ Support manually moving stepper motors for diagnostic purposes. Note, using this
 ```
 [force_move]
 #enable_force_move: False
-#   Set to true to enable FORCE_MOVE and SET_KINEMATIC_POSITION
-#   extended G-Code commands. The default is false.
+#   Impostare su True per abilitare FORCE_MOVE e SET_KINEMATIC_POSITION
+#   i comandi G-Code estesi. L'impostazione predefinita è False.
 ```
 
 ### [pause_resume]
@@ -1283,16 +1277,17 @@ Support for gcode arc (G2/G3) commands.
 ```
 [gcode_arcs]
 #resolution: 1.0
-#   An arc will be split into segments. Each segment's length will
-#   equal the resolution in mm set above. Lower values will produce a
-#   finer arc, but also more work for your machine. Arcs smaller than
-#   the configured value will become straight lines. The default is
+#   Un arco sarà diviso in segmenti. La lunghezza di ciascun segmento
+#   sarà uguale alla risoluzione in mm impostata sopra. Valori più bassi 
+#   produrranno un arco più fine, ma anche più lavoro per la tua macchina.
+#   Archi più piccoli del valore configurato diventerà linee rette.
+#   L'impostazione predefinita è
 #   1mm.
 ```
 
 ### [respond]
 
-Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#respond).
+Abilita i comandi estesi "M118" e "RESPOND" [commands](G-Codes.md#respond).
 
 ```
 [respond]
@@ -1321,7 +1316,7 @@ See the [exclude objects guide](Exclude_Object.md) and [command reference](G-Cod
 
 ### [input_shaper]
 
-Enables [resonance compensation](Resonance_Compensation.md). Also see the [command reference](G-Codes.md#input_shaper).
+Abilita [compensazione della risonanza](Resonance_Compensation.md). Vedere anche il [command reference](G-Codes.md#input_shaper).
 
 ```
 [input_shaper]
@@ -1698,10 +1693,10 @@ See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an exam
 #step_pin:
 #dir_pin:
 #...
-#   See the "extruder" section for available stepper and heater
-#   parameters.
+#   Vedere la sezione "estrusore" per i parametri per lo stepper e il riscaldatore
+#   disponibili.
 #shared_heater:
-#   This option is deprecated and should no longer be specified.
+#   Questa opzione è obsoleta e non deve più essere specificata.
 ```
 
 ### [dual_carriage]
@@ -1713,8 +1708,8 @@ See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration.
 ```
 [dual_carriage]
 axis:
-#   The axis this extra carriage is on (either x or y). This parameter
-#   must be provided.
+#   L'asse su cui si trova questo carrello aggiuntivo (x o y). Questo parametro
+#   deve essere fornito
 #step_pin:
 #dir_pin:
 #enable_pin:
@@ -1724,7 +1719,7 @@ axis:
 #position_endstop:
 #position_min:
 #position_max:
-#   See the "stepper" section for the definition of the above parameters.
+#   Vedere la sezione "stepper" per la definizione dei parametri di cui sopra.
 ```
 
 ### [extruder_stepper]
@@ -1736,16 +1731,16 @@ See the [command reference](G-Codes.md#extruder) for more information.
 ```
 [extruder_stepper my_extra_stepper]
 extruder:
-#   The extruder this stepper is synchronized to. If this is set to an
-#   empty string then the stepper will not be synchronized to an
-#   extruder. This parameter must be provided.
+#   L'estrusore con cui è sincronizzato questo stepper. Se questo è impostato su
+#   una stringa vuota, lo stepper non verrà sincronizzato con un
+#   estrusore. Questo parametro deve essere fornito.
 #step_pin:
 #dir_pin:
 #enable_pin:
 #microsteps:
 #rotation_distance:
-#   See the "stepper" section for the definition of the above
-#   parameters.
+# Vedere la sezione "stepper" per la definizione dei parametri sopra.
+# .
 ```
 
 ### [manual_stepper]
@@ -2142,7 +2137,7 @@ serial_no:
 #   The micro-controller to read from. Must be the host_mcu
 ```
 
-## Fans
+## Ventole
 
 ### [fan]
 
@@ -2351,7 +2346,7 @@ Manually controlled fan (one may define any number of sections with a "fan_gener
 #tachometer_pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
-#   See the "fan" section for a description of the above parameters.
+#   Vedere la sezione "fan" per la descrizione dei parametri riportati sopra
 ```
 
 ## LEDs
@@ -3486,11 +3481,11 @@ See the [command template document](Command_Templates.md#menu-templates) for inf
 #   mode start or end.
 ```
 
-## Filament sensors
+## Sensori di filamento
 
 ### [filament_switch_sensor]
 
-Filament Switch Sensor. Support for filament insert and runout detection using a switch sensor, such as an endstop switch.
+Sensore del filamento a interruttore. Supporto per l'inserimento del filamento e il rilevamento dell'esaurimento tramite un sensore interruttore, come un interruttore di fine corsa.
 
 See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
 
@@ -3527,27 +3522,27 @@ See the [command reference](G-Codes.md#filament_switch_sensor) for more informat
 
 ### [filament_motion_sensor]
 
-Filament Motion Sensor. Support for filament insert and runout detection using an encoder that toggles the output pin during filament movement through the sensor.
+Sensore di movimento del filamento. Supporto per l'inserimento del filamento e il rilevamento dell'esaurimento mediante un codificatore che commuta il pin di uscita durante il movimento del filamento attraverso il sensore.
 
 See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
 
 ```
 [filament_motion_sensor my_sensor]
 detection_length: 7.0
-#   The minimum length of filament pulled through the sensor to trigger
-#   a state change on the switch_pin
-#   Default is 7 mm.
+#   La lunghezza minima di filamento tirato attraverso il sensore 
+#   per attivare un cambio di stato su switch_pin
+#   Il default è 7 mm.
 extruder:
-#   The name of the extruder section this sensor is associated with.
-#   This parameter must be provided.
+#   Nome della sezione extruder section con cui questo sensore è associato.
+#   Questo parametro deve essere fornito.
 switch_pin:
 #pause_on_runout:
 #runout_gcode:
 #insert_gcode:
 #event_delay:
 #pause_delay:
-#   See the "filament_switch_sensor" section for a description of the
-#   above parameters.
+#   Vedere la sezione "filament_switch_sensor" per la descrizione dei
+#   parametri riportati sopra.
 ```
 
 ### [tsl1401cl_filament_width_sensor]
