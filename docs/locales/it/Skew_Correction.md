@@ -1,22 +1,22 @@
-# Skew correction
+# Correzione dell'inclinazione
 
-Software based skew correction can help resolve dimensional inaccuracies resulting from a printer assembly that is not perfectly square. Note that if your printer is significantly skewed it is strongly recommended to first use mechanical means to get your printer as square as possible prior to applying software based correction.
+La correzione dell'inclinazione basata su software può aiutare a risolvere le imprecisioni dimensionali risultanti da un gruppo stampante non perfettamente in squadrato. Si noti che se la stampante è notevolmente inclinata, si consiglia vivamente di utilizzare prima mezzi meccanici per ottenere la stampante il più squadrata possibile prima di applicare la correzione basata sul software.
 
-## Print a Calibration Object
+## Stampa un oggetto di calibrazione
 
-The first step in correcting skew is to print a [calibration object](https://www.thingiverse.com/thing:2563185/files) along the plane you want to correct. There is also a [calibration object](https://www.thingiverse.com/thing:2972743) that includes all planes in one model. You want the object oriented so that corner A is toward the origin of the plane.
+Il primo passaggio per correggere l'inclinazione è stampare un [calibration object](https://www.thingiverse.com/thing:2563185/files) lungo il piano che si desidera correggere. C'è anche un [calibration object](https://www.thingiverse.com/thing:2972743) che include tutti i piani in un modello. Vuoi che l'oggetto sia orientato in modo che l'angolo A sia verso l'origine del piano.
 
-Make sure that no skew correction is applied during this print. You may do this by either removing the `[skew_correction]` module from printer.cfg or by issuing a `SET_SKEW CLEAR=1` gcode.
+Assicurarsi che durante questa stampa non venga applicata alcuna correzione dell'inclinazione. Puoi farlo rimuovendo il modulo `[skew_correction]` da printer.cfg o inserendo un gcode `SET_SKEW CLEAR=1`.
 
-## Take your measurements
+## Prendi le tue misure
 
-The `[skew_correcton]` module requires 3 measurements for each plane you want to correct; the length from Corner A to Corner C, the length from Corner B to Corner D, and the length from Corner A to Corner D. When measuring length AD do not include the flats on the corners that some test objects provide.
+Il modulo `[skew_correcton]` richiede 3 misurazioni per ogni piano che vuoi correggere; la lunghezza dall'angolo A all'angolo C, la lunghezza dall'angolo B all'angolo D e la lunghezza dall'angolo A all'angolo D. Quando si misura la lunghezza AD non includere i piani sugli angoli forniti da alcuni oggetti di prova.
 
 ![skew_lengths](img/skew_lengths.png)
 
-## Configure your skew
+## Configura la tua inclinazione
 
-Make sure `[skew_correction]` is in printer.cfg. You may now use the `SET_SKEW` gcode to configure skew_correcton. For example, if your measured lengths along XY are as follows:
+Assicurati che la sezione `[skew_correction]` sia in printer.cfg. Ora puoi usare il gcode `SET_SKEW` per configurare skew_correcton. Ad esempio, se le lunghezze misurate lungo XY sono le seguenti:
 
 ```
 Length AC = 140.4
@@ -24,50 +24,50 @@ Length BD = 142.8
 Length AD = 99.8
 ```
 
-`SET_SKEW` can be used to configure skew correction for the XY plane.
+`SET_SKEW` può essere utilizzato per configurare la correzione dell'inclinazione per il piano XY.
 
 ```
 SET_SKEW XY=140.4,142.8,99.8
 ```
 
-You may also add measurements for XZ and YZ to the gcode:
+Puoi anche aggiungere misure per XZ e YZ al gcode:
 
 ```
 SET_SKEW XY=140.4,142.8,99.8 XZ=141.6,141.4,99.8 YZ=142.4,140.5,99.5
 ```
 
-The `[skew_correction]` module also supports profile management in a manner similar to `[bed_mesh]`. After setting skew using the `SET_SKEW` gcode, you may use the `SKEW_PROFILE` gcode to save it:
+Il modulo `[skew_correction]` supporta anche la gestione del profilo in un modo simile a `[bed_mesh]`. Dopo aver impostato l'inclinazione usando il gcode `SET_SKEW`, puoi usare il gcode `SKEW_PROFILE` per salvarlo:
 
 ```
 SKEW_PROFILE SAVE=my_skew_profile
 ```
 
-After this command you will be prompted to issue a `SAVE_CONFIG` gcode to save the profile to persistent storage. If no profile is named `my_skew_profile` then a new profile will be created. If the named profile exists it will be overwritten.
+Dopo questo comando ti verrà chiesto di emettere un gcode `SAVE_CONFIG` per salvare il profilo nella memoria permanente. Se nessun profilo è denominato `my_skew_profile`, verrà creato un nuovo profilo. Se il profilo indicato esiste, verrà sovrascritto.
 
-Once you have a saved profile, you may load it:
+Una volta che hai un profilo salvato, puoi caricarlo:
 
 ```
 SKEW_PROFILE LOAD=my_skew_profile
 ```
 
-It is also possible to remove an old or out of date profile:
+È anche possibile rimuovere un profilo vecchio o superato:
 
 ```
 SKEW_PROFILE REMOVE=my_skew_profile
 ```
 
-After removing a profile you will be prompted to issue a `SAVE_CONFIG` to make this change persist.
+Dopo aver rimosso un profilo, ti verrà chiesto di emettere un `SAVE_CONFIG` per far sì che questa modifica persista.
 
-## Verifying your correction
+## Verifica della tua correzione
 
-After skew_correction has been configured you may reprint the calibration part with correction enabled. Use the following gcode to check your skew on each plane. The results should be lower than those reported via `GET_CURRENT_SKEW`.
+Dopo aver configurato skew_correction è possibile ristampare la parte di calibrazione con la correzione abilitata. Usa il seguente gcode per controllare la tua inclinazione su ciascun piano. I risultati dovrebbero essere inferiori a quelli riportati tramite `GET_CURRENT_SKEW`.
 
 ```
 CALC_MEASURED_SKEW AC=<ac_length> BD=<bd_length> AD=<ad_length>
 ```
 
-## Caveats
+## Avvertenze
 
-Due to the nature of skew correction it is recommended to configure skew in your start gcode, after homing and any kind of movement that travels near the edge of the print area such as a purge or nozzle wipe. You may use use the `SET_SKEW` or `SKEW_PROFILE` gcodes to accomplish this. It is also recommended to issue a `SET_SKEW CLEAR=1` in your end gcode.
+A causa della natura della correzione dell'inclinazione, si consiglia di configurare l'inclinazione nel codice g iniziale, dopo l'homing e qualsiasi tipo di movimento che si sposta vicino al bordo dell'area di stampa, come uno spurgo o una pulizia degli ugelli. È possibile utilizzare i codici g "SET_SKEW" o "SKEW_PROFILE" per ottenere ciò. Si consiglia inoltre di emettere un `SET_SKEW CLEAR=1` alla fine del gcode.
 
-Keep in mind that it is possible for `[skew_correction]` to generate a correction that moves the tool beyond the printer's boundaries on the X and/or Y axes. It is recommended to arrange parts away from the edges when using `[skew_correction]`.
+Tenere presente che è possibile che `[skew_correction]` generi una correzione che sposti la testa oltre i limiti della stampante sugli assi X e/o Y. Si consiglia di disporre le parti lontano dai bordi quando si utilizza `[skew_correction]`.
