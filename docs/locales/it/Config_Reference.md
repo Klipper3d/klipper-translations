@@ -12,7 +12,7 @@ Molte opzioni di configurazione richiedono il nome di un pin del microcontrollor
 
 I nomi dei pin possono essere preceduti da `!` per indicare che deve essere utilizzata una polarità inversa (ad esempio, trigger su basso anziché alto).
 
-Input pins may be preceded by `^` to indicate that a hardware pull-up resistor should be enabled for the pin. If the micro-controller supports pull-down resistors then an input pin may alternatively be preceded by `~`.
+I pin di input possono essere preceduti da `^` per indicare che un resistore di pull-up hardware deve essere abilitato per il pin. Se il microcontrollore supporta resistori pull-down, un pin di ingresso può in alternativa essere preceduto da `~`.
 
 Note, some config sections may "create" additional pins. Where this occurs, the config section defining the pins must be listed in the config file before any sections using those pins.
 
@@ -349,7 +349,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Hybrid-CoreXY Kinematics
+### Cinematica Hybrid-CoreXY
 
 See [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) for an example hybrid corexy kinematics config file.
 
@@ -380,7 +380,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Hybrid-CoreXZ Kinematics
+### Cinematica Hybrid-CoreXZ
 
 See [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) for an example hybrid corexz kinematics config file.
 
@@ -1066,31 +1066,35 @@ home_xy_position:
 
 ### [homing_override]
 
-Homing override. One may use this mechanism to run a series of g-code commands in place of a G28 found in the normal g-code input. This may be useful on printers that require a specific procedure to home the machine.
+Homing Override. Si può utilizzare questo meccanismo per eseguire una serie di comandi g-code al posto di un G28 che si trova nel normale input di g-code. Questo può essere utile su stampanti che richiedono una procedura specifica per l'home della macchina.
 
 ```
 [homing_override]
 gcode:
-#   A list of G-Code commands to execute in place of G28 commands
-#   found in the normal g-code input. See docs/Command_Templates.md
-#   for G-Code format. If a G28 is contained in this list of commands
-#   then it will invoke the normal homing procedure for the printer.
-#   The commands listed here must home all axes. This parameter must
-#   be provided.
+#   Un elenco di comandi G-Code da eseguire al posto dei comandi
+#   G28 trovati nel normale input di G-Code.
+#   Vedi docs/Command_Templates.md per il formato G-Code.
+#   Se un G28 è contenuto in questo elenco di comandi, invocherà
+#   la normale procedura di homing per la stampante. I comandi
+#   qui elencati devono eseguire l'home di tutti gli assi.
+#   Questo parametro deve essere fornito.
 #axes: xyz
-#   The axes to override. For example, if this is set to "z" then the
-#   override script will only be run when the z axis is homed (eg, via
-#   a "G28" or "G28 Z0" command). Note, the override script should
-#   still home all axes. The default is "xyz" which causes the
-#   override script to be run in place of all G28 commands.
+#   Gli assi da sovrascrivere. Ad esempio, se questo è impostato
+#   su "z", lo script di override verrà eseguito solo quando l'asse z
+#   è azzerato (ad esempio, tramite un comando "G28" o "G28 Z0").
+#   Nota, lo script di sovrascrittura dovrebbe comunque ospitare
+#   tutti gli assi. L'impostazione predefinita è "xyz" che fa sì che lo
+#   script di override venga eseguito al posto di tutti i comandi G28.
 #set_position_x:
 #set_position_y:
 #set_position_z:
-#   If specified, the printer will assume the axis is at the specified
-#   position prior to running the above g-code commands. Setting this
-#   disables homing checks for that axis. This may be useful if the
-#   head must move prior to invoking the normal G28 mechanism for an
-#   axis. The default is to not force a position for an axis.
+#   Se specificato, la stampante presumerà che l'asse si trovi
+#   nella posizione specificata prima di eseguire i comandi g-code
+#   precedenti. L'impostazione di questa opzione disabilita i
+#   controlli di riferimento per quell'asse. Questo può essere utile
+#   se la testa deve muoversi prima di invocare il normale
+#   meccanismo G28 per un asse. L'impostazione predefinita è
+#   di non forzare una posizione per un asse.
 ```
 
 ### [endstop_phase]
@@ -1132,28 +1136,31 @@ Macro G-Code (è possibile definire un numero qualsiasi di sezioni con un prefis
 ```
 [gcode_macro my_cmd]
 #gcode:
-#   A list of G-Code commands to execute in place of "my_cmd". See
-#   docs/Command_Templates.md for G-Code format. This parameter must
-#   be provided.
+#   Un elenco di comandi G-Code da eseguire al posto di "my_cmd".
+#   Vedi docs/Command_Templates.md per il formato G-Code.
+#   Questo parametro deve essere fornito.
 #variable_<name>:
-#   One may specify any number of options with a "variable_" prefix.
-#   The given variable name will be assigned the given value (parsed
-#   as a Python literal) and will be available during macro expansion.
-#   For example, a config with "variable_fan_speed = 75" might have
-#   gcode commands containing "M106 S{ fan_speed * 255 }". Variables
-#   can be changed at run-time using the SET_GCODE_VARIABLE command
-#   (see docs/Command_Templates.md for details). Variable names may
-#   not use upper case characters.
+#   Si può specificare un numero qualsiasi di opzioni con un prefisso
+#   "variable_". Al nome della variabile data verrà assegnato il valore dato
+#   (analizzato come un valore letterale Python) e sarà disponibile durante
+#   l'espansione della macro. Ad esempio, una configurazione con
+#   "variable_fan_speed = 75" potrebbe avere comandi gcode contenenti
+#   "M106 S{ fan_speed * 255 }". Le variabili possono essere modificate in
+#   fase di esecuzione utilizzando il comando SET_GCODE_VARIABLE
+#   (consultare docs/Command_Templates.md per i dettagli).
+#   I nomi delle variabili potrebbero non utilizzare caratteri maiuscoli.
 #rename_existing:
-#   This option will cause the macro to override an existing G-Code
-#   command and provide the previous definition of the command via the
-#   name provided here. This can be used to override builtin G-Code
-#   commands. Care should be taken when overriding commands as it can
-#   cause complex and unexpected results. The default is to not
-#   override an existing G-Code command.
+#   Questa opzione farà sì che la macro ignori un comando G-Code
+#   esistente e fornisca la definizione precedente del comando tramite
+#   il nome fornito qui. Questo può essere usato per sovrascrivere i
+#   comandi G-Code integrati. Prestare attenzione quando si ignorano
+#   i comandi poiché possono causare risultati complessi e imprevisti.
+#   L'impostazione predefinita è di non sovrascrivere un comando
+#   G-Code esistente.
 #description: G-Code macro
-#   This will add a short description used at the HELP command or while
-#   using the auto completion feature. Default "G-Code macro"
+#   Ciò aggiungerà una breve descrizione utilizzata al comando HELP
+#   o durante l'utilizzo della funzione di completamento automatico.
+#   Predefinito "G-Code macro"
 ```
 
 ### [delayed_gcode]
@@ -1188,17 +1195,18 @@ filename:
 
 ### [idle_timeout]
 
-Idle timeout. An idle timeout is automatically enabled - add an explicit idle_timeout config section to change the default settings.
+Timeout di inattività. Viene automaticamente abilitato un timeout di inattività: aggiungi una sezione di configurazione di idle_timeout esplicita per modificare le impostazioni predefinite.
 
 ```
 [idle_timeout]
 #gcode:
-#   A list of G-Code commands to execute on an idle timeout. See
-#   docs/Command_Templates.md for G-Code format. The default is to run
-#   "TURN_OFF_HEATERS" and "M84".
+#   Un elenco di comandi G-Code da eseguire in un timeout di
+#   inattività. Vedi docs/Command Templates.md per il formato
+#   G-Code. L'impostazione predefinita è
+#   eseguire "TURN_OFF HEATERS" e "M84".
 #timeout: 600
-#   Idle time (in seconds) to wait before running the above G-Code
-#   commands. The default is 600 seconds.
+#   Tempo di inattività (in secondi) da attendere prima di eseguire
+#   i comandi G-Code sopra. Il valore predefinito è 600 secondi.
 ```
 
 ## Optional G-Code features
@@ -1258,16 +1266,19 @@ Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCO
 ```
 [firmware_retraction]
 #retract_length: 0
-#   The length of filament (in mm) to retract when G10 is activated,
-#   and to unretract when G11 is activated (but see
-#   unretract_extra_length below). The default is 0 mm.
+#   La lunghezza del filamento (in mm) da ritrarre quando G10
+#   è attivato e da ritrarre quando G11 è attivato (ma vedere
+#   unretract_extra_length di seguito).
+I#   l valore predefinito è 0 mm.
 #retract_speed: 20
-#   The speed of retraction, in mm/s. The default is 20 mm/s.
+#   La velocità di retrazione, in mm/s.
+#   Il valore predefinito è 20 mm/s.
 #unretract_extra_length: 0
-#   The length (in mm) of *additional* filament to add when
-#   unretracting.
+#   La lunghezza (in mm) del filamento *aggiuntivo* da 
+#   sommare quando non si ritrae.
 #unretract_speed: 10
-#   The speed of unretraction, in mm/s. The default is 10 mm/s.
+#   La velocità di srotolamento, in mm/s.
+#   Il valore predefinito è 10 mm/s.
 ```
 
 ### [gcode_arcs]
@@ -1474,7 +1485,7 @@ aliases_<name>:
 
 ### [include]
 
-Include file support. One may include additional config file from the main printer config file. Wildcards may also be used (eg, "configs/*.cfg").
+Supporto per includere i file. Uno può includere un file di configurazione aggiuntivo dal file di configurazione della stampante principale. Possono essere utilizzati anche caratteri jolly (ad es. "configs/*.cfg").
 
 ```
 [include my_other_config.cfg]
@@ -1684,7 +1695,7 @@ Multi-stepper axes. On a cartesian style printer, the stepper controlling a give
 
 ### [extruder1]
 
-In a multi-extruder printer add an additional extruder section for each additional extruder. The additional extruder sections should be named "extruder1", "extruder2", "extruder3", and so on. See the "extruder" section for a description of available parameters.
+In una stampante multiestrusore aggiungere una sezione estrusore aggiuntiva per ogni estrusore aggiuntivo. Le sezioni aggiuntive dell'estrusore devono essere denominate "extruder1", "extruder2", "extruder3" e così via. Vedere la sezione "extruder" per una descrizione dei parametri disponibili.
 
 See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an example configuration.
 
@@ -1815,14 +1826,15 @@ Tool to disable heaters when homing or probing an axis.
 ```
 [homing_heaters]
 #steppers:
-#   A comma separated list of steppers that should cause heaters to be
-#   disabled. The default is to disable heaters for any homing/probing
-#   move.
-#   Typical example: stepper_z
+#   Un elenco separato da virgole di stepper che dovrebbero causare
+#   la disattivazione dei riscaldatori. L'impostazione predefinita è
+#   disabilitare i riscaldatori per qualsiasi spostamento di homing/sonda.
+#   Esempio tipico: stepper_z
 #heaters:
-#   A comma separated list of heaters to disable during homing/probing
-#   moves. The default is to disable all heaters.
-#   Typical example: extruder, heater_bed
+#   Un elenco separato da virgole di riscaldatori da disabilitare
+#   durante i movimenti di homing/probing. L'impostazione
+#   predefinita è disabilitare tutti i riscaldatori.
+#   Esempio tipico: estrusore, letto riscaldatore
 ```
 
 ### [thermistor]
@@ -1879,14 +1891,13 @@ Sensori di temperatura ADC personalizzati (si può definire un numero qualsiasi 
 
 ### [heater_generic]
 
-Generic heaters (one may define any number of sections with a "heater_generic" prefix). These heaters behave similarly to standard heaters (extruders, heated beds). Use the SET_HEATER_TEMPERATURE command (see [G-Codes](G-Codes.md#heaters) for details) to set the target temperature.
+Riscaldatori generici (si può definire un numero qualsiasi di sezioni con il prefisso "riscaldatore_generico"). Questi riscaldatori si comportano in modo simile ai riscaldatori standard (estrusori, piatti riscaldati). Utilizzare il comando SET_HEATER_TEMPERATURE (consultare [G-Codes](G-Codes.md#heaters) per i dettagli) per impostare la temperatura target.
 
 ```
 [heater_generic my_generic_heater]
 #gcode_id:
-#   The id to use when reporting the temperature in the M105 command.
-#   This parameter must be provided.
-#heater_pin:
+#   L'ID da utilizzare quando si riporta la temperatura nel comando M105.
+#   Questo parametro deve essere fornito.
 #max_power:
 #sensor_type:
 #sensor_pin:
@@ -1898,8 +1909,7 @@ Generic heaters (one may define any number of sections with a "heater_generic" p
 #pwm_cycle_time:
 #min_temp:
 #max_temp:
-#   See the "extruder" section for the definition of the above
-#   parameters.
+#   Vedere la sezione "extruder" per la definizione dei parametri sopra.
 ```
 
 ### [temperature_sensor]
@@ -2026,9 +2036,9 @@ sensor_type: BME280
 #   above parameters.
 ```
 
-### HTU21D sensor
+### Sensore HTU21D
 
-HTU21D family two wire interface (I2C) environmental sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
+Sensore ambientale con interfaccia a due fili (I2C) della famiglia HTU21D. Si noti che questo sensore non è destinato all'uso con estrusori e letti riscaldanti, ma piuttosto per il monitoraggio della temperatura ambiente (C) e dell'umidità relativa(%). Vedere [sample-macros.cfg](../config/sample-macros.cfg) per una gcode_macro che può essere utilizzata per riportare l'umidità oltre alla temperatura.
 
 ```
 sensor_type:
@@ -2146,67 +2156,76 @@ Print cooling fan.
 ```
 [fan]
 pin:
-#   Output pin controlling the fan. This parameter must be provided.
+#   Pin di uscita che controlla la ventola. Questo parametro deve essere fornito.
 #max_power: 1.0
-#   The maximum power (expressed as a value from 0.0 to 1.0) that the
-#   pin may be set to. The value 1.0 allows the pin to be set fully
-#   enabled for extended periods, while a value of 0.5 would allow the
-#   pin to be enabled for no more than half the time. This setting may
-#   be used to limit the total power output (over extended periods) to
-#   the fan. If this value is less than 1.0 then fan speed requests
-#   will be scaled between zero and max_power (for example, if
-#   max_power is .9 and a fan speed of 80% is requested then the fan
-#   power will be set to 72%). The default is 1.0.
+#   La potenza massima (espressa come valore da 0.0 a 1.0) su cui può
+#   pin può essere impostato il pin. Il valore 1.0 consente di impostare il pin
+#   completamente abilitato per periodi prolungati, mentre un valore di 0,5
+#   consentirebbe di abilitare per non più della metà del tempo. Questa
+#   impostazione potrebbe essere utilizzata per limitare la potenza totale
+#   (per periodi prolungati) alla ventola. Se questo valore è inferiore a 1.0
+#   viene richiesta la velocità della ventola verrà scalato tra zero e
+#   max_power (ad esempio, se  max_power è .9 ed è richiesta una velocità
+#   della ventola dell'80%, quindi la potenza della ventola sarà impostata
+#   su 72%). L'impostazione predefinita è 1.0 .
 #shutdown_speed: 0
-#   The desired fan speed (expressed as a value from 0.0 to 1.0) if
-#   the micro-controller software enters an error state. The default
-#   is 0.
+#   La velocità della ventola desiderata (espressa come valore da 0,0 a 1,0)
+#   se il software del microcontrollore entra in uno stato di errore. 
+#   Il valore predefinito è 0.
 #cycle_time: 0.010
-#   The amount of time (in seconds) for each PWM power cycle to the
-#   fan. It is recommended this be 10 milliseconds or greater when
-#   using software based PWM. The default is 0.010 seconds.
+#   La quantità di tempo (in secondi) per ogni ciclo di alimentazione PWM
+#   alla ventola. Si consiglia di essere pari o superiore a 10 millisecondi 
+#   quando si utilizza PWM basato su software.
+#   Il valore predefinito è 0,010 secondi.
 #hardware_pwm: False
-#   Enable this to use hardware PWM instead of software PWM. Most fans
-#   do not work well with hardware PWM, so it is not recommended to
-#   enable this unless there is an electrical requirement to switch at
-#   very high speeds. When using hardware PWM the actual cycle time is
-#   constrained by the implementation and may be significantly
-#   different than the requested cycle_time. The default is False.
+#   Abilitare questa opzione per utilizzare PWM hardware anziché PWM
+#   software. La maggior parte delle ventole non funziona bene con
+#   PWM hardware, quindi non è consigliabile abilitarlo a meno che non
+#   vi sia un requisito elettrico per passare a velocità molto elevate.
+#   Quando si utilizza l'hardware PWM, il tempo di ciclo effettivo è
+#    vincolato dall'implementazione e può essere notevolmente diverso
+#    dal tempo di ciclo richiesto. L'impostazione predefinita è Falso.
 #kick_start_time: 0.100
-#   Time (in seconds) to run the fan at full speed when either first
-#   enabling or increasing it by more than 50% (helps get the fan
-#   spinning). The default is 0.100 seconds.
+#   Tempo (in secondi) per far funzionare la ventola a piena velocità
+#   quando la si abilita per la prima volta o la si aumenta di oltre
+#   il 50% (aiuta a far girare la ventola).
+#   Il valore predefinito è 0,100 secondi.
 #off_below: 0.0
-#   The minimum input speed which will power the fan (expressed as a
-#   value from 0.0 to 1.0). When a speed lower than off_below is
-#   requested the fan will instead be turned off. This setting may be
-#   used to prevent fan stalls and to ensure kick starts are
-#   effective. The default is 0.0.
+#   La velocità minima di ingresso che alimenterà la ventola (espressa
+#   come un valore compreso tra 0,0 e 1,0). Quando viene richiesta una
+#   velocità inferiore a off_below la ventola verrà invece spenta. Questa
+#   impostazione può essere utilizzata per prevenire lo stallo della
+#   ventola e per garantire che lo siano partenze efficaci.
+#   Il valore predefinito è 0,0.
 #
-#   This setting should be recalibrated whenever max_power is adjusted.
-#   To calibrate this setting, start with off_below set to 0.0 and the
-#   fan spinning. Gradually lower the fan speed to determine the lowest
-#   input speed which reliably drives the fan without stalls. Set
-#   off_below to the duty cycle corresponding to this value (for
-#   example, 12% -> 0.12) or slightly higher.
+#   Questa impostazione deve essere ricalibrata ogni volta che
+#   max_power viene regolato. Per calibrare questa impostazione,
+#   inizia con off_below impostato su 0.0 e la ventola gira. Abbassare
+#   gradualmente la velocità della ventola per determinare la velocità
+#   di ingresso più bassa che aziona la ventola in modo affidabile
+#   senza stalli. Impostare off_below al duty cycle corrispondente a
+#   questo valore (ad esempio, 12% -> 0,12) o leggermente superiore.
 #tachometer_pin:
-#   Tachometer input pin for monitoring fan speed. A pullup is generally
-#   required. This parameter is optional.
+#   Pin di ingresso contagiri per il monitoraggio della velocità della
+#   ventola. In genere è richiesto un pullup.
+#   Questo parametro è facoltativo.
 #tachometer_ppr: 2
-#   When tachometer_pin is specified, this is the number of pulses per
-#   revolution of the tachometer signal. For a BLDC fan this is
-#   normally half the number of poles. The default is 2.
+#   Quando è specificato il pin del contagiri, questo è il numero di
+#   impulsi per giro del segnale del contagiri. Per una ventola BLDC
+#   questo è normalmente la metà del numero di poli.
+#   L'impostazione predefinita è 2.
 #tachometer_poll_interval: 0.0015
-#   When tachometer_pin is specified, this is the polling period of the
-#   tachometer pin, in seconds. The default is 0.0015, which is fast
-#   enough for fans below 10000 RPM at 2 PPR. This must be smaller than
-#   30/(tachometer_ppr*rpm), with some margin, where rpm is the
-#   maximum speed (in RPM) of the fan.
+#   Quando viene specificato tachometer_pin, questo è il periodo
+#   di polling del pin del contagiri, in secondi.
+#   Il valore predefinito è 0,0015, che è abbastanza veloce per le
+#   ventole al di sotto di 10000 RPM a 2 PPR. Deve essere inferiore a
+#   30/(tachometer_ppr*rpm), con un certo margine, dove rpm è la
+#   velocità massima (in RPM) della ventola.
 ```
 
 ### [heater_fan]
 
-Heater cooling fans (one may define any number of sections with a "heater_fan" prefix). A "heater fan" is a fan that will be enabled whenever its associated heater is active. By default, a heater_fan has a shutdown_speed equal to max_power.
+Ventole di raffreddamento del riscaldatore (si può definire un numero qualsiasi di sezioni con un prefisso "heater_fan"). Una "ventola riscaldatore" è una ventola che verrà abilitata ogni volta che il riscaldatore associato è attivo. Per impostazione predefinita, un heater_fan ha una velocità di spegnimento pari a max_power.
 
 ```
 [heater_fan my_nozzle_fan]
@@ -2220,19 +2239,21 @@ Heater cooling fans (one may define any number of sections with a "heater_fan" p
 #tachometer_pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
-#   See the "fan" section for a description of the above parameters.
+#   Vedere la sezione "fan" per una descrizione dei parametri sopra.
 #heater: extruder
-#   Name of the config section defining the heater that this fan is
-#   associated with. If a comma separated list of heater names is
-#   provided here, then the fan will be enabled when any of the given
-#   heaters are enabled. The default is "extruder".
+#   Nome della sezione di configurazione che definisce il riscaldatore
+#   a cui è associato questa ventola. Se qui viene fornito un elenco di
+#   nomi di riscaldatori separati da virgole,la ventola verrà abilitata
+#   quando uno qualsiasi dei riscaldatori indicati è abilitato.
+#   L'impostazione predefinita è "extruder".
 #heater_temp: 50.0
-#   A temperature (in Celsius) that the heater must drop below before
-#   the fan is disabled. The default is 50 Celsius.
+#   Una temperatura (in gradi Celsius) sotto la quale il riscaldatore
+#   deve scendere prima che la ventola venga disattivata.
+#   L'impostazione predefinita è 50 gradi Celsius.
 #fan_speed: 1.0
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when its associated heater is enabled. The default
-#   is 1.0
+#   La velocità della ventola (espressa come un valore compreso
+#   tra 0,0 e 1,0) a cui verrà impostato la ventola quando viene abilitato
+#   il relativo riscaldatore. L'impostazione predefinita è 1.0
 ```
 
 ### [controller_fan]
@@ -2514,23 +2535,22 @@ Esegui gcode quando un pulsante viene premuto o rilasciato (o quando un pin camb
 ```
 [gcode_button my_gcode_button]
 pin:
-#   The pin on which the button is connected. This parameter must be
-#   provided.
+#   Il pin su cui è collegato il pulsante. Questo parametro deve essere fornito.
 #analog_range:
-#   Two comma separated resistances (in Ohms) specifying the minimum
-#   and maximum resistance range for the button. If analog_range is
-#   provided then the pin must be an analog capable pin. The default
-#   is to use digital gpio for the button.
+#   Due resistenze separate da virgole (in Ohm) che specificano l'intervallo
+#   di resistenza minimo e massimo per il pulsante. Se viene fornito
+#   analog_range, il pin deve essere un pin con capacità analogica.
+#   L'impostazione predefinita è utilizzare digital gpio per il pulsante.
 #analog_pullup_resistor:
-#   The pullup resistance (in Ohms) when analog_range is specified.
-#   The default is 4700 ohms.
+#   La resistenza di pullup (in Ohm) quando è specificato analog_range.
+#   Il valore predefinito è 4700 ohm.
 #press_gcode:
-#   A list of G-Code commands to execute when the button is pressed.
-#   G-Code templates are supported. This parameter must be provided.
+#   Un elenco di comandi G-Code da eseguire quando si preme il pulsante.
+#   I modelli G-Code sono supportati. Questo parametro deve essere fornito.
 #release_gcode:
-#   A list of G-Code commands to execute when the button is released.
-#   G-Code templates are supported. The default is to not run any
-#   commands on a button release.
+#   Un elenco di comandi G-Code da eseguire quando il pulsante viene
+#   rilasciato. I modelli G-Code sono supportati. L'impostazione predefinita
+#   è di non eseguire alcun comando al rilascio di un pulsante.
 ```
 
 ### [output_pin]
@@ -3169,7 +3189,7 @@ lcd_type:
 
 #### display hd44780
 
-Information on configuring hd44780 displays (which is used in "RepRapDiscount 2004 Smart Controller" type displays).
+Informazioni sulla configurazione dei display hd44780 (utilizzati nei display di tipo "RepRapDiscount 2004 Smart Controller").
 
 ```
 [display]
@@ -3196,7 +3216,7 @@ d7_pin:
 
 #### display hd44780_spi
 
-Information on configuring an hd44780_spi display - a 20x04 display controlled via a hardware "shift register" (which is used in mightyboard based printers).
+Informazioni sulla configurazione di un display hd44780_spi - un display 20x04 controllato tramite uno "shift register" hardware (che viene utilizzato nelle stampanti basate su mightyboard).
 
 ```
 [display]
@@ -3224,7 +3244,7 @@ spi_software_miso_pin:
 
 #### st7920 display
 
-Information on configuring st7920 displays (which is used in "RepRapDiscount 12864 Full Graphic Smart Controller" type displays).
+Informazioni sulla configurazione dei display st7920 (utilizzati nei display di tipo "RepRapDiscount 12864 Full Graphic Smart Controller").
 
 ```
 [display]
@@ -3240,7 +3260,7 @@ sid_pin:
 
 #### display emulazione emulated_st7920
 
-Information on configuring an emulated st7920 display - found in some "2.4 inch touchscreen devices" and similar.
+Informazioni sulla configurazione di un display st7920 emulato, presenti in alcuni "dispositivi touchscreen da 2,4 pollici" e simili.
 
 ```
 [display]
@@ -3262,7 +3282,7 @@ spi_software_miso_pin:
 
 #### uc1701 display
 
-Information on configuring uc1701 displays (which is used in "MKS Mini 12864" type displays).
+Informazioni sulla configurazione dei display uc1701 (utilizzati nei display di tipo "MKS Mini 12864").
 
 ```
 [display]
@@ -3284,7 +3304,7 @@ a0_pin:
 
 #### ssd1306 and sh1106 displays
 
-Information on configuring ssd1306 and sh1106 displays.
+Informazioni sulla configurazione dei display ssd1306 e sh1106.
 
 ```
 [display]
@@ -3398,7 +3418,7 @@ See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples.
 
 ### [display my_extra_display]
 
-If a primary [display] section has been defined in printer.cfg as shown above it is possible to define multiple auxiliary displays. Note that auxiliary displays do not currently support menu functionality, thus they do not support the "menu" options or button configuration.
+Se in printer.cfg è stata definita una sezione primaria [display] come mostrato sopra, è possibile definire più display ausiliari. Si noti che i display ausiliari attualmente non supportano la funzionalità del menu, quindi non supportano le opzioni del "menu" o la configurazione dei pulsanti.
 
 ```
 [display my_extra_display]
@@ -3492,32 +3512,34 @@ See the [command reference](G-Codes.md#filament_switch_sensor) for more informat
 ```
 [filament_switch_sensor my_sensor]
 #pause_on_runout: True
-#   When set to True, a PAUSE will execute immediately after a runout
-#   is detected. Note that if pause_on_runout is False and the
-#   runout_gcode is omitted then runout detection is disabled. Default
-#   is True.
+#   Se impostato su True, verrà eseguita una PAUSA immediatamente
+#   dopo il rilevamento di un'eccentricità. Si noti che se pause_on_runout
+#   è False e runout_gcode viene omesso, il rilevamento dell'eccentricità
+#   è disabilitato. L'impostazione predefinita è Vero.
 #runout_gcode:
-#   A list of G-Code commands to execute after a filament runout is
-#   detected. See docs/Command_Templates.md for G-Code format. If
-#   pause_on_runout is set to True this G-Code will run after the
-#   PAUSE is complete. The default is not to run any G-Code commands.
+#   Un elenco di comandi G-Code da eseguire dopo il rilevamento di
+#   un'esaurimento del filamento. Vedi docs/Command_Templates.md
+#   per il formato G-Code. Se pause_on_runout è impostato su True,
+#   questo codice G verrà eseguito al termine della PAUSA.
+#   L'impostazione predefinita è di non eseguire alcun comando G-Code.
 #insert_gcode:
-#   A list of G-Code commands to execute after a filament insert is
-#   detected. See docs/Command_Templates.md for G-Code format. The
-#   default is not to run any G-Code commands, which disables insert
-#   detection.
+#   Un elenco di comandi G-Code da eseguire dopo il rilevamento
+#   dell'inserimento di filamento. Vedi docs/Command_Templates.md
+#   per il formato G-Code. L'impostazione predefinita non prevede
+#   l'esecuzione di alcun comando G-Code, che disabilita il rilevamento
+#   dell'inserimento.
 #event_delay: 3.0
-#   The minimum amount of time in seconds to delay between events.
-#   Events triggered during this time period will be silently
-#   ignored. The default is 3 seconds.
+#   Il tempo minimo in secondi per ritardare tra gli eventi. Gli eventi
+#   attivati durante questo periodo di tempo verranno ignorati
+#   silenziosamente. L'impostazione predefinita è 3 secondi.
 #pause_delay: 0.5
-#   The amount of time to delay, in seconds, between the pause command
-#   dispatch and execution of the runout_gcode. It may be useful to
-#   increase this delay if OctoPrint exhibits strange pause behavior.
-#   Default is 0.5 seconds.
+#   Il tempo di ritardo, in secondi, tra l'invio del comando pause e
+#   l'esecuzione di runout_gcode. Potrebbe essere utile aumentare
+#   questo ritardo se OctoPrint mostra uno strano comportamento
+#   di pausa. Il valore predefinito è 0,5 secondi.
 #switch_pin:
-#   The pin on which the switch is connected. This parameter must be
-#   provided.
+#   Il pin su cui è collegato l'interruttore.
+#   Questo parametro deve essere fornito.
 ```
 
 ### [filament_motion_sensor]
@@ -3561,57 +3583,59 @@ TSLl401CL Based Filament Width Sensor. See the [guide](TSL1401CL_Filament_Width_
 
 ### [hall_filament_width_sensor]
 
-Hall filament width sensor (see [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)).
+Sensore di larghezza del filamento ad effetto Hall (vedere [Sensore di larghezza del filamento Hall](Hall_Filament_Width_Sensor.md)).
 
 ```
 [hall_filament_width_sensor]
 adc1:
 adc2:
-#   Analog input pins connected to the sensor. These parameters must
-#   be provided.
+#   Pin di ingresso analogico collegati al sensore. 
+#   Questi parametri devono essere forniti.
 #cal_dia1: 1.50
 #cal_dia2: 2.00
-#   The calibration values (in mm) for the sensors. The default is
-#   1.50 for cal_dia1 and 2.00 for cal_dia2.
+#   I valori di calibrazione (in mm) per i sensori. Il valore predefinito
+#   è 1.50 per cal_dia1 e 2.00 per cal_dia2.
 #raw_dia1: 9500
 #raw_dia2: 10500
-#   The raw calibration values for the sensors. The default is 9500
-#   for raw_dia1 and 10500 for raw_dia2.
+#   I valori di calibrazione grezzi per i sensori. Il valore predefinito è
+#   9500 per raw_dia1 e 10500 per raw_dia2.
 #default_nominal_filament_diameter: 1.75
-#   The nominal filament diameter. This parameter must be provided.
+#   Il diametro nominale del filamento.
+#   Questo parametro deve essere fornito.
 #max_difference: 0.200
-#   Maximum allowed filament diameter difference in millimeters (mm).
-#   If difference between nominal filament diameter and sensor output
-#   is more than +- max_difference, extrusion multiplier is set back
-#   to %100. The default is 0.200.
+#   Differenza massima consentita del diametro del filamento in
+#   millimetri (mm). Se la differenza tra il diametro nominale del
+#   filamento e l'uscita del sensore è maggiore di +- max_difference,
+#   il moltiplicatore di estrusione viene riportato a %100.
+#   Il valore predefinito è 0,200.
 #measurement_delay: 70
-#   The distance from sensor to the melting chamber/hot-end in
-#   millimeters (mm). The filament between the sensor and the hot-end
-#   will be treated as the default_nominal_filament_diameter. Host
-#   module works with FIFO logic. It keeps each sensor value and
-#   position in an array and POP them back in correct position. This
-#   parameter must be provided.
+#   La distanza dal sensore alla camera di fusione/hot-end in
+#   millimetri (mm). Il filamento tra il sensore e l'hot-end verrà
+#   trattato come default_nominal_filament_diameter. Il modulo
+#   host funziona con la logica FIFO. Mantiene ogni valore e posizione
+#   del sensore in un array e li riporta nella posizione corretta.
+#   Questo parametro deve essere fornito.
 #enable: False
-#   Sensor enabled or disabled after power on. The default is to
-#   disable.
+#   Sensore abilitato o disabilitato dopo l'accensione. 
+L'impostazione predefinita è disabilitare.
 #measurement_interval: 10
-#   The approximate distance (in mm) between sensor readings. The
-#   default is 10mm.
+#   La distanza approssimativa (in mm) tra le letture del sensore.
+#   Il valore predefinito è 10 mm.
 #logging: False
-#   Out diameter to terminal and klipper.log can be turn on|of by
-#   command.
+#   Il log esterno al terminale e klipper.log può essere 
+#   attivato|off tramite comando.
 #min_diameter: 1.0
-#   Minimal diameter for trigger virtual filament_switch_sensor.
+#   Diametro minimo per trigger filament_switch_sensor virtuale.
 #use_current_dia_while_delay: False
-#   Use the current diameter instead of the nominal diameter while
-#   the measurement delay has not run through.
+#   Utilizzare il diametro attuale invece del diametro nominale 
+#   mentre il ritardo di misurazione non è trascorso.
 #pause_on_runout:
 #runout_gcode:
 #insert_gcode:
 #event_delay:
 #pause_delay:
-#   See the "filament_switch_sensor" section for a description of the
-#   above parameters.
+#   Vedere la sezione "filament_switch_sensor" per una 
+#   descrizione dei parametri di cui sopra.
 ```
 
 ## Supporto hardware per specifica scheda
@@ -3756,9 +3780,9 @@ Palette 2 multimaterial support - provides a tighter integration supporting Pale
 
 This modules also requires `[virtual_sdcard]` and `[pause_resume]` for full functionality.
 
-If you use this module, do not use the Palette 2 plugin for Octoprint as they will conflict, and 1 will fail to initialize properly likely aborting your print.
+Se si utilizza questo modulo, non utilizzare il plug-in Palette 2 per Octoprint poiché entreranno in conflitto e 1 non si inizializzerà correttamente, probabilmente interrompendo la stampa.
 
-If you use Octoprint and stream gcode over the serial port instead of printing from virtual_sd, then remo **M1** and **M0** from *Pausing commands* in *Settings > Serial Connection > Firmware & protocol* will prevent the need to start print on the Palette 2 and unpausing in Octoprint for your print to begin.
+Se utilizzi Octoprint e esegui lo streaming di gcode sulla porta seriale invece di stampare da virtual_sd, rimuovere **M1** e **M0** da *Pausa dei comandi* in *Impostazioni > Connessione seriale > Firmware e protocollo* eviterà la necessità per avviare la stampa sulla tavolozza 2 e riattivare la pausa in Octoprint per avviare la stampa.
 
 ```
 [palette2]
@@ -3839,18 +3863,20 @@ Most Klipper micro-controller implementations only support an `i2c_speed` of 100
 
 ```
 #i2c_address:
-#   The i2c address of the device. This must specified as a decimal
-#   number (not in hex). The default depends on the type of device.
+#   L'indirizzo i2c del dispositivo. Questo deve essere specificato
+#   come numero decimale (non in esadecimale). L'impostazione
+#   predefinita dipende dal tipo di dispositivo.
 #i2c_mcu:
-#   The name of the micro-controller that the chip is connected to.
-#   The default is "mcu".
+#   Il nome del microcontrollore a cui è collegato il chip.
+#   L'impostazione predefinita è "mcu".
 #i2c_bus:
-#   If the micro-controller supports multiple I2C busses then one may
-#   specify the micro-controller bus name here. The default depends on
-#   the type of micro-controller.
+#   Se il microcontrollore supporta più bus I2C, è possibile 
+#   specificare qui il nome del bus del microcontrollore.
+#   L'impostazione predefinita dipende dal tipo di microcontrollore.
 #i2c_speed:
-#   The I2C speed (in Hz) to use when communicating with the device.
-#   The Klipper implementation on most micro-controllers is hard-coded
-#   to 100000 and changing this value has no effect. The default is
-#   100000.
+#   La velocità I2C (in Hz) da utilizzare durante la comunicazione
+#   con il dispositivo. L'implementazione di Klipper sulla maggior
+#   parte dei microcontrollori è codificata a 100000 e la modifica
+#   di questo valore non ha alcun effetto.
+#   Il valore predefinito è 100000.
 ```

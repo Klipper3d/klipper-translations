@@ -10,7 +10,7 @@ L'obiettivo principale dei benchmark è fornire un meccanismo coerente per misur
 
 Il benchmark dello step rate è progettato per trovare la velocità di stepping massima che l'hardware e il software possono raggiungere. Questa velocità di stepping del benchmark non è raggiungibile nell'uso quotidiano poiché Klipper ha bisogno di eseguire altre attività (ad esempio, comunicazione mcu/host, lettura della temperatura, controllo endstop) in qualsiasi utilizzo nel mondo reale.
 
-In general, the pins for the benchmark tests are chosen to flash LEDs or other innocuous pins. **Always verify that it is safe to drive the configured pins prior to running a benchmark.** It is not recommended to drive an actual stepper during a benchmark.
+In generale, i pin per i test di benchmark sono scelti per far lampeggiare LED o altri pin innocui. **Verifica sempre che sia sicuro guidare i pin configurati prima di eseguire un benchmark.** Non è consigliabile pilotare uno stepper reale durante un benchmark.
 
 ### Step rate benchmark test
 

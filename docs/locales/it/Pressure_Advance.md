@@ -16,46 +16,46 @@ Prepararsi per il test emettendo il seguente comando G-Code:
 SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500
 ```
 
-This command makes the nozzle travel slower through corners to emphasize the effects of extruder pressure. Then for printers with a direct drive extruder run the command:
+Questo comando fa viaggiare l'ugello più lentamente attraverso gli angoli per enfatizzare gli effetti della pressione dell'estrusore. Quindi per le stampanti con un estrusore a trasmissione diretta eseguire il comando:
 
 ```
 TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 FACTOR=.005
 ```
 
-For long bowden extruders use:
+Per estrusori bowden lunghi utilizzare:
 
 ```
 TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 FACTOR=.020
 ```
 
-Then print the object. When fully printed the test print looks like:
+Quindi stampare l'oggetto. Una volta stampata completamente, la stampa di prova avrà il seguente aspetto:
 
 ![tuning_tower](img/tuning_tower.jpg)
 
-The above TUNING_TOWER command instructs Klipper to alter the pressure_advance setting on each layer of the print. Higher layers in the print will have a larger pressure advance value set. Layers below the ideal pressure_advance setting will have blobbing at the corners, and layers above the ideal setting can lead to rounded corners and poor extrusion leading up to the corner.
+Il comando TUNING_TOWER sopra indica a Klipper di modificare l'impostazione pressure_advance su ogni strato della stampa. Gli strati più alti nella stampa avranno un valore di anticipo della pressione maggiore impostato. Gli strati al di sotto dell'impostazione pressione_anticipo ideale avranno macchie agli angoli e gli strati al di sopra dell'impostazione ideale possono portare a angoli arrotondati e una scarsa estrusione all'angolo.
 
-One can cancel the print early if one observes that the corners are no longer printing well (and thus one can avoid printing layers that are known to be above the ideal pressure_advance value).
+È possibile annullare la stampa in anticipo se si osserva che gli angoli non vengono più stampati bene (e quindi si può evitare di stampare livelli noti per essere al di sopra del valore di pressione_avanzamento ideale).
 
-Inspect the print and then use a digital calipers to find the height that has the best quality corners. When in doubt, prefer a lower height.
+Ispeziona la stampa e quindi utilizza un calibro digitale per trovare l'altezza con gli angoli della migliore qualità. In caso di dubbio, preferire un'altezza inferiore.
 
 ![tune_pa](img/tune_pa.jpg)
 
-The pressure_advance value can then be calculated as `pressure_advance = <start> + <measured_height> * <factor>`. (For example, `0 + 12.90 * .020` would be `.258`.)
+Il valore pressure_advance può quindi essere calcolato come `pressure_advance = <inizio> + <altezza_misurata> * <fattore>`. (Ad esempio, `0 + 12.90 * .020` sarebbe `.258`.)
 
-It is possible to choose custom settings for START and FACTOR if that helps identify the best pressure advance setting. When doing this, be sure to issue the TUNING_TOWER command at the start of each test print.
+È possibile scegliere impostazioni personalizzate per START e FACTOR se ciò aiuta a identificare la migliore impostazione di anticipo della pressione. Quando si esegue questa operazione, assicurarsi di emettere il comando TUNING_TOWER all'inizio di ogni stampa di prova.
 
-Typical pressure advance values are between 0.050 and 1.000 (the high end usually only with bowden extruders). If there is no significant improvement with a pressure advance up to 1.000, then pressure advance is unlikely to improve the quality of prints. Return to a default configuration with pressure advance disabled.
+I valori tipici di pressure advance sono compresi tra 0,050 e 1,000 (la fascia alta di solito solo con estrusori bowden). Se non vi è alcun miglioramento significativo con un pressure advance fino a 1.000, è improbabile che lapressure advance migliori la qualità delle stampe. Ritorno ad una configurazione di default con pressure advance disabilitato.
 
-Although this tuning exercise directly improves the quality of corners, it's worth remembering that a good pressure advance configuration also reduces ooze throughout the print.
+Sebbene questo esercizio di messa a punto migliori direttamente la qualità degli angoli, vale la pena ricordare che una buona configurazione del pressure advanceriduce anche gli ooze durante la stampa.
 
-At the completion of this test, set `pressure_advance = <calculated_value>` in the `[extruder]` section of the configuration file and issue a RESTART command. The RESTART command will clear the test state and return the acceleration and cornering speeds to their normal values.
+Al termine di questo test, impostare `pressure_advance = <calculated_value>` nella sezione `[extruder]` del file di configurazione ed emettere un comando RESTART. Il comando RESTART cancellerà lo stato di test e riporterà le velocità di accelerazione e in curva ai valori normali.
 
-## Important Notes
+## Note importanti
 
-* The pressure advance value is dependent on the extruder, the nozzle, and the filament. It is common for filament from different manufactures or with different pigments to require significantly different pressure advance values. Therefore, one should calibrate pressure advance on each printer and with each spool of filament.
-* Printing temperature and extrusion rates can impact pressure advance. Be sure to tune the [extruder rotation_distance](Rotation_Distance.md#calibrating-rotation_distance-on-extruders) and [nozzle temperature](http://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide#Nozzle_Temperature) prior to tuning pressure advance.
-* The test print is designed to run with a high extruder flow rate, but otherwise "normal" slicer settings. A high flow rate is obtained by using a high printing speed (eg, 100mm/s) and a coarse layer height (typically around 75% of the nozzle diameter). Other slicer settings should be similar to their defaults (eg, perimeters of 2 or 3 lines, normal retraction amount). It can be useful to set the external perimeter speed to be the same speed as the rest of the print, but it is not a requirement.
-* It is common for the test print to show different behavior on each corner. Often the slicer will arrange to change layers at one corner which can result in that corner being significantly different from the remaining three corners. If this occurs, then ignore that corner and tune pressure advance using the other three corners. It is also common for the remaining corners to vary slightly. (This can occur due to small differences in how the printer's frame reacts to cornering in certain directions.) Try to choose a value that works well for all the remaining corners. If in doubt, prefer a lower pressure advance value.
-* If a high pressure advance value (eg, over 0.200) is used then one may find that the extruder skips when returning to the printer's normal acceleration. The pressure advance system accounts for pressure by pushing in extra filament during acceleration and retracting that filament during deceleration. With a high acceleration and high pressure advance the extruder may not have enough torque to push the required filament. If this occurs, either use a lower acceleration value or disable pressure advance.
-* Once pressure advance is tuned in Klipper, it may still be useful to configure a small retract value in the slicer (eg, 0.75mm) and to utilize the slicer's "wipe on retract option" if available. These slicer settings may help counteract ooze caused by filament cohesion (filament pulled out of the nozzle due to the stickiness of the plastic). It is recommended to disable the slicer's "z-lift on retract" option.
-* The pressure advance system does not change the timing or path of the toolhead. A print with pressure advance enabled will take the same amount of time as a print without pressure advance. Pressure advance also does not change the total amount of filament extruded during a print. Pressure advance results in extra extruder movement during move acceleration and deceleration. A very high pressure advance setting will result in a very large amount of extruder movement during acceleration and deceleration, and no configuration setting places a limit on the amount of that movement.
+* Il valore di pressure advance dipende dall'estrusore, dall'ugello e dal filamento. È comune che filamenti di produttori diversi o con pigmenti diversi richiedano valori di pressure advance significativamente diversi. Pertanto, si dovrebbe calibrare pressure advance su ciascuna stampante e con ogni bobina di filamento.
+* La temperatura di stampa e le velocità di estrusione possono influire sul pressure advance. Assicurati di regolare [extruder rotation_distance](Rotation_Distance.md#calibrating-rotation_distance-on-extruders) e [nozzle temperature](http://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide#Nozzle_Temperature) prima di regolare l'avanzamento della pressione.
+* La stampa di prova è progettata per funzionare con un'elevata portata dell'estrusore, ma per il resto con impostazioni dello slicer "normali". Un'elevata portata si ottiene utilizzando un'elevata velocità di stampa (ad es. 100 mm/s) e un'altezza dello strato grossolano (tipicamente circa il 75% del diametro dell'ugello). Altre impostazioni dello slicer dovrebbero essere simili alle loro impostazioni predefinite (ad esempio, perimetri di 2 o 3 linee, quantità di retrazione normale). Può essere utile impostare la velocità del perimetro esterno in modo che sia la stessa velocità del resto della stampa, ma non è un requisito.
+* È comune che la stampa di prova mostri un comportamento diverso su ciascun angolo. Spesso lo slicer provvederà a cambiare i livelli in un angolo, il che può comportare che quell'angolo sia significativamente diverso dai restanti tre angoli. Se ciò si verifica, ignora quell'angolo e regola pressure advance utilizzando gli altri tre angoli. È anche comune che gli angoli rimanenti varino leggermente. (Ciò può verificarsi a causa di piccole differenze nel modo in cui il telaio della stampante reagisce alle curve in determinate direzioni.) Prova a scegliere un valore che funzioni bene per tutti gli angoli rimanenti. In caso di dubbio, preferire un valore di pressure advance inferiore.
+* Se viene utilizzato un valore di pressure advance (ad esempio, superiore a 0.200), è possibile che l'estrusore salti quando torna alla normale accelerazione della stampante. Il sistema di pressure advance tiene conto della pressione spingendo il filamento extra durante l'accelerazione e ritraendo quel filamento durante la decelerazione. Con un'elevata accelerazione e un'elevata pressione di anticipo, l'estrusore potrebbe non avere una coppia sufficiente per spingere il filamento richiesto. In tal caso, utilizzare un valore di accelerazione inferiore o disattivare la pressure advance.
+* Una volta che pressure advance è stato regolato in Klipper, può essere comunque utile configurare un piccolo valore di retrazione nello slicer (ad es. 0,75 mm) e utilizzare l'opzione "pulizia in retrazione" dello slicer, se disponibile. Queste impostazioni dello slicer possono aiutare a contrastare la trasudazione causata dalla coesione del filamento ( estratto dall'ugello a causa della viscosità della plastica). Si consiglia di disabilitare l'opzione "Z-lift in retrazione" dello slicer.
+* Il sistema di pressure advance non modifica i tempi o il percorso della testa di stampa. Una stampa con pressure advance abilitato richiederà lo stesso tempo di una stampa senza pressure advance. Inoltre, pressure advance non modifica la quantità totale di filamento estruso durante una stampa. L a pressure advance determina un movimento extra dell'estrusore durante l'accelerazione e la decelerazione del movimento. Un'impostazione di pressure advance molto elevata risulterà in una quantità molto grande di movimento dell'estrusore durante l'accelerazione e la decelerazione e nessuna impostazione di configurazione pone un limite alla quantità di tale movimento.
