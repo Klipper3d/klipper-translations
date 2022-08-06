@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-05 11:20+0000\n"
+"PO-Revision-Date: 2022-08-06 17:21+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/"
 "it/>\n"
@@ -67,7 +67,7 @@ msgid ""
 msgstr ""
 
 msgid "Get extruder temperature: `M105`"
-msgstr ""
+msgstr "Ottieni la temperatura dell'estrusore: `M105`"
 
 msgid "Set extruder temperature: `M104 [T<index>] [S<temperature>]`"
 msgstr ""
@@ -100,7 +100,7 @@ msgid "Get current position: `M114`"
 msgstr "Ottieni la posizione attuale: `M114`"
 
 msgid "Get firmware version: `M115`"
-msgstr ""
+msgstr "Ottieni la versione del firmware: `M115`"
 
 msgid ""
 "For further details on the above commands see the [RepRap G-Code "
@@ -156,7 +156,7 @@ msgid "Set build percentage: `M73 P<percent>`"
 msgstr ""
 
 msgid "Get Endstop Status: `M119` (Use QUERY_ENDSTOPS instead.)"
-msgstr ""
+msgstr "Ottieni lo stato del finecorsa: `M119` (usa invece QUERY_ENDSTOPS.)"
 
 msgid ""
 "Klipper uses \"extended\" G-Code commands for general configuration and "
@@ -328,6 +328,8 @@ msgid ""
 "`FIRMWARE_RESTART`: This is similar to a RESTART command, but it also clears"
 " any error state from the micro-controller."
 msgstr ""
+"`FIRMWARE_RESTART`: Questo è simile a un comando RESTART, ma cancella anche "
+"qualsiasi stato di errore dal microcontrollore."
 
 msgid ""
 "`SAVE_CONFIG`: This command will overwrite the main printer config file and "
@@ -339,7 +341,7 @@ msgid "`STATUS`: Report the Klipper host software status."
 msgstr ""
 
 msgid "`HELP`: Report the list of available extended G-Code commands."
-msgstr ""
+msgstr "`HELP`: riporta l'elenco dei comandi G-Code estesi disponibili."
 
 msgid ""
 "`SET_GCODE_VARIABLE MACRO=<macro_name> VARIABLE=<name> VALUE=<value>`: This "
@@ -596,6 +598,18 @@ msgid ""
 "kinematics. This command is intended for low-level diagnostics and "
 "debugging."
 msgstr ""
+"`FORCE_MOVE STEPPER=<nome_config> DISTANCE=<value> VELOCITY=<value> "
+"[ACCEL=<value>]`: Questo comando sposterà forzatamente lo stepper dato della "
+"distanza data (in mm) alla velocità costante data (in mm/ S). Se viene "
+"specificato ACCEL ed è maggiore di zero, verrà utilizzata l'accelerazione "
+"data (in mm/s^2); altrimenti non viene eseguita alcuna accelerazione. Non "
+"vengono effettuati controlli sui limiti; non vengono effettuati "
+"aggiornamenti cinematici; altri stepper paralleli su un asse non verranno "
+"spostati. Prestare attenzione poiché un comando errato potrebbe causare "
+"danni! L'uso di questo comando metterà quasi sicuramente la cinematica di "
+"basso livello in uno stato errato; emettere un G28 in seguito per "
+"ripristinare la cinematica. Questo comando è destinato alla diagnostica e al "
+"debug di basso livello."
 
 msgid ""
 "`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>]`: Force the low-"
@@ -701,6 +715,8 @@ msgid ""
 "`GET_RETRACTION`: Queries the current parameters used by firmware retraction"
 " and displays them on the terminal."
 msgstr ""
+"`GET_RETRACTION`: interroga i parametri correnti utilizzati dal firmware per "
+"retrazione e li visualizza sul terminale."
 
 msgid ""
 "`G10`: Retracts the extruder using the currently configured parameters."
@@ -1277,7 +1293,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 103 (header)
 msgid "GET_RETRACTION"
-msgstr ""
+msgstr "GET_RETRACTION"
 
 #: docs/G-Codes.md:block 105 (header)
 msgid "[filament_switch_sensor]"
@@ -1347,7 +1363,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 130 (header)
 msgid "HELP"
-msgstr ""
+msgstr "HELP"
 
 #: docs/G-Codes.md:block 132 (header)
 msgid "[gcode_arcs]"
@@ -1378,7 +1394,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 141 (header)
 msgid "GET_POSITION"
-msgstr ""
+msgstr "GET_POSITION"
 
 #: docs/G-Codes.md:block 143 (header)
 msgid "SET_GCODE_OFFSET"
@@ -1484,7 +1500,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 165 (header)
 msgid "[heaters]"
-msgstr ""
+msgstr "[heaters]"
 
 #: docs/G-Codes.md:block 166 (paragraph)
 msgid ""
@@ -1506,7 +1522,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 173 (header)
 msgid "[idle_timeout]"
-msgstr ""
+msgstr "[idle_timeout]"
 
 #: docs/G-Codes.md:block 174 (paragraph)
 msgid "The idle_timeout module is automatically loaded."
@@ -1518,7 +1534,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 177 (header)
 msgid "[input_shaper]"
-msgstr ""
+msgstr "[input_shaper]"
 
 #: docs/G-Codes.md:block 178 (paragraph)
 msgid ""
@@ -1964,6 +1980,10 @@ msgid ""
 "optimum Z height directly into the formula to determine the optimum "
 "parameter value."
 msgstr ""
+"`FACTOR`: Il valore cambia a una velocità di `factor` per millimetro. La "
+"formula utilizzata è: `valore = inizio + fattore * z_altezza`. È possibile "
+"inserire l'altezza Z ottimale direttamente nella formula per determinare il "
+"valore del parametro ottimale."
 
 #: docs/G-Codes.md:block 322 (unordered list)
 msgid ""
@@ -2050,6 +2070,9 @@ msgid ""
 "See the developer documentation of [GET_POSITION "
 "output](Code_Overview.md#coordinate-systems) for more information."
 msgstr ""
+"GET_POSITION`: Restituisce informazioni sulla posizione corrente della testa "
+"di stampa. Per ulteriori informazioni, vedere la documentazione per gli "
+"sviluppatori di [GET_POSITION output](Code_Overview.md#coordinate-systems)."
 
 #: docs/G-Codes.md:block 82 (paragraph)
 msgid ""
