@@ -1213,16 +1213,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#micro-controller-configuration" class="md-nav__link">
-    Micro-controller configuration
+  <a href="#configurazione-del-microcontrollore" class="md-nav__link">
+    Configurazione del microcontrollore
   </a>
   
-    <nav class="md-nav" aria-label="Micro-controller configuration">
+    <nav class="md-nav" aria-label="Configurazione del microcontrollore">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#format-of-micro-controller-pin-names" class="md-nav__link">
-    Format of micro-controller pin names
+  <a href="#formato-dei-nomi-dei-pin-del-microcontrollore" class="md-nav__link">
+    Formato dei nomi dei pin del microcontrollore
   </a>
   
 </li>
@@ -1467,11 +1467,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#g-code-macros-and-events" class="md-nav__link">
-    G-Code macros and events
+  <a href="#macro-ed-eventi-g-code" class="md-nav__link">
+    Macro ed eventi G-Code
   </a>
   
-    <nav class="md-nav" aria-label="G-Code macros and events">
+    <nav class="md-nav" aria-label="Macro ed eventi G-Code">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1872,11 +1872,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fans" class="md-nav__link">
-    Fans
+  <a href="#ventole" class="md-nav__link">
+    Ventole
   </a>
   
-    <nav class="md-nav" aria-label="Fans">
+    <nav class="md-nav" aria-label="Ventole">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2121,15 +2121,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#hd44780-display" class="md-nav__link">
-    hd44780 display
+  <a href="#display-hd44780" class="md-nav__link">
+    display hd44780
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#hd44780_spi-display" class="md-nav__link">
-    hd44780_spi display
+  <a href="#display-hd44780_spi" class="md-nav__link">
+    display hd44780_spi
   </a>
   
 </li>
@@ -2208,11 +2208,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#filament-sensors" class="md-nav__link">
-    Filament sensors
+  <a href="#sensori-di-filamento" class="md-nav__link">
+    Sensori di filamento
   </a>
   
-    <nav class="md-nav" aria-label="Filament sensors">
+    <nav class="md-nav" aria-label="Sensori di filamento">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2362,11 +2362,11 @@
 
 <h1 id="riferimenti-configurazione">Riferimenti configurazione<a class="headerlink" href="#riferimenti-configurazione" title="Permanent link">&para;</a></h1>
 <p>Questo documento è un riferimento per le opzioni disponibili nel file di configurazione di Klipper.</p>
-<p>The descriptions in this document are formatted so that it is possible to cut-and-paste them into a printer config file. See the <a href="Installation.html">installation document</a> for information on setting up Klipper and choosing an initial config file.</p>
-<h2 id="micro-controller-configuration">Micro-controller configuration<a class="headerlink" href="#micro-controller-configuration" title="Permanent link">&para;</a></h2>
-<h3 id="format-of-micro-controller-pin-names">Format of micro-controller pin names<a class="headerlink" href="#format-of-micro-controller-pin-names" title="Permanent link">&para;</a></h3>
-<p>Many config options require the name of a micro-controller pin. Klipper uses the hardware names for these pins - for example <code>PA4</code>.</p>
-<p>Pin names may be preceded by <code>!</code> to indicate that a reverse polarity should be used (eg, trigger on low instead of high).</p>
+<p>Le descrizioni in questo documento sono formattate in modo che sia possibile tagliarle e incollarle in un file di configurazione della stampante. Consulta il <a href="Installation.html">documento di installazione</a> per informazioni sulla configurazione di Klipper e sulla scelta di un file di configurazione iniziale.</p>
+<h2 id="configurazione-del-microcontrollore">Configurazione del microcontrollore<a class="headerlink" href="#configurazione-del-microcontrollore" title="Permanent link">&para;</a></h2>
+<h3 id="formato-dei-nomi-dei-pin-del-microcontrollore">Formato dei nomi dei pin del microcontrollore<a class="headerlink" href="#formato-dei-nomi-dei-pin-del-microcontrollore" title="Permanent link">&para;</a></h3>
+<p>Molte opzioni di configurazione richiedono il nome di un pin del microcontrollore. Klipper usa i nomi hardware per questi pin, ad esempio "PA4".</p>
+<p>I nomi dei pin possono essere preceduti da <code>!</code> per indicare che deve essere utilizzata una polarità inversa (ad esempio, trigger su basso anziché alto).</p>
 <p>Input pins may be preceded by <code>^</code> to indicate that a hardware pull-up resistor should be enabled for the pin. If the micro-controller supports pull-down resistors then an input pin may alternatively be preceded by <code>~</code>.</p>
 <p>Note, some config sections may "create" additional pins. Where this occurs, the config section defining the pins must be listed in the config file before any sections using those pins.</p>
 <h3 id="mcu">[mcu]<a class="headerlink" href="#mcu" title="Permanent link">&para;</a></h3>
@@ -2882,119 +2882,113 @@ microsteps:
 rotation_distance:
 #full_steps_per_rotation:
 #gear_ratio:
-#   See the &quot;stepper&quot; section for a description of the above
-#   parameters. If none of the above parameters are specified then no
-#   stepper will be associated with the nozzle hotend (though a
-#   SYNC_EXTRUDER_MOTION command may associate one at run-time).
+#   Vedere la sezione &quot;stepper&quot; per una descrizione di quanto sopra
+#   Se nessuno dei parametri precedenti è specificato, nessuno stepper 
+#   sarà associato all&#39;hotend dell&#39;ugello (sebbene un comando
+#   SYNC_EXTRUDER_MOTION possa associarne uno in fase di esecuzione).
 nozzle_diameter:
-#   Diameter of the nozzle orifice (in mm). This parameter must be
-#   provided.
-filament_diameter:
-#   The nominal diameter of the raw filament (in mm) as it enters the
-#   extruder. This parameter must be provided.
+#   Diametro dell&#39;orifizio dell&#39;ugello (in mm). Questo parametro deve essere fornito.
+filament_diameter::
+#   Il diametro nominale del filamento grezzo (in mm) quando
+#   entra nell&#39;estrusore. Questo parametro deve essere fornito.
 #max_extrude_cross_section:
-#   Maximum area (in mm^2) of an extrusion cross section (eg,
-#   extrusion width multiplied by layer height). This setting prevents
-#   excessive amounts of extrusion during relatively small XY moves.
-#   If a move requests an extrusion rate that would exceed this value
-#   it will cause an error to be returned. The default is: 4.0 *
-#   nozzle_diameter^2
-#instantaneous_corner_velocity: 1.000
-#   The maximum instantaneous velocity change (in mm/s) of the
-#   extruder during the junction of two moves. The default is 1mm/s.
+#   Area massima (in mm^2) di una sezione trasversale dell&#39;estrusione
+#   (ad es. larghezza dell&#39;estrusione moltiplicata per l&#39;altezza dello strato).
+#   Questa impostazione previene quantità eccessive di estrusione
+#   durante spostamenti XY relativamente piccoli.
+#   Se un movimento richiede una velocità di estrusione che supererebbe questo valore
+#   causerà la restituzione di un errore. L&#39;impostazione predefinita
+#   è: 4.0 * diametro_ugello^2
+instantaneous_corner_velocity: 1.000
+#   La variazione di velocità istantanea massima (in mm/s) del
+#   estrusore durante il collegamento di due movimenti. Il valore predefinito è 1 mm/s.
 #max_extrude_only_distance: 50.0
-#   Maximum length (in mm of raw filament) that a retraction or
-#   extrude-only move may have. If a retraction or extrude-only move
-#   requests a distance greater than this value it will cause an error
-#   to be returned. The default is 50mm.
+#   Lunghezza massima (in mm di filamento grezzo) che può avere un movimento
+#    di retrazione o di sola estrusione. Se uno spostamento di retrazione
+#    o di sola estrusione richiede una distanza maggiore di questo valore,
+#   verrà restituito un errore. Il valore predefinito è 50 mm.
 #max_extrude_only_velocity:
 #max_extrude_only_accel:
-#   Maximum velocity (in mm/s) and acceleration (in mm/s^2) of the
-#   extruder motor for retractions and extrude-only moves. These
-#   settings do not have any impact on normal printing moves. If not
-#   specified then they are calculated to match the limit an XY
-#   printing move with a cross section of 4.0*nozzle_diameter^2 would
-#   have.
+#   Velocità massima (in mm/s) e accelerazione (in mm/s^2) del
+#   motore estrusore per retrazioni e movimenti di sola estrusione.
+#   Queste impostazioni non hanno alcun impatto sui normali movimenti di stampa.
+#   Se non specificati, vengono calcolati per corrispondere al limite che avrebbe
+#   un movimento di stampa XY con una sezione trasversale di 4,0*diametro_ugello^2.
 #pressure_advance: 0.0
-#   The amount of raw filament to push into the extruder during
-#   extruder acceleration. An equal amount of filament is retracted
-#   during deceleration. It is measured in millimeters per
-#   millimeter/second. The default is 0, which disables pressure
-#   advance.
-#pressure_advance_smooth_time: 0.040
-#   A time range (in seconds) to use when calculating the average
-#   extruder velocity for pressure advance. A larger value results in
-#   smoother extruder movements. This parameter may not exceed 200ms.
-#   This setting only applies if pressure_advance is non-zero. The
-#   default is 0.040 (40 milliseconds).
+#   La quantità di filamento grezzo da spingere nell&#39;estrusore durante
+#   accelerazione dell&#39;estrusore. Una uguale quantità di filamento viene
+#   retratta durante la decelerazione. Si misura in millimetri per
+#   millimetro/secondo. Il valore predefinito è 0, che disabilita l&#39;avanzamento della pressione.
+#pressure_advance_smooth_time: 0,040
+#   Un intervallo di tempo (in secondi) da utilizzare per calcolare la velocità media
+#   dell&#39;estrusore per l&#39;avanzamento della pressione. Un valore maggiore si traduce
+#   in movimenti più fluidi dell&#39;estrusore. Questo parametro non può superare i 200 ms.
+#   Questa impostazione si applica solo se pressure_advance è diverso da zero.
+#   Il valore predefinito è 0,040 (40 millisecondi).
 #
-# The remaining variables describe the extruder heater.
+#   Le restanti variabili descrivono il riscaldatore dell&#39;estrusore.
 heater_pin:
-#   PWM output pin controlling the heater. This parameter must be
-#   provided.
+#   Pin di uscita PWM che controlla il riscaldatore. Questo parametro deve essere fornito.
 #max_power: 1.0
-#   The maximum power (expressed as a value from 0.0 to 1.0) that the
-#   heater_pin may be set to. The value 1.0 allows the pin to be set
-#   fully enabled for extended periods, while a value of 0.5 would
-#   allow the pin to be enabled for no more than half the time. This
-#   setting may be used to limit the total power output (over extended
-#   periods) to the heater. The default is 1.0.
+#   La potenza massima (espressa come un valore compreso tra 0,0 e 1,0) a cui
+#   può essere impostato il riscaldatore_pin. Il valore 1.0 consente di impostare il pin
+#   completamente abilitato per periodi prolungati, mentre un valore di 0,5
+#   consentirebbe di abilitare il pin per non più della metà del tempo. Questo
+#   l&#39;impostazione può essere utilizzata per limitare la potenza totale 
+#   (per periodi prolungati) al riscaldatore. L&#39;impostazione predefinita è 1.0.
 sensor_type:
-#   Type of sensor - common thermistors are &quot;EPCOS 100K B57560G104F&quot;,
-#   &quot;ATC Semitec 104GT-2&quot;, &quot;ATC Semitec 104NT-4-R025H42G&quot;, &quot;Generic
+#   Tipo di sensore - i termistori comuni sono &quot;EPCOS 100K B57560G104F&quot;,
+#   &quot;ATC Semitec 104GT-2&quot;, &quot;ATC Semitec 104NT-4-R025H42G&quot;, &quot;Generico
 #   3950&quot;,&quot;Honeywell 100K 135-104LAG-J01&quot;, &quot;NTC 100K MGB18-104F39050L32&quot;,
-#   &quot;SliceEngineering 450&quot;, and &quot;TDK NTCG104LH104JT1&quot;. See the
-#   &quot;Temperature sensors&quot; section for other sensors. This parameter
-#   must be provided.
+#   &quot;SliceEngineering 450&quot; e &quot;TDK NTCG104LH104JT1&quot;. Vedere la sezione 
+#   &quot;Sensori di temperatura&quot; per altri sensori. Questo parametro deve essere fornito.
 sensor_pin:
-#   Analog input pin connected to the sensor. This parameter must be
-#   provided.
+#   Pin di ingresso analogico collegato al sensore. Questo parametro deve essere fornito.
 #pullup_resistor: 4700
-#   The resistance (in ohms) of the pullup attached to the thermistor.
-#   This parameter is only valid when the sensor is a thermistor. The
-#   default is 4700 ohms.
+#   La resistenza (in ohm) del pullup collegato al termistore. Questo parametro
+#   è valido solo quando il sensore è un termistore. Il valore predefinito è 4700 ohm.
 #smooth_time: 1.0
-#   A time value (in seconds) over which temperature measurements will
-#   be smoothed to reduce the impact of measurement noise. The default
-#   is 1 seconds.
+#   Un valore di tempo (in secondi) durante il quale le misurazioni della
+#   temperatura verranno uniformate per ridurre l&#39;impatto del rumore
+#   di misurazione. Il valore predefinito è 1 secondo.
 control:
-#   Control algorithm (either pid or watermark). This parameter must
-#   be provided.
+#   Algoritmo di controllo (pid o filigrana). Questo parametro deve
+#   essere fornito.
 pid_Kp:
 pid_Ki:
 pid_Kd:
-#   The proportional (pid_Kp), integral (pid_Ki), and derivative
-#   (pid_Kd) settings for the PID feedback control system. Klipper
-#   evaluates the PID settings with the following general formula:
-#     heater_pwm = (Kp*error + Ki*integral(error) - Kd*derivative(error)) / 255
-#   Where &quot;error&quot; is &quot;requested_temperature - measured_temperature&quot;
-#   and &quot;heater_pwm&quot; is the requested heating rate with 0.0 being full
-#   off and 1.0 being full on. Consider using the PID_CALIBRATE
-#   command to obtain these parameters. The pid_Kp, pid_Ki, and pid_Kd
-#   parameters must be provided for PID heaters.
-#max_delta: 2.0
-#   On &#39;watermark&#39; controlled heaters this is the number of degrees in
-#   Celsius above the target temperature before disabling the heater
-#   as well as the number of degrees below the target before
-#   re-enabling the heater. The default is 2 degrees Celsius.
-#pwm_cycle_time: 0.100
-#   Time in seconds for each software PWM cycle of the heater. It is
-#   not recommended to set this unless there is an electrical
-#   requirement to switch the heater faster than 10 times a second.
-#   The default is 0.100 seconds.
+#   Il proporzionale (pid_Kp), l&#39;integrale (pid_Ki) e la derivata
+#   (pid_Kd) impostazioni per il sistema di controllo del feedback PID. Klipper
+#   valuta le impostazioni PID con la seguente formula generale:
+#   riscaldatore_pwm = (Kp*errore + Ki*integrale(errore) - Kd*derivato(errore)) / 255
+#   Dove &quot;errore&quot; è &quot;temperatura_richiesta - temperatura_misurata&quot;
+#   e &quot;heater_pwm&quot; è la velocità di riscaldamento richiesta con 0,0 completamente
+#   off e 1.0 completamente on. Prendi in considerazione l&#39;utilizzo di PID_CALIBRATE
+#   comando per ottenere questi parametri. pid_Kp, pid_Ki e pid_Kd
+#   i parametri devono essere forniti per i riscaldatori PID.
+#delta_max: 2.0
+#   Sui riscaldatori controllati questo è il numero di gradi in
+#   Celsius al di sopra della temperatura target prima di disattivare il riscaldatore
+#   così come il numero di gradi sotto il target prima
+#   riattivare il riscaldatore. L&#39;impostazione predefinita è 2 gradi Celsius.
+#pwm_cycle_time: 0,100
+#   Tempo in secondi per ogni ciclo PWM software del riscaldatore.
+#   non è consigliabile impostarlo a meno che non ci sia necessario come
+#   requisito accendere il riscaldatore più velocemente di 10 volte al secondo.
+#   Il valore predefinito è 0,100 secondi.
 #min_extrude_temp: 170
-#   The minimum temperature (in Celsius) at which extruder move
-#   commands may be issued. The default is 170 Celsius.
+#   La temperatura minima (in gradi Celsius) alla quale possono essere 
+#   impartiti comandi all&#39;estrusore. L&#39;impostazione predefinita è 170 gradi Celsius.
 min_temp:
 max_temp:
-#   The maximum range of valid temperatures (in Celsius) that the
-#   heater must remain within. This controls a safety feature
-#   implemented in the micro-controller code - should the measured
-#   temperature ever fall outside this range then the micro-controller
-#   will go into a shutdown state. This check can help detect some
-#   heater and sensor hardware failures. Set this range just wide
-#   enough so that reasonable temperatures do not result in an error.
-#   These parameters must be provided.
+#   L&#39;intervallo massimo di temperature valide (in gradi Celsius) in cui
+#   il riscaldatore deve rimanere all&#39;interno. Questo controlla una funzione di sicurezza
+#   implementata nel codice del microcontrollore , la temperatura
+#   non cadrà mai al di fuori di questo intervallo, altrimenti il microcontrollore
+#   entrerà in uno stato di arresto. Questo controllo può aiutare a rilevarne alcuni
+#   guasti hardware del riscaldatore e del sensore. Imposta questo intervallo solo in modo ampio
+#   abbastanza in modo che temperature ragionevoli non si traducano in un errore.
+#   Questi parametri devono essere forniti.
 </code></pre></div>
 
 <h3 id="heater_bed">[heater_bed]<a class="headerlink" href="#heater_bed" title="Permanent link">&para;</a></h3>
@@ -3006,7 +3000,7 @@ sensor_pin:
 control:
 min_temp:
 max_temp:
-#   See the &quot;extruder&quot; section for a description of the above parameters.
+#   Vedere la sezione &quot;extruder&quot; per una descrizione dei parametri sopra.
 </code></pre></div>
 
 <h2 id="supporto-livellamento-del-piatto">Supporto livellamento del piatto<a class="headerlink" href="#supporto-livellamento-del-piatto" title="Permanent link">&para;</a></h2>
@@ -3355,30 +3349,30 @@ gcode:
 <p>See the <a href="Endstop_Phase.html">endstop phases guide</a> and <a href="G-Codes.html#endstop_phase">command reference</a> for additional information.</p>
 <div class="highlight"><pre><span></span><code>[endstop_phase stepper_z]
 #endstop_accuracy:
-#   Sets the expected accuracy (in mm) of the endstop. This represents
-#   the maximum error distance the endstop may trigger (eg, if an
-#   endstop may occasionally trigger 100um early or up to 100um late
-#   then set this to 0.200 for 200um). The default is
-#   4*rotation_distance/full_steps_per_rotation.
+#    Imposta la precisione prevista (in mm) del finecorsa. Questo rappresenta
+#    la distanza massima di errore che il finecorsa può attivare (ad es. se un
+#    finecorsa può occasionalmente attivarsi 100um in anticipo o fino a 100um in ritardo
+#    quindi impostalo su 0,200 per 200 um). L&#39;impostazione predefinita è
+#    4*distanza_rotazione/passi_completi_per_rotazione.
 #trigger_phase:
-#   This specifies the phase of the stepper motor driver to expect
-#   when hitting the endstop. It is composed of two numbers separated
-#   by a forward slash character - the phase and the total number of
-#   phases (eg, &quot;7/64&quot;). Only set this value if one is sure the
-#   stepper motor driver is reset every time the mcu is reset. If this
-#   is not set, then the stepper phase will be detected on the first
-#   home and that phase will be used on all subsequent homes.
+#    Questo specifica la fase del driver del motore passo-passo da aspettarsi
+#    quando si raggiunge il finecorsa. È composto da due numeri separati
+#    da un &#39;/&#39; - la fase e il numero totale di
+#    fasi (ad es. &quot;7/64&quot;). Impostare questo valore solo se si è sicuri che il
+#    driver del motore passo-passo viene ripristinato ogni volta che viene ripristinato l&#39;mcu. Se questo
+#    non è impostato, la prima fase verrà rilevata al primo home
+#    e quella fase sarà utilizzata su tutte le abitazioni successive.
 #endstop_align_zero: False
-#   If true then the position_endstop of the axis will effectively be
-#   modified so that the zero position for the axis occurs at a full
-#   step on the stepper motor. (If used on the Z axis and the print
-#   layer height is a multiple of a full step distance then every
-#   layer will occur on a full step.) The default is False.
+#    Se true, la posizione_endstop dell&#39;asse sarà effettivamente
+#    modificato in modo che la posizione zero dell&#39;asse avvenga a passo pieno
+#    sul motore. (Se utilizzato sull&#39;asse Z e la stampa
+#    l&#39;altezza del livello è un multiplo di una distanza di un passo intero, allora ogni
+#    layer si eseguirà in un step completo.) L&#39;impostazione predefinita è False.
 </code></pre></div>
 
-<h2 id="g-code-macros-and-events">G-Code macros and events<a class="headerlink" href="#g-code-macros-and-events" title="Permanent link">&para;</a></h2>
+<h2 id="macro-ed-eventi-g-code">Macro ed eventi G-Code<a class="headerlink" href="#macro-ed-eventi-g-code" title="Permanent link">&para;</a></h2>
 <h3 id="gcode_macro">[gcode_macro]<a class="headerlink" href="#gcode_macro" title="Permanent link">&para;</a></h3>
-<p>G-Code macros (one may define any number of sections with a "gcode_macro" prefix). See the <a href="Command_Templates.html">command template guide</a> for more information.</p>
+<p>Macro G-Code (è possibile definire un numero qualsiasi di sezioni con un prefisso "gcode_macro"). Per ulteriori informazioni, consulta la <a href="Command_Templates.html">Guida ai modelli di comando</a>.</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro my_cmd]
 #gcode:
 #   A list of G-Code commands to execute in place of &quot;my_cmd&quot;. See
@@ -3465,8 +3459,8 @@ path:
 <p>Support manually moving stepper motors for diagnostic purposes. Note, using this feature may place the printer in an invalid state - see the <a href="G-Codes.html#force_move">command reference</a> for important details.</p>
 <div class="highlight"><pre><span></span><code>[force_move]
 #enable_force_move: False
-#   Set to true to enable FORCE_MOVE and SET_KINEMATIC_POSITION
-#   extended G-Code commands. The default is false.
+#   Impostare su True per abilitare FORCE_MOVE e SET_KINEMATIC_POSITION
+#   i comandi G-Code estesi. L&#39;impostazione predefinita è False.
 </code></pre></div>
 
 <h3 id="pause_resume">[pause_resume]<a class="headerlink" href="#pause_resume" title="Permanent link">&para;</a></h3>
@@ -3497,15 +3491,16 @@ path:
 <p>Support for gcode arc (G2/G3) commands.</p>
 <div class="highlight"><pre><span></span><code>[gcode_arcs]
 #resolution: 1.0
-#   An arc will be split into segments. Each segment&#39;s length will
-#   equal the resolution in mm set above. Lower values will produce a
-#   finer arc, but also more work for your machine. Arcs smaller than
-#   the configured value will become straight lines. The default is
+#   Un arco sarà diviso in segmenti. La lunghezza di ciascun segmento
+#   sarà uguale alla risoluzione in mm impostata sopra. Valori più bassi 
+#   produrranno un arco più fine, ma anche più lavoro per la tua macchina.
+#   Archi più piccoli del valore configurato diventerà linee rette.
+#   L&#39;impostazione predefinita è
 #   1mm.
 </code></pre></div>
 
 <h3 id="respond">[respond]<a class="headerlink" href="#respond" title="Permanent link">&para;</a></h3>
-<p>Enable the "M118" and "RESPOND" extended <a href="G-Codes.html#respond">commands</a>.</p>
+<p>Abilita i comandi estesi "M118" e "RESPOND" <a href="G-Codes.html#respond">commands</a>.</p>
 <div class="highlight"><pre><span></span><code>[respond]
 #default_type: echo
 #   Sets the default prefix of the &quot;M118&quot; and &quot;RESPOND&quot; output to one
@@ -3526,7 +3521,7 @@ path:
 
 <h2 id="compensazione-della-risonanza">Compensazione della risonanza<a class="headerlink" href="#compensazione-della-risonanza" title="Permanent link">&para;</a></h2>
 <h3 id="input_shaper">[input_shaper]<a class="headerlink" href="#input_shaper" title="Permanent link">&para;</a></h3>
-<p>Enables <a href="Resonance_Compensation.html">resonance compensation</a>. Also see the <a href="G-Codes.html#input_shaper">command reference</a>.</p>
+<p>Abilita <a href="Resonance_Compensation.html">compensazione della risonanza</a>. Vedere anche il <a href="G-Codes.html#input_shaper">command reference</a>.</p>
 <div class="highlight"><pre><span></span><code>[input_shaper]
 #shaper_freq_x: 0
 #   A frequency (in Hz) of the input shaper for X axis. This is
@@ -3864,10 +3859,10 @@ z_offset:
 #step_pin:
 #dir_pin:
 #...
-#   See the &quot;extruder&quot; section for available stepper and heater
-#   parameters.
+#   Vedere la sezione &quot;estrusore&quot; per i parametri per lo stepper e il riscaldatore
+#   disponibili.
 #shared_heater:
-#   This option is deprecated and should no longer be specified.
+#   Questa opzione è obsoleta e non deve più essere specificata.
 </code></pre></div>
 
 <h3 id="dual_carriage">[dual_carriage]<a class="headerlink" href="#dual_carriage" title="Permanent link">&para;</a></h3>
@@ -3875,8 +3870,8 @@ z_offset:
 <p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-idex.cfg">sample-idex.cfg</a> for an example configuration.</p>
 <div class="highlight"><pre><span></span><code>[dual_carriage]
 axis:
-#   The axis this extra carriage is on (either x or y). This parameter
-#   must be provided.
+#   L&#39;asse su cui si trova questo carrello aggiuntivo (x o y). Questo parametro
+#   deve essere fornito
 #step_pin:
 #dir_pin:
 #enable_pin:
@@ -3886,7 +3881,7 @@ axis:
 #position_endstop:
 #position_min:
 #position_max:
-#   See the &quot;stepper&quot; section for the definition of the above parameters.
+#   Vedere la sezione &quot;stepper&quot; per la definizione dei parametri di cui sopra.
 </code></pre></div>
 
 <h3 id="extruder_stepper">[extruder_stepper]<a class="headerlink" href="#extruder_stepper" title="Permanent link">&para;</a></h3>
@@ -3894,16 +3889,16 @@ axis:
 <p>See the <a href="G-Codes.html#extruder">command reference</a> for more information.</p>
 <div class="highlight"><pre><span></span><code>[extruder_stepper my_extra_stepper]
 extruder:
-#   The extruder this stepper is synchronized to. If this is set to an
-#   empty string then the stepper will not be synchronized to an
-#   extruder. This parameter must be provided.
+#   L&#39;estrusore con cui è sincronizzato questo stepper. Se questo è impostato su
+#   una stringa vuota, lo stepper non verrà sincronizzato con un
+#   estrusore. Questo parametro deve essere fornito.
 #step_pin:
 #dir_pin:
 #enable_pin:
 #microsteps:
 #rotation_distance:
-#   See the &quot;stepper&quot; section for the definition of the above
-#   parameters.
+# Vedere la sezione &quot;stepper&quot; per la definizione dei parametri sopra.
+# .
 </code></pre></div>
 
 <h3 id="manual_stepper">[manual_stepper]<a class="headerlink" href="#manual_stepper" title="Permanent link">&para;</a></h3>
@@ -3932,7 +3927,7 @@ extruder:
 
 <h2 id="riscaldatori-e-sensori-personalizzati">Riscaldatori e sensori personalizzati<a class="headerlink" href="#riscaldatori-e-sensori-personalizzati" title="Permanent link">&para;</a></h2>
 <h3 id="verify_heater">[verify_heater]<a class="headerlink" href="#verify_heater" title="Permanent link">&para;</a></h3>
-<p>Heater and temperature sensor verification. Heater verification is automatically enabled for each heater that is configured on the printer. Use verify_heater sections to change the default settings.</p>
+<p>Verifica riscaldatore e sensore di temperatura. La verifica del riscaldatore viene abilitata automaticamente per ogni riscaldatore configurato sulla stampante. Usa le sezioni di verifica_riscaldatore per modificare le impostazioni predefinite.</p>
 <div class="highlight"><pre><span></span><code>[verify_heater heater_config_name]
 #max_error: 120
 #   The maximum &quot;cumulative temperature error&quot; before raising an
@@ -4047,7 +4042,7 @@ extruder:
 </code></pre></div>
 
 <h3 id="temperature_sensor">[temperature_sensor]<a class="headerlink" href="#temperature_sensor" title="Permanent link">&para;</a></h3>
-<p>Generic temperature sensors. One can define any number of additional temperature sensors that are reported via the M105 command.</p>
+<p>Sensori di temperatura generici. È possibile definire un numero qualsiasi di sensori di temperatura aggiuntivi che vengono riportati tramite il comando M105.</p>
 <div class="highlight"><pre><span></span><code>[temperature_sensor my_sensor]
 #sensor_type:
 #sensor_pin:
@@ -4246,7 +4241,7 @@ serial_no:
 #   The micro-controller to read from. Must be the host_mcu
 </code></pre></div>
 
-<h2 id="fans">Fans<a class="headerlink" href="#fans" title="Permanent link">&para;</a></h2>
+<h2 id="ventole">Ventole<a class="headerlink" href="#ventole" title="Permanent link">&para;</a></h2>
 <h3 id="fan">[fan]<a class="headerlink" href="#fan" title="Permanent link">&para;</a></h3>
 <p>Print cooling fan.</p>
 <div class="highlight"><pre><span></span><code>[fan]
@@ -4438,7 +4433,7 @@ pin:
 #tachometer_pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
-#   See the &quot;fan&quot; section for a description of the above parameters.
+#   Vedere la sezione &quot;fan&quot; per la descrizione dei parametri riportati sopra
 </code></pre></div>
 
 <h2 id="leds">LEDs<a class="headerlink" href="#leds" title="Permanent link">&para;</a></h2>
@@ -5192,7 +5187,7 @@ lcd_type:
 #   button.
 </code></pre></div>
 
-<h4 id="hd44780-display">hd44780 display<a class="headerlink" href="#hd44780-display" title="Permanent link">&para;</a></h4>
+<h4 id="display-hd44780">display hd44780<a class="headerlink" href="#display-hd44780" title="Permanent link">&para;</a></h4>
 <p>Information on configuring hd44780 displays (which is used in "RepRapDiscount 2004 Smart Controller" type displays).</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: hd44780
@@ -5216,7 +5211,7 @@ d7_pin:
 ...
 </code></pre></div>
 
-<h4 id="hd44780_spi-display">hd44780_spi display<a class="headerlink" href="#hd44780_spi-display" title="Permanent link">&para;</a></h4>
+<h4 id="display-hd44780_spi">display hd44780_spi<a class="headerlink" href="#display-hd44780_spi" title="Permanent link">&para;</a></h4>
 <p>Information on configuring an hd44780_spi display - a 20x04 display controlled via a hardware "shift register" (which is used in mightyboard based printers).</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: hd44780_spi
@@ -5467,9 +5462,9 @@ text:
 #   mode start or end.
 </code></pre></div>
 
-<h2 id="filament-sensors">Filament sensors<a class="headerlink" href="#filament-sensors" title="Permanent link">&para;</a></h2>
+<h2 id="sensori-di-filamento">Sensori di filamento<a class="headerlink" href="#sensori-di-filamento" title="Permanent link">&para;</a></h2>
 <h3 id="filament_switch_sensor">[filament_switch_sensor]<a class="headerlink" href="#filament_switch_sensor" title="Permanent link">&para;</a></h3>
-<p>Filament Switch Sensor. Support for filament insert and runout detection using a switch sensor, such as an endstop switch.</p>
+<p>Sensore del filamento a interruttore. Supporto per l'inserimento del filamento e il rilevamento dell'esaurimento tramite un sensore interruttore, come un interruttore di fine corsa.</p>
 <p>See the <a href="G-Codes.html#filament_switch_sensor">command reference</a> for more information.</p>
 <div class="highlight"><pre><span></span><code>[filament_switch_sensor my_sensor]
 #pause_on_runout: True
@@ -5502,24 +5497,24 @@ text:
 </code></pre></div>
 
 <h3 id="filament_motion_sensor">[filament_motion_sensor]<a class="headerlink" href="#filament_motion_sensor" title="Permanent link">&para;</a></h3>
-<p>Filament Motion Sensor. Support for filament insert and runout detection using an encoder that toggles the output pin during filament movement through the sensor.</p>
+<p>Sensore di movimento del filamento. Supporto per l'inserimento del filamento e il rilevamento dell'esaurimento mediante un codificatore che commuta il pin di uscita durante il movimento del filamento attraverso il sensore.</p>
 <p>See the <a href="G-Codes.html#filament_switch_sensor">command reference</a> for more information.</p>
 <div class="highlight"><pre><span></span><code>[filament_motion_sensor my_sensor]
 detection_length: 7.0
-#   The minimum length of filament pulled through the sensor to trigger
-#   a state change on the switch_pin
-#   Default is 7 mm.
+#   La lunghezza minima di filamento tirato attraverso il sensore 
+#   per attivare un cambio di stato su switch_pin
+#   Il default è 7 mm.
 extruder:
-#   The name of the extruder section this sensor is associated with.
-#   This parameter must be provided.
+#   Nome della sezione extruder section con cui questo sensore è associato.
+#   Questo parametro deve essere fornito.
 switch_pin:
 #pause_on_runout:
 #runout_gcode:
 #insert_gcode:
 #event_delay:
 #pause_delay:
-#   See the &quot;filament_switch_sensor&quot; section for a description of the
-#   above parameters.
+#   Vedere la sezione &quot;filament_switch_sensor&quot; per la descrizione dei
+#   parametri riportati sopra.
 </code></pre></div>
 
 <h3 id="tsl1401cl_filament_width_sensor">[tsl1401cl_filament_width_sensor]<a class="headerlink" href="#tsl1401cl_filament_width_sensor" title="Permanent link">&para;</a></h3>

@@ -1497,22 +1497,22 @@
 
 <h1 id="status-reference">Status reference<a class="headerlink" href="#status-reference" title="Permanent link">&para;</a></h1>
 <p>Questo documento è un riferimento alle informazioni sullo stato della stampante disponibili in Klipper <a href="Command_Templates.html">macro</a>, <a href="Config_Reference.html#display">display fields</a> e tramite <a href="API_Server.html">API Server</a>.</p>
-<p>The fields in this document are subject to change - if using an attribute be sure to review the <a href="Config_Changes.html">Config Changes document</a> when upgrading the Klipper software.</p>
+<p>I campi in questo documento sono soggetti a modifiche: se si utilizza un attributo, assicurarsi di rivedere il <a href="Config_Changes.html">documento Modifiche alla configurazione</a> durante l'aggiornamento del software Klipper.</p>
 <h2 id="angle">angle<a class="headerlink" href="#angle" title="Permanent link">&para;</a></h2>
 <p>The following information is available in <a href="Config_Reference.html#angle">angle some_name</a> objects:</p>
 <ul>
 <li><code>temperature</code>: The last temperature reading (in Celsius) from a tle5012b magnetic hall sensor. This value is only available if the angle sensor is a tle5012b chip and if measurements are in progress (otherwise it reports <code>None</code>).</li>
 </ul>
 <h2 id="bed_mesh">bed_mesh<a class="headerlink" href="#bed_mesh" title="Permanent link">&para;</a></h2>
-<p>The following information is available in the <a href="Config_Reference.html#bed_mesh">bed_mesh</a> object:</p>
+<p>Le seguenti informazioni sono disponibili in <a href="Config_Reference.html#bed_mesh">bed_mesh</a>:</p>
 <ul>
 <li><code>profile_name</code>, <code>mesh_min</code>, <code>mesh_max</code>, <code>probed_matrix</code>, <code>mesh_matrix</code>: Information on the currently active bed_mesh.</li>
 <li><code>profiles</code>: The set of currently defined profiles as setup using BED_MESH_PROFILE.</li>
 </ul>
 <h2 id="configfile">configfile<a class="headerlink" href="#configfile" title="Permanent link">&para;</a></h2>
-<p>The following information is available in the <code>configfile</code> object (this object is always available):</p>
+<p>Le seguenti informazioni sono disponibili nell'oggetto <code>configfile</code> (questo oggetto è sempre disponibile):</p>
 <ul>
-<li><code>settings.&lt;section&gt;.&lt;option&gt;</code>: Returns the given config file setting (or default value) during the last software start or restart. (Any settings changed at run-time will not be reflected here.)</li>
+<li><code>settings.&lt;section&gt;.&lt;option&gt;</code>: Restituisce l'impostazione del file di configurazione data (o il valore predefinito) durante l'ultimo avvio o riavvio del software. (Qualsiasi impostazione modificata in fase di esecuzione non si rifletterà qui.)</li>
 <li><code>config.&lt;section&gt;.&lt;option&gt;</code>: Returns the given raw config file setting as read by Klipper during the last software start or restart. (Any settings changed at run-time will not be reflected here.) All values are returned as strings.</li>
 <li><code>save_config_pending</code>: Returns true if there are updates that a <code>SAVE_CONFIG</code> command may persist to disk.</li>
 <li><code>save_config_pending_items</code>: Contains the sections and options that were changed and would be persisted by a <code>SAVE_CONFIG</code>.</li>

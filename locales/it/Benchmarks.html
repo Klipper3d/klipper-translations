@@ -1213,11 +1213,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#micro-controller-benchmarks" class="md-nav__link">
-    Micro-controller Benchmarks
+  <a href="#benchmark-del-microcontrollore" class="md-nav__link">
+    Benchmark del microcontrollore
   </a>
   
-    <nav class="md-nav" aria-label="Micro-controller Benchmarks">
+    <nav class="md-nav" aria-label="Benchmark del microcontrollore">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1363,10 +1363,10 @@
 
 <h1 id="benchmarks">Benchmarks<a class="headerlink" href="#benchmarks" title="Permanent link">&para;</a></h1>
 <p>Questo documento descrive i benchmark di Klipper.</p>
-<h2 id="micro-controller-benchmarks">Micro-controller Benchmarks<a class="headerlink" href="#micro-controller-benchmarks" title="Permanent link">&para;</a></h2>
-<p>This section describes the mechanism used to generate the Klipper micro-controller step rate benchmarks.</p>
-<p>The primary goal of the benchmarks is to provide a consistent mechanism for measuring the impact of coding changes within the software. A secondary goal is to provide high-level metrics for comparing the performance between chips and between software platforms.</p>
-<p>The step rate benchmark is designed to find the maximum stepping rate that the hardware and software can reach. This benchmark stepping rate is not achievable in day-to-day use as Klipper needs to perform other tasks (eg, mcu/host communication, temperature reading, endstop checking) in any real-world usage.</p>
+<h2 id="benchmark-del-microcontrollore">Benchmark del microcontrollore<a class="headerlink" href="#benchmark-del-microcontrollore" title="Permanent link">&para;</a></h2>
+<p>Questa sezione descrive il meccanismo utilizzato per generare i benchmark della velocità di passaggio del microcontrollore Klipper.</p>
+<p>L'obiettivo principale dei benchmark è fornire un meccanismo coerente per misurare l'impatto delle modifiche alla codifica all'interno del software. Un obiettivo secondario è fornire metriche di alto livello per confrontare le prestazioni tra i chip e tra le piattaforme software.</p>
+<p>Il benchmark dello step rate è progettato per trovare la velocità di stepping massima che l'hardware e il software possono raggiungere. Questa velocità di stepping del benchmark non è raggiungibile nell'uso quotidiano poiché Klipper ha bisogno di eseguire altre attività (ad esempio, comunicazione mcu/host, lettura della temperatura, controllo endstop) in qualsiasi utilizzo nel mondo reale.</p>
 <p>In general, the pins for the benchmark tests are chosen to flash LEDs or other innocuous pins. <strong>Always verify that it is safe to drive the configured pins prior to running a benchmark.</strong> It is not recommended to drive an actual stepper during a benchmark.</p>
 <h3 id="step-rate-benchmark-test">Step rate benchmark test<a class="headerlink" href="#step-rate-benchmark-test" title="Permanent link">&para;</a></h3>
 <p>The test is performed using the console.py tool (described in <Debugging.md>). The micro-controller is configured for the particular hardware platform (see below) and then the following is cut-and-paste into the console.py terminal window:</p>

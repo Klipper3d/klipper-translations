@@ -1213,11 +1213,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#basic-configuration" class="md-nav__link">
-    Basic Configuration
+  <a href="#configurazione-base" class="md-nav__link">
+    Configurazione base
   </a>
   
-    <nav class="md-nav" aria-label="Basic Configuration">
+    <nav class="md-nav" aria-label="Configurazione base">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1355,9 +1355,9 @@
 <h1 id="matrice-del-piatto">Matrice del Piatto<a class="headerlink" href="#matrice-del-piatto" title="Permanent link">&para;</a></h1>
 <p>Il modulo Griglia Letto (bed mesh) può essere usato per compensare le irregolarità della superficie del letto e per ottenere un primo strato migliore su tutto il letto. Va notato che la correzione basata sul software non raggiungerà risultati perfetti, può solo approssimare la forma del letto. Griglia Letto inoltre non può compensare i problemi meccanici ed elettrici. Se un asse è obliquo o una sonda non è accurata, il modulo Griglia Letto non riceverà risultati accurati dal processo di ispezione.</p>
 <p>Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See <a href="Probe_Calibrate.html">Probe Calibrate</a> and Z_ENDSTOP_CALIBRATE in <a href="Manual_Level.html">Manual Level</a> for more information.</p>
-<h2 id="basic-configuration">Basic Configuration<a class="headerlink" href="#basic-configuration" title="Permanent link">&para;</a></h2>
+<h2 id="configurazione-base">Configurazione base<a class="headerlink" href="#configurazione-base" title="Permanent link">&para;</a></h2>
 <h3 id="rectangular-beds">Rectangular Beds<a class="headerlink" href="#rectangular-beds" title="Permanent link">&para;</a></h3>
-<p>This example assumes a printer with a 250 mm x 220 mm rectangular bed and a probe with an x-offset of 24 mm and y-offset of 5 mm.</p>
+<p>Questo esempio presuppone una stampante con un piatto rettangolare di 250 mm x 220 mm e una sonda con un offset x di 24 mm e un offset y di 5 mm.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1367,7 +1367,7 @@ probe_count: 5, 3
 </code></pre></div>
 
 <ul>
-<li><code>speed: 120</code> <em>Default Value: 50</em> The speed in which the tool moves between points.</li>
+<li><code>speed: 120</code> <em>Valore predefinito: 50</em> La velocità con cui la testa di stampa si sposta tra i punti.</li>
 <li><code>horizontal_move_z: 5</code> <em>Default Value: 5</em> The Z coordinate the probe rises to prior to traveling between points.</li>
 <li><code>mesh_min: 35, 6</code> <em>Required</em> The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.</li>
 <li><code>mesh_max: 240, 198</code> <em>Required</em> The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with <code>mesh_min</code>, this coordiante is relative to the probe's location.</li>

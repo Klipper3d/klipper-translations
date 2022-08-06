@@ -1213,15 +1213,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#device-hardware" class="md-nav__link">
-    Device Hardware
+  <a href="#hardware-del-dispositivo" class="md-nav__link">
+    Hardware del dispositivo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#host-hardware" class="md-nav__link">
-    Host Hardware
+  <a href="#hardware-host" class="md-nav__link">
+    Hardware Host
   </a>
   
 </li>
@@ -1273,13 +1273,13 @@
 
 <h1 id="canbus">CANBUS<a class="headerlink" href="#canbus" title="Permanent link">&para;</a></h1>
 <p>Questo documento descrive il supporto del CAN bus di Klipper.</p>
-<h2 id="device-hardware">Device Hardware<a class="headerlink" href="#device-hardware" title="Permanent link">&para;</a></h2>
-<p>Klipper currently only supports CAN on stm32 chips. In addition, the micro-controller chip must support CAN and it must be on a board that has a CAN transceiver.</p>
+<h2 id="hardware-del-dispositivo">Hardware del dispositivo<a class="headerlink" href="#hardware-del-dispositivo" title="Permanent link">&para;</a></h2>
+<p>Klipper attualmente supporta solo CAN su chip stm32. Inoltre, il chip del microcontrollore deve supportare la CAN e deve trovarsi su una scheda dotata di un ricetrasmettitore CAN.</p>
 <p>To compile for CAN, run <code>make menuconfig</code> and select "CAN bus" as the communication interface. Finally, compile the micro-controller code and flash it to the target board.</p>
-<h2 id="host-hardware">Host Hardware<a class="headerlink" href="#host-hardware" title="Permanent link">&para;</a></h2>
-<p>In order to use a CAN bus, it is necessary to have a host adapter. There are currently two common options:</p>
+<h2 id="hardware-host">Hardware Host<a class="headerlink" href="#hardware-host" title="Permanent link">&para;</a></h2>
+<p>Per utilizzare un bus CAN, è necessario disporre di un adattatore sul host. Attualmente ci sono due opzioni comuni:</p>
 <ol>
-<li>Use a <a href="https://www.waveshare.com/rs485-can-hat.htm">Waveshare Raspberry Pi CAN hat</a> or one of its many clones.</li>
+<li>Usa un <a href="https://www.waveshare.com/rs485-can-hat.htm">Waveshare Raspberry Pi CAN</a> o uno dei suoi tanti cloni.</li>
 <li>Use a USB CAN adapter (for example <a href="https://hacker-gadgets.com/product/cantact-usb-can-adapter/">https://hacker-gadgets.com/product/cantact-usb-can-adapter/</a>). There are many different USB to CAN adapters available - when choosing one, we recommend verifying it can run the <a href="https://github.com/candle-usb/candleLight_fw">candlelight firmware</a>. (Unfortunately, we've found some USB adapters run defective firmware and are locked down, so verify before purchasing.)</li>
 </ol>
 <p>It is also necessary to configure the host operating system to use the adapter. This is typically done by creating a new file named <code>/etc/network/interfaces.d/can0</code> with the following contents:</p>

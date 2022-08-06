@@ -1213,8 +1213,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#typical-upgrade-procedure" class="md-nav__link">
-    Typical Upgrade Procedure
+  <a href="#procedura-di-aggiornamento-tipica" class="md-nav__link">
+    Procedura di aggiornamento tipica
   </a>
   
 </li>
@@ -1227,8 +1227,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#caveats" class="md-nav__link">
-    Caveats
+  <a href="#avvertenze" class="md-nav__link">
+    Avvertenze
   </a>
   
 </li>
@@ -1259,8 +1259,8 @@
 
 <h1 id="sdcard-updates">SDCard updates<a class="headerlink" href="#sdcard-updates" title="Permanent link">&para;</a></h1>
 <p>Molte delle schede controller oggi popolari vengono fornite con un bootloader in grado di aggiornare il firmware tramite scheda SD. Sebbene ciò sia conveniente in molte circostanze, questi bootloader in genere non forniscono altro modo per aggiornare il firmware. Questo può essere un fastidio se la tua scheda è montata in una posizione di difficile accesso o se devi aggiornare spesso il firmware. Dopo che Klipper è stato inizialmente flashato su un controller, è possibile trasferire il nuovo firmware sulla scheda SD e avviare la procedura di flashing tramite ssh.</p>
-<h2 id="typical-upgrade-procedure">Typical Upgrade Procedure<a class="headerlink" href="#typical-upgrade-procedure" title="Permanent link">&para;</a></h2>
-<p>The procedure for updating MCU firmware using the SD Card is similar to that of other methods. Instead of using <code>make flash</code> it is necessary to run a helper script, <code>flash-sdcard.sh</code>. Updating a BigTreeTech SKR 1.3 might look like the following:</p>
+<h2 id="procedura-di-aggiornamento-tipica">Procedura di aggiornamento tipica<a class="headerlink" href="#procedura-di-aggiornamento-tipica" title="Permanent link">&para;</a></h2>
+<p>La procedura per aggiornare il firmware dell'MCU utilizzando la scheda SD è simile a quella di altri metodi. Invece di usare <code>make flash</code> è necessario eseguire uno script di supporto, <code>flash-sdcard.sh</code>. L'aggiornamento di un BigTreeTech SKR 1.3 potrebbe essere simile al seguente:</p>
 <div class="highlight"><pre><span></span><code>sudo service klipper stop
 cd ~/klipper
 git pull
@@ -1271,8 +1271,8 @@ make
 sudo service klipper start
 </code></pre></div>
 
-<p>It is up to the user to determine the device location and board name. If a user needs to flash multiple boards, <code>flash-sdcard.sh</code> (or <code>make flash</code> if appropriate) should be run for each board prior to restarting the Klipper service.</p>
-<p>Supported boards can be listed with the following command:</p>
+<p>Spetta all'utente determinare la posizione del dispositivo e il nome della scheda. Se un utente ha bisogno di eseguire il flashing di più schede, <code>flash-sdcard.sh</code> (o <code>make flash</code> se appropriato) dovrebbe essere eseguito per ciascuna scheda prima di riavviare il servizio Klipper.</p>
+<p>Le schede supportate possono essere elencate con il seguente comando:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -l
 </code></pre></div>
 
@@ -1305,7 +1305,7 @@ optional arguments:
 </code></pre></div>
 
 <p>Note that when upgrading a MKS Robin E3 it is not necessary to manually run <code>update_mks_robin.py</code> and supply the resulting binary to <code>flash-sdcard.sh</code>. This procedure is automated during the upload process.</p>
-<h2 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link">&para;</a></h2>
+<h2 id="avvertenze">Avvertenze<a class="headerlink" href="#avvertenze" title="Permanent link">&para;</a></h2>
 <ul>
 <li>As mentioned in the introduction, this method only works for upgrading firmware. The initial flashing procedure must be done manually per the instructions that apply to your controller board.</li>
 <li>While it is possible to flash a build that changes the Serial Baud or connection interface (ie: from USB to UART), verification will always fail as the script will be unable to reconnect to the MCU to verify the current version.</li>

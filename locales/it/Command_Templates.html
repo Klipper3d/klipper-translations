@@ -1213,8 +1213,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#g-code-macro-naming" class="md-nav__link">
-    G-Code Macro Naming
+  <a href="#denominazione-macro-g-code" class="md-nav__link">
+    Denominazione macro G-Code
   </a>
   
 </li>
@@ -1328,10 +1328,10 @@
 
 <h1 id="commands-templates">Commands templates<a class="headerlink" href="#commands-templates" title="Permanent link">&para;</a></h1>
 <p>Questo documento fornisce informazioni sull'implementazione di sequenze di comandi G-Code nelle sezioni di configurazione gcode_macro (e simili).</p>
-<h2 id="g-code-macro-naming">G-Code Macro Naming<a class="headerlink" href="#g-code-macro-naming" title="Permanent link">&para;</a></h2>
-<p>Case is not important for the G-Code macro name - MY_MACRO and my_macro will evaluate the same and may be called in either upper or lower case. If any numbers are used in the macro name then they must all be at the end of the name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not).</p>
+<h2 id="denominazione-macro-g-code">Denominazione macro G-Code<a class="headerlink" href="#denominazione-macro-g-code" title="Permanent link">&para;</a></h2>
+<p>Le maiuscole non sono importanti per il nome della macro G-Code: MY_MACRO e my_macro saranno considerate allo stesso modo e possono essere chiamati in maiuscolo o minuscolo. Se nel nome della macro vengono utilizzati dei numeri, devono trovarsi tutti alla fine del nome (ad es. TEST_MACRO25 è valido, ma MACRO25_TEST3 non lo è).</p>
 <h2 id="formatting-of-g-code-in-the-config">Formatting of G-Code in the config<a class="headerlink" href="#formatting-of-g-code-in-the-config" title="Permanent link">&para;</a></h2>
-<p>Indentation is important when defining a macro in the config file. To specify a multi-line G-Code sequence it is important for each line to have proper indentation. For example:</p>
+<p>L'indentazione è importante quando si definisce una macro nel file di configurazione. Per specificare una sequenza G-Code su più righe è importante che ogni riga abbia un'indentazione adeguata. Per esempio:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro blink_led]
 gcode:
   SET_PIN PIN=my_led VALUE=1

@@ -1213,8 +1213,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#g-code-commands" class="md-nav__link">
-    G-Code commands
+  <a href="#comandi-g-code" class="md-nav__link">
+    Comandi G-Code
   </a>
   
 </li>
@@ -2713,12 +2713,12 @@
 
 <h1 id="g-codes">G-Codes<a class="headerlink" href="#g-codes" title="Permanent link">&para;</a></h1>
 <p>Questo documento descrive i comandi che Klipper supporta. Questi sono i comandi che si possono inserire nella scheda del terminale OctoPrint.</p>
-<h2 id="g-code-commands">G-Code commands<a class="headerlink" href="#g-code-commands" title="Permanent link">&para;</a></h2>
-<p>Klipper supports the following standard G-Code commands:</p>
+<h2 id="comandi-g-code">Comandi G-Code<a class="headerlink" href="#comandi-g-code" title="Permanent link">&para;</a></h2>
+<p>Klipper supporta i seguenti comandi G-Code standard:</p>
 <ul>
-<li>Move (G0 or G1): <code>G1 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;] [F&lt;speed&gt;]</code></li>
-<li>Dwell: <code>G4 P&lt;milliseconds&gt;</code></li>
-<li>Move to origin: <code>G28 [X] [Y] [Z]</code></li>
+<li>Movimento (G0 or G1): <code>G1 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;] [F&lt;speed&gt;]</code></li>
+<li>Sosta: <code>G4 P&lt;millisecondi&gt;</code></li>
+<li>Sposta all'origine: <code>G28 [X] [Y] [Z]</code></li>
 <li>Turn off motors: <code>M18</code> or <code>M84</code></li>
 <li>Wait for current moves to finish: <code>M400</code></li>
 <li>Use absolute/relative distances for extrusion: <code>M82</code>, <code>M83</code></li>
@@ -2743,11 +2743,11 @@
 </li>
 <li>Set fan speed: <code>M106 S&lt;value&gt;</code></li>
 <li>Turn fan off: <code>M107</code></li>
-<li>Emergency stop: <code>M112</code></li>
-<li>Get current position: <code>M114</code></li>
+<li>Arresto di emergenza: <code>M112</code></li>
+<li>Ottieni la posizione attuale: <code>M114</code></li>
 <li>Get firmware version: <code>M115</code></li>
 </ul>
-<p>For further details on the above commands see the <a href="http://reprap.org/wiki/G-code">RepRap G-Code documentation</a>.</p>
+<p>Per ulteriori dettagli sui comandi precedenti, vedere la <a href="http://reprap.org/wiki/G-code">documentazione RepRap G-Code</a>.</p>
 <p>Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable <a href="#additional-commands">"extended G-Code commands"</a>. Similarly, the G-Code terminal output is only intended to be human readable - see the <a href="API_Server.html">API Server document</a> if controlling Klipper from external software.</p>
 <p>If one requires a less common G-Code command then it may be possible to implement it with a custom <a href="Config_Reference.html#gcode_macro">gcode_macro config section</a>. For example, one might use this to implement: <code>G12</code>, <code>G29</code>, <code>G30</code>, <code>G31</code>, <code>M42</code>, <code>M80</code>, <code>M81</code>, <code>T1</code>, etc.</p>
 <h2 id="comandi-aggiuntivi">Comandi aggiuntivi<a class="headerlink" href="#comandi-aggiuntivi" title="Permanent link">&para;</a></h2>
@@ -2796,7 +2796,7 @@
 <h3 id="bltouch">[bltouch]<a class="headerlink" href="#bltouch" title="Permanent link">&para;</a></h3>
 <p>The following command is available when a <a href="Config_Reference.html#bltouch">bltouch config section</a> is enabled (also see the <a href="BLTouch.html">BL-Touch guide</a>).</p>
 <h4 id="bltouch_debug">BLTOUCH_DEBUG<a class="headerlink" href="#bltouch_debug" title="Permanent link">&para;</a></h4>
-<p><code>BLTOUCH_DEBUG COMMAND=&lt;command&gt;</code>: This sends a command to the BLTouch. It may be useful for debugging. Available commands are: <code>pin_down</code>, <code>touch_mode</code>, <code>pin_up</code>, <code>self_test</code>, <code>reset</code>. A BL-Touch V3.0 or V3.1 may also support <code>set_5V_output_mode</code>, <code>set_OD_output_mode</code>, <code>output_mode_store</code> commands.</p>
+<p><code>BLTOUCH_DEBUG COMMAND=&lt;command&gt;</code>: Invia un comando al BLTouch. Può essere utile per il debug. I comandi disponibili sono: <code>pin_down</code>, <code>touch_mode</code>, <code>pin_up</code>, <code>self_test</code>, <code>reset</code>. Un BL-Touch V3.0 o V3.1 può anche supportare i comandi <code>set_5V_output_mode</code>, <code>set_OD_output_mode</code>, <code>output_mode_store</code>.</p>
 <h4 id="bltouch_store">BLTOUCH_STORE<a class="headerlink" href="#bltouch_store" title="Permanent link">&para;</a></h4>
 <p><code>BLTOUCH_STORE MODE=&lt;output_mode&gt;</code>: memorizza una modalità di output nella EEPROM di un BLTouch V3.1 Le modalità di output disponibili sono: <code>5V</code>, <code>OD</code></p>
 <h3 id="configfile">[configfile]<a class="headerlink" href="#configfile" title="Permanent link">&para;</a></h3>
@@ -2810,9 +2810,9 @@
 <h3 id="delta_calibrate">[delta_calibrate]<a class="headerlink" href="#delta_calibrate" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when the <a href="Config_Reference.html#linear-delta-kinematics">delta_calibrate config section</a> is enabled (also see the <a href="Delta_Calibrate.html">delta calibrate guide</a>).</p>
 <h4 id="delta_calibrate_1">DELTA_CALIBRATE<a class="headerlink" href="#delta_calibrate_1" title="Permanent link">&para;</a></h4>
-<p><code>DELTA_CALIBRATE [METHOD=manual] [&lt;probe_parameter&gt;=&lt;value&gt;]</code>: This command will probe seven points on the bed and recommend updated endstop positions, tower angles, and radius. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active.</p>
+<p><code>DELTA_CALIBRATE [METHOD=manual] [&lt;probe_parameter&gt;=&lt;value&gt;]</code>: questo comando sonderà sette punti sul piatto e consiglierà posizioni di finecorsa, angoli della torre e raggio aggiornati. Vedere il comando PROBE per i dettagli sui parametri della sonda opzionali. Se viene specificato METHOD=manual, lo strumento di probe manuale è attivato - vedere il comando MANUAL_PROBE precedente per i dettagli sui comandi aggiuntivi disponibili mentre questo strumento è attivo.</p>
 <h4 id="delta_analyze">DELTA_ANALYZE<a class="headerlink" href="#delta_analyze" title="Permanent link">&para;</a></h4>
-<p><code>DELTA_ANALYZE</code>: This command is used during enhanced delta calibration. See <a href="Delta_Calibrate.html">Delta Calibrate</a> for details.</p>
+<p><code>DELTA_ANALYZE</code>: questo comando viene utilizzato durante la calibrazione avanzata delle stampanti delta. Vedere <a href="Delta_Calibrate.html">Delta Calibrate</a> per i dettagli.</p>
 <h3 id="display">[display]<a class="headerlink" href="#display" title="Permanent link">&para;</a></h3>
 <p>The following command is available when a <a href="Config_Reference.html#gcode_macro">display config section</a> is enabled.</p>
 <h4 id="set_display_group">SET_DISPLAY_GROUP<a class="headerlink" href="#set_display_group" title="Permanent link">&para;</a></h4>
@@ -2820,7 +2820,7 @@
 <h3 id="display_status">[display_status]<a class="headerlink" href="#display_status" title="Permanent link">&para;</a></h3>
 <p>The display_status module is automatically loaded if a <a href="Config_Reference.html#display">display config section</a> is enabled. It provides the following standard G-Code commands:</p>
 <ul>
-<li>Display Message: <code>M117 &lt;message&gt;</code></li>
+<li>Messaggio visualizzato: <code>M117 &lt;messaggio&gt;</code></li>
 <li>Set build percentage: <code>M73 P&lt;percent&gt;</code></li>
 </ul>
 <p>Viene inoltre fornito il seguente comando G-Code esteso:</p>
@@ -2834,28 +2834,28 @@
 <h3 id="endstop_phase">[endstop_phase]<a class="headerlink" href="#endstop_phase" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when an <a href="Config_Reference.html#endstop_phase">endstop_phase config section</a> is enabled (also see the <a href="Endstop_Phase.html">endstop phase guide</a>).</p>
 <h4 id="endstop_phase_calibrate">ENDSTOP_PHASE_CALIBRATE<a class="headerlink" href="#endstop_phase_calibrate" title="Permanent link">&para;</a></h4>
-<p><code>ENDSTOP_PHASE_CALIBRATE [STEPPER=&lt;config_name&gt;]</code>: If no STEPPER parameter is provided then this command will reports statistics on endstop stepper phases during past homing operations. When a STEPPER parameter is provided it arranges for the given endstop phase setting to be written to the config file (in conjunction with the SAVE_CONFIG command).</p>
+<p><code>ENDSTOP_PHASE_CALIBRATE [STEPPER=&lt;config_name&gt;]</code>: Se non viene fornito alcun parametro STEPPER, questo comando riporterà le statistiche sulle fasi stepper dell'arresto durante le precedenti operazioni di homing. Quando viene fornito un parametro STEPPER, fa in modo che l'impostazione della fase di fine corsa fornita sia scritta nel file di configurazione (insieme al comando SAVE_CONFIG).</p>
 <h3 id="exclude_object">[exclude_object]<a class="headerlink" href="#exclude_object" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when an <a href="Config_Reference.html#exclude_object">exclude_object config section</a> is enabled (also see the <a href="Exclude_Object.html">exclude object guide</a>):</p>
 <h4 id="exclude_object_1"><code>EXCLUDE_OBJECT</code><a class="headerlink" href="#exclude_object_1" title="Permanent link">&para;</a></h4>
-<p><code>EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]</code>: With no parameters, this will return a list of all currently excluded objects.</p>
+<p><code>EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]</code>: Senza parametri, questo restituirà un elenco di tutti gli oggetti attualmente esclusi.</p>
 <p>When the <code>NAME</code> parameter is given, the named object will be excluded from printing.</p>
 <p>When the <code>CURRENT</code> parameter is given, the current object will be excluded from printing.</p>
 <p>When the <code>RESET</code> parameter is given, the list of excluded objects will be cleared. Additionally including <code>NAME</code> will only reset the named object. This <strong>can</strong> cause print failures, if layers were already skipped.</p>
 <h4 id="exclude_object_define"><code>EXCLUDE_OBJECT_DEFINE</code><a class="headerlink" href="#exclude_object_define" title="Permanent link">&para;</a></h4>
-<p><code>EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] [RESET=1] [JSON=1]</code>: Provides a summary of an object in the file.</p>
+<p><code>EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] [RESET=1] [JSON=1]</code>: fornisce un riepilogo di un oggetto nel file.</p>
 <p>With no parameters provided, this will list the defined objects known to Klipper. Returns a list of strings, unless the <code>JSON</code> parameter is given, when it will return object details in json format.</p>
 <p>When the <code>NAME</code> parameter is included, this defines an object to be excluded.</p>
 <ul>
 <li><code>NAME</code>: This parameter is required. It is the identifier used by other commands in this module.</li>
-<li><code>CENTER</code>: An X,Y coordinate for the object.</li>
+<li><code>CENTER</code>: una coordinata X,Y per l'oggetto.</li>
 <li><code>POLYGON</code>: An array of X,Y coordinates that provide an outline for the object.</li>
 </ul>
 <p>When the <code>RESET</code> parameter is provided, all defined objects will be cleared, and the <code>[exclude_object]</code> module will be reset.</p>
 <h4 id="exclude_object_start"><code>EXCLUDE_OBJECT_START</code><a class="headerlink" href="#exclude_object_start" title="Permanent link">&para;</a></h4>
-<p><code>EXCLUDE_OBJECT_START NAME=object_name</code>: This command takes a <code>NAME</code> parameter and denotes the start of the gcode for an object on the current layer.</p>
+<p><code>EXCLUDE_OBJECT_START NAME=object_name</code>: questo comando prende un parametro <code>NAME</code> e marca l'inizio del gcode per un oggetto sul livello corrente.</p>
 <h4 id="exclude_object_end"><code>EXCLUDE_OBJECT_END</code><a class="headerlink" href="#exclude_object_end" title="Permanent link">&para;</a></h4>
-<p><code>EXCLUDE_OBJECT_END [NAME=object_name]</code>: Denotes the end of the object's gcode for the layer. It is paired with <code>EXCLUDE_OBJECT_START</code>. A <code>NAME</code> parameter is optional, and will only warn when the provided name does not match the current object.</p>
+<p><code>EXCLUDE_OBJECT_END [NAME=object_name]</code>: Denota la fine del gcode dell'oggetto per il livello. È accoppiato con <code>EXCLUDE_OBJECT_START</code>. Un parametro <code>NAME</code> è facoltativo e avviserà solo quando il nome fornito non corrisponde all'oggetto corrente.</p>
 <h3 id="extruder">[extruder]<a class="headerlink" href="#extruder" title="Permanent link">&para;</a></h3>
 <p>The following commands are available if an <a href="Config_Reference.html#extruder">extruder config section</a> is enabled:</p>
 <h4 id="activate_extruder">ACTIVATE_EXTRUDER<a class="headerlink" href="#activate_extruder" title="Permanent link">&para;</a></h4>
@@ -2883,8 +2883,8 @@
 <h3 id="firmware_retraction">[firmware_retraction]<a class="headerlink" href="#firmware_retraction" title="Permanent link">&para;</a></h3>
 <p>The following standard G-Code commands are available when the <a href="Config_Reference.html#firmware_retraction">firmware_retraction config section</a> is enabled. These commands allow you to utilize the firmware retraction feature available in many slicers, to reduce stringing during non-extrusion moves from one part of the print to another. Appropriately configuring pressure advance reduces the length of retraction required.</p>
 <ul>
-<li><code>G10</code>: Retracts the extruder using the currently configured parameters.</li>
-<li><code>G11</code>: Unretracts the extruder using the currently configured parameters.</li>
+<li><code>G10</code>: Ritrae l'estrusore utilizzando i parametri attualmente configurati.</li>
+<li><code>G11</code>: Ritira l'estrusore utilizzando i parametri attualmente configurati.</li>
 </ul>
 <p>The following additional commands are also available.</p>
 <h4 id="set_retraction">SET_RETRACTION<a class="headerlink" href="#set_retraction" title="Permanent link">&para;</a></h4>
@@ -2912,7 +2912,7 @@
 <h3 id="gcode_arcs">[gcode_arcs]<a class="headerlink" href="#gcode_arcs" title="Permanent link">&para;</a></h3>
 <p>The following standard G-Code commands are available if a <a href="Config_Reference.html#gcode_arcs">gcode_arcs config section</a> is enabled:</p>
 <ul>
-<li>Controlled Arc Move (G2 or G3): <code>G2 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;] [F&lt;speed&gt;] I&lt;value&gt; J&lt;value&gt;</code></li>
+<li>Movimento controllato dell'arco (G2 o G3): <code>G2 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;] [F&lt;velocità&gt;] I&lt;valore&gt; J&lt;valore&gt;</code></li>
 </ul>
 <h3 id="gcode_macro">[gcode_macro]<a class="headerlink" href="#gcode_macro" title="Permanent link">&para;</a></h3>
 <p>The following command is available when a <a href="Config_Reference.html#gcode_macro">gcode_macro config section</a> is enabled (also see the <a href="Command_Templates.html">command templates guide</a>).</p>
@@ -2935,15 +2935,15 @@
 <h4 id="reset_filament_width_sensor">RESET_FILAMENT_WIDTH_SENSOR<a class="headerlink" href="#reset_filament_width_sensor" title="Permanent link">&para;</a></h4>
 <p><code>RESET_FILAMENT_WIDTH_SENSOR</code>: Cancella tutte le letture del sensore. Utile dopo il cambio del filamento.</p>
 <h4 id="disable_filament_width_sensor">DISABLE_FILAMENT_WIDTH_SENSOR<a class="headerlink" href="#disable_filament_width_sensor" title="Permanent link">&para;</a></h4>
-<p><code>DISABLE_FILAMENT_WIDTH_SENSOR</code>: Turn off the filament width sensor and stop using it for flow control.</p>
+<p><code>DISABLE_FILAMENT_WIDTH_SENSOR</code>: Spegnere il sensore di larghezza del filamento e smettere di usarlo per il controllo del flusso.</p>
 <h4 id="enable_filament_width_sensor">ENABLE_FILAMENT_WIDTH_SENSOR<a class="headerlink" href="#enable_filament_width_sensor" title="Permanent link">&para;</a></h4>
-<p><code>ENABLE_FILAMENT_WIDTH_SENSOR</code>: Turn on the filament width sensor and start using it for flow control.</p>
+<p><code>ENABLE_FILAMENT_WIDTH_SENSOR</code>: attiva il sensore di larghezza del filamento e inizia a usarlo per il controllo del flusso.</p>
 <h4 id="query_raw_filament_width">QUERY_RAW_FILAMENT_WIDTH<a class="headerlink" href="#query_raw_filament_width" title="Permanent link">&para;</a></h4>
 <p><code>QUERY_RAW_FILAMENT_WIDTH</code>: Restituisce le letture del canale ADC corrente e il valore grezzo (raw) del sensore per i punti di calibrazione.</p>
 <h4 id="enable_filament_width_log">ENABLE_FILAMENT_WIDTH_LOG<a class="headerlink" href="#enable_filament_width_log" title="Permanent link">&para;</a></h4>
-<p><code>ENABLE_FILAMENT_WIDTH_LOG</code>: Turn on diameter logging.</p>
+<p><code>ENABLE_FILAMENT_WIDTH_LOG</code>: attiva la registrazione del diametro del filamento.</p>
 <h4 id="disable_filament_width_log">DISABLE_FILAMENT_WIDTH_LOG<a class="headerlink" href="#disable_filament_width_log" title="Permanent link">&para;</a></h4>
-<p><code>DISABLE_FILAMENT_WIDTH_LOG</code>: Turn off diameter logging.</p>
+<p><code>DISABLE_FILAMENT_WIDTH_LOG</code>: Disattiva la registrazione del diametro del filamento.</p>
 <h3 id="heaters">[heaters]<a class="headerlink" href="#heaters" title="Permanent link">&para;</a></h3>
 <p>The heaters module is automatically loaded if a heater is defined in the config file.</p>
 <h4 id="turn_off_heaters">TURN_OFF_HEATERS<a class="headerlink" href="#turn_off_heaters" title="Permanent link">&para;</a></h4>
@@ -3015,9 +3015,9 @@
 <h4 id="resume">RESUME<a class="headerlink" href="#resume" title="Permanent link">&para;</a></h4>
 <p><code>RESUME [VELOCITY=&lt;value&gt;]</code>: Resumes the print from a pause, first restoring the previously captured position. The VELOCITY parameter determines the speed at which the tool should return to the original captured position.</p>
 <h4 id="clear_pause">CLEAR_PAUSE<a class="headerlink" href="#clear_pause" title="Permanent link">&para;</a></h4>
-<p><code>CLEAR_PAUSE</code>: Clears the current paused state without resuming the print. This is useful if one decides to cancel a print after a PAUSE. It is recommended to add this to your start gcode to make sure the paused state is fresh for each print.</p>
+<p><code>CLEAR_PAUSE</code>: cancella lo stato di pausa corrente senza riprendere la stampa. Questo è utile se si decide di annullare una stampa dopo un PAUSE. Si consiglia di aggiungerlo al gcode iniziale per assicurarsi che lo stato in pausa sia aggiornato per ogni stampa.</p>
 <h4 id="cancel_print">CANCEL_PRINT<a class="headerlink" href="#cancel_print" title="Permanent link">&para;</a></h4>
-<p><code>CANCEL_PRINT</code>: Cancels the current print.</p>
+<p><code>CANCEL_PRINT</code>: Annulla la stampa corrente.</p>
 <h3 id="probe">[probe]<a class="headerlink" href="#probe" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when a <a href="Config_Reference.html#probe">probe config section</a> or <a href="Config_Reference.html#bltouch">bltouch config section</a> is enabled (also see the <a href="Probe_Calibrate.html">probe calibrate guide</a>).</p>
 <h4 id="sonda">sonda<a class="headerlink" href="#sonda" title="Permanent link">&para;</a></h4>
@@ -3089,9 +3089,9 @@
 <h4 id="set_skew">SET_SKEW<a class="headerlink" href="#set_skew" title="Permanent link">&para;</a></h4>
 <p><code>SET_SKEW [XY=&lt;ac_length,bd_length,ad_length&gt;] [XZ=&lt;ac,bd,ad&gt;] [YZ=&lt;ac,bd,ad&gt;] [CLEAR=&lt;0|1&gt;]</code>: Configures the [skew_correction] module with measurements (in mm) taken from a calibration print. One may enter measurements for any combination of planes, planes not entered will retain their current value. If <code>CLEAR=1</code> is entered then all skew correction will be disabled.</p>
 <h4 id="get_current_skew">GET_CURRENT_SKEW<a class="headerlink" href="#get_current_skew" title="Permanent link">&para;</a></h4>
-<p><code>GET_CURRENT_SKEW</code>: Reports the current printer skew for each plane in both radians and degrees. The skew is calculated based on parameters provided via the <code>SET_SKEW</code> gcode.</p>
+<p><code>GET_CURRENT_SKEW</code>: Riporta l'inclinazione corrente della stampante per ciascun piano sia in radianti che in gradi. L'inclinazione viene calcolata in base ai parametri forniti tramite il gcode <code>SET_SKEW</code>.</p>
 <h4 id="calc_measured_skew">CALC_MEASURED_SKEW<a class="headerlink" href="#calc_measured_skew" title="Permanent link">&para;</a></h4>
-<p><code>CALC_MEASURED_SKEW [AC=&lt;ac_length&gt;] [BD=&lt;bd_length&gt;] [AD=&lt;ad_length&gt;]</code>: Calculates and reports the skew (in radians and degrees) based on a measured print. This can be useful for determining the printer's current skew after correction has been applied. It may also be useful before correction is applied to determine if skew correction is necessary. See <a href="Skew_Correction.html">Skew Correction</a> for details on skew calibration objects and measurements.</p>
+<p><code>CALC_MEASURED_SKEW [AC=&lt;ac_length&gt;] [BD=&lt;bd_length&gt;] [AD=&lt;ad_length&gt;]</code>: calcola e riporta l'inclinazione (in radianti e gradi) in base a una stampa di test misurata. Questo può essere utile per determinare l'inclinazione corrente della stampante dopo che è stata applicata la correzione. Può anche essere utile prima di applicare la correzione per determinare se è necessaria la correzione dell'inclinazione. Vedere <a href="Correzione_inclinazione.md">Correzione inclinazione</a> per i dettagli su oggetti e misurazioni di calibrazione inclinazione.</p>
 <h4 id="skew_profile">SKEW_PROFILE<a class="headerlink" href="#skew_profile" title="Permanent link">&para;</a></h4>
 <p><code>SKEW_PROFILE [LOAD=&lt;name&gt;] [SAVE=&lt;name&gt;] [REMOVE=&lt;name&gt;]</code>: Profile management for skew_correction. LOAD will restore skew state from the profile matching the supplied name. SAVE will save the current skew state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to persistent memory permanent.</p>
 <h3 id="smart_effector">[smart_effector]<a class="headerlink" href="#smart_effector" title="Permanent link">&para;</a></h3>
@@ -3111,7 +3111,7 @@
 <h3 id="tmcxxxx">[tmcXXXX]<a class="headerlink" href="#tmcxxxx" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when any of the <a href="Config_Reference.html#tmc-stepper-driver-configuration">tmcXXXX config sections</a> are enabled.</p>
 <h4 id="dump_tmc">DUMP_TMC<a class="headerlink" href="#dump_tmc" title="Permanent link">&para;</a></h4>
-<p><code>DUMP_TMC STEPPER=&lt;name&gt;</code>: This command will read the TMC driver registers and report their values.</p>
+<p><code>DUMP_TMC STEPPER=&lt;nome&gt;</code>: questo comando leggerà i registri del driver TMC e ne riporterà i valori.</p>
 <h4 id="init_tmc">INIT_TMC<a class="headerlink" href="#init_tmc" title="Permanent link">&para;</a></h4>
 <p><code>INIT_TMC STEPPER=&lt;name&gt;</code>: This command will initialize the TMC registers. Needed to re-enable the driver if power to the chip is turned off then back on.</p>
 <h4 id="set_tmc_current">SET_TMC_CURRENT<a class="headerlink" href="#set_tmc_current" title="Permanent link">&para;</a></h4>
@@ -3128,7 +3128,7 @@
 <p><code>TUNING_TOWER COMMAND=&lt;command&gt; PARAMETER=&lt;name&gt; START=&lt;value&gt; [SKIP=&lt;value&gt;] [FACTOR=&lt;value&gt; [BAND=&lt;value&gt;]] | [STEP_DELTA=&lt;value&gt; STEP_HEIGHT=&lt;value&gt;]</code>: A tool for tuning a parameter on each Z height during a print. The tool will run the given <code>COMMAND</code> with the given <code>PARAMETER</code> assigned to a value that varies with <code>Z</code> according to a formula. Use <code>FACTOR</code> if you will use a ruler or calipers to measure the Z height of the optimum value, or <code>STEP_DELTA</code> and <code>STEP_HEIGHT</code> if the tuning tower model has bands of discrete values as is common with temperature towers. If <code>SKIP=&lt;value&gt;</code> is specified, the tuning process doesn't begin until Z height <code>&lt;value&gt;</code> is reached, and below that the value will be set to <code>START</code>; in this case, the <code>z_height</code> used in the formulas below is actually <code>max(z - skip, 0)</code>. There are three possible combinations of options:</p>
 <ul>
 <li><code>FACTOR</code>: The value changes at a rate of <code>factor</code> per millimeter. The formula used is: <code>value = start + factor * z_height</code>. You can plug the optimum Z height directly into the formula to determine the optimum parameter value.</li>
-<li><code>FACTOR</code> and <code>BAND</code>: The value changes at an average rate of <code>factor</code> per millimeter, but in discrete bands where the adjustment will only be made every <code>BAND</code> millimeters of Z height. The formula used is: <code>value = start + factor * ((floor(z_height / band) + .5) * band)</code>.</li>
+<li><code>FACTOR</code> e <code>BAND</code>: il valore cambia a una velocità media di <code>factor</code> per millimetro, ma in bande discrete in cui la regolazione verrà effettuata solo ogni <code>BAND</code> millimetri di altezza Z. La formula utilizzata è: <code>value = start + factor * ((floor(z_height / band) + .5) * band)</code>.</li>
 <li><code>STEP_DELTA</code> and <code>STEP_HEIGHT</code>: The value changes by <code>STEP_DELTA</code> every <code>STEP_HEIGHT</code> millimeters. The formula used is: <code>value = start + step_delta * floor(z_height / step_height)</code>. You can simply count bands or read tuning tower labels to determine the optimum value.</li>
 </ul>
 <h3 id="virtual_sdcard">[virtual_sdcard]<a class="headerlink" href="#virtual_sdcard" title="Permanent link">&para;</a></h3>
