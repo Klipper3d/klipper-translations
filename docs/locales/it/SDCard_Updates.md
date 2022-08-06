@@ -25,9 +25,9 @@ Le schede supportate possono essere elencate con il seguente comando:
 ./scripts/flash-sdcard.sh -l
 ```
 
-If you do not see your board listed it may be necessary to add a new board definition as [described below](#board-definitions).
+Se non vedi la tua scheda elencata, potrebbe essere necessario aggiungere una nuova definizione di scheda come [descritto di seguito](#board-definitions).
 
-## Advanced Usage
+## Utilizzo avanzato
 
 The above commands assume that your MCU connects at the default baud rate of 250000 and the firmware is located at `~/klipper/out/klipper.bin`. The `flash-sdcard.sh` script provides options for changing these defaults. All options can be viewed by the help screen:
 

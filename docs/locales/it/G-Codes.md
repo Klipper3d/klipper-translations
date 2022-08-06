@@ -18,7 +18,7 @@ Klipper supporta i seguenti comandi G-Code standard:
 - Set extrude factor override percentage: `M221 S<percent>`
 - Set acceleration: `M204 S<value>` OR `M204 P<value> T<value>`
    - Note: If S is not specified and both P and T are specified, then the acceleration is set to the minimum of P and T. If only one of P or T is specified, the command has no effect.
-- Get extruder temperature: `M105`
+- Ottieni la temperatura dell'estrusore: `M105`
 - Set extruder temperature: `M104 [T<index>] [S<temperature>]`
 - Set extruder temperature and wait: `M109 [T<index>] S<temperature>`
    - Note: M109 always waits for temperature to settle at requested value
@@ -29,7 +29,7 @@ Klipper supporta i seguenti comandi G-Code standard:
 - Turn fan off: `M107`
 - Arresto di emergenza: `M112`
 - Ottieni la posizione attuale: `M114`
-- Get firmware version: `M115`
+- Ottieni la versione del firmware: `M115`
 
 Per ulteriori dettagli sui comandi precedenti, vedere la [documentazione RepRap G-Code](http://reprap.org/wiki/G-code).
 
@@ -297,7 +297,7 @@ The following additional commands are also available.
 
 #### GET_RETRACTION
 
-`GET_RETRACTION`: Queries the current parameters used by firmware retraction and displays them on the terminal.
+`GET_RETRACTION`: interroga i parametri correnti utilizzati dal firmware per retrazione e li visualizza sul terminale.
 
 ### [force_move]
 
@@ -309,7 +309,7 @@ The force_move module is automatically loaded, however some commands require set
 
 #### FORCE_MOVE
 
-`FORCE_MOVE STEPPER=<config_name> DISTANCE=<value> VELOCITY=<value> [ACCEL=<value>]`: This command will forcibly move the given stepper the given distance (in mm) at the given constant velocity (in mm/s). If ACCEL is specified and is greater than zero, then the given acceleration (in mm/s^2) will be used; otherwise no acceleration is performed. No boundary checks are performed; no kinematic updates are made; other parallel steppers on an axis will not be moved. Use caution as an incorrect command could cause damage! Using this command will almost certainly place the low-level kinematics in an incorrect state; issue a G28 afterwards to reset the kinematics. This command is intended for low-level diagnostics and debugging.
+`FORCE_MOVE STEPPER=<nome_config> DISTANCE=<value> VELOCITY=<value> [ACCEL=<value>]`: Questo comando sposterà forzatamente lo stepper dato della distanza data (in mm) alla velocità costante data (in mm/ S). Se viene specificato ACCEL ed è maggiore di zero, verrà utilizzata l'accelerazione data (in mm/s^2); altrimenti non viene eseguita alcuna accelerazione. Non vengono effettuati controlli sui limiti; non vengono effettuati aggiornamenti cinematici; altri stepper paralleli su un asse non verranno spostati. Prestare attenzione poiché un comando errato potrebbe causare danni! L'uso di questo comando metterà quasi sicuramente la cinematica di basso livello in uno stato errato; emettere un G28 in seguito per ripristinare la cinematica. Questo comando è destinato alla diagnostica e al debug di basso livello.
 
 #### SET_KINEMATIC_POSITION
 
@@ -325,7 +325,7 @@ The gcode module is automatically loaded.
 
 #### FIRMWARE_RESTART
 
-`FIRMWARE_RESTART`: This is similar to a RESTART command, but it also clears any error state from the micro-controller.
+`FIRMWARE_RESTART`: Questo è simile a un comando RESTART, ma cancella anche qualsiasi stato di errore dal microcontrollore.
 
 #### STATUS
 
@@ -333,7 +333,7 @@ The gcode module is automatically loaded.
 
 #### HELP
 
-`HELP`: Report the list of available extended G-Code commands.
+`HELP`: riporta l'elenco dei comandi G-Code estesi disponibili.
 
 ### [gcode_arcs]
 
@@ -355,7 +355,7 @@ The gcode_move module is automatically loaded.
 
 #### GET_POSITION
 
-`GET_POSITION`: Return information on the current location of the toolhead. See the developer documentation of [GET_POSITION output](Code_Overview.md#coordinate-systems) for more information.
+GET_POSITION`: Restituisce informazioni sulla posizione corrente della testa di stampa. Per ulteriori informazioni, vedere la documentazione per gli sviluppatori di [GET_POSITION output](Code_Overview.md#coordinate-systems).
 
 #### SET_GCODE_OFFSET
 
@@ -575,7 +575,7 @@ The query_adc module is automatically loaded.
 
 The query_endstops module is automatically loaded. The following standard G-Code commands are currently available, but using them is not recommended:
 
-- Get Endstop Status: `M119` (Use QUERY_ENDSTOPS instead.)
+- Ottieni lo stato del finecorsa: `M119` (usa invece QUERY_ENDSTOPS.)
 
 #### QUERY_ENDSTOPS
 
@@ -738,7 +738,7 @@ The tuning_tower module is automatically loaded.
 
 `TUNING_TOWER COMMAND=<command> PARAMETER=<name> START=<value> [SKIP=<value>] [FACTOR=<value> [BAND=<value>]] | [STEP_DELTA=<value> STEP_HEIGHT=<value>]`: A tool for tuning a parameter on each Z height during a print. The tool will run the given `COMMAND` with the given `PARAMETER` assigned to a value that varies with `Z` according to a formula. Use `FACTOR` if you will use a ruler or calipers to measure the Z height of the optimum value, or `STEP_DELTA` and `STEP_HEIGHT` if the tuning tower model has bands of discrete values as is common with temperature towers. If `SKIP=<value>` is specified, the tuning process doesn't begin until Z height `<value>` is reached, and below that the value will be set to `START`; in this case, the `z_height` used in the formulas below is actually `max(z - skip, 0)`. There are three possible combinations of options:
 
-- `FACTOR`: The value changes at a rate of `factor` per millimeter. The formula used is: `value = start + factor * z_height`. You can plug the optimum Z height directly into the formula to determine the optimum parameter value.
+- `FACTOR`: Il valore cambia a una velocità di `factor` per millimetro. La formula utilizzata è: `valore = inizio + fattore * z_altezza`. È possibile inserire l'altezza Z ottimale direttamente nella formula per determinare il valore del parametro ottimale.
 - `FACTOR` e `BAND`: il valore cambia a una velocità media di `factor` per millimetro, ma in bande discrete in cui la regolazione verrà effettuata solo ogni `BAND` millimetri di altezza Z. La formula utilizzata è: `value = start + factor * ((floor(z_height / band) + .5) * band)`.
 - `STEP_DELTA` and `STEP_HEIGHT`: The value changes by `STEP_DELTA` every `STEP_HEIGHT` millimeters. The formula used is: `value = start + step_delta * floor(z_height / step_height)`. You can simply count bands or read tuning tower labels to determine the optimum value.
 
