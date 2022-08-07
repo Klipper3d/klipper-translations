@@ -1227,15 +1227,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#terminating-resistors" class="md-nav__link">
-    Terminating Resistors
+  <a href="#resistori-di-terminazione" class="md-nav__link">
+    Resistori di terminazione
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#finding-the-canbus_uuid-for-new-micro-controllers" class="md-nav__link">
-    Finding the canbus_uuid for new micro-controllers
+  <a href="#trovare-canbus_uuid-per-nuovi-microcontrollori" class="md-nav__link">
+    Trovare canbus_uuid per nuovi microcontrollori
   </a>
   
 </li>
@@ -1248,8 +1248,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usb-to-can-bus-bridge-mode" class="md-nav__link">
-    USB to CAN bus bridge mode
+  <a href="#modalita-bridge-da-usb-a-can-bus" class="md-nav__link">
+    Modalità bridge da USB a CAN bus
   </a>
   
 </li>
@@ -1275,50 +1275,50 @@
 <p>Questo documento descrive il supporto del CAN bus di Klipper.</p>
 <h2 id="hardware-del-dispositivo">Hardware del dispositivo<a class="headerlink" href="#hardware-del-dispositivo" title="Permanent link">&para;</a></h2>
 <p>Klipper attualmente supporta solo CAN su chip stm32. Inoltre, il chip del microcontrollore deve supportare la CAN e deve trovarsi su una scheda dotata di un ricetrasmettitore CAN.</p>
-<p>To compile for CAN, run <code>make menuconfig</code> and select "CAN bus" as the communication interface. Finally, compile the micro-controller code and flash it to the target board.</p>
+<p>Per compilare per CAN, eseguire <code>make menuconfig</code> e selezionare "CAN bus" come interfaccia di comunicazione. Infine, compila il codice del microcontrollore e flashalo sulla scheda di destinazione.</p>
 <h2 id="hardware-host">Hardware Host<a class="headerlink" href="#hardware-host" title="Permanent link">&para;</a></h2>
 <p>Per utilizzare un bus CAN, è necessario disporre di un adattatore sul host. Attualmente ci sono due opzioni comuni:</p>
 <ol>
 <li>Usa un <a href="https://www.waveshare.com/rs485-can-hat.htm">Waveshare Raspberry Pi CAN</a> o uno dei suoi tanti cloni.</li>
-<li>Use a USB CAN adapter (for example <a href="https://hacker-gadgets.com/product/cantact-usb-can-adapter/">https://hacker-gadgets.com/product/cantact-usb-can-adapter/</a>). There are many different USB to CAN adapters available - when choosing one, we recommend verifying it can run the <a href="https://github.com/candle-usb/candleLight_fw">candlelight firmware</a>. (Unfortunately, we've found some USB adapters run defective firmware and are locked down, so verify before purchasing.)</li>
+<li>Utilizzare un adattatore CAN USB (ad esempio <a href="https://hacker-gadgets.com/product/cantact-usb-can-adapter/">https://hacker-gadgets.com/product/cantact-usb-can-adapter/</a>). Sono disponibili molti adattatori diversi da USB a CAN: quando ne scegli uno, ti consigliamo di verificare che possa eseguire il <a href="https://github.com/candle-usb/candleLight_fw">candlelight firmware</a>. (Sfortunatamente, abbiamo riscontrato che alcuni adattatori USB eseguono firmware difettoso e sono bloccati, quindi verifica prima dell'acquisto.)</li>
 </ol>
-<p>It is also necessary to configure the host operating system to use the adapter. This is typically done by creating a new file named <code>/etc/network/interfaces.d/can0</code> with the following contents:</p>
+<p>È inoltre necessario configurare il sistema operativo host per utilizzare l'adattatore. Questo viene in genere fatto creando un nuovo file chiamato <code>/etc/network/interfaces.d/can0</code> con il seguente contenuto:</p>
 <div class="highlight"><pre><span></span><code>auto can0
 iface can0 can static
     bitrate 500000
     up ifconfig $IFACE txqueuelen 128
 </code></pre></div>
 
-<p>Note that the "Raspberry Pi CAN hat" also requires <a href="https://www.waveshare.com/wiki/RS485_CAN_HAT">changes to config.txt</a>.</p>
-<h2 id="terminating-resistors">Terminating Resistors<a class="headerlink" href="#terminating-resistors" title="Permanent link">&para;</a></h2>
-<p>A CAN bus should have two 120 ohm resistors between the CANH and CANL wires. Ideally, one resistor located at each the end of the bus.</p>
-<p>Note that some devices have a builtin 120 ohm resistor (for example, the "Waveshare Raspberry Pi CAN hat" has a soldered on resistor that can not be easily removed). Some devices do not include a resistor at all. Other devices have a mechanism to select the resistor (typically by connecting a "pin jumper"). Be sure to check the schematics of all devices on the CAN bus to verify that there are two and only two 120 Ohm resistors on the bus.</p>
-<p>To test that the resistors are correct, one can remove power to the printer and use a multi-meter to check the resistance between the CANH and CANL wires - it should report ~60 ohms on a correctly wired CAN bus.</p>
-<h2 id="finding-the-canbus_uuid-for-new-micro-controllers">Finding the canbus_uuid for new micro-controllers<a class="headerlink" href="#finding-the-canbus_uuid-for-new-micro-controllers" title="Permanent link">&para;</a></h2>
-<p>Each micro-controller on the CAN bus is assigned a unique id based on the factory chip identifier encoded into each micro-controller. To find each micro-controller device id, make sure the hardware is powered and wired correctly, and then run:</p>
+<p>Nota che il "Raspberry Pi CAN hat" richiede anche <a href="https://www.waveshare.com/wiki/RS485_CAN_HAT">modifiche a config.txt</a>.</p>
+<h2 id="resistori-di-terminazione">Resistori di terminazione<a class="headerlink" href="#resistori-di-terminazione" title="Permanent link">&para;</a></h2>
+<p>Un bus CAN dovrebbe avere due resistori da 120 ohm tra i cavi CANH e CANL. Idealmente, un resistore situato a ciascuna estremità del bus.</p>
+<p>Si noti che alcuni dispositivi hanno un resistore integrato da 120 ohm (ad esempio, il "Waveshare Raspberry Pi CAN" ha un resistore saldato che non può essere rimosso facilmente). Alcuni dispositivi non includono affatto un resistore. Altri dispositivi hanno un meccanismo per selezionare il resistore (in genere collegando un "ponticello jumper"). Assicurati di controllare gli schemi di tutti i dispositivi sul bus CAN per verificare che ci siano due e solo due resistori da 120 Ohm sul bus.</p>
+<p>Per verificare che i resistori siano corretti, è possibile rimuovere l'alimentazione alla stampante e utilizzare un multimetro per controllare la resistenza tra i cavi CNH e CANL: dovrebbe riportare ~60 ohm su un bus CAN cablato correttamente.</p>
+<h2 id="trovare-canbus_uuid-per-nuovi-microcontrollori">Trovare canbus_uuid per nuovi microcontrollori<a class="headerlink" href="#trovare-canbus_uuid-per-nuovi-microcontrollori" title="Permanent link">&para;</a></h2>
+<p>A ogni microcontrollore sul bus CAN viene assegnato un ID univoco basato sull'identificatore del chip di fabbrica codificato in ciascun microcontrollore. Per trovare l'ID di ciascun dispositivo del microcontrollore, assicurati che l'hardware sia alimentato e cablato correttamente, quindi esegui:</p>
 <div class="highlight"><pre><span></span><code>~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0
 </code></pre></div>
 
-<p>If uninitialized CAN devices are detected the above command will report lines like the following:</p>
+<p>Se vengono rilevati dispositivi CAN non inizializzati, il comando precedente riporterà righe come le seguenti:</p>
 <div class="highlight"><pre><span></span><code>Found canbus_uuid=11aa22bb33cc
 </code></pre></div>
 
-<p>Each device will have a unique identifier. In the above example, <code>11aa22bb33cc</code> is the micro-controller's "canbus_uuid".</p>
-<p>Note that the <code>canbus_query.py</code> tool will only report uninitialized devices - if Klipper (or a similar tool) configures the device then it will no longer appear in the list.</p>
+<p>Ogni dispositivo avrà un identificatore univoco. Nell'esempio sopra, <code>11aa22bb33cc</code> è il "canbus_uuid" del microcontrollore.</p>
+<p>Nota che lo strumento <code>canbus_query.py</code> riporterà solo i dispositivi non inizializzati - se Klipper (o uno strumento simile) configura il dispositivo, non apparirà più nell'elenco.</p>
 <h2 id="configurare-klipper">Configurare Klipper<a class="headerlink" href="#configurare-klipper" title="Permanent link">&para;</a></h2>
-<p>Update the Klipper <a href="Config_Reference.html#mcu">mcu configuration</a> to use the CAN bus to communicate with the device - for example:</p>
+<p>Aggiorna Klipper <a href="Config_Reference.html#mcu">configurazione mcu</a> per utilizzare il bus CAN per comunicare con il dispositivo, ad esempio:</p>
 <div class="highlight"><pre><span></span><code>[mcu my_can_mcu]
 canbus_uuid: 11aa22bb33cc
 </code></pre></div>
 
-<h2 id="usb-to-can-bus-bridge-mode">USB to CAN bus bridge mode<a class="headerlink" href="#usb-to-can-bus-bridge-mode" title="Permanent link">&para;</a></h2>
-<p>Some micro-controllers support selecting "USB to CAN bus bridge" mode during "make menuconfig". This mode may allow one to use a micro-controller as both a "USB to CAN bus adapter" and as a Klipper node.</p>
-<p>When Klipper uses this mode the micro-controller appears as a "USB CAN bus adapter" under Linux. The "Klipper bridge mcu" itself will appear as if was on this CAN bus - it can be identified via <code>canbus_query.py</code> and configured like other CAN bus Klipper nodes. It will appear alongside other devices that are actually on the CAN bus.</p>
-<p>Some important notes when using this mode:</p>
+<h2 id="modalita-bridge-da-usb-a-can-bus">Modalità bridge da USB a CAN bus<a class="headerlink" href="#modalita-bridge-da-usb-a-can-bus" title="Permanent link">&para;</a></h2>
+<p>Alcuni microcontrollori supportano la selezione della modalità "USB to CAN bus bridge" durante "make menuconfig". Questa modalità può consentire di utilizzare un microcontrollore sia come "adattatore bus da USB a CAN" che come nodo Klipper.</p>
+<p>Quando Klipper utilizza questa modalità, il microcontrollore appare come un "adattatore bus CAN USB" sotto Linux. Lo stesso "Klipper bridge mcu" apparirà come se fosse su questo bus CAN - può essere identificato tramite <code>canbus_query.py</code> e configurato come altri nodi Klipper del bus CAN. Apparirà insieme ad altri dispositivi che sono effettivamente sul bus CAN.</p>
+<p>Alcune note importanti quando si utilizza questa modalità:</p>
 <ul>
-<li>The "bridge mcu" is not actually on the CAN bus. Messages to and from it do not consume bandwidth on the CAN bus. The mcu can not be seen by other adapters that may be on the CAN bus.</li>
-<li>It is necessary to configure the <code>can0</code> (or similar) interface in Linux in order to communicate with the bus. However, Linux CAN bus speed and CAN bus bit-timing options are ignored by Klipper. Currently, the CAN bus frequency is specified during "make menuconfig" and the bus speed specified in Linux is ignored.</li>
-<li>Whenever the "bridge mcu" is reset, Linux will disable the corresponding <code>can0</code> interface. Generally, this may require running commands such as "ip up" to restart the interface. Thus, Klipper FIRMWARE_RESTART commands (or regular RESTART after a config change) may require restarting the <code>can0</code> interface.</li>
+<li>Il "bridge mcu" non è effettivamente sul bus CAN. I messaggi in entrata e in uscita non consumano larghezza di banda sul bus CAN. L'mcu non può essere visto da altri adattatori che potrebbero essere sul bus CAN.</li>
+<li>È necessario configurare l'interfaccia <code>can0</code> (o simile) in Linux per comunicare con il bus. Tuttavia, Klipper ignora la velocità del bus CAN di Linux e le opzioni di temporizzazione del bus CAN. Attualmente, la frequenza del bus CAN viene specificata durante "make menuconfig" e la velocità del bus specificata in Linux viene ignorata.</li>
+<li>Ogni volta che il "bridge mcu" viene ripristinato, Linux disabiliterà l'interfaccia <code>can0</code> corrispondente. In genere, ciò potrebbe richiedere l'esecuzione di comandi come "ip up" per riavviare l'interfaccia. Pertanto, i comandi FIRMWARE_RESTART di Klipper (o il normale RESTART dopo una modifica della configurazione) potrebbero richiedere il riavvio dell'interfaccia <code>can0</code>.</li>
 </ul>
 
               

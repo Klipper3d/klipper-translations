@@ -1241,23 +1241,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sensorless-homing" class="md-nav__link">
-    Sensorless Homing
+  <a href="#homing-sensorless" class="md-nav__link">
+    Homing Sensorless
   </a>
   
-    <nav class="md-nav" aria-label="Sensorless Homing">
+    <nav class="md-nav" aria-label="Homing Sensorless">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    Limitations
+  <a href="#limitazioni" class="md-nav__link">
+    Limitazioni
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#prerequisiti" class="md-nav__link">
+    Prerequisiti
   </a>
   
 </li>
@@ -1271,8 +1271,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#choose-homing-speed" class="md-nav__link">
-    Choose homing speed
+  <a href="#scegli-la-velocita-di-homing" class="md-nav__link">
+    Scegli la velocità di homing
   </a>
   
 </li>
@@ -1463,35 +1463,35 @@
 <p>The TMC driver <code>interpolate</code> setting may reduce the audible noise of printer movement at the cost of introducing a small systemic positional error. This systemic positional error results from the driver's delay in executing "steps" that Klipper sends it. During constant velocity moves, this delay results in a positional error of nearly half a configured microstep (more precisely, the error is half a microstep distance minus a 512th of a full step distance). For example, on an axis with a 40mm rotation_distance, 200 steps_per_rotation, and 16 microsteps, the systemic error introduced during constant velocity moves is ~0.006mm.</p>
 <p>For best positional accuracy consider using spreadCycle mode and disable interpolation (set <code>interpolate: False</code> in the TMC driver config). When configured this way, one may increase the <code>microstep</code> setting to reduce audible noise during stepper movement. Typically, a microstep setting of <code>64</code> or <code>128</code> will have similar audible noise as interpolation, and do so without introducing a systemic positional error.</p>
 <p>If using stealthChop mode then the positional inaccuracy from interpolation is small relative to the positional inaccuracy introduced from stealthChop mode. Therefore tuning interpolation is not considered useful when in stealthChop mode, and one can leave interpolation in its default state.</p>
-<h2 id="sensorless-homing">Sensorless Homing<a class="headerlink" href="#sensorless-homing" title="Permanent link">&para;</a></h2>
+<h2 id="homing-sensorless">Homing Sensorless<a class="headerlink" href="#homing-sensorless" title="Permanent link">&para;</a></h2>
 <p>L'homing senza sensori consente di posizionare un asse senza la necessità di un finecorsa fisico. Invece, il carrello sull'asse viene spostato nel finecorsa meccanico facendo perdere passi al motore passo-passo. Il driver stepper rileva i passi persi e lo indica all'MCU di controllo (Klipper) attivando un pin. Queste informazioni possono essere utilizzate da Klipper come fine corsa per l'asse.</p>
-<p>This guide covers the setup of sensorless homing for the X axis of your (cartesian) printer. However, it works the same with all other axes (that require an end stop). You should configure and tune it for one axis at a time.</p>
-<h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h3>
-<p>Be sure that your mechanical components are able to handle the load of the carriage bumping into the limit of the axis repeatedly. Especially leadscrews might generate a lot of force. Homing a Z axis by bumping the nozzle into the printing surface might not be a good idea. For best results, verify that the axis carriage will make a firm contact with the axis limit.</p>
-<p>Further, sensorless homing might not be accurate enough for your printer. While homing X and Y axes on a cartesian machine can work well, homing the Z axis is generally not accurate enough and may result in an inconsistent first layer height. Homing a delta printer sensorless is not advisable due to missing accuracy.</p>
-<p>Further, the stall detection of the stepper driver is dependent on the mechanical load on the motor, the motor current and the motor temperature (coil resistance).</p>
-<p>Sensorless homing works best at medium motor speeds. For very slow speeds (less than 10 RPM) the motor does not generate significant back EMF and the TMC cannot reliably detect motor stalls. Further, at very high speeds, the back EMF of the motor approaches the supply voltage of the motor, so the TMC cannot detect stalls anymore. It is advised to have a look in the datasheet of your specific TMCs. There you can also find more details on limitations of this setup.</p>
-<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
-<p>A few prerequisites are needed to use sensorless homing:</p>
+<p>Questa guida illustra l'impostazione dell'homing sensorless per l'asse X della stampante (cartesiana). Tuttavia, funziona allo stesso modo con tutti gli altri assi (che richiedono un fine corsa). Dovresti configurarlo e sintonizzarlo per un asse alla volta.</p>
+<h3 id="limitazioni">Limitazioni<a class="headerlink" href="#limitazioni" title="Permanent link">&para;</a></h3>
+<p>Assicurati che i tuoi componenti meccanici siano in grado di sopportare il carico del carrello che urta ripetutamente il limite dell'asse. Soprattutto le viti di comando potrebbero generare molta forza. L'homing di un asse Z facendo urtare l'ugello sulla superficie di stampa potrebbe non essere una buona idea. Per ottenere i migliori risultati, verificare che il carrello dell'asse stabilisca un contatto stabile con il limite dell'asse.</p>
+<p>Inoltre, l'homing sensorless potrebbe non essere sufficientemente preciso per la tua stampante. Sebbene l'homing degli assi X e Y su una macchina cartesiana possa funzionare bene, l'homing dell'asse Z in genere non è sufficientemente preciso e può comportare un'altezza del primo strato incoerente. L'homing di una stampante delta sensorless non è consigliabile a causa della mancanza di precisione.</p>
+<p>Inoltre, il rilevamento dello stallo del driver passo-passo dipende dal carico meccanico sul motore, dalla corrente del motore e dalla temperatura del motore (resistenza della bobina).</p>
+<p>L'homing sensorless funziona meglio a velocità medie del motore. Per velocità molto basse (inferiori a 10 giri/min) il motore non genera una significativa EMF di ritorno e il TMC non è in grado di rilevare in modo affidabile gli stalli del motore. Inoltre, a velocità molto elevate, l'EMF di ritorno del motore si avvicina alla tensione di alimentazione del motore, quindi il TMC non è più in grado di rilevare gli stalli. Si consiglia di dare un'occhiata alla scheda tecnica del proprio TMC specifico. Lì puoi anche trovare maggiori dettagli sulle limitazioni di questa configurazione.</p>
+<h3 id="prerequisiti">Prerequisiti<a class="headerlink" href="#prerequisiti" title="Permanent link">&para;</a></h3>
+<p>Sono necessari alcuni prerequisiti per utilizzare l'homing sensorless:</p>
 <ol>
 <li>A stallGuard capable TMC stepper driver (tmc2130, tmc2209, tmc2660, or tmc5160).</li>
-<li>SPI / UART interface of the TMC driver wired to micro-controller (stand-alone mode does not work).</li>
-<li>The appropriate "DIAG" or "SG_TST" pin of TMC driver connected to the micro-controller.</li>
-<li>The steps in the <a href="Config_checks.html">config checks</a> document must be run to confirm the stepper motors are configured and working properly.</li>
+<li>Interfaccia SPI/UART del driver TMC cablata al microcontrollore (la modalità stand-alone non funziona).</li>
+<li>Il pin "DIAG" o "SG_TST" appropriato del driver TMC collegato al microcontrollore.</li>
+<li>I passaggi nel documento <a href="Config_checks.html">config checks</a> devono essere eseguiti per confermare che i motori passo-passo siano configurati e funzionino correttamente.</li>
 </ol>
 <h3 id="messa-a-punto">Messa a punto<a class="headerlink" href="#messa-a-punto" title="Permanent link">&para;</a></h3>
-<p>The procedure described here has six major steps:</p>
+<p>La procedura qui descritta prevede sei passaggi principali:</p>
 <ol>
-<li>Choose a homing speed.</li>
-<li>Configure the <code>printer.cfg</code> file to enable sensorless homing.</li>
-<li>Find the stallguard setting with highest sensitivity that successfully homes.</li>
-<li>Find the stallguard setting with lowest sensitivity that successfully homes with a single touch.</li>
-<li>Update the <code>printer.cfg</code> with the desired stallguard setting.</li>
-<li>Create or update <code>printer.cfg</code> macros to home consistently.</li>
+<li>Scegli una velocità di homing.</li>
+<li>Configura il file <code>printer.cfg</code> per abilitare l'homing sensorless.</li>
+<li>Trova l'impostazione stallguard con la massima sensibilità che funziona con successo.</li>
+<li>Trova l'impostazione stallguard con la sensibilità più bassa che effettua homing con successo con un solo tocco.</li>
+<li>Aggiorna il <code>printer.cfg</code> con l'impostazione di stallguard desiderata.</li>
+<li>Crea o aggiorna le macro <code>printer.cfg</code> per homing in modo coerente.</li>
 </ol>
-<h4 id="choose-homing-speed">Choose homing speed<a class="headerlink" href="#choose-homing-speed" title="Permanent link">&para;</a></h4>
-<p>The homing speed is an important choice when performing sensorless homing. It's desirable to use a slow homing speed so that the carriage does not exert excessive force on the frame when making contact with the end of the rail. However, the TMC drivers can't reliably detect a stall at very slow speeds.</p>
-<p>A good starting point for the homing speed is for the stepper motor to make a full rotation every two seconds. For many axes this will be the <code>rotation_distance</code> divided by two. For example:</p>
+<h4 id="scegli-la-velocita-di-homing">Scegli la velocità di homing<a class="headerlink" href="#scegli-la-velocita-di-homing" title="Permanent link">&para;</a></h4>
+<p>La velocità di homing è una scelta importante quando si esegue l'homing senza sensori. È consigliabile utilizzare una velocità di riferimento bassa in modo che il carrello non eserciti una forza eccessiva sul telaio quando entra in contatto con l'estremità della rotaia. Tuttavia, i driver TMC non sono in grado di rilevare in modo affidabile uno stallo a velocità molto basse.</p>
+<p>Un buon punto di partenza per la velocità di homing è che il motore passo-passo esegua una rotazione completa ogni due secondi. Per molti assi questa sarà la <code>rotation_distance</code> divisa per due. Per esempio:</p>
 <div class="highlight"><pre><span></span><code>[stepper_x]
 rotation_distance: 40
 homing_speed: 20

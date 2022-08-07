@@ -2730,7 +2730,7 @@
 <li>Note: If S is not specified and both P and T are specified, then the acceleration is set to the minimum of P and T. If only one of P or T is specified, the command has no effect.</li>
 </ul>
 </li>
-<li>Get extruder temperature: <code>M105</code></li>
+<li>Ottieni la temperatura dell'estrusore: <code>M105</code></li>
 <li>Set extruder temperature: <code>M104 [T&lt;index&gt;] [S&lt;temperature&gt;]</code></li>
 <li>Set extruder temperature and wait: <code>M109 [T&lt;index&gt;] S&lt;temperature&gt;</code><ul>
 <li>Note: M109 always waits for temperature to settle at requested value</li>
@@ -2745,7 +2745,7 @@
 <li>Turn fan off: <code>M107</code></li>
 <li>Arresto di emergenza: <code>M112</code></li>
 <li>Ottieni la posizione attuale: <code>M114</code></li>
-<li>Get firmware version: <code>M115</code></li>
+<li>Ottieni la versione del firmware: <code>M115</code></li>
 </ul>
 <p>Per ulteriori dettagli sui comandi precedenti, vedere la <a href="http://reprap.org/wiki/G-code">documentazione RepRap G-Code</a>.</p>
 <p>Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable <a href="#additional-commands">"extended G-Code commands"</a>. Similarly, the G-Code terminal output is only intended to be human readable - see the <a href="API_Server.html">API Server document</a> if controlling Klipper from external software.</p>
@@ -2890,13 +2890,13 @@
 <h4 id="set_retraction">SET_RETRACTION<a class="headerlink" href="#set_retraction" title="Permanent link">&para;</a></h4>
 <p><code>SET_RETRACTION [RETRACT_LENGTH=&lt;mm&gt;] [RETRACT_SPEED=&lt;mm/s&gt;] [UNRETRACT_EXTRA_LENGTH=&lt;mm&gt;] [UNRETRACT_SPEED=&lt;mm/s&gt;]</code>: Adjust the parameters used by firmware retraction. RETRACT_LENGTH determines the length of filament to retract and unretract. The speed of retraction is adjusted via RETRACT_SPEED, and is typically set relatively high. The speed of unretraction is adjusted via UNRETRACT_SPEED, and is not particularly critical, although often lower than RETRACT_SPEED. In some cases it is useful to add a small amount of additional length on unretraction, and this is set via UNRETRACT_EXTRA_LENGTH. SET_RETRACTION is commonly set as part of slicer per-filament configuration, as different filaments require different parameter settings.</p>
 <h4 id="get_retraction">GET_RETRACTION<a class="headerlink" href="#get_retraction" title="Permanent link">&para;</a></h4>
-<p><code>GET_RETRACTION</code>: Queries the current parameters used by firmware retraction and displays them on the terminal.</p>
+<p><code>GET_RETRACTION</code>: interroga i parametri correnti utilizzati dal firmware per retrazione e li visualizza sul terminale.</p>
 <h3 id="force_move">[force_move]<a class="headerlink" href="#force_move" title="Permanent link">&para;</a></h3>
 <p>The force_move module is automatically loaded, however some commands require setting <code>enable_force_move</code> in the <a href="Config_Reference.html#force_move">printer config</a>.</p>
 <h4 id="stepper_buzz">STEPPER_BUZZ<a class="headerlink" href="#stepper_buzz" title="Permanent link">&para;</a></h4>
 <p><code>STEPPER_BUZZ STEPPER=&lt;config_name&gt;</code>: Move the given stepper forward one mm and then backward one mm, repeated 10 times. This is a diagnostic tool to help verify stepper connectivity.</p>
 <h4 id="force_move_1">FORCE_MOVE<a class="headerlink" href="#force_move_1" title="Permanent link">&para;</a></h4>
-<p><code>FORCE_MOVE STEPPER=&lt;config_name&gt; DISTANCE=&lt;value&gt; VELOCITY=&lt;value&gt; [ACCEL=&lt;value&gt;]</code>: This command will forcibly move the given stepper the given distance (in mm) at the given constant velocity (in mm/s). If ACCEL is specified and is greater than zero, then the given acceleration (in mm/s^2) will be used; otherwise no acceleration is performed. No boundary checks are performed; no kinematic updates are made; other parallel steppers on an axis will not be moved. Use caution as an incorrect command could cause damage! Using this command will almost certainly place the low-level kinematics in an incorrect state; issue a G28 afterwards to reset the kinematics. This command is intended for low-level diagnostics and debugging.</p>
+<p><code>FORCE_MOVE STEPPER=&lt;nome_config&gt; DISTANCE=&lt;value&gt; VELOCITY=&lt;value&gt; [ACCEL=&lt;value&gt;]</code>: Questo comando sposterà forzatamente lo stepper dato della distanza data (in mm) alla velocità costante data (in mm/ S). Se viene specificato ACCEL ed è maggiore di zero, verrà utilizzata l'accelerazione data (in mm/s^2); altrimenti non viene eseguita alcuna accelerazione. Non vengono effettuati controlli sui limiti; non vengono effettuati aggiornamenti cinematici; altri stepper paralleli su un asse non verranno spostati. Prestare attenzione poiché un comando errato potrebbe causare danni! L'uso di questo comando metterà quasi sicuramente la cinematica di basso livello in uno stato errato; emettere un G28 in seguito per ripristinare la cinematica. Questo comando è destinato alla diagnostica e al debug di basso livello.</p>
 <h4 id="set_kinematic_position">SET_KINEMATIC_POSITION<a class="headerlink" href="#set_kinematic_position" title="Permanent link">&para;</a></h4>
 <p><code>SET_KINEMATIC_POSITION [X=&lt;value&gt;] [Y=&lt;value&gt;] [Z=&lt;value&gt;]</code>: Force the low-level kinematic code to believe the toolhead is at the given cartesian position. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. If an axis is not specified then it will default to the position that the head was last commanded to. Setting an incorrect or invalid position may lead to internal software errors. This command may invalidate future boundary checks; issue a G28 afterwards to reset the kinematics.</p>
 <h3 id="gcode">[gcode]<a class="headerlink" href="#gcode" title="Permanent link">&para;</a></h3>
@@ -2904,11 +2904,11 @@
 <h4 id="restart">RESTART<a class="headerlink" href="#restart" title="Permanent link">&para;</a></h4>
 <p><code>RESTART</code>: This will cause the host software to reload its config and perform an internal reset. This command will not clear error state from the micro-controller (see FIRMWARE_RESTART) nor will it load new software (see <a href="FAQ.html#how-do-i-upgrade-to-the-latest-software">the FAQ</a>).</p>
 <h4 id="firmware_restart">FIRMWARE_RESTART<a class="headerlink" href="#firmware_restart" title="Permanent link">&para;</a></h4>
-<p><code>FIRMWARE_RESTART</code>: This is similar to a RESTART command, but it also clears any error state from the micro-controller.</p>
+<p><code>FIRMWARE_RESTART</code>: Questo è simile a un comando RESTART, ma cancella anche qualsiasi stato di errore dal microcontrollore.</p>
 <h4 id="status">STATUS<a class="headerlink" href="#status" title="Permanent link">&para;</a></h4>
 <p><code>STATUS</code>: Report the Klipper host software status.</p>
 <h4 id="help">HELP<a class="headerlink" href="#help" title="Permanent link">&para;</a></h4>
-<p><code>HELP</code>: Report the list of available extended G-Code commands.</p>
+<p><code>HELP</code>: riporta l'elenco dei comandi G-Code estesi disponibili.</p>
 <h3 id="gcode_arcs">[gcode_arcs]<a class="headerlink" href="#gcode_arcs" title="Permanent link">&para;</a></h3>
 <p>The following standard G-Code commands are available if a <a href="Config_Reference.html#gcode_arcs">gcode_arcs config section</a> is enabled:</p>
 <ul>
@@ -2921,7 +2921,7 @@
 <h3 id="gcode_move">[gcode_move]<a class="headerlink" href="#gcode_move" title="Permanent link">&para;</a></h3>
 <p>The gcode_move module is automatically loaded.</p>
 <h4 id="get_position">GET_POSITION<a class="headerlink" href="#get_position" title="Permanent link">&para;</a></h4>
-<p><code>GET_POSITION</code>: Return information on the current location of the toolhead. See the developer documentation of <a href="Code_Overview.html#coordinate-systems">GET_POSITION output</a> for more information.</p>
+<p>GET_POSITION`: Restituisce informazioni sulla posizione corrente della testa di stampa. Per ulteriori informazioni, vedere la documentazione per gli sviluppatori di <a href="Code_Overview.html#coordinate-systems">GET_POSITION output</a>.</p>
 <h4 id="set_gcode_offset">SET_GCODE_OFFSET<a class="headerlink" href="#set_gcode_offset" title="Permanent link">&para;</a></h4>
 <p><code>SET_GCODE_OFFSET [X=&lt;pos&gt;|X_ADJUST=&lt;adjust&gt;] [Y=&lt;pos&gt;|Y_ADJUST=&lt;adjust&gt;] [Z=&lt;pos&gt;|Z_ADJUST=&lt;adjust&gt;] [MOVE=1 [MOVE_SPEED=&lt;speed&gt;]]</code>: Set a positional offset to apply to future G-Code commands. This is commonly used to virtually change the Z bed offset or to set nozzle XY offsets when switching extruders. For example, if "SET_GCODE_OFFSET Z=0.2" is sent, then future G-Code moves will have 0.2mm added to their Z height. If the X_ADJUST style parameters are used, then the adjustment will be added to any existing offset (eg, "SET_GCODE_OFFSET Z=-0.2" followed by "SET_GCODE_OFFSET Z_ADJUST=0.3" would result in a total Z offset of 0.1). If "MOVE=1" is specified then a toolhead move will be issued to apply the given offset (otherwise the offset will take effect on the next absolute G-Code move that specifies the given axis). If "MOVE_SPEED" is specified then the toolhead move will be performed with the given speed (in mm/s); otherwise the toolhead move will use the last specified G-Code speed.</p>
 <h4 id="save_gcode_state">SAVE_GCODE_STATE<a class="headerlink" href="#save_gcode_state" title="Permanent link">&para;</a></h4>
@@ -3037,7 +3037,7 @@
 <h3 id="query_endstops">[query_endstops]<a class="headerlink" href="#query_endstops" title="Permanent link">&para;</a></h3>
 <p>The query_endstops module is automatically loaded. The following standard G-Code commands are currently available, but using them is not recommended:</p>
 <ul>
-<li>Get Endstop Status: <code>M119</code> (Use QUERY_ENDSTOPS instead.)</li>
+<li>Ottieni lo stato del finecorsa: <code>M119</code> (usa invece QUERY_ENDSTOPS.)</li>
 </ul>
 <h4 id="query_endstops_1">QUERY_ENDSTOPS<a class="headerlink" href="#query_endstops_1" title="Permanent link">&para;</a></h4>
 <p><code>QUERY_ENDSTOPS</code>: Rilevare i finecorsa degli assi e segnala se sono "attivate" o in uno stato "aperto". Questo comando viene in genere utilizzato per verificare che un finecorsa funzioni correttamente.</p>
@@ -3127,7 +3127,7 @@
 <h4 id="tuning_tower_1">TUNING_TOWER<a class="headerlink" href="#tuning_tower_1" title="Permanent link">&para;</a></h4>
 <p><code>TUNING_TOWER COMMAND=&lt;command&gt; PARAMETER=&lt;name&gt; START=&lt;value&gt; [SKIP=&lt;value&gt;] [FACTOR=&lt;value&gt; [BAND=&lt;value&gt;]] | [STEP_DELTA=&lt;value&gt; STEP_HEIGHT=&lt;value&gt;]</code>: A tool for tuning a parameter on each Z height during a print. The tool will run the given <code>COMMAND</code> with the given <code>PARAMETER</code> assigned to a value that varies with <code>Z</code> according to a formula. Use <code>FACTOR</code> if you will use a ruler or calipers to measure the Z height of the optimum value, or <code>STEP_DELTA</code> and <code>STEP_HEIGHT</code> if the tuning tower model has bands of discrete values as is common with temperature towers. If <code>SKIP=&lt;value&gt;</code> is specified, the tuning process doesn't begin until Z height <code>&lt;value&gt;</code> is reached, and below that the value will be set to <code>START</code>; in this case, the <code>z_height</code> used in the formulas below is actually <code>max(z - skip, 0)</code>. There are three possible combinations of options:</p>
 <ul>
-<li><code>FACTOR</code>: The value changes at a rate of <code>factor</code> per millimeter. The formula used is: <code>value = start + factor * z_height</code>. You can plug the optimum Z height directly into the formula to determine the optimum parameter value.</li>
+<li><code>FACTOR</code>: Il valore cambia a una velocità di <code>factor</code> per millimetro. La formula utilizzata è: <code>valore = inizio + fattore * z_altezza</code>. È possibile inserire l'altezza Z ottimale direttamente nella formula per determinare il valore del parametro ottimale.</li>
 <li><code>FACTOR</code> e <code>BAND</code>: il valore cambia a una velocità media di <code>factor</code> per millimetro, ma in bande discrete in cui la regolazione verrà effettuata solo ogni <code>BAND</code> millimetri di altezza Z. La formula utilizzata è: <code>value = start + factor * ((floor(z_height / band) + .5) * band)</code>.</li>
 <li><code>STEP_DELTA</code> and <code>STEP_HEIGHT</code>: The value changes by <code>STEP_DELTA</code> every <code>STEP_HEIGHT</code> millimeters. The formula used is: <code>value = start + step_delta * floor(z_height / step_height)</code>. You can simply count bands or read tuning tower labels to determine the optimum value.</li>
 </ul>
