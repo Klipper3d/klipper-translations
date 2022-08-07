@@ -18,20 +18,20 @@ rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
 
 L'impostazione `<full_steps_per_rotation>` è determinata dal tipo di motore passo-passo. La maggior parte dei motori passo-passo sono "passi passo a 1,8 gradi" e quindi hanno 200 passi completi per rotazione (360 diviso 1,8 fa 200). Alcuni motori passo passo sono "passo passo a 0,9 gradi" e quindi hanno 400 passi completi per rotazione. Altri motori passo-passo sono rari. In caso di dubbi, non impostare full_steps_per_rotation nel file di configurazione e utilizzare 200 nella formula sopra.
 
-The `<microsteps>` setting is determined by the stepper motor driver. Most drivers use 16 microsteps. If unsure, set `microsteps: 16` in the config and use 16 in the formula above.
+L'impostazione `<microsteps>` è determinata dal driver del motore passo-passo. La maggior parte dei driver utilizza 16 micropassi. Se non sei sicuro, imposta `microsteps: 16` nella configurazione e usa 16 nella formula sopra.
 
 Almost all printers should have a whole number for `rotation_distance` on X, Y, and Z type axes. If the above formula results in a rotation_distance that is within .01 of a whole number then round the final value to that whole_number.
 
-## Calibrating rotation_distance on extruders
+## Calibrazione rotation_distance sugli estrusori
 
-On an extruder, the `rotation_distance` is the amount of distance the filament travels for one full rotation of the stepper motor. The best way to get an accurate value for this setting is to use a "measure and trim" procedure.
+Su un estrusore, la `rotation_distance` è la distanza percorsa dal filamento per una rotazione completa del motore passo-passo. Il modo migliore per ottenere un valore accurato per questa impostazione è utilizzare una procedura di "misura e ritaglio".
 
-First start with an initial guess for the rotation distance. This may be obtained from [steps_per_mm](#obtaining-rotation_distance-from-steps_per_mm-or-step_distance) or by [inspecting the hardware](#extruder).
+Innanzitutto inizia con un'ipotesi iniziale per la distanza di rotazione. Questo può essere ottenuto da [steps_per_mm](#obtaining-rotation_distance-from-steps_per_mm-or-step_distance) o [ispezionando l'hardware](#extruder).
 
-Then use the following procedure to "measure and trim":
+Quindi utilizzare la seguente procedura per "misurare e tagliare":
 
-1. Make sure the extruder has filament in it, the hotend is heated to an appropriate temperature, and the printer is ready to extrude.
-1. Use a marker to place a mark on the filament around 70mm from the intake of the extruder body. Then use a digital calipers to measure the actual distance of that mark as precisely as one can. Note this as `<initial_mark_distance>`.
+1. Assicurati che l'estrusore contenga del filamento, che l'hotend sia riscaldato a una temperatura appropriata e che la stampante sia pronta per l'estrusione.
+1. Utilizzare un pennarello per posizionare un segno sul filamento a circa 70 mm dall'ingresso del corpo dell'estrusore. Quindi usa un calibro digitale per misurare la distanza effettiva di quel segno nel modo più preciso possibile. Nota questo come `<initial_mark_distance>`.
 1. Extrude 50mm of filament with the following command sequence: `G91` followed by `G1 E50 F60`. Note 50mm as `<requested_extrude_distance>`. Wait for the extruder to finish the move (it will take about 50 seconds). It is important to use the slow extrusion rate for this test as a faster rate can cause high pressure in the extruder which will skew the results. (Do not use the "extrude button" on graphical front-ends for this test as they extrude at a fast rate.)
 1. Use the digital calipers to measure the new distance between the extruder body and the mark on the filament. Note this as `<subsequent_mark_distance>`. Then calculate: `actual_extrude_distance = <initial_mark_distance> - <subsequent_mark_distance>`
 1. Calculate rotation_distance as: `rotation_distance = <previous_rotation_distance> * <actual_extrude_distance> / <requested_extrude_distance>` Round the new rotation_distance to three decimal places.

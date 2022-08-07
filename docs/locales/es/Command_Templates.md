@@ -2,7 +2,7 @@
 
 This document provides information on implementing G-Code command sequences in gcode_macro (and similar) config sections.
 
-## G-Code Macro Naming
+## El nombrado macro de G-Code
 
 Case is not important for the G-Code macro name - MY_MACRO and my_macro will evaluate the same and may be called in either upper or lower case. If any numbers are used in the macro name then they must all be at the end of the name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not).
 
