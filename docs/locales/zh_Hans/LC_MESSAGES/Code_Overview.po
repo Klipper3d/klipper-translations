@@ -2,11 +2,12 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 # Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023.
+# "Neko.vecter" <Vecterfang@icloud.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: mirokymac <toufubomb@gmail.com>\n"
+"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/code_overview/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -527,7 +528,9 @@ msgstr "有用的步骤："
 msgid ""
 "Start by studying the \"[code flow of a move](#code-flow-of-a-move-command)\" "
 "section and the [Kinematics document](Kinematics.md)."
-msgstr "开始应研究 \"[移动命令工作流](#code-flow-of-a-move-command)\" 章节和 [动力学](Kinematics.md)."
+msgstr ""
+"开始应研究 \"[移动命令工作流](#code-flow-of-a-move-command)\" 章节和 [动力学]"
+"(Kinematics.md)."
 
 msgid ""
 "Review the existing kinematic classes in the klippy/kinematics/ directory. The"
