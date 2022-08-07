@@ -1,4 +1,4 @@
-# SDCard updates
+# Aggiornamenti scheda SD
 
 Molte delle schede controller oggi popolari vengono fornite con un bootloader in grado di aggiornare il firmware tramite scheda SD. Sebbene ciò sia conveniente in molte circostanze, questi bootloader in genere non forniscono altro modo per aggiornare il firmware. Questo può essere un fastidio se la tua scheda è montata in una posizione di difficile accesso o se devi aggiornare spesso il firmware. Dopo che Klipper è stato inizialmente flashato su un controller, è possibile trasferire il nuovo firmware sulla scheda SD e avviare la procedura di flashing tramite ssh.
 
@@ -29,7 +29,7 @@ Se non vedi la tua scheda elencata, potrebbe essere necessario aggiungere una nu
 
 ## Utilizzo avanzato
 
-The above commands assume that your MCU connects at the default baud rate of 250000 and the firmware is located at `~/klipper/out/klipper.bin`. The `flash-sdcard.sh` script provides options for changing these defaults. All options can be viewed by the help screen:
+I comandi precedenti presuppongono che l'MCU si connetta alla velocità di trasmissione predefinita di 250000 e che il firmware si trovi in `~/klipper/out/klipper.bin`. Lo script `flash-sdcard.sh` fornisce opzioni per modificare queste impostazioni predefinite. Tutte le opzioni possono essere visualizzate dalla schermata della guida:
 
 ```
 ./scripts/flash-sdcard.sh -h
@@ -49,29 +49,29 @@ optional arguments:
   -f <firmware>   path to klipper.bin
 ```
 
-If your board is flashed with firmware that connects at a custom baud rate it is possible to upgrade by specifying the `-b` option:
+Se la tua scheda è stata flashata con un firmware che si connette a un baud rate personalizzato, è possibile eseguire l'aggiornamento specificando l'opzione `-b`:
 
 ```
 ./scripts/flash-sdcard.sh -b 115200 /dev/ttyAMA0 btt-skr-v1.3
 ```
 
-If you wish to flash a build of Klipper located somewhere other than the default location it can be done by specifying the `-f` option:
+Se desideri eseguire il flashing di una build di Klipper situata in un luogo diverso da quello predefinito, puoi farlo specificando l'opzione `-f`:
 
 ```
 ./scripts/flash-sdcard.sh -f ~/downloads/klipper.bin /dev/ttyAMA0 btt-skr-v1.3
 ```
 
-Note that when upgrading a MKS Robin E3 it is not necessary to manually run `update_mks_robin.py` and supply the resulting binary to `flash-sdcard.sh`. This procedure is automated during the upload process.
+Nota che quando si aggiorna un MKS Robin E3 non è necessario eseguire manualmente `update_mks_robin.py` e fornire il binario risultante a `flash-sdcard.sh`. Questa procedura è automatizzata durante il processo di caricamento.
 
 ## Avvertenze
 
-- As mentioned in the introduction, this method only works for upgrading firmware. The initial flashing procedure must be done manually per the instructions that apply to your controller board.
-- While it is possible to flash a build that changes the Serial Baud or connection interface (ie: from USB to UART), verification will always fail as the script will be unable to reconnect to the MCU to verify the current version.
-- Only boards that use SPI for SD Card communication are supported. Boards that use SDIO, such as the Flymaker Flyboard and MKS Robin Nano V1/V2, will not work.
+- Come accennato nell'introduzione, questo metodo funziona solo per l'aggiornamento del firmware. La procedura di flashing iniziale deve essere eseguita manualmente secondo le istruzioni che si applicano alla scheda del controller.
+- Sebbene sia possibile eseguire il flashing di una build che modifica il baud seriale o l'interfaccia di connessione (ad esempio: da USB a UART), la verifica avrà sempre esito negativo poiché lo script non sarà in grado di riconnettersi all'MCU per verificare la versione corrente.
+- Sono supportate solo le schede che utilizzano SPI per la comunicazione con scheda SD. Le schede che utilizzano SDIO, come Flymaker Flyboard e MKS Robin Nano V1/V2, non funzioneranno.
 
-## Board Definitions
+## Definizioni della scheda
 
-Most common boards should be available, however it is possible to add a new board definition if necessary. Board definitions are located in `~/klipper/scripts/spi_flash/board_defs.py`. The definitions are stored in dictionary, for example:
+Dovrebbero essere disponibili le schede più comuni, tuttavia è possibile aggiungere una nuova definizione di scheda, se necessario. Le definizioni delle schede si trovano in `~/klipper/scripts/spi_flash/board_defs.py`. Le definizioni sono memorizzate nel dizionario, ad esempio:
 
 ```python
 BOARD_DEFS = {
@@ -84,21 +84,21 @@ BOARD_DEFS = {
 }
 ```
 
-The following fields may be specified:
+Possono essere specificati i seguenti campi:
 
-- `mcu`: The mcu type. This can be retrevied after configuring the build via `make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is required.
-- `spi_bus`: The SPI bus connected to the SD Card. This should be retreived from the board's schematic. This field is required.
-- `cs_pin`: The Chip Select Pin connected to the SD Card. This should be retreived from the board schematic. This field is required.
-- `firmware_path`: The path on the SD Card where firmware should be transferred. The default is `firmware.bin`.
-- `current_firmware_path` The path on the SD Card where the renamed firmware file is located after a successful flash. The default is `firmware.cur`.
+- `mcu`: il tipo di mcu. Questo può essere recuperato dopo aver configurato la build tramite `make menuconfig` eseguendo `cat .config | grep CONFIG_MCU`. Questo campo è obbligatorio.
+- `spi_bus`: il bus SPI collegato alla scheda SD. Questo dovrebbe essere recuperato dallo schema della scheda. Questo campo è obbligatorio.
+- `cs_pin`: il pin di selezione del chip collegato alla scheda SD. Questo dovrebbe essere recuperato dallo schema della scheda. Questo campo è obbligatorio.
+- `firmware_path`: il percorso sulla scheda SD in cui trasferire il firmware. L'impostazione predefinita è `firmware.bin`.
+- `current_firmware_path` Il percorso sulla scheda SD in cui si trova il file del firmware rinominato dopo un flash riuscito. L'impostazione predefinita è "firmware.cur".
 
-If software SPI is required the `spi_bus` field should be set to `swspi` and the following additional field should be specified:
+Se è richiesto il software SPI, il campo `spi_bus` deve essere impostato su `swspi` e deve essere specificato il seguente campo aggiuntivo:
 
-- `spi_pins`: This should be 3 comma separated pins that are connected to the SD Card in the format of `miso,mosi,sclk`.
+- spi_pins`: Dovrebbero essere 3 pin separati da virgola che sono collegati alla scheda SD nel formato `miso,mosi,sclk`.
 
-It should be exceedingly rare that Software SPI is necessary, typically only boards with design errors will require it. The `btt-skr-pro` board definition provides an example.
+Dovrebbe essere estremamente raro che sia necessario Software SPI, in genere solo le schede con errori di progettazione lo richiederanno. La definizione della scheda `btt-skr-pro` fornisce un esempio.
 
-Prior to creating a new board definition one should check to see if an existing board definition meets the criteria necessary for the new board. If this is the case, a `BOARD_ALIAS` may be specified. For example, the following alias may be added to specify `my-new-board` as an alias for `generic-lpc1768`:
+Prima di creare una nuova definizione di scheda, è necessario verificare se una definizione di scheda esistente soddisfa i criteri necessari per la nuova scheda. Se questo è il caso, può essere specificato un `BOARD_ALIAS`. Ad esempio, è possibile aggiungere il seguente alias per specificare `my-new-board` come alias per `generic-lpc1768`:
 
 ```python
 BOARD_ALIASES = {
@@ -107,4 +107,4 @@ BOARD_ALIASES = {
 }
 ```
 
-If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the [Klipper Community Discord](Contact.md#discord).
+Se hai bisogno di una nuova definizione di scheda e ti senti a disagio con la procedura descritta sopra, ti consigliamo di rivolgerti a [Klipper Community Discord](Contact.md#discord).

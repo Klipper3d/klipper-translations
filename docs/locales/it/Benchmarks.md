@@ -39,9 +39,9 @@ set_next_step_dir oid=2 dir=1
 queue_step oid=2 interval=3000 count=1 add=0
 ```
 
-The above tests three steppers simultaneously stepping. If running the above results in a "Rescheduled timer in the past" or "Stepper too far in past" error then it indicates the `ticks` parameter is too low (it results in a stepping rate that is too fast). The goal is to find the lowest setting of the ticks parameter that reliably results in a successful completion of the test. It should be possible to bisect the ticks parameter until a stable value is found.
+Quanto sopra testa tre stepper che fanno un passo simultaneo. Se l'esecuzione di quanto sopra comporta un errore "Rescheduled timer in the past" o "Stepper too far in past", indica che il parametro `ticks` è troppo basso (risulta in una velocità di incremento troppo veloce). L'obiettivo è trovare l'impostazione più bassa del parametro tick che si traduca in modo affidabile in un completamento positivo del test. Dovrebbe essere possibile dividere in due il parametro tick fino a trovare un valore stabile.
 
-On a failure, one can copy-and-paste the following to clear the error in preparation for the next test:
+In caso di errore, è possibile copiare e incollare quanto segue per cancellare l'errore in preparazione per il test successivo:
 
 ```
 clear_shutdown
