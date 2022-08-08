@@ -145,9 +145,9 @@ config_stepper oid=2 step_pin=gpio0_22 dir_pin=gpio2_1 invert_step=0 step_pulse_
 finalize_config crc=0
 ```
 
-测试最后在提交 `59314d99` 上运行，gcc 版本为 `pru-gcc (GCC) 8.0.0 20170530（实验版）`。
+测试最后在提交 `59314d99` 上运行，gcc 版本为 `pru-gcc (GCC) 8.0.0 20170530 (experimental)`。
 
-| 可编程实时单元 | ticks |
+| pru | ticks |
 | --- | --- |
 | 1个步进电机 | 231 |
 | 3个步进电机 | 847 |
@@ -245,7 +245,7 @@ config_stepper oid=2 step_pin=P1.23 dir_pin=P1.18 invert_step=-1 step_pulse_tick
 finalize_config crc=0
 ```
 
-该测试最后一次运行使用了提交 `59314d99`，gcc 版本 `arm-none-eabi-gcc （Fedora 10.2.0-4.fc34） 10.2.0`。120Mhz LPC1769 的结果是通过将 LPC1768 超频到 120Mhz 而获得的。
+该测试最后一次运行使用了提交 `59314d99`，gcc 版本 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`。120Mhz LPC1769 的结果是通过将 LPC1768 超频到 120Mhz 而获得的。
 
 | lpc1768 | ticks |
 | --- | --- |
@@ -269,7 +269,7 @@ config_stepper oid=2 step_pin=PA17 dir_pin=PA21 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-该测试最后一次运行使用了提交 `59314d99`，gcc 版本 `arm-none-eabi-gcc （Fedora 10.2.0-4.fc34） 10.2.0` 在 SAMD21G18 微控制器上。
+该测试最后一次运行使用了提交 `59314d99`，gcc 版本 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` 在 SAMD21G18 微控制器上。
 
 | SAMD21 | ticks |
 | --- | --- |
@@ -288,14 +288,14 @@ config_stepper oid=2 step_pin=PA22 dir_pin=PA19 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-该测试最后一次运行使用了提交 `59314d99` 与 gcc 版本 `arm-none-eabi-gcc （Fedora 10.2.0-4.fc34） 10.2.0` 在 SAMD51J19A 微控制器上运行的。
+该测试最后一次运行使用了提交 `59314d99` 与 gcc 版本 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` 在 SAMD51J19A 微控制器上运行的。
 
 | SAMD51 | ticks |
 | --- | --- |
 | 1个步进电机 | 39 |
 | 3个步进电机 | 191 |
-| 1 stepper (200Mhz) | 39 |
-| 3 stepper (200Mhz) | 181 |
+| 1 步进电机 (200Mhz) | 39 |
+| 3 步进电机 (200Mhz) | 181 |
 
 ### RP2040 步速率基准测试
 
@@ -328,7 +328,7 @@ config_stepper oid=2 step_pin=gpio6 dir_pin=gpio17 invert_step=0 step_pulse_tick
 finalize_config crc=0
 ```
 
-该测试最后一次运行使用了提交 `59314d99` 与 gcc 版本 `gcc （Raspbian 8.3.0-6+rpi1） 8.3.0` 在 Raspberry Pi 3 （修订版 a02082） 上运行。在这个基准测试中很难获得稳定的结果。
+该测试最后一次运行使用了提交 `59314d99` 与 gcc 版本 `gcc (Raspbian 8.3.0-6+rpi1) 8.3.0` 在 Raspberry Pi 3 （修订版 a02082） 上运行。在这个基准测试中很难获得稳定的结果。
 
 | Linux (RPi3) | ticks |
 | --- | --- |
@@ -352,8 +352,8 @@ get_uptime
 | MCU | Rate | Build | Build compiler |
 | --- | --- | --- | --- |
 | stm32f042 (CAN) | 18K | c105adc8 | arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1 |
-| atmega2560 (串行总线) | 23K | b161a69e | avr-gcc (GCC) 4.8.1 |
-| sam3x8e (串行总线) | 23K | b161a69e | arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0 |
+| atmega2560 (serial) | 23K | b161a69e | avr-gcc (GCC) 4.8.1 |
+| sam3x8e (serial) | 23K | b161a69e | arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0 |
 | at90usb1286 (USB) | 75K | 01d2183f | avr-gcc (GCC) 5.4.0 |
 | samd21 (USB) | 223K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | PRU（共享内存） | 260K | c5968a08 | pru-gcc (GCC) 8.0.0 20170530 (experimental) |

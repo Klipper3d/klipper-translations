@@ -7,20 +7,20 @@ I driver per motori passo-passo su Klipper richiedono un parametro `rotation_dis
 I progettisti della tua stampante 3d hanno originariamente calcolato `steps_per_mm` da una distanza di rotazione. Se conosci i passi_per_mm, è possibile utilizzare questa formula generale per ottenere la distanza di rotazione originale:
 
 ```
-rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
+rotation_distance = <passi_completi_per_rotazione> * <micropassi> / <passi_per_mm>
 ```
 
 Oppure, se hai una configurazione di Klipper precedente e conosci il parametro `step_distance` puoi usare questa formula:
 
 ```
-rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
+rotation_distance = <passi_completi_per_rotazione> * <micropassi> * <distanza_passo>
 ```
 
 L'impostazione `<full_steps_per_rotation>` è determinata dal tipo di motore passo-passo. La maggior parte dei motori passo-passo sono "passi passo a 1,8 gradi" e quindi hanno 200 passi completi per rotazione (360 diviso 1,8 fa 200). Alcuni motori passo passo sono "passo passo a 0,9 gradi" e quindi hanno 400 passi completi per rotazione. Altri motori passo-passo sono rari. In caso di dubbi, non impostare full_steps_per_rotation nel file di configurazione e utilizzare 200 nella formula sopra.
 
 L'impostazione `<microsteps>` è determinata dal driver del motore passo-passo. La maggior parte dei driver utilizza 16 micropassi. Se non sei sicuro, imposta `microsteps: 16` nella configurazione e usa 16 nella formula sopra.
 
-Almost all printers should have a whole number for `rotation_distance` on X, Y, and Z type axes. If the above formula results in a rotation_distance that is within .01 of a whole number then round the final value to that whole_number.
+Quasi tutte le stampanti dovrebbero avere un numero intero per `rotation_distance` sugli assi di tipo X, Y e Z. Se la formula precedente risulta in una distanza_rotazione che è entro .01 da un numero intero, arrotonda il valore finale a quel numero_intero.
 
 ## Calibrazione rotation_distance sugli estrusori
 
@@ -32,60 +32,60 @@ Quindi utilizzare la seguente procedura per "misurare e tagliare":
 
 1. Assicurati che l'estrusore contenga del filamento, che l'hotend sia riscaldato a una temperatura appropriata e che la stampante sia pronta per l'estrusione.
 1. Utilizzare un pennarello per posizionare un segno sul filamento a circa 70 mm dall'ingresso del corpo dell'estrusore. Quindi usa un calibro digitale per misurare la distanza effettiva di quel segno nel modo più preciso possibile. Nota questo come `<initial_mark_distance>`.
-1. Extrude 50mm of filament with the following command sequence: `G91` followed by `G1 E50 F60`. Note 50mm as `<requested_extrude_distance>`. Wait for the extruder to finish the move (it will take about 50 seconds). It is important to use the slow extrusion rate for this test as a faster rate can cause high pressure in the extruder which will skew the results. (Do not use the "extrude button" on graphical front-ends for this test as they extrude at a fast rate.)
-1. Use the digital calipers to measure the new distance between the extruder body and the mark on the filament. Note this as `<subsequent_mark_distance>`. Then calculate: `actual_extrude_distance = <initial_mark_distance> - <subsequent_mark_distance>`
-1. Calculate rotation_distance as: `rotation_distance = <previous_rotation_distance> * <actual_extrude_distance> / <requested_extrude_distance>` Round the new rotation_distance to three decimal places.
+1. Estrudere 50 mm di filamento con la seguente sequenza di comandi: `G91` seguito da `G1 E50 F60`. Nota 50 mm come `<distanza_estrusione_richiesta>`. Attendi che l'estrusore finisca il movimento (ci vorranno circa 50 secondi). È importante utilizzare la velocità di estrusione lenta per questo test poiché una velocità più elevata può causare una pressione elevata nell'estrusore che distorce i risultati. (Non utilizzare il "pulsante estrudi" sui front-end grafici per questo test poiché si estrudono a una velocità elevata.)
+1. Utilizzare un calibro digitale per misurare la nuova distanza tra il corpo dell'estrusore e il segno sul filamento. Annota questa come `<subsequent_mark_distance>`. Quindi calcola: `actual_extrude_distance = <initial_mark_distance> - <subsequent_mark_distance>`
+1. Calcola rotation_distance come: `rotation_distance = <rotation_distance_precedente> * <actual_extrude_distance> / <requested_extrude_distance>` Arrotonda la nuova rotation_distance a tre cifre decimali.
 
-If the actual_extrude_distance differs from requested_extrude_distance by more than about 2mm then it is a good idea to perform the steps above a second time.
+Se la distanza_di_estrusione effettiva differisce dalla distanza_di_estrusione richiesta di oltre 2 mm circa, è una buona idea eseguire i passaggi precedenti una seconda volta.
 
-Note: Do *not* use a "measure and trim" type of method to calibrate x, y, or z type axes. The "measure and trim" method is not accurate enough for those axes and will likely lead to a worse configuration. Instead, if needed, those axes can be determined by [measuring the belts, pulleys, and lead screw hardware](#obtaining-rotation_distance-by-inspecting-the-hardware).
+Nota: *non* utilizzare un metodo di tipo "misura e ritaglia" per calibrare gli assi di tipo x, y o z. Il metodo "misura e taglia" non è sufficientemente accurato per quegli assi e probabilmente porterà a una configurazione peggiore. Invece, se necessario, quegli assi possono essere determinati [measuring the belts, pulleys, and lead screw hardware](#obtaining-rotation_distance-by-inspecting-the-hardware).
 
-## Obtaining rotation_distance by inspecting the hardware
+## Ottenere la rotation_distance ispezionando l'hardware
 
-It's possible to calculate rotation_distance with knowledge of the stepper motors and printer kinematics. This may be useful if the steps_per_mm is not known or if designing a new printer.
+E' possibile calcolare rotation_distance conoscendo i motori passo-passo e la cinematica della stampante. Questo può essere utile se i passi_per_mm non sono noti o se si sta progettando una nuova stampante.
 
-### Belt driven axes
+### Assi con trasmissione a cinghia
 
-It is easy to calculate rotation_distance for a linear axis that uses a belt and pulley.
+È facile calcolare rotation_distance per un asse lineare che utilizza una cinghia e una puleggia.
 
-First determine the type of belt. Most printers use a 2mm belt pitch (that is, each tooth on the belt is 2mm apart). Then count the number of teeth on the stepper motor pulley. The rotation_distance is then calculated as:
-
-```
-rotation_distance = <belt_pitch> * <number_of_teeth_on_pulley>
-```
-
-For example, if a printer has a 2mm belt and uses a pulley with 20 teeth, then the rotation distance is 40.
-
-### Axes with a lead screw
-
-It is easy to calculate the rotation_distance for common lead screws using the following formula:
+Per prima cosa determinare il tipo di cinghia. La maggior parte delle stampanti utilizza un passo della cinghia di 2 mm (ovvero, ogni dente sulla cinghia è a 2 mm di distanza). Quindi contare il numero di denti sulla puleggia del motore passo-passo. La distanza_rotazione viene quindi calcolata come:
 
 ```
-rotation_distance = <screw_pitch> * <number_of_separate_threads>
+rotation_distance = <passo_cinghia> * <numero_di_denti_sulla_puleggia>
 ```
 
-For example, the common "T8 leadscrew" has a rotation distance of 8 (it has a pitch of 2mm and has 4 separate threads).
+Ad esempio, se una stampante ha una cinghia da 2 mm e utilizza una puleggia con 20 denti, la distanza di rotazione è 40.
 
-Older printers with "threaded rods" have only one "thread" on the lead screw and thus the rotation distance is the pitch of the screw. (The screw pitch is the distance between each groove on the screw.) So, for example, an M6 metric rod has a rotation distance of 1 and an M8 rod has a rotation distance of 1.25.
+### Assi con vite di comando
 
-### Extruder
+È facile calcolare la rotation_distance per le comuni viti di trasmissione utilizzando la seguente formula:
 
-It's possible to obtain an initial rotation distance for extruders by measuring the diameter of the "hobbed bolt" that pushes the filament and using the following formula: `rotation_distance = <diameter> * 3.14`
+```
+rotation_distance = <passo_vite> * <numero_di_filetti_separati>
+```
 
-If the extruder uses gears then it will also be necessary to [determine and set the gear_ratio](#using-a-gear_ratio) for the extruder.
+Ad esempio, la comune "madrevite T8" ha una rotation distance di 8 (ha un passo di 2 mm e ha 4 filetti separati).
 
-The actual rotation distance on an extruder will vary from printer to printer, because the grip of the "hobbed bolt" that engages the filament can vary. It can even vary between filament spools. After obtaining an initial rotation_distance, use the [measure and trim procedure](#calibrating-rotation_distance-on-extruders) to obtain a more accurate setting.
+Le stampanti più vecchie con "barre filettate" hanno un solo "filo" sulla vite di comando e quindi la rotation distance è il passo della vite. (Il passo della vite è la distanza tra ciascuna scanalatura sulla vite.) Quindi, ad esempio, un'asta metrica M6 ha una rotation distance di 1 e un'asta M8 ha una rotation distance di 1,25.
 
-## Using a gear_ratio
+### Estrusore
 
-Setting a `gear_ratio` can make it easier to configure the `rotation_distance` on steppers that have a gear box (or similar) attached to it. Most steppers do not have a gear box - if unsure then do not set `gear_ratio` in the config.
+È possibile ottenere una distanza di rotazione iniziale per gli estrusori misurando il diametro del "bullone dentato" che spinge il filamento e utilizzando la seguente formula: `rotation_distance = <diametro> * 3.14`
 
-When `gear_ratio` is set, the `rotation_distance` represents the distance the axis moves with one full rotation of the final gear on the gear box. If, for example, one is using a gearbox with a "5:1" ratio, then one could calculate the rotation_distance with [knowledge of the hardware](#obtaining-rotation_distance-by-inspecting-the-hardware) and then add `gear_ratio: 5:1` to the config.
+Se l'estrusore utilizza ingranaggi, sarà anche necessario [determinare e impostare gear_ratio](#using-a-gear_ratio) per l'estrusore.
 
-For gearing implemented with belts and pulleys, it is possible to determine the gear_ratio by counting the teeth on the pulleys. For example, if a stepper with a 16 toothed pulley drives the next pulley with 80 teeth then one would use `gear_ratio: 80:16`. Indeed, one could open a common off the shelf "gear box" and count the teeth in it to confirm its gear ratio.
+La rotation distance effettiva su un estrusore varierà da stampante a stampante, perché la presa del "bullone dentato" che impegna il filamento può variare. Può anche variare tra le bobine di filamento. Dopo aver ottenuto una rotation distance iniziale, utilizzare la [procedura di misurazione e ritaglio](#calibrazione-distanza_rotazione-su-estrusori) per ottenere un'impostazione più accurata.
 
-Note that sometimes a gearbox will have a slightly different gear ratio than what it is advertised as. The common BMG extruder motor gears are an example of this - they are advertised as "3:1" but actually use "50:17" gearing. (Using teeth numbers without a common denominator may improve overall gear wear as the teeth don't always mesh the same way with each revolution.) The common "5.18:1 planetary gearbox", is more accurately configured with `gear_ratio: 57:11`.
+## Usando un gear_ratio
 
-If several gears are used on an axis then it is possible to provide a comma separated list to gear_ratio. For example, a "5:1" gear box driving a 16 toothed to 80 toothed pulley could use `gear_ratio: 5:1, 80:16`.
+L'impostazione di un `gear_ratio` può semplificare la configurazione di `rotation_distance` su stepper a cui è collegato un gear box (o simile). La maggior parte degli stepper non ha un gear box - se non sei sicuro, non impostare `gear_ratio` nella configurazione.
 
-In most cases, gear_ratio should be defined with whole numbers as common gears and pulleys have a whole number of teeth on them. However, in cases where a belt drives a pulley using friction instead of teeth, it may make sense to use a floating point number in the gear ratio (eg, `gear_ratio: 107.237:16`).
+Quando `gear_ratio` è impostato, `rotation_distance` rappresenta la distanza percorsa dall'asse con una rotazione completa dell'ingranaggio finale sulla scatola ingranaggi. Se, ad esempio, si utilizza un riduttore con un rapporto "5:1", è possibile calcolare la distanza_rotazione con [conoscenza dell'hardware](#obtaining-rotation_distance-by-inspecting-the-hardware) e quindi aggiungere ` gear_ratio: 5:1` alla configurazione.
+
+Per gli ingranaggi realizzati con cinghie e pulegge, è possibile determinare il gear_ratio contando i denti sulle pulegge. Ad esempio, se uno stepper con una puleggia a 16 denti guida la puleggia successiva con 80 denti, si utilizzerà `gear_ratio: 80:16`. In effetti, si potrebbe aprire una comune "scatola del cambio" pronta all'uso e contare i denti al suo interno per confermare il suo rapporto di trasmissione.
+
+Si noti che a volte un gear-box avrà un rapporto di trasmissione leggermente diverso da quello in cui è pubblicizzato. I comuni ingranaggi del motore dell'estrusore BMG ne sono un esempio: sono pubblicizzati come "3:1" ma in realtà utilizzano ingranaggi "50:17". (L'uso di numeri di denti senza un denominatore comune può migliorare l'usura complessiva degli ingranaggi poiché i denti non sempre ingranano allo stesso modo ad ogni giro.) Il comune "riduttore epicicloidale 5.18:1" è configurato in modo più accurato con `gear_ratio: 57:11 `.
+
+Se su un asse vengono utilizzati più ingranaggi, è possibile fornire un elenco separato da virgole nel gear_ratio. Ad esempio, un cambio "5:1" che guida una puleggia da 16 a 80 denti potrebbe utilizzare `gear_ratio: 5:1, 80:16`.
+
+Nella maggior parte dei casi, gear_ratio dovrebbe essere definito con numeri interi poiché ingranaggi e pulegge comuni hanno un numero intero di denti su di essi. Tuttavia, nei casi in cui una cinghia aziona una puleggia usando l'attrito invece dei denti, può avere senso utilizzare un numero in virgola mobile nel rapporto di trasmissione (ad esempio, `gear_ratio: 107.237:16`).

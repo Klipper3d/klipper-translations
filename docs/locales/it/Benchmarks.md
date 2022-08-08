@@ -12,7 +12,7 @@ Il benchmark dello step rate è progettato per trovare la velocità di stepping 
 
 In generale, i pin per i test di benchmark sono scelti per far lampeggiare LED o altri pin innocui. **Verifica sempre che sia sicuro guidare i pin configurati prima di eseguire un benchmark.** Non è consigliabile pilotare uno stepper reale durante un benchmark.
 
-### Step rate benchmark test
+### Test di riferimento della frequenza di passi
 
 The test is performed using the console.py tool (described in <Debugging.md>). The micro-controller is configured for the particular hardware platform (see below) and then the following is cut-and-paste into the console.py terminal window:
 
@@ -57,9 +57,9 @@ ECHO Test result is: {"%.0fK" % (3. * freq / ticks / 1000.)}
 
 The benchmarks are run with parameters suitable for TMC Drivers. For micro-controllers that support `STEPPER_BOTH_EDGE=1` (as reported in the `MCU config` line when console.py first starts) use `step_pulse_duration=0` and `invert_step=-1` to enable optimized stepping on both edges of the step pulse. For other micro-controllers use a `step_pulse_duration` corresponding to 100ns.
 
-### AVR step rate benchmark
+### Benchmark rateo passi AVR
 
-The following configuration sequence is used on AVR chips:
+La seguente sequenza di configurazione viene utilizzata sui chip AVR:
 
 ```
 allocate_oids count=3
@@ -76,7 +76,7 @@ The test was last run on commit `59314d99` with gcc version `avr-gcc (GCC) 5.4.0
 | 1 stepper | 102 |
 | 3 stepper | 486 |
 
-### Arduino Due step rate benchmark
+### Benchmark rateo passi Arduino Due
 
 The following configuration sequence is used on the Due:
 

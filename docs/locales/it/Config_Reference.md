@@ -14,7 +14,7 @@ I nomi dei pin possono essere preceduti da `!` per indicare che deve essere util
 
 I pin di input possono essere preceduti da `^` per indicare che un resistore di pull-up hardware deve essere abilitato per il pin. Se il microcontrollore supporta resistori pull-down, un pin di ingresso può in alternativa essere preceduto da `~`.
 
-Note, some config sections may "create" additional pins. Where this occurs, the config section defining the pins must be listed in the config file before any sections using those pins.
+Nota, alcune sezioni di configurazione potrebbero "creare" pin aggiuntivi. Quando ciò si verifica, la sezione di configurazione che definisce i pin deve essere elencata nel file di configurazione prima di qualsiasi sezione che utilizza tali pin.
 
 ### [mcu]
 
@@ -55,7 +55,7 @@ Microcontrollori aggiuntivi (si può definire un numero qualsiasi di sezioni con
 
 ```
 [mcu my_extra_mcu]
-# See the "mcu" section for configuration parameters.
+# Vedere la sezione "mcu" per i parametri di configurazione.
 ```
 
 ## Impostazioni cinematiche comuni
@@ -563,9 +563,9 @@ anchor_z:
 #   These parameters must be provided.
 ```
 
-### None Kinematics
+### Nessuna cinematica
 
-It is possible to define a special "none" kinematics to disable kinematic support in Klipper. This may be useful for controlling devices that are not typical 3d-printers or for debugging purposes.
+È possibile definire una cinematica speciale "none" per disabilitare il supporto cinematico in Klipper. Questo può essere utile per controllare dispositivi che non sono le tipiche stampanti 3D o per scopi di debug.
 
 ```
 [printer]
@@ -945,7 +945,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the
 
 ### [z_tilt]
 
-Multiple Z stepper tilt adjustment. This feature enables independent adjustment of multiple z steppers (see the "stepper_z1" section) to adjust for tilt. If this section is present then a Z_TILT_ADJUST extended [G-Code command](G-Codes.md#z_tilt) becomes available.
+Regolazione multipla dell'inclinazione dello stepper Z. Questa funzione consente la regolazione indipendente di più stepper z (vedere la sezione "stepper_z1") per regolare l'inclinazione. Se questa sezione è presente, diventa disponibile un [comando G-Code](G-Codes.md#z_tilt) esteso Z_TILT_ADJUST.
 
 ```
 [z_tilt]
@@ -1332,34 +1332,38 @@ Abilita [compensazione della risonanza](Resonance_Compensation.md). Vedere anche
 ```
 [input_shaper]
 #shaper_freq_x: 0
-#   A frequency (in Hz) of the input shaper for X axis. This is
-#   usually a resonance frequency of X axis that the input shaper
-#   should suppress. For more complex shapers, like 2- and 3-hump EI
-#   input shapers, this parameter can be set from different
-#   considerations. The default value is 0, which disables input
-#   shaping for X axis.
+#   Una frequenza (in Hz) dell'input shaper per l'asse X. Questa è
+#   solitamente una frequenza di risonanza dell'asse X che l'input
+#   shaper dovrebbe sopprimere. Per shaper più complessi, come
+#   shaper di input EI a 2 e 3 gobbe, questo parametro può essere
+#   impostato in base a diverse considerazioni. 
+#   Il valore predefinito è 0, che disabilita la modellatura dell'input
+#   per l'asse X.
 #shaper_freq_y: 0
-#   A frequency (in Hz) of the input shaper for Y axis. This is
-#   usually a resonance frequency of Y axis that the input shaper
-#   should suppress. For more complex shapers, like 2- and 3-hump EI
-#   input shapers, this parameter can be set from different
-#   considerations. The default value is 0, which disables input
-#   shaping for Y axis.
+#   Una frequenza (in Hz) dell'input shaper per l'asse Y. Questa è
+#   solitamente una frequenza di risonanza dell'asse Y che l'input
+#   shaper dovrebbe sopprimere. Per shaper più complessi, come
+#   shaper di input EI a 2 e 3 gobbe, questo parametro può essere
+#   impostato in base a diverse considerazioni. Il valore predefinito
+#   è 0, che disabilita la modellatura dell'input per l'asse Y.
 #shaper_type: mzv
-#   A type of the input shaper to use for both X and Y axes. Supported
-#   shapers are zv, mzv, zvd, ei, 2hump_ei, and 3hump_ei. The default
-#   is mzv input shaper.
+#   Un tipo di input shaper da utilizzare per entrambi gli assi X e Y.
+#   Gli shaper supportati sono zv, mzv, zvd, ei, 2hump_ei e
+#   3hump_ei. L'impostazione predefinita è mzv input shaper.
 #shaper_type_x:
 #shaper_type_y:
-#   If shaper_type is not set, these two parameters can be used to
-#   configure different input shapers for X and Y axes. The same
-#   values are supported as for shaper_type parameter.
+#   Se shaper_type non è impostato, questi due parametri possono
+#   essere utilizzati per configurare diversi shaper di input per gli
+#   assi X e Y. Sono supportati gli stessi valori del parametro
+#   shaper_type.
 #damping_ratio_x: 0.1
 #damping_ratio_y: 0.1
-#   Damping ratios of vibrations of X and Y axes used by input shapers
-#   to improve vibration suppression. Default value is 0.1 which is a
-#   good all-round value for most printers. In most circumstances this
-#   parameter requires no tuning and should not be changed.
+#   Rapporti di smorzamento delle vibrazioni degli assi X e Y
+#   utilizzati dagli shaper di input per migliorare la soppressione
+#   delle vibrazioni. Il valore predefinito è 0,1, un buon valore per la
+#   maggior parte delle stampanti. Nella maggior parte dei casi
+#   questo parametro non richiede ottimizzazione e
+#   non deve essere modificato.
 ```
 
 ### [adxl345]
@@ -1676,7 +1680,7 @@ z_offset:
 
 ### [stepper_z1]
 
-Multi-stepper axes. On a cartesian style printer, the stepper controlling a given axis may have additional config blocks defining steppers that should be stepped in concert with the primary stepper. One may define any number of sections with a numeric suffix starting at 1 (for example, "stepper_z1", "stepper_z2", etc.).
+Assi multi-stepper. Su una stampante in stile cartesiano, lo stepper che controlla un dato asse può avere blocchi di configurazione aggiuntivi che definiscono gli stepper che dovrebbero essere azionati insieme allo stepper primario. Si può definire un numero qualsiasi di sezioni con un suffisso numerico che inizia da 1 (ad esempio, "stepper_z1", "stepper_z2", ecc.).
 
 ```
 [stepper_z1]
@@ -1754,9 +1758,9 @@ extruder:
 # .
 ```
 
-### [manual_stepper]
+### [Stepper manuali]
 
-Manual steppers (one may define any number of sections with a "manual_stepper" prefix). These are steppers that are controlled by the MANUAL_STEPPER g-code command. For example: "MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5". See [G-Codes](G-Codes.md#manual_stepper) file for a description of the MANUAL_STEPPER command. The steppers are not connected to the normal printer kinematics.
+Stepper manuali (è possibile definire un numero qualsiasi di sezioni con un prefisso "manual_stepper"). Questi sono stepper controllati dal comando g-code MANUAL_STEPPER. Ad esempio: "MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5". Vedere il file [G-Codes](G-Codes.md#manual_stepper) per una descrizione del comando MANUAL_STEPPER. Gli stepper non sono collegati alla normale cinematica della stampante.
 
 ```
 [manual_stepper my_stepper]
@@ -1765,20 +1769,20 @@ Manual steppers (one may define any number of sections with a "manual_stepper" p
 #enable_pin:
 #microsteps:
 #rotation_distance:
-#   See the "stepper" section for a description of these parameters.
+#   Vedere la sezione "stepper" per una descrizione di questi parametri.
 #velocity:
-#   Set the default velocity (in mm/s) for the stepper. This value
-#   will be used if a MANUAL_STEPPER command does not specify a SPEED
-#   parameter. The default is 5mm/s.
+#   Impostare la velocità predefinita (in mm/s) per lo stepper. Questo
+#   valore verrà utilizzato se un comando MANUAL_STEPPER non specifica
+#   un parametro SPEED. Il valore predefinito è 5 mm/s.
 #accel:
-#   Set the default acceleration (in mm/s^2) for the stepper. An
-#   acceleration of zero will result in no acceleration. This value
-#   will be used if a MANUAL_STEPPER command does not specify an ACCEL
-#   parameter. The default is zero.
+#   Imposta l'accelerazione predefinita (in mm/s^2) per lo stepper.
+#   Un'accelerazione pari a zero non risulterà in nessuna accelerazione.
+#   Questo valore verrà utilizzato se un comando MANUAL_STEPPER non
+#   specifica un parametro ACCEL. Il valore predefinito è zero.
 #endstop_pin:
-#   Endstop switch detection pin. If specified, then one may perform
-#   "homing moves" by adding a STOP_ON_ENDSTOP parameter to
-#   MANUAL_STEPPER movement commands.
+#   Pin di rilevamento interruttore di fine corsa. Se specificato, è possibile
+#   eseguire "movimenti di riferimento" aggiungendo un parametro 
+#   STOP_ON_ENDSTOP ai comandi di movimento MANUAL_STEPPER.
 ```
 
 ## Riscaldatori e sensori personalizzati
@@ -1931,7 +1935,7 @@ Sensori di temperatura generici. È possibile definire un numero qualsiasi di se
 
 ## Temperature sensors
 
-Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heated_bed]` section).
+Klipper include definizioni per molti tipi di sensori di temperatura. Questi sensori possono essere utilizzati in qualsiasi sezione di configurazione che richieda un sensore di temperatura (come una sezione `[extruder]` o `[heated_bed]`).
 
 ### Termistori comuni
 
@@ -1986,9 +1990,9 @@ sensor_pin:
 #   default is 4700 ohms.
 ```
 
-### MAXxxxxx temperature sensors
+### Sensori di temperatura MAXxxxxx
 
-MAXxxxxx serial peripheral interface (SPI) temperature based sensors. The following parameters are available in heater sections that use one of these sensor types.
+Sensori temperatura MAXxxxxx con interfaccia periferica seriale (SPI). I seguenti parametri sono disponibili nelle sezioni del riscaldatore che utilizzano uno di questi tipi di sensore.
 
 ```
 sensor_type:
@@ -2066,9 +2070,9 @@ sensor_type:
 #   Interval in seconds between readings. Default is 30
 ```
 
-### LM75 temperature sensor
+### Sensore di temperatura LM75
 
-LM75/LM75A two wire (I2C) connected temperature sensors. These sensors have a range of -55~125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers.
+Sensori di temperatura (I2C) LM75/LM75A. Questi sensori hanno una gamma di -55~125 C, quindi sono utilizzabili ad es. monitoraggio della temperatura della camera. Possono anche funzionare come semplici controller per ventole/riscaldatori.
 
 ```
 sensor_type: LM75
@@ -2118,7 +2122,7 @@ sensor_type: temperature_mcu
 #   micro-controller specification.
 ```
 
-### Host temperature sensor
+### Sensore di temperatura host
 
 Temperature from the machine (eg Raspberry Pi) running the host software.
 
@@ -2353,7 +2357,7 @@ See the [command reference](G-Codes.md#temperature_fan) for additional informati
 
 ### [fan_generic]
 
-Manually controlled fan (one may define any number of sections with a "fan_generic" prefix). The speed of a manually controlled fan is set with the SET_FAN_SPEED [gcode command](G-Codes.md#fan_generic).
+Ventola a controllo manuale (si può definire un numero qualsiasi di sezioni con il prefisso "fan_generic"). La velocità di una ventola controllata manualmente viene impostata con SET_FAN_SPEED [comando gcode](G-Codes.md#fan_generic).
 
 ```
 [fan_generic extruder_partfan]
@@ -2382,28 +2386,28 @@ Support for LEDs (and LED strips) controlled via micro-controller PWM pins (one 
 #green_pin:
 #blue_pin:
 #white_pin:
-#   The pin controlling the given LED color. At least one of the above
-#   parameters must be provided.
+#   Il pin che controlla il colore del LED specificato. Deve essere fornito
+#   almeno uno dei parametri sopra indicati.
 #cycle_time: 0.010
-#   The amount of time (in seconds) per PWM cycle. It is recommended
-#   this be 10 milliseconds or greater when using software based PWM.
-#   The default is 0.010 seconds.
+#   La quantità di tempo (in secondi) per ciclo PWM. Si consiglia che sia
+#   pari o superiore a 10 millisecondi quando si utilizza il PWM basato
+#   su software. Il valore predefinito è 0,010 secondi.
 #hardware_pwm: False
-#   Enable this to use hardware PWM instead of software PWM. When
-#   using hardware PWM the actual cycle time is constrained by the
-#   implementation and may be significantly different than the
-#   requested cycle_time. The default is False.
+#   Abilitare questa opzione per utilizzare PWM hardware anziché PWM
+#   software. Quando si utilizza l'hardware PWM, il tempo di ciclo effettivo
+#   è vincolato dall'implementazione e può essere notevolmente diverso
+#   dal tempo di ciclo richiesto. L'impostazione predefinita è Falso.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-#   Sets the initial LED color. Each value should be between 0.0 and
-#   1.0. The default for each color is 0.
+#   Imposta il colore iniziale del LED. Ciascun valore deve essere
+#   compreso tra 0,0 e 1,0. Il valore predefinito per ogni colore è 0.
 ```
 
 ### [neopixel]
 
-Neopixel (aka WS2812) LED support (one may define any number of sections with a "neopixel" prefix). See the [command reference](G-Codes.md#led) for more information.
+Supporto LED Neopixel (aka WS2812) (si può definire un numero qualsiasi di sezioni con un prefisso "neopixel"). Per ulteriori informazioni, vedere [riferimento comando](G-Codes.md#led).
 
 Note that the [linux mcu](RPi_microcontroller.md) implementation does not currently support directly connected neopixels. The current design using the Linux kernel interface does not allow this scenario because the kernel GPIO interface is not fast enough to provide the required pulse rates.
 
@@ -2620,7 +2624,7 @@ pins:
 
 ### [multi_pin]
 
-Multiple pin outputs (one may define any number of sections with a "multi_pin" prefix). A multi_pin output creates an internal pin alias that can modify multiple output pins each time the alias pin is set. For example, one could define a "[multi_pin my_fan]" object containing two pins and then set "pin=multi_pin:my_fan" in the "[fan]" section - on each fan change both output pins would be updated. These aliases may not be used with stepper motor pins.
+Uscite a pin multipli (si può definire un numero qualsiasi di sezioni con un prefisso "multi_pin"). Un output multi_pin crea un alias pin interno che può modificare più pin di output ogni volta che viene impostato il pin alias. Ad esempio, si potrebbe definire un oggetto "[multi_pin my_fan]" contenente due pin e quindi impostare "pin=multi_pin:my_fan" nella sezione "[fan]" - ad ogni cambio di ventola entrambi i pin di output verrebbero aggiornati. Questi alias non possono essere utilizzati con i pin del motore passo-passo.
 
 ```
 [multi_pin my_multi_pin]
@@ -3859,7 +3863,7 @@ The following parameters are generally available for devices using an I2C bus.
 
 Note that Klipper's current micro-controller support for i2c is generally not tolerant to line noise. Unexpected errors on the i2c wires may result in Klipper raising a run-time error. Klipper's support for error recovery varies between each micro-controller type. It is generally recommended to only use i2c devices that are on the same printed circuit board as the micro-controller.
 
-Most Klipper micro-controller implementations only support an `i2c_speed` of 100000. The Klipper "linux" micro-controller supports a 400000 speed, but it must be [set in the operating system](RPi_microcontroller.md#optional-enabling-i2c) and the `i2c_speed` parameter is otherwise ignored. The Klipper "rp2040" micro-controller supports a rate of 400000 via the `i2c_speed` parameter. All other Klipper micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter.
+La maggior parte delle implementazioni del microcontrollore Klipper supporta solo un `i2c_speed` di 100000. Il microcontrollore "linux" Klipper supporta una velocità 400000, ma deve essere [impostato nel sistema operativo](RPi_microcontroller.md#optional-enbling-i2c) e il parametro `i2c_speed` viene altrimenti ignorato. Il microcontrollore Klipper "rp2040" supporta una velocità di 400000 tramite il parametro `i2c_speed`. Tutti gli altri microcontrollori Klipper utilizzano una frequenza di 100000 e ignorano il parametro `i2c_speed`.
 
 ```
 #i2c_address:
