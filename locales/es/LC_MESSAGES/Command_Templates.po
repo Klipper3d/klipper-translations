@@ -1,6 +1,16 @@
-#
+# Adolfo Maldonado <adolfom96@protonmail.com>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-08-07 08:22+0000\n"
+"Last-Translator: Adolfo Maldonado <adolfom96@protonmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"command_templates/es/>\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document provides information on implementing G-Code command sequences "
@@ -8,7 +18,7 @@ msgid ""
 msgstr ""
 
 msgid "G-Code Macro Naming"
-msgstr ""
+msgstr "El nombrado macro de G-Code"
 
 msgid ""
 "Case is not important for the G-Code macro name - MY_MACRO and my_macro will"
