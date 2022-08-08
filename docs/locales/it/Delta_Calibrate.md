@@ -1,4 +1,4 @@
-# Delta calibration
+# Calibrazione delta
 
 Questo documento descrive il sistema di calibrazione automatica di Klipper per stampanti "delta".
 
@@ -6,138 +6,138 @@ La calibrazione delta implica la ricerca delle posizioni dei finecorsa della tor
 
 In definitiva, la calibrazione delta dipende dalla precisione degli interruttori di fine corsa della torre. Se si utilizzano i driver per motori passo-passo Trinamic, considerare l'abilitazione del rilevamento [fase endstop](Endstop_Phase.md) per migliorare la precisione di tali interruttori.
 
-## Automatic vs manual probing
+## Sonda automatica vs manuale
 
 Klipper supporta la calibrazione dei parametri delta tramite un metodo di sonda manuale o tramite una sonda Z automatica.
 
-A number of delta printer kits come with automatic Z probes that are not sufficiently accurate (specifically, small differences in arm length can cause effector tilt which can skew an automatic probe). If using an automatic probe then first [calibrate the probe](Probe_Calibrate.md) and then check for a [probe location bias](Probe_Calibrate.md#location-bias-check). If the automatic probe has a bias of more than 25 microns (.025mm) then use manual probing instead. Manual probing only takes a few minutes and it eliminates error introduced by the probe.
+Numerosi kit di stampanti delta sono dotati di sonde Z automatiche che non sono sufficientemente accurate (in particolare, piccole differenze nella lunghezza del braccio possono causare l'inclinazione dell'effettore che può distorcere una sonda automatica). Se si utilizza una sonda automatica, prima [calibrare la sonda](Probe_Calibrate.md) e quindi verificare la presenza di un [bias posizione sonda](Probe_Calibrate.md#location-bias-check). Se la sonda automatica ha una polarizzazione superiore a 25 micron (0,025 mm), utilizzare invece la sonda manuale. Il probing manuale richiede solo pochi minuti ed elimina l'errore introdotto dalla sonda.
 
-If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that performing delta calibration will invalidate the results of probe calibration. These types of probes are rarely suitable for use on a delta (because minor effector tilt will result in a probe location bias). If using the probe anyway, then be sure to rerun probe calibration after any delta calibration.
+Se si utilizza una sonda montata sul lato dell'hotend (ovvero ha un offset X o Y), tenere presente che l'esecuzione della calibrazione delta invaliderà i risultati della calibrazione della sonda. Questi tipi di sonde sono raramente adatti per l'uso su un delta (poiché una minore inclinazione dell'effettore risulterà in una distorsione della posizione della sonda). Se si utilizza comunque la sonda, assicurarsi di eseguire nuovamente la calibrazione della sonda dopo qualsiasi calibrazione delta.
 
-## Basic delta calibration
+## Calibrazione delta di base
 
-Klipper has a DELTA_CALIBRATE command that can perform basic delta calibration. This command probes seven different points on the bed and calculates new values for the tower angles, tower endstops, and delta radius.
+Klipper ha un comando DELTA_CALIBRATE che può eseguire la calibrazione delta di base. Questo comando sonda sette diversi punti sul letto e calcola nuovi valori per gli angoli della torre, i punti terminali della torre e il raggio delta.
 
-In order to perform this calibration the initial delta parameters (arm lengths, radius, and endstop positions) must be provided and they should have an accuracy to within a few millimeters. Most delta printer kits will provide these parameters - configure the printer with these initial defaults and then go on to run the DELTA_CALIBRATE command as described below. If no defaults are available then search online for a delta calibration guide that can provide a basic starting point.
+Per eseguire questa calibrazione devono essere forniti i parametri delta iniziali (lunghezze dei bracci, raggio e posizioni dei finecorsa) e devono avere una precisione di pochi millimetri. La maggior parte dei kit della stampante delta fornisce questi parametri: configurare la stampante con queste impostazioni predefinite iniziali e quindi eseguire il comando DELTA_CALIBRATE come descritto di seguito. Se non sono disponibili impostazioni predefinite, cercare online una guida alla calibrazione delta che possa fornire un punto di partenza di base.
 
-During the delta calibration process it may be necessary for the printer to probe below what would otherwise be considered the plane of the bed. It is typical to permit this during calibration by updating the config so that the printer's `minimum_z_position=-5`. (Once calibration completes, one can remove this setting from the config.)
+Durante il processo di calibrazione delta potrebbe essere necessario che la stampante sondi al di sotto di quello che altrimenti sarebbe considerato il piano del piatto. È tipico consentire ciò durante la calibrazione aggiornando la configurazione in modo che `minimum_z_position=-5` della stampante. (Una volta completata la calibrazione, è possibile rimuovere questa impostazione dalla configurazione.)
 
-There are two ways to perform the probing - manual probing (`DELTA_CALIBRATE METHOD=manual`) and automatic probing (`DELTA_CALIBRATE`). The manual probing method will move the head near the bed and then wait for the user to follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test) to determine the actual distance between the nozzle and bed at the given location.
+Ci sono due modi per eseguire la procedura: probing manuale (`DELTA_CALIBRATE METHOD=manual`) e automatica (`DELTA_CALIBRATE`). Il metodo di rilevamento manuale sposterà la testa vicino al piatto e quindi attenderà che l'utente segua i passaggi descritti in ["test della carta"](Bed_Level.md#the-paper-test) per determinare la distanza effettiva tra l'ugello e letto nel luogo indicato.
 
-To perform the basic probe, make sure the config has a [delta_calibrate] section defined and then run the tool:
+Per eseguire la misura di base, assicurati che la configurazione abbia una sezione [delta_calibrate] definita e quindi esegui lo strumento:
 
 ```
 G28
 DELTA_CALIBRATE METHOD=manual
 ```
 
-After probing the seven points new delta parameters will be calculated. Save and apply these parameters by running:
+Dopo aver sondato i sette punti verranno calcolati i nuovi parametri delta. Salva e applica questi parametri eseguendo:
 
 ```
 SAVE_CONFIG
 ```
 
-The basic calibration should provide delta parameters that are accurate enough for basic printing. If this is a new printer, this is a good time to print some basic objects and verify general functionality.
+La calibrazione di base dovrebbe fornire parametri delta sufficientemente accurati per la stampa di base. Se si tratta di una nuova stampante, questo è un buon momento per stampare alcuni oggetti di base e verificarne la funzionalità generale.
 
-## Enhanced delta calibration
+## Calibrazione delta migliorata
 
-The basic delta calibration generally does a good job of calculating delta parameters such that the nozzle is the correct distance from the bed. However, it does not attempt to calibrate X and Y dimensional accuracy. It's a good idea to perform an enhanced delta calibration to verify dimensional accuracy.
+La calibrazione delta di base generalmente fa un buon lavoro nel calcolo dei parametri delta in modo tale che l'ugello sia alla distanza corretta dal letto. Tuttavia, non tenta di calibrare la precisione dimensionale X e Y. È una buona idea eseguire una calibrazione delta avanzata per verificare l'accuratezza dimensionale.
 
-This calibration procedure requires printing a test object and measuring parts of that test object with digital calipers.
+Questa procedura di calibrazione richiede la stampa di un oggetto di prova e la misurazione di parti di tale oggetto di prova con un calibro digitale.
 
-Prior to running an enhanced delta calibration one must run the basic delta calibration (via the DELTA_CALIBRATE command) and save the results (via the SAVE_CONFIG command). Make sure there hasn't been any notable change to the printer configuration nor hardware since last performing a basic delta calibration (if unsure, rerun the [basic delta calibration](#basic-delta-calibration), including SAVE_CONFIG, just prior to printing the test object described below.)
+Prima di eseguire una calibrazione delta avanzata, è necessario eseguire la calibrazione delta di base (tramite il comando DELTA_CALIBRATE) e salvare i risultati (tramite il comando SAVE_CONFIG). Assicurati che non siano state apportate modifiche degne di nota alla configurazione della stampante né all'hardware dall'ultima esecuzione di una calibrazione delta di base (se non sei sicuro, esegui nuovamente la [calibrazione delta di base](#basic-delta-calibration), incluso SAVE_CONFIG, appena prima della stampa l'oggetto di prova descritto di seguito.)
 
-Use a slicer to generate G-Code from the [docs/prints/calibrate_size.stl](prints/calibrate_size.stl) file. Slice the object using a slow speed (eg, 40mm/s). If possible, use a stiff plastic (such as PLA) for the object. The object has a diameter of 140mm. If this is too large for the printer then one can scale it down (but be sure to uniformly scale both the X and Y axes). If the printer supports significantly larger prints then this object can also be increased in size. A larger size can improve the measurement accuracy, but good print adhesion is more important than a larger print size.
+Usa uno slicer per generare il G-code dal file [docs/prints/calibrate_size.stl](prints/calibrate_size.stl). Estrudere l'oggetto a bassa velocità (ad es. 40 mm/s). Se possibile, usa una plastica rigida (come il PLA) per l'oggetto. L'oggetto ha un diametro di 140 mm. Se questo è troppo grande per la stampante, è possibile ridimensionarlo (ma assicurati di ridimensionare uniformemente entrambi gli assi X e Y). Se la stampante supporta stampe significativamente più grandi, è anche possibile aumentare le dimensioni di questo oggetto. Un formato più grande può migliorare la precisione della misurazione, ma una buona adesione di stampa è più importante di un formato di stampa più grande.
 
-Print the test object and wait for it to fully cool. The commands described below must be run with the same printer settings used to print the calibration object (don't run DELTA_CALIBRATE between printing and measuring, or do something that would otherwise change the printer configuration).
+Stampa l'oggetto di prova e attendi che si raffreddi completamente. I comandi descritti di seguito devono essere eseguiti con le stesse impostazioni della stampante utilizzate per stampare l'oggetto di calibrazione (non eseguire DELTA_CALIBRATE tra la stampa e la misurazione, o fare qualcosa che altrimenti modificherebbe la configurazione della stampante).
 
-If possible, perform the measurements described below while the object is still attached to the print bed, but don't worry if the part detaches from the bed - just try to avoid bending the object when performing the measurements.
+Se possibile, esegui le misurazioni descritte di seguito mentre l'oggetto è ancora attaccato al piano di stampa, ma non preoccuparti se la parte si stacca dal letto: cerca solo di evitare di piegare l'oggetto durante l'esecuzione delle misurazioni.
 
-Start by measuring the distance between the center pillar and the pillar next to the "A" label (which should also be pointing towards the "A" tower).
+Inizia misurando la distanza tra il pilastro centrale e il pilastro accanto all'etichetta "A" (che dovrebbe anche puntare verso la torre "A").
 
 ![delta-a-distance](img/delta-a-distance.jpg)
 
-Then go counterclockwise and measure the distances between the center pillar and the other pillars (distance from center to pillar across from C label, distance from center to pillar with B label, etc.).
+Quindi procedere in senso antiorario e misurare le distanze tra il pilastro centrale e gli altri pilastri (distanza dal centro al pilastro attraverso l'etichetta C, distanza dal centro al pilastro con l'etichetta B, ecc.).
 
 ![delta_cal_e_step1](img/delta_cal_e_step1.png)
 
-Enter these parameters into Klipper with a comma separated list of floating point numbers:
+Inserisci questi parametri in Klipper con un elenco separato da virgole di numeri in virgola mobile:
 
 ```
 DELTA_ANALYZE CENTER_DISTS=<a_dist>,<far_c_dist>,<b_dist>,<far_a_dist>,<c_dist>,<far_b_dist>
 ```
 
-Provide the values without spaces between them.
+Fornisci i valori senza spazi tra di loro.
 
-Then measure the distance between the A pillar and the pillar across from the C label.
+Quindi misurare la distanza tra il montante A e il montante di fronte all'etichetta C.
 
 ![delta-ab-distance](img/delta-outer-distance.jpg)
 
-Then go counterclockwise and measure the distance between the pillar across from C to the B pillar, the distance between the B pillar and the pillar across from A, and so on.
+Quindi andare in senso antiorario e misurare la distanza tra il pilastro di fronte a C e il pilastro B, la distanza tra il pilastro B e il pilastro di fronte a A, e così via.
 
 ![delta_cal_e_step2](img/delta_cal_e_step2.png)
 
-Enter these parameters into Klipper:
+Inserisci questi parametri in Klipper:
 
 ```
 DELTA_ANALYZE OUTER_DISTS=<a_to_far_c>,<far_c_to_b>,<b_to_far_a>,<far_a_to_c>,<c_to_far_b>,<far_b_to_a>
 ```
 
-At this point it is okay to remove the object from the bed. The final measurements are of the pillars themselves. Measure the size of the center pillar along the A spoke, then the B spoke, and then the C spoke.
+A questo punto va bene rimuovere l'oggetto dal letto. Le misure finali sono dei pilastri stessi. Misurare la dimensione del pilastro centrale lungo il raggio A, poi il raggio B e poi il raggio C.
 
 ![delta-a-pillar](img/delta-a-pillar.jpg)
 
 ![delta_cal_e_step3](img/delta_cal_e_step3.png)
 
-Enter them into Klipper:
+Inseriscili in Klipper:
 
 ```
 DELTA_ANALYZE CENTER_PILLAR_WIDTHS=<a>,<b>,<c>
 ```
 
-The final measurements are of the outer pillars. Start by measuring the distance of the A pillar along the line from A to the pillar across from C.
+Le misure finali sono dei pilastri esterni. Inizia misurando la distanza del pilastro A lungo la linea da A al pilastro di fronte a C.
 
 ![delta-ab-pillar](img/delta-outer-pillar.jpg)
 
-Then go counterclockwise and measure the remaining outer pillars (pillar across from C along the line to B, B pillar along the line to pillar across from A, etc.).
+Quindi andare in senso antiorario e misurare i restanti pilastri esterni (pilastro di fronte a C lungo la linea a B, pilastro B lungo la linea a pilastro di fronte ad A, ecc.).
 
 ![delta_cal_e_step4](img/delta_cal_e_step4.png)
 
-And enter them into Klipper:
+E inseriscili in Klipper:
 
 ```
 DELTA_ANALYZE OUTER_PILLAR_WIDTHS=<a>,<far_c>,<b>,<far_a>,<c>,<far_b>
 ```
 
-If the object was scaled to a smaller or larger size then provide the scale factor that was used when slicing the object:
+Se l'oggetto è stato ridimensionato a una dimensione inferiore o superiore, fornire il fattore di scala utilizzato durante il taglio dell'oggetto:
 
 ```
 DELTA_ANALYZE SCALE=1.0
 ```
 
-(A scale value of 2.0 would mean the object is twice its original size, 0.5 would be half its original size.)
+(Un valore di scala di 2,0 significherebbe che l'oggetto è il doppio della sua dimensione originale, 0,5 sarebbe la metà della sua dimensione originale.)
 
-Finally, perform the enhanced delta calibration by running:
+Infine, esegui la calibrazione delta avanzata eseguendo:
 
 ```
 DELTA_ANALYZE CALIBRATE=extended
 ```
 
-This command can take several minutes to complete. After completion it will calculate updated delta parameters (delta radius, tower angles, endstop positions, and arm lengths). Use the SAVE_CONFIG command to save and apply the settings:
+Il completamento di questo comando può richiedere diversi minuti. Dopo il completamento, calcolerà i parametri delta aggiornati (raggio delta, angoli della torre, posizioni dei finecorsa e lunghezze dei bracci). Utilizzare il comando SAVE_CONFIG per salvare e applicare le impostazioni:
 
 ```
 SAVE_CONFIG
 ```
 
-The SAVE_CONFIG command will save both the updated delta parameters and information from the distance measurements. Future DELTA_CALIBRATE commands will also utilize this distance information. Do not attempt to reenter the raw distance measurements after running SAVE_CONFIG, as this command changes the printer configuration and the raw measurements no longer apply.
+Il comando SAVE_CONFIG salverà sia i parametri delta aggiornati che le informazioni dalle misurazioni della distanza. Anche i futuri comandi DELTA_CALIBRATE utilizzeranno queste informazioni sulla distanza. Non tentare di reinserire le misurazioni grezze della distanza dopo aver eseguito SAVE_CONFIG, poiché questo comando modifica la configurazione della stampante e le misurazioni grezze non vengono più applicate.
 
 ### Note aggiuntive
 
-* If the delta printer has good dimensional accuracy then the distance between any two pillars should be around 74mm and the width of every pillar should be around 9mm. (Specifically, the goal is for the distance between any two pillars minus the width of one of the pillars to be exactly 65mm.) Should there be a dimensional inaccuracy in the part then the DELTA_ANALYZE routine will calculate new delta parameters using both the distance measurements and the previous height measurements from the last DELTA_CALIBRATE command.
-* DELTA_ANALYZE may produce delta parameters that are surprising. For example, it may suggest arm lengths that do not match the printer's actual arm lengths. Despite this, testing has shown that DELTA_ANALYZE often produces superior results. It is believed that the calculated delta parameters are able to account for slight errors elsewhere in the hardware. For example, small differences in arm length may result in a tilt to the effector and some of that tilt may be accounted for by adjusting the arm length parameters.
+* Se la stampante delta ha una buona precisione dimensionale, la distanza tra due pilastri qualsiasi dovrebbe essere di circa 74 mm e la larghezza di ogni pilastro dovrebbe essere di circa 9 mm. (In particolare, l'obiettivo è che la distanza tra due pilastri qualsiasi meno la larghezza di uno dei pilastri sia esattamente 65 mm.) In caso di imprecisione dimensionale nella parte, la routine DELTA_ANALYZE calcolerà nuovi parametri delta utilizzando entrambe le misurazioni della distanza e le misurazioni dell'altezza precedenti dall'ultimo comando DELTA_CALIBRATE.
+* DELTA_ANALYZE può produrre parametri delta sorprendenti. Ad esempio, può suggerire lunghezze dei bracci che non corrispondono alle lunghezze effettive dei bracci della stampante. Nonostante ciò, i test hanno dimostrato che DELTA_ANALYZE produce spesso risultati superiori. Si ritiene che i parametri delta calcolati siano in grado di tenere conto di lievi errori in altre parti dell'hardware. Ad esempio, piccole differenze nella lunghezza del braccio possono comportare un'inclinazione dell'effettore e parte di tale inclinazione può essere spiegata regolando i parametri della lunghezza del braccio.
 
-## Using Bed Mesh on a Delta
+## Utilizzo della mesh del piatto su un delta
 
-It is possible to use [bed mesh](Bed_Mesh.md) on a delta. However, it is important to obtain good delta calibration prior to enabling a bed mesh. Running bed mesh with poor delta calibration will result in confusing and poor results.
+È possibile utilizzare [bed mesh](Bed_Mesh.md) su un delta. Tuttavia, è importante ottenere una buona calibrazione delta prima di abilitare una mesh del letto. L'esecuzione della mesh del letto con una scarsa calibrazione delta comporterà risultati confusi e scarsi.
 
-Note that performing delta calibration will invalidate any previously obtained bed mesh. After performing a new delta calibration be sure to rerun BED_MESH_CALIBRATE.
+Si noti che l'esecuzione della calibrazione delta invaliderà qualsiasi mesh del piatto precedentemente ottenuto. Dopo aver eseguito una nuova calibrazione delta, assicurati di eseguire nuovamente BED_MESH_CALIBRATE.

@@ -17,14 +17,14 @@ Klipper supporta i seguenti comandi G-Code standard:
 - Set speed factor override percentage: `M220 S<percent>`
 - Set extrude factor override percentage: `M221 S<percent>`
 - Set acceleration: `M204 S<value>` OR `M204 P<value> T<value>`
-   - Note: If S is not specified and both P and T are specified, then the acceleration is set to the minimum of P and T. If only one of P or T is specified, the command has no effect.
+   - Nota: se S non viene specificato e vengono specificati sia P che T, l'accelerazione viene impostata al minimo di P e T. Se viene specificato solo uno di P o T, il comando non ha effetto.
 - Ottieni la temperatura dell'estrusore: `M105`
 - Set extruder temperature: `M104 [T<index>] [S<temperature>]`
 - Set extruder temperature and wait: `M109 [T<index>] S<temperature>`
-   - Note: M109 always waits for temperature to settle at requested value
+   - Nota: M109 attende sempre che la temperatura si assesti al valore richiesto
 - Set bed temperature: `M140 [S<temperature>]`
 - Set bed temperature and wait: `M190 S<temperature>`
-   - Note: M190 always waits for temperature to settle at requested value
+   - Nota: M190 attende sempre che la temperatura si assesti al valore richiesto
 - Set fan speed: `M106 S<value>`
 - Turn fan off: `M107`
 - Arresto di emergenza: `M112`
@@ -33,13 +33,13 @@ Klipper supporta i seguenti comandi G-Code standard:
 
 Per ulteriori dettagli sui comandi precedenti, vedere la [documentazione RepRap G-Code](http://reprap.org/wiki/G-code).
 
-Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable ["extended G-Code commands"](#additional-commands). Similarly, the G-Code terminal output is only intended to be human readable - see the [API Server document](API_Server.md) if controlling Klipper from external software.
+L'obiettivo di Klipper è supportare i comandi G-Code prodotti da comuni software di terze parti (ad es. OctoPrint, Printrun, Slic3r, Cura, ecc.) nelle loro configurazioni standard. Non è un obiettivo supportare ogni possibile comando G-Code. Invece, Klipper preferisce comandi leggibili dall'uomo ["comandi G-Code estesi"](#comandi-aggiuntivi). Allo stesso modo, l'output del terminale G-Code è inteso solo per essere leggibile dall'uomo - vedere il [documento del server API](API_Server.md) se si controlla Klipper da un software esterno.
 
-If one requires a less common G-Code command then it may be possible to implement it with a custom [gcode_macro config section](Config_Reference.md#gcode_macro). For example, one might use this to implement: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`, etc.
+Se si necessita di un comando G-Code meno comune, potrebbe essere possibile implementarlo con una [sezione di configurazione gcode_macro] personalizzata (Config_Reference.md#gcode_macro). Ad esempio, si potrebbe usare questo per implementare: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`, ecc.
 
 ## Comandi aggiuntivi
 
-Klipper uses "extended" G-Code commands for general configuration and status. These extended commands all follow a similar format - they start with a command name and may be followed by one or more parameters. For example: `SET_SERVO SERVO=myservo ANGLE=5.3`. In this document, the commands and parameters are shown in uppercase, however they are not case sensitive. (So, "SET_SERVO" and "set_servo" both run the same command.)
+Klipper utilizza comandi G-Code "estesi" per la configurazione e lo stato generale. Questi comandi estesi seguono tutti un formato simile: iniziano con un nome di comando e possono essere seguiti da uno o più parametri. Ad esempio: `SET_SERVO SERVO=mioservo ANGLE=5.3`. In questo documento, i comandi ed i parametri sono mostrati in maiuscolo, tuttavia non fanno distinzione tra maiuscole e minuscole. (Quindi, "SET_SERVO" e "set_servo" eseguono entrambi lo stesso comando.)
 
 This section is organized by Klipper module name, which generally follows the section names specified in the [printer configuration file](Config_Reference.md). Note that some modules are automatically loaded.
 
@@ -220,7 +220,7 @@ With no parameters provided, this will list the defined objects known to Klipper
 
 When the `NAME` parameter is included, this defines an object to be excluded.
 
-- `NAME`: This parameter is required. It is the identifier used by other commands in this module.
+- `NAME`: questo parametro è obbligatorio. È l'identificatore utilizzato da altri comandi in questo modulo.
 - `CENTER`: una coordinata X,Y per l'oggetto.
 - `POLYGON`: An array of X,Y coordinates that provide an outline for the object.
 
@@ -439,7 +439,7 @@ The manual_probe module is automatically loaded.
 
 #### MANUAL_PROBE
 
-`MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:
+`MANUAL_PROBE [SPEED=<speed>]`: esegue uno script di supporto utile per misurare l'altezza dell'ugello in una determinata posizione. Se viene specificato SPEED, imposta la velocità dei comandi TESTZ (il valore predefinito è 5mm/s). Durante una sonda manuale, sono disponibili i seguenti comandi aggiuntivi:
 
 - `ACCEPT`: questo comando accetta la posizione Z corrente e conclude il probing manuale.
 - `ABORT`: questo comando termina lo strumento di probing manuale.
@@ -453,13 +453,13 @@ The manual_probe module is automatically loaded.
 
 `Z_OFFSET_APPLY_ENDSTOP`: Take the current Z Gcode offset (aka, babystepping), and subtract it from the stepper_z endstop_position. This acts to take a frequently used babystepping value, and "make it permanent". Requires a `SAVE_CONFIG` to take effect.
 
-### [manual_stepper]
+### [Stepper manuali]
 
 The following command is available when a [manual_stepper config section](Config_Reference.md#manual_stepper) is enabled.
 
 #### MANUAL_STEPPER
 
-`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|-1|-2]] [SYNC=0]]`: This command will alter the state of the stepper. Use the ENABLE parameter to enable/disable the stepper. Use the SET_POSITION parameter to force the stepper to think it is at the given position. Use the MOVE parameter to request a movement to the given position. If SPEED and/or ACCEL is specified then the given values will be used instead of the defaults specified in the config file. If an ACCEL of zero is specified then no acceleration will be performed. If STOP_ON_ENDSTOP=1 is specified then the move will end early should the endstop report as triggered (use STOP_ON_ENDSTOP=2 to complete the move without error even if the endstop does not trigger, use -1 or -2 to stop when the endstop reports not triggered). Normally future G-Code commands will be scheduled to run after the stepper move completes, however if a manual stepper move uses SYNC=0 then future G-Code movement commands may run in parallel with the stepper movement.
+`MANUAL_STEPPER STEPPER=nome_config [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<velocità>] [ACCEL=<accelerazione>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|- 1|-2]] [SYNC=0]]`: Questo comando altererà lo stato dello stepper. Utilizzare il parametro ENABLE per abilitare/disabilitare lo stepper. Utilizzare il parametro SET_POSITION per forzare lo stepper a pensare di trovarsi nella posizione data. Utilizzare il parametro MOVE per richiedere un movimento alla posizione data. Se viene specificato SPEED e/o ACCEL, verranno utilizzati i valori forniti al posto dei valori predefiniti specificati nel file di configurazione. Se viene specificato un ACCEL pari a zero, non verrà eseguita alcuna accelerazione. Se viene specificato STOP_ON_ENDSTOP=1, lo spostamento terminerà in anticipo se l'endstop segnala come attivato (usa STOP_ON_ENDSTOP=2 per completare lo spostamento senza errori anche se l'endstop non si attiva, usa -1 o -2 per interrompere quando l'endstop segnala non innescato). Normalmente i futuri comandi G-Code verranno programmati per essere eseguiti dopo il completamento del movimento passo-passo, tuttavia se un movimento passo-passo manuale utilizza SYNC=0, i futuri comandi di movimento G-Code potrebbero essere eseguiti in parallelo con il movimento passo-passo.
 
 ### [led]
 
@@ -485,31 +485,31 @@ The following command is available when an [output_pin config section](Config_Re
 
 The following commands are available when the [palette2 config section](Config_Reference.md#palette2) is enabled.
 
-Palette prints work by embedding special OCodes (Omega Codes) in the GCode file:
+Le stampe di Palette funzionano incorporando speciali OCodes (Codici Omega) nel file GCode:
 
-- `O1`...`O32`: These codes are read from the GCode stream and processed by this module and passed to the Palette 2 device.
+- `O1`...`O32`: Questi codici vengono letti dal flusso GCode ed elaborati da questo modulo e passati al dispositivo Palette 2.
 
 The following additional commands are also available.
 
 #### PALETTE_CONNECT
 
-`PALETTE_CONNECT`: This command initializes the connection with the Palette 2.
+`PALETTE_CONNECT`: questo comando inizializza la connessione con la Palette 2.
 
 #### PALETTE_DISCONNECT
 
-`PALETTE_DISCONNECT`: This command disconnects from the Palette 2.
+`PALETTE_DISCONNECT`: questo comando si disconnette dalla Palette 2.
 
 #### PALETTE_CLEAR
 
-`PALETTE_CLEAR`: This command instructs the Palette 2 to clear all of the input and output paths of filament.
+`PALETTE_CLEAR`: questo comando indica alla Palette 2 di cancellare tutti i percorsi di input e output del filamento.
 
 #### PALETTE_CUT
 
-`PALETTE_CUT`: This command instructs the Palette 2 to cut the filament currently loaded in the splice core.
+`PALETTE_CUT`: Questo comando indica alla Palette 2 di tagliare il filamento attualmente caricato nello splice core.
 
 #### PALETTE_SMART_LOAD
 
-`PALETTE_SMART_LOAD`: This command start the smart load sequence on the Palette 2. Filament is loaded automatically by extruding it the distance calibrated on the device for the printer, and instructs the Palette 2 once the loading has been completed. This command is the same as pressing **Smart Load** directly on the Palette 2 screen after the filament load is complete.
+`PALETTE_SMART_LOAD`: Questo comando avvia la sequenza di caricamento intelligente sulla Palette 2. Il filamento viene caricato automaticamente estrudendolo alla distanza calibrata sul dispositivo per la stampante e istruisce la Palette 2 una volta completato il caricamento. Questo comando equivale a premere **Smart Load** direttamente sullo schermo della Palette 2 dopo che il caricamento del filamento è stato completato.
 
 ### [pid_calibrate]
 
@@ -517,7 +517,7 @@ The pid_calibrate module is automatically loaded if a heater is defined in the c
 
 #### PID_CALIBRATE
 
-`PID_CALIBRATE HEATER=<config_name> TARGET=<temperature> [WRITE_FILE=1]`: Perform a PID calibration test. The specified heater will be enabled until the specified target temperature is reached, and then the heater will be turned off and on for several cycles. If the WRITE_FILE parameter is enabled, then the file /tmp/heattest.txt will be created with a log of all temperature samples taken during the test.
+`PID_CALIBRATE HEATER=<nome_config> TARGET=<temperatura> [WRITE_FILE=1]`: esegue un test di calibrazione PID. Il riscaldatore specificato verrà abilitato fino al raggiungimento della temperatura target specificata, quindi il riscaldatore verrà spento e acceso per diversi cicli. Se il parametro WRITE_FILE è abilitato, verrà creato il file /tmp/heattest.txt con un log di tutti i campioni di temperatura prelevati durante il test.
 
 ### [pause_resume]
 
@@ -525,7 +525,7 @@ The following commands are available when the [pause_resume config section](Conf
 
 #### PAUSE
 
-`PAUSE`: Pauses the current print. The current position is captured for restoration upon resume.
+`PAUSE`: mette in pausa la stampa corrente. La posizione attuale viene acquisita per la ripresa al ripristino.
 
 #### RESUME
 
@@ -587,7 +587,7 @@ The following commands are available when a [resonance_tester config section](Co
 
 #### MEASURE_AXES_NOISE
 
-`MEASURE_AXES_NOISE`: Measures and outputs the noise for all axes of all enabled accelerometer chips.
+`MEASURE_AXES_NOISE`: misura ed riporta il rumore per tutti gli assi di tutti i chip dell'accelerometro abilitati.
 
 #### TEST_RESONANCES
 
@@ -601,7 +601,7 @@ The following commands are available when a [resonance_tester config section](Co
 
 The following standard G-Code commands are available when the [respond config section](Config_Reference.md#respond) is enabled:
 
-- `M118 <message>`: echo the message prepended with the configured default prefix (or `echo: ` if no prefix is configured).
+- `M118 <messaggio>`: fa eco al messaggio preceduto dal prefisso predefinito configurato (o `echo: ` se non è configurato alcun prefisso).
 
 The following additional commands are also available.
 
@@ -712,7 +712,7 @@ The following commands are available when any of the [tmcXXXX config sections](C
 
 #### INIT_TMC
 
-`INIT_TMC STEPPER=<name>`: This command will initialize the TMC registers. Needed to re-enable the driver if power to the chip is turned off then back on.
+`INIT_TMC STEPPER=<nome>`: questo comando inizializzerà i registri TMC. Necessario per riattivare il driver se l'alimentazione al chip viene spenta e poi riaccesa.
 
 #### SET_TMC_CURRENT
 
@@ -744,17 +744,17 @@ The tuning_tower module is automatically loaded.
 
 ### [virtual_sdcard]
 
-Klipper supports the following standard G-Code commands if the [virtual_sdcard config section](Config_Reference.md#virtual_sdcard) is enabled:
+Klipper supporta i seguenti comandi G-Code standard se la [sezione di configurazione di virtual_sdcard](Config_Reference.md#virtual_sdcard) è abilitata:
 
-- List SD card: `M20`
-- Initialize SD card: `M21`
+- Elenco scheda SD: `M20`
+- Inizializza scheda SD: `M21`
 - Select SD file: `M23 <filename>`
 - Start/resume SD print: `M24`
-- Pause SD print: `M25`
+- Sospendi la stampa SD: `M25`
 - Set SD position: `M26 S<offset>`
 - Riporta lo stato di stampa SD: `M27`
 
-In addition, the following extended commands are available when the "virtual_sdcard" config section is enabled.
+Inoltre, quando la sezione di configurazione "virtual_sdcard" è abilitata, sono disponibili i seguenti comandi estesi.
 
 #### SDCARD_PRINT_FILE
 
