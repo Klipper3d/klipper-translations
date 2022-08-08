@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-06 17:21+0000\n"
+"PO-Revision-Date: 2022-08-08 21:35+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/"
 "it/>\n"
@@ -65,6 +65,9 @@ msgid ""
 "acceleration is set to the minimum of P and T. If only one of P or T is "
 "specified, the command has no effect."
 msgstr ""
+"Nota: se S non viene specificato e vengono specificati sia P che T, "
+"l'accelerazione viene impostata al minimo di P e T. Se viene specificato "
+"solo uno di P o T, il comando non ha effetto."
 
 msgid "Get extruder temperature: `M105`"
 msgstr "Ottieni la temperatura dell'estrusore: `M105`"
@@ -77,6 +80,7 @@ msgstr ""
 
 msgid "Note: M109 always waits for temperature to settle at requested value"
 msgstr ""
+"Nota: M109 attende sempre che la temperatura si assesti al valore richiesto"
 
 msgid "Set bed temperature: `M140 [S<temperature>]`"
 msgstr ""
@@ -86,6 +90,7 @@ msgstr ""
 
 msgid "Note: M190 always waits for temperature to settle at requested value"
 msgstr ""
+"Nota: M190 attende sempre che la temperatura si assesti al valore richiesto"
 
 msgid "Set fan speed: `M106 S<value>`"
 msgstr ""
@@ -115,12 +120,16 @@ msgid ""
 "section](Config_Reference.md#gcode_macro). For example, one might use this "
 "to implement: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`, etc."
 msgstr ""
+"Se si necessita di un comando G-Code meno comune, potrebbe essere possibile "
+"implementarlo con una [sezione di configurazione gcode_macro] personalizzata "
+"(Config_Reference.md#gcode_macro). Ad esempio, si potrebbe usare questo per "
+"implementare: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`, ecc."
 
 msgid "List SD card: `M20`"
-msgstr ""
+msgstr "Elenco scheda SD: `M20`"
 
 msgid "Initialize SD card: `M21`"
-msgstr ""
+msgstr "Inizializza scheda SD: `M21`"
 
 msgid "Select SD file: `M23 <filename>`"
 msgstr ""
@@ -129,7 +138,7 @@ msgid "Start/resume SD print: `M24`"
 msgstr ""
 
 msgid "Pause SD print: `M25`"
-msgstr ""
+msgstr "Sospendi la stampa SD: `M25`"
 
 msgid "Set SD position: `M26 S<offset>`"
 msgstr ""
@@ -166,6 +175,13 @@ msgid ""
 " and parameters are shown in uppercase, however they are not case sensitive."
 " (So, \"SET_SERVO\" and \"set_servo\" both run the same command.)"
 msgstr ""
+"Klipper utilizza comandi G-Code \"estesi\" per la configurazione e lo stato "
+"generale. Questi comandi estesi seguono tutti un formato simile: iniziano "
+"con un nome di comando e possono essere seguiti da uno o più parametri. Ad "
+"esempio: `SET_SERVO SERVO=mioservo ANGLE=5.3`. In questo documento, i "
+"comandi ed i parametri sono mostrati in maiuscolo, tuttavia non fanno "
+"distinzione tra maiuscole e minuscole. (Quindi, \"SET_SERVO\" e \"set_servo\""
+" eseguono entrambi lo stesso comando.)"
 
 msgid ""
 "`QUERY_ENDSTOPS`: Probe the axis endstops and report if they are "
@@ -235,6 +251,12 @@ msgid ""
 "enabled, then the file /tmp/heattest.txt will be created with a log of all "
 "temperature samples taken during the test."
 msgstr ""
+"`PID_CALIBRATE HEATER=<nome_config> TARGET=<temperatura> [WRITE_FILE=1]`: "
+"esegue un test di calibrazione PID. Il riscaldatore specificato verrà "
+"abilitato fino al raggiungimento della temperatura target specificata, "
+"quindi il riscaldatore verrà spento e acceso per diversi cicli. Se il "
+"parametro WRITE_FILE è abilitato, verrà creato il file /tmp/heattest.txt con "
+"un log di tutti i campioni di temperatura prelevati durante il test."
 
 msgid "`TURN_OFF_HEATERS`: Turn off all heaters."
 msgstr ""
@@ -278,6 +300,11 @@ msgid ""
 "the speed of TESTZ commands (the default is 5mm/s). During a manual probe, "
 "the following additional commands are available:"
 msgstr ""
+"`MANUAL_PROBE [SPEED=<speed>]`: esegue uno script di supporto utile per "
+"misurare l'altezza dell'ugello in una determinata posizione. Se viene "
+"specificato SPEED, imposta la velocità dei comandi TESTZ (il valore "
+"predefinito è 5mm/s). Durante una sonda manuale, sono disponibili i seguenti "
+"comandi aggiuntivi:"
 
 msgid ""
 "`ACCEPT`: This command accepts the current Z position and concludes the "
@@ -373,6 +400,24 @@ msgid ""
 "then future G-Code movement commands may run in parallel with the stepper "
 "movement."
 msgstr ""
+"`MANUAL_STEPPER STEPPER=nome_config [ENABLE=[0|1]] [SET_POSITION=<pos>] "
+"[SPEED=<velocità>] [ACCEL=<accelerazione>] [MOVE=<pos> "
+"[STOP_ON_ENDSTOP=[1|2|- 1|-2]] [SYNC=0]]`: Questo comando altererà lo stato "
+"dello stepper. Utilizzare il parametro ENABLE per abilitare/disabilitare lo "
+"stepper. Utilizzare il parametro SET_POSITION per forzare lo stepper a "
+"pensare di trovarsi nella posizione data. Utilizzare il parametro MOVE per "
+"richiedere un movimento alla posizione data. Se viene specificato SPEED e/o "
+"ACCEL, verranno utilizzati i valori forniti al posto dei valori predefiniti "
+"specificati nel file di configurazione. Se viene specificato un ACCEL pari a "
+"zero, non verrà eseguita alcuna accelerazione. Se viene specificato "
+"STOP_ON_ENDSTOP=1, lo spostamento terminerà in anticipo se l'endstop segnala "
+"come attivato (usa STOP_ON_ENDSTOP=2 per completare lo spostamento senza "
+"errori anche se l'endstop non si attiva, usa -1 o -2 per interrompere quando "
+"l'endstop segnala non innescato). Normalmente i futuri comandi G-Code "
+"verranno programmati per essere eseguiti dopo il completamento del movimento "
+"passo-passo, tuttavia se un movimento passo-passo manuale utilizza SYNC=0, i "
+"futuri comandi di movimento G-Code potrebbero essere eseguiti in parallelo "
+"con il movimento passo-passo."
 
 msgid ""
 "`PROBE [PROBE_SPEED=<mm/s>] [LIFT_SPEED=<mm/s>] [SAMPLES=<count>] "
@@ -633,6 +678,8 @@ msgid ""
 "`M118 <message>`: echo the message prepended with the configured default "
 "prefix (or `echo: ` if no prefix is configured)."
 msgstr ""
+"`M118 <messaggio>`: fa eco al messaggio preceduto dal prefisso predefinito "
+"configurato (o `echo: ` se non è configurato alcun prefisso)."
 
 msgid ""
 "`RESPOND MSG=\"<message>\"`: echo the message prepended with the configured "
@@ -670,6 +717,8 @@ msgid ""
 "`PAUSE`: Pauses the current print. The current position is captured for "
 "restoration upon resume."
 msgstr ""
+"`PAUSE`: mette in pausa la stampa corrente. La posizione attuale viene "
+"acquisita per la ripresa al ripristino."
 
 msgid ""
 "`RESUME [VELOCITY=<value>]`: Resumes the print from a pause, first restoring"
@@ -776,6 +825,8 @@ msgid ""
 "`MEASURE_AXES_NOISE`: Measures and outputs the noise for all axes of all "
 "enabled accelerometer chips."
 msgstr ""
+"`MEASURE_AXES_NOISE`: misura ed riporta il rumore per tutti gli assi di "
+"tutti i chip dell'accelerometro abilitati."
 
 msgid ""
 "`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] "
@@ -799,19 +850,25 @@ msgid ""
 "`PALETTE_CONNECT`: This command initializes the connection with the Palette "
 "2."
 msgstr ""
+"`PALETTE_CONNECT`: questo comando inizializza la connessione con la Palette "
+"2."
 
 msgid "`PALETTE_DISCONNECT`: This command disconnects from the Palette 2."
-msgstr ""
+msgstr "`PALETTE_DISCONNECT`: questo comando si disconnette dalla Palette 2."
 
 msgid ""
 "`PALETTE_CLEAR`: This command instructs the Palette 2 to clear all of the "
 "input and output paths of filament."
 msgstr ""
+"`PALETTE_CLEAR`: questo comando indica alla Palette 2 di cancellare tutti i "
+"percorsi di input e output del filamento."
 
 msgid ""
 "`PALETTE_CUT`: This command instructs the Palette 2 to cut the filament "
 "currently loaded in the splice core."
 msgstr ""
+"`PALETTE_CUT`: Questo comando indica alla Palette 2 di tagliare il filamento "
+"attualmente caricato nello splice core."
 
 msgid ""
 "`PALETTE_SMART_LOAD`: This command start the smart load sequence on the "
@@ -821,16 +878,26 @@ msgid ""
 " Load** directly on the Palette 2 screen after the filament load is "
 "complete."
 msgstr ""
+"`PALETTE_SMART_LOAD`: Questo comando avvia la sequenza di caricamento "
+"intelligente sulla Palette 2. Il filamento viene caricato automaticamente "
+"estrudendolo alla distanza calibrata sul dispositivo per la stampante e "
+"istruisce la Palette 2 una volta completato il caricamento. Questo comando "
+"equivale a premere **Smart Load** direttamente sullo schermo della Palette 2 "
+"dopo che il caricamento del filamento è stato completato."
 
 msgid ""
 "Palette prints work by embedding special OCodes (Omega Codes) in the GCode "
 "file:"
 msgstr ""
+"Le stampe di Palette funzionano incorporando speciali OCodes (Codici Omega) "
+"nel file GCode:"
 
 msgid ""
 "`O1`...`O32`: These codes are read from the GCode stream and processed by "
 "this module and passed to the Palette 2 device."
 msgstr ""
+"`O1`...`O32`: Questi codici vengono letti dal flusso GCode ed elaborati da "
+"questo modulo e passati al dispositivo Palette 2."
 
 #: docs/G-Codes.md:block 1 (header)
 msgid "G-Codes"
@@ -1549,7 +1616,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 181 (header)
 msgid "[manual_probe]"
-msgstr ""
+msgstr "[manual_probe]"
 
 #: docs/G-Codes.md:block 182 (paragraph)
 msgid "The manual_probe module is automatically loaded."
@@ -1557,7 +1624,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 183 (header)
 msgid "MANUAL_PROBE"
-msgstr ""
+msgstr "MANUAL_PROBE"
 
 #: docs/G-Codes.md:block 186 (header)
 msgid "Z_ENDSTOP_CALIBRATE"
@@ -1569,7 +1636,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 190 (header)
 msgid "[manual_stepper]"
-msgstr ""
+msgstr "[Stepper manuali]"
 
 #: docs/G-Codes.md:block 191 (paragraph)
 msgid ""
@@ -1579,7 +1646,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 192 (header)
 msgid "MANUAL_STEPPER"
-msgstr ""
+msgstr "MANUAL_STEPPER"
 
 #: docs/G-Codes.md:block 196 (header)
 msgid "SET_LED"
@@ -1587,7 +1654,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 198 (header)
 msgid "[output_pin]"
-msgstr ""
+msgstr "[output_pin]"
 
 #: docs/G-Codes.md:block 199 (paragraph)
 msgid ""
@@ -1608,7 +1675,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 202 (header)
 msgid "[palette2]"
-msgstr ""
+msgstr "[palette2]"
 
 #: docs/G-Codes.md:block 203 (paragraph)
 msgid ""
@@ -1618,27 +1685,27 @@ msgstr ""
 
 #: docs/G-Codes.md:block 207 (header)
 msgid "PALETTE_CONNECT"
-msgstr ""
+msgstr "PALETTE_CONNECT"
 
 #: docs/G-Codes.md:block 209 (header)
 msgid "PALETTE_DISCONNECT"
-msgstr ""
+msgstr "PALETTE_DISCONNECT"
 
 #: docs/G-Codes.md:block 211 (header)
 msgid "PALETTE_CLEAR"
-msgstr ""
+msgstr "PALETTE_CLEAR"
 
 #: docs/G-Codes.md:block 213 (header)
 msgid "PALETTE_CUT"
-msgstr ""
+msgstr "PALETTE_CUT"
 
 #: docs/G-Codes.md:block 215 (header)
 msgid "PALETTE_SMART_LOAD"
-msgstr ""
+msgstr "PALETTE_SMART_LOAD"
 
 #: docs/G-Codes.md:block 217 (header)
 msgid "[pid_calibrate]"
-msgstr ""
+msgstr "[pid_calibrate]"
 
 #: docs/G-Codes.md:block 218 (paragraph)
 msgid ""
@@ -1648,15 +1715,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 219 (header)
 msgid "PID_CALIBRATE"
-msgstr ""
+msgstr "PID_CALIBRATE"
 
 #: docs/G-Codes.md:block 221 (header)
 msgid "[pause_resume]"
-msgstr ""
+msgstr "[pause_resume]"
 
 #: docs/G-Codes.md:block 223 (header)
 msgid "PAUSE"
-msgstr ""
+msgstr "PAUSE"
 
 #: docs/G-Codes.md:block 225 (header)
 msgid "RESUME"
@@ -1737,7 +1804,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 254 (header)
 msgid "MEASURE_AXES_NOISE"
-msgstr ""
+msgstr "MEASURE_AXES_NOISE"
 
 #: docs/G-Codes.md:block 256 (header)
 msgid "TEST_RESONANCES"
@@ -1932,7 +1999,7 @@ msgstr "DUMP_TMC"
 
 #: docs/G-Codes.md:block 308 (header)
 msgid "INIT_TMC"
-msgstr ""
+msgstr "INIT_TMC"
 
 #: docs/G-Codes.md:block 309 (paragraph)
 msgid ""
@@ -1940,6 +2007,9 @@ msgid ""
 "Needed to re-enable the driver if power to the chip is turned off then back "
 "on."
 msgstr ""
+"`INIT_TMC STEPPER=<nome>`: questo comando inizializzerà i registri TMC. "
+"Necessario per riattivare il driver se l'alimentazione al chip viene spenta "
+"e poi riaccesa."
 
 #: docs/G-Codes.md:block 310 (header)
 msgid "SET_TMC_CURRENT"
@@ -2015,12 +2085,17 @@ msgid ""
 "[virtual_sdcard config section](Config_Reference.md#virtual_sdcard) is "
 "enabled:"
 msgstr ""
+"Klipper supporta i seguenti comandi G-Code standard se la [sezione di "
+"configurazione di virtual_sdcard](Config_Reference.md#virtual_sdcard) è "
+"abilitata:"
 
 #: docs/G-Codes.md:block 326 (paragraph)
 msgid ""
 "In addition, the following extended commands are available when the "
 "\"virtual_sdcard\" config section is enabled."
 msgstr ""
+"Inoltre, quando la sezione di configurazione \"virtual_sdcard\" è abilitata, "
+"sono disponibili i seguenti comandi estesi."
 
 #: docs/G-Codes.md:block 327 (header)
 msgid "SDCARD_PRINT_FILE"
@@ -2063,6 +2138,14 @@ msgid ""
 "only intended to be human readable - see the [API Server "
 "document](API_Server.md) if controlling Klipper from external software."
 msgstr ""
+"L'obiettivo di Klipper è supportare i comandi G-Code prodotti da comuni "
+"software di terze parti (ad es. OctoPrint, Printrun, Slic3r, Cura, ecc.) "
+"nelle loro configurazioni standard. Non è un obiettivo supportare ogni "
+"possibile comando G-Code. Invece, Klipper preferisce comandi leggibili "
+"dall'uomo [\"comandi G-Code estesi\"](#comandi-aggiuntivi). Allo stesso "
+"modo, l'output del terminale G-Code è inteso solo per essere leggibile "
+"dall'uomo - vedere il [documento del server API](API_Server.md) se si "
+"controlla Klipper da un software esterno."
 
 #: docs/G-Codes.md:block 139 (paragraph)
 msgid ""
@@ -2164,7 +2247,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 199 (header)
 msgid "[led]"
-msgstr ""
+msgstr "[led]"
 
 #: docs/G-Codes.md:block 200 (paragraph)
 msgid ""
@@ -2346,6 +2429,8 @@ msgid ""
 "`NAME`: This parameter is required. It is the identifier used by other "
 "commands in this module."
 msgstr ""
+"`NAME`: questo parametro è obbligatorio. È l'identificatore utilizzato da "
+"altri comandi in questo modulo."
 
 #: docs/G-Codes.md:block 98 (unordered list)
 msgid "`CENTER`: An X,Y coordinate for the object."
