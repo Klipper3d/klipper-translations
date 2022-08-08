@@ -1,16 +1,18 @@
 # mirokymac <toufubomb@gmail.com>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
+# Neko.vecter <Vecterfang@icloud.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-05-15 07:10+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/api_server/zh_Hans/>\n"
+"PO-Revision-Date: 2022-08-08 09:23+0000\n"
+"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/api_server/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document describes Klipper's Application Programmer Interface (API). "
