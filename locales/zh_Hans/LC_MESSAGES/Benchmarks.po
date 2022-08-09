@@ -1,16 +1,17 @@
-# Neko.vecter <Vecterfang@icloud.com>, 2021.
+# Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-06-15 00:56+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/benchmarks/zh_Hans/>\n"
+"PO-Revision-Date: 2022-08-08 09:23+0000\n"
+"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/benchmarks/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "这个文档解释了Klipper的基准测试。"
@@ -124,7 +125,7 @@ msgid "The following configuration sequence is used on the PRU:"
 msgstr "在PRU上使用以下配置序列："
 
 msgid "pru"
-msgstr "可编程实时单元"
+msgstr "pru"
 
 msgid "STM32F042 step rate benchmark"
 msgstr "STM32F042 步进率基准测试"
@@ -196,10 +197,10 @@ msgid "samd51"
 msgstr "SAMD51"
 
 msgid "1 stepper (200Mhz)"
-msgstr "1 stepper (200Mhz)"
+msgstr "1 步进电机 (200Mhz)"
 
 msgid "3 stepper (200Mhz)"
-msgstr "3 stepper (200Mhz)"
+msgstr "3 步进电机 (200Mhz)"
 
 msgid "Linux MCU step rate benchmark"
 msgstr "Linux MCU 步速率基准测试"
@@ -257,7 +258,7 @@ msgid "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
 msgstr "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
 
 msgid "atmega2560 (serial)"
-msgstr "atmega2560 (串行总线)"
+msgstr "atmega2560 (serial)"
 
 msgid "23K"
 msgstr "23K"
@@ -269,7 +270,7 @@ msgid "avr-gcc (GCC) 4.8.1"
 msgstr "avr-gcc (GCC) 4.8.1"
 
 msgid "sam3x8e (serial)"
-msgstr "sam3x8e (串行总线)"
+msgstr "sam3x8e (serial)"
 
 msgid "arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0"
 msgstr "arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0"
@@ -629,7 +630,9 @@ msgstr ""
 msgid ""
 "The test was last run on commit `59314d99` with gcc version `pru-gcc (GCC) "
 "8.0.0 20170530 (experimental)`."
-msgstr "测试最后在提交 `59314d99` 上运行，gcc 版本为 `pru-gcc (GCC) 8.0.0 20170530（实验版）`。"
+msgstr ""
+"测试最后在提交 `59314d99` 上运行，gcc 版本为 `pru-gcc (GCC) 8.0.0 20170530 "
+"(experimental)`。"
 
 #: docs/Benchmarks.md:block 42 (table)
 msgid "231"
@@ -734,8 +737,9 @@ msgid ""
 "gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The 120Mhz LPC1769 results were obtained"
 " by overclocking an LPC1768 to 120Mhz."
 msgstr ""
-"该测试最后一次运行使用了提交 `59314d99`，gcc 版本 `arm-none-eabi-gcc （Fedora 10.2.0-4.fc34） "
-"10.2.0`。120Mhz LPC1769 的结果是通过将 LPC1768 超频到 120Mhz 而获得的。"
+"该测试最后一次运行使用了提交 `59314d99`，gcc 版本 `arm-none-eabi-gcc (Fedora "
+"10.2.0-4.fc34) 10.2.0`。120Mhz LPC1769 的结果是通过将 LPC1768 超频到 120Mhz "
+"而获得的。"
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "222"
@@ -760,8 +764,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-"
 "gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD21G18 micro-controller."
 msgstr ""
-"该测试最后一次运行使用了提交 `59314d99`，gcc 版本 `arm-none-eabi-gcc （Fedora 10.2.0-4.fc34） "
-"10.2.0` 在 SAMD21G18 微控制器上。"
+"该测试最后一次运行使用了提交 `59314d99`，gcc 版本 `arm-none-eabi-gcc (Fedora "
+"10.2.0-4.fc34) 10.2.0` 在 SAMD21G18 微控制器上。"
 
 #: docs/Benchmarks.md:block 69 (table)
 msgid "306"
@@ -786,8 +790,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-"
 "gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD51J19A micro-controller."
 msgstr ""
-"该测试最后一次运行使用了提交 `59314d99` 与 gcc 版本 `arm-none-eabi-gcc （Fedora 10.2.0-4.fc34）"
-" 10.2.0` 在 SAMD51J19A 微控制器上运行的。"
+"该测试最后一次运行使用了提交 `59314d99` 与 gcc 版本 `arm-none-eabi-gcc ("
+"Fedora 10.2.0-4.fc34) 10.2.0` 在 SAMD51J19A 微控制器上运行的。"
 
 #: docs/Benchmarks.md:block 74 (table)
 msgid "39"
@@ -843,8 +847,9 @@ msgid ""
 "8.3.0-6+rpi1) 8.3.0` on a Raspberry Pi 3 (revision a02082). It was difficult"
 " to get stable results in this benchmark."
 msgstr ""
-"该测试最后一次运行使用了提交 `59314d99` 与 gcc 版本 `gcc （Raspbian 8.3.0-6+rpi1） 8.3.0` 在 "
-"Raspberry Pi 3 （修订版 a02082） 上运行。在这个基准测试中很难获得稳定的结果。"
+"该测试最后一次运行使用了提交 `59314d99` 与 gcc 版本 `gcc (Raspbian 8.3."
+"0-6+rpi1) 8.3.0` 在 Raspberry Pi 3 （修订版 a02082） "
+"上运行。在这个基准测试中很难获得稳定的结果。"
 
 #: docs/Benchmarks.md:block 84 (table)
 msgid "160"

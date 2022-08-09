@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-07 08:22+0000\n"
+"PO-Revision-Date: 2022-08-08 09:23+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "benchmarks/it/>\n"
@@ -64,7 +64,7 @@ msgstr ""
 "uno stepper reale durante un benchmark."
 
 msgid "Step rate benchmark test"
-msgstr ""
+msgstr "Test di riferimento della frequenza di passi"
 
 msgid ""
 "The above tests three steppers simultaneously stepping. If running the above"
@@ -92,25 +92,25 @@ msgstr ""
 "cancellare l'errore in preparazione per il test successivo:"
 
 msgid "AVR step rate benchmark"
-msgstr ""
+msgstr "Benchmark rateo passi AVR"
 
 msgid "The following configuration sequence is used on AVR chips:"
-msgstr ""
+msgstr "La seguente sequenza di configurazione viene utilizzata sui chip AVR:"
 
 msgid "avr"
-msgstr ""
+msgstr "avr"
 
 msgid "ticks"
-msgstr ""
+msgstr "ticks"
 
 msgid "1 stepper"
-msgstr ""
+msgstr "1 stepper"
 
 msgid "3 stepper"
-msgstr ""
+msgstr "3 stepper"
 
 msgid "Arduino Due step rate benchmark"
-msgstr ""
+msgstr "Benchmark rateo passi Arduino Due"
 
 msgid "The following configuration sequence is used on the Due:"
 msgstr ""

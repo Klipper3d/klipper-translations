@@ -13,7 +13,7 @@
     
     
       
-        <title>SDCard updates - Klipper documentation</title>
+        <title>Aggiornamenti scheda SD - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sdcard-updates" class="md-skip">
+        <a href="#aggiornamenti-scheda-sd" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SDCard updates
+              Aggiornamenti scheda SD
             
           </span>
         </div>
@@ -1234,8 +1234,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#board-definitions" class="md-nav__link">
-    Board Definitions
+  <a href="#definizioni-della-scheda" class="md-nav__link">
+    Definizioni della scheda
   </a>
   
 </li>
@@ -1257,7 +1257,7 @@
 </a>
 
 
-<h1 id="sdcard-updates">SDCard updates<a class="headerlink" href="#sdcard-updates" title="Permanent link">&para;</a></h1>
+<h1 id="aggiornamenti-scheda-sd">Aggiornamenti scheda SD<a class="headerlink" href="#aggiornamenti-scheda-sd" title="Permanent link">&para;</a></h1>
 <p>Molte delle schede controller oggi popolari vengono fornite con un bootloader in grado di aggiornare il firmware tramite scheda SD. Sebbene ciò sia conveniente in molte circostanze, questi bootloader in genere non forniscono altro modo per aggiornare il firmware. Questo può essere un fastidio se la tua scheda è montata in una posizione di difficile accesso o se devi aggiornare spesso il firmware. Dopo che Klipper è stato inizialmente flashato su un controller, è possibile trasferire il nuovo firmware sulla scheda SD e avviare la procedura di flashing tramite ssh.</p>
 <h2 id="procedura-di-aggiornamento-tipica">Procedura di aggiornamento tipica<a class="headerlink" href="#procedura-di-aggiornamento-tipica" title="Permanent link">&para;</a></h2>
 <p>La procedura per aggiornare il firmware dell'MCU utilizzando la scheda SD è simile a quella di altri metodi. Invece di usare <code>make flash</code> è necessario eseguire uno script di supporto, <code>flash-sdcard.sh</code>. L'aggiornamento di un BigTreeTech SKR 1.3 potrebbe essere simile al seguente:</p>
@@ -1278,7 +1278,7 @@ sudo service klipper start
 
 <p>Se non vedi la tua scheda elencata, potrebbe essere necessario aggiungere una nuova definizione di scheda come <a href="#board-definitions">descritto di seguito</a>.</p>
 <h2 id="utilizzo-avanzato">Utilizzo avanzato<a class="headerlink" href="#utilizzo-avanzato" title="Permanent link">&para;</a></h2>
-<p>The above commands assume that your MCU connects at the default baud rate of 250000 and the firmware is located at <code>~/klipper/out/klipper.bin</code>. The <code>flash-sdcard.sh</code> script provides options for changing these defaults. All options can be viewed by the help screen:</p>
+<p>I comandi precedenti presuppongono che l'MCU si connetta alla velocità di trasmissione predefinita di 250000 e che il firmware si trovi in <code>~/klipper/out/klipper.bin</code>. Lo script <code>flash-sdcard.sh</code> fornisce opzioni per modificare queste impostazioni predefinite. Tutte le opzioni possono essere visualizzate dalla schermata della guida:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -h
 SD Card upload utility for Klipper
 
@@ -1296,23 +1296,23 @@ optional arguments:
   -f &lt;firmware&gt;   path to klipper.bin
 </code></pre></div>
 
-<p>If your board is flashed with firmware that connects at a custom baud rate it is possible to upgrade by specifying the <code>-b</code> option:</p>
+<p>Se la tua scheda è stata flashata con un firmware che si connette a un baud rate personalizzato, è possibile eseguire l'aggiornamento specificando l'opzione <code>-b</code>:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -b 115200 /dev/ttyAMA0 btt-skr-v1.3
 </code></pre></div>
 
-<p>If you wish to flash a build of Klipper located somewhere other than the default location it can be done by specifying the <code>-f</code> option:</p>
+<p>Se desideri eseguire il flashing di una build di Klipper situata in un luogo diverso da quello predefinito, puoi farlo specificando l'opzione <code>-f</code>:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -f ~/downloads/klipper.bin /dev/ttyAMA0 btt-skr-v1.3
 </code></pre></div>
 
-<p>Note that when upgrading a MKS Robin E3 it is not necessary to manually run <code>update_mks_robin.py</code> and supply the resulting binary to <code>flash-sdcard.sh</code>. This procedure is automated during the upload process.</p>
+<p>Nota che quando si aggiorna un MKS Robin E3 non è necessario eseguire manualmente <code>update_mks_robin.py</code> e fornire il binario risultante a <code>flash-sdcard.sh</code>. Questa procedura è automatizzata durante il processo di caricamento.</p>
 <h2 id="avvertenze">Avvertenze<a class="headerlink" href="#avvertenze" title="Permanent link">&para;</a></h2>
 <ul>
-<li>As mentioned in the introduction, this method only works for upgrading firmware. The initial flashing procedure must be done manually per the instructions that apply to your controller board.</li>
-<li>While it is possible to flash a build that changes the Serial Baud or connection interface (ie: from USB to UART), verification will always fail as the script will be unable to reconnect to the MCU to verify the current version.</li>
-<li>Only boards that use SPI for SD Card communication are supported. Boards that use SDIO, such as the Flymaker Flyboard and MKS Robin Nano V1/V2, will not work.</li>
+<li>Come accennato nell'introduzione, questo metodo funziona solo per l'aggiornamento del firmware. La procedura di flashing iniziale deve essere eseguita manualmente secondo le istruzioni che si applicano alla scheda del controller.</li>
+<li>Sebbene sia possibile eseguire il flashing di una build che modifica il baud seriale o l'interfaccia di connessione (ad esempio: da USB a UART), la verifica avrà sempre esito negativo poiché lo script non sarà in grado di riconnettersi all'MCU per verificare la versione corrente.</li>
+<li>Sono supportate solo le schede che utilizzano SPI per la comunicazione con scheda SD. Le schede che utilizzano SDIO, come Flymaker Flyboard e MKS Robin Nano V1/V2, non funzioneranno.</li>
 </ul>
-<h2 id="board-definitions">Board Definitions<a class="headerlink" href="#board-definitions" title="Permanent link">&para;</a></h2>
-<p>Most common boards should be available, however it is possible to add a new board definition if necessary. Board definitions are located in <code>~/klipper/scripts/spi_flash/board_defs.py</code>. The definitions are stored in dictionary, for example:</p>
+<h2 id="definizioni-della-scheda">Definizioni della scheda<a class="headerlink" href="#definizioni-della-scheda" title="Permanent link">&para;</a></h2>
+<p>Dovrebbero essere disponibili le schede più comuni, tuttavia è possibile aggiungere una nuova definizione di scheda, se necessario. Le definizioni delle schede si trovano in <code>~/klipper/scripts/spi_flash/board_defs.py</code>. Le definizioni sono memorizzate nel dizionario, ad esempio:</p>
 <div class="highlight"><pre><span></span><code><span class="n">BOARD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;generic-lpc1768&#39;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s1">&#39;mcu&#39;</span><span class="p">:</span> <span class="s2">&quot;lpc1768&quot;</span><span class="p">,</span>
@@ -1323,27 +1323,27 @@ optional arguments:
 <span class="p">}</span>
 </code></pre></div>
 
-<p>The following fields may be specified:</p>
+<p>Possono essere specificati i seguenti campi:</p>
 <ul>
-<li><code>mcu</code>: The mcu type. This can be retrevied after configuring the build via <code>make menuconfig</code> by running <code>cat .config | grep CONFIG_MCU</code>. This field is required.</li>
-<li><code>spi_bus</code>: The SPI bus connected to the SD Card. This should be retreived from the board's schematic. This field is required.</li>
-<li><code>cs_pin</code>: The Chip Select Pin connected to the SD Card. This should be retreived from the board schematic. This field is required.</li>
-<li><code>firmware_path</code>: The path on the SD Card where firmware should be transferred. The default is <code>firmware.bin</code>.</li>
-<li><code>current_firmware_path</code> The path on the SD Card where the renamed firmware file is located after a successful flash. The default is <code>firmware.cur</code>.</li>
+<li><code>mcu</code>: il tipo di mcu. Questo può essere recuperato dopo aver configurato la build tramite <code>make menuconfig</code> eseguendo <code>cat .config | grep CONFIG_MCU</code>. Questo campo è obbligatorio.</li>
+<li><code>spi_bus</code>: il bus SPI collegato alla scheda SD. Questo dovrebbe essere recuperato dallo schema della scheda. Questo campo è obbligatorio.</li>
+<li><code>cs_pin</code>: il pin di selezione del chip collegato alla scheda SD. Questo dovrebbe essere recuperato dallo schema della scheda. Questo campo è obbligatorio.</li>
+<li><code>firmware_path</code>: il percorso sulla scheda SD in cui trasferire il firmware. L'impostazione predefinita è <code>firmware.bin</code>.</li>
+<li><code>current_firmware_path</code> Il percorso sulla scheda SD in cui si trova il file del firmware rinominato dopo un flash riuscito. L'impostazione predefinita è "firmware.cur".</li>
 </ul>
-<p>If software SPI is required the <code>spi_bus</code> field should be set to <code>swspi</code> and the following additional field should be specified:</p>
+<p>Se è richiesto il software SPI, il campo <code>spi_bus</code> deve essere impostato su <code>swspi</code> e deve essere specificato il seguente campo aggiuntivo:</p>
 <ul>
-<li><code>spi_pins</code>: This should be 3 comma separated pins that are connected to the SD Card in the format of <code>miso,mosi,sclk</code>.</li>
+<li>spi_pins<code>: Dovrebbero essere 3 pin separati da virgola che sono collegati alla scheda SD nel formato</code>miso,mosi,sclk`.</li>
 </ul>
-<p>It should be exceedingly rare that Software SPI is necessary, typically only boards with design errors will require it. The <code>btt-skr-pro</code> board definition provides an example.</p>
-<p>Prior to creating a new board definition one should check to see if an existing board definition meets the criteria necessary for the new board. If this is the case, a <code>BOARD_ALIAS</code> may be specified. For example, the following alias may be added to specify <code>my-new-board</code> as an alias for <code>generic-lpc1768</code>:</p>
+<p>Dovrebbe essere estremamente raro che sia necessario Software SPI, in genere solo le schede con errori di progettazione lo richiederanno. La definizione della scheda <code>btt-skr-pro</code> fornisce un esempio.</p>
+<p>Prima di creare una nuova definizione di scheda, è necessario verificare se una definizione di scheda esistente soddisfa i criteri necessari per la nuova scheda. Se questo è il caso, può essere specificato un <code>BOARD_ALIAS</code>. Ad esempio, è possibile aggiungere il seguente alias per specificare <code>my-new-board</code> come alias per <code>generic-lpc1768</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="n">BOARD_ALIASES</span> <span class="o">=</span> <span class="p">{</span>
     <span class="o">...&lt;</span><span class="n">previous</span> <span class="n">aliases</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="s1">&#39;my-new-board&#39;</span><span class="p">:</span> <span class="n">BOARD_DEFS</span><span class="p">[</span><span class="s1">&#39;generic-lpc1768&#39;</span><span class="p">],</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the <a href="Contact.html#discord">Klipper Community Discord</a>.</p>
+<p>Se hai bisogno di una nuova definizione di scheda e ti senti a disagio con la procedura descritta sopra, ti consigliamo di rivolgerti a <a href="Contact.html#discord">Klipper Community Discord</a>.</p>
 
               
             </article>

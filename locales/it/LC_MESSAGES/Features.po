@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-05 11:20+0000\n"
+"PO-Revision-Date: 2022-08-08 09:23+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/features/"
 "it/>\n"
@@ -103,6 +103,11 @@ msgid ""
 "robots easier and it keeps timing precise even with complex kinematics (no "
 "\"line segmentation\" is needed)."
 msgstr ""
+"Klipper utilizza un \"risolutore iterativo\" per calcolare sequenze "
+"temporali precisi da semplici equazioni cinematiche. Ciò semplifica il "
+"porting di Klipper su nuovi tipi di robot e mantiene i tempi precisi anche "
+"con cinematiche complesse (non è necessaria la \"segmentazione della linea\""
+")."
 
 msgid ""
 "Portable code. Klipper works on ARM, AVR, and PRU based micro-controllers. "
@@ -110,6 +115,11 @@ msgid ""
 "modification - just add a Raspberry Pi. Klipper's internal code layout makes"
 " it easier to support other micro-controller architectures as well."
 msgstr ""
+"Codice portatile. Klipper funziona su microcontrollori basati su ARM, AVR e "
+"PRU. Le stampanti esistenti in stile \"reprap\" possono eseguire Klipper "
+"senza modifiche hardware: basta aggiungere un Raspberry Pi. Il layout del "
+"codice interno di Klipper semplifica il supporto anche di altre architetture "
+"di microcontrollori."
 
 msgid ""
 "Simpler code. Klipper uses a very high level language (Python) for most "
@@ -117,6 +127,10 @@ msgid ""
 "thermistor algorithms, etc. are all written in Python. This makes it easier "
 "to develop new functionality."
 msgstr ""
+"Codice più semplice. Klipper utilizza un linguaggio di alto livello (Python) "
+"per la maggior parte del codice. Gli algoritmi cinematici, l'analisi del G-"
+"code, gli algoritmi di riscaldamento e termistore, ecc. sono tutti scritti "
+"in Python. Ciò semplifica lo sviluppo di nuove funzionalità."
 
 msgid ""
 "Custom programmable macros. New G-Code commands can be defined in the "
@@ -124,29 +138,42 @@ msgid ""
 "programmable - allowing them to produce different actions depending on the "
 "state of the printer."
 msgstr ""
+"Macro programmabili personalizzate. È possibile definire nuovi comandi G-"
+"Code nel file di configurazione della stampante (non sono necessarie "
+"modifiche al codice). Questi comandi sono programmabili, consentendo loro di "
+"produrre azioni diverse a seconda dello stato della stampante."
 
 msgid ""
 "Builtin API server. In addition to the standard G-Code interface, Klipper "
 "supports a rich JSON based application interface. This enables programmers "
 "to build external applications with detailed control of the printer."
 msgstr ""
+"Server API integrato. Oltre all'interfaccia G-Code standard, Klipper "
+"supporta una ricca interfaccia applicativa basata su JSON. Ciò consente ai "
+"programmatori di creare applicazioni esterne con un controllo dettagliato "
+"della stampante."
 
 msgid "Additional features"
-msgstr ""
+msgstr "Caratteristiche aggiuntive"
 
 msgid "Klipper supports many standard 3d printer features:"
-msgstr ""
+msgstr "Klipper supporta molte funzionalità standard della stampante 3D:"
 
 msgid ""
 "Works with Octoprint. This allows the printer to be controlled using a "
 "regular web-browser. The same Raspberry Pi that runs Klipper can also run "
 "Octoprint."
 msgstr ""
+"Funziona con Octoprint. Ciò consente di controllare la stampante utilizzando "
+"un normale browser web. Lo stesso Raspberry Pi che esegue Klipper può anche "
+"eseguire Octoprint."
 
 msgid ""
 "Support for multiple extruders. Extruders with shared heaters and extruders "
 "on independent carriages (IDEX) are also supported."
 msgstr ""
+"Supporto per più estrusori. Sono supportati anche estrusori con riscaldatori "
+"condivisi ed estrusori su carrelli indipendenti (IDEX)."
 
 msgid ""
 "Automatic bed leveling support. Klipper can be configured for basic bed tilt"
@@ -155,15 +182,25 @@ msgid ""
 "Most Z height probes are supported, including BL-Touch probes and servo "
 "activated probes."
 msgstr ""
+"Supporto per il livellamento automatico del letto. Klipper può essere "
+"configurato per il rilevamento di base dell'inclinazione del piatto o per il "
+"livellamento del piatto a mesh completa. Se il piatto utilizza più stepper "
+"Z, Klipper può anche livellare manipolando in modo indipendente gli stepper "
+"Z. Sono supportate la maggior parte delle sonde di altezza Z, comprese le "
+"sonde BL-Touch e le sonde servoattivate."
 
 msgid ""
 "Automatic delta calibration support. The calibration tool can perform basic "
 "height calibration as well as an enhanced X and Y dimension calibration. The"
 " calibration can be done with a Z height probe or via manual probing."
 msgstr ""
+"Supporto per la calibrazione delta automatica. Lo strumento di calibrazione "
+"può eseguire la calibrazione dell'altezza di base e una calibrazione "
+"avanzata delle dimensioni X e Y. La calibrazione può essere eseguita con una "
+"sonda di altezza Z o tramite tastatura manuale."
 
 msgid "Basic thermal heater protection enabled by default."
-msgstr ""
+msgstr "Protezione del riscaldatore termico di base abilitata di default."
 
 msgid ""
 "Support for run-time configuration of TMC2130, TMC2208/TMC2224, TMC2209, "
@@ -171,12 +208,19 @@ msgid ""
 "current control of traditional stepper drivers via AD5206, MCP4451, MCP4728,"
 " MCP4018, and PWM pins."
 msgstr ""
+"Supporto per la configurazione a runtime dei driver per motori passo-passo "
+"TMC2130, TMC2208/TMC2224, TMC2209, TMC2660 e TMC5160. C'è anche il supporto "
+"per il controllo corrente dei tradizionali driver stepper tramite pin "
+"AD5206, MCP4451, MCP4728, MCP4018 e PWM."
 
 msgid ""
 "Support for common LCD displays attached directly to the printer. A default "
 "menu is also available. The contents of the display and menu can be fully "
 "customized via the config file."
 msgstr ""
+"Supporto per comuni display LCD collegati direttamente alla stampante. È "
+"disponibile anche un menu predefinito. Il contenuto del display e del menu "
+"può essere completamente personalizzato tramite il file di configurazione."
 
 msgid ""
 "Constant acceleration and \"look-ahead\" support. All printer moves will "
@@ -186,74 +230,99 @@ msgid ""
 "direction will be optimized to reduce print stalls and improve overall print"
 " time."
 msgstr ""
+"Accelerazione costante e supporto \"look-ahead\". Tutti i movimenti della "
+"stampante accelereranno gradualmente dall'arresto alla velocità di crociera, "
+"quindi decelereranno fino all'arresto. Il flusso in entrata dei comandi di "
+"movimento del G-code viene messo in coda e analizzato: l'accelerazione tra i "
+"movimenti in una direzione simile sarà ottimizzata per ridurre gli arresti "
+"di stampa e migliorare il tempo di stampa complessivo."
 
 msgid ""
 "Klipper implements a \"stepper phase endstop\" algorithm that can improve "
 "the accuracy of typical endstop switches. When properly tuned it can improve"
 " a print's first layer bed adhesion."
 msgstr ""
+"Klipper implementa un algoritmo \"stepper phase endstop\" che può migliorare "
+"la precisione dei tipici interruttori endstop. Se regolato correttamente, "
+"può migliorare l'adesione del primo strato di stampa."
 
 msgid ""
 "Support for measuring and recording acceleration using an adxl345 "
 "accelerometer."
 msgstr ""
+"Supporto per misurare e registrare l'accelerazione utilizzando un "
+"accelerometro adxl345."
 
 msgid ""
 "Support for limiting the top speed of short \"zigzag\" moves to reduce "
 "printer vibration and noise. See the [kinematics](Kinematics.md) document "
 "for more information."
 msgstr ""
+"Supporto per limitare la velocità massima di brevi spostamenti a \"zigzag\" "
+"per ridurre le vibrazioni e il rumore della stampante. Per ulteriori "
+"informazioni, vedere il documento [cinematica](Kinematics.md)."
 
 msgid ""
 "Sample configuration files are available for many common printers. Check the"
 " [config directory](../config/) for a list."
 msgstr ""
+"Sono disponibili file di configurazione di esempio per molte stampanti "
+"comuni. Controllare la [directory di configurazione](../config/) per un "
+"elenco."
 
 msgid ""
 "To get started with Klipper, read the [installation](Installation.md) guide."
 msgstr ""
+"Per iniziare con Klipper, leggi la guida [installazione](Installation.md)."
 
 msgid "Step Benchmarks"
-msgstr ""
+msgstr "Benchmark dei passi"
 
 msgid ""
 "Below are the results of stepper performance tests. The numbers shown "
 "represent total number of steps per second on the micro-controller."
 msgstr ""
+"Di seguito sono riportati i risultati dei test delle prestazioni degli "
+"stepper. I numeri visualizzati rappresentano il numero totale di passi al "
+"secondo sul microcontrollore."
 
 msgid "Micro-controller"
-msgstr ""
+msgstr "Microcontrollore"
 
 msgid "3 steppers active"
-msgstr ""
+msgstr "3 stepper attivi"
 
 msgid "16Mhz AVR"
-msgstr ""
+msgstr "16Mhz AVR"
 
 msgid "20Mhz AVR"
-msgstr ""
+msgstr "20Mhz AVR"
 
 msgid "Beaglebone PRU"
-msgstr ""
+msgstr "Beaglebone PRU"
 
 msgid "686K"
-msgstr ""
+msgstr "686K"
 
 #: docs/Features.md:block 1 (header)
 msgid "Features"
-msgstr ""
+msgstr "Caratteristiche"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Standard G-Code support. Common g-code commands that are produced by typical"
 " \"slicers\" (SuperSlicer, Cura, PrusaSlicer, etc.) are supported."
 msgstr ""
+"Supporto G-code standard. Sono supportati i comandi G-code comuni prodotti "
+"dai tipici \"slicer\" (SuperSlicer, Cura, PrusaSlicer, ecc.)."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, "
 "rotary delta, polar, and cable winch style printers."
 msgstr ""
+"Supporto per stampanti cartesiane, delta, corexy, corexz, hybrid-corexy, "
+"hybrid-corexz, rotative delta, polari e con verricello a cavo."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -264,6 +333,12 @@ msgid ""
 "micro-controller temperature sensor and the internal temperature sensor of a"
 " Raspberry Pi."
 msgstr ""
+"Supporto per sensori di temperatura comuni (ad es. termistori comuni, AD595, "
+"AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, "
+"HTU21D, DS18B20 e LM75). È inoltre possibile configurare termistori "
+"personalizzati e sensori di temperatura analogici personalizzati. È "
+"possibile monitorare il sensore di temperatura del microcontrollore interno "
+"e il sensore di temperatura interna di un Raspberry Pi."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -271,12 +346,18 @@ msgid ""
 "need to keep fans running when the printer is idle. Fan speed can be "
 "monitored on fans that have a tachometer."
 msgstr ""
+"Supporto per ventole standard, ventole per ugelli e ventole a temperatura "
+"controllata. Non è necessario mantenere le ventole in funzione quando la "
+"stampante è inattiva. La velocità della ventola può essere monitorata su "
+"ventole dotate di contagiri."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for filament presence sensors, filament motion sensors, and filament"
 " width sensors."
 msgstr ""
+"Supporto per sensori di presenza del filamento, sensori di movimento del "
+"filamento e sensori di larghezza del filamento."
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -287,192 +368,201 @@ msgid ""
 "higher print velocities. The stepper event timing remains precise even at "
 "high speeds which improves overall stability."
 msgstr ""
+"Le migliori prestazioni della classe. Klipper è in grado di raggiungere "
+"elevate velocità di stepping su microcontrollori nuovi e vecchi. Anche i "
+"vecchi microcontrollori a 8 bit possono ottenere velocità di oltre 175.000 "
+"passi al secondo. Sui microcontrollori più recenti sono possibili diversi "
+"milioni di passi al secondo. Velocità stepper più elevate consentono "
+"velocità di stampa più elevate. Il timing dell'evento stepper rimane preciso "
+"anche a velocità elevate, migliorando la stabilità generale."
 
 #: docs/Features.md:block 10 (table)
 msgid "1 stepper active"
-msgstr ""
+msgstr "1 stepper attivo"
 
 #: docs/Features.md:block 10 (table)
 msgid "157K"
-msgstr ""
+msgstr "157K"
 
 #: docs/Features.md:block 10 (table)
 msgid "99K"
-msgstr ""
+msgstr "99K"
 
 #: docs/Features.md:block 10 (table)
 msgid "196K"
-msgstr ""
+msgstr "196K"
 
 #: docs/Features.md:block 10 (table)
 msgid "123K"
-msgstr ""
+msgstr "123K"
 
 #: docs/Features.md:block 10 (table)
 msgid "471K"
-msgstr ""
+msgstr "471K"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32F042"
-msgstr ""
+msgstr "STM32F042"
 
 #: docs/Features.md:block 10 (table)
 msgid "814K"
-msgstr ""
+msgstr "814K"
 
 #: docs/Features.md:block 10 (table)
 msgid "578K"
-msgstr ""
+msgstr "578K"
 
 #: docs/Features.md:block 10 (table)
 msgid "866K"
-msgstr ""
+msgstr "866K"
 
 #: docs/Features.md:block 10 (table)
 msgid "708K"
-msgstr ""
+msgstr "708K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1180K"
-msgstr ""
+msgstr "1180K"
 
 #: docs/Features.md:block 10 (table)
 msgid "818K"
-msgstr ""
+msgstr "818K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1273K"
-msgstr ""
+msgstr "1273K"
 
 #: docs/Features.md:block 10 (table)
 msgid "981K"
-msgstr ""
+msgstr "981K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1690K"
-msgstr ""
+msgstr "1690K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1385K"
-msgstr ""
+msgstr "1385K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1923K"
-msgstr ""
+msgstr "1923K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1351K"
-msgstr ""
+msgstr "1351K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2353K"
-msgstr ""
+msgstr "2353K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1622K"
-msgstr ""
+msgstr "1622K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2400K"
-msgstr ""
+msgstr "2400K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1636K"
-msgstr ""
+msgstr "1636K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2500K"
-msgstr ""
+msgstr "2500K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1674K"
-msgstr ""
+msgstr "1674K"
 
 #: docs/Features.md:block 10 (table)
 msgid "3077K"
-msgstr ""
+msgstr "3077K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1885K"
-msgstr ""
+msgstr "1885K"
 
 #: docs/Features.md:block 10 (table)
 msgid "3652K"
-msgstr ""
+msgstr "3652K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2459K"
-msgstr ""
+msgstr "2459K"
 
 #: docs/Features.md:block 10 (table)
 msgid "3913K"
-msgstr ""
+msgstr "3913K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2634K"
-msgstr ""
+msgstr "2634K"
 
 #: docs/Features.md:block 11 (paragraph)
 msgid ""
 "Further details on the benchmarks are available in the [Benchmarks "
 "document](Benchmarks.md)."
 msgstr ""
+"Ulteriori dettagli sui benchmark sono disponibili nel [documento "
+"Benchmarks](Benchmarks.md)."
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32G0B1"
-msgstr ""
+msgstr "STM32G0B1"
 
 #: docs/Features.md:block 10 (table)
 msgid "1103K"
-msgstr ""
+msgstr "1103K"
 
 #: docs/Features.md:block 10 (table)
 msgid "790K"
-msgstr ""
+msgstr "790K"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAMD21"
-msgstr ""
+msgstr "SAMD21"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32F103"
-msgstr ""
+msgstr "STM32F103"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAM3X8E"
-msgstr ""
+msgstr "SAM3X8E"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAM4S8C"
-msgstr ""
+msgstr "SAM4S8C"
 
 #: docs/Features.md:block 10 (table)
 msgid "LPC1768"
-msgstr ""
+msgstr "LPC1768"
 
 #: docs/Features.md:block 10 (table)
 msgid "LPC1769"
-msgstr ""
+msgstr "LPC1769"
 
 #: docs/Features.md:block 10 (table)
 msgid "RP2040"
-msgstr ""
+msgstr "RP2040"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAM4E8E"
-msgstr ""
+msgstr "SAM4E8E"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAMD51"
-msgstr ""
+msgstr "SAMD51"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32F407"
-msgstr ""
+msgstr "STM32F407"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32F446"
-msgstr ""
+msgstr "STM32F446"
 
 #: docs/Features.md:block 11 (paragraph)
 msgid ""
@@ -480,6 +570,9 @@ msgid ""
 "appropriate [config file](../config/), and look for the micro-controller "
 "name in the comments at the top of that file."
 msgstr ""
+"Se non sei sicuro del microcontrollore su una particolare scheda, trova il ["
+"file di configurazione](../config/) appropriato e cerca il nome del "
+"microcontrollore nei commenti nella parte superiore di quel file."
 
 #~ msgid "Arduino Zero (SAMD21)"
 #~ msgstr ""
