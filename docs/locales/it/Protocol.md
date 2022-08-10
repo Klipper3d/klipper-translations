@@ -104,7 +104,7 @@ Il formato del blocco di messaggi si ispira ai telegrammi [HDLC](https://en.wiki
 
 ### Contenuto del blocco messaggi
 
-Ogni blocco di messaggi inviato dall'host al microcontrollore contiene una serie di zero o più comandi di messaggi. Ogni comando inizia con un [Quantità a lunghezza variabile](#quantità-a-lunghezza-variabile) (VLQ) command-id seguito da zero o più parametri VLQ per il comando dato.
+Ogni blocco di messaggi inviato dall'host al microcontrollore contiene una serie di zero o più comandi di messaggi. Ogni comando inizia con un [Quantità a lunghezza variabile](#variable-length-quantities) (VLQ) command-id seguito da zero o più parametri VLQ per il comando dato.
 
 Ad esempio, i seguenti quattro comandi possono essere inseriti in un unico blocco di messaggi:
 

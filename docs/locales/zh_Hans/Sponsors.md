@@ -1,26 +1,26 @@
-# Sponsors
+# 赞助
 
-Klipper is Free Software. We depend on the generous support from sponsors. Please consider sponsoring Klipper or supporting our sponsors.
+Klipper是自由软件。我们依赖于赞助商的慷慨支持。请考虑赞助Klipper或支持我们的赞助商。
 
 ## BIGTREETECH
 
 [<img src="./img/sponsors/BTT_BTT.png" width="200" />
 
-BIGTREETECH is the official mainboard sponsor of Klipper. BIGTREETECH is committed to developing innovative and competitive products to serve the 3D printing community better. Follow them on [Facebook](https://www.facebook.com/BIGTREETECH) or [Twitter](https://twitter.com/BigTreeTech).
+BIGTREETECH是Klipper的官方主板赞助商。BIGTREETECH致力于开发创新和有竞争力的产品，更好地服务于3D打印社区。在[Facebook](https://www.facebook.com/BIGTREETECH)或[Twitter](https://twitter.com/BigTreeTech)上关注他们。
 
-## Klipper Developers
+## Klipper的开发者们
 
 ### Kevin O'Connor
 
-Kevin is the original author and current maintainer of Klipper. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>
+Kevin 是Klipper的原作者和目前的维护者。Kevin的Patreon的支持页面： <https://www.patreon.com/koconnor>
 
 ### Eric Callahan
 
-Eric is the author of bed_mesh, spi_flash, and several other Klipper modules. Eric has a donations page at: <https://ko-fi.com/arksine>
+Eric是bed_mesh、spi_flash和其他几个Klipper模块的作者。Eric的支持页面： <https://ko-fi.com/arksine>
 
-## Related Klipper Projects
+## 相关的Klipper项目
 
-Klipper is frequently used with other Free Software. Consider using or supporting these projects.
+Klipper经常与其他自由软件一起使用。也请考虑使用或支持这些项目。
 
 * [Moonraker](https://github.com/Arksine/moonraker)
 * [Mainsail](https://github.com/mainsail-crew/mainsail)
