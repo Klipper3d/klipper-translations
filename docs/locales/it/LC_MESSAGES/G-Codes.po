@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-08 21:35+0000\n"
+"PO-Revision-Date: 2022-08-10 04:19+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/"
 "it/>\n"
@@ -233,6 +233,16 @@ msgid ""
 "is provided it allows one to name the saved state to the given string. If "
 "NAME is not provided it defaults to \"default\"."
 msgstr ""
+"`SAVE_GCODE_STATE [NAME=<nome_stato>]`: salva lo stato di analisi delle "
+"coordinate del G-code corrente. Il salvataggio e il ripristino dello stato "
+"del G-code è utile negli script e nelle macro. Questo comando salva la "
+"modalità di coordinate assolute del G-code corrente (G90/G91), la modalità "
+"di estrusione assoluta (M82/M83), l'origine (G92), l'offset "
+"(SET_GCODE_OFFSET), l'override della velocità (M220), l'override "
+"dell'estrusore (M221), la velocità di spostamento , la posizione XYZ "
+"corrente e la posizione relativa dell'estrusore \"E\". Se viene fornito "
+"NAME, consente di assegnare un nome allo stato salvato alla stringa data. Se "
+"NAME non viene fornito, il valore predefinito è \"predefinito\"."
 
 msgid ""
 "`RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`: "
@@ -242,6 +252,13 @@ msgid ""
 "performed with the given speed (in mm/s); otherwise the toolhead move will "
 "use the restored g-code speed."
 msgstr ""
+"`RESTORE_GCODE_STATE [NAME=<nome_stato>] [MOVE=1 [MOVE_SPEED=<velocità>]]`: "
+"ripristina uno stato precedentemente salvato tramite SAVE_GCODE_STATE. Se "
+"viene specificato \"MOVE=1\", verrà emesso un movimento della testa utensile "
+"per tornare alla posizione XYZ precedente. Se viene specificato \"MOVE_SPEED"
+"\", lo spostamento della testa utensile verrà eseguito con la velocità data ("
+"in mm/s); in caso contrario, lo spostamento della testa utensile utilizzerà "
+"la velocità del codice g ripristinata."
 
 msgid ""
 "`PID_CALIBRATE HEATER=<config_name> TARGET=<temperature> [WRITE_FILE=1]`: "
@@ -350,6 +367,10 @@ msgid ""
 "micro-controller (see FIRMWARE_RESTART) nor will it load new software (see "
 "[the FAQ](FAQ.md#how-do-i-upgrade-to-the-latest-software))."
 msgstr ""
+"`RESTART`: Ciò farà sì che il software host ricarichi la sua configurazione "
+"ed esegua un ripristino interno. Questo comando non cancellerà lo stato di "
+"errore dal microcontrollore (vedi FIRMWARE_RESTART) né caricherà nuovo "
+"software (vedi [FAQ](FAQ.md#how-do-i-upgrade-to-the-latest-software)) ."
 
 msgid ""
 "`FIRMWARE_RESTART`: This is similar to a RESTART command, but it also clears"
@@ -363,6 +384,10 @@ msgid ""
 "restart the host software. This command is used in conjunction with other "
 "calibration commands to store the results of calibration tests."
 msgstr ""
+"`SAVE_CONFIG`: questo comando sovrascriverà il file di configurazione della "
+"stampante principale e riavvierà il software host. Questo comando viene "
+"utilizzato insieme ad altri comandi di calibrazione per memorizzare i "
+"risultati dei test di calibrazione."
 
 msgid "`STATUS`: Report the Klipper host software status."
 msgstr ""
@@ -699,6 +724,8 @@ msgid ""
 "`RESPOND TYPE=error MSG=\"<message>\"`: echo the message prepended with `!! "
 "`."
 msgstr ""
+"`RESPOND TYPE=error MSG=\"<messaggio>\"`: fa eco al messaggio preceduto da `"
+"!! `."
 
 msgid ""
 "`RESPOND PREFIX=<prefix> MSG=\"<message>\"`: echo the message prepended with"
@@ -725,6 +752,10 @@ msgid ""
 " the previously captured position. The VELOCITY parameter determines the "
 "speed at which the tool should return to the original captured position."
 msgstr ""
+"`RESUME [VELOCITY=<value>]`: riprende la stampa da una pausa, ripristinando "
+"prima la posizione precedentemente acquisita. Il parametro VELOCITY "
+"determina la velocità alla quale l'utensile deve tornare alla posizione "
+"originale acquisita."
 
 msgid ""
 "`CLEAR_PAUSE`: Clears the current paused state without resuming the print. "
@@ -807,6 +838,11 @@ msgid ""
 "the `printer.save_variables.variables` dict at startup and can be used in "
 "gcode macros. The provided VALUE is parsed as a Python literal."
 msgstr ""
+"`SAVE_VARIABLE VARIABLE=<nome> VALUE=<valore>`: salva la variabile su disco "
+"in modo che possa essere utilizzata tra i riavvii. Tutte le variabili "
+"memorizzate vengono caricate nel dict `printer.save_variables.variables` "
+"all'avvio e possono essere utilizzate nelle macro gcode. Il VALUE fornito "
+"viene analizzato come un valore letterale Python."
 
 msgid ""
 "`SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] "
@@ -1187,7 +1223,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 52 (header)
 msgid "SAVE_CONFIG"
-msgstr ""
+msgstr "SAVE_CONFIG"
 
 #: docs/G-Codes.md:block 54 (header)
 msgid "[delayed_gcode]"
@@ -1418,7 +1454,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 124 (header)
 msgid "RESTART"
-msgstr ""
+msgstr "RESTART"
 
 #: docs/G-Codes.md:block 126 (header)
 msgid "FIRMWARE_RESTART"
@@ -1469,11 +1505,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 145 (header)
 msgid "SAVE_GCODE_STATE"
-msgstr ""
+msgstr "SAVE_GCODE_STATE"
 
 #: docs/G-Codes.md:block 147 (header)
 msgid "RESTORE_GCODE_STATE"
-msgstr ""
+msgstr "RESTORE_GCODE_STATE"
 
 #: docs/G-Codes.md:block 149 (header)
 msgid "[hall_filament_width_sensor]"
@@ -1727,7 +1763,7 @@ msgstr "PAUSE"
 
 #: docs/G-Codes.md:block 225 (header)
 msgid "RESUME"
-msgstr ""
+msgstr "RESUME"
 
 #: docs/G-Codes.md:block 227 (header)
 msgid "CLEAR_PAUSE"
@@ -1739,7 +1775,7 @@ msgstr "CANCEL_PRINT"
 
 #: docs/G-Codes.md:block 231 (header)
 msgid "[probe]"
-msgstr ""
+msgstr "[probe]"
 
 #: docs/G-Codes.md:block 232 (paragraph)
 msgid ""
@@ -1840,7 +1876,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 266 (header)
 msgid "[save_variables]"
-msgstr ""
+msgstr "[save_variables]"
 
 #: docs/G-Codes.md:block 267 (paragraph)
 msgid ""
@@ -1850,11 +1886,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 268 (header)
 msgid "SAVE_VARIABLE"
-msgstr ""
+msgstr "SAVE_VARIABLE"
 
 #: docs/G-Codes.md:block 270 (header)
 msgid "[screws_tilt_adjust]"
-msgstr ""
+msgstr "[screws_tilt_adjust]"
 
 #: docs/G-Codes.md:block 271 (paragraph)
 msgid ""
@@ -1866,11 +1902,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 272 (header)
 msgid "SCREWS_TILT_CALCULATE"
-msgstr ""
+msgstr "SCREWS_TILT_CALCULATE"
 
 #: docs/G-Codes.md:block 274 (header)
 msgid "[sdcard_loop]"
-msgstr ""
+msgstr "[sdcard_loop]"
 
 #: docs/G-Codes.md:block 275 (paragraph)
 msgid ""
@@ -1880,13 +1916,16 @@ msgstr ""
 
 #: docs/G-Codes.md:block 276 (header)
 msgid "SDCARD_LOOP_BEGIN"
-msgstr ""
+msgstr "SDCARD_LOOP_BEGIN"
 
 #: docs/G-Codes.md:block 277 (paragraph)
 msgid ""
 "`SDCARD_LOOP_BEGIN COUNT=<count>`: Begin a looped section in the SD print. A"
 " count of 0 indicates that the section should be looped indefinitely."
 msgstr ""
+"`SDCARD_LOOP_BEGIN COUNT=<count>`: inizia una sezione in loop nella stampa "
+"SD. Un conteggio pari a 0 indica che la sezione deve essere ripetuta "
+"indefinitamente."
 
 #: docs/G-Codes.md:block 278 (header)
 msgid "SDCARD_LOOP_END"
@@ -1894,7 +1933,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 280 (header)
 msgid "SDCARD_LOOP_DESIST"
-msgstr ""
+msgstr "SDCARD_LOOP_DESIST"
 
 #: docs/G-Codes.md:block 282 (header)
 msgid "[servo]"
@@ -2441,6 +2480,7 @@ msgid ""
 "`POLYGON`: An array of X,Y coordinates that provide an outline for the "
 "object."
 msgstr ""
+"`POLYGON`: Un array di coordinate X,Y che fornisce un contorno per l'oggetto."
 
 #: docs/G-Codes.md:block 99 (paragraph)
 msgid ""
@@ -2565,6 +2605,18 @@ msgid ""
 "difference in the screw height relative to the base screw height is greater "
 "than the value provided."
 msgstr ""
+"`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] "
+"[<probe_parameter>=<value>]`: Questo comando richiamerà lo strumento di "
+"regolazione delle viti del piatto. Comanderà l'ugello in diverse posizioni ("
+"come definito nel file di configurazione) sondando l'altezza z e calcolerà "
+"il numero di giri della manopola per regolare il livello del piatto. Se si "
+"specifica DIRECTION, le rotazioni della manopola saranno tutte nella stessa "
+"direzione, in senso orario (CW) o in senso antiorario (CCW). Vedere il "
+"comando PROBE per i dettagli sui parametri della sonda opzionali. IMPORTANTE:"
+" DEVI sempre eseguire un G28 prima di utilizzare questo comando. Se viene "
+"specificato MAX_DEVIATION, il comando genererà un errore gcode se qualsiasi "
+"differenza nell'altezza della vite rispetto all'altezza della vite di base è "
+"maggiore del valore fornito."
 
 #: docs/G-Codes.md:block 79 (paragraph)
 msgid "Also provided is the following extended G-Code command:"
@@ -2584,6 +2636,10 @@ msgid ""
 "compatibility with some octoprint plugins that expect very specific "
 "formatting."
 msgstr ""
+"`RESPOND TYPE=echo_no_space MSG=\"<messaggio>\"`: fa eco al messaggio "
+"preceduto da `echo:` senza uno spazio tra prefisso e messaggio, utile per la "
+"compatibilità con alcuni plugin di octoprint che prevedono una formattazione "
+"molto specifica."
 
 #~ msgid ""
 #~ "`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [<probe_parameter>=<value>]`: This"
