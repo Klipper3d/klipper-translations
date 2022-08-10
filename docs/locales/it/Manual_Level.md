@@ -1,4 +1,4 @@
-# Manual leveling
+# Livellamento manuale
 
 Questo documento descrive gli strumenti per la calibrazione di un finecorsa Z e per l'esecuzione delle regolazioni delle viti di livellamento del piatto.
 
@@ -8,27 +8,27 @@ Una posizione precisa del fine corsa Z è fondamentale per ottenere stampe di al
 
 Si noti, tuttavia, che la precisione dell'interruttore di fine corsa Z stesso può essere un fattore limitante. Se si utilizzano i driver per motori passo-passo Trinamic, considerare l'abilitazione del rilevamento [fase finecorsa](Endstop_Phase.md) per migliorare la precisione dell'interruttore.
 
-To perform a Z endstop calibration, home the printer, command the head to move to a Z position that is at least five millimeters above the bed (if it is not already), command the head to move to an XY position near the center of the bed, then navigate to the OctoPrint terminal tab and run:
+Per eseguire una calibrazione del fine corsa Z, portare la stampante in posizione di partenza, comandare alla testina di spostarsi in una posizione Z che sia almeno cinque millimetri sopra il piatto (se non lo è già), comandare alla testina di spostarsi in una posizione XY vicino al centro di piatto, quindi vai alla scheda del terminale OctoPrint ed esegui:
 
 ```
 Z_ENDSTOP_CALIBRATE
 ```
 
-Then follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test) to determine the actual distance between the nozzle and bed at the given location. Once those steps are complete one can `ACCEPT` the position and save the results to the config file with:
+Quindi segui i passaggi descritti in ["the paper test"](Bed_Level.md#the-paper-test) per determinare la distanza effettiva tra l'ugello e il piatto in una determinata posizione. Una volta completati questi passaggi, è possibile "ACCETTARE" la posizione e salvare i risultati nel file di configurazione con:
 
 ```
 SAVE_CONFIG
 ```
 
-It's preferable to use a Z endstop switch on the opposite end of the Z axis from the bed. (Homing away from the bed is more robust as then it is generally always safe to home the Z.) However, if one must home towards the bed it is recommended to adjust the endstop so that it triggers a small distance (eg, .5mm) above the bed. Almost all endstop switches can safely be depressed a small distance beyond their trigger point. When this is done, one should find that the `Z_ENDSTOP_CALIBRATE` command reports a small positive value (eg, .5mm) for the Z position_endstop. Triggering the endstop while it is still some distance from the bed reduces the risk of inadvertent bed crashes.
+È preferibile utilizzare un interruttore di fine corsa Z sull'estremità opposta dell'asse Z rispetto al piatto. (L'allontanamento dal piatto è più robusto in quanto generalmente è sempre sicuro mettere a home la Z.) Tuttavia, se si deve tornare a home verso il piatto, si consiglia di regolare il finecorsa in modo che si attivi a una piccola distanza (ad es. 0,5 mm ) sopra il piatto. Quasi tutti gli interruttori di fine corsa possono essere premuti in sicurezza a una piccola distanza oltre il punto di attivazione. Fatto ciò, si dovrebbe scoprire che il comando `Z_ENDSTOP_CALIBRATE` riporta un piccolo valore positivo (ad esempio, .5mm) per Z position_endstop. L'attivazione del fine corsa mentre si è ancora a una certa distanza dal piatto riduce il rischio di incidenti involontari del piatto.
 
-Some printers have the ability to manually adjust the location of the physical endstop switch. However, it's recommended to perform Z endstop positioning in software with Klipper - once the physical location of the endstop is in a convenient location, one can make any further adjustments by running Z_ENDSTOP_CALIBRATE or by manually updating the Z position_endstop in the configuration file.
+Alcune stampanti hanno la capacità di regolare manualmente la posizione dell'interruttore di fine corsa fisico. Tuttavia, si consiglia di eseguire il posizionamento del finecorsa Z nel software con Klipper: una volta che la posizione fisica del finecorsa è in una posizione comoda, è possibile apportare ulteriori modifiche eseguendo Z_ENDSTOP_CALIBRATE o aggiornando manualmente Z position_endstop nel file di configurazione.
 
-## Adjusting bed leveling screws
+## Regolazione delle viti di livellamento del piatto
 
-The secret to getting good bed leveling with bed leveling screws is to utilize the printer's high precision motion system during the bed leveling process itself. This is done by commanding the nozzle to a position near each bed screw and then adjusting that screw until the bed is a set distance from the nozzle. Klipper has a tool to assist with this. In order to use the tool it is necessary to specify each screw XY location.
+Il segreto per ottenere un buon livellamento del piatto con le viti di livellamento è utilizzare il sistema di movimento ad alta precisione della stampante durante il processo di livellamento del piatto stesso. Questo viene fatto comandando l'ugello in una posizione vicino a ciascuna vite del piatto e quindi regolando quella vite fino a quando il piatto non è a una distanza prestabilita dall'ugello. Klipper ha uno strumento per aiutare con questo. Per utilizzare lo strumento è necessario specificare la posizione XY di ciascuna vite.
 
-This is done by creating a `[bed_screws]` config section. For example, it might look something similar to:
+Questo viene fatto creando una sezione di configurazione `[bed_screws]`. Ad esempio, potrebbe sembrare qualcosa di simile a:
 
 ```
 [bed_screws]
@@ -37,31 +37,31 @@ screw2: 100, 150
 screw3: 150, 100
 ```
 
-If a bed screw is under the bed, then specify the XY position directly above the screw. If the screw is outside the bed then specify an XY position closest to the screw that is still within the range of the bed.
+Se una vite del piatto è sotto il piatto, specificare la posizione XY direttamente sopra la vite. Se la vite è fuori dal piatto, specificare una posizione XY più vicina alla vite che sia ancora all'interno del raggio del piatto.
 
-Once the config file is ready, run `RESTART` to load that config, and then one can start the tool by running:
+Una volta che il file di configurazione è pronto, esegui `RESTART` per caricare quella configurazione, quindi puoi avviare lo strumento eseguendo:
 
 ```
 BED_SCREWS_ADJUST
 ```
 
-This tool will move the printer's nozzle to each screw XY location and then move the nozzle to a Z=0 height. At this point one can use the "paper test" to adjust the bed screw directly under the nozzle. See the information described in ["the paper test"](Bed_Level.md#the-paper-test), but adjust the bed screw instead of commanding the nozzle to different heights. Adjust the bed screw until there is a small amount of friction when pushing the paper back and forth.
+Questo strumento sposterà l'ugello della stampante in ciascuna posizione XY della vite e quindi sposterà l'ugello a un'altezza Z=0. A questo punto si può utilizzare la "prova della carta" per regolare la vite del piatto direttamente sotto l'ugello. Vedere le informazioni descritte in ["the paper test"](Bed_Level.md#the-paper-test), ma regolare la vite del piatto invece di comandare l'ugello ad altezze diverse. Regolare la vite del piatto finché non c'è una piccola quantità di attrito quando si spinge la carta avanti e indietro.
 
-Once the screw is adjusted so that a small amount of friction is felt, run either the `ACCEPT` or `ADJUSTED` command. Use the `ADJUSTED` command if the bed screw needed an adjustment (typically anything more than about 1/8th of a turn of the screw). Use the `ACCEPT` command if no significant adjustment is necessary. Both commands will cause the tool to proceed to the next screw. (When an `ADJUSTED` command is used, the tool will schedule an additional cycle of bed screw adjustments; the tool completes successfully when all bed screws are verified to not require any significant adjustments.) One can use the `ABORT` command to exit the tool early.
+Una volta che la vite è stata regolata in modo da avvertire una piccola quantità di attrito, eseguire il comando `ACCEPT` o`ADJUSTED`. Utilizzare il comando `ADJUSTED` se la vite del piatto necessita di una regolazione (in genere qualcosa di più di circa 1/8 di giro della vite). Utilizzare il comando `ACCEPT` se non sono necessarie modifiche significative. Entrambi i comandi faranno sì che lo strumento proceda alla vite successiva. (Quando viene utilizzato un comando `ADJUSTED`, lo strumento pianificherà un ciclo aggiuntivo di regolazioni delle viti di appoggio; lo strumento viene completato correttamente quando tutte le viti di appoggio vengono verificate e non richiedono regolazioni significative.) È possibile utilizzare il comando 'ABORT' per uscire lo strumento in anticipo.
 
-This system works best when the printer has a flat printing surface (such as glass) and has straight rails. Upon successful completion of the bed leveling tool the bed should be ready for printing.
+Questo sistema funziona al meglio quando la stampante ha una superficie di stampa piatta (come il vetro) e ha binari diritti. Dopo aver completato con successo lo strumento di livellamento del piatto, il piatto dovrebbe essere pronto per la stampa.
 
-### Fine grained bed screw adjustments
+### Regolazione fine della vite del piatto
 
-If the printer uses three bed screws and all three screws are under the bed, then it may be possible to perform a second "high precision" bed leveling step. This is done by commanding the nozzle to locations where the bed moves a larger distance with each bed screw adjustment.
+Se la stampante utilizza tre viti del piatto e tutte e tre le viti sono sotto il piatto, potrebbe essere possibile eseguire una seconda fase di livellamento del piatto "ad alta precisione". Questo viene fatto comandando l'ugello in punti in cui il piatto si sposta di una distanza maggiore con ciascuna regolazione della vite del piatto.
 
-For example, consider a bed with screws at locations A, B, and C:
+Ad esempio, considera un piatto con viti nelle posizioni A, B e C:
 
 ![bed_screws](img/bed_screws.svg.png)
 
-For each adjustment made to the bed screw at location C, the bed will swing along a pendulum defined by the remaining two bed screws (shown here as a green line). In this situation, each adjustment to the bed screw at C will move the bed at position D a further amount than directly at C. It is thus possible to make an improved C screw adjustment when the nozzle is at position D.
+Per ogni regolazione effettuata alla vite del piatto nella posizione C, il piatto oscillerà lungo un pendolo definito dalle restanti due viti del piatto (mostrate qui come una linea verde). In questa situazione, ogni regolazione della vite del piatto in C sposterà il letto nella posizione D di una quantità maggiore rispetto a C. È quindi possibile effettuare una regolazione della vite C migliorata quando l'ugello è in posizione D.
 
-To enable this feature, one would determine the additional nozzle coordinates and add them to the config file. For example, it might look like:
+Per abilitare questa funzione, si dovrebbero determinare le coordinate dell'ugello aggiuntive e aggiungerle al file di configurazione. Ad esempio, potrebbe essere simile a:
 
 ```
 [bed_screws]
@@ -73,13 +73,13 @@ screw3: 150, 100
 screw3_fine_adjust: 0, 100
 ```
 
-When this feature is enabled, the `BED_SCREWS_ADJUST` tool will first prompt for coarse adjustments directly above each screw position, and once those are accepted, it will prompt for fine adjustments at the additional locations. Continue to use `ACCEPT` and `ADJUSTED` at each position.
+Quando questa funzione è abilitata, lo strumento `BED_SCREWS_ADJUST` richiederà prima le regolazioni grossolane direttamente sopra ogni posizione della vite e, una volta accettate, richiederà le regolazioni fini nelle posizioni aggiuntive. Continua a usare `ACCEPT` e `ADJUSTED` in ogni posizione.
 
-## Adjusting bed leveling screws using the bed probe
+## Regolazione delle viti di livellamento del piatto mediante la sonda del piatto
 
-This is another way to calibrate the bed level using the bed probe. To use it you must have a Z probe (BL Touch, Inductive sensor, etc).
+Questo è un altro modo per calibrare il livello del piatto utilizzando la sonda del piatto. Per utilizzarlo è necessario disporre di una sonda Z (BL Touch, Sensore induttivo, ecc).
 
-To enable this feature, one would determine the nozzle coordinates such that the Z probe is above the screws, and then add them to the config file. For example, it might look like:
+Per abilitare questa funzione, si dovrebbero determinare le coordinate dell'ugello in modo tale che la sonda Z sia sopra le viti, quindi aggiungerle al file di configurazione. Ad esempio, potrebbe essere simile a:
 
 ```
 [screws_tilt_adjust]
@@ -96,7 +96,7 @@ speed: 50.
 screw_thread: CW-M3
 ```
 
-The screw1 is always the reference point for the others, so the system assumes that screw1 is at the correct height. Always run `G28` first and then run `SCREWS_TILT_CALCULATE` - it should produce output similar to:
+La vite1 è sempre il punto di riferimento per le altre, quindi il sistema presume che la vite1 sia all'altezza corretta. Eseguire sempre prima `G28` e poi eseguire `SCREWS_TILT_CALCULATE` - dovrebbe produrre un output simile a:
 
 ```
 Send: G28
@@ -110,19 +110,19 @@ Recv: // read left screw : x=-5.0, y=190.0, z=2.47250 : adjust CW 00:02
 Recv: ok
 ```
 
-This means that:
+Ciò significa che:
 
-- front left screw is the reference point you must not change it.
-- front right screw must be turned clockwise 1 full turn and a quarter turn
-- rear right screw must be turned counter-clockwise 50 minutes
-- rear left screw must be turned clockwise 2 minutes (not need it's ok)
+- la vite anteriore sinistra è il punto di riferimento non devi cambiarla.
+- la vite anteriore destra deve essere ruotata in senso orario di 1 giro completo e un quarto di giro
+- la vite posteriore destra deve essere ruotata in senso antiorario per '50 minuti'
+- la vite posteriore sinistra deve essere ruotata in senso orario '2 minuti' (non serve va bene)
 
-Note that "minutes" refers to "minutes of a clock face". So, for example, 15 minutes is a quarter of a full turn.
+Si noti che "minuti" si riferisce ai "minuti di un quadrante". Quindi, ad esempio, 15 minuti sono un quarto di giro completo.
 
-Repeat the process several times until you get a good level bed - normally when all adjustments are below 6 minutes.
+Ripeti il processo più volte fino a ottenere un piatto ben livellato, normalmente quando tutte le regolazioni richiedono meno di 6 minuti.
 
-If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that adjusting the bed tilt will invalidate any previous probe calibration that was performed with a tilted bed. Be sure to run [probe calibration](Probe_Calibrate.md) after the bed screws have been adjusted.
+Se si utilizza una sonda montata sul lato dell'hotend (ovvero, ha un offset X o Y), tenere presente che la regolazione dell'inclinazione del piatto invaliderà qualsiasi precedente calibrazione della sonda eseguita con unpiatto inclinato. Assicurarsi di eseguire [calibrazione sonda](Probe_Calibrate.md) dopo aver regolato le viti del piatto.
 
-The `MAX_DEVIATION` parameter is useful when a saved bed mesh is used, to ensure that the bed level has not drifted too far from where it was when the mesh was created. For example, `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` can be added to the custom start gcode of the slicer before the mesh is loaded. It will abort the print if the configured limit is exceeded (0.01mm in this example), giving the user a chance to adjust the screws and restart the print.
+Il parametro `MAX_DEVIATION` è utile quando viene utilizzata una mesh del piatto salvata, per garantire che il livello del pitto non si sia spostato troppo lontano da dove si trovava quando è stata creata la mesh. Ad esempio, `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` può essere aggiunto al gcode iniziale personalizzato dello slicer prima del caricamento della mesh. Interromperà la stampa se viene superato il limite configurato (0,01 mm in questo esempio), dando all'utente la possibilità di regolare le viti e riavviare la stampa.
 
-The `DIRECTION` parameter is useful if you can turn your bed adjustment screws in one direction only. For example, you might have screws that start tightened in their lowest (or highest) possible position, which can only be turned in a single direction, to raise (or lower) the bed. If you can only turn the screws clockwise, run `SCREWS_TILT_CALCULATE DIRECTION=CW`. If you can only turn them counter-clockwise, run `SCREWS_TILT_CALCULATE DIRECTION=CCW`. A suitable reference point will be chosen such that the bed can be leveled by turning all the screws in the given direction.
+Il parametro `DIRECTION` è utile se puoi ruotare le viti di regolazione del piatto in una sola direzione. Ad esempio, potresti avere viti che iniziano a stringere nella posizione più bassa (o più alta) possibile, che possono essere ruotate solo in una sola direzione, per alzare (o abbassare) il piatto. Se puoi girare le viti solo in senso orario, esegui `SCREWS_TILT_CALCULATE DIRECTION=CW`. Se puoi ruotarli solo in senso antiorario, esegui `SCREWS_TILT_CALCULATE DIRECTION=CCW`. Verrà scelto un punto di riferimento idoneo in modo tale che il piatto possa essere livellato ruotando tutte le viti nella direzione indicata.

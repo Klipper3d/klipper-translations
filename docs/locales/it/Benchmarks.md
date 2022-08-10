@@ -78,7 +78,7 @@ The test was last run on commit `59314d99` with gcc version `avr-gcc (GCC) 5.4.0
 
 ### Benchmark rateo passi Arduino Due
 
-The following configuration sequence is used on the Due:
+Sul Due viene utilizzata la seguente sequenza di configurazione:
 
 ```
 allocate_oids count=3
@@ -97,7 +97,7 @@ The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (
 
 ### Duet Maestro step rate benchmark
 
-The following configuration sequence is used on the Duet Maestro:
+La seguente sequenza di configurazione viene utilizzata su Duet Maestro:
 
 ```
 allocate_oids count=3
@@ -116,7 +116,7 @@ The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (
 
 ### Duet Wifi step rate benchmark
 
-The following configuration sequence is used on the Duet Wifi:
+La seguente sequenza di configurazione viene utilizzata su Duet Wifi:
 
 ```
 allocate_oids count=3
@@ -135,7 +135,7 @@ The test was last run on commit `59314d99` with gcc version `gcc version 10.3.1 
 
 ### Beaglebone PRU step rate benchmark
 
-The following configuration sequence is used on the PRU:
+Sulla PRU viene utilizzata la seguente sequenza di configurazione:
 
 ```
 allocate_oids count=3
@@ -154,7 +154,7 @@ The test was last run on commit `59314d99` with gcc version `pru-gcc (GCC) 8.0.0
 
 ### STM32F042 step rate benchmark
 
-The following configuration sequence is used on the STM32F042:
+La seguente sequenza di configurazione viene utilizzata sull'STM32F042:
 
 ```
 allocate_oids count=3
@@ -173,7 +173,7 @@ The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (
 
 ### STM32F103 step rate benchmark
 
-The following configuration sequence is used on the STM32F103:
+Sull'STM32F103 viene utilizzata la seguente sequenza di configurazione:
 
 ```
 allocate_oids count=3
@@ -192,7 +192,7 @@ The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (
 
 ### STM32F4 step rate benchmark
 
-The following configuration sequence is used on the STM32F4:
+Sull'STM32F4 viene utilizzata la seguente sequenza di configurazione:
 
 ```
 allocate_oids count=3
@@ -235,7 +235,7 @@ The test was last run on commit `247cd753` with gcc version `arm-none-eabi-gcc (
 
 ### LPC176x step rate benchmark
 
-The following configuration sequence is used on the LPC176x:
+La seguente sequenza di configurazione viene utilizzata sull'LPC176x:
 
 ```
 allocate_oids count=3

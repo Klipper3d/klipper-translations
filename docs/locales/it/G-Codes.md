@@ -141,7 +141,7 @@ The configfile module is automatically loaded.
 
 #### SAVE_CONFIG
 
-`SAVE_CONFIG`: This command will overwrite the main printer config file and restart the host software. This command is used in conjunction with other calibration commands to store the results of calibration tests.
+`SAVE_CONFIG`: questo comando sovrascriverà il file di configurazione della stampante principale e riavvierà il software host. Questo comando viene utilizzato insieme ad altri comandi di calibrazione per memorizzare i risultati dei test di calibrazione.
 
 ### [delayed_gcode]
 
@@ -222,7 +222,7 @@ When the `NAME` parameter is included, this defines an object to be excluded.
 
 - `NAME`: questo parametro è obbligatorio. È l'identificatore utilizzato da altri comandi in questo modulo.
 - `CENTER`: una coordinata X,Y per l'oggetto.
-- `POLYGON`: An array of X,Y coordinates that provide an outline for the object.
+- `POLYGON`: Un array di coordinate X,Y che fornisce un contorno per l'oggetto.
 
 When the `RESET` parameter is provided, all defined objects will be cleared, and the `[exclude_object]` module will be reset.
 
@@ -321,7 +321,7 @@ The gcode module is automatically loaded.
 
 #### RESTART
 
-`RESTART`: This will cause the host software to reload its config and perform an internal reset. This command will not clear error state from the micro-controller (see FIRMWARE_RESTART) nor will it load new software (see [the FAQ](FAQ.md#how-do-i-upgrade-to-the-latest-software)).
+`RESTART`: Ciò farà sì che il software host ricarichi la sua configurazione ed esegua un ripristino interno. Questo comando non cancellerà lo stato di errore dal microcontrollore (vedi FIRMWARE_RESTART) né caricherà nuovo software (vedi [FAQ](FAQ.md#how-do-i-upgrade-to-the-latest-software)) .
 
 #### FIRMWARE_RESTART
 
@@ -363,11 +363,11 @@ GET_POSITION`: Restituisce informazioni sulla posizione corrente della testa di 
 
 #### SAVE_GCODE_STATE
 
-`SAVE_GCODE_STATE [NAME=<state_name>]`: Save the current g-code coordinate parsing state. Saving and restoring the g-code state is useful in scripts and macros. This command saves the current g-code absolute coordinate mode (G90/G91), absolute extrude mode (M82/M83), origin (G92), offset (SET_GCODE_OFFSET), speed override (M220), extruder override (M221), move speed, current XYZ position, and relative extruder "E" position. If NAME is provided it allows one to name the saved state to the given string. If NAME is not provided it defaults to "default".
+`SAVE_GCODE_STATE [NAME=<nome_stato>]`: salva lo stato di analisi delle coordinate del G-code corrente. Il salvataggio e il ripristino dello stato del G-code è utile negli script e nelle macro. Questo comando salva la modalità di coordinate assolute del G-code corrente (G90/G91), la modalità di estrusione assoluta (M82/M83), l'origine (G92), l'offset (SET_GCODE_OFFSET), l'override della velocità (M220), l'override dell'estrusore (M221), la velocità di spostamento , la posizione XYZ corrente e la posizione relativa dell'estrusore "E". Se viene fornito NAME, consente di assegnare un nome allo stato salvato alla stringa data. Se NAME non viene fornito, il valore predefinito è "predefinito".
 
 #### RESTORE_GCODE_STATE
 
-`RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Restore a state previously saved via SAVE_GCODE_STATE. If "MOVE=1" is specified then a toolhead move will be issued to move back to the previous XYZ position. If "MOVE_SPEED" is specified then the toolhead move will be performed with the given speed (in mm/s); otherwise the toolhead move will use the restored g-code speed.
+`RESTORE_GCODE_STATE [NAME=<nome_stato>] [MOVE=1 [MOVE_SPEED=<velocità>]]`: ripristina uno stato precedentemente salvato tramite SAVE_GCODE_STATE. Se viene specificato "MOVE=1", verrà emesso un movimento della testa utensile per tornare alla posizione XYZ precedente. Se viene specificato "MOVE_SPEED", lo spostamento della testa utensile verrà eseguito con la velocità data (in mm/s); in caso contrario, lo spostamento della testa utensile utilizzerà la velocità del codice g ripristinata.
 
 ### [hall_filament_width_sensor]
 
@@ -529,7 +529,7 @@ The following commands are available when the [pause_resume config section](Conf
 
 #### RESUME
 
-`RESUME [VELOCITY=<value>]`: Resumes the print from a pause, first restoring the previously captured position. The VELOCITY parameter determines the speed at which the tool should return to the original captured position.
+`RESUME [VELOCITY=<value>]`: riprende la stampa da una pausa, ripristinando prima la posizione precedentemente acquisita. Il parametro VELOCITY determina la velocità alla quale l'utensile deve tornare alla posizione originale acquisita.
 
 #### CLEAR_PAUSE
 
@@ -609,9 +609,9 @@ The following additional commands are also available.
 
 - `RESPOND MSG="<message>"`: echo il messaggio preceduto dal prefisso predefinito configurato (o `echo: ` se non è configurato alcun prefisso).
 - `RESPOND TYPE=echo MSG="<message>"`: echo del messaggio preceduto da `echo: `.
-- `RESPOND TYPE=echo_no_space MSG="<message>"`: echo the message prepended with `echo:` without a space between prefix and message, helpful for compatibility with some octoprint plugins that expect very specific formatting.
+- `RESPOND TYPE=echo_no_space MSG="<messaggio>"`: fa eco al messaggio preceduto da `echo:` senza uno spazio tra prefisso e messaggio, utile per la compatibilità con alcuni plugin di octoprint che prevedono una formattazione molto specifica.
 - `RESPOND TYPE=command MSG="<message>"`: echo il messaggio preceduto da `// `. OctoPrint può essere configurato per rispondere a questi messaggi (ad es. `RESPOND TYPE=command MSG=action:pause`).
-- `RESPOND TYPE=error MSG="<message>"`: echo the message prepended with `!! `.
+- `RESPOND TYPE=error MSG="<messaggio>"`: fa eco al messaggio preceduto da `!! `.
 - `RESPOND PREFIX=<prefix> MSG="<message>"`: echo il messaggio preceduto da `<prefix>`. (Il parametro `PREFIX` avrà la priorità sul parametro `TYPE`)
 
 ### [save_variables]
@@ -620,7 +620,7 @@ The following command is enabled if a [save_variables config section](Config_Ref
 
 #### SAVE_VARIABLE
 
-`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Saves the variable to disk so that it can be used across restarts. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. The provided VALUE is parsed as a Python literal.
+`SAVE_VARIABLE VARIABLE=<nome> VALUE=<valore>`: salva la variabile su disco in modo che possa essere utilizzata tra i riavvii. Tutte le variabili memorizzate vengono caricate nel dict `printer.save_variables.variables` all'avvio e possono essere utilizzate nelle macro gcode. Il VALUE fornito viene analizzato come un valore letterale Python.
 
 ### [screws_tilt_adjust]
 
@@ -628,7 +628,7 @@ The following commands are available when the [screws_tilt_adjust config section
 
 #### SCREWS_TILT_CALCULATE
 
-`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [<probe_parameter>=<value>]`: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) probing the z height and calculate the number of knob turns to adjust the bed level. If DIRECTION is specified, the knob turns will all be in the same direction, clockwise (CW) or counterclockwise (CCW). See the PROBE command for details on the optional probe parameters. IMPORTANT: You MUST always do a G28 before using this command. If MAX_DEVIATION is specified, the command will raise a gcode error if any difference in the screw height relative to the base screw height is greater than the value provided.
+`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [<probe_parameter>=<value>]`: Questo comando richiamerà lo strumento di regolazione delle viti del piatto. Comanderà l'ugello in diverse posizioni (come definito nel file di configurazione) sondando l'altezza z e calcolerà il numero di giri della manopola per regolare il livello del piatto. Se si specifica DIRECTION, le rotazioni della manopola saranno tutte nella stessa direzione, in senso orario (CW) o in senso antiorario (CCW). Vedere il comando PROBE per i dettagli sui parametri della sonda opzionali. IMPORTANTE: DEVI sempre eseguire un G28 prima di utilizzare questo comando. Se viene specificato MAX_DEVIATION, il comando genererà un errore gcode se qualsiasi differenza nell'altezza della vite rispetto all'altezza della vite di base è maggiore del valore fornito.
 
 ### [sdcard_loop]
 
@@ -636,7 +636,7 @@ When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is enable
 
 #### SDCARD_LOOP_BEGIN
 
-`SDCARD_LOOP_BEGIN COUNT=<count>`: Begin a looped section in the SD print. A count of 0 indicates that the section should be looped indefinitely.
+`SDCARD_LOOP_BEGIN COUNT=<count>`: inizia una sezione in loop nella stampa SD. Un conteggio pari a 0 indica che la sezione deve essere ripetuta indefinitamente.
 
 #### SDCARD_LOOP_END
 

@@ -89,13 +89,13 @@ homing_speed: 20
 ...
 ```
 
-#### Configure printer.cfg for sensorless homing
+#### Configura printer.cfg per l'homing sensorless
 
-The `homing_retract_dist` setting must be set to zero in the `stepper_x` config section to disable the second homing move. The second homing attempt does not add value when using sensorless homing, it will not work reliably, and it will confuse the tuning process.
+L'impostazione `homing_retract_dist` deve essere impostata su zero nella sezione di configurazione `stepper_x` per disabilitare il secondo movimento di homing. Il secondo tentativo di homing non aggiunge valore quando si utilizza l'homing sensorless, non funzionerà in modo affidabile e confonderà il processo di ottimizzazione.
 
-Be sure that a `hold_current` setting is not specified in the TMC driver section of the config. (If a hold_current is set then after contact is made, the motor stops while the carriage is pressed against the end of the rail, and reducing the current while in that position may cause the carriage to move - that results in poor performance and will confuse the tuning process.)
+Assicurati che un'impostazione `hold_current` non sia specificata nella sezione del driver TMC del file config. (Se viene impostata una hold_current, dopo che è stato stabilito il contatto, il motore si arresta mentre il carrello viene premuto contro l'estremità del binario e la riduzione della corrente mentre si trova in quella posizione può causare il movimento del carrello, il che si traduce in prestazioni scadenti e confonde il processo di regolazione.)
 
-It is necessary to configure the sensorless homing pins and to configure initial "stallguard" settings. A tmc2209 example configuration for an X axis might look like:
+È necessario configurare i pin di homing sensorless e configurare le impostazioni iniziali di "stallguard". Una configurazione di esempio tmc2209 per un asse X potrebbe essere simile a:
 
 ```
 [tmc2209 stepper_x]
@@ -109,7 +109,7 @@ homing_retract_dist: 0
 ...
 ```
 
-An example tmc2130 or tmc5160 config might look like:
+Un esempio di configurazione tmc2130 o tmc5160 potrebbe essere simile a:
 
 ```
 [tmc2130 stepper_x]
@@ -123,7 +123,7 @@ homing_retract_dist: 0
 ...
 ```
 
-An example tmc2660 config might look like:
+Un esempio di configurazione di tmc2660 potrebbe essere simile a:
 
 ```
 [tmc2660 stepper_x]
@@ -136,39 +136,39 @@ homing_retract_dist: 0
 ...
 ```
 
-The examples above only show settings specific to sensorless homing. See the [config reference](Config_Reference.md#tmc-stepper-driver-configuration) for all the available options.
+Gli esempi sopra mostrano solo le impostazioni specifiche per l'homing sensorless. Vedere il [riferimento alla configurazione](Config_Reference.md#tmc-stepper-driver-configuration) per tutte le opzioni disponibili.
 
-#### Find highest sensitivity that successfully homes
+#### Trova la massima sensibilità che porta a homing con successo
 
-Place the carriage near the center of the rail. Use the SET_TMC_FIELD command to set the highest sensitivity. For tmc2209:
+Posizionare il carrello vicino al centro del binario. Utilizzare il comando SET_TMC_FIELD per impostare la sensibilità più alta. Per tmc2209:
 
 ```
 SET_TMC_FIELD STEPPER=stepper_x FIELD=SGTHRS VALUE=255
 ```
 
-For tmc2130, tmc5160, and tmc2660:
+Per tmc2130, tmc5160 e tmc2660:
 
 ```
 SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 ```
 
-Then issue a `G28 X0` command and verify the axis does not move at all. If the axis does move, then issue an `M112` to halt the printer - something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.
+Quindi emettere un comando `G28 X0` e verificare che l'asse non si muova affatto. Se l'asse si muove, emettere un `M112` per fermare la stampante - qualcosa non è corretto con il cablaggio o la configurazione del pin diag/sg_tst e deve essere corretto prima di continuare.
 
-Next, continually decrease the sensitivity of the `VALUE` setting and run the `SET_TMC_FIELD` `G28 X0` commands again to find the highest sensitivity that results in the carriage successfully moving all the way to the endstop and halting. (For tmc2209 drivers this will be decreasing SGTHRS, for other drivers it will be increasing sgt.) Be sure to start each attempt with the carriage near the center of the rail (if needed issue `M84` and then manually move the carriage to the center). It should be possible to find the highest sensitivity that homes reliably (settings with higher sensitivity result in small or no movement). Note the found value as *maximum_sensitivity*. (If the minimum possible sensitivity (SGTHRS=0 or sgt=63) is obtained without any carriage movement then something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.)
+Quindi, diminuire progressivamente la sensibilità dell'impostazione `VALUE` ed eseguire nuovamente i comandi `SET_TMC_FIELD` `G28 X0` per trovare la sensibilità più alta che fa sì che il carrello si muova con successo fino all'arresto e si arresti. (Per i driver tmc2209 questo diminuirà SGTHRS, per altri conducenti aumenterà il sgt.) Assicurati di iniziare ogni tentativo con il carrello vicino al centro del binario (se necessario, emetti `M84` e quindi sposta manualmente il carrello sul centro). Dovrebbe essere possibile trovare la sensibilità più alta che si adatta in modo affidabile (le impostazioni con una sensibilità più alta comportano movimenti piccoli o nulli). Nota il valore trovato come *sensibilità_massima*. (Se si ottiene la sensibilità minima possibile (SGTHRS=0 o sgt=63) senza alcun movimento del carrello, allora qualcosa non è corretto con il cablaggio o la configurazione dei pin diag/sg_tst e deve essere corretto prima di continuare.)
 
-When searching for maximum_sensitivity, it may be convenient to jump to different VALUE settings (so as to bisect the VALUE parameter). If doing this then be prepared to issue an `M112` command to halt the printer, as a setting with a very low sensitivity may cause the axis to repeatedly "bang" into the end of the rail.
+Quando si cerca la sensibilità_massima, può essere conveniente passare a diverse impostazioni VALUE (in modo da dividere in due il parametro VALUE). In tal caso, prepararsi a emettere un comando `M112` per arrestare la stampante, poiché un'impostazione con una sensibilità molto bassa potrebbe far "sbattere" ripetutamente l'asse contro l'estremità del binario.
 
-Be sure to wait a couple of seconds between each homing attempt. After the TMC driver detects a stall it may take a little time for it to clear its internal indicator and be capable of detecting another stall.
+Assicurati di attendere un paio di secondi tra ogni tentativo di homing. Dopo che il driver TMC ha rilevato uno stallo, potrebbe volerci un po' di tempo per cancellare il suo indicatore interno ed essere in grado di rilevare un altro stallo.
 
-During these tuning tests, if a `G28 X0` command does not move all the way to the axis limit, then be careful with issuing any regular movement commands (eg, `G1`). Klipper will not have a correct understanding of the carriage position and a move command may cause undesirable and confusing results.
+Durante questi test di ottimizzazione, se un comando `G28 X0` non si sposta fino al limite dell'asse, prestare attenzione nell'emettere qualsiasi comando di movimento regolare (ad es. `G1`). Klipper non avrà una corretta comprensione della posizione del carrello e un comando di spostamento potrebbe causare risultati indesiderati e confusi.
 
-#### Find lowest sensitivity that homes with one touch
+#### Trova la sensibilità più bassa che porta a homing con un solo tocco
 
-When homing with the found *maximum_sensitivity* value, the axis should move to the end of the rail and stop with a "single touch" - that is, there should not be a "clicking" or "banging" sound. (If there is a banging or clicking sound at maximum_sensitivity then the homing_speed may be too low, the driver current may be too low, or sensorless homing may not be a good choice for the axis.)
+Quando si effettua l'homing con il valore *maximum_sensitivity* trovato, l'asse dovrebbe spostarsi all'estremità del binario e fermarsi con un "tocco singolo", ovvero non dovrebbe esserci un "clic" o un "sbattere". (Se c'è un suono che sbatte o scatta alla sensibilità_massima, allora la velocità di riferimento potrebbe essere troppo bassa, la corrente del driver potrebbe essere troppo bassa o la corsa di riferimento senza sensore potrebbe non essere una buona scelta per l'asse.)
 
-The next step is to again continually move the carriage to a position near the center of the rail, decrease the sensitivity, and run the `SET_TMC_FIELD` `G28 X0` commands - the goal is now to find the lowest sensitivity that still results in the carriage successfully homing with a "single touch". That is, it does not "bang" or "click" when contacting the end of the rail. Note the found value as *minimum_sensitivity*.
+Il passo successivo è spostare di nuovo continuamente il carrello in una posizione vicino al centro della rotaia, diminuire la sensibilità ed eseguire i comandi `SET_TMC_FIELD` `G28 X0` - l'obiettivo ora è trovare la sensibilità più bassa che risulti ancora nel la carrozza torna con successo al punto di riferimento con un "tocco singolo". Cioè, non "sbatte" o "clic" quando viene a contatto con l'estremità del binario. Nota il valore trovato come *sensibilità_minima*.
 
-#### Update printer.cfg with sensitivity value
+#### Aggiorna printer.cfg con il valore della sensibilità
 
 After finding *maximum_sensitivity* and *minimum_sensitivity*, use a calculator to obtain the recommend sensitivity as *minimum_sensitivity + (maximum_sensitivity - minimum_sensitivity)/3*. The recommended sensitivity should be in the range between the minimum and maximum, but slightly closer to the minimum. Round the final value to the nearest integer value.
 
