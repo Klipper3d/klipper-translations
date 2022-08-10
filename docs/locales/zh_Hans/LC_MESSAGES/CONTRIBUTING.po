@@ -1,19 +1,21 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # Arda <pengfei.fu@gmail.com>, 2022.
+# Neko.vecter <Vecterfang@icloud.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2022-06-13 15:15+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/contributing/zh_Hans/>\n"
+"PO-Revision-Date: 2022-08-10 04:19+0000\n"
+"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/contributing/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid "Contributing to Klipper"
 msgstr "为 Klipper 做贡献"
@@ -513,7 +515,7 @@ msgstr ""
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Eric Callahan"
-msgstr ""
+msgstr "Eric Callahan"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "@Arksine"
@@ -525,7 +527,7 @@ msgstr ""
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Kevin O'Connor"
-msgstr ""
+msgstr "Kevin O'Connor"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "@KevinOConnor"
