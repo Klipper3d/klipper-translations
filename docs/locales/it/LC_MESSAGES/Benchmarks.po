@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-08 09:23+0000\n"
+"PO-Revision-Date: 2022-08-10 04:19+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "benchmarks/it/>\n"
@@ -113,91 +113,92 @@ msgid "Arduino Due step rate benchmark"
 msgstr "Benchmark rateo passi Arduino Due"
 
 msgid "The following configuration sequence is used on the Due:"
-msgstr ""
+msgstr "Sul Due viene utilizzata la seguente sequenza di configurazione:"
 
 msgid "sam3x8e"
-msgstr ""
+msgstr "sam3x8e"
 
 msgid "Duet Maestro step rate benchmark"
 msgstr ""
 
 msgid "The following configuration sequence is used on the Duet Maestro:"
 msgstr ""
+"La seguente sequenza di configurazione viene utilizzata su Duet Maestro:"
 
 msgid "sam4s8c"
-msgstr ""
+msgstr "sam4s8c"
 
 msgid "70"
-msgstr ""
+msgstr "70"
 
 msgid "Duet Wifi step rate benchmark"
 msgstr ""
 
 msgid "The following configuration sequence is used on the Duet Wifi:"
-msgstr ""
+msgstr "La seguente sequenza di configurazione viene utilizzata su Duet Wifi:"
 
 msgid "sam4e8e"
-msgstr ""
+msgstr "sam4e8e"
 
 msgid "Beaglebone PRU step rate benchmark"
 msgstr ""
 
 msgid "The following configuration sequence is used on the PRU:"
-msgstr ""
+msgstr "Sulla PRU viene utilizzata la seguente sequenza di configurazione:"
 
 msgid "pru"
-msgstr ""
+msgstr "pru"
 
 msgid "STM32F042 step rate benchmark"
 msgstr ""
 
 msgid "The following configuration sequence is used on the STM32F042:"
-msgstr ""
+msgstr "La seguente sequenza di configurazione viene utilizzata sull'STM32F042:"
 
 msgid "stm32f042"
-msgstr ""
+msgstr "stm32f042"
 
 msgid "STM32F103 step rate benchmark"
 msgstr ""
 
 msgid "The following configuration sequence is used on the STM32F103:"
-msgstr ""
+msgstr "Sull'STM32F103 viene utilizzata la seguente sequenza di configurazione:"
 
 msgid "stm32f103"
-msgstr ""
+msgstr "stm32f103"
 
 msgid "71"
-msgstr ""
+msgstr "71"
 
 msgid "STM32F4 step rate benchmark"
 msgstr ""
 
 msgid "The following configuration sequence is used on the STM32F4:"
-msgstr ""
+msgstr "Sull'STM32F4 viene utilizzata la seguente sequenza di configurazione:"
 
 msgid "stm32f446"
-msgstr ""
+msgstr "stm32f446"
 
 msgid "51"
-msgstr ""
+msgstr "51"
 
 msgid "stm32f407"
-msgstr ""
+msgstr "stm32f407"
 
 msgid "52"
-msgstr ""
+msgstr "52"
 
 msgid "LPC176x step rate benchmark"
 msgstr ""
 
 msgid "The following configuration sequence is used on the LPC176x:"
-msgstr ""
+msgstr "La seguente sequenza di configurazione viene utilizzata sull'LPC176x:"
 
 msgid "lpc1768"
-msgstr ""
+msgstr "lpc1768"
 
 msgid "lpc1769"
-msgstr ""
+msgstr "lpc1769"
 
 msgid "SAMD21 step rate benchmark"
 msgstr ""

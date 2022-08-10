@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-08 21:35+0000\n"
+"PO-Revision-Date: 2022-08-10 04:19+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "config_reference/it/>\n"
@@ -308,7 +308,7 @@ msgid ""
 msgstr ""
 
 msgid "[screws_tilt_adjust]"
-msgstr ""
+msgstr "[screws_tilt_adjust]"
 
 msgid ""
 "Tool to help adjust bed screws tilt using Z probe. One may define a "
@@ -384,7 +384,7 @@ msgid "[delayed_gcode]"
 msgstr "[delayed_gcode]"
 
 msgid "[save_variables]"
-msgstr ""
+msgstr "[save_variables]"
 
 msgid "[idle_timeout]"
 msgstr "[idle_timeout]"
@@ -415,7 +415,7 @@ msgstr ""
 "utilizzando i comandi G-Code standard (ad esempio, M24)."
 
 msgid "[sdcard_loop]"
-msgstr ""
+msgstr "[sdcard_loop]"
 
 msgid ""
 "Some printers with stage-clearing features, such as a part ejector or a belt"
@@ -484,7 +484,7 @@ msgid "Bed probing hardware"
 msgstr "Hardware per probing del piatto"
 
 msgid "[probe]"
-msgstr ""
+msgstr "[probe]"
 
 msgid ""
 "Z height probe. One may define this section to enable Z height probing "
