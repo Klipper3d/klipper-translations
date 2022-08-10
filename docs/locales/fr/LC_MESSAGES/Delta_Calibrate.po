@@ -1,14 +1,24 @@
-#
+# Tl <rflma99@pm.me>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-08-10 21:21+0000\n"
+"Last-Translator: Tl <rflma99@pm.me>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"delta_calibrate/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
+#, fuzzy
 msgid ""
 "This document describes Klipper's automatic calibration system for \"delta\""
 " style printers."
 msgstr ""
+"Ce document décrit le système de calibration automatique de Klipper pour les "
+"imprimantes de style \"delta\"."
 
 msgid ""
 "Delta calibration involves finding the tower endstop positions, tower "

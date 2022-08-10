@@ -1,20 +1,25 @@
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
+# Tl <rflma99@pm.me>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-10-02 09:35+0000\n"
-"Last-Translator: Francis Poulizac <fpoulizac@vivaldi.net>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/rpi_microcontroller/fr/>\n"
+"PO-Revision-Date: 2022-08-10 21:21+0000\n"
+"Last-Translator: Tl <rflma99@pm.me>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"rpi_microcontroller/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
+#, fuzzy
 msgid ""
 "This document describes the process of running Klipper on a RPi and use the "
 "same RPi as secondary mcu."
 msgstr ""
+"Ce document décrit le processus via lequel il est possible de lancer Klipper "
+"sur un Rasbery Pi et d'utiliser le meme Rasbery Pi comme mcu secondaire"
 
 msgid "Why use RPi as a secondary MCU?"
 msgstr ""
