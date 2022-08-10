@@ -2042,15 +2042,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#manual_stepper" class="md-nav__link">
-    [manual_stepper]
+  <a href="#stepper-manuali" class="md-nav__link">
+    [Stepper manuali]
   </a>
   
-    <nav class="md-nav" aria-label="[manual_stepper]">
+    <nav class="md-nav" aria-label="[Stepper manuali]">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#manual_stepper_1" class="md-nav__link">
+  <a href="#manual_stepper" class="md-nav__link">
     MANUAL_STEPPER
   </a>
   
@@ -2727,18 +2727,18 @@
 <li>Set speed factor override percentage: <code>M220 S&lt;percent&gt;</code></li>
 <li>Set extrude factor override percentage: <code>M221 S&lt;percent&gt;</code></li>
 <li>Set acceleration: <code>M204 S&lt;value&gt;</code> OR <code>M204 P&lt;value&gt; T&lt;value&gt;</code><ul>
-<li>Note: If S is not specified and both P and T are specified, then the acceleration is set to the minimum of P and T. If only one of P or T is specified, the command has no effect.</li>
+<li>Nota: se S non viene specificato e vengono specificati sia P che T, l'accelerazione viene impostata al minimo di P e T. Se viene specificato solo uno di P o T, il comando non ha effetto.</li>
 </ul>
 </li>
 <li>Ottieni la temperatura dell'estrusore: <code>M105</code></li>
 <li>Set extruder temperature: <code>M104 [T&lt;index&gt;] [S&lt;temperature&gt;]</code></li>
 <li>Set extruder temperature and wait: <code>M109 [T&lt;index&gt;] S&lt;temperature&gt;</code><ul>
-<li>Note: M109 always waits for temperature to settle at requested value</li>
+<li>Nota: M109 attende sempre che la temperatura si assesti al valore richiesto</li>
 </ul>
 </li>
 <li>Set bed temperature: <code>M140 [S&lt;temperature&gt;]</code></li>
 <li>Set bed temperature and wait: <code>M190 S&lt;temperature&gt;</code><ul>
-<li>Note: M190 always waits for temperature to settle at requested value</li>
+<li>Nota: M190 attende sempre che la temperatura si assesti al valore richiesto</li>
 </ul>
 </li>
 <li>Set fan speed: <code>M106 S&lt;value&gt;</code></li>
@@ -2748,10 +2748,10 @@
 <li>Ottieni la versione del firmware: <code>M115</code></li>
 </ul>
 <p>Per ulteriori dettagli sui comandi precedenti, vedere la <a href="http://reprap.org/wiki/G-code">documentazione RepRap G-Code</a>.</p>
-<p>Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable <a href="#additional-commands">"extended G-Code commands"</a>. Similarly, the G-Code terminal output is only intended to be human readable - see the <a href="API_Server.html">API Server document</a> if controlling Klipper from external software.</p>
-<p>If one requires a less common G-Code command then it may be possible to implement it with a custom <a href="Config_Reference.html#gcode_macro">gcode_macro config section</a>. For example, one might use this to implement: <code>G12</code>, <code>G29</code>, <code>G30</code>, <code>G31</code>, <code>M42</code>, <code>M80</code>, <code>M81</code>, <code>T1</code>, etc.</p>
+<p>L'obiettivo di Klipper è supportare i comandi G-Code prodotti da comuni software di terze parti (ad es. OctoPrint, Printrun, Slic3r, Cura, ecc.) nelle loro configurazioni standard. Non è un obiettivo supportare ogni possibile comando G-Code. Invece, Klipper preferisce comandi leggibili dall'uomo <a href="#comandi-aggiuntivi">"comandi G-Code estesi"</a>. Allo stesso modo, l'output del terminale G-Code è inteso solo per essere leggibile dall'uomo - vedere il <a href="API_Server.html">documento del server API</a> se si controlla Klipper da un software esterno.</p>
+<p>Se si necessita di un comando G-Code meno comune, potrebbe essere possibile implementarlo con una [sezione di configurazione gcode_macro] personalizzata (Config_Reference.md#gcode_macro). Ad esempio, si potrebbe usare questo per implementare: <code>G12</code>, <code>G29</code>, <code>G30</code>, <code>G31</code>, <code>M42</code>, <code>M80</code>, <code>M81</code>, <code>T1</code>, ecc.</p>
 <h2 id="comandi-aggiuntivi">Comandi aggiuntivi<a class="headerlink" href="#comandi-aggiuntivi" title="Permanent link">&para;</a></h2>
-<p>Klipper uses "extended" G-Code commands for general configuration and status. These extended commands all follow a similar format - they start with a command name and may be followed by one or more parameters. For example: <code>SET_SERVO SERVO=myservo ANGLE=5.3</code>. In this document, the commands and parameters are shown in uppercase, however they are not case sensitive. (So, "SET_SERVO" and "set_servo" both run the same command.)</p>
+<p>Klipper utilizza comandi G-Code "estesi" per la configurazione e lo stato generale. Questi comandi estesi seguono tutti un formato simile: iniziano con un nome di comando e possono essere seguiti da uno o più parametri. Ad esempio: <code>SET_SERVO SERVO=mioservo ANGLE=5.3</code>. In questo documento, i comandi ed i parametri sono mostrati in maiuscolo, tuttavia non fanno distinzione tra maiuscole e minuscole. (Quindi, "SET_SERVO" e "set_servo" eseguono entrambi lo stesso comando.)</p>
 <p>This section is organized by Klipper module name, which generally follows the section names specified in the <a href="Config_Reference.html">printer configuration file</a>. Note that some modules are automatically loaded.</p>
 <h3 id="adxl345">[adxl345]<a class="headerlink" href="#adxl345" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when an <a href="Config_Reference.html#adxl345">adxl345 config section</a> is enabled.</p>
@@ -2847,7 +2847,7 @@
 <p>With no parameters provided, this will list the defined objects known to Klipper. Returns a list of strings, unless the <code>JSON</code> parameter is given, when it will return object details in json format.</p>
 <p>When the <code>NAME</code> parameter is included, this defines an object to be excluded.</p>
 <ul>
-<li><code>NAME</code>: This parameter is required. It is the identifier used by other commands in this module.</li>
+<li><code>NAME</code>: questo parametro è obbligatorio. È l'identificatore utilizzato da altri comandi in questo modulo.</li>
 <li><code>CENTER</code>: una coordinata X,Y per l'oggetto.</li>
 <li><code>POLYGON</code>: An array of X,Y coordinates that provide an outline for the object.</li>
 </ul>
@@ -2963,7 +2963,7 @@
 <h3 id="manual_probe">[manual_probe]<a class="headerlink" href="#manual_probe" title="Permanent link">&para;</a></h3>
 <p>The manual_probe module is automatically loaded.</p>
 <h4 id="manual_probe_1">MANUAL_PROBE<a class="headerlink" href="#manual_probe_1" title="Permanent link">&para;</a></h4>
-<p><code>MANUAL_PROBE [SPEED=&lt;speed&gt;]</code>: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:</p>
+<p><code>MANUAL_PROBE [SPEED=&lt;speed&gt;]</code>: esegue uno script di supporto utile per misurare l'altezza dell'ugello in una determinata posizione. Se viene specificato SPEED, imposta la velocità dei comandi TESTZ (il valore predefinito è 5mm/s). Durante una sonda manuale, sono disponibili i seguenti comandi aggiuntivi:</p>
 <ul>
 <li><code>ACCEPT</code>: questo comando accetta la posizione Z corrente e conclude il probing manuale.</li>
 <li><code>ABORT</code>: questo comando termina lo strumento di probing manuale.</li>
@@ -2973,10 +2973,10 @@
 <p><code>Z_ENDSTOP_CALIBRATE [SPEED=&lt;speed&gt;]</code>: Run a helper script useful for calibrating a Z position_endstop config setting. See the MANUAL_PROBE command for details on the parameters and the additional commands available while the tool is active.</p>
 <h4 id="z_offset_apply_endstop">Z_OFFSET_APPLY_ENDSTOP<a class="headerlink" href="#z_offset_apply_endstop" title="Permanent link">&para;</a></h4>
 <p><code>Z_OFFSET_APPLY_ENDSTOP</code>: Take the current Z Gcode offset (aka, babystepping), and subtract it from the stepper_z endstop_position. This acts to take a frequently used babystepping value, and "make it permanent". Requires a <code>SAVE_CONFIG</code> to take effect.</p>
-<h3 id="manual_stepper">[manual_stepper]<a class="headerlink" href="#manual_stepper" title="Permanent link">&para;</a></h3>
+<h3 id="stepper-manuali">[Stepper manuali]<a class="headerlink" href="#stepper-manuali" title="Permanent link">&para;</a></h3>
 <p>The following command is available when a <a href="Config_Reference.html#manual_stepper">manual_stepper config section</a> is enabled.</p>
-<h4 id="manual_stepper_1">MANUAL_STEPPER<a class="headerlink" href="#manual_stepper_1" title="Permanent link">&para;</a></h4>
-<p><code>MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=&lt;pos&gt;] [SPEED=&lt;speed&gt;] [ACCEL=&lt;accel&gt;] [MOVE=&lt;pos&gt; [STOP_ON_ENDSTOP=[1|2|-1|-2]] [SYNC=0]]</code>: This command will alter the state of the stepper. Use the ENABLE parameter to enable/disable the stepper. Use the SET_POSITION parameter to force the stepper to think it is at the given position. Use the MOVE parameter to request a movement to the given position. If SPEED and/or ACCEL is specified then the given values will be used instead of the defaults specified in the config file. If an ACCEL of zero is specified then no acceleration will be performed. If STOP_ON_ENDSTOP=1 is specified then the move will end early should the endstop report as triggered (use STOP_ON_ENDSTOP=2 to complete the move without error even if the endstop does not trigger, use -1 or -2 to stop when the endstop reports not triggered). Normally future G-Code commands will be scheduled to run after the stepper move completes, however if a manual stepper move uses SYNC=0 then future G-Code movement commands may run in parallel with the stepper movement.</p>
+<h4 id="manual_stepper">MANUAL_STEPPER<a class="headerlink" href="#manual_stepper" title="Permanent link">&para;</a></h4>
+<p><code>MANUAL_STEPPER STEPPER=nome_config [ENABLE=[0|1]] [SET_POSITION=&lt;pos&gt;] [SPEED=&lt;velocità&gt;] [ACCEL=&lt;accelerazione&gt;] [MOVE=&lt;pos&gt; [STOP_ON_ENDSTOP=[1|2|- 1|-2]] [SYNC=0]]</code>: Questo comando altererà lo stato dello stepper. Utilizzare il parametro ENABLE per abilitare/disabilitare lo stepper. Utilizzare il parametro SET_POSITION per forzare lo stepper a pensare di trovarsi nella posizione data. Utilizzare il parametro MOVE per richiedere un movimento alla posizione data. Se viene specificato SPEED e/o ACCEL, verranno utilizzati i valori forniti al posto dei valori predefiniti specificati nel file di configurazione. Se viene specificato un ACCEL pari a zero, non verrà eseguita alcuna accelerazione. Se viene specificato STOP_ON_ENDSTOP=1, lo spostamento terminerà in anticipo se l'endstop segnala come attivato (usa STOP_ON_ENDSTOP=2 per completare lo spostamento senza errori anche se l'endstop non si attiva, usa -1 o -2 per interrompere quando l'endstop segnala non innescato). Normalmente i futuri comandi G-Code verranno programmati per essere eseguiti dopo il completamento del movimento passo-passo, tuttavia se un movimento passo-passo manuale utilizza SYNC=0, i futuri comandi di movimento G-Code potrebbero essere eseguiti in parallelo con il movimento passo-passo.</p>
 <h3 id="led">[led]<a class="headerlink" href="#led" title="Permanent link">&para;</a></h3>
 <p>The following command is available when any of the <a href="Config_Reference.html#leds">led config sections</a> are enabled.</p>
 <h4 id="set_led">SET_LED<a class="headerlink" href="#set_led" title="Permanent link">&para;</a></h4>
@@ -2989,29 +2989,29 @@
 <p><code>SET_PIN PIN=config_name VALUE=&lt;value&gt; CYCLE_TIME=&lt;cycle_time&gt;</code>: Note - hardware PWM does not currently support the CYCLE_TIME parameter and will use the cycle time defined in the config.</p>
 <h3 id="palette2">[palette2]<a class="headerlink" href="#palette2" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when the <a href="Config_Reference.html#palette2">palette2 config section</a> is enabled.</p>
-<p>Palette prints work by embedding special OCodes (Omega Codes) in the GCode file:</p>
+<p>Le stampe di Palette funzionano incorporando speciali OCodes (Codici Omega) nel file GCode:</p>
 <ul>
-<li><code>O1</code>...<code>O32</code>: These codes are read from the GCode stream and processed by this module and passed to the Palette 2 device.</li>
+<li><code>O1</code>...<code>O32</code>: Questi codici vengono letti dal flusso GCode ed elaborati da questo modulo e passati al dispositivo Palette 2.</li>
 </ul>
 <p>The following additional commands are also available.</p>
 <h4 id="palette_connect">PALETTE_CONNECT<a class="headerlink" href="#palette_connect" title="Permanent link">&para;</a></h4>
-<p><code>PALETTE_CONNECT</code>: This command initializes the connection with the Palette 2.</p>
+<p><code>PALETTE_CONNECT</code>: questo comando inizializza la connessione con la Palette 2.</p>
 <h4 id="palette_disconnect">PALETTE_DISCONNECT<a class="headerlink" href="#palette_disconnect" title="Permanent link">&para;</a></h4>
-<p><code>PALETTE_DISCONNECT</code>: This command disconnects from the Palette 2.</p>
+<p><code>PALETTE_DISCONNECT</code>: questo comando si disconnette dalla Palette 2.</p>
 <h4 id="palette_clear">PALETTE_CLEAR<a class="headerlink" href="#palette_clear" title="Permanent link">&para;</a></h4>
-<p><code>PALETTE_CLEAR</code>: This command instructs the Palette 2 to clear all of the input and output paths of filament.</p>
+<p><code>PALETTE_CLEAR</code>: questo comando indica alla Palette 2 di cancellare tutti i percorsi di input e output del filamento.</p>
 <h4 id="palette_cut">PALETTE_CUT<a class="headerlink" href="#palette_cut" title="Permanent link">&para;</a></h4>
-<p><code>PALETTE_CUT</code>: This command instructs the Palette 2 to cut the filament currently loaded in the splice core.</p>
+<p><code>PALETTE_CUT</code>: Questo comando indica alla Palette 2 di tagliare il filamento attualmente caricato nello splice core.</p>
 <h4 id="palette_smart_load">PALETTE_SMART_LOAD<a class="headerlink" href="#palette_smart_load" title="Permanent link">&para;</a></h4>
-<p><code>PALETTE_SMART_LOAD</code>: This command start the smart load sequence on the Palette 2. Filament is loaded automatically by extruding it the distance calibrated on the device for the printer, and instructs the Palette 2 once the loading has been completed. This command is the same as pressing <strong>Smart Load</strong> directly on the Palette 2 screen after the filament load is complete.</p>
+<p><code>PALETTE_SMART_LOAD</code>: Questo comando avvia la sequenza di caricamento intelligente sulla Palette 2. Il filamento viene caricato automaticamente estrudendolo alla distanza calibrata sul dispositivo per la stampante e istruisce la Palette 2 una volta completato il caricamento. Questo comando equivale a premere <strong>Smart Load</strong> direttamente sullo schermo della Palette 2 dopo che il caricamento del filamento è stato completato.</p>
 <h3 id="pid_calibrate">[pid_calibrate]<a class="headerlink" href="#pid_calibrate" title="Permanent link">&para;</a></h3>
 <p>The pid_calibrate module is automatically loaded if a heater is defined in the config file.</p>
 <h4 id="pid_calibrate_1">PID_CALIBRATE<a class="headerlink" href="#pid_calibrate_1" title="Permanent link">&para;</a></h4>
-<p><code>PID_CALIBRATE HEATER=&lt;config_name&gt; TARGET=&lt;temperature&gt; [WRITE_FILE=1]</code>: Perform a PID calibration test. The specified heater will be enabled until the specified target temperature is reached, and then the heater will be turned off and on for several cycles. If the WRITE_FILE parameter is enabled, then the file /tmp/heattest.txt will be created with a log of all temperature samples taken during the test.</p>
+<p><code>PID_CALIBRATE HEATER=&lt;nome_config&gt; TARGET=&lt;temperatura&gt; [WRITE_FILE=1]</code>: esegue un test di calibrazione PID. Il riscaldatore specificato verrà abilitato fino al raggiungimento della temperatura target specificata, quindi il riscaldatore verrà spento e acceso per diversi cicli. Se il parametro WRITE_FILE è abilitato, verrà creato il file /tmp/heattest.txt con un log di tutti i campioni di temperatura prelevati durante il test.</p>
 <h3 id="pause_resume">[pause_resume]<a class="headerlink" href="#pause_resume" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when the <a href="Config_Reference.html#pause_resume">pause_resume config section</a> is enabled:</p>
 <h4 id="pause">PAUSE<a class="headerlink" href="#pause" title="Permanent link">&para;</a></h4>
-<p><code>PAUSE</code>: Pauses the current print. The current position is captured for restoration upon resume.</p>
+<p><code>PAUSE</code>: mette in pausa la stampa corrente. La posizione attuale viene acquisita per la ripresa al ripristino.</p>
 <h4 id="resume">RESUME<a class="headerlink" href="#resume" title="Permanent link">&para;</a></h4>
 <p><code>RESUME [VELOCITY=&lt;value&gt;]</code>: Resumes the print from a pause, first restoring the previously captured position. The VELOCITY parameter determines the speed at which the tool should return to the original captured position.</p>
 <h4 id="clear_pause">CLEAR_PAUSE<a class="headerlink" href="#clear_pause" title="Permanent link">&para;</a></h4>
@@ -3044,7 +3044,7 @@
 <h3 id="resonance_tester">[resonance_tester]<a class="headerlink" href="#resonance_tester" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when a <a href="Config_Reference.html#resonance_tester">resonance_tester config section</a> is enabled (also see the <a href="Measuring_Resonances.html">measuring resonances guide</a>).</p>
 <h4 id="measure_axes_noise">MEASURE_AXES_NOISE<a class="headerlink" href="#measure_axes_noise" title="Permanent link">&para;</a></h4>
-<p><code>MEASURE_AXES_NOISE</code>: Measures and outputs the noise for all axes of all enabled accelerometer chips.</p>
+<p><code>MEASURE_AXES_NOISE</code>: misura ed riporta il rumore per tutti gli assi di tutti i chip dell'accelerometro abilitati.</p>
 <h4 id="test_resonances">TEST_RESONANCES<a class="headerlink" href="#test_resonances" title="Permanent link">&para;</a></h4>
 <p><code>TEST_RESONANCES AXIS=&lt;axis&gt; OUTPUT=&lt;resonances,raw_data&gt; [NAME=&lt;name&gt;] [FREQ_START=&lt;min_freq&gt;] [FREQ_END=&lt;max_freq&gt;] [HZ_PER_SEC=&lt;hz_per_sec&gt;] [CHIPS=&lt;adxl345_chip_name&gt;] [POINT=x,y,z] [INPUT_SHAPING=[&lt;0:1&gt;]]</code>: Runs the resonance test in all configured probe points for the requested "axis" and measures the acceleration using the accelerometer chips configured for the respective axis. "axis" can either be X or Y, or specify an arbitrary direction as <code>AXIS=dx,dy</code>, where dx and dy are floating point numbers defining a direction vector (e.g. <code>AXIS=X</code>, <code>AXIS=Y</code>, or <code>AXIS=1,-1</code> to define a diagonal direction). Note that <code>AXIS=dx,dy</code> and <code>AXIS=-dx,-dy</code> is equivalent. <code>adxl345_chip_name</code> can be one or more configured adxl345 chip,delimited with comma, for example <code>CHIPS="adxl345, adxl345 rpi"</code>. Note that <code>adxl345</code> can be omitted from named adxl345 chips. If POINT is specified it will override the point(s) configured in <code>[resonance_tester]</code>. If <code>INPUT_SHAPING=0</code> or not set(default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. <code>OUTPUT</code> parameter is a comma-separated list of which outputs will be written. If <code>raw_data</code> is requested, then the raw accelerometer data is written into a file or a series of files <code>/tmp/raw_data_&lt;axis&gt;_[&lt;chip_name&gt;_][&lt;point&gt;_]&lt;name&gt;.csv</code> with (<code>&lt;point&gt;_</code> part of the name generated only if more than 1 probe point is configured or POINT is specified). If <code>resonances</code> is specified, the frequency response is calculated (across all probe points) and written into <code>/tmp/resonances_&lt;axis&gt;_&lt;name&gt;.csv</code> file. If unset, OUTPUT defaults to <code>resonances</code>, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.</p>
 <h4 id="shaper_calibrate">SHAPER_CALIBRATE<a class="headerlink" href="#shaper_calibrate" title="Permanent link">&para;</a></h4>
@@ -3052,7 +3052,7 @@
 <h3 id="respond">[respond]<a class="headerlink" href="#respond" title="Permanent link">&para;</a></h3>
 <p>The following standard G-Code commands are available when the <a href="Config_Reference.html#respond">respond config section</a> is enabled:</p>
 <ul>
-<li><code>M118 &lt;message&gt;</code>: echo the message prepended with the configured default prefix (or <code>echo:</code> if no prefix is configured).</li>
+<li><code>M118 &lt;messaggio&gt;</code>: fa eco al messaggio preceduto dal prefisso predefinito configurato (o <code>echo:</code> se non è configurato alcun prefisso).</li>
 </ul>
 <p>The following additional commands are also available.</p>
 <h4 id="respond_1">RESPOND<a class="headerlink" href="#respond_1" title="Permanent link">&para;</a></h4>
@@ -3113,7 +3113,7 @@
 <h4 id="dump_tmc">DUMP_TMC<a class="headerlink" href="#dump_tmc" title="Permanent link">&para;</a></h4>
 <p><code>DUMP_TMC STEPPER=&lt;nome&gt;</code>: questo comando leggerà i registri del driver TMC e ne riporterà i valori.</p>
 <h4 id="init_tmc">INIT_TMC<a class="headerlink" href="#init_tmc" title="Permanent link">&para;</a></h4>
-<p><code>INIT_TMC STEPPER=&lt;name&gt;</code>: This command will initialize the TMC registers. Needed to re-enable the driver if power to the chip is turned off then back on.</p>
+<p><code>INIT_TMC STEPPER=&lt;nome&gt;</code>: questo comando inizializzerà i registri TMC. Necessario per riattivare il driver se l'alimentazione al chip viene spenta e poi riaccesa.</p>
 <h4 id="set_tmc_current">SET_TMC_CURRENT<a class="headerlink" href="#set_tmc_current" title="Permanent link">&para;</a></h4>
 <p><code>SET_TMC_CURRENT STEPPER=&lt;name&gt; CURRENT=&lt;amps&gt; HOLDCURRENT=&lt;amps&gt;</code>: This will adjust the run and hold currents of the TMC driver. (HOLDCURRENT is not applicable to tmc2660 drivers.)</p>
 <h4 id="set_tmc_field">SET_TMC_FIELD<a class="headerlink" href="#set_tmc_field" title="Permanent link">&para;</a></h4>
@@ -3132,17 +3132,17 @@
 <li><code>STEP_DELTA</code> and <code>STEP_HEIGHT</code>: The value changes by <code>STEP_DELTA</code> every <code>STEP_HEIGHT</code> millimeters. The formula used is: <code>value = start + step_delta * floor(z_height / step_height)</code>. You can simply count bands or read tuning tower labels to determine the optimum value.</li>
 </ul>
 <h3 id="virtual_sdcard">[virtual_sdcard]<a class="headerlink" href="#virtual_sdcard" title="Permanent link">&para;</a></h3>
-<p>Klipper supports the following standard G-Code commands if the <a href="Config_Reference.html#virtual_sdcard">virtual_sdcard config section</a> is enabled:</p>
+<p>Klipper supporta i seguenti comandi G-Code standard se la <a href="Config_Reference.html#virtual_sdcard">sezione di configurazione di virtual_sdcard</a> è abilitata:</p>
 <ul>
-<li>List SD card: <code>M20</code></li>
-<li>Initialize SD card: <code>M21</code></li>
+<li>Elenco scheda SD: <code>M20</code></li>
+<li>Inizializza scheda SD: <code>M21</code></li>
 <li>Select SD file: <code>M23 &lt;filename&gt;</code></li>
 <li>Start/resume SD print: <code>M24</code></li>
-<li>Pause SD print: <code>M25</code></li>
+<li>Sospendi la stampa SD: <code>M25</code></li>
 <li>Set SD position: <code>M26 S&lt;offset&gt;</code></li>
 <li>Riporta lo stato di stampa SD: <code>M27</code></li>
 </ul>
-<p>In addition, the following extended commands are available when the "virtual_sdcard" config section is enabled.</p>
+<p>Inoltre, quando la sezione di configurazione "virtual_sdcard" è abilitata, sono disponibili i seguenti comandi estesi.</p>
 <h4 id="sdcard_print_file">SDCARD_PRINT_FILE<a class="headerlink" href="#sdcard_print_file" title="Permanent link">&para;</a></h4>
 <p><code>SDCARD_PRINT_FILE FILENAME=&lt;filename&gt;</code>: Load a file and start SD print.</p>
 <h4 id="sdcard_reset_file">SDCARD_RESET_FILE<a class="headerlink" href="#sdcard_reset_file" title="Permanent link">&para;</a></h4>

@@ -1221,22 +1221,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-rate-benchmark-test" class="md-nav__link">
-    Step rate benchmark test
+  <a href="#test-di-riferimento-della-frequenza-di-passi" class="md-nav__link">
+    Test di riferimento della frequenza di passi
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#avr-step-rate-benchmark" class="md-nav__link">
-    AVR step rate benchmark
+  <a href="#benchmark-rateo-passi-avr" class="md-nav__link">
+    Benchmark rateo passi AVR
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#arduino-due-step-rate-benchmark" class="md-nav__link">
-    Arduino Due step rate benchmark
+  <a href="#benchmark-rateo-passi-arduino-due" class="md-nav__link">
+    Benchmark rateo passi Arduino Due
   </a>
   
 </li>
@@ -1368,7 +1368,7 @@
 <p>L'obiettivo principale dei benchmark è fornire un meccanismo coerente per misurare l'impatto delle modifiche alla codifica all'interno del software. Un obiettivo secondario è fornire metriche di alto livello per confrontare le prestazioni tra i chip e tra le piattaforme software.</p>
 <p>Il benchmark dello step rate è progettato per trovare la velocità di stepping massima che l'hardware e il software possono raggiungere. Questa velocità di stepping del benchmark non è raggiungibile nell'uso quotidiano poiché Klipper ha bisogno di eseguire altre attività (ad esempio, comunicazione mcu/host, lettura della temperatura, controllo endstop) in qualsiasi utilizzo nel mondo reale.</p>
 <p>In generale, i pin per i test di benchmark sono scelti per far lampeggiare LED o altri pin innocui. <strong>Verifica sempre che sia sicuro guidare i pin configurati prima di eseguire un benchmark.</strong> Non è consigliabile pilotare uno stepper reale durante un benchmark.</p>
-<h3 id="step-rate-benchmark-test">Step rate benchmark test<a class="headerlink" href="#step-rate-benchmark-test" title="Permanent link">&para;</a></h3>
+<h3 id="test-di-riferimento-della-frequenza-di-passi">Test di riferimento della frequenza di passi<a class="headerlink" href="#test-di-riferimento-della-frequenza-di-passi" title="Permanent link">&para;</a></h3>
 <p>The test is performed using the console.py tool (described in <Debugging.md>). The micro-controller is configured for the particular hardware platform (see below) and then the following is cut-and-paste into the console.py terminal window:</p>
 <div class="highlight"><pre><span></span><code>SET start_clock {clock+freq}
 SET ticks 1000
@@ -1403,8 +1403,8 @@ queue_step oid=2 interval=3000 count=1 add=0
 </code></pre></div>
 
 <p>The benchmarks are run with parameters suitable for TMC Drivers. For micro-controllers that support <code>STEPPER_BOTH_EDGE=1</code> (as reported in the <code>MCU config</code> line when console.py first starts) use <code>step_pulse_duration=0</code> and <code>invert_step=-1</code> to enable optimized stepping on both edges of the step pulse. For other micro-controllers use a <code>step_pulse_duration</code> corresponding to 100ns.</p>
-<h3 id="avr-step-rate-benchmark">AVR step rate benchmark<a class="headerlink" href="#avr-step-rate-benchmark" title="Permanent link">&para;</a></h3>
-<p>The following configuration sequence is used on AVR chips:</p>
+<h3 id="benchmark-rateo-passi-avr">Benchmark rateo passi AVR<a class="headerlink" href="#benchmark-rateo-passi-avr" title="Permanent link">&para;</a></h3>
+<p>La seguente sequenza di configurazione viene utilizzata sui chip AVR:</p>
 <div class="highlight"><pre><span></span><code>allocate_oids count=3
 config_stepper oid=0 step_pin=PA5 dir_pin=PA4 invert_step=0 step_pulse_ticks=32
 config_stepper oid=1 step_pin=PA3 dir_pin=PA2 invert_step=0 step_pulse_ticks=32
@@ -1431,7 +1431,7 @@ finalize_config crc=0
 </tr>
 </tbody>
 </table>
-<h3 id="arduino-due-step-rate-benchmark">Arduino Due step rate benchmark<a class="headerlink" href="#arduino-due-step-rate-benchmark" title="Permanent link">&para;</a></h3>
+<h3 id="benchmark-rateo-passi-arduino-due">Benchmark rateo passi Arduino Due<a class="headerlink" href="#benchmark-rateo-passi-arduino-due" title="Permanent link">&para;</a></h3>
 <p>The following configuration sequence is used on the Due:</p>
 <div class="highlight"><pre><span></span><code>allocate_oids count=3
 config_stepper oid=0 step_pin=PB27 dir_pin=PA21 invert_step=-1 step_pulse_ticks=0
