@@ -1,21 +1,27 @@
 # Wivik <seb+weblate@zedas.fr>, 2021.
+# Tl <rflma99@pm.me>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-20 02:20+0000\n"
-"Last-Translator: Wivik <seb+weblate@zedas.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/slicers/fr/>\n"
+"PO-Revision-Date: 2022-08-10 21:21+0000\n"
+"Last-Translator: Tl <rflma99@pm.me>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/slicers/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
+#, fuzzy
 msgid ""
 "This document provides some tips for configuring a \"slicer\" application "
 "for use with Klipper. Common slicers used with Klipper are Slic3r, Cura, "
 "Simplify3D, etc."
 msgstr ""
+"Ce document fournit certains conseils concernant la configuration d'une "
+"application \"découpeuse\" pour une utilisation avec Klipper. Des decoupeurs "
+"courants utilisés avec Klipper sont Sli3r, Cura, Sinplify3D, etc."
 
 msgid "Set the G-Code flavor to Marlin"
 msgstr ""

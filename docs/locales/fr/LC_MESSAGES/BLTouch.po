@@ -1,12 +1,20 @@
-#
+# Tl <rflma99@pm.me>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-08-10 21:21+0000\n"
+"Last-Translator: Tl <rflma99@pm.me>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/bltouch/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
+#, fuzzy
 msgid "Connecting BL-Touch"
-msgstr ""
+msgstr "Connecter BL-Touch"
 
 msgid ""
 "A **warning** before you start: Avoid touching the BL-Touch pin with your "
