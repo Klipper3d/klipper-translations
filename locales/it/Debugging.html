@@ -1213,15 +1213,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#running-the-regression-tests" class="md-nav__link">
-    Running the regression tests
+  <a href="#esecuzione-dei-test-di-regressione" class="md-nav__link">
+    Esecuzione dei test di regressione
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#manually-sending-commands-to-the-micro-controller" class="md-nav__link">
-    Manually sending commands to the micro-controller
+  <a href="#invio-manuale-di-comandi-al-microcontrollore" class="md-nav__link">
+    Invio manuale di comandi al microcontrollore
   </a>
   
 </li>
@@ -1234,37 +1234,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#motion-analysis-and-data-logging" class="md-nav__link">
-    Motion analysis and data logging
+  <a href="#analisi-del-movimento-e-registrazione-dei-dati" class="md-nav__link">
+    Analisi del movimento e registrazione dei dati
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#generating-load-graphs" class="md-nav__link">
-    Generating load graphs
+  <a href="#generare-di-grafici-di-carico" class="md-nav__link">
+    Generare di grafici di carico
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#extracting-information-from-the-klippylog-file" class="md-nav__link">
-    Extracting information from the klippy.log file
+  <a href="#estrazione-di-informazioni-dal-file-klippylog" class="md-nav__link">
+    Estrazione di informazioni dal file klippy.log
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing-with-simulavr" class="md-nav__link">
-    Testing with simulavr
+  <a href="#test-con-simulavr" class="md-nav__link">
+    Test con simulavr
   </a>
   
-    <nav class="md-nav" aria-label="Testing with simulavr">
+    <nav class="md-nav" aria-label="Test con simulavr">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#using-simulavr-with-gtkwave" class="md-nav__link">
-    Using simulavr with gtkwave
+  <a href="#utilizzo-di-simulavr-con-gtkwave" class="md-nav__link">
+    Utilizzo di simulavr con gtkwave
   </a>
   
 </li>
@@ -1293,24 +1293,24 @@
 
 <h1 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h1>
 <p>Questo documento descrive alcuni degli strumenti di debug di Klipper.</p>
-<h2 id="running-the-regression-tests">Running the regression tests<a class="headerlink" href="#running-the-regression-tests" title="Permanent link">&para;</a></h2>
-<p>The main Klipper GitHub repository uses "github actions" to run a series of regression tests. It can be useful to run some of these tests locally.</p>
-<p>The source code "whitespace check" can be run with:</p>
+<h2 id="esecuzione-dei-test-di-regressione">Esecuzione dei test di regressione<a class="headerlink" href="#esecuzione-dei-test-di-regressione" title="Permanent link">&para;</a></h2>
+<p>Il repository principale di Klipper GitHub utilizza "github actions" per eseguire una serie di test di regressione. Può essere utile eseguire alcuni di questi test in locale.</p>
+<p>Il sorgente "controllo spazi bianchi" può essere eseguito con:</p>
 <div class="highlight"><pre><span></span><code>./scripts/check_whitespace.sh
 </code></pre></div>
 
-<p>The Klippy regression test suite requires "data dictionaries" from many platforms. The easiest way to obtain them is to <a href="https://github.com/Klipper3d/klipper/issues/1438">download them from github</a>. Once the data dictionaries are downloaded, use the following to run the regression suite:</p>
+<p>La suite di test di regressione Klippy richiede "dizionari di dati" da molte piattaforme. Il modo più semplice per ottenerli è <a href="https://github.com/Klipper3d/klipper/issues/1438">scaricarli da github</a>. Una volta scaricati i dizionari di dati, utilizzare quanto segue per eseguire la suite di regressione:</p>
 <div class="highlight"><pre><span></span><code>tar xfz klipper-dict-20??????.tar.gz
 ~/klippy-env/bin/python ~/klipper/scripts/test_klippy.py -d dict/ ~/klipper/test/klippy/*.test
 </code></pre></div>
 
-<h2 id="manually-sending-commands-to-the-micro-controller">Manually sending commands to the micro-controller<a class="headerlink" href="#manually-sending-commands-to-the-micro-controller" title="Permanent link">&para;</a></h2>
-<p>Normally, the host klippy.py process would be used to translate gcode commands to Klipper micro-controller commands. However, it's also possible to manually send these MCU commands (functions marked with the DECL_COMMAND() macro in the Klipper source code). To do so, run:</p>
+<h2 id="invio-manuale-di-comandi-al-microcontrollore">Invio manuale di comandi al microcontrollore<a class="headerlink" href="#invio-manuale-di-comandi-al-microcontrollore" title="Permanent link">&para;</a></h2>
+<p>Normalmente, il processo host klippy.py verrebbe utilizzato per tradurre i comandi gcode in comandi del microcontrollore Klipper. Tuttavia, è anche possibile inviare manualmente questi comandi MCU (funzioni contrassegnate con la macro DECL_COMMAND() nel codice sorgente di Klipper). Per farlo, esegui:</p>
 <div class="highlight"><pre><span></span><code>~/klippy-env/bin/python ./klippy/console.py /tmp/pseudoserial
 </code></pre></div>
 
-<p>See the "HELP" command within the tool for more information on its functionality.</p>
-<p>Some command-line options are available. For more information run: <code>~/klippy-env/bin/python ./klippy/console.py --help</code></p>
+<p>Vedere il comando "HELP" all'interno dello strumento per ulteriori informazioni sulla sua funzionalità.</p>
+<p>Sono disponibili alcune opzioni della riga di comando. Per ulteriori informazioni esegui: <code>~/klippy-env/bin/python ./klippy/console.py --help</code></p>
 <h2 id="traduzione-di-file-gcode-in-comandi-del-microcontrollore">Traduzione di file gcode in comandi del microcontrollore<a class="headerlink" href="#traduzione-di-file-gcode-in-comandi-del-microcontrollore" title="Permanent link">&para;</a></h2>
 <p>Il codice host Klippy può essere eseguito in modalità batch per produrre i comandi del microcontrollore di basso livello associati a un file gcode. L'ispezione di questi comandi di basso livello è utile quando si cerca di comprendere le azioni dell'hardware di basso livello. Può anche essere utile confrontare la differenza nei comandi del microcontrollore dopo una modifica del codice.</p>
 <p>Per eseguire Klippy in questa modalità batch, è necessario un passaggio per generare il "dizionario dati" del microcontrollore. Questo viene fatto compilando il codice del microcontrollore per ottenere il file <strong>out/klipper.dict</strong>:</p>
@@ -1322,26 +1322,26 @@ make
 <div class="highlight"><pre><span></span><code>~/klippy-env/bin/python ./klippy/klippy.py ~/printer.cfg -i test.gcode -o test.serial -v -d out/klipper.dict
 </code></pre></div>
 
-<p>The above will produce a file <strong>test.serial</strong> with the binary serial output. This output can be translated to readable text with:</p>
+<p>Quanto sopra produrrà un file <strong>test.serial</strong> con output seriale binario. Questo output può essere tradotto in testo leggibile con:</p>
 <div class="highlight"><pre><span></span><code>~/klippy-env/bin/python ./klippy/parsedump.py out/klipper.dict test.serial &gt; test.txt
 </code></pre></div>
 
-<p>The resulting file <strong>test.txt</strong> contains a human readable list of micro-controller commands.</p>
-<p>The batch mode disables certain response / request commands in order to function. As a result, there will be some differences between actual commands and the above output. The generated data is useful for testing and inspection; it is not useful for sending to a real micro-controller.</p>
-<h2 id="motion-analysis-and-data-logging">Motion analysis and data logging<a class="headerlink" href="#motion-analysis-and-data-logging" title="Permanent link">&para;</a></h2>
-<p>Klipper supports logging its internal motion history, which can be later analyzed. To use this feature, Klipper must be started with the <a href="API_Server.html">API Server</a> enabled.</p>
-<p>Data logging is enabled with the <code>data_logger.py</code> tool. For example:</p>
+<p>Il file risultante <strong>test.txt</strong> contiene un elenco leggibile di comandi del microcontrollore.</p>
+<p>La modalità batch disabilita alcuni comandi di risposta/richiesta per funzionare. Di conseguenza, ci saranno alcune differenze tra i comandi effettivi e l'output sopra. I dati generati sono utili per il test e l'ispezione; non è utile per l'invio a un vero microcontrollore.</p>
+<h2 id="analisi-del-movimento-e-registrazione-dei-dati">Analisi del movimento e registrazione dei dati<a class="headerlink" href="#analisi-del-movimento-e-registrazione-dei-dati" title="Permanent link">&para;</a></h2>
+<p>Klipper supporta la registrazione della cronologia dei movimenti interni, che può essere analizzata in seguito. Per utilizzare questa funzione, Klipper deve essere avviato con <a href="API_Server.html">Server API</a> abilitato.</p>
+<p>La registrazione dei dati è abilitata con lo strumento <code>data_logger.py</code>. Per esempio:</p>
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog
 </code></pre></div>
 
-<p>This command will connect to the Klipper API Server, subscribe to status and motion information, and log the results. Two files are generated - a compressed data file and an index file (eg, <code>mylog.json.gz</code> and <code>mylog.index.gz</code>). After starting the logging, it is possible to complete prints and other actions - the logging will continue in the background. When done logging, hit <code>ctrl-c</code> to exit from the <code>data_logger.py</code> tool.</p>
-<p>The resulting files can be read and graphed using the <code>motan_graph.py</code> tool. To generate graphs on a Raspberry Pi, a one time step is necessary to install the "matplotlib" package:</p>
+<p>Questo comando si collegherà al Klipper API Server, sottoscriverà le informazioni sullo stato e sul movimento e registrerà i risultati. Vengono generati due file: un file di dati compresso e un file di indice (ad esempio, <code>mylog.json.gz</code> e <code>mylog.index.gz</code>). Dopo aver avviato la registrazione, è possibile completare le stampe e altre azioni: la registrazione continuerà in background. Al termine della registrazione, premi <code>ctrl-c</code> per uscire dallo strumento <code>data_logger.py</code>.</p>
+<p>I file risultanti possono essere letti e rappresentati graficamente utilizzando lo strumento <code>motan_graph.py</code>. Per generare grafici su un Raspberry Pi, è necessario un passaggio per installare il pacchetto "matplotlib":</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get update
 sudo apt-get install python-matplotlib
 </code></pre></div>
 
-<p>However, it may be more convenient to copy the data files to a desktop class machine along with the Python code in the <code>scripts/motan/</code> directory. The motion analysis scripts should run on any machine with a recent version of <a href="https://python.org">Python</a> and <a href="https://matplotlib.org/">Matplotlib</a> installed.</p>
-<p>Graphs can be generated with a command like the following:</p>
+<p>Tuttavia, potrebbe essere più conveniente copiare i file di dati su una macchina di classe desktop insieme al codice Python nella directory <code>scripts/motan/</code>. Gli script di analisi del movimento dovrebbero essere eseguiti su qualsiasi macchina con una versione recente di <a href="https://python.org">Python</a> e <a href="https://matplotlib.org/">Matplotlib</a> installata.</p>
+<p>I grafici possono essere generati con un comando come il seguente:</p>
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/motan/motan_graph.py mylog -o mygraph.png
 </code></pre></div>
 
@@ -1349,83 +1349,83 @@ sudo apt-get install python-matplotlib
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/motan/motan_graph.py mylog -g &#39;[[&quot;trapq(toolhead,velocity)&quot;], [&quot;trapq(toolhead,accel)&quot;]]&#39;
 </code></pre></div>
 
-<p>The list of available datasets can be found using the <code>-l</code> option - for example:</p>
+<p>L'elenco dei set di dati disponibili può essere trovato usando l'opzione <code>-l</code>, ad esempio:</p>
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/motan/motan_graph.py -l
 </code></pre></div>
 
-<p>It is also possible to specify matplotlib plot options for each dataset:</p>
+<p>È anche possibile specificare le opzioni di stampa matplotlib per ogni set di dati:</p>
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/motan/motan_graph.py mylog -g &#39;[[&quot;trapq(toolhead,velocity)?color=red&amp;alpha=0.4&quot;]]&#39;
 </code></pre></div>
 
-<p>Many matplotlib options are available; some examples are "color", "label", "alpha", and "linestyle".</p>
-<p>The <code>motan_graph.py</code> tool supports several other command-line options - use the <code>--help</code> option to see a list. It may also be convenient to view/modify the <a href="https://github.com/Klipper3d/klipper/blob/master/scripts/motan/motan_graph.py">motan_graph.py</a> script itself.</p>
-<p>The raw data logs produced by the <code>data_logger.py</code> tool follow the format described in the <a href="API_Server.html">API Server</a>. It may be useful to inspect the data with a Unix command like the following: <code>gunzip &lt; mylog.json.gz | tr '\03' '\n' | less</code></p>
-<h2 id="generating-load-graphs">Generating load graphs<a class="headerlink" href="#generating-load-graphs" title="Permanent link">&para;</a></h2>
-<p>The Klippy log file (/tmp/klippy.log) stores statistics on bandwidth, micro-controller load, and host buffer load. It can be useful to graph these statistics after a print.</p>
-<p>To generate a graph, a one time step is necessary to install the "matplotlib" package:</p>
+<p>Sono disponibili molte opzioni di matplotlib; alcuni esempi sono "color", "label", "alpha" e "linestyle".</p>
+<p>Lo strumento <code>motan_graph.py</code> supporta molte altre opzioni della riga di comando: usa l'opzione <code>--help</code> per vedere un elenco. Può anche essere conveniente visualizzare/modificare lo stesso script <a href="https://github.com/Klipper3d/klipper/blob/master/scripts/motan/motan_graph.py">motan_graph.py</a>.</p>
+<p>I log di dati grezzi prodotti dallo strumento <code>data_logger.py</code> seguono il formato descritto in <a href="API_Server.html">Server API</a>. Può essere utile ispezionare i dati con un comando Unix come il seguente: <code>gunzip &lt; mylog.json.gz | tr '\03' '\n' | less</code></p>
+<h2 id="generare-di-grafici-di-carico">Generare di grafici di carico<a class="headerlink" href="#generare-di-grafici-di-carico" title="Permanent link">&para;</a></h2>
+<p>Il file di registro di Klippy (/tmp/klippy.log) memorizza le statistiche sulla larghezza di banda, sul carico del microcontrollore e sul carico del buffer dell'host. Può essere utile rappresentare graficamente queste statistiche dopo una stampa.</p>
+<p>Per generare un grafico, è necessario un passaggio una tantum per installare il pacchetto "matplotlib":</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get update
 sudo apt-get install python-matplotlib
 </code></pre></div>
 
-<p>Then graphs can be produced with:</p>
+<p>Quindi i grafici possono essere prodotti con:</p>
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/graphstats.py /tmp/klippy.log -o loadgraph.png
 </code></pre></div>
 
-<p>One can then view the resulting <strong>loadgraph.png</strong> file.</p>
-<p>Different graphs can be produced. For more information run: <code>~/klipper/scripts/graphstats.py --help</code></p>
-<h2 id="extracting-information-from-the-klippylog-file">Extracting information from the klippy.log file<a class="headerlink" href="#extracting-information-from-the-klippylog-file" title="Permanent link">&para;</a></h2>
-<p>The Klippy log file (/tmp/klippy.log) also contains debugging information. There is a logextract.py script that may be useful when analyzing a micro-controller shutdown or similar problem. It is typically run with something like:</p>
+<p>Si può quindi visualizzare il file <strong>loadgraph.png</strong> risultante.</p>
+<p>Possono essere prodotti diversi grafici. Per ulteriori informazioni esegui: <code>~/klipper/scripts/graphstats.py --help</code></p>
+<h2 id="estrazione-di-informazioni-dal-file-klippylog">Estrazione di informazioni dal file klippy.log<a class="headerlink" href="#estrazione-di-informazioni-dal-file-klippylog" title="Permanent link">&para;</a></h2>
+<p>Anche il file di registro di Klippy (/tmp/klippy.log) contiene informazioni di debug. Esiste uno script logextract.py che può essere utile quando si analizza l'arresto di un microcontrollore o un problema simile. In genere viene eseguito con qualcosa come:</p>
 <div class="highlight"><pre><span></span><code>mkdir work_directory
 cd work_directory
 cp /tmp/klippy.log .
 ~/klipper/scripts/logextract.py ./klippy.log
 </code></pre></div>
 
-<p>The script will extract the printer config file and will extract MCU shutdown information. The information dumps from an MCU shutdown (if present) will be reordered by timestamp to assist in diagnosing cause and effect scenarios.</p>
-<h2 id="testing-with-simulavr">Testing with simulavr<a class="headerlink" href="#testing-with-simulavr" title="Permanent link">&para;</a></h2>
-<p>The <a href="http://www.nongnu.org/simulavr/">simulavr</a> tool enables one to simulate an Atmel ATmega micro-controller. This section describes how one can run test gcode files through simulavr. It is recommended to run this on a desktop class machine (not a Raspberry Pi) as it does require significant cpu to run efficiently.</p>
-<p>To use simulavr, download the simulavr package and compile with python support. Note that the build system may need to have some packages (such as swig) installed in order to build the python module.</p>
+<p>Lo script estrarrà il file di configurazione della stampante ed estrarrà le informazioni di arresto dell'MCU. I dump delle informazioni da un arresto dell'MCU (se presente) verranno riordinati in base al timestamp per facilitare la diagnosi degli scenari di causa ed effetto.</p>
+<h2 id="test-con-simulavr">Test con simulavr<a class="headerlink" href="#test-con-simulavr" title="Permanent link">&para;</a></h2>
+<p>Lo strumento <a href="http://www.nongnu.org/simulavr/">simulavr</a> consente di simulare un microcontrollore Atmel ATmega. Questa sezione descrive come eseguire test di file gcode tramite simulavr. Si consiglia di eseguirlo su una macchina di classe desktop (non un Raspberry Pi) poiché richiede una CPU significativa per funzionare in modo efficiente.</p>
+<p>Per utilizzare simulavr, scarica il pacchetto simulavr e compila con il supporto python. Nota che il sistema di build potrebbe aver bisogno di alcuni pacchetti (come swig) installati per costruire il modulo python.</p>
 <div class="highlight"><pre><span></span><code>git clone git://git.savannah.nongnu.org/simulavr.git
 cd simulavr
 make python
 make build
 </code></pre></div>
 
-<p>Make sure a file like <strong>./build/pysimulavr/_pysimulavr.*.so</strong> is present after the above compilation:</p>
+<p>Assicurati che un file come <strong>./build/pysimulavr/_pysimulavr.*.so</strong> sia presente dopo la compilazione di cui sopra:</p>
 <div class="highlight"><pre><span></span><code>ls ./build/pysimulavr/_pysimulavr.*.so
 </code></pre></div>
 
-<p>This commmand should report a specific file (e.g. <strong>./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so</strong>) and not an error.</p>
-<p>If you are on a Debian-based system (Debian, Ubuntu, etc.) you can install the following packages and generate *.deb files for system-wide installation of simulavr:</p>
+<p>Questo comando dovrebbe segnalare un file specifico (ad es. <strong>./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so</strong>) e non un errore.</p>
+<p>Se utilizzi un sistema basato su Debian (Debian, Ubuntu, ecc.) puoi installare i seguenti pacchetti e generare file *.deb per l'installazione di simulavr a livello di sistema:</p>
 <div class="highlight"><pre><span></span><code>sudo apt update
 sudo apt install g++ make cmake swig rst2pdf help2man texinfo
 make cfgclean python debian
 sudo dpkg -i build/debian/python3-simulavr*.deb
 </code></pre></div>
 
-<p>To compile Klipper for use in simulavr, run:</p>
+<p>Per compilare Klipper per l'uso in simulavr, eseguire:</p>
 <div class="highlight"><pre><span></span><code>cd /path/to/klipper
 make menuconfig
 </code></pre></div>
 
-<p>and compile the micro-controller software for an AVR atmega644p and select SIMULAVR software emulation support. Then one can compile Klipper (run <code>make</code>) and then start the simulation with:</p>
+<p>e compilare il software del microcontrollore per un AVR atmega644p e selezionare il supporto per l'emulazione del software SIMULAVR. Quindi si può compilare Klipper (eseguire <code>make</code>) e quindi avviare la simulazione con:</p>
 <div class="highlight"><pre><span></span><code>PYTHONPATH=/path/to/simulavr/build/pysimulavr/ ./scripts/avrsim.py out/klipper.elf
 </code></pre></div>
 
-<p>Note that if you have installed python3-simulavr system-wide, you do not need to set <code>PYTHONPATH</code>, and can simply run the simulator as</p>
+<p>Nota che se hai installato python3-simulavr a livello di sistema, non è necessario impostare <code>PYTHONPATH</code> e puoi semplicemente eseguire il simulatore come</p>
 <div class="highlight"><pre><span></span><code>./scripts/avrsim.py out/klipper.elf
 </code></pre></div>
 
-<p>Then, with simulavr running in another window, one can run the following to read gcode from a file (eg, "test.gcode"), process it with Klippy, and send it to Klipper running in simulavr (see <a href="Installation.html">installation</a> for the steps necessary to build the python virtual environment):</p>
+<p>Quindi, con simulavr in esecuzione in un'altra finestra, è possibile eseguire quanto segue per leggere gcode da un file (ad es. "test.gcode"), elaborarlo con Klippy e inviarlo a Klipper in esecuzione in simulavr (vedere <a href="Installazione .md">installazione</a> per i passaggi necessari per costruire l'ambiente virtuale Python):</p>
 <div class="highlight"><pre><span></span><code>~/klippy-env/bin/python ./klippy/klippy.py config/generic-simulavr.cfg -i test.gcode -v
 </code></pre></div>
 
-<h3 id="using-simulavr-with-gtkwave">Using simulavr with gtkwave<a class="headerlink" href="#using-simulavr-with-gtkwave" title="Permanent link">&para;</a></h3>
-<p>One useful feature of simulavr is its ability to create signal wave generation files with the exact timing of events. To do this, follow the directions above, but run avrsim.py with a command-line like the following:</p>
+<h3 id="utilizzo-di-simulavr-con-gtkwave">Utilizzo di simulavr con gtkwave<a class="headerlink" href="#utilizzo-di-simulavr-con-gtkwave" title="Permanent link">&para;</a></h3>
+<p>Una caratteristica utile di simulavr è la sua capacità di creare file di generazione di onde di segnale con l'esatta sincronizzazione degli eventi. Per fare ciò, segui le istruzioni sopra, ma esegui avrsim.py con una riga di comando come la seguente:</p>
 <div class="highlight"><pre><span></span><code>PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py out/klipper.elf -t PORTA.PORT,PORTC.PORT
 </code></pre></div>
 
-<p>The above would create a file <strong>avrsim.vcd</strong> with information on each change to the GPIOs on PORTA and PORTB. This could then be viewed using gtkwave with:</p>
+<p>Quanto sopra creerebbe un file <strong>avrsim.vcd</strong> con informazioni su ogni modifica ai GPIO su PORTA e PORTB. Questo potrebbe quindi essere visualizzato usando gtkwave con:</p>
 <div class="highlight"><pre><span></span><code>gtkwave avrsim.vcd
 </code></pre></div>
 

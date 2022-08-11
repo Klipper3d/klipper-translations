@@ -1,21 +1,28 @@
 # wilmouths <wilmouthsteven@gmail.com>, 2021.
+# Tl <rflma99@pm.me>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-01 10:34+0000\n"
-"Last-Translator: wilmouths <wilmouthsteven@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/packaging/fr/>\n"
+"PO-Revision-Date: 2022-08-10 21:21+0000\n"
+"Last-Translator: Tl <rflma99@pm.me>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/packaging/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
+#, fuzzy
 msgid ""
 "Klipper is somewhat of a packaging anomaly among python programs, as it "
 "doesn't use setuptools to build and install. Some notes regarding how best "
 "to package it are as follows:"
 msgstr ""
+"Klipper peut etre considéré comme une anomalie de packaging au sein des "
+"programmes Python, car il ne requière pas d'outils de configuration pour "
+"etre construit et installé.  \n"
+"Quelques  notes en ce qui concerne comment package au mieux sont :"
 
 msgid "C modules"
 msgstr ""

@@ -2802,7 +2802,7 @@
 <h3 id="configfile">[configfile]<a class="headerlink" href="#configfile" title="Permanent link">&para;</a></h3>
 <p>The configfile module is automatically loaded.</p>
 <h4 id="save_config">SAVE_CONFIG<a class="headerlink" href="#save_config" title="Permanent link">&para;</a></h4>
-<p><code>SAVE_CONFIG</code>: This command will overwrite the main printer config file and restart the host software. This command is used in conjunction with other calibration commands to store the results of calibration tests.</p>
+<p><code>SAVE_CONFIG</code>: questo comando sovrascriverà il file di configurazione della stampante principale e riavvierà il software host. Questo comando viene utilizzato insieme ad altri comandi di calibrazione per memorizzare i risultati dei test di calibrazione.</p>
 <h3 id="delayed_gcode">[delayed_gcode]<a class="headerlink" href="#delayed_gcode" title="Permanent link">&para;</a></h3>
 <p>The following command is enabled if a <a href="Config_Reference.html#delayed_gcode">delayed_gcode config section</a> has been enabled (also see the <a href="Command_Templates.html#delayed-gcodes">template guide</a>).</p>
 <h4 id="update_delayed_gcode">UPDATE_DELAYED_GCODE<a class="headerlink" href="#update_delayed_gcode" title="Permanent link">&para;</a></h4>
@@ -2849,7 +2849,7 @@
 <ul>
 <li><code>NAME</code>: questo parametro è obbligatorio. È l'identificatore utilizzato da altri comandi in questo modulo.</li>
 <li><code>CENTER</code>: una coordinata X,Y per l'oggetto.</li>
-<li><code>POLYGON</code>: An array of X,Y coordinates that provide an outline for the object.</li>
+<li><code>POLYGON</code>: Un array di coordinate X,Y che fornisce un contorno per l'oggetto.</li>
 </ul>
 <p>When the <code>RESET</code> parameter is provided, all defined objects will be cleared, and the <code>[exclude_object]</code> module will be reset.</p>
 <h4 id="exclude_object_start"><code>EXCLUDE_OBJECT_START</code><a class="headerlink" href="#exclude_object_start" title="Permanent link">&para;</a></h4>
@@ -2902,7 +2902,7 @@
 <h3 id="gcode">[gcode]<a class="headerlink" href="#gcode" title="Permanent link">&para;</a></h3>
 <p>The gcode module is automatically loaded.</p>
 <h4 id="restart">RESTART<a class="headerlink" href="#restart" title="Permanent link">&para;</a></h4>
-<p><code>RESTART</code>: This will cause the host software to reload its config and perform an internal reset. This command will not clear error state from the micro-controller (see FIRMWARE_RESTART) nor will it load new software (see <a href="FAQ.html#how-do-i-upgrade-to-the-latest-software">the FAQ</a>).</p>
+<p><code>RESTART</code>: Ciò farà sì che il software host ricarichi la sua configurazione ed esegua un ripristino interno. Questo comando non cancellerà lo stato di errore dal microcontrollore (vedi FIRMWARE_RESTART) né caricherà nuovo software (vedi <a href="FAQ.html#how-do-i-upgrade-to-the-latest-software">FAQ</a>) .</p>
 <h4 id="firmware_restart">FIRMWARE_RESTART<a class="headerlink" href="#firmware_restart" title="Permanent link">&para;</a></h4>
 <p><code>FIRMWARE_RESTART</code>: Questo è simile a un comando RESTART, ma cancella anche qualsiasi stato di errore dal microcontrollore.</p>
 <h4 id="status">STATUS<a class="headerlink" href="#status" title="Permanent link">&para;</a></h4>
@@ -2925,9 +2925,9 @@
 <h4 id="set_gcode_offset">SET_GCODE_OFFSET<a class="headerlink" href="#set_gcode_offset" title="Permanent link">&para;</a></h4>
 <p><code>SET_GCODE_OFFSET [X=&lt;pos&gt;|X_ADJUST=&lt;adjust&gt;] [Y=&lt;pos&gt;|Y_ADJUST=&lt;adjust&gt;] [Z=&lt;pos&gt;|Z_ADJUST=&lt;adjust&gt;] [MOVE=1 [MOVE_SPEED=&lt;speed&gt;]]</code>: Set a positional offset to apply to future G-Code commands. This is commonly used to virtually change the Z bed offset or to set nozzle XY offsets when switching extruders. For example, if "SET_GCODE_OFFSET Z=0.2" is sent, then future G-Code moves will have 0.2mm added to their Z height. If the X_ADJUST style parameters are used, then the adjustment will be added to any existing offset (eg, "SET_GCODE_OFFSET Z=-0.2" followed by "SET_GCODE_OFFSET Z_ADJUST=0.3" would result in a total Z offset of 0.1). If "MOVE=1" is specified then a toolhead move will be issued to apply the given offset (otherwise the offset will take effect on the next absolute G-Code move that specifies the given axis). If "MOVE_SPEED" is specified then the toolhead move will be performed with the given speed (in mm/s); otherwise the toolhead move will use the last specified G-Code speed.</p>
 <h4 id="save_gcode_state">SAVE_GCODE_STATE<a class="headerlink" href="#save_gcode_state" title="Permanent link">&para;</a></h4>
-<p><code>SAVE_GCODE_STATE [NAME=&lt;state_name&gt;]</code>: Save the current g-code coordinate parsing state. Saving and restoring the g-code state is useful in scripts and macros. This command saves the current g-code absolute coordinate mode (G90/G91), absolute extrude mode (M82/M83), origin (G92), offset (SET_GCODE_OFFSET), speed override (M220), extruder override (M221), move speed, current XYZ position, and relative extruder "E" position. If NAME is provided it allows one to name the saved state to the given string. If NAME is not provided it defaults to "default".</p>
+<p><code>SAVE_GCODE_STATE [NAME=&lt;nome_stato&gt;]</code>: salva lo stato di analisi delle coordinate del G-code corrente. Il salvataggio e il ripristino dello stato del G-code è utile negli script e nelle macro. Questo comando salva la modalità di coordinate assolute del G-code corrente (G90/G91), la modalità di estrusione assoluta (M82/M83), l'origine (G92), l'offset (SET_GCODE_OFFSET), l'override della velocità (M220), l'override dell'estrusore (M221), la velocità di spostamento , la posizione XYZ corrente e la posizione relativa dell'estrusore "E". Se viene fornito NAME, consente di assegnare un nome allo stato salvato alla stringa data. Se NAME non viene fornito, il valore predefinito è "predefinito".</p>
 <h4 id="restore_gcode_state">RESTORE_GCODE_STATE<a class="headerlink" href="#restore_gcode_state" title="Permanent link">&para;</a></h4>
-<p><code>RESTORE_GCODE_STATE [NAME=&lt;state_name&gt;] [MOVE=1 [MOVE_SPEED=&lt;speed&gt;]]</code>: Restore a state previously saved via SAVE_GCODE_STATE. If "MOVE=1" is specified then a toolhead move will be issued to move back to the previous XYZ position. If "MOVE_SPEED" is specified then the toolhead move will be performed with the given speed (in mm/s); otherwise the toolhead move will use the restored g-code speed.</p>
+<p><code>RESTORE_GCODE_STATE [NAME=&lt;nome_stato&gt;] [MOVE=1 [MOVE_SPEED=&lt;velocità&gt;]]</code>: ripristina uno stato precedentemente salvato tramite SAVE_GCODE_STATE. Se viene specificato "MOVE=1", verrà emesso un movimento della testa utensile per tornare alla posizione XYZ precedente. Se viene specificato "MOVE_SPEED", lo spostamento della testa utensile verrà eseguito con la velocità data (in mm/s); in caso contrario, lo spostamento della testa utensile utilizzerà la velocità del codice g ripristinata.</p>
 <h3 id="hall_filament_width_sensor">[hall_filament_width_sensor]<a class="headerlink" href="#hall_filament_width_sensor" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when the <a href="Config_Reference.html#tsl1401cl_filament_width_sensor">tsl1401cl filament width sensor config section</a> or <a href="Config_Reference.html#hall_filament_width_sensor">hall filament width sensor config section</a> is enabled (also see <a href="TSL1401CL_Filament_Width_Sensor.html">TSLl401CL Filament Width Sensor</a> and <a href="Hall_Filament_Width_Sensor.html">Hall Filament Width Sensor</a>):</p>
 <h4 id="query_filament_width">QUERY_FILAMENT_WIDTH<a class="headerlink" href="#query_filament_width" title="Permanent link">&para;</a></h4>
@@ -3013,7 +3013,7 @@
 <h4 id="pause">PAUSE<a class="headerlink" href="#pause" title="Permanent link">&para;</a></h4>
 <p><code>PAUSE</code>: mette in pausa la stampa corrente. La posizione attuale viene acquisita per la ripresa al ripristino.</p>
 <h4 id="resume">RESUME<a class="headerlink" href="#resume" title="Permanent link">&para;</a></h4>
-<p><code>RESUME [VELOCITY=&lt;value&gt;]</code>: Resumes the print from a pause, first restoring the previously captured position. The VELOCITY parameter determines the speed at which the tool should return to the original captured position.</p>
+<p><code>RESUME [VELOCITY=&lt;value&gt;]</code>: riprende la stampa da una pausa, ripristinando prima la posizione precedentemente acquisita. Il parametro VELOCITY determina la velocità alla quale l'utensile deve tornare alla posizione originale acquisita.</p>
 <h4 id="clear_pause">CLEAR_PAUSE<a class="headerlink" href="#clear_pause" title="Permanent link">&para;</a></h4>
 <p><code>CLEAR_PAUSE</code>: cancella lo stato di pausa corrente senza riprendere la stampa. Questo è utile se si decide di annullare una stampa dopo un PAUSE. Si consiglia di aggiungerlo al gcode iniziale per assicurarsi che lo stato in pausa sia aggiornato per ogni stampa.</p>
 <h4 id="cancel_print">CANCEL_PRINT<a class="headerlink" href="#cancel_print" title="Permanent link">&para;</a></h4>
@@ -3059,23 +3059,23 @@
 <ul>
 <li><code>RESPOND MSG="&lt;message&gt;"</code>: echo il messaggio preceduto dal prefisso predefinito configurato (o <code>echo:</code> se non è configurato alcun prefisso).</li>
 <li><code>RESPOND TYPE=echo MSG="&lt;message&gt;"</code>: echo del messaggio preceduto da <code>echo:</code>.</li>
-<li><code>RESPOND TYPE=echo_no_space MSG="&lt;message&gt;"</code>: echo the message prepended with <code>echo:</code> without a space between prefix and message, helpful for compatibility with some octoprint plugins that expect very specific formatting.</li>
+<li><code>RESPOND TYPE=echo_no_space MSG="&lt;messaggio&gt;"</code>: fa eco al messaggio preceduto da <code>echo:</code> senza uno spazio tra prefisso e messaggio, utile per la compatibilità con alcuni plugin di octoprint che prevedono una formattazione molto specifica.</li>
 <li><code>RESPOND TYPE=command MSG="&lt;message&gt;"</code>: echo il messaggio preceduto da <code>//</code>. OctoPrint può essere configurato per rispondere a questi messaggi (ad es. <code>RESPOND TYPE=command MSG=action:pause</code>).</li>
-<li><code>RESPOND TYPE=error MSG="&lt;message&gt;"</code>: echo the message prepended with <code>!!</code>.</li>
+<li><code>RESPOND TYPE=error MSG="&lt;messaggio&gt;"</code>: fa eco al messaggio preceduto da <code>!!</code>.</li>
 <li><code>RESPOND PREFIX=&lt;prefix&gt; MSG="&lt;message&gt;"</code>: echo il messaggio preceduto da <code>&lt;prefix&gt;</code>. (Il parametro <code>PREFIX</code> avrà la priorità sul parametro <code>TYPE</code>)</li>
 </ul>
 <h3 id="save_variables">[save_variables]<a class="headerlink" href="#save_variables" title="Permanent link">&para;</a></h3>
 <p>The following command is enabled if a <a href="Config_Reference.html#save_variables">save_variables config section</a> has been enabled.</p>
 <h4 id="save_variable">SAVE_VARIABLE<a class="headerlink" href="#save_variable" title="Permanent link">&para;</a></h4>
-<p><code>SAVE_VARIABLE VARIABLE=&lt;name&gt; VALUE=&lt;value&gt;</code>: Saves the variable to disk so that it can be used across restarts. All stored variables are loaded into the <code>printer.save_variables.variables</code> dict at startup and can be used in gcode macros. The provided VALUE is parsed as a Python literal.</p>
+<p><code>SAVE_VARIABLE VARIABLE=&lt;nome&gt; VALUE=&lt;valore&gt;</code>: salva la variabile su disco in modo che possa essere utilizzata tra i riavvii. Tutte le variabili memorizzate vengono caricate nel dict <code>printer.save_variables.variables</code> all'avvio e possono essere utilizzate nelle macro gcode. Il VALUE fornito viene analizzato come un valore letterale Python.</p>
 <h3 id="screws_tilt_adjust">[screws_tilt_adjust]<a class="headerlink" href="#screws_tilt_adjust" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when the <a href="Config_Reference.html#screws_tilt_adjust">screws_tilt_adjust config section</a> is enabled (also see the <a href="Manual_Level.html#adjusting-bed-leveling-screws-using-the-bed-probe">manual level guide</a>).</p>
 <h4 id="screws_tilt_calculate">SCREWS_TILT_CALCULATE<a class="headerlink" href="#screws_tilt_calculate" title="Permanent link">&para;</a></h4>
-<p><code>SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=&lt;value&gt;] [&lt;probe_parameter&gt;=&lt;value&gt;]</code>: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) probing the z height and calculate the number of knob turns to adjust the bed level. If DIRECTION is specified, the knob turns will all be in the same direction, clockwise (CW) or counterclockwise (CCW). See the PROBE command for details on the optional probe parameters. IMPORTANT: You MUST always do a G28 before using this command. If MAX_DEVIATION is specified, the command will raise a gcode error if any difference in the screw height relative to the base screw height is greater than the value provided.</p>
+<p><code>SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=&lt;value&gt;] [&lt;probe_parameter&gt;=&lt;value&gt;]</code>: Questo comando richiamerà lo strumento di regolazione delle viti del piatto. Comanderà l'ugello in diverse posizioni (come definito nel file di configurazione) sondando l'altezza z e calcolerà il numero di giri della manopola per regolare il livello del piatto. Se si specifica DIRECTION, le rotazioni della manopola saranno tutte nella stessa direzione, in senso orario (CW) o in senso antiorario (CCW). Vedere il comando PROBE per i dettagli sui parametri della sonda opzionali. IMPORTANTE: DEVI sempre eseguire un G28 prima di utilizzare questo comando. Se viene specificato MAX_DEVIATION, il comando genererà un errore gcode se qualsiasi differenza nell'altezza della vite rispetto all'altezza della vite di base è maggiore del valore fornito.</p>
 <h3 id="sdcard_loop">[sdcard_loop]<a class="headerlink" href="#sdcard_loop" title="Permanent link">&para;</a></h3>
 <p>When the <a href="Config_Reference.html#sdcard_loop">sdcard_loop config section</a> is enabled, the following extended commands are available.</p>
 <h4 id="sdcard_loop_begin">SDCARD_LOOP_BEGIN<a class="headerlink" href="#sdcard_loop_begin" title="Permanent link">&para;</a></h4>
-<p><code>SDCARD_LOOP_BEGIN COUNT=&lt;count&gt;</code>: Begin a looped section in the SD print. A count of 0 indicates that the section should be looped indefinitely.</p>
+<p><code>SDCARD_LOOP_BEGIN COUNT=&lt;count&gt;</code>: inizia una sezione in loop nella stampa SD. Un conteggio pari a 0 indica che la sezione deve essere ripetuta indefinitamente.</p>
 <h4 id="sdcard_loop_end">SDCARD_LOOP_END<a class="headerlink" href="#sdcard_loop_end" title="Permanent link">&para;</a></h4>
 <p><code>SDCARD_LOOP_END</code>: End a looped section in the SD print.</p>
 <h4 id="sdcard_loop_desist">SDCARD_LOOP_DESIST<a class="headerlink" href="#sdcard_loop_desist" title="Permanent link">&para;</a></h4>
