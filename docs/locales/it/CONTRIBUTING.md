@@ -4,38 +4,38 @@ Grazie per aver contribuito a Klipper! Questo documento descrive il processo per
 
 Consulta la [contact page](Contact.md) per informazioni sulla segnalazione di un problema o per i dettagli su come contattare gli sviluppatori.
 
-## Overview of Contribution Process
+## Panoramica del processo di contribuzione
 
 I contributi a Klipper seguono generalmente un processo di alto livello:
 
-1. A submitter starts by creating a [GitHub Pull Request](https://github.com/Klipper3d/klipper/pulls) when a submission is ready for widespread deployment.
-1. When a [reviewer](#reviewers) is available to [review](#what-to-expect-in-a-review) the submission, they will assign themselves to the Pull Request on GitHub. The goal of the review is to look for defects and to check that the submission follows documented guidelines.
-1. After a successful review, the reviewer will "approve the review" on GitHub and a [maintainer](#reviewers) will commit the change to the Klipper master branch.
+1. Inizia creando una [Richiesta pull GitHub](https://github.com/Klipper3d/klipper/pulls) quando un proposta è pronta per la diffusione.
+1. Quando un [reviewer](#reviewers) è disponibile per [review](#what-to-expect-in-a-review) l'invio, si assegnerà la richiesta pull su GitHub. L'obiettivo della revisione è cercare i difetti e verificare che la proposta segua linee guida documentate.
+1. Dopo una revisione riuscita, il revisore "approverà la revisione" su GitHub e un [maintainer](#reviewers) eseguirà il commit della modifica al ramo principale di Klipper.
 
-When working on enhancements, consider starting (or contributing to) a topic on [Klipper Discourse](Contact.md). An ongoing discussion on the forum can improve visibility of development work and may attract others interested in testing new work.
+Quando lavori sui miglioramenti, considera di iniziare (o contribuire a) un argomento su [Klipper Discourse](Contact.md). Una discussione in corso sul forum può migliorare la visibilità del lavoro di sviluppo e può attirare altri interessati a testare nuovi lavori.
 
-## What to expect in a review
+## Cosa aspettarsi da una revisione
 
-Contributions to Klipper are reviewed before merging. The primary goal of the review process is to check for defects and to check that the submission follows guidelines specified in the Klipper documentation.
+I contributi a Klipper vengono rivisti prima del merging. L'obiettivo principale del processo di revisione è verificare la presenza di difetti e verificare che la presentazione segua le linee guida specificate nella documentazione di Klipper.
 
-It is understood that there are many ways to accomplish a task; it is not the intent of the review to discuss the "best" implementation. Where possible, review discussions focused on facts and measurements are preferable.
+Resta inteso che ci sono molti modi per portare a termine un compito; non è intenzione della revisione discutere la "migliore" implementazione. Ove possibile, sono preferibili discussioni di revisione incentrate su fatti e misurazioni.
 
-The majority of submissions will result in feedback from a review. Be prepared to obtain feedback, provide further details, and to update the submission if needed.
+La maggior parte degli invii otterrà in feedback da una recensione. Preparati a ottenere feedback, fornire ulteriori dettagli e aggiornare l'invio, se necessario.
 
-Common things a reviewer will look for:
+Cose comuni che un revisore cercherà:
 
 
-   1. Is the submission free of defects and is it ready to be widely deployed?Submitters are expected to test their changes prior to submission. The reviewers look for errors, but they don't, in general, test submissions. An accepted submission is often deployed to thousands of printers within a few weeks of acceptance. Quality of submissions is therefore considered a priority.
+   1. L'invio è privo di difetti ed è pronto per essere diffuso?I realizzatori dei contributi sono tenuti a testare le loro modifiche prima dell'invio. I revisori cercano gli errori, ma in generale non testano gli invii. Un invio accettato viene spesso distribuito a migliaia di stampanti entro poche settimane dall'accettazione. La qualità degli invii è quindi considerata una priorità.
 
-   The main [Klipper3d/klipper](https://github.com/Klipper3d/klipper) GitHub repository does not accept experimental work. Submitters should perform experimentation, debugging, and testing in their own repositories. The [Klipper Discourse](Contact.md) server is a good place to raise awareness of new work and to find users interested in providing real-world feedback.
+   Il repository GitHub principale [Klipper3d/klipper](https://github.com/Klipper3d/klipper) non accetta lavori sperimentali. I realizzatori di contributi devono eseguire la sperimentazione, il debug e il test nei propri repository. Il server [Klipper Discourse](Contact.md) è un buon posto per aumentare la consapevolezza del nuovo lavoro e per trovare utenti interessati a fornire feedback nel mondo reale.
 
-   Submissions must pass all [regression test cases](Debugging.md).
+   Gli invii devono superare tutti i [test di regressione](Debugging.md).
 
-   Code submissions should not contain excessive debugging code, debugging options, nor run-time debug logging.
+   Gli contributi di codice non devono contenere codice di debug eccessivo, opzioni di debug o registrazione del debug in fase di runtime.
 
-   Comments in code submissions should focus on enhancing code maintenance. Submissions should not contain "commented out code" nor excessive comments describing past implementations. There should not be excessive "todo" comments.
+   I commenti negli invii di codice dovrebbero concentrarsi sul miglioramento della manutenzione del codice. Gli invii non devono contenere "codice commentato" né commenti eccessivi che descrivono implementazioni passate. Non dovrebbero esserci commenti "todo" eccessivi.
 
-   Updates to documentation should not declare that they are a "work in progress".
+   Gli aggiornamenti alla documentazione non devono dichiarare che si tratta di un "work in progress".
 
    1. Does the submission provide a "high impact" benefit to real-world users performing real-world tasks?Reviewers need to identify, at least in their own minds, roughly "who the target audience is", a rough scale of "the size of that audience", the "benefit" they will obtain, how the "benefit is measured", and the "results of those measurement tests". In most cases this will be obvious to both the submitter and the reviewer, and it is not explicitly stated during a review.
 
@@ -53,26 +53,26 @@ Common things a reviewer will look for:
 
    New modules, new options, and new parameters should not provide similar functionality to existing modules - if the differences are arbitrary than it's preferable to utilize the existing system or refactor the existing code.
 
-   1. Is the copyright of the submission clear, non-gratuitous, and compatible?New C files and Python files should have an unambiguous copyright statement. See the existing files for the preferred format. Declaring a copyright on an existing file when making minor changes to that file is discouraged.
+   1. Il copyright dell'invio è chiaro, non gratuito e compatibile?I nuovi file C e Python dovrebbero avere una dichiarazione di copyright univoca. Vedere i file esistenti per il formato preferito. È sconsigliato dichiarare un copyright su un file esistente quando si apportano modifiche minori a quel file.
 
-   Code taken from 3rd party sources must be compatible with the Klipper license (GNU GPLv3). Large 3rd party code additions should be added to the `lib/` directory (and follow the format described in [lib/README](../lib/README)).
+   Il codice prelevato da fonti di terze parti deve essere compatibile con la licenza Klipper (GNU GPLv3). Grandi aggiunte di codice di terze parti dovrebbero essere aggiunte alla directory `lib/` (e seguire il formato descritto in [lib/README](../lib/README)).
 
-   Submitters must provide a [Signed-off-by line](#format-of-commit-messages) using their full real name. It indicates the submitter agrees with the [developer certificate of origin](developer-certificate-of-origin).
+   I mittenti devono fornire una [Signed-off-line](#format-of-commit-messages) utilizzando il loro vero nome completo. Indica che il mittente è d'accordo con il [developer certificate of origin](developer-certificate-of-origin).
 
-   1. Does the submission follow guidelines specified in the Klipper documentation?In particular, code should follow the guidelines in <Code_Overview.md> and config files should follow the guidelines in <Example_Configs.md>.
+   1. L'invio segue le linee guida specificate nella documentazione di Klipper?In particolare, il codice deve seguire le linee guida in <Code_Overview.md> e i file di configurazione devono seguire le linee guida in <Example_Configs.md>.
 
-   1. Is the Klipper documentation updated to reflect new changes?At a minimum, the reference documentation must be updated with corresponding changes to the code:
+   1. La documentazione di Klipper è aggiornata per riflettere le nuove modifiche?Come minimo, la documentazione di riferimento deve essere aggiornata con le relative modifiche al codice:
 
-   * All commands and command parameters must be documented in <G-Codes.md>.
-   * All user facing modules and their config parameters must be documented in <Config_Reference.md>.
-   * All exported "status variables" must be documented in <Status_Reference.md>.
-   * All new "webhooks" and their parameters must be documented in <API_Server.md>.
-   * Any change that makes a non-backwards compatible change to a command or config file setting must be documented in <Config_Changes.md>.
+   * Tutti i comandi e i relativi parametri devono essere documentati in <G-Codes.md>.
+   * Tutti i moduli rivolti all'utente e i relativi parametri di configurazione devono essere documentati in <Config_Reference.md>.
+   * Tutte le "variabili di stato" esportate devono essere documentate in <Status_Reference.md>.
+   * Tutti i nuovi "webhook" e i relativi parametri devono essere documentati in <API_Server.md>.
+   * Qualsiasi modifica che apporti una modifica non compatibile con le versioni precedenti a un comando o a un'impostazione del file di configurazione deve essere documentata in <Config_Changes.md>.
 
-New documents should be added to <Overview.md> and be added to the website index [docs/_klipper3d/mkdocs.yml](../docs/_klipper3d/mkdocs.yml).
+I nuovi documenti dovrebbero essere aggiunti a <Overview.md> e all'indice del sito web [docs/_klipper3d/mkdocs.yml](../docs/_klipper3d/mkdocs.yml).
 
 
-   1. Are commits well formed, address a single topic per commit, and independent?Commit messages should follow the [preferred format](#format-of-commit-messages).
+   1. I commit sono ben formati, affrontano un singolo argomento per commit e sono indipendenti?Commit messages should follow the [preferred format](#format-of-commit-messages).
 
    Commits must not have a merge conflict. New additions to the Klipper master branch are always done via a "rebase" or "squash and rebase". It is generally not necessary for submitters to re-merge their submission on every update to the Klipper master repository. However, if there is a merge conflict, then submitters are recommended to use `git rebase` to address the conflict.
 
@@ -118,18 +118,18 @@ The Klipper "maintainers" are:
 Each commit should have a commit message formatted similar to the following:
 
 ```
-module: Capitalized, short (50 chars or less) summary
+modulo: Riepilogo breve (50 caratteri o meno) in maiuscolo
 
-More detailed explanatory text, if necessary.  Wrap it to about 75
-characters or so.  In some contexts, the first line is treated as the
-subject of an email and the rest of the text as the body.  The blank
-line separating the summary from the body is critical (unless you omit
-the body entirely); tools like rebase can get confused if you run the
-two together.
+Testo esplicativo più dettagliato, se necessario. Incolonna a circa
+75 caratteri o giù di lì. In alcuni contesti, la prima riga è trattata 
+come l'oggetto di un'e-mail e il resto del testo come corpo. La
+riga vuota che separa il riassunto dal corpo è critica (a meno che
+non si ometta del tutto il corpo); strumenti come rebase possono
+confondersi se li metti due insieme.
 
-Further paragraphs come after blank lines..
+Ulteriori paragrafi vengono dopo le righe vuote..
 
-Signed-off-by: My Name <myemail@example.org>
+Firmato da: Il mio nome <myemail@example.org>
 ```
 
 In the above example, `module` should be the name of a file or directory in the repository (without a file extension). For example, `clocksync: Fix typo in pause() call at connect time`. The purpose of specifying a module name in the commit message is to help provide context for the commit comments.
@@ -144,7 +144,7 @@ In the above example, `module` should be the name of a file or directory in the 
 - [ ] All titles (H1) are translated
 - [ ] An updated navigation hierarchy PR in klipper-translations.
 
-To reduce the frustration of translating domain-specific terms and gain awareness of the ongoing translations, you can submit a PR modifying the [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md`. Once a translation is ready, the corresponding modification to the Klipper project can be made.
+Per ridurre la frustrazione di tradurre termini specifici del dominio e acquisire consapevolezza delle traduzioni in corso, puoi inviare un PR modificando il [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md `. Una volta che una traduzione è pronta, è possibile apportare la modifica corrispondente al progetto Klipper.
 
 Se una traduzione esiste già nel repository Klipper e non soddisfa più l'elenco di controllo di cui sopra, verrà contrassegnata come obsoleta dopo un mese senza aggiornamenti.
 
