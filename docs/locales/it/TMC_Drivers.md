@@ -1,4 +1,4 @@
-# TMC drivers
+# Driver TMC
 
 Questo documento fornisce informazioni sull'utilizzo dei driver Trinamic per motori stepper in modalità SPI/UART su Klipper.
 
@@ -6,39 +6,39 @@ Klipper può anche utilizzare i driver Trinamic nella loro "modalità standalone
 
 Oltre a questo documento, assicurati di rivedere il [riferimento alla configurazione del driver TMC](Config_Reference.md#tmc-stepper-driver-configuration).
 
-## Tuning motor current
+## Regolazione della corrente del motore
 
-A higher driver current increases positional accuracy and torque. However, a higher current also increases the heat produced by the stepper motor and the stepper motor driver. If the stepper motor driver gets too hot it will disable itself and Klipper will report an error. If the stepper motor gets too hot, it loses torque and positional accuracy. (If it gets very hot it may also melt plastic parts attached to it or near it.)
+Una corrente più alta del driver aumenta la precisione del posizionamento e la coppia. Tuttavia, una corrente più elevata aumenta anche il calore prodotto dal motore passo-passo e dal driver del motore passo-passo. Se il driver del motore passo-passo si surriscalda, si disabiliterà e Klipper segnalerà un errore. Se il motore passo-passo si surriscalda, perde coppia e precisione di posizionamento. (Se diventa molto caldo, potrebbe anche fondere le parti di plastica attaccate o vicino ad esso.)
 
-As a general tuning tip, prefer higher current values as long as the stepper motor does not get too hot and the stepper motor driver does not report warnings or errors. In general, it is okay for the stepper motor to feel warm, but it should not become so hot that it is painful to touch.
+Come consiglio generale per l'ottimizzazione, preferire valori di corrente più elevati purché il motore passo-passo non si surriscaldi troppo e il driver del motore passo-passo non segnali avvisi o errori. In generale, va bene che il motore passo-passo sia caldo, ma non dovrebbe diventare così caldo da risultare doloroso al tatto.
 
-## Prefer to not specify a hold_current
+## Preferibilmente non specificare un hold_current
 
-If one configures a `hold_current` then the TMC driver can reduce current to the stepper motor when it detects that the stepper is not moving. However, changing motor current may itself introduce motor movement. This may occur due to "detent forces" within the stepper motor (the permanent magnet in the rotor pulls towards the iron teeth in the stator) or due to external forces on the axis carriage.
+Se si configura un `hold_current`, il driver TMC può ridurre la corrente al motore passo-passo quando rileva che il passo-passo non si sta muovendo. Tuttavia, la variazione della corrente del motore può di per sé introdurre il movimento del motore. Ciò può verificarsi a causa di "forze di arresto" all'interno del motore passo-passo (il magnete permanente nel rotore tira verso i denti di ferro nello statore) o a causa di forze esterne sul carrello dell'asse.
 
-Most stepper motors will not obtain a significant benefit to reducing current during normal prints, because few printing moves will leave a stepper motor idle for sufficiently long to activate the `hold_current` feature. And, it is unlikely that one would want to introduce subtle print artifacts to the few printing moves that do leave a stepper idle sufficiently long.
+La maggior parte dei motori passo-passo non otterrà un beneficio significativo dalla riduzione della corrente durante le normali stampe, perché pochi movimenti di stampa lasceranno un motore passo-passo inattivo per un tempo sufficientemente lungo da attivare la funzione `hold_current`. Ed è improbabile che si vogliano introdurre sottili artefatti di stampa nelle poche mosse di stampa che lasciano uno stepper inattivo sufficientemente a lungo.
 
-If one wishes to reduce current to motors during print start routines, then consider issuing [SET_TMC_CURRENT](G-Codes.md#set_tmc_current) commands in a [START_PRINT macro](Slicers.md#klipper-gcode_macro) to adjust the current before and after normal printing moves.
+Se si desidera ridurre la corrente ai motori durante le routine di avvio della stampa, considerare l'emissione di comandi [SET_TMC_CURRENT](G-Codes.md#set_tmc_current) in una [START_PRINT macro](Slicers.md#klipper-gcode_macro) per regolare la corrente prima e dopo i normali spostamenti di stampa.
 
-Some printers with dedicated Z motors that are idle during normal printing moves (no bed_mesh, no bed_tilt, no Z skew_correction, no "vase mode" prints, etc.) may find that Z motors do run cooler with a `hold_current`. If implementing this then be sure to take into account this type of uncommanded Z axis movement during bed leveling, bed probing, probe calibration, and similar. The `driver_TPOWERDOWN` and `driver_IHOLDDELAY` should also be calibrated accordingly. If unsure, prefer to not specify a `hold_current`.
+Alcune stampanti con motori Z dedicati che sono inattivi durante i normali movimenti di stampa (nessuna bed_mesho, nessuna inclinazione_piatto, nessuna correzione_inclinazione Z, nessuna stampa in "modalità vaso", ecc.) potrebbero scoprire che i motori Z funzionano a temperature più basse con un `hold_current`. Se si implementa questo, assicurarsi di prendere in considerazione questo tipo di movimento dell'asse Z non comandato durante il livellamento del piatto, il rilevamento del piatto, la calibrazione della sonda e simili. Anche `driver_TPOWERDOWN` e `driver_IHOLDDELAY` dovrebbero essere calibrati di conseguenza. Se non sei sicuro, preferisci non specificare un `hold_current`.
 
-## Setting "spreadCycle" vs "stealthChop" Mode
+## Impostazione della modalità "spreadCycle" rispetto a "stealthChop"
 
-By default, Klipper places the TMC drivers in "spreadCycle" mode. If the driver supports "stealthChop" then it can be enabled by adding `stealthchop_threshold: 999999` to the TMC config section.
+Per impostazione predefinita, Klipper mette i driver TMC in modalità "spreadCycle". Se il driver supporta "stealthChop", può essere abilitato aggiungendo `stealthchop_threshold: 999999` alla sezione di configurazione di TMC.
 
-In general, spreadCycle mode provides greater torque and greater positional accuracy than stealthChop mode. However, stealthChop mode may produce significantly lower audible noise on some printers.
+In generale, la modalità SpreadCycle fornisce una coppia maggiore e una maggiore precisione di posizionamento rispetto alla modalità StealthChop. Tuttavia, la modalità StealthChop può produrre un rumore udibile notevolmente inferiore su alcune stampanti.
 
-Tests comparing modes have shown an increased "positional lag" of around 75% of a full-step during constant velocity moves when using stealthChop mode (for example, on a printer with 40mm rotation_distance and 200 steps_per_rotation, position deviation of constant speed moves increased by ~0.150mm). However, this "delay in obtaining the requested position" may not manifest as a significant print defect and one may prefer the quieter behavior of stealthChop mode.
+I test di confronto delle modalità hanno mostrato un "ritardo posizionale" aumentato di circa il 75% di un passo completo durante i movimenti a velocità costante quando si utilizza la modalità StealthChop (ad esempio, su una stampante con distanza_rotazione di 40 mm e 200 passi_per_rotazione, la deviazione di posizione dei movimenti a velocità costante è aumentata di ~0,150 mm). Tuttavia, questo "ritardo nell'ottenimento della posizione richiesta" potrebbe non manifestarsi come un difetto di stampa significativo e si potrebbe preferire il comportamento più silenzioso della modalità stealthChop.
 
-It is recommended to always use "spreadCycle" mode (by not specifying `stealthchop_threshold`) or to always use "stealthChop" mode (by setting `stealthchop_threshold` to 999999). Unfortunately, the drivers often produce poor and confusing results if the mode changes while the motor is at a non-zero velocity.
+Si consiglia di utilizzare sempre la modalità "spreadCycle" (non specificando `stealthchop_threshold`) o di utilizzare sempre la modalità "stealthChop" (impostando `stealthchop_threshold` su 999999). Sfortunatamente, i driver spesso producono risultati scadenti e confusi se la modalità cambia mentre il motore è a una velocità diversa da zero.
 
-## TMC interpolate setting introduces small position deviation
+## L'impostazione dell'interpolazione TMC introduce una piccola deviazione di posizione
 
-The TMC driver `interpolate` setting may reduce the audible noise of printer movement at the cost of introducing a small systemic positional error. This systemic positional error results from the driver's delay in executing "steps" that Klipper sends it. During constant velocity moves, this delay results in a positional error of nearly half a configured microstep (more precisely, the error is half a microstep distance minus a 512th of a full step distance). For example, on an axis with a 40mm rotation_distance, 200 steps_per_rotation, and 16 microsteps, the systemic error introduced during constant velocity moves is ~0.006mm.
+L'impostazione `interpolate` del driver TMC può ridurre il rumore udibile del movimento della stampante a costo di introdurre un piccolo errore di posizione sistemico. Questo errore di posizione sistematico deriva dal ritardo del driver nell'esecuzione dei "passi" inviati da Klipper. Durante i movimenti a velocità costante, questo ritardo si traduce in un errore di posizione di quasi mezzo micropasso configurato (più precisamente, l'errore è di mezzo micropasso meno un 512esimo di un passo intero). Ad esempio, su un asse con una distanza_rotazione di 40 mm, 200 passi_per_rotazione e 16 micropassi, l'errore sistemico introdotto durante i movimenti a velocità costante è ~0,006 mm.
 
-For best positional accuracy consider using spreadCycle mode and disable interpolation (set `interpolate: False` in the TMC driver config). When configured this way, one may increase the `microstep` setting to reduce audible noise during stepper movement. Typically, a microstep setting of `64` or `128` will have similar audible noise as interpolation, and do so without introducing a systemic positional error.
+Per una migliore precisione di posizionamento, considerare l'utilizzo della modalità SpreadCycle e disabilitare l'interpolazione (impostare `interpolate: False` nella configurazione del driver TMC). Se configurato in questo modo, è possibile aumentare l'impostazione `microstep` per ridurre il rumore udibile durante il movimento del passo-passo. Tipicamente, un'impostazione microstep di `64` o `128` avrà un rumore udibile simile all'interpolazione e lo farà senza introdurre un errore posizionale sistemico.
 
-If using stealthChop mode then the positional inaccuracy from interpolation is small relative to the positional inaccuracy introduced from stealthChop mode. Therefore tuning interpolation is not considered useful when in stealthChop mode, and one can leave interpolation in its default state.
+Se si utilizza la modalità StealthChop, l'imprecisione posizionale dell'interpolazione è piccola rispetto all'imprecisione posizionale introdotta dalla modalità StealthChop. Pertanto l'interpolazione dell'ottimizzazione non è considerata utile in modalità StealthChop e si può lasciare l'interpolazione nel suo stato predefinito.
 
 ## Homing Sensorless
 
@@ -60,7 +60,7 @@ L'homing sensorless funziona meglio a velocità medie del motore. Per velocità 
 
 Sono necessari alcuni prerequisiti per utilizzare l'homing sensorless:
 
-1. A stallGuard capable TMC stepper driver (tmc2130, tmc2209, tmc2660, or tmc5160).
+1. Driver passo-passo TMC compatibile con stallGuard (tmc2130, tmc2209, tmc2660 o tmc5160).
 1. Interfaccia SPI/UART del driver TMC cablata al microcontrollore (la modalità stand-alone non funziona).
 1. Il pin "DIAG" o "SG_TST" appropriato del driver TMC collegato al microcontrollore.
 1. I passaggi nel documento [config checks](Config_checks.md) devono essere eseguiti per confermare che i motori passo-passo siano configurati e funzionino correttamente.
@@ -99,8 +99,8 @@ Assicurati che un'impostazione `hold_current` non sia specificata nella sezione 
 
 ```
 [tmc2209 stepper_x]
-diag_pin: ^PA1      # Set to MCU pin connected to TMC DIAG pin
-driver_SGTHRS: 255  # 255 is most sensitive value, 0 is least sensitive
+diag_pin: ^PA1      # Impostare sul pin MCU collegato al pin TMC DIAG
+driver_SGTHRS: 255  #255 è il valore più sensibile, 0 è il meno sensibile
 ...
 
 [stepper_x]
@@ -113,8 +113,8 @@ Un esempio di configurazione tmc2130 o tmc5160 potrebbe essere simile a:
 
 ```
 [tmc2130 stepper_x]
-diag1_pin: ^!PA1 # Pin connected to TMC DIAG1 pin (or use diag0_pin / DIAG0 pin)
-driver_SGT: -64  # -64 is most sensitive value, 63 is least sensitive
+diag1_pin: ^!PA1 # Pin collegato al pin TMC DIAG1 (o utilizzare pin diag0_pin / DIAG0)
+driver_SGT: -64  # -64 è il valore più sensibile, 63 è il meno sensibile
 ...
 
 [stepper_x]
@@ -127,11 +127,11 @@ Un esempio di configurazione di tmc2660 potrebbe essere simile a:
 
 ```
 [tmc2660 stepper_x]
-driver_SGT: -64     # -64 is most sensitive value, 63 is least sensitive
+driver_SGT: -64     # -64 è il valore più sensibile, 63 è il meno sensibile
 ...
 
 [stepper_x]
-endstop_pin: ^PA1   # Pin connected to TMC SG_TST pin
+endstop_pin: ^PA1   # Pin collegato al pin TMC SG_TST
 homing_retract_dist: 0
 ...
 ```
@@ -170,23 +170,23 @@ Il passo successivo è spostare di nuovo continuamente il carrello in una posizi
 
 #### Aggiorna printer.cfg con il valore della sensibilità
 
-After finding *maximum_sensitivity* and *minimum_sensitivity*, use a calculator to obtain the recommend sensitivity as *minimum_sensitivity + (maximum_sensitivity - minimum_sensitivity)/3*. The recommended sensitivity should be in the range between the minimum and maximum, but slightly closer to the minimum. Round the final value to the nearest integer value.
+Dopo aver trovato *sensibilità_massima* e *sensibilità_minima*, utilizzare una calcolatrice per ottenere la sensibilità consigliata come *sensibilità_minima + (sensibilità_massima - sensibilità_minima)/3*. La sensibilità consigliata dovrebbe essere compresa tra il minimo e il massimo, ma leggermente più vicino al minimo. Arrotonda il valore finale al valore intero più vicino.
 
-For tmc2209 set this in the config as `driver_SGTHRS`, for other TMC drivers set this in the config as `driver_SGT`.
+Per tmc2209 impostalo nella configurazione come `driver_SGTHRS`, per altri driver TMC impostalo nella configurazione come `driver_SGT`.
 
-If the range between *maximum_sensitivity* and *minimum_sensitivity* is small (eg, less than 5) then it may result in unstable homing. A faster homing speed may increase the range and make the operation more stable.
+Se l'intervallo tra *sensibilità_massima* e *sensibilità_minima* è piccolo (ad esempio, inferiore a 5), potrebbe risultare in un homing instabile. Una velocità di riferimento più elevata può aumentare il range e rendere l'operazione più stabile.
 
-Note that if any change is made to driver current, homing speed, or a notable change is made to the printer hardware, then it will be necessary to run the tuning process again.
+Si noti che se viene apportata una modifica alla corrente del driver, alla velocità di riferimento o viene apportata una modifica notevole all'hardware della stampante, sarà necessario eseguire nuovamente il processo di ottimizzazione.
 
-#### Using Macros when Homing
+#### Utilizzo delle macro durante l'homing
 
-After sensorless homing completes the carriage will be pressed against the end of the rail and the stepper will exert a force on the frame until the carriage is moved away. It is a good idea to create a macro to home the axis and immediately move the carriage away from the end of the rail.
+Dopo aver completato l'homing senza sensori, il carrello verrà premuto contro l'estremità del binario e lo stepper eserciterà una forza sul telaio fino a quando il carrello non si allontana. È una buona idea creare una macro per posizionare l'asse e allontanare immediatamente il carrello dall'estremità della rotaia.
 
-It is a good idea for the macro to pause at least 2 seconds prior to starting sensorless homing (or otherwise ensure that there has been no movement on the stepper for 2 seconds). Without a delay it is possible for the driver's internal stall flag to still be set from a previous move.
+È una buona idea che la macro si metta in pausa di almeno 2 secondi prima di iniziare l'homing sensorless (o altrimenti assicurarsi che non ci siano stati movimenti sullo stepper per 2 secondi). Senza ritardo è possibile che il flag di stallo interno del driver sia ancora impostato da un movimento precedente.
 
-It can also be useful to have that macro set the driver current before homing and set a new current after the carriage has moved away.
+Può anche essere utile fare in modo che quella macro imposti la corrente del driver prima della corsa di riferimento e imposti una nuova corrente dopo che il carrello si è allontanato.
 
-An example macro might look something like:
+Una macro di esempio potrebbe assomigliare a:
 
 ```
 [gcode_macro SENSORLESS_HOME_X]
@@ -194,103 +194,103 @@ gcode:
     {% set HOME_CUR = 0.700 %}
     {% set driver_config = printer.configfile.settings['tmc2209 stepper_x'] %}
     {% set RUN_CUR = driver_config.run_current %}
-    # Set current for sensorless homing
+    # Imposta la corrente per l'homing sensorless
     SET_TMC_CURRENT STEPPER=stepper_x CURRENT={HOME_CUR}
-    # Pause to ensure driver stall flag is clear
+    # Fai una pausa per assicurarti che il flag di stallo del driver sia clear
     G4 P2000
     # Home
     G28 X0
-    # Move away
+    # Spostamento
     G90
     G1 X5 F1200
-    # Set current during print
+    # Imposta corrente durante la stampa
     SET_TMC_CURRENT STEPPER=stepper_x CURRENT={RUN_CUR}
 ```
 
-The resulting macro can be called from a [homing_override config section](Config_Reference.md#homing_override) or from a [START_PRINT macro](Slicers.md#klipper-gcode_macro).
+La macro risultante può essere chiamata da una [sezione di configurazione homing_override](Config_Reference.md#homing_override) o da una [START_PRINT macro](Slicers.md#klipper-gcode_macro).
 
-Note that if the driver current during homing is changed, then the tuning process should be run again.
+Si noti che se viene modificata la corrente del driver durante l'homing, il processo di ottimizzazione dovrebbe essere eseguito nuovamente.
 
-### Tips for sensorless homing on CoreXY
+### Suggerimenti per l'homing sensorless su CoreXY
 
-It is possible to use sensorless homing on the X and Y carriages of a CoreXY printer. Klipper uses the `[stepper_x]` stepper to detect stalls when homing the X carriage and uses the `[stepper_y]` stepper to detect stalls when homing the Y carriage.
+È possibile utilizzare l'homing sensorless sui carrelli X e Y di una stampante CoreXY. Klipper usa lo stepper `[stepper_x]` per rilevare gli stalli durante l'homing del carrello X e usa lo stepper `[stepper_y]` per rilevare gli stalli durante l'homing del carrello Y.
 
-Use the tuning guide described above to find the appropriate "stall sensitivity" for each carriage, but be aware of the following restrictions:
+Utilizzare la guida alla messa a punto sopra descritta per trovare la "sensibilità allo stallo" appropriata per ciascun carrello, ma prestare attenzione alle seguenti restrizioni:
 
-1. When using sensorless homing on CoreXY, make sure there is no `hold_current` configured for either stepper.
-1. While tuning, make sure both the X and Y carriages are near the center of their rails before each home attempt.
-1. After tuning is complete, when homing both X and Y, use macros to ensure that one axis is homed first, then move that carriage away from the axis limit, pause for at least 2 seconds, and then start the homing of the other carriage. The move away from the axis avoids homing one axis while the other is pressed against the axis limit (which may skew the stall detection). The pause is necessary to ensure the driver's stall flag is cleared prior to homing again.
+1. Quando si utilizza l'homing sensorless su CoreXY, assicurarsi che non sia configurato `hold_current` per nessuno dei due stepper.
+1. Durante la messa a punto, assicurati che entrambi i carrelli X e Y siano vicini al centro dei loro binari prima di ogni tentativo di homing.
+1. Al termine dell'ottimizzazione, quando si esegue l'homing sia di X che Y, utilizzare le macro per assicurarsi che un asse sia homed per primo, quindi spostare il carrello lontano dal limite dell'asse, fare una pausa per almeno 2 secondi, quindi avviare l'orientamento dell'altro carrello. L'allontanamento dall'asse evita l'homing di un asse mentre l'altro viene premuto contro il limite dell'asse (cosa potrebbe distorcere il rilevamento dello stallo). La pausa è necessaria per garantire che il flag di stallo del driver sia cancellata prima del homing.
 
-## Querying and diagnosing driver settings
+## Interrogazione e diagnosi delle impostazioni del driver
 
-The `[DUMP_TMC command](G-Codes.md#dump_tmc) is a useful tool when configuring and diagnosing the drivers. It will report all fields configured by Klipper as well as all fields that can be queried from the driver.
+Il [comando DUMP_TMC](G-Codes.md#dump_tmc) è uno strumento utile durante la configurazione e la diagnosi dei driver. Riporterà tutti i campi configurati da Klipper così come tutti i campi che possono essere interrogati dal driver.
 
-All of the reported fields are defined in the Trinamic datasheet for each driver. These datasheets can be found on the [Trinamic website](https://www.trinamic.com/). Obtain and review the Trinamic datasheet for the driver to interpret the results of DUMP_TMC.
+Tutti i campi riportati sono definiti nella scheda tecnica Trinamic per ciascun driver. Queste schede tecniche possono essere trovate sul [sito web Trinamic](https://www.trinamic.com/). Ottenere e rivedere i dati Trinamic affinché il conducente interpreti i risultati di DUMP_TMC.
 
-## Configuring driver_XXX settings
+## Configurazione delle impostazioni driver_XXX
 
-Klipper supports configuring many low-level driver fields using `driver_XXX` settings. The [TMC driver config reference](Config_Reference.md#tmc-stepper-driver-configuration) has the full list of fields available for each type of driver.
+Klipper supporta la configurazione di molti campi driver di basso livello usando le impostazioni `driver_XXX`. Il [Riferimento alla configurazione del driver TMC](Config_Reference.md#tmc-stepper-driver-configuration) contiene l'elenco completo dei campi disponibili per ogni tipo di driver.
 
-In addition, almost all fields can be modified at run-time using the [SET_TMC_FIELD command](G-Codes.md#set_tmc_field).
+Inoltre, quasi tutti i campi possono essere modificati in fase di esecuzione utilizzando il [comando SET_TMC_FIELD](G-Codes.md#set_tmc_field).
 
-Each of these fields is defined in the Trinamic datasheet for each driver. These datasheets can be found on the [Trinamic website](https://www.trinamic.com/).
+Ciascuno di questi campi è definito nella scheda tecnica Trinamic per ciascun driver. Queste schede tecniche possono essere trovate sul [sito web Trinamic](https://www.trinamic.com/).
 
-Note that the Trinamic datasheets sometime use wording that can confuse a high-level setting (such as "hysteresis end") with a low-level field value (eg, "HEND"). In Klipper, `driver_XXX` and SET_TMC_FIELD always set the low-level field value that is actually written to the driver. So, for example, if the Trinamic datasheet states that a value of 3 must be written to the HEND field to obtain a "hysteresis end" of 0, then set `driver_HEND=3` to obtain the high-level value of 0.
+Si noti che i fogli dati Trinamic a volte utilizzano un'espressione che può confondere un'impostazione di alto livello (come "fine isteresi") con un valore di campo di basso livello (ad esempio, "HEND"). In Klipper, `driver_XXX` e SET_TMC_FIELD impostano sempre il valore del campo di basso livello che viene effettivamente scritto nel driver. Quindi, ad esempio, se il foglio dati Trinamic afferma che è necessario scrivere un valore di 3 nel campo HEND per ottenere una "fine dell'isteresi" di 0, impostare `driver_HEND=3` per ottenere il valore di alto livello di 0.
 
-## Common Questions
+## Domande comuni
 
-### Can I use stealthChop mode on an extruder with pressure advance?
+### Posso usare la modalità StealthChop su un estrusore con anticipo della pressione?
 
-Many people successfully use "stealthChop" mode with Klipper's pressure advance. Klipper implements [smooth pressure advance](Kinematics.md#pressure-advance) which does not introduce any instantaneous velocity changes.
+Molte persone usano con successo la modalità "stealthChop" con pressure advance di Klipper. Klipper implementa [Smooth Pressure Advance](Kinematics.md#pressure-advance) che non introduce variazioni di velocità istantanee.
 
-However, "stealthChop" mode may produce lower motor torque and/or produce higher motor heat. It may or may not be an adequate mode for your particular printer.
+Tuttavia, la modalità "stealthChop" può produrre una coppia del motore inferiore e/o produrre un maggiore calore del motore. Potrebbe essere o meno una modalità adeguata per la tua particolare stampante.
 
-### I keep getting "Unable to read tmc uart 'stepper_x' register IFCNT" errors?
+### Continuo a ricevere gli errori "Impossibile leggere tmc uart 'stepper_x' register IFCNT"?
 
-This occurs when Klipper is unable to communicate with a tmc2208 or tmc2209 driver.
+Ciò si verifica quando Klipper non è in grado di comunicare con un driver tmc2208 o tmc2209.
 
-Make sure that the motor power is enabled, as the stepper motor driver generally needs motor power before it can communicate with the micro-controller.
+Assicurarsi che l'alimentazione del motore sia abilitata, poiché il driver del motore passo-passo generalmente necessita dell'alimentazione del motore prima di poter comunicare con il microcontrollore.
 
-If this error occurs after flashing Klipper for the first time, then the stepper driver may have been previously programmed in a state that is not compatible with Klipper. To reset the state, remove all power from the printer for several seconds (physically unplug both USB and power plugs).
+Se questo errore si verifica dopo aver eseguito il flashing di Klipper per la prima volta, è possibile che il driver stepper sia stato precedentemente programmato in uno stato non compatibile con Klipper. Per ripristinare lo stato, rimuovere tutta l'alimentazione dalla stampante per alcuni secondi (scollegare fisicamente sia USB che le spine di alimentazione).
 
-Otherwise, this error is typically the result of incorrect UART pin wiring or an incorrect Klipper configuration of the UART pin settings.
+In caso contrario, questo errore è in genere il risultato di un cablaggio errato del pin UART o di una configurazione Klipper errata delle impostazioni del pin UART.
 
-### I keep getting "Unable to write tmc spi 'stepper_x' register ..." errors?
+### Continuo a ricevere errori "Unable to write tmc spi 'stepper_x' register ..."?
 
-This occurs when Klipper is unable to communicate with a tmc2130 or tmc5160 driver.
+Ciò si verifica quando Klipper non è in grado di comunicare con un driver tmc2130 o tmc5160.
 
-Make sure that the motor power is enabled, as the stepper motor driver generally needs motor power before it can communicate with the micro-controller.
+Assicurarsi che l'alimentazione del motore sia abilitata, poiché il driver del motore passo-passo generalmente necessita dell'alimentazione del motore prima di poter comunicare con il microcontrollore.
 
-Otherwise, this error is typically the result of incorrect SPI wiring, an incorrect Klipper configuration of the SPI settings, or an incomplete configuration of devices on an SPI bus.
+In caso contrario, questo errore è in genere il risultato di un cablaggio SPI errato, una configurazione Klipper errata delle impostazioni SPI o una configurazione incompleta dei dispositivi su un bus SPI.
 
-Note that if the driver is on a shared SPI bus with multiple devices then be sure to fully configure every device on that shared SPI bus in Klipper. If a device on a shared SPI bus is not configured, then it may incorrectly respond to commands not intended for it and corrupt the communication to the intended device. If there is a device on a shared SPI bus that can not be configured in Klipper, then use a [static_digital_output config section](Config_Reference.md#static_digital_output) to set the CS pin of the unused device high (so that it will not attempt to use the SPI bus). The board's schematic is often a useful reference for finding which devices are on an SPI bus and their associated pins.
+Nota che se il driver si trova su un bus SPI condiviso con più dispositivi, assicurati di configurare completamente ogni dispositivo su quel bus SPI condiviso in Klipper. Se un dispositivo su un bus SPI condiviso non è configurato, potrebbe rispondere in modo errato a comandi non previsti e danneggiare la comunicazione con il dispositivo previsto. Se è presente un dispositivo su un bus SPI condiviso che non può essere configurato in Klipper, utilizzare una [sezione di configurazione static_digital_output](Config_Reference.md#static_digital_output) per impostare il pin CS del dispositivo inutilizzato alto (in modo che non tenti utilizzare il bus SPI). Lo schema della scheda è spesso un utile riferimento per trovare quali dispositivi si trovano su un bus SPI e i pin associati.
 
-### Why did I get a "TMC reports error: ..." error?
+### Perché ho ricevuto un errore "TMC reports error: ..."?
 
-This type of error indicates the TMC driver detected a problem and has disabled itself. That is, the driver stopped holding its position and ignored movement commands. If Klipper detects that an active driver has disabled itself, it will transition the printer into a "shutdown" state.
+Questo tipo di errore indica che il driver TMC ha rilevato un problema e si è disabilitato. Cioè, il conducente ha smesso di mantenere la sua posizione e ha ignorato i comandi di movimento. Se Klipper rileva che un driver attivo si è disabilitato, la stampante passerà allo stato di "spegnimento".
 
-It's also possible that a **TMC reports error** shutdown occurs due to SPI errors that prevent communication with the driver (on tmc2130, tmc5160, or tmc2660). If this occurs, it's common for the reported driver status to show `00000000` or `ffffffff` - for example: `TMC reports error: DRV_STATUS: ffffffff ...` OR `TMC reports error: READRSP@RDSEL2: 00000000 ...`. Such a failure may be due to an SPI wiring problem or may be due to a self-reset or failure of the TMC driver.
+È anche possibile che si verifichi un arresto **TMC segnala errore** a causa di errori SPI che impediscono la comunicazione con il driver (su tmc2130, tmc5160 o tmc2660). Se ciò si verifica, è normale che lo stato del driver riportato mostri `00000000` o `ffffffff`, ad esempio: `TMC reports error: DRV_STATUS: ffffffff ...` O `TMC reports error: READRSP@RDSEL2: 00000000 ... `. Tale errore può essere dovuto a un problema di cablaggio SPI o può essere dovuto a un ripristino automatico o a un guasto del driver TMC.
 
-Some common errors and tips for diagnosing them:
+Alcuni errori comuni e suggerimenti per diagnosticarli:
 
-#### TMC reports error: `... ot=1(OvertempError!)`
+#### TMC segnala l'errore: `... ot=1(OvertempError!)`
 
-This indicates the motor driver disabled itself because it became too hot. Typical solutions are to decrease the stepper motor current, increase cooling on the stepper motor driver, and/or increase cooling on the stepper motor.
+Ciò indica che il driver del motore si è disabilitato perché è diventato troppo caldo. Le soluzioni tipiche consistono nel ridurre la corrente del motore passo-passo, aumentare il raffreddamento sul driver del motore passo-passo e/o aumentare il raffreddamento sul motore passo-passo.
 
-#### TMC reports error: `... ShortToGND` OR `LowSideShort`
+#### TMC segnala un errore: `... ShortToGND` O `LowSideShort`
 
-This indicates the driver has disabled itself because it detected very high current passing through the driver. This may indicate a loose or shorted wire to the stepper motor or within the stepper motor itself.
+Ciò indica che il driver si è disabilitato perché ha rilevato una corrente molto elevata che passa attraverso il driver. Ciò potrebbe indicare un filo allentato o in cortocircuito al motore passo-passo o all'interno del motore passo-passo stesso.
 
-This error may also occur if using stealthChop mode and the TMC driver is not able to accurately predict the mechanical load of the motor. (If the driver makes a poor prediction then it may send too much current through the motor and trigger its own over-current detection.) To test this, disable stealthChop mode and check if the errors continue to occur.
+Questo errore può verificarsi anche se si utilizza la modalità StealthChop e il driver TMC non è in grado di prevedere con precisione il carico meccanico del motore. (Se il driver fa una previsione scadente, potrebbe inviare troppa corrente attraverso il motore e attivare il proprio rilevamento di sovracorrente.) Per verificarlo, disabilitare la modalità StealthChop e verificare se gli errori continuano a verificarsi.
 
-#### TMC reports error: `... reset=1(Reset)` OR `CS_ACTUAL=0(Reset?)` OR `SE=0(Reset?)`
+#### TMC segnala un errore: `... reset=1(Reset)` OR `CS_ACTUAL=0(Reset?)` OR `SE=0(Reset?)`
 
-This indicates that the driver has reset itself mid-print. This may be due to voltage or wiring issues.
+Ciò indica che il driver si è ripristinato durante la stampa. Ciò potrebbe essere dovuto a problemi di tensione o cablaggio.
 
-#### TMC reports error: `... uv_cp=1(Undervoltage!)`
+#### TMC segnala l'errore: `... uv_cp=1(Undervoltage!)`
 
-This indicates the driver has detected a low-voltage event and has disabled itself. This may be due to wiring or power supply issues.
+Ciò indica che il driver ha rilevato un evento di bassa tensione e si è disabilitato. Ciò potrebbe essere dovuto a problemi di cablaggio o alimentazione.
 
-### How do I tune spreadCycle/coolStep/etc. mode on my drivers?
+### Come si regola la modalità spreadCycle/coolStep/etc. sui miei driver?
 
-The [Trinamic website](https://www.trinamic.com/) has guides on configuring the drivers. These guides are often technical, low-level, and may require specialized hardware. Regardless, they are the best source of information.
+Il [sito web Trinamic](https://www.trinamic.com/) contiene guide sulla configurazione dei driver. Queste guide sono spesso tecniche, di basso livello e potrebbero richiedere hardware specializzato. In ogni caso, sono la migliore fonte di informazioni.

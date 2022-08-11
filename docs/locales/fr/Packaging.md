@@ -1,6 +1,7 @@
 # Packaging Klipper
 
-Klipper is somewhat of a packaging anomaly among python programs, as it doesn't use setuptools to build and install. Some notes regarding how best to package it are as follows:
+Klipper peut etre considéré comme une anomalie de packaging au sein des programmes Python, car il ne requière pas d'outils de configuration pour etre construit et installé.
+Quelques notes en ce qui concerne comment package au mieux sont :
 
 ## C modules
 
