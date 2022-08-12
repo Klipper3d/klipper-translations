@@ -1,4 +1,4 @@
-# Benchmarks
+# Benchmark
 
 Questo documento descrive i benchmark di Klipper.
 
@@ -47,7 +47,7 @@ In caso di errore, è possibile copiare e incollare quanto segue per cancellare 
 clear_shutdown
 ```
 
-To obtain the single stepper benchmarks, the same configuration sequence is used, but only the first block of the above test is cut-and-paste into the console.py window.
+Per ottenere i benchmark del singolo stepper, viene utilizzata la stessa sequenza di configurazione, ma solo il primo blocco del test precedente viene tagliato e incollato nella finestra di console.py.
 
 Per produrre i benchmark trovati nel documento [Features](Features.md), il numero totale di passi al secondo viene calcolato moltiplicando il numero di stepper attivi per la frequenza nominale mcu e dividendo per il parametro tick finale. I risultati vengono arrotondati alla K più vicina. Ad esempio, con tre stepper attivi:
 
@@ -95,7 +95,7 @@ Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc `
 | 1 stepper | 66 |
 | 3 stepper | 257 |
 
-### Duet Maestro step rate benchmark
+### Benchmark step rate Duet Maestro
 
 La seguente sequenza di configurazione viene utilizzata su Duet Maestro:
 
@@ -114,7 +114,7 @@ Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc `
 | 1 stepper | 71 |
 | 3 stepper | 260 |
 
-### Duet Wifi step rate benchmark
+### Benchmark step rate Duet Wifi
 
 La seguente sequenza di configurazione viene utilizzata su Duet Wifi:
 
@@ -133,7 +133,7 @@ Il test è stato eseguito l'ultima volta su commit `59314d99` con gcc versione `
 | 1 stepper | 48 |
 | 3 stepper | 215 |
 
-### Beaglebone PRU step rate benchmark
+### Benchmark step rate Beaglebone PRU
 
 Sulla PRU viene utilizzata la seguente sequenza di configurazione:
 
@@ -152,7 +152,7 @@ Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc `
 | 1 stepper | 231 |
 | 3 stepper | 847 |
 
-### STM32F042 step rate benchmark
+### Benchmark step rate STM32F042
 
 La seguente sequenza di configurazione viene utilizzata sull'STM32F042:
 
@@ -171,7 +171,7 @@ Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc `
 | 1 stepper | 59 |
 | 3 stepper | 249 |
 
-### STM32F103 step rate benchmark
+### Benchmark step rate STM32F103
 
 Sull'STM32F103 viene utilizzata la seguente sequenza di configurazione:
 
@@ -190,7 +190,7 @@ Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc `
 | 1 stepper | 61 |
 | 3 stepper | 264 |
 
-### STM32F4 step rate benchmark
+### Benchmark step rate STM32F4
 
 Sull'STM32F4 viene utilizzata la seguente sequenza di configurazione:
 
@@ -214,7 +214,7 @@ Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc `
 | 1 stepper | 46 |
 | 3 stepper | 205 |
 
-### STM32G0B1 step rate benchmark
+### Benchmark step rate STM32G0B1
 
 Sull'STM32G0B1 viene utilizzata la seguente sequenza di configurazione:
 
@@ -233,7 +233,7 @@ Il test è stato eseguito l'ultima volta su commit `247cd753` con versione gcc `
 | 1 stepper | 58 |
 | 3 stepper | 243 |
 
-### LPC176x step rate benchmark
+### Benchmark step rate LPC176x
 
 La seguente sequenza di configurazione viene utilizzata sull'LPC176x:
 
@@ -257,7 +257,7 @@ Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc `
 | 1 stepper | 51 |
 | 3 stepper | 222 |
 
-### SAMD21 step rate benchmark
+### Benchmark step rate SAMD21
 
 La seguente sequenza di configurazione viene utilizzata sul SAMD21:
 
@@ -276,7 +276,7 @@ Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc `
 | 1 stepper | 70 |
 | 3 stepper | 306 |
 
-### SAMD51 step rate benchmark
+### Benchmark step rate SAMD51
 
 La seguente sequenza di configurazione viene utilizzata sul SAMD51:
 
@@ -297,7 +297,7 @@ Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc `
 | 1 stepper (200Mhz) | 39 |
 | 3 stepper (200Mhz) | 181 |
 
-### RP2040 step rate benchmark
+### Benchmark step rate RP2040
 
 Sull'RP2040 viene utilizzata la seguente sequenza di configurazione:
 
@@ -316,7 +316,7 @@ Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc `
 | 1 stepper | 5 |
 | 3 stepper | 22 |
 
-### Linux MCU step rate benchmark
+### Benchmark step rate MCU Linux
 
 La seguente sequenza di configurazione viene utilizzata su un Raspberry Pi:
 
@@ -335,9 +335,9 @@ Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc `
 | 1 stepper | 160 |
 | 3 stepper | 380 |
 
-## Command dispatch benchmark
+## Benchmark dispacciamento comandi
 
-The command dispatch benchmark tests how many "dummy" commands the micro-controller can process. It is primarily a test of the hardware communication mechanism. The test is run using the console.py tool (described in <Debugging.md>). The following is cut-and-paste into the console.py terminal window:
+Il benchmark di invio dei comandi verifica quanti comandi "fittizi" possono elaborare il microcontrollore. È principalmente un test del meccanismo di comunicazione hardware. Il test viene eseguito utilizzando lo strumento console.py (descritto in <Debugging.md>). Quanto segue è taglia e incolla nella finestra del terminale console.py:
 
 ```
 DELAY {clock + 2*freq} get_uptime
@@ -349,7 +349,7 @@ Al termine del test, determinare la differenza tra gli orologi riportati nei due
 
 Nota che questo test potrebbe saturare la capacità USB/CPU di un Raspberry Pi. Se è in esecuzione su un computer host Raspberry Pi, Beaglebone o simile, aumenta il ritardo (ad esempio, `DELAY {clock + 20*freq} get_uptime`). Ove applicabile, i benchmark seguenti riguardano console.py in esecuzione su una macchina di classe desktop con il dispositivo connesso tramite un hub ad alta velocità.
 
-| MCU | Rate | Build | Build compiler |
+| MCU | Rateo | Build | Build compiler |
 | --- | --- | --- | --- |
 | stm32f042 (CAN) | 18K | c105adc8 | arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1 |
 | atmega2560 (serial) | 23K | b161a69e | avr-gcc (GCC) 4.8.1 |
@@ -366,7 +366,7 @@ Nota che questo test potrebbe saturare la capacità USB/CPU di un Raspberry Pi. 
 | stm32f446 (USB) | 870K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | rp2040 (USB) | 873K | c5667193 | arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0 |
 
-## Host Benchmarks
+## Benchmark Host
 
 È possibile eseguire test di temporizzazione sul software host utilizzando il meccanismo di elaborazione "batch mode" (descritto in <Debugging.md>). Questo viene in genere fatto scegliendo un file G-Code grande e complesso e calcolando il tempo impiegato dal software host per elaborarlo. Per esempio:
 

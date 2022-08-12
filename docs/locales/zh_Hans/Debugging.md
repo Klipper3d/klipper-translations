@@ -42,7 +42,7 @@ make menuconfig
 make
 ```
 
-完成上述操作后，可以在批处理模式下运行 Klipper（请参阅[安装](Installation.md)以了解构建 Python 虚拟环境(venv)和 printer.cfg 文件所需的步骤）：
+完成上述操作后，可以在批处理模式下运行 Klipper（请参考[安装](Installation.md)以了解构建 Python 虚拟环境(venv)和 printer.cfg 文件所需的步骤）：
 
 ```
 ~/klippy-env/bin/python ./klippy/klippy.py ~/printer.cfg -i test.gcode -o test.serial -v -d out/klipper.dict
@@ -143,7 +143,7 @@ cp /tmp/klippy.log .
 
 该脚本将提取打印机的配置文件，并提取 MCU 的关闭信息。来自 MCU 关闭的信息转储（如果存在的话）将按时间戳重新排序，以协助诊断因果关系的情况。
 
-## 用 simulavr 测试
+## 使用 simulavr 测试
 
 [simulavr](http://www.nongnu.org/simulavr/)工具可以模拟 Atmel ATmega 微控制器。本章描述了如何通过simulavr运行测试gcode文件。由于该工具需要大量cpu资源，建议在台式机（而不是树莓派）上运行。
 
@@ -192,7 +192,7 @@ Note that if you have installed python3-simulavr system-wide, you do not need to
 ./scripts/avrsim.py out/klipper.elf
 ```
 
-然后，在另一个窗口中运行simulavr，可以运行以下内容，从一个文件（例如，"test.gcode"）中读取gcode，用Klippy处理它，并将其发送到simulavr中运行的Klipper（关于建立python虚拟环境的必要步骤，见[安装](Installation.md)）。
+然后，在另一个窗口中运行simulavr，可以运行以下内容，从一个文件（例如，"test.gcode"）中读取gcode，用Klippy处理它，并将其发送到simulavr中运行的Klipper（关于建立python虚拟环境的必要步骤，见[安装](Installation.md)）：
 
 ```
 ~/klippy-env/bin/python ./klippy/klippy.py config/generic-simulavr.cfg -i test.gcode -v
