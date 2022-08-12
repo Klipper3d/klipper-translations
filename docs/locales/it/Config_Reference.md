@@ -3085,24 +3085,25 @@ Statically configured MCP4018 digipot connected via two gpio "bit banging" pins 
 ```
 [mcp4018 my_digipot]
 scl_pin:
-#   The SCL "clock" pin. This parameter must be provided.
+#   Il pin "clock" SCL. Questo parametro deve essere fornito.
 sda_pin:
-#   The SDA "data" pin. This parameter must be provided.
+#   Il pin "dati" SDA. Questo parametro deve essere fornito.
 wiper:
-#   The value to statically set the given MCP4018 "wiper" to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest resistance and 0.0 being the lowest resistance. However,
-#   the range may be changed with the 'scale' parameter (see below).
-#   This parameter must be provided.
+#   Il valore su cui impostare staticamente il "Wiper" MCP4018 
+#   specificato. Questo è in genere impostato su un numero compreso
+#   tra 0,0 e 1,0 con 1,0 come resistenza più alta e 0,0 come resistenza
+#   più bassa. Tuttavia, l'intervallo può essere modificato con il
+#   parametro 'scale' (vedi sotto). Questo parametro deve essere fornito.
 #scale:
-#   This parameter can be used to alter how the 'wiper' parameter is
-#   interpreted. If provided, then the 'wiper' parameter should be
-#   between 0.0 and 'scale'. This may be useful when the MCP4018 is
-#   used to set stepper voltage references. The 'scale' can be set to
-#   the equivalent stepper amperage if the MCP4018 is at its highest
-#   resistance, and then the 'wiper' parameter can be specified using
-#   the desired amperage value for the stepper. The default is to not
-#   scale the 'wiper' parameter.
+#   Questo parametro può essere utilizzato per modificare il modo in
+#   cui viene interpretato il parametro 'wiper'. Se fornito, il parametro
+#   'wiper' dovrebbe essere compreso tra 0.0 e 'scale'. Questo può essere
+#   utile quando l'MCP4018 viene utilizzato per impostare i riferimenti di
+#   tensione stepper. La "scala" può essere impostata sull'amperaggio
+#   stepper equivalente se l'MCP4018 è alla sua massima resistenza,
+#   quindi è possibile specificare il parametro "wiper" utilizzando il 
+#   valore di amperaggio desiderato per lo stepper. L'impostazione 
+#   predefinita è di non ridimensionare il parametro 'wiper'.
 ```
 
 ## Supporto display

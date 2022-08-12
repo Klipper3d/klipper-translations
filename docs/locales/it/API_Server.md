@@ -14,59 +14,59 @@ Ciò fa sì che il software host crei un socket di dominio Unix. Un client può 
 
 See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.
 
-## Request format
+## Formato richiesta
 
-Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:
+I messaggi inviati e ricevuti sul socket sono stringhe codificate JSON terminate da un carattere ASCII 0x03:
 
 ```
 <json_object_1><0x03><json_object_2><0x03>...
 ```
 
-Klipper contains a `scripts/whconsole.py` tool that can perform the above message framing. For example:
+Klipper contiene uno strumento `scripts/whconsole.py` che può eseguire il framing dei messaggi sopra. Per esempio:
 
 ```
 ~/klipper/scripts/whconsole.py /tmp/klippy_uds
 ```
 
-This tool can read a series of JSON commands from stdin, send them to Klipper, and report the results. The tool expects each JSON command to be on a single line, and it will automatically append the 0x03 terminator when transmitting a request. (The Klipper API server does not have a newline requirement.)
+Questo strumento può leggere una serie di comandi JSON da stdin, inviarli a Klipper e riportare i risultati. Lo strumento prevede che ogni comando JSON si trovi su una singola riga e aggiungerà automaticamente il terminatore 0x03 durante la trasmissione di una richiesta. (Il server dell'API Klipper non ha un requisito di newline.)
 
-## API Protocol
+## Protocollo API
 
-The command protocol used on the communication socket is inspired by [json-rpc](https://www.jsonrpc.org/).
+Il protocollo dei comandi utilizzato sul socket di comunicazione è ispirato a [json-rpc](https://www.jsonrpc.org/).
 
-A request might look like:
+Una richiesta potrebbe essere simile a:
 
 `{"id": 123, "method": "info", "params": {}}`
 
-and a response might look like:
+e una risposta potrebbe essere simile a:
 
 `{"id": 123, "result": {"state_message": "Printer is ready", "klipper_path": "/home/pi/klipper", "config_file": "/home/pi/printer.cfg", "software_version": "v0.8.0-823-g883b1cb6", "hostname": "octopi", "cpu_info": "4 core ARMv7 Processor rev 4 (v7l)", "state": "ready", "python_path": "/home/pi/klippy-env/bin/python", "log_file": "/tmp/klippy.log"}}`
 
-Each request must be a JSON dictionary. (This document uses the Python term "dictionary" to describe a "JSON object" - a mapping of key/value pairs contained within `{}`.)
+Ogni richiesta deve essere un dizionario JSON. (Questo documento usa il termine Python "dizionario" per descrivere un "oggetto JSON" - una mappatura di coppie chiave/valore contenute in `{}`.)
 
-The request dictionary must contain a "method" parameter that is the string name of an available Klipper "endpoint".
+Il dizionario di richiesta deve contenere un parametro "method" che è il nome stringa di un "endpoint" di Klipper disponibile.
 
-The request dictionary may contain a "params" parameter which must be of a dictionary type. The "params" provide additional parameter information to the Klipper "endpoint" handling the request. Its content is specific to the "endpoint".
+Il dizionario della richiesta può contenere un parametro "params" che deve essere di tipo dizionario. I "parametri" forniscono ulteriori informazioni sui parametri all'"endpoint" di Klipper che gestisce la richiesta. Il suo contenuto è specifico dell'"endpoint".
 
-The request dictionary may contain an "id" parameter which may be of any JSON type. If "id" is present then Klipper will respond to the request with a response message containing that "id". If "id" is omitted (or set to a JSON "null" value) then Klipper will not provide any response to the request. A response message is a JSON dictionary containing "id" and "result". The "result" is always a dictionary - its contents are specific to the "endpoint" handling the request.
+Il dizionario delle richieste può contenere un parametro "id" che può essere di qualsiasi tipo JSON. Se è presente "id", Klipper risponderà alla richiesta con un messaggio di risposta contenente tale "id". Se "id" viene omesso (o impostato su un valore JSON "null"), Klipper non fornirà alcuna risposta alla richiesta. Un messaggio di risposta è un dizionario JSON contenente "id" e "result". Il "risultato" è sempre un dizionario: i suoi contenuti sono specifici dell'"endpoint" che gestisce la richiesta.
 
-If the processing of a request results in an error, then the response message will contain an "error" field instead of a "result" field. For example, the request: `{"id": 123, "method": "gcode/script", "params": {"script": "G1 X200"}}` might result in an error response such as: `{"id": 123, "error": {"message": "Must home axis first: 200.000 0.000 0.000 [0.000]", "error": "WebRequestError"}}`
+Se l'elaborazione di una richiesta genera un errore, il messaggio di risposta conterrà un campo "errore" anziché un campo "risultato". Ad esempio, la richiesta: `{"id": 123, "method": "gcode/script", "params": {"script": "G1 X200"}}` potrebbe generare una risposta di errore come: ` {"id": 123, "error": {"message": "Deve prima posizionare l'asse: 200.000 0.000 0.000 [0.000]", "error": "WebRequestError"}}`
 
-Klipper will always start processing requests in the order that they are received. However, some request may not complete immediately, which could cause the associated response to be sent out of order with respect to responses from other requests. A JSON request will never pause the processing of future JSON requests.
+Klipper inizierà sempre a elaborare le richieste nell'ordine in cui sono state ricevute. Tuttavia, alcune richieste potrebbero non essere completate immediatamente, il che potrebbe causare l'invio di una risposta associata non conforme rispetto alle risposte di altre richieste. Una richiesta JSON non sospenderà mai l'elaborazione di future richieste JSON.
 
-## Subscriptions
+## Sottoscrizioni
 
-Some Klipper "endpoint" requests allow one to "subscribe" to future asynchronous update messages.
+Alcune richieste di "endpoint" di Klipper consentono di "iscriversi" a futuri messaggi di aggiornamento asincrono.
 
-For example:
+Per esempio:
 
 `{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{"key": 345}}}`
 
-may initially respond with:
+inizialmente può rispondere con:
 
 `{"id": 123, "result": {}}`
 
-and cause Klipper to send future messages similar to:
+e fare in modo che Klipper invii messaggi futuri simili a:
 
 `{"params": {"response": "ok B:22.8 /0.0 T0:22.4 /0.0"}, "key": 345}`
 

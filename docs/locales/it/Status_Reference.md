@@ -14,7 +14,7 @@ The following information is available in [angle some_name](Config_Reference.md#
 
 Le seguenti informazioni sono disponibili in [bed_mesh](Config_Reference.md#bed_mesh):
 
-- `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: Information on the currently active bed_mesh.
+- `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: informazioni sulla bed_mesh attualmente attiva.
 - `profiles`: The set of currently defined profiles as setup using BED_MESH_PROFILE.
 
 ## configfile
@@ -22,25 +22,25 @@ Le seguenti informazioni sono disponibili in [bed_mesh](Config_Reference.md#bed_
 Le seguenti informazioni sono disponibili nell'oggetto `configfile` (questo oggetto è sempre disponibile):
 
 - `settings.<section>.<option>`: Restituisce l'impostazione del file di configurazione data (o il valore predefinito) durante l'ultimo avvio o riavvio del software. (Qualsiasi impostazione modificata in fase di esecuzione non si rifletterà qui.)
-- `config.<section>.<option>`: Returns the given raw config file setting as read by Klipper during the last software start or restart. (Any settings changed at run-time will not be reflected here.) All values are returned as strings.
+- `config.<section>.<option>`: Restituisce l'impostazione del file di configurazione non elaborato come letta da Klipper durante l'ultimo avvio o riavvio del software. (Qualsiasi impostazione modificata in fase di esecuzione non si rifletterà qui.) Tutti i valori vengono restituiti come stringhe.
 - `save_config_pending`: Returns true if there are updates that a `SAVE_CONFIG` command may persist to disk.
 - `save_config_pending_items`: Contains the sections and options that were changed and would be persisted by a `SAVE_CONFIG`.
 - `warnings`: A list of warnings about config options. Each entry in the list will be a dictionary containing a `type` and `message` field (both strings). Additional fields may be available depending on the type of warning.
 
 ## display_status
 
-The following information is available in the `display_status` object (this object is automatically available if a [display](Config_Reference.md#display) config section is defined):
+Le seguenti informazioni sono disponibili nell'oggetto `display_status` (questo oggetto è automaticamente disponibile se è definita una sezione di configurazione [display](Config_Reference.md#display)):
 
-- `progress`: The progress value of the last `M73` G-Code command (or `virtual_sdcard.progress` if no recent `M73` received).
-- `message`: The message contained in the last `M117` G-Code command.
+- `progress`: il valore di avanzamento dell'ultimo comando G-Code `M73` (o `virtual_sdcard.progress` se non è stato ricevuto alcun `M73` recente).
+- `message`: il messaggio contenuto nell'ultimo comando G-Code `M117`.
 
 ## endstop_phase
 
-The following information is available in the [endstop_phase](Config_Reference.md#endstop_phase) object:
+Le seguenti informazioni sono disponibili nell'oggetto [endstop_phase](Config_Reference.md#endstop_phase):
 
-- `last_home.<stepper name>.phase`: The phase of the stepper motor at the end of the last home attempt.
-- `last_home.<stepper name>.phases`: The total number of phases available on the stepper motor.
-- `last_home.<stepper name>.mcu_position`: The position (as tracked by the micro-controller) of the stepper motor at the end of the last home attempt. The position is the total number of steps taken in a forward direction minus the total number of steps taken in the reverse direction since the micro-controller was last restarted.
+- `last_home.<nome stepper>.phase`: La fase del motore passo-passo al termine dell'ultimo tentativo di home.
+- `last_home.<stepper name>.phases`: il numero totale di fasi disponibili sul motore passo-passo.
+- `last_home.<stepper name>.mcu_position`: la posizione (tracciata dal microcontrollore) del motore passo-passo alla fine dell'ultimo tentativo di home. La posizione è il numero totale di passi effettuati in avanti meno il numero totale di passi effettuati in senso inverso dall'ultimo riavvio del microcontrollore.
 
 ## exclude_object
 
@@ -79,16 +79,16 @@ The following information is available in the [exclude_object](Exclude_Object.md
 
 ## fan
 
-The following information is available in [fan](Config_Reference.md#fan), [heater_fan some_name](Config_Reference.md#heater_fan) and [controller_fan some_name](Config_Reference.md#controller_fan) objects:
+Le seguenti informazioni sono disponibili negli oggetti [fan](Config_Reference.md#fan), [heater_fan some_name](Config_Reference.md#heater_fan) e [controller_fan some_name](Config_Reference.md#controller_fan):
 
-- `speed`: The fan speed as a float between 0.0 and 1.0.
-- `rpm`: The measured fan speed in rotations per minute if the fan has a tachometer_pin defined.
+- `speed`: La velocità della ventola come float tra 0.0 e 1.0.
+- `rpm`: la velocità della ventola misurata in rotazioni al minuto se la ventola ha un pin tachimetro definito.
 
 ## filament_switch_sensor
 
-The following information is available in [filament_switch_sensor some_name](Config_Reference.md#filament_switch_sensor) objects:
+Le seguenti informazioni sono disponibili negli oggetti [filament_switch_sensor some_name](Config_Reference.md#filament_switch_sensor):
 
-- `enabled`: Returns True if the switch sensor is currently enabled.
+- `enabled`: Restituisce True se il sensore interruttore è attualmente abilitato.
 - `filament_detected`: Returns True if the sensor is in a triggered state.
 
 ## filament_motion_sensor
