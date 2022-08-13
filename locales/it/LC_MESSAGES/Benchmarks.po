@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-10 21:21+0000\n"
+"PO-Revision-Date: 2022-08-12 07:22+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "benchmarks/it/>\n"
@@ -119,7 +119,7 @@ msgid "sam3x8e"
 msgstr "sam3x8e"
 
 msgid "Duet Maestro step rate benchmark"
-msgstr ""
+msgstr "Benchmark step rate Duet Maestro"
 
 msgid "The following configuration sequence is used on the Duet Maestro:"
 msgstr ""
@@ -132,7 +132,7 @@ msgid "70"
 msgstr "70"
 
 msgid "Duet Wifi step rate benchmark"
-msgstr ""
+msgstr "Benchmark step rate Duet Wifi"
 
 msgid "The following configuration sequence is used on the Duet Wifi:"
 msgstr "La seguente sequenza di configurazione viene utilizzata su Duet Wifi:"
@@ -141,7 +141,7 @@ msgid "sam4e8e"
 msgstr "sam4e8e"
 
 msgid "Beaglebone PRU step rate benchmark"
-msgstr ""
+msgstr "Benchmark step rate Beaglebone PRU"
 
 msgid "The following configuration sequence is used on the PRU:"
 msgstr "Sulla PRU viene utilizzata la seguente sequenza di configurazione:"
@@ -150,7 +150,7 @@ msgid "pru"
 msgstr "pru"
 
 msgid "STM32F042 step rate benchmark"
-msgstr ""
+msgstr "Benchmark step rate STM32F042"
 
 msgid "The following configuration sequence is used on the STM32F042:"
 msgstr "La seguente sequenza di configurazione viene utilizzata sull'STM32F042:"
@@ -159,7 +159,7 @@ msgid "stm32f042"
 msgstr "stm32f042"
 
 msgid "STM32F103 step rate benchmark"
-msgstr ""
+msgstr "Benchmark step rate STM32F103"
 
 msgid "The following configuration sequence is used on the STM32F103:"
 msgstr "Sull'STM32F103 viene utilizzata la seguente sequenza di configurazione:"
@@ -171,7 +171,7 @@ msgid "71"
 msgstr "71"
 
 msgid "STM32F4 step rate benchmark"
-msgstr ""
+msgstr "Benchmark step rate STM32F4"
 
 msgid "The following configuration sequence is used on the STM32F4:"
 msgstr "Sull'STM32F4 viene utilizzata la seguente sequenza di configurazione:"
@@ -189,7 +189,7 @@ msgid "52"
 msgstr "52"
 
 msgid "LPC176x step rate benchmark"
-msgstr ""
+msgstr "Benchmark step rate LPC176x"
 
 msgid "The following configuration sequence is used on the LPC176x:"
 msgstr "La seguente sequenza di configurazione viene utilizzata sull'LPC176x:"
@@ -201,7 +201,7 @@ msgid "lpc1769"
 msgstr "lpc1769"
 
 msgid "SAMD21 step rate benchmark"
-msgstr ""
+msgstr "Benchmark step rate SAMD21"
 
 msgid "The following configuration sequence is used on the SAMD21:"
 msgstr "La seguente sequenza di configurazione viene utilizzata sul SAMD21:"
@@ -210,7 +210,7 @@ msgid "samd21"
 msgstr "samd21"
 
 msgid "SAMD51 step rate benchmark"
-msgstr ""
+msgstr "Benchmark step rate SAMD51"
 
 msgid "The following configuration sequence is used on the SAMD51:"
 msgstr "La seguente sequenza di configurazione viene utilizzata sul SAMD51:"
@@ -225,7 +225,7 @@ msgid "3 stepper (200Mhz)"
 msgstr "3 stepper (200Mhz)"
 
 msgid "Linux MCU step rate benchmark"
-msgstr ""
+msgstr "Benchmark step rate MCU Linux"
 
 msgid "The following configuration sequence is used on a Raspberry Pi:"
 msgstr ""
@@ -235,7 +235,7 @@ msgid "Linux (RPi3)"
 msgstr "Linux (RPi3)"
 
 msgid "Command dispatch benchmark"
-msgstr ""
+msgstr "Benchmark dispacciamento comandi"
 
 msgid ""
 "When the test completes, determine the difference between the clocks "
@@ -264,13 +264,13 @@ msgid "MCU"
 msgstr "MCU"
 
 msgid "Rate"
-msgstr ""
+msgstr "Rateo"
 
 msgid "Build"
-msgstr ""
+msgstr "Build"
 
 msgid "Build compiler"
-msgstr ""
+msgstr "Build compiler"
 
 msgid "stm32f042 (CAN)"
 msgstr "stm32f042 (CAN)"
@@ -282,7 +282,7 @@ msgid "c105adc8"
 msgstr "c105adc8"
 
 msgid "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
-msgstr ""
+msgstr "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
 
 msgid "atmega2560 (serial)"
 msgstr "atmega2560 (serial)"
@@ -381,7 +381,7 @@ msgid "870K"
 msgstr "870K"
 
 msgid "Host Benchmarks"
-msgstr ""
+msgstr "Benchmark Host"
 
 msgid ""
 "SET start_clock {clock+freq}\n"
@@ -430,7 +430,7 @@ msgid "clear_shutdown\n"
 msgstr "clear_shutdown\n"
 
 msgid "ECHO Test result is: {\"%.0fK\" % (3. * freq / ticks / 1000.)}\n"
-msgstr ""
+msgstr "ECHO Test result is: {\"%.0fK\" % (3. * freq / ticks / 1000.)}\n"
 
 msgid ""
 "DELAY {clock + 2*freq} get_uptime\n"
@@ -449,7 +449,7 @@ msgstr ""
 "-i something_complex.gcode -o /dev/null -d out/klipper.dict\n"
 
 msgid "RP2040 step rate benchmark"
-msgstr ""
+msgstr "Benchmark step rate RP2040"
 
 msgid "The following configuration sequence is used on the RP2040:"
 msgstr "Sull'RP2040 viene utilizzata la seguente sequenza di configurazione:"
@@ -480,7 +480,7 @@ msgstr "arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0"
 
 #: docs/Benchmarks.md:block 1 (header)
 msgid "Benchmarks"
-msgstr ""
+msgstr "Benchmark"
 
 #: docs/Benchmarks.md:block 9 (paragraph)
 msgid ""
@@ -502,6 +502,11 @@ msgid ""
 "<Debugging.md>). The following is cut-and-paste into the console.py terminal"
 " window:"
 msgstr ""
+"Il benchmark di invio dei comandi verifica quanti comandi \"fittizi\" "
+"possono elaborare il microcontrollore. È principalmente un test del "
+"meccanismo di comunicazione hardware. Il test viene eseguito utilizzando lo "
+"strumento console.py (descritto in <Debugging.md>). Quanto segue è taglia e "
+"incolla nella finestra del terminale console.py:"
 
 #: docs/Benchmarks.md:block 92 (paragraph)
 msgid ""
@@ -521,6 +526,9 @@ msgid ""
 "used, but only the first block of the above test is cut-and-paste into the "
 "console.py window."
 msgstr ""
+"Per ottenere i benchmark del singolo stepper, viene utilizzata la stessa "
+"sequenza di configurazione, ma solo il primo blocco del test precedente "
+"viene tagliato e incollato nella finestra di console.py."
 
 #: docs/Benchmarks.md:block 17 (paragraph)
 msgid ""
@@ -955,7 +963,7 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 59 (header)
 msgid "STM32G0B1 step rate benchmark"
-msgstr ""
+msgstr "Benchmark step rate STM32G0B1"
 
 #: docs/Benchmarks.md:block 60 (paragraph)
 msgid "The following configuration sequence is used on the STM32G0B1:"

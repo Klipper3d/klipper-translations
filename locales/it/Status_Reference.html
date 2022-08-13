@@ -1506,30 +1506,30 @@
 <h2 id="bed_mesh">bed_mesh<a class="headerlink" href="#bed_mesh" title="Permanent link">&para;</a></h2>
 <p>Le seguenti informazioni sono disponibili in <a href="Config_Reference.html#bed_mesh">bed_mesh</a>:</p>
 <ul>
-<li><code>profile_name</code>, <code>mesh_min</code>, <code>mesh_max</code>, <code>probed_matrix</code>, <code>mesh_matrix</code>: Information on the currently active bed_mesh.</li>
+<li><code>profile_name</code>, <code>mesh_min</code>, <code>mesh_max</code>, <code>probed_matrix</code>, <code>mesh_matrix</code>: informazioni sulla bed_mesh attualmente attiva.</li>
 <li><code>profiles</code>: The set of currently defined profiles as setup using BED_MESH_PROFILE.</li>
 </ul>
 <h2 id="configfile">configfile<a class="headerlink" href="#configfile" title="Permanent link">&para;</a></h2>
 <p>Le seguenti informazioni sono disponibili nell'oggetto <code>configfile</code> (questo oggetto è sempre disponibile):</p>
 <ul>
 <li><code>settings.&lt;section&gt;.&lt;option&gt;</code>: Restituisce l'impostazione del file di configurazione data (o il valore predefinito) durante l'ultimo avvio o riavvio del software. (Qualsiasi impostazione modificata in fase di esecuzione non si rifletterà qui.)</li>
-<li><code>config.&lt;section&gt;.&lt;option&gt;</code>: Returns the given raw config file setting as read by Klipper during the last software start or restart. (Any settings changed at run-time will not be reflected here.) All values are returned as strings.</li>
+<li><code>config.&lt;section&gt;.&lt;option&gt;</code>: Restituisce l'impostazione del file di configurazione non elaborato come letta da Klipper durante l'ultimo avvio o riavvio del software. (Qualsiasi impostazione modificata in fase di esecuzione non si rifletterà qui.) Tutti i valori vengono restituiti come stringhe.</li>
 <li><code>save_config_pending</code>: Returns true if there are updates that a <code>SAVE_CONFIG</code> command may persist to disk.</li>
 <li><code>save_config_pending_items</code>: Contains the sections and options that were changed and would be persisted by a <code>SAVE_CONFIG</code>.</li>
 <li><code>warnings</code>: A list of warnings about config options. Each entry in the list will be a dictionary containing a <code>type</code> and <code>message</code> field (both strings). Additional fields may be available depending on the type of warning.</li>
 </ul>
 <h2 id="display_status">display_status<a class="headerlink" href="#display_status" title="Permanent link">&para;</a></h2>
-<p>The following information is available in the <code>display_status</code> object (this object is automatically available if a <a href="Config_Reference.html#display">display</a> config section is defined):</p>
+<p>Le seguenti informazioni sono disponibili nell'oggetto <code>display_status</code> (questo oggetto è automaticamente disponibile se è definita una sezione di configurazione <a href="Config_Reference.html#display">display</a>):</p>
 <ul>
-<li><code>progress</code>: The progress value of the last <code>M73</code> G-Code command (or <code>virtual_sdcard.progress</code> if no recent <code>M73</code> received).</li>
-<li><code>message</code>: The message contained in the last <code>M117</code> G-Code command.</li>
+<li><code>progress</code>: il valore di avanzamento dell'ultimo comando G-Code <code>M73</code> (o <code>virtual_sdcard.progress</code> se non è stato ricevuto alcun <code>M73</code> recente).</li>
+<li><code>message</code>: il messaggio contenuto nell'ultimo comando G-Code <code>M117</code>.</li>
 </ul>
 <h2 id="endstop_phase">endstop_phase<a class="headerlink" href="#endstop_phase" title="Permanent link">&para;</a></h2>
-<p>The following information is available in the <a href="Config_Reference.html#endstop_phase">endstop_phase</a> object:</p>
+<p>Le seguenti informazioni sono disponibili nell'oggetto <a href="Config_Reference.html#endstop_phase">endstop_phase</a>:</p>
 <ul>
-<li><code>last_home.&lt;stepper name&gt;.phase</code>: The phase of the stepper motor at the end of the last home attempt.</li>
-<li><code>last_home.&lt;stepper name&gt;.phases</code>: The total number of phases available on the stepper motor.</li>
-<li><code>last_home.&lt;stepper name&gt;.mcu_position</code>: The position (as tracked by the micro-controller) of the stepper motor at the end of the last home attempt. The position is the total number of steps taken in a forward direction minus the total number of steps taken in the reverse direction since the micro-controller was last restarted.</li>
+<li><code>last_home.&lt;nome stepper&gt;.phase</code>: La fase del motore passo-passo al termine dell'ultimo tentativo di home.</li>
+<li><code>last_home.&lt;stepper name&gt;.phases</code>: il numero totale di fasi disponibili sul motore passo-passo.</li>
+<li><code>last_home.&lt;stepper name&gt;.mcu_position</code>: la posizione (tracciata dal microcontrollore) del motore passo-passo alla fine dell'ultimo tentativo di home. La posizione è il numero totale di passi effettuati in avanti meno il numero totale di passi effettuati in senso inverso dall'ultimo riavvio del microcontrollore.</li>
 </ul>
 <h2 id="exclude_object">exclude_object<a class="headerlink" href="#exclude_object" title="Permanent link">&para;</a></h2>
 <p>The following information is available in the <a href="Exclude_Object.html">exclude_object</a> object:</p>
@@ -1565,15 +1565,15 @@
 <li><code>current_object</code>: The name of the object currently being printed.</li>
 </ul>
 <h2 id="fan">fan<a class="headerlink" href="#fan" title="Permanent link">&para;</a></h2>
-<p>The following information is available in <a href="Config_Reference.html#fan">fan</a>, <a href="Config_Reference.html#heater_fan">heater_fan some_name</a> and <a href="Config_Reference.html#controller_fan">controller_fan some_name</a> objects:</p>
+<p>Le seguenti informazioni sono disponibili negli oggetti <a href="Config_Reference.html#fan">fan</a>, <a href="Config_Reference.html#heater_fan">heater_fan some_name</a> e <a href="Config_Reference.html#controller_fan">controller_fan some_name</a>:</p>
 <ul>
-<li><code>speed</code>: The fan speed as a float between 0.0 and 1.0.</li>
-<li><code>rpm</code>: The measured fan speed in rotations per minute if the fan has a tachometer_pin defined.</li>
+<li><code>speed</code>: La velocità della ventola come float tra 0.0 e 1.0.</li>
+<li><code>rpm</code>: la velocità della ventola misurata in rotazioni al minuto se la ventola ha un pin tachimetro definito.</li>
 </ul>
 <h2 id="filament_switch_sensor">filament_switch_sensor<a class="headerlink" href="#filament_switch_sensor" title="Permanent link">&para;</a></h2>
-<p>The following information is available in <a href="Config_Reference.html#filament_switch_sensor">filament_switch_sensor some_name</a> objects:</p>
+<p>Le seguenti informazioni sono disponibili negli oggetti <a href="Config_Reference.html#filament_switch_sensor">filament_switch_sensor some_name</a>:</p>
 <ul>
-<li><code>enabled</code>: Returns True if the switch sensor is currently enabled.</li>
+<li><code>enabled</code>: Restituisce True se il sensore interruttore è attualmente abilitato.</li>
 <li><code>filament_detected</code>: Returns True if the sensor is in a triggered state.</li>
 </ul>
 <h2 id="filament_motion_sensor">filament_motion_sensor<a class="headerlink" href="#filament_motion_sensor" title="Permanent link">&para;</a></h2>

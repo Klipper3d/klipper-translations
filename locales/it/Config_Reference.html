@@ -5109,24 +5109,25 @@ i2c_address:
 <p>Statically configured MCP4018 digipot connected via two gpio "bit banging" pins (one may define any number of sections with an "mcp4018" prefix).</p>
 <div class="highlight"><pre><span></span><code>[mcp4018 my_digipot]
 scl_pin:
-#   The SCL &quot;clock&quot; pin. This parameter must be provided.
+#   Il pin &quot;clock&quot; SCL. Questo parametro deve essere fornito.
 sda_pin:
-#   The SDA &quot;data&quot; pin. This parameter must be provided.
+#   Il pin &quot;dati&quot; SDA. Questo parametro deve essere fornito.
 wiper:
-#   The value to statically set the given MCP4018 &quot;wiper&quot; to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest resistance and 0.0 being the lowest resistance. However,
-#   the range may be changed with the &#39;scale&#39; parameter (see below).
-#   This parameter must be provided.
+#   Il valore su cui impostare staticamente il &quot;Wiper&quot; MCP4018 
+#   specificato. Questo è in genere impostato su un numero compreso
+#   tra 0,0 e 1,0 con 1,0 come resistenza più alta e 0,0 come resistenza
+#   più bassa. Tuttavia, l&#39;intervallo può essere modificato con il
+#   parametro &#39;scale&#39; (vedi sotto). Questo parametro deve essere fornito.
 #scale:
-#   This parameter can be used to alter how the &#39;wiper&#39; parameter is
-#   interpreted. If provided, then the &#39;wiper&#39; parameter should be
-#   between 0.0 and &#39;scale&#39;. This may be useful when the MCP4018 is
-#   used to set stepper voltage references. The &#39;scale&#39; can be set to
-#   the equivalent stepper amperage if the MCP4018 is at its highest
-#   resistance, and then the &#39;wiper&#39; parameter can be specified using
-#   the desired amperage value for the stepper. The default is to not
-#   scale the &#39;wiper&#39; parameter.
+#   Questo parametro può essere utilizzato per modificare il modo in
+#   cui viene interpretato il parametro &#39;wiper&#39;. Se fornito, il parametro
+#   &#39;wiper&#39; dovrebbe essere compreso tra 0.0 e &#39;scale&#39;. Questo può essere
+#   utile quando l&#39;MCP4018 viene utilizzato per impostare i riferimenti di
+#   tensione stepper. La &quot;scala&quot; può essere impostata sull&#39;amperaggio
+#   stepper equivalente se l&#39;MCP4018 è alla sua massima resistenza,
+#   quindi è possibile specificare il parametro &quot;wiper&quot; utilizzando il 
+#   valore di amperaggio desiderato per lo stepper. L&#39;impostazione 
+#   predefinita è di non ridimensionare il parametro &#39;wiper&#39;.
 </code></pre></div>
 
 <h2 id="supporto-display">Supporto display<a class="headerlink" href="#supporto-display" title="Permanent link">&para;</a></h2>

@@ -1213,8 +1213,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#micro-controller-id-assignment" class="md-nav__link">
-    Micro-controller id assignment
+  <a href="#assignation-de-lidentifiant-du-micro-controleur" class="md-nav__link">
+    Assignation de l'identifiant du micro-controleur
   </a>
   
 </li>
@@ -1279,7 +1279,7 @@
 
 <h1 id="canbus-protocol">CANBUS protocol<a class="headerlink" href="#canbus-protocol" title="Permanent link">&para;</a></h1>
 <p>This document describes the protocol Klipper uses to communicate over <a href="https://en.wikipedia.org/wiki/CAN_bus">CAN bus</a>. See <CANBUS.md> for information on configuring Klipper with CAN bus.</p>
-<h2 id="micro-controller-id-assignment">Micro-controller id assignment<a class="headerlink" href="#micro-controller-id-assignment" title="Permanent link">&para;</a></h2>
+<h2 id="assignation-de-lidentifiant-du-micro-controleur">Assignation de l'identifiant du micro-controleur<a class="headerlink" href="#assignation-de-lidentifiant-du-micro-controleur" title="Permanent link">&para;</a></h2>
 <p>Klipper uses only CAN 2.0A standard size CAN bus packets, which are limited to 8 data bytes and an 11-bit CAN bus identifier. In order to support efficient communication, each micro-controller is assigned at run-time a unique 1-byte CAN bus nodeid (<code>canbus_nodeid</code>) for general Klipper command and response traffic. Klipper command messages going from host to micro-controller use the CAN bus id of <code>canbus_nodeid * 2 + 256</code>, while Klipper response messages from micro-controller to host use <code>canbus_nodeid * 2 + 256 + 1</code>.</p>
 <p>Each micro-controller has a factory assigned unique chip identifier that is used during id assignment. This identifier can exceed the length of one CAN packet, so a hash function is used to generate a unique 6-byte id (<code>canbus_uuid</code>) from the factory id.</p>
 <h2 id="admin-messages">Admin messages<a class="headerlink" href="#admin-messages" title="Permanent link">&para;</a></h2>
