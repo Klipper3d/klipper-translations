@@ -1,6 +1,6 @@
 # Matrice del Piatto
 
-Il modulo Griglia Letto (bed mesh) può essere usato per compensare le irregolarità della superficie del letto e per ottenere un primo strato migliore su tutto il letto. Va notato che la correzione basata sul software non raggiungerà risultati perfetti, può solo approssimare la forma del letto. Griglia Letto inoltre non può compensare i problemi meccanici ed elettrici. Se un asse è obliquo o una sonda non è accurata, il modulo Griglia Letto non riceverà risultati accurati dal processo di ispezione.
+Il modulo rete piatto (bed mesh) può essere usato per compensare le irregolarità della superficie del piatto e per ottenere un primo strato migliore su tutto il piatto. Va notato che la correzione basata sul software non raggiungerà risultati perfetti, può solo approssimare la forma del piatto. Bed mesh inoltre non può compensare i problemi meccanici ed elettrici. Se un asse è obliquo o una sonda non è accurata, il modulo Bed mesh non riceverà risultati accurati dal processo di ispezione.
 
 Prima della calibrazione della mesh dovrai assicurarti che l'offset Z della tua sonda sia calibrato. Se si utilizza un fine corsa per l'homing Z, anche questo dovrà essere calibrato. Per ulteriori informazioni, vedere [Probe Calibrate](Probe_Calibrate.md) e Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md).
 
@@ -31,7 +31,7 @@ L'illustrazione seguente mostra come le opzioni `mesh_min`, `mesh_max` e `probe_
 
 ### Piatti rotondi
 
-Questo esempio presuppone una stampante dotata di un raggio del letto rotondo di 100 mm. Utilizzeremo gli stessi offset della sonda dell'esempio rettangolare, 24 mm su X e 5 mm su Y.
+Questo esempio presuppone una stampante dotata di un raggio del piatto rotondo di 100 mm. Utilizzeremo gli stessi offset della sonda dell'esempio rettangolare, 24 mm su X e 5 mm su Y.
 
 ```
 [bed_mesh]

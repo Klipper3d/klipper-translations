@@ -6,13 +6,13 @@ When sourcing ADXL345, be aware that there is a variety of different PCB board d
 
 ## Istruzioni per l'installazione
 
-### Wiring
+### Cablaggio
 
 Devi connettere ADXL345 al tuo Raspberry Pi tramite SPI. Si noti che la connessione I2C, suggerita dalla documentazione di ADXL345, ha un throughput troppo basso e **non funzionerà**. Lo schema di connessione consigliato:
 
-| ADXL345 pin | RPi pin | RPi pin name |
+| ADXL345 pin | RPi pin | Nome pin RPi |
 | :-: | :-: | :-: |
-| 3V3 (or VCC) | 01 | 3.3v DC power |
+| 3V3 (or VCC) | 01 | 3.3v alimentazione DC |
 | GND | 06 | Ground |
 | CS | 24 | GPIO08 (SPI0_CE0_N) |
 | SDO | 21 | GPIO09 (SPI0_MISO) |
@@ -21,32 +21,32 @@ Devi connettere ADXL345 al tuo Raspberry Pi tramite SPI. Si noti che la connessi
 
 An alternative to the ADXL345 is the MPU-9250 (or MPU-6050). This accelerometer has been tested to work over I2C on the RPi at 400kbaud. Recommended connection scheme for I2C:
 
-| MPU-9250 pin | RPi pin | RPi pin name |
+| MPU-9250 pin | RPi pin | Nome pin RPi |
 | :-: | :-: | :-: |
-| 3V3 (or VCC) | 01 | 3.3v DC power |
+| 3V3 (or VCC) | 01 | 3.3v alimentazione DC |
 | GND | 09 | Ground |
 | SDA | 03 | GPIO02 (SDA1) |
 | SCL | 05 | GPIO03 (SCL1) |
 
-Fritzing wiring diagrams for some of the ADXL345 boards:
+Schemi collegamenti Fritzing per alcune delle schede ADXL345:
 
 ![ADXL345-Rpi](img/adxl345-fritzing.png)
 
-Double-check your wiring before powering up the Raspberry Pi to prevent damaging it or the accelerometer.
+Ricontrolla il cablaggio prima di accendere il Raspberry Pi per evitare di danneggiare RPi o l'accelerometro.
 
-### Mounting the accelerometer
+### Montaggio dell'accelerometro
 
-The accelerometer must be attached to the toolhead. One needs to design a proper mount that fits their own 3D printer. It is better to align the axes of the accelerometer with the printer's axes (but if it makes it more convenient, axes can be swapped - i.e. no need to align X axis with X and so forth - it should be fine even if Z axis of accelerometer is X axis of the printer, etc.).
+L'accelerometro deve essere collegato alla testa di stampa. È necessario progettare un supporto adeguato che si adatti alla propria stampante 3D. È meglio allineare gli assi dell'accelerometro con gli assi della stampante (ma se lo rende più comodo, gli assi possono essere scambiati - cioè non c'è bisogno di allineare l'asse X con X e così via - dovrebbe andare bene anche se l'asse Z di l'accelerometro è l'asse X della stampante, ecc.).
 
-An example of mounting ADXL345 on the SmartEffector:
+Un esempio di montaggio di ADXL345 su SmartEffect:
 
 ![ADXL345 on SmartEffector](img/adxl345-mount.jpg)
 
-Note that on a bed slinger printer one must design 2 mounts: one for the toolhead and one for the bed, and run the measurements twice. See the corresponding [section](#bed-slinger-printers) for more details.
+Si noti che su una stampante con piatto mobile è necessario progettare 2 supporti: uno per la testina e uno per il piatto, ed eseguire le misurazioni due volte. Per maggiori dettagli, vedere la [sezione](#bed-slinger-printers) corrispondente.
 
-**Attention:** make sure the accelerometer and any screws that hold it in place do not touch any metal parts of the printer. Basically, the mount must be designed such as to ensure the electrical isolation of the accelerometer from the printer frame. Failing to ensure that can create a ground loop in the system that may damage the electronics.
+**Attenzione:** assicurati che l'accelerometro e le eventuali viti che lo tengono in posizione non tocchino parti metalliche della stampante. Fondamentalmente, il supporto deve essere progettato in modo tale da garantire l'isolamento elettrico dell'accelerometro dal telaio della stampante. Non riuscendo a garantire che può creare un loop di massa nel sistema che potrebbe danneggiare l'elettronica.
 
-### Software installation
+### Installazione software
 
 Note that resonance measurements and shaper auto-calibration require additional software dependencies not installed by default. First, run on your Raspberry Pi the following commands:
 
@@ -63,7 +63,7 @@ Next, in order to install NumPy in the Klipper environment, run the command:
 
 Note that, depending on the performance of the CPU, it may take *a lot* of time, up to 10-20 minutes. Be patient and wait for the completion of the installation. On some occasions, if the board has too little RAM the installation may fail and you will need to enable swap.
 
-Afterwards, check and follow the instructions in the [RPi Microcontroller document](RPi_microcontroller.md) to setup the "linux mcu" on the Raspberry Pi.
+Successivamente, controlla e segui le istruzioni nel [documento RPi Microcontroller](RPi_microcontroller.md) per configurare "linux mcu" sul Raspberry Pi.
 
 Assicurati che il driver SPI di Linux sia abilitato eseguendo `sudo raspi-config` e abilitando SPI nel menu "Opzioni di interfaccia".
 
@@ -82,7 +82,7 @@ probe_points:
     100, 100, 20  # an example
 ```
 
-It is advised to start with 1 probe point, in the middle of the print bed, slightly above it.
+Si consiglia di iniziare con 1 punto sonda, al centro del piano di stampa, leggermente al di sopra di esso.
 
 For the MPU-9250, make sure the Linux I2C driver is enabled and the baud rate is set to 400000 (see [Enabling I2C](RPi_microcontroller.md#optional-enabling-i2c) section for more details). Then, add the following to the printer.cfg:
 
@@ -100,38 +100,38 @@ probe_points:
     100, 100, 20  # an example
 ```
 
-Restart Klipper via the `RESTART` command.
+Riavvia Klipper tramite il comando `RESTART`.
 
-## Measuring the resonances
+## Misurare le risonanze
 
-### Checking the setup
+### Controllo della configurazione
 
-Now you can test a connection.
+Ora puoi testare una connessione.
 
-- For "non bed-slingers" (e.g. one accelerometer), in Octoprint, enter `ACCELEROMETER_QUERY`
-- For "bed-slingers" (e.g. more than one accelerometer), enter `ACCELEROMETER_QUERY CHIP=<chip>` where `<chip>` is the name of the chip as-entered, e.g. `CHIP=bed` (see: [bed-slinger](#bed-slinger-printers)) for all installed accelerometer chips.
+- Per "per piatti non scorrevoli" (es. un accelerometro), in Octoprint, inserisci `ACCELEROMETER_QUERY`
+- Per "piatti scorrevoli" (ad es. più di un accelerometro), immettere `ACCELEROMETER_QUERY CHIP=<chip>` dove `<chip>` è il nome del chip immesso, ad es. `CHIP=piatto` (vedi: [bed-slinger](#bed-slinger-printers)) per tutti i chip dell'accelerometro installati.
 
-You should see the current measurements from the accelerometer, including the free-fall acceleration, e.g.
+Dovresti vedere le misurazioni attuali dall'accelerometro, inclusa l'accelerazione di caduta libera, ad es.
 
 ```
 Recv: // adxl345 values (x, y, z): 470.719200, 941.438400, 9728.196800
 ```
 
-If you get an error like `Invalid adxl345 id (got xx vs e5)`, where `xx` is some other ID, it is indicative of the connection problem with ADXL345, or the faulty sensor. Double-check the power, the wiring (that it matches the schematics, no wire is broken or loose, etc.), and soldering quality.
+Se ricevi un errore come `Invalid adxl345 id (got xx vs e5)`, dove `xx` è un altro ID, è indicativo del problema di connessione con ADXL345 o del sensore difettoso. Ricontrolla l'alimentazione, il cablaggio (che corrisponda agli schemi, nessun filo è rotto o allentato, ecc.) e la qualità delle saldature.
 
-Next, try running `MEASURE_AXES_NOISE` in Octoprint, you should get some baseline numbers for the noise of accelerometer on the axes (should be somewhere in the range of ~1-100). Too high axes noise (e.g. 1000 and more) can be indicative of the sensor issues, problems with its power, or too noisy imbalanced fans on a 3D printer.
+Quindi, prova a eseguire `MEASURE_AXES_NOISE` in Octoprint, dovresti ottenere alcuni numeri di riferimento per il rumore dell'accelerometro sugli assi (dovrebbe essere compreso tra ~1-100). Un rumore degli assi troppo elevato (ad es. 1000 e più) può essere indicativo di problemi con il sensore, problemi con la sua alimentazione o ventole sbilanciate troppo rumorose su una stampante 3D.
 
-### Measuring the resonances
+### Misurare le risonanze
 
-Now you can run some real-life tests. Run the following command:
+Ora puoi eseguire alcuni test realistici. Esegui il seguente comando:
 
 ```
 TEST_RESONANCES AXIS=X
 ```
 
-Note that it will create vibrations on X axis. It will also disable input shaping if it was enabled previously, as it is not valid to run the resonance testing with the input shaper enabled.
+Nota che creerà vibrazioni sull'asse X. Disabiliterà anche l'input shaping se era stato abilitato in precedenza, poiché non è valido eseguire il test di risonanza con l'input shaper abilitato.
 
-**Attention!** Be sure to observe the printer for the first time, to make sure the vibrations do not become too violent (`M112` command can be used to abort the test in case of emergency; hopefully it will not come to this though). If the vibrations do get too strong, you can attempt to specify a lower than the default value for `accel_per_hz` parameter in `[resonance_tester]` section, e.g.
+**Attenzione!** Assicurati di osservare la stampante per la prima volta, per assicurarti che le vibrazioni non diventino troppo violente (il comando `M112` può essere utilizzato per interrompere il test in caso di emergenza; si spera che non si verifichi questo però). Se le vibrazioni diventano troppo forti, puoi provare a specificare un valore inferiore al valore predefinito per il parametro `accel_per_hz` nella sezione `[resonance_tester]`, ad es.
 
 ```
 [resonance_tester]
@@ -140,7 +140,7 @@ accel_per_hz: 50  # default is 75
 probe_points: ...
 ```
 
-If it works for X axis, run for Y axis as well:
+Se funziona per l'asse X, esegui anche per l'asse Y:
 
 ```
 TEST_RESONANCES AXIS=Y
@@ -153,7 +153,7 @@ This will generate 2 CSV files (`/tmp/resonances_x_*.csv` and `/tmp/resonances_y
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_y_*.csv -o /tmp/shaper_calibrate_y.png
 ```
 
-This script will generate the charts `/tmp/shaper_calibrate_x.png` and `/tmp/shaper_calibrate_y.png` with frequency responses. You will also get the suggested frequencies for each input shaper, as well as which input shaper is recommended for your setup. For example:
+Questo script genererà i grafici `/tmp/shaper_calibrate_x.png` e `/tmp/shaper_calibrate_y.png` con le risposte in frequenza. Riceverai anche le frequenze suggerite per ogni input shaper, nonché quale input shaper è consigliato per la tua configurazione. Per esempio:
 
 ![Resonances](img/calibrate-y.png)
 
@@ -171,7 +171,7 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2800 mm/sec^
 Recommended shaper is mzv @ 34.6 Hz
 ```
 
-The suggested configuration can be added to `[input_shaper]` section of `printer.cfg`, e.g.:
+La configurazione suggerita può essere aggiunta alla sezione `[input_shaper]` di `printer.cfg`, ad esempio:
 
 ```
 [input_shaper]
@@ -184,15 +184,15 @@ shaper_type_y: mzv
 max_accel: 3000  # should not exceed the estimated max_accel for X and Y axes
 ```
 
-or you can choose some other configuration yourself based on the generated charts: peaks in the power spectral density on the charts correspond to the resonance frequencies of the printer.
+oppure puoi scegliere tu stesso un'altra configurazione in base ai grafici generati: i picchi nella densità spettrale di potenza sui grafici corrispondono alle frequenze di risonanza della stampante.
 
-Note that alternatively you can run the input shaper autocalibration from Klipper [directly](#input-shaper-auto-calibration), which can be convenient, for example, for the input shaper [re-calibration](#input-shaper-re-calibration).
+Nota che in alternativa puoi eseguire l'autocalibrazione dello input shaper da Klipper [direttamente](#input-shaper-auto-calibration), che può essere conveniente, ad esempio, per lo input shaper[ricalibrazione](#input-shaper-re-calibrazione).
 
-### Bed-slinger printers
+### Stampanti con piatto scorrevole
 
-If your printer is a bed slinger printer, you will need to change the location of the accelerometer between the measurements for X and Y axes: measure the resonances of X axis with the accelerometer attached to the toolhead and the resonances of Y axis - to the bed (the usual bed slinger setup).
+Se la tua stampante ha un piatto scorrevole, dovrai cambiare la posizione dell'accelerometro tra le misurazioni per gli assi X e Y: misurare le risonanze dell'asse X con l'accelerometro collegato alla testa di stampa e le risonanze dell'asse Y - al piatto.
 
-However, you can also connect two accelerometers simultaneously, though they must be connected to different boards (say, to an RPi and printer MCU board), or to two different physical SPI interfaces on the same board (rarely available). Then they can be configured in the following manner:
+Tuttavia, puoi anche collegare due accelerometri contemporaneamente, sebbene debbano essere collegati a schede diverse (ad esempio, a una scheda RPi e MCU della stampante) o a due diverse interfacce SPI fisiche sulla stessa scheda (raramente disponibili). Quindi possono essere configurati nel modo seguente:
 
 ```
 [adxl345 hotend]
@@ -210,13 +210,13 @@ accel_chip_y: adxl345 bed
 probe_points: ...
 ```
 
-Then the commands `TEST_RESONANCES AXIS=X` and `TEST_RESONANCES AXIS=Y` will use the correct accelerometer for each axis.
+Quindi i comandi `TEST_RESONANCES AXIS=X` e `TEST_RESONANCES AXIS=Y` utilizzeranno l'accelerometro corretto per ciascun asse.
 
 ### Max smoothing
 
 Keep in mind that the input shaper can create some smoothing in parts. Automatic tuning of the input shaper performed by `calibrate_shaper.py` script or `SHAPER_CALIBRATE` command tries not to exacerbate the smoothing, but at the same time they try to minimize the resulting vibrations. Sometimes they can make a sub-optimal choice of the shaper frequency, or maybe you simply prefer to have less smoothing in parts at the expense of a larger remaining vibrations. In these cases, you can request to limit the maximum smoothing from the input shaper.
 
-Let's consider the following results from the automatic tuning:
+Consideriamo i seguenti risultati della sintonizzazione automatica:
 
 ![Resonances](img/calibrate-x.png)
 
@@ -275,15 +275,15 @@ max_smoothing: 0.25  # an example
 
 Then, if you [rerun](#input-shaper-re-calibration) the input shaper auto-tuning using `SHAPER_CALIBRATE` Klipper command in the future, it will use the stored `max_smoothing` value as a reference.
 
-### Selecting max_accel
+### Seleziona max_accel
 
 Since the input shaper can create some smoothing in parts, especially at high accelerations, you will still need to choose the `max_accel` value that does not create too much smoothing in the printed parts. A calibration script provides an estimate for `max_accel` parameter that should not create too much smoothing. Note that the `max_accel` as displayed by the calibration script is only a theoretical maximum at which the respective shaper is still able to work without producing too much smoothing. It is by no means a recommendation to set this acceleration for printing. The maximum acceleration your printer is able to sustain depends on its mechanical properties and the maximum torque of the used stepper motors. Therefore, it is suggested to set `max_accel` in `[printer]` section that does not exceed the estimated values for X and Y axes, likely with some conservative safety margin.
 
-Alternatively, follow [this](Resonance_Compensation.md#selecting-max_accel) part of the input shaper tuning guide and print the test model to choose `max_accel` parameter experimentally.
+In alternativa, segui [questa](Resonance_Compensation.md#selecting-max_accel) parte della guida all'ottimizzazione dello input shaper e stampa il modello di test per scegliere sperimentalmente il parametro `max_accel`.
 
-The same notice applies to the input shaper [auto-calibration](#input-shaper-auto-calibration) with `SHAPER_CALIBRATE` command: it is still necessary to choose the right `max_accel` value after the auto-calibration, and the suggested acceleration limits will not be applied automatically.
+Lo stesso avviso vale per lo input shaper [auto-calibration](#input-shaper-auto-calibration) con il comando `SHAPER_CALIBRATE`: è comunque necessario scegliere il giusto valore di `max_accel` dopo l'auto-calibrazione, e il i limiti di accelerazione non verranno applicati automaticamente.
 
-If you are doing a shaper re-calibration and the reported smoothing for the suggested shaper configuration is almost the same as what you got during the previous calibration, this step can be skipped.
+Se stai eseguendo una ricalibrazione dello shaper e lo smoothing riportato per la configurazione dello shaper suggerita è quasi lo stesso di quello ottenuto durante la calibrazione precedente, questo passaggio può essere saltato.
 
 ### Testing custom axes
 
@@ -320,7 +320,7 @@ and then use the same command
 
 to generate `/tmp/resonances.png` comparing the resonances.
 
-## Input Shaper auto-calibration
+## Calibrazione automatica Input Shaper
 
 Besides manually choosing the appropriate parameters for the input shaper feature, it is also possible to run the auto-tuning for the input shaper directly from Klipper. Run the following command via Octoprint terminal:
 
