@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-10 04:19+0000\n"
+"PO-Revision-Date: 2022-08-15 10:17+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/"
 "it/>\n"
@@ -56,9 +56,12 @@ msgstr ""
 
 msgid "Set extrude factor override percentage: `M221 S<percent>`"
 msgstr ""
+"Imposta la percentuale di sostituzione del fattore di estrusione: `M221 "
+"S<percentuale>`"
 
 msgid "Set acceleration: `M204 S<value>` OR `M204 P<value> T<value>`"
 msgstr ""
+"Impostare l'accelerazione: `M204 S<valore>` OPPURE `M204 P<valore> T<valore>`"
 
 msgid ""
 "Note: If S is not specified and both P and T are specified, then the "
@@ -74,26 +77,29 @@ msgstr "Ottieni la temperatura dell'estrusore: `M105`"
 
 msgid "Set extruder temperature: `M104 [T<index>] [S<temperature>]`"
 msgstr ""
+"Imposta la temperatura dell'estrusore: `M104 [T<index>] [S<temperatura>]`"
 
 msgid "Set extruder temperature and wait: `M109 [T<index>] S<temperature>`"
 msgstr ""
+"Imposta la temperatura dell'estrusore e attende: `M109 [T<index>] "
+"S<temperatura>`"
 
 msgid "Note: M109 always waits for temperature to settle at requested value"
 msgstr ""
 "Nota: M109 attende sempre che la temperatura si assesti al valore richiesto"
 
 msgid "Set bed temperature: `M140 [S<temperature>]`"
-msgstr ""
+msgstr "Imposta la temperatura del piatto: `M140 [S<temperatura>]`"
 
 msgid "Set bed temperature and wait: `M190 S<temperature>`"
-msgstr ""
+msgstr "Imposta la temperatura del piatto e attende: `M190 S<temperatura>`"
 
 msgid "Note: M190 always waits for temperature to settle at requested value"
 msgstr ""
 "Nota: M190 attende sempre che la temperatura si assesti al valore richiesto"
 
 msgid "Set fan speed: `M106 S<value>`"
-msgstr ""
+msgstr "Imposta la velocità della ventola: `M106 S<valore>`"
 
 msgid "Turn fan off: `M107`"
 msgstr ""
@@ -132,7 +138,7 @@ msgid "Initialize SD card: `M21`"
 msgstr "Inizializza scheda SD: `M21`"
 
 msgid "Select SD file: `M23 <filename>`"
-msgstr ""
+msgstr "Selezionare il file SD: `M23 <nomefile>`"
 
 msgid "Start/resume SD print: `M24`"
 msgstr ""
@@ -355,6 +361,12 @@ msgid ""
 "switch between them using this extended gcode command. If DISPLAY is not "
 "specified it defaults to \"display\" (the primary display)."
 msgstr ""
+"`SET_DISPLAY_GROUP [DISPLAY=<display>] GROUP=<group>`: Imposta il gruppo di "
+"visualizzazione attivo di un display LCD. Ciò consente di definire più "
+"gruppi di dati di visualizzazione nella configurazione, ad es. `["
+"display_data <group> <elementname>]` e passare da uno all'altro usando "
+"questo comando gcode esteso. Se DISPLAY non è specificato, l'impostazione "
+"predefinita è \"display\" (il display principale)."
 
 msgid ""
 "`SET_IDLE_TIMEOUT [TIMEOUT=<timeout>]`: Allows the user to set the idle "
@@ -617,6 +629,9 @@ msgid ""
 "carriage. It is typically invoked from the activate_gcode and "
 "deactivate_gcode fields in a multiple extruder configuration."
 msgstr ""
+"`SET_DUAL_CARRIAGE CARRIAGE=[0|1]`: Questo comando imposterà il carrello "
+"attivo. Viene in genere richiamato dai campi activate_gcode e "
+"deactivate_gcode in una configurazione a più estrusori."
 
 msgid ""
 "`DUMP_TMC STEPPER=<name>`: This command will read the TMC driver registers "
@@ -693,11 +708,12 @@ msgid ""
 msgstr ""
 
 msgid "`SDCARD_LOOP_END`: End a looped section in the SD print."
-msgstr ""
+msgstr "`SDCARD_LOOP_END`: termina una sezione in loop nella stampa SD."
 
 msgid ""
 "`SDCARD_LOOP_DESIST`: Complete existing loops without further iterations."
 msgstr ""
+"`SDCARD_LOOP_DESIST`: completa i loop esistenti senza ulteriori iterazioni."
 
 msgid ""
 "`M118 <message>`: echo the message prepended with the configured default "
@@ -1271,7 +1287,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 66 (header)
 msgid "SET_DISPLAY_GROUP"
-msgstr ""
+msgstr "SET_DISPLAY_GROUP"
 
 #: docs/G-Codes.md:block 68 (header)
 msgid "[display_status]"
@@ -1296,7 +1312,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 73 (header)
 msgid "SET_DUAL_CARRIAGE"
-msgstr ""
+msgstr "SET_DUAL_CARRIAGE"
 
 #: docs/G-Codes.md:block 75 (header)
 msgid "[endstop_phase]"
@@ -1333,7 +1349,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 85 (header)
 msgid "SET_EXTRUDER_ROTATION_DISTANCE"
-msgstr ""
+msgstr "SET_EXTRUDER_ROTATION_DISTANCE"
 
 #: docs/G-Codes.md:block 87 (header)
 msgid "SYNC_EXTRUDER_MOTION"
@@ -1341,7 +1357,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 89 (header)
 msgid "SET_EXTRUDER_STEP_DISTANCE"
-msgstr ""
+msgstr "SET_EXTRUDER_STEP_DISTANCE"
 
 #: docs/G-Codes.md:block 90 (paragraph)
 msgid "This command is deprecated and will be removed in the near future."
@@ -1363,13 +1379,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 95 (header)
 msgid "SET_FAN_SPEED"
-msgstr ""
+msgstr "SET_FAN_SPEED"
 
 #: docs/G-Codes.md:block 96 (paragraph)
 msgid ""
 "`SET_FAN_SPEED FAN=config_name SPEED=<speed>` This command sets the speed of"
 " a fan. \"speed\" must be between 0.0 and 1.0."
 msgstr ""
+"`SET_FAN_SPEED FAN=config_name SPEED=<velocità>` Questo comando imposta la "
+"velocità di una ventola. \"velocità\" deve essere compresa tra 0.0 e 1.0."
 
 #: docs/G-Codes.md:block 97 (header)
 msgid "[firmware_retraction]"
@@ -1426,7 +1444,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 109 (header)
 msgid "SET_FILAMENT_SENSOR"
-msgstr ""
+msgstr "SET_FILAMENT_SENSOR"
 
 #: docs/G-Codes.md:block 114 (header)
 msgid "[force_move]"
@@ -1929,7 +1947,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 278 (header)
 msgid "SDCARD_LOOP_END"
-msgstr ""
+msgstr "SDCARD_LOOP_END"
 
 #: docs/G-Codes.md:block 280 (header)
 msgid "SDCARD_LOOP_DESIST"
@@ -1937,7 +1955,7 @@ msgstr "SDCARD_LOOP_DESIST"
 
 #: docs/G-Codes.md:block 282 (header)
 msgid "[servo]"
-msgstr ""
+msgstr "[servo]"
 
 #: docs/G-Codes.md:block 283 (paragraph)
 msgid ""
@@ -2138,20 +2156,21 @@ msgstr ""
 
 #: docs/G-Codes.md:block 327 (header)
 msgid "SDCARD_PRINT_FILE"
-msgstr ""
+msgstr "SDCARD_PRINT_FILE"
 
 #: docs/G-Codes.md:block 328 (paragraph)
 msgid ""
 "`SDCARD_PRINT_FILE FILENAME=<filename>`: Load a file and start SD print."
 msgstr ""
+"`SDCARD_PRINT_FILE FILENAME=<nomefile>`: carica un file e avvia la stampa SD."
 
 #: docs/G-Codes.md:block 329 (header)
 msgid "SDCARD_RESET_FILE"
-msgstr ""
+msgstr "SDCARD_RESET_FILE"
 
 #: docs/G-Codes.md:block 330 (paragraph)
 msgid "`SDCARD_RESET_FILE`: Unload file and clear SD state."
-msgstr ""
+msgstr "`SDCARD_RESET_FILE`: Scarica il file e cancella lo stato SD."
 
 #: docs/G-Codes.md:block 331 (header)
 msgid "[z_tilt]"
@@ -2542,6 +2561,19 @@ msgid ""
 "Do proper calibration with filament before use. If 'DISTANCE' value is not "
 "provided then this command will return the current rotation distance."
 msgstr ""
+"`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> "
+"[DISTANCE=<distance>]`: Imposta un nuovo valore per la \"distanza di "
+"rotazione\" dello stepper dell'estrusore fornito (come definito in un "
+"[extruder](Config_Reference.md#extruder) o [extruder_stepper]("
+"Config_Reference .md#extruder_stepper) sezione di configurazione). Se la "
+"distanza di rotazione è un numero negativo, il movimento passo-passo verrà "
+"invertito (rispetto alla direzione passo-passo specificata nel file di "
+"configurazione). Le impostazioni modificate non vengono mantenute al "
+"ripristino di Klipper. Usare con cautela poiché piccole modifiche possono "
+"causare una pressione eccessiva tra l'estrusore e l'hotend. Eseguire una "
+"corretta calibrazione con il filamento prima dell'uso. Se il valore "
+"'DISTANZA' non viene fornito, questo comando restituirà la distanza di "
+"rotazione corrente."
 
 #: docs/G-Codes.md:block 113 (paragraph)
 msgid ""
@@ -2628,6 +2660,9 @@ msgid ""
 "the supplied `MSG` as the current display message. If `MSG` is omitted the "
 "display will be cleared."
 msgstr ""
+"`SET_DISPLAY_TEXT MSG=<messaggio>`: esegue l'equivalente di M117, impostando "
+"il `MSG` fornito come messaggio visualizzato. Se `MSG` viene omesso, il "
+"display verrà cancellato."
 
 #: docs/G-Codes.md:block 291 (unordered list)
 msgid ""
