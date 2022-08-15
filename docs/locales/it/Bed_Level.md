@@ -1,8 +1,8 @@
 # Livellamento del piatto
 
-La livellatura del letto è fondamentale per ottenere stampe di alta qualità. Se un letto non è adeguatamente "livellato" può portare a una scarsa adesione del letto, a una "deformazione" e a problemi minori durante la stampa. Questo documento serve come guida per eseguire il livellamento del letto in Klipper.
+La livellatura del piatto è fondamentale per ottenere stampe di alta qualità. Se un piatto non è adeguatamente "livellato" può portare a una scarsa adesione sul piatto, a una "deformazione" e a problemi minori durante la stampa. Questo documento serve come guida per eseguire il livellamento del piatto in Klipper.
 
-È importante comprendere l'obiettivo del livellamento del piatto. Se alla stampante viene comandata una posizione `X0 Y0 Z10` durante una stampa, l'obiettivo è che l'ugello della stampante si trovi esattamente a 10 mm dal letto della stampante. Inoltre, se poi la stampante dovesse essere comandata in una posizione di `X50 Z10`, l'obiettivo è che l'ugello mantenga una distanza esatta di 10 mm dal letto durante l'intero movimento orizzontale.
+È importante comprendere l'obiettivo del livellamento del piatto. Se alla stampante viene comandata una posizione `X0 Y0 Z10` durante una stampa, l'obiettivo è che l'ugello della stampante si trovi esattamente a 10 mm dal piatto della stampante. Inoltre, se poi la stampante dovesse essere comandata in una posizione di `X50 Z10`, l'obiettivo è che l'ugello mantenga una distanza esatta di 10 mm dal piatto durante l'intero movimento orizzontale.
 
 Per ottenere stampe di buona qualità, la stampante deve essere calibrata in modo che le distanze Z siano precise entro circa 25 micron (0,025 mm). Questa è una piccola distanza, significativamente più piccola della larghezza di un tipico capello umano. Questa scala non può essere misurata "a occhio". Gli effetti sottili (come l'espansione del calore) influiscono sulle misurazioni a questa scala. Il segreto per ottenere un'elevata precisione è utilizzare un processo ripetibile e un metodo di livellamento che sfrutti l'elevata precisione del sistema di movimento della stampante.
 
@@ -10,7 +10,7 @@ Per ottenere stampe di buona qualità, la stampante deve essere calibrata in mod
 
 Diversi tipi di stampanti utilizzano metodi diversi per eseguire il livellamento del piatto. Tutti alla fine dipendono dal "test cartaceo" (descritto di seguito). Tuttavia, il processo effettivo per un particolare tipo di stampante è descritto in altri documenti.
 
-Prima di eseguire uno di questi strumenti di calibrazione, assicurarsi di eseguire i controlli descritti nel [document check di configurazione](Config_checks.md). È necessario verificare il movimento di base della stampante prima di eseguire il livellamento del piatto.
+Prima di eseguire uno di questi strumenti di calibrazione, assicurarsi di eseguire i controlli descritti nel [documento check di configurazione](Config_checks.md). È necessario verificare il movimento di base della stampante prima di eseguire il livellamento del piatto.
 
 Per le stampanti con una "sonda Z automatica", assicurarsi di calibrare la sonda seguendo le istruzioni nel documento [Probe Calibrate](Probe_Calibrate.md). Per le stampanti delta, vedere il documento [Delta Calibrate](Delta_Calibrate.md). Per le stampanti con viti di fissaggio e fermi Z tradizionali, vedere il documento [Manual Level](Manual_Level.md).
 
@@ -92,7 +92,7 @@ Questo tipo di calcolo generalmente non è necessario poiché la maggior parte d
 
 Il modo più semplice per eseguire questo calcolo è stampare un oggetto di prova con pareti dritte su tutti i lati. Il cubo vuoto che si trova in [docs/prints/square.stl](prints/square.stl) può essere usato per questo. Quando si fa lo slicing l'oggetto, assicurarsi che lo slicer utilizzi la stessa altezza del livello e la stessa larghezza di estrusione per il primo livello che utilizza per tutti i livelli successivi. Utilizzare un'altezza dello strato grossolana (l'altezza dello strato dovrebbe essere circa il 75% del diametro dell'ugello) e non utilizzare un bordo o una raft.
 
-Stampa l'oggetto di prova, attendi che si raffreddi e rimuovilo dal letto. Ispeziona lo strato più basso dell'oggetto. (Può anche essere utile far scorrere un dito o un'unghia lungo il bordo inferiore.) Se si scopre che lo strato inferiore si gonfia leggermente lungo tutti i lati dell'oggetto, significa che l'ugello era leggermente più vicino al letto di quanto dovrebbe essere. Si può emettere un comando `SET_GCODE_OFFSET Z=+.010` per aumentare l'altezza. Nelle stampe successive è possibile controllare questo comportamento e apportare ulteriori modifiche secondo necessità. Le regolazioni di questo tipo sono in genere in 10 micron (0,010 mm).
+Stampa l'oggetto di prova, attendi che si raffreddi e rimuovilo dal piatto. Ispeziona lo strato più basso dell'oggetto. (Può anche essere utile far scorrere un dito o un'unghia lungo il bordo inferiore.) Se si scopre che lo strato inferiore si gonfia leggermente lungo tutti i lati dell'oggetto, significa che l'ugello era leggermente più vicino al piatto di quanto dovrebbe essere. Si può emettere un comando `SET_GCODE_OFFSET Z=+.010` per aumentare l'altezza. Nelle stampe successive è possibile controllare questo comportamento e apportare ulteriori modifiche secondo necessità. Le regolazioni di questo tipo sono in genere in 10 micron (0,010 mm).
 
 Se il livello inferiore appare costantemente più stretto dei livelli successivi, è possibile utilizzare il comando SET_GCODE_OFFSET per effettuare una regolazione Z negativa. Se non si è sicuri, è possibile diminuire la regolazione Z finché lo strato inferiore delle stampe non mostra un piccolo rigonfiamento, quindi arretrare finché non scompare.
 

@@ -15,17 +15,17 @@ Klipper supporta i seguenti comandi G-Code standard:
 - Use absolute/relative coordinates: `G90`, `G91`
 - Set position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
 - Set speed factor override percentage: `M220 S<percent>`
-- Set extrude factor override percentage: `M221 S<percent>`
-- Set acceleration: `M204 S<value>` OR `M204 P<value> T<value>`
+- Imposta la percentuale di sostituzione del fattore di estrusione: `M221 S<percentuale>`
+- Impostare l'accelerazione: `M204 S<valore>` OPPURE `M204 P<valore> T<valore>`
    - Nota: se S non viene specificato e vengono specificati sia P che T, l'accelerazione viene impostata al minimo di P e T. Se viene specificato solo uno di P o T, il comando non ha effetto.
 - Ottieni la temperatura dell'estrusore: `M105`
-- Set extruder temperature: `M104 [T<index>] [S<temperature>]`
-- Set extruder temperature and wait: `M109 [T<index>] S<temperature>`
+- Imposta la temperatura dell'estrusore: `M104 [T<index>] [S<temperatura>]`
+- Imposta la temperatura dell'estrusore e attende: `M109 [T<index>] S<temperatura>`
    - Nota: M109 attende sempre che la temperatura si assesti al valore richiesto
-- Set bed temperature: `M140 [S<temperature>]`
-- Set bed temperature and wait: `M190 S<temperature>`
+- Imposta la temperatura del piatto: `M140 [S<temperatura>]`
+- Imposta la temperatura del piatto e attende: `M190 S<temperatura>`
    - Nota: M190 attende sempre che la temperatura si assesti al valore richiesto
-- Set fan speed: `M106 S<value>`
+- Imposta la velocità della ventola: `M106 S<valore>`
 - Turn fan off: `M107`
 - Arresto di emergenza: `M112`
 - Ottieni la posizione attuale: `M114`
@@ -169,7 +169,7 @@ The following command is available when a [display config section](Config_Refere
 
 #### SET_DISPLAY_GROUP
 
-`SET_DISPLAY_GROUP [DISPLAY=<display>] GROUP=<group>`: Set the active display group of an lcd display. This allows to define multiple display data groups in the config, e.g. `[display_data <group> <elementname>]` and switch between them using this extended gcode command. If DISPLAY is not specified it defaults to "display" (the primary display).
+`SET_DISPLAY_GROUP [DISPLAY=<display>] GROUP=<group>`: Imposta il gruppo di visualizzazione attivo di un display LCD. Ciò consente di definire più gruppi di dati di visualizzazione nella configurazione, ad es. `[display_data <group> <elementname>]` e passare da uno all'altro usando questo comando gcode esteso. Se DISPLAY non è specificato, l'impostazione predefinita è "display" (il display principale).
 
 ### [display_status]
 
@@ -180,7 +180,7 @@ The display_status module is automatically loaded if a [display config section](
 
 Viene inoltre fornito il seguente comando G-Code esteso:
 
-- `SET_DISPLAY_TEXT MSG=<message>`: Performs the equivalent of M117, setting the supplied `MSG` as the current display message. If `MSG` is omitted the display will be cleared.
+- `SET_DISPLAY_TEXT MSG=<messaggio>`: esegue l'equivalente di M117, impostando il `MSG` fornito come messaggio visualizzato. Se `MSG` viene omesso, il display verrà cancellato.
 
 ### [dual_carriage]
 
@@ -188,7 +188,7 @@ The following command is available when the [dual_carriage config section](Confi
 
 #### SET_DUAL_CARRIAGE
 
-`SET_DUAL_CARRIAGE CARRIAGE=[0|1]`: This command will set the active carriage. It is typically invoked from the activate_gcode and deactivate_gcode fields in a multiple extruder configuration.
+`SET_DUAL_CARRIAGE CARRIAGE=[0|1]`: Questo comando imposterà il carrello attivo. Viene in genere richiamato dai campi activate_gcode e deactivate_gcode in una configurazione a più estrusori.
 
 ### [endstop_phase]
 
@@ -248,7 +248,7 @@ The following commands are available if an [extruder config section](Config_Refe
 
 #### SET_EXTRUDER_ROTATION_DISTANCE
 
-`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: Set a new value for the provided extruder stepper's "rotation distance" (as defined in an [extruder](Config_Reference.md#extruder) or [extruder_stepper](Config_Reference.md#extruder_stepper) config section). If the rotation distance is a negative number then the stepper motion will be inverted (relative to the stepper direction specified in the config file). Changed settings are not retained on Klipper reset. Use with caution as small changes can result in excessive pressure between extruder and hotend. Do proper calibration with filament before use. If 'DISTANCE' value is not provided then this command will return the current rotation distance.
+`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: Imposta un nuovo valore per la "distanza di rotazione" dello stepper dell'estrusore fornito (come definito in un [extruder](Config_Reference.md#extruder) o [extruder_stepper](Config_Reference .md#extruder_stepper) sezione di configurazione). Se la distanza di rotazione è un numero negativo, il movimento passo-passo verrà invertito (rispetto alla direzione passo-passo specificata nel file di configurazione). Le impostazioni modificate non vengono mantenute al ripristino di Klipper. Usare con cautela poiché piccole modifiche possono causare una pressione eccessiva tra l'estrusore e l'hotend. Eseguire una corretta calibrazione con il filamento prima dell'uso. Se il valore 'DISTANZA' non viene fornito, questo comando restituirà la distanza di rotazione corrente.
 
 #### SYNC_EXTRUDER_MOTION
 
@@ -268,7 +268,7 @@ The following command is available when a [fan_generic config section](Config_Re
 
 #### SET_FAN_SPEED
 
-`SET_FAN_SPEED FAN=config_name SPEED=<speed>` This command sets the speed of a fan. "speed" must be between 0.0 and 1.0.
+`SET_FAN_SPEED FAN=config_name SPEED=<velocità>` Questo comando imposta la velocità di una ventola. "velocità" deve essere compresa tra 0.0 e 1.0.
 
 ### [filament_switch_sensor]
 
@@ -640,11 +640,11 @@ When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is enable
 
 #### SDCARD_LOOP_END
 
-`SDCARD_LOOP_END`: End a looped section in the SD print.
+`SDCARD_LOOP_END`: termina una sezione in loop nella stampa SD.
 
 #### SDCARD_LOOP_DESIST
 
-`SDCARD_LOOP_DESIST`: Complete existing loops without further iterations.
+`SDCARD_LOOP_DESIST`: completa i loop esistenti senza ulteriori iterazioni.
 
 ### [servo]
 
@@ -748,7 +748,7 @@ Klipper supporta i seguenti comandi G-Code standard se la [sezione di configuraz
 
 - Elenco scheda SD: `M20`
 - Inizializza scheda SD: `M21`
-- Select SD file: `M23 <filename>`
+- Selezionare il file SD: `M23 <nomefile>`
 - Start/resume SD print: `M24`
 - Sospendi la stampa SD: `M25`
 - Set SD position: `M26 S<offset>`
@@ -758,11 +758,11 @@ Inoltre, quando la sezione di configurazione "virtual_sdcard" è abilitata, sono
 
 #### SDCARD_PRINT_FILE
 
-`SDCARD_PRINT_FILE FILENAME=<filename>`: Load a file and start SD print.
+`SDCARD_PRINT_FILE FILENAME=<nomefile>`: carica un file e avvia la stampa SD.
 
 #### SDCARD_RESET_FILE
 
-`SDCARD_RESET_FILE`: Unload file and clear SD state.
+`SDCARD_RESET_FILE`: Scarica il file e cancella lo stato SD.
 
 ### [z_tilt]
 

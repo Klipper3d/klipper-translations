@@ -37,21 +37,21 @@ Cose comuni che un revisore cercherà:
 
    Gli aggiornamenti alla documentazione non devono dichiarare che si tratta di un "work in progress".
 
-   1. Does the submission provide a "high impact" benefit to real-world users performing real-world tasks?Reviewers need to identify, at least in their own minds, roughly "who the target audience is", a rough scale of "the size of that audience", the "benefit" they will obtain, how the "benefit is measured", and the "results of those measurement tests". In most cases this will be obvious to both the submitter and the reviewer, and it is not explicitly stated during a review.
+   1. L'invio fornisce un vantaggio "ad alto impatto" per gli utenti del mondo reale che svolgono attività nel mondo reale?I revisori devono identificare, almeno nella loro mente, approssimativamente "chi è il pubblico di destinazione", una scala approssimativa delle "dimensioni di quel pubblico", il "beneficio" che otterranno, come "il beneficio viene misurato" e i "risultati di tali prove di misurazione". Nella maggior parte dei casi questo sarà ovvio sia per il mittente che per il revisore e non è esplicitamente dichiarato durante una revisione.
 
-   Submissions to the master Klipper branch are expected to have a noteworthy target audience. As a general "rule of thumb", submissions should target a user base of at least a 100 real-world users.
+   Le proposte al ramo principale di Klipper dovrebbero avere un pubblico di destinazione degno di nota. Come "regola pratica" generale, gli invii dovrebbero avere come target una base di utenti di almeno 100 utenti del mondo reale.
 
-   If a reviewer asks for details on the "benefit" of a submission, please don't consider it criticism. Being able to understand the real-world benefits of a change is a natural part of a review.
+   Se un revisore chiede dettagli sul "beneficio" di un invio, non considerarlo una critica. Essere in grado di comprendere i vantaggi reali di un cambiamento è una parte naturale di una revisione.
 
-   When discussing benefits it is preferable to discuss "facts and measurements". In general, reviewers are not looking for responses of the form "someone may find option X useful", nor are they looking for responses of the form "this submission adds a feature that firmware X implements". Instead, it is generally preferable to discuss details on how the quality improvement was measured and what were the results of those measurements - for example, "tests on Acme X1000 printers show improved corners as seen in picture ...", or for example "print time of real-world object X on a Foomatic X900 printer went from 4 hours to 3.5 hours". It is understood that testing of this type can take significant time and effort. Some of Klipper's most notable features took months of discussion, rework, testing, and documentation prior to being merged into the master branch.
+   Quando si discute dei benefici è preferibile discutere di "fatti e misurazioni". In generale, i revisori non cercano risposte del modulo "qualcuno potrebbe trovare utile l'opzione X", né cercano risposte del modulo "questo invio aggiunge una funzionalità implementata dal firmware X". Invece, è generalmente preferibile discutere i dettagli su come è stato misurato il miglioramento della qualità e quali sono stati i risultati di tali misurazioni, ad esempio "i test sulle stampanti Acme X1000 mostrano angoli migliorati come si vede in figura...", o ad esempio " il tempo di stampa dell'oggetto reale X su una stampante Foomatic X900 è passato da 4 ore a 3,5 ore". Resta inteso che i test di questo tipo possono richiedere molto tempo e sforzi. Alcune delle caratteristiche più importanti di Klipper hanno richiesto mesi di discussioni, rielaborazioni, test e documentazione prima di essere fuse nel ramo principale.
 
-   All new modules, config options, commands, command parameters, and documents should have "high impact". We do not want to burden users with options that they can not reasonably configure nor do we want to burden them with options that don't provide a notable benefit.
+   Tutti i nuovi moduli, opzioni di configurazione, comandi, parametri di comando e documenti dovrebbero avere un "impatto elevato". Non vogliamo appesantire gli utenti con opzioni che non possono configurare ragionevolmente né vogliamo appesantirli con opzioni che non forniscono un vantaggio notevole.
 
-   A reviewer may ask for clarification on how a user is to configure an option - an ideal response will contain details on the process - for example, "users of the MegaX500 are expected to set option X to 99.3 while users of the Elite100Y are expected to calibrate option X using procedure ...".
+   Un revisore può chiedere chiarimenti su come un utente deve configurare un'opzione - una risposta ideale conterrà dettagli sul processo - ad esempio, "gli utenti del MegaX500 dovrebbero impostare l'opzione X su 99,3 mentre gli utenti dell'Elite100Y dovrebbero calibrare l'opzione X usando la procedura ...".
 
-   If the goal of an option is to make the code more modular then prefer using code constants instead of user facing config options.
+   Se l'obiettivo di un'opzione è rendere il codice più modulare, è preferibile utilizzare le costanti del codice invece delle opzioni di configurazione rivolte all'utente.
 
-   New modules, new options, and new parameters should not provide similar functionality to existing modules - if the differences are arbitrary than it's preferable to utilize the existing system or refactor the existing code.
+   Nuovi moduli, nuove opzioni e nuovi parametri non dovrebbero fornire funzionalità simili ai moduli esistenti: se le differenze sono arbitrarie, è preferibile utilizzare il sistema esistente o effettuare refactoring del codice esistente.
 
    1. Il copyright dell'invio è chiaro, non gratuito e compatibile?I nuovi file C e Python dovrebbero avere una dichiarazione di copyright univoca. Vedere i file esistenti per il formato preferito. È sconsigliato dichiarare un copyright su un file esistente quando si apportano modifiche minori a quel file.
 
@@ -72,50 +72,50 @@ Cose comuni che un revisore cercherà:
 I nuovi documenti dovrebbero essere aggiunti a <Overview.md> e all'indice del sito web [docs/_klipper3d/mkdocs.yml](../docs/_klipper3d/mkdocs.yml).
 
 
-   1. I commit sono ben formati, affrontano un singolo argomento per commit e sono indipendenti?Commit messages should follow the [preferred format](#format-of-commit-messages).
+   1. I commit sono ben formati, affrontano un singolo argomento per commit e sono indipendenti?I messaggi di commit devono seguire il [formato preferito](#format-of-commit-messages).
 
-   Commits must not have a merge conflict. New additions to the Klipper master branch are always done via a "rebase" or "squash and rebase". It is generally not necessary for submitters to re-merge their submission on every update to the Klipper master repository. However, if there is a merge conflict, then submitters are recommended to use `git rebase` to address the conflict.
+   I commit non devono avere un conflitto in fase di merge. Le nuove aggiunte al ramo principale di Klipper vengono sempre eseguite tramite un "rebase" o "squash and rebase". In genere non è necessario che i propositori uniscano nuovamente il loro invio ad ogni aggiornamento al repository principale di Klipper. Tuttavia, se c'è un conflitto in fase di merge, si consiglia ai mittenti di usare `git rebase` per risolvere il conflitto.
 
-   Each commit should address a single high-level change. Large changes should be broken up into multiple independent commits. Each commit should "stand on its own" so that tools like `git bisect` and `git revert` work reliably.
+   Ogni commit dovrebbe affrontare una singola modifica di alto livello. Le modifiche di grandi dimensioni dovrebbero essere suddivise in più commit indipendenti. Ogni commit dovrebbe "stare in piedi da solo" in modo che strumenti come `git bisect` e `git revert` funzionino in modo affidabile.
 
-   Whitespace changes should not be mixed with functional changes. In general, gratuitous whitespace changes are not accepted unless they are from the established "owner" of the code being modified.
+   Le modifiche agli spazi bianchi non devono essere mescolate con le modifiche funzionali. In generale, le modifiche agli spazi bianchi gratuite non sono accettate a meno che non provengano dal "proprietario" stabilito del codice da modificare.
 
-Klipper does not implement a strict "coding style guide", but modifications to existing code should follow the high-level code flow, code indentation style, and format of that existing code. Submissions of new modules and systems have more flexibility in coding style, but it is preferable for that new code to follow an internally consistent style and to generally follow industry wide coding norms.
+Klipper non implementa una rigida "guida allo stile di codifica", ma le modifiche al codice esistente dovrebbero seguire il flusso di codice di alto livello, lo stile di indentazione del codice e il formato di quel codice esistente. Gli invii di nuovi moduli e sistemi hanno una maggiore flessibilità nello stile di codifica, ma è preferibile che il nuovo codice segua uno stile internamente coerente e generalmente segua le norme di codifica.
 
-It is not a goal of a review to discuss "better implementations". However, if a reviewer struggles to understand the implementation of a submission, then they may ask for changes to make the implementation more transparent. In particular, if reviewers can not convince themselves that a submission is free of defects then changes may be necessary.
+Non è un obiettivo di una revisione discutere di "migliori implementazioni". Tuttavia, se un revisore ha difficoltà a comprendere l'implementazione di un invio, può richiedere modifiche per rendere l'implementazione più trasparente. In particolare, se i revisori non riescono a convincersi che un contributo è privo di difetti, potrebbero essere necessarie modifiche.
 
-As part of a review, a reviewer may create an alternate Pull Request for a topic. This may be done to avoid excessive "back and forth" on minor procedural items and thus streamline the submission process. It may also be done because the discussion inspires a reviewer to build an alternative implementation. Both situations are a normal result of a review and should not be considered criticism of the original submission.
+Come parte di una revisione, un revisore può creare una richiesta pull alternativa per un argomento. Questo può essere fatto per evitare eccessivi "avanti e indietro" su elementi procedurali minori e quindi snellire il processo di proposta. Può anche essere fatto perché la discussione ispira un revisore a costruire un'implementazione alternativa. Entrambe le situazioni sono il normale risultato di una revisione e non devono essere considerate critiche alla proposta originale.
 
-### Helping with reviews
+### Aiutare con le revisioni
 
-We appreciate help with reviews! It is not necessary to be a [listed reviewer](#reviewers) to perform a review. Submitters of GitHub Pull Requests are also encouraged to review their own submissions.
+Apprezziamo l'aiuto con le recensioni! Non è necessario essere un [revisore elencato](#reviewers) per eseguire una revisione. I propositori di richieste pull di GitHub sono inoltre incoraggiati a rivedere i propri invii.
 
-To help with a review, follow the steps outlined in [what to expect in a review](#what-to-expect-in-a-review) to verify the submission. After completing the review, add a comment to the GitHub Pull Request with your findings. If the submission passes the review then please state that explicitly in the comment - for example something like "I reviewed this change according to the steps in the CONTRIBUTING document and everything looks good to me". If unable to complete some steps in the review then please explicitly state which steps were reviewed and which steps were not reviewed - for example something like "I didn't check the code for defects, but I reviewed everything else in the CONTRIBUTING document and it looks good".
+Per aiutare con una revisione, segui i passaggi descritti in [cosa aspettarsi in una revisione](#what-to-expect-in-a-review) per verificare l'invio. Dopo aver completato la revisione, aggiungi un commento alla richiesta pull di GitHub con i tuoi risultati. Se l'invio supera la revisione, si prega di dichiararlo esplicitamente nel commento, ad esempio qualcosa del tipo "Ho esaminato questa modifica in base ai passaggi del documento CONTRIBUTING e tutto mi sembra a posto". Se non è possibile completare alcuni passaggi della revisione, indicare esplicitamente quali passaggi sono stati rivisti e quali non sono stati rivisti, ad esempio qualcosa del tipo "Non ho verificato la presenza di difetti nel codice, ma ho rivisto tutto il resto nel documento CONTRIBUTING e sembra buono".
 
-We also appreciate testing of submissions. If the code was tested then please add a comment to the GitHub Pull Request with the results of your test - success or failure. Please explicitly state that the code was tested and the results - for example something like "I tested this code on my Acme900Z printer with a vase print and the results were good".
+Apprezziamo anche il test degli invii. Se il codice è stato testato, aggiungi un commento alla richiesta pull di GitHub con i risultati del tuo test: successo o fallimento. Si prega di affermare esplicitamente che il codice è stato testato e i risultati, ad esempio qualcosa del tipo "Ho testato questo codice sulla mia stampante Acme900Z con una stampa a vaso e i risultati sono stati buoni".
 
-### Reviewers
+### Revisori
 
-The Klipper "reviewers" are:
+I "revisori" di Klipper sono:
 
-| Name | GitHub Id | Areas of interest |
+| Nome | GitHub Id | Aree di interesse |
 | --- | --- | --- |
-| Dmitry Butyugin | @dmbutyugin | Input shaping, resonance testing, kinematics |
-| Eric Callahan | @Arksine | Bed leveling, MCU flashing |
-| Kevin O'Connor | @KevinOConnor | Core motion system, Micro-controller code |
-| Paul McGowan | @mental405 | Configuration files, documentation |
+| Dmitry Butyugin | @dmbutyugin | Input shaping, test di risonanza, cinematica |
+| Eric Callahan | @Arksine | Livellamento del piatto, flashing MCU |
+| Kevin O'Connor | @KevinOConnor | Core motion system, codice microcontrollore |
+| Paul McGowan | @mental405 | File di configurazione, documentazione |
 
-Please do not "ping" any of the reviewers and please do not direct submissions at them. All of the reviewers monitor the forums and PRs, and will take on reviews when they have time to.
+Si prega di non eseguire il "ping" di nessuno dei revisori e di non indirizzare gli invii a loro. Tutti i revisori controllano i forum e le PR e si occuperanno delle revisioni quando ne avranno il tempo.
 
-The Klipper "maintainers" are:
+I "manutentori" di Klipper sono:
 
-| Name | GitHub name |
+| Nome | nome GitHub |
 | --- | --- |
 | Kevin O'Connor | @KevinOConnor |
 
-## Format of commit messages
+## Formato dei messaggi di commit
 
-Each commit should have a commit message formatted similar to the following:
+Ogni commit dovrebbe avere un messaggio di commit formattato in modo simile al seguente:
 
 ```
 modulo: Riepilogo breve (50 caratteri o meno) in maiuscolo
@@ -132,28 +132,28 @@ Ulteriori paragrafi vengono dopo le righe vuote..
 Firmato da: Il mio nome <myemail@example.org>
 ```
 
-In the above example, `module` should be the name of a file or directory in the repository (without a file extension). For example, `clocksync: Fix typo in pause() call at connect time`. The purpose of specifying a module name in the commit message is to help provide context for the commit comments.
+Nell'esempio sopra, `module` dovrebbe essere il nome di un file o di una directory nel repository (senza un'estensione di file). Ad esempio, `clocksync: fix di errore di battitura nella chiamata pause() al momento della connessione`. Lo scopo di specificare un nome di modulo nel messaggio di commit è di aiutare a fornire il contesto per i commenti di commit.
 
 È importante avere una riga "Signed-off-by" su ogni commit - certifica che accetti il [developer certificate of origin](developer-certificate-of-origin). Deve contenere il tuo vero nome (mi dispiace, niente pseudonimi o contributi anonimi) e contenere un indirizzo email corrente.
 
 ## Contribuire a Traduzioni Klipper
 
-[Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) is a project dedicated to translating Klipper to different languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all the Gettext strings for translating and reviewing. Locales can be displayed on [klipper3d.org](https://www.klipper3d.org) once they satisfy the following requirements:
+[Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) è un progetto dedicato alla traduzione di Klipper in diverse lingue. [Weblate](https://hosted.weblate.org/projects/klipper/) ospita tutte le stringhe Gettext per la traduzione e la revisione. Le impostazioni locali possono essere visualizzate su [klipper3d.org](https://www.klipper3d.org) una volta che soddisfano i seguenti requisiti:
 
 - [ ] 75% Copertura totale
-- [ ] All titles (H1) are translated
+- [ ] Tutti i titoli (H1) sono tradotti
 - [ ] An updated navigation hierarchy PR in klipper-translations.
 
 Per ridurre la frustrazione di tradurre termini specifici del dominio e acquisire consapevolezza delle traduzioni in corso, puoi inviare un PR modificando il [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md `. Una volta che una traduzione è pronta, è possibile apportare la modifica corrispondente al progetto Klipper.
 
 Se una traduzione esiste già nel repository Klipper e non soddisfa più l'elenco di controllo di cui sopra, verrà contrassegnata come obsoleta dopo un mese senza aggiornamenti.
 
-Once the requirements are met, you need to:
+Una volta soddisfatti i requisiti, è necessario:
 
-1. update klipper-tranlations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
-1. Optional: add a manual-index.md file in klipper-translations repository's `docs\locals\<lang>` folder to replace the language specific index.md (generated index.md does not render correctly).
+1. aggiorna il repository di klipper-translations [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
+1. Opzionale: aggiungi un file manual-index.md nella cartella `docs\locals\<lang>` del repository klipper-translations per sostituire index.md specifico della lingua (il file index.md generato non viene visualizzato correttamente).
 
-Known Issues:
+Problemi noti:
 
-1. Currently, there isn't a method for correctly translating pictures in the documentation
-1. It is impossible to translate titles in mkdocs.yml.
+1. Al momento, non esiste un metodo per tradurre correttamente le immagini nella documentazione
+1. È impossibile tradurre i titoli in mkdocs.yml.

@@ -23,30 +23,32 @@ Configurazione del microcontrollore primario.
 ```
 [mcu]
 serial:
-#   The serial port to connect to the MCU. If unsure (or if it
-#   changes) see the "Where's my serial port?" section of the FAQ.
-#   This parameter must be provided when using a serial port.
+#   La porta seriale per la connessione all'MCU. In caso di dubbi (o se
+#   cambia) vedere "Dov'è la mia porta seriale?" sezione delle FAQ.
+#   Questo parametro deve essere fornito quando si utilizza una
+#   porta seriale.
 #baud: 250000
-#   The baud rate to use. The default is 250000.
+#   La velocità di trasmissione da utilizzare. Il valore predefinito è 250000.
 #canbus_uuid:
-#   If using a device connected to a CAN bus then this sets the unique
-#   chip identifier to connect to. This value must be provided when using
-#   CAN bus for communication.
+#   Se si utilizza un dispositivo collegato a un bus CAN, questo imposta
+#   l'identificatore univoco del chip a cui connettersi. Questo valore deve
+#   essere fornito quando si utilizza il bus CAN per la comunicazione.
 #canbus_interface:
-#   If using a device connected to a CAN bus then this sets the CAN
-#   network interface to use. The default is 'can0'.
+#   Se si utilizza un dispositivo collegato a un bus CAN, viene impostata
+#   l'interfaccia di rete CAN da utilizzare. L'impostazione predefinita è 'can0'.
 #restart_method:
-#   This controls the mechanism the host will use to reset the
-#   micro-controller. The choices are 'arduino', 'cheetah', 'rpi_usb',
-#   and 'command'. The 'arduino' method (toggle DTR) is common on
-#   Arduino boards and clones. The 'cheetah' method is a special
-#   method needed for some Fysetc Cheetah boards. The 'rpi_usb' method
-#   is useful on Raspberry Pi boards with micro-controllers powered
-#   over USB - it briefly disables power to all USB ports to
-#   accomplish a micro-controller reset. The 'command' method involves
-#   sending a Klipper command to the micro-controller so that it can
-#   reset itself. The default is 'arduino' if the micro-controller
-#   communicates over a serial port, 'command' otherwise.
+#   Questo controlla il meccanismo che l'host utilizzerà per reimpostare
+#   il microcontrollore. Le scelte sono "arduino", "cheetah", "rpi_usb" e
+#   "command". Il metodo 'arduino' (attiva/disattiva DTR) è comune su
+#   schede Arduino e cloni. Il metodo 'cheetah' è un metodo speciale
+#   necessario per alcune schede Fysetc Cheetah. Il metodo "rpi_usb"
+#   è utile sulle schede Raspberry Pi con microcontrollori alimentati
+#   tramite USB: disabilita brevemente l'alimentazione a tutte le porte
+#   USB per eseguire un ripristino del microcontrollore. Il metodo
+#   "comando" prevede l'invio di un comando Klipper al microcontrollore
+#   in modo che possa reimpostarsi. L'impostazione predefinita è
+#   'arduino' se il microcontrollore comunica su una porta seriale,
+#   altrimenti 'comando'.
 ```
 
 ### [mcu my_extra_mcu]
@@ -3050,32 +3052,34 @@ Statically configured MCP4728 digital-to-analog converter connected via I2C bus 
 ```
 [mcp4728 my_dac]
 #i2c_address: 96
-#   The i2c address that the chip is using on the i2c bus. The default
-#   is 96.
+#  L'indirizzo i2c utilizzato dal chip sul bus i2c. Il valore predefinito
+#  è 96.
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
+#   Vedere la sezione "impostazioni I2C comuni" per una descrizione
+#   dei parametri di cui sopra.
 #channel_a:
 #channel_b:
 #channel_c:
 #channel_d:
-#   The value to statically set the given MCP4728 channel to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest voltage (2.048V) and 0.0 being the lowest voltage.
-#   However, the range may be changed with the 'scale' parameter (see
-#   below). If a channel is not specified then it is left
-#   unconfigured.
+#   Il valore su cui impostare staticamente il canale MCP4728
+#   specificato. Questo è in genere impostato su un numero compreso
+#   tra 0,0 e 1,0 con 1,0 come tensione più alta (2,048 V) e 0,0 come
+#   tensione più bassa. Tuttavia, l'intervallo può essere modificato con
+#   il parametro 'scale' (vedi sotto). Se un canale non è specificato,
+#   non viene configurato.
 #scale:
-#   This parameter can be used to alter how the 'channel_x' parameters
-#   are interpreted. If provided, then the 'channel_x' parameters
-#   should be between 0.0 and 'scale'. This may be useful when the
-#   MCP4728 is used to set stepper voltage references. The 'scale' can
-#   be set to the equivalent stepper amperage if the MCP4728 were at
-#   its highest voltage (2.048V), and then the 'channel_x' parameters
-#   can be specified using the desired amperage value for the
-#   stepper. The default is to not scale the 'channel_x' parameters.
+#   Questo parametro può essere utilizzato per modificare il modo
+#   in cui vengono interpretati i parametri 'channel_x'. Se forniti, i
+#   parametri 'channel_x' dovrebbero essere compresi tra 0.0 e 'scale'.
+#   Questo può essere utile quando l'MCP4728 viene utilizzato per
+#   impostare i riferimenti di tensione stepper. La "scala" può essere
+#   impostata sull'amperaggio stepper equivalente se l'MCP4728
+#   fosse alla sua tensione più alta (2,048 V), e quindi i parametri
+#   "channel_x" possono essere specificati utilizzando il valore di
+#   amperaggio desiderato per lo stepper. L'impostazione
+#   predefinita è di non ridimensionare i parametri 'channel_x'.
 ```
 
 ### [mcp4018]
