@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-30 21:21+0000\n"
+"PO-Revision-Date: 2022-08-15 18:20+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "resonance_compensation/it/>\n"
@@ -288,7 +288,7 @@ msgid ""
 msgstr ""
 
 msgid "Selecting max_accel"
-msgstr ""
+msgstr "Seleziona max_accel"
 
 msgid ""
 "In order to select a suitable max_accel value, inspect the model for the "
