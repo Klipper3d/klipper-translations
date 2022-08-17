@@ -1353,7 +1353,7 @@
 
 
 <h1 id="matrice-del-piatto">Matrice del Piatto<a class="headerlink" href="#matrice-del-piatto" title="Permanent link">&para;</a></h1>
-<p>Il modulo Griglia Letto (bed mesh) può essere usato per compensare le irregolarità della superficie del letto e per ottenere un primo strato migliore su tutto il letto. Va notato che la correzione basata sul software non raggiungerà risultati perfetti, può solo approssimare la forma del letto. Griglia Letto inoltre non può compensare i problemi meccanici ed elettrici. Se un asse è obliquo o una sonda non è accurata, il modulo Griglia Letto non riceverà risultati accurati dal processo di ispezione.</p>
+<p>Il modulo rete piatto (bed mesh) può essere usato per compensare le irregolarità della superficie del piatto e per ottenere un primo strato migliore su tutto il piatto. Va notato che la correzione basata sul software non raggiungerà risultati perfetti, può solo approssimare la forma del piatto. Bed mesh inoltre non può compensare i problemi meccanici ed elettrici. Se un asse è obliquo o una sonda non è accurata, il modulo Bed mesh non riceverà risultati accurati dal processo di ispezione.</p>
 <p>Prima della calibrazione della mesh dovrai assicurarti che l'offset Z della tua sonda sia calibrato. Se si utilizza un fine corsa per l'homing Z, anche questo dovrà essere calibrato. Per ulteriori informazioni, vedere <a href="Probe_Calibrate.html">Probe Calibrate</a> e Z_ENDSTOP_CALIBRATE in <a href="Manual_Level.html">Manual Level</a>.</p>
 <h2 id="configurazione-base">Configurazione base<a class="headerlink" href="#configurazione-base" title="Permanent link">&para;</a></h2>
 <h3 id="piatti-rettangolari">Piatti rettangolari<a class="headerlink" href="#piatti-rettangolari" title="Permanent link">&para;</a></h3>
@@ -1376,7 +1376,7 @@ probe_count: 5, 3
 <p>L'illustrazione seguente mostra come le opzioni <code>mesh_min</code>, <code>mesh_max</code> e <code>probe_count</code> vengono utilizzate per generare punti sonda. Le frecce indicano la direzione della procedura di probing, a partire da <code>mesh_min</code>. Per riferimento, quando la sonda è a <code>mesh_min</code>, l'ugello sarà a (11, 1), e quando la sonda è a <code>mesh_max</code>, l'ugello sarà a (206, 193).</p>
 <p><img alt="bedmesh_rect_basic" src="img/bedmesh_rect_basic.svg" /></p>
 <h3 id="piatti-rotondi">Piatti rotondi<a class="headerlink" href="#piatti-rotondi" title="Permanent link">&para;</a></h3>
-<p>Questo esempio presuppone una stampante dotata di un raggio del letto rotondo di 100 mm. Utilizzeremo gli stessi offset della sonda dell'esempio rettangolare, 24 mm su X e 5 mm su Y.</p>
+<p>Questo esempio presuppone una stampante dotata di un raggio del piatto rotondo di 100 mm. Utilizzeremo gli stessi offset della sonda dell'esempio rettangolare, 24 mm su X e 5 mm su Y.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5

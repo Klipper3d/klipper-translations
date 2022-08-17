@@ -13,7 +13,7 @@
     
     
       
-        <title>API server - Klipper documentation</title>
+        <title>Server API - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#api-server" class="md-skip">
+        <a href="#server-api" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              API server
+              Server API
             
           </span>
         </div>
@@ -1241,11 +1241,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#available-endpoints" class="md-nav__link">
-    Available "endpoints"
+  <a href="#endpoint-disponibili" class="md-nav__link">
+    "endpoint" disponibili
   </a>
   
-    <nav class="md-nav" aria-label="Available "endpoints"">
+    <nav class="md-nav" aria-label=""endpoint" disponibili">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1270,22 +1270,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#objectslist" class="md-nav__link">
-    objects/list
+  <a href="#oggettielenco" class="md-nav__link">
+    oggetti/elenco
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#objectsquery" class="md-nav__link">
-    objects/query
+  <a href="#oggettiinterrogazione" class="md-nav__link">
+    oggetti/interrogazione
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#objectssubscribe" class="md-nav__link">
-    objects/subscribe
+  <a href="#oggettisubscribe" class="md-nav__link">
+    oggetti/subscribe
   </a>
   
 </li>
@@ -1403,7 +1403,7 @@
 </a>
 
 
-<h1 id="api-server">API server<a class="headerlink" href="#api-server" title="Permanent link">&para;</a></h1>
+<h1 id="server-api">Server API<a class="headerlink" href="#server-api" title="Permanent link">&para;</a></h1>
 <p>Questo documento descrive l'Application Programmer Interface (API) di Klipper. Questa interfaccia consente alle applicazioni esterne di interrogare e controllare il software host Klipper.</p>
 <h2 id="abilitazione-del-socket-api">Abilitazione del socket API<a class="headerlink" href="#abilitazione-del-socket-api" title="Permanent link">&para;</a></h2>
 <p>Per utilizzare il server API, il software host klippy.py deve essere avviato con il parametro <code>-a</code>. Per esempio:</p>
@@ -1411,7 +1411,7 @@
 </code></pre></div>
 
 <p>Ciò fa sì che il software host crei un socket di dominio Unix. Un client può quindi aprire una connessione su quel socket e inviare comandi a Klipper.</p>
-<p>See the <a href="https://github.com/Arksine/moonraker">Moonraker</a> project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.</p>
+<p>Consulta il progetto <a href="https://github.com/Arksine/moonraker">Moonraker</a> per uno strumento popolare in grado di inoltrare richieste HTTP all'API Server Unix Domain Socket di Klipper.</p>
 <h2 id="formato-richiesta">Formato richiesta<a class="headerlink" href="#formato-richiesta" title="Permanent link">&para;</a></h2>
 <p>I messaggi inviati e ricevuti sul socket sono stringhe codificate JSON terminate da un carattere ASCII 0x03:</p>
 <div class="highlight"><pre><span></span><code>&lt;json_object_1&gt;&lt;0x03&gt;&lt;json_object_2&gt;&lt;0x03&gt;...
@@ -1442,76 +1442,76 @@
 <p><code>{"id": 123, "result": {}}</code></p>
 <p>e fare in modo che Klipper invii messaggi futuri simili a:</p>
 <p><code>{"params": {"response": "ok B:22.8 /0.0 T0:22.4 /0.0"}, "key": 345}</code></p>
-<p>A subscription request accepts a "response_template" dictionary in the "params" field of the request. That "response_template" dictionary is used as a template for future asynchronous messages - it may contain arbitrary key/value pairs. When sending these future asynchronous messages, Klipper will add a "params" field containing a dictionary with "endpoint" specific contents to the response template and then send that template. If a "response_template" field is not provided then it defaults to an empty dictionary (<code>{}</code>).</p>
-<h2 id="available-endpoints">Available "endpoints"<a class="headerlink" href="#available-endpoints" title="Permanent link">&para;</a></h2>
-<p>By convention, Klipper "endpoints" are of the form <code>&lt;module_name&gt;/&lt;some_name&gt;</code>. When making a request to an "endpoint", the full name must be set in the "method" parameter of the request dictionary (eg, <code>{"method"="gcode/restart"}</code>).</p>
+<p>Una richiesta di sottoscrizione accetta un dizionario "response_template" nel campo "params" della richiesta. Quel dizionario "response_template" viene utilizzato come modello per futuri messaggi asincroni: può contenere coppie chiave/valore arbitrarie. Quando invierà questi futuri messaggi asincroni, Klipper aggiungerà un campo "params" contenente un dizionario con contenuti specifici per "endpoint" al modello di risposta e quindi invierà quel modello. Se non viene fornito un campo "response_template", il valore predefinito è un dizionario vuoto (<code>{}</code>).</p>
+<h2 id="endpoint-disponibili">"endpoint" disponibili<a class="headerlink" href="#endpoint-disponibili" title="Permanent link">&para;</a></h2>
+<p>Per convenzione, gli "endpoint" di Klipper sono nella forma <code>&lt;module_name&gt;/&lt;some_name&gt;</code>. Quando si effettua una richiesta a un "endpoint", il nome completo deve essere impostato nel parametro "method" del dizionario di richiesta (ad esempio, <code>{"method"="gcode/restart"}</code>).</p>
 <h3 id="info">info<a class="headerlink" href="#info" title="Permanent link">&para;</a></h3>
-<p>The "info" endpoint is used to obtain system and version information from Klipper. It is also used to provide the client's version information to Klipper. For example: <code>{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}</code></p>
-<p>If present, the "client_info" parameter must be a dictionary, but that dictionary may have arbitrary contents. Clients are encouraged to provide the name of the client and its software version when first connecting to the Klipper API server.</p>
+<p>L'endpoint "info" viene utilizzato per ottenere informazioni sul sistema e sulla versione da Klipper. Viene anche utilizzato per fornire a Klipper le informazioni sulla versione del client. Ad esempio: <code>{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}</code></p>
+<p>Se presente, il parametro "client_info" deve essere un dizionario, ma quel dizionario potrebbe avere contenuti arbitrari. I clienti sono incoraggiati a fornire il nome del client e la sua versione del software quando si connettono per la prima volta al server dell'API Klipper.</p>
 <h3 id="emergency_stop">emergency_stop<a class="headerlink" href="#emergency_stop" title="Permanent link">&para;</a></h3>
-<p>The "emergency_stop" endpoint is used to instruct Klipper to transition to a "shutdown" state. It behaves similarly to the G-Code <code>M112</code> command. For example: <code>{"id": 123, "method": "emergency_stop"}</code></p>
+<p>L'endpoint "emergency_stop" viene utilizzato per indicare a Klipper di passare allo stato di "spegnimento". Si comporta in modo simile al comando G-Code <code>M112</code>. Ad esempio: <code>{"id": 123, "method": "emergency_stop"}</code></p>
 <h3 id="register_remote_method">register_remote_method<a class="headerlink" href="#register_remote_method" title="Permanent link">&para;</a></h3>
-<p>This endpoint allows clients to register methods that can be called from klipper. It will return an empty object upon success.</p>
-<p>For example: <code>{"id": 123, "method": "register_remote_method", "params": {"response_template": {"action": "run_paneldue_beep"}, "remote_method": "paneldue_beep"}}</code> will return: <code>{"id": 123, "result": {}}</code></p>
-<p>The remote method <code>paneldue_beep</code> may now be called from Klipper. Note that if the method takes parameters they should be provided as keyword arguments. Below is an example of how it may called from a gcode_macro:</p>
+<p>Questo endpoint consente ai client di registrare metodi che possono essere chiamati da klipper. Restituirà un oggetto vuoto in caso di successo.</p>
+<p>Per esempio: <code>{"id": 123, "method": "register_remote_method", "params": {"response_template": {"action": "run_paneldue_beep"}, "remote_method": "paneldue_beep"}}</code> will return: <code>{"id": 123, "result": {}}</code></p>
+<p>Il metodo remoto <code>paneldue_beep</code> ora può essere chiamato da Klipper. Nota che se il metodo accetta parametri, dovrebbero essere forniti come argomenti di parole chiave. Di seguito è riportato un esempio di come può essere chiamato da una gcode_macro:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro PANELDUE_BEEP]
 gcode:
   {action_call_remote_method(&quot;paneldue_beep&quot;, frequency=300, duration=1.0)}
 </code></pre></div>
 
-<p>When the PANELDUE_BEEP gcode macro is executed, Klipper would send something like the following over the socket: <code>{"action": "run_paneldue_beep", "params": {"frequency": 300, "duration": 1.0}}</code></p>
-<h3 id="objectslist">objects/list<a class="headerlink" href="#objectslist" title="Permanent link">&para;</a></h3>
-<p>This endpoint queries the list of available printer "objects" that one may query (via the "objects/query" endpoint). For example: <code>{"id": 123, "method": "objects/list"}</code> might return: <code>{"id": 123, "result": {"objects": ["webhooks", "configfile", "heaters", "gcode_move", "query_endstops", "idle_timeout", "toolhead", "extruder"]}}</code></p>
-<h3 id="objectsquery">objects/query<a class="headerlink" href="#objectsquery" title="Permanent link">&para;</a></h3>
-<p>This endpoint allows one to query information from printer objects. For example: <code>{"id": 123, "method": "objects/query", "params": {"objects": {"toolhead": ["position"], "webhooks": null}}}</code> might return: <code>{"id": 123, "result": {"status": {"webhooks": {"state": "ready", "state_message": "Printer is ready"}, "toolhead": {"position": [0.0, 0.0, 0.0, 0.0]}}, "eventtime": 3051555.377933684}}</code></p>
-<p>The "objects" parameter in the request must be a dictionary containing the printer objects that are to be queried - the key contains the printer object name and the value is either "null" (to query all fields) or a list of field names.</p>
-<p>The response message will contain a "status" field containing a dictionary with the queried information - the key contains the printer object name and the value is a dictionary containing its fields. The response message will also contain an "eventtime" field containing the timestamp from when the query was taken.</p>
-<p>Available fields are documented in the <a href="Status_Reference.html">Status Reference</a> document.</p>
-<h3 id="objectssubscribe">objects/subscribe<a class="headerlink" href="#objectssubscribe" title="Permanent link">&para;</a></h3>
-<p>This endpoint allows one to query and then subscribe to information from printer objects. The endpoint request and response is identical to the "objects/query" endpoint. For example: <code>{"id": 123, "method": "objects/subscribe", "params": {"objects":{"toolhead": ["position"], "webhooks": ["state"]}, "response_template":{}}}</code> might return: <code>{"id": 123, "result": {"status": {"webhooks": {"state": "ready"}, "toolhead": {"position": [0.0, 0.0, 0.0, 0.0]}}, "eventtime": 3052153.382083195}}</code> and result in subsequent asynchronous messages such as: <code>{"params": {"status": {"webhooks": {"state": "shutdown"}}, "eventtime": 3052165.418815847}}</code></p>
+<p>Quando viene eseguita la macro gcode PANELDUE_BEEP, Klipper invia qualcosa di simile al seguente tramite il socket: <code>{"action": "run_paneldue_beep", "params": {"frequency": 300, "duration": 1.0}}</code></p>
+<h3 id="oggettielenco">oggetti/elenco<a class="headerlink" href="#oggettielenco" title="Permanent link">&para;</a></h3>
+<p>Questo endpoint interroga l'elenco degli "oggetti" della stampante disponibili che è possibile interrogare (tramite l'endpoint "objects/query"). Ad esempio: <code>{"id": 123, "method": "objects/list"}</code> potrebbe restituire: <code>{"id": 123, "result": {"objects": ["webhooks", "configfile" , "heaters", "gcode_move", "query_endstops", "idle_timeout", "toolhead", "extruder"]}}</code></p>
+<h3 id="oggettiinterrogazione">oggetti/interrogazione<a class="headerlink" href="#oggettiinterrogazione" title="Permanent link">&para;</a></h3>
+<p>Questo endpoint consente di interrogare informazioni da oggetti. Ad esempio: <code>{"id": 123, "method": "objects/query", "params": {"objects": {"toolhead": ["position"], "webhooks": null}}}</code> potrebbe restituire: <code>{"id": 123, "result": {"status": {"webhooks": {"state": "ready", "state_message": "Printer is ready"}, "toolhead": { "position": [0.0, 0.0, 0.0, 0.0]}}, "eventtime": 3051555.377933684}}</code></p>
+<p>Il parametro "objects" nella richiesta deve essere un dizionario contenente gli oggetti stampante che devono essere interrogati - la chiave contiene il nome dell'oggetto stampante e il valore è "null" (per interrogare tutti i campi) o un elenco di nomi di campo.</p>
+<p>Il messaggio di risposta conterrà un campo "status" contenente un dizionario con le informazioni richieste: la chiave contiene il nome dell'oggetto stampante e il valore è un dizionario contenente i suoi campi. Il messaggio di risposta conterrà anche un campo "eventtime" contenente il timestamp da quando è stata eseguita la query.</p>
+<p>I campi disponibili sono documentati nel documento <a href="Status_Reference.html">Status Reference</a>.</p>
+<h3 id="oggettisubscribe">oggetti/subscribe<a class="headerlink" href="#oggettisubscribe" title="Permanent link">&para;</a></h3>
+<p>Questo endpoint consente di eseguire query e quindi iscriversi alle informazioni dagli oggetti stampante. La richiesta e la risposta dell'endpoint sono identiche all'endpoint "objects/query". Ad esempio: <code>{"id": 123, "method": "objects/subscribe", "params": {"objects":{"toolhead": ["position"], "webhooks": ["state"] }, "response_template":{}}}</code> potrebbe restituire: <code>{"id": 123, "result": {"status": {"webhooks": {"state": "ready"}, "toolhead": {"position": [0.0, 0.0, 0.0, 0.0]}}, "eventtime": 3052153.382083195}}</code> e generare messaggi asincroni successivi come: <code>{"params": {"status": {"webhooks": {"state": "shutdown"}}, "eventtime": 3052165.418815847}}</code></p>
 <h3 id="gcodehelp">gcode/help<a class="headerlink" href="#gcodehelp" title="Permanent link">&para;</a></h3>
-<p>This endpoint allows one to query available G-Code commands that have a help string defined. For example: <code>{"id": 123, "method": "gcode/help"}</code> might return: <code>{"id": 123, "result": {"RESTORE_GCODE_STATE": "Restore a previously saved G-Code state", "PID_CALIBRATE": "Run PID calibration test", "QUERY_ADC": "Report the last value of an analog pin", ...}}</code></p>
+<p>Questo endpoint consente di interrogare i comandi G-Code disponibili che hanno una stringa di aiuto definita. Ad esempio: <code>{"id": 123, "method": "gcode/help"}</code> potrebbe restituire: <code>{"id": 123, "result": {"RESTORE_GCODE_STATE": "Restore a previously saved G-Code state", "PID_CALIBRATE": "Run PID calibration test", "QUERY_ADC": "Report the last value of an analog pin", ...}}</code></p>
 <h3 id="gcodescript">gcode/script<a class="headerlink" href="#gcodescript" title="Permanent link">&para;</a></h3>
-<p>This endpoint allows one to run a series of G-Code commands. For example: <code>{"id": 123, "method": "gcode/script", "params": {"script": "G90"}}</code></p>
-<p>If the provided G-Code script raises an error, then an error response is generated. However, if the G-Code command produces terminal output, that terminal output is not provided in the response. (Use the "gcode/subscribe_output" endpoint to obtain G-Code terminal output.)</p>
-<p>If there is a G-Code command being processed when this request is received, then the provided script will be queued. This delay could be significant (eg, if a G-Code wait for temperature command is running). The JSON response message is sent when the processing of the script fully completes.</p>
+<p>Questo endpoint consente di eseguire una serie di comandi G-Code. Ad esempio: <code>{"id": 123, "method": "gcode/script", "params": {"script": "G90"}}</code></p>
+<p>Se lo script G-Code fornito genera un errore, allora viene generata una risposta di errore. Tuttavia, se il comando G-Code produce un output del terminale, tale output del terminale non viene fornito nella risposta. (Utilizzare l'endpoint "gcode/subscribe_output" per ottenere l'output del terminale G-Code.)</p>
+<p>Se c'è un comando G-Code in elaborazione quando viene ricevuta questa richiesta, lo script fornito verrà messo in coda. Questo ritardo potrebbe essere significativo (ad esempio, se è in esecuzione un comando di attesa del codice G per la temperatura). Il messaggio di risposta JSON viene inviato al completamento dell'elaborazione dello script.</p>
 <h3 id="gcoderestart">gcode/restart<a class="headerlink" href="#gcoderestart" title="Permanent link">&para;</a></h3>
-<p>This endpoint allows one to request a restart - it is similar to running the G-Code "RESTART" command. For example: <code>{"id": 123, "method": "gcode/restart"}</code></p>
-<p>As with the "gcode/script" endpoint, this endpoint only completes after any pending G-Code commands complete.</p>
+<p>Questo endpoint consente di richiedere un riavvio: è simile all'esecuzione del comando "RESTART" del codice G. Ad esempio: <code>{"id": 123, "method": "gcode/restart"}</code></p>
+<p>Come con l'endpoint "gcode/script", questo endpoint viene completato solo dopo il completamento di tutti i comandi G-Code in sospeso.</p>
 <h3 id="gcodefirmware_restart">gcode/firmware_restart<a class="headerlink" href="#gcodefirmware_restart" title="Permanent link">&para;</a></h3>
-<p>This is similar to the "gcode/restart" endpoint - it implements the G-Code "FIRMWARE_RESTART" command. For example: <code>{"id": 123, "method": "gcode/firmware_restart"}</code></p>
-<p>As with the "gcode/script" endpoint, this endpoint only completes after any pending G-Code commands complete.</p>
+<p>Questo è simile all'endpoint "gcode/restart": implementa il comando G-Code "FIRMWARE_RESTART". Ad esempio: <code>{"id": 123, "method": "gcode/firmware_restart"}</code></p>
+<p>Come con l'endpoint "gcode/script", questo endpoint viene completato solo dopo il completamento di tutti i comandi G-Code in sospeso.</p>
 <h3 id="gcodesubscribe_output">gcode/subscribe_output<a class="headerlink" href="#gcodesubscribe_output" title="Permanent link">&para;</a></h3>
-<p>This endpoint is used to subscribe to G-Code terminal messages that are generated by Klipper. For example: <code>{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{}}}</code> might later produce asynchronous messages such as: <code>{"params": {"response": "// Klipper state: Shutdown"}}</code></p>
-<p>This endpoint is intended to support human interaction via a "terminal window" interface. Parsing content from the G-Code terminal output is discouraged. Use the "objects/subscribe" endpoint to obtain updates on Klipper's state.</p>
+<p>Questo endpoint viene utilizzato per iscriversi ai messaggi del terminale G-Code generati da Klipper. Ad esempio: <code>{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{}}}</code> potrebbe in seguito produrre messaggi asincroni come: <code>{"params": { "response": "// Klipper state: Shutdown"}}</code></p>
+<p>Questo endpoint ha lo scopo di supportare l'interazione umana tramite un'interfaccia "finestra di terminale". L'analisi del contenuto dall'output del terminale G-Code è sconsigliata. Usa l'endpoint "objects/subscribe" per ottenere aggiornamenti sullo stato di Klipper.</p>
 <h3 id="motion_reportdump_stepper">motion_report/dump_stepper<a class="headerlink" href="#motion_reportdump_stepper" title="Permanent link">&para;</a></h3>
-<p>This endpoint is used to subscribe to Klipper's internal stepper queue_step command stream for a stepper. Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.</p>
-<p>A request may look like: <code>{"id": 123, "method":"motion_report/dump_stepper", "params": {"name": "stepper_x", "response_template": {}}}</code> and might return: <code>{"id": 123, "result": {"header": ["interval", "count", "add"]}}</code> and might later produce asynchronous messages such as: <code>{"params": {"first_clock": 179601081, "first_time": 8.98, "first_position": 0, "last_clock": 219686097, "last_time": 10.984, "data": [[179601081, 1, 0], [29573, 2, -8685], [16230, 4, -1525], [10559, 6, -160], [10000, 976, 0], [10000, 1000, 0], [10000, 1000, 0], [10000, 1000, 0], [9855, 5, 187], [11632, 4, 1534], [20756, 2, 9442]]}}</code></p>
-<p>The "header" field in the initial query response is used to describe the fields found in later "data" responses.</p>
+<p>Questo endpoint viene utilizzato per iscriversi al flusso di comandi queue_step interno di Klipper per uno stepper. L'ottenimento di questi aggiornamenti di movimento di basso livello può essere utile per scopi diagnostici e di debug. L'utilizzo di questo endpoint può aumentare il carico di sistema di Klipper.</p>
+<p>Una richiesta può essere simile a: <code>{"id": 123, "method":"motion_report/dump_stepper", "params": {"name": "stepper_x", "response_template": {}}}</code> e potrebbe restituire: <code>{"id": 123, "result": {"header": ["interval", "count", "add"]}}</code> e potrebbe in seguito produrre messaggi asincroni come: <code>{"params": {" first_clock": 179601081, "first_time": 8.98, "first_position": 0, "last_clock": 219686097, "last_time": 10.984, "data": [[179601081, 1, 0], [29573, 2, -8685] , [16230, 4, -1525], [10559, 6, -160], [10000, 976, 0], [10000, 1000, 0], [10000, 1000, 0], [10000, 1000, 0] , [9855, 5, 187], [11632, 4, 1534], [20756, 2, 9442]]}}</code></p>
+<p>Il campo "intestazione" nella risposta alla query iniziale viene utilizzato per descrivere i campi trovati nelle risposte "dati" successive.</p>
 <h3 id="motion_reportdump_trapq">motion_report/dump_trapq<a class="headerlink" href="#motion_reportdump_trapq" title="Permanent link">&para;</a></h3>
-<p>This endpoint is used to subscribe to Klipper's internal "trapezoid motion queue". Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.</p>
-<p>A request may look like: <code>{"id": 123, "method": "motion_report/dump_trapq", "params": {"name": "toolhead", "response_template":{}}}</code> and might return: <code>{"id": 1, "result": {"header": ["time", "duration", "start_velocity", "acceleration", "start_position", "direction"]}}</code> and might later produce asynchronous messages such as: <code>{"params": {"data": [[4.05, 1.0, 0.0, 0.0, [300.0, 0.0, 0.0], [0.0, 0.0, 0.0]], [5.054, 0.001, 0.0, 3000.0, [300.0, 0.0, 0.0], [-1.0, 0.0, 0.0]]]}}</code></p>
-<p>The "header" field in the initial query response is used to describe the fields found in later "data" responses.</p>
+<p>Questo endpoint viene utilizzato per iscriversi alla "coda di movimento trapezoidale" interna di Klipper. L'ottenimento di questi aggiornamenti di movimento di basso livello può essere utile per scopi diagnostici e di debug. L'utilizzo di questo endpoint può aumentare il carico di sistema di Klipper.</p>
+<p>Una richiesta può essere simile a: <code>{"id": 123, "method": "motion_report/dump_trapq", "params": {"name": "toolhead", "response_template":{}}}</code> e potrebbe restituire: <code>{"id": 1, "result": {"header": ["time", "duration", "start_velocity", "acceleration", "start_position", "direction"]}}</code> e potrebbero in seguito produrre messaggi asincroni quali: <code>{"params": {"data": [[4.05, 1.0, 0.0, 0.0, [300.0, 0.0, 0.0], [0.0, 0.0, 0.0]], [5.054, 0.001, 0.0, 3000.0 , [300.0, 0.0, 0.0], [-1.0, 0.0, 0.0]]]}}</code></p>
+<p>Il campo "intestazione" nella risposta alla query iniziale viene utilizzato per descrivere i campi trovati nelle risposte "dati" successive.</p>
 <h3 id="adxl345dump_adxl345">adxl345/dump_adxl345<a class="headerlink" href="#adxl345dump_adxl345" title="Permanent link">&para;</a></h3>
-<p>This endpoint is used to subscribe to ADXL345 accelerometer data. Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.</p>
-<p>A request may look like: <code>{"id": 123, "method":"adxl345/dump_adxl345", "params": {"sensor": "adxl345", "response_template": {}}}</code> and might return: <code>{"id": 123,"result":{"header":["time","x_acceleration","y_acceleration", "z_acceleration"]}}</code> and might later produce asynchronous messages such as: <code>{"params":{"overflows":0,"data":[[3292.432935,-535.44309,-1529.8374,9561.4], [3292.433256,-382.45935,-1606.32927,9561.48375]]}}</code></p>
-<p>The "header" field in the initial query response is used to describe the fields found in later "data" responses.</p>
+<p>Questo endpoint viene utilizzato per la sottoscrizione ai dati dell'accelerometro ADXL345. L'ottenimento di questi aggiornamenti di movimento di basso livello può essere utile per scopi diagnostici e di debug. L'utilizzo di questo endpoint può aumentare il carico di sistema di Klipper.</p>
+<p>Una richiesta può essere simile a: <code>{"id": 123, "method":"adxl345/dump_adxl345", "params": {"sensor": "adxl345", "response_template": {}}}</code> e potrebbe restituire: <code>{"id": 123,"result":{"header":["time","x_acceleration","y_acceleration", "z_acceleration"]}}</code> e potrebbe in seguito produrre messaggi asincroni come: <code>{"params ":{"overflow":0,"data":[[3292.432935,-535.44309,-1529.8374,9561.4], [3292.433256,-382.45935,-1606.32927,9561.48375]]}}</code></p>
+<p>Il campo "intestazione" nella risposta alla query iniziale viene utilizzato per descrivere i campi trovati nelle risposte "dati" successive.</p>
 <h3 id="angledump_angle">angle/dump_angle<a class="headerlink" href="#angledump_angle" title="Permanent link">&para;</a></h3>
-<p>This endpoint is used to subscribe to <a href="Config_Reference.html#angle">angle sensor data</a>. Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.</p>
-<p>A request may look like: <code>{"id": 123, "method":"angle/dump_angle", "params": {"sensor": "my_angle_sensor", "response_template": {}}}</code> and might return: <code>{"id": 123,"result":{"header":["time","angle"]}}</code> and might later produce asynchronous messages such as: <code>{"params":{"position_offset":3.151562,"errors":0, "data":[[1290.951905,-5063],[1290.952321,-5065]]}}</code></p>
-<p>The "header" field in the initial query response is used to describe the fields found in later "data" responses.</p>
+<p>Questo endpoint viene utilizzato per iscriversi a <a href="Config_Reference.html#angle">dati del sensore angolare</a>. L'ottenimento di questi aggiornamenti di movimento di basso livello può essere utile per scopi diagnostici e di debug. L'utilizzo di questo endpoint può aumentare il carico di sistema di Klipper.</p>
+<p>Una richiesta può essere simile a: <code>{"id": 123, "method":"angle/dump_angle", "params": {"sensor": "my_angle_sensor", "response_template": {}}}</code> e potrebbe restituire: <code>{"id": 123,"result":{"header":["time","angle"]}}</code> e potrebbe in seguito produrre messaggi asincroni come: <code>{"params":{"position_offset":3.151562 ,"errori":0, "dati":[[1290.951905,-5063],[1290.952321,-5065]]}}</code></p>
+<p>Il campo "intestazione" nella risposta alla query iniziale viene utilizzato per descrivere i campi trovati nelle risposte "dati" successive.</p>
 <h3 id="pause_resumecancel">pause_resume/cancel<a class="headerlink" href="#pause_resumecancel" title="Permanent link">&para;</a></h3>
-<p>This endpoint is similar to running the "PRINT_CANCEL" G-Code command. For example: <code>{"id": 123, "method": "pause_resume/cancel"}</code></p>
-<p>As with the "gcode/script" endpoint, this endpoint only completes after any pending G-Code commands complete.</p>
+<p>Questo endpoint è simile all'esecuzione del comando G-Code "PRINT_CANCEL". Ad esempio: <code>{"id": 123, "method": "pause_resume/cancel"}</code></p>
+<p>Come con l'endpoint "gcode/script", questo endpoint viene completato solo dopo il completamento di tutti i comandi G-Code in sospeso.</p>
 <h3 id="pause_resumepause">pause_resume/pause<a class="headerlink" href="#pause_resumepause" title="Permanent link">&para;</a></h3>
-<p>This endpoint is similar to running the "PAUSE" G-Code command. For example: <code>{"id": 123, "method": "pause_resume/pause"}</code></p>
-<p>As with the "gcode/script" endpoint, this endpoint only completes after any pending G-Code commands complete.</p>
+<p>Questo endpoint è simile all'esecuzione del comando G-Code "PAUSE". Ad esempio: <code>{"id": 123, "method": "pause_resume/pause"}</code></p>
+<p>Come con l'endpoint "gcode/script", questo endpoint viene completato solo dopo il completamento di tutti i comandi G-Code in sospeso.</p>
 <h3 id="pause_resumeresume">pause_resume/resume<a class="headerlink" href="#pause_resumeresume" title="Permanent link">&para;</a></h3>
-<p>This endpoint is similar to running the "RESUME" G-Code command. For example: <code>{"id": 123, "method": "pause_resume/resume"}</code></p>
-<p>As with the "gcode/script" endpoint, this endpoint only completes after any pending G-Code commands complete.</p>
+<p>Questo endpoint è simile all'esecuzione del comando G-Code "RESUME". Ad esempio: <code>{"id": 123, "method": "pause_resume/resume"}</code></p>
+<p>Come con l'endpoint "gcode/script", questo endpoint viene completato solo dopo il completamento di tutti i comandi G-Code in sospeso.</p>
 <h3 id="query_endstopsstatus">query_endstops/status<a class="headerlink" href="#query_endstopsstatus" title="Permanent link">&para;</a></h3>
-<p>This endpoint will query the active endpoints and return their status. For example: <code>{"id": 123, "method": "query_endstops/status"}</code> might return: <code>{"id": 123, "result": {"y": "open", "x": "open", "z": "TRIGGERED"}}</code></p>
-<p>As with the "gcode/script" endpoint, this endpoint only completes after any pending G-Code commands complete.</p>
+<p>Questo endpoint eseguirà una query sugli endpoint attivi e restituirà il loro stato. Ad esempio: <code>{"id": 123, "method": "query_endstops/status"}</code> potrebbe restituire: <code>{"id": 123, "result": {"y": "open", "x": "aperto", "z": "TRIGGERED"}}</code></p>
+<p>Come con l'endpoint "gcode/script", questo endpoint viene completato solo dopo il completamento di tutti i comandi G-Code in sospeso.</p>
 
               
             </article>

@@ -2725,23 +2725,23 @@
 <li>Use absolute/relative coordinates: <code>G90</code>, <code>G91</code></li>
 <li>Set position: <code>G92 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;]</code></li>
 <li>Set speed factor override percentage: <code>M220 S&lt;percent&gt;</code></li>
-<li>Set extrude factor override percentage: <code>M221 S&lt;percent&gt;</code></li>
-<li>Set acceleration: <code>M204 S&lt;value&gt;</code> OR <code>M204 P&lt;value&gt; T&lt;value&gt;</code><ul>
+<li>Imposta la percentuale di sostituzione del fattore di estrusione: <code>M221 S&lt;percentuale&gt;</code></li>
+<li>Impostare l'accelerazione: <code>M204 S&lt;valore&gt;</code> OPPURE <code>M204 P&lt;valore&gt; T&lt;valore&gt;</code><ul>
 <li>Nota: se S non viene specificato e vengono specificati sia P che T, l'accelerazione viene impostata al minimo di P e T. Se viene specificato solo uno di P o T, il comando non ha effetto.</li>
 </ul>
 </li>
 <li>Ottieni la temperatura dell'estrusore: <code>M105</code></li>
-<li>Set extruder temperature: <code>M104 [T&lt;index&gt;] [S&lt;temperature&gt;]</code></li>
-<li>Set extruder temperature and wait: <code>M109 [T&lt;index&gt;] S&lt;temperature&gt;</code><ul>
+<li>Imposta la temperatura dell'estrusore: <code>M104 [T&lt;index&gt;] [S&lt;temperatura&gt;]</code></li>
+<li>Imposta la temperatura dell'estrusore e attende: <code>M109 [T&lt;index&gt;] S&lt;temperatura&gt;</code><ul>
 <li>Nota: M109 attende sempre che la temperatura si assesti al valore richiesto</li>
 </ul>
 </li>
-<li>Set bed temperature: <code>M140 [S&lt;temperature&gt;]</code></li>
-<li>Set bed temperature and wait: <code>M190 S&lt;temperature&gt;</code><ul>
+<li>Imposta la temperatura del piatto: <code>M140 [S&lt;temperatura&gt;]</code></li>
+<li>Imposta la temperatura del piatto e attende: <code>M190 S&lt;temperatura&gt;</code><ul>
 <li>Nota: M190 attende sempre che la temperatura si assesti al valore richiesto</li>
 </ul>
 </li>
-<li>Set fan speed: <code>M106 S&lt;value&gt;</code></li>
+<li>Imposta la velocità della ventola: <code>M106 S&lt;valore&gt;</code></li>
 <li>Turn fan off: <code>M107</code></li>
 <li>Arresto di emergenza: <code>M112</code></li>
 <li>Ottieni la posizione attuale: <code>M114</code></li>
@@ -2816,7 +2816,7 @@
 <h3 id="display">[display]<a class="headerlink" href="#display" title="Permanent link">&para;</a></h3>
 <p>The following command is available when a <a href="Config_Reference.html#gcode_macro">display config section</a> is enabled.</p>
 <h4 id="set_display_group">SET_DISPLAY_GROUP<a class="headerlink" href="#set_display_group" title="Permanent link">&para;</a></h4>
-<p><code>SET_DISPLAY_GROUP [DISPLAY=&lt;display&gt;] GROUP=&lt;group&gt;</code>: Set the active display group of an lcd display. This allows to define multiple display data groups in the config, e.g. <code>[display_data &lt;group&gt; &lt;elementname&gt;]</code> and switch between them using this extended gcode command. If DISPLAY is not specified it defaults to "display" (the primary display).</p>
+<p><code>SET_DISPLAY_GROUP [DISPLAY=&lt;display&gt;] GROUP=&lt;group&gt;</code>: Imposta il gruppo di visualizzazione attivo di un display LCD. Ciò consente di definire più gruppi di dati di visualizzazione nella configurazione, ad es. <code>[display_data &lt;group&gt; &lt;elementname&gt;]</code> e passare da uno all'altro usando questo comando gcode esteso. Se DISPLAY non è specificato, l'impostazione predefinita è "display" (il display principale).</p>
 <h3 id="display_status">[display_status]<a class="headerlink" href="#display_status" title="Permanent link">&para;</a></h3>
 <p>The display_status module is automatically loaded if a <a href="Config_Reference.html#display">display config section</a> is enabled. It provides the following standard G-Code commands:</p>
 <ul>
@@ -2825,12 +2825,12 @@
 </ul>
 <p>Viene inoltre fornito il seguente comando G-Code esteso:</p>
 <ul>
-<li><code>SET_DISPLAY_TEXT MSG=&lt;message&gt;</code>: Performs the equivalent of M117, setting the supplied <code>MSG</code> as the current display message. If <code>MSG</code> is omitted the display will be cleared.</li>
+<li><code>SET_DISPLAY_TEXT MSG=&lt;messaggio&gt;</code>: esegue l'equivalente di M117, impostando il <code>MSG</code> fornito come messaggio visualizzato. Se <code>MSG</code> viene omesso, il display verrà cancellato.</li>
 </ul>
 <h3 id="dual_carriage">[dual_carriage]<a class="headerlink" href="#dual_carriage" title="Permanent link">&para;</a></h3>
 <p>The following command is available when the <a href="Config_Reference.html#dual_carriage">dual_carriage config section</a> is enabled.</p>
 <h4 id="set_dual_carriage">SET_DUAL_CARRIAGE<a class="headerlink" href="#set_dual_carriage" title="Permanent link">&para;</a></h4>
-<p><code>SET_DUAL_CARRIAGE CARRIAGE=[0|1]</code>: This command will set the active carriage. It is typically invoked from the activate_gcode and deactivate_gcode fields in a multiple extruder configuration.</p>
+<p><code>SET_DUAL_CARRIAGE CARRIAGE=[0|1]</code>: Questo comando imposterà il carrello attivo. Viene in genere richiamato dai campi activate_gcode e deactivate_gcode in una configurazione a più estrusori.</p>
 <h3 id="endstop_phase">[endstop_phase]<a class="headerlink" href="#endstop_phase" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when an <a href="Config_Reference.html#endstop_phase">endstop_phase config section</a> is enabled (also see the <a href="Endstop_Phase.html">endstop phase guide</a>).</p>
 <h4 id="endstop_phase_calibrate">ENDSTOP_PHASE_CALIBRATE<a class="headerlink" href="#endstop_phase_calibrate" title="Permanent link">&para;</a></h4>
@@ -2863,7 +2863,7 @@
 <h4 id="set_pressure_advance">SET_PRESSURE_ADVANCE<a class="headerlink" href="#set_pressure_advance" title="Permanent link">&para;</a></h4>
 <p><code>SET_PRESSURE_ADVANCE [EXTRUDER=&lt;config_name&gt;] [ADVANCE=&lt;pressure_advance&gt;] [SMOOTH_TIME=&lt;pressure_advance_smooth_time&gt;]</code>: Set pressure advance parameters of an extruder stepper (as defined in an <a href="Config_Reference.html#extruder">extruder</a> or <a href="Config_Reference.html#extruder_stepper">extruder_stepper</a> config section). If EXTRUDER is not specified, it defaults to the stepper defined in the active hotend.</p>
 <h4 id="set_extruder_rotation_distance">SET_EXTRUDER_ROTATION_DISTANCE<a class="headerlink" href="#set_extruder_rotation_distance" title="Permanent link">&para;</a></h4>
-<p><code>SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=&lt;config_name&gt; [DISTANCE=&lt;distance&gt;]</code>: Set a new value for the provided extruder stepper's "rotation distance" (as defined in an <a href="Config_Reference.html#extruder">extruder</a> or <a href="Config_Reference.html#extruder_stepper">extruder_stepper</a> config section). If the rotation distance is a negative number then the stepper motion will be inverted (relative to the stepper direction specified in the config file). Changed settings are not retained on Klipper reset. Use with caution as small changes can result in excessive pressure between extruder and hotend. Do proper calibration with filament before use. If 'DISTANCE' value is not provided then this command will return the current rotation distance.</p>
+<p><code>SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=&lt;config_name&gt; [DISTANCE=&lt;distance&gt;]</code>: Imposta un nuovo valore per la "distanza di rotazione" dello stepper dell'estrusore fornito (come definito in un <a href="Config_Reference.html#extruder">extruder</a> o <a href="Config_Reference .md#extruder_stepper">extruder_stepper</a> sezione di configurazione). Se la distanza di rotazione è un numero negativo, il movimento passo-passo verrà invertito (rispetto alla direzione passo-passo specificata nel file di configurazione). Le impostazioni modificate non vengono mantenute al ripristino di Klipper. Usare con cautela poiché piccole modifiche possono causare una pressione eccessiva tra l'estrusore e l'hotend. Eseguire una corretta calibrazione con il filamento prima dell'uso. Se il valore 'DISTANZA' non viene fornito, questo comando restituirà la distanza di rotazione corrente.</p>
 <h4 id="sync_extruder_motion">SYNC_EXTRUDER_MOTION<a class="headerlink" href="#sync_extruder_motion" title="Permanent link">&para;</a></h4>
 <p><code>SYNC_EXTRUDER_MOTION EXTRUDER=&lt;name&gt; MOTION_QUEUE=&lt;name&gt;</code>: This command will cause the stepper specified by EXTRUDER (as defined in an <a href="Config_Reference.html#extruder">extruder</a> or <a href="Config_Reference.html#extruder_stepper">extruder_stepper</a> config section) to become synchronized to the movement of an extruder specified by MOTION_QUEUE (as defined in an <a href="Config_Reference.html#extruder">extruder</a> config section). If MOTION_QUEUE is an empty string then the stepper will be desynchronized from all extruder movement.</p>
 <h4 id="set_extruder_step_distance">SET_EXTRUDER_STEP_DISTANCE<a class="headerlink" href="#set_extruder_step_distance" title="Permanent link">&para;</a></h4>
@@ -2873,7 +2873,7 @@
 <h3 id="fan_generic">[fan_generic]<a class="headerlink" href="#fan_generic" title="Permanent link">&para;</a></h3>
 <p>The following command is available when a <a href="Config_Reference.html#fan_generic">fan_generic config section</a> is enabled.</p>
 <h4 id="set_fan_speed">SET_FAN_SPEED<a class="headerlink" href="#set_fan_speed" title="Permanent link">&para;</a></h4>
-<p><code>SET_FAN_SPEED FAN=config_name SPEED=&lt;speed&gt;</code> This command sets the speed of a fan. "speed" must be between 0.0 and 1.0.</p>
+<p><code>SET_FAN_SPEED FAN=config_name SPEED=&lt;velocità&gt;</code> Questo comando imposta la velocità di una ventola. "velocità" deve essere compresa tra 0.0 e 1.0.</p>
 <h3 id="filament_switch_sensor">[filament_switch_sensor]<a class="headerlink" href="#filament_switch_sensor" title="Permanent link">&para;</a></h3>
 <p>The following command is available when a <a href="Config_Reference.html#filament_switch_sensor">filament_switch_sensor</a> or <a href="Config_Reference.html#filament_motion_sensor">filament_motion_sensor</a> config section is enabled.</p>
 <h4 id="query_filament_sensor">QUERY_FILAMENT_SENSOR<a class="headerlink" href="#query_filament_sensor" title="Permanent link">&para;</a></h4>
@@ -3077,9 +3077,9 @@
 <h4 id="sdcard_loop_begin">SDCARD_LOOP_BEGIN<a class="headerlink" href="#sdcard_loop_begin" title="Permanent link">&para;</a></h4>
 <p><code>SDCARD_LOOP_BEGIN COUNT=&lt;count&gt;</code>: inizia una sezione in loop nella stampa SD. Un conteggio pari a 0 indica che la sezione deve essere ripetuta indefinitamente.</p>
 <h4 id="sdcard_loop_end">SDCARD_LOOP_END<a class="headerlink" href="#sdcard_loop_end" title="Permanent link">&para;</a></h4>
-<p><code>SDCARD_LOOP_END</code>: End a looped section in the SD print.</p>
+<p><code>SDCARD_LOOP_END</code>: termina una sezione in loop nella stampa SD.</p>
 <h4 id="sdcard_loop_desist">SDCARD_LOOP_DESIST<a class="headerlink" href="#sdcard_loop_desist" title="Permanent link">&para;</a></h4>
-<p><code>SDCARD_LOOP_DESIST</code>: Complete existing loops without further iterations.</p>
+<p><code>SDCARD_LOOP_DESIST</code>: completa i loop esistenti senza ulteriori iterazioni.</p>
 <h3 id="servo">[servo]<a class="headerlink" href="#servo" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when a <a href="Config_Reference.html#servo">servo config section</a> is enabled.</p>
 <h4 id="set_servo">SET_SERVO<a class="headerlink" href="#set_servo" title="Permanent link">&para;</a></h4>
@@ -3136,7 +3136,7 @@
 <ul>
 <li>Elenco scheda SD: <code>M20</code></li>
 <li>Inizializza scheda SD: <code>M21</code></li>
-<li>Select SD file: <code>M23 &lt;filename&gt;</code></li>
+<li>Selezionare il file SD: <code>M23 &lt;nomefile&gt;</code></li>
 <li>Start/resume SD print: <code>M24</code></li>
 <li>Sospendi la stampa SD: <code>M25</code></li>
 <li>Set SD position: <code>M26 S&lt;offset&gt;</code></li>
@@ -3144,9 +3144,9 @@
 </ul>
 <p>Inoltre, quando la sezione di configurazione "virtual_sdcard" è abilitata, sono disponibili i seguenti comandi estesi.</p>
 <h4 id="sdcard_print_file">SDCARD_PRINT_FILE<a class="headerlink" href="#sdcard_print_file" title="Permanent link">&para;</a></h4>
-<p><code>SDCARD_PRINT_FILE FILENAME=&lt;filename&gt;</code>: Load a file and start SD print.</p>
+<p><code>SDCARD_PRINT_FILE FILENAME=&lt;nomefile&gt;</code>: carica un file e avvia la stampa SD.</p>
 <h4 id="sdcard_reset_file">SDCARD_RESET_FILE<a class="headerlink" href="#sdcard_reset_file" title="Permanent link">&para;</a></h4>
-<p><code>SDCARD_RESET_FILE</code>: Unload file and clear SD state.</p>
+<p><code>SDCARD_RESET_FILE</code>: Scarica il file e cancella lo stato SD.</p>
 <h3 id="z_tilt">[z_tilt]<a class="headerlink" href="#z_tilt" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when the <a href="Config_Reference.html#z_tilt">z_tilt config section</a> is enabled.</p>
 <h4 id="z_tilt_adjust">Z_TILT_ADJUST<a class="headerlink" href="#z_tilt_adjust" title="Permanent link">&para;</a></h4>
