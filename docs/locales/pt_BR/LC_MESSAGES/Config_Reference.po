@@ -574,12 +574,6 @@ msgstr ""
 msgid "Temperature sensors"
 msgstr ""
 
-msgid ""
-"Klipper includes definitions for many types of temperature sensors. These "
-"sensors may be used in any config section that requires a temperature sensor"
-" (such as an `[extruder]` or `[heated_bed]` section)."
-msgstr ""
-
 msgid "Common thermistors"
 msgstr ""
 
@@ -4786,6 +4780,19 @@ msgid ""
 "#   to 100000 and changing this value has no effect. The default is\n"
 "#   100000.\n"
 msgstr ""
+
+#: docs/Config_Reference.md:block 228 (paragraph)
+msgid ""
+"Klipper includes definitions for many types of temperature sensors. These "
+"sensors may be used in any config section that requires a temperature sensor"
+" (such as an `[extruder]` or `[heater_bed]` section)."
+msgstr ""
+
+#~ msgid ""
+#~ "Klipper includes definitions for many types of temperature sensors. These "
+#~ "sensors may be used in any config section that requires a temperature sensor"
+#~ " (such as an `[extruder]` or `[heated_bed]` section)."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "[virtual_sdcard]\n"
