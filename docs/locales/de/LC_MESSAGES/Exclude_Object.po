@@ -1,18 +1,19 @@
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
-# Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # Mathis Mensing <gcmatmen@gmail.com>, 2022.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-04-19 15:03+0000\n"
-"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/exclude_object/de/>\n"
+"PO-Revision-Date: 2025-05-03 07:36+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/"
+"exclude_object/de/>\n"
 "Language: de\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/Exclude_Object.md:block 1 (header)
 msgid "Exclude Objects"
@@ -77,8 +78,8 @@ msgid ""
 "When printing starts, Klipper will reset the `[exclude_object]` "
 "[status](Status_Reference.md#exclude_object)."
 msgstr ""
-"Wenn der Druck startet setzt Klipper den `[exclude_object]` "
-"[Status](Status_Reference.md#exclude_object) zurück."
+"Wenn der Druck startet setzt Klipper den `[exclude_object]` [Status]"
+"(Status_Reference.md#exclude_object) zurück."
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
