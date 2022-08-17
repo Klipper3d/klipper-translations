@@ -1,6 +1,6 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
-# Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # Extrutex <w1indt@outlook.com>, 2024.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 # Rashid Al Haqbany <haqbany@gmail.com>, 2024.
@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:33+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/bed_mesh/"
 "de/>\n"
 "Language: de\n"
@@ -30,9 +30,9 @@ msgid ""
 "This example assumes a printer with a 250 mm x 220 mm rectangular bed and a "
 "probe with an x-offset of 24 mm and y-offset of 5 mm."
 msgstr ""
-"Dieses Beispiel geht von einem Drucker mit einem rechteckigen Bett von 250 mm "
-"x 220 mm und einem Taster mit einem x-Versatz von 24 mm und einem y-Versatz "
-"von 5 mm aus."
+"Dieses Beispiel geht von einem Drucker mit einem rechteckigen Bett von 250 "
+"mm x 220 mm und einem Taster mit einem x-Versatz von 24 mm und einem y-"
+"Versatz von 5 mm aus."
 
 msgid ""
 "`speed: 120` *Default Value: 50* The speed in which the tool moves between "
