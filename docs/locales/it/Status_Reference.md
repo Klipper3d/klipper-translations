@@ -89,18 +89,18 @@ Le seguenti informazioni sono disponibili negli oggetti [fan](Config_Reference.m
 Le seguenti informazioni sono disponibili negli oggetti [filament_switch_sensor some_name](Config_Reference.md#filament_switch_sensor):
 
 - `enabled`: Restituisce True se il sensore interruttore è attualmente abilitato.
-- `filament_detected`: Returns True if the sensor is in a triggered state.
+- `filament_detected`: restituisce True se il sensore è in uno stato attivato.
 
 ## filament_motion_sensor
 
-The following information is available in [filament_motion_sensor some_name](Config_Reference.md#filament_motion_sensor) objects:
+Le seguenti informazioni sono disponibili negli oggetti [filament_motion_sensor some_name](Config_Reference.md#filament_motion_sensor):
 
-- `enabled`: Returns True if the motion sensor is currently enabled.
-- `filament_detected`: Returns True if the sensor is in a triggered state.
+- `abilitato`: Restituisce True se il sensore di movimento è attualmente abilitato.
+- `filament_detected`: restituisce True se il sensore è in uno stato attivato.
 
 ## firmware_retraction
 
-The following information is available in the [firmware_retraction](Config_Reference.md#firmware_retraction) object:
+Le seguenti informazioni sono disponibili nell'oggetto [firmware_retraction](Config_Reference.md#firmware_retraction):
 
 - `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`: The current settings for the firmware_retraction module. These settings may differ from the config file if a `SET_RETRACTION` command alters them.
 
@@ -167,7 +167,7 @@ The following information is available in the `manual_probe` object:
 - `is_active`: Returns True if a manual probing helper script is currently active.
 - `z_position`: The current height of the nozzle (as the printer currently understands it).
 - `z_position_lower`: Last probe attempt just lower than the current height.
-- `z_position_upper`: Last probe attempt just greater than the current height.
+- `z_position_upper`: ultimo tentativo di sonda appena maggiore dell'altezza corrente.
 
 ## mcu
 
