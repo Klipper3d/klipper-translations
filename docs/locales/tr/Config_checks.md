@@ -1,69 +1,69 @@
-# Configuration checks
+# Konfigürasyon denetimi
 
-Bu döküman Klipper printer.cfg dosyasında bulunan pin ayarları için bir dizi adım içermektedir. Bu adımların [installation document](Installation.md) içinde yer alan adımları takip ettikten sonra izlenmesi tavsiye edilir.
+Bu doküman Klipper printer.cfg dosyasında bulunan pin ayarları için bir dizi adım içermektedir. Bu adımların [yükleme dokümanı](Installation.md) içinde yer alan adımları takip ettikten sonra izlenmesi tavsiye edilir.
 
-Bu klavuz çerçevesinde Klipper ayarlar dosyasında değişiklik yapılması gerekebilir. Ayarlar dosyasında herhangi bir değişiklikten sonra RESTART komutu vererek yeniden başlattığınızdan emin olunuz (Terminalde "restart" yazarak gerçekleştirilebilinir). Her yeniden başlatmadan sonra STATUS komutu vererek ayar değişikliklerinin etkin olduğunu kontrol etmeniz tavsiy edilir.
+Bu klavuz sırasında Klipper konfigürasyon dosyasında değişiklik yapılması gerekebilir. Konfigürasyon dosyasında yapılan her değişiklikten sonra RESTART komutunu vererek değişikliklerin etkin olduğundan emin olun (Octoprint terminal sekmesinde "restart" yazıp "Send" butonuna tıklayın). Her RESTART sonrasında STATUS komutunu çalıştırıp konfigürasyon dosyasının başarıyla okunduğunu doğrulamak iyi bir fikir olacaktır.
 
 ## Sıcaklığı doğrula
 
-Start by verifying that temperatures are being properly reported. Navigate to the Octoprint temperature tab.
+Sıcaklıkların düzgün bir şekilde raporlandığını doğrulamak ile başlayın. Octoprint sıcaklık sekmesine gidin.
 
-![octoprint-temperature](img/octoprint-temperature.png)
+![octoprint-sicaklik](img/octoprint-temperature.png)
 
-Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.
+Besleme ucu ve (varsa) baskı yatağına ait sıcaklıkların mevcut olduğunu ve değerlerinin artmadığını doğrulayın. Eğer artıyorsa, yazıcının gücünü kesin. Sıcaklıklar doğru değil ise, besleme ucu ve/veya baskı yatağının "sensor_type" ve "sensor_pin" ayarlarını gözden geçirin.
 
-## Verify M112
+## M112 doğrula
 
-Navigate to the Octoprint terminal tab and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause Octoprint to disconnect from Klipper - navigate to the Connection area and click on "Connect" to cause Octoprint to reconnect. Then navigate to the Octoprint temperature tab and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
+Octoprint terminal sekmesine gidin ve M112 komutunu çalıştırın. Bu komut, Klipper'ın "kapalı" konuma geçmesini isteyecektir. Komut, Octoprint'in Klipper ile olan bağlantısının kopmasına sebep olacaktır - Bağlantı kısmına gidip "Bağlan" üzerine tıklayarak Octoprint'in bağlantıyı yeniden kurmasını sağlayın. Daha sonra, Octoprint sıcaklık sekmesine giderek sıcaklıkların güncellendiğini ve artmadığını doğrulayın. Sıcaklıklar artıyor ise yazıcının gücünü kesin.
 
-The M112 command causes Klipper to go into a "shutdown" state. To clear this state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab.
+M112 komutu Klipper'ın "kapalı" konuma geçmesine sebep olur. Bu konumdan çıkmak için, Octoprint terminal sekmesinde FIRMWARE_RESTART komutunu çalıştırın.
 
-## Verify heaters
+## Isıtıcıları doğrula
 
-Navigate to the Octoprint temperature tab and type in 50 followed by enter in the "Tool" temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the "Tool" temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
+Octoprint sıcaklık sekmesine gidin ve "Araç" sıcaklık kutucuğuna 50 değerini girip Enter tuşuna basın. Grafikteki ekstrüder sıcaklığı (30 saniye gibi bir süre içinde) artmaya başlayacaktır. Daha sonra, "Araç" sıcaklığı açılır kutusuna gidip "Kapalı" seçeneğini seçin. Birkaç dakika içinde, sıcaklık en baştaki oda sıcaklığı değerine dönmeye başlayacaktır. Sıcaklık artmaz ise konfigürasyondaki "heater_pin" ayarını doğrulayın.
 
-If the printer has a heated bed then perform the above test again with the bed.
+Yazıcı ısıtılmış bir baskı yatağına sahip ise yukarıdaki testi baskı yatağı ile tekrarlayın.
 
-## Verify stepper motor enable pin
+## Step motorun enable pinini doğrulayın
 
-Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !ar38").
+Yazıcının bütün eksenlerinin el ile serbestçe hareket ettirilebildiğini (step motorların kapalı olduğunu) doğrulayın. Değilse, M84 komutunu çalıştırarak motorları devre dışı bırakın. Eğer eksenlerden herhangi biri hala hareket ettirilemiyorsa ilgili eksenin step motoruna ait "enable_pin" konfigürasyonunu doğrulayın. Step motor sürücülerinin çoğunda enable pini "active low"dur, dolayısıyla enable pininin başında "!" bulunmalıdır (örneğin, "enable_pin: !ar38").
 
-## Verify endstops
+## Sonlandırıcıları doğrula
 
-Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the Octoprint terminal tab. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
+Sonlandırıcılar ile temasta olmamalarını sağlamak için yazıcının bütün eksenlerini el ile konumlandırın. Octoprint terminal sekmesinde QUERY_ENDSTOPS komutunu çalıştırın. Konfigüre edilmiş bütün sonlandırıcılara ait durum bilgisi dönecektir ve hepsinin durumu "açık" olmalıdır. Her bir sonlandırıcı için, sonlandırıcıyı el ile tetiklerken QUERY_ENDSTOPS komutunu çalıştırın. QUERY_ENDSTOPS komutu sonlandırıcı durumunu "TETİKLENDİ" olarak gösterecektir.
 
-If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!ar3"), or remove the "!" if there is already one present.
+Sonlandırıcı ters olarak görünüyorsa (tetiklendiğinde "açık" görünüyorsa veya tam tersi) pin tanımına "!" ekleyin (örneğin, "endstop_pin: ^!ar3") veya zaten bir "!" var ise onu silin.
 
-If the endstop does not change at all then it generally indicates that the endstop is connected to a different pin. However, it may also require a change to the pullup setting of the pin (the '^' at the start of the endstop_pin name - most printers will use a pullup resistor and the '^' should be present).
+Sonlandırıcıda hiçbir değişiklik olmuyorsa bu genellikle sonlandırıcının başka bir pine bağlı olduğunu işaret eder. Ancak bu, pine ait pullup ayarının değiştirilmesini de gerektirebilir (endstop_pin isminin başındaki '^' - çoğu yazıcı bir pullup direnci kullanır ve '^' zaten bulunmalıdır).
 
-## Verify stepper motors
+## Step motorları doğrula
 
-Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor. Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x`. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
+STEPPER_BUZZ komutunu kullanarak step motorların bağlantısını doğrulayın. Belirlenen ekseni el ile orta bir noktada konumlandırıp `STEPPER_BUZZ STEPPER=stepper_x` komutunu çalıştırarak başlayın. STEPPER_BUZZ komutu, ilgili step motorun pozitif yönde bir milimetre hareket edip başlangıç noktasına geri gelmesine sebep olacaktır. (Sonlandırıcı position_endstop=0 konumunda tanımlanmış ise her hareket başlangıcında step motor sonlandırıcıdan uzaklaşacaktır.) Bu salınım hareketini on kere tekrarlayacaktır.
 
-If the stepper does not move at all, then verify the "enable_pin" and "step_pin" settings for the stepper. If the stepper motor moves but does not return to its original position then verify the "dir_pin" setting. If the stepper motor oscillates in an incorrect direction, then it generally indicates that the "dir_pin" for the axis needs to be inverted. This is done by adding a '!' to the "dir_pin" in the printer config file (or removing it if one is already there). If the motor moves significantly more or significantly less than one millimeter then verify the "rotation_distance" setting.
+Step motor hiç hareket etmez ise motorun "enable_pin" ve "step_pin" ayarlarını doğrulayın. Step motor hareket eder ama orjinal pozisyonuna dönmez ise "dir_pin" ayarını doğrulayın. Motor yanlış bir yönde salınım yaparsa bu genellikle o eksene ait "dir_pin" değerinin ters çevrilmesi gerektiğini işaret eder. Yazıcı konfigürasyon dosyasındaki "dir_pin" değerine "!" eklenerek (veya zaten var ise silinerek) bu işlem gerçekleştirilir. Motor bir milimetreden önemli ölçüde az veya fazla hareket ederse "rotation_distance" ayarını doğrulayın.
 
-Run the above test for each stepper motor defined in the config file. (Set the STEPPER parameter of the STEPPER_BUZZ command to the name of the config section that is to be tested.) If there is no filament in the extruder then one can use STEPPER_BUZZ to verify the extruder motor connectivity (use STEPPER=extruder). Otherwise, it's best to test the extruder motor separately (see the next section).
+Yukarıdaki testi konfigürasyon dosyasında tanımlanan her step motor için çalıştır. (STEPPER_BUZZ komutundaki STEPPER parametresininin değerini test edilecek konfigürasyon bölümünün adı yapın.) Ekstrüderde filaman yok ise STEPPER_BUZZ komutunu ekstrüder motoru bağlantısını doğrulamak için kullanabilirsiniz (STEPPER=extruder yapın). Aksi halde, en iyisi ekstrüder motorunu ayrıca test etmektir (bir sonraki bölüme bakınız).
 
-After verifying all endstops and verifying all stepper motors the homing mechanism should be tested. Issue a G28 command to home all axes. Remove power from the printer if it does not home properly. Rerun the endstop and stepper motor verification steps if necessary.
+Bütün sonlandırıcılar ve step motorlar doğrulandıktan sonra hedef arama mekanizması test edilmelidir. Bütün eksenleri hedeflemek için G28 komutunu çalıştırın. Hedefleme doğru yapılmıyorsa yazıcıyı güçten çekin. Gerekirse sonlandırıcı ve step motor doğrulama adımlarını yeniden çalıştırın.
 
-## Verify extruder motor
+## Ekstrüder motorunu doğrula
 
-To test the extruder motor it will be necessary to heat the extruder to a printing temperature. Navigate to the Octoprint temperature tab and select a target temperature from the temperature drop-down box (or manually enter an appropriate temperature). Wait for the printer to reach the desired temperature. Then navigate to the Octoprint control tab and click the "Extrude" button. Verify that the extruder motor turns in the correct direction. If it does not, see the troubleshooting tips in the previous section to confirm the "enable_pin", "step_pin", and "dir_pin" settings for the extruder.
+Ekstrüder motorunu test etmek için ekstrüderi bir yazdırma sıcaklığına ulaştırmak gerekmektedir. Octoprint sıcaklık sekmesine gidin ve sıcaklık açılır kutusundan bir hedef sıcaklık seçin (veya el ile uygun bir sıcaklık girin). Yazıcının istenen sıcaklığa ulaşmasını bekleyin. Daha sonra, Octoprint kontrol sekmesine gidin ve "Çıkar" butonuna basın. Ekstrüder motorunun doğru yönde döndüğünü doğrulayın. Değilse, ekstrüderin "enable_pin", "step_pin" ve "dir_pin" ayarlarını onaylamak için bir önceki bölümdeki sorun giderme ipuçlarına bakın.
 
-## Calibrate PID settings
+## PID kalibrasyon ayarları
 
-Klipper supports [PID control](https://en.wikipedia.org/wiki/PID_controller) for the extruder and bed heaters. In order to use this control mechanism, it is necessary to calibrate the PID settings on each printer (PID settings found in other firmwares or in the example configuration files often work poorly).
+Klipper, ekstrüder ve baskı yatağı ısıtıcıları için [PID kontrolünü](https://en.wikipedia.org/wiki/PID_controller) destekler. Bu kontrol mekanizmasını kullanmak için PID ayarları her yazıcı için ayrıca kalibre edilmelidir (diğer aygıt yazılımlarında veya örnek konfigürasyon dosyalarında bulunan PID ayarları genellikle kötü bir performans sergiler).
 
-To calibrate the extruder, navigate to the OctoPrint terminal tab and run the PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder TARGET=170`
+Ekstrüderi kalibre etmek için OctoPrint terminal sekmesine gidin ve PID_CALIBRATE komutunu çalıştırın. Örneğin: `PID_CALIBRATE HEATER=extruder TARGET=170`
 
-At the completion of the tuning test run `SAVE_CONFIG` to update the printer.cfg file the new PID settings.
+Yeni PID ayarlarını printer.cfg dosyasına yazmak için ayar testi bitiminde `SAVE_CONFIG` komutunu çalıştırın.
 
-If the printer has a heated bed and it supports being driven by PWM (Pulse Width Modulation) then it is recommended to use PID control for the bed. (When the bed heater is controlled using the PID algorithm it may turn on and off ten times a second, which may not be suitable for heaters using a mechanical switch.) A typical bed PID calibration command is: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
+Yazıcı ısıtılmış bir baskı yatağına sahipse ve PWM (Pulse Width Modulation) ile sürülmeyi destekliyorsa baskı yatağı için PID kontrolü kullanılması önerilir. (Baskı yatağı ısıtıcısı bir PID algoritması ile kontrol ediliyorsa saniyede on kere açılıp kapanabilir, bu durum mekanik anahtar kullanan ısıtıcılar için uygun olmayabilir.) Tipik bir baskı yatağı PID kalibrasyonu komutu şu şekildedir: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
 
-## Next steps
+## Sonraki adımlar
 
-This guide is intended to help with basic verification of pin settings in the Klipper configuration file. Be sure to read the [bed leveling](Bed_Level.md) guide. Also see the [Slicers](Slicers.md) document for information on configuring a slicer with Klipper.
+Bu kılavuz, Klipper konfigürasyon dosyasındaki pin ayarlarının temel doğrulamasına yardımcı olmayı amaçlamaktadır. [Yatak düzeyleme](Bed_Level.md) kılavuzunu mutlaka okuyunuz. Ayrıca Klipper ile dilimleyici yapılandırma hakkında bilgi sahibi olmak için [Dilimleyiciler](Slicers.md) dokümanına bakınız.
 
-After one has verified that basic printing works, it is a good idea to consider calibrating [pressure advance](Pressure_Advance.md).
+Temel yazdırma işleminin çalıştığı doğrulandıktan sonra [basınç avansını](Pressure_Advance.md) kalibre etmeyi değerlendirmek iyi bir fikir olacaktır.
 
-It may be necessary to perform other types of detailed printer calibration - a number of guides are available online to help with this (for example, do a web search for "3d printer calibration"). As an example, if you experience the effect called ringing, you may try following [resonance compensation](Resonance_Compensation.md) tuning guide.
+Başka detaylı yazıcı kalibrasyonu tiplerinin uygulanmasına ihtiyaç duyulabilir - bu konuda destek alınabilecek online kılavuzlar mevcuttur (mesela, webde şunu aratın: "üç boyutlu yazıcı kalibrasyonu"). Örnek olarak, ringing denen etki ile karşılaşırsanız [rezonans dengeleme](Resonance_Compensation.md) ayar kılavuzunu takip edebilirsiniz.

@@ -6,7 +6,7 @@ Questo documento fornisce informazioni sull'implementazione di sequenze di coman
 
 Le maiuscole non sono importanti per il nome della macro G-Code: MY_MACRO e my_macro saranno considerate allo stesso modo e possono essere chiamati in maiuscolo o minuscolo. Se nel nome della macro vengono utilizzati dei numeri, devono trovarsi tutti alla fine del nome (ad es. TEST_MACRO25 è valido, ma MACRO25_TEST3 non lo è).
 
-## Formatting of G-Code in the config
+## Formattazione di G-Code nel config
 
 L'indentazione è importante quando si definisce una macro nel file di configurazione. Per specificare una sequenza G-Code su più righe è importante che ogni riga abbia un'indentazione adeguata. Per esempio:
 
@@ -18,11 +18,11 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 ```
 
-Note how the `gcode:` config option always starts at the beginning of the line and subsequent lines in the G-Code macro never start at the beginning.
+Nota come l'opzione di configurazione `gcode:` inizia sempre all'inizio della riga e le righe successive nella macro G-Code non iniziano mai all'inizio.
 
-## Add a description to your macro
+## Aggiungi una descrizione alla tua macro
 
-To help identify the functionality a short description can be added. Add `description:` with a short text to describe the functionality. Default is "G-Code macro" if not specified. For example:
+Per aiutare a identificare la funzionalità è possibile aggiungere una breve descrizione. Aggiungi `descrizione:` con un breve testo per descrivere la funzionalità. L'impostazione predefinita è "Macro codice G" se non specificato. Per esempio:
 
 ```
 [gcode_macro blink_led]
@@ -35,11 +35,11 @@ gcode:
 
 The terminal will display the description when you use the `HELP` command or the autocomplete function.
 
-## Save/Restore state for G-Code moves
+## Salva/ripristina lo stato per i movimenti G-Code
 
-Unfortunately, the G-Code command language can be challenging to use. The standard mechanism to move the toolhead is via the `G1` command (the `G0` command is an alias for `G1` and it can be used interchangeably with it). However, this command relies on the "G-Code parsing state" setup by `M82`, `M83`, `G90`, `G91`, `G92`, and previous `G1` commands. When creating a G-Code macro it is a good idea to always explicitly set the G-Code parsing state prior to issuing a `G1` command. (Otherwise, there is a risk the `G1` command will make an undesirable request.)
+Sfortunatamente, il linguaggio di comando G-Code può essere difficile da usare. Il meccanismo standard per spostare la testa di stampa è tramite il comando `G1` (il comando `G0` è un alias per `G1` e può essere usato in modo intercambiabile con esso). Tuttavia, questo comando si basa sull'impostazione dello "stato di analisi del codice G" da `M82`, `M83`, `G90`, `G91`, `G92` e precedenti comandi `G1`. Quando si crea una macro G-Code è una buona idea impostare sempre in modo esplicito lo stato di analisi del G-Code prima di emettere un comando `G1`. (Altrimenti, c'è il rischio che il comando `G1` faccia una richiesta indesiderabile.)
 
-A common way to accomplish that is to wrap the `G1` moves in `SAVE_GCODE_STATE`, `G91`, and `RESTORE_GCODE_STATE`. For example:
+Un modo comune per farlo è avvolgere le mosse `G1` in `SAVE_GCODE_STATE`, `G91` e `RESTORE_GCODE_STATE`. Per esempio:
 
 ```
 [gcode_macro MOVE_UP]
@@ -50,13 +50,13 @@ gcode:
   RESTORE_GCODE_STATE NAME=my_move_up_state
 ```
 
-The `G91` command places the G-Code parsing state into "relative move mode" and the `RESTORE_GCODE_STATE` command restores the state to what it was prior to entering the macro. Be sure to specify an explicit speed (via the `F` parameter) on the first `G1` command.
+Il comando `G91` pone lo stato di analisi del codice G in "modalità di spostamento relativo" e il comando `RESTORE_GCODE_STATE` ripristina lo stato a quello che era prima di entrare nella macro. Assicurati di specificare una velocità esplicita (tramite il parametro `F`) sul primo comando `G1`.
 
-## Template expansion
+## Espansione del modello
 
-The gcode_macro `gcode:` config section is evaluated using the Jinja2 template language. One can evaluate expressions at run-time by wrapping them in `{ }` characters or use conditional statements wrapped in `{% %}`. See the [Jinja2 documentation](http://jinja.pocoo.org/docs/2.10/templates/) for further information on the syntax.
+La sezione di configurazione di gcode_macro `gcode:` viene valutata utilizzando il linguaggio del modello Jinja2. È possibile valutare le espressioni in fase di esecuzione racchiudendole in caratteri `{ }` o utilizzando istruzioni condizionali racchiuse in `{% %}`. Vedere la [documentazione Jinja2](http://jinja.pocoo.org/docs/2.10/templates/) per ulteriori informazioni sulla sintassi.
 
-An example of a complex macro:
+Un esempio di macro complessa:
 
 ```
 [gcode_macro clean_nozzle]
@@ -73,9 +73,9 @@ gcode:
   RESTORE_GCODE_STATE NAME=clean_nozzle_state
 ```
 
-### Macro parameters
+### Parametri Macro
 
-It is often useful to inspect parameters passed to the macro when it is called. These parameters are available via the `params` pseudo-variable. For example, if the macro:
+Spesso è utile controllare i parametri passati alla macro quando viene chiamata. Questi parametri sono disponibili tramite la pseudo-variabile `params`. Ad esempio, se la macro:
 
 ```
 [gcode_macro SET_PERCENT]
@@ -83,9 +83,9 @@ gcode:
   M117 Now at { params.VALUE|float * 100 }%
 ```
 
-were invoked as `SET_PERCENT VALUE=.2` it would evaluate to `M117 Now at 20%`. Note that parameter names are always in upper-case when evaluated in the macro and are always passed as strings. If performing math then they must be explicitly converted to integers or floats.
+sono stati invocati come `SET_PERCENT VALUE=.2` verrebbero valutati in `M117 Now at 20%`. Si noti che i nomi dei parametri sono sempre in maiuscolo quando vengono valutati nella macro e vengono sempre passati come stringhe. Se si eseguono calcoli matematici, devono essere convertiti esplicitamente in numeri interi o float.
 
-It's common to use the Jinja2 `set` directive to use a default parameter and assign the result to a local name. For example:
+È comune usare la direttiva Jinja2 `set` per usare un parametro predefinito e assegnare il risultato a un nome locale. Per esempio:
 
 ```
 [gcode_macro SET_BED_TEMPERATURE]
@@ -102,9 +102,9 @@ Note that this will include any comments that were part of the original command.
 
 See the [sample-macros.cfg](../config/sample-macros.cfg) file for an example showing how to override the `M117` command using `rawparams`.
 
-### The "printer" Variable
+### La variabile "printer"
 
-It is possible to inspect (and alter) the current state of the printer via the `printer` pseudo-variable. For example:
+È possibile ispezionare (e modificare) lo stato corrente della stampante tramite la pseudo-variabile `printer`. Per esempio:
 
 ```
 [gcode_macro slow_fan]
@@ -112,11 +112,11 @@ gcode:
   M106 S{ printer.fan.speed * 0.9 * 255}
 ```
 
-Available fields are defined in the [Status Reference](Status_Reference.md) document.
+I campi disponibili sono definiti nel documento [Status Reference](Status_Reference.md).
 
-Important! Macros are first evaluated in entirety and only then are the resulting commands executed. If a macro issues a command that alters the state of the printer, the results of that state change will not be visible during the evaluation of the macro. This can also result in subtle behavior when a macro generates commands that call other macros, as the called macro is evaluated when it is invoked (which is after the entire evaluation of the calling macro).
+Importante! Le macro vengono prima valutate per intero e solo dopo vengono eseguiti i comandi risultanti. Se una macro emette un comando che altera lo stato della stampante, i risultati di tale cambiamento di stato non saranno visibili durante la valutazione della macro. Ciò può anche comportare un comportamento impercettibile quando una macro genera comandi che chiamano altre macro, poiché la macro chiamata viene valutata quando viene richiamata (che avviene dopo l'intera valutazione della macro chiamante).
 
-By convention, the name immediately following `printer` is the name of a config section. So, for example, `printer.fan` refers to the fan object created by the `[fan]` config section. There are some exceptions to this rule - notably the `gcode_move` and `toolhead` objects. If the config section contains spaces in it, then one can access it via the `[ ]` accessor - for example: `printer["generic_heater my_chamber_heater"].temperature`.
+Per convenzione, il nome immediatamente successivo a `printer` è il nome di una sezione di configurazione. Quindi, ad esempio, `printer.fan` si riferisce all'oggetto fan creato dalla sezione di configurazione `[fan]`. Ci sono alcune eccezioni a questa regola, in particolare gli oggetti `gcode_move` e `toolhead`. Se la sezione di configurazione contiene spazi, è possibile accedervi tramite l'accessor `[ ]`, ad esempio: `printer["generic_heater my_chamber_heater"].temperature`.
 
 Note that the Jinja2 `set` directive can assign a local name to an object in the `printer` hierarchy. This can make macros more readable and reduce typing. For example:
 

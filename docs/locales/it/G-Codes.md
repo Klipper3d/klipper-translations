@@ -9,12 +9,12 @@ Klipper supporta i seguenti comandi G-Code standard:
 - Movimento (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
 - Sosta: `G4 P<millisecondi>`
 - Sposta all'origine: `G28 [X] [Y] [Z]`
-- Turn off motors: `M18` or `M84`
-- Wait for current moves to finish: `M400`
-- Use absolute/relative distances for extrusion: `M82`, `M83`
-- Use absolute/relative coordinates: `G90`, `G91`
-- Set position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
-- Set speed factor override percentage: `M220 S<percent>`
+- Spegnere i motori: `M18` o `M84`
+- Attendi che li movimenti correnti finiscano: `M400`
+- Utilizzare distanze assolute/relative per l'estrusione: `M82`, `M83`
+- Usa coordinate assolute/relative: `G90`, `G91`
+- Impostare la posizione: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
+- Impostare la percentuale di override del fattore di velocità: `M220 S<percentuale>`
 - Imposta la percentuale di sostituzione del fattore di estrusione: `M221 S<percentuale>`
 - Impostare l'accelerazione: `M204 S<valore>` OPPURE `M204 P<valore> T<valore>`
    - Nota: se S non viene specificato e vengono specificati sia P che T, l'accelerazione viene impostata al minimo di P e T. Se viene specificato solo uno di P o T, il comando non ha effetto.
@@ -26,7 +26,7 @@ Klipper supporta i seguenti comandi G-Code standard:
 - Imposta la temperatura del piatto e attende: `M190 S<temperatura>`
    - Nota: M190 attende sempre che la temperatura si assesti al valore richiesto
 - Imposta la velocità della ventola: `M106 S<valore>`
-- Turn fan off: `M107`
+- Spegnere la ventola: `M107`
 - Arresto di emergenza: `M112`
 - Ottieni la posizione attuale: `M114`
 - Ottieni la versione del firmware: `M115`
@@ -41,11 +41,11 @@ Se si necessita di un comando G-Code meno comune, potrebbe essere possibile impl
 
 Klipper utilizza comandi G-Code "estesi" per la configurazione e lo stato generale. Questi comandi estesi seguono tutti un formato simile: iniziano con un nome di comando e possono essere seguiti da uno o più parametri. Ad esempio: `SET_SERVO SERVO=mioservo ANGLE=5.3`. In questo documento, i comandi ed i parametri sono mostrati in maiuscolo, tuttavia non fanno distinzione tra maiuscole e minuscole. (Quindi, "SET_SERVO" e "set_servo" eseguono entrambi lo stesso comando.)
 
-This section is organized by Klipper module name, which generally follows the section names specified in the [printer configuration file](Config_Reference.md). Note that some modules are automatically loaded.
+Questa sezione è organizzata in base al nome del modulo Klipper, che generalmente segue i nomi delle sezioni specificati nel [file di configurazione della stampante](Config_Reference.md). Si noti che alcuni moduli vengono caricati automaticamente.
 
 ### [adxl345]
 
-The following commands are available when an [adxl345 config section](Config_Reference.md#adxl345) is enabled.
+I seguenti comandi sono disponibili quando una [sezione di configurazione adxl345](Config_Reference.md#adxl345) è abilitata.
 
 #### ACCELEROMETER_MEASURE
 
@@ -65,7 +65,7 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 ### [angle]
 
-The following commands are available when an [angle config section](Config_Reference.md#angle) is enabled.
+I seguenti comandi sono disponibili quando una [sezione di configurazione dell'angolo](Config_Reference.md#angle) è abilitata.
 
 #### ANGLE_CALIBRATE
 
@@ -81,7 +81,7 @@ The following commands are available when an [angle config section](Config_Refer
 
 ### [bed_mesh]
 
-The following commands are available when the [bed_mesh config section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh guide](Bed_Mesh.md)).
+I seguenti comandi sono disponibili quando la [sezione di configurazione bed_mesh](Config_Reference.md#bed_mesh) è abilitata (consultare anche la [guida della mesh del letto](Bed_Mesh.md)).
 
 #### BED_MESH_CALIBRATE
 
@@ -109,7 +109,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 ### [bed_screws]
 
-The following commands are available when the [bed_screws config section](Config_Reference.md#bed_screws) is enabled (also see the [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws)).
+I seguenti comandi sono disponibili quando la [sezione di configurazione bed_screws](Config_Reference.md#bed_screws) è abilitata (consultare anche la [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws)).
 
 #### BED_SCREWS_ADJUST
 
@@ -117,7 +117,7 @@ The following commands are available when the [bed_screws config section](Config
 
 ### [bed_tilt]
 
-The following commands are available when the [bed_tilt config section](Config_Reference.md#bed_tilt) is enabled.
+I seguenti comandi sono disponibili quando la [sezione di configurazione inclinazione_piatto](Config_Reference.md#inclinazione_piatto) è abilitata.
 
 #### BED_TILT_CALIBRATE
 
@@ -125,7 +125,7 @@ The following commands are available when the [bed_tilt config section](Config_R
 
 ### [bltouch]
 
-The following command is available when a [bltouch config section](Config_Reference.md#bltouch) is enabled (also see the [BL-Touch guide](BLTouch.md)).
+Il comando seguente è disponibile quando è abilitata una [sezione di configurazione bltouch](Config_Reference.md#bltouch) (vedere anche la [Guida BL-Touch](BLTouch.md)).
 
 #### BLTOUCH_DEBUG
 
@@ -137,7 +137,7 @@ The following command is available when a [bltouch config section](Config_Refere
 
 ### [configfile]
 
-The configfile module is automatically loaded.
+Il modulo configfile viene caricato automaticamente.
 
 #### SAVE_CONFIG
 
@@ -145,15 +145,15 @@ The configfile module is automatically loaded.
 
 ### [delayed_gcode]
 
-The following command is enabled if a [delayed_gcode config section](Config_Reference.md#delayed_gcode) has been enabled (also see the [template guide](Command_Templates.md#delayed-gcodes)).
+Il comando seguente è abilitato se è stata abilitata una [sezione di configurazione di gcode ritardata](Config_Reference.md#delayed_gcode) (consultare anche la [guida ai modelli](Command_Templates.md#delayed-gcodes)).
 
 #### UPDATE_DELAYED_GCODE
 
-`UPDATE_DELAYED_GCODE [ID=<name>] [DURATION=<seconds>]`: Updates the delay duration for the identified [delayed_gcode] and starts the timer for gcode execution. A value of 0 will cancel a pending delayed gcode from executing.
+`UPDATE_DELAYED_GCODE [ID=<nome>] [DURATION=<secondi>]`: aggiorna la durata del ritardo per il [gcode_ritardato] identificato e avvia il timer per l'esecuzione di gcode. Un valore di 0 annullerà l'esecuzione di un gcode ritardato in sospeso.
 
 ### [delta_calibrate]
 
-The following commands are available when the [delta_calibrate config section](Config_Reference.md#linear-delta-kinematics) is enabled (also see the [delta calibrate guide](Delta_Calibrate.md)).
+I seguenti comandi sono disponibili quando la [sezione di configurazione delta_calibrate](Config_Reference.md#linear-delta-cinematica) è abilitata (consultare anche la [guida alla calibrazione delta](Delta_Calibrate.md)).
 
 #### DELTA_CALIBRATE
 
@@ -165,7 +165,7 @@ The following commands are available when the [delta_calibrate config section](C
 
 ### [display]
 
-The following command is available when a [display config section](Config_Reference.md#gcode_macro) is enabled.
+Il comando seguente è disponibile quando è abilitata una [sezione di configurazione display](Config_Reference.md#gcode_macro).
 
 #### SET_DISPLAY_GROUP
 
@@ -173,10 +173,10 @@ The following command is available when a [display config section](Config_Refere
 
 ### [display_status]
 
-The display_status module is automatically loaded if a [display config section](Config_Reference.md#display) is enabled. It provides the following standard G-Code commands:
+Il modulo display_status viene caricato automaticamente se una [sezione di configurazione display](Config_Reference.md#display) è abilitata. Fornisce i seguenti comandi G-Code standard:
 
 - Messaggio visualizzato: `M117 <messaggio>`
-- Set build percentage: `M73 P<percent>`
+- Imposta la percentuale di costruzione: `M73 P<percentuale>`
 
 Viene inoltre fornito il seguente comando G-Code esteso:
 
@@ -184,7 +184,7 @@ Viene inoltre fornito il seguente comando G-Code esteso:
 
 ### [dual_carriage]
 
-The following command is available when the [dual_carriage config section](Config_Reference.md#dual_carriage) is enabled.
+Il comando seguente è disponibile quando la [sezione di configurazione dual_carriage](Config_Reference.md#dual_carriage) è abilitata.
 
 #### SET_DUAL_CARRIAGE
 
@@ -192,7 +192,7 @@ The following command is available when the [dual_carriage config section](Confi
 
 ### [endstop_phase]
 
-The following commands are available when an [endstop_phase config section](Config_Reference.md#endstop_phase) is enabled (also see the [endstop phase guide](Endstop_Phase.md)).
+I seguenti comandi sono disponibili quando una [sezione di configurazione endstop_phase](Config_Reference.md#endstop_phase) è abilitata (consultare anche la [guida alla fase endstop](Endstop_Phase.md)).
 
 #### ENDSTOP_PHASE_CALIBRATE
 
@@ -200,31 +200,31 @@ The following commands are available when an [endstop_phase config section](Conf
 
 ### [exclude_object]
 
-The following commands are available when an [exclude_object config section](Config_Reference.md#exclude_object) is enabled (also see the [exclude object guide](Exclude_Object.md)):
+I seguenti comandi sono disponibili quando è abilitata una [exclude_object config section](Config_Reference.md#exclude_object) (consultare anche la [exclude object guide](Exclude_Object.md)):
 
 #### `EXCLUDE_OBJECT`
 
 `EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]`: Senza parametri, questo restituirà un elenco di tutti gli oggetti attualmente esclusi.
 
-When the `NAME` parameter is given, the named object will be excluded from printing.
+Quando viene fornito il parametro `NAME`, l'oggetto denominato verrà escluso dalla stampa.
 
-When the `CURRENT` parameter is given, the current object will be excluded from printing.
+Quando viene fornito il parametro `CURRENT`, l'oggetto corrente verrà escluso dalla stampa.
 
-When the `RESET` parameter is given, the list of excluded objects will be cleared. Additionally including `NAME` will only reset the named object. This **can** cause print failures, if layers were already skipped.
+Quando viene fornito il parametro `RESET` l'elenco degli oggetti esclusi verrà cancellato. Inoltre l'inclusione di `NAME` ripristinerà solo l'oggetto denominato. Questo **può** causare errori di stampa, se i livelli sono già stati saltati.
 
 #### `EXCLUDE_OBJECT_DEFINE`
 
 `EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] [RESET=1] [JSON=1]`: fornisce un riepilogo di un oggetto nel file.
 
-With no parameters provided, this will list the defined objects known to Klipper. Returns a list of strings, unless the `JSON` parameter is given, when it will return object details in json format.
+Senza parametri forniti, questo elencherà gli oggetti definiti noti a Klipper. Restituisce un elenco di stringhe, a meno che non venga fornito il parametro `JSON`, quando restituirà i dettagli dell'oggetto in formato json.
 
-When the `NAME` parameter is included, this defines an object to be excluded.
+Quando il parametro `NAME` è incluso, definisce un oggetto da escludere.
 
 - `NAME`: questo parametro è obbligatorio. È l'identificatore utilizzato da altri comandi in questo modulo.
 - `CENTER`: una coordinata X,Y per l'oggetto.
 - `POLYGON`: Un array di coordinate X,Y che fornisce un contorno per l'oggetto.
 
-When the `RESET` parameter is provided, all defined objects will be cleared, and the `[exclude_object]` module will be reset.
+Quando viene fornito il parametro `RESET`, tutti gli oggetti definiti verranno cancellati e il modulo `[exclude_object]` verrà ripristinato.
 
 #### `EXCLUDE_OBJECT_START`
 
@@ -236,7 +236,7 @@ When the `RESET` parameter is provided, all defined objects will be cleared, and
 
 ### [extruder]
 
-The following commands are available if an [extruder config section](Config_Reference.md#extruder) is enabled:
+I seguenti comandi sono disponibili se una [sezione di configurazione dell'estrusore](Config_Reference.md#extruder) è abilitata:
 
 #### ACTIVATE_EXTRUDER
 
@@ -244,7 +244,7 @@ The following commands are available if an [extruder config section](Config_Refe
 
 #### SET_PRESSURE_ADVANCE
 
-`SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Set pressure advance parameters of an extruder stepper (as defined in an [extruder](Config_Reference.md#extruder) or [extruder_stepper](Config_Reference.md#extruder_stepper) config section). If EXTRUDER is not specified, it defaults to the stepper defined in the active hotend.
+`SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Imposta i parametri di pressure advance delleo stepper di un estrusore (come definito in un [estrusore](Config_Reference.md#extruder) o [ extruder_stepper] (sezione di configurazione Config_Reference.md#extruder_stepper). Se EXTRUDER non è specificato, per impostazione predefinita viene utilizzato lo stepper definito nell'hotend attivo.
 
 #### SET_EXTRUDER_ROTATION_DISTANCE
 
@@ -252,19 +252,19 @@ The following commands are available if an [extruder config section](Config_Refe
 
 #### SYNC_EXTRUDER_MOTION
 
-`SYNC_EXTRUDER_MOTION EXTRUDER=<name> MOTION_QUEUE=<name>`: This command will cause the stepper specified by EXTRUDER (as defined in an [extruder](Config_Reference.md#extruder) or [extruder_stepper](Config_Reference.md#extruder_stepper) config section) to become synchronized to the movement of an extruder specified by MOTION_QUEUE (as defined in an [extruder](Config_Reference.md#extruder) config section). If MOTION_QUEUE is an empty string then the stepper will be desynchronized from all extruder movement.
+`SYNC_EXTRUDER_MOTION EXTRUDER=<nome> MOTION_QUEUE=<nome>`: questo comando attiverà lo stepper specificato da EXTRUDER (come definito in un [extruder](Config_Reference.md#extruder) o [extruder_stepper](Config_Reference.md#extruder_stepper) config sezione) per sincronizzarsi con il movimento di un estrusore specificato da MOTION_QUEUE (come definito in una sezione di configurazione [estrusore](Config_Reference.md#estrusore)). Se MOTION_QUEUE è una stringa vuota, lo stepper verrà desincronizzato da tutti i movimenti dell'estrusore.
 
 #### SET_EXTRUDER_STEP_DISTANCE
 
-This command is deprecated and will be removed in the near future.
+Questo comando è deprecato e verrà rimosso nel prossimo futuro.
 
 #### SYNC_STEPPER_TO_EXTRUDER
 
-This command is deprecated and will be removed in the near future.
+Questo comando è deprecato e verrà rimosso nel prossimo futuro.
 
 ### [fan_generic]
 
-The following command is available when a [fan_generic config section](Config_Reference.md#fan_generic) is enabled.
+Il comando seguente è disponibile quando una [sezione di configurazione fan_generic](Config_Reference.md#fan_generic) è abilitata.
 
 #### SET_FAN_SPEED
 
@@ -272,7 +272,7 @@ The following command is available when a [fan_generic config section](Config_Re
 
 ### [filament_switch_sensor]
 
-The following command is available when a [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) or [filament_motion_sensor](Config_Reference.md#filament_motion_sensor) config section is enabled.
+Il comando seguente è disponibile quando è abilitata una sezione di configurazione [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) o [filament_motion_sensor](Config_Reference.md#filament_motion_sensor).
 
 #### QUERY_FILAMENT_SENSOR
 
@@ -280,20 +280,20 @@ The following command is available when a [filament_switch_sensor](Config_Refere
 
 #### SET_FILAMENT_SENSOR
 
-`SET_FILAMENT_SENSOR SENSOR=<sensor_name> ENABLE=[0|1]`: Sets the filament sensor on/off. If ENABLE is set to 0, the filament sensor will be disabled, if set to 1 it is enabled.
+`SET_FILAMENT_SENSOR SENSOR=<nome_sensore> ENABLE=[0|1]`: Attiva/disattiva il sensore di filamento. Se ENABLE è impostato su 0, il sensore di filamento sarà disabilitato, se impostato su 1 sarà abilitato.
 
 ### [firmware_retraction]
 
-The following standard G-Code commands are available when the [firmware_retraction config section](Config_Reference.md#firmware_retraction) is enabled. These commands allow you to utilize the firmware retraction feature available in many slicers, to reduce stringing during non-extrusion moves from one part of the print to another. Appropriately configuring pressure advance reduces the length of retraction required.
+I seguenti comandi G-Code standard sono disponibili quando la [sezione di configurazione firmware_retraction](Config_Reference.md#firmware_retraction) è abilitata. Questi comandi consentono di utilizzare la funzione di retraction del firmware disponibile in molti slicer, per ridurre lo stringing durante gli spostamenti di non estrusione da una parte all'altra della stampa. Configurando opportunamente la pressure advance si riduce la lunghezza della retrazione richiesta.
 
 - `G10`: Ritrae l'estrusore utilizzando i parametri attualmente configurati.
 - `G11`: Ritira l'estrusore utilizzando i parametri attualmente configurati.
 
-The following additional commands are also available.
+Sono inoltre disponibili i seguenti comandi aggiuntivi.
 
 #### SET_RETRACTION
 
-`SET_RETRACTION [RETRACT_LENGTH=<mm>] [RETRACT_SPEED=<mm/s>] [UNRETRACT_EXTRA_LENGTH=<mm>] [UNRETRACT_SPEED=<mm/s>]`: Adjust the parameters used by firmware retraction. RETRACT_LENGTH determines the length of filament to retract and unretract. The speed of retraction is adjusted via RETRACT_SPEED, and is typically set relatively high. The speed of unretraction is adjusted via UNRETRACT_SPEED, and is not particularly critical, although often lower than RETRACT_SPEED. In some cases it is useful to add a small amount of additional length on unretraction, and this is set via UNRETRACT_EXTRA_LENGTH. SET_RETRACTION is commonly set as part of slicer per-filament configuration, as different filaments require different parameter settings.
+`SET_RETRACTION [RETRACT_LENGTH=<mm>] [RETRACT_SPEED=<mm/s>] [UNRETRACT_EXTRA_LENGTH=<mm>] [UNRETRACT_SPEED=<mm/s>]`: regola i parametri utilizzati dalla retrazione. RETRACT_LENGTH determina la lunghezza del filamento da ritrarre e estrudere. La velocità di retrazione viene regolata tramite RETRACT_SPEED, ed è generalmente impostata su un valore relativamente alto. La velocità di annullamento viene regolata tramite UNRETRACT_SPEED e non è particolarmente critica, sebbene spesso inferiore a RETRACT_SPEED. In alcuni casi è utile aggiungere una piccola quantità di lunghezza aggiuntiva all'annullamento della retrazione, e questa viene impostata tramite UNRETRACT_EXTRA_LENGTH. SET_RETRACTION è comunemente impostato come parte della configurazione dello slicer per filamento, poiché filamenti diversi richiedono impostazioni dei parametri diverse.
 
 #### GET_RETRACTION
 
@@ -301,11 +301,11 @@ The following additional commands are also available.
 
 ### [force_move]
 
-The force_move module is automatically loaded, however some commands require setting `enable_force_move` in the [printer config](Config_Reference.md#force_move).
+Il modulo force_move viene caricato automaticamente, tuttavia alcuni comandi richiedono l'impostazione di `enable_force_move` in [printer config](Config_Reference.md#force_move).
 
 #### STEPPER_BUZZ
 
-`STEPPER_BUZZ STEPPER=<config_name>`: Move the given stepper forward one mm and then backward one mm, repeated 10 times. This is a diagnostic tool to help verify stepper connectivity.
+`STEPPER_BUZZ STEPPER=<nome_config>`: sposta lo stepper dato in avanti di 1 mm e poi indietro di 1 mm, ripetuto 10 volte. Questo è uno strumento diagnostico per aiutare a verificare la connettività stepper.
 
 #### FORCE_MOVE
 
@@ -313,11 +313,11 @@ The force_move module is automatically loaded, however some commands require set
 
 #### SET_KINEMATIC_POSITION
 
-`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>]`: Force the low-level kinematic code to believe the toolhead is at the given cartesian position. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. If an axis is not specified then it will default to the position that the head was last commanded to. Setting an incorrect or invalid position may lead to internal software errors. This command may invalidate future boundary checks; issue a G28 afterwards to reset the kinematics.
+`SET_KINEMATIC_POSITION [X=<valore>] [Y=<valore>] [Z=<valore>]`: forza il codice cinematico di basso livello a credere che la testa di stampa si trovi nella posizione cartesiana data. Questo è un comando diagnostico e di debug; utilizzare SET_GCODE_OFFSET e/o G92 per le normali trasformazioni degli assi. Se un asse non è specificato, verrà impostato automaticamente sulla posizione in cui la testa è stata comandata l'ultima volta. L'impostazione di una posizione errata o non valida può causare errori software interni. Questo comando potrebbe invalidare futuri controlli sui confini; emettere un G28 in seguito per ripristinare la cinematica.
 
 ### [gcode]
 
-The gcode module is automatically loaded.
+Il modulo gcode viene caricato automaticamente.
 
 #### RESTART
 
@@ -329,7 +329,7 @@ The gcode module is automatically loaded.
 
 #### STATUS
 
-`STATUS`: Report the Klipper host software status.
+`STATUS`: segnala lo stato del software host di Klipper.
 
 #### HELP
 
@@ -337,21 +337,21 @@ The gcode module is automatically loaded.
 
 ### [gcode_arcs]
 
-The following standard G-Code commands are available if a [gcode_arcs config section](Config_Reference.md#gcode_arcs) is enabled:
+I seguenti comandi G-Code standard sono disponibili se una [sezione di configurazione gcode_arcs](Config_Reference.md#gcode_arcs) è abilitata:
 
 - Movimento controllato dell'arco (G2 o G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<velocità>] I<valore> J<valore>`
 
 ### [gcode_macro]
 
-The following command is available when a [gcode_macro config section](Config_Reference.md#gcode_macro) is enabled (also see the [command templates guide](Command_Templates.md)).
+Il comando seguente è disponibile quando è abilitata una [sezione di configurazione gcode_macro](Config_Reference.md#gcode_macro) (consultare anche la [guida ai modelli di comando](Command_Templates.md)).
 
 #### SET_GCODE_VARIABLE
 
-`SET_GCODE_VARIABLE MACRO=<macro_name> VARIABLE=<name> VALUE=<value>`: This command allows one to change the value of a gcode_macro variable at run-time. The provided VALUE is parsed as a Python literal.
+`SET_GCODE_VARIABLE MACRO=<nome_macro> VARIABLE=<nome> VALUE=<valore>`: questo comando consente di modificare il valore di una variabile gcode_macro in fase di esecuzione. Il VALUE fornito viene analizzato come un valore literal in Python.
 
 ### [gcode_move]
 
-The gcode_move module is automatically loaded.
+Il modulo gcode_move viene caricato automaticamente.
 
 #### GET_POSITION
 
@@ -359,7 +359,7 @@ GET_POSITION`: Restituisce informazioni sulla posizione corrente della testa di 
 
 #### SET_GCODE_OFFSET
 
-`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Set a positional offset to apply to future G-Code commands. This is commonly used to virtually change the Z bed offset or to set nozzle XY offsets when switching extruders. For example, if "SET_GCODE_OFFSET Z=0.2" is sent, then future G-Code moves will have 0.2mm added to their Z height. If the X_ADJUST style parameters are used, then the adjustment will be added to any existing offset (eg, "SET_GCODE_OFFSET Z=-0.2" followed by "SET_GCODE_OFFSET Z_ADJUST=0.3" would result in a total Z offset of 0.1). If "MOVE=1" is specified then a toolhead move will be issued to apply the given offset (otherwise the offset will take effect on the next absolute G-Code move that specifies the given axis). If "MOVE_SPEED" is specified then the toolhead move will be performed with the given speed (in mm/s); otherwise the toolhead move will use the last specified G-Code speed.
+`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<regola>] [Y=<pos>|Y_ADJUST=<regola>] [Z=<pos>|Z_ADJUST=<regola>] [MOVE=1 [MOVE_SPEED=<velocità >]]`: imposta un offset di posizione da applicare ai futuri comandi G-Code. Questo è comunemente usato per cambiare virtualmente l'offset del letto Z o per impostare gli offset XY degli ugelli quando si cambia estrusore. Ad esempio, se viene inviato "SET_GCODE_OFFSET Z=0.2", i futuri movimenti G-Code avranno 0.2 mm aggiunti alla loro altezza Z. Se vengono utilizzati i parametri di stile X_ADJUST, la regolazione verrà aggiunta a qualsiasi offset esistente (ad esempio, "SET_GCODE_OFFSET Z=-0.2" seguito da "SET_GCODE_OFFSET Z_ADJUST=0.3" risulterà in un offset Z totale di 0.1). Se viene specificato "MOVE=1", verrà emesso un movimento della testa di stampa per applicare l'offset specificato (altrimenti l'offset avrà effetto sul successivo movimento assoluto del codice G che specifica l'asse dato). Se viene specificato "MOVE_SPEED", lo spostamento della testa utensile verrà eseguito con la velocità data (in mm/s); in caso contrario, il movimento della testa utensile utilizzerà l'ultima velocità del G-code specificata.
 
 #### SAVE_GCODE_STATE
 
@@ -371,7 +371,7 @@ GET_POSITION`: Restituisce informazioni sulla posizione corrente della testa di 
 
 ### [hall_filament_width_sensor]
 
-The following commands are available when the [tsl1401cl filament width sensor config section](Config_Reference.md#tsl1401cl_filament_width_sensor) or [hall filament width sensor config section](Config_Reference.md#hall_filament_width_sensor) is enabled (also see [TSLl401CL Filament Width Sensor](TSL1401CL_Filament_Width_Sensor.md) and [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)):
+I seguenti comandi sono disponibili quando la [sezione di configurazione del sensore di larghezza del filamento tsl1401cl](Config_Reference.md#tsl1401cl_filament_width_sensor) o [sezione di configurazione del sensore di larghezza del filamento hall](Config_Reference.md#hall_filament_width_sensor) è abilitata (consultare anche [Sensore di larghezza del filamento TSLl401CL](TSL1401CL_Filament_Width_Sensor.md) e [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)):
 
 #### QUERY_FILAMENT_WIDTH
 
@@ -403,39 +403,39 @@ The following commands are available when the [tsl1401cl filament width sensor c
 
 ### [heaters]
 
-The heaters module is automatically loaded if a heater is defined in the config file.
+Il modulo heaters viene caricato automaticamente se un riscaldatore è definito nel file di configurazione.
 
 #### TURN_OFF_HEATERS
 
-`TURN_OFF_HEATERS`: Turn off all heaters.
+`TURN_OFF_HEATERS`: Spegni tutti i riscaldatori.
 
 #### TEMPERATURE_WAIT
 
-`TEMPERATURE_WAIT SENSOR=<config_name> [MINIMUM=<target>] [MAXIMUM=<target>]`: Wait until the given temperature sensor is at or above the supplied MINIMUM and/or at or below the supplied MAXIMUM.
+`TEMPERATURE_WAIT SENSOR=<config_name> [MINIMUM=<target>] [MAXIMUM=<target>]`: Attendere fino a quando il sensore di temperatura specificato è pari o superiore al MINIMO fornito e/o pari o inferiore al MASSIMO fornito.
 
 #### SET_HEATER_TEMPERATURE
 
-`SET_HEATER_TEMPERATURE HEATER=<heater_name> [TARGET=<target_temperature>]`: Sets the target temperature for a heater. If a target temperature is not supplied, the target is 0.
+`SET_HEATER_TEMPERATURE HEATER=<nome_riscaldatore> [TARGET=<temperatura_destinata>]`: Imposta la temperatura target per un riscaldatore. Se non viene fornita una temperatura target, il target è 0.
 
 ### [idle_timeout]
 
-The idle_timeout module is automatically loaded.
+Il modulo idle_timeout viene caricato automaticamente.
 
 #### SET_IDLE_TIMEOUT
 
-`SET_IDLE_TIMEOUT [TIMEOUT=<timeout>]`: Allows the user to set the idle timeout (in seconds).
+`SET_IDLE_TIMEOUT [TIMEOUT=<timeout>]`: consente all'utente di impostare il timeout di inattività (in secondi).
 
 ### [input_shaper]
 
-The following command is enabled if an [input_shaper config section](Config_Reference.md#input_shaper) has been enabled (also see the [resonance compensation guide](Resonance_Compensation.md)).
+Il comando seguente è abilitato se è stata abilitata una [sezione di configurazione di input_shaper](Config_Reference.md#input_shaper) (consultare anche la [guida alla compensazione della risonanza](Resonance_Compensation.md)).
 
 #### SET_INPUT_SHAPER
 
-`SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>]`: Modify input shaper parameters. Note that SHAPER_TYPE parameter resets input shaper for both X and Y axes even if different shaper types have been configured in [input_shaper] section. SHAPER_TYPE cannot be used together with either of SHAPER_TYPE_X and SHAPER_TYPE_Y parameters. See [config reference](Config_Reference.md#input_shaper) for more details on each of these parameters.
+`SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE=<shaper_TYPE_X=<shaper_type_x>] [SHAPER_TYPE=<shaper_type_y=<shaper_type_x> ]`: Modifica i parametri dell'input shaper. Si noti che il parametro SHAPER_TYPE reimposta l'input shaper per entrambi gli assi X e Y anche se sono stati configurati tipi di shaper diversi nella sezione [input_shaper]. SHAPER_TYPE non può essere utilizzato insieme a uno dei parametri SHAPER_TYPE_X e SHAPER_TYPE_Y. Vedere [config reference](Config_Reference.md#input_shaper) per maggiori dettagli su ciascuno di questi parametri.
 
 ### [manual_probe]
 
-The manual_probe module is automatically loaded.
+Il modulo manual_probe viene caricato automaticamente.
 
 #### MANUAL_PROBE
 
@@ -443,19 +443,19 @@ The manual_probe module is automatically loaded.
 
 - `ACCEPT`: questo comando accetta la posizione Z corrente e conclude il probing manuale.
 - `ABORT`: questo comando termina lo strumento di probing manuale.
-- `TESTZ Z=<value>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
+- `TESTZ Z=<valore>`: questo comando sposta l'ugello verso l'alto o verso il basso della quantità specificata in "valore". Ad esempio, `TESTZ Z=-.1` sposterebbe l'ugello verso il basso di .1 mm mentre `TESTZ Z=.1` sposterebbe l'ugello verso l'alto di .1 mm. Il valore può anche essere `+`, `-`, `++` o `--` per spostare l'ugello verso l'alto o verso il basso di un importo rispetto ai tentativi precedenti.
 
 #### Z_ENDSTOP_CALIBRATE
 
-`Z_ENDSTOP_CALIBRATE [SPEED=<speed>]`: Run a helper script useful for calibrating a Z position_endstop config setting. See the MANUAL_PROBE command for details on the parameters and the additional commands available while the tool is active.
+`Z_ENDSTOP_CALIBRATE [SPEED=<speed>]`: esegue uno script di supporto utile per calibrare un'impostazione di configurazione Z position_endstop. Vedere il comando MANUAL_PROBE per i dettagli sui parametri e sui comandi aggiuntivi disponibili mentre lo strumento è attivo.
 
 #### Z_OFFSET_APPLY_ENDSTOP
 
-`Z_OFFSET_APPLY_ENDSTOP`: Take the current Z Gcode offset (aka, babystepping), and subtract it from the stepper_z endstop_position. This acts to take a frequently used babystepping value, and "make it permanent". Requires a `SAVE_CONFIG` to take effect.
+`Z_OFFSET_APPLY_ENDSTOP`: prende l'offset Z Gcode corrente (noto anche come babystepping) e lo sottrae da stepper_z endstop_position. Questa azione per prendere un valore di babystep utilizzato di frequente e "renderlo permanente". Richiede un `SAVE_CONFIG` per avere effetto.
 
 ### [Stepper manuali]
 
-The following command is available when a [manual_stepper config section](Config_Reference.md#manual_stepper) is enabled.
+Il comando seguente è disponibile quando una [sezione di configurazione stepper_manuale](Config_Reference.md#stepper_manuale) è abilitata.
 
 #### MANUAL_STEPPER
 
@@ -463,33 +463,33 @@ The following command is available when a [manual_stepper config section](Config
 
 ### [led]
 
-The following command is available when any of the [led config sections](Config_Reference.md#leds) are enabled.
+Il comando seguente è disponibile quando una qualsiasi delle [sezioni di configurazione led](Config_Reference.md#leds) è abilitata.
 
 #### SET_LED
 
-`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: This sets the LED output. Each color `<value>` must be between 0.0 and 1.0. The WHITE option is only valid on RGBW LEDs. If the LED supports multiple chips in a daisy-chain then one may specify INDEX to alter the color of just the given chip (1 for the first chip, 2 for the second, etc.). If INDEX is not provided then all LEDs in the daisy-chain will be set to the provided color. If TRANSMIT=0 is specified then the color change will only be made on the next SET_LED command that does not specify TRANSMIT=0; this may be useful in combination with the INDEX parameter to batch multiple updates in a daisy-chain. By default, the SET_LED command will sync it's changes with other ongoing gcode commands. This can lead to undesirable behavior if LEDs are being set while the printer is not printing as it will reset the idle timeout. If careful timing is not needed, the optional SYNC=0 parameter can be specified to apply the changes without resetting the idle timeout.
+`SET_LED LED=<nome_config> ROSSO=<valore> VERDE=<valore> BLU=<valore> BIANCO=<valore> [INDEX=<indice>] [TRANSMIT=0] [SYNC=1]`: Imposta il LED in output. Ogni colore `<valore>` deve essere compreso tra 0,0 e 1,0. L'opzione BIANCO è valida solo su LED RGBW. Se il LED supporta più chip in una catena daisy-chain, è possibile specificare INDEX per modificare il colore del solo chip specificato (1 per il primo chip, 2 per il secondo, ecc.). Se INDEX non viene fornito, tutti i LED nella catena verranno impostati sul colore fornito. Se viene specificato TRANSMIT=0, il cambio colore verrà effettuato solo sul successivo comando SET_LED che non specifica TRANSMIT=0; questo può essere utile in combinazione con il parametro INDEX per raggruppare più aggiornamenti in una catena. Per impostazione predefinita, il comando SET_LED sincronizzerà le modifiche con altri comandi gcode in corso. Ciò può comportare un comportamento indesiderato se i LED vengono impostati mentre la stampante non sta stampando in quanto reimposta il timeout di inattività. Se non è necessaria una tempistica attenta, è possibile specificare il parametro SYNC=0 opzionale per applicare le modifiche senza ripristinare il timeout di inattività.
 
 #### SET_LED_TEMPLATE
 
-`SET_LED_TEMPLATE LED=<led_name> TEMPLATE=<template_name> [<param_x>=<literal>] [INDEX=<index>]`: Assign a [display_template](Config_Reference.md#display_template) to a given [LED](Config_Reference.md#leds). For example, if one defined a `[display_template my_led_template]` config section then one could assign `TEMPLATE=my_led_template` here. The display_template should produce a comma separated string containing four floating point numbers corresponding to red, green, blue, and white color settings. The template will be continuously evaluated and the LED will be automatically set to the resulting colors. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If INDEX is not specified then all chips in the LED's daisy-chain will be set to the template, otherwise only the chip with the given index will be updated. If TEMPLATE is an empty string then this command will clear any previous template assigned to the LED (one can then use `SET_LED` commands to manage the LED's color settings).
+`SET_LED_TEMPLATE LED=<nome_led> TEMPLATE=<nome_modello> [<param_x>=<letterale>] [INDEX=<indice>]`: Assegna un [modello_visualizzazione](Config_Reference.md#modello_visualizzazione) a un dato [LED](Riferimento_Configurazione .md#led). Ad esempio, se si definisce una sezione di configurazione `[display_template my_led_template]` allora si potrebbe assegnare `TEMPLATE=my_led_template` qui. Il display_template dovrebbe produrre una stringa separata da virgole contenente quattro numeri in virgola mobile corrispondenti alle impostazioni dei colori rosso, verde, blu e bianco. Il modello verrà continuamente valutato e il LED verrà impostato automaticamente sui colori risultanti. È possibile impostare i parametri display_template da utilizzare durante la valutazione del modello (i parametri verranno analizzati come valori letterali Python). Se INDEX non è specificato, tutti i chip nella catena dei LED verranno impostati sul modello, altrimenti verrà aggiornato solo il chip con l'indice specificato. Se TEMPLATE è una stringa vuota, questo comando cancellerà qualsiasi modello precedente assegnato al LED (è quindi possibile utilizzare i comandi `SET_LED` per gestire le impostazioni del colore del LED).
 
 ### [output_pin]
 
-The following command is available when an [output_pin config section](Config_Reference.md#output_pin) is enabled.
+Il comando seguente è disponibile quando una [sezione di configurazione pin_output](Config_Reference.md#pin_output) è abilitata.
 
 #### SET_PIN
 
-`SET_PIN PIN=config_name VALUE=<value> CYCLE_TIME=<cycle_time>`: Note - hardware PWM does not currently support the CYCLE_TIME parameter and will use the cycle time defined in the config.
+`SET_PIN PIN=nome_config VALUE=<valore> CYCLE_TIME=<tempo_ciclo>`: Nota - PWM hardware attualmente non supporta il parametro CYCLE_TIME e utilizzerà il tempo di ciclo definito nella configurazione.
 
 ### [palette2]
 
-The following commands are available when the [palette2 config section](Config_Reference.md#palette2) is enabled.
+I seguenti comandi sono disponibili quando la [sezione di configurazione della palette2](Config_Reference.md#palette2) è abilitata.
 
 Le stampe di Palette funzionano incorporando speciali OCodes (Codici Omega) nel file GCode:
 
 - `O1`...`O32`: Questi codici vengono letti dal flusso GCode ed elaborati da questo modulo e passati al dispositivo Palette 2.
 
-The following additional commands are also available.
+Sono inoltre disponibili i seguenti comandi aggiuntivi.
 
 #### PALETTE_CONNECT
 
@@ -513,7 +513,7 @@ The following additional commands are also available.
 
 ### [pid_calibrate]
 
-The pid_calibrate module is automatically loaded if a heater is defined in the config file.
+Il modulo pid_calibrate viene caricato automaticamente se nel file di configurazione è definito un riscaldatore.
 
 #### PID_CALIBRATE
 
@@ -521,7 +521,7 @@ The pid_calibrate module is automatically loaded if a heater is defined in the c
 
 ### [pause_resume]
 
-The following commands are available when the [pause_resume config section](Config_Reference.md#pause_resume) is enabled:
+I seguenti comandi sono disponibili quando la [pause_resume config section](Config_Reference.md#pause_resume) è abilitata:
 
 #### PAUSE
 
@@ -541,7 +541,7 @@ The following commands are available when the [pause_resume config section](Conf
 
 ### [probe]
 
-The following commands are available when a [probe config section](Config_Reference.md#probe) or [bltouch config section](Config_Reference.md#bltouch) is enabled (also see the [probe calibrate guide](Probe_Calibrate.md)).
+I seguenti comandi sono disponibili quando è abilitata una [sezione di configurazione della sonda](Config_Reference.md#probe) o una [sezione di configurazione di bltouch](Config_Reference.md#bltouch) (consultare anche la [guida alla calibrazione della sonda](Probe_Calibrate.md)).
 
 #### sonda
 
@@ -561,11 +561,11 @@ The following commands are available when a [probe config section](Config_Refere
 
 #### Z_OFFSET_APPLY_PROBE
 
-`Z_OFFSET_APPLY_PROBE`: Take the current Z Gcode offset (aka, babystepping), and subtract if from the probe's z_offset. This acts to take a frequently used babystepping value, and "make it permanent". Requires a `SAVE_CONFIG` to take effect.
+`Z_OFFSET_APPLY_PROBE`: prende l'offset Z Gcode corrente (aka, babystepping) e lo sottrae dallo z_offset della sonda. Questo per prendere un valore di babystep utilizzato di frequente e "renderlo permanente". Richiede un `SAVE_CONFIG` per avere effetto.
 
 ### [query_adc]
 
-The query_adc module is automatically loaded.
+Il modulo query_adc viene caricato automaticamente.
 
 #### QUERY_ADC
 
@@ -573,7 +573,7 @@ The query_adc module is automatically loaded.
 
 ### [query_endstops]
 
-The query_endstops module is automatically loaded. The following standard G-Code commands are currently available, but using them is not recommended:
+Il modulo query_endstops viene caricato automaticamente. I seguenti comandi G-Code standard sono attualmente disponibili, ma non è consigliabile utilizzarli:
 
 - Ottieni lo stato del finecorsa: `M119` (usa invece QUERY_ENDSTOPS.)
 
@@ -583,7 +583,7 @@ The query_endstops module is automatically loaded. The following standard G-Code
 
 ### [resonance_tester]
 
-The following commands are available when a [resonance_tester config section](Config_Reference.md#resonance_tester) is enabled (also see the [measuring resonances guide](Measuring_Resonances.md)).
+I seguenti comandi sono disponibili quando una [sezione di configurazione di tester_risonanza](Config_Reference.md#tester_risonanza) è abilitata (consultare anche la [guida alle risonanze di misurazione](Measuring_Resonances.md)).
 
 #### MEASURE_AXES_NOISE
 
@@ -591,19 +591,19 @@ The following commands are available when a [resonance_tester config section](Co
 
 #### TEST_RESONANCES
 
-`TEST_RESONANCES AXIS=<axis> OUTPUT=<resonances,raw_data> [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<adxl345_chip_name>] [POINT=x,y,z] [INPUT_SHAPING=[<0:1>]]`: Runs the resonance test in all configured probe points for the requested "axis" and measures the acceleration using the accelerometer chips configured for the respective axis. "axis" can either be X or Y, or specify an arbitrary direction as `AXIS=dx,dy`, where dx and dy are floating point numbers defining a direction vector (e.g. `AXIS=X`, `AXIS=Y`, or `AXIS=1,-1` to define a diagonal direction). Note that `AXIS=dx,dy` and `AXIS=-dx,-dy` is equivalent. `adxl345_chip_name` can be one or more configured adxl345 chip,delimited with comma, for example `CHIPS="adxl345, adxl345 rpi"`. Note that `adxl345` can be omitted from named adxl345 chips. If POINT is specified it will override the point(s) configured in `[resonance_tester]`. If `INPUT_SHAPING=0` or not set(default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. `OUTPUT` parameter is a comma-separated list of which outputs will be written. If `raw_data` is requested, then the raw accelerometer data is written into a file or a series of files `/tmp/raw_data_<axis>_[<chip_name>_][<point>_]<name>.csv` with (`<point>_` part of the name generated only if more than 1 probe point is configured or POINT is specified). If `resonances` is specified, the frequency response is calculated (across all probe points) and written into `/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to `resonances`, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.
+`TEST_RESONANCES AXIS=<asse> OUTPUT=<risonanze,dati_grezzi> [NAME=<nome>] [FREQ_START=<freq_min>] [FREQ_END=<freq_max>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<adxl345_chip_name>] [ POINT=x,y,z] [INPUT_SHAPING=[<0:1>]]`: esegue il test di risonanza in tutti i punti sonda configurati per l'"asse" richiesto e misura l'accelerazione utilizzando i chip dell'accelerometro configurati per il rispettivo asse. "asse" può essere X o Y, oppure specificare una direzione arbitraria come `AXIS=dx,dy`, dove dx e dy sono numeri in virgola mobile che definiscono un vettore di direzione (es. `AXIS=X`, `AXIS=Y`, o `AXIS=1,-1` per definire una direzione diagonale). Nota che `AXIS=dx,dy` e `AXIS=-dx,-dy` sono equivalenti. `adxl345_chip_name` può essere uno o più chip adxl345 configurati, delimitati da virgole, ad esempio `CHIPS="adxl345, adxl345 rpi"`. Nota che `adxl345` può essere omesso dai chip adxl345 denominati. Se POINT è specificato, sovrascriverà i punti configurati in `[resonance_tester]`. Se `INPUT_SHAPING=0` o non impostato (predefinito), disabilita l'input shaping per il test di risonanza, perché non è valido eseguire il test di risonanza con input shaper abilitato. Il parametro `OUTPUT` è un elenco separato da virgole di cui verranno scritti gli output. Se viene richiesto `raw_data`, i dati grezzi dell'accelerometro vengono scritti in un file o in una serie di file `/tmp/raw_data_<asse>_[<nome_chip>_][<punto>_]<nome>.csv` con (`<punto>_` parte del nome generata solo se è configurato più di 1 punto sonda o è specificato PUNTO). Se viene specificato `resonances`, la risposta in frequenza viene calcolata (su tutti i punti sonda) e scritta nel file `/tmp/resonances_<asse>_<nome>.csv`. Se non è impostato, OUTPUT è impostato su `risonanze` e NAME è impostato sull'ora corrente nel formato "AAAAMMGG_HHMMSS".
 
 #### SHAPER_CALIBRATE
 
-`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [MAX_SMOOTHING=<max_smoothing>]`: Similarly to `TEST_RESONANCES`, runs the resonance test as configured, and tries to find the optimal parameters for the input shaper for the requested axis (or both X and Y axes if `AXIS` parameter is unset). If `MAX_SMOOTHING` is unset, its value is taken from `[resonance_tester]` section, with the default being unset. See the [Max smoothing](Measuring_Resonances.md#max-smoothing) of the measuring resonances guide for more information on the use of this feature. The results of the tuning are printed to the console, and the frequency responses and the different input shapers values are written to a CSV file(s) `/tmp/calibration_data_<axis>_<name>.csv`. Unless specified, NAME defaults to the current time in "YYYYMMDD_HHMMSS" format. Note that the suggested input shaper parameters can be persisted in the config by issuing `SAVE_CONFIG` command.
+`SHAPER_CALIBRATE [AXIS=<asse>] [NAME=<nome>] [FREQ_START=<freq_min>] [FREQ_END=<freq_max>] [HZ_PER_SEC=<hz_per_sec>] [MAX_SMOOTHING=<livellamento_max>]`: simile a `TEST_RESONANCES `, esegue il test di risonanza come configurato e cerca di trovare i parametri ottimali di input shaper per l'asse richiesto (o entrambi gli assi X e Y se il parametro `AXIS` non è impostato). Se `MAX_SMOOTHING` non è impostato, il suo valore viene preso dalla sezione `[resonance_tester]`, con l'impostazione predefinita non impostata. Per ulteriori informazioni sull'uso di questa funzione, vedere il [Max smoothing](Measuring_Resonances.md#max-smoothing) della guida alla misurazione delle risonanze. I risultati dell'ottimizzazione vengono stampati sulla console e le risposte in frequenza e i diversi valori degli shaper di input vengono scritti in uno o più file CSV `/tmp/calibration_data_<asse>_<nome>.csv`. A meno che non sia specificato, NAME imposta l'ora corrente nel formato "AAAAMMGG_HHMMSS". Nota che i parametri di input shaper suggeriti possono essere mantenuti nella configurazione eseguendo il comando `SAVE_CONFIG`.
 
 ### [respond]
 
-The following standard G-Code commands are available when the [respond config section](Config_Reference.md#respond) is enabled:
+I seguenti comandi G-Code standard sono disponibili quando la [sezione di configurazione di risposta](Config_Reference.md#respond) è abilitata:
 
 - `M118 <messaggio>`: fa eco al messaggio preceduto dal prefisso predefinito configurato (o `echo: ` se non è configurato alcun prefisso).
 
-The following additional commands are also available.
+Sono inoltre disponibili i seguenti comandi aggiuntivi.
 
 #### RESPOND
 
@@ -616,7 +616,7 @@ The following additional commands are also available.
 
 ### [save_variables]
 
-The following command is enabled if a [save_variables config section](Config_Reference.md#save_variables) has been enabled.
+Il comando seguente è abilitato se è stata abilitata una [sezione di configurazione save_variables](Config_Reference.md#save_variables).
 
 #### SAVE_VARIABLE
 
@@ -624,7 +624,7 @@ The following command is enabled if a [save_variables config section](Config_Ref
 
 ### [screws_tilt_adjust]
 
-The following commands are available when the [screws_tilt_adjust config section](Config_Reference.md#screws_tilt_adjust) is enabled (also see the [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe)).
+I seguenti comandi sono disponibili quando la [sezione di configurazione viti_tilt_adjust](Config_Reference.md#screws_tilt_adjust) è abilitata (consultare anche la [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe)).
 
 #### SCREWS_TILT_CALCULATE
 
@@ -632,7 +632,7 @@ The following commands are available when the [screws_tilt_adjust config section
 
 ### [sdcard_loop]
 
-When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is enabled, the following extended commands are available.
+Quando la [sezione di configurazione sdcard_loop](Config_Reference.md#sdcard_loop) è abilitata, sono disponibili i seguenti comandi estesi.
 
 #### SDCARD_LOOP_BEGIN
 
@@ -648,19 +648,19 @@ When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is enable
 
 ### [servo]
 
-The following commands are available when a [servo config section](Config_Reference.md#servo) is enabled.
+I seguenti comandi sono disponibili quando una [sezione di configurazione servo](Config_Reference.md#servo) è abilitata.
 
 #### SET_SERVO
 
-`SET_SERVO SERVO=config_name [ANGLE=<degrees> | WIDTH=<seconds>]`: Set the servo position to the given angle (in degrees) or pulse width (in seconds). Use `WIDTH=0` to disable the servo output.
+`SET_SERVO SERVO=nome_config [ANGLE=<gradi> | WIDTH=<secondi>]`: Imposta la posizione del servo sull'angolo dato (in gradi) o sulla larghezza dell'impulso (in secondi). Usa `WIDTH=0` per disabilitare l'uscita servo.
 
 ### [skew_correction]
 
-The following commands are available when the [skew_correction config section](Config_Reference.md#skew_correction) is enabled (also see the [Skew Correction](Skew_Correction.md) guide).
+I seguenti comandi sono disponibili quando è abilitata la [sezione config_correzione_asimmetria](Config_Reference.md#correzione_asimmetria) (consultare anche la guida [Correzione_asimmetria](Correzione_asimmetria.md)).
 
 #### SET_SKEW
 
-`SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] [YZ=<ac,bd,ad>] [CLEAR=<0|1>]`: Configures the [skew_correction] module with measurements (in mm) taken from a calibration print. One may enter measurements for any combination of planes, planes not entered will retain their current value. If `CLEAR=1` is entered then all skew correction will be disabled.
+`SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] [YZ=<ac,bd,ad>] [CLEAR=<0|1>]`: Configura il modulo [correzione_inclinazione ] con misure (in mm) tratte da una stampa di calibrazione. Si possono inserire misure per qualsiasi combinazione di piani, i piani non inseriti manterranno il loro valore attuale. Se viene immesso `CLEAR=1`, tutta la correzione dell'inclinazione sarà disabilitata.
 
 #### GET_CURRENT_SKEW
 
@@ -672,15 +672,15 @@ The following commands are available when the [skew_correction config section](C
 
 #### SKEW_PROFILE
 
-`SKEW_PROFILE [LOAD=<name>] [SAVE=<name>] [REMOVE=<name>]`: Profile management for skew_correction. LOAD will restore skew state from the profile matching the supplied name. SAVE will save the current skew state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to persistent memory permanent.
+`SKEW_PROFILE [LOAD=<nome>] [SAVE=<nome>] [REMOVE=<nome>]`: Gestione del profilo per correzione_inclinazione. LOAD ripristinerà lo stato di inclinazione dal profilo corrispondente al nome fornito. SAVE salverà lo stato di inclinazione corrente in un profilo che corrisponde al nome fornito. REMOVE eliminerà il profilo corrispondente al nome fornito dalla memoria persistente. Si noti che dopo aver eseguito le operazioni SAVE o REMOVE è necessario eseguire il gcode SAVE_CONFIG per rendere permanenti le modifiche alla memoria persistente.
 
 ### [smart_effector]
 
-Several commands are available when a [smart_effector config section](Config_Reference.md#smart_effector) is enabled. Be sure to check the official documentation for the Smart Effector on the [Duet3D Wiki](https://duet3d.dozuki.com/Wiki/Smart_effector_and_carriage_adapters_for_delta_printer) before changing the Smart Effector parameters. Also check the [probe calibration guide](Probe_Calibrate.md).
+Sono disponibili diversi comandi quando una [sezione di configurazione smart_effector](Config_Reference.md#smart_effector) è abilitata. Assicurati di controllare la documentazione ufficiale per Smart Effector su [Duet3D Wiki](https://duet3d.dozuki.com/Wiki/Smart_effector_and_carriage_adapters_for_delta_printer) prima di modificare i parametri di Smart Effector. Controllare anche la [guida alla calibrazione della sonda](Probe_Calibrate.md).
 
 #### SET_SMART_EFFECTOR
 
-`SET_SMART_EFFECTOR [SENSITIVITY=<sensitivity>] [ACCEL=<accel>] [RECOVERY_TIME=<time>]`: Set the Smart Effector parameters. When `SENSITIVITY` is specified, the respective value is written to the SmartEffector EEPROM (requires `control_pin` to be provided). Acceptable `<sensitivity>` values are 0..255, the default is 50. Lower values require less nozzle contact force to trigger (but there is a higher risk of false triggering due to vibrations during probing), and higher values reduce false triggering (but require larger contact force to trigger). Since the sensitivity is written to EEPROM, it is preserved after the shutdown, and so it does not need to be configured on every printer startup. `ACCEL` and `RECOVERY_TIME` allow to override the corresponding parameters at run-time, see the [config section](Config_Reference.md#smart_effector) of Smart Effector for more info on those parameters.
+`SET_SMART_EFFECTOR [SENSITIVITY=<sensibilità>] [ACCEL=<accel>] [RECOVERY_TIME=<tempo>]`: imposta i parametri di Smart Effector. Quando viene specificato `SENSITIVITY`, il rispettivo valore viene scritto nella EEPROM dello SmartEffector (richiede che sia fornito `control_pin`). I valori di `<sensibilità>` accettabili sono 0..255, il valore predefinito è 50. Valori inferiori richiedono una minore forza di contatto dell'ugello per attivarsi (ma esiste un rischio maggiore di falso trigger a causa delle vibrazioni durante la tastatura) e valori più alti riducono il falso trigger (ma richiede una maggiore forza di contatto per attivarsi). Poiché la sensibilità viene scritta nella EEPROM, viene conservata dopo lo spegnimento e quindi non è necessario configurarla ad ogni avvio della stampante. `ACCEL` e `RECOVERY_TIME` consentono di sovrascrivere i parametri corrispondenti in fase di esecuzione, vedere la [sezione di configurazione](Config_Reference.md#smart_effector) di Smart Effector per maggiori informazioni su quei parametri.
 
 #### RESET_SMART_EFFECTOR
 
@@ -688,23 +688,23 @@ Several commands are available when a [smart_effector config section](Config_Ref
 
 ### [stepper_enable]
 
-The stepper_enable module is automatically loaded.
+Il modulo stepper_enable viene caricato automaticamente.
 
 #### SET_STEPPER_ENABLE
 
-`SET_STEPPER_ENABLE STEPPER=<config_name> ENABLE=[0|1]`: Enable or disable only the given stepper. This is a diagnostic and debugging tool and must be used with care. Disabling an axis motor does not reset the homing information. Manually moving a disabled stepper may cause the machine to operate the motor outside of safe limits. This can lead to damage to axis components, hot ends, and print surface.
+`SET_STEPPER_ENABLE STEPPER=<nome_config> ENABLE=[0|1]`: Abilita o disabilita solo lo stepper dato. Questo è uno strumento diagnostico e di debug e deve essere utilizzato con cautela. La disabilitazione di un motore dell'asse non ripristina le informazioni di homing. Lo spostamento manuale di uno stepper disabilitato può causare l'azionamento del motore della macchina al di fuori dei limiti di sicurezza. Ciò può causare danni ai componenti dell'asse, al hotend e alla superficie di stampa.
 
 ### [temperature_fan]
 
-The following command is available when a [temperature_fan config section](Config_Reference.md#temperature_fan) is enabled.
+Il comando seguente è disponibile quando una [sezione di configurazione della ventola_temperatura](Config_Reference.md#ventola_temperatura) è abilitata.
 
 #### SET_TEMPERATURE_FAN_TARGET
 
-`SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_name> [target=<target_temperature>] [min_speed=<min_speed>] [max_speed=<max_speed>]`: Sets the target temperature for a temperature_fan. If a target is not supplied, it is set to the specified temperature in the config file. If speeds are not supplied, no change is applied.
+`SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_name> [target=<target_temperature>] [min_speed=<min_speed>] [max_speed=<max_speed>]`: Imposta la temperatura target per una temperature_fan. Se non viene fornito un target, viene impostato sulla temperatura specificata nel file di configurazione. Se le velocità non vengono fornite, non viene applicata alcuna modifica.
 
 ### [tmcXXXX]
 
-The following commands are available when any of the [tmcXXXX config sections](Config_Reference.md#tmc-stepper-driver-configuration) are enabled.
+I seguenti comandi sono disponibili quando una qualsiasi delle [tmcXXXX config section](Config_Reference.md#tmc-stepper-driver-configuration) è abilitata.
 
 #### DUMP_TMC
 
@@ -716,31 +716,31 @@ The following commands are available when any of the [tmcXXXX config sections](C
 
 #### SET_TMC_CURRENT
 
-`SET_TMC_CURRENT STEPPER=<name> CURRENT=<amps> HOLDCURRENT=<amps>`: This will adjust the run and hold currents of the TMC driver. (HOLDCURRENT is not applicable to tmc2660 drivers.)
+`SET_TMC_CURRENT STEPPER=<nome> CURRENT=<amps> HOLDCURRENT=<amps>`: Questo regolerà le correnti di funzionamento e di mantenimento del driver TMC. (HOLDCURRENT non è applicabile ai driver tmc2660.)
 
 #### SET_TMC_FIELD
 
-`SET_TMC_FIELD STEPPER=<name> FIELD=<field> VALUE=<value>`: This will alter the value of the specified register field of the TMC driver. This command is intended for low-level diagnostics and debugging only because changing the fields during run-time can lead to undesired and potentially dangerous behavior of your printer. Permanent changes should be made using the printer configuration file instead. No sanity checks are performed for the given values.
+`SET_TMC_FIELD STEPPER=<nome> FIELD=<campo> VALUE=<valore>`: Questo altererà il valore del campo del registro specificato del driver TMC. Questo comando è destinato alla diagnostica e al debug di basso livello solo perché la modifica dei campi durante l'esecuzione può causare comportamenti indesiderati e potenzialmente pericolosi della stampante. Le modifiche permanenti dovrebbero invece essere apportate utilizzando il file di configurazione della stampante. Non vengono eseguiti controlli di integrità per i valori indicati.
 
 ### [toolhead]
 
-The toolhead module is automatically loaded.
+Il modulo toolhead viene caricato automaticamente.
 
 #### SET_VELOCITY_LIMIT
 
-`SET_VELOCITY_LIMIT [VELOCITY=<value>] [ACCEL=<value>] [ACCEL_TO_DECEL=<value>] [SQUARE_CORNER_VELOCITY=<value>]`: Modify the printer's velocity limits.
+`SET_VELOCITY_LIMIT [VELOCITY=<valore>] [ACCEL=<valore>] [ACCEL_TO_DECEL=<valore>] [SQUARE_CORNER_VELOCITY=<valore>]`: Modifica i limiti di velocità della stampante.
 
 ### [tuning_tower]
 
-The tuning_tower module is automatically loaded.
+Il modulo tuning_tower viene caricato automaticamente.
 
 #### TUNING_TOWER
 
-`TUNING_TOWER COMMAND=<command> PARAMETER=<name> START=<value> [SKIP=<value>] [FACTOR=<value> [BAND=<value>]] | [STEP_DELTA=<value> STEP_HEIGHT=<value>]`: A tool for tuning a parameter on each Z height during a print. The tool will run the given `COMMAND` with the given `PARAMETER` assigned to a value that varies with `Z` according to a formula. Use `FACTOR` if you will use a ruler or calipers to measure the Z height of the optimum value, or `STEP_DELTA` and `STEP_HEIGHT` if the tuning tower model has bands of discrete values as is common with temperature towers. If `SKIP=<value>` is specified, the tuning process doesn't begin until Z height `<value>` is reached, and below that the value will be set to `START`; in this case, the `z_height` used in the formulas below is actually `max(z - skip, 0)`. There are three possible combinations of options:
+`TUNING_TOWER COMMAND=<comando> PARAMETER=<nome> START=<valore> [SKIP=<valore>] [FACTOR=<valore> [BAND=<valore>]] | [STEP_DELTA=<valore> STEP_HEIGHT=<valore>]`: Uno strumento per regolare un parametro su ciascuna altezza Z durante una stampa. Lo strumento eseguirà il dato `COMMAND` con il dato `PARAMETER` assegnato a un valore che varia con `Z` secondo una formula. Usa `FACTOR` se utilizzerai un righello o calibri per misurare l'altezza Z del valore ottimale, o `STEP_DELTA` e `STEP_HEIGHT` se il modello della torre di regolazione ha bande di valori discreti come è comune con le torri della temperatura. Se viene specificato `SKIP=<valore>`, il processo di ottimizzazione non inizia finché non viene raggiunta l'altezza Z `<valore>`, e al di sotto di essa il valore sarà impostato su `START`; in questo caso, la `z_height` usata nelle formule seguenti è in realtà `max(z - skip, 0)`. Ci sono tre possibili combinazioni di opzioni:
 
 - `FACTOR`: Il valore cambia a una velocità di `factor` per millimetro. La formula utilizzata è: `valore = inizio + fattore * z_altezza`. È possibile inserire l'altezza Z ottimale direttamente nella formula per determinare il valore del parametro ottimale.
 - `FACTOR` e `BAND`: il valore cambia a una velocità media di `factor` per millimetro, ma in bande discrete in cui la regolazione verrà effettuata solo ogni `BAND` millimetri di altezza Z. La formula utilizzata è: `value = start + factor * ((floor(z_height / band) + .5) * band)`.
-- `STEP_DELTA` and `STEP_HEIGHT`: The value changes by `STEP_DELTA` every `STEP_HEIGHT` millimeters. The formula used is: `value = start + step_delta * floor(z_height / step_height)`. You can simply count bands or read tuning tower labels to determine the optimum value.
+- `STEP_DELTA` e `STEP_HEIGHT`: il valore cambia di `STEP_DELTA` ogni `STEP_HEIGHT` millimetri. La formula utilizzata è: `value = start + step_delta * floor(z_height / step_height)`. Puoi semplicemente contare le bande o leggere le etichette della torre di tuning per determinare il valore ottimale.
 
 ### [virtual_sdcard]
 
@@ -749,9 +749,9 @@ Klipper supporta i seguenti comandi G-Code standard se la [sezione di configuraz
 - Elenco scheda SD: `M20`
 - Inizializza scheda SD: `M21`
 - Selezionare il file SD: `M23 <nomefile>`
-- Start/resume SD print: `M24`
+- Avvia/riprendi la stampa SD: `M24`
 - Sospendi la stampa SD: `M25`
-- Set SD position: `M26 S<offset>`
+- Impostare la posizione SD: `M26 S<offset>`
 - Riporta lo stato di stampa SD: `M27`
 
 Inoltre, quando la sezione di configurazione "virtual_sdcard" è abilitata, sono disponibili i seguenti comandi estesi.
@@ -766,8 +766,8 @@ Inoltre, quando la sezione di configurazione "virtual_sdcard" è abilitata, sono
 
 ### [z_tilt]
 
-The following commands are available when the [z_tilt config section](Config_Reference.md#z_tilt) is enabled.
+I seguenti comandi sono disponibili quando la [sezione z_tilt config](Config_Reference.md#z_tilt) è abilitata.
 
 #### Z_TILT_ADJUST
 
-`Z_TILT_ADJUST [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters.
+`Z_TILT_ADJUST [<probe_parameter>=<value>]`: questo comando sonderà i punti specificati nella configurazione e quindi apporterà regolazioni indipendenti a ciascuno Z stepper per compensare l'inclinazione. Vedere il comando PROBE per i dettagli sui parametri opzionali della sonda.
