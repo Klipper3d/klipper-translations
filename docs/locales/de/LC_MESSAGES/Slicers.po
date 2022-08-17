@@ -1,6 +1,6 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
-# Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # Extrutex <w1indt@outlook.com>, 2024, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:33+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/slicers/"
 "de/>\n"
 "Language: de\n"
@@ -24,9 +24,9 @@ msgid ""
 "use with Klipper. Common slicers used with Klipper are Slic3r, Cura, "
 "Simplify3D, etc."
 msgstr ""
-"Dieses Dokument enthält einige Tipps zum Konfigurieren einer "
-"\"Slicer\"-Anwendung für die Verwendung mit Klipper. Übliche Slicer, die mit "
-"Klipper verwendet werden, sind Slic3r, Cura, Simplify3D usw."
+"Dieses Dokument enthält einige Tipps zum Konfigurieren einer \"Slicer\"-"
+"Anwendung für die Verwendung mit Klipper. Übliche Slicer, die mit Klipper "
+"verwendet werden, sind Slic3r, Cura, Simplify3D usw."
 
 msgid "Set the G-Code flavor to Marlin"
 msgstr "Setzen Sie den G-Code Flavor auf Marlin"
