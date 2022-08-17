@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-15 10:18+0000\n"
+"PO-Revision-Date: 2022-08-17 03:31+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "config_reference/it/>\n"
@@ -317,7 +317,7 @@ msgid ""
 msgstr ""
 
 msgid "[z_tilt]"
-msgstr ""
+msgstr "[z_tilt]"
 
 msgid "[quad_gantry_level]"
 msgstr ""
@@ -332,7 +332,7 @@ msgid ""
 msgstr ""
 
 msgid "[skew_correction]"
-msgstr ""
+msgstr "[skew_correction]"
 
 msgid "Customized homing"
 msgstr ""
@@ -401,7 +401,7 @@ msgid "Optional G-Code features"
 msgstr ""
 
 msgid "[virtual_sdcard]"
-msgstr ""
+msgstr "[virtual_sdcard]"
 
 msgid ""
 "A virtual sdcard may be useful if the host machine is not fast enough to run"
@@ -808,7 +808,7 @@ msgid "[controller_fan]"
 msgstr "[controller_fan]"
 
 msgid "[temperature_fan]"
-msgstr ""
+msgstr "[temperature_fan]"
 
 msgid ""
 "Temperature-triggered cooling fans (one may define any number of sections "
@@ -6207,7 +6207,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 179 (header)
 msgid "[smart_effector]"
-msgstr ""
+msgstr "[smart_effector]"
 
 #: docs/Config_Reference.md:block 180 (paragraph)
 msgid ""
