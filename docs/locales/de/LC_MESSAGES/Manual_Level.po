@@ -1,6 +1,6 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
-# Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:34+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "manual_level/de/>\n"
 "Language: de\n"
@@ -22,8 +22,8 @@ msgid ""
 "This document describes tools for calibrating a Z endstop and for performing "
 "adjustments to bed leveling screws."
 msgstr ""
-"Dieses Dokument beschreibt Werkzeuge zum Kalibrieren eines Z-Anschlags und zum"
-" Einstellen von Bettnivellierschrauben."
+"Dieses Dokument beschreibt Werkzeuge zum Kalibrieren eines Z-Anschlags und "
+"zum Einstellen von Bettnivellierschrauben."
 
 msgid "Calibrating a Z endstop"
 msgstr "Kalibrieren eines Z-Endstop's"
