@@ -5,9 +5,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-07-24 07:20+0000\n"
+"PO-Revision-Date: 2022-08-18 14:23+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/status_reference/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"status_reference/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1185,30 +1186,36 @@ msgstr ""
 
 #: docs/Status_Reference.md:block 10 (header)
 msgid "bed_screws"
-msgstr ""
+msgstr "bed_screws"
 
 #: docs/Status_Reference.md:block 11 (paragraph)
 msgid ""
 "The following information is available in the "
 "`Config_Reference.md#bed_screws` object:"
 msgstr ""
+"A következő információk a `Config_Reference.md#bed_screws` objektumban "
+"találhatók:"
 
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid ""
 "`is_active`: Returns True if the bed screws adjustment tool is currently "
 "active."
 msgstr ""
+"`is_active`: True értéket ad vissza, ha az ágycsavarok beállítási eszköze "
+"jelenleg aktív."
 
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid ""
 "`state`: The bed screws adjustment tool state. It is one of the following "
 "strings: \"adjust\", \"fine\"."
 msgstr ""
+"`state`: Az ágycsavarok beállítási szerszámának állapota. A következő "
+"karakterláncok egyike: \"adjust\", \"fine\"."
 
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid "`current_screw`: The index for the current screw being adjusted."
-msgstr ""
+msgstr "`current_screw`: Az aktuálisan beállított csavar indexe."
 
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid "`accepted_screws`: The number of accepted screws."
-msgstr ""
+msgstr "`accepted_screws`: Az elfogadott csavarok száma."
