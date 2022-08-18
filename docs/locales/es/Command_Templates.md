@@ -1,6 +1,6 @@
 # Commands templates
 
-This document provides information on implementing G-Code command sequences in gcode_macro (and similar) config sections.
+Este documento proporciona información sobre G-Code y implementando las secuencias de comandes en gcode_macro (y lo similar) secciones de configuración
 
 ## El nombrado macro de G-Code
 

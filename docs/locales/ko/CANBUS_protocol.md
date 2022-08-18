@@ -18,19 +18,19 @@ Klipper는 8 데이터 바이트와 11비트 CAN bus identifier로 제한되는 
 
 CMD_QUERY_UNASSIGNED 메시지 형식은 다음과 같습니다: `<1-byte message_id = 0x00>`
 
-### CMD_SET_NODEID 메시지
+### CMD_SET_KLIPPER_NODEID message
 
 이 명령은`canbus_uuid`가 지정된 마이크로 컨트롤러에 `canbus_nodeid`를 할당합니다.
 
-CMD_SET_NODEID 메시지 형식은 다음과 같습니다: `<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`
+The CMD_SET_KLIPPER_NODEID message format is: `<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`
 
 ### RESP_NEED_NODEID 메시지
 
-RESP_NEED_NODEID 메시지 형식은 다음과 같습니다: `<1-byte message_id = 0x20><6-byte canbus_uuid>`
+The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte canbus_uuid><1-byte set_klipper_nodeid = 0x01>`
 
 ## 데이터 패킷
 
-CMD_SET_NODEID 명령을 통해 nodeid가 할당된 마이크로 컨트롤러는 데이터 패킷을 보내고 받을 수 있습니다.
+A micro-controller that has been assigned a nodeid via the CMD_SET_KLIPPER_NODEID command can send and receive data packets.
 
 노드의 수신 CAN bus ID(`canbus_nodeid * 2 + 256`)를 사용하는 메시지의 패킷 데이터는 단순히 버퍼에 추가되고 완전한 [mcu protocol message](Protocol.md) 가 발견되면 해당 내용을 구문 분석하고 처리합니다. 데이터는 바이트 스트림으로 처리됩니다 - CAN bus 패킷의 시작과 정렬하기 위해 Klipper 메시지 블록의 시작에 대한 요구 사항은 없습니다.
 

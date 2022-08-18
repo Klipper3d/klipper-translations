@@ -1,6 +1,6 @@
 # Manual leveling
 
-Dieses Dokument beschreibt Werkzeuge zum Kalibrieren eines Z-Endanschlags und zum Durchführen von Anpassungen an Bettnivellierungsschrauben.
+Dieses Dokument beschreibt Werkzeuge zum Kalibrieren eines Z-Anschlags und zum Einstellen von Bettnivellierschrauben.
 
 ## Kalibrieren eines Z-Endstop's
 

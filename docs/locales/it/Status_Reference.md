@@ -17,6 +17,15 @@ Le seguenti informazioni sono disponibili in [bed_mesh](Config_Reference.md#bed_
 - `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: informazioni sulla bed_mesh attualmente attiva.
 - `profiles`: The set of currently defined profiles as setup using BED_MESH_PROFILE.
 
+## bed_screws
+
+The following information is available in the `Config_Reference.md#bed_screws` object:
+
+- `is_active`: Returns True if the bed screws adjustment tool is currently active.
+- `state`: The bed screws adjustment tool state. It is one of the following strings: "adjust", "fine".
+- `current_screw`: The index for the current screw being adjusted.
+- `accepted_screws`: The number of accepted screws.
+
 ## configfile
 
 Le seguenti informazioni sono disponibili nell'oggetto `configfile` (questo oggetto è sempre disponibile):
@@ -102,57 +111,57 @@ Le seguenti informazioni sono disponibili negli oggetti [filament_motion_sensor 
 
 Le seguenti informazioni sono disponibili nell'oggetto [firmware_retraction](Config_Reference.md#firmware_retraction):
 
-- `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`: The current settings for the firmware_retraction module. These settings may differ from the config file if a `SET_RETRACTION` command alters them.
+- `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`: le impostazioni correnti per il modulo firmware_retraction. Queste impostazioni possono differire dal file di configurazione se un comando `SET_RETRACTION` le altera.
 
 ## gcode_macro
 
-The following information is available in [gcode_macro some_name](Config_Reference.md#gcode_macro) objects:
+Le seguenti informazioni sono disponibili negli oggetti [gcode_macro some_name](Config_Reference.md#gcode_macro):
 
-- `<variable>`: The current value of a [gcode_macro variable](Command_Templates.md#variables).
+- `<variabile>`: il valore corrente di una [variabile gcode_macro](Command_Templates.md#variables).
 
 ## gcode_move
 
-The following information is available in the `gcode_move` object (this object is always available):
+Le seguenti informazioni sono disponibili nell'oggetto `gcode_move` (questo oggetto è sempre disponibile):
 
-- `gcode_position`: The current position of the toolhead relative to the current G-Code origin. That is, positions that one might directly send to a `G1` command. It is possible to access the x, y, z, and e components of this position (eg, `gcode_position.x`).
-- `position`: The last commanded position of the toolhead using the coordinate system specified in the config file. It is possible to access the x, y, z, and e components of this position (eg, `position.x`).
-- `homing_origin`: The origin of the gcode coordinate system (relative to the coordinate system specified in the config file) to use after a `G28` command. The `SET_GCODE_OFFSET` command can alter this position. It is possible to access the x, y, and z components of this position (eg, `homing_origin.x`).
-- `speed`: The last speed set in a `G1` command (in mm/s).
-- `speed_factor`: The "speed factor override" as set by an `M220` command. This is a floating point value such that 1.0 means no override and, for example, 2.0 would double requested speed.
-- `extrude_factor`: The "extrude factor override" as set by an `M221` command. This is a floating point value such that 1.0 means no override and, for example, 2.0 would double requested extrusions.
-- `absolute_coordinates`: This returns True if in `G90` absolute coordinate mode or False if in `G91` relative mode.
-- `absolute_extrude`: This returns True if in `M82` absolute extrude mode or False if in `M83` relative mode.
+- `gcode_position`: la posizione corrente della testa di stampa rispetto all'origine del Gcode corrente. Cioè, posizioni che si potrebbero inviare direttamente a un comando `G1`. È possibile accedere ai componenti x, y, z ed e di questa posizione (ad esempio, `gcode_position.x`).
+- `position`: l'ultima posizione comandata della testina utilizzando il sistema di coordinate specificato nel file di configurazione. È possibile accedere alle componenti x, y, z ed e di questa posizione (ad esempio, `position.x`).
+- `homing_origin`: l'origine del sistema di coordinate gcode (relativo al sistema di coordinate specificato nel file di configurazione) da utilizzare dopo un comando `G28`. Il comando `SET_GCODE_OFFSET` può alterare questa posizione. È possibile accedere ai componenti x, y e z di questa posizione (ad esempio, `homing_origin.x`).
+- `speed`: l'ultima velocità impostata in un comando `G1` (in mm/s).
+- `speed_factor`: La"speed factor override" come impostato da un comando `M220`. Questo è un valore in virgola mobile tale che 1,0 significa nessun override e, ad esempio, 2,0 raddoppierebbe la velocità richiesta.
+- `extrude_factor`: L'"extrude factor override" come impostato da un comando `M221`. Questo è un valore in virgola mobile tale che 1,0 significa nessun override ad esempio 2,0 raddoppierebbe le estrusioni richieste.
+- `absolute_coordinates`: restituisce True se in modalità coordinate assolute `G90` o False se in modalità relativa `G91`.
+- `absolute_extrude`: restituisce True se in modalità di estrusione assoluta `M82` o False se in modalità relativa `M83`.
 
 ## hall_filament_width_sensor
 
-The following information is available in the [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor) object:
+Le seguenti informazioni sono disponibili nell'oggetto [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor):
 
-- `is_active`: Returns True if the sensor is currently active.
+- `is_active`: Restituisce True se il sensore è attualmente attivo.
 - `Diameter`: The last reading from the sensor in mm.
 - `Raw`: The last raw ADC reading from the sensor.
 
-## heater
+## Riscaldatore
 
-The following information is available for heater objects such as [extruder](Config_Reference.md#extruder), [heater_bed](Config_Reference.md#heater_bed), and [heater_generic](Config_Reference.md#heater_generic):
+Le seguenti informazioni sono disponibili per oggetti riscaldatore come [extruder](Config_Reference.md#extruder), [heater_bed](Config_Reference.md#heater_bed) e [heater_generic](Config_Reference.md#heater_generic):
 
-- `temperature`: The last reported temperature (in Celsius as a float) for the given heater.
-- `target`: The current target temperature (in Celsius as a float) for the given heater.
-- `power`: The last setting of the PWM pin (a value between 0.0 and 1.0) associated with the heater.
-- `can_extrude`: If extruder can extrude (defined by `min_extrude_temp`), available only for [extruder](Config_Reference.md#extruder)
+- `temperature`: l'ultima temperatura riportata (in gradi Celsius come float) per il dato riscaldatore.
+- `target`: la temperatura target attuale (in gradi Celsius come float) per il riscaldatore dato.
+- `power`: l'ultima impostazione del pin PWM (un valore compreso tra 0.0 e 1.0) associato al riscaldatore.
+- `can_extrude`: Se l'estrusore può estrudere (definito da `min_extrude_temp`), disponibile solo per [extruder](Config_Reference.md#extruder)
 
-## heaters
+## Riscaldatori
 
-The following information is available in the `heaters` object (this object is available if any heater is defined):
+Le seguenti informazioni sono disponibili nell'oggetto `heaters` (questo oggetto è disponibile se è definito un riscaldatore):
 
-- `available_heaters`: Returns a list of all currently available heaters by their full config section names, e.g. `["extruder", "heater_bed", "heater_generic my_custom_heater"]`.
-- `available_sensors`: Returns a list of all currently available temperature sensors by their full config section names, e.g. `["extruder", "heater_bed", "heater_generic my_custom_heater", "temperature_sensor electronics_temp"]`.
+- `disponibili_riscaldatori`: restituisce un elenco di tutti i riscaldatori attualmente disponibili in base ai nomi completi delle sezioni di configurazione, ad es. `["extruder", "heater_bed", "heater_generic my_custom_heater"]`.
+- `available_sensors`: restituisce un elenco di tutti i riscaldatori attualmente disponibili in base ai nomi completi delle sezioni di configurazione, ad es. `["extruder", "heater_bed", "heater_generic my_custom_heater"]`.
 
 ## idle_timeout
 
-The following information is available in the [idle_timeout](Config_Reference.md#idle_timeout) object (this object is always available):
+Le seguenti informazioni sono disponibili nell'oggetto [idle_timeout](Config_Reference.md#idle_timeout) (questo oggetto è sempre disponibile):
 
-- `state`: The current state of the printer as tracked by the idle_timeout module. It is one of the following strings: "Idle", "Printing", "Ready".
-- `printing_time`: The amount of time (in seconds) the printer has been in the "Printing" state (as tracked by the idle_timeout module).
+- `state`: lo stato corrente della stampante monitorato dal modulo idle_timeout. È una delle seguenti stringhe: "Idle", "Printing", "Ready".
+- `printing_time`: la quantità di tempo (in secondi) in cui la stampante è rimasta nello stato "Printing" (come tracciato dal modulo idle_timeout).
 
 ## led
 
@@ -171,12 +180,12 @@ The following information is available in the `manual_probe` object:
 
 ## mcu
 
-The following information is available in [mcu](Config_Reference.md#mcu) and [mcu some_name](Config_Reference.md#mcu-my_extra_mcu) objects:
+Le seguenti informazioni sono disponibili negli oggetti [mcu](Config_Reference.md#mcu) e [mcu some_name](Config_Reference.md#mcu-my_extra_mcu):
 
-- `mcu_version`: The Klipper code version reported by the micro-controller.
-- `mcu_build_versions`: Information on the build tools used to generate the micro-controller code (as reported by the micro-controller).
-- `mcu_constants.<constant_name>`: Compile time constants reported by the micro-controller. The available constants may differ between micro-controller architectures and with each code revision.
-- `last_stats.<statistics_name>`: Statistics information on the micro-controller connection.
+- `mcu_version`: la versione del codice Klipper riportata dal microcontrollore.
+- `mcu_build_versions`: informazioni sugli strumenti di compilazione utilizzati per generare il codice del microcontrollore (come riportato dal microcontrollore).
+- `mcu_constants.<constant_name>`: Elenca le costanti di tempo riportate dal microcontrollore. Le costanti disponibili possono differire tra le architetture del microcontrollore e con ogni revisione del codice.
+- `last_stats.<statistics_name>`: informazioni statistiche sulla connessione del microcontrollore.
 
 ## motion_report
 
@@ -188,29 +197,29 @@ The following information is available in the `motion_report` object (this objec
 
 ## output_pin
 
-The following information is available in [output_pin some_name](Config_Reference.md#output_pin) objects:
+Le seguenti informazioni sono disponibili negli oggetti [output_pin some_name](Config_Reference.md#output_pin):
 
-- `value`: The "value" of the pin, as set by a `SET_PIN` command.
+- `value`: Il "valore" del pin, come impostato da un comando `SET_PIN`.
 
 ## palette2
 
-The following information is available in the [palette2](Config_Reference.md#palette2) object:
+Le seguenti informazioni sono disponibili nell'oggetto [palette2](Config_Reference.md#palette2):
 
-- `ping`: Amount of the last reported Palette 2 ping in percent.
-- `remaining_load_length`: When starting a Palette 2 print, this will be the amount of filament to load into the extruder.
-- `is_splicing`: True when the Palette 2 is splicing filament.
+- `ping`: Valore dell'ultimo ping di Palette 2 riportato in percentuale.
+- `remaining_load_length`: Quando si avvia una stampa della Palette 2, questa sarà la quantità di filamento da caricare nell'estrusore.
+- `is_splicing`: Vero quando la Palette 2 sta giuntando il filamento.
 
 ## pause_resume
 
-The following information is available in the [pause_resume](Config_Reference.md#pause_resume) object:
+Le seguenti informazioni sono disponibili nell'oggetto [pause_resume](Config_Reference.md#pause_resume):
 
-- `is_paused`: Returns true if a PAUSE command has been executed without a corresponding RESUME.
+- `is_paused`: Restituisce vero se un comando PAUSE è stato eseguito senza un corrispondente RESUME.
 
 ## print_stats
 
-The following information is available in the `print_stats` object (this object is automatically available if a [virtual_sdcard](Config_Reference.md#virtual_sdcard) config section is defined):
+Le seguenti informazioni sono disponibili nell'oggetto `print_stats` (questo oggetto è automaticamente disponibile se è definita una sezione di configurazione [virtual_sdcard](Config_Reference.md#virtual_sdcard)):
 
-- `filename`, `total_duration`, `print_duration`, `filament_used`, `state`, `message`: Estimated information about the current print when a virtual_sdcard print is active.
+- `filename`, `total_duration`, `print_duration`, `filament_used`, `state`, `message`: informazioni stimate sulla stampa corrente quando è attiva una stampa da virtual_sdcard.
 
 ## probe
 

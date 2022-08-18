@@ -1926,7 +1926,7 @@ Generic temperature sensors. One can define any number of additional temperature
 
 ## Temperature sensors
 
-Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heated_bed]` section).
+Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heater_bed]` section).
 
 ### Common thermistors
 

@@ -1839,7 +1839,7 @@ Tool to disable heaters when homing or probing an axis.
 
 ## 温度传感器
 
-Klipper 包括许多类型的温度传感器的定义。这些传感器可以在任何需要温度传感器的配置分段中使用（例如`[extruder]`或`[heated_bed]`分段）。
+Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heater_bed]` section).
 
 ### 常见热敏电阻
 

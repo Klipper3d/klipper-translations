@@ -18,19 +18,19 @@ This command queries all micro-controllers that have not yet been assigned a `ca
 
 The CMD_QUERY_UNASSIGNED message format is: `<1-byte message_id = 0x00>`
 
-### CMD_SET_NODEID message
+### CMD_SET_KLIPPER_NODEID message
 
 This command assigns a `canbus_nodeid` to the micro-controller with a given `canbus_uuid`.
 
-The CMD_SET_NODEID message format is: `<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`
+The CMD_SET_KLIPPER_NODEID message format is: `<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`
 
 ### RESP_NEED_NODEID message
 
-The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte canbus_uuid>`
+The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte canbus_uuid><1-byte set_klipper_nodeid = 0x01>`
 
 ## Data Packets
 
-A micro-controller that has been assigned a nodeid via the CMD_SET_NODEID command can send and receive data packets.
+A micro-controller that has been assigned a nodeid via the CMD_SET_KLIPPER_NODEID command can send and receive data packets.
 
 The packet data in messages using the node's receive CAN bus id (`canbus_nodeid * 2 + 256`) are simply appended to a buffer, and when a complete [mcu protocol message](Protocol.md) is found its contents are parsed and processed. The data is treated as a byte stream - there is no requirement for the start of a Klipper message block to align with the start of a CAN bus packet.
 

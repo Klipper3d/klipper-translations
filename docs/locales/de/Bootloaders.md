@@ -1,6 +1,6 @@
 # Bootloaders
 
-Dieses Dokument enthält Informationen zu gängigen Bootloadern, die auf von Klipper unterstützten Mikrocontrollern zu finden sind.
+Dieses Dokument enthält Informationen über gängige Bootloader für Mikrocontroller, die von Klipper unterstützt werden.
 
 Der Bootloader ist eine Software eines Drittanbieters, die auf dem Mikrocontroller läuft, wenn dieser zum ersten Mal eingeschaltet wird. Er wird in der Regel verwendet, um eine neue Anwendung (z. B. Klipper) auf den Mikrocontroller zu flashen, ohne dass spezielle Hardware erforderlich ist. Leider gibt es weder einen industrieweiten Standard für das Flashen eines Mikrocontrollers, noch einen Standard-Bootloader, der für alle Mikrocontroller funktioniert. Schlimmer noch, jeder Bootloader erfordert in der Regel eine andere Anzahl von Schritten, um eine Anwendung zu flashen.
 

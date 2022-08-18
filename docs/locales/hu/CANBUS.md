@@ -4,7 +4,7 @@ Ez a dokumentum a Klipper CAN busz támogatását írja le.
 
 ## Eszköz Hardver
 
-A Klipper jelenleg csak az STM32 chipeken támogatja a CAN-t. Ezenkívül a mikrokontroller chipnek támogatnia kell a CAN-t, és olyan lapon kell lennie, amely rendelkezik CAN adó-vevővel.
+A Klipper jelenleg támogatja a CAN-t az STM32 és RP2040 chipeken. Ezenkívül a mikrokontroller chipnek olyan lapkán kell lennie, amely rendelkezik CAN csatlakozóval.
 
 A CAN-hez való fordításhoz futtassa a `make menuconfig` parancsot, és válassza a "CAN busz" kommunikációs interfészt. Végül fordítsa le a mikrokontroller kódját, és égesse a céllapra.
 
@@ -45,7 +45,7 @@ A CAN-buszon lévő minden mikrovezérlőhöz egyedi azonosítót rendelnek a gy
 Ha nem inicializált CAN-eszközöket észlel, a fenti parancs a következő sorokat fogja jelenteni:
 
 ```
-Talált canbus_uuid=11aa22bb33cc
+Talált canbus_uuid=11aa22bb33cc, Alkalmazás: Klipper
 ```
 
 Minden eszköz egyedi azonosítóval rendelkezik. A fenti példában `11aa22bb33cc` a mikrokontroller "canbus_uuid" azonosítója.
@@ -71,4 +71,11 @@ Néhány fontos megjegyzés ennek az üzemmódnak a használatához:
 
 * A "bridge mcu" valójában nem a CAN-buszon van. A hozzá érkező és tőle érkező üzenetek nem fogyasztanak sávszélességet a CAN-buszon. Az MCU-t nem láthatják más adapterek, amelyek esetleg a CAN-buszon vannak.
 * A busszal való kommunikációhoz szükséges a `can0` (vagy hasonló) interfész konfigurálása Linuxban. A Linux CAN-busz sebességét és a CAN-busz bit-időzítési beállításait azonban a Klipper figyelmen kívül hagyja. Jelenleg a CAN-busz frekvenciáját a "make menuconfig" futtatása során kell megadni, és a Linuxban megadott buszsebességet figyelmen kívül hagyjuk.
-* Amikor a "bridge mcu" visszaáll, a Linux letiltja a megfelelő `can0` interfészt. Általában ehhez olyan parancsok futtatására lehet szükség, mint például az "ip up", hogy újraindítsa az interfészt. Így a Klipper FIRMWARE_RESTART parancsok (vagy egy konfigurációváltás után a szokásos RESTART) a `can0` interfész újraindítását igényelhetik.
+* Amikor a "bridge mcu" visszaáll, a Linux letiltja a megfelelő `can0` interfészt. A FIRMWARE_RESTART és a RESTART parancsok megfelelő kezelése érdekében ajánlott az `/etc/network/interfaces.d/can0` fájlban az `auto` helyett az `allow-hotplug` parancsot használni. Például:
+
+```
+allow-hotplug can0
+iface can0 can static
+    bitrate 500000
+    up ifconfig $IFACE txqueuelen 128
+```

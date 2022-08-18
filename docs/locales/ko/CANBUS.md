@@ -4,7 +4,7 @@
 
 ## 장치 하드웨어
 
-Klipper는 현재 stm32 칩에서만 CAN을 지원합니다. 또한 마이크로 컨트롤러 칩은 CAN을 지원해야 하며 CAN 트랜시버가 보드에 있어야 합니다.
+Klipper currently supports CAN on stm32 and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.
 
 To compile for CAN, run `make menuconfig` and select "CAN bus" as the communication interface. Finally, compile the micro-controller code and flash it to the target board.
 
@@ -45,7 +45,7 @@ CAN bus의 각 마이크로 컨트롤러에는 각 마이크로 컨트롤러에 
 초기화되지 않은 CAN 장치가 감지되면 위의 명령 후 다음과 같은 행을 보여줍니다 :
 
 ```
-Found canbus_uuid=11aa22bb33cc
+Found canbus_uuid=11aa22bb33cc, Application: Klipper
 ```
 
 각 장치에는 고유한 식별자가 있습니다. 위의 예에서는 `11aa22bb33cc`가 마이크로 컨트롤러의 "canbus_uuid"입니다.
@@ -71,4 +71,11 @@ Some important notes when using this mode:
 
 * The "bridge mcu" is not actually on the CAN bus. Messages to and from it do not consume bandwidth on the CAN bus. The mcu can not be seen by other adapters that may be on the CAN bus.
 * It is necessary to configure the `can0` (or similar) interface in Linux in order to communicate with the bus. However, Linux CAN bus speed and CAN bus bit-timing options are ignored by Klipper. Currently, the CAN bus frequency is specified during "make menuconfig" and the bus speed specified in Linux is ignored.
-* Whenever the "bridge mcu" is reset, Linux will disable the corresponding `can0` interface. Generally, this may require running commands such as "ip up" to restart the interface. Thus, Klipper FIRMWARE_RESTART commands (or regular RESTART after a config change) may require restarting the `can0` interface.
+* Whenever the "bridge mcu" is reset, Linux will disable the corresponding `can0` interface. To ensure proper handling of FIRMWARE_RESTART and RESTART commands, it is recommended to replace `auto` with `allow-hotplug` in the `/etc/network/interfaces.d/can0` file. For example:
+
+```
+allow-hotplug can0
+iface can0 can static
+    bitrate 500000
+    up ifconfig $IFACE txqueuelen 128
+```

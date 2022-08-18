@@ -1,4 +1,4 @@
-# Sponsors
+# Förderer
 
 Klipper is Free Software. We depend on the generous support from sponsors. Please consider sponsoring Klipper or supporting our sponsors.
 
