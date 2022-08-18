@@ -1,4 +1,4 @@
-# Commands templates
+# Modelli di comandi
 
 Questo documento fornisce informazioni sull'implementazione di sequenze di comandi G-Code nelle sezioni di configurazione gcode_macro (e simili).
 
@@ -11,7 +11,7 @@ Le maiuscole non sono importanti per il nome della macro G-Code: MY_MACRO e my_m
 L'indentazione è importante quando si definisce una macro nel file di configurazione. Per specificare una sequenza G-Code su più righe è importante che ogni riga abbia un'indentazione adeguata. Per esempio:
 
 ```
-[gcode_macro blink_led]
+[gcode_macro led_lampeggiante]
 gcode:
   SET_PIN PIN=my_led VALUE=1
   G4 P2000
@@ -25,15 +25,15 @@ Nota come l'opzione di configurazione `gcode:` inizia sempre all'inizio della ri
 Per aiutare a identificare la funzionalità è possibile aggiungere una breve descrizione. Aggiungi `descrizione:` con un breve testo per descrivere la funzionalità. L'impostazione predefinita è "Macro codice G" se non specificato. Per esempio:
 
 ```
-[gcode_macro blink_led]
-description: Blink my_led one time
+[gcode_macro led_lampeggiante]
+description: Esegue lampeggio del led una volta
 gcode:
   SET_PIN PIN=my_led VALUE=1
   G4 P2000
   SET_PIN PIN=my_led VALUE=0
 ```
 
-The terminal will display the description when you use the `HELP` command or the autocomplete function.
+Il terminale visualizzerà la descrizione quando si utilizza il comando `HELP` o la funzione di completamento automatico.
 
 ## Salva/ripristina lo stato per i movimenti G-Code
 
@@ -91,16 +91,16 @@ sono stati invocati come `SET_PERCENT VALUE=.2` verrebbero valutati in `M117 Now
 [gcode_macro SET_BED_TEMPERATURE]
 gcode:
   {% set bed_temp = params.TEMPERATURE|default(40)|float %}
-  M140 S{bed_temp}
+  M140 S{bed_temp
 ```
 
-### The "rawparams" variable
+### La variabile "rawparams"
 
-The full unparsed parameters for the running macro can be access via the `rawparams` pseudo-variable.
+È possibile accedere ai parametri completi non analizzati per la macro in esecuzione tramite la pseudo-variabile `rawparams`.
 
-Note that this will include any comments that were part of the original command.
+Nota che questo includerà tutti i commenti che facevano parte del comando originale.
 
-See the [sample-macros.cfg](../config/sample-macros.cfg) file for an example showing how to override the `M117` command using `rawparams`.
+Vedere il file [sample-macros.cfg](../config/sample-macros.cfg) per un esempio che mostra come sovrascrivere il comando `M117` usando `rawparams`.
 
 ### La variabile "printer"
 
@@ -118,7 +118,7 @@ Importante! Le macro vengono prima valutate per intero e solo dopo vengono esegu
 
 Per convenzione, il nome immediatamente successivo a `printer` è il nome di una sezione di configurazione. Quindi, ad esempio, `printer.fan` si riferisce all'oggetto fan creato dalla sezione di configurazione `[fan]`. Ci sono alcune eccezioni a questa regola, in particolare gli oggetti `gcode_move` e `toolhead`. Se la sezione di configurazione contiene spazi, è possibile accedervi tramite l'accessor `[ ]`, ad esempio: `printer["generic_heater my_chamber_heater"].temperature`.
 
-Note that the Jinja2 `set` directive can assign a local name to an object in the `printer` hierarchy. This can make macros more readable and reduce typing. For example:
+Si noti che la direttiva Jinja2 `set` può assegnare un nome locale a un oggetto nella gerarchia `printer`. Ciò può rendere le macro più leggibili e ridurre la digitazione. Per esempio:
 
 ```
 [gcode_macro QUERY_HTU21D]
@@ -127,45 +127,45 @@ gcode:
     M117 Temp:{sensor.temperature} Humidity:{sensor.humidity}
 ```
 
-## Actions
+## Azioni
 
-There are some commands available that can alter the state of the printer. For example, `{ action_emergency_stop() }` would cause the printer to go into a shutdown state. Note that these actions are taken at the time that the macro is evaluated, which may be a significant amount of time before the generated g-code commands are executed.
+Sono disponibili alcuni comandi che possono alterare lo stato della stampante. Ad esempio, `{ action_emergency_stop() }` provocherebbe l'arresto della stampante. Si noti che queste azioni vengono eseguite nel momento in cui viene valutata la macro, il che potrebbe richiedere un periodo di tempo significativo prima dell'esecuzione dei comandi g-code generati.
 
-Available "action" commands:
+Comandi "azione" disponibili:
 
-- `action_respond_info(msg)`: Write the given `msg` to the /tmp/printer pseudo-terminal. Each line of `msg` will be sent with a "// " prefix.
-- `action_raise_error(msg)`: Abort the current macro (and any calling macros) and write the given `msg` to the /tmp/printer pseudo-terminal. The first line of `msg` will be sent with a "!! " prefix and subsequent lines will have a "// " prefix.
-- `action_emergency_stop(msg)`: Transition the printer to a shutdown state. The `msg` parameter is optional, it may be useful to describe the reason for the shutdown.
-- `action_call_remote_method(method_name)`: Calls a method registered by a remote client. If the method takes parameters they should be provided via keyword arguments, ie: `action_call_remote_method("print_stuff", my_arg="hello_world")`
+- `action_respond_info(msg)`: scrive il dato `msg` sullo pseudo-terminale /tmp/printer. Ogni riga di `msg` verrà inviata con un prefisso "//".
+- `action_raise_error(msg)`: annulla la macro corrente (e qualsiasi macro chiamante) e scrivie il dato `msg` sullo pseudo-terminale /tmp/printer. La prima riga di `msg` verrà inviata con un prefisso "!!" e le righe successive avranno un prefisso "//".
+- `action_emergency_stop(msg)`: fa passare la stampante a uno stato di spegnimento. Il parametro `msg` è opzionale, può essere utile per descrivere il motivo dell'arresto.
+- `action_call_remote_method(method_name)`: chiama un metodo registrato da un client remoto. Se il metodo accetta parametri, questi dovrebbero essere forniti tramite argomenti chiave, ad esempio: `action_call_remote_method("print_stuff", my_arg="hello_world")`
 
-## Variables
+## Variabili
 
-The SET_GCODE_VARIABLE command may be useful for saving state between macro calls. Variable names may not contain any upper case characters. For example:
+Il comando SET_GCODE_VARIABLE può essere utile per salvare lo stato tra le chiamate di macro. I nomi delle variabili non possono contenere caratteri maiuscoli. Per esempio:
 
 ```
 [gcode_macro start_probe]
 variable_bed_temp: 0
 gcode:
-  # Save target temperature to bed_temp variable
+  # Salva la temperatura target nella variabile bed_temp
   SET_GCODE_VARIABLE MACRO=start_probe VARIABLE=bed_temp VALUE={printer.heater_bed.target}
-  # Disable bed heater
+  # Disattiva il riscaldamento del piatto
   M140
-  # Perform probe
+  # Esegue sonda
   PROBE
-  # Call finish_probe macro at completion of probe
+  # Chiama la macro finish_probe al completamento
   finish_probe
 
 [gcode_macro finish_probe]
 gcode:
-  # Restore temperature
+  # Ripristinare la temperatura del piatto
   M140 S{printer["gcode_macro start_probe"].bed_temp}
 ```
 
-Be sure to take the timing of macro evaluation and command execution into account when using SET_GCODE_VARIABLE.
+Assicurarsi di tenere in considerazione i tempi della valutazione della macro e dell'esecuzione dei comandi quando si utilizza SET_GCODE_VARIABLE.
 
-## Delayed Gcodes
+## Gcode ritardati
 
-The [delayed_gcode] configuration option can be used to execute a delayed gcode sequence:
+L'opzione di configurazione [delayed_gcode] può essere utilizzata per eseguire una sequenza gcode ritardata:
 
 ```
 [delayed_gcode clear_display]
@@ -182,9 +182,9 @@ gcode:
  UPDATE_DELAYED_GCODE ID=clear_display DURATION=10
 ```
 
-When the `load_filament` macro above executes, it will display a "Load Complete!" message after the extrusion is finished. The last line of gcode enables the "clear_display" delayed_gcode, set to execute in 10 seconds.
+Quando viene eseguita la macro `load_filament` sopra, visualizzerà un "Load Complete!" messaggio al termine dell'estrusione. L'ultima riga di gcode abilita il delay_gcode "clear_display", impostato per essere eseguito in 10 secondi.
 
-The `initial_duration` config option can be set to execute the delayed_gcode on printer startup. The countdown begins when the printer enters the "ready" state. For example, the below delayed_gcode will execute 5 seconds after the printer is ready, initializing the display with a "Welcome!" message:
+L'opzione di configurazione `initial_duration` può essere impostata per eseguire il delay_gcode all'avvio della stampante. Il conto alla rovescia inizia quando la stampante entra nello stato "ready". Ad esempio, il codice delay_g riportato di seguito verrà eseguito 5 secondi dopo che la stampante è pronta, inizializzando il display con un messaggio"Welcome!":
 
 ```
 [delayed_gcode welcome]
@@ -193,7 +193,7 @@ gcode:
   M117 Welcome!
 ```
 
-Its possible for a delayed gcode to repeat by updating itself in the gcode option:
+È possibile che un gcode ritardato si ripeta aggiornandosi nell'opzione gcode:
 
 ```
 [delayed_gcode report_temp]
@@ -203,40 +203,40 @@ gcode:
   UPDATE_DELAYED_GCODE ID=report_temp DURATION=2
 ```
 
-The above delayed_gcode will send "// Extruder Temp: [ex0_temp]" to Octoprint every 2 seconds. This can be canceled with the following gcode:
+Il codice delayed_gcode sopra riportato invierà "// Extruder Temp: [ex0_temp]" a Octoprint ogni 2 secondi. Questo può essere annullato con il seguente gcode:
 
 ```
 UPDATE_DELAYED_GCODE ID=report_temp DURATION=0
 ```
 
-## Menu templates
+## Modelli di menu
 
-If a [display config section](Config_Reference.md#display) is enabled, then it is possible to customize the menu with [menu](Config_Reference.md#menu) config sections.
+Se è abilitata una [sezione di configurazione display](Config_Reference.md#display), è possibile personalizzare il menu con le sezioni di configurazione [menu](Config_Reference.md#menu).
 
-The following read-only attributes are available in menu templates:
+I seguenti attributi di sola lettura sono disponibili nei modelli di menu:
 
-* `menu.width` - element width (number of display columns)
-* `menu.ns` - element namespace
-* `menu.event` - name of the event that triggered the script
-* `menu.input` - input value, only available in input script context
+* `menu.width` - larghezza dell'elemento (numero di colonne di visualizzazione)
+* `menu.ns` - namespace del elemento
+* `menu.event` - nome dell'evento che ha attivato lo script
+* `menu.input` - valore di input, disponibile solo nel contesto dello script di input
 
-The following actions are available in menu templates:
+Le seguenti azioni sono disponibili nei modelli di menu:
 
-* `menu.back(force, update)`: will execute menu back command, optional boolean parameters `<force>` and `<update>`.
-   * When `<force>` is set True then it will also stop editing. Default value is False.
-   * When `<update>` is set False then parent container items are not updated. Default value is True.
-* `menu.exit(force)` - will execute menu exit command, optional boolean parameter `<force>` default value False.
-   * When `<force>` is set True then it will also stop editing. Default value is False.
+* `menu.back(force, update)`: eseguirà il comando menu back, parametri booleani opzionali `<force>` e `<update>`.
+   * Quando `<force>` è impostato su True, interromperà anche la modifica. Il valore predefinito è False.
+   * Quando `<update>` è impostato su False, gli elementi del contenitore padre non vengono aggiornati. Il valore predefinito è True.
+* `menu.exit(force)` - eseguirà il comando di uscita dal menu, parametro booleano opzionale `<force>` valore predefinito False.
+   * Quando `<force>` è impostato su True, interromperà anche la modifica. Il valore predefinito è False.
 
-## Save Variables to disk
+## Salvare variabili su disco
 
-If a [save_variables config section](Config_Reference.md#save_variables) has been enabled, `SAVE_VARIABLE VARIABLE=<name> VALUE=<value>` can be used to save the variable to disk so that it can be used across restarts. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. to avoid overly long lines you can add the following at the top of the macro:
+Se è stata abilitata una [sezione di configurazione save_variables](Config_Reference.md#save_variables), `SAVE_VARIABLE VARIABLE=<nome> VALUE=<valore>` può essere utilizzato per salvare la variabile su disco in modo che possa essere utilizzata tra i riavvii. Tutte le variabili memorizzate vengono caricate nel dict `printer.save_variables.variables` all'avvio e possono essere utilizzate nelle macro gcode. per evitare righe troppo lunghe puoi aggiungere quanto segue nella parte superiore della macro:
 
 ```
 {% set svv = printer.save_variables.variables %}
 ```
 
-As an example, it could be used to save the state of 2-in-1-out hotend and when starting a print ensure that the active extruder is used, instead of T0:
+Ad esempio, potrebbe essere utilizzato per salvare lo stato dell'hotend 2-in-1-out e quando si avvia una stampa assicurarsi che venga utilizzato l'estrusore attivo, anziché T0:
 
 ```
 [gcode_macro T1]

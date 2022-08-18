@@ -10,7 +10,7 @@ Zacznij od sprawdzenia, czy temperatury są prawidłowo raportowane. Przejdź do
 
 ![octoprint-temperature](img/octoprint-temperature.png)
 
-Sprawdź, czy temperatura dyszy i złoża (jeśli dotyczy) jest obecna i nie wzrasta. Jeśli rośnie, odłącz zasilanie od drukarki. Jeśli temperatury nie rosnie, sprawdź ustawienia „sensor_type” i „sensor_pin” dla dyszy i/lub stołu.
+Sprawdź, czy temperatura dyszy i stołu (jeśli dotyczy) jest obecna i nie wzrasta. Jeśli rośnie, odłącz zasilanie od drukarki. Jeśli temperatury nie rosnie, sprawdź ustawienia „sensor_type” i „sensor_pin” dla dyszy i/lub stołu.
 
 ## Sprawdź M112
 

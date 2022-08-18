@@ -17,6 +17,15 @@ The following information is available in [angle some_name](Config_Reference.md#
 - `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: 현재 활성화된 bed_mesh에 대한 정보입니다.
 - `profiles`: The set of currently defined profiles as setup using BED_MESH_PROFILE.
 
+## bed_screws
+
+The following information is available in the `Config_Reference.md#bed_screws` object:
+
+- `is_active`: Returns True if the bed screws adjustment tool is currently active.
+- `state`: The bed screws adjustment tool state. It is one of the following strings: "adjust", "fine".
+- `current_screw`: The index for the current screw being adjusted.
+- `accepted_screws`: The number of accepted screws.
+
 ## configfile
 
 `configfile` 객체에서 다음 정보를 사용할 수 있습니다(이 객체는 항상 사용할 수 있음):

@@ -17,6 +17,15 @@
 - `profile_name`、`mesh_min`、`mesh_max`、`probed_matrix`、`mesh_matrix`：關於目前活躍的 bed_mesh 配置資訊。
 - `profiles`：使用 BED_MESH_PROFILE 設置的當前定義的配置文件集。
 
+## bed_screws
+
+The following information is available in the `Config_Reference.md#bed_screws` object:
+
+- `is_active`: Returns True if the bed screws adjustment tool is currently active.
+- `state`: The bed screws adjustment tool state. It is one of the following strings: "adjust", "fine".
+- `current_screw`: The index for the current screw being adjusted.
+- `accepted_screws`: The number of accepted screws.
+
 ## configfile
 
 `configfile` 對像中提供了以下資訊（該對像始終可用）：

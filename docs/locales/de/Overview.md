@@ -10,7 +10,7 @@ Willkommen auf der Klipper-Dokumentationsseite! Wenn Klipper für dich neu ist, 
 - [Config changes](Config_Changes.md): Die neuesten Änderungen, die potentielle Änderungen an der Konfigurationsdatei des Druckers auslösen können.
 - [Contact](Contact.md): Kontaktinformationen bei Fehlern oder Anfragen an die Klipper-Entwickler.
 
-## Installations und Einstellungen
+## Installation und Konfiguration
 
 - [Installation](Installation.md): Anleitung zur Installation von Klipper.
 - [Config Reference](Config_Reference.md): Beschreibung der Einstellmöglichkeiten.

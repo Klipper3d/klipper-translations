@@ -4,7 +4,7 @@ Ten dokument opisuje obsługę magistrali CAN przez Klippera.
 
 ## Urządzenie sprzętowe
 
-Klipper obecnie obsługuje CAN tylko na układach stm32. Ponadto układ mikrokontrolera musi obsługiwać CAN i musi znajdować się na płycie, która posiada transceiver CAN.
+Klipper currently supports CAN on stm32 and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.
 
 To compile for CAN, run `make menuconfig` and select "CAN bus" as the communication interface. Finally, compile the micro-controller code and flash it to the target board.
 
@@ -45,7 +45,7 @@ Each micro-controller on the CAN bus is assigned a unique id based on the factor
 If uninitialized CAN devices are detected the above command will report lines like the following:
 
 ```
-Found canbus_uuid=11aa22bb33cc
+Found canbus_uuid=11aa22bb33cc, Application: Klipper
 ```
 
 Each device will have a unique identifier. In the above example, `11aa22bb33cc` is the micro-controller's "canbus_uuid".
@@ -71,4 +71,11 @@ Some important notes when using this mode:
 
 * The "bridge mcu" is not actually on the CAN bus. Messages to and from it do not consume bandwidth on the CAN bus. The mcu can not be seen by other adapters that may be on the CAN bus.
 * It is necessary to configure the `can0` (or similar) interface in Linux in order to communicate with the bus. However, Linux CAN bus speed and CAN bus bit-timing options are ignored by Klipper. Currently, the CAN bus frequency is specified during "make menuconfig" and the bus speed specified in Linux is ignored.
-* Whenever the "bridge mcu" is reset, Linux will disable the corresponding `can0` interface. Generally, this may require running commands such as "ip up" to restart the interface. Thus, Klipper FIRMWARE_RESTART commands (or regular RESTART after a config change) may require restarting the `can0` interface.
+* Whenever the "bridge mcu" is reset, Linux will disable the corresponding `can0` interface. To ensure proper handling of FIRMWARE_RESTART and RESTART commands, it is recommended to replace `auto` with `allow-hotplug` in the `/etc/network/interfaces.d/can0` file. For example:
+
+```
+allow-hotplug can0
+iface can0 can static
+    bitrate 500000
+    up ifconfig $IFACE txqueuelen 128
+```

@@ -16,11 +16,11 @@ Carica il modello di prova per il ringing, che può essere trovato in [docs/prin
 
 * L'altezza dello strato (layer) consigliata è 0,2 o 0,25 mm.
 * I livelli di riempimento e superiori possono essere impostati su 0.
-* Use 1-2 perimeters, or even better the smooth vase mode with 1-2 mm base.
-* Use sufficiently high speed, around 80-100 mm/sec, for **external** perimeters.
-* Make sure that the minimum layer time is **at most** 3 seconds.
-* Make sure any "dynamic acceleration control" is disabled in the slicer.
-* Do not turn the model. The model has X and Y marks at the back of the model. Note the unusual location of the marks vs. the axes of the printer - it is not a mistake. The marks can be used later in the tuning process as a reference, because they show which axis the measurements correspond to.
+* Usa 1-2 perimetri, o meglio ancora la modalità vaso liscio con base da 1-2 mm.
+* Utilizzare velocità sufficientemente elevate, circa 80-100 mm/sec, per i perimetri **esterni**.
+* Assicurati che il tempo minimo per lo strato sia **al massimo** 3 secondi.
+* Assicurati che qualsiasi "controllo dinamico dell'accelerazione" sia disabilitato nello slicer.
+* Non girare il modello. Il modello ha segni X e Y sul retro del modello. Nota la posizione insolita dei segni rispetto agli assi della stampante: non è un errore. I contrassegni possono essere utilizzati successivamente nel processo di ottimizzazione come riferimento, poiché mostrano a quale asse corrispondono le misurazioni.
 
 ### Ringing frequency
 
@@ -31,7 +31,7 @@ First, measure the **ringing frequency**.
 1. Disable Pressure Advance: `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. If you have already added `[input_shaper]` section to the printer.cfg, execute `SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0` command. If you get "Unknown command" error, you can safely ignore it at this point and continue with the measurements.
 1. Execute the command: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5` Basically, we try to make ringing more pronounced by setting different large values for acceleration. This command will increase the acceleration every 5 mm starting from 1500 mm/sec^2: 1500 mm/sec^2, 2000 mm/sec^2, 2500 mm/sec^2 and so forth up until 7000 mm/sec^2 at the last band.
-1. Print the test model sliced with the suggested parameters.
+1. Stampa il modello di test sliced con i parametri suggeriti.
 1. You can stop the print earlier if the ringing is clearly visible and you see that acceleration gets too high for your printer (e.g. printer shakes too much or starts skipping steps).
 
    1. Use X and Y marks at the back of the model for reference. The measurements from the side with X mark should be used for X axis *configuration*, and Y mark - for Y axis configuration. Measure the distance *D* (in mm) between several oscillations on the part with X mark, near the notches, preferably skipping the first oscillation or two. To measure the distance between oscillations more easily, mark the oscillations first, then measure the distance between the marks with a ruler or calipers:|![Mark ringing](img/ringing-mark.jpg)|![Measure ringing](img/ringing-measure.jpg)|
@@ -81,7 +81,7 @@ Print the ringing test model as follows:
 1. Disable Pressure Advance: `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. Execute: `SET_INPUT_SHAPER SHAPER_TYPE=MZV`
 1. Execute the command: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
-1. Print the test model sliced with the suggested parameters.
+1. Stampa il modello di test sliced con i parametri suggeriti.
 
 If you see no ringing at this point, then MZV shaper can be recommended for use.
 

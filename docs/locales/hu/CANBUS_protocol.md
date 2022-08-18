@@ -18,19 +18,19 @@ Ez a parancs lekérdezi az összes olyan mikrovezérlőt, amely még nem kapott 
 
 A CMD_QUERY_UNASSIGNED üzenet formátuma: `<1-byte message_id = 0x00>`
 
-### CMD_SET_NODEID üzenet
+### CMD_SET_KLIPPER_NODEID üzenet
 
 Ez a parancs hozzárendel egy `canbus_nodeid` mikrokontrollert egy adott `canbus_uuid` mikrokontrollerhez.
 
-A CMD_SET_NODEID üzenet formátuma a következő: `<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`
+A CMD_SET_KLIPPER_NODEID üzenet formátuma: `<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>.`
 
 ### RESP_NEED_NODEID üzenet
 
-A RESP_NEED_NODEID üzenet formátuma a következő: `<1-byte message_id = 0x20><6-byte canbus_uuid>`
+A RESP_NEED_NODEID üzenet formátuma: `<1-byte message_id = 0x20><6-byte canbus_uuid><1-byte set_klipper_nodeid = 0x01>.`
 
 ## Adatcsomagok
 
-A CMD_SET_NODEID paranccsal nodeid-t kapott mikrokontroller adatcsomagokat küldhet és fogadhat.
+A CMD_SET_KLIPPER_NODEID paranccsal nodeid-ot kapott mikrokontroller adatcsomagokat küldhet és fogadhat.
 
 A csomópontot használó üzenetek csomagadatai (`canbus_nodeid * 2 + 256`) egyszerűen egy pufferbe kerülnek, és amikor egy teljes [mcu protokoll üzenet](Protocol.md) található, annak tartalmát elemezzük és feldolgozzuk. Az adatokat bájtfolyamként kezelik. Nem követelmény, hogy a Klipper üzenetblokk kezdete egyezzen a CAN-buszcsomag kezdetével.
 

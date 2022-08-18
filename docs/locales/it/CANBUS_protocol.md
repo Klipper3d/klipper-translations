@@ -18,19 +18,19 @@ Questo comando interroga tutti i microcontrollori a cui non è stato ancora asse
 
 Il formato del messaggio CMD_QUERY_UNASSIGNED è: `<1 byte message_id = 0x00>`
 
-### Messaggio CMD_SET_NODEID
+### CMD_SET_KLIPPER_NODEID messaggio
 
 Questo comando assegna un `canbus_nodeid` al microcontrollore con un dato `canbus_uuid`.
 
-Il formato del messaggio CMD_SET_NODEID è: `<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`
+Il formato del messaggio CMD_SET_KLIPPER_NODEID è: `<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`
 
 ### Messaggio RESP_NEED_NODEID
 
-Il formato del messaggio RESP_NEED_NODEID è: `<1-byte message_id = 0x20><6-byte canbus_uuid>`
+Il formato del messaggio RESP_NEED_NODEID è: `<1-byte message_id = 0x20><6-byte canbus_uuid><1-byte set_klipper_nodeid = 0x01>`
 
 ## Pacchetti dati
 
-Un microcontrollore a cui è stato assegnato un nodeid tramite il comando CMD_SET_NODEID può inviare e ricevere pacchetti di dati.
+Un microcontrollore a cui è stato assegnato un nodeid tramite il comando CMD_SET_KLIPPER_NODEID può inviare e ricevere pacchetti di dati.
 
 I dati del pacchetto nei messaggi che utilizzano l'ID bus CAN di ricezione del nodo (`canbus_nodeid * 2 + 256`) vengono semplicemente aggiunti a un buffer e quando viene trovato un [mcu protocol message](Protocol.md) completo, il suo contenuto viene analizzato ed elaborato . I dati vengono trattati come un flusso di byte: non è necessario che l'inizio di un blocco di messaggi Klipper sia allineato con l'inizio di un pacchetto bus CAN.
 

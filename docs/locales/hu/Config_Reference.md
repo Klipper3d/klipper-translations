@@ -1958,7 +1958,7 @@ Egyedi ADC hőmérséklet-érzékelők (tetszőleges számú szekciót lehet def
 
 ## Hőmérséklet-érzékelők
 
-A Klipper számos típusú hőmérséklet-érzékelő definícióját tartalmazza. Ezek az érzékelők bármely olyan konfigurációs szakaszban használhatók, amely hőmérséklet-érzékelőt igényel (például egy `[extruder]` vagy `[heated_bed]` szakaszban).
+A Klipper számos típusú hőmérséklet-érzékelő definícióját tartalmazza. Ezek az érzékelők bármely olyan konfigurációs szakaszban használhatók, amely hőmérséklet-érzékelőt igényel (például az `[extruder]` vagy a `[heater_bed]` szakaszban).
 
 ### Közös termisztorok
 

@@ -8,10 +8,10 @@ Unlike other 3D printer firmware options, a printer running Klipper utilizes a s
 
 ## Workflow Overview
 
-A typical workflow for printing a file might look like this:
+Ein typischer Workflow um eine Datei zu drucken kann so aussehen:
 
-1. Slicing is completed and the file is uploaded for printing. During the upload, the file is processed and `[exclude_object]` markers are added to the file. Alternately, slicers may be configured to prepare object exclusion markers natively, or in it's own pre-processing step.
-1. When printing starts, Klipper will reset the `[exclude_object]` [status](Status_Reference.md#exclude_object).
+1. Das Slicen ist abgeschlossen und die Datei wird auf den Drucker geladen. Während des Uploads wird die Datei verarbeitet und `[exclude_object]` Marker werden hinzugefügt. Alternativ können Slicer diese Marker hinzufügen, sofern sie es unterstützen.
+1. Wenn der Druck startet setzt Klipper den `[exclude_object]` [Status](Status_Reference.md#exclude_object) zurück.
 1. When Klipper processes the `EXCLUDE_OBJECT_DEFINE` block, it will update the status with the known objects and pass it on to clients.
 1. The client may use that information to present a UI to the user so that progress can be tracked. Klipper will update the status to include the currently printing object which the client can use for display purposes.
 1. If the user requests that an object be cancelled, the client will issue an `EXCLUDE_OBJECT NAME=<name>` command to Klipper.

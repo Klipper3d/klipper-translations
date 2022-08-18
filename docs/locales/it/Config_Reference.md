@@ -1937,7 +1937,7 @@ Sensori di temperatura generici. È possibile definire un numero qualsiasi di se
 
 ## Temperature sensors
 
-Klipper include definizioni per molti tipi di sensori di temperatura. Questi sensori possono essere utilizzati in qualsiasi sezione di configurazione che richieda un sensore di temperatura (come una sezione `[extruder]` o `[heated_bed]`).
+Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heater_bed]` section).
 
 ### Termistori comuni
 

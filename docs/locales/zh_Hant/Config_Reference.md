@@ -1904,7 +1904,7 @@ extruder:
 
 ## 溫度傳感器
 
-Klipper 包括許多型別的溫度感測器的定義。這些感測器可以在任何需要溫度感測器的配置分段中使用（例如`[extruder]`或`[heated_bed]`分段）。
+Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heater_bed]` section).
 
 ### 常見熱敏電阻
 

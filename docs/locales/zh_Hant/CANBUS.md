@@ -4,7 +4,7 @@
 
 ## 裝置硬體
 
-Klipper目前只支援 stm32 晶片的CAN。此外，微控制器晶片必須支援 CAN，而且你使用的主板必須有 CAN 收發器。
+Klipper currently supports CAN on stm32 and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.
 
 要針對 CAN 進行編譯，請執行 ` make menuconfig`並選擇"CAN Bus"作為通訊介面。最後，編譯微控制器程式碼並將其刷寫到目標控制版上。
 
@@ -45,7 +45,7 @@ CAN 匯流排上的每個微控制器都根據編碼到每個微控制器中的�
 如果檢測到未初始化的 CAN 裝置，上述命令將報告如下行：
 
 ```
-Found canbus_uuid=11aa22bb33cc
+Found canbus_uuid=11aa22bb33cc, Application: Klipper
 ```
 
 每個裝置將有一個獨特的識別符號。在上面的例子中，`11aa22bb33cc`是微控制器'的"canbus_uuid" 。
@@ -71,4 +71,11 @@ canbus_uuid: 11aa22bb33cc
 
 * "橋接MCU”實際上不在 CAN bus上。消息進出不會消耗 CAN bus上的帶寬。可能在 CAN bus上的其他適配器無法看到該 mcu。
 * 為了與總線通信，必須在 Linux 中配置 `can0`（或類似的）接口。但是，Klipper 忽略了 Linux CAN 總線速度和 CAN 總線位定時選項。目前，CAN 總線頻率在“make menuconfig”期間指定，Linux 中指定的總線速度被忽略。
-* 每當重置“bridge mcu”時，Linux 將禁用相應的`can0`接口。通常，這可能需要運行諸如“ip up”之類的命令來重新啟動接口。因此，Klipper FIRMWARE_RESTART 命令（或配置更改後的常規 RESTART）可能需要重新啟動`can0`接口。
+* Whenever the "bridge mcu" is reset, Linux will disable the corresponding `can0` interface. To ensure proper handling of FIRMWARE_RESTART and RESTART commands, it is recommended to replace `auto` with `allow-hotplug` in the `/etc/network/interfaces.d/can0` file. For example:
+
+```
+allow-hotplug can0
+iface can0 can static
+    bitrate 500000
+    up ifconfig $IFACE txqueuelen 128
+```

@@ -17,6 +17,15 @@ A következő információk a [bed_mesh](Config_Reference.md#bed_mesh) objektumb
 - `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: Az aktuálisan aktív bed_mesh-re vonatkozó információk.
 - `profiles`: A BED_MESH_PROFILE használatával beállított, jelenleg definiált profilok halmaza.
 
+## bed_screws
+
+A következő információk a `Config_Reference.md#bed_screws` objektumban találhatók:
+
+- `is_active`: True értéket ad vissza, ha az ágycsavarok beállítási eszköze jelenleg aktív.
+- `state`: Az ágycsavarok beállítási szerszámának állapota. A következő karakterláncok egyike: "adjust", "fine".
+- `current_screw`: Az aktuálisan beállított csavar indexe.
+- `accepted_screws`: Az elfogadott csavarok száma.
+
 ## configfile
 
 A következő információk a `configfile` objektumban találhatók (ez az objektum mindig elérhető):
