@@ -1,6 +1,6 @@
 # Yusuf Yavuzyigit <yusufyavuzyigit25@gmail.com>, 2021, 2025.
 # Oguz <mustafa.oguz@live.com>, 2022.
-# Mustafa Said Ağca <m.said.agca@gmail.com>, 2022.
+# Mustafa Said Ağca <m.said.agca@gmail.com>, 2022, 2025.
 # Kaan Özbilek <info@kaanozbilek.com>, 2023.
 # Kursat <sitting_1907@hotmail.com>, 2023, 2025.
 # Semih <semihbrn10@gmail.com>, 2024.
@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Yusuf Yavuzyigit <yusufyavuzyigit25@gmail.com>\n"
+"Last-Translator: Mustafa Said Ağca <m.said.agca@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/overview/"
 "tr/>\n"
 "Language: tr\n"
