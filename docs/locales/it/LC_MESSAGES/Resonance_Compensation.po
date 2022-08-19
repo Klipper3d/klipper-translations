@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-18 04:18+0000\n"
+"PO-Revision-Date: 2022-08-19 13:22+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "resonance_compensation/it/>\n"
@@ -887,36 +887,41 @@ msgstr ""
 
 #: docs/Resonance_Compensation.md:block 61 (ordered list)
 msgid "`SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`"
-msgstr ""
+msgstr "`SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`"
 
 #: docs/Resonance_Compensation.md:block 61 (ordered list)
 msgid "`SET_PRESSURE_ADVANCE ADVANCE=0`"
-msgstr ""
+msgstr "`SET_PRESSURE_ADVANCE ADVANCE=0`"
 
 #: docs/Resonance_Compensation.md:block 61 (ordered list)
 msgid ""
 "`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=60 SHAPER_FREQ_Y=60`"
 msgstr ""
+"`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=60 SHAPER_FREQ_Y=60`"
 
 #: docs/Resonance_Compensation.md:block 61 (ordered list)
 msgid ""
 "`TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 "
 "STEP_DELTA=500 STEP_HEIGHT=5`"
 msgstr ""
+"`TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 "
+"STEP_DELTA=500 STEP_HEIGHT=5`"
 
 #: docs/Resonance_Compensation.md:block 63 (ordered list)
 msgid ""
 "`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=50 SHAPER_FREQ_Y=50`"
 msgstr ""
+"`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=50 SHAPER_FREQ_Y=50`"
 
 #: docs/Resonance_Compensation.md:block 65 (ordered list)
 msgid ""
 "`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=40 SHAPER_FREQ_Y=40`"
 msgstr ""
+"`SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=40 SHAPER_FREQ_Y=40`"
 
 #: docs/Resonance_Compensation.md:block 72 (ordered list)
 msgid "`SET_INPUT_SHAPER SHAPER_TYPE=EI SHAPER_FREQ_X=... SHAPER_FREQ_Y=...`"
-msgstr ""
+msgstr "`SET_INPUT_SHAPER SHAPER_TYPE=EI SHAPER_FREQ_X=... SHAPER_FREQ_Y=...`"
 
 #~ msgid ""
 #~ "Basic tuning requires measuring the ringing frequencies of the printer and "
