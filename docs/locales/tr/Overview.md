@@ -14,11 +14,11 @@ Klipper dökümantasyonuna hoş geldiniz. Eğer Klipper'e yeni iseniz , [özelli
 
 - [Kurulum](Installation.md): Klipper'ı indirmek için kılavuz.
 - [Yapı Referansları](Config_Reference.md): Yapılandırma değişkenlerinin açıklamaları.
-   - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
-- [Config checks](Config_checks.md): Verify basic pin settings in the config file.
-- [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
-   - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
-   - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
+   - [Dönüş Mesafesi](Rotation_Distance.md): Step motor parametresi rotation_distance hesaplaması.
+- [Konfigürasyon gözden geçirme](Config_checks.md): Konfigürasyon dosyasındaki temel pin ayarlarını doğrulayın.
+- [Baskı yatağı düzeyi](Bed_Level.md): Klipper'da "baskı yatağı düzeyleme" hakkında bilgi.
+   - [Delta ayarı](Delta_Calibrate.md): Delta kinematik kalibrasyonu.
+   - [Probe ayarı](Probe_Calibrate.md): Otomatik Z probe'larının kalibrasyonu.
    - [BL-Touch](BLTouch.md): Configure a "BL-Touch" Z probe.
    - [Manual level](Manual_Level.md): Calibration of Z endstops (and similar).
    - [Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations.

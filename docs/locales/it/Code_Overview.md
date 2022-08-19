@@ -109,7 +109,7 @@ Passi utili:
 1. Acquisisci familiarità con lo strumento console.py (come descritto nel [documento di debug](Debugging.md)) e verifica la connettività al microcontrollore con esso. Questo strumento traduce il protocollo di comunicazione del microcontrollore di basso livello in un formato leggibile dall'uomo.
 1. Aggiungi il supporto per l'invio del timer da interrupt hardware. Vedere Klipper [commit 970831ee](https://github.com/Klipper3d/klipper/commit/970831ee0d3b91897196e92270d98b2a3067427f) come esempio dei passaggi 1-5 eseguiti per l'architettura LPC176x.
 1. Visualizza il supporto di input e output GPIO di base. Vedi Klipper [commit c78b9076](https://github.com/Klipper3d/klipper/commit/c78b90767f19c9e8510c3155b89fb7ad64ca3c54) come esempio di questo.
-1. Bring up additional peripherals - for example see Klipper commit [65613aed](https://github.com/Klipper3d/klipper/commit/65613aeddfb9ef86905cb1dade9e773a02ef3c27), [c812a40a](https://github.com/Klipper3d/klipper/commit/c812a40a3782415e454b04bf7bd2158a6f0ec8b5), and [c381d03a](https://github.com/Klipper3d/klipper/commit/c381d03aad5c3ee761169b7c7bced519cc14da29).
+1. Riporta periferiche aggiuntive, ad esempio consulta il commit di Klipper [65613aed](https://github.com/Klipper3d/klipper/commit/65613aeddfb9ef86905cb1dade9e773a02ef3c27), [c812a40a](https://github.com/Klipper3d/klipper/commit/c812a40a3782415e454b04bf7bd2158a6f0ec8b5), e [c381d03a](https://github.com/Klipper3d/klipper/commit/c381d03aad5c3ee761169b7c7bced519cc14da29).
 1. Crea un file di configurazione di Klipper di esempio nella directory config/. Testare il microcontrollore con il programma principale klippy.py.
 1. Prendi in considerazione l'aggiunta di build test case nella directory test/.
 
