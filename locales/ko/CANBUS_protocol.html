@@ -169,6 +169,12 @@
                   </a>
                 </li>
                 
+                <li class="md-select__item">
+                  <a href="/it/" hreflang="it" class="md-select__link">
+                    Muoversi
+                  </a>
+                </li>
+                
             </ul>
           </div>
         </div>
@@ -1235,8 +1241,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cmd_set_nodeid" class="md-nav__link">
-    CMD_SET_NODEID 메시지
+  <a href="#cmd_set_klipper_nodeid-message" class="md-nav__link">
+    CMD_SET_KLIPPER_NODEID message
   </a>
   
 </li>
@@ -1287,13 +1293,13 @@
 <h3 id="cmd_query_unassigned">CMD_QUERY_UNASSIGNED 메시지<a class="headerlink" href="#cmd_query_unassigned" title="Permanent link">&para;</a></h3>
 <p>이 명령은 아직 <code>canbus_nodeid</code>가 할당되지 않은 모든 마이크로 컨트롤러를 나타냅니다. 할당되지 않은 마이크로 컨트롤러는 RESP_NEED_NODEID 응답 메시지로 응답합니다.</p>
 <p>CMD_QUERY_UNASSIGNED 메시지 형식은 다음과 같습니다: <code>&lt;1-byte message_id = 0x00&gt;</code></p>
-<h3 id="cmd_set_nodeid">CMD_SET_NODEID 메시지<a class="headerlink" href="#cmd_set_nodeid" title="Permanent link">&para;</a></h3>
+<h3 id="cmd_set_klipper_nodeid-message">CMD_SET_KLIPPER_NODEID message<a class="headerlink" href="#cmd_set_klipper_nodeid-message" title="Permanent link">&para;</a></h3>
 <p>이 명령은<code>canbus_uuid</code>가 지정된 마이크로 컨트롤러에 <code>canbus_nodeid</code>를 할당합니다.</p>
-<p>CMD_SET_NODEID 메시지 형식은 다음과 같습니다: <code>&lt;1-byte message_id = 0x01&gt;&lt;6-byte canbus_uuid&gt;&lt;1-byte canbus_nodeid&gt;</code></p>
+<p>The CMD_SET_KLIPPER_NODEID message format is: <code>&lt;1-byte message_id = 0x01&gt;&lt;6-byte canbus_uuid&gt;&lt;1-byte canbus_nodeid&gt;</code></p>
 <h3 id="resp_need_nodeid">RESP_NEED_NODEID 메시지<a class="headerlink" href="#resp_need_nodeid" title="Permanent link">&para;</a></h3>
-<p>RESP_NEED_NODEID 메시지 형식은 다음과 같습니다: <code>&lt;1-byte message_id = 0x20&gt;&lt;6-byte canbus_uuid&gt;</code></p>
+<p>The RESP_NEED_NODEID message format is: <code>&lt;1-byte message_id = 0x20&gt;&lt;6-byte canbus_uuid&gt;&lt;1-byte set_klipper_nodeid = 0x01&gt;</code></p>
 <h2 id="_2">데이터 패킷<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>CMD_SET_NODEID 명령을 통해 nodeid가 할당된 마이크로 컨트롤러는 데이터 패킷을 보내고 받을 수 있습니다.</p>
+<p>A micro-controller that has been assigned a nodeid via the CMD_SET_KLIPPER_NODEID command can send and receive data packets.</p>
 <p>노드의 수신 CAN bus ID(<code>canbus_nodeid * 2 + 256</code>)를 사용하는 메시지의 패킷 데이터는 단순히 버퍼에 추가되고 완전한 <a href="Protocol.html">mcu protocol message</a> 가 발견되면 해당 내용을 구문 분석하고 처리합니다. 데이터는 바이트 스트림으로 처리됩니다 - CAN bus 패킷의 시작과 정렬하기 위해 Klipper 메시지 블록의 시작에 대한 요구 사항은 없습니다.</p>
 <p>유사하게, mcu 프로토콜 메시지 응답은 노드의 전송 CAN bus ID(<code>canbus_nodeid * 2 + 256 + 1</code>)와 함께 메시지 데이터를 하나 이상의 패킷으로 복사하여 마이크로 컨트롤러에서 호스트로 전송됩니다.</p>
 

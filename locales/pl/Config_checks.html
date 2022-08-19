@@ -169,6 +169,12 @@
                   </a>
                 </li>
                 
+                <li class="md-select__item">
+                  <a href="/it/" hreflang="it" class="md-select__link">
+                    Muoversi
+                  </a>
+                </li>
+                
             </ul>
           </div>
         </div>
@@ -1298,7 +1304,7 @@
 <h2 id="sprawdz-temperature">Sprawdź temperaturę<a class="headerlink" href="#sprawdz-temperature" title="Permanent link">&para;</a></h2>
 <p>Zacznij od sprawdzenia, czy temperatury są prawidłowo raportowane. Przejdź do zakładki Temperatura Octoprint.</p>
 <p><img alt="octoprint-temperature" src="img/octoprint-temperature.png" /></p>
-<p>Sprawdź, czy temperatura dyszy i złoża (jeśli dotyczy) jest obecna i nie wzrasta. Jeśli rośnie, odłącz zasilanie od drukarki. Jeśli temperatury nie rosnie, sprawdź ustawienia „sensor_type” i „sensor_pin” dla dyszy i/lub stołu.</p>
+<p>Sprawdź, czy temperatura dyszy i stołu (jeśli dotyczy) jest obecna i nie wzrasta. Jeśli rośnie, odłącz zasilanie od drukarki. Jeśli temperatury nie rosnie, sprawdź ustawienia „sensor_type” i „sensor_pin” dla dyszy i/lub stołu.</p>
 <h2 id="sprawdz-m112">Sprawdź M112<a class="headerlink" href="#sprawdz-m112" title="Permanent link">&para;</a></h2>
 <p>Przejść do karty terminala Octoprint i wyday polecenie M112 w oknie terminala. To polecenie żąda, aby Klipper przeszedł w stan "wyłączenia". Spowoduje odłączenie się ze urządzenia Octoprint od urządzenia Klipper - przejść do obszaru Połączenie i klikni "Połącz", aby spowodować ponowne połączenie się z urządzeniem Octoprint. Następnie przejść do karty Temperatura Octoprint i sprawdzić, czy temperatury są nadal aktualizowane i czy nie wzrastają. Jeśli temperatury wzrastają, odłączyć zasilanie od drukarki.</p>
 <p>Komenda M112 powoduje przejście Klippera w stan "shutdown". Opuszczenie tego stanu można wywołać komendą FIRMWARE_RESTART w zakładce terminala Octoprint.</p>

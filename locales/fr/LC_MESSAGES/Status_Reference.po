@@ -4,8 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2022-08-10 21:21+0000\n"
 "Last-Translator: Tl <rflma99@pm.me>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
-"status_reference/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/status_reference/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,8 +19,8 @@ msgid ""
 "Server](API_Server.md)."
 msgstr ""
 "Ce document est un référence au informations de status de l'imprimante dans "
-"Klipper [macros](Command_Templates.md), [display fields](Config_Reference."
-"md#display), et via l'[API Server](API_Server.md)."
+"Klipper [macros](Command_Templates.md), [display "
+"fields](Config_Reference.md#display), et via l'[API Server](API_Server.md)."
 
 msgid ""
 "The fields in this document are subject to change - if using an attribute be"
@@ -872,6 +871,36 @@ msgstr ""
 #: docs/Status_Reference.md:block 59 (unordered list)
 msgid ""
 "`z_position_upper`: Last probe attempt just greater than the current height."
+msgstr ""
+
+#: docs/Status_Reference.md:block 10 (header)
+msgid "bed_screws"
+msgstr ""
+
+#: docs/Status_Reference.md:block 11 (paragraph)
+msgid ""
+"The following information is available in the "
+"`Config_Reference.md#bed_screws` object:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 12 (unordered list)
+msgid ""
+"`is_active`: Returns True if the bed screws adjustment tool is currently "
+"active."
+msgstr ""
+
+#: docs/Status_Reference.md:block 12 (unordered list)
+msgid ""
+"`state`: The bed screws adjustment tool state. It is one of the following "
+"strings: \"adjust\", \"fine\"."
+msgstr ""
+
+#: docs/Status_Reference.md:block 12 (unordered list)
+msgid "`current_screw`: The index for the current screw being adjusted."
+msgstr ""
+
+#: docs/Status_Reference.md:block 12 (unordered list)
+msgid "`accepted_screws`: The number of accepted screws."
 msgstr ""
 
 #~ msgid "neopixel / dotstar"

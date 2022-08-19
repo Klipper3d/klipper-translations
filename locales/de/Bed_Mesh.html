@@ -169,6 +169,12 @@
                   </a>
                 </li>
                 
+                <li class="md-select__item">
+                  <a href="/it/" hreflang="it" class="md-select__link">
+                    Muoversi
+                  </a>
+                </li>
+                
             </ul>
           </div>
         </div>
@@ -1213,16 +1219,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#grundkonfiguration" class="md-nav__link">
-    Grundkonfiguration
+  <a href="#grundlegende-konfiguration" class="md-nav__link">
+    Grundlegende Konfiguration
   </a>
   
-    <nav class="md-nav" aria-label="Grundkonfiguration">
+    <nav class="md-nav" aria-label="Grundlegende Konfiguration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rectangular-beds" class="md-nav__link">
-    Rectangular Beds
+  <a href="#rechteckiges-druckbett" class="md-nav__link">
+    Rechteckiges Druckbett
   </a>
   
 </li>
@@ -1355,9 +1361,9 @@
 <h1 id="bed-mesh">Bed Mesh<a class="headerlink" href="#bed-mesh" title="Permanent link">&para;</a></h1>
 <p>Das Modul Bed Mesh kann verwendet werden, um Unregelmäßigkeiten der Bettoberfläche auszugleichen und so eine bessere erste Schicht über das gesamte Bett zu erzielen. Es ist zu beachten, dass eine softwarebasierte Korrektur keine perfekten Ergebnisse erzielen kann, sondern nur eine Annäherung an die Form des Bettes. Bed Mesh kann auch keine mechanischen und elektrischen Probleme kompensieren. Wenn eine Achse schief steht oder ein Messtaster nicht genau ist, erhält das bed_mesh-Modul keine genauen Ergebnisse aus dem Messvorgang.</p>
 <p>Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See <a href="Probe_Calibrate.html">Probe Calibrate</a> and Z_ENDSTOP_CALIBRATE in <a href="Manual_Level.html">Manual Level</a> for more information.</p>
-<h2 id="grundkonfiguration">Grundkonfiguration<a class="headerlink" href="#grundkonfiguration" title="Permanent link">&para;</a></h2>
-<h3 id="rectangular-beds">Rectangular Beds<a class="headerlink" href="#rectangular-beds" title="Permanent link">&para;</a></h3>
-<p>This example assumes a printer with a 250 mm x 220 mm rectangular bed and a probe with an x-offset of 24 mm and y-offset of 5 mm.</p>
+<h2 id="grundlegende-konfiguration">Grundlegende Konfiguration<a class="headerlink" href="#grundlegende-konfiguration" title="Permanent link">&para;</a></h2>
+<h3 id="rechteckiges-druckbett">Rechteckiges Druckbett<a class="headerlink" href="#rechteckiges-druckbett" title="Permanent link">&para;</a></h3>
+<p>Dieses Beispiel geht von einem Drucker mit einem rechteckigen Bett von 250 mm x 220 mm und einem Taster mit einem x-Versatz von 24 mm und einem y-Versatz von 5 mm aus.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1367,8 +1373,8 @@ probe_count: 5, 3
 </code></pre></div>
 
 <ul>
-<li><code>speed: 120</code> <em>Default Value: 50</em> The speed in which the tool moves between points.</li>
-<li><code>horizontal_move_z: 5</code> <em>Default Value: 5</em> The Z coordinate the probe rises to prior to traveling between points.</li>
+<li><code>speed: 120</code> <em>Standardwert: 50</em> Die Geschwindigkeit, mit der sich der Druckkopf zwischen den Punkten bewegt.</li>
+<li><code>horizontal_move_z: 5</code> <em>Standardwert: 5</em> Die Z-Koordinate, auf die der Messtaster ansteigt, bevor er sich zwischen Punkten bewegt.</li>
 <li><code>mesh_min: 35, 6</code> <em>Required</em> The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.</li>
 <li><code>mesh_max: 240, 198</code> <em>Required</em> The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with <code>mesh_min</code>, this coordiante is relative to the probe's location.</li>
 <li><code>probe_count: 5, 3</code> <em>Default Value: 3, 3</em> The number of points to probe on each axis, specified as X, Y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie <code>probe_count: 3</code>. Note that a mesh requires a minimum probe_count of 3 along each axis.</li>

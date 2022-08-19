@@ -169,6 +169,12 @@
                   </a>
                 </li>
                 
+                <li class="md-select__item">
+                  <a href="/it/" hreflang="it" class="md-select__link">
+                    Muoversi
+                  </a>
+                </li>
+                
             </ul>
           </div>
         </div>
@@ -1290,8 +1296,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#testing-custom-axes" class="md-nav__link">
-    Testing custom axes
+  <a href="#test-di-assi-personalizzati" class="md-nav__link">
+    Test di assi personalizzati
   </a>
   
 </li>
@@ -1347,7 +1353,7 @@
 
 <h1 id="misurazione-delle-risonanze">Misurazione delle risonanze<a class="headerlink" href="#misurazione-delle-risonanze" title="Permanent link">&para;</a></h1>
 <p>Klipper ha il supporto integrato per l'accelerometro ADXL345, che può essere utilizzato per misurare le frequenze di risonanza della stampante per diversi assi, e per l'autotuning <a href="Resonance_Compensation.html">input shapers</a> per compensare le risonanze. Si noti che l'utilizzo di ADXL345 richiede alcune operazioni di saldatura e crimpatura. ADXL345 può essere collegato direttamente a un Raspberry Pi o a un'interfaccia SPI di una scheda MCU (deve essere ragionevolmente veloce).</p>
-<p>When sourcing ADXL345, be aware that there is a variety of different PCB board designs and different clones of them. Make sure that the board supports SPI mode (small number of boards appear to be hard-configured for I2C by pulling SDO to GND), and, if it is going to be connected to a 5V printer MCU, that it has a voltage regulator and a level shifter.</p>
+<p>Quando acquisti ADXL345, tieni presente che esiste una varietà di diversi design di schede PCB e diversi cloni di essi. Assicurati che la scheda supporti la modalità SPI (un piccolo numero di schede sembra essere configurato in modo rigido per I2C trascinando SDO su GND) e, se deve essere collegato a un MCU per stampante da 5 V, che abbia un regolatore di tensione e un cambio di livello.</p>
 <h2 id="istruzioni-per-linstallazione">Istruzioni per l'installazione<a class="headerlink" href="#istruzioni-per-linstallazione" title="Permanent link">&para;</a></h2>
 <h3 id="cablaggio">Cablaggio<a class="headerlink" href="#cablaggio" title="Permanent link">&para;</a></h3>
 <p>Devi connettere ADXL345 al tuo Raspberry Pi tramite SPI. Si noti che la connessione I2C, suggerita dalla documentazione di ADXL345, ha un throughput troppo basso e <strong>non funzionerà</strong>. Lo schema di connessione consigliato:</p>
@@ -1392,11 +1398,11 @@
 </tr>
 </tbody>
 </table>
-<p>An alternative to the ADXL345 is the MPU-9250 (or MPU-6050). This accelerometer has been tested to work over I2C on the RPi at 400kbaud. Recommended connection scheme for I2C:</p>
+<p>Un'alternativa all'ADXL345 è l'MPU-9250 (o MPU-6050). Questo accelerometro è stato testato per funzionare su I2C su RPi a 400kbaud. Schema di connessione consigliato per I2C:</p>
 <table>
 <thead>
 <tr>
-<th align="center">MPU-9250 pin</th>
+<th align="center">pin MPU-9250</th>
 <th align="center">RPi pin</th>
 <th align="center">Nome pin RPi</th>
 </tr>
@@ -1434,19 +1440,19 @@
 <p>Si noti che su una stampante con piatto mobile è necessario progettare 2 supporti: uno per la testina e uno per il piatto, ed eseguire le misurazioni due volte. Per maggiori dettagli, vedere la <a href="#bed-slinger-printers">sezione</a> corrispondente.</p>
 <p><strong>Attenzione:</strong> assicurati che l'accelerometro e le eventuali viti che lo tengono in posizione non tocchino parti metalliche della stampante. Fondamentalmente, il supporto deve essere progettato in modo tale da garantire l'isolamento elettrico dell'accelerometro dal telaio della stampante. Non riuscendo a garantire che può creare un loop di massa nel sistema che potrebbe danneggiare l'elettronica.</p>
 <h3 id="installazione-software">Installazione software<a class="headerlink" href="#installazione-software" title="Permanent link">&para;</a></h3>
-<p>Note that resonance measurements and shaper auto-calibration require additional software dependencies not installed by default. First, run on your Raspberry Pi the following commands:</p>
+<p>Si noti che le misurazioni della risonanza e la calibrazione automatica dello shaper richiedono dipendenze software aggiuntive non installate per impostazione predefinita. Innanzitutto, esegui sul tuo Raspberry Pi i seguenti comandi:</p>
 <div class="highlight"><pre><span></span><code>sudo apt update
 sudo apt install python3-numpy python3-matplotlib libatlas-base-dev
 </code></pre></div>
 
-<p>Next, in order to install NumPy in the Klipper environment, run the command:</p>
+<p>Quindi, per installare NumPy nell'ambiente Klipper, esegui il comando:</p>
 <div class="highlight"><pre><span></span><code>~/klippy-env/bin/pip install -v numpy
 </code></pre></div>
 
-<p>Note that, depending on the performance of the CPU, it may take <em>a lot</em> of time, up to 10-20 minutes. Be patient and wait for the completion of the installation. On some occasions, if the board has too little RAM the installation may fail and you will need to enable swap.</p>
+<p>Nota che, a seconda delle prestazioni della CPU, potrebbe volerci <em>molto</em> tempo, fino a 10-20 minuti. Sii paziente e attendi il completamento dell'installazione. In alcune occasioni, se la scheda ha poca RAM, l'installazione potrebbe non riuscire e sarà necessario abilitare la swap.</p>
 <p>Successivamente, controlla e segui le istruzioni nel <a href="RPi_microcontroller.html">documento RPi Microcontroller</a> per configurare "linux mcu" sul Raspberry Pi.</p>
 <p>Assicurati che il driver SPI di Linux sia abilitato eseguendo <code>sudo raspi-config</code> e abilitando SPI nel menu "Opzioni di interfaccia".</p>
-<p>For the ADXL345, add the following to the printer.cfg file:</p>
+<p>Per ADXL345, aggiungere quanto segue al file printer.cfg:</p>
 <div class="highlight"><pre><span></span><code>[mcu rpi]
 serial: /tmp/klipper_host_mcu
 
@@ -1456,11 +1462,11 @@ cs_pin: rpi:None
 [resonance_tester]
 accel_chip: adxl345
 probe_points:
-    100, 100, 20  # an example
+    100, 100, 20  # un esempio
 </code></pre></div>
 
 <p>Si consiglia di iniziare con 1 punto sonda, al centro del piano di stampa, leggermente al di sopra di esso.</p>
-<p>For the MPU-9250, make sure the Linux I2C driver is enabled and the baud rate is set to 400000 (see <a href="RPi_microcontroller.html#optional-enabling-i2c">Enabling I2C</a> section for more details). Then, add the following to the printer.cfg:</p>
+<p>Per l'MPU-9250, assicurarsi che il driver Linux I2C sia abilitato e che la velocità di trasmissione sia impostata su 400000 (consultare la sezione <a href="RPi_microcontroller.html#optional-enbling-i2c">Abilitazione di I2C</a> per maggiori dettagli). Quindi, aggiungi quanto segue a printer.cfg:</p>
 <div class="highlight"><pre><span></span><code>[mcu rpi]
 serial: /tmp/klipper_host_mcu
 
@@ -1471,7 +1477,7 @@ i2c_bus: i2c.1
 [resonance_tester]
 accel_chip: mpu9250
 probe_points:
-    100, 100, 20  # an example
+    100, 100, 20  # un esempio
 </code></pre></div>
 
 <p>Riavvia Klipper tramite il comando <code>RESTART</code>.</p>
@@ -1497,7 +1503,7 @@ probe_points:
 <p><strong>Attenzione!</strong> Assicurati di osservare la stampante per la prima volta, per assicurarti che le vibrazioni non diventino troppo violente (il comando <code>M112</code> può essere utilizzato per interrompere il test in caso di emergenza; si spera che non si verifichi questo però). Se le vibrazioni diventano troppo forti, puoi provare a specificare un valore inferiore al valore predefinito per il parametro <code>accel_per_hz</code> nella sezione <code>[resonance_tester]</code>, ad es.</p>
 <div class="highlight"><pre><span></span><code>[resonance_tester]
 accel_chip: adxl345
-accel_per_hz: 50  # default is 75
+accel_per_hz: 50  # default è 75
 probe_points: ...
 </code></pre></div>
 
@@ -1505,7 +1511,7 @@ probe_points: ...
 <div class="highlight"><pre><span></span><code>TEST_RESONANCES AXIS=Y
 </code></pre></div>
 
-<p>This will generate 2 CSV files (<code>/tmp/resonances_x_*.csv</code> and <code>/tmp/resonances_y_*.csv</code>). These files can be processed with the stand-alone script on a Raspberry Pi. To do that, run the following commands:</p>
+<p>Questo genererà 2 file CSV (<code>/tmp/resonances_x_*.csv</code> e <code>/tmp/resonances_y_*.csv</code>). Questi file possono essere elaborati con lo script autonomo su un Raspberry Pi. Per farlo, esegui i seguenti comandi:</p>
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_y_*.csv -o /tmp/shaper_calibrate_y.png
 </code></pre></div>
@@ -1533,24 +1539,24 @@ shaper_freq_y: 34.6
 shaper_type_y: mzv
 
 [printer]
-max_accel: 3000  # should not exceed the estimated max_accel for X and Y axes
+max_accel: 3000  # non dovrebbe superare il max_accel stimato per gli assi X e Y
 </code></pre></div>
 
 <p>oppure puoi scegliere tu stesso un'altra configurazione in base ai grafici generati: i picchi nella densità spettrale di potenza sui grafici corrispondono alle frequenze di risonanza della stampante.</p>
-<p>Nota che in alternativa puoi eseguire l'autocalibrazione dello input shaper da Klipper <a href="#input-shaper-auto-calibration">direttamente</a>, che può essere conveniente, ad esempio, per lo input shaper<a href="#input-shaper-re-calibrazione">ricalibrazione</a>.</p>
+<p>Nota che in alternativa puoi eseguire l'autocalibrazione dello input shaper da Klipper <a href="#input-shaper-auto-calibration">directly</a>, che può essere conveniente, ad esempio, per lo input shaper<a href="#input-shaper-re-calibrazione">re-calibration</a>.</p>
 <h3 id="stampanti-con-piatto-scorrevole">Stampanti con piatto scorrevole<a class="headerlink" href="#stampanti-con-piatto-scorrevole" title="Permanent link">&para;</a></h3>
 <p>Se la tua stampante ha un piatto scorrevole, dovrai cambiare la posizione dell'accelerometro tra le misurazioni per gli assi X e Y: misurare le risonanze dell'asse X con l'accelerometro collegato alla testa di stampa e le risonanze dell'asse Y - al piatto.</p>
 <p>Tuttavia, puoi anche collegare due accelerometri contemporaneamente, sebbene debbano essere collegati a schede diverse (ad esempio, a una scheda RPi e MCU della stampante) o a due diverse interfacce SPI fisiche sulla stessa scheda (raramente disponibili). Quindi possono essere configurati nel modo seguente:</p>
 <div class="highlight"><pre><span></span><code>[adxl345 hotend]
-# Assuming `hotend` chip is connected to an RPi
+# Supponendo che il chip &quot;hotend&quot; sia collegato a un RPi
 cs_pin: rpi:None
 
 [adxl345 bed]
-# Assuming `bed` chip is connected to a printer MCU board
-cs_pin: ...  # Printer board SPI chip select (CS) pin
+# Supponendo che il chip `bed` sia collegato a una scheda MCU della stampante
+cs_pin: ...  # Pin di selezione chip SPI (CS) della scheda stampante
 
 [resonance_tester]
-# Assuming the typical setup of the bed slinger printer
+# Assumendo la configurazione tipo della stampante con piatto scorrevole
 accel_chip_x: adxl345 hotend
 accel_chip_y: adxl345 bed
 probe_points: ...
@@ -1600,7 +1606,7 @@ Recommended shaper is 3hump_ei @ 72.6 Hz
 <div class="highlight"><pre><span></span><code>[resonance_tester]
 accel_chip: ...
 probe_points: ...
-max_smoothing: 0.25  # an example
+max_smoothing: 0.25  # un esempio
 </code></pre></div>
 
 <p>Then, if you <a href="#input-shaper-re-calibration">rerun</a> the input shaper auto-tuning using <code>SHAPER_CALIBRATE</code> Klipper command in the future, it will use the stored <code>max_smoothing</code> value as a reference.</p>
@@ -1609,29 +1615,29 @@ max_smoothing: 0.25  # an example
 <p>In alternativa, segui <a href="Resonance_Compensation.html#selecting-max_accel">questa</a> parte della guida all'ottimizzazione dello input shaper e stampa il modello di test per scegliere sperimentalmente il parametro <code>max_accel</code>.</p>
 <p>Lo stesso avviso vale per lo input shaper <a href="#input-shaper-auto-calibration">auto-calibration</a> con il comando <code>SHAPER_CALIBRATE</code>: è comunque necessario scegliere il giusto valore di <code>max_accel</code> dopo l'auto-calibrazione, e il i limiti di accelerazione non verranno applicati automaticamente.</p>
 <p>Se stai eseguendo una ricalibrazione dello shaper e lo smoothing riportato per la configurazione dello shaper suggerita è quasi lo stesso di quello ottenuto durante la calibrazione precedente, questo passaggio può essere saltato.</p>
-<h3 id="testing-custom-axes">Testing custom axes<a class="headerlink" href="#testing-custom-axes" title="Permanent link">&para;</a></h3>
-<p><code>TEST_RESONANCES</code> command supports custom axes. While this is not really useful for input shaper calibration, it can be used to study printer resonances in-depth and to check, for example, belt tension.</p>
-<p>To check the belt tension on CoreXY printers, execute</p>
+<h3 id="test-di-assi-personalizzati">Test di assi personalizzati<a class="headerlink" href="#test-di-assi-personalizzati" title="Permanent link">&para;</a></h3>
+<p>Il comando <code>TEST_RESONANCES</code> supporta assi personalizzati. Anche se questo non è molto utile per la calibrazione del input shaper, può essere utilizzato per studiare in profondità le risonanze della stampante e per controllare, ad esempio, la tensione della cinghia.</p>
+<p>Per controllare la tensione della cinghia sulle stampanti CoreXY, eseguire</p>
 <div class="highlight"><pre><span></span><code>TEST_RESONANCES AXIS=1,1 OUTPUT=raw_data
 TEST_RESONANCES AXIS=1,-1 OUTPUT=raw_data
 </code></pre></div>
 
-<p>and use <code>graph_accelerometer.py</code> to process the generated files, e.g.</p>
+<p>e usa <code>graph_accelerometer.py</code> per elaborare i file generati, ad es.</p>
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
 </code></pre></div>
 
-<p>which will generate <code>/tmp/resonances.png</code> comparing the resonances.</p>
-<p>For Delta printers with the default tower placement (tower A ~= 210 degrees, B ~= 330 degrees, and C ~= 90 degrees), execute</p>
+<p>che genererà <code>/tmp/resonances.png</code> confrontando le risonanze.</p>
+<p>Per le stampanti Delta con la posizione della torre predefinita (torre A ~= 210 gradi, B ~= 330 gradi e C ~= 90 gradi), eseguire</p>
 <div class="highlight"><pre><span></span><code>TEST_RESONANCES AXIS=0,1 OUTPUT=raw_data
 TEST_RESONANCES AXIS=-0.866025404,-0.5 OUTPUT=raw_data
 TEST_RESONANCES AXIS=0.866025404,-0.5 OUTPUT=raw_data
 </code></pre></div>
 
-<p>and then use the same command</p>
+<p>e quindi utilizzare lo stesso comando</p>
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
 </code></pre></div>
 
-<p>to generate <code>/tmp/resonances.png</code> comparing the resonances.</p>
+<p>per generare <code>/tmp/resonances.png</code> confrontando le risonanze.</p>
 <h2 id="calibrazione-automatica-input-shaper">Calibrazione automatica Input Shaper<a class="headerlink" href="#calibrazione-automatica-input-shaper" title="Permanent link">&para;</a></h2>
 <p>Besides manually choosing the appropriate parameters for the input shaper feature, it is also possible to run the auto-tuning for the input shaper directly from Klipper. Run the following command via Octoprint terminal:</p>
 <div class="highlight"><pre><span></span><code>SHAPER_CALIBRATE
@@ -1673,27 +1679,27 @@ TEST_RESONANCES AXIS=X OUTPUT=raw_data
 </code></pre></div>
 
 <p>ignoring any errors for <code>SET_INPUT_SHAPER</code> command. For <code>TEST_RESONANCES</code> command, specify the desired test axis. The raw data will be written into <code>/tmp</code> directory on the RPi.</p>
-<p>The raw data can also be obtained by running the command <code>ACCELEROMETER_MEASURE</code> command twice during some normal printer activity - first to start the measurements, and then to stop them and write the output file. Refer to <a href="G-Codes.html#adxl345">G-Codes</a> for more details.</p>
-<p>The data can be processed later by the following scripts: <code>scripts/graph_accelerometer.py</code> and <code>scripts/calibrate_shaper.py</code>. Both of them accept one or several raw csv files as the input depending on the mode. The graph_accelerometer.py script supports several modes of operation:</p>
+<p>I dati grezzi possono anche essere ottenuti eseguendo il comando <code>ACCELEROMETER_MEASURE</code> due volte durante una normale attività della stampante: prima per avviare le misurazioni, quindi per interromperle e scrivere il file di output. Fare riferimento a <a href="G-Codes.html#adxl345">G-Codes</a> per maggiori dettagli.</p>
+<p>I dati possono essere elaborati successivamente dai seguenti script: <code>scripts/graph_accelerometer.py</code> e <code>scripts/calibrate_shaper.py</code>. Entrambi accettano uno o più file CSV non elaborati come input a seconda della modalità. Lo script graph_accelerometer.py supporta diverse modalità operative:</p>
 <ul>
-<li>plotting raw accelerometer data (use <code>-r</code> parameter), only 1 input is supported;</li>
-<li>plotting a frequency response (no extra parameters required), if multiple inputs are specified, the average frequency response is computed;</li>
-<li>comparison of the frequency response between several inputs (use <code>-c</code> parameter); you can additionally specify which accelerometer axis to consider via <code>-a x</code>, <code>-a y</code> or <code>-a z</code> parameter (if none specified, the sum of vibrations for all axes is used);</li>
-<li>plotting the spectrogram (use <code>-s</code> parameter), only 1 input is supported; you can additionally specify which accelerometer axis to consider via <code>-a x</code>, <code>-a y</code> or <code>-a z</code> parameter (if none specified, the sum of vibrations for all axes is used).</li>
+<li>tracciando i dati grezzi dell'accelerometro (usa il parametro <code>-r</code>), è supportato solo 1 input;</li>
+<li>tracciando una risposta in frequenza (non sono richiesti parametri aggiuntivi), se sono specificati più ingressi, viene calcolata la risposta in frequenza media;</li>
+<li>confronto della risposta in frequenza tra più ingressi (usare il parametro <code>-c</code>); puoi inoltre specificare quale asse dell'accelerometro considerare tramite il parametro <code>-a x</code>, <code>-a y</code> o <code>-a z</code> (se non specificato, viene utilizzata la somma delle vibrazioni per tutti gli assi);</li>
+<li>tracciando lo spettrogramma (usare il parametro <code>-s</code>), è supportato solo 1 input; è inoltre possibile specificare quale asse dell'accelerometro considerare tramite il parametro <code>-a x</code>, <code>-a y</code> o <code>-a z</code> (se non specificato, viene utilizzata la somma delle vibrazioni per tutti gli assi).</li>
 </ul>
-<p>Note that graph_accelerometer.py script supports only the raw_data*.csv files and not resonances*.csv or calibration_data*.csv files.</p>
-<p>For example,</p>
+<p>Si noti che lo script graph_accelerometer.py supporta solo i file raw_data*.csv e non i file resonances*.csv o calibration_data*.csv.</p>
+<p>Per esempio,</p>
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/graph_accelerometer.py /tmp/raw_data_x_*.csv -o /tmp/resonances_x.png -c -a z
 </code></pre></div>
 
-<p>will plot the comparison of several <code>/tmp/raw_data_x_*.csv</code> files for Z axis to <code>/tmp/resonances_x.png</code> file.</p>
-<p>The shaper_calibrate.py script accepts 1 or several inputs and can run automatic tuning of the input shaper and suggest the best parameters that work well for all provided inputs. It prints the suggested parameters to the console, and can additionally generate the chart if <code>-o output.png</code> parameter is provided, or the CSV file if <code>-c output.csv</code> parameter is specified.</p>
-<p>Providing several inputs to shaper_calibrate.py script can be useful if running some advanced tuning of the input shapers, for example:</p>
+<p>traccerà il confronto di diversi file <code>/tmp/raw_data_x_*.csv</code> per l'asse Z con il file <code>/tmp/resonances_x.png</code>.</p>
+<p>Lo script shaper_calibrate.py accetta 1 o più input e può eseguire l'ottimizzazione automatica dello shaper di input e suggerire i parametri migliori che funzionano bene per tutti gli input forniti. Stampa i parametri suggeriti sulla console e può inoltre generare il grafico se viene fornito il parametro <code>-o output.png</code>, o il file CSV se viene specificato il parametro <code>-c output.csv</code>.</p>
+<p>Fornire diversi input allo script shaper_calibrate.py può essere utile se si esegue un'ottimizzazione avanzata degli shaper di input, ad esempio:</p>
 <ul>
-<li>Running <code>TEST_RESONANCES AXIS=X OUTPUT=raw_data</code> (and <code>Y</code> axis) for a single axis twice on a bed slinger printer with the accelerometer attached to the toolhead the first time, and the accelerometer attached to the bed the second time in order to detect axes cross-resonances and attempt to cancel them with input shapers.</li>
-<li>Running <code>TEST_RESONANCES AXIS=Y OUTPUT=raw_data</code> twice on a bed slinger with a glass bed and a magnetic surfaces (which is lighter) to find the input shaper parameters that work well for any print surface configuration.</li>
-<li>Combining the resonance data from multiple test points.</li>
-<li>Combining the resonance data from 2 axis (e.g. on a bed slinger printer to configure X-axis input_shaper from both X and Y axes resonances to cancel vibrations of the <em>bed</em> in case the nozzle 'catches' a print when moving in X axis direction).</li>
+<li>Esecuzione di <code>TEST_RESONANCES AXIS=X OUTPUT=raw_data</code> (e asse <code>Y</code>) per un singolo asse due volte su una stampante con piatto scorrevole con l'accelerometro collegato alla testa di stampa la prima volta e l'accelerometro collegato al piatto la seconda volta in modo da rilevare le risonanze incrociate degli assi e tentare di cancellarle con gli input shaper.</li>
+<li>Esecuzione di <code>TEST_RESONANCES AXIS=Y OUTPUT=raw_data</code> due volte su un supporto da piatto con un piatto di vetro e una superficie magnetica (che è più leggera) per trovare i parametri dello shaper di input che funzionano bene per qualsiasi configurazione della superficie di stampa.</li>
+<li>Combinazione dei dati di risonanza da più punti di test.</li>
+<li>Combinando i dati di risonanza da 2 assi (ad es. su una stampante con piatto scorrevole per configurare input_shaper dell'asse X dalle risonanze degli assi X e Y per annullare le vibrazioni del <em>piatto</em> nel caso in cui l'ugello "cattura" una stampa quando si sposta nella direzione dell'asse X ).</li>
 </ul>
 
               

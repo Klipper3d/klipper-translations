@@ -169,6 +169,12 @@
                   </a>
                 </li>
                 
+                <li class="md-select__item">
+                  <a href="/it/" hreflang="it" class="md-select__link">
+                    Muoversi
+                  </a>
+                </li>
+                
             </ul>
           </div>
         </div>
@@ -1273,7 +1279,7 @@
 <p>It is also possible to define a new printer configuration from scratch. However, this requires significant technical knowledge about the printer and its electronics. It is recommended that most users start with an appropriate configuration file. If creating a new custom printer configuration file, then start with the closest example <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config file</a> and use the Klipper <a href="Config_Reference.html">config reference</a> for further information.</p>
 <h2 id="bir-isletim-sistemi-goruntusunu-hazrlama">Bir işletim sistemi görüntüsünü hazırlama<a class="headerlink" href="#bir-isletim-sistemi-goruntusunu-hazrlama" title="Permanent link">&para;</a></h2>
 <p>Start by installing <a href="https://github.com/guysoft/OctoPi">OctoPi</a> on the Raspberry Pi computer. Use OctoPi v0.17.0 or later - see the <a href="https://github.com/guysoft/OctoPi/releases">OctoPi releases</a> for release information. One should verify that OctoPi boots and that the OctoPrint web server works. After connecting to the OctoPrint web page, follow the prompt to upgrade OctoPrint to v1.4.2 or later.</p>
-<p>After installing OctoPi and upgrading OctoPrint, it will be necessary to ssh into the target machine to run a handful of system commands. If using a Linux or MacOS desktop, then the "ssh" software should already be installed on the desktop. There are free ssh clients available for other desktops (eg, <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a>). Use the ssh utility to connect to the Raspberry Pi (ssh pi@octopi -- password is "raspberry") and run the following commands:</p>
+<p>OctoPi'yi kurduktan ve OctoPrint'i yükselttikten sonra, birkaç sistem komutunu çalıştırmak için hedef makineye ssh ile bağlanmak gerekecektir. Linux veya MacOS kullanıyorsanız, "ssh" yazılımı masaüstünde zaten yüklü olmalıdır. Diğer işletim sistemleri için ücretsiz ssh istemcileri mevcuttur (örneğin, <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a>). Raspberry Pi'ye bağlanmak için ssh yardımcı programını kullanın (ssh pi@octopi -- şifre "raspberry") ve aşağıdaki komutları çalıştırın:</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/Klipper3d/klipper
 ./klipper/scripts/install-octopi.sh
 </code></pre></div>

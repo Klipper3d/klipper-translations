@@ -860,6 +860,36 @@ msgid ""
 "`z_position_upper`: Last probe attempt just greater than the current height."
 msgstr ""
 
+#: docs/Status_Reference.md:block 10 (header)
+msgid "bed_screws"
+msgstr ""
+
+#: docs/Status_Reference.md:block 11 (paragraph)
+msgid ""
+"The following information is available in the "
+"`Config_Reference.md#bed_screws` object:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 12 (unordered list)
+msgid ""
+"`is_active`: Returns True if the bed screws adjustment tool is currently "
+"active."
+msgstr ""
+
+#: docs/Status_Reference.md:block 12 (unordered list)
+msgid ""
+"`state`: The bed screws adjustment tool state. It is one of the following "
+"strings: \"adjust\", \"fine\"."
+msgstr ""
+
+#: docs/Status_Reference.md:block 12 (unordered list)
+msgid "`current_screw`: The index for the current screw being adjusted."
+msgstr ""
+
+#: docs/Status_Reference.md:block 12 (unordered list)
+msgid "`accepted_screws`: The number of accepted screws."
+msgstr ""
+
 #~ msgid "neopixel / dotstar"
 #~ msgstr ""
 

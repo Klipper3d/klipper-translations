@@ -68,38 +68,16 @@ msgid ""
 "The CMD_QUERY_UNASSIGNED message format is: `<1-byte message_id = 0x00>`"
 msgstr "CMD_QUERY_UNASSIGNED 메시지 형식은 다음과 같습니다: `<1-byte message_id = 0x00>`"
 
-msgid "CMD_SET_NODEID message"
-msgstr "CMD_SET_NODEID 메시지"
-
 msgid ""
 "This command assigns a `canbus_nodeid` to the micro-controller with a given "
 "`canbus_uuid`."
 msgstr "이 명령은`canbus_uuid`가 지정된 마이크로 컨트롤러에 `canbus_nodeid`를 할당합니다."
 
-msgid ""
-"The CMD_SET_NODEID message format is: `<1-byte message_id = 0x01><6-byte "
-"canbus_uuid><1-byte canbus_nodeid>`"
-msgstr ""
-"CMD_SET_NODEID 메시지 형식은 다음과 같습니다: `<1-byte message_id = 0x01><6-byte "
-"canbus_uuid><1-byte canbus_nodeid>`"
-
 msgid "RESP_NEED_NODEID message"
 msgstr "RESP_NEED_NODEID 메시지"
 
-msgid ""
-"The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte "
-"canbus_uuid>`"
-msgstr ""
-"RESP_NEED_NODEID 메시지 형식은 다음과 같습니다: `<1-byte message_id = 0x20><6-byte "
-"canbus_uuid>`"
-
 msgid "Data Packets"
 msgstr "데이터 패킷"
-
-msgid ""
-"A micro-controller that has been assigned a nodeid via the CMD_SET_NODEID "
-"command can send and receive data packets."
-msgstr "CMD_SET_NODEID 명령을 통해 nodeid가 할당된 마이크로 컨트롤러는 데이터 패킷을 보내고 받을 수 있습니다."
 
 msgid ""
 "The packet data in messages using the node's receive CAN bus id "
@@ -132,6 +110,50 @@ msgid ""
 "bus](https://en.wikipedia.org/wiki/CAN_bus). See <CANBUS.md> for information"
 " on configuring Klipper with CAN bus."
 msgstr ""
+
+#: docs/CANBUS_protocol.md:block 11 (header)
+msgid "CMD_SET_KLIPPER_NODEID message"
+msgstr ""
+
+#: docs/CANBUS_protocol.md:block 13 (paragraph)
+msgid ""
+"The CMD_SET_KLIPPER_NODEID message format is: `<1-byte message_id = "
+"0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`"
+msgstr ""
+
+#: docs/CANBUS_protocol.md:block 15 (paragraph)
+msgid ""
+"The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte "
+"canbus_uuid><1-byte set_klipper_nodeid = 0x01>`"
+msgstr ""
+
+#: docs/CANBUS_protocol.md:block 17 (paragraph)
+msgid ""
+"A micro-controller that has been assigned a nodeid via the "
+"CMD_SET_KLIPPER_NODEID command can send and receive data packets."
+msgstr ""
+
+#~ msgid "CMD_SET_NODEID message"
+#~ msgstr "CMD_SET_NODEID 메시지"
+
+#~ msgid ""
+#~ "The CMD_SET_NODEID message format is: `<1-byte message_id = 0x01><6-byte "
+#~ "canbus_uuid><1-byte canbus_nodeid>`"
+#~ msgstr ""
+#~ "CMD_SET_NODEID 메시지 형식은 다음과 같습니다: `<1-byte message_id = 0x01><6-byte "
+#~ "canbus_uuid><1-byte canbus_nodeid>`"
+
+#~ msgid ""
+#~ "The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte "
+#~ "canbus_uuid>`"
+#~ msgstr ""
+#~ "RESP_NEED_NODEID 메시지 형식은 다음과 같습니다: `<1-byte message_id = 0x20><6-byte "
+#~ "canbus_uuid>`"
+
+#~ msgid ""
+#~ "A micro-controller that has been assigned a nodeid via the CMD_SET_NODEID "
+#~ "command can send and receive data packets."
+#~ msgstr "CMD_SET_NODEID 명령을 통해 nodeid가 할당된 마이크로 컨트롤러는 데이터 패킷을 보내고 받을 수 있습니다."
 
 #~ msgid ""
 #~ "This document describes the protocol Klipper uses to communicate over [CAN "

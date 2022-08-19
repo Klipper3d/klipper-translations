@@ -169,6 +169,12 @@
                   </a>
                 </li>
                 
+                <li class="md-select__item">
+                  <a href="/it/" hreflang="it" class="md-select__link">
+                    Muoversi
+                  </a>
+                </li>
+                
             </ul>
           </div>
         </div>
@@ -1274,7 +1280,7 @@
 <h1 id="canbus">CANBUS<a class="headerlink" href="#canbus" title="Permanent link">&para;</a></h1>
 <p>Diese Dokumentation beschreibt die Kompatibilität zwischen Klipper und Can bus.</p>
 <h2 id="gerate-hardware">Geräte-Hardware<a class="headerlink" href="#gerate-hardware" title="Permanent link">&para;</a></h2>
-<p>Klipper unterstützt zur Zeit nur CAN von STM32 Microprozessoren. Außerdem muss der Mikrocontroller-Chip CAN unterstützen und sich auf einer Platine befinden, die über einen CAN-Transceiver verfügt.</p>
+<p>Klipper currently supports CAN on stm32 and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.</p>
 <p>Um für CAN zu kompilieren, führen Sie <code>make menuconfig</code> aus und wählen Sie "CAN bus" als Kommunikationsschnittstelle. Schließlich kompilieren Sie den Mikrocontroller-Code und flashen ihn auf die Zielplatine.</p>
 <h2 id="host-hardware">Host Hardware<a class="headerlink" href="#host-hardware" title="Permanent link">&para;</a></h2>
 <p>Um einen CAN-Bus nutzen zu können, ist ein Host-Adapter erforderlich. Derzeit gibt es zwei gängige Optionen:</p>
@@ -1300,7 +1306,7 @@ iface can0 can static
 </code></pre></div>
 
 <p>Wenn nicht initialisierte CAN-Geräte erkannt werden, meldet der obige Befehl Zeilen wie folgt:</p>
-<div class="highlight"><pre><span></span><code>Found canbus_uuid=11aa22bb33cc
+<div class="highlight"><pre><span></span><code>Found canbus_uuid=11aa22bb33cc, Application: Klipper
 </code></pre></div>
 
 <p>Jedes Gerät hat eine eindeutige Kennung. Im obigen Beispiel ist <code>11aa22bb33cc</code> die "canbus_uuid" des Mikrocontrollers.</p>
@@ -1318,8 +1324,13 @@ canbus_uuid: 11aa22bb33cc
 <ul>
 <li>The "bridge mcu" is not actually on the CAN bus. Messages to and from it do not consume bandwidth on the CAN bus. The mcu can not be seen by other adapters that may be on the CAN bus.</li>
 <li>It is necessary to configure the <code>can0</code> (or similar) interface in Linux in order to communicate with the bus. However, Linux CAN bus speed and CAN bus bit-timing options are ignored by Klipper. Currently, the CAN bus frequency is specified during "make menuconfig" and the bus speed specified in Linux is ignored.</li>
-<li>Whenever the "bridge mcu" is reset, Linux will disable the corresponding <code>can0</code> interface. Generally, this may require running commands such as "ip up" to restart the interface. Thus, Klipper FIRMWARE_RESTART commands (or regular RESTART after a config change) may require restarting the <code>can0</code> interface.</li>
+<li>Whenever the "bridge mcu" is reset, Linux will disable the corresponding <code>can0</code> interface. To ensure proper handling of FIRMWARE_RESTART and RESTART commands, it is recommended to replace <code>auto</code> with <code>allow-hotplug</code> in the <code>/etc/network/interfaces.d/can0</code> file. For example:</li>
 </ul>
+<div class="highlight"><pre><span></span><code>allow-hotplug can0
+iface can0 can static
+    bitrate 500000
+    up ifconfig $IFACE txqueuelen 128
+</code></pre></div>
 
               
             </article>

@@ -67,33 +67,15 @@ msgid ""
 "The CMD_QUERY_UNASSIGNED message format is: `<1-byte message_id = 0x00>`"
 msgstr ""
 
-msgid "CMD_SET_NODEID message"
-msgstr ""
-
 msgid ""
 "This command assigns a `canbus_nodeid` to the micro-controller with a given "
 "`canbus_uuid`."
 msgstr ""
 
-msgid ""
-"The CMD_SET_NODEID message format is: `<1-byte message_id = 0x01><6-byte "
-"canbus_uuid><1-byte canbus_nodeid>`"
-msgstr ""
-
 msgid "RESP_NEED_NODEID message"
 msgstr ""
 
-msgid ""
-"The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte "
-"canbus_uuid>`"
-msgstr ""
-
 msgid "Data Packets"
-msgstr ""
-
-msgid ""
-"A micro-controller that has been assigned a nodeid via the CMD_SET_NODEID "
-"command can send and receive data packets."
 msgstr ""
 
 msgid ""
@@ -121,6 +103,46 @@ msgid ""
 "bus](https://en.wikipedia.org/wiki/CAN_bus). See <CANBUS.md> for information"
 " on configuring Klipper with CAN bus."
 msgstr ""
+
+#: docs/CANBUS_protocol.md:block 11 (header)
+msgid "CMD_SET_KLIPPER_NODEID message"
+msgstr ""
+
+#: docs/CANBUS_protocol.md:block 13 (paragraph)
+msgid ""
+"The CMD_SET_KLIPPER_NODEID message format is: `<1-byte message_id = "
+"0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`"
+msgstr ""
+
+#: docs/CANBUS_protocol.md:block 15 (paragraph)
+msgid ""
+"The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte "
+"canbus_uuid><1-byte set_klipper_nodeid = 0x01>`"
+msgstr ""
+
+#: docs/CANBUS_protocol.md:block 17 (paragraph)
+msgid ""
+"A micro-controller that has been assigned a nodeid via the "
+"CMD_SET_KLIPPER_NODEID command can send and receive data packets."
+msgstr ""
+
+#~ msgid "CMD_SET_NODEID message"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The CMD_SET_NODEID message format is: `<1-byte message_id = 0x01><6-byte "
+#~ "canbus_uuid><1-byte canbus_nodeid>`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte "
+#~ "canbus_uuid>`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A micro-controller that has been assigned a nodeid via the CMD_SET_NODEID "
+#~ "command can send and receive data packets."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "This document describes the protocol Klipper uses to communicate over [CAN "

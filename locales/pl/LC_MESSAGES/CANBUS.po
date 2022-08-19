@@ -17,15 +17,6 @@ msgstr "Ten dokument opisuje obsługę magistrali CAN przez Klippera."
 msgid "Device Hardware"
 msgstr "Urządzenie sprzętowe"
 
-msgid ""
-"Klipper currently only supports CAN on stm32 chips. In addition, the micro-"
-"controller chip must support CAN and it must be on a board that has a CAN "
-"transceiver."
-msgstr ""
-"Klipper obecnie obsługuje CAN tylko na układach stm32. Ponadto układ "
-"mikrokontrolera musi obsługiwać CAN i musi znajdować się na płycie, która "
-"posiada transceiver CAN."
-
 msgid "Host Hardware"
 msgstr ""
 
@@ -117,9 +108,6 @@ msgstr ""
 msgid "~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0\n"
 msgstr ""
 
-msgid "Found canbus_uuid=11aa22bb33cc\n"
-msgstr ""
-
 msgid ""
 "[mcu my_can_mcu]\n"
 "canbus_uuid: 11aa22bb33cc\n"
@@ -186,14 +174,51 @@ msgid ""
 " is ignored."
 msgstr ""
 
+#: docs/CANBUS.md:block 4 (paragraph)
+msgid ""
+"Klipper currently supports CAN on stm32 and rp2040 chips. In addition, the "
+"micro-controller chip must be on a board that has a CAN transceiver."
+msgstr ""
+
+#: docs/CANBUS.md:block 20 (code)
+msgid "Found canbus_uuid=11aa22bb33cc, Application: Klipper\n"
+msgstr ""
+
 #: docs/CANBUS.md:block 30 (unordered list)
 msgid ""
 "Whenever the \"bridge mcu\" is reset, Linux will disable the corresponding "
-"`can0` interface. Generally, this may require running commands such as \"ip "
-"up\" to restart the interface. Thus, Klipper FIRMWARE_RESTART commands (or "
-"regular RESTART after a config change) may require restarting the `can0` "
-"interface."
+"`can0` interface. To ensure proper handling of FIRMWARE_RESTART and RESTART "
+"commands, it is recommended to replace `auto` with `allow-hotplug` in the "
+"`/etc/network/interfaces.d/can0` file. For example:"
 msgstr ""
+
+#: docs/CANBUS.md:block 31 (code)
+msgid ""
+"allow-hotplug can0\n"
+"iface can0 can static\n"
+"    bitrate 500000\n"
+"    up ifconfig $IFACE txqueuelen 128\n"
+msgstr ""
+
+#~ msgid ""
+#~ "Klipper currently only supports CAN on stm32 chips. In addition, the micro-"
+#~ "controller chip must support CAN and it must be on a board that has a CAN "
+#~ "transceiver."
+#~ msgstr ""
+#~ "Klipper obecnie obsługuje CAN tylko na układach stm32. Ponadto układ "
+#~ "mikrokontrolera musi obsługiwać CAN i musi znajdować się na płycie, która "
+#~ "posiada transceiver CAN."
+
+#~ msgid "Found canbus_uuid=11aa22bb33cc\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Whenever the \"bridge mcu\" is reset, Linux will disable the corresponding "
+#~ "`can0` interface. Generally, this may require running commands such as \"ip "
+#~ "up\" to restart the interface. Thus, Klipper FIRMWARE_RESTART commands (or "
+#~ "regular RESTART after a config change) may require restarting the `can0` "
+#~ "interface."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "To compile for CAN, run \"make menuconfig\" and select \"CAN bus\" as the "
