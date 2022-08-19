@@ -1,11 +1,13 @@
 # Yusuf Yavuzyigit <yusufyavuzyigit25@gmail.com>, 2021.
 # Oguz <mustafa.oguz@live.com>, 2022.
+# Mustafa Said Ağca <m.said.agca@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-18 20:21+0000\n"
-"Last-Translator: Oguz <mustafa.oguz@live.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/overview/tr/>\n"
+"PO-Revision-Date: 2022-08-19 13:22+0000\n"
+"Last-Translator: Mustafa Said Ağca <m.said.agca@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/overview/"
+"tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,22 +63,29 @@ msgid ""
 "[Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance"
 " stepper parameter."
 msgstr ""
+"[Dönüş Mesafesi](Rotation_Distance.md): Step motor parametresi "
+"rotation_distance hesaplaması."
 
 msgid ""
 "[Config checks](Config_checks.md): Verify basic pin settings in the config "
 "file."
 msgstr ""
+"[Konfigürasyon gözden geçirme](Config_checks.md): Konfigürasyon dosyasındaki "
+"temel pin ayarlarını doğrulayın."
 
 msgid "[Bed level](Bed_Level.md): Information on \"bed leveling\" in Klipper."
 msgstr ""
+"[Baskı yatağı düzeyi](Bed_Level.md): Klipper'da \"baskı yatağı düzeyleme\" "
+"hakkında bilgi."
 
 msgid ""
 "[Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics."
-msgstr ""
+msgstr "[Delta ayarı](Delta_Calibrate.md): Delta kinematik kalibrasyonu."
 
 msgid ""
 "[Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes."
 msgstr ""
+"[Probe ayarı](Probe_Calibrate.md): Otomatik Z probe'larının kalibrasyonu."
 
 msgid "[BL-Touch](BLTouch.md): Configure a \"BL-Touch\" Z probe."
 msgstr ""
