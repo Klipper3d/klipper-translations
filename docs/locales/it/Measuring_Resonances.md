@@ -264,7 +264,7 @@ If you compare to the previously suggested parameters, the vibrations are a bit 
 
 When deciding which `max_smoothing` parameter to choose, you can use a trial-and-error approach. Try a few different values and see which results you get. Note that the actual smoothing produced by the input shaper depends, primarily, on the lowest resonance frequency of the printer: the higher the frequency of the lowest resonance - the smaller the smoothing. Therefore, if you request the script to find a configuration of the input shaper with the unrealistically small smoothing, it will be at the expense of increased ringing at the lowest resonance frequencies (which are, typically, also more prominently visible in prints). So, always double-check the projected remaining vibrations reported by the script and make sure they are not too high.
 
-Note that if you chose a good `max_smoothing` value for both of your axes, you can store it in the `printer.cfg` as
+Nota che se hai scelto un buon valore `max_smoothing` per entrambi gli assi, puoi salvarlo in `printer.cfg` come
 
 ```
 [resonance_tester]
@@ -273,7 +273,7 @@ probe_points: ...
 max_smoothing: 0.25  # un esempio
 ```
 
-Then, if you [rerun](#input-shaper-re-calibration) the input shaper auto-tuning using `SHAPER_CALIBRATE` Klipper command in the future, it will use the stored `max_smoothing` value as a reference.
+Quindi, se [riesegui](#input-shaper-re-calibration) l'autotuning dello shaper di input usando il comando Klipper `SHAPER_CALIBRATE` in futuro, utilizzerà il valore `max_smoothing` memorizzato come riferimento.
 
 ### Seleziona max_accel
 
@@ -322,13 +322,13 @@ per generare `/tmp/resonances.png` confrontando le risonanze.
 
 ## Calibrazione automatica Input Shaper
 
-Besides manually choosing the appropriate parameters for the input shaper feature, it is also possible to run the auto-tuning for the input shaper directly from Klipper. Run the following command via Octoprint terminal:
+Oltre a scegliere manualmente i parametri appropriati per la funzione di input shaper, è anche possibile eseguire l'autotuning per l'input shaper direttamente da Klipper. Esegui il seguente comando tramite il terminale Octoprint:
 
 ```
 SHAPER_CALIBRATE
 ```
 
-This will run the full test for both axes and generate the csv output (`/tmp/calibration_data_*.csv` by default) for the frequency response and the suggested input shapers. You will also get the suggested frequencies for each input shaper, as well as which input shaper is recommended for your setup, on Octoprint console. For example:
+Questo eseguirà il test completo per entrambi gli assi e genererà l'output csv (`/tmp/calibration_data_*.csv` per impostazione predefinita) per la risposta in frequenza e gli input shaper suggeriti. Riceverai anche le frequenze suggerite per ciascun input shaper, nonché quale input shaper è consigliato per la tua configurazione, sulla console Octoprint. Per esempio:
 
 ```
 Calculating the best input shaper parameters for y axis
@@ -345,7 +345,7 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2500 mm/sec^
 Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz
 ```
 
-If you agree with the suggested parameters, you can execute `SAVE_CONFIG` now to save them and restart the Klipper. Note that this will not update `max_accel` value in `[printer]` section. You should update it manually following the considerations in [Selecting max_accel](#selecting-max_accel) section.
+Se sei d'accordo con i parametri suggeriti, puoi eseguire ora `SAVE_CONFIG` per salvarli e riavviare Klipper. Nota che questo non aggiornerà il valore `max_accel` nella sezione `[printer]`. Dovresti aggiornarlo manualmente seguendo le considerazioni nella sezione [Selecting max_accel](#selecting-max_accel).
 
 If your printer is a bed slinger printer, you can specify which axis to test, so that you can change the accelerometer mounting point between the tests (by default the test is performed for both axes):
 
@@ -353,32 +353,32 @@ If your printer is a bed slinger printer, you can specify which axis to test, so
 SHAPER_CALIBRATE AXIS=Y
 ```
 
-You can execute `SAVE_CONFIG` twice - after calibrating each axis.
+È possibile eseguire `SAVE_CONFIG` due volte, dopo aver calibrato ciascun asse.
 
-However, if you connected two accelerometers simultaneously, you simply run `SHAPER_CALIBRATE` without specifying an axis to calibrate the input shaper for both axes in one go.
+Tuttavia, se hai collegato due accelerometri contemporaneamente, esegui semplicemente `SHAPER_CALIBRATE` senza specificare un asse per calibrare l' input shaper per entrambi gli assi in una volta sola.
 
-### Input Shaper re-calibration
+### Input Shaper ricalibrazione
 
-`SHAPER_CALIBRATE` command can be also used to re-calibrate the input shaper in the future, especially if some changes to the printer that can affect its kinematics are made. One can either re-run the full calibration using `SHAPER_CALIBRATE` command, or restrict the auto-calibration to a single axis by supplying `AXIS=` parameter, like
+Il comando `SHAPER_CALIBRATE` può essere utilizzato anche per ricalibrare lo shaper di input in futuro, specialmente se vengono apportate alcune modifiche alla stampante che possono influire sulla sua cinematica. È possibile eseguire nuovamente la calibrazione completa utilizzando il comando `SHAPER_CALIBRATE`, o limitare l'autocalibrazione a un singolo asse fornendo il parametro `AXIS=`, come
 
 ```
 SHAPER_CALIBRATE AXIS=X
 ```
 
-**Warning!** It is not advisable to run the shaper autocalibration very frequently (e.g. before every print, or every day). In order to determine resonance frequencies, autocalibration creates intensive vibrations on each of the axes. Generally, 3D printers are not designed to withstand a prolonged exposure to vibrations near the resonance frequencies. Doing so may increase wear of the printer components and reduce their lifespan. There is also an increased risk of some parts unscrewing or becoming loose. Always check that all parts of the printer (including the ones that may normally not move) are securely fixed in place after each auto-tuning.
+**Attenzione!** Non è consigliabile eseguire l'autocalibrazione dello shaper molto frequentemente (ad es. prima di ogni stampa o ogni giorno). Per determinare le frequenze di risonanza, l'autocalibrazione crea intense vibrazioni su ciascuno degli assi. Generalmente, le stampanti 3D non sono progettate per resistere a un'esposizione prolungata a vibrazioni vicino alle frequenze di risonanza. Ciò potrebbe aumentare l'usura dei componenti della stampante e ridurne la durata. C'è anche un aumento del rischio che alcune parti si svitino o si allentino. Verificare sempre che tutte le parti della stampante (comprese quelle che normalmente potrebbero non muoversi) siano fissate saldamente in posizione dopo ogni autotuning.
 
-Also, due to some noise in measurements, it is possible that the tuning results will be slightly different from one calibration run to another one. Still, it is not expected that the noise will affect the print quality too much. However, it is still advised to double-check the suggested parameters, and print some test prints before using them to confirm they are good.
+Inoltre, a causa di un po' di rumore nelle misurazioni, è possibile che i risultati dell'ottimizzazione siano leggermente diversi da una calibrazione all'altra. Tuttavia, non ci si aspetta che il rumore influisca troppo sulla qualità di stampa. Tuttavia, si consiglia comunque di ricontrollare i parametri suggeriti e di stampare alcune stampe di prova prima di utilizzarli per confermare che siano corretti.
 
-## Offline processing of the accelerometer data
+## Elaborazione offline dei dati dell'accelerometro
 
-It is possible to generate the raw accelerometer data and process it offline (e.g. on a host machine), for example to find resonances. In order to do so, run the following commands via Octoprint terminal:
+È possibile generare i dati grezzi dell'accelerometro ed elaborarli offline (ad esempio su una macchina host), ad esempio per trovare risonanze. Per fare ciò, esegui i seguenti comandi tramite il terminale Octoprint:
 
 ```
 SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0
 TEST_RESONANCES AXIS=X OUTPUT=raw_data
 ```
 
-ignoring any errors for `SET_INPUT_SHAPER` command. For `TEST_RESONANCES` command, specify the desired test axis. The raw data will be written into `/tmp` directory on the RPi.
+ignorando eventuali errori per il comando `SET_INPUT_SHAPER`. Per il comando `TEST_RESONANCES`, specificare l'asse di test desiderato. I dati grezzi verranno scritti nella directory `/tmp` sull'RPi.
 
 I dati grezzi possono anche essere ottenuti eseguendo il comando `ACCELEROMETER_MEASURE` due volte durante una normale attività della stampante: prima per avviare le misurazioni, quindi per interromperle e scrivere il file di output. Fare riferimento a [G-Codes](G-Codes.md#adxl345) per maggiori dettagli.
 

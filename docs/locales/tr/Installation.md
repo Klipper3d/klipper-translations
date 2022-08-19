@@ -23,11 +23,11 @@ git clone https://github.com/Klipper3d/klipper
 ./klipper/scripts/install-octopi.sh
 ```
 
-The above will download Klipper, install some system dependencies, setup Klipper to run at system startup, and start the Klipper host software. It will require an internet connection and it may take a few minutes to complete.
+Yukarıdakiler Klipper'ı indirecek, bazı sistem bağımlılıklarını yükleyecek, Klipper'ı sistem başlangıcında çalışacak şekilde ayarlayacak ve Klipper ana bilgisayar yazılımını başlatacaktır. Bir internet bağlantısı gerektirecektir ve tamamlanması birkaç dakika sürebilir.
 
-## Building and flashing the micro-controller
+## Mikro denetleyiciyi oluşturma ve flaşlama
 
-To compile the micro-controller code, start by running these commands on the Raspberry Pi:
+Mikro denetleyici kodunu derlemek için, Raspberry Pi üzerinde bu komutları çalıştırarak başlayın:
 
 ```
 cd ~/klipper/
@@ -48,15 +48,15 @@ Otherwise, the following steps are often used to "flash" the printer control boa
 ls /dev/serial/by-id/*
 ```
 
-It should report something similar to the following:
+Buna benzer bir şey rapor edilmelidir:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-It's common for each printer to have its own unique serial port name. This unique name will be used when flashing the micro-controller. It's possible there may be multiple lines in the above output - if so, choose the line corresponding to the micro-controller (see the [FAQ](FAQ.md#wheres-my-serial-port) for more information).
+Her yazıcının kendine özgü bir seri port adı olması yaygındır. Bu benzersiz isim mikro denetleyici yanıp sönerken kullanılacaktır. Yukarıdaki çıktıda birden fazla satır olabilir - eğer öyleyse, mikro denetleyiciye karşılık gelen satırı seçin (daha fazla bilgi için [SSS](SSS.md#wheres-my-serial-port) bölümüne bakın).
 
-For common micro-controllers, the code can be flashed with something similar to:
+Yaygın mikro denetleyiciler için kod şuna benzer bir şeyle flaşlanabilir:
 
 ```
 sudo service klipper stop
@@ -64,13 +64,13 @@ make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 ```
 
-Be sure to update the FLASH_DEVICE with the printer's unique serial port name.
+FLASH_DEVICE'ı yazıcının benzersiz seri bağlantı noktası adıyla güncellediğinizden emin olun.
 
-When flashing for the first time, make sure that OctoPrint is not connected directly to the printer (from the OctoPrint web page, under the "Connection" section, click "Disconnect").
+İlk kez yanıp sönerken, OctoPrint'in doğrudan yazıcıya bağlı olmadığından emin olun (OctoPrint web sayfasından, "Bağlantı" bölümünün altında "Bağlantıyı Kes" seçeneğine tıklayın).
 
-## Configuring OctoPrint to use Klipper
+## OctoPrint'i, Klipper kullanmak üzere yapılandırma
 
-The OctoPrint web server needs to be configured to communicate with the Klipper host software. Using a web browser, login to the OctoPrint web page and then configure the following items:
+OctoPrint web sunucusunun Klipper ana bilgisayar yazılımı ile iletişim kurması için yapılandırılması gerekir. Bir web tarayıcısı kullanarak OctoPrint web sayfasına giriş yapın ve ardından aşağıdaki öğeleri yapılandırın:
 
 Navigate to the Settings tab (the wrench icon at the top of the page). Under "Serial Connection" in "Additional serial ports" add "/tmp/printer". Then click "Save".
 
@@ -101,7 +101,7 @@ It's common for each printer to have its own unique name for the micro-controlle
 ls /dev/serial/by-id/*
 ```
 
-It should report something similar to the following:
+Buna benzer bir şey rapor edilmelidir:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
