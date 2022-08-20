@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-18 04:18+0000\n"
+"PO-Revision-Date: 2022-08-19 13:22+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "status_reference/it/>\n"
@@ -554,6 +554,10 @@ msgid ""
 "[probe](Config_Reference.md#probe) object (this object is also available if "
 "a [bltouch](Config_Reference.md#bltouch) config section is defined):"
 msgstr ""
+"Le seguenti informazioni sono disponibili nell'oggetto "
+"[probe](Config_Reference.md#probe) (questo oggetto è disponibile anche se è "
+"definita una sezione di configurazione [bltouch](Config_Reference."
+"md#bltouch)):"
 
 msgid ""
 "`last_query`: Returns True if the probe was reported as \"triggered\" during"
@@ -561,6 +565,11 @@ msgid ""
 "order of template expansion, the QUERY_PROBE command must be run prior to "
 "the macro containing this reference."
 msgstr ""
+"`last_query`: Restituisce True se il probe è stato segnalato come \"attivato"
+"\" durante l'ultimo comando QUERY_PROBE. Nota, se questo viene utilizzato in "
+"una macro, a causa dell'ordine di espansione del modello, il comando "
+"QUERY_PROBE deve essere eseguito prima della macro contenente questo "
+"riferimento."
 
 msgid ""
 "`last_z_result`: Returns the Z result value of the last PROBE command. Note,"
@@ -568,27 +577,37 @@ msgid ""
 "PROBE (or similar) command must be run prior to the macro containing this "
 "reference."
 msgstr ""
+"`last_z_result`: Restituisce il valore del risultato Z dell'ultimo comando "
+"PROBE. Nota, se questo viene utilizzato in una macro, a causa dell'ordine di "
+"espansione del modello, il comando PROBE (o simile) deve essere eseguito "
+"prima della macro contenente questo riferimento."
 
 msgid "quad_gantry_level"
-msgstr ""
+msgstr "quad_gantry_level"
 
 msgid ""
 "The following information is available in the `quad_gantry_level` object "
 "(this object is available if quad_gantry_level is defined):"
 msgstr ""
+"Le seguenti informazioni sono disponibili nell'oggetto `quad_gantry_level` ("
+"questo oggetto è disponibile se quad_gantry_level è definito):"
 
 msgid ""
 "`applied`: True if the gantry leveling process has been run and completed "
 "successfully."
 msgstr ""
+"`applied`: Vero se il processo di livellamento del gantry è stato eseguito e "
+"completato con successo."
 
 msgid "query_endstops"
-msgstr ""
+msgstr "query_endstops"
 
 msgid ""
 "The following information is available in the `query_endstops` object (this "
 "object is available if any endstop is defined):"
 msgstr ""
+"Le seguenti informazioni sono disponibili nell'oggetto `query_endstops` ("
+"questo oggetto è disponibile se è definito un finecorsa):"
 
 msgid ""
 "`last_query[\"<endstop>\"]`: Returns True if the given endstop was reported "
@@ -596,38 +615,51 @@ msgid ""
 "used in a macro, due to the order of template expansion, the QUERY_ENDSTOP "
 "command must be run prior to the macro containing this reference."
 msgstr ""
+"`last_query[\"<endstop>\"]`: Restituisce True se l'endstop specificato è "
+"stato segnalato come \"attivato-triggered\" durante l'ultimo comando "
+"QUERY_ENDSTOP. Nota, se questo viene utilizzato in una macro, a causa "
+"dell'ordine di espansione del modello, il comando QUERY_ENDSTOP deve essere "
+"eseguito prima della macro contenente questo riferimento."
 
 msgid "servo"
-msgstr ""
+msgstr "servo"
 
 msgid ""
 "The following information is available in [servo "
 "some_name](Config_Reference.md#servo) objects:"
 msgstr ""
+"Le seguenti informazioni sono disponibili negli oggetti [servo "
+"some_name](Config_Reference.md#servo):"
 
 msgid ""
 "`printer[\"servo <config_name>\"].value`: The last setting of the PWM pin (a"
 " value between 0.0 and 1.0) associated with the servo."
 msgstr ""
+"`printer[\"servo <config_name>\"].value`: l'ultima impostazione del pin PWM ("
+"un valore compreso tra 0.0 e 1.0) associata al servo."
 
 msgid "system_stats"
-msgstr ""
+msgstr "system_stats"
 
 msgid ""
 "The following information is available in the `system_stats` object (this "
 "object is always available):"
 msgstr ""
+"Le seguenti informazioni sono disponibili nell'oggetto `system_stats` ("
+"questo oggetto è sempre disponibile):"
 
 msgid ""
 "`sysload`, `cputime`, `memavail`: Information on the host operating system "
 "and process load."
 msgstr ""
+"`sysload`, `cputime`, `memavail`: informazioni sul sistema operativo del "
+"host e sul carico del processo."
 
 msgid "temperature sensors"
-msgstr ""
+msgstr "sensori di temperatura"
 
 msgid "The following information is available in"
-msgstr ""
+msgstr "Le seguenti informazioni sono disponibili in"
 
 msgid ""
 "[bme280 "
@@ -637,38 +669,51 @@ msgid ""
 " [temperature_host config_section_name](Config_Reference.md#host-"
 "temperature-sensor) objects:"
 msgstr ""
+"[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680"
+"-temperature-sensor), [htu21d config_section_name](Config_Reference.md"
+"#htu21d-sensor), [lm75 config_section_name](Config_Reference.md#lm75"
+"-temperature-sensor) e [temperature_host config_section_name "
+"](Config_Reference.md#host-temperature-sensor):"
 
 msgid "`temperature`: The last read temperature from the sensor."
-msgstr ""
+msgstr "`temperature`: l'ultima temperatura letta dal sensore."
 
 msgid ""
 "`humidity`, `pressure`, `gas`: The last read values from the sensor (only on"
 " bme280, htu21d, and lm75 sensors)."
 msgstr ""
+"`humidity`, `pressure`, `gas`: gli ultimi valori letti dal sensore (solo sui "
+"sensori bme280, htu21d e lm75)."
 
 msgid "temperature_fan"
-msgstr ""
+msgstr "temperature_fan"
 
 msgid ""
 "The following information is available in [temperature_fan "
 "some_name](Config_Reference.md#temperature_fan) objects:"
 msgstr ""
+"Le seguenti informazioni sono disponibili negli oggetti [temperature_fan "
+"some_name](Config_Reference.md#temperature_fan):"
 
 msgid "`target`: The target temperature for the fan."
-msgstr ""
+msgstr "`target`: La temperatura target per la ventola."
 
 msgid "temperature_sensor"
-msgstr ""
+msgstr "temperature_sensor"
 
 msgid ""
 "The following information is available in [temperature_sensor "
 "some_name](Config_Reference.md#temperature_sensor) objects:"
 msgstr ""
+"Le seguenti informazioni sono disponibili negli oggetti [temperature_sensor "
+"some_nome](Config_Reference.md#sensore_temperatura):"
 
 msgid ""
 "`measured_min_temp`, `measured_max_temp`: The lowest and highest temperature"
 " seen by the sensor since the Klipper host software was last restarted."
 msgstr ""
+"`measured_min_temp`, `measured_max_temp`: la temperatura più bassa e più "
+"alta vista dal sensore dall'ultimo riavvio del software host Klipper."
 
 msgid "toolhead"
 msgstr ""
@@ -689,17 +734,25 @@ msgid ""
 "macro one could use `printer[printer.toolhead.extruder].target` to get the "
 "target temperature of the current extruder."
 msgstr ""
+"`extruder`: il nome dell'estrusore attualmente attivo. Ad esempio, in una "
+"macro si potrebbe usare `printer[printer.toolhead.extruder].target` per "
+"ottenere la temperatura target dell'estrusore corrente."
 
 msgid ""
 "`homed_axes`: The current cartesian axes considered to be in a \"homed\" "
 "state. This is a string containing one or more of \"x\", \"y\", \"z\"."
 msgstr ""
+"`homed_axes`: Gli assi cartesiani correnti considerati in uno stato \"homed\""
+". Questa è una stringa contenente uno o più di \"x\", \"y\", \"z\"."
 
 msgid ""
 "`axis_minimum`, `axis_maximum`: The axis travel limits (mm) after homing. It"
 " is possible to access the x, y, z components of this limit value (eg, "
 "`axis_minimum.x`, `axis_maximum.z`)."
 msgstr ""
+"`axis_minimum`, `axis_maximum`: i limiti di corsa dell'asse (mm) dopo la "
+"corsa di homing. È possibile accedere alle componenti x, y, z di questo "
+"valore limite (ad es. `axis_minimum.x`, `axis_minimum.z`)."
 
 msgid ""
 "`max_velocity`, `max_accel`, `max_accel_to_decel`, `square_corner_velocity`:"
@@ -707,123 +760,161 @@ msgid ""
 "config file settings if a `SET_VELOCITY_LIMIT` (or `M204`) command alters "
 "them at run-time."
 msgstr ""
+"`max_velocity`, `max_accel`, `max_accel_to_decel`, `square_corner_velocity`: "
+"gli attuali limiti di stampa in vigore. Questo può differire dalle "
+"impostazioni del file di configurazione se un comando `SET_VELOCITY_LIMIT` ("
+"o `M204`) le altera in fase di esecuzione."
 
 msgid ""
 "`stalls`: The total number of times (since the last restart) that the "
 "printer had to be paused because the toolhead moved faster than moves could "
 "be read from the G-Code input."
 msgstr ""
+"`stalls`: il numero totale di volte (dall'ultimo riavvio) che la stampante "
+"ha dovuto essere messa in pausa perché la testina si muoveva più velocemente "
+"di quanto fosse possibile leggere i movimenti dall'input del G-code."
 
 msgid "virtual_sdcard"
-msgstr ""
+msgstr "virtual_sdcard"
 
 msgid ""
 "The following information is available in the "
 "[virtual_sdcard](Config_Reference.md#virtual_sdcard) object:"
 msgstr ""
+"Le seguenti informazioni sono disponibili nell'oggetto "
+"[virtual_sdcard](Config_Reference.md#virtual_sdcard):"
 
 msgid "`is_active`: Returns True if a print from file is currently active."
 msgstr ""
+"`is_active`: Restituisce True se una stampa da file è attualmente attiva."
 
 msgid ""
 "`progress`: An estimate of the current print progress (based of file size "
 "and file position)."
 msgstr ""
+"`progress`: una stima dello stato di avanzamento della stampa corrente (in "
+"base alla dimensione del file e alla posizione del file)."
 
 msgid "`file_position`: The current position (in bytes) of an active print."
-msgstr ""
+msgstr "`file_position`: la posizione corrente (in byte) di una stampa attiva."
 
 msgid "webhooks"
-msgstr ""
+msgstr "webhooks"
 
 msgid ""
 "The following information is available in the `webhooks` object (this object"
 " is always available):"
 msgstr ""
+"Le seguenti informazioni sono disponibili nell'oggetto `webhooks` (questo "
+"oggetto è sempre disponibile):"
 
 msgid ""
 "`state`: Returns a string indicating the current Klipper state. Possible "
 "values are: \"ready\", \"startup\", \"shutdown\", \"error\"."
 msgstr ""
+"`state`: restituisce una stringa che indica lo stato corrente di Klipper. I "
+"valori possibili sono: \"ready\", \"startup\", \"shutdown\", \"error\"."
 
 msgid ""
 "`state_message`: A human readable string giving additional context on the "
 "current Klipper state."
 msgstr ""
+"`state_message`: una stringa leggibile dall'uomo che fornisce un contesto "
+"aggiuntivo sullo stato corrente di Klipper."
 
 msgid "z_tilt"
-msgstr ""
+msgstr "z_tilt"
 
 msgid ""
 "The following information is available in the `z_tilt` object (this object "
 "is available if z_tilt is defined):"
 msgstr ""
+"Le seguenti informazioni sono disponibili nell'oggetto `z_tilt` (questo "
+"oggetto è disponibile se z_tilt è definito):"
 
 msgid ""
 "`applied`: True if the z-tilt leveling process has been run and completed "
 "successfully."
 msgstr ""
+"`applied`: Vero se il processo di livellamento z-tilt è stato eseguito e "
+"completato con successo."
 
 msgid "dual_carriage"
-msgstr ""
+msgstr "dual_carriage"
 
 msgid ""
 "The following information is available in "
 "[dual_carriage](Config_Reference.md#dual_carriage) on a hybrid_corexy or "
 "hybrid_corexz robot"
 msgstr ""
+"Le seguenti informazioni sono disponibili in [dual_carriage](Config_Reference"
+".md#dual_carriage) su una macchina hybrid_corexy o hybrid_corexz"
 
 msgid "`mode`: The current mode. Possible values are: \"FULL_CONTROL\""
-msgstr ""
+msgstr "`mode`: la modalità corrente. I valori possibili sono: \"FULL_CONTROL\""
 
 msgid ""
 "`active_carriage`: The current active carriage. Possible values are: "
 "\"CARRIAGE_0\", \"CARRIAGE_1\""
 msgstr ""
+"`active_carriage`: il carrello attivo corrente. I valori possibili sono: "
+"\"CARRIAGE_0\", \"CARRIAGE_1\""
 
 msgid "`file_path`: A full path to the file of currently loaded file."
 msgstr ""
+"`file_path`: un percorso completo del file per il file attualmente caricato."
 
 msgid "`file_size`: The file size (in bytes) of currently loaded file."
-msgstr ""
+msgstr "`file_size`: la dimensione (in byte) del file attualmente caricato."
 
 #: docs/Status_Reference.md:block 1 (header)
 msgid "Status reference"
-msgstr ""
+msgstr "Status reference"
 
 #: docs/Status_Reference.md:block 49 (header)
 msgid "motion_report"
-msgstr ""
+msgstr "motion_report"
 
 #: docs/Status_Reference.md:block 50 (paragraph)
 msgid ""
 "The following information is available in the `motion_report` object (this "
 "object is automatically available if any stepper config section is defined):"
 msgstr ""
+"Le seguenti informazioni sono disponibili nell'oggetto `motion_report` ("
+"questo oggetto è automaticamente disponibile se è definita una sezione di "
+"configurazione stepper):"
 
 #: docs/Status_Reference.md:block 51 (unordered list)
 msgid ""
 "`live_position`: The requested toolhead position interpolated to the current"
 " time."
 msgstr ""
+"`live_position`: la posizione richiesta della testa di stampa interpolata "
+"all'ora corrente."
 
 #: docs/Status_Reference.md:block 51 (unordered list)
 msgid ""
 "`live_velocity`: The requested toolhead velocity (in mm/s) at the current "
 "time."
 msgstr ""
+"`live_velocity`: la velocità della testa di stampa richiesta (in mm/s) al "
+"momento attuale."
 
 #: docs/Status_Reference.md:block 51 (unordered list)
 msgid ""
 "`live_extruder_velocity`: The requested extruder velocity (in mm/s) at the "
 "current time."
 msgstr ""
+"`live_extruder_velocity`: la velocità dell'estrusore richiesta (in mm/s) al "
+"momento attuale."
 
 #: docs/Status_Reference.md:block 9 (unordered list)
 msgid ""
 "`save_config_pending`: Returns true if there are updates that a "
 "`SAVE_CONFIG` command may persist to disk."
 msgstr ""
+"`save_config_pending`: Restituisce vero se ci sono aggiornamenti che un "
+"comando `SAVE_CONFIG` potrebbe rendere persistenti sul disco."
 
 #: docs/Status_Reference.md:block 9 (unordered list)
 msgid ""
@@ -831,10 +922,14 @@ msgid ""
 "will be a dictionary containing a `type` and `message` field (both strings)."
 " Additional fields may be available depending on the type of warning."
 msgstr ""
+"`warnings`: un elenco di avvisi sulle opzioni di configurazione. Ogni voce "
+"nell'elenco sarà un dizionario contenente un campo `type` e `message` ("
+"entrambe le stringhe). Ulteriori campi potrebbero essere disponibili a "
+"seconda del tipo di avviso."
 
 #: docs/Status_Reference.md:block 89 (header)
 msgid "tmc drivers"
-msgstr ""
+msgstr "driver tmc"
 
 #: docs/Status_Reference.md:block 90 (paragraph)
 msgid ""
@@ -842,6 +937,9 @@ msgid ""
 "driver](Config_Reference.md#tmc-stepper-driver-configuration) objects (eg, "
 "`[tmc2208 stepper_x]`):"
 msgstr ""
+"Le seguenti informazioni sono disponibili negli oggetti [TMC stepper "
+"driver](Config_Reference.md#tmc-stepper-driver-configuration) (ad esempio, `["
+"tmc2208 stepper_x]`):"
 
 #: docs/Status_Reference.md:block 91 (unordered list)
 msgid ""
@@ -849,6 +947,9 @@ msgid ""
 " the driver's \"zero\" phase. This field may be null if the phase offset is "
 "not known."
 msgstr ""
+"`mcu_phase_offset`: La posizione dello stepper del microcontrollore "
+"corrispondente alla fase \"zero\" del driver. Questo campo può essere nullo "
+"se l'offset di fase non è noto."
 
 #: docs/Status_Reference.md:block 91 (unordered list)
 msgid ""
@@ -856,6 +957,9 @@ msgid ""
 "driver's \"zero\" phase. This field may be null if the phase offset is not "
 "known."
 msgstr ""
+"`phase_offset_position`: La \"posizione comandata\" corrispondente alla fase "
+"\"zero\" del driver. Questo campo può essere nullo se l'offset di fase non è "
+"noto."
 
 #: docs/Status_Reference.md:block 91 (unordered list)
 msgid ""
@@ -863,38 +967,45 @@ msgid ""
 "fields are reported.) This field will be null if the driver is not enabled "
 "(and thus is not periodically queried)."
 msgstr ""
+"`drv_status`: i risultati dell'ultima query sullo stato del driver. (Sono "
+"riportati solo i campi diversi da zero.) Questo campo sarà nullo se il "
+"driver non è abilitato (e quindi non viene interrogato periodicamente)."
 
 #: docs/Status_Reference.md:block 91 (unordered list)
 msgid "`run_current`: The currently set run current."
-msgstr ""
+msgstr "`run_current`: La corrente di esecuzione attualmente impostata."
 
 #: docs/Status_Reference.md:block 91 (unordered list)
 msgid "`hold_current`: The currently set hold current."
-msgstr ""
+msgstr "`hold_current`: La corrente di mantenimento attualmente impostata."
 
 #: docs/Status_Reference.md:block 36 (unordered list)
 msgid "`Diameter`: The last reading from the sensor in mm."
-msgstr ""
+msgstr "`Diameter`: l'ultima lettura dal sensore in mm."
 
 #: docs/Status_Reference.md:block 36 (unordered list)
 msgid "`Raw`: The last raw ADC reading from the sensor."
-msgstr ""
+msgstr "`Raw`: l'ultima lettura grezza dell'ADC dal sensore."
 
 #: docs/Status_Reference.md:block 6 (unordered list)
 msgid ""
 "`profiles`: The set of currently defined profiles as setup using "
 "BED_MESH_PROFILE."
 msgstr ""
+"`profiles`: l'insieme dei profili attualmente definiti come setup usando "
+"BED_MESH_PROFILE."
 
 #: docs/Status_Reference.md:block 4 (header)
 msgid "angle"
-msgstr ""
+msgstr "angle"
 
 #: docs/Status_Reference.md:block 5 (paragraph)
 msgid ""
 "The following information is available in [angle "
 "some_name](Config_Reference.md#angle) objects:"
 msgstr ""
+"Le seguenti informazioni sono disponibili negli oggetti [angle "
+"some_name](Config_Reference.md#angle):"
 
 #: docs/Status_Reference.md:block 6 (unordered list)
 msgid ""
@@ -903,10 +1014,14 @@ msgid ""
 "tle5012b chip and if measurements are in progress (otherwise it reports "
 "`None`)."
 msgstr ""
+"`temperature`: l'ultima lettura della temperatura (in gradi Celsius) da un "
+"sensore magnetico Hall tle5012b. Questo valore è disponibile solo se il "
+"sensore angolare è un chip tle5012b e se le misurazioni sono in corso ("
+"altrimenti segnala `None`)."
 
 #: docs/Status_Reference.md:block 49 (header)
 msgid "led"
-msgstr ""
+msgstr "led"
 
 #: docs/Status_Reference.md:block 50 (paragraph)
 msgid ""
@@ -914,6 +1029,9 @@ msgid ""
 " led_name]`, `[dotstar led_name]`, `[pca9533 led_name]`, and `[pca9632 "
 "led_name]` config section defined in printer.cfg:"
 msgstr ""
+"Le seguenti informazioni sono disponibili per ogni sezione di configurazione "
+"`[led led_name]`, `[neopixel led_name]`, `[dotstar led_name]`, `[pca9533 "
+"led_name]` e `[pca9632 led_name]` definita in printer.cfg:"
 
 #: docs/Status_Reference.md:block 51 (unordered list)
 msgid ""
@@ -924,22 +1042,33 @@ msgid ""
 "color list) of the second neopixel in a chain could be accessed at "
 "`printer[\"neopixel <config_name>\"].color_data[1][2]`."
 msgstr ""
+"`color_data`: un elenco di lista di colori contenenti i valori RGBW per ogni "
+"led nella catena. Ogni valore è rappresentato come un float da 0,0 a 1,0. "
+"Ciascuna lista di colori contiene 4 voci (rosso, verde, blu, bianco) anche "
+"se il LED sottostante supporta meno canali di colore. Ad esempio, è "
+"possibile accedere al valore blu (3° elemento nell'elenco dei colori) del "
+"secondo neopixel in una catena in `printer[\"neopixel <config_name>\"]."
+"color_data[1][2]`."
 
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid ""
 "`save_config_pending_items`: Contains the sections and options that were "
 "changed and would be persisted by a `SAVE_CONFIG`."
 msgstr ""
+"`save_config_pending_items`: contiene le sezioni e le opzioni che sono state "
+"modificate e sarebbero mantenute da un `SAVE_CONFIG`."
 
 #: docs/Status_Reference.md:block 19 (header)
 msgid "exclude_object"
-msgstr ""
+msgstr "exclude_object"
 
 #: docs/Status_Reference.md:block 20 (paragraph)
 msgid ""
 "The following information is available in the "
 "[exclude_object](Exclude_Object.md) object:"
 msgstr ""
+"Le seguenti informazioni sono disponibili nell'oggetto "
+"[exclude_object](Exclude_Object.md):"
 
 #: docs/Status_Reference.md:block 21 (unordered list)
 msgid ""
@@ -948,10 +1077,14 @@ msgid ""
 "the `EXCLUDE_OBJECT VERBOSE=1` command. The `center` and `polygon` fields "
 "will only be present if provided in the original `EXCLUDE_OBJECT_DEFINE`"
 msgstr ""
+"`objects`: un array di oggetti conosciuti come fornito dal comando "
+"`EXCLUDE_OBJECT_DEFINE`. Queste sono le stesse informazioni fornite dal "
+"comando `EXCLUDE_OBJECT VERBOSE=1`. I campi `center` e `polygon` saranno "
+"presenti solo se forniti nell'originale `EXCLUDE_OBJECT_DEFINE`"
 
 #: docs/Status_Reference.md:block 21 (unordered list)
 msgid "Here is a JSON sample:"
-msgstr ""
+msgstr "Ecco un esempio JSON:"
 
 #: docs/Status_Reference.md:block 22 (code)
 msgid ""
@@ -978,41 +1111,71 @@ msgid ""
 "  }\n"
 "]\n"
 msgstr ""
+"[\n"
+"  {\n"
+"    \"polygon\": [\n"
+"      [ 156.25, 146.2511675 ],\n"
+"      [ 156.25, 153.7488325 ],\n"
+"      [ 163.75, 153.7488325 ],\n"
+"      [ 163.75, 146.2511675 ]\n"
+"    ],\n"
+"    \"name\": \"CYLINDER_2_STL_ID_2_COPY_0\",\n"
+"    \"center\": [ 160, 150 ]\n"
+"  },\n"
+"  {\n"
+"    \"polygon\": [\n"
+"      [ 146.25, 146.2511675 ],\n"
+"      [ 146.25, 153.7488325 ],\n"
+"      [ 153.75, 153.7488325 ],\n"
+"      [ 153.75, 146.2511675 ]\n"
+"    ],\n"
+"    \"name\": \"CYLINDER_2_STL_ID_1_COPY_0\",\n"
+"    \"center\": [ 150, 150 ]\n"
+"  }\n"
+"]\n"
 
 #: docs/Status_Reference.md:block 23 (unordered list)
 msgid ""
 "`excluded_objects`: An array of strings listing the names of excluded "
 "objects."
 msgstr ""
+"`excluded_objects`: un array di stringhe che elenca i nomi degli oggetti "
+"esclusi."
 
 #: docs/Status_Reference.md:block 23 (unordered list)
 msgid "`current_object`: The name of the object currently being printed."
-msgstr ""
+msgstr "`current_object`: il nome dell'oggetto attualmente in fase di stampa."
 
 #: docs/Status_Reference.md:block 57 (header)
 msgid "manual_probe"
-msgstr ""
+msgstr "manual_probe"
 
 #: docs/Status_Reference.md:block 58 (paragraph)
 msgid "The following information is available in the `manual_probe` object:"
-msgstr ""
+msgstr "Le seguenti informazioni sono disponibili nell'oggetto `manual_probe`:"
 
 #: docs/Status_Reference.md:block 59 (unordered list)
 msgid ""
 "`is_active`: Returns True if a manual probing helper script is currently "
 "active."
 msgstr ""
+"`is_active`: Restituisce True se è attualmente attivo uno script di supporto "
+"per il rilevamento manuale."
 
 #: docs/Status_Reference.md:block 59 (unordered list)
 msgid ""
 "`z_position`: The current height of the nozzle (as the printer currently "
 "understands it)."
 msgstr ""
+"`z_position`: l'altezza corrente dell'ugello (come la sta attualmente "
+"interpretando la stampante)."
 
 #: docs/Status_Reference.md:block 59 (unordered list)
 msgid ""
 "`z_position_lower`: Last probe attempt just lower than the current height."
 msgstr ""
+"`z_position_lower`: ultimo tentativo di sonda appena inferiore all'altezza "
+"corrente."
 
 #: docs/Status_Reference.md:block 59 (unordered list)
 msgid ""
@@ -1023,33 +1186,39 @@ msgstr ""
 
 #: docs/Status_Reference.md:block 10 (header)
 msgid "bed_screws"
-msgstr ""
+msgstr "bed_screws"
 
 #: docs/Status_Reference.md:block 11 (paragraph)
 msgid ""
 "The following information is available in the "
 "`Config_Reference.md#bed_screws` object:"
 msgstr ""
+"Le seguenti informazioni sono disponibili nell'oggetto `Config_Reference."
+"md#bed_screws`:"
 
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid ""
 "`is_active`: Returns True if the bed screws adjustment tool is currently "
 "active."
 msgstr ""
+"`is_active`: Restituisce True se lo strumento di regolazione delle viti del "
+"letto è attualmente attivo."
 
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid ""
 "`state`: The bed screws adjustment tool state. It is one of the following "
 "strings: \"adjust\", \"fine\"."
 msgstr ""
+"`state`: lo stato dello strumento di regolazione delle viti del piatto. È "
+"una delle seguenti stringhe: \"adjust\", \"fine\"."
 
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid "`current_screw`: The index for the current screw being adjusted."
-msgstr ""
+msgstr "`current_screw`: l'indice per la vite corrente in corso di regolazione."
 
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid "`accepted_screws`: The number of accepted screws."
-msgstr ""
+msgstr "`accepted_screws`: il numero di viti accettate."
 
 #~ msgid "neopixel / dotstar"
 #~ msgstr ""
