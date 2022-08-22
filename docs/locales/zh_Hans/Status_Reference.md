@@ -19,12 +19,12 @@
 
 ## bed_screws
 
-The following information is available in the `Config_Reference.md#bed_screws` object:
+`Config_Reference.md#bed_screws` 对象中提供了以下信息：
 
-- `is_active`: Returns True if the bed screws adjustment tool is currently active.
-- `state`: The bed screws adjustment tool state. It is one of the following strings: "adjust", "fine".
-- `current_screw`: The index for the current screw being adjusted.
-- `accepted_screws`: The number of accepted screws.
+- `is_active`：如果床调平螺丝调整工具当前处于活动状态，则返回 True。
+- `state`：床调平螺丝调整工具状态。它可以是以下字符串之一："adjust", "fine"。
+- `current_screw`：当前正在被调整的螺丝的索引。
+- `accepted_screws`：已被接受的螺丝数量。
 
 ## configfile
 

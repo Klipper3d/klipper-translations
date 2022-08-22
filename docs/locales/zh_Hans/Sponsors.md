@@ -4,7 +4,7 @@ Klipper是自由软件。我们依赖于赞助商的慷慨支持。请考虑赞�
 
 ## BIGTREETECH
 
-[<img src="./img/sponsors/BTT_BTT.png" width="200" />
+<a href="https://bigtree-tech.com/collections/all-products"><img src="./img/sponsors/BTT_BTT.png" width="200"></a>
 
 BIGTREETECH是Klipper的官方主板赞助商。BIGTREETECH致力于开发创新和有竞争力的产品，更好地服务于3D打印社区。在[Facebook](https://www.facebook.com/BIGTREETECH)或[Twitter](https://twitter.com/BigTreeTech)上关注他们。
 
