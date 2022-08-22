@@ -287,9 +287,9 @@ Le seguenti informazioni sono disponibili negli oggetti [TMC stepper driver](Con
 
 ## toolhead
 
-The following information is available in the `toolhead` object (this object is always available):
+Le seguenti informazioni sono disponibili nell'oggetto `toolhead` (questo oggetto è sempre disponibile):
 
-- `position`: The last commanded position of the toolhead relative to the coordinate system specified in the config file. It is possible to access the x, y, z, and e components of this position (eg, `position.x`).
+- `position`: l'ultima posizione comandata della testa di stampa relativa al sistema di coordinate specificato nel file di configurazione. È possibile accedere alle componenti x, y, z di questa posizione (ad esempio, `position.x`).
 - `extruder`: il nome dell'estrusore attualmente attivo. Ad esempio, in una macro si potrebbe usare `printer[printer.toolhead.extruder].target` per ottenere la temperatura target dell'estrusore corrente.
 - `homed_axes`: Gli assi cartesiani correnti considerati in uno stato "homed". Questa è una stringa contenente uno o più di "x", "y", "z".
 - `axis_minimum`, `axis_maximum`: i limiti di corsa dell'asse (mm) dopo la corsa di homing. È possibile accedere alle componenti x, y, z di questo valore limite (ad es. `axis_minimum.x`, `axis_minimum.z`).

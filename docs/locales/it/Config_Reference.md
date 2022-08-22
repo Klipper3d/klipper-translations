@@ -181,39 +181,39 @@ position_max:
 
 See [example-cartesian.cfg](../config/example-cartesian.cfg) for an example cartesian kinematics config file.
 
-Only parameters specific to cartesian printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Qui sono descritti solo i parametri specifici delle stampanti cartesiane - vedere [impostazioni cinematiche comuni](#impostazioni-cinema-comuni) per i parametri disponibili.
 
 ```
 [printer]
 kinematics: cartesian
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. This setting can be used to restrict the maximum speed of
-#   the z stepper motor. The default is to use max_velocity for
-#   max_z_velocity.
+#   Imposta la velocità massima (in mm/s) di movimento lungo 
+#   l'asse z. Questa impostazione può essere utilizzata per limitare
+#   la velocità massima del motore passo-passo z. L'impostazione
+#   predefinita è utilizzare max_velocity per max_z_velocity.
 max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. It limits the acceleration of the z stepper motor. The
-#   default is to use max_accel for max_z_accel.
+#   Imposta l'accelerazione massima (in mm/s^2) del movimento
+#   lungo l'asse z. Limita l'accelerazione del motore passo-passo z.
+#   L'impostazione predefinita è utilizzare max_accel per max_z_accel.
 
-# The stepper_x section is used to describe the stepper controlling
-# the X axis in a cartesian robot.
+# La sezione stepper_x viene utilizzata per descrivere lo stepper
+# che controlla l'asse X in un robot cartesiano.
 [stepper_x]
 
-# The stepper_y section is used to describe the stepper controlling
-# the Y axis in a cartesian robot.
+# La sezione stepper_y viene utilizzata per descrivere lo stepper
+# che controlla l'asse Y in un robot cartesiano.
 [stepper_y]
 
-# The stepper_z section is used to describe the stepper controlling
-# the Z axis in a cartesian robot.
+# La sezione stepper_z viene utilizzata per descrivere lo stepper
+# che controlla l'asse Z in un robot cartesiano.
 [stepper_z]
 ```
 
-### Linear Delta Kinematics
+### Cinematica Delta lineare
 
 See [example-delta.cfg](../config/example-delta.cfg) for an example linear delta kinematics config file. See the [delta calibrate guide](Delta_Calibrate.md) for information on calibration.
 
-Only parameters specific to linear delta printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Qui vengono descritti solo i parametri specifici per le stampanti delta lineari - vedere [impostazioni cinematiche comuni](#impostazioni-cinematica-comune) per i parametri disponibili.
 
 ```
 [printer]
@@ -294,7 +294,7 @@ radius:
 
 See [example-corexy.cfg](../config/example-corexy.cfg) for an example corexy (and h-bot) kinematics file.
 
-Only parameters specific to corexy printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Qui sono descritti solo i parametri specifici per le stampanti corexy - vedere [impostazioni cinematiche comuni](#impostazioni-cinema-comune) per i parametri disponibili.
 
 ```
 [printer]
@@ -326,7 +326,7 @@ max_z_accel:
 
 See [example-corexz.cfg](../config/example-corexz.cfg) for an example corexz kinematics config file.
 
-Only parameters specific to corexz printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Qui sono descritti solo i parametri specifici per le stampanti corexz - vedere [impostazioni cinematiche comuni](#impostazioni-cinema-comune) per i parametri disponibili.
 
 ```
 [printer]
@@ -357,7 +357,7 @@ See [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) for an exam
 
 This kinematic is also known as Markforged kinematic.
 
-Only parameters specific to hybrid corexy printers are described here see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Qui vengono descritti solo i parametri specifici delle stampanti corexy ibride, vedere [impostazioni cinematiche comuni](#impostazioni-cinematica-comune) per i parametri disponibili.
 
 ```
 [printer]
@@ -388,7 +388,7 @@ See [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) for an exam
 
 This kinematic is also known as Markforged kinematic.
 
-Only parameters specific to hybrid corexy printers are described here see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Qui vengono descritti solo i parametri specifici delle stampanti corexy ibride, vedere [impostazioni cinematiche comuni](#impostazioni-cinematica-comune) per i parametri disponibili.
 
 ```
 [printer]
@@ -413,13 +413,13 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Polar Kinematics
+### Cinematica polare
 
 See [example-polar.cfg](../config/example-polar.cfg) for an example polar kinematics config file.
 
-Only parameters specific to polar printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Qui sono descritti solo i parametri specifici per le stampanti polari - vedere [impostazioni cinematiche comuni](#impostazioni-cinema-comuni) per i parametri disponibili.
 
-POLAR KINEMATICS ARE A WORK IN PROGRESS. Moves around the 0, 0 position are known to not work properly.
+LA CINEMATICA POLARE È UN LAVORO IN CORSO. È noto che i movimenti intorno alla posizione 0, 0 non funzionano correttamente.
 
 ```
 [printer]
@@ -456,7 +456,7 @@ gear_ratio:
 
 See [example-rotary-delta.cfg](../config/example-rotary-delta.cfg) for an example rotary delta kinematics config file.
 
-Only parameters specific to rotary delta printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Qui vengono descritti solo i parametri specifici delle stampanti delta rotative - vedere [impostazioni cinematiche comuni](#impostazioni-cinematica-comune) per i parametri disponibili.
 
 ROTARY DELTA KINEMATICS ARE A WORK IN PROGRESS. Homing moves may timeout and some boundary checks are not implemented.
 
@@ -721,7 +721,7 @@ max_temp:
 
 ### [bed_mesh]
 
-Mesh Bed Leveling. One may define a bed_mesh config section to enable move transformations that offset the z axis based on a mesh generated from probed points. When using a probe to home the z-axis, it is recommended to define a safe_z_home section in printer.cfg to home toward the center of the print area.
+Mesh Bed Leveling. Si può definire una sezione di configurazione bed_mesh per abilitare trasformazioni di spostamento che sfalsano l'asse z in base a una mesh generata da punti sondati. Quando si utilizza una sonda per la posizione di riferimento sull'asse z, si consiglia di definire una sezione safe_z_home in printer.cfg per la posizione di riferimento verso il centro dell'area di stampa.
 
 See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#bed_mesh) for additional information.
 
@@ -998,7 +998,7 @@ Moving gantry leveling using 4 independently controlled Z motors. Corrects hyper
  ----------------
 ```
 
-Where x is the 0, 0 point on the bed
+Dove x è il punto 0, 0 sul piatto
 
 ```
 [quad_gantry_level]
@@ -1211,7 +1211,7 @@ Timeout di inattività. Viene automaticamente abilitato un timeout di inattivit�
 #   i comandi G-Code sopra. Il valore predefinito è 600 secondi.
 ```
 
-## Optional G-Code features
+## Funzionalità opzionali G-Code
 
 ### [virtual_sdcard]
 
@@ -1252,13 +1252,13 @@ Support manually moving stepper motors for diagnostic purposes. Note, using this
 
 ### [pause_resume]
 
-Pause/Resume functionality with support of position capture and restore. See the [command reference](G-Codes.md#pause_resume) for more information.
+Funzionalità di Pause/Resume con supporto di acquisizione e ripristino della posizione. Per ulteriori informazioni, vedere [riferimento comando](G-Codes.md#pause_resume).
 
 ```
 [pause_resume]
 #recover_velocity: 50.
-#   When capture/restore is enabled, the speed at which to return to
-#   the captured position (in mm/s). Default is 50.0 mm/s.
+#   Quando si abilita pause_resume, la velocità con cui tornare alla
+#   posizione catturata (in mm/s). Il valore predefinito è 50,0 mm/s.
 ```
 
 ### [firmware_retraction]
@@ -1407,14 +1407,14 @@ Support for mpu9250 and mpu6050 accelerometers (one may define any number of sec
 ```
 [mpu9250 my_accelerometer]
 #i2c_address:
-#   Default is 104 (0x68).
+#   Il valore predefinito è 104 (0x68).
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed: 400000
-#   See the "common I2C settings" section for a description of the
-#   above parameters. The default "i2c_speed" is 400000.
+#   Vedere la sezione "impostazioni I2C comuni" per una descrizione
+#   dei parametri di cui sopra. Il valore predefinito "i2c_speed" è 400000.
 #axes_map: x, y, z
-#   See the "adxl345" section for information on this parameter.
+#   Vedere la sezione "adxl345" per informazioni su questo parametro.
 ```
 
 ### [resonance_tester]
@@ -1937,7 +1937,7 @@ Sensori di temperatura generici. È possibile definire un numero qualsiasi di se
 
 ## Temperature sensors
 
-Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heater_bed]` section).
+Klipper include definizioni per molti tipi di sensori di temperatura. Questi sensori possono essere utilizzati in qualsiasi sezione di configurazione che richieda un sensore di temperatura (come una sezione `[extruder]` o `[heater_bed]`).
 
 ### Termistori comuni
 
@@ -2157,7 +2157,7 @@ serial_no:
 
 ### [fan]
 
-Print cooling fan.
+Ventola di raffreddamento della stampa.
 
 ```
 [fan]
@@ -2411,27 +2411,27 @@ Support for LEDs (and LED strips) controlled via micro-controller PWM pins (one 
 
 Supporto LED Neopixel (aka WS2812) (si può definire un numero qualsiasi di sezioni con un prefisso "neopixel"). Per ulteriori informazioni, vedere [riferimento comando](G-Codes.md#led).
 
-Note that the [linux mcu](RPi_microcontroller.md) implementation does not currently support directly connected neopixels. The current design using the Linux kernel interface does not allow this scenario because the kernel GPIO interface is not fast enough to provide the required pulse rates.
+Si noti che l'implementazione di [linux mcu](RPi_microcontroller.md) non supporta attualmente i neopixel collegati direttamente. L'attuale design che utilizza l'interfaccia del kernel Linux non consente questo scenario perché l'interfaccia GPIO del kernel non è sufficientemente veloce da fornire le frequenze di impulso richieste.
 
 ```
 [neopixel my_neopixel]
 pin:
-#   The pin connected to the neopixel. This parameter must be
-#   provided.
+#   Il pin collegato al neopixel. Questo parametro deve essere fornito.
 #chain_count:
-#   The number of Neopixel chips that are "daisy chained" to the
-#   provided pin. The default is 1 (which indicates only a single
-#   Neopixel is connected to the pin).
+#   Il numero di chip Neopixel che sono "collegati a margherita" al
+#   pin fornito. Il valore predefinito è 1 (che indica che un solo 
+#   Neopixel è collegato al pin).
 #color_order: GRB
-#   Set the pixel order required by the LED hardware (using a string
-#   containing the letters R, G, B, W with W optional). Alternatively,
-#   this may be a comma separated list of pixel orders - one for each
-#   LED in the chain. The default is GRB.
+#   Impostare l'ordine dei pixel richiesto dall'hardware del LED
+#   (utilizzando una stringa contenente le lettere R, G, B, W con W
+#   opzionale). In alternativa, questo può essere un elenco separato
+#   da virgole di pixel, uno per ogni LED nella catena.
+#   L'impostazione predefinita è GRB.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-#   See the "led" section for information on these parameters.
+#   Vedere la sezione "led" per informazioni su questi parametri.
 ```
 
 ### [dotstar]
@@ -2477,31 +2477,33 @@ PCA9533 LED support. The PCA9533 is used on the mightyboard.
 
 ### [pca9632]
 
-PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
+Supporto LED PCA9632. Il PCA9632 viene utilizzato su FlashForge Dreamer.
 
 ```
 [pca9632 my_pca9632]
 #i2c_address: 98
-#   The i2c address that the chip is using on the i2c bus. This may be
-#   96, 97, 98, or 99.  The default is 98.
+#   L'indirizzo i2c utilizzato dal chip sul bus i2c. Può essere 96,
+#   97, 98 o 99. Il valore predefinito è 98.
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
+#   Vedere la sezione "impostazioni I2C comuni" per una
+#   descrizione dei parametri di cui sopra.
 #scl_pin:
 #sda_pin:
-#   Alternatively, if the pca9632 is not connected to a hardware I2C
-#   bus, then one may specify the "clock" (scl_pin) and "data"
-#   (sda_pin) pins. The default is to use hardware I2C.
+#   In alternativa, se il pca9632 non è collegato a un bus I2C 
+#   hardware, è possibile specificare i pin "clock" (pin scl) e "data"
+#   (pin sda). L'impostazione predefinita prevede l'utilizzo
+#   dell'hardware I2C.
 #color_order: RGBW
-#   Set the pixel order of the LED (using a string containing the
-#   letters R, G, B, W). The default is RGBW.
+#   Impostare l'ordine dei pixel del LED (usando una stringa
+#   contenente le lettere R, G, B, W). L'impostazione predefinita
+#   è RGBW.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-#   See the "led" section for information on these parameters.
+#   Vedere la sezione "led" per informazioni su questi parametri.
 ```
 
 ## Servocomandi aggiuntivi, pulsanti e altri pin
@@ -2631,8 +2633,8 @@ Uscite a pin multipli (si può definire un numero qualsiasi di sezioni con un pr
 ```
 [multi_pin my_multi_pin]
 pins:
-#   A comma separated list of pins associated with this alias. This
-#   parameter must be provided.
+#   Un elenco separato da virgole di pin associati a questo alias.
+#   Questo parametro deve essere fornito.
 ```
 
 ## TMC stepper driver configuration
@@ -3018,31 +3020,34 @@ Statically configured MCP4451 digipot connected via I2C bus (one may define any 
 ```
 [mcp4451 my_digipot]
 i2c_address:
-#   The i2c address that the chip is using on the i2c bus. This
-#   parameter must be provided.
+#   L'indirizzo i2c utilizzato dal chip sul bus i2c. Questo parametro deve
+#   essere fornito.
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
+#   Vedere la sezione "impostazioni I2C comuni" per una descrizione
+#   dei parametri di cui sopra.
 #wiper_0:
 #wiper_1:
 #wiper_2:
 #wiper_3:
-#   The value to statically set the given MCP4451 "wiper" to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest resistance and 0.0 being the lowest resistance. However,
-#   the range may be changed with the 'scale' parameter (see below).
-#   If a wiper is not specified then it is left unconfigured.
+#   Il valore su cui impostare staticamente il "wiper" MCP4451
+#   specificato. Questo è in genere impostato su un numero compreso
+#   tra 0,0 e 1,0 con 1,0 come resistenza più alta e 0,0 come resistenza
+#   più bassa. Tuttavia, l'intervallo può essere modificato con il parametro
+#   'scale' (vedi sotto). Se non viene specificato un wiper, non viene
+#   configurato.
 #scale:
-#   This parameter can be used to alter how the 'wiper_x' parameters
-#   are interpreted. If provided, then the 'wiper_x' parameters should
-#   be between 0.0 and 'scale'. This may be useful when the MCP4451 is
-#   used to set stepper voltage references. The 'scale' can be set to
-#   the equivalent stepper amperage if the MCP4451 were at its highest
-#   resistance, and then the 'wiper_x' parameters can be specified
-#   using the desired amperage value for the stepper. The default is
-#   to not scale the 'wiper_x' parameters.
+#   Questo parametro può essere utilizzato per modificare il modo in
+#   cui vengono interpretati i parametri 'wiper_x'. Se forniti, i parametri
+#   'wiper_x' dovrebbero essere compresi tra 0.0 e 'scale'. Questo può
+#   essere utile quando l'MCP4451 viene utilizzato per impostare i
+#   riferimenti di tensione stepper. La "scala" può essere impostata
+#   sull'amperaggio stepper equivalente se l'MCP4451 fosse alla sua
+#   massima resistenza, quindi i parametri "wiper_x" possono essere
+#   specificati utilizzando il valore di amperaggio desiderato per lo
+#   stepper. L'impostazione predefinita è di non ridimensionare i
+#   parametri 'wiper_x'.
 ```
 
 ### [mcp4728]
@@ -3289,7 +3294,7 @@ spi_software_miso_pin:
 ...
 ```
 
-#### uc1701 display
+#### display uc1701
 
 Informazioni sulla configurazione dei display uc1701 (utilizzati nei display di tipo "MKS Mini 12864").
 
@@ -3781,11 +3786,11 @@ host_mcu:
 #   (True sets CFG5 high, False sets it low). The default is True.
 ```
 
-## Other Custom Modules
+## Altri moduli personalizzati
 
 ### [palette2]
 
-Palette 2 multimaterial support - provides a tighter integration supporting Palette 2 devices in connected mode.
+Supporto multimateriale Palette 2: fornisce un'integrazione più stretta supportando i dispositivi Palette 2 in modalità connessa.
 
 This modules also requires `[virtual_sdcard]` and `[pause_resume]` for full functionality.
 
@@ -3811,7 +3816,7 @@ serial:
 
 ### [angle]
 
-Magnetic hall angle sensor support for reading stepper motor angle shaft measurements using a1333, as5047d, or tle5012b SPI chips. The measurements are available via the [API Server](API_Server.md) and [motion analysis tool](Debugging.md#motion-analysis-and-data-logging). See the [G-Code reference](G-Codes.md#angle) for available commands.
+Supporto per sensore magnetico Hall per la lettura delle misurazioni dell'angolo del motore passo-passo utilizzando i chip SPI a1333, as5047d o tle5012b. Le misurazioni sono disponibili tramite [Server API](API_Server.md) e [strumento di analisi del movimento](Debugging.md#motion-analysis-and-data-logging). Vedere il [Riferimento G-Code](G-Codes.md#angle) per i comandi disponibili.
 
 ```
 [angle my_angle_sensor]
@@ -3866,7 +3871,7 @@ The following parameters are generally available for devices using an SPI bus.
 
 The following parameters are generally available for devices using an I2C bus.
 
-Note that Klipper's current micro-controller support for i2c is generally not tolerant to line noise. Unexpected errors on the i2c wires may result in Klipper raising a run-time error. Klipper's support for error recovery varies between each micro-controller type. It is generally recommended to only use i2c devices that are on the same printed circuit board as the micro-controller.
+Si noti che l'attuale supporto del microcontrollore di Klipper per i2c generalmente non tollera il rumore di linea. Errori imprevisti sui cavi i2c possono causare la generazione di un errore di runtime da parte di Klipper. Il supporto di Klipper per il ripristino degli errori varia a seconda del tipo di microcontrollore. In genere si consiglia di utilizzare solo dispositivi i2c che si trovano sulla stessa scheda a circuito stampato del microcontrollore.
 
 La maggior parte delle implementazioni del microcontrollore Klipper supporta solo un `i2c_speed` di 100000. Il microcontrollore "linux" Klipper supporta una velocità 400000, ma deve essere [impostato nel sistema operativo](RPi_microcontroller.md#optional-enbling-i2c) e il parametro `i2c_speed` viene altrimenti ignorato. Il microcontrollore Klipper "rp2040" supporta una velocità di 400000 tramite il parametro `i2c_speed`. Tutti gli altri microcontrollori Klipper utilizzano una frequenza di 100000 e ignorano il parametro `i2c_speed`.
 

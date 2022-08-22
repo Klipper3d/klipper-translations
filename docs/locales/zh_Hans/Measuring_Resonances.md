@@ -285,7 +285,7 @@ max_smoothing: 0.25  # an example
 
 如果重新校准一个整形器，并且建议的整形器配置的报告平滑度与你在以前的校准中得到的几乎相同，这个步骤可以被跳过。
 
-### Testing custom axes
+### 自定义测试轴
 
 `TEST_RESONANCES` command supports custom axes. While this is not really useful for input shaper calibration, it can be used to study printer resonances in-depth and to check, for example, belt tension.
 
@@ -331,18 +331,18 @@ SHAPER_CALIBRATE
 这将为两个轴运行完整的测试，并生成用于频率响应和建议的输入整形器的csv输出（默认为`/tmp/calibration_data_*.csv` ）。在Octoprint中会提示控制台每个输入整形器的建议频率，以及为这台打印机推荐的输入整形器。例如：
 
 ```
-Calculating the best input shaper parameters for y axis # 正在计算y轴的最佳输入整形参数
-Fitted shaper 'zv' frequency = 39.0 Hz (vibrations = 13.2%, smoothing ~= 0.105) # 拟合整形“zv”
-To avoid too much smoothing with 'zv', suggested max_accel <= 5900 mm/sec^2 # 为避免使用“zv”方法产生过度平滑，建议最大加速度<=5900 mm/sec^2
-Fitted shaper 'mzv' frequency = 36.8 Hz (vibrations = 1.7%, smoothing ~= 0.150) # 拟合整形“mzv”
-To avoid too much smoothing with 'mzv', suggested max_accel <= 4000 mm/sec^2 # 为避免使用“mzv”方法产生过度平滑，建议最大加速度<=4000 mm/sec^2
-Fitted shaper 'ei' frequency = 36.6 Hz (vibrations = 2.2%, smoothing ~= 0.240) # 拟合整形“ei”
-To avoid too much smoothing with 'ei', suggested max_accel <= 2500 mm/sec^2 # 为避免使用“ei”方法产生过度平滑，建议最大加速度<=2500 mm/sec^2
-Fitted shaper '2hump_ei' frequency = 48.0 Hz (vibrations = 0.0%, smoothing ~= 0.234) # 拟合整形“2hump_ei”
-To avoid too much smoothing with '2hump_ei', suggested max_accel <= 2500 mm/sec^2 # 为避免使用“2hump_ei”方法产生过度平滑，建议最大加速度<=2500 mm/sec^2
-Fitted shaper '3hump_ei' frequency = 59.0 Hz (vibrations = 0.0%, smoothing ~= 0.235) # 拟合整形“3hump_ei”
-To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2500 mm/sec^2 # 为避免使用“3hump_ei”方法产生过度平滑，建议最大加速度<=2500 mm/sec^2
-Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz # 建议shaper_type_y = mzv, shaper_freq_y = 36.8 Hz
+Calculating the best input shaper parameters for y axis
+Fitted shaper 'zv' frequency = 39.0 Hz (vibrations = 13.2%, smoothing ~= 0.105)
+To avoid too much smoothing with 'zv', suggested max_accel <= 5900 mm/sec^2
+Fitted shaper 'mzv' frequency = 36.8 Hz (vibrations = 1.7%, smoothing ~= 0.150)
+To avoid too much smoothing with 'mzv', suggested max_accel <= 4000 mm/sec^2
+Fitted shaper 'ei' frequency = 36.6 Hz (vibrations = 2.2%, smoothing ~= 0.240)
+To avoid too much smoothing with 'ei', suggested max_accel <= 2500 mm/sec^2
+Fitted shaper '2hump_ei' frequency = 48.0 Hz (vibrations = 0.0%, smoothing ~= 0.234)
+To avoid too much smoothing with '2hump_ei', suggested max_accel <= 2500 mm/sec^2
+Fitted shaper '3hump_ei' frequency = 59.0 Hz (vibrations = 0.0%, smoothing ~= 0.235)
+To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2500 mm/sec^2
+Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz
 ```
 
 如果认同建议的参数，现在可以执行`SAVE_CONFIG` 来保存设置并重新启动Klipper。 请注意，这不会更新`[printer]` 分段中的`max_accel`值。应该按照[选择max_accel](#selecting-max_accel)章节中的注意事项手动更新它。
