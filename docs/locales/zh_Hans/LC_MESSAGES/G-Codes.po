@@ -1,7 +1,7 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2025.
 # mirokymac <toufubomb@gmail.com>, 2021.
 # Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
-# Peppa Pig <hansongming88@gmail.com>, 2022.
+# Peppa Pig <hansongming88@gmail.com>, 2022, 2025.
 # ghyuav <ghyuav2021@163.com>, 2022.
 # xm Y <3260838022@qq.com>, 2023.
 # Arda <pengfei.fu@gmail.com>, 2024.
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-13 14:53+0200\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
+"Last-Translator: Peppa Pig <hansongming88@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/g-codes/zh_Hans/>\n"
 "Language: zh_Hans\n"
