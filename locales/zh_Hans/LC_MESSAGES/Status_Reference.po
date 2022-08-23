@@ -2,9 +2,10 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-23 05:59+0000\n"
+"PO-Revision-Date: 2022-08-20 15:23+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/status_reference/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/status_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -982,33 +983,34 @@ msgstr "`z_position_upper`：上次探测尝试仅大于当前高度。"
 
 #: docs/Status_Reference.md:block 10 (header)
 msgid "bed_screws"
-msgstr ""
+msgstr "bed_screws"
 
 #: docs/Status_Reference.md:block 11 (paragraph)
 msgid ""
 "The following information is available in the "
 "`Config_Reference.md#bed_screws` object:"
-msgstr ""
+msgstr "`Config_Reference.md#bed_screws` 对象中提供了以下信息："
 
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid ""
 "`is_active`: Returns True if the bed screws adjustment tool is currently "
 "active."
-msgstr ""
+msgstr "`is_active`：如果床调平螺丝调整工具当前处于活动状态，则返回 True。"
 
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid ""
 "`state`: The bed screws adjustment tool state. It is one of the following "
 "strings: \"adjust\", \"fine\"."
-msgstr ""
+msgstr "`state`：床调平螺丝调整工具状态。它可以是以下字符串之一：\"adjust\", \"fine\""
+"。"
 
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid "`current_screw`: The index for the current screw being adjusted."
-msgstr ""
+msgstr "`current_screw`：当前正在被调整的螺丝的索引。"
 
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid "`accepted_screws`: The number of accepted screws."
-msgstr ""
+msgstr "`accepted_screws`：已被接受的螺丝数量。"
 
 #~ msgid "neopixel / dotstar"
 #~ msgstr "neopixel / dotstar"
