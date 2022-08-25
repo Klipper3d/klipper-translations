@@ -1,27 +1,37 @@
-#
+# Wagner Reck <wagner.reck@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-08-25 17:19+0000\n"
+"Last-Translator: Wagner Reck <wagner.reck@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/faq/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid "How can I donate to the project?"
-msgstr ""
+msgstr "Como eu posso doar para o projeto?"
 
 msgid "How do I calculate the rotation_distance config parameter?"
-msgstr ""
+msgstr "Como eu posso calcular o parâmetro de configuração rotation_distance?"
 
 msgid "See the [rotation distance document](Rotation_Distance.md)."
-msgstr ""
+msgstr "Veja o [documento distância de rotação](Rotation_Distance.md)."
 
 msgid "Where's my serial port?"
-msgstr ""
+msgstr "Onde está minha porta serial?"
 
 msgid ""
 "The general way to find a USB serial port is to run `ls /dev/serial/by-id/*`"
 " from an ssh terminal on the host machine. It will likely produce output "
 "similar to the following:"
 msgstr ""
+"A maneira usual de encontrar a porta serial USB é rodar o comando `ls /dev/"
+"serial/by-id/*` via um terminal ssh na máquina hospedeira. Isto deverá "
+"produzir uma saída similar ao que segue:"
 
 msgid ""
 "The name found in the above command is stable and it is possible to use it "

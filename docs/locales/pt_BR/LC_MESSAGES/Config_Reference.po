@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-25 14:22+0000\n"
+"PO-Revision-Date: 2022-08-25 17:19+0000\n"
 "Last-Translator: Wagner Reck <wagner.reck@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/config_reference/pt_BR/>\n"
@@ -100,7 +100,7 @@ msgid ""
 msgstr ""
 
 msgid "Cartesian Kinematics"
-msgstr ""
+msgstr "Cinemática catesiana"
 
 msgid ""
 "See [example-cartesian.cfg](../config/example-cartesian.cfg) for an example "
@@ -212,7 +212,7 @@ msgid ""
 msgstr ""
 
 msgid "Cable winch Kinematics"
-msgstr ""
+msgstr "Cinemática via guincho de cabo"
 
 msgid ""
 "See the [example-winch.cfg](../config/example-winch.cfg) for an example "
@@ -659,7 +659,7 @@ msgid "LM75 temperature sensor"
 msgstr ""
 
 msgid "Builtin micro-controller temperature sensor"
-msgstr ""
+msgstr "Sensor de temperatura embutido no microcontrolador"
 
 msgid ""
 "The atsam, atsamd, and stm32 micro-controllers contain an internal "
@@ -825,7 +825,7 @@ msgid "Run-time stepper motor current configuration"
 msgstr ""
 
 msgid "[ad5206]"
-msgstr ""
+msgstr "[ad5206]"
 
 msgid ""
 "Statically configured AD5206 digipots connected via SPI bus (one may define "
@@ -3540,6 +3540,10 @@ msgid ""
 "winch kinematics. In order to home the printer, manually send movement "
 "commands until the toolhead is at 0, 0, 0 and then issue a `G28` command."
 msgstr ""
+"SUPORTE À GUINCHO DE CABOS É EXPERIMENTAL. Ir para origem não está "
+"implemento em Cinemática via guincho de cabo. Para ir para origem da "
+"impressora, envie manualmente comandos de movimento até que a cabeça de "
+"impressão esteja em 0, 0, 0 e então envie o comando `G28`."
 
 #: docs/Config_Reference.md:block 64 (code)
 msgid ""
