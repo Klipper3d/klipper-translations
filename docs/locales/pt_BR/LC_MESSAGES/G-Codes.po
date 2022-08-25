@@ -1,16 +1,18 @@
 # Roberto Besser <rmbesser@gmail.com>, 2021.
 # Zeldazul <b.ferreirargs@gmail.com>, 2022.
+# Wagner Reck <wagner.reck@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-05-21 12:13+0000\n"
-"Last-Translator: Zeldazul <b.ferreirargs@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/klipper/g-codes/pt_BR/>\n"
+"PO-Revision-Date: 2022-08-25 14:22+0000\n"
+"Last-Translator: Wagner Reck <wagner.reck@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/g-codes/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -796,8 +798,9 @@ msgid "Additional Commands"
 msgstr ""
 
 #: docs/G-Codes.md:block 12 (header)
+#, fuzzy
 msgid "[adxl345]"
-msgstr ""
+msgstr "[adxl345]"
 
 #: docs/G-Codes.md:block 13 (paragraph)
 msgid ""
@@ -837,8 +840,9 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
+#, fuzzy
 msgid "[bed_mesh]"
-msgstr ""
+msgstr "[bed_mesh]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
@@ -883,8 +887,9 @@ msgid "BED_MESH_OFFSET"
 msgstr ""
 
 #: docs/G-Codes.md:block 36 (header)
+#, fuzzy
 msgid "[bed_screws]"
-msgstr ""
+msgstr "[bed_screws]"
 
 #: docs/G-Codes.md:block 37 (paragraph)
 msgid ""
@@ -898,8 +903,9 @@ msgid "BED_SCREWS_ADJUST"
 msgstr ""
 
 #: docs/G-Codes.md:block 40 (header)
+#, fuzzy
 msgid "[bed_tilt]"
-msgstr ""
+msgstr "[bed_tilt]"
 
 #: docs/G-Codes.md:block 41 (paragraph)
 msgid ""
@@ -912,8 +918,9 @@ msgid "BED_TILT_CALIBRATE"
 msgstr ""
 
 #: docs/G-Codes.md:block 44 (header)
+#, fuzzy
 msgid "[bltouch]"
-msgstr ""
+msgstr "[bltouch]"
 
 #: docs/G-Codes.md:block 45 (paragraph)
 msgid ""
@@ -1882,8 +1889,9 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
+#, fuzzy
 msgid "[angle]"
-msgstr ""
+msgstr "[angle]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
