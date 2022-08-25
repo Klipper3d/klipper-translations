@@ -1,12 +1,19 @@
-#
+# Wagner Reck <wagner.reck@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-08-25 14:22+0000\n"
+"Last-Translator: Wagner Reck <wagner.reck@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/probe_calibrate/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid "Calibrating probe X and Y offsets"
-msgstr ""
+msgstr "Calibrando os deslocamentos X e Y da sonda"
 
 msgid ""
 "To calibrate the X and Y offset, navigate to the OctoPrint \"Control\" tab, "
