@@ -1,9 +1,16 @@
-#
+# Nikolai Danov <nikolaidanov67@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-08-26 15:10+0000\n"
+"Last-Translator: Nikolai Danov <nikolaidanov67@gmail.com>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
+"mcu_commands/bg/>\n"
 "Language: bg\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document provides information on the low-level micro-controller "
@@ -342,7 +349,7 @@ msgstr ""
 
 #: docs/MCU_Commands.md:block 1 (header)
 msgid "MCU commands"
-msgstr ""
+msgstr "MCU команди"
 
 #: docs/MCU_Commands.md:block 15 (unordered list)
 msgid ""

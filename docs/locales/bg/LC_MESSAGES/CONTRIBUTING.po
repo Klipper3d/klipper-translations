@@ -1,9 +1,16 @@
-#
+# Nikolai Danov <nikolaidanov67@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-08-26 16:03+0000\n"
+"Last-Translator: Nikolai Danov <nikolaidanov67@gmail.com>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
+"contributing/bg/>\n"
 "Language: bg\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid "Contributing to Klipper"
 msgstr ""
@@ -462,7 +469,7 @@ msgstr ""
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Eric Callahan"
-msgstr ""
+msgstr "Ерик Калахан"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "@Arksine"
@@ -474,7 +481,7 @@ msgstr ""
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Kevin O'Connor"
-msgstr ""
+msgstr "Кевин О'Конър"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "@KevinOConnor"
