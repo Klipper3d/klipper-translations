@@ -1,17 +1,19 @@
 # mirokymac <toufubomb@gmail.com>, 2021, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # mouren 120 <mouren1101@outlook.com>, 2022.
+# Hessian Chow <hess.4x@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-04-30 17:12+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/pressure_advance/zh_Hans/>\n"
+"PO-Revision-Date: 2022-08-25 14:22+0000\n"
+"Last-Translator: Hessian Chow <hess.4x@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/pressure_advance/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.12.1\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid ""
 "This document provides information on tuning the \"pressure advance\" "
@@ -58,7 +60,7 @@ msgid ""
 msgstr "上述命令将使喷嘴在打印转角时减速，从而显著增加转角时挤出的压力。接着，如果您使用的是近程挤出结构，请输入下面的命令："
 
 msgid "For long bowden extruders use:"
-msgstr "使用远程基础的话，则输入："
+msgstr "使用远程挤出的话，则输入："
 
 msgid "Then print the object. When fully printed the test print looks like:"
 msgstr "接着，开始打印。打印后的测试模型将如下图："
