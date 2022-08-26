@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-25 17:19+0000\n"
+"PO-Revision-Date: 2022-08-26 09:05+0000\n"
 "Last-Translator: Wagner Reck <wagner.reck@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/config_reference/pt_BR/>\n"
@@ -60,7 +60,7 @@ msgid "[mcu]"
 msgstr ""
 
 msgid "Configuration of the primary micro-controller."
-msgstr ""
+msgstr "Configuração do microcontrolador primário."
 
 msgid "[mcu my_extra_mcu]"
 msgstr ""
@@ -81,7 +81,7 @@ msgstr ""
 "onde \"ar9\" é o nome do pino de hardware ou apelido em determinado MCU)"
 
 msgid "Common kinematic settings"
-msgstr ""
+msgstr "Definições comuns para cinemática"
 
 msgid "[printer]"
 msgstr ""
@@ -235,7 +235,7 @@ msgid ""
 msgstr ""
 
 msgid "Common extruder and heated bed support"
-msgstr ""
+msgstr "Suporte comum para extrusora e mesa aquecida."
 
 msgid "[extruder]"
 msgstr ""
@@ -251,7 +251,6 @@ msgstr ""
 msgid "Bed level support"
 msgstr "Suporte ao nível da mesa"
 
-#, fuzzy
 msgid "[bed_mesh]"
 msgstr "[bed_mesh]"
 
@@ -266,7 +265,6 @@ msgstr ""
 msgid "Visual Examples:"
 msgstr ""
 
-#, fuzzy
 msgid "[bed_tilt]"
 msgstr "[bed_tilt]"
 
@@ -280,7 +278,6 @@ msgstr ""
 "considerem um mesa inclinada. Note que bed_mes e bed_tilt são incompatíveis; "
 "Ambos não podem ser definidos."
 
-#, fuzzy
 msgid "[bed_screws]"
 msgstr "[bed_screws]"
 
@@ -420,7 +417,6 @@ msgstr "Compensação de ressonância"
 msgid "[input_shaper]"
 msgstr ""
 
-#, fuzzy
 msgid "[adxl345]"
 msgstr "[adxl345]"
 
@@ -428,9 +424,8 @@ msgid "[resonance_tester]"
 msgstr ""
 
 msgid "Config file helpers"
-msgstr ""
+msgstr "Auxiliares de arquivo de configuração"
 
-#, fuzzy
 msgid "[board_pins]"
 msgstr "[board_pins]"
 
@@ -471,7 +466,6 @@ msgid ""
 "not define a position_endstop in the stepper_z config section."
 msgstr ""
 
-#, fuzzy
 msgid "[bltouch]"
 msgstr "[bltouch]"
 
@@ -577,7 +571,6 @@ msgid ""
 "section in the config file above its first use in a heater section."
 msgstr ""
 
-#, fuzzy
 msgid "[adc_temperature]"
 msgstr "[adc_temperature]"
 
@@ -609,20 +602,24 @@ msgid "Temperature sensors"
 msgstr ""
 
 msgid "Common thermistors"
-msgstr ""
+msgstr "Termistores comuns"
 
 msgid ""
 "Common thermistors. The following parameters are available in heater "
 "sections that use one of these sensors."
 msgstr ""
+"Termistores comuns. Os seguintes parâmetros estão disponíveis nas secções "
+"dos aquecedores que utilizam um desses sensores."
 
 msgid "Common temperature amplifiers"
-msgstr ""
+msgstr "Amplificadores de temperatura comuns"
 
 msgid ""
 "Common temperature amplifiers. The following parameters are available in "
 "heater sections that use one of these sensors."
 msgstr ""
+"Amplificadores de temperatura comuns. Os seguintes parâmetros estão "
+"disponíveis nas secções do aquecedor que utilizar on desses sensores."
 
 msgid "Directly connected PT1000 sensor"
 msgstr ""
@@ -1035,7 +1032,6 @@ msgstr ""
 msgid "[samd_sercom]"
 msgstr ""
 
-#, fuzzy
 msgid "[adc_scaled]"
 msgstr "[adc_scaled]"
 
@@ -1092,10 +1088,10 @@ msgstr ""
 "OctoPrint."
 
 msgid "Common bus parameters"
-msgstr ""
+msgstr "Parâmetros comuns para barramentos"
 
 msgid "Common SPI settings"
-msgstr ""
+msgstr "Definições comuns para SPI"
 
 msgid ""
 "The following parameters are generally available for devices using an SPI "
@@ -1103,7 +1099,7 @@ msgid ""
 msgstr ""
 
 msgid "Common I2C settings"
-msgstr ""
+msgstr "Definições comuns para I2C"
 
 msgid ""
 "The following parameters are generally available for devices using an I2C "
@@ -2813,7 +2809,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 1 (header)
 msgid "Configuration reference"
-msgstr ""
+msgstr "Referência de configuração"
 
 #: docs/Config_Reference.md:block 257 (paragraph)
 msgid ""
@@ -4138,6 +4134,9 @@ msgid ""
 " information is in the [TMC Drivers guide](TMC_Drivers.md) and in the "
 "[command reference](G-Codes.md#tmcxxxx)."
 msgstr ""
+"Configuração dos drivers de motor passo Trinamic em modo UART/SPI. "
+"Informações adicionais estão [Guia dos drivers TMC](TMC_Drivers.md) e na ["
+"referência de comandos](G-Codes.md#tmcxxxx)."
 
 #: docs/Config_Reference.md:block 365 (paragraph)
 msgid ""
@@ -4551,7 +4550,6 @@ msgid ""
 msgstr ""
 
 #: docs/Config_Reference.md:block 409 (header)
-#, fuzzy
 msgid "[angle]"
 msgstr "[angle]"
 
