@@ -181,7 +181,7 @@ position_max:
 
 ### Cinematica cartesiana
 
-See [example-cartesian.cfg](../config/example-cartesian.cfg) for an example cartesian kinematics config file.
+Vedere [example-cartesian.cfg](../config/example-cartesian.cfg) per un file di configurazione della cinematica cartesiana di esempio.
 
 Qui sono descritti solo i parametri specifici delle stampanti cartesiane - vedere [impostazioni cinematiche comuni](#impostazioni-cinema-comuni) per i parametri disponibili.
 
@@ -213,7 +213,7 @@ max_z_accel:
 
 ### Cinematica Delta lineare
 
-See [example-delta.cfg](../config/example-delta.cfg) for an example linear delta kinematics config file. See the [delta calibrate guide](Delta_Calibrate.md) for information on calibration.
+Vedere [example-delta.cfg](../config/example-delta.cfg) per un file di configurazione della cinematica delta lineare di esempio. Consultare la [guida alla calibrazione delta](Delta_Calibrate.md) per informazioni sulla calibrazione.
 
 Qui vengono descritti solo i parametri specifici per le stampanti delta lineari - vedere [impostazioni cinematiche comuni](#impostazioni-cinematica-comune) per i parametri disponibili.
 
@@ -300,7 +300,7 @@ radius:
 
 ### Cinematica CoreXY
 
-See [example-corexy.cfg](../config/example-corexy.cfg) for an example corexy (and h-bot) kinematics file.
+Vedere [example-corexy.cfg](../config/example-corexy.cfg) per un file cinematico corexy (e h-bot) di esempio.
 
 Qui sono descritti solo i parametri specifici per le stampanti corexy - vedere [impostazioni cinematiche comuni](#impostazioni-cinema-comune) per i parametri disponibili.
 
@@ -331,7 +331,7 @@ max_z_accel:
 
 ### Cinematica CoreXZ
 
-See [example-corexz.cfg](../config/example-corexz.cfg) for an example corexz kinematics config file.
+Vedere [example-corexz.cfg](../config/example-corexz.cfg) per un file di configurazione della cinematica corexz di esempio.
 
 Qui sono descritti solo i parametri specifici per le stampanti corexz - vedere [impostazioni cinematiche comuni](#impostazioni-cinema-comune) per i parametri disponibili.
 
@@ -361,7 +361,7 @@ max_z_accel:
 
 ### Cinematica Hybrid-CoreXY
 
-See [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) for an example hybrid corexy kinematics config file.
+Vedere [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) per un file di configurazione della cinematica corexy ibrida di esempio.
 
 Questa cinematica è anche nota come cinematica Markforged.
 
@@ -394,7 +394,7 @@ max_z_accel:
 
 ### Cinematica Hybrid-CoreXZ
 
-See [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) for an example hybrid corexz kinematics config file.
+Vedere [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) per un file di configurazione della cinematica corexz ibrido di esempio.
 
 Questa cinematica è anche nota come cinematica Markforged.
 
@@ -427,7 +427,7 @@ max_z_accel:
 
 ### Cinematica polare
 
-See [example-polar.cfg](../config/example-polar.cfg) for an example polar kinematics config file.
+Vedere [example-polar.cfg](../config/example-polar.cfg) per un file di configurazione della cinematica polare di esempio.
 
 Qui sono descritti solo i parametri specifici per le stampanti polari - vedere [impostazioni cinematiche comuni](#impostazioni-cinema-comuni) per i parametri disponibili.
 
@@ -556,7 +556,7 @@ radius:
 
 See the [example-winch.cfg](../config/example-winch.cfg) for an example cable winch kinematics config file.
 
-Only parameters specific to cable winch printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Qui sono descritti solo i parametri specifici per le stampanti cavo verricello - vedere [impostazioni comuni cinematiche](#common-kinematic-settings) per i parametri disponibili.
 
 CABLE WINCH SUPPORT IS EXPERIMENTAL. Homing is not implemented on cable winch kinematics. In order to home the printer, manually send movement commands until the toolhead is at 0, 0, 0 and then issue a `G28` command.
 
@@ -737,7 +737,7 @@ max_temp:
 
 Mesh Bed Leveling. Si può definire una sezione di configurazione bed_mesh per abilitare trasformazioni di spostamento che sfalsano l'asse z in base a una mesh generata da punti sondati. Quando si utilizza una sonda per la posizione di riferimento sull'asse z, si consiglia di definire una sezione safe_z_home in printer.cfg per la posizione di riferimento verso il centro dell'area di stampa.
 
-See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#bed_mesh) for additional information.
+Per ulteriori informazioni, vedere la [bed mesh guide](Bed_Mesh.md) e [riferimento del comando](G-Codes.md#bed_mesh).
 
 Esempi visivi:
 
@@ -850,7 +850,7 @@ Esempi visivi:
 
 Compensazione dell'inclinazione del piatto. Si può definire una sezione di configurazione bed_tilt per abilitare le trasformazioni di movimento che tengono conto di un piatto inclinato. Nota che bed_mesh e bed_tilt sono incompatibili; entrambi non possono essere definiti.
 
-See the [command reference](G-Codes.md#bed_tilt) for additional information.
+Per ulteriori informazioni, vedere [riferimento comando](G-Codes.md#bed_tilt).
 
 ```
 [bed_tilt]
@@ -1057,7 +1057,7 @@ Printer Skew Correction. It is possible to use software to correct printer skew 
 
 ### [safe_z_home]
 
-Safe Z homing. One may use this mechanism to home the Z axis at a specific X, Y coordinate. This is useful if the toolhead, for example has to move to the center of the bed before Z can be homed.
+Homing Z sicuro. Si può utilizzare questo meccanismo per posizionare l'asse Z su una specifica coordinata X, Y. Ciò è utile se la testa portautensili, ad esempio, deve spostarsi al centro del letto prima che Z possa essere riposizionato.
 
 ```
 [safe_z_home]
@@ -1119,7 +1119,7 @@ gcode:
 
 Stepper phase adjusted endstops. To use this feature, define a config section with an "endstop_phase" prefix followed by the name of the corresponding stepper config section (for example, "[endstop_phase stepper_z]"). This feature can improve the accuracy of endstop switches. Add a bare "[endstop_phase]" declaration to enable the ENDSTOP_PHASE_CALIBRATE command.
 
-See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes.md#endstop_phase) for additional information.
+Per ulteriori informazioni, vedere la [endstop phases guide](Endstop_Phase.md) e [command reference](G-Codes.md#endstop_phase).
 
 ```
 [endstop_phase stepper_z]
@@ -1207,8 +1207,8 @@ Supporta il salvataggio delle variabili su disco in modo che vengano mantenute d
 ```
 [save_variables]
 filename:
-#   Required - provide a filename that would be used to save the
-#   variables to disk e.g. ~/variables.cfg
+#   Richiesto: fornire un nome file che verrebbe utilizzato per salvare
+#   le variabili su disco, ad es. ~/variables.cfg
 ```
 
 ### [idle_timeout]
@@ -1251,7 +1251,7 @@ path:
 
 Some printers with stage-clearing features, such as a part ejector or a belt printer, can find use in looping sections of the sdcard file. (For example, to print the same part over and over, or repeat the a section of a part for a chain or other repeated pattern).
 
-See the [command reference](G-Codes.md#sdcard_loop) for supported commands. See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin compatible M808 G-Code macro.
+Consulta il [command reference](G-Codes.md#sdcard_loop) per i comandi supportati. Vedere il file [sample-macros.cfg](../config/sample-macros.cfg) per una macro M808 G-Code compatibile con Marlin.
 
 ```
 [sdcard_loop]
@@ -1441,48 +1441,47 @@ Support for resonance testing and automatic input shaper calibration. In order t
 ```
 [resonance_tester]
 #probe_points:
-#   A list of X, Y, Z coordinates of points (one point per line) to test
-#   resonances at. At least one point is required. Make sure that all
-#   points with some safety margin in XY plane (~a few centimeters)
-#   are reachable by the toolhead.
+#   Un elenco di coordinate X, Y, Z di punti (un punto per linea) in cui
+#   testare le risonanze. Almeno un punto è richiesto. Assicurati che tutti
+#   i punti con un margine di sicurezza nel piano XY (~ pochi centimetri)
+#   siano raggiungibili dalla testa di stampa.
 #accel_chip:
-#   A name of the accelerometer chip to use for measurements. If
-#   adxl345 chip was defined without an explicit name, this parameter
-#   can simply reference it as "accel_chip: adxl345", otherwise an
-#   explicit name must be supplied as well, e.g. "accel_chip: adxl345
-#   my_chip_name". Either this, or the next two parameters must be
-#   set.
+#   Un nome del chip dell'accelerometro da utilizzare per le misurazioni.
+#   Se il chip adxl345 è stato definito senza un nome esplicito, questo
+#   parametro può semplicemente fare riferimento ad esso come
+#   "accel_chip: adxl345", altrimenti deve essere fornito anche un nome
+#   esplicito, ad es. "accel_chip: adxl345 mio_chip_nome". È necessario
+#   impostare questo o i due parametri successivi.
 #accel_chip_x:
 #accel_chip_y:
-#   Names of the accelerometer chips to use for measurements for each
-#   of the axis. Can be useful, for instance, on bed slinger printer,
-#   if two separate accelerometers are mounted on the bed (for Y axis)
-#   and on the toolhead (for X axis). These parameters have the same
-#   format as 'accel_chip' parameter. Only 'accel_chip' or these two
-#   parameters must be provided.
+#   Nomi dei chip dell'accelerometro da utilizzare per le misurazioni per
+#   ciascuno degli assi. Può essere utile, ad esempio, su una stampante con
+#   piatto, se due accelerometri separati sono montati sul piatto (per l'asse Y)
+#   e sulla testa di stampa (per l'asse X). Questi parametri hanno lo stesso
+#   formato del parametro 'accel_chip'. 
+#   È necessario fornire solo 'accel_chip' o questi due parametri.
 #max_smoothing:
 #   Maximum input shaper smoothing to allow for each axis during shaper
 #   auto-calibration (with 'SHAPER_CALIBRATE' command). By default no
 #   maximum smoothing is specified. Refer to Measuring_Resonances guide
 #   for more details on using this feature.
 #min_freq: 5
-#   Minimum frequency to test for resonances. The default is 5 Hz.
+#   Frequenza minima per testare le risonanze. L'impostazione è 5 Hz.
 #max_freq: 133.33
-#   Maximum frequency to test for resonances. The default is 133.33 Hz.
+#   Frequenza massima per testare le risonanze. L'impostazione è 133,33 Hz.
 #accel_per_hz: 75
-#   This parameter is used to determine which acceleration to use to
-#   test a specific frequency: accel = accel_per_hz * freq. Higher the
-#   value, the higher is the energy of the oscillations. Can be set to
-#   a lower than the default value if the resonances get too strong on
-#   the printer. However, lower values make measurements of
-#   high-frequency resonances less precise. The default value is 75
-#   (mm/sec).
+#   Questo parametro viene utilizzato per determinare quale accelerazione
+#   utilizzare per testare una frequenza specifica: accel = accel_per_hz * freq.
+#   Maggiore è il valore, maggiore è l'energia delle oscillazioni. Può essere
+#   impostato su un valore inferiore al valore predefinito se le risonanze
+#   diventano troppo forti sulla stampante. Tuttavia, valori più bassi rendono
+#   le misurazioni delle risonanze ad alta frequenza meno precise.
+#   Il valore predefinito è 75 (mm/sec).
 #hz_per_sec: 1
-#   Determines the speed of the test. When testing all frequencies in
-#   range [min_freq, max_freq], each second the frequency increases by
-#   hz_per_sec. Small values make the test slow, and the large values
-#   will decrease the precision of the test. The default value is 1.0
-#   (Hz/sec == sec^-2).
+#   Determina la velocità del test. Quando si testano tutte le frequenze
+#   nell'intervallo [freq_min, freq_max], ogni secondo la frequenza aumenta
+#   di hz_per_sec. Valori piccoli rallentano il test e valori grandi diminuiscono
+#   la precisione del test. Il valore predefinito è 1,0 (Hz/sec == sec^-2).
 ```
 
 ## Config file helpers
@@ -1535,60 +1534,65 @@ Sonda di altezza Z. Si può definire questa sezione per abilitare l'hardware di 
 ```
 [probe]
 pin:
-#   Probe detection pin. If the pin is on a different microcontroller
-#   than the Z steppers then it enables "multi-mcu homing". This
-#   parameter must be provided.
+#   Pin di rilevamento della sonda. Se il pin si trova su un
+#   microcontrollore diverso rispetto agli stepper Z, abilita
+#   "homing multi-mcu". Questo parametro deve essere fornito.
 #deactivate_on_each_sample: True
-#   This determines if Klipper should execute deactivation gcode
-#   between each probe attempt when performing a multiple probe
-#   sequence. The default is True.
+#   Questo determina se Klipper deve eseguire la disattivazione
+#   gcode tra ogni tentativo di esplorazione durante l'esecuzione di
+#   una sequenza di probe multiple. L'impostazione predefinita è True.
 #x_offset: 0.0
-#   The distance (in mm) between the probe and the nozzle along the
-#   x-axis. The default is 0.
+#   La distanza (in mm) tra la sonda e l'ugello lungo l'asse x. 
+#   Il valore predefinito è 0.
 #y_offset: 0.0
-#   The distance (in mm) between the probe and the nozzle along the
-#   y-axis. The default is 0.
+#   La distanza (in mm) tra la sonda e l'ugello lungo l'asse y.
+#   Il valore predefinito è 0.
 z_offset:
-#   The distance (in mm) between the bed and the nozzle when the probe
-#   triggers. This parameter must be provided.
+#   La distanza (in mm) tra il piatto e l'ugello quando la sonda si attiva.
+#   Questo parametro deve essere fornito.
 #speed: 5.0
-#   Speed (in mm/s) of the Z axis when probing. The default is 5mm/s.
+#   Velocità (in mm/s) dell'asse Z durante probing.
+#   Il valore predefinito è 5 mm/s.
 #samples: 1
-#   The number of times to probe each point. The probed z-values will
-#   be averaged. The default is to probe 1 time.
+#   Il numero di volte in cui sondare ciascun punto. I valori z sondati
+#   verranno mediati. L'impostazione predefinita è sondare 1 volta.
 #sample_retract_dist: 2.0
-#   The distance (in mm) to lift the toolhead between each sample (if
-#   sampling more than once). The default is 2mm.
+#   La distanza (in mm) per sollevare la testa di stampa tra ciascun
+#   campione (se si esegue il campionamento più di una volta).
+#   Il valore predefinito è 2 mm.
 #lift_speed:
-#   Speed (in mm/s) of the Z axis when lifting the probe between
-#   samples. The default is to use the same value as the 'speed'
-#   parameter.
+#   Velocità (in mm/s) dell'asse Z durante il sollevamento della sonda
+#   tra i campioni. L'impostazione predefinita prevede l'utilizzo dello
+#   stesso valore del parametro 'speed'.
 #samples_result: average
-#   The calculation method when sampling more than once - either
-#   "median" or "average". The default is average.
+#   Il metodo di calcolo durante il campionamento più di una volta:
+#   "median" o "average". L'impostazione predefinita è average.
 #samples_tolerance: 0.100
-#   The maximum Z distance (in mm) that a sample may differ from other
-#   samples. If this tolerance is exceeded then either an error is
-#   reported or the attempt is restarted (see
-#   samples_tolerance_retries). The default is 0.100mm.
+#   La distanza Z massima (in mm) che un campione può differire da
+#   altri campioni. Se questa tolleranza viene superata, viene segnalato
+#   un errore o il tentativo viene riavviato
+#   (vedere samples_tolerance_retries). Il valore predefinito è 0,100 mm.
 #samples_tolerance_retries: 0
-#   The number of times to retry if a sample is found that exceeds
-#   samples_tolerance. On a retry, all current samples are discarded
-#   and the probe attempt is restarted. If a valid set of samples are
-#   not obtained in the given number of retries then an error is
-#   reported. The default is zero which causes an error to be reported
-#   on the first sample that exceeds samples_tolerance.
+#   Il numero di tentativi per riprovare se viene trovato un campione che
+#   supera samples_tolerance. In un nuovo tentativo, tutti i campioni
+#   correnti vengono eliminati e il tentativo di sonda viene riavviato.
+#   Se non si ottiene un insieme valido di campioni nel numero di tentativi
+#   specificato, viene segnalato un errore. Il valore predefinito è zero che
+#   causa la segnalazione di un errore sul primo campione che supera
+#   samples_tolerance.
 #activate_gcode:
-#   A list of G-Code commands to execute prior to each probe attempt.
-#   See docs/Command_Templates.md for G-Code format. This may be
-#   useful if the probe needs to be activated in some way. Do not
-#   issue any commands here that move the toolhead (eg, G1). The
-#   default is to not run any special G-Code commands on activation.
+#   Un elenco di comandi G-Code da eseguire prima di ogni tentativo di
+#   esplorazione. Vedi docs/Command_Templates.md per il formato
+#   G-Code. Questo può essere utile se la sonda deve essere attivata in
+#   qualche modo. Non impartire qui alcun comando che sposti la testa
+#   di stampa (ad es. G1). L'impostazione predefinita è di non eseguire
+#   alcun comando G-Code speciale all'attivazione.
 #deactivate_gcode:
-#   A list of G-Code commands to execute after each probe attempt
-#   completes. See docs/Command_Templates.md for G-Code format. Do not
-#   issue any commands here that move the toolhead. The default is to
-#   not run any special G-Code commands on deactivation.
+#   Un elenco di comandi G-Code da eseguire dopo il completamento di
+#   ogni tentativo di esplorazione. Vedi docs/Command_Templates.md
+#   per il formato G-Code. Non impartire qui alcun comando che sposti
+#   la testina. L'impostazione predefinita è di non eseguire alcun
+#   comando G-Code speciale alla disattivazione.
 ```
 
 ### [bltouch]
@@ -1720,7 +1724,7 @@ Assi multi-stepper. Su una stampante in stile cartesiano, lo stepper che control
 
 In una stampante multiestrusore aggiungere una sezione estrusore aggiuntiva per ogni estrusore aggiuntivo. Le sezioni aggiuntive dell'estrusore devono essere denominate "extruder1", "extruder2", "extruder3" e così via. Vedere la sezione "extruder" per una descrizione dei parametri disponibili.
 
-See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an example configuration.
+Vedere [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) per un esempio di configurazione.
 
 ```
 [extruder1]
@@ -1737,7 +1741,7 @@ See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an exam
 
 Support for cartesian printers with dual carriages on a single axis. The active carriage is set via the SET_DUAL_CARRIAGE extended g-code command. The "SET_DUAL_CARRIAGE CARRIAGE=1" command will activate the carriage defined in this section (CARRIAGE=0 will return activation to the primary carriage). Dual carriage support is typically combined with extra extruders - the SET_DUAL_CARRIAGE command is often called at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the carriages during deactivation.
 
-See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration.
+Vedere [sample-idex.cfg](../config/sample-idex.cfg) per un esempio di configurazione.
 
 ```
 [dual_carriage]
@@ -1760,7 +1764,7 @@ axis:
 
 Supporto per stepper aggiuntivi sincronizzati al movimento di un estrusore (si può definire un numero qualsiasi di sezioni con un prefisso "extruder_stepper").
 
-See the [command reference](G-Codes.md#extruder) for more information.
+Per ulteriori informazioni, vedere [riferimento comando](G-Codes.md#extruder).
 
 ```
 [extruder_stepper my_extra_stepper]
@@ -2048,13 +2052,13 @@ Sensori ambientali BMP280/BME280/BME680 con interfaccia I2C. Si noti che questi 
 ```
 sensor_type: BME280
 #i2c_address:
-#   Default is 118 (0x76). Some BME280 sensors have an address of 119
-#   (0x77).
+#   Il valore predefinito è 118 (0x76). Alcuni sensori BME280 hanno un
+#   indirizzo di 119 (0x77).
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
+#   Vedere la sezione "impostazioni comuni I2C" per una descrizione 
+#   dei parametri di cui sopra.
 ```
 
 ### Sensore HTU21D
@@ -2063,28 +2067,28 @@ Sensore ambientale con interfaccia a due fili (I2C) della famiglia HTU21D. Si no
 
 ```
 sensor_type:
-#   Must be "HTU21D" , "SI7013", "SI7020", "SI7021" or "SHT21"
+#  Deve essere "HTU21D", "SI7013", "SI7020", "SI7021" o "SHT21"
 #i2c_address:
-#   Default is 64 (0x40).
+#   Il valore predefinito è 64 (0x40).
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
+#   Vedere la sezione "impostazioni comuni I2C" per una
+#   descrizione dei parametri di cui sopra.
 #htu21d_hold_master:
-#   If the sensor can hold the I2C buf while reading. If True no other
-#   bus communication can be performed while reading is in progress.
-#   Default is False.
+#   Se il sensore può trattenere il buf I2C durante la lettura. Se
+#   True nessun'altra comunicazione bus può essere eseguita mentre
+#   la lettura è in corso. L'impostazione predefinita è False.
 #htu21d_resolution:
-#   The resolution of temperature and humidity reading.
-#   Valid values are:
-#    'TEMP14_HUM12' -> 14bit for Temp and 12bit for humidity
-#    'TEMP13_HUM10' -> 13bit for Temp and 10bit for humidity
-#    'TEMP12_HUM08' -> 12bit for Temp and 08bit for humidity
-#    'TEMP11_HUM11' -> 11bit for Temp and 11bit for humidity
-#   Default is: "TEMP11_HUM11"
+#   La risoluzione della lettura di temperatura e umidità.
+#   I valori validi sono:
+#    'TEMP14_HUM12' -> 14bit per Temp e 12bit per umidità
+#    'TEMP13_HUM10' -> 13bit per Temp e 10bit per umidità
+#    'TEMP12_HUM08' -> 12bit per Temp e 08bit per umidità
+#    'TEMP11_HUM11' -> 11bit per Temp e 11bit per umidità
+#   L'impostazione predefinita è: "TEMP11_HUM11"
 #htu21d_report_time:
-#   Interval in seconds between readings. Default is 30
+#   Intervallo in secondi tra le letture. Il valore predefinito è 30
 ```
 
 ### Sensore di temperatura LM75
@@ -2094,17 +2098,17 @@ Sensori di temperatura (I2C) LM75/LM75A. Questi sensori hanno una gamma di -55~1
 ```
 sensor_type: LM75
 #i2c_address:
-#   Default is 72 (0x48). Normal range is 72-79 (0x48-0x4F) and the 3
-#   low bits of the address are configured via pins on the chip
-#   (usually with jumpers or hard wired).
+#   Il valore predefinito è 72 (0x48). L'intervallo normale è 72-79
+#   (0x48-0x4F) e i 3 bit bassi dell'indirizzo sono configurati tramite
+#   pin sul chip (di solito con ponticelli o cablati).
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
+#   Vedere la sezione "impostazioni comuni I2C" per una descrizione 
+#   dei parametri di cui sopra.
 #lm75_report_time:
-#   Interval in seconds between readings. Default is 0.8, with minimum
-#   0.5.
+#   Intervallo in secondi tra le letture. Il valore predefinito è 0.8 
+#   con il minimo 0.5.
 ```
 
 ### Sensore di temperatura integrato nel microcontrollore
@@ -2146,9 +2150,9 @@ Temperatura dalla macchina (es. Raspberry Pi) che esegue il software host.
 ```
 sensor_type: temperature_host
 #sensor_path:
-#   The path to temperature system file. The default is
-#   "/sys/class/thermal/thermal_zone0/temp" which is the temperature
-#   system file on a Raspberry Pi computer.
+#   il percorso del file di sistema della temperatura. L'impostazione 
+#   predefinita è "/sys/class/thermal/thermal_zone0/temp" che è il file di
+#   sistema della temperatura su un computer Raspberry Pi.
 ```
 
 ### Sensore di temperatura DS18B20
@@ -2158,14 +2162,15 @@ DS18B20 è un sensore di temperatura digitale a 1 filo (w1). Si noti che questo 
 ```
 sensor_type: DS18B20
 serial_no:
-#   Each 1-wire device has a unique serial number used to identify the device,
-#   usually in the format 28-031674b175ff. This parameter must be provided.
-#   Attached 1-wire devices can be listed using the following Linux command:
-#   ls /sys/bus/w1/devices/
+#   Ogni dispositivo a 1 filo ha un numero di serie univoco utilizzato per
+#   identificare il dispositivo, solitamente nel formato 28-031674b175ff. Questo
+#   parametro deve essere fornito. I dispositivi collegati a 1 filo possono essere
+#   elencati utilizzando il seguente comando Linux: ls /sys/bus/w1/devices/
 #ds18_report_time:
-#   Interval in seconds between readings. Default is 3.0, with a minimum of 1.0
+#   Intervallo in secondi tra le letture. Il valore predefinito è 3.0, con un
+#   minimo di 1.0
 #sensor_mcu:
-#   The micro-controller to read from. Must be the host_mcu
+#   Il microcontrollore da cui leggere. Deve essere host_mcu
 ```
 
 ## Ventole
@@ -2319,7 +2324,7 @@ Ventola di raffreddamento del controller (è possibile definire un numero qualsi
 
 Ventole di raffreddamento attivate dalla temperatura (è possibile definire un numero qualsiasi di sezioni con un prefisso "temperature_fan"). Una "ventola di temperatura" è una ventola che verrà abilitata ogni volta che il sensore associato è al di sopra di una temperatura impostata. Per impostazione predefinita, una ventola_temperatura ha una velocità_di_arresto pari a potenza_massima.
 
-See the [command reference](G-Codes.md#temperature_fan) for additional information.
+Per ulteriori informazioni, vedere [command reference](G-Codes.md#temperature_fan).
 
 ```
 [temperature_fan my_temp_fan]
@@ -2525,7 +2530,7 @@ Supporto LED PCA9632. Il PCA9632 viene utilizzato su FlashForge Dreamer.
 
 ### [servo]
 
-Servos (one may define any number of sections with a "servo" prefix). The servos may be controlled using the SET_SERVO [g-code command](G-Codes.md#servo). For example: SET_SERVO SERVO=my_servo ANGLE=180
+Servo (si può definire un numero qualsiasi di sezioni con un prefisso "servo"). I servo possono essere controllati usando SET_SERVO [comando g-code](G-Codes.md#servo). Ad esempio: SET_SERVO SERVO=my_servo ANGLE=180
 
 ```
 [servo my_servo]
@@ -2631,7 +2636,7 @@ pin:
 
 ### [static_digital_output]
 
-Statically configured digital output pins (one may define any number of sections with a "static_digital_output" prefix). Pins configured here will be setup as a GPIO output during MCU configuration. They can not be changed at run-time.
+Pin di uscita digitali configurati staticamente (è possibile definire un numero qualsiasi di sezioni con un prefisso "static_digital_output"). I pin configurati qui verranno impostati come uscita GPIO durante la configurazione dell'MCU. Non possono essere modificati in fase di esecuzione.
 
 ```
 [static_digital_output my_output_pins]
@@ -3002,7 +3007,7 @@ run_current:
 
 ### [ad5206]
 
-Statically configured AD5206 digipots connected via SPI bus (one may define any number of sections with an "ad5206" prefix).
+Digipot AD5206 configurati staticamente collegati tramite bus SPI (si può definire un numero qualsiasi di sezioni con un prefisso "ad5206").
 
 ```
 [ad5206 my_digipot]
@@ -3041,7 +3046,7 @@ enable_pin:
 
 ### [mcp4451]
 
-Statically configured MCP4451 digipot connected via I2C bus (one may define any number of sections with an "mcp4451" prefix).
+Digipot MCP4451 configurato staticamente collegato tramite bus I2C (si può definire un numero qualsiasi di sezioni con un prefisso "mcp4451").
 
 ```
 [mcp4451 my_digipot]
@@ -3078,7 +3083,7 @@ i2c_address:
 
 ### [mcp4728]
 
-Statically configured MCP4728 digital-to-analog converter connected via I2C bus (one may define any number of sections with an "mcp4728" prefix).
+Convertitore digitale-analogico MCP4728 in configurazione statica collegato tramite bus I2C (è possibile definire un numero qualsiasi di sezioni con prefisso "mcp4728").
 
 ```
 [mcp4728 my_dac]
@@ -3115,7 +3120,7 @@ Statically configured MCP4728 digital-to-analog converter connected via I2C bus 
 
 ### [mcp4018]
 
-Statically configured MCP4018 digipot connected via two gpio "bit banging" pins (one may define any number of sections with an "mcp4018" prefix).
+Digipot MCP4018 configurato staticamente collegato tramite due pin gpio "bit banging" (si può definire un numero qualsiasi di sezioni con un prefisso "mcp4018").
 
 ```
 [mcp4018 my_digipot]
@@ -3282,7 +3287,7 @@ spi_software_miso_pin:
 ...
 ```
 
-#### st7920 display
+#### display st7920
 
 Informazioni sulla configurazione dei display st7920 (utilizzati nei display di tipo "RepRapDiscount 12864 Full Graphic Smart Controller").
 
@@ -3342,7 +3347,7 @@ a0_pin:
 ...
 ```
 
-#### ssd1306 and sh1106 displays
+#### display ssd1306 e sh1106
 
 Informazioni sulla configurazione dei display ssd1306 e sh1106.
 
@@ -3434,7 +3439,7 @@ text:
 
 Visualizza un glifo personalizzato sui display che lo supportano. Al nome dato verranno assegnati i dati di visualizzazione dati che possono quindi essere referenziati nei modelli di visualizzazione con il loro nome circondato da due simboli "tilde" per esempio `~my_display_glyph~`
 
-See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples.
+Vedere [sample-glyphs.cfg](../config/sample-glyphs.cfg) per alcuni esempi.
 
 ```
 [display_glyph my_display_glyph]
@@ -3471,7 +3476,7 @@ Menu display lcd personalizzabili.
 
 Viene creato automaticamente un [default set of menus](../klippy/extras/display/menu.cfg) . È possibile sostituire o estendere il menu sovrascrivendo le impostazioni predefinite nel file di configurazione principale printer.cfg .
 
-See the [command template document](Command_Templates.md#menu-templates) for information on menu attributes available during template rendering.
+Consulta il [command template document](Command_Templates.md#menu-templates) per informazioni sugli attributi di menu disponibili durante il rendering del modello.
 
 ```
 # Common parameters available for all menu config sections.
@@ -3547,7 +3552,7 @@ See the [command template document](Command_Templates.md#menu-templates) for inf
 
 Sensore del filamento a interruttore. Supporto per l'inserimento del filamento e il rilevamento dell'esaurimento tramite un sensore interruttore, come un interruttore di fine corsa.
 
-See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
+Per ulteriori informazioni, vedere [command reference](G-Codes.md#filament_switch_sensor).
 
 ```
 [filament_switch_sensor my_sensor]
@@ -3586,7 +3591,7 @@ See the [command reference](G-Codes.md#filament_switch_sensor) for more informat
 
 Sensore di movimento del filamento. Supporto per l'inserimento del filamento e il rilevamento dell'esaurimento mediante un codificatore che commuta il pin di uscita durante il movimento del filamento attraverso il sensore.
 
-See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
+Per ulteriori informazioni, vedere [command reference](G-Codes.md#filament_switch_sensor).
 
 ```
 [filament_motion_sensor my_sensor]
@@ -3684,7 +3689,7 @@ L'impostazione predefinita è disabilitare.
 
 Configurare un'espansione SX1509 da I2C a GPIO. A causa del ritardo dovuto alla comunicazione I2C, NON utilizzare i pin SX1509 come abilitazione stepper, pin step o dir o qualsiasi altro pin che richieda un bit banging veloce. Sono utilizzati al meglio come uscite digitali statiche o controllate da gcode o pin hardware-pwm per es. fan. Si può definire un numero qualsiasi di sezioni con un prefisso "sx1509". Ogni espansione fornisce un set di 16 pin (da sx1509_my_sx1509:PIN_0 a sx1509_my_sx1509:PIN_15) che possono essere utilizzati nella configurazione della stampante.
 
-See the [generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg) file for an example.
+Per un esempio, vedere il file [generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg).
 
 ```
 [sx1509 my_sx1509]
@@ -3711,29 +3716,31 @@ Configurazione SAMD SERCOM per specificare quali pin utilizzare su un determinat
 ```
 [samd_sercom my_sercom]
 sercom:
-#   The name of the sercom bus to configure in the micro-controller.
-#   Available names are "sercom0", "sercom1", etc.. This parameter
-#   must be provided.
+#   Il nome del bus Sercom da configurare nel microcontrollore. I nomi
+#   disponibili sono "sercom0", "sercom1", ecc.
+#   Questo parametro deve essere fornito.
 tx_pin:
-#   MOSI pin for SPI communication, or SDA (data) pin for I2C
-#   communication. The pin must have a valid pinmux configuration
-#   for the given SERCOM peripheral. This parameter must be provided.
+#   Pin MOSI per la comunicazione SPI o pin SDA (dati) per la 
+#   comunicazione I2C. Il pin deve avere una configurazione pinmux
+#   valida per la specifica periferica SERCOM.
+#   Questo parametro deve essere fornito.
 #rx_pin:
-#   MISO pin for SPI communication. This pin is not used for I2C
-#   communication (I2C uses tx_pin for both sending and receiving).
-#   The pin must have a valid pinmux configuration for the given
-#   SERCOM peripheral. This parameter is optional.
+#   Pin MISO per la comunicazione SPI. Questo pin non viene utilizzato
+#   per la comunicazione I2C (I2C utilizza tx_pin sia per l'invio che per la
+#   ricezione). Il pin deve avere una configurazione pinmux valida per la
+#   specifica periferica SERCOM. Questo parametro è facoltativo.
 clk_pin:
-#   CLK pin for SPI communication, or SCL (clock) pin for I2C
-#   communication. The pin must have a valid pinmux configuration
-#   for the given SERCOM peripheral. This parameter must be provided.
+#   Pin CLK per la comunicazione SPI o pin SCL (clock) per la
+#   comunicazione I2C. Il pin deve avere una configurazione pinmux
+#   valida per la specifica periferica SERCOM. Questo parametro deve
+#   essere fornito.
 ```
 
 ### [adc_scaled]
 
 Scaling analogico di Duet2 Maestro tramite letture vref e vssa. La definizione di una sezione adc_scaled abilita pin adc virtuali (come "my_name:PB0") che vengono regolati automaticamente dai pin di monitoraggio vref e vssa della scheda. Assicurati di definire questa sezione di configurazione sopra qualsiasi sezione di configurazione che utilizza uno di questi pin virtuali.
 
-See the [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) file for an example.
+Per un esempio, vedere il file [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg).
 
 ```
 [adc_scaled my_name]
