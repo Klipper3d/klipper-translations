@@ -1,22 +1,22 @@
 # Frequently Asked Questions
 
-## How can I donate to the project?
+## Como eu posso doar para o projeto?
 
 Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
 
-## How do I calculate the rotation_distance config parameter?
+## Como eu posso calcular o parâmetro de configuração rotation_distance?
 
-See the [rotation distance document](Rotation_Distance.md).
+Veja o [documento distância de rotação](Rotation_Distance.md).
 
-## Where's my serial port?
+## Onde está minha porta serial?
 
-The general way to find a USB serial port is to run `ls /dev/serial/by-id/*` from an ssh terminal on the host machine. It will likely produce output similar to the following:
+A maneira usual de encontrar a porta serial USB é rodar o comando `ls /dev/serial/by-id/*` via um terminal ssh na máquina hospedeira. Isto deverá produzir uma saída similar ao que segue:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-The name found in the above command is stable and it is possible to use it in the config file and while flashing the micro-controller code. For example, a flash command might look similar to:
+O nome encontrado no comando acima é estável e é possível utilizável no arquivo de configuração durante o processo de gravação do código do microcontrolador. Por exemplo, um comando de gravação pode ser similar a:
 
 ```
 sudo service klipper stop
@@ -24,55 +24,55 @@ make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 ```
 
-and the updated config might look like:
+e a configuração atualizada pode ser similar a:
 
 ```
 [mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-Be sure to copy-and-paste the name from the "ls" command that you ran above as the name will be different for each printer.
+Tenha certeza de copiar-e-colar o nome obtido com o comando "ls" executado acima, pois o nome diferirá para cada impressora.
 
-If you are using multiple micro-controllers and they do not have unique ids (common on boards with a CH340 USB chip) then follow the directions above using the command `ls /dev/serial/by-path/*` instead.
+Se você está usando múltiplos microcontroladores e eles não têm identificadores únicos (comum em placas com um chip USB CH340), então siga as instruções acima usando o comando `ls /dev/serial/by-path/*` como alternativa.
 
-## When the micro-controller restarts the device changes to /dev/ttyUSB1
+## Quando o microcontrolador reinicializa o dispositivo muda para /dev/ttyUSB1
 
-Follow the directions in the "[Where's my serial port?](#wheres-my-serial-port)" section to prevent this from occurring.
+Siga as instruções na secção "[Onde está minha porta serial?](#wheres-my-serial-port)" para evitar que isso ocorra.
 
-## The "make flash" command doesn't work
+## O comando "make flash" não funciona
 
-The code attempts to flash the device using the most common method for each platform. Unfortunately, there is a lot of variance in flashing methods, so the "make flash" command may not work on all boards.
+O código tenta gravar o dispositivo usando métodos comuns para cada plataforma. Infelizmente, há uma enorme variação nos métodos de gravação, então o comando "make flash" pode não funcionar com todas as placas.
 
-If you're having an intermittent failure or you do have a standard setup, then double check that Klipper isn't running when flashing (sudo service klipper stop), make sure OctoPrint isn't trying to connect directly to the device (open the Connection tab in the web page and click Disconnect if the Serial Port is set to the device), and make sure FLASH_DEVICE is set correctly for your board (see the [question above](#wheres-my-serial-port)).
+Se você estiver tendo falhas intermitentes ou possui uma configuração padrão, então verifique novamente se o Klipper não está rodando quando está gravando (sudo service klipper stop), tenha certeza que OctoPrint não está tentando conectar diretamente no dispositivo(Abra a aba de conexão na página web e clique em Disconnect se a Serial Port aponta para o dispositivo), e confirme que FLASH_DEVICE está correto para sua placa (veja a [questão acima](#wheres-my-serial-port)).
 
-However, if "make flash" just doesn't work for your board, then you will need to manually flash. See if there is a config file in the [config directory](../config) with specific instructions for flashing the device. Also, check the board manufacturer's documentation to see if it describes how to flash the device. Finally, it may be possible to manually flash the device using tools such as "avrdude" or "bossac" - see the [bootloader document](Bootloaders.md) for additional information.
+Entretanto, se "make flash" apenas não funciona para sua placa, então você precisará gravar manualmente. Veja se já um arquivo de configuração no [diretório de confiruação](../config) com instruções específicas para gravar o dispositivo. Também, verifique se a documentação do fabricante da placa para ver se ele descreve como gravar o dispositivo. Finalmente, pode ser possível gravar o dispositivo manualmente usando ferramentas tais como "avrdude" ou "bossac" - veja o [documento de bootloader](Bootloaders.md) para mais informações.
 
-## How do I change the serial baud rate?
+## Como eu posso mudar a taxa de transmissão serial?
 
-The recommended baud rate for Klipper is 250000. This baud rate works well on all micro-controller boards that Klipper supports. If you've found an online guide recommending a different baud rate, then ignore that part of the guide and continue with the default value of 250000.
+A taxa de transmissão recomendada para o Klipper é 250000. Essa taxa de transmissão funciona bem em todas placas de microcontroladores suportadas pelo Klipper. Se você encontrar um guia online recomendando uma taxa de transmissão diferente, então ignore essa parte do guia e continue com o valor padrão de 250000.
 
-If you want to change the baud rate anyway, then the new rate will need to be configured in the micro-controller (during **make menuconfig**) and that updated code will need to be compiled and flashed to the micro-controller. The Klipper printer.cfg file will also need to be updated to match that baud rate (see the [config reference](Config_Reference.md#mcu) for details). For example:
+Se você ainda assim deseja mudar a taxa de transmissão, então a nova taxa precisará ser configurada no microcontrolador (durante **make menuconfig**) e o código atualizado precisará ser compilado e gravado no microcontrolador. O arquivo printer.cfg do Klipper também precisará ser atualizado para igualar a taxa de transmissão (veja a [referência de configuração](Config_Reference.md#mcu) para detalhes). Por exemplo:
 
 ```
 [mcu]
 baud: 250000
 ```
 
-The baud rate shown on the OctoPrint web page has no impact on the internal Klipper micro-controller baud rate. Always set the OctoPrint baud rate to 250000 when using Klipper.
+A taxa de transmissão apresentado na página do OctoPrint não tem impacto na taxa de transmissão interna do Klipper com o microcontrolador. Sempre utilize no OctoPrint a taxa de transmissão 250000 quando usar o Klipper.
 
-The Klipper micro-controller baud rate is not related to the baud rate of the micro-controller's bootloader. See the [bootloader document](Bootloaders.md) for additional information on bootloaders.
+A taxa de transmissão do Klipper não é relacionada a taxa de transmissão do bootloader do microcontrolador. Veja o [documento de bootloader](Bootloaders.md) para mais informações sobre bootloaders.
 
-## Can I run Klipper on something other than a Raspberry Pi 3?
+## Eu posso rodar o Klipper em outra coisa além do Raspberry Pi 3?
 
-The recommended hardware is a Raspberry Pi 2, Raspberry Pi 3, or Raspberry Pi 4.
+O Hardware recomendado é o Raspberry Pi 2, Raspberry Pi 3 ou Raspberry Pi 4.
 
-Klipper will run on a Raspberry Pi 1 and on the Raspberry Pi Zero, but these boards don't have enough processing power to run OctoPrint well. It is common for print stalls to occur on these slower machines when printing directly from OctoPrint. (The printer may move faster than OctoPrint can send movement commands.) If you wish to run on one one of these slower boards anyway, consider using the "virtual_sdcard" feature when printing (see [config reference](Config_Reference.md#virtual_sdcard) for details).
+Klipper rodará em um Raspberry Pi 1 e num Raspberry Pi Zero, mas essas placas não tem poder de processamento suficiente para rodar bem Octoprint. É comum ocorrerem paradas de impressão nessas máquinas mais lentas quando imprimindo diretamente do OctoPrint. (A impressora pode se mover mais rápido do que o OctoPrint consiga enviar comandos de movimento.) Se você deseja utilizar uma dessas placas mais lentas de qualquer forma, considere utilizar a funcionalidade "virtual_sdcard" quando imprimir (veja [Referência de Configuração](Config_Reference.md#virtual_sdcard) para detalhes).
 
 For running on the Beaglebone, see the [Beaglebone specific installation instructions](Beaglebone.md).
 
-Klipper has been run on other machines. The Klipper host software only requires Python running on a Linux (or similar) computer. However, if you wish to run it on a different machine you will need Linux admin knowledge to install the system prerequisites for that particular machine. See the [install-octopi.sh](../scripts/install-octopi.sh) script for further information on the necessary Linux admin steps.
+Klipper já foi rodado em outras máquinas. O software hospedeiro do Klipper só requer Python rodando em um computador Linux (ou similar). Entretanto, se você deseja rodar isso em uma máquina diferente, você precisará de conhecimento de administração Linux para instalar os pré-requisitos de sistema para a maquina específica. Veja o script [install-octopi.sh](../scripts/install-octopi.sh) para mais informações sobre os passos de administração Linux necessários.
 
-If you are looking to run the Klipper host software on a low-end chip, then be aware that, at a minimum, a machine with "double precision floating point" hardware is required.
+Se você pretende rodar o software hospedeiro Klipper em num chip low-end, tenha ciência que, no mínimo, uma máquina de hardware com "precisão de ponto flutuante dupla" é necessária.
 
 If you are looking to run the Klipper host software on a shared general-purpose desktop or server class machine, then note that Klipper has some real-time scheduling requirements. If, during a print, the host computer also performs an intensive general-purpose computing task (such as defragmenting a hard drive, 3d rendering, heavy swapping, etc.), then it may cause Klipper to report print errors.
 

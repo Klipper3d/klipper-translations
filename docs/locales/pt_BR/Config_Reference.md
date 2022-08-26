@@ -1,4 +1,4 @@
-# Configuration reference
+# Referência de configuração
 
 Esse documento é uma referência às opções disponíveis no arquivo de configurações do Klipper.
 
@@ -18,7 +18,7 @@ Note, some config sections may "create" additional pins. Where this occurs, the 
 
 ### [mcu]
 
-Configuration of the primary micro-controller.
+Configuração do microcontrolador primário.
 
 ```
 [mcu]
@@ -51,14 +51,14 @@ serial:
 
 ### [mcu my_extra_mcu]
 
-Additional micro-controllers (one may define any number of sections with an "mcu" prefix). Additional micro-controllers introduce additional pins that may be configured as heaters, steppers, fans, etc.. For example, if an "[mcu extra_mcu]" section is introduced, then pins such as "extra_mcu:ar9" may then be used elsewhere in the config (where "ar9" is a hardware pin name or alias name on the given mcu).
+Microcontroladores adicionais (pode-se definir qualquer número de secções com prefixo "mcu"). Microcontroladores adicionais introduzem pinos extras que podem ser configurados como aquecedores, motores de passo, ventoinhas, etc. Por exemplo, se uma secção "[mcu extra_mcu]" e inserida, então pinos como "extra_mcu:ar9" podem ser usados em outros lugares da configuração (onde "ar9" é o nome do pino de hardware ou apelido em determinado MCU)
 
 ```
 [mcu my_extra_mcu]
 # See the "mcu" section for configuration parameters.
 ```
 
-## Common kinematic settings
+## Definições comuns para cinemática
 
 ### [printer]
 
@@ -175,7 +175,7 @@ position_max:
 #   if near position_min.
 ```
 
-### Cartesian Kinematics
+### Cinemática catesiana
 
 See [example-cartesian.cfg](../config/example-cartesian.cfg) for an example cartesian kinematics config file.
 
@@ -536,13 +536,13 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-### Cable winch Kinematics
+### Cinemática via guincho de cabo
 
 See the [example-winch.cfg](../config/example-winch.cfg) for an example cable winch kinematics config file.
 
 Only parameters specific to cable winch printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
 
-CABLE WINCH SUPPORT IS EXPERIMENTAL. Homing is not implemented on cable winch kinematics. In order to home the printer, manually send movement commands until the toolhead is at 0, 0, 0 and then issue a `G28` command.
+SUPORTE À GUINCHO DE CABOS É EXPERIMENTAL. Ir para origem não está implemento em Cinemática via guincho de cabo. Para ir para origem da impressora, envie manualmente comandos de movimento até que a cabeça de impressão esteja em 0, 0, 0 e então envie o comando `G28`.
 
 ```
 [printer]
@@ -576,7 +576,7 @@ max_accel: 1
 #   values are not used for "none" kinematics.
 ```
 
-## Common extruder and heated bed support
+## Suporte comum para extrusora e mesa aquecida.
 
 ### [extruder]
 
@@ -721,7 +721,7 @@ max_temp:
 #   See the "extruder" section for a description of the above parameters.
 ```
 
-## Bed level support
+## Suporte ao nível da mesa
 
 ### [bed_mesh]
 
@@ -838,7 +838,7 @@ Visual Examples:
 
 ### [bed_tilt]
 
-Bed tilt compensation. One may define a bed_tilt config section to enable move transformations that account for a tilted bed. Note that bed_mesh and bed_tilt are incompatible; both cannot be defined.
+Compensação por inclinação da mesa. Pode-se definir uma secção de configuração bed_tilt que habilite transformações de movimento que considerem um mesa inclinada. Note que bed_mes e bed_tilt são incompatíveis; Ambos não podem ser definidos.
 
 See the [command reference](G-Codes.md#bed_tilt) for additional information.
 
@@ -879,36 +879,36 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 ```
 [bed_screws]
 #screw1:
-#   The X, Y coordinate of the first bed leveling screw. This is a
-#   position to command the nozzle to that is directly above the bed
-#   screw (or as close as possible while still being above the bed).
-#   This parameter must be provided.
+#   Cordenadas X, Y do primeiro parafuso de nivelamento. Esta é a
+#   posição onde o bico está diretamente acima da do parafuso
+#   da mesa (ou o mais próximo possível enqaunto está acima da mesa).
+#   Este parâmetro deve ser provido.
 #screw1_name:
-#   An arbitrary name for the given screw. This name is displayed when
-#   the helper script runs. The default is to use a name based upon
-#   the screw XY location.
+#   Um nome arbitrário para o parafuso fornecido. Esse nome é apresentado 
+#   quando um script auxiliar é executado. O padrão é usar o nome baseado na
+#   localização XY do parafuso.
 #screw1_fine_adjust:
-#   An X, Y coordinate to command the nozzle to so that one can fine
-#   tune the bed leveling screw. The default is to not perform fine
-#   adjustments on the bed screw.
+#   Uma coordenada X, Y para comandar o bico An X, Y coordinate to command the nozzle para que a pessoa
+#   faça um ajuste fino do parafuso de nivelamento da mesa. O padrão é não realizar o ajustes fino
+#   do parafuso de nivelamento.
 #screw2:
 #screw2_name:
 #screw2_fine_adjust:
 #...
-#   Additional bed leveling screws. At least three screws must be
-#   defined.
+#   Parafusos de nivelamento adicionais. Pelo menos três parafusos devem ser 
+#   definidos.
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   when moving from one screw location to the next. The default is 5.
+#   A altura(em mm) que a cabeça deve ser comanda a mover para
+#   quando mover de um parafuso para o próximo. O padrão é 5 mm.
 #probe_height: 0
-#   The height of the probe (in mm) after adjusting for the thermal
-#   expansion of bed and nozzle. The default is zero.
+#   A altura da sonda (em mm) após ajustar para a expansão
+#   térmica da mesa e do bico. O padrão é zero.
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+#   A velocidade (em mm/s) de movimentos sem sondagem durante a calibração.
+#   O padrão é 50.
 #probe_speed: 5
-#   The speed (in mm/s) when moving from a horizontal_move_z position
-#   to a probe_height position. The default is 5.
+#   A velocidade (emmm/s) quando mover de uma posição horizontal_move_z 
+#   para uma posição probe_height. O padrão é 5.
 ```
 
 ### [screws_tilt_adjust]
@@ -1136,30 +1136,30 @@ See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes
 G-Code macros (one may define any number of sections with a "gcode_macro" prefix). See the [command template guide](Command_Templates.md) for more information.
 
 ```
-[gcode_macro my_cmd]
+[gcode_macro meu_cmd]
 #gcode:
-#   A list of G-Code commands to execute in place of "my_cmd". See
-#   docs/Command_Templates.md for G-Code format. This parameter must
-#   be provided.
+#   Uma lista de comandos G-Code a serem executados no lugar de "meu_cmd". Veja
+#   (Padrões de comandos) docs/Command_Templates.md para o formato do G-Code. Este parâmetro deve
+#   ser provido.
 #variable_<name>:
-#   One may specify any number of options with a "variable_" prefix.
-#   The given variable name will be assigned the given value (parsed
-#   as a Python literal) and will be available during macro expansion.
-#   For example, a config with "variable_fan_speed = 75" might have
-#   gcode commands containing "M106 S{ fan_speed * 255 }". Variables
-#   can be changed at run-time using the SET_GCODE_VARIABLE command
-#   (see docs/Command_Templates.md for details). Variable names may
-#   not use upper case characters.
+#   Pode-se especificar quaisquer número de opições com prefixo "variable_".
+#   A variável nominada receberá o valor atribuído (analisado
+#   como literal do Python) e estará disponível durante a expansão da macro.
+#   Por exemplo, uma secção com "variable_velocidade_ventilador = 75" pode ter
+#   comandos gcode contendo "M106 S{ velocidade_ventilador * 255 }". Variáveis
+#   podem ser modificadas em tempo de execução usando o comando SET_GCODE_VARIABLE 
+#   (veja docs/Command_Templates.md para detalhes). Nomes de variáveis
+#   não devem usar caracteres em caixa alta(maiúsculas).
 #rename_existing:
-#   This option will cause the macro to override an existing G-Code
-#   command and provide the previous definition of the command via the
-#   name provided here. This can be used to override builtin G-Code
-#   commands. Care should be taken when overriding commands as it can
-#   cause complex and unexpected results. The default is to not
-#   override an existing G-Code command.
+#   Esta opção fará com que a macro substitua um comando G-Code existente
+#    forneça a definição anterior do comando por meio do
+#   provido aqui. Isto pode ser usado para substituir comandos
+#   G-Code embutidos. Deve-se ter cautela ao sobreescrever comandos pois isso pode
+#   causar resultados complexos e inesperados. O pradrão e não
+#   sobreescrever nenhum comando G-Code existente.
 #description: G-Code macro
-#   This will add a short description used at the HELP command or while
-#   using the auto completion feature. Default "G-Code macro"
+#   Isto adicionará uma breve descrição usada no comando HELP ou enquanto
+#   se use a funcionalidade de auto completar. Padrão é "G-Code macro"
 ```
 
 ### [delayed_gcode]
@@ -1211,7 +1211,7 @@ Idle timeout. An idle timeout is automatically enabled - add an explicit idle_ti
 
 ### [virtual_sdcard]
 
-A virtual sdcard may be useful if the host machine is not fast enough to run OctoPrint well. It allows the Klipper host software to directly print gcode files stored in a directory on the host using standard sdcard G-Code commands (eg, M24).
+Um cartão sd virtual pode ser útil se a máquina hospedeira não é rápida o suficiente para rodar o OctoPrint bem. Isto permite que o softwares hospedeiro do Klipper imprima diretamente o arquivo gcode da máquina hospedeira usando comandos padrões G-Code de cartão sd (ex, M24)
 
 ```
 [virtual_sdcard]
@@ -1264,16 +1264,16 @@ Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCO
 ```
 [firmware_retraction]
 #retract_length: 0
-#   The length of filament (in mm) to retract when G10 is activated,
-#   and to unretract when G11 is activated (but see
-#   unretract_extra_length below). The default is 0 mm.
+#   O comprimento de filamento (em mm) a ser retraido quando G10 é ativado,
+#   e a ser reinserido quando G11 é ativado (veja também
+#   unretract_extra_length abaixo). O valor padrão é 0 mm.
 #retract_speed: 20
-#   The speed of retraction, in mm/s. The default is 20 mm/s.
+#   A velocidade de retração, em mm/s. O padrão é 20 mm/s.
 #unretract_extra_length: 0
-#   The length (in mm) of *additional* filament to add when
-#   unretracting.
+#   O comprimento (em mm) de filamento *extra* adicionado ao
+#   desfazer uma retração.
 #unretract_speed: 10
-#   The speed of unretraction, in mm/s. The default is 10 mm/s.
+#   A velocidade ao desfazer retração, em mm/s. O padrão é 10 mm/s.
 ```
 
 ### [gcode_arcs]
@@ -1456,11 +1456,11 @@ Support for resonance testing and automatic input shaper calibration. In order t
 #   (Hz/sec == sec^-2).
 ```
 
-## Config file helpers
+## Auxiliares de arquivo de configuração
 
 ### [board_pins]
 
-Board pin aliases (one may define any number of sections with a "board_pins" prefix). Use this to define aliases for the pins on a micro-controller.
+Apelidos para pinos da placa (pode-se definir qualquer número de secções com um prefixo "board_pins"). Use isto para definir apelidos para pinos em um microcontrolador.
 
 ```
 [board_pins my_aliases]
@@ -1479,7 +1479,7 @@ aliases_<name>:
 
 ### [include]
 
-Include file support. One may include additional config file from the main printer config file. Wildcards may also be used (eg, "configs/*.cfg").
+Suporta a inclusão de arquivos. Pode-se incluir arquivos de configuração adicionais a partir do arquivo configuração principal. Caracteres coringa também podem ser utilizados (ex. [include configs/*.cfg]).
 
 ```
 [include my_other_config.cfg]
@@ -1497,7 +1497,7 @@ pins:
 #   provided.
 ```
 
-## Bed probing hardware
+## Hardware de sondagem da mesa
 
 ### [probe]
 
@@ -1564,7 +1564,7 @@ z_offset:
 
 ### [bltouch]
 
-BLTouch probe. One may define this section (instead of a probe section) to enable a BLTouch probe. See [BL-Touch guide](BLTouch.md) and [command reference](G-Codes.md#bltouch) for further information. A virtual "probe:z_virtual_endstop" pin is also created (see the "probe" section for the details).
+Sonda BLTouch. Pode-se definir esta secção (ao invés de uma secção probe) para habilitar uma sonda BLTouch. Veja [Guia BL-Touch](BLTouch.md) e [Referencia de comando](G-Codes.md#bltouch) para mais informações. Um pino virtual "probe:z_virtual_endstop" também é criado (veja a secção "probe" para detalhes).
 
 ```
 [bltouch]
@@ -1666,7 +1666,7 @@ z_offset:
 #   See the "probe" section for more information on the parameters above.
 ```
 
-## Additional stepper motors and extruders
+## Motores de passo e extrusoras adicionais
 
 ### [stepper_z1]
 
@@ -1928,9 +1928,9 @@ Generic temperature sensors. One can define any number of additional temperature
 
 Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heater_bed]` section).
 
-### Common thermistors
+### Termistores comuns
 
-Common thermistors. The following parameters are available in heater sections that use one of these sensors.
+Termistores comuns. Os seguintes parâmetros estão disponíveis nas secções dos aquecedores que utilizam um desses sensores.
 
 ```
 sensor_type:
@@ -1950,9 +1950,9 @@ sensor_pin:
 #   The default is 0 ohms.
 ```
 
-### Common temperature amplifiers
+### Amplificadores de temperatura comuns
 
-Common temperature amplifiers. The following parameters are available in heater sections that use one of these sensors.
+Amplificadores de temperatura comuns. Os seguintes parâmetros estão disponíveis nas secções do aquecedor que utilizar on desses sensores.
 
 ```
 sensor_type:
@@ -2015,9 +2015,9 @@ sensor_pin:
 #   name in the above list.
 ```
 
-### BMP280/BME280/BME680 temperature sensor
+### Sensor de temperatura BMP280/BME280/BME680
 
-BMP280/BME280/BME680 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C), pressure (hPa), relative humidity and in case of the BME680 gas level. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report pressure and humidity in addition to temperature.
+Sensores de ambiente BMP280/BME280/BME680 com interface (I2C) de dois fios. Note que esses sensores não são planejados para uso com extrusores e mesas aquecidas, mas sim para monitoramento temperatura (C) ambiente, pressão (hPa), umidade relativa e, no caso do BME680, nível de gás. Veja [sample-macros.cfg](../config/sample-macros.cfg) para um gcode_macro que pode ser usado para apresentar pressão e umidade além da temperatura.
 
 ```
 sensor_type: BME280
@@ -2081,7 +2081,7 @@ sensor_type: LM75
 #   0.5.
 ```
 
-### Builtin micro-controller temperature sensor
+### Sensor de temperatura embutido no microcontrolador
 
 The atsam, atsamd, and stm32 micro-controllers contain an internal temperature sensor. One can use the "temperature_mcu" sensor to monitor these temperatures.
 
@@ -2482,7 +2482,7 @@ PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
 #   See the "led" section for information on these parameters.
 ```
 
-## Additional servos, buttons, and other pins
+## Servos, botões e outros pinos adicionais
 
 ### [servo]
 
@@ -2616,7 +2616,7 @@ pins:
 
 ## TMC stepper driver configuration
 
-Configuration of Trinamic stepper motor drivers in UART/SPI mode. Additional information is in the [TMC Drivers guide](TMC_Drivers.md) and in the [command reference](G-Codes.md#tmcxxxx).
+Configuração dos drivers de motor passo Trinamic em modo UART/SPI. Informações adicionais estão [Guia dos drivers TMC](TMC_Drivers.md) e na [referência de comandos](G-Codes.md#tmcxxxx).
 
 ### [tmc2130]
 
@@ -3336,7 +3336,7 @@ lcd_type:
 
 Support for displaying custom data on an lcd screen. One may create any number of display groups and any number of data items under those groups. The display will show all the data items for a given group if the display_group option in the [display] section is set to the given group name.
 
-A [default set of display groups](../klippy/extras/display/display.cfg) are automatically created. One can replace or extend these display_data items by overriding the defaults in the main printer.cfg config file.
+Um [conjunto padrão de itens do visor](../klippy/extras/display/display.cfg) é criado automaticamente. Pode-se substituir ou estender esses items do display_data sobrescrevendo os valores padrão no arquivo principal de configuração (printer.cfg).
 
 ```
 [display_data my_group_name my_data_name]
@@ -3414,7 +3414,7 @@ If a primary [display] section has been defined in printer.cfg as shown above it
 
 Customizable lcd display menus.
 
-A [default set of menus](../klippy/extras/display/menu.cfg) are automatically created. One can replace or extend the menu by overriding the defaults in the main printer.cfg config file.
+Um [conjunto padrão de menus](../klippy/extras/display/menu.cfg) é automaticamente criado. Pode-se substituir ou extender o menu sobrescrevendo os valores padrão no arquivo principal de configuração (printer.cfg).
 
 See the [command template document](Command_Templates.md#menu-templates) for information on menu attributes available during template rendering.
 
@@ -3558,9 +3558,9 @@ TSLl401CL Based Filament Width Sensor. See the [guide](TSL1401CL_Filament_Width_
 [tsl1401cl_filament_width_sensor]
 #pin:
 #default_nominal_filament_diameter: 1.75 # (mm)
-#   Maximum allowed filament diameter difference as mm.
+#   Máxima diferença de diâmetro do filamento permitida (em mm).
 #max_difference: 0.2
-#   The distance from sensor to the melting chamber as mm.
+#   Distância do sensor até a câmara de derretimento (em mm).
 #measurement_delay: 100
 ```
 
@@ -3619,7 +3619,7 @@ adc2:
 #   above parameters.
 ```
 
-## Board specific hardware support
+## Suporte a hardware específico de placas
 
 ### [sx1509]
 
@@ -3678,15 +3678,15 @@ See the [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) file fo
 ```
 [adc_scaled my_name]
 vref_pin:
-#   The ADC pin to use for VREF monitoring. This parameter must be
-#   provided.
+#   Pino  ADC usado para monitoramento de VREF. Este parâmetro deve
+#   ser provido.
 vssa_pin:
-#   The ADC pin to use for VSSA monitoring. This parameter must be
-#   provided.
+#   Pino ADC usado para monitoramento de VSSA . Este parâmetro deve
+#   ser provido.
 #smooth_time: 2.0
-#   A time value (in seconds) over which the vref and vssa
-#   measurements will be smoothed to reduce the impact of measurement
-#   noise. The default is 2 seconds.
+#   Um valor de tempo (em segundos) sobre o qual medições de 
+#   vref e vssa serão suavizadas a fim de reduzir o impacto de ruídos
+#   da medição. O padrão são 2 segundos.
 ```
 
 ### [replicape]
@@ -3763,7 +3763,7 @@ This modules also requires `[virtual_sdcard]` and `[pause_resume]` for full func
 
 If you use this module, do not use the Palette 2 plugin for Octoprint as they will conflict, and 1 will fail to initialize properly likely aborting your print.
 
-If you use Octoprint and stream gcode over the serial port instead of printing from virtual_sd, then remo **M1** and **M0** from *Pausing commands* in *Settings > Serial Connection > Firmware & protocol* will prevent the need to start print on the Palette 2 and unpausing in Octoprint for your print to begin.
+Se você usa OctoPrint e envia gcode via a porta serial ao invés de imprimir de um virtual_sd, então remover **M1** e**M0** de *Pausing commands* em *Settings > Serial Connection > Firmware & protocol* previnirá a necessidade de iniciar a impressão no Palette 2 e retomar no inicio da sua impressão no OctoPrint.
 
 ```
 [palette2]
@@ -3811,9 +3811,9 @@ cs_pin:
 #   above parameters.
 ```
 
-## Common bus parameters
+## Parâmetros comuns para barramentos
 
-### Common SPI settings
+### Definições comuns para SPI
 
 The following parameters are generally available for devices using an SPI bus.
 
@@ -3834,7 +3834,7 @@ The following parameters are generally available for devices using an SPI bus.
 #   "software spi".
 ```
 
-### Common I2C settings
+### Definições comuns para I2C
 
 The following parameters are generally available for devices using an I2C bus.
 

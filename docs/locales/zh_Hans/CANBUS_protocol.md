@@ -18,19 +18,19 @@ Klipper使用 CAN 2.0A 标准大小的 CAN Bus 包，是一个被限制在8 data
 
 CMD_QUERY_UNASSIGNED 消息格式是：`<1-byte message_id = 0x00>`
 
-### CMD_SET_KLIPPER_NODEID message
+### CMD_SET_KLIPPER_NODEID 信息
 
 这个命令根据微处理器给定的 `canbus_uuid` 给相应的微处理器分配一个 `canbus_nodeid`。
 
-The CMD_SET_KLIPPER_NODEID message format is: `<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`
+CMD_SET_KLIPPER_NODEID 消息的格式是：`<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`
 
 ### RESP_NEED_NODEID 消息
 
-The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte canbus_uuid><1-byte set_klipper_nodeid = 0x01>`
+RESP_NEED_NODEID 消息的格式是：`<1-byte message_id = 0x20><6-byte canbus_uuid><1-byte set_klipper_nodeid = 0x01>`
 
 ## 数据包
 
-A micro-controller that has been assigned a nodeid via the CMD_SET_KLIPPER_NODEID command can send and receive data packets.
+被 CMD_SET_KLIPPER_NODEID 命令分配了节点的微控制器可以接受和发送数据包。
 
 带有节点接收 CAN 总线ID（`canbus_nodeid * 2 + 256`）的消息中的数据包被简单地添加到一个缓冲区，当一个完整的[mcu 协议消息](Protocol.md)被找到时，其内容会被解析和处理。数据被视为比特流（byte stream）- Klipper信息块的开头不需要与CAN bus的数据包开头对齐。
 

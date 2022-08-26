@@ -1,6 +1,6 @@
 # Overview
 
-Bem-vindo à documentação do Klipper. Se for novo no Klipper, comece com os documentos de [recursos] (Features.md) e [Instalação] (Installation.md).
+Bem-vindo à documentação do Klipper. Se for novo no Klipper, comece com os documentos de [recursos](Features.md) e [Instalação](Installation.md).
 
 ## Informações gerais
 
@@ -22,26 +22,26 @@ Bem-vindo à documentação do Klipper. Se for novo no Klipper, comece com os do
    - [BL-Touch](BLTouch.md): Configure uma sonda Z "BL-Touch".
    - [Nível manual](Manual_Level.md): Calibração das paradas finais de Z (e similares).
    - [Cama de Malha](Bed_Mesh.md): Correção da altura da cama baseada em coordenadas XY.
-   - [Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning.
+   - [Fase de fim de curso](Endstop_Phase.md): Posicionado do fim de curso de Z assistido via motor de passo.
 - [Compensação de ressonância](Resonance_Compensation.md): Uma ferramenta para reduzir irregularidades nas impressões.
    - [Ressonâncias de medida](Measuring_Resonances.md): Informação sobre o uso do acelerômetro adxl345 para medir a ressonância.
 - [Avançar a pressão](Pressure_Advance.md): Calibrar a pressão da extrusor.
-- [G-Codes](G-Codes.md): Information on commands supported by Klipper.
-- [Command Templates](Command_Templates.md): G-Code macros and conditional evaluation.
-   - [Status Reference](Status_Reference.md): Information available to macros (and similar).
-- [TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with Klipper.
+- [G-Codes](G-Codes.md): Informações sobre comandos suportados pelo Klipper.
+- [Modelos de comandos](Command_Templates.md): Macros em G-Code e avaliação condicional.
+   - [Referência de Status](Status_Reference.md): Informações disponíveis para macros (e similares).
+- [Drivers TMC](TMC_Drivers.md): Usando drivers Trinamic para motores de passo com o Klipper.
 - [Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple micro-controllers.
-- [Slicers](Slicers.md): Configure "slicer" software for Klipper.
+- [Fatiadores](Slicers.md): Configuração do programa "fatiador" para o Klipper.
 - [Skew correction](Skew_Correction.md): Adjustments for axes not perfectly square.
-- [PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such as lasers or spindles.
+- [Ferramentas PWM](Using_PWM_Tools.md): Guia de como usar ferramentas de controladas por PWM tais como lasers e fusos.
 - [Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs implementation.
 
-## Developer Documentation
+## Documentação de desenvolvedor
 
-- [Code overview](Code_Overview.md): Developers should read this first.
-- [Kinematics](Kinematics.md): Technical details on how Klipper implements motion.
-- [Protocol](Protocol.md): Information on the low-level messaging protocol between host and micro-controller.
-- [API Server](API_Server.md): Information on Klipper's command and control API.
+- [Visão geral do código](Code_Overview.md): Desenvolvedor devem ler isto primeiro.
+- [Cinemática](Kinematics.md): Detalhes técnicos em como o Klipper implementa movimento.
+- [Protocolo](Protocol.md): Informação sobre protocolo de troca de mensagem em baixo nível entre hospedeiro e microcontrolador.
+- [Servidor API](API_Server.md): Informações sobre comando e controle API do Klipper.
 - [MCU commands](MCU_Commands.md): A description of low-level commands implemented in the micro-controller software.
 - [CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format.
 - [Debugging](Debugging.md): Information on how to test and debug Klipper.

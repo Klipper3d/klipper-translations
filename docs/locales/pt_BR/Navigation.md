@@ -10,6 +10,6 @@ Resonance Compensation
 
 Command templates
 
-Developer Documentation
+Documentação de desenvolvedor
 
 Device Specific Documents
