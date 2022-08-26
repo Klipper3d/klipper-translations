@@ -2620,7 +2620,7 @@ Configuração dos drivers de motor passo Trinamic em modo UART/SPI. Informaçõ
 
 ### [tmc2130]
 
-Configure a TMC2130 stepper motor driver via SPI bus. To use this feature, define a config section with a "tmc2130" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2130 stepper_x]").
+Configura um driver de motor de passo TMC2130 via barramento SPI. Para utilizar essa funcionalidade, defina uma secção de configuração com o prefixo "tmc2130" seguido do nome da secção de configuração do motor de passo correspondente (por exemplo, "[tmc2130 stepper_x]").
 
 ```
 [tmc2130 stepper_x]
@@ -2691,7 +2691,7 @@ run_current:
 
 ### [tmc2208]
 
-Configure a TMC2208 (or TMC2224) stepper motor driver via single wire UART. To use this feature, define a config section with a "tmc2208" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2208 stepper_x]").
+Configura um driver de motor de passo TMC2208 (ou TMC2224) UART via um único fio. Para usar essa funcionalidade, defina uma secção de configuração com um prefixo "tmc2208" seguido do nome da secção de configuração do motor de passo (por exemplo, "[tmc2208 stepper_x]").
 
 ```
 [tmc2208 stepper_x]
@@ -2749,7 +2749,7 @@ run_current:
 
 ### [tmc2209]
 
-Configure a TMC2209 stepper motor driver via single wire UART. To use this feature, define a config section with a "tmc2209" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2209 stepper_x]").
+Configura um driver de motor de passo TMC2209 UART via um único fio. Para usar essa funcionalidade, defina uma secção de configuração com um prefixo "tmc2209" seguido do nome da secção de configuração do motor de passo (por exemplo, "[tmc2209 stepper_x]").
 
 ```
 [tmc2209 stepper_x]
@@ -2796,7 +2796,7 @@ run_current:
 
 ### [tmc2660]
 
-Configure a TMC2660 stepper motor driver via SPI bus. To use this feature, define a config section with a tmc2660 prefix followed by the name of the corresponding stepper config section (for example, "[tmc2660 stepper_x]").
+Configura um driver de motor de passo TMC2660 via barramento SPI. Para usar essa funcionalidade, defina uma secção de configuração com um prefixo "tmc2660" seguido do nome da secção de configuração do motor de passo (por exemplo, "[tmc2660 stepper_x]").
 
 ```
 [tmc2660 stepper_x]
@@ -2865,7 +2865,7 @@ run_current:
 
 ### [tmc5160]
 
-Configure a TMC5160 stepper motor driver via SPI bus. To use this feature, define a config section with a "tmc5160" prefix followed by the name of the corresponding stepper config section (for example, "[tmc5160 stepper_x]").
+Configura um driver de motor de passo TMC5160 via barramento SPI. Para usar essa funcionalidade, defina uma secção de configuração com um prefixo "tmc5160" seguido do nome da secção de configuração do motor de passo (por exemplo, "[tmc5160 stepper_x]").
 
 ```
 [tmc5160 stepper_x]
