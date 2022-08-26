@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-25 14:22+0000\n"
+"PO-Revision-Date: 2022-08-26 09:05+0000\n"
 "Last-Translator: Wagner Reck <wagner.reck@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/g-codes/pt_BR/>\n"
@@ -798,7 +798,6 @@ msgid "Additional Commands"
 msgstr ""
 
 #: docs/G-Codes.md:block 12 (header)
-#, fuzzy
 msgid "[adxl345]"
 msgstr "[adxl345]"
 
@@ -840,7 +839,6 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
-#, fuzzy
 msgid "[bed_mesh]"
 msgstr "[bed_mesh]"
 
@@ -887,7 +885,6 @@ msgid "BED_MESH_OFFSET"
 msgstr ""
 
 #: docs/G-Codes.md:block 36 (header)
-#, fuzzy
 msgid "[bed_screws]"
 msgstr "[bed_screws]"
 
@@ -903,7 +900,6 @@ msgid "BED_SCREWS_ADJUST"
 msgstr ""
 
 #: docs/G-Codes.md:block 40 (header)
-#, fuzzy
 msgid "[bed_tilt]"
 msgstr "[bed_tilt]"
 
@@ -918,7 +914,6 @@ msgid "BED_TILT_CALIBRATE"
 msgstr ""
 
 #: docs/G-Codes.md:block 44 (header)
-#, fuzzy
 msgid "[bltouch]"
 msgstr "[bltouch]"
 
@@ -1889,7 +1884,6 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
-#, fuzzy
 msgid "[angle]"
 msgstr "[angle]"
 
