@@ -1,10 +1,10 @@
-# Nikolai Danov <nikolaidanov67@gmail.com>, 2022.
+# Nikolai Danov <nikolaidanov67@gmail.com>, 2022, 2025.
 # Niolay Danov <nikdan@abv.bg>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:38+0000\n"
-"Last-Translator: Niolay Danov <nikdan@abv.bg>\n"
+"Last-Translator: Nikolai Danov <nikolaidanov67@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
 "sponsors/bg/>\n"
 "Language: bg\n"
@@ -22,9 +22,9 @@ msgid ""
 "Klipper is Free Software. We depend on the generous support from sponsors. "
 "Please consider sponsoring Klipper or supporting our sponsors."
 msgstr ""
-"Klipper е свободен софтуер. Разчитаме на щедрата подкрепа на спонсорите. Моля,"
-" обмислете възможността да спонсорирате Klipper или да подкрепите нашите "
-"спонсори."
+"Klipper е свободен софтуер. Разчитаме на щедрата подкрепа на спонсорите. "
+"Моля, обмислете възможността да спонсорирате Klipper или да подкрепите "
+"нашите спонсори."
 
 #: docs/Sponsors.md:block 3 (header)
 msgid "BIGTREETECH"
@@ -40,9 +40,8 @@ msgid ""
 msgstr ""
 "BIGTREETECH е официалният спонсор на Klipper. BIGTREETECH се ангажира да "
 "разработва иновативни и конкурентни продукти, които да служат по-добре на "
-"общността за 3D принтиране. Последвайте ги във "
-"[Facebook](https://www.facebook.com/BIGTREETECH) или "
-"[Twitter](https://twitter.com/BigTreeTech)."
+"общността за 3D принтиране. Последвайте ги във [Facebook](https://"
+"www.facebook.com/BIGTREETECH) или [Twitter](https://twitter.com/BigTreeTech)."
 
 #: docs/Sponsors.md:block 6 (header)
 msgid "Klipper Developers"
