@@ -80,14 +80,14 @@ Print the ringing test model as follows:
 1. Prepare for test: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
 1. Disable Pressure Advance: `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. Execute: `SET_INPUT_SHAPER SHAPER_TYPE=MZV`
-1. Execute the command: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
+1. Eseguire il comando: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
 1. Stampa il modello di test sliced con i parametri suggeriti.
 
 If you see no ringing at this point, then MZV shaper can be recommended for use.
 
 If you do see some ringing, re-measure the frequencies using steps (8)-(10) described in [Ringing frequency](#ringing-frequency) section. If the frequencies differ significantly from the values you obtained earlier, a more complex input shaper configuration is needed. You can refer to Technical details of [Input shapers](#input-shapers) section. Otherwise, proceed to the next step.
 
-Now try EI input shaper. To try it, repeat steps (1)-(6) from above, but executing at step 4 the following command instead: `SET_INPUT_SHAPER SHAPER_TYPE=EI`.
+Ora prova l'input shaper EI. Per provarlo, ripeti i passaggi (1)-(6) da sopra, ma eseguendo invece al passaggio 4 il seguente comando : `SET_INPUT_SHAPER SHAPER_TYPE=EI`.
 
 Compare two prints with MZV and EI input shaper. If EI shows noticeably better results than MZV, use EI shaper, otherwise prefer MZV. Note that EI shaper will cause more smoothing in printed parts (see the next section for further details). Add `shaper_type: mzv` (or ei) parameter to [input_shaper] section, e.g.:
 
@@ -136,8 +136,8 @@ Note that the precision of the resonance frequencies measurements using the ring
 Assuming that you have sliced the ringing model with suggested parameters, complete the following steps for each of the axes X and Y:
 
 1. Prepare for test: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
-1. Make sure Pressure Advance is disabled: `SET_PRESSURE_ADVANCE ADVANCE=0`
-1. Execute: `SET_INPUT_SHAPER SHAPER_TYPE=ZV`
+1. Assicurati che Pressure Advance sia disabilitato: `SET_PRESSURE_ADVANCE ADVANCE=0`
+1. Eseguire: `SET_INPUT_SHAPER SHAPER_TYPE=ZV`
 1. From the existing ringing test model with your chosen input shaper select the acceleration that shows ringing sufficiently well, and set it with: `SET_VELOCITY_LIMIT ACCEL=...`
 1. Calculate the necessary parameters for the `TUNING_TOWER` command to tune `shaper_freq_x` parameter as follows: start = shaper_freq_x * 83 / 132 and factor = shaper_freq_x / 66, where `shaper_freq_x` here is the current value in `printer.cfg`.
 1. Execute the command: `TUNING_TOWER COMMAND=SET_INPUT_SHAPER PARAMETER=SHAPER_FREQ_X START=start FACTOR=factor BAND=5` using `start` and `factor` values calculated at step (5).

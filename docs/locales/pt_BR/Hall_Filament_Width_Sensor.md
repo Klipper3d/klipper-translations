@@ -1,4 +1,4 @@
-# Sensor Hall de largura do filamento
+# Sensor Hall de espessura do filamento
 
 This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on two Hall linear sensors (ss49e for example). Sensors in the body are located opposite sides. Principle of operation: two hall sensors work in differential mode, temperature drift same for sensor. Special temperature compensation not needed.
 

@@ -64,37 +64,39 @@ Microcontrollori aggiuntivi (si può definire un numero qualsiasi di sezioni con
 
 ### [printer]
 
-The printer section controls high level printer settings.
+La sezione printer controlla le impostazioni di alto livello della stampante.
 
 ```
 [printer]
 kinematics:
-#   The type of printer in use. This option may be one of: cartesian,
-#   corexy, corexz, hybrid_corexy, hybrid_corexz, rotary_delta, delta,
-#   polar, winch, or none. This
-#   parameter must be specified.
+#   Il tipo di stampante in uso. Questa opzione può essere una delle
+#   seguenti: cartesian, corexy, corexz, hybrid_corexy, hybrid_corexz,
+#   rotary_delta, delta, polar, winch o none.
+#   Questo parametro deve essere specificato.
 max_velocity:
-#   Maximum velocity (in mm/s) of the toolhead (relative to the
-#   print). This parameter must be specified.
+#   Velocità massima (in mm/s) della testa di stampa (relativa alla
+#   stampa). Questo parametro deve essere specificato.
 max_accel:
-#   Maximum acceleration (in mm/s^2) of the toolhead (relative to the
-#   print). This parameter must be specified.
+#   Accelerazione massima (in mm/s^2) della testina (relativa alla
+#   stampa). Questo parametro deve essere specificato.
 #max_accel_to_decel:
-#   A pseudo acceleration (in mm/s^2) controlling how fast the
-#   toolhead may go from acceleration to deceleration. It is used to
-#   reduce the top speed of short zig-zag moves (and thus reduce
-#   printer vibration from these moves). The default is half of
-#   max_accel.
+#   Una pseudo accelerazione (in mm/s^2) che controlla la velocità
+#   con cui la testa di stampa può passare dall'accelerazione alla
+#   decelerazione. Viene utilizzato per ridurre la velocità massima di
+#   brevi movimenti a zig-zag (e quindi ridurre le vibrazioni della
+#   stampante dovute a questi movimenti). Il valore predefinito è
+#   metà di max_accel.
 #square_corner_velocity: 5.0
-#   The maximum velocity (in mm/s) that the toolhead may travel a 90
-#   degree corner at. A non-zero value can reduce changes in extruder
-#   flow rates by enabling instantaneous velocity changes of the
-#   toolhead during cornering. This value configures the internal
-#   centripetal velocity cornering algorithm; corners with angles
-#   larger than 90 degrees will have a higher cornering velocity while
-#   corners with angles less than 90 degrees will have a lower
-#   cornering velocity. If this is set to zero then the toolhead will
-#   decelerate to zero at each corner. The default is 5mm/s.
+#   La velocità massima (in mm/s) alla quale la testa di stampa può
+#   viaggiare su un angolo di 90 gradi. Un valore diverso da zero può
+#   ridurre le variazioni delle portate dell'estrusore consentendo
+#   variazioni istantanee della velocità della testa utensile durante le
+#   curve. Questo valore configura l'algoritmo interno di curvatura
+#   della velocità centripeta; gli angoli con angoli maggiori di 90 gradi
+#   avranno una velocità in curva maggiore mentre gli angoli con angoli
+#   inferiori a 90 gradi avranno una velocità in curva inferiore. Se
+#   questo è impostato su zero, la testa decelererà fino a zero
+#   ad ogni angolo. Il valore predefinito è 5 mm/s.
 ```
 
 ### [stepper]
@@ -219,75 +221,81 @@ Qui vengono descritti solo i parametri specifici per le stampanti delta lineari 
 [printer]
 kinematics: delta
 max_z_velocity:
-#   For delta printers this limits the maximum velocity (in mm/s) of
-#   moves with z axis movement. This setting can be used to reduce the
-#   maximum speed of up/down moves (which require a higher step rate
-#   than other moves on a delta printer). The default is to use
-#   max_velocity for max_z_velocity.
+#   Per le stampanti delta questo limita la velocità massima (in mm/s) dei
+#   movimenti con movimento dell'asse z. Questa impostazione può essere
+#   utilizzata per ridurre la velocità massima dei movimenti su/giù (che
+#   richiedono una velocità di incremento maggiore rispetto ad altri
+#   movimenti su una stampante delta). L'impostazione predefinita è 
+#   utilizzare max_velocity per max_z_velocity.
 #max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. Setting this may be useful if the printer can reach higher
-#   acceleration on XY moves than Z moves (eg, when using input shaper).
-#   The default is to use max_accel for max_z_accel.
+#   Imposta l'accelerazione massima (in mm/s^2) del movimento lungo
+#   l'asse z. L'impostazione può essere utile se la stampante può
+#   raggiungere un'accelerazione maggiore sui movimenti XY rispetto ai
+#   movimenti Z (ad esempio, quando si utilizza l'input shaper).
+#   L'impostazione predefinita è utilizzare max_accel per max_z_accel.
 #minimum_z_position: 0
-#   The minimum Z position that the user may command the head to move
-#   to. The default is 0.
+#   La posizione Z minima in cui l'utente può comandare alla testa di 
+#   spostarsi. Il valore predefinito è 0.
 delta_radius:
-#   Radius (in mm) of the horizontal circle formed by the three linear
-#   axis towers. This parameter may also be calculated as:
-#    delta_radius = smooth_rod_offset - effector_offset - carriage_offset
-#   This parameter must be provided.
+#   Raggio (in mm) del cerchio orizzontale formato dalle tre torri ad
+#   asse lineare. Questo parametro può anche essere calcolato come:
+#   delta_radius = smooth_rod_offset - effector_offset - carriage_offset
+#   Questo parametro deve essere fornito.
 #print_radius:
-#   The radius (in mm) of valid toolhead XY coordinates. One may use
-#   this setting to customize the range checking of toolhead moves. If
-#   a large value is specified here then it may be possible to command
-#   the toolhead into a collision with a tower. The default is to use
-#   delta_radius for print_radius (which would normally prevent a
-#   tower collision).
+#   Il raggio (in mm) delle coordinate XY della testa di stampa valide.
+#   È possibile utilizzare questa impostazione per personalizzare il
+#   controllo dell'intervallo dei movimenti della testa. Se qui
+#   viene specificato un valore elevato, potrebbe essere possibile
+#   comandare la collisione della testa di stampa con una torre.
+#   L'impostazione predefinita è usare delta_radius per print_radius 
+#   (che normalmente impedirebbe una collisione con torri).
 
-# The stepper_a section describes the stepper controlling the front
-# left tower (at 210 degrees). This section also controls the homing
-# parameters (homing_speed, homing_retract_dist) for all towers.
+# La sezione stepper_a descrive lo stepper che controlla la torre
+# anteriore sinistra (a 210 gradi). Questa sezione controlla anche i
+# parametri di homing (velocità di homing, homing retract_dist) 
+# per tutte le torri.
 [stepper_a]
 position_endstop:
-#   Distance (in mm) between the nozzle and the bed when the nozzle is
-#   in the center of the build area and the endstop triggers. This
-#   parameter must be provided for stepper_a; for stepper_b and
-#   stepper_c this parameter defaults to the value specified for
-#   stepper_a.
+#   Distanza (in mm) tra l'ugello e il piatto quando l'ugello si trova al
+#   centro dell'area di costruzione e si attiva il finecorsa. Questo
+#   parametro deve essere fornito per stepper_a; per stepper_b e
+#   stepper_c questo parametro è predefinito sul valore specificato
+#   per stepper_a.
 arm_length:
-#   Length (in mm) of the diagonal rod that connects this tower to the
-#   print head. This parameter must be provided for stepper_a; for
-#   stepper_b and stepper_c this parameter defaults to the value
-#   specified for stepper_a.
+#   Lunghezza (in mm) dell'asta diagonale che collega questa torre
+#   alla testa di stampa. Questo parametro deve essere fornito per
+#   stepper_a; per stepper_b e stepper_c questo parametro è
+predefinito sul valore specificato per stepper_a.
 #angle:
-#   This option specifies the angle (in degrees) that the tower is
-#   at. The default is 210 for stepper_a, 330 for stepper_b, and 90
-#   for stepper_c.
+#   Questa opzione specifica l'angolo (in gradi) a cui si trova la torre.
+#   Il valore predefinito è 210 per stepper_a, 330 per stepper_b e 90
+#   per stepper_c.
 
-# The stepper_b section describes the stepper controlling the front
-# right tower (at 330 degrees).
+# La sezione stepper_b descrive lo stepper che controlla la torre
+# anteriore destra (a 330 gradi).
 [stepper_b]
 
-# The stepper_c section describes the stepper controlling the rear
-# tower (at 90 degrees).
+# La sezione stepper_c descrive lo stepper che controlla la torre
+# posteriore (a 90 gradi).
 [stepper_c]
 
-# The delta_calibrate section enables a DELTA_CALIBRATE extended
-# g-code command that can calibrate the tower endstop positions and
-# angles.
+# La sezione delta_calibrate abilita un comando G-code esteso
+# DELTA_CALIBRATE in grado di calibrare le posizioni e gli angoli
+# dei finecorsa della torre.
 [delta_calibrate]
 radius:
-#   Radius (in mm) of the area that may be probed. This is the radius
-#   of nozzle coordinates to be probed; if using an automatic probe
-#   with an XY offset then choose a radius small enough so that the
-#   probe always fits over the bed. This parameter must be provided.
+#   Raggio (in mm) dell'area che può essere sondata. Questo è
+#   il raggio delle coordinate dell'ugello da sondare; se si utilizza
+#   una sonda automatica con un offset XY, scegliere un raggio
+#   sufficientemente piccolo in modo che la sonda si adatti sempre
+#   al piatto. Questo parametro deve essere fornito.
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+#   La velocità (in mm/s) degli spostamenti senza probing durante
+#   la calibrazione. Il valore predefinito è 50.
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+#   L'altezza (in mm) a cui la testa deve essere comandata di
+#   spostarsi appena prima di avviare un'operazione di sonda.
+#   L'impostazione predefinita è 5.
 ```
 
 ### Cinematica CoreXY
@@ -300,25 +308,24 @@ Qui sono descritti solo i parametri specifici per le stampanti corexy - vedere [
 [printer]
 kinematics: corexy
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. This setting can be used to restrict the maximum speed of
-#   the z stepper motor. The default is to use max_velocity for
-#   max_z_velocity.
+#   Imposta la velocità massima (in mm/s) di movimento lungo l'asse z.
+#   Questa impostazione può essere utilizzata per limitare la velocità
+#   massima del motore passo-passo z. L'impostazione predefinita è 
+#   utilizzare max_velocity per max_z_velocity.
 max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. It limits the acceleration of the z stepper motor. The
-#   default is to use max_accel for max_z_accel.
+#   Imposta l'accelerazione massima (in mm/s^2) del movimento
+#   lungo l'asse z. Limita l'accelerazione del motore passo-passo z.
+#   L'impostazione predefinita è utilizzare max_accel per max_z_accel.
 
-# The stepper_x section is used to describe the X axis as well as the
-# stepper controlling the X+Y movement.
+# La sezione stepper_x viene utilizzata per descrivere l'asse X e lo 
+# stepper che controlla il movimento X+Y.
 [stepper_x]
 
-# The stepper_y section is used to describe the Y axis as well as the
-# stepper controlling the X-Y movement.
+# La sezione stepper_y viene utilizzata per descrivere l'asse Y e lo 
+# stepper che controlla il movimento X+Y.
 [stepper_y]
 
-# The stepper_z section is used to describe the stepper controlling
-# the Z axis.
+# La sezione stepper_z viene utilizzata per descrivere l'asse Z
 [stepper_z]
 ```
 
@@ -332,22 +339,23 @@ Qui sono descritti solo i parametri specifici per le stampanti corexz - vedere [
 [printer]
 kinematics: corexz
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. The default is to use max_velocity for max_z_velocity.
+#   Imposta la velocità massima (in mm/s) di movimento lungo l'asse z.
+#   L'impostazione predefinita è utilizzare max_velocity per
+#   max_z_velocity.
 max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. The default is to use max_accel for max_z_accel.
+#   Imposta l'accelerazione massima (in mm/s^2) del movimento lungo
+#   l'asse z. L'impostazione predefinita è utilizzare max_accel per
+#   max_z_accel.
 
-# The stepper_x section is used to describe the X axis as well as the
-# stepper controlling the X+Z movement.
+# La sezione stepper_x viene utilizzata per descrivere l'asse X e lo 
+# stepper che controlla il movimento X+Z.
 [stepper_x]
 
-# The stepper_y section is used to describe the stepper controlling
-# the Y axis.
+# La sezione stepper_y viene utilizzata per descrivere l'asse Y
 [stepper_y]
 
-# The stepper_z section is used to describe the Z axis as well as the
-# stepper controlling the X-Z movement.
+# La sezione stepper_z viene utilizzata per descrivere l'asse Z e lo
+# stepper che controlla il movimento X+Z.
 [stepper_z]
 ```
 
@@ -355,7 +363,7 @@ max_z_accel:
 
 See [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) for an example hybrid corexy kinematics config file.
 
-This kinematic is also known as Markforged kinematic.
+Questa cinematica è anche nota come cinematica Markforged.
 
 Qui vengono descritti solo i parametri specifici delle stampanti corexy ibride, vedere [impostazioni cinematiche comuni](#impostazioni-cinematica-comune) per i parametri disponibili.
 
@@ -363,22 +371,24 @@ Qui vengono descritti solo i parametri specifici delle stampanti corexy ibride, 
 [printer]
 kinematics: hybrid_corexy
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. The default is to use max_velocity for max_z_velocity.
+#   Imposta la velocità massima (in mm/s) di movimento lungo
+#   l'asse z. L'impostazione predefinita è utilizzare max_velocity 
+#   per max_z_velocity.
 max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. The default is to use max_accel for max_z_accel.
+#   Imposta l'accelerazione massima (in mm/s^2) del movimento
+#   lungo l'asse z. L'impostazione predefinita è utilizzare max_accel
+#   per max_z_accel.
 
-# The stepper_x section is used to describe the X axis as well as the
-# stepper controlling the X-Y movement.
+# La sezione stepper_x viene utilizzata per descrivere l'asse X e lo
+# stepper che controlla il movimento X-Y.
 [stepper_x]
 
-# The stepper_y section is used to describe the stepper controlling
-# the Y axis.
+# La sezione stepper_y viene utilizzata per descrivere lo stepper 
+# che controlla l'asse Y.
 [stepper_y]
 
-# The stepper_z section is used to describe the stepper controlling
-# the Z axis.
+# La sezione stepper_z viene utilizzata per descrivere lo stepper
+# che controlla l'asse Z.
 [stepper_z]
 ```
 
@@ -386,7 +396,7 @@ max_z_accel:
 
 See [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) for an example hybrid corexz kinematics config file.
 
-This kinematic is also known as Markforged kinematic.
+Questa cinematica è anche nota come cinematica Markforged.
 
 Qui vengono descritti solo i parametri specifici delle stampanti corexy ibride, vedere [impostazioni cinematiche comuni](#impostazioni-cinematica-comune) per i parametri disponibili.
 
@@ -394,22 +404,24 @@ Qui vengono descritti solo i parametri specifici delle stampanti corexy ibride, 
 [printer]
 kinematics: hybrid_corexz
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. The default is to use max_velocity for max_z_velocity.
+#   Questo imposta la velocità massima (in mm/s) di movimento lungo
+#   l'asse z. L'impostazione predefinita è utilizzare max_velocity per
+#   max_z_velocity.
 max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. The default is to use max_accel for max_z_accel.
+#   Imposta l'accelerazione massima (in mm/s^2) del movimento lungo
+#   l'asse z. L'impostazione predefinita è utilizzare max_accel per
+#   max_z_accel.
 
-# The stepper_x section is used to describe the X axis as well as the
-# stepper controlling the X-Z movement.
+# La sezione stepper_x viene utilizzata per descrivere l'asse X e lo
+# stepper che controlla il movimento X-Z.
 [stepper_x]
 
-# The stepper_y section is used to describe the stepper controlling
-# the Y axis.
+# La sezione stepper_y viene utilizzata per descrivere lo stepper che
+# controlla l'asse Y.
 [stepper_y]
 
-# The stepper_z section is used to describe the stepper controlling
-# the Z axis.
+# La sezione stepper_z viene utilizzata per descrivere lo stepper che
+# controlla l'asse Z.
 [stepper_z]
 ```
 
@@ -425,30 +437,32 @@ LA CINEMATICA POLARE È UN LAVORO IN CORSO. È noto che i movimenti intorno alla
 [printer]
 kinematics: polar
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. This setting can be used to restrict the maximum speed of
-#   the z stepper motor. The default is to use max_velocity for
-#   max_z_velocity.
+#   Imposta la velocità massima (in mm/s) di movimento lungo l'asse z.
+#   Questa impostazione può essere utilizzata per limitare la velocità
+#   massima del motore passo-passo z. L'impostazione predefinita è
+#   utilizzare max_velocity per max_z_velocity.
 max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. It limits the acceleration of the z stepper motor. The
-#   default is to use max_accel for max_z_accel.
+#   Questo imposta l'accelerazione massima (in mm/s^2) del
+#   movimento lungo l'asse z. Limita l'accelerazione del motore
+#   passo-passo z. L'impostazione predefinita è utilizzare max_accel
+#   per max_z_accel.
 
-# The stepper_bed section is used to describe the stepper controlling
-# the bed.
+# La sezione stepper_bed viene utilizzata per descrivere lo stepper
+# che controlla il piatto
 [stepper_bed]
 gear_ratio:
-#   A gear_ratio must be specified and rotation_distance may not be
-#   specified. For example, if the bed has an 80 toothed pulley driven
-#   by a stepper with a 16 toothed pulley then one would specify a
-#   gear ratio of "80:16". This parameter must be provided.
+#   È necessario specificare un gear_ratio e rotation_distance 
+#   potrebbe non essere specificato. Ad esempio, se il piatto ha una 
+#   ruota a 80 denti azionata da uno stepper con una ruota a 16
+#   denti, si dovrebbe specificare un rapporto di trasmissione di "80:16".
+#   Questo parametro deve essere fornito.
 
-# The stepper_arm section is used to describe the stepper controlling
-# the carriage on the arm.
+# La sezione stepper_arm è usata per descrivere lo stepper che 
+# controlla il carrello sul braccio.
 [stepper_arm]
 
-# The stepper_z section is used to describe the stepper controlling
-# the Z axis.
+# La sezione stepper_z viene utilizzata per descrivere lo stepper che
+# controlla l'asse Z.
 [stepper_z]
 ```
 
@@ -574,15 +588,15 @@ anchor_z:
 kinematics: none
 max_velocity: 1
 max_accel: 1
-#   The max_velocity and max_accel parameters must be defined. The
-#   values are not used for "none" kinematics.
+#   È necessario definire i parametri max_velocity e max_accel. I valori
+#   non vengono utilizzati per la cinematica "none".
 ```
 
 ## Supporto per estrusore e piatto riscaldato comuni
 
 ### [extruder]
 
-The extruder section is used to describe the heater parameters for the nozzle hotend along with the stepper controlling the extruder. See the [command reference](G-Codes.md#extruder) for additional information. See the [pressure advance guide](Pressure_Advance.md) for information on tuning pressure advance.
+La sezione dell'estrusore viene utilizzata per descrivere i parametri del riscaldatore per l'hotend dell'ugello insieme allo stepper che controlla l'estrusore. Per ulteriori informazioni, vedere [riferimento comando](G-Codes.md#extruder). Consultare la [Guida all'avanzamento della pressione](Pressure_Advance.md) per informazioni sulla regolazione dell'anticipo della pressione.
 
 ```
 [extruder]
@@ -704,7 +718,7 @@ max_temp:
 
 ### [heater_bed]
 
-The heater_bed section describes a heated bed. It uses the same heater settings described in the "extruder" section.
+La sezione heater_bed descrive un piatto riscaldato. Utilizza le stesse impostazioni del riscaldatore descritte nella sezione "extruder".
 
 ```
 [heater_bed]
@@ -725,7 +739,7 @@ Mesh Bed Leveling. Si può definire una sezione di configurazione bed_mesh per a
 
 See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#bed_mesh) for additional information.
 
-Visual Examples:
+Esempi visivi:
 
 ```
  rectangular bed, probe_count = 3, 3:
@@ -868,7 +882,7 @@ See the [command reference](G-Codes.md#bed_tilt) for additional information.
 
 ### [bed_screws]
 
-Tool to help adjust bed leveling screws. One may define a [bed_screws] config section to enable a BED_SCREWS_ADJUST g-code command.
+Strumento per aiutare a regolare le viti di livellamento del letto. Si può definire una sezione di configurazione [bed_screws] per abilitare un comando g-code BED_SCREWS_ADJUST.
 
 See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [command reference](G-Codes.md#bed_screws) for additional information.
 
@@ -909,7 +923,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 
 ### [screws_tilt_adjust]
 
-Tool to help adjust bed screws tilt using Z probe. One may define a screws_tilt_adjust config section to enable a SCREWS_TILT_CALCULATE g-code command.
+Strumento per aiutare a regolare l'inclinazione delle viti del piatto utilizzando la sonda Z. Si può definire una sezione di configurazione Screws_tilt_adjust per abilitare un comando g-code SCREWS_TILT_CALCULATE.
 
 See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) and [command reference](G-Codes.md#screws_tilt_adjust) for additional information.
 
@@ -952,35 +966,37 @@ Regolazione multipla dell'inclinazione dello stepper Z. Questa funzione consente
 ```
 [z_tilt]
 #z_positions:
-#   A list of X, Y coordinates (one per line; subsequent lines
-#   indented) describing the location of each bed "pivot point". The
-#   "pivot point" is the point where the bed attaches to the given Z
-#   stepper. It is described using nozzle coordinates (the X, Y position
-#   of the nozzle if it could move directly above the point). The
-#   first entry corresponds to stepper_z, the second to stepper_z1,
-#   the third to stepper_z2, etc. This parameter must be provided.
+#   Un elenco di coordinate X, Y (una per riga; le righe successive
+#   identate) che descrivono la posizione di ciascun "pivot point"
+#   del piattotto. Il "pivot point" è il punto in cui il piatto si attacca
+#   al dato stepper Z. Viene descritto utilizzando le coordinate dell'ugello
+#   (la posizione X, Y dell'ugello se potesse spostarsi direttamente sopra 
+#   il punto). La prima voce corrisponde a stepper_z, la seconda a 
+#   stepper_z1, la terza a stepper_z2, ecc. 
+#   Questo parametro deve essere fornito.
 #points:
-#   A list of X, Y coordinates (one per line; subsequent lines
-#   indented) that should be probed during a Z_TILT_ADJUST command.
-#   Specify coordinates of the nozzle and be sure the probe is above
-#   the bed at the given nozzle coordinates. This parameter must be
-#   provided.
+#   Un elenco di coordinate X, Y (una per riga; righe successive identate)
+#   che devono essere rilevate durante un comando Z_TILT_ADJUST.
+#   Specificare le coordinate dell'ugello e assicurarsi che la sonda sia
+#   sopra il piatto alle coordinate dell'ugello date.
+#   Questo parametro deve essere fornito.
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+#   La velocità (in mm/s) degli spostamenti senza probing durante 
+#   la calibrazione. Il valore predefinito è 50.
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+#   L'altezza (in mm) a cui la testa deve essere comandata per spostarsi
+#   appena prima di avviare un'operazione di probing.
+#   L'impostazione predefinita è 5.
 #retries: 0
-#   Number of times to retry if the probed points aren't within
-#   tolerance.
+#   Numero di volte per riprovare se i punti rilevati non sono all'interno
+#   della tolleranza.
 #retry_tolerance: 0
-#   If retries are enabled then retry if largest and smallest probed
-#   points differ more than retry_tolerance. Note the smallest unit of
-#   change here would be a single step. However if you are probing
-#   more points than steppers then you will likely have a fixed
-#   minimum value for the range of probed points which you can learn
-#   by observing command output.
+#   Se i tentativi sono abilitati, riprovare se i punti sondati più grande e
+#   più piccolo differiscono più di retry_tolerance. Nota che l'unità di 
+#   modifica più piccola qui sarebbe un singolo passaggio. 
+#   Tuttavia, se stai sondando più punti rispetto agli stepper, 
+#   probabilmente avrai un valore minimo fisso per l'intervallo di punti 
+#   sondati che puoi apprendere osservando l'output del comando.
 ```
 
 ### [quad_gantry_level]
@@ -1186,7 +1202,7 @@ gcode:
 
 ### [save_variables]
 
-Support saving variables to disk so that they are retained across restarts. See [command templates](Command_Templates.md#save-variables-to-disk) and [G-Code reference](G-Codes.md#save_variables) for further information.
+Supporta il salvataggio delle variabili su disco in modo che vengano mantenute durante i riavvii. Per ulteriori informazioni, vedere [template dei comandi](Command_Templates.md#save-variables-to-disk) e [G-Code reference](G-Codes.md#save_variables).
 
 ```
 [save_variables]
@@ -1220,13 +1236,15 @@ Una scheda SD virtuale può essere utile se la macchina host non è abbastanza v
 ```
 [virtual_sdcard]
 path:
-#   The path of the local directory on the host machine to look for
-#   g-code files. This is a read-only directory (sdcard file writes
-#   are not supported). One may point this to OctoPrint's upload
-#   directory (generally ~/.octoprint/uploads/ ). This parameter must
-#   be provided.
+#   Il percorso della directory locale sulla macchina host per cercare
+#   i file di Gcode. Questa è una directory di sola lettura (le scritture
+#   di file sdcard non sono supportate). Si può indicare questo alla
+#   directory di caricamento di OctoPrint
+#   (generalmente ~/.octoprint/uploads/ ).
+#   Questo parametro deve essere fornito.
 #on_error_gcode:
-#   A list of G-Code commands to execute when an error is reported.
+#   Un elenco di comandi G-Code da eseguire quando viene segnalato
+#   un errore.
 ```
 
 ### [sdcard_loop]
@@ -1241,7 +1259,7 @@ See the [command reference](G-Codes.md#sdcard_loop) for supported commands. See 
 
 ### [force_move]
 
-Support manually moving stepper motors for diagnostic purposes. Note, using this feature may place the printer in an invalid state - see the [command reference](G-Codes.md#force_move) for important details.
+Supporta lo spostamento manuale dei motori passo-passo per scopi diagnostici. Nota, l'utilizzo di questa funzione potrebbe mettere la stampante in uno stato non valido - vedere il [command reference](G-Codes.md#force_move) per dettagli importanti.
 
 ```
 [force_move]
@@ -1263,7 +1281,7 @@ Funzionalità di Pause/Resume con supporto di acquisizione e ripristino della po
 
 ### [firmware_retraction]
 
-Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCODE commands issued by many slicers. The parameters below provide startup defaults, although the values can be adjusted via the SET_RETRACTION [command](G-Codes.md#firmware_retraction)), allowing per-filament settings and runtime tuning.
+Retrazione del filamento del firmware. Ciò abilita i comandi GCODE G10 (ritiro) e G11 (non ritirati) emessi da molti slicer. I parametri seguenti forniscono le impostazioni predefinite di avvio, sebbene i valori possano essere regolati tramite il [comando] SET_RETRACTION (G-Codes.md#firmware_retraction)), consentendo l'impostazione e l'ottimizzazione del filamento a runtime.
 
 ```
 [firmware_retraction]
@@ -1285,7 +1303,7 @@ I#   l valore predefinito è 0 mm.
 
 ### [gcode_arcs]
 
-Support for gcode arc (G2/G3) commands.
+Supporto per i comandi Gcode arc (G2/G3).
 
 ```
 [gcode_arcs]
@@ -1305,14 +1323,13 @@ Abilita i comandi estesi "M118" e "RESPOND" [commands](G-Codes.md#respond).
 ```
 [respond]
 #default_type: echo
-#   Sets the default prefix of the "M118" and "RESPOND" output to one
-#   of the following:
-#       echo: "echo: " (This is the default)
+#   Imposta il prefisso predefinito dell'output "M118" e "RESPOND" su uno dei seguenti:
+#       echo: "echo: " (Questa è l'impostazione predefinita)
 #       command: "// "
 #       error: "!! "
 #default_prefix: echo:
-#   Directly sets the default prefix. If present, this value will
-#   override the "default_type".
+#   Imposta direttamente il prefisso predefinito. Se presente
+#   questo valore sovrascriverà il "default_type".
 ```
 
 ### [exclude_object]
@@ -1370,7 +1387,7 @@ Abilita [compensazione della risonanza](Resonance_Compensation.md). Vedere anche
 
 ### [adxl345]
 
-Support for ADXL345 accelerometers. This support allows one to query accelerometer measurements from the sensor. This enables an ACCELEROMETER_MEASURE command (see [G-Codes](G-Codes.md#adxl345) for more information). The default chip name is "default", but one may specify an explicit name (eg, [adxl345 my_chip_name]).
+Supporto per accelerometri ADXL345. Questo supporto consente di interrogare le misurazioni dell'accelerometro dal sensore. Ciò abilita un comando ACCELEROMETER_MEASURE (consultare [G-Codes](G-Codes.md#adxl345) per ulteriori informazioni). Il nome del chip predefinito è "predefinito", ma è possibile specificare un nome esplicito (ad esempio, [adxl345 my_chip_name]).
 
 ```
 [adxl345]
@@ -1402,7 +1419,7 @@ cs_pin:
 
 ### [mpu9250]
 
-Support for mpu9250 and mpu6050 accelerometers (one may define any number of sections with an "mpu9250" prefix).
+Supporto per accelerometri mpu9250 e mpu6050 (si può definire un numero qualsiasi di sezioni con un prefisso "mpu9250").
 
 ```
 [mpu9250 my_accelerometer]
@@ -1499,7 +1516,7 @@ Supporto per includere i file. Uno può includere un file di configurazione aggi
 
 ### [duplicate_pin_override]
 
-This tool allows a single micro-controller pin to be defined multiple times in a config file without normal error checking. This is intended for diagnostic and debugging purposes. This section is not needed where Klipper supports using the same pin multiple times, and using this override may cause confusing and unexpected results.
+Questo strumento consente di definire più volte un singolo pin del microcontrollore in un file di configurazione senza il normale controllo degli errori. Questo è inteso per scopi diagnostici e di debug. Questa sezione non è necessaria laddove Klipper supporta l'utilizzo dello stesso pin più volte e l'utilizzo di questa sostituzione può causare risultati confusi e imprevisti.
 
 ```
 [duplicate_pin_override]
@@ -1513,7 +1530,7 @@ pins:
 
 ### [probe]
 
-Z height probe. One may define this section to enable Z height probing hardware. When this section is enabled, PROBE and QUERY_PROBE extended [g-code commands](G-Codes.md#probe) become available. Also, see the [probe calibrate guide](Probe_Calibrate.md). The probe section also creates a virtual "probe:z_virtual_endstop" pin. One may set the stepper_z endstop_pin to this virtual pin on cartesian style printers that use the probe in place of a z endstop. If using "probe:z_virtual_endstop" then do not define a position_endstop in the stepper_z config section.
+Sonda di altezza Z. Si può definire questa sezione per abilitare l'hardware di rilevamento dell'altezza Z. Quando questa sezione è abilitata, i comandi estesi PROBE e QUERY_PROBE [comandi g-code](G-Codes.md#probe) diventano disponibili. Inoltre, vedere la [Guida alla calibrazione della sonda](Probe_Calibrate.md). La sezione probe crea anche un pin virtuale "probe:z_virtual_endstop". Si può impostare stepper_z endstop_pin su questo pin virtuale su stampanti in stile cartesiano che utilizzano la sonda al posto di un endstop z. Se si utilizza "probe:z_virtual_endstop", non definire un position_endstop nella sezione di configurazione stepper_z.
 
 ```
 [probe]
@@ -1691,12 +1708,12 @@ Assi multi-stepper. Su una stampante in stile cartesiano, lo stepper che control
 #enable_pin:
 #microsteps:
 #rotation_distance:
-#   See the "stepper" section for the definition of the above parameters.
+#   Vedere la sezione "stepper" per la definizione dei parametri di cui sopra.
 #endstop_pin:
-#   If an endstop_pin is defined for the additional stepper then the
-#   stepper will home until the endstop is triggered. Otherwise, the
-#   stepper will home until the endstop on the primary stepper for the
-#   axis is triggered.
+#   Se viene definito un endstop_pin per lo stepper aggiuntivo, lo stepper
+#   si fermerà fino all'attivazione dell'endstop. In caso contrario, lo stepper
+#   si fermerà fino a quando non verrà attivato il finecorsa sullo stepper
+#   primario per l'asse.
 ```
 
 ### [extruder1]
@@ -1741,7 +1758,7 @@ axis:
 
 ### [extruder_stepper]
 
-Support for additional steppers synchronized to the movement of an extruder (one may define any number of sections with an "extruder_stepper" prefix).
+Supporto per stepper aggiuntivi sincronizzati al movimento di un estrusore (si può definire un numero qualsiasi di sezioni con un prefisso "extruder_stepper").
 
 See the [command reference](G-Codes.md#extruder) for more information.
 
@@ -1796,38 +1813,37 @@ Verifica riscaldatore e sensore di temperatura. La verifica del riscaldatore vie
 ```
 [verify_heater heater_config_name]
 #max_error: 120
-#   The maximum "cumulative temperature error" before raising an
-#   error. Smaller values result in stricter checking and larger
-#   values allow for more time before an error is reported.
-#   Specifically, the temperature is inspected once a second and if it
-#   is close to the target temperature then an internal "error
-#   counter" is reset; otherwise, if the temperature is below the
-#   target range then the counter is increased by the amount the
-#   reported temperature differs from that range. Should the counter
-#   exceed this "max_error" then an error is raised. The default is
-#   120.
+#   Il massimo "errore di temperatura cumulativo" prima di generare un
+#   errore. Valori più piccoli comportano un controllo più rigoroso e valori
+#   più grandi consentono più tempo prima che venga segnalato un errore.
+#   Nello specifico la temperatura viene osservata una volta al secondo e
+#   se è prossima alla temperatura target viene azzerato un "contatore errori"
+#   interno; in caso contrario, se la temperatura è inferiore all'intervallo target,
+#   il contatore viene aumentato della quantità in cui la temperatura riportata
+#   differisce da tale intervallo. Se il contatore supera questo "errore_max",
+#   viene generato un errore. Il valore predefinito è 120.
 #check_gain_time:
-#   This controls heater verification during initial heating. Smaller
-#   values result in stricter checking and larger values allow for
-#   more time before an error is reported. Specifically, during
-#   initial heating, as long as the heater increases in temperature
-#   within this time frame (specified in seconds) then the internal
-#   "error counter" is reset. The default is 20 seconds for extruders
-#   and 60 seconds for heater_bed.
+#   Questo controlla la verifica del riscaldatore durante il riscaldamento
+#   iniziale. Valori più piccoli comportano un controllo più rigoroso e valori
+#   più grandi consentono più tempo prima che venga segnalato un errore.
+#   In particolare, durante il riscaldamento iniziale, fintanto che il riscaldatore
+#   aumenta di temperatura entro questo intervallo di tempo (specificato in
+#   secondi), il "contatore errori" interno viene azzerato. Il valore predefinito
+#   è 20 secondi per gli estrusori e 60 secondi per heater_bed.
 #hysteresis: 5
-#   The maximum temperature difference (in Celsius) to a target
-#   temperature that is considered in range of the target. This
-#   controls the max_error range check. It is rare to customize this
-#   value. The default is 5.
+#   La differenza di temperatura massima (in gradi Celsius) rispetto a una
+#   temperatura target considerata nell'intervallo del target. Questo controlla
+#   nell'intervallo max_error. È raro personalizzare questo valore.
+#   L'impostazione predefinita è 5.
 #heating_gain: 2
-#   The minimum temperature (in Celsius) that the heater must increase
-#   by during the check_gain_time check. It is rare to customize this
-#   value. The default is 2.
+#   La temperatura minima (in gradi Celsius) di cui il riscaldatore deve
+#   aumentare durante il check_gain_time. È raro personalizzare questo valore.
+#   L'impostazione predefinita è 2.
 ```
 
 ### [homing_heaters]
 
-Tool to disable heaters when homing or probing an axis.
+Strumento per disabilitare i riscaldatori durante l'homing o la probing di un asse.
 
 ```
 [homing_heaters]
@@ -1855,15 +1871,14 @@ Termistori personalizzati (si può definire un numero qualsiasi di sezioni con u
 #resistance2:
 #temperature3:
 #resistance3:
-#   Three resistance measurements (in Ohms) at the given temperatures
-#   (in Celsius). The three measurements will be used to calculate the
-#   Steinhart-Hart coefficients for the thermistor. These parameters
-#   must be provided when using Steinhart-Hart to define the
-#   thermistor.
+#   Tre misure di resistenza (in Ohm) alle temperature date (in Celsius).
+#   Le tre misurazioni verranno utilizzate per calcolare i coefficienti di
+#   Steinhart-Hart per il termistore. Questi parametri devono essere
+#   forniti quando si utilizza Steinhart-Hart per definire il termistore.
 #beta:
-#   Alternatively, one may define temperature1, resistance1, and beta
-#   to define the thermistor parameters. This parameter must be
-#   provided when using "beta" to define the thermistor.
+#   In alternativa, è possibile definire temperatura1, resistenza1 e beta
+#   per definire i parametri del termistore. Questo parametro deve
+#   essere fornito quando si utilizza "beta" per definire il termistore.
 ```
 
 ### [adc_temperature]
@@ -1928,14 +1943,14 @@ Sensori di temperatura generici. È possibile definire un numero qualsiasi di se
 #sensor_pin:
 #min_temp:
 #max_temp:
-#   See the "extruder" section for the definition of the above
-#   parameters.
+#   Vedi la sezione "extruder" per la definizione dei parametri
+#   sopra indicati.
 #gcode_id:
-#   See the "heater_generic" section for the definition of this
-#   parameter.
+#   Vedi la sezione "heater_generic" per la definizione dei
+#   parametri sopra indicati.
 ```
 
-## Temperature sensors
+## Sensori di temperatura
 
 Klipper include definizioni per molti tipi di sensori di temperatura. Questi sensori possono essere utilizzati in qualsiasi sezione di configurazione che richieda un sensore di temperatura (come una sezione `[extruder]` o `[heater_bed]`).
 
@@ -2094,7 +2109,7 @@ sensor_type: LM75
 
 ### Sensore di temperatura integrato nel microcontrollore
 
-The atsam, atsamd, and stm32 micro-controllers contain an internal temperature sensor. One can use the "temperature_mcu" sensor to monitor these temperatures.
+I microcontrollori atsam, atsamd e stm32 contengono un sensore di temperatura interno. È possibile utilizzare il sensore "temperature_mcu" per monitorare queste temperature.
 
 ```
 sensor_type: temperature_mcu
@@ -2126,7 +2141,7 @@ sensor_type: temperature_mcu
 
 ### Sensore di temperatura host
 
-Temperature from the machine (eg Raspberry Pi) running the host software.
+Temperatura dalla macchina (es. Raspberry Pi) che esegue il software host.
 
 ```
 sensor_type: temperature_host
@@ -2302,7 +2317,7 @@ Ventola di raffreddamento del controller (è possibile definire un numero qualsi
 
 ### [temperature_fan]
 
-Temperature-triggered cooling fans (one may define any number of sections with a "temperature_fan" prefix). A "temperature fan" is a fan that will be enabled whenever its associated sensor is above a set temperature. By default, a temperature_fan has a shutdown_speed equal to max_power.
+Ventole di raffreddamento attivate dalla temperatura (è possibile definire un numero qualsiasi di sezioni con un prefisso "temperature_fan"). Una "ventola di temperatura" è una ventola che verrà abilitata ogni volta che il sensore associato è al di sopra di una temperatura impostata. Per impostazione predefinita, una ventola_temperatura ha una velocità_di_arresto pari a potenza_massima.
 
 See the [command reference](G-Codes.md#temperature_fan) for additional information.
 
@@ -2380,7 +2395,7 @@ Ventola a controllo manuale (si può definire un numero qualsiasi di sezioni con
 
 ### [led]
 
-Support for LEDs (and LED strips) controlled via micro-controller PWM pins (one may define any number of sections with an "led" prefix). See the [command reference](G-Codes.md#led) for more information.
+Supporto per LED (e strisce LED) controllati tramite pin PWM del microcontrollore (si può definire un numero qualsiasi di sezioni con un prefisso "led"). Per ulteriori informazioni, vedere [command reference](G-Codes.md#led).
 
 ```
 [led my_led]
@@ -2456,23 +2471,23 @@ clock_pin:
 
 ### [pca9533]
 
-PCA9533 LED support. The PCA9533 is used on the mightyboard.
+PCA9533 Supporto LED. Il PCA9533 viene utilizzato sulla scheda mightyboard.
 
 ```
 [pca9533 my_pca9533]
 #i2c_address: 98
-#   The i2c address that the chip is using on the i2c bus. Use 98 for
-#   the PCA9533/1, 99 for the PCA9533/2. The default is 98.
+#   L'indirizzo i2c utilizzato dal chip sul bus i2c. Utilizzare 98 per
+#   PCA9533/1, 99 per PCA9533/2. Il valore predefinito è 98.
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
+#   Vedere la sezione "impostazioni comuni I2C" per una 
+#   descrizione dei parametri di cui sopra.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-#   See the "led" section for information on these parameters.
+#   Vedere la sezione "led" per informazioni su questi parametri.
 ```
 
 ### [pca9632]
@@ -2563,55 +2578,55 @@ pin:
 
 ### [output_pin]
 
-Run-time configurable output pins (one may define any number of sections with an "output_pin" prefix). Pins configured here will be setup as output pins and one may modify them at run-time using "SET_PIN PIN=my_pin VALUE=.1" type extended [g-code commands](G-Codes.md#output_pin).
+Pin di uscita configurabili in fase di run-time (è possibile definire un numero qualsiasi di sezioni con un prefisso "output_pin"). I pin configurati qui verranno impostati come pin di output e sarà possibile modificarli in fase di esecuzione utilizzando il comando esteso "SET_PIN PIN=my_pin VALUE=.1" [comandi g-code](G-Codes.md#output_pin).
 
 ```
 [output_pin my_pin]
 pin:
-#   The pin to configure as an output. This parameter must be
-#   provided.
+#   Il pin da configurare come output. 
+#   Questo parametro deve essere fornito.
 #pwm: False
-#   Set if the output pin should be capable of pulse-width-modulation.
-#   If this is true, the value fields should be between 0 and 1; if it
-#   is false the value fields should be either 0 or 1. The default is
-#   False.
+#   Impostare se il pin di uscita deve essere in grado di modulare la
+#   larghezza di impulso PWM. Se questo è True, i campi del valore 
+#   dovrebbero essere compresi tra 0 e 1; se è False i campi del valore
+#   devono essere 0 o 1. Il valore predefinito è False.
 #static_value:
-#   If this is set, then the pin is assigned to this value at startup
-#   and the pin can not be changed during runtime. A static pin uses
-#   slightly less ram in the micro-controller. The default is to use
-#   runtime configuration of pins.
+#   Se è valorizzato, il pin viene assegnato a questo valore all'avvio e
+#   il pin non può essere modificato durante il runtime. Un pin statico
+#   utilizza una ram leggermente inferiore nel microcontrollore.
+#   L'impostazione predefinita prevede l'utilizzo della configurazione 
+#   di runtime dei pin.
 #value:
-#   The value to initially set the pin to during MCU configuration.
-#   The default is 0 (for low voltage).
+#   Il valore su cui impostare inizialmente il pin durante la 
+#   configurazione dell'MCU. Il valore predefinito è 0 (per bassa tensione).
 #shutdown_value:
-#   The value to set the pin to on an MCU shutdown event. The default
-#   is 0 (for low voltage).
+#   Il valore su cui impostare il pin su un evento di arresto dell'MCU. 
+#   Il valore predefinito è 0 (per bassa tensione).
 #maximum_mcu_duration:
-#   The maximum duration a non-shutdown value may be driven by the MCU
-#   without an acknowledge from the host.
-#   If host can not keep up with an update, the MCU will shutdown
-#   and set all pins to their respective shutdown values.
-#   Default: 0 (disabled)
-#   Usual values are around 5 seconds.
+#   La durata massima di un valore di non spegnimento può essere
+#   determinato dall'MCU senza un riconoscimento da parte dell'host.
+#   Se l'host non riesce a tenere il passo con un aggiornamento, l'MCU
+#   si spegnerà e imposterà tutti i pin sui rispettivi valori di spegnimento.
+#   Default: 0 (disabilitato) I valori abituali sono circa 5 secondi.
 #cycle_time: 0.100
-#   The amount of time (in seconds) per PWM cycle. It is recommended
-#   this be 10 milliseconds or greater when using software based PWM.
-#   The default is 0.100 seconds for pwm pins.
+#   La quantità di tempo (in secondi) per ciclo PWM. Si consiglia di
+#   essere pari o superiore a 10 millisecondi quando si utilizza il PWM
+#   basato su software. Il valore predefinito è 0.100 secondi per i pin pwm.
 #hardware_pwm: False
-#   Enable this to use hardware PWM instead of software PWM. When
-#   using hardware PWM the actual cycle time is constrained by the
-#   implementation and may be significantly different than the
-#   requested cycle_time. The default is False.
+#   Abilitare questa opzione per utilizzare PWM hardware anziché PWM
+#   software. Quando si utilizza l'hardware PWM, il tempo di ciclo effettivo
+#   è vincolato dall'implementazione e può essere notevolmente diverso
+#   dal tempo di ciclo richiesto. L'impostazione predefinita è Falso.
 #scale:
-#   This parameter can be used to alter how the 'value' and
-#   'shutdown_value' parameters are interpreted for pwm pins. If
-#   provided, then the 'value' parameter should be between 0.0 and
-#   'scale'. This may be useful when configuring a PWM pin that
-#   controls a stepper voltage reference. The 'scale' can be set to
-#   the equivalent stepper amperage if the PWM were fully enabled, and
-#   then the 'value' parameter can be specified using the desired
-#   amperage for the stepper. The default is to not scale the 'value'
-#   parameter.
+#   Questo parametro può essere utilizzato per modificare il modo in cui
+#   i parametri 'value' e 'shutdown_value' vengono interpretati per i pin
+#   pwm. Se fornito, il parametro 'value' deve essere compreso tra 0.0 e
+#   'scale'. Questo può essere utile quando si configura un pin PWM che
+#   controlla un riferimento di tensione stepper. La "scala" può essere
+#   impostata sull'amperaggio dello stepper equivalente se il PWM fosse
+#   completamente abilitato, quindi il parametro "value" può essere
+#   specificato utilizzando l'amperaggio desiderato per lo stepper.
+#   L'impostazione predefinita è di non ridimensionare il parametro 'value'.
 ```
 
 ### [static_digital_output]
@@ -2637,7 +2652,7 @@ pins:
 #   Questo parametro deve essere fornito.
 ```
 
-## TMC stepper driver configuration
+## Configurazione del driver TMC per stepper
 
 Configurazione dei driver per motori passo-passo Trinamic in modalità UART/SPI. Ulteriori informazioni si trovano nella [TMC Drivers guide](TMC_Drivers.md) e nel [command reference](G-Codes.md#tmcxxxx).
 
@@ -2648,43 +2663,47 @@ Configurare un driver per motore passo-passo TMC2130 tramite bus SPI. Per utiliz
 ```
 [tmc2130 stepper_x]
 cs_pin:
-#   The pin corresponding to the TMC2130 chip select line. This pin
-#   will be set to low at the start of SPI messages and raised to high
-#   after the message completes. This parameter must be provided.
+#   Il pin collegato al pin di selezione del chip TMC2130.
+#   Questo pin verrà impostato su basso all'inizio dei messaggi SPI e
+#   portato su alto al termine del messaggio. Questo parametro deve
+#   essere fornito.
+
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   Vedere la sezione "impostazioni comuni SPIi" per una descrizione
+#   dei parametri di cui sopra.
 #chain_position:
 #chain_length:
-#   These parameters configure an SPI daisy chain. The two parameters
-#   define the stepper position in the chain and the total chain length.
-#   Position 1 corresponds to the stepper that connects to the MOSI signal.
-#   The default is to not use an SPI daisy chain.
+#   Questi parametri configurano una daisy chain SPI. I due parametri
+#   definiscono la posizione dello stepper nella catena e la lunghezza totale
+#   della catena. La posizione 1 corrisponde allo stepper che si collega al
+#   segnale MOSI. L'impostazione predefinita è di non utilizzare un
+#   collegamento a margherita SPI.
 #interpolate: True
-#   If true, enable step interpolation (the driver will internally
-#   step at a rate of 256 micro-steps). This interpolation does
-#   introduce a small systemic positional deviation - see
-#   TMC_Drivers.md for details. The default is True.
+#   Se True, abilita l'interpolazione del passo (il driver eseguirà un passo
+#   intero attraverso 256 micropassi). Questa interpolazione introduce una
+#   piccola deviazione posizionale sistemica - vedi TMC_Drivers.md per i
+#   dettagli. L'impostazione predefinita è True.
 run_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   during stepper movement. This parameter must be provided.
+#   La quantità di corrente (in ampere RMS) con cui configurare il driver e
+utilizzare durante il movimento passo-passo. Questo parametro deve
+essere fornito.
 #hold_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   when the stepper is not moving. Setting a hold_current is not
-#   recommended (see TMC_Drivers.md for details). The default is to
-#   not reduce the current.
+#   La quantità di corrente (in ampere RMS) con cui configurare il driver da
+#   utilizzare quando lo stepper non è in movimento. L'impostazione di
+#   hold_current non è consigliata (consultare TMC_Drivers.md per i
+#   dettagli). L'impostazione predefinita è di non ridurre la corrente.
 #sense_resistor: 0.110
-#   The resistance (in ohms) of the motor sense resistor. The default
-#   is 0.110 ohms.
+#   La resistenza (in ohm) del resistore di rilevamento del motore.
+#   Il valore predefinito è 0,110 ohm.
 #stealthchop_threshold: 0
-#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
-#   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#   La velocità (in mm/s) su cui impostare la soglia "stealthChop". Se
+#   impostata, la modalità "stealthChop" sarà abilitata se la velocità del
+#   motore passo-passo è inferiore a questo valore. Il valore predefinito
+#   è 0, che disabilita la modalità "stealthChop".
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 0
 #driver_TBL: 1
@@ -2696,20 +2715,21 @@ run_current:
 #driver_PWM_GRAD: 4
 #driver_PWM_AMPL: 128
 #driver_SGT: 0
-#   Set the given register during the configuration of the TMC2130
-#   chip. This may be used to set custom motor parameters. The
-#   defaults for each parameter are next to the parameter name in the
-#   above list.
+#   Impostare il registro dato durante la configurazione del chip
+#   TMC2130. Può essere utilizzato per impostare parametri motore
+#   personalizzati. I valori predefiniti per ciascun parametro sono
+#   accanto al nome del parametro nell'elenco precedente.
 #diag0_pin:
 #diag1_pin:
-#   The micro-controller pin attached to one of the DIAG lines of the
-#   TMC2130 chip. Only a single diag pin should be specified. The pin
-#   is "active low" and is thus normally prefaced with "^!". Setting
-#   this creates a "tmc2130_stepper_x:virtual_endstop" virtual pin
-#   which may be used as the stepper's endstop_pin. Doing this enables
-#   "sensorless homing". (Be sure to also set driver_SGT to an
-#   appropriate sensitivity value.) The default is to not enable
-#   sensorless homing.
+#   Il pin del microcontrollore collegato a una delle linee DIAG del
+#   chip TMC2130. È necessario specificare un solo pin diag. Il pin è
+#   "attivo basso" ed è quindi normalmente preceduto da "^!".
+#   L'impostazione di questo crea un pin virtuale
+#   "tmc2130_stepper_x:virtual_endstop" che può essere utilizzato
+#   come endstop_pin dello stepper. In questo modo si abilita
+#   l'"homing sensorless". (Assicurarsi di impostare anche driver_SGT
+#   su un valore di sensibilità appropriato.) L'impostazione predefinita
+#   è di non abilitare l'homing sensorless.
 ```
 
 ### [tmc2208]
@@ -2719,38 +2739,40 @@ Configurare un driver per motore passo-passo TMC2208 (o TMC2224) tramite UART a 
 ```
 [tmc2208 stepper_x]
 uart_pin:
-#   The pin connected to the TMC2208 PDN_UART line. This parameter
-#   must be provided.
+#   Il pin collegato al PDN_UART del TMC2208 .
+#   Questo parametro deve essere fornito.
 #tx_pin:
-#   If using separate receive and transmit lines to communicate with
-#   the driver then set uart_pin to the receive pin and tx_pin to the
-#   transmit pin. The default is to use uart_pin for both reading and
-#   writing.
+#   Se si utilizzano linee di ricezione e trasmissione separate per
+#   comunicare con il driver, impostare uart_pin sul pin di ricezione e
+#   tx_pin sul pin di trasmissione. L'impostazione predefinita è usare
+uart_pin sia per la lettura che per la scrittura.
 #select_pins:
-#   A comma separated list of pins to set prior to accessing the
-#   tmc2208 UART. This may be useful for configuring an analog mux for
-#   UART communication. The default is to not configure any pins.
+#   Un elenco separato da virgole di pin da impostare prima di accedere
+#   all'UART tmc2208. Questo può essere utile per configurare un mux
+#   analogico per la comunicazione UART. L'impostazione predefinita è
+#   di non configurare alcun pin.
 #interpolate: True
-#   If true, enable step interpolation (the driver will internally
-#   step at a rate of 256 micro-steps). This interpolation does
-#   introduce a small systemic positional deviation - see
-#   TMC_Drivers.md for details. The default is True.
+#   Se True, abilita l'interpolazione del passo (il driver eseguirà un passo
+#   intero con 256 micropassi). Questa interpolazione
+#   introduce una piccola deviazione posizionale sistemica - vedere
+#   TMC_Drivers.md per i dettagli. L'impostazione predefinita è True.
 run_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   during stepper movement. This parameter must be provided.
+#   La quantità di corrente (in ampere RMS) per configurare il driver da
+#   utilizzare durante il movimento passo-passo.
+#   Questo parametro deve essere fornito.
 #hold_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   when the stepper is not moving. Setting a hold_current is not
-#   recommended (see TMC_Drivers.md for details). The default is to
-#   not reduce the current.
+#   La quantità di corrente (in ampere RMS) per configurare il driver da
+#   utilizzare quando lo stepper non è in movimento. L'impostazione di
+#   hold_current non è consigliata (consultare TMC_Drivers.md per i
+#   dettagli). L'impostazione predefinita è di non ridurre la corrente.
 #sense_resistor: 0.110
-#   The resistance (in ohms) of the motor sense resistor. The default
-#   is 0.110 ohms.
+#   La resistenza (in ohm) del resistore di rilevamento del motore.
+#   Il valore predefinito è 0,110 ohm.
 #stealthchop_threshold: 0
-#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
-#   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#   La velocità (in mm/s) su cui impostare la soglia "stealthChop". Se
+#   impostata, la modalità "stealthChop" sarà abilitata se la velocità del
+#   motore passo-passo è inferiore a questo valore. Il valore predefinito
+#   è 0, che disabilita la modalità "stealthChop".
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
 #driver_TBL: 2
@@ -2764,10 +2786,10 @@ run_current:
 #driver_PWM_FREQ: 1
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
-#   Set the given register during the configuration of the TMC2208
-#   chip. This may be used to set custom motor parameters. The
-#   defaults for each parameter are next to the parameter name in the
-#   above list.
+#   Impostare il registro dato durante la configurazione del chip TMC2208.
+#   Può essere utilizzato per impostare parametri motore personalizzati.
+#   I valori predefiniti per ciascun parametro sono accanto al nome del
+#   parametro nell'elenco precedente.
 ```
 
 ### [tmc2209]
@@ -2893,41 +2915,45 @@ Configurare un driver per motore passo-passo TMC5160 tramite bus SPI. Per utiliz
 ```
 [tmc5160 stepper_x]
 cs_pin:
-#   The pin corresponding to the TMC5160 chip select line. This pin
-#   will be set to low at the start of SPI messages and raised to high
-#   after the message completes. This parameter must be provided.
+#   Il pin corrispondente al pin di selezione del chip TMC5160.
+Questo pin verrà impostato su basso all'inizio dei messaggi SPI e
+portato su alto al termine del messaggio.
+Questo parametro deve essere fornito.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   Vedere la sezione "impostazioni SPI comuni" per una 
+#   descrizione dei parametri di cui sopra.
 #chain_position:
 #chain_length:
-#   These parameters configure an SPI daisy chain. The two parameters
-#   define the stepper position in the chain and the total chain length.
-#   Position 1 corresponds to the stepper that connects to the MOSI signal.
-#   The default is to not use an SPI daisy chain.
+#   Questi parametri configurano una daisy chain SPI. I due 
+#   parametri definiscono la posizione dello stepper nella catena
+#   e la lunghezza totale della catena. La posizione 1 corrisponde
+#   allo stepper che si collega al segnale MOSI. L'impostazione 
+#   predefinita è di non utilizzare un collegamento a margherita SPI.
 #interpolate: True
-#   If true, enable step interpolation (the driver will internally
-#   step at a rate of 256 micro-steps). The default is True.
+#   Se true, abilita l'interpolazione del passo (il driver eseguirà un 
+#   passo interno con 256 micropassi).
+#   L'impostazione predefinita è True.
 run_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   during stepper movement. This parameter must be provided.
+#   La quantità di corrente (in ampere RMS) per configurare il driver 
+#   da utilizzare durante il movimento. 
+#   Questo parametro deve essere fornito.
 #hold_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   when the stepper is not moving. Setting a hold_current is not
-#   recommended (see TMC_Drivers.md for details). The default is to
-#   not reduce the current.
+#   La quantità di corrente (in ampere RMS) per configurare il driver
+#   da utilizzare quando lo stepper non è in movimento. L'impostazione
+#   di hold_current non è consigliata (consultare TMC_Drivers.md per i 
+#   dettagli). L'impostazione predefinita è di non ridurre la corrente.
 #sense_resistor: 0.075
-#   The resistance (in ohms) of the motor sense resistor. The default
-#   is 0.075 ohms.
+#   La resistenza (in ohm) del resistore di rilevamento del motore.
+#   Il valore predefinito è 0,075 ohm.
 #stealthchop_threshold: 0
-#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
-#   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#   La velocità (in mm/s) su cui impostare la soglia "stealthChop". Se
+#   impostata, la modalità "stealthChop" sarà abilitata se la velocità del
+#   motore passo-passo è inferiore a questo valore. Il valore predefinito
+#   è 0, che disabilita la modalità "stealthChop".
 #driver_IHOLDDELAY: 6
 #driver_TPOWERDOWN: 10
 #driver_TBL: 2
@@ -2956,23 +2982,23 @@ run_current:
 #driver_SEDN: 0
 #driver_SEIMIN: 0
 #driver_SFILT: 0
-#   Set the given register during the configuration of the TMC5160
-#   chip. This may be used to set custom motor parameters. The
-#   defaults for each parameter are next to the parameter name in the
-#   above list.
+#   Impostare il registro dato durante la configurazione del chip
+#   TMC5160. Può essere utilizzato per impostare parametri motore 
+#   personalizzati. I valori predefiniti per ciascun parametro sono
+#   accanto al nome del parametro nell'elenco precedente.
 #diag0_pin:
 #diag1_pin:
-#   The micro-controller pin attached to one of the DIAG lines of the
-#   TMC5160 chip. Only a single diag pin should be specified. The pin
-#   is "active low" and is thus normally prefaced with "^!". Setting
-#   this creates a "tmc5160_stepper_x:virtual_endstop" virtual pin
-#   which may be used as the stepper's endstop_pin. Doing this enables
-#   "sensorless homing". (Be sure to also set driver_SGT to an
-#   appropriate sensitivity value.) The default is to not enable
-#   sensorless homing.
+#   Il pin del microcontrollore collegato a una delle linee DIAG del chip
+#   TMC5160. È necessario specificare un solo pin diag. Il pin è "attivo
+#   basso" ed è quindi normalmente preceduto da "^!". L'impostazione
+#   di questo crea un pin virtuale "tmc5160_stepper_x:virtual_endstop"
+#   che può essere utilizzato come endstop_pin dello stepper. In questo
+#   modo si abilita l'"homing sensorless". (Assicurarsi di impostare anche
+#   driver_SGT su un valore di sensibilità appropriato.) L'impostazione
+#   predefinita è di non abilitare l'homing sensorless.
 ```
 
-## Run-time stepper motor current configuration
+## Configurazione della corrente del motore passo-passo a run-time
 
 ### [ad5206]
 
@@ -3119,7 +3145,7 @@ wiper:
 
 ### [display]
 
-Support for a display attached to the micro-controller.
+Supporto per un display collegato al microcontrollore.
 
 ```
 [display]
@@ -3363,7 +3389,7 @@ lcd_type:
 
 ### [display_data]
 
-Support for displaying custom data on an lcd screen. One may create any number of display groups and any number of data items under those groups. The display will show all the data items for a given group if the display_group option in the [display] section is set to the given group name.
+Supporto per la visualizzazione di dati personalizzati su uno schermo LCD. È possibile creare un numero qualsiasi di gruppi di visualizzazione e un numero qualsiasi di elementi di dati in quei gruppi. Il display mostrerà tutti gli elementi di dati per un determinato gruppo se l'opzione display_group nella sezione [display] è impostata sul nome del gruppo specificato.
 
 Viene creato automaticamente un [default set of display groups](../klippy/extras/display/display.cfg) . È possibile sostituire o estendere questi elementi display_data sovrascrivendo i valori predefiniti nel file di configurazione principale printer.cfg .
 
@@ -3381,11 +3407,11 @@ text:
 
 ### [display_template]
 
-Display data text "macros" (one may define any number of sections with a display_template prefix). See the [command templates](Command_Templates.md) document for information on template evaluation.
+Visualizza il testo dei dati "macro" (è possibile definire un numero qualsiasi di sezioni con un prefisso display_template). Per informazioni sul template, vedere il documento [template di comandi](Command_Templates.md).
 
 This feature allows one to reduce repetitive definitions in display_data sections. One may use the builtin `render()` function in display_data sections to evaluate a template. For example, if one were to define `[display_template my_template]` then one could use `{ render('my_template') }` in a display_data section.
 
-This feature can also be used for continuous LED updates using the [SET_LED_TEMPLATE](G-Codes.md#set_led_template) command.
+Questa funzione può essere utilizzata anche per aggiornamenti LED continui utilizzando il comando [SET_LED_TEMPLATE](G-Codes.md#set_led_template).
 
 ```
 [display_template my_template_name]
@@ -3583,15 +3609,15 @@ switch_pin:
 
 ### [tsl1401cl_filament_width_sensor]
 
-TSLl401CL Based Filament Width Sensor. See the [guide](TSL1401CL_Filament_Width_Sensor.md) for more information.
+Sensore di larghezza del filamento basato su TSLl401CL. Consulta la [guida](TSL1401CL_Filament_Width_Sensor.md) per ulteriori informazioni.
 
 ```
-[tsl1401cl_filament_width_sensor]
+sl1401cl_filament_width_sensor]
 #pin:
-#default_nominal_filament_diameter: 1.75 # (mm)
-#   Maximum allowed filament diameter difference as mm.
+#diametro nominale del filamento predefinito: 1,75 (mm)
+#   Differenza massima consentita del diametro del filamento in mm.
 #max_difference: 0.2
-#   The distance from sensor to the melting chamber as mm.
+#   La distanza dal sensore alla camera di fusione in mm.
 #measurement_delay: 100
 ```
 
@@ -3663,23 +3689,24 @@ See the [generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg) file for an e
 ```
 [sx1509 my_sx1509]
 i2c_address:
-#   I2C address used by this expander. Depending on the hardware
-#   jumpers this is one out of the following addresses: 62 63 112
-#   113. This parameter must be provided.
+#   Indirizzo I2C utilizzato da questa espansione. A seconda dei
+#   ponticelli hardware è uno dei seguenti indirizzi: 62 63 112 113.
+#   Questo parametro deve essere fornito.
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
+#   Vedere la sezione "impostazioni comuni I2C" per una 
+#   escrizione dei parametri di cui sopra.
 #i2c_bus:
-#   If the I2C implementation of your micro-controller supports
-#   multiple I2C busses, you may specify the bus name here. The
-#   default is to use the default micro-controller i2c bus.
+#   Se l'implementazione I2C del tuo microcontrollore supporta
+#   più bus I2C, puoi specificare qui il nome del bus. L'impostazione
+#   predefinita prevede l'utilizzo del bus i2c del microcontrollore
+#   predefinito.
 ```
 
 ### [samd_sercom]
 
-SAMD SERCOM configuration to specify which pins to use on a given SERCOM. One may define any number of sections with a "samd_sercom" prefix. Each SERCOM must be configured prior to using it as SPI or I2C peripheral. Place this config section above any other section that makes use of SPI or I2C buses.
+Configurazione SAMD SERCOM per specificare quali pin utilizzare su un determinato SERCOM. Si può definire un numero qualsiasi di sezioni con un prefisso "samd_sercom". Ogni SERCOM deve essere configurato prima di utilizzarlo come periferica SPI o I2C. Posiziona questa sezione di configurazione sopra qualsiasi altra sezione che fa uso di bus SPI o I2C.
 
 ```
 [samd_sercom my_sercom]
@@ -3724,7 +3751,7 @@ vssa_pin:
 
 ### [replicape]
 
-Replicape support - see the [beaglebone guide](Beaglebone.md) and the [generic-replicape.cfg](../config/generic-replicape.cfg) file for an example.
+Supporto per Replicape: vedere la [guida beaglebone](Beaglebone.md) e il file [generic-replicape.cfg](../config/generic-replicape.cfg) per un esempio.
 
 ```
 # The "replicape" config section adds "replicape:stepper_x_enable"
@@ -3792,7 +3819,7 @@ host_mcu:
 
 Supporto multimateriale Palette 2: fornisce un'integrazione più stretta supportando i dispositivi Palette 2 in modalità connessa.
 
-This modules also requires `[virtual_sdcard]` and `[pause_resume]` for full functionality.
+Questo modulo richiede anche `[virtual_sdcard]` e `[pause_resume]` per la piena funzionalità.
 
 Se si utilizza questo modulo, non utilizzare il plug-in Palette 2 per Octoprint poiché entreranno in conflitto e 1 non si inizializzerà correttamente, probabilmente interrompendo la stampa.
 
@@ -3801,17 +3828,21 @@ Se utilizzi Octoprint e esegui lo streaming di gcode sulla porta seriale invece 
 ```
 [palette2]
 serial:
-#   The serial port to connect to the Palette 2.
+#   La porta seriale per la connessione alla Palette 2.
 #baud: 115200
-#   The baud rate to use. The default is 115200.
+#   La velocità da utilizzare. Il valore predefinito è 115200.
 #feedrate_splice: 0.8
-#   The feedrate to use when splicing, default is 0.8
+#   L'avanzamento da utilizzare durante la giunzione
+#   il valore predefinito è 0.8
 #feedrate_normal: 1.0
-#   The feedrate to use after splicing, default is 1.0
+#   L'avanzamento da utilizzare dopo la giunzione
+#   il valore predefinito è 1.0
 #auto_load_speed: 2
-#   Extrude feedrate when autoloading, default is 2 (mm/s)
+#   Avanzamento di estrusione durante il caricamento automatico
+#   il valore predefinito è 2 (mm/s)
 #auto_cancel_variation: 0.1
-#   Auto cancel print when ping varation is above this threshold
+#   Annullamento automatico della stampa quando la variazione
+#   del ping è superiore a questa soglia
 ```
 
 ### [angle]
@@ -3848,7 +3879,7 @@ cs_pin:
 
 ### Impostazioni SPI comuni
 
-The following parameters are generally available for devices using an SPI bus.
+I seguenti parametri sono generalmente disponibili per i dispositivi che utilizzano un bus SPI.
 
 ```
 #spi_speed:
@@ -3869,7 +3900,7 @@ The following parameters are generally available for devices using an SPI bus.
 
 ### Impostazioni I2C comuni
 
-The following parameters are generally available for devices using an I2C bus.
+I seguenti parametri sono generalmente disponibili per i dispositivi che utilizzano un bus I2C.
 
 Si noti che l'attuale supporto del microcontrollore di Klipper per i2c generalmente non tollera il rumore di linea. Errori imprevisti sui cavi i2c possono causare la generazione di un errore di runtime da parte di Klipper. Il supporto di Klipper per il ripristino degli errori varia a seconda del tipo di microcontrollore. In genere si consiglia di utilizzare solo dispositivi i2c che si trovano sulla stessa scheda a circuito stampato del microcontrollore.
 
