@@ -1,12 +1,19 @@
-#
+# Nikolai Danov <nikolaidanov67@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-08-26 16:03+0000\n"
+"Last-Translator: Nikolai Danov <nikolaidanov67@gmail.com>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
+"resonance_compensation/bg/>\n"
 "Language: bg\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid "Resonance Compensation"
-msgstr ""
+msgstr "Компенсация на резонанса"
 
 msgid ""
 "Klipper supports Input Shaping - a technique that can be used to reduce "

@@ -1,30 +1,37 @@
-#
+# Nikolai Danov <nikolaidanov67@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-08-26 16:03+0000\n"
+"Last-Translator: Nikolai Danov <nikolaidanov67@gmail.com>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
+"navigation/bg/>\n"
 "Language: bg\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid "Klipper documentation"
-msgstr ""
+msgstr "Документация на Klipper"
 
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "Инсталиране и конфигуриране"
 
 msgid "Configuration Reference"
-msgstr ""
+msgstr "Справка за конфигурацията"
 
 msgid "Bed Level"
-msgstr ""
+msgstr "Ниво на леглото"
 
 msgid "Resonance Compensation"
-msgstr ""
+msgstr "Компенсация на резонанса"
 
 msgid "Command templates"
-msgstr ""
+msgstr "Шаблони на команди"
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "Документация за разработчици"
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "Документи, специфични за устройството"
