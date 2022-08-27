@@ -1,10 +1,10 @@
 # Fred Chan <fred2088@gmail.com>, 2022, 2025.
-# Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:31+0000\n"
-"Last-Translator: Fred Chan <fred2088@gmail.com>\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/klipper/pressure_advance/zh_Hant/>\n"
 "Language: zh_Hant\n"
