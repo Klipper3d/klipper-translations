@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-25 14:22+0000\n"
+"PO-Revision-Date: 2022-08-26 15:23+0000\n"
 "Last-Translator: Wagner Reck <wagner.reck@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/config_reference/pt_BR/>\n"
@@ -60,7 +60,7 @@ msgid "[mcu]"
 msgstr ""
 
 msgid "Configuration of the primary micro-controller."
-msgstr ""
+msgstr "Configuração do microcontrolador primário."
 
 msgid "[mcu my_extra_mcu]"
 msgstr ""
@@ -81,7 +81,7 @@ msgstr ""
 "onde \"ar9\" é o nome do pino de hardware ou apelido em determinado MCU)"
 
 msgid "Common kinematic settings"
-msgstr ""
+msgstr "Definições comuns para cinemática"
 
 msgid "[printer]"
 msgstr ""
@@ -100,7 +100,7 @@ msgid ""
 msgstr ""
 
 msgid "Cartesian Kinematics"
-msgstr ""
+msgstr "Cinemática catesiana"
 
 msgid ""
 "See [example-cartesian.cfg](../config/example-cartesian.cfg) for an example "
@@ -212,7 +212,7 @@ msgid ""
 msgstr ""
 
 msgid "Cable winch Kinematics"
-msgstr ""
+msgstr "Cinemática via guincho de cabo"
 
 msgid ""
 "See the [example-winch.cfg](../config/example-winch.cfg) for an example "
@@ -235,7 +235,7 @@ msgid ""
 msgstr ""
 
 msgid "Common extruder and heated bed support"
-msgstr ""
+msgstr "Suporte comum para extrusora e mesa aquecida."
 
 msgid "[extruder]"
 msgstr ""
@@ -251,7 +251,6 @@ msgstr ""
 msgid "Bed level support"
 msgstr "Suporte ao nível da mesa"
 
-#, fuzzy
 msgid "[bed_mesh]"
 msgstr "[bed_mesh]"
 
@@ -266,7 +265,6 @@ msgstr ""
 msgid "Visual Examples:"
 msgstr ""
 
-#, fuzzy
 msgid "[bed_tilt]"
 msgstr "[bed_tilt]"
 
@@ -280,7 +278,6 @@ msgstr ""
 "considerem um mesa inclinada. Note que bed_mes e bed_tilt são incompatíveis; "
 "Ambos não podem ser definidos."
 
-#, fuzzy
 msgid "[bed_screws]"
 msgstr "[bed_screws]"
 
@@ -420,7 +417,6 @@ msgstr "Compensação de ressonância"
 msgid "[input_shaper]"
 msgstr ""
 
-#, fuzzy
 msgid "[adxl345]"
 msgstr "[adxl345]"
 
@@ -428,9 +424,8 @@ msgid "[resonance_tester]"
 msgstr ""
 
 msgid "Config file helpers"
-msgstr ""
+msgstr "Auxiliares de arquivo de configuração"
 
-#, fuzzy
 msgid "[board_pins]"
 msgstr "[board_pins]"
 
@@ -471,7 +466,6 @@ msgid ""
 "not define a position_endstop in the stepper_z config section."
 msgstr ""
 
-#, fuzzy
 msgid "[bltouch]"
 msgstr "[bltouch]"
 
@@ -577,7 +571,6 @@ msgid ""
 "section in the config file above its first use in a heater section."
 msgstr ""
 
-#, fuzzy
 msgid "[adc_temperature]"
 msgstr "[adc_temperature]"
 
@@ -609,20 +602,24 @@ msgid "Temperature sensors"
 msgstr ""
 
 msgid "Common thermistors"
-msgstr ""
+msgstr "Termistores comuns"
 
 msgid ""
 "Common thermistors. The following parameters are available in heater "
 "sections that use one of these sensors."
 msgstr ""
+"Termistores comuns. Os seguintes parâmetros estão disponíveis nas secções "
+"dos aquecedores que utilizam um desses sensores."
 
 msgid "Common temperature amplifiers"
-msgstr ""
+msgstr "Amplificadores de temperatura comuns"
 
 msgid ""
 "Common temperature amplifiers. The following parameters are available in "
 "heater sections that use one of these sensors."
 msgstr ""
+"Amplificadores de temperatura comuns. Os seguintes parâmetros estão "
+"disponíveis nas secções do aquecedor que utilizar on desses sensores."
 
 msgid "Directly connected PT1000 sensor"
 msgstr ""
@@ -659,7 +656,7 @@ msgid "LM75 temperature sensor"
 msgstr ""
 
 msgid "Builtin micro-controller temperature sensor"
-msgstr ""
+msgstr "Sensor de temperatura embutido no microcontrolador"
 
 msgid ""
 "The atsam, atsamd, and stm32 micro-controllers contain an internal "
@@ -781,6 +778,10 @@ msgid ""
 "the corresponding stepper config section (for example, \"[tmc2130 "
 "stepper_x]\")."
 msgstr ""
+"Configura um driver de motor de passo TMC2130 via barramento SPI. Para "
+"utilizar essa funcionalidade, defina uma secção de configuração com o "
+"prefixo \"tmc2130\" seguido do nome da secção de configuração do motor de "
+"passo correspondente (por exemplo, \"[tmc2130 stepper_x]\")."
 
 msgid "[tmc2208]"
 msgstr ""
@@ -791,6 +792,10 @@ msgid ""
 "followed by the name of the corresponding stepper config section (for "
 "example, \"[tmc2208 stepper_x]\")."
 msgstr ""
+"Configura um driver de motor de passo TMC2208 (ou TMC2224) UART via um único "
+"fio. Para usar essa funcionalidade, defina uma secção de configuração com um "
+"prefixo \"tmc2208\" seguido do nome da secção de configuração do motor de "
+"passo (por exemplo, \"[tmc2208 stepper_x]\")."
 
 msgid "[tmc2209]"
 msgstr ""
@@ -801,6 +806,10 @@ msgid ""
 "name of the corresponding stepper config section (for example, \"[tmc2209 "
 "stepper_x]\")."
 msgstr ""
+"Configura um driver de motor de passo TMC2209 UART via um único fio. Para "
+"usar essa funcionalidade, defina uma secção de configuração com um prefixo "
+"\"tmc2209\" seguido do nome da secção de configuração do motor de passo (por "
+"exemplo, \"[tmc2209 stepper_x]\")."
 
 msgid "[tmc2660]"
 msgstr ""
@@ -810,6 +819,10 @@ msgid ""
 "define a config section with a tmc2660 prefix followed by the name of the "
 "corresponding stepper config section (for example, \"[tmc2660 stepper_x]\")."
 msgstr ""
+"Configura um driver de motor de passo TMC2660 via barramento SPI. Para usar "
+"essa funcionalidade, defina uma secção de configuração com um prefixo "
+"\"tmc2660\" seguido do nome da secção de configuração do motor de passo (por "
+"exemplo, \"[tmc2660 stepper_x]\")."
 
 msgid "[tmc5160]"
 msgstr ""
@@ -820,12 +833,16 @@ msgid ""
 "the corresponding stepper config section (for example, \"[tmc5160 "
 "stepper_x]\")."
 msgstr ""
+"Configura um driver de motor de passo TMC5160 via barramento SPI. Para usar "
+"essa funcionalidade, defina uma secção de configuração com um prefixo "
+"\"tmc5160\" seguido do nome da secção de configuração do motor de passo (por "
+"exemplo, \"[tmc5160 stepper_x]\")."
 
 msgid "Run-time stepper motor current configuration"
 msgstr ""
 
 msgid "[ad5206]"
-msgstr ""
+msgstr "[ad5206]"
 
 msgid ""
 "Statically configured AD5206 digipots connected via SPI bus (one may define "
@@ -1035,7 +1052,6 @@ msgstr ""
 msgid "[samd_sercom]"
 msgstr ""
 
-#, fuzzy
 msgid "[adc_scaled]"
 msgstr "[adc_scaled]"
 
@@ -1092,10 +1108,10 @@ msgstr ""
 "OctoPrint."
 
 msgid "Common bus parameters"
-msgstr ""
+msgstr "Parâmetros comuns para barramentos"
 
 msgid "Common SPI settings"
-msgstr ""
+msgstr "Definições comuns para SPI"
 
 msgid ""
 "The following parameters are generally available for devices using an SPI "
@@ -1103,7 +1119,7 @@ msgid ""
 msgstr ""
 
 msgid "Common I2C settings"
-msgstr ""
+msgstr "Definições comuns para I2C"
 
 msgid ""
 "The following parameters are generally available for devices using an I2C "
@@ -2813,7 +2829,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 1 (header)
 msgid "Configuration reference"
-msgstr ""
+msgstr "Referência de configuração"
 
 #: docs/Config_Reference.md:block 257 (paragraph)
 msgid ""
@@ -3540,6 +3556,10 @@ msgid ""
 "winch kinematics. In order to home the printer, manually send movement "
 "commands until the toolhead is at 0, 0, 0 and then issue a `G28` command."
 msgstr ""
+"SUPORTE À GUINCHO DE CABOS É EXPERIMENTAL. Ir para origem não está "
+"implemento em Cinemática via guincho de cabo. Para ir para origem da "
+"impressora, envie manualmente comandos de movimento até que a cabeça de "
+"impressão esteja em 0, 0, 0 e então envie o comando `G28`."
 
 #: docs/Config_Reference.md:block 64 (code)
 msgid ""
@@ -4134,6 +4154,9 @@ msgid ""
 " information is in the [TMC Drivers guide](TMC_Drivers.md) and in the "
 "[command reference](G-Codes.md#tmcxxxx)."
 msgstr ""
+"Configuração dos drivers de motor passo Trinamic em modo UART/SPI. "
+"Informações adicionais estão [Guia dos drivers TMC](TMC_Drivers.md) e na ["
+"referência de comandos](G-Codes.md#tmcxxxx)."
 
 #: docs/Config_Reference.md:block 365 (paragraph)
 msgid ""
@@ -4547,7 +4570,6 @@ msgid ""
 msgstr ""
 
 #: docs/Config_Reference.md:block 409 (header)
-#, fuzzy
 msgid "[angle]"
 msgstr "[angle]"
 

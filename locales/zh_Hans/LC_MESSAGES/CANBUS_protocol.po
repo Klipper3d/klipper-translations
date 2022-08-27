@@ -1,16 +1,17 @@
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-04-08 06:09+0000\n"
-"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/canbus_protocol/zh_Hans/>\n"
+"PO-Revision-Date: 2022-08-26 09:05+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/canbus_protocol/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 msgid "Micro-controller id assignment"
 msgstr "分配微控制器 ID (Micro-controller id assignment)"
@@ -113,25 +114,29 @@ msgstr ""
 
 #: docs/CANBUS_protocol.md:block 11 (header)
 msgid "CMD_SET_KLIPPER_NODEID message"
-msgstr ""
+msgstr "CMD_SET_KLIPPER_NODEID 信息"
 
 #: docs/CANBUS_protocol.md:block 13 (paragraph)
 msgid ""
 "The CMD_SET_KLIPPER_NODEID message format is: `<1-byte message_id = "
 "0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`"
 msgstr ""
+"CMD_SET_KLIPPER_NODEID 消息的格式是：`<1-byte message_id = 0x01><6-byte "
+"canbus_uuid><1-byte canbus_nodeid>`"
 
 #: docs/CANBUS_protocol.md:block 15 (paragraph)
 msgid ""
 "The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte "
 "canbus_uuid><1-byte set_klipper_nodeid = 0x01>`"
 msgstr ""
+"RESP_NEED_NODEID 消息的格式是：`<1-byte message_id = 0x20><6-byte "
+"canbus_uuid><1-byte set_klipper_nodeid = 0x01>`"
 
 #: docs/CANBUS_protocol.md:block 17 (paragraph)
 msgid ""
 "A micro-controller that has been assigned a nodeid via the "
 "CMD_SET_KLIPPER_NODEID command can send and receive data packets."
-msgstr ""
+msgstr "被 CMD_SET_KLIPPER_NODEID 命令分配了节点的微控制器可以接受和发送数据包。"
 
 #~ msgid "CMD_SET_NODEID message"
 #~ msgstr "CMD_SET_NODEID 消息"

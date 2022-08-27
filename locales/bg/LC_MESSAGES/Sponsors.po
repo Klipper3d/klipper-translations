@@ -1,0 +1,111 @@
+# Nikolai Danov <nikolaidanov67@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-08-26 16:03+0000\n"
+"Last-Translator: Nikolai Danov <nikolaidanov67@gmail.com>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
+"sponsors/bg/>\n"
+"Language: bg\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
+
+#: docs/Sponsors.md:block 1 (header)
+msgid "Sponsors"
+msgstr "Спонсори"
+
+#: docs/Sponsors.md:block 2 (paragraph)
+msgid ""
+"Klipper is Free Software. We depend on the generous support from sponsors. "
+"Please consider sponsoring Klipper or supporting our sponsors."
+msgstr ""
+"Klipper е свободен софтуер. Разчитаме на щедрата подкрепа на спонсорите. "
+"Моля, обмислете възможността да спонсорирате Klipper или да подкрепите "
+"нашите спонсори."
+
+#: docs/Sponsors.md:block 3 (header)
+msgid "BIGTREETECH"
+msgstr "BIGTREETECH"
+
+#: docs/Sponsors.md:block 4 (paragraph)
+msgid ""
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" />](https://bigtree-"
+"tech.com/collections/all-products)"
+msgstr ""
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" />](https://bigtree-"
+"tech.com/collections/all-products)"
+
+#: docs/Sponsors.md:block 5 (paragraph)
+msgid ""
+"BIGTREETECH is the official mainboard sponsor of Klipper. BIGTREETECH is "
+"committed to developing innovative and competitive products to serve the 3D "
+"printing community better. Follow them on "
+"[Facebook](https://www.facebook.com/BIGTREETECH) or "
+"[Twitter](https://twitter.com/BigTreeTech)."
+msgstr ""
+"BIGTREETECH е официалният спонсор на Klipper. BIGTREETECH се ангажира да "
+"разработва иновативни и конкурентни продукти, които да служат по-добре на "
+"общността за 3D принтиране. Последвайте ги във [Facebook](https://www."
+"facebook.com/BIGTREETECH) или [Twitter](https://twitter.com/BigTreeTech)."
+
+#: docs/Sponsors.md:block 6 (header)
+msgid "Klipper Developers"
+msgstr "Разработчици на Klipper"
+
+#: docs/Sponsors.md:block 7 (header)
+msgid "Kevin O'Connor"
+msgstr "Кевин О'Конър"
+
+#: docs/Sponsors.md:block 8 (paragraph)
+msgid ""
+"Kevin is the original author and current maintainer of Klipper. Kevin has a "
+"Patreon page at: <https://www.patreon.com/koconnor>"
+msgstr ""
+"Кевин е оригиналният автор и настоящ поддържащ Klipper. Кевин има страница в "
+"Patreon на адрес: <https://www.patreon.com/koconnor>"
+
+#: docs/Sponsors.md:block 9 (header)
+msgid "Eric Callahan"
+msgstr "Ерик Калахан"
+
+#: docs/Sponsors.md:block 10 (paragraph)
+msgid ""
+"Eric is the author of bed_mesh, spi_flash, and several other Klipper "
+"modules. Eric has a donations page at: <https://ko-fi.com/arksine>"
+msgstr ""
+"Ерик е автор на bed_mesh, spi_flash и няколко други модула на Klipper. Ерик "
+"има страница за дарения на адрес: <https://ko-fi.com/arksine>"
+
+#: docs/Sponsors.md:block 11 (header)
+msgid "Related Klipper Projects"
+msgstr "Свързани проекти на Klipper"
+
+#: docs/Sponsors.md:block 12 (paragraph)
+msgid ""
+"Klipper is frequently used with other Free Software. Consider using or "
+"supporting these projects."
+msgstr ""
+"Klipper често се използва с друг свободен софтуер. Помислете за използването "
+"или подкрепата на тези проекти."
+
+#: docs/Sponsors.md:block 13 (unordered list)
+msgid "[Moonraker](https://github.com/Arksine/moonraker)"
+msgstr "[Moonraker](https://github.com/Arksine/moonraker)"
+
+#: docs/Sponsors.md:block 13 (unordered list)
+msgid "[Mainsail](https://github.com/mainsail-crew/mainsail)"
+msgstr "[Грот](https://github.com/mainsail-crew/mainsail)"
+
+#: docs/Sponsors.md:block 13 (unordered list)
+msgid "[Fluidd](https://github.com/fluidd-core/fluidd)"
+msgstr "[Fluidd](https://github.com/fluidd-core/fluidd)"
+
+#: docs/Sponsors.md:block 13 (unordered list)
+msgid "[OctoPrint](https://octoprint.org/)"
+msgstr "[OctoPrint](https://octoprint.org/)"
+
+#: docs/Sponsors.md:block 13 (unordered list)
+msgid "[KlipperScreen](https://github.com/jordanruthe/KlipperScreen)"
+msgstr "[KlipperScreen](https://github.com/jordanruthe/KlipperScreen)"

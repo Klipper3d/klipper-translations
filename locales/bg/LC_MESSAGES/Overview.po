@@ -1,0 +1,321 @@
+# Nikolai Danov <nikolaidanov67@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-08-26 14:58+0000\n"
+"Last-Translator: Nikolai Danov <nikolaidanov67@gmail.com>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
+"overview/bg/>\n"
+"Language: bg\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14-dev\n"
+
+msgid ""
+"Welcome to the Klipper documentation. If new to Klipper, start with the "
+"[features](Features.md) and [installation](Installation.md) documents."
+msgstr ""
+"Добре дошли в документацията на Klipper. Ако сте нов потребител на Klipper, "
+"започнете с документите [features](Features.md) и [installation](Installation"
+".md)."
+
+msgid "Overview information"
+msgstr "Преглед на информацията"
+
+msgid "[Features](Features.md): A high-level list of features in Klipper."
+msgstr ""
+"[Характеристики](Features.md): Списък на високо ниво на функциите в Klipper."
+
+msgid "[FAQ](FAQ.md): Frequently asked questions."
+msgstr "[ЧЗВ] (FAQ.md): Често задавани въпроси."
+
+msgid "[Releases](Releases.md): The history of Klipper releases."
+msgstr "[Releases](Releases.md): Историята на изданията на Klipper."
+
+msgid ""
+"[Config changes](Config_Changes.md): Recent software changes that may "
+"require users to update their printer config file."
+msgstr ""
+"[Промени в конфигурацията](Config_Changes.md): Скорошни промени в софтуера, "
+"които може да изискват от потребителите да актуализират конфигурационния "
+"файл на принтера."
+
+msgid ""
+"[Contact](Contact.md): Information on bug reporting and general "
+"communication with the Klipper developers."
+msgstr ""
+"[Контакт](Contact.md): Информация за докладване на грешки и обща комуникация "
+"с разработчиците на Klipper."
+
+msgid "[Installation](Installation.md): Guide to installing Klipper."
+msgstr "[Инсталация](Installation.md): Ръководство за инсталиране на Klipper."
+
+msgid ""
+"[Config Reference](Config_Reference.md): Description of config parameters."
+msgstr ""
+"[Config Reference](Config_Reference.md): Описание на параметрите на "
+"конфигурацията."
+
+msgid ""
+"[Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance"
+" stepper parameter."
+msgstr ""
+"[Разстояние на завъртане](Rotation_Distance.md): Изчисляване на стъпковия "
+"параметър Rotation_distance."
+
+msgid ""
+"[Config checks](Config_checks.md): Verify basic pin settings in the config "
+"file."
+msgstr ""
+"[Проверки на конфигурацията](Config_checks.md): Проверете основните "
+"настройки на ПИН в конфигурационния файл."
+
+msgid "[Bed level](Bed_Level.md): Information on \"bed leveling\" in Klipper."
+msgstr ""
+"[Ниво на леглото](Bed_Level.md): Информация за \"нивелиране на леглото\" в "
+"Klipper."
+
+msgid ""
+"[Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics."
+msgstr ""
+"[Delta calibrate](Delta_Calibrate.md): Калибриране на делта кинематиката."
+
+msgid ""
+"[Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes."
+msgstr ""
+"[Probe calibrate](Probe_Calibrate.md): Калибриране на автоматичните Z-сонди."
+
+msgid "[BL-Touch](BLTouch.md): Configure a \"BL-Touch\" Z probe."
+msgstr "[BL-Touch](BLTouch.md): Конфигуриране на Z-сонда \"BL-Touch\"."
+
+msgid ""
+"[Manual level](Manual_Level.md): Calibration of Z endstops (and similar)."
+msgstr ""
+"[Ръчно ниво](Manual_Level.md): Калибриране на крайните ограничители Z (и "
+"други подобни)."
+
+msgid "[Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations."
+msgstr ""
+"[Bed Mesh](Bed_Mesh.md): Корекция на височината на леглото въз основа на "
+"местоположението XY."
+
+msgid ""
+"[Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning."
+msgstr ""
+"[Endstop phase](Endstop_Phase.md): Позициониране на крайния ограничител Z с "
+"помощта на стъпков механизъм."
+
+msgid ""
+"[Resonance compensation](Resonance_Compensation.md): A tool to reduce "
+"ringing in prints."
+msgstr ""
+"[Резонансна компенсация](Resonance_Compensation.md): Инструмент за "
+"намаляване на звъненето в разпечатките."
+
+msgid ""
+"[Measuring resonances](Measuring_Resonances.md): Information on using "
+"adxl345 accelerometer hardware to measure resonance."
+msgstr ""
+"[Измерване на резонанси](Measuring_Resonances.md): Информация за "
+"използването на хардуерния акселерометър adxl345 за измерване на резонанс."
+
+msgid "[Pressure advance](Pressure_Advance.md): Calibrate extruder pressure."
+msgstr ""
+"[Напредък на налягането](Pressure_Advance.md): Калибриране на налягането в "
+"екструдера."
+
+msgid "[Slicers](Slicers.md): Configure \"slicer\" software for Klipper."
+msgstr "[Slicers](Slicers.md): Конфигуриране на софтуера \"slicer\" за Klipper."
+
+msgid ""
+"[Command Templates](Command_Templates.md): G-Code macros and conditional "
+"evaluation."
+msgstr ""
+"[Командни шаблони](Command_Templates.md): G-Code макроси и условна оценка."
+
+msgid ""
+"[Status Reference](Status_Reference.md): Information available to macros "
+"(and similar)."
+msgstr ""
+"[Справка за състоянието](Status_Reference.md): Налична информация за макроси "
+"(и подобни)."
+
+msgid ""
+"[TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with "
+"Klipper."
+msgstr ""
+"[TMC Drivers](TMC_Drivers.md): Използване на драйвери за стъпкови двигатели "
+"Trinamic с Klipper."
+
+msgid ""
+"[PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools "
+"such as lasers or spindles."
+msgstr ""
+"[PWM tools](Using_PWM_Tools.md): Ръководство за използване на инструменти, "
+"управлявани от ШИМ, като лазери или шпиндели."
+
+msgid "[G-Codes](G-Codes.md): Information on commands supported by Klipper."
+msgstr "[G-Codes](G-Codes.md): Информация за командите, поддържани от Klipper."
+
+msgid "Developer Documentation"
+msgstr "Документация за разработчици"
+
+msgid "[Code overview](Code_Overview.md): Developers should read this first."
+msgstr ""
+"[Преглед на кода](Code_Overview.md): Разработчиците трябва да прочетат първо "
+"това."
+
+msgid ""
+"[Kinematics](Kinematics.md): Technical details on how Klipper implements "
+"motion."
+msgstr ""
+"[Кинематика](Kinematics.md): Технически подробности за това как Klipper "
+"реализира движението."
+
+msgid ""
+"[Protocol](Protocol.md): Information on the low-level messaging protocol "
+"between host and micro-controller."
+msgstr ""
+"[Протокол](Protocol.md): Информация за протокола за обмен на съобщения на "
+"ниско ниво между хоста и микроконтролера."
+
+msgid ""
+"[API Server](API_Server.md): Information on Klipper's command and control "
+"API."
+msgstr ""
+"[Сървър на API](API_Server.md): Информация за API за командване и управление "
+"на Klipper."
+
+msgid ""
+"[MCU commands](MCU_Commands.md): A description of low-level commands "
+"implemented in the micro-controller software."
+msgstr ""
+"[MCU commands](MCU_Commands.md): Описание на командите от ниско ниво, "
+"реализирани в софтуера на микроконтролера."
+
+msgid ""
+"[CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format."
+msgstr ""
+"[Протокол на CAN шината](CANBUS_protocol.md): Формат на съобщение на CAN "
+"шината на Klipper."
+
+msgid ""
+"[Debugging](Debugging.md): Information on how to test and debug Klipper."
+msgstr ""
+"[Отстраняване на грешки](Debugging.md): Информация как да тествате и "
+"отстранявате грешки в Klipper."
+
+msgid ""
+"[Benchmarks](Benchmarks.md): Information on the Klipper benchmark method."
+msgstr "[Benchmarks](Benchmarks.md): Информация за метода за сравнение Klipper."
+
+msgid ""
+"[Contributing](CONTRIBUTING.md): Information on how to submit improvements "
+"to Klipper."
+msgstr ""
+"[Принос](CONTRIBUTING.md): Информация за това как да изпращате подобрения в "
+"Klipper."
+
+msgid "[Packaging](Packaging.md): Information on building OS packages."
+msgstr ""
+"[Packaging](Packaging.md): Информация за изграждането на пакети за "
+"операционни системи."
+
+msgid "Device Specific Documents"
+msgstr "Документи, специфични за устройството"
+
+msgid ""
+"[Example configs](Example_Configs.md): Information on adding an example "
+"config file to Klipper."
+msgstr ""
+"[Примерни конфигурации](Example_Configs.md): Информация за добавяне на "
+"примерен конфигурационен файл към Klipper."
+
+msgid ""
+"[SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a "
+"binary to an sdcard in the micro-controller."
+msgstr ""
+"[SDCard Updates](SDCard_Updates.md): Флаш на микроконтролер чрез копиране на "
+"двоичен файл на SDcard в микроконтролера."
+
+msgid ""
+"[Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for "
+"controlling devices wired to the GPIO pins of a Raspberry Pi."
+msgstr ""
+"[Raspberry Pi като микроконтролер](RPi_microcontroller.md): Подробности за "
+"управление на устройства, свързани към GPIO изводите на Raspberry Pi."
+
+msgid ""
+"[Bootloaders](Bootloaders.md): Developer information on micro-controller "
+"flashing."
+msgstr ""
+"[Bootloaders](Bootloaders.md): Информация за разработчици относно флашването "
+"на микроконтролери."
+
+msgid "[CAN bus](CANBUS.md): Information on using CAN bus with Klipper."
+msgstr "[CAN bus](CANBUS.md): Информация за използването на CAN шина с Klipper."
+
+msgid "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
+msgstr ""
+"[TSL1401CL сензор за широчина на нишката](TSL1401CL_Filament_Width_Sensor.md)"
+
+#: docs/Overview.md:block 1 (header)
+msgid "Overview"
+msgstr "Общ преглед"
+
+#: docs/Overview.md:block 5 (header)
+msgid "Installation and Configuration"
+msgstr "Инсталиране и конфигуриране"
+
+#: docs/Overview.md:block 6 (unordered list)
+msgid ""
+"[Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple "
+"micro-controllers."
+msgstr ""
+"[Multi-MCU Homing](Multi_MCU_Homing.md): Наместване и сондиране с помощта на "
+"няколко микроконтролера."
+
+#: docs/Overview.md:block 6 (unordered list)
+msgid ""
+"[Skew correction](Skew_Correction.md): Adjustments for axes not perfectly "
+"square."
+msgstr ""
+"[Корекция на наклона](Skew_Correction.md): Корекции за оси, които не са "
+"идеално квадратни."
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid ""
+"[Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone "
+"PRU."
+msgstr ""
+"[Beaglebone](Beaglebone.md): Подробности за работа с Klipper на Beaglebone "
+"PRU."
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
+msgstr "[Сензор за ширина на нишката на Хол](Hall_Filament_Width_Sensor.md)"
+
+#: docs/Overview.md:block 6 (unordered list)
+msgid ""
+"[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
+"implementation."
+msgstr ""
+"[Изключване на обект](Exclude_Object.md): Ръководство за внедряване на "
+"Изключване на обекти."
+
+#~ msgid ""
+#~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
+#~ "square."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[Beaglebone](beaglebone.md): Details for running Klipper on the Beaglebone "
+#~ "PRU."
+#~ msgstr ""
+
+#~ msgid "[Hall filament width sensor](HallFilamentWidthSensor.md)"
+#~ msgstr ""
+
+#~ msgid "Configuration and Tuning Guides"
+#~ msgstr ""
