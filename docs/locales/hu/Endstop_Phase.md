@@ -1,4 +1,4 @@
-# Végállás szakasz
+# Végállás fázis
 
 Ez a dokumentum a Klipper léptetőfázis-beállított végütköző rendszerét írja le. Ez a funkció javíthatja a hagyományos végálláskapcsolók pontosságát. Ez a leghasznosabb olyan Trinamic léptetőmotor-illesztőprogram használatakor, amely futásidejű konfigurációval rendelkezik.
 

@@ -141,7 +141,7 @@ bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 
 ## SAMD21 mikrovezérlők (Arduino Zero)
 
-A SAMD21 bootloader az ARM Serial Wire Debug (SWD) interfészen keresztül töltődik fel. Ez általában egy dedikált SWD hardver dongle segítségével történik. Alternatívaként használhatunk egy [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi).
+A SAMD21 bootloader az ARM Serial Wire Debug (SWD) interfészen keresztül töltődik fel. Ez általában egy dedikált SWD hardver dongle segítségével történik. Alternatívaként használhatunk egy [OpenOCD futtatást a Raspberry PI-n](#az-openocd-futtatasa-a-raspberry-pi-n).
 
 A bootloader OpenOCD-vel történő égetéséhez használja a következő chipkonfigurációt:
 
@@ -176,7 +176,7 @@ avrdude -c stk500v2 -p atmega2560 -P /dev/ttyACM0 -u -Uflash:w:out/klipper.elf.h
 
 ## SAMD51 mikrovezérlők (Adafruit Metro-M4 és hasonló)
 
-A SAMD21-hez hasonlóan a SAMD51 bootloader is az ARM Serial Wire Debug (SWD) interfészen keresztül töltődik fel. Az [OpenOCD on a Raspberry Pi](#running-openocd-on-the-raspberry-pi) bootloader égetéséhez használja a következő chipkonfigurációt:
+A SAMD21-hez hasonlóan a SAMD51 bootloader is az ARM Serial Wire Debug (SWD) interfészen keresztül töltődik fel. Az [OpenOCD futtatása a Raspberry PI-n](#az-openocd-futtatasa-a-raspberry-pi-n) bootloader égetéséhez használja a következő chipkonfigurációt:
 
 ```
 forrás [find target/atsame5x.cfg]
@@ -240,7 +240,7 @@ A [HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader) egy kompak
 
 Az általános STM32F103 alaplapok, mint például a blue pill esetében a bootloader 3,3V-os soros égetése lehetséges az stm32flash használatával, amint azt a fenti stm32duino szakaszban említettük, a kívánt hid bootloader bináris fájlnevének behelyettesítésével (azaz: hid_generic_pc13.bin a blue pillhez).
 
-Az SKR Mini E3 esetében nem lehet stm32flash-t használni, mivel a boot0 láb közvetlenül a földre van kötve, és nincs alaplapi tűkiállása. A bootloader égetéséhez ajánlott STLink V2-t használni STM32Cube programozóval. Ha nincs vagy nem fér hozzá egy STLinkhez, akkor lehetséges egy [Raspberry Pi és OpenOCD](#running-openocd-on-the-raspberry-pi) használata is a következő chipkonfigurációval:
+Az SKR Mini E3 esetében nem lehet stm32flash-t használni, mivel a boot0 láb közvetlenül a földre van kötve, és nincs alaplapi tűkiállása. A bootloader égetéséhez ajánlott STLink V2-t használni STM32Cube programozóval. Ha nincs vagy nem fér hozzá egy STLinkhez, akkor lehetséges egy [OpenOCD futtatása a Raspberry PI-n](#az-openocd-futtatasa-a-raspberry-pi-n) használata is a következő chipkonfigurációval:
 
 ```
 forrás [find target/stm32f1x.cfg]

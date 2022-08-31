@@ -41,7 +41,7 @@ Először is mérje meg a **gyűrődési frekvenciát**.
 
 Vegye figyelembe, hogy a próbanyomaton a gyűrődésnek a fenti képen látható íves bevágások mintáját kell követnie. Ha nem így van, akkor ez a hiba nem igazán gyűrődés, és más eredetű. Vagy mechanikai, vagy extruder probléma. Ezt kell először kijavítani, mielőtt engedélyeznénk és hangolnánk a bemeneti formázókat.
 
-Ha a mérések nem megbízhatóak, mert például a rezgések közötti távolság nem stabil, az azt jelentheti, hogy a nyomtatónak több rezonanciafrekvenciája van ugyanazon a tengelyen. Megpróbálhatjuk helyette a [Megbízhatatlan mérések a gyűrődési frekvenciákról](#unreliable-measurements-of-ringing-frequencies) szakaszban leírt hangolási eljárást követni, és még mindig kaphatunk valami infót a bemeneti alakítási technikáról.
+Ha a mérések nem megbízhatóak, mert például a rezgések közötti távolság nem stabil, az azt jelentheti, hogy a nyomtatónak több rezonanciafrekvenciája van ugyanazon a tengelyen. Megpróbálhatjuk helyette a [A gyűrődési frekvenciák megbízhatatlan mérései](#a-gyurodesi-frekvenciak-megbizhatatlan-meresei) szakaszban leírt hangolási eljárást követni, és még mindig kaphatunk valami infót a bemeneti alakítási technikáról.
 
 A gyűrődési frekvencia függhet a modell ágyon belüli helyzetétől és a Z magasságtól, *különösen a delta nyomtatóknál*; ellenőrizheti, hogy a tesztmodell oldalai mentén és különböző magasságokban különböző pozíciókban lát-e különbséget a frekvenciákban. Ha ez a helyzet, akkor kiszámíthatja az X és Y tengelyen mért átlagos gyűrődési frekvenciákat.
 
@@ -101,7 +101,7 @@ shaper_type: mzv
 Néhány megjegyzés a formázó kiválasztásáról:
 
 * Az EI-formázó alkalmasabb lehet az Y ágyas nyomtatókhoz (ha a rezonanciafrekvencia és az ebből eredő simítás lehetővé teszi): mivel több szál kerül a mozgó ágyra, az ágy tömege nő, és a rezonanciafrekvencia csökken. Mivel az EI shaper robusztusabb a rezonanciafrekvencia-változásokkal szemben, jobban működhet nagy méretű alkatrészek nyomtatásakor.
-* A delta kinematika természetéből adódóan a rezonanciafrekvenciák a térfogat különböző részein nagymértékben eltérhetnek. Ezért az EI alakító jobban illeszkedhet a delta nyomtatókhoz, mint az MZV vagy a ZV, és megfontolandó a használata. Ha a rezonanciafrekvencia kellően nagy (50-60 Hz-nél nagyobb), akkor akár meg is próbálkozhatunk a 2HUMP_EI shaper tesztelésével (a fent javasolt teszt futtatásával a `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI`), de ellenőrizze a [lenti](#selecting-max_accel) szakaszban található megfontolásokat, mielőtt engedélyezné.
+* A delta kinematika természetéből adódóan a rezonanciafrekvenciák a térfogat különböző részein nagymértékben eltérhetnek. Ezért az EI alakító jobban illeszkedhet a delta nyomtatókhoz, mint az MZV vagy a ZV, és megfontolandó a használata. Ha a rezonanciafrekvencia kellően nagy (50-60 Hz-nél nagyobb), akkor akár meg is próbálkozhatunk a 2HUMP_EI shaper tesztelésével (a fent javasolt teszt futtatásával a `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI`), de ellenőrizze [ebben a szakaszban](#a-max_accel-kivalasztasa) található megfontolásokat, mielőtt engedélyezné.
 
 ### A max_accel kiválasztása
 
@@ -206,17 +206,17 @@ shaper_freq_y: 50
 shaper_type: 2hump_ei
 ```
 
-Folytassa a hangolást a [max_accel kiválasztása](#selecting-max_accel) szakaszban.
+Folytassa a hangolást a [A max_accel kiválasztása](#a-max_accel-kivalasztasa) szakaszban.
 
 ## Hibaelhárítás és GYIK
 
 ### Nem tudok megbízható méréseket végezni a rezonanciafrekvenciákról
 
-Először is győződjön meg róla, hogy a gyűrődés helyett nem más probléma van a nyomtatóval. Ha a mérések nem megbízhatóak, mert például a rezgések közötti távolság nem stabil, az azt jelentheti, hogy a nyomtatónak több rezonanciafrekvenciája van ugyanazon a tengelyen. Megpróbálhatjuk követni a [Megbízhatatlan mérések a gyűrődési frekvenciákról](#unreliable-measurements-of-ringing-frequencies) szakaszban leírt hangolási eljárást, és még mindig ki lehet hozni valamit a bemeneti alakítási technikából. Egy másik lehetőség egy gyorsulásmérő beszerelése, majd rezonanciák [mérése](Measuring_Resonances.md) vele, és a bemeneti alakító automatikus hangolása e mérések eredményeinek felhasználásával.
+Először is győződjön meg róla, hogy a gyűrődés helyett nem más probléma van a nyomtatóval. Ha a mérések nem megbízhatóak, mert például a rezgések közötti távolság nem stabil, az azt jelentheti, hogy a nyomtatónak több rezonanciafrekvenciája van ugyanazon a tengelyen. Megpróbálhatjuk követni a [A gyűrődési frekvenciák megbízhatatlan mérései](#a-gyurodesi-frekvenciak-megbizhatatlan-meresei) szakaszban leírt hangolási eljárást, és még mindig ki lehet hozni valamit a bemeneti alakítási technikából. Egy másik lehetőség egy gyorsulásmérő beszerelése, majd rezonanciák [mérése](Measuring_Resonances.md) vele, és a bemeneti alakító automatikus hangolása e mérések eredményeinek felhasználásával.
 
 ### Az [input_shaper] engedélyezése után túlságosan simított nyomtatott alkatrészeket kapok, és a finom részletek elvesznek
 
-Ellenőrizze a [Max_accel kiválasztása](#selecting-max_accel) szakaszban található szempontokat. Ha a rezonanciafrekvencia alacsony, nem szabad túl magas max_accel értéket beállítani, vagy növelni a square_corner_velocity paramétereket. Az is lehet, hogy az EI (vagy a 2HUMP_EI és 3HUMP_EI) változók helyett jobb az MZV vagy akár a ZV bemeneti változókat választani.
+Ellenőrizze a [Max_accel kiválasztása](#a-max_accel-kivalasztasa) szakaszban található szempontokat. Ha a rezonanciafrekvencia alacsony, nem szabad túl magas max_accel értéket beállítani, vagy növelni a square_corner_velocity paramétereket. Az is lehet, hogy az EI (vagy a 2HUMP_EI és 3HUMP_EI) változók helyett jobb az MZV vagy akár a ZV bemeneti változókat választani.
 
 ### Miután egy ideig sikeresen nyomtatott gyűrődések nélkül, most úgy tűnik, hogy visszajött
 
@@ -235,7 +235,7 @@ SET_INPUT_SHAPER SHAPER_FREQ_X=... SHAPER_FREQ_Y=...
 
 ### Az input_shaper befolyásolja a nyomtatási időt?
 
-Nem, a `input_shaper` funkció önmagában nincs hatással a nyomtatási időre. A `max_accel` értéke azonban bizonyosan befolyásolja (ennek a paraméternek a hangolása [ebben a szakaszban](#selecting-max_accel) le van írva).
+Nem, a `input_shaper` funkció önmagában nincs hatással a nyomtatási időre. A `max_accel` értéke azonban bizonyosan befolyásolja (ennek a paraméternek a hangolása [ebben a szakaszban](#a-max_accel-kivalasztasa) le van írva).
 
 ## Műszaki részletek
 

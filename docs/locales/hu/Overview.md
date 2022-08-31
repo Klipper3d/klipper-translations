@@ -14,7 +14,7 @@
 
 - [Telepítés](Installation.md): Klipper telepítési útmutató.
 - [Konfigurációs hivatkozás](Config_Reference.md): A konfigurációs paraméterek leírása.
-   - [Rotációs távolság](Rotation_Distance.md): A rotation_distance léptető paraméter kiszámítása.
+   - [Forgatási távolság](Rotation_Distance.md): A rotation_distance léptető paraméter kiszámítása.
 - [Konfigurációs ellenőrzések](Config_checks.md): Alapvető tűbeállítások ellenőrzése a konfigurációs fájlban.
 - [Ágy szintezése](Bed_Level.md): Információ az "ágy szintezéséről" a Klipperben.
    - [Delta kalibrálás](Delta_Calibrate.md): A delta kinematika kalibrálása.
@@ -23,7 +23,7 @@
    - [Kézi szintezés](Manual_Level.md): Z végállások kalibrálása (és hasonlók).
    - [Ágy háló](Bed_Mesh.md): X-Y-helyeken alapuló ágyszint-korrekció.
    - [Végállás fázis](Endstop_Phase.md): Z végállás pozícionálása lépéssegédlettel.
-- [Rezonanciakompenzáció](Resonance_Compensation.md): Egy eszköz a nyomatok gyűrődésének (ringing) csökkentésére.
+- [Rezonancia kompenzáció](Resonance_Compensation.md): Egy eszköz a nyomatok gyűrődésének (ringing) csökkentésére.
    - [Rezonanciák mérése](Measuring_Resonances.md): adxl345 gyorsulásmérő hardver használatával kapcsolatos információk a rezonancia méréséhez.
 - [Nyomás előtolás](Pressure_Advance.md): Az extruder nyomásának kalibrálása.
 - [G-kódok](G-Codes.md): Információk a Klipper által támogatott parancsokról.

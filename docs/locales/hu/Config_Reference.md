@@ -707,7 +707,7 @@ max_temp:
 
 Ágy Háló Kiegyenlítés. Definiálhatunk egy bed_mesh konfigurációs szakaszt, hogy engedélyezzük a Z tengelyt eltoló mozgatási transzformációkat a mért pontokból generált háló alapján. Ha szondát használunk a Z-tengely alaphelyzetbe állítására, ajánlott a printer.cfg fájlban egy safe_z_home szakaszt definiálni a nyomtatási terület közepére történő alaphelyzetbe állításhoz.
 
-További információkért lásd az [ágyháló útmutató](Bed_Mesh.md) és a [parancsreferencia](G-Codes.md#bed_mesh) dokumentumokat.
+További információkért lásd az [ágy háló útmutató](Bed_Mesh.md) és a [parancsreferencia](G-Codes.md#bed_mesh) dokumentumokat.
 
 Vizuális példák:
 

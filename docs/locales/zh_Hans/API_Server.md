@@ -12,7 +12,7 @@
 
 上述操作会使主机创建一个Unix本地套接字。之后，客户应用程序可以创建一个套接字链接，从而给Klipper发送命令。
 
-See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.
+参见[Moonraker](https://github.com/Arksine/moonraker)项目，该项目是一个流行的工具，可以将HTTP请求转发到Klipper的API服务器Unix域插座。
 
 ## 请求格式
 

@@ -42,7 +42,7 @@ Példa az ADXL345 SmartEffectorra történő felszerelésére:
 
 ![ADXL345 on SmartEffector](img/adxl345-mount.jpg)
 
-Vegye figyelembe, hogy egy ágycsúsztatós nyomtatónál 2 rögzítést kell tervezni: egyet a szerszámfejhez és egyet az ágyhoz, és a méréseket kétszer kell elvégezni. További részletekért lásd a megfelelő [szakaszt](#bed-slinger-printers).
+Vegye figyelembe, hogy egy ágycsúsztatós nyomtatónál 2 rögzítést kell tervezni: egyet a szerszámfejhez és egyet az ágyhoz, és a méréseket kétszer kell elvégezni. További részletekért lásd a megfelelő [szakaszt](#bed-slinger-nyomtatok).
 
 **Figyelem:** győződjön meg arról, hogy a gyorsulásmérő és a helyére rögzítő csavarok nem érnek a nyomtató fém részeihez. Alapvetően a rögzítést úgy kell kialakítani, hogy biztosítsa a gyorsulásmérő elektromos szigetelését a nyomtató keretétől. Ennek elmulasztása földhurkot hozhat létre a rendszerben, ami károsíthatja az elektronikát.
 
@@ -109,7 +109,7 @@ Indítsa újra a Klippert a `RESTART` paranccsal.
 Most már tesztelheti a kapcsolatot.
 
 - A "nem ágyat érintő" (pl. egy gyorsulásmérő), az Octoprintben írja be a `ACCELEROMETER_QUERY` bejegyzést
-- A "bed-slingers" (pl. egynél több gyorsulásmérő) esetében írja be a `ACCELEROMETER_QUERY CHIP=<chip>` ahol `<chip>` a chip neve a beírt formában, pl. `CHIP=bed` (lásd: [bed-slinger](#bed-slinger-printers)) az összes telepített gyorsulásmérő chiphez.
+- A "bed-slingers" (pl. egynél több gyorsulásmérő) esetében írja be a `ACCELEROMETER_QUERY CHIP=<chip>` ahol `<chip>` a chip neve a beírt formában, pl. `CHIP=bed` (lásd: [bed-slinger](#bed-slinger-nyomtatok)) az összes telepített gyorsulásmérő chiphez.
 
 A gyorsulásmérő aktuális méréseit kell látnia, beleértve a szabadesés gyorsulását is, pl.
 
@@ -186,7 +186,7 @@ max_accel: 3000 # nem haladhatja meg a becsült max_accel értéket az X és Y t
 
 vagy választhat más konfigurációt is a generált diagramok alapján: a diagramokon a teljesítményspektrális sűrűség csúcsai megfelelnek a nyomtató rezonanciafrekvenciáinak.
 
-Megjegyzendő, hogy alternatívaként a bemeneti alakító automatikus kalibrációját a Klipperből [közvetlenül](#input-shaper-auto-calibration) is futtathatja, ami például a bemeneti alakító [re-kalibrációjához](#input-shaper-re-calibration) lehet hasznos.
+Megjegyzendő, hogy alternatívaként a bemeneti alakító automatikus kalibrációját a Klipperből [közvetlenül](#bemeneti-formazo-automatikus-kalibralasa) is futtathatja, ami például a bemeneti formázó [újrakalibrálásához](#bemeneti-formazo-ujrakalibralasa) lehet hasznos.
 
 ### Bed-slinger nyomtatók
 
@@ -234,7 +234,7 @@ A túl nagy simítás elkerülése érdekében a '3hump_ei' esetében javasolt m
 Az ajánlott alakító 2hump_ei @ 45,2 Hz.
 ```
 
-Vegye figyelembe, hogy a bejelentett `simítás` értékek absztrakt vetített értékek. Ezek az értékek különböző konfigurációk összehasonlítására használhatók: minél magasabb az érték, annál nagyobb simítást hoz létre a formázó. Ezek a simítási értékek azonban nem jelentik a simítás valódi mértékét, mivel a tényleges simítás a [`max_accel`](#selecting-max-accel) és `square_corner_velocity` paraméterektől függ. Ezért érdemes néhány tesztnyomatot nyomtatni, hogy lássuk, pontosan mekkora simítást hoz létre a kiválasztott konfiguráció.
+Vegye figyelembe, hogy a bejelentett `simítás` értékek absztrakt vetített értékek. Ezek az értékek különböző konfigurációk összehasonlítására használhatók: minél magasabb az érték, annál nagyobb simítást hoz létre a formázó. Ezek a simítási értékek azonban nem jelentik a simítás valódi mértékét, mivel a tényleges simítás a [`max_accel`](#a-max_accel-kivalasztasa) és `square_corner_velocity` paraméterektől függ. Ezért érdemes néhány tesztnyomatot nyomtatni, hogy lássuk, pontosan mekkora simítást hoz létre a kiválasztott konfiguráció.
 
 A fenti példában a javasolt alakító paraméterek nem rosszak, de mi van akkor, ha az X tengelyen kevesebb simítást szeretne elérni? Megpróbálhatja korlátozni a maximális alakító simítást a következő paranccsal:
 
@@ -273,7 +273,7 @@ probe_points: ...
 max_smoothing: 0.25 # egy példa
 ```
 
-Ezután, ha a jövőben [újraindítja](#input-shaper-re-calibration) a bemeneti alakító automatikus hangolását a `SHAPER_CALIBRATE` Klipper parancs segítségével, akkor a tárolt `max_smoothing` értéket fogja referenciaként használni.
+Ezután, ha a jövőben [újraindítja](#bemeneti-formazo-ujrakalibralasa) a bemeneti alakító automatikus hangolását a `SHAPER_CALIBRATE` Klipper parancs segítségével, akkor a tárolt `max_smoothing` értéket fogja referenciaként használni.
 
 ### A max_accel kiválasztása
 
@@ -281,7 +281,7 @@ Mivel a bemeneti alakító némi simítást okozhat az elemekben, különösen n
 
 Alternatívaként kövesse [ezt](Resonance_Compensation.md#selecting-max_accel) a részt a bemeneti alakító hangolási útmutatójában, és nyomtassa ki a tesztmodellt a `max_accel` paraméter kísérleti kiválasztásához.
 
-Ugyanez a figyelmeztetés vonatkozik a bemeneti alakító [automatikus kalibrálás](#input-shaper-auto-calibration) `SHAPER_CALIBRATE` paranccsal történő használatára is: az automatikus kalibrálás után továbbra is szükséges a megfelelő `max_accel` érték kiválasztása, és a javasolt gyorsulási korlátok nem lesznek automatikusan alkalmazva.
+Ugyanez a figyelmeztetés vonatkozik a bemeneti alakító [automatikus kalibrálás](#bemeneti-formazo-automatikus-kalibralasa) `SHAPER_CALIBRATE` paranccsal történő használatára is: az automatikus kalibrálás után továbbra is szükséges a megfelelő `max_accel` érték kiválasztása, és a javasolt gyorsulási korlátok nem lesznek automatikusan alkalmazva.
 
 Ha a formázó újrakalibrálását végzi, és a javasolt formázó konfigurációhoz tartozó simítás majdnem megegyezik az előző kalibrálás során kapott értékkel, ez a lépés kihagyható.
 
@@ -345,7 +345,7 @@ A túl nagy simítás elkerülése érdekében a '3hump_ei' esetében javasolt m
 Ajánlott shaper_type_y = mzv, shaper_freq_y = 36,8 Hz
 ```
 
-Ha egyetért a javasolt paraméterekkel, akkor a `SAVE_CONFIG` parancsot most végre lehet hajtani a paraméterek mentéséhez és a Klipper újraindításához. Vegye figyelembe, hogy ez nem frissíti a `max_accel` értéket a `[printer]` szakaszban. Ezt manuálisan kell frissítenie a [max_accel kiválasztása](#selecting-max_accel) szakaszban leírtak szerint.
+Ha egyetért a javasolt paraméterekkel, akkor a `SAVE_CONFIG` parancsot most végre lehet hajtani a paraméterek mentéséhez és a Klipper újraindításához. Vegye figyelembe, hogy ez nem frissíti a `max_accel` értéket a `[printer]` szakaszban. Ezt manuálisan kell frissítenie a [max_accel kiválasztása](#a-max_accel-kivalasztasa) szakaszban leírtak szerint.
 
 Ha a nyomtatója Y tengelyén van az ágy akkor megadhatja, hogy melyik tengelyt kívánja tesztelni, így a tesztek között megváltoztathatja a gyorsulásmérő rögzítési pontját (alapértelmezés szerint a teszt mindkét tengelyen végrehajtásra kerül):
 

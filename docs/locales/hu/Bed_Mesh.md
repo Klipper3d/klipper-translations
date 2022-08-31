@@ -1,6 +1,6 @@
-# Ágyháló
+# Ágy háló
 
-Az ágyháló modul használható az ágyfelület egyenetlenségeinek kiegyenlítésére, hogy jobb első réteget érjen el az egész ágyon. Meg kell jegyezni, hogy a szoftveralapú korrekció nem fog tökéletes eredményt elérni, csak megközelítő értékekkel tudatja az ágy alakját. A Bed Mesh szintén nem tudja kompenzálni a mechanikai és elektromos problémákat. Ha egy tengely ferde vagy egy szonda nem pontos, akkor a bed_mesh modul nem fog pontos eredményeket kapni a szintezésről.
+Az ágy háló modul használható az ágyfelület egyenetlenségeinek kiegyenlítésére, hogy jobb első réteget érjen el az egész ágyon. Meg kell jegyezni, hogy a szoftveralapú korrekció nem fog tökéletes eredményt elérni, csak megközelítő értékekkel tudatja az ágy alakját. Az ágy háló szintén nem tudja kompenzálni a mechanikai és elektromos problémákat. Ha egy tengely ferde vagy egy szonda nem pontos, akkor a bed_mesh modul nem fog pontos eredményeket kapni a szintezésről.
 
 A hálókalibrálás előtt meg kell győződnie arról, hogy a szonda Z-eltolása kalibrálva van. Ha végállást használ a Z-kezdőponthoz, akkor azt is kalibrálni kell. További információkért lásd a [Szonda Kalibrálás](Probe_Calibrate.md) és a Z_ENDSTOP_CALIBRATE című fejezetben [Kézi Szintezést](Manual_Level.md).
 
@@ -171,7 +171,7 @@ Az alábbi kép azt szemlélteti, hogyan generálódnak a cserepontok, ha egy ge
 
 `BED_MESH_CALIBRATE PROFILE=<name> METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` * Alapértelmezett profil: alapértelmezett* *Alapértelmezett módszer: automatikus, ha érzékelőt észlel, egyébként manuális*
 
-Elindítja a mérési eljárást az ágyháló kalibrálásához.
+Elindítja a mérési eljárást az ágy háló kalibrálásához.
 
 A háló a `PROFILE` paraméter által megadott profilba kerül mentésre, vagy `default`, ha nincs megadva. Ha a `METHOD=manual` paramétert választjuk, akkor kézi mérés történik. Az automatikus és a kézi mérés közötti váltáskor a generált hálópontok automatikusan kiigazításra kerülnek.
 

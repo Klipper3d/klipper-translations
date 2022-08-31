@@ -38,7 +38,7 @@ Ezután a következő eljárást alkalmazza a "mérés és igazítás" elvégzé
 
 Ha az actual_extrude_distance több mint 2 mm-rel eltér a requested_extrude_distance-tól, akkor érdemes a fenti lépéseket másodszor is elvégezni.
 
-Megjegyzés: *Ne* használjon "mérés és trimmelés" típusú módszert az X, Y vagy Z típusú tengelyek kalibrálására. A "measure and trim" módszer nem elég pontos ezekhez a tengelyekhez, és valószínűleg rosszabb konfigurációhoz vezet. Ehelyett, ha szükséges, ezeket a tengelyeket [a szíjak, szíjtárcsák és az orsók hardverének mérésével](#obtaining-rotation_distance-by-inspecting-the-hardware) lehet meghatározni.
+Megjegyzés: *Ne* használjon "mérés és trimmelés" típusú módszert az X, Y vagy Z típusú tengelyek kalibrálására. A "measure and trim" módszer nem elég pontos ezekhez a tengelyekhez, és valószínűleg rosszabb konfigurációhoz vezet. Ehelyett, ha szükséges, ezeket a tengelyeket [a szíjak, szíjtárcsák és az orsók hardverének mérésével](#a-forgasi_tavolsag-kinyerese-a-hardver-ellenorzesevel) lehet meghatározni.
 
 ## A rotation_distance meghatározása a hardver vizsgálatával
 
@@ -80,7 +80,7 @@ Az extruder tényleges forgatási távolsága nyomtatóról nyomtatóra változi
 
 A `gear_ratio` beállítása megkönnyítheti a `rotation_distance` konfigurálását olyan léptetőknél, amelyekhez áttétel (vagy hasonló) van csatlakoztatva. A legtöbb léptető nem rendelkezik áttétellel. Ha nem biztos benne, akkor ne állítsa be a `gear_ratio` értéket a konfigurációban.
 
-Ha `gear_ratio` be van állítva, a `rotation_distance` azt a távolságot jelöli, amelyet a tengely az áttételen lévő utolsó fogaskerék egy teljes elfordulásával megtesz. Ha például egy "5:1"-es áttételt használunk, akkor kiszámíthatjuk a rotation_distance-ot [a hardver ismeretében](#obtaining-rotation_distance-by-inspecting-the-hardware), majd hozzáadhatjuk a `gear_ratio: 5:1` értéket a konfigurációs fájlhoz.
+Ha `gear_ratio` be van állítva, a `rotation_distance` azt a távolságot jelöli, amelyet a tengely az áttételen lévő utolsó fogaskerék egy teljes elfordulásával megtesz. Ha például egy "5:1"-es áttételt használunk, akkor kiszámíthatjuk a rotation_distance-ot [a hardver ismeretében](#a-forgasi_tavolsag-kinyerese-a-hardver-ellenorzesevel), majd hozzáadhatjuk a `gear_ratio: 5:1` értéket a konfigurációs fájlhoz.
 
 A szíjakkal és szíjtárcsákkal megvalósított hajtóművek esetében a fogaskerekek fogainak megszámlálásával lehet meghatározni a gear_ratio-t. Ha például egy 16 fogazású szíjtárcsával rendelkező léptető meghajtja a, 80 fogazású szíjtárcsát, akkor a `gear_ratio: 80:16` értéket használjuk. Valóban, ki lehetne nyitni egy közönséges, "fogaskerékdobozt" és megszámolni a benne lévő fogakat, hogy megerősítsük a fogaskerék áttételét.
 
