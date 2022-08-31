@@ -50,7 +50,7 @@ Vegye figyelembe, hogy ha a nyomtató mozgásrendszerét, a nyomtatófej pozíci
 
 Ha a szonda X vagy Y eltolással rendelkezik, és az ágy dőlése megváltozik (pl. szintezőcsavarok beállításával, DELTA_CALIBRATE futtatásával, Z_TILT_ADJUST futtatásával, QUAD_GANTRY_LEVEL futtatásával vagy hasonlóval), akkor ez érvényteleníti a PROBE_CALIBRATE eredményeit. A fenti beállítások bármelyikének módosítása után újra kell kezdeni a PROBE_CALIBRATE futtatását.
 
-Ha a PROBE_CALIBRATE eredményei érvénytelenek, akkor a szondával kapott korábbi [ágyháló](Bed_Mesh.md) eredmények is érvénytelenek. A szonda újrakalibrálása után újra kell futtatni a BED_MESH_CALIBRATE programot.
+Ha a PROBE_CALIBRATE eredményei érvénytelenek, akkor a szondával kapott korábbi [ágy háló](Bed_Mesh.md) eredmények is érvénytelenek. A szonda újrakalibrálása után újra kell futtatni a BED_MESH_CALIBRATE programot.
 
 ## Ismételt mérési teszt
 

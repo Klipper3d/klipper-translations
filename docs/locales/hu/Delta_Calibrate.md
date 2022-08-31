@@ -136,8 +136,8 @@ A SAVE_CONFIG parancs mind a frissített delta paramétereket, mind a távolság
 * Ha a delta nyomtató jó méretpontossággal rendelkezik, akkor a két oszlop közötti távolságnak körülbelül 74 mm-nek kell lennie, és minden oszlop szélességének körülbelül 9 mm-nek kell lennie. (Pontosabban, a cél az, hogy a két oszlop közötti távolság mínusz az egyik oszlop szélessége pontosan 65 mm legyen.) Ha az alkatrészben méretpontatlanság van, akkor a DELTA_ANALYZE rutin új delta paramétereket számol ki a távolságmérések és a legutóbbi DELTA_CALIBRATE parancsból származó korábbi magasságmérések felhasználásával.
 * A DELTA_ANALYZE meglepő delta paramétereket eredményezhet. Például olyan karhosszúságokat javasolhat, amelyek nem egyeznek a nyomtató tényleges karhosszúságával. Ennek ellenére a tesztek azt mutatták, hogy a DELTA_ANALYZE gyakran jobb eredményeket ad. Úgy véljük, hogy a kiszámított delta paraméterek képesek figyelembe venni a hardver máshol előforduló kisebb hibáit. Például a karhossz kis eltérései az effektor dőlését eredményezhetik, és ennek a dőlésnek egy része a karhossz paraméterek beállításával figyelembe vehető.
 
-## Ágyháló használata a Deltán
+## Ágy háló használata a Deltán
 
-Lehetőség van [ágyháló](Bed_Mesh.md) használatára egy delta esetében. Fontos azonban, hogy jó deltakalibrációt érjen el, mielőtt engedélyezné az ágyhálót. A bed mesh futtatása rossz delta-kalibrációval zavaros és rossz eredményeket fog eredményezni.
+Lehetőség van [ágy háló](Bed_Mesh.md) használatára egy delta esetében. Fontos azonban, hogy jó deltakalibrációt érjen el, mielőtt engedélyezné az ágy hálót. A bed mesh futtatása rossz delta-kalibrációval zavaros és rossz eredményeket fog eredményezni.
 
-Vegye figyelembe, hogy a delta-kalibrálás végrehajtása érvényteleníti a korábban kapott ágyhálót. Az új delta-kalibrálás elvégzése után feltétlenül futtassa újra a BED_MESH_CALIBRATE programot.
+Vegye figyelembe, hogy a delta-kalibrálás végrehajtása érvényteleníti a korábban kapott ágy hálót. Az új delta-kalibrálás elvégzése után feltétlenül futtassa újra a BED_MESH_CALIBRATE programot.
