@@ -2,7 +2,7 @@
 # Nathan <bonnemainsnathan@gmail.com>, 2021, 2025.
 # Rhenaud Dubois <rhen33390@gmail.com>, 2021, 2025.
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
-# Linda 'linigrhf' Ayasing <linigrhf@gmail.com>, 2022.
+# Linda 'linigrhf' Ayasing <linigrhf@gmail.com>, 2022, 2025.
 # Francis Poulizac <francis@poulizac.fr>, 2022, 2023, 2025.
 # jean-luc MATTEI <jlucm@free.fr>, 2023.
 # Thomas Fournier <thomas@artivain.com>, 2023.
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
+"Last-Translator: Linda 'linigrhf' Ayasing <linigrhf@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/overview/"
 "fr/>\n"
 "Language: fr\n"
