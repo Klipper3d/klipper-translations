@@ -1410,13 +1410,13 @@
 
 
 <h1 id="api-server">API server<a class="headerlink" href="#api-server" title="Permanent link">&para;</a></h1>
-<p>‎Este documento descreve a Interface do Programador de Aplicativos (API) da ‎‎Klipper‎‎. Esta interface permite que aplicativos externos consultem e controlem o software de host ‎‎Klipper‎‎.‎</p>
+<p>‎Este documento descreve a Interface do Programador de Aplicativos (API) da ‎‎Klipper‎‎. Esta interface permite que aplicativos externos consultem e controlem o software de host ‎‎Klipper‎‎.</p>
 <h2 id="habilitando-o-soquete-de-api">‎Habilitando o soquete de API‎<a class="headerlink" href="#habilitando-o-soquete-de-api" title="Permanent link">&para;</a></h2>
-<p>‎Para usar o ‎‎servidor API‎‎, o software host klippy.py deve ser iniciado com o ‎parâmetro <code>-a</code>‎. Por exemplo:‎</p>
+<p>‎Para usar o ‎‎servidor API‎‎, o software host klippy.py deve ser iniciado com o ‎parâmetro <code>-a</code>‎. Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 </code></pre></div>
 
-<p>‎Isso faz com que o software host crie um Soquete de domínio Unix, um cliente pode então abrir uma conexão nesse soquete e enviar comandos para ‎‎Klipper‎‎.‎</p>
+<p>‎Isso faz com que o software host crie um Soquete de domínio Unix, um cliente pode então abrir uma conexão nesse soquete e enviar comandos para ‎‎Klipper‎‎.</p>
 <p>See the <a href="https://github.com/Arksine/moonraker">Moonraker</a> project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.</p>
 <h2 id="request-format">Request format<a class="headerlink" href="#request-format" title="Permanent link">&para;</a></h2>
 <p>Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:</p>

@@ -13,7 +13,7 @@
     
     
       
-        <title>Végállás szakasz - Klipper documentation</title>
+        <title>Végállás fázis - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vegallas-szakasz" class="md-skip">
+        <a href="#vegallas-fazis" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Végállás szakasz
+              Végállás fázis
             
           </span>
         </div>
@@ -1255,7 +1255,7 @@
 </a>
 
 
-<h1 id="vegallas-szakasz">Végállás szakasz<a class="headerlink" href="#vegallas-szakasz" title="Permanent link">&para;</a></h1>
+<h1 id="vegallas-fazis">Végállás fázis<a class="headerlink" href="#vegallas-fazis" title="Permanent link">&para;</a></h1>
 <p>Ez a dokumentum a Klipper léptetőfázis-beállított végütköző rendszerét írja le. Ez a funkció javíthatja a hagyományos végálláskapcsolók pontosságát. Ez a leghasznosabb olyan Trinamic léptetőmotor-illesztőprogram használatakor, amely futásidejű konfigurációval rendelkezik.</p>
 <p>Egy tipikus végálláskapcsoló pontossága körülbelül 100 mikron. (A tengely minden egyes indításakor a kapcsoló valamivel korábban vagy valamivel később léphet működésbe). Bár ez viszonylag kis hiba, nem kívánt nyomtatványokat eredményezhet. Különösen a tárgy első rétegének nyomtatásakor lehet észrevehető ez a pozícióeltérés. Ezzel szemben a tipikus léptetőmotorokkal lényegesen nagyobb pontosság érhető el.</p>
 <p>A lépcsős fázisú végállás mechanizmus a lépcsős motorok pontosságát használhatja a végálláskapcsolók pontosságának javítására. A léptetőmotor egy sor fázison keresztül ciklikusan mozog, amíg négy "teljes lépést" nem teljesít. Tehát egy 16 mikrolépést használó léptetőmotornak 64 fázisa lenne, és pozitív irányba történő mozgáskor a fázisok között ciklikusan haladna: 0, 1, 2, ... 61, 62, 63, 0, 1, 2, stb. Lényeges, hogy amikor a léptetőmotor egy adott pozícióban van a lineáris sínen, mindig ugyanabban a léptetőfázisban kell lennie. Így amikor egy kocsi a végálláskapcsolót aktiválja, az adott kocsit vezérlő léptetőnek mindig ugyanabban a léptetőmotor fázisban kell lennie. A Klipper'végállás fázis rendszere a végállás pontosságának javítása érdekében kombinálja a léptető fázist a végállás kioldójával.</p>
