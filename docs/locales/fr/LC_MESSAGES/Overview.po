@@ -2,17 +2,19 @@
 # Nathan <bonnemainsnathan@gmail.com>, 2021.
 # Rhenaud Dubois <rhen33390@gmail.com>, 2021.
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
+# Linda 'linigrhf' Ayasing <linigrhf@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-10-02 09:35+0000\n"
-"Last-Translator: Francis Poulizac <fpoulizac@vivaldi.net>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/overview/fr/>\n"
+"PO-Revision-Date: 2022-09-02 09:52+0000\n"
+"Last-Translator: Linda 'linigrhf' Ayasing <linigrhf@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/overview/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -286,7 +288,7 @@ msgid ""
 "[Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple "
 "micro-controllers."
 msgstr ""
-"[Multi-MCU Prise origine matérielle](Multi_MCU_Homing.md): Prise d'origine "
+"[Multi-MCU Prise origine matérielle](Multi_MCU_Homing.md) : Prise d'origine "
 "matérielle et palpage utilisant plusieurs micro-contrôleurs."
 
 #: docs/Overview.md:block 6 (unordered list)
@@ -303,7 +305,7 @@ msgstr ""
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
-msgstr ""
+msgstr "[Détecteur de largeur de filament à effet hall](Hall_Width_Sensor.md)"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
