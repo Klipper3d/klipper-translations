@@ -30,7 +30,7 @@ Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, comme
 - [Modèles de commande](Command_Templates.md) : Macros G-Code et évaluation conditionnelle.
    - [Référence des états](Status_Reference.md) : Informations disponibles pour les macros (et similaires).
 - [Pilotes TMC](TMC_Drivers.md) : Utilisation des pilotes de moteurs pas à pas Trinamic avec Klipper.
-- [Multi-MCU Prise origine matérielle](Multi_MCU_Homing.md): Prise d'origine matérielle et palpage utilisant plusieurs micro-contrôleurs.
+- [Multi-MCU Prise origine matérielle](Multi_MCU_Homing.md) : Prise d'origine matérielle et palpage utilisant plusieurs micro-contrôleurs.
 - [Slicers](Slicers.md) : Configurer un logiciel "slicer" pour Klipper.
 - [Skew correction](Skew_Correction.md): Adjustments for axes not perfectly square.
 - [Outils PWM](Using_PWM_Tools.md) : Guide sur l'utilisation des outils contrôlés par PWM tels que les lasers ou les broches.
@@ -58,4 +58,4 @@ Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, comme
 - [Bootloaders](Bootloaders.md) : Informations pour les développeurs sur le flashage des microcontrôleurs.
 - [Bus CAN](CANBUS.md) : Informations sur l'utilisation du bus CAN avec Klipper.
 - [Capteur de largeur de filament TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
-- [Hall filament width sensor](Hall_Filament_Width_Sensor.md)
+- [Détecteur de largeur de filament à effet hall](Hall_Width_Sensor.md)
