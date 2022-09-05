@@ -1,18 +1,19 @@
 # Roberto Besser <rmbesser@gmail.com>, 2021.
 # Zeldazul <b.ferreirargs@gmail.com>, 2022.
 # Wagner Reck <wagner.reck@gmail.com>, 2022.
+# gbonaspetti <gbonaspetti@hotmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-26 09:05+0000\n"
-"Last-Translator: Wagner Reck <wagner.reck@gmail.com>\n"
+"PO-Revision-Date: 2022-09-05 11:21+0000\n"
+"Last-Translator: gbonaspetti <gbonaspetti@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/g-codes/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -272,7 +273,7 @@ msgid ""
 msgstr ""
 
 msgid "`ABORT`: This command terminates the manual probing tool."
-msgstr ""
+msgstr "`ABORT`: Este comando encerra a ferramenta de sondagem manual."
 
 msgid ""
 "`TESTZ Z=<value>`: This command moves the nozzle up or down by the amount "
@@ -808,8 +809,9 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 14 (header)
+#, fuzzy
 msgid "ACCELEROMETER_MEASURE"
-msgstr ""
+msgstr "ACCELEROMETER_MEASURE"
 
 #: docs/G-Codes.md:block 16 (header)
 msgid "ACCELEROMETER_QUERY"
@@ -825,10 +827,14 @@ msgid ""
 "ADXL345 register \"register\" (e.g. 44 or 0x2C). Can be useful for debugging"
 " purposes."
 msgstr ""
+"`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: consultas "
+"ADXL345 registar \"register\" (por exemplo 44 ou 0x2C). Pode ser útil para "
+"efeitos de depuração."
 
 #: docs/G-Codes.md:block 20 (header)
+#, fuzzy
 msgid "ACCELEROMETER_DEBUG_WRITE"
-msgstr ""
+msgstr "ACCELEROMETER_DEBUG_WRITE"
 
 #: docs/G-Codes.md:block 21 (paragraph)
 msgid ""
@@ -837,6 +843,10 @@ msgid ""
 "\"register\" can be a decimal or a hexadecimal integer. Use with care, and "
 "refer to ADXL345 data sheet for the reference."
 msgstr ""
+"`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: "
+"Escreve \"value\" em bruto num registo \"register\". Tanto \"value\" como "
+"\"register\" podem ser um número inteiro decimal ou hexadecimal. Use com "
+"cuidado, e consulte a folha de dados ADXL345 para a referência."
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[bed_mesh]"
