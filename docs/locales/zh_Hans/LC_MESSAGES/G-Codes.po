@@ -2,13 +2,14 @@
 # mirokymac <toufubomb@gmail.com>, 2021.
 # Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 # Peppa Pig <hansongming88@gmail.com>, 2022.
+# ghyuav <ghyuav2021@163.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-13 14:53+0200\n"
-"PO-Revision-Date: 2022-08-22 13:24+0000\n"
-"Last-Translator: Peppa Pig <hansongming88@gmail.com>\n"
+"PO-Revision-Date: 2022-09-04 10:17+0000\n"
+"Last-Translator: ghyuav <ghyuav2021@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/g-codes/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -2487,7 +2488,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 79 (paragraph)
 msgid "Also provided is the following extended G-Code command:"
-msgstr ""
+msgstr "还提供了以下扩展 G 语言命令："
 
 #: docs/G-Codes.md:block 80 (unordered list)
 msgid ""
