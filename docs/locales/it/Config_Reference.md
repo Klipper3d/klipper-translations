@@ -103,7 +103,7 @@ max_accel:
 
 Stepper motor definitions. Different printer types (as specified by the "kinematics" option in the [printer] config section) require different names for the stepper (eg, `stepper_x` vs `stepper_a`). Below are common stepper definitions.
 
-See the [rotation distance document](Rotation_Distance.md) for information on calculating the `rotation_distance` parameter. See the [Multi-MCU homing](Multi_MCU_Homing.md) document for information on homing using multiple micro-controllers.
+Vedere il [documento distanza di rotazione](Rotation_Distance.md) per informazioni sul calcolo del parametro `rotation_distance`. Consultare il documento [Multi-MCU homing](Multi_MCU_Homing.md) per informazioni sull'homing utilizzando più microcontrollori.
 
 ```
 [stepper_x]
@@ -884,7 +884,7 @@ Per ulteriori informazioni, vedere [riferimento comando](G-Codes.md#bed_tilt).
 
 Strumento per aiutare a regolare le viti di livellamento del letto. Si può definire una sezione di configurazione [bed_screws] per abilitare un comando g-code BED_SCREWS_ADJUST.
 
-See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [command reference](G-Codes.md#bed_screws) for additional information.
+Per ulteriori informazioni, vedere la [guida al livellamento](Manual_Level.md#adjusting-bed-leveling-screws) e il [riferimento al comando](G-Codes.md#bed_screws).
 
 ```
 [bed_screws]
@@ -925,38 +925,38 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 
 Strumento per aiutare a regolare l'inclinazione delle viti del piatto utilizzando la sonda Z. Si può definire una sezione di configurazione Screws_tilt_adjust per abilitare un comando g-code SCREWS_TILT_CALCULATE.
 
-See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) and [command reference](G-Codes.md#screws_tilt_adjust) for additional information.
+Per ulteriori informazioni, vedere la [guida al livellamento](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) e [riferimento al comando](G-Codes.md#screws_tilt_adjust).
 
 ```
 [screws_tilt_adjust]
 #screw1:
-#   The (X, Y) coordinate of the first bed leveling screw. This is a
-#   position to command the nozzle to so that the probe is directly
-#   above the bed screw (or as close as possible while still being
-#   above the bed). This is the base screw used in calculations. This
-#   parameter must be provided.
+#   La coordinata (X, Y) della prima vite di livellamento del piatto. Questa
+#   è una posizione in cui comandare l'ugello in modo che la sonda sia
+#   direttamente sopra la vite del piatto (o il più vicino possibile mentre si
+#   trova ancora sopra il piatto). Questa è la vite di base utilizzata nei calcoli.
+#   Questo parametro deve essere fornito.
 #screw1_name:
-#   An arbitrary name for the given screw. This name is displayed when
-#   the helper script runs. The default is to use a name based upon
-#   the screw XY location.
+#   Un nome arbitrario per la vite data. Questo nome viene visualizzato
+#   quando viene eseguito lo script di supporto. L'impostazione predefinita
+#   prevede l'utilizzo di un nome basato sulla posizione XY della vite.
 #screw2:
 #screw2_name:
 #...
-#   Additional bed leveling screws. At least two screws must be
-#   defined.
+#   Viti di livellamento del piatto aggiuntive. Devono essere definite
+#   almeno due viti.
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+#   La velocità (in mm/s) degli spostamenti senza probing durante la
+#   calibrazione. Il valore predefinito è 50.
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+#   L'altezza (in mm) a cui la testa deve essere spostata appena prima
+#   di avviare un'operazione di sonda. L'impostazione predefinita è 5.
 #screw_thread: CW-M3
-#   The type of screw used for bed level, M3, M4 or M5 and the
-#   direction of the knob used to level the bed, clockwise decrease
-#   counter-clockwise decrease.
-#   Accepted values: CW-M3, CCW-M3, CW-M4, CCW-M4, CW-M5, CCW-M5.
-#   Default value is CW-M3, most printers use an M3 screw and
-#   turning the knob clockwise decrease distance.
+#   Il tipo di vite utilizzata per il livello del piatto, M3, M4 o M5 e la
+#   direzione della manopola utilizzata per livellare il letto, in senso orario
+#   decrementa in senso antiorario decrementa. Valori accettati: CW-M3,
+#   CCW-M3, CW-M4, CCW-M4, CW-M5, CCW-M5. Il valore predefinito è
+#   CW-M3, la maggior parte delle stampanti utilizza una vite M3 e
+#   ruotando la manopola in senso orario diminuisce la distanza.
 ```
 
 ### [z_tilt]
@@ -1047,7 +1047,7 @@ Dove x è il punto 0, 0 sul piatto
 
 ### [skew_correction]
 
-Printer Skew Correction. It is possible to use software to correct printer skew across 3 planes, xy, xz, yz. This is done by printing a calibration model along a plane and measuring three lengths. Due to the nature of skew correction these lengths are set via gcode. See [Skew Correction](Skew_Correction.md) and [Command Reference](G-Codes.md#skew_correction) for details.
+Correzione dell'inclinazione della stampante. È possibile utilizzare il software per correggere l'inclinazione della stampante su 3 piani, xy, xz, yz. Questo viene fatto stampando un modello di calibrazione lungo un piano e misurando tre lunghezze. A causa della natura della correzione dell'inclinazione, queste lunghezze vengono impostate tramite gcode. Per i dettagli, vedere [Correzione inclinazione](Correzione_inclinazione.md) e [Command Reference](G-Codes.md#correzione_inclinazione).
 
 ```
 [skew_correction]
@@ -1062,24 +1062,25 @@ Homing Z sicuro. Si può utilizzare questo meccanismo per posizionare l'asse Z s
 ```
 [safe_z_home]
 home_xy_position:
-#   A X, Y coordinate (e.g. 100, 100) where the Z homing should be
-#   performed. This parameter must be provided.
+#   Una coordinata X, Y (ad es. 100, 100) dove deve essere eseguita
+#   homing Z. Questo parametro deve essere fornito.
 #speed: 50.0
-#   Speed at which the toolhead is moved to the safe Z home
-#   coordinate. The default is 50 mm/s
+#   Velocità alla quale la testa di stampa viene spostata sulla 
+#   coordinata Z sicura. Il valore predefinito è 50 mm/s
 #z_hop:
-#   Distance (in mm) to lift the Z axis prior to homing. This is
-#   applied to any homing command, even if it doesn't home the Z axis.
-#   If the Z axis is already homed and the current Z position is less
-#   than z_hop, then this will lift the head to a height of z_hop. If
-#   the Z axis is not already homed the head is lifted by z_hop.
-#   The default is to not implement Z hop.
+#   Distanza (in mm) per sollevare l'asse Z prima dell'homing.
+#   Questo si applica a qualsiasi comando di homing, anche se non
+#   si trova sull'asse Z. Se l'asse Z è già azzerato e la posizione Z
+#   corrente è inferiore a z_hop, questo solleverà la testa a un'altezza
+#   di z_hop. Se l'asse Z non è già azzerato la testina viene sollevata
+#   di z_hop. L'impostazione predefinita è di non implementare Z hop.
 #z_hop_speed: 15.0
-#   Speed (in mm/s) at which the Z axis is lifted prior to homing. The
-#   default is 15 mm/s.
+#   Velocità (in mm/s) alla quale l'asse Z viene sollevato prima
+#   del homing. Il valore predefinito è 15 mm/s.
 #move_to_previous: False
-#   When set to True, the X and Y axes are reset to their previous
-#   positions after Z axis homing. The default is False.
+#   Quando è impostato su True, gli assi X e Y vengono ripristinati alle
+#   posizioni precedenti dopo l'homing dell'asse Z.
+#   L'impostazione predefinita è False.
 ```
 
 ### [homing_override]
@@ -1336,7 +1337,7 @@ Abilita i comandi estesi "M118" e "RESPOND" [commands](G-Codes.md#respond).
 
 Abilita il supporto per escludere o cancellare singoli oggetti durante il processo di stampa.
 
-See the [exclude objects guide](Exclude_Object.md) and [command reference](G-Codes.md#excludeobject) for additional information. See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware compatible M486 G-Code macro.
+Per ulteriori informazioni, vedere la [guida escludi oggetti](Exclude_Object.md) e [riferimento ai comandi](G-Codes.md#excludeobject). Vedere il file [sample-macros.cfg](../config/sample-macros.cfg) per una macro G-Code M486 compatibile con Marlin/RepRapFirmware.
 
 ```
 [exclude_object]
@@ -1964,20 +1965,20 @@ Termistori comuni. I seguenti parametri sono disponibili nelle sezioni del risca
 
 ```
 sensor_type:
-#   One of "EPCOS 100K B57560G104F", "ATC Semitec 104GT-2",
+#   Uno di "EPCOS 100K B57560G104F", "ATC Semitec 104GT-2",
 #   "ATC Semitec 104NT-4-R025H42G", "Generic 3950",
 #   "Honeywell 100K 135-104LAG-J01", "NTC 100K MGB18-104F39050L32",
-#   "SliceEngineering 450", or "TDK NTCG104LH104JT1"
+#   "SliceEngineering 450", o "TDK NTCG104LH104JT1"
 sensor_pin:
-#   Analog input pin connected to the thermistor. This parameter must
-#   be provided.
+#   Pin di ingresso analogico collegato al termistore. 
+#   Questo parametro deve essere fornito.
 #pullup_resistor: 4700
-#   The resistance (in ohms) of the pullup attached to the thermistor.
-#   The default is 4700 ohms.
+#   La resistenza (in ohm) del pullup collegato al termistore.
+#   Il valore predefinito è 4700 ohm.
 #inline_resistor: 0
-#   The resistance (in ohms) of an extra (not heat varying) resistor
-#   that is placed inline with the thermistor. It is rare to set this.
-#   The default is 0 ohms.
+#   La resistenza (in ohm) di un resistore aggiuntivo (non a variazione di
+#   calore) posizionato in linea con il termistore. È raro impostare questo.
+#   Il valore predefinito è 0 ohm.
 ```
 
 ### Amplificatori di temperatura comuni
@@ -1986,15 +1987,16 @@ Amplificatori di temperatura comuni. I seguenti parametri sono disponibili nelle
 
 ```
 sensor_type:
-#   One of "PT100 INA826", "AD595", "AD597", "AD8494", "AD8495",
-#   "AD8496", or "AD8497".
+#   Uno tra "PT100 INA826", "AD595", "AD597", "AD8494", "AD8495",
+#   "AD8496", o "AD8497".
 sensor_pin:
-#   Analog input pin connected to the sensor. This parameter must be
-#   provided.
+#   Pin di ingresso analogico collegato al sensore. Questo parametro
+#   deve essere fornito.
 #adc_voltage: 5.0
-#   The ADC comparison voltage (in Volts). The default is 5 volts.
+#   La tensione di confronto dell'ADC (in Volt). Il valore predefinito
+#   è 5 volt.
 #voltage_offset: 0
-#   The ADC voltage offset (in Volts). The default is 0.
+#   L'offset di tensione ADC (in Volt). Il valore predefinito è 0.
 ```
 
 ### Sensore PT1000 collegato direttamente
@@ -2004,11 +2006,11 @@ Sensore PT1000 collegato direttamente. I seguenti parametri sono disponibili nel
 ```
 sensor_type: PT1000
 sensor_pin:
-#   Analog input pin connected to the sensor. This parameter must be
-#   provided.
+#   Pin di ingresso analogico collegato al sensore. Questo parametro
+#   deve essere fornito.
 #pullup_resistor: 4700
-#   The resistance (in ohms) of the pullup attached to the sensor. The
-#   default is 4700 ohms.
+#   La resistenza (in ohm) del pullup collegato al sensore. Il valore
+#   predefinito è 4700 ohm.
 ```
 
 ### Sensori di temperatura MAXxxxxx
@@ -2017,32 +2019,32 @@ Sensori temperatura MAXxxxxx con interfaccia periferica seriale (SPI). I seguent
 
 ```
 sensor_type:
-#   One of "MAX6675", "MAX31855", "MAX31856", or "MAX31865".
+#   Uno tra "MAX6675", "MAX31855", "MAX31856", o "MAX31865".
 sensor_pin:
-#   The chip select line for the sensor chip. This parameter must be
-#   provided.
+#   Il pin mcu collegato al pin di selezione del chip del sensore.
+#   Questo parametro deve essere fornito.
 #spi_speed: 4000000
-#   The SPI speed (in hz) to use when communicating with the chip.
-#   The default is 4000000.
+#   La velocità SPI (in hz) da utilizzare durante la comunicazione
+#   con il chip. Il valore predefinito è 4000000.
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   Vedere la sezione "impostazioni comuni SPI" per una 
+#   descrizione dei parametri di cui sopra.
 #tc_type: K
 #tc_use_50Hz_filter: False
 #tc_averaging_count: 1
-#   The above parameters control the sensor parameters of MAX31856
-#   chips. The defaults for each parameter are next to the parameter
-#   name in the above list.
+#   I parametri di cui sopra controllano i parametri del sensore
+#   dei chip MAX31856. I valori predefiniti per ciascun parametro
+#   sono accanto al nome del parametro nell'elenco precedente.
 #rtd_nominal_r: 100
 #rtd_reference_r: 430
 #rtd_num_of_wires: 2
 #rtd_use_50Hz_filter: False
-#   The above parameters control the sensor parameters of MAX31865
-#   chips. The defaults for each parameter are next to the parameter
-#   name in the above list.
+#   I parametri di cui sopra controllano i parametri del sensore dei
+#   chip MAX31865. I valori predefiniti per ciascun parametro sono
+#   accanto al nome del parametro nell'elenco precedente.
 ```
 
 ### Sensore di temperatura BMP280/BME280/BME680
@@ -2118,29 +2120,30 @@ I microcontrollori atsam, atsamd e stm32 contengono un sensore di temperatura in
 ```
 sensor_type: temperature_mcu
 #sensor_mcu: mcu
-#   The micro-controller to read from. The default is "mcu".
+#   Il microcontrollore da cui leggere. L'impostazione predefinita è "mcu".
 #sensor_temperature1:
 #sensor_adc1:
-#   Specify the above two parameters (a temperature in Celsius and an
-#   ADC value as a float between 0.0 and 1.0) to calibrate the
-#   micro-controller temperature. This may improve the reported
-#   temperature accuracy on some chips. A typical way to obtain this
-#   calibration information is to completely remove power from the
-#   printer for a few hours (to ensure it is at the ambient
-#   temperature), then power it up and use the QUERY_ADC command to
-#   obtain an ADC measurement. Use some other temperature sensor on
-#   the printer to find the corresponding ambient temperature. The
-#   default is to use the factory calibration data on the
-#   micro-controller (if applicable) or the nominal values from the
-#   micro-controller specification.
+#   Specificare i due parametri precedenti (una temperatura in gradi
+#   Celsius e un valore ADC come float compreso tra 0,0 e 1,0) per
+#   calibrare la temperatura del microcontrollore. Ciò potrebbe
+#   migliorare la precisione della temperatura riportata su alcuni chip.
+#   Un modo tipico per ottenere queste informazioni di calibrazione
+#   consiste nel rimuovere completamente l'alimentazione dalla
+#   stampante per alcune ore (per assicurarsi che sia alla temperatura
+#   ambiente), quindi accenderla e utilizzare il comando QUERY_ADC
+#   per ottenere una misurazione ADC. Utilizzare un altro sensore di
+#   temperatura sulla stampante per trovare la temperatura ambiente
+#   corrispondente. L'impostazione predefinita consiste nell'utilizzare
+#   i dati di calibrazione di fabbrica sul microcontrollore (se applicabile)
+#   o i valori nominali dalle specifiche del microcontrollore.
 #sensor_temperature2:
 #sensor_adc2:
-#   If sensor_temperature1/sensor_adc1 is specified then one may also
-#   specify sensor_temperature2/sensor_adc2 calibration data. Doing so
-#   may provide calibrated "temperature slope" information. The
-#   default is to use the factory calibration data on the
-#   micro-controller (if applicable) or the nominal values from the
-#   micro-controller specification.
+#   Se viene specificato sensor_temperature1/sensor_adc1, è anche
+#   possibile specificare i dati di calibrazione sensor_temperature2/sensor_adc2.
+#   Ciò potrebbe fornire informazioni calibrate sulla "curva della
+#   temperatura". L'impostazione predefinita consiste nell'utilizzare i dati
+#   di calibrazione di fabbrica sul microcontrollore (se applicabile) o i
+#   valori nominali dalle specifiche del microcontrollore.
 ```
 
 ### Sensore di temperatura host
