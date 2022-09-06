@@ -57,11 +57,11 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 #### ACCELEROMETER_DEBUG_READ
 
-`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries ADXL345 register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes.
+`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: consultas ADXL345 registar "register" (por exemplo 44 ou 0x2C). Pode ser útil para efeitos de depuração.
 
 #### ACCELEROMETER_DEBUG_WRITE
 
-`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Writes raw "value" into a register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.
+`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Escreve "value" em bruto num registo "register". Tanto "value" como "register" podem ser um número inteiro decimal ou hexadecimal. Use com cuidado, e consulte a folha de dados ADXL345 para a referência.
 
 ### [angle]
 
@@ -442,7 +442,7 @@ The manual_probe module is automatically loaded.
 `MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:
 
 - `ACCEPT`: This command accepts the current Z position and concludes the manual probing tool.
-- `ABORT`: This command terminates the manual probing tool.
+- `ABORT`: Este comando encerra a ferramenta de sondagem manual.
 - `TESTZ Z=<value>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
 
 #### Z_ENDSTOP_CALIBRATE

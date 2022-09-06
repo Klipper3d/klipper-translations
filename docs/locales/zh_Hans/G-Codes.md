@@ -178,7 +178,7 @@ The following commands are available when the [delta_calibrate config section](C
 - 显示信息： `M117 <message> `
 - 设置构建百分比：`M73 P<percent>`
 
-Also provided is the following extended G-Code command:
+还提供了以下扩展 G 语言命令：
 
 - `SET_DISPLAY_TEXT MSG=<message>`: Performs the equivalent of M117, setting the supplied `MSG` as the current display message. If `MSG` is omitted the display will be cleared.
 
