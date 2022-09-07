@@ -2766,9 +2766,9 @@
 <h4 id="accelerometer_query">ACCELEROMETER_QUERY<a class="headerlink" href="#accelerometer_query" title="Permanent link">&para;</a></h4>
 <p><code>ACCELEROMETER_QUERY [CHIP=&lt;config_name&gt;] [RATE=&lt;value&gt;]</code>: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).</p>
 <h4 id="accelerometer_debug_read">ACCELEROMETER_DEBUG_READ<a class="headerlink" href="#accelerometer_debug_read" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_DEBUG_READ [CHIP=&lt;config_name&gt;] REG=&lt;register&gt;</code>: queries ADXL345 register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes.</p>
+<p><code>ACCELEROMETER_DEBUG_READ [CHIP=&lt;config_name&gt;] REG=&lt;register&gt;</code>: consultas ADXL345 registar "register" (por exemplo 44 ou 0x2C). Pode ser útil para efeitos de depuração.</p>
 <h4 id="accelerometer_debug_write">ACCELEROMETER_DEBUG_WRITE<a class="headerlink" href="#accelerometer_debug_write" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_DEBUG_WRITE [CHIP=&lt;config_name&gt;] REG=&lt;register&gt; VAL=&lt;value&gt;</code>: Writes raw "value" into a register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.</p>
+<p><code>ACCELEROMETER_DEBUG_WRITE [CHIP=&lt;config_name&gt;] REG=&lt;register&gt; VAL=&lt;value&gt;</code>: Escreve "value" em bruto num registo "register". Tanto "value" como "register" podem ser um número inteiro decimal ou hexadecimal. Use com cuidado, e consulte a folha de dados ADXL345 para a referência.</p>
 <h3 id="angle">[angle]<a class="headerlink" href="#angle" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when an <a href="Config_Reference.html#angle">angle config section</a> is enabled.</p>
 <h4 id="angle_calibrate">ANGLE_CALIBRATE<a class="headerlink" href="#angle_calibrate" title="Permanent link">&para;</a></h4>
@@ -2972,7 +2972,7 @@
 <p><code>MANUAL_PROBE [SPEED=&lt;speed&gt;]</code>: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:</p>
 <ul>
 <li><code>ACCEPT</code>: This command accepts the current Z position and concludes the manual probing tool.</li>
-<li><code>ABORT</code>: This command terminates the manual probing tool.</li>
+<li><code>ABORT</code>: Este comando encerra a ferramenta de sondagem manual.</li>
 <li><code>TESTZ Z=&lt;value&gt;</code>: This command moves the nozzle up or down by the amount specified in "value". For example, <code>TESTZ Z=-.1</code> would move the nozzle down .1mm while <code>TESTZ Z=.1</code> would move the nozzle up .1mm. The value may also be <code>+</code>, <code>-</code>, <code>++</code>, or <code>--</code> to move the nozzle up or down an amount relative to previous attempts.</li>
 </ul>
 <h4 id="z_endstop_calibrate">Z_ENDSTOP_CALIBRATE<a class="headerlink" href="#z_endstop_calibrate" title="Permanent link">&para;</a></h4>
