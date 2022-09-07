@@ -1,15 +1,17 @@
 # Pepe <ec288eb6-6bd6-473b-93a5-5c8fb60ceb16@simplelogin.fr>, 2022.
+# Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-03-24 10:48+0000\n"
-"Last-Translator: Pepe <ec288eb6-6bd6-473b-93a5-5c8fb60ceb16@simplelogin.fr>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/contributing/es/>\n"
+"PO-Revision-Date: 2022-09-07 21:01+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"contributing/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 msgid "Contributing to Klipper"
 msgstr "Contribuir a Klipper"
@@ -69,8 +71,8 @@ msgid ""
 "Thank you for contributing to Klipper! This document describes the process "
 "for contributing changes to Klipper."
 msgstr ""
-"Gracias por contribuir a Klipper! Este document describe el proceso de "
-"contribuir a Klipper."
+"¡Gracias por contribuir a Klipper! Este documento describe el proceso de "
+"contribuir cambios a Klipper."
 
 #: docs/CONTRIBUTING.md:block 3 (paragraph)
 msgid ""
@@ -121,7 +123,7 @@ msgstr ""
 
 #: docs/CONTRIBUTING.md:block 8 (header)
 msgid "What to expect in a review"
-msgstr ""
+msgstr "Qué es esperable durante una revisión"
 
 #: docs/CONTRIBUTING.md:block 9 (paragraph)
 msgid ""
@@ -189,6 +191,10 @@ msgid ""
 " describing past implementations. There should not be excessive \"todo\" "
 "comments."
 msgstr ""
+"Los comentarios en los envíos de código deben focalizarse en mejorar el "
+"mantenimiento del código. Los envíos no deben contener código comentarizado "
+"ni comentarios excesivos que describan elaboraciones pasadas. Tampoco "
+"debería haber comentarios sobre tareas pendientes en demasía."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -520,7 +526,7 @@ msgstr ""
 
 #: docs/CONTRIBUTING.md:block 26 (table)
 msgid "GitHub name"
-msgstr ""
+msgstr "Nombre en GitHub"
 
 #: docs/CONTRIBUTING.md:block 27 (header)
 msgid "Format of commit messages"
