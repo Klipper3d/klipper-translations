@@ -1,11 +1,11 @@
 # Pepe <ec288eb6-6bd6-473b-93a5-5c8fb60ceb16@simplelogin.fr>, 2022.
-# Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2022.
+# Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2022, 2025.
 # Cecilia Mora <cecilia-mora22@hotmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:20+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "contributing/es/>\n"
 "Language: es\n"
@@ -179,9 +179,9 @@ msgid ""
 "comments."
 msgstr ""
 "Los comentarios en los envíos de código deben focalizarse en mejorar el "
-"mantenimiento del código. Los envíos no deben contener código comentarizado ni"
-" comentarios excesivos que describan elaboraciones pasadas. Tampoco debería "
-"haber comentarios sobre tareas pendientes en demasía."
+"mantenimiento del código. Los envíos no deben contener código comentarizado "
+"ni comentarios excesivos que describan elaboraciones pasadas. Tampoco "
+"debería haber comentarios sobre tareas pendientes en demasía."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
