@@ -2521,6 +2521,28 @@ msgid ""
 "formatting."
 msgstr ""
 
+#: docs/G-Codes.md:block 218 (header)
+msgid "[mcp4018]"
+msgstr ""
+
+#: docs/G-Codes.md:block 219 (paragraph)
+msgid ""
+"The following command is available when a [mcp4018 config "
+"section](Config_Reference.md#mcp4018) is enabled."
+msgstr ""
+
+#: docs/G-Codes.md:block 220 (header)
+msgid "SET_DIGIPOT"
+msgstr ""
+
+#: docs/G-Codes.md:block 221 (paragraph)
+msgid ""
+"`SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: This command will change "
+"the current value of the digipot. This value should typically be between 0.0"
+" and 1.0, unless a 'scale' is defined in the config. When 'scale' is "
+"defined, then this value should be between 0.0 and 'scale'."
+msgstr ""
+
 #~ msgid ""
 #~ "`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [<probe_parameter>=<value>]`: This"
 #~ " command will invoke the bed screws adjustment tool. It will command the "

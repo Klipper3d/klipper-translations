@@ -5,8 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2022-08-28 08:18+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"klipper/sponsors/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/sponsors/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,8 +31,8 @@ msgid ""
 "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" />](https://bigtree-"
 "tech.com/collections/all-products)"
 msgstr ""
-"<a href=\"https://bigtree-tech.com/collections/all-products\"><img src=\"./"
-"img/sponsors/BTT_BTT.png\" width=\"200\"></a>"
+"<a href=\"https://bigtree-tech.com/collections/all-products\"><img "
+"src=\"./img/sponsors/BTT_BTT.png\" width=\"200\"></a>"
 
 #: docs/Sponsors.md:block 5 (paragraph)
 msgid ""
@@ -52,14 +51,6 @@ msgstr "Klipper的开发者们"
 #: docs/Sponsors.md:block 7 (header)
 msgid "Kevin O'Connor"
 msgstr "Kevin O'Connor"
-
-#: docs/Sponsors.md:block 8 (paragraph)
-msgid ""
-"Kevin is the original author and current maintainer of Klipper. Kevin has a "
-"Patreon page at: <https://www.patreon.com/koconnor>"
-msgstr ""
-"Kevin "
-"是Klipper的原作者和目前的维护者。Kevin的Patreon的支持页面：<https://www.patreon.com/koconnor>"
 
 #: docs/Sponsors.md:block 9 (header)
 msgid "Eric Callahan"
@@ -102,3 +93,16 @@ msgstr "[OctoPrint](https://octoprint.org/)"
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[KlipperScreen](https://github.com/jordanruthe/KlipperScreen)"
 msgstr "[KlipperScreen](https://github.com/jordanruthe/KlipperScreen)"
+
+#: docs/Sponsors.md:block 8 (paragraph)
+msgid ""
+"Kevin is the original author and current maintainer of Klipper. Donate at: "
+"<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
+msgstr ""
+
+#~ msgid ""
+#~ "Kevin is the original author and current maintainer of Klipper. Kevin has a "
+#~ "Patreon page at: <https://www.patreon.com/koconnor>"
+#~ msgstr ""
+#~ "Kevin "
+#~ "是Klipper的原作者和目前的维护者。Kevin的Patreon的支持页面：<https://www.patreon.com/koconnor>"

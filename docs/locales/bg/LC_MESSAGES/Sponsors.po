@@ -4,8 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2022-08-26 16:03+0000\n"
 "Last-Translator: Nikolai Danov <nikolaidanov67@gmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
-"sponsors/bg/>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/sponsors/bg/>\n"
 "Language: bg\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -47,8 +46,9 @@ msgid ""
 msgstr ""
 "BIGTREETECH е официалният спонсор на Klipper. BIGTREETECH се ангажира да "
 "разработва иновативни и конкурентни продукти, които да служат по-добре на "
-"общността за 3D принтиране. Последвайте ги във [Facebook](https://www."
-"facebook.com/BIGTREETECH) или [Twitter](https://twitter.com/BigTreeTech)."
+"общността за 3D принтиране. Последвайте ги във "
+"[Facebook](https://www.facebook.com/BIGTREETECH) или "
+"[Twitter](https://twitter.com/BigTreeTech)."
 
 #: docs/Sponsors.md:block 6 (header)
 msgid "Klipper Developers"
@@ -57,14 +57,6 @@ msgstr "Разработчици на Klipper"
 #: docs/Sponsors.md:block 7 (header)
 msgid "Kevin O'Connor"
 msgstr "Кевин О'Конър"
-
-#: docs/Sponsors.md:block 8 (paragraph)
-msgid ""
-"Kevin is the original author and current maintainer of Klipper. Kevin has a "
-"Patreon page at: <https://www.patreon.com/koconnor>"
-msgstr ""
-"Кевин е оригиналният автор и настоящ поддържащ Klipper. Кевин има страница в "
-"Patreon на адрес: <https://www.patreon.com/koconnor>"
 
 #: docs/Sponsors.md:block 9 (header)
 msgid "Eric Callahan"
@@ -87,8 +79,8 @@ msgid ""
 "Klipper is frequently used with other Free Software. Consider using or "
 "supporting these projects."
 msgstr ""
-"Klipper често се използва с друг свободен софтуер. Помислете за използването "
-"или подкрепата на тези проекти."
+"Klipper често се използва с друг свободен софтуер. Помислете за използването"
+" или подкрепата на тези проекти."
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Moonraker](https://github.com/Arksine/moonraker)"
@@ -109,3 +101,16 @@ msgstr "[OctoPrint](https://octoprint.org/)"
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[KlipperScreen](https://github.com/jordanruthe/KlipperScreen)"
 msgstr "[KlipperScreen](https://github.com/jordanruthe/KlipperScreen)"
+
+#: docs/Sponsors.md:block 8 (paragraph)
+msgid ""
+"Kevin is the original author and current maintainer of Klipper. Donate at: "
+"<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
+msgstr ""
+
+#~ msgid ""
+#~ "Kevin is the original author and current maintainer of Klipper. Kevin has a "
+#~ "Patreon page at: <https://www.patreon.com/koconnor>"
+#~ msgstr ""
+#~ "Кевин е оригиналният автор и настоящ поддържащ Klipper. Кевин има страница в"
+#~ " Patreon на адрес: <https://www.patreon.com/koconnor>"

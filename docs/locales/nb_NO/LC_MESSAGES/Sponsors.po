@@ -48,12 +48,6 @@ msgstr ""
 msgid "Kevin O'Connor"
 msgstr ""
 
-#: docs/Sponsors.md:block 8 (paragraph)
-msgid ""
-"Kevin is the original author and current maintainer of Klipper. Kevin has a "
-"Patreon page at: <https://www.patreon.com/koconnor>"
-msgstr ""
-
 #: docs/Sponsors.md:block 9 (header)
 msgid "Eric Callahan"
 msgstr ""
@@ -93,3 +87,14 @@ msgstr ""
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[KlipperScreen](https://github.com/jordanruthe/KlipperScreen)"
 msgstr ""
+
+#: docs/Sponsors.md:block 8 (paragraph)
+msgid ""
+"Kevin is the original author and current maintainer of Klipper. Donate at: "
+"<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
+msgstr ""
+
+#~ msgid ""
+#~ "Kevin is the original author and current maintainer of Klipper. Kevin has a "
+#~ "Patreon page at: <https://www.patreon.com/koconnor>"
+#~ msgstr ""

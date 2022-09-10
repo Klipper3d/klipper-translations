@@ -7,8 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2022-09-05 11:21+0000\n"
 "Last-Translator: gbonaspetti <gbonaspetti@hotmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"klipper/g-codes/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/klipper/g-codes/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -843,8 +842,8 @@ msgid ""
 "\"register\" can be a decimal or a hexadecimal integer. Use with care, and "
 "refer to ADXL345 data sheet for the reference."
 msgstr ""
-"`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: "
-"Escreve \"value\" em bruto num registo \"register\". Tanto \"value\" como "
+"`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`:"
+" Escreve \"value\" em bruto num registo \"register\". Tanto \"value\" como "
 "\"register\" podem ser um número inteiro decimal ou hexadecimal. Use com "
 "cuidado, e consulte a folha de dados ADXL345 para a referência."
 
@@ -2271,6 +2270,28 @@ msgid ""
 "with `echo:` without a space between prefix and message, helpful for "
 "compatibility with some octoprint plugins that expect very specific "
 "formatting."
+msgstr ""
+
+#: docs/G-Codes.md:block 218 (header)
+msgid "[mcp4018]"
+msgstr ""
+
+#: docs/G-Codes.md:block 219 (paragraph)
+msgid ""
+"The following command is available when a [mcp4018 config "
+"section](Config_Reference.md#mcp4018) is enabled."
+msgstr ""
+
+#: docs/G-Codes.md:block 220 (header)
+msgid "SET_DIGIPOT"
+msgstr ""
+
+#: docs/G-Codes.md:block 221 (paragraph)
+msgid ""
+"`SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: This command will change "
+"the current value of the digipot. This value should typically be between 0.0"
+" and 1.0, unless a 'scale' is defined in the config. When 'scale' is "
+"defined, then this value should be between 0.0 and 'scale'."
 msgstr ""
 
 #~ msgid ""
