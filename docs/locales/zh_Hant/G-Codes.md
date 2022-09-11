@@ -461,6 +461,14 @@ The force_move module is automatically loaded, however some commands require set
 
 `MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|-1|-2]] [SYNC=0]]`：該命令將改變步進器的狀態。使用ENABLE參數來啟用/禁用步進。使用SET_POSITION參數，迫使步進認為它處於給定的位置。使用MOVE參數，要求移動到給定位置。如果指定了SPEED或者ACCEL，那麼將使用給定的值而不是配置檔案中指定的預設值。如果指定ACCEL為0，那麼將不執行加速。如果STOP_ON_ENDSTOP=1被指定，那麼如果止動器報告被觸發，動作將提前結束（使用STOP_ON_ENDSTOP=2來完成動作，即使止動器沒有被觸發也不會出錯，使用-1或-2來在止動器報告沒有被觸發時停止）。通常情況下，未來的G-Code命令將被安排在步進運動完成後執行，但是如果手動步進運動使用SYNC=0，那麼未來的G-Code運動命令可能與步進運動平行執行。
 
+### [mcp4018]
+
+The following command is available when a [mcp4018 config section](Config_Reference.md#mcp4018) is enabled.
+
+#### SET_DIGIPOT
+
+`SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: This command will change the current value of the digipot. This value should typically be between 0.0 and 1.0, unless a 'scale' is defined in the config. When 'scale' is defined, then this value should be between 0.0 and 'scale'.
+
 ### [led]
 
 The following command is available when any of the [led config sections](Config_Reference.md#leds) are enabled.

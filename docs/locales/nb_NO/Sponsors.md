@@ -1,26 +1,26 @@
 # Sponsorer
 
-Klipper is Free Software. We depend on the generous support from sponsors. Please consider sponsoring Klipper or supporting our sponsors.
+Klipper er fri programvare som avhenger av generøs støtte fra kronerullere. Gi det du synes Klipper er verdt for deg, eller støtt våre sponsorer.
 
 ## BIGTREETECH
 
 [<img src="./img/sponsors/BTT_BTT.png" width="200" />
 
-BIGTREETECH is the official mainboard sponsor of Klipper. BIGTREETECH is committed to developing innovative and competitive products to serve the 3D printing community better. Follow them on [Facebook](https://www.facebook.com/BIGTREETECH) or [Twitter](https://twitter.com/BigTreeTech).
+BIGTREETECH er offisiell hovedkortssponsor for Klipper. BIGTREETECH lager innovative og konkurransedyktige produkter til 3D-printing.
 
-## Klipper Developers
+## Klipper-utviklerne
 
 ### Kevin O'Connor
 
-Kevin is the original author and current maintainer of Klipper. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>
+Kevin er den opprinnelige og nåværende utvikleren av Klipper. Doner på <https://ko-fi.com/koconnor> eller <https://www.patreon.com/koconnor>
 
 ### Eric Callahan
 
-Eric is the author of bed_mesh, spi_flash, and several other Klipper modules. Eric has a donations page at: <https://ko-fi.com/arksine>
+Erik har utviklet bed_mesh, spi_flash, og flere andre Klipper-moduler. Eric har også sin egen donasjonsside på: <https://ko-fi.com/arksine>
 
-## Related Klipper Projects
+## Prosjekter som har med Klipper å gjøre
 
-Klipper is frequently used with other Free Software. Consider using or supporting these projects.
+Klipper brukes ofte med annen fri programvare. Overvei å støtte disse prosjektene.
 
 * [Moonraker](https://github.com/Arksine/moonraker)
 * [Mainsail](https://github.com/mainsail-crew/mainsail)

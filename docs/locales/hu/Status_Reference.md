@@ -86,6 +86,13 @@ A következő információk az [exclude_object](Exclude_Object.md) objektumban t
 - `excluded_objects`: A kizárt objektumok neveit felsoroló karakterláncok tömbje.
 - `current_object`: Az aktuálisan nyomtatott objektum neve.
 
+## extruder_stepper
+
+The following information is available for extruder_stepper objects (as well as [extruder](Config_Reference.md#extruder) objects):
+
+- `pressure_advance`: The current [pressure advance](Pressure_Advance.md) value.
+- `smooth_time`: The current pressure advance smooth time.
+
 ## fan
 
 A következő információk a [ventilátor](Config_Reference.md#fan), [heater_fan some_name](Config_Reference.md#heater_fan) és [controller_fan some_name](Config_Reference.md#controller_fan) objektumokban érhetők el:
@@ -293,6 +300,7 @@ A következő információk a `toolhead` objektumban érhetők el (ez az objektu
 - `extruder`: A jelenleg aktív extruder neve. Például egy makróban használhatjuk a `printer[printer.toolhead.extruder].target` parancsot, hogy megkapjuk az aktuális extruder célhőmérsékletét.
 - `homed_axes`: Az aktuálisan "homed" állapotban lévőnek tekintett cartesian tengelyek. Ez egy karakterlánc, amely egy vagy több "X", "Y", "Z" értéket tartalmaz.
 - `axis_minimum`, `axis_maximum`: A tengely mozgásának határai (mm) a kezdőpont felvétel után. Lehetőség van e határérték X, Y, Z összetevőinek elérésére (pl. `axis_minimum.x`, `axis_maximum.z`).
+- For Delta printers the `cone_start_z` is the max z height at maximum radius (`printer.toolhead.cone_start_z`).
 - `max_velocity`, `max_accel`, `max_accel_to_decel`, `square_corner_velocity`: Az aktuálisan érvényben lévő nyomtatási korlátok. Ez eltérhet a konfigurációs fájl beállításaitól, ha a `SET_VELOCITY_LIMIT` (vagy `M204`) parancs megváltoztatja azokat használat közben.
 - `stalls`: Az összes alkalom száma (az utolsó újraindítás óta), amikor a nyomtatót szüneteltetni kellett, mert a nyomtatófej gyorsabban mozgott, mint ahány mozdulatot a G-kód bemenetről be lehetett olvasni.
 

@@ -461,6 +461,14 @@ Il comando seguente è disponibile quando una [sezione di configurazione stepper
 
 `MANUAL_STEPPER STEPPER=nome_config [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<velocità>] [ACCEL=<accelerazione>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|- 1|-2]] [SYNC=0]]`: Questo comando altererà lo stato dello stepper. Utilizzare il parametro ENABLE per abilitare/disabilitare lo stepper. Utilizzare il parametro SET_POSITION per forzare lo stepper a pensare di trovarsi nella posizione data. Utilizzare il parametro MOVE per richiedere un movimento alla posizione data. Se viene specificato SPEED e/o ACCEL, verranno utilizzati i valori forniti al posto dei valori predefiniti specificati nel file di configurazione. Se viene specificato un ACCEL pari a zero, non verrà eseguita alcuna accelerazione. Se viene specificato STOP_ON_ENDSTOP=1, lo spostamento terminerà in anticipo se l'endstop segnala come attivato (usa STOP_ON_ENDSTOP=2 per completare lo spostamento senza errori anche se l'endstop non si attiva, usa -1 o -2 per interrompere quando l'endstop segnala non innescato). Normalmente i futuri comandi G-Code verranno programmati per essere eseguiti dopo il completamento del movimento passo-passo, tuttavia se un movimento passo-passo manuale utilizza SYNC=0, i futuri comandi di movimento G-Code potrebbero essere eseguiti in parallelo con il movimento passo-passo.
 
+### [mcp4018]
+
+The following command is available when a [mcp4018 config section](Config_Reference.md#mcp4018) is enabled.
+
+#### SET_DIGIPOT
+
+`SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: This command will change the current value of the digipot. This value should typically be between 0.0 and 1.0, unless a 'scale' is defined in the config. When 'scale' is defined, then this value should be between 0.0 and 'scale'.
+
 ### [led]
 
 Il comando seguente è disponibile quando una qualsiasi delle [sezioni di configurazione led](Config_Reference.md#leds) è abilitata.

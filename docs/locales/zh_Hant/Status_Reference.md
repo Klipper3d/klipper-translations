@@ -86,6 +86,13 @@ The following information is available in the [exclude_object](Exclude_Object.md
 - `excluded_objects`: An array of strings listing the names of excluded objects.
 - `current_object`: The name of the object currently being printed.
 
+## extruder_stepper
+
+The following information is available for extruder_stepper objects (as well as [extruder](Config_Reference.md#extruder) objects):
+
+- `pressure_advance`: The current [pressure advance](Pressure_Advance.md) value.
+- `smooth_time`: The current pressure advance smooth time.
+
 ## fan
 
 [fan](Config_Reference.md#fan)、[heater_fan some_name](Config_Reference.md#heater_fan)和[controller_fan some_name](Config_Reference.md#controller_fan)對像提供了以下資訊：
@@ -293,6 +300,7 @@ The following information is available in the `manual_probe` object:
 - `extruder`：目前活躍的擠出機的名稱。例如，在宏中可以使用`printer[printer.toolhead.extruder].target`來獲取目前擠出機的目標溫度。
 - `homed_axes`：目前被認為處於「已歸位」狀態的車軸。這是一個包含一個或多個"x"、"y"、"z"的字串。
 - `axis_minimum`、`axis_maximum`：歸位后的軸的行程限制（毫米）。可以訪問此極限值的 x、y、z 份量（例如，`axis_minimum.x`、`axis_maximum.z`）。
+- For Delta printers the `cone_start_z` is the max z height at maximum radius (`printer.toolhead.cone_start_z`).
 - `max_velocity`、`max_accel`、`max_accel_to_decel`和`square_corner_velocity`：目前生效的印表機限制。如果 `SET_VELOCITY_LIMIT`（或 `M204`）命令在執行時改變它們，這些值可能與配置檔案設定不同。
 - `stalls`：由於工具頭移動速度快于從 G 程式碼輸入讀取的移動速度，因此印表機必須暫停的總次數（自上次重新啟動以來）。
 

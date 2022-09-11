@@ -86,6 +86,13 @@ Le seguenti informazioni sono disponibili nell'oggetto [exclude_object](Exclude_
 - `excluded_objects`: un array di stringhe che elenca i nomi degli oggetti esclusi.
 - `current_object`: il nome dell'oggetto attualmente in fase di stampa.
 
+## extruder_stepper
+
+The following information is available for extruder_stepper objects (as well as [extruder](Config_Reference.md#extruder) objects):
+
+- `pressure_advance`: The current [pressure advance](Pressure_Advance.md) value.
+- `smooth_time`: The current pressure advance smooth time.
+
 ## fan
 
 Le seguenti informazioni sono disponibili negli oggetti [fan](Config_Reference.md#fan), [heater_fan some_name](Config_Reference.md#heater_fan) e [controller_fan some_name](Config_Reference.md#controller_fan):
@@ -293,6 +300,7 @@ Le seguenti informazioni sono disponibili nell'oggetto `toolhead` (questo oggett
 - `extruder`: il nome dell'estrusore attualmente attivo. Ad esempio, in una macro si potrebbe usare `printer[printer.toolhead.extruder].target` per ottenere la temperatura target dell'estrusore corrente.
 - `homed_axes`: Gli assi cartesiani correnti considerati in uno stato "homed". Questa è una stringa contenente uno o più di "x", "y", "z".
 - `axis_minimum`, `axis_maximum`: i limiti di corsa dell'asse (mm) dopo la corsa di homing. È possibile accedere alle componenti x, y, z di questo valore limite (ad es. `axis_minimum.x`, `axis_minimum.z`).
+- For Delta printers the `cone_start_z` is the max z height at maximum radius (`printer.toolhead.cone_start_z`).
 - `max_velocity`, `max_accel`, `max_accel_to_decel`, `square_corner_velocity`: gli attuali limiti di stampa in vigore. Questo può differire dalle impostazioni del file di configurazione se un comando `SET_VELOCITY_LIMIT` (o `M204`) le altera in fase di esecuzione.
 - `stalls`: il numero totale di volte (dall'ultimo riavvio) che la stampante ha dovuto essere messa in pausa perché la testina si muoveva più velocemente di quanto fosse possibile leggere i movimenti dall'input del G-code.
 

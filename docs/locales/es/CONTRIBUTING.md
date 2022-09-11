@@ -1,6 +1,6 @@
 # Contribuir a Klipper
 
-Gracias por contribuir a Klipper! Este document describe el proceso de contribuir a Klipper.
+¡Gracias por contribuir a Klipper! Este documento describe el proceso de contribuir cambios a Klipper.
 
 Por favor, eche un vistazo a la [página de contacto](Contact.md) para más información sobre reportar problemas o para más detalles a la hora de contactar con los desarrolladores.
 
@@ -14,7 +14,7 @@ Contributions to Klipper generally follow a high-level process:
 
 When working on enhancements, consider starting (or contributing to) a topic on [Klipper Discourse](Contact.md). An ongoing discussion on the forum can improve visibility of development work and may attract others interested in testing new work.
 
-## What to expect in a review
+## Qué es esperable durante una revisión
 
 Contributions to Klipper are reviewed before merging. The primary goal of the review process is to check for defects and to check that the submission follows guidelines specified in the Klipper documentation.
 
@@ -33,7 +33,7 @@ Common things a reviewer will look for:
 
    Code submissions should not contain excessive debugging code, debugging options, nor run-time debug logging.
 
-   Comments in code submissions should focus on enhancing code maintenance. Submissions should not contain "commented out code" nor excessive comments describing past implementations. There should not be excessive "todo" comments.
+   Los comentarios en los envíos de código deben focalizarse en mejorar el mantenimiento del código. Los envíos no deben contener código comentarizado ni comentarios excesivos que describan elaboraciones pasadas. Tampoco debería haber comentarios sobre tareas pendientes en demasía.
 
    Updates to documentation should not declare that they are a "work in progress".
 
@@ -109,7 +109,7 @@ Please do not "ping" any of the reviewers and please do not direct submissions a
 
 The Klipper "maintainers" are:
 
-| Name | GitHub name |
+| Name | Nombre en GitHub |
 | --- | --- |
 | Kevin O'Connor | @KevinOConnor |
 
