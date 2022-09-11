@@ -12,7 +12,7 @@ BIGTREETECH is the official mainboard sponsor of Klipper. BIGTREETECH is committ
 
 ### Kevin O'Connor
 
-Kevin is the original author and current maintainer of Klipper. Kevin has a Patreon page at: <https://www.patreon.com/koconnor>
+Kevin is the original author and current maintainer of Klipper. Donate at: <https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>
 
 ### Eric Callahan
 

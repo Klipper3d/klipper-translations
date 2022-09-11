@@ -86,6 +86,13 @@ The following information is available in the [exclude_object](Exclude_Object.md
 - `excluded_objects`: An array of strings listing the names of excluded objects.
 - `current_object`: The name of the object currently being printed.
 
+## extruder_stepper
+
+The following information is available for extruder_stepper objects (as well as [extruder](Config_Reference.md#extruder) objects):
+
+- `pressure_advance`: The current [pressure advance](Pressure_Advance.md) value.
+- `smooth_time`: The current pressure advance smooth time.
+
 ## fan
 
 다음 정보는 [fan](Config_Reference.md#fan), [heater_fan some_name](Config_Reference.md#heater_fan) 및 [controller_fan some_name](Config_Reference.md#controller_fan) 개체에서 사용할 수 있습니다:
@@ -293,6 +300,7 @@ The following information is available in [TMC stepper driver](Config_Reference.
 - `extruder`: 현재 활성 압출기의 이름입니다. 예를 들어 매크로에서 `printer[printer.toolhead.extruder].target`을 사용하여 현재 압출기의 목표 온도를 얻을 수 있습니다.
 - `homed_axes`: "homed" 상태에 있는 것으로 간주되는 현재 직교 축입니다. "x", "y", "z" 중 하나 이상을 포함하는 문자열입니다.
 - `axis_minimum`, `axis_maximum`: 원점 복귀 후 축 이동 한계(mm). 이 제한 값의 x, y, z 구성 요소에 액세스할 수 있습니다 (예: `axis_minimum.x`, `axis_maximum.z`).
+- For Delta printers the `cone_start_z` is the max z height at maximum radius (`printer.toolhead.cone_start_z`).
 - `max_velocity`, `max_accel`, `max_accel_to_decel`, `square_corner_velocity`: 유효한 현재 인쇄 제한입니다. 이는 `SET_VELOCITY_LIMIT`(또는 `M204`) 명령이 런타임에 변경하는 경우 구성 파일 설정과 다를 수 있습니다.
 - `stalls`: toolhead가 G-Code 입력에서 읽을 수 있는 것보다 빠르게 이동하여 프린터를 일시 중지해야 했던 총 횟수(마지막 다시 시작한 이후).
 

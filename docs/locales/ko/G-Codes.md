@@ -461,6 +461,14 @@ The following command is available when a [manual_stepper config section](Config
 
 `MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|-1|-2]] [SYNC=0]]`: 이 명령은 스테퍼의 상태를 변경합니다. ENABLE 매개변수를 사용하여 스테퍼를 활성화/비활성화합니다. SET_POSITION 매개변수를 사용하여 스테퍼가 지정된 위치에 있다고 생각하도록 합니다. MOVE 매개변수를 사용하여 지정된 위치로 이동을 요청합니다. SPEED 및/또는 ACCEL이 지정되면 구성 파일에 지정된 기본값 대신 지정된 값이 사용됩니다. 0의 ACCEL이 지정되면 가속이 수행되지 않습니다. STOP_ON_ENDSTOP=1 이 지정되면 endstop 보고서가 트리거되면 이동이 일찍 종료됩니다 (엔드스톱이 트리거되지 않더라도 오류 없이 이동을 완료하려면 STOP_ON_ENDSTOP=2를 사용하고, 엔드스톱이 트리거되지 않았다고 보고할 때 중지하려면 -1 또는 -2를 사용). 일반적으로 향후 G-Code 명령은 스테퍼 이동이 완료된 후 실행되도록 예약되지만 수동 스테퍼 이동이 SYNC=0을 사용하는 경우 향후 G-Code 이동 명령은 스테퍼 이동과 병렬로 실행될 수 있습니다.
 
+### [mcp4018]
+
+The following command is available when a [mcp4018 config section](Config_Reference.md#mcp4018) is enabled.
+
+#### SET_DIGIPOT
+
+`SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: This command will change the current value of the digipot. This value should typically be between 0.0 and 1.0, unless a 'scale' is defined in the config. When 'scale' is defined, then this value should be between 0.0 and 'scale'.
+
 ### [led]
 
 The following command is available when any of the [led config sections](Config_Reference.md#leds) are enabled.

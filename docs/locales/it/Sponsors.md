@@ -12,7 +12,7 @@ BIGTREETECH è lo sponsor ufficiale della scheda madre di Klipper. BIGTREETECH s
 
 ### Kevin O'Connor
 
-Kevin è l'autore originale e l'attuale manutentore di Klipper. Kevin ha una pagina Patreon : <https://www.patreon.com/koconnor>
+Kevin is the original author and current maintainer of Klipper. Donate at: <https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>
 
 ### Eric Callahan
 
