@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-24 07:20+0000\n"
+"PO-Revision-Date: 2022-09-11 15:15+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/sponsors/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/"
+"sponsors/nb_NO/>\n"
 "Language: nb_NO\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
@@ -20,6 +21,8 @@ msgid ""
 "Klipper is Free Software. We depend on the generous support from sponsors. "
 "Please consider sponsoring Klipper or supporting our sponsors."
 msgstr ""
+"Klipper er fri programvare som avhenger av generøs støtte fra kronerullere. "
+"Gi det du synes Klipper er verdt for deg, eller støtt våre sponsorer."
 
 #: docs/Sponsors.md:block 3 (header)
 msgid "BIGTREETECH"
@@ -39,10 +42,12 @@ msgid ""
 "[Facebook](https://www.facebook.com/BIGTREETECH) or "
 "[Twitter](https://twitter.com/BigTreeTech)."
 msgstr ""
+"BIGTREETECH er offisiell hovedkortssponsor for Klipper. BIGTREETECH lager "
+"innovative og konkurransedyktige produkter til 3D-printing."
 
 #: docs/Sponsors.md:block 6 (header)
 msgid "Klipper Developers"
-msgstr ""
+msgstr "Klipper-utviklerne"
 
 #: docs/Sponsors.md:block 7 (header)
 msgid "Kevin O'Connor"
@@ -57,16 +62,20 @@ msgid ""
 "Eric is the author of bed_mesh, spi_flash, and several other Klipper "
 "modules. Eric has a donations page at: <https://ko-fi.com/arksine>"
 msgstr ""
+"Erik har utviklet bed_mesh, spi_flash, og flere andre Klipper-moduler. Eric "
+"har også sin egen donasjonsside på: <https://ko-fi.com/arksine>"
 
 #: docs/Sponsors.md:block 11 (header)
 msgid "Related Klipper Projects"
-msgstr ""
+msgstr "Prosjekter som har med Klipper å gjøre"
 
 #: docs/Sponsors.md:block 12 (paragraph)
 msgid ""
 "Klipper is frequently used with other Free Software. Consider using or "
 "supporting these projects."
 msgstr ""
+"Klipper brukes ofte med annen fri programvare. Overvei å støtte disse "
+"prosjektene."
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Moonraker](https://github.com/Arksine/moonraker)"
@@ -93,6 +102,8 @@ msgid ""
 "Kevin is the original author and current maintainer of Klipper. Donate at: "
 "<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
 msgstr ""
+"Kevin er den opprinnelige og nåværende utvikleren av Klipper. Doner på <https"
+"://ko-fi.com/koconnor> eller <https://www.patreon.com/koconnor>"
 
 #~ msgid ""
 #~ "Kevin is the original author and current maintainer of Klipper. Kevin has a "
