@@ -4,8 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2022-08-20 15:23+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"klipper/status_reference/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/status_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1001,8 +1000,7 @@ msgstr "`is_active`：如果床调平螺丝调整工具当前处于活动状态�
 msgid ""
 "`state`: The bed screws adjustment tool state. It is one of the following "
 "strings: \"adjust\", \"fine\"."
-msgstr "`state`：床调平螺丝调整工具状态。它可以是以下字符串之一：\"adjust\", \"fine\""
-"。"
+msgstr "`state`：床调平螺丝调整工具状态。它可以是以下字符串之一：\"adjust\", \"fine\"。"
 
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid "`current_screw`: The index for the current screw being adjusted."
@@ -1011,6 +1009,32 @@ msgstr "`current_screw`：当前正在被调整的螺丝的索引。"
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid "`accepted_screws`: The number of accepted screws."
 msgstr "`accepted_screws`：已被接受的螺丝数量。"
+
+#: docs/Status_Reference.md:block 27 (header)
+msgid "extruder_stepper"
+msgstr ""
+
+#: docs/Status_Reference.md:block 28 (paragraph)
+msgid ""
+"The following information is available for extruder_stepper objects (as well"
+" as [extruder](Config_Reference.md#extruder) objects):"
+msgstr ""
+
+#: docs/Status_Reference.md:block 29 (unordered list)
+msgid ""
+"`pressure_advance`: The current [pressure advance](Pressure_Advance.md) "
+"value."
+msgstr ""
+
+#: docs/Status_Reference.md:block 29 (unordered list)
+msgid "`smooth_time`: The current pressure advance smooth time."
+msgstr ""
+
+#: docs/Status_Reference.md:block 114 (unordered list)
+msgid ""
+"For Delta printers the `cone_start_z` is the max z height at maximum radius "
+"(`printer.toolhead.cone_start_z`)."
+msgstr ""
 
 #~ msgid "neopixel / dotstar"
 #~ msgstr "neopixel / dotstar"

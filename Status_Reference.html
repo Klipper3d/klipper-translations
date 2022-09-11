@@ -839,6 +839,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#extruder_stepper" class="md-nav__link">
+    extruder_stepper
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fan" class="md-nav__link">
     fan
   </a>
@@ -1579,6 +1586,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#extruder_stepper" class="md-nav__link">
+    extruder_stepper
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#fan" class="md-nav__link">
     fan
   </a>
@@ -1940,6 +1954,13 @@ the following strings: "adjust", "fine".</li>
 <li><code>excluded_objects</code>: An array of strings listing the names of excluded objects.</li>
 <li><code>current_object</code>: The name of the object currently being printed.</li>
 </ul>
+<h2 id="extruder_stepper">extruder_stepper<a class="headerlink" href="#extruder_stepper" title="Permanent link">&para;</a></h2>
+<p>The following information is available for extruder_stepper objects (as well as
+<a href="Config_Reference.html#extruder">extruder</a> objects):</p>
+<ul>
+<li><code>pressure_advance</code>: The current <a href="Pressure_Advance.html">pressure advance</a> value.</li>
+<li><code>smooth_time</code>: The current pressure advance smooth time.</li>
+</ul>
 <h2 id="fan">fan<a class="headerlink" href="#fan" title="Permanent link">&para;</a></h2>
 <p>The following information is available in
 <a href="Config_Reference.html#fan">fan</a>,
@@ -2257,6 +2278,8 @@ objects (eg, <code>[tmc2208 stepper_x]</code>):</p>
 <li><code>axis_minimum</code>, <code>axis_maximum</code>: The axis travel limits (mm) after
   homing.  It is possible to access the x, y, z components of this
   limit value (eg, <code>axis_minimum.x</code>, <code>axis_maximum.z</code>).</li>
+<li>For Delta printers the <code>cone_start_z</code> is the max z height at
+  maximum radius (<code>printer.toolhead.cone_start_z</code>).</li>
 <li><code>max_velocity</code>, <code>max_accel</code>, <code>max_accel_to_decel</code>,
   <code>square_corner_velocity</code>: The current printing limits that are in
   effect. This may differ from the config file settings if a

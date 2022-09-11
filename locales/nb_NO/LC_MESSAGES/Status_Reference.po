@@ -890,6 +890,32 @@ msgstr ""
 msgid "`accepted_screws`: The number of accepted screws."
 msgstr ""
 
+#: docs/Status_Reference.md:block 27 (header)
+msgid "extruder_stepper"
+msgstr ""
+
+#: docs/Status_Reference.md:block 28 (paragraph)
+msgid ""
+"The following information is available for extruder_stepper objects (as well"
+" as [extruder](Config_Reference.md#extruder) objects):"
+msgstr ""
+
+#: docs/Status_Reference.md:block 29 (unordered list)
+msgid ""
+"`pressure_advance`: The current [pressure advance](Pressure_Advance.md) "
+"value."
+msgstr ""
+
+#: docs/Status_Reference.md:block 29 (unordered list)
+msgid "`smooth_time`: The current pressure advance smooth time."
+msgstr ""
+
+#: docs/Status_Reference.md:block 114 (unordered list)
+msgid ""
+"For Delta printers the `cone_start_z` is the max z height at maximum radius "
+"(`printer.toolhead.cone_start_z`)."
+msgstr ""
+
 #~ msgid "neopixel / dotstar"
 #~ msgstr ""
 
