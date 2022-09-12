@@ -2068,6 +2068,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#mcp4018" class="md-nav__link">
+    [mcp4018]
+  </a>
+  
+    <nav class="md-nav" aria-label="[mcp4018]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set_digipot" class="md-nav__link">
+    SET_DIGIPOT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#led" class="md-nav__link">
     [led]
   </a>
@@ -2983,6 +3003,10 @@
 <p>The following command is available when a <a href="Config_Reference.html#manual_stepper">manual_stepper config section</a> is enabled.</p>
 <h4 id="manual_stepper_1">MANUAL_STEPPER<a class="headerlink" href="#manual_stepper_1" title="Permanent link">&para;</a></h4>
 <p><code>MANUAL_STEPPER STEPPER=nom_du_config [ENABLE=[0|1]]] [SET_POSITION=&lt;pos&gt;] [SPEED=&lt;speed&gt;] [ACCEL=&lt;accel&gt;] [MOVE=&lt;pos&gt; [STOP_ON_ENDSTOP=[1|2|-1|-2]] [SYNC=0]]</code> : Cette commande modifie l'état du stepper. Utilisez le paramètre ENABLE pour activer/désactiver le stepper. Utilisez le paramètre SET_POSITION pour forcer le moteur pas à pas à penser qu'il se trouve à la position donnée. Utilisez le paramètre MOVE pour déplacer vers la position donnée. Si SPEED et/ou ACCEL sont spécifiés, les valeurs données seront utilisées à la place de celles par défaut issues du fichier de configuration. Si un ACCEL de zéro est spécifié, aucune accélération ne sera effectuée. Si STOP_ON_ENDSTOP=1 est spécifié, le déplacement se terminera prématurément si la fin de course est déclenchée (utilisez STOP_ON_ENDSTOP=2 pour terminer le déplacement sans erreur même si la fin de course n'est pas déclenchée, utilisez -1 ou -2 pour s'arrêter lorsque la fin de course n'est pas déclenchée). Normalement, les futures commandes G-Code seront programmées pour être exécutées après la fin du déplacement de la commande de pas, mais si un déplacement manuel de la commande de pas utilise SYNC=0, les futures commandes de déplacement G-Code peuvent être exécutées en parallèle avec le déplacement de la commande de pas.</p>
+<h3 id="mcp4018">[mcp4018]<a class="headerlink" href="#mcp4018" title="Permanent link">&para;</a></h3>
+<p>The following command is available when a <a href="Config_Reference.html#mcp4018">mcp4018 config section</a> is enabled.</p>
+<h4 id="set_digipot">SET_DIGIPOT<a class="headerlink" href="#set_digipot" title="Permanent link">&para;</a></h4>
+<p><code>SET_DIGIPOT DIGIPOT=config_name WIPER=&lt;value&gt;</code>: This command will change the current value of the digipot. This value should typically be between 0.0 and 1.0, unless a 'scale' is defined in the config. When 'scale' is defined, then this value should be between 0.0 and 'scale'.</p>
 <h3 id="led">[led]<a class="headerlink" href="#led" title="Permanent link">&para;</a></h3>
 <p>The following command is available when any of the <a href="Config_Reference.html#leds">led config sections</a> are enabled.</p>
 <h4 id="set_led">SET_LED<a class="headerlink" href="#set_led" title="Permanent link">&para;</a></h4>

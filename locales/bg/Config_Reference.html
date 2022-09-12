@@ -1289,6 +1289,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#deltesian-kinematics" class="md-nav__link">
+    Deltesian Kinematics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#corexy-kinematics" class="md-nav__link">
     CoreXY Kinematics
   </a>
@@ -2418,8 +2425,7 @@ serial:
 kinematics:
 #   The type of printer in use. This option may be one of: cartesian,
 #   corexy, corexz, hybrid_corexy, hybrid_corexz, rotary_delta, delta,
-#   polar, winch, or none. This
-#   parameter must be specified.
+#   deltesian, polar, winch, or none. This parameter must be specified.
 max_velocity:
 #   Maximum velocity (in mm/s) of the toolhead (relative to the
 #   print). This parameter must be specified.
@@ -2623,6 +2629,74 @@ radius:
 #horizontal_move_z: 5
 #   The height (in mm) that the head should be commanded to move to
 #   just prior to starting a probe operation. The default is 5.
+</code></pre></div>
+
+<h3 id="deltesian-kinematics">Deltesian Kinematics<a class="headerlink" href="#deltesian-kinematics" title="Permanent link">&para;</a></h3>
+<p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-deltesian.cfg">example-deltesian.cfg</a> for an example deltesian kinematics config file.</p>
+<p>Only parameters specific to deltesian printers are described here - see <a href="#common-kinematic-settings">common kinematic settings</a> for available parameters.</p>
+<div class="highlight"><pre><span></span><code>[printer]
+kinematics: deltesian
+max_z_velocity:
+#   For deltesian printers, this limits the maximum velocity (in mm/s) of
+#   moves with z axis movement. This setting can be used to reduce the
+#   maximum speed of up/down moves (which require a higher step rate
+#   than other moves on a deltesian printer). The default is to use
+#   max_velocity for max_z_velocity.
+#max_z_accel:
+#   This sets the maximum acceleration (in mm/s^2) of movement along
+#   the z axis. Setting this may be useful if the printer can reach higher
+#   acceleration on XY moves than Z moves (eg, when using input shaper).
+#   The default is to use max_accel for max_z_accel.
+#minimum_z_position: 0
+#   The minimum Z position that the user may command the head to move
+#   to. The default is 0.
+#min_angle: 5
+#   This represents the minimum angle (in degrees) relative to horizontal
+#   that the deltesian arms are allowed to achieve. This parameter is
+#   intended to restrict the arms from becomming completely horizontal,
+#   which would risk accidental inversion of the XZ axis. The default is 5.
+#print_width:
+#   The distance (in mm) of valid toolhead X coordinates. One may use
+#   this setting to customize the range checking of toolhead moves. If
+#   a large value is specified here then it may be possible to command
+#   the toolhead into a collision with a tower. This setting usually
+#   corresponds to bed width (in mm).
+#slow_ratio: 3
+#   The ratio used to limit velocity and acceleration on moves near the
+#   extremes of the X axis. If vertical distance divided by horizontal
+#   distance exceeds the value of slow_ratio, then velocity and
+#   acceleration are limited to half their nominal values. If vertical
+#   distance divided by horizontal distance exceeds twice the value of
+#   the slow_ratio, then velocity and acceleration are limited to one
+#   quarter of their nominal values. The default is 3.
+
+# The stepper_left section is used to describe the stepper controlling
+# the left tower. This section also controls the homing parameters
+# (homing_speed, homing_retract_dist) for all towers.
+[stepper_left]
+position_endstop:
+#   Distance (in mm) between the nozzle and the bed when the nozzle is
+#   in the center of the build area and the endstops are triggered. This
+#   parameter must be provided for stepper_left; for stepper_right this
+#   parameter defaults to the value specified for stepper_left.
+arm_length:
+#   Length (in mm) of the diagonal rod that connects the tower carriage to
+#   the print head. This parameter must be provided for stepper_left; for
+#   stepper_right, this parameter defaults to the value specified for
+#   stepper_left.
+arm_x_length:
+#   Horizontal distance between the print head and the tower when the
+#   printers is homed. This parameter must be provided for stepper_left;
+#   for stepper_right, this parameter defaults to the value specified for
+#   stepper_left.
+
+# The stepper_right section is used to desribe the stepper controlling the
+# right tower.
+[stepper_right]
+
+# The stepper_y section is used to describe the stepper controlling
+# the Y axis in a deltesian robot.
+[stepper_y]
 </code></pre></div>
 
 <h3 id="corexy-kinematics">CoreXY Kinematics<a class="headerlink" href="#corexy-kinematics" title="Permanent link">&para;</a></h3>
@@ -4240,64 +4314,70 @@ serial_no:
 <h2 id="_19">Вентилатори<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
 <h3 id="_20">[вентилатор]<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
 <p>Print cooling fan.</p>
-<div class="highlight"><pre><span></span><code>[вентилатор]
-щифт:
-# Изходен щифт, контролиращ вентилатора. Този параметър трябва да бъде предоставен.
+<div class="highlight"><pre><span></span><code>[fan]
+pin:
+#   Output pin controlling the fan. This parameter must be provided.
 #max_power: 1.0
-# Максималната мощност (изразена като стойност от 0,0 до 1,0), която
-# щифт може да е настроен на. Стойността 1.0 позволява щифтът да бъде зададен изцяло
-# разрешено за удължени периоди, докато стойност 0,5 би позволила
-# щифт да бъде активиран за не повече от половината време. Тази настройка може да
-# да се използва за ограничаване на общата мощност (за удължени периоди) до
-# вентилатора. Ако тази стойност е по-малко от 1.0 тогава заявки за скорост на вентилатора
-# ще бъде мащабиран между нула и max_power (например, ако
-# max_power е .9 и се иска скорост на вентилатора от 80% тогава вентилаторът
-# мощността ще бъде настроена на 72%). По подразбиране е 1.0.
+#   The maximum power (expressed as a value from 0.0 to 1.0) that the
+#   pin may be set to. The value 1.0 allows the pin to be set fully
+#   enabled for extended periods, while a value of 0.5 would allow the
+#   pin to be enabled for no more than half the time. This setting may
+#   be used to limit the total power output (over extended periods) to
+#   the fan. If this value is less than 1.0 then fan speed requests
+#   will be scaled between zero and max_power (for example, if
+#   max_power is .9 and a fan speed of 80% is requested then the fan
+#   power will be set to 72%). The default is 1.0.
 #shutdown_speed: 0
-# Желаната скорост на вентилатора (изразена като стойност от 0,0 до 1,0), ако
-# софтуерът на микро-контролера влиза в състояние на грешка. По подразбиране
-# е 0.
+#   The desired fan speed (expressed as a value from 0.0 to 1.0) if
+#   the micro-controller software enters an error state. The default
+#   is 0.
 #cycle_time: 0.010
-# Количеството време (за секунди) за всеки цикъл на pWM мощност към
-# фен. Препоръчва се това да бъде 10 милисекунди или по-голямо, когато
-# използване на софтуер, базиран PWM. По подразбиране е 0.010 секунди.
-#hardware_pwm: Невярно
-# Активирайте това, за да използвате хардуер pWM вместо софтуер PWM. Повечето фенове
-# не работят добре с хардуер PWM, така че не се препоръчва да се
-# активирайте това, освен ако няма електрическо изискване за превключване на
-# много високи скорости. При използване на хардуер pWM действителното време цикъл е
-# ограничен от изпълнението и може да бъде значително
-# по-различно от исканото cycle_time. По подразбиране е False.
+#   The amount of time (in seconds) for each PWM power cycle to the
+#   fan. It is recommended this be 10 milliseconds or greater when
+#   using software based PWM. The default is 0.010 seconds.
+#hardware_pwm: False
+#   Enable this to use hardware PWM instead of software PWM. Most fans
+#   do not work well with hardware PWM, so it is not recommended to
+#   enable this unless there is an electrical requirement to switch at
+#   very high speeds. When using hardware PWM the actual cycle time is
+#   constrained by the implementation and may be significantly
+#   different than the requested cycle_time. The default is False.
 #kick_start_time: 0.100
-# Време (в секунди), за да стартирате вентилатора на пълна скорост, когато или първи
-# разрешаване или увеличаването му с повече от 50% (помага за получаване на вентилатора
-# предене). По подразбиране е 0.100 секунди.
+#   Time (in seconds) to run the fan at full speed when either first
+#   enabling or increasing it by more than 50% (helps get the fan
+#   spinning). The default is 0.100 seconds.
 #off_below: 0.0
-# Минималната входна скорост, която ще захранва вентилатора (изразена като
-# стойност от 0,0 до 1,0). Когато скорост, по-ниска от off_below, е
-# поиска вентилатора вместо това ще бъде изключен. Тази настройка може да е
-# използва за предотвратяване на вентилаторни сергии и за да се гарантира ритник започва са
-# ефективно. По подразбиране е 0.0.
+#   The minimum input speed which will power the fan (expressed as a
+#   value from 0.0 to 1.0). When a speed lower than off_below is
+#   requested the fan will instead be turned off. This setting may be
+#   used to prevent fan stalls and to ensure kick starts are
+#   effective. The default is 0.0.
 #
-# Тази настройка трябва да се пренастроява винаги, когато max_power се регулира.
-# За да калибрирате тази настройка, започнете с off_below настроен на 0,0 и
-# предене на вентилатора. Постепенно понижавайте скоростта на вентилатора, за да определите най-ниската
-# входна скорост, която надеждно задвижва вентилатора без сергии. Множество
-# off_below на цикъла на митото, съответстващ на тази стойност (за
-# пример, 12% -&gt; 0.12) или малко по-висока.
+#   This setting should be recalibrated whenever max_power is adjusted.
+#   To calibrate this setting, start with off_below set to 0.0 and the
+#   fan spinning. Gradually lower the fan speed to determine the lowest
+#   input speed which reliably drives the fan without stalls. Set
+#   off_below to the duty cycle corresponding to this value (for
+#   example, 12% -&gt; 0.12) or slightly higher.
 #tachometer_pin:
-# Тахометър входен щифт за наблюдение на скоростта на вентилатора. А pullup е като цяло
-# изисква се. Този параметър не е задължителен.
+#   Tachometer input pin for monitoring fan speed. A pullup is generally
+#   required. This parameter is optional.
 #tachometer_ppr: 2
-# Когато е посочено tachometer_pin, това е броят на импулсите на
-# революция на сигнала на тахометъра. За вентилатор на BLDC това е
-# нормално половината от броя на полюсите. По подразбиране е 2.
+#   When tachometer_pin is specified, this is the number of pulses per
+#   revolution of the tachometer signal. For a BLDC fan this is
+#   normally half the number of poles. The default is 2.
 #tachometer_poll_interval: 0.0015
-# Когато е посочено tachometer_pin, това е периодът на гласуване на
-# тахометър щифт, за секунди. По подразбиране е 0.0015, което е бързо
-# достатъчно за фенове под 10000 RPM при 2 PPR. Това трябва да е по-малко от
-# 30 /(tachometer_ppr*rpm), с известен марж, където rpm е
-# максимална скорост (в RPM) на вентилатора.
+#   When tachometer_pin is specified, this is the polling period of the
+#   tachometer pin, in seconds. The default is 0.0015, which is fast
+#   enough for fans below 10000 RPM at 2 PPR. This must be smaller than
+#   30/(tachometer_ppr*rpm), with some margin, where rpm is the
+#   maximum speed (in RPM) of the fan.
+#enable_pin:
+#   Optional pin to enable power to the fan. This can be useful for fans
+#   with dedicated PWM inputs. Some of these fans stay on even at 0% PWM
+#   input. In such a case, the PWM pin can be used normally, and e.g. a
+#   ground-switched FET(standard fan pin) can be used to control power to
+#   the fan.
 </code></pre></div>
 
 <h3 id="heater_fan">[heater_fan]<a class="headerlink" href="#heater_fan" title="Permanent link">&para;</a></h3>
@@ -4313,6 +4393,7 @@ serial_no:
 #tachometer_pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
+#enable_pin:
 #   See the &quot;fan&quot; section for a description of the above parameters.
 #heater: extruder
 #   Name of the config section defining the heater that this fan is
@@ -4341,26 +4422,27 @@ serial_no:
 #tachometer_pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
-# Вижте раздела &quot;Вентилатор&quot; за описание на горните параметри.
+#enable_pin:
+#   See the &quot;fan&quot; section for a description of the above parameters.
 #fan_speed: 1.0
-# Скоростта на вентилатора (изразена като стойност от 0,0 до 1,0), която вентилаторът
-# ще бъде настроен, когато е активен нагревател или стъпков драйвер.
-# По подразбиране е 1,0
+#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
+#   will be set to when a heater or stepper driver is active.
+#   The default is 1.0
 #idle_timeout:
-# Времето (в секунди), след като стъпков драйвер или нагревател
-# е бил активен и вентилаторът трябва да продължи да работи. По подразбиране
-# е 30 секунди.
+#   The amount of time (in seconds) after a stepper driver or heater
+#   was active and the fan should be kept running. The default
+#   is 30 seconds.
 #idle_speed:
-# Скоростта на вентилатора (изразена като стойност от 0,0 до 1,0), която вентилаторът
-# ще бъде настроен, когато нагревателят или стъпковият драйвер са били активни и
-# преди да бъде достигнат idle_timeout. По подразбиране е fan_speed.
-#нагревател:
-#степер:
-# Име на секцията от конфигурацията, определяща нагревателя/степера, който този вентилатор
-# е свързан с него. Ако е списък от имена на нагреватели/степери, разделени със запетая
-# е предоставен тук, тогава вентилаторът ще бъде активиран, когато някой от дадените
-# нагреватели/степери са активирани. По подразбиране нагревателят е &quot;екструдер&quot;, а
-# стъпка по подразбиране са всички от тях.
+#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
+#   will be set to when a heater or stepper driver was active and
+#   before the idle_timeout is reached. The default is fan_speed.
+#heater:
+#stepper:
+#   Name of the config section defining the heater/stepper that this fan
+#   is associated with. If a comma separated list of heater/stepper names
+#   is provided here, then the fan will be enabled when any of the given
+#   heaters/steppers are enabled. The default heater is &quot;extruder&quot;, the
+#   default stepper is all of them.
 </code></pre></div>
 
 <h3 id="temperature_fan">[temperature_fan]<a class="headerlink" href="#temperature_fan" title="Permanent link">&para;</a></h3>
@@ -4377,6 +4459,7 @@ serial_no:
 #tachometer_pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
+#enable_pin:
 #   See the &quot;fan&quot; section for a description of the above parameters.
 #sensor_type:
 #sensor_pin:
@@ -4429,7 +4512,8 @@ serial_no:
 #tachometer_pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
-# Вижте раздела &quot;Вентилатор&quot; за описание на горните параметри.
+#enable_pin:
+#   See the &quot;fan&quot; section for a description of the above parameters.
 </code></pre></div>
 
 <h2 id="_21">светодиоди<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
