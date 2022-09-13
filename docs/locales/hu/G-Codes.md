@@ -463,11 +463,11 @@ A következő parancs akkor érhető el, ha a [manual_stepper konfigurációs sz
 
 ### [mcp4018]
 
-The following command is available when a [mcp4018 config section](Config_Reference.md#mcp4018) is enabled.
+A következő parancs akkor érhető el, ha az [mcp4018 config szekció](Config_Reference.md#mcp4018) engedélyezve van.
 
 #### SET_DIGIPOT
 
-`SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: This command will change the current value of the digipot. This value should typically be between 0.0 and 1.0, unless a 'scale' is defined in the config. When 'scale' is defined, then this value should be between 0.0 and 'scale'.
+`SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: Ez a parancs megváltoztatja a digipot aktuális értékét. Ennek az értéknek általában 0.0 és 1.0 között kell lennie, hacsak a configban nincs definiálva 'scale'. Ha 'scale' van definiálva, akkor ennek az értéknek 0.0 és a 'scale' érték között kell lennie.
 
 ### [led]
 
