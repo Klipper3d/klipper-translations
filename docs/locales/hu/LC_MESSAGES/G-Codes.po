@@ -5,15 +5,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-07-12 20:09+0000\n"
+"PO-Revision-Date: 2022-09-13 19:20+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/g-codes/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"g-codes/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -3070,17 +3071,19 @@ msgstr ""
 
 #: docs/G-Codes.md:block 218 (header)
 msgid "[mcp4018]"
-msgstr ""
+msgstr "[mcp4018]"
 
 #: docs/G-Codes.md:block 219 (paragraph)
 msgid ""
 "The following command is available when a [mcp4018 config "
 "section](Config_Reference.md#mcp4018) is enabled."
 msgstr ""
+"A következő parancs akkor érhető el, ha az [mcp4018 config "
+"szekció](Config_Reference.md#mcp4018) engedélyezve van."
 
 #: docs/G-Codes.md:block 220 (header)
 msgid "SET_DIGIPOT"
-msgstr ""
+msgstr "SET_DIGIPOT"
 
 #: docs/G-Codes.md:block 221 (paragraph)
 msgid ""
@@ -3089,6 +3092,11 @@ msgid ""
 " and 1.0, unless a 'scale' is defined in the config. When 'scale' is "
 "defined, then this value should be between 0.0 and 'scale'."
 msgstr ""
+"`SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: Ez a parancs megváltoztatja "
+"a digipot aktuális értékét. Ennek az értéknek általában 0.0 és 1.0 között "
+"kell lennie, hacsak a configban nincs definiálva 'scale'. Ha 'scale' van "
+"definiálva, akkor ennek az értéknek 0.0 és a 'scale' érték között kell "
+"lennie."
 
 #~ msgid ""
 #~ "`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [<probe_parameter>=<value>]`: This"
