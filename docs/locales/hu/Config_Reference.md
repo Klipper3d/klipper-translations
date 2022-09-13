@@ -290,11 +290,11 @@ radius:
 #   Az alapértelmezett érték 5.
 ```
 
-### Deltesian Kinematics
+### Deltesian Kinematika
 
-See [example-deltesian.cfg](../config/example-deltesian.cfg) for an example deltesian kinematics config file.
+Lásd [example-deltesian.cfg](../config/example-deltesian.cfg) egy példa deltesian kinematika konfigurációs fájlhoz.
 
-Only parameters specific to deltesian printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Itt csak a deltesian nyomtatókra jellemző paraméterek kerülnek leírásra. A rendelkezésre álló paramétereket lásd a [általános kinematikai beállítások](#altalanos-kinematikai-beallitasok) pontban.
 
 ```
 [printer]
@@ -2469,7 +2469,7 @@ Kézi vezérlésű ventilátor (a "fan_generic" előtaggal tetszőleges számú 
 #tachometer_ppr:
 #tachometer_poll_interval:
 #enable_pin:
-#   See the "fan" section for a description of the above parameters.
+#   A fenti paraméterek leírását lásd a "ventilátor" részben.
 ```
 
 ## LED-ek
