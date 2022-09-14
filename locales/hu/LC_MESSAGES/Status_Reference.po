@@ -5,15 +5,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-08-18 14:23+0000\n"
+"PO-Revision-Date: 2022-09-13 19:20+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/status_reference/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"status_reference/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -1221,26 +1222,32 @@ msgstr "`accepted_screws`: Az elfogadott csavarok száma."
 
 #: docs/Status_Reference.md:block 27 (header)
 msgid "extruder_stepper"
-msgstr ""
+msgstr "extruder_stepper"
 
 #: docs/Status_Reference.md:block 28 (paragraph)
 msgid ""
 "The following information is available for extruder_stepper objects (as well"
 " as [extruder](Config_Reference.md#extruder) objects):"
 msgstr ""
+"Az alábbi információk az extruder_stepper objektumok (valamint az "
+"[extruder](Config_Reference.md#extruder) objektumok) esetében állnak "
+"rendelkezésre:"
 
 #: docs/Status_Reference.md:block 29 (unordered list)
 msgid ""
 "`pressure_advance`: The current [pressure advance](Pressure_Advance.md) "
 "value."
 msgstr ""
+"`pressure_advance`: Az aktuális [nyomás előtolás](Pressure_Advance.md) érték."
 
 #: docs/Status_Reference.md:block 29 (unordered list)
 msgid "`smooth_time`: The current pressure advance smooth time."
-msgstr ""
+msgstr "`smooth_time`: Az aktuális nyomás előtolásának simítási ideje."
 
 #: docs/Status_Reference.md:block 114 (unordered list)
 msgid ""
 "For Delta printers the `cone_start_z` is the max z height at maximum radius "
 "(`printer.toolhead.cone_start_z`)."
 msgstr ""
+"A Delta nyomtatók esetében a `cone_start_z` a maximális sugaraknál mért "
+"maximális Z magasság (`printer.toolhead.cone_start_z`)."
