@@ -2320,7 +2320,7 @@ Heater cooling fans (one may define any number of sections with a "heater_fan" p
 
 ### [controller_fan]
 
-Controller cooling fan (one may define any number of sections with a "controller_fan" prefix). A "controller fan" is a fan that will be enabled whenever its associated heater or its associated stepper driver is active. The fan will stop whenever an idle_timeout is reached to ensure no overheating will occur after deactivating a watched component.
+Controlador de ventoinha de refrigeração (pode-se definir quaisquer número de secções com o prefixo "controller_fan"). Um "controlador de ventoinha" é uma ventoinha que será ativada sempre que um aquecedor ou driver de motor de passo é ativado. A Ventoinha irá desativada sempre que o tempo idle_timeout for atingido para garantir que nenhum superaquecimento irá acontecer após a desativação do componente sendo monitorado.
 
 ```
 [controller_fan my_controller_fan]
