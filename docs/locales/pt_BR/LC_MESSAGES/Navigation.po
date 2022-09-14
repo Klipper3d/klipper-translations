@@ -1,4 +1,4 @@
-# Wagner Reck <wagner.reck@gmail.com>, 2022.
+# Wagner Reck <wagner.reck@gmail.com>, 2022, 2025.
 # Francisco Lima <limamg@gmail.com>, 2022, 2023, 2025.
 # Felipe Nogueira <contato.fnog@gmail.com>, 2023, 2025.
 # Roberto Besser <rmbesser@gmail.com>, 2023, 2025.
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2022-03-06 16:50+0200\n"
 "PO-Revision-Date: 2025-05-03 07:32+0000\n"
-"Last-Translator: Francisco Lima <limamg@gmail.com>\n"
+"Last-Translator: Wagner Reck <wagner.reck@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/navigation/pt_BR/>\n"
 "Language: pt_BR\n"
