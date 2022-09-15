@@ -1,11 +1,11 @@
-# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # VICTOR <subfyn@gmail.com>, 2023.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:34+0000\n"
-"Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "api_server/ru/>\n"
 "Language: ru\n"
@@ -20,8 +20,8 @@ msgid ""
 " interface enables external applications to query and control the Klipper host"
 " software."
 msgstr ""
-"В этом документе описывается интерфейс прикладного программиста Klipper (API)."
-" Этот интерфейс позволяет внешним приложениям запрашивать программное "
+"В этом документе описывается интерфейс прикладного программиста Klipper (API)"
+". Этот интерфейс позволяет внешним приложениям запрашивать программное "
 "обеспечение хоста Klipper и управлять им."
 
 msgid "Enabling the API socket"
@@ -38,9 +38,9 @@ msgid ""
 "This causes the host software to create a Unix Domain Socket. A client can "
 "then open a connection on that socket and send commands to Klipper."
 msgstr ""
-"Это приводит к тому, что программное обеспечение хоста создает доменный сокет "
-"Unix. Затем клиент может открыть соединение с этим сокетом и отправлять "
-"команды Klipper."
+"Это приводит к тому, что программное обеспечение хоста создает доменный "
+"сокет Unix. Затем клиент может открыть соединение с этим сокетом и "
+"отправлять команды Klipper."
 
 msgid "Request format"
 msgstr "Формат запроса"
