@@ -1,4 +1,4 @@
-# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # VICTOR <subfyn@gmail.com>, 2023, 2025.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
@@ -7,8 +7,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>"
-"\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/features/"
 "ru/>\n"
 "Language: ru\n"
@@ -29,14 +28,14 @@ msgid ""
 "drift between micro-controllers. No special code is needed to enable multiple "
 "micro-controllers - it just requires a few extra lines in the config file."
 msgstr ""
-"Klipper поддерживает принтеры с несколькими микроконтроллерами. Например, один"
-" микроконтроллер может использоваться для управления экструдером, в то время "
-"как другой управляет нагревателями принтера, а третий управляет остальной "
-"частью принтера. Программное обеспечение хоста Klipper реализует синхронизацию"
-" тактовых импульсов для учета дрейфа тактовых импульсов между "
+"Klipper поддерживает принтеры с несколькими микроконтроллерами. Например, "
+"один микроконтроллер может использоваться для управления экструдером, в то "
+"время как другой управляет нагревателями принтера, а третий управляет "
+"остальной частью принтера. Программное обеспечение хоста Klipper реализует "
+"синхронизацию тактовых импульсов для учета дрейфа тактовых импульсов между "
 "микроконтроллерами. Для включения нескольких микроконтроллеров не требуется "
-"специального кода - для этого просто требуется несколько дополнительных строк "
-"в конфигурационном файле."
+"специального кода - для этого просто требуется несколько дополнительных "
+"строк в конфигурационном файле."
 
 msgid ""
 "Configuration via simple config file. There's no need to reflash the micro-"
