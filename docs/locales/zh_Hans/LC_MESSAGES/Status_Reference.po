@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-20 15:23+0000\n"
+"PO-Revision-Date: 2022-09-15 07:23+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/status_reference/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/status_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -1012,29 +1013,31 @@ msgstr "`accepted_screws`：已被接受的螺丝数量。"
 
 #: docs/Status_Reference.md:block 27 (header)
 msgid "extruder_stepper"
-msgstr ""
+msgstr "extruder_stepper"
 
 #: docs/Status_Reference.md:block 28 (paragraph)
 msgid ""
 "The following information is available for extruder_stepper objects (as well"
 " as [extruder](Config_Reference.md#extruder) objects):"
-msgstr ""
+msgstr "以下信息在extruder_stepper对象以及[extruder](Config_Reference."
+"md#extruder)对象中可用："
 
 #: docs/Status_Reference.md:block 29 (unordered list)
 msgid ""
 "`pressure_advance`: The current [pressure advance](Pressure_Advance.md) "
 "value."
-msgstr ""
+msgstr "`pressure_advance`：当前的[压力提前](Pressure_Advance.md)值。"
 
 #: docs/Status_Reference.md:block 29 (unordered list)
 msgid "`smooth_time`: The current pressure advance smooth time."
-msgstr ""
+msgstr "`smooth_time`：当前压力提前平滑时间。"
 
 #: docs/Status_Reference.md:block 114 (unordered list)
 msgid ""
 "For Delta printers the `cone_start_z` is the max z height at maximum radius "
 "(`printer.toolhead.cone_start_z`)."
-msgstr ""
+msgstr "对于三角洲打印机，`cone_start_z` 是最大半径时的最大z高度(`printer.toolhead."
+"cone_start_z`)。"
 
 #~ msgid "neopixel / dotstar"
 #~ msgstr "neopixel / dotstar"
