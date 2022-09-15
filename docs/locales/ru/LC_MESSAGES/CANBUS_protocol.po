@@ -1,11 +1,11 @@
-# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # VICTOR <subfyn@gmail.com>, 2023, 2025.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:36+0000\n"
-"Last-Translator: VICTOR <subfyn@gmail.com>\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "canbus_protocol/ru/>\n"
 "Language: ru\n"
@@ -34,8 +34,8 @@ msgstr ""
 "(`canbus_nodeid`) для общего трафика команд и ответов Klipper. Командные "
 "сообщения Klipper, идущие от хоста к микроконтроллеру, используют "
 "идентификатор шины CAN `canbus_nodeid * 2 + 256`, в то время как ответные "
-"сообщения Klipper от микроконтроллера к хосту используют `canbus_nodeid * 2 + "
-"256 + 1 `."
+"сообщения Klipper от микроконтроллера к хосту используют `canbus_nodeid * 2 +"
+" 256 + 1 `."
 
 msgid ""
 "Each micro-controller has a factory assigned unique chip identifier that is "
@@ -45,9 +45,9 @@ msgid ""
 msgstr ""
 "Каждый микроконтроллер имеет присвоенный заводом уникальный идентификатор "
 "чипа, который используется при назначении идентификатора. Этот идентификатор "
-"может превышать длину одного пакета CAN, поэтому хэш-функция используется для "
-"генерации уникального 6-байтового идентификатора (`canbus_uuid`) из заводского"
-" идентификатора."
+"может превышать длину одного пакета CAN, поэтому хэш-функция используется "
+"для генерации уникального 6-байтового идентификатора (`canbus_uuid`) из "
+"заводского идентификатора."
 
 msgid "Admin messages"
 msgstr "Сообщения администратора"
