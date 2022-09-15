@@ -1,14 +1,24 @@
-#
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-09-15 15:22+0000\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"delta_calibrate/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 msgid ""
 "This document describes Klipper's automatic calibration system for \"delta\""
 " style printers."
 msgstr ""
+"В этом документе описывается система автоматической калибровки Klipper для "
+"принтеров типа \"delta\"."
 
 msgid ""
 "Delta calibration involves finding the tower endstop positions, tower "
