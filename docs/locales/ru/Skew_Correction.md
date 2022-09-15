@@ -1,4 +1,4 @@
-# Skew correction
+# Коррекция перекоса
 
 Software based skew correction can help resolve dimensional inaccuracies resulting from a printer assembly that is not perfectly square. Note that if your printer is significantly skewed it is strongly recommended to first use mechanical means to get your printer as square as possible prior to applying software based correction.
 

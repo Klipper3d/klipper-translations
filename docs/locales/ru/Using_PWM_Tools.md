@@ -1,8 +1,8 @@
 # Using PWM tools
 
-This document describes how to setup a PWM-controlled laser or spindle using `output_pin` and some macros.
+В этом документе описывается, как настроить лазер или шпиндель с ШИМ-управлением, используя `output_pin' и некоторые макросы.
 
-## How does it work?
+## Как это работает?
 
 With re-purposing the printhead's fan pwm output, you can control lasers or spindles. This is useful if you use switchable print heads, for example the E3D toolchanger or a DIY solution. Usually, cam-tools such as LaserWeb can be configured to use `M3-M5` commands, which stand for *spindle speed CW* (`M3 S[0-255]`), *spindle speed CCW* (`M4 S[0-255]`) and *spindle stop* (`M5`).
 

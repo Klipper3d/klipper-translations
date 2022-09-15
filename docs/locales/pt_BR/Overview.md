@@ -42,17 +42,17 @@ Bem-vindo à documentação do Klipper. Se for novo no Klipper, comece com os do
 - [Cinemática](Kinematics.md): Detalhes técnicos em como o Klipper implementa movimento.
 - [Protocolo](Protocol.md): Informação sobre protocolo de troca de mensagem em baixo nível entre hospedeiro e microcontrolador.
 - [Servidor API](API_Server.md): Informações sobre comando e controle API do Klipper.
-- [MCU commands](MCU_Commands.md): A description of low-level commands implemented in the micro-controller software.
-- [CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format.
-- [Debugging](Debugging.md): Information on how to test and debug Klipper.
-- [Benchmarks](Benchmarks.md): Information on the Klipper benchmark method.
-- [Contributing](CONTRIBUTING.md): Information on how to submit improvements to Klipper.
-- [Packaging](Packaging.md): Information on building OS packages.
+- [Comandos MCU](MCU_Commands.md): Uma descrição dos comandos de baixo nível implementas no software do microcontrolador.
+- [Protoloco de barramento CAN](CANBUS_protocol.md): Formato de mensagens do barramento CAN.
+- [Depuração](Debugging.md): Informação sobre como testar e depurar o Klipper.
+- [Benchmarks](Benchmarks.md): Informação do método de medição de performance no Klipper.
+- [Contribuindo](CONTRIBUTING.md): Informação sobre como enviar melhorias para o Klipper.
+- [Empacotamento](Packaging.md): Informação sobre a construção de pacotes de SO.
 
-## Device Specific Documents
+## Documentos de Dispositivos Específicos
 
-- [Example configs](Example_Configs.md): Information on adding an example config file to Klipper.
-- [SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a binary to an sdcard in the micro-controller.
+- [Configurações de exemplo](Example_Configs.md): Informação de como adicionar um arquivo de configuração de exemplo no Klipper.
+- [Atualizações por cartão SD](SDCard_Updates.md): Programar um micro controlador via cópia de binário para um cartão SD no microcontrolador.
 - [Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for controlling devices wired to the GPIO pins of a Raspberry Pi.
 - [Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone PRU.
 - [Bootloaders](Bootloaders.md): Developer information on micro-controller flashing.

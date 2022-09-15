@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-## How can I donate to the project?
+## Как я могу пожертвовать на проект?
 
 Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
 
