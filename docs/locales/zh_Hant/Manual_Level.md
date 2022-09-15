@@ -14,7 +14,7 @@
 Z_ENDSTOP_CALIBRATE
 ```
 
-然後按照["the paper test"](Bed_Level.md#the-paper-test)中描述的步驟確定給定位置的噴嘴和床之間的實際距離。完成這些步驟後，可以“接受”該位置並將結果保存到配置文件中：
+然後按照["the paper test"](Bed_Level.md#the-paper-test)中描述的步驟確定給定位置的噴嘴和床之間的實際距離。完成這些步驟後，可以`ACCEPT`該位置並將結果保存到配置文件中：
 
 ```
 SAVE_CONFIG

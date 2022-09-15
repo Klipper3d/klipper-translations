@@ -1,6 +1,6 @@
-# Pressure advance
+# Повышение давления
 
-This document provides information on tuning the "pressure advance" configuration variable for a particular nozzle and filament. The pressure advance feature can be helpful in reducing ooze. For more information on how pressure advance is implemented see the [kinematics](Kinematics.md) document.
+В этом документе содержится информация о настройке переменной конфигурации "повышение давления" для конкретного сопла и нити накала. Функция повышения давления может быть полезна для уменьшения количества мелких дефектов. Для получения дополнительной информации о том, как реализуется повышение давления, см. [kinematics](Kinematics.md) документ.
 
 ## Tuning pressure advance
 

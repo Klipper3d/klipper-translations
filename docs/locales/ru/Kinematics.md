@@ -1,6 +1,6 @@
 # Kinematics
 
-This document provides an overview of how Klipper implements robot motion (its [kinematics](https://en.wikipedia.org/wiki/Kinematics)). The contents may be of interest to both developers interested in working on the Klipper software as well as users interested in better understanding the mechanics of their machines.
+В этом документе представлен обзор того, как Klipper реализует движение робота (его [кинематика] (https://en.wikipedia.org/wiki/Kinematics )). Содержание может представлять интерес как для разработчиков, заинтересованных в работе над программным обеспечением Klipper, так и для пользователей, заинтересованных в лучшем понимании механики своих машин.
 
 ## Acceleration
 
@@ -139,7 +139,7 @@ Basic extruder movement is simple to calculate. The step time generation uses th
 stepper_position = requested_e_position
 ```
 
-### Pressure advance
+### Повышение давления
 
 Experimentation has shown that it's possible to improve the modeling of the extruder beyond the basic extruder formula. In the ideal case, as an extrusion move progresses, the same volume of filament should be deposited at each point along the move and there should be no volume extruded after the move. Unfortunately, it's common to find that the basic extrusion formulas cause too little filament to exit the extruder at the start of extrusion moves and for excess filament to extrude after extrusion ends. This is often referred to as "ooze".
 

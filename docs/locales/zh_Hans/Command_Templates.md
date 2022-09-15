@@ -13,9 +13,9 @@ G-Code 宏的名称大小写并不重要。比如，MY_MACRO 和 my_macro 是等
 ```
 [gcode_macro blink_led]
 gcode:
-  SET_PIN PIN=my_led VALUE=1
-  G4 P2000
-  SET_PIN PIN=my_led VALUE=0
+  SET_PIN PIN=my_led VALUE=1 #亮灯
+  G4 P2000 # 等待2000毫秒
+  SET_PIN PIN=my_led VALUE=0 #关灯
 ```
 
 请注意，`gcode:` 配置选项总是从行首开始，而 G-Code 宏中的后续行从不从行首开始。
@@ -25,12 +25,12 @@ gcode:
 可以通过添加 `description:` 和简短的描述来帮助理解该功能。如果没有指定，默认为"G-Code macro"。例如：
 
 ```
-[gcode_macro blink_led]
-description: Blink my_led one time
+[gcode_macro blink_led] #闪灯
+description: Blink my_led one time # 简介：闪一下my_led
 gcode:
-  SET_PIN PIN=my_led VALUE=1
-  G4 P2000
-  SET_PIN PIN=my_led VALUE=0
+  SET_PIN PIN=my_led VALUE=1 #亮灯
+  G4 P2000 # 等待2000毫秒
+  SET_PIN PIN=my_led VALUE=0 #关灯
 ```
 
 The terminal will display the description when you use the `HELP` command or the autocomplete function.
@@ -42,12 +42,12 @@ The terminal will display the description when you use the `HELP` command or the
 实现这一目标的常见方法是将 `G1` 移动包装在 `SAVE_GCODE_STATE`、`G91`和`RESTORE_GCODE_STATE`中。例如：
 
 ```
-[gcode_macro MOVE_UP]
+[gcode_macro MOVE_UP] # 向上移动
 gcode:
-  SAVE_GCODE_STATE NAME=my_move_up_state
-  G91
-  G1 Z10 F300
-  RESTORE_GCODE_STATE NAME=my_move_up_state
+  SAVE_GCODE_STATE NAME=my_move_up_state # 保存名称为my_move_up_state的G代码状态
+  G91 # 相对模式
+  G1 Z10 F300 # 慢慢往上移动 10mm，5mm/s
+  RESTORE_GCODE_STATE NAME=my_move_up_state # 恢复名称为my_move_up_state的G代码状态
 ```
 
 `G91` 命令将G代码解析状态放入 "相对移动模式"，`RESTORE_GCODE_STATE` 命令将状态恢复到进入宏之前的状态。请确保在第一条`G1` 命令中指定一个明确的速度（通过`F` 参数）。
@@ -78,9 +78,9 @@ gcode:
 当macro被调用时，检查传递给它的参数往往是有用的。这些参数可以通过`params` 伪变量（pseudo-variable）获得。类似于以下macro：
 
 ```
-[gcode_macro SET_PERCENT]
+[gcode_macro SET_PERCENT] # 设置百分比
 gcode:
-  M117 Now at { params.VALUE|float * 100 }%
+  M117 Now at { params.VALUE|float * 100 }% # 现在在VALUE* 100的百分比
 ```
 
 如果以`SET_PERCENT VALUE=.2` 的方式调用，则会评估为`M117 现在为 20%` 。需要注意的是在宏（macro）中进行评估时，参数名称始终使用大写字母，并且始终以字符串（strings）形式传递。如果执行数学运算，则必须明确地将其转换为整数（integers）或浮点数（floats）。
@@ -88,10 +88,10 @@ gcode:
 通常使用Jinja2的`set` 指令来使用一个默认参数，并将结果分配给一个本地名称。比如说：
 
 ```
-[gcode_macro SET_BED_TEMPERATURE]
+[gcode_macro SET_BED_TEMPERATURE] # 设置热床温度
 gcode:
-  {% set bed_temp = params.TEMPERATURE|default(40)|float %}
-  M140 S{bed_temp}
+  {% set bed_temp = params.TEMPERATURE|default(40)|float %} # 热床温度=params.TEMPERATURE或者默认40
+  M140 S{bed_temp} # 设置热床温度为bed_temp
 ```
 
 ### The "rawparams" variable
@@ -107,7 +107,7 @@ See the [sample-macros.cfg](../config/sample-macros.cfg) file for an example sho
 可以通过`printer` 的pseudo-variable来检查（和变更）打印机的当前状态。比如说：
 
 ```
-[gcode_macro slow_fan]
+[gcode_macro slow_fan] # 降低风速
 gcode:
   M106 S{ printer.fan.speed * 0.9 * 255}
 ```
@@ -121,7 +121,7 @@ gcode:
 请注意，Jinja2的`set` 指令可以为`printer` 层次结构中的一个对象指定一个本地名称。这可以改善宏的可读性并减少键入量。例如：
 
 ```
-[gcode_macro QUERY_HTU21D]
+[gcode_macro QUERY_HTU21D] # 查询HTU21D
 gcode:
     {% set sensor = printer["htu21d my_sensor"] %}
     M117 Temp:{sensor.temperature} Humidity:{sensor.humidity}
@@ -146,18 +146,18 @@ SET_GCODE_VARIABLE 命令可以在宏调用之间保存状态。变量名不能�
 [gcode_macro start_probe]
 variable_bed_temp: 0
 gcode:
-  # Save target temperature to bed_temp variable
+  # 保存参数到bed_temp变量
   SET_GCODE_VARIABLE MACRO=start_probe VARIABLE=bed_temp VALUE={printer.heater_bed.target}
-  # Disable bed heater
+  # 禁用热床
   M140
-  # Perform probe
+  # 进行探测
   PROBE
-  # Call finish_probe macro at completion of probe
+  # 在结束时调用finish_probe脚本
   finish_probe
 
 [gcode_macro finish_probe]
 gcode:
-  # Restore temperature
+  # 恢复热床温度
   M140 S{printer["gcode_macro start_probe"].bed_temp}
 ```
 
@@ -184,7 +184,7 @@ gcode:
 
 当上面的`load_filament` 宏执行时，它将在挤出结束后显示一个 "Load Complete!"的信息。最后一行G代码启用 "clear_display "delayed_gcode，设置为10秒后执行。
 
-The `initial_duration` config option can be set to execute the delayed_gcode on printer startup. The countdown begins when the printer enters the "ready" state. For example, the below delayed_gcode will execute 5 seconds after the printer is ready, initializing the display with a "Welcome!" message:
+`initial_duration` 配置选项可以被设置为在打印机启动时执行 delayed_gcode。倒计时从打印机进入"ready"（准备）状态时开始。例如，下面的 delayed_gcode 将在打印机准备好后5秒执行，以 "Welcome！"的信息初始化显示屏：
 
 ```
 [delayed_gcode welcome]
@@ -203,7 +203,7 @@ gcode:
   UPDATE_DELAYED_GCODE ID=report_temp DURATION=2
 ```
 
-The above delayed_gcode will send "// Extruder Temp: [ex0_temp]" to Octoprint every 2 seconds. This can be canceled with the following gcode:
+上述delayed_gcode将每2秒向Octoprint发送 "// Extruder Temp: [ex0_temp]"。这可以用下面的gcode取消：
 
 ```
 UPDATE_DELAYED_GCODE ID=report_temp DURATION=0
@@ -222,21 +222,21 @@ UPDATE_DELAYED_GCODE ID=report_temp DURATION=0
 
 以下操作在菜单模板中可用：
 
-* `menu.back(force, update)`: will execute menu back command, optional boolean parameters `<force>` and `<update>`.
+* `menu.back(force, update)`：将执行菜单返回命令，可选的布尔参数有`<force>`（强制）和`<update>`（更新）。
    * 当 `<force>` 设置为 True 时，它也将停止编辑。默认值为 False。
    * 当`<update>` 被设置为False，那么父级容器项目就不会被更新。默认值是True。
-* `menu.exit(force)` - will execute menu exit command, optional boolean parameter `<force>` default value False.
+* `menu.exit(force)` - 将执行菜单退出命令，可选的布尔参数有`<force>`（强制）默认值 False。
    * 当 `<force>` 设置为 True 时，它也将停止编辑。默认值为 False。
 
 ## 保存变量到磁盘
 
-If a [save_variables config section](Config_Reference.md#save_variables) has been enabled, `SAVE_VARIABLE VARIABLE=<name> VALUE=<value>` can be used to save the variable to disk so that it can be used across restarts. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. to avoid overly long lines you can add the following at the top of the macro:
+如果启用了[save_variables配置分段](Config_Reference.md#save_variables)，`SAVE_VARIABLE VARIABLE=<名称> VALUE=<值>`可以用来将变量保存到磁盘，以便在重新启动时使用。所有存储的变量在启动时会被加载到`printer.save_variables.variables` dict 变量中，可以在G代码宏中使用。为避免行数过长，可以在宏的顶部添加以下内容：
 
 ```
 {% set svv = printer.save_variables.variables %}
 ```
 
-As an example, it could be used to save the state of 2-in-1-out hotend and when starting a print ensure that the active extruder is used, instead of T0:
+例如，它可以用来保存2进1出热端的状态，当开始打印时，确保使用活跃的挤出机，而不是T0：
 
 ```
 [gcode_macro T1]

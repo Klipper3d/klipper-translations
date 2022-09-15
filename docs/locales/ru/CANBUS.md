@@ -1,6 +1,6 @@
 # CANBUS
 
-This document describes Klipper's CAN bus support.
+В этом документе описывается поддержка шины CAN Klipper.
 
 ## Device Hardware
 

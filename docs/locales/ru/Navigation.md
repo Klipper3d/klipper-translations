@@ -1,4 +1,4 @@
-Klipper documentation
+Документация Klipper
 
 Installation and Configuration
 
@@ -6,7 +6,7 @@ Configuration Reference
 
 Bed Level
 
-Resonance Compensation
+Компенсация Резонанса
 
 Command templates
 

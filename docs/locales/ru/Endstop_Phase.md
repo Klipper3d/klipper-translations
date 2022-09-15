@@ -1,6 +1,6 @@
 # Фаза Endstop
 
-This document describes Klipper's stepper phase adjusted endstop system. This functionality can improve the accuracy of traditional endstop switches. It is most useful when using a Trinamic stepper motor driver that has run-time configuration.
+В этом документе описывается система концевого упора Klipper с регулировкой ступенчатой фазы. Эта функциональность может повысить точность традиционных конечных выключателей. Это наиболее полезно при использовании драйвера шагового двигателя Trinamic, который имеет конфигурацию во время выполнения.
 
 A typical endstop switch has an accuracy of around 100 microns. (Each time an axis is homed the switch may trigger slightly earlier or slightly later.) Although this is a relatively small error, it can result in unwanted artifacts. In particular, this positional deviation may be noticeable when printing the first layer of an object. In contrast, typical stepper motors can obtain significantly higher precision.
 
