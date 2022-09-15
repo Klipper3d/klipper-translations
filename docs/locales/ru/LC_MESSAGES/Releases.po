@@ -1,5 +1,5 @@
 # Comocen <Comoc_en@mail.ru>, 2022.
-# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 # Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
@@ -7,8 +7,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>"
-"\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/releases/"
 "ru/>\n"
 "Language: ru\n"
@@ -43,9 +42,10 @@ msgid ""
 "without introducing instantaneous velocity changes. It is also now possible to"
 " tune pressure advance using a \"Tuning Tower\" method."
 msgstr ""
-"Новая система \"Плавного повышения давления\". Это обеспечивает \"Повышение "
-"давления\" без мгновенного изменения скорости. Кроме того, теперь можно "
-"настраивать повышение давления с помощью метода \"Настроечной башни\"."
+"Новая система \"Плавного повышения давления\". Это обеспечивает "
+"\"Повышение давления\" без мгновенного изменения скорости. Кроме того, "
+"теперь можно настраивать повышение давления с помощью метода "
+"\"Настроечной башни\"."
 
 msgid ""
 "New \"webhooks\" API server. This provides a programmable JSON interface to "
