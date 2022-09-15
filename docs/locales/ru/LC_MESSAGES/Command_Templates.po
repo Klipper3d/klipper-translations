@@ -1,11 +1,11 @@
-# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # VICTOR <subfyn@gmail.com>, 2023.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "command_templates/ru/>\n"
 "Language: ru\n"
@@ -19,8 +19,8 @@ msgid ""
 "This document provides information on implementing G-Code command sequences in"
 " gcode_macro (and similar) config sections."
 msgstr ""
-"Этот документ предоставляет информацию о реализации последовательностей команд"
-" G-Code в разделах конфигурации gcode_macro (и аналогичных)."
+"Этот документ предоставляет информацию о реализации последовательностей "
+"команд G-Code в разделах конфигурации gcode_macro (и аналогичных)."
 
 msgid "G-Code Macro Naming"
 msgstr "Названия макросов G-Кода"
@@ -45,9 +45,9 @@ msgid ""
 "a multi-line G-Code sequence it is important for each line to have proper "
 "indentation. For example:"
 msgstr ""
-"Отступы важны при определении макроса в конфигурационном файле. Чтобы указать "
-"многострочную последовательность G-кода, важно, чтобы каждая строка имела "
-"правильный отступ. Например:"
+"Отступы важны при определении макроса в конфигурационном файле. Чтобы "
+"указать многострочную последовательность G-кода, важно, чтобы каждая строка "
+"имела правильный отступ. Например:"
 
 msgid ""
 "Note how the `gcode:` config option always starts at the beginning of the line"
