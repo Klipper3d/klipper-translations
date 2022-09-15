@@ -1,12 +1,12 @@
 # Comocen <Comoc_en@mail.ru>, 2022.
-# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # VICTOR <subfyn@gmail.com>, 2023, 2025.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:36+0000\n"
-"Last-Translator: VICTOR <subfyn@gmail.com>\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/bltouch/"
 "ru/>\n"
 "Language: ru\n"
@@ -25,9 +25,9 @@ msgid ""
 "it, be very gentle, in order to not bend or push anything."
 msgstr ""
 "** ПРЕДУПРЕЖДЕНИЕ ** Перед началом работы: Не прикасайтесь к штифту BL-Touch "
-"голыми пальцами, так как он довольно чувствителен к смазке для пальцев. И если"
-" вы все-таки прикоснетесь к нему, будьте очень нежны, чтобы ничего не согнуть "
-"и не толкнуть."
+"голыми пальцами, так как он довольно чувствителен к смазке для пальцев. И "
+"если вы все-таки прикоснетесь к нему, будьте очень нежны, чтобы ничего не "
+"согнуть и не толкнуть."
 
 msgid ""
 "Hook up the BL-Touch \"servo\" connector to a `control_pin` according to the "
