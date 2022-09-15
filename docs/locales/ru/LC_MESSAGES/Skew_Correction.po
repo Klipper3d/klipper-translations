@@ -1,4 +1,4 @@
-# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # VICTOR <subfyn@gmail.com>, 2023.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
@@ -6,14 +6,16 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-12-19 09:54+0000\n"
-"Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/skew_correction/ru/>\n"
+"PO-Revision-Date: 2025-05-03 07:35+0000\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"skew_correction/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9.2-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/Skew_Correction.md:block 1 (header)
 msgid "Skew correction"
@@ -31,8 +33,8 @@ msgstr ""
 "возникающие в результате неправильной квадратной сборки принтера. Обратите "
 "внимание, что если ваш принтер сильно перекошен, настоятельно рекомендуется "
 "сначала использовать механические средства, чтобы придать принтеру как можно "
-"более квадратную форму, прежде чем применять коррекцию на основе программного "
-"обеспечения."
+"более квадратную форму, прежде чем применять коррекцию на основе "
+"программного обеспечения."
 
 #: docs/Skew_Correction.md:block 3 (header)
 msgid "Print a Calibration Object"
@@ -47,12 +49,12 @@ msgid ""
 " one model. You want the object oriented so that corner A is toward the origin"
 " of the plane."
 msgstr ""
-"Первым шагом в исправлении перекоса является печать [калибровочного "
-"объекта](https://www.thingiverse.com/thing:2563185/files ) вдоль плоскости, "
-"которую вы хотите исправить. Существует также [объект "
-"калибровки](https://www.thingiverse.com/thing:2972743 ), который включает в "
-"себя все плоскости в одной модели. Вы хотите, чтобы объект был ориентирован "
-"так, чтобы угол A был направлен к началу плоскости."
+"Первым шагом в исправлении перекоса является печать [калибровочного объекта]"
+"(https://www.thingiverse.com/thing:2563185/files ) вдоль плоскости, которую "
+"вы хотите исправить. Существует также [объект калибровки](https://"
+"www.thingiverse.com/thing:2972743 ), который включает в себя все плоскости в "
+"одной модели. Вы хотите, чтобы объект был ориентирован так, чтобы угол A был "
+"направлен к началу плоскости."
 
 #: docs/Skew_Correction.md:block 5 (paragraph)
 msgid ""
