@@ -1,11 +1,11 @@
-# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # VICTOR <subfyn@gmail.com>, 2023.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "packaging/ru/>\n"
 "Language: ru\n"
@@ -36,8 +36,8 @@ msgstr ""
 "Klipper использует модуль C для более быстрой обработки некоторых "
 "кинематических вычислений. Этот модуль должен быть скомпилирован во время "
 "упаковки, чтобы избежать введения зависимости времени выполнения от "
-"компилятора. Чтобы скомпилировать модуль C, запустите `python2 "
-"klippy/chelper/__init__.py `."
+"компилятора. Чтобы скомпилировать модуль C, запустите `python2 klippy/"
+"chelper/__init__.py `."
 
 msgid "Compiling python code"
 msgstr "Компиляция кода python"
