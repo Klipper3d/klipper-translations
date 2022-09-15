@@ -1,4 +1,4 @@
-# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # VICTOR <subfyn@gmail.com>, 2023.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "probe_calibrate/ru/>\n"
 "Language: ru\n"
@@ -43,7 +43,8 @@ msgid ""
 "method to note the location on the bed)."
 msgstr ""
 "Сделайте отметку на ленте непосредственно под тем местом, где находится зонд "
-"(или используйте аналогичный метод, чтобы отметить местоположение на кровати)."
+"(или используйте аналогичный метод, чтобы отметить местоположение на "
+"кровати)."
 
 msgid ""
 "Issue a `GET_POSITION` command and record the toolhead XY location reported by"
