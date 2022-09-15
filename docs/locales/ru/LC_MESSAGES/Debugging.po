@@ -1,11 +1,11 @@
-# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # VICTOR <subfyn@gmail.com>, 2023, 2025.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: VICTOR <subfyn@gmail.com>\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "debugging/ru/>\n"
 "Language: ru\n"
@@ -30,9 +30,9 @@ msgid ""
 msgstr ""
 "Код хоста Klippy может выполняться в пакетном режиме для создания "
 "низкоуровневых команд микроконтроллера, связанных с файлом gcode. Проверка "
-"этих низкоуровневых команд полезна при попытке понять действия низкоуровневого"
-" оборудования. Также может быть полезно сравнить разницу в командах "
-"микроконтроллера после изменения кода."
+"этих низкоуровневых команд полезна при попытке понять действия "
+"низкоуровневого оборудования. Также может быть полезно сравнить разницу в "
+"командах микроконтроллера после изменения кода."
 
 msgid ""
 "To run Klippy in this batch mode, there is a one time step necessary to "
