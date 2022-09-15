@@ -1,4 +1,4 @@
-# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # VICTOR <subfyn@gmail.com>, 2023, 2025.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
@@ -9,8 +9,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:36+0000\n"
-"Last-Translator: Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>"
-"\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "rpi_microcontroller/ru/>\n"
 "Language: ru\n"
@@ -43,10 +42,10 @@ msgstr ""
 "ограниченное и предварительно настроенное количество открытых контактов для "
 "управления основными функциями печати (терморезисторы, экструдеры, шаговые "
 "двигатели ...). Использование RPi, в котором Klipper установлен в качестве "
-"дополнительного микроконтроллера, дает возможность напрямую использовать GPIO "
-"и шины (i2c, spi) RPi внутри klipper без использования плагинов Octoprint "
-"(если они используются) или внешних программ, дающих возможность управлять "
-"всем в GCODE печати."
+"дополнительного микроконтроллера, дает возможность напрямую использовать "
+"GPIO и шины (i2c, spi) RPi внутри klipper без использования плагинов "
+"Octoprint (если они используются) или внешних программ, дающих возможность "
+"управлять всем в GCODE печати."
 
 msgid ""
 "**Warning**: If your platform is a *Beaglebone* and you have correctly "
@@ -54,8 +53,8 @@ msgid ""
 "configured for your system."
 msgstr ""
 "** Предупреждение **: Если вашей платформой является * Beaglebone* и вы "
-"правильно выполнили шаги по установке, микроконтроллер Linux уже установлен и "
-"настроен для вашей системы."
+"правильно выполнили шаги по установке, микроконтроллер Linux уже установлен "
+"и настроен для вашей системы."
 
 msgid "Install the rc script"
 msgstr "Установите скрипт rc"
