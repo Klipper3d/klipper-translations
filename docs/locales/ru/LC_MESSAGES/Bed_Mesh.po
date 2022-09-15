@@ -1,15 +1,18 @@
 # Comocen <Comoc_en@mail.ru>, 2022.
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-06-15 00:56+0000\n"
-"Last-Translator: Comocen <Comoc_en@mail.ru>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/bed_mesh/ru/>\n"
+"PO-Revision-Date: 2022-09-15 15:22+0000\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/bed_mesh/"
+"ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 msgid ""
 "The Bed Mesh module may be used to compensate for bed surface irregularties "
@@ -20,6 +23,13 @@ msgid ""
 "accurate then the bed_mesh module will not receive accurate results from the"
 " probing process."
 msgstr ""
+"Модуль сетки кровати может быть использован для компенсации неровностей "
+"поверхности кровати для достижения лучшего первого слоя по всей кровати. "
+"Следует отметить, что программная коррекция не позволит достичь идеальных "
+"результатов, она может лишь приблизить форму кровати. Сетка кровати также не "
+"может компенсировать механические и электрические проблемы. Если ось смещена "
+"или датчик неточный, модуль bed_mesh не получит точных результатов в "
+"процессе зондирования."
 
 msgid "Basic Configuration"
 msgstr ""
@@ -405,9 +415,8 @@ msgid ""
 msgstr ""
 
 #: docs/Bed_Mesh.md:block 1 (header)
-#, fuzzy
 msgid "Bed Mesh"
-msgstr "Сетки стола"
+msgstr "Сетка стола"
 
 #: docs/Bed_Mesh.md:block 49 (paragraph)
 msgid "Initiates the probing procedure for Bed Mesh Calibration."
