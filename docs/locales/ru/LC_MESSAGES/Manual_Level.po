@@ -1,4 +1,4 @@
-# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # VICTOR <subfyn@gmail.com>, 2023.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:36+0000\n"
-"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "manual_level/ru/>\n"
 "Language: ru\n"
@@ -39,9 +39,10 @@ msgid ""
 "switch."
 msgstr ""
 "Обратите внимание, однако, что точность самого переключателя Z endstop может "
-"быть ограничивающим фактором. Если вы используете драйверы шаговых двигателей "
-"Trinamic, то рассмотрите возможность включения [фаза конечной "
-"остановки](Endstop_Phase.md ) обнаружение для повышения точности переключения."
+"быть ограничивающим фактором. Если вы используете драйверы шаговых "
+"двигателей Trinamic, то рассмотрите возможность включения "
+"[фаза конечной остановки](Endstop_Phase.md ) обнаружение для повышения "
+"точности переключения."
 
 msgid ""
 "To perform a Z endstop calibration, home the printer, command the head to move"
