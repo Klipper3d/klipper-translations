@@ -2,13 +2,13 @@
 
 Этот документ предоставляет информацию о реализации последовательностей команд G-Code в разделах конфигурации gcode_macro (и аналогичных).
 
-## G-Code Macro Naming
+## Названия макросов G-Кода
 
-Case is not important for the G-Code macro name - MY_MACRO and my_macro will evaluate the same and may be called in either upper or lower case. If any numbers are used in the macro name then they must all be at the end of the name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not).
+Регистр не важен для имени макроса G-Code - MY_MACRO и my_macro будут вычисляться одинаково и могут вызываться как в верхнем, так и в нижнем регистре. Если в имени макроса используются какие-либо числа, то все они должны быть в конце имени (например, TEST_MACRO25 является допустимым, но MACRO25_TEST3 - нет).
 
-## Formatting of G-Code in the config
+## Форматирование G-кода в конфигурации
 
-Indentation is important when defining a macro in the config file. To specify a multi-line G-Code sequence it is important for each line to have proper indentation. For example:
+Отступы важны при определении макроса в конфигурационном файле. Чтобы указать многострочную последовательность G-кода, важно, чтобы каждая строка имела правильный отступ. Например:
 
 ```
 [gcode_macro blink_led]

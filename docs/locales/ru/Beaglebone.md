@@ -1,10 +1,10 @@
 # Плата BeagleBone
 
-This document describes the process of running Klipper on a Beaglebone PRU.
+В этом документе описывается процесс запуска Klipper на Beaglebone PRU.
 
-## Building an OS image
+## Сборка образа ОС
 
-Start by installing the [Debian 9.9 2019-08-03 4GB SD IoT](https://beagleboard.org/latest-images) image. One may run the image from either a micro-SD card or from builtin eMMC. If using the eMMC, install it to eMMC now by following the instructions from the above link.
+Начните с установки [Debian 9.9 2019-08-03 4GB SD IoT](https://beagleboard.org/latest-images) изображение. Изображение можно запустить либо с карты micro-SD, либо со встроенного eMMC. Если вы используете eMMC, установите его в eMMC сейчас, следуя инструкциям по приведенной выше ссылке.
 
 Then ssh into the Beaglebone machine (`ssh debian@beaglebone` -- password is `temppwd`) and install Klipper by running the following commands:
 

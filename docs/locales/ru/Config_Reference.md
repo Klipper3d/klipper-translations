@@ -2,13 +2,13 @@
 
 Этот документ является справочным для опций, доступных в конфигурационном файле Klipper.
 
-The descriptions in this document are formatted so that it is possible to cut-and-paste them into a printer config file. See the [installation document](Installation.md) for information on setting up Klipper and choosing an initial config file.
+Описания в этом документе отформатированы таким образом, чтобы их можно было вырезать и вставить в конфигурационный файл принтера. См. [installation document](Installation.md) для получения информации о настройке Klipper и выборе начального конфигурационного файла.
 
-## Micro-controller configuration
+## Конфигурация микроконтроллера
 
-### Format of micro-controller pin names
+### Формат имен контактов микроконтроллера
 
-Many config options require the name of a micro-controller pin. Klipper uses the hardware names for these pins - for example `PA4`.
+Для многих параметров конфигурации требуется имя PIN-кода микроконтроллера. Klipper использует названия оборудования для этих выводов - например, `PA4`.
 
 Pin names may be preceded by `!` to indicate that a reverse polarity should be used (eg, trigger on low instead of high).
 
@@ -2432,7 +2432,7 @@ Manually controlled fan (one may define any number of sections with a "fan_gener
 #tachometer_ppr:
 #tachometer_poll_interval:
 #enable_pin:
-#   See the "fan" section for a description of the above parameters.
+#   Описание вышеуказанных параметров см. в разделе "вентилятор".
 ```
 
 ## LEDs

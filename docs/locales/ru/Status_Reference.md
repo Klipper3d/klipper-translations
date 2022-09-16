@@ -2,7 +2,7 @@
 
 Этот документ является справочником информации о состоянии принтера, доступной в Klipper [macros](Command_Templates.md), [display fields](Config_Reference.md#display) и через[API Server](API_Server.md).
 
-The fields in this document are subject to change - if using an attribute be sure to review the [Config Changes document](Config_Changes.md) when upgrading the Klipper software.
+Поля в этом документе могут быть изменены - при использовании атрибута обязательно ознакомьтесь с документом [Config Changes document](Config_Changes.md) при обновлении программного обеспечения Klipper.
 
 ## angle
 
@@ -10,9 +10,9 @@ The following information is available in [angle some_name](Config_Reference.md#
 
 - `temperature`: The last temperature reading (in Celsius) from a tle5012b magnetic hall sensor. This value is only available if the angle sensor is a tle5012b chip and if measurements are in progress (otherwise it reports `None`).
 
-## bed_mesh
+## сетка постели (bed_mesh)
 
-The following information is available in the [bed_mesh](Config_Reference.md#bed_mesh) object:
+Следующая информация доступна в объекте [bed_mesh](Config_Reference.md#bed_mesh):
 
 - `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: Information on the currently active bed_mesh.
 - `profiles`: The set of currently defined profiles as setup using BED_MESH_PROFILE.

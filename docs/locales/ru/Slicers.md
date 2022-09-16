@@ -2,9 +2,9 @@
 
 В этом документе содержится несколько советов по настройке приложения "slicer" для использования с Klipper. Распространенными слайсерами, используемыми с Klipper, являются Slic3r, Cura, Simplify3Dи др.
 
-## Set the G-Code flavor to Marlin
+## Установите для G-кода значение Marlin
 
-Many slicers have an option to configure the "G-Code flavor". The default is frequently "Marlin" and that works well with Klipper. The "Smoothieware" setting also works well with Klipper.
+Во многих слайсерах есть возможность настроить "предпочтение G-кода". По умолчанию часто используется "Marlin", и это хорошо работает с Klipper. Настройка "Smoothieware" также хорошо работает с Klipper.
 
 ## Klipper gcode_macro
 

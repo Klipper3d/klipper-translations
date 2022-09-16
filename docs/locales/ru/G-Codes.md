@@ -2,11 +2,11 @@
 
 В этом документе описаны команды, поддерживаемые Klipper. Это команды, которые можно ввести на вкладке терминала OctoPrint.
 
-## G-Code commands
+## Команды G-кода
 
-Klipper supports the following standard G-Code commands:
+Klipper поддерживает следующие стандартные команды G-кода:
 
-- Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
+- Перемещение (G0 или G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
 - Dwell: `G4 P<milliseconds>`
 - Move to origin: `G28 [X] [Y] [Z]`
 - Turn off motors: `M18` or `M84`

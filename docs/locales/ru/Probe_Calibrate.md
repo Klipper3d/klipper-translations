@@ -4,15 +4,15 @@ This document describes the method for calibrating the X, Y, and Z offsets of an
 
 ## Калибровка смещений X и Y зонда
 
-To calibrate the X and Y offset, navigate to the OctoPrint "Control" tab, home the printer, and then use the OctoPrint jogging buttons to move the head to a position near the center of the bed.
+Чтобы откалибровать смещение X и Y, перейдите на вкладку OctoPrint "Управление" ("Control"), запустите принтер, а затем используйте кнопки переключения OctoPrint для перемещения головки в положение, близкое к центру станины.
 
-Place a piece of blue painters tape (or similar) on the bed underneath the probe. Navigate to the OctoPrint "Terminal" tab and issue a PROBE command:
+Положите кусок синей малярной ленты (или аналогичной) на ложе под зондом. Перейдите на вкладку OctoPrint "Терминал" (Terminal) и введите команду проверки:
 
 ```
 PROBE
 ```
 
-Place a mark on the tape directly under where the probe is (or use a similar method to note the location on the bed).
+Сделайте отметку на ленте непосредственно под тем местом, где находится зонд (или используйте аналогичный метод, чтобы отметить местоположение на кровати).
 
 Issue a `GET_POSITION` command and record the toolhead XY location reported by that command. For example if one sees:
 

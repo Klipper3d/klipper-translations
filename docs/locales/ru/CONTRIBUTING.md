@@ -118,25 +118,25 @@ The Klipper "maintainers" are:
 Each commit should have a commit message formatted similar to the following:
 
 ```
-module: Capitalized, short (50 chars or less) summary
+модуль: Краткое резюме с заглавной буквы (не более 50 символов)
 
-More detailed explanatory text, if necessary.  Wrap it to about 75
-characters or so.  In some contexts, the first line is treated as the
-subject of an email and the rest of the text as the body.  The blank
-line separating the summary from the body is critical (unless you omit
-the body entirely); tools like rebase can get confused if you run the
-two together.
+Более подробный пояснительный текст, если это необходимо. Сократите его примерно до 75
+символов или около того. В некоторых контекстах первая строка рассматривается как тема
+электронного письма, а остальная часть текста - как основной текст. Пустая строка,
+отделяющая сводку от основного текста, имеет решающее значение (если только вы
+не опустите тело полностью); такие инструменты, как rebase, могут запутаться, если вы
+запустите их вместе.
 
-Further paragraphs come after blank lines..
+Дальнейшие абзацы следуют за пустыми строками..
 
-Signed-off-by: My Name <myemail@example.org>
+Подписано: Мое имя <myemail@example.org >
 ```
 
 In the above example, `module` should be the name of a file or directory in the repository (without a file extension). For example, `clocksync: Fix typo in pause() call at connect time`. The purpose of specifying a module name in the commit message is to help provide context for the commit comments.
 
-It is important to have a "Signed-off-by" line on each commit - it certifies that you agree to the [developer certificate of origin](developer-certificate-of-origin). It must contain your real name (sorry, no pseudonyms or anonymous contributions) and contain a current email address.
+Важно иметь строку "Подписано" (Signed-off-by) при каждой фиксации - она подтверждает, что вы согласны с [developer certificate of origin](developer-certificate-of-origin). В нем должно быть указано ваше настоящее имя (извините, никаких псевдонимов или анонимных сообщений) и текущий адрес электронной почты.
 
-## Contributing to Klipper Translations
+## Вклад в переводы Klipper
 
 [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) is a project dedicated to translating Klipper to different languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all the Gettext strings for translating and reviewing. Locales can be displayed on [klipper3d.org](https://www.klipper3d.org) once they satisfy the following requirements:
 

@@ -2,11 +2,11 @@
 
 В этом документе содержится информация о настройке переменной конфигурации "повышение давления" для конкретного сопла и нити накала. Функция повышения давления может быть полезна для уменьшения количества мелких дефектов. Для получения дополнительной информации о том, как реализуется повышение давления, см. [kinematics](Kinematics.md) документ.
 
-## Tuning pressure advance
+## Настройка опережения давления
 
-Pressure advance does two useful things - it reduces ooze during non-extrude moves and it reduces blobbing during cornering. This guide uses the second feature (reducing blobbing during cornering) as a mechanism for tuning.
+Повышение давления делает две полезные вещи - уменьшает образование ила при движении без выдавливания и уменьшает образование пузырьков при прохождении поворотов. В этом руководстве в качестве механизма настройки используется вторая функция (уменьшение размытости при прохождении поворотов).
 
-In order to calibrate pressure advance the printer must be configured and operational as the tuning test involves printing and inspecting a test object. It is a good idea to read this document in full prior to running the test.
+Для калибровки опережения давления принтер должен быть сконфигурирован и работать, поскольку тест настройки включает в себя печать и проверку тестируемого объекта. Рекомендуется прочитать этот документ полностью перед запуском теста.
 
 Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" is disabled in the slicer.
 

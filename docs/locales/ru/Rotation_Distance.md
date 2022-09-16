@@ -2,15 +2,15 @@
 
 Драйверы шаговых двигателей на Klipper требуют параметра `rotation_distance` в каждом [разделе конфигурации шагового двигателя] (Config_Reference.md #stepper). `rotation_distance` - это величина расстояния, на которое перемещается ось за один полный оборот шагового двигателя. В этом документе описано, как можно настроить это значение.
 
-## Obtaining rotation_distance from steps_per_mm (or step_distance)
+## Получение rotation_distance из steps_per_mm (или step_distance)
 
-The designers of your 3d printer originally calculated `steps_per_mm` from a rotation distance. If you know the steps_per_mm then it is possible to use this general formula to obtain that original rotation distance:
+Разработчики вашего 3d-принтера изначально рассчитали "steps_per_mm" исходя из расстояния поворота. Если вы знаете steps_per_mm, то можно использовать эту общую формулу для получения этого исходного расстояния поворота:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
 ```
 
-Or, if you have an older Klipper configuration and know the `step_distance` parameter you can use this formula:
+Или, если у вас более старая конфигурация Klipper и вы знаете параметр `step_distance`, вы можете использовать эту формулу:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>

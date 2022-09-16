@@ -2,11 +2,11 @@
 
 В этом документе описывается система автоматической калибровки Klipper для принтеров типа "delta".
 
-Delta calibration involves finding the tower endstop positions, tower angles, delta radius, and delta arm lengths. These settings control printer motion on a delta printer. Each one of these parameters has a non-obvious and non-linear impact and it is difficult to calibrate them manually. In contrast, the software calibration code can provide excellent results with just a few minutes of time. No special probing hardware is necessary.
+Дельта-калибровка включает в себя определение положений концевых упоров башни, углов башни, дельта-радиуса и длины дельта-рычагов. Эти настройки управляют перемещением принтера на принтере delta. Каждый из этих параметров оказывает неочевидное и нелинейное влияние, и их трудно откалибровать вручную. Напротив, программный код калибровки может обеспечить отличные результаты всего за несколько минут. Никакого специального зондирующего оборудования не требуется.
 
-Ultimately, the delta calibration is dependent on the precision of the tower endstop switches. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of those switches.
+В конечном счете, дельта-калибровка зависит от точности концевых выключателей башни. Если вы используете драйверы шаговых двигателей Trinamic, то рассмотрите возможность включения [endstop phase](Endstop_Phase.md) обнаружения для повышения точности этих переключателей.
 
-## Automatic vs manual probing
+## Автоматическое и ручное зондирование
 
 Klipper supports calibrating the delta parameters via a manual probing method or via an automatic Z probe.
 

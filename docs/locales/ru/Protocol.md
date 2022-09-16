@@ -10,13 +10,13 @@ queue_step oid=7 interval=7458 count=10 add=331
 queue_step oid=7 interval=11717 count=4 add=1281
 ```
 
-See the [mcu commands](MCU_Commands.md) document for information on available commands. See the [debugging](Debugging.md) document for information on how to translate a G-Code file into its corresponding human-readable micro-controller commands.
+Смотрите [mcu commands](MCU_Commands.md) документ для получения информации о доступных командах. См. раздел [debugging](Debugging.md) документ для получения информации о том, как преобразовать файл G-кода в соответствующие команды микроконтроллера, доступные для чтения человеком.
 
-This page provides a high-level description of the Klipper messaging protocol itself. It describes how messages are declared, encoded in binary format (the "compression" scheme), and transmitted.
+На этой странице представлено высокоуровневое описание самого протокола обмена сообщениями Klipper. В нем описывается, как сообщения объявляются, кодируются в двоичном формате (схема "сжатия") и передаются.
 
-The goal of the protocol is to enable an error-free communication channel between the host and micro-controller that is low-latency, low-bandwidth, and low-complexity for the micro-controller.
+Цель протокола - обеспечить безошибочный канал связи между хостом и микроконтроллером с низкой задержкой, низкой пропускной способностью и низкой сложностью для микроконтроллера.
 
-## Micro-controller Interface
+## Интерфейс микроконтроллера
 
 The Klipper transmission protocol can be thought of as a [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) mechanism between micro-controller and host. The micro-controller software declares the commands that the host may invoke along with the response messages that it can generate. The host uses that information to command the micro-controller to perform actions and to interpret the results.
 

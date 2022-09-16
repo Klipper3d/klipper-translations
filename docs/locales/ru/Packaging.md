@@ -2,13 +2,13 @@
 
 Klipper является своего рода аномалией упаковки среди программ на Python, поскольку он не использует setuptools для сборки и установки. Некоторые замечания относительно того, как лучше всего его упаковать, следующие:
 
-## C modules
+## Модули C
 
-Klipper uses a C module to handle some kinematics calculations more quickly. This module needs to be compiled at packaging time to avoid introducing a runtime dependency on a compiler. To compile the C module, run `python2 klippy/chelper/__init__.py`.
+Klipper использует модуль C для более быстрой обработки некоторых кинематических вычислений. Этот модуль должен быть скомпилирован во время упаковки, чтобы избежать введения зависимости времени выполнения от компилятора. Чтобы скомпилировать модуль C, запустите `python2 klippy/chelper/__init__.py `.
 
-## Compiling python code
+## Компиляция кода python
 
-Many distributions have a policy of compiling all python code before packaging to improve startup time. You can do this by running `python2 -m compileall klippy`.
+Во многих дистрибутивах существует политика компиляции всего кода python перед упаковкой, чтобы увеличить время запуска. Вы можете сделать это, запустив "python2 -m compileall klippy`.
 
 ## Versioning
 

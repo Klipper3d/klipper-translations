@@ -2,9 +2,9 @@
 
 ## Подключение BL-Touch
 
-A **warning** before you start: Avoid touching the BL-Touch pin with your bare fingers, since it is quite sensitive to finger grease. And if you do touch it, be very gentle, in order to not bend or push anything.
+** ПРЕДУПРЕЖДЕНИЕ ** Перед началом работы: Не прикасайтесь к штифту BL-Touch голыми пальцами, так как он довольно чувствителен к смазке для пальцев. И если вы все-таки прикоснетесь к нему, будьте очень нежны, чтобы ничего не согнуть и не толкнуть.
 
-Hook up the BL-Touch "servo" connector to a `control_pin` according to the BL-Touch documentation or your MCU documentation. Using the original wiring, the yellow wire from the triple is the `control_pin` and the white wire from the pair is the `sensor_pin`. You need to configure these pins according to your wiring. Most BL-Touch devices require a pullup on the sensor pin (prefix the pin name with "^"). For example:
+Подключите разъем BL-Touch "servo" к разъему "control_pin" в соответствии с документацией BL-Touch или документацией вашего MCU. Используя оригинальную проводку, желтый провод от тройки - это "control_pin", а белый провод от пары - "sensor_pin". Вам необходимо настроить эти контакты в соответствии с вашей проводкой. Для большинства устройств BL-Touch требуется подтягивание pin-кода датчика (префикс имени pin-кода с помощью "^"). Например:
 
 ```
 [bltouch]
@@ -22,7 +22,7 @@ z_hop: 10                 # Move up 10mm
 z_hop_speed: 5
 ```
 
-It's important that the z_hop movement in safe_z_home is high enough that the probe doesn't hit anything even if the probe pin happens to be in its lowest state.
+Важно, чтобы перемещение z_hop в safe_z_home было достаточно высоким, чтобы зонд ни во что не врезался, даже если контакт зонда находится в самом низком состоянии.
 
 ## Initial tests
 

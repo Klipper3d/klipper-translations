@@ -2,11 +2,11 @@
 
 Выравнивание кровати (иногда также называемое "выравниванием стола") имеет решающее значение для получения высококачественных отпечатков. Если кровать не выровнен должным образом, это может привести к плохой адгезии слоя, "деформации" и незначительным проблемам по всей печати. Этот документ служит руководством по выполнению выравнивания слоя в Klipper.
 
-It's important to understand the goal of bed leveling. If the printer is commanded to a position `X0 Y0 Z10` during a print, then the goal is for the printer's nozzle to be exactly 10mm from the printer's bed. Further, should the printer then be commanded to a position of `X50 Z10` the goal is for the nozzle to maintain an exact distance of 10mm from the bed during that entire horizontal move.
+Важно понимать цель выравнивания кровати. Если во время печати принтеру задается положение "X0 Y0 Z10", то цель состоит в том, чтобы сопло принтера находилось ровно в 10 мм от станины принтера. Кроме того, если затем принтеру будет дана команда на положение "X50 Z10", цель состоит в том, чтобы сопло сохраняло точное расстояние в 10 мм от станины во время всего этого горизонтального перемещения.
 
-In order to get good quality prints the printer should be calibrated so that Z distances are accurate to within about 25 microns (.025mm). This is a small distance - significantly smaller than the width of a typical human hair. This scale can not be measured "by eye". Subtle effects (such as heat expansion) impact measurements at this scale. The secret to getting high accuracy is to use a repeatable process and to use a leveling method that leverages the high accuracy of the printer's own motion system.
+Для получения отпечатков хорошего качества принтер должен быть откалиброван таким образом, чтобы расстояния Z были точными с точностью примерно до 25 микрон (0,025 мм). Это небольшое расстояние - значительно меньше ширины обычного человеческого волоса. Эта шкала не может быть измерена "на глаз". Тонкие эффекты (такие как тепловое расширение) влияют на измерения в этом масштабе. Секрет получения высокой точности заключается в использовании повторяющегося процесса и метода выравнивания, который использует высокую точность собственной системы перемещения принтера.
 
-## Choose the appropriate calibration mechanism
+## Выберите подходящий механизм калибровки
 
 Different types of printers use different methods for performing bed leveling. All of them ultimately depend on the "paper test" (described below). However, the actual process for a particular type of printer is described in other documents.
 

@@ -2,11 +2,11 @@
 
 В этом документе представлен обзор того, как Klipper реализует движение робота (его [кинематика] (https://en.wikipedia.org/wiki/Kinematics )). Содержание может представлять интерес как для разработчиков, заинтересованных в работе над программным обеспечением Klipper, так и для пользователей, заинтересованных в лучшем понимании механики своих машин.
 
-## Acceleration
+## Ускорение
 
-Klipper implements a constant acceleration scheme whenever the print head changes velocity - the velocity is gradually changed to the new speed instead of suddenly jerking to it. Klipper always enforces acceleration between the tool head and the print. The filament leaving the extruder can be quite fragile - rapid jerks and/or extruder flow changes lead to poor quality and poor bed adhesion. Even when not extruding, if the print head is at the same level as the print then rapid jerking of the head can cause disruption of recently deposited filament. Limiting speed changes of the print head (relative to the print) reduces risks of disrupting the print.
+Klipper реализует схему постоянного ускорения всякий раз, когда печатающая головка меняет скорость - скорость постепенно изменяется на новую скорость, а не внезапно переключается на нее. Клиппер всегда обеспечивает ускорение между инструментальной головкой и отпечатком. Нить, выходящая из экструдера, может быть довольно хрупкой - быстрые рывки и / или изменение потока экструдера приводят к низкому качеству и плохой адгезии к слою. Даже при отсутствии выдавливания, если печатающая головка находится на том же уровне, что и печать, быстрое подергивание головки может привести к разрыву недавно нанесенной нити накала. Ограничение изменения скорости печатающей головки (относительно печати) снижает риск прерывания печати.
 
-It is also important to limit acceleration so that the stepper motors do not skip or put excessive stress on the machine. Klipper limits the torque on each stepper by virtue of limiting the acceleration of the print head. Enforcing acceleration at the print head naturally also limits the torque of the steppers that move the print head (the inverse is not always true).
+Также важно ограничить ускорение, чтобы шаговые двигатели не пропускали и не создавали чрезмерной нагрузки на машину. Klipper ограничивает крутящий момент на каждом шаговом механизме за счет ограничения ускорения печатающей головки. Принудительное ускорение печатающей головки, естественно, также ограничивает крутящий момент шаговых двигателей, которые перемещают печатающую головку (обратное не всегда верно).
 
 Klipper implements constant acceleration. The key formula for constant acceleration is:
 

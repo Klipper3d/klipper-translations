@@ -1,14 +1,14 @@
 # Изменения Резонансов
 
-Klipper has built-in support for ADXL345 accelerometer, which can be used to measure resonance frequencies of the printer for different axes, and auto-tune [input shapers](Resonance_Compensation.md) to compensate for resonances. Note that using ADXL345 requires some soldering and crimping. ADXL345 can be connected to a Raspberry Pi directly, or to an SPI interface of an MCU board (it needs to be reasonably fast).
+Klipper имеет встроенную поддержку акселерометра ADXL345, который можно использовать для измерения резонансных частот принтера для разных осей и автоматической настройки [input shapers](Resonance_Compensation.md) для компенсации резонансов. Обратите внимание, что использование ADXL345 требует некоторой пайки и обжима. ADXL345 может быть подключен к Raspberry Pi напрямую или к SPI-интерфейсу платы MCU (он должен быть достаточно быстрым).
 
 When sourcing ADXL345, be aware that there is a variety of different PCB board designs and different clones of them. Make sure that the board supports SPI mode (small number of boards appear to be hard-configured for I2C by pulling SDO to GND), and, if it is going to be connected to a 5V printer MCU, that it has a voltage regulator and a level shifter.
 
-## Installation instructions
+## Инструкции по установке
 
-### Wiring
+### Электропроводка
 
-You need to connect ADXL345 to your Raspberry Pi via SPI. Note that the I2C connection, which is suggested by ADXL345 documentation, has too low throughput and **will not work**. The recommended connection scheme:
+Вам необходимо подключить ADXL345 к вашему Raspberry Pi через SPI. Обратите внимание, что соединение I2C, которое предлагается в документации ADXL345, имеет слишком низкую пропускную способность и ** не будет работать **. Рекомендуемая схема подключения:
 
 | ADXL345 pin | RPi pin | RPi pin name |
 | :-: | :-: | :-: |

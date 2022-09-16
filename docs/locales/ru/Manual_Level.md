@@ -2,11 +2,11 @@
 
 В этом документе описаны инструменты для калибровки концевого упора Z и для выполнения регулировок винтов для выравнивания станины.
 
-## Calibrating a Z endstop
+## Калибровка концевого упора Z
 
-An accurate Z endstop position is critical to obtaining high quality prints.
+Точное положение концевого упора Z имеет решающее значение для получения высококачественных отпечатков.
 
-Note, though, the accuracy of the Z endstop switch itself can be a limiting factor. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of the switch.
+Обратите внимание, однако, что точность самого переключателя Z endstop может быть ограничивающим фактором. Если вы используете драйверы шаговых двигателей Trinamic, то рассмотрите возможность включения [фаза конечной остановки](Endstop_Phase.md) обнаружение для повышения точности переключения.
 
 To perform a Z endstop calibration, home the printer, command the head to move to a Z position that is at least five millimeters above the bed (if it is not already), command the head to move to an XY position near the center of the bed, then navigate to the OctoPrint terminal tab and run:
 

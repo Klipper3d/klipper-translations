@@ -31,11 +31,11 @@ See the "HELP" command within the tool for more information on its functionality
 
 Some command-line options are available. For more information run: `~/klippy-env/bin/python ./klippy/console.py --help`
 
-## Translating gcode files to micro-controller commands
+## Преобразование файлов gcode в команды микроконтроллера
 
-The Klippy host code can run in a batch mode to produce the low-level micro-controller commands associated with a gcode file. Inspecting these low-level commands is useful when trying to understand the actions of the low-level hardware. It can also be useful to compare the difference in micro-controller commands after a code change.
+Код хоста Klippy может выполняться в пакетном режиме для создания низкоуровневых команд микроконтроллера, связанных с файлом gcode. Проверка этих низкоуровневых команд полезна при попытке понять действия низкоуровневого оборудования. Также может быть полезно сравнить разницу в командах микроконтроллера после изменения кода.
 
-To run Klippy in this batch mode, there is a one time step necessary to generate the micro-controller "data dictionary". This is done by compiling the micro-controller code to obtain the **out/klipper.dict** file:
+Чтобы запустить Klippy в этом пакетном режиме, необходим один временной шаг для создания "словаря данных" микроконтроллера. Это делается путем компиляции кода микроконтроллера для получения файла **out/klipper.dict**:
 
 ```
 make menuconfig

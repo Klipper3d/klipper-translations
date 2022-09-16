@@ -1,10 +1,10 @@
 Документация Klipper
 
-Installation and Configuration
+Установка и настройка
 
-Configuration Reference
+Справочник конфигурации
 
-Bed Level
+Уровень кровати
 
 Компенсация Резонанса
 
