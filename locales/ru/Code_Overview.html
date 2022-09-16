@@ -1299,7 +1299,7 @@
 
 
 <h1 id="code-overview">Code overview<a class="headerlink" href="#code-overview" title="Permanent link">&para;</a></h1>
-<p>This document describes the overall code layout and major code flow of Klipper.</p>
+<p>В этом документе описывается общая компоновка кода и основной поток кода Klipper.</p>
 <h2 id="directory-layout">Directory Layout<a class="headerlink" href="#directory-layout" title="Permanent link">&para;</a></h2>
 <p>The <strong>src/</strong> directory contains the C source for the micro-controller code. The <strong>src/atsam/</strong>, <strong>src/atsamd/</strong>, <strong>src/avr/</strong>, <strong>src/linux/</strong>, <strong>src/lpc176x/</strong>, <strong>src/pru/</strong>, and <strong>src/stm32/</strong> directories contain architecture specific micro-controller code. The <strong>src/simulator/</strong> contains code stubs that allow the micro-controller to be test compiled on other architectures. The <strong>src/generic/</strong> directory contains helper code that may be useful across different architectures. The build arranges for includes of "board/somefile.h" to first look in the current architecture directory (eg, src/avr/somefile.h) and then in the generic directory (eg, src/generic/somefile.h).</p>
 <p>The <strong>klippy/</strong> directory contains the host software. Most of the host software is written in Python, however the <strong>klippy/chelper/</strong> directory contains some C code helpers. The <strong>klippy/kinematics/</strong> directory contains the robot kinematics code. The <strong>klippy/extras/</strong> directory contains the host code extensible "modules".</p>

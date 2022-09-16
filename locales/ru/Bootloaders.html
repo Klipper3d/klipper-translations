@@ -1408,7 +1408,7 @@
 
 
 <h1 id="bootloaders">Bootloaders<a class="headerlink" href="#bootloaders" title="Permanent link">&para;</a></h1>
-<p>This document provides information on common bootloaders found on micro-controllers that Klipper supports.</p>
+<p>В этом документе содержится информация об общих загрузчиках, которые можно найти на микроконтроллерах, поддерживаемых Klipper.</p>
 <p>The bootloader is 3rd-party software that runs on the micro-controller when it is first powered on. It is typically used to flash a new application (eg, Klipper) to the micro-controller without requiring specialized hardware. Unfortunately, there is no industry wide standard for flashing a micro-controller, nor is there a standard bootloader that works across all micro-controllers. Worse, it is common for each bootloader to require a different set of steps to flash an application.</p>
 <p>If one can flash a bootloader to a micro-controller then one can generally also use that mechanism to flash an application, but care should be taken when doing this as one may inadvertently remove the bootloader. In contrast, a bootloader will generally only permit a user to flash an application. It is therefore recommended to use a bootloader to flash an application where possible.</p>
 <p>This document attempts to describe common bootloaders, the steps needed to flash a bootloader, and the steps needed to flash an application. This document is not an authoritative reference; it is intended as a collection of useful information that the Klipper developers have accumulated.</p>

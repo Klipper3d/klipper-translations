@@ -1292,7 +1292,7 @@
 
 
 <h1 id="rpi-microcontroller">RPi microcontroller<a class="headerlink" href="#rpi-microcontroller" title="Permanent link">&para;</a></h1>
-<p>This document describes the process of running Klipper on a RPi and use the same RPi as secondary mcu.</p>
+<p>В этом документе описывается процесс запуска Klipper на RPi и использования того же RPi, что и вторичный mcu.</p>
 <h2 id="why-use-rpi-as-a-secondary-mcu">Why use RPi as a secondary MCU?<a class="headerlink" href="#why-use-rpi-as-a-secondary-mcu" title="Permanent link">&para;</a></h2>
 <p>Often the MCUs dedicated to controlling 3D printers have a limited and pre-configured number of exposed pins to manage the main printing functions (thermal resistors, extruders, steppers ...). Using the RPi where Klipper is installed as a secondary MCU gives the possibility to directly use the GPIOs and the buses (i2c, spi) of the RPi inside klipper without using Octoprint plugins (if used) or external programs giving the ability to control everything within the print GCODE.</p>
 <p><strong>Warning</strong>: If your platform is a <em>Beaglebone</em> and you have correctly followed the installation steps, the linux mcu is already installed and configured for your system.</p>

@@ -1351,7 +1351,7 @@
 
 
 <h1 id="_1">Протокол<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>The Klipper messaging protocol is used for low-level communication between the Klipper host software and the Klipper micro-controller software. At a high level the protocol can be thought of as a series of command and response strings that are compressed, transmitted, and then processed at the receiving side. An example series of commands in uncompressed human-readable format might look like:</p>
+<p>Протокол обмена сообщениями Klipper используется для низкоуровневой связи между программным обеспечением хоста Klipper и программным обеспечением микроконтроллера Klipper. На высоком уровне протокол можно рассматривать как последовательность строк команд и ответов, которые сжимаются, передаются, а затем обрабатываются на принимающей стороне. Примерная серия команд в несжатом удобочитаемом формате может выглядеть следующим образом:</p>
 <div class="highlight"><pre><span></span><code>set_digital_out pin=PA3 value=1
 set_digital_out pin=PA7 value=1
 schedule_digital_out oid=8 clock=4000000 value=0

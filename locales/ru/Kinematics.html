@@ -1296,8 +1296,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pressure-advance" class="md-nav__link">
-    Pressure advance
+  <a href="#_1" class="md-nav__link">
+    Повышение давления
   </a>
   
 </li>
@@ -1325,7 +1325,7 @@
 
 
 <h1 id="kinematics">Kinematics<a class="headerlink" href="#kinematics" title="Permanent link">&para;</a></h1>
-<p>This document provides an overview of how Klipper implements robot motion (its <a href="https://en.wikipedia.org/wiki/Kinematics">kinematics</a>). The contents may be of interest to both developers interested in working on the Klipper software as well as users interested in better understanding the mechanics of their machines.</p>
+<p>В этом документе представлен обзор того, как Klipper реализует движение робота (его [кинематика] (<a href="https://en.wikipedia.org/wiki/Kinematics">https://en.wikipedia.org/wiki/Kinematics</a> )). Содержание может представлять интерес как для разработчиков, заинтересованных в работе над программным обеспечением Klipper, так и для пользователей, заинтересованных в лучшем понимании механики своих машин.</p>
 <h2 id="acceleration">Acceleration<a class="headerlink" href="#acceleration" title="Permanent link">&para;</a></h2>
 <p>Klipper implements a constant acceleration scheme whenever the print head changes velocity - the velocity is gradually changed to the new speed instead of suddenly jerking to it. Klipper always enforces acceleration between the tool head and the print. The filament leaving the extruder can be quite fragile - rapid jerks and/or extruder flow changes lead to poor quality and poor bed adhesion. Even when not extruding, if the print head is at the same level as the print then rapid jerking of the head can cause disruption of recently deposited filament. Limiting speed changes of the print head (relative to the print) reduces risks of disrupting the print.</p>
 <p>It is also important to limit acceleration so that the stepper motors do not skip or put excessive stress on the machine. Klipper limits the torque on each stepper by virtue of limiting the acceleration of the print head. Enforcing acceleration at the print head naturally also limits the torque of the steppers that move the print head (the inverse is not always true).</p>
@@ -1409,7 +1409,7 @@ stepper_z_position = cartesian_z_position
 <div class="highlight"><pre><span></span><code>stepper_position = requested_e_position
 </code></pre></div>
 
-<h3 id="pressure-advance">Pressure advance<a class="headerlink" href="#pressure-advance" title="Permanent link">&para;</a></h3>
+<h3 id="_1">Повышение давления<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>Experimentation has shown that it's possible to improve the modeling of the extruder beyond the basic extruder formula. In the ideal case, as an extrusion move progresses, the same volume of filament should be deposited at each point along the move and there should be no volume extruded after the move. Unfortunately, it's common to find that the basic extrusion formulas cause too little filament to exit the extruder at the start of extrusion moves and for excess filament to extrude after extrusion ends. This is often referred to as "ooze".</p>
 <p><img alt="ooze" src="img/ooze.svg.png" /></p>
 <p>The "pressure advance" system attempts to account for this by using a different model for the extruder. Instead of naively believing that each mm^3 of filament fed into the extruder will result in that amount of mm^3 immediately exiting the extruder, it uses a model based on pressure. Pressure increases when filament is pushed into the extruder (as in <a href="https://en.wikipedia.org/wiki/Hooke%27s_law">Hooke's law</a>) and the pressure necessary to extrude is dominated by the flow rate through the nozzle orifice (as in <a href="https://en.wikipedia.org/wiki/Poiseuille_law">Poiseuille's law</a>). The key idea is that the relationship between filament, pressure, and flow rate can be modeled using a linear coefficient:</p>
