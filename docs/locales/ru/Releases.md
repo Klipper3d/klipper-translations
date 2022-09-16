@@ -22,10 +22,10 @@ Available on 20210929. Major changes in this release:
 
 ## Klipper 0.9.0
 
-Available on 20201020. Major changes in this release:
+Доступно с 20201020 года. Основные изменения в этом выпуске:
 
-* Support for "Input Shaping" - a mechanism to counteract printer resonance. It can reduce or eliminate "ringing" in prints.
-* New "Smooth Pressure Advance" system. This implements "Pressure Advance" without introducing instantaneous velocity changes. It is also now possible to tune pressure advance using a "Tuning Tower" method.
+* Поддержка "Формирования входных данных" - механизма противодействия резонансу принтера. Это может уменьшить или устранить "звон" в отпечатках.
+* Новая система "Плавного повышения давления". Это обеспечивает "Повышение давления" без мгновенного изменения скорости. Кроме того, теперь можно настраивать повышение давления с помощью метода "Настроечной башни".
 * New "webhooks" API server. This provides a programmable JSON interface to Klipper.
 * The LCD display and menu are now configurable using the Jinja2 template language.
 * The TMC2208 stepper motor drivers can now be used in "standalone" mode with Klipper.

@@ -2,13 +2,13 @@
 
 В этом документе описывается общая компоновка кода и основной поток кода Klipper.
 
-## Directory Layout
+## Расположение каталогов
 
-The **src/** directory contains the C source for the micro-controller code. The **src/atsam/**, **src/atsamd/**, **src/avr/**, **src/linux/**, **src/lpc176x/**, **src/pru/**, and **src/stm32/** directories contain architecture specific micro-controller code. The **src/simulator/** contains code stubs that allow the micro-controller to be test compiled on other architectures. The **src/generic/** directory contains helper code that may be useful across different architectures. The build arranges for includes of "board/somefile.h" to first look in the current architecture directory (eg, src/avr/somefile.h) and then in the generic directory (eg, src/generic/somefile.h).
+Каталог **src/** содержит исходный код C для кода микроконтроллера. **src/atsam/**, **src/atsamd/**, **src/avr/**, **src/linux/**, **src/lpc176x/**, **src/pru/** и **src/каталоги stm32/** содержат код микроконтроллера, специфичный для архитектуры. **src/simulator/** содержит заглушки кода, которые позволяют тестировать микроконтроллер, скомпилированный на других архитектурах. Каталог **src/generic/** содержит вспомогательный код, который может быть полезен в различных архитектурах. Сборка организует включение "board/somefile.h", чтобы сначала заглянуть в текущий каталог архитектуры (например, src/avr/somefile.h), а затем в общий каталог (например, src/generic/somefile.h).
 
-The **klippy/** directory contains the host software. Most of the host software is written in Python, however the **klippy/chelper/** directory contains some C code helpers. The **klippy/kinematics/** directory contains the robot kinematics code. The **klippy/extras/** directory contains the host code extensible "modules".
+Каталог **klippy/** содержит программное обеспечение хоста. Большая часть программного обеспечения хоста написана на Python, однако каталог **klippy/chelper/** содержит несколько помощников по коду C. Каталог **klippy/kinematics/** содержит код кинематики робота. Каталог **klippy/extras/** содержит расширяемые "модули" хост-кода.
 
-The **lib/** directory contains external 3rd-party library code that is necessary to build some targets.
+Каталог **lib/** содержит код внешней библиотеки третьей стороны, который необходим для создания некоторых целевых объектов.
 
 The **config/** directory contains example printer configuration files.
 

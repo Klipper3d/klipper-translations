@@ -2,9 +2,9 @@
 
 В этом документе описываются последние изменения программного обеспечения в файле конфигурации, которые не являются обратно совместимыми. Рекомендуется ознакомиться с этим документом при обновлении программного обеспечения Klipper.
 
-All dates in this document are approximate.
+Все даты в этом документе являются приблизительными.
 
-## Changes
+## Изменение
 
 20220616: It was previously possible to flash an rp2040 in bootloader mode by running `make flash FLASH_DEVICE=first`. The equivalent command is now `make flash FLASH_DEVICE=2e8a:0003`.
 
@@ -50,12 +50,12 @@ All dates in this document are approximate.
 
 20210703: A `samd_sercom` config section must now specify the sercom bus it is configuring via the `sercom` option.
 
-20210612: The `pid_integral_max` config option in heater and temperature_fan sections is deprecated. The option will be removed in the near future.
+20210612: Параметр конфигурации `pid_integral_max` в разделах heater и temperature_fan устарел. Эта опция будет удалена в ближайшем будущем.
 
 20210503: The gcode_macro `default_parameter_<name>` config option is deprecated. Use the `params` pseudo-variable to access macro parameters. Other methods for accessing macro parameters will be removed in the near future. Most users can replace a `default_parameter_NAME: VALUE` config option with a line like the following in the start of the macro: ` {% set NAME = params.NAME|default(VALUE)|float %}`. See the [Command Templates
 document](Command_Templates.md#macro-parameters) for examples.
 
-20210430: The SET_VELOCITY_LIMIT (and M204) command may now set a velocity, acceleration, and square_corner_velocity larger than the specified values in the config file.
+20210430: Команда SET_VELOCITY_LIMIT (и M204) теперь может устанавливать скорость, ускорение и square_corner_velocity, превышающие указанные значения в файле конфигурации.
 
 20210325: Support for the `pin_map` config option is deprecated. Use the [sample-aliases.cfg](../config/sample-aliases.cfg) file to translate to the actual micro-controller pin names. The `pin_map` config option will be removed in the near future.
 

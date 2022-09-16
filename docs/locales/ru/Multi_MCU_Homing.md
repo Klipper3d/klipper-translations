@@ -1,10 +1,10 @@
 # Самонаведение и зондирование с несколькими микроконтроллерами
 
-Klipper supports a mechanism for homing with an endstop attached to one micro-controller while its stepper motors are on a different micro-controller. This support is referred to as "multi-mcu homing". This feature is also used when a Z probe is on a different micro-controller than the Z stepper motors.
+Klipper поддерживает механизм самонаведения с концевым упором, подключенным к одному микроконтроллеру, в то время как его шаговые двигатели подключены к другому микроконтроллеру. Эта поддержка называется "самонаведением с несколькими микроконтроллерами". Эта функция также используется, когда Z-зонд находится на другом микроконтроллере, чем Z-шаговые двигатели.
 
-This feature can be useful to simplify wiring, as it may be more convenient to attach an endstop or probe to a closer micro-controller. However, using this feature may result in "overshoot" of the stepper motors during homing and probing operations.
+Эта функция может быть полезна для упрощения подключения, так как может быть удобнее присоединить концевой упор или зонд к более близкому микроконтроллеру. Однако использование этой функции может привести к "перерегулированию" шаговых двигателей во время операций наведения и зондирования.
 
-The overshoot occurs due to possible message transmission delays between the micro-controller monitoring the endstop and the micro-controllers moving the stepper motors. The Klipper code is designed to limit this delay to no more than 25ms. (When multi-mcu homing is activated, the micro-controllers send periodic status messages and check that corresponding status messages are received within 25ms.)
+Превышение происходит из-за возможных задержек передачи сообщений между микроконтроллером, контролирующим конечный упор, и микроконтроллерами, приводящими в движение шаговые двигатели. Код Клиппера предназначен для ограничения этой задержки не более чем на 25 мс. (Когда активировано самонаведение с несколькими микроконтроллерами, микроконтроллеры периодически отправляют сообщения о состоянии и проверяют, что соответствующие сообщения о состоянии получены в течение 25 мс.)
 
 So, for example, if homing at 10mm/s then it is possible for an overshoot of up to 0.250mm (10mm/s * .025s == 0.250mm). Care should be taken when configuring multi-mcu homing to account for this type of overshoot. Using slower homing or probing speeds can reduce the overshoot.
 

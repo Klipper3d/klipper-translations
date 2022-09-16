@@ -2,19 +2,19 @@
 
 В этом документе описывается интерфейс прикладного программиста Klipper (API). Этот интерфейс позволяет внешним приложениям запрашивать программное обеспечение хоста Klipper и управлять им.
 
-## Enabling the API socket
+## Включение сокета API
 
-In order to use the API server, the klippy.py host software must be started with the `-a` parameter. For example:
+Для того, чтобы использовать сервер API, необходимо klippy.py программное обеспечение хоста должно быть запущено с параметром `-a`. Например:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 ```
 
-This causes the host software to create a Unix Domain Socket. A client can then open a connection on that socket and send commands to Klipper.
+Это приводит к тому, что программное обеспечение хоста создает доменный сокет Unix. Затем клиент может открыть соединение с этим сокетом и отправлять команды Klipper.
 
 See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.
 
-## Request format
+## Формат запроса
 
 Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:
 

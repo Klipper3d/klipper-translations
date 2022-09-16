@@ -1,12 +1,12 @@
 # Коррекция перекоса
 
-Software based skew correction can help resolve dimensional inaccuracies resulting from a printer assembly that is not perfectly square. Note that if your printer is significantly skewed it is strongly recommended to first use mechanical means to get your printer as square as possible prior to applying software based correction.
+Программная коррекция перекоса может помочь устранить неточности в размерах, возникающие в результате неправильной квадратной сборки принтера. Обратите внимание, что если ваш принтер сильно перекошен, настоятельно рекомендуется сначала использовать механические средства, чтобы придать принтеру как можно более квадратную форму, прежде чем применять коррекцию на основе программного обеспечения.
 
-## Print a Calibration Object
+## Печать Объекта Калибровки
 
-The first step in correcting skew is to print a [calibration object](https://www.thingiverse.com/thing:2563185/files) along the plane you want to correct. There is also a [calibration object](https://www.thingiverse.com/thing:2972743) that includes all planes in one model. You want the object oriented so that corner A is toward the origin of the plane.
+Первым шагом в исправлении перекоса является печать [калибровочного объекта](https://www.thingiverse.com/thing:2563185/files) вдоль плоскости, которую вы хотите исправить. Существует также [объект калибровки](https://www.thingiverse.com/thing:2972743), который включает в себя все плоскости в одной модели. Вы хотите, чтобы объект был ориентирован так, чтобы угол A был направлен к началу плоскости.
 
-Make sure that no skew correction is applied during this print. You may do this by either removing the `[skew_correction]` module from printer.cfg or by issuing a `SET_SKEW CLEAR=1` gcode.
+Убедитесь, что во время этой печати не применяется коррекция перекоса. Вы можете сделать это, либо удалив модуль `[skew_correction]` из файла printer.cfg, либо введя gcode `SET_SKEW CLEAR=1`.
 
 ## Take your measurements
 

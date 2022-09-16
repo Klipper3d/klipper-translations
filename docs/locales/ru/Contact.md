@@ -4,10 +4,10 @@
 
 1. [Community Forum](#community-forum)
 1. [Discord Chat](#discord-chat)
-1. [I have a question about Klipper](#i-have-a-question-about-klipper)
-1. [I have a feature request](#i-have-a-feature-request)
-1. [Help! It doesn't work!](#help-it-doesnt-work)
-1. [I have diagnosed a defect in the Klipper software](#i-have-diagnosed-a-defect-in-the-klipper-software)
+1. [У меня есть вопрос о Klipper](#i-have-a-question-about-klipper)
+1. [У меня есть запрос на функцию](#i-have-a-feature-request)
+1. [Помогите! Это не работает!](#help-it-doesnt-work)
+1. [Я диагностировал дефект в программном обеспечении Klipper](#i-have-diagnosed-a-defect-in-the-klipper-software)
 1. [I am making changes that I'd like to include in Klipper](#i-am-making-changes-that-id-like-to-include-in-klipper)
 
 ## Community Forum

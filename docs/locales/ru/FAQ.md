@@ -4,13 +4,13 @@
 
 Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
 
-## How do I calculate the rotation_distance config parameter?
+## Как мне рассчитать конфигурационный параметр rotation_distance?
 
-See the [rotation distance document](Rotation_Distance.md).
+Посмотрите на [rotation distance document](Rotation_Distance.md).
 
-## Where's my serial port?
+## Где мой последовательный порт?
 
-The general way to find a USB serial port is to run `ls /dev/serial/by-id/*` from an ssh terminal on the host machine. It will likely produce output similar to the following:
+Общий способ найти последовательный порт USB - это запустить "ls /dev/serial/by-id/*" с терминала ssh на хост-компьютере. Скорее всего, это приведет к получению результатов, аналогичных следующим:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0

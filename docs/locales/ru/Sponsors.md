@@ -1,6 +1,6 @@
-# Sponsors
+# Спонсировать
 
-Klipper is Free Software. We depend on the generous support from sponsors. Please consider sponsoring Klipper or supporting our sponsors.
+Klipper - это свободное программное обеспечение. Мы зависим от щедрой поддержки спонсоров. Пожалуйста, подумайте о спонсировании Klipper или поддержке наших спонсоров.
 
 ## BIGTREETECH
 

@@ -2,11 +2,11 @@
 
 В этом документе содержится информация об общих загрузчиках, которые можно найти на микроконтроллерах, поддерживаемых Klipper.
 
-The bootloader is 3rd-party software that runs on the micro-controller when it is first powered on. It is typically used to flash a new application (eg, Klipper) to the micro-controller without requiring specialized hardware. Unfortunately, there is no industry wide standard for flashing a micro-controller, nor is there a standard bootloader that works across all micro-controllers. Worse, it is common for each bootloader to require a different set of steps to flash an application.
+Загрузчик - это стороннее программное обеспечение, которое запускается на микроконтроллере при его первом включении. Обычно он используется для прошивки нового приложения (например, Klipper) на микроконтроллер, не требуя специального оборудования. К сожалению, не существует общепромышленного стандарта для перепрошивки микроконтроллера, равно как и стандартного загрузчика, который работал бы на всех микроконтроллерах. Хуже того, для каждого загрузчика обычно требуется различный набор шагов для прошивки приложения.
 
-If one can flash a bootloader to a micro-controller then one can generally also use that mechanism to flash an application, but care should be taken when doing this as one may inadvertently remove the bootloader. In contrast, a bootloader will generally only permit a user to flash an application. It is therefore recommended to use a bootloader to flash an application where possible.
+Если можно прошить загрузчик на микроконтроллер, то, как правило, можно также использовать этот механизм для прошивки приложения, но при этом следует соблюдать осторожность, поскольку можно непреднамеренно удалить загрузчик. В отличие от этого, загрузчик, как правило, разрешает пользователю только прошивать приложение. Поэтому рекомендуется использовать загрузчик для прошивки приложения, где это возможно.
 
-This document attempts to describe common bootloaders, the steps needed to flash a bootloader, and the steps needed to flash an application. This document is not an authoritative reference; it is intended as a collection of useful information that the Klipper developers have accumulated.
+В этом документе предпринята попытка описать распространенные загрузчики, шаги, необходимые для прошивки загрузчика, и шаги, необходимые для прошивки приложения. Этот документ не является авторитетной ссылкой; он предназначен для сбора полезной информации, накопленной разработчиками Klipper.
 
 ## AVR micro-controllers
 

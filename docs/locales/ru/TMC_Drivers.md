@@ -2,9 +2,9 @@
 
 В этом документе содержится информация об использовании драйверов шаговых двигателей Trinamic (Тринамик) в режиме SPI/UART на Klipper.
 
-Klipper can also use Trinamic drivers in their "standalone mode". However, when the drivers are in this mode, no special Klipper configuration is needed and the advanced Klipper features discussed in this document are not available.
+Klipper также может использовать драйверы Trinamic в их "автономном режиме" (standalone mode). Однако, когда драйверы находятся в этом режиме, специальная настройка Klipper не требуется, и расширенные функции Klipper, обсуждаемые в этом документе, недоступны.
 
-In addition to this document, be sure to review the [TMC driver config reference](Config_Reference.md#tmc-stepper-driver-configuration).
+В дополнение к этому документу обязательно ознакомьтесь с[TMC driver config reference](Config_Reference.md#tmc-stepper-driver-configuration).
 
 ## Tuning motor current
 
@@ -40,7 +40,7 @@ For best positional accuracy consider using spreadCycle mode and disable interpo
 
 If using stealthChop mode then the positional inaccuracy from interpolation is small relative to the positional inaccuracy introduced from stealthChop mode. Therefore tuning interpolation is not considered useful when in stealthChop mode, and one can leave interpolation in its default state.
 
-## Sensorless Homing
+## Самонаведение без датчиков
 
 Sensorless homing allows to home an axis without the need for a physical limit switch. Instead, the carriage on the axis is moved into the mechanical limit making the stepper motor lose steps. The stepper driver senses the lost steps and indicates this to the controlling MCU (Klipper) by toggling a pin. This information can be used by Klipper as end stop for the axis.
 

@@ -1,12 +1,12 @@
 # Компенсация Резонанса
 
-Klipper supports Input Shaping - a technique that can be used to reduce ringing (also known as echoing, ghosting or rippling) in prints. Ringing is a surface printing defect when, typically, elements like edges repeat themselves on a printed surface as a subtle 'echo':
+Klipper поддерживает формирование входных данных - метод, который можно использовать для уменьшения звона (также известного как эхо, ореолы или рябь) в отпечатках. Звон - это дефект поверхностной печати, когда, как правило, такие элементы, как края, повторяются на печатной поверхности в виде едва уловимого "эха":
 
 |![Ringing test](img/ringing-test.jpg)|![3D Benchy](img/ringing-3dbenchy.jpg)|
 
-Ringing is caused by mechanical vibrations in the printer due to quick changes of the printing direction. Note that ringing usually has mechanical origins: insufficiently rigid printer frame, non-tight or too springy belts, alignment issues of mechanical parts, heavy moving mass, etc. Those should be checked and fixed first, if possible.
+Звон вызывается механическими вибрациями в принтере из-за быстрой смены направления печати. Обратите внимание, что звон обычно имеет механическое происхождение: недостаточно жесткая рама принтера, негерметичные или слишком пружинистые ремни, проблемы с выравниванием механических деталей, тяжелая движущаяся масса и т.д. Они должны быть проверены и исправлены в первую очередь, если это возможно.
 
-[Input shaping](https://en.wikipedia.org/wiki/Input_shaping) is an open-loop control technique which creates a commanding signal that cancels its own vibrations. Input shaping requires some tuning and measurements before it can be enabled. Besides ringing, Input Shaping typically reduces the vibrations and shaking of the printer in general, and may also improve the reliability of the stealthChop mode of Trinamic stepper drivers.
+[Input shaping](https://en.wikipedia.org/wiki/Input_shaping) - это метод управления с разомкнутым контуром, который создает командный сигнал, гасящий его собственные вибрации. Формирование входных данных требует некоторой настройки и измерений, прежде чем его можно будет включить. Помимо звона, формирование входных сигналов обычно уменьшает вибрации и тряску принтера в целом, а также может повысить надежность режима stealthChop в Trinamic stepper drivers.
 
 ## Tuning
 

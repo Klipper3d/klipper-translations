@@ -2,9 +2,9 @@
 
 Многие из популярных на сегодняшний день плат контроллеров поставляются с загрузчиком, способным обновлять встроенное ПО с помощью SD-карты. Хотя это удобно во многих случаях, эти загрузчики обычно не предоставляют другого способа обновления встроенного программного обеспечения. Это может быть неприятно, если ваша плата установлена в труднодоступном месте или если вам необходимо часто обновлять встроенное ПО. После первоначальной прошивки Klipper на контроллер можно перенести новую прошивку на SD-карту и инициировать процедуру прошивки через ssh.
 
-## Typical Upgrade Procedure
+## Типовая процедура обновления
 
-The procedure for updating MCU firmware using the SD Card is similar to that of other methods. Instead of using `make flash` it is necessary to run a helper script, `flash-sdcard.sh`. Updating a BigTreeTech SKR 1.3 might look like the following:
+Процедура обновления микропрограммного обеспечения MCU с помощью SD-карты аналогична другим методам. Вместо использования `make flash` необходимо запустить вспомогательный скрипт, `flash-sdcard.sh `. Обновление BigTreeTech SKR 1.3 может выглядеть следующим образом:
 
 ```
 sudo service klipper stop
@@ -17,7 +17,7 @@ make
 sudo service klipper start
 ```
 
-It is up to the user to determine the device location and board name. If a user needs to flash multiple boards, `flash-sdcard.sh` (or `make flash` if appropriate) should be run for each board prior to restarting the Klipper service.
+Пользователь сам определяет местоположение устройства и название платы. Если пользователю необходимо прошить несколько плат, `flash-sdcard.sh ` (или `make flash`, если это уместно) следует запустить для каждой платы перед перезапуском службы Klipper.
 
 Supported boards can be listed with the following command:
 
