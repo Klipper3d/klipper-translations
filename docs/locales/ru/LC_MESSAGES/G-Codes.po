@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-15 10:21+0000\n"
+"PO-Revision-Date: 2022-09-16 16:17+0000\n"
 "Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/g-codes/"
 "ru/>\n"
@@ -22,13 +22,14 @@ msgstr ""
 "которые можно ввести на вкладке терминала OctoPrint."
 
 msgid "G-Code commands"
-msgstr ""
+msgstr "Команды G-кода"
 
 msgid "Klipper supports the following standard G-Code commands:"
-msgstr ""
+msgstr "Klipper поддерживает следующие стандартные команды G-кода:"
 
 msgid "Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`"
 msgstr ""
+"Перемещение (G0 или G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`"
 
 msgid "Dwell: `G4 P<milliseconds>`"
 msgstr ""

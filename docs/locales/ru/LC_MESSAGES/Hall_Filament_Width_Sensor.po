@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-15 15:22+0000\n"
+"PO-Revision-Date: 2022-09-16 16:17+0000\n"
 "Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "hall_filament_width_sensor/ru/>\n"
@@ -25,7 +25,7 @@ msgstr "Как это работает?"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 20 (header)
 msgid "Template for menu variables"
-msgstr ""
+msgstr "Шаблон переменных меню"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 21 (code)
 msgid ""
