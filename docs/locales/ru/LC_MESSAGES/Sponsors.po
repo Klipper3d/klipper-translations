@@ -1,20 +1,34 @@
-#
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-09-16 16:17+0000\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/sponsors/"
+"ru/>\n"
+"Language: ru\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
-msgstr ""
+msgstr "Спонсировать"
 
 #: docs/Sponsors.md:block 2 (paragraph)
 msgid ""
 "Klipper is Free Software. We depend on the generous support from sponsors. "
 "Please consider sponsoring Klipper or supporting our sponsors."
 msgstr ""
+"Klipper - это свободное программное обеспечение. Мы зависим от щедрой "
+"поддержки спонсоров. Пожалуйста, подумайте о спонсировании Klipper или "
+"поддержке наших спонсоров."
 
 #: docs/Sponsors.md:block 3 (header)
 msgid "BIGTREETECH"
-msgstr ""
+msgstr "BIGTREETECH"
 
 #: docs/Sponsors.md:block 4 (paragraph)
 msgid ""
