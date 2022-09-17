@@ -14,7 +14,7 @@ PROBE
 
 Helyezzen egy jelet a szalagra közvetlenül a szonda alatt (vagy hasonló módszerrel jegyezze fel a helyet az ágyon).
 
-Adjon ki egy `GET_POSITION` parancsot, és rögzítse a parancs által jelentett szerszámfej X-Y pozícióját. Például, ha a következőket látjuk:
+Adjon ki egy `GET_POSITION` parancsot, és rögzítse a parancs által jelentett nyomtatófej X-Y pozícióját. Például, ha a következőket látjuk:
 
 ```
 Recv: // toolhead: X:46.500000 Y:27.000000 Z:15.000000 E:0.000000
@@ -82,7 +82,7 @@ Ha új mérési sebességre, mérésszámra vagy egyéb beállításokra van sz�
 
 ## Elhelyezkedés ellenőrzése
 
-Egyes szondák rendszerszintű torzítással rendelkezhetnek, amely bizonyos szerszámfejhelyeken elrontja a mérés eredményeit. Például, ha a szonda tartója az Y tengely mentén történő mozgás közben kissé megdől, akkor ez azt eredményezheti, hogy a szonda különböző Y pozíciókban torz eredményeket ad ki.
+Egyes szondák rendszerszintű torzítással rendelkezhetnek, amely bizonyos nyomtatófej helyeken elrontja a mérés eredményeit. Például, ha a szonda tartója az Y tengely mentén történő mozgás közben kissé megdől, akkor ez azt eredményezheti, hogy a szonda különböző Y pozíciókban torz eredményeket ad ki.
 
 Ez egy gyakori probléma a delta nyomtatók szondáinál, de más nyomtatónál is előfordulhat.
 

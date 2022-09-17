@@ -36,13 +36,13 @@ A Raspberry Pi bekapcsolása előtt ellenőrizze kétszer is a vezetékeket, neh
 
 ### A gyorsulásmérő felszerelése
 
-A gyorsulásmérőt a szerszámfejhez kell csatlakoztatni. Meg kell tervezni egy megfelelő rögzítést, amely illeszkedik a saját 3D nyomtatóhoz. A gyorsulásmérő tengelyeit jobb a nyomtató tengelyeihez igazítani (de ha ez kényelmesebbé teszi, a tengelyek felcserélhetők - azaz nem kell az X tengelyt X-hez igazítani, és így tovább. Akkor is rendben kell lennie, ha a gyorsulásmérő Z tengelye a nyomtató X tengelye, stb).
+A gyorsulásmérőt a nyomtatófejhez kell csatlakoztatni. Meg kell tervezni egy megfelelő rögzítést, amely illeszkedik a saját 3D nyomtatóhoz. A gyorsulásmérő tengelyeit jobb a nyomtató tengelyeihez igazítani (de ha ez kényelmesebbé teszi, a tengelyek felcserélhetők - azaz nem kell az X tengelyt X-hez igazítani, és így tovább. Akkor is rendben kell lennie, ha a gyorsulásmérő Z tengelye a nyomtató X tengelye, stb).
 
 Példa az ADXL345 SmartEffectorra történő felszerelésére:
 
 ![ADXL345 on SmartEffector](img/adxl345-mount.jpg)
 
-Vegye figyelembe, hogy egy ágycsúsztatós nyomtatónál 2 rögzítést kell tervezni: egyet a szerszámfejhez és egyet az ágyhoz, és a méréseket kétszer kell elvégezni. További részletekért lásd a megfelelő [szakaszt](#bed-slinger-nyomtatok).
+Vegye figyelembe, hogy egy ágycsúsztatós nyomtatónál 2 rögzítést kell tervezni: egyet a nyomtatófejhez és egyet az ágyhoz, és a méréseket kétszer kell elvégezni. További részletekért lásd a megfelelő [szakaszt](#bed-slinger-nyomtatok).
 
 **Figyelem:** győződjön meg arról, hogy a gyorsulásmérő és a helyére rögzítő csavarok nem érnek a nyomtató fém részeihez. Alapvetően a rögzítést úgy kell kialakítani, hogy biztosítsa a gyorsulásmérő elektromos szigetelését a nyomtató keretétől. Ennek elmulasztása földhurkot hozhat létre a rendszerben, ami károsíthatja az elektronikát.
 
@@ -190,7 +190,7 @@ Megjegyzendő, hogy alternatívaként a bemeneti alakító automatikus kalibrác
 
 ### Bed-slinger nyomtatók
 
-Ha az Ön nyomtatója ágya Y tengelyen van, akkor meg kell változtatnia a gyorsulásmérő helyét az X és Y tengelyek mérései között: az X tengely rezonanciáit a szerszámfejre szerelt gyorsulásmérővel, az Y tengely rezonanciáit pedig az ágyra szerelt gyorsulásmérővel kell mérnie (a szokásos nyomtató beállítással).
+Ha az Ön nyomtatója ágya Y tengelyen van, akkor meg kell változtatnia a gyorsulásmérő helyét az X és Y tengelyek mérései között: az X tengely rezonanciáit a nyomtatófejre szerelt gyorsulásmérővel, az Y tengely rezonanciáit pedig az ágyra szerelt gyorsulásmérővel kell mérnie (a szokásos nyomtató beállítással).
 
 Azonban két gyorsulásmérőt is csatlakoztathatsz egyszerre, bár ezeket különböző lapokhoz kell csatlakoztatni (mondjuk egy RPi és egy nyomtató MCU laphoz), vagy két különböző fizikai SPI interfészhez ugyanazon a lapon (ritkán elérhető). Ezután a következő módon lehet őket konfigurálni:
 
@@ -403,7 +403,7 @@ A shaper_calibrate.py szkript 1 vagy több bemenetet fogad el, és képes a beme
 
 Több bemenet megadása a shaper_calibrate.py szkriptnek hasznos lehet, ha például a bemeneti formázók haladó hangolását végezzük:
 
-* A `TEST_RESONANCES AXIS=X OUTPUT=raw_data` (és `Y` tengely) futtatása egy tengelyre kétszer egy Y ágyas nyomtatón úgy, hogy a gyorsulásmérő először a szerszámfejhez, másodszor pedig az ágyhoz csatlakozik, hogy a tengelyek keresztrezonanciáit felismerjük, és megpróbáljuk azokat a bemeneti alakítókkal megszüntetni.
+* A `TEST_RESONANCES AXIS=X OUTPUT=raw_data` (és `Y` tengely) futtatása egy tengelyre kétszer egy Y ágyas nyomtatón úgy, hogy a gyorsulásmérő először a nyomtatófejhez, másodszor pedig az ágyhoz csatlakozik, hogy a tengelyek keresztrezonanciáit felismerjük, és megpróbáljuk azokat a bemeneti alakítókkal megszüntetni.
 * A `TEST_RESONANCES AXIS=Y OUTPUT=raw_data` kétszeri futtatása egy üvegágyas és egy mágneses felületű (amelyik könnyebb) ágyon, hogy megtaláljuk azokat a bemeneti alakító paramétereket, amelyek jól működnek bármilyen nyomtatási felületkonfiguráció esetén.
 * A több vizsgálati pontból származó rezonanciaadatok kombinálása.
 * A 2 tengely rezonanciaadatainak kombinálása (pl. egy Y tengelyen lévő ágyas nyomtatónál az X-tengely input_shaper konfigurálása mind az X-, mind az Y-tengely rezonanciáiból, hogy az *ágy* rezgéseit megszüntesse, ha a fúvóka 'elkap' egy nyomtatást, amikor X tengely irányában mozog).

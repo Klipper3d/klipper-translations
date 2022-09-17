@@ -49,7 +49,7 @@ Ha a mért gyűrődési frekvencia nagyon alacsony (kb. 20-25 Hz alatti), akkor 
 
 Vegye figyelembe, hogy a gyűrődési frekvenciák változhatnak, ha a nyomtatóban olyan változtatásokat végeznek, amelyek hatással vannak a mozgó tömegre, vagy például megváltoztatják a gépváz merevségét:
 
-* A szerszámfejre néhány olyan eszközt telepítenek, eltávolítanak vagy kicserélnek, amelyek megváltoztatják annak tömegét, pl. új (nehezebb vagy könnyebb) léptetőmotor a közvetlen extrudernek vagy új nyomtatófej telepítése, nehéz, tárgyhűtővel ellátott ventilátor beépítése stb.
+* A nyomtatófejre néhány olyan eszközt telepítenek, eltávolítanak vagy kicserélnek, amelyek megváltoztatják annak tömegét, pl. új (nehezebb vagy könnyebb) léptetőmotor a közvetlen extrudernek vagy új nyomtatófej telepítése, nehéz, tárgyhűtővel ellátott ventilátor beépítése stb.
 * A szíjak meghúzása.
 * A váz merevségének növelésére szolgáló néhány kiegészítés telepítve van.
 * Különböző ágy van telepítve egy Y ágyas nyomtatóra, vagy üveg hozzáadása stb.

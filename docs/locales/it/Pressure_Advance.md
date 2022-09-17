@@ -1,10 +1,10 @@
 # Anticipo di pressione
 
-Questo documento fornisce informazioni sulla messa a punto della variabile di regolazione de "l'anticipo della pressione" per un particolare ugello e filamento. La funzione di anticipo della pressione può essere utile per ridurre i filamenti. Per maggiori informazioni su come viene implementato l'anticipo di pressione, vedere il documento [kinematics](Kinematics.md).
+Questo documento fornisce informazioni sulla messa a punto della variabile di regolazione del "pressure advance" per un particolare ugello e filamento. La funzione di anticipo della pressione può essere utile per ridurre le colature. Per maggiori informazioni su come viene implementato l'anticipo di pressione, vedere il documento [kinematics](Kinematics.md).
 
-## Regolazione del pressure advance
+## Regolazione della pressure advance
 
-Pressure advance fa due cose utili: riduce l 'ooze' durante i movimenti senza estrusione e riduce il blobbing durante le curve. Questa guida utilizza la seconda funzione (riduzione del blobbing durante le curve) come meccanismo per la messa a punto.
+Pressure advance fa due cose utili: riduce le colature durante i movimenti senza estrusione e riduce il blobbing durante le curve. Questa guida utilizza la seconda funzione (riduzione del blobbing durante le curve) come meccanismo per la messa a punto.
 
 Per calibrare la pressure advance, la stampante deve essere configurata e operativa poiché il test di ottimizzazione prevede la stampa e l'ispezione di un oggetto di prova. È una buona idea leggere questo documento per intero prima di eseguire il test.
 

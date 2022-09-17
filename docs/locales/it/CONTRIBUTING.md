@@ -142,7 +142,7 @@ Nell'esempio sopra, `module` dovrebbe essere il nome di un file o di una directo
 
 - [ ] 75% Copertura totale
 - [ ] Tutti i titoli (H1) sono tradotti
-- [ ] An updated navigation hierarchy PR in klipper-translations.
+- [ ] Una gerarchia di navigazione PR aggiornata nelle traduzioni klipper.
 
 Per ridurre la frustrazione di tradurre termini specifici del dominio e acquisire consapevolezza delle traduzioni in corso, puoi inviare un PR modificando il [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md `. Una volta che una traduzione è pronta, è possibile apportare la modifica corrispondente al progetto Klipper.
 

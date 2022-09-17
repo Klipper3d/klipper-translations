@@ -97,7 +97,7 @@ Az alábbi információk az extruder_stepper objektumok (valamint az [extruder](
 
 A következő információk a [ventilátor](Config_Reference.md#fan), [heater_fan some_name](Config_Reference.md#heater_fan) és [controller_fan some_name](Config_Reference.md#controller_fan) objektumokban érhetők el:
 
-- `speed`: A ventilátor fordulatszáma lebegőértékként 0.0 és 1.0 között.
+- `speed`: A ventilátor fordulatszáma lebegőértékben 0.0 és 1.0 között.
 - `rpm`: A ventilátor mért fordulatszáma percenkénti fordulatszámban, ha a ventilátor rendelkezik tachometer_pin kimenettel.
 
 ## filament_switch_sensor
@@ -151,8 +151,8 @@ A következő információk a [hall_filament_width_sensor](Config_Reference.md#h
 
 A következő információk az olyan fűtőelemekhez állnak rendelkezésre, mint az [extruder](Config_Reference.md#extruder), [heater_bed](Config_Reference.md#heater_bed) és [heater_generic](Config_Reference.md#heater_generic):
 
-- `temperature`: Az adott fűtőberendezés legutóbb jelentett hőmérséklete (Celsiusban, lebegőértékként).
-- `target`: Az adott fűtőberendezés aktuális célhőmérséklete (Celsiusban, lebegőértékként).
+- `temperature`: Az adott fűtőberendezés legutóbb jelentett hőmérséklete (Celsiusban, lebegőértékben).
+- `target`: Az adott fűtőberendezés aktuális célhőmérséklete (Celsiusban, lebegőértékben).
 - `power`: A fűtőtesthez tartozó PWM-tű utolsó értéke (0,0 és 1,0 közötti érték).
 - `can_extrude`: Ha az extruder tud extrudálni (`min_extrude_temp` határozza meg), csak az [extruder](Config_Reference.md#extruder) esetében elérhető
 
@@ -174,7 +174,7 @@ A következő információk az [idle_timeout](Config_Reference.md#idle_timeout) 
 
 A következő információk állnak rendelkezésre minden egyes `[led led_name]`, `[neopixel led_name` esetében, `[dotstar led_name]`, `[pca9533 led_name]`, és `[pca9632 led_name]` a nyomtatóban meghatározott printer.cfg fájlban:
 
-- `color_data`: A láncban lévő ledek RGBW értékeit tartalmazó színlisták listája. Minden értéket 0,0 és 1,0 közötti lebegőértékként ábrázolunk. Minden színlista 4 elemet tartalmaz (piros, zöld, kék, fehér), még akkor is, ha az alatta lévő LED kevesebb színcsatornát támogat. Például a lánc második neopixelének kék értéke (a színlista 3. eleme) a `printer["neopixel <config_name>"].color_data[1][2]` címen érhető el.
+- `color_data`: A láncban lévő ledek RGBW értékeit tartalmazó színlisták listája. Minden értéket 0,0 és 1,0 közötti lebegőértékben ábrázolunk. Minden színlista 4 elemet tartalmaz (piros, zöld, kék, fehér), még akkor is, ha az alatta lévő LED kevesebb színcsatornát támogat. Például a lánc második neopixelének kék értéke (a színlista 3. eleme) a `printer["neopixel <config_name>"].color_data[1][2]` címen érhető el.
 
 ## manual_probe
 
