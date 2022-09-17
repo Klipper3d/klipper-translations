@@ -23,7 +23,7 @@ probe_count: 5, 3
 - `horizontal_move_z: 5` *Alapértelmezett érték: 5* A Z koordináta, amelyre a szonda a mérőpontok közötti utazás előtt emelkedik.
 - `mesh_min: 35, 6` *Ajánlott* Az első, az origóhoz legközelebbi koordináta. Ez a koordináta a szonda helyéhez képest relatív.
 - `mesh_max: 240, 198` *Ajánlott* Az origótól legtávolabb eső mért koordináta. Ez nem feltétlenül az utolsó mért pont, mivel a mérés cikcakkos módon történik. A `mesh_min` koordinátához hasonlóan ez a koordináta is a szonda helyéhez van viszonyítva.
-- `probe_count: 5, 3` *Alapértelmezett érték: 3,3* Az egyes tengelyeken mérendő pontok száma, X, Y egész értékként megadva. Ebben a példában az X tengely mentén 5 pont lesz mérve, az Y tengely mentén 3 pont, összesen 15 mért pont. Vegye figyelembe, hogy ha négyzetrácsot szeretne, például 3x3, akkor ezt egyetlen egész számértékként is megadhatja, amelyet mindkét tengelyre használ, azaz `probe_count: 3`. Vegye figyelembe, hogy egy hálóhoz mindkét tengely mentén legalább 3 darab mérési számra van szükség.
+- `probe_count: 5, 3` *Alapértelmezett érték: 3,3* Az egyes tengelyeken mérendő pontok száma, X, Y egész értékben megadva. Ebben a példában az X tengely mentén 5 pont lesz mérve, az Y tengely mentén 3 pont, összesen 15 mért pont. Vegye figyelembe, hogy ha négyzetrácsot szeretne, például 3x3, akkor ezt egyetlen egész számértékként is megadhatja, amelyet mindkét tengelyre használ, azaz `probe_count: 3`. Vegye figyelembe, hogy egy hálóhoz mindkét tengely mentén legalább 3 darab mérési számra van szükség.
 
 Az alábbi ábra azt mutatja, hogy a `mesh_min`, `mesh_max` és `probe_count` opciók hogyan használhatók a mérőpontok létrehozására. A nyilak jelzik a mérési eljárás irányát, kezdve a `mesh_min` ponttól. Hivatkozásképpen, amikor a szonda a `mesh_min` pontnál van, a fúvóka a (11, 1) pontnál lesz, és amikor a szonda a `mesh_max` pontnál van, a fúvóka a (206, 193) pontnál lesz.
 
@@ -140,7 +140,7 @@ A relatív referenciaindex használatakor azt az indexet kell választania, amel
 
 Előfordulhat, hogy az ágy egyes területei pontatlan eredményeket jeleznek a mérés során, mivel bizonyos helyeken "hiba" van. Erre a legjobb példa a levehető acéllemezek rögzítésére használt integrált mágnesek sorozatával ellátott ágyak. Ezeknél a mágneseknél és körülöttük lévő mágneses mező hatására az induktív szonda magasabb vagy alacsonyabb távolságban mérhet, mint egyébként tenné, ami azt eredményezi, hogy a háló nem pontosan reprezentálja a felületet ezeken a helyeken. **Figyelem: Ez nem tévesztendő össze a szonda helyének torzításával, amely pontatlan eredményeket eredményez az egész ágyon.**
 
-A `faulty_region` opciókat úgy lehet beállítani, hogy kompenzálják ezt a hatást. Ha egy generált pont egy hibás régióba esik, akkor a bed mesh megpróbál akár 4 pontot is megvizsgálni a régió határainál. Ezeket a mért értékeket átlagolja és beilleszti a hálóba Z értékként a generált (X, Y) koordinátán.
+A `faulty_region` opciókat úgy lehet beállítani, hogy kompenzálják ezt a hatást. Ha egy generált pont egy hibás régióba esik, akkor a bed mesh megpróbál akár 4 pontot is megvizsgálni a régió határainál. Ezeket a mért értékeket átlagolja és beilleszti a hálóba Z értékben a generált (X, Y) koordinátán.
 
 ```
 [bed_mesh]

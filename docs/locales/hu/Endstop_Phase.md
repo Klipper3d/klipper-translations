@@ -16,7 +16,7 @@ Ha Trinamic léptetőmotor-meghajtókat használunk futásidejű konfigurációv
 [endstop_phase]
 ```
 
-Ezután indítsa újra a nyomtatót, és futtasson egy `G28` parancsot, amelyet egy `ENDSTOP_PHASE_CALIBRATE` parancs követ. Ezután mozgassa a szerszámfejet egy új helyre, és futtassa újra a `G28` parancsot. Próbálja meg a szerszámfejet több különböző helyre mozgatni, és minden egyes pozícióból futtassa újra a `G28` parancsot. Futtasson legalább öt `G28` parancsot.
+Ezután indítsa újra a nyomtatót, és futtasson egy `G28` parancsot, amelyet egy `ENDSTOP_PHASE_CALIBRATE` parancs követ. Ezután mozgassa a nyomtatófejet egy új helyre, és futtassa újra a `G28` parancsot. Próbálja meg a nyomtatófejet több különböző helyre mozgatni, és minden egyes pozícióból futtassa újra a `G28` parancsot. Futtasson legalább öt `G28` parancsot.
 
 A fentiek elvégzése után a `ENDSTOP_PHASE_CALIBRATE` parancs gyakran ugyanazt (vagy közel ugyanazt) a fázist fogja jelenteni a léptető számára. Ezt a fázist el lehet menteni a konfigurációs fájlban, hogy a jövőben minden G28 parancs ezt a fázist használja. (Így a jövőbeni kezdőpont kérési műveletek során a Klipper ugyanazt a pozíciót fogja elérni, még akkor is, ha a végállás egy kicsit korábban vagy egy kicsit később lép működésbe.)
 

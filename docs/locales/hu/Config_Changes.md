@@ -42,7 +42,7 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 20210821: A `printer.configfile.settings` több konfigurációs beállítása mostantól listaként lesz jelentve a nyers karakterláncok helyett. Ha a tényleges nyers karakterláncra van szükség, használja helyette a `printer.configfile.config`-t.
 
-20210819: Bizonyos esetekben egy `G28` célbaérési mozgás olyan pozícióban végződhet, amely névlegesen az érvényes mozgási tartományon kívül esik. Ritka helyzetekben ez zavaró "Move out of range" hibákat eredményezhet a kezdőpont felvétele után. Ha ez előfordul, módosítsa az indítási szkripteket úgy, hogy a szerszámfej a kezdőpont felvétel után azonnal érvényes pozícióba kerüljön.
+20210819: Bizonyos esetekben egy `G28` célbaérési mozgás olyan pozícióban végződhet, amely névlegesen az érvényes mozgási tartományon kívül esik. Ritka helyzetekben ez zavaró "Move out of range" hibákat eredményezhet a kezdőpont felvétele után. Ha ez előfordul, módosítsa az indítási szkripteket úgy, hogy a nyomtatófej a kezdőpont felvétel után azonnal érvényes pozícióba kerüljön.
 
 20210814: Az atmega168 és atmega328 csak analóg pszeudo-tüskéi PE0/PE1-ről PE2/PE3-ra lettek átnevezve.
 

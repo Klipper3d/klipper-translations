@@ -69,111 +69,112 @@ La sezione printer controlla le impostazioni di alto livello della stampante.
 ```
 [printer]
 kinematics:
-#   The type of printer in use. This option may be one of: cartesian,
-#   corexy, corexz, hybrid_corexy, hybrid_corexz, rotary_delta, delta,
-#   deltesian, polar, winch, or none. This parameter must be specified.
+#   Il tipo di stampante in uso. Questa opzione può essere una delle
+#   seguenti: cartesian, corexy, corexz, hybrid_corexy, hybrid_corexz,
+#   rotary_delta, delta, deltesian, polar, winch o nessuno. 
+#   Questo parametro deve essere specificato.
 max_velocity:
-#   Maximum velocity (in mm/s) of the toolhead (relative to the
-#   print). This parameter must be specified.
+#   Velocità massima (in mm/s) della testa di stampa (relativa alla stampa).
+#   Questo parametro deve essere specificato.
 max_accel:
-#   Maximum acceleration (in mm/s^2) of the toolhead (relative to the
-#   print). This parameter must be specified.
+#   Accelerazione massima (in mm/s^2) della testina (relativa alla stampa).
+#   Questo parametro deve essere specificato.
 #max_accel_to_decel:
-#   A pseudo acceleration (in mm/s^2) controlling how fast the
-#   toolhead may go from acceleration to deceleration. It is used to
-#   reduce the top speed of short zig-zag moves (and thus reduce
-#   printer vibration from these moves). The default is half of
-#   max_accel.
+#   Una pseudo accelerazione (in mm/s^2) che controlla la velocità con cui
+#   la testa di stampa può passare dall'accelerazione alla decelerazione. Viene
+#   utilizzato per ridurre la velocità massima di brevi movimenti a zig-zag
+#   (e quindi ridurre le vibrazioni della stampante dovute a questi movimenti).
+#   Il valore predefinito è metà di max_accel.
 #square_corner_velocity: 5.0
-#   The maximum velocity (in mm/s) that the toolhead may travel a 90
-#   degree corner at. A non-zero value can reduce changes in extruder
-#   flow rates by enabling instantaneous velocity changes of the
-#   toolhead during cornering. This value configures the internal
-#   centripetal velocity cornering algorithm; corners with angles
-#   larger than 90 degrees will have a higher cornering velocity while
-#   corners with angles less than 90 degrees will have a lower
-#   cornering velocity. If this is set to zero then the toolhead will
-#   decelerate to zero at each corner. The default is 5mm/s.
+#   La velocità massima (in mm/s) alla quale la testa di stampa può viaggiare
+#   su un angolo di 90 gradi. Un valore diverso da zero può ridurre le variazioni
+#   delle portate dell'estrusore consentendo variazioni istantanee della velocità
+#   della testa utensile durante le curve. Questo valore configura l'algoritmo
+#   interno di cornering della velocità centripeta; gli angoli con angoli maggiori
+#   di 90 gradi avranno una velocità in curva maggiore mentre gli angoli con
+#   angoli inferiori a 90 gradi avranno una velocità in curva inferiore. Se questo
+#   è impostato su zero, la testa utensile decelererà fino a zero ad ogni angolo.
+#   Il valore predefinito è 5 mm/s.
 ```
 
 ### [stepper]
 
-Stepper motor definitions. Different printer types (as specified by the "kinematics" option in the [printer] config section) require different names for the stepper (eg, `stepper_x` vs `stepper_a`). Below are common stepper definitions.
+Definizioni di motori passo-passo. Diversi tipi di stampante (come specificato dall'opzione "cinematica" nella sezione di configurazione [stampante]) richiedono nomi diversi per lo stepper (ad esempio, `stepper_x` vs `stepper_a`). Di seguito sono riportate le definizioni comuni di stepper.
 
 Vedere il [documento distanza di rotazione](Rotation_Distance.md) per informazioni sul calcolo del parametro `rotation_distance`. Consultare il documento [Multi-MCU homing](Multi_MCU_Homing.md) per informazioni sull'homing utilizzando più microcontrollori.
 
 ```
 [stepper_x]
 step_pin:
-#   Step GPIO pin (triggered high). This parameter must be provided.
+#   Pin GPIO Step (attivato in alto) . Questo parametro deve essere fornito.
 dir_pin:
-#   Direction GPIO pin (high indicates positive direction). This
-#   parameter must be provided.
+#   Pin GPIO di direzione (alto indica una direzione positiva).
+#   Questo parametro deve essere fornito.
 enable_pin:
-#   Enable pin (default is enable high; use ! to indicate enable
-#   low). If this parameter is not provided then the stepper motor
-#   driver must always be enabled.
+#   Pin GPIO di abilitazione (l'impostazione predefinita è abilita alto; usa !
+#   per indicare abilita basso). Se questo parametro non viene fornito, il
+#   driver del motore passo-passo deve essere sempre abilitato.
 rotation_distance:
-#   Distance (in mm) that the axis travels with one full rotation of
-#   the stepper motor (or final gear if gear_ratio is specified).
-#   This parameter must be provided.
+#   Distanza (in mm) che l'asse percorre con una rotazione completa del
+#   motore passo-passo (o viene specificata la marcia finale del rapporto di
+#   trasmissione). Questo parametro deve essere fornito.
 microsteps:
-#   The number of microsteps the stepper motor driver uses. This
-#   parameter must be provided.
+#   Il numero di micropassi utilizzati dal driver del motore passo-passo.
+#   Questo parametro deve essere fornito.
 #full_steps_per_rotation: 200
-#   The number of full steps for one rotation of the stepper motor.
-#   Set this to 200 for a 1.8 degree stepper motor or set to 400 for a
-#   0.9 degree motor. The default is 200.
+#   Il numero di passi completi per una rotazione del motore passo-passo.
+#   Impostarlo su 200 per un motore passo-passo da 1.8 gradi o su 400 per
+#   un motore da 0.9 gradi. Il valore predefinito è 200.
 #gear_ratio:
-#   The gear ratio if the stepper motor is connected to the axis via a
-#   gearbox. For example, one may specify "5:1" if a 5 to 1 gearbox is
-#   in use. If the axis has multiple gearboxes one may specify a comma
-#   separated list of gear ratios (for example, "57:11, 2:1"). If a
-#   gear_ratio is specified then rotation_distance specifies the
-#   distance the axis travels for one full rotation of the final gear.
-#   The default is to not use a gear ratio.
+#   Il rapporto di trasmissione se il motore passo-passo è collegato all'asse
+#   tramite un riduttore. Ad esempio, si può specificare "5:1" se è in uso un
+#   riduttore 5 a 1. Se l'asse ha più riduttori, è possibile specificare un elenco
+#   di rapporti di trasmissione separati da virgole (ad esempio, "57:11, 2:1").
+#   Se viene specificato gear_ratio, rotation_distance specifica la distanza
+#   percorsa dall'asse per una rotazione completa dell'ingranaggio finale.
+#   L'impostazione predefinita è di non utilizzare un rapporto di trasmissione.
 #step_pulse_duration:
-#   The minimum time between the step pulse signal edge and the
-#   following "unstep" signal edge. This is also used to set the
-#   minimum time between a step pulse and a direction change signal.
-#   The default is 0.000000100 (100ns) for TMC steppers that are
-#   configured in UART or SPI mode, and the default is 0.000002 (which
-#   is 2us) for all other steppers.
+#   Il tempo minimo tra il fronte del segnale dell'impulso del passo e il
+#   successivo fronte del segnale "non passo". Viene utilizzato anche per
+#   impostare il tempo minimo tra un impulso di passo e un segnale di cambio
+#   di direzione. L'impostazione predefinita è 0.000000100 (100ns) per gli
+#   stepper TMC configurati in modalità UART o SPI e l'impostazione
+#   predefinita è 0.000002 (che è 2us) per tutti gli altri stepper.
 endstop_pin:
-#   Endstop switch detection pin. If this endstop pin is on a
-#   different mcu than the stepper motor then it enables "multi-mcu
-#   homing". This parameter must be provided for the X, Y, and Z
-#   steppers on cartesian style printers.
+#   Pin di rilevamento interruttore di fine corsa. Se questo pin di fine corsa
+#   si trova su un mcu diverso dal motore passo-passo, abilita il
+#   "homing multi-mcu". Questo parametro deve essere fornito per gli
+#   stepper X, Y e Z su stampanti in stile cartesiano.
 #position_min: 0
-#   Minimum valid distance (in mm) the user may command the stepper to
-#   move to.  The default is 0mm.
+#   Distanza minima valida (in mm) alla quale l'utente può comandare
+#   il movimento dello stepper. Il valore predefinito è 0 mm.
 position_endstop:
-#   Location of the endstop (in mm). This parameter must be provided
-#   for the X, Y, and Z steppers on cartesian style printers.
+#   Posizione del finecorsa (in mm). Questo parametro deve essere fornito
+#   per gli stepper X, Y e Z su stampanti in stile cartesiano.
 position_max:
-#   Maximum valid distance (in mm) the user may command the stepper to
-#   move to. This parameter must be provided for the X, Y, and Z
-#   steppers on cartesian style printers.
+#   Distanza massima valida (in mm) alla quale l'utente può comandare lo
+#   spostamento dello stepper. Questo parametro deve essere fornito per
+#   gli stepper X, Y e Z su stampanti in stile cartesiano.
 #homing_speed: 5.0
-#   Maximum velocity (in mm/s) of the stepper when homing. The default
-#   is 5mm/s.
+#   Velocità massima (in mm/s) dello stepper durante l'homing.
+#   Il valore predefinito è 5 mm/s.
 #homing_retract_dist: 5.0
-#   Distance to backoff (in mm) before homing a second time during
-#   homing. Set this to zero to disable the second home. The default
-#   is 5mm.
+#   Distanza dall'arretramento (in mm) prima della corsa di riferimento
+#   una seconda volta durante la corsa di riferimento. Impostalo a zero per
+#   disabilitare la seconda casa. Il valore predefinito è 5 mm.
 #homing_retract_speed:
-#   Speed to use on the retract move after homing in case this should
-#   be different from the homing speed, which is the default for this
-#   parameter
+#   Velocità da utilizzare nella corsa di ritorno dopo l'homing nel caso in
+#   cui questa dovesse essere diversa dalla velocità di homing, che è
+#   l'impostazione predefinita per questo parametro
 #second_homing_speed:
-#   Velocity (in mm/s) of the stepper when performing the second home.
-#   The default is homing_speed/2.
+#   Velocità (in mm/s) dello stepper durante l'esecuzione del secondo
+#   homing. L'impostazione predefinita è homing_speed/2.
 #homing_positive_dir:
-#   If true, homing will cause the stepper to move in a positive
-#   direction (away from zero); if false, home towards zero. It is
-#   better to use the default than to specify this parameter. The
-#   default is true if position_endstop is near position_max and false
-#   if near position_min.
+#   Se true, l'homing farà muovere lo stepper in una direzione positiva
+#   (allontanandosi da zero); se falso, home verso zero. È meglio utilizzare
+#   l'impostazione predefinita piuttosto che specificare questo parametro.
+#   Il valore predefinito è true se position_endstop è vicino a position_max 
+#   false se vicino a position_min.
 ```
 
 ### Cinematica cartesiana
@@ -295,11 +296,11 @@ radius:
 #   L'impostazione predefinita è 5.
 ```
 
-### Deltesian Kinematics
+### Cinematica Deltesiana
 
-See [example-deltesian.cfg](../config/example-deltesian.cfg) for an example deltesian kinematics config file.
+Vedere [example-deltesian.cfg](../config/example-deltesian.cfg) per un esempio di file di configurazione della cinematica deltesiana.
 
-Only parameters specific to deltesian printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Qui sono descritti solo i parametri specifici per le stampanti deltesiane - vedere [impostazioni cinematiche comuni](#common-kinematic-settings) per i parametri disponibili.
 
 ```
 [printer]
@@ -1122,7 +1123,7 @@ Correzione dell'inclinazione della stampante. È possibile utilizzare il softwar
 [skew_correction]
 ```
 
-## Customized homing
+## Homing personalizzato
 
 ### [safe_z_home]
 
@@ -1187,7 +1188,7 @@ gcode:
 
 ### [endstop_phase]
 
-Stepper phase adjusted endstops. To use this feature, define a config section with an "endstop_phase" prefix followed by the name of the corresponding stepper config section (for example, "[endstop_phase stepper_z]"). This feature can improve the accuracy of endstop switches. Add a bare "[endstop_phase]" declaration to enable the ENDSTOP_PHASE_CALIBRATE command.
+Finecorsa regolati in fase stepper. Per utilizzare questa funzione, definire una sezione di configurazione con un prefisso "endstop_phase" seguito dal nome della corrispondente sezione di configurazione dello stepper (ad esempio, "[endstop_phase stepper_z]"). Questa funzione può migliorare la precisione degli interruttori di fine corsa. Aggiungi una semplice dichiarazione "[endstop_phase]" per abilitare il comando ENDSTOP_PHASE_CALIBRATE.
 
 Per ulteriori informazioni, vedere la [endstop phases guide](Endstop_Phase.md) e [command reference](G-Codes.md#endstop_phase).
 
@@ -1319,7 +1320,7 @@ path:
 
 ### [sdcard_loop]
 
-Some printers with stage-clearing features, such as a part ejector or a belt printer, can find use in looping sections of the sdcard file. (For example, to print the same part over and over, or repeat the a section of a part for a chain or other repeated pattern).
+Alcune stampanti con funzionalità di pulizia del piatto, come un espulsore di parti o una stampante a nastro, possono trovare impiego nelle sezioni di loop del file sdcard. (Ad esempio, per stampare la stessa parte più e più volte, o ripetere la sezione a di una parte per una catena o un altro motivo ripetuto).
 
 Consulta il [command reference](G-Codes.md#sdcard_loop) per i comandi supportati. Vedere il file [sample-macros.cfg](../config/sample-macros.cfg) per una macro M808 G-Code compatibile con Marlin.
 
@@ -1506,7 +1507,7 @@ Supporto per accelerometri mpu9250 e mpu6050 (si può definire un numero qualsia
 
 ### [resonance_tester]
 
-Support for resonance testing and automatic input shaper calibration. In order to use most of the functionality of this module, additional software dependencies must be installed; refer to [Measuring Resonances](Measuring_Resonances.md) and the [command reference](G-Codes.md#resonance_tester) for more information. See the [Max smoothing](Measuring_Resonances.md#max-smoothing) section of the measuring resonances guide for more information on `max_smoothing` parameter and its use.
+Supporto per test di risonanza e calibrazione automatica del input shaper. Per utilizzare la maggior parte delle funzionalità di questo modulo, devono essere installate dipendenze software aggiuntive; fare riferimento a [Measuring Resonances](Measuring_Resonances.md) e al [command reference](G-Codes.md#resonance_tester) per ulteriori informazioni. Per ulteriori informazioni sul parametro `max_smoothing` e sul suo utilizzo, vedere la sezione [Max smoothing](Measuring_Resonances.md#max-smoothing) della guida alla misurazione delle risonanze.
 
 ```
 [resonance_tester]
@@ -1721,43 +1722,45 @@ control_pin:
 
 ### [smart_effector]
 
-The "Smart Effector" from Duet3d implements a Z probe using a force sensor. One may define this section instead of `[probe]` to enable the Smart Effector specific features. This also enables [runtime commands](G-Codes.md#smart_effector) to adjust the parameters of the Smart Effector at run time.
+Lo "Smart Effector" di Duet3d implementa una sonda Z utilizzando un sensore di forza. Si può definire questa sezione invece di `[probe]` per abilitare le funzioni specifiche di Smart Effector. Ciò consente anche a [comandi di runtime](G-Codes.md#smart_effector) di regolare i parametri di Smart Effector in fase di esecuzione.
 
 ```
 [smart_effector]
 pin:
-#   Pin connected to the Smart Effector Z Probe output pin (pin 5). Note that
-#   pullup resistor on the board is generally not required. However, if the
-#   output pin is connected to the board pin with a pullup resistor, that
-#   resistor must be high value (e.g. 10K Ohm or more). Some boards have a low
-#   value pullup resistor on the Z probe input, which will likely result in an
-#   always-triggered probe state. In this case, connect the Smart Effector to
-#   a different pin on the board. This parameter is required.
+#   Pin collegato al pin di uscita della sonda Z Smart Effector (pin 5). Si noti
+#   che la resistenza di pullup sulla scheda generalmente non è richiesta.
+#   Tuttavia, se il pin di uscita è collegato al pin della scheda con un resistore
+#   di pullup, tale resistore deve essere di valore elevato (ad es. 10K Ohm o più).
+#   Alcune schede hanno un resistore di pullup di basso valore sull'ingresso
+#   della sonda Z, che probabilmente farà risultare in uno stato di sonda sempre
+#   attivato. In questo caso, collegare lo Smart Effector a un pin diverso sulla
+#   scheda. Questo parametro è obbligatorio.
 #control_pin:
-#   Pin connected to the Smart Effector control input pin (pin 7). If provided,
-#   Smart Effector sensitivity programming commands become available.
+#   Pin collegato al pin di ingresso di controllo Smart Effector (pin 7). Se fornito,
+#   diventano disponibili i comandi di programmazione della sensibilità
+#   di Smart Effector.
 #probe_accel:
-#   If set, limits the acceleration of the probing moves (in mm/sec^2).
-#   A sudden large acceleration at the beginning of the probing move may
-#   cause spurious probe triggering, especially if the hotend is heavy.
-#   To prevent that, it may be necessary to reduce the acceleration of
-#   the probing moves via this parameter.
+#   Se impostato, limita l'accelerazione dei movimenti di tastatura (in mm/sec^2).
+#   Un'improvvisa grande accelerazione all'inizio del movimento di esplorazione
+#   può causare l'attivazione spuria della sonda, specialmente se l'hotend è pesante.
+#   Per evitarlo, potrebbe essere necessario ridurre l'accelerazione dei movimenti
+#   di tastatura tramite questo parametro.
 #recovery_time: 0.4
-#   A delay between the travel moves and the probing moves in seconds. A fast
-#   travel move prior to probing may result in a spurious probe triggering.
-#   This may cause 'Probe triggered prior to movement' errors if no delay
-#   is set. Value 0 disables the recovery delay.
-#   Default value is 0.4.
+#   Un ritardo tra i movimenti di spostamento e tastatura in secondi. Un
+#   movimento veloce prima della tastatura può causare l'attivazione spuria della
+#   sonda. Ciò può causare errori "Sonda attivata prima del movimento" se non
+#   è impostato alcun ritardo. Il valore 0 disabilita il ritardo di ripristino.
+#   Il valore predefinito è 0.4.
 #x_offset:
 #y_offset:
-#   Should be left unset (or set to 0).
+#   Dovrebbe essere lasciato non impostato (o impostato su 0).
 z_offset:
-#   Trigger height of the probe. Start with -0.1 (mm), and adjust later using
-#   `PROBE_CALIBRATE` command. This parameter must be provided.
+#   Altezza di attivazione della sonda. Inizia con -0.1 (mm) e regola in seguito
+#   usando il comando `PROBE_CALIBRATE`. Questo parametro deve essere fornito.
 #speed:
-#   Speed (in mm/s) of the Z axis when probing. It is recommended to start
-#   with the probing speed of 20 mm/s and adjust it as necessary to improve
-#   the accuracy and repeatability of the probe triggering.
+#   Velocità (in mm/s) dell'asse Z durante la tastatura. Si consiglia di iniziare con la
+#   velocità di tastatura di 20 mm/s e di regolarla secondo necessità per migliorare la
+#   precisione e la ripetibilità dell'attivazione della sonda.
 #samples:
 #sample_retract_dist:
 #samples_result:
@@ -1766,7 +1769,7 @@ z_offset:
 #activate_gcode:
 #deactivate_gcode:
 #deactivate_on_each_sample:
-#   See the "probe" section for more information on the parameters above.
+#   Vedere la sezione "probe" per ulteriori informazioni sui parametri di cui sopra.
 ```
 
 ## Motori passo-passo ed estrusori aggiuntivi
@@ -2254,68 +2257,75 @@ Ventola di raffreddamento della stampa.
 ```
 [fan]
 pin:
-#   Output pin controlling the fan. This parameter must be provided.
+#   Pin di output che controlla la ventola. Questo parametro deve essere fornito.
 #max_power: 1.0
-#   The maximum power (expressed as a value from 0.0 to 1.0) that the
-#   pin may be set to. The value 1.0 allows the pin to be set fully
-#   enabled for extended periods, while a value of 0.5 would allow the
-#   pin to be enabled for no more than half the time. This setting may
-#   be used to limit the total power output (over extended periods) to
-#   the fan. If this value is less than 1.0 then fan speed requests
-#   will be scaled between zero and max_power (for example, if
-#   max_power is .9 and a fan speed of 80% is requested then the fan
-#   power will be set to 72%). The default is 1.0.
+#   La potenza massima (espressa come un valore compreso tra 0.0 e 1.0) a
+#   cui può essere impostato il pin. Il valore 1.0 consente di impostare il pin
+#   completamente abilitato per periodi prolungati, mentre un valore di 0.5
+#   consentirebbe di abilitare il pin per non più della metà del tempo. Questa
+#   impostazione può essere utilizzata per limitare la potenza totale (per
+#   periodi prolungati) della ventola. Se questo valore è inferiore a 1.0, le
+#   richieste di velocità della ventola verranno ridimensionate tra zero e
+#   max_power (ad esempio, se max_power è 0.9 e viene richiesta una
+#   velocità della ventola dell'80%, la potenza della ventola verrà impostata
+#   su 72%). L'impostazione predefinita è 1.0.
 #shutdown_speed: 0
-#   The desired fan speed (expressed as a value from 0.0 to 1.0) if
-#   the micro-controller software enters an error state. The default
-#   is 0.
+#   La velocità della ventola desiderata (espressa come valore da 0.0 a
+#   1.0) se il software del microcontrollore entra in uno stato di errore.
+#   Il valore predefinito è 0.
 #cycle_time: 0.010
-#   The amount of time (in seconds) for each PWM power cycle to the
-#   fan. It is recommended this be 10 milliseconds or greater when
-#   using software based PWM. The default is 0.010 seconds.
+#   La quantità di tempo (in secondi) per ogni ciclo di alimentazione PWM
+#   alla ventola. Si consiglia di essere pari o superiore a 10 millisecondi
+#   quando si utilizza il PWM basato su software.
+#   Il valore predefinito è 0,010 secondi.
 #hardware_pwm: False
-#   Enable this to use hardware PWM instead of software PWM. Most fans
-#   do not work well with hardware PWM, so it is not recommended to
-#   enable this unless there is an electrical requirement to switch at
-#   very high speeds. When using hardware PWM the actual cycle time is
-#   constrained by the implementation and may be significantly
-#   different than the requested cycle_time. The default is False.
+#   Abilitare questa opzione per utilizzare PWM hardware anziché PWM
+#   software. La maggior parte delle ventole non funziona bene con PWM
+#   hardware, quindi non è consigliabile abilitarlo a meno che non vi sia
+#   un requisito elettrico per passare a velocità molto elevate. Quando
+#   si utilizza l'hardware PWM, il tempo di ciclo effettivo è vincolato
+#   dall'implementazione e può essere notevolmente diverso dal tempo
+#   di ciclo richiesto. L'impostazione predefinita è False.
 #kick_start_time: 0.100
-#   Time (in seconds) to run the fan at full speed when either first
-#   enabling or increasing it by more than 50% (helps get the fan
-#   spinning). The default is 0.100 seconds.
+#   Tempo (in secondi) per far funzionare la ventola a piena velocità
+#   quando la si abilita per la prima volta o la si aumenta di oltre il 50%
+#   (aiuta a far girare la ventola). Il valore predefinito è 0,100 secondi.
 #off_below: 0.0
-#   The minimum input speed which will power the fan (expressed as a
-#   value from 0.0 to 1.0). When a speed lower than off_below is
-#   requested the fan will instead be turned off. This setting may be
-#   used to prevent fan stalls and to ensure kick starts are
-#   effective. The default is 0.0.
+#   La velocità minima in input che alimenterà la ventola (espressa
+#   come un valore da 0.0 a 1.0). Quando viene richiesta una velocità
+#   inferiore a off_below la ventola verrà invece spenta. Questa
+#   impostazione può essere utilizzata per prevenire lo stallo della
+#   ventola e per garantire che i kick start siano efficaci.
+#   Il valore predefinito è 0.0.
 #
-#   This setting should be recalibrated whenever max_power is adjusted.
-#   To calibrate this setting, start with off_below set to 0.0 and the
-#   fan spinning. Gradually lower the fan speed to determine the lowest
-#   input speed which reliably drives the fan without stalls. Set
-#   off_below to the duty cycle corresponding to this value (for
-#   example, 12% -> 0.12) or slightly higher.
+#   Questa impostazione deve essere ricalibrata ogni volta che
+#   max_power viene regolato. Per calibrare questa impostazione,
+#   inizia con off_below impostato su 0.0 e la ventola gira. Abbassare
+#   gradualmente la velocità della ventola per determinare la velocità
+#   di ingresso più bassa che aziona la ventola in modo affidabile senza
+#   stalli. Impostare off_below al duty cycle corrispondente a questo
+#   valore (ad esempio, 12% -> 0,12) o leggermente superiore.
 #tachometer_pin:
-#   Tachometer input pin for monitoring fan speed. A pullup is generally
-#   required. This parameter is optional.
+#   Pin di ingresso contagiri per il monitoraggio della velocità della
+#   ventola. In genere è richiesto un pullup. Questo parametro è facoltativo.
 #tachometer_ppr: 2
-#   When tachometer_pin is specified, this is the number of pulses per
-#   revolution of the tachometer signal. For a BLDC fan this is
-#   normally half the number of poles. The default is 2.
+#   Quando viene specificato tachometer_pin, questo è il numero di
+#   impulsi per giro del segnale del tachimetro. Per una ventola BLDC 
+#   questo è normalmente la metà del numero di poli.
+#   L'impostazione predefinita è 2.
 #tachometer_poll_interval: 0.0015
-#   When tachometer_pin is specified, this is the polling period of the
-#   tachometer pin, in seconds. The default is 0.0015, which is fast
-#   enough for fans below 10000 RPM at 2 PPR. This must be smaller than
-#   30/(tachometer_ppr*rpm), with some margin, where rpm is the
-#   maximum speed (in RPM) of the fan.
+#   Quando viene specificato tachometer_pin, questo è il periodo di polling
+#   del pin del contagiri, in secondi. Il valore predefinito è 0.0015, che è
+#   abbastanza veloce per le ventole al di sotto di 10000 RPM a 2 PPR. Deve
+#   essere inferiore a 30/(tachometer_ppr*rpm), con un certo margine,
+#   dove rpm è la velocità massima (in RPM) della ventola.
 #enable_pin:
-#   Optional pin to enable power to the fan. This can be useful for fans
-#   with dedicated PWM inputs. Some of these fans stay on even at 0% PWM
-#   input. In such a case, the PWM pin can be used normally, and e.g. a
-#   ground-switched FET(standard fan pin) can be used to control power to
-#   the fan.
+#   Pin opzionale per abilitare l'alimentazione alla ventola. Questo può
+#   essere utile per le ventole con ingressi PWM dedicati. Alcune di queste
+#   ventole rimangono accese anche allo 0% di ingresso PWM. In tal caso,
+#   il pin PWM può essere utilizzato normalmente e ad es. un FET commutato
+#   a terra (pin della ventola standard) può essere utilizzato per controllare
+#   l'alimentazione alla ventola.
 ```
 
 ### [heater_fan]
@@ -2335,19 +2345,21 @@ Ventole di raffreddamento del riscaldatore (si può definire un numero qualsiasi
 #tachometer_ppr:
 #tachometer_poll_interval:
 #enable_pin:
-#   See the "fan" section for a description of the above parameters.
+#   Vedere la sezione "fan" per una descrizione dei parametri di cui sopra.
 #heater: extruder
-#   Name of the config section defining the heater that this fan is
-#   associated with. If a comma separated list of heater names is
-#   provided here, then the fan will be enabled when any of the given
-#   heaters are enabled. The default is "extruder".
+#   Nome della sezione di configurazione che definisce il riscaldatore a cui
+#   è associato questa ventola. Se qui viene fornito un elenco di nomi di
+#   riscaldatori separati da virgole, la ventola verrà abilitata quando uno
+#   qualsiasi dei riscaldatori indicati è abilitato.
+#   L'impostazione predefinita è "extruder".
 #heater_temp: 50.0
-#   A temperature (in Celsius) that the heater must drop below before
-#   the fan is disabled. The default is 50 Celsius.
+#   Una temperatura (in gradi Celsius) sotto la quale il riscaldatore deve
+#   scendere prima che la ventola venga disattivata.
+#   L'impostazione predefinita è 50 gradi Celsius.
 #fan_speed: 1.0
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when its associated heater is enabled. The default
-#   is 1.0
+#   La velocità della ventola (espressa come un valore compreso tra 0.0 e
+#   1.0) a cui verrà impostato la ventola quando viene abilitato il relativo 
+#   riscaldatore. L'impostazione predefinita è 1.0
 ```
 
 ### [controller_fan]
@@ -2367,26 +2379,28 @@ Ventola di raffreddamento del controller (è possibile definire un numero qualsi
 #tachometer_ppr:
 #tachometer_poll_interval:
 #enable_pin:
-#   See the "fan" section for a description of the above parameters.
+#   Vedere la sezione "fan" per una descrizione dei parametri di cui sopra.
 #fan_speed: 1.0
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when a heater or stepper driver is active.
-#   The default is 1.0
+#   La velocità della ventola (espressa come un valore compreso tra 0.0 e
+#   1.0) a cui verrà impostata la ventola quando è attivo un riscaldatore
+#   o un driver passo-passo. L'impostazione predefinita è 1.0
 #idle_timeout:
-#   The amount of time (in seconds) after a stepper driver or heater
-#   was active and the fan should be kept running. The default
-#   is 30 seconds.
+#   La quantità di tempo (in secondi) dopo che un driver passo-passo o
+#   un riscaldatore è stato attivo per la quale la ventola deve essere tenuta
+#   in funzione. L'impostazione predefinita è 30 secondi.
 #idle_speed:
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when a heater or stepper driver was active and
-#   before the idle_timeout is reached. The default is fan_speed.
+#   La velocità della ventola (espressa come un valore compreso tra 0.0
+#   e 1.0) a cui verrà impostata la ventola quando era attivo un riscaldatore
+#   o un driver passo-passo e prima che venga raggiunto l'idle_timeout.
+#   L'impostazione predefinita è fan_speed.
 #heater:
 #stepper:
-#   Name of the config section defining the heater/stepper that this fan
-#   is associated with. If a comma separated list of heater/stepper names
-#   is provided here, then the fan will be enabled when any of the given
-#   heaters/steppers are enabled. The default heater is "extruder", the
-#   default stepper is all of them.
+#   Nome della sezione di configurazione che definisce il riscaldatore/
+#   stepper a cui è associata questa ventola. Se qui viene fornito un
+#   elenco separato da virgole di nomi di riscaldatori/stepper, la ventola
+#   sarà abilitata quando uno qualsiasi dei riscaldatori/stepper indicati
+#   è abilitato. Il riscaldatore predefinito è "estrusore", lo stepper
+#   predefinito sono tutti.
 ```
 
 ### [temperature_fan]
@@ -2408,43 +2422,42 @@ Per ulteriori informazioni, vedere [command reference](G-Codes.md#temperature_fa
 #tachometer_ppr:
 #tachometer_poll_interval:
 #enable_pin:
-#   See the "fan" section for a description of the above parameters.
+#   Vedere la sezione "fan" per una descrizione dei parametri di cui sopra.
 #sensor_type:
 #sensor_pin:
 #control:
 #max_delta:
 #min_temp:
 #max_temp:
-#   See the "extruder" section for a description of the above parameters.
+#   Vedere la sezione "extruder" per una descrizione dei parametri di cui sopra.
 #pid_Kp:
 #pid_Ki:
 #pid_Kd:
-#   The proportional (pid_Kp), integral (pid_Ki), and derivative
-#   (pid_Kd) settings for the PID feedback control system. Klipper
-#   evaluates the PID settings with the following general formula:
-#     fan_pwm = max_power - (Kp*e + Ki*integral(e) - Kd*derivative(e)) / 255
-#   Where "e" is "target_temperature - measured_temperature" and
-#   "fan_pwm" is the requested fan rate with 0.0 being full off and
-#   1.0 being full on. The pid_Kp, pid_Ki, and pid_Kd parameters must
-#   be provided when the PID control algorithm is enabled.
+#   Le impostazioni proporzionale (pid_Kp), integrale (pid_Ki) e derivata (pid_Kd)
+#   per il sistema di controllo del feedback PID. Klipper valuta le impostazioni PID
+#   con la seguente formula generale: fan_pwm = max_power - (Kp*e + Ki*integral(e)
+#   - Kd*derivative(e)) / 255 Dove "e" è "target_temperature - measure_temperature"
+#   e "fan_pwm" è la frequenza della ventola richiesta con 0.0 per spento e 1.0 al
+#   massimo. I parametri pid_Kp, pid_Ki e pid_Kd devono essere forniti quando
+l#   'algoritmo di controllo PID è abilitato.
 #pid_deriv_time: 2.0
-#   A time value (in seconds) over which temperature measurements will
-#   be smoothed when using the PID control algorithm. This may reduce
-#   the impact of measurement noise. The default is 2 seconds.
+#   Un valore di tempo (in secondi) su cui le misurazioni della temperatura verranno
+#   livellate quando si utilizza l'algoritmo di controllo PID. Ciò può ridurre l'impatto
+#   del rumore di misurazione. Il valore predefinito è 2 secondi.
 #target_temp: 40.0
-#   A temperature (in Celsius) that will be the target temperature.
-#   The default is 40 degrees.
+#   Una temperatura (in Celsius) che sarà la temperatura target.
+#   L'impostazione predefinita è 40 gradi.
 #max_speed: 1.0
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when the sensor temperature exceeds the set value.
-#   The default is 1.0.
+#   La velocità della ventola (espressa come un valore compreso tra 0.0 e 1.0) a cui
+#   verrà impostata la ventola quando la temperatura del sensore supera il valore
+#   impostato. L'impostazione predefinita è 1.0.
 #min_speed: 0.3
-#   The minimum fan speed (expressed as a value from 0.0 to 1.0) that
-#   the fan will be set to for PID temperature fans.
-#   The default is 0.3.
+#   La velocità minima della ventola (espressa come un valore compreso tra 0.0 e
+#   1.0) alla quale la ventola verrà impostata per le ventole con temperatura PID.
+#   Il valore predefinito è 0.3.
 #gcode_id:
-#   If set, the temperature will be reported in M105 queries using the
-#   given id. The default is to not report the temperature via M105.
+#   Se impostata, la temperatura verrà riportata nelle query M105 utilizzando l'id
+#   fornito. L'impostazione predefinita è di non riportare la temperatura tramite M105.
 ```
 
 ### [fan_generic]
@@ -2464,7 +2477,7 @@ Ventola a controllo manuale (si può definire un numero qualsiasi di sezioni con
 #tachometer_ppr:
 #tachometer_poll_interval:
 #enable_pin:
-#   See the "fan" section for a description of the above parameters.
+#   Vedere la sezione "fan" per una descrizione dei parametri di cui sopra.
 ```
 
 ## LEDs
@@ -2606,25 +2619,25 @@ Servo (si può definire un numero qualsiasi di sezioni con un prefisso "servo").
 ```
 [servo my_servo]
 pin:
-#   PWM output pin controlling the servo. This parameter must be
-#   provided.
+#   Pin di uscita PWM che controlla il servo. Questo parametro deve 
+#   essere fornito.
 #maximum_servo_angle: 180
-#   The maximum angle (in degrees) that this servo can be set to. The
-#   default is 180 degrees.
+#   L'angolo massimo (in gradi) a cui questo servo può essere impostato.
+#   L'impostazione predefinita è 180 gradi.
 #minimum_pulse_width: 0.001
-#   The minimum pulse width time (in seconds). This should correspond
-#   with an angle of 0 degrees. The default is 0.001 seconds.
+#   La durata minima dell'impulso (in secondi). Questo dovrebbe
+#   corrispondere a un angolo di 0 gradi. Il valore predefinito è 0.001 secondi.
 #maximum_pulse_width: 0.002
-#   The maximum pulse width time (in seconds). This should correspond
-#   with an angle of maximum_servo_angle. The default is 0.002
-#   seconds.
+#   La durata massima dell'impulso (in secondi). Questo dovrebbe
+#   corrispondere a un angolo di maximum_servo_angle. Il valore
+#   predefinito è 0.002 secondi.
 #initial_angle:
-#   Initial angle (in degrees) to set the servo to. The default is to
-#   not send any signal at startup.
+#   Angolo iniziale (in gradi) su cui impostare il servo. L'impostazione
+#   predefinita è di non inviare alcun segnale all'avvio.
 #initial_pulse_width:
-#   Initial pulse width time (in seconds) to set the servo to. (This
-#   is only valid if initial_angle is not set.) The default is to not
-#   send any signal at startup.
+#   Durata iniziale dell'impulso (in secondi) su cui impostare il servo.
+#   (Questo è valido solo se initial_angle non è impostato.)
+#   L'impostazione predefinita è di non inviare alcun segnale all'avvio.
 ```
 
 ### [gcode_button]
@@ -2712,9 +2725,10 @@ Pin di uscita digitali configurati staticamente (è possibile definire un numero
 ```
 [static_digital_output my_output_pins]
 pins:
-#   A comma separated list of pins to be set as GPIO output pins. The
-#   pin will be set to a high level unless the pin name is prefaced
-#   with "!". This parameter must be provided.
+#   Un elenco separato da virgole di pin da impostare come pin di
+#   output GPIO. Il pin verrà impostato su un livello alto a meno che il
+#   nome del pin non sia preceduto da "!". Questo parametro deve
+#   essere fornito.
 ```
 
 ### [multi_pin]
@@ -2882,11 +2896,11 @@ run_current:
 #hold_current:
 #sense_resistor: 0.110
 #stealthchop_threshold: 0
-#   See the "tmc2208" section for the definition of these parameters.
+#   Vedere la sezione "tmc2208" per la definizione di questi parametri.
 #uart_address:
-#   The address of the TMC2209 chip for UART messages (an integer
-#   between 0 and 3). This is typically used when multiple TMC2209
-#   chips are connected to the same UART pin. The default is zero.
+#   L'indirizzo del chip TMC2209 per i messaggi UART (un numero intero
+#   compreso tra 0 e 3). Viene in genere utilizzato quando più chip TMC2209
+#   sono collegati allo stesso pin UART. Il valore predefinito è zero
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
 #driver_TBL: 2
@@ -2901,18 +2915,18 @@ run_current:
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
 #driver_SGTHRS: 0
-#   Set the given register during the configuration of the TMC2209
-#   chip. This may be used to set custom motor parameters. The
-#   defaults for each parameter are next to the parameter name in the
-#   above list.
+#   Impostare il registro dato durante la configurazione del chip TMC2209.
+#   Può essere utilizzato per impostare parametri motore personalizzati. I
+#   valori predefiniti per ciascun parametro sono accanto al nome del
+#   parametro nell'elenco precedente.
 #diag_pin:
-#   The micro-controller pin attached to the DIAG line of the TMC2209
-#   chip. The pin is normally prefaced with "^" to enable a pullup.
-#   Setting this creates a "tmc2209_stepper_x:virtual_endstop" virtual
-#   pin which may be used as the stepper's endstop_pin. Doing this
-#   enables "sensorless homing". (Be sure to also set driver_SGTHRS to
-#   an appropriate sensitivity value.) The default is to not enable
-#   sensorless homing.
+#   Il pin del microcontrollore collegato alla linea DIAG del chip TMC2209.
+#   Il pin è normalmente preceduto da "^" per abilitare un pullup.
+#   L'impostazione di questo crea un pin virtuale "tmc2209_stepper_x:virtual_endstop"
+#   che può essere utilizzato come endstop_pin dello stepper. In questo modo
+#   si abilita l'"homing sensorless". (Assicurarsi di impostare anche driver_SGTHRS
+#   su un valore di sensibilità appropriato.) L'impostazione predefinita è di non
+#   abilitare l'homing sensorless.
 ```
 
 ### [tmc2660]
@@ -2922,40 +2936,41 @@ Configurare un driver per motore passo-passo TMC2660 tramite bus SPI. Per utiliz
 ```
 [tmc2660 stepper_x]
 cs_pin:
-#   The pin corresponding to the TMC2660 chip select line. This pin
-#   will be set to low at the start of SPI messages and set to high
-#   after the message transfer completes. This parameter must be
-#   provided.
+#   Il pin corrispondente al pin di selezione del chip TMC2660. Questo pin
+#   verrà impostato su basso all'inizio dei messaggi SPI e impostato su
+#   alto al termine del trasferimento del messaggio. Questo parametro
+#   deve essere fornito.
 #spi_speed: 4000000
-#   SPI bus frequency used to communicate with the TMC2660 stepper
-#   driver. The default is 4000000.
+#   Frequenza bus SPI utilizzata per comunicare con il driver
+#   passo-passo TMC2660. Il valore predefinito è 4000000.
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   Vedere la sezione "impostazioni comuni SPI" per una descrizione
+#   dei parametri di cui sopra.
 #interpolate: True
-#   If true, enable step interpolation (the driver will internally
-#   step at a rate of 256 micro-steps). This only works if microsteps
-#   is set to 16. Interpolation does introduce a small systemic
-#   positional deviation - see TMC_Drivers.md for details. The default
-#   is True.
+#   Se true, abilita l'interpolazione del passo (il driver eseguirà un passo
+#   interno a una velocità di 256 micropassi). Funziona solo se microsteps
+#   è impostato su 16. L'interpolazione introduce una piccola deviazione
+#   posizionale sistemica - vedere TMC_Drivers.md per i dettagli.
+#   L'impostazione predefinita è Vero.
 run_current:
-#   The amount of current (in amps RMS) used by the driver during
-#   stepper movement. This parameter must be provided.
+#   La quantità di corrente (in ampere RMS) utilizzata dal driver durante
+#   il movimento passo-passo. Questo parametro deve essere fornito.
 #sense_resistor:
-#   The resistance (in ohms) of the motor sense resistor. This
-#   parameter must be provided.
+#   La resistenza (in ohm) del resistore di rilevamento del motore.
+#   Questo parametro deve essere fornito.
 #idle_current_percent: 100
-#   The percentage of the run_current the stepper driver will be
-#   lowered to when the idle timeout expires (you need to set up the
-#   timeout using a [idle_timeout] config section). The current will
-#   be raised again once the stepper has to move again. Make sure to
-#   set this to a high enough value such that the steppers do not lose
-#   their position. There is also small delay until the current is
-#   raised again, so take this into account when commanding fast moves
-#   while the stepper is idling. The default is 100 (no reduction).
+#   La percentuale di run_current a cui il driver stepper sarà ridotto allo
+#   scadere del timeout di inattività (è necessario impostare il timeout
+#   utilizzando una sezione di configurazione [idle_timeout]). La corrente
+#   verrà nuovamente aumentata una volta che lo stepper dovrà muoversi
+#   di nuovo. Assicurati di impostarlo su un valore sufficientemente alto in
+#   modo che gli stepper non perdano la loro posizione. C'è anche un piccolo
+#   ritardo fino a quando la corrente non viene nuovamente aumentata,
+#   quindi tienine conto quando comandi mosse veloci mentre lo stepper è
+#   al minimo. Il valore predefinito è 100 (nessuna riduzione).
 #driver_TBL: 2
 #driver_RNDTF: 0
 #driver_HDEC: 0
@@ -2974,14 +2989,14 @@ run_current:
 #driver_SLPL: 0
 #driver_DISS2G: 0
 #driver_TS2G: 3
-#   Set the given parameter during the configuration of the TMC2660
-#   chip. This may be used to set custom driver parameters. The
-#   defaults for each parameter are next to the parameter name in the
-#   list above. See the TMC2660 datasheet about what each parameter
-#   does and what the restrictions on parameter combinations are. Be
-#   especially aware of the CHOPCONF register, where setting CHM to
-#   either zero or one will lead to layout changes (the first bit of
-#   HDEC) is interpreted as the MSB of HSTRT in this case).
+#   Imposta il parametro indicato durante la configurazione del chip TMC2660.
+#   Questo può essere utilizzato per impostare parametri del driver personalizzati.
+#   Le impostazioni predefinite per ogni parametro sono accanto al nome del
+#   parametro nell'elenco sopra. Vedere la scheda tecnica del TMC2660 su cosa
+#   fa ogni parametro e quali sono le restrizioni sulle combinazioni di parametri.
+#   Prestare particolare attenzione al registro CHOPCONF, dove l'impostazione
+#   di CHM su zero o uno comporterà modifiche al layout (il primo bit di HDEC)
+#   viene interpretato come MSB di HSTRT in questo caso).
 ```
 
 ### [tmc5160]
@@ -3485,7 +3500,7 @@ text:
 
 Visualizza il testo dei dati "macro" (è possibile definire un numero qualsiasi di sezioni con un prefisso display_template). Per informazioni sul template, vedere il documento [template di comandi](Command_Templates.md).
 
-This feature allows one to reduce repetitive definitions in display_data sections. One may use the builtin `render()` function in display_data sections to evaluate a template. For example, if one were to define `[display_template my_template]` then one could use `{ render('my_template') }` in a display_data section.
+Questa funzione consente di ridurre le definizioni ripetitive nelle sezioni display_data. Si può usare la funzione incorporata `render()` nelle sezioni display_data per valutare un template. Per esempio, se si dovesse definire `[display_template my_template]` allora si potrebbe usare `{ render('my_template') }` in una sezione display_data.
 
 Questa funzione può essere utilizzata anche per aggiornamenti LED continui utilizzando il comando [SET_LED_TEMPLATE](G-Codes.md#set_led_template).
 
@@ -3832,63 +3847,66 @@ vssa_pin:
 Supporto per Replicape: vedere la [guida beaglebone](Beaglebone.md) e il file [generic-replicape.cfg](../config/generic-replicape.cfg) per un esempio.
 
 ```
-# The "replicape" config section adds "replicape:stepper_x_enable"
-# virtual stepper enable pins (for steppers X, Y, Z, E, and H) and
-# "replicape:power_x" PWM output pins (for hotbed, e, h, fan0, fan1,
-# fan2, and fan3) that may then be used elsewhere in the config file.
+# La sezione di configurazione "replicape" aggiunge i pin di abilitazione
+# dello stepper virtuale "replicape: stepper_x_enable" (per stepper X, Y, Z,
+# E e H) e i pin di uscita PWM "replicape: power_x" (per hotbed, e, h, fan0,
+# fan1 , fan2 e fan3) che possono quindi essere utilizzati altrove nel file
+# di configurazione.
 [replicape]
 revision:
-#   The replicape hardware revision. Currently only revision "B3" is
-#   supported. This parameter must be provided.
+#   La revisione dell'hardware di replicape. Attualmente è supportata solo
+#   la revisione "B3". Questo parametro deve essere fornito.
 #enable_pin: !gpio0_20
-#   The replicape global enable pin. The default is !gpio0_20 (aka
-#   P9_41).
+#   Il pin di abilitazione globale dei replicape. L'impostazione predefinita
+#   è !gpio0_20 (aka P9_41).
 host_mcu:
-#   The name of the mcu config section that communicates with the
-#   Klipper "linux process" mcu instance. This parameter must be
-#   provided.
+#   Il nome della sezione mcu config che comunica con l'istanza mcu 
+#   "linux process" di Klipper. Questo parametro deve essere fornito.
 #standstill_power_down: False
-#   This parameter controls the CFG6_ENN line on all stepper
-#   motors. True sets the enable lines to "open". The default is
-#   False.
+#   Questo parametro controlla la linea CFG6_ENN su tutti i motori
+#   passo-passo. True imposta le righe di abilitazione su "open".
+#   L'impostazione predefinita è Falso.
 #stepper_x_microstep_mode:
 #stepper_y_microstep_mode:
 #stepper_z_microstep_mode:
 #stepper_e_microstep_mode:
 #stepper_h_microstep_mode:
-#   This parameter controls the CFG1 and CFG2 pins of the given
-#   stepper motor driver. Available options are: disable, 1, 2,
-#   spread2, 4, 16, spread4, spread16, stealth4, and stealth16. The
-#   default is disable.
+#   Questo parametro controlla i pin CFG1 e CFG2 del driver del motore
+#   passo-passo specificato. Le opzioni disponibili sono: disabilita, 1, 2,
+#   spread2, 4, 16, spread4, spread16, stealth4 e stealth16. L'impostazione
+#   predefinita è disabilitata.
 #stepper_x_current:
 #stepper_y_current:
 #stepper_z_current:
 #stepper_e_current:
 #stepper_h_current:
-#   The configured maximum current (in Amps) of the stepper motor
-#   driver. This parameter must be provided if the stepper is not in a
-#   disable mode.
+#   La corrente massima configurata (in Amp) del driver del motore
+#   passo-passo. Questo parametro deve essere fornito se lo stepper non
+#   è in modalità disabilitazione.
 #stepper_x_chopper_off_time_high:
 #stepper_y_chopper_off_time_high:
 #stepper_z_chopper_off_time_high:
 #stepper_e_chopper_off_time_high:
 #stepper_h_chopper_off_time_high:
-#   This parameter controls the CFG0 pin of the stepper motor driver
-#   (True sets CFG0 high, False sets it low). The default is False.
+#   Questo parametro controlla il pin CFG0 del driver del motore
+#   passo-passo (True imposta CFG0 alto, False lo imposta basso).
+#   L'impostazione predefinita è False.
 #stepper_x_chopper_hysteresis_high:
 #stepper_y_chopper_hysteresis_high:
 #stepper_z_chopper_hysteresis_high:
 #stepper_e_chopper_hysteresis_high:
 #stepper_h_chopper_hysteresis_high:
-#   This parameter controls the CFG4 pin of the stepper motor driver
-#   (True sets CFG4 high, False sets it low). The default is False.
+#   Questo parametro controlla il pin CFG4 del driver del motore
+#   passo-passo (True imposta CFG4 alto, False lo imposta basso).
+#   L'impostazione predefinita è False.
 #stepper_x_chopper_blank_time_high:
 #stepper_y_chopper_blank_time_high:
 #stepper_z_chopper_blank_time_high:
 #stepper_e_chopper_blank_time_high:
 #stepper_h_chopper_blank_time_high:
-#   This parameter controls the CFG5 pin of the stepper motor driver
-#   (True sets CFG5 high, False sets it low). The default is True.
+#   Questo parametro controlla il pin CFG5 del driver del motore
+#   passo-passo (True imposta CFG5 alto, False lo imposta basso).
+#   L'impostazione predefinita è True.
 ```
 
 ## Altri moduli personalizzati
@@ -3961,19 +3979,19 @@ I seguenti parametri sono generalmente disponibili per i dispositivi che utilizz
 
 ```
 #spi_speed:
-#   The SPI speed (in hz) to use when communicating with the device.
-#   The default depends on the type of device.
+#   La velocità SPI (in Hz) da utilizzare durante la comunicazione con il
+#   dispositivo. L'impostazione predefinita dipende dal tipo di dispositivo.
 #spi_bus:
-#   If the micro-controller supports multiple SPI busses then one may
-#   specify the micro-controller bus name here. The default depends on
-#   the type of micro-controller.
+#   Se il microcontrollore supporta più bus SPI, è possibile specificare
+#   qui il nome del bus del microcontrollore. L'impostazione predefinita
+#   dipende dal tipo di microcontrollore.
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   Specify the above parameters to use "software based SPI". This
-#   mode does not require micro-controller hardware support (typically
-#   any general purpose pins may be used). The default is to not use
-#   "software spi".
+#   Specificare i parametri di cui sopra per utilizzare "SPI basato su
+#   software". Questa modalità non richiede il supporto hardware del
+#   microcontrollore (in genere è possibile utilizzare qualsiasi pin generico).
+#   L'impostazione predefinita è di non utilizzare "spi software".
 ```
 
 ### Impostazioni I2C comuni

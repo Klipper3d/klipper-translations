@@ -18,7 +18,7 @@ A gcode_macro definiálásának részleteiért lásd a [config reference](Config
 
 A behúzási mozgások maximális sebességét és gyorsulását a Klipperben a `max_extrude_only_velocity` és `max_extrude_only_accel` konfigurációs beállítások szabályozzák. Ezeknek a beállításoknak van egy alapértelmezett értéke, amely sok nyomtatónál jól fog működni. Ha azonban valaki nagy behúzást állított be a szeletelőben (pl. 5 mm vagy nagyobb), akkor előfordulhat, hogy ezek korlátozzák a kívánt behúzási sebességet.
 
-Ha nagy visszahúzást használ, fontolja meg a Klipper [nyomás előtolás](Pressure_Advance.md) beállítását. Ellenkező esetben, ha úgy találjuk, hogy a szerszámfej úgy tűnik, hogy "szünetel" a behúzás és az alapozás során, akkor fontolja meg a `max_extrude_only_velocity` és `max_extrude_only_accel` kifejezett meghatározását a Klipper konfigurációs fájlban.
+Ha nagy visszahúzást használ, fontolja meg a Klipper [nyomás előtolás](Pressure_Advance.md) beállítását. Ellenkező esetben, ha úgy találjuk, hogy a nyomtatófej úgy tűnik, hogy "szünetel" a behúzás és az alapozás során, akkor fontolja meg a `max_extrude_only_velocity` és `max_extrude_only_accel` kifejezett meghatározását a Klipper konfigurációs fájlban.
 
 ## Ne engedélyezze a "coasting-ot"
 

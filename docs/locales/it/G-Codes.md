@@ -463,11 +463,11 @@ Il comando seguente è disponibile quando una [sezione di configurazione stepper
 
 ### [mcp4018]
 
-The following command is available when a [mcp4018 config section](Config_Reference.md#mcp4018) is enabled.
+Il comando seguente è disponibile quando una [sezione di configurazione mcp4018](Config_Reference.md#mcp4018) è abilitata.
 
 #### SET_DIGIPOT
 
-`SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: This command will change the current value of the digipot. This value should typically be between 0.0 and 1.0, unless a 'scale' is defined in the config. When 'scale' is defined, then this value should be between 0.0 and 'scale'.
+`SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: Questo comando cambierà il valore corrente del digipot. Questo valore dovrebbe essere in genere compreso tra 0.0 e 1.0, a meno che non sia definita una 'scale' nella configurazione. Quando viene definita 'scale', questo valore dovrebbe essere compreso tra 0,0 e 'scale'.
 
 ### [led]
 
