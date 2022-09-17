@@ -3,14 +3,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-13 09:17+0000\n"
+"PO-Revision-Date: 2022-09-17 09:21+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/contributing/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"contributing/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 msgid "Contributing to Klipper"
 msgstr "Contribuire a Klipper"
@@ -63,7 +64,7 @@ msgstr "75% Copertura totale"
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "An updated navigation hierarchy PR in klipper-translations."
-msgstr ""
+msgstr "Una gerarchia di navigazione PR aggiornata nelle traduzioni klipper."
 
 #: docs/CONTRIBUTING.md:block 13 (paragraph)
 msgid ""
