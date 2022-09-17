@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-15 15:22+0000\n"
+"PO-Revision-Date: 2022-09-16 16:17+0000\n"
 "Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/contact/"
 "ru/>\n"
@@ -17,24 +17,26 @@ msgid "This document provides contact information for Klipper."
 msgstr "В этом документе содержится контактная информация Klipper."
 
 msgid "[Community Forum](#community-forum)"
-msgstr ""
+msgstr "[Community Forum](#community-forum)"
 
 msgid "[Discord Chat](#discord-chat)"
-msgstr ""
+msgstr "[Discord Chat](#discord-chat)"
 
 msgid "[I have a question about Klipper](#i-have-a-question-about-klipper)"
-msgstr ""
+msgstr "[У меня есть вопрос о Klipper](#i-have-a-question-about-klipper)"
 
 msgid "[I have a feature request](#i-have-a-feature-request)"
-msgstr ""
+msgstr "[У меня есть запрос на функцию](#i-have-a-feature-request)"
 
 msgid "[Help! It doesn't work!](#help-it-doesnt-work)"
-msgstr ""
+msgstr "[Помогите! Это не работает!](#help-it-doesnt-work)"
 
 msgid ""
 "[I have diagnosed a defect in the Klipper software](#i-have-diagnosed-a-"
 "defect-in-the-klipper-software)"
 msgstr ""
+"[Я диагностировал дефект в программном обеспечении Klipper](#i-have-"
+"diagnosed-a-defect-in-the-klipper-software)"
 
 msgid ""
 "[I am making changes that I'd like to include in Klipper](#i-am-making-"
