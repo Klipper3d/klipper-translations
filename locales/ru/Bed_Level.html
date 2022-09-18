@@ -1219,8 +1219,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#choose-the-appropriate-calibration-mechanism" class="md-nav__link">
-    Choose the appropriate calibration mechanism
+  <a href="#_1" class="md-nav__link">
+    Выберите подходящий механизм калибровки
   </a>
   
 </li>
@@ -1258,9 +1258,9 @@
 
 <h1 id="bed-leveling">Bed leveling<a class="headerlink" href="#bed-leveling" title="Permanent link">&para;</a></h1>
 <p>Выравнивание кровати (иногда также называемое "выравниванием стола") имеет решающее значение для получения высококачественных отпечатков. Если кровать не выровнен должным образом, это может привести к плохой адгезии слоя, "деформации" и незначительным проблемам по всей печати. Этот документ служит руководством по выполнению выравнивания слоя в Klipper.</p>
-<p>It's important to understand the goal of bed leveling. If the printer is commanded to a position <code>X0 Y0 Z10</code> during a print, then the goal is for the printer's nozzle to be exactly 10mm from the printer's bed. Further, should the printer then be commanded to a position of <code>X50 Z10</code> the goal is for the nozzle to maintain an exact distance of 10mm from the bed during that entire horizontal move.</p>
-<p>In order to get good quality prints the printer should be calibrated so that Z distances are accurate to within about 25 microns (.025mm). This is a small distance - significantly smaller than the width of a typical human hair. This scale can not be measured "by eye". Subtle effects (such as heat expansion) impact measurements at this scale. The secret to getting high accuracy is to use a repeatable process and to use a leveling method that leverages the high accuracy of the printer's own motion system.</p>
-<h2 id="choose-the-appropriate-calibration-mechanism">Choose the appropriate calibration mechanism<a class="headerlink" href="#choose-the-appropriate-calibration-mechanism" title="Permanent link">&para;</a></h2>
+<p>Важно понимать цель выравнивания кровати. Если во время печати принтеру задается положение "X0 Y0 Z10", то цель состоит в том, чтобы сопло принтера находилось ровно в 10 мм от станины принтера. Кроме того, если затем принтеру будет дана команда на положение "X50 Z10", цель состоит в том, чтобы сопло сохраняло точное расстояние в 10 мм от станины во время всего этого горизонтального перемещения.</p>
+<p>Для получения отпечатков хорошего качества принтер должен быть откалиброван таким образом, чтобы расстояния Z были точными с точностью примерно до 25 микрон (0,025 мм). Это небольшое расстояние - значительно меньше ширины обычного человеческого волоса. Эта шкала не может быть измерена "на глаз". Тонкие эффекты (такие как тепловое расширение) влияют на измерения в этом масштабе. Секрет получения высокой точности заключается в использовании повторяющегося процесса и метода выравнивания, который использует высокую точность собственной системы перемещения принтера.</p>
+<h2 id="_1">Выберите подходящий механизм калибровки<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Different types of printers use different methods for performing bed leveling. All of them ultimately depend on the "paper test" (described below). However, the actual process for a particular type of printer is described in other documents.</p>
 <p>Prior to running any of these calibration tools, be sure to run the checks described in the <a href="Config_checks.html">config check document</a>. It is necessary to verify basic printer motion before performing bed leveling.</p>
 <p>For printers with an "automatic Z probe" be sure to calibrate the probe following the directions in the <a href="Probe_Calibrate.html">Probe Calibrate</a> document. For delta printers, see the <a href="Delta_Calibrate.html">Delta Calibrate</a> document. For printers with bed screws and traditional Z endstops, see the <a href="Manual_Level.html">Manual Level</a> document.</p>

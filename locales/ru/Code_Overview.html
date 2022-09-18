@@ -1219,8 +1219,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#directory-layout" class="md-nav__link">
-    Directory Layout
+  <a href="#_1" class="md-nav__link">
+    Расположение каталогов
   </a>
   
 </li>
@@ -1300,10 +1300,10 @@
 
 <h1 id="code-overview">Code overview<a class="headerlink" href="#code-overview" title="Permanent link">&para;</a></h1>
 <p>В этом документе описывается общая компоновка кода и основной поток кода Klipper.</p>
-<h2 id="directory-layout">Directory Layout<a class="headerlink" href="#directory-layout" title="Permanent link">&para;</a></h2>
-<p>The <strong>src/</strong> directory contains the C source for the micro-controller code. The <strong>src/atsam/</strong>, <strong>src/atsamd/</strong>, <strong>src/avr/</strong>, <strong>src/linux/</strong>, <strong>src/lpc176x/</strong>, <strong>src/pru/</strong>, and <strong>src/stm32/</strong> directories contain architecture specific micro-controller code. The <strong>src/simulator/</strong> contains code stubs that allow the micro-controller to be test compiled on other architectures. The <strong>src/generic/</strong> directory contains helper code that may be useful across different architectures. The build arranges for includes of "board/somefile.h" to first look in the current architecture directory (eg, src/avr/somefile.h) and then in the generic directory (eg, src/generic/somefile.h).</p>
-<p>The <strong>klippy/</strong> directory contains the host software. Most of the host software is written in Python, however the <strong>klippy/chelper/</strong> directory contains some C code helpers. The <strong>klippy/kinematics/</strong> directory contains the robot kinematics code. The <strong>klippy/extras/</strong> directory contains the host code extensible "modules".</p>
-<p>The <strong>lib/</strong> directory contains external 3rd-party library code that is necessary to build some targets.</p>
+<h2 id="_1">Расположение каталогов<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Каталог <strong>src/</strong> содержит исходный код C для кода микроконтроллера. <strong>src/atsam/</strong>, <strong>src/atsamd/</strong>, <strong>src/avr/</strong>, <strong>src/linux/</strong>, <strong>src/lpc176x/</strong>, <strong>src/pru/</strong> и <strong>src/каталоги stm32/</strong> содержат код микроконтроллера, специфичный для архитектуры. <strong>src/simulator/</strong> содержит заглушки кода, которые позволяют тестировать микроконтроллер, скомпилированный на других архитектурах. Каталог <strong>src/generic/</strong> содержит вспомогательный код, который может быть полезен в различных архитектурах. Сборка организует включение "board/somefile.h", чтобы сначала заглянуть в текущий каталог архитектуры (например, src/avr/somefile.h), а затем в общий каталог (например, src/generic/somefile.h).</p>
+<p>Каталог <strong>klippy/</strong> содержит программное обеспечение хоста. Большая часть программного обеспечения хоста написана на Python, однако каталог <strong>klippy/chelper/</strong> содержит несколько помощников по коду C. Каталог <strong>klippy/kinematics/</strong> содержит код кинематики робота. Каталог <strong>klippy/extras/</strong> содержит расширяемые "модули" хост-кода.</p>
+<p>Каталог <strong>lib/</strong> содержит код внешней библиотеки третьей стороны, который необходим для создания некоторых целевых объектов.</p>
 <p>The <strong>config/</strong> directory contains example printer configuration files.</p>
 <p>The <strong>scripts/</strong> directory contains build-time scripts useful for compiling the micro-controller code.</p>
 <p>The <strong>test/</strong> directory contains automated test cases.</p>

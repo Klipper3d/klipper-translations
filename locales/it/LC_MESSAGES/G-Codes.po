@@ -3,14 +3,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-17 03:31+0000\n"
+"PO-Revision-Date: 2022-09-17 09:21+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/"
+"it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -3093,17 +3094,19 @@ msgstr ""
 
 #: docs/G-Codes.md:block 218 (header)
 msgid "[mcp4018]"
-msgstr ""
+msgstr "[mcp4018]"
 
 #: docs/G-Codes.md:block 219 (paragraph)
 msgid ""
 "The following command is available when a [mcp4018 config "
 "section](Config_Reference.md#mcp4018) is enabled."
 msgstr ""
+"Il comando seguente è disponibile quando una [sezione di configurazione "
+"mcp4018](Config_Reference.md#mcp4018) è abilitata."
 
 #: docs/G-Codes.md:block 220 (header)
 msgid "SET_DIGIPOT"
-msgstr ""
+msgstr "SET_DIGIPOT"
 
 #: docs/G-Codes.md:block 221 (paragraph)
 msgid ""
@@ -3112,6 +3115,11 @@ msgid ""
 " and 1.0, unless a 'scale' is defined in the config. When 'scale' is "
 "defined, then this value should be between 0.0 and 'scale'."
 msgstr ""
+"`SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: Questo comando cambierà il "
+"valore corrente del digipot. Questo valore dovrebbe essere in genere "
+"compreso tra 0.0 e 1.0, a meno che non sia definita una 'scale' nella "
+"configurazione. Quando viene definita 'scale', questo valore dovrebbe essere "
+"compreso tra 0,0 e 'scale'."
 
 #~ msgid ""
 #~ "`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [<probe_parameter>=<value>]`: This"

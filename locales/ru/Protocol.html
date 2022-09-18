@@ -1219,11 +1219,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#micro-controller-interface" class="md-nav__link">
-    Micro-controller Interface
+  <a href="#_2" class="md-nav__link">
+    Интерфейс микроконтроллера
   </a>
   
-    <nav class="md-nav" aria-label="Micro-controller Interface">
+    <nav class="md-nav" aria-label="Интерфейс микроконтроллера">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1359,10 +1359,10 @@ queue_step oid=7 interval=7458 count=10 add=331
 queue_step oid=7 interval=11717 count=4 add=1281
 </code></pre></div>
 
-<p>See the <a href="MCU_Commands.html">mcu commands</a> document for information on available commands. See the <a href="Debugging.html">debugging</a> document for information on how to translate a G-Code file into its corresponding human-readable micro-controller commands.</p>
-<p>This page provides a high-level description of the Klipper messaging protocol itself. It describes how messages are declared, encoded in binary format (the "compression" scheme), and transmitted.</p>
-<p>The goal of the protocol is to enable an error-free communication channel between the host and micro-controller that is low-latency, low-bandwidth, and low-complexity for the micro-controller.</p>
-<h2 id="micro-controller-interface">Micro-controller Interface<a class="headerlink" href="#micro-controller-interface" title="Permanent link">&para;</a></h2>
+<p>Смотрите <a href="MCU_Commands.html">mcu commands</a> документ для получения информации о доступных командах. См. раздел <a href="Debugging.html">debugging</a> документ для получения информации о том, как преобразовать файл G-кода в соответствующие команды микроконтроллера, доступные для чтения человеком.</p>
+<p>На этой странице представлено высокоуровневое описание самого протокола обмена сообщениями Klipper. В нем описывается, как сообщения объявляются, кодируются в двоичном формате (схема "сжатия") и передаются.</p>
+<p>Цель протокола - обеспечить безошибочный канал связи между хостом и микроконтроллером с низкой задержкой, низкой пропускной способностью и низкой сложностью для микроконтроллера.</p>
+<h2 id="_2">Интерфейс микроконтроллера<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>The Klipper transmission protocol can be thought of as a <a href="https://en.wikipedia.org/wiki/Remote_procedure_call">RPC</a> mechanism between micro-controller and host. The micro-controller software declares the commands that the host may invoke along with the response messages that it can generate. The host uses that information to command the micro-controller to perform actions and to interpret the results.</p>
 <h3 id="declaring-commands">Declaring commands<a class="headerlink" href="#declaring-commands" title="Permanent link">&para;</a></h3>
 <p>The micro-controller software declares a "command" by using the DECL_COMMAND() macro in the C code. For example:</p>

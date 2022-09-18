@@ -1219,8 +1219,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#typical-upgrade-procedure" class="md-nav__link">
-    Typical Upgrade Procedure
+  <a href="#_1" class="md-nav__link">
+    Типовая процедура обновления
   </a>
   
 </li>
@@ -1265,8 +1265,8 @@
 
 <h1 id="sdcard-updates">SDCard updates<a class="headerlink" href="#sdcard-updates" title="Permanent link">&para;</a></h1>
 <p>Многие из популярных на сегодняшний день плат контроллеров поставляются с загрузчиком, способным обновлять встроенное ПО с помощью SD-карты. Хотя это удобно во многих случаях, эти загрузчики обычно не предоставляют другого способа обновления встроенного программного обеспечения. Это может быть неприятно, если ваша плата установлена в труднодоступном месте или если вам необходимо часто обновлять встроенное ПО. После первоначальной прошивки Klipper на контроллер можно перенести новую прошивку на SD-карту и инициировать процедуру прошивки через ssh.</p>
-<h2 id="typical-upgrade-procedure">Typical Upgrade Procedure<a class="headerlink" href="#typical-upgrade-procedure" title="Permanent link">&para;</a></h2>
-<p>The procedure for updating MCU firmware using the SD Card is similar to that of other methods. Instead of using <code>make flash</code> it is necessary to run a helper script, <code>flash-sdcard.sh</code>. Updating a BigTreeTech SKR 1.3 might look like the following:</p>
+<h2 id="_1">Типовая процедура обновления<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Процедура обновления микропрограммного обеспечения MCU с помощью SD-карты аналогична другим методам. Вместо использования <code>make flash</code> необходимо запустить вспомогательный скрипт, <code>flash-sdcard.sh</code>. Обновление BigTreeTech SKR 1.3 может выглядеть следующим образом:</p>
 <div class="highlight"><pre><span></span><code>sudo service klipper stop
 cd ~/klipper
 git pull
@@ -1277,7 +1277,7 @@ make
 sudo service klipper start
 </code></pre></div>
 
-<p>It is up to the user to determine the device location and board name. If a user needs to flash multiple boards, <code>flash-sdcard.sh</code> (or <code>make flash</code> if appropriate) should be run for each board prior to restarting the Klipper service.</p>
+<p>Пользователь сам определяет местоположение устройства и название платы. Если пользователю необходимо прошить несколько плат, <code>flash-sdcard.sh</code> (или <code>make flash</code>, если это уместно) следует запустить для каждой платы перед перезапуском службы Klipper.</p>
 <p>Supported boards can be listed with the following command:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -l
 </code></pre></div>

@@ -1219,16 +1219,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#micro-controller-configuration" class="md-nav__link">
-    Micro-controller configuration
+  <a href="#_1" class="md-nav__link">
+    Конфигурация микроконтроллера
   </a>
   
-    <nav class="md-nav" aria-label="Micro-controller configuration">
+    <nav class="md-nav" aria-label="Конфигурация микроконтроллера">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#format-of-micro-controller-pin-names" class="md-nav__link">
-    Format of micro-controller pin names
+  <a href="#_2" class="md-nav__link">
+    Формат имен контактов микроконтроллера
   </a>
   
 </li>
@@ -1590,7 +1590,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     Компенсация резонанса
   </a>
   
@@ -2375,10 +2375,10 @@
 
 <h1 id="configuration-reference">Configuration reference<a class="headerlink" href="#configuration-reference" title="Permanent link">&para;</a></h1>
 <p>Этот документ является справочным для опций, доступных в конфигурационном файле Klipper.</p>
-<p>The descriptions in this document are formatted so that it is possible to cut-and-paste them into a printer config file. See the <a href="Installation.html">installation document</a> for information on setting up Klipper and choosing an initial config file.</p>
-<h2 id="micro-controller-configuration">Micro-controller configuration<a class="headerlink" href="#micro-controller-configuration" title="Permanent link">&para;</a></h2>
-<h3 id="format-of-micro-controller-pin-names">Format of micro-controller pin names<a class="headerlink" href="#format-of-micro-controller-pin-names" title="Permanent link">&para;</a></h3>
-<p>Many config options require the name of a micro-controller pin. Klipper uses the hardware names for these pins - for example <code>PA4</code>.</p>
+<p>Описания в этом документе отформатированы таким образом, чтобы их можно было вырезать и вставить в конфигурационный файл принтера. См. <a href="Installation.html">installation document</a> для получения информации о настройке Klipper и выборе начального конфигурационного файла.</p>
+<h2 id="_1">Конфигурация микроконтроллера<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">Формат имен контактов микроконтроллера<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>Для многих параметров конфигурации требуется имя PIN-кода микроконтроллера. Klipper использует названия оборудования для этих выводов - например, <code>PA4</code>.</p>
 <p>Pin names may be preceded by <code>!</code> to indicate that a reverse polarity should be used (eg, trigger on low instead of high).</p>
 <p>Input pins may be preceded by <code>^</code> to indicate that a hardware pull-up resistor should be enabled for the pin. If the micro-controller supports pull-down resistors then an input pin may alternatively be preceded by <code>~</code>.</p>
 <p>Note, some config sections may "create" additional pins. Where this occurs, the config section defining the pins must be listed in the config file before any sections using those pins.</p>
@@ -3604,7 +3604,7 @@ path:
 <div class="highlight"><pre><span></span><code>[exclude_object]
 </code></pre></div>
 
-<h2 id="_1">Компенсация резонанса<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_3">Компенсация резонанса<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="input_shaper">[input_shaper]<a class="headerlink" href="#input_shaper" title="Permanent link">&para;</a></h3>
 <p>Enables <a href="Resonance_Compensation.html">resonance compensation</a>. Also see the <a href="G-Codes.html#input_shaper">command reference</a>.</p>
 <div class="highlight"><pre><span></span><code>[input_shaper]
@@ -4528,7 +4528,7 @@ pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
 #enable_pin:
-#   See the &quot;fan&quot; section for a description of the above parameters.
+#   Описание вышеуказанных параметров см. в разделе &quot;вентилятор&quot;.
 </code></pre></div>
 
 <h2 id="leds">LEDs<a class="headerlink" href="#leds" title="Permanent link">&para;</a></h2>

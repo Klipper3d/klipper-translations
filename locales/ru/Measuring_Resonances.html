@@ -1219,16 +1219,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installation-instructions" class="md-nav__link">
-    Installation instructions
+  <a href="#_2" class="md-nav__link">
+    Инструкции по установке
   </a>
   
-    <nav class="md-nav" aria-label="Installation instructions">
+    <nav class="md-nav" aria-label="Инструкции по установке">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#wiring" class="md-nav__link">
-    Wiring
+  <a href="#_3" class="md-nav__link">
+    Электропроводка
   </a>
   
 </li>
@@ -1352,11 +1352,11 @@
 
 
 <h1 id="_1">Изменения Резонансов<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>Klipper has built-in support for ADXL345 accelerometer, which can be used to measure resonance frequencies of the printer for different axes, and auto-tune <a href="Resonance_Compensation.html">input shapers</a> to compensate for resonances. Note that using ADXL345 requires some soldering and crimping. ADXL345 can be connected to a Raspberry Pi directly, or to an SPI interface of an MCU board (it needs to be reasonably fast).</p>
+<p>Klipper имеет встроенную поддержку акселерометра ADXL345, который можно использовать для измерения резонансных частот принтера для разных осей и автоматической настройки <a href="Resonance_Compensation.html">input shapers</a> для компенсации резонансов. Обратите внимание, что использование ADXL345 требует некоторой пайки и обжима. ADXL345 может быть подключен к Raspberry Pi напрямую или к SPI-интерфейсу платы MCU (он должен быть достаточно быстрым).</p>
 <p>When sourcing ADXL345, be aware that there is a variety of different PCB board designs and different clones of them. Make sure that the board supports SPI mode (small number of boards appear to be hard-configured for I2C by pulling SDO to GND), and, if it is going to be connected to a 5V printer MCU, that it has a voltage regulator and a level shifter.</p>
-<h2 id="installation-instructions">Installation instructions<a class="headerlink" href="#installation-instructions" title="Permanent link">&para;</a></h2>
-<h3 id="wiring">Wiring<a class="headerlink" href="#wiring" title="Permanent link">&para;</a></h3>
-<p>You need to connect ADXL345 to your Raspberry Pi via SPI. Note that the I2C connection, which is suggested by ADXL345 documentation, has too low throughput and <strong>will not work</strong>. The recommended connection scheme:</p>
+<h2 id="_2">Инструкции по установке<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">Электропроводка<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Вам необходимо подключить ADXL345 к вашему Raspberry Pi через SPI. Обратите внимание, что соединение I2C, которое предлагается в документации ADXL345, имеет слишком низкую пропускную способность и <strong> не будет работать </strong>. Рекомендуемая схема подключения:</p>
 <table>
 <thead>
 <tr>

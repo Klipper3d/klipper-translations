@@ -1219,8 +1219,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#print-a-calibration-object" class="md-nav__link">
-    Print a Calibration Object
+  <a href="#_2" class="md-nav__link">
+    Печать Объекта Калибровки
   </a>
   
 </li>
@@ -1271,10 +1271,10 @@
 
 
 <h1 id="_1">Коррекция перекоса<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>Software based skew correction can help resolve dimensional inaccuracies resulting from a printer assembly that is not perfectly square. Note that if your printer is significantly skewed it is strongly recommended to first use mechanical means to get your printer as square as possible prior to applying software based correction.</p>
-<h2 id="print-a-calibration-object">Print a Calibration Object<a class="headerlink" href="#print-a-calibration-object" title="Permanent link">&para;</a></h2>
-<p>The first step in correcting skew is to print a <a href="https://www.thingiverse.com/thing:2563185/files">calibration object</a> along the plane you want to correct. There is also a <a href="https://www.thingiverse.com/thing:2972743">calibration object</a> that includes all planes in one model. You want the object oriented so that corner A is toward the origin of the plane.</p>
-<p>Make sure that no skew correction is applied during this print. You may do this by either removing the <code>[skew_correction]</code> module from printer.cfg or by issuing a <code>SET_SKEW CLEAR=1</code> gcode.</p>
+<p>Программная коррекция перекоса может помочь устранить неточности в размерах, возникающие в результате неправильной квадратной сборки принтера. Обратите внимание, что если ваш принтер сильно перекошен, настоятельно рекомендуется сначала использовать механические средства, чтобы придать принтеру как можно более квадратную форму, прежде чем применять коррекцию на основе программного обеспечения.</p>
+<h2 id="_2">Печать Объекта Калибровки<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Первым шагом в исправлении перекоса является печать <a href="https://www.thingiverse.com/thing:2563185/files">калибровочного объекта</a> вдоль плоскости, которую вы хотите исправить. Существует также <a href="https://www.thingiverse.com/thing:2972743">объект калибровки</a>, который включает в себя все плоскости в одной модели. Вы хотите, чтобы объект был ориентирован так, чтобы угол A был направлен к началу плоскости.</p>
+<p>Убедитесь, что во время этой печати не применяется коррекция перекоса. Вы можете сделать это, либо удалив модуль <code>[skew_correction]</code> из файла printer.cfg, либо введя gcode <code>SET_SKEW CLEAR=1</code>.</p>
 <h2 id="take-your-measurements">Take your measurements<a class="headerlink" href="#take-your-measurements" title="Permanent link">&para;</a></h2>
 <p>The <code>[skew_correcton]</code> module requires 3 measurements for each plane you want to correct; the length from Corner A to Corner C, the length from Corner B to Corner D, and the length from Corner A to Corner D. When measuring length AD do not include the flats on the corners that some test objects provide.</p>
 <p><img alt="skew_lengths" src="img/skew_lengths.png" /></p>

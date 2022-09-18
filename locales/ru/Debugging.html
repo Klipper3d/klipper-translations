@@ -1233,8 +1233,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#translating-gcode-files-to-micro-controller-commands" class="md-nav__link">
-    Translating gcode files to micro-controller commands
+  <a href="#gcode" class="md-nav__link">
+    Преобразование файлов gcode в команды микроконтроллера
   </a>
   
 </li>
@@ -1317,9 +1317,9 @@
 
 <p>See the "HELP" command within the tool for more information on its functionality.</p>
 <p>Some command-line options are available. For more information run: <code>~/klippy-env/bin/python ./klippy/console.py --help</code></p>
-<h2 id="translating-gcode-files-to-micro-controller-commands">Translating gcode files to micro-controller commands<a class="headerlink" href="#translating-gcode-files-to-micro-controller-commands" title="Permanent link">&para;</a></h2>
-<p>The Klippy host code can run in a batch mode to produce the low-level micro-controller commands associated with a gcode file. Inspecting these low-level commands is useful when trying to understand the actions of the low-level hardware. It can also be useful to compare the difference in micro-controller commands after a code change.</p>
-<p>To run Klippy in this batch mode, there is a one time step necessary to generate the micro-controller "data dictionary". This is done by compiling the micro-controller code to obtain the <strong>out/klipper.dict</strong> file:</p>
+<h2 id="gcode">Преобразование файлов gcode в команды микроконтроллера<a class="headerlink" href="#gcode" title="Permanent link">&para;</a></h2>
+<p>Код хоста Klippy может выполняться в пакетном режиме для создания низкоуровневых команд микроконтроллера, связанных с файлом gcode. Проверка этих низкоуровневых команд полезна при попытке понять действия низкоуровневого оборудования. Также может быть полезно сравнить разницу в командах микроконтроллера после изменения кода.</p>
+<p>Чтобы запустить Klippy в этом пакетном режиме, необходим один временной шаг для создания "словаря данных" микроконтроллера. Это делается путем компиляции кода микроконтроллера для получения файла <strong>out/klipper.dict</strong>:</p>
 <div class="highlight"><pre><span></span><code>make menuconfig
 make
 </code></pre></div>

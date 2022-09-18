@@ -1219,8 +1219,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#automatic-vs-manual-probing" class="md-nav__link">
-    Automatic vs manual probing
+  <a href="#_1" class="md-nav__link">
+    Автоматическое и ручное зондирование
   </a>
   
 </li>
@@ -1278,9 +1278,9 @@
 
 <h1 id="delta-calibration">Delta calibration<a class="headerlink" href="#delta-calibration" title="Permanent link">&para;</a></h1>
 <p>В этом документе описывается система автоматической калибровки Klipper для принтеров типа "delta".</p>
-<p>Delta calibration involves finding the tower endstop positions, tower angles, delta radius, and delta arm lengths. These settings control printer motion on a delta printer. Each one of these parameters has a non-obvious and non-linear impact and it is difficult to calibrate them manually. In contrast, the software calibration code can provide excellent results with just a few minutes of time. No special probing hardware is necessary.</p>
-<p>Ultimately, the delta calibration is dependent on the precision of the tower endstop switches. If one is using Trinamic stepper motor drivers then consider enabling <a href="Endstop_Phase.html">endstop phase</a> detection to improve the accuracy of those switches.</p>
-<h2 id="automatic-vs-manual-probing">Automatic vs manual probing<a class="headerlink" href="#automatic-vs-manual-probing" title="Permanent link">&para;</a></h2>
+<p>Дельта-калибровка включает в себя определение положений концевых упоров башни, углов башни, дельта-радиуса и длины дельта-рычагов. Эти настройки управляют перемещением принтера на принтере delta. Каждый из этих параметров оказывает неочевидное и нелинейное влияние, и их трудно откалибровать вручную. Напротив, программный код калибровки может обеспечить отличные результаты всего за несколько минут. Никакого специального зондирующего оборудования не требуется.</p>
+<p>В конечном счете, дельта-калибровка зависит от точности концевых выключателей башни. Если вы используете драйверы шаговых двигателей Trinamic, то рассмотрите возможность включения <a href="Endstop_Phase.html">endstop phase</a> обнаружения для повышения точности этих переключателей.</p>
+<h2 id="_1">Автоматическое и ручное зондирование<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Klipper supports calibrating the delta parameters via a manual probing method or via an automatic Z probe.</p>
 <p>A number of delta printer kits come with automatic Z probes that are not sufficiently accurate (specifically, small differences in arm length can cause effector tilt which can skew an automatic probe). If using an automatic probe then first <a href="Probe_Calibrate.html">calibrate the probe</a> and then check for a <a href="Probe_Calibrate.html#location-bias-check">probe location bias</a>. If the automatic probe has a bias of more than 25 microns (.025mm) then use manual probing instead. Manual probing only takes a few minutes and it eliminates error introduced by the probe.</p>
 <p>If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that performing delta calibration will invalidate the results of probe calibration. These types of probes are rarely suitable for use on a delta (because minor effector tilt will result in a probe location bias). If using the probe anyway, then be sure to rerun probe calibration after any delta calibration.</p>

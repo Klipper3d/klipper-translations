@@ -1219,8 +1219,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#set-the-g-code-flavor-to-marlin" class="md-nav__link">
-    Set the G-Code flavor to Marlin
+  <a href="#g-marlin" class="md-nav__link">
+    Установите для G-кода значение Marlin
   </a>
   
 </li>
@@ -1286,8 +1286,8 @@
 
 <h1 id="_1">Слайсеры<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>В этом документе содержится несколько советов по настройке приложения "slicer" для использования с Klipper. Распространенными слайсерами, используемыми с Klipper, являются Slic3r, Cura, Simplify3Dи др.</p>
-<h2 id="set-the-g-code-flavor-to-marlin">Set the G-Code flavor to Marlin<a class="headerlink" href="#set-the-g-code-flavor-to-marlin" title="Permanent link">&para;</a></h2>
-<p>Many slicers have an option to configure the "G-Code flavor". The default is frequently "Marlin" and that works well with Klipper. The "Smoothieware" setting also works well with Klipper.</p>
+<h2 id="g-marlin">Установите для G-кода значение Marlin<a class="headerlink" href="#g-marlin" title="Permanent link">&para;</a></h2>
+<p>Во многих слайсерах есть возможность настроить "предпочтение G-кода". По умолчанию часто используется "Marlin", и это хорошо работает с Klipper. Настройка "Smoothieware" также хорошо работает с Klipper.</p>
 <h2 id="klipper-gcode_macro">Klipper gcode_macro<a class="headerlink" href="#klipper-gcode_macro" title="Permanent link">&para;</a></h2>
 <p>Slicers will often allow one to configure "Start G-Code" and "End G-Code" sequences. It is often convenient to define custom macros in the Klipper config file instead - such as: <code>[gcode_macro START_PRINT]</code> and <code>[gcode_macro END_PRINT]</code>. Then one can just run START_PRINT and END_PRINT in the slicer's configuration. Defining these actions in the Klipper configuration may make it easier to tweak the printer's start and end steps as changes do not require re-slicing.</p>
 <p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> for example START_PRINT and END_PRINT macros.</p>

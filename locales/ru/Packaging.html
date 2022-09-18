@@ -1219,15 +1219,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c-modules" class="md-nav__link">
-    C modules
+  <a href="#c" class="md-nav__link">
+    Модули C
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#compiling-python-code" class="md-nav__link">
-    Compiling python code
+  <a href="#python" class="md-nav__link">
+    Компиляция кода python
   </a>
   
 </li>
@@ -1265,10 +1265,10 @@
 
 <h1 id="packaging-klipper">Packaging Klipper<a class="headerlink" href="#packaging-klipper" title="Permanent link">&para;</a></h1>
 <p>Klipper является своего рода аномалией упаковки среди программ на Python, поскольку он не использует setuptools для сборки и установки. Некоторые замечания относительно того, как лучше всего его упаковать, следующие:</p>
-<h2 id="c-modules">C modules<a class="headerlink" href="#c-modules" title="Permanent link">&para;</a></h2>
-<p>Klipper uses a C module to handle some kinematics calculations more quickly. This module needs to be compiled at packaging time to avoid introducing a runtime dependency on a compiler. To compile the C module, run <code>python2 klippy/chelper/__init__.py</code>.</p>
-<h2 id="compiling-python-code">Compiling python code<a class="headerlink" href="#compiling-python-code" title="Permanent link">&para;</a></h2>
-<p>Many distributions have a policy of compiling all python code before packaging to improve startup time. You can do this by running <code>python2 -m compileall klippy</code>.</p>
+<h2 id="c">Модули C<a class="headerlink" href="#c" title="Permanent link">&para;</a></h2>
+<p>Klipper использует модуль C для более быстрой обработки некоторых кинематических вычислений. Этот модуль должен быть скомпилирован во время упаковки, чтобы избежать введения зависимости времени выполнения от компилятора. Чтобы скомпилировать модуль C, запустите <code>python2 klippy/chelper/__init__.py</code>.</p>
+<h2 id="python">Компиляция кода python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
+<p>Во многих дистрибутивах существует политика компиляции всего кода python перед упаковкой, чтобы увеличить время запуска. Вы можете сделать это, запустив "python2 -m compileall klippy`.</p>
 <h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
 <p>If you are building a package of Klipper from git, it is usual practice not to ship a .git directory, so the versioning must be handled without git. To do this, use the script shipped in <code>scripts/make_version.py</code> which should be run as follows: <code>python2 scripts/make_version.py YOURDISTRONAME &gt; klippy/.version</code>.</p>
 <h2 id="sample-packaging-script">Sample packaging script<a class="headerlink" href="#sample-packaging-script" title="Permanent link">&para;</a></h2>

@@ -1273,12 +1273,12 @@
 <h1 id="probe-calibration">Probe calibration<a class="headerlink" href="#probe-calibration" title="Permanent link">&para;</a></h1>
 <p>This document describes the method for calibrating the X, Y, and Z offsets of an "automatic z probe" in Klipper. This is useful for users that have a <code>[probe]</code> or <code>[bltouch]</code> section in their config file.</p>
 <h2 id="x-y">Калибровка смещений X и Y зонда<a class="headerlink" href="#x-y" title="Permanent link">&para;</a></h2>
-<p>To calibrate the X and Y offset, navigate to the OctoPrint "Control" tab, home the printer, and then use the OctoPrint jogging buttons to move the head to a position near the center of the bed.</p>
-<p>Place a piece of blue painters tape (or similar) on the bed underneath the probe. Navigate to the OctoPrint "Terminal" tab and issue a PROBE command:</p>
+<p>Чтобы откалибровать смещение X и Y, перейдите на вкладку OctoPrint "Управление" ("Control"), запустите принтер, а затем используйте кнопки переключения OctoPrint для перемещения головки в положение, близкое к центру станины.</p>
+<p>Положите кусок синей малярной ленты (или аналогичной) на ложе под зондом. Перейдите на вкладку OctoPrint "Терминал" (Terminal) и введите команду проверки:</p>
 <div class="highlight"><pre><span></span><code>PROBE
 </code></pre></div>
 
-<p>Place a mark on the tape directly under where the probe is (or use a similar method to note the location on the bed).</p>
+<p>Сделайте отметку на ленте непосредственно под тем местом, где находится зонд (или используйте аналогичный метод, чтобы отметить местоположение на кровати).</p>
 <p>Issue a <code>GET_POSITION</code> command and record the toolhead XY location reported by that command. For example if one sees:</p>
 <div class="highlight"><pre><span></span><code>Recv: // toolhead: X:46.500000 Y:27.000000 Z:15.000000 E:0.000000
 </code></pre></div>

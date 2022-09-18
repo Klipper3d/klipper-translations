@@ -1226,11 +1226,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#admin-messages" class="md-nav__link">
-    Admin messages
+  <a href="#_2" class="md-nav__link">
+    Сообщения администратора
   </a>
   
-    <nav class="md-nav" aria-label="Admin messages">
+    <nav class="md-nav" aria-label="Сообщения администратора">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1286,9 +1286,9 @@
 <h1 id="canbus-protocol">CANBUS protocol<a class="headerlink" href="#canbus-protocol" title="Permanent link">&para;</a></h1>
 <p>This document describes the protocol Klipper uses to communicate over <a href="https://en.wikipedia.org/wiki/CAN_bus">CAN bus</a>. See <CANBUS.md> for information on configuring Klipper with CAN bus.</p>
 <h2 id="_1">Идентификатор микроконтроллера<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Klipper uses only CAN 2.0A standard size CAN bus packets, which are limited to 8 data bytes and an 11-bit CAN bus identifier. In order to support efficient communication, each micro-controller is assigned at run-time a unique 1-byte CAN bus nodeid (<code>canbus_nodeid</code>) for general Klipper command and response traffic. Klipper command messages going from host to micro-controller use the CAN bus id of <code>canbus_nodeid * 2 + 256</code>, while Klipper response messages from micro-controller to host use <code>canbus_nodeid * 2 + 256 + 1</code>.</p>
-<p>Each micro-controller has a factory assigned unique chip identifier that is used during id assignment. This identifier can exceed the length of one CAN packet, so a hash function is used to generate a unique 6-byte id (<code>canbus_uuid</code>) from the factory id.</p>
-<h2 id="admin-messages">Admin messages<a class="headerlink" href="#admin-messages" title="Permanent link">&para;</a></h2>
+<p>Klipper использует только пакеты CAN 2.0A стандартного размера, которые ограничены 8 байтами данных и 11-битным идентификатором шины CAN. Чтобы поддерживать эффективную связь, каждому микроконтроллеру во время выполнения присваивается уникальный 1-байтовый идентификатор узла шины CAN (<code>canbus_nodeid</code>) для общего трафика команд и ответов Klipper. Командные сообщения Klipper, идущие от хоста к микроконтроллеру, используют идентификатор шины CAN <code>canbus_nodeid * 2 + 256</code>, в то время как ответные сообщения Klipper от микроконтроллера к хосту используют <code>canbus_nodeid * 2 + 256 + 1</code>.</p>
+<p>Каждый микроконтроллер имеет присвоенный заводом уникальный идентификатор чипа, который используется при назначении идентификатора. Этот идентификатор может превышать длину одного пакета CAN, поэтому хэш-функция используется для генерации уникального 6-байтового идентификатора (<code>canbus_uuid</code>) из заводского идентификатора.</p>
+<h2 id="_2">Сообщения администратора<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Admin messages are used for id assignment. Admin messages sent from host to micro-controller use the CAN bus id <code>0x3f0</code> and messages sent from micro-controller to host use the CAN bus id <code>0x3f1</code>. All micro-controllers listen to messages on id <code>0x3f0</code>; that id can be thought of as a "broadcast address".</p>
 <h3 id="cmd_query_unassigned-message">CMD_QUERY_UNASSIGNED message<a class="headerlink" href="#cmd_query_unassigned-message" title="Permanent link">&para;</a></h3>
 <p>This command queries all micro-controllers that have not yet been assigned a <code>canbus_nodeid</code>. Unassigned micro-controllers will respond with a RESP_NEED_NODEID response message.</p>

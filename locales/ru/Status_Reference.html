@@ -1227,7 +1227,7 @@
       
         <li class="md-nav__item">
   <a href="#bed_mesh" class="md-nav__link">
-    bed_mesh
+    сетка постели (bed_mesh)
   </a>
   
 </li>
@@ -1517,14 +1517,14 @@
 
 <h1 id="status-reference">Status reference<a class="headerlink" href="#status-reference" title="Permanent link">&para;</a></h1>
 <p>Этот документ является справочником информации о состоянии принтера, доступной в Klipper <a href="Command_Templates.html">macros</a>, <a href="Config_Reference.html#display">display fields</a> и через<a href="API_Server.html">API Server</a>.</p>
-<p>The fields in this document are subject to change - if using an attribute be sure to review the <a href="Config_Changes.html">Config Changes document</a> when upgrading the Klipper software.</p>
+<p>Поля в этом документе могут быть изменены - при использовании атрибута обязательно ознакомьтесь с документом <a href="Config_Changes.html">Config Changes document</a> при обновлении программного обеспечения Klipper.</p>
 <h2 id="angle">angle<a class="headerlink" href="#angle" title="Permanent link">&para;</a></h2>
 <p>The following information is available in <a href="Config_Reference.html#angle">angle some_name</a> objects:</p>
 <ul>
 <li><code>temperature</code>: The last temperature reading (in Celsius) from a tle5012b magnetic hall sensor. This value is only available if the angle sensor is a tle5012b chip and if measurements are in progress (otherwise it reports <code>None</code>).</li>
 </ul>
-<h2 id="bed_mesh">bed_mesh<a class="headerlink" href="#bed_mesh" title="Permanent link">&para;</a></h2>
-<p>The following information is available in the <a href="Config_Reference.html#bed_mesh">bed_mesh</a> object:</p>
+<h2 id="bed_mesh">сетка постели (bed_mesh)<a class="headerlink" href="#bed_mesh" title="Permanent link">&para;</a></h2>
+<p>Следующая информация доступна в объекте <a href="Config_Reference.html#bed_mesh">bed_mesh</a>:</p>
 <ul>
 <li><code>profile_name</code>, <code>mesh_min</code>, <code>mesh_max</code>, <code>probed_matrix</code>, <code>mesh_matrix</code>: Information on the currently active bed_mesh.</li>
 <li><code>profiles</code>: The set of currently defined profiles as setup using BED_MESH_PROFILE.</li>

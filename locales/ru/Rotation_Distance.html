@@ -1219,8 +1219,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#obtaining-rotation_distance-from-steps_per_mm-or-step_distance" class="md-nav__link">
-    Obtaining rotation_distance from steps_per_mm (or step_distance)
+  <a href="#rotation_distance-steps_per_mm-step_distance" class="md-nav__link">
+    Получение rotation_distance из steps_per_mm (или step_distance)
   </a>
   
 </li>
@@ -1292,12 +1292,12 @@
 
 <h1 id="rotation-distance">Rotation distance<a class="headerlink" href="#rotation-distance" title="Permanent link">&para;</a></h1>
 <p>Драйверы шаговых двигателей на Klipper требуют параметра <code>rotation_distance</code> в каждом [разделе конфигурации шагового двигателя] (Config_Reference.md #stepper). <code>rotation_distance</code> - это величина расстояния, на которое перемещается ось за один полный оборот шагового двигателя. В этом документе описано, как можно настроить это значение.</p>
-<h2 id="obtaining-rotation_distance-from-steps_per_mm-or-step_distance">Obtaining rotation_distance from steps_per_mm (or step_distance)<a class="headerlink" href="#obtaining-rotation_distance-from-steps_per_mm-or-step_distance" title="Permanent link">&para;</a></h2>
-<p>The designers of your 3d printer originally calculated <code>steps_per_mm</code> from a rotation distance. If you know the steps_per_mm then it is possible to use this general formula to obtain that original rotation distance:</p>
+<h2 id="rotation_distance-steps_per_mm-step_distance">Получение rotation_distance из steps_per_mm (или step_distance)<a class="headerlink" href="#rotation_distance-steps_per_mm-step_distance" title="Permanent link">&para;</a></h2>
+<p>Разработчики вашего 3d-принтера изначально рассчитали "steps_per_mm" исходя из расстояния поворота. Если вы знаете steps_per_mm, то можно использовать эту общую формулу для получения этого исходного расстояния поворота:</p>
 <div class="highlight"><pre><span></span><code>rotation_distance = &lt;full_steps_per_rotation&gt; * &lt;microsteps&gt; / &lt;steps_per_mm&gt;
 </code></pre></div>
 
-<p>Or, if you have an older Klipper configuration and know the <code>step_distance</code> parameter you can use this formula:</p>
+<p>Или, если у вас более старая конфигурация Klipper и вы знаете параметр <code>step_distance</code>, вы можете использовать эту формулу:</p>
 <div class="highlight"><pre><span></span><code>rotation_distance = &lt;full_steps_per_rotation&gt; * &lt;microsteps&gt; * &lt;step_distance&gt;
 </code></pre></div>
 

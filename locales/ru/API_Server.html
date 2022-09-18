@@ -1219,15 +1219,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#enabling-the-api-socket" class="md-nav__link">
-    Enabling the API socket
+  <a href="#api" class="md-nav__link">
+    Включение сокета API
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#request-format" class="md-nav__link">
-    Request format
+  <a href="#_1" class="md-nav__link">
+    Формат запроса
   </a>
   
 </li>
@@ -1411,14 +1411,14 @@
 
 <h1 id="api-server">API server<a class="headerlink" href="#api-server" title="Permanent link">&para;</a></h1>
 <p>В этом документе описывается интерфейс прикладного программиста Klipper (API). Этот интерфейс позволяет внешним приложениям запрашивать программное обеспечение хоста Klipper и управлять им.</p>
-<h2 id="enabling-the-api-socket">Enabling the API socket<a class="headerlink" href="#enabling-the-api-socket" title="Permanent link">&para;</a></h2>
-<p>In order to use the API server, the klippy.py host software must be started with the <code>-a</code> parameter. For example:</p>
+<h2 id="api">Включение сокета API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<p>Для того, чтобы использовать сервер API, необходимо klippy.py программное обеспечение хоста должно быть запущено с параметром <code>-a</code>. Например:</p>
 <div class="highlight"><pre><span></span><code>~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 </code></pre></div>
 
-<p>This causes the host software to create a Unix Domain Socket. A client can then open a connection on that socket and send commands to Klipper.</p>
+<p>Это приводит к тому, что программное обеспечение хоста создает доменный сокет Unix. Затем клиент может открыть соединение с этим сокетом и отправлять команды Klipper.</p>
 <p>See the <a href="https://github.com/Arksine/moonraker">Moonraker</a> project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.</p>
-<h2 id="request-format">Request format<a class="headerlink" href="#request-format" title="Permanent link">&para;</a></h2>
+<h2 id="_1">Формат запроса<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:</p>
 <div class="highlight"><pre><span></span><code>&lt;json_object_1&gt;&lt;0x03&gt;&lt;json_object_2&gt;&lt;0x03&gt;...
 </code></pre></div>

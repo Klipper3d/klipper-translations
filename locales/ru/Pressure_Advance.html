@@ -1219,8 +1219,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tuning-pressure-advance" class="md-nav__link">
-    Tuning pressure advance
+  <a href="#_2" class="md-nav__link">
+    Настройка опережения давления
   </a>
   
 </li>
@@ -1251,9 +1251,9 @@
 
 <h1 id="_1">Повышение давления<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>В этом документе содержится информация о настройке переменной конфигурации "повышение давления" для конкретного сопла и нити накала. Функция повышения давления может быть полезна для уменьшения количества мелких дефектов. Для получения дополнительной информации о том, как реализуется повышение давления, см. <a href="Kinematics.html">kinematics</a> документ.</p>
-<h2 id="tuning-pressure-advance">Tuning pressure advance<a class="headerlink" href="#tuning-pressure-advance" title="Permanent link">&para;</a></h2>
-<p>Pressure advance does two useful things - it reduces ooze during non-extrude moves and it reduces blobbing during cornering. This guide uses the second feature (reducing blobbing during cornering) as a mechanism for tuning.</p>
-<p>In order to calibrate pressure advance the printer must be configured and operational as the tuning test involves printing and inspecting a test object. It is a good idea to read this document in full prior to running the test.</p>
+<h2 id="_2">Настройка опережения давления<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Повышение давления делает две полезные вещи - уменьшает образование ила при движении без выдавливания и уменьшает образование пузырьков при прохождении поворотов. В этом руководстве в качестве механизма настройки используется вторая функция (уменьшение размытости при прохождении поворотов).</p>
+<p>Для калибровки опережения давления принтер должен быть сконфигурирован и работать, поскольку тест настройки включает в себя печать и проверку тестируемого объекта. Рекомендуется прочитать этот документ полностью перед запуском теста.</p>
 <p>Use a slicer to generate g-code for the large hollow square found in <a href="prints/square_tower.stl">docs/prints/square_tower.stl</a>. Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" is disabled in the slicer.</p>
 <p>Prepare for the test by issuing the following G-Code command:</p>
 <div class="highlight"><pre><span></span><code>SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500

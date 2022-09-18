@@ -1219,8 +1219,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#changes" class="md-nav__link">
-    Changes
+  <a href="#_1" class="md-nav__link">
+    Изменение
   </a>
   
 </li>
@@ -1244,8 +1244,8 @@
 
 <h1 id="configuration-changes">Configuration Changes<a class="headerlink" href="#configuration-changes" title="Permanent link">&para;</a></h1>
 <p>В этом документе описываются последние изменения программного обеспечения в файле конфигурации, которые не являются обратно совместимыми. Рекомендуется ознакомиться с этим документом при обновлении программного обеспечения Klipper.</p>
-<p>All dates in this document are approximate.</p>
-<h2 id="changes">Changes<a class="headerlink" href="#changes" title="Permanent link">&para;</a></h2>
+<p>Все даты в этом документе являются приблизительными.</p>
+<h2 id="_1">Изменение<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>20220616: It was previously possible to flash an rp2040 in bootloader mode by running <code>make flash FLASH_DEVICE=first</code>. The equivalent command is now <code>make flash FLASH_DEVICE=2e8a:0003</code>.</p>
 <p>20220612: The rp2040 micro-controller now has a workaround for the "rp2040-e5" USB errata. This should make initial USB connections more reliable. However, it may result in a change in behavior for the gpio15 pin. It is unlikely the gpio15 behavior change will be noticeable.</p>
 <p>20220407: The temperature_fan <code>pid_integral_max</code> config option has been removed (it was deprecated on 20210612).</p>
@@ -1268,10 +1268,10 @@
 <p>20210814: The analog only pseudo-pins on the atmega168 and atmega328 have been renamed from PE0/PE1 to PE2/PE3.</p>
 <p>20210720: A controller_fan section now monitors all stepper motors by default (not just the kinematic stepper motors). If the previous behavior is desired, see the <code>stepper</code> config option in the <a href="Config_Reference.html#controller_fan">config reference</a>.</p>
 <p>20210703: A <code>samd_sercom</code> config section must now specify the sercom bus it is configuring via the <code>sercom</code> option.</p>
-<p>20210612: The <code>pid_integral_max</code> config option in heater and temperature_fan sections is deprecated. The option will be removed in the near future.</p>
+<p>20210612: Параметр конфигурации <code>pid_integral_max</code> в разделах heater и temperature_fan устарел. Эта опция будет удалена в ближайшем будущем.</p>
 <p>20210503: The gcode_macro <code>default_parameter_&lt;name&gt;</code> config option is deprecated. Use the <code>params</code> pseudo-variable to access macro parameters. Other methods for accessing macro parameters will be removed in the near future. Most users can replace a <code>default_parameter_NAME: VALUE</code> config option with a line like the following in the start of the macro: <code>{% set NAME = params.NAME|default(VALUE)|float %}</code>. See the <a href="Command_Templates.html#macro-parameters">Command Templates
 document</a> for examples.</p>
-<p>20210430: The SET_VELOCITY_LIMIT (and M204) command may now set a velocity, acceleration, and square_corner_velocity larger than the specified values in the config file.</p>
+<p>20210430: Команда SET_VELOCITY_LIMIT (и M204) теперь может устанавливать скорость, ускорение и square_corner_velocity, превышающие указанные значения в файле конфигурации.</p>
 <p>20210325: Support for the <code>pin_map</code> config option is deprecated. Use the <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-aliases.cfg">sample-aliases.cfg</a> file to translate to the actual micro-controller pin names. The <code>pin_map</code> config option will be removed in the near future.</p>
 <p>20210313: Klipper's support for micro-controllers that communicate with CAN bus has changed. If using CAN bus then all micro-controllers must be reflashed and the <a href="CANBUS.html">Klipper configuration must be updated</a>.</p>
 <p>20210310: The TMC2660 default for driver_SFILT has been changed from 1 to 0.</p>

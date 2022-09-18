@@ -1293,8 +1293,8 @@
 
 <h1 id="bl-touch">BL-Touch<a class="headerlink" href="#bl-touch" title="Permanent link">&para;</a></h1>
 <h2 id="bl-touch_1">Подключение BL-Touch<a class="headerlink" href="#bl-touch_1" title="Permanent link">&para;</a></h2>
-<p>A <strong>warning</strong> before you start: Avoid touching the BL-Touch pin with your bare fingers, since it is quite sensitive to finger grease. And if you do touch it, be very gentle, in order to not bend or push anything.</p>
-<p>Hook up the BL-Touch "servo" connector to a <code>control_pin</code> according to the BL-Touch documentation or your MCU documentation. Using the original wiring, the yellow wire from the triple is the <code>control_pin</code> and the white wire from the pair is the <code>sensor_pin</code>. You need to configure these pins according to your wiring. Most BL-Touch devices require a pullup on the sensor pin (prefix the pin name with "^"). For example:</p>
+<p><strong> ПРЕДУПРЕЖДЕНИЕ </strong> Перед началом работы: Не прикасайтесь к штифту BL-Touch голыми пальцами, так как он довольно чувствителен к смазке для пальцев. И если вы все-таки прикоснетесь к нему, будьте очень нежны, чтобы ничего не согнуть и не толкнуть.</p>
+<p>Подключите разъем BL-Touch "servo" к разъему "control_pin" в соответствии с документацией BL-Touch или документацией вашего MCU. Используя оригинальную проводку, желтый провод от тройки - это "control_pin", а белый провод от пары - "sensor_pin". Вам необходимо настроить эти контакты в соответствии с вашей проводкой. Для большинства устройств BL-Touch требуется подтягивание pin-кода датчика (префикс имени pin-кода с помощью "^"). Например:</p>
 <div class="highlight"><pre><span></span><code>[bltouch]
 sensor_pin: ^P1.24
 control_pin: P1.26
@@ -1308,7 +1308,7 @@ z_hop: 10                 # Move up 10mm
 z_hop_speed: 5
 </code></pre></div>
 
-<p>It's important that the z_hop movement in safe_z_home is high enough that the probe doesn't hit anything even if the probe pin happens to be in its lowest state.</p>
+<p>Важно, чтобы перемещение z_hop в safe_z_home было достаточно высоким, чтобы зонд ни во что не врезался, даже если контакт зонда находится в самом низком состоянии.</p>
 <h2 id="initial-tests">Initial tests<a class="headerlink" href="#initial-tests" title="Permanent link">&para;</a></h2>
 <p>Before moving on, verify that the BL-Touch is mounted at the correct height, the pin should be roughly 2 mm above the nozzle when retracted</p>
 <p>When you turn on the printer, the BL-Touch probe should perform a self-test and move the pin up and down a couple of times. Once the self-test is completed, the pin should be retracted and the red LED on the probe should be lit. If there are any errors, for example the probe is flashing red or the pin is down instead of up, please turn off the printer and check the wiring and configuration.</p>

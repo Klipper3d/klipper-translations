@@ -13,7 +13,7 @@
     
     
       
-        <title>Exclude Objects - Klipper documentation</title>
+        <title>Исключить Объекты - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#exclude-objects" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exclude Objects
+              Исключить Объекты
             
           </span>
         </div>
@@ -1219,8 +1219,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-overview" class="md-nav__link">
-    Workflow Overview
+  <a href="#_2" class="md-nav__link">
+    Обзор рабочего процесса
   </a>
   
 </li>
@@ -1269,12 +1269,12 @@
 </a>
 
 
-<h1 id="exclude-objects">Exclude Objects<a class="headerlink" href="#exclude-objects" title="Permanent link">&para;</a></h1>
+<h1 id="_1">Исключить Объекты<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>The <code>[exclude_object]</code> module allows Klipper to exclude objects while a print is in progress. To enable this feature include an <a href="Config_Reference.html#exclude_object">exclude_object config
 section</a> (also see the <a href="G-Codes.html#exclude-object">command
 reference</a> and <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> file for a Marlin/RepRapFirmware compatible M486 G-Code macro.)</p>
-<p>Unlike other 3D printer firmware options, a printer running Klipper utilizes a suite of components and users have many options to choose from. Therefore, in order to provide a a consistent user experience, the <code>[exclude_object]</code> module will establish a contract or API of sorts. The contract covers the contents of the gcode file, how the internal state of the module is controlled, and how that state is provided to clients.</p>
-<h2 id="workflow-overview">Workflow Overview<a class="headerlink" href="#workflow-overview" title="Permanent link">&para;</a></h2>
+<p>В отличие от других вариантов прошивки 3D-принтера, принтер под управлением Klipper использует набор компонентов, и у пользователей есть много вариантов на выбор. Поэтому, чтобы обеспечить согласованный пользовательский интерфейс, модуль <code>[exclude_object]</code> установит своего рода контракт или API. Контракт охватывает содержимое файла gcode, как контролируется внутреннее состояние модуля и как это состояние предоставляется клиентам.</p>
+<h2 id="_2">Обзор рабочего процесса<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>A typical workflow for printing a file might look like this:</p>
 <ol>
 <li>Slicing is completed and the file is uploaded for printing. During the upload, the file is processed and <code>[exclude_object]</code> markers are added to the file. Alternately, slicers may be configured to prepare object exclusion markers natively, or in it's own pre-processing step.</li>
