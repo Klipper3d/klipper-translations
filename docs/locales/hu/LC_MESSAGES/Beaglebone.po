@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-03-17 13:56+0000\n"
+"PO-Revision-Date: 2022-09-18 19:21+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/beaglebone/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"beaglebone/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #: docs/Beaglebone.md:block 1 (header)
 msgid "Beaglebone"
@@ -76,7 +77,7 @@ msgstr ""
 
 #: docs/Beaglebone.md:block 10 (paragraph)
 msgid "And setup OctoPrint to start at bootup:"
-msgstr "És állítsa be az OctoPrintet úgy, hogy az indításkor elinduljon:"
+msgstr "És állítsd be az OctoPrintet úgy, hogy az indításkor elinduljon:"
 
 #: docs/Beaglebone.md:block 11 (code)
 msgid ""
