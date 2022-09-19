@@ -9,11 +9,12 @@
 # Mika <akimivanov43@gmail.com>, 2024, 2025.
 # Arseniy <arseniy@neburalis.space>, 2024, 2025.
 # Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
+# Vin <k3kelm4vw@mozmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: Mika <akimivanov43@gmail.com>\n"
+"Last-Translator: Vin <k3kelm4vw@mozmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/overview/"
 "ru/>\n"
 "Language: ru\n"
@@ -27,8 +28,8 @@ msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
-"Добро пожаловать в документацию Klipper. Если вы новичок в Klipper, начните с "
-"документации о [возможностях](Features.md) и [установке](Installation.md)."
+"Добро пожаловать в документацию Klipper. Если вы новичок в Klipper, начните "
+"с документации о [возможностях](Features.md) и [установке](Installation.md)."
 
 msgid "Overview information"
 msgstr "Обзорная информация"
