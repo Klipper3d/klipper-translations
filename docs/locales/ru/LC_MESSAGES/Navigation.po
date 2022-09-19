@@ -2,11 +2,12 @@
 # Vik <xasertop@gmail.com>, 2022.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
+# Vin <k3kelm4vw@mozmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
+"PO-Revision-Date: 2025-05-03 07:36+0000\n"
+"Last-Translator: Vin <k3kelm4vw@mozmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "navigation/ru/>\n"
 "Language: ru\n"
