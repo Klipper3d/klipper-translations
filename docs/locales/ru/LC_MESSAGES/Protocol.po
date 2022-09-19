@@ -5,12 +5,12 @@
 # VICTOR <subfyn@gmail.com>, 2023.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 # Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
+# Vin <k3kelm4vw@mozmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>"
-"\n"
+"Last-Translator: Vin <k3kelm4vw@mozmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/protocol/"
 "ru/>\n"
 "Language: ru\n"
@@ -61,8 +61,8 @@ msgid ""
 "low-complexity for the micro-controller."
 msgstr ""
 "Цель протокола — обеспечить безошибочную работу канала связи между хостом и "
-"микроконтроллером с низкой задержкой, низкой пропускной способностью и низкой "
-"сложностью для микроконтроллера."
+"микроконтроллером с низкой задержкой, низкой пропускной способностью и "
+"низкой сложностью для микроконтроллера."
 
 msgid "Micro-controller Interface"
 msgstr "Интерфейс микроконтроллера"
