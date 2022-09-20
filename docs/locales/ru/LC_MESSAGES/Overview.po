@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-19 18:21+0000\n"
+"PO-Revision-Date: 2022-09-20 19:20+0000\n"
 "Last-Translator: Vik <xasertop@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/overview/"
 "ru/>\n"
@@ -148,6 +148,8 @@ msgid ""
 "[Kinematics](Kinematics.md): Technical details on how Klipper implements "
 "motion."
 msgstr ""
+"[Кинематика](Kinematics.md): Технические подробности о том, как Klipper "
+"реализует движение."
 
 msgid ""
 "[Protocol](Protocol.md): Information on the low-level messaging protocol "
@@ -215,7 +217,7 @@ msgstr ""
 
 #: docs/Overview.md:block 1 (header)
 msgid "Overview"
-msgstr ""
+msgstr "Обзор"
 
 #: docs/Overview.md:block 5 (header)
 msgid "Installation and Configuration"
