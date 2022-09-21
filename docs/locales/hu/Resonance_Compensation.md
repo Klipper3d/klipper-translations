@@ -4,7 +4,7 @@ A Klipper támogatja a bemeneti formázást. Egy olyan technikát, amely a nyoma
 
 |![Ringing test](img/ringing-test.jpg)|![3D Benchy](img/ringing-3dbenchy.jpg)|
 
-A gyűrődést a nyomtatási irány gyors változása miatt fellépő mechanikus rezgések okozzák. Vegye figyelembe, hogy a gyűrődés általában mechanikai eredetű: nem elég merev nyomtatókeret, nem feszes vagy túlságosan rugós szíjak, a mechanikus alkatrészek beállítási problémái, nagy mozgó tömeg stb. Ezeket kell először ellenőrizni és lehetőség szerint javítani.
+A gyűrődést a nyomtatási irány gyors változása miatt fellépő mechanikus rezgések okozzák. Vedd figyelembe, hogy a gyűrődés általában mechanikai eredetű: nem elég merev nyomtatókeret, nem feszes vagy túlságosan rugós szíjak, a mechanikus alkatrészek beállítási problémái, nagy mozgó tömeg stb. Ezeket kell először ellenőrizni és lehetőség szerint javítani.
 
 A [Bemeneti formázás](https://en.wikipedia.org/wiki/Input_shaping) egy olyan nyílt hurkú vezérlési technika, amely olyan utasító jelet hoz létre, amely megszünteti a saját rezgéseit. A bemeneti alakítás némi hangolást és méréseket igényel, mielőtt engedélyezhető lenne. A csengésen kívül a Bemeneti formázás általában csökkenti a nyomtató rezgéseit és rázkódását, és javíthatja a Trinamic léptető meghajtók StealthChop üzemmódjának megbízhatóságát is.
 
@@ -31,7 +31,7 @@ Először is mérje meg a **gyűrődési frekvenciát**.
 1. Nyomás előtolás kikapcsolása: `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. Ha már hozzáadta az `[input_shaper]` részt a printer.cfg fájlhoz, akkor hajtsa végre a `SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0` parancsot. Ha "Unknown command" hibát kap, nyugodtan figyelmen kívül hagyhatja ezen a ponton, és folytathatja a méréseket.
 1. Végezze el a parancsot: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5` Alapvetően a gyorsulás különböző nagy értékeinek beállításával próbáljuk a gyűrődést hangsúlyosabbá tenni. Ez a parancs 1500 mm/sec^2-től kezdve 5 mm-enként növeli a gyorsulást: 1500 mm/sec^2, 2000 mm/sec^2, 2500 mm/sec^2 és így tovább, egészen 7000 mm/sec^2-ig az utolsó sávra.
-1. Nyomtassa ki a szeletelt tesztmodellt a javasolt paraméterekkel.
+1. Nyomtasd ki a szeletelt tesztmodellt a javasolt paraméterekkel.
 1. A nyomtatást korábban is leállíthatja, ha a gyűrődés jól látható, és úgy látja, hogy a gyorsulás túl nagy lesz a nyomtató számára (pl. a nyomtató túlságosan remeg, vagy elkezd lépéseket kihagyni).
 
    1. Használja a modell hátulján található X és Y jeleket a tájékozódáshoz. Az X-jelöléssel ellátott oldalról történő méréseket kell használni az X tengely *konfigurációhoz*, az Y-jelölést pedig az Y tengely konfigurációjához. Mérje meg a távolságot *D* (mm-ben) több rezgés között az X jelzésű alkatrészen, a bevágások közelében, lehetőleg az első egy-két rezgést kihagyva. Az oszcillációk közötti távolság könnyebb méréséhez először jelölje meg az oszcillációkat, majd mérje meg a jelölések közötti távolságot vonalzóval vagy tolómérővel:|![Mark ringing](img/ringing-mark.jpg)|![Measure ringing](img/ringing-measure.jpg)|
@@ -39,20 +39,20 @@ Először is mérje meg a **gyűrődési frekvenciát**.
 1. Számítsuk ki az X tengely gyűrődési frekvenciáját *V* &middot; *N* / *D* (Hz), ahol *V* a külső kerületekre vonatkozó sebesség (mm/sec). A fenti példánál 6 rezgést jelöltünk meg, és a tesztet 100 mm/sec sebességgel nyomtattuk, így a frekvencia 100 * 6 / 12,14 ≈ 49,4 Hz.
 1. A (8)-(10) pontokat az Y jel esetében is végezzük el.
 
-Vegye figyelembe, hogy a próbanyomaton a gyűrődésnek a fenti képen látható íves bevágások mintáját kell követnie. Ha nem így van, akkor ez a hiba nem igazán gyűrődés, és más eredetű. Vagy mechanikai, vagy extruder probléma. Ezt kell először kijavítani, mielőtt engedélyeznénk és hangolnánk a bemeneti formázókat.
+Vedd figyelembe, hogy a próbanyomaton a gyűrődésnek a fenti képen látható íves bevágások mintáját kell követnie. Ha nem így van, akkor ez a hiba nem igazán gyűrődés, és más eredetű. Vagy mechanikai, vagy extruder probléma. Ezt kell először kijavítani, mielőtt engedélyeznénk és hangolnánk a bemeneti formázókat.
 
 Ha a mérések nem megbízhatóak, mert például a rezgések közötti távolság nem stabil, az azt jelentheti, hogy a nyomtatónak több rezonanciafrekvenciája van ugyanazon a tengelyen. Megpróbálhatjuk helyette a [A gyűrődési frekvenciák megbízhatatlan mérései](#a-gyurodesi-frekvenciak-megbizhatatlan-meresei) szakaszban leírt hangolási eljárást követni, és még mindig kaphatunk valami infót a bemeneti alakítási technikáról.
 
-A gyűrődési frekvencia függhet a modell ágyon belüli helyzetétől és a Z magasságtól, *különösen a delta nyomtatóknál*; ellenőrizheti, hogy a tesztmodell oldalai mentén és különböző magasságokban különböző pozíciókban lát-e különbséget a frekvenciákban. Ha ez a helyzet, akkor kiszámíthatja az X és Y tengelyen mért átlagos gyűrődési frekvenciákat.
+A gyűrődési frekvencia függhet a modell tárgyasztalon belüli helyzetétől és a Z magasságtól, *különösen a delta nyomtatóknál*; ellenőrizheti, hogy a tesztmodell oldalai mentén és különböző magasságokban különböző pozíciókban lát-e különbséget a frekvenciákban. Ha ez a helyzet, akkor kiszámíthatja az X és Y tengelyen mért átlagos gyűrődési frekvenciákat.
 
 Ha a mért gyűrődési frekvencia nagyon alacsony (kb. 20-25 Hz alatti), akkor érdemes lehet a nyomtató merevítésére vagy a mozgó tömeg csökkentésére beruházni - attól függően, hogy mi alkalmazható az Ön esetében -, mielőtt a bemeneti alakítás további hangolását folytatná, és utána újra megmérné a frekvenciákat. Sok népszerű nyomtatómodell esetében gyakran már rendelkezésre áll néhány megoldás.
 
-Vegye figyelembe, hogy a gyűrődési frekvenciák változhatnak, ha a nyomtatóban olyan változtatásokat végeznek, amelyek hatással vannak a mozgó tömegre, vagy például megváltoztatják a gépváz merevségét:
+Vedd figyelembe, hogy a gyűrődési frekvenciák változhatnak, ha a nyomtatóban olyan változtatásokat végeznek, amelyek hatással vannak a mozgó tömegre, vagy például megváltoztatják a gépváz merevségét:
 
 * A nyomtatófejre néhány olyan eszközt telepítenek, eltávolítanak vagy kicserélnek, amelyek megváltoztatják annak tömegét, pl. új (nehezebb vagy könnyebb) léptetőmotor a közvetlen extrudernek vagy új nyomtatófej telepítése, nehéz, tárgyhűtővel ellátott ventilátor beépítése stb.
 * A szíjak meghúzása.
 * A váz merevségének növelésére szolgáló néhány kiegészítés telepítve van.
-* Különböző ágy van telepítve egy Y ágyas nyomtatóra, vagy üveg hozzáadása stb.
+* Különböző tárgyasztal van telepítve egy Y tárgyasztalos nyomtatóra, vagy üveg hozzáadása stb.
 
 Ha ilyen változtatásokat hajtanak végre, akkor érdemes legalább a gyűrődési frekvenciákat megmérni, hogy lássák, változtak-e azok.
 
@@ -74,14 +74,14 @@ A Klipper számos bemeneti formázót támogat. Ezek a rezonanciafrekvenciát me
 
 A legtöbb nyomtatóhoz MZV vagy EI alakítók ajánlhatók. Ez a szakasz egy tesztelési eljárást ír le a kettő közötti választáshoz, valamint néhány egyéb kapcsolódó paraméter meghatározásához.
 
-Nyomtassa ki a gyűrődési tesztmodellt az alábbiak szerint:
+Nyomtasd ki a gyűrődési tesztmodellt az alábbiak szerint:
 
 1. Indítsa újra a firmware-t: `RESTART`
 1. Készüljön fel a tesztre: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
 1. Nyomás előtolás kikapcsolása: `SET_PRESSURE_ADVANCE ADVANCE=0`
-1. Adja ki a parancsot: `SET_INPUT_SHAPER SHAPER_TYPE=MZV `
-1. Adja ki a parancsot: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
-1. Nyomtassa ki a szeletelt tesztmodellt a javasolt paraméterekkel.
+1. Add ki a parancsot: `SET_INPUT_SHAPER SHAPER_TYPE=MZV `
+1. Add ki a parancsot: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
+1. Nyomtasd ki a szeletelt tesztmodellt a javasolt paraméterekkel.
 
 Ha ezen a ponton nem lát gyűrődést, akkor az MZV formázó használatát lehet javasolni.
 
@@ -89,7 +89,7 @@ Ha mégis gyűrődést észlel, mérje meg újra a frekvenciákat a [Gyűrődés
 
 Most próbálja ki az EI bemeneti alakítót. Ehhez ismételje meg a fenti (1)-(6) lépéseket, de a 4. lépésnél hajtsa végre a következő parancsot: `SET_INPUT_SHAPER SHAPER_TYPE=EI`.
 
-Két nyomat összehasonlítása MZV és EI bemeneti alakítóval. Ha az EI észrevehetően jobb eredményt mutat, mint az MZV, akkor használja az EI alakítót, egyébként inkább az MZV-t. Vegye figyelembe, hogy az EI shaper több simítást okoz a nyomtatott alkatrészeken (további részletekért lásd a következő szakaszt). Adja hozzá a `shaper_type: mzv` (vagy ei) paramétert az [input_shaper] szakaszhoz, pl.:
+Két nyomat összehasonlítása MZV és EI bemeneti alakítóval. Ha az EI észrevehetően jobb eredményt mutat, mint az MZV, akkor használja az EI alakítót, egyébként inkább az MZV-t. Vedd figyelembe, hogy az EI shaper több simítást okoz a nyomtatott alkatrészeken (további részletekért lásd a következő szakaszt). Add hozzá a `shaper_type: mzv` (vagy ei) paramétert az [input_shaper] szakaszhoz, pl.:
 
 ```
 [input_shaper]
@@ -100,14 +100,14 @@ shaper_type: mzv
 
 Néhány megjegyzés a formázó kiválasztásáról:
 
-* Az EI-formázó alkalmasabb lehet az Y ágyas nyomtatókhoz (ha a rezonanciafrekvencia és az ebből eredő simítás lehetővé teszi): mivel több szál kerül a mozgó ágyra, az ágy tömege nő, és a rezonanciafrekvencia csökken. Mivel az EI shaper robusztusabb a rezonanciafrekvencia-változásokkal szemben, jobban működhet nagy méretű alkatrészek nyomtatásakor.
+* Az EI-formázó alkalmasabb lehet az Y tárgyasztalos nyomtatókhoz (ha a rezonanciafrekvencia és az ebből eredő simítás lehetővé teszi): mivel több szál kerül a mozgó tárgyasztalra, a tárgyasztal tömege nő, és a rezonanciafrekvencia csökken. Mivel az EI shaper robusztusabb a rezonanciafrekvencia-változásokkal szemben, jobban működhet nagy méretű alkatrészek nyomtatásakor.
 * A delta kinematika természetéből adódóan a rezonanciafrekvenciák a térfogat különböző részein nagymértékben eltérhetnek. Ezért az EI alakító jobban illeszkedhet a delta nyomtatókhoz, mint az MZV vagy a ZV, és megfontolandó a használata. Ha a rezonanciafrekvencia kellően nagy (50-60 Hz-nél nagyobb), akkor akár meg is próbálkozhatunk a 2HUMP_EI shaper tesztelésével (a fent javasolt teszt futtatásával a `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI`), de ellenőrizze [ebben a szakaszban](#a-max_accel-kivalasztasa) található megfontolásokat, mielőtt engedélyezné.
 
 ### A max_accel kiválasztása
 
-Az előző lépésben kiválasztott formázóhoz nyomtatott tesztet kell készítenie (ha nem nyomtatja ki a [javasolt paraméterekkel](#tuning) felszeletelt tesztmodellt a nyomás előtolás kikapcsolásával `SET_PRESSURE_ADVANCE ADVANCE=0` és a tuningtorony engedélyezésével `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`). Vegye figyelembe, hogy nagyon nagy gyorsulásoknál a rezonanciafrekvenciától és a választott bemeneti alakítótól függően (pl. az EI alakító nagyobb simítást hoz létre, mint az MZV) a bemeneti alakítás túl nagy simítást és az alkatrészek lekerekítését okozhatja. A max_accel értéket tehát úgy kell megválasztani, hogy ezt megakadályozza. Egy másik paraméter, amely hatással lehet a simításra, az `square_corner_velocity`, ezért nem tanácsos az alapértelmezett 5 mm/sec fölé növelni, hogy megakadályozzuk a fokozott simítást.
+Az előző lépésben kiválasztott formázóhoz nyomtatott tesztet kell készítenie (ha nem nyomtatja ki a [javasolt paraméterekkel](#tuning) felszeletelt tesztmodellt a nyomás előtolás kikapcsolásával `SET_PRESSURE_ADVANCE ADVANCE=0` és a tuningtorony engedélyezésével `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`). Vedd figyelembe, hogy nagyon nagy gyorsulásoknál a rezonanciafrekvenciától és a választott bemeneti alakítótól függően (pl. az EI alakító nagyobb simítást hoz létre, mint az MZV) a bemeneti alakítás túl nagy simítást és az alkatrészek lekerekítését okozhatja. A max_accel értéket tehát úgy kell megválasztani, hogy ezt megakadályozza. Egy másik paraméter, amely hatással lehet a simításra, az `square_corner_velocity`, ezért nem tanácsos az alapértelmezett 5 mm/sec fölé növelni, hogy megakadályozzuk a fokozott simítást.
 
-A megfelelő max_accel érték kiválasztásához vizsgálja meg a kiválasztott bemeneti alakító modelljét. Először is jegyezze meg, hogy melyik gyorsulásnál még kicsi a gyorsulás gyűrődése hogy Önnek ez megfeleljen.
+A megfelelő max_accel érték kiválasztásához vizsgálja meg a kiválasztott bemeneti alakító modelljét. Először is jegyezze meg, hogy melyik gyorsulásnál még kicsi a gyorsulás gyűrődése hogy Neked ez megfeleljen.
 
 Ezután ellenőrizze a simítást. Ennek elősegítése érdekében a tesztmodellben egy kis rés van a falon (0,15 mm):
 
@@ -131,17 +131,17 @@ Egy másik szempont, hogy ha a rezonanciafrekvencia túl alacsony (20-25 Hz alat
 
 ### A rezonanciafrekvenciák finomhangolása
 
-Megjegyzendő, hogy a rezonanciafrekvenciák mérésének pontossága a gyűrődési tesztmodell segítségével a legtöbb célra elegendő, így további hangolás nem javasolt. Ha mégis meg akarja próbálni kétszeresen ellenőrizni az eredményeit (például ha még mindig lát némi gyűrődést, miután kinyomtatott egy tesztmodellt egy tetszőleges bemeneti alakítóval, ugyanazokkal a frekvenciákkal, mint amiket korábban mért), akkor kövesse az ebben a szakaszban leírt lépéseket. Vegye figyelembe, hogy ha az [input_shaper] engedélyezése után különböző frekvenciákon lát gyűrődést, ez a szakasz nem fog segíteni.
+Megjegyzendő, hogy a rezonanciafrekvenciák mérésének pontossága a gyűrődési tesztmodell segítségével a legtöbb célra elegendő, így további hangolás nem javasolt. Ha mégis meg akarja próbálni kétszeresen ellenőrizni az eredményeit (például ha még mindig lát némi gyűrődést, miután kinyomtatott egy tesztmodellt egy tetszőleges bemeneti alakítóval, ugyanazokkal a frekvenciákkal, mint amiket korábban mért), akkor kövesse az ebben a szakaszban leírt lépéseket. Vedd figyelembe, hogy ha az [input_shaper] engedélyezése után különböző frekvenciákon lát gyűrődést, ez a szakasz nem fog segíteni.
 
 Feltételezve, hogy felszeletelte a gyűrődési modellt a javasolt paraméterekkel, hajtsa végre a következő lépéseket az X és Y tengelyek mindegyikén:
 
 1. Készüljön fel a tesztre: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
 1. Győződjön meg róla, hogy a Pressure Advance ki van kapcsolva: `SET_PRESSURE_ADVANCE ADVANCE=0`
-1. Adja ki a parancsot: `SET_INPUT_SHAPER SHAPER_TYPE=ZV `
-1. A meglévő gyűrődési tesztmodellből a kiválasztott bemeneti alakítóval válassza ki azt a gyorsulást, amely kellően jól mutatja a gyűrődést, és állítsa be a következővel: `SET_VELOCITY_LIMIT ACCEL=...`
+1. Add ki a parancsot: `SET_INPUT_SHAPER SHAPER_TYPE=ZV `
+1. A meglévő gyűrődési tesztmodellből a kiválasztott bemeneti alakítóval válassza ki azt a gyorsulást, amely kellően jól mutatja a gyűrődést, és állítsd be a következővel: `SET_VELOCITY_LIMIT ACCEL=...`
 1. Számítsa ki a `TUNING_TOWER` parancshoz szükséges paramétereket a `shaper_freq_x` paraméter hangolásához az alábbiak szerint: Itt a `shaper_freq_x` paraméter a nyomtató aktuális értéke a `printer.cfg` fájlban megadva.
-1. Adja ki a parancsot: `TUNING_TOWER COMMAND=SET_INPUT_SHAPER PARAMETER=SHAPER_FREQ_X START=start FACTOR=factor BAND=5` a `start` és `factor` értékek felhasználásával, amelyeket az (5.) lépésben számítottunk.
-1. Nyomtassa ki a tesztmodellt.
+1. Add ki a parancsot: `TUNING_TOWER COMMAND=SET_INPUT_SHAPER PARAMETER=SHAPER_FREQ_X START=start FACTOR=factor BAND=5` a `start` és `factor` értékek felhasználásával, amelyeket az (5.) lépésben számítottunk.
+1. Nyomtasd ki a tesztmodellt.
 1. Az eredeti frekvenciaérték visszaállítása: `SET_INPUT_SHAPER SHAPER_FREQ_X=...`.
 1. Keresse meg azt a sávot, amelyik a legkevésbé gyűrött, és számolja meg a számát alulról 1-től kezdve.
 1. Az új shaper_freq_x érték kiszámítása a régi shaper_freq_x * (39 + 5 * #band-number) / 66 segítségével.
@@ -158,9 +158,9 @@ Ha Pressure Advance-t használ, akkor lehet, hogy újra kell hangolni. Kövesse 
 
 ### A gyűrődési frekvenciák megbízhatatlan mérései
 
-Ha nem tudja mérni a gyűrődési frekvenciákat, pl. ha a rezgések közötti távolság nem stabil, akkor még mindig kihasználhatja a bemeneti alakítási technikákat, de az eredmények nem biztos, hogy olyan jók lesznek, mint a frekvenciák megfelelő mérésével. Valamint egy kicsit több hangolást és a tesztmodell nyomtatását igényli. Megjegyzendő, hogy egy másik lehetőség egy gyorsulásmérő beszerzése és felszerelése, valamint a rezonanciák mérése (lásd a [dokumentumot](Measuring_Resonances.md), amely leírja a szükséges hardvert és a beállítási folyamatot) - de ez a lehetőség némi kézügyességet, krimpelést és forrasztást igényel.
+Ha nem tudja mérni a gyűrődési frekvenciákat, pl. ha a rezgések közötti távolság nem stabil, akkor még mindig kihasználhatod a bemeneti alakítási technikákat, de az eredmények nem biztos, hogy olyan jók lesznek, mint a frekvenciák megfelelő mérésével. Valamint egy kicsit több hangolást és a tesztmodell nyomtatását igényli. Megjegyzendő, hogy egy másik lehetőség egy gyorsulásmérő beszerzése és felszerelése, valamint a rezonanciák mérése (lásd a [dokumentumot](Measuring_Resonances.md), amely leírja a szükséges hardvert és a beállítási folyamatot) - de ez a lehetőség némi kézügyességet, krimpelést és forrasztást igényel.
 
-A hangoláshoz adjunk hozzá üres `[input_shaper]` szakaszt a `printer.cfg` fájlhoz. Ezután, feltételezve, hogy a javasolt paraméterekkel felszeletelte a gyűrődési modellt, nyomtassa ki 3-szor az alábbiak szerint. Első alkalommal, a nyomtatás előtt futtassa le a
+A hangoláshoz adjunk hozzá üres `[input_shaper]` szakaszt a `printer.cfg` fájlhoz. Ezután, feltételezve, hogy a javasolt paraméterekkel felszeletelte a gyűrődési modellt, nyomtasd ki 3-szor az alábbiak szerint. Első alkalommal, a nyomtatás előtt futtassa le a
 
 1. `RESTART`
 1. `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
@@ -168,7 +168,7 @@ A hangoláshoz adjunk hozzá üres `[input_shaper]` szakaszt a `printer.cfg` fá
 1. `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=60 SHAPER_FREQ_Y=60`
 1. `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
 
-és nyomtassa ki a modellt. Ezután nyomtassa ki a modellt újra, de a nyomtatás előtt futtassa az alábbiakat
+és nyomtasd ki a modellt. Ezután nyomtasd ki a modellt újra, de a nyomtatás előtt futtassa az alábbiakat
 
 1. `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI SHAPER_FREQ_X=50 SHAPER_FREQ_Y=50`
 1. `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
@@ -197,7 +197,7 @@ Most nyomtassuk ki a tesztmodellt még egyszer, a következő futtatásával
 
 a korábban meghatározott shaper_freq_x=... és shaper_freq_y=... értékek megadásával.
 
-Ha az EI alakító a 2HUMP_EI alakítóhoz hasonlóan jó eredményeket mutat, maradjon az EI alakító és a korábban meghatározott frekvencia mellett, ellenkező esetben használja a 2HUMP_EI alakítót a megfelelő frekvenciával. Adja hozzá az eredményeket a `printer.cfg` fájlhoz, pl. a következő módon.
+Ha az EI alakító a 2HUMP_EI alakítóhoz hasonlóan jó eredményeket mutat, maradjon az EI alakító és a korábban meghatározott frekvencia mellett, ellenkező esetben használja a 2HUMP_EI alakítót a megfelelő frekvenciával. Add hozzá az eredményeket a `printer.cfg` fájlhoz, pl. a következő módon.
 
 ```
 [input_shaper]
@@ -254,7 +254,7 @@ A Klipperben használt bemeneti formázók meglehetősen szabványosak, és rés
 
 Megjegyzés a rezonancia csökkentéssel kapcsolatban: a fenti táblázatban szereplő értékek hozzávetőlegesek. Ha a nyomtató csillapítási aránya minden egyes tengely esetében ismert, akkor a formázó pontosabban konfigurálható, és ekkor a rezonanciákat egy kicsit szélesebb frekvenciatartományban csökkenti. A csillapítási arány azonban általában ismeretlen, és speciális berendezés nélkül nehéz megbecsülni, ezért a Klipper alapértelmezés szerint 0,1 értéket használ, ami egy jó általános érték. A táblázatban szereplő frekvenciatartományok számos különböző lehetséges csillapítási arányt fednek le ezen érték körül (kb. 0,05-től 0,2-ig).
 
-Vegye figyelembe azt is, hogy az EI, 2HUMP_EI és 3HUMP_EI úgy van beállítva, hogy a rezonanciákat 5%-ra csökkentse, ezért a 10%-os rezonanciára vonatkozó értékek csak referenciaként szolgálnak.
+Vedd figyelembe azt is, hogy az EI, 2HUMP_EI és 3HUMP_EI úgy van beállítva, hogy a rezonanciákat 5%-ra csökkentse, ezért a 10%-os rezonanciára vonatkozó értékek csak referenciaként szolgálnak.
 
 **Hogyan használjuk ezt a táblázatot:**
 

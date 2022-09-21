@@ -1,6 +1,6 @@
 # Ferdeség korrekció
 
-A szoftveralapú ferdeség korrekció segíthet a nem tökéletesen szögletes nyomtatóegységből eredő méretpontatlanságok feloldásában. Vegye figyelembe, hogy ha a nyomtatója jelentősen ferde, erősen ajánlott először mechanikai eszközökkel a nyomtatót a lehető legegyenletesebbre állítani, mielőtt a szoftveralapú korrekciót alkalmazná.
+A szoftveralapú ferdeség korrekció segíthet a nem tökéletesen szögletes nyomtatóegységből eredő méretpontatlanságok feloldásában. Vedd figyelembe, hogy ha a nyomtatója jelentősen ferde, erősen ajánlott először mechanikai eszközökkel a nyomtatót a lehető legegyenletesebbre állítani, mielőtt a szoftveralapú korrekciót alkalmazná.
 
 ## Kalibrációs objektum nyomtatása
 
@@ -10,13 +10,13 @@ Győződjön meg róla, hogy a nyomtatás során nem alkalmaz ferdeségkorrekci�
 
 ## Mérje meg
 
-A `[skew_correcton]` modul minden egyes korrigálandó síkhoz 3 mérést igényel; az A saroktól a C sarokig terjedő hosszúságot, a B saroktól a D sarokig terjedő hosszúságot és az A saroktól a D sarokig terjedő hosszúságot. Az AD hosszmérésnél ne vegye figyelembe a sarkokon lévő síkokat, amelyeket néhány tesztobjektum mutat.
+A `[skew_correcton]` modul minden egyes korrigálandó síkhoz 3 mérést igényel; az A saroktól a C sarokig terjedő hosszúságot, a B saroktól a D sarokig terjedő hosszúságot és az A saroktól a D sarokig terjedő hosszúságot. Az AD hosszmérésnél ne vedd figyelembe a sarkokon lévő síkokat, amelyeket néhány tesztobjektum mutat.
 
 ![skew_lengths](img/skew_lengths.png)
 
 ## Konfigurálja a ferdeséget
 
-Győződjön meg róla, hogy a `[skew_correction]` szerepel a printer.cfg fájlban. Most már használhatja a `SET_SKEW` gkódot a skew_correction beállításához. Például, ha az XY mentén mért hosszok a következők:
+Győződjön meg róla, hogy a `[skew_correction]` szerepel a printer.cfg fájlban. Most már használhatod a `SET_SKEW` G-kódot a skew_correction beállításához. Például, ha az XY mentén mért hosszok a következők:
 
 ```
 Length AC = 140.4
@@ -36,7 +36,7 @@ Az XZ és YZ méréseket is hozzáadhatja a G-kódhoz:
 SET_SKEW XY=140.4,142.8,99.8 XZ=141.6,141.4,99.8 YZ=142.4,140.5,99.5
 ```
 
-A `[skew_correction]` modul a `[bed_mesh]` modulhoz hasonló módon támogatja a profilkezelést is. Miután a `SET_SKEW` gkóddal beállította a ferdeséget, a `SKEW_PROFILE` G-kóddal elmentheti azt:
+A `[skew_correction]` modul a `[bed_mesh]` modulhoz hasonló módon támogatja a profilkezelést is. Miután a `SET_SKEW` G-kóddal beállította a ferdeséget, a `SKEW_PROFILE` G-kóddal elmentheti azt:
 
 ```
 SKEW_PROFILE SAVE=my_skew_profile
@@ -60,7 +60,7 @@ A profil eltávolítása után a rendszer felszólítja, hogy adjon ki egy `SAVE
 
 ## A korrekció ellenőrzése
 
-A skew_correction beállítása után újra kinyomtathatja a kalibrációs részt a korrekció engedélyezésével. A következő gkóddal ellenőrizheti a ferdeséget minden síkban. Az eredményeknek alacsonyabbaknak kell lenniük, mint a `GET_CURRENT_SKEW` segítségével jelentett eredmények.
+A skew_correction beállítása után újra kinyomtathatja a kalibrációs részt a korrekció engedélyezésével. A következő G-kóddal ellenőrizheti a ferdeséget minden síkban. Az eredményeknek alacsonyabbaknak kell lenniük, mint a `GET_CURRENT_SKEW` segítségével jelentett eredmények.
 
 ```
 CALC_MEASURED_SKEW AC=<ac_length> BD=<bd_length> AD=<ad_length>
@@ -68,6 +68,6 @@ CALC_MEASURED_SKEW AC=<ac_length> BD=<bd_length> AD=<ad_length>
 
 ## Óvintézkedések
 
-A ferdeségkorrekció természetéből adódóan ajánlott a ferdeséget az indító gkódban konfigurálni, a kezdőpont felvétel és minden olyan mozgás után, amely a nyomtatási terület széléhez közelít, mint például a tisztítás vagy a fúvóka törlése. Ehhez használhatja a `SET_SKEW` vagy a `SKEW_PROFILE` gkódokat. Ajánlott továbbá a `SET_SKEW CLEAR=1` parancs kiadása a befejező G-kódban.
+A ferdeségkorrekció természetéből adódóan ajánlott a ferdeséget az indító G-kódban konfigurálni, a kezdőpont felvétel és minden olyan mozgás után, amely a nyomtatási terület széléhez közelít, mint például a tisztítás vagy a fúvóka törlése. Ehhez használhatod a `SET_SKEW` vagy a `SKEW_PROFILE` G-kódokat. Ajánlott továbbá a `SET_SKEW CLEAR=1` parancs kiadása a befejező G-kódban.
 
 Ne feledje! Lehetséges, hogy a `[skew_correction]` olyan korrekciót generál, amely a fejet az X és/vagy Y tengelyen a nyomtató határain túlra helyezi. A `[skew_correction]` használatakor ajánlott a nyomtatófejet a szélektől távolabb elhelyezni.

@@ -13,7 +13,7 @@ A Klipper a következő szabványos G-kód parancsokat támogatja:
 - Várja meg, amíg az aktuális mozdulat befejeződik: `M400`
 - Használjon abszolút/relatív távolságokat az extrudáláshoz: `M82`, `M83`
 - Abszolút/relatív koordináták használata: `G90`, `G91`
-- Állítsa be a pozíciót: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
+- Állítsd be a pozíciót: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
 - A sebességtényező felülbírálási százalékának beállítása: `M220 S<percent>`
 - Extrudálási tényező felülbírálási százalékának beállítása: `M221 S<percent>`
 - Gyorsítás beállítása: `M204 S<value>` VAGY `M204 P<value> T<value>`
@@ -22,8 +22,8 @@ A Klipper a következő szabványos G-kód parancsokat támogatja:
 - Az extruder hőmérsékletének beállítása: `M104 [T<index>] [S<temperature>]`
 - Beállítja az extruder hőmérsékletét és várakozik: `M109 [T<index>] S<temperature>`
    - Megjegyzés: Az M109 mindig megvárja, míg a hőmérséklet beáll a kért értékre
-- Beállítja az ágy hőmérsékletét: `M140 [S<temperature>]`
-- Beállítja az ágy hőmérsékletét és várakozik: `M190 S<temperature>`
+- Beállítja a tárgyasztal hőmérsékletét: `M140 [S<temperature>]`
+- Beállítja a tárgyasztal hőmérsékletét és várakozik: `M190 S<temperature>`
    - Megjegyzés: Az M190 mindig megvárja, hogy a hőmérséklet beálljon a kért értékre
 - A ventilátor sebességének beállítása: `M106 S<value>`
 - Kikapcsolja a ventilátort: `M107`
@@ -41,7 +41,7 @@ Ha egy kevésbé gyakori G-kód parancsra van szükség, akkor azt egy egyéni [
 
 A Klipper "kiterjesztett" G-kód parancsokat használ az általános konfigurációhoz és állapothoz. Ezek a kiterjesztett parancsok mind hasonló formátumot követnek, egy parancsnévvel kezdődnek, és egy vagy több paraméter követheti őket. Például: `SET_SERVO SERVO=myservo ANGLE=5.3`. Ebben a parancssorban a parancsok és paraméterek nagybetűvel szerepelnek, azonban a nagy- és kisbetűket nem kell figyelembe venni. (Tehát a "SET_SERVO" és a "set_servo" mindkettő ugyanazt jelenti.)
 
-Ez a szakasz a Klipper modul neve szerint van rendezve, amely általában a [nyomtató konfigurációs fájlban](Config_Reference.md) megadott szakaszneveket követi. Vegye figyelembe, hogy egyes modulok automatikusan betöltődnek.
+Ez a szakasz a Klipper modul neve szerint van rendezve, amely általában a [nyomtató konfigurációs fájlban](Config_Reference.md) megadott szakaszneveket követi. Vedd figyelembe, hogy egyes modulok automatikusan betöltődnek.
 
 ### [adxl345]
 
@@ -81,11 +81,11 @@ A következő parancsok akkor érhetők el, ha az [szög konfigurációs szakasz
 
 ### [bed_mesh]
 
-A következő parancsok akkor érhetők el, ha a [bed_mesh konfigurációs szakasz](Config_Reference.md#bed_mesh) engedélyezve van (lásd még az [ágy háló útmutatót](Bed_Mesh.md)).
+A következő parancsok akkor érhetők el, ha a [bed_mesh konfigurációs szakasz](Config_Reference.md#bed_mesh) engedélyezve van (lásd még az [tárgyasztal háló útmutatót](Bed_Mesh.md)).
 
 #### BED_MESH_CALIBRATE
 
-`BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: Ez a parancs az ágyat a konfigurációban megadott paraméterek által generált pontok segítségével szintezi. A szintezés után egy háló generálódik, és a Z elmozdulás a hálónak megfelelően kerül beállításra. Az opcionális szintező paraméterekkel kapcsolatos részletekért lásd a PROBE parancsot. Ha a METHOD=manual parancsot adta meg, akkor a kézi szintező eszköz aktiválódik. Az eszköz aktiválása közben elérhető további parancsok részleteit lásd a fenti MANUAL_PROBE parancsban.
+`BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: Ez a parancs a tárgyasztalt a konfigurációban megadott paraméterek által generált pontok segítségével szintezi. A szintezés után egy háló generálódik, és a Z elmozdulás a hálónak megfelelően kerül beállításra. Az opcionális szintező paraméterekkel kapcsolatos részletekért lásd a PROBE parancsot. Ha a METHOD=manual parancsot adta meg, akkor a kézi szintező eszköz aktiválódik. Az eszköz aktiválása közben elérhető további parancsok részleteit lásd a fenti MANUAL_PROBE parancsban.
 
 #### BED_MESH_OUTPUT
 
@@ -93,7 +93,7 @@ A következő parancsok akkor érhetők el, ha a [bed_mesh konfigurációs szaka
 
 #### BED_MESH_MAP
 
-`BED_MESH_MAP`: Ez a parancs a BED_MESH_OUTPUT-hoz hasonlóan a háló aktuális állapotát írja ki a terminálra. Az értékek ember által olvasható formátumban történő kiírása helyett az állapotot JSON formátumban szerializálja. Ez lehetővé teszi az OctoPrint pluginek számára, hogy könnyen rögzítsék az adatokat, és az ágy felszínét közelítő magassági térképeket hozzanak létre.
+`BED_MESH_MAP`: Ez a parancs a BED_MESH_OUTPUT-hoz hasonlóan a háló aktuális állapotát írja ki a terminálra. Az értékek ember által olvasható formátumban történő kiírása helyett az állapotot JSON formátumban szerializálja. Ez lehetővé teszi az OctoPrint pluginek számára, hogy könnyen rögzítsék az adatokat, és a tárgyasztal felszínét közelítő magassági térképeket hozzanak létre.
 
 #### BED_MESH_CLEAR
 
@@ -109,11 +109,11 @@ A következő parancsok akkor érhetők el, ha a [bed_mesh konfigurációs szaka
 
 ### [bed_screws]
 
-A következő parancsok akkor érhetők el, ha az [ágyszintező csavarok konfigurációs szakasz](Config_Reference.md#bed_screws) engedélyezve van (lásd még a [kézi szintezés útmutatót](Manual_Level.md#adjusting-bed-leveling-screws)).
+A következő parancsok akkor érhetők el, ha az [tárgyasztal szintező csavarok konfigurációs szakasz](Config_Reference.md#bed_screws) engedélyezve van (lásd még a [kézi szintezés útmutatót](Manual_Level.md#adjusting-bed-leveling-screws)).
 
 #### BED_SCREWS_ADJUST
 
-`BED_SCREWS_ADJUST`: Ez a parancs az ágy állítócsavarok beállítási eszközét hívja elő. A fúvókát különböző helyekre küldi (a konfigurációs fájlban meghatározottak szerint), és lehetővé teszi az ágy állítócsavarok beállítását, hogy az ágy állandó távolságra legyen a fúvókától.
+`BED_SCREWS_ADJUST`: Ez a parancs a tárgyasztal állítócsavarok beállítási eszközét hívja elő. A fúvókát különböző helyekre küldi (a konfigurációs fájlban meghatározottak szerint), és lehetővé teszi a tárgyasztal állítócsavarok beállítását, hogy a tárgyasztal állandó távolságra legyen a fúvókától.
 
 ### [bed_tilt]
 
@@ -157,7 +157,7 @@ A következő parancsok akkor érhetők el, ha a [delta_kalibrate konfiguráció
 
 #### DELTA_CALIBRATE
 
-`DELTA_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>]`: Ez a parancs az ágy hét pontját vizsgálja meg, és frissített végállások, toronyszögek és sugarak ajánlására szolgál. Az opcionális mérési paraméterekkel kapcsolatos részletekért lásd a PROBE parancsot. Ha a METHOD=manual érték van megadva, akkor a kézi szintezés aktiválódik. Lásd a fenti MANUAL_PROBE parancsot a további parancsok részleteiért, amelyek akkor állnak rendelkezésre, amikor ez az eszköz aktív.
+`DELTA_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>]`: Ez a parancs a tárgyasztal hét pontját vizsgálja meg, és frissített végállások, toronyszögek és sugarak ajánlására szolgál. Az opcionális mérési paraméterekkel kapcsolatos részletekért lásd a PROBE parancsot. Ha a METHOD=manual érték van megadva, akkor a kézi szintezés aktiválódik. Lásd a fenti MANUAL_PROBE parancsot a további parancsok részleteiért, amelyek akkor állnak rendelkezésre, amikor ez az eszköz aktív.
 
 #### DELTA_ANALYZE
 
@@ -359,7 +359,7 @@ A gcode_move modul automatikusan betöltődik.
 
 #### SET_GCODE_OFFSET
 
-`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Pozíciós eltolás beállítása, amelyet a későbbi G-kód parancsokra kell alkalmazni. Ezt általában a Z ágy eltolás virtuális megváltoztatására vagy a fúvókák XY eltolásának beállítására használják extruder váltáskor. Például, ha a "SET_GCODE_OFFSET Z=0.2" parancsot küldjük, akkor a jövőbeli G-kód mozgások Z magasságához 0,2 mm-t adunk hozzá. Ha az X_ADJUST stílusparamétereket használjuk, akkor a kiigazítás hozzáadódik a meglévő eltoláshoz (pl. a "SET_GCODE_OFFSET Z=-0.2" és a "SET_GCODE_OFFSET Z_ADJUST=0.3" utána a teljes Z eltolás 0.1 lesz). Ha a "MOVE=1" van megadva, akkor a nyomtatófej mozgatása a megadott eltolás alkalmazására történik (egyébként az eltolás a következő abszolút G-kódú mozgatáskor lép hatályba, amely az adott tengelyt adja meg). Ha a "MOVE_SPEED" meg van adva, akkor a nyomtatófej mozgatása a megadott sebességgel (mm/sec-ben) történik; egyébként a nyomtatófej mozgatása az utoljára megadott G-kód sebességet fogja használni.
+`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Pozíciós eltolás beállítása, amelyet a későbbi G-kód parancsokra kell alkalmazni. Ezt általában a Z tárgyasztal eltolás virtuális megváltoztatására vagy a fúvókák XY eltolásának beállítására használják extruder váltáskor. Például, ha a "SET_GCODE_OFFSET Z=0.2" parancsot küldjük, akkor a jövőbeli G-kód mozgások Z magasságához 0,2 mm-t adunk hozzá. Ha az X_ADJUST stílusparamétereket használjuk, akkor a kiigazítás hozzáadódik a meglévő eltoláshoz (pl. a "SET_GCODE_OFFSET Z=-0.2" és a "SET_GCODE_OFFSET Z_ADJUST=0.3" utána a teljes Z eltolás 0.1 lesz). Ha a "MOVE=1" van megadva, akkor a nyomtatófej mozgatása a megadott eltolás alkalmazására történik (egyébként az eltolás a következő abszolút G-kódú mozgatáskor lép hatályba, amely az adott tengelyt adja meg). Ha a "MOVE_SPEED" meg van adva, akkor a nyomtatófej mozgatása a megadott sebességgel (mm/sec-ben) történik; egyébként a nyomtatófej mozgatása az utoljára megadott G-kód sebességet fogja használni.
 
 #### SAVE_GCODE_STATE
 
@@ -387,7 +387,7 @@ A következő parancsok akkor érhetők el, ha a [tsl1401cl szálszélesség ér
 
 #### ENABLE_FILAMENT_WIDTH_SENSOR
 
-`ENABLE_FILAMENT_WIDTH_SENSOR`: Kapcsolja be a szálszélesség érzékelőt, és kezdje el használni az áramlásszabályozáshoz.
+`ENABLE_FILAMENT_WIDTH_SENSOR`: Kapcsolja be a szálszélesség érzékelőt, és kezd el használni az áramlásszabályozáshoz.
 
 #### QUERY_RAW_FILAMENT_WIDTH
 
@@ -431,7 +431,7 @@ A következő parancs akkor engedélyezett, ha az [input_shaper konfigurációs 
 
 #### SET_INPUT_SHAPER
 
-`SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>]`: A bemeneti formáló paraméterek módosítása. Vegye figyelembe, hogy a SHAPER_TYPE paraméter visszaállítja a bemeneti formálót mind az X, mind az Y tengelyre, még akkor is, ha az [input_shaper] szakaszban különböző formálótípusok lettek beállítva. A SHAPER_TYPE nem használható együtt a SHAPER_TYPE_X és SHAPER_TYPE_Y paraméterekkel. Az egyes paraméterekkel kapcsolatos további részletekért lásd a [konfigurációs hivatkozást](Config_Reference.md#input_shaper).
+`SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>]`: A bemeneti formáló paraméterek módosítása. Vedd figyelembe, hogy a SHAPER_TYPE paraméter visszaállítja a bemeneti formálót mind az X, mind az Y tengelyre, még akkor is, ha az [input_shaper] szakaszban különböző formálótípusok lettek beállítva. A SHAPER_TYPE nem használható együtt a SHAPER_TYPE_X és SHAPER_TYPE_Y paraméterekkel. Az egyes paraméterekkel kapcsolatos további részletekért lásd a [konfigurációs hivatkozást](Config_Reference.md#input_shaper).
 
 ### [manual_probe]
 
@@ -553,7 +553,7 @@ A következő parancsok akkor érhetők el, ha a [szonda konfigurációs szakasz
 
 #### PROBE
 
-`PROBE [PROBE_SPEED=<mm/s>] [LIFT_SPEED=<mm/s>] [SAMPLES=<count>] [SAMPLE_RETRACT_DIST=<mm>] [SAMPLES_TOLERANCE=<mm>] [SAMPLES_TOLERANCE_RETRIES=<count>] [SAMPLES_RESULT=median|average]`: Mozgassa a fúvókát lefelé, amíg a szonda nem érzékel. Ha bármelyik opcionális paramétert megadjuk, azok felülírják a [szonda konfigurációs szakaszában](Config_Reference.md#szonda) megadott megfelelő beállításokat.
+`PROBE [PROBE_SPEED=<mm/s>] [LIFT_SPEED=<mm/s>] [SAMPLES=<count>] [SAMPLE_RETRACT_DIST=<mm>] [SAMPLES_TOLERANCE=<mm>] [SAMPLES_TOLERANCE_RETRIES=<count>] [SAMPLES_RESULT=median|average]`: Mozgasd a fúvókát lefelé, amíg a szonda nem érzékel. Ha bármelyik opcionális paramétert megadjuk, azok felülírják a [szonda konfigurációs szakaszában](Config_Reference.md#szonda) megadott megfelelő beállításokat.
 
 #### QUERY_PROBE
 
@@ -603,7 +603,7 @@ A következő parancsok akkor érhetők el, ha a [resonance_tester konfiguráci�
 
 #### SHAPER_CALIBRATE
 
-`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [MAX_SMOOTHING=<max_smoothing>]`: A `TEST_RESONANCES` paraméterhez hasonlóan lefuttatja a rezonancia tesztet a konfiguráltak szerint, és megpróbálja megtalálni a bemeneti változó optimális paramétereit a kért tengelyre (vagy mind az X, mind az Y tengelyre, ha az `AXIS` paraméter nincs beállítva). Ha a `MAX_SMOOTHING` nincs beállítva, az értékét a `[resonance_tester]` szakaszból veszi, az alapértelmezett érték pedig a be nem állított érték. Lásd a [Max simítás](Measuring_Resonances.md#max-smoothing) a rezonanciák mérése című útmutatóban a funkció használatáról szóló további információkat. A hangolás eredményei kiíródnak a konzolra, a frekvenciaválaszok és a különböző bemeneti alakítók értékei pedig egy vagy több CSV-fájlba íródnak `/tmp/calibration_data_<axis>_<name>.csv`. Hacsak nincs megadva, a NAME alapértelmezés szerint az aktuális időpontot jelenti "YYYYMMDD_HHMMSS" formátumban. Vegye figyelembe, hogy a javasolt bemeneti változó paraméterek a `SAVE_CONFIG` parancs kiadásával megőrizhetők a konfigurációs fájlban.
+`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [MAX_SMOOTHING=<max_smoothing>]`: A `TEST_RESONANCES` paraméterhez hasonlóan lefuttatja a rezonancia tesztet a konfiguráltak szerint, és megpróbálja megtalálni a bemeneti változó optimális paramétereit a kért tengelyre (vagy mind az X, mind az Y tengelyre, ha az `AXIS` paraméter nincs beállítva). Ha a `MAX_SMOOTHING` nincs beállítva, az értékét a `[resonance_tester]` szakaszból veszi, az alapértelmezett érték pedig a be nem állított érték. Lásd a [Max simítás](Measuring_Resonances.md#max-smoothing) a rezonanciák mérése című útmutatóban a funkció használatáról szóló további információkat. A hangolás eredményei kiíródnak a konzolra, a frekvenciaválaszok és a különböző bemeneti alakítók értékei pedig egy vagy több CSV-fájlba íródnak `/tmp/calibration_data_<axis>_<name>.csv`. Hacsak nincs megadva, a NAME alapértelmezés szerint az aktuális időpontot jelenti "YYYYMMDD_HHMMSS" formátumban. Vedd figyelembe, hogy a javasolt bemeneti változó paraméterek a `SAVE_CONFIG` parancs kiadásával megőrizhetők a konfigurációs fájlban.
 
 ### [respond]
 
@@ -636,7 +636,7 @@ A következő parancsok akkor érhetők el, ha a [screws_tilt_adjust konfigurác
 
 #### SCREWS_TILT_CALCULATE
 
-`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [<probe_parameter>=<value>]`: Ez a parancs az ágy csavarjainak beállítási eszközét hívja elő. A fúvókát különböző helyekre (a konfigurációs fájlban meghatározottak szerint) parancsolja a Z magasságot mérve, és kiszámítja az ágy szintjének beállításához szükséges gombfordulatok számát. Ha DIRECTION van megadva, akkor a gombfordulások mind ugyanabba az irányba, az óramutató járásával megegyező vagy az óramutató járásával ellentétes irányba fognak történni. Az opcionális szondaparaméterekkel kapcsolatos részletekért lásd a PROBE parancsot. FONTOS: A parancs használata előtt mindig ki kell adni egy G28 parancsot. Ha MAX_DEVIATION van megadva, a parancs G-kód hibát fog adni, ha a csavar magasságának az alapcsavar magasságához viszonyított bármilyen különbsége nagyobb, mint a megadott érték.
+`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [<probe_parameter>=<value>]`: Ez a parancs a tárgyasztal csavarjainak beállítási eszközét hívja elő. A fúvókát különböző helyekre (a konfigurációs fájlban meghatározottak szerint) parancsolja a Z magasságot mérve, és kiszámítja a tárgyasztal szintjének beállításához szükséges gombfordulatok számát. Ha DIRECTION van megadva, akkor a gombfordulások mind ugyanabba az irányba, az óramutató járásával megegyező vagy az óramutató járásával ellentétes irányba fognak történni. Az opcionális szondaparaméterekkel kapcsolatos részletekért lásd a PROBE parancsot. FONTOS: A parancs használata előtt mindig ki kell adni egy G28 parancsot. Ha MAX_DEVIATION van megadva, a parancs G-kód hibát fog adni, ha a csavar magasságának az alapcsavar magasságához viszonyított bármilyen különbsége nagyobb, mint a megadott érték.
 
 ### [sdcard_loop]
 

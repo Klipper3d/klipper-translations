@@ -21,8 +21,8 @@ A következő információk a [bed_mesh](Config_Reference.md#bed_mesh) objektumb
 
 A következő információk a `Config_Reference.md#bed_screws` objektumban találhatók:
 
-- `is_active`: True értéket ad vissza, ha az ágycsavarok beállítási eszköze jelenleg aktív.
-- `state`: Az ágycsavarok beállítási szerszámának állapota. A következő karakterláncok egyike: "adjust", "fine".
+- `is_active`: True értéket ad vissza, ha a tárgyasztal csavarok beállítási eszköze jelenleg aktív.
+- `state`: A tárgyasztal csavarok beállítási szerszámának állapota. A következő karakterláncok egyike: "adjust", "fine".
 - `current_screw`: Az aktuálisan beállított csavar indexe.
 - `accepted_screws`: Az elfogadott csavarok száma.
 

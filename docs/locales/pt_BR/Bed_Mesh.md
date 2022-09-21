@@ -4,7 +4,7 @@ The Bed Mesh module may be used to compensate for bed surface irregularties to a
 
 Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information.
 
-## Basic Configuration
+## Configuração básica
 
 ### Rectangular Beds
 
@@ -50,7 +50,7 @@ The illustration below shows how the probed points are generated. As you can see
 
 ![bedmesh_round_basic](img/bedmesh_round_basic.svg)
 
-## Advanced Configuration
+## Configuração avançada
 
 Below the more advanced configuration options are explained in detail. Each example will build upon the basic rectangular bed configuration shown above. Each of the advanced options apply to round beds in the same manner.
 

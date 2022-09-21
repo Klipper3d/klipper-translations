@@ -123,7 +123,7 @@ microsteps:
 #   A léptetőmotor-vezérlő által használt mikrolépések száma.
 #   Ezt a paramétert meg kell adni.
 #full_steps_per_rotation: 200
-#   A léptetőmotor egy fordulatához tartozó teljes lépések száma. Állítsa ezt
+#   A léptetőmotor egy fordulatához tartozó teljes lépések száma. Állítsd ezt
 #   200-ra 1,8 fokos léptetőmotor esetén, vagy 400-ra 0,9 fokos motor esetén.
 #   Az alapértelmezett érték 200.
 #gear_ratio:
@@ -161,7 +161,7 @@ position_max:
 #   Az alapértelmezett érték 5 mm/sec.
 #homing_retract_dist: 5.0
 #   Távolság a visszalépésig (mm-ben), mielőtt másodszor is beállítaná.
-#   Állítsa ezt nullára a második kezdőpont felvétel letiltásához.
+#   Állítsd ezt nullára a második kezdőpont felvétel letiltásához.
 #   Az alapértelmezett érték 5 mm.
 #homing_retract_speed:
 #   Sebesség, amelyet a visszahúzásnál kell használni a kezdőpont felvétel
@@ -252,7 +252,7 @@ delta_radius:
 # paramétereket (homing_speed, homing_retract_dist) is szabályozza.
 [stepper_a]
 position_endstop:
-#   Távolság (mm-ben) a fúvóka és az ágy között, ha a fúvóka az építési
+#   Távolság (mm-ben) a fúvóka és a tárgyasztal között, ha a fúvóka az építési
 #   terület közepén van, és a végütköző kiold. Ezt a paramétert meg kell
 #   adni a stepper_a; a stepper_b és a stepper_c esetén ez a paraméter
 #   alapértelmezett értéke a stepper_a paraméterben megadott érték.
@@ -280,7 +280,7 @@ arm_length:
 radius:
 #   A vizsgálható terület sugara (mm-ben). Ez a vizsgálandó
 #   fúvókakoordináták sugara; Ha XY eltolású automata szondát használ,
-#   akkor válasszon elég kicsi sugarat, hogy a szonda mindig az ágy fölé
+#   akkor válasszon elég kicsi sugarat, hogy a szonda mindig a tárgyasztal fölé
 #   férjen. Ezt a paramétert meg kell adni.
 #speed: 50
 #   A nem szondázás sebessége (mm/sec-ben) mozog a kalibrálás során.
@@ -325,7 +325,7 @@ max_z_velocity:
 #   beállítással testreszabható a nyomtatófej mozgások tartományellenőrzése.
 #   Ha itt nagy értéket adunk meg, akkor előfordulhat, hogy a nyomtatófejet a
 #   toronnyal való ütközésre utasíthatjuk.
-#   Ez a beállítás általában az ágyszélességnek felel meg (mm-ben).
+#   Ez a beállítás általában a tárgyasztal szélességnek felel meg (mm-ben).
 #slow_ratio: 3
 #   Az az arány, amely korlátozza a sebességet és a gyorsulást az X tengely
 #   szélső pontjaihoz közeli mozgásoknál. Ha a függőleges távolság osztva a
@@ -340,7 +340,7 @@ max_z_velocity:
 #   (homing_speed, homing_retract_dist) is szabályozza.
 [stepper_left]
 position_endstop:
-#   Távolság (mm-ben) a fúvóka és az ágy között, ha a fúvóka az építési terület
+#   Távolság (mm-ben) a fúvóka és a tárgyasztal között, ha a fúvóka az építési terület
 #   közepén van, és a végütközők kioldódnak. Ezt a paramétert meg kell adni a
 #   stepper_left; a stepper_right esetén ez a paraméter alapértelmezett értéke
 #   a stepper_left paraméterben megadott érték.
@@ -501,11 +501,11 @@ max_z_accel:
 #   (mm/sec^2-en). Korlátozza a Z léptetőmotor gyorsulását.
 #   Az alapértelmezés szerint a max_accel értéke a max_z_accel.
 
-# A stepper_bed szakasz az ágyat vezérlő stepper leírására szolgál.
+# A stepper_bed szakasz a tárgyasztalt vezérlő stepper leírására szolgál.
 [stepper_bed]
 gear_ratio:
 #   Meg kell adni a gear_ratio értéket, és a rotation_distance nem adható
-#   meg. Például, ha az ágy egy 80 fogas kerékkel rendelkezik, amelyet
+#   meg. Például, ha a tárgyasztal egy 80 fogas kerékkel rendelkezik, amelyet
 #   egy léptetőmotor hajt meg egy 16 fogas kerékkel, akkor a „80:16”
 #   áttételi arányt kell megadni. Ezt a paramétert meg kell adni.
 
@@ -544,7 +544,7 @@ shoulder_radius:
 #   shoulder_radius = (delta_f - delta_e) / sqrt(12)
 #   Ezt a paramétert meg kell adni.
 shoulder_height:
-#   A gömbcsuklók távolsága (mm-ben) az ágytól, mínusz az effektor
+#   A gömbcsuklók távolsága (mm-ben) a tárgyasztaltól, mínusz az effektor
 #   nyomtatófej magassága. Ezt a paramétert meg kell adni.
 
 # A stepper_a szakasz a jobb hátsó kart vezérlő léptetőt írja le (30 fokban).
@@ -558,7 +558,7 @@ gear_ratio:
 #   egy 16 fogú fogaskerékkel ellátott léptetőmotor hajt meg, akkor a "80-as"
 #   áttételi arányt kell megadni: 16, 60:16". Ezt a paramétert meg kell adni.
 position_endstop:
-#   Távolság (mm-ben) a fúvóka és az ágy között, ha a fúvóka az építési terület
+#   Távolság (mm-ben) a fúvóka és a tárgyasztal között, ha a fúvóka az építési terület
 #   közepén van, és a végálláskapcsoló kiold. Ezt a paramétert meg kell adni a
 #   stepper_a; a stepper_b és stepper_c esetén ez a paraméter alapértelmezett
 #   értéke a stepper_a paraméterben megadott érték.
@@ -586,7 +586,7 @@ lower_arm_length:
 radius:
 #   A vizsgálható terület sugara (mm-ben). Ez a vizsgálandó fúvókakoordináták
 #   sugara; Ha X-Y eltolású automata szondát használ, akkor válasszon elég kicsi
-#   sugarat, hogy a szonda mindig az ágy fölé férjen. Ezt a paramétert meg kell adni.
+#   sugarat, hogy a szonda mindig a tárgyasztal fölé férjen. Ezt a paramétert meg kell adni.
 #speed: 50
 #   A nem tapintó mozgás sebessége (mm/sec-ben) a kalibrálás során.
 #   Az alapértelmezett 50.
@@ -635,7 +635,7 @@ max_accel: 1
 #   Az értékeket nem használjuk a "none" kinematika esetén.
 ```
 
-## Közös extruder és fűtött ágy támogatás
+## Közös extruder és fűtött tárgyasztal támogatás
 
 ### [extruder]
 
@@ -753,13 +753,13 @@ max_temp:
 #   beépített biztonsági funkciót vezérel. Ha a mért hőmérséklet ezen a
 #   tartományon kívül esik, akkor a mikrovezérlő leállási állapotba kerül.
 #   Ez az ellenőrzés segíthet bizonyos fűtő és érzékelő hardverhibák észlelésében.
-#   Állítsa be ezt a tartományt elég szélesre, hogy a normális hőmérséklet ne
+#   Állítsd be ezt a tartományt elég szélesre, hogy a normális hőmérséklet ne
 #   okozzon hibát. Ezeket a paramétereket meg kell adni.
 ```
 
 ### [heater_bed]
 
-A heater_bed szakasz egy fűtött ágyat ír le. Ugyanazokat a fűtési beállításokat használja, amelyeket az "extruder" szakaszban leírtunk.
+A heater_bed szakasz egy fűtött tárgyasztalt ír le. Ugyanazokat a fűtési beállításokat használja, amelyeket az "extruder" szakaszban leírtunk.
 
 ```
 [heater_bed]
@@ -772,25 +772,25 @@ max_temp:
 #   A fenti paraméterek leírását lásd az "extruder" szakaszban.
 ```
 
-## Ágyszint támogatás
+## Tárgyasztal szint támogatás
 
 ### [bed_mesh]
 
-Ágy Háló Kiegyenlítés. Definiálhatunk egy bed_mesh konfigurációs szakaszt, hogy engedélyezzük a Z tengelyt eltoló mozgatási transzformációkat a mért pontokból generált háló alapján. Ha szondát használunk a Z-tengely alaphelyzetbe állítására, ajánlott a printer.cfg fájlban egy safe_z_home szakaszt definiálni a nyomtatási terület közepére történő alaphelyzetbe állításhoz.
+Tárgyasztal Háló Kiegyenlítés. Definiálhatunk egy bed_mesh konfigurációs szakaszt, hogy engedélyezzük a Z tengelyt eltoló mozgatási transzformációkat a mért pontokból generált háló alapján. Ha szondát használunk a Z-tengely alaphelyzetbe állítására, ajánlott a printer.cfg fájlban egy safe_z_home szakaszt definiálni a nyomtatási terület közepére történő alaphelyzetbe állításhoz.
 
-További információkért lásd az [ágy háló útmutató](Bed_Mesh.md) és a [parancsreferencia](G-Codes.md#bed_mesh) dokumentumokat.
+További információkért lásd az [tárgyasztal háló útmutató](Bed_Mesh.md) és a [parancsreferencia](G-Codes.md#bed_mesh) dokumentumokat.
 
 Vizuális példák:
 
 ```
- téglalap alakú ágy, probe_count = 3, 3:
+ téglalap alakú tárgyasztal, probe_count = 3, 3:
              x---x---x (max_point)
              |
              x---x---x
                      |
  (min_point) x---x---x
 
- kerek ágy, round_probe_count = 5, bed_radius = r:
+ kerek tárgyasztal, round_probe_count = 5, bed_radius = r:
                  x (0, r) end
                /
              x---x---x
@@ -812,39 +812,39 @@ Vizuális példák:
 #   mozgásra közvetlenül a szondaművelet megkezdése előtt.
 #   Az alapértelmezett érték 5.
 #mesh_radius:
-#   Meghatározza a háló sugarát a kerek ágyakhoz. Ne feledje, hogy a
+#   Meghatározza a háló sugarát a kerek tárgyasztalokhoz. Ne feledje, hogy a
 #   sugár a mesh_origin paraméter által megadott koordinátához
-#   viszonyított. Ezt a paramétert a kerek ágyaknál meg kell adni,
-#   a téglalap alakú ágyaknál pedig ki kell hagyni.
+#   viszonyított. Ezt a paramétert a kerek tárgyasztaloknál meg kell adni,
+#   a téglalap alakú tárgyasztaloknál pedig ki kell hagyni.
 # mesh_origin
 #   Az opció által meghatározott koordináta.
-#   Ezt a paramétert kerek ágyak esetében meg kell adni.
-#   De elhagyható a téglalap alakú ágyak esetében.
+#   Ezt a paramétert kerek tárgyasztalok esetében meg kell adni.
+#   De elhagyható a téglalap alakú tárgyasztalok esetében.
 #mesh_origin:
-#   Meghatározza a háló középpontjának X, Y koordinátáját kerek ágyak
+#   Meghatározza a háló középpontjának X, Y koordinátáját kerek tárgyasztalok
 #   esetén. Ez a koordináta a szonda helyéhez képest relatív. Hasznos
 #   lehet a mesh_origin beállítása, hogy maximalizáljuk a háló méretét.
 #   Az alapértelmezett érték 0, 0. Ezt a paramétert el kell hagyni
-#   téglalap alakú ágyak esetén.
+#   téglalap alakú tárgyasztalok esetén.
 #mesh_min:
 #   Meghatározza a háló minimális X, Y koordinátáját téglalap alakú
-#   ágyak esetén. Ez a koordináta a szonda helyéhez képest relatív.
+#   tárgyasztalok esetén. Ez a koordináta a szonda helyéhez képest relatív.
 #   Ez lesz az első szondázott pont, amely a legközelebb van az origóhoz.
-#   Ezt a paramétert téglalap alakú ágyak esetén meg kell adni.
+#   Ezt a paramétert téglalap alakú tárgyasztalok esetén meg kell adni.
 #mesh_max:
 #   Meghatározza a háló maximális X, Y koordinátáját téglalap alakú
-#   ágyak esetén. Ugyanazon az elven működik, mint a mesh_min,
-#   azonban ez a paraméter a legtávolabbi pont lesz, amelyet az
-#   ágy origójától vizsgálunk. Ezt a paramétert téglalap alakú ágyak
+#   tárgyasztalok esetén. Ugyanazon az elven működik, mint a mesh_min,
+#   azonban ez a paraméter a legtávolabbi pont lesz, amelyet a tárgyasztal
+#   origójától vizsgálunk. Ezt a paramétert téglalap alakú tárgyasztalok
 #   esetén meg kell adni.
 #probe_count: 3, 3
-#   Téglalap alakú ágyak esetén ez egy vesszővel elválasztott egész
+#   Téglalap alakú tárgyasztalok esetén ez egy vesszővel elválasztott egész
 #   számpár. X, Y értékek, amelyek meghatározzák a mérni kívánt
 #   pontok számát az egyes tengelyek mentén. Egyetlen érték is
 #   érvényes, ebben az esetben ez az érték mindkét tengelyre vonatkozik.
 #   Az alapértelmezett érték 3, 3.
 #round_probe_count: 5
-#   A kerek ágyak esetében ez az egész érték határozza meg a
+#   A kerek tárgyasztalok esetében ez az egész érték határozza meg a
 #   maximális számú pontok számát, amelyeket minden tengely mentén
 #   meg kell vizsgálni. Ennek az értéknek páratlan számnak kell lennie.
 #   Az alapértelmezett érték 5.
@@ -901,7 +901,7 @@ Vizuális példák:
 
 ### [bed_tilt]
 
-Ágydőlés kompenzáció. Definiálhatunk egy bed_tilt config szekciót, hogy lehetővé tegyük a ferde ágyat figyelembe vevő mozgástranszformációkat. Vegye figyelembe, hogy a bed_mesh és a bed_tilt nem kompatibilisek. Mindkettő nem definiálható.
+Tárgyasztal dőlés kompenzáció. Definiálhatunk egy bed_tilt config szekciót, hogy lehetővé tegyük a ferde tárgyasztalt figyelembe vevő mozgástranszformációkat. Vedd figyelembe, hogy a bed_mesh és a bed_tilt nem kompatibilisek. Mindkettő nem definiálható.
 
 További információkért lásd a [parancsreferencia](G-Codes.md#bed_tilt) dokumentumot.
 
@@ -924,8 +924,8 @@ További információkért lásd a [parancsreferencia](G-Codes.md#bed_tilt) doku
 #points:
 #   Az X, Y koordináták listája (soronként egy a következő sorokat behúzva),
 #   amelyeket a BED_TILT_CALIBRATE parancs során meg kell vizsgálni.
-#   Adja meg a fúvóka koordinátáit, és győződjön meg arról, hogy a szonda
-#   az ágy felett van a megadott fúvókakoordinátákon.
+#   Add meg a fúvóka koordinátáit, és győződjön meg arról, hogy a szonda
+#   a tárgyasztal felett van a megadott fúvókakoordinátákon.
 #   Az alapértelmezett az, hogy nem engedélyezi a parancsot.
 #speed: 50
 #   A nem szondázás sebessége (mm/sec-ben) mozog a kalibrálás során.
@@ -938,36 +938,36 @@ További információkért lásd a [parancsreferencia](G-Codes.md#bed_tilt) doku
 
 ### [bed_screws]
 
-Szerszám az ágy szintbeállító csavarok beállításához. Meghatározható egy [bed_screws] config szakasz a BED_SCREWS_ADJUST G-kód parancs engedélyezéséhez.
+Szerszám a tárgyasztal szintbeállító csavarok beállításához. Meghatározható egy [bed_screws] config szakasz a BED_SCREWS_ADJUST G-kód parancs engedélyezéséhez.
 
 További információkért lásd a [szintezési útmutató](Manual_Level.md#adjusting-bed-leveling-screws) és a [parancs hivatkozás](G-Codes.md#bed_screws) dokumentumot.
 
 ```
 [bed_screws]
 #screw1:
-#   Az első ágykiegyenlítő csavar X, Y koordinátája. Ez egy
-#   olyan pozíció, ahová a fúvókát kell irányítani, mely közvetlenül az ágy felett van
-#   (vagy a lehető legközelebb, de még mindig az ágy felett).
+#   Az első tárgyasztal kiegyenlítő csavar X, Y koordinátája. Ez egy
+#   olyan pozíció, ahová a fúvókát kell irányítani, mely közvetlenül a tárgyasztal felett van
+#   (vagy a lehető legközelebb, de még mindig a tárgyasztal felett).
 #   Ezt a paramétert meg kell adni.
 #screw1_name:
 #   Az adott csavar tetszőleges neve. Ez a név jelenik meg, amikor a segédszkript fut.
 #   Az alapértelmezés szerint a név alapja a csavar XY helye.
 #screw1_fine_adjust:
 #   Egy X, Y koordináta, amelyre a fúvókát irányítani
-#   kell, hogy finomítani lehessen az ágy szintező csavart.
-#   Az alapértelmezés szerint a finombeállítás nem történik meg az ágy csavarján.
+#   kell, hogy finomítani lehessen a tárgyasztal szintező csavart.
+#   Az alapértelmezés szerint a finombeállítás nem történik meg a tárgyasztal csavarján.
 #screw2:
 #screw2_name:
 #screw2_fine_adjust:
 #...
-#   További ágyszintállító csavarok. Legalább három csavarnak kell lennie.
+#   További tárgyasztal szintállító csavarok. Legalább három csavarnak kell lennie.
 #horizontal_move_z: 5
 #   Az a magasság (mm-ben), ahová a fejnek parancsot kell adni a mozgásra amikor az egyik
 #   csavar helyéről a másikra mozog.
 #   Az alapértelmezett érték 5.
 #probe_height: 0
 #   A szonda magassága (mm-ben) a hőfokszabályozás után.
-#   Az ágy és a fúvóka hőtágulása után. Az alapértelmezett érték nulla.
+#   A tárgyasztal és a fúvóka hőtágulása után. Az alapértelmezett érték nulla.
 #speed: 50
 #   A kalibrálás során a nem mérési mozgások sebessége (mm/sec-ben).
 #   Az alapértelmezett érték 50.
@@ -978,16 +978,16 @@ További információkért lásd a [szintezési útmutató](Manual_Level.md#adju
 
 ### [screws_tilt_adjust]
 
-Eszköz az ágycsavarok dőlésszögének beállításához Z-szondával. Meghatározható egy screws_tilt_adjust konfigurációs szakasz a SCREWS_TILT_CALCULATE G-kód parancsal.
+Eszköz a tárgyasztal csavarok dőlésszögének beállításához Z-szondával. Meghatározható egy screws_tilt_adjust konfigurációs szakasz a SCREWS_TILT_CALCULATE G-kód parancsal.
 
 További információkért lásd a [szintezési útmutató](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) és a [parancs hivatkozás](G-Codes.md#screws_tilt_adjust) dokumentumot.
 
 ```
 [screws_tilt_adjust]
 #screw1:
-#   Az első ágykiegyenlítő csavar (X, Y) koordinátája. Ez a helyzet a fúvóka
-#   utasításához úgy, hogy a szonda közvetlenül az ágycsavar felett
-#   legyen (vagy a lehető legközelebb, miközben továbbra is az ágy felett
+#   Az első tárgyasztal kiegyenlítő csavar (X, Y) koordinátája. Ez a helyzet a fúvóka
+#   utasításához úgy, hogy a szonda közvetlenül a tárgyasztal csavar felett
+#   legyen (vagy a lehető legközelebb, miközben továbbra is a tárgyasztal felett
 #   van). Ez a számításoknál használt alapcsavar.
 #   Ezt a paramétert meg kell adni.
 #screw1_name:
@@ -997,7 +997,7 @@ További információkért lásd a [szintezési útmutató](Manual_Level.md#adju
 #screw2:
 #screw2_name:
 #...
-#   További ágykiegyenlítő csavarok.
+#   További tárgyasztal kiegyenlítő csavarok.
 #   Legalább két csavart kell meghatározott.
 #speed: 50
 #   A kalibrálás során a nem mérő mozgások sebessége (mm/sec-ben).
@@ -1007,8 +1007,8 @@ További információkért lásd a [szintezési útmutató](Manual_Level.md#adju
 #   Közvetlenül a szondaművelet megkezdése előtt.
 #   Az alapértelmezett érték 5.
 #screw_thread: CW-M3
-#   Az ágy szintjéhez használt csavar típusa, M3, M4 vagy M5, valamint az
-#   ágy szintbeállításához használt gomb iránya, az óramutató járásával
+#   A tárgyasztal szintjéhez használt csavar típusa, M3, M4 vagy M5, valamint a
+#   tárgyasztal szintbeállításához használt gomb iránya, az óramutató járásával
 #   megegyező irányú csökkenés az óramutató járásával ellentétes irányú
 #   csökkenés. Elfogadott értékek: CW-M3, CCW-M3, CW-M4, CCW-M4,
 #   CW-M5, CCW-M5. Az alapértelmezett érték CW-M3, a legtöbb nyomtató
@@ -1024,16 +1024,16 @@ Többszörös Z léptető dőlésszög beállítása. Ez a funkció lehetővé t
 [z_tilt]
 #z_positions:
 #   Az X, Y koordináták listája (soronként egy a következő sorokat behúzva),
-#   amelyek leírják az egyes ágyak "forgáspontjainak" helyét.
-#   A "forgáspont" az a pont, ahol az ágy az adott Z léptetőhöz
+#   amelyek leírják az egyes tárgyasztalok "forgáspontjainak" helyét.
+#   A "forgáspont" az a pont, ahol a tárgyasztal az adott Z léptetőhöz
 #   kapcsolódik. Ezt a fúvóka koordinátáival írják le (a fúvóka X, Y
 #   pozíciója, ha közvetlenül a pont felett mozoghat). Az első bejegyzés a
 #   stepper_z, a második a stepper_z1, a harmadik a stepper_z2 stb.
 #   értéknek felel meg. Ezt a paramétert meg kell adni.
 #points:
 #   Az X, Y koordináták listája (soronként egy a következő sorokat behúzva),
-#   amelyeket a Z_TILT_ADJUST parancs során meg kell vizsgálni. Adja meg
-#   a fúvóka koordinátáit, és győződjön meg arról, hogy a szonda az ágy
+#   amelyeket a Z_TILT_ADJUST parancs során meg kell vizsgálni. Add meg
+#   a fúvóka koordinátáit, és győződjön meg arról, hogy a szonda a tárgyasztal
 #   felett van a megadott fúvókakoordinátákon.
 #   Ezt a paramétert meg kell adni.
 #speed: 50
@@ -1048,7 +1048,7 @@ Többszörös Z léptető dőlésszög beállítása. Ez a funkció lehetővé t
 #retry_tolerance: 0
 #   Ha az újrapróbálkozás engedélyezve van, próbálkozzon újra, ha a
 #   legnagyobb és a legkisebb vizsgált pont jobban eltér, mint a
-#   retry_tolerance. Vegye figyelembe, hogy a változás legkisebb egysége
+#   retry_tolerance. Vedd figyelembe, hogy a változás legkisebb egysége
 #   itt egyetlen lépés lenne. Ha azonban több pontot vizsgál, mint léptetőt,
 #   akkor valószínűleg lesz egy rögzített minimális értéke a vizsgált pontok
 #   tartományához, amelyet a parancs kimenetének megfigyelésével
@@ -1057,7 +1057,7 @@ Többszörös Z léptető dőlésszög beállítása. Ez a funkció lehetővé t
 
 ### [quad_gantry_level]
 
-Mozgó állvány szintezése 4 egymástól függetlenül vezérelt Z-motorral. Korrigálja a hiperbolikus parabola hatását (krumplichip) a mozgó portálon, amely rugalmasabb. FIGYELMEZTETÉS: Mozgó ágyon történő használata nemkívánatos eredményekhez vezethet. Ha ez a szakasz jelen van, akkor elérhetővé válik a QUAD_GANTRY_LEVEL kiterjesztett G-kód parancs. Ez a rutin a következő Z motor konfigurációt feltételezi:
+Mozgó állvány szintezése 4 egymástól függetlenül vezérelt Z-motorral. Korrigálja a hiperbolikus parabola hatását (krumplichip) a mozgó portálon, amely rugalmasabb. FIGYELMEZTETÉS: Mozgó tárgyasztalon történő használata nemkívánatos eredményekhez vezethet. Ha ez a szakasz jelen van, akkor elérhetővé válik a QUAD_GANTRY_LEVEL kiterjesztett G-kód parancs. Ez a rutin a következő Z motor konfigurációt feltételezi:
 
 ```
  ----------------
@@ -1070,7 +1070,7 @@ Mozgó állvány szintezése 4 egymástól függetlenül vezérelt Z-motorral. K
  ----------------
 ```
 
-Ahol X az ágy 0, 0 pontja
+Ahol X a tárgyasztal 0, 0 pontja
 
 ```
 [quad_gantry_level]
@@ -1114,7 +1114,7 @@ Nyomtató ferdeségkorrekció. Lehetőség van a nyomtató ferdeségének szoftv
 
 ### [safe_z_home]
 
-Biztonságos Z kezdőpont felvétel. Ezzel a mechanizmussal a Z tengelyt egy adott X, Y koordinátára lehet állítani. Ez akkor hasznos, ha például a nyomtatófejnek az ágy közepére kell mozognia, mielőtt a Z-tengelyt kezdőpontpba irányítaná.
+Biztonságos Z kezdőpont felvétel. Ezzel a mechanizmussal a Z tengelyt egy adott X, Y koordinátára lehet állítani. Ez akkor hasznos, ha például a nyomtatófejnek a tárgyasztal közepére kell mozognia, mielőtt a Z-tengelyt kezdőpontpba irányítaná.
 
 ```
 [safe_z_home]
@@ -1184,13 +1184,13 @@ További információkért lásd a [végállási fázisok útmutató](Endstop_Ph
 #   Beállítja a végálláskapcsoló várható pontosságát (mm-ben). Ez azt a
 #   maximális hibatávolságot jelöli, amelyet a végállás kiválthat (pl. ha
 #   egy végállás időnként 100 um korán vagy legfeljebb 100 um késéssel
-#   válthat ki, akkor állítsa ezt 0,200-ra 200 um esetén). Az alapértelmezett
+#   válthat ki, akkor állítsd ezt 0,200-ra 200 um esetén). Az alapértelmezett
 #   4*rotation_distance/full_steps_per_rotation.
 #trigger_phase:
 #   Ez határozza meg a léptetőmotor meghajtójának azt az áramot,
 #   amelyre számítani kell, amikor megüti a végállást. Két számból áll,
 #   amelyeket egy perjel választ el. Az áramból és áramok teljes számából
-#   (pl. "7/64"). Csak akkor állítsa be ezt az értéket, ha biztos abban, hogy a
+#   (pl. "7/64"). Csak akkor állítsd be ezt az értéket, ha biztos abban, hogy a
 #   motorvezérlő minden alkalommal alaphelyzetbe áll az MCU
 #   alaphelyzetbe állításakor. Ha ez nincs beállítva, akkor a léptető fázist a
 #   rendszer az első kezdőpontban érzékeli, és ezt az áramot használja az
@@ -1285,7 +1285,7 @@ filename:
 
 ### [virtual_sdcard]
 
-A virtuális sdcard hasznos lehet, ha a gazdaszámítógép nem elég gyors az OctoPrint megfelelő futtatásához. Ez lehetővé teszi a Klipper gazdagép szoftver számára, hogy közvetlenül kinyomtassa a G-kód fájlokat, amelyeket a gazdagépen lévő könyvtárban tárolnak a szabványos sdcard G-kód parancsok (pl. M24) használatával.
+A virtuális sdcard hasznos lehet, ha a gazdaszámítógép nem elég gyors az OctoPrint megfelelő futtatásához. Ez lehetővé teszi a Klipper gazdagép szoftver számára, hogy közvetlenül kinyomtasd a G-kód fájlokat, amelyeket a gazdagépen lévő könyvtárban tárolnak a szabványos sdcard G-kód parancsok (pl. M24) használatával.
 
 ```
 [virtual_sdcard]
@@ -1462,7 +1462,7 @@ cs_pin:
 #rate: 3200
 #   Kimeneti adatátviteli sebesség az ADXL345 esetében. Az ADXL345
 #   a következő sebességeket támogatja: 3200, 1600, 800, 400, 200,
-#   100, 50 és 25. Vegye figyelembe, hogy nem ajánlott megváltoztatni
+#   100, 50 és 25. Vedd figyelembe, hogy nem ajánlott megváltoztatni
 #   ezt a sebességet az alapértelmezett 3200-ról, és a 800 alatti
 #   sebességek jelentősen befolyásolják a rezonancia mérés
 #   eredményeinek minőségét.
@@ -1508,8 +1508,8 @@ A rezonancia tesztelés és az automatikus bemeneti alakító kalibráció támo
 #accel_chip_x:
 #accel_chip_y:
 #   Az egyes tengelyek méréséhez használandó gyorsulásmérő chipek
-#   neve. Hasznos lehet például ágyazó-csúszó nyomtatónál, ha két
-#   külön gyorsulásmérő van felszerelve az ágyra (az Y tengelyhez) és a
+#   neve. Hasznos lehet például a tárgyasztal csúsztatós nyomtatónál, ha két
+#   külön gyorsulásmérő van felszerelve a tárgyasztalra (az Y tengelyhez) és a
 #   nyomtatófejre (az X tengelyhez). Ezek a paraméterek ugyanolyan
 #   formátumúak, mint az "accel_chip" paraméter. Csak az 'accel_chip'
 #   vagy ez a két paramétert kell megadni.
@@ -1583,7 +1583,7 @@ pins:
 #   nélkül. Ezt a paramétert meg kell adni.
 ```
 
-## Ágy szintező hardver
+## Tárgyasztal szintező hardver
 
 ### [probe]
 
@@ -1606,7 +1606,7 @@ pin:
 #   A szonda és a fúvóka közötti távolság (mm-ben) az Y tengely mentén.
 #   Az alapértelmezett érték 0.
 z_offset:
-#   Az ágy és a fúvóka közötti távolság (mm-ben), amikor a szonda kiold.
+#   A tárgyasztal és a fúvóka közötti távolság (mm-ben), amikor a szonda kiold.
 #   Ezt a paramétert meg kell adni.
 #speed: 5.0
 #   A Z tengely sebessége (mm/sec-ben) tapintáskor.
@@ -1679,13 +1679,13 @@ control_pin:
 #   módban vizsgálja az eszközt. Az alapértelmezett érték False
 #   (tapintás "pin_down" módban).
 #pin_up_reports_not_triggered: True
-#   Állítsa be, hogy a BLTouch következetesen „not triggered”
+#   Állítsd be, hogy a BLTouch következetesen „not triggered”
 #   állapotban jelentse-e a mérést a sikeres „pin_up” parancs után.
 #   Ennek True-nak kell lennie minden eredeti BLTouch eszköznél.
 #   Mielőtt False értékre állítaná, olvassa el a docs/BLTouch.md
 #   utasításait. Az alapértelmezett érték True.
 #pin_up_touch_mode_reports_triggered: True
-#   Állítsa be, hogy a BLTouch következetesen "triggered" állapotot
+#   Állítsd be, hogy a BLTouch következetesen "triggered" állapotot
 #   jelentse-e a "pin_up" parancs kövesse a "touch_mode" parancsot.
 #   Ennek True-nak kell lennie minden eredeti BLTouch eszköznél.
 #   Mielőtt False értékre állítaná, olvassa el a docs/BLTouch.md
@@ -1693,10 +1693,10 @@ control_pin:
 #set_output_mode:
 #   Kérjen egy adott érzékelőtűs kimeneti módot a BLTouch V3.0
 #   (és újabb) készüléken. Ezt a beállítást nem szabad más típusú
-#   szondákon használni. Állítsa "5V"-ra, ha 5 V-os érzékelőtűs
+#   szondákon használni. Állítsd "5V"-ra, ha 5 V-os érzékelőtűs
 #   kimenetet kíván kérni (csak akkor használja, ha a vezérlőkártyának
 #   5 V-os üzemmódra van szüksége, és 5 V-ot tolerál a bemeneti
-#   jelvezetékén). Állítsa „OD” értékre, hogy az érzékelő érintkezőjének
+#   jelvezetékén). Állítsd „OD” értékre, hogy az érzékelő érintkezőjének
 #   kimenete nyitott leeresztési módot használjon.
 #   Az alapértelmezett az, hogy nem kér kimeneti módot.
 #x_offset:
@@ -1719,7 +1719,7 @@ A "Smart Effector" a Duet3d-től egy Z-szondát valósít meg egy erőérzékel�
 ```
 [smart_effector]
 pin:
-#   A Smart Effector Z Probe kimeneti tűjéhez (5. csap) csatlakoztatott tű. Vegye
+#   A Smart Effector Z Probe kimeneti tűjéhez (5. csap) csatlakoztatott tű. Vedd
 #   figyelembe, hogy a lapon lévő pullup ellenállás általában nem szükséges.
 #   Ha azonban a kimeneti tűn pullup ellenállással csatlakoztatják a lapon
 #   lévő tűhöz, akkor ennek az ellenállásnak nagy értékűnek kell lennie
@@ -1749,8 +1749,8 @@ pin:
 #y_offset:
 #   Nem kell beállítani (vagy 0-ra kell állítani).
 z_offset:
-#   A szonda kioldási magassága. Kezdje -0,1 (mm) értékkel, és később
-#   állítsa be a következővel `PROBE_CALIBRATE` paranccsal.
+#   A szonda kioldási magassága. Kezd -0,1 (mm) értékkel, és később
+#   állítsd be a következővel `PROBE_CALIBRATE` paranccsal.
 #   Ezt a paramétert meg kell adni.
 #speed:
 #   A Z tengely sebessége (mm/sec-ben) tapogatáskor. Javasoljuk, hogy a
@@ -1863,11 +1863,11 @@ Kézi léptetők (tetszőleges számú szakasz definiálható "manual_stepper" e
 #rotation_distance:
 #   A paraméterek leírását lásd a "léptető" részben.
 #velocity:
-#   Állítsa be a léptető alapértelmezett sebességét (mm/sec-ben).
+#   Állítsd be a léptető alapértelmezett sebességét (mm/sec-ben).
 #   Ezt az értéket használja a rendszer, ha a MANUAL_STEPPER parancs nem
 #   ad meg SPEED paramétert. Az alapértelmezett érték 5 mm/sec.
 #accel:
-#   Állítsa be a léptető alapértelmezett gyorsulását (mm/sec^2-en). A nulla
+#   Állítsd be a léptető alapértelmezett gyorsulását (mm/sec^2-en). A nulla
 #   gyorsulás nem eredményez gyorsulást. Ezt az értéket használja a rendszer,
 #   ha a MANUAL_STEPPER parancs nem ad meg ACCEL paramétert.
 #   Az alapértelmezett érték 0.
@@ -1986,7 +1986,7 @@ Egyedi ADC hőmérséklet-érzékelők (tetszőleges számú szekciót lehet def
 
 ### [heater_generic]
 
-Általános fűtőtestek (tetszőleges számú szakasz definiálható a "heater_generic" előtaggal). Ezek a fűtőberendezések a standard fűtőberendezésekhez (extruderek, fűtött ágy) hasonlóan viselkednek. A SET_HEATER_TEMPERATURE paranccsal (lásd a [G-kódok](G-Codes.md#heaters) dokumentumban) állíthatjuk be a célhőmérsékletet.
+Általános fűtőtestek (tetszőleges számú szakasz definiálható a "heater_generic" előtaggal). Ezek a fűtőberendezések a standard fűtőberendezésekhez (extruderek, fűtött tárgyasztal) hasonlóan viselkednek. A SET_HEATER_TEMPERATURE paranccsal (lásd a [G-kódok](G-Codes.md#heaters) dokumentumban) állíthatjuk be a célhőmérsékletet.
 
 ```
 [heater_generic my_generic_heater]
@@ -2120,7 +2120,7 @@ sensor_pin:
 
 ### BMP280/BME280/BME680 hőmérséklet-érzékelő
 
-BMP280/BME280/BME680 kétvezetékes interfész (I2C) környezeti érzékelők. Vegye figyelembe, hogy ezeket az érzékelőket nem extruderekkel és fűtőágyakkal való használatra szánják, hanem a környezeti hőmérséklet (C), a nyomás (hPa), a relatív páratartalom és a BME680 esetében a gázszint ellenőrzésére. Lásd [sample-macros.cfg](../config/sample-macros.cfg) egy gcode_macro-t, amely a hőmérséklet mellett a nyomás és a páratartalom mérésére is használható.
+BMP280/BME280/BME680 kétvezetékes interfész (I2C) környezeti érzékelők. Vedd figyelembe, hogy ezeket az érzékelőket nem extruderekkel és fűtött tárgyasztalokkal való használatra szánják, hanem a környezeti hőmérséklet (C), a nyomás (hPa), a relatív páratartalom és a BME680 esetében a gázszint ellenőrzésére. Lásd [sample-macros.cfg](../config/sample-macros.cfg) egy gcode_macro-t, amely a hőmérséklet mellett a nyomás és a páratartalom mérésére is használható.
 
 ```
 sensor_type: BME280
@@ -2136,7 +2136,7 @@ sensor_type: BME280
 
 ### HTU21D érzékelő
 
-HTU21D kétvezetékes interfész (I2C) környezeti érzékelő. Vegye figyelembe, hogy ezt az érzékelőt nem extruderekkel és fűtőágyakkal való használatra szánják, hanem a környezeti hőmérséklet (C) és a relatív páratartalom ellenőrzésére. Lásd [sample-macros.cfg](../config/sample-macros.cfg) egy gcode_macro-t, amely a hőmérséklet mellett a páratartalom jelentésére is használható.
+HTU21D kétvezetékes interfész (I2C) környezeti érzékelő. Vedd figyelembe, hogy ezt az érzékelőt nem extruderekkel és fűtött tárgyasztalokkal való használatra szánják, hanem a környezeti hőmérséklet (C) és a relatív páratartalom ellenőrzésére. Lásd [sample-macros.cfg](../config/sample-macros.cfg) egy gcode_macro-t, amely a hőmérséklet mellett a páratartalom jelentésére is használható.
 
 ```
 sensor_type:
@@ -2197,7 +2197,7 @@ sensor_type: temperature_mcu
 #   Az alapértelmezett érték az "mcu".
 #sensor_temperature1:
 #sensor_adc1:
-#   Adja meg a fenti két paramétert (a hőmérsékletet Celsiusban és egy
+#   Add meg a fenti két paramétert (a hőmérsékletet Celsiusban és egy
 #   ADC-értéket úszóként 0,0 és 1,0 között) a mikrovezérlő
 #   hőmérsékletének kalibrálásához. Ez egyes chipeknél javíthatja a
 #   jelentett hőmérsékleti pontosságot. A kalibrációs adatok
@@ -2233,7 +2233,7 @@ sensor_type: temperature_host
 
 ### DS18B20 hőmérséklet érzékelő
 
-A DS18B20 egy 1 vezetékes (w1) digitális hőmérséklet érzékelő. Vegye figyelembe, hogy ezt az érzékelőt nem extruderekkel és fűtött ágyakkal való használatra szánják, hanem inkább a környezeti hőmérséklet (C) ellenőrzésére. Ezek az érzékelők 125 C-ig terjedő tartományban működnek, így pl. kamrahőmérséklet ellenőrzésre használhatók. Egyszerű ventilátor/fűtőberendezés szabályozóként is működhetnek. A DS18B20 érzékelőket csak a "host mcu", pl. a Raspberry Pi támogatja. A w1-gpio Linux kernel modult kell telepíteni hozzá.
+A DS18B20 egy 1 vezetékes (w1) digitális hőmérséklet érzékelő. Vedd figyelembe, hogy ezt az érzékelőt nem extruderekkel és fűtött tárgyasztalokkal való használatra szánják, hanem inkább a környezeti hőmérséklet (C) ellenőrzésére. Ezek az érzékelők 125 C-ig terjedő tartományban működnek, így pl. kamrahőmérséklet ellenőrzésre használhatók. Egyszerű ventilátor/fűtőberendezés szabályozóként is működhetnek. A DS18B20 érzékelőket csak a "host mcu", pl. a Raspberry Pi támogatja. A w1-gpio Linux kernel modult kell telepíteni hozzá.
 
 ```
 sensor_type: DS18B20
@@ -2296,10 +2296,10 @@ pin:
 #   hatékonyak legyenek. Az alapértelmezett érték 0.0.
 #
 #   Ezt a beállítást újra kell kalibrálni a max_power beállításakor. A beállítás
-#   kalibrálásához kezdje az off_below értékét 0,0-ra állítva, és a ventilátor forog.
+#   kalibrálásához kezd az off_below értékét 0,0-ra állítva, és a ventilátor forog.
 #   Fokozatosan csökkentse a ventilátor fordulatszámát, hogy meghatározza a
 #   legalacsonyabb bemeneti sebességet, amely megbízhatóan hajtja a ventilátort
-#   leállás nélkül. Állítsa az off_below-ot az ennek az értéknek megfelelő
+#   leállás nélkül. Állítsd az off_below-ot az ennek az értéknek megfelelő
 #   (például 12% -> 0,12) vagy valamivel magasabb munkaciklusra.
 #tachometer_pin:
 #   Fordulatszámmérő bemeneti érintkezője a ventilátor fordulatszámának
@@ -2342,7 +2342,7 @@ Fejhűtő ventilátorok (a "heater_fan" előtaggal tetszőleges számú szakasz 
 #   A fenti paraméterek leírását lásd a "ventilátor" szakaszban.
 #heater: extruder
 #   A ventilátorhoz társított fűtést meghatározó konfigurációs szakasz neve.
-#   Ha itt megadja a fűtőelemek vesszővel elválasztott nevét,
+#   Ha itt megadod a fűtőelemek vesszővel elválasztott nevét,
 #   akkor a ventilátor engedélyezve lesz, ha valamelyik adott fűtőtest engedélyezve van.
 #   Az alapértelmezett az "extruder".
 #heater_temp: 50.0
@@ -2388,7 +2388,7 @@ Vezérlő hűtőventilátor (a "controller_fan" előtaggal tetszőleges számú 
 #heater:
 #stepper:
 #   A ventilátorhoz társított fűtést/léptetőt meghatározó konfigurációs
-#   szakasz neve. Ha itt megadja a fűtőelemek/léptetők vesszővel
+#   szakasz neve. Ha itt megadod a fűtőelemek/léptetők vesszővel
 #   elválasztott nevét, akkor a ventilátor engedélyezve lesz, ha az adott
 #   fűtőtestek/léptetők bármelyike engedélyezett. Az alapértelmezett fűtőelem
 #   az "extruder", az alapértelmezett léptető pedig mindegyik.
@@ -2508,7 +2508,7 @@ A mikrokontroller PWM tűin keresztül vezérelt LED-ek (és LED-csíkok) támog
 
 Neopixel (más néven WS2812) LED támogatás (tetszőleges számú szekciót definiálhatunk "neopixel" előtaggal). További információkért lásd a [parancs hivatkozást](G-Codes.md#led).
 
-Vegye figyelembe, hogy a [linux mcu](RPi_microcontroller.md) implementáció jelenleg nem támogatja a közvetlenül csatlakoztatott neopixeleket. A Linux kernel interfészt használó jelenlegi tervezet nem teszi lehetővé ezt a forgatókönyvet, mivel a kernel GPIO interfésze nem elég gyors a szükséges impulzusszámok biztosításához.
+Vedd figyelembe, hogy a [linux mcu](RPi_microcontroller.md) implementáció jelenleg nem támogatja a közvetlenül csatlakoztatott neopixeleket. A Linux kernel interfészt használó jelenlegi tervezet nem teszi lehetővé ezt a forgatókönyvet, mivel a kernel GPIO interfésze nem elég gyors a szükséges impulzusszámok biztosításához.
 
 ```
 [neopixel my_neopixel]
@@ -2520,7 +2520,7 @@ pin:
 #   Az alapértelmezett érték 1 (ami azt jelenti, hogy csak egy
 #   Neopixel csatlakozik a tűhöz).
 #color_order: GRB
-#   Állítsa be a LED hardver által megkövetelt pixelsorrendjét
+#   Állítsd be a LED hardver által megkövetelt pixelsorrendjét
 #   (az R, G, B, W betűket tartalmazó karakterláncot használva, a
 #   W opcionális). Alternatívaként ez lehet a pixelsorrendek vesszővel
 #   elválasztott listája is - egy minden egyes pixelhez LED-hez a láncban.
@@ -2595,7 +2595,7 @@ PCA9632 LED támogatás. A PCA9632-t a FlashForge Dreamer-ben használják.
 #   és "data" (sda_pin) érintkezőket.
 #   Az alapértelmezés a hardveres I2C használata.
 #color_order: RGBW
-#   Állítsa be a LED pixelsorrendjét (egy R, G, B, W betűket
+#   Állítsd be a LED pixelsorrendjét (egy R, G, B, W betűket
 #   tartalmazó sztring segítségével). Az alapértelmezett az RGBW.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
@@ -2669,7 +2669,7 @@ Futtatási időben konfigurálható kimeneti tűk (tetszőleges számú szekció
 pin:
 #   A kimenetként konfigurálandó tű. Ezt a paramétert meg kell adni.
 #pwm: False
-#   Állítsa be, hogy a kimeneti lábnak képesnek kell lennie
+#   Állítsd be, hogy a kimeneti lábnak képesnek kell lennie
 #   impulzusszélesség-modulációra. Ha ez True, az értékmezőknek 0 és 1
 #   között kell lenniük. Ha False, az értékmezők értéke 0 vagy 1 legyen.
 #   Az alapértelmezett érték False.
@@ -2792,7 +2792,7 @@ run_current:
 #driver_PWM_GRAD: 4
 #driver_PWM_AMPL: 128
 #driver_SGT: 0
-#   Állítsa be a megadott regisztert a TMC2130 chip konfigurációja során.
+#   Állítsd be a megadott regisztert a TMC2130 chip konfigurációja során.
 #   Ez egyéni motorparaméterek beállítására használható.
 #   Az egyes paraméterek alapértelmezett értékei a paraméter neve mellett
 #   találhatók a fenti listában.
@@ -2820,7 +2820,7 @@ uart_pin:
 #   Ezt a paramétert meg kell adni.
 #tx_pin:
 #   Ha külön vételi és adási vonalat használ a meghajtóval való
-#   kommunikációhoz, akkor állítsa be az uart_pin paramétert a vételi
+#   kommunikációhoz, akkor állítsd be az uart_pin paramétert a vételi
 #   lábra, és a tx_pin értéket az átviteli lábra. Az alapértelmezett az
 #   uart_pin használata mind olvasáshoz, mind íráshoz.
 #select_pins:
@@ -2862,7 +2862,7 @@ run_current:
 #driver_PWM_FREQ: 1
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
-#   Állítsa be a megadott regisztert a TMC2208 chip konfigurációja során.
+#   Állítsd be a megadott regisztert a TMC2208 chip konfigurációja során.
 #   Ez egyéni motorparaméterek beállítására használható. Az egyes
 #   paraméterek alapértelmezett értékei a paraméter neve mellett
 #   találhatók a fenti listában.
@@ -2901,7 +2901,7 @@ run_current:
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
 #driver_SGTHRS: 0
-#   Állítsa be a megadott regisztert a TMC2209 chip konfigurációja során.
+#   Állítsd be a megadott regisztert a TMC2209 chip konfigurációja során.
 #   Ez egyéni motorparaméterek beállítására használható.
 #   Az egyes paraméterek alapértelmezett értékei a paraméter neve
 #   mellett találhatók a fenti listában.
@@ -2953,9 +2953,9 @@ run_current:
 #   üresjárati időtúllépés lejár (az időtúllépést az [idle_timeout]
 #   konfigurációs szakaszban kell beállítani). Az áramerősség ismét
 #   megemelkedik, ha a léptetőnek ismét mozognia kell. Ügyeljen arra,
-#   hogy ezt elég magas értékre állítsa be, hogy a léptetők ne veszítsék el
+#   hogy ezt elég magas értékre állítsd be, hogy a léptetők ne veszítsék el
 #   pozíciójukat. Van egy kis késleltetés is, amíg az áram ismét
-#   megemelkedik, ezért ezt vegye figyelembe, amikor a léptető
+#   megemelkedik, ezért ezt vedd figyelembe, amikor a léptető
 #   alapjárata közben gyors mozdulatokat ad parancsba.
 #   Az alapértelmezett érték 100 (nincs csökkentés).
 #driver_TBL: 2
@@ -2976,7 +2976,7 @@ run_current:
 #driver_SLPL: 0
 #driver_DISS2G: 0
 #driver_TS2G: 3
-#   Állítsa be a megadott paramétert a TMC2660 chip konfigurációja során.
+#   Állítsd be a megadott paramétert a TMC2660 chip konfigurációja során.
 #   Ez egyéni motorvezérlő paraméterek beállítására használható.
 #   Az egyes paraméterek alapértelmezett értékei a paraméter neve
 #   mellett találhatók a fenti listában. Tekintse meg a TMC2660 adatlapját
@@ -3057,7 +3057,7 @@ run_current:
 #driver_SEDN: 0
 #driver_SEIMIN: 0
 #driver_SFILT: 0
-#   Állítsa be a megadott regisztert a TMC5160 chip konfigurációja során.
+#   Állítsd be a megadott regisztert a TMC5160 chip konfigurációja során.
 #   Ez egyéni motorparaméterek beállítására használható. Az egyes
 #   paraméterek alapértelmezett értékei a paraméter neve mellett
 #   találhatók a fenti listában.
@@ -3106,7 +3106,7 @@ enable_pin:
 #   Ha egy csatorna nincs megadva, akkor konfigurálatlanul marad.
 #scale:
 #   Ezzel a paraméterrel módosítható a 'channel_x' paraméter
-#   értelmezése. Ha megadja, akkor a 'channel_x' paramétereknek
+#   értelmezése. Ha megadod, akkor a 'channel_x' paramétereknek
 #   0,0 és 'scale' között kell lennie. Ez akkor lehet hasznos, ha az
 #   AD5206 a léptető feszültség referenciák beállítására szolgál. A „mérleg” tud
 #   egyenértékű léptető áramerősséget állítani, ha az AD5206 értéken lenne
@@ -3306,7 +3306,7 @@ Információk a HD44780 kijelzők konfigurálásáról (amelyet a "RepRapDiscoun
 ```
 [display]
 lcd_type: hd44780
-#   Állítsa "hd44780" értékre a hd44780 kijelzőkhöz.
+#   Állítsd "hd44780" értékre a hd44780 kijelzőkhöz.
 rs_pin:
 e_pin:
 d4_pin:
@@ -3321,7 +3321,7 @@ d7_pin:
 #   azonban, hogy ezt bizonyos "klónozó" eszközökön le kell tiltani.
 #   Az alapértelmezett érték True.
 #line_length:
-#   Állítsa be a soronkénti karakterek számát egy hd44780 típusú
+#   Állítsd be a soronkénti karakterek számát egy hd44780 típusú
 #   LCD-n. A lehetséges értékek: 20 (alapértelmezett) és 16.
 #   A sorok száma 4-re van rögzítve.
 ...
@@ -3334,7 +3334,7 @@ Információ a HD44780_spi kijelző konfigurálásáról egy 20x04-es kijelző, 
 ```
 [display]
 lcd_type: hd44780_spi
-#   Állítsa be a "hd44780_spi" értéket a hd44780_spi kijelzőkhöz.
+#   Állítsd be a "hd44780_spi" értéket a hd44780_spi kijelzőkhöz.
 latch_pin:
 spi_software_sclk_pin:
 spi_software_mosi_pin:
@@ -3349,7 +3349,7 @@ spi_software_miso_pin:
 #   azonban, hogy ezt bizonyos "klónozó" eszközökön le kell tiltani.
 #   Az alapértelmezett érték True.
 #line_length:
-#   Állítsa be a soronkénti karakterek számát egy hd44780 típusú LCD-n.
+#   Állítsd be a soronkénti karakterek számát egy hd44780 típusú LCD-n.
 #   A lehetséges értékek: 20 (alapértelmezett) és 16.
 #   A sorok száma 4-re van rögzítve.
 ...
@@ -3362,7 +3362,7 @@ Információk az ST7920 kijelzők konfigurálásáról (amelyet a "RepRapDiscoun
 ```
 [display]
 lcd_type: st7920
-#   Állítsa az "st7920"-ra az st7920-as kijelzőkhöz.
+#   Állítsd az "st7920"-ra az st7920-as kijelzőkhöz.
 cs_pin:
 sclk_pin:
 sid_pin:
@@ -3378,7 +3378,7 @@ Információ az emulált ST7920 kijelző konfigurálásáról. Megtalálható n�
 ```
 [display]
 lcd_type: emulated_st7920
-#   Állítsa az "emulated_st7920" értékre az emulated_st7920 kijelzőkhöz.
+#   Állítsd az "emulated_st7920" értékre az emulated_st7920 kijelzőkhöz.
 en_pin:
 spi_software_sclk_pin:
 spi_software_mosi_pin:
@@ -3399,7 +3399,7 @@ Információk az UC1701 kijelzők konfigurálásáról (amelyet az "MKS Mini 128
 ```
 [display]
 lcd_type: uc1701
-#   Állítsa "uc1701" értékre az uc1701 kijelzőkhöz.
+#   Állítsd "uc1701" értékre az uc1701 kijelzőkhöz.
 cs_pin:
 a0_pin:
 #   Az uc1701 típusú LCD-hez csatlakoztatott tűk.
@@ -3421,7 +3421,7 @@ Az SSD1306 és SH1106 kijelzők konfigurálásával kapcsolatos információk.
 ```
 [display]
 lcd_type:
-#   Állítsa be az "ssd1306" vagy az "sh1106" értéket az adott
+#   Állítsd be az "ssd1306" vagy az "sh1106" értéket az adott
 #   megjelenítési típushoz.
 #i2c_mcu:
 #i2c_bus:
@@ -3448,14 +3448,14 @@ lcd_type:
 #   A beállítandó kontraszt. Az érték 0 és 256 között változhat, és az
 #   alapértelmezett a 239.
 #vcomh: 0
-#   Állítsa be a Vcomh értéket a kijelzőn. Ez az érték egyes
+#   Állítsd be a Vcomh értéket a kijelzőn. Ez az érték egyes
 #   OLED-kijelzők "elkenődési" hatásával jár. Az érték 0 és 63 között
 #   változhat. Az alapértelmezett érték 0.
 #invert: False
 #   A TRUE megfordítja a képpontokat bizonyos OLED-kijelzőkön.
 #   Az alapértelmezett érték False.
 #x_offset: 0
-#   Állítsa be a vízszintes eltolás értékét az SH1106 kijelzőkön.
+#   Állítsd be a vízszintes eltolás értékét az SH1106 kijelzőkön.
 #   Az alapértelmezett érték 0.
 ...
 ```
@@ -3531,7 +3531,7 @@ Lásd a [sample-glyphs.cfg](../config/sample-glyphs.cfg) néhány példáját.
 
 ### [display my_extra_display]
 
-Ha a printer.cfg fájlban a fentiek szerint egy elsődleges [display] szakasz került meghatározásra, akkor több kiegészítő kijelzőt is lehet definiálni. Vegye figyelembe, hogy a kiegészítő kijelzők jelenleg nem támogatják a menüfunkciókat, így nem támogatják a "menu" opciókat vagy a gombok konfigurálását.
+Ha a printer.cfg fájlban a fentiek szerint egy elsődleges [display] szakasz került meghatározásra, akkor több kiegészítő kijelzőt is lehet definiálni. Vedd figyelembe, hogy a kiegészítő kijelzők jelenleg nem támogatják a menüfunkciókat, így nem támogatják a "menu" opciókat vagy a gombok konfigurálását.
 
 ```
 [display my_extra_display]
@@ -3969,7 +3969,7 @@ Az SPI-buszt használó eszközök esetében általában a következő paraméte
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   Adja meg a fenti paramétereket a "szoftver alapú SPI" használatához.
+#   Add meg a fenti paramétereket a "szoftver alapú SPI" használatához.
 #   Ez a mód nem igényel mikrovezérlő hardver támogatást (általában
 #   bármilyen általános célú érintkező használható). Az alapértelmezés
 #   szerint nem használja a "software SPI"-t.
@@ -3979,7 +3979,7 @@ Az SPI-buszt használó eszközök esetében általában a következő paraméte
 
 A következő paraméterek általában az I2C-buszt használó eszközökhöz állnak rendelkezésre.
 
-Vegye figyelembe, hogy a Klipper jelenlegi mikrokontrollerek i2c támogatása nem tolerálja a hálózati zajt. Az i2c vezetékek nem várt hibái a Klipper futásidejű hibaüzenetét eredményezhetik. A Klipper hibaelhárítás támogatása az egyes mikrokontroller-típusok között változik. Általában csak olyan i2c eszközök használata ajánlott, amelyek ugyanazon a nyomtatott áramköri lapon vannak, mint a mikrokontroller.
+Vedd figyelembe, hogy a Klipper jelenlegi mikrokontrollerek i2c támogatása nem tolerálja a hálózati zajt. Az i2c vezetékek nem várt hibái a Klipper futásidejű hibaüzenetét eredményezhetik. A Klipper hibaelhárítás támogatása az egyes mikrokontroller-típusok között változik. Általában csak olyan i2c eszközök használata ajánlott, amelyek ugyanazon a nyomtatott áramköri lapon vannak, mint a mikrokontroller.
 
 A legtöbb Klipper mikrokontroller implementáció csak 100000 `i2c_speed` értéket támogat. A Klipper "linux" mikrokontroller támogatja a 400000-es sebességet, de ezt [az operációs rendszerben kell beállítani](RPi_microcontroller.md#optional-enabling-i2c), és az `i2c_speed` paramétert egyébként figyelmen kívül hagyja. A Klipper "rp2040" mikrokontroller az `i2c_speed` paraméteren keresztül 400000-es sebességet támogat. Az összes többi Klipper mikrovezérlő 100000-es sebességet használ, és figyelmen kívül hagyja az `i2c_speed` paramétert.
 

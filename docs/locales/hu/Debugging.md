@@ -147,7 +147,7 @@ A szkript kinyeri a nyomtató konfigurációs fájlját, és kinyeri az MCU leá
 
 A [simulavr](http://www.nongnu.org/simulavr/) eszköz lehetővé teszi egy Atmel ATmega mikrokontroller szimulálását. Ez a szakasz leírja, hogyan lehet teszt G-kód fájlokat futtatni a simulavr segítségével. Javasoljuk, hogy ezt egy asztali gépen futtassuk (nem Raspberry Pi), mivel a hatékony futtatáshoz erős CPU-ra van szükség.
 
-A simulavr használatához töltse le a simulavr csomagot, és fordítsa le python támogatással. Vegye figyelembe, hogy a build rendszernek telepítenie kell néhány csomagot (például a swig-et) ahhoz, hogy a python modult fel tudja építeni.
+A simulavr használatához töltse le a simulavr csomagot, és fordítsa le python támogatással. Vedd figyelembe, hogy a build rendszernek telepítenie kell néhány csomagot (például a swig-et) ahhoz, hogy a python modult fel tudja építeni.
 
 ```
 git clone git://git.savannah.nongnu.org/simulavr.git

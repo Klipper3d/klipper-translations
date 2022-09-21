@@ -10,19 +10,19 @@ queue_step oid=7 interval=7458 count=10 add=331
 queue_step oid=7 interval=11717 count=4 add=1281
 ```
 
-Смотрите [mcu commands](MCU_Commands.md) документ для получения информации о доступных командах. См. раздел [debugging](Debugging.md) документ для получения информации о том, как преобразовать файл G-кода в соответствующие команды микроконтроллера, доступные для чтения человеком.
+Смотрите [mcu commands](MCU_Commands.md) документ для получения информации о доступных командах. См. документ [отладка](Debugging.md) для получения информации о том, как преобразовать файл G-кода в соответствующие команды микроконтроллера, доступные для чтения человеком.
 
 На этой странице представлено высокоуровневое описание самого протокола обмена сообщениями Klipper. В нем описывается, как сообщения объявляются, кодируются в двоичном формате (схема "сжатия") и передаются.
 
-Цель протокола - обеспечить безошибочный канал связи между хостом и микроконтроллером с низкой задержкой, низкой пропускной способностью и низкой сложностью для микроконтроллера.
+Цель протокола — обеспечить безошибочную работу канала связи между хостом и микроконтроллером с низкой задержкой, низкой пропускной способностью и низкой сложностью для микроконтроллера.
 
 ## Интерфейс микроконтроллера
 
 The Klipper transmission protocol can be thought of as a [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) mechanism between micro-controller and host. The micro-controller software declares the commands that the host may invoke along with the response messages that it can generate. The host uses that information to command the micro-controller to perform actions and to interpret the results.
 
-### Declaring commands
+### Объявление команд
 
-The micro-controller software declares a "command" by using the DECL_COMMAND() macro in the C code. For example:
+Программное обеспечение микроконтроллера объявляет "команду" с помощью макроса DECL_COMMAND() в коде на C. Например:
 
 ```
 DECL_COMMAND(command_update_digital_out, "update_digital_out oid=%c value=%c");

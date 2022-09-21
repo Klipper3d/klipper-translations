@@ -2,7 +2,7 @@
 
 Ez a dokumentum néhány tippet ad a Klipperrel használható "szeletelő" alkalmazás konfigurálásához. A Klipperrel együtt használt gyakori szeletelőprogramok a Slic3r, Cura, Simplify3D stb.
 
-## Állítsa be a G-kód ízét Marlinra
+## Állítsd be a G-kód ízét Marlinra
 
 Sok szeletelőprogram rendelkezik a "G-kód ízének" konfigurálási lehetőséggel. Az alapértelmezett gyakran a "Marlin", és ez jól működik a Klipperrel. A "Smoothieware" beállítás szintén jól működik a Klipperrel.
 
@@ -34,7 +34,7 @@ Ez a beállítás drámai változásokat okozhat az extrudálási sebességben, 
 
 ## A "PreloadVE" letiltása a KISSlicer-en
 
-Ha a KISSlicer szeletelőszoftvert használja, akkor állítsa a "PreloadVE" értéket nullára. Fontolja meg helyette a Klipper [nyomás előtolás](Pressure_Advance.md) használatát.
+Ha a KISSlicer szeletelőszoftvert használja, akkor állítsd a "PreloadVE" értéket nullára. Fontolja meg helyette a Klipper [nyomás előtolás](Pressure_Advance.md) használatát.
 
 ## Tiltja a "fejlett nyomás előtolás" beállításokat
 

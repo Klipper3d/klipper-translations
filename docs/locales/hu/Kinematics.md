@@ -62,7 +62,7 @@ A fentiekben a gyorsításról lassításra történő gyakori váltás a gép r
 
 ![smoothed](img/smoothed.svg.png)
 
-Konkrétan, a kód kiszámítja, hogy mi lenne az egyes mozgások sebessége, ha az adott virtuális "gyorsulás-lassulás" sebességre korlátozódna (alapértelmezés szerint a normál gyorsulási sebesség fele). A fenti képen a szaggatott szürke vonalak ezt a virtuális gyorsulási sebességet jelölik az első mozdulatnál. Ha egy mozgás nem tudja elérni a teljes utazósebességét ezzel a virtuális gyorsulási sebességgel, akkor a végsebessége arra a maximális sebességre csökken, amelyet ezzel a virtuális gyorsulási sebességgel elérhetne. A legtöbb mozgás esetében ez a határérték a mozgás meglévő határértékeinél vagy azok felett lesz, és nem változik a viselkedés. Rövid cikk-cakk mozgások esetén azonban ez a határ csökkenti a csúcssebességet. Vegye figyelembe, hogy ez nem változtatja meg a tényleges gyorsulást a mozgáson belül. A mozgás továbbra is a normál gyorsulási sémát használja a beállított csúcssebességig.
+Konkrétan, a kód kiszámítja, hogy mi lenne az egyes mozgások sebessége, ha az adott virtuális "gyorsulás-lassulás" sebességre korlátozódna (alapértelmezés szerint a normál gyorsulási sebesség fele). A fenti képen a szaggatott szürke vonalak ezt a virtuális gyorsulási sebességet jelölik az első mozdulatnál. Ha egy mozgás nem tudja elérni a teljes utazósebességét ezzel a virtuális gyorsulási sebességgel, akkor a végsebessége arra a maximális sebességre csökken, amelyet ezzel a virtuális gyorsulási sebességgel elérhetne. A legtöbb mozgás esetében ez a határérték a mozgás meglévő határértékeinél vagy azok felett lesz, és nem változik a viselkedés. Rövid cikk-cakk mozgások esetén azonban ez a határ csökkenti a csúcssebességet. Vedd figyelembe, hogy ez nem változtatja meg a tényleges gyorsulást a mozgáson belül. A mozgás továbbra is a normál gyorsulási sémát használja a beállított csúcssebességig.
 
 ## Lépések generálása
 
@@ -157,7 +157,7 @@ Az alapvető nyomás előtolás képlete az extruder motorjának hirtelen sebess
 
 ![pressure-advance](img/pressure-velocity.png)
 
-A fenti grafikon egy példát mutat két olyan extrudálási mozgásra, amelyek között a kanyarsebesség nem nulla. Vegye figyelembe, hogy a nyomás előtolás rendszer miatt a gyorsítás során további szálak kerülnek az extruderbe. Minél nagyobb a kívánt száláramlási sebesség, annál több szálat kell betolni a gyorsítás során a nyomás miatt. A fej lassítása során a plusz szál visszahúzódik (az extruder sebessége negatív lesz).
+A fenti grafikon egy példát mutat két olyan extrudálási mozgásra, amelyek között a kanyarsebesség nem nulla. Vedd figyelembe, hogy a nyomás előtolás rendszer miatt a gyorsítás során további szálak kerülnek az extruderbe. Minél nagyobb a kívánt száláramlási sebesség, annál több szálat kell betolni a gyorsítás során a nyomás miatt. A fej lassítása során a plusz szál visszahúzódik (az extruder sebessége negatív lesz).
 
 A "simítás" az extruder pozíciójának súlyozott átlagával történik egy kis időintervallumban (ahogyan azt a `pressure_advance_smooth_time` konfigurációs paraméter megadja). Ez az átlagolás több G-kód mozgást is átfoghat. Figyelje meg, hogy az extrudermotor az első extrudermozgás névleges kezdete előtt elkezd mozogni, és az utolsó extrudermozgás névleges vége után is mozogni fog.
 

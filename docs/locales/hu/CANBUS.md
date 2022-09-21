@@ -30,7 +30,7 @@ Ne feledje, hogy a "Raspberry Pi CAN sapka" is megköveteli a [config.txt módos
 
 A CAN-buszon két 120 ohmos ellenállásnak kell lennie a CANH és CANL vezetékek között. Ideális esetben egy-egy ellenállás a busz mindkét végén található.
 
-Vegye figyelembe, hogy egyes eszközök beépített 120 ohmos ellenállással rendelkeznek (például a "Waveshare Raspberry Pi CAN sapka" egy beforrasztott ellenállással rendelkezik, amelyet nem lehet könnyen eltávolítani). Egyes eszközök egyáltalán nem tartalmaznak ellenállást. Más eszközök rendelkeznek egy mechanizmussal az ellenállás kiválasztására (általában egy "pin jumper" csatlakoztatásával). Mindenképpen ellenőrizze a CAN-buszon lévő összes eszköz kapcsolási rajzát, hogy a buszon két és csak két 120 Ohm-os ellenállás van-e.
+Vedd figyelembe, hogy egyes eszközök beépített 120 ohmos ellenállással rendelkeznek (például a "Waveshare Raspberry Pi CAN sapka" egy beforrasztott ellenállással rendelkezik, amelyet nem lehet könnyen eltávolítani). Egyes eszközök egyáltalán nem tartalmaznak ellenállást. Más eszközök rendelkeznek egy mechanizmussal az ellenállás kiválasztására (általában egy "pin jumper" csatlakoztatásával). Mindenképpen ellenőrizze a CAN-buszon lévő összes eszköz kapcsolási rajzát, hogy a buszon két és csak két 120 Ohm-os ellenállás van-e.
 
 Az ellenállások értékének teszteléséhez a nyomtatót áramtalaníthatja, és egy multi-méterrel ellenőrizheti a CANH és CANL vezetékek közötti ellenállást. Egy helyesen bekötött CAN-buszon ~60 ohmot kell mérnie.
 
@@ -50,7 +50,7 @@ Talált canbus_uuid=11aa22bb33cc, Alkalmazás: Klipper
 
 Minden eszköz egyedi azonosítóval rendelkezik. A fenti példában `11aa22bb33cc` a mikrokontroller "canbus_uuid" azonosítója.
 
-Vegye figyelembe, hogy a `canbus_query.py` eszköz csak az inicializálatlan eszközöket jelzi. Ha a Klipper (vagy egy hasonló eszköz) konfigurálja az eszközt, akkor az már nem jelenik meg a listában.
+Vedd figyelembe, hogy a `canbus_query.py` eszköz csak az inicializálatlan eszközöket jelzi. Ha a Klipper (vagy egy hasonló eszköz) konfigurálja az eszközt, akkor az már nem jelenik meg a listában.
 
 ## A Klipper beállítása
 

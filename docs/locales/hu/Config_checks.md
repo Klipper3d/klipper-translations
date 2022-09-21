@@ -6,11 +6,11 @@ Az útmutató során szükség lehet a Klipper konfigurációs fájljának módo
 
 ## Ellenőrizze a hőmérsékletet
 
-Kezdje azzal, hogy ellenőrzi, a hőmérséklet megfelelően van-e jelentve. Lépjen az Octoprint hőmérséklet lapjára.
+Kezd azzal, hogy ellenőrzöd, a hőmérséklet megfelelően van-e jelentve. Lépj az Octoprint hőmérséklet lapjára.
 
 ![octoprint-temperature](img/octoprint-temperature.png)
 
-Ellenőrizze, hogy a fúvóka és az ágy hőmérséklete (ha van) jelen van-e, és nem emelkedik. Ha növekszik, kapcsolja ki a nyomtatót. Ha a hőmérsékletek nem pontosak, tekintse át a fúvóka és/vagy ágy "sensor_type" és "sensor_pin" beállításait.
+Ellenőrizze, hogy a fúvóka és a tárgyasztal hőmérséklete (ha van) jelen van-e, és nem emelkedik. Ha növekszik, kapcsolja ki a nyomtatót. Ha a hőmérsékletek nem pontosak, tekintse át a fúvóka és/vagy tárgyasztal "sensor_type" és "sensor_pin" beállításait.
 
 ## Ellenőrzés M112
 
@@ -20,9 +20,9 @@ Az M112 parancs hatására a Klipper "leállítás" állapotba kerül. Ennek az 
 
 ## Ellenőrizze a fűtőtesteket
 
-Navigáljon az Octoprint hőmérséklet fülre, és írja be az 50-et, majd nyomjon Entert az "Eszköz" hőmérséklet mezőbe. Az extruder hőmérsékletének a grafikonon növekednie kell (körülbelül 30 másodpercen belül). Ezután lépjen a "Eszköz" hőmérséklet legördülő mezőbe, és válassza az "Off" lehetőséget. Néhány perc múlva a hőmérsékletnek el kell kezdenie visszaesni a kezdeti hőmérséklet felé. Ha a hőmérséklet nem emelkedik, akkor ellenőrizze a "heater_pin" beállítását a konfigurációs fájban.
+Navigáljon az Octoprint hőmérséklet fülre, és írja be az 50-et, majd nyomjon Entert az "Eszköz" hőmérséklet mezőbe. Az extruder hőmérsékletének a grafikonon növekednie kell (körülbelül 30 másodpercen belül). Ezután lépj az "Eszköz" hőmérséklet legördülő mezőbe, és válassza az "Off" lehetőséget. Néhány perc múlva a hőmérsékletnek el kell kezdenie visszaesni a kezdeti hőmérséklet felé. Ha a hőmérséklet nem emelkedik, akkor ellenőrizze a "heater_pin" beállítását a konfigurációs fájban.
 
-Ha a nyomtató fűtött ággyal rendelkezik, akkor végezze el a fenti vizsgálatot az ágynál is.
+Ha a nyomtató fűtött ággyal rendelkezik, akkor végezze el a fenti vizsgálatot a tárgyasztalnál is.
 
 ## A léptetőmotor engedélyező tű ellenőrzése
 
@@ -30,7 +30,7 @@ Ellenőrizze, hogy a nyomtató minden tengelye manuálisan szabadon mozog-e (a l
 
 ## Végállások ellenőrzése
 
-Kézzel mozgassa az összes nyomtatótengelyt úgy, hogy egyikük se érintkezzen végállással. Küldjön QUERY_ENDSTOPS parancsot az Octoprint terminál lapján keresztül. A nyomtatónak válaszolnia kell az összes konfigurált végállás aktuális állapotával, és mindegyiknek "open" állapotot kell jeleznie. Az egyes végleállások esetében futtassa újra a QUERY_ENDSTOPS parancsot, miközben manuálisan indítja el a végleállást. A QUERY_ENDSTOPS parancsnak jeleznie kell a végállást, mint "TRIGGERED".
+Kézzel mozgasd az összes nyomtatótengelyt úgy, hogy egyikük se érintkezzen végállással. Küldjön QUERY_ENDSTOPS parancsot az Octoprint terminál lapján keresztül. A nyomtatónak válaszolnia kell az összes konfigurált végállás aktuális állapotával, és mindegyiknek "open" állapotot kell jeleznie. Az egyes végleállások esetében futtassa újra a QUERY_ENDSTOPS parancsot, miközben manuálisan indítja el a végleállást. A QUERY_ENDSTOPS parancsnak jeleznie kell a végállást, mint "TRIGGERED".
 
 Ha a végállás inverznek tűnik (a kiváltáskor "open" jelzést ad, és fordítva), akkor adjunk hozzá egy "!" -t a tű definícióhoz (például "endstop_pin: ^!ar3"), vagy távolítsuk el a "!" -t, ha már van ilyen.
 
@@ -38,31 +38,31 @@ Ha a végállás egyáltalán nem változik, akkor ez általában azt jelzi, hog
 
 ## Léptetőmotorok ellenőrzése
 
-A STEPPER_BUZZ parancs segítségével ellenőrizze az egyes léptetőmotorok csatlakozását. Kezdje az adott tengely kézi pozicionálásával egy középső pontra, majd futtassa a `STEPPER_BUZZ STEPPER=stepper_x` parancsot. A STEPPER_BUZZ parancs hatására az adott stepper egy millimétert mozdul pozitív irányba, majd visszatér a kiindulási helyzetébe. (Ha a végállást a position_endstop=0 értéken definiáljuk, akkor minden egyes mozgás kezdetén a léptető a végállástól távolodik). Ezt a mozgást tízszer fogja végrehajtani.
+A STEPPER_BUZZ parancs segítségével ellenőrizze az egyes léptetőmotorok csatlakozását. Kezd az adott tengely kézi pozicionálásával egy középső pontra, majd futtassa a `STEPPER_BUZZ STEPPER=stepper_x` parancsot. A STEPPER_BUZZ parancs hatására az adott stepper egy millimétert mozdul pozitív irányba, majd visszatér a kiindulási helyzetébe. (Ha a végállást a position_endstop=0 értéken definiáljuk, akkor minden egyes mozgás kezdetén a léptető a végállástól távolodik). Ezt a mozgást tízszer fogja végrehajtani.
 
 Ha a léptető egyáltalán nem mozog, akkor ellenőrizze az "enable_pin" és "step_pin" beállításokat a léptetőnél. Ha a léptetőmotor mozog, de nem tér vissza az eredeti helyzetébe, akkor ellenőrizze a "dir_pin" beállítást. Ha a léptetőmotor helytelen irányban mozog, akkor ez általában azt jelzi, hogy a tengely "dir_pin" beállítását meg kell fordítani. Ezt úgy lehet megtenni, hogy a nyomtató konfigurációs fájlban a "dir_pin" értékhez hozzáadunk egy '!' jelet (vagy eltávolítjuk, ha már van ilyen). Ha a motor egy milliméternél lényegesen többet vagy lényegesen kevesebbet mozog, akkor ellenőrizze a "rotation_distance" beállítást.
 
-Futtassa a fenti tesztet a konfigurációs fájlban definiált minden egyes léptetőmotorra. (Állítsa a STEPPER_BUZZ parancs STEPPER paraméterét a tesztelendő konfigurációs szakasz nevére). Ha nincs nyomtatószál az extruderben, akkor a STEPPER_BUZZ paranccsal ellenőrizheti az extruder motor csatlakozását (használja a STEPPER=extruder parancsot). Ellenkező esetben a legjobb ha az extruder motort külön teszteljük (lásd a következő szakaszt).
+Futtassa a fenti tesztet a konfigurációs fájlban definiált minden egyes léptetőmotorra. (Állítsd a STEPPER_BUZZ parancs STEPPER paraméterét a tesztelendő konfigurációs szakasz nevére). Ha nincs nyomtatószál az extruderben, akkor a STEPPER_BUZZ paranccsal ellenőrizheti az extruder motor csatlakozását (használja a STEPPER=extruder parancsot). Ellenkező esetben a legjobb ha az extruder motort külön teszteljük (lásd a következő szakaszt).
 
 Az összes végállás és léptetőmotor ellenőrzése után a célba állítási mechanizmust tesztelni kell. Adjon ki egy G28 parancsot az összes tengely alaphelyzetbe állításához. Ha a nyomtató nem állítható be megfelelően, kapcsolja ki a nyomtatót. Ha szükséges, ismételje meg a végállás és a léptetőmotorok ellenőrzését.
 
 ## Extruder motor ellenőrzése
 
-Az extruder motor teszteléséhez a nyomtatófejet nyomtatási hőmérsékletre kell melegíteni. Navigáljon az Octoprint hőmérséklet fülre, és válasszon ki egy célhőmérsékletet a hőmérséklet legördülő menüből (vagy adja meg manuálisan a megfelelő hőmérsékletet). Várja meg, amíg a nyomtató eléri a kívánt hőmérsékletet. Ezután navigáljon az Octoprint vezérlő lapra, és kattintson az "Extrudálás" gombra. Ellenőrizze, hogy az extruder motorja a megfelelő irányba forog-e. Ha nem, akkor az előző szakaszban található hibaelhárítási tippek alapján ellenőrizze az extruder "enable_pin", "step_pin" és "dir_pin" beállításait.
+Az extruder motor teszteléséhez a nyomtatófejet nyomtatási hőmérsékletre kell melegíteni. Navigáljon az Octoprint hőmérséklet fülre, és válasszon ki egy célhőmérsékletet a hőmérséklet legördülő menüből (vagy add meg manuálisan a megfelelő hőmérsékletet). Várja meg, amíg a nyomtató eléri a kívánt hőmérsékletet. Ezután navigáljon az Octoprint vezérlő lapra, és kattintson az "Extrudálás" gombra. Ellenőrizze, hogy az extruder motorja a megfelelő irányba forog-e. Ha nem, akkor az előző szakaszban található hibaelhárítási tippek alapján ellenőrizze az extruder "enable_pin", "step_pin" és "dir_pin" beállításait.
 
 ## PID beállítások kalibrálása
 
-A Klipper támogatja a [PID-szabályozást](https://hu.wikipedia.org/wiki/PID_szab%C3%A1lyoz%C3%B3) az extruder és az ágyfűtés számára. Ahhoz, hogy ezt a vezérlési mechanizmust használni lehessen, a PID-beállításokat minden nyomtatónál kalibrálni kell (a más firmware-ekben vagy a példakonfigurációs fájlokban található PID-beállítások gyakran rosszul működnek).
+A Klipper támogatja a [PID-szabályozást](https://hu.wikipedia.org/wiki/PID_szab%C3%A1lyoz%C3%B3) az extruder és a tárgyasztal fűtés számára. Ahhoz, hogy ezt a vezérlési mechanizmust használni lehessen, a PID-beállításokat minden nyomtatónál kalibrálni kell (a más firmware-ekben vagy a példakonfigurációs fájlokban található PID-beállítások gyakran rosszul működnek).
 
 Az extruder kalibrálásához navigáljon az OctoPrint terminál fülre, és futtassa a PID_CALIBRATE parancsot. Például: `PID_CALIBRATE HEATER=extruder TARGET=170`
 
 A hangolási teszt végén futtassa a `SAVE_CONFIG` parancsot a printer.cfg fájl új PID-beállításainak frissítéséhez.
 
-Ha a nyomtató fűtött ággyal rendelkezik, és az támogatja a PWM (impulzusszélesség-moduláció) vezérlést, akkor ajánlott PID vezérlést használni az ágyhoz. (Ha az ágyfűtést PID algoritmussal vezérli, akkor másodpercenként tízszer is be- és kikapcsolhat, ami nem biztos, hogy megfelelő a mechanikus kapcsolót használó fűtőberendezésekhez.) A tipikus ágy PID-kalibrálási parancs: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
+Ha a nyomtató fűtött ággyal rendelkezik, és az támogatja a PWM (impulzusszélesség-moduláció) vezérlést, akkor ajánlott PID vezérlést használni a tárgyasztalhoz. (Ha a tárgyasztal fűtést PID algoritmussal vezérli, akkor másodpercenként tízszer is be- és kikapcsolhat, ami nem biztos, hogy megfelelő a mechanikus kapcsolót használó fűtőberendezésekhez.) A tipikus tárgyasztal PID-kalibrálási parancs: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
 
 ## Következő lépések
 
-Ez az útmutató a Klipper konfigurációs fájlban lévő tű-beállítások alapvető ellenőrzéséhez nyújt segítséget. Mindenképpen olvassa el az [ágy szintezése](Bed_Level.md) útmutatót. A Klipperrel történő szeletelő konfigurálásával kapcsolatos információkért olvassa el a [Szeletelők](Slicers.md) dokumentumot is.
+Ez az útmutató a Klipper konfigurációs fájlban lévő tű-beállítások alapvető ellenőrzéséhez nyújt segítséget. Mindenképpen olvassa el a [tárgyasztal szintezése](Bed_Level.md) útmutatót. A Klipperrel történő szeletelő konfigurálásával kapcsolatos információkért olvassa el a [Szeletelők](Slicers.md) dokumentumot is.
 
 Miután meggyőződtünk arról, hogy az alapnyomtatás működik, érdemes megfontolni a [nyomás előtolás](Pressure_Advance.md) kalibrálását.
 

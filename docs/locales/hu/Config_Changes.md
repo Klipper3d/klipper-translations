@@ -18,7 +18,7 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 20220307: `M73` már nem állítja 0-ra a nyomtatás előrehaladását, ha `P` hiányzik.
 
-20220304: Az [extruder_stepper](Config_Reference.md#extruder_stepper) konfigurációs szakaszok `extruder` paramétere már nem alapértelmezett. Ha szükséges, adja meg kifejezetten az `extruder: extruder` paramétert, hogy a léptetőmotort indításkor az "extruder" mozgássorhoz társítsa.
+20220304: Az [extruder_stepper](Config_Reference.md#extruder_stepper) konfigurációs szakaszok `extruder` paramétere már nem alapértelmezett. Ha szükséges, add meg kifejezetten az `extruder: extruder` paramétert, hogy a léptetőmotort indításkor az "extruder" mozgássorhoz társítsa.
 
 20220210: A `SYNC_STEPPER_TO_EXTRUDER` parancs elavult; a `SET_EXTRUDER_STEP_DISTANCE` parancs elavult; az [extruder](Config_Reference.md#extruder) `shared_heater` config opció elavult. Ezek a funkciók a közeljövőben eltávolításra kerülnek. A `SET_EXTRUDER_STEP_DISTANCE` helyett `SET_EXTRUDER_ROTATION_DISTANCE`. Cserélje ki a `SYNC_STEPPER_TO_EXTRUDER` értéket a `SYNC_EXTRUDER_MOTION` értékre. Cserélje ki a `shared_heater` extruder konfigurációs szakaszokat [extruder_stepper](Config_Reference.md#extruder_stepper) konfigurációs szakaszokra, és frissítse az aktiválási makrókat a [SYNC_EXTRUDER_MOTION](G-Codes.md#sync_extruder_motion) használatára.
 
@@ -79,11 +79,11 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20201213: A "probe:z_virtual_endstop" használatakor nem érvényes a Z "position_endstop" megadása. Mostantól hibaüzenet jelenik meg, ha Z "position_endstop" van megadva a "probe:z_virtual_endstop" használatával. A hiba kijavításához távolítsa el a Z "position_endstop" meghatározást.
 
-20201120: A `[board_pins]` config szakasz most már explicit `mcu:` paraméterben adja meg az MCU nevét. Ha board_pins-t használunk egy másodlagos MCU-hoz, akkor a configot frissíteni kell, hogy megadja ezt a nevet. További részletekért lásd a [konfigurációs referenciát](Config_Reference.md#board_pins).
+20201120: A `[board_pins]` config szakasz most már explicit `mcu:` paraméterben add meg az MCU nevét. Ha board_pins-t használunk egy másodlagos MCU-hoz, akkor a configot frissíteni kell, hogy megadd ezt a nevet. További részletekért lásd a [konfigurációs referenciát](Config_Reference.md#board_pins).
 
 20201112: A `print_stats.print_duration` által bejelentett idő megváltozott. Az első észlelt extrudálás előtti időtartamot mostantól nem veszi figyelembe.
 
-20201029: A neopixel `color_order_GRB` config opciót eltávolítottuk. Szükség esetén frissítse a configot, hogy az új `color_order` opciót RGB, GRB, RGBW vagy GRBW értékre állítsa be.
+20201029: A neopixel `color_order_GRB` config opciót eltávolítottuk. Szükség esetén frissítse a configot, hogy az új `color_order` opciót RGB, GRB, RGBW vagy GRBW értékre állítsd be.
 
 20201029: A serial opció az mcu config szakaszban már nem /dev/ttyS0 az alapértelmezett érték. Abban a ritka helyzetben, amikor a /dev/ttyS0 a kívánt soros port, azt kifejezetten meg kell adni.
 
@@ -113,15 +113,15 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20200425: A gcode_macro parancs sablonváltozója `printer.heater` át lett nevezve `printer.heaters`-re.
 
-20200313: A 16x4-es képernyővel és a több extruderrel rendelkező nyomtatók alapértelmezett LCD-kiosztása megváltozott. Mostantól az egy extruderrel rendelkező képernyő elrendezése az alapértelmezett, és az aktuálisan aktív extrudert mutatja. A korábbi kijelző elrendezés használatához állítsa be a "display_group: _multiextruder_16x4" a printer.cfg fájl [display] szakaszában.
+20200313: A 16x4-es képernyővel és a több extruderrel rendelkező nyomtatók alapértelmezett LCD-kiosztása megváltozott. Mostantól az egy extruderrel rendelkező képernyő elrendezése az alapértelmezett, és az aktuálisan aktív extrudert mutatja. A korábbi kijelző elrendezés használatához állítsd be a "display_group: _multiextruder_16x4" a printer.cfg fájl [display] szakaszában.
 
 20200308: Az alapértelmezett `__test` menüpont eltávolításra került. Ha a konfigurációs fájlban egyéni menü van, akkor mindenképpen távolítson el minden hivatkozást erre a `__test` menüpontra.
 
 20200308: A "pakli" és "kártya" menüpontok eltávolításra kerültek. Az LCD képernyő elrendezésének testreszabásához használd az új display_data config szakaszokat (a részletekért lásd a config/example-extras.cfg fájlt).
 
-20200109: A bed_mesh modul most már hivatkozik a szonda helyére a hálókonfigurációban. Ennek megfelelően néhány konfigurációs opciót átneveztek, hogy pontosabban tükrözze a tervezett funkciójukat. Téglalap alakú ágyak esetében a `min_point` és `max_point` átnevezésre került `mesh_min` és `mesh_max`-ra. A kerek ágyak esetében a `bed_radius` át lett nevezve `mesh_radius`-ra. A kerek ágyakhoz egy új `mesh_origin` opció is hozzá lett adva. Vegye figyelembe, hogy ezek a változások a korábban elmentett hálóprofilokkal is inkompatibilisek. Ha egy inkompatibilis profilt észlelünk, azt figyelmen kívül hagyjuk és eltávolításra ütemezzük. Az eltávolítási folyamat a SAVE_CONFIG parancs kiadásával fejezhető be. A felhasználónak minden egyes profilt újra kell kalibrálnia.
+20200109: A bed_mesh modul most már hivatkozik a szonda helyére a hálókonfigurációban. Ennek megfelelően néhány konfigurációs opciót átneveztek, hogy pontosabban tükrözze a tervezett funkciójukat. Téglalap alakú tárgyasztalok esetében a `min_point` és `max_point` átnevezésre került `mesh_min` és `mesh_max`-ra. A kerek tárgyasztalok esetében a `bed_radius` át lett nevezve `mesh_radius`-ra. A kerek tárgyasztalokhoz egy új `mesh_origin` opció is hozzá lett adva. Vedd figyelembe, hogy ezek a változások a korábban elmentett hálóprofilokkal is inkompatibilisek. Ha egy inkompatibilis profilt észlelünk, azt figyelmen kívül hagyjuk és eltávolításra ütemezzük. Az eltávolítási folyamat a SAVE_CONFIG parancs kiadásával fejezhető be. A felhasználónak minden egyes profilt újra kell kalibrálnia.
 
-20191218: A display config szakasz már nem támogatja az "lcd_type: st7567". Használja helyette az "uc1701" kijelzőtípust. Állítsa be az "lcd_type: uc1701" értéket, és módosítsa az "rs_pin: some_pin" értéket "rst_pin: some_pin" értékre. Szükség lehet még egy "contrast: 60" konfigurációs beállítás hozzáadására.
+20191218: A display config szakasz már nem támogatja az "lcd_type: st7567". Használja helyette az "uc1701" kijelzőtípust. Állítsd be az "lcd_type: uc1701" értéket, és módosítsa az "rs_pin: some_pin" értéket "rst_pin: some_pin" értékre. Szükség lehet még egy "contrast: 60" konfigurációs beállítás hozzáadására.
 
 20191210: A beépített T0, T1, T2, ... parancsok eltávolításra kerültek. Az extruder activate_gcode és deactivate_gcode konfigurációs opciók eltávolításra kerültek. Ha szükség van ezekre a parancsokra (és szkriptekre), akkor definiáljon egyedi [gcode_macro T0] stílusú makrókat, amelyek meghívják az ACTIVATE_EXTRUDER parancsot. Példákért lásd a config/sample-idex.cfg és sample-multi-extruder.cfg fájlokat.
 
@@ -179,7 +179,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20190228: A SAMD21 kártyákon SPI vagy I2C-t használóknak mostantól a [samd_sercom] config szakaszban kell megadniuk a BUSZ csatlakozásait.
 
-20190224: A bed_shape opciót eltávolítottuk a bed_mesh-ből. A radius opciót átneveztük bed_radiusra. A kerek ágyakkal rendelkező felhasználóknak a bed_radius és a round_probe_count opciókat kell megadniuk.
+20190224: A bed_shape opciót eltávolítottuk a bed_mesh-ből. A radius opciót átneveztük bed_radiusra. A kerek tárgyasztalokkal rendelkező felhasználóknak a bed_radius és a round_probe_count opciókat kell megadniuk.
 
 20190107: Az i2c_address paraméter az mcp4451 config szakaszban megváltozott. Ez egy gyakori beállítás a Smoothie alaplapokon. Az új érték a régi érték fele (a 88-as értéket 44-re, a 90-es értéket pedig 45-re kell módosítani).
 

@@ -58,7 +58,7 @@ Ha mindenképpen meg akarja változtatni az átviteli sebességet, akkor az új 
 baud: 250000
 ```
 
-Az OctoPrint weboldalon feltüntetett átviteli sebesség nincs hatással a Klipper mikrokontroller belső átviteli sebességére. Klipper használatakor az OctoPrint átviteli sebességét mindig 250000-re állítsa be.
+Az OctoPrint weboldalon feltüntetett átviteli sebesség nincs hatással a Klipper mikrokontroller belső átviteli sebességére. Klipper használatakor az OctoPrint átviteli sebességét mindig 250000-re állítsd be.
 
 A Klipper mikrovezérlő átviteli sebessége nem függ a mikrovezérlő bootloader átviteli sebességétől. A [bootloader dokumentum](Bootloaders.md) további információkat tartalmaz a bootloaderekkel kapcsolatban.
 
@@ -72,9 +72,9 @@ A Beaglebone-on való futtatáshoz lásd a [Beaglebone-specifikus telepítési u
 
 A Klipper más gépeken is futott. A Klipper gazdagép szoftverhez csak Python szükséges, amely Linux (vagy hasonló) számítógépen fut. Ha azonban más gépen szeretné futtatni, akkor Linux adminisztrátori ismeretekre lesz szüksége az adott gép rendszerkövetelményeinek telepítéséhez. A szükséges Linux-adminisztrátori lépésekről további információt az [install-octopi.sh](../scripts/install-octopi.sh) szkriptben talál.
 
-Ha a Klipper gazdagép szoftvert egy low-end chipen szeretné futtatni, akkor vegye figyelembe, hogy legalább egy "dupla pontosságú lebegőpontos" hardverrel rendelkező gépre van szükség.
+Ha a Klipper gazdagép szoftvert egy low-end chipen szeretné futtatni, akkor vedd figyelembe, hogy legalább egy "dupla pontosságú lebegőpontos" hardverrel rendelkező gépre van szükség.
 
-Ha a Klipper gazdagép szoftvert egy megosztott általános célú asztali vagy szerver osztályú gépen szeretné futtatni, akkor vegye figyelembe, hogy a Klippernek vannak bizonyos valós idejű ütemezési követelményei. Ha a nyomtatás során a gazdaszámítógép egyidejűleg intenzív általános célú számítási feladatot is végez (például merevlemez defragmentálása, 3D renderelés, nagymértékű swapolás stb.), akkor a Klipper nyomtatási hibákat jelenthet.
+Ha a Klipper gazdagép szoftvert egy megosztott általános célú asztali vagy szerver osztályú gépen szeretné futtatni, akkor vedd figyelembe, hogy a Klippernek vannak bizonyos valós idejű ütemezési követelményei. Ha a nyomtatás során a gazdaszámítógép egyidejűleg intenzív általános célú számítási feladatot is végez (például merevlemez defragmentálása, 3D renderelés, nagymértékű swapolás stb.), akkor a Klipper nyomtatási hibákat jelenthet.
 
 Megjegyzés: Ha nem OctoPi-képet használsz, vedd figyelembe, hogy számos Linux-disztribúció engedélyez egy "ModemManager" (vagy hasonló) csomagot, amely megzavarhatja a soros kommunikációt. (Ami miatt a Klipper véletlenszerűnek tűnő "Elveszett a kommunikáció az MCU-val" hibákat jelenthet.) Ha a Klippert ilyen disztribúcióra telepíti, akkor lehet, hogy le kell tiltania ezt a csomagot.
 
@@ -102,7 +102,7 @@ A Klipper létrehoz egy "virtuális soros portot" a "/tmp/printer" fájlon keres
 
 ## Miért nem tudom mozgatni a léptetőmotort a nyomtató kezdőpont felvétele előtt?
 
-A kód ezt azért teszi, hogy csökkentse annak esélyét, hogy a fejet véletlenül az ágyba vagy a falba ütköztesse. Miután a nyomtató kezdőponthoz ért, a szoftver megpróbálja ellenőrizni, hogy minden egyes mozgás a konfigurációs fájlban meghatározott position_min/max értéken belül van-e. Ha a motorok ki vannak kapcsolva (M84 vagy M18 parancs segítségével), akkor a motorokat a mozgás előtt újra be kell állítani.
+A kód ezt azért teszi, hogy csökkentse annak esélyét, hogy a fejet véletlenül a tárgyasztalba vagy a falba ütköztesse. Miután a nyomtató kezdőponthoz ért, a szoftver megpróbálja ellenőrizni, hogy minden egyes mozgás a konfigurációs fájlban meghatározott position_min/max értéken belül van-e. Ha a motorok ki vannak kapcsolva (M84 vagy M18 parancs segítségével), akkor a motorokat a mozgás előtt újra be kell állítani.
 
 Ha a fejet az OctoPrint segítségével történő nyomtatás törlése után szeretné elmozdítani, fontolja meg az OctoPrint törlési sorrendjének módosítását, hogy ezt megtegye Ön helyett. Ez az OctoPrintben a webböngészőn keresztül konfigurálható a következő menüpont alatt: Beállítások->GCODE szkriptek
 
@@ -112,7 +112,7 @@ Ha a nyomtatónak szüksége van további mozgatásra a kezdőpont felvételi fo
 
 ## Miért van a Z position_endstop 0,5-re állítva az alapértelmezett konfigurációban?
 
-A cartesian stílusú nyomtatók esetében a Z position_endstop megadja, hogy a fúvóka milyen messze van az ágytól, amikor a végállás működésbe lép. Ha lehetséges, ajánlott Z-max végállást használni, és az ágytól távolabb elhelyezni (mivel ez csökkenti az ágy ütközés lehetőségét). Ha azonban az ágy felé kell elindulni, akkor a végállást úgy kell beállítani, hogy akkor lépjen működésbe, amikor a fúvóka még mindig kis távolságra van az ágytól. Így a tengely homingolásakor a fúvóka még azelőtt megáll, hogy a fúvóka hozzáérne az ágyhoz. További információért lásd az [ágy szintezés dokumentumot](Bed_Level.md).
+A cartesian stílusú nyomtatók esetében a Z position_endstop megadja, hogy a fúvóka milyen messze van a tárgyasztaltól, amikor a végállás működésbe lép. Ha lehetséges, ajánlott Z-max végállást használni, és a tárgyasztaltól távolabb elhelyezni (mivel ez csökkenti a tárgyasztal ütközés lehetőségét). Ha azonban a tárgyasztal felé kell elindulni, akkor a végállást úgy kell beállítani, hogy akkor lépjen működésbe, amikor a fúvóka még mindig kis távolságra van a tárgyasztaltól. Így a tengely homingolásakor a fúvóka még azelőtt megáll, hogy a fúvóka hozzáérne a tárgyasztalhoz. További információért lásd a [tárgyasztal szintezés dokumentumot](Bed_Level.md).
 
 ## Átkonvertáltam a konfigurációmat Marlinból, és az X/Y tengelyek jól működnek, de a Z tengely kezdőpont felvételekor csak egy csikorgó zajt hallok
 
@@ -156,7 +156,7 @@ A gazdaszoftver külön kódot is tartalmaz a fűtőelemek és a hőmérséklet 
 
 ## Hogyan alakíthatok át egy Marlin tű számot Klipper tű névre?
 
-Rövid válasz: [sample-aliases.cfg](../config/sample-aliases.cfg) fájlban található leképezés. Használja ezt a fájlt útmutatóként a tényleges mikrokontroller tű nevek megtalálásához. (Az is lehetséges, hogy a vonatkozó [board_pins](Config_Reference.md#board_pins) config szakaszt átmásolja a config fájljába, és használja az álneveket a configban, de előnyösebb a tényleges mikrokontroller tű nevek lefordítása és használata.) Vegye figyelembe, hogy a sample-aliases.cfg fájl olyan tű neveket használ, amelyek "ar" előtaggal kezdődnek "D" helyett (pl. az Arduino tű `D23` a Klipper álnév `ar23`) és az "analog" helyett "A" (pl. az Arduino tű `A14` a Klipper álnév `analog14`).
+Rövid válasz: [sample-aliases.cfg](../config/sample-aliases.cfg) fájlban található leképezés. Használja ezt a fájlt útmutatóként a tényleges mikrokontroller tű nevek megtalálásához. (Az is lehetséges, hogy a vonatkozó [board_pins](Config_Reference.md#board_pins) config szakaszt átmásolja a config fájljába, és használja az álneveket a configban, de előnyösebb a tényleges mikrokontroller tű nevek lefordítása és használata.) Vedd figyelembe, hogy a sample-aliases.cfg fájl olyan tű neveket használ, amelyek "ar" előtaggal kezdődnek "D" helyett (pl. az Arduino tű `D23` a Klipper álnév `ar23`) és az "analog" helyett "A" (pl. az Arduino tű `A14` a Klipper álnév `analog14`).
 
 Hosszú válasz: Klipper a mikrokontroller által meghatározott szabványos tű neveket használja. Az Atmega chipeken ezek a hardveres tűk olyan neveket viselnek, mint `PA4`, `PC7`, vagy `PD2`.
 
@@ -190,7 +190,7 @@ Bizonyos értelemben igen. Indítsa el a nyomtatót, adjon ki egy `GET_POSITION`
 
 Ez hasznos lehet a beállítások, például a léptetőmotorok áramának, gyorsulásának és sebességének beállításához anélkül, hogy ténylegesen nyomtatnod kellene valamit és pazarolnod kellene a szálakat: csak futtass néhány nagy sebességű mozgást a `GET_POSITION` parancsok között.
 
-Vegye figyelembe, hogy a végálláskapcsolók maguk is hajlamosak kissé eltérő pozícióban kioldani, így a néhány mikrolépésnyi különbség valószínűleg a végállás pontatlanságának eredménye. Maga a léptetőmotor csak 4 teljes lépésenként képes lépéseket veszíteni. (Tehát, ha 16 mikrolépést használunk, akkor a léptető egy elvesztett lépése azt eredményezi, hogy az "mcu:" lépésszámláló 64 mikrolépés többszörösével téved.)
+Vedd figyelembe, hogy a végálláskapcsolók maguk is hajlamosak kissé eltérő pozícióban kioldani, így a néhány mikrolépésnyi különbség valószínűleg a végállás pontatlanságának eredménye. Maga a léptetőmotor csak 4 teljes lépésenként képes lépéseket veszíteni. (Tehát, ha 16 mikrolépést használunk, akkor a léptető egy elvesztett lépése azt eredményezi, hogy az "mcu:" lépésszámláló 64 mikrolépés többszörösével téved.)
 
 ## Miért jelent hibát a Klipper? Elrontotta a nyomtatásomat!
 
