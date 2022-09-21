@@ -24,9 +24,9 @@ Ha a Laserwebet használja, akkor a következő konfiguráció működhet:
 
     GCODE START:
         M5            ; Lézer letiltása
-        G21           ;Állítsa az egységeket mm-re
+        G21           ;Állítsd az egységeket mm-re
         G90           ; Abszolút pozicionálás
-        G0 Z0 F7000   ;Állítsa be a nem vágási sebességet
+        G0 Z0 F7000   ;Állítsd be a nem vágási sebességet
     
     GCODE END:
         M5            ; Lézer letiltása

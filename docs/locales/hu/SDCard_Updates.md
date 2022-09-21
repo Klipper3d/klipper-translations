@@ -25,7 +25,7 @@ A támogatott alaplapok a következő paranccsal listázhatók:
 ./scripts/flash-sdcard.sh -l
 ```
 
-Ha nem látod az alaplapodat a listában, akkor lehet, hogy új alaplap definíciót kell hozzáadnod a [lentebb leírtak szerint](#board-definitions).
+Ha nem látod az alaplapodat a listában, akkor lehet, hogy új alaplap definíciót kell hozzáadnod a [lentebb leírtak szerint](#alaplap-definiciok).
 
 ## Fejlett felhasználás
 

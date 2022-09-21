@@ -4,7 +4,7 @@ Telepítés és Konfiguráció
 
 Konfigurációs Hivatkozás
 
-Ágy szint
+Tárgyasztal szint
 
 Rezonancia Kompenzáció
 

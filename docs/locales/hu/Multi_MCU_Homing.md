@@ -12,4 +12,4 @@ A léptetőmotor túllendülése nem befolyásolhatja hátrányosan az alaphelyz
 
 Ha a Klipper kommunikációs problémát észlel a mikrovezérlők között a multi-mcu homing során, akkor egy "Kommunikációs időkiesés a kezdőpont felvétel során" hibát jelez.
 
-Vegye figyelembe, hogy a több léptetővel rendelkező tengelyeknek (pl. `stepper_z` és `stepper_z1`) ugyanazon a mikrokontrolleren kell lenniük a multi-mcu homing használatához. Például, ha egy végállás a `stepper_z` mikrokontrollertől külön mikrokontrolleren van, akkor a `stepper_z1`-nek ugyanazon a mikrokontrolleren kell lennie, mint a `stepper_z`.
+Vedd figyelembe, hogy a több léptetővel rendelkező tengelyeknek (pl. `stepper_z` és `stepper_z1`) ugyanazon a mikrokontrolleren kell lenniük a multi-mcu homing használatához. Például, ha egy végállás a `stepper_z` mikrokontrollertől külön mikrokontrolleren van, akkor a `stepper_z1`-nek ugyanazon a mikrokontrolleren kell lennie, mint a `stepper_z`.

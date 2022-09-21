@@ -78,7 +78,7 @@ A Klipper "végpontok" a konvenció szerint a `<module_name>/<some_name>` formá
 
 ### infó
 
-Az "info" végpontot a Klipper rendszert és verzióinformációinak lekérdezésére használjuk. Arra is szolgál, hogy a kliens verziót a Klipper számára megadja. Például: `{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}}`
+Az "info" végpontot a Klipper rendszert és verzióinformációinak lekérdezésére használjuk. Arra is szolgál, hogy a kliens verziót a Klipper számára megadd. Például: `{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}}`
 
 Ha jelen van a "client_info" paraméter egy szótárnak kell lennie, de a szótár tetszőleges tartalmú lehet. A felhasználóknak ajánlott megadniuk az ügyfél nevét és a szoftver verzióját, amikor először csatlakoznak a Klipper API kiszolgálóhoz.
 

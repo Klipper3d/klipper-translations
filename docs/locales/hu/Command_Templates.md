@@ -83,7 +83,7 @@ gcode:
   M117 Now at { params.VALUE|float * 100 }%
 ```
 
-`SET_PERCENT VALUE=.2` értéket adna, akkor `M117 Most 20%-os értéken`. Vegye figyelembe, hogy a paraméternevek a makróban történő kiértékeléskor mindig nagybetűsek, és mindig karakterláncként kerülnek átadásra. Ha matematikai műveletet hajtunk végre, akkor azokat explicit módon egész számokká vagy lebegőszámokká kell konvertálni.
+`SET_PERCENT VALUE=.2` értéket adna, akkor `M117 Most 20%-os értéken`. Vedd figyelembe, hogy a paraméternevek a makróban történő kiértékeléskor mindig nagybetűsek, és mindig karakterláncként kerülnek átadásra. Ha matematikai műveletet hajtunk végre, akkor azokat explicit módon egész számokká vagy lebegőszámokká kell konvertálni.
 
 Gyakori a Jinja2 `set` direktíva használata egy alapértelmezett paraméter használatához és az eredmény hozzárendelése egy helyi névhez. Például:
 
@@ -98,7 +98,7 @@ gcode:
 
 A futó makró teljes, be nem elemzett paraméterei a `rawparams` pszeudováltozóval érhetők el.
 
-Vegye figyelembe, hogy ez magában foglalja az eredeti parancs részét képező megjegyzéseket is.
+Vedd figyelembe, hogy ez magában foglalja az eredeti parancs részét képező megjegyzéseket is.
 
 A [sample-macros.cfg](../config/sample-macros.cfg) fájlban található egy példa arra, hogyan lehet felülírni az `M117` parancsot a `rawparams` használatával.
 
@@ -129,7 +129,7 @@ gcode:
 
 ## Tevékenységek
 
-A nyomtató állapotának megváltoztatására néhány parancs áll rendelkezésre. Például az `{ action_emergency_stop() }` a nyomtatót leállítási állapotba helyezi. Vegye figyelembe, hogy ezek a műveletek a makró kiértékelésének időpontjában történnek, ami jelentős idővel a generált G-kód parancsok végrehajtása előtt történhet.
+A nyomtató állapotának megváltoztatására néhány parancs áll rendelkezésre. Például az `{ action_emergency_stop() }` a nyomtatót leállítási állapotba helyezi. Vedd figyelembe, hogy ezek a műveletek a makró kiértékelésének időpontjában történnek, ami jelentős idővel a generált G-kód parancsok végrehajtása előtt történhet.
 
 Elérhető "művelet" parancsok:
 
@@ -161,7 +161,7 @@ gcode:
   M140 S{printer["gcode_macro start_probe"].bed_temp}
 ```
 
-A SET_GCODE_VARIABLE használatakor mindenképpen vegye figyelembe a makró kiértékelésének és a parancs végrehajtásának időzítését.
+A SET_GCODE_VARIABLE használatakor mindenképpen vedd figyelembe a makró kiértékelésének és a parancs végrehajtásának időzítését.
 
 ## Késleltetett G-kódok
 

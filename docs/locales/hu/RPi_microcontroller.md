@@ -22,14 +22,14 @@ sudo update-rc.d klipper_mcu defaults
 
 ## A mikrokontroller kódjának elkészítése
 
-A Klipper mikrokontroller kódjának lefordításához kezdje a "Linux folyamat" konfigurálásával:
+A Klipper mikrokontroller kódjának lefordításához kezd a "Linux folyamat" konfigurálásával:
 
 ```
 cd ~/klipper/
 make menuconfig
 ```
 
-A menüben állítsa be a "Mikrokontroller architektúra" értéket "Linux process,"-re, majd mentse és lépjen ki.
+A menüben állítsd be a "Mikrokontroller architektúra" értéket "Linux process,"-re, majd mentsd és lépj ki.
 
 Az új mikrokontroller kódjának elkészítéséhez és telepítéséhez futtassa a következőt:
 
@@ -166,7 +166,7 @@ A Raspberry Pi két PWM csatornával (PWM0 és PWM1) rendelkezik, amelyek a fejl
 dtoverlay=pwm,pin=12,func=4
 ```
 
-Ez a példa csak a PWM0-t engedélyezi, és a GPIO12-re irányítja. Ha mindkét PWM csatornát engedélyezni kell, használhatja a `pwm-2chan` parancsot.
+Ez a példa csak a PWM0-t engedélyezi, és a GPIO12-re irányítja. Ha mindkét PWM csatornát engedélyezni kell, használhatod a `pwm-2chan` parancsot.
 
 Az átfedés nem teszi ki a PWM sort a sysfs-en a rendszerindításkor, és azt a PWM csatorna számát a `/sys/class/pwm/pwmchip0/export` echo'ing-be kell exportálni:
 
@@ -176,7 +176,7 @@ echo 0 > /sys/class/pwm/pwmchip0/export
 
 Ez létrehozza a `/sys/class/pwm/pwmchip0/pwm0` eszközt a fájlrendszerben. A legegyszerűbb, ha ezt a `/etc/rc.local` sor előtt az `exit 0` sorba írjuk be.
 
-Ha a sysfs a helyén van, akkor most már használhatja a PWM csatornát vagy csatornákat, ha a következő konfigurációt hozzáadja a `printer.cfg` fájlhoz:
+Ha a sysfs a helyén van, akkor most már használhatod a PWM csatornát vagy csatornákat, ha a következő konfigurációt hozzáadod a `printer.cfg` fájlhoz:
 
 ```
 [output_pin caselight]

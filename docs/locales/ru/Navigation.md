@@ -10,6 +10,6 @@
 
 Command templates
 
-Developer Documentation
+Документация для разработчиков
 
 Device Specific Documents

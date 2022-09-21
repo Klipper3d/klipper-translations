@@ -1,10 +1,10 @@
-# Overview
+# Обзор
 
-Добро пожаловать в документацию Klipper. Если вы новичок в Klipper, начните с документации [особенности](Features.md) и [загрузки](Installation.md) документов.
+Добро пожаловать в документацию Klipper. Если вы новичок в Klipper, начните с документации о [возможностях](Features.md) и [установке](Installation.md).
 
-## Обзор информации
+## Обзорная информация
 
-- [Функции](Features.md): это общий список возможностей Klipper.
+- [Функции](Features.md): Общий список возможностей Klipper.
 - [ЧАВО](FAQ.md): Часто задаваемые вопросы.
 - [Releases](Releases.md): История релизов Klipper.
 - [Изменения конфигурации](Config_Changes.md): Недавние изменения программного обеспечения, которые могут потребовать от пользователей обновления файла конфигурации принтера.
@@ -15,7 +15,7 @@
 - [Установка](Installation.md): Гайд по установке Klipper.
 - [Справочник по конфигурации](Config_Reference.md): Описание параметров конфигурации.
    - [Дистанция поворота](Rotation_Distance.md): Расчет параметра дистанции попорота(Rotation_distance).
-- [Проверка конфигов](Config_checks.md): Проверка основных настроек контактов в файле конфигурации.
+- [Проверки конфигурации](Config_checks.md): Проверка основных настроек контактов в файле конфигурации.
 - [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
    - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
    - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
@@ -36,10 +36,10 @@
 - [PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such as lasers or spindles.
 - [Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs implementation.
 
-## Developer Documentation
+## Документация для разработчиков
 
-- [Code overview](Code_Overview.md): Developers should read this first.
-- [Kinematics](Kinematics.md): Technical details on how Klipper implements motion.
+- [Обзор кода](Code_Overview.md): Разработчики должны прочитать это в первую очередь.
+- [Кинематика](Kinematics.md): Технические подробности о том, как Klipper реализует движение.
 - [Protocol](Protocol.md): Information on the low-level messaging protocol between host and micro-controller.
 - [API Server](API_Server.md): Information on Klipper's command and control API.
 - [MCU commands](MCU_Commands.md): A description of low-level commands implemented in the micro-controller software.

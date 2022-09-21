@@ -28,7 +28,7 @@ Hosszú bowdenes extruderekhez:
 TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 FACTOR=.020
 ```
 
-Ezután nyomtassa ki az objektumot. Teljesen kinyomtatva a tesztnyomat így néz ki:
+Ezután nyomtasd ki az objektumot. Teljesen kinyomtatva a tesztnyomat így néz ki:
 
 ![tuning_tower](img/tuning_tower.jpg)
 
@@ -48,7 +48,7 @@ A tipikus nyomás előtolás értékek 0,050 és 1,000 között vannak (a legmag
 
 Bár ez a hangolási gyakorlat közvetlenül javítja a sarkok minőségét, érdemes megjegyezni, hogy a jó nyomás előtolási konfiguráció csökkenti a nyomat teljes terjedelmét.
 
-A teszt befejezésekor állítsa be a `pressure_advance = <calculated_value>` értéket a konfigurációs fájl `[extruder]` szakaszában, és adjon ki egy RESTART parancsot. A RESTART parancs törli a tesztállapotot, és visszaállítja a gyorsulási és kanyarodási sebességeket a normál értékekre.
+A teszt befejezésekor állítsd be a `pressure_advance = <calculated_value>` értéket a konfigurációs fájl `[extruder]` szakaszában, és adjon ki egy RESTART parancsot. A RESTART parancs törli a tesztállapotot, és visszaállítja a gyorsulási és kanyarodási sebességeket a normál értékekre.
 
 ## Fontos megjegyzések
 

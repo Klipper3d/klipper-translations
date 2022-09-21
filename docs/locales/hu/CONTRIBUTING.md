@@ -101,7 +101,7 @@ A Klipper "értékelők" a következők:
 | Név | GitHub azonosító | Érdeklődési körök |
 | --- | --- | --- |
 | Dmitry Butyugin | @dmbutyugin | Bemenetformálás, rezonancia vizsgálat, kinematika |
-| Eric Callahan | @Arksine | Ágy szintezése, MCU égetés |
+| Eric Callahan | @Arksine | Tárgyasztal szintezése, MCU égetés |
 | Kevin O'Connor | @KevinOConnor | Mag mozgási rendszer, mikrokontroller kód |
 | Paul McGowan | @mental405 | Konfigurációs fájlok, dokumentáció |
 

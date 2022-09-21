@@ -24,7 +24,7 @@ virtualenv venv
 ./venv/bin/python setup.py install
 ```
 
-És állítsa be az OctoPrintet úgy, hogy az indításkor elinduljon:
+És állítsd be az OctoPrintet úgy, hogy az indításkor elinduljon:
 
 ```
 sudo cp ~/OctoPrint/scripts/octoprint.init /etc/init.d/octoprint

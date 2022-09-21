@@ -50,7 +50,7 @@ Elérhető a 20191021. Főbb változások ebben a kiadásban:
    * Új támogatás a TMC2209 és TMC5160 illesztőprogramokhoz.
    * Továbbfejlesztett DUMP_TMC, SET_TMC_CURRENT és INIT_TMC G-kód parancsok.
    * Javított támogatás a TMC UART kezeléséhez analóg mux-al.
-* Javított célmeghatározás, mérés és ágy szintezési támogatás:
+* Javított célmeghatározás, mérés és tárgyasztal szintezési támogatás:
    * Új manual_probe, bed_screws, screws_tilt_adjust, skew_correction, safe_z_home modulok hozzáadása.
    * Továbbfejlesztett többmintás mérés mediánnal, átlagolással és újrapróbálási logikával.
    * Javított dokumentáció a BL-Touch, a szondakalibrálás, a végállás kalibrálás, a delta kalibrálás, az érzékelő nélküli kezdőpont és a végállás fázis kalibrálásához.
@@ -74,7 +74,7 @@ Elérhető a 20191021. Főbb változások ebben a kiadásban:
 
 Elérhető a 20181220. Főbb változások a kiadásban:
 
-* A Klipper mostantól támogatja a "háló" ágy szintezés állítást
+* A Klipper mostantól támogatja a "háló" tárgyasztal szintezés állítást
 * Új támogatás a "továbbfejlesztett" delta kalibrációhoz (kalibrálja a nyomtatás x/y méreteit delta nyomtatókon)
 * A Trinamic léptetőmotor-meghajtók (tmc2130, tmc2208, tmc2660) futásidejű konfigurációjának támogatása
 * Javított hőmérséklet-érzékelő támogatás: MAX6675, MAX31855, MAX31856, MAX31865, egyedi termisztorok, általános PT100 típusú érzékelők
@@ -101,7 +101,7 @@ Elérhető a 20180331. Főbb változások ebben a kiadásban:
 * Továbbfejlesztett fűtőberendezés és termisztor hardverhiba ellenőrzések
 * Z-szondák támogatása
 * A delták automatikus paraméterkalibrálásának kezdeti támogatása (egy új delta_calibrate parancson keresztül)
-* Az ágy dőléskiegyenlítésének kezdeti támogatása (a bed_tilt_calibrate paranccsal)
+* A tárgyasztal dőléskiegyenlítésének kezdeti támogatása (a bed_tilt_calibrate paranccsal)
 * A "biztonságos kezdőpont" és a kezdőpont felülbírálásának kezdeti támogatása
 * Kezdeti támogatás az állapot megjelenítéséhez a RepRapDiscount 2004 és 12864 stílusú kijelzőkön
 * Új multi-extruder fejlesztések:
@@ -166,7 +166,7 @@ Elérhető a 20161223. Főbb változások ebben a kiadásban:
 
 A Klipper első kiadása. Elérhető a 20160525. A kezdeti kiadásban elérhető főbb funkciók a következők:
 
-* Alapvető támogatás cartesian nyomtatókhoz (stepperek, extruder, fűtött ágy, hűtőventilátor).
+* Alapvető támogatás cartesian nyomtatókhoz (stepperek, extruder, fűtött tárgyasztal, hűtőventilátor).
 * A gyakori G-kód parancsok támogatása. Az OctoPrint interfész támogatása.
 * Gyorsulás és előretekintő kezelés
 * AVR mikrovezérlők támogatása szabványos soros portokon keresztül

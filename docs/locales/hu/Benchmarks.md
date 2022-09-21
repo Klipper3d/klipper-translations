@@ -347,7 +347,7 @@ get_uptime
 
 A teszt befejezésekor határozza meg a két "üzemidő" válaszüzenetben jelentett órák közötti különbséget. A másodpercenkénti parancsok teljes száma ekkor `100000 * mcu_frequency / clock_diff`.
 
-Vegye figyelembe, hogy ez a teszt telítheti a Raspberry Pi USB/CPU kapacitását. Ha Raspberry Pi, Beaglebone vagy hasonló gazdagépen fut, akkor növelje a késleltetést (pl. `DELAY {clock + 20*freq} get_uptime`). Ahol alkalmazható, az alábbi referenciák a console.py futtatásával készültek egy asztali számítógépen, ahol az eszköz egy nagy sebességű HUB-on keresztül van csatlakoztatva.
+Vedd figyelembe, hogy ez a teszt telítheti a Raspberry Pi USB/CPU kapacitását. Ha Raspberry Pi, Beaglebone vagy hasonló gazdagépen fut, akkor növelje a késleltetést (pl. `DELAY {clock + 20*freq} get_uptime`). Ahol alkalmazható, az alábbi referenciák a console.py futtatásával készültek egy asztali számítógépen, ahol az eszköz egy nagy sebességű HUB-on keresztül van csatlakoztatva.
 
 | MCU | Arány | Gyári szám | Fordító program |
 | --- | --- | --- | --- |

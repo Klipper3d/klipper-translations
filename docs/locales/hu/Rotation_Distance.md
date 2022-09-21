@@ -4,21 +4,21 @@ A Klipper léptetőmotor meghajtók minden [léptető konfigurációs szakaszban
 
 ## A rotation_distance kinyerése a steps_per_mm (vagy step_distance) értékből
 
-A 3D nyomtató tervezői eredetileg `steps_per_mm` forgatási távolságból számították ki. Ha ismeri a steps_per_mm értéket, akkor ezzel az általános képlettel megkaphatja ezt az eredeti forgatási távolságot:
+A 3D nyomtató tervezői eredetileg `steps_per_mm` forgatási távolságból számították ki. Ha ismered a steps_per_mm értéket, akkor ezzel az általános képlettel megkaphatja ezt az eredeti forgatási távolságot:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
 ```
 
-Vagy ha régebbi Klipper konfigurációval rendelkezik, és ismeri a `step_distance` paramétert, akkor használhatja ezt a képletet:
+Vagy ha régebbi Klipper konfigurációval rendelkezik, és ismered a `step_distance` paramétert, akkor használhatod ezt a képletet:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
 ```
 
-A `<full_steps_per_rotation>` beállítást a léptetőmotor típusa határozza meg. A legtöbb léptetőmotor "1,8 fokos lépésszögű" és ezért 200 teljes lépés/fordulat (360 osztva 1,8-al 200). Egyes léptetőmotorok "0,9 fokos lépésszögűek" és így 400 teljes lépést tesznek meg fordulatonként. Más léptetőmotorok ritkábbak. Ha bizonytalan, ne állítsa be a full_steps_per_rotation értéket a konfigurációs fájlban, és használja a 200-at a fenti képletben.
+A `<full_steps_per_rotation>` beállítást a léptetőmotor típusa határozza meg. A legtöbb léptetőmotor "1,8 fokos lépésszögű" és ezért 200 teljes lépés/fordulat (360 osztva 1,8-al 200). Egyes léptetőmotorok "0,9 fokos lépésszögűek" és így 400 teljes lépést tesznek meg fordulatonként. Más léptetőmotorok ritkábbak. Ha bizonytalan vagy, ne állítsd be a full_steps_per_rotation értéket a konfigurációs fájlban, és használja a 200-at a fenti képletben.
 
-A `<mikrolépések>` beállítást a léptetőmotor-meghajtó határozza meg. A legtöbb meghajtó 16 mikrolépést használ. Ha bizonytalan, állítsa be a `microsteps: 16` a konfigurációban, és használja a 16-ot a fenti képletben.
+A `<mikrolépések>` beállítást a léptetőmotor-meghajtó határozza meg. A legtöbb meghajtó 16 mikrolépést használ. Ha bizonytalan vagy, állítsd be a `microsteps: 16` a konfigurációban, és használja a 16-ot a fenti képletben.
 
 Szinte minden nyomtatónak egész számot kell megadnia a `rotation_distance` X, Y és Z típusú tengelyeknél. Ha a fenti képlet olyan rotation_distance-ot eredményez, amely 0,01 egész számon belül van, akkor kerekítse a végső értéket erre az egész számra.
 
@@ -78,14 +78,14 @@ Az extruder tényleges forgatási távolsága nyomtatóról nyomtatóra változi
 
 ## A gear_ratio használata
 
-A `gear_ratio` beállítása megkönnyítheti a `rotation_distance` konfigurálását olyan léptetőknél, amelyekhez áttétel (vagy hasonló) van csatlakoztatva. A legtöbb léptető nem rendelkezik áttétellel. Ha nem biztos benne, akkor ne állítsa be a `gear_ratio` értéket a konfigurációban.
+A `gear_ratio` beállítása megkönnyítheti a `rotation_distance` konfigurálását olyan léptetőknél, amelyekhez áttétel (vagy hasonló) van csatlakoztatva. A legtöbb léptető nem rendelkezik áttétellel. Ha nem biztos benne, akkor ne állítsd be a `gear_ratio` értéket a konfigurációban.
 
 Ha `gear_ratio` be van állítva, a `rotation_distance` azt a távolságot jelöli, amelyet a tengely az áttételen lévő utolsó fogaskerék egy teljes elfordulásával megtesz. Ha például egy "5:1"-es áttételt használunk, akkor kiszámíthatjuk a rotation_distance-ot [a hardver ismeretében](#a-forgasi_tavolsag-kinyerese-a-hardver-ellenorzesevel), majd hozzáadhatjuk a `gear_ratio: 5:1` értéket a konfigurációs fájlhoz.
 
 A szíjakkal és szíjtárcsákkal megvalósított hajtóművek esetében a fogaskerekek fogainak megszámlálásával lehet meghatározni a gear_ratio-t. Ha például egy 16 fogazású szíjtárcsával rendelkező léptető meghajtja a, 80 fogazású szíjtárcsát, akkor a `gear_ratio: 80:16` értéket használjuk. Valóban, ki lehetne nyitni egy közönséges, "fogaskerékdobozt" és megszámolni a benne lévő fogakat, hogy megerősítsük a fogaskerék áttételét.
 
-Vegye figyelembe, hogy néha egy áttétel kissé eltér a hirdetett értéktől. A BMG extrudermotorok közös fogaskerekei példát mutatnak erre. A reklámok szerint "3:1", de valójában "50:17" áttételt használnak. (A közös nevező nélküli fogszámok használata javíthatja a fogaskerekek általános kopását, mivel a fogak nem mindig ugyanúgy fognak össze minden egyes fordulatnál.) A gyakori "5,18:1 bolygóműves sebességváltó", pontosabban a `gear_ratio: 57:11` értékkel van konfigurálva.
+Vedd figyelembe, hogy néha egy áttétel kissé eltér a hirdetett értéktől. A BMG extrudermotorok közös fogaskerekei példát mutatnak erre. A reklámok szerint "3:1", de valójában "50:17" áttételt használnak. (A közös nevező nélküli fogszámok használata javíthatja a fogaskerekek általános kopását, mivel a fogak nem mindig ugyanúgy fognak össze minden egyes fordulatnál.) A gyakori "5,18:1 bolygóműves sebességváltó", pontosabban a `gear_ratio: 57:11` értékkel van konfigurálva.
 
-Ha egy tengelyen több fogaskerék van használatban, akkor a gear_ratio-nak egy vesszővel elválasztott listát lehet megadni. Például egy "5:1" fogaskerék, amely egy 16 fogazású és egy 80 fogazású tárcsát hajt, használhatja a `gear_ratio: 5:1, 80:16` értékeket.
+Ha egy tengelyen több fogaskerék van használatban, akkor a gear_ratio-nak egy vesszővel elválasztott listát lehet megadni. Például egy "5:1" fogaskerék, amely egy 16 fogazású és egy 80 fogazású tárcsát hajt, használhatod a `gear_ratio: 5:1, 80:16` értékeket.
 
 A legtöbb esetben a gear_ratio értékét egész számokkal kell megadni, mivel a fogaskerekek és a szíjtárcsák fogainak száma általában egész. Azokban az esetekben azonban, amikor a szíj fogak helyett súrlódással hajtja a szíjtárcsát, érdemes lehet lebegőpontos számot használni a fogaskerék-áttételben (pl. `gear_ratio: 107,237:16`).

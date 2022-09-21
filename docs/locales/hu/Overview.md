@@ -1,6 +1,6 @@
 # Áttekintés
 
-Üdvözöljük a Klipper dokumentációjában. Ha még nem ismeri a Klippert, kezdje a [funkciók](Features.md) és [telepítés](Installation.md) dokumentumokkal.
+Üdvözöljük a Klipper dokumentációjában. Ha még nem ismered a Klippert, kezd a [funkciók](Features.md) és [telepítés](Installation.md) dokumentumokkal.
 
 ## Áttekintő információk
 
@@ -16,12 +16,12 @@
 - [Konfigurációs hivatkozás](Config_Reference.md): A konfigurációs paraméterek leírása.
    - [Forgatási távolság](Rotation_Distance.md): A rotation_distance léptető paraméter kiszámítása.
 - [Konfigurációs ellenőrzések](Config_checks.md): Alapvető tűbeállítások ellenőrzése a konfigurációs fájlban.
-- [Ágy szintezése](Bed_Level.md): Információ az "ágy szintezéséről" a Klipperben.
+- [Tárgyasztal szintezése](Bed_Level.md): Információ az "tárgyasztal szintezéséről" a Klipperben.
    - [Delta kalibrálás](Delta_Calibrate.md): A delta kinematika kalibrálása.
    - [Szonda kalibrálása](Probe_Calibrate.md): Automatikus Z-szondák kalibrálása.
    - [BL-Touch](BLTouch.md): "BL-Touch" Z szonda konfigurálása.
    - [Kézi szintezés](Manual_Level.md): Z végállások kalibrálása (és hasonlók).
-   - [Ágy háló](Bed_Mesh.md): X-Y-helyeken alapuló ágyszint-korrekció.
+   - [Tárgyasztal háló](Bed_Mesh.md): X-Y-helyeken alapuló tárgyasztal szintkorrekció.
    - [Végállás fázis](Endstop_Phase.md): Z végállás pozícionálása lépéssegédlettel.
 - [Rezonancia kompenzáció](Resonance_Compensation.md): Egy eszköz a nyomatok gyűrődésének (ringing) csökkentésére.
    - [Rezonanciák mérése](Measuring_Resonances.md): adxl345 gyorsulásmérő hardver használatával kapcsolatos információk a rezonancia méréséhez.

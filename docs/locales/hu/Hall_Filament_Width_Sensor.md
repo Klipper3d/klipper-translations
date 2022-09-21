@@ -28,22 +28,22 @@ index: 1
 
 ## Kalibrálási eljárás
 
-Az érzékelő nyers értékének meghatározásához használhatja a menüelemet vagy a **QUERY_RAW_FILAMENT_WIDTH** parancsot a terminálban.
+Az érzékelő nyers értékének meghatározásához használhatod a menüelemet vagy a **QUERY_RAW_FILAMENT_WIDTH** parancsot a terminálban.
 
 1. Helyezze be az első kalibráló rudat (1,5 mm-es méret), hogy megkapja az első nyers szenzorértéket
 1. Helyezze be a második kalibráló rudat (2,0 mm-es méret), hogy megkapja a második nyers szenzorértékét
-1. Mentse a nyers szenzorértékeket a `Raw_dia1` és a `Raw_dia2` konfigurációs paraméterekbe
+1. Mentsd a nyers szenzorértékeket a `Raw_dia1` és a `Raw_dia2` konfigurációs paraméterekbe
 
 ## Az érzékelő engedélyezése
 
 Alapértelmezés szerint az érzékelő le van tiltva bekapcsoláskor.
 
-Az érzékelő engedélyezéséhez adja ki az **ENABLE_FILAMENT_WIDTH_SENSOR** parancsot, vagy állítsa az `enable` paramétert `true` értékre.
+Az érzékelő engedélyezéséhez add ki az **ENABLE_FILAMENT_WIDTH_SENSOR** parancsot, vagy állítsd az `enable` paramétert `true` értékre.
 
 ## Naplózás
 
 Alapértelmezés szerint az átmérő naplózása bekapcsoláskor le van tiltva.
 
-Adja ki az **ENABLE_FILAMENT_WIDTH_LOG** parancsot a naplózás elindításához, és adja ki a **DISABLE_FILAMENT_WIDTH_LOG** parancsot a naplózás leállításához. A bekapcsoláskor történő naplózás engedélyezéséhez állítsa a `logging paramétert `true` értékre.
+Add ki az **ENABLE_FILAMENT_WIDTH_LOG** parancsot a naplózás elindításához, és add ki a **DISABLE_FILAMENT_WIDTH_LOG** parancsot a naplózás leállításához. A bekapcsoláskor történő naplózás engedélyezéséhez állítsd a `logging paramétert `true` értékre.
 
 A nyomtatószál átmérője minden mérési intervallumban naplózásra kerül (alapértelmezés szerint 10 mm).
