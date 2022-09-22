@@ -152,7 +152,7 @@ For tmc2130, tmc5160, and tmc2660:
 SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 ```
 
-Then issue a `G28 X0` command and verify the axis does not move at all. If the axis does move, then issue an `M112` to halt the printer - something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.
+Then issue a `G28 X0` command and verify the axis does not move at all or quickly stops moving. If the axis does not stop, then issue an `M112` to halt the printer - something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.
 
 Next, continually decrease the sensitivity of the `VALUE` setting and run the `SET_TMC_FIELD` `G28 X0` commands again to find the highest sensitivity that results in the carriage successfully moving all the way to the endstop and halting. (For tmc2209 drivers this will be decreasing SGTHRS, for other drivers it will be increasing sgt.) Be sure to start each attempt with the carriage near the center of the rail (if needed issue `M84` and then manually move the carriage to the center). It should be possible to find the highest sensitivity that homes reliably (settings with higher sensitivity result in small or no movement). Note the found value as *maximum_sensitivity*. (If the minimum possible sensitivity (SGTHRS=0 or sgt=63) is obtained without any carriage movement then something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.)
 
@@ -220,6 +220,24 @@ Use the tuning guide described above to find the appropriate "stall sensitivity"
 1. When using sensorless homing on CoreXY, make sure there is no `hold_current` configured for either stepper.
 1. While tuning, make sure both the X and Y carriages are near the center of their rails before each home attempt.
 1. After tuning is complete, when homing both X and Y, use macros to ensure that one axis is homed first, then move that carriage away from the axis limit, pause for at least 2 seconds, and then start the homing of the other carriage. The move away from the axis avoids homing one axis while the other is pressed against the axis limit (which may skew the stall detection). The pause is necessary to ensure the driver's stall flag is cleared prior to homing again.
+
+An example CoreXY homing macro might look like:
+
+```
+[gcode_macro HOME]
+gcode:
+    G90
+    # Home Z
+    G28 Z0
+    G1 Z10 F1200
+    # Home Y
+    G28 Y0
+    G1 Y5 F1200
+    # Home X
+    G4 P2000
+    G28 X0
+    G1 X5 F1200
+```
 
 ## Querying and diagnosing driver settings
 

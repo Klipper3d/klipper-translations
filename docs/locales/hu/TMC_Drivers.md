@@ -152,7 +152,7 @@ A TMC2130, TMC5160 és a TMC2660 modellekhez:
 SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 ```
 
-Ezután adjon ki egy `G28 X0` parancsot, és ellenőrizze, hogy a tengely egyáltalán nem mozog. Ha a tengely mozog, akkor adjon ki egy `M112` parancsot a nyomtató leállításához. Valami nem stimmel a diag/sg_tst tű kábelezésével vagy konfigurációjával, ezt a folytatás előtt ki kell javítani.
+Then issue a `G28 X0` command and verify the axis does not move at all or quickly stops moving. If the axis does not stop, then issue an `M112` to halt the printer - something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.
 
 Ezután folyamatosan csökkentse a `VALUE` beállítás érzékenységét, és futtassa le újra a `SET_TMC_FIELD` `G28 X0` parancsokat, hogy megtalálja a legnagyobb érzékenységet, amely a kocsi sikeres mozgását eredményezi a végállásig és a megállásig. (A TMC2209 motorvezérlők esetében ez az SGTHRS csökkentése, más vezérlők esetében az sgt növelése lesz.) Ügyeljen arra, hogy minden kísérletet úgy kezdj, hogy a kocsi a sín közepéhez közel legyen (ha szükséges, adjon ki egy `M84` parancsot, majd kézzel mozgasd a kocsit középállásba). Meg kell találni a legnagyobb érzékenységet, amely megbízhatóan jelzi a végállást (a nagyobb érzékenységű beállítások kicsi vagy semmilyen mozgást nem eredményeznek). Jegyezze fel a kapott értéket *maximum_sensitivity* néven. (Ha a lehető legkisebb érzékenységet (SGTHRS=0 vagy sgt=63) kapjuk a kocsi elmozdulása nélkül, akkor valami nincs rendben a diag/sg_tst tűk bekötésével vagy konfigurációjával, és a folytatás előtt ki kell javítani.)
 
@@ -220,6 +220,24 @@ Használja a fent leírt hangolási útmutatót, hogy megtalálja a megfelelő "
 1. Ha a CoreXY-n érzékelő nélküli kezdőpont felvételt használ, győződjön meg róla, hogy egyik léptetőhöz sincs beállítva `hold_current`.
 1. A hangolás során győződjön meg arról, hogy az X és az Y kocsik a sínek közepénél vannak-e minden egyes kezdőpont felvételi kísérlet előtt.
 1. A hangolás befejezése után az X és Y kezdőpont felvételét makrók segítségével biztosítsa, hogy először az egyik tengely vedd fel a kezdőpontot, majd mozgasd el a kocsit a tengelyhatártól, tartson legalább 2 másodperc szünetet, majd kezd el a másik kocsi kezdőpont felvételét. A tengelytől való eltávolodással elkerülhető, hogy az egyik tengelyt akkor indítsuk el, amikor a másik a tengelyhatárhoz van nyomva (ami eltorzíthatja az akadásérzékelést). A szünetre azért van szükség, hogy a meghajtó az újraindítás előtt törölje az elakadás érzékelő puffert.
+
+An example CoreXY homing macro might look like:
+
+```
+[gcode_macro HOME]
+gcode:
+    G90
+    # Home Z
+    G28 Z0
+    G1 Z10 F1200
+    # Home Y
+    G28 Y0
+    G1 Y5 F1200
+    # Home X
+    G4 P2000
+    G28 X0
+    G1 X5 F1200
+```
 
 ## A motorvezérlő beállításainak lekérdezése és diagnosztizálása
 

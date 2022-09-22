@@ -152,7 +152,7 @@ Per tmc2130, tmc5160 e tmc2660:
 SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 ```
 
-Quindi emettere un comando `G28 X0` e verificare che l'asse non si muova affatto. Se l'asse si muove, emettere un `M112` per fermare la stampante - qualcosa non è corretto con il cablaggio o la configurazione del pin diag/sg_tst e deve essere corretto prima di continuare.
+Then issue a `G28 X0` command and verify the axis does not move at all or quickly stops moving. If the axis does not stop, then issue an `M112` to halt the printer - something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.
 
 Quindi, diminuire progressivamente la sensibilità dell'impostazione `VALUE` ed eseguire nuovamente i comandi `SET_TMC_FIELD` `G28 X0` per trovare la sensibilità più alta che fa sì che il carrello si muova con successo fino all'arresto e si arresti. (Per i driver tmc2209 questo diminuirà SGTHRS, per altri conducenti aumenterà il sgt.) Assicurati di iniziare ogni tentativo con il carrello vicino al centro del binario (se necessario, emetti `M84` e quindi sposta manualmente il carrello sul centro). Dovrebbe essere possibile trovare la sensibilità più alta che si adatta in modo affidabile (le impostazioni con una sensibilità più alta comportano movimenti piccoli o nulli). Nota il valore trovato come *sensibilità_massima*. (Se si ottiene la sensibilità minima possibile (SGTHRS=0 o sgt=63) senza alcun movimento del carrello, allora qualcosa non è corretto con il cablaggio o la configurazione dei pin diag/sg_tst e deve essere corretto prima di continuare.)
 
@@ -220,6 +220,24 @@ Utilizzare la guida alla messa a punto sopra descritta per trovare la "sensibili
 1. Quando si utilizza l'homing sensorless su CoreXY, assicurarsi che non sia configurato `hold_current` per nessuno dei due stepper.
 1. Durante la messa a punto, assicurati che entrambi i carrelli X e Y siano vicini al centro dei loro binari prima di ogni tentativo di homing.
 1. Al termine dell'ottimizzazione, quando si esegue l'homing sia di X che Y, utilizzare le macro per assicurarsi che un asse sia homed per primo, quindi spostare il carrello lontano dal limite dell'asse, fare una pausa per almeno 2 secondi, quindi avviare l'orientamento dell'altro carrello. L'allontanamento dall'asse evita l'homing di un asse mentre l'altro viene premuto contro il limite dell'asse (cosa potrebbe distorcere il rilevamento dello stallo). La pausa è necessaria per garantire che il flag di stallo del driver sia cancellata prima del homing.
+
+An example CoreXY homing macro might look like:
+
+```
+[gcode_macro HOME]
+gcode:
+    G90
+    # Home Z
+    G28 Z0
+    G1 Z10 F1200
+    # Home Y
+    G28 Y0
+    G1 Y5 F1200
+    # Home X
+    G4 P2000
+    G28 X0
+    G1 X5 F1200
+```
 
 ## Interrogazione e diagnosi delle impostazioni del driver
 

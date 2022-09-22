@@ -12,7 +12,7 @@ A szeletelők gyakran lehetővé teszik a "Start G-kód" és "End G-kód" szekve
 
 Lásd a [sample-macros.cfg](../config/sample-macros.cfg) a START_PRINT és END_PRINT makrók példáját.
 
-A gcode_macro definiálásának részleteiért lásd a [config reference](Config_Reference.md#gcode_macro).
+A gcode_macro definiálásának részleteiért lásd a [konfigurációs hivatkozást](Config_Reference.md#gcode_macro).
 
 ## Nagy visszahúzási értékek beállítása szükségessé tehetik a Klipper hangolását
 

@@ -152,7 +152,7 @@ tmc2130, tmc5160 및 tmc2660의 경우:
 SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 ```
 
-그런 다음 `G28 X0` 명령을 실행하고 축이 전혀 움직이지 않는지 확인합니다. 축이 움직이면 `M112`를 실행하여 프린터를 중지합니다. diag/sg_tst 핀 배선 또는 구성이 올바르지 않으므로 계속하기 전에 수정해야 합니다.
+Then issue a `G28 X0` command and verify the axis does not move at all or quickly stops moving. If the axis does not stop, then issue an `M112` to halt the printer - something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.
 
 다음으로 `VALUE` 설정의 감도를 지속적으로 낮추고 `SET_TMC_FIELD` `G28 X0` 명령을 다시 실행하여 캐리지가 엔드스톱까지 성공적으로 이동하고 정지하게 하는 가장 높은 감도를 찾습니다. (tmc2209 드라이버의 경우 SGTHRS가 감소하고 다른 드라이버의 경우 sgt가 증가합니다.) 각 시도를 레일 중앙 근처에서 시작해야 합니다(필요한 경우 `M84`를 발행한 다음 캐리지를 수동으로 센터). 가장 높은 감도를 안정적으로 찾을 수 있어야 합니다(감도가 높은 설정은 움직임이 적거나 없음). 발견된 값을 *maximum_sensitivity*로 기록합니다. (캐리지 이동 없이 가능한 최소 감도(SGTHRS=0 또는 sgt=63)를 얻은 경우 diag/sg_tst 핀 배선 또는 구성에 문제가 있는 것이므로 계속하기 전에 수정해야 합니다.)
 
@@ -220,6 +220,24 @@ CoreXY 프린터의 X 및 Y 캐리지에서 센서리스 원점복귀를 사용�
 1. When using sensorless homing on CoreXY, make sure there is no `hold_current` configured for either stepper.
 1. 조정하는 동안 각 원점복귀 시도 전에 X 및 Y 캐리지가 레일 중앙 근처에 있는지 확인하십시오.
 1. 조정이 완료된 후 X와 Y를 모두 원점복귀시킬 때 매크로를 사용하여 한 축이 먼저 원점복귀되도록 한 다음 해당 캐리지를 축 제한에서 멀리 이동하고 최소 2초 동안 일시 중지한 다음 다른 캐리지의 원점복귀를 시작합니다. 축에서 멀어지면 다른 축이 축 제한에 대해 눌러지는 동안 한 축의 원점복귀를 방지합니다 (스톨 감지가 왜곡될 수 있음). 다시 원점복귀하기 전에 드라이버의 stall flag가 지워지도록 하려면 일시 중지가 필요합니다.
+
+An example CoreXY homing macro might look like:
+
+```
+[gcode_macro HOME]
+gcode:
+    G90
+    # Home Z
+    G28 Z0
+    G1 Z10 F1200
+    # Home Y
+    G28 Y0
+    G1 Y5 F1200
+    # Home X
+    G4 P2000
+    G28 X0
+    G1 X5 F1200
+```
 
 ## 드라이버 설정 쿼리 및 진단
 

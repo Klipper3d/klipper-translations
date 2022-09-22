@@ -35,7 +35,7 @@ sudo service klipper start
 ./scripts/flash-sdcard.sh -h
 SD Card upload utility for Klipper
 
-usage: flash_sdcard.sh [-h] [-l] [-b <baud>] [-f <firmware>]
+usage: flash_sdcard.sh [-h] [-l] [-c] [-b <baud>] [-f <firmware>]
                        <device> <board>
 
 positional arguments:
@@ -45,6 +45,7 @@ positional arguments:
 optional arguments:
   -h              show this message
   -l              list available boards
+  -c              run flash check/verify only (skip upload)
   -b <baud>       serial baud rate (default is 250000)
   -f <firmware>   path to klipper.bin
 ```
@@ -63,11 +64,13 @@ optional arguments:
 
 MKS Robin E3를 업그레이드할 때 `update_mks_robin.py`를 수동으로 실행하고 결과 바이너리를 `flash-sdcard.sh`에 제공할 필요가 없습니다. 이 절차는 업로드 과정에서 자동화됩니다.
 
+The `-c` option is used to perform a check or verify-only operation to test if the board is running the specified firmware correctly. This option is primarily intended for cases where a manual power-cycle is necessary to complete the flashing procedure, such as with bootloaders that use SDIO mode instead of SPI to access their SD Cards. (See Caveats below) But, it can also be used anytime to verify if the code flashed into the board matches the version in your build folder on any supported board.
+
 ## 주의 사항
 
 - 소개에서 언급했듯이 이 방법은 펌웨어 업그레이드에만 적용됩니다. 초기 깜박임 절차는 컨트롤러 보드에 적용되는 지침에 따라 수동으로 수행해야 합니다.
 - 직렬 전송 또는 연결 인터페이스를 변경하는 빌드를 플래시할 수 있지만 (예: USB에서 UART로) 스크립트가 현재 버전을 확인하기 위해 MCU에 다시 연결할 수 없기 때문에 항상 확인이 실패합니다.
-- SD 카드 통신을 위해 SPI를 사용하는 보드만 지원됩니다. Flymaker Flyboard 및 MKS Robin Nano V1/V2와 같이 SDIO를 사용하는 보드는 작동하지 않습니다.
+- Only boards that use SPI for SD Card communication are supported. Boards that use SDIO, such as the Flymaker Flyboard and MKS Robin Nano V1/V2, will not work in SDIO mode. However, it's usually possible to flash such boards using Software SPI mode instead. But if the board's bootloader only uses SDIO mode to access the SD Card, a power-cycle of the board and SD Card will be necessary so that the mode can switch from SPI back to SDIO to complete reflashing. Such boards should be defined with `skip_verify` enabled to skip the verify step immediately after flashing. Then after the manual power-cycle, you can rerun the exact same `./scripts/flash-sdcard.sh` command, but add the `-c` option to complete the check/verify operation. See [Flashing Boards that use SDIO](#flashing-boards-that-use-sdio) for examples.
 
 ## 보드 정의
 
@@ -90,13 +93,14 @@ BOARD_DEFS = {
 - `spi_bus`: SD 카드에 연결된 SPI 버스입니다. 이것은 보드의 회로도에서 가져와야 합니다. 이 필드는 필수입니다.
 - `cs_pin`: SD 카드에 연결된 칩 선택 핀입니다. 이것은 보드 회로도에서 검색해야 합니다. 이 필드는 필수입니다.
 - `firmware_path`: 펌웨어가 전송되어야 하는 SD 카드의 경로입니다. 기본값은 'firmware.bin'입니다.
-- `current_firmware_path` 플래시 성공 후 이름이 변경된 펌웨어 파일이 있는 SD 카드의 경로입니다. 기본값은 'firmware.cur'입니다.
+- `current_firmware_path`: The path on the SD Card where the renamed firmware file is located after a successful flash. The default is `firmware.cur`.
+- `skip_verify`: This defines a boolean value which tells the scripts to skip the firmware verification step during the flashing process. The default is `False`. It can be set to `True` for boards that require a manual power-cycle to complete flashing. To verify the firmware afterward, run the script again with the `-c` option to perform the verification step. [See caveats with SDIO cards](#caveats)
 
-소프트웨어 SPI가 필요한 경우 `spi_bus` 필드를 `swspi`로 설정하고 다음 추가 필드를 지정해야 합니다:
+If software SPI is required, the `spi_bus` field should be set to `swspi` and the following additional field should be specified:
 
 - `spi_pins`: `miso,mosi,sclk` 형식으로 SD 카드에 연결된 3개의 쉼표로 구분된 핀이어야 합니다.
 
-소프트웨어 SPI가 필요한 경우는 극히 드물며 일반적으로 설계 오류가 있는 보드에만 필요합니다. `btt-skr-pro` 보드 정의는 예를 제공합니다.
+It should be exceedingly rare that Software SPI is necessary, typically only boards with design errors or boards that normally only support SDIO mode for their SD Card will require it. The `btt-skr-pro` board definition provides an example of the former, and the `btt-octopus-f446-v1` board definition provides an example of the latter.
 
 새 보드 정의를 만들기 전에 기존 보드 정의가 새 보드에 필요한 기준을 충족하는지 확인해야 합니다. 이 경우 `BOARD_ALIAS`를 지정할 수 있습니다. 예를 들어 다음 별칭을 추가하여 `my-new-board`를 `generic-lpc1768`의 별칭으로 지정할 수 있습니다:
 
@@ -108,3 +112,67 @@ BOARD_ALIASES = {
 ```
 
 새로운 보드 정의가 필요하고 위에 설명된 절차가 불편하시다면 [Klipper Community Discord](Contact.md#discord)에서 요청하는 것이 좋습니다.
+
+## Flashing Boards that use SDIO
+
+[As mentioned in the Caveats](#caveats), boards whose bootloader uses SDIO mode to access their SD Card require a power-cycle of the board, and specifically the SD Card itself, in order to switch from the SPI Mode used while writing the file to the SD Card back to SDIO mode for the bootloader to flash it into the board. These board definitions will use the `skip_verify` flag, which tells the flashing tool to stop after writing the firmware to the SD Card so that the board can be manually power-cycled and the verification step deferred until that's complete.
+
+There are two scenarios -- one with the RPi Host running on a separate power supply and the other when the RPi Host is running on the same power supply as the main board being flashed. The difference is whether or not it's necessary to also shutdown the RPi and then `ssh` again after the flashing is complete in order to do the verification step, or if the verification can be done immediately. Here's examples of the two scenarios:
+
+### SDIO Programming with RPi on Separate Power Supply
+
+A typical session with the RPi on a Separate Power Supply looks like the following. You will, of course, need to use your proper device path and board name:
+
+```
+sudo service klipper stop
+cd ~/klipper
+git pull
+make clean
+make menuconfig
+make
+./scripts/flash-sdcard.sh /dev/ttyACM0 btt-octopus-f446-v1
+[[[manually power-cycle the printer board here when instructed]]]
+./scripts/flash-sdcard.sh -c /dev/ttyACM0 btt-octopus-f446-v1
+sudo service klipper start
+```
+
+### SDIO Programming with RPi on the Same Power Supply
+
+A typical session with the RPi on the Same Power Supply looks like the following. You will, of course, need to use your proper device path and board name:
+
+```
+sudo service klipper stop
+cd ~/klipper
+git pull
+make clean
+make menuconfig
+make
+./scripts/flash-sdcard.sh /dev/ttyACM0 btt-octopus-f446-v1
+sudo shutdown -h now
+[[[wait for the RPi to shutdown, then power-cycle and ssh again to the RPi when it restarts]]]
+sudo service klipper stop
+cd ~/klipper
+./scripts/flash-sdcard.sh -c /dev/ttyACM0 btt-octopus-f446-v1
+sudo service klipper start
+```
+
+In this case, since the RPi Host is being restarted, which will restart the `klipper` service, it's necessary to stop `klipper` again before doing the verification step and restart it after verification is complete.
+
+### SDIO to SPI Pin Mapping
+
+If your board's schematic uses SDIO for its SD Card, you can map the pins as described in the chart below to determine the compatible Software SPI pins to assign in the `board_defs.py` file:
+
+| SD Card Pin | Micro SD Card Pin | SDIO Pin Name | SPI Pin Name |
+| :-: | :-: | :-: | :-: |
+| 9 | 1 | DATA2 | None (PU)* |
+| 1 | 2 | CD/DATA3 | CS |
+| 2 | 3 | CMD | MOSI |
+| 4 | 4 | +3.3V (VDD) | +3.3V (VDD) |
+| 5 | 5 | CLK | SCLK |
+| 3 | 6 | GND (VSS) | GND (VSS) |
+| 7 | 7 | DATA0 | MISO |
+| 8 | 8 | DATA1 | None (PU)* |
+| N/A | 9 | Card Detect (CD) | Card Detect (CD) |
+| 6 | 10 | GND | GND |
+
+\* None (PU) indicates an unused pin with a pull-up resistor

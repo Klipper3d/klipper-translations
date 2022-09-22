@@ -152,7 +152,7 @@ SET_TMC_FIELD STEPPER=stepper_x FIELD=SGTHRS VALUE=255
 SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 ```
 
-然後發一個 `G28 X0`命令，確保軸完全不動。如果軸移動了，立即一個`M112`命令停止印表機-可能是diag/sg_tst引腳的接線或配置有問題，必須在繼續之前修正。
+Then issue a `G28 X0` command and verify the axis does not move at all or quickly stops moving. If the axis does not stop, then issue an `M112` to halt the printer - something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.
 
 接下來，不斷降低 `VALUE` 設定的靈敏度，並再次執行 `SET_TMC_FIELD`和`G28 X0` 命令，找到能使使滑車成功地一直移動到端點並停止的最高的靈敏度。(對於TMC2209驅動，調整是減少 SGTHRS，對於其他驅動，調整是增加 sgt)。確保每次嘗試都在軌道中心附近開始（如果需要，發出`M84`，然後手動將滑車移到中心）。該方法應該可以找到可靠歸位的最高靈敏度（更高的靈敏度設定會導致滑車只動一小段或完全不動）。注意找到的值為*maximum_sensitivity*。(如果在最低靈敏度（SGTHRS=0或sgt=63）下滑車也不動，那麼diag/sg_tst 引腳的接線或配置可能有問題，必須在繼續後面操作前予以修正。）
 
@@ -220,6 +220,24 @@ gcode:
 1. 當在CoreXY上使用無感測器歸位時，確保沒有為任何一個步進電機配置`hold_current`。
 1. 在調整時，確保X和Y車架在每次歸位嘗試前都接近其軌道的中心。
 1. 調整完成後，當X和Y軸歸位時，使用宏來確保一個軸首先被歸位，然後將該滑車遠離軸的極限，停頓至少2秒，然後開始另一個滑車的歸位。遠離軸端點的移動可以避免一個軸被歸位，而另一個軸頂在軸的極限上（這可能使失速檢測發生偏差）。暫停是必要的，以確保驅動器的失速標誌在再次歸位之前被清除。
+
+An example CoreXY homing macro might look like:
+
+```
+[gcode_macro HOME]
+gcode:
+    G90
+    # Home Z
+    G28 Z0
+    G1 Z10 F1200
+    # Home Y
+    G28 Y0
+    G1 Y5 F1200
+    # Home X
+    G4 P2000
+    G28 X0
+    G1 X5 F1200
+```
 
 ## 查詢和診斷驅動程式設定
 
