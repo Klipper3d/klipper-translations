@@ -1305,12 +1305,12 @@ sudo update-rc.d klipper_mcu defaults
 </code></pre></div>
 
 <h2 id="a-mikrokontroller-kodjanak-elkeszitese">A mikrokontroller kódjának elkészítése<a class="headerlink" href="#a-mikrokontroller-kodjanak-elkeszitese" title="Permanent link">&para;</a></h2>
-<p>A Klipper mikrokontroller kódjának lefordításához kezdje a "Linux folyamat" konfigurálásával:</p>
+<p>A Klipper mikrokontroller kódjának lefordításához kezd a "Linux folyamat" konfigurálásával:</p>
 <div class="highlight"><pre><span></span><code>cd ~/klipper/
 make menuconfig
 </code></pre></div>
 
-<p>A menüben állítsa be a "Mikrokontroller architektúra" értéket "Linux process,"-re, majd mentse és lépjen ki.</p>
+<p>A menüben állítsd be a "Mikrokontroller architektúra" értéket "Linux process,"-re, majd mentsd és lépj ki.</p>
 <p>Az új mikrokontroller kódjának elkészítéséhez és telepítéséhez futtassa a következőt:</p>
 <div class="highlight"><pre><span></span><code>sudo service klipper stop
 make flash
@@ -1421,13 +1421,13 @@ gpiochip1 - 8 lines:
 dtoverlay=pwm,pin=12,func=4
 </code></pre></div>
 
-<p>Ez a példa csak a PWM0-t engedélyezi, és a GPIO12-re irányítja. Ha mindkét PWM csatornát engedélyezni kell, használhatja a <code>pwm-2chan</code> parancsot.</p>
+<p>Ez a példa csak a PWM0-t engedélyezi, és a GPIO12-re irányítja. Ha mindkét PWM csatornát engedélyezni kell, használhatod a <code>pwm-2chan</code> parancsot.</p>
 <p>Az átfedés nem teszi ki a PWM sort a sysfs-en a rendszerindításkor, és azt a PWM csatorna számát a <code>/sys/class/pwm/pwmchip0/export</code> echo'ing-be kell exportálni:</p>
 <div class="highlight"><pre><span></span><code>echo 0 &gt; /sys/class/pwm/pwmchip0/export
 </code></pre></div>
 
 <p>Ez létrehozza a <code>/sys/class/pwm/pwmchip0/pwm0</code> eszközt a fájlrendszerben. A legegyszerűbb, ha ezt a <code>/etc/rc.local</code> sor előtt az <code>exit 0</code> sorba írjuk be.</p>
-<p>Ha a sysfs a helyén van, akkor most már használhatja a PWM csatornát vagy csatornákat, ha a következő konfigurációt hozzáadja a <code>printer.cfg</code> fájlhoz:</p>
+<p>Ha a sysfs a helyén van, akkor most már használhatod a PWM csatornát vagy csatornákat, ha a következő konfigurációt hozzáadod a <code>printer.cfg</code> fájlhoz:</p>
 <div class="highlight"><pre><span></span><code>[output_pin caselight]
 pin: host:pwmchip0/pwm0
 pwm: True
