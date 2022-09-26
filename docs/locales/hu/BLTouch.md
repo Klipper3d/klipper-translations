@@ -28,7 +28,7 @@ Fontos, hogy a z_hop mozgás a safe_z_home-ban elég nagy legyen ahhoz, hogy a m
 
 Mielőtt továbblépne, ellenőrizze, hogy a BL-Touch a megfelelő magasságban van-e felszerelve. A mérőtüskének behúzott állapotban nagyjából 2 mm-rel a fúvóka fölött kell lennie
 
-Amikor bekapcsolja a nyomtatót, a BL-Touch szondának önellenőrzést kell végeznie, és néhányszor fel-le kell mozgatnia a mérőtüskét. Az önellenőrzés befejezése után a mérőtüskének vissza kell húzódnia, és a szondán lévő piros LED-nek világítania kell. Ha bármilyen hibát észlel, például a szonda pirosan villog, vagy a mérőtüske lefelé van, nem pedig behúzva, kérjük kapcsolja ki a nyomtatót, és ellenőrizze a kábelezést és a konfigurációt.
+Amikor bekapcsolja a nyomtatót, a BL-Touch szondának önellenőrzést kell végeznie, és néhányszor fel-le kell mozgatnia a mérőtüskét. Az önellenőrzés befejezése után a mérőtüskének vissza kell húzódnia, és a szondán lévő piros LED-nek világítania kell. Ha bármilyen hibát észlelsz, például a szonda pirosan villog, vagy a mérőtüske lefelé van, nem pedig behúzva, kérjük kapcsolja ki a nyomtatót, és ellenőrizze a kábelezést és a konfigurációt.
 
 Ha a fentiek rendben vannak, itt az ideje tesztelni, hogy a vezérlés megfelelően működik-e. Először futtassuk le a `BLTOUCH_DEBUG COMMAND=pin_down` parancsot a konzolban. Ellenőrizze, hogy a mérőtüske lefelé mozog-e, és hogy a BL-Touchon lévő piros LED kialszik-e. Ha nem, ellenőrizze újra a kábelezést és a konfigurációt. Ezután adjon ki egy `BLTOUCH_DEBUG COMMAND=pin_up` parancsot. Ellenőrizze, hogy a mérőtüske felfelé mozdul-e, és hogy a piros LED ismét világít-e. Ha villog, akkor valamilyen probléma van.
 

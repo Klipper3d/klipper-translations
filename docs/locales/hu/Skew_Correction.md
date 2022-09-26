@@ -70,4 +70,4 @@ CALC_MEASURED_SKEW AC=<ac_length> BD=<bd_length> AD=<ad_length>
 
 A ferdeségkorrekció természetéből adódóan ajánlott a ferdeséget az indító G-kódban konfigurálni, a kezdőpont felvétel és minden olyan mozgás után, amely a nyomtatási terület széléhez közelít, mint például a tisztítás vagy a fúvóka törlése. Ehhez használhatod a `SET_SKEW` vagy a `SKEW_PROFILE` G-kódokat. Ajánlott továbbá a `SET_SKEW CLEAR=1` parancs kiadása a befejező G-kódban.
 
-Ne feledje! Lehetséges, hogy a `[skew_correction]` olyan korrekciót generál, amely a fejet az X és/vagy Y tengelyen a nyomtató határain túlra helyezi. A `[skew_correction]` használatakor ajánlott a nyomtatófejet a szélektől távolabb elhelyezni.
+Ne feledd! Lehetséges, hogy a `[skew_correction]` olyan korrekciót generál, amely a fejet az X és/vagy Y tengelyen a nyomtató határain túlra helyezi. A `[skew_correction]` használatakor ajánlott a nyomtatófejet a szélektől távolabb elhelyezni.

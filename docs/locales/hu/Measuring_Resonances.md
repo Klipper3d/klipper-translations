@@ -214,7 +214,7 @@ Ekkor a `TEST_RESONANCES AXIS=X` és `TEST_RESONANCES AXIS=Y` parancsok a megfel
 
 ### Max simítás
 
-Ne feledje, hogy a bemeneti formázó simítást hozhat létre az alkatrészekben. A `calibrate_shaper.py` szkript vagy `SHAPER_CALIBRATE` parancs által végrehajtott bemeneti formázó automatikus hangolása nem súlyosbítja a simítást, ugyanakkor megpróbálja minimalizálni az ebből eredő rezgéseket. Néha az alakformáló frekvencia optimálistól elmaradó választását hozhatják, vagy talán egyszerűen csak kevésbé simítják az alkatrészeket a nagyobb fennmaradó rezgések rovására. Ezekben az esetekben kérheti a bemeneti formázó maximális simításának korlátozását.
+Ne feledd, hogy a bemeneti formázó simítást hozhat létre az alkatrészekben. A `calibrate_shaper.py` szkript vagy `SHAPER_CALIBRATE` parancs által végrehajtott bemeneti formázó automatikus hangolása nem súlyosbítja a simítást, ugyanakkor megpróbálja minimalizálni az ebből eredő rezgéseket. Néha az alakformáló frekvencia optimálistól elmaradó választását hozhatják, vagy talán egyszerűen csak kevésbé simítják az alkatrészeket a nagyobb fennmaradó rezgések rovására. Ezekben az esetekben kérheti a bemeneti formázó maximális simításának korlátozását.
 
 Nézzük meg az automatikus hangolás következő eredményeit:
 
@@ -289,7 +289,7 @@ Ha a formázó újrakalibrálását végzi, és a javasolt formázó konfigurác
 
 `TEST_RESONANCES` parancs támogatja az egyéni tengelyeket. Bár ez nem igazán hasznos a bemeneti alakító kalibrálásához, a nyomtató rezonanciáinak alapos tanulmányozására és például a szíjfeszítés ellenőrzésére használható.
 
-A CoreXY nyomtatókon a szíjfeszítés ellenőrzéséhez hajtsa végre a következőt
+A CoreXY nyomtatókon a szíjfeszítés ellenőrzéséhez hajtsd végre a következőt
 
 ```
 TEST_RESONANCES AXIS=1,1 OUTPUT=raw_data
@@ -304,7 +304,7 @@ TEST_RESONANCES AXIS=1,-1 OUTPUT=raw_data
 
 amely a rezonanciákat összehasonlítva `/tmp/resonances.png` képet hoz létre.
 
-Az alapértelmezett toronyelhelyezésű Delta nyomtatók esetében (A torony ~= 210 fok, B ~= 330 fok és C ~= 90 fok), hajtsa végre a következőt
+Az alapértelmezett toronyelhelyezésű Delta nyomtatók esetében (A torony ~= 210 fok, B ~= 330 fok és C ~= 90 fok), hajtsd végre a következőt
 
 ```
 TEST_RESONANCES AXIS=0,1 OUTPUT=raw_data

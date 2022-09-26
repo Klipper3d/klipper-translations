@@ -42,7 +42,7 @@ Ellenőrizze az objektumot, majd digitális tolómérővel mérje meg azt a maga
 
 A pressure_advance értéket ezután a következőképpen lehet kiszámítani: `pressure_advance = <start> + <measured_height> * <factor>`. (Például `0 + 12,90 * .020` lenne `.258`.)
 
-Lehetőség van a START és a FACTOR egyéni beállításainak kiválasztására, ha ez segít a legjobb nyomás előtolás beállítás meghatározásában. Ennek során ügyeljen arra, hogy a TUNING_TOWER parancsot minden egyes próbanyomtatás elején ki kell adni.
+Lehetőség van a START és a FACTOR egyéni beállításainak kiválasztására, ha ez segít a legjobb nyomás előtolás beállítás meghatározásában. Ennek során ügyelj arra, hogy a TUNING_TOWER parancsot minden egyes próbanyomtatás elején ki kell adni.
 
 A tipikus nyomás előtolás értékek 0,050 és 1,000 között vannak (a legmagasabb értékek általában csak a bowdenes extrudereknél). Ha az 1,000-ig terjedő nyomás előtolással nem tapasztalható jelentős javulás, akkor a nyomás előtolás valószínűleg nem javítja a nyomatok minőségét. Térjen vissza az alapértelmezett konfigurációhoz, ahol a nyomás előtolás ki van kapcsolva.
 

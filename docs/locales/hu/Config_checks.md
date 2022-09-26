@@ -2,7 +2,7 @@
 
 Ez a dokumentum a Klipper printer.cfg fájl tű beállításainak megerősítéséhez szükséges lépések listáját tartalmazza. Célszerű ezeket a lépéseket a [telepítési dokumentum](Installation.md) lépéseinek követésével végrehajtani.
 
-Az útmutató során szükség lehet a Klipper konfigurációs fájljának módosítására. Ügyeljen arra, hogy a konfigurációs fájl minden módosítása után adjon ki egy RESTART parancsot, hogy megbizonyosodjon arról, hogy a változtatás érvénybe lép (írja be a "restart" kifejezést az Octoprint terminál lapjára, majd kattintson a "Küldés" gombra). Az is jó ötlet, hogy minden RESTART után kiad egy STATUS parancsot a konfigurációs fájl sikeres betöltésének ellenőrzésére.
+Az útmutató során szükség lehet a Klipper konfigurációs fájljának módosítására. Ügyelj arra, hogy a konfigurációs fájl minden módosítása után adjon ki egy RESTART parancsot, hogy megbizonyosodjon arról, hogy a változtatás érvénybe lép (írja be a "restart" kifejezést az Octoprint terminál lapjára, majd kattintson a "Küldés" gombra). Az is jó ötlet, hogy minden RESTART után kiad egy STATUS parancsot a konfigurációs fájl sikeres betöltésének ellenőrzésére.
 
 ## Ellenőrizze a hőmérsékletet
 

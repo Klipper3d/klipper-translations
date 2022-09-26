@@ -40,7 +40,7 @@ A [nyomtató konfigurációs fájl](#obtain-a-klipper-configuration-file) tetej�
 make
 ```
 
-Ha a [nyomtató konfigurációs fájl](#obtain-a-klipper-configuration-file) tetején található megjegyzések egyéni lépéseket írnak le a "flash" végső képnek a nyomtató vezérlőpanelére történő villogtatásához, akkor kövesse ezeket a lépéseket, majd folytassa az [OctoPrint konfigurálása](#configuring-octoprint-to-use-klipper) lépéseket.
+Ha a [nyomtató konfigurációs fájl](#obtain-a-klipper-configuration-file) tetején található megjegyzések egyéni lépéseket írnak le a "flash" végső képnek a nyomtató vezérlőpanelére történő égetéséhez, akkor kövesd ezeket a lépéseket, majd folytasd az [OctoPrint konfigurálása](#configuring-octoprint-to-use-klipper) lépésekkel.
 
 Ellenkező esetben a következő lépéseket gyakran használják a nyomtató vezérlőlapjának "flash" égetésére. Először meg kell határozni a mikrokontrollerhez csatlakoztatott soros portot. Futtassa a következőket:
 
@@ -78,7 +78,7 @@ Lépj újra a Beállítások fülre, és a „Soros kapcsolat” alatt módosít
 
 A Beállítások lapon lépj a „Viselkedés” allapra, és válassza a „Folyamatban lévő nyomtatás törlése, de továbbra is csatlakozva maradjon a nyomtatóhoz” lehetőséget. Kattintson a "Mentés" gombra.
 
-A főoldalon, a „Kapcsolat” részben (az oldal bal felső sarkában) győződjön meg arról, hogy a „Soros Port” beállítása „/tmp/printer”, majd kattintson a „Csatlakozás” gombra. (Ha a „/tmp/printer” nem elérhető, próbálja meg újratölteni az oldalt.)
+A főoldalon, a „Kapcsolat” részben (az oldal bal felső sarkában) győződjön meg arról, hogy a „Soros Port” beállítása „/tmp/printer”, majd kattintson a „Csatlakozás” gombra. (Ha a „/tmp/printer” nem elérhető, próbáld meg újratölteni az oldalt.)
 
 A csatlakozás után lépj a "Terminal" fülre, és írja be a "status" kifejezést (idézőjelek nélkül) a parancsbeviteli mezőbe, majd kattintson a "Küldés" gombra. A terminálablak valószínűleg hibát jelez a konfigurációs fájl megnyitásakor – ez azt jelenti, hogy az OctoPrint sikeresen kommunikál a Klipperrel. Tovább a következő részhez.
 
@@ -120,4 +120,4 @@ A nyomtató konfigurációs fájljának testreszabásakor nem ritka, hogy a Klip
 
 A Klipper az OctoPrint terminállapon keresztül jelenti a hibaüzeneteket. A "status" paranccsal a hibaüzenetek újra jelenthetők. A Klipper alapértelmezett indítószkriptje egy naplót is elhelyez a **/tmp/klippy.log** fájlban, amely részletesebb információkat tartalmaz.
 
-Miután a Klipper jelenti, hogy a nyomtató készen áll, folytassa a [config check](Config_checks.md) című dokumentumal, hogy elvégezzen néhány alapvető ellenőrzést a config fájlban lévő definíciókon. További információkért lásd a fő [dokumentációs hivatkozás](Overview.md) című rész.
+Miután a Klipper jelenti, hogy a nyomtató készen áll, folytasd a [konfigurációs ellenőrzés](Config_checks.md) című dokumentumal, hogy elvégezzen néhány alapvető ellenőrzést a config fájlban lévő definíciókon. További információkért lásd a fő [dokumentációs hivatkozás](Overview.md) című rész.

@@ -38,7 +38,7 @@ A pontos z_offset beállítása kritikus fontos a jó minőségű nyomatok elő�
 
 Kezd a nyomtató alaphelyzetbe állításával, majd mozgasd a fejet a tárgyasztal közepéhez közeli pozícióba. Navigáljon az OctoPrint terminál fülre, és futtassa a `PROBE_CALIBRATE` parancsot az eszköz indításához.
 
-Ez az eszköz automatikus mérést hajt végre, majd felemeli a fejet, mozgatja a fúvókát a mérőpont helye fölé, és elindítja a kézi mérést. Ha a fúvóka nem mozdul el az automatikus mérőpont feletti pozícióba, akkor `ABORT` a kézi mérőeszközzel, hajtsa végre a fent leírt X-Y szondaeltolás kalibrálását.
+Ez az eszköz automatikus mérést hajt végre, majd felemeli a fejet, mozgatja a fúvókát a mérőpont helye fölé, és elindítja a kézi mérést. Ha a fúvóka nem mozdul el az automatikus mérőpont feletti pozícióba, akkor `ABORT` a kézi mérőeszközzel, hajtsd végre a fent leírt X-Y szondaeltolás kalibrálását.
 
 Miután a kézi mérő eszköz elindult, kövesse a ["a papírteszt"](Bed_Level.md#the-paper-test)] pontban leírt lépéseket a fúvóka és a tárgyasztal közötti tényleges távolság meghatározásához az adott helyen. Ha ezek a lépések befejeződtek, akkor `ACCEPT` a pozíció és elmentheti az eredményeket a config fájlba a következővel:
 
@@ -88,7 +88,7 @@ Ez egy gyakori probléma a delta nyomtatók szondáinál, de más nyomtatónál 
 
 A helyeltolódás ellenőrzése a `PROBE_CALIBRATE` parancs segítségével történhet a szonda z_offsetjének mérésével különböző X és Y helyeken. Ideális esetben a szonda z_offset értéke minden pozícióban állandó.
 
-A deltanyomtatók esetében próbálja meg a z_offset mérését az A, a B, és a C torony közelében is. Cartesian, corexy és hasonló nyomtatók esetében próbálja meg a z_offsetet a tárgyasztal négy sarkának közelében lévő pozíciókban mérni.
+A deltanyomtatók esetében próbáld meg a z_offset mérését az A, a B, és a C torony közelében is. Cartesian, corexy és hasonló nyomtatók esetében próbáld meg a z_offsetet a tárgyasztal négy sarkának közelében lévő pozíciókban mérni.
 
 A vizsgálat megkezdése előtt először kalibrálja a szonda X-, Y- és Z-eltolódását a dokumentum elején leírtak szerint. Ezután állítsd be a nyomtatót, és navigáljon az első X-Y pozícióba. A `PROBE_CALIBRATE` parancs futtatásához kövesse a [calibrating probe Z offset](#calibrating-probe-z-offset) pontban leírt lépéseket, `TESTZ` parancsot, és az `ACCEPT` parancsot, de ne futtassa a `SAVE_CONFIG` parancsot. Figyeljük meg a talált z_offset értéket. Ezután navigáljon a többi X-Y pozícióhoz, ismételje meg ezeket a `PROBE_CALIBRATE` lépéseket, és jegyezze fel a mért z_offsetet.
 
@@ -100,4 +100,4 @@ Sok szondának van egy rendszerszintű torzítása, amikor különböző hőmér
 
 Javasoljuk, hogy a tárgyasztal szintező szerszámokat állandó hőmérsékleten működtesse, hogy figyelembe vegyék ezt a torzítást. Vagy szobahőmérsékleten szintezzen, vagy szintezzen miután a nyomtató elérte a nyomtatási hőmérsékletet. Mindkét esetben érdemes néhány percet várni a kívánt hőmérséklet elérése után, hogy a berendezés folyamatosan a kívánt hőmérsékleten legyen.
 
-A hőmérsékleti torzítás ellenőrzéséhez kezd szobahőmérsékleten, majd állítsd be a nyomtatót. Mozgasd a fejet a tárgyasztal közepéhez közeli pozícióba, és futtassa a `PROBE_ACCURACY` parancsot. Figyelje meg az eredményeket. Ezután a léptetőmotorok kezdőpont felvétele vagy kikapcsolása nélkül melegítse fel a nyomtató fúvókáját és tárgyasztalát nyomtatási hőmérsékletre, és futtassa le ismét a `PROBE_ACCURACY` parancsot. Ideális esetben a parancs azonos eredményeket fog mutatni. A fentiekhez hasonlóan, ha a szondának valóban van hőmérsékleti torzítása, akkor ügyeljen arra, hogy mindig egyenletes hőmérsékleten használja méréskor.
+A hőmérsékleti torzítás ellenőrzéséhez kezd szobahőmérsékleten, majd állítsd be a nyomtatót. Mozgasd a fejet a tárgyasztal közepéhez közeli pozícióba, és futtassa a `PROBE_ACCURACY` parancsot. Figyelje meg az eredményeket. Ezután a léptetőmotorok kezdőpont felvétele vagy kikapcsolása nélkül melegítse fel a nyomtató fúvókáját és tárgyasztalát nyomtatási hőmérsékletre, és futtassa le ismét a `PROBE_ACCURACY` parancsot. Ideális esetben a parancs azonos eredményeket fog mutatni. A fentiekhez hasonlóan, ha a szondának valóban van hőmérsékleti torzítása, akkor ügyelj arra, hogy mindig egyenletes hőmérsékleten használja méréskor.

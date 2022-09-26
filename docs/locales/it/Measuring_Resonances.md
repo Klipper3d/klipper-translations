@@ -214,7 +214,7 @@ Quindi i comandi `TEST_RESONANCES AXIS=X` e `TEST_RESONANCES AXIS=Y` utilizzeran
 
 ### Max smoothing
 
-Keep in mind that the input shaper can create some smoothing in parts. Automatic tuning of the input shaper performed by `calibrate_shaper.py` script or `SHAPER_CALIBRATE` command tries not to exacerbate the smoothing, but at the same time they try to minimize the resulting vibrations. Sometimes they can make a sub-optimal choice of the shaper frequency, or maybe you simply prefer to have less smoothing in parts at the expense of a larger remaining vibrations. In these cases, you can request to limit the maximum smoothing from the input shaper.
+Tieni presente che lo input shaper può creare un po' di smoothing nelle parti. La regolazione automatica del input shaper eseguita dallo script `calibrate_shaper.py` o dal comando `SHAPER_CALIBRATE` cercano di non esacerbare lo smoothing, ma allo stesso tempo cercano di ridurre al minimo le vibrazioni risultanti. A volte possono fare una scelta non ottimale della frequenza dello shaper, o forse semplicemente preferisci avere meno smoothing in alcune parti a scapito di maggiori vibrazioni residue. In questi casi è possibile richiedere di limitare lo smoothing massimo dal input shaper.
 
 Consideriamo i seguenti risultati della sintonizzazione automatica:
 
@@ -234,15 +234,15 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 1500 mm/sec^
 Recommended shaper is 2hump_ei @ 45.2 Hz
 ```
 
-Note that the reported `smoothing` values are some abstract projected values. These values can be used to compare different configurations: the higher the value, the more smoothing a shaper will create. However, these smoothing scores do not represent any real measure of smoothing, because the actual smoothing depends on [`max_accel`](#selecting-max-accel) and `square_corner_velocity` parameters. Therefore, you should print some test prints to see how much smoothing exactly a chosen configuration creates.
+Si noti che i valori di `smoothing` riportati sono alcuni valori proiettati. Questi valori possono essere utilizzati per confrontare diverse configurazioni: maggiore è il valore, maggiore sarà la levigatura creata da uno shaper. Tuttavia, questi punteggi di smoothing non rappresentano alcuna misura reale dello smoothing, perché lo smoothing effettivo dipende dai parametri [`max_accel`](#selecting-max-accel) e `square_corner_velocity`. Pertanto, è necessario eseguire alcune stampe di prova per vedere quanta smoothing crea esattamente una configurazione scelta.
 
-In the example above the suggested shaper parameters are not bad, but what if you want to get less smoothing on the X axis? You can try to limit the maximum shaper smoothing using the following command:
+Nell'esempio sopra i parametri dello shaper suggeriti non sono male, ma cosa succede se si desidera ottenere meno smooting sull'asse X? Puoi provare a limitare lo smoothing massimo dello shaper usando il seguente comando:
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --max_smoothing=0.2
 ```
 
-which limits the smoothing to 0.2 score. Now you can get the following result:
+che limita lo smoothing a un punteggio di 0.2. Ora puoi ottenere il seguente risultato:
 
 ![Resonances](img/calibrate-x-max-smoothing.png)
 
@@ -260,9 +260,9 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 3900 mm/sec^
 Recommended shaper is 3hump_ei @ 72.6 Hz
 ```
 
-If you compare to the previously suggested parameters, the vibrations are a bit larger, but the smoothing is significantly smaller than previously, allowing larger maximum acceleration.
+Se si confronta con i parametri suggeriti in precedenza, le vibrazioni sono un po' maggiori, ma lo smoothing è notevolmente inferiore rispetto a prima, consentendo un'accelerazione massima maggiore.
 
-When deciding which `max_smoothing` parameter to choose, you can use a trial-and-error approach. Try a few different values and see which results you get. Note that the actual smoothing produced by the input shaper depends, primarily, on the lowest resonance frequency of the printer: the higher the frequency of the lowest resonance - the smaller the smoothing. Therefore, if you request the script to find a configuration of the input shaper with the unrealistically small smoothing, it will be at the expense of increased ringing at the lowest resonance frequencies (which are, typically, also more prominently visible in prints). So, always double-check the projected remaining vibrations reported by the script and make sure they are not too high.
+Quando si decide quale parametro `max_smoothing` scegliere, è possibile utilizzare un approccio per tentativi. Prova alcuni valori diversi e guarda quali risultati ottieni. Si noti che lo smoothing effettivo prodotto dall'input shaper dipende principalmente dalla frequenza di risonanza più bassa della stampante: maggiore è la frequenza della risonanza più bassa, minore è lo smoothing. Pertanto, se si richiede allo script di trovare una configurazione dell'input shaper con lo smoothing irrealisticamente piccolo, sarà a scapito di un aumento del ringing alle frequenze di risonanza più basse (che sono, in genere, anche più visibili nelle stampe). Quindi, ricontrolla sempre le vibrazioni rimanenti previste riportate dallo script e assicurati che non siano troppo alte.
 
 Nota che se hai scelto un buon valore `max_smoothing` per entrambi gli assi, puoi salvarlo in `printer.cfg` come
 
@@ -277,7 +277,7 @@ Quindi, se [riesegui](#input-shaper-re-calibration) l'autotuning dello shaper di
 
 ### Seleziona max_accel
 
-Since the input shaper can create some smoothing in parts, especially at high accelerations, you will still need to choose the `max_accel` value that does not create too much smoothing in the printed parts. A calibration script provides an estimate for `max_accel` parameter that should not create too much smoothing. Note that the `max_accel` as displayed by the calibration script is only a theoretical maximum at which the respective shaper is still able to work without producing too much smoothing. It is by no means a recommendation to set this acceleration for printing. The maximum acceleration your printer is able to sustain depends on its mechanical properties and the maximum torque of the used stepper motors. Therefore, it is suggested to set `max_accel` in `[printer]` section that does not exceed the estimated values for X and Y axes, likely with some conservative safety margin.
+Poiché l'input shaper può creare un po' di smussamento nelle parti, specialmente ad accelerazioni elevate, sarà comunque necessario scegliere il valore `max_accel` che non crei troppo smussamento "smoothing" nelle parti stampate. Uno script di calibrazione fornisce una stima per il parametro `max_accel` che non dovrebbe creare un smoothing eccessivo. Si noti che il `max_accel` visualizzato dallo script di calibrazione è solo un massimo teorico al quale il rispettivo shaper è ancora in grado di lavorare senza produrre troppo smoothing. Non è affatto una raccomandazione impostare questa accelerazione per la stampa. L'accelerazione massima che la stampante è in grado di sostenere dipende dalle sue proprietà meccaniche e dalla coppia massima dei motori passo-passo utilizzati. Pertanto, si suggerisce di impostare `max_accel` nella sezione `[printer]` che non superi i valori stimati per gli assi X e Y, probabilmente con un margine di sicurezza conservativo.
 
 In alternativa, segui [questa](Resonance_Compensation.md#selecting-max_accel) parte della guida all'ottimizzazione dello input shaper e stampa il modello di test per scegliere sperimentalmente il parametro `max_accel`.
 
@@ -347,7 +347,7 @@ Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz
 
 Se sei d'accordo con i parametri suggeriti, puoi eseguire ora `SAVE_CONFIG` per salvarli e riavviare Klipper. Nota che questo non aggiornerà il valore `max_accel` nella sezione `[printer]`. Dovresti aggiornarlo manualmente seguendo le considerazioni nella sezione [Selecting max_accel](#selecting-max_accel).
 
-If your printer is a bed slinger printer, you can specify which axis to test, so that you can change the accelerometer mounting point between the tests (by default the test is performed for both axes):
+Se la tua stampante è una stampante a piatto mobile, puoi specificare quale asse testare, in modo da poter cambiare il punto di montaggio dell'accelerometro tra i test (per impostazione predefinita, il test viene eseguito per entrambi gli assi):
 
 ```
 SHAPER_CALIBRATE AXIS=Y

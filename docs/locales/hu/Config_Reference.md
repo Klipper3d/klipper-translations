@@ -812,7 +812,7 @@ Vizuális példák:
 #   mozgásra közvetlenül a szondaművelet megkezdése előtt.
 #   Az alapértelmezett érték 5.
 #mesh_radius:
-#   Meghatározza a háló sugarát a kerek tárgyasztalokhoz. Ne feledje, hogy a
+#   Meghatározza a háló sugarát a kerek tárgyasztalokhoz. Ne feledd, hogy a
 #   sugár a mesh_origin paraméter által megadott koordinátához
 #   viszonyított. Ezt a paramétert a kerek tárgyasztaloknál meg kell adni,
 #   a téglalap alakú tárgyasztaloknál pedig ki kell hagyni.
@@ -1157,7 +1157,7 @@ gcode:
 #axes: xyz
 #   A felülírandó tengelyek. Például, ha ez "Z"-re van állítva, akkor a
 #   felülírási parancsfájl csak akkor fut le, ha a Z tengely be van állítva
-#   (pl. "G28" vagy "G28 Z0" paranccsal). Ne feledje, hogy a felülírási
+#   (pl. "G28" vagy "G28 Z0" paranccsal). Ne feledd, hogy a felülírási
 #   szkriptnek továbbra is minden tengelyt kell tartalmaznia.
 #   Az alapértelmezés az "xyz", ami azt eredményezi, hogy a felülbíráló
 #   szkript fut minden G28 parancs helyett.
@@ -1809,7 +1809,7 @@ Lásd a [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) példak
 
 ### [dual_carriage]
 
-Az egy tengelyen két kocsival rendelkező cartesian nyomtatók támogatása. Az aktív kocsit a SET_DUAL_CARRIAGE kiterjesztett G-kód parancs segítségével állíthatjuk be. A "SET_DUAL_CARRIAGE CARRIAGE=1" parancs az ebben a szakaszban meghatározott kocsit aktiválja (a CARRIAGE=0 az elsődleges kocsi aktiválását állítja vissza). A kettős kocsitámogatást általában extra extruderekkel kombinálják. A SET_DUAL_CARRIAGE parancsot gyakran az ACTIVATE_EXTRUDER paranccsal egyidejűleg hívják meg. Ügyeljen arra, hogy a kocsikat a deaktiválás során parkoló állásba küldje.
+Az egy tengelyen két kocsival rendelkező cartesian nyomtatók támogatása. Az aktív kocsit a SET_DUAL_CARRIAGE kiterjesztett G-kód parancs segítségével állíthatjuk be. A "SET_DUAL_CARRIAGE CARRIAGE=1" parancs az ebben a szakaszban meghatározott kocsit aktiválja (a CARRIAGE=0 az elsődleges kocsi aktiválását állítja vissza). A kettős kocsitámogatást általában extra extruderekkel kombinálják. A SET_DUAL_CARRIAGE parancsot gyakran az ACTIVATE_EXTRUDER paranccsal egyidejűleg hívják meg. Ügyelj arra, hogy a kocsikat a deaktiválás során parkoló állásba küldje.
 
 Lásd a [sample-idex.cfg](../config/sample-idex.cfg) példakonfigurációt.
 
@@ -1935,7 +1935,7 @@ Eszköz a fűtőberendezések letiltására, amikor egy tengely kezdőpont felv�
 
 ### [thermistor]
 
-Egyéni termisztorok (tetszőleges számú szakasz definiálható "termisztor" előtaggal). Egyéni termisztor használható a fűtőberendezés konfigurációs szakaszának sensor_type mezőjében. (Ha például egy "[thermistor my_thermistor]" szekciót definiálunk, akkor a fűtőelem definiálásakor használhatjuk a "sensor_type: my_thermistor" mezőt.). Ügyeljen arra, hogy a termisztor szekciót a konfigurációs fájlban az első fűtőszekcióban való használata fölé helyezze.
+Egyéni termisztorok (tetszőleges számú szakasz definiálható "termisztor" előtaggal). Egyéni termisztor használható a fűtőberendezés konfigurációs szakaszának sensor_type mezőjében. (Ha például egy "[thermistor my_thermistor]" szekciót definiálunk, akkor a fűtőelem definiálásakor használhatjuk a "sensor_type: my_thermistor" mezőt.). Ügyelj arra, hogy a termisztor szekciót a konfigurációs fájlban az első fűtőszekcióban való használata fölé helyezze.
 
 ```
 [thermistor my_thermistor]
@@ -1958,7 +1958,7 @@ Egyéni termisztorok (tetszőleges számú szakasz definiálható "termisztor" e
 
 ### [adc_temperature]
 
-Egyedi ADC hőmérséklet-érzékelők (tetszőleges számú szekciót lehet definiálni "adc_temperature" előtaggal). Ez lehetővé teszi egy olyan egyéni hőmérséklet-érzékelő definiálását, amely egy feszültséget mér egy analóg-digitális átalakító (ADC) tűn, és lineáris interpolációt használ a konfigurált hőmérséklet/feszültség (vagy hőmérséklet/ellenállás) mérések között a hőmérséklet meghatározásához. Az így kapott érzékelő sensor_type-ként használható egy fűtőszekcióban. (Ha például egy "[adc_temperature my_sensor]" szekciót definiálunk, akkor egy fűtőelem definiálásakor használhatjuk a "sensor_type: my_sensor" szekciót). Ügyeljen arra, hogy a szenzor szekciót a config fájlban az első felhasználása fölé helyezze a fűtőszekcióban.
+Egyedi ADC hőmérséklet-érzékelők (tetszőleges számú szekciót lehet definiálni "adc_temperature" előtaggal). Ez lehetővé teszi egy olyan egyéni hőmérséklet-érzékelő definiálását, amely egy feszültséget mér egy analóg-digitális átalakító (ADC) tűn, és lineáris interpolációt használ a konfigurált hőmérséklet/feszültség (vagy hőmérséklet/ellenállás) mérések között a hőmérséklet meghatározásához. Az így kapott érzékelő sensor_type-ként használható egy fűtőszekcióban. (Ha például egy "[adc_temperature my_sensor]" szekciót definiálunk, akkor egy fűtőelem definiálásakor használhatjuk a "sensor_type: my_sensor" szekciót). Ügyelj arra, hogy a szenzor szekciót a config fájlban az első felhasználása fölé helyezze a fűtőszekcióban.
 
 ```
 [adc_temperature my_sensor]
@@ -2952,7 +2952,7 @@ run_current:
 #   A motorvezérlő run_current százalékos aránya lecsökken, amikor az
 #   üresjárati időtúllépés lejár (az időtúllépést az [idle_timeout]
 #   konfigurációs szakaszban kell beállítani). Az áramerősség ismét
-#   megemelkedik, ha a léptetőnek ismét mozognia kell. Ügyeljen arra,
+#   megemelkedik, ha a léptetőnek ismét mozognia kell. Ügyelj arra,
 #   hogy ezt elég magas értékre állítsd be, hogy a léptetők ne veszítsék el
 #   pozíciójukat. Van egy kis késleltetés is, amíg az áram ismét
 #   megemelkedik, ezért ezt vedd figyelembe, amikor a léptető
@@ -3249,7 +3249,7 @@ lcd_type:
 #encoder_steps_per_detent:
 #   Hány lépést ad ki a kódoló reteszelésenként ("kattintás"). Ha a
 #   kódolónak két reteszre van szüksége a bejegyzések közötti mozgáshoz,
-#   vagy két bejegyzést mozgat meg egy rögzítésből, próbálja meg ezt
+#   vagy két bejegyzést mozgat meg egy rögzítésből, próbáld meg ezt
 #   megváltoztatni. A megengedett értékek 2 (féllépcsős) vagy
 #   4 (teljes lépés). Az alapértelmezett érték a 4.
 #click_pin:
@@ -3524,7 +3524,7 @@ Lásd a [sample-glyphs.cfg](../config/sample-glyphs.cfg) néhány példáját.
 #   8, egyenként 5 bites sorból kell állnia. Ez a paraméter nem kötelező.
 #hd44780_slot:
 #   A hd44780 hardver indexe (0..7) a karakterjel tárolására. Ha több
-#   különálló kép használja ugyanazt a tárat, ügyeljen arra, hogy ezek
+#   különálló kép használja ugyanazt a tárat, ügyelj arra, hogy ezek
 #   közül csak egyet használjon az adott képernyőn. Ez a paraméter akkor
 #   szükséges, ha a hd44780_data meg van adva.
 ```
@@ -3633,7 +3633,7 @@ További információkért lásd a [parancs hivatkozást](G-Codes.md#filament_sw
 [filament_switch_sensor my_sensor]
 #pause_on_runout: True
 #   Ha True értékre van állítva, a PAUSE azonnal végrehajtódik, miután a
-#   rendszer szálkifutást észlel. Ne feledje, hogy ha a pause_on_runout
+#   rendszer szálkifutást észlel. Ne feledd, hogy ha a pause_on_runout
 #   értéke False, és a runout_gcode kimarad, akkor a kifutás észlelése le
 #   van tiltva. Az alapértelmezett érték True.
 #runout_gcode:
@@ -3810,7 +3810,7 @@ clk_pin:
 
 ### [adc_scaled]
 
-Duet2 Maestro analóg skálázás vref és vssa leolvasások alapján. Az adc_scaled szakasz definiálása virtuális adc-tűként (például "my_name:PB0") tesz lehetővé, amelyeket automatikusan a kártya vref és vssa figyelőtűi állítanak be. Ügyeljen arra, hogy ezt a konfigurációs szakaszt minden olyan konfigurációs szakasz felett definiálja, amely ezeket a virtuális tűket használja.
+Duet2 Maestro analóg skálázás vref és vssa leolvasások alapján. Az adc_scaled szakasz definiálása virtuális adc-tűként (például "my_name:PB0") tesz lehetővé, amelyeket automatikusan a kártya vref és vssa figyelőtűi állítanak be. Ügyelj arra, hogy ezt a konfigurációs szakaszt minden olyan konfigurációs szakasz felett definiálja, amely ezeket a virtuális tűket használja.
 
 Lásd a [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) fájlt egy példáért.
 

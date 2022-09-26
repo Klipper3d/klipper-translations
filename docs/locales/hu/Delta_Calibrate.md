@@ -47,11 +47,11 @@ Ehhez a kalibrálási eljáráshoz ki kell nyomtatni egy tesztobjektumot, és a 
 
 A kibővített delta-kalibrálás futtatása előtt le kell futtatni az alap delta-kalibrálást (a DELTA_CALIBRATE paranccsal) és el kell menteni az eredményeket (a SAVE_CONFIG paranccsal). Győződjön meg róla, hogy a nyomtató konfigurációjában és hardverében nem történt semmilyen jelentős változás az alap delta-kalibrálás legutóbbi végrehajtása óta (ha nem biztos benne, futtassa le újra az [alap delta-kalibrálás](#basic-delta-calibration) parancsot, beleértve a SAVE_CONFIG parancsot is, közvetlenül az alább leírt tesztobjektum nyomtatása előtt.)
 
-Használjon szeletelőt a [docs/prints/calibrate_size.stl](prints/calibrate_size.stl) fájlból G-kód generálásához. Szeletelje az objektumot lassú sebességgel (pl. 40mm/s). Ha lehetséges, használjon merev műanyagot (pl. PLA) a tárgyhoz. A tárgy átmérője 140 mm. Ha ez túl nagy a nyomtató számára, akkor át lehet méretezni (de ügyeljen arra, hogy mind az X, és az Y tengelyt egyenletesen méretezze). Ha a nyomtató jelentősen nagyobb nyomatokat támogat, akkor a tárgy is megnövelhető. A nagyobb méret javíthatja a mérési pontosságot, de a jó tapadás fontosabb, mint a nagyobb nyomtatási méret.
+Használjon szeletelőt a [docs/prints/calibrate_size.stl](prints/calibrate_size.stl) fájlból G-kód generálásához. Szeletelje az objektumot lassú sebességgel (pl. 40mm/s). Ha lehetséges, használjon merev műanyagot (pl. PLA) a tárgyhoz. A tárgy átmérője 140 mm. Ha ez túl nagy a nyomtató számára, akkor át lehet méretezni (de ügyelj arra, hogy mind az X, és az Y tengelyt egyenletesen méretezze). Ha a nyomtató jelentősen nagyobb nyomatokat támogat, akkor a tárgy is megnövelhető. A nagyobb méret javíthatja a mérési pontosságot, de a jó tapadás fontosabb, mint a nagyobb nyomtatási méret.
 
 Nyomtasd ki a tesztobjektumot, és várja meg, amíg teljesen kihűl. Az alább leírt parancsokat ugyanazokkal a nyomtatóbeállításokkal kell futtatni, mint amelyekkel a kalibrációs tárgyat nyomtatta (ne futtassa a DELTA_CALIBRATE parancsot a nyomtatás és a mérés között, vagy ne tegyen olyat, ami egyébként megváltoztatná a nyomtató konfigurációját).
 
-Ha lehetséges, az alábbiakban leírt méréseket akkor végezze el, amikor a tárgy még mindig a nyomtató tárgyasztalhoz van rögzítve, de ne aggódjon, ha az alkatrész leválik a tárgyasztalról. Csak próbálja meg elkerülni a tárgy meghajlását a mérések elvégzésekor.
+Ha lehetséges, az alábbiakban leírt méréseket akkor végezze el, amikor a tárgy még mindig a nyomtató tárgyasztalhoz van rögzítve, de ne aggódjon, ha az alkatrész leválik a tárgyasztalról. Csak próbáld meg elkerülni a tárgy meghajlását a mérések elvégzésekor.
 
 Kezd a középső oszlop és az "A" felirat melletti oszlop közötti távolság mérésével (amelynek szintén az "A" torony felé kell mutatnia).
 
@@ -129,7 +129,7 @@ Ez a parancs több percig is eltarthat. A parancs befejezése után kiszámítja
 SAVE_CONFIG
 ```
 
-A SAVE_CONFIG parancs mind a frissített delta paramétereket, mind a távolságmérésekből származó információkat elmenti. A jövőbeni DELTA_CALIBRATE parancsok ezeket a távolságinformációkat is felhasználják. A SAVE_CONFIG parancs futtatása után ne próbálja meg újra megadni a nyers távolságméréseket, mivel ez a parancs megváltoztatja a nyomtató konfigurációját, és a nyers mérések már nem érvényesek.
+A SAVE_CONFIG parancs mind a frissített delta paramétereket, mind a távolságmérésekből származó információkat elmenti. A jövőbeni DELTA_CALIBRATE parancsok ezeket a távolságinformációkat is felhasználják. A SAVE_CONFIG parancs futtatása után ne próbáld meg újra megadni a nyers távolságméréseket, mivel ez a parancs megváltoztatja a nyomtató konfigurációját, és a nyers mérések már nem érvényesek.
 
 ### További megjegyzések
 

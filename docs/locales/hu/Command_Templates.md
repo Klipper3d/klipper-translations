@@ -50,7 +50,7 @@ gcode:
   RESTORE_GCODE_STATE NAME=my_move_up_state
 ```
 
-A `G91` parancs a G-kód elemzési állapotot "relatív mozgatási módba" helyezi, a `RESTORE_GCODE_STATE` parancs pedig visszaállítja a makró belépése előtti állapotot. Ügyeljen arra, hogy az első `G1` parancsnál adjon meg explicit sebességet (az `F` paraméterrel).
+A `G91` parancs a G-kód elemzési állapotot "relatív mozgatási módba" helyezi, a `RESTORE_GCODE_STATE` parancs pedig visszaállítja a makró belépése előtti állapotot. Ügyelj arra, hogy az első `G1` parancsnál adjon meg explicit sebességet (az `F` paraméterrel).
 
 ## Sablon bővítés
 

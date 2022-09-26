@@ -31,7 +31,7 @@ sudo service klipper start
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-Ügyeljen arra, hogy a fent lefuttatott "ls" parancsból másolja be a nevet, mivel a név minden nyomtatónál más lesz.
+Ügyelj arra, hogy a fent lefuttatott "ls" parancsból másold be a nevet, mivel a név minden nyomtatónál más lesz.
 
 Ha több mikrovezérlőt használsz, és ezek nem rendelkeznek egyedi azonosítóval (ez gyakori a CH340 USB-chippel ellátott lapokon), akkor kövesd a fenti utasításokat a `ls /dev/serial/by-path/*` parancs használatával.
 
@@ -49,7 +49,7 @@ Ha azonban a "make flash" egyszerűen nem működik az alaplapján, akkor manuá
 
 ## Hogyan változtathatom meg a soros port átviteli sebességét?
 
-A Klipper ajánlott átviteli sebessége 250000. Ez az átviteli ráta jól működik minden olyan mikrokontroller kártyán, amelyet a Klipper támogat. Ha talált egy online útmutatót, amely más átviteli sebességet javasol, akkor hagyja figyelmen kívül az útmutatónak ezt a részét, és folytassa az alapértelmezett 250000 értékkel.
+A Klipper ajánlott átviteli sebessége 250000. Ez az átviteli ráta jól működik minden olyan mikrokontroller kártyán, amelyet a Klipper támogat. Ha talált egy online útmutatót, amely más átviteli sebességet javasol, akkor hagyja figyelmen kívül az útmutatónak ezt a részét, és folytasd az alapértelmezett 250000 értékkel.
 
 Ha mindenképpen meg akarja változtatni az átviteli sebességet, akkor az új sebességet a mikrokontrollerben kell beállítani (a **make menuconfig** alatt), és a frissített kódot le kell fordítani és be kell égetni a mikrokontrollerbe. A Klipper printer.cfg fájlt is frissíteni kell, hogy megfeleljen ennek az átviteli sebességnek (lásd a [konfigurációs hivatkozást](Config_Reference.md#mcu) a részleteket). Például:
 
@@ -116,7 +116,7 @@ A cartesian stílusú nyomtatók esetében a Z position_endstop megadja, hogy a 
 
 ## Átkonvertáltam a konfigurációmat Marlinból, és az X/Y tengelyek jól működnek, de a Z tengely kezdőpont felvételekor csak egy csikorgó zajt hallok
 
-Rövid válasz: Először is ellenőrizze, hogy a [konfigurációs ellenőrzések dokumentumban](Config_checks.md) leírtak szerint ellenőrizte-e a léptető konfigurációját. Ha a probléma továbbra is fennáll, próbálja meg csökkenteni a max_z_velocity értéket a nyomtató konfigurációjában.
+Rövid válasz: Először is ellenőrizze, hogy a [konfigurációs ellenőrzések dokumentumban](Config_checks.md) leírtak szerint ellenőrizte-e a léptető konfigurációját. Ha a probléma továbbra is fennáll, próbáld meg csökkenteni a max_z_velocity értéket a nyomtató konfigurációjában.
 
 Hosszú válasz: A gyakorlatban a Marlin jellemzően csak körülbelül 10000 lépés/másodperc sebességgel tud lépni. Ha olyan sebességgel kell mozognia, amely nagyobb lépésszámot igényel, akkor a Marlin általában csak olyan gyorsan lép, amilyen gyorsan csak tud. A Klipper sokkal nagyobb lépésszámot képes elérni, de a léptetőmotornak nem biztos, hogy elegendő nyomatéka van a nagyobb sebességű mozgáshoz. Tehát egy nagy áttételszámú vagy nagy mikrolépésszámú Z tengely esetében a ténylegesen elérhető max_z_sebesség kisebb lehet, mint ami a Marlinban be van állítva.
 
@@ -156,7 +156,7 @@ A gazdaszoftver külön kódot is tartalmaz a fűtőelemek és a hőmérséklet 
 
 ## Hogyan alakíthatok át egy Marlin tű számot Klipper tű névre?
 
-Rövid válasz: [sample-aliases.cfg](../config/sample-aliases.cfg) fájlban található leképezés. Használja ezt a fájlt útmutatóként a tényleges mikrokontroller tű nevek megtalálásához. (Az is lehetséges, hogy a vonatkozó [board_pins](Config_Reference.md#board_pins) config szakaszt átmásolja a config fájljába, és használja az álneveket a configban, de előnyösebb a tényleges mikrokontroller tű nevek lefordítása és használata.) Vedd figyelembe, hogy a sample-aliases.cfg fájl olyan tű neveket használ, amelyek "ar" előtaggal kezdődnek "D" helyett (pl. az Arduino tű `D23` a Klipper álnév `ar23`) és az "analog" helyett "A" (pl. az Arduino tű `A14` a Klipper álnév `analog14`).
+Rövid válasz: [sample-aliases.cfg](../config/sample-aliases.cfg) fájlban található leképezés. Használja ezt a fájlt útmutatóként a tényleges mikrokontroller tű nevek megtalálásához. (Az is lehetséges, hogy a vonatkozó [board_pins](Config_Reference.md#board_pins) config szakaszt átmásold a config fájljába, és használja az álneveket a configban, de előnyösebb a tényleges mikrokontroller tű nevek lefordítása és használata.) Vedd figyelembe, hogy a sample-aliases.cfg fájl olyan tű neveket használ, amelyek "ar" előtaggal kezdődnek "D" helyett (pl. az Arduino tű `D23` a Klipper álnév `ar23`) és az "analog" helyett "A" (pl. az Arduino tű `A14` a Klipper álnév `analog14`).
 
 Hosszú válasz: Klipper a mikrokontroller által meghatározott szabványos tű neveket használja. Az Atmega chipeken ezek a hardveres tűk olyan neveket viselnek, mint `PA4`, `PC7`, vagy `PD2`.
 
@@ -236,7 +236,7 @@ Ha e parancs használata után a szoftver arra figyelmeztet, hogy a mikrokontrol
 
 Ha továbbra is fennállnak a hibák, akkor ellenőrizze a [konfigurációs változások](Config_Changes.md) dokumentumot, mivel lehet, hogy módosítani kell a nyomtató konfigurációját.
 
-Ne feledje, hogy a RESTART és FIRMWARE_RESTART G-kód parancsok nem töltenek be új szoftvert a fenti "sudo service klipper restart" és "make flash" parancsok szükségesek a szoftverváltás érvénybe lépéséhez.
+Ne feledd, hogy a RESTART és FIRMWARE_RESTART G-kód parancsok nem töltenek be új szoftvert a fenti "sudo service klipper restart" és "make flash" parancsok szükségesek a szoftverváltás érvénybe lépéséhez.
 
 ## Hogyan távolítsam el a klippert?
 
