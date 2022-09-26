@@ -62,7 +62,7 @@ Ha a Klipper egy, az alapértelmezett helytől eltérő helyen található kész
 ./scripts/flash-sdcard.sh -f ~/downloads/klipper.bin /dev/ttyAMA0 btt-skr-v1.3
 ```
 
-Ne feledje, hogy az MKS Robin E3 frissítésekor nem szükséges manuálisan futtatni a `update_mks_robin.py` fájlt, és az így kapott bináris állományt a `flash-sdcard.sh` fájlba táplálni. Ez az eljárás a feltöltési folyamat során automatikusan megtörténik.
+Ne feledd, hogy az MKS Robin E3 frissítésekor nem szükséges manuálisan futtatni az `update_mks_robin.py` fájlt, és az így kapott bináris állományt a `flash-sdcard.sh` fájlba táplálni. Ez az eljárás a feltöltési folyamat során automatikusan megtörténik.
 
 The `-c` option is used to perform a check or verify-only operation to test if the board is running the specified firmware correctly. This option is primarily intended for cases where a manual power-cycle is necessary to complete the flashing procedure, such as with bootloaders that use SDIO mode instead of SPI to access their SD Cards. (See Caveats below) But, it can also be used anytime to verify if the code flashed into the board matches the version in your build folder on any supported board.
 

@@ -24,7 +24,7 @@ iface can0 can static
     up ifconfig $IFACE txqueuelen 128
 ```
 
-Ne feledje, hogy a "Raspberry Pi CAN sapka" is megköveteli a [config.txt módosítását](https://www.waveshare.com/wiki/RS485_CAN_HAT).
+Ne feledd, hogy a "Raspberry Pi CAN sapka" is megköveteli a [config.txt módosítását](https://www.waveshare.com/wiki/RS485_CAN_HAT).
 
 ## Az ellenállások megszüntetése
 
@@ -42,7 +42,7 @@ A CAN-buszon lévő minden mikrovezérlőhöz egyedi azonosítót rendelnek a gy
 ~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0
 ```
 
-Ha nem inicializált CAN-eszközöket észlel, a fenti parancs a következő sorokat fogja jelenteni:
+Ha nem inicializált CAN-eszközöket észlelsz, a fenti parancs a következő sorokat fogja jelenteni:
 
 ```
 Talált canbus_uuid=11aa22bb33cc, Alkalmazás: Klipper

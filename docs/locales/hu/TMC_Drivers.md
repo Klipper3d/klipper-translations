@@ -152,13 +152,13 @@ A TMC2130, TMC5160 és a TMC2660 modellekhez:
 SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 ```
 
-Then issue a `G28 X0` command and verify the axis does not move at all or quickly stops moving. If the axis does not stop, then issue an `M112` to halt the printer - something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.
+Ezután adj ki egy `G28 X0` parancsot, és ellenőrizd, hogy a tengely egyáltalán nem mozog, vagy gyorsan megáll. Ha a tengely nem áll meg, akkor adj ki egy `M112` parancsot a nyomtató megállítására. Valami nem stimmel a diag/sg_tst pin kábelezésével vagy konfigurációjával, és a folytatás előtt ki kell javítani.
 
-Ezután folyamatosan csökkentse a `VALUE` beállítás érzékenységét, és futtassa le újra a `SET_TMC_FIELD` `G28 X0` parancsokat, hogy megtalálja a legnagyobb érzékenységet, amely a kocsi sikeres mozgását eredményezi a végállásig és a megállásig. (A TMC2209 motorvezérlők esetében ez az SGTHRS csökkentése, más vezérlők esetében az sgt növelése lesz.) Ügyeljen arra, hogy minden kísérletet úgy kezdj, hogy a kocsi a sín közepéhez közel legyen (ha szükséges, adjon ki egy `M84` parancsot, majd kézzel mozgasd a kocsit középállásba). Meg kell találni a legnagyobb érzékenységet, amely megbízhatóan jelzi a végállást (a nagyobb érzékenységű beállítások kicsi vagy semmilyen mozgást nem eredményeznek). Jegyezze fel a kapott értéket *maximum_sensitivity* néven. (Ha a lehető legkisebb érzékenységet (SGTHRS=0 vagy sgt=63) kapjuk a kocsi elmozdulása nélkül, akkor valami nincs rendben a diag/sg_tst tűk bekötésével vagy konfigurációjával, és a folytatás előtt ki kell javítani.)
+Ezután folyamatosan csökkentse a `VALUE` beállítás érzékenységét, és futtassa le újra a `SET_TMC_FIELD` `G28 X0` parancsokat, hogy megtalálja a legnagyobb érzékenységet, amely a kocsi sikeres mozgását eredményezi a végállásig és a megállásig. (A TMC2209 motorvezérlők esetében ez az SGTHRS csökkentése, más vezérlők esetében az sgt növelése lesz.) Ügyelj arra, hogy minden kísérletet úgy kezdj, hogy a kocsi a sín közepéhez közel legyen (ha szükséges, adjon ki egy `M84` parancsot, majd kézzel mozgasd a kocsit középállásba). Meg kell találni a legnagyobb érzékenységet, amely megbízhatóan jelzi a végállást (a nagyobb érzékenységű beállítások kicsi vagy semmilyen mozgást nem eredményeznek). Jegyezze fel a kapott értéket *maximum_sensitivity* néven. (Ha a lehető legkisebb érzékenységet (SGTHRS=0 vagy sgt=63) kapjuk a kocsi elmozdulása nélkül, akkor valami nincs rendben a diag/sg_tst tűk bekötésével vagy konfigurációjával, és a folytatás előtt ki kell javítani.)
 
 A maximum_sensitivity keresésekor kényelmes lehet a különböző VALUE beállításokra ugrani (a VALUE paraméter kettéosztása érdekében). Ha ezt tesszük, akkor készüljünk fel arra, hogy a nyomtató leállításához adjunk ki egy `M112` parancsot, mivel egy nagyon alacsony érzékenységű beállítás miatt a tengely többször "beleütközhet" a sín végébe.
 
-Ügyeljen arra, hogy várjon néhány másodpercet minden egyes végállási kísérlet között. Miután a TMC motorvezérlő érzékeli az elakadást, eltarthat egy kis ideig, amíg a belső visszajelzője törlődik, és képes lesz egy újabb megállást érzékelni.
+Ügyelj arra, hogy várjon néhány másodpercet minden egyes végállási kísérlet között. Miután a TMC motorvezérlő érzékeli az elakadást, eltarthat egy kis ideig, amíg a belső visszajelzője törlődik, és képes lesz egy újabb megállást érzékelni.
 
 Ha a hangolási tesztek során a `G28 X0` parancs nem mozdul el egészen a tengelyhatárig, akkor óvatosan kell eljárni a szabályos mozgatási parancsok kiadásával (pl. `G1`). A Klipper nem fogja helyesen értelmezni a kocsi helyzetét, és a mozgatási parancs nemkívánatos és zavaros eredményeket okozhat.
 
@@ -221,19 +221,19 @@ Használja a fent leírt hangolási útmutatót, hogy megtalálja a megfelelő "
 1. A hangolás során győződjön meg arról, hogy az X és az Y kocsik a sínek közepénél vannak-e minden egyes kezdőpont felvételi kísérlet előtt.
 1. A hangolás befejezése után az X és Y kezdőpont felvételét makrók segítségével biztosítsa, hogy először az egyik tengely vedd fel a kezdőpontot, majd mozgasd el a kocsit a tengelyhatártól, tartson legalább 2 másodperc szünetet, majd kezd el a másik kocsi kezdőpont felvételét. A tengelytől való eltávolodással elkerülhető, hogy az egyik tengelyt akkor indítsuk el, amikor a másik a tengelyhatárhoz van nyomva (ami eltorzíthatja az akadásérzékelést). A szünetre azért van szükség, hogy a meghajtó az újraindítás előtt törölje az elakadás érzékelő puffert.
 
-An example CoreXY homing macro might look like:
+Egy példa CoreXY kezdőpont felvételi makró így nézhet ki:
 
 ```
 [gcode_macro HOME]
 gcode:
     G90
-    # Home Z
+    # Kezdőpont Z
     G28 Z0
     G1 Z10 F1200
-    # Home Y
+    # Kezdőpont Y
     G28 Y0
     G1 Y5 F1200
-    # Home X
+    # Kezdőpont X
     G4 P2000
     G28 X0
     G1 X5 F1200
@@ -281,7 +281,7 @@ Győződjön meg róla, hogy a motor tápellátása engedélyezve van, mivel a l
 
 Ellenkező esetben ez a hiba általában a helytelen SPI vezetékezés, az SPI beállítások helytelen Klipper-konfigurációja vagy az SPI buszon lévő eszközök hiányos konfigurációjának eredménye.
 
-Ne feledje, hogy ha a motorvezérlő egy megosztott SPI buszon van több eszközzel, akkor győződjön meg róla, hogy teljes mértékben konfigurálja a Klipperben lévő megosztott SPI busz minden eszközét. Ha egy megosztott SPI buszon lévő eszköz nincs konfigurálva, akkor előfordulhat, hogy helytelenül reagál a nem erre szánt parancsokra, és meghiúsul a kívánt eszközzel folytatott kommunikáció. Ha van olyan eszköz egy megosztott SPI buszon, amelyet nem lehet konfigurálni a Klipperben, akkor a [static_digital_output konfigurációs szakasz](Config_Reference.md#static_digital_output) segítségével állítsd magasra a nem használt eszköz CS tűjét (hogy ne kísérelje meg használni az SPI buszt). A tábla vázlata gyakran hasznos referencia annak megállapításához, hogy mely eszközök vannak egy SPI buszon és a hozzájuk tartozó tűkön.
+Ne feledd, hogy ha a motorvezérlő egy megosztott SPI buszon van több eszközzel, akkor győződjön meg róla, hogy teljes mértékben konfigurálja a Klipperben lévő megosztott SPI busz minden eszközét. Ha egy megosztott SPI buszon lévő eszköz nincs konfigurálva, akkor előfordulhat, hogy helytelenül reagál a nem erre szánt parancsokra, és meghiúsul a kívánt eszközzel folytatott kommunikáció. Ha van olyan eszköz egy megosztott SPI buszon, amelyet nem lehet konfigurálni a Klipperben, akkor a [static_digital_output konfigurációs szakasz](Config_Reference.md#static_digital_output) segítségével állítsd magasra a nem használt eszköz CS tűjét (hogy ne kísérelje meg használni az SPI buszt). A tábla vázlata gyakran hasznos referencia annak megállapításához, hogy mely eszközök vannak egy SPI buszon és a hozzájuk tartozó tűkön.
 
 ### Miért kaptam egy "TMC jelentés hiba: ..." hibaüzenetet?
 

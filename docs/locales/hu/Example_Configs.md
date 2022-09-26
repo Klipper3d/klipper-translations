@@ -2,7 +2,7 @@
 
 Ez a dokumentum a Klipper github tárhoz (a [config könyvtárban](../config/) található) egy Klipper példakonfigurációhoz való hozzájáruláshoz tartalmaz útmutatást.
 
-Ne feledje, hogy a [Klipper Community Discourse szerver](https://community.klipper3d.org) szintén hasznos forrás a konfigurációs fájlok kereséséhez és megosztásához.
+Ne feledd, hogy a [Klipper Community Discourse szerver](https://community.klipper3d.org) szintén hasznos forrás a konfigurációs fájlok kereséséhez és megosztásához.
 
 ## Irányelvek
 
@@ -23,8 +23,8 @@ Ne feledje, hogy a [Klipper Community Discourse szerver](https://community.klipp
    1. Csak olyan makrókat definiáljon, amelyek az adott nyomtatóra jellemző funkciókat használják, vagy olyan g-kódokat definiáljon, amelyeket az adott nyomtatóhoz konfigurált szeletelők általában kiadnak.
 1. Where possible, it is best to use the same wording, phrasing, indentation, and section ordering as the existing config files.
    1. The top of each config file should list the type of micro-controller the user should select during "make menuconfig". It should also have a reference to "docs/Config_Reference.md".
-   1. Ne másolja be a mező dokumentációját a példakonfigurációs fájlokba. (Ez karbantartási terhet jelent, mivel a dokumentáció frissítése sok helyen változtatást igényelne.)
-   1. A példa konfigurációs fájlok nem tartalmazhatnak "SAVE_CONFIG" részt. Ha szükséges, másolja át a SAVE_CONFIG szakaszból a megfelelő mezőket a fő konfigurációs terület megfelelő szakaszába.
+   1. Ne másold be a mező dokumentációját a példakonfigurációs fájlokba. (Ez karbantartási terhet jelent, mivel a dokumentáció frissítése sok helyen változtatást igényelne.)
+   1. A példa konfigurációs fájlok nem tartalmazhatnak "SAVE_CONFIG" részt. Ha szükséges, másold át a SAVE_CONFIG szakaszból a megfelelő mezőket a fő konfigurációs terület megfelelő szakaszába.
    1. Használja a `field: value` szintaxist a `field=value` helyett.
    1. Extruder `rotation_distance` hozzáadásakor célszerű megadni a `gear_ratio` értéket, ha az extruder fogaskerékkel rendelkezik. A példakonfigurációkban szereplő rotation_distance értéktől azt várjuk, hogy korreláljon az extruderben lévő fogaskerék kerületével. Ez általában 20 és 35 mm közötti tartományban van. A `gear_ratio` megadásakor előnyösebb a mechanizmuson lévő tényleges fogaskerekek fogszámának megadása (pl. inkább `gear_ratio: 80:20`, mint `gear_ratio: 4:1`). További információkért lásd a [forgatási távolság dokumentumot](Rotation_Distance.md#using-a-gear_ratio).
    1. Kerülje az alapértelmezett értékre beállított mezőértékek meghatározását. Például nem szabad megadni `min_extrude_temp: 170`, mivel ez már az alapértelmezett érték.

@@ -64,13 +64,13 @@ Se desideri eseguire il flashing di una build di Klipper situata in un luogo div
 
 Nota che quando si aggiorna un MKS Robin E3 non è necessario eseguire manualmente `update_mks_robin.py` e fornire il binario risultante a `flash-sdcard.sh`. Questa procedura è automatizzata durante il processo di caricamento.
 
-The `-c` option is used to perform a check or verify-only operation to test if the board is running the specified firmware correctly. This option is primarily intended for cases where a manual power-cycle is necessary to complete the flashing procedure, such as with bootloaders that use SDIO mode instead of SPI to access their SD Cards. (See Caveats below) But, it can also be used anytime to verify if the code flashed into the board matches the version in your build folder on any supported board.
+L'opzione `-c` viene utilizzata per eseguire un controllo o un'operazione di sola verifica per testare se la scheda esegue correttamente il firmware specificato. Questa opzione è destinata principalmente ai casi in cui è necessario un ciclo di alimentazione manuale per completare la procedura di flashing, ad esempio con i bootloader che utilizzano la modalità SDIO anziché SPI per accedere alle proprie schede SD. (Vedi avvertenze di seguito) Ma può anche essere utilizzato in qualsiasi momento per verificare se il codice visualizzato nella scheda corrisponde alla versione nella cartella build su qualsiasi scheda supportata.
 
 ## Avvertenze
 
 - Come accennato nell'introduzione, questo metodo funziona solo per l'aggiornamento del firmware. La procedura di flashing iniziale deve essere eseguita manualmente secondo le istruzioni che si applicano alla scheda del controller.
 - Sebbene sia possibile eseguire il flashing di una build che modifica il baud seriale o l'interfaccia di connessione (ad esempio: da USB a UART), la verifica avrà sempre esito negativo poiché lo script non sarà in grado di riconnettersi all'MCU per verificare la versione corrente.
-- Only boards that use SPI for SD Card communication are supported. Boards that use SDIO, such as the Flymaker Flyboard and MKS Robin Nano V1/V2, will not work in SDIO mode. However, it's usually possible to flash such boards using Software SPI mode instead. But if the board's bootloader only uses SDIO mode to access the SD Card, a power-cycle of the board and SD Card will be necessary so that the mode can switch from SPI back to SDIO to complete reflashing. Such boards should be defined with `skip_verify` enabled to skip the verify step immediately after flashing. Then after the manual power-cycle, you can rerun the exact same `./scripts/flash-sdcard.sh` command, but add the `-c` option to complete the check/verify operation. See [Flashing Boards that use SDIO](#flashing-boards-that-use-sdio) for examples.
+- Sono supportate solo le schede che utilizzano SPI per la comunicazione con scheda SD. Le schede che utilizzano SDIO, come Flymaker Flyboard e MKS Robin Nano V1/V2, non funzioneranno in modalità SDIO. Tuttavia, di solito è possibile eseguire il flashing di tali schede utilizzando invece la modalità Software SPI. Ma se il bootloader della scheda utilizza solo la modalità SDIO per accedere alla scheda SD, sarà necessario un ciclo di alimentazione della scheda e della scheda SD in modo che la modalità possa tornare da SPI a SDIO per completare il reflashing. Tali schede dovrebbero essere definite con `skip_verify` abilitato per saltare il passaggio di verifica immediatamente dopo il flashing. Quindi, dopo il ciclo di spegnimento manuale, è possibile eseguire nuovamente lo stesso identico comando `./scripts/flash-sdcard.sh`, ma aggiungere l'opzione `-c` per completare l'operazione di controllo/verifica. Vedere [Flashing Boards that use SDIO](#flashing-boards-that-use-sdio) per esempi.
 
 ## Definizioni della scheda
 
@@ -93,14 +93,14 @@ Possono essere specificati i seguenti campi:
 - `spi_bus`: il bus SPI collegato alla scheda SD. Questo dovrebbe essere recuperato dallo schema della scheda. Questo campo è obbligatorio.
 - `cs_pin`: il pin di selezione del chip collegato alla scheda SD. Questo dovrebbe essere recuperato dallo schema della scheda. Questo campo è obbligatorio.
 - `firmware_path`: il percorso sulla scheda SD in cui trasferire il firmware. L'impostazione predefinita è `firmware.bin`.
-- `current_firmware_path`: The path on the SD Card where the renamed firmware file is located after a successful flash. The default is `firmware.cur`.
-- `skip_verify`: This defines a boolean value which tells the scripts to skip the firmware verification step during the flashing process. The default is `False`. It can be set to `True` for boards that require a manual power-cycle to complete flashing. To verify the firmware afterward, run the script again with the `-c` option to perform the verification step. [See caveats with SDIO cards](#caveats)
+- `current_firmware_path`: il percorso sulla scheda SD in cui si trova il file del firmware rinominato dopo un flash riuscito. L'impostazione predefinita è 'firmware.cur'.
+- `skip_verify`: Definisce un valore booleano che dice agli script di saltare il passaggio di verifica del firmware durante il processo di flashing. L'impostazione predefinita è `False`. Può essere impostato su `True` per le schede che richiedono un ciclo di alimentazione manuale per completare il flashing. Per verificare il firmware in seguito, eseguire nuovamente lo script con l'opzione `-c` per eseguire lo step di verifica. [Vedi le avvertenze con le schede SDIO](#caveats)
 
-If software SPI is required, the `spi_bus` field should be set to `swspi` and the following additional field should be specified:
+Se è richiesto il software SPI, il campo `spi_bus` deve essere impostato su `swspi` e deve essere specificato il seguente campo aggiuntivo:
 
 - spi_pins`: Dovrebbero essere 3 pin separati da virgola che sono collegati alla scheda SD nel formato `miso,mosi,sclk`.
 
-It should be exceedingly rare that Software SPI is necessary, typically only boards with design errors or boards that normally only support SDIO mode for their SD Card will require it. The `btt-skr-pro` board definition provides an example of the former, and the `btt-octopus-f446-v1` board definition provides an example of the latter.
+Dovrebbe essere estremamente raro che sia necessario Software SPI, in genere solo le schede con errori di progettazione o le schede che normalmente supportano solo la modalità SDIO per la loro scheda SD lo richiederanno. La definizione della scheda `btt-skr-pro` fornisce un esempio della prima, e la definizione della scheda `btt-octopus-f446-v1` fornisce un esempio della seconda.
 
 Prima di creare una nuova definizione di scheda, è necessario verificare se una definizione di scheda esistente soddisfa i criteri necessari per la nuova scheda. Se questo è il caso, può essere specificato un `BOARD_ALIAS`. Ad esempio, è possibile aggiungere il seguente alias per specificare `my-new-board` come alias per `generic-lpc1768`:
 
@@ -113,15 +113,15 @@ BOARD_ALIASES = {
 
 Se hai bisogno di una nuova definizione di scheda e ti senti a disagio con la procedura descritta sopra, ti consigliamo di rivolgerti a [Klipper Community Discord](Contact.md#discord).
 
-## Flashing Boards that use SDIO
+## Flashing di schede che utilizzano SDIO
 
-[As mentioned in the Caveats](#caveats), boards whose bootloader uses SDIO mode to access their SD Card require a power-cycle of the board, and specifically the SD Card itself, in order to switch from the SPI Mode used while writing the file to the SD Card back to SDIO mode for the bootloader to flash it into the board. These board definitions will use the `skip_verify` flag, which tells the flashing tool to stop after writing the firmware to the SD Card so that the board can be manually power-cycled and the verification step deferred until that's complete.
+[Come menzionato nelle avvertenze](#caveats), le schede il cui bootloader utilizza la modalità SDIO per accedere alla scheda SD richiedono un ciclo di alimentazione della scheda, e in particolare della scheda SD stessa, per passare dalla modalità SPI utilizzata durante la scrittura il file sulla scheda SD di nuovo in modalità SDIO affinché il bootloader lo inserisca nella scheda. Queste definizioni della scheda utilizzeranno il flag `skip_verify`, che indica allo strumento di flashing di interrompersi dopo aver scritto il firmware sulla scheda SD in modo che la scheda possa essere spenta e riaccesa manualmente e il passaggio di verifica posticipato fino al completamento.
 
-There are two scenarios -- one with the RPi Host running on a separate power supply and the other when the RPi Host is running on the same power supply as the main board being flashed. The difference is whether or not it's necessary to also shutdown the RPi and then `ssh` again after the flashing is complete in order to do the verification step, or if the verification can be done immediately. Here's examples of the two scenarios:
+Esistono due scenari -- uno con l'host RPi in esecuzione su un alimentatore separato e l'altro quando l'host RPi è in esecuzione con lo stesso alimentatore della scheda principale sottoposta a flashing. La differenza è se è necessario o meno spegnere anche l'RPi e quindi `ssh`di nuovo dopo che il flashing è completo per eseguire il passaggio di verifica, o se la verifica può essere eseguita immediatamente. Ecco alcuni esempi dei due scenari:
 
-### SDIO Programming with RPi on Separate Power Supply
+### Programmazione SDIO con RPi su alimentazione separata
 
-A typical session with the RPi on a Separate Power Supply looks like the following. You will, of course, need to use your proper device path and board name:
+Una sessione tipica con l'RPi su un alimentatore separato è simile alla seguente. Ovviamente, dovrai utilizzare il percorso del dispositivo e il nome della scheda corretti:
 
 ```
 sudo service klipper stop
@@ -136,9 +136,9 @@ make
 sudo service klipper start
 ```
 
-### SDIO Programming with RPi on the Same Power Supply
+### Programmazione SDIO con RPi sullo stesso alimentatore
 
-A typical session with the RPi on the Same Power Supply looks like the following. You will, of course, need to use your proper device path and board name:
+Una sessione tipica con l'RPi sullo stesso alimentatore è simile alla seguente. Ovviamente, dovrai utilizzare il percorso del dispositivo e il nome della scheda corretti:
 
 ```
 sudo service klipper stop
@@ -156,13 +156,13 @@ cd ~/klipper
 sudo service klipper start
 ```
 
-In this case, since the RPi Host is being restarted, which will restart the `klipper` service, it's necessary to stop `klipper` again before doing the verification step and restart it after verification is complete.
+In questo caso, poiché è in corso il riavvio dell'RPi Host, che riavvierà il servizio `klipper`, è necessario arrestare nuovamente `klipper` prima di eseguire il passaggio di verifica e riavviarlo al termine della verifica.
 
-### SDIO to SPI Pin Mapping
+### Mappatura pin da SDIO a SPI
 
-If your board's schematic uses SDIO for its SD Card, you can map the pins as described in the chart below to determine the compatible Software SPI pins to assign in the `board_defs.py` file:
+Se lo schema della tua scheda utilizza SDIO per la sua scheda SD, puoi mappare i pin come descritto nella tabella seguente per determinare i pin SPI del software compatibili da assegnare nel file `board_defs.py`:
 
-| SD Card Pin | Micro SD Card Pin | SDIO Pin Name | SPI Pin Name |
+| Pin della scheda SD | Pin della scheda micro SD | Nome PIN SDIO | Nome Pin SPI |
 | :-: | :-: | :-: | :-: |
 | 9 | 1 | DATA2 | None (PU)* |
 | 1 | 2 | CD/DATA3 | CS |
@@ -175,4 +175,4 @@ If your board's schematic uses SDIO for its SD Card, you can map the pins as des
 | N/A | 9 | Card Detect (CD) | Card Detect (CD) |
 | 6 | 10 | GND | GND |
 
-\* None (PU) indicates an unused pin with a pull-up resistor
+\* None (PU) indica un pin inutilizzato con una resistenza di pull-up
