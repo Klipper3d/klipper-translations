@@ -1,6 +1,6 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
-# Kamil Kostrzewa <kamilianos3@gmail.com>, 2022.
+# Kamil Kostrzewa <kamilianos3@gmail.com>, 2022, 2025.
 # Jan P <jasiek.kliper06@gmail.com>, 2023, 2025.
 # Bartosz Trojan <51444728+ethylowy@users.noreply.github.com>, 2024, 2025.
 # Dawid <dawidgorski.m@gmail.com>, 2024, 2025.
@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
+"Last-Translator: Kamil Kostrzewa <kamilianos3@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/g-codes/"
 "pl/>\n"
 "Language: pl\n"
@@ -752,14 +752,15 @@ msgid ""
 msgstr ""
 "`ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]`: Zaczyna pomiary "
 "akcelerometrem na podanych liczbach sampli na sekundę. jezeli \"CHIP\" nie "
-"jest podany, to wraca do domyślnych ustawień: \"adxl345\". Komenda dziala w w "
-"trybie rozpocznij-zatrzymaj: kiedy wykonana pierwszy raz, zaczyna pomiar, "
-"kolejna egzekucja zatrzymuje akcelerometr. wyniki pomiaru są zapisane do pliku"
-" o nazwie \"/tmp/adxl345-<chip>-<name>.csv\" gdzie \"<chip>\" to nazwa czipa "
-"akcelerometra (\"my_chip_name\" z \"[adxl345 my_chip_name]\") i \"<name>\" to "
-"jest opcjonalny parametr NAME. Jeżeli NAME nie jest użyty to jest używany "
-"domyślny czas w formacie \"YYYYMMDD_HHMMSS\". Jeżeli akcelerometr nie ma nazwy"
-" w swojej konfiguracji, to połowa tego imienia nie jest wygenerowana."
+"jest podany, to wraca do domyślnych ustawień: \"adxl345\". Komenda dziala w "
+"w trybie rozpocznij-zatrzymaj: kiedy wykonana pierwszy raz, zaczyna pomiar, "
+"kolejna egzekucja zatrzymuje akcelerometr. wyniki pomiaru są zapisane do "
+"pliku o nazwie \"/tmp/adxl345-<chip>-<name>.csv\" gdzie \"<chip>\" to nazwa "
+"czipa akcelerometra (\"my_chip_name\" z \"[adxl345 my_chip_name]\") i "
+"\"<name>\" to jest opcjonalny parametr NAME. Jeżeli NAME nie jest użyty to "
+"jest używany domyślny czas w formacie \"YYYYMMDD_HHMMSS\". Jeżeli "
+"akcelerometr nie ma nazwy w swojej konfiguracji, to połowa tego imienia nie "
+"jest wygenerowana."
 
 #: docs/G-Codes.md:block 120 (unordered list)
 msgid ""
@@ -770,12 +771,12 @@ msgid ""
 "returned values should be a free-fall acceleration (+/- some noise of the "
 "chip)."
 msgstr ""
-"`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: Pyta akcelerometr o"
-" obecną wartość. Jeżeli CHIP nie jest podany to używa domyślnego: \"adxl345\"."
-" Jeżeli RATE nie jest podany, to domyślna wartość jest użyta. Ta komenda jest "
-"użyteczna do testowania połączenia do akcelerometra ADXL345: jedna z "
-"zwróconych wartości powinno byc przyśpieszenie swobodnego opadania. (+/- "
-"troche zakłóceń czipa)."
+"`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: Pyta akcelerometr "
+"o obecną wartość. Jeżeli CHIP nie jest podany to używa domyślnego: "
+"\"adxl345\". Jeżeli RATE nie jest podany, to domyślna wartość jest użyta. Ta "
+"komenda jest użyteczna do testowania połączenia do akcelerometra ADXL345: "
+"jedna z zwróconych wartości powinno byc przyśpieszenie swobodnego opadania. "
+"(+/- troche zakłóceń czipa)."
 
 #: docs/G-Codes.md:block 105 (unordered list)
 msgid ""
@@ -856,8 +857,8 @@ msgid ""
 msgstr ""
 "`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: "
 "Wpisuje Surową \"value\" w rejestr \"register\".  \"value\" i \"register\" "
-"może być w systemie dziesiętnym albo szesnastkowym. Uzywać ostrożnie, i odnoś "
-"sie do ADXL345 Arkuszu danych jako referencja."
+"może być w systemie dziesiętnym albo szesnastkowym. Uzywać ostrożnie, i "
+"odnoś sie do ADXL345 Arkuszu danych jako referencja."
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[bed_mesh]"
