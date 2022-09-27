@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-07 08:22+0000\n"
+"PO-Revision-Date: 2022-09-26 11:24+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/sdcard_updates/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"sdcard_updates/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 msgid ""
 "Many of today's popular controller boards ship with a bootloader capable of "
@@ -292,6 +293,22 @@ msgid ""
 "  -b <baud>       serial baud rate (default is 250000)\n"
 "  -f <firmware>   path to klipper.bin\n"
 msgstr ""
+"./scripts/flash-sdcard.sh -h\n"
+"SD Card upload utility for Klipper\n"
+"\n"
+"usage: flash_sdcard.sh [-h] [-l] [-c] [-b <baud>] [-f <firmware>]\n"
+"                       <device> <board>\n"
+"\n"
+"positional arguments:\n"
+"  <device>        device serial port\n"
+"  <board>         board type\n"
+"\n"
+"optional arguments:\n"
+"  -h              show this message\n"
+"  -l              list available boards\n"
+"  -c              run flash check/verify only (skip upload)\n"
+"  -b <baud>       serial baud rate (default is 250000)\n"
+"  -f <firmware>   path to klipper.bin\n"
 
 #: docs/SDCard_Updates.md:block 18 (paragraph)
 msgid ""
@@ -303,6 +320,15 @@ msgid ""
 "also be used anytime to verify if the code flashed into the board matches "
 "the version in your build folder on any supported board."
 msgstr ""
+"L'opzione `-c` viene utilizzata per eseguire un controllo o un'operazione di "
+"sola verifica per testare se la scheda esegue correttamente il firmware "
+"specificato. Questa opzione è destinata principalmente ai casi in cui è "
+"necessario un ciclo di alimentazione manuale per completare la procedura di "
+"flashing, ad esempio con i bootloader che utilizzano la modalità SDIO "
+"anziché SPI per accedere alle proprie schede SD. (Vedi avvertenze di seguito)"
+" Ma può anche essere utilizzato in qualsiasi momento per verificare se il "
+"codice visualizzato nella scheda corrisponde alla versione nella cartella "
+"build su qualsiasi scheda supportata."
 
 #: docs/SDCard_Updates.md:block 20 (unordered list)
 msgid ""
@@ -318,12 +344,29 @@ msgid ""
 " add the `-c` option to complete the check/verify operation. See [Flashing "
 "Boards that use SDIO](#flashing-boards-that-use-sdio) for examples."
 msgstr ""
+"Sono supportate solo le schede che utilizzano SPI per la comunicazione con "
+"scheda SD. Le schede che utilizzano SDIO, come Flymaker Flyboard e MKS Robin "
+"Nano V1/V2, non funzioneranno in modalità SDIO. Tuttavia, di solito è "
+"possibile eseguire il flashing di tali schede utilizzando invece la modalità "
+"Software SPI. Ma se il bootloader della scheda utilizza solo la modalità "
+"SDIO per accedere alla scheda SD, sarà necessario un ciclo di alimentazione "
+"della scheda e della scheda SD in modo che la modalità possa tornare da SPI "
+"a SDIO per completare il reflashing. Tali schede dovrebbero essere definite "
+"con `skip_verify` abilitato per saltare il passaggio di verifica "
+"immediatamente dopo il flashing. Quindi, dopo il ciclo di spegnimento "
+"manuale, è possibile eseguire nuovamente lo stesso identico comando `./"
+"scripts/flash-sdcard.sh`, ma aggiungere l'opzione `-c` per completare "
+"l'operazione di controllo/verifica. Vedere [Flashing Boards that use SDIO"
+"](#flashing-boards-that-use-sdio) per esempi."
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
 msgid ""
 "`current_firmware_path`: The path on the SD Card where the renamed firmware "
 "file is located after a successful flash. The default is `firmware.cur`."
 msgstr ""
+"`current_firmware_path`: il percorso sulla scheda SD in cui si trova il file "
+"del firmware rinominato dopo un flash riuscito. L'impostazione predefinita è "
+"'firmware.cur'."
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
 msgid ""
@@ -334,12 +377,21 @@ msgid ""
 " again with the `-c` option to perform the verification step. [See caveats "
 "with SDIO cards](#caveats)"
 msgstr ""
+"`skip_verify`: Definisce un valore booleano che dice agli script di saltare "
+"il passaggio di verifica del firmware durante il processo di flashing. "
+"L'impostazione predefinita è `False`. Può essere impostato su `True` per le "
+"schede che richiedono un ciclo di alimentazione manuale per completare il "
+"flashing. Per verificare il firmware in seguito, eseguire nuovamente lo "
+"script con l'opzione `-c` per eseguire lo step di verifica. [Vedi le "
+"avvertenze con le schede SDIO](#caveats)"
 
 #: docs/SDCard_Updates.md:block 26 (paragraph)
 msgid ""
 "If software SPI is required, the `spi_bus` field should be set to `swspi` "
 "and the following additional field should be specified:"
 msgstr ""
+"Se è richiesto il software SPI, il campo `spi_bus` deve essere impostato su "
+"`swspi` e deve essere specificato il seguente campo aggiuntivo:"
 
 #: docs/SDCard_Updates.md:block 28 (paragraph)
 msgid ""
@@ -349,10 +401,16 @@ msgid ""
 "provides an example of the former, and the `btt-octopus-f446-v1` board "
 "definition provides an example of the latter."
 msgstr ""
+"Dovrebbe essere estremamente raro che sia necessario Software SPI, in genere "
+"solo le schede con errori di progettazione o le schede che normalmente "
+"supportano solo la modalità SDIO per la loro scheda SD lo richiederanno. La "
+"definizione della scheda `btt-skr-pro` fornisce un esempio della prima, e la "
+"definizione della scheda `btt-octopus-f446-v1` fornisce un esempio della "
+"seconda."
 
 #: docs/SDCard_Updates.md:block 32 (header)
 msgid "Flashing Boards that use SDIO"
-msgstr ""
+msgstr "Flashing di schede che utilizzano SDIO"
 
 #: docs/SDCard_Updates.md:block 33 (paragraph)
 msgid ""
@@ -365,6 +423,16 @@ msgid ""
 "firmware to the SD Card so that the board can be manually power-cycled and "
 "the verification step deferred until that's complete."
 msgstr ""
+"[Come menzionato nelle avvertenze](#caveats), le schede il cui bootloader "
+"utilizza la modalità SDIO per accedere alla scheda SD richiedono un ciclo di "
+"alimentazione della scheda, e in particolare della scheda SD stessa, per "
+"passare dalla modalità SPI utilizzata durante la scrittura il file sulla "
+"scheda SD di nuovo in modalità SDIO affinché il bootloader lo inserisca "
+"nella scheda. Queste definizioni della scheda utilizzeranno il flag "
+"`skip_verify`, che indica allo strumento di flashing di interrompersi dopo "
+"aver scritto il firmware sulla scheda SD in modo che la scheda possa essere "
+"spenta e riaccesa manualmente e il passaggio di verifica posticipato fino al "
+"completamento."
 
 #: docs/SDCard_Updates.md:block 34 (paragraph)
 msgid ""
@@ -375,10 +443,17 @@ msgid ""
 "is complete in order to do the verification step, or if the verification can"
 " be done immediately. Here's examples of the two scenarios:"
 msgstr ""
+"Esistono due scenari -- uno con l'host RPi in esecuzione su un alimentatore "
+"separato e l'altro quando l'host RPi è in esecuzione con lo stesso "
+"alimentatore della scheda principale sottoposta a flashing. La differenza è "
+"se è necessario o meno spegnere anche l'RPi e quindi `ssh`di nuovo dopo che "
+"il flashing è completo per eseguire il passaggio di verifica, o se la "
+"verifica può essere eseguita immediatamente. Ecco alcuni esempi dei due "
+"scenari:"
 
 #: docs/SDCard_Updates.md:block 35 (header)
 msgid "SDIO Programming with RPi on Separate Power Supply"
-msgstr ""
+msgstr "Programmazione SDIO con RPi su alimentazione separata"
 
 #: docs/SDCard_Updates.md:block 36 (paragraph)
 msgid ""
@@ -386,6 +461,9 @@ msgid ""
 "following. You will, of course, need to use your proper device path and "
 "board name:"
 msgstr ""
+"Una sessione tipica con l'RPi su un alimentatore separato è simile alla "
+"seguente. Ovviamente, dovrai utilizzare il percorso del dispositivo e il "
+"nome della scheda corretti:"
 
 #: docs/SDCard_Updates.md:block 37 (code)
 msgid ""
@@ -400,10 +478,20 @@ msgid ""
 "./scripts/flash-sdcard.sh -c /dev/ttyACM0 btt-octopus-f446-v1\n"
 "sudo service klipper start\n"
 msgstr ""
+"sudo service klipper stop\n"
+"cd ~/klipper\n"
+"git pull\n"
+"make clean\n"
+"make menuconfig\n"
+"make\n"
+"./scripts/flash-sdcard.sh /dev/ttyACM0 btt-octopus-f446-v1\n"
+"[[[manually power-cycle the printer board here when instructed]]]\n"
+"./scripts/flash-sdcard.sh -c /dev/ttyACM0 btt-octopus-f446-v1\n"
+"sudo service klipper start\n"
 
 #: docs/SDCard_Updates.md:block 38 (header)
 msgid "SDIO Programming with RPi on the Same Power Supply"
-msgstr ""
+msgstr "Programmazione SDIO con RPi sullo stesso alimentatore"
 
 #: docs/SDCard_Updates.md:block 39 (paragraph)
 msgid ""
@@ -411,6 +499,9 @@ msgid ""
 "following. You will, of course, need to use your proper device path and "
 "board name:"
 msgstr ""
+"Una sessione tipica con l'RPi sullo stesso alimentatore è simile alla "
+"seguente. Ovviamente, dovrai utilizzare il percorso del dispositivo e il "
+"nome della scheda corretti:"
 
 #: docs/SDCard_Updates.md:block 40 (code)
 msgid ""
@@ -428,6 +519,20 @@ msgid ""
 "./scripts/flash-sdcard.sh -c /dev/ttyACM0 btt-octopus-f446-v1\n"
 "sudo service klipper start\n"
 msgstr ""
+"sudo service klipper stop\n"
+"cd ~/klipper\n"
+"git pull\n"
+"make clean\n"
+"make menuconfig\n"
+"make\n"
+"./scripts/flash-sdcard.sh /dev/ttyACM0 btt-octopus-f446-v1\n"
+"sudo shutdown -h now\n"
+"[[[wait for the RPi to shutdown, then power-cycle and ssh again to the RPi "
+"when it restarts]]]\n"
+"sudo service klipper stop\n"
+"cd ~/klipper\n"
+"./scripts/flash-sdcard.sh -c /dev/ttyACM0 btt-octopus-f446-v1\n"
+"sudo service klipper start\n"
 
 #: docs/SDCard_Updates.md:block 41 (paragraph)
 msgid ""
@@ -435,10 +540,13 @@ msgid ""
 "`klipper` service, it's necessary to stop `klipper` again before doing the "
 "verification step and restart it after verification is complete."
 msgstr ""
+"In questo caso, poiché è in corso il riavvio dell'RPi Host, che riavvierà il "
+"servizio `klipper`, è necessario arrestare nuovamente `klipper` prima di "
+"eseguire il passaggio di verifica e riavviarlo al termine della verifica."
 
 #: docs/SDCard_Updates.md:block 42 (header)
 msgid "SDIO to SPI Pin Mapping"
-msgstr ""
+msgstr "Mappatura pin da SDIO a SPI"
 
 #: docs/SDCard_Updates.md:block 43 (paragraph)
 msgid ""
@@ -446,130 +554,133 @@ msgid ""
 " described in the chart below to determine the compatible Software SPI pins "
 "to assign in the `board_defs.py` file:"
 msgstr ""
+"Se lo schema della tua scheda utilizza SDIO per la sua scheda SD, puoi "
+"mappare i pin come descritto nella tabella seguente per determinare i pin "
+"SPI del software compatibili da assegnare nel file `board_defs.py`:"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SD Card Pin"
-msgstr ""
+msgstr "Pin della scheda SD"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "Micro SD Card Pin"
-msgstr ""
+msgstr "Pin della scheda micro SD"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SDIO Pin Name"
-msgstr ""
+msgstr "Nome PIN SDIO"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SPI Pin Name"
-msgstr ""
+msgstr "Nome Pin SPI"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "9"
-msgstr ""
+msgstr "9"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA2"
-msgstr ""
+msgstr "DATA2"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "None (PU)*"
-msgstr ""
+msgstr "None (PU)*"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CD/DATA3"
-msgstr ""
+msgstr "CD/DATA3"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CS"
-msgstr ""
+msgstr "CS"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CMD"
-msgstr ""
+msgstr "CMD"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "MOSI"
-msgstr ""
+msgstr "MOSI"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "+3.3V (VDD)"
-msgstr ""
+msgstr "+3.3V (VDD)"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CLK"
-msgstr ""
+msgstr "CLK"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SCLK"
-msgstr ""
+msgstr "SCLK"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "6"
-msgstr ""
+msgstr "6"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "GND (VSS)"
-msgstr ""
+msgstr "GND (VSS)"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "7"
-msgstr ""
+msgstr "7"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA0"
-msgstr ""
+msgstr "DATA0"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "MISO"
-msgstr ""
+msgstr "MISO"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "8"
-msgstr ""
+msgstr "8"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA1"
-msgstr ""
+msgstr "DATA1"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "Card Detect (CD)"
-msgstr ""
+msgstr "Card Detect (CD)"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "10"
-msgstr ""
+msgstr "10"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "GND"
-msgstr ""
+msgstr "GND"
 
 #: docs/SDCard_Updates.md:block 45 (paragraph)
 msgid "\\* None (PU) indicates an unused pin with a pull-up resistor"
-msgstr ""
+msgstr "\\* None (PU) indica un pin inutilizzato con una resistenza di pull-up"
 
 #~ msgid ""
 #~ "Only boards that use SPI for SD Card communication are supported. Boards "
