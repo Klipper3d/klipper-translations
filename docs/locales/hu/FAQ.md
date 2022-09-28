@@ -66,7 +66,7 @@ A Klipper mikrovezérlő átviteli sebessége nem függ a mikrovezérlő bootloa
 
 Az ajánlott hardver egy Raspberry Pi 2, Raspberry Pi 3 vagy Raspberry Pi 4.
 
-A Klipper fut a Raspberry Pi 1-en és a Raspberry Pi Zero-n, de ezek a lapok nem tartalmaznak elegendő feldolgozási teljesítményt az OctoPrint jó futtatásához. Gyakori, hogy ezeken a lassabb gépeken a nyomtatás akadozik, amikor közvetlenül az OctoPrintből nyomtat. (Előfordulhat, hogy a nyomtató gyorsabban mozog, mint ahogy az OctoPrint a mozgásparancsokat el tudja küldeni.) Ha mindenképpen ezek közül a lassabb lapok közül valamelyiken szeretne futni, fontolja meg a "virtual_sdcard" funkció használatát nyomtatáskor (a részletekért lásd [konfigurációs hivatkozást](Config_Reference.md#virtual_sdcard)).
+A Klipper fut a Raspberry Pi 1-en és a Raspberry Pi Zero-n, de ezek a lapok nem tartalmaznak elegendő feldolgozási teljesítményt az OctoPrint jó futtatásához. Gyakori, hogy ezeken a lassabb gépeken a nyomtatás akadozik, amikor közvetlenül az OctoPrintből nyomtat. (Előfordulhat, hogy a nyomtató gyorsabban mozog, mint ahogy az OctoPrint a mozgásparancsokat el tudja küldeni.) Ha mindenképpen ezek közül a lassabb lapok közül valamelyiken szeretne futni, fontolja meg a "virtual_sdcard" funkció használatát nyomtatáskor (a részletekért lásd a [konfigurációs hivatkozást](Config_Reference.md#virtual_sdcard)).
 
 A Beaglebone-on való futtatáshoz lásd a [Beaglebone-specifikus telepítési utasításokat](Beaglebone.md).
 
@@ -108,7 +108,7 @@ Ha a fejet az OctoPrint segítségével történő nyomtatás törlése után sz
 
 Ha a nyomtatás befejezése után szeretné mozgatni a fejet, fontolja meg a kívánt mozgás hozzáadását a szeletelő "custom g-code" szakaszához.
 
-Ha a nyomtatónak szüksége van további mozgatásra a kezdőpont felvételi folyamat részeként (vagy alapvetően nincs kezdőpont felvételi folyamat), akkor fontolja meg a safe_z_home vagy homing_override szakasz használatát a konfigurációs fájlban. Ha diagnosztikai vagy hibakeresési célokra kell mozgatni egy léptetőmotort, akkor fontolja meg egy force_move szakasz hozzáadását a konfigurációs fájlhoz. Lásd [konfigurációs hivatkozást](Config_Reference.md#testreszabott-kezdopont-felvetel) az ezen opciókkal kapcsolatos további részletekért.
+Ha a nyomtatónak szüksége van további mozgatásra a kezdőpont felvételi folyamat részeként (vagy alapvetően nincs kezdőpont felvételi folyamat), akkor fontolja meg a safe_z_home vagy homing_override szakasz használatát a konfigurációs fájlban. Ha diagnosztikai vagy hibakeresési célokra kell mozgatni egy léptetőmotort, akkor fontolja meg egy force_move szakasz hozzáadását a konfigurációs fájlhoz. Lásd a [konfigurációs hivatkozást](Config_Reference.md#testreszabott-kezdopont-felvetel) az ezen opciókkal kapcsolatos további részletekért.
 
 ## Miért van a Z position_endstop 0,5-re állítva az alapértelmezett konfigurációban?
 

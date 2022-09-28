@@ -62,7 +62,7 @@ Ha a nyomtató fűtött ággyal rendelkezik, és az támogatja a PWM (impulzussz
 
 ## Következő lépések
 
-Ez az útmutató a Klipper konfigurációs fájlban lévő tű-beállítások alapvető ellenőrzéséhez nyújt segítséget. Mindenképpen olvassa el a [tárgyasztal szintezése](Bed_Level.md) útmutatót. A Klipperrel történő szeletelő konfigurálásával kapcsolatos információkért olvassa el a [Szeletelők](Slicers.md) dokumentumot is.
+Ez az útmutató a Klipper konfigurációs fájlban lévő tű-beállítások alapvető ellenőrzéséhez nyújt segítséget. Mindenképpen olvasd el a [tárgyasztal szintezése](Bed_Level.md) útmutatót. A Klipperrel történő szeletelő konfigurálásával kapcsolatos információkért olvasd el a [Szeletelők](Slicers.md) dokumentumot is.
 
 Miután meggyőződtünk arról, hogy az alapnyomtatás működik, érdemes megfontolni a [nyomás előtolás](Pressure_Advance.md) kalibrálását.
 

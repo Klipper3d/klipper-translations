@@ -36,7 +36,7 @@ A Klipper számos szabványos 3D nyomtató funkciót támogat:
 * A nyomtató rezgésének és zajának csökkentése érdekében a rövid "cikcakk" mozgások csúcssebességének korlátozásának támogatása. További információkért lásd a [Kinematika](Kinematics.md) dokumentumot.
 * Számos gyakori nyomtatóhoz rendelkezésre állnak minta konfigurációs fájlok. Listát a [config könyvtárban](../config/) találja.
 
-A Klipper használatának megkezdéséhez olvassa el a [Telepítés](Installation.md) útmutatót.
+A Klipper használatának megkezdéséhez olvasd el a [Telepítés](Installation.md) útmutatót.
 
 ## Lépés Teljesítményérték
 

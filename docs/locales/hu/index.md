@@ -12,4 +12,4 @@ A Klipper egy 3D nyomtató firmware. Egyesíti egy általános célú számító
 
 A Klipper használatának megkezdéséhez kezd a [telepítést](Installation.md).
 
-A Klipper szabad szoftver. Olvassa el a [dokumentációt](Overview.md) vagy tekintse meg [a Klipper kódját a githubon](https://github.com/Klipper3d/klipper). A [szponzorok](Sponsors.md) nagylelkű támogatásától függünk.
+A Klipper szabad szoftver. Olvasd el a [dokumentációt](Overview.md) vagy tekintse meg [a Klipper kódját a githubon](https://github.com/Klipper3d/klipper). A [szponzorok](Sponsors.md) nagylelkű támogatásától függünk.
