@@ -49,19 +49,19 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 #### ACCELEROMETER_MEASURE
 
-`ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]`: Starts accelerometer measurements at the requested number of samples per second. If CHIP is not specified it defaults to "adxl345". The command works in a start-stop mode: when executed for the first time, it starts the measurements, next execution stops them. The results of measurements are written to a file named `/tmp/adxl345-<chip>-<name>.csv` where `<chip>` is the name of the accelerometer chip (`my_chip_name` from `[adxl345 my_chip_name]`) and `<name>` is the optional NAME parameter. If NAME is not specified it defaults to the current time in "YYYYMMDD_HHMMSS" format. If the accelerometer does not have a name in its config section (simply `[adxl345]`) then `<chip>` part of the name is not generated.
+`ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]`: Zaczyna pomiary akcelerometrem na podanych liczbach sampli na sekundę. jezeli "CHIP" nie jest podany, to wraca do domyślnych ustawień: "adxl345". Komenda dziala w w trybie rozpocznij-zatrzymaj: kiedy wykonana pierwszy raz, zaczyna pomiar, kolejna egzekucja zatrzymuje akcelerometr. wyniki pomiaru są zapisane do pliku o nazwie "/tmp/adxl345-<chip>-<name>.csv" gdzie "<chip>" to nazwa czipa akcelerometra ("my_chip_name" z "[adxl345 my_chip_name]") i "<name>" to jest opcjonalny parametr NAME. Jeżeli NAME nie jest użyty to jest używany domyślny czas w formacie "YYYYMMDD_HHMMSS". Jeżeli akcelerometr nie ma nazwy w swojej konfiguracji, to połowa tego imienia nie jest wygenerowana.
 
 #### ACCELEROMETER_QUERY
 
-`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).
+`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: Pyta akcelerometr o obecną wartość. Jeżeli CHIP nie jest podany to używa domyślnego: "adxl345". Jeżeli RATE nie jest podany, to domyślna wartość jest użyta. Ta komenda jest użyteczna do testowania połączenia do akcelerometra ADXL345: jedna z zwróconych wartości powinno byc przyśpieszenie swobodnego opadania. (+/- troche zakłóceń czipa).
 
-#### ACCELEROMETER_DEBUG_READ
+#### AKCELEROMETER_CZYTANIE_DEBUGOWE
 
-`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries ADXL345 register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes.
+`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries ADXL345 register "register" (e.g. 44 or 0x2C). Może się przydać przy debugowaniu.
 
 #### ACCELEROMETER_DEBUG_WRITE
 
-`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Writes raw "value" into a register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.
+`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Wpisuje Surową "value" w rejestr "register". "value" i "register" może być w systemie dziesiętnym albo szesnastkowym. Uzywać ostrożnie, i odnoś sie do ADXL345 Arkuszu danych jako referencja.
 
 ### [angle]
 
@@ -442,7 +442,7 @@ The manual_probe module is automatically loaded.
 `MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:
 
 - `ACCEPT`: This command accepts the current Z position and concludes the manual probing tool.
-- `ABORT`: This command terminates the manual probing tool.
+- `ABORT`: Ta komenda terminuje protokół sondowania ręcznego.
 - `TESTZ Z=<value>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
 
 #### Z_ENDSTOP_CALIBRATE

@@ -22,7 +22,7 @@ Ezt a szervert egy Klipper-rajongókból álló közösség működteti, amely a
 
 ## Kérdésem van a Klipperrel kapcsolatban
 
-Sok kérdésre már választ kaptunk a [Klipper dokumentációban](Overview.md). Kérjük, mindenképpen olvassa el a dokumentációt és kövesse az ott megadott utasításokat.
+Sok kérdésre már választ kaptunk a [Klipper dokumentációban](Overview.md). Kérjük, mindenképpen olvasd el a dokumentációt és kövesse az ott megadott utasításokat.
 
 Lehetőség van hasonló kérdések keresésére a [Klipper Közösségi Fórum](#kozossegi-forum) oldalon is.
 
@@ -45,7 +45,7 @@ Sajnos sokkal több segítségkérés érkezik hozzánk, mint amennyit meg tudn�
 1. Finom hibák a hardverben, vagy
 1. Nem követi a Klipper dokumentációban leírt összes lépést.
 
-Ha problémákat tapasztal, javasoljuk, hogy figyelmesen olvassa el a [Klipper dokumentációt](Overview.md), és ellenőrizze, hogy minden lépést követett-e.
+Ha problémákat tapasztal, javasoljuk, hogy figyelmesen olvasd el a [Klipper dokumentációt](Overview.md), és ellenőrizze, hogy minden lépést követett-e.
 
 Ha nyomtatási problémát tapasztal, akkor javasoljuk, hogy alaposan vizsgálja meg a nyomtató hardverét (minden illesztést, vezetéket, csavart stb.), és győződjön meg arról, hogy semmi rendellenes nincs. Úgy találjuk, hogy a legtöbb nyomtatási probléma nem a Klipper szoftverrel kapcsolatos. Ha a nyomtató hardverével kapcsolatos problémát talál, akkor valószínűleg jobb választ kap, ha egy általános 3D-nyomtatási fórumon vagy egy, a nyomtató hardverével foglalkozó fórumon keres.
 

@@ -1488,7 +1488,7 @@ Az mpu9250 és mpu6050 gyorsulásmérők támogatása (tetszőleges számú szek
 
 ### [resonance_tester]
 
-A rezonancia tesztelés és az automatikus bemeneti alakító kalibráció támogatása. A modul legtöbb funkciójának használatához további szoftverfüggőségeket kell telepíteni; további információkért olvassa el a [Rezonanciák mérése](Measuring_Resonances.md) és a [parancs hivatkozás](G-Codes.md#resonance_tester) című dokumentumot. A rezonanciák mérése című útmutató [Max simítás](Measuring_Resonances.md#max-smoothing) szakaszában további információkat talál a `max_smoothing` paraméterről és annak használatáról.
+A rezonancia tesztelés és az automatikus bemeneti alakító kalibráció támogatása. A modul legtöbb funkciójának használatához további szoftverfüggőségeket kell telepíteni; további információkért olvasd el a [Rezonanciák mérése](Measuring_Resonances.md) és a [parancs hivatkozás](G-Codes.md#resonance_tester) című dokumentumot. A rezonanciák mérése című útmutató [Max simítás](Measuring_Resonances.md#max-smoothing) szakaszában további információkat talál a `max_smoothing` paraméterről és annak használatáról.
 
 ```
 [resonance_tester]
@@ -1672,7 +1672,7 @@ control_pin:
 #stow_on_each_sample: True
 #   Ez határozza meg, hogy a Klippernek utasítania kell-e a tűt, hogy
 #   mozogjon felfelé az egyes mérési kísérletek között, amikor több
-#   mérési sorozatot hajt végre. Mielőtt False értékre állítaná, olvassa
+#   mérési sorozatot hajt végre. Mielőtt False értékre állítaná, olvasd
 #   el a docs/BLTouch.md utasításait. Az alapértelmezett érték True.
 #probe_with_touch_mode: False
 #   Ha ez True értékre van állítva, akkor a Klipper "touch_mode"
@@ -1682,13 +1682,13 @@ control_pin:
 #   Állítsd be, hogy a BLTouch következetesen „not triggered”
 #   állapotban jelentse-e a mérést a sikeres „pin_up” parancs után.
 #   Ennek True-nak kell lennie minden eredeti BLTouch eszköznél.
-#   Mielőtt False értékre állítaná, olvassa el a docs/BLTouch.md
+#   Mielőtt False értékre állítaná, olvasd el a docs/BLTouch.md
 #   utasításait. Az alapértelmezett érték True.
 #pin_up_touch_mode_reports_triggered: True
 #   Állítsd be, hogy a BLTouch következetesen "triggered" állapotot
 #   jelentse-e a "pin_up" parancs kövesse a "touch_mode" parancsot.
 #   Ennek True-nak kell lennie minden eredeti BLTouch eszköznél.
-#   Mielőtt False értékre állítaná, olvassa el a docs/BLTouch.md
+#   Mielőtt False értékre állítaná, olvasd el a docs/BLTouch.md
 #   utasításait. Az alapértelmezett érték True.
 #set_output_mode:
 #   Kérjen egy adott érzékelőtűs kimeneti módot a BLTouch V3.0
