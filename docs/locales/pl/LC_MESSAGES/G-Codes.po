@@ -1,16 +1,19 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Kamil Kostrzewa <kamilianos3@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-11 18:57+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/g-codes/pl/>\n"
+"PO-Revision-Date: 2022-09-28 10:21+0000\n"
+"Last-Translator: Kamil Kostrzewa <kamilianos3@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/g-codes/"
+"pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -332,7 +335,7 @@ msgid ""
 msgstr ""
 
 msgid "`ABORT`: This command terminates the manual probing tool."
-msgstr ""
+msgstr "`ABORT`: Ta komenda terminuje protokół sondowania ręcznego."
 
 msgid ""
 "`TESTZ Z=<value>`: This command moves the nozzle up or down by the amount "
@@ -823,6 +826,17 @@ msgid ""
 "the accelerometer does not have a name in its config section (simply "
 "`[adxl345]`) then `<chip>` part of the name is not generated."
 msgstr ""
+"`ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]`: Zaczyna pomiary "
+"akcelerometrem na podanych liczbach sampli na sekundę. jezeli \"CHIP\" nie "
+"jest podany, to wraca do domyślnych ustawień: \"adxl345\". Komenda dziala w "
+"w trybie rozpocznij-zatrzymaj: kiedy wykonana pierwszy raz, zaczyna pomiar, "
+"kolejna egzekucja zatrzymuje akcelerometr. wyniki pomiaru są zapisane do "
+"pliku o nazwie \"/tmp/adxl345-<chip>-<name>.csv\" gdzie \"<chip>\" to nazwa "
+"czipa akcelerometra (\"my_chip_name\" z \"[adxl345 my_chip_name]\") i \""
+"<name>\" to jest opcjonalny parametr NAME. Jeżeli NAME nie jest użyty to "
+"jest używany domyślny czas w formacie \"YYYYMMDD_HHMMSS\". Jeżeli "
+"akcelerometr nie ma nazwy w swojej konfiguracji, to połowa tego imienia nie "
+"jest wygenerowana."
 
 #: docs/G-Codes.md:block 120 (unordered list)
 msgid ""
@@ -833,6 +847,12 @@ msgid ""
 "of the returned values should be a free-fall acceleration (+/- some noise of"
 " the chip)."
 msgstr ""
+"`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: Pyta akcelerometr "
+"o obecną wartość. Jeżeli CHIP nie jest podany to używa domyślnego: \"adxl345"
+"\". Jeżeli RATE nie jest podany, to domyślna wartość jest użyta. Ta komenda "
+"jest użyteczna do testowania połączenia do akcelerometra ADXL345: jedna z "
+"zwróconych wartości powinno byc przyśpieszenie swobodnego opadania. (+/- "
+"troche zakłóceń czipa)."
 
 #: docs/G-Codes.md:block 105 (unordered list)
 msgid ""
@@ -877,7 +897,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 18 (header)
 msgid "ACCELEROMETER_DEBUG_READ"
-msgstr ""
+msgstr "AKCELEROMETER_CZYTANIE_DEBUGOWE"
 
 #: docs/G-Codes.md:block 19 (paragraph)
 msgid ""
@@ -885,6 +905,9 @@ msgid ""
 "ADXL345 register \"register\" (e.g. 44 or 0x2C). Can be useful for debugging"
 " purposes."
 msgstr ""
+"`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries "
+"ADXL345 register \"register\" (e.g. 44 or 0x2C). Może się przydać przy "
+"debugowaniu."
 
 #: docs/G-Codes.md:block 20 (header)
 msgid "ACCELEROMETER_DEBUG_WRITE"
@@ -897,6 +920,10 @@ msgid ""
 "\"register\" can be a decimal or a hexadecimal integer. Use with care, and "
 "refer to ADXL345 data sheet for the reference."
 msgstr ""
+"`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: "
+"Wpisuje Surową \"value\" w rejestr \"register\".  \"value\" i \"register\" "
+"może być w systemie dziesiętnym albo szesnastkowym. Uzywać ostrożnie, i "
+"odnoś sie do ADXL345 Arkuszu danych jako referencja."
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[bed_mesh]"
