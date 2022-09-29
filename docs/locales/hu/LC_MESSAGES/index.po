@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-09-28 10:21+0000\n"
+"PO-Revision-Date: 2022-09-29 17:23+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/index/"
 "hu/>\n"
@@ -41,8 +41,7 @@ msgstr ""
 
 #: docs/index.md:block 5 (paragraph)
 msgid "To begin using Klipper start by [installing](Installation.md) it."
-msgstr ""
-"A Klipper használatának megkezdéséhez kezd a [telepítést](Installation.md)."
+msgstr "A Klipper használatához kezd el a [telepítést](Installation.md)."
 
 #: docs/index.md:block 6 (paragraph)
 msgid ""
@@ -51,7 +50,7 @@ msgid ""
 " the generous support from our [sponsors](Sponsors.md)."
 msgstr ""
 "A Klipper szabad szoftver. Olvasd el a [dokumentációt](Overview.md) vagy "
-"tekintse meg [a Klipper kódját a githubon](https://github.com/Klipper3d/"
+"tekintsd meg [a Klipper kódját a githubon](https://github.com/Klipper3d/"
 "klipper). A [szponzorok](Sponsors.md) nagylelkű támogatásától függünk."
 
 #~ msgid ""
