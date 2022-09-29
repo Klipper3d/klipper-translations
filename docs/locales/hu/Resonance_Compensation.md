@@ -182,7 +182,7 @@ Lényegében a gyűrődési tesztmodellt TUNING_TOWER segítségével nyomtatjuk
 
 Ha egyik modell sem mutat javulást a gyűrődésben, akkor sajnos úgy tűnik, hogy a bemeneti alakítási technikák nem segíthetnek az Ön esetében.
 
-Máskülönben előfordulhat, hogy az összes modell nem mutat gyűrődést, vagy néhány modell gyűrődést mutat, néhány pedig nem annyira. Válassza ki azt a tesztmodellt, amelyik a legmagasabb frekvenciával készült, és még mindig jó javulást mutat a gyűrődések tekintetében. Ha például a 40 Hz-es és az 50 Hz-es modellek szinte egyáltalán nem mutatnak gyűrődést, a 60 Hz-es modell pedig már némileg több gyűrődést mutat, maradjon az 50 Hz-esnél.
+Máskülönben előfordulhat, hogy az összes modell nem mutat gyűrődést, vagy néhány modell gyűrődést mutat, néhány pedig nem annyira. Válassza ki azt a tesztmodellt, amelyik a legmagasabb frekvenciával készült, és még mindig jó javulást mutat a gyűrődések tekintetében. Ha például a 40 Hz-es és az 50 Hz-es modellek szinte egyáltalán nem mutatnak gyűrődést, a 60 Hz-es modell pedig már némileg több gyűrődést mutat, maradj az 50 Hz-esnél.
 
 Most ellenőrizze, hogy az EI alakító elég jó lenne-e az Ön esetében. Válassza ki az EI alakító frekvenciáját az Ön által választott 2HUMP_EI alakító frekvenciája alapján:
 
@@ -197,7 +197,7 @@ Most nyomtassuk ki a tesztmodellt még egyszer, a következő futtatásával
 
 a korábban meghatározott shaper_freq_x=... és shaper_freq_y=... értékek megadásával.
 
-Ha az EI alakító a 2HUMP_EI alakítóhoz hasonlóan jó eredményeket mutat, maradjon az EI alakító és a korábban meghatározott frekvencia mellett, ellenkező esetben használja a 2HUMP_EI alakítót a megfelelő frekvenciával. Add hozzá az eredményeket a `printer.cfg` fájlhoz, pl. a következő módon.
+Ha az EI alakító a 2HUMP_EI alakítóhoz hasonlóan jó eredményeket mutat, maradj az EI alakító és a korábban meghatározott frekvencia mellett, ellenkező esetben használja a 2HUMP_EI alakítót a megfelelő frekvenciával. Add hozzá az eredményeket a `printer.cfg` fájlhoz, pl. a következő módon.
 
 ```
 [input_shaper]

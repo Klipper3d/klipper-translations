@@ -182,11 +182,11 @@ Más eszközök bármelyik általános célú IO tűre csatlakoztathatók. Péld
 
 ## Hogyan tudom törölni az M109/M190 "várakozás a hőmérsékletre" kérést?
 
-Navigáljon az OctoPrint terminál fülre, és adjon ki egy M112 parancsot a terminálmezőben. Az M112 parancs hatására a Klipper "leállítás" állapotba kerül, és az OctoPrint megszakítja a kapcsolatot a Klipperrel. Navigáljon az OctoPrint csatlakozási területére, és kattintson a "Connect" gombra, hogy az OctoPrint újra csatlakozzon. Navigáljon vissza a terminál fülre, és adjon ki egy FIRMWARE_RESTART parancsot a Klipper hibaállapotának törléséhez. E műveletsor befejezése után az előző fűtéskérés törlődik, és új nyomtatás indítható.
+Navigálj az OctoPrint terminál fülre, és adj ki egy M112 parancsot a terminálmezőben. Az M112 parancs hatására a Klipper "leállítás" állapotba kerül, és az OctoPrint megszakítja a kapcsolatot a Klipperrel. Navigálj az OctoPrint csatlakozási területére, és kattintson a "Connect" gombra, hogy az OctoPrint újra csatlakozzon. Navigálj vissza a terminál fülre, és adj ki egy FIRMWARE_RESTART parancsot a Klipper hibaállapotának törléséhez. E műveletsor befejezése után az előző fűtéskérés törlődik, és új nyomtatás indítható.
 
 ## Meg tudom állapítani, hogy a nyomtató vesztett-e lépéseket?
 
-Bizonyos értelemben igen. Indítsa el a nyomtatót, adjon ki egy `GET_POSITION` parancsot, indítsa el a nyomtatást, indítsa el újra, és adjon ki egy újabb `GET_POSITION` parancsot. Ezután hasonlítsa össze az `mcu:` sorban szereplő értékeket.
+Bizonyos értelemben igen. Indítsa el a nyomtatót, adj ki egy `GET_POSITION` parancsot, indítsa el a nyomtatást, indítsa el újra, és adj ki egy újabb `GET_POSITION` parancsot. Ezután hasonlítsa össze az `mcu:` sorban szereplő értékeket.
 
 Ez hasznos lehet a beállítások, például a léptetőmotorok áramának, gyorsulásának és sebességének beállításához anélkül, hogy ténylegesen nyomtatnod kellene valamit és pazarolnod kellene a szálakat: csak futtass néhány nagy sebességű mozgást a `GET_POSITION` parancsok között.
 

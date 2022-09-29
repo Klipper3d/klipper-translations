@@ -8,7 +8,7 @@ A Hall nyomtatószál szélesség érzékelő használatához olvasd el a [Konfi
 
 ## Hogyan működik?
 
-Az érzékelő két analóg kimenetet generál az izzószál számított szélessége alapján. A kimeneti feszültség összege mindig megegyezik az izzószál érzékelt szélességével. A gazdamodul figyeli a feszültségváltozásokat és beállítja az extrudálási szorzót. Aux2 csatlakozót használok a RAMPS kártya analóg11 és analóg12 érintkezőin. Különböző csapokat és különböző táblákat használhat.
+Az érzékelő két analóg kimenetet generál az izzószál számított szélessége alapján. A kimeneti feszültség összege mindig megegyezik az izzószál érzékelt szélességével. A gazdamodul figyeli a feszültségváltozásokat és beállítja az extrudálási szorzót. Aux2 csatlakozót használok a RAMPS kártya analóg11 és analóg12 érintkezőin. Különböző tűket és különböző táblákat használhat.
 
 ## Menüváltozók sablonja
 

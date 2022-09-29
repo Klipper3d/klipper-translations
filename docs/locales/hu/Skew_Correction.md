@@ -56,7 +56,7 @@ Lehetőség van régi vagy elavult profilok eltávolítására is:
 SKEW_PROFILE REMOVE=my_skew_profile
 ```
 
-A profil eltávolítása után a rendszer felszólítja, hogy adjon ki egy `SAVE_CONFIG` parancsot, hogy a módosítás mentésre kerüljön.
+A profil eltávolítása után a rendszer felszólítja, hogy adj ki egy `SAVE_CONFIG` parancsot, hogy a módosítás mentésre kerüljön.
 
 ## A korrekció ellenőrzése
 

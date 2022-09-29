@@ -27,7 +27,7 @@ A Klipper számos szabványos 3D nyomtató funkciót támogat:
 * Az általános hőmérséklet-érzékelők támogatása (pl. általános termisztorok, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20 és LM75). Egyedi termisztorok és egyedi analóg hőmérséklet-érzékelők is konfigurálhatók. Lehet figyelni a mikrokontroller hőmérsékletét és a Raspberry Pi processzor hőmérsékletét.
 * Alapértelmezés szerint a fűtésvédelem engedélyezett.
 * Standard ventilátorok, fejhűtő ventilátorok és hőmérséklet-szabályozott ventilátorok támogatása. Nincs szükség arra, hogy a ventilátorok folyamatosan működjenek, amikor a nyomtató üresjáratban van. A fordulatszámmérővel ellátott ventilátoroknál a ventilátorok fordulatszáma ellenőrizhető.
-* A TMC2130, TMC2208/TMC2224, TMC2209, TMC2660 és TMC5160 léptetőmotor-meghajtók futásidejű konfigurációjának támogatása. A hagyományos léptetőmotor-meghajtók AD5206, MCP4451, MCP4728, MCP4018 és PWM-csapokon keresztül történő áramszabályozásának támogatása is biztosított.
+* A TMC2130, TMC2208/TMC2224, TMC2209, TMC2660 és TMC5160 léptetőmotor-meghajtók futásidejű konfigurációjának támogatása. A hagyományos léptetőmotor-meghajtók AD5206, MCP4451, MCP4728, MCP4018 és PWM-tűkön keresztül történő áramszabályozásának támogatása is biztosított.
 * Közvetlenül a nyomtatóhoz csatlakoztatott általános LCD-kijelzők támogatása. Egy alapértelmezett menü is rendelkezésre áll. A kijelző és a menü tartalma a konfigurációs fájlon keresztül teljesen testreszabható.
 * Állandó gyorsulás és "look-ahead" támogatás. Minden mozgás fokozatosan gyorsul fel álló helyzetből utazósebességre, majd lassul vissza álló helyzetbe. A beérkező G-kódos mozgásparancsok sorba kerülnek és elemzik őket. A hasonló irányú mozgások közötti gyorsulás optimalizálva lesz a nyomtatási hibák csökkentése és a teljes nyomtatási idő javítása érdekében.
 * A Klipper egy olyan "léptetőfázis végállás" algoritmust valósít meg, amely javíthatja a tipikus végálláskapcsolók pontosságát. Megfelelő beállítás esetén javíthatja a nyomtatás első réteg tárgyasztalhoz tapadását.
@@ -36,7 +36,7 @@ A Klipper számos szabványos 3D nyomtató funkciót támogat:
 * A nyomtató rezgésének és zajának csökkentése érdekében a rövid "cikcakk" mozgások csúcssebességének korlátozásának támogatása. További információkért lásd a [Kinematika](Kinematics.md) dokumentumot.
 * Számos gyakori nyomtatóhoz rendelkezésre állnak minta konfigurációs fájlok. Listát a [config könyvtárban](../config/) találja.
 
-A Klipper használatának megkezdéséhez olvasd el a [Telepítés](Installation.md) útmutatót.
+A Klipper használata előtt olvasd el a [telepítési](Installation.md) útmutatót.
 
 ## Lépés Teljesítményérték
 

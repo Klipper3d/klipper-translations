@@ -2,7 +2,7 @@
 
 Köszönjük, hogy hozzájárult a Klipperhez! Ez a dokumentum leírja a Klipper változtatásokhoz való hozzájárulás folyamatát.
 
-Kérjük, tekintse meg a [kapcsolat oldal](Contact.md) oldalt a probléma bejelentésével kapcsolatos információkért vagy a fejlesztőkkel való kapcsolatfelvételre vonatkozó részletekért.
+Kérjük, tekintsd meg a [kapcsolat oldalt](Contact.md) a probléma bejelentésével kapcsolatos információkért vagy a fejlesztőkkel való kapcsolatfelvételre vonatkozó részletekért.
 
 ## A hozzájárulási folyamat áttekintése
 
@@ -41,7 +41,7 @@ Gyakori dolgok, amiket a bíráló keres:
 
    A mester Klipper ágba küldött beadványok várhatóan figyelemre méltó célközönséggel rendelkeznek. Általános "ökölszabályként" a beadványoknak legalább 100 valós felhasználóból álló felhasználói bázist kell megcélozniuk.
 
-   Ha egy bíráló részleteket kér egy beadvány "hasznáról", kérjük, ne tekintse ezt kritikának. Az, hogy képesek legyünk megérteni egy változtatás valós előnyeit, a felülvizsgálat természetes része.
+   Ha egy bíráló részleteket kér egy beadvány "hasznáról", kérjük, ne tekintsd ezt kritikának. Az, hogy képesek legyünk megérteni egy változtatás valós előnyeit, a felülvizsgálat természetes része.
 
    Az előnyök megvitatásakor előnyösebb a "tények és mérések" megvitatása. Általában véve a bírálók nem a "valaki hasznosnak találhatja az X opciót", sem pedig a "ez a beadvány olyan funkciót ad hozzá, amelyet az X firmware valósít meg" formájú válaszokat keresik. Ehelyett általában előnyösebb, ha részletesen tárgyalják, hogy a minőségjavulást hogyan mérték, és milyen eredményeket hoztak ezek a mérések - például: "az Acme X1000 nyomtatókon végzett tesztek a ...képen látható javuló sarkokat mutatnak ", vagy például "az X valós tárgy nyomtatási ideje egy Foomatic X900 nyomtatón 4 óráról 3,5 órára csökkent". Magától értetődik, hogy az ilyen típusú tesztelés jelentős időt és erőfeszítést igényel. A Klipper legjelentősebb funkcióinak némelyike hónapokig tartott a megbeszélések, átdolgozások, tesztelések és dokumentációk során, mielőtt beolvadt a master ágba.
 
@@ -90,7 +90,7 @@ A felülvizsgálat részeként egy felülvizsgáló létrehozhat egy alternatív
 
 Nagyra értékeljük a segítséget a véleményekkel kapcsolatban! Nem szükséges [listázott értékelőnek](#reviewers) lenni az értékelés elvégzéséhez. A GitHub kérelmek benyújtóit is arra ösztönözzük, hogy saját beadványaikat vizsgálják felül.
 
-A felülvizsgálat során segítsen, kövesse a [mire számíthat egy felülvizsgálat során](#what-to-expect-in-a-review) pontban leírt lépéseket a beküldés ellenőrzéséhez. A felülvizsgálat befejezése után adjon hozzá egy megjegyzést a GitHub kérésekhez a megállapításokkal. Ha a benyújtás átmegy az ellenőrzésen, akkor kérjük, ezt kifejezetten jelezze a megjegyzésben. Például valami olyasmit, hogy "Átnéztem ezt a módosítást a CONTRIBUTING dokumentumban leírtak szerint, és minden jónak tűnik számomra". Ha nem tudta elvégezni a felülvizsgálat egyes lépéseit, akkor kérjük, kifejezetten jelezze, hogy mely lépéseket vizsgálta felül, és melyeket nem. Például valami olyasmit, mint: "Nem ellenőriztem a kódot hibák szempontjából, de minden mást átnéztem a CONTRIBUTING dokumentumban, és úgy tűnik, hogy minden rendben van".
+A felülvizsgálat során segítsen, kövesse a [mire számíthat egy felülvizsgálat során](#what-to-expect-in-a-review) pontban leírt lépéseket a beküldés ellenőrzéséhez. A felülvizsgálat befejezése után adj hozzá egy megjegyzést a GitHub kérésekhez a megállapításokkal. Ha a benyújtás átmegy az ellenőrzésen, akkor kérjük, ezt kifejezetten jelezze a megjegyzésben. Például valami olyasmit, hogy "Átnéztem ezt a módosítást a CONTRIBUTING dokumentumban leírtak szerint, és minden jónak tűnik számomra". Ha nem tudta elvégezni a felülvizsgálat egyes lépéseit, akkor kérjük, kifejezetten jelezze, hogy mely lépéseket vizsgálta felül, és melyeket nem. Például valami olyasmit, mint: "Nem ellenőriztem a kódot hibák szempontjából, de minden mást átnéztem a CONTRIBUTING dokumentumban, és úgy tűnik, hogy minden rendben van".
 
 A beadványok tesztelését is értékeljük. Ha a kódot teszteltük, kérjük írjon egy megjegyzést a GitHub kérésekhez a tesztelés eredményével - sikerrel vagy sikertelenséggel. Kérjük, kifejezetten jelezze, hogy a kódot tesztelték, és az eredményeket - például valami olyasmit, mint: "Leteszteltem ezt a kódot az Acme900Z nyomtatómon egy váza nyomtatásával, és az eredmények jók voltak".
 

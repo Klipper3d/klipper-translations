@@ -53,7 +53,7 @@ Bem-vindo à documentação do Klipper. Se for novo no Klipper, comece com os do
 
 - [Configurações de exemplo](Example_Configs.md): Informação de como adicionar um arquivo de configuração de exemplo no Klipper.
 - [Atualizações por cartão SD](SDCard_Updates.md): Programar um micro controlador via cópia de binário para um cartão SD no microcontrolador.
-- [Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for controlling devices wired to the GPIO pins of a Raspberry Pi.
+- [Raspberry Pi como Micro-controlador](RPi_microcontroller.md): Detalhes para controlar dispositivos cabeados a pinos GPIO de um Raspberry Pi.
 - [Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone PRU.
 - [Bootloaders](Bootloaders.md): Developer information on micro-controller flashing.
 - [CAN bus](CANBUS.md): Information on using CAN bus with Klipper.

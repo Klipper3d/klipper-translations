@@ -149,7 +149,7 @@ A bootloader OpenOCD-vel történő égetéséhez használja a következő chipk
 forrás [find target/at91samdXX.cfg]
 ```
 
-Szerezzen be egy bootloadert - például:
+Szerezz be egy bootloadert - például:
 
 ```
 wget 'https://github.com/arduino/ArduinoCore-samd/raw/1.8.3/bootloaders/zero/samd21_sam_ba.bin'
@@ -182,7 +182,7 @@ A SAMD21-hez hasonlóan a SAMD51 bootloader is az ARM Serial Wire Debug (SWD) in
 forrás [find target/atsame5x.cfg]
 ```
 
-Szerezzen be egy bootloadert. Számos bootloader elérhető a <https://github.com/adafruit/uf2-samdx1/releases/latest> oldalon. Például:
+Szerezz be egy bootloadert. Számos bootloader elérhető a <https://github.com/adafruit/uf2-samdx1/releases/latest> oldalon. Például:
 
 ```
 wget 'https://github.com/adafruit/uf2-samdx1/releases/download/v3.7.0/bootloader-itsybitsy_m4-v3.7.0.bin'
@@ -232,7 +232,7 @@ Ez a bootloader 8KiB-es flash memóriát használ (az alkalmazást 8KiB kezdőc�
 dfu-util -d 1eaf:0003 -a 2 -R -D out/klipper.bin
 ```
 
-A bootloader általában csak rövid ideig fut a rendszerindítás után. Szükség lehet arra, hogy a fenti parancsot úgy időzítsük, hogy az akkor fusson le, amikor a bootloader még aktív (a bootloader üzem közben villogtat egy a lapon lévő ledet). Alternatív megoldásként a "boot 0" csapot állítsd alacsonyra, a "boot 1" csapot pedig magasra, hogy a bootloaderben maradjon a reset után.
+A bootloader általában csak rövid ideig fut a rendszerindítás után. Szükség lehet arra, hogy a fenti parancsot úgy időzítsük, hogy az akkor fusson le, amikor a bootloader még aktív (a bootloader üzem közben villogtat egy a lapon lévő ledet). Alternatív megoldásként a "boot 0" csapot állítsd alacsonyra, a "boot 1" csapot pedig magasra, hogy a bootloaderben maradj a reset után.
 
 ### STM32F103 HID bootloaderrel
 

@@ -97,7 +97,7 @@ Az elérhető adatkészletek listája a `-l` opcióval érhető el. Például:
 ~/klipper/scripts/motan/motan_graph.py -l
 ```
 
-Lehetőség van arra is, hogy minden egyes adatkészlethez matplotlib ábrázolási opciókat adjon meg:
+Lehetőség van arra is, hogy minden egyes adatkészlethez matplotlib ábrázolási opciókat adj meg:
 
 ```
 ~/klipper/scripts/motan/motan_graph.py mylog -g '[["trapq(toolhead,velocity)?color=red&alpha=0.4"]]'

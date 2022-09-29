@@ -8,7 +8,7 @@ A pontos Z végállás pozíciója kritikus fontosságú a jó minőségű nyoma
 
 Vedd figyelembe azonban, hogy maga a Z végálláskapcsoló pontossága korlátozó tényező lehet. Ha Trinamic léptetőmotor-meghajtókat használunk, akkor fontoljuk meg a [végstop fázis](Endstop_Phase.md) érzékelés engedélyezését a kapcsoló pontosságának javítása érdekében.
 
-A Z végpont kalibrálásának végrehajtásához kapcsolja be a nyomtatót, utasítsa a fejet, hogy mozogjon egy Z pozícióba, amely legalább öt milliméterrel a tárgyasztal felett van (ha még nincs), utasítsa a fejet, hogy mozogjon egy X-Y pozícióba, közel a nyomtató közepéhez a tárgyasztalra, majd navigáljon az OctoPrint terminál fülre, és futtassa:
+A Z végpont kalibrálásának végrehajtásához kapcsolja be a nyomtatót, utasítsa a fejet, hogy mozogjon egy Z pozícióba, amely legalább öt milliméterrel a tárgyasztal felett van (ha még nincs), utasítsa a fejet, hogy mozogjon egy X-Y pozícióba, közel a nyomtató közepéhez a tárgyasztalra, majd navigálj az OctoPrint terminál fülre, és futtassa:
 
 ```
 Z_ENDSTOP_CALIBRATE
