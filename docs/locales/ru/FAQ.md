@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-## Как я могу пожертвовать на проект?
+## Как я могу пожертвовать проекту?
 
 Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
 
@@ -10,13 +10,13 @@ Thank you for your support. See the [Sponsors page](Sponsors.md) for information
 
 ## Где мой последовательный порт?
 
-Общий способ найти последовательный порт USB - это запустить "ls /dev/serial/by-id/*" с терминала ssh на хост-компьютере. Скорее всего, это приведет к получению результатов, аналогичных следующим:
+Общий способ найти последовательный порт USB — запустить `ls /dev/serial/by-id/*` из терминала ssh на хост-компьютере. Скорее всего, это приведет к выводу, похожему на следующее:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-The name found in the above command is stable and it is possible to use it in the config file and while flashing the micro-controller code. For example, a flash command might look similar to:
+Имя, определённое в приведенной выше команде, является стабильным, и его можно использовать в файле конфигурации и при прошивке кода микроконтроллера. Например, команда «flash» может выглядеть примерно так:
 
 ```
 sudo service klipper stop
@@ -24,14 +24,14 @@ make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 ```
 
-and the updated config might look like:
+и обновлённая конфигурация может выглядеть так:
 
 ```
 [mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-Be sure to copy-and-paste the name from the "ls" command that you ran above as the name will be different for each printer.
+Обязательно скопируйте и вставьте имя из команды «ls», которую вы запустили выше, так как имя будет разным для каждого принтера.
 
 If you are using multiple micro-controllers and they do not have unique ids (common on boards with a CH340 USB chip) then follow the directions above using the command `ls /dev/serial/by-path/*` instead.
 

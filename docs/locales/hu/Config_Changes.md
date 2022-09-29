@@ -38,7 +38,7 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 20210830: Az alapértelmezett adxl345 név mostantól "adxl345". Az `ACCELEROMETER_MEASURE` és `ACCELEROMETER_QUERY` alapértelmezett CHIP paramétere mostantól szintén "adxl345".
 
-20210830: Az adxl345 ACCELEROMETER_MEASURE parancs már nem támogatja a RATE paramétert. A lekérdezési sebesség módosításához frissítse a printer.cfg fájlt, és adjon ki egy RESTART parancsot.
+20210830: Az adxl345 ACCELEROMETER_MEASURE parancs már nem támogatja a RATE paramétert. A lekérdezési sebesség módosításához frissítse a printer.cfg fájlt, és adj ki egy RESTART parancsot.
 
 20210821: A `printer.configfile.settings` több konfigurációs beállítása mostantól listaként lesz jelentve a nyers karakterláncok helyett. Ha a tényleges nyers karakterláncra van szükség, használja helyette a `printer.configfile.config`-t.
 

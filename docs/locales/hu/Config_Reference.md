@@ -8,7 +8,7 @@ Az ebben a dokumentumban található leírások úgy vannak formázva, hogy kiv�
 
 ### A mikrokontroller tű neveinek formátuma
 
-Számos konfigurációs beállításhoz egy mikrokontroller-tű nevére van szükség. A Klipper a hardveres neveket használja ezekhez a csapokhoz - például `PA4`.
+Számos konfigurációs beállításhoz egy mikrokontroller-tű nevére van szükség. A Klipper a hardveres neveket használja ezekhez a tűkhöz - például `PA4`.
 
 A tű nevek előtt `!` állhat, hogy jelezze ilyenkor fordított polaritást használ (pl. magas helyett alacsony értéken történő trigger).
 
@@ -601,7 +601,7 @@ Lásd az [example-winch.cfg](../config/example-winch.cfg) egy példát a kábelc
 
 Itt csak a kábelcsörlős nyomtatókra jellemző paraméterek kerülnek leírásra. A rendelkezésre álló paramétereket lásd az [általános kinematikai beállítások](#common-kinematic-settings) pontban.
 
-A KÁBELCSÖRLŐ TÁMOGATÁSA KÍSÉRLETI JELLEGŰ. A helymeghatározás nem valósul meg a kábelcsörlő kinematikáján. A nyomtató kezdőpont felvételéhez manuálisan küldjön mozgatási parancsokat, amíg a nyomtatófej a 0, 0, 0, 0 ponton van, majd adjon ki egy `G28` parancsot.
+A KÁBELCSÖRLŐ TÁMOGATÁSA KÍSÉRLETI JELLEGŰ. A helymeghatározás nem valósul meg a kábelcsörlő kinematikáján. A nyomtató kezdőpont felvételéhez manuálisan küldjön mozgatási parancsokat, amíg a nyomtatófej a 0, 0, 0, 0 ponton van, majd adj ki egy `G28` parancsot.
 
 ```
 [printer]
@@ -1174,7 +1174,7 @@ gcode:
 
 ### [endstop_phase]
 
-Léptető fázissal beállított végállások. A funkció használatához definiáljon egy konfigurációs részt egy "endstop_phase" előtaggal, amelyet a megfelelő stepper konfigurációs rész neve követ (például "[endstop_phase stepper_z]"). Ez a funkció javíthatja a végálláskapcsolók pontosságát. Adjon hozzá egy csupasz "[endstop_phase]" deklarációt az ENDSTOP_PHASE_CALIBRATE parancs engedélyezéséhez.
+Léptető fázissal beállított végállások. A funkció használatához definiáljon egy konfigurációs részt egy "endstop_phase" előtaggal, amelyet a megfelelő stepper konfigurációs rész neve követ (például "[endstop_phase stepper_z]"). Ez a funkció javíthatja a végálláskapcsolók pontosságát. Adj hozzá egy csupasz "[endstop_phase]" deklarációt az ENDSTOP_PHASE_CALIBRATE parancs engedélyezéséhez.
 
 További információkért lásd a [végállási fázisok útmutató](Endstop_Phase.md) és a [Parancs hivatkozás](G-Codes.md#endstop_phase) dokumentumot.
 
@@ -1262,13 +1262,13 @@ A változók lemezre mentésének támogatása, hogy azok az újraindítások so
 ```
 [save_variables]
 filename:
-#   Kötelező - adjon meg egy fájlnevet, amelyet a változók
+#   Kötelező - adj meg egy fájlnevet, amelyet a változók
 #   lemezre mentéséhez használna, pl. ~/variables.cfg
 ```
 
 ### [idle_timeout]
 
-Üresjárati időtúllépés. Az üresjárati időtúllépés automatikusan engedélyezve van. Az alapértelmezett beállítások módosításához adjon hozzá egy explicit idle_timeout konfigurációs szakaszt.
+Üresjárati időtúllépés. Az üresjárati időtúllépés automatikusan engedélyezve van. Az alapértelmezett beállítások módosításához adj hozzá egy explicit idle_timeout konfigurációs szakaszt.
 
 ```
 [idle_timeout]
@@ -1641,13 +1641,13 @@ z_offset:
 #   Az egyes mérési kísérletek előtt végrehajtandó G-kód parancsok listája.
 #   Lásd a docs/Command_Templates.md fájlt a G-kód formátumhoz. Ez
 #   akkor lehet hasznos, ha a szondát valamilyen módon aktiválni kell. Ne
-#   adjon ki itt olyan parancsot, amely mozgatja a nyomtatófejet (pl. G1).
+#   adj ki itt olyan parancsot, amely mozgatja a nyomtatófejet (pl. G1).
 #   Az alapértelmezés szerint nem fut semmilyen speciális G-kód parancs
 #   aktiváláskor.
 #deactivate_gcode:
 #   Az egyes mérési kísérletek befejezése után végrehajtandó G-kód
 #   parancsok listája. Lásd a docs/Command_Templates.md fájlt a G-kód
-#   formátumhoz. Ne adjon ki itt olyan parancsot, amely mozgatja a
+#   formátumhoz. Ne adj ki itt olyan parancsot, amely mozgatja a
 #   nyomtatófejet. Az alapértelmezés az, hogy deaktiváláskor ne futtassunk
 #   semmilyen speciális G-kód parancsot.
 ```
@@ -1792,7 +1792,7 @@ Több léptetőmotoros tengelyek. Egy cartesian stílusú nyomtatónál az adott
 
 ### [extruder1]
 
-Több extruderes nyomtató esetén minden további extruder után adjon hozzá egy új extruder szakaszt. A további extruder szakaszok neve legyen "extruder1", "extruder2", "extruder3", és így tovább. A rendelkezésre álló paraméterek leírását lásd az "extruder" szakaszban.
+Több extruderes nyomtató esetén minden további extruder után adj hozzá egy új extruder szakaszt. A további extruder szakaszok neve legyen "extruder1", "extruder2", "extruder3", és így tovább. A rendelkezésre álló paraméterek leírását lásd az "extruder" szakaszban.
 
 Lásd a [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) példakonfigurációt.
 
@@ -1801,7 +1801,7 @@ Lásd a [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) példak
 #step_pin:
 #dir_pin:
 #...
-#   Tekintse meg az "extruder" részt az elérhető léptető és
+#   Tekintsd meg az "extruder" részt az elérhető léptető és
 #   fűtőparaméterekért.
 #shared_heater:
 #   Ez az opció elavult, és többé nem kell megadni.
@@ -2979,7 +2979,7 @@ run_current:
 #   Állítsd be a megadott paramétert a TMC2660 chip konfigurációja során.
 #   Ez egyéni motorvezérlő paraméterek beállítására használható.
 #   Az egyes paraméterek alapértelmezett értékei a paraméter neve
-#   mellett találhatók a fenti listában. Tekintse meg a TMC2660 adatlapját
+#   mellett találhatók a fenti listában. Tekintsd meg a TMC2660 adatlapját
 #   az egyes paraméterek működéséről és a paraméter kombinációk
 #   korlátozásairól. Különös figyelmet kell fordítani a CHOPCONF
 #   regiszterre, ahol a CHM nullára vagy egyesre állítása
@@ -3563,7 +3563,7 @@ A sablonok renderelése során elérhető menüattribútumokról a [parancssablo
 #                 elindításához/leállításához.
 #       list    - lehetővé teszi a menüelemek egy görgethető listába
 #                 történő csoportosítását.
-#                 Adjon hozzá a listához menükonfigurációk létrehozásával
+#                 Adj hozzá a listához menükonfigurációk létrehozásával
 #                 a „some_list” előtagként – 
 #                 például: [menu some_list some_item_in_the_list]
 #       vsdlist - ugyanaz, mint a "list", de hozzáfűzi a virtuális
