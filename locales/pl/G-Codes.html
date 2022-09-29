@@ -1256,8 +1256,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#accelerometer_debug_read" class="md-nav__link">
-    ACCELEROMETER_DEBUG_READ
+  <a href="#akcelerometer_czytanie_debugowe" class="md-nav__link">
+    AKCELEROMETER_CZYTANIE_DEBUGOWE
   </a>
   
 </li>
@@ -2782,13 +2782,13 @@
 <h3 id="adxl345">[adxl345]<a class="headerlink" href="#adxl345" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when an <a href="Config_Reference.html#adxl345">adxl345 config section</a> is enabled.</p>
 <h4 id="accelerometer_measure">ACCELEROMETER_MEASURE<a class="headerlink" href="#accelerometer_measure" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_MEASURE [CHIP=&lt;config_name&gt;] [NAME=&lt;value&gt;]</code>: Starts accelerometer measurements at the requested number of samples per second. If CHIP is not specified it defaults to "adxl345". The command works in a start-stop mode: when executed for the first time, it starts the measurements, next execution stops them. The results of measurements are written to a file named <code>/tmp/adxl345-&lt;chip&gt;-&lt;name&gt;.csv</code> where <code>&lt;chip&gt;</code> is the name of the accelerometer chip (<code>my_chip_name</code> from <code>[adxl345 my_chip_name]</code>) and <code>&lt;name&gt;</code> is the optional NAME parameter. If NAME is not specified it defaults to the current time in "YYYYMMDD_HHMMSS" format. If the accelerometer does not have a name in its config section (simply <code>[adxl345]</code>) then <code>&lt;chip&gt;</code> part of the name is not generated.</p>
+<p><code>ACCELEROMETER_MEASURE [CHIP=&lt;config_name&gt;] [NAME=&lt;value&gt;]</code>: Zaczyna pomiary akcelerometrem na podanych liczbach sampli na sekundę. jezeli "CHIP" nie jest podany, to wraca do domyślnych ustawień: "adxl345". Komenda dziala w w trybie rozpocznij-zatrzymaj: kiedy wykonana pierwszy raz, zaczyna pomiar, kolejna egzekucja zatrzymuje akcelerometr. wyniki pomiaru są zapisane do pliku o nazwie "/tmp/adxl345-<chip>-<name>.csv" gdzie "<chip>" to nazwa czipa akcelerometra ("my_chip_name" z "[adxl345 my_chip_name]") i "<name>" to jest opcjonalny parametr NAME. Jeżeli NAME nie jest użyty to jest używany domyślny czas w formacie "YYYYMMDD_HHMMSS". Jeżeli akcelerometr nie ma nazwy w swojej konfiguracji, to połowa tego imienia nie jest wygenerowana.</p>
 <h4 id="accelerometer_query">ACCELEROMETER_QUERY<a class="headerlink" href="#accelerometer_query" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_QUERY [CHIP=&lt;config_name&gt;] [RATE=&lt;value&gt;]</code>: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).</p>
-<h4 id="accelerometer_debug_read">ACCELEROMETER_DEBUG_READ<a class="headerlink" href="#accelerometer_debug_read" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_DEBUG_READ [CHIP=&lt;config_name&gt;] REG=&lt;register&gt;</code>: queries ADXL345 register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes.</p>
+<p><code>ACCELEROMETER_QUERY [CHIP=&lt;config_name&gt;] [RATE=&lt;value&gt;]</code>: Pyta akcelerometr o obecną wartość. Jeżeli CHIP nie jest podany to używa domyślnego: "adxl345". Jeżeli RATE nie jest podany, to domyślna wartość jest użyta. Ta komenda jest użyteczna do testowania połączenia do akcelerometra ADXL345: jedna z zwróconych wartości powinno byc przyśpieszenie swobodnego opadania. (+/- troche zakłóceń czipa).</p>
+<h4 id="akcelerometer_czytanie_debugowe">AKCELEROMETER_CZYTANIE_DEBUGOWE<a class="headerlink" href="#akcelerometer_czytanie_debugowe" title="Permanent link">&para;</a></h4>
+<p><code>ACCELEROMETER_DEBUG_READ [CHIP=&lt;config_name&gt;] REG=&lt;register&gt;</code>: queries ADXL345 register "register" (e.g. 44 or 0x2C). Może się przydać przy debugowaniu.</p>
 <h4 id="accelerometer_debug_write">ACCELEROMETER_DEBUG_WRITE<a class="headerlink" href="#accelerometer_debug_write" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_DEBUG_WRITE [CHIP=&lt;config_name&gt;] REG=&lt;register&gt; VAL=&lt;value&gt;</code>: Writes raw "value" into a register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.</p>
+<p><code>ACCELEROMETER_DEBUG_WRITE [CHIP=&lt;config_name&gt;] REG=&lt;register&gt; VAL=&lt;value&gt;</code>: Wpisuje Surową "value" w rejestr "register". "value" i "register" może być w systemie dziesiętnym albo szesnastkowym. Uzywać ostrożnie, i odnoś sie do ADXL345 Arkuszu danych jako referencja.</p>
 <h3 id="angle">[angle]<a class="headerlink" href="#angle" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when an <a href="Config_Reference.html#angle">angle config section</a> is enabled.</p>
 <h4 id="angle_calibrate">ANGLE_CALIBRATE<a class="headerlink" href="#angle_calibrate" title="Permanent link">&para;</a></h4>
@@ -2992,7 +2992,7 @@
 <p><code>MANUAL_PROBE [SPEED=&lt;speed&gt;]</code>: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:</p>
 <ul>
 <li><code>ACCEPT</code>: This command accepts the current Z position and concludes the manual probing tool.</li>
-<li><code>ABORT</code>: This command terminates the manual probing tool.</li>
+<li><code>ABORT</code>: Ta komenda terminuje protokół sondowania ręcznego.</li>
 <li><code>TESTZ Z=&lt;value&gt;</code>: This command moves the nozzle up or down by the amount specified in "value". For example, <code>TESTZ Z=-.1</code> would move the nozzle down .1mm while <code>TESTZ Z=.1</code> would move the nozzle up .1mm. The value may also be <code>+</code>, <code>-</code>, <code>++</code>, or <code>--</code> to move the nozzle up or down an amount relative to previous attempts.</li>
 </ul>
 <h4 id="z_endstop_calibrate">Z_ENDSTOP_CALIBRATE<a class="headerlink" href="#z_endstop_calibrate" title="Permanent link">&para;</a></h4>
