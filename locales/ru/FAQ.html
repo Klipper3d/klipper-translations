@@ -1220,7 +1220,7 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    Как я могу пожертвовать на проект?
+    Как я могу пожертвовать проекту?
   </a>
   
 </li>
@@ -1404,27 +1404,27 @@
 
 
 <h1 id="frequently-asked-questions">Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">&para;</a></h1>
-<h2 id="_1">Как я могу пожертвовать на проект?<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">Как я могу пожертвовать проекту?<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Thank you for your support. See the <a href="Sponsors.html">Sponsors page</a> for information.</p>
 <h2 id="rotation_distance">Как мне рассчитать конфигурационный параметр rotation_distance?<a class="headerlink" href="#rotation_distance" title="Permanent link">&para;</a></h2>
 <p>Посмотрите на <a href="Rotation_Distance.html">rotation distance document</a>.</p>
 <h2 id="_2">Где мой последовательный порт?<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Общий способ найти последовательный порт USB - это запустить "ls /dev/serial/by-id/*" с терминала ssh на хост-компьютере. Скорее всего, это приведет к получению результатов, аналогичных следующим:</p>
+<p>Общий способ найти последовательный порт USB — запустить <code>ls /dev/serial/by-id/*</code> из терминала ssh на хост-компьютере. Скорее всего, это приведет к выводу, похожему на следующее:</p>
 <div class="highlight"><pre><span></span><code>/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 </code></pre></div>
 
-<p>The name found in the above command is stable and it is possible to use it in the config file and while flashing the micro-controller code. For example, a flash command might look similar to:</p>
+<p>Имя, определённое в приведенной выше команде, является стабильным, и его можно использовать в файле конфигурации и при прошивке кода микроконтроллера. Например, команда «flash» может выглядеть примерно так:</p>
 <div class="highlight"><pre><span></span><code>sudo service klipper stop
 make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 </code></pre></div>
 
-<p>and the updated config might look like:</p>
+<p>и обновлённая конфигурация может выглядеть так:</p>
 <div class="highlight"><pre><span></span><code>[mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 </code></pre></div>
 
-<p>Be sure to copy-and-paste the name from the "ls" command that you ran above as the name will be different for each printer.</p>
+<p>Обязательно скопируйте и вставьте имя из команды «ls», которую вы запустили выше, так как имя будет разным для каждого принтера.</p>
 <p>If you are using multiple micro-controllers and they do not have unique ids (common on boards with a CH340 USB chip) then follow the directions above using the command <code>ls /dev/serial/by-path/*</code> instead.</p>
 <h2 id="when-the-micro-controller-restarts-the-device-changes-to-devttyusb1">When the micro-controller restarts the device changes to /dev/ttyUSB1<a class="headerlink" href="#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1" title="Permanent link">&para;</a></h2>
 <p>Follow the directions in the "<a href="#wheres-my-serial-port">Where's my serial port?</a>" section to prevent this from occurring.</p>
