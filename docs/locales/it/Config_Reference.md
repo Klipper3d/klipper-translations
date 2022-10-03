@@ -1815,7 +1815,7 @@ Vedere [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) per un e
 
 ### [dual_carriage]
 
-Support for cartesian printers with dual carriages on a single axis. The active carriage is set via the SET_DUAL_CARRIAGE extended g-code command. The "SET_DUAL_CARRIAGE CARRIAGE=1" command will activate the carriage defined in this section (CARRIAGE=0 will return activation to the primary carriage). Dual carriage support is typically combined with extra extruders - the SET_DUAL_CARRIAGE command is often called at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the carriages during deactivation.
+Supporto per stampanti cartesiane con doppi carrelli su un unico asse. Il carrello attivo viene impostato tramite il comando G-code esteso SET_DUAL_CARRIAGE. Il comando "SET_DUAL_CARRIAGE CARRIAGE=1" attiverà il carrello definito in questa sezione (CARRIAGE=0 riporterà l'attivazione al carrello principale). Il supporto del doppio carrello è in genere combinato con estrusori extra: il comando SET_DUAL_CARRIAGE viene spesso chiamato contemporaneamente al comando ACTIVATE_EXTRUDER. Assicurati di parcheggiare i carrelli durante la disattivazione.
 
 Vedere [sample-idex.cfg](../config/sample-idex.cfg) per un esempio di configurazione.
 
