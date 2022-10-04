@@ -1,11 +1,11 @@
 # Pepe <ec288eb6-6bd6-473b-93a5-5c8fb60ceb16@simplelogin.fr>, 2022.
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2022, 2025.
-# Cecilia Mora <cecilia-mora22@hotmail.com>, 2022.
+# Cecilia Mora <cecilia-mora22@hotmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:20+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"Last-Translator: Cecilia Mora <cecilia-mora22@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "contributing/es/>\n"
 "Language: es\n"
@@ -52,8 +52,8 @@ msgid ""
 "updates."
 msgstr ""
 "Si ya existe una traducción en el repositorio Klipper y ya no cumple con la "
-"lista de comprobación anterior, se marcará como obsoleta después de un mes sin"
-" actualizaciones."
+"lista de comprobación anterior, se marcará como obsoleta después de un mes "
+"sin actualizaciones."
 
 #: docs/CONTRIBUTING.md:block 2 (paragraph)
 msgid ""
