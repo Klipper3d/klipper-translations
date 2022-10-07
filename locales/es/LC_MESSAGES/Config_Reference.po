@@ -1,17 +1,19 @@
 # c0d3x27 <banginpadr27@aol.com>, 2021.
 # Francisco Serrador <fserrador@gmail.com>, 2022.
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
+# Cecilia Mora <cecilia-mora22@hotmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-06-16 02:18+0000\n"
-"Last-Translator: Alberto <aru_hackZ.official@zohomail.eu>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/config_reference/es/>\n"
+"PO-Revision-Date: 2022-10-05 22:22+0000\n"
+"Last-Translator: Cecilia Mora <cecilia-mora22@hotmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"config_reference/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -57,7 +59,7 @@ msgid "[mcu]"
 msgstr ""
 
 msgid "Configuration of the primary micro-controller."
-msgstr ""
+msgstr "Configuración del microcontrolador primario"
 
 msgid "[mcu my_extra_mcu]"
 msgstr ""

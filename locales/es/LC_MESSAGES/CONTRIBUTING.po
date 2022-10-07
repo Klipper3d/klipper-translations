@@ -1,16 +1,18 @@
 # Pepe <ec288eb6-6bd6-473b-93a5-5c8fb60ceb16@simplelogin.fr>, 2022.
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2022.
+# Cecilia Mora <cecilia-mora22@hotmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-07 21:01+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/contributing/es/>\n"
+"PO-Revision-Date: 2022-10-05 22:22+0000\n"
+"Last-Translator: Cecilia Mora <cecilia-mora22@hotmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"contributing/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 msgid "Contributing to Klipper"
 msgstr "Contribuir a Klipper"
@@ -43,7 +45,7 @@ msgstr ""
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "75% Total coverage"
-msgstr ""
+msgstr "75% de cobertura total"
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "An updated navigation hierarchy PR in klipper-translations."
@@ -64,6 +66,9 @@ msgid ""
 "meets the checklist above, it will be marked out-of-date after a month "
 "without updates."
 msgstr ""
+"Si ya existe una traducción en el repositorio Klipper y ya no cumple con la "
+"lista de comprobación anterior, se marcará como obsoleta después de un mes "
+"sin actualizaciones."
 
 #: docs/CONTRIBUTING.md:block 2 (paragraph)
 msgid ""
@@ -84,11 +89,11 @@ msgstr ""
 
 #: docs/CONTRIBUTING.md:block 4 (header)
 msgid "Overview of Contribution Process"
-msgstr ""
+msgstr "Visión general del proceso de contribución"
 
 #: docs/CONTRIBUTING.md:block 5 (paragraph)
 msgid "Contributions to Klipper generally follow a high-level process:"
-msgstr ""
+msgstr "Las contribuciones a Klipper suelen seguir un proceso de alto nivel:"
 
 #: docs/CONTRIBUTING.md:block 6 (ordered list)
 msgid ""
