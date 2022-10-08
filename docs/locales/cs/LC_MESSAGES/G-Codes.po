@@ -1,4 +1,4 @@
-# Vlastimil Dědek <dedekvlastimil@gmail.com>, 2022.
+# Vlastimil Dědek <dedekvlastimil@gmail.com>, 2022, 2025.
 # Pavel Šubík <wgspider@gmail.com>, 2024.
 # Miloslav Kos <kos.m@post.cz>, 2024.
 # vyPal <kubik.palacky@gmail.com>, 2025.
@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:31+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Vlastimil Dědek <dedekvlastimil@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/klipper/g-codes/cs/"
 ">\n"
 "Language: cs\n"
