@@ -1,17 +1,19 @@
 # dfosantos <santosdiogo97@gmail.com>, 2022.
 # MOISÉS RODRIGUES ALVES <MOISESINHO_RA@hotmail.com>, 2022.
 # KrulesExGamer <pedro.hvn.2018@gmail.com>, 2022.
+# fanylouise <gandra.fany@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-02 10:23+0000\n"
-"Last-Translator: KrulesExGamer <pedro.hvn.2018@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/config_checks/pt/>\n"
+"PO-Revision-Date: 2022-10-07 12:23+0000\n"
+"Last-Translator: fanylouise <gandra.fany@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"config_checks/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in "
@@ -33,12 +35,14 @@ msgid ""
 msgstr ""
 
 msgid "Verify temperature"
-msgstr ""
+msgstr "Verificar temperatura"
 
 msgid ""
 "Start by verifying that temperatures are being properly reported. Navigate "
 "to the Octoprint temperature tab."
 msgstr ""
+"Comece verificando se a temperatura começou a ser reportada corretamente. "
+"Navegue até a aba de temperatura Octoprint."
 
 msgid "![octoprint-temperature](img/octoprint-temperature.png)"
 msgstr ""
@@ -49,9 +53,13 @@ msgid ""
 "printer. If the temperatures are not accurate, review the \"sensor_type\" "
 "and \"sensor_pin\" settings for the nozzle and/or bed."
 msgstr ""
+"Verificar se a temperatura do bocal e da base(se aplicável) estão presentes "
+"e não subindo. Se estiver subindo, remover a energia da impressora. Se a "
+"temperatura não estiver exata, reveja as configurações de \"sensor_tipo\" e "
+"\"sensor_pino\" do bocal e/ou da base."
 
 msgid "Verify M112"
-msgstr ""
+msgstr "Verificar M112"
 
 msgid ""
 "Navigate to the Octoprint terminal tab and issue an M112 command in the "
@@ -69,7 +77,7 @@ msgid ""
 msgstr ""
 
 msgid "Verify heaters"
-msgstr ""
+msgstr "Verificar aquecedores"
 
 msgid ""
 "Navigate to the Octoprint temperature tab and type in 50 followed by enter "
@@ -168,7 +176,7 @@ msgid ""
 msgstr ""
 
 msgid "Verify extruder motor"
-msgstr ""
+msgstr "Verificar motor de exclusão"
 
 msgid ""
 "To test the extruder motor it will be necessary to heat the extruder to a "
@@ -183,7 +191,7 @@ msgid ""
 msgstr ""
 
 msgid "Calibrate PID settings"
-msgstr ""
+msgstr "Calibrar configurações PID"
 
 msgid ""
 "To calibrate the extruder, navigate to the OctoPrint terminal tab and run "
@@ -206,7 +214,7 @@ msgid ""
 msgstr ""
 
 msgid "Next steps"
-msgstr ""
+msgstr "Próximos passos"
 
 msgid ""
 "This guide is intended to help with basic verification of pin settings in "
