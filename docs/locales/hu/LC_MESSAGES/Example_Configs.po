@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-09-29 11:17+0000\n"
+"PO-Revision-Date: 2022-10-10 19:14+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "example_configs/hu/>\n"
@@ -180,7 +180,7 @@ msgstr ""
 "konfigurációs terület megfelelő szakaszába."
 
 msgid "Use `field: value` syntax instead of `field=value`."
-msgstr "Használja a `field: value` szintaxist a `field=value` helyett."
+msgstr "Használd a `field: value` szintaxist a `field=value` helyett."
 
 msgid ""
 "Avoid defining field values that are set to their default value. For "
@@ -256,13 +256,13 @@ msgid ""
 "Do not use spaces or special characters in the config filename. The filename "
 "should contain only characters `A-Z`, `a-z`, `0-9`, `-`, and `.`."
 msgstr ""
-"Ne használjon szóközöket vagy speciális karaktereket a konfigurációs "
+"Ne használj szóközöket vagy speciális karaktereket a konfigurációs "
 "fájlnévben. A fájlnév csak a `A-Z`, `a-z`, `0-9`, `-` és ` karaktereket "
 "tartalmazhatja.`."
 
 #: docs/Example_Configs.md:block 7 (ordered list)
 msgid "Do not use any deprecated features in the example config file."
-msgstr "Ne használjon semmilyen elavult funkciót a példakonfigurációs fájlban."
+msgstr "Ne használj semmilyen elavult funkciót a példakonfigurációs fájlban."
 
 #: docs/Example_Configs.md:block 7 (ordered list)
 msgid ""
