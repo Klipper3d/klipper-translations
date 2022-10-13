@@ -2,11 +2,12 @@
 # gnu-ewm <gnu.ewm@protonmail.com>, 2022.
 # Mateusz Kapała <lolekwielki@gmail.com>, 2023.
 # Woo Cash <woocash87@gmail.com>, 2024.
+# Eryk Michalak <gnu.ewm@protonmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:27+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Eryk Michalak <gnu.ewm@protonmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "contributing/pl/>\n"
 "Language: pl\n"
