@@ -1,26 +1,41 @@
-#
+# gnu-ewm <gnu.ewm@protonmail.com>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-10-17 00:55+0000\n"
+"Last-Translator: gnu-ewm <gnu.ewm@protonmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/sponsors/"
+"pl/>\n"
+"Language: pl\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
-msgstr ""
+msgstr "Sponsorzy"
 
 #: docs/Sponsors.md:block 2 (paragraph)
 msgid ""
 "Klipper is Free Software. We depend on the generous support from sponsors. "
 "Please consider sponsoring Klipper or supporting our sponsors."
 msgstr ""
+"Klipper jest Wolnym Oprogramowaniem. Polegamy na hojnym wsparciu sponsorów. "
+"Prosimy o rozważenie sponsorowania Klipper lub wspierania naszych sponsorów."
 
 #: docs/Sponsors.md:block 3 (header)
 msgid "BIGTREETECH"
-msgstr ""
+msgstr "BIGTREETECH"
 
 #: docs/Sponsors.md:block 4 (paragraph)
 msgid ""
 "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" />](https://bigtree-"
 "tech.com/collections/all-products)"
 msgstr ""
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" />](https://bigtree-"
+"tech.com/collections/all-products)"
 
 #: docs/Sponsors.md:block 5 (paragraph)
 msgid ""
@@ -30,60 +45,71 @@ msgid ""
 "[Facebook](https://www.facebook.com/BIGTREETECH) or "
 "[Twitter](https://twitter.com/BigTreeTech)."
 msgstr ""
+"BIGTREETECH jest oficjalnym sponsorem płyt głównych Klippera. BIGTREETECH "
+"zobowiązuje się do opracowywania innowacyjnych i konkurencyjnych produktów, "
+"aby lepiej służyć społeczności druku 3D. Śledź ich na [Facebooku](https://www"
+".facebook.com/BIGTREETECH) lub [Twitterze](https://twitter.com/BigTreeTech)."
 
 #: docs/Sponsors.md:block 6 (header)
 msgid "Klipper Developers"
-msgstr ""
+msgstr "Programiści Klippera"
 
 #: docs/Sponsors.md:block 7 (header)
 msgid "Kevin O'Connor"
-msgstr ""
+msgstr "Kevin O'Connor"
 
 #: docs/Sponsors.md:block 9 (header)
 msgid "Eric Callahan"
-msgstr ""
+msgstr "Eric Callahan"
 
 #: docs/Sponsors.md:block 10 (paragraph)
 msgid ""
 "Eric is the author of bed_mesh, spi_flash, and several other Klipper "
 "modules. Eric has a donations page at: <https://ko-fi.com/arksine>"
 msgstr ""
+"Eric jest autorem bed_mesh, spi_flash i kilku innych modułów Klippera. Eric "
+"ma stronę na której można go wspierać pod adresem: <https://ko-fi.com/"
+"arksine>"
 
 #: docs/Sponsors.md:block 11 (header)
 msgid "Related Klipper Projects"
-msgstr ""
+msgstr "Projekty powiązane z Klipper"
 
 #: docs/Sponsors.md:block 12 (paragraph)
 msgid ""
 "Klipper is frequently used with other Free Software. Consider using or "
 "supporting these projects."
 msgstr ""
+"Klipper jest często używany z innym Wolnym Oprogramowaniem. Rozważ "
+"wykorzystanie lub wsparcie tych projektów."
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Moonraker](https://github.com/Arksine/moonraker)"
-msgstr ""
+msgstr "[Moonraker](https://github.com/Arksine/moonraker)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Mainsail](https://github.com/mainsail-crew/mainsail)"
-msgstr ""
+msgstr "[Mainsail](https://github.com/mainsail-crew/mainsail)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Fluidd](https://github.com/fluidd-core/fluidd)"
-msgstr ""
+msgstr "[Fluidd](https://github.com/fluidd-core/fluidd)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[OctoPrint](https://octoprint.org/)"
-msgstr ""
+msgstr "[OctoPrint](https://octoprint.org/)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[KlipperScreen](https://github.com/jordanruthe/KlipperScreen)"
-msgstr ""
+msgstr "[KlipperScreen](https://github.com/jordanruthe/KlipperScreen)"
 
 #: docs/Sponsors.md:block 8 (paragraph)
 msgid ""
 "Kevin is the original author and current maintainer of Klipper. Donate at: "
 "<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
 msgstr ""
+"Kevin jest oryginalnym autorem i obecnym opiekunem Klippera. Wspieraj go na: "
+"<https://ko-fi.com/koconnor> lub <https://www.patreon.com/koconnor>"
 
 #~ msgid ""
 #~ "Kevin is the original author and current maintainer of Klipper. Kevin has a "
