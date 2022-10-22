@@ -2,17 +2,19 @@
 # Zeldazul <b.ferreirargs@gmail.com>, 2022.
 # Wagner Reck <wagner.reck@gmail.com>, 2022.
 # gbonaspetti <gbonaspetti@hotmail.com>, 2022.
+# Lucas Rafaldini <lrafaldini@pm.me>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-05 11:21+0000\n"
-"Last-Translator: gbonaspetti <gbonaspetti@hotmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/klipper/g-codes/pt_BR/>\n"
+"PO-Revision-Date: 2022-10-22 22:10+0000\n"
+"Last-Translator: Lucas Rafaldini <lrafaldini@pm.me>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/g-codes/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -831,9 +833,8 @@ msgstr ""
 "efeitos de depuração."
 
 #: docs/G-Codes.md:block 20 (header)
-#, fuzzy
 msgid "ACCELEROMETER_DEBUG_WRITE"
-msgstr "ACCELEROMETER_DEBUG_WRITE"
+msgstr "ACELEROMETRO_DEBUG_ESCRITA"
 
 #: docs/G-Codes.md:block 21 (paragraph)
 msgid ""
