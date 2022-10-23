@@ -1,14 +1,14 @@
 # Allan Nordhøy <epost@anotheragency.no>, 2021, 2025.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2025.
 # Petter Reinholdtsen <pere-weblate@hungry.com>, 2021, 2025.
-# Vemund Kvam <vemund.kvam@gmail.com>, 2022.
+# Vemund Kvam <vemund.kvam@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Last-Translator: Vemund Kvam <vemund.kvam@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/"
 "overview/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -43,8 +43,8 @@ msgid ""
 "[Config changes](Config_Changes.md): Recent software changes that may require "
 "users to update their printer config file."
 msgstr ""
-"[Konfigurasjonsendringer](Config_Changes.md): Nylige programvareendringer som "
-"kan kreve oppdatering av skriverens konfigurasjonsfil."
+"[Konfigurasjonsendringer](Config_Changes.md): Nylige programvareendringer "
+"som kan kreve oppdatering av skriverens konfigurasjonsfil."
 
 msgid ""
 "[Contact](Contact.md): Information on bug reporting and general communication "
