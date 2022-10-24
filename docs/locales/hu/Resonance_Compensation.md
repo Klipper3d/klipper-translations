@@ -16,8 +16,8 @@ Szeletelje fel a [docs/prints/ringing_tower.stl](prints/ringing_tower.stl) fájl
 
 * A javasolt rétegmagasság 0,2 vagy 0,25 mm.
 * A kitöltő és a felső rétegek 0-ra állíthatók.
-* Használjon 1-2 falat, vagy még jobb a sima váza mód 1-2 mm-es alappal.
-* A **külső** kerületeknél használjon kellően nagy sebességet, körülbelül 80-100 mm/sec.
+* Használj 1-2 falat, vagy még jobb a sima váza mód 1-2 mm-es alappal.
+* A **külső** kerületeknél használj kellően nagy sebességet, körülbelül 80-100 mm/sec.
 * Győződjön meg róla, hogy a minimális rétegidő **legfeljebb** 3 másodperc.
 * Győződjön meg róla, hogy a szeletelőben a "dinamikus gyorsításvezérlés" ki van kapcsolva.
 * Ne fordítsa el a modellt. A modell hátulján X és Y jelölések vannak. Figyelje meg a jelek szokatlan elhelyezkedését a nyomtató tengelyeihez képest. Ez nem hiba. A jelölések később a hangolási folyamat során referenciaként használhatók, mert megmutatják, hogy a mérések melyik tengelynek felelnek meg.
@@ -34,7 +34,7 @@ Először is mérje meg a **gyűrődési frekvenciát**.
 1. Nyomtasd ki a szeletelt tesztmodellt a javasolt paraméterekkel.
 1. A nyomtatást korábban is leállíthatja, ha a gyűrődés jól látható, és úgy látja, hogy a gyorsulás túl nagy lesz a nyomtató számára (pl. a nyomtató túlságosan remeg, vagy elkezd lépéseket kihagyni).
 
-   1. Használja a modell hátulján található X és Y jeleket a tájékozódáshoz. Az X-jelöléssel ellátott oldalról történő méréseket kell használni az X tengely *konfigurációhoz*, az Y-jelölést pedig az Y tengely konfigurációjához. Mérje meg a távolságot *D* (mm-ben) több rezgés között az X jelzésű alkatrészen, a bevágások közelében, lehetőleg az első egy-két rezgést kihagyva. Az oszcillációk közötti távolság könnyebb méréséhez először jelölje meg az oszcillációkat, majd mérje meg a jelölések közötti távolságot vonalzóval vagy tolómérővel:|![Mark ringing](img/ringing-mark.jpg)|![Measure ringing](img/ringing-measure.jpg)|
+   1. Használd a modell hátulján található X és Y jeleket a tájékozódáshoz. Az X-jelöléssel ellátott oldalról történő méréseket kell használni az X tengely *konfigurációhoz*, az Y-jelölést pedig az Y tengely konfigurációjához. Mérje meg a távolságot *D* (mm-ben) több rezgés között az X jelzésű alkatrészen, a bevágások közelében, lehetőleg az első egy-két rezgést kihagyva. Az oszcillációk közötti távolság könnyebb méréséhez először jelölje meg az oszcillációkat, majd mérje meg a jelölések közötti távolságot vonalzóval vagy tolómérővel:|![Mark ringing](img/ringing-mark.jpg)|![Measure ringing](img/ringing-measure.jpg)|
 1. Számolja meg, hogy a mért távolság *N* hány rezgésnek *D* felel meg. Ha nem biztos benne, hogy hogyan számolja a rezgéseket, nézze meg a fenti képet, ahol *N* = 6 rezgés.
 1. Számítsuk ki az X tengely gyűrődési frekvenciáját *V* &middot; *N* / *D* (Hz), ahol *V* a külső kerületekre vonatkozó sebesség (mm/sec). A fenti példánál 6 rezgést jelöltünk meg, és a tesztet 100 mm/sec sebességgel nyomtattuk, így a frekvencia 100 * 6 / 12,14 ≈ 49,4 Hz.
 1. A (8)-(10) pontokat az Y jel esetében is végezzük el.
@@ -186,9 +186,9 @@ Máskülönben előfordulhat, hogy az összes modell nem mutat gyűrődést, vag
 
 Most ellenőrizze, hogy az EI alakító elég jó lenne-e az Ön esetében. Válassza ki az EI alakító frekvenciáját az Ön által választott 2HUMP_EI alakító frekvenciája alapján:
 
-* A 2HUMP_EI 60 Hz-es formázó esetében használjon EI formázót shaper_freq = 50 Hz-es frekvenciával.
-* A 2HUMP_EI 50 Hz-es formázóhoz használjon EI formázót shaper_freq = 40 Hz értékkel.
-* A 2HUMP_EI 40 Hz-es formázóhoz használjon EI formázót shaper_freq = 33 Hz értékkel.
+* A 2HUMP_EI 60 Hz-es formázó esetében használj EI formázót shaper_freq = 50 Hz-es frekvenciával.
+* A 2HUMP_EI 50 Hz-es formázóhoz használj EI formázót shaper_freq = 40 Hz értékkel.
+* A 2HUMP_EI 40 Hz-es formázóhoz használj EI formázót shaper_freq = 33 Hz értékkel.
 
 Most nyomtassuk ki a tesztmodellt még egyszer, a következő futtatásával
 

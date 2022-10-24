@@ -49,7 +49,7 @@ Gyakori dolgok, amiket a bíráló keres:
 
    A bíráló kérhet pontosítást arról, hogy a felhasználónak hogyan kell beállítania egy opciót - az ideális válasz tartalmazza a folyamat részleteit - például: "a MegaX500 felhasználóinak az X opciót 99,3-ra kell beállítaniuk, míg az Elite100Y felhasználóinak az X opciót a ..." eljárással kell kalibrálniuk...".
 
-   Ha az opció célja, hogy a kódot modulárisabbá tegye, akkor inkább használjon kódkonstansokat a felhasználóval szembenéző konfigurációs opciók helyett.
+   Ha az opció célja, hogy a kódot modulárisabbá tegye, akkor inkább használj kódkonstansokat a felhasználóval szembenéző konfigurációs opciók helyett.
 
    Az új modulok, új opciók és új paraméterek nem biztosíthatnak hasonló funkciókat a meglévő modulokhoz - ha a különbségek önkényesek, akkor inkább a meglévő rendszert kell használni, vagy a meglévő kódot kell átalakítani.
 

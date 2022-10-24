@@ -20,7 +20,7 @@ Az "avrdude" program a leggyakrabban használt eszköz az atmega chipek égetés
 
 Ez a chip jellemzően az "Arduino Mega" chipben található, és nagyon gyakori a 3D nyomtató lapokban.
 
-Magának a bootloadernek az égetéséhez használjon valami olyasmit, mint:
+Magának a bootloadernek az égetéséhez használj valami olyasmit, mint:
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/stk500v2/stk500boot_v2_mega2560.hex'
@@ -30,7 +30,7 @@ avrdude -cavrispv2 -patmega2560 -P/dev/ttyACM0 -b115200 -U flash:w:stk500boot_v2
 avrdude -cavrispv2 -patmega2560 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-Egy alkalmazás égetéséhez használjon valami olyasmit, mint:
+Egy alkalmazás égetéséhez használj valami olyasmit, mint:
 
 ```
 avrdude -cwiring -patmega2560 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
@@ -40,7 +40,7 @@ avrdude -cwiring -patmega2560 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.e
 
 Ez a chip jellemzően az "Arduino Mega" korábbi verzióiban található.
 
-Magának a bootloadernek az égetéséhez használjon valami olyasmit, mint:
+Magának a bootloadernek az égetéséhez használj valami olyasmit, mint:
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/atmega/ATmegaBOOT_168_atmega1280.hex'
@@ -50,7 +50,7 @@ avrdude -cavrispv2 -patmega1280 -P/dev/ttyACM0 -b115200 -U flash:w:ATmegaBOOT_16
 avrdude -cavrispv2 -patmega1280 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-Egy alkalmazás égetéséhez használjon valami olyasmit, mint:
+Egy alkalmazás égetéséhez használj valami olyasmit, mint:
 
 ```
 avrdude -carduino -patmega1280 -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.elf.hex:i
@@ -60,7 +60,7 @@ avrdude -carduino -patmega1280 -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.e
 
 Ez a chip gyakran megtalálható a "Melzi" stílusú 3D nyomtató alaplapokban.
 
-Magának a bootloadernek az égetéséhez használjon valami olyasmit, mint:
+Magának a bootloadernek az égetéséhez használj valami olyasmit, mint:
 
 ```
 wget 'https://github.com/Lauszus/Sanguino/raw/1.0.2/bootloaders/optiboot/optiboot_atmega1284p.hex'
@@ -70,13 +70,13 @@ avrdude -cavrispv2 -patmega1284p -P/dev/ttyACM0 -b115200 -U flash:w:optiboot_atm
 avrdude -cavrispv2 -patmega1284p -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-Egy alkalmazás égetéséhez használjon valami olyasmit, mint:
+Egy alkalmazás égetéséhez használj valami olyasmit, mint:
 
 ```
 avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
 ```
 
-Megjegyzendő, hogy számos "Melzi" stílusú alaplap előre betöltött bootloaderrel érkezik, amely 57600-as átviteli sebesség használatával működik. Ebben az esetben egy alkalmazás égetéséhez használjon helyette valami ilyesmit:
+Megjegyzendő, hogy számos "Melzi" stílusú alaplap előre betöltött bootloaderrel érkezik, amely 57600-as átviteli sebesség használatával működik. Ebben az esetben egy alkalmazás égetéséhez használj helyette valami ilyesmit:
 
 ```
 avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.elf.hex:i
@@ -94,7 +94,7 @@ teensy_loader_cli --mcu=at90usb1286 out/klipper.elf.hex -v
 
 ### Atmega168
 
-Az atmega168 korlátozott flash-tárhellyel rendelkezik. Ha bootloadert használ, ajánlott az Optiboot bootloadert használni. A bootloader égetéséhez használjon valami hasonlót:
+Az atmega168 korlátozott flash-tárhellyel rendelkezik. Ha bootloadert használ, ajánlott az Optiboot bootloadert használni. A bootloader égetéséhez használj valami hasonlót:
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/optiboot/optiboot_atmega168.hex'
@@ -104,7 +104,7 @@ avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U flash:w:optiboot_atmeg
 avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-Az Optiboot bootloaderrel történő alkalmazás égetéséhez használjon valami hasonlót:
+Az Optiboot bootloaderrel történő alkalmazás égetéséhez használj valami hasonlót:
 
 ```
 avrdude -carduino -patmega168 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
@@ -118,7 +118,7 @@ A ROM engedélyezéséhez az "erase" csapot magasan kell tartani a visszaállít
 
 A <https://github.com/shumatech/BOSSA> alatti kód használható a SAM3 programozásához. Az 1.9-es vagy újabb verzió használata ajánlott.
 
-Egy alkalmazás égetéséhez használjon valami olyasmit, mint:
+Egy alkalmazás égetéséhez használj valami olyasmit, mint:
 
 ```
 bossac -U -p /dev/ttyACM0 -a -e -w out/klipper.bin -v -b
@@ -133,7 +133,7 @@ A ROM engedélyezéséhez az "erase" csapot magasan kell tartani a visszaállít
 
 A <https://github.com/shumatech/BOSSA> kód használható a SAM4 programozásához. Szükséges az `1.8.0` vagy magasabb verzió használata.
 
-Egy alkalmazás égetéséhez használjon valami olyasmit, mint:
+Egy alkalmazás égetéséhez használj valami olyasmit, mint:
 
 ```
 bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
@@ -162,7 +162,7 @@ at91samd bootloader 0
 program samd21_sam_ba.bin verify
 ```
 
-A SAMD21 leggyakoribb bootloadere az "Arduino Zero" -ban található. Ez egy 8KiB-es bootloadert használ (az alkalmazást 8KiB kezdőcímmel kell lefordítani). Ebbe a bootloaderbe a reset gombra való dupla kattintással lehet belépni. Egy alkalmazás égetéséhez használjon valami hasonlót:
+A SAMD21 leggyakoribb bootloadere az "Arduino Zero" -ban található. Ez egy 8KiB-es bootloadert használ (az alkalmazást 8KiB kezdőcímmel kell lefordítani). Ebbe a bootloaderbe a reset gombra való dupla kattintással lehet belépni. Egy alkalmazás égetéséhez használj valami hasonlót:
 
 ```
 bossac -U -p /dev/ttyACM0 --offset=0x2000 -w out/klipper.bin -v -b -R
@@ -196,7 +196,7 @@ program bootloader-itsybitsy_m4-v3.7.0.bin verify
 at91samd bootloader 16384
 ```
 
-A SAMD51 16KiB-es bootloadert használ (az alkalmazást 16KiB kezdőcímmel kell lefordítani). Egy alkalmazás égetéséhez használjon valami hasonlót:
+A SAMD51 16KiB-es bootloadert használ (az alkalmazást 16KiB kezdőcímmel kell lefordítani). Egy alkalmazás égetéséhez használj valami hasonlót:
 
 ```
 bossac -U -p /dev/ttyACM0 --offset=0x4000 -w out/klipper.bin -v -b -R
@@ -406,7 +406,7 @@ OpenOCD konfigurációs fájl létrehozása:
 nano ~/openocd/openocd.cfg
 ```
 
-Használjon a következőhöz hasonló konfigurációt:
+Használj a következőhöz hasonló konfigurációt:
 
 ```
 # RPi tűket használ: GPIO25 az SWDCLK-hoz, GPIO24 az SWDIO-hoz, GPIO18 az nRST-hez.

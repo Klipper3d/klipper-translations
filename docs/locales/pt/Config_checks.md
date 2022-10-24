@@ -2,23 +2,23 @@
 
 Esse documento fornece uma lista de passos para ajudar a confirmar as configurações de pinos no arquivo printer.cfg do Klipper. É uma boa ideia executar esses passos depois de seguir o passo a passo de instalação conforme o arquivo de instalação (Installation.md).
 
-During this guide, it may be necessary to make changes to the Klipper config file. Be sure to issue a RESTART command after every change to the config file to ensure that the change takes effect (type "restart" in the Octoprint terminal tab and then click "Send"). It's also a good idea to issue a STATUS command after every RESTART to verify that the config file is successfully loaded.
+Durante este guia, talvez seja necessário fazer mudanças no arquivo de configurações do Klipper. Certifica-se de emitir um comando de RESTART após cada mudança no arquivo de configuração, garantindo que as mudanças tenham efeito (digite "restart" na aba do terminal do Octoprint e clique em "Send"). Também é uma boa ideia emitir um comando STATUS depois de todas as reinicializações, para verificar se o arquivo de configurações foi carregado corretamente.
 
-## Verify temperature
+## Verificar temperatura
 
-Start by verifying that temperatures are being properly reported. Navigate to the Octoprint temperature tab.
+Comece verificando se a temperatura começou a ser reportada corretamente. Navegue até a aba de temperatura Octoprint.
 
 ![octoprint-temperature](img/octoprint-temperature.png)
 
-Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.
+Verificar se a temperatura do bocal e da base(se aplicável) estão presentes e não subindo. Se estiver subindo, remover a energia da impressora. Se a temperatura não estiver exata, reveja as configurações de "sensor_tipo" e "sensor_pino" do bocal e/ou da base.
 
-## Verify M112
+## Verificar M112
 
-Navigate to the Octoprint terminal tab and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause Octoprint to disconnect from Klipper - navigate to the Connection area and click on "Connect" to cause Octoprint to reconnect. Then navigate to the Octoprint temperature tab and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
+Navegue até a aba do terminal do Octoprint e emita um comando M112 na caixa do terminal. Este comando solicita que o Klipper entre em um estado de "desligamento", fazendo com que o Octoprint desconecte do Klipper - navegue ate a área "Connection" e clique em "Connect" para reconectar o Octoprint. Então navegue até a aba de temperatura do Octoprint e verifique se a temperatura continua a atualizar e não esta subindo. Se a temperatura estiver subindo, remova a impressora da tomada.
 
-The M112 command causes Klipper to go into a "shutdown" state. To clear this state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab.
+O comando M112 fará com que o Klipper entre em modo de "desligamento". Para desfazer, emita um comando FIRMWARE_RESTART na aba do terminal do Octoprint.
 
-## Verify heaters
+## Verificar aquecedores
 
 Navigate to the Octoprint temperature tab and type in 50 followed by enter in the "Tool" temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the "Tool" temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
 
@@ -46,11 +46,11 @@ Run the above test for each stepper motor defined in the config file. (Set the S
 
 After verifying all endstops and verifying all stepper motors the homing mechanism should be tested. Issue a G28 command to home all axes. Remove power from the printer if it does not home properly. Rerun the endstop and stepper motor verification steps if necessary.
 
-## Verify extruder motor
+## Verificar motor de exclusão
 
 To test the extruder motor it will be necessary to heat the extruder to a printing temperature. Navigate to the Octoprint temperature tab and select a target temperature from the temperature drop-down box (or manually enter an appropriate temperature). Wait for the printer to reach the desired temperature. Then navigate to the Octoprint control tab and click the "Extrude" button. Verify that the extruder motor turns in the correct direction. If it does not, see the troubleshooting tips in the previous section to confirm the "enable_pin", "step_pin", and "dir_pin" settings for the extruder.
 
-## Calibrate PID settings
+## Calibrar configurações PID
 
 Klipper supports [PID control](https://en.wikipedia.org/wiki/PID_controller) for the extruder and bed heaters. In order to use this control mechanism, it is necessary to calibrate the PID settings on each printer (PID settings found in other firmwares or in the example configuration files often work poorly).
 
@@ -60,7 +60,7 @@ At the completion of the tuning test run `SAVE_CONFIG` to update the printer.cfg
 
 If the printer has a heated bed and it supports being driven by PWM (Pulse Width Modulation) then it is recommended to use PID control for the bed. (When the bed heater is controlled using the PID algorithm it may turn on and off ten times a second, which may not be suitable for heaters using a mechanical switch.) A typical bed PID calibration command is: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
 
-## Next steps
+## Próximos passos
 
 This guide is intended to help with basic verification of pin settings in the Klipper configuration file. Be sure to read the [bed leveling](Bed_Level.md) guide. Also see the [Slicers](Slicers.md) document for information on configuring a slicer with Klipper.
 

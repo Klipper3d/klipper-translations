@@ -32,13 +32,13 @@ Ezután a következő eljárást alkalmazza a "mérés és igazítás" elvégzé
 
 1. Győződjön meg arról, hogy az extruderben van-e nyomtatószál, a hotend megfelelő hőmérsékletre van-e melegítve, és a nyomtató készen áll-e az extrudálásra.
 1. Jelölje meg a nyomtatószálat egy jelölővel az extrudertest bemenő nyílásától kb. 70 mm-re. Ezután egy digitális tolómérővel mérje meg a lehető legpontosabban ennek a jelölésnek a tényleges távolságát. Ezt jegyezze fel `<initial_mark_distance>`.
-1. Extrudáljon 50 mm nyomtatószálat a következő parancsokkal: `G91`, majd `G1 E50 F60`. Az 50 mm-t jegyezze meg `<requested_extrude_distance>`. Várja meg, amíg az extruder befejezi a mozgást (ez körülbelül 50 másodpercig tart). Fontos, hogy lassú extrudálási sebességet használjon ehhez a teszthez, mivel a gyorsabb sebesség magas nyomást okozhat az extruderben, ami torzítja az eredményeket. (Ne használja az "extrude gombot" a grafikus előlapon ehhez a teszthez, mivel azok gyors ütemben extrudálnak.)
+1. Extrudáljon 50 mm nyomtatószálat a következő parancsokkal: `G91`, majd `G1 E50 F60`. Az 50 mm-t jegyezze meg `<requested_extrude_distance>`. Várja meg, amíg az extruder befejezi a mozgást (ez körülbelül 50 másodpercig tart). Fontos, hogy lassú extrudálási sebességet használj ehhez a teszthez, mivel a gyorsabb sebesség magas nyomást okozhat az extruderben, ami torzítja az eredményeket. (Ne használja az "extrude gombot" a grafikus előlapon ehhez a teszthez, mivel azok gyors ütemben extrudálnak.)
 1. A digitális tolómérővel mérje meg az extruder teste és a szálon lévő jelölés közötti új távolságot. Ezt jegyezze fel `<subsequent_mark_distance>`. Ezután számítsa ki: `actual_extrude_distance = <initial_mark_distance> - <subsequent_mark_distance>`
 1. A rotation_distance kiszámítása: `rotation_distance = <previous_rotation_distance> * <actual_extrude_distance> / <requested_extrude_distance>` Az új rotation_distance-t három tizedesjegyre kerekítjük.
 
 Ha az actual_extrude_distance több mint 2 mm-rel eltér a requested_extrude_distance-tól, akkor érdemes a fenti lépéseket másodszor is elvégezni.
 
-Megjegyzés: *Ne* használjon "mérés és trimmelés" típusú módszert az X, Y vagy Z típusú tengelyek kalibrálására. A "measure and trim" módszer nem elég pontos ezekhez a tengelyekhez, és valószínűleg rosszabb konfigurációhoz vezet. Ehelyett, ha szükséges, ezeket a tengelyeket [a szíjak, szíjtárcsák és az orsók hardverének mérésével](#a-forgasi_tavolsag-kinyerese-a-hardver-ellenorzesevel) lehet meghatározni.
+Megjegyzés: *Ne* használj "mérés és trimmelés" típusú módszert az X, Y vagy Z típusú tengelyek kalibrálására. A "measure and trim" módszer nem elég pontos ezekhez a tengelyekhez, és valószínűleg rosszabb konfigurációhoz vezet. Ehelyett, ha szükséges, ezeket a tengelyeket [a szíjak, szíjtárcsák és az orsók hardverének mérésével](#a-forgasi_tavolsag-kinyerese-a-hardver-ellenorzesevel) lehet meghatározni.
 
 ## A rotation_distance meghatározása a hardver vizsgálatával
 

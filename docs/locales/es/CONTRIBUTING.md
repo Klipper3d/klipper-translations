@@ -4,9 +4,9 @@
 
 Por favor, eche un vistazo a la [página de contacto](Contact.md) para más información sobre reportar problemas o para más detalles a la hora de contactar con los desarrolladores.
 
-## Overview of Contribution Process
+## Visión general del proceso de contribución
 
-Contributions to Klipper generally follow a high-level process:
+Las contribuciones a Klipper suelen seguir un proceso de alto nivel:
 
 1. A submitter starts by creating a [GitHub Pull Request](https://github.com/Klipper3d/klipper/pulls) when a submission is ready for widespread deployment.
 1. When a [reviewer](#reviewers) is available to [review](#what-to-expect-in-a-review) the submission, they will assign themselves to the Pull Request on GitHub. The goal of the review is to look for defects and to check that the submission follows documented guidelines.
@@ -140,13 +140,13 @@ It is important to have a "Signed-off-by" line on each commit - it certifies tha
 
 [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) is a project dedicated to translating Klipper to different languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all the Gettext strings for translating and reviewing. Locales can be displayed on [klipper3d.org](https://www.klipper3d.org) once they satisfy the following requirements:
 
-- [ ] 75% Total coverage
+- [ ] 75% de cobertura total
 - [ ] All titles (H1) are translated
 - [ ] An updated navigation hierarchy PR in klipper-translations.
 
 To reduce the frustration of translating domain-specific terms and gain awareness of the ongoing translations, you can submit a PR modifying the [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md`. Once a translation is ready, the corresponding modification to the Klipper project can be made.
 
-If a translation already exists in the Klipper repository and no longer meets the checklist above, it will be marked out-of-date after a month without updates.
+Si ya existe una traducción en el repositorio Klipper y ya no cumple con la lista de comprobación anterior, se marcará como obsoleta después de un mes sin actualizaciones.
 
 Once the requirements are met, you need to:
 

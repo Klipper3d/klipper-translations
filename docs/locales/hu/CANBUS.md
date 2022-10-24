@@ -12,8 +12,8 @@ A CAN-hez való fordításhoz futtassa a `make menuconfig` parancsot, és válas
 
 A CAN-busz használatához szükség van egy host-adapterre. Jelenleg két elterjedt lehetőség van:
 
-1. Használjon egy [Waveshare Raspberry Pi CAN sapkát](https://www.waveshare.com/rs485-can-hat.htm) vagy annak számos klónja közül egyet.
-1. Használjon USB CAN-adaptert (például <https://hacker-gadgets.com/product/cantact-usb-can-adapter/>). Számos különböző USB-CAN adapter áll rendelkezésre - az adapter kiválasztásakor javasoljuk, hogy ellenőrizze, hogy képes-e a [candlelight firmware](https://github.com/candle-usb/candleLight_fw) futtatására. (Sajnos azt tapasztaltuk, hogy néhány USB-adapter hibás firmware-t futtat, és le van zárva, ezért vásárlás előtt ellenőrizze.)
+1. Használj egy [Waveshare Raspberry Pi CAN sapkát](https://www.waveshare.com/rs485-can-hat.htm) vagy annak számos klónja közül egyet.
+1. Használj USB CAN-adaptert (például <https://hacker-gadgets.com/product/cantact-usb-can-adapter/>). Számos különböző USB-CAN adapter áll rendelkezésre - az adapter kiválasztásakor javasoljuk, hogy ellenőrizze, hogy képes-e a [candlelight firmware](https://github.com/candle-usb/candleLight_fw) futtatására. (Sajnos azt tapasztaltuk, hogy néhány USB-adapter hibás firmware-t futtat, és le van zárva, ezért vásárlás előtt ellenőrizze.)
 
 Az adapter használatához a gazdagép operációs rendszert is konfigurálni kell. Ez általában úgy történik, hogy létrehozunk egy új `/etc/network/interfaces.d/can0` nevű fájlt a következő tartalommal:
 

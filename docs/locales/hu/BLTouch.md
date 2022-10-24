@@ -78,7 +78,7 @@ Fontos! A `stow_on_each_sample` False (Hamis) beállítása ahhoz vezethet, hogy
 
 Fontos! Ajánlott a True értékre konfigurált `probe_with_touch_mode` használata, ha a False értékre konfigurált `stow_on_each_sample` értéket használja. Néhány "klón" eszköz nem érzékeli a tárgyasztal későbbi érintését, ha a `probe_with_touch_mode` nincs beállítva. Minden eszközön e két beállítás kombinációjának használata egyszerűsíti az eszköz jelzését, ami javíthatja az általános stabilitást.
 
-Vedd figyelembe azonban, hogy néhány "klón" eszköz és a BL-Touch v2.0 (és korábbi) csökkentett pontosságú lehet, ha a `probe_with_touch_mode` értéke True. Ezeken az eszközökön érdemes tesztelni a szonda pontosságát a `probe_with_touch_mode` beállítása előtt és után (a teszteléshez használja a `PROBE_ACCURACY` parancsot).
+Vedd figyelembe azonban, hogy néhány "klón" eszköz és a BL-Touch v2.0 (és korábbi) csökkentett pontosságú lehet, ha a `probe_with_touch_mode` értéke True. Ezeken az eszközökön érdemes tesztelni a szonda pontosságát a `probe_with_touch_mode` beállítása előtt és után (a teszteléshez használd a `PROBE_ACCURACY` parancsot).
 
 ## A BL-Touch eltolások kalibrálása
 
