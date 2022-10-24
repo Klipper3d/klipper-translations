@@ -2,14 +2,14 @@ Dokumentacja Klippera
 
 Instalacja i konfiguracja
 
-Configuration Reference
+Informacje o konfiguracji
 
 Bed Level
 
 Kompensacja rezonansu
 
-Command templates
+Szablony poleceń
 
-Developer Documentation
+Dokumentacja dla programistów
 
-Device Specific Documents
+Dokumenty specyficzne dla urządzenia

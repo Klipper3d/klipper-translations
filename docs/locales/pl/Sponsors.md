@@ -1,26 +1,26 @@
-# Sponsors
+# Sponsorzy
 
-Klipper is Free Software. We depend on the generous support from sponsors. Please consider sponsoring Klipper or supporting our sponsors.
+Klipper jest Wolnym Oprogramowaniem. Polegamy na hojnym wsparciu sponsorów. Prosimy o rozważenie sponsorowania Klipper lub wspierania naszych sponsorów.
 
 ## BIGTREETECH
 
 [<img src="./img/sponsors/BTT_BTT.png" width="200" />
 
-BIGTREETECH is the official mainboard sponsor of Klipper. BIGTREETECH is committed to developing innovative and competitive products to serve the 3D printing community better. Follow them on [Facebook](https://www.facebook.com/BIGTREETECH) or [Twitter](https://twitter.com/BigTreeTech).
+BIGTREETECH jest oficjalnym sponsorem płyt głównych Klippera. BIGTREETECH zobowiązuje się do opracowywania innowacyjnych i konkurencyjnych produktów, aby lepiej służyć społeczności druku 3D. Śledź ich na [Facebooku](https://www.facebook.com/BIGTREETECH) lub [Twitterze](https://twitter.com/BigTreeTech).
 
-## Klipper Developers
+## Programiści Klippera
 
 ### Kevin O'Connor
 
-Kevin is the original author and current maintainer of Klipper. Donate at: <https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>
+Kevin jest oryginalnym autorem i obecnym opiekunem Klippera. Wspieraj go na: <https://ko-fi.com/koconnor> lub <https://www.patreon.com/koconnor>
 
 ### Eric Callahan
 
-Eric is the author of bed_mesh, spi_flash, and several other Klipper modules. Eric has a donations page at: <https://ko-fi.com/arksine>
+Eric jest autorem bed_mesh, spi_flash i kilku innych modułów Klippera. Eric ma stronę na której można go wspierać pod adresem: <https://ko-fi.com/arksine>
 
-## Related Klipper Projects
+## Projekty powiązane z Klipper
 
-Klipper is frequently used with other Free Software. Consider using or supporting these projects.
+Klipper jest często używany z innym Wolnym Oprogramowaniem. Rozważ wykorzystanie lub wsparcie tych projektów.
 
 * [Moonraker](https://github.com/Arksine/moonraker)
 * [Mainsail](https://github.com/mainsail-crew/mainsail)

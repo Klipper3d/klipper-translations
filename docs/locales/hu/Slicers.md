@@ -28,7 +28,7 @@ Konkrétan, ha a szeletelő drasztikusan megváltoztatja az extrudálási sebess
 
 Ezzel szemben a szeletelőgép "visszahúzás" beállítása, "törlés" beállítása és/vagy "törlés visszahúzáskor" beállítása rendben van (és gyakran hasznos).
 
-## Ne használja az "extra újraindítási távolságot" a Simplify3d-nél
+## Ne használd az "extra újraindítási távolságot" a Simplify3d-nél
 
 Ez a beállítás drámai változásokat okozhat az extrudálási sebességben, ami kiválthatja a Klipper maximális extrudálási keresztmetszet ellenőrzését. Fontolja meg a Klipper [nyomás előtolás](Pressure_Advance.md) vagy a normál Simplify3d visszahúzási beállítás használatát helyette.
 

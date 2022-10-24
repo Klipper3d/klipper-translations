@@ -1,4 +1,4 @@
-# Packaging Klipper
+# Pakowanie Klipper
 
 Klipper jest pewną anomalią wśród programów pythonowych, ponieważ nie używa setuptools do kompilacji i instalacji. Niektóre uwagi dotyczące tego, jak najlepiej go zapakować, są następujące:
 
@@ -6,14 +6,14 @@ Klipper jest pewną anomalią wśród programów pythonowych, ponieważ nie uży
 
 Klipper używa modułu C do szybszej obsługi niektórych obliczeń kinematycznych. Moduł ten musi być skompilowany w czasie pakowania, aby uniknąć wprowadzenia zależności runtime od kompilatora. Aby skompilować moduł C, uruchom `python2 klippy/chelper/__init__.py`.
 
-## Compiling python code
+## Kompilowanie kodu Pythona
 
-Many distributions have a policy of compiling all python code before packaging to improve startup time. You can do this by running `python2 -m compileall klippy`.
+W wielu dystrybucjach obowiązuje zasada kompilowania całego kodu Pythona przed pakowaniem w celu skrócenia czasu uruchamiania. Możesz to zrobić uruchamiając `python2-m compileall klippy`.
 
-## Versioning
+## Nadawanie wersji
 
-If you are building a package of Klipper from git, it is usual practice not to ship a .git directory, so the versioning must be handled without git. To do this, use the script shipped in `scripts/make_version.py` which should be run as follows: `python2 scripts/make_version.py YOURDISTRONAME > klippy/.version`.
+Jeśli budujesz pakiet Klippera z gita, zwykle nie wysyłasz katalogu .git, więc wersjonowanie musi być obsługiwane bez gita. Aby to zrobić, użyj skryptu dostarczonego w `scripts/make_version.py`, który należy uruchomić w następujący sposób: `python2 scripts/make_version.py NAZWA DISTRONA > klippy/.version`.
 
-## Sample packaging script
+## Przykładowy skrypt pakowania
 
-klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).
+klipper-git jest spakowany dla Arch Linux i ma PKGBUILD (skrypt budowania pakietu) dostępny w [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper- git).

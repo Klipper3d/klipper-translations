@@ -57,7 +57,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20210430: A SET_VELOCITY_LIMIT (és az M204) parancs mostantól a konfigurációs fájlban megadott értékeknél nagyobb sebességet, gyorsulást és square_corner_velocity-t is beállíthat.
 
-20210325: A `pin_map` config opció támogatása elavult. Használja a [sample-aliases.cfg](../config/sample-aliases.cfg) fájlt a tényleges mikrokontroller tű nevekre való fordításhoz. A `pin_map` config opció a közeljövőben eltávolításra kerül.
+20210325: A `pin_map` config opció támogatása elavult. Használd a [sample-aliases.cfg](../config/sample-aliases.cfg) fájlt a tényleges mikrokontroller tű nevekre való fordításhoz. A `pin_map` config opció a közeljövőben eltávolításra kerül.
 
 20210313: A Klipper CAN-busszal kommunikáló mikrovezérlők támogatása megváltozott. Ha CAN-buszt használ, akkor az összes mikrokontrollert újra kell égetni és a [Klipper konfigurációt frissíteni kell](CANBUS.md).
 
@@ -73,7 +73,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20201222: A `step_distance` beállítás a stepper config szakaszokban elavult. Javasoljuk, hogy frissítse a konfigurációt a [`rotation_distance`](Rotation_Distance.md) beállítás használatára. A `step_distance` támogatása a közeljövőben megszűnik.
 
-20201218: Az endstop_phase modulban az `endstop_phase` beállítás helyébe a `trigger_phase` beállítás lépett. Ha az endstop phase modult használja, akkor át kell konvertálni a [`rotation_distance`](Rotation_Distance.md) értékre, és az ENDSTOP_PHASE_CALIBRATE parancs futtatásával újra kell kalibrálni az esetleges endstop fázisokat.
+20201218: Az endstop_phase modulban az `endstop_phase` beállítás helyébe a `trigger_phase` beállítás lépett. Ha az endstop phase modult használod, akkor át kell konvertálni a [`rotation_distance`](Rotation_Distance.md) értékre, és az ENDSTOP_PHASE_CALIBRATE parancs futtatásával újra kell kalibrálni az esetleges endstop fázisokat.
 
 20201218: A forgó delta- és polárnyomtatóknak mostantól meg kell adniuk egy `gear_ratio` paramétert a forgó léptetőikhez, és többé nem adhatnak meg `step_distance` paramétert. Az új gear_ratio paraméter formátumát lásd a [konfigurációs hivatkozás](Config_Reference.md#stepper) dokumentumban.
 
@@ -121,7 +121,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20200109: A bed_mesh modul most már hivatkozik a szonda helyére a hálókonfigurációban. Ennek megfelelően néhány konfigurációs opciót átneveztek, hogy pontosabban tükrözze a tervezett funkciójukat. Téglalap alakú tárgyasztalok esetében a `min_point` és `max_point` átnevezésre került `mesh_min` és `mesh_max`-ra. A kerek tárgyasztalok esetében a `bed_radius` át lett nevezve `mesh_radius`-ra. A kerek tárgyasztalokhoz egy új `mesh_origin` opció is hozzá lett adva. Vedd figyelembe, hogy ezek a változások a korábban elmentett hálóprofilokkal is inkompatibilisek. Ha egy inkompatibilis profilt észlelünk, azt figyelmen kívül hagyjuk és eltávolításra ütemezzük. Az eltávolítási folyamat a SAVE_CONFIG parancs kiadásával fejezhető be. A felhasználónak minden egyes profilt újra kell kalibrálnia.
 
-20191218: A display config szakasz már nem támogatja az "lcd_type: st7567". Használja helyette az "uc1701" kijelzőtípust. Állítsd be az "lcd_type: uc1701" értéket, és módosítsa az "rs_pin: some_pin" értéket "rst_pin: some_pin" értékre. Szükség lehet még egy "contrast: 60" konfigurációs beállítás hozzáadására.
+20191218: A display config szakasz már nem támogatja az "lcd_type: st7567". Használd helyette az "uc1701" kijelzőtípust. Állítsd be az "lcd_type: uc1701" értéket, és módosítsa az "rs_pin: some_pin" értéket "rst_pin: some_pin" értékre. Szükség lehet még egy "contrast: 60" konfigurációs beállítás hozzáadására.
 
 20191210: A beépített T0, T1, T2, ... parancsok eltávolításra kerültek. Az extruder activate_gcode és deactivate_gcode konfigurációs opciók eltávolításra kerültek. Ha szükség van ezekre a parancsokra (és szkriptekre), akkor definiáljon egyedi [gcode_macro T0] stílusú makrókat, amelyek meghívják az ACTIVATE_EXTRUDER parancsot. Példákért lásd a config/sample-idex.cfg és sample-multi-extruder.cfg fájlokat.
 
@@ -133,7 +133,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20191121: A pressure_advance_lookahead_time paramétert eltávolítottuk. Az alternatív konfigurációs beállításokat lásd a example.cfg fájlban.
 
-20191112: A TMC léptető vezérlő virtuális engedélyezési képessége mostantól automatikusan engedélyezve van, ha a léptető nem rendelkezik dedikált léptető engedélyező tűvel. A tmcXXXX:virtual_enable-re való hivatkozások eltávolítása a konfigurációból. A stepper enable_pin konfigurációban több tű vezérlésének lehetősége megszűnt. Ha több tűre van szükség, akkor használjon egy multi_pin config szekciót.
+20191112: A TMC léptető vezérlő virtuális engedélyezési képessége mostantól automatikusan engedélyezve van, ha a léptető nem rendelkezik dedikált léptető engedélyező tűvel. A tmcXXXX:virtual_enable-re való hivatkozások eltávolítása a konfigurációból. A stepper enable_pin konfigurációban több tű vezérlésének lehetősége megszűnt. Ha több tűre van szükség, akkor használj egy multi_pin config szekciót.
 
 20191107: Az elsődleges extruder konfigurációs szakaszát "extruder" néven kell megadni, és már nem lehet "extruder0" néven megadni. Az extruder állapotát lekérdező G-kód parancssablonokat mostantól a "{printer.extruder}" segítségével lehet elérni.
 

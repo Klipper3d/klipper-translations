@@ -5,9 +5,9 @@ Witaj w dokumentacji Klipper. Jeśli jesteś nowy zapoznaj się z [zastosowaniam
 ## Ogólne informacje
 
 - [Features](Features.md): Wysokopoziomowa lista funkcji w Klipperze.
-- [FAQ](FAQ.md): Frequently asked questions.
-- [Releases](Releases.md): The history of Klipper releases.
-- [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
+- [FAQ](FAQ.md): Często zadawane pytania.
+- [Wydania](Releases.md): Historia wydań Klipper.
+- [Zmiany konfiguracji](Config_Changes.md): Ostatnie zmiany w oprogramowaniu, które mogą wymagać od użytkowników zaktualizowania pliku konfiguracyjnego drukarki.
 - [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
 
 ## Instalacja i konfiguracja
@@ -36,7 +36,7 @@ Witaj w dokumentacji Klipper. Jeśli jesteś nowy zapoznaj się z [zastosowaniam
 - [PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such as lasers or spindles.
 - [Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs implementation.
 
-## Developer Documentation
+## Dokumentacja dla programistów
 
 - [Code overview](Code_Overview.md): Developers should read this first.
 - [Kinematics](Kinematics.md): Technical details on how Klipper implements motion.
@@ -49,7 +49,7 @@ Witaj w dokumentacji Klipper. Jeśli jesteś nowy zapoznaj się z [zastosowaniam
 - [Contributing](CONTRIBUTING.md): Information on how to submit improvements to Klipper.
 - [Packaging](Packaging.md): Information on building OS packages.
 
-## Device Specific Documents
+## Dokumenty specyficzne dla urządzenia
 
 - [Example configs](Example_Configs.md): Information on adding an example config file to Klipper.
 - [SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a binary to an sdcard in the micro-controller.

@@ -59,7 +59,7 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 `ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: consultas ADXL345 registar "register" (por exemplo 44 ou 0x2C). Pode ser útil para efeitos de depuração.
 
-#### ACCELEROMETER_DEBUG_WRITE
+#### ACELEROMETRO_DEBUG_ESCRITA
 
 `ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Escreve "value" em bruto num registo "register". Tanto "value" como "register" podem ser um número inteiro decimal ou hexadecimal. Use com cuidado, e consulte a folha de dados ADXL345 para a referência.
 

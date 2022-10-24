@@ -2204,7 +2204,7 @@ sensor_type: temperature_mcu
 #   megszerzésének tipikus módja az, hogy néhány órára teljesen
 #   áramtalanítja a nyomtatót (hogy megbizonyosodjon arról, hogy az
 #   környezeti hőmérsékleten van), majd bekapcsolja, és a QUERY_ADC
-#   paranccsal megkapja az ADC mérést. Használjon más hőmérséklet
+#   paranccsal megkapja az ADC mérést. Használj más hőmérséklet
 #   érzékelőt a nyomtatón a megfelelő környezeti hőmérséklet
 #   meghatározásához. Alapértelmezés szerint a mikrokontroller gyári
 #   kalibrálási adatait (ha van) vagy a mikrovezérlő specifikációjából
@@ -2560,7 +2560,7 @@ PCA9533 LED-támogatás. A PCA9533 a mightyboardon használatos.
 [pca9533 my_pca9533]
 #i2c_address: 98
 #   Az I2C cím, amelyet a chip az I2C buszon használ.
-#   Használja a 98-at a PCA9533/1-hez, a 99-et a PCA9533/2-hez.
+#   Használd a 98-at a PCA9533/1-hez, a 99-et a PCA9533/2-hez.
 #   Az alapértelmezett érték 98.
 #i2c_mcu:
 #i2c_bus:
@@ -3525,7 +3525,7 @@ Lásd a [sample-glyphs.cfg](../config/sample-glyphs.cfg) néhány példáját.
 #hd44780_slot:
 #   A hd44780 hardver indexe (0..7) a karakterjel tárolására. Ha több
 #   különálló kép használja ugyanazt a tárat, ügyelj arra, hogy ezek
-#   közül csak egyet használjon az adott képernyőn. Ez a paraméter akkor
+#   közül csak egyet használj az adott képernyőn. Ez a paraméter akkor
 #   szükséges, ha a hd44780_data meg van adva.
 ```
 
@@ -3745,7 +3745,7 @@ adc2:
 #min_diameter: 1.0
 #   A virtuális trigger minimális átmérője filament_switch_sensor.
 #use_current_dia_while_delay: False
-#   Használja az aktuális átmérőt a névleges átmérő helyett, amíg a
+#   Használd az aktuális átmérőt a névleges átmérő helyett, amíg a
 #   mérési késleltetés nem futott át.
 #pause_on_runout:
 #runout_gcode:
@@ -3810,7 +3810,7 @@ clk_pin:
 
 ### [adc_scaled]
 
-Duet2 Maestro analóg skálázás vref és vssa leolvasások alapján. Az adc_scaled szakasz definiálása virtuális adc-tűként (például "my_name:PB0") tesz lehetővé, amelyeket automatikusan a kártya vref és vssa figyelőtűi állítanak be. Ügyelj arra, hogy ezt a konfigurációs szakaszt minden olyan konfigurációs szakasz felett definiálja, amely ezeket a virtuális tűket használja.
+Duet2 Maestro analóg skálázás vref és vssa leolvasások alapján. Az adc_scaled szakasz definiálása virtuális adc-tűként (például "my_name:PB0") tesz lehetővé, amelyeket automatikusan a kártya vref és vssa figyelőtűi állítanak be. Ügyelj arra, hogy ezt a konfigurációs szakaszt minden olyan konfigurációs szakasz felett definiáld, amely ezeket a virtuális tűket használja.
 
 Lásd a [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) fájlt egy példáért.
 
@@ -3901,7 +3901,7 @@ Palette 2 multimaterial támogatás szorosabb integrációt biztosít, amely tá
 
 Ez a modul a teljes funkcionalitáshoz a `[virtual_sdcard]` és `[pause_resume]` modulokat is igényli.
 
-Ha ezt a modult használja, ne használja a Palette 2 plugint az Octoprinthez, mivel ezek ütközni fognak, és az egyik nem fog megfelelően inicializálódni, ami valószínűleg megszakítja a nyomtatást.
+Ha ezt a modult használod, ne használd a Palette 2 plugint az Octoprinthez, mivel ezek ütközni fognak, és az egyik nem fog megfelelően inicializálódni, ami valószínűleg megszakítja a nyomtatást.
 
 Ha az Octoprintet használja és a gcode-ot a soros porton keresztül streameli a virtual_sd-ről való nyomtatás helyett, akkor a **M1** és **M0** parancsok *Pausing parancsok* a *Settings >. alatt remo; Serial Connection > Firmware & protocol* megakadályozzák, hogy a nyomtatás megkezdéséhez a Paletta 2-n el kelljen indítani a nyomtatást, és az Octoprintben fel kelljen oldani a szünetet.
 

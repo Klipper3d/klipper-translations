@@ -1,39 +1,39 @@
 # Overview
 
-Welcome to the Klipper documentation. If new to Klipper, start with the [features](Features.md) and [installation](Installation.md) documents.
+Vítejte v dokumentaci ke Klipperu. Pokud s Klipprem začínáte, začněte s dokumenty [features](Features.md) a [installation](Installation.md)
 
-## Overview information
+## Přehled informací
 
-- [Features](Features.md): A high-level list of features in Klipper.
-- [FAQ](FAQ.md): Frequently asked questions.
-- [Releases](Releases.md): The history of Klipper releases.
-- [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
-- [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
+- [Funkce](Features.md): Seznam funkcí Klipperu na vysoké úrovni.
+- [FAQ](FAQ.md): Často kladené otázky.
+- [Releases](Releases.md): Historie vydání Klipperu.
+- [Změny konfigurace](Config_Changes.md): Aktuální změny softwaru, které mohou vyžadovat aktualizaci konfiguračního souboru tiskárny.
+- [Contact](Contact.md): Informace o hlášení chyb a obecné komunikaci s vývojáři aplikace Klipper.
 
 ## Installation and Configuration
 
-- [Installation](Installation.md): Guide to installing Klipper.
-- [Config Reference](Config_Reference.md): Description of config parameters.
-   - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
-- [Config checks](Config_checks.md): Verify basic pin settings in the config file.
-- [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
-   - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
-   - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
-   - [BL-Touch](BLTouch.md): Configure a "BL-Touch" Z probe.
-   - [Manual level](Manual_Level.md): Calibration of Z endstops (and similar).
-   - [Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations.
-   - [Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning.
-- [Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing in prints.
-   - [Measuring resonances](Measuring_Resonances.md): Information on using adxl345 accelerometer hardware to measure resonance.
-- [Pressure advance](Pressure_Advance.md): Calibrate extruder pressure.
+- [Installation](Installation.md): Průvodce instalací Klipperu.
+- [Config Reference](Config_Reference.md): Popis konfiguračních parametrů.
+   - [Rotation Distance](Rotation_Distance.md): Výpočet parametru rotation_distance krokového motoru.
+- [Config checks](Config_checks.md): Ověřte základní nastavení pinů v konfiguračním souboru.
+- [Bed level](Bed_Level.md): Informace o "bed leveling" v Klipperu.
+   - [Delta calibrate](Delta_Calibrate.md): Kalibrace delta kinematiky.
+   - [Probe calibrate](Probe_Calibrate.md): Automatická kalibrace Z sondy.
+   - [BL-Touch](BLTouch.md): Kalibrace "BL-Touch" Z sondy.
+   - [Manual level](Manual_Level.md): Kalibrace koncových spínačů osy Z (a podobně).
+   - [Bed Mesh](Bed_Mesh.md): Korekce výšky lože na základě polohy XY.
+   - [Endstop phase](Endstop_Phase.md): Polohování koncového dorazu Z s asistencí krokového motoru.
+- [Resonance compensation](Resonance_Compensation.md): Nástroj pro snížení zvonění u výtisků.
+   - [Měření rezonancí](Measuring_Resonances.md): Informace o použití akcelerometru adxl345 k měření rezonancí.
+- [Pressure advance](Pressure_Advance.md): Kalibrace tlaku extrudéru.
 - [G-Codes](G-Codes.md): Information on commands supported by Klipper.
-- [Command Templates](Command_Templates.md): G-Code macros and conditional evaluation.
+- [Šablony příkazů](Command_Templates.md): G-kód makra a podmíněné vyhodnocování.
    - [Status Reference](Status_Reference.md): Information available to macros (and similar).
-- [TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with Klipper.
+- [TMC Drivers](TMC_Drivers.md): Použití ovladačů krokových motorů Trinamic s Klipperem.
 - [Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple micro-controllers.
-- [Slicers](Slicers.md): Configure "slicer" software for Klipper.
+- [Slicers](Slicers.md): Konfigurace softwaru "slicer" pro Klipper.
 - [Skew correction](Skew_Correction.md): Adjustments for axes not perfectly square.
-- [PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such as lasers or spindles.
+- [Nástroje PWM](Using_PWM_Tools.md): Příručka k používání nástrojů řízených PWM, jako jsou lasery nebo vřetena.
 - [Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs implementation.
 
 ## Developer Documentation

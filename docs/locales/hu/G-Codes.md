@@ -11,7 +11,7 @@ A Klipper a következő szabványos G-kód parancsokat támogatja:
 - Ugrás a forrásra: `G28 [X] [Y] [Z]`
 - Kapcsolja ki a motorokat: `M18` vagy `M84`
 - Várja meg, amíg az aktuális mozdulat befejeződik: `M400`
-- Használjon abszolút/relatív távolságokat az extrudáláshoz: `M82`, `M83`
+- Használj abszolút/relatív távolságokat az extrudáláshoz: `M82`, `M83`
 - Abszolút/relatív koordináták használata: `G90`, `G91`
 - Állítsd be a pozíciót: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
 - A sebességtényező felülbírálási százalékának beállítása: `M220 S<percent>`
@@ -61,7 +61,7 @@ A következő parancsok akkor érhetők el, ha az [adxl345 konfigurációs szaka
 
 #### ACCELEROMETER_DEBUG_WRITE
 
-`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Nyers "érték" írása a "register"-be. Mind az "érték", mind a "register" lehet decimális vagy hexadecimális egész szám. Használja óvatosan, és hivatkozzon az ADXL345 adatlapjára.
+`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Nyers "érték" írása a "register"-be. Mind az "érték", mind a "register" lehet decimális vagy hexadecimális egész szám. Használd óvatosan, és hivatkozzon az ADXL345 adatlapjára.
 
 ### [angle]
 
@@ -77,7 +77,7 @@ A következő parancsok akkor érhetők el, ha az [szög konfigurációs szakasz
 
 #### ANGLE_DEBUG_WRITE
 
-`ANGLE_DEBUG_WRITE CHIP=<config_name> REG=<register> VAL=<value>`: Nyers "érték" írása a "register" regiszterébe. Mind az "érték", mind a "regiszter" lehet decimális vagy hexadecimális egész szám. Használja óvatosan, és hivatkozzon az érzékelő adatlapjára. Ez csak a TLE5012B chipek esetében érhető el.
+`ANGLE_DEBUG_WRITE CHIP=<config_name> REG=<register> VAL=<value>`: Nyers "érték" írása a "register" regiszterébe. Mind az "érték", mind a "regiszter" lehet decimális vagy hexadecimális egész szám. Használd óvatosan, és hivatkozzon az érzékelő adatlapjára. Ez csak a TLE5012B chipek esetében érhető el.
 
 ### [bed_mesh]
 
@@ -459,7 +459,7 @@ A következő parancs akkor érhető el, ha a [manual_stepper konfigurációs sz
 
 #### MANUAL_STEPPER
 
-`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|2|-1|-2]] [SYNC=0]]]`: Ez a parancs megváltoztatja a léptető állapotát. Az ENABLE paraméterrel engedélyezheti/letilthatja a léptetőt. A SET_POSITION paraméterrel kényszerítheti a léptetőt arra, hogy azt higgye, az adott helyzetben van. A MOVE paraméterrel kezdeményezhet mozgást egy adott pozícióba. Ha a SPEED és/vagy az ACCEL paraméter meg van adva, akkor a rendszer a megadott értékeket használja a konfigurációs fájlban megadott alapértelmezett értékek helyett. Ha nulla ACCEL-t ad meg, akkor nem történik gyorsítás. Ha STOP_ON_ENDSTOP=1 van megadva, akkor a lépés korán véget ér. Ha a végálláskapcsoló aktiválódik (a STOP_ON_ENDSTOP=2 paranccsal hiba nélkül befejezheti a mozgást, még akkor is, ha a végálláskapcsoló nem aktiválódott. Használja a -1 vagy a -2 jelölést, hogy leálljon, amikor a végálláskapcsoló még nem aktiválódott). Normális esetben a későbbi G-kód parancsok a léptetőmozgás befejezése után kerülnek ütemezésre, azonban ha a kézi léptetőmozgás parancs a SYNC=0 értéket használja, akkor a későbbi G-kód mozgatási parancsok a léptetőmozgással párhuzamosan is futhatnak.
+`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|2|-1|-2]] [SYNC=0]]]`: Ez a parancs megváltoztatja a léptető állapotát. Az ENABLE paraméterrel engedélyezheti/letilthatja a léptetőt. A SET_POSITION paraméterrel kényszerítheti a léptetőt arra, hogy azt higgye, az adott helyzetben van. A MOVE paraméterrel kezdeményezhet mozgást egy adott pozícióba. Ha a SPEED és/vagy az ACCEL paraméter meg van adva, akkor a rendszer a megadott értékeket használja a konfigurációs fájlban megadott alapértelmezett értékek helyett. Ha nulla ACCEL-t ad meg, akkor nem történik gyorsítás. Ha STOP_ON_ENDSTOP=1 van megadva, akkor a lépés korán véget ér. Ha a végálláskapcsoló aktiválódik (a STOP_ON_ENDSTOP=2 paranccsal hiba nélkül befejezheti a mozgást, még akkor is, ha a végálláskapcsoló nem aktiválódott. Használd a -1 vagy a -2 jelölést, hogy leálljon, amikor a végálláskapcsoló még nem aktiválódott). Normális esetben a későbbi G-kód parancsok a léptetőmozgás befejezése után kerülnek ütemezésre, azonban ha a kézi léptetőmozgás parancs a SYNC=0 értéket használja, akkor a későbbi G-kód mozgatási parancsok a léptetőmozgással párhuzamosan is futhatnak.
 
 ### [mcp4018]
 
@@ -583,7 +583,7 @@ A query_adc modul automatikusan betöltődik.
 
 A query_endstops modul automatikusan betöltődik. Jelenleg a következő szabványos G-kód parancsok állnak rendelkezésre, de használatuk nem ajánlott:
 
-- Végállás állapotának lekérdezése: `M119` (Használja QUERY_ENDSTOPS helyett.)
+- Végállás állapotának lekérdezése: `M119` (Használd QUERY_ENDSTOPS helyett.)
 
 #### QUERY_ENDSTOPS
 
@@ -744,7 +744,7 @@ A tuning_tower modul automatikusan betöltődik.
 
 #### TUNING_TOWER
 
-`TUNING_TOWER COMMAND=<command> PARAMETER=<name> START=<value> [SKIP=<value>] [FACTOR=<value> [BAND=<value>]] | [STEP_DELTA=<value> STEP_HEIGHT=<value>]`: Egy eszköz egy paraméter beállítására minden egyes Z magasságon a nyomtatás során. Az eszköz az adott `COMMAND` parancsot a megadott `PARAMETER` értékhez rendelt `Z` értékkel egy képlet szerint változó értékkel futtatja. Használja a `FACTOR` lehetőséget, ha vonalzóval vagy tolómérővel fogja mérni az optimális Z magasságot, vagy `STEP_DELTA` és `STEP_HEIGHT`, ha a hangolótorony modellje diszkrét értékek sávjaival rendelkezik, mint ahogy az a hőmérséklet-tornyoknál gyakori. Ha `SKIP=<value>` van megadva, akkor a hangolási folyamat nem kezdődik meg, amíg a Z magasság `<value>` elérését, és ez alatt az érték `START` értékre lesz beállítva; ebben az esetben az alábbi képletekben használt `z_height` valójában `max(z - skip, 0)`. Három lehetséges kombináció létezik:
+`TUNING_TOWER COMMAND=<command> PARAMETER=<name> START=<value> [SKIP=<value>] [FACTOR=<value> [BAND=<value>]] | [STEP_DELTA=<value> STEP_HEIGHT=<value>]`: Egy eszköz egy paraméter beállítására minden egyes Z magasságon a nyomtatás során. Az eszköz az adott `COMMAND` parancsot a megadott `PARAMETER` értékhez rendelt `Z` értékkel egy képlet szerint változó értékkel futtatja. Használd a `FACTOR` lehetőséget, ha vonalzóval vagy tolómérővel fogja mérni az optimális Z magasságot, vagy `STEP_DELTA` és `STEP_HEIGHT`, ha a hangolótorony modellje diszkrét értékek sávjaival rendelkezik, mint ahogy az a hőmérséklet-tornyoknál gyakori. Ha `SKIP=<value>` van megadva, akkor a hangolási folyamat nem kezdődik meg, amíg a Z magasság `<value>` elérését, és ez alatt az érték `START` értékre lesz beállítva; ebben az esetben az alábbi képletekben használt `z_height` valójában `max(z - skip, 0)`. Három lehetséges kombináció létezik:
 
 - `FACTOR`: Az érték `factor` milliméterenként változik. Az alkalmazott képlet: `value = start + factor * z_height`. Az optimális Z magasságot közvetlenül a képletbe illesztheti az optimális paraméterérték meghatározásához.
 - `FACTOR` és `BAND`: Az érték átlagosan `Faktor` milliméterenként változik, de diszkrét sávokban, ahol a kiigazítás csak minden `BAND` milliméterenként történik a Z magasságban. A használt képlet a következő: `value= start + factor* ((floor(z_height / band) + .5) * band)`.
