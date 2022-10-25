@@ -1,12 +1,13 @@
 # Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
+# Mathis Mensing <github@matmen.dev>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:35+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Mathis Mensing <github@matmen.dev>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/canbus/de/"
 ">\n"
 "Language: de\n"
@@ -83,8 +84,8 @@ msgid ""
 "Each device will have a unique identifier. In the above example, "
 "`11aa22bb33cc` is the micro-controller's \"canbus_uuid\"."
 msgstr ""
-"Jedes Gerät hat eine eindeutige Kennung. Im obigen Beispiel ist `11aa22bb33cc`"
-" die \"canbus_uuid\" des Mikrocontrollers."
+"Jedes Gerät hat eine eindeutige Kennung. Im obigen Beispiel ist "
+"`11aa22bb33cc` die \"canbus_uuid\" des Mikrocontrollers."
 
 msgid ""
 "Note that the `canbus_query.py` tool will only report uninitialized devices - "
