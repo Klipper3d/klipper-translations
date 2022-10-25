@@ -1,28 +1,31 @@
 # wilmouths <wilmouthsteven@gmail.com>, 2021.
 # Tl <rflma99@pm.me>, 2022.
+# NicolasBFR <nicolas.boganski@epita.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-10 21:21+0000\n"
-"Last-Translator: Tl <rflma99@pm.me>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/packaging/fr/>\n"
+"PO-Revision-Date: 2022-10-19 19:01+0000\n"
+"Last-Translator: NicolasBFR <nicolas.boganski@epita.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/packaging/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
-#, fuzzy
 msgid ""
 "Klipper is somewhat of a packaging anomaly among python programs, as it "
 "doesn't use setuptools to build and install. Some notes regarding how best "
 "to package it are as follows:"
 msgstr ""
-"Klipper peut etre considéré comme une anomalie de packaging au sein des programmes Python, car il ne requière pas d'outils de configuration pour etre construit et installé.  \n"
-"Quelques  notes en ce qui concerne comment package au mieux sont :"
+"Klipper est en quelque sorte comme une anomalie de packaging au sein des "
+"programmes Python, car il ne requiert pas d'outils de configuration pour "
+"être construit et installé. Quelques notes en ce qui concerne comment "
+"package au mieux sont :"
 
 msgid "C modules"
-msgstr ""
+msgstr "Modules C"
 
 msgid ""
 "Klipper uses a C module to handle some kinematics calculations more quickly."
@@ -32,7 +35,7 @@ msgid ""
 msgstr ""
 
 msgid "Compiling python code"
-msgstr ""
+msgstr "Compiler du code python"
 
 msgid ""
 "Many distributions have a policy of compiling all python code before "
@@ -41,7 +44,7 @@ msgid ""
 msgstr ""
 
 msgid "Versioning"
-msgstr ""
+msgstr "Versionnage"
 
 msgid ""
 "If you are building a package of Klipper from git, it is usual practice not "
@@ -56,7 +59,7 @@ msgstr ""
 
 #: docs/Packaging.md:block 1 (header)
 msgid "Packaging Klipper"
-msgstr ""
+msgstr "Packager Klipper"
 
 #: docs/Packaging.md:block 10 (paragraph)
 msgid ""
