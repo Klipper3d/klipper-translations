@@ -1,11 +1,12 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # Mathis Mensing <gcmatmen@gmail.com>, 2022.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
+# Mathis Mensing <github@matmen.dev>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:37+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Mathis Mensing <github@matmen.dev>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/sponsors/"
 "de/>\n"
 "Language: de\n"
