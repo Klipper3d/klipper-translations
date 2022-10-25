@@ -1,13 +1,14 @@
 # Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
 # Mathis Mensing <gcmatmen@gmail.com>, 2022.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
+# Mathis Mensing <github@matmen.dev>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:36+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Mathis Mensing <github@matmen.dev>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/bltouch/"
 "de/>\n"
 "Language: de\n"
@@ -40,11 +41,11 @@ msgid ""
 msgstr ""
 "Verbinden Sie den BL-Touch \"Servo\"-Anschluss mit einem `control_pin` gemäß "
 "der BL-Touch Dokumentation oder Ihrer MCU Dokumentation. Bei der "
-"Originalverdrahtung ist der gelbe Draht des Dreifachsteckers der `control_pin`"
-" und der weiße Draht des Paares ist der `sensor_pin`. Sie müssen diese Pins "
-"entsprechend Ihrer Verdrahtung konfigurieren. Die meisten BL-Touch-Geräte "
-"erfordern einen Pullup am Sensor-Pin (stellen Sie dem Pin-Namen ein \"^\" "
-"voran). Zum Beispiel:"
+"Originalverdrahtung ist der gelbe Draht des Dreifachsteckers der "
+"`control_pin` und der weiße Draht des Paares ist der `sensor_pin`. Sie "
+"müssen diese Pins entsprechend Ihrer Verdrahtung konfigurieren. Die meisten "
+"BL-Touch-Geräte erfordern einen Pullup am Sensor-Pin (stellen Sie dem Pin-"
+"Namen ein \"^\" voran). Zum Beispiel:"
 
 msgid ""
 "It's important that the z_hop movement in safe_z_home is high enough that the "
