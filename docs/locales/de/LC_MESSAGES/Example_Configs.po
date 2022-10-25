@@ -1,13 +1,14 @@
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
 # Mathis Mensing <gcmatmen@gmail.com>, 2022.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
+# Mathis Mensing <github@matmen.dev>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:36+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
+"Last-Translator: Mathis Mensing <github@matmen.dev>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "example_configs/de/>\n"
 "Language: de\n"
@@ -31,9 +32,9 @@ msgid ""
 "server](https://community.klipper3d.org) is also a useful resource for finding"
 " and sharing config files."
 msgstr ""
-"Beachten Sie, dass der [Klipper Community Discourse "
-"Server](https://community.klipper3d.org) auch eine nützliche Ressource ist, um"
-" Konfigurationsdateien zu finden und zu teilen."
+"Beachten Sie, dass der [Klipper Community Discourse Server]"
+"(https://community.klipper3d.org) auch eine nützliche Ressource ist, um "
+"Konfigurationsdateien zu finden und zu teilen."
 
 msgid "Guidelines"
 msgstr "Richtlinien"
