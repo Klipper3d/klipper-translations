@@ -2,13 +2,14 @@
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
 # Tobias Pierschel <tp@netinventors.de>, 2022, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
+# Mathis Mensing <github@matmen.dev>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:35+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Tobias Pierschel <tp@netinventors.de>\n"
+"Last-Translator: Mathis Mensing <github@matmen.dev>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "status_reference/de/>\n"
 "Language: de\n"
@@ -24,9 +25,9 @@ msgid ""
 "fields](Config_Reference.md#display), and via the [API Server](API_Server.md)."
 msgstr ""
 "Dieses Dokument ist eine Referenz für Druckerstatusinformationen, die in "
-"Klipper [Makros](Command_Templates.md), "
-"[Anzeigefelder](Config_Reference.md#display) und über den [API-"
-"Server](API_Server.md) verfügbar sind."
+"Klipper [Makros](Command_Templates.md), [Anzeigefelder]"
+"(Config_Reference.md#display) und über den [API-Server](API_Server.md) "
+"verfügbar sind."
 
 msgid ""
 "The fields in this document are subject to change - if using an attribute be "
