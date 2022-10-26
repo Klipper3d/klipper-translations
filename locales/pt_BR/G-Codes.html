@@ -1263,8 +1263,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#accelerometer_debug_write" class="md-nav__link">
-    ACCELEROMETER_DEBUG_WRITE
+  <a href="#acelerometro_debug_escrita" class="md-nav__link">
+    ACELEROMETRO_DEBUG_ESCRITA
   </a>
   
 </li>
@@ -2787,7 +2787,7 @@
 <p><code>ACCELEROMETER_QUERY [CHIP=&lt;config_name&gt;] [RATE=&lt;value&gt;]</code>: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).</p>
 <h4 id="accelerometer_debug_read">ACCELEROMETER_DEBUG_READ<a class="headerlink" href="#accelerometer_debug_read" title="Permanent link">&para;</a></h4>
 <p><code>ACCELEROMETER_DEBUG_READ [CHIP=&lt;config_name&gt;] REG=&lt;register&gt;</code>: consultas ADXL345 registar "register" (por exemplo 44 ou 0x2C). Pode ser útil para efeitos de depuração.</p>
-<h4 id="accelerometer_debug_write">ACCELEROMETER_DEBUG_WRITE<a class="headerlink" href="#accelerometer_debug_write" title="Permanent link">&para;</a></h4>
+<h4 id="acelerometro_debug_escrita">ACELEROMETRO_DEBUG_ESCRITA<a class="headerlink" href="#acelerometro_debug_escrita" title="Permanent link">&para;</a></h4>
 <p><code>ACCELEROMETER_DEBUG_WRITE [CHIP=&lt;config_name&gt;] REG=&lt;register&gt; VAL=&lt;value&gt;</code>: Escreve "value" em bruto num registo "register". Tanto "value" como "register" podem ser um número inteiro decimal ou hexadecimal. Use com cuidado, e consulte a folha de dados ADXL345 para a referência.</p>
 <h3 id="angle">[angle]<a class="headerlink" href="#angle" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when an <a href="Config_Reference.html#angle">angle config section</a> is enabled.</p>

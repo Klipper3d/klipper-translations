@@ -1219,22 +1219,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#verify-temperature" class="md-nav__link">
-    Verify temperature
+  <a href="#verificar-temperatura" class="md-nav__link">
+    Verificar temperatura
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#verify-m112" class="md-nav__link">
-    Verify M112
+  <a href="#verificar-m112" class="md-nav__link">
+    Verificar M112
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#verify-heaters" class="md-nav__link">
-    Verify heaters
+  <a href="#verificar-aquecedores" class="md-nav__link">
+    Verificar aquecedores
   </a>
   
 </li>
@@ -1261,22 +1261,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verify-extruder-motor" class="md-nav__link">
-    Verify extruder motor
+  <a href="#verificar-motor-de-exclusao" class="md-nav__link">
+    Verificar motor de exclusão
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#calibrate-pid-settings" class="md-nav__link">
-    Calibrate PID settings
+  <a href="#calibrar-configuracoes-pid" class="md-nav__link">
+    Calibrar configurações PID
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    Next steps
+  <a href="#proximos-passos" class="md-nav__link">
+    Próximos passos
   </a>
   
 </li>
@@ -1300,15 +1300,15 @@
 
 <h1 id="configuration-checks">Configuration checks<a class="headerlink" href="#configuration-checks" title="Permanent link">&para;</a></h1>
 <p>Esse documento fornece uma lista de passos para ajudar a confirmar as configurações de pinos no arquivo printer.cfg do Klipper. É uma boa ideia executar esses passos depois de seguir o passo a passo de instalação conforme o arquivo de instalação (Installation.md).</p>
-<p>During this guide, it may be necessary to make changes to the Klipper config file. Be sure to issue a RESTART command after every change to the config file to ensure that the change takes effect (type "restart" in the Octoprint terminal tab and then click "Send"). It's also a good idea to issue a STATUS command after every RESTART to verify that the config file is successfully loaded.</p>
-<h2 id="verify-temperature">Verify temperature<a class="headerlink" href="#verify-temperature" title="Permanent link">&para;</a></h2>
-<p>Start by verifying that temperatures are being properly reported. Navigate to the Octoprint temperature tab.</p>
+<p>Durante este guia, talvez seja necessário fazer mudanças no arquivo de configurações do Klipper. Certifica-se de emitir um comando de RESTART após cada mudança no arquivo de configuração, garantindo que as mudanças tenham efeito (digite "restart" na aba do terminal do Octoprint e clique em "Send"). Também é uma boa ideia emitir um comando STATUS depois de todas as reinicializações, para verificar se o arquivo de configurações foi carregado corretamente.</p>
+<h2 id="verificar-temperatura">Verificar temperatura<a class="headerlink" href="#verificar-temperatura" title="Permanent link">&para;</a></h2>
+<p>Comece verificando se a temperatura começou a ser reportada corretamente. Navegue até a aba de temperatura Octoprint.</p>
 <p><img alt="octoprint-temperature" src="img/octoprint-temperature.png" /></p>
-<p>Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.</p>
-<h2 id="verify-m112">Verify M112<a class="headerlink" href="#verify-m112" title="Permanent link">&para;</a></h2>
-<p>Navigate to the Octoprint terminal tab and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause Octoprint to disconnect from Klipper - navigate to the Connection area and click on "Connect" to cause Octoprint to reconnect. Then navigate to the Octoprint temperature tab and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.</p>
-<p>The M112 command causes Klipper to go into a "shutdown" state. To clear this state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab.</p>
-<h2 id="verify-heaters">Verify heaters<a class="headerlink" href="#verify-heaters" title="Permanent link">&para;</a></h2>
+<p>Verificar se a temperatura do bocal e da base(se aplicável) estão presentes e não subindo. Se estiver subindo, remover a energia da impressora. Se a temperatura não estiver exata, reveja as configurações de "sensor_tipo" e "sensor_pino" do bocal e/ou da base.</p>
+<h2 id="verificar-m112">Verificar M112<a class="headerlink" href="#verificar-m112" title="Permanent link">&para;</a></h2>
+<p>Navegue até a aba do terminal do Octoprint e emita um comando M112 na caixa do terminal. Este comando solicita que o Klipper entre em um estado de "desligamento", fazendo com que o Octoprint desconecte do Klipper - navegue ate a área "Connection" e clique em "Connect" para reconectar o Octoprint. Então navegue até a aba de temperatura do Octoprint e verifique se a temperatura continua a atualizar e não esta subindo. Se a temperatura estiver subindo, remova a impressora da tomada.</p>
+<p>O comando M112 fará com que o Klipper entre em modo de "desligamento". Para desfazer, emita um comando FIRMWARE_RESTART na aba do terminal do Octoprint.</p>
+<h2 id="verificar-aquecedores">Verificar aquecedores<a class="headerlink" href="#verificar-aquecedores" title="Permanent link">&para;</a></h2>
 <p>Navigate to the Octoprint temperature tab and type in 50 followed by enter in the "Tool" temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the "Tool" temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.</p>
 <p>If the printer has a heated bed then perform the above test again with the bed.</p>
 <h2 id="verify-stepper-motor-enable-pin">Verify stepper motor enable pin<a class="headerlink" href="#verify-stepper-motor-enable-pin" title="Permanent link">&para;</a></h2>
@@ -1322,14 +1322,14 @@
 <p>If the stepper does not move at all, then verify the "enable_pin" and "step_pin" settings for the stepper. If the stepper motor moves but does not return to its original position then verify the "dir_pin" setting. If the stepper motor oscillates in an incorrect direction, then it generally indicates that the "dir_pin" for the axis needs to be inverted. This is done by adding a '!' to the "dir_pin" in the printer config file (or removing it if one is already there). If the motor moves significantly more or significantly less than one millimeter then verify the "rotation_distance" setting.</p>
 <p>Run the above test for each stepper motor defined in the config file. (Set the STEPPER parameter of the STEPPER_BUZZ command to the name of the config section that is to be tested.) If there is no filament in the extruder then one can use STEPPER_BUZZ to verify the extruder motor connectivity (use STEPPER=extruder). Otherwise, it's best to test the extruder motor separately (see the next section).</p>
 <p>After verifying all endstops and verifying all stepper motors the homing mechanism should be tested. Issue a G28 command to home all axes. Remove power from the printer if it does not home properly. Rerun the endstop and stepper motor verification steps if necessary.</p>
-<h2 id="verify-extruder-motor">Verify extruder motor<a class="headerlink" href="#verify-extruder-motor" title="Permanent link">&para;</a></h2>
+<h2 id="verificar-motor-de-exclusao">Verificar motor de exclusão<a class="headerlink" href="#verificar-motor-de-exclusao" title="Permanent link">&para;</a></h2>
 <p>To test the extruder motor it will be necessary to heat the extruder to a printing temperature. Navigate to the Octoprint temperature tab and select a target temperature from the temperature drop-down box (or manually enter an appropriate temperature). Wait for the printer to reach the desired temperature. Then navigate to the Octoprint control tab and click the "Extrude" button. Verify that the extruder motor turns in the correct direction. If it does not, see the troubleshooting tips in the previous section to confirm the "enable_pin", "step_pin", and "dir_pin" settings for the extruder.</p>
-<h2 id="calibrate-pid-settings">Calibrate PID settings<a class="headerlink" href="#calibrate-pid-settings" title="Permanent link">&para;</a></h2>
+<h2 id="calibrar-configuracoes-pid">Calibrar configurações PID<a class="headerlink" href="#calibrar-configuracoes-pid" title="Permanent link">&para;</a></h2>
 <p>Klipper supports <a href="https://en.wikipedia.org/wiki/PID_controller">PID control</a> for the extruder and bed heaters. In order to use this control mechanism, it is necessary to calibrate the PID settings on each printer (PID settings found in other firmwares or in the example configuration files often work poorly).</p>
 <p>To calibrate the extruder, navigate to the OctoPrint terminal tab and run the PID_CALIBRATE command. For example: <code>PID_CALIBRATE HEATER=extruder TARGET=170</code></p>
 <p>At the completion of the tuning test run <code>SAVE_CONFIG</code> to update the printer.cfg file the new PID settings.</p>
 <p>If the printer has a heated bed and it supports being driven by PWM (Pulse Width Modulation) then it is recommended to use PID control for the bed. (When the bed heater is controlled using the PID algorithm it may turn on and off ten times a second, which may not be suitable for heaters using a mechanical switch.) A typical bed PID calibration command is: <code>PID_CALIBRATE HEATER=heater_bed TARGET=60</code></p>
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<h2 id="proximos-passos">Próximos passos<a class="headerlink" href="#proximos-passos" title="Permanent link">&para;</a></h2>
 <p>This guide is intended to help with basic verification of pin settings in the Klipper configuration file. Be sure to read the <a href="Bed_Level.html">bed leveling</a> guide. Also see the <a href="Slicers.html">Slicers</a> document for information on configuring a slicer with Klipper.</p>
 <p>After one has verified that basic printing works, it is a good idea to consider calibrating <a href="Pressure_Advance.html">pressure advance</a>.</p>
 <p>It may be necessary to perform other types of detailed printer calibration - a number of guides are available online to help with this (for example, do a web search for "3d printer calibration"). As an example, if you experience the effect called ringing, you may try following <a href="Resonance_Compensation.html">resonance compensation</a> tuning guide.</p>
