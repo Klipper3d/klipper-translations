@@ -547,6 +547,14 @@ Palette列印通過在GCode檔案中嵌入特殊的OCodes（Omega Codes）來工
 
 `CANCEL_PRINT`：取消目前的列印。
 
+### [print_stats]
+
+The print_stats module is automatically loaded.
+
+#### SET_PRINT_STATS_INFO
+
+`SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>] [CURRENT_LAYER= <current_layer>]`: Pass slicer info like layer act and total to Klipper. Add `SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>]` to your slicer start gcode section and `SET_PRINT_STATS_INFO [CURRENT_LAYER= <current_layer>]` at the layer change gcode section to pass layer information from your slicer to Klipper.
+
 ### [probe]
 
 當啟用 [probe config section](Config_Reference.md#probe) 或 [bltouch config section](Config_Reference.md#bltouch) 時，以下命令可用（另請參閱 [probe calibrate guide](Probe_Calibrate.md)）。
@@ -771,6 +779,14 @@ Several commands are available when a [smart_effector config section](Config_Ref
 #### SDCARD_RESET_FILE
 
 `SDCARD_RESET_FILE`：解除安裝檔案並清除SD狀態。
+
+### [z_thermal_adjust]
+
+The following commands are available when the [z_thermal_adjust config section](Config_Reference.md#z_thermal_adjust) is enabled.
+
+#### SET_Z_THERMAL_ADJUST
+
+`SET_Z_THERMAL_ADJUST [ENABLE=<0:1>] [TEMP_COEFF=<value>] [REF_TEMP=<value>]`: Enable or disable the Z thermal adjustment with `ENABLE`. Disabling does not remove any adjustment already applied, but will freeze the current adjustment value - this prevents potentially unsafe downward Z movement. Re-enabling can potentially cause upward tool movement as the adjustment is updated and applied. `TEMP_COEFF` allows run-time tuning of the adjustment temperature coefficient (i.e. the `TEMP_COEFF` config parameter). `TEMP_COEFF` values are not saved to the config. `REF_TEMP` manually overrides the reference temperature typically set during homing (for use in e.g. non-standard homing routines) - will be reset automatically upon homing.
 
 ### [z_tilt]
 

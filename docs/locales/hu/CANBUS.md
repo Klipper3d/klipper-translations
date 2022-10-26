@@ -4,7 +4,7 @@ Ez a dokumentum a Klipper CAN busz támogatását írja le.
 
 ## Eszköz Hardver
 
-A Klipper jelenleg támogatja a CAN-t az STM32 és RP2040 chipeken. Ezenkívül a mikrokontroller chipnek olyan lapkán kell lennie, amely rendelkezik CAN csatlakozóval.
+Klipper currently supports CAN on stm32, same5x, and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.
 
 A CAN-hez való fordításhoz futtassa a `make menuconfig` parancsot, és válassza a "CAN busz" kommunikációs interfészt. Végül fordítsa le a mikrokontroller kódját, és égesse a céllapra.
 

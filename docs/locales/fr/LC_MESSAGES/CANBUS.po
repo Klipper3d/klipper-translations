@@ -174,12 +174,6 @@ msgid ""
 " is ignored."
 msgstr ""
 
-#: docs/CANBUS.md:block 4 (paragraph)
-msgid ""
-"Klipper currently supports CAN on stm32 and rp2040 chips. In addition, the "
-"micro-controller chip must be on a board that has a CAN transceiver."
-msgstr ""
-
 #: docs/CANBUS.md:block 20 (code)
 msgid "Found canbus_uuid=11aa22bb33cc, Application: Klipper\n"
 msgstr ""
@@ -199,6 +193,18 @@ msgid ""
 "    bitrate 500000\n"
 "    up ifconfig $IFACE txqueuelen 128\n"
 msgstr ""
+
+#: docs/CANBUS.md:block 4 (paragraph)
+msgid ""
+"Klipper currently supports CAN on stm32, same5x, and rp2040 chips. In "
+"addition, the micro-controller chip must be on a board that has a CAN "
+"transceiver."
+msgstr ""
+
+#~ msgid ""
+#~ "Klipper currently supports CAN on stm32 and rp2040 chips. In addition, the "
+#~ "micro-controller chip must be on a board that has a CAN transceiver."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Klipper currently only supports CAN on stm32 chips. In addition, the micro-"

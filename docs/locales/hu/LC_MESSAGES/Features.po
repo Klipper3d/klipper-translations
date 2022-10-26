@@ -6,8 +6,7 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2022-09-29 17:23+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
-"features/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/features/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -567,6 +566,18 @@ msgstr ""
 "Ha nem tudja, hogy egy adott lapon milyen mikrokontroller van, keresse meg a"
 " megfelelő [config fájlt](../config/), és keresse meg a mikrokontroller "
 "nevét a fájl tetején lévő megjegyzésekben."
+
+#: docs/Features.md:block 10 (table)
+msgid "STM32H743"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "9091K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "6061K"
+msgstr ""
 
 #~ msgid "Arduino Zero (SAMD21)"
 #~ msgstr "Arduino Zero (SAMD21)"

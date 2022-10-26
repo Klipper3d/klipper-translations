@@ -60,6 +60,7 @@ Di seguito sono riportati i risultati dei test delle prestazioni degli stepper. 
 | SAMD51 | 3077K | 1885K |
 | STM32F407 | 3652K | 2459K |
 | STM32F446 | 3913K | 2634K |
+| STM32H743 | 9091K | 6061K |
 
 Se non sei sicuro del microcontrollore su una particolare scheda, trova il [file di configurazione](../config/) appropriato e cerca il nome del microcontrollore nei commenti nella parte superiore di quel file.
 

@@ -214,6 +214,25 @@ Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc `
 | 1 stepper | 46 |
 | 3 stepper | 205 |
 
+### STM32H7 step rate benchmark
+
+The following configuration sequence is used on a STM32H743VIT6:
+
+```
+allocate_oids count=3
+config_stepper oid=0 step_pin=PD4 dir_pin=PD3 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PA15 dir_pin=PA8 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PE2 dir_pin=PE3 invert_step=-1 step_pulse_ticks=0
+finalize_config crc=0
+```
+
+The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`.
+
+| stm32h7 | ticks |
+| --- | --- |
+| 1 stepper | 44 |
+| 3 stepper | 198 |
+
 ### Benchmark step rate STM32G0B1
 
 Sull'STM32G0B1 viene utilizzata la seguente sequenza di configurazione:

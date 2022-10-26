@@ -4,7 +4,7 @@
 
 ## 硬件设备
 
-Klipper目前支持在stm32和rp2040芯片上使用CAN总线。此外，微控制器芯片必须连接到一个CAN收发器。
+Klipper currently supports CAN on stm32, same5x, and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.
 
 要针对 CAN 进行编译，请运行 ` make menuconfig`并选择"CAN Bus"作为通信接口。最后，编译微控制器代码并将其刷写到目标控制版上。
 

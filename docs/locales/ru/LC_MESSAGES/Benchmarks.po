@@ -798,6 +798,42 @@ msgstr ""
 msgid "stm32g0b1"
 msgstr ""
 
+#: docs/Benchmarks.md:block 59 (header)
+msgid "STM32H7 step rate benchmark"
+msgstr ""
+
+#: docs/Benchmarks.md:block 60 (paragraph)
+msgid "The following configuration sequence is used on a STM32H743VIT6:"
+msgstr ""
+
+#: docs/Benchmarks.md:block 61 (code)
+msgid ""
+"allocate_oids count=3\n"
+"config_stepper oid=0 step_pin=PD4 dir_pin=PD3 invert_step=-1 step_pulse_ticks=0\n"
+"config_stepper oid=1 step_pin=PA15 dir_pin=PA8 invert_step=-1 step_pulse_ticks=0\n"
+"config_stepper oid=2 step_pin=PE2 dir_pin=PE3 invert_step=-1 step_pulse_ticks=0\n"
+"finalize_config crc=0\n"
+msgstr ""
+
+#: docs/Benchmarks.md:block 62 (paragraph)
+msgid ""
+"The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-"
+"gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision "
+"273027]`."
+msgstr ""
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "stm32h7"
+msgstr ""
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "44"
+msgstr ""
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "198"
+msgstr ""
+
 #~ msgid ""
 #~ "To produce the benchmarks found in the Features.md document, the total "
 #~ "number of steps per second is calculated by multiplying the number of active"

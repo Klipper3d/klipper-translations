@@ -60,6 +60,7 @@ Below are the results of stepper performance tests. The numbers shown represent 
 | SAMD51 | 3077K | 1885K |
 | STM32F407 | 3652K | 2459K |
 | STM32F446 | 3913K | 2634K |
+| STM32H743 | 9091K | 6061K |
 
 If unsure of the micro-controller on a particular board, find the appropriate [config file](../config/), and look for the micro-controller name in the comments at the top of that file.
 

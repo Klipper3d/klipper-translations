@@ -31,6 +31,8 @@
 
    提交必须通过所有[回归测试用例](Debugging.md)。
 
+   When fixing a defect in the code, submitters should have a general understanding of the root cause of that defect, and the fix should target that root cause.
+
    代码提交不应包含过多的调试代码、调试选项，也不应包含运行时调试日志。
 
    代码提交中的注释应侧重于增强代码的可维护性。提交不应包含"注释掉的代码"，不应包含描述过去实现的过多注释，也不应包含过多的"待办事项"。

@@ -227,6 +227,8 @@ Le seguenti informazioni sono disponibili nell'oggetto [pause_resume](Config_Ref
 Le seguenti informazioni sono disponibili nell'oggetto `print_stats` (questo oggetto è automaticamente disponibile se è definita una sezione di configurazione [virtual_sdcard](Config_Reference.md#virtual_sdcard)):
 
 - `filename`, `total_duration`, `print_duration`, `filament_used`, `state`, `message`: informazioni stimate sulla stampa corrente quando è attiva una stampa da virtual_sdcard.
+- `info.total_layer`: The total layer value of the last `SET_PRINT_STATS_INFO TOTAL_LAYER=<value>` G-Code command.
+- `info.current_layer`: The current layer value of the last `SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-Code command.
 
 ## probe
 
@@ -327,6 +329,17 @@ Le seguenti informazioni sono disponibili nell'oggetto `webhooks` (questo oggett
 
 - `state`: restituisce una stringa che indica lo stato corrente di Klipper. I valori possibili sono: "ready", "startup", "shutdown", "error".
 - `state_message`: una stringa leggibile dall'uomo che fornisce un contesto aggiuntivo sullo stato corrente di Klipper.
+
+## z_thermal_adjust
+
+The following information is available in the `z_thermal_adjust` object (this object is available if [z_thermal_adjust](Config_Reference.md#z_thermal_adjust) is defined).
+
+- `enabled`: Returns True if adjustment is enabled.
+- `temperature`: Current (smoothed) temperature of the defined sensor. [degC]
+- `measured_min_temp`: Minimum measured temperature. [degC]
+- `measured_max_temp`: Maximum measured temperature. [degC]
+- `current_z_adjust`: Last computed Z adjustment [mm].
+- `z_adjust_ref_temperature`: Current reference temperature used for calculation of Z `current_z_adjust` [degC].
 
 ## z_tilt
 

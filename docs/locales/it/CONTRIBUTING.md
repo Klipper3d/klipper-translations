@@ -31,6 +31,8 @@ Cose comuni che un revisore cercherà:
 
    Gli invii devono superare tutti i [test di regressione](Debugging.md).
 
+   When fixing a defect in the code, submitters should have a general understanding of the root cause of that defect, and the fix should target that root cause.
+
    Gli contributi di codice non devono contenere codice di debug eccessivo, opzioni di debug o registrazione del debug in fase di runtime.
 
    I commenti negli invii di codice dovrebbero concentrarsi sul miglioramento della manutenzione del codice. Gli invii non devono contenere "codice commentato" né commenti eccessivi che descrivono implementazioni passate. Non dovrebbero esserci commenti "todo" eccessivi.

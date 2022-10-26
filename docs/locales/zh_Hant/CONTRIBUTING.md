@@ -31,6 +31,8 @@
 
    提交必須通過所有[迴歸測試用例](Debugging.md)。
 
+   When fixing a defect in the code, submitters should have a general understanding of the root cause of that defect, and the fix should target that root cause.
+
    程式碼提交不應包含過多的除錯程式碼、除錯選項，也不應包含執行時除錯日誌。
 
    程式碼提交中的註釋應側重於增強程式碼的可維護性。提交不應包含"註釋掉的程式碼"，不應包含描述過去實現的過多註釋，也不應包含過多的"待辦事項"。

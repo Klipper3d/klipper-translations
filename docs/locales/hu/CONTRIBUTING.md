@@ -31,6 +31,8 @@ Gyakori dolgok, amiket a bíráló keres:
 
    A beadványoknak át kell menniük az összes [regressziós teszteseten](Debugging.md).
 
+   When fixing a defect in the code, submitters should have a general understanding of the root cause of that defect, and the fix should target that root cause.
+
    A beküldött kódok nem tartalmazhatnak túlzottan sok hibakeresési kódot, hibakeresési opciót vagy futásidejű hibakeresési naplózást.
 
    A kódbeadványokhoz fűzött megjegyzéseknek a kód karbantartásának javítására kell összpontosítaniuk. A beadványok nem tartalmazhatnak "kikommentált kódot" vagy túlzottan sok, korábbi megvalósításokat leíró megjegyzést. Nem lehetnek túlzott mértékű "todo" megjegyzések.

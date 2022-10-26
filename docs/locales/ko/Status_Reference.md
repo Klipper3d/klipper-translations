@@ -227,6 +227,8 @@ The following information is available in the `manual_probe` object:
 다음 정보는 `print_stats` 개체에서 사용할 수 있습니다 (이 개체는 [virtual_sdcard](Config_Reference.md#virtual_sdcard) 구성 섹션이 정의된 경우 자동으로 사용할 수 있음):
 
 - `filename`, `total_duration`, `print_duration`, `filament_used`, `state`, `message`: virtual_sdcard 인쇄가 활성화된 경우 현재 인쇄에 대한 예상 정보입니다.
+- `info.total_layer`: The total layer value of the last `SET_PRINT_STATS_INFO TOTAL_LAYER=<value>` G-Code command.
+- `info.current_layer`: The current layer value of the last `SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-Code command.
 
 ## probe
 
@@ -327,6 +329,17 @@ The following information is available in [TMC stepper driver](Config_Reference.
 
 - `state`: 현재 Klipper 상태를 나타내는 문자열을 반환합니다. 가능한 값은 "ready", "startup", "shutdown", "error"입니다.
 - `state_message`: 현재 Klipper 상태에 대한 추가 컨텍스트를 제공하는 사람이 읽을 수 있는 문자열입니다.
+
+## z_thermal_adjust
+
+The following information is available in the `z_thermal_adjust` object (this object is available if [z_thermal_adjust](Config_Reference.md#z_thermal_adjust) is defined).
+
+- `enabled`: Returns True if adjustment is enabled.
+- `temperature`: Current (smoothed) temperature of the defined sensor. [degC]
+- `measured_min_temp`: Minimum measured temperature. [degC]
+- `measured_max_temp`: Maximum measured temperature. [degC]
+- `current_z_adjust`: Last computed Z adjustment [mm].
+- `z_adjust_ref_temperature`: Current reference temperature used for calculation of Z `current_z_adjust` [degC].
 
 ## z_tilt
 

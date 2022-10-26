@@ -227,6 +227,8 @@ The following information is available in the `manual_probe` object:
 `print_stats` 對像提供了以下資訊（如果定義了 [virtual_sdcard](Config_Reference.md#virtual_sdcard) 配置分段，則此對像自動可用）：
 
 - `filename`、`total_duration`、`print_duration`、`filament_used`、`state`、`message`：virtual_sdcard 列印處於活動狀態時有關目前列印的估測。
+- `info.total_layer`: The total layer value of the last `SET_PRINT_STATS_INFO TOTAL_LAYER=<value>` G-Code command.
+- `info.current_layer`: The current layer value of the last `SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-Code command.
 
 ## probe
 
@@ -327,6 +329,17 @@ The following information is available in the `manual_probe` object:
 
 - `state`：返回一個表示目前 Klipper 狀態的字串。可能的值為："ready"、"startup"、"shutdown"和"error"。
 - `state_message`：提供了一個包含目前 Klipper 狀態和上下文的可讀字串。
+
+## z_thermal_adjust
+
+The following information is available in the `z_thermal_adjust` object (this object is available if [z_thermal_adjust](Config_Reference.md#z_thermal_adjust) is defined).
+
+- `enabled`: Returns True if adjustment is enabled.
+- `temperature`: Current (smoothed) temperature of the defined sensor. [degC]
+- `measured_min_temp`: Minimum measured temperature. [degC]
+- `measured_max_temp`: Maximum measured temperature. [degC]
+- `current_z_adjust`: Last computed Z adjustment [mm].
+- `z_adjust_ref_temperature`: Current reference temperature used for calculation of Z `current_z_adjust` [degC].
 
 ## z_tilt
 

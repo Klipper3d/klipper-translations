@@ -4,10 +4,10 @@ Velkommen til Klipper-dokumentasjonen. Hvis du er ny kan du begynne med [funksjo
 
 ## Oversiktsinfo
 
-- [Features](Features.md): A high-level list of features in Klipper.
-- [FAQ](FAQ.md): Frequently asked questions.
-- [Releases](Releases.md): The history of Klipper releases.
-- [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
+- [Funksjoner](Features.md): En høynivå funksjonsoversikt for Klipper.
+- [FAQ](FAQ.md): Ofte stilte spørsmål.
+- [Utgivelser](Releases.md): Utgivelseshistorikk for Klipper.
+- [Konfigurasjonsendringer](Config_Changes.md): Nylige programvareendringer som kan kreve oppdatering av skriverens konfigurasjonsfil.
 - [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
 
 ## Installation and Configuration

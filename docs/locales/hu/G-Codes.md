@@ -547,6 +547,14 @@ A következő parancsok akkor érhetők el, ha a [pause_resume konfigurációs s
 
 `CANCEL_PRINT`: Az aktuális nyomtatás törlése.
 
+### [print_stats]
+
+The print_stats module is automatically loaded.
+
+#### SET_PRINT_STATS_INFO
+
+`SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>] [CURRENT_LAYER= <current_layer>]`: Pass slicer info like layer act and total to Klipper. Add `SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>]` to your slicer start gcode section and `SET_PRINT_STATS_INFO [CURRENT_LAYER= <current_layer>]` at the layer change gcode section to pass layer information from your slicer to Klipper.
+
 ### [probe]
 
 A következő parancsok akkor érhetők el, ha a [szonda konfigurációs szakasz](Config_Reference.md#probe) vagy a [bltouch konfigurációs szakasz](Config_Reference.md#bltouch) engedélyezve van (lásd még a [szonda kalibrációs útmutatót](Probe_Calibrate.md)).
@@ -771,6 +779,14 @@ Ezenkívül a következő kiterjesztett parancsok is elérhetők, ha a "virtual_
 #### SDCARD_RESET_FILE
 
 `SDCARD_RESET_FILE`: A fájl eltávolítása és az SD állapotának törlése.
+
+### [z_thermal_adjust]
+
+The following commands are available when the [z_thermal_adjust config section](Config_Reference.md#z_thermal_adjust) is enabled.
+
+#### SET_Z_THERMAL_ADJUST
+
+`SET_Z_THERMAL_ADJUST [ENABLE=<0:1>] [TEMP_COEFF=<value>] [REF_TEMP=<value>]`: Enable or disable the Z thermal adjustment with `ENABLE`. Disabling does not remove any adjustment already applied, but will freeze the current adjustment value - this prevents potentially unsafe downward Z movement. Re-enabling can potentially cause upward tool movement as the adjustment is updated and applied. `TEMP_COEFF` allows run-time tuning of the adjustment temperature coefficient (i.e. the `TEMP_COEFF` config parameter). `TEMP_COEFF` values are not saved to the config. `REF_TEMP` manually overrides the reference temperature typically set during homing (for use in e.g. non-standard homing routines) - will be reset automatically upon homing.
 
 ### [z_tilt]
 

@@ -31,6 +31,8 @@ Common things a reviewer will look for:
 
    Submissions must pass all [regression test cases](Debugging.md).
 
+   When fixing a defect in the code, submitters should have a general understanding of the root cause of that defect, and the fix should target that root cause.
+
    Code submissions should not contain excessive debugging code, debugging options, nor run-time debug logging.
 
    Los comentarios en los envíos de código deben focalizarse en mejorar el mantenimiento del código. Los envíos no deben contener código comentarizado ni comentarios excesivos que describan elaboraciones pasadas. Tampoco debería haber comentarios sobre tareas pendientes en demasía.

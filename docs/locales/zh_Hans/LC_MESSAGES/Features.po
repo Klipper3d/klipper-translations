@@ -507,6 +507,18 @@ msgid ""
 "name in the comments at the top of that file."
 msgstr "如果不确定一个控制板上的微控制器型号，可以先找到相应的[配置文件](../config/)，并在该文件顶部的注释中寻找微控制器的型号。"
 
+#: docs/Features.md:block 10 (table)
+msgid "STM32H743"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "9091K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "6061K"
+msgstr ""
+
 #~ msgid "Arduino Zero (SAMD21)"
 #~ msgstr "Arduino Zero (SAMD21)"
 

@@ -1055,6 +1055,56 @@ msgid ""
 "(`printer.toolhead.cone_start_z`)."
 msgstr ""
 
+#: docs/Status_Reference.md:block 83 (unordered list)
+msgid ""
+"`info.total_layer`: The total layer value of the last `SET_PRINT_STATS_INFO "
+"TOTAL_LAYER=<value>` G-Code command."
+msgstr ""
+
+#: docs/Status_Reference.md:block 83 (unordered list)
+msgid ""
+"`info.current_layer`: The current layer value of the last "
+"`SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-Code command."
+msgstr ""
+
+#: docs/Status_Reference.md:block 124 (header)
+msgid "z_thermal_adjust"
+msgstr ""
+
+#: docs/Status_Reference.md:block 125 (paragraph)
+msgid ""
+"The following information is available in the `z_thermal_adjust` object "
+"(this object is available if "
+"[z_thermal_adjust](Config_Reference.md#z_thermal_adjust) is defined)."
+msgstr ""
+
+#: docs/Status_Reference.md:block 126 (unordered list)
+msgid "`enabled`: Returns True if adjustment is enabled."
+msgstr ""
+
+#: docs/Status_Reference.md:block 126 (unordered list)
+msgid ""
+"`temperature`: Current (smoothed) temperature of the defined sensor. [degC]"
+msgstr ""
+
+#: docs/Status_Reference.md:block 126 (unordered list)
+msgid "`measured_min_temp`: Minimum measured temperature. [degC]"
+msgstr ""
+
+#: docs/Status_Reference.md:block 126 (unordered list)
+msgid "`measured_max_temp`: Maximum measured temperature. [degC]"
+msgstr ""
+
+#: docs/Status_Reference.md:block 126 (unordered list)
+msgid "`current_z_adjust`: Last computed Z adjustment [mm]."
+msgstr ""
+
+#: docs/Status_Reference.md:block 126 (unordered list)
+msgid ""
+"`z_adjust_ref_temperature`: Current reference temperature used for "
+"calculation of Z `current_z_adjust` [degC]."
+msgstr ""
+
 #~ msgid "neopixel / dotstar"
 #~ msgstr "neopixel / dotstar"
 

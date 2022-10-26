@@ -60,6 +60,7 @@ Az alábbiakban a léptető teljesítménytesztek eredményeit mutatjuk be. A fe
 | SAMD51 | 3077K | 1885K |
 | STM32F407 | 3652K | 2459K |
 | STM32F446 | 3913K | 2634K |
+| STM32H743 | 9091K | 6061K |
 
 Ha nem tudja, hogy egy adott lapon milyen mikrokontroller van, keresse meg a megfelelő [config fájlt](../config/), és keresse meg a mikrokontroller nevét a fájl tetején lévő megjegyzésekben.
 

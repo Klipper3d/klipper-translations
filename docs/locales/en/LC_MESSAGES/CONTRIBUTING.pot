@@ -587,6 +587,13 @@ msgid ""
 "testing, and documentation prior to being merged into the master branch."
 msgstr ""
 
+#: docs/CONTRIBUTING.md:block 13 (ordered list)
+msgid ""
+"When fixing a defect in the code, submitters should have a general "
+"understanding of the root cause of that defect, and the fix should target "
+"that root cause."
+msgstr ""
+
 #~ msgid ""
 #~ "When discussing benefits it is preferable to discuss \"facts and "
 #~ "measurements\" instead of \"opinions and theories\". In general, reviewers "
