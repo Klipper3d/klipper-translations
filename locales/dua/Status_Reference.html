@@ -1492,6 +1492,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#z_thermal_adjust" class="md-nav__link">
+    z_thermal_adjust
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#z_tilt" class="md-nav__link">
     z_tilt
   </a>
@@ -1714,6 +1721,8 @@
 <p>The following information is available in the <code>print_stats</code> object (this object is automatically available if a <a href="Config_Reference.html#virtual_sdcard">virtual_sdcard</a> config section is defined):</p>
 <ul>
 <li><code>filename</code>, <code>total_duration</code>, <code>print_duration</code>, <code>filament_used</code>, <code>state</code>, <code>message</code>: Estimated information about the current print when a virtual_sdcard print is active.</li>
+<li><code>info.total_layer</code>: The total layer value of the last <code>SET_PRINT_STATS_INFO TOTAL_LAYER=&lt;value&gt;</code> G-Code command.</li>
+<li><code>info.current_layer</code>: The current layer value of the last <code>SET_PRINT_STATS_INFO CURRENT_LAYER=&lt;value&gt;</code> G-Code command.</li>
 </ul>
 <h2 id="probe">probe<a class="headerlink" href="#probe" title="Permanent link">&para;</a></h2>
 <p>The following information is available in the <a href="Config_Reference.html#probe">probe</a> object (this object is also available if a <a href="Config_Reference.html#bltouch">bltouch</a> config section is defined):</p>
@@ -1800,6 +1809,16 @@
 <ul>
 <li><code>state</code>: Returns a string indicating the current Klipper state. Possible values are: "ready", "startup", "shutdown", "error".</li>
 <li><code>state_message</code>: A human readable string giving additional context on the current Klipper state.</li>
+</ul>
+<h2 id="z_thermal_adjust">z_thermal_adjust<a class="headerlink" href="#z_thermal_adjust" title="Permanent link">&para;</a></h2>
+<p>The following information is available in the <code>z_thermal_adjust</code> object (this object is available if <a href="Config_Reference.html#z_thermal_adjust">z_thermal_adjust</a> is defined).</p>
+<ul>
+<li><code>enabled</code>: Returns True if adjustment is enabled.</li>
+<li><code>temperature</code>: Current (smoothed) temperature of the defined sensor. [degC]</li>
+<li><code>measured_min_temp</code>: Minimum measured temperature. [degC]</li>
+<li><code>measured_max_temp</code>: Maximum measured temperature. [degC]</li>
+<li><code>current_z_adjust</code>: Last computed Z adjustment [mm].</li>
+<li><code>z_adjust_ref_temperature</code>: Current reference temperature used for calculation of Z <code>current_z_adjust</code> [degC].</li>
 </ul>
 <h2 id="z_tilt">z_tilt<a class="headerlink" href="#z_tilt" title="Permanent link">&para;</a></h2>
 <p>The following information is available in the <code>z_tilt</code> object (this object is available if z_tilt is defined):</p>

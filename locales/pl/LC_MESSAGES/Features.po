@@ -461,6 +461,18 @@ msgid ""
 "name in the comments at the top of that file."
 msgstr ""
 
+#: docs/Features.md:block 10 (table)
+msgid "STM32H743"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "9091K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "6061K"
+msgstr ""
+
 #~ msgid "Arduino Zero (SAMD21)"
 #~ msgstr ""
 

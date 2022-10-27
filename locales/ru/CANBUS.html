@@ -1280,7 +1280,7 @@
 <h1 id="canbus">CANBUS<a class="headerlink" href="#canbus" title="Permanent link">&para;</a></h1>
 <p>В этом документе описывается поддержка шины CAN Klipper.</p>
 <h2 id="_1">Оборудование устройства<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Klipper currently supports CAN on stm32 and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.</p>
+<p>Klipper currently supports CAN on stm32, same5x, and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.</p>
 <p>To compile for CAN, run <code>make menuconfig</code> and select "CAN bus" as the communication interface. Finally, compile the micro-controller code and flash it to the target board.</p>
 <h2 id="_2">Оборудование хоста<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Для того чтобы использовать CAN-шину, необходимо иметь хост-адаптер. В настоящее время существует два распространенных варианта:</p>

@@ -207,12 +207,6 @@ msgstr ""
 "為了與總線通信，必須在 Linux 中配置 `can0`（或類似的）接口。但是，Klipper 忽略了 Linux CAN 總線速度和 CAN "
 "總線位定時選項。目前，CAN 總線頻率在“make menuconfig”期間指定，Linux 中指定的總線速度被忽略。"
 
-#: docs/CANBUS.md:block 4 (paragraph)
-msgid ""
-"Klipper currently supports CAN on stm32 and rp2040 chips. In addition, the "
-"micro-controller chip must be on a board that has a CAN transceiver."
-msgstr ""
-
 #: docs/CANBUS.md:block 20 (code)
 msgid "Found canbus_uuid=11aa22bb33cc, Application: Klipper\n"
 msgstr ""
@@ -232,6 +226,18 @@ msgid ""
 "    bitrate 500000\n"
 "    up ifconfig $IFACE txqueuelen 128\n"
 msgstr ""
+
+#: docs/CANBUS.md:block 4 (paragraph)
+msgid ""
+"Klipper currently supports CAN on stm32, same5x, and rp2040 chips. In "
+"addition, the micro-controller chip must be on a board that has a CAN "
+"transceiver."
+msgstr ""
+
+#~ msgid ""
+#~ "Klipper currently supports CAN on stm32 and rp2040 chips. In addition, the "
+#~ "micro-controller chip must be on a board that has a CAN transceiver."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Klipper currently only supports CAN on stm32 chips. In addition, the micro-"
