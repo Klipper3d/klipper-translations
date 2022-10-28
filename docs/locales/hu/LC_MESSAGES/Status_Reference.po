@@ -5,15 +5,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-09-20 19:20+0000\n"
+"PO-Revision-Date: 2022-10-28 09:01+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/status_reference/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"status_reference/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -1256,16 +1257,20 @@ msgid ""
 "`info.total_layer`: The total layer value of the last `SET_PRINT_STATS_INFO "
 "TOTAL_LAYER=<value>` G-Code command."
 msgstr ""
+"`info.total_layer`: Az utolsó `SET_PRINT_STATS_INFO TOTAL_LAYER=<value>` G-"
+"kódú parancs."
 
 #: docs/Status_Reference.md:block 83 (unordered list)
 msgid ""
 "`info.current_layer`: The current layer value of the last "
 "`SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-Code command."
 msgstr ""
+"`info.current_layer`: Az aktuális réteg értéke az utolsó `"
+"SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-kódú parancs."
 
 #: docs/Status_Reference.md:block 124 (header)
 msgid "z_thermal_adjust"
-msgstr ""
+msgstr "z_thermal_adjust"
 
 #: docs/Status_Reference.md:block 125 (paragraph)
 msgid ""
@@ -1273,30 +1278,37 @@ msgid ""
 "(this object is available if "
 "[z_thermal_adjust](Config_Reference.md#z_thermal_adjust) is defined)."
 msgstr ""
+"A következő információk a `z_thermal_adjust` parancsal érhetők el (ez a "
+"parancs akkor érhető el, ha a [z_thermal_adjust](Config_Reference."
+"md#z_thermal_adjust) definiálva van)."
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid "`enabled`: Returns True if adjustment is enabled."
-msgstr ""
+msgstr "`enabled`: True értéket ad vissza, ha a beállítás engedélyezve van."
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid ""
 "`temperature`: Current (smoothed) temperature of the defined sensor. [degC]"
 msgstr ""
+"`temperature`: A meghatározott érzékelő aktuális (simított) hőmérséklete. "
+"[°C]"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid "`measured_min_temp`: Minimum measured temperature. [degC]"
-msgstr ""
+msgstr "`measured_min_temp`: Minimális mért hőmérséklet. [°C]"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid "`measured_max_temp`: Maximum measured temperature. [degC]"
-msgstr ""
+msgstr "`measured_max_temp`: Maximális mért hőmérséklet. [°C]"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid "`current_z_adjust`: Last computed Z adjustment [mm]."
-msgstr ""
+msgstr "`current_z_adjust`: Utolsó számított Z-beállítás [mm]."
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid ""
 "`z_adjust_ref_temperature`: Current reference temperature used for "
 "calculation of Z `current_z_adjust` [degC]."
 msgstr ""
+"`z_adjust_ref_temperature`: A Z kiszámításához használt aktuális referencia-"
+"hőmérséklet `current_z_adjust` [°C]."
