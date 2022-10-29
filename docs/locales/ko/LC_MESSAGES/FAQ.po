@@ -1,16 +1,16 @@
 # brian park <gouache95@gmail.com>, 2021.
-# 이정희 <daemul72@gmail.com>, 2022.
+# 이정희 <daemul72@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-03 18:08+0000\n"
+"PO-Revision-Date: 2025-05-03 07:24+0000\n"
 "Last-Translator: 이정희 <daemul72@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/faq/ko/>\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid "How can I donate to the project?"
 msgstr "어떻게 프로젝트에 기부할수 있나요?"
@@ -746,7 +746,8 @@ msgstr "자주 묻는 질문"
 msgid ""
 "For running on the Beaglebone, see the [Beaglebone specific installation "
 "instructions](Beaglebone.md)."
-msgstr "Beaglebone에서 실행하려면 [Beaglebone 특정 설치 지침](Beaglebone.md)을 참조하십시오."
+msgstr "Beaglebone에서 실행하려면 [Beaglebone 특정 설치 지침](Beaglebone.md)을 "
+"참조하십시오."
 
 #: docs/FAQ.md:block 59 (unordered list)
 msgid ""
@@ -757,12 +758,12 @@ msgid ""
 "connect that power supply to the Pi. If you get \"under voltage\" warnings "
 "from OctoPrint, this is related to the power supply and it must be fixed."
 msgstr ""
-"Raspberry Pi를 사용하는 경우 Raspberry Pi에는 [좋은 품질의 전원 "
-"공급장치](https://www.raspberrypi.com/documentation/computers/raspberry-"
-"pi.html#power-supply)를 사용하고 [좋은 품질의 USB "
-"케이블](https://forums.raspberrypi.com/viewtopic.php?p=589877#p589877)을 사용하여 해당 "
-"전원 공급장치를 Pi에 연결합니다. OctoPrint에서 \"전압 부족\" 경고가 표시되면 이는 전원 공급 장치와 관련된 것이며 수정해야 "
-"합니다."
+"Raspberry Pi를 사용하는 경우 Raspberry Pi에는 [좋은 품질의 전원 공급장치]"
+"(https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-"
+"supply)를 사용하고 [좋은 품질의 USB 케이블](https://forums.raspberrypi.com/"
+"viewtopic.php?p=589877#p589877)을 사용하여 해당 전원 공급장치를 Pi에 "
+"연결합니다. OctoPrint에서 \"전압 부족\" 경고가 표시되면 이는 전원 공급 "
+"장치와 관련된 것이며 수정해야 합니다."
 
 #: docs/FAQ.md:block 62 (header)
 msgid ""
@@ -773,7 +774,8 @@ msgstr "`restart_method=command`를 설정하면 AVR 장치가 다시 시작될 
 msgid ""
 "Thank you for your support. See the [Sponsors page](Sponsors.md) for "
 "information."
-msgstr "지원해 주셔서 감사합니다. 자세한 내용은 [후원자 페이지](Sponsors.md)를 참조하십시오."
+msgstr "지원해 주셔서 감사합니다. 자세한 내용은 [후원자 페이지](Sponsors.md)를 "
+"참조하십시오."
 
 #~ msgid "/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 #~ msgstr "/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
