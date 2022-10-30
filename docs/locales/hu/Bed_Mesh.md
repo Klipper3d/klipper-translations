@@ -1,6 +1,6 @@
 # Tárgyasztal háló
 
-A tárgyasztal háló modul használható a tárgyasztal felület egyenetlenségeinek kiegyenlítésére, hogy jobb első réteget érjen el az egész tárgyasztalon. Meg kell jegyezni, hogy a szoftveralapú korrekció nem fog tökéletes eredményt elérni, csak megközelítő értékekkel tudatja a tárgyasztal alakját. A tárgyasztal háló szintén nem tudja kompenzálni a mechanikai és elektromos problémákat. Ha egy tengely ferde vagy egy szonda nem pontos, akkor a bed_mesh modul nem fog pontos eredményeket kapni a szintezésről.
+A tárgyasztal háló modul használható a tárgyasztal felület egyenetlenségeinek kiegyenlítésére, hogy jobb első réteget érj el az egész tárgyasztalon. Meg kell jegyezni, hogy a szoftveralapú korrekció nem fog tökéletes eredményt elérni, csak megközelítő értékekkel tudatja a tárgyasztal alakját. A tárgyasztal háló szintén nem tudja kompenzálni a mechanikai és elektromos problémákat. Ha egy tengely ferde vagy egy szonda nem pontos, akkor a bed_mesh modul nem fog pontos eredményeket kapni a szintezésről.
 
 A hálókalibrálás előtt meg kell győződnie arról, hogy a szonda Z-eltolása kalibrálva van. Ha végállást használ a Z-kezdőponthoz, akkor azt is kalibrálni kell. További információkért lásd a [Szonda Kalibrálás](Probe_Calibrate.md) és a Z_ENDSTOP_CALIBRATE című fejezetben [Kézi Szintezést](Manual_Level.md).
 

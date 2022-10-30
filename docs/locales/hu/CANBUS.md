@@ -4,16 +4,16 @@ Ez a dokumentum a Klipper CAN busz támogatását írja le.
 
 ## Eszköz Hardver
 
-Klipper currently supports CAN on stm32, same5x, and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.
+A Klipper jelenleg támogatja a CAN-t az stm32, same5x és rp2040 chipeken. Ezenkívül a mikrokontroller chipnek olyan lapkán kell lennie, amely rendelkezik CAN csatlakozással.
 
-A CAN-hez való fordításhoz futtassa a `make menuconfig` parancsot, és válassza a "CAN busz" kommunikációs interfészt. Végül fordítsa le a mikrokontroller kódját, és égesse a céllapra.
+A CAN-hez való fordításhoz futtassa a `make menuconfig` parancsot, és válaszd a "CAN busz" kommunikációs interfészt. Végül fordítsd le a mikrokontroller kódját, és égesd a céllapra.
 
 ## Gazdagép Hardver
 
 A CAN-busz használatához szükség van egy host-adapterre. Jelenleg két elterjedt lehetőség van:
 
 1. Használj egy [Waveshare Raspberry Pi CAN sapkát](https://www.waveshare.com/rs485-can-hat.htm) vagy annak számos klónja közül egyet.
-1. Használj USB CAN-adaptert (például <https://hacker-gadgets.com/product/cantact-usb-can-adapter/>). Számos különböző USB-CAN adapter áll rendelkezésre - az adapter kiválasztásakor javasoljuk, hogy ellenőrizze, hogy képes-e a [candlelight firmware](https://github.com/candle-usb/candleLight_fw) futtatására. (Sajnos azt tapasztaltuk, hogy néhány USB-adapter hibás firmware-t futtat, és le van zárva, ezért vásárlás előtt ellenőrizze.)
+1. Használj USB CAN-adaptert (például <https://hacker-gadgets.com/product/cantact-usb-can-adapter/>). Számos különböző USB-CAN adapter áll rendelkezésre - az adapter kiválasztásakor javasoljuk, hogy ellenőrizd, hogy képes-e a [candlelight firmware](https://github.com/candle-usb/candleLight_fw) futtatására. (Sajnos azt tapasztaltuk, hogy néhány USB-adapter hibás firmware-t futtat, és le van zárva, ezért vásárlás előtt ellenőrizd.)
 
 Az adapter használatához a gazdagép operációs rendszert is konfigurálni kell. Ez általában úgy történik, hogy létrehozunk egy új `/etc/network/interfaces.d/can0` nevű fájlt a következő tartalommal:
 
@@ -30,13 +30,13 @@ Ne feledd, hogy a "Raspberry Pi CAN sapka" is megköveteli a [config.txt módos�
 
 A CAN-buszon két 120 ohmos ellenállásnak kell lennie a CANH és CANL vezetékek között. Ideális esetben egy-egy ellenállás a busz mindkét végén található.
 
-Vedd figyelembe, hogy egyes eszközök beépített 120 ohmos ellenállással rendelkeznek (például a "Waveshare Raspberry Pi CAN sapka" egy beforrasztott ellenállással rendelkezik, amelyet nem lehet könnyen eltávolítani). Egyes eszközök egyáltalán nem tartalmaznak ellenállást. Más eszközök rendelkeznek egy mechanizmussal az ellenállás kiválasztására (általában egy "pin jumper" csatlakoztatásával). Mindenképpen ellenőrizze a CAN-buszon lévő összes eszköz kapcsolási rajzát, hogy a buszon két és csak két 120 Ohm-os ellenállás van-e.
+Vedd figyelembe, hogy egyes eszközök beépített 120 ohmos ellenállással rendelkeznek (például a "Waveshare Raspberry Pi CAN sapka" egy beforrasztott ellenállással rendelkezik, amelyet nem lehet könnyen eltávolítani). Egyes eszközök egyáltalán nem tartalmaznak ellenállást. Más eszközök rendelkeznek egy mechanizmussal az ellenállás kiválasztására (általában egy "pin jumper" csatlakoztatásával). Mindenképpen ellenőrizd a CAN-buszon lévő összes eszköz kapcsolási rajzát, hogy a buszon két és csak két 120 Ohm-os ellenállás van-e.
 
 Az ellenállások értékének teszteléséhez a nyomtatót áramtalaníthatja, és egy multi-méterrel ellenőrizheti a CANH és CANL vezetékek közötti ellenállást. Egy helyesen bekötött CAN-buszon ~60 ohmot kell mérnie.
 
 ## A canbus_uuid keresése új mikrovezérlőkhöz
 
-A CAN-buszon lévő minden mikrovezérlőhöz egyedi azonosítót rendelnek a gyári chipazonosító alapján, amely minden mikrovezérlőbe kódolva van. Az egyes mikrokontrollerek eszközazonosítójának megtalálásához győződjön meg arról, hogy a hardver megfelelően van bekapcsolva és bekötve, majd futtassa le:
+A CAN-buszon lévő minden mikrovezérlőhöz egyedi azonosítót rendelnek a gyári chipazonosító alapján, amely minden mikrovezérlőbe kódolva van. Az egyes mikrokontrollerek eszközazonosítójának megtalálásához győződj meg arról, hogy a hardver megfelelően van bekapcsolva és bekötve, majd futtassa le:
 
 ```
 ~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0

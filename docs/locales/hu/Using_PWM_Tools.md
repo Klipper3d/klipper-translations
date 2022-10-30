@@ -20,7 +20,7 @@ Korlátozott, hogy milyen gyakoriak lehetnek a PWM-frissítések. Bár nagyon po
 
 ## Laserweb konfiguráció
 
-Ha a Laserwebet használja, akkor a következő konfiguráció működhet:
+Ha a Laserwebet használod, akkor a következő konfiguráció működhet:
 
     GCODE START:
         M5            ; Lézer letiltása

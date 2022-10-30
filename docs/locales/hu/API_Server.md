@@ -128,7 +128,7 @@ Ez a végpont lehetővé teszi a rendelkezésre álló G-kód parancsok lekérde
 
 Ez a végpont lehetővé teszi egy sor G-kód parancs futtatását. Például: `{"id": 123, "method": "gcode/script", "params": {"script": "G90"}}}`
 
-Ha a megadott G-kód szkript hibát okoz, akkor a rendszer hibaválaszt generál. Ha azonban a G-kód parancs terminál kimenetet eredményez, a terminál kimenete nem szerepel a válaszban. (A "gcode/subscribe_output" végpontot használja a G-kód terminálkimenethez.)
+Ha a megadott G-kód szkript hibát okoz, akkor a rendszer hibaválaszt generál. Ha azonban a G-kód parancs terminál kimenetet eredményez, a terminál kimenete nem szerepel a válaszban. (A "gcode/subscribe_output" végpontot használd a G-kód terminálkimenethez.)
 
 Ha a kérés beérkezésekor éppen egy G-kód parancsot dolgoznak fel, akkor a megadott szkript sorba kerül. Ez a késedelem jelentős lehet (pl. ha egy G-kódos hőmérsékleti várakozás parancs fut). A JSON válaszüzenet akkor kerül elküldésre, amikor a parancsfájl feldolgozása teljesen befejeződött.
 
@@ -148,7 +148,7 @@ A "gcode/script" végponthoz hasonlóan ez a végpont is csak a függőben lév�
 
 Ez a végpont a Klipper által generált G-kódos terminálüzenetekre való feliratkozásra szolgál. Például: `{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{}}}}` később olyan aszinkron üzeneteket eredményezhet, mint például: `{"params": {"response": "// Klipper state: Shutdown"}}`
 
-Ez a végpont az emberi interakciót hivatott támogatni egy "terminálablak" interfészen keresztül. A G-kód terminál kimenetéből származó tartalom elemzése nem javasolt. A Klipper állapotának frissítéséhez használja az "objects/subscribe" végpontot.
+Ez a végpont az emberi interakciót hivatott támogatni egy "terminálablak" interfészen keresztül. A G-kód terminál kimenetéből származó tartalom elemzése nem javasolt. A Klipper állapotának frissítéséhez használd az "objects/subscribe" végpontot.
 
 ### motion_report/dump_stepper
 

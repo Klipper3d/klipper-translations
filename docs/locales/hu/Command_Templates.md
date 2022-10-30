@@ -236,7 +236,7 @@ Ha a [save_variables config section](Config_Reference.md#save_variables) engedé
 {% set svv = printer.save_variables.variables %}
 ```
 
-Példaként a 2 az 1-ben nyomtatófej állapotának mentésére használható, és nyomtatás indításakor győződjön meg arról, hogy az aktív fejet használd a T0 helyett:
+Példaként a 2 az 1-ben nyomtatófej állapotának mentésére használható, és nyomtatás indításakor győződj meg arról, hogy az aktív fejet használd a T0 helyett:
 
 ```
 [gcode_macro T1]

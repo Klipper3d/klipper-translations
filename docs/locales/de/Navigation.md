@@ -10,6 +10,6 @@ Resonanz-Kompensation
 
 Command templates
 
-Developer Documentation
+Entwicklerdokumentation
 
-Device Specific Documents
+Geräteabhängige Dokumente

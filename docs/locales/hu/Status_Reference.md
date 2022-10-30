@@ -227,8 +227,8 @@ A következő információk a [pause_resume](Config_Reference.md#pause_resume) o
 A következő információk a `print_stats` objektumban érhetők el (ez az objektum automatikusan elérhető, ha a [virtual_sdcard](Config_Reference.md#virtual_sdcard) config szakasz definiálva van):
 
 - `filename`, `total_duration`, `print_duration`, `filament_used`, `state`, `message`: Becsült információ az aktuális nyomtatásról, ha egy virtual_sdcard nyomtatás aktív.
-- `info.total_layer`: The total layer value of the last `SET_PRINT_STATS_INFO TOTAL_LAYER=<value>` G-Code command.
-- `info.current_layer`: The current layer value of the last `SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-Code command.
+- `info.total_layer`: Az utolsó `SET_PRINT_STATS_INFO TOTAL_LAYER=<value>` G-kódú parancs.
+- `info.current_layer`: Az aktuális réteg értéke az utolsó `SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-kódú parancs.
 
 ## probe
 
@@ -332,14 +332,14 @@ A következő információk a `webhooks` objektumban érhetők el (ez az objektu
 
 ## z_thermal_adjust
 
-The following information is available in the `z_thermal_adjust` object (this object is available if [z_thermal_adjust](Config_Reference.md#z_thermal_adjust) is defined).
+A következő információk a `z_thermal_adjust` parancsal érhetők el (ez a parancs akkor érhető el, ha a [z_thermal_adjust](Config_Reference.md#z_thermal_adjust) definiálva van).
 
-- `enabled`: Returns True if adjustment is enabled.
-- `temperature`: Current (smoothed) temperature of the defined sensor. [degC]
-- `measured_min_temp`: Minimum measured temperature. [degC]
-- `measured_max_temp`: Maximum measured temperature. [degC]
-- `current_z_adjust`: Last computed Z adjustment [mm].
-- `z_adjust_ref_temperature`: Current reference temperature used for calculation of Z `current_z_adjust` [degC].
+- `enabled`: True értéket ad vissza, ha a beállítás engedélyezve van.
+- `temperature`: A meghatározott érzékelő aktuális (simított) hőmérséklete. [°C]
+- `measured_min_temp`: Minimális mért hőmérséklet. [°C]
+- `measured_max_temp`: Maximális mért hőmérséklet. [°C]
+- `current_z_adjust`: Utolsó számított Z-beállítás [mm].
+- `z_adjust_ref_temperature`: A Z kiszámításához használt aktuális referencia-hőmérséklet `current_z_adjust` [°C].
 
 ## z_tilt
 

@@ -10,7 +10,7 @@ A referenciamutatók elsődleges célja, hogy következetes mechanizmust biztos�
 
 A lépésszám-összehasonlítás célja a hardver és a szoftver által elérhető maximális lépésszám meghatározása. Ez az összehasonlító lépési sebesség a mindennapi használat során nem érhető el, mivel a Klippernek más feladatokat is el kell látnia (pl. mcu/host kommunikáció, hőmérséklet leolvasás, végállás ellenőrzés) minden valós használat során.
 
-Általában a referencia-tesztekhez használt tűket úgy választják ki, hogy LED-eket vagy más ártalmatlan eszközöket működtessen. **A referencia futtatása előtt mindig ellenőrizze, hogy a konfigurált tűk meghajtása biztonságos-e.** Nem ajánlott a tényleges léptetők használata a referencia során.
+Általában a referencia-tesztekhez használt tűket úgy választják ki, hogy LED-eket vagy más ártalmatlan eszközöket működtessen. **A referencia futtatása előtt mindig ellenőrizd, hogy a konfigurált tűk meghajtása biztonságos-e.** Nem ajánlott a tényleges léptetők használata a referencia során.
 
 ### Léptetőarányos referenciaérték teszt
 
@@ -55,7 +55,7 @@ A [Funkciók](Features.md) dokumentumban található referenciatesztek előáll�
 ECHO A teszt eredménye: {"%.0fK" % (3. * freq / ticks / 1000.)}
 ```
 
-A referenciaértékeket a TMC vezérlők számára megfelelő paraméterekkel futtatjuk. Az olyan mikrovezérlők esetében, amelyek támogatják a `STEPPER_BOTH_EDGE=1` (amint azt az `MCU config` sorban a konzolnál console.py első indításakor) a `step_pulse_duration=0` és `invert_step=-1` használatával engedélyezzük az optimalizált lépést a lépésimpulzus mindkét élére. Más mikrovezérlők esetében használja a 100ns-nak megfelelő `step_pulse_duration` értéket.
+A referenciaértékeket a TMC vezérlők számára megfelelő paraméterekkel futtatjuk. Az olyan mikrovezérlők esetében, amelyek támogatják a `STEPPER_BOTH_EDGE=1` (amint azt az `MCU config` sorban a konzolnál console.py első indításakor) a `step_pulse_duration=0` és `invert_step=-1` használatával engedélyezzük az optimalizált lépést a lépésimpulzus mindkét élére. Más mikrovezérlők esetében használd a 100ns-nak megfelelő `step_pulse_duration` értéket.
 
 ### AVR lépési sebesség referenciaérték
 
@@ -214,9 +214,9 @@ A tesztet utoljára a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (
 | 1 léptető | 46 |
 | 3 léptető | 205 |
 
-### STM32H7 step rate benchmark
+### STM32H7 lépésszám referencia
 
-The following configuration sequence is used on a STM32H743VIT6:
+A következő konfigurációs sorrendet egy STM32H743VIT6 esetében használjuk:
 
 ```
 allocate_oids count=3
@@ -226,7 +226,7 @@ config_stepper oid=2 step_pin=PE2 dir_pin=PE3 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`.
+A teszt utoljára `00191b5c` véglegesítéssel futott a gcc `arm-none-eabi-gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]` véglegesítéssel.
 
 | stm32h7 | trükkök |
 | --- | --- |

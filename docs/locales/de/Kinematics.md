@@ -1,6 +1,6 @@
 # Kinematics
 
-Dieses Dokument gibt einen Überblick darüber, wie Klipper die Roboterbewegung implementiert (seine [Kinematik](https://en.wikipedia.org/wiki/Kinematics)). Der Inhalt kann sowohl für Entwickler, die an der Klipper-Software arbeiten wollen, als auch für Benutzer, die die Mechanik ihrer Maschinen besser verstehen wollen, von Interesse sein.
+Dieses Dokument gibt einen Überblick darüber, wie Klipper die Roboterbewegung implementiert (seine [Kinematik](https://de.wikipedia.org/wiki/Kinematik)). Der Inhalt kann sowohl für Entwickler, die an der Klipper-Software arbeiten wollen, als auch für Benutzer, die die Mechanik ihrer Maschinen besser verstehen wollen, von Interesse sein.
 
 ## Beschleunigung
 

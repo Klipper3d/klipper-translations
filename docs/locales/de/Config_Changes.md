@@ -4,7 +4,7 @@ Dieses Dokument behandelt die jüngsten Softwareänderungen an der Konfiguration
 
 Alle Daten in diesem Dokument sind ungefähre Angaben.
 
-## Changes
+## Änderungen
 
 20220616: It was previously possible to flash an rp2040 in bootloader mode by running `make flash FLASH_DEVICE=first`. The equivalent command is now `make flash FLASH_DEVICE=2e8a:0003`.
 

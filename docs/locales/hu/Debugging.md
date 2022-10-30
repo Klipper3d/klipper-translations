@@ -4,7 +4,7 @@ Ez a dokumentum a Klipper hibakeresési eszközeinek egy részét ismerteti.
 
 ## A regressziós tesztek futtatása
 
-A Klipper GitHub fő tárolója a "github actions" -t használja egy sor regressziós teszt futtatásához. Hasznos lehet néhány ilyen tesztet helyben futtatni.
+A Klipper GitHub fő tárolója a "github actions" -t használd egy sor regressziós teszt futtatásához. Hasznos lehet néhány ilyen tesztet helyben futtatni.
 
 A forráskód "whitespace check" a következővel futtatható:
 
@@ -147,7 +147,7 @@ A szkript kinyeri a nyomtató konfigurációs fájlját, és kinyeri az MCU leá
 
 A [simulavr](http://www.nongnu.org/simulavr/) eszköz lehetővé teszi egy Atmel ATmega mikrokontroller szimulálását. Ez a szakasz leírja, hogyan lehet teszt G-kód fájlokat futtatni a simulavr segítségével. Javasoljuk, hogy ezt egy asztali gépen futtassuk (nem Raspberry Pi), mivel a hatékony futtatáshoz erős CPU-ra van szükség.
 
-A simulavr használatához töltse le a simulavr csomagot, és fordítsa le python támogatással. Vedd figyelembe, hogy a build rendszernek telepítenie kell néhány csomagot (például a swig-et) ahhoz, hogy a python modult fel tudja építeni.
+A simulavr használatához töltse le a simulavr csomagot, és fordítsd le python támogatással. Vedd figyelembe, hogy a build rendszernek telepítenie kell néhány csomagot (például a swig-et) ahhoz, hogy a python modult fel tudja építeni.
 
 ```
 git clone git://git.savannah.nongnu.org/simulavr.git
@@ -180,7 +180,7 @@ cd /path/to/klipper
 make menuconfig
 ```
 
-és fordítsa le a mikrokontroller szoftvert egy AVR atmega644p számára, és válassza a SIMULAVR szoftver emulációs támogatást. Ezután lefordíthatjuk a Klippert (futtassuk `make`), majd indítsuk el a szimulációt a következőkkel:
+és fordítsd le a mikrokontroller szoftvert egy AVR atmega644p számára, és válaszd a SIMULAVR szoftver emulációs támogatást. Ezután lefordíthatjuk a Klippert (futtassuk `make`), majd indítsuk el a szimulációt a következőkkel:
 
 ```
 PYTHONPATH=/path/to/simulavr/build/pysimulavr/ ./scripts/avrsim.py out/klipper.elf

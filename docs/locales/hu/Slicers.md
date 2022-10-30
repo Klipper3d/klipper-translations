@@ -20,7 +20,7 @@ A behúzási mozgások maximális sebességét és gyorsulását a Klipperben a 
 
 Ha nagy visszahúzást használ, fontolja meg a Klipper [nyomás előtolás](Pressure_Advance.md) beállítását. Ellenkező esetben, ha úgy találjuk, hogy a nyomtatófej úgy tűnik, hogy "szünetel" a behúzás és az alapozás során, akkor fontolja meg a `max_extrude_only_velocity` és `max_extrude_only_accel` kifejezett meghatározását a Klipper konfigurációs fájlban.
 
-## Ne engedélyezze a "coasting-ot"
+## Ne engedélyezd a "coasting-ot"
 
 A "coasting" funkció valószínűleg rossz minőségű nyomatokat eredményez a Klipperrel. Fontolja meg helyette a Klipper [pressure advance](Pressure_Advance.md) használatát.
 
@@ -34,7 +34,7 @@ Ez a beállítás drámai változásokat okozhat az extrudálási sebességben, 
 
 ## A "PreloadVE" letiltása a KISSlicer-en
 
-Ha a KISSlicer szeletelőszoftvert használja, akkor állítsd a "PreloadVE" értéket nullára. Fontolja meg helyette a Klipper [nyomás előtolás](Pressure_Advance.md) használatát.
+Ha a KISSlicer szeletelőszoftvert használod, akkor állítsd a "PreloadVE" értéket nullára. Fontolja meg helyette a Klipper [nyomás előtolás](Pressure_Advance.md) használatát.
 
 ## Tiltja a "fejlett nyomás előtolás" beállításokat
 

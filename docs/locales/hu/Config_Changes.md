@@ -40,9 +40,9 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 20210830: Az adxl345 ACCELEROMETER_MEASURE parancs már nem támogatja a RATE paramétert. A lekérdezési sebesség módosításához frissítse a printer.cfg fájlt, és adj ki egy RESTART parancsot.
 
-20210821: A `printer.configfile.settings` több konfigurációs beállítása mostantól listaként lesz jelentve a nyers karakterláncok helyett. Ha a tényleges nyers karakterláncra van szükség, használja helyette a `printer.configfile.config`-t.
+20210821: A `printer.configfile.settings` több konfigurációs beállítása mostantól listaként lesz jelentve a nyers karakterláncok helyett. Ha a tényleges nyers karakterláncra van szükség, használd helyette a `printer.configfile.config`-t.
 
-20210819: Bizonyos esetekben egy `G28` célbaérési mozgás olyan pozícióban végződhet, amely névlegesen az érvényes mozgási tartományon kívül esik. Ritka helyzetekben ez zavaró "Move out of range" hibákat eredményezhet a kezdőpont felvétele után. Ha ez előfordul, módosítsa az indítási szkripteket úgy, hogy a nyomtatófej a kezdőpont felvétel után azonnal érvényes pozícióba kerüljön.
+20210819: Bizonyos esetekben egy `G28` célbaérési mozgás olyan pozícióban végződhet, amely névlegesen az érvényes mozgási tartományon kívül esik. Ritka helyzetekben ez zavaró "Move out of range" hibákat eredményezhet a kezdőpont felvétele után. Ha ez előfordul, módosítsd az indítási szkripteket úgy, hogy a nyomtatófej a kezdőpont felvétel után azonnal érvényes pozícióba kerüljön.
 
 20210814: Az atmega168 és atmega328 csak analóg pszeudo-tüskéi PE0/PE1-ről PE2/PE3-ra lettek átnevezve.
 
@@ -99,7 +99,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20200731: A `progress` attribútum viselkedése megváltozott, amelyet a `virtual_sdcard` nyomtatóobjektum jelentett. A nyomtatás szüneteltetésekor a Progress már nem áll vissza 0-ra. Mostantól mindig a belső fájl pozíciója alapján jelenti a haladást. Vagy 0, ha nincs betöltve fájl.
 
-20200725: A szervo `enable` konfigurációs paraméter és a SET_SERVO `ENABLE` paraméter eltávolításra került. Frissítsen minden makrót, hogy a `SET_SERVO SERVO=my_servo WIDTH=0` paramétert használja a szervó letiltásához.
+20200725: A szervo `enable` konfigurációs paraméter és a SET_SERVO `ENABLE` paraméter eltávolításra került. Frissíts minden makrót, hogy a `SET_SERVO SERVO=my_servo WIDTH=0` paramétert használd a szervó letiltásához.
 
 20200608: Az LCD-kijelző támogatása megváltoztatta néhány belső "írásjel" nevét. Ha egyéni kijelző elrendezés került implementálásra, akkor szükséges lehet frissíteni a legújabb gliph nevekre (lásd klippy/extras/display/display.cfg az elérhető gliph-ek listáját).
 
@@ -121,7 +121,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20200109: A bed_mesh modul most már hivatkozik a szonda helyére a hálókonfigurációban. Ennek megfelelően néhány konfigurációs opciót átneveztek, hogy pontosabban tükrözze a tervezett funkciójukat. Téglalap alakú tárgyasztalok esetében a `min_point` és `max_point` átnevezésre került `mesh_min` és `mesh_max`-ra. A kerek tárgyasztalok esetében a `bed_radius` át lett nevezve `mesh_radius`-ra. A kerek tárgyasztalokhoz egy új `mesh_origin` opció is hozzá lett adva. Vedd figyelembe, hogy ezek a változások a korábban elmentett hálóprofilokkal is inkompatibilisek. Ha egy inkompatibilis profilt észlelünk, azt figyelmen kívül hagyjuk és eltávolításra ütemezzük. Az eltávolítási folyamat a SAVE_CONFIG parancs kiadásával fejezhető be. A felhasználónak minden egyes profilt újra kell kalibrálnia.
 
-20191218: A display config szakasz már nem támogatja az "lcd_type: st7567". Használd helyette az "uc1701" kijelzőtípust. Állítsd be az "lcd_type: uc1701" értéket, és módosítsa az "rs_pin: some_pin" értéket "rst_pin: some_pin" értékre. Szükség lehet még egy "contrast: 60" konfigurációs beállítás hozzáadására.
+20191218: A display config szakasz már nem támogatja az "lcd_type: st7567". Használd helyette az "uc1701" kijelzőtípust. Állítsd be az "lcd_type: uc1701" értéket, és módosítsd az "rs_pin: some_pin" értéket "rst_pin: some_pin" értékre. Szükség lehet még egy "contrast: 60" konfigurációs beállítás hozzáadására.
 
 20191210: A beépített T0, T1, T2, ... parancsok eltávolításra kerültek. Az extruder activate_gcode és deactivate_gcode konfigurációs opciók eltávolításra kerültek. Ha szükség van ezekre a parancsokra (és szkriptekre), akkor definiáljon egyedi [gcode_macro T0] stílusú makrókat, amelyek meghívják az ACTIVATE_EXTRUDER parancsot. Példákért lásd a config/sample-idex.cfg és sample-multi-extruder.cfg fájlokat.
 

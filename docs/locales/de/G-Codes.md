@@ -4,7 +4,7 @@ Dieses Dokument beschreibt die von Klipper unterstützten Befehle. Dies sind Bef
 
 ## G-code Befehle
 
-Klipper supports the following standard G-Code commands:
+Klipper unterstützt die folgenden Standard- G-Code- Befehle:
 
 - Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
 - Dwell: `G4 P<milliseconds>`

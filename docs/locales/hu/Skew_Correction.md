@@ -6,17 +6,17 @@ A szoftveralapú ferdeség korrekció segíthet a nem tökéletesen szögletes n
 
 A ferdeség korrekciójának első lépése egy [kalibrációs objektum](https://www.thingiverse.com/thing:2563185/files) nyomtatása a korrigálni kívánt sík mentén. Létezik egy másik [kalibrációs objektum](https://www.thingiverse.com/thing:2972743) is, amely egy modell összes síkját tartalmazza. Az objektumot úgy kell tájolni, hogy az A sarok a sík origója felé legyen.
 
-Győződjön meg róla, hogy a nyomtatás során nem alkalmaz ferdeségkorrekciót. Ezt úgy teheti meg, hogy vagy eltávolítja a `[skew_correction]` modult a printer.cfg fájlból, vagy kiad egy `SET_SKEW CLEAR=1` parancsot.
+Győződj meg róla, hogy a nyomtatás során nem alkalmaz ferdeségkorrekciót. Ezt úgy teheti meg, hogy vagy eltávolítja a `[skew_correction]` modult a printer.cfg fájlból, vagy kiadsz egy `SET_SKEW CLEAR=1` parancsot.
 
-## Mérje meg
+## Mérd meg
 
 A `[skew_correcton]` modul minden egyes korrigálandó síkhoz 3 mérést igényel; az A saroktól a C sarokig terjedő hosszúságot, a B saroktól a D sarokig terjedő hosszúságot és az A saroktól a D sarokig terjedő hosszúságot. Az AD hosszmérésnél ne vedd figyelembe a sarkokon lévő síkokat, amelyeket néhány tesztobjektum mutat.
 
 ![skew_lengths](img/skew_lengths.png)
 
-## Konfigurálja a ferdeséget
+## Konfiguráld a ferdeséget
 
-Győződjön meg róla, hogy a `[skew_correction]` szerepel a printer.cfg fájlban. Most már használhatod a `SET_SKEW` G-kódot a skew_correction beállításához. Például, ha az XY mentén mért hosszok a következők:
+Győződj meg róla, hogy a `[skew_correction]` szerepel a printer.cfg fájlban. Most már használhatod a `SET_SKEW` G-kódot a skew_correction beállításához. Például, ha az XY mentén mért hosszok a következők:
 
 ```
 Length AC = 140.4

@@ -69,7 +69,7 @@ A következő parancsok akkor érhetők el, ha az [szög konfigurációs szakasz
 
 #### ANGLE_CALIBRATE
 
-`ANGLE_CALIBRATE CHIP=<chip_name>`: Szögkalibrálás végrehajtása az adott érzékelőn (kell lennie egy `[angle chip_name]` konfigurációs szakasznak, amely megadta a `stepper` paramétert). FONTOS! Ez az eszköz a normál kinematikai határértékek ellenőrzése nélkül adja ki a léptetőmotor mozgását. Ideális esetben a motort a kalibrálás elvégzése előtt le kell választani az adott kocsiról. Ha a léptetőmotor nem kapcsolható le a nyomtatóról, győződjön meg róla, hogy a kocsi a kalibrálás megkezdése előtt a sín közepénél van. (A léptetőmotor két teljes fordulatot előre vagy hátra mozoghat a teszt során.) A teszt elvégzése után használja a `SAVE_CONFIG` parancsot a kalibrációs adatok printer.cfg fájlba történő mentéséhez. Az eszköz használatához telepíteni kell a Python "numpy" csomagot (további információkért lásd a [rezonancia mérése dokumentumot](Measuring_Resonances.md#software-installation).
+`ANGLE_CALIBRATE CHIP=<chip_name>`: Szögkalibrálás végrehajtása az adott érzékelőn (kell lennie egy `[angle chip_name]` konfigurációs szakasznak, amely megadta a `stepper` paramétert). FONTOS! Ez az eszköz a normál kinematikai határértékek ellenőrzése nélkül adja ki a léptetőmotor mozgását. Ideális esetben a motort a kalibrálás elvégzése előtt le kell választani az adott kocsiról. Ha a léptetőmotor nem kapcsolható le a nyomtatóról, győződj meg róla, hogy a kocsi a kalibrálás megkezdése előtt a sín közepénél van. (A léptetőmotor két teljes fordulatot előre vagy hátra mozoghat a teszt során.) A teszt elvégzése után használd a `SAVE_CONFIG` parancsot a kalibrációs adatok printer.cfg fájlba történő mentéséhez. Az eszköz használatához telepíteni kell a Python "numpy" csomagot (további információkért lásd a [rezonancia mérése dokumentumot](Measuring_Resonances.md#software-installation).
 
 #### ANGLE_DEBUG_READ
 
@@ -248,7 +248,7 @@ A következő parancsok akkor érhetők el, ha az [extruder konfigurációs szak
 
 #### SET_EXTRUDER_ROTATION_DISTANCE
 
-`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: A megadott extruder léptetők "forgási távolság" új értékének beállítása (ahogyan az [extruder](Config_Reference.md#extruder) vagy [extruder_stepper](Config_Reference.md#extruder_stepper) konfigurációs szakaszban meghatározott). Ha a forgási távolság negatív szám, akkor a léptető mozgása inverz lesz (a konfigurációs fájlban megadott léptető irányhoz képest). A megváltoztatott beállítások nem maradnak meg a Klipper visszaállításakor. Óvatosan használja, mivel a kis változtatások túlzott nyomást eredményezhetnek az extruder és a hotend között. Használat előtt végezze el a megfelelő kalibrációt a filamenttel. Ha a 'DISTANCE' érték nincs megadva, akkor ez a parancs az aktuális forgási távolságot adja meg.
+`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: A megadott extruder léptetők "forgási távolság" új értékének beállítása (ahogyan az [extruder](Config_Reference.md#extruder) vagy [extruder_stepper](Config_Reference.md#extruder_stepper) konfigurációs szakaszban meghatározott). Ha a forgási távolság negatív szám, akkor a léptető mozgása inverz lesz (a konfigurációs fájlban megadott léptető irányhoz képest). A megváltoztatott beállítások nem maradnak meg a Klipper visszaállításakor. Óvatosan használd, mivel a kis változtatások túlzott nyomást eredményezhetnek az extruder és a hotend között. Használat előtt végezd el a megfelelő kalibrációt a filamenttel. Ha a 'DISTANCE' érték nincs megadva, akkor ez a parancs az aktuális forgási távolságot adja meg.
 
 #### SYNC_EXTRUDER_MOTION
 
@@ -313,7 +313,7 @@ A force_move modul automatikusan betöltődik, azonban néhány parancshoz szük
 
 #### SET_KINEMATIC_POSITION
 
-`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>]`: Kényszeríti az alacsony szintű kinematikai kódot, hogy azt higgye, a nyomtatófej a megadott cartesian pozícióban van. Ez egy diagnosztikai és hibakeresési parancs; használja a SET_GCODE_OFFSET és/vagy a G92 parancsot a normál tengelytranszformációkhoz. Ha egy tengely nincs megadva, akkor alapértelmezés szerint az a pozíció lesz, ahová a fejet utoljára parancsolták. A helytelen vagy érvénytelen pozíció beállítása belső szoftverhibához vezethet. Ez a parancs érvénytelenítheti a későbbi határérték ellenőrzéseket; a kinematika visszaállításához adj ki egy G28 parancsot.
+`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>]`: Kényszeríti az alacsony szintű kinematikai kódot, hogy azt higgye, a nyomtatófej a megadott cartesian pozícióban van. Ez egy diagnosztikai és hibakeresési parancs; használd a SET_GCODE_OFFSET és/vagy a G92 parancsot a normál tengelytranszformációkhoz. Ha egy tengely nincs megadva, akkor alapértelmezés szerint az a pozíció lesz, ahová a fejet utoljára parancsolták. A helytelen vagy érvénytelen pozíció beállítása belső szoftverhibához vezethet. Ez a parancs érvénytelenítheti a későbbi határérték ellenőrzéseket; a kinematika visszaállításához adj ki egy G28 parancsot.
 
 ### [gcode]
 
@@ -383,7 +383,7 @@ A következő parancsok akkor érhetők el, ha a [tsl1401cl szálszélesség ér
 
 #### DISABLE_FILAMENT_WIDTH_SENSOR
 
-`DISABLE_FILAMENT_WIDTH_SENSOR`: Kapcsolja ki a szálszélesség érzékelőt, és ne használja áramlásszabályozáshoz.
+`DISABLE_FILAMENT_WIDTH_SENSOR`: Kapcsolja ki a szálszélesség érzékelőt, és ne használd áramlásszabályozáshoz.
 
 #### ENABLE_FILAMENT_WIDTH_SENSOR
 
@@ -459,7 +459,7 @@ A következő parancs akkor érhető el, ha a [manual_stepper konfigurációs sz
 
 #### MANUAL_STEPPER
 
-`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|2|-1|-2]] [SYNC=0]]]`: Ez a parancs megváltoztatja a léptető állapotát. Az ENABLE paraméterrel engedélyezheti/letilthatja a léptetőt. A SET_POSITION paraméterrel kényszerítheti a léptetőt arra, hogy azt higgye, az adott helyzetben van. A MOVE paraméterrel kezdeményezhet mozgást egy adott pozícióba. Ha a SPEED és/vagy az ACCEL paraméter meg van adva, akkor a rendszer a megadott értékeket használja a konfigurációs fájlban megadott alapértelmezett értékek helyett. Ha nulla ACCEL-t ad meg, akkor nem történik gyorsítás. Ha STOP_ON_ENDSTOP=1 van megadva, akkor a lépés korán véget ér. Ha a végálláskapcsoló aktiválódik (a STOP_ON_ENDSTOP=2 paranccsal hiba nélkül befejezheti a mozgást, még akkor is, ha a végálláskapcsoló nem aktiválódott. Használd a -1 vagy a -2 jelölést, hogy leálljon, amikor a végálláskapcsoló még nem aktiválódott). Normális esetben a későbbi G-kód parancsok a léptetőmozgás befejezése után kerülnek ütemezésre, azonban ha a kézi léptetőmozgás parancs a SYNC=0 értéket használja, akkor a későbbi G-kód mozgatási parancsok a léptetőmozgással párhuzamosan is futhatnak.
+`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|2|-1|-2]] [SYNC=0]]]`: Ez a parancs megváltoztatja a léptető állapotát. Az ENABLE paraméterrel engedélyezheti/letilthatja a léptetőt. A SET_POSITION paraméterrel kényszerítheti a léptetőt arra, hogy azt higgye, az adott helyzetben van. A MOVE paraméterrel kezdeményezhet mozgást egy adott pozícióba. Ha a SPEED és/vagy az ACCEL paraméter meg van adva, akkor a rendszer a megadott értékeket használja a konfigurációs fájlban megadott alapértelmezett értékek helyett. Ha nulla ACCEL-t ad meg, akkor nem történik gyorsítás. Ha STOP_ON_ENDSTOP=1 van megadva, akkor a lépés korán véget ér. Ha a végálláskapcsoló aktiválódik (a STOP_ON_ENDSTOP=2 paranccsal hiba nélkül befejezheti a mozgást, még akkor is, ha a végálláskapcsoló nem aktiválódott. Használd a -1 vagy a -2 jelölést, hogy leálljon, amikor a végálláskapcsoló még nem aktiválódott). Normális esetben a későbbi G-kód parancsok a léptetőmozgás befejezése után kerülnek ütemezésre, azonban ha a kézi léptetőmozgás parancs a SYNC=0 értéket használod, akkor a későbbi G-kód mozgatási parancsok a léptetőmozgással párhuzamosan is futhatnak.
 
 ### [mcp4018]
 
@@ -475,7 +475,7 @@ A következő parancs akkor érhető el, ha a [LED konfigurációs szakaszok](Co
 
 #### SET_LED
 
-`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: Ez állítja be a LED kimenetet. Minden szín `<value>` 0,0 és 1,0 között kell lennie. A WHITE opció csak RGBW LED-ek esetén érvényes. Ha a LED több chipet támogat egy daisy-chainben, akkor megadhatjuk az INDEX-et, hogy csak az adott chip színét változtassuk meg (1 az első chiphez, 2 a másodikhoz stb.). Ha az INDEX nincs megadva, akkor a daisy-chain összes LED-je a megadott színre lesz beállítva. Ha TRANSMIT=0 van megadva, akkor a színváltoztatás csak a következő SET_LED parancsnál történik meg, amely nem ad meg TRANSMIT=0-t. Ez hasznos lehet az INDEX paraméterrel kombinálva, ha egy daisy-chainben több frissítést szeretnénk kötegelni. Alapértelmezés szerint a SET_LED parancs szinkronizálja a változtatásokat a többi folyamatban lévő G-kód paranccsal. Ez nemkívánatos viselkedéshez vezethet, ha a LED-ek beállítása akkor történik, amikor a nyomtató nem nyomtat, mivel ez visszaállítja az üresjárati időkorlátot. Ha nincs szükség gondos időzítésre, az opcionális SYNC=0 paraméter megadható, hogy a módosításokat az üresjárati időkorlát visszaállítása nélkül alkalmazza.
+`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: Ez állítja be a LED kimenetet. Minden szín `<value>` 0,0 és 1,0 között kell lennie. A WHITE opció csak RGBW LED-ek esetén érvényes. Ha a LED több chipet támogat egy daisy-chainben, akkor megadhatjuk az INDEX-et, hogy csak az adott chip színét változtassuk meg (1 az első chiphez, 2 a másodikhoz stb.). Ha az INDEX nincs megadva, akkor a daisy-chain összes LED-je a megadott színre lesz beállítva. Ha TRANSMIT=0 van megadva, akkor a színváltoztatás csak a következő SET_LED parancsnál történik meg, amely nem ad meg TRANSMIT=0-t. Ez hasznos lehet az INDEX paraméterrel kombinálva, ha egy daisy-chainben több frissítést szeretnénk kötegelni. Alapértelmezés szerint a SET_LED parancs szinkronizálja a változtatásokat a többi folyamatban lévő G-kód paranccsal. Ez nemkívánatos viselkedéshez vezethet, ha a LED-ek beállítása akkor történik, amikor a nyomtató nem nyomtat, mivel ez visszaállítja az üresjárati időkorlátot. Ha nincs szükség gondos időzítésre, az opcionális SYNC=0 paraméter megadható, hogy a módosításokat az üresjárati időkorlát visszaállítása nélkül alkalmazd.
 
 #### SET_LED_TEMPLATE
 
@@ -549,11 +549,11 @@ A következő parancsok akkor érhetők el, ha a [pause_resume konfigurációs s
 
 ### [print_stats]
 
-The print_stats module is automatically loaded.
+A print_stats modul automatikusan betöltődik.
 
 #### SET_PRINT_STATS_INFO
 
-`SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>] [CURRENT_LAYER= <current_layer>]`: Pass slicer info like layer act and total to Klipper. Add `SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>]` to your slicer start gcode section and `SET_PRINT_STATS_INFO [CURRENT_LAYER= <current_layer>]` at the layer change gcode section to pass layer information from your slicer to Klipper.
+`SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>] [CURRENT_LAYER= <current_layer>]`: Átadja a szeletelő adatait, a Klippernek, mint például az aktuális és összes réteg. Add hozzá a `SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>]` a szeletelő indító G-kód szakaszához és a `SET_PRINT_STATS_INFO [CURRENT_LAYER= <current_layer>]` a rétegváltás G-kód szakaszához, hogy átadja a réteginformációt a szeletelő a Klippernek.
 
 ### [probe]
 
@@ -692,7 +692,7 @@ A következő parancsok akkor érhetők el, ha a [skew_correction konfiguráció
 
 ### [smart_effector]
 
-Több parancs is elérhető, ha a [smart_effector konfigurációs szakasz](Config_Reference.md#smart_effector) engedélyezve van. A Smart Effector paramétereinek módosítása előtt mindenképpen nézze meg a Smart Effector hivatalos dokumentációját a [Duet3D Wiki](https://duet3d.dozuki.com/Wiki/Smart_effector_and_carriage_adapters_for_delta_printer) oldalon. Ellenőrizze továbbá a [szonda kalibrációs útmutató](Probe_Calibrate.md) című dokumenmot is.
+Több parancs is elérhető, ha a [smart_effector konfigurációs szakasz](Config_Reference.md#smart_effector) engedélyezve van. A Smart Effector paramétereinek módosítása előtt mindenképpen nézze meg a Smart Effector hivatalos dokumentációját a [Duet3D Wiki](https://duet3d.dozuki.com/Wiki/Smart_effector_and_carriage_adapters_for_delta_printer) oldalon. Ellenőrizd továbbá a [szonda kalibrációs útmutató](Probe_Calibrate.md) című dokumenmot is.
 
 #### SET_SMART_EFFECTOR
 
@@ -764,7 +764,7 @@ A Klipper támogatja a következő szabványos G-kód parancsokat, ha a [virtual
 
 - SD-kártya listázása: `M20`
 - SD-kártya inicializálása: `M21`
-- Válassza ki az SD fájlt: `M23 <filename>`
+- Válaszd ki az SD fájlt: `M23 <filename>`
 - SD nyomtatás indítása/folytatása: `M24`
 - SD nyomtatás szüneteltetése: `M25`
 - SD pozíció beállítása: `M26 S<offset>`
@@ -782,11 +782,11 @@ Ezenkívül a következő kiterjesztett parancsok is elérhetők, ha a "virtual_
 
 ### [z_thermal_adjust]
 
-The following commands are available when the [z_thermal_adjust config section](Config_Reference.md#z_thermal_adjust) is enabled.
+A következő parancsok akkor érhetők el, ha a [z_thermal_adjust konfigurációs szakasz](Config_Reference.md#z_thermal_adjust) engedélyezve van.
 
 #### SET_Z_THERMAL_ADJUST
 
-`SET_Z_THERMAL_ADJUST [ENABLE=<0:1>] [TEMP_COEFF=<value>] [REF_TEMP=<value>]`: Enable or disable the Z thermal adjustment with `ENABLE`. Disabling does not remove any adjustment already applied, but will freeze the current adjustment value - this prevents potentially unsafe downward Z movement. Re-enabling can potentially cause upward tool movement as the adjustment is updated and applied. `TEMP_COEFF` allows run-time tuning of the adjustment temperature coefficient (i.e. the `TEMP_COEFF` config parameter). `TEMP_COEFF` values are not saved to the config. `REF_TEMP` manually overrides the reference temperature typically set during homing (for use in e.g. non-standard homing routines) - will be reset automatically upon homing.
+`SET_Z_THERMAL_ADJUST [ENABLE=<0:1>] [TEMP_COEFF=<value>] [REF_TEMP=<value>]`: A Z hőszabályozás engedélyezése vagy letiltása az `ENABLE` parancsal. A letiltás nem távolítja el a már alkalmazott beállítást, de befagyasztja az aktuális beállítási értéket. Ez megakadályozza a potenciálisan nem biztonságos Z lefelé irányuló mozgást. Az újbóli engedélyezés potenciálisan felfelé irányuló szerszámmozgást okozhat, mivel a beállítás frissül és alkalmazásra kerül. `TEMP_COEFF` lehetővé teszi a beállítási hőmérsékleti együttható futásidejű hangolását (azaz a `TEMP_COEFF` konfigurációs paramétert). `A TEMP_COEFF` értékek nem kerülnek mentésre a konfigurációba. `REF_TEMP` manuálisan felülbírálja a kezdőpont felvétel során beállított referencia-hőmérsékletet (pl. nem szabványos kezdőpont felvételi rutinoknál történő használatra) - a kezdőpont felvételkor automatikusan visszaáll.
 
 ### [z_tilt]
 

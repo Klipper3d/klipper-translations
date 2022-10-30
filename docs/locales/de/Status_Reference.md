@@ -1,6 +1,6 @@
 # Status reference
 
-Dieses Dokument ist eine Referenz für Druckerstatusinformationen, die in Klipper [Makros] (Command_Templates.md), [Anzeigefelder] (Config_Reference.md#display) und über den [API-Server] (API_Server.md) verfügbar sind.
+Dieses Dokument ist eine Referenz für Druckerstatusinformationen, die in Klipper [Makros](Command_Templates.md), [Anzeigefelder](Config_Reference.md#display) und über den [API-Server](API_Server.md) verfügbar sind.
 
 Die Felder in diesem Dokument können sich ändern - wenn Sie ein Attribut verwenden, stellen Sie sicher, dass Sie das [Config Changes document](Config_Changes.md) lesen, wenn Sie die Klipper Software aktualisieren.
 

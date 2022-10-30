@@ -33,7 +33,7 @@ sudo cp ~/OctoPrint/scripts/octoprint.default /etc/default/octoprint
 sudo update-rc.d octoprint defaults
 ```
 
-Módosítani kell az OctoPrint **/etc/default/octoprint** konfigurációs fájlját. Meg kell változtatni a `OCTOPRINT_USER` felhasználót `debian`-ra, változtassuk meg a `NICELEVEL`-t `0`-ra, vegyük ki a `BASEDIR` megjegyzést, `CONFIGFILE`, és `DAEMON` beállításokat, és módosítsa a hivatkozásokat `/home/pi/`-ről `/home/debian/`-re:
+Módosítani kell az OctoPrint **/etc/default/octoprint** konfigurációs fájlját. Meg kell változtatni a `OCTOPRINT_USER` felhasználót `debian`-ra, változtassuk meg a `NICELEVEL`-t `0`-ra, vegyük ki a `BASEDIR` megjegyzést, `CONFIGFILE`, és `DAEMON` beállításokat, és módosítsd a hivatkozásokat `/home/pi/`-ről `/home/debian/`-re:
 
 ```
 sudo nano /etc/default/octoprint
@@ -45,7 +45,7 @@ Ezután indítsa el az Octoprint szolgáltatást:
 sudo systemctl start octoprint
 ```
 
-Győződjön meg róla, hogy az OctoPrint webszerver elérhető - a következő címen kell lennie: <http://beaglebone:5000/>
+Győződj meg róla, hogy az OctoPrint webszerver elérhető - a következő címen kell lennie: <http://beaglebone:5000/>
 
 ## A mikrokontroller kódjának elkészítése
 
@@ -64,7 +64,7 @@ make flash
 sudo service klipper start
 ```
 
-Szükséges továbbá a mikrokontroller kódjának lefordítása és telepítése egy Linux gazdafolyamathoz. Konfigurálja másodszor is egy "Linux folyamat" számára:
+Szükséges továbbá a mikrokontroller kódjának lefordítása és telepítése egy Linux gazdafolyamathoz. Konfiguráld másodszor is egy "Linux folyamat" számára:
 
 ```
 make menuconfig

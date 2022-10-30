@@ -111,7 +111,7 @@ step_pin:
 dir_pin:
 #   Irány GPIO tű (magas pozitív irányt jelez). Ezt a paramétert meg kell adni.
 enable_pin:
-#   Engedélyezett tű (az alapértelmezett engedélyezés magas; használja a
+#   Engedélyezett tű (az alapértelmezett engedélyezés magas; használd a
 #   "!" jelet az engedélyezés alacsony szintjének jelzésére). Ha ez a
 #   paraméter nincs megadva, akkor a léptetőmotor meghajtót mindig
 #   engedélyezni kell.
@@ -924,7 +924,7 @@ További információkért lásd a [parancsreferencia](G-Codes.md#bed_tilt) doku
 #points:
 #   Az X, Y koordináták listája (soronként egy a következő sorokat behúzva),
 #   amelyeket a BED_TILT_CALIBRATE parancs során meg kell vizsgálni.
-#   Add meg a fúvóka koordinátáit, és győződjön meg arról, hogy a szonda
+#   Add meg a fúvóka koordinátáit, és győződj meg arról, hogy a szonda
 #   a tárgyasztal felett van a megadott fúvókakoordinátákon.
 #   Az alapértelmezett az, hogy nem engedélyezi a parancsot.
 #speed: 50
@@ -1033,7 +1033,7 @@ Többszörös Z léptető dőlésszög beállítása. Ez a funkció lehetővé t
 #points:
 #   Az X, Y koordináták listája (soronként egy a következő sorokat behúzva),
 #   amelyeket a Z_TILT_ADJUST parancs során meg kell vizsgálni. Add meg
-#   a fúvóka koordinátáit, és győződjön meg arról, hogy a szonda a tárgyasztal
+#   a fúvóka koordinátáit, és győződj meg arról, hogy a szonda a tárgyasztal
 #   felett van a megadott fúvókakoordinátákon.
 #   Ezt a paramétert meg kell adni.
 #speed: 50
@@ -1083,7 +1083,7 @@ Ahol X a tárgyasztal 0, 0 pontja
 #   vizsgálni a QUAD_GANTRY_LEVEL parancs során. A helyek sorrendje
 #   fontos, és sorrendben meg kell egyeznie a Z, Z1, Z2 és Z3 helyekkel.
 #   Ezt a paramétert meg kell adni. A maximális pontosság érdekében
-#   győződjön meg arról, hogy a szonda eltolása be van állítva.
+#   győződj meg arról, hogy a szonda eltolása be van állítva.
 #speed: 50
 #   A nem mérési mozgások sebessége (mm/sec-ben) mozog a kalibráláskor.
 #   Az alapértelmezett érték 50.
@@ -1112,38 +1112,38 @@ Nyomtató ferdeségkorrekció. Lehetőség van a nyomtató ferdeségének szoftv
 
 ### [z_thermal_adjust]
 
-Temperature-dependant toolhead Z position adjustment. Compensate for vertical toolhead movement caused by thermal expansion of the printer's frame in real-time using a temperature sensor (typically coupled to a vertical section of frame).
+Hőmérsékletfüggő nyomtatófej Z pozíció beállítása. Kompenzálja a nyomtató keretének hőtágulása által okozott függőleges nyomtatófej elmozdulást valós időben egy hőmérséklet-érzékelő segítségével (jellemzően a keret függőleges szakaszához csatlakoztatva).
 
-See also: [extended g-code commands](G-Codes.md#z_thermal_adjust).
+Lásd még: [bővített G-kód parancsok](G-Codes.md#z_thermal_adjust).
 
 ```
 [z_thermal_adjust]
 #temp_coeff:
-#   The temperature coefficient of expansion, in mm/degC. For example, a
-#   temp_coeff of 0.01 mm/degC will move the Z axis downwards by 0.01 mm for
-#   every degree Celsius that the temperature sensor increases. Defaults to
-#   0.0 mm/degC, which applies no adjustment.
+#   A hőmérsékleti tágulási együttható, mm/°C-ban. Például a 0,01 mm/°C
+#   temp_coeff a Z tengelyt 0,01 mm-rel lefelé mozgatja minden Celsius-fok
+#   után, amelyet a hőmérséklet-érzékelő növel.
+#   Az alapértelmezett érték 0,0 mm/°C, amely nem alkalmaz beállítást.
 #smooth_time:
-#   Smoothing window applied to the temperature sensor, in seconds. Can reduce
-#   motor noise from excessive small corrections in response to sensor noise.
-#   The default is 2.0 seconds.
+#   Simítási ablak a hőmérséklet-érzékelőre, másodpercek alatt.
+#   Csökkentheti a motorzajt a túlzottan kis korrekciókból
+#   az érzékelő zajára reagálva.
+#   Az alapértelmezett 2,0 másodperc.
 #z_adjust_off_above:
-#   Disables adjustments above this Z height [mm]. The last computed correction
-#   will remain applied until the toolhead moves below the specified Z height
-#   again. The default is 99999999.0 mm (always on).
+#   Letiltja a Z magasság [mm] feletti beállításokat.
+#   Az utoljára számított korrekció mindaddig érvényes marad, amíg a
+#   nyomtatófej ismét a megadott Z magasság alá nem kerül.
+#   Az alapértelmezett érték 99999999,0 mm (mindig bekapcsolva).
 #max_z_adjustment:
-#   Maximum absolute adjustment that can be applied to the Z axis [mm]. The
-#   default is 99999999.0 mm (unlimited).
+#   A Z tengelyre alkalmazható maximális abszolút beállítás [mm].
+#   Az alapértelmezett érték 99999999,0 mm (korlátlan).
 #sensor_type:
 #sensor_pin:
 #min_temp:
 #max_temp:
-#   Temperature sensor configuration.
-#   See the "extruder" section for the definition of the above
-#   parameters.
+#   Hőmérséklet-érzékelő konfigurációja.
+#   A fenti paraméterek meghatározásához lásd az "extruder" részt.
 #gcode_id:
-#   See the "heater_generic" section for the definition of this
-#   parameter.
+#   Lásd a "heater_generic" részt a paraméter meghatározásához.
 ```
 
 ## Testreszabott kezdőpont felvétel
@@ -1405,7 +1405,7 @@ A G-kód ív (G2/G3) parancsok támogatása.
 
 ### [respond]
 
-Engedélyezze az "M118" és "RESPOND" kiterjesztett [parancsokat](G-Codes.md#respond).
+Engedélyezd az "M118" és "RESPOND" kiterjesztett [parancsokat](G-Codes.md#respond).
 
 ```
 [respond]
@@ -1531,7 +1531,7 @@ A rezonancia tesztelés és az automatikus bemeneti alakító kalibráció támo
 #probe_points:
 #   A rezonanciák teszteléséhez szükséges pontok X, Y, Z koordinátáinak
 #   listája (soronként egy pont). Legalább egy pont szükséges.
-#   Győződjön meg róla, hogy minden pont az X-Y síkban némi
+#   Győződj meg róla, hogy minden pont az X-Y síkban némi
 #   biztonsági tartalékkal rendelkezik és (~ néhány centiméter)
 #   elérhetőek a nyomtatófejjel.
 #accel_chip:
@@ -1727,10 +1727,10 @@ control_pin:
 #   Mielőtt False értékre állítaná, olvasd el a docs/BLTouch.md
 #   utasításait. Az alapértelmezett érték True.
 #set_output_mode:
-#   Kérjen egy adott érzékelőtűs kimeneti módot a BLTouch V3.0
+#   Kérj egy adott érzékelőtűs kimeneti módot a BLTouch V3.0
 #   (és újabb) készüléken. Ezt a beállítást nem szabad más típusú
 #   szondákon használni. Állítsd "5V"-ra, ha 5 V-os érzékelőtűs
-#   kimenetet kíván kérni (csak akkor használja, ha a vezérlőkártyának
+#   kimenetet kíván kérni (csak akkor használd, ha a vezérlőkártyának
 #   5 V-os üzemmódra van szüksége, és 5 V-ot tolerál a bemeneti
 #   jelvezetékén). Állítsd „OD” értékre, hogy az érzékelő érintkezőjének
 #   kimenete nyitott leeresztési módot használjon.
@@ -1917,7 +1917,7 @@ Kézi léptetők (tetszőleges számú szakasz definiálható "manual_stepper" e
 
 ### [verify_heater]
 
-A fűtés és a hőmérséklet-érzékelő ellenőrzése. A fűtőelemek ellenőrzése automatikusan engedélyezve van minden olyan fűtőelemhez, amely a nyomtatón be van állítva. Az alapértelmezett beállítások módosításához használja a verify_heater szakaszokat.
+A fűtés és a hőmérséklet-érzékelő ellenőrzése. A fűtőelemek ellenőrzése automatikusan engedélyezve van minden olyan fűtőelemhez, amely a nyomtatón be van állítva. Az alapértelmezett beállítások módosításához használd a verify_heater szakaszokat.
 
 ```
 [verify_heater heater_config_name]
@@ -2238,7 +2238,7 @@ sensor_type: temperature_mcu
 #   hőmérsékletének kalibrálásához. Ez egyes chipeknél javíthatja a
 #   jelentett hőmérsékleti pontosságot. A kalibrációs adatok
 #   megszerzésének tipikus módja az, hogy néhány órára teljesen
-#   áramtalanítja a nyomtatót (hogy megbizonyosodjon arról, hogy az
+#   áramtalanítja a nyomtatót (hogy megbizonyosodj arról, hogy az
 #   környezeti hőmérsékleten van), majd bekapcsolja, és a QUERY_ADC
 #   paranccsal megkapja az ADC mérést. Használj más hőmérséklet
 #   érzékelőt a nyomtatón a megfelelő környezeti hőmérséklet
@@ -2314,7 +2314,7 @@ pin:
 #   Szoftver alapú PWM használatakor ajánlott 10 ezredmásodperc vagy több.
 #   Az alapértelmezett érték 0,010 másodperc.
 #hardware_pwm: False
-#   Engedélyezze ezt hardveres PWM használatához a szoftveres PWM helyett.
+#   Engedélyezd ezt hardveres PWM használatához a szoftveres PWM helyett.
 #   A legtöbb ventilátor nem működik jól a hardveres PWM-mel, ezért nem
 #   ajánlott ezt engedélyezni, hacsak nincs elektromos követelmény a nagyon
 #   nagy sebességű kapcsoláshoz. Hardveres PWM használatakor a tényleges
@@ -2528,7 +2528,7 @@ A mikrokontroller PWM tűin keresztül vezérelt LED-ek (és LED-csíkok) támog
 #   használata esetén ajánlott ez 10 ezredmásodperc vagy több.
 #   Az alapértelmezett érték 0,010 másodperc.
 #hardware_pwm: False
-#   Engedélyezze ezt a hardveres PWM használatához a szoftveres
+#   Engedélyezd ezt a hardveres PWM használatához a szoftveres
 #   PWM helyett. Hardveres PWM használatakor a tényleges ciklusidőt
 #   a megvalósítás korlátozza, és jelentősen eltérhet a kért ciklusidőtől.
 #   Az alapértelmezett érték False.
@@ -2731,7 +2731,7 @@ pin:
 #   esetén ajánlott 10 ezredmásodperc vagy több.
 #   Az alapértelmezett érték 0,100 másodperc a PWM lábak esetén.
 #hardware_pwm: False
-#   Engedélyezze ezt a hardveres PWM használatához a szoftveres PWM helyett.
+#   Engedélyezd ezt a hardveres PWM használatához a szoftveres PWM helyett.
 #   Hardveres PWM használatakor a tényleges ciklusidőt a megvalósítás
 #   korlátozza, és jelentősen eltérhet a kért ciklusidőtől.
 #   Az alapértelmezett érték False.
@@ -2797,7 +2797,7 @@ cs_pin:
 #   Az 1. pozíció a MOSI jelhez csatlakozó léptetőnek felel meg.
 #   Az alapértelmezés szerint nem használ SPI-láncot.
 #interpolate: True
-#   Ha True, engedélyezze a lépésinterpolációt (az illesztőprogram
+#   Ha True, engedélyezd a lépésinterpolációt (az illesztőprogram
 #   belsőleg 256 mikrolépéses sebességgel léptet). Ez az interpoláció egy
 #   kis szisztémás pozícióeltérést vezet be. A részletekért lásd:
 #   TMC_Drivers.md. Az alapértelmezett érték True.
@@ -2839,7 +2839,7 @@ run_current:
 #   általában "^!" előtagja van. Ennek beállítása egy
 #   „tmc2130_stepper_x:virtual_endstop” virtuális tűt hoz létre, amely a
 #   léptető endstop_pin-jeként használható. Ez lehetővé teszi az
-#   „érzékelő nélküli kezdőpont felvétel” funkciót. (Győződjön meg arról,
+#   „érzékelő nélküli kezdőpont felvétel” funkciót. (Győződj meg arról,
 #   hogy a driver_SGT-t is megfelelő érzékenységi értékre állítja be.)
 #   Az alapértelmezés az, hogy nem engedélyezi az érzékelő nélküli
 #   kezdőpont felvételt.
@@ -2865,7 +2865,7 @@ uart_pin:
 #   kommunikációhoz. Az alapértelmezett az, hogy nem konfigurál
 #   semmilyen érintkezőt.
 #interpolate: True
-#   Ha True, engedélyezze a lépésinterpolációt (a motorvezérlő belsőleg
+#   Ha True, engedélyezd a lépésinterpolációt (a motorvezérlő belsőleg
 #   256 mikrolépéses sebességgel léptet). Ez az interpoláció egy kis
 #   szisztémás pozícióeltérést vezet be. A részletekért lásd:
 #   TMC_Drivers.md. Az alapértelmezett érték True.
@@ -2947,7 +2947,7 @@ run_current:
 #   felhúzást. Ennek beállítása egy
 #   "tmc2209_stepper_x:virtual_endstop" virtuális tűt hoz létre,
 #   amely a léptető endstop_pin-jeként használható. Ez lehetővé teszi a
-#   "végálláskapcsoló nélküli kezdőpont felvételt". (Győződjön meg arról,
+#   "végálláskapcsoló nélküli kezdőpont felvételt". (Győződj meg arról,
 #   hogy a driver_SGTHRS-t is megfelelő érzékenységi értékre állítja be.)
 #   Alapértelmezés szerint nincs engedélyezve a végálláskapcsoló nélküli
 #   kezdőpont felvételt.
@@ -2973,7 +2973,7 @@ cs_pin:
 #   A fenti paraméterek leírását a „általános SPI-beállítások”
 #   részben találja.
 #interpolate: True
-#   Ha True, engedélyezze a lépésinterpolációt (az illesztőprogram
+#   Ha True, engedélyezd a lépésinterpolációt (az illesztőprogram
 #   belsőleg 256 mikrolépéses sebességgel léptet). Ez csak akkor
 #   működik, ha a mikrolépések 16-ra vannak állítva. Az interpoláció
 #   egy kis szisztémás pozícióeltérést vezet be. A részletekért lásd a
@@ -3047,7 +3047,7 @@ cs_pin:
 #   Az 1. pozíció a MOSI jelhez csatlakozó léptetőnek felel meg.
 #   Az alapértelmezés szerint nem használ SPI-láncot.
 #interpolate: True
-#   Ha True, engedélyezze a lépésinterpolációt (a motorvezérlő belsőleg
+#   Ha True, engedélyezd a lépésinterpolációt (a motorvezérlő belsőleg
 #   256 mikrolépéses sebességgel léptet). Az alapértelmezett érték True.
 run_current:
 #   Az áramerősség (amper RMS-ben) a meghajtó konfigurálásához a
@@ -3104,7 +3104,7 @@ run_current:
 #   "^!" előtagja van. Ennek beállítása egy
 #   „tmc5160_stepper_x:virtual_endstop” virtuális tűt hoz létre, amely a
 #   léptető endstop_pin-jeként használható. Ez lehetővé teszi az „érzékelő
-#   nélküli kezdőpont felvétel” funkciót. (Győződjön meg arról, hogy a
+#   nélküli kezdőpont felvétel” funkciót. (Győződj meg arról, hogy a
 #   driver_SGT-t is megfelelő érzékenységi értékre állítja be.)
 #   Az alapértelmezés az, hogy nem engedélyezi az érzékelő nélküli
 #   kezdőpont felvételt.
@@ -3352,7 +3352,7 @@ d7_pin:
 #   A tűk egy hd44780 típusú LCD-hez csatlakoznak.
 #   Ezeket a paramétereket meg kell adni.
 #hd44780_protocol_init: True
-#   Végezzen 8 bites/4 bites protokoll inicializálást hd44780 kijelzőn.
+#   Végezz 8 bites/4 bites protokoll inicializálást hd44780 kijelzőn.
 #   Ez szükséges a valódi hd44780-as eszközökön. Előfordulhat
 #   azonban, hogy ezt bizonyos "klónozó" eszközökön le kell tiltani.
 #   Az alapértelmezett érték True.
@@ -3380,7 +3380,7 @@ spi_software_miso_pin:
 #   kívüli tűjére kell állítani, mivel a shift regiszternek nincs MISO tűje,
 #   de a szoftver SPI megvalósításához ezt a tűt be kell állítani.
 #hd44780_protocol_init: True
-#   Végezzen 8 bites/4 bites protokoll inicializálást hd44780 kijelzőn.
+#   Végezz 8 bites/4 bites protokoll inicializálást hd44780 kijelzőn.
 #   Ez szükséges a valódi hd44780-as eszközökön. Előfordulhat
 #   azonban, hogy ezt bizonyos "klónozó" eszközökön le kell tiltani.
 #   Az alapértelmezett érték True.
@@ -3939,7 +3939,7 @@ Ez a modul a teljes funkcionalitáshoz a `[virtual_sdcard]` és `[pause_resume]`
 
 Ha ezt a modult használod, ne használd a Palette 2 plugint az Octoprinthez, mivel ezek ütközni fognak, és az egyik nem fog megfelelően inicializálódni, ami valószínűleg megszakítja a nyomtatást.
 
-Ha az Octoprintet használja és a gcode-ot a soros porton keresztül streameli a virtual_sd-ről való nyomtatás helyett, akkor a **M1** és **M0** parancsok *Pausing parancsok* a *Settings >. alatt remo; Serial Connection > Firmware & protocol* megakadályozzák, hogy a nyomtatás megkezdéséhez a Paletta 2-n el kelljen indítani a nyomtatást, és az Octoprintben fel kelljen oldani a szünetet.
+Ha az Octoprintet használod és a G-kódot a soros porton keresztül streameli a virtual_sd-ről való nyomtatás helyett, akkor a **M1** és **M0** parancsok *Pausing parancsok* a *Settings >. alatt remo; Serial Connection > Firmware & protocol* megakadályozzák, hogy a nyomtatás megkezdéséhez a Paletta 2-n el kelljen indítani a nyomtatást, és az Octoprintben fel kelljen oldani a szünetet.
 
 ```
 [paletta2]

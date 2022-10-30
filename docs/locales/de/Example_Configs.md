@@ -2,7 +2,7 @@
 
 Dieses Dokument enthält Richtlinien für das Einbringen einer Klipper-Beispielkonfiguration in das Klipper-Github-Repository (zu finden im [config-Verzeichnis](../config/)).
 
-Beachten Sie, dass der [Klipper Community Discourse Server] (https://community.klipper3d.org) auch eine nützliche Ressource ist, um Konfigurationsdateien zu finden und zu teilen.
+Beachten Sie, dass der [Klipper Community Discourse Server](https://community.klipper3d.org) auch eine nützliche Ressource ist, um Konfigurationsdateien zu finden und zu teilen.
 
 ## Guidelines
 

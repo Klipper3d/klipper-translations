@@ -6,7 +6,7 @@ Ez a dokumentum leírja a Klipper futtatásának folyamatát egy RPi-n, és ugya
 
 A 3D nyomtatók vezérlésére szolgáló MCU-k gyakran korlátozott és előre konfigurált számú szabad kimenettel rendelkeznek a fő nyomtatási funkciók (hőellenállások, extruderek, léptetők stb.) kezelésére. Az RPi használata, ahol a Klipper másodlagos MCU-ként van telepítve, lehetővé teszi a GPIO-k és az RPi kimeneteinek (I2C, SPI) közvetlen használatát a klipperben anélkül, hogy Octoprint bővítményeket (ha van ilyen) vagy külső programokat használva, amelyek lehetővé teszik, hogy mindent vezéreljen a Klipper-en belül a nyomtatási G-kód.
 
-**Figyelmeztetés**: Ha az Ön platformja egy *Beaglebone*, és helyesen követte a telepítés lépéseit, a Linux MCU már telepítve és konfigurálva van a rendszeréhez.
+**Figyelmeztetés**: Ha a te platformod egy *Beaglebone*, és helyesen követted a telepítés lépéseit, a Linux MCU már telepítve és konfigurálva van a rendszeredhez.
 
 ## Az rc szkript telepítése
 
