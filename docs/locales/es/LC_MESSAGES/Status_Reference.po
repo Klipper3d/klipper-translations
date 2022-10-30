@@ -1,9 +1,9 @@
-# nieraldo <nierybecar@gmail.com>, 2022.
+# nieraldo <nierybecar@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: nieraldo <nierybecar@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "status_reference/es/>\n"
 "Language: es\n"
@@ -18,9 +18,8 @@ msgid ""
 "fields](Config_Reference.md#display), and via the [API Server](API_Server.md)."
 msgstr ""
 "Este documento es una referencia del estado de la impresora disponible en "
-"Klipper [macros](Command_Templates.md), [display "
-"fields](Config_Reference.md#display), y a travez del [API "
-"Server](API_Server.md)."
+"Klipper [macros](Command_Templates.md), [display fields]"
+"(Config_Reference.md#display), y a travez del [API Server](API_Server.md)."
 
 msgid ""
 "The fields in this document are subject to change - if using an attribute be "
