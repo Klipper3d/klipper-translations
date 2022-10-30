@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-09-29 11:17+0000\n"
+"PO-Revision-Date: 2022-10-30 12:06+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/skew_correction/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"skew_correction/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: docs/Skew_Correction.md:block 1 (header)
 msgid "Skew correction"
@@ -58,13 +59,13 @@ msgid ""
 "this by either removing the `[skew_correction]` module from printer.cfg or "
 "by issuing a `SET_SKEW CLEAR=1` gcode."
 msgstr ""
-"Győződjön meg róla, hogy a nyomtatás során nem alkalmaz ferdeségkorrekciót. "
+"Győződj meg róla, hogy a nyomtatás során nem alkalmaz ferdeségkorrekciót. "
 "Ezt úgy teheti meg, hogy vagy eltávolítja a `[skew_correction]` modult a "
-"printer.cfg fájlból, vagy kiad egy `SET_SKEW CLEAR=1` parancsot."
+"printer.cfg fájlból, vagy kiadsz egy `SET_SKEW CLEAR=1` parancsot."
 
 #: docs/Skew_Correction.md:block 6 (header)
 msgid "Take your measurements"
-msgstr "Mérje meg"
+msgstr "Mérd meg"
 
 #: docs/Skew_Correction.md:block 7 (paragraph)
 msgid ""
@@ -86,7 +87,7 @@ msgstr "![skew_lengths](img/skew_lengths.png)"
 
 #: docs/Skew_Correction.md:block 9 (header)
 msgid "Configure your skew"
-msgstr "Konfigurálja a ferdeséget"
+msgstr "Konfiguráld a ferdeséget"
 
 #: docs/Skew_Correction.md:block 10 (paragraph)
 msgid ""
@@ -94,9 +95,9 @@ msgid ""
 "`SET_SKEW` gcode to configure skew_correcton. For example, if your measured "
 "lengths along XY are as follows:"
 msgstr ""
-"Győződjön meg róla, hogy a `[skew_correction]` szerepel a printer.cfg "
-"fájlban. Most már használhatod a `SET_SKEW` G-kódot a skew_correction "
-"beállításához. Például, ha az XY mentén mért hosszok a következők:"
+"Győződj meg róla, hogy a `[skew_correction]` szerepel a printer.cfg fájlban. "
+"Most már használhatod a `SET_SKEW` G-kódot a skew_correction beállításához. "
+"Például, ha az XY mentén mért hosszok a következők:"
 
 #: docs/Skew_Correction.md:block 11 (code)
 msgid ""
