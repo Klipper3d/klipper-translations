@@ -12,7 +12,7 @@ Ez a dokumentum megpróbálja leírni a gyakori bootloadereket, a bootloader ég
 
 Általánosságban az Arduino projekt jó referencia a 8 bites Atmel Atmega mikrovezérlők bootloadereiről és a égetési eljárásokról. Különösen a "boards.txt" fájl: <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> hasznos referencia.
 
-A bootloader égetéséhez az AVR chipekhez külső hardveres égető eszközre van szükség (amely SPI segítségével kommunikál a chippel). Ez az eszköz megvásárolható (például keressen rá az interneten az "avr isp", "arduino isp" vagy "usb tiny isp" szavakra). Az is lehetséges, hogy egy másik Arduino vagy Raspberry Pi segítségével égessen egy AVR bootloadert (például keressen rá az interneten a "program an avr using raspberry pi" kifejezésre). Az alábbi példákat egy "AVR ISP Mk2" típusú eszköz használatát feltételezve írtuk.
+A bootloader égetéséhez az AVR chipekhez külső hardveres égető eszközre van szükség (amely SPI segítségével kommunikál a chippel). Ez az eszköz megvásárolható (például keressen rá az interneten az "avr isp", "arduino isp" vagy "usb tiny isp" szavakra). Az is lehetséges, hogy egy másik Arduino vagy Raspberry Pi segítségével égess egy AVR bootloadert (például keressen rá az interneten a "program an avr using raspberry pi" kifejezésre). Az alábbi példákat egy "AVR ISP Mk2" típusú eszköz használatát feltételezve írtuk.
 
 Az "avrdude" program a leggyakrabban használt eszköz az atmega chipek égetésére (mind a bootloader, mind az alkalmazások égetésére).
 
@@ -143,7 +143,7 @@ bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 
 A SAMD21 bootloader az ARM Serial Wire Debug (SWD) interfészen keresztül töltődik fel. Ez általában egy dedikált SWD hardver dongle segítségével történik. Alternatívaként használhatunk egy [OpenOCD futtatást a Raspberry PI-n](#az-openocd-futtatasa-a-raspberry-pi-n).
 
-A bootloader OpenOCD-vel történő égetéséhez használja a következő chipkonfigurációt:
+A bootloader OpenOCD-vel történő égetéséhez használd a következő chipkonfigurációt:
 
 ```
 forrás [find target/at91samdXX.cfg]
@@ -176,7 +176,7 @@ avrdude -c stk500v2 -p atmega2560 -P /dev/ttyACM0 -u -Uflash:w:out/klipper.elf.h
 
 ## SAMD51 mikrovezérlők (Adafruit Metro-M4 és hasonló)
 
-A SAMD21-hez hasonlóan a SAMD51 bootloader is az ARM Serial Wire Debug (SWD) interfészen keresztül töltődik fel. Az [OpenOCD futtatása a Raspberry PI-n](#az-openocd-futtatasa-a-raspberry-pi-n) bootloader égetéséhez használja a következő chipkonfigurációt:
+A SAMD21-hez hasonlóan a SAMD51 bootloader is az ARM Serial Wire Debug (SWD) interfészen keresztül töltődik fel. Az [OpenOCD futtatása a Raspberry PI-n](#az-openocd-futtatasa-a-raspberry-pi-n) bootloader égetéséhez használd a következő chipkonfigurációt:
 
 ```
 forrás [find target/atsame5x.cfg]
@@ -226,7 +226,7 @@ wget 'https://github.com/rogerclarkmelbourne/STM32duino-bootloader/raw/master/bi
 stm32flash -w generic_boot20_pc13.bin -v -g 0 /dev/ttyAMA0
 ```
 
-Ez a bootloader 8KiB-es flash memóriát használ (az alkalmazást 8KiB kezdőcímmel kell lefordítani). Égessen egy alkalmazást valami ilyesmivel:
+Ez a bootloader 8KiB-es flash memóriát használ (az alkalmazást 8KiB kezdőcímmel kell lefordítani). Égess egy alkalmazást valami ilyesmivel:
 
 ```
 dfu-util -d 1eaf:0003 -a 2 -R -D out/klipper.bin
@@ -351,7 +351,7 @@ python3 flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u aabbccddeeff
 
 Ahol `aabbccddeeff` helyébe az Ön UUID-je lép. Vedd figyelembe, hogy a `-i` és `-f` opciók elhagyhatók, ezek alapértelmezett értéke `can0` és `~/klipper/out/klipper.bin`.
 
-Amikor a Klippert a CanBoot-al való használatra építi, válassza a 8 KiB-os bootloader opciót.
+Amikor a Klippert a CanBoot-al való használatra készíted, válaszd a 8 KiB-os bootloader opciót.
 
 ## STM32F4 mikrovezérlők (SKR Pro 1.1)
 
@@ -434,7 +434,7 @@ reset halt
 
 ### A Raspberry Pi és a célchip összekötése
 
-Kapcsolja ki mind a Raspberry Pi-t, mind a célchipet a kábelezés előtt! Ellenőrizze, hogy a célchip 3,3V-ot használ-e a Raspberry Pi csatlakoztatása előtt!
+Kapcsolja ki mind a Raspberry Pi-t, mind a célchipet a kábelezés előtt! Ellenőrizd, hogy a célchip 3,3V-ot használ-e a Raspberry Pi csatlakoztatása előtt!
 
 Csatlakoztassa a célchip GND, SWDCLK, SWDIO és RST értékeit a Raspberry Pi GND, GPIO25, GPIO24 és GPIO18 értékéhez.
 
@@ -449,7 +449,7 @@ cd ~/openocd/
 sudo ~/openocd/install/bin/openocd -f ~/openocd/openocd.cfg
 ```
 
-A fentieknek hatására az OpenOCD-nek ki kell adnia néhány szöveges üzenetet, majd várnia kell (nem szabad azonnal visszatérnie az Unix shell prompthoz). Ha az OpenOCD magától kilép, vagy ha továbbra is szöveges üzeneteket ad ki, akkor ellenőrizze kétszer a kábelezést.
+A fentieknek hatására az OpenOCD-nek ki kell adnia néhány szöveges üzenetet, majd várnia kell (nem szabad azonnal visszatérnie az Unix shell prompthoz). Ha az OpenOCD magától kilép, vagy ha továbbra is szöveges üzeneteket ad ki, akkor ellenőrizd kétszer a kábelezést.
 
 Ha az OpenOCD fut és stabilan működik, akkor telneten keresztül parancsokat küldhetünk neki. Nyissunk egy másik SSH munkamenetet, és futtassuk a következőket:
 

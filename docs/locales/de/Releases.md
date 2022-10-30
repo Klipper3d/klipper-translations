@@ -22,7 +22,7 @@ Available on 20210929. Major changes in this release:
 
 ## Klipper 0.9.0
 
-Available on 20201020. Major changes in this release:
+Verfügbar ab 20201020. Bedeutende Änderungen in diesem Release:
 
 * Support for "Input Shaping" - a mechanism to counteract printer resonance. It can reduce or eliminate "ringing" in prints.
 * New "Smooth Pressure Advance" system. This implements "Pressure Advance" without introducing instantaneous velocity changes. It is also now possible to tune pressure advance using a "Tuning Tower" method.

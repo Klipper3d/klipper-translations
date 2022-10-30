@@ -45,7 +45,7 @@ A kód megpróbálja az eszközt az egyes platformok esetében legelterjedtebb m
 
 Ha időszakos hiba van, vagy szabványos beállításod van, akkor ellenőrizd, hogy a Klipper nem fut-e égetés közben (sudo service klipper stop), győződj meg róla, hogy az OctoPrint nem próbál közvetlenül az eszközhöz csatlakozni (nyisd meg a weblapon a Kapcsolat lapot, és kattints a Kapcsolat megszakítása gombra, ha a soros port az eszközhöz van beállítva), és győződj meg róla, hogy a FLASH_DEVICE helyesen van beállítva a lapodhoz (lásd a fenti [kérdést](#hol-van-a-soros-portom)).
 
-Ha azonban a "make flash" egyszerűen nem működik az alaplapján, akkor manuálisan kell égetnie. Nézze meg, hogy van-e a [config könyvtárban](../config) egy config fájl, amely konkrét utasításokat tartalmaz az eszköz égetésére. Ellenőrizze a kártya gyártójának dokumentációját is, hogy leírja-e, hogyan kell égetni az eszközt. Végül, lehetséges lehet, hogy manuálisan égessük az eszközt olyan eszközökkel, mint az "avrdude" vagy a "bossac" - további információkért lásd a [bootloader dokumentumot](Bootloaders.md).
+Ha azonban a "make flash" egyszerűen nem működik az alaplapján, akkor manuálisan kell égetnie. Nézze meg, hogy van-e a [config könyvtárban](../config) egy config fájl, amely konkrét utasításokat tartalmaz az eszköz égetésére. Ellenőrizd a kártya gyártójának dokumentációját is, hogy leírja-e, hogyan kell égetni az eszközt. Végül, lehetséges lehet, hogy manuálisan égessük az eszközt olyan eszközökkel, mint az "avrdude" vagy a "bossac" - további információkért lásd a [bootloader dokumentumot](Bootloaders.md).
 
 ## Hogyan változtathatom meg a soros port átviteli sebességét?
 
@@ -116,23 +116,23 @@ A cartesian stílusú nyomtatók esetében a Z position_endstop megadja, hogy a 
 
 ## Átkonvertáltam a konfigurációmat Marlinból, és az X/Y tengelyek jól működnek, de a Z tengely kezdőpont felvételekor csak egy csikorgó zajt hallok
 
-Rövid válasz: Először is ellenőrizze, hogy a [konfigurációs ellenőrzések dokumentumban](Config_checks.md) leírtak szerint ellenőrizte-e a léptető konfigurációját. Ha a probléma továbbra is fennáll, próbáld meg csökkenteni a max_z_velocity értéket a nyomtató konfigurációjában.
+Rövid válasz: Először is ellenőrizd, hogy a [konfigurációs ellenőrzések dokumentumban](Config_checks.md) leírtak szerint ellenőrizted-e a léptető konfigurációját. Ha a probléma továbbra is fennáll, próbáld meg csökkenteni a max_z_velocity értéket a nyomtató konfigurációjában.
 
 Hosszú válasz: A gyakorlatban a Marlin jellemzően csak körülbelül 10000 lépés/másodperc sebességgel tud lépni. Ha olyan sebességgel kell mozognia, amely nagyobb lépésszámot igényel, akkor a Marlin általában csak olyan gyorsan lép, amilyen gyorsan csak tud. A Klipper sokkal nagyobb lépésszámot képes elérni, de a léptetőmotornak nem biztos, hogy elegendő nyomatéka van a nagyobb sebességű mozgáshoz. Tehát egy nagy áttételszámú vagy nagy mikrolépésszámú Z tengely esetében a ténylegesen elérhető max_z_sebesség kisebb lehet, mint ami a Marlinban be van állítva.
 
 ## A TMC motorvezérlő kikapcsol nyomtatás közben
 
-Ha a TMC2208 (vagy TMC2224) motorvezérlőt "standalone módban" használja, akkor győződjön meg róla, hogy a [Klipper legújabb verzióját](#hogyan-frissithetek-a-legujabb-szoftverre) használja. A TMC2208 "stealthchop" motorvezérlő problémájának megoldása 2020 március közepén került hozzá a Klipperhez.
+Ha a TMC2208 (vagy TMC2224) motorvezérlőt "standalone módban" használod, akkor győződj meg róla, hogy a [Klipper legújabb verzióját](#hogyan-frissithetek-a-legujabb-szoftverre) használd. A TMC2208 "stealthchop" motorvezérlő problémájának megoldása 2020 március közepén került hozzá a Klipperhez.
 
 ## Véletlenszerű "Elveszett a kommunikáció az MCU-val" hibák
 
 Ezt általában a gazdagép és a mikrokontroller közötti USB-kapcsolat hardverhibái okozzák. Amit keresni kell:
 
-- Használj jó minőségű USB-kábelt a gazdagép és a mikrokontroller között. Győződjön meg róla, hogy a csatlakozók biztonságosan csatlakoznak.
+- Használj jó minőségű USB-kábelt a gazdagép és a mikrokontroller között. Győződj meg róla, hogy a csatlakozók biztonságosan csatlakoznak.
 - Ha Raspberry Pi-t használ, használj [jó minőségű tápegységet](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply) a Raspberry Pi számára, és egy [jó minőségű USB-kábellel](https://forums.raspberrypi.com/viewtopic.php?p=589877#p589877) csatlakoztassa a tápegységet a Pihez. Ha az OctoPrint "feszültség alatt" figyelmeztetéseket kap, az a tápegységgel függ össze, és ezt meg kell javítani.
-- Győződjön meg róla, hogy a nyomtató áramellátása nincs túlterhelve. (A mikrovezérlő USB-chip áramellátásának ingadozása a chip újraindítását eredményezheti.)
-- Ellenőrizze, hogy a léptető, fűtő és egyéb nyomtatóvezetékek nem szakadtak vagy rongálódtak. (A nyomtató mozgása megterhelheti a hibás vezetéket, ami érintkezési hibákhoz, rövidzárlathoz vagy túlzott zajkeltéshez vezethet.)
-- Jelentéseket kaptunk magas USB-zajról, amikor a nyomtató, és a gazdagép 5V-os tápellátása keveredik. (Ha azt tapasztalja, hogy a mikrokontroller bekapcsol, amikor a gazdagép tápellátása be van kapcsolva, vagy az USB-kábel be van dugva, akkor ez azt jelzi, hogy az 5V-os tápegységek keverednek.) Segíthet, ha úgy konfigurálja a mikrokontrollert, hogy csak az egyik forrásból származó áramot használja. (Alternatív megoldásként, ha a mikrokontroller lapja nem tudja konfigurálni az áramforrását, módosíthatunk egy USB-kábelt úgy, hogy az ne szállítson 5V-os áramot a gazdagép és a mikrokontroller között.)
+- Győződj meg róla, hogy a nyomtató áramellátása nincs túlterhelve. (A mikrovezérlő USB-chip áramellátásának ingadozása a chip újraindítását eredményezheti.)
+- Ellenőrizd, hogy a léptető, fűtő és egyéb nyomtatóvezetékek nem szakadtak vagy rongálódtak. (A nyomtató mozgása megterhelheti a hibás vezetéket, ami érintkezési hibákhoz, rövidzárlathoz vagy túlzott zajkeltéshez vezethet.)
+- Jelentéseket kaptunk magas USB-zajról, amikor a nyomtató, és a gazdagép 5V-os tápellátása keveredik. (Ha azt tapasztalod, hogy a mikrokontroller bekapcsol, amikor a gazdagép tápellátása be van kapcsolva, vagy az USB-kábel be van dugva, akkor ez azt jelzi, hogy az 5V-os tápegységek keverednek.) Segíthet, ha úgy konfigurálod a mikrokontrollert, hogy csak az egyik forrásból származó áramot használod. (Alternatív megoldásként, ha a mikrokontroller lapja nem tudja konfigurálni az áramforrását, módosíthatunk egy USB-kábelt úgy, hogy az ne szállítson 5V-os áramot a gazdagép és a mikrokontroller között.)
 
 ## A Raspberry Pi újraindul nyomtatás közben
 
@@ -156,7 +156,7 @@ A gazdaszoftver külön kódot is tartalmaz a fűtőelemek és a hőmérséklet 
 
 ## Hogyan alakíthatok át egy Marlin tű számot Klipper tű névre?
 
-Rövid válasz: [sample-aliases.cfg](../config/sample-aliases.cfg) fájlban található leképezés. Használd ezt a fájlt útmutatóként a tényleges mikrokontroller tű nevek megtalálásához. (Az is lehetséges, hogy a vonatkozó [board_pins](Config_Reference.md#board_pins) config szakaszt átmásold a config fájljába, és használja az álneveket a configban, de előnyösebb a tényleges mikrokontroller tű nevek lefordítása és használata.) Vedd figyelembe, hogy a sample-aliases.cfg fájl olyan tű neveket használ, amelyek "ar" előtaggal kezdődnek "D" helyett (pl. az Arduino tű `D23` a Klipper álnév `ar23`) és az "analog" helyett "A" (pl. az Arduino tű `A14` a Klipper álnév `analog14`).
+Rövid válasz: [sample-aliases.cfg](../config/sample-aliases.cfg) fájlban található leképezés. Használd ezt a fájlt útmutatóként a tényleges mikrokontroller tű nevek megtalálásához. (Az is lehetséges, hogy a vonatkozó [board_pins](Config_Reference.md#board_pins) config szakaszt átmásold a config fájljába, és használd az álneveket a configban, de előnyösebb a tényleges mikrokontroller tű nevek lefordítása és használata.) Vedd figyelembe, hogy a sample-aliases.cfg fájl olyan tű neveket használ, amelyek "ar" előtaggal kezdődnek "D" helyett (pl. az Arduino tű `D23` a Klipper álnév `ar23`) és az "analog" helyett "A" (pl. az Arduino tű `A14` a Klipper álnév `analog14`).
 
 Hosszú válasz: Klipper a mikrokontroller által meghatározott szabványos tű neveket használja. Az Atmega chipeken ezek a hardveres tűk olyan neveket viselnek, mint `PA4`, `PC7`, vagy `PD2`.
 
@@ -168,7 +168,7 @@ A zavar elkerülése érdekében a Klipper alapkódja a mikrokontroller által m
 
 Ez az eszköz típusától és a tű típusától függ:
 
-ADC tűk (vagy analóg tűk): Termisztorok és hasonló "analóg" érzékelők esetén az eszközt a mikrokontroller egy "analóg" vagy "ADC" -képes tűjére kell csatlakoztatni. Ha a Klippert olyan tű használatára konfigurálja, amely nem analóg képes, a Klipper egy "Nem érvényes ADC tű" hibát fog jelenteni.
+ADC tűk (vagy analóg tűk): Termisztorok és hasonló "analóg" érzékelők esetén az eszközt a mikrokontroller egy "analóg" vagy "ADC" -képes tűjére kell csatlakoztatni. Ha a Klippert olyan tű használatára konfigurálod, amely nem analóg képes, a Klipper egy "Nem érvényes ADC tű" hibát fog jelenteni.
 
 PWM tűk (vagy időzítő tűk): A Klipper alapértelmezés szerint nem használ hardveres PWM-et egyetlen eszköz esetében sem. Tehát általában a fűtőtesteket, ventilátorokat és hasonló eszközöket bármelyik általános célú IO tűre lehet vezetékezni. A ventilátorok és az output_pin eszközök azonban opcionálisan úgy konfigurálhatók, hogy `hardware_pwm: True` értéket használnak, amely esetben a mikrokontrollernek támogatnia kell a hardveres PWM-et a tűn (ellenkező esetben a Klipper egy "Not a valid PWM pin" hibát fog jelezni).
 
@@ -182,7 +182,7 @@ Más eszközök bármelyik általános célú IO tűre csatlakoztathatók. Péld
 
 ## Hogyan tudom törölni az M109/M190 "várakozás a hőmérsékletre" kérést?
 
-Navigálj az OctoPrint terminál fülre, és adj ki egy M112 parancsot a terminálmezőben. Az M112 parancs hatására a Klipper "leállítás" állapotba kerül, és az OctoPrint megszakítja a kapcsolatot a Klipperrel. Navigálj az OctoPrint csatlakozási területére, és kattintson a "Connect" gombra, hogy az OctoPrint újra csatlakozzon. Navigálj vissza a terminál fülre, és adj ki egy FIRMWARE_RESTART parancsot a Klipper hibaállapotának törléséhez. E műveletsor befejezése után az előző fűtéskérés törlődik, és új nyomtatás indítható.
+Navigálj az OctoPrint terminál fülre, és adj ki egy M112 parancsot a terminálmezőben. Az M112 parancs hatására a Klipper "leállítás" állapotba kerül, és az OctoPrint megszakítja a kapcsolatot a Klipperrel. Navigálj az OctoPrint csatlakozási területére, és kattints a "Kapcsolódás" gombra, hogy az OctoPrint újra csatlakozzon. Navigálj vissza a terminál fülre, és adj ki egy FIRMWARE_RESTART parancsot a Klipper hibaállapotának törléséhez. E műveletsor befejezése után az előző fűtéskérés törlődik, és új nyomtatás indítható.
 
 ## Meg tudom állapítani, hogy a nyomtató vesztett-e lépéseket?
 
@@ -234,7 +234,7 @@ sudo service klipper restart
 
 Ha e parancs használata után a szoftver arra figyelmeztet, hogy a mikrokontrollert újra kell égetni, vagy más szokatlan hiba lép fel, akkor kövesse a fent leírt teljes frissítési lépéseket.
 
-Ha továbbra is fennállnak a hibák, akkor ellenőrizze a [konfigurációs változások](Config_Changes.md) dokumentumot, mivel lehet, hogy módosítani kell a nyomtató konfigurációját.
+Ha továbbra is fennállnak a hibák, akkor ellenőrizd a [konfigurációs változások](Config_Changes.md) dokumentumot, mivel lehet, hogy módosítani kell a nyomtató konfigurációját.
 
 Ne feledd, hogy a RESTART és FIRMWARE_RESTART G-kód parancsok nem töltenek be új szoftvert a fenti "sudo service klipper restart" és "make flash" parancsok szükségesek a szoftverváltás érvénybe lépéséhez.
 

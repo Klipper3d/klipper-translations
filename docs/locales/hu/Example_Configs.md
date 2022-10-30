@@ -6,7 +6,7 @@ Ne feledd, hogy a [Klipper Community Discourse szerver](https://community.klippe
 
 ## Irányelvek
 
-1. Válassza ki a megfelelő konfigurációs fájlnév előtagot:
+1. Válaszd ki a megfelelő konfigurációs fájlnév előtagot:
    1. A `printer` előtagot az általános gyártó által értékesített nyomtatókra használják.
    1. Az `általános` előtagot olyan 3D nyomtató alaplapra használják, amely számos különböző típusú nyomtatóban használható.
    1. A `kit` előtag olyan 3D nyomtatókra vonatkozik, amelyeket egy széles körben használt specifikáció szerint állítanak össze. Ezek a "kit" nyomtatók általában abban különböznek a normál "nyomtatóktól", hogy nem egy gyártó értékesíti őket.
@@ -31,7 +31,7 @@ Ne feledd, hogy a [Klipper Community Discourse szerver](https://community.klippe
    1. Ahol lehetséges, a sorok száma nem haladhatja meg a 80 oszlopot.
    1. Kerülje el az attribúciós vagy revíziós üzenetek hozzáadását a konfigurációs fájlokhoz. (Például kerülje az olyan sorok hozzáadását, mint a "this file was created by ..."). Helyezze el az attribúciót és a változtatási előzményeket a git commit üzenetben.
 1. Ne használj semmilyen elavult funkciót a példakonfigurációs fájlban.
-1. Ne tiltson le egy alapértelmezett biztonsági rendszert egy példakonfig-fájlban. Például egy konfiguráció nem adhat meg egy egyéni `max_extrude_cross_section` értéket. Ne engedélyezze a hibakeresési funkciókat. Például ne legyen `force_move` config szakasz.
+1. Ne tiltson le egy alapértelmezett biztonsági rendszert egy példakonfig-fájlban. Például egy konfiguráció nem adhat meg egy egyéni `max_extrude_cross_section` értéket. Ne engedélyezd a hibakeresési funkciókat. Például ne legyen `force_move` config szakasz.
 1. A Klipper által támogatott összes ismert kártya az alapértelmezett 250000-es soros adatátvitelt tudja használni. Ne javasoljon eltérő adatátvitel beállítását egy példa konfigurációs fájlban.
 
 A példa konfigurációs fájlok elküldése egy github "pull request" létrehozásával történik. Kérjük, kövesse a [közreműködő dokumentum](CONTRIBUTING.md) utasításait is.

@@ -1,7 +1,6 @@
 # API server
 
-Dieses Document beschreibt Klipper Application Programmer Interface (API) oder zu deutsch Anwendungs programmier schnittstelle.
-Diese Schnittstelle ermöglicht es externen Anwendungen, die Host-Software von Klipper abzufragen und zu steuern
+Dieses Document beschreibt Klipper's Application Programmer Interface (API). Diese Schnittstelle ermöglicht es externen Anwendungen, die Host-Software von Klipper abzufragen und zu steuern.
 
 ## Aktivieren des API-Sockets
 

@@ -1,6 +1,6 @@
 # Förderer
 
-Klipper is Free Software. We depend on the generous support from sponsors. Please consider sponsoring Klipper or supporting our sponsors.
+Klipper ist Freie Software. Wir sind vom großzügigen Support von Sponsoren abhängig. Bitte erwägen Sie es, Klipper oder einen unserer Sponsoren zu unterstützen.
 
 ## BIGTREETECH
 

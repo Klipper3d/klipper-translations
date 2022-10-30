@@ -6,7 +6,7 @@ Fontos megérteni a tárgyasztal szintezésének célját. Ha a nyomtatót egy `
 
 A jó minőségű nyomatok érdekében a nyomtatót úgy kell kalibrálni, hogy a Z távolságok körülbelül 25 mikron (.025 mm) pontosságúak legyenek. Ez egy kis távolság - lényegesen kisebb, mint egy átlagos emberi hajszál szélessége. Ez a méretarány nem mérhető "szemmel". Finom hatások (mint például a hőtágulás) befolyásolják az ilyen skálán végzett méréseket. A nagy pontosság elérésének titka az ismételhető folyamat és a nyomtató saját mozgásrendszerének nagy pontosságát kihasználó szintezési módszer alkalmazása.
 
-## Válassza ki a megfelelő kalibrációs mechanizmust
+## Válaszd ki a megfelelő kalibrációs mechanizmust
 
 A különböző típusú nyomtatók különböző módszereket használnak a tárgyasztal szintezésének elvégzésére. Ezek mindegyike végső soron a "papírteszt" (lásd alább) függvénye. Az adott nyomtatótípusra vonatkozó tényleges eljárást azonban más dokumentumok írják le.
 
@@ -24,15 +24,15 @@ Fontos megérteni a "papírtesztet" még akkor is, ha valakinek van "automatikus
 
 A papírteszt elvégzéséhez vágjon ki egy kis téglalap alakú papírdarabot egy ollóval (pl. 5x3 cm). A papír vastagsága általában körülbelül 100 mikron (0,100 mm). (A papír pontos vastagsága nem döntő fontosságú.)
 
-A papírteszt első lépése a nyomtató fúvókájának és tárgyasztalának ellenőrzése. Győződjön meg róla, hogy nincs műanyag (vagy más törmelék) a fúvókán vagy a tárgyasztalon.
+A papírteszt első lépése a nyomtató fúvókájának és tárgyasztalának ellenőrzése. Győződj meg róla, hogy nincs műanyag (vagy más törmelék) a fúvókán vagy a tárgyasztalon.
 
-**Ellenőrizze a fúvókát és a tárgyasztalt, hogy nincs-e benne/rajta műanyag!**
+**Ellenőrizd a fúvókát és a tárgyasztalt, hogy nincs-e benne/rajta műanyag!**
 
-Ha valaki mindig egy adott lapra vagy felületre nyomtat, akkor a papírtesztet az adott lappal/felülettel a helyén végezheti el. Vedd azonban figyelembe, hogy maga a lap vastagsággal rendelkezik, és a különböző lapok (vagy bármely más nyomtatási felület) hatással lesznek a Z mérésekre. Mindenképpen végezze el újra a papírtesztet, hogy minden egyes használt felülettípust megmérjen.
+Ha valaki mindig egy adott lapra vagy felületre nyomtat, akkor a papírtesztet az adott lappal/felülettel a helyén végezheti el. Vedd azonban figyelembe, hogy maga a lap vastagsággal rendelkezik, és a különböző lapok (vagy bármely más nyomtatási felület) hatással lesznek a Z mérésekre. Mindenképpen végezd el újra a papírtesztet, hogy minden egyes használt felülettípust megmérj.
 
 Ha műanyag van a fúvókán, akkor melegítse fel az extrudert, és egy fém csipesszel távolítsa el a műanyagot. Várja meg, amíg az extruder teljesen lehűl szobahőmérsékletűre, mielőtt folytatja a papírtesztet. Amíg a fúvóka hűl, a fémcsipesszel távolítsa el az esetlegesen kiszivárgó műanyagot.
 
-**A papírtesztet mindig akkor végezze el, amikor a fúvóka és a tárgyasztal szobahőmérsékleten van!**
+**A papírtesztet mindig akkor végezd el, amikor a fúvóka és a tárgyasztal szobahőmérsékleten van!**
 
 A fúvóka melegítésekor a hőtágulás miatt megváltozik a helyzete (a tárgyasztalhoz képest). Ez a hőtágulás jellemzően 100 mikron körüli, ami körülbelül ugyanolyan méret, mint egy tipikus nyomtatópapír. A hőtágulás pontos mértéke nem döntő, ahogyan a papír pontos vastagsága sem döntő. Induljunk ki abból a feltételezésből, hogy a kettő egyenlő (a két távolság közötti különbség meghatározásának módszerét lásd alább).
 
@@ -62,7 +62,7 @@ A TESTZ paranccsal kérheti, hogy a fúvóka közelebb menjen a papírhoz. Péld
 TESTZ Z=-.1
 ```
 
-A TESTZ parancs a fúvókát az aktuális pozíciójától relatív távolságra mozgatja. (Tehát a `Z=-.1` azt kéri, hogy a fúvóka 0,1 mm-rel közelebb kerüljön a tárgyasztalhoz). Miután a fúvóka megállt, tolja előre-hátra a papírt, hogy ellenőrizze, hogy a fúvóka érintkezik-e a papírral, és hogy érezze a súrlódás mértékét. Folytassa a TESTZ parancsok kiadását mindaddig, amíg a papírral való tesztelésekkor nem érez egy kis súrlódást.
+A TESTZ parancs a fúvókát az aktuális pozíciójától relatív távolságra mozgatja. (Tehát a `Z=-.1` azt kéri, hogy a fúvóka 0,1 mm-rel közelebb kerüljön a tárgyasztalhoz). Miután a fúvóka megállt, tolja előre-hátra a papírt, hogy ellenőrizd, hogy a fúvóka érintkezik-e a papírral, és hogy érezze a súrlódás mértékét. Folytassa a TESTZ parancsok kiadását mindaddig, amíg a papírral való tesztelésekkor nem érez egy kis súrlódást.
 
 Ha túl nagy a súrlódás, akkor egy pozitív Z értéket használhatunk a fúvóka felfelé mozgatására. Lehetőség van a `TESTZ Z=+` vagy a `TESTZ Z=-` használatára is, hogy "felezzük" az utolsó pozíciót - azaz két pozíció között félúton lévő pozícióba lépjünk. Például, ha a TESTZ parancs a következő felszólítást adná:
 
@@ -90,9 +90,9 @@ Miután sikeresen elvégezte a tárgyasztal szintezését, pontosabb értéket l
 
 Ilyen típusú számításokra általában nincs szükség, mivel a legtöbb felhasználó szerint az egyszerű "papírteszt" jó eredményeket ad.
 
-A számítás legegyszerűbben úgy végezhető el, ha kinyomtatunk egy olyan tesztobjektumot, amelynek minden oldalán egyenes falak vannak. Ehhez a [docs/prints/square.stl](prints/square.stl) fájlban található nagy, üreges négyzetet használhatjuk. Az objektum szeletelésekor győződjön meg róla, hogy a szeletelő az első szinthez ugyanazt a rétegmagasságot és extrudálási szélességet használja, mint az összes további réteghez. Használj durva rétegmagasságot (a rétegmagasságnak a fúvóka átmérőjének körülbelül 75%-ának kell lennie), és ne használj peremet vagy szoknyát.
+A számítás legegyszerűbben úgy végezhető el, ha kinyomtatunk egy olyan tesztobjektumot, amelynek minden oldalán egyenes falak vannak. Ehhez a [docs/prints/square.stl](prints/square.stl) fájlban található nagy, üreges négyzetet használhatjuk. Az objektum szeletelésekor győződj meg róla, hogy a szeletelő az első szinthez ugyanazt a rétegmagasságot és extrudálási szélességet használja, mint az összes további réteghez. Használj durva rétegmagasságot (a rétegmagasságnak a fúvóka átmérőjének körülbelül 75%-ának kell lennie), és ne használj peremet vagy szoknyát.
 
-Nyomtasd ki a tesztobjektumot, várja meg, amíg lehűl, és vedd le a tárgyasztalról. Ellenőrizze a tárgy legalsó rétegét. (Az is hasznos lehet, ha ujját vagy körmét végighúzza az alsó szélén.) Ha azt tapasztaljuk, hogy az alsó réteg a tárgy minden oldala mentén kissé kidudorodik, akkor ez azt jelzi, hogy a fúvóka kissé közelebb volt a tárgyasztalhoz, mint kellett volna. A magasság növeléséhez kiadhatunk egy `SET_GCODE_OFFSET Z=+.010` parancsot. A későbbi nyomtatásokban ellenőrizhetjük ezt a viselkedést, és szükség szerint további kiigazításokat végezhetünk. Az ilyen típusú beállítások jellemzően 10 mikronokban (.010mm) történnek.
+Nyomtasd ki a tesztobjektumot, várja meg, amíg lehűl, és vedd le a tárgyasztalról. Ellenőrizd a tárgy legalsó rétegét. (Az is hasznos lehet, ha ujját vagy körmét végighúzza az alsó szélén.) Ha azt tapasztaljuk, hogy az alsó réteg a tárgy minden oldala mentén kissé kidudorodik, akkor ez azt jelzi, hogy a fúvóka kissé közelebb volt a tárgyasztalhoz, mint kellett volna. A magasság növeléséhez kiadhatunk egy `SET_GCODE_OFFSET Z=+.010` parancsot. A későbbi nyomtatásokban ellenőrizhetjük ezt a viselkedést, és szükség szerint további kiigazításokat végezhetünk. Az ilyen típusú beállítások jellemzően 10 mikronokban (.010mm) történnek.
 
 Ha az alsó réteg keskenyebbnek tűnik, mint a következő rétegek, akkor a SET_GCODE_OFFSET paranccsal negatív Z-beállítást végezhetünk. Ha bizonytalanok vagyunk, akkor a Z-beállítást addig csökkenthetjük, amíg a nyomatok alsó rétege egy kis dudort nem mutat, majd addig csökkenthetjük, amíg az el nem tűnik.
 
