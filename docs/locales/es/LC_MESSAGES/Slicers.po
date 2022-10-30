@@ -1,11 +1,11 @@
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
-# nieraldo <nierybecar@gmail.com>, 2022.
+# nieraldo <nierybecar@gmail.com>, 2022, 2025.
 # Alberto <alberto.robles.gomez@aruzeta.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Alberto <alberto.robles.gomez@aruzeta.com>\n"
+"Last-Translator: nieraldo <nierybecar@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/slicers/"
 "es/>\n"
 "Language: es\n"
@@ -20,8 +20,8 @@ msgid ""
 "Simplify3D, etc."
 msgstr ""
 "Este documento provee algunas sugerencias para configurar una aplicación "
-"\"slicer\" para usar con Klipper. Algunos de los slicers mas comúnmente usados"
-" con Klipper son Slic3r, Cura, Simplify3D, etc."
+"\"slicer\" para usar con Klipper. Algunos de los slicers mas comúnmente "
+"usados con Klipper son Slic3r, Cura, Simplify3D, etc."
 
 msgid "Set the G-Code flavor to Marlin"
 msgstr ""
