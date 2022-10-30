@@ -5,15 +5,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-10-10 19:14+0000\n"
+"PO-Revision-Date: 2022-10-28 09:01+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/g-codes/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"g-codes/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -3101,15 +3102,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 261 (header)
 msgid "[print_stats]"
-msgstr ""
+msgstr "[print_stats]"
 
 #: docs/G-Codes.md:block 262 (paragraph)
 msgid "The print_stats module is automatically loaded."
-msgstr ""
+msgstr "A print_stats modul automatikusan betöltődik."
 
 #: docs/G-Codes.md:block 263 (header)
 msgid "SET_PRINT_STATS_INFO"
-msgstr ""
+msgstr "SET_PRINT_STATS_INFO"
 
 #: docs/G-Codes.md:block 264 (paragraph)
 msgid ""
@@ -3120,20 +3121,28 @@ msgid ""
 "<current_layer>]` at the layer change gcode section to pass layer "
 "information from your slicer to Klipper."
 msgstr ""
+"`SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>] [CURRENT_LAYER= "
+"<current_layer>]`: Átadja a szeletelő adatait, a Klippernek, mint például az "
+"aktuális és összes réteg. Add hozzá a `SET_PRINT_STATS_INFO "
+"[TOTAL_LAYER=<total_layer_count>]` a szeletelő indító G-kód szakaszához és a "
+"`SET_PRINT_STATS_INFO [CURRENT_LAYER= <current_layer>]` a rétegváltás G-kód "
+"szakaszához, hogy átadja a réteginformációt a szeletelő a Klippernek."
 
 #: docs/G-Codes.md:block 371 (header)
 msgid "[z_thermal_adjust]"
-msgstr ""
+msgstr "[z_thermal_adjust]"
 
 #: docs/G-Codes.md:block 372 (paragraph)
 msgid ""
 "The following commands are available when the [z_thermal_adjust config "
 "section](Config_Reference.md#z_thermal_adjust) is enabled."
 msgstr ""
+"A következő parancsok akkor érhetők el, ha a [z_thermal_adjust konfigurációs "
+"szakasz](Config_Reference.md#z_thermal_adjust) engedélyezve van."
 
 #: docs/G-Codes.md:block 373 (header)
 msgid "SET_Z_THERMAL_ADJUST"
-msgstr ""
+msgstr "SET_Z_THERMAL_ADJUST"
 
 #: docs/G-Codes.md:block 374 (paragraph)
 msgid ""
@@ -3149,6 +3158,19 @@ msgid ""
 " homing (for use in e.g. non-standard homing routines) - will be reset "
 "automatically upon homing."
 msgstr ""
+"`SET_Z_THERMAL_ADJUST [ENABLE=<0:1>] [TEMP_COEFF=<value>] "
+"[REF_TEMP=<value>]`: A Z hőszabályozás engedélyezése vagy letiltása az "
+"`ENABLE` parancsal. A letiltás nem távolítja el a már alkalmazott "
+"beállítást, de befagyasztja az aktuális beállítási értéket. Ez "
+"megakadályozza a potenciálisan nem biztonságos Z lefelé irányuló mozgást. Az "
+"újbóli engedélyezés potenciálisan felfelé irányuló szerszámmozgást okozhat, "
+"mivel a beállítás frissül és alkalmazásra kerül. `TEMP_COEFF` lehetővé teszi "
+"a beállítási hőmérsékleti együttható futásidejű hangolását (azaz a "
+"`TEMP_COEFF` konfigurációs paramétert). `A TEMP_COEFF` értékek nem kerülnek "
+"mentésre a konfigurációba. `REF_TEMP` manuálisan felülbírálja a kezdőpont "
+"felvétel során beállított referencia-hőmérsékletet (pl. nem szabványos "
+"kezdőpont felvételi rutinoknál történő használatra) - a kezdőpont "
+"felvételkor automatikusan visszaáll."
 
 #~ msgid ""
 #~ "`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [<probe_parameter>=<value>]`: This"

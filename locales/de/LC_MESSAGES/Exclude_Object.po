@@ -1,16 +1,18 @@
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Mathis Mensing <gcmatmen@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-18 04:18+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/exclude_object/de/>\n"
+"PO-Revision-Date: 2022-10-26 08:36+0000\n"
+"Last-Translator: Mathis Mensing <gcmatmen@gmail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/"
+"exclude_object/de/>\n"
 "Language: de\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: docs/Exclude_Object.md:block 1 (header)
 msgid "Exclude Objects"
@@ -25,6 +27,12 @@ msgid ""
 "macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware "
 "compatible M486 G-Code macro.)"
 msgstr ""
+"Das `[exclude_object]` Modul erlaubt es Klipper, Objekte auszuschließen, "
+"während ein Druckvorgang läuft. Um diese Funktion zu aktivieren, fügen Sie "
+"eine [exclude_object Konfigurationssektion](Config_Reference."
+"md#exclude_object) ein (siehe auch die [Befehlsreferenz](G-Codes.md#exclude-"
+"object) und [sample-macros.cfg](../config/sample-macros.cfg) Datei für ein "
+"Marlin/RepRapFirmware kompatibles M486 G-Code Makro.)"
 
 #: docs/Exclude_Object.md:block 3 (paragraph)
 msgid ""
@@ -35,10 +43,17 @@ msgid ""
 "contract covers the contents of the gcode file, how the internal state of "
 "the module is controlled, and how that state is provided to clients."
 msgstr ""
+"Im Gegensatz zu anderen 3D-Drucker-Firmware-Optionen verwendet ein Drucker, "
+"auf dem Klipper läuft, eine Reihe von Komponenten und die Benutzer haben "
+"eine Vielzahl an Optionen zur Auswahl. Um eine konsistente Benutzererfahrung "
+"zu bieten, wird das Modul `[exclude_object]` eine Art Vertrag oder API "
+"einrichten. Der Vertrag regelt den Inhalt der gcode-Datei, wie der interne "
+"Zustand des Moduls gesteuert wird und wie dieser Zustand den Clients zur "
+"Verfügung gestellt wird."
 
 #: docs/Exclude_Object.md:block 4 (header)
 msgid "Workflow Overview"
-msgstr ""
+msgstr "Workflow-Übersicht"
 
 #: docs/Exclude_Object.md:block 5 (paragraph)
 msgid "A typical workflow for printing a file might look like this:"

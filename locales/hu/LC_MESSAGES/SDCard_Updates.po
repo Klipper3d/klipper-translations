@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-09-25 10:15+0000\n"
+"PO-Revision-Date: 2022-10-29 11:09+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/sdcard_updates/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"sdcard_updates/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 msgid ""
 "Many of today's popular controller boards ship with a bootloader capable of "
@@ -291,6 +292,23 @@ msgid ""
 "  -b <baud>       serial baud rate (default is 250000)\n"
 "  -f <firmware>   path to klipper.bin\n"
 msgstr ""
+"./scripts/flash-sdcard.sh -h\n"
+"SD-kártya feltöltő segédprogram Klipperhez\n"
+"\n"
+"használat: flash_sdcard.sh [-h] [-l] [-c] [-b <baud>] [-f <firmware>]\n"
+"                       <device> <board>\n"
+"\n"
+"pozicionális argumentumok:\n"
+"  <device>         eszköz soros port\n"
+"  <board>          alaplap típus\n"
+"\n"
+"opcionális argumentumok:\n"
+"  -h              mutatja az üzenetet\n"
+"  -l              listázza a rendelkezésre álló kártyákat\n"
+"  -c              csak a flash ellenőrzés/ellenőrzés futtatása (a feltöltést "
+"kihagyja)\n"
+"  -b <baud>       soros átviteli sebesség (alapértelmezett 250000)\n"
+"  -f <firmware>   a klipper.bin elérési útja\n"
 
 #: docs/SDCard_Updates.md:block 18 (paragraph)
 msgid ""
@@ -302,6 +320,14 @@ msgid ""
 "also be used anytime to verify if the code flashed into the board matches "
 "the version in your build folder on any supported board."
 msgstr ""
+"A `-c` opcióval egy ellenőrző vagy csak ellenőrzésre szolgáló műveletet "
+"végezhetsz, amellyel tesztelheted, hogy a kártya helyesen futtatja-e a "
+"megadott firmware-t. Ezt az opciót elsősorban olyan esetekre szánjuk, amikor "
+"kézi bekapcsolás szükséges az égetési eljárás befejezéséhez, például olyan "
+"bootloaderek esetében, amelyek SDIO módot használnak SPI helyett az SD-"
+"kártyák elérésekor. (Lásd a figyelmeztetéseket alább.) De bármikor "
+"használható annak ellenőrzésére is, hogy a kártyára égetett kód megegyezik-e "
+"a build mappában lévő verzióval bármely támogatott kártyán."
 
 #: docs/SDCard_Updates.md:block 20 (unordered list)
 msgid ""
@@ -317,12 +343,28 @@ msgid ""
 " add the `-c` option to complete the check/verify operation. See [Flashing "
 "Boards that use SDIO](#flashing-boards-that-use-sdio) for examples."
 msgstr ""
+"Csak az SD-kártya SPI kommunikációt használó alaplapok támogatottak. Az SDIO-"
+"t használó alaplapok, mint például a Flymaker Flyboard és az MKS Robin Nano "
+"V1/V2, nem működnek SDIO módban. Az ilyen alaplapok azonban általában a "
+"szoftveres SPI mód használatával égethetők. Ha azonban az alaplap "
+"bootloadere csak SDIO módot használ az SD-kártya eléréséhez, akkor az "
+"alaplap és az SD-kártya bekapcsolása szükséges ahhoz, hogy az SPI-ről vissza "
+"tudjon állni SDIO módra az újrafrissítés befejezéséhez. Az ilyen alaplapokat "
+"a `skip_verify` engedélyezésével kell definiálni, hogy az égetés után "
+"azonnal kihagyható legyen a verify lépés. Ezután a kézi bekapcsolás után "
+"újra lefuttathatod pontosan ugyanazt a `./scripts/flash-sdcard.sh` "
+"parancsot, de hozzáadhatod a `-c` opciót az ellenőrzés/ellenőrzés művelet "
+"befejezéséhez. Példákért lásd az [SDIO-val égető alaplapok](#flashing-boards-"
+"that-use-sdio) részt."
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
 msgid ""
 "`current_firmware_path`: The path on the SD Card where the renamed firmware "
 "file is located after a successful flash. The default is `firmware.cur`."
 msgstr ""
+"`current_firmware_path`: Az SD-kártyán lévő elérési útvonal, ahol az "
+"átnevezett firmware fájl található a sikeres égetés után. Az alapértelmezett "
+"név: `firmware.cur`."
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
 msgid ""
@@ -333,12 +375,21 @@ msgid ""
 " again with the `-c` option to perform the verification step. [See caveats "
 "with SDIO cards](#caveats)"
 msgstr ""
+"`skip_verify`: Ez egy logikai értéket határoz meg, amely a szkripteknek azt "
+"mondja meg, hogy hagyja ki a firmware ellenőrzésének lépését az égetési "
+"folyamat során. Az alapértelmezett érték `False`. Ez az érték `True` értékre "
+"állítható olyan kártyák esetében, amelyeknél az égetés befejezéséhez kézi "
+"bekapcsolás szükséges. A firmware utólagos ellenőrzéséhez futtasd újra a "
+"szkriptet a `-c` opcióval, hogy elvégezd az ellenőrzési lépést. [Lásd az "
+"SDIO kártyákkal kapcsolatos figyelmeztetéseket](#caveats)"
 
 #: docs/SDCard_Updates.md:block 26 (paragraph)
 msgid ""
 "If software SPI is required, the `spi_bus` field should be set to `swspi` "
 "and the following additional field should be specified:"
 msgstr ""
+"Ha szoftveres SPI-re van szükség, az `spi_bus` mezőt `swspi` és a következő "
+"kiegészítő mezőt kell megadni:"
 
 #: docs/SDCard_Updates.md:block 28 (paragraph)
 msgid ""
@@ -348,10 +399,14 @@ msgid ""
 "provides an example of the former, and the `btt-octopus-f446-v1` board "
 "definition provides an example of the latter."
 msgstr ""
+"Rendkívül ritkán van szükség a szoftveres SPI-re, jellemzően csak a "
+"tervezési hibás vagy az SD-kártyájuk SDIO módját támogató kártyáknál lesz rá "
+"szükség. A `btt-skr-pro` alaplap definíciója az előbbire ad példát, a `btt-"
+"octopus-f446-v1` alaplap definíciója pedig az utóbbira."
 
 #: docs/SDCard_Updates.md:block 32 (header)
 msgid "Flashing Boards that use SDIO"
-msgstr ""
+msgstr "SDIO-val égető alaplapok"
 
 #: docs/SDCard_Updates.md:block 33 (paragraph)
 msgid ""
@@ -364,6 +419,15 @@ msgid ""
 "firmware to the SD Card so that the board can be manually power-cycled and "
 "the verification step deferred until that's complete."
 msgstr ""
+"[Ahogyan a figyelmeztetések](#caveats) is említik, azok az alaplapok, "
+"amelyek bootloadere SDIO módot használ az SD-kártyához való hozzáféréshez, "
+"az alaplapot, és különösen magát az SD-kártyát ki kell kapcsolni, hogy a "
+"fájl SD-kártyára írása közben használt SPI módból vissza lehessen váltani "
+"SDIO módba, hogy a bootloader be tudja égetni az alaplapra. Ezek az alaplap "
+"definíciók a `skip_verify` flag-et használják, amely azt mondja az égető "
+"eszköznek, hogy álljon le a firmware SD-kártyára írása után, hogy az "
+"alaplapot kézzel lehessen bekapcsolni, és az ellenőrzés lépését "
+"elhalasztani, amíg ez be nem fejeződik."
 
 #: docs/SDCard_Updates.md:block 34 (paragraph)
 msgid ""
@@ -374,10 +438,16 @@ msgid ""
 "is complete in order to do the verification step, or if the verification can"
 " be done immediately. Here's examples of the two scenarios:"
 msgstr ""
+"Két forgatókönyv van -- az egyik, amikor az RPi Gazdagép külön tápegységről "
+"megy, a másik, amikor az RPi Gazdagép ugyanazon tápegységről megy, mint az "
+"égetni kívánt alaplap. A különbség az, hogy az égetés befejezése után le "
+"kell-e kapcsolni az RPi-t is, majd újra `ssh`, hogy elvégezhessük az "
+"ellenőrző lépést, vagy az ellenőrzés azonnal elvégezhető. Íme példák a két "
+"forgatókönyvre:"
 
 #: docs/SDCard_Updates.md:block 35 (header)
 msgid "SDIO Programming with RPi on Separate Power Supply"
-msgstr ""
+msgstr "SDIO programozás RPi-vel külön tápegységgel"
 
 #: docs/SDCard_Updates.md:block 36 (paragraph)
 msgid ""
@@ -385,6 +455,9 @@ msgid ""
 "following. You will, of course, need to use your proper device path and "
 "board name:"
 msgstr ""
+"Egy tipikus munkamenet az RPi-vel egy különálló tápegységen a "
+"következőképpen néz ki. Természetesen a megfelelő eszköz elérési útvonalát "
+"és az alaplap nevét kell használnod:"
 
 #: docs/SDCard_Updates.md:block 37 (code)
 msgid ""
@@ -399,10 +472,20 @@ msgid ""
 "./scripts/flash-sdcard.sh -c /dev/ttyACM0 btt-octopus-f446-v1\n"
 "sudo service klipper start\n"
 msgstr ""
+"sudo service klipper stop\n"
+"cd ~/klipper\n"
+"git pull\n"
+"make clean\n"
+"make menuconfig\n"
+"make\n"
+"./scripts/flash-sdcard.sh /dev/ttyACM0 btt-octopus-f446-v1\n"
+"[[[manually power-cycle the printer board here when instructed]]]\n"
+"./scripts/flash-sdcard.sh -c /dev/ttyACM0 btt-octopus-f446-v1\n"
+"sudo service klipper start\n"
 
 #: docs/SDCard_Updates.md:block 38 (header)
 msgid "SDIO Programming with RPi on the Same Power Supply"
-msgstr ""
+msgstr "SDIO programozás RPi-vel ugyanazon tápegységgel"
 
 #: docs/SDCard_Updates.md:block 39 (paragraph)
 msgid ""
@@ -410,6 +493,9 @@ msgid ""
 "following. You will, of course, need to use your proper device path and "
 "board name:"
 msgstr ""
+"Egy tipikus munkamenet az RPi-vel ugyanazon a tápegységen a következőképpen "
+"néz ki. Természetesen a megfelelő eszköz elérési útvonalát és az alaplap "
+"nevét kell használnod:"
 
 #: docs/SDCard_Updates.md:block 40 (code)
 msgid ""
@@ -427,6 +513,20 @@ msgid ""
 "./scripts/flash-sdcard.sh -c /dev/ttyACM0 btt-octopus-f446-v1\n"
 "sudo service klipper start\n"
 msgstr ""
+"sudo service klipper stop\n"
+"cd ~/klipper\n"
+"git pull\n"
+"make clean\n"
+"make menuconfig\n"
+"make\n"
+"./scripts/flash-sdcard.sh /dev/ttyACM0 btt-octopus-f446-v1\n"
+"sudo shutdown -h now\n"
+"[[[wait for the RPi to shutdown, then power-cycle and ssh again to the RPi "
+"when it restarts]]]\n"
+"sudo service klipper stop\n"
+"cd ~/klipper\n"
+"./scripts/flash-sdcard.sh -c /dev/ttyACM0 btt-octopus-f446-v1\n"
+"sudo service klipper start\n"
 
 #: docs/SDCard_Updates.md:block 41 (paragraph)
 msgid ""
@@ -434,10 +534,13 @@ msgid ""
 "`klipper` service, it's necessary to stop `klipper` again before doing the "
 "verification step and restart it after verification is complete."
 msgstr ""
+"Ebben az esetben, mivel az RPi Gazdagép újraindul, ami újraindítja a "
+"`klipper` szolgáltatást, az ellenőrzés lépése előtt újra le kell állítani a "
+"`klipper` szolgáltatást, és az ellenőrzés befejezése után újra kell indítani."
 
 #: docs/SDCard_Updates.md:block 42 (header)
 msgid "SDIO to SPI Pin Mapping"
-msgstr ""
+msgstr "SDIO-ból SPI-re lábkiosztás"
 
 #: docs/SDCard_Updates.md:block 43 (paragraph)
 msgid ""
@@ -445,130 +548,134 @@ msgid ""
 " described in the chart below to determine the compatible Software SPI pins "
 "to assign in the `board_defs.py` file:"
 msgstr ""
+"Ha az alaplap kapcsolási rajza SDIO-t használ az SD-kártyához, akkor az "
+"alábbi táblázatban leírtak szerint lekérheted a tűket, hogy meghatározhasd a "
+"`board_defs.py` fájlban hozzárendelendő kompatibilis szoftver SPI tűit:"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SD Card Pin"
-msgstr ""
+msgstr "SD-kártya tű"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "Micro SD Card Pin"
-msgstr ""
+msgstr "Micro SD-kártya tű"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SDIO Pin Name"
-msgstr ""
+msgstr "SDIO tű neve"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SPI Pin Name"
-msgstr ""
+msgstr "SPI tű neve"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "9"
-msgstr ""
+msgstr "9"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA2"
-msgstr ""
+msgstr "DATA2"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "None (PU)*"
-msgstr ""
+msgstr "None (PU)*"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CD/DATA3"
-msgstr ""
+msgstr "CD/DATA3"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CS"
-msgstr ""
+msgstr "CS"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CMD"
-msgstr ""
+msgstr "CMD"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "MOSI"
-msgstr ""
+msgstr "MOSI"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "+3.3V (VDD)"
-msgstr ""
+msgstr "+3.3V (VDD)"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CLK"
-msgstr ""
+msgstr "CLK"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SCLK"
-msgstr ""
+msgstr "SCLK"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "6"
-msgstr ""
+msgstr "6"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "GND (VSS)"
-msgstr ""
+msgstr "GND (VSS)"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "7"
-msgstr ""
+msgstr "7"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA0"
-msgstr ""
+msgstr "DATA0"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "MISO"
-msgstr ""
+msgstr "MISO"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "8"
-msgstr ""
+msgstr "8"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA1"
-msgstr ""
+msgstr "DATA1"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "Card Detect (CD)"
-msgstr ""
+msgstr "Card Detect (CD)"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "10"
-msgstr ""
+msgstr "10"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "GND"
-msgstr ""
+msgstr "GND"
 
 #: docs/SDCard_Updates.md:block 45 (paragraph)
 msgid "\\* None (PU) indicates an unused pin with a pull-up resistor"
 msgstr ""
+"\\* None (PU) egy nem használt, felhúzási ellenállással ellátott tűt jelez."
 
 #~ msgid ""
 #~ "Only boards that use SPI for SD Card communication are supported. Boards "
