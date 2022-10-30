@@ -1,15 +1,16 @@
 # brian park <gouache95@gmail.com>, 2021.
+# 이정희 <daemul72@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-22 00:40+0000\n"
-"Last-Translator: brian park <gouache95@gmail.com>\n"
+"PO-Revision-Date: 2022-10-30 12:05+0000\n"
+"Last-Translator: 이정희 <daemul72@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/faq/ko/>\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8.1-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 msgid "How can I donate to the project?"
 msgstr "어떻게 프로젝트에 기부할수 있나요?"
@@ -840,7 +841,8 @@ msgstr "자주 묻는 질문"
 msgid ""
 "For running on the Beaglebone, see the [Beaglebone specific installation "
 "instructions](Beaglebone.md)."
-msgstr ""
+msgstr "Beaglebone에서 실행하려면 [Beaglebone 특정 설치 지침](Beaglebone.md)을 "
+"참조하십시오."
 
 #: docs/FAQ.md:block 59 (unordered list)
 msgid ""
