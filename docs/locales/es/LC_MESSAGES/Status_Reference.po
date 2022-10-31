@@ -1,6 +1,16 @@
-#
+# nieraldo <nierybecar@gmail.com>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-10-31 09:06+0000\n"
+"Last-Translator: nieraldo <nierybecar@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"status_reference/es/>\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -8,6 +18,9 @@ msgid ""
 "fields](Config_Reference.md#display), and via the [API "
 "Server](API_Server.md)."
 msgstr ""
+"Este documento es una referencia del estado de la impresora disponible en "
+"Klipper [macros](Command_Templates.md), [display fields](Config_Reference."
+"md#display), y a travez del [API Server](API_Server.md)."
 
 msgid ""
 "The fields in this document are subject to change - if using an attribute be"
