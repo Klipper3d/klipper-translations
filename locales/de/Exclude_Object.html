@@ -1219,8 +1219,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-overview" class="md-nav__link">
-    Workflow Overview
+  <a href="#workflow-ubersicht" class="md-nav__link">
+    Workflow-Übersicht
   </a>
   
 </li>
@@ -1273,8 +1273,8 @@
 <p>The <code>[exclude_object]</code> module allows Klipper to exclude objects while a print is in progress. To enable this feature include an <a href="Config_Reference.html#exclude_object">exclude_object config
 section</a> (also see the <a href="G-Codes.html#exclude-object">command
 reference</a> and <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> file for a Marlin/RepRapFirmware compatible M486 G-Code macro.)</p>
-<p>Unlike other 3D printer firmware options, a printer running Klipper utilizes a suite of components and users have many options to choose from. Therefore, in order to provide a a consistent user experience, the <code>[exclude_object]</code> module will establish a contract or API of sorts. The contract covers the contents of the gcode file, how the internal state of the module is controlled, and how that state is provided to clients.</p>
-<h2 id="workflow-overview">Workflow Overview<a class="headerlink" href="#workflow-overview" title="Permanent link">&para;</a></h2>
+<p>Im Gegensatz zu anderen 3D-Drucker-Firmware-Optionen verwendet ein Drucker, auf dem Klipper läuft, eine Reihe von Komponenten und die Benutzer haben eine Vielzahl an Optionen zur Auswahl. Um eine konsistente Benutzererfahrung zu bieten, wird das Modul <code>[exclude_object]</code> eine Art Vertrag oder API einrichten. Der Vertrag regelt den Inhalt der gcode-Datei, wie der interne Zustand des Moduls gesteuert wird und wie dieser Zustand den Clients zur Verfügung gestellt wird.</p>
+<h2 id="workflow-ubersicht">Workflow-Übersicht<a class="headerlink" href="#workflow-ubersicht" title="Permanent link">&para;</a></h2>
 <p>Ein typischer Workflow um eine Datei zu drucken kann so aussehen:</p>
 <ol>
 <li>Das Slicen ist abgeschlossen und die Datei wird auf den Drucker geladen. Während des Uploads wird die Datei verarbeitet und <code>[exclude_object]</code> Marker werden hinzugefügt. Alternativ können Slicer diese Marker hinzufügen, sofern sie es unterstützen.</li>

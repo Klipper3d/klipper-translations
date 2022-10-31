@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-10-29 11:09+0000\n"
+"PO-Revision-Date: 2022-10-30 12:06+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "beaglebone/hu/>\n"
@@ -122,8 +122,8 @@ msgid ""
 "Make sure the OctoPrint web server is accessible - it should be at: "
 "<http://beaglebone:5000/>"
 msgstr ""
-"Győződjön meg róla, hogy az OctoPrint webszerver elérhető - a következő "
-"címen kell lennie: <http://beaglebone:5000/>"
+"Győződj meg róla, hogy az OctoPrint webszerver elérhető - a következő címen "
+"kell lennie: <http://beaglebone:5000/>"
 
 #: docs/Beaglebone.md:block 17 (header)
 msgid "Building the micro-controller code"
@@ -167,7 +167,7 @@ msgid ""
 "Linux host process. Configure it a second time for a \"Linux process\":"
 msgstr ""
 "Szükséges továbbá a mikrokontroller kódjának lefordítása és telepítése egy "
-"Linux gazdafolyamathoz. Konfigurálja másodszor is egy \"Linux folyamat\" "
+"Linux gazdafolyamathoz. Konfiguráld másodszor is egy \"Linux folyamat\" "
 "számára:"
 
 #: docs/Beaglebone.md:block 23 (code)

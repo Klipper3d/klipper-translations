@@ -1,16 +1,18 @@
 # brian park <gouache95@gmail.com>, 2021.
 # bookledge <bookledge@gmail.com>, 2021.
+# 이정희 <daemul72@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-23 03:57+0000\n"
-"Last-Translator: bookledge <bookledge@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/benchmarks/ko/>\n"
+"PO-Revision-Date: 2022-10-30 12:06+0000\n"
+"Last-Translator: 이정희 <daemul72@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
+"benchmarks/ko/>\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8.1-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "이 문서는 클리퍼의 벤치마크에 대한 내용이다."
@@ -310,7 +312,7 @@ msgid "c5968a08"
 msgstr "c5968a08"
 
 msgid "pru-gcc (GCC) 8.0.0 20170530 (experimental)"
-msgstr "pru-gcc (GCC) 8.0.0 20170530 (experimental)"
+msgstr "pru-gcc (GCC) 8.0.0 20170530 (실험용)"
 
 msgid "stm32f103 (USB)"
 msgstr "stm32f103 (USB)"

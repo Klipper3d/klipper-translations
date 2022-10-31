@@ -1444,7 +1444,7 @@ baud: 250000
 <h2 id="raspberry-pi-3-klipper">Raspberry Pi 3 이외의 다른 기기에서 Klipper를 실행할 수 있습니까?<a class="headerlink" href="#raspberry-pi-3-klipper" title="Permanent link">&para;</a></h2>
 <p>권장 하드웨어는 Raspberry Pi 2, Raspberry Pi 3 또는 Raspberry Pi 4입니다.</p>
 <p>Klipper는 Raspberry Pi 1 및 Raspberry Pi Zero에서 실행되지만 이러한 보드에는 OctoPrint를 제대로 실행하기에 충분한 처리 능력이 없습니다. OctoPrint에서 직접 인쇄할 때 이러한 느린 시스템에서 인쇄 중단이 발생하는 것은 일반적입니다. (프린터는 OctoPrint가 이동 명령을 보낼 수 있는 것보다 더 빠르게 움직일 수 있습니다.) 어쨌든 이러한 느린 보드 중 하나에서 실행하려면 인쇄할 때 "virtual_sdcard" 기능을 사용하는 것을 고려하십시오 (자세한 내용은 <a href="Config_Reference.html#virtual_sdcard">config reference</a> 참조).</p>
-<p>For running on the Beaglebone, see the <a href="Beaglebone.html">Beaglebone specific installation instructions</a>.</p>
+<p>Beaglebone에서 실행하려면 <a href="Beaglebone.html">Beaglebone 특정 설치 지침</a>을 참조하십시오.</p>
 <p>Klipper는 다양한 컴퓨터에서 실행될 수 있습니다. Klipper 호스트 소프트웨어에는 Linux(또는 이와 유사한) 컴퓨터에서 실행되는 Python만 있으면 됩니다. 그러나 다른 시스템에서 실행하려면 기본적으로 필요한 소프트웨어를 설치하기 위해 Linux 관리자 지식이 필요합니다. 필요한 Linux 관리자에 대한 추가 정보는 <a href="https://github.com/Klipper3d/klipper/blob/master/scripts/install-octopi.sh">install-octopi.sh</a> 를 참조하십시오.</p>
 <p>저가형 칩에서 Klipper 호스트 소프트웨어를 실행하려는 경우 최소한 "double precision floating point" 하드웨어가 있는 시스템이 필요하다는 점에 유의하십시오.</p>
 <p>만약 일반 컴퓨터 또는 서버 시스템에서 Klipper 호스트 소프트웨어를 실행하려는 경우 Klipper에는 몇 가지 'real-time scheduling' 에 대한 요구 사항이 있습니다. 인쇄 중에 호스트 컴퓨터가 계산에 부하가 걸리는 컴퓨팅 작업(예: 하드 드라이브 조각 모음, 3d 렌더링, 대량 스와핑 등)을 수행하는 경우 Klipper가 출력 중 오류를 낼 수 있습니다.</p>
