@@ -2,7 +2,7 @@
 
 A Klipper támogatja a kezdőpont mechanizmusát egy végállással, amely egy mikrokontrollerhez van csatlakoztatva, míg a léptetőmotorok egy másik mikrokontrollerhez vannak csatlakoztatva. Ezt a támogatást nevezik "multi-mcu homing" -nak. Ez a funkció akkor is használatos, ha a Z-érzékelő más mikrokontrollerre van kötve, mint a Z léptetőmotorok.
 
-Ez a funkció hasznos lehet a vezetékezés egyszerűsítése érdekében, mivel kényelmesebb lehet egy végálláskapcsolót vagy szondát egy közelebbi mikrokontrollerhez csatlakoztatni. Ennek a funkciónak a használata azonban a léptetőmotorok "túllendülését" eredményezheti a kezdőpont és a mérési műveletek során.
+Ez a funkció hasznos lehet a vezetékezés egyszerűsítése érdekében, mivel kényelmesebb lehet egy végálláskapcsolót vagy szondát egy közelebbi mikrokontrollerhez csatlakoztatni. Ennek a funkciónak a használata azonban a léptetőmotorok "túllendülését" eredményezheti a kezdőpontfelvételi és mérési műveletek során.
 
 A túllendülés a végállást figyelő mikrovezérlő és a léptetőmotorokat mozgató mikrovezérlők közötti esetleges üzenetátviteli késések miatt következik be. A Klipper kódot úgy tervezték, hogy ezt a késleltetést legfeljebb 25 ms-ra korlátozza. (Ha a multi-mcu homing aktiválva van, a mikrovezérlők időszakos állapotüzeneteket küldenek, és ellenőrzik, hogy a megfelelő állapotüzenetek 25 ms-on belül érkeznek-e meg.)
 

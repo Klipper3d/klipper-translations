@@ -4,19 +4,19 @@ A Klipper léptetőmotor meghajtók minden [léptető konfigurációs szakaszban
 
 ## A rotation_distance kinyerése a steps_per_mm (vagy step_distance) értékből
 
-A 3D nyomtató tervezői eredetileg `steps_per_mm` forgatási távolságból számították ki. Ha ismered a steps_per_mm értéket, akkor ezzel az általános képlettel megkaphatja ezt az eredeti forgatási távolságot:
+A 3D nyomtató tervezői eredetileg `steps_per_mm` forgatási távolságból számították ki. Ha ismered a steps_per_mm értéket, akkor ezzel az általános képlettel megkaphatod az eredeti forgatási távolságot:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
 ```
 
-Vagy ha régebbi Klipper konfigurációval rendelkezik, és ismered a `step_distance` paramétert, akkor használhatod ezt a képletet:
+Vagy ha régebbi Klipper konfigurációval rendelkezel, és ismered a `step_distance` paramétert, akkor használhatod ezt a képletet:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
 ```
 
-A `<full_steps_per_rotation>` beállítást a léptetőmotor típusa határozza meg. A legtöbb léptetőmotor "1,8 fokos lépésszögű" és ezért 200 teljes lépés/fordulat (360 osztva 1,8-al 200). Egyes léptetőmotorok "0,9 fokos lépésszögűek" és így 400 teljes lépést tesznek meg fordulatonként. Más léptetőmotorok ritkábbak. Ha bizonytalan vagy, ne állítsd be a full_steps_per_rotation értéket a konfigurációs fájlban, és használd a 200-at a fenti képletben.
+A `<full_steps_per_rotation>` beállítást a léptetőmotor típusa határozza meg. A legtöbb léptetőmotor "1,8 fokos lépésszögű" és ezért 200 teljes lépés/fordulat (360 osztva 1,8-al az a 200). Egyes léptetőmotorok "0,9 fokos lépésszögűek" és így 400 teljes lépést tesznek meg fordulatonként. Más léptetőmotorok ritkábbak. Ha bizonytalan vagy, ne állítsd be a full_steps_per_rotation értéket a konfigurációs fájlban, és használd a 200-at a fenti képletben.
 
 A `<mikrolépések>` beállítást a léptetőmotor-meghajtó határozza meg. A legtöbb meghajtó 16 mikrolépést használ. Ha bizonytalan vagy, állítsd be a `microsteps: 16` a konfigurációban, és használd a 16-ot a fenti képletben.
 

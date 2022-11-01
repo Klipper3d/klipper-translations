@@ -77,7 +77,7 @@ A legtöbb nyomtatóhoz MZV vagy EI alakítók ajánlhatók. Ez a szakasz egy te
 Nyomtasd ki a gyűrődési tesztmodellt az alábbiak szerint:
 
 1. Indítsa újra a firmware-t: `RESTART`
-1. Készüljön fel a tesztre: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
+1. Készülj fel a tesztre: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
 1. Nyomás előtolás kikapcsolása: `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. Add ki a parancsot: `SET_INPUT_SHAPER SHAPER_TYPE=MZV `
 1. Add ki a parancsot: `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
@@ -135,7 +135,7 @@ Megjegyzendő, hogy a rezonanciafrekvenciák mérésének pontossága a gyűrőd
 
 Feltételezve, hogy felszeletelte a gyűrődési modellt a javasolt paraméterekkel, hajtsd végre a következő lépéseket az X és Y tengelyek mindegyikén:
 
-1. Készüljön fel a tesztre: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
+1. Készülj fel a tesztre: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
 1. Győződj meg róla, hogy a Pressure Advance ki van kapcsolva: `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. Add ki a parancsot: `SET_INPUT_SHAPER SHAPER_TYPE=ZV `
 1. A meglévő gyűrődési tesztmodellből a kiválasztott bemeneti alakítóval válaszd ki azt a gyorsulást, amely kellően jól mutatja a gyűrődést, és állítsd be a következővel: `SET_VELOCITY_LIMIT ACCEL=...`

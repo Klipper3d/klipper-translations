@@ -246,7 +246,7 @@ Az SKR Mini E3 esetében nem lehet stm32flash-t használni, mivel a boot0 láb k
 forrás [find target/stm32f1x.cfg]
 ```
 
-Ha szeretné, a következő paranccsal készíthet biztonsági másolatot az aktuális flash memóriáról. Vedd figyelembe, hogy ez némi időt vehet igénybe:
+Ha szeretnéd, a következő paranccsal készíthet biztonsági másolatot az aktuális flash memóriáról. Vedd figyelembe, hogy ez némi időt vehet igénybe:
 
 ```
 flash read_bank 0 btt_skr_mini_e3_backup.bin
@@ -434,11 +434,11 @@ reset halt
 
 ### A Raspberry Pi és a célchip összekötése
 
-Kapcsolja ki mind a Raspberry Pi-t, mind a célchipet a kábelezés előtt! Ellenőrizd, hogy a célchip 3,3V-ot használ-e a Raspberry Pi csatlakoztatása előtt!
+Kapcsold ki mind a Raspberry Pi-t, mind a célchipet a kábelezés előtt! Ellenőrizd, hogy a célchip 3,3V-ot használ-e a Raspberry Pi csatlakoztatása előtt!
 
 Csatlakoztassa a célchip GND, SWDCLK, SWDIO és RST értékeit a Raspberry Pi GND, GPIO25, GPIO24 és GPIO18 értékéhez.
 
-Ezután kapcsolja be a Raspberry Pi-t, és táplálja a célchipet.
+Ezután kapcsold be a Raspberry Pi-t, és táplálja a célchipet.
 
 ### OpenOCD futtatása
 

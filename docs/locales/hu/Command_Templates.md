@@ -4,7 +4,7 @@ Ez a dokumentum a G-kód parancssorozatok gcode_macro (és hasonló) konfigurác
 
 ## G-kód makró elnevezése
 
-A G-kódos makronév esetében a nagy- és kisbetűs írásmód nem fontos - a MY_MACRO és a my_macro ugyanúgy kiértékelődik, és kicsi vagy nagybetűvel is meghívható. Ha a makronévben számokat használunk, akkor azoknak a név végén kell állniuk (pl. a TEST_MACRO25 érvényes, de a MACRO25_TEST3 nem).
+A G-kódos makronév esetében a nagy és kisbetűs írásmód nem fontos - a MY_MACRO és a my_macro ugyanúgy kiértékelődik, és kicsi vagy nagybetűvel is meghívható. Ha a makronévben számokat használunk, akkor azoknak a név végén kell állniuk (pl. a TEST_MACRO25 érvényes, de a MACRO25_TEST3 nem).
 
 ## A G-kód formázása a konfigurációban
 

@@ -10,7 +10,7 @@ Az API-kiszolgáló használatához a klippy.py host szoftvert a `-a` paraméter
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 ```
 
-Ennek hatására a gazdaszoftver létrehoz egy Unix Domain Socketet. Az ügyfél ezután kapcsolatot nyithat ezen keresztül, és parancsokat küldhet a Klippernek.
+Ennek hatására a gazdaszoftver létrehoz egy Unix Domain Socket-et. Az ügyfél ezután kapcsolatot nyithat ezen keresztül, és parancsokat küldhet a Klippernek.
 
 Lásd a [Moonraker](https://github.com/Arksine/moonraker) projektet egy népszerű eszközért, amely képes továbbítani a HTTP-kéréseket a Klipper's API Server Unix Domain Socket-hez.
 

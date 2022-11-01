@@ -9,7 +9,7 @@ A Klipper a következő szabványos G-kód parancsokat támogatja:
 - Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
 - Tartózkodás: `G4 P<milliszekundum>`
 - Ugrás a forrásra: `G28 [X] [Y] [Z]`
-- Kapcsolja ki a motorokat: `M18` vagy `M84`
+- Kapcsold ki a motorokat: `M18` vagy `M84`
 - Várja meg, amíg az aktuális mozdulat befejeződik: `M400`
 - Használj abszolút/relatív távolságokat az extrudáláshoz: `M82`, `M83`
 - Abszolút/relatív koordináták használata: `G90`, `G91`
@@ -383,11 +383,11 @@ A következő parancsok akkor érhetők el, ha a [tsl1401cl szálszélesség ér
 
 #### DISABLE_FILAMENT_WIDTH_SENSOR
 
-`DISABLE_FILAMENT_WIDTH_SENSOR`: Kapcsolja ki a szálszélesség érzékelőt, és ne használd áramlásszabályozáshoz.
+`DISABLE_FILAMENT_WIDTH_SENSOR`: Kapcsold ki a szálszélesség érzékelőt, és ne használd áramlásszabályozáshoz.
 
 #### ENABLE_FILAMENT_WIDTH_SENSOR
 
-`ENABLE_FILAMENT_WIDTH_SENSOR`: Kapcsolja be a szálszélesség érzékelőt, és kezd el használni az áramlásszabályozáshoz.
+`ENABLE_FILAMENT_WIDTH_SENSOR`: Kapcsold be a szálszélesség érzékelőt, és kezd el használni az áramlásszabályozáshoz.
 
 #### QUERY_RAW_FILAMENT_WIDTH
 
@@ -407,11 +407,11 @@ A fűtőmodul automatikusan betöltődik, ha a konfigurációs fájlban van fűt
 
 #### TURN_OFF_HEATERS
 
-`TURN_OFF_HEATERS`: Kapcsolja ki az összes fűtőberendezést.
+`TURN_OFF_HEATERS`: Kapcsold ki az összes fűtőberendezést.
 
 #### TEMPERATURE_WAIT
 
-`TEMPERATURE_WAIT SENSOR=<config_name> [MINIMUM=<target>] [MAXIMUM=<target>]`: Várjon, amíg az adott hőmérséklet-érzékelő a megadott MINIMUM értéken vagy a megadott MINIMUM érték felett és/vagy a megadott MAXIMUM értéken vagy az alatt van.
+`TEMPERATURE_WAIT SENSOR=<config_name> [MINIMUM=<target>] [MAXIMUM=<target>]`: Várj, amíg az adott hőmérséklet-érzékelő a megadott MINIMUM értéken vagy a megadott MINIMUM érték felett és/vagy a megadott MAXIMUM értéken vagy az alatt van.
 
 #### SET_HEATER_TEMPERATURE
 

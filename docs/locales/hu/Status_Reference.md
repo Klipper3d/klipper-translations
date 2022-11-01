@@ -2,7 +2,7 @@
 
 Ez a dokumentum a Klipper [makrók](Command_Templates.md), [megjelenítési mezők](Config_Reference.md#display) és az [API Szerver](API_Server.md) segítségével elérhető nyomtató állapotinformációk referenciája.
 
-Az ebben a dokumentumban szereplő mezők változhatnak. Ha egy attribútumot használ, a Klipper szoftver frissítésekor mindenképpen nézze át a [Konfigurációs változások dokumentumot](Config_Changes.md).
+Az ebben a dokumentumban szereplő mezők változhatnak. Ha egy attribútumot használsz, a Klipper szoftver frissítésekor mindenképpen nézd át a [Konfigurációs változások dokumentumot](Config_Changes.md).
 
 ## angle
 

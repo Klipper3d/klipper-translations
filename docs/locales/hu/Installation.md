@@ -16,7 +16,7 @@ Lehetőség van új nyomtatókonfiguráció nulláról történő meghatározás
 
 Kezd az [OctoPi](https://github.com/guysoft/OctoPi) telepítésével a Raspberry Pi számítógépére. Használd az OctoPi v0.17.0-s vagy újabb verzióját. A kiadásokkal kapcsolatos információkért tekintsd meg az [OctoPi-kiadásokat](https://github.com/guysoft/OctoPi/releases). Ellenőrizni kell, hogy az OctoPi elindul-e, és hogy az OctoPrint webszerver működik-e. Miután csatlakozott az OctoPrint weboldalhoz, kövesse az utasításokat az OctoPrint 1.4.2-es vagy újabb verziójára való frissítéséhez.
 
-Az OctoPi telepítése és az OctoPrint frissítése után néhány rendszerparancs futtatásához szükség lesz az "SSH" kapcsolatra a célgéphez. Ha Linux vagy MacOS asztali számítógépet használ, akkor az "SSH" szoftvernek már telepítve kell lennie a gépen. Vannak ingyenes ssh-kliensek más asztali számítógépekhez (pl. [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Az SSH segédprogrammal csatlakozzon a Raspberry Pi-hez (ssh pi@octopi -- a jelszó "raspberry"), és futtassa a következő parancsokat:
+Az OctoPi telepítése és az OctoPrint frissítése után néhány rendszerparancs futtatásához szükség lesz az "SSH" kapcsolatra a célgéphez. Ha Linux vagy MacOS asztali számítógépet használsz, akkor az "SSH" szoftvernek már telepítve kell lennie a gépen. Vannak ingyenes ssh-kliensek más asztali számítógépekhez (pl. [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Az SSH segédprogrammal csatlakozz a Raspberry Pi-hez (ssh pi@octopi -- a jelszó "raspberry"), és futtasd a következő parancsokat:
 
 ```
 git clone https://github.com/Klipper3d/klipper

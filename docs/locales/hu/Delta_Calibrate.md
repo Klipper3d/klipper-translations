@@ -4,7 +4,7 @@ Ez a dokumentum a Klipper "delta" stílusú nyomtatók automatikus kalibrációs
 
 A deltakalibrálás magában foglalja a torony végállásának, a torony szögének, a deltasugárnak és a deltakarok hosszának meghatározását. Ezek a beállítások szabályozzák a nyomtató mozgását a delta nyomtatónál. E paraméterek mindegyike nem nyilvánvaló és nem lineáris hatással bír, és manuálisan nehéz kalibrálni őket. Ezzel szemben a szoftver kalibrációs kódja néhány perc ráfordítással kiváló eredményt adhat. Nincs szükség speciális szintező hardverre.
 
-A delta-kalibrálás végső soron a torony végálláskapcsolóinak pontosságától függ. Ha valaki Trinamic léptetőmotor-meghajtókat használ, akkor fontolja meg a [végállási fázis](Endstop_Phase.md) érzékelés engedélyezését, hogy javítsa e kapcsolók pontosságát.
+A delta-kalibrálás végső soron a torony végálláskapcsolóinak pontosságától függ. Ha valaki Trinamic léptetőmotor-meghajtókat használ, akkor fontolja meg a [végállási fázis](Endstop_Phase.md) érzékelés engedélyezését, hogy javítsa a kapcsolók pontosságát.
 
 ## Automatikus vagy kézi szintezés
 

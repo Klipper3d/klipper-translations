@@ -10,4 +10,4 @@ Az érzékelő analóg kimenetet generál a számított nyomtatószál széless�
 
 ## Jegyzet:
 
-Az érzékelő leolvasása alapértelmezés szerint 10 mm-es időközönként történik. Ha szükséges, szabadon módosíthatja ezt a beállítást a ***MEASUREMENT_INTERVAL_MM*** paraméter szerkesztésével a **filament_width_sensor.py** fájlban.
+Az érzékelő leolvasása alapértelmezés szerint 10 mm-es időközönként történik. Ha szükséges, szabadon módosíthatod ezt a beállítást a ***MEASUREMENT_INTERVAL_MM*** paraméter szerkesztésével a **filament_width_sensor.py** fájlban.
