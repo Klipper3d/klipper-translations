@@ -3,14 +3,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-17 09:21+0000\n"
+"PO-Revision-Date: 2022-11-01 13:33+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/"
+"it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -3122,15 +3123,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 261 (header)
 msgid "[print_stats]"
-msgstr ""
+msgstr "[print_stats]"
 
 #: docs/G-Codes.md:block 262 (paragraph)
 msgid "The print_stats module is automatically loaded."
-msgstr ""
+msgstr "Il modulo print_stats viene caricato automaticamente."
 
 #: docs/G-Codes.md:block 263 (header)
 msgid "SET_PRINT_STATS_INFO"
-msgstr ""
+msgstr "SET_PRINT_STATS_INFO"
 
 #: docs/G-Codes.md:block 264 (paragraph)
 msgid ""
@@ -3141,20 +3142,29 @@ msgid ""
 "<current_layer>]` at the layer change gcode section to pass layer "
 "information from your slicer to Klipper."
 msgstr ""
+"`SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>] [CURRENT_LAYER= "
+"<current_layer>]`: passa le informazioni sulo slicer come il layer attivo ed "
+"il totale a Klipper. Aggiungi `SET_PRINT_STATS_INFO "
+"[TOTAL_LAYER=<total_layer_count>]` alla sezione gcode di inizio del tuo "
+"slicer e `SET_PRINT_STATS_INFO [CURRENT_LAYER= <current_layer>]` alla "
+"sezione gcode di cambio livello per passare le informazioni sul livello dal "
+"tuo slicer a Klipper."
 
 #: docs/G-Codes.md:block 371 (header)
 msgid "[z_thermal_adjust]"
-msgstr ""
+msgstr "[z_thermal_adjust]"
 
 #: docs/G-Codes.md:block 372 (paragraph)
 msgid ""
 "The following commands are available when the [z_thermal_adjust config "
 "section](Config_Reference.md#z_thermal_adjust) is enabled."
 msgstr ""
+"I seguenti comandi sono disponibili quando la [sezione z_thermal_adjust "
+"config](Config_Reference.md#z_thermal_adjust) è abilitata."
 
 #: docs/G-Codes.md:block 373 (header)
 msgid "SET_Z_THERMAL_ADJUST"
-msgstr ""
+msgstr "SET_Z_THERMAL_ADJUST"
 
 #: docs/G-Codes.md:block 374 (paragraph)
 msgid ""
@@ -3170,6 +3180,19 @@ msgid ""
 " homing (for use in e.g. non-standard homing routines) - will be reset "
 "automatically upon homing."
 msgstr ""
+"`SET_Z_THERMAL_ADJUST [ENABLE=<0:1>] [TEMP_COEFF=<valore>] "
+"[REF_TEMP=<valore>]`: Abilita o disabilita la regolazione termica Z con "
+"`ENABLE`. La disabilitazione non rimuove alcuna regolazione già applicata, "
+"ma congela il valore di regolazione corrente - questo impedisce il movimento "
+"Z verso il basso potenzialmente pericoloso. La riattivazione può "
+"potenzialmente causare il movimento dell'utensile verso l'alto quando la "
+"regolazione viene aggiornata e applicata. `TEMP_COEFF` consente la "
+"regolazione in tempo reale del coefficiente di temperatura di regolazione ("
+"cioè il parametro di configurazione `TEMP_COEFF`). I valori `TEMP_COEFF` non "
+"vengono salvati nella configurazione. `REF_TEMP` sovrascrive manualmente la "
+"temperatura di riferimento tipicamente impostata durante l'homing (per "
+"l'uso, ad esempio, in routine di homing non standard) - verrà ripristinata "
+"automaticamente durante l'homing."
 
 #~ msgid ""
 #~ "`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [<probe_parameter>=<value>]`: This"

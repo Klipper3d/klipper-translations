@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-17 09:21+0000\n"
+"PO-Revision-Date: 2022-11-01 13:33+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/status_reference/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"status_reference/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -1273,16 +1274,20 @@ msgid ""
 "`info.total_layer`: The total layer value of the last `SET_PRINT_STATS_INFO "
 "TOTAL_LAYER=<value>` G-Code command."
 msgstr ""
+"`info.total_layer`: Il valore totale del layer dell'ultimo comando G-Code `"
+"SET_PRINT_STATS_INFO TOTAL_LAYER=<valore>`."
 
 #: docs/Status_Reference.md:block 83 (unordered list)
 msgid ""
 "`info.current_layer`: The current layer value of the last "
 "`SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-Code command."
 msgstr ""
+"`info.current_layer`: il valore del layer corrente dell'ultimo comando G-"
+"Code `SET_PRINT_STATS_INFO CURRENT_LAYER=<valore>`."
 
 #: docs/Status_Reference.md:block 124 (header)
 msgid "z_thermal_adjust"
-msgstr ""
+msgstr "z_thermal_adjust"
 
 #: docs/Status_Reference.md:block 125 (paragraph)
 msgid ""
