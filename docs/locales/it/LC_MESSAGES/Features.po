@@ -3,14 +3,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-08 09:23+0000\n"
+"PO-Revision-Date: 2022-11-01 13:33+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/features/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/features/"
+"it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 msgid "Klipper has several compelling features:"
 msgstr "Klipper ha diverse caratteristiche interessanti:"
@@ -575,15 +576,15 @@ msgstr ""
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32H743"
-msgstr ""
+msgstr "STM32H743"
 
 #: docs/Features.md:block 10 (table)
 msgid "9091K"
-msgstr ""
+msgstr "9091K"
 
 #: docs/Features.md:block 10 (table)
 msgid "6061K"
-msgstr ""
+msgstr "6061K"
 
 #~ msgid "Arduino Zero (SAMD21)"
 #~ msgstr ""
