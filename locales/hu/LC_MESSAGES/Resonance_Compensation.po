@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-10-30 12:06+0000\n"
+"PO-Revision-Date: 2022-10-31 09:06+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "resonance_compensation/hu/>\n"
@@ -1106,7 +1106,7 @@ msgstr "Indítsa újra a firmware-t: `RESTART`"
 
 #: docs/Resonance_Compensation.md:block 28 (ordered list)
 msgid "Prepare for test: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`"
-msgstr "Készüljön fel a tesztre: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`"
+msgstr "Készülj fel a tesztre: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`"
 
 #: docs/Resonance_Compensation.md:block 28 (ordered list)
 msgid "Execute: `SET_INPUT_SHAPER SHAPER_TYPE=MZV`"

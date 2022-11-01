@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-18 19:21+0000\n"
+"PO-Revision-Date: 2022-10-31 09:07+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/sponsors/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"sponsors/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
@@ -21,7 +22,7 @@ msgid ""
 "Please consider sponsoring Klipper or supporting our sponsors."
 msgstr ""
 "A Klipper szabad szoftver. A szponzorok nagylelkű támogatásától függünk. "
-"Kérjük, fontolja meg a Klipper szponzorálását vagy szponzoraink támogatását."
+"Kérjük, fontold meg a Klipper szponzorálását vagy szponzoraink támogatását."
 
 #: docs/Sponsors.md:block 3 (header)
 msgid "BIGTREETECH"
@@ -78,7 +79,7 @@ msgid ""
 "Klipper is frequently used with other Free Software. Consider using or "
 "supporting these projects."
 msgstr ""
-"A Klippert gyakran használják más szabad szoftverekkel együtt. Fontolja meg "
+"A Klippert gyakran használják más szabad szoftverekkel együtt. Fontold meg "
 "ezeknek a projekteknek a használatát vagy támogatását."
 
 #: docs/Sponsors.md:block 13 (unordered list)
