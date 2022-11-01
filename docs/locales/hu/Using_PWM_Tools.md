@@ -1,12 +1,12 @@
 # PWM eszközök használata
 
-Ez a dokumentum leírja, hogyan állíthat be egy PWM-vezérelt lézert vagy orsót az `output_pin` és néhány makró segítségével.
+Ez a dokumentum leírja, hogyan állíthatsz be egy PWM-vezérelt lézert vagy orsót az `output_pin` és néhány makró segítségével.
 
 ## Hogyan működik?
 
-A nyomtatófej ventilátor PWM kimenetének felhasználásával lézereket vagy orsókat vezérelhet. Ez akkor hasznos, ha kapcsolható nyomtatófejeket használ, például az E3D szerszámváltó vagy egy barkácsmegoldás. Általában az olyan cam-tool, mint a LaserWeb, úgy konfigurálhatók, hogy `M3-M5` parancsokat használjanak, amelyek *spindle speed CW* (`M3 S[0-255]`), *orsó fordulatszám * (`M4 S[0-255]`) és *orsóstop* (`M5`).
+A nyomtatófej ventilátor PWM kimenetének felhasználásával lézereket vagy orsókat vezérelhetsz. Ez akkor hasznos, ha kapcsolható nyomtatófejeket használsz, például az E3D szerszámváltó vagy egy barkácsmegoldás. Általában az olyan cam-tool, mint a LaserWeb, úgy konfigurálhatók, hogy `M3-M5` parancsokat használjanak, amelyek *spindle speed CW* (`M3 S[0-255]`), *spindle speed CCW* (`M4 S[0-255]`) és *spindle stop* (`M5`).
 
-**Figyelmeztetés:** A lézer használatakor tartson be minden biztonsági óvintézkedést, amit csak lehet! A diódalézerek általában invertáltak. Ez azt jelenti, hogy amikor az MCU újraindul, a lézer *teljesen be lesz kapcsolva* arra az időre. A biztonság kedvéért ajánlott *mindig* megfelelő hullámhosszúságú lézerszemüveget viselni, ha a lézer be van kapcsolva, és a lézert le kell kapcsolni, ha nincs rá szükség. Emellett be kell állítania egy biztonsági időkorlátot, hogy ha a gazdagép vagy az MCU hibát észlel, a szerszám leálljon.
+**Figyelmeztetés:** A lézer használatakor tarts be minden biztonsági óvintézkedést, amit csak lehet! A diódalézerek általában invertáltak. Ez azt jelenti, hogy amikor az MCU újraindul, a lézer *teljesen be lesz kapcsolva* arra az időre. A biztonság kedvéért ajánlott *mindig* megfelelő hullámhosszúságú lézerszemüveget viselni, ha a lézer be van kapcsolva, és a lézert le kell kapcsolni, ha nincs rá szükség. Emellett be kell állítani egy biztonsági időkorlátot, hogy ha a gazdagép vagy az MCU hibát észlel, a szerszám leálljon.
 
 Egy példakonfigurációért lásd [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
 

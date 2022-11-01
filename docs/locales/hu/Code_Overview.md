@@ -111,7 +111,7 @@ Hasznos lépések:
 1. Alapvető GPIO bemeneti és kimeneti támogatás megjelenítése. Lásd a Klipper [commit c78b9076](https://github.com/Klipper3d/klipper/commit/c78b90767f19c9e8510c3155b89fb7ad64ca3c54) példáját erre.
 1. További perifériák felhozása. Lásd például a Klipper megbízásokat [65613aed](https://github.com/Klipper3d/klipper/commit/65613aeddfb9ef86905cb1dade9e773a02ef3c27), [c812a40a](https://github.com/Klipper3d/klipper/commit/c812a40a3782415e454b04bf7bd2158a6f0ec8b5) és [c381d03a](https://github.com/Klipper3d/klipper/commit/c381d03aad5c3ee761169b7c7bced519cc14da29).
 1. Hozzon létre egy minta Klipper konfigurációs fájlt a config/ könyvtárban. Teszteljük a mikrokontrollert a klippy.py főprogrammal.
-1. Fontolja meg a test/ könyvtárban lévő build tesztesetek hozzáadását.
+1. Fontold meg a test/ könyvtárban lévő build tesztesetek hozzáadását.
 
 További kódolási tippek:
 

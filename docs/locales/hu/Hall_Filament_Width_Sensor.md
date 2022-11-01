@@ -30,8 +30,8 @@ index: 1
 
 Az érzékelő nyers értékének meghatározásához használhatod a menüelemet vagy a **QUERY_RAW_FILAMENT_WIDTH** parancsot a terminálban.
 
-1. Helyezze be az első kalibráló rudat (1,5 mm-es méret), hogy megkapja az első nyers szenzorértéket
-1. Helyezze be a második kalibráló rudat (2,0 mm-es méret), hogy megkapja a második nyers szenzorértékét
+1. Helyezd be az első kalibráló rudat (1,5 mm-es méret), hogy megkapja az első nyers szenzorértéket
+1. Helyezd be a második kalibráló rudat (2,0 mm-es méret), hogy megkapja a második nyers szenzorértékét
 1. Mentsd a nyers szenzorértékeket a `Raw_dia1` és a `Raw_dia2` konfigurációs paraméterekbe
 
 ## Az érzékelő engedélyezése

@@ -549,11 +549,11 @@ I seguenti comandi sono disponibili quando la [pause_resume config section](Conf
 
 ### [print_stats]
 
-The print_stats module is automatically loaded.
+Il modulo print_stats viene caricato automaticamente.
 
 #### SET_PRINT_STATS_INFO
 
-`SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>] [CURRENT_LAYER= <current_layer>]`: Pass slicer info like layer act and total to Klipper. Add `SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>]` to your slicer start gcode section and `SET_PRINT_STATS_INFO [CURRENT_LAYER= <current_layer>]` at the layer change gcode section to pass layer information from your slicer to Klipper.
+`SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>] [CURRENT_LAYER= <current_layer>]`: passa le informazioni sulo slicer come il layer attivo ed il totale a Klipper. Aggiungi `SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>]` alla sezione gcode di inizio del tuo slicer e `SET_PRINT_STATS_INFO [CURRENT_LAYER= <current_layer>]` alla sezione gcode di cambio livello per passare le informazioni sul livello dal tuo slicer a Klipper.
 
 ### [probe]
 
@@ -782,11 +782,11 @@ Inoltre, quando la sezione di configurazione "virtual_sdcard" è abilitata, sono
 
 ### [z_thermal_adjust]
 
-The following commands are available when the [z_thermal_adjust config section](Config_Reference.md#z_thermal_adjust) is enabled.
+I seguenti comandi sono disponibili quando la [sezione z_thermal_adjust config](Config_Reference.md#z_thermal_adjust) è abilitata.
 
 #### SET_Z_THERMAL_ADJUST
 
-`SET_Z_THERMAL_ADJUST [ENABLE=<0:1>] [TEMP_COEFF=<value>] [REF_TEMP=<value>]`: Enable or disable the Z thermal adjustment with `ENABLE`. Disabling does not remove any adjustment already applied, but will freeze the current adjustment value - this prevents potentially unsafe downward Z movement. Re-enabling can potentially cause upward tool movement as the adjustment is updated and applied. `TEMP_COEFF` allows run-time tuning of the adjustment temperature coefficient (i.e. the `TEMP_COEFF` config parameter). `TEMP_COEFF` values are not saved to the config. `REF_TEMP` manually overrides the reference temperature typically set during homing (for use in e.g. non-standard homing routines) - will be reset automatically upon homing.
+`SET_Z_THERMAL_ADJUST [ENABLE=<0:1>] [TEMP_COEFF=<valore>] [REF_TEMP=<valore>]`: Abilita o disabilita la regolazione termica Z con `ENABLE`. La disabilitazione non rimuove alcuna regolazione già applicata, ma congela il valore di regolazione corrente - questo impedisce il movimento Z verso il basso potenzialmente pericoloso. La riattivazione può potenzialmente causare il movimento dell'utensile verso l'alto quando la regolazione viene aggiornata e applicata. `TEMP_COEFF` consente la regolazione in tempo reale del coefficiente di temperatura di regolazione (cioè il parametro di configurazione `TEMP_COEFF`). I valori `TEMP_COEFF` non vengono salvati nella configurazione. `REF_TEMP` sovrascrive manualmente la temperatura di riferimento tipicamente impostata durante l'homing (per l'uso, ad esempio, in routine di homing non standard) - verrà ripristinata automaticamente durante l'homing.
 
 ### [z_tilt]
 

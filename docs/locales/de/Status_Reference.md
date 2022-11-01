@@ -26,7 +26,7 @@ The following information is available in the `Config_Reference.md#bed_screws` o
 - `current_screw`: The index for the current screw being adjusted.
 - `accepted_screws`: The number of accepted screws.
 
-## configfile
+## Konfigurationsdatei
 
 The following information is available in the `configfile` object (this object is always available):
 

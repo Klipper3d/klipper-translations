@@ -10,7 +10,7 @@ queue_step oid=7 interval=7458 count=10 add=331
 queue_step oid=7 interval=11717 count=4 add=1281
 ```
 
-Az elérhető parancsokról az [mcu parancsok](MCU_Commands.md) dokumentumban olvashat bővebben. Tekintsd meg a [hibakeresés](Debugging.md) dokumentumot a G-kód fájl megfelelő, ember által olvasható mikrovezérlő parancsaira történő lefordításával kapcsolatban.
+Az elérhető parancsokról az [mcu parancsok](MCU_Commands.md) dokumentumban olvashatsz bővebben. Tekintsd meg a [hibakeresés](Debugging.md) dokumentumot a G-kód fájl megfelelő, ember által olvasható mikrovezérlő parancsaira történő lefordításával kapcsolatban.
 
 Ez az oldal magának a Klipper üzenetküldő protokollnak a magas szintű leírását tartalmazza. Leírja az üzenetek deklarálását, bináris formátumú kódolását (a séma "tömörítését") és továbbítását.
 

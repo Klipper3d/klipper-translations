@@ -66,15 +66,15 @@ A Klipper mikrovezérlő átviteli sebessége nem függ a mikrovezérlő bootloa
 
 Az ajánlott hardver egy Raspberry Pi 2, Raspberry Pi 3 vagy Raspberry Pi 4.
 
-A Klipper fut a Raspberry Pi 1-en és a Raspberry Pi Zero-n, de ezek a lapok nem tartalmaznak elegendő feldolgozási teljesítményt az OctoPrint jó futtatásához. Gyakori, hogy ezeken a lassabb gépeken a nyomtatás akadozik, amikor közvetlenül az OctoPrintből nyomtat. (Előfordulhat, hogy a nyomtató gyorsabban mozog, mint ahogy az OctoPrint a mozgásparancsokat el tudja küldeni.) Ha mindenképpen ezek közül a lassabb lapok közül valamelyiken szeretne futni, fontolja meg a "virtual_sdcard" funkció használatát nyomtatáskor (a részletekért lásd a [konfigurációs hivatkozást](Config_Reference.md#virtual_sdcard)).
+A Klipper fut a Raspberry Pi 1-en és a Raspberry Pi Zero-n, de ezek a lapok nem tartalmaznak elegendő feldolgozási teljesítményt az OctoPrint jó futtatásához. Gyakori, hogy ezeken a lassabb gépeken a nyomtatás akadozik, amikor közvetlenül az OctoPrintből nyomtat. (Előfordulhat, hogy a nyomtató gyorsabban mozog, mint ahogy az OctoPrint a mozgásparancsokat el tudja küldeni.) Ha mindenképpen ezek közül a lassabb lapok közül valamelyiket szeretnéd használni, fontold meg a "virtual_sdcard" funkció használatát nyomtatáskor (a részletekért lásd a [konfigurációs hivatkozást](Config_Reference.md#virtual_sdcard)).
 
 A Beaglebone-on való futtatáshoz lásd a [Beaglebone-specifikus telepítési utasításokat](Beaglebone.md).
 
-A Klipper más gépeken is futott. A Klipper gazdagép szoftverhez csak Python szükséges, amely Linux (vagy hasonló) számítógépen fut. Ha azonban más gépen szeretné futtatni, akkor Linux adminisztrátori ismeretekre lesz szüksége az adott gép rendszerkövetelményeinek telepítéséhez. A szükséges Linux-adminisztrátori lépésekről további információt az [install-octopi.sh](../scripts/install-octopi.sh) szkriptben talál.
+A Klipper más gépeken is futott. A Klipper gazdagép szoftverhez csak Python szükséges, amely Linux (vagy hasonló) számítógépen fut. Ha azonban más gépen szeretnéd futtatni, akkor Linux adminisztrátori ismeretekre lesz szüksége az adott gép rendszerkövetelményeinek telepítéséhez. A szükséges Linux-adminisztrátori lépésekről további információt az [install-octopi.sh](../scripts/install-octopi.sh) szkriptben talál.
 
-Ha a Klipper gazdagép szoftvert egy low-end chipen szeretné futtatni, akkor vedd figyelembe, hogy legalább egy "dupla pontosságú lebegőpontos" hardverrel rendelkező gépre van szükség.
+Ha a Klipper gazdagép szoftvert egy low-end chipen szeretnéd futtatni, akkor vedd figyelembe, hogy legalább egy "dupla pontosságú lebegőpontos" hardverrel rendelkező gépre van szükség.
 
-Ha a Klipper gazdagép szoftvert egy megosztott általános célú asztali vagy szerver osztályú gépen szeretné futtatni, akkor vedd figyelembe, hogy a Klippernek vannak bizonyos valós idejű ütemezési követelményei. Ha a nyomtatás során a gazdaszámítógép egyidejűleg intenzív általános célú számítási feladatot is végez (például merevlemez defragmentálása, 3D renderelés, nagymértékű swapolás stb.), akkor a Klipper nyomtatási hibákat jelenthet.
+Ha a Klipper gazdagép szoftvert egy megosztott általános célú asztali vagy szerver osztályú gépen szeretnéd futtatni, akkor vedd figyelembe, hogy a Klippernek vannak bizonyos valós idejű ütemezési követelményei. Ha a nyomtatás során a gazdaszámítógép egyidejűleg intenzív általános célú számítási feladatot is végez (például merevlemez defragmentálása, 3D renderelés, nagymértékű swapolás stb.), akkor a Klipper nyomtatási hibákat jelenthet.
 
 Megjegyzés: Ha nem OctoPi-képet használsz, vedd figyelembe, hogy számos Linux-disztribúció engedélyez egy "ModemManager" (vagy hasonló) csomagot, amely megzavarhatja a soros kommunikációt. (Ami miatt a Klipper véletlenszerűnek tűnő "Elveszett a kommunikáció az MCU-val" hibákat jelenthet.) Ha a Klippert ilyen disztribúcióra telepíti, akkor lehet, hogy le kell tiltania ezt a csomagot.
 
@@ -104,11 +104,11 @@ A Klipper létrehoz egy "virtuális soros portot" a "/tmp/printer" fájlon keres
 
 A kód ezt azért teszi, hogy csökkentse annak esélyét, hogy a fejet véletlenül a tárgyasztalba vagy a falba ütköztesse. Miután a nyomtató kezdőponthoz ért, a szoftver megpróbálja ellenőrizni, hogy minden egyes mozgás a konfigurációs fájlban meghatározott position_min/max értéken belül van-e. Ha a motorok ki vannak kapcsolva (M84 vagy M18 parancs segítségével), akkor a motorokat a mozgás előtt újra be kell állítani.
 
-Ha a fejet az OctoPrint segítségével történő nyomtatás törlése után szeretné elmozdítani, fontolja meg az OctoPrint törlési sorrendjének módosítását, hogy ezt megtegye Ön helyett. Ez az OctoPrintben a webböngészőn keresztül konfigurálható a következő menüpont alatt: Beállítások->GCODE szkriptek
+Ha a fejet az OctoPrint segítségével történő nyomtatás törlése után szeretnéd elmozdítani, fontold meg az OctoPrint törlési sorrendjének módosítását, hogy ezt megtegye helyetted. Ez az OctoPrintben a webböngészőn keresztül konfigurálható a következő menüpont alatt: Beállítások->GCODE szkriptek
 
-Ha a nyomtatás befejezése után szeretné mozgatni a fejet, fontolja meg a kívánt mozgás hozzáadását a szeletelő "custom g-code" szakaszához.
+Ha a nyomtatás befejezése után szeretnéd mozgatni a fejet, fontold meg a kívánt mozgás hozzáadását a szeletelő "custom g-code" szakaszához.
 
-Ha a nyomtatónak szüksége van további mozgatásra a kezdőpont felvételi folyamat részeként (vagy alapvetően nincs kezdőpont felvételi folyamat), akkor fontolja meg a safe_z_home vagy homing_override szakasz használatát a konfigurációs fájlban. Ha diagnosztikai vagy hibakeresési célokra kell mozgatni egy léptetőmotort, akkor fontolja meg egy force_move szakasz hozzáadását a konfigurációs fájlhoz. Lásd a [konfigurációs hivatkozást](Config_Reference.md#testreszabott-kezdopont-felvetel) az ezen opciókkal kapcsolatos további részletekért.
+Ha a nyomtatónak szüksége van további mozgatásra a kezdőpont felvételi folyamat részeként (vagy alapvetően nincs kezdőpont felvételi folyamat), akkor fontold meg a safe_z_home vagy homing_override szakasz használatát a konfigurációs fájlban. Ha diagnosztikai vagy hibakeresési célokra kell mozgatni egy léptetőmotort, akkor fontold meg egy force_move szakasz hozzáadását a konfigurációs fájlhoz. Lásd a [konfigurációs hivatkozást](Config_Reference.md#testreszabott-kezdopont-felvetel) az ezen opciókkal kapcsolatos további részletekért.
 
 ## Miért van a Z position_endstop 0,5-re állítva az alapértelmezett konfigurációban?
 

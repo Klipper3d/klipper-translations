@@ -1,16 +1,16 @@
 # Nyomás előtolás
 
-Ez a dokumentum a "nyomás előtolás" konfigurációs változó adott fúvókához és nyomtatószálhoz való beállításával kapcsolatos információkat tartalmaz. A nyomás előtolás funkció hasznos lehet a szálazás csökkentésében. A nyomás előtolás megvalósításáról további információkat a [kinematika](Kinematics.md) dokumentumban talál.
+Ez a dokumentum a "nyomás előtolás" konfigurációs változó adott fúvókához és nyomtatószálhoz való beállításával kapcsolatos információkat tartalmaz. A nyomás előtolás funkció hasznos lehet a szálazás csökkentésében. A nyomás előtolás megvalósításáról további információkat a [kinematika](Kinematics.md) dokumentumban találsz.
 
 ## Nyomás előtolás hangolása
 
-A nyomás előtolás két hasznos dolgot tesz. Csökkenti a nem extrudált mozgások során fellépő szálazás, és csökkenti a kanyarodás során fellépő puffadást. Ez az útmutató a második funkciót (kanyarodás közbeni puffadás csökkentése) használja a hangolás mechanizmusaként.
+A nyomás előtolás két hasznos dolgot tesz. Csökkenti a nem extrudált mozgások során fellépő szálazást, és csökkenti a kanyarodás során fellépő puffadást. Ez az útmutató a második funkciót (kanyarodás közbeni puffadás csökkentése) használja a hangolás mechanizmusaként.
 
 A nyomás előtolás kalibrálásához a nyomtatónak konfiguráltnak és működőképesnek kell lennie, mivel a hangolási teszt egy tesztobjektum nyomtatásával és vizsgálatával jár. A teszt lefuttatása előtt érdemes ezt a dokumentumot teljes egészében elolvasni.
 
 A [docs/prints/square_tower.stl](prints/square_tower.stl) fájlban található nagy üreges négyzet G-kódjának létrehozásához használj egy szeletelőt. Használj nagy sebességet (pl. 100 mm/s), nulla kitöltést és durva rétegmagasságot (a rétegmagasságnak a fúvóka átmérőjének 75%-a körül kell lennie). Győződj meg róla, hogy a szeletelőben minden "dinamikus gyorsításvezérlés" ki van kapcsolva.
 
-Készüljön fel a tesztre a következő G-kód parancs kiadásával:
+Készülj fel a tesztre a következő G-kód parancs kiadásával:
 
 ```
 SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500

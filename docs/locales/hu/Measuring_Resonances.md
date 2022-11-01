@@ -8,7 +8,7 @@ Az ADXL345 beszerzésekor vedd figyelembe, hogy számos különböző NYÁK lapk
 
 ### Vezetékek
 
-Az ADXL345-öt SPI-n keresztül kell csatlakoztatnia a Raspberry Pi-hez. Vedd figyelembe, hogy az ADXL345 dokumentációja által javasolt I2C kapcsolatnak túl alacsony az adatforgalmi képessége, és **nem fog működni**. Az ajánlott kapcsolási séma:
+Az ADXL345-öt SPI-n keresztül kell csatlakoztatnod a Raspberry Pi-hez. Vedd figyelembe, hogy az ADXL345 dokumentációja által javasolt I2C kapcsolatnak túl alacsony az adatforgalmi képessége, és **nem fog működni**. Az ajánlott kapcsolási séma:
 
 | ADXL345 tű | RPi tű | RPi tű név |
 | :-: | :-: | :-: |
@@ -236,7 +236,7 @@ Az ajánlott alakító 2hump_ei @ 45,2 Hz.
 
 Vedd figyelembe, hogy a bejelentett `simítás` értékek absztrakt vetített értékek. Ezek az értékek különböző konfigurációk összehasonlítására használhatók: minél magasabb az érték, annál nagyobb simítást hoz létre a formázó. Ezek a simítási értékek azonban nem jelentik a simítás valódi mértékét, mivel a tényleges simítás a [`max_accel`](#a-max_accel-kivalasztasa) és `square_corner_velocity` paraméterektől függ. Ezért érdemes néhány tesztnyomatot nyomtatni, hogy lássuk, pontosan mekkora simítást hoz létre a kiválasztott konfiguráció.
 
-A fenti példában a javasolt alakító paraméterek nem rosszak, de mi van akkor, ha az X tengelyen kevesebb simítást szeretne elérni? Megpróbálhatod korlátozni a maximális alakító simítást a következő paranccsal:
+A fenti példában a javasolt alakító paraméterek nem rosszak, de mi van akkor, ha az X tengelyen kevesebb simítást szeretnél elérni? Megpróbálhatod korlátozni a maximális alakító simítást a következő paranccsal:
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --max_smoothing=0.2
@@ -347,7 +347,7 @@ Ajánlott shaper_type_y = mzv, shaper_freq_y = 36,8 Hz
 
 Ha egyetért a javasolt paraméterekkel, akkor a `SAVE_CONFIG` parancsot most végre lehet hajtani a paraméterek mentéséhez és a Klipper újraindításához. Vedd figyelembe, hogy ez nem frissíti a `max_accel` értéket a `[printer]` szakaszban. Ezt manuálisan kell frissítenie a [max_accel kiválasztása](#a-max_accel-kivalasztasa) szakaszban leírtak szerint.
 
-Ha a nyomtatója Y tengelyén van a tárgyasztal akkor megadhatja, hogy melyik tengelyt kívánja tesztelni, így a tesztek között megváltoztathatja a gyorsulásmérő rögzítési pontját (alapértelmezés szerint a teszt mindkét tengelyen végrehajtásra kerül):
+Ha a nyomtatója Y tengelyén van a tárgyasztal akkor megadhatod, hogy melyik tengelyt kívánod tesztelni, így a tesztek között megváltoztathatja a gyorsulásmérő rögzítési pontját (alapértelmezés szerint a teszt mindkét tengelyen végrehajtásra kerül):
 
 ```
 SHAPER_CALIBRATE AXIS=Y

@@ -56,7 +56,7 @@ Ha az alaplapod olyan firmware-vel égetted, amely egyéni átviteli sebesség m
 ./scripts/flash-sdcard.sh -b 115200 /dev/ttyAMA0 btt-skr-v1.3
 ```
 
-Ha a Klipper egy, az alapértelmezett helytől eltérő helyen található készletét szeretné égetni, akkor ezt a `-f` opció megadásával teheti meg:
+Ha a Klipper egy, az alapértelmezett helytől eltérő helyen található készletét szeretnéd égetni, akkor ezt a `-f` opció megadásával teheti meg:
 
 ```
 ./scripts/flash-sdcard.sh -f ~/downloads/klipper.bin /dev/ttyAMA0 btt-skr-v1.3

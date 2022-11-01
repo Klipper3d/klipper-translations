@@ -1,6 +1,6 @@
 # Szponzorok
 
-A Klipper szabad szoftver. A szponzorok nagylelkű támogatásától függünk. Kérjük, fontolja meg a Klipper szponzorálását vagy szponzoraink támogatását.
+A Klipper szabad szoftver. A szponzorok nagylelkű támogatásától függünk. Kérjük, fontold meg a Klipper szponzorálását vagy szponzoraink támogatását.
 
 ## BIGTREETECH
 
@@ -20,7 +20,7 @@ Eric a bed_mesh, spi_flash és számos más Klipper modul szerzője. Ericnek van
 
 ## Kapcsolódó Klipper projektek
 
-A Klippert gyakran használják más szabad szoftverekkel együtt. Fontolja meg ezeknek a projekteknek a használatát vagy támogatását.
+A Klippert gyakran használják más szabad szoftverekkel együtt. Fontold meg ezeknek a projekteknek a használatát vagy támogatását.
 
 * [Moonraker](https://github.com/Arksine/moonraker)
 * [Mainsail](https://github.com/mainsail-crew/mainsail)

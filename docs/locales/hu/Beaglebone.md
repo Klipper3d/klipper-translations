@@ -84,4 +84,4 @@ Fejezze be a telepítést a Klipper és az Octoprint konfigurálásával a [Tele
 
 ## Nyomtatás a Beaglebone-on
 
-Sajnos a Beaglebone processzor néha nehezen tudja jól futtatni az OctoPrintet. Előfordult már, hogy összetett nyomtatásoknál a nyomtatás akadozott (a nyomtató gyorsabban mozog, mint ahogy az OctoPrint mozgatási parancsokat tud küldeni). Ha ez előfordul, fontolja meg a "virtual_sdcard" funkció használatát (a részletekért lásd a [konfigurációs hivatkozást](Config_Reference.md#virtual_sdcard)), hogy közvetlenül a Klipperből nyomtass.
+Sajnos a Beaglebone processzor néha nehezen tudja jól futtatni az OctoPrintet. Előfordult már, hogy összetett nyomtatásoknál a nyomtatás akadozott (a nyomtató gyorsabban mozog, mint ahogy az OctoPrint mozgatási parancsokat tud küldeni). Ha ez előfordul, fontold meg a "virtual_sdcard" funkció használatát (a részletekért lásd a [konfigurációs hivatkozást](Config_Reference.md#virtual_sdcard)), hogy közvetlenül a Klipperből nyomtass.

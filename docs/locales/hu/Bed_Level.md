@@ -52,7 +52,7 @@ Recv: // Z position: ?????? --> 5.000 <-- ??????
 
 A fúvóka aktuális magassága (ahogyan azt a nyomtató jelenleg értelmezi) a "--> <--" között jelenik meg. A jobb oldali szám a legutóbbi mérés magassága, amely éppen nagyobb, mint az aktuális magasság, a bal oldali pedig a legutóbbi mérés magassága, amely kisebb, mint az aktuális magasság (vagy ??????, ha nem történt kísérlet).
 
-Helyezze a papírt a fúvóka és a tárgyasztal közé. Hasznos lehet a papír egyik sarkát behajtani, hogy könnyebb legyen megfogni. (Próbálja úgy, hogy ne nyomja le a tárgyasztalt, amikor a papírt előre-hátra mozgatja).
+Helyezd a papírt a fúvóka és a tárgyasztal közé. Hasznos lehet a papír egyik sarkát behajtani, hogy könnyebb legyen megfogni. (Próbálja úgy, hogy ne nyomja le a tárgyasztalt, amikor a papírt előre-hátra mozgatja).
 
 ![paper-test](img/paper-test.jpg)
 

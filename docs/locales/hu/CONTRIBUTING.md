@@ -20,7 +20,7 @@ A Klipperhez való hozzájárulásokat az egyesítés előtt felülvizsgálják.
 
 Természetesen egy feladatot sokféleképpen lehet elvégezni; a felülvizsgálat célja nem az, hogy megvitassa a "legjobb" végrehajtást. Ahol lehetséges, a felülvizsgálati megbeszélések inkább a tényekre és a mérésekre összpontosítanak.
 
-A beadványok többsége visszajelzést eredményez egy felülvizsgálatról. Készüljön fel a visszajelzések beszerzésére, további részletek megadására és szükség esetén a beadvány frissítésére.
+A beadványok többsége visszajelzést eredményez egy felülvizsgálatról. Készülj fel a visszajelzések beszerzésére, további részletek megadására és szükség esetén a beadvány frissítésére.
 
 Gyakori dolgok, amiket a bíráló keres:
 
@@ -123,11 +123,11 @@ Minden megbízásnak a következőhöz hasonlóan formázott üzenetet kell tart
 modul: Nagybetűs, rövid (legfeljebb 50 karakteres) összefoglaló.
 
 Szükség esetén részletesebb magyarázó szöveg.  Körülbelül 75
-karakter.  Bizonyos kontextusokban az első sort úgy kezelik, mint a
-az e-mail tárgya, a szöveg többi részét pedig szövegtestként.  Az üres
-sor, amely elválasztja az összefoglalót a szövegtesttől, kritikus (kivéve, ha kihagyja a
-a törzsszöveget teljesen); az olyan eszközök, mint a rebase, összezavarodhatnak, ha a
-a kettőt együtt futtatják.
+karakter.  Bizonyos kontextusokban az első sort úgy kezelik,
+mint a az e-mail tárgya, a szöveg többi részét pedig szövegtestként.
+Az üres sor, amely elválasztja az összefoglalót a szövegtesttől, kritikus
+(kivéve, ha kihagyod a törzsszöveget teljesen); az olyan eszközök,
+mint a rebase, összezavarodhatnak, ha a kettőt együtt futtatják.
 
 Az üres sorok után további bekezdések következnek..
 
@@ -136,7 +136,7 @@ Aláírás: Név <myemail@example.org>
 
 A fenti példában `module` egy fájl vagy könyvtár neve kell, hogy legyen a tárolóban (fájlkiterjesztés nélkül). Például `clocksync: Javítsuk ki a pause() hívásban lévő elírást a csatlakozás idején`. A modulnév megadásának célja a kérelmi üzenetben az, hogy segítsen kontextust biztosítani a kérelmi megjegyzésekhez.
 
-Fontos, hogy minden kérésnél legyen egy "Signed-off-by" sor. Ez igazolja, hogy egyetértesz a [fejlesztői eredetigazolással](developer-certificate-of-origin). Tartalmaznia kell a valódi nevét (sajnálom, nincs álnév vagy névtelen hozzájárulás), és tartalmaznia kell egy aktuális e-mail címet.
+Fontos, hogy minden kérésnél legyen egy "Signed-off-by" sor. Ez igazolja, hogy egyetértesz a [fejlesztői eredetigazolással](developer-certificate-of-origin). Tartalmaznia kell a valódi nevet (sajnálom, nincs álnév vagy névtelen hozzájárulás), és tartalmaznia kell egy aktuális e-mail címet.
 
 ## Hozzájárulás a Klipper Fordításokhoz
 

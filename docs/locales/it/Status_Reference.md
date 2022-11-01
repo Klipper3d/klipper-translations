@@ -227,8 +227,8 @@ Le seguenti informazioni sono disponibili nell'oggetto [pause_resume](Config_Ref
 Le seguenti informazioni sono disponibili nell'oggetto `print_stats` (questo oggetto è automaticamente disponibile se è definita una sezione di configurazione [virtual_sdcard](Config_Reference.md#virtual_sdcard)):
 
 - `filename`, `total_duration`, `print_duration`, `filament_used`, `state`, `message`: informazioni stimate sulla stampa corrente quando è attiva una stampa da virtual_sdcard.
-- `info.total_layer`: The total layer value of the last `SET_PRINT_STATS_INFO TOTAL_LAYER=<value>` G-Code command.
-- `info.current_layer`: The current layer value of the last `SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-Code command.
+- `info.total_layer`: Il valore totale del layer dell'ultimo comando G-Code `SET_PRINT_STATS_INFO TOTAL_LAYER=<valore>`.
+- `info.current_layer`: il valore del layer corrente dell'ultimo comando G-Code `SET_PRINT_STATS_INFO CURRENT_LAYER=<valore>`.
 
 ## probe
 

@@ -4,7 +4,7 @@ Questo documento descrive il supporto del CAN bus di Klipper.
 
 ## Hardware del dispositivo
 
-Klipper currently supports CAN on stm32, same5x, and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.
+Klipper attualmente supporta CAN su chip stm32, same5x e rp2040. Inoltre, il chip del microcontrollore deve trovarsi su una scheda dotata di un ricetrasmettitore CAN.
 
 Per compilare per CAN, eseguire `make menuconfig` e selezionare "CAN bus" come interfaccia di comunicazione. Infine, compila il codice del microcontrollore e flashalo sulla scheda di destinazione.
 

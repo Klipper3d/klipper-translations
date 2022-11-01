@@ -10,11 +10,11 @@ Kezd azzal, hogy ellenőrzöd, a hőmérséklet megfelelően van-e jelentve. Lé
 
 ![octoprint-temperature](img/octoprint-temperature.png)
 
-Ellenőrizd, hogy a fúvóka és a tárgyasztal hőmérséklete (ha van) jelen van-e, és nem emelkedik. Ha növekszik, kapcsolja ki a nyomtatót. Ha a hőmérsékletek nem pontosak, tekintsd át a fúvóka és/vagy tárgyasztal "sensor_type" és "sensor_pin" beállításait.
+Ellenőrizd, hogy a fúvóka és a tárgyasztal hőmérséklete (ha van) jelen van-e, és nem emelkedik. Ha növekszik, kapcsold ki a nyomtatót. Ha a hőmérsékletek nem pontosak, tekintsd át a fúvóka és/vagy tárgyasztal "sensor_type" és "sensor_pin" beállításait.
 
 ## Ellenőrzés M112
 
-Navigálj az Octoprint terminál fülre, és adj ki egy M112 parancsot a terminálmezőben. Ez a parancs arra kéri a Klippert, hogy lépjen "leállási" állapotba. Ennek hatására az Octoprint megszakítja a kapcsolatot a Klipperrel. Navigálj a Connection (Kapcsolat) területre, és kattints a "Kapcsolódás" gombra, hogy az Octoprint újra csatlakozzon. Ezután navigálj az Octoprint hőmérséklet fülre, és ellenőrizd, hogy a hőmérsékletek továbbra is frissülnek-e, és a hőmérsékletek nem emelkednek-e. Ha a hőmérsékletek emelkednek, kapcsolja le a nyomtatót a hálózatról.
+Navigálj az Octoprint terminál fülre, és adj ki egy M112 parancsot a terminálmezőben. Ez a parancs arra kéri a Klippert, hogy lépjen "leállási" állapotba. Ennek hatására az Octoprint megszakítja a kapcsolatot a Klipperrel. Navigálj a Connection (Kapcsolat) területre, és kattints a "Kapcsolódás" gombra, hogy az Octoprint újra csatlakozzon. Ezután navigálj az Octoprint hőmérséklet fülre, és ellenőrizd, hogy a hőmérsékletek továbbra is frissülnek-e, és a hőmérsékletek nem emelkednek-e. Ha a hőmérsékletek emelkednek, kapcsold le a nyomtatót a hálózatról.
 
 Az M112 parancs hatására a Klipper "leállítás" állapotba kerül. Ennek az állapotnak a törléséhez adj ki egy FIRMWARE_RESTART parancsot az Octoprint terminál lapon.
 
@@ -44,7 +44,7 @@ Ha a léptető egyáltalán nem mozog, akkor ellenőrizd az "enable_pin" és "st
 
 Futtassa a fenti tesztet a konfigurációs fájlban definiált minden egyes léptetőmotorra. (Állítsd a STEPPER_BUZZ parancs STEPPER paraméterét a tesztelendő konfigurációs szakasz nevére). Ha nincs nyomtatószál az extruderben, akkor a STEPPER_BUZZ paranccsal ellenőrizheti az extruder motor csatlakozását (használd a STEPPER=extruder parancsot). Ellenkező esetben a legjobb ha az extruder motort külön teszteljük (lásd a következő szakaszt).
 
-Az összes végállás és léptetőmotor ellenőrzése után a célba állítási mechanizmust tesztelni kell. Adj ki egy G28 parancsot az összes tengely alaphelyzetbe állításához. Ha a nyomtató nem állítható be megfelelően, kapcsolja ki a nyomtatót. Ha szükséges, ismételje meg a végállás és a léptetőmotorok ellenőrzését.
+Az összes végállás és léptetőmotor ellenőrzése után a célba állítási mechanizmust tesztelni kell. Adj ki egy G28 parancsot az összes tengely alaphelyzetbe állításához. Ha a nyomtató nem állítható be megfelelően, kapcsold ki a nyomtatót. Ha szükséges, ismételje meg a végállás és a léptetőmotorok ellenőrzését.
 
 ## Extruder motor ellenőrzése
 

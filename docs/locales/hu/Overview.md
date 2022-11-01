@@ -1,6 +1,6 @@
 # Áttekintés
 
-Üdvözöljük a Klipper dokumentációjában. Ha még nem ismered a Klippert, kezd a [funkciók](Features.md) és [telepítés](Installation.md) dokumentumokkal.
+Üdvözlünk a Klipper dokumentációjában. Ha még nem ismered a Klippert, kezd a [funkciók](Features.md) és [telepítés](Installation.md) dokumentumokkal.
 
 ## Áttekintő információk
 

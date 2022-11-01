@@ -35,7 +35,7 @@ Néhány parancssori opció is rendelkezésre áll. További információkért f
 
 A Klippy gazdagép kódja futhat kötegelt üzemmódban, hogy előállítsa a G-kód fájlhoz tartozó alacsony szintű mikrokontroller-parancsokat. Ezeknek az alacsony szintű parancsoknak a vizsgálata hasznos, amikor megpróbálod megérteni az alacsony szintű hardver műveleteit. Az is hasznos lehet, hogy összehasonlítsuk a mikrokontroller-parancsok közötti különbséget egy kódváltás után.
 
-A Klippy futtatásához ebben a kötegelt üzemmódban egy egyszeri lépés szükséges a mikrokontroller "adatszótár" létrehozásához. Ez a mikrokontroller kódjának lefordításával történik, hogy megkapjuk a **out/klipper.dict** fájlt:
+A Klippy futtatásához ebben a kötegelt üzemmódban egy egyszeri lépés szükséges a mikrokontroller "adatszótár" létrehozásához. Ez a mikrokontroller kódjának lefordításával történik, hogy megkapjuk az **out/klipper.dict** fájlt:
 
 ```
 make menuconfig

@@ -18,7 +18,7 @@ Ha beállítunk egy `hold_current` értéket, akkor a TMC motorvezérlő csökke
 
 A legtöbb léptetőmotornak a normál nyomtatás során nem jelent jelentős előnyt az áram csökkentése, mivel kevés nyomtatási művelet hagyja a léptetőmotort elég hosszú ideig üresen ahhoz, hogy aktiválja a `hold_current` funkciót. És nem valószínű, hogy az ember finom nyomtatási műveleteket akarna bevezetni abba a néhány nyomtatási mozdulatba, amely elég hosszú ideig hagyja üresen a léptetőmotort.
 
-Ha csökkenteni szeretné a motorok áramát a nyomtatási indítási rutinok során, akkor fontolja meg a [SET_TMC_CURRENT](G-Codes.md#set_tmc_current) parancsok kiadását egy [START_PRINT makróban](Slicers.md#klipper-gcode_macro), hogy beállítsd az áramot a normál nyomtatási mozgások előtt és után.
+Ha csökkenteni szeretnéd a motorok áramát a nyomtatási indítási rutinok során, akkor fontold meg a [SET_TMC_CURRENT](G-Codes.md#set_tmc_current) parancsok kiadását egy [START_PRINT makróban](Slicers.md#klipper-gcode_macro), hogy beállítsd az áramot a normál nyomtatási mozgások előtt és után.
 
 Néhány olyan, dedikált Z-motorral rendelkező nyomtató, amely a normál nyomtatási műveletek során (nincs bed_mesh, nincs bed_tilt, nincs Z skew_correction, nincs "vase mode" nyomtatás stb.) üresjáratban van, azt tapasztalhatja, hogy a Z motorok hűvösebbek a `hold_current` beállítással. Ha ezt használod, akkor mindenképpen vedd figyelembe ezt a fajta parancs nélküli Z tengelymozgást tárgyasztal kiegyenlítése, tárgyasztal szintezése, szondakalibrálás és hasonlók során. A `driver_TPOWERDOWN` és `driver_IHOLDDELAY` értékeket is ennek megfelelően kell kalibrálni. Ha bizonytalan vagy, inkább ne add meg a `hold_current` értéket.
 
@@ -36,7 +36,7 @@ Javasoljuk, hogy mindig a "SpreadCycle" módot használd (nem megadva a `stealth
 
 A TMC motorvezérlő `interpolate` beállítása csökkentheti a nyomtató mozgásának hallható zaját, de ennek ára egy kis rendszerszintű helyzeti hiba. Ez a rendszerszintű helyzeti hiba abból adódik, hogy a motorvezérlő késve hajtja végre a Klipper által küldött "lépéseket". Állandó sebességű mozgások során ez a késleltetés közel fél konfigurált mikrolépésnyi pozícióhibát eredményez (pontosabban a hiba fél mikrolépésnyi távolság mínusz a teljes lépés távolság 512-ed része). Például egy 40 mm-es rotation_distance, 200 steps_per_rotation és 16 microstep tengelyen az állandó sebességű mozgások során bevezetett rendszerszintű hiba ~0,006 mm.
 
-A legjobb helymeghatározási pontosság érdekében fontolja meg a SpreadCycle mód használatát és az interpoláció kikapcsolását (állítsd be az `interpolate: False` értéket a TMC motorvezérlő konfigurációjában). Ilyen konfiguráció esetén növelhetjük a `microstep` beállítást a léptető mozgása közbeni hallható zajok csökkentése érdekében. Általában a `64` vagy `128` mikrolépés beállítása az interpolációhoz hasonló hallható zajjal jár, és mindezt anélkül, hogy rendszerszintű helyzeti hibát vezetne be.
+A legjobb helymeghatározási pontosság érdekében fontold meg a SpreadCycle mód használatát és az interpoláció kikapcsolását (állítsd be az `interpolate: False` értéket a TMC motorvezérlő konfigurációjában). Ilyen konfiguráció esetén növelhetjük a `microstep` beállítást a léptető mozgása közbeni hallható zajok csökkentése érdekében. Általában a `64` vagy `128` mikrolépés beállítása az interpolációhoz hasonló hallható zajjal jár, és mindezt anélkül, hogy rendszerszintű helyzeti hibát vezetne be.
 
 Ha a StealthChop módot használod, akkor az interpolációból eredő helyzeti pontatlanság kicsi a StealthChop módból eredő helyzeti pontatlansághoz képest. Ezért az interpoláció hangolása nem tekinthető hasznosnak StealthChop üzemmódban, és az interpoláció alapértelmezett állapotban hagyható.
 
@@ -140,7 +140,7 @@ A fenti példák csak az érzékelő nélküli kezdőpont felvételre jellemző 
 
 #### Keresse meg a legmagasabb érzékenységet, amely sikeresen jelzi a kezdőpontot
 
-Helyezze a kocsit a sín közepéhez közel. A SET_TMC_FIELD paranccsal állítsd be a legnagyobb érzékenységet. A TMC2209 esetében:
+Helyezd a kocsit a sín közepéhez közel. A SET_TMC_FIELD paranccsal állítsd be a legnagyobb érzékenységet. A TMC2209 esetében:
 
 ```
 SET_TMC_FIELD STEPPER=stepper_x FIELD=SGTHRS VALUE=255
@@ -158,7 +158,7 @@ Ezután folyamatosan csökkentse a `VALUE` beállítás érzékenységét, és f
 
 A maximum_sensitivity keresésekor kényelmes lehet a különböző VALUE beállításokra ugrani (a VALUE paraméter kettéosztása érdekében). Ha ezt tesszük, akkor készüljünk fel arra, hogy a nyomtató leállításához adjunk ki egy `M112` parancsot, mivel egy nagyon alacsony érzékenységű beállítás miatt a tengely többször "beleütközhet" a sín végébe.
 
-Ügyelj arra, hogy várjon néhány másodpercet minden egyes végállási kísérlet között. Miután a TMC motorvezérlő érzékeli az elakadást, eltarthat egy kis ideig, amíg a belső visszajelzője törlődik, és képes lesz egy újabb megállást érzékelni.
+Ügyelj arra, hogy várj néhány másodpercet minden egyes végállási kísérlet között. Miután a TMC motorvezérlő érzékeli az elakadást, eltarthat egy kis ideig, amíg a belső visszajelzője törlődik, és képes lesz egy újabb megállást érzékelni.
 
 Ha a hangolási tesztek során a `G28 X0` parancs nem mozdul el egészen a tengelyhatárig, akkor óvatosan kell eljárni a szabályos mozgatási parancsok kiadásával (pl. `G1`). A Klipper nem fogja helyesen értelmezni a kocsi helyzetét, és a mozgatási parancs nemkívánatos és zavaros eredményeket okozhat.
 
@@ -299,7 +299,7 @@ Ez azt jelzi, hogy a motorvezérlő kikapcsolta magát, mert túlmelegedett. A t
 
 Ez azt jelzi, hogy a motorvezérlő letiltotta magát, mert nagyon magas áramot érzékelt a meghajtón keresztül. Ez azt jelezheti, hogy meglazult vagy rövidre zárt vezeték van a léptetőmotorban vagy magához a léptetőmotorhoz futó vezeték hibás.
 
-Ez a hiba akkor is előfordulhat, ha StealthChop üzemmódot használ, és a TMC motorvezérlő nem képes pontosan megjósolni a motor mechanikai terhelését. (Ha a motorvezérlő rosszul jósol, akkor előfordulhat, hogy túl nagy áramot küld a motoron keresztül, és ezzel kiváltja saját túláram-érzékelését). Ennek teszteléséhez kapcsolja ki a StealthChop üzemmódot, és ellenőrizd, hogy a hibák továbbra is előfordulnak-e.
+Ez a hiba akkor is előfordulhat, ha StealthChop üzemmódot használ, és a TMC motorvezérlő nem képes pontosan megjósolni a motor mechanikai terhelését. (Ha a motorvezérlő rosszul jósol, akkor előfordulhat, hogy túl nagy áramot küld a motoron keresztül, és ezzel kiváltja saját túláram-érzékelését). Ennek teszteléséhez kapcsold ki a StealthChop üzemmódot, és ellenőrizd, hogy a hibák továbbra is előfordulnak-e.
 
 #### A TMC hibát jelent: `... reset=1(Reset)` VAGY `CS_ACTUAL=0(Reset?)` VAGY `SE=0(Reset?)`
 

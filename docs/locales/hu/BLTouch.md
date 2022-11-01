@@ -2,9 +2,9 @@
 
 ## BL-Touch csatlakoztatása
 
-Egy **figyelmeztetés** mielőtt elkezdené: Kerülje a BL-Touch tűjének puszta ujjal való érintését, mivel meglehetősen érzékeny az zsírra. Ha pedig mégis hozzáér, legyen nagyon óvatos, hogy ne hajlítsa vagy nyomja meg a tüskét.
+Egy **figyelmeztetés** mielőtt elkezdenéd: Kerüld a BL-Touch tűjének puszta ujjal való érintését, mivel meglehetősen érzékeny az zsírra. Ha pedig mégis hozzáérsz, legyél nagyon óvatos, hogy ne hajlítsd vagy nyomd meg a tüskét.
 
-Csatlakoztassa a BL-Touch "servo" csatlakozót a `control_pin` csatlakozóhoz a BL-Touch dokumentáció vagy az MCU dokumentációja szerint. Az eredeti kábelezést használva a hármasból a sárga vezeték a `control_pin` és a vezetékpárból a fehér lesz a `sensor_pin`. Ezeket a tűket a kábelezésnek megfelelően kell konfigurálnia. A legtöbb BL-Touch pullup jelet igényel a tűbeállításnál (ezért a csatlakozás nevének előtagja "^"). Például:
+Csatlakoztasd a BL-Touch "servo" csatlakozót a `control_pin` csatlakozóhoz a BL-Touch dokumentáció vagy az MCU dokumentációja szerint. Az eredeti kábelezést használva a hármasból a sárga vezeték a `control_pin` és a vezetékpárból a fehér lesz a `sensor_pin`. Ezeket a tűket a kábelezésnek megfelelően kell konfigurálnia. A legtöbb BL-Touch pullup jelet igényel a tűbeállításnál (ezért a csatlakozás nevének előtagja "^"). Például:
 
 ```
 [bltouch]
@@ -26,15 +26,15 @@ Fontos, hogy a z_hop mozgás a safe_z_home-ban elég nagy legyen ahhoz, hogy a m
 
 ## Kezdeti tesztek
 
-Mielőtt továbblépne, ellenőrizd, hogy a BL-Touch a megfelelő magasságban van-e felszerelve. A mérőtüskének behúzott állapotban nagyjából 2 mm-rel a fúvóka fölött kell lennie
+Mielőtt továbblépnél, ellenőrizd, hogy a BL-Touch a megfelelő magasságban van-e felszerelve. A mérőtüskének behúzott állapotban nagyjából 2 mm-rel a fúvóka fölött kell lennie
 
-Amikor bekapcsolja a nyomtatót, a BL-Touch szondának önellenőrzést kell végeznie, és néhányszor fel-le kell mozgatnia a mérőtüskét. Az önellenőrzés befejezése után a mérőtüskének vissza kell húzódnia, és a szondán lévő piros LED-nek világítania kell. Ha bármilyen hibát észlelsz, például a szonda pirosan villog, vagy a mérőtüske lefelé van, nem pedig behúzva, kérjük kapcsolja ki a nyomtatót, és ellenőrizd a kábelezést és a konfigurációt.
+Amikor bekapcsolod a nyomtatót, a BL-Touch szondának önellenőrzést kell végeznie, és néhányszor fel-le kell mozgatnia a mérőtüskét. Az önellenőrzés befejezése után a mérőtüskének vissza kell húzódnia, és a szondán lévő piros LED-nek világítania kell. Ha bármilyen hibát észlelsz, például a szonda pirosan villog, vagy a mérőtüske lefelé van, nem pedig behúzva, kérjük kapcsold ki a nyomtatót, és ellenőrizd a kábelezést és a konfigurációt.
 
 Ha a fentiek rendben vannak, itt az ideje tesztelni, hogy a vezérlés megfelelően működik-e. Először futtassuk le a `BLTOUCH_DEBUG COMMAND=pin_down` parancsot a konzolban. Ellenőrizd, hogy a mérőtüske lefelé mozog-e, és hogy a BL-Touchon lévő piros LED kialszik-e. Ha nem, ellenőrizd újra a kábelezést és a konfigurációt. Ezután adj ki egy `BLTOUCH_DEBUG COMMAND=pin_up` parancsot. Ellenőrizd, hogy a mérőtüske felfelé mozdul-e, és hogy a piros LED ismét világít-e. Ha villog, akkor valamilyen probléma van.
 
 A következő lépés annak megerősítése, hogy a mérőtüske megfelelően működik. Futtassa a `BLTOUCH_DEBUG COMMAND=pin_down` parancsot, és ellenőrizd, hogy a mérőtüske lefelé mozdul-e. Majd futtassa a `BLTOUCH_DEBUG COMMAND=touch_mode` parancsot. Futtassa a `QUERY_PROBE` parancsot, és ellenőrizd, hogy az üzenet "probe: OPEN". Ezután, miközben a körmével finoman felfelé nyomja a mérőtüskét, futtassa le újra a `QUERY_PROBE` parancsot. Ellenőrizd, hogy az üzenet a "probe: TRIGGERED". Ha bármelyik lekérdezés nem a megfelelő üzenetet írja, akkor az általában hibás bekötést vagy konfigurációt jelez (bár egyes [klónok](#bl-touch-clones) speciális kezelést igényelhetnek). A teszt befejezésekor futtassuk le a `BLTOUCH_DEBUG COMMAND=pin_up` parancsot, és ellenőrizzük, hogy a mérőtüske felfelé mozdul.
 
-A BL-Touch vezérlő és érzékelőtüskék tesztelésének befejezése után itt az ideje a szintezés tesztelésének, de egy kis csavarral. Ahelyett, hogy a mérőtüske a tárgyasztalt érintené, a körmünkel fogjuk megérinteni. Helyezze a nyomtatófejet messze a tárgyasztaltól, adj ki egy `G28` (vagy `PROBE`, ha nem használod a probe:z_virtual_endstopot) parancsot, várjon míg a nyomtatófej elkezd lefelé mozogni, és állítsd meg a mozgást úgy, hogy nagyon óvatosan megérinti a mérőtüskét a körmével. Lehet, hogy ezt kétszer kell megtennie, mivel az alapértelmezett kezdőpont konfiguráció kétszer mér. Készüljön fel arra is, hogy kikapcsolja a nyomtatót, ha az nem áll meg, amikor megérinti a mérőtüskét.
+A BL-Touch vezérlő és érzékelőtüskék tesztelésének befejezése után itt az ideje a szintezés tesztelésének, de egy kis csavarral. Ahelyett, hogy a mérőtüske a tárgyasztalt érintené, a körmünkel fogjuk megérinteni. Helyezd a nyomtatófejet messze a tárgyasztaltól, adj ki egy `G28` (vagy `PROBE`, ha nem használod a probe:z_virtual_endstopot) parancsot, várj míg a nyomtatófej elkezd lefelé mozogni, és állítsd meg a mozgást úgy, hogy nagyon óvatosan megérinti a mérőtüskét a körmével. Lehet, hogy ezt kétszer kell megtennie, mivel az alapértelmezett kezdőpont konfiguráció kétszer mér. Készülj fel arra is, hogy kikapcsold a nyomtatót, ha az nem áll meg, amikor megérinti a mérőtüskét.
 
 Ha ez sikerült, kezd újra `G28` (vagy `PROBE`) parancsal, de ezúttal hagyja, hogy a mérőtüske megérintse a tárgyasztalt.
 
@@ -84,7 +84,7 @@ Vedd figyelembe azonban, hogy néhány "klón" eszköz és a BL-Touch v2.0 (és 
 
 Az x_offset, y_offset és z_offset konfigurációs paraméterek beállításához kövesse a [Szintező Kalibrálása](Probe_Calibrate.md) útmutatóban található utasításokat.
 
-Jó ötlet ellenőrizni, hogy a Z eltolás közel 1 mm. Ha nem, akkor valószínűleg felfelé vagy lefelé kell mozgatni a szondát, hogy ezt kijavítsa. Azt szeretné, hogy aktiválódjon, mielőtt a fúvóka a tárgyasztalhoz ér, hogy a fúvókához ragadt nyomtatószál vagy a meggörbült tárgyasztal ne befolyásolja a mérési műveletet. Ugyanakkor azonban azt szeretné, ha a visszahúzott pozíció a lehető legmesszebb lenne a fúvóka felett, hogy elkerülje a nyomtatott tárgyak érintkezését. Ha a szonda pozíciójáballítása megtörtént, akkor ismételje meg a kalibrálás lépéseit.
+Jó ötlet ellenőrizni, hogy a Z eltolás közel 1 mm. Ha nem, akkor valószínűleg felfelé vagy lefelé kell mozgatni a szondát, hogy ezt kijavítsa. Azt szeretnéd, hogy aktiválódjon, mielőtt a fúvóka a tárgyasztalhoz ér, hogy a fúvókához ragadt nyomtatószál vagy a meggörbült tárgyasztal ne befolyásolja a mérési műveletet. Ugyanakkor azonban azt szeretnéd, ha a visszahúzott pozíció a lehető legmesszebb lenne a fúvóka felett, hogy elkerülje a nyomtatott tárgyak érintkezését. Ha a szonda pozíciójáballítása megtörtént, akkor ismételje meg a kalibrálás lépéseit.
 
 ## BL-Touch kimeneti mód
 

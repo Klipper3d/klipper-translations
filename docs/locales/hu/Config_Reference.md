@@ -128,7 +128,7 @@ microsteps:
 #   Az alapértelmezett érték 200.
 #gear_ratio:
 #   Az áttétel, ha a léptetőmotor egy sebességváltón keresztül csatlakozik a
-#   tengelyhez. Például megadhatja az "5:1" értéket, ha 5:1 sebességváltót
+#   tengelyhez. Például megadhatod az "5:1" értéket, ha 5:1 sebességváltót
 #   használnak. Ha a tengely több sebességváltóval rendelkezik, megadhat
 #   egy vesszővel elválasztott áttételi listát (például "57:11, 2:1"). Ha a
 #   gear_ratio meg van adva, akkor a rotation_distance azt a távolságot
@@ -730,7 +730,7 @@ pid_Kd:
 #   általános képlettel értékeli ki: heater_pwm = (Kp*error+ Ki*integral(error) vagy
 #   Kd*derivative(error)) / 255 Ahol az „error” a „requested_temperature és
 #   measured_temperature” és a „heater_pwm” a kért fűtési sebesség 0,0 teljes
-#   kikapcsolt és 1,0 teljes bekapcsolva. Fontolja meg a PID_CALIBRATE parancs
+#   kikapcsolt és 1,0 teljes bekapcsolva. Fontold meg a PID_CALIBRATE parancs
 #   használatát a paraméterek lekéréséhez. A pid_Kp, pid_Ki és pid_Kd
 #   paramétereket meg kell adni a PID fűtőberendezésekhez.
 #max_delta: 2.0
@@ -1971,7 +1971,7 @@ Eszköz a fűtőberendezések letiltására, amikor egy tengely kezdőpont felv�
 
 ### [thermistor]
 
-Egyéni termisztorok (tetszőleges számú szakasz definiálható "termisztor" előtaggal). Egyéni termisztor használható a fűtőberendezés konfigurációs szakaszának sensor_type mezőjében. (Ha például egy "[thermistor my_thermistor]" szekciót definiálunk, akkor a fűtőelem definiálásakor használhatjuk a "sensor_type: my_thermistor" mezőt.). Ügyelj arra, hogy a termisztor szekciót a konfigurációs fájlban az első fűtőszekcióban való használata fölé helyezze.
+Egyéni termisztorok (tetszőleges számú szakasz definiálható "termisztor" előtaggal). Egyéni termisztor használható a fűtőberendezés konfigurációs szakaszának sensor_type mezőjében. (Ha például egy "[thermistor my_thermistor]" szekciót definiálunk, akkor a fűtőelem definiálásakor használhatjuk a "sensor_type: my_thermistor" mezőt.). Ügyelj arra, hogy a termisztor szekciót a konfigurációs fájlban az első fűtőszekcióban való használata fölé helyezd.
 
 ```
 [thermistor my_thermistor]
@@ -1994,7 +1994,7 @@ Egyéni termisztorok (tetszőleges számú szakasz definiálható "termisztor" e
 
 ### [adc_temperature]
 
-Egyedi ADC hőmérséklet-érzékelők (tetszőleges számú szekciót lehet definiálni "adc_temperature" előtaggal). Ez lehetővé teszi egy olyan egyéni hőmérséklet-érzékelő definiálását, amely egy feszültséget mér egy analóg-digitális átalakító (ADC) tűn, és lineáris interpolációt használ a konfigurált hőmérséklet/feszültség (vagy hőmérséklet/ellenállás) mérések között a hőmérséklet meghatározásához. Az így kapott érzékelő sensor_type-ként használható egy fűtőszekcióban. (Ha például egy "[adc_temperature my_sensor]" szekciót definiálunk, akkor egy fűtőelem definiálásakor használhatjuk a "sensor_type: my_sensor" szekciót). Ügyelj arra, hogy a szenzor szekciót a config fájlban az első felhasználása fölé helyezze a fűtőszekcióban.
+Egyedi ADC hőmérséklet-érzékelők (tetszőleges számú szekciót lehet definiálni "adc_temperature" előtaggal). Ez lehetővé teszi egy olyan egyéni hőmérséklet-érzékelő definiálását, amely egy feszültséget mér egy analóg-digitális átalakító (ADC) tűn, és lineáris interpolációt használ a konfigurált hőmérséklet/feszültség (vagy hőmérséklet/ellenállás) mérések között a hőmérséklet meghatározásához. Az így kapott érzékelő sensor_type-ként használható egy fűtőszekcióban. (Ha például egy "[adc_temperature my_sensor]" szekciót definiálunk, akkor egy fűtőelem definiálásakor használhatjuk a "sensor_type: my_sensor" szekciót). Ügyelj arra, hogy a szenzor szekciót a config fájlban az első felhasználása fölé helyezd a fűtőszekcióban.
 
 ```
 [adc_temperature my_sensor]
@@ -2627,7 +2627,7 @@ PCA9632 LED támogatás. A PCA9632-t a FlashForge Dreamer-ben használják.
 #scl_pin:
 #sda_pin:
 #   Alternatív megoldásként, ha a pca9632 nincs hardveres I2C
-#   buszhoz csatlakoztatva, akkor megadhatja az "óra" (scl_pin)
+#   buszhoz csatlakoztatva, akkor megadhatod az "óra" (scl_pin)
 #   és "data" (sda_pin) érintkezőket.
 #   Az alapértelmezés a hardveres I2C használata.
 #color_order: RGBW
@@ -3551,7 +3551,7 @@ Lásd a [sample-glyphs.cfg](../config/sample-glyphs.cfg) néhány példáját.
 #   (pixelenként 1), ahol a '.' egy üres pixel, a '*' pedig egy bekapcsolt
 #   képpont (pl. "****************" folyamatos vízszintes vonal
 #   megjelenítéséhez). Alternatív megoldásként használhatunk „0”-t
-#   üres pixelekhez és „1”-et a bekapcsolt pixelekhez. Helyezzen minden
+#   üres pixelekhez és „1”-et a bekapcsolt pixelekhez. Helyezz minden
 #   megjelenítési sort egy külön konfigurációs sorba. A karakterjelnek
 #   pontosan 16, egyenként 16 bites sorból kell állnia.
 #   Ez a paraméter nem kötelező.
@@ -3812,13 +3812,13 @@ i2c_address:
 #   részben.
 #i2c_bus:
 #   Ha a mikrovezérlő I2C megvalósítása több I2C buszt is támogat,
-#   itt megadhatja a busz nevét.
+#   itt megadhatod a busz nevét.
 #   Az alapértelmezett a mikrovezérlő I2C busz használata.
 ```
 
 ### [samd_sercom]
 
-SAMD SERCOM konfiguráció annak megadására, hogy mely tűket kell használni egy adott SERCOM-on. A "samd_sercom" előtaggal tetszőleges számú szekciót definiálhatunk. Minden SERCOM-ot konfigurálni kell, mielőtt SPI vagy I2C perifériaként használnánk. Helyezze ezt a konfigurációs szekciót minden más, SPI vagy I2C buszokat használó szekció fölé.
+SAMD SERCOM konfiguráció annak megadására, hogy mely tűket kell használni egy adott SERCOM-on. A "samd_sercom" előtaggal tetszőleges számú szekciót definiálhatunk. Minden SERCOM-ot konfigurálni kell, mielőtt SPI vagy I2C perifériaként használnánk. Helyezd ezt a konfigurációs szekciót minden más, SPI vagy I2C buszokat használó szekció fölé.
 
 ```
 [samd_sercom my_sercom]
@@ -3999,7 +3999,7 @@ Az SPI-buszt használó eszközök esetében általában a következő paraméte
 #   SPI-sebesség (hz-ben).
 #   Az alapértelmezett érték az eszköz típusától függ.
 #spi_bus:
-#   Ha a mikrovezérlő több SPI buszt támogat, akkor itt megadhatja a
+#   Ha a mikrovezérlő több SPI buszt támogat, akkor itt megadhatod a
 #   mikrovezérlő busz nevét. Az alapértelmezett érték a mikrovezérlő
 #   típusától függ.
 #spi_software_sclk_pin:
@@ -4028,7 +4028,7 @@ A legtöbb Klipper mikrokontroller implementáció csak 100000 `i2c_speed` ért�
 #   Annak a mikrovezérlőnek a neve, amelyhez a chip csatlakozik.
 #   Az alapértelmezett az "mcu".
 #i2c_bus:
-#   Ha a mikrovezérlő több I2C buszt támogat, akkor itt megadhatja a
+#   Ha a mikrovezérlő több I2C buszt támogat, akkor itt megadhatod a
 #   mikrovezérlő busz nevét.
 #   Az alapértelmezett érték a mikrovezérlő típusától függ.
 #i2c_speed:

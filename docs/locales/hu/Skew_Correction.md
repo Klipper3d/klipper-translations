@@ -1,6 +1,6 @@
 # Ferdeség korrekció
 
-A szoftveralapú ferdeség korrekció segíthet a nem tökéletesen szögletes nyomtatóegységből eredő méretpontatlanságok feloldásában. Vedd figyelembe, hogy ha a nyomtatója jelentősen ferde, erősen ajánlott először mechanikai eszközökkel a nyomtatót a lehető legegyenletesebbre állítani, mielőtt a szoftveralapú korrekciót alkalmazná.
+A szoftveralapú ferdeség korrekció segíthet a nem tökéletesen szögletes nyomtatóegységből eredő méretpontatlanságok feloldásában. Vedd figyelembe, hogy ha a nyomtatód jelentősen ferde, erősen ajánlott először mechanikai eszközökkel a nyomtatót a lehető legegyenletesebbre állítani, mielőtt a szoftveralapú korrekciót alkalmaznád.
 
 ## Kalibrációs objektum nyomtatása
 
