@@ -1,19 +1,21 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
+# 红豆蛋黄派 <zgpride87@outlook.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-15 06:32+0200\n"
-"PO-Revision-Date: 2022-05-02 04:16+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/features/zh_Hans/>\n"
+"PO-Revision-Date: 2022-11-02 14:27+0000\n"
+"Last-Translator: 红豆蛋黄派 <zgpride87@outlook.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/features/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.12.1\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: docs/Features.md:block 1 (paragraph)
 msgid "Klipper has several compelling features:"
@@ -509,15 +511,15 @@ msgstr "如果不确定一个控制板上的微控制器型号，可以先找到
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32H743"
-msgstr ""
+msgstr "STM32H743"
 
 #: docs/Features.md:block 10 (table)
 msgid "9091K"
-msgstr ""
+msgstr "9091K"
 
 #: docs/Features.md:block 10 (table)
 msgid "6061K"
-msgstr ""
+msgstr "6061K"
 
 #~ msgid "Arduino Zero (SAMD21)"
 #~ msgstr "Arduino Zero (SAMD21)"
