@@ -1,11 +1,11 @@
 # brian park <gouache95@gmail.com>, 2021.
-# 이정희 <daemul72@gmail.com>, 2022.
+# 이정희 <daemul72@gmail.com>, 2022, 2025.
 # 김설중 <ksj6623@naver.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: 김설중 <ksj6623@naver.com>\n"
+"Last-Translator: 이정희 <daemul72@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/overview/"
 "ko/>\n"
 "Language: ko\n"
@@ -231,7 +231,8 @@ msgid ""
 "[Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone "
 "PRU."
 msgstr ""
-"[Beaglebone](Beaglebone.md): Beaglebone PRU에서 Klipper를 실행하기 위한 세부 정보입니다."
+"[Beaglebone](Beaglebone.md): Beaglebone PRU에서 Klipper를 실행하기 위한 세부 "
+"정보입니다."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
