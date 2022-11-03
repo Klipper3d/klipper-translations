@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-01 13:33+0000\n"
+"PO-Revision-Date: 2022-11-02 14:27+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "status_reference/it/>\n"
@@ -1295,33 +1295,40 @@ msgid ""
 "(this object is available if "
 "[z_thermal_adjust](Config_Reference.md#z_thermal_adjust) is defined)."
 msgstr ""
+"Le seguenti informazioni sono disponibili nell'oggetto `z_thermal_adjust` ("
+"questo oggetto è disponibile se [z_thermal_adjust](Config_Reference."
+"md#z_thermal_adjust) è definito)."
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid "`enabled`: Returns True if adjustment is enabled."
-msgstr ""
+msgstr "`enabled`: Restituisce True se la regolazione è abilitata."
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid ""
 "`temperature`: Current (smoothed) temperature of the defined sensor. [degC]"
 msgstr ""
+"`temperature`: temperatura attuale (livellata) del sensore definito. [grado "
+"C]"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid "`measured_min_temp`: Minimum measured temperature. [degC]"
-msgstr ""
+msgstr "`measured_min_temp`: temperatura minima misurata. [degC]"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid "`measured_max_temp`: Maximum measured temperature. [degC]"
-msgstr ""
+msgstr "`measured_max_temp`: Temperatura massima misurata. [degC]"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid "`current_z_adjust`: Last computed Z adjustment [mm]."
-msgstr ""
+msgstr "`current_z_adjust`: Ultima regolazione Z calcolata [mm]."
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid ""
 "`z_adjust_ref_temperature`: Current reference temperature used for "
 "calculation of Z `current_z_adjust` [degC]."
 msgstr ""
+"`z_adjust_ref_temperature`:Temperatura di riferimento corrente utilizzata "
+"per il calcolo di Z `current_z_adjust` [degC]."
 
 #~ msgid "neopixel / dotstar"
 #~ msgstr ""
