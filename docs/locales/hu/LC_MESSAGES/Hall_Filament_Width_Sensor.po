@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-10-31 09:06+0000\n"
+"PO-Revision-Date: 2022-11-02 14:27+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "hall_filament_width_sensor/hu/>\n"
@@ -60,15 +60,15 @@ msgstr "Kalibrálási eljárás"
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid "Insert first calibration rod (1.5 mm size) get first raw sensor value"
 msgstr ""
-"Helyezd be az első kalibráló rudat (1,5 mm-es méret), hogy megkapja az első "
+"Helyezd be az első kalibráló rudat (1,5 mm-es méret), hogy megkapd az első "
 "nyers szenzorértéket"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid ""
 "Insert second calibration rod (2.0 mm size) get second raw sensor value"
 msgstr ""
-"Helyezd be a második kalibráló rudat (2,0 mm-es méret), hogy megkapja a "
-"második nyers szenzorértékét"
+"Helyezd be a második kalibráló rudat (2,0 mm-es méret), hogy megkapd a "
+"második nyers szenzorértéket"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid "Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`"

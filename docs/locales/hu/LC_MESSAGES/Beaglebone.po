@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-10-31 09:06+0000\n"
+"PO-Revision-Date: 2022-11-03 18:08+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "beaglebone/hu/>\n"
@@ -148,7 +148,7 @@ msgstr ""
 #: docs/Beaglebone.md:block 20 (paragraph)
 msgid "To build and install the new micro-controller code, run:"
 msgstr ""
-"Az új mikrokontroller kódjának elkészítéséhez és telepítéséhez futtassa a "
+"Az új mikrokontroller kódjának elkészítéséhez és telepítéséhez futtasd a "
 "következőt:"
 
 #: docs/Beaglebone.md:block 21 (code)
