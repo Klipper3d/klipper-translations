@@ -4,14 +4,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-04-15 04:10+0000\n"
-"Last-Translator: 김설중 <ksj6623@naver.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/overview/ko/>\n"
+"PO-Revision-Date: 2022-11-03 18:08+0000\n"
+"Last-Translator: 이정희 <daemul72@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/overview/"
+"ko/>\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -208,7 +209,7 @@ msgid "[CAN bus](CANBUS.md): Information on using CAN bus with Klipper."
 msgstr "[캔버스](CANBUS.md): Klipper에서 CAN 버스를 사용하는 방법에 대한 정보."
 
 msgid "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
-msgstr "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
+msgstr "[TSL1401CL 필라멘트 폭 센서](TSL1401CL_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 1 (header)
 msgid "Overview"
@@ -235,16 +236,18 @@ msgid ""
 "[Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone "
 "PRU."
 msgstr ""
+"[Beaglebone](Beaglebone.md): Beaglebone PRU에서 Klipper를 실행하기 위한 세부 "
+"정보입니다."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
-msgstr ""
+msgstr "[홀 필라멘트 폭 센서](Hall_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
 "implementation."
-msgstr ""
+msgstr "[객체 제외](Exclude_Object.md): Objecs 제외 구현에 대한 가이드입니다."
 
 #~ msgid ""
 #~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "

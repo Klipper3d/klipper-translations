@@ -1,26 +1,38 @@
-#
+# 이정희 <daemul72@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-11-03 18:08+0000\n"
+"Last-Translator: 이정희 <daemul72@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
+"config_changes/ko/>\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 msgid ""
 "This document covers recent software changes to the config file that are not"
 " backwards compatible. It is a good idea to review this document when "
 "upgrading the Klipper software."
 msgstr ""
+"이 문서는 이전 버전과 호환되지 않는 구성 파일에 대한 최근 소프트웨어 변경 "
+"사항을 다룹니다. Klipper 소프트웨어를 업그레이드할 때 이 문서를 검토하는 "
+"것이 좋습니다."
 
 msgid "All dates in this document are approximate."
-msgstr ""
+msgstr "이 문서의 모든 날짜는 대략적인 날짜입니다."
 
 msgid "Changes"
-msgstr ""
+msgstr "변경 사항"
 
 msgid ""
 "20210612: The `pid_integral_max` config option in heater and temperature_fan"
 " sections is deprecated. The option will be removed in the near future."
 msgstr ""
+"20210612: 히터 및 온도 팬 섹션의 `pid_integral_max` 구성 옵션이 더 이상 "
+"사용되지 않습니다. 이 옵션은 가까운 시일 내에 제거될 예정입니다."
 
 msgid ""
 "20210430: The SET_VELOCITY_LIMIT (and M204) command may now set a velocity, "
