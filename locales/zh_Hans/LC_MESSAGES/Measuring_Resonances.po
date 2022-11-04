@@ -1,17 +1,19 @@
 # mirokymac <toufubomb@gmail.com>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
+# 红豆蛋黄派 <zgpride87@outlook.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-22 13:24+0000\n"
-"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/measuring_resonances/zh_Hans/>\n"
+"PO-Revision-Date: 2022-11-02 14:27+0000\n"
+"Last-Translator: 红豆蛋黄派 <zgpride87@outlook.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/measuring_resonances/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "共振值测量"
@@ -506,6 +508,11 @@ msgid ""
 "Always check that all parts of the printer (including the ones that may "
 "normally not move) are securely fixed in place after each auto-tuning."
 msgstr ""
+"**警告！ **不建议非常频繁地运行成型机自动校准（例如，在每次打印之前或每天）。"
+"为了确定共振频率，自动校准会在每个轴上产生强烈的振动。通常，3D 打印机的设计不"
+"能承受长时间暴露于共振频率附近的振动。这样做可能会增加打印机组件的磨损并缩短"
+"其使用寿命。某些零件拧松或松动的风险也会增加。每次自动调整后，请务必检查打印"
+"机的所有部件（包括通常不会移动的部件）是否牢固地固定到位。"
 
 msgid ""
 "Also, due to some noise in measurements, it is possible that the tuning "
