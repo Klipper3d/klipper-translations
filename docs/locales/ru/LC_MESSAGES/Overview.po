@@ -1,7 +1,7 @@
 # Ярослав <tok1shus@gmail.com>, 2022, 2025.
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 # Vik <xasertop@gmail.com>, 2022.
-# Mari Japaridze <mari.mari.japaridze@mail.ru>, 2022.
+# Mari Japaridze <mari.mari.japaridze@mail.ru>, 2022, 2025.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # Kirill Plotnikov <ponfertato@gmail.com>, 2023, 2025.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: Ярослав <tok1shus@gmail.com>\n"
+"Last-Translator: Mari Japaridze <mari.mari.japaridze@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/overview/"
 "ru/>\n"
 "Language: ru\n"
@@ -115,8 +115,8 @@ msgid ""
 "[Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing "
 "in prints."
 msgstr ""
-"[Resonance compensation](Resonance_Compensation.md): Инструмент для уменьшения"
-" звона при печати."
+"[Resonance compensation](Resonance_Compensation.md): Инструмент для "
+"уменьшения звона при печати."
 
 msgid ""
 "[Measuring resonances](Measuring_Resonances.md): Information on using adxl345 "
