@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-10-31 11:05+0000\n"
+"PO-Revision-Date: 2022-11-05 22:06+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "exclude_object/hu/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: docs/Exclude_Object.md:block 1 (header)
 msgid "Exclude Objects"
@@ -134,7 +134,7 @@ msgstr ""
 
 #: docs/Exclude_Object.md:block 7 (header)
 msgid "The GCode File"
-msgstr "A GCode fájl"
+msgstr "A G-kód fájl"
 
 #: docs/Exclude_Object.md:block 8 (paragraph)
 msgid ""

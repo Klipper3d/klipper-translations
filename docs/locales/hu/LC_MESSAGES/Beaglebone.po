@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-03 18:08+0000\n"
+"PO-Revision-Date: 2022-11-05 22:06+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "beaglebone/hu/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: docs/Beaglebone.md:block 1 (header)
 msgid "Beaglebone"
@@ -111,7 +111,7 @@ msgstr "sudo nano /etc/default/octoprint\n"
 
 #: docs/Beaglebone.md:block 14 (paragraph)
 msgid "Then start the Octoprint service:"
-msgstr "Ezután indítsa el az Octoprint szolgáltatást:"
+msgstr "Ezután indítsd el az Octoprint szolgáltatást:"
 
 #: docs/Beaglebone.md:block 15 (code)
 msgid "sudo systemctl start octoprint\n"
