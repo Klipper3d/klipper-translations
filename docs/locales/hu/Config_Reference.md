@@ -1623,7 +1623,7 @@ pins:
 
 ### [probe]
 
-Z magasságmérő szonda. Ezt a szakaszt a Z magasságmérő hardver engedélyezéséhez lehet definiálni. Ha ez a szakasz engedélyezve van, a PROBE és a QUERY_PROBE kiterjesztett [G-kód parancsok](G-Codes.md#probe) elérhetővé válnak. Lásd még a [szonda kalibrálási útmutatót](Probe_Calibrate.md). A szondaszekció létrehoz egy virtuális "probe:z_virtual_endstop" tűt is. A stepper_z endstop_pin-t erre a virtuális tűre állíthatjuk a cartesian stílusú nyomtatókon, amelyek a szondát használják a Z végállás helyett. Ha a "probe:z_virtual_endstop" típust használjuk, akkor ne definiáljunk position_endsto-pot a stepper_z konfigurációs szakaszban.
+Z magasságmérő szonda. Ezt a szakaszt a Z magasságmérő hardver engedélyezéséhez lehet definiálni. Ha ez a szakasz engedélyezve van, a PROBE és a QUERY_PROBE kiterjesztett [G-kód parancsok](G-Codes.md#probe) elérhetővé válnak. Lásd még a [szonda kalibrálási útmutatót](Probe_Calibrate.md). A szondaszekció létrehoz egy virtuális "probe:z_virtual_endstop" tűt is. A stepper_z endstop_pin-t erre a virtuális tűre állíthatjuk a cartesian stílusú nyomtatókon, amelyek a szondát használják a Z végállás helyett. Ha a "probe:z_virtual_endstop" típust használjuk, akkor ne definiáljunk position_endstop-ot a stepper_z konfigurációs szakaszban.
 
 ```
 [probe]

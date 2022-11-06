@@ -2,7 +2,7 @@
 
 Ez a dokumentum az izzószálszélesség-érzékelő gazdagép modulját írja le. A gazdamodul fejlesztéséhez használt hardver két Hall lineáris érzékelőn alapul (például ss49e). Az érzékelők a testben ellentétes oldalon helyezkednek el. Működési elv: két Hall érzékelő differenciál üzemmódban működik, a hőmérséklet csúszás ugyanaz a szenzornál. Speciális hőmérséklet kompenzáció nem szükséges.
 
-Terveket a [Thingiverse] oldalon találja (https://www.thingiverse.com/thing:4138933), az összeszerelési videó a [Youtube]-on is elérhető (https://www.youtube.com/watch?v=TDO9tME8vp4 )
+Terveket a [Thingiverse] oldalon találod (https://www.thingiverse.com/thing:4138933), az összeszerelési videó a [Youtube]-on is elérhető (https://www.youtube.com/watch?v=TDO9tME8vp4 )
 
 A Hall nyomtatószál szélesség érzékelő használatához olvasd el a [Konfigurációs hivatkozás](Config_Reference.md#hall_filament_width_sensor) és a [G-kód dokumentáció](G-Codes.md#hall_filament_width_sensor) részt.
 
@@ -30,8 +30,8 @@ index: 1
 
 Az érzékelő nyers értékének meghatározásához használhatod a menüelemet vagy a **QUERY_RAW_FILAMENT_WIDTH** parancsot a terminálban.
 
-1. Helyezd be az első kalibráló rudat (1,5 mm-es méret), hogy megkapja az első nyers szenzorértéket
-1. Helyezd be a második kalibráló rudat (2,0 mm-es méret), hogy megkapja a második nyers szenzorértékét
+1. Helyezd be az első kalibráló rudat (1,5 mm-es méret), hogy megkapd az első nyers szenzorértéket
+1. Helyezd be a második kalibráló rudat (2,0 mm-es méret), hogy megkapd a második nyers szenzorértéket
 1. Mentsd a nyers szenzorértékeket a `Raw_dia1` és a `Raw_dia2` konfigurációs paraméterekbe
 
 ## Az érzékelő engedélyezése

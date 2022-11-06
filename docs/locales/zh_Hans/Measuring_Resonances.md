@@ -365,7 +365,7 @@ SHAPER_CALIBRATE AXIS=Y
 SHAPER_CALIBRATE AXIS=X
 ```
 
-**Warning!** It is not advisable to run the shaper autocalibration very frequently (e.g. before every print, or every day). In order to determine resonance frequencies, autocalibration creates intensive vibrations on each of the axes. Generally, 3D printers are not designed to withstand a prolonged exposure to vibrations near the resonance frequencies. Doing so may increase wear of the printer components and reduce their lifespan. There is also an increased risk of some parts unscrewing or becoming loose. Always check that all parts of the printer (including the ones that may normally not move) are securely fixed in place after each auto-tuning.
+**警告！ **不建议非常频繁地运行成型机自动校准（例如，在每次打印之前或每天）。为了确定共振频率，自动校准会在每个轴上产生强烈的振动。通常，3D 打印机的设计不能承受长时间暴露于共振频率附近的振动。这样做可能会增加打印机组件的磨损并缩短其使用寿命。某些零件拧松或松动的风险也会增加。每次自动调整后，请务必检查打印机的所有部件（包括通常不会移动的部件）是否牢固地固定到位。
 
 Also, due to some noise in measurements, it is possible that the tuning results will be slightly different from one calibration run to another one. Still, it is not expected that the noise will affect the print quality too much. However, it is still advised to double-check the suggested parameters, and print some test prints before using them to confirm they are good.
 

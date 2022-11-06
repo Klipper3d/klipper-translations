@@ -42,7 +42,7 @@ make menuconfig
 make
 ```
 
-Ha a fentiek megtörténtek, a Klipper futtatása batch üzemmódban is lehetséges (a python virtuális környezet és a printer.cfg) fájl létrehozásához szükséges lépéseket lásd [Telepítés](Installation.md):
+Ha a fentiek megtörténtek, a Klipper futtatása batch üzemmódban is lehetséges (a [Telepítés](Installation.md) python virtuális környezet és a printer.cfg) fájl létrehozásához szükséges lépéseket lásd:
 
 ```
 ~/klippy-env/bin/python ./klippy/klippy.py ~/printer.cfg -i test.gcode -o test.serial -v -d out/klipper.dict
@@ -56,7 +56,7 @@ A fenti művelet egy **test.serial** fájlt fog létrehozni a bináris soros kim
 
 Az eredményül kapott **test.txt** fájl a mikrokontroller parancsok ember által olvasható listáját tartalmazza.
 
-A kötegelt üzemmód letilt bizonyos válasz/kérési parancsokat a működés érdekében. Ennek eredményeképpen a tényleges parancsok és a fenti kimenet között némi eltérés lesz. A generált adatok teszteléshez és ellenőrzéshez hasznosak; nem használhatóak valódi mikrokontrollerhez való elküldésre.
+A kötegelt üzemmód letilt bizonyos válasz/kérés parancsokat a működés érdekében. Ennek eredményeképpen a tényleges parancsok és a fenti kimenet között némi eltérés lesz. A generált adatok teszteléshez és ellenőrzéshez hasznosak; nem használhatóak valódi mikrokontrollerhez való elküldésre.
 
 ## Mozgáselemzés és adatnaplózás
 
@@ -145,7 +145,7 @@ A szkript kinyeri a nyomtató konfigurációs fájlját, és kinyeri az MCU leá
 
 ## Tesztelés simulavr-rel
 
-A [simulavr](http://www.nongnu.org/simulavr/) eszköz lehetővé teszi egy Atmel ATmega mikrokontroller szimulálását. Ez a szakasz leírja, hogyan lehet teszt G-kód fájlokat futtatni a simulavr segítségével. Javasoljuk, hogy ezt egy asztali gépen futtassuk (nem Raspberry Pi), mivel a hatékony futtatáshoz erős CPU-ra van szükség.
+A [simulavr](http://www.nongnu.org/simulavr/) eszköz lehetővé teszi egy Atmel ATmega mikrokontroller szimulálását. Ez a szakasz leírja, hogyan lehet teszt G-kód fájlokat futtatni a simulavr segítségével. Javasoljuk, hogy ezt egy asztali gépen futtasd (nem Raspberry Pi), mivel a hatékony futtatáshoz erős CPU-ra van szükség.
 
 A simulavr használatához töltse le a simulavr csomagot, és fordítsd le python támogatással. Vedd figyelembe, hogy a build rendszernek telepítenie kell néhány csomagot (például a swig-et) ahhoz, hogy a python modult fel tudja építeni.
 
@@ -173,7 +173,7 @@ make cfgclean python debian
 sudo dpkg -i build/debian/python3-simulavr*.deb
 ```
 
-A Klipper lefordításához a simulavr-ben való használathoz futtassa a következőt:
+A Klipper lefordításához a simulavr-ben való használathoz futtasd a következőt:
 
 ```
 cd /path/to/klipper
@@ -200,7 +200,7 @@ Ezután, ha a simulavr egy másik ablakban fut, futtathatjuk a következőt, hog
 
 ### A simulavr használata gtkwave-vel
 
-A simulavr egyik hasznos funkciója, hogy képes jelhullámgeneráló fájlokat létrehozni az események pontos időzítésével. Ehhez kövesse a fenti utasításokat, de futtassa az avrsim.py programot a következő parancssorral:
+A simulavr egyik hasznos funkciója, hogy képes jelhullámgeneráló fájlokat létrehozni az események pontos időzítésével. Ehhez kövesd a fenti utasításokat, de futtasd az avrsim.py programot a következő parancssorral:
 
 ```
 PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py out/klipper.elf -t PORTA.PORT,PORTC.PORT

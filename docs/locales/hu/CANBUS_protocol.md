@@ -10,7 +10,7 @@ Minden mikrokontroller rendelkezik egy gyárilag hozzárendelt egyedi chipazonos
 
 ## Rendszergazdai üzenetek
 
-Az rendszergazdai üzeneteket az azonosító hozzárendeléséhez használják. A gazdatesttől a mikrokontrollerhez küldött admin üzenetek a CAN-buszon a `0x3f0`, a mikrokontrollerről a gazdatesthez küldött üzenetek pedig a CAN-buszon a `0x3f1` azonosítót használják. Minden mikrovezérlő a `0x3f0` azonosítón fogadja az üzeneteket; ez az azonosító egy "broadcast cím" -nek tekinthető.
+Az rendszergazdai üzeneteket az azonosító hozzárendeléséhez használják. A gazdagéptől a mikrokontrollerhez küldött admin üzenetek a CAN-buszon a `0x3f0`, a mikrokontrollerről a gazdagéphez küldött üzenetek pedig a CAN-buszon a `0x3f1` azonosítót használják. Minden mikrovezérlő a `0x3f0` azonosítón fogadja az üzeneteket; ez az azonosító egy "broadcast cím" -nek tekinthető.
 
 ### CMD_QUERY_UNASSIGNED üzenet
 
@@ -32,6 +32,6 @@ A RESP_NEED_NODEID üzenet formátuma: `<1-byte message_id = 0x20><6-byte canbus
 
 A CMD_SET_KLIPPER_NODEID paranccsal nodeid-ot kapott mikrokontroller adatcsomagokat küldhet és fogadhat.
 
-A csomópontot használó üzenetek csomagadatai (`canbus_nodeid * 2 + 256`) egyszerűen egy pufferbe kerülnek, és amikor egy teljes [mcu protokoll üzenet](Protocol.md) található, annak tartalmát elemezzük és feldolgozzuk. Az adatokat bájtfolyamként kezelik. Nem követelmény, hogy a Klipper üzenetblokk kezdete egyezzen a CAN-buszcsomag kezdetével.
+A csomópontot használó üzenetek csomagadatai (`canbus_nodeid * 2 + 256`) egyszerűen egy pufferbe kerülnek, és amikor egy teljes [mcu protokoll üzenet](Protocol.md) található, annak tartalmát elemezi és feldolgozza. Az adatokat bájtfolyamként kezeli. Nem követelmény, hogy a Klipper üzenetblokk kezdete egyezzen a CAN-buszcsomag kezdetével.
 
 Hasonlóképpen, az MCU protokoll üzenetválaszok a mikrokontrollerről a gazdagéphez úgy kerülnek elküldésre, hogy az üzenetadatokat egy vagy több csomagba másolják a csomópontnak a CAN-buszon való átvitelére vonatkozó azonosítójával (`canbus_nodeid * 2 + 256 + 1`).

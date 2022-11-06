@@ -19,7 +19,7 @@ Egy tipikus munkafolyamat egy fájl nyomtatásához így nézhet ki:
 1. Az ügyfél megkapja a Klipper frissített állapotát, és ezt az információt felhasználhatja az objektum állapotának megjelenítéséhez a felhasználói felületen.
 1. A nyomtatás befejezésekor az `[exclude_object]` állapot továbbra is elérhető marad, amíg egy másik művelet vissza nem állítja.
 
-## A GCode fájl
+## A G-kód fájl
 
 Az objektumok kizárásához szükséges speciális G-kód feldolgozás nem illeszkedik a Klipper alapvető tervezési céljaihoz. Ezért ez a modul megköveteli a fájl feldolgozását, mielőtt a Klippernek nyomtatásra elküldi. A fájl Klipper számára történő előkészítésére két lehetőség egy utófeldolgozó szkript használata a szeletelőben, vagy a fájl feltöltéskor történő feldolgozása a middleware segítségével. Egy referencia utófeldolgozó szkript elérhető futtatható és python könyvtárként is, lásd [az objektum előfeldolgozó törlése](https://github.com/kageurufu/cancelobject-preprocessor).
 

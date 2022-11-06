@@ -55,11 +55,11 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 20210503: The gcode_macro `default_parameter_<name>` config option is deprecated. Use the `params` pseudo-variable to access macro parameters. Other methods for accessing macro parameters will be removed in the near future. Most users can replace a `default_parameter_NAME: VALUE` config option with a line like the following in the start of the macro: ` {% set NAME = params.NAME|default(VALUE)|float %}`. See the [Command Templates
 document](Command_Templates.md#macro-parameters) for examples.
 
-20210430: A SET_VELOCITY_LIMIT (és az M204) parancs mostantól a konfigurációs fájlban megadott értékeknél nagyobb sebességet, gyorsulást és square_corner_velocity-t is beállíthat.
+20210430: A SET_VELOCITY_LIMIT (és az M204) paranccsal mostantól a konfigurációs fájlban megadott értékeknél nagyobb sebességet, gyorsulást és square_corner_velocity-t is beállíthatsz.
 
 20210325: A `pin_map` config opció támogatása elavult. Használd a [sample-aliases.cfg](../config/sample-aliases.cfg) fájlt a tényleges mikrokontroller tű nevekre való fordításhoz. A `pin_map` config opció a közeljövőben eltávolításra kerül.
 
-20210313: A Klipper CAN-busszal kommunikáló mikrovezérlők támogatása megváltozott. Ha CAN-buszt használ, akkor az összes mikrokontrollert újra kell égetni és a [Klipper konfigurációt frissíteni kell](CANBUS.md).
+20210313: A Klipper CAN-busszal kommunikáló mikrovezérlők támogatása megváltozott. Ha CAN-buszt használsz, akkor az összes mikrokontrollert újra kell égetni és a [Klipper konfigurációt frissíteni kell](CANBUS.md).
 
 20210310: A TMC2660 alapértelmezett driver_SFILT értéke 1-ről 0-ra változott.
 
@@ -71,13 +71,13 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20210201: Az `ACCELEROMETER_MEASURE` parancs mostantól a kimeneti fájl nevéhez hozzáadja a gyorsulásmérő chip nevét, ha a chipnek a printer.cfg megfelelő adxl345 szakaszában adtak nevet.
 
-20201222: A `step_distance` beállítás a stepper config szakaszokban elavult. Javasoljuk, hogy frissítse a konfigurációt a [`rotation_distance`](Rotation_Distance.md) beállítás használatára. A `step_distance` támogatása a közeljövőben megszűnik.
+20201222: A `step_distance` beállítás a stepper config szakaszokban elavult. Javasoljuk, hogy frissítsd a konfigurációt a [`rotation_distance`](Rotation_Distance.md) beállítás használatára. A `step_distance` támogatása a közeljövőben megszűnik.
 
 20201218: Az endstop_phase modulban az `endstop_phase` beállítás helyébe a `trigger_phase` beállítás lépett. Ha az endstop phase modult használod, akkor át kell konvertálni a [`rotation_distance`](Rotation_Distance.md) értékre, és az ENDSTOP_PHASE_CALIBRATE parancs futtatásával újra kell kalibrálni az esetleges endstop fázisokat.
 
 20201218: A forgó delta- és polárnyomtatóknak mostantól meg kell adniuk egy `gear_ratio` paramétert a forgó léptetőikhez, és többé nem adhatnak meg `step_distance` paramétert. Az új gear_ratio paraméter formátumát lásd a [konfigurációs hivatkozás](Config_Reference.md#stepper) dokumentumban.
 
-20201213: A "probe:z_virtual_endstop" használatakor nem érvényes a Z "position_endstop" megadása. Mostantól hibaüzenet jelenik meg, ha Z "position_endstop" van megadva a "probe:z_virtual_endstop" használatával. A hiba kijavításához távolítsa el a Z "position_endstop" meghatározást.
+20201213: A "probe:z_virtual_endstop" használatakor nem érvényes a Z "position_endstop" megadása. Mostantól hibaüzenet jelenik meg, ha Z "position_endstop" van megadva a "probe:z_virtual_endstop" használatával. A hiba kijavításához távolítsd el a Z "position_endstop" meghatározást.
 
 20201120: A `[board_pins]` config szakasz most már explicit `mcu:` paraméterben add meg az MCU nevét. Ha board_pins-t használunk egy másodlagos MCU-hoz, akkor a configot frissíteni kell, hogy megadd ezt a nevet. További részletekért lásd a [konfigurációs referenciát](Config_Reference.md#board_pins).
 

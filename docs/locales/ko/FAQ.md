@@ -2,7 +2,7 @@
 
 ## 어떻게 프로젝트에 기부할수 있나요?
 
-Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
+지원해 주셔서 감사합니다. 자세한 내용은 [후원자 페이지](Sponsors.md)를 참조하십시오.
 
 ## rotation_distance는 어떻게 계산합니까?
 
@@ -129,7 +129,7 @@ OctoPrint를 통해 인쇄를 취소한 후 헤드를 이동하려면 OctoPrint 
 이것은 일반적으로 호스트 시스템과 마이크로 컨트롤러 간의 USB 연결에 대한 하드웨어 오류로 인해 발생합니다. 아래 사항을 점검하세요:
 
 - 호스트 머신과 마이크로 컨트롤러 사이에 좋은 품질의 USB 케이블을 사용하십시오. 플러그가 안전한지 확인하십시오.
-- If using a Raspberry Pi, use a [good quality power supply](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply) for the Raspberry Pi and use a [good quality USB cable](https://forums.raspberrypi.com/viewtopic.php?p=589877#p589877) to connect that power supply to the Pi. If you get "under voltage" warnings from OctoPrint, this is related to the power supply and it must be fixed.
+- Raspberry Pi를 사용하는 경우 Raspberry Pi에는 [좋은 품질의 전원 공급장치](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply)를 사용하고 [좋은 품질의 USB 케이블](https://forums.raspberrypi.com/viewtopic.php?p=589877#p589877)을 사용하여 해당 전원 공급장치를 Pi에 연결합니다. OctoPrint에서 "전압 부족" 경고가 표시되면 이는 전원 공급 장치와 관련된 것이며 수정해야 합니다.
 - 프린터의 전원 공급 장치에 과부하가 걸리지 않았는지 확인하십시오. (마이크로 컨트롤러의 USB 칩에 대한 전력 변동으로 인해 해당 칩이 재설정될 수 있습니다.)
 - 스테퍼 모터, 히터 및 기타 프린터 와이어가 구겨지거나 닳지 않았는지 확인합니다. (프린터가 움직이면 결함이 있는 전선에 스트레스가 가해져 접촉이 끊어지거나 잠시 단락되거나 과도한 소음이 발생할 수 있습니다.)
 - 프린터의 전원 공급 장치와 호스트의 5V 전원 공급 장치가 혼합되어 있을 때 USB 노이즈가 높다는 보고가 있었습니다. (프린터의 전원 공급 장치가 켜져 있거나 USB 케이블이 꽂혀 있을 때 마이크로 컨트롤러의 전원이 켜지면 5V 전원 공급 장치가 혼합되고 있음을 나타냅니다.) 단 하나의 소스에서 전력을 공급하는 것이 좋습니다. (또는 마이크로 컨트롤러 보드가 전원을 구성할 수 없는 경우 호스트와 마이크로 컨트롤러 간에 5V 전원을 전달하지 않도록 USB 케이블을 수정할 수 있습니다.)
@@ -138,7 +138,7 @@ OctoPrint를 통해 인쇄를 취소한 후 헤드를 이동하려면 OctoPrint 
 
 이것은 대부분 전압 변동이 원인일 가능성이 있습니다. 문제를 해결하려면 ["MCU와의 통신 끊김"](#랜덤하게-MCU와의-통신-끊김-오류가-계속-발생합니다)를 따르십시오.
 
-## When I set `restart_method=command` my AVR device just hangs on a restart
+## `restart_method=command`를 설정하면 AVR 장치가 다시 시작될 때 멈춥니다
 
 AVR 부트로더의 일부 이전 버전에는 워치독 이벤트 처리에 알려진 버그가 있습니다. 이것은 일반적으로 printer.cfg 파일에 restart_method가 "command"로 설정되어 있을 때 나타납니다. 버그가 발생하면 전원이 제거되고 장치에 다시 공급될 때까지 AVR 장치가 응답하지 않습니다 (전원이 제거될 때까지 전원 또는 상태 LED도 반복적으로 깜박일 수 있음).
 

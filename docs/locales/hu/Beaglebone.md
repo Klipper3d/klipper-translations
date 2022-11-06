@@ -39,7 +39,7 @@ Módosítani kell az OctoPrint **/etc/default/octoprint** konfigurációs fájlj
 sudo nano /etc/default/octoprint
 ```
 
-Ezután indítsa el az Octoprint szolgáltatást:
+Ezután indítsd el az Octoprint szolgáltatást:
 
 ```
 sudo systemctl start octoprint
@@ -56,7 +56,7 @@ cd ~/klipper/
 make menuconfig
 ```
 
-Az új mikrokontroller kódjának elkészítéséhez és telepítéséhez futtassa a következőt:
+Az új mikrokontroller kódjának elkészítéséhez és telepítéséhez futtasd a következőt:
 
 ```
 sudo service klipper stop

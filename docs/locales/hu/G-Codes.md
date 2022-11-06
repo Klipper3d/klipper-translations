@@ -7,10 +7,10 @@ Ez a dokumentum a Klipper által támogatott parancsokat írja le. Ezek olyan pa
 A Klipper a következő szabványos G-kód parancsokat támogatja:
 
 - Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
-- Tartózkodás: `G4 P<milliszekundum>`
+- Tartózkodás: `G4 P<milliseconds>`
 - Ugrás a forrásra: `G28 [X] [Y] [Z]`
 - Kapcsold ki a motorokat: `M18` vagy `M84`
-- Várja meg, amíg az aktuális mozdulat befejeződik: `M400`
+- Várd meg, amíg az aktuális mozdulat befejeződik: `M400`
 - Használj abszolút/relatív távolságokat az extrudáláshoz: `M82`, `M83`
 - Abszolút/relatív koordináták használata: `G90`, `G91`
 - Állítsd be a pozíciót: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`

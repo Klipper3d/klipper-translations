@@ -6,7 +6,7 @@ A Klipper szabad szoftver. A szponzorok nagylelkű támogatásától függünk. 
 
 [<img src="./img/sponsors/BTT_BTT.png" width="200" />
 
-A BIGTREETECH a Klipper hivatalos alaplapszponzora. A BIGTREETECH elkötelezett az innovatív és versenyképes termékek fejlesztése mellett, hogy a 3D nyomtatási közösséget jobban szolgálják. Kövesse őket a [Facebookon](https://www.facebook.com/BIGTREETECH) vagy a [Twitteren](https://twitter.com/BigTreeTech).
+A BIGTREETECH a Klipper hivatalos alaplapszponzora. A BIGTREETECH elkötelezett az innovatív és versenyképes termékek fejlesztése mellett, hogy a 3D nyomtatási közösséget jobban szolgálják. Kövesd őket a [Facebookon](https://www.facebook.com/BIGTREETECH) vagy a [Twitteren](https://twitter.com/BigTreeTech).
 
 ## Klipper fejlesztők
 

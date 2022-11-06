@@ -22,7 +22,7 @@ Ezt a szervert egy Klipper-rajongókból álló közösség működteti, amely a
 
 ## Kérdésem van a Klipperrel kapcsolatban
 
-Sok kérdésre már választ kaptunk a [Klipper dokumentációban](Overview.md). Kérjük, mindenképpen olvasd el a dokumentációt és kövesse az ott megadott utasításokat.
+Sok kérdésre már választ kaptunk a [Klipper dokumentációban](Overview.md). Kérjük, mindenképpen olvasd el a dokumentációt és kövesd az ott megadott utasításokat.
 
 Lehetőség van hasonló kérdések keresésére a [Klipper Közösségi Fórum](#kozossegi-forum) oldalon is.
 

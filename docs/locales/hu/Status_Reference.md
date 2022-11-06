@@ -31,7 +31,7 @@ A következő információk a `Config_Reference.md#bed_screws` objektumban talá
 A következő információk a `configfile` objektumban találhatók (ez az objektum mindig elérhető):
 
 - `settings.<section>.<option>`: Visszaadja az adott konfigurációs fájl beállítását (vagy alapértelmezett értékét) a szoftver utolsó indítása vagy újraindítása során. (A használat közben megváltoztatott beállítások nem jelennek meg itt.)
-- `config.<section>.<option>`: Visszaadja az adott nyers konfigurációs fájl beállítását, ahogyan azt a Klipper a legutóbbi szoftverindítás vagy újraindítás során beolvasta. (A működés közben megváltoztatott beállítások nem jelennek meg itt.) Minden értéket stringként ad vissza.
+- `config.<section>.<option>`: Visszaadja az adott nyers konfigurációs fájl beállítását, ahogyan azt a Klipper a legutóbbi szoftverindítás vagy újraindítás során beolvasta. (A működés közben megváltoztatott beállítások nem jelennek meg itt.) Minden értéket string-ként ad vissza.
 - `save_config_pending`: True értéket ad, ha vannak olyan frissítések, amelyeket a `SAVE_CONFIG` parancs a lemezen is megőrizhet.
 - `save_config_pending_items`: Tartalmazza azokat a szakaszokat és opciókat, amelyeket megváltoztattak, és amelyeket egy `SAVE_CONFIG` elmenthetne.
 - `figyelmeztetések`: A konfigurációs beállításokkal kapcsolatos figyelmeztetések listája. A lista minden egyes bejegyzése egy szótár lesz, amely tartalmaz egy `type` és egy `message` mezőt (mindkettő karakterlánc). A figyelmeztetés típusától függően további mezők is rendelkezésre állhatnak.
@@ -40,7 +40,7 @@ A következő információk a `configfile` objektumban találhatók (ez az objek
 
 A következő információk a `display_status` objektumban érhetők el (ez az objektum automatikusan elérhető, ha a [kijelző](Config_Reference.md#display) konfigurációs szakasz definiálva van):
 
-- `progress`: A legutóbbi `M73` G-kód parancs progress értéke (vagy `virtual_sdcard.progress`, ha nem érkezett legutóbbi `M73`).
+- `progress`: A legutóbbi `M73` G-kód parancs előrehaladási érték (vagy `virtual_sdcard.progress`, ha nem érkezett legutóbbi `M73`).
 - `message`: Az utolsó `M117` G-kódú parancsban szereplő üzenet.
 
 ## endstop_phase
