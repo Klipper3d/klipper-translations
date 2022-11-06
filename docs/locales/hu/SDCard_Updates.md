@@ -50,13 +50,13 @@ opcionális argumentumok:
   -f <firmware>   a klipper.bin elérési útja
 ```
 
-Ha az alaplapod olyan firmware-vel égetted, amely egyéni átviteli sebesség mellett csatlakozik, akkor a `-b` opció megadásával frissítheted:
+Ha az alaplapod olyan firmware-el égetted, amely egyéni átviteli sebesség mellett csatlakozik, akkor a `-b` opció megadásával frissítheted:
 
 ```
 ./scripts/flash-sdcard.sh -b 115200 /dev/ttyAMA0 btt-skr-v1.3
 ```
 
-Ha a Klipper egy, az alapértelmezett helytől eltérő helyen található készletét szeretnéd égetni, akkor ezt a `-f` opció megadásával teheti meg:
+Ha a Klipper alapértelmezett helytől eltérő helyen található készletét szeretnéd égetni, akkor ezt a `-f` opció megadásával teheted meg:
 
 ```
 ./scripts/flash-sdcard.sh -f ~/downloads/klipper.bin /dev/ttyAMA0 btt-skr-v1.3

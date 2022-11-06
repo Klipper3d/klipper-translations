@@ -332,14 +332,14 @@ Le seguenti informazioni sono disponibili nell'oggetto `webhooks` (questo oggett
 
 ## z_thermal_adjust
 
-The following information is available in the `z_thermal_adjust` object (this object is available if [z_thermal_adjust](Config_Reference.md#z_thermal_adjust) is defined).
+Le seguenti informazioni sono disponibili nell'oggetto `z_thermal_adjust` (questo oggetto è disponibile se [z_thermal_adjust](Config_Reference.md#z_thermal_adjust) è definito).
 
-- `enabled`: Returns True if adjustment is enabled.
-- `temperature`: Current (smoothed) temperature of the defined sensor. [degC]
-- `measured_min_temp`: Minimum measured temperature. [degC]
-- `measured_max_temp`: Maximum measured temperature. [degC]
-- `current_z_adjust`: Last computed Z adjustment [mm].
-- `z_adjust_ref_temperature`: Current reference temperature used for calculation of Z `current_z_adjust` [degC].
+- `enabled`: Restituisce True se la regolazione è abilitata.
+- `temperature`: temperatura attuale (livellata) del sensore definito. [grado C]
+- `measured_min_temp`: temperatura minima misurata. [degC]
+- `measured_max_temp`: Temperatura massima misurata. [degC]
+- `current_z_adjust`: Ultima regolazione Z calcolata [mm].
+- `z_adjust_ref_temperature`:Temperatura di riferimento corrente utilizzata per il calcolo di Z `current_z_adjust` [degC].
 
 ## z_tilt
 

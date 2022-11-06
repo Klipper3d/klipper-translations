@@ -54,7 +54,7 @@ Továbbá, az érzékelő nélküli kezdőpont felvétel nem biztos, hogy elég 
 
 Továbbá a léptető meghajtó elakadásérzékelése a motor mechanikai terhelésétől, a motoráramtól és a motor hőmérsékletétől (tekercsellenállástól) is függ.
 
-Az érzékelő nélküli kezdőpont felvétel közepes motorsebességnél működik a legjobban. Nagyon lassú fordulatszámoknál (kevesebb mint 10 fordulat/perc) a motor nem termel jelentős ellenáramot, és a TMC nem képes megbízhatóan érzékelni a motor leállását. Továbbá, nagyon nagy fordulatszámon a motor ellen-EMF-je megközelíti a motor tápfeszültségét, így a TMC már nem képes érzékelni a leállást. Javasoljuk, hogy tekintsd meg az adott TMC-k adatlapját. Ott további részleteket is találhat ennek a beállításnak a korlátairól.
+Az érzékelő nélküli kezdőpont felvétel közepes motorsebességnél működik a legjobban. Nagyon lassú fordulatszámoknál (kevesebb mint 10 fordulat/perc) a motor nem termel jelentős ellenáramot, és a TMC nem képes megbízhatóan érzékelni a motor leállását. Továbbá, nagyon nagy fordulatszámon a motor ellen-EMF-je megközelíti a motor tápfeszültségét, így a TMC már nem képes érzékelni a leállást. Javasoljuk, hogy tekintsd meg az adott TMC-k adatlapját. Ott további részleteket is találhatsz ennek a beállításnak a korlátairól.
 
 ### Előfeltételek
 

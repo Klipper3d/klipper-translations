@@ -18,7 +18,7 @@ A gcode_macro definiálásának részleteiért lásd a [konfigurációs hivatkoz
 
 A behúzási mozgások maximális sebességét és gyorsulását a Klipperben a `max_extrude_only_velocity` és `max_extrude_only_accel` konfigurációs beállítások szabályozzák. Ezeknek a beállításoknak van egy alapértelmezett értéke, amely sok nyomtatónál jól fog működni. Ha azonban valaki nagy behúzást állított be a szeletelőben (pl. 5 mm vagy nagyobb), akkor előfordulhat, hogy ezek korlátozzák a kívánt behúzási sebességet.
 
-Ha nagy visszahúzást használ, fontold meg a Klipper [nyomás előtolás](Pressure_Advance.md) beállítását. Ellenkező esetben, ha úgy találjuk, hogy a nyomtatófej úgy tűnik, hogy "szünetel" a behúzás és az alapozás során, akkor fontold meg a `max_extrude_only_velocity` és `max_extrude_only_accel` kifejezett meghatározását a Klipper konfigurációs fájlban.
+Ha nagy visszahúzást használsz, fontold meg a Klipper [nyomás előtolás](Pressure_Advance.md) beállítását. Ellenkező esetben, ha úgy találjuk, hogy a nyomtatófej úgy tűnik, hogy "szünetel" a behúzás és az alapozás során, akkor fontold meg a `max_extrude_only_velocity` és `max_extrude_only_accel` kifejezett meghatározását a Klipper konfigurációs fájlban.
 
 ## Ne engedélyezd a "coasting-ot"
 
@@ -26,7 +26,7 @@ A "coasting" funkció valószínűleg rossz minőségű nyomatokat eredményez a
 
 Konkrétan, ha a szeletelő drasztikusan megváltoztatja az extrudálási sebességet a mozgások között, akkor a Klipper lassítást és gyorsítást hajt végre a mozgások között. Ez valószínűleg rontja a blobbingot, nem pedig javítja.
 
-Ezzel szemben a szeletelőgép "visszahúzás" beállítása, "törlés" beállítása és/vagy "törlés visszahúzáskor" beállítása rendben van (és gyakran hasznos).
+Ezzel szemben a szeletelő "visszahúzás" beállítása, "törlés" beállítása és/vagy "törlés visszahúzáskor" beállítása rendben van (és gyakran hasznos).
 
 ## Ne használd az "extra újraindítási távolságot" a Simplify3d-nél
 
@@ -42,4 +42,4 @@ Néhány szeletelőgép "fejlett nyomás előtolás" képességet hirdet. A Klip
 
 Konkrétan ezek a szeletelő beállítások utasíthatják a firmware-t, hogy vad változtatásokat végezzen az extrudálási sebességben, abban a reményben, hogy a firmware közelíteni fogja ezeket a kéréseket, és a nyomtató nagyjából a kívánt extrudernyomást fogja elérni. A Klipper azonban pontos kinematikai számításokat és időzítést használ. Amikor a Klipper parancsot kap az extrudálási sebesség jelentős változtatására, megtervezi a sebesség, a gyorsulás és az extruder mozgásának megfelelő változásait - ami nem a szeletelő szándékában áll. A szeletelő akár túlzott extrudálási sebességet is parancsolhat, olyannyira, hogy az kiváltja a Klipper maximális extrudálási keresztmetszet ellenőrzését.
 
-Ezzel szemben a szeletelőgép "visszahúzás" beállítása, "törlés" beállítása és/vagy "törlés visszahúzáskor" beállítása rendben van (és gyakran hasznos).
+Ezzel szemben a szeletelő "visszahúzás" beállítása, "törlés" beállítása és/vagy "törlés visszahúzáskor" beállítása rendben van (és gyakran hasznos).

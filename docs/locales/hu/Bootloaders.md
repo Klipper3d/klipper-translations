@@ -12,7 +12,7 @@ Ez a dokumentum megpróbálja leírni a gyakori bootloadereket, a bootloader ég
 
 Általánosságban az Arduino projekt jó referencia a 8 bites Atmel Atmega mikrovezérlők bootloadereiről és a égetési eljárásokról. Különösen a "boards.txt" fájl: <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> hasznos referencia.
 
-A bootloader égetéséhez az AVR chipekhez külső hardveres égető eszközre van szükség (amely SPI segítségével kommunikál a chippel). Ez az eszköz megvásárolható (például keressen rá az interneten az "avr isp", "arduino isp" vagy "usb tiny isp" szavakra). Az is lehetséges, hogy egy másik Arduino vagy Raspberry Pi segítségével égess egy AVR bootloadert (például keressen rá az interneten a "program an avr using raspberry pi" kifejezésre). Az alábbi példákat egy "AVR ISP Mk2" típusú eszköz használatát feltételezve írtuk.
+A bootloader égetéséhez az AVR chipekhez külső hardveres égető eszközre van szükség (amely SPI segítségével kommunikál a chippel). Ez az eszköz megvásárolható (például keress rá az interneten az "avr isp", "arduino isp" vagy "usb tiny isp" szavakra). Az is lehetséges, hogy egy másik Arduino vagy Raspberry Pi segítségével égess egy AVR bootloadert (például keress rá az interneten a "program an avr using raspberry pi" kifejezésre). Az alábbi példákat egy "AVR ISP Mk2" típusú eszköz használatát feltételezve írtuk.
 
 Az "avrdude" program a leggyakrabban használt eszköz az atmega chipek égetésére (mind a bootloader, mind az alkalmazások égetésére).
 
@@ -20,7 +20,7 @@ Az "avrdude" program a leggyakrabban használt eszköz az atmega chipek égetés
 
 Ez a chip jellemzően az "Arduino Mega" chipben található, és nagyon gyakori a 3D nyomtató lapokban.
 
-Magának a bootloadernek az égetéséhez használj valami olyasmit, mint:
+A bootloader égetéséhez használj valami olyasmit, mint:
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/stk500v2/stk500boot_v2_mega2560.hex'
@@ -40,7 +40,7 @@ avrdude -cwiring -patmega2560 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.e
 
 Ez a chip jellemzően az "Arduino Mega" korábbi verzióiban található.
 
-Magának a bootloadernek az égetéséhez használj valami olyasmit, mint:
+A bootloader égetéséhez használj valami olyasmit, mint:
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/atmega/ATmegaBOOT_168_atmega1280.hex'
@@ -60,7 +60,7 @@ avrdude -carduino -patmega1280 -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.e
 
 Ez a chip gyakran megtalálható a "Melzi" stílusú 3D nyomtató alaplapokban.
 
-Magának a bootloadernek az égetéséhez használj valami olyasmit, mint:
+A bootloader égetéséhez használj valami olyasmit, mint:
 
 ```
 wget 'https://github.com/Lauszus/Sanguino/raw/1.0.2/bootloaders/optiboot/optiboot_atmega1284p.hex'

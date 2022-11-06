@@ -8,11 +8,11 @@ A jó minőségű nyomatok érdekében a nyomtatót úgy kell kalibrálni, hogy 
 
 ## Válaszd ki a megfelelő kalibrációs mechanizmust
 
-A különböző típusú nyomtatók különböző módszereket használnak a tárgyasztal szintezésének elvégzésére. Ezek mindegyike végső soron a "papírteszt" (lásd alább) függvénye. Az adott nyomtatótípusra vonatkozó tényleges eljárást azonban más dokumentumok írják le.
+A különböző típusú nyomtatók különböző módszereket használnak a tárgyasztal szintezésének elvégzésére. Ezek mindegyike végső soron a "papírteszt" függvénye (lásd alább). Az adott nyomtatótípusra vonatkozó tényleges eljárást azonban más dokumentumok írják le.
 
-A kalibrációs eszközök futtatása előtt feltétlenül futtassa le a [Konfigurációs ellenőrzések dokumentumban](Config_checks.md) leírt ellenőrzéseket. A nyomtató alapvető mozgásának ellenőrzése szükséges a tárgyasztal szintezésének elvégzése előtt.
+A kalibrációs eszközök futtatása előtt feltétlenül futtasd a [Konfigurációs ellenőrzések dokumentumban](Config_checks.md) leírt ellenőrzéseket. A nyomtató alapvető mozgásának ellenőrzése szükséges a tárgyasztal szintezésének elvégzése előtt.
 
-A "automatikus Z-szondával" rendelkező nyomtatók esetében a szondát mindenképpen kalibrálja a [Probe Calibrate](Probe_Calibrate.md) dokumentumban található utasítások szerint. Delta nyomtatók esetében lásd a [Delta Calibrate](Delta_Calibrate.md) dokumentumot. Szintezőcsavarokkal és hagyományos Z végállással rendelkező nyomtatók esetében lásd a [Manual Level](Manual_Level.md) dokumentumot.
+A "automatikus Z-szondával" rendelkező nyomtatók esetében a szondát mindenképpen kalibráld a [Probe Calibrate](Probe_Calibrate.md) dokumentumban található utasítások szerint. Delta nyomtatók esetében lásd a [Delta Calibrate](Delta_Calibrate.md) dokumentumot. Szintezőcsavarokkal és hagyományos Z végállással rendelkező nyomtatók esetében lásd a [Manual Level](Manual_Level.md) dokumentumot.
 
 A kalibrálás során szükség lehet arra, hogy a nyomtató Z `position_min` értékét negatív számra állítsd be (pl. `position_min = -2`). A nyomtató a kalibrációs rutinok során is végrehajtja a határérték-ellenőrzést. A negatív szám beállítása lehetővé teszi, hogy a nyomtató a tárgyasztal névleges pozíciója alá mozogjon, ami segíthet a tárgyasztal tényleges pozíciójának meghatározásakor.
 
@@ -30,7 +30,7 @@ A papírteszt első lépése a nyomtató fúvókájának és tárgyasztalának e
 
 Ha valaki mindig egy adott lapra vagy felületre nyomtat, akkor a papírtesztet az adott lappal/felülettel a helyén végezheti el. Vedd azonban figyelembe, hogy maga a lap vastagsággal rendelkezik, és a különböző lapok (vagy bármely más nyomtatási felület) hatással lesznek a Z mérésekre. Mindenképpen végezd el újra a papírtesztet, hogy minden egyes használt felülettípust megmérj.
 
-Ha műanyag van a fúvókán, akkor melegítse fel az extrudert, és egy fém csipesszel távolítsa el a műanyagot. Várja meg, amíg az extruder teljesen lehűl szobahőmérsékletűre, mielőtt folytatja a papírtesztet. Amíg a fúvóka hűl, a fémcsipesszel távolítsa el az esetlegesen kiszivárgó műanyagot.
+Ha műanyag van a fúvókán, akkor melegítsd fel az extrudert, és egy fém csipesszel távolítsd el a műanyagot. Várd meg, amíg az extruder teljesen lehűl szobahőmérsékletűre, mielőtt folytatod a papírtesztet. Amíg a fúvóka hűl, a fémcsipesszel távolítsd el az esetlegesen kiszivárgó műanyagot.
 
 **A papírtesztet mindig akkor végezd el, amikor a fúvóka és a tárgyasztal szobahőmérsékleten van!**
 

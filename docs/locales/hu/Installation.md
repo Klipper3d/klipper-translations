@@ -27,7 +27,7 @@ A fentiek letöltik a Klippert, telepítenek néhány rendszerösszetevőt, beá
 
 ## A mikrokontroller felépítése és égetése
 
-A mikrokontroller kódjának lefordításához futtassa ezeket a parancsokat a Raspberry Pi-n:
+A mikrokontroller kódjának lefordításához futtasd ezeket a parancsokat a Raspberry Pi-n:
 
 ```
 cd ~/klipper/
@@ -48,13 +48,13 @@ Ellenkező esetben a következő lépéseket gyakran használják a nyomtató ve
 ls /dev/serial/by-id/*
 ```
 
-Valami hasonlót kell kapnia az alábbiakhoz:
+Az alábbiakhoz hasonlót kell kapnod:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-Gyakori, hogy minden nyomtatónak saját egyedi soros port neve van. Ezt az egyedi nevet használjuk a mikrokontroller égetésére. Lehetséges, hogy a fenti kimenetben több sor is található – ha igen, válaszd ki a mikrovezérlőnek megfelelő sort (további információért lásd a [GYIK](FAQ.md#wheres-my-serial-port) részt).
+Gyakori, hogy minden nyomtatónak saját egyedi soros port neve van. Ezt az egyedi nevet használjuk a mikrokontroller égetésére. Lehetséges, hogy a fenti kimenetben több sor is található – ha igen, válaszd ki a mikrovezérlőnek megfelelő sort (további információkért lásd a [GYIK](FAQ.md#wheres-my-serial-port) részt).
 
 Az általános mikrokontrollereknél a kódot valami hasonlóval lehet égetni:
 
@@ -64,7 +64,7 @@ make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 ```
 
-Feltétlenül frissítse a FLASH_DEVICE eszközt a nyomtató egyedi soros portjának nevével.
+Feltétlenül frissítd a FLASH_DEVICE eszközt a nyomtató egyedi soros portjának nevével.
 
 Amikor először égetsz, győződj meg arról, hogy az OctoPrint nincs közvetlenül csatlakoztatva a nyomtatóhoz (az OctoPrint weboldalon a "Kapcsolat" részben kattints a "Kapcsolat bontása" gombra).
 
@@ -101,7 +101,7 @@ Gyakori, hogy minden nyomtatónak saját egyedi neve van a mikrokontroller szám
 ls /dev/serial/by-id/*
 ```
 
-Valami hasonlót kell kapnia az alábbiakhoz:
+Az alábbiakhoz hasonlót kell kapnod:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0

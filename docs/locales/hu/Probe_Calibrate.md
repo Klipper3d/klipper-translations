@@ -30,23 +30,23 @@ G1 F300 X57 Y30 Z15
 
 a fúvóka 57-es X-pozícióba és 30-as Y-pozícióba történő mozgatásához. Ha megtaláltuk a közvetlenül a jelölés feletti pozíciót, a `GET_POSITION` paranccsal jelenthetjük ezt a pozíciót. Ez a fúvóka pozíciója.
 
-Az x_offset ekkor a `nozzle_x_position - probe_x_position` és az y_offset hasonlóan a `nozzle_y_position - probe_y_position`. Frissítse a printer.cfg fájlt a megadott értékekkel, távolítsa el a szalagot/jeleket a tárgyasztalról, majd adj ki egy `RESTART` parancsot, hogy az új értékek hatályba lépjenek.
+Az x_offset ekkor a `nozzle_x_position - probe_x_position` és az y_offset hasonlóan a `nozzle_y_position - probe_y_position`. Frissítsd a printer.cfg fájlt a megadott értékekkel, távolítsd el a szalagot/jeleket a tárgyasztalról, majd adj ki egy `RESTART` parancsot, hogy az új értékek hatályba lépjenek.
 
 ## A szonda Z eltolás kalibrálása
 
 A pontos z_offset beállítása kritikus fontos a jó minőségű nyomatok előállításához. A z_offset a fúvóka és a tárgyasztal közötti távolság, amikor a szonda működésbe lép. A Klipper `PROBE_CALIBRATE` eszköz használható ennek az értéknek a meghatározására - ez egy automatikus szondát futtat a szonda Z kioldási pozíciójának mérésére, majd egy kézi szondát indít a fúvóka Z magasságának meghatározására. A szonda z_offset értékét ezután ezekből a mérésekből számítja ki.
 
-Kezd a nyomtató alaphelyzetbe állításával, majd mozgasd a fejet a tárgyasztal közepéhez közeli pozícióba. Navigálj az OctoPrint terminál fülre, és futtassa a `PROBE_CALIBRATE` parancsot az eszköz indításához.
+Kezd a nyomtató alaphelyzetbe állításával, majd mozgasd a fejet a tárgyasztal közepéhez közeli pozícióba. Navigálj az OctoPrint terminál fülre, és futtasd a `PROBE_CALIBRATE` parancsot az eszköz indításához.
 
 Ez az eszköz automatikus mérést hajt végre, majd felemeli a fejet, mozgatja a fúvókát a mérőpont helye fölé, és elindítja a kézi mérést. Ha a fúvóka nem mozdul el az automatikus mérőpont feletti pozícióba, akkor `ABORT` a kézi mérőeszközzel, hajtsd végre a fent leírt X-Y szondaeltolás kalibrálását.
 
-Miután a kézi mérő eszköz elindult, kövesse a ["a papírteszt"](Bed_Level.md#the-paper-test)] pontban leírt lépéseket a fúvóka és a tárgyasztal közötti tényleges távolság meghatározásához az adott helyen. Ha ezek a lépések befejeződtek, akkor `ACCEPT` a pozíció és elmentheti az eredményeket a config fájlba a következővel:
+Miután a kézi mérő eszköz elindult, kövesd a ["a papírteszt"](Bed_Level.md#the-paper-test)] pontban leírt lépéseket a fúvóka és a tárgyasztal közötti tényleges távolság meghatározásához az adott helyen. Ha ezek a lépések befejeződtek, akkor `ACCEPT` a pozíció és elmentheted az eredményeket a config fájlba a következővel:
 
 ```
 SAVE_CONFIG
 ```
 
-Vedd figyelembe, hogy ha a nyomtató mozgásrendszerét, a nyomtatófej pozícióját vagy a szonda helyét megváltoztatja, az érvényteleníti a PROBE_CALIBRATE eredményeit.
+Vedd figyelembe, hogy ha a nyomtató mozgásrendszerét, a nyomtatófej pozícióját vagy a szonda helyét megváltoztatod, az érvényteleníti a PROBE_CALIBRATE eredményeit.
 
 Ha a szonda X vagy Y eltolással rendelkezik, és a tárgyasztal dőlése megváltozik (pl. szintezőcsavarok beállításával, DELTA_CALIBRATE futtatásával, Z_TILT_ADJUST futtatásával, QUAD_GANTRY_LEVEL futtatásával vagy hasonlóval), akkor ez érvényteleníti a PROBE_CALIBRATE eredményeit. A fenti beállítások bármelyikének módosítása után újra kell kezdeni a PROBE_CALIBRATE futtatását.
 

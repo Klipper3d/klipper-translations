@@ -1,6 +1,6 @@
 # TSL1401CL nyomtatószál szélesség érzékelő
 
-Ez a dokumentum a nyomtatószál szélesség érzékelő gazdagép modulját írja le. A gazdamodul fejlesztéséhez használt hardver a TSL1401CL lineáris érzékelőtömbön alapul, de bármilyen analóg kimenettel rendelkező érzékelőtömbbel működik. Terveket a [Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor) oldalon találja.
+Ez a dokumentum a nyomtatószál szélesség érzékelő gazdagép modulját írja le. A gazdamodul fejlesztéséhez használt hardver a TSL1401CL lineáris érzékelőtömbön alapul, de bármilyen analóg kimenettel rendelkező érzékelőtömbbel működik. Terveket a [Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor) oldalon találod.
 
 Érzékelőtömb nyomtatószál szélesség érzékelőként való használatához olvasd el a [Konfigurációs hivatkozás](Config_Reference.md#tsl1401cl_filament_width_sensor) és a [G-kód dokumentáció](G-Codes.md#hall_filament_width_sensor) részt.
 

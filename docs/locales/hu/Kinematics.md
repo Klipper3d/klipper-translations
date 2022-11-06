@@ -22,7 +22,7 @@ A Klipper hagyományos "trapézgenerátort" használ az egyes mozgások modellez
 
 Ezt "trapézgenerátornak" nevezik, mert a mozgás sebességdiagramja úgy néz ki, mint egy trapéz.
 
-Az utazósebesség mindig nagyobb vagy egyenlő a kezdő- és a végsebességgel. A gyorsulási fázis lehet nulla időtartamú (ha a kezdősebesség egyenlő az utazósebességgel), az utazási fázis lehet nulla időtartamú (ha a mozgás a gyorsulás után azonnal lassulni kezd), és/vagy a lassulási fázis lehet nulla időtartamú (ha a végsebesség egyenlő az utazósebességgel).
+Az utazósebesség mindig nagyobb vagy egyenlő a kezdő és a végsebességgel. A gyorsulási fázis lehet nulla időtartamú (ha a kezdősebesség egyenlő az utazósebességgel), az utazási fázis lehet nulla időtartamú (ha a mozgás a gyorsulás után azonnal lassulni kezd), és/vagy a lassulási fázis lehet nulla időtartamú (ha a végsebesség egyenlő az utazósebességgel).
 
 ![trapezoids](img/trapezoids.svg.png)
 

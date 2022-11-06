@@ -18,11 +18,11 @@ A Klipper számos lenyűgöző tulajdonsággal rendelkezik:
 
 A Klipper számos szabványos 3D nyomtató funkciót támogat:
 
-* Együttműködik az Octoprint-tel. Ez lehetővé teszi a nyomtató vezérlését egy hagyományos webböngészővel. Ugyanaz a Raspberry Pi, amelyen a Klipper fut, képes az Octoprint futtatására is.
+* Octoprint-el működik. Ez lehetővé teszi a nyomtató vezérlését egy hagyományos webböngészővel. Ugyanaz a Raspberry Pi, amelyen a Klipper fut, képes az Octoprint futtatására is.
 * Standard G-kód támogatás. A tipikus "szeletelők" (SuperSlicer, Cura, PrusaSlicer, stb.) által előállított általános G-kód parancsok támogatottak.
 * Több extruder támogatása. A közös fűtőberendezéssel rendelkező extrudereket és a független kocsikon (IDEX) lévő extrudereket is támogatják.
 * Támogatja a cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, rotary delta, polár és kábelcsörlő stílusú nyomtatókat.
-* Tárgyasztal szintezésének automatikus támogatása. A Klipper konfigurálható alapszintű tárgyasztal dőlés-érzékelésre vagy a tárgyasztal teljes hálós szintezésére. Ha a tárgyasztal több Z steppert használ, akkor a Klipper a Z stepperek független manipulálásával is képes szintezni. A legtöbb Z magasságmérő szonda támogatott, beleértve a BL-Touch szondákat és a szervómotoros szondákat is.
+* Tárgyasztal szintezésének automatikus támogatása. A Klipper konfigurálható alapszintű tárgyasztal dőlés-érzékelésre vagy a tárgyasztal teljes hálós szintezésére. Ha a tárgyasztal több Z steppert használ, akkor a Klipper a Z stepper-ek független manipulálásával is képes szintezni. A legtöbb Z magasságmérő szonda támogatott, beleértve a BL-Touch szondákat és a szervómotoros szondákat is.
 * Automatikus delta kalibráció támogatása. A kalibráló eszköz alapvető magassági kalibrálást, valamint továbbfejlesztett X és Y dimenzió kalibrálást végezhet. A kalibrálás elvégezhető Z magasságmérővel vagy kézi szintezővel.
 * Az általános hőmérséklet-érzékelők támogatása (pl. általános termisztorok, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20 és LM75). Egyedi termisztorok és egyedi analóg hőmérséklet-érzékelők is konfigurálhatók. Lehet figyelni a mikrokontroller hőmérsékletét és a Raspberry Pi processzor hőmérsékletét.
 * Alapértelmezés szerint a fűtésvédelem engedélyezett.

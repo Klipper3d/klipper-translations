@@ -37,7 +37,7 @@ Ha több mikrovezérlőt használsz, és ezek nem rendelkeznek egyedi azonosít�
 
 ## A mikrokontroller újraindításakor az eszköz /dev/ttyUSB1-re vált
 
-Kövesse a "[Hol van a soros portom?](#hol-van-a-soros-portom)" szakaszban található utasításokat, hogy ezt megakadályozza.
+Kövesd a "[Hol van a soros portom?](#hol-van-a-soros-portom)" szakaszban található utasításokat, hogy ezt megakadályozd.
 
 ## A "make flash" parancs nem működik
 
@@ -45,7 +45,7 @@ A kód megpróbálja az eszközt az egyes platformok esetében legelterjedtebb m
 
 Ha időszakos hiba van, vagy szabványos beállításod van, akkor ellenőrizd, hogy a Klipper nem fut-e égetés közben (sudo service klipper stop), győződj meg róla, hogy az OctoPrint nem próbál közvetlenül az eszközhöz csatlakozni (nyisd meg a weblapon a Kapcsolat lapot, és kattints a Kapcsolat megszakítása gombra, ha a soros port az eszközhöz van beállítva), és győződj meg róla, hogy a FLASH_DEVICE helyesen van beállítva a lapodhoz (lásd a fenti [kérdést](#hol-van-a-soros-portom)).
 
-Ha azonban a "make flash" egyszerűen nem működik az alaplapján, akkor manuálisan kell égetnie. Nézze meg, hogy van-e a [config könyvtárban](../config) egy config fájl, amely konkrét utasításokat tartalmaz az eszköz égetésére. Ellenőrizd a kártya gyártójának dokumentációját is, hogy leírja-e, hogyan kell égetni az eszközt. Végül, lehetséges lehet, hogy manuálisan égessük az eszközt olyan eszközökkel, mint az "avrdude" vagy a "bossac" - további információkért lásd a [bootloader dokumentumot](Bootloaders.md).
+Ha azonban a "make flash" egyszerűen nem működik az alaplapodon, akkor manuálisan kell égetned. Nézd meg, hogy van-e a [config könyvtárban](../config) egy config fájl, amely konkrét utasításokat tartalmaz az eszköz égetésére. Ellenőrizd a kártya gyártójának dokumentációját is, hogy leírja-e, hogyan kell égetni az eszközt. Végül, lehetséges lehet, hogy manuálisan égesd az eszközt olyan eszközökkel, mint az "avrdude" vagy a "bossac" - további információkért lásd a [bootloader dokumentumot](Bootloaders.md).
 
 ## Hogyan változtathatom meg a soros port átviteli sebességét?
 

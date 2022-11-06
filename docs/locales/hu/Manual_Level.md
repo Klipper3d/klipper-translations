@@ -8,13 +8,13 @@ A pontos Z végállás pozíciója kritikus fontosságú a jó minőségű nyoma
 
 Vedd figyelembe azonban, hogy maga a Z végálláskapcsoló pontossága korlátozó tényező lehet. Ha Trinamic léptetőmotor-meghajtókat használunk, akkor fontoljuk meg a [végstop fázis](Endstop_Phase.md) érzékelés engedélyezését a kapcsoló pontosságának javítása érdekében.
 
-A Z végpont kalibrálásának végrehajtásához kapcsold be a nyomtatót, utasítsa a fejet, hogy mozogjon egy Z pozícióba, amely legalább öt milliméterrel a tárgyasztal felett van (ha még nincs), utasítsa a fejet, hogy mozogjon egy X-Y pozícióba, közel a nyomtató közepéhez a tárgyasztalra, majd navigálj az OctoPrint terminál fülre, és futtassa:
+A Z végpont kalibrálásának végrehajtásához kapcsold be a nyomtatót, utasítsd a fejet, hogy mozogjon egy Z pozícióba, amely legalább öt milliméterrel a tárgyasztal felett van (ha még nincs), utasítsd a fejet, hogy mozogjon egy X-Y pozícióba, közel a nyomtató közepéhez a tárgyasztalra, majd navigálj az OctoPrint terminál fülre, és futtasd:
 
 ```
 Z_ENDSTOP_CALIBRATE
 ```
 
-Ezután kövesse a ["a papírteszt"](Bed_Level.md#the-paper-test) pontban leírt lépéseket a fúvóka és a tárgyasztal közötti tényleges távolság meghatározásához az adott helyen. Ha ezek a lépések befejeződtek, akkor `ACCEPT` és elmentheti az eredményeket a config fájlba a következővel:
+Ezután kövesd a ["a papírteszt"](Bed_Level.md#the-paper-test) pontban leírt lépéseket a fúvóka és a tárgyasztal közötti tényleges távolság meghatározásához az adott helyen. Ha ezek a lépések befejeződtek, akkor `ACCEPT` és elmentheted az eredményeket a config fájlba a következővel:
 
 ```
 SAVE_CONFIG
@@ -39,7 +39,7 @@ screw3: 150, 100
 
 Ha egy tárgyasztal csavar a tárgyasztal alatt van, akkor add meg az X-Y pozíciót közvetlenül a csavar felett. Ha a csavar a tárgyasztalon kívül van, akkor add meg a csavarhoz legközelebbi X-Y-pozíciót, amely még a tárgyasztal hatótávolságán belül van.
 
-Miután a konfigurációs fájl készen áll, futtassa a `RESTART` parancsot a konfiguráció betöltéséhez, majd elindíthatja az eszközt a következő futtatásával:
+Miután a konfigurációs fájl készen áll, futtasd a `RESTART` parancsot a konfiguráció betöltéséhez, majd elindíthatod az eszközt a következő futtatásával:
 
 ```
 BED_SCREWS_ADJUST

@@ -17,13 +17,13 @@
    - [Дистанция поворота](Rotation_Distance.md): Расчет параметра дистанции попорота(Rotation_distance).
 - [Проверки конфигурации](Config_checks.md): Проверка основных настроек контактов в файле конфигурации.
 - [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
-   - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
-   - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
-   - [BL-Touch](BLTouch.md): Configure a "BL-Touch" Z probe.
-   - [Manual level](Manual_Level.md): Calibration of Z endstops (and similar).
+   - [Delta calibrate](Delta_Calibrate.md): Калибровка дельта-киноматики.
+   - [Probe calibrate](Probe_Calibrate.md): Калибровка автоматический Z-зондов.
+   - [BL-Touch](BLTouch.md): Конфигурация Z-зондов "BL-Touch".
+   - [Manual level](Manual_Level.md): Калибровка крайних точек Z ( и подобные).
    - [Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations.
-   - [Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning.
-- [Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing in prints.
+   - [Endstop phase](Endstop_Phase.md): Позиционирование концевого упора Z с помощью шарового двигателя.
+- [Resonance compensation](Resonance_Compensation.md): Инструмент для уменьшения звона при печати.
    - [Measuring resonances](Measuring_Resonances.md): Information on using adxl345 accelerometer hardware to measure resonance.
 - [Pressure advance](Pressure_Advance.md): Calibrate extruder pressure.
 - [G-Codes](G-Codes.md): Information on commands supported by Klipper.

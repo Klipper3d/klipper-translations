@@ -32,11 +32,11 @@ A CAN-buszon két 120 ohmos ellenállásnak kell lennie a CANH és CANL vezeték
 
 Vedd figyelembe, hogy egyes eszközök beépített 120 ohmos ellenállással rendelkeznek (például a "Waveshare Raspberry Pi CAN sapka" egy beforrasztott ellenállással rendelkezik, amelyet nem lehet könnyen eltávolítani). Egyes eszközök egyáltalán nem tartalmaznak ellenállást. Más eszközök rendelkeznek egy mechanizmussal az ellenállás kiválasztására (általában egy "pin jumper" csatlakoztatásával). Mindenképpen ellenőrizd a CAN-buszon lévő összes eszköz kapcsolási rajzát, hogy a buszon két és csak két 120 Ohm-os ellenállás van-e.
 
-Az ellenállások értékének teszteléséhez a nyomtatót áramtalaníthatja, és egy multi-méterrel ellenőrizheti a CANH és CANL vezetékek közötti ellenállást. Egy helyesen bekötött CAN-buszon ~60 ohmot kell mérnie.
+Az ellenállások értékének teszteléséhez a nyomtatót áramtalaníthatod, és egy multiméterrel ellenőrizheted a CANH és CANL vezetékek közötti ellenállást. Egy helyesen bekötött CAN-buszon ~60 ohmot kell mérned.
 
 ## A canbus_uuid keresése új mikrovezérlőkhöz
 
-A CAN-buszon lévő minden mikrovezérlőhöz egyedi azonosítót rendelnek a gyári chipazonosító alapján, amely minden mikrovezérlőbe kódolva van. Az egyes mikrokontrollerek eszközazonosítójának megtalálásához győződj meg arról, hogy a hardver megfelelően van bekapcsolva és bekötve, majd futtassa le:
+A CAN-buszon lévő minden mikrovezérlőhöz egyedi azonosítót rendelnek a gyári chipazonosító alapján, amely minden mikrovezérlőbe kódolva van. Az egyes mikrokontrollerek eszközazonosítójának megtalálásához győződj meg arról, hogy a hardver megfelelően van bekapcsolva és bekötve, majd futtasd le:
 
 ```
 ~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0

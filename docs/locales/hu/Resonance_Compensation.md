@@ -6,13 +6,13 @@ A Klipper támogatja a bemeneti formázást. Egy olyan technikát, amely a nyoma
 
 A gyűrődést a nyomtatási irány gyors változása miatt fellépő mechanikus rezgések okozzák. Vedd figyelembe, hogy a gyűrődés általában mechanikai eredetű: nem elég merev nyomtatókeret, nem feszes vagy túlságosan rugós szíjak, a mechanikus alkatrészek beállítási problémái, nagy mozgó tömeg stb. Ezeket kell először ellenőrizni és lehetőség szerint javítani.
 
-A [Bemeneti formázás](https://en.wikipedia.org/wiki/Input_shaping) egy olyan nyílt hurkú vezérlési technika, amely olyan utasító jelet hoz létre, amely megszünteti a saját rezgéseit. A bemeneti alakítás némi hangolást és méréseket igényel, mielőtt engedélyezhető lenne. A csengésen kívül a Bemeneti formázás általában csökkenti a nyomtató rezgéseit és rázkódását, és javíthatja a Trinamic léptető meghajtók StealthChop üzemmódjának megbízhatóságát is.
+A [Bemeneti formázás](https://en.wikipedia.org/wiki/Input_shaping) egy olyan nyílt hurkú vezérlési technika, amely olyan utasító jelet hoz létre, amely megszünteti a saját rezgéseit. A bemeneti alakítás némi hangolást és méréseket igényel, mielőtt engedélyezhető lenne. A csengésen kívül a bemeneti formázás általában csökkenti a nyomtató rezgéseit és rázkódását, és javíthatja a Trinamic léptető meghajtók StealthChop üzemmódjának megbízhatóságát is.
 
 ## Hangolás
 
 Az alaphangoláshoz a nyomtató gyűrődési frekvenciájának mérése szükséges egy tesztmodell nyomtatásával.
 
-Szeletelje fel a [docs/prints/ringing_tower.stl](prints/ringing_tower.stl) fájlban található gyűrődési tesztmodellt a szeletelőben:
+Szeleteld fel a [docs/prints/ringing_tower.stl](prints/ringing_tower.stl) fájlban található gyűrődési tesztmodellt a szeletelőben:
 
 * A javasolt rétegmagasság 0,2 vagy 0,25 mm.
 * A kitöltő és a felső rétegek 0-ra állíthatók.
@@ -20,7 +20,7 @@ Szeletelje fel a [docs/prints/ringing_tower.stl](prints/ringing_tower.stl) fájl
 * A **külső** kerületeknél használj kellően nagy sebességet, körülbelül 80-100 mm/sec.
 * Győződj meg róla, hogy a minimális rétegidő **legfeljebb** 3 másodperc.
 * Győződj meg róla, hogy a szeletelőben a "dinamikus gyorsításvezérlés" ki van kapcsolva.
-* Ne fordítsd el a modellt. A modell hátulján X és Y jelölések vannak. Figyelje meg a jelek szokatlan elhelyezkedését a nyomtató tengelyeihez képest. Ez nem hiba. A jelölések később a hangolási folyamat során referenciaként használhatók, mert megmutatják, hogy a mérések melyik tengelynek felelnek meg.
+* Ne fordítsd el a modellt. A modell hátulján X és Y jelölések vannak. Figyeld meg a jelek szokatlan elhelyezkedését a nyomtató tengelyeihez képest. Ez nem hiba. A jelölések később a hangolási folyamat során referenciaként használhatók, mert megmutatják, hogy a mérések melyik tengelynek felelnek meg.
 
 ### Gyűrődési frekvencia
 

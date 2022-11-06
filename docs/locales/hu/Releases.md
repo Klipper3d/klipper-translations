@@ -25,7 +25,7 @@ Elérhető a 20210929. Fontosabb változások ebben a kiadásban:
 Elérhető a 20201020. Főbb változások ebben a kiadásban:
 
 * Az "Input Shaping" a nyomtató rezonanciájának ellensúlyozására szolgáló mechanizmus támogatása. Csökkentheti vagy megszüntetheti a "gyűrődést" a nyomatokon.
-* Új "Smooth Pressure Advance" rendszer. Ezt a "Pressure Advance" rendszert a pillanatnyi sebesség változások bevezetése nélkül valósítja meg. Mostantól lehetőség van a nyomás előtolás beállítására is a "Tuning Tower" módszerrel.
+* Új "Smooth Pressure Advance" rendszer. Ezt a "Pressure Advance" rendszer a pillanatnyi sebesség változások bevezetése nélkül valósítja meg. Mostantól lehetőség van a nyomás előtolás beállítására is a "Tuning Tower" módszerrel.
 * Új "webhooks" API-kiszolgáló. Ez egy programozható JSON interfészt biztosít a Klipperhez.
 * Az LCD kijelző és a menü mostantól a Jinja2 sablonnyelv segítségével konfigurálható.
 * A TMC2208 léptetőmotor-meghajtók mostantól "standalone" üzemmódban is használhatók a Klipperrel.

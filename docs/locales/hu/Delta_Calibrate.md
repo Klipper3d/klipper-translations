@@ -10,21 +10,21 @@ A delta-kalibrálás végső soron a torony végálláskapcsolóinak pontosság�
 
 A Klipper támogatja a delta paraméterek kalibrálását kézi szintezéssel vagy automatikus Z-szondával.
 
-Számos delta nyomtató készlethez automatikus Z-szondák tartoznak, amelyek nem elég pontosak (különösen a karok hosszának kis különbségei okozhatnak effektor dőlést, ami elferdítheti az automatikus szondát). Ha automatikus szondát használ, akkor először [kalibrálja a szondát](Probe_Calibrate.md), majd ellenőrizd a [szonda helyének torzítását](Probe_Calibrate.md#location-bias-check). Ha az automatikus szonda torzítása több mint 25 mikron (0.025mm), akkor helyette használj kézi szintezést. A kézi szintezés csak néhány percet vesz igénybe, és kiküszöböli a szonda által okozott hibát.
+Számos delta nyomtató készlethez automatikus Z-szondák tartoznak, amelyek nem elég pontosak (különösen a karok hosszának kis különbségei okozhatnak effektor dőlést, ami elferdítheti az automatikus szondát). Ha automatikus szondát használsz, akkor először [kalibráld a szondát](Probe_Calibrate.md), majd ellenőrizd a [szonda helyének torzítását](Probe_Calibrate.md#location-bias-check). Ha az automatikus szonda torzítása több mint 25 mikron (0.025mm), akkor helyette használj kézi szintezést. A kézi szintezés csak néhány percet vesz igénybe, és kiküszöböli a szonda által okozott hibát.
 
-Ha olyan szondát használ, amely a fűtőberendezés oldalára van szerelve (azaz X vagy Y eltolással rendelkezik), akkor vedd figyelembe, hogy a delta-kalibrálás végrehajtása érvényteleníti a szonda kalibrálásának eredményeit. Az ilyen típusú szondák ritkán alkalmasak a delta használatára (mivel a kisebb effektor dőlés a szonda helyének torzítását eredményezi). Ha mégis használod a szondát, akkor a delta-kalibrálás után mindenképpen végezd el újra a szonda kalibrálását.
+Ha olyan szondát használsz, amely a fűtőberendezés oldalára van szerelve (azaz X vagy Y eltolással rendelkezik), akkor vedd figyelembe, hogy a delta-kalibrálás végrehajtása érvényteleníti a szonda kalibrálásának eredményeit. Az ilyen típusú szondák ritkán alkalmasak a delta használatára (mivel a kisebb effektor dőlés a szonda helyének torzítását eredményezi). Ha mégis használod a szondát, akkor a delta-kalibrálás után mindenképpen végezd el újra a szonda kalibrálását.
 
 ## Alapvető delta kalibrálás
 
 A Klipper rendelkezik egy DELTA_CALIBRATE paranccsal, amely alapvető delta-kalibrálást végezhet. Ez a parancs a tárgyasztal hét különböző pontját vizsgálja, és új értékeket számol ki a toronyszögek, a toronyvégállások és a delta-sugár számára.
 
-A kalibrálás elvégzéséhez meg kell adni a kiindulási delta paramétereket (karhossz, sugár és végállások), amelyeknek néhány milliméteres pontossággal kell rendelkezniük. A legtöbb delta nyomtató készlet biztosítja ezeket a paramétereket. Konfiguráld a nyomtatót ezekkel a kezdeti alapbeállításokkal, majd futtassa a DELTA_CALIBRATE parancsot az alábbiakban leírtak szerint. Ha nem állnak rendelkezésre alapértelmezett értékek, akkor keressen az interneten egy delta-kalibrálási útmutatót, amely alapvető kiindulópontot adhat.
+A kalibrálás elvégzéséhez meg kell adni a kiindulási delta paramétereket (karhossz, sugár és végállások), amelyeknek néhány milliméteres pontossággal kell rendelkezniük. A legtöbb delta nyomtató készlet biztosítja ezeket a paramétereket. Konfiguráld a nyomtatót ezekkel a kezdeti alapbeállításokkal, majd futtasd a DELTA_CALIBRATE parancsot az alábbiakban leírtak szerint. Ha nem állnak rendelkezésre alapértelmezett értékek, akkor keress az interneten egy delta-kalibrálási útmutatót, amely alapvető kiindulópontot adhat.
 
 A delta-kalibrálás során előfordulhat, hogy a nyomtatónak a tárgyasztal síkja alatt kell szinteznie, amit egyébként a tárgyasztal síkjának tekinthetnénk. Jellemzően ezt a kalibrálás során a konfiguráció frissítésével engedélyezzük a `minimum_z_position=-5` értékkel. (A kalibrálás befejezése után ez a beállítás eltávolítható a konfigurációból.)
 
 A szintezést kétféleképpen lehet elvégezni: kézi szintezés (`DELTA_CALIBRATE METHOD=manual`) és automatikus szintezés (`DELTA_CALIBRATE`). A kézi szintezési módszer a fejet a tárgyasztal közelébe mozgatja, majd megvárja, hogy a felhasználó kövesse a ["a papírteszt"](Bed_Level.md#the-paper-test) pontban leírt lépéseket, hogy meghatározza a fúvóka és a tárgyasztal közötti tényleges távolságot az adott helyen.
 
-Az alapvető mérés elvégzéséhez győződj meg arról, hogy a konfigurációban van-e definiálva egy [delta_calibrate] szakasz, majd futtassa az eszközt:
+Az alapvető mérés elvégzéséhez győződj meg arról, hogy a konfigurációban van-e definiálva egy [delta_calibrate] szakasz, majd futtasd az eszközt:
 
 ```
 G28

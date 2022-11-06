@@ -1128,38 +1128,37 @@ Correzione dell'inclinazione della stampante. È possibile utilizzare il softwar
 
 ### [z_thermal_adjust]
 
-Temperature-dependant toolhead Z position adjustment. Compensate for vertical toolhead movement caused by thermal expansion of the printer's frame in real-time using a temperature sensor (typically coupled to a vertical section of frame).
+Regolazione della posizione Z della testa di stampa in funzione della temperatura. Compensare il movimento verticale della testina utensile causato dall'espansione termica del telaio della stampante in tempo reale utilizzando un sensore di temperatura (tipicamente accoppiato a una sezione verticale del telaio).
 
-See also: [extended g-code commands](G-Codes.md#z_thermal_adjust).
+Vedi anche: [comandi g-code estesi](G-Codes.md#z_thermal_adjust).
 
 ```
 [z_thermal_adjust]
 #temp_coeff:
-#   The temperature coefficient of expansion, in mm/degC. For example, a
-#   temp_coeff of 0.01 mm/degC will move the Z axis downwards by 0.01 mm for
-#   every degree Celsius that the temperature sensor increases. Defaults to
-#   0.0 mm/degC, which applies no adjustment.
+#   Il coefficiente di dilatazione della temperatura, in mm/degC. Ad esempio, un
+#   temp_coeff di 0,01 mm/degC sposterà l'asse Z verso il basso di 0,01 mm per ogni
+#   grado Celsius di auemnto del sensore di temperatura . Il valore predefinito è
+#   0,0 mm/degC, che non applica alcuna regolazione.
 #smooth_time:
-#   Smoothing window applied to the temperature sensor, in seconds. Can reduce
-#   motor noise from excessive small corrections in response to sensor noise.
-#   The default is 2.0 seconds.
+#   Finestra di smoothing applicata al sensore di temperatura, in secondi. Può
+#   ridurre il rumore del motore da piccole correzioni eccessive in risposta al
+#   rumore del sensore. Il valore predefinito è 2,0 secondi.
 #z_adjust_off_above:
-#   Disables adjustments above this Z height [mm]. The last computed correction
-#   will remain applied until the toolhead moves below the specified Z height
-#   again. The default is 99999999.0 mm (always on).
+#   Disattiva le regolazioni al di sopra di questa altezza Z [mm]. L'ultima correzione
+#   calcolata rimarrà applicata finché la testa utensile non si sposterà nuovamente
+#   al di sotto dell'altezza Z specificata.
+#   Il valore predefinito è 99999999,0 mm (sempre attivo).
 #max_z_adjustment:
-#   Maximum absolute adjustment that can be applied to the Z axis [mm]. The
-#   default is 99999999.0 mm (unlimited).
+#   Massima regolazione assoluta applicabile all'asse Z [mm]. Il valore predefinito
+#   è 99999999,0 mm (illimitato).
 #sensor_type:
 #sensor_pin:
 #min_temp:
 #max_temp:
-#   Temperature sensor configuration.
-#   See the "extruder" section for the definition of the above
-#   parameters.
+#   Configurazione del sensore di temperatura. Vedere la sezione "extruder" per
+#   la definizione dei parametri di cui sopra.
 #gcode_id:
-#   See the "heater_generic" section for the definition of this
-#   parameter.
+#   Vedere la sezione "heater_generic" per la definizione di questo parametro.
 ```
 
 ## Homing personalizzato

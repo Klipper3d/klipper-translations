@@ -34,7 +34,7 @@ Klipper 에 오신것을 환영합니다. Klipper를 처음 사용하는 경우�
 - [슬라이서](Slicers.md): Klipper용 "슬라이서" 소프트웨어 구성.
 - [꼬임 보정](꼬임 보정.md): 축의 조정은 완전히 정사각형이 아닙니다.
 - [PWM tools](Using_PWM_Tools.md): 레이저 또는 스핀들과 같은 PWM 제어 도구를 사용하는 방법에 대한 안내.
-- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs implementation.
+- [객체 제외](Exclude_Object.md): Objecs 제외 구현에 대한 가이드입니다.
 
 ## 개발자 문서
 
@@ -54,8 +54,8 @@ Klipper 에 오신것을 환영합니다. Klipper를 처음 사용하는 경우�
 - [config 예제](Example_Configs.md): 예제 config 파일을 Klipper에 추가하는 방법에 대한 정보.
 - [SDCard 업데이트](SDCard_Updates.md): sdcard 에 바이너리를 복사하여 마이크로 컨트롤러 펌웨어 업데이르 하는 방법.
 - [Raspberry Pi as Micro-controller](RPi_microcontroller.md): Raspberry Pi의 GPIO 핀에 연결된 장치 제어에 대한 세부 정보.
-- [Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone PRU.
+- [Beaglebone](Beaglebone.md): Beaglebone PRU에서 Klipper를 실행하기 위한 세부 정보입니다.
 - [브트로더](Bootloaders.md): 마이크로 컨트롤러 펌업에 대한 개발자 정보.
 - [캔버스](CANBUS.md): Klipper에서 CAN 버스를 사용하는 방법에 대한 정보.
-- [TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)
-- [Hall filament width sensor](Hall_Filament_Width_Sensor.md)
+- [TSL1401CL 필라멘트 폭 센서](TSL1401CL_Filament_Width_Sensor.md)
+- [홀 필라멘트 폭 센서](Hall_Filament_Width_Sensor.md)

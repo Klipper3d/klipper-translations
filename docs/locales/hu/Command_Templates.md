@@ -8,7 +8,7 @@ A G-kódos makronév esetében a nagy és kisbetűs írásmód nem fontos - a MY
 
 ## A G-kód formázása a konfigurációban
 
-A behúzás fontos, amikor makrót definiál a konfigurációs fájlban. Többsoros G-kód szekvencia megadásához fontos, hogy minden sorban megfelelő behúzás legyen. Például:
+A behúzás fontos, amikor makrót definiálsz a konfigurációs fájlban. Többsoros G-kód szekvencia megadásához fontos, hogy minden sorban megfelelő behúzás legyen. Például:
 
 ```
 [gcode_macro blink_led]
@@ -54,7 +54,7 @@ A `G91` parancs a G-kód elemzési állapotot "relatív mozgatási módba" helye
 
 ## Sablon bővítés
 
-A gcode_macro `gcode:` konfigurációs szakasz kiértékelése a Jinja2 sablonnyelv használatával történik. A kifejezéseket kiértékelhetjük futásidőben `{ }` karakterekbe csomagolva, vagy használhatunk feltételes utasításokat `{% %}` karakterekbe csomagolva. A szintaxissal kapcsolatos további információkért lásd a [Jinja2 dokumentáció](http://jinja.pocoo.org/docs/2.10/templates/).
+A gcode_macro `gcode:` konfigurációs szakasz kiértékelése a Jinja2 sablonnyelv használatával történik. A kifejezéseket kiértékelhetjük futásidőben `{ }` karakterekbe csomagolva, vagy használhatunk feltételes utasításokat `{% %}` karakterekbe csomagolva. A szintaxissal kapcsolatos további információkért lásd a [Jinja2 dokumentációt](http://jinja.pocoo.org/docs/2.10/templates/).
 
 Példa egy összetett makróra:
 

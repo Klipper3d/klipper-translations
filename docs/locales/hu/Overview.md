@@ -16,7 +16,7 @@
 - [Konfigurációs hivatkozás](Config_Reference.md): A konfigurációs paraméterek leírása.
    - [Forgatási távolság](Rotation_Distance.md): A rotation_distance léptető paraméter kiszámítása.
 - [Konfigurációs ellenőrzések](Config_checks.md): Alapvető tűbeállítások ellenőrzése a konfigurációs fájlban.
-- [Tárgyasztal szintezése](Bed_Level.md): Információ az "tárgyasztal szintezéséről" a Klipperben.
+- [Tárgyasztal szintezése](Bed_Level.md): Információ a "tárgyasztal szintezéséről" a Klipperben.
    - [Delta kalibrálás](Delta_Calibrate.md): A delta kinematika kalibrálása.
    - [Szonda kalibrálása](Probe_Calibrate.md): Automatikus Z-szondák kalibrálása.
    - [BL-Touch](BLTouch.md): "BL-Touch" Z szonda konfigurálása.

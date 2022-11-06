@@ -6,7 +6,7 @@ A szoftveralapú ferdeség korrekció segíthet a nem tökéletesen szögletes n
 
 A ferdeség korrekciójának első lépése egy [kalibrációs objektum](https://www.thingiverse.com/thing:2563185/files) nyomtatása a korrigálni kívánt sík mentén. Létezik egy másik [kalibrációs objektum](https://www.thingiverse.com/thing:2972743) is, amely egy modell összes síkját tartalmazza. Az objektumot úgy kell tájolni, hogy az A sarok a sík origója felé legyen.
 
-Győződj meg róla, hogy a nyomtatás során nem alkalmaz ferdeségkorrekciót. Ezt úgy teheti meg, hogy vagy eltávolítja a `[skew_correction]` modult a printer.cfg fájlból, vagy kiadsz egy `SET_SKEW CLEAR=1` parancsot.
+Győződj meg róla, hogy a nyomtatás során nem alkalmazol ferdeségkorrekciót. Ezt úgy teheted meg, hogy eltávolítod a `[skew_correction]` modult a printer.cfg fájlból, vagy kiadsz egy `SET_SKEW CLEAR=1` parancsot.
 
 ## Mérd meg
 
@@ -16,7 +16,7 @@ A `[skew_correcton]` modul minden egyes korrigálandó síkhoz 3 mérést igény
 
 ## Konfiguráld a ferdeséget
 
-Győződj meg róla, hogy a `[skew_correction]` szerepel a printer.cfg fájlban. Most már használhatod a `SET_SKEW` G-kódot a skew_correction beállításához. Például, ha az XY mentén mért hosszok a következők:
+Győződj meg róla, hogy a `[skew_correction]` szerepel a printer.cfg fájlban. Most már használhatod a `SET_SKEW` G-kódot a skew_correction beállításához. Például, ha az X-Y mentén mért hosszok a következők:
 
 ```
 Length AC = 140.4
@@ -30,13 +30,13 @@ Length AD = 99.8
 SET_SKEW XY=140.4,142.8,99.8
 ```
 
-Az XZ és YZ méréseket is hozzáadhatja a G-kódhoz:
+Az XZ és YZ méréseket is hozzáadhatod a G-kódhoz:
 
 ```
 SET_SKEW XY=140.4,142.8,99.8 XZ=141.6,141.4,99.8 YZ=142.4,140.5,99.5
 ```
 
-A `[skew_correction]` modul a `[bed_mesh]` modulhoz hasonló módon támogatja a profilkezelést is. Miután a `SET_SKEW` G-kóddal beállította a ferdeséget, a `SKEW_PROFILE` G-kóddal elmentheti azt:
+A `[skew_correction]` modul a `[bed_mesh]` modulhoz hasonló módon támogatja a profilkezelést is. Miután a `SET_SKEW` G-kóddal beállítottad a ferdeséget, a `SKEW_PROFILE` G-kóddal elmentheted azt:
 
 ```
 SKEW_PROFILE SAVE=my_skew_profile

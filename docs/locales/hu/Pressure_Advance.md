@@ -16,7 +16,7 @@ Készülj fel a tesztre a következő G-kód parancs kiadásával:
 SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500
 ```
 
-Ezzel a paranccsal a fúvóka lassabban halad át a kanyarokon, hogy kiemelje az extrudernyomás hatását. Ezután a direkt extruderrel rendelkező nyomtatók esetében futtassa az alábbi parancsot:
+Ezzel a paranccsal a fúvóka lassabban halad át a kanyarokon, hogy kiemelje az extrudernyomás hatását. Ezután a direkt extruderrel rendelkező nyomtatók esetében futtasd az alábbi parancsot:
 
 ```
 TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 FACTOR=.005
@@ -34,7 +34,7 @@ Ezután nyomtasd ki az objektumot. Teljesen kinyomtatva a tesztnyomat így néz 
 
 A fenti TUNING_TOWER parancs utasítja a Klippert, hogy a nyomtatás minden egyes rétegénél módosítsa a pressure_advance beállítást. A nyomtatás magasabb rétegeire nagyobb nyomáselőtolási érték lesz beállítva. Az ideális pressure_advance beállítás alatti rétegeknél a sarkoknál pattogás, az ideális beállítás feletti rétegeknél pedig lekerekített sarkok és gyenge extrudálás alakulhat ki a sarokig.
 
-A nyomtatást idő előtt megszakíthatja, ha azt észleli, hogy a sarkok már nem nyomtatnak jól (és így elkerülheti az olyan rétegek nyomtatását, amelyekről ismert, hogy az ideális pressure_advance érték felett vannak).
+A nyomtatást idő előtt megszakíthatod, ha azt észleled, hogy a sarkok már nem nyomtatódnak jól (és így elkerülheted az olyan rétegek nyomtatását, amelyekről ismert, hogy az ideális pressure_advance érték felett vannak).
 
 Ellenőrizd az objektumot, majd digitális tolómérővel mérd meg azt a magasságot, amely a legjobb minőségű sarkokkal rendelkezik. Ha kétségeid vannak, válaszd az alacsonyabb magasságot.
 

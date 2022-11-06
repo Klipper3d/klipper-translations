@@ -46,7 +46,7 @@ A fenti egy "állapot" válaszüzenetet küld, amely két egész paramétert ("�
 
 A gazdagép gondoskodhat arról, hogy minden válaszhoz visszahívási funkciót regisztráljon. Tehát valójában a parancsok lehetővé teszik a gazdagép számára, hogy meghívja a C függvényeket a mikrovezérlőben, a válaszok pedig lehetővé teszik, hogy a mikrovezérlő szoftvere kódot hívjon meg a gazdagépben.
 
-A sendf() makró csak parancs vagy feladatkezelőkből hívható meg, és nem hívható meg megszakításokból vagy időzítőkből. A kódnak nem kell sendf()-t kiadnia a kapott parancsra válaszul, nincs korlátozva a sendf() meghívásának száma, és a sendf()-t bármikor meghívhatja egy feladatkezelőből.
+A sendf() makró csak parancs vagy feladatkezelőkből hívható meg, és nem hívható meg megszakításokból vagy időzítőkből. A kódnak nem kell sendf()-t kiadnia a kapott parancsra válaszul, nincs korlátozva a sendf() meghívásának száma, és a sendf()-t bármikor meghívhatod egy feladatkezelőből.
 
 #### Kimeneti válaszok
 

@@ -12,7 +12,7 @@ A 3D nyomtatók vezérlésére szolgáló MCU-k gyakran korlátozott és előre 
 
 Ha a gazdagépet másodlagos MCU-ként szeretnéd használni, a klipper_mcu folyamatnak a klippy folyamat előtt kell futnia.
 
-A Klipper telepítése után telepítse a szkriptet. run:
+A Klipper telepítése után telepítsd a szkriptet. run:
 
 ```
 cd ~/klipper/
@@ -31,7 +31,7 @@ make menuconfig
 
 A menüben állítsd be a "Mikrokontroller architektúra" értéket "Linux process,"-re, majd mentsd és lépj ki.
 
-Az új mikrokontroller kódjának elkészítéséhez és telepítéséhez futtassa a következőt:
+Az új mikrokontroller kódjának elkészítéséhez és telepítéséhez futtasd a következőt:
 
 ```
 sudo service klipper stop
@@ -39,7 +39,7 @@ make flash
 sudo service klipper start
 ```
 
-Ha a klippy.log a `/tmp/klipper_host_mcu`-hoz való kapcsolódási kísérletnél "Permission denied" hibát jelez, akkor a felhasználót hozzá kell adnia a tty csoporthoz. A következő parancs hozzáadja a "pi" felhasználót a tty csoporthoz:
+Ha a klippy.log a `/tmp/klipper_host_mcu`-hoz való kapcsolódási kísérletnél "Permission denied" hibát jelez, akkor a felhasználót hozzá kell adni a tty csoporthoz. A következő parancs hozzáadja a "pi" felhasználót a tty csoporthoz:
 
 ```
 sudo usermod -a -G tty pi
@@ -47,7 +47,7 @@ sudo usermod -a -G tty pi
 
 ## Hátralevő konfiguráció
 
-Fejezze be a telepítést a Klipper másodlagos MCU konfigurálásával a [RaspberryPi minta konfiguráció](../config/sample-raspberry-pi.cfg) és a [Multi MCU minta konfiguráció](../config/sample-multi-mcu.cfg) utasításai szerint.
+Fejezd be a telepítést a Klipper másodlagos MCU konfigurálásával a [RaspberryPi minta konfiguráció](../config/sample-raspberry-pi.cfg) és a [Multi MCU minta konfiguráció](../config/sample-multi-mcu.cfg) utasításai szerint.
 
 ## Választható: SPI engedélyezése
 

@@ -1,6 +1,6 @@
 # Hozzájárulás a Klipperhez
 
-Köszönjük, hogy hozzájárult a Klipperhez! Ez a dokumentum leírja a Klipper változtatásokhoz való hozzájárulás folyamatát.
+Köszönjük, hogy hozzájárultál a Klipperhez! Ez a dokumentum leírja a Klipper változtatásokhoz való hozzájárulás folyamatát.
 
 Kérjük, tekintsd meg a [kapcsolat oldalt](Contact.md) a probléma bejelentésével kapcsolatos információkért vagy a fejlesztőkkel való kapcsolatfelvételre vonatkozó részletekért.
 
@@ -9,10 +9,10 @@ Kérjük, tekintsd meg a [kapcsolat oldalt](Contact.md) a probléma bejelentés�
 A Klipperhez való hozzájárulás általában egy magas szintű folyamatot követ:
 
 1. A benyújtó egy [GitHub Pull Request](https://github.com/Klipper3d/klipper/pulls) létrehozásával kezdi, amikor egy beadvány készen áll a széles körű telepítésre.
-1. Amikor egy [bíráló](#reviewers) elérhető a [review](#what-to-expect-in-a-review) benyújtásához, akkor hozzárendeli magát a Pull Requesthez a GitHubon. A felülvizsgálat célja a hibák keresése és annak ellenőrzése, hogy a beadvány követi-e a dokumentált irányelveket.
-1. Sikeres felülvizsgálat után a felülvizsgáló "jóváhagyja a felülvizsgálatot" a GitHubon, és egy [karbantartó](#reviewers) átvezeti a módosítást a Klipper master ágába.
+1. Amikor egy [bíráló](#reviewers) elérhető a [felülvizsgálat](#what-to-expect-in-a-review) benyújtásához, akkor hozzárendeli magát a Pull Requesthez a GitHubon. A felülvizsgálat célja a hibák keresése és annak ellenőrzése, hogy a beadvány követi-e a dokumentált irányelveket.
+1. Sikeres felülvizsgálat után a felülvizsgáló "jóváhagyja a felülvizsgálatot" a GitHub-on, és egy [karbantartó](#reviewers) átvezeti a módosítást a Klipper master ágába.
 
-Ha fejlesztéseken dolgozol, fontold meg egy téma indítását (vagy a témához való hozzájárulást) a [Klipper Discourse](Contact.md) oldalon. A fórumon folyó vita javíthatja a fejlesztési munka láthatóságát, és vonzhat másokat is, akik érdeklődnek az új munka tesztelése iránt.
+Ha fejlesztéseken dolgozol, fontold meg egy téma indítását (vagy a témához való hozzájárulást) a [Klipper Társalgó](Contact.md) oldalon. A fórumon folyó vita javíthatja a fejlesztési munka láthatóságát, és vonzhat másokat is, akik érdeklődnek az új munka tesztelése iránt.
 
 ## Mire számíthatunk egy felülvizsgálat során
 
@@ -146,7 +146,7 @@ Fontos, hogy minden kérésnél legyen egy "Signed-off-by" sor. Ez igazolja, hog
 - [ ] Minden cím (H1) le van fordítva
 - [ ] Egy frissített navigációs hierarchia PR a klipper-fordításokban.
 
-A domain-specifikus kifejezések fordításával járó frusztráció csökkentése és a folyamatban lévő fordítások megismerése érdekében küldhet PR-t, amely módosítja a [Klipper-fordítási Projekt](https://github.com/Klipper3d/klipper-translations) `readme.md` fájlt. Amint a fordítás elkészült, a Klipper-projekt megfelelő módosítása elvégezhető.
+A domain-specifikus kifejezések fordításával járó frusztráció csökkentése és a folyamatban lévő fordítások megismerése érdekében küldhetsz PR-t, amely módosítja a [Klipper-fordítási Projekt](https://github.com/Klipper3d/klipper-translations) `readme.md` fájlt. Amint a fordítás elkészült, a Klipper-projekt megfelelő módosítása elvégezhető.
 
 Ha egy fordítás már létezik a Klipper adattárban, és már nem felel meg a fenti ellenőrző listának, akkor egy hónap után frissítés nélkül elavultnak lesz jelölve.
 

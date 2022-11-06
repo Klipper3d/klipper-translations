@@ -20,17 +20,17 @@ Az M112 parancs hatására a Klipper "leállítás" állapotba kerül. Ennek az 
 
 ## Ellenőrizd a fűtőtesteket
 
-Navigálj az Octoprint hőmérséklet fülre, és írd be az 50-et, majd nyomj Entert az "Eszköz" hőmérséklet mezőbe. Az extruder hőmérsékletének a grafikonon növekednie kell (körülbelül 30 másodpercen belül). Ezután lépj az "Eszköz" hőmérséklet legördülő mezőbe, és válaszd az "Off" lehetőséget. Néhány perc múlva a hőmérsékletnek el kell kezdenie visszaesni a kezdeti hőmérséklet felé. Ha a hőmérséklet nem emelkedik, akkor ellenőrizd a "heater_pin" beállítását a konfigurációs fájban.
+Navigálj az Octoprint hőmérséklet fülre, és írd be az 50-et, majd nyomj Entert az "Eszköz" hőmérséklet mezőbe. Az extruder hőmérsékletének a grafikonon növekednie kell (körülbelül 30 másodpercen belül). Ezután lépj az "Eszköz" hőmérséklet legördülő mezőbe, és válaszd az "Off" lehetőséget. Néhány perc múlva a hőmérsékletnek el kell kezdenie visszaesni a kezdeti hőmérséklet felé. Ha a hőmérséklet nem emelkedik, akkor ellenőrizd a "heater_pin" beállítását a konfigurációs fájlban.
 
 Ha a nyomtató fűtött ággyal rendelkezik, akkor végezd el a fenti vizsgálatot a tárgyasztalnál is.
 
 ## A léptetőmotor engedélyező tű ellenőrzése
 
-Ellenőrizd, hogy a nyomtató minden tengelye manuálisan szabadon mozog-e (a léptetőmotorok ki vannak kapcsolva). Ha nem, adj ki egy M84 parancsot a motorok letiltására. Ha valamelyik tengely még mindig nem tud szabadon mozogni, akkor ellenőrizd a léptető "enable_pin" konfigurációt az adott tengelyhez. A legtöbb hagyományos léptetőmotor meghajtónál a motor engedélyező tű "active low", ezért az engedélyező tű előtt egy "!" jelnek kell állnia (például "enable_pin: !ar38").
+Ellenőrizd, hogy a nyomtató minden tengelye manuálisan szabadon mozog-e (a léptetőmotorok ki vannak kapcsolva). Ha nem, akkor adj ki egy M84 parancsot a motorok letiltásához. Ha valamelyik tengely még mindig nem tud szabadon mozogni, akkor ellenőrizd a léptető "enable_pin" konfigurációt az adott tengelyhez. A legtöbb hagyományos léptetőmotor meghajtónál a motor engedélyező tű "active low", ezért az engedélyező tű előtt egy "!" jelnek kell állnia (például "enable_pin: !ar38").
 
 ## Végállások ellenőrzése
 
-Kézzel mozgasd az összes nyomtatótengelyt úgy, hogy egyikük se érintkezzen végállással. Küldjön QUERY_ENDSTOPS parancsot az Octoprint terminál lapján keresztül. A nyomtatónak válaszolnia kell az összes konfigurált végállás aktuális állapotával, és mindegyiknek "open" állapotot kell jeleznie. Az egyes végleállások esetében futtassa újra a QUERY_ENDSTOPS parancsot, miközben manuálisan indítja el a végleállást. A QUERY_ENDSTOPS parancsnak jeleznie kell a végállást, mint "TRIGGERED".
+Kézzel mozgasd az összes nyomtatótengelyt úgy, hogy egyikük se érintkezzen végállással. Küldj QUERY_ENDSTOPS parancsot az Octoprint terminál lapján keresztül. A nyomtatónak válaszolnia kell az összes konfigurált végállás aktuális állapotával, és mindegyiknek "open" állapotot kell jeleznie. Az egyes végleállások esetében futtasd újra a QUERY_ENDSTOPS parancsot, miközben manuálisan használd a végleállást. A QUERY_ENDSTOPS parancsnak jeleznie kell a végállást, mint "TRIGGERED".
 
 Ha a végállás inverznek tűnik (a kiváltáskor "open" jelzést ad, és fordítva), akkor adjunk hozzá egy "!" -t a tű definícióhoz (például "endstop_pin: ^!ar3"), vagy távolítsuk el a "!" -t, ha már van ilyen.
 

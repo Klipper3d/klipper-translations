@@ -41,7 +41,7 @@ queue_step oid=2 interval=3000 count=1 add=0
 
 A fentiekben három léptető egyidejű léptetését teszteljük. Ha a fentiek futtatása egy "Rescheduled timer in the past" a "Stepper too far in pas" hibát eredményez, akkor ez azt jelzi, hogy a `ticks` paraméter túl alacsony (túl gyors léptetési sebességet eredményez). A cél az, hogy megtaláljuk a ticks paraméter legalacsonyabb beállítását, amely megbízhatóan eredményezi a teszt sikeres befejezését. A ticks paramétert addig kell felezni, amíg stabil értéket nem találunk.
 
-Sikertelenség esetén az alábbiakat másolva és beillesztve törölheti a hibát a következő tesztre való felkészüléshez:
+Sikertelenség esetén az alábbiakat másolva és beillesztve törölheted a hibát a következő tesztre való felkészüléshez:
 
 ```
 clear_shutdown
