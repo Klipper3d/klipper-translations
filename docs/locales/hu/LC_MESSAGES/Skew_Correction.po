@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-11-03 18:08+0000\n"
+"PO-Revision-Date: 2022-11-06 05:09+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "skew_correction/hu/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: docs/Skew_Correction.md:block 1 (header)
 msgid "Skew correction"
@@ -119,7 +119,7 @@ msgstr "SET_SKEW XY=140.4,142.8,99.8\n"
 
 #: docs/Skew_Correction.md:block 14 (paragraph)
 msgid "You may also add measurements for XZ and YZ to the gcode:"
-msgstr "Az XZ és YZ méréseket is hozzáadhatja a G-kódhoz:"
+msgstr "Az XZ és YZ méréseket is hozzáadhatod a G-kódhoz:"
 
 #: docs/Skew_Correction.md:block 15 (code)
 msgid "SET_SKEW XY=140.4,142.8,99.8 XZ=141.6,141.4,99.8 YZ=142.4,140.5,99.5\n"
@@ -132,8 +132,8 @@ msgid ""
 "may use the `SKEW_PROFILE` gcode to save it:"
 msgstr ""
 "A `[skew_correction]` modul a `[bed_mesh]` modulhoz hasonló módon támogatja "
-"a profilkezelést is. Miután a `SET_SKEW` G-kóddal beállította a ferdeséget, "
-"a `SKEW_PROFILE` G-kóddal elmentheti azt:"
+"a profilkezelést is. Miután a `SET_SKEW` G-kóddal beállítottad a ferdeséget, "
+"a `SKEW_PROFILE` G-kóddal elmentheted azt:"
 
 #: docs/Skew_Correction.md:block 17 (code)
 msgid "SKEW_PROFILE SAVE=my_skew_profile\n"
