@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-11-06 05:09+0000\n"
+"PO-Revision-Date: 2022-11-07 06:08+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "skew_correction/hu/>\n"
@@ -153,7 +153,7 @@ msgstr ""
 
 #: docs/Skew_Correction.md:block 19 (paragraph)
 msgid "Once you have a saved profile, you may load it:"
-msgstr "Ha már van mentett profilja, betöltheti azt:"
+msgstr "Ha már van mentett profilod, betöltheted azt:"
 
 #: docs/Skew_Correction.md:block 20 (code)
 msgid "SKEW_PROFILE LOAD=my_skew_profile\n"
@@ -172,8 +172,8 @@ msgid ""
 "After removing a profile you will be prompted to issue a `SAVE_CONFIG` to "
 "make this change persist."
 msgstr ""
-"A profil eltávolítása után a rendszer felszólítja, hogy adj ki egy "
-"`SAVE_CONFIG` parancsot, hogy a módosítás mentésre kerüljön."
+"A profil eltávolítása után a rendszer felszólít, hogy adj ki egy "
+"`SAVE_CONFIG` parancsot a módosítások mentéséhez."
 
 #: docs/Skew_Correction.md:block 24 (header)
 msgid "Verifying your correction"
