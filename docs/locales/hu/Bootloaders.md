@@ -94,7 +94,7 @@ teensy_loader_cli --mcu=at90usb1286 out/klipper.elf.hex -v
 
 ### Atmega168
 
-Az atmega168 korlátozott flash-tárhellyel rendelkezik. Ha bootloadert használ, ajánlott az Optiboot bootloadert használni. A bootloader égetéséhez használj valami hasonlót:
+Az atmega168 korlátozott flash-tárhellyel rendelkezik. Ha bootloader-t használ, ajánlott az Optiboot bootloader-t használni. A bootloader égetéséhez használj valami hasonlót:
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/optiboot/optiboot_atmega168.hex'
@@ -104,7 +104,7 @@ avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U flash:w:optiboot_atmeg
 avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-Az Optiboot bootloaderrel történő alkalmazás égetéséhez használj valami hasonlót:
+Az Optiboot bootloader-el történő alkalmazás égetéséhez használj valami hasonlót:
 
 ```
 avrdude -carduino -patmega168 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
@@ -114,7 +114,7 @@ avrdude -carduino -patmega168 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.e
 
 A SAM3 MCU-val nem szokás bootloadert használni. Maga a chip rendelkezik egy ROM-mal, amely lehetővé teszi a flash programozását 3,3V-os soros portról vagy USB-ről.
 
-A ROM engedélyezéséhez az "erase" csapot magasan kell tartani a visszaállítás során, ami törli a flash tartalmát, és a ROM-ot elindítja. Egy Arduino Due-n ez a szekvencia úgy valósítható meg, hogy a "programozó usb port" (a tápegységhez legközelebbi USB port) 1200-as baud sebességet állít be.
+A ROM engedélyezéséhez az "erase" tűt magasan kell tartani a visszaállítás során, ami törli a flash tartalmát, és a ROM-ot elindítja. Az Arduino Due-n ezt a sorrendet úgy lehet elérni, hogy 1200-as adatátviteli sebességet állítunk be a "programozási usb-porton" (a tápegységhez legközelebbi USB-porton).
 
 A <https://github.com/shumatech/BOSSA> alatti kód használható a SAM3 programozásához. Az 1.9-es vagy újabb verzió használata ajánlott.
 
@@ -143,7 +143,7 @@ bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 
 A SAMD21 bootloader az ARM Serial Wire Debug (SWD) interfészen keresztül töltődik fel. Ez általában egy dedikált SWD hardver dongle segítségével történik. Alternatívaként használhatunk egy [OpenOCD futtatást a Raspberry PI-n](#az-openocd-futtatasa-a-raspberry-pi-n).
 
-A bootloader OpenOCD-vel történő égetéséhez használd a következő chipkonfigurációt:
+A bootloader OpenOCD-vel történő égetéséhez használd a következő chip konfigurációt:
 
 ```
 forrás [find target/at91samdXX.cfg]

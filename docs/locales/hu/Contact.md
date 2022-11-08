@@ -28,7 +28,7 @@ Lehetőség van hasonló kérdések keresésére a [Klipper Közösségi Fórum]
 
 Ha szeretnéd megosztani tudásodat és tapasztalataidat más Klipper felhasználókkal, akkor csatlakozhatsz a [Klipper Közösségi Fórum](#kozossegi-forum) vagy a [Discord Csevegés](#discord-cseveges)-hez. Mindkettő olyan közösség, ahol a Klipper felhasználók megvitathatják a Klippert más felhasználókkal.
 
-Sok kérdés, amit kapunk, általános 3D-nyomtatással kapcsolatos, amely nem kifejezetten a Klipperre vonatkozik. Ha általános kérdése van, vagy általános nyomtatási problémákkal küzd, akkor valószínűleg jobb választ kap, ha egy általános 3D-nyomtatási fórumon vagy a nyomtató hardverével foglalkozó fórumon teszi fel a kérdést.
+Sok kérdés, amit kapunk, általános 3D-nyomtatással kapcsolatos, amely nem kifejezetten a Klipperre vonatkozik. Ha általános kérdésed van, vagy általános nyomtatási problémákkal küzdesz, akkor valószínűleg jobb választ kapsz, ha egy általános 3D-nyomtatási fórumon vagy a nyomtató hardverével foglalkozó fórumon teszed fel a kérdést.
 
 Ne nyiss GitHub-on a Klippernél problémajelentést-t, ha kérdést szeretnél feltenni.
 
@@ -45,9 +45,9 @@ Sajnos sokkal több segítségkérés érkezik hozzánk, mint amennyit meg tudn�
 1. Finom hibák a hardverben, vagy
 1. Nem követi a Klipper dokumentációban leírt összes lépést.
 
-Ha problémákat tapasztalsz, javasoljuk, hogy figyelmesen olvasd el a [Klipper dokumentációt](Overview.md), és ellenőrizd, hogy minden lépést követett-e.
+Ha problémákat tapasztalsz, javasoljuk, hogy figyelmesen olvasd el a [Klipper dokumentációt](Overview.md), és ellenőrizd, hogy minden lépést követtél-e.
 
-Ha nyomtatási problémát tapasztalsz, akkor javasoljuk, hogy alaposan vizsgáld meg a nyomtató hardverét (minden illesztést, vezetéket, csavart stb.), és győződj meg arról, hogy semmi rendellenes nincs. Úgy találjuk, hogy a legtöbb nyomtatási probléma nem a Klipper szoftverrel kapcsolatos. Ha a nyomtató hardverével kapcsolatos problémát talál, akkor valószínűleg jobb választ kap, ha egy általános 3D-nyomtatási fórumon vagy egy, a nyomtató hardverével foglalkozó fórumon keres.
+Ha nyomtatási problémát tapasztalsz, akkor javasoljuk, hogy alaposan vizsgáld meg a nyomtató hardverét (minden illesztést, vezetéket, csavart stb.), és győződj meg arról, hogy semmi rendellenes nincs. Úgy találjuk, hogy a legtöbb nyomtatási probléma nem a Klipper szoftverrel kapcsolatos. Ha a nyomtató hardverével kapcsolatos problémát találsz, akkor valószínűleg jobb választ kapsz, ha egy általános 3D-nyomtatási fórumon vagy egy, a nyomtató hardverével foglalkozó fórumon keresel.
 
 A [Klipper Közösségi Fórumban](#kozossegi-forum) is kereshetsz hasonló kérdéseket.
 

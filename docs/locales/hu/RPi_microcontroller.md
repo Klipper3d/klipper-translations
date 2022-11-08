@@ -67,13 +67,13 @@ A *Linux GPIO character device - binary* telepítéséhez egy debian alapú disz
 sudo apt-get install gpiod
 ```
 
-A rendelkezésre álló GPIO chip ellenőrzéséhez futtassa:
+A rendelkezésre álló GPIO chip ellenőrzéséhez futtasd:
 
 ```
 gpiodetect
 ```
 
-A tű számának és a tű elérhetőségének ellenőrzésére futtassa:
+A tű számának és a tű elérhetőségének ellenőrzésére futtasd:
 
 ```
 gpioinfo

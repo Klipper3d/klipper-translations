@@ -54,7 +54,7 @@ end_velocity^2 = start_velocity^2 + 2*accel*move_distance
 
 ### Simított előretekintés
 
-A Klipper egy olyan mechanizmust is megvalósít, amely kisimítja a rövid "cikkcakk" mozgásokat. Tekintsük a következő mozgásokat:
+A Klipper egy olyan mechanizmust is megvalósít, amely kisimítja a rövid "cikkcakk" mozgásokat. Nézzük a következő mozgásokat:
 
 ![zigzag](img/zigzag.svg.png)
 

@@ -12,7 +12,7 @@ A BIGTREETECH a Klipper hivatalos alaplapszponzora. A BIGTREETECH elkötelezett 
 
 ### Kevin O'Connor
 
-Kevin a Klipper eredeti szerzője és jelenlegi karbantartója. Adományozhat a következő címen: <https://ko-fi.com/koconnor> vagy <https://www.patreon.com/koconnor>
+Kevin a Klipper eredeti szerzője és jelenlegi karbantartója. Adományozhatsz a következő címen: <https://ko-fi.com/koconnor> vagy <https://www.patreon.com/koconnor>
 
 ### Eric Callahan
 

@@ -71,10 +71,10 @@ Az itt leírt eljárás hat fő lépésből áll:
 
 1. Válaszd ki a kezdőpont felvételi sebességet.
 1. Konfiguráld a `printer.cfg` fájlt, hogy engedélyezd az érzékelő nélküli kezdőpont felvételt.
-1. Keresse meg a legnagyobb érzékenységű StallGuard beállítást, amely sikeresen felveszi a kezdőpontot.
-1. Keresse meg a legalacsonyabb érzékenységű StallGuard-beállítást, amely egyetlen érintéssel sikeres megállást jelez.
-1. Frissítse a `printer.cfg` állományt a kívánt StallGuard beállítással.
-1. Hozzon létre vagy frissítse a `printer.cfg` makrókat, hogy kéznél legyenek.
+1. Keresd meg a legnagyobb érzékenységű StallGuard beállítást, amely sikeresen felveszi a kezdőpontot.
+1. Keresd meg a legalacsonyabb érzékenységű StallGuard-beállítást, amely egyetlen érintéssel sikeres megállást jelez.
+1. Frissítsd a `printer.cfg` állományt a kívánt StallGuard beállítással.
+1. Hozd létre vagy frissítsd a `printer.cfg` makróit, hogy kéznél legyenek.
 
 #### Válaszd ki a kezdőpont felvételi sebességet
 
@@ -93,7 +93,7 @@ homing_speed: 20
 
 A `homing_retract_dist` beállítást nullára kell állítani a `stepper_x` config szakaszban a második kezdőpont felvételi mozdulat letiltásához. A második kezdőpont felvételi kísérlet nem ad hozzáadott értéket az érzékelő nélküli kezdőpont felvételhez, nem fog megbízhatóan működni, és összezavarja a hangolási folyamatot.
 
-Győződj meg róla, hogy a konfiguráció TMC motorvezérlő részlegében nincs megadva `hold_current` beállítás. (Ha hold_current használatban van, akkor a kapcsolat létrejötte után a motor megáll, miközben a kocsi a sín végéhez van nyomva, és az áram csökkentése ebben a helyzetben a kocsi mozgását okozhatja. Ez rossz teljesítményt eredményez, és összezavarja a hangolási folyamatot.)
+Győződj meg róla, hogy a konfiguráció TMC motorvezérlő részlegében nincs megadva `hold_current` beállítás. (Ha hold_current használatban van, akkor a kapcsolat létrejötte után a motor megáll, miközben a kocsi a sín végéhez van nyomva, és az áram csökkentése ebben a helyzetben a kocsi elmozdulhat. Ez rossz teljesítményt eredményez, és összezavarja a hangolási folyamatot.)
 
 Szükséges a szenzor nélküli kezdőpont felvételi tűk konfigurálása és a kezdeti "StallGuard" beállítások konfigurálása. Egy TMC2209 példakonfiguráció egy X tengelyhez így nézhet ki:
 

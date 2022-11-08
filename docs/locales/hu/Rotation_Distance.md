@@ -48,7 +48,7 @@ Lehetséges a rotation_distance kiszámítása a léptetőmotorok és a nyomtat�
 
 Egyszerű kiszámítani a rotation_distance-t egy szíjat és csigát használó lineáris tengely esetében.
 
-Először határozza meg a szíj típusát. A legtöbb nyomtató 2 mm-es fogosztást használ (azaz a szíj minden egyes foga 2 mm távolságra van egymástól). Ezután számolja meg a léptetőmotor szíjtárcsája fogainak számát. A rotation_distance ezután a következőképpen számítható ki:
+Először határozd meg a szíj típusát. A legtöbb nyomtató 2 mm-es fogosztást használ (azaz a szíj minden egyes foga 2 mm távolságra van egymástól). Ezután számold meg a léptetőmotor szíjtárcsája fogainak számát. A rotation_distance ezután a következőképpen számítható ki:
 
 ```
 rotation_distance = <belt_pitch> * <number_of_teeth_on_pulley>

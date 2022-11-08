@@ -47,17 +47,17 @@ Ehhez a kalibrálási eljáráshoz ki kell nyomtatni egy tesztobjektumot, és a 
 
 A kibővített delta-kalibrálás futtatása előtt le kell futtatni az alap delta-kalibrálást (a DELTA_CALIBRATE paranccsal) és el kell menteni az eredményeket (a SAVE_CONFIG paranccsal). Győződj meg róla, hogy a nyomtató konfigurációjában és hardverében nem történt semmilyen jelentős változás az alap delta-kalibrálás legutóbbi végrehajtása óta (ha nem biztos benne, futtassa le újra az [alap delta-kalibrálás](#basic-delta-calibration) parancsot, beleértve a SAVE_CONFIG parancsot is, közvetlenül az alább leírt tesztobjektum nyomtatása előtt.)
 
-Használj szeletelőt a [docs/prints/calibrate_size.stl](prints/calibrate_size.stl) fájlból G-kód generálásához. Szeletelje az objektumot lassú sebességgel (pl. 40mm/s). Ha lehetséges, használj merev műanyagot (pl. PLA) a tárgyhoz. A tárgy átmérője 140 mm. Ha ez túl nagy a nyomtató számára, akkor át lehet méretezni (de ügyelj arra, hogy mind az X, és az Y tengelyt egyenletesen méretezze). Ha a nyomtató jelentősen nagyobb nyomatokat támogat, akkor a tárgy is megnövelhető. A nagyobb méret javíthatja a mérési pontosságot, de a jó tapadás fontosabb, mint a nagyobb nyomtatási méret.
+Használj szeletelőt a [docs/prints/calibrate_size.stl](prints/calibrate_size.stl) fájlból G-kód generálásához. Szeleteld az objektumot lassú sebességgel (pl. 40mm/s). Ha lehetséges, használj merev műanyagot (pl. PLA) a tárgyhoz. A tárgy átmérője 140 mm. Ha ez túl nagy a nyomtató számára, akkor át lehet méretezni (de ügyelj arra, hogy mind az X, és az Y tengelyt egyenletesen méretezd). Ha a nyomtató jelentősen nagyobb nyomatokat támogat, akkor a tárgy is megnövelhető. A nagyobb méret javíthatja a mérési pontosságot, de a jó tapadás fontosabb, mint a nagyobb nyomtatási méret.
 
-Nyomtasd ki a tesztobjektumot, és várja meg, amíg teljesen kihűl. Az alább leírt parancsokat ugyanazokkal a nyomtatóbeállításokkal kell futtatni, mint amelyekkel a kalibrációs tárgyat nyomtatta (ne futtassa a DELTA_CALIBRATE parancsot a nyomtatás és a mérés között, vagy ne tegyen olyat, ami egyébként megváltoztatná a nyomtató konfigurációját).
+Nyomtasd ki a tesztobjektumot, és várd meg, amíg teljesen kihűl. Az alább leírt parancsokat ugyanazokkal a nyomtatóbeállításokkal kell futtatni, mint amelyekkel a kalibrációs tárgyat nyomtattad (ne futtasd a DELTA_CALIBRATE parancsot a nyomtatás és a mérés között, vagy ne tegyél olyat, ami egyébként megváltoztatná a nyomtató konfigurációját).
 
-Ha lehetséges, az alábbiakban leírt méréseket akkor végezd el, amikor a tárgy még mindig a nyomtató tárgyasztalhoz van rögzítve, de ne aggódjon, ha az alkatrész leválik a tárgyasztalról. Csak próbáld meg elkerülni a tárgy meghajlását a mérések elvégzésekor.
+Ha lehetséges, az alábbiakban leírt méréseket akkor végezd el, amikor a tárgy még mindig a nyomtató tárgyasztalhoz van rögzítve, de ne aggódj, ha az alkatrész leválik a tárgyasztalról. Csak próbáld meg elkerülni a tárgy meghajlását a mérések elvégzésekor.
 
 Kezd a középső oszlop és az "A" felirat melletti oszlop közötti távolság mérésével (amelynek szintén az "A" torony felé kell mutatnia).
 
 ![delta-a-distance](img/delta-a-distance.jpg)
 
-Ezután menjen az óramutató járásával ellentétes irányba, és mérd meg a középső oszlop és a többi oszlop közötti távolságokat (a középsőtől a "C" feliratú oszlopig terjedő távolság, a középsőtől a "B" feliratú oszlopig terjedő távolság stb.).
+Ezután menj az óramutató járásával ellentétes irányba, és mérd meg a középső oszlop és a többi oszlop közötti távolságokat (a középsőtől a "C" feliratú oszlopig terjedő távolság, a középsőtől a "B" feliratú oszlopig terjedő távolság stb.).
 
 ![delta_cal_e_step1](img/delta_cal_e_step1.png)
 

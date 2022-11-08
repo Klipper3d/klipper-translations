@@ -74,7 +74,7 @@ A `-c` opcióval egy ellenőrző vagy csak ellenőrzésre szolgáló műveletet 
 
 ## Alaplap definíciók
 
-A legtöbb általános alaplapnak rendelkezésre kell állnia, azonban szükség esetén új alaplap definíciót is hozzáadhat. Az alaplapdefiníciók a `~/klipper/scripts/spi_flash/board_defs.py` állományban találhatók. A definíciókat például lexikonban tároljuk:
+A legtöbb általános alaplapnak rendelkezésre kell állnia, azonban szükség esetén új alaplap definíciót is hozzáadhatsz. Az alaplap-definíciók a `~/klipper/scripts/spi_flash/board_defs.py` állományban találhatók. A definíciókat például lexikonban tároljuk:
 
 ```python
 BOARD_DEFS = {
@@ -92,7 +92,7 @@ A következő mezők adhatók meg:
 - `mcu`: Az mcu típusa. Ezt a készlet `make menuconfig` segítségével történő konfigurálása után a `cat .config | grep CONFIG_MCU` futtatásával lehet visszakeresni. Ez a mező kötelezően kitöltendő.
 - `spi_bus`: Az SD-kártyához csatlakoztatott SPI-busz. Ezt a tábla kapcsolási rajzából kell visszakeresni. Ez a mező kötelező.
 - `cs_pin`: Az SD-kártyához csatlakoztatott chipkiválasztó tű. Ezt a kártya kapcsolási rajzából kell visszakeresni. Ez a mező kötelező.
-- `firmware_path`: Az SD-kártyán lévő elérési útvonal, ahová a firmware-t át kell vinni. Az alapértelmezett érték `firmware.bin`.
+- `firmware_path`: Az SD-kártyán lévő elérési útvonal, ahová a firmware-t át kell vinni. Az alapértelmezett `firmware.bin`.
 - `current_firmware_path`: Az SD-kártyán lévő elérési útvonal, ahol az átnevezett firmware fájl található a sikeres égetés után. Az alapértelmezett név: `firmware.cur`.
 - `skip_verify`: Ez egy logikai értéket határoz meg, amely a szkripteknek azt mondja meg, hogy hagyja ki a firmware ellenőrzésének lépését az égetési folyamat során. Az alapértelmezett érték `False`. Ez az érték `True` értékre állítható olyan kártyák esetében, amelyeknél az égetés befejezéséhez kézi bekapcsolás szükséges. A firmware utólagos ellenőrzéséhez futtasd újra a szkriptet a `-c` opcióval, hogy elvégezd az ellenőrzési lépést. [Lásd az SDIO kártyákkal kapcsolatos figyelmeztetéseket](#caveats)
 
@@ -102,12 +102,12 @@ Ha szoftveres SPI-re van szükség, az `spi_bus` mezőt `swspi` és a következ�
 
 Rendkívül ritkán van szükség a szoftveres SPI-re, jellemzően csak a tervezési hibás vagy az SD-kártyájuk SDIO módját támogató kártyáknál lesz rá szükség. A `btt-skr-pro` alaplap definíciója az előbbire ad példát, a `btt-octopus-f446-v1` alaplap definíciója pedig az utóbbira.
 
-Egy új alaplap definíció létrehozása előtt ellenőrizni kell, hogy egy meglévő alaplap definíció megfelel-e az új alaplap számára szükséges kritériumoknak. Ha ez a helyzet, akkor egy `BOARD_ALIAS` adható meg. Például a következő álnév adható hozzá `az én-új alaplapom` álneveként a `generic-lpc1768` meghatározásához:
+Egy új alaplap definíció létrehozása előtt ellenőrizni kell, hogy egy meglévő alaplap definíció megfelel-e az új alaplap számára szükséges kritériumoknak. Ha ez a helyzet, akkor egy `BOARD_ALIAS` adható meg. Például a következő álnév adható hozzá `my-new-board` álneveként a `generic-lpc1768` meghatározásához:
 
 ```python
 BOARD_ALIASES = {
-    ...<previous aliases>,
-    'my-new-board': BOARD_DEFS['generic-lpc1768'],
+     ...<previous aliases>,
+     'my-new-board': BOARD_DEFS['generic-lpc1768'],
 }
 ```
 

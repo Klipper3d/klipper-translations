@@ -32,7 +32,7 @@ a fúvóka 57-es X-pozícióba és 30-as Y-pozícióba történő mozgatásához
 
 Az x_offset ekkor a `nozzle_x_position - probe_x_position` és az y_offset hasonlóan a `nozzle_y_position - probe_y_position`. Frissítsd a printer.cfg fájlt a megadott értékekkel, távolítsd el a szalagot/jeleket a tárgyasztalról, majd adj ki egy `RESTART` parancsot, hogy az új értékek hatályba lépjenek.
 
-## A szonda Z eltolás kalibrálása
+## Kalibráló szonda Z eltolás
 
 A pontos z_offset beállítása kritikus fontos a jó minőségű nyomatok előállításához. A z_offset a fúvóka és a tárgyasztal közötti távolság, amikor a szonda működésbe lép. A Klipper `PROBE_CALIBRATE` eszköz használható ennek az értéknek a meghatározására - ez egy automatikus szondát futtat a szonda Z kioldási pozíciójának mérésére, majd egy kézi szondát indít a fúvóka Z magasságának meghatározására. A szonda z_offset értékét ezután ezekből a mérésekből számítja ki.
 
@@ -54,7 +54,7 @@ Ha a PROBE_CALIBRATE eredményei érvénytelenek, akkor a szondával kapott kor�
 
 ## Ismételt mérési teszt
 
-A szonda X, Y és Z eltolásának kalibrálása után érdemes ellenőrizni, hogy a szonda megismételhető mérési eredményeket szolgáltat-e. Kezd a nyomtató alaphelyzetbe állításával, majd mozgasd a fejet a tárgyasztal közepéhez közeli pozícióba. Navigálj az OctoPrint terminál fülre, és futtassa a `PROBE_ACCURACY` parancsot.
+A szonda X, Y és Z eltolásának kalibrálása után érdemes ellenőrizni, hogy a szonda megismételhető mérési eredményeket szolgáltat-e. Kezd a nyomtató alaphelyzetbe állításával, majd mozgasd a fejet a tárgyasztal közepéhez közeli pozícióba. Navigálj az OctoPrint terminál fülre, és futtasd a `PROBE_ACCURACY` parancsot.
 
 Ez a parancs tízszer futtatja le a mérést, és az alábbiakhoz hasonló kimenetet ad:
 
@@ -78,7 +78,7 @@ Ideális esetben az eszköz azonos maximális és minimális értéket mutat. (V
 
 Ha a teszt eredménye 25 mikronnál (0,025 mm-nél) nagyobb tartományértéket mutat, akkor a szonda nem elég pontos a tipikus szintezési eljárásokhoz. Lehetséges a szonda sebességének és/vagy indulási magasságának hangolása a mérés ismételhetőségének javítása érdekében. A `PROBE_ACCURACY` parancs lehetővé teszi a tesztek futtatását különböző paraméterekkel, hogy lássa a hatásukat. További részletekért lásd a [G-kódok dokumentumot](G-Codes.md#probe_accuracy). Ha a szonda általában egyforma eredményeket ad, de időnként előfordulnak kiugró értékek, akkor ezt úgy lehet kiküszöbölni, hogy minden egyes mérőponton több mérést hajtunk végre. Olvasd el a szonda `samples` konfigurációs paramétereinek leírását a [konfigurációs hivatkozásban](Config_Reference.md#probe) további részletekért.
 
-Ha új mérési sebességre, mérésszámra vagy egyéb beállításokra van szükség, akkor frissítse a printer.cfg fájlt, és adj ki egy `RESTART` parancsot. Ha igen, akkor érdemes újra [kalibrálni a z_offsetet](#calibrating-probe-z-offset). Ha nem kap ismétlődő eredményeket, akkor ne használd a szondát tárgyasztal szintezésére. A Klipper számos kézi mérőeszközzel rendelkezik, amelyek helyette használhatók - további részletekért lásd a [Tárgyasztal szintezése dokumentumot](Bed_Level.md).
+Ha új mérési sebességre, mérésszámra vagy egyéb beállításokra van szükség, akkor frissítsd a printer.cfg fájlt, és adj ki egy `RESTART` parancsot. Ha igen, akkor érdemes újra [kalibrálni a z_offset-et](#calibrating-probe-z-offset). Ha nem kapsz ismétlődő eredményeket, akkor ne használd a szondát tárgyasztal szintezésére. A Klipper számos kézi mérőeszközzel rendelkezik, amelyek helyette használhatók - további részletekért lásd a [Tárgyasztal szintezése dokumentumot](Bed_Level.md).
 
 ## Elhelyezkedés ellenőrzése
 
@@ -86,13 +86,13 @@ Egyes szondák rendszerszintű torzítással rendelkezhetnek, amely bizonyos nyo
 
 Ez egy gyakori probléma a delta nyomtatók szondáinál, de más nyomtatónál is előfordulhat.
 
-A helyeltolódás ellenőrzése a `PROBE_CALIBRATE` parancs segítségével történhet a szonda z_offsetjének mérésével különböző X és Y helyeken. Ideális esetben a szonda z_offset értéke minden pozícióban állandó.
+A helyeltolódás ellenőrzése a `PROBE_CALIBRATE` parancs segítségével történhet a szonda z_offset-jének mérésével különböző X és Y helyeken. Ideális esetben a szonda z_offset értéke minden pozícióban állandó.
 
 A deltanyomtatók esetében próbáld meg a z_offset mérését az A, a B, és a C torony közelében is. Cartesian, corexy és hasonló nyomtatók esetében próbáld meg a z_offsetet a tárgyasztal négy sarkának közelében lévő pozíciókban mérni.
 
-A vizsgálat megkezdése előtt először kalibrálja a szonda X-, Y- és Z-eltolódását a dokumentum elején leírtak szerint. Ezután állítsd be a nyomtatót, és navigálj az első X-Y pozícióba. A `PROBE_CALIBRATE` parancs futtatásához kövesse a [calibrating probe Z offset](#calibrating-probe-z-offset) pontban leírt lépéseket, `TESTZ` parancsot, és az `ACCEPT` parancsot, de ne futtassa a `SAVE_CONFIG` parancsot. Figyeljük meg a talált z_offset értéket. Ezután navigálj a többi X-Y pozícióhoz, ismételje meg ezeket a `PROBE_CALIBRATE` lépéseket, és jegyezze fel a mért z_offsetet.
+A vizsgálat megkezdése előtt először kalibráld a szonda X-, Y- és Z-eltolódását a dokumentum elején leírtak szerint. Ezután állítsd be a nyomtatót, és navigálj az első X-Y pozícióba. A `PROBE_CALIBRATE` parancs futtatásához kövesd a [kalibráló szonda Z eltolás](#kalibralo-szonda-z-eltolas) pontban leírt lépéseket, `TESTZ` parancsot, és az `ACCEPT` parancsot, de ne futtasd a `SAVE_CONFIG` parancsot. Figyeld meg a talált z_offset értéket. Ezután navigálj a többi X-Y pozícióhoz, ismételd meg ezeket a `PROBE_CALIBRATE` lépéseket, és jegyezd fel a mért z_offsetet.
 
-Ha a minimálisan és a maximálisan jelentett z_offset közötti különbség nagyobb, mint 25 mikron (.025 mm), akkor a szonda nem alkalmas a tipikus tárgyasztal szintezési műveletekre. A kézi mérési alternatívákat lásd az [Tárgyasztal szintezése dokumentumban](Bed_Level.md).
+Ha a minimálisan és a maximálisan jelentett z_offset közötti különbség nagyobb, mint 25 mikron (.025 mm), akkor a szonda nem alkalmas a tipikus tárgyasztal szintezési műveletekre. A kézi mérési alternatívákat lásd a [Tárgyasztal szintezése dokumentumban](Bed_Level.md).
 
 ## Hőmérséklet torzítás
 
