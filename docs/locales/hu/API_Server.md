@@ -62,7 +62,7 @@ Például:
 
 `{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{"key": 345}}}`
 
-kezdetben válaszolhat:
+kezdetben a következőkkel válaszolhat:
 
 `{"id": 123, "result": {}}`
 

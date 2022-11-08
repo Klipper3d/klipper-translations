@@ -70,7 +70,7 @@ Szükséges továbbá a mikrokontroller kódjának lefordítása és telepítés
 make menuconfig
 ```
 
-Ezután telepítse ezt a mikrokontroller kódot is:
+Ezután telepítsd ezt a mikrokontroller kódot is:
 
 ```
 sudo service klipper stop
@@ -80,7 +80,7 @@ sudo service klipper start
 
 ## Hátralevő konfiguráció
 
-Fejezze be a telepítést a Klipper és az Octoprint konfigurálásával a [Telepítés](Installation.md#configuring-klipper) fődokumentumban található utasítások szerint.
+Fejezd be a telepítést a Klipper és az Octoprint konfigurálásával a [Telepítés](Installation.md#configuring-klipper) fődokumentumban található utasítások szerint.
 
 ## Nyomtatás a Beaglebone-on
 

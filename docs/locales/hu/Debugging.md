@@ -2,9 +2,9 @@
 
 Ez a dokumentum a Klipper hibakeresési eszközeinek egy részét ismerteti.
 
-## A regressziós tesztek futtatása
+## Regressziós tesztek futtatása
 
-A Klipper GitHub fő tárolója a "github actions" -t használd egy sor regressziós teszt futtatásához. Hasznos lehet néhány ilyen tesztet helyben futtatni.
+A Klipper GitHub fő tárolója a "github actions"-t használja egy sor regressziós teszt futtatásához. Hasznos lehet néhány ilyen tesztet helyben futtatni.
 
 A forráskód "whitespace check" a következővel futtatható:
 
@@ -21,15 +21,15 @@ tar xfz klipper-dict-20??????.tar.gz
 
 ## Parancsok kézi küldése a mikrokontrollernek
 
-Normális esetben a G-kód parancsokat a klippy.py folyamat fordítja Klipper mikrokontroller parancsokra. Azonban az is lehetséges, hogy manuálisan küldjük el ezeket az MCU-parancsokat (a Klipper forráskódjában a DECL_COMMAND() makróval jelölt függvények). Ehhez futtassa a következőket:
+Normális esetben a G-kód parancsokat a klippy.py folyamat fordítja Klipper mikrokontroller parancsokra. Azonban az is lehetséges, hogy manuálisan küldjük el ezeket az MCU-parancsokat (a Klipper forráskódjában a DECL_COMMAND() makróval jelölt függvények). Ehhez futtasd a következőket:
 
 ```
 ~/klippy-env/bin/python ./klippy/console.py /tmp/pseudoserial
 ```
 
-Az eszközön belül a "HELP" parancsban talál további információkat a funkcióiról.
+Az eszközön belül a "HELP" parancsban találsz további információkat a funkcióiról.
 
-Néhány parancssori opció is rendelkezésre áll. További információkért futtassa a: `~/klippy-env/bin/python ./klippy/console.py --help` parancsot
+Néhány parancssori opció is rendelkezésre áll. További információkért futtasd a: `~/klippy-env/bin/python ./klippy/console.py --help` parancsot
 
 ## A G-kód fájlok lefordítása mikrokontroller-parancsokra
 
@@ -128,7 +128,7 @@ Ezután grafikonok készíthetők:
 
 Ezután megtekinthetjük az eredményül kapott **loadgraph.png** fájlt.
 
-Különböző grafikonok készíthetők. További információért futtassa: `~/klipper/scripts/graphstats.py --help `
+Különböző grafikonok készíthetők. További információért futtasd: `~/klipper/scripts/graphstats.py --help `
 
 ## Információk kinyerése a klippy.log fájlból
 

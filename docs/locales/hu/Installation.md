@@ -14,7 +14,7 @@ Lehetőség van új nyomtatókonfiguráció nulláról történő meghatározás
 
 ## OS képfájl előkészítése
 
-Kezd az [OctoPi](https://github.com/guysoft/OctoPi) telepítésével a Raspberry Pi számítógépére. Használd az OctoPi v0.17.0-s vagy újabb verzióját. A kiadásokkal kapcsolatos információkért tekintsd meg az [OctoPi-kiadásokat](https://github.com/guysoft/OctoPi/releases). Ellenőrizni kell, hogy az OctoPi elindul-e, és hogy az OctoPrint webszerver működik-e. Miután csatlakozott az OctoPrint weboldalhoz, kövesse az utasításokat az OctoPrint 1.4.2-es vagy újabb verziójára való frissítéséhez.
+Kezd az [OctoPi](https://github.com/guysoft/OctoPi) telepítésével a Raspberry Pi számítógépre. Használd az OctoPi v0.17.0-s vagy újabb verzióját. A kiadásokkal kapcsolatos információkért tekintsd meg az [OctoPi-kiadásokat](https://github.com/guysoft/OctoPi/releases). Ellenőrizni kell, hogy az OctoPi elindul-e, és hogy az OctoPrint webszerver működik-e. Miután csatlakoztál az OctoPrint weboldalhoz, kövesd az utasításokat az OctoPrint 1.4.2-es vagy újabb verziójára való frissítéshez.
 
 Az OctoPi telepítése és az OctoPrint frissítése után néhány rendszerparancs futtatásához szükség lesz az "SSH" kapcsolatra a célgéphez. Ha Linux vagy MacOS asztali számítógépet használsz, akkor az "SSH" szoftvernek már telepítve kell lennie a gépen. Vannak ingyenes ssh-kliensek más asztali számítógépekhez (pl. [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Az SSH segédprogrammal csatlakozz a Raspberry Pi-hez (ssh pi@octopi -- a jelszó "raspberry"), és futtasd a következő parancsokat:
 
@@ -76,7 +76,7 @@ Lépj a Beállítások lapra (a csavarkulcs ikon az oldal tetején). A "További
 
 Lépj újra a Beállítások fülre, és a „Soros kapcsolat” alatt módosítsd a „Soros port” beállítást „/tmp/printer”-re.
 
-A Beállítások lapon lépj a „Viselkedés” allapra, és válaszd a „Folyamatban lévő nyomtatás törlése, de továbbra is csatlakozva maradjon a nyomtatóhoz” lehetőséget. Kattints a "Mentés" gombra.
+A Beállítások lapon lépj a „Viselkedés” al-lapra, és válaszd a „Folyamatban lévő nyomtatás törlése, de továbbra is csatlakozva maradjon a nyomtatóhoz” lehetőséget. Kattints a "Mentés" gombra.
 
 A főoldalon, a „Kapcsolat” részben (az oldal bal felső sarkában) győződj meg arról, hogy a „Soros Port” beállítása „/tmp/printer”, majd kattints a „Csatlakozás” gombra. (Ha a „/tmp/printer” nem elérhető, próbáld meg újratölteni az oldalt.)
 

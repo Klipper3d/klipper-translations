@@ -25,9 +25,9 @@ A beadványok többsége visszajelzést eredményez egy felülvizsgálatról. K�
 Gyakori dolgok, amiket a bíráló keres:
 
 
-   1. Hibátlan-e a beadvány, és készen áll-e a széles körű bevezetésre?A benyújtóknak a benyújtás előtt tesztelniük kell a változtatásokat. A bírálók keresik a hibákat, de általában nem tesztelik a beküldött anyagokat. Egy elfogadott beadványt gyakran az elfogadást követő néhány héten belül több ezer nyomtatóhoz juttatnak el. A beadványok minőségét ezért prioritásnak tekintik.
+   1. Hibátlan-e a beadvány, és készen áll-e a széles körű bevezetésre?A benyújtóknak a benyújtás előtt tesztelniük kell a változtatásokat. A bírálók keresik a hibákat, de általában nem tesztelik a beküldött anyagokat. Egy elfogadott beadványt gyakran az elfogadást követő néhány héten belül több ezer nyomtatóhoz juttatunk el. Ezért a beadványok minősége prioritást élvez.
 
-   A fő [Klipper3d/klipper](https://github.com/Klipper3d/klipper) GitHub tároló nem fogad el kísérleti munkát. A beküldőknek a kísérletezést, hibakeresést és tesztelést a saját tárolójukban kell elvégezniük. A [Klipper Discourse](Contact.md) szerver jó hely arra, hogy felhívjuk a figyelmet az új munkára, és megtaláljuk azokat a felhasználókat, akiket érdekel a valós visszajelzés.
+   A fő [Klipper3d/klipper](https://github.com/Klipper3d/klipper) GitHub tároló nem fogad el kísérleti munkát. A beküldőknek a kísérletezést, hibakeresést és tesztelést a saját tárolójukban kell elvégezniük. A [Klipper Társalgó](Contact.md) szerver jó hely arra, hogy felhívjuk a figyelmet az új munkára, és megtaláljuk azokat a felhasználókat, akiket érdekel a valós visszajelzés.
 
    A beadványoknak át kell menniük az összes [regressziós teszteseten](Debugging.md).
 

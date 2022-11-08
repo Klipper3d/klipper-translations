@@ -38,11 +38,11 @@ A fúvóka melegítésekor a hőtágulás miatt megváltozik a helyzete (a tárg
 
 Furcsának tűnhet, hogy a távolságot szobahőmérsékleten kalibráljuk, amikor a cél az, hogy melegítéskor egyenletes távolságot érjünk el. Ha azonban a fúvókát melegítve kalibráljuk, akkor hajlamos kis mennyiségű olvadt műanyagot juttatni a papírra, ami megváltoztatja az érzékelt súrlódás mértékét. Ez megnehezíti a jó kalibrációt. Ha a szintezés felfűtött állapotban történik, akkor nagymértékben megnő a megégés veszélye is. A hőtágulás mértéke stabil, így a kalibrálás során később könnyen figyelembe vehető.
 
-**Automatizált eszközzel határozza meg a pontos Z magasságot!**
+**Automatizált eszközzel határozd meg a pontos Z magasságot!**
 
-A Klipperben számos segédszkript áll rendelkezésre (pl. MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). Lásd a documentumokat [fentebb leírva](#choose-the-appropriate-calibration-mechanism), hogy válassz közülük egyet.
+A Klipperben számos segédszkript áll rendelkezésre (pl. MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). Lásd a dokumentumokat [fentebb leírva](#choose-the-appropriate-calibration-mechanism), hogy válassz közülük egyet.
 
-Futtassa a megfelelő parancsot az OctoPrint konzoljában. A szkript az OctoPrint terminál kimenetén kéri a felhasználó beavatkozását. Valahogy így fog kinézni:
+Futtasd a megfelelő parancsot az OctoPrint konzoljában. A szkript az OctoPrint terminál kimenetén kéri a felhasználó beavatkozását. Valahogy így fog kinézni:
 
 ```
 Recv: // Starting manual Z probe. Use TESTZ to adjust position.
@@ -52,17 +52,17 @@ Recv: // Z position: ?????? --> 5.000 <-- ??????
 
 A fúvóka aktuális magassága (ahogyan azt a nyomtató jelenleg értelmezi) a "--> <--" között jelenik meg. A jobb oldali szám a legutóbbi mérés magassága, amely éppen nagyobb, mint az aktuális magasság, a bal oldali pedig a legutóbbi mérés magassága, amely kisebb, mint az aktuális magasság (vagy ??????, ha nem történt kísérlet).
 
-Helyezd a papírt a fúvóka és a tárgyasztal közé. Hasznos lehet a papír egyik sarkát behajtani, hogy könnyebb legyen megfogni. (Próbálja úgy, hogy ne nyomja le a tárgyasztalt, amikor a papírt előre-hátra mozgatja).
+Helyezd a papírt a fúvóka és a tárgyasztal közé. Hasznos lehet a papír egyik sarkát behajtani, hogy könnyebb legyen megfogni. (Próbáld úgy, hogy ne nyomd le a tárgyasztalt, amikor a papírt előre-hátra mozgatod).
 
 ![paper-test](img/paper-test.jpg)
 
-A TESTZ paranccsal kérheti, hogy a fúvóka közelebb menjen a papírhoz. Például:
+A TESTZ paranccsal kérheted, hogy a fúvóka közelebb menjen a papírhoz. Például:
 
 ```
 TESTZ Z=-.1
 ```
 
-A TESTZ parancs a fúvókát az aktuális pozíciójától relatív távolságra mozgatja. (Tehát a `Z=-.1` azt kéri, hogy a fúvóka 0,1 mm-rel közelebb kerüljön a tárgyasztalhoz). Miután a fúvóka megállt, tolja előre-hátra a papírt, hogy ellenőrizd, hogy a fúvóka érintkezik-e a papírral, és hogy érezze a súrlódás mértékét. Folytassa a TESTZ parancsok kiadását mindaddig, amíg a papírral való tesztelésekkor nem érez egy kis súrlódást.
+A TESTZ parancs a fúvókát az aktuális pozíciójától relatív távolságra mozgatja. (Tehát a `Z=-.1` azt kéri, hogy a fúvóka 0,1 mm-rel közelebb kerüljön a tárgyasztalhoz). Miután a fúvóka megállt, told előre-hátra a papírt, hogy ellenőrizd, hogy a fúvóka érintkezik-e a papírral, és hogy érezd a súrlódás mértékét. Folytasd a TESTZ parancsok kiadását mindaddig, amíg a papírral való tesztelésekkor nem érzel egy kis súrlódást.
 
 Ha túl nagy a súrlódás, akkor egy pozitív Z értéket használhatunk a fúvóka felfelé mozgatására. Lehetőség van a `TESTZ Z=+` vagy a `TESTZ Z=-` használatára is, hogy "felezzük" az utolsó pozíciót - azaz két pozíció között félúton lévő pozícióba lépjünk. Például, ha a TESTZ parancs a következő felszólítást adná:
 
@@ -80,7 +80,7 @@ ACCEPT
 
 Ez elfogadja a megadott Z magasságot, és az adott kalibrációs eszközzel folytatja a munkát.
 
-Az érzékelt súrlódás pontos mértéke nem döntő fontosságú, ahogyan a hőtágulás mértéke és a papír pontos szélessége sem döntő fontosságú. Csak próbáljon meg minden egyes alkalommal ugyanannyi súrlódást elérni, amikor a tesztet lefuttatja.
+Az érzékelt súrlódás pontos mértéke nem döntő fontosságú, ahogyan a hőtágulás mértéke és a papír pontos szélessége sem döntő fontosságú. Csak próbálj meg minden egyes alkalommal ugyanannyi súrlódást elérni, amikor a tesztet lefuttatod.
 
 Ha a teszt során valami rosszul megy, az `ABORT` paranccsal kiléphetünk a kalibrációs eszközből.
 

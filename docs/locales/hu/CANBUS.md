@@ -6,7 +6,7 @@ Ez a dokumentum a Klipper CAN busz támogatását írja le.
 
 A Klipper jelenleg támogatja a CAN-t az stm32, same5x és rp2040 chipeken. Ezenkívül a mikrokontroller chipnek olyan lapkán kell lennie, amely rendelkezik CAN csatlakozással.
 
-A CAN-hez való fordításhoz futtassa a `make menuconfig` parancsot, és válaszd a "CAN busz" kommunikációs interfészt. Végül fordítsd le a mikrokontroller kódját, és égesd a céllapra.
+A CAN-hez való fordításhoz futtasd a `make menuconfig` parancsot, és válaszd a "CAN busz" kommunikációs interfészt. Végül fordítsd le a mikrokontroller kódját, és égesd a céllapra.
 
 ## Gazdagép Hardver
 
@@ -54,7 +54,7 @@ Vedd figyelembe, hogy a `canbus_query.py` eszköz csak az inicializálatlan eszk
 
 ## A Klipper beállítása
 
-Frissítse a Klipper [mcu konfigurációt](Config_Reference.md#mcu), hogy a CAN-buszon keresztül kommunikáljon az eszközzel - például:
+Frissítsd a Klipper [mcu konfigurációt](Config_Reference.md#mcu), hogy a CAN-buszon keresztül kommunikáljon az eszközzel - például:
 
 ```
 [mcu my_can_mcu]
@@ -63,7 +63,7 @@ canbus_uuid: 11aa22bb33cc
 
 ## USB és CAN-busz közötti híd üzemmód
 
-Egyes mikrovezérlők támogatják az "USB to CAN bus bridge" üzemmód kiválasztását a "make menuconfig" során. Ez az üzemmód lehetővé teheti, hogy egy mikrokontrollert "USB CAN busz adapterként" és Klipper csomópontként is használjunk.
+Egyes mikrovezérlők támogatják az "USB to CAN bus bridge" üzemmód kiválasztását a "make menuconfig" alatt. Ez az üzemmód lehetővé teheti, hogy egy mikrokontrollert "USB CAN busz adapterként" és Klipper csomópontként is használjunk.
 
 Amikor a Klipper ezt az üzemmódot használja, a mikrokontroller "USB CAN busz adapterként" jelenik meg Linux alatt. Maga a "Klipper bridge mcu" úgy jelenik meg, mintha ezen a CAN buszon lenne. A `canbus_query.py` segítségével azonosítható és konfigurálható, mint a többi CAN buszos Klipper csomópont. A többi, ténylegesen a CAN-buszon lévő eszköz mellett fog megjelenni.
 

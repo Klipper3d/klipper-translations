@@ -100,7 +100,7 @@ max_accel:
 
 ### [stepper]
 
-Léptetőmotor meghatározások. A különböző nyomtatótípusok (a [printer] config szakasz "kinematika" opciója által meghatározottak szerint) eltérő neveket igényelnek a léptető számára (pl. `stepper_x` vs `stepper_a`). Az alábbiakban a stepperek általános definíciói következnek.
+Léptetőmotor meghatározások. A különböző nyomtatótípusok (a [printer] config szakasz "kinematika" opciója által meghatározottak szerint) eltérő neveket igényelnek a léptető számára (pl. `stepper_x` vs `stepper_a`). Az alábbiakban a stepper-ek általános definíciói következnek.
 
 A `rotation_distance` paraméter kiszámításával kapcsolatos információkért lásd a [forgatási távolság dokumentumot](Rotation_Distance.md). A több mikrovezérlővel történő kezdőpont felvétellel kapcsolatos információkért lásd a [Multi-MCU kezdőpont](Multi_MCU_Homing.md) dokumentumot.
 
@@ -182,7 +182,7 @@ position_max:
 
 Lásd [example-cartesian.cfg](../config/example-cartesian.cfg) egy példa cartesian kinematika konfigurációs fájlhoz.
 
-Itt csak a cartesian nyomtatókra jellemző paraméterek kerülnek leírásra. A rendelkezésre álló paramétereket lásd a [általános kinematikai beállítások](#common-kinematic-settings) pontban.
+Itt csak a cartesian nyomtatókra jellemző paraméterek kerülnek leírásra. A rendelkezésre álló paramétereket lásd az [általános kinematikai beállítások](#common-kinematic-settings) pontban.
 
 ```
 [printer]
@@ -212,7 +212,7 @@ max_z_accel:
 
 ### Lineáris delta kinematika
 
-Lásd az [example-delta.cfg](../config/example-delta.cfg) példát a lineáris delta kinematika konfigurációs fájljához. A kalibrálással kapcsolatos információkért lásd a [delta kalibrációs útmutató](Delta_Calibrate.md) dokumentumot.
+Lásd az [example-delta.cfg](../config/example-delta.cfg) példát a lineáris delta kinematika konfigurációs fájljához. A kalibrálással kapcsolatos információkért lásd a [delta kalibrációs](Delta_Calibrate.md) dokumentumot.
 
 Itt csak a lineáris delta nyomtatókra jellemző paraméterek kerülnek leírásra. A rendelkezésre álló paramétereket lásd az [általános kinematikai beállítások](#common-kinematic-settings) pontban.
 

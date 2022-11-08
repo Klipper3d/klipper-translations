@@ -59,7 +59,7 @@ Vegyünk például egy tárgyasztalt, amelynek A, B és C helyén csavarok vanna
 
 ![bed_screws](img/bed_screws.svg.png)
 
-A C helyen lévő szintezőcsavar minden egyes beállítása esetén a tárgyasztal a fennmaradó két szintezőcsavar által meghatározott inga mentén fog lengeni (itt zöld vonalként látható). Ebben a helyzetben a szintezőcsavar állítása a C helyzetben a tárgyasztalt kissebb a D helyzetben egy nagyobb mértékben mozdítja el.
+A C helyen lévő szintezőcsavar minden egyes beállítása esetén a tárgyasztal a fennmaradó két szintezőcsavar által meghatározott inga mentén fog lengeni (itt zöld vonalként látható). Ebben a helyzetben a szintezőcsavar állítása a C helyzetben a tárgyasztalt kisebb a D helyzetben egy nagyobb mértékben mozdítja el.
 
 A funkció engedélyezéséhez meg kell határozni a további fúvókakoordinátákat, és hozzá kell adni őket a konfigurációs fájlhoz. Ez például így nézhet ki:
 
@@ -73,11 +73,11 @@ screw3: 150, 100
 screw3_fine_adjust: 0, 100
 ```
 
-Ha ez a funkció engedélyezve van, a `BED_SCREWS_ADJUST` eszköz először közvetlenül az egyes csavarok pozíciói felett kér durva beállításokat, és ha ezeket elfogadta, akkor a további helyeken finom beállításokat kér. Folytassa az `ACCEPT` és `ADJUSTED` használatával minden egyes pozícióban.
+Ha ez a funkció engedélyezve van, a `BED_SCREWS_ADJUST` eszköz először közvetlenül az egyes csavarok pozíciói felett kér durva beállításokat, és ha ezeket elfogadtad, akkor a további helyeken finom beállításokat kér. Folytasd az `ACCEPT` és `ADJUSTED` használatával minden egyes pozícióban.
 
 ## A tárgyasztal szintezőcsavarjainak beállítása mérőszonda segítségével
 
-Ez egy másik módja a tárgyasztal szint kalibrálásának a mérőszonda segítségével. Használatához rendelkeznie kell Z-szondával (BL Touch, induktív érzékelő stb.).
+Ez egy másik módja a tárgyasztal szint kalibrálásának a mérőszonda segítségével. Használatához rendelkezned kell Z-szondával (BL Touch, induktív érzékelő stb.).
 
 A funkció engedélyezéséhez meg kell határozni a fúvóka koordinátáit úgy, hogy a Z szonda a csavarok felett legyen, majd hozzá kell adni a konfigurációs fájlhoz. Ez például így nézhet ki:
 
@@ -119,10 +119,10 @@ Ez azt jelenti, hogy:
 
 Vedd figyelembe, hogy a "percek" az "óra számlapjának perceire" utalnak. Így például 15 perc egy teljes fordulat negyedének felel meg.
 
-Ismételje meg a folyamatot többször, amíg egy jó vízszintes tárgyasztalt nem kap. Általában akkor jó, ha minden beállítás 6 percnyi fordulat alatt van.
+Ismételd meg a folyamatot többször, amíg egy jó vízszintes tárgyasztalt nem kapsz. Általában akkor jó, ha minden beállítás 6 percnyi fordulat alatt van.
 
-Ha olyan szondát használ, amely a nyomtatófej oldalára van szerelve (azaz X vagy Y eltolással rendelkezik), akkor vedd figyelembe, hogy a tárgyasztal dőlésének beállítása érvényteleníti a korábbi, dőlésszögű tárgyasztalon végzett szintkalibrálást. A tárgyasztal csavarjainak beállítása után mindenképpen futtassa le a [szonda kalibrálása](Probe_Calibrate.md) parancsot.
+Ha olyan szondát használsz, amely a nyomtatófej oldalára van szerelve (azaz X vagy Y eltolással rendelkezik), akkor vedd figyelembe, hogy a tárgyasztal dőlésének beállítása érvényteleníti a korábbi, dőlésszögű tárgyasztalon végzett szintkalibrálást. A tárgyasztal csavarjainak beállítása után mindenképpen futtasd le a [szonda kalibrálása](Probe_Calibrate.md) parancsot.
 
-A `MAX_DEVIATION` paraméter akkor hasznos, ha egy mentett tárgyasztal hálót használunk, hogy biztosítsuk, hogy a tárgyasztal szintje ne térj el túlságosan attól a helytől, ahol a háló létrehozásakor volt. Például a `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` hozzáadható a szeletelő egyéni indító G-kódjához a háló betöltése előtt. Ez megszakítja a nyomtatást, ha a beállított határértéket túllépi (ebben a példában 0,01 mm), lehetőséget adva a felhasználónak a csavarok beállítására és a nyomtatás újraindítására.
+A `MAX_DEVIATION` paraméter akkor hasznos, ha egy mentett tárgyasztal hálót használunk, hogy biztosítsuk, hogy a tárgyasztal szintje ne térjen el túlságosan attól a helytől, ahol a háló létrehozásakor volt. Például a `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` hozzáadható a szeletelő egyéni indító G-kódjához a háló betöltése előtt. Ez megszakítja a nyomtatást, ha a beállított határértéket túllépi (ebben a példában 0,01 mm), lehetőséget adva a felhasználónak a csavarok beállítására és a nyomtatás újraindítására.
 
 A `DIRECTION` paraméter akkor hasznos, ha a tárgyasztal szintező csavarjait csak egy irányba tudja elfordítani. Például lehetnek olyan csavarjai, amelyek a lehető legalacsonyabb (vagy legmagasabb) pozícióban vannak meghúzva, és csak egy irányba forgathatók a tárgyasztal emeléséhez (vagy süllyesztéséhez). Ha a csavarokat csak az óramutató járásával megegyező irányban tudja elfordítani, futtassa a `SCREWS_TILT_CALCULATE DIRECTION=CW` parancsot. Ha csak az óramutató járásával ellentétes irányban tudja elforgatni őket, futtassa a `SCREWS_TILT_CALCULATE DIRECTION=CCW` parancsot. A program kiválaszt egy megfelelő referenciapontot, hogy a tárgyasztalt az összes csavar adott irányba történő elfordításával szintezhesse.

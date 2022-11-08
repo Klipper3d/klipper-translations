@@ -75,7 +75,7 @@ gcode:
 
 ### Makró paraméterek
 
-Gyakran hasznos a makrónak a meghívásakor átadott paraméterek vizsgálata. Ezek a paraméterek a `params` álváltozóval érhetők el. Például, ha a makró:
+Gyakran hasznos a makrónak a meghívásakor átadott paraméterek vizsgálata. Ezek a paraméterek a `params` pszeudo változóval érhetők el. Például, ha a makró:
 
 ```
 [gcode_macro SET_PERCENT]
@@ -83,7 +83,7 @@ gcode:
   M117 Now at { params.VALUE|float * 100 }%
 ```
 
-`SET_PERCENT VALUE=.2` értéket adna, akkor `M117 Most 20%-os értéken`. Vedd figyelembe, hogy a paraméternevek a makróban történő kiértékeléskor mindig nagybetűsek, és mindig karakterláncként kerülnek átadásra. Ha matematikai műveletet hajtunk végre, akkor azokat explicit módon egész számokká vagy lebegőszámokká kell konvertálni.
+`SET_PERCENT VALUE=.2` értéket adsz, akkor `M117 Most 20%-os értéken van`. Vedd figyelembe, hogy a paraméternevek a makróban történő kiértékeléskor mindig nagybetűsek, és mindig karakterláncként kerülnek átadásra. Ha matematikai műveletet hajtunk végre, akkor azokat explicit módon egész számokká vagy lebegőszámokká kell konvertálni.
 
 Gyakori a Jinja2 `set` direktíva használata egy alapértelmezett paraméter használatához és az eredmény hozzárendelése egy helyi névhez. Például:
 
@@ -118,7 +118,7 @@ Fontos! A makrók először teljes egészében kiértékelésre kerülnek, és c
 
 A konvenció szerint a `printer` után közvetlenül következő név a config szakasz neve. Így például a `printer.fan` a `[fan]` config szakasz által létrehozott ventilátor objektumra utal. Van néhány kivétel ez alól a szabály alól. Nevezetesen a `gcode_move` és a `toolhead` objektumok. Ha a config szakasz szóközöket tartalmaz, akkor a `[ ]` jellel lehet elérni. Például: `printer["generic_heater my_chamber_heater"].temperature`.
 
-Vegyük észre, hogy a Jinja2 `set` direktíva a `printer` hierarchiában lévő objektumhoz rendelhet helyi nevet. Ez olvashatóbbá teheti a makrókat és csökkentheti a gépelést. Például:
+Vegyük figyelembe, hogy a Jinja2 `set` direktíva a `printer` hierarchiában lévő objektumhoz rendelhet helyi nevet. Ez olvashatóbbá teheti a makrókat és csökkentheti a gépelést. Például:
 
 ```
 [gcode_macro QUERY_HTU21D]

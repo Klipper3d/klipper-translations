@@ -38,27 +38,27 @@ Ha a végállás egyáltalán nem változik, akkor ez általában azt jelzi, hog
 
 ## Léptetőmotorok ellenőrzése
 
-A STEPPER_BUZZ parancs segítségével ellenőrizd az egyes léptetőmotorok csatlakozását. Kezd az adott tengely kézi pozicionálásával egy középső pontra, majd futtassa a `STEPPER_BUZZ STEPPER=stepper_x` parancsot. A STEPPER_BUZZ parancs hatására az adott stepper egy millimétert mozdul pozitív irányba, majd visszatér a kiindulási helyzetébe. (Ha a végállást a position_endstop=0 értéken definiáljuk, akkor minden egyes mozgás kezdetén a léptető a végállástól távolodik). Ezt a mozgást tízszer fogja végrehajtani.
+A STEPPER_BUZZ parancs segítségével ellenőrizd az egyes léptetőmotorok csatlakozását. Kezd az adott tengely kézi pozicionálásával egy középső pontra, majd futtasd a `STEPPER_BUZZ STEPPER=stepper_x` parancsot. A STEPPER_BUZZ parancs hatására az adott stepper egy millimétert mozdul pozitív irányba, majd visszatér a kiindulási helyzetébe. (Ha a végállást a position_endstop=0 értéken definiáljuk, akkor minden egyes mozgás kezdetén a léptető a végállástól távolodik). Ezt a mozgást tízszer fogja végrehajtani.
 
 Ha a léptető egyáltalán nem mozog, akkor ellenőrizd az "enable_pin" és "step_pin" beállításokat a léptetőnél. Ha a léptetőmotor mozog, de nem tér vissza az eredeti helyzetébe, akkor ellenőrizd a "dir_pin" beállítást. Ha a léptetőmotor helytelen irányban mozog, akkor ez általában azt jelzi, hogy a tengely "dir_pin" beállítását meg kell fordítani. Ezt úgy lehet megtenni, hogy a nyomtató konfigurációs fájlban a "dir_pin" értékhez hozzáadunk egy '!' jelet (vagy eltávolítjuk, ha már van ilyen). Ha a motor egy milliméternél lényegesen többet vagy lényegesen kevesebbet mozog, akkor ellenőrizd a "rotation_distance" beállítást.
 
-Futtassa a fenti tesztet a konfigurációs fájlban definiált minden egyes léptetőmotorra. (Állítsd a STEPPER_BUZZ parancs STEPPER paraméterét a tesztelendő konfigurációs szakasz nevére). Ha nincs nyomtatószál az extruderben, akkor a STEPPER_BUZZ paranccsal ellenőrizheti az extruder motor csatlakozását (használd a STEPPER=extruder parancsot). Ellenkező esetben a legjobb ha az extruder motort külön teszteljük (lásd a következő szakaszt).
+Futtasd a fenti tesztet a konfigurációs fájlban definiált minden egyes léptetőmotorra. (Állítsd a STEPPER_BUZZ parancs STEPPER paraméterét a tesztelendő konfigurációs szakasz nevére). Ha nincs nyomtatószál az extruderben, akkor a STEPPER_BUZZ paranccsal ellenőrizheted az extruder motor csatlakozását (használd a STEPPER=extruder parancsot). Ellenkező esetben a legjobb ha az extruder motort külön teszteljük (lásd a következő szakaszt).
 
-Az összes végállás és léptetőmotor ellenőrzése után a célba állítási mechanizmust tesztelni kell. Adj ki egy G28 parancsot az összes tengely alaphelyzetbe állításához. Ha a nyomtató nem állítható be megfelelően, kapcsold ki a nyomtatót. Ha szükséges, ismételje meg a végállás és a léptetőmotorok ellenőrzését.
+Az összes végállás és léptetőmotor ellenőrzése után a célba állítási mechanizmust tesztelni kell. Adj ki egy G28 parancsot az összes tengely alaphelyzetbe állításához. Ha a nyomtató nem állítható be megfelelően, akkor kapcsold ki. Ha szükséges, ismételd meg a végállások és a léptetőmotorok ellenőrzését.
 
 ## Extruder motor ellenőrzése
 
-Az extruder motor teszteléséhez a nyomtatófejet nyomtatási hőmérsékletre kell melegíteni. Navigálj az Octoprint hőmérséklet fülre, és válasszon ki egy célhőmérsékletet a hőmérséklet legördülő menüből (vagy add meg manuálisan a megfelelő hőmérsékletet). Várja meg, amíg a nyomtató eléri a kívánt hőmérsékletet. Ezután navigálj az Octoprint vezérlő lapra, és kattints az "Extrudálás" gombra. Ellenőrizd, hogy az extruder motorja a megfelelő irányba forog-e. Ha nem, akkor az előző szakaszban található hibaelhárítási tippek alapján ellenőrizd az extruder "enable_pin", "step_pin" és "dir_pin" beállításait.
+Az extruder motor teszteléséhez a nyomtatófejet nyomtatási hőmérsékletre kell melegíteni. Navigálj az Octoprint hőmérséklet fülre, és válassz ki egy célhőmérsékletet a hőmérséklet legördülő menüből (vagy add meg manuálisan a megfelelő hőmérsékletet). Várd meg, amíg a fej eléri a kívánt hőmérsékletet. Ezután navigálj az Octoprint vezérlő lapra, és kattints az "Extrudálás" gombra. Ellenőrizd, hogy az extruder motorja a megfelelő irányba forog-e. Ha nem, akkor az előző szakaszban található hibaelhárítási tippek alapján ellenőrizd az extruder "enable_pin", "step_pin" és "dir_pin" beállításait.
 
 ## PID beállítások kalibrálása
 
 A Klipper támogatja a [PID-szabályozást](https://hu.wikipedia.org/wiki/PID_szab%C3%A1lyoz%C3%B3) az extruder és a tárgyasztal fűtés számára. Ahhoz, hogy ezt a vezérlési mechanizmust használni lehessen, a PID-beállításokat minden nyomtatónál kalibrálni kell (a más firmware-ekben vagy a példakonfigurációs fájlokban található PID-beállítások gyakran rosszul működnek).
 
-Az extruder kalibrálásához navigálj az OctoPrint terminál fülre, és futtassa a PID_CALIBRATE parancsot. Például: `PID_CALIBRATE HEATER=extruder TARGET=170`
+Az extruder kalibrálásához navigálj az OctoPrint terminál fülre, és futtasd a PID_CALIBRATE parancsot. Például: `PID_CALIBRATE HEATER=extruder TARGET=170`
 
-A hangolási teszt végén futtassa a `SAVE_CONFIG` parancsot a printer.cfg fájl új PID-beállításainak frissítéséhez.
+A hangolási teszt végén futtasd a `SAVE_CONFIG` parancsot a printer.cfg fájl új PID-beállításainak frissítéséhez.
 
-Ha a nyomtató fűtött ággyal rendelkezik, és az támogatja a PWM (impulzusszélesség-moduláció) vezérlést, akkor ajánlott PID vezérlést használni a tárgyasztalhoz. (Ha a tárgyasztal fűtést PID algoritmussal vezérli, akkor másodpercenként tízszer is be- és kikapcsolhat, ami nem biztos, hogy megfelelő a mechanikus kapcsolót használó fűtőberendezésekhez.) A tipikus tárgyasztal PID-kalibrálási parancs: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
+Ha a nyomtató fűtött ággyal rendelkezik, és az támogatja a PWM (impulzusszélesség-moduláció) vezérlést, akkor ajánlott PID vezérlést használni a tárgyasztalhoz. (Ha a tárgyasztal fűtést PID algoritmussal vezérled, akkor másodpercenként tízszer is be- és kikapcsolhat, ami nem biztos, hogy megfelelő a mechanikus kapcsolót használó fűtőberendezésekhez.) A tipikus tárgyasztal PID-kalibrálási parancs: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
 
 ## Következő lépések
 

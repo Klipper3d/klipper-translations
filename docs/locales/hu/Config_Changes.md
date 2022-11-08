@@ -83,17 +83,17 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20201112: A `print_stats.print_duration` által bejelentett idő megváltozott. Az első észlelt extrudálás előtti időtartamot mostantól nem veszi figyelembe.
 
-20201029: A neopixel `color_order_GRB` config opciót eltávolítottuk. Szükség esetén frissítse a configot, hogy az új `color_order` opciót RGB, GRB, RGBW vagy GRBW értékre állítsd be.
+20201029: A neopixel `color_order_GRB` config opciót eltávolítottuk. Szükség esetén frissítsd a configot, hogy az új `color_order` opciót RGB, GRB, RGBW vagy GRBW értékre állítsd be.
 
 20201029: A serial opció az mcu config szakaszban már nem /dev/ttyS0 az alapértelmezett érték. Abban a ritka helyzetben, amikor a /dev/ttyS0 a kívánt soros port, azt kifejezetten meg kell adni.
 
 20201020: Klipper v0.9.0 megjelent.
 
-20200902: A MAX31865 átalakítók RTD ellenállás-hőmérséklet számítása javításra került, hogy ne legyen alacsony. Ha ilyen eszközt használ, akkor kalibrálja újra a nyomtatási hőmérsékletet és a PID-beállításokat.
+20200902: A MAX31865 átalakítók RTD ellenállás-hőmérséklet számítása javításra került, hogy ne legyen alacsony. Ha ilyen eszközt használsz, akkor kalibráld újra a nyomtatási hőmérsékletet és a PID-beállításokat.
 
 20200816: A G-kód makró `printer.gcode` objektumot átneveztük `printer.gcode_move` objektumra. A `printer.toolhead` és `printer.gcode` objektumokból több nem dokumentált változót eltávolítottunk. A rendelkezésre álló sablonváltozók listáját lásd a docs/Command_Templates.md fájlban.
 
-20200816: A G-kód makró "action_" rendszere megváltozott. Cserélje ki a `printer.gcode.action_emergency_stop()` hívásokat `action_emergency_stop()`, `printer.gcode.action_respond_info()` a `action_respond_info()`, és `printer.gcode.action_respond_error()` a `action_raise_error()`-el.
+20200816: A G-kód makró "action_" rendszere megváltozott. Cseréld ki a `printer.gcode.action_emergency_stop()` hívásokat `action_emergency_stop()`, `printer.gcode.action_respond_info()` a `action_respond_info()`, és `printer.gcode.action_respond_error()` a `action_raise_error()`-el.
 
 20200809: A menürendszer átírásra került. Ha a menüt testre szabták, akkor frissíteni kell az új konfigurációra. A konfiguráció részleteiért lásd a config/example-menu.cfg fájlt, a példákért pedig a klippy/extras/display/menu.cfg fájlt.
 
@@ -101,7 +101,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20200725: A szervo `enable` konfigurációs paraméter és a SET_SERVO `ENABLE` paraméter eltávolításra került. Frissíts minden makrót, hogy a `SET_SERVO SERVO=my_servo WIDTH=0` paramétert használd a szervó letiltásához.
 
-20200608: Az LCD-kijelző támogatása megváltoztatta néhány belső "írásjel" nevét. Ha egyéni kijelző elrendezés került implementálásra, akkor szükséges lehet frissíteni a legújabb gliph nevekre (lásd klippy/extras/display/display.cfg az elérhető gliph-ek listáját).
+20200608: Az LCD-kijelző támogatása megváltoztatta néhány belső "írásjel" nevét. Ha egyéni kijelző elrendezés került implementálásra, akkor szükséges lehet frissíteni a legújabb glyph nevekre (lásd klippy/extras/display/display.cfg az elérhető glyph-ek listáját).
 
 20200606: A linux MCU tű nevei megváltoztak. A tűnevek mostantól a `gpiochip<chipid>/gpio<gpio>` formájúak. A gpiochip0 esetében egy rövid `gpio<gpio>` is használható. Például, amire korábban `P20` néven hivatkoztunk, az most `gpio20` vagy `gpiochip0/gpio20` lesz.
 

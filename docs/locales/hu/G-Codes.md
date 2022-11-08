@@ -31,7 +31,7 @@ A Klipper a következő szabványos G-kód parancsokat támogatja:
 - Jelenlegi pozíció lekérdezése: `M114`
 - A firmware verziójának lekérdezése: `M115`
 
-A fenti parancsokkal kapcsolatos további részletekért lásd a [RepRap G-kód dokumentáció](http://reprap.org/wiki/G-code) fájlt.
+A fenti parancsokkal kapcsolatos további részletekért lásd a [RepRap G-kód dokumentációs](http://reprap.org/wiki/G-code) fájlt.
 
 A Klipper célja, hogy támogassa az általános 3. féltől származó szoftverek (pl. OctoPrint, Printrun, Slic3r, Cura, stb.) által generált G-kód parancsokat a szabványos konfigurációikban. Nem cél, hogy minden lehetséges G-kód parancsot támogasson. Ehelyett a Klipper az ember által olvasható ["kiterjesztett G-kód"](#additional-commands) parancsokat részesíti előnyben. Hasonlóképpen, a G-kód terminál kimenete is csak ember által olvasható. Lásd az [API Szerver dokumentumot](API_Server.md), ha a Klippert külső szoftverből irányítod.
 

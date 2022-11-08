@@ -44,7 +44,7 @@ SKEW_PROFILE SAVE=my_skew_profile
 
 A parancs után a rendszer felszólítja a `SAVE_CONFIG` G-kód kiadását a profil tartós tárolóba történő mentéséhez. Ha nincs `my_skew_profile` nevű profil, akkor egy új profil jön létre. Ha a megnevezett profil létezik, akkor azt felülírja.
 
-Ha már van mentett profilja, betöltheti azt:
+Ha már van mentett profilod, betöltheted azt:
 
 ```
 SKEW_PROFILE LOAD=my_skew_profile
@@ -56,11 +56,11 @@ Lehetőség van régi vagy elavult profilok eltávolítására is:
 SKEW_PROFILE REMOVE=my_skew_profile
 ```
 
-A profil eltávolítása után a rendszer felszólítja, hogy adj ki egy `SAVE_CONFIG` parancsot, hogy a módosítás mentésre kerüljön.
+A profil eltávolítása után a rendszer felszólít, hogy adj ki egy `SAVE_CONFIG` parancsot a módosítások mentéséhez.
 
 ## A korrekció ellenőrzése
 
-A skew_correction beállítása után újra kinyomtathatja a kalibrációs részt a korrekció engedélyezésével. A következő G-kóddal ellenőrizheti a ferdeséget minden síkban. Az eredményeknek alacsonyabbaknak kell lenniük, mint a `GET_CURRENT_SKEW` segítségével jelentett eredmények.
+A skew_correction beállítása után újra kinyomtathatod a kalibrációs tárgyat a korrekció engedélyezésével. A következő G-kóddal ellenőrizheted a ferdeséget minden síkban. Az eredményeknek alacsonyabbaknak kell lenniük, mint a `GET_CURRENT_SKEW` segítségével jelentett eredmények.
 
 ```
 CALC_MEASURED_SKEW AC=<ac_length> BD=<bd_length> AD=<ad_length>

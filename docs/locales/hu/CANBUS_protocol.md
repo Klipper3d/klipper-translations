@@ -30,7 +30,7 @@ A RESP_NEED_NODEID üzenet formátuma: `<1-byte message_id = 0x20><6-byte canbus
 
 ## Adatcsomagok
 
-A CMD_SET_KLIPPER_NODEID paranccsal nodeid-ot kapott mikrokontroller adatcsomagokat küldhet és fogadhat.
+A CMD_SET_KLIPPER_NODEID paranccsal nodeid-től kapott mikrokontroller adatcsomagokat küldhet és fogadhat.
 
 A csomópontot használó üzenetek csomagadatai (`canbus_nodeid * 2 + 256`) egyszerűen egy pufferbe kerülnek, és amikor egy teljes [mcu protokoll üzenet](Protocol.md) található, annak tartalmát elemezi és feldolgozza. Az adatokat bájtfolyamként kezeli. Nem követelmény, hogy a Klipper üzenetblokk kezdete egyezzen a CAN-buszcsomag kezdetével.
 

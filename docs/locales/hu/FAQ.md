@@ -49,9 +49,9 @@ Ha azonban a "make flash" egyszerűen nem működik az alaplapodon, akkor manuá
 
 ## Hogyan változtathatom meg a soros port átviteli sebességét?
 
-A Klipper ajánlott átviteli sebessége 250000. Ez az átviteli ráta jól működik minden olyan mikrokontroller kártyán, amelyet a Klipper támogat. Ha talált egy online útmutatót, amely más átviteli sebességet javasol, akkor hagyja figyelmen kívül az útmutatónak ezt a részét, és folytasd az alapértelmezett 250000 értékkel.
+A Klipper ajánlott átviteli sebessége 250000. Ez az átviteli ráta jól működik minden olyan mikrokontroller kártyán, amelyet a Klipper támogat. Ha találtál egy online útmutatót, amely más átviteli sebességet javasol, akkor hagyd figyelmen kívül az útmutatónak ezt a részét, és folytasd az alapértelmezett 250000 értékkel.
 
-Ha mindenképpen meg akarja változtatni az átviteli sebességet, akkor az új sebességet a mikrokontrollerben kell beállítani (a **make menuconfig** alatt), és a frissített kódot le kell fordítani és be kell égetni a mikrokontrollerbe. A Klipper printer.cfg fájlt is frissíteni kell, hogy megfeleljen ennek az átviteli sebességnek (lásd a [konfigurációs hivatkozást](Config_Reference.md#mcu) a részleteket). Például:
+Ha mindenképpen meg akarod változtatni az átviteli sebességet, akkor az új sebességet a mikrokontrollerben kell beállítani (a **make menuconfig** alatt), és a frissített kódot le kell fordítani és be kell égetni a mikrokontrollerbe. A Klipper printer.cfg fájlt is frissíteni kell, hogy megfeleljen ennek az átviteli sebességnek (lásd a [konfigurációs hivatkozást](Config_Reference.md#mcu) a részleteket). Például:
 
 ```
 [mcu]
@@ -60,23 +60,23 @@ baud: 250000
 
 Az OctoPrint weboldalon feltüntetett átviteli sebesség nincs hatással a Klipper mikrokontroller belső átviteli sebességére. Klipper használatakor az OctoPrint átviteli sebességét mindig 250000-re állítsd be.
 
-A Klipper mikrovezérlő átviteli sebessége nem függ a mikrovezérlő bootloader átviteli sebességétől. A [bootloader dokumentum](Bootloaders.md) további információkat tartalmaz a bootloaderekkel kapcsolatban.
+A Klipper mikrovezérlő átviteli sebessége nem függ a mikrovezérlő bootloader átviteli sebességétől. A [bootloader dokumentum](Bootloaders.md) további információkat tartalmaz a bootloader-ekkel kapcsolatban.
 
 ## Futtathatom a Klippert a Raspberry Pi 3-on kívül máson is?
 
 Az ajánlott hardver egy Raspberry Pi 2, Raspberry Pi 3 vagy Raspberry Pi 4.
 
-A Klipper fut a Raspberry Pi 1-en és a Raspberry Pi Zero-n, de ezek a lapok nem tartalmaznak elegendő feldolgozási teljesítményt az OctoPrint jó futtatásához. Gyakori, hogy ezeken a lassabb gépeken a nyomtatás akadozik, amikor közvetlenül az OctoPrintből nyomtat. (Előfordulhat, hogy a nyomtató gyorsabban mozog, mint ahogy az OctoPrint a mozgásparancsokat el tudja küldeni.) Ha mindenképpen ezek közül a lassabb lapok közül valamelyiket szeretnéd használni, fontold meg a "virtual_sdcard" funkció használatát nyomtatáskor (a részletekért lásd a [konfigurációs hivatkozást](Config_Reference.md#virtual_sdcard)).
+A Klipper fut a Raspberry Pi 1-en és a Raspberry Pi Zero-n, de ezek a lapok nem tartalmaznak elegendő feldolgozási teljesítményt az OctoPrint jó futtatásához. Gyakori, hogy ezeken a lassabb gépeken a nyomtatás akadozik, amikor közvetlenül az OctoPrint-ből nyomtatsz. (Előfordulhat, hogy a nyomtató gyorsabban mozog, mint ahogy az OctoPrint a mozgásparancsokat el tudja küldeni.) Ha mindenképpen ezek közül a lassabb lapok közül valamelyiket szeretnéd használni, fontold meg a "virtual_sdcard" funkció használatát nyomtatáskor (a részletekért lásd a [konfigurációs hivatkozást](Config_Reference.md#virtual_sdcard)).
 
 A Beaglebone-on való futtatáshoz lásd a [Beaglebone-specifikus telepítési utasításokat](Beaglebone.md).
 
-A Klipper más gépeken is futott. A Klipper gazdagép szoftverhez csak Python szükséges, amely Linux (vagy hasonló) számítógépen fut. Ha azonban más gépen szeretnéd futtatni, akkor Linux adminisztrátori ismeretekre lesz szüksége az adott gép rendszerkövetelményeinek telepítéséhez. A szükséges Linux-adminisztrátori lépésekről további információt az [install-octopi.sh](../scripts/install-octopi.sh) szkriptben talál.
+A Klipper más gépeken is futhat. A Klipper gazdagép szoftverhez csak Python szükséges, amely Linux (vagy hasonló) számítógépen fut. Ha azonban más gépen szeretnéd futtatni, akkor Linux adminisztrátori ismeretekre lesz szükséged az adott gép rendszerének telepítéséhez. A szükséges Linux-adminisztrátori lépésekről további információt az [install-octopi.sh](../scripts/install-octopi.sh) szkriptben találsz.
 
 Ha a Klipper gazdagép szoftvert egy low-end chipen szeretnéd futtatni, akkor vedd figyelembe, hogy legalább egy "dupla pontosságú lebegőpontos" hardverrel rendelkező gépre van szükség.
 
 Ha a Klipper gazdagép szoftvert egy megosztott általános célú asztali vagy szerver osztályú gépen szeretnéd futtatni, akkor vedd figyelembe, hogy a Klippernek vannak bizonyos valós idejű ütemezési követelményei. Ha a nyomtatás során a gazdaszámítógép egyidejűleg intenzív általános célú számítási feladatot is végez (például merevlemez defragmentálása, 3D renderelés, nagymértékű swapolás stb.), akkor a Klipper nyomtatási hibákat jelenthet.
 
-Megjegyzés: Ha nem OctoPi-képet használsz, vedd figyelembe, hogy számos Linux-disztribúció engedélyez egy "ModemManager" (vagy hasonló) csomagot, amely megzavarhatja a soros kommunikációt. (Ami miatt a Klipper véletlenszerűnek tűnő "Elveszett a kommunikáció az MCU-val" hibákat jelenthet.) Ha a Klippert ilyen disztribúcióra telepíti, akkor lehet, hogy le kell tiltania ezt a csomagot.
+Megjegyzés: Ha nem OctoPi-képet használsz, vedd figyelembe, hogy számos Linux-disztribúció engedélyez egy "ModemManager" (vagy hasonló) csomagot, amely megzavarhatja a soros kommunikációt. (Ami miatt a Klipper véletlenszerűnek tűnő "Elveszett a kommunikáció az MCU-val" hibákat jelenthet.) Ha a Klippert ilyen disztribúcióra telepíted, akkor lehet, hogy le kell tiltanod ezt a csomagot.
 
 ## Futtathatom a Klipper több példányát ugyanazon a gépen?
 
