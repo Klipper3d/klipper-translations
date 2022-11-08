@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-05 22:06+0000\n"
+"PO-Revision-Date: 2022-11-08 11:51+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "beaglebone/hu/>\n"
@@ -176,7 +176,7 @@ msgstr "make menuconfig\n"
 
 #: docs/Beaglebone.md:block 24 (paragraph)
 msgid "Then install this micro-controller code as well:"
-msgstr "Ezután telepítse ezt a mikrokontroller kódot is:"
+msgstr "Ezután telepítsd ezt a mikrokontroller kódot is:"
 
 #: docs/Beaglebone.md:block 26 (header)
 msgid "Remaining configuration"
@@ -188,7 +188,7 @@ msgid ""
 " instructions in the main [Installation](Installation.md#configuring-"
 "klipper) document."
 msgstr ""
-"Fejezze be a telepítést a Klipper és az Octoprint konfigurálásával a "
+"Fejezd be a telepítést a Klipper és az Octoprint konfigurálásával a "
 "[Telepítés](Installation.md#configuring-klipper) fődokumentumban található "
 "utasítások szerint."
 
