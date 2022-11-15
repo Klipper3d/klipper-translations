@@ -6,11 +6,11 @@ Ezek az utasítások feltételezik, hogy a szoftver egy Raspberry Pi számítóg
 
 A legtöbb Klipper beállítást egy "nyomtató konfigurációs fájl" határozza meg, amelyet a Raspberry Pi tárol. A megfelelő konfigurációs fájlt gyakran úgy találhatjuk meg, hogy a Klipper [config könyvtárában](../config/) keresünk egy "printer-" előtaggal kezdődő fájlt, amely megfelel a célnyomtatónak. A Klipper konfigurációs fájl tartalmazza a nyomtatóra vonatkozó technikai információkat, amelyekre a telepítés során szükség lesz.
 
-Ha nincs megfelelő nyomtató konfigurációs fájl a Klipper config könyvtárban, akkor keresse meg a nyomtató gyártójának weboldalát, hogy van-e megfelelő Klipper konfigurációs fájljuk.
+Ha nincs megfelelő nyomtató konfigurációs fájl a Klipper config könyvtárban, akkor keresd meg a nyomtató gyártójának weboldalát, hogy van-e megfelelő Klipper konfigurációs fájljuk.
 
-Ha nem találja a nyomtatóhoz tartozó konfigurációs fájlt, de a nyomtató vezérlőpanelének típusa ismert, akkor keressen egy megfelelő [config fájlt](../config/), amely "generic-" előtaggal kezdődik. Ezekkel a nyomtató vezérlőpanel példafájlokkal sikeresen elvégezhető a kezdeti telepítés, de a nyomtató teljes funkcionalitásának eléréséhez némi testreszabásra lesz szükség.
+Ha nem találod a nyomtatóhoz tartozó konfigurációs fájlt, de a nyomtató vezérlőpanelének típusa ismert, akkor keress egy megfelelő [config fájlt](../config/), amely "generic-" előtaggal kezdődik. Ezekkel a nyomtató vezérlőpanel példafájlokkal sikeresen elvégezhető a kezdeti telepítés, de a nyomtató teljes funkcionalitásának eléréséhez némi testreszabásra lesz szükség.
 
-Lehetőség van új nyomtatókonfiguráció nulláról történő meghatározására is. Ehhez azonban jelentős műszaki ismeretekre van szükség a nyomtatóval és annak elektronikájával kapcsolatban. A legtöbb felhasználónak ajánlott, hogy egy megfelelő konfigurációs fájllal kezd. Ha új, egyéni nyomtató konfigurációs fájlt hoz létre, akkor a legközelebbi példával [config fájl](../config/) kezd, és további információkért használd a Klipper [konfigurációs hivatkozás](Config_Reference.md) című dokumentumot.
+Lehetőség van új nyomtatókonfiguráció nulláról történő meghatározására is. Ehhez azonban jelentős műszaki ismeretekre van szükség a nyomtatóval és annak elektronikájával kapcsolatban. A legtöbb felhasználónak ajánlott, hogy egy megfelelő konfigurációs fájllal kezd. Ha új, egyéni nyomtató konfigurációs fájlt hozol létre, akkor a legközelebbi példával [config fájl](../config/) kezd, és további információkért használd a Klipper [konfigurációs hivatkozás](Config_Reference.md) című dokumentumot.
 
 ## OS képfájl előkészítése
 
@@ -34,7 +34,7 @@ cd ~/klipper/
 make menuconfig
 ```
 
-A [nyomtató konfigurációs fájl](#obtain-a-klipper-configuration-file) tetején található megjegyzéseknek le kell írniuk a beállításokat, amelyeket a "make menuconfig" során kell beállítani. Nyissa meg a fájlt egy webböngészőben vagy szövegszerkesztőben, és keresse meg ezeket az utasításokat a fájl teteje közelében. Miután a megfelelő "menuconfig" beállításokat elvégezte, nyomja meg a "Q" gombot a kilépéshez, majd az "Y" gombot a mentéshez. Ezután futtassa:
+A [nyomtató konfigurációs fájl](#obtain-a-klipper-configuration-file) tetején található megjegyzéseknek le kell írniuk a beállításokat, amelyeket a "make menuconfig" során kell beállítani. Nyisd meg a fájlt egy webböngészőben vagy szövegszerkesztőben, és keresd meg ezeket az utasításokat a fájl teteje közelében. Miután a megfelelő "menuconfig" beállításokat elvégezted, nyomd meg a "Q" gombot a kilépéshez, majd az "Y" gombot a mentéshez. Ezután futtasd:
 
 ```
 make

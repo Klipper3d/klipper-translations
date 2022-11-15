@@ -113,9 +113,9 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20200425: A gcode_macro parancs sablonváltozója `printer.heater` át lett nevezve `printer.heaters`-re.
 
-20200313: A 16x4-es képernyővel és a több extruderrel rendelkező nyomtatók alapértelmezett LCD-kiosztása megváltozott. Mostantól az egy extruderrel rendelkező képernyő elrendezése az alapértelmezett, és az aktuálisan aktív extrudert mutatja. A korábbi kijelző elrendezés használatához állítsd be a "display_group: _multiextruder_16x4" a printer.cfg fájl [display] szakaszában.
+20200313: A 16x4-es képernyővel és a több extruder-el rendelkező nyomtatók alapértelmezett LCD-kiosztása megváltozott. Mostantól az egy extruder-el rendelkező képernyő elrendezése az alapértelmezett, és az aktuálisan aktív extruder-t mutatja. A korábbi kijelző elrendezés használatához állítsd be a "display_group: _multiextruder_16x4" a printer.cfg fájl [display] szakaszában.
 
-20200308: Az alapértelmezett `__test` menüpont eltávolításra került. Ha a konfigurációs fájlban egyéni menü van, akkor mindenképpen távolítson el minden hivatkozást erre a `__test` menüpontra.
+20200308: Az alapértelmezett `__test` menüpont eltávolításra került. Ha a konfigurációs fájlban egyéni menü van, akkor mindenképpen távolíts el minden hivatkozást erre a `__test` menüpontra.
 
 20200308: A "pakli" és "kártya" menüpontok eltávolításra kerültek. Az LCD képernyő elrendezésének testreszabásához használd az új display_data config szakaszokat (a részletekért lásd a config/example-extras.cfg fájlt).
 

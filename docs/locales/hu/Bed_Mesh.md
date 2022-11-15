@@ -132,9 +132,9 @@ probe_count: 5, 3
 relative_reference_index: 7
 ```
 
-- `relative_reference_index: 7` *Alapértelmezett érték: Nincs (letiltva)* A mért pontok létrehozásakor mindegyikhez indexet rendelünk. Ezt az indexet a klippy.log fájlban vagy a BED_MESH_OUTPUT segítségével kereshetjük meg (további információkért lásd az alábbi, Bed Mesh GCodes című részt). Ha indexet rendel a `relative_reference_index` opcióhoz, akkor az ezen a koordinátán mért érték fogja helyettesíteni a szonda z_offset-ét. Ezáltal ez a koordináta gyakorlatilag a háló "nulla" referenciájává válik.
+- `relative_reference_index: 7` *Alapértelmezett érték: Nincs (letiltva)* A mért pontok létrehozásakor mindegyikhez indexet rendelünk. Ezt az indexet a klippy.log fájlban vagy a BED_MESH_OUTPUT segítségével kereshetjük meg (további információkért lásd az alábbi, Bed Mesh GCodes című részt). Ha indexet rendelsz a `relative_reference_index` opcióhoz, akkor az ezen a koordinátán mért érték fogja helyettesíteni a szonda z_offset-ét. Ezáltal ez a koordináta gyakorlatilag a háló "nulla" referenciájává válik.
 
-A relatív referenciaindex használatakor azt az indexet kell választania, amelyik a legközelebb van ahhoz a ponthoz a tárgyasztalon, ahol a Z végállás kalibrálása történt. Vedd figyelembe, hogy ha az indexet a napló vagy a BED_MESH_OUTPUT segítségével keresi meg, akkor a "Probe" fejléc alatt felsorolt koordinátákat kell használnia a helyes index megtalálásához.
+A relatív referenciaindex használatakor azt az indexet kell válaztatnod, amelyik a legközelebb van ahhoz a ponthoz a tárgyasztalon, ahol a Z végállás kalibrálása történt. Vedd figyelembe, hogy ha az indexet a napló vagy a BED_MESH_OUTPUT segítségével keresed meg, akkor a "Probe" fejléc alatt felsorolt koordinátákat kell használnod a helyes index megtalálásához.
 
 ### Hibás régiók
 

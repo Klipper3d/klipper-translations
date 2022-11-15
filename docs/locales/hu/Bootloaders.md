@@ -168,7 +168,7 @@ A SAMD21 leggyakoribb bootloadere az "Arduino Zero" -ban található. Ez egy 8Ki
 bossac -U -p /dev/ttyACM0 --offset=0x2000 -w out/klipper.bin -v -b -R
 ```
 
-Ezzel szemben az "Arduino M0" 16KiB bootloadert használ (az alkalmazást 16KiB kezdőcímmel kell lefordítani). Egy alkalmazás égetéséhez ezen a bootloaderen, állítsd vissza a mikrokontrollert, és futtassa a flash parancsot a bootolás első néhány másodpercében. Valami ilyesmi:
+Ezzel szemben az "Arduino M0" 16KiB bootloadert használ (az alkalmazást 16KiB kezdőcímmel kell lefordítani). Egy alkalmazás égetéséhez ezen a bootloaderen, állítsd vissza a mikrokontrollert, és futtasd a flash parancsot a bootolás első néhány másodpercében. Valami ilyesmi:
 
 ```
 avrdude -c stk500v2 -p atmega2560 -P /dev/ttyACM0 -u -Uflash:w:out/klipper.elf.hex:i

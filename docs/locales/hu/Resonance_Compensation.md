@@ -54,11 +54,11 @@ Vedd figyelembe, hogy a gyűrődési frekvenciák változhatnak, ha a nyomtatób
 * A váz merevségének növelésére szolgáló néhány kiegészítés telepítve van.
 * Különböző tárgyasztal van telepítve egy Y tárgyasztalos nyomtatóra, vagy üveg hozzáadása stb.
 
-Ha ilyen változtatásokat hajtanak végre, akkor érdemes legalább a gyűrődési frekvenciákat megmérni, hogy lássák, változtak-e azok.
+Ha ilyen változtatásokat hajtotok végre, akkor érdemes legalább a gyűrődési frekvenciákat megmérni, hogy lássátok, változtak-e azok.
 
 ### Bemeneti formázó konfigurációja
 
-Az X és Y tengelyek gyűrődési frekvenciájának mérése után a következő szakaszt adhatja hozzá a `printer.cfg` fájlhoz:
+Az X és Y tengelyek gyűrődési frekvenciájának mérése után a következő szakaszt adhatod hozzá a `printer.cfg` fájlhoz:
 
 ```
 [input_shaper]
