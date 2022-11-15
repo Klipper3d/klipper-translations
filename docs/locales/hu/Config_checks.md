@@ -66,4 +66,4 @@ Ez az útmutató a Klipper konfigurációs fájlban lévő tű-beállítások al
 
 Miután meggyőződtünk arról, hogy az alapnyomtatás működik, érdemes megfontolni a [nyomás előtolás](Pressure_Advance.md) kalibrálását.
 
-Előfordulhat, hogy más típusú részletes nyomtató-kalibrálásra is szükség lehet. Ehhez számos útmutató áll rendelkezésre az interneten (keressen rá például a "3d nyomtató kalibrálás" szövegre). Ha például a gyűrődésnek nevezett hatást tapasztalod, megpróbálhatod követni a [rezonancia kompenzáció](Resonance_Compensation.md) hangolási útmutatót.
+Előfordulhat, hogy más típusú részletes nyomtató-kalibrálásra is szükség lehet. Ehhez számos útmutató áll rendelkezésre az interneten (keress rá például a "3d nyomtató kalibrálás" szövegre). Ha például a gyűrődésnek nevezett hatást tapasztalod, megpróbálhatod követni a [rezonancia kompenzáció](Resonance_Compensation.md) hangolási útmutatót.

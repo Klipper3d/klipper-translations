@@ -92,9 +92,9 @@ A fenti parancs több példányban is futtatható, amennyiben minden példányna
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer2.cfg -l /tmp/klippy2.log -I /tmp/printer2
 ```
 
-Ha ezt választja, akkor a szükséges indítási, leállítási és telepítési parancsfájlokat (ha vannak ilyenek) kell végrehajtania. Az [install-octopi.sh](../scripts/install-octopi.sh) szkript és a [klipper-start.sh](../scripts/klipper-start.sh) szkript hasznos lehet példaként.
+Ha ezt választod, akkor a szükséges indítási, leállítási és telepítési parancsfájlokat (ha vannak ilyenek) kell végrehajtanod. Az [install-octopi.sh](../scripts/install-octopi.sh) szkript és a [klipper-start.sh](../scripts/klipper-start.sh) szkript hasznos lehet példaként.
 
-## Muszáj az OctoPrintet használnom?
+## Muszáj az OctoPrint-et használnom?
 
 A Klipper szoftver nem függ az OctoPrint-től. Lehetséges alternatív szoftvereket használni a Klipper parancsok küldésére, de ehhez Linux adminisztrátori ismeretekre van szükség.
 

@@ -138,7 +138,7 @@ homing_retract_dist: 0
 
 A fenti példák csak az érzékelő nélküli kezdőpont felvételre jellemző beállításokat mutatják. Az összes elérhető beállításért lásd a [konfigurációs referencia](Config_Reference.md#tmc-motorvezerlo-konfiguracioja) dokumentumot.
 
-#### Keresse meg a legmagasabb érzékenységet, amely sikeresen jelzi a kezdőpontot
+#### Keresd meg a legmagasabb érzékenységet, amely sikeresen jelzi a kezdőpontot
 
 Helyezd a kocsit a sín közepéhez közel. A SET_TMC_FIELD paranccsal állítsd be a legnagyobb érzékenységet. A TMC2209 esetében:
 

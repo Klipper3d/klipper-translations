@@ -63,7 +63,7 @@ Ezután a NumPy telepítéséhez a Klipper környezetbe futtassuk a parancsot:
 
 Vedd figyelembe, hogy a CPU teljesítményétől függően ez *sok* időt vehet igénybe, akár 10-20 percet is. Legyen türelmes, és várja meg a telepítés befejezését. Bizonyos esetekben, ha a kártyán túl kevés RAM van, a telepítés meghiúsulhat, és engedélyeznie kell a swapot.
 
-Ezután ellenőrizd és kövesse az [RPi Microcontroller dokumentum](RPi_microcontroller.md) utasításait a "linux mcu" beállításához a Raspberry Pi-n.
+Ezután ellenőrizd és kövesd az [RPi Microcontroller dokumentum](RPi_microcontroller.md) utasításait a "linux mcu" beállításához a Raspberry Pi-n.
 
 Győződjünk meg róla, hogy a Linux SPI-illesztőprogram engedélyezve van a `sudo raspi-config` futtatásával és az SPI engedélyezésével az "Interfacing options" menüben.
 

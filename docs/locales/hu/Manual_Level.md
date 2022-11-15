@@ -96,7 +96,7 @@ speed: 50.
 screw_thread: CW-M3
 ```
 
-Az 1. csavar mindig a referenciapont a többi csavar számára, így a rendszer feltételezi, hogy az 1. csavar a megfelelő magasságban van. Először mindig futtassa le a `G28` G-kódot, majd futtassa le a `SCREWS_TILT_CALCULATE` parancsot. Ennek a következőhöz hasonló kimenetet kell eredményeznie:
+Az 1. csavar mindig a referenciapont a többi csavar számára, így a rendszer feltételezi, hogy az 1. csavar a megfelelő magasságban van. Először mindig futtasd le a `G28` G-kódot, majd futtasd le a `SCREWS_TILT_CALCULATE` parancsot. Ennek a következőhöz hasonló kimenetet kell eredményeznie:
 
 ```
 Send: G28
@@ -125,4 +125,4 @@ Ha olyan szondát használsz, amely a nyomtatófej oldalára van szerelve (azaz 
 
 A `MAX_DEVIATION` paraméter akkor hasznos, ha egy mentett tárgyasztal hálót használunk, hogy biztosítsuk, hogy a tárgyasztal szintje ne térjen el túlságosan attól a helytől, ahol a háló létrehozásakor volt. Például a `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` hozzáadható a szeletelő egyéni indító G-kódjához a háló betöltése előtt. Ez megszakítja a nyomtatást, ha a beállított határértéket túllépi (ebben a példában 0,01 mm), lehetőséget adva a felhasználónak a csavarok beállítására és a nyomtatás újraindítására.
 
-A `DIRECTION` paraméter akkor hasznos, ha a tárgyasztal szintező csavarjait csak egy irányba tudja elfordítani. Például lehetnek olyan csavarjai, amelyek a lehető legalacsonyabb (vagy legmagasabb) pozícióban vannak meghúzva, és csak egy irányba forgathatók a tárgyasztal emeléséhez (vagy süllyesztéséhez). Ha a csavarokat csak az óramutató járásával megegyező irányban tudja elfordítani, futtassa a `SCREWS_TILT_CALCULATE DIRECTION=CW` parancsot. Ha csak az óramutató járásával ellentétes irányban tudja elforgatni őket, futtassa a `SCREWS_TILT_CALCULATE DIRECTION=CCW` parancsot. A program kiválaszt egy megfelelő referenciapontot, hogy a tárgyasztalt az összes csavar adott irányba történő elfordításával szintezhesse.
+A `DIRECTION` paraméter akkor hasznos, ha a tárgyasztal szintező csavarjait csak egy irányba tudod elfordítani. Például lehetnek olyan csavarjaid, amelyek a lehető legalacsonyabb (vagy legmagasabb) pozícióban vannak meghúzva, és csak egy irányba forgathatók a tárgyasztal emeléséhez (vagy süllyesztéséhez). Ha a csavarokat csak az óramutató járásával megegyező irányban tudod elfordítani, futtasd a `SCREWS_TILT_CALCULATE DIRECTION=CW` parancsot. Ha csak az óramutató járásával ellentétes irányban tudod elforgatni őket, futtasd a `SCREWS_TILT_CALCULATE DIRECTION=CCW` parancsot. A program kiválaszt egy megfelelő referenciapontot, hogy a tárgyasztalt az összes csavar adott irányba történő elfordításával szintezhesd.

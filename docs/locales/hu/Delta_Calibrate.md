@@ -83,7 +83,7 @@ Add meg ezeket a paramétereket a Klippernek:
 DELTA_ANALYZE OUTER_DISTS=<a_to_far_c>,<far_c_to_b>,<b_to_far_a>,<far_a_to_c>,<c_to_far_b>,<far_b_to_a>
 ```
 
-Ezen a ponton nyugodtan leveheti a tárgyat a tárgyasztalról. A végső mérések magukra az oszlopokra vonatkoznak. Mérd meg a középső oszlop méretét az "A" küllők mentén, majd a "B" küllők mentén, végül a "C" küllők mentén.
+Ezen a ponton nyugodtan leveheted a tárgyat a tárgyasztalról. A végső mérések magukra az oszlopokra vonatkoznak. Mérd meg a középső oszlop méretét az "A" küllők mentén, majd a "B" küllők mentén, végül a "C" küllők mentén.
 
 ![delta-a-pillar](img/delta-a-pillar.jpg)
 

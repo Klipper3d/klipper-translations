@@ -78,7 +78,7 @@ Az extruder tényleges forgatási távolsága nyomtatóról nyomtatóra változi
 
 ## A gear_ratio használata
 
-A `gear_ratio` beállítása megkönnyítheti a `rotation_distance` konfigurálását olyan léptetőknél, amelyekhez áttétel (vagy hasonló) van csatlakoztatva. A legtöbb léptető nem rendelkezik áttétellel. Ha nem biztos benne, akkor ne állítsd be a `gear_ratio` értéket a konfigurációban.
+A `gear_ratio` beállítása megkönnyítheti a `rotation_distance` konfigurálását olyan léptetőknél, amelyekhez áttétel (vagy hasonló) van csatlakoztatva. A legtöbb léptető nem rendelkezik áttétellel. Ha nem vagy biztos benne, akkor ne állítsd be a `gear_ratio` értéket a konfigurációban.
 
 Ha `gear_ratio` be van állítva, a `rotation_distance` azt a távolságot jelöli, amelyet a tengely az áttételen lévő utolsó fogaskerék egy teljes elfordulásával megtesz. Ha például egy "5:1"-es áttételt használunk, akkor kiszámíthatjuk a rotation_distance-ot [a hardver ismeretében](#a-forgasi_tavolsag-kinyerese-a-hardver-ellenorzesevel), majd hozzáadhatjuk a `gear_ratio: 5:1` értéket a konfigurációs fájlhoz.
 
