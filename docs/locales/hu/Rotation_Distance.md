@@ -20,7 +20,7 @@ A `<full_steps_per_rotation>` beállítást a léptetőmotor típusa határozza 
 
 A `<microsteps>` beállítást a léptetőmotor-meghajtó határozza meg. A legtöbb meghajtó 16 mikrolépést használ. Ha bizonytalan vagy, állítsd be a `microsteps: 16` a konfigurációban, és használd a 16-ot a fenti képletben.
 
-Szinte minden nyomtatónak egész számot kell megadnia a `rotation_distance` X, Y és Z típusú tengelyeknél. Ha a fenti képlet olyan rotation_distance-ot eredményez, amely 0,01 egész számon belül van, akkor kerekítse a végső értéket erre az egész számra.
+Szinte minden nyomtatónak egész számot kell megadnia a `rotation_distance` X, Y és Z típusú tengelyeknél. Ha a fenti képlet olyan rotation_distance-ot eredményez, amely 0,01 egész számon belül van, akkor kerekítsd a végső értéket erre az egész számra.
 
 ## A rotation_distance kalibrálása extrudereken
 
@@ -32,7 +32,7 @@ Ezután a következő eljárást alkalmazd a "mérés és igazítás" elvégzés
 
 1. Győződj meg arról, hogy az extruderben van-e nyomtatószál, a hotend megfelelő hőmérsékletre van-e melegítve, és a nyomtató készen áll-e az extrudálásra.
 1. Jelöld meg a nyomtatószálat egy jelölővel az extrudertest bemenő nyílásától kb. 70 mm-re. Ezután egy digitális tolómérővel mérd meg a lehető legpontosabban ennek a jelölésnek a tényleges távolságát. Ezt jegyezd fel `<initial_mark_distance>`.
-1. Extrudáljon 50 mm nyomtatószálat a következő parancsokkal: `G91`, majd `G1 E50 F60`. Az 50 mm-t jegyezze meg `<requested_extrude_distance>`. Várja meg, amíg az extruder befejezi a mozgást (ez körülbelül 50 másodpercig tart). Fontos, hogy lassú extrudálási sebességet használj ehhez a teszthez, mivel a gyorsabb sebesség magas nyomást okozhat az extruderben, ami torzítja az eredményeket. (Ne használod az "extrude gombot" a grafikus előlapon ehhez a teszthez, mivel azok gyors ütemben extrudálnak.)
+1. Extrudálj 50 mm nyomtatószálat a következő parancsokkal: `G91`, majd `G1 E50 F60`. Az 50 mm-t jegyezd meg `<requested_extrude_distance>`. Várd meg, amíg az extruder befejezi a mozgást (ez körülbelül 50 másodpercig tart). Fontos, hogy lassú extrudálási sebességet használj ehhez a teszthez, mivel a gyorsabb sebesség magas nyomást okozhat az extruderben, ami torzítja az eredményeket. (Ne használd az "extrude gombot" a grafikus előlapon ehhez a teszthez, mivel azok gyors ütemben extrudálnak.)
 1. Digitális tolómérővel mérd meg az extruder teste és a szálon lévő jelölés közötti új távolságot. Ezt jegyezd fel `<subsequent_mark_distance>`. Ezután számítsd ki: `actual_extrude_distance = <initial_mark_distance> - <subsequent_mark_distance>`
 1. A rotation_distance kiszámítása: `rotation_distance = <previous_rotation_distance> * <actual_extrude_distance> / <requested_extrude_distance>` Az új rotation_distance-t három tizedesjegyre kerekítjük.
 

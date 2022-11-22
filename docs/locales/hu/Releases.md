@@ -75,11 +75,11 @@ Elérhető a 20191021. Főbb változások ebben a kiadásban:
 Elérhető a 20181220. Főbb változások a kiadásban:
 
 * A Klipper mostantól támogatja a "háló" tárgyasztal szintezés állítást
-* Új támogatás a "továbbfejlesztett" delta kalibrációhoz (kalibrálja a nyomtatás x/y méreteit delta nyomtatókon)
+* Új támogatás a "továbbfejlesztett" delta kalibrációhoz (kalibráld a nyomtatás x/y méreteit delta nyomtatókon)
 * A Trinamic léptetőmotor-meghajtók (tmc2130, tmc2208, tmc2660) futásidejű konfigurációjának támogatása
 * Javított hőmérséklet-érzékelő támogatás: MAX6675, MAX31855, MAX31856, MAX31865, egyedi termisztorok, általános PT100 típusú érzékelők
 * Számos új modul: temperature_fan, sx1509, force_move, mcp4451, z_tilt, quad_gantry_level, endstop_phase, bltouch
-* Számos új parancs hozzáadása: SAVE_CONFIG, SET_PRESSURE_ADVANCE, SET_GCODE_OFFSET, SET_VELOCITY_LIMIT, STEPPER_BUZZ, TURN_OFF_HEATERS, M204, egyedi g-kód makrók
+* Számos új parancs hozzáadása: SAVE_CONFIG, SET_PRESSURE_ADVANCE, SET_GCODE_OFFSET, SET_VELOCITY_LIMIT, STEPPER_BUZZ, TURN_OFF_HEATERS, M204, egyedi G-kód makrók
 * Kibővített LCD-kijelző támogatás:
    * Futásidejű menük támogatása
    * Új kijelző ikonok

@@ -82,7 +82,7 @@ probe_points:
     100, 100, 20 # egy példa
 ```
 
-Javasoljuk, hogy 1 mérőpontal kezd, a nyomtatási tárgyasztal közepén, kissé felette.
+Javasoljuk, hogy 1 mérőponttal kezd, a nyomtatási tárgyasztal közepén, kissé felette.
 
 Az MPU-9250 esetében győződj meg róla, hogy a Linux I2C illesztőprogram engedélyezve van, és az átviteli sebesség 400000-re van állítva (további részletekért lásd az [I2C engedélyezése](RPi_microcontroller.md#optional-enabling-i2c) részt). Ezután adjuk hozzá a következőket a printer.cfg fájlhoz:
 
@@ -100,16 +100,16 @@ probe_points:
     100, 100, 20  # an example
 ```
 
-Indítsa újra a Klippert a `RESTART` paranccsal.
+Indítsd újra a Klippert a `RESTART` paranccsal.
 
 ## A rezonanciák mérése
 
 ### A beállítás ellenőrzése
 
-Most már tesztelheti a kapcsolatot.
+Most már tesztelheted a kapcsolatot.
 
 - A "nem tárgyasztalt érintő" (pl. egy gyorsulásmérő), az Octoprintbe írd be az `ACCELEROMETER_QUERY` parancsot
-- A "bed-slingers" (pl. egynél több gyorsulásmérő) esetében írd be az `ACCELEROMETER_QUERY CHIP=<chip>` ahol `<chip>` a chip neve a beírt formában, pl. `CHIP=bed` (lásd: [bed-slinger nyomtatók](#bed-slinger-nyomtatok)) az összes telepített gyorsulásmérő chiphez.
+- A "bed-slingers" (pl. egynél több gyorsulásmérő) esetében írd be az `ACCELEROMETER_QUERY CHIP=<chip>` ahol `<chip>` a chip neve a beírt formában, pl. `CHIP=bed` (lásd: [bed-slinger nyomtatók](#bed-slinger-nyomtatok)) az összes telepített gyorsulásmérő chip-hez.
 
 A gyorsulásmérő aktuális méréseit kell látnia, beleértve a szabadesés gyorsulását is, pl.
 
@@ -117,13 +117,13 @@ A gyorsulásmérő aktuális méréseit kell látnia, beleértve a szabadesés g
 Visszahívás: // adxl345 értékek (x, y, z): 470.719200, 941.438400, 9728.196800
 ```
 
-Ha olyan hibát kap, mint `Invalid adxl345 id (got xx vs e5)`, ahol `xx` valami más azonosító, azaz ADXL345-öt érintő kapcsolati problémára vagy a hibás érzékelőre utal. Ellenőrizd kétszer is a tápellátást, a kábelezést (hogy megfelel-e a kapcsolási rajzoknak, nincs-e törött vagy laza vezeték stb.) és a forrasztás minőségét.
+Ha olyan hibát kapsz, mint `Invalid adxl345 id (got xx vs e5)`, ahol `xx` valami más azonosító, azaz ADXL345-öt érintő kapcsolati problémára vagy a hibás érzékelőre utal. Ellenőrizd kétszer is a tápellátást, a kábelezést (hogy megfelel-e a kapcsolási rajzoknak, nincs-e törött vagy laza vezeték stb.) és a forrasztás minőségét.
 
-Ezután próbáld meg futtatni a `MEASURE_AXES_NOISE` parancsot az Octoprintben, így kaphatsz néhány alapszámot a gyorsulásmérő zajára a tengelyeken (valahol a ~1-100-as tartományban kell lennie). A túl magas tengelyzaj (pl. 1000 és több) az érzékelő problémáira, a tápellátásával kapcsolatos problémákra vagy a 3D nyomtató túl zajos, kiegyensúlyozatlan ventilátoraira utalhat.
+Ezután próbáld meg futtatni a `MEASURE_AXES_NOISE` parancsot az Octoprint-ben, így kaphatsz néhány alapszámot a gyorsulásmérő zajára a tengelyeken (valahol a ~1-100-as tartományban kell lennie). A túl magas tengelyzaj (pl. 1000 és több) az érzékelő problémáira, a tápellátásával kapcsolatos problémákra vagy a 3D nyomtató túl zajos, kiegyensúlyozatlan ventilátoraira utalhat.
 
 ### A rezonanciák mérése
 
-Most már lefuttathat néhány valós tesztet. Futtassa a következő parancsot:
+Most már lefuttathatsz néhány valós tesztet. Futtasd a következő parancsot:
 
 ```
 TEST_RESONANCES AXIS=X
@@ -131,7 +131,7 @@ TEST_RESONANCES AXIS=X
 
 Vedd figyelembe, hogy az X tengelyen rezgéseket hoz létre. A bemeneti alakítást is letiltja, ha az korábban engedélyezve volt, mivel a rezonancia tesztelés nem érvényes a bemeneti alakító engedélyezésével.
 
-**Figyelem!** Az első alkalommal mindenképpen figyelje meg a nyomtatót, hogy a rezgések ne legyenek túl hevesek (az `M112` paranccsal vészhelyzet esetén megszakítható a teszt; remélhetőleg azonban erre nem kerül sor). Ha a rezgések mégis túl erősek lesznek, megpróbálhat az alapértelmezettnél alacsonyabb értéket megadni az `accel_per_hz` paraméterhez a `[resonance_tester]` szakaszban, pl.
+**Figyelem!** Az első alkalommal mindenképpen figyeld meg a nyomtatót, hogy a rezgések ne legyenek túl hevesek (az `M112` paranccsal vészhelyzet esetén megszakítható a teszt; remélhetőleg azonban erre nem kerül sor). Ha a rezgések mégis túl erősek lesznek, megpróbálhatsz az alapértelmezettnél alacsonyabb értéket megadni az `accel_per_hz` paraméterhez a `[resonance_tester]` szakaszban, pl.
 
 ```
 [resonance_tester]
@@ -140,7 +140,7 @@ accel_per_hz: 50  # default is 75
 probe_points: ...
 ```
 
-Ha az X tengelyen működik, futtassa az Y tengelyen is:
+Ha az X tengelyen működik, futtasd az Y tengelyen is:
 
 ```
 TEST_RESONANCES AXIS=Y

@@ -240,19 +240,19 @@ A [HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader) egy kompak
 
 Az általános STM32F103 alaplapok, mint például a blue pill esetében a bootloader 3,3V-os soros égetése lehetséges az stm32flash használatával, amint azt a fenti stm32duino szakaszban említettük, a kívánt hid bootloader bináris fájlnevének behelyettesítésével (azaz: hid_generic_pc13.bin a blue pillhez).
 
-Az SKR Mini E3 esetében nem lehet stm32flash-t használni, mivel a boot0 láb közvetlenül a földre van kötve, és nincs alaplapi tűkiállása. A bootloader égetéséhez ajánlott STLink V2-t használni STM32Cube programozóval. Ha nincs vagy nem fér hozzá egy STLinkhez, akkor lehetséges egy [OpenOCD futtatása a Raspberry PI-n](#az-openocd-futtatasa-a-raspberry-pi-n) használata is a következő chipkonfigurációval:
+Az SKR Mini E3 esetében nem lehet stm32flash-t használni, mivel a boot0 láb közvetlenül a földre van kötve, és nincs alaplapi tűkiállása. A bootloader égetéséhez ajánlott STLink V2-t használni STM32Cube programozóval. Ha nincs vagy nem fér hozzá egy STLink-hez, akkor lehetséges egy [OpenOCD futtatása a Raspberry PI-n](#az-openocd-futtatasa-a-raspberry-pi-n) használata is a következő chip konfigurációval:
 
 ```
 forrás [find target/stm32f1x.cfg]
 ```
 
-Ha szeretnéd, a következő paranccsal készíthet biztonsági másolatot az aktuális flash memóriáról. Vedd figyelembe, hogy ez némi időt vehet igénybe:
+Ha szeretnéd, a következő paranccsal készíthetsz biztonsági másolatot az aktuális flash memóriáról. Vedd figyelembe, hogy ez némi időt vehet igénybe:
 
 ```
 flash read_bank 0 btt_skr_mini_e3_backup.bin
 ```
 
-végül, a következő parancsokhoz hasonló parancsokkal égethet:
+végül, a következő parancsokhoz hasonló parancsokkal égethetsz:
 
 ```
 stm32f1x mass_erase 0
@@ -262,7 +262,7 @@ program hid_btt_skr_mini_e3.bin verify 0x08000000
 MEGJEGYZÉSEK:
 
 - A fenti példa törli a chipet, majd beprogramozza a bootloadert. Az égetéshez választott módszertől függetlenül ajánlott a chipet az égetés előtt törölni.
-- Mielőtt az SKR Mini E3-at ezzel a bootloaderrel égetnéd, tudnod kell, hogy a firmware frissítése már nem lesz lehetséges az SD-kártyán keresztül.
+- Mielőtt az SKR Mini E3-at ezzel a bootloader-el égetnéd, tudnod kell, hogy a firmware frissítése már nem lesz lehetséges az SD-kártyán keresztül.
 - You may need to hold down the reset button on the board while launching OpenOCD. It should display something like:
    ```
    Open On-Chip Debugger 0.10.0+dev-01204-gc60252ac-dirty (2020-04-27-16:00)

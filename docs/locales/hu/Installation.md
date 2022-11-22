@@ -42,7 +42,7 @@ make
 
 Ha a [nyomtató konfigurációs fájl](#obtain-a-klipper-configuration-file) tetején található megjegyzések egyéni lépéseket írnak le a "flash" végső képnek a nyomtató vezérlőpanelére történő égetéséhez, akkor kövesd ezeket a lépéseket, majd folytasd az [OctoPrint konfigurálása](#configuring-octoprint-to-use-klipper) lépésekkel.
 
-Ellenkező esetben a következő lépéseket gyakran használják a nyomtató vezérlőlapjának "flash" égetésére. Először meg kell határozni a mikrokontrollerhez csatlakoztatott soros portot. Futtassa a következőket:
+Ellenkező esetben a következő lépéseket gyakran használják a nyomtató vezérlőlapjának "flash" égetésére. Először meg kell határozni a mikrokontrollerhez csatlakoztatott soros portot. Futtasd a következőket:
 
 ```
 ls /dev/serial/by-id/*
@@ -86,7 +86,7 @@ A csatlakozás után lépj a "Terminal" fülre, és írd be a "status" kifejezé
 
 A következő lépés a [nyomtató konfigurációs fájl](#obtain-a-klipper-configuration-file) átmásolása a Raspberry Pi-re.
 
-Vitathatatlanul a Klipper konfigurációs fájl beállításának legegyszerűbb módja egy olyan asztali szerkesztő használata, amely támogatja a fájlok szerkesztését az "scp" és/vagy "sftp" protokollokon keresztül. Vannak szabadon elérhető eszközök, amelyek támogatják ezt (pl. Notepad++, WinSCP és Cyberduck). Töltse be a nyomtató konfigurációs fájlját a szerkesztőprogramba, majd mentsd el egy "printer.cfg" nevű fájlként a pi felhasználó home könyvtárába (pl. /home/pi/printer.cfg).
+Vitathatatlanul a Klipper konfigurációs fájl beállításának legegyszerűbb módja egy olyan asztali szerkesztő használata, amely támogatja a fájlok szerkesztését az "scp" és/vagy "sftp" protokollokon keresztül. Vannak szabadon elérhető eszközök, amelyek támogatják ezt (pl. Notepad++, WinSCP és Cyberduck). Töltsd be a nyomtató konfigurációs fájlját a szerkesztőprogramba, majd mentsd el egy "printer.cfg" nevű fájlként a pi felhasználó home könyvtárába (pl. /home/pi/printer.cfg).
 
 Alternatívaként a fájlt közvetlenül a Raspberry Pi-n is lehet másolni és szerkeszteni SSH-n keresztül. Ez valahogy így nézhet ki (ügyeljünk arra, hogy a parancsot frissítsük a megfelelő nyomtató konfigurációs fájlnévvel):
 
@@ -95,7 +95,7 @@ cp ~/klipper/config/example-cartesian.cfg ~/printer.cfg
 nano ~/printer.cfg
 ```
 
-Gyakori, hogy minden nyomtatónak saját egyedi neve van a mikrokontroller számára. A név a Klipper égetése után megváltozhat, ezért futtassa újra ezeket a lépéseket, még akkor is, ha már az égetéskor elvégezte őket. Futtatás:
+Gyakori, hogy minden nyomtatónak saját egyedi neve van a mikrokontroller számára. A név a Klipper égetése után megváltozhat, ezért futtasd újra ezeket a lépéseket, még akkor is, ha már az égetéskor elvégezted őket. Futtatás:
 
 ```
 ls /dev/serial/by-id/*
@@ -107,7 +107,7 @@ Az alábbiakhoz hasonlót kell kapnod:
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-Ezután frissítse a konfigurációs fájlt az egyedi névvel. Például frissítse az `[mcu]` részt, hogy valami hasonlót kapjon:
+Ezután frissítsd a konfigurációs fájlt az egyedi névvel. Például frissítsd az `[mcu]` részt, hogy valami hasonlót kapj:
 
 ```
 [mcu]
@@ -120,4 +120,4 @@ A nyomtató konfigurációs fájljának testreszabásakor nem ritka, hogy a Klip
 
 A Klipper az OctoPrint terminállapon keresztül jelenti a hibaüzeneteket. A "status" paranccsal a hibaüzenetek újra jelenthetők. A Klipper alapértelmezett indítószkriptje egy naplót is elhelyez a **/tmp/klippy.log** fájlban, amely részletesebb információkat tartalmaz.
 
-Miután a Klipper jelenti, hogy a nyomtató készen áll, folytasd a [konfigurációs ellenőrzés](Config_checks.md) című dokumentumal, hogy elvégezz néhány alapvető ellenőrzést a config fájlban lévő definíciókon. További információkért lásd a fő [dokumentációs hivatkozás](Overview.md) című rész.
+Miután a Klipper jelenti, hogy a nyomtató készen áll, folytasd a [konfigurációs ellenőrzés](Config_checks.md) című dokumentummal, hogy elvégezz néhány alapvető ellenőrzést a config fájlban lévő definíciókon. További információkért lásd a fő [dokumentációs hivatkozás](Overview.md) című rész.

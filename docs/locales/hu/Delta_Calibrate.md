@@ -103,7 +103,7 @@ Ezután az óramutató járásával ellentétes irányban mérjük meg a többi 
 
 ![delta_cal_e_step4](img/delta_cal_e_step4.png)
 
-És add meg őket a Klippernek:
+És add meg őket a Klipper-nek:
 
 ```
 DELTA_ANALYZE OUTER_PILLAR_WIDTHS=<a>,<far_c>,<b>,<far_a>,<c>,<far_b>

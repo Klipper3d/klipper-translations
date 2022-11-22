@@ -86,7 +86,7 @@ Ha a teszt során valami rosszul megy, az `ABORT` paranccsal kiléphetünk a kal
 
 ## A hőtágulás meghatározása
 
-Miután sikeresen elvégezte a tárgyasztal szintezését, pontosabb értéket lehet kiszámítani a "hőtágulás", "a papír vastagsága" és "a papírteszt során érzékelhető súrlódás" együttes hatására.
+Miután sikeresen elvégezted a tárgyasztal szintezését, pontosabb értéket lehet kiszámítani a "hőtágulás", "a papír vastagsága" és "a papírteszt során érzékelhető súrlódás" együttes hatására.
 
 Ilyen típusú számításokra általában nincs szükség, mivel a legtöbb felhasználó szerint az egyszerű "papírteszt" jó eredményeket ad.
 
