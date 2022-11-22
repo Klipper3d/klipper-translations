@@ -92,7 +92,7 @@ Ez a végpont lehetővé teszi az ügyfelek számára, hogy regisztrálják a kl
 
 Például: `{"id": 123, "method": "register_remote_method", "params": {"response_template": {"action": "run_paneldue_beep"}, "remote_method": "paneldue_beep"}}}` fog visszatérni: `{"id": 123, "result": {}}`
 
-A távoli `paneldue_beep` metódus mostantól hívható a Klipperből. Vegyük figyelembe, hogy ha a metódus paramétereket vesz fel, akkor azokat kulcsszavas argumentumként kell megadni. Az alábbiakban egy példa látható arra, hogyan hívható meg egy gcode_macro-ból:
+A távoli `paneldue_beep` metódus mostantól hívható a Klipper-ből. Vegyük figyelembe, hogy ha a metódus paramétereket vesz fel, akkor azokat kulcsszavas argumentumként kell megadni. Az alábbiakban egy példa látható arra, hogyan hívható meg egy gcode_macro-ból:
 
 ```
 [gcode_macro PANELDUE_BEEP]
@@ -114,7 +114,7 @@ A kérés "objects" paraméterének egy szótárnak kell lennie, amely a lekérd
 
 A válaszüzenet tartalmaz egy "status" mezőt, amely egy szótárat tartalmaz a lekérdezett információkkal. A kulcs a nyomtató objektum nevét tartalmazza, az érték pedig a mezőit tartalmazó szótár. A válaszüzenet tartalmaz egy "eventtime" mezőt is, amely a lekérdezés időpontjának időbélyegét tartalmazza.
 
-A rendelkezésre álló mezők a [Állapothivatkozás](Status_Reference.md) dokumentumban vannak dokumentálva.
+A rendelkezésre álló mezők az [Állapothivatkozás](Status_Reference.md) dokumentumban vannak dokumentálva.
 
 ### objects/subscribe
 

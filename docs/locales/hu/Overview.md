@@ -56,6 +56,6 @@
 - [Raspberry Pi mint mikrokontroller](RPi_microcontroller.md): A Raspberry Pi GPIO-tűire csatlakoztatott eszközök vezérlésének részletei.
 - [Beaglebone](Beaglebone.md): Klipper futtatásának részletei a Beaglebone PRU-n.
 - [Bootloaderek](Bootloaders.md): Fejlesztői információk a mikrokontrollerek égetéséről.
-- [CAN-busz](CANBUS.md): Információk a CAN-busz Klipperrel való használatáról.
+- [CAN-busz](CANBUS.md): Információk a CAN-busz Klipper-el való használatáról.
 - [TSL1401CL szálszélesség érzékelő](TSL1401CL_Filament_Width_Sensor.md)
 - [Hall szálszélesség érzékelő](Hall_Filament_Width_Sensor.md)

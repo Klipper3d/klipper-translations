@@ -104,7 +104,7 @@ A Klipper létrehoz egy "virtuális soros portot" a "/tmp/printer" fájlon keres
 
 A kód ezt azért teszi, hogy csökkentse annak esélyét, hogy a fejet véletlenül a tárgyasztalba vagy a falba ütköztesse. Miután a nyomtató kezdőponthoz ért, a szoftver megpróbálja ellenőrizni, hogy minden egyes mozgás a konfigurációs fájlban meghatározott position_min/max értéken belül van-e. Ha a motorok ki vannak kapcsolva (M84 vagy M18 parancs segítségével), akkor a motorokat a mozgás előtt újra be kell állítani.
 
-Ha a fejet az OctoPrint segítségével történő nyomtatás törlése után szeretnéd elmozdítani, fontold meg az OctoPrint törlési sorrendjének módosítását, hogy ezt megtegye helyetted. Ez az OctoPrintben a webböngészőn keresztül konfigurálható a következő menüpont alatt: Beállítások->GCODE szkriptek
+Ha a fejet az OctoPrint segítségével történő nyomtatás törlése után szeretnéd elmozdítani, fontold meg az OctoPrint törlési sorrendjének módosítását, hogy ezt megtegye helyetted. Ez az OctoPrint-ben a webböngészőn keresztül konfigurálható a következő menüpont alatt: Beállítások->GCODE szkriptek
 
 Ha a nyomtatás befejezése után szeretnéd mozgatni a fejet, fontold meg a kívánt mozgás hozzáadását a szeletelő "custom g-code" szakaszához.
 
@@ -112,17 +112,17 @@ Ha a nyomtatónak szüksége van további mozgatásra a kezdőpont felvételi fo
 
 ## Miért van a Z position_endstop 0,5-re állítva az alapértelmezett konfigurációban?
 
-A cartesian stílusú nyomtatók esetében a Z position_endstop megadja, hogy a fúvóka milyen messze van a tárgyasztaltól, amikor a végállás működésbe lép. Ha lehetséges, ajánlott Z-max végállást használni, és a tárgyasztaltól távolabb elhelyezni (mivel ez csökkenti a tárgyasztal ütközés lehetőségét). Ha azonban a tárgyasztal felé kell elindulni, akkor a végállást úgy kell beállítani, hogy akkor lépjen működésbe, amikor a fúvóka még mindig kis távolságra van a tárgyasztaltól. Így a tengely homingolásakor a fúvóka még azelőtt megáll, hogy a fúvóka hozzáérne a tárgyasztalhoz. További információért lásd a [tárgyasztal szintezés dokumentumot](Bed_Level.md).
+A cartesian stílusú nyomtatók esetében a Z position_endstop megadja, hogy a fúvóka milyen messze van a tárgyasztaltól, amikor a végállás működésbe lép. Ha lehetséges, ajánlott Z-max végállást használni, és a tárgyasztaltól távolabb elhelyezni (mivel ez csökkenti a tárgyasztal ütközés lehetőségét). Ha azonban a tárgyasztal felé kell elindulni, akkor a végállást úgy kell beállítani, hogy akkor lépjen működésbe, amikor a fúvóka még mindig kis távolságra van a tárgyasztaltól. Így a tengely kezdőpont felvételekor a fúvóka még azelőtt megáll, hogy hozzáérne a tárgyasztalhoz. További információért lásd a [tárgyasztal szintezés dokumentumot](Bed_Level.md).
 
 ## Átkonvertáltam a konfigurációmat Marlinból, és az X/Y tengelyek jól működnek, de a Z tengely kezdőpont felvételekor csak egy csikorgó zajt hallok
 
 Rövid válasz: Először is ellenőrizd, hogy a [konfigurációs ellenőrzések dokumentumban](Config_checks.md) leírtak szerint ellenőrizted-e a léptető konfigurációját. Ha a probléma továbbra is fennáll, próbáld meg csökkenteni a max_z_velocity értéket a nyomtató konfigurációjában.
 
-Hosszú válasz: A gyakorlatban a Marlin jellemzően csak körülbelül 10000 lépés/másodperc sebességgel tud lépni. Ha olyan sebességgel kell mozognia, amely nagyobb lépésszámot igényel, akkor a Marlin általában csak olyan gyorsan lép, amilyen gyorsan csak tud. A Klipper sokkal nagyobb lépésszámot képes elérni, de a léptetőmotornak nem biztos, hogy elegendő nyomatéka van a nagyobb sebességű mozgáshoz. Tehát egy nagy áttételszámú vagy nagy mikrolépésszámú Z tengely esetében a ténylegesen elérhető max_z_sebesség kisebb lehet, mint ami a Marlinban be van állítva.
+Hosszú válasz: A gyakorlatban a Marlin jellemzően csak körülbelül 10000 lépés/másodperc sebességgel tud lépni. Ha olyan sebességgel kell mozognia, amely nagyobb lépésszámot igényel, akkor a Marlin általában csak olyan gyorsan lép, amilyen gyorsan csak tud. A Klipper sokkal nagyobb lépésszámot képes elérni, de a léptetőmotornak nem biztos, hogy elegendő nyomatéka van a nagyobb sebességű mozgáshoz. Tehát egy nagy áttételszámú vagy nagy mikrolépésszámú Z tengely esetében a ténylegesen elérhető max_z_sebesség kisebb lehet, mint ami a Marlin-ban be van állítva.
 
 ## A TMC motorvezérlő kikapcsol nyomtatás közben
 
-Ha a TMC2208 (vagy TMC2224) motorvezérlőt "standalone módban" használod, akkor győződj meg róla, hogy a [Klipper legújabb verzióját](#hogyan-frissithetek-a-legujabb-szoftverre) használd. A TMC2208 "stealthchop" motorvezérlő problémájának megoldása 2020 március közepén került hozzá a Klipperhez.
+Ha a TMC2208 (vagy TMC2224) motorvezérlőt "standalone módban" használod, akkor győződj meg róla, hogy a [Klipper legújabb verzióját](#hogyan-frissithetek-a-legujabb-szoftverre) használd. A TMC2208 "stealthchop" motorvezérlő problémájának megoldása 2020 március közepén került a Klipper-hez.
 
 ## Véletlenszerű "Elveszett a kommunikáció az MCU-val" hibák
 

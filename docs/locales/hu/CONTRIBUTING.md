@@ -78,9 +78,9 @@ Az új dokumentumokat hozzá kell adni az <Overview.md> fájlhoz, és hozzá kel
 
    A kérelmeknek nem lehet összeolvadási konfliktusuk. A Klipper master ágához való új hozzáadások mindig egy "rebase" vagy "squash and rebase" segítségével történnek. A benyújtóknak általában nem szükséges a Klipper főadattár minden egyes frissítésénél újra egyesíteniük a beadványukat. Ha azonban összeolvasztási konfliktus van, akkor a benyújtóknak ajánlott a `git rebase` használata a konfliktus megoldására.
 
-   Minden egyes kérelemnek egyetlen magas szintű változtatással kell foglalkoznia. A nagyobb változtatásokat több független kérelemre kell bontani. Minden commitnak "önállóan kell állnia", hogy az olyan eszközök, mint a `git bisect` és `git revert` megbízhatóan működjenek.
+   Minden egyes kérelemnek egyetlen magas szintű változtatással kell foglalkoznia. A nagyobb változtatásokat több független kérelemre kell bontani. Minden commit-nak "önállóan kell állnia", hogy az olyan eszközök, mint a `git bisect` és `git revert` megbízhatóan működjenek.
 
-   A fehérterületi változtatásokat nem szabad összekeverni a funkcionális változtatásokkal. Általánosságban elmondható, hogy az indokolatlan szóköz módosításokat nem fogadjuk el, kivéve, ha azok a módosítandó kód megállapított "tulajdonosától" származnak.
+   A fehér területi változtatásokat nem szabad összekeverni a funkcionális változtatásokkal. Általánosságban elmondható, hogy az indokolatlan szóköz módosításokat nem fogadjuk el, kivéve, ha azok a módosítandó kód megállapított "tulajdonosától" származnak.
 
 A Klipper nem alkalmaz szigorú "kódolási stílus útmutatót", de a meglévő kód módosításainak követniük kell a meglévő kód magas szintű kódáramlását, kódbehúzási stílusát és formátumát. Az új modulok és rendszerek benyújtása esetén a kódolási stílus rugalmasabb, de előnyösebb, ha az új kód belsőleg konzisztens stílust követ, és általában az iparági kódolási normákat követi.
 
