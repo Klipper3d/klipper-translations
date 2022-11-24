@@ -1,12 +1,19 @@
-#
+# Jonathan <jonathanhav09@sfr.fr>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-11-24 21:48+0000\n"
+"Last-Translator: Jonathan <jonathanhav09@sfr.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"resonance_compensation/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid "Resonance Compensation"
-msgstr ""
+msgstr "Compensation de résonance"
 
 msgid ""
 "Klipper supports Input Shaping - a technique that can be used to reduce "
