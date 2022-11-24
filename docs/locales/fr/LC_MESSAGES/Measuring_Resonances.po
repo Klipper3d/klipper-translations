@@ -1,11 +1,11 @@
-# Jonathan <jonathanhav09@sfr.fr>, 2022.
+# Jonathan <jonathanhav09@sfr.fr>, 2022, 2025.
 # jean-luc MATTEI <jlucm@free.fr>, 2022, 2023, 2025.
 # Francis Poulizac <francis@poulizac.fr>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Jonathan <jonathanhav09@sfr.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "measuring_resonances/fr/>\n"
 "Language: fr\n"
