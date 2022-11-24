@@ -1,25 +1,26 @@
 # Tl <rflma99@pm.me>, 2022.
+# Jonathan <jonathanhav09@sfr.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-10 21:21+0000\n"
-"Last-Translator: Tl <rflma99@pm.me>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/status_reference/fr/>\n"
+"PO-Revision-Date: 2022-11-24 21:48+0000\n"
+"Last-Translator: Jonathan <jonathanhav09@sfr.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"status_reference/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
-#, fuzzy
 msgid ""
 "This document is a reference of printer status information available in "
 "Klipper [macros](Command_Templates.md), [display "
 "fields](Config_Reference.md#display), and via the [API "
 "Server](API_Server.md)."
 msgstr ""
-"Ce document est un référence au informations de status de l'imprimante dans "
-"Klipper [macros](Command_Templates.md), [display "
+"Ce document est une référence aux informations de status de l'imprimante "
+"dans Klipper [macros](Command_Templates.md), [display "
 "fields](Config_Reference.md#display), et via l'[API Server](API_Server.md)."
 
 msgid ""
