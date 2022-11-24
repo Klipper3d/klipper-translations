@@ -1,12 +1,12 @@
 # Wivik <seb+weblate@zedas.fr>, 2021, 2025.
-# Jonathan <jonathanhav09@sfr.fr>, 2022.
+# Jonathan <jonathanhav09@sfr.fr>, 2022, 2025.
 # Francis Poulizac <francis@poulizac.fr>, 2022.
 # jean-luc MATTEI <jlucm@free.fr>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: Wivik <seb+weblate@zedas.fr>\n"
+"Last-Translator: Jonathan <jonathanhav09@sfr.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "endstop_phase/fr/>\n"
 "Language: fr\n"
@@ -21,10 +21,11 @@ msgid ""
 "most useful when using a Trinamic stepper motor driver that has run-time "
 "configuration."
 msgstr ""
-"Ce document décrit le système de butée ajustée en phase pas à pas de Klipper. "
-"Cette fonctionnalité peut améliorer la précision des interrupteurs de fin de "
-"course traditionnels. Il est particulièrement utile lors de l'utilisation d'un"
-" pilote de moteur pas à pas Trinamic doté d'une configuration d'exécution."
+"Ce document décrit le système de butée ajustée en phase pas à pas de "
+"Klipper. Cette fonctionnalité peut améliorer la précision des interrupteurs "
+"de fin de course traditionnels. Il est particulièrement utile lors de "
+"l'utilisation d'un pilote de moteur pas à pas Trinamic doté d'une "
+"configuration d'exécution."
 
 msgid ""
 "A typical endstop switch has an accuracy of around 100 microns. (Each time an "
