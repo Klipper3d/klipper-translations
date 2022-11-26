@@ -136,11 +136,11 @@ Ezt általában a gazdagép és a mikrokontroller közötti USB-kapcsolat hardve
 
 ## A Raspberry Pi újraindul nyomtatás közben
 
-Ez valószínűleg a feszültségingadozások miatt van. Kövesse ugyanazokat a hibaelhárítási lépéseket a [Véletlenszerű "Elveszett a kommunikáció az MCU-val" hibák](#veletlenszeru-elveszett-a-kommunikacio-az-mcu-val-hibak) esetén.
+Ez valószínűleg a feszültségingadozások miatt van. Kövesd ugyanazokat a hibaelhárítási lépéseket a [Véletlenszerű "Elveszett a kommunikáció az MCU-val" hibák](#veletlenszeru-elveszett-a-kommunikacio-az-mcu-val-hibak) esetén.
 
 ## Amikor beállítom a `restart_method=command` az AVR készülékem újraindításkor lefagy
 
-Az AVR bootloader néhány régi verziójának ismert hibája van a watchdog esemény kezelésében. Ez általában akkor jelentkezik, ha a printer.cfg fájlban a restart_method beállítása "command". Amikor a hiba előfordul, az AVR eszköz nem reagál, amíg a tápellátást el nem veszik és újra be nem kapcsolják az eszközbe (a tápellátás vagy az állapotjelző LED-ek is többször villoghatnak, amíg a tápellátást el nem veszik).
+Az AVR bootloader néhány régi verziójának ismert hibája van a watchdog esemény kezelésében. Ez általában akkor jelentkezik, ha a printer.cfg fájlban a restart_method beállítása "command". Amikor a hiba előfordul, az AVR eszköz nem reagál, amíg a tápellátást el nem veszik és újra be nem kapcsolják az eszközt (a tápellátás vagy az állapotjelző LED-ek is többször villoghatnak, amíg a tápellátást el nem veszik).
 
 A megoldás a "command" -tól eltérő restart_method használata, vagy egy frissített bootloader égetése az AVR eszközre. Egy új bootloader égetése egy egyszeri lépés, amelyhez általában külső programozóra van szükség - további részletekért lásd [Bootloaderek](Bootloaders.md) dokumentumot.
 

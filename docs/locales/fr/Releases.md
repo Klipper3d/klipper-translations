@@ -1,6 +1,6 @@
 # Versions
 
-Historique de versions de Klipper. Merci de vous référer au ressources [installation](Installation.md) pour plus d'information sur l'installation de Klipper.
+Historique de versions de Klipper. Merci de vous référer a la ressource [installation](Installation.md) pour plus d'information sur l'installation de Klipper.
 
 ## Klipper 0.10.0
 

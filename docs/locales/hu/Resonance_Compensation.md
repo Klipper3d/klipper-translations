@@ -119,7 +119,7 @@ Ahogy nő a gyorsulás, úgy nő a simítás is, és a tényleges rés a nyomtat
 
 Ezen a képen a gyorsulás balról jobbra növekszik, és a rés 3500 mm/sec^2-től (balról az 5. sáv) kezd nőni. Tehát ebben az esetben a max_accel = 3000 (mm/sec^2) a jó érték, hogy elkerüljük a túlzott simítást.
 
-Figyelje meg a gyorsulást, amikor a rés még mindig nagyon kicsi a próbanyomaton. Ha kidudorodásokat lát, de a falon egyáltalán nincs rés, még nagy gyorsulásnál is, az a kikapcsolt nyomáselőtolás miatt lehet, különösen a bowdenes extrudereken. Ha ez a helyzet, akkor lehet, hogy meg kell ismételni a nyomtatást engedélyezett PA-val. Ez lehet a rosszul kalibrált (túl magas) nyomtatószál áramlás eredménye is, ezért ezt is érdemes ellenőrizni.
+Figyeld meg a gyorsulást, amikor a rés még mindig nagyon kicsi a próbanyomaton. Ha kidudorodásokat látsz, de a falon egyáltalán nincs rés, még nagy gyorsulásnál is, az a kikapcsolt nyomáselőtolás miatt lehet, különösen a bowdenes extrudereken. Ha ez a helyzet, akkor lehet, hogy meg kell ismételni a nyomtatást engedélyezett PA-val. Ez lehet a rosszul kalibrált (túl magas) nyomtatószál áramlás eredménye is, ezért ezt is érdemes ellenőrizni.
 
 Válaszd ki a két gyorsulási érték közül a legkisebbet (a gyűrődésből és a simításból), és írd be `max_accel` néven a printer.cfg fájlba.
 
@@ -131,7 +131,7 @@ Egy másik szempont, hogy ha a rezonanciafrekvencia túl alacsony (20-25 Hz alat
 
 ### A rezonanciafrekvenciák finomhangolása
 
-Megjegyzendő, hogy a rezonanciafrekvenciák mérésének pontossága a gyűrődési tesztmodell segítségével a legtöbb célra elegendő, így további hangolás nem javasolt. Ha mégis meg akarja próbálni kétszeresen ellenőrizni az eredményeit (például ha még mindig lát némi gyűrődést, miután kinyomtatott egy tesztmodellt egy tetszőleges bemeneti alakítóval, ugyanazokkal a frekvenciákkal, mint amiket korábban mért), akkor kövesse az ebben a szakaszban leírt lépéseket. Vedd figyelembe, hogy ha az [input_shaper] engedélyezése után különböző frekvenciákon lát gyűrődést, ez a szakasz nem fog segíteni.
+Megjegyzendő, hogy a rezonanciafrekvenciák mérésének pontossága a gyűrődési tesztmodell segítségével a legtöbb célra elegendő, így további hangolás nem javasolt. Ha mégis meg akarod próbálni kétszeresen ellenőrizni az eredményeid (például ha még mindig látsz némi gyűrődést, miután kinyomtattál egy tesztmodellt egy tetszőleges bemeneti alakítóval, ugyanazokkal a frekvenciákkal, mint amiket korábban mértél), akkor kövesd az ebben a szakaszban leírt lépéseket. Vedd figyelembe, hogy ha az [input_shaper] engedélyezése után különböző frekvenciákon látsz gyűrődést, ez a szakasz nem fog segíteni.
 
 Feltételezve, hogy felszeletelte a gyűrődési modellt a javasolt paraméterekkel, hajtsd végre a következő lépéseket az X és Y tengelyek mindegyikén:
 
@@ -139,18 +139,18 @@ Feltételezve, hogy felszeletelte a gyűrődési modellt a javasolt paraméterek
 1. Győződj meg róla, hogy a Pressure Advance ki van kapcsolva: `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. Add ki a parancsot: `SET_INPUT_SHAPER SHAPER_TYPE=ZV `
 1. A meglévő gyűrődési tesztmodellből a kiválasztott bemeneti alakítóval válaszd ki azt a gyorsulást, amely kellően jól mutatja a gyűrődést, és állítsd be a következővel: `SET_VELOCITY_LIMIT ACCEL=...`
-1. Számítsa ki a `TUNING_TOWER` parancshoz szükséges paramétereket a `shaper_freq_x` paraméter hangolásához az alábbiak szerint: Itt a `shaper_freq_x` paraméter a nyomtató aktuális értéke a `printer.cfg` fájlban megadva.
+1. Számítsd ki a `TUNING_TOWER` parancshoz szükséges paramétereket a `shaper_freq_x` paraméter hangolásához az alábbiak szerint: Itt a `shaper_freq_x` paraméter a nyomtató aktuális értéke a `printer.cfg` fájlban megadva.
 1. Add ki a parancsot: `TUNING_TOWER COMMAND=SET_INPUT_SHAPER PARAMETER=SHAPER_FREQ_X START=start FACTOR=factor BAND=5` a `start` és `factor` értékek felhasználásával, amelyeket az (5.) lépésben számítottunk.
 1. Nyomtasd ki a tesztmodellt.
 1. Az eredeti frekvenciaérték visszaállítása: `SET_INPUT_SHAPER SHAPER_FREQ_X=...`.
-1. Keresse meg azt a sávot, amelyik a legkevésbé gyűrött, és számolja meg a számát alulról 1-től kezdve.
+1. Keresd meg azt a sávot, amelyik a legkevésbé gyűrött, és számold meg a számát alulról 1-től kezdve.
 1. Az új shaper_freq_x érték kiszámítása a régi shaper_freq_x * (39 + 5 * #band-number) / 66 segítségével.
 
-Ismételje meg ezeket a lépéseket az Y tengelyre ugyanígy, az X tengelyre való hivatkozásokat az Y tengelyre való hivatkozással helyettesítve (pl. cserélje ki a `shaper_freq_x`-t `shaper_freq_y`-ra a képletekben és a `TUNING_TOWER` parancsban).
+Ismételd meg ezeket a lépéseket az Y tengelyre ugyanígy, az X tengelyre való hivatkozásokat az Y tengelyre való hivatkozással helyettesítve (pl. cseréld ki a `shaper_freq_x`-t `shaper_freq_y`-ra a képletekben és a `TUNING_TOWER` parancsban).
 
 Példaként tegyük fel, hogy az egyik tengelyen 45 Hz-es gyűrődési frekvenciát mértünk. Ez a start = 45 * 83 / 132 = 28,30 és a faktor = 45 / 66 = 0,6818 értéket ad a `TUNING_TOWER` parancshoz. Most tegyük fel, hogy a tesztmodell kinyomtatása után az alulról számított negyedik sáv adja a legkevesebb gyűrődést. Ekkor a frissített shaper_freq_? érték 45 * (39 + 5 * 4) / 66 ≈ 40,23.
 
-Miután mindkét új `shaper_freq_x` és `shaper_freq_y` paramétert kiszámította, frissítheti az `[input_shaper]` szakaszát a nyomtató `printer.cfg` fájljában az új `shaper_freq_x` és `shaper_freq_y` értékekkel.
+Miután mindkét új `shaper_freq_x` és `shaper_freq_y` paramétert kiszámítottad, frissítheted az `[input_shaper]` szakaszát a nyomtató `printer.cfg` fájljában az új `shaper_freq_x` és `shaper_freq_y` értékekkel.
 
 ### Nyomás előtolás
 

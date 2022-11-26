@@ -209,17 +209,17 @@ gcode:
 
 Az így kapott makró meghívható a [homing_override konfigurációs szakasz](Config_Reference.md#homing_override) vagy a [START_PRINT makró](Slicers.md#klipper-gcode_macro) segítségével.
 
-Vedd figyelembe, hogy ha a motorvezérlő áramát a kezdőpont felvétel során megváltoztatják, akkor a hangolási folyamatot újra el kell végezni.
+Vedd figyelembe, hogy ha a motorvezérlő áramát a kezdőpont felvétel során megváltoztatod, akkor a hangolási folyamatot újra el kell végezni.
 
 ### Tippek CoreXY gépek szenzor nélküli kezdőpont felvételéhez
 
 A CoreXY nyomtató X és Y kocsiknál érzékelő nélküli kezdőpont felvételre is van lehetőség. A Klipper a `[stepper_x]` léptetőt használja az X kocsi kezdőpont felvételekor az elakadások érzékelésére, az Y kocsi kezdőpont felvételekor pedig a `[stepper_y]` léptetőt.
 
-Használd a fent leírt hangolási útmutatót, hogy megtalálja a megfelelő "elakadás érzékenységet" az egyes kocsikhoz, de vedd figyelembe a következő korlátozásokat:
+Használd a fent leírt hangolási útmutatót, hogy megtaláld a megfelelő "elakadás érzékenységet" az egyes kocsikhoz, de vedd figyelembe a következő korlátozásokat:
 
 1. Ha a CoreXY-n érzékelő nélküli kezdőpont felvételt használ, győződj meg róla, hogy egyik léptetőhöz sincs beállítva `hold_current`.
 1. A hangolás során győződj meg arról, hogy az X és az Y kocsik a sínek közepénél vannak-e minden egyes kezdőpont felvételi kísérlet előtt.
-1. A hangolás befejezése után az X és Y kezdőpont felvételét makrók segítségével biztosítsa, hogy először az egyik tengely vedd fel a kezdőpontot, majd mozgasd el a kocsit a tengelyhatártól, tartson legalább 2 másodperc szünetet, majd kezd el a másik kocsi kezdőpont felvételét. A tengelytől való eltávolodással elkerülhető, hogy az egyik tengelyt akkor indítsuk el, amikor a másik a tengelyhatárhoz van nyomva (ami eltorzíthatja az akadásérzékelést). A szünetre azért van szükség, hogy a meghajtó az újraindítás előtt törölje az elakadás érzékelő puffert.
+1. A hangolás befejezése után az X és Y kezdőpont felvételét makrók segítségével biztosítsd, hogy először az egyik tengely vegye fel a kezdőpontot, majd mozgasd el a kocsit a tengelyhatártól, tarts legalább 2 másodperc szünetet, majd kezd el a másik kocsi kezdőpont felvételét. A tengelytől való eltávolodással elkerülhető, hogy az egyik tengelyt akkor indítsuk el, amikor a másik a tengelyhatárhoz van nyomva (ami eltorzíthatja az akadásérzékelést). A szünetre azért van szükség, hogy a meghajtó az újraindítás előtt törölje az elakadás érzékelő puffert.
 
 Egy példa CoreXY kezdőpont felvételi makró így nézhet ki:
 
@@ -253,7 +253,7 @@ Ezenkívül szinte minden mező módosítható használat közben a [SET_TMC_FIE
 
 E mezők mindegyikét az egyes meghajtók Trinamic adatlapja határozza meg. Ezek az adatlapok megtalálhatók a [Trinamic weboldalán](https://www.trinamic.com/).
 
-Vedd figyelembe, hogy a Trinamic adatlapok néha olyan megfogalmazást használnak, amely összetéveszthet egy magas szintű beállítást (például "hysteresis end") egy alacsony szintű mezőértékkel (pl. "HEND"). A Klipperben a `driver_XXX` és a SET_TMC_FIELD mindig azt az alacsony szintű mezőértéket állítja be, amely ténylegesen a meghajtóba íródik. Így például, ha a Trinamic adatlapja szerint 3 értéket kell írni a HEND mezőbe, hogy a "hiszterézis vége" 0 legyen, akkor a `driver_HEND=3` beállításával a 0 magas szintű értéket kapjuk.
+Vedd figyelembe, hogy a Trinamic adatlapok néha olyan megfogalmazást használnak, amely összetéveszthet egy magas szintű beállítást (például "hysteresis end") egy alacsony szintű mezőértékkel (pl. "HEND"). A Klipper-ben a `driver_XXX` és a SET_TMC_FIELD mindig azt az alacsony szintű mezőértéket állítja be, amely ténylegesen a meghajtóba íródik. Így például, ha a Trinamic adatlapja szerint 3 értéket kell írni a HEND mezőbe, hogy a "hiszterézis vége" 0 legyen, akkor a `driver_HEND=3` beállításával a 0 magas szintű értéket kapjuk.
 
 ## Gyakori kérdések
 

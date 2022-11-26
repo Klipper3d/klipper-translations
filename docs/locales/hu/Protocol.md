@@ -149,7 +149,7 @@ Az adatszótárban található parancsleírások lehetővé teszik a gazdagép �
 
 ## Adatszótár
 
-Ahhoz, hogy a mikrokontroller és a gazdagép között értelmes kommunikáció jöjjön létre, mindkét félnek meg kell állapodnia egy "adatszótárban". Ez az adatszótár tartalmazza a parancsok és válaszok egészértékű azonosítóit és azok leírását.
+Ahhoz, hogy a mikrokontroller és a gazdagép között értelmes kommunikáció jöjjön létre, mindkét félnek meg kell állapodnia egy "adatszótárban". Ez az adatszótár tartalmazza a parancsok és válaszok egész értékű azonosítóit és azok leírását.
 
 A mikrokontroller buildje a DECL_COMMAND() és sendf() makrók tartalmát használja az adatszótár létrehozásához. A build automatikusan egyedi azonosítókat rendel minden parancshoz és válaszhoz. Ez a rendszer lehetővé teszi, hogy a gazdagép, és a mikrokontroller kódja zökkenőmentesen használjon leíró, ember által olvasható neveket, miközben minimális sávszélességet használ.
 

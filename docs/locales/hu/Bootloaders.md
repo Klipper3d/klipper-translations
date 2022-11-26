@@ -283,7 +283,7 @@ Ezt követően elengedheti a reset gombot.
 
 Ez a bootloader 2KiB-os flash memóriát igényel (az alkalmazást 2KiB kezdőcímmel kell lefordítani).
 
-A hid-flash program egy bináris fájl feltöltésére szolgál a bootloaderre. Ezt a szoftvert a következő parancsokkal telepítheti:
+A hid-flash program egy bináris fájl feltöltésére szolgál a bootloader-re. Ezt a szoftvert a következő parancsokkal telepítheted:
 
 ```
 sudo apt install libusb-1.0
@@ -309,7 +309,7 @@ VAGY ha a klippert korábban már égették:
 make flash FLASH_DEVICE=/dev/ttyACM0
 ```
 
-Szükség lehet a bootloader manuális belépésére, ezt a "boot 0" alacsony és "boot 1" magas értékek beállításával lehet megtenni. Az SKR Mini E3 esetében a "Boot 1" nem áll rendelkezésre, ezért a PA2 tű alacsonyra állításával lehet elvégezni, ha a "hid_btt_skr_mini_e3.bin" fájlt égetjük. Ez a tű az SKR Mini E3 "PIN" dokumentumban "TX0"-ként van jelölve a TFT fejlécen. A PA2 mellett van egy földelt tű, amellyel a PA2-t alacsonyra húzhatja.
+Szükség lehet a bootloader manuális belépésére, ezt a "boot 0" alacsony és "boot 1" magas értékek beállításával lehet megtenni. Az SKR Mini E3 esetében a "Boot 1" nem áll rendelkezésre, ezért a PA2 tű alacsonyra állításával lehet elvégezni, ha a "hid_btt_skr_mini_e3.bin" fájlt égetjük. Ez a tű az SKR Mini E3 "PIN" dokumentumban "TX0"-ként van jelölve a TFT fejlécen. A PA2 mellett van egy földelt tű, amellyel a PA2 alacsonyra húzhatja.
 
 ### STM32F103/STM32F072 MSC bootloaderrel
 
@@ -367,9 +367,9 @@ stm32flash -w hid_bootloader_SKR_PRO.bin -v -g 0 /dev/ttyAMA0
 
 Ez a bootloader 16Kib-es flash memóriát igényel az STM32F4-en (az alkalmazást 16KiB kezdőcímmel kell lefordítani).
 
-Az STM32F1-hez hasonlóan az STM32F4 is a hid-flash eszközt használja a binárisok MCU-ra történő feltöltéséhez. A hid-flash elkészítésének és használatának részletei a fenti utasításokban találhatók.
+Az STM32F1-hez hasonlóan az STM32F4 is a hid-flash eszközt használd a binárisok MCU-ra történő feltöltéséhez. A hid-flash elkészítésének és használatának részletei a fenti utasításokban találhatók.
 
-Szükség lehet a bootloader manuális belépésére, ez a "boot 0" alacsony, "boot 1" magas érték beállításával és az eszköz csatlakoztatásával történhet. A programozás befejezése után húzza ki az eszközt, és állítsd vissza a "boot 1" értéket alacsonyra, hogy az alkalmazás betöltődjön.
+Szükség lehet a bootloader manuális belépésére, ez a "boot 0" alacsony, "boot 1" magas érték beállításával és az eszköz csatlakoztatásával történhet. A programozás befejezése után húzd ki az eszközt, és állítsd vissza a "boot 1" értéket alacsonyra, hogy az alkalmazás betöltődjön.
 
 ## LPC176x mikrovezérlők (Smoothieboards)
 

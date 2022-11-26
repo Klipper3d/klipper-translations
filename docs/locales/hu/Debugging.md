@@ -105,7 +105,7 @@ Lehetőség van arra is, hogy minden egyes adatkészlethez matplotlib ábrázol�
 
 Számos matplotlib opció áll rendelkezésre; néhány példa: "color", "label", "alpha" és "linestyle".
 
-A `motan_graph.py` eszköz számos más parancssori opciót is támogat a `--help` opcióval megtekintheti a listát. Kényelmes lehet magát a [motan_graph.py](../scripts/motan/motan_graph.py) szkriptet is megtekinteni/módosítani.
+A `motan_graph.py` eszköz számos más parancssori opciót is támogat a `--help` opcióval megtekintheted a listát. Kényelmes lehet magát a [motan_graph.py](../scripts/motan/motan_graph.py) szkriptet is megtekinteni/módosítani.
 
 A `data_logger.py` eszköz által előállított nyers adatnaplók az [API Szerver](API_Server.md) című dokumentumban leírt formátumot követik. Hasznos lehet az adatokat egy Unix-paranccsal megvizsgálni, mint például a következő: `gunzip < mylog.json.gz | tr '\03' '\n' | less`
 
@@ -147,7 +147,7 @@ A szkript kinyeri a nyomtató konfigurációs fájlját, és kinyeri az MCU leá
 
 A [simulavr](http://www.nongnu.org/simulavr/) eszköz lehetővé teszi egy Atmel ATmega mikrokontroller szimulálását. Ez a szakasz leírja, hogyan lehet teszt G-kód fájlokat futtatni a simulavr segítségével. Javasoljuk, hogy ezt egy asztali gépen futtasd (nem Raspberry Pi), mivel a hatékony futtatáshoz erős CPU-ra van szükség.
 
-A simulavr használatához töltse le a simulavr csomagot, és fordítsd le python támogatással. Vedd figyelembe, hogy a build rendszernek telepítenie kell néhány csomagot (például a swig-et) ahhoz, hogy a python modult fel tudja építeni.
+A simulavr használatához töltsd le a simulavr csomagot, és fordítsd le python támogatással. Vedd figyelembe, hogy a build rendszernek telepítenie kell néhány csomagot (például a swig-et) ahhoz, hogy a python modult fel tudja építeni.
 
 ```
 git clone git://git.savannah.nongnu.org/simulavr.git
