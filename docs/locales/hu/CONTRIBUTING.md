@@ -14,7 +14,7 @@ A Klipperhez való hozzájárulás általában egy magas szintű folyamatot köv
 
 Ha fejlesztéseken dolgozol, fontold meg egy téma indítását (vagy a témához való hozzájárulást) a [Klipper Társalgó](Contact.md) oldalon. A fórumon folyó vita javíthatja a fejlesztési munka láthatóságát, és vonzhat másokat is, akik érdeklődnek az új munka tesztelése iránt.
 
-## Mire számíthatunk egy felülvizsgálat során
+## Mire számíthatsz egy felülvizsgálat során
 
 A Klipperhez való hozzájárulásokat az egyesítés előtt felülvizsgálják. A felülvizsgálati folyamat elsődleges célja a hibák ellenőrzése, valamint annak ellenőrzése, hogy a beadvány megfelel-e a Klipper dokumentációjában meghatározott irányelveknek.
 
@@ -51,7 +51,7 @@ Gyakori dolgok, amiket a bíráló keres:
 
    A bíráló kérhet pontosítást arról, hogy a felhasználónak hogyan kell beállítania egy opciót - az ideális válasz tartalmazza a folyamat részleteit - például: "a MegaX500 felhasználóinak az X opciót 99,3-ra kell beállítaniuk, míg az Elite100Y felhasználóinak az X opciót a ..." eljárással kell kalibrálniuk...".
 
-   Ha az opció célja, hogy a kódot modulárisabbá tegye, akkor inkább használj kódkonstansokat a felhasználóval szembenéző konfigurációs opciók helyett.
+   Ha az opció célja, hogy a kódot modulárisabbá tedd, akkor inkább használj kódkonstansokat a felhasználóval szembenéző konfigurációs opciók helyett.
 
    Az új modulok, új opciók és új paraméterek nem biztosíthatnak hasonló funkciókat a meglévő modulokhoz - ha a különbségek önkényesek, akkor inkább a meglévő rendszert kell használni, vagy a meglévő kódot kell átalakítani.
 
@@ -82,7 +82,7 @@ Az új dokumentumokat hozzá kell adni az <Overview.md> fájlhoz, és hozzá kel
 
    A fehér területi változtatásokat nem szabad összekeverni a funkcionális változtatásokkal. Általánosságban elmondható, hogy az indokolatlan szóköz módosításokat nem fogadjuk el, kivéve, ha azok a módosítandó kód megállapított "tulajdonosától" származnak.
 
-A Klipper nem alkalmaz szigorú "kódolási stílus útmutatót", de a meglévő kód módosításainak követniük kell a meglévő kód magas szintű kódáramlását, kódbehúzási stílusát és formátumát. Az új modulok és rendszerek benyújtása esetén a kódolási stílus rugalmasabb, de előnyösebb, ha az új kód belsőleg konzisztens stílust követ, és általában az iparági kódolási normákat követi.
+A Klipper nem alkalmaz szigorú "kódolási stílusú útmutatót", de a meglévő kód módosításainak követniük kell a meglévő kód magas szintű kódáramlását, kódbehúzási stílusát és formátumát. Az új modulok és rendszerek benyújtása esetén a kódolási stílus rugalmasabb, de előnyösebb, ha az új kód belsőleg konzisztens stílust követ, és általában az iparági kódolási normákat követi.
 
 A felülvizsgálat célja nem a "jobb megvalósítások" megvitatása. Ha azonban egy bírálónak nehézséget okoz egy beadott pályázat megvalósításának megértése, akkor kérhet változtatásokat a megvalósítás átláthatóbbá tétele érdekében. Különösen, ha a bírálók nem tudják meggyőzni magukat arról, hogy egy beadott pályázat hibátlan, akkor változtatásokra lehet szükség.
 
@@ -92,9 +92,9 @@ A felülvizsgálat részeként egy felülvizsgáló létrehozhat egy alternatív
 
 Nagyra értékeljük a segítséget a véleményekkel kapcsolatban! Nem szükséges [listázott értékelőnek](#reviewers) lenni az értékelés elvégzéséhez. A GitHub kérelmek benyújtóit is arra ösztönözzük, hogy saját beadványaikat vizsgálják felül.
 
-A felülvizsgálat során segítsen, kövesse a [mire számíthat egy felülvizsgálat során](#what-to-expect-in-a-review) pontban leírt lépéseket a beküldés ellenőrzéséhez. A felülvizsgálat befejezése után adj hozzá egy megjegyzést a GitHub kérésekhez a megállapításokkal. Ha a benyújtás átmegy az ellenőrzésen, akkor kérjük, ezt kifejezetten jelezze a megjegyzésben. Például valami olyasmit, hogy "Átnéztem ezt a módosítást a CONTRIBUTING dokumentumban leírtak szerint, és minden jónak tűnik számomra". Ha nem tudta elvégezni a felülvizsgálat egyes lépéseit, akkor kérjük, kifejezetten jelezze, hogy mely lépéseket vizsgálta felül, és melyeket nem. Például valami olyasmit, mint: "Nem ellenőriztem a kódot hibák szempontjából, de minden mást átnéztem a CONTRIBUTING dokumentumban, és úgy tűnik, hogy minden rendben van".
+A felülvizsgálat során segíts, kövesd a [mire számíthatsz egy felülvizsgálat során](#what-to-expect-in-a-review) pontban leírt lépéseket a beküldés ellenőrzéséhez. A felülvizsgálat befejezése után adj hozzá egy megjegyzést a GitHub kérésekhez a megállapításokkal. Ha a benyújtás átmegy az ellenőrzésen, akkor kérjük, ezt kifejezetten jelezd a megjegyzésben. Például valami olyasmit, hogy "Átnéztem ezt a módosítást a CONTRIBUTING dokumentumban leírtak szerint, és minden jónak tűnik számomra". Ha nem tudtad elvégezni a felülvizsgálat egyes lépéseit, akkor kérjük, kifejezetten jelezd, hogy mely lépéseket vizsgáltad felül, és melyeket nem. Például valami olyasmit, mint: "Nem ellenőriztem a kódot hibák szempontjából, de minden mást átnéztem a CONTRIBUTING dokumentumban, és úgy tűnik, hogy minden rendben van".
 
-A beadványok tesztelését is értékeljük. Ha a kódot teszteltük, kérjük írjon egy megjegyzést a GitHub kérésekhez a tesztelés eredményével - sikerrel vagy sikertelenséggel. Kérjük, kifejezetten jelezze, hogy a kódot tesztelték, és az eredményeket - például valami olyasmit, mint: "Leteszteltem ezt a kódot az Acme900Z nyomtatómon egy váza nyomtatásával, és az eredmények jók voltak".
+A beadványok tesztelését is értékeljük. Ha a kódot teszteltük, kérjük írj egy megjegyzést a GitHub kérésekhez a tesztelés eredményével - sikerrel vagy sikertelenséggel. Kérjük, kifejezetten jelezd, hogy a kódot tesztelted, és az eredményeket - például valami olyasmit, mint: "Leteszteltem ezt a kódot az Acme900Z nyomtatómon egy váza nyomtatásával, és az eredmények jók voltak".
 
 ### Értékelők
 

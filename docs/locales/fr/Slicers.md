@@ -1,6 +1,6 @@
 # Slicers
 
-Ce document fournit certains conseils concernant la configuration d'une application "découpeuse" pour une utilisation avec Klipper. Des decoupeurs courants utilisés avec Klipper sont Sli3r, Cura, Sinplify3D, etc.
+Ce document fournit certains conseils concernant la configuration d'une application "Slicer" pour une utilisation avec Klipper. Des slicers les plus courants utilisés avec Klipper sont Sli3r, Cura, Simplify3D, etc.
 
 ## Set the G-Code flavor to Marlin
 

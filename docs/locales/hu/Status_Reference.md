@@ -153,7 +153,7 @@ A következő információk az olyan fűtőelemekhez állnak rendelkezésre, min
 
 - `temperature`: Az adott fűtőberendezés legutóbb jelentett hőmérséklete (Celsiusban, lebegőértékben).
 - `target`: Az adott fűtőberendezés aktuális célhőmérséklete (Celsiusban, lebegőértékben).
-- `power`: A fűtőtesthez tartozó PWM-tű utolsó értéke (0,0 és 1,0 közötti érték).
+- `power`: A fűtőtesthez tartozó PWM tű utolsó értéke (0,0 és 1,0 közötti érték).
 - `can_extrude`: Ha az extruder tud extrudálni (`min_extrude_temp` határozza meg), csak az [extruder](Config_Reference.md#extruder) esetében elérhető
 
 ## heaters

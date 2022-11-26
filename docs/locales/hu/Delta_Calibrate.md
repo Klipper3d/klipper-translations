@@ -45,7 +45,7 @@ Az alap delta-kalibrálás általában jó munkát végez a delta paraméterek k
 
 Ehhez a kalibrálási eljáráshoz ki kell nyomtatni egy tesztobjektumot, és a tesztobjektum egyes részeit digitális tolómérővel kell megmérni.
 
-A kibővített delta-kalibrálás futtatása előtt le kell futtatni az alap delta-kalibrálást (a DELTA_CALIBRATE paranccsal) és el kell menteni az eredményeket (a SAVE_CONFIG paranccsal). Győződj meg róla, hogy a nyomtató konfigurációjában és hardverében nem történt semmilyen jelentős változás az alap delta-kalibrálás legutóbbi végrehajtása óta (ha nem biztos benne, futtassa le újra az [alap delta-kalibrálás](#basic-delta-calibration) parancsot, beleértve a SAVE_CONFIG parancsot is, közvetlenül az alább leírt tesztobjektum nyomtatása előtt.)
+A kibővített delta-kalibrálás futtatása előtt le kell futtatni az alap delta-kalibrálást (a DELTA_CALIBRATE paranccsal) és el kell menteni az eredményeket (a SAVE_CONFIG paranccsal). Győződj meg róla, hogy a nyomtató konfigurációjában és hardverében nem történt semmilyen jelentős változás az alap delta-kalibrálás legutóbbi végrehajtása óta (ha nem vagy biztos benne, futtasd le újra az [alap delta-kalibrálás](#basic-delta-calibration) parancsot, beleértve a SAVE_CONFIG parancsot is, közvetlenül az alább leírt tesztobjektum nyomtatása előtt.)
 
 Használj szeletelőt a [docs/prints/calibrate_size.stl](prints/calibrate_size.stl) fájlból G-kód generálásához. Szeleteld az objektumot lassú sebességgel (pl. 40mm/s). Ha lehetséges, használj merev műanyagot (pl. PLA) a tárgyhoz. A tárgy átmérője 140 mm. Ha ez túl nagy a nyomtató számára, akkor át lehet méretezni (de ügyelj arra, hogy mind az X, és az Y tengelyt egyenletesen méretezd). Ha a nyomtató jelentősen nagyobb nyomatokat támogat, akkor a tárgy is megnövelhető. A nagyobb méret javíthatja a mérési pontosságot, de a jó tapadás fontosabb, mint a nagyobb nyomtatási méret.
 
@@ -140,4 +140,4 @@ A SAVE_CONFIG parancs mind a frissített delta paramétereket, mind a távolság
 
 Lehetőség van [tárgyasztal háló](Bed_Mesh.md) használatára egy delta esetében. Fontos azonban, hogy jó deltakalibrációt érj el, mielőtt engedélyeznéd a tárgyasztal hálót. A bed mesh futtatása rossz delta-kalibrációval zavaros és rossz eredményeket fog eredményezni.
 
-Vedd figyelembe, hogy a delta-kalibrálás végrehajtása érvényteleníti a korábban kapott tárgyasztal hálót. Az új delta-kalibrálás elvégzése után feltétlenül futtassa újra a BED_MESH_CALIBRATE programot.
+Vedd figyelembe, hogy a delta-kalibrálás végrehajtása érvényteleníti a korábban kapott tárgyasztal hálót. Az új delta-kalibrálás elvégzése után feltétlenül futtasd újra a BED_MESH_CALIBRATE programot.

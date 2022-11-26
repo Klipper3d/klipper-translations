@@ -978,7 +978,7 @@ További információkért lásd a [szintezési útmutató](Manual_Level.md#adju
 
 ### [screws_tilt_adjust]
 
-Eszköz a tárgyasztal csavarok dőlésszögének beállításához Z-szondával. Meghatározható egy screws_tilt_adjust konfigurációs szakasz a SCREWS_TILT_CALCULATE G-kód parancsal.
+Eszköz a tárgyasztal csavarok dőlésszögének beállításához Z-szondával. Meghatározható egy screws_tilt_adjust konfigurációs szakasz a SCREWS_TILT_CALCULATE G-kód paranccsal.
 
 További információkért lásd a [szintezési útmutató](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) és a [parancs hivatkozás](G-Codes.md#screws_tilt_adjust) dokumentumot.
 

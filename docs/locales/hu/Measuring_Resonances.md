@@ -184,9 +184,9 @@ shaper_type_y: mzv
 max_accel: 3000 # nem haladhatja meg a becsült max_accel értéket az X és Y tengelyeknél.
 ```
 
-vagy választhat más konfigurációt is a generált diagramok alapján: a diagramokon a teljesítményspektrális sűrűség csúcsai megfelelnek a nyomtató rezonanciafrekvenciáinak.
+vagy választhatsz más konfigurációt is a generált diagramok alapján: a diagramokon a teljesítményspektrális sűrűség csúcsai megfelelnek a nyomtató rezonanciafrekvenciáinak.
 
-Megjegyzendő, hogy alternatívaként a bemeneti alakító automatikus kalibrációját a Klipperből [közvetlenül](#bemeneti-formazo-automatikus-kalibralasa) is futtathatja, ami például a bemeneti formázó [újrakalibrálásához](#bemeneti-formazo-ujrakalibralasa) lehet hasznos.
+Megjegyzendő, hogy alternatívaként a bemeneti alakító automatikus kalibrációját a Klipper-ből [közvetlenül](#bemeneti-formazo-automatikus-kalibralasa) is futtathatod, ami például a bemeneti formázó [újrakalibrálásához](#bemeneti-formazo-ujrakalibralasa) lehet hasznos.
 
 ### Bed-slinger nyomtatók
 
@@ -214,7 +214,7 @@ Ekkor a `TEST_RESONANCES AXIS=X` és `TEST_RESONANCES AXIS=Y` parancsok a megfel
 
 ### Max simítás
 
-Ne feledd, hogy a bemeneti formázó simítást hozhat létre az alkatrészekben. A `calibrate_shaper.py` szkript vagy `SHAPER_CALIBRATE` parancs által végrehajtott bemeneti formázó automatikus hangolása nem súlyosbítja a simítást, ugyanakkor megpróbálja minimalizálni az ebből eredő rezgéseket. Néha az alakformáló frekvencia optimálistól elmaradó választását hozhatják, vagy talán egyszerűen csak kevésbé simítják az alkatrészeket a nagyobb fennmaradó rezgések rovására. Ezekben az esetekben kérheti a bemeneti formázó maximális simításának korlátozását.
+Ne feledd, hogy a bemeneti formázó simítást hozhat létre az alkatrészekben. A `calibrate_shaper.py` szkript vagy `SHAPER_CALIBRATE` parancs által végrehajtott bemeneti formázó automatikus hangolása nem súlyosbítja a simítást, ugyanakkor megpróbálja minimalizálni az ebből eredő rezgéseket. Néha az alakformáló frekvencia optimálistól elmaradó választását hozhatja, vagy talán egyszerűen csak kevésbé simítja az alkatrészeket a nagyobb fennmaradó rezgések rovására. Ezekben az esetekben kérheted a bemeneti formázó maximális simításának korlátozását.
 
 Nézzük meg az automatikus hangolás következő eredményeit:
 

@@ -1,10 +1,10 @@
 # Configuration Changes
 
-This document covers recent software changes to the config file that are not backwards compatible. It is a good idea to review this document when upgrading the Klipper software.
+Esse documento abrange mudanças recentes de software no arquivo de configuração que não são compatíveis com versões anteriores. É recomendado revisar esse documento ao atualizar o software Klipper.
 
-All dates in this document are approximate.
+Todas as datas neste documento são aproximadas.
 
-## Changes
+## Mudanças
 
 20220616: It was previously possible to flash an rp2040 in bootloader mode by running `make flash FLASH_DEVICE=first`. The equivalent command is now `make flash FLASH_DEVICE=2e8a:0003`.
 
@@ -50,18 +50,18 @@ All dates in this document are approximate.
 
 20210703: A `samd_sercom` config section must now specify the sercom bus it is configuring via the `sercom` option.
 
-20210612: The `pid_integral_max` config option in heater and temperature_fan sections is deprecated. The option will be removed in the near future.
+20210612: A opção de configuração `pid_integral_max` nas seções "heater" e "teamperature_fan" foram descontinuadas. A opção será removida em um futuro próximo.
 
 20210503: The gcode_macro `default_parameter_<name>` config option is deprecated. Use the `params` pseudo-variable to access macro parameters. Other methods for accessing macro parameters will be removed in the near future. Most users can replace a `default_parameter_NAME: VALUE` config option with a line like the following in the start of the macro: ` {% set NAME = params.NAME|default(VALUE)|float %}`. See the [Command Templates
 document](Command_Templates.md#macro-parameters) for examples.
 
-20210430: The SET_VELOCITY_LIMIT (and M204) command may now set a velocity, acceleration, and square_corner_velocity larger than the specified values in the config file.
+20210430: O comando SET_VELOCITY_LIMIT (e M204) agora podem definir velocidade, aceleração e "square_corner_velocity" maiores que os valores especificados no arquivo de configuração.
 
-20210325: Support for the `pin_map` config option is deprecated. Use the [sample-aliases.cfg](../config/sample-aliases.cfg) file to translate to the actual micro-controller pin names. The `pin_map` config option will be removed in the near future.
+20210325: Suporte para a configuração `pin_map` descontinuado. Use o arquivo [sample-aliases.cfg](../config/sample-aliases.cfg) para traduzir para os nomes reais dos micro-controller pin. A opção de configuração `pin_map` será removida em breve.
 
 20210313: Klipper's support for micro-controllers that communicate with CAN bus has changed. If using CAN bus then all micro-controllers must be reflashed and the [Klipper configuration must be updated](CANBUS.md).
 
-20210310: The TMC2660 default for driver_SFILT has been changed from 1 to 0.
+20210310: O TMC2660 padrão para o driver_SFILT foi alterado de 1 para 0.
 
 20210227: TMC stepper motor drivers in UART or SPI mode are now queried once per second whenever they are enabled - if the driver can not be contacted or if the driver reports an error, then Klipper will transition to a shutdown state.
 
@@ -81,7 +81,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20201120: The `[board_pins]` config section now specifies the mcu name in an explicit `mcu:` parameter. If using board_pins for a secondary mcu, then the config must be updated to specify that name. See the [config reference](Config_Reference.md#board_pins) for further details.
 
-20201112: The time reported by `print_stats.print_duration` has changed. The duration prior to the first detected extrusion is now excluded.
+20201112: O tempo reportado por `print_stats.print_duration` foi alterado. A duração anterior a primeira extrusão detectada foi excluída.
 
 20201029: The neopixel `color_order_GRB` config option has been removed. If necessary, update the config to set the new `color_order` option to RGB, GRB, RGBW, or GRBW.
 

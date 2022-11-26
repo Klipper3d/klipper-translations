@@ -2,7 +2,7 @@
 
 This document describes the protocol Klipper uses to communicate over [CAN bus](https://en.wikipedia.org/wiki/CAN_bus). See <CANBUS.md> for information on configuring Klipper with CAN bus.
 
-## Assignation de l'identifiant du micro-controleur
+## Assignation de l'identifiant du micro-contrôleur
 
 Klipper uses only CAN 2.0A standard size CAN bus packets, which are limited to 8 data bytes and an 11-bit CAN bus identifier. In order to support efficient communication, each micro-controller is assigned at run-time a unique 1-byte CAN bus nodeid (`canbus_nodeid`) for general Klipper command and response traffic. Klipper command messages going from host to micro-controller use the CAN bus id of `canbus_nodeid * 2 + 256`, while Klipper response messages from micro-controller to host use `canbus_nodeid * 2 + 256 + 1`.
 

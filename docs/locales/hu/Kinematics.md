@@ -159,7 +159,7 @@ Az alapvető nyomás előtolás képlete az extruder motorjának hirtelen sebess
 
 A fenti grafikon egy példát mutat két olyan extrudálási mozgásra, amelyek között a kanyarsebesség nem nulla. Vedd figyelembe, hogy a nyomás előtolás rendszer miatt a gyorsítás során további szálak kerülnek az extruderbe. Minél nagyobb a kívánt száláramlási sebesség, annál több szálat kell betolni a gyorsítás során a nyomás miatt. A fej lassítása során a plusz szál visszahúzódik (az extruder sebessége negatív lesz).
 
-A "simítás" az extruder pozíciójának súlyozott átlagával történik egy kis időintervallumban (ahogyan azt a `pressure_advance_smooth_time` konfigurációs paraméter megadja). Ez az átlagolás több G-kód mozgást is átfoghat. Figyelje meg, hogy az extrudermotor az első extrudermozgás névleges kezdete előtt elkezd mozogni, és az utolsó extrudermozgás névleges vége után is mozogni fog.
+A "simítás" az extruder pozíciójának súlyozott átlagával történik egy kis időintervallumban (ahogyan azt a `pressure_advance_smooth_time` konfigurációs paraméter megadja). Ez az átlagolás több G-kód mozgást is átfoghat. Figyeld meg, hogy az extrudermotor az első extrudermozgás névleges kezdete előtt elkezd mozogni, és az utolsó extrudermozgás névleges vége után is mozogni fog.
 
 Kulcsképlet a "simított nyomás előtoláshoz":
 

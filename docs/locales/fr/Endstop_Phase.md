@@ -1,6 +1,6 @@
 # Phase de fin de course
 
-This document describes Klipper's stepper phase adjusted endstop system. This functionality can improve the accuracy of traditional endstop switches. It is most useful when using a Trinamic stepper motor driver that has run-time configuration.
+Ce document décrit le système de butée ajustée en phase pas à pas de Klipper. Cette fonctionnalité peut améliorer la précision des interrupteurs de fin de course traditionnels. Il est particulièrement utile lors de l'utilisation d'un pilote de moteur pas à pas Trinamic doté d'une configuration d'exécution.
 
 A typical endstop switch has an accuracy of around 100 microns. (Each time an axis is homed the switch may trigger slightly earlier or slightly later.) Although this is a relatively small error, it can result in unwanted artifacts. In particular, this positional deviation may be noticeable when printing the first layer of an object. In contrast, typical stepper motors can obtain significantly higher precision.
 

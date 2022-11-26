@@ -153,13 +153,13 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20190628: A [skew_correction] szakaszból eltávolítottuk az összes konfigurációs opciót. A skew_correction konfigurálása mostantól a SET_SKEW G-kódon keresztül történik. Lásd a [Ferdeség Korrekció](Skew_Correction.md) ajánlott használatát.
 
-20190607: A gcode_macro "variable_X" paraméterei (a SET_GCODE_VARIABLE VALUE paraméterével együtt) mostantól Python literálokként kerülnek értelmezésre. Ha egy értékhez karakterláncot kell rendelni, akkor csomagolja az értéket idézőjelekbe, hogy karakterláncként kerüljön kiértékelésre.
+20190607: A gcode_macro "variable_X" paraméterei (a SET_GCODE_VARIABLE VALUE paraméterével együtt) mostantól Python literálokként kerülnek értelmezésre. Ha egy értékhez karakterláncot kell rendelni, akkor tedd az értéket idézőjelekbe, hogy karakterláncként kerüljön kiértékelésre.
 
 20190606: A "samples", "samples_result" és "sample_retract_dist" konfigurációs beállítások átkerültek a "probe" konfigurációs szakaszba. Ezek az opciók már nem támogatottak a "delta_calibrate", "bed_tilt", "bed_mesh", "screws_tilt_adjust", "z_tilt", vagy "quad_gantry_level" config szakaszokban.
 
 20190528: A gcode_macro sablon kiértékelésében a mágikus "status" változót átneveztük "printer" -re.
 
-20190520: A SET_GCODE_OFFSET parancs megváltozott; ennek megfelelően frissítse a G-kód makrókat. A parancs már nem alkalmazza a kért eltolást a következő G1 parancsra. A régi viselkedés megközelíthető az új "MOVE=1" paraméter használatával.
+20190520: A SET_GCODE_OFFSET parancs megváltozott; ennek megfelelően frissítsd a G-kód makrókat. A parancs már nem alkalmazza a kért eltolást a következő G1 parancsra. A régi viselkedés megközelíthető az új "MOVE=1" paraméter használatával.
 
 20190404: A Python gazda szoftvercsomagok frissítésre kerültek. A felhasználóknak újra kell futtatniuk a ~/klipper/scripts/install-octopi.sh szkriptet (vagy más módon frissíteniük kell a python függőségeket, ha nem standard OctoPi telepítést használnak).
 
@@ -169,7 +169,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20190328: A [temperature_fan] konfigurációban megadott min_speed értéket mostantól tiszteletben tartjuk, és a ventilátor PID üzemmódban mindig ezen vagy annál magasabb fordulatszámon fog működni.
 
-20190322: A "driver_HEND" alapértelmezett értéke a [tmc2660] konfigurációs szakaszokban 6-ról 3-ra változott. A "driver_VSENSE" mezőt eltávolítottuk (mostantól automatikusan a run_current-ből számítják ki).
+20190322: A "driver_HEND" alapértelmezett értéke a [tmc2660] konfigurációs szakaszokban 6-ról 3-ra változott. A "driver_VSENSE" mezőt eltávolítottuk (mostantól a rendszer automatikusan a run_current-ből számítja ki).
 
 20190310: A [controller_fan] config szakasz mostantól mindig kap egy nevet (például [controller_fan my_controller_fan]).
 
