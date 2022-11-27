@@ -1,18 +1,20 @@
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
+# Jonathan <jonathanhav09@sfr.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-10-02 09:35+0000\n"
-"Last-Translator: Francis Poulizac <fpoulizac@vivaldi.net>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/canbus/fr/>\n"
+"PO-Revision-Date: 2022-11-24 21:48+0000\n"
+"Last-Translator: Jonathan <jonathanhav09@sfr.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/canbus/fr/"
+">\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid "This document describes Klipper's CAN bus support."
-msgstr ""
+msgstr "Ce document décrit la prise en charge du CAN bus de Klipper."
 
 msgid "Device Hardware"
 msgstr ""

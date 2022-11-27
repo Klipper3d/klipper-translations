@@ -1,19 +1,20 @@
 # Tl <rflma99@pm.me>, 2022.
+# Jonathan <jonathanhav09@sfr.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-12 07:22+0000\n"
-"Last-Translator: Tl <rflma99@pm.me>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/canbus_protocol/fr/>\n"
+"PO-Revision-Date: 2022-11-24 21:48+0000\n"
+"Last-Translator: Jonathan <jonathanhav09@sfr.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"canbus_protocol/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
-#, fuzzy
 msgid "Micro-controller id assignment"
-msgstr "Assignation de l'identifiant du micro-controleur"
+msgstr "Assignation de l'identifiant du micro-contrôleur"
 
 msgid ""
 "Klipper uses only CAN 2.0A standard size CAN bus packets, which are limited "

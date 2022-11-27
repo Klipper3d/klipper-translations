@@ -1291,7 +1291,7 @@
 
 
 <h1 id="rotation-distance">Rotation distance<a class="headerlink" href="#rotation-distance" title="Permanent link">&para;</a></h1>
-<p>Stepper motor drivers on Klipper require a <code>rotation_distance</code> parameter in each <a href="Config_Reference.html#stepper">stepper config section</a>. The <code>rotation_distance</code> is the amount of distance that the axis moves with one full revolution of the stepper motor. This document describes how one can configure this value.</p>
+<p>Les pilotes de moteur pas à pas sur Klipper nécessitent un paramètre <code>rotation_distance</code> dans chaque [section de configuration pas à pas] (Config_Reference.md#stepper). La <code>rotation_distance</code> est la distance parcourue par l'axe avec un tour complet du moteur pas à pas. Ce document décrit comment on peut configurer cette valeur.</p>
 <h2 id="obtaining-rotation_distance-from-steps_per_mm-or-step_distance">Obtaining rotation_distance from steps_per_mm (or step_distance)<a class="headerlink" href="#obtaining-rotation_distance-from-steps_per_mm-or-step_distance" title="Permanent link">&para;</a></h2>
 <p>The designers of your 3d printer originally calculated <code>steps_per_mm</code> from a rotation distance. If you know the steps_per_mm then it is possible to use this general formula to obtain that original rotation distance:</p>
 <div class="highlight"><pre><span></span><code>rotation_distance = &lt;full_steps_per_rotation&gt; * &lt;microsteps&gt; / &lt;steps_per_mm&gt;
