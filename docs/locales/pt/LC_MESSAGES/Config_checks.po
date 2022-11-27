@@ -3,7 +3,7 @@
 # KrulesExGamer <pedro.hvn.2018@gmail.com>, 2022.
 # fanylouise <gandra.fany@gmail.com>, 2022, 2025.
 # djudju12 <jonathan.willian321@gmail.com>, 2022.
-# gbonaspetti <gbonaspetti@hotmail.com>, 2022.
+# gbonaspetti <gbonaspetti@hotmail.com>, 2022, 2025.
 # ssantos <ssantos@web.de>, 2023, 2024, 2025.
 # Luciano Moda <desenvolvimento@gtmax.com.br>, 2023, 2025.
 # Andre Costa <andrecaeu@gmail.com>, 2024, 2025.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:29+0000\n"
-"Last-Translator: Luciano Moda <desenvolvimento@gtmax.com.br>\n"
+"Last-Translator: gbonaspetti <gbonaspetti@hotmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
 "config_checks/pt/>\n"
 "Language: pt\n"
@@ -59,8 +59,8 @@ msgid ""
 "If the printer has a heated bed then perform the above test again with the "
 "bed."
 msgstr ""
-"Se a impressora tiver uma base aquecida, efetue o procedimento com descrito no"
-" teste acima com a base."
+"Se a impressora tiver uma base aquecida, efetue o procedimento com descrito "
+"no teste acima com a base."
 
 msgid "Verify stepper motor enable pin"
 msgstr "Verifique o pino de ativação do motor de passo"
