@@ -1,12 +1,12 @@
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
-# Francis Poulizac <francis@poulizac.fr>, 2022.
+# Francis Poulizac <francis@poulizac.fr>, 2022, 2025.
 # jean-luc MATTEI <jlucm@free.fr>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "benchmarks/fr/>\n"
 "Language: fr\n"
@@ -35,9 +35,9 @@ msgid ""
 "and between software platforms."
 msgstr ""
 "L'objectif principal des bancs d'essais est de fournir un mécanisme cohérent "
-"pour mesurer l'impact des changements de codage dans le logiciel. Un objectif "
-"secondaire est de fournir des mesures de haut niveau pour comparer les "
-"performances entre puces et entre plateformes logicielles."
+"pour mesurer l'impact des changements de codage dans le logiciel. Un "
+"objectif secondaire est de fournir des mesures de haut niveau pour comparer "
+"les performances entre puces et entre plateformes logicielles."
 
 msgid ""
 "The step rate benchmark is designed to find the maximum stepping rate that the"
