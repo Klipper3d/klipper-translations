@@ -1,7 +1,7 @@
 # Wivik <seb+weblate@zedas.fr>, 2021.
 # Phil Clifford <philip.clifford@gmail.com>, 2021, 2022, 2025.
 # MOULINIER <moulinier.r@gmail.com>, 2022.
-# jean-luc MATTEI <jlucm@free.fr>, 2022, 2023, 2024.
+# jean-luc MATTEI <jlucm@free.fr>, 2022, 2023, 2024, 2025.
 # Francis Poulizac <francis@poulizac.fr>, 2022, 2023, 2025.
 # Alfredo Monclus <alfredomonclus@gmail.com>, 2023.
 # Rundredoffi <contact.rundred@gmail.com>, 2024.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: Phil Clifford <philip.clifford@gmail.com>\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "config_reference/fr/>\n"
 "Language: fr\n"
@@ -2074,12 +2074,12 @@ msgid ""
 "controller."
 msgstr ""
 "La prise en charge actuelle du microcontrôleur de Klipper pour I2C n'est "
-"généralement pas tolérante au bruit de ligne. Des erreurs inattendues sur les "
-"fils I2C peuvent amener Klipper à générer une erreur d'exécution. La prise en "
-"charge de Klipper pour la récupération d'erreur varie selon chaque type de "
-"microcontrôleur. Il est généralement recommandé de n'utiliser que des "
-"appareils I2C qui se trouvent sur la même carte de circuit imprimé que le "
-"microcontrôleur."
+"généralement pas tolérante au bruit de ligne. Des erreurs inattendues sur "
+"les fils I2C peuvent amener Klipper à générer une erreur d'exécution. La "
+"prise en charge de Klipper pour la récupération d'erreur varie selon chaque "
+"type de microcontrôleur. Il est généralement recommandé de n'utiliser que "
+"des appareils I2C qui se trouvent sur la même carte de circuit imprimé que "
+"le microcontrôleur."
 
 #: docs/Config_Reference.md:block 171 (header)
 #, fuzzy
@@ -2125,14 +2125,15 @@ msgid ""
 "typically be achieved with \"SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder "
 "EXTRUDER=<dual_carriage_extruder>\" or a similar command."
 msgstr ""
-"En outre, on pourrait utiliser les commandes \"SET_DUAL_CARRIAGE CARRIAGE=1 "
-"MODE=COPY\" ou \"SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR\" pour activer le "
-"mode copie ou miroir du double chariot, auquel cas il suivra le mouvement du "
-"chariot 0 en conséquence. Ces commandes peuvent être utilisées pour imprimer "
-"deux pièces simultanément - soit deux pièces identiques (en mode COPY) ou des "
-"pièces miroirs (en mode MIRROR). Notez que les modes COPY et MIRROR "
-"nécessitent également la configuration appropriée de l'extrudeur sur le double"
-" chariot, qui peut généralement être atteint avec \"SYNC_EXTRUDER_MOTION "
+"En outre, on pourrait utiliser les commandes "
+"\"SET_DUAL_CARRIAGE CARRIAGE=1 MODE=COPY\" ou "
+"\"SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR\" pour activer le mode copie ou "
+"miroir du double chariot, auquel cas il suivra le mouvement du chariot 0 en "
+"conséquence. Ces commandes peuvent être utilisées pour imprimer deux pièces "
+"simultanément - soit deux pièces identiques (en mode COPY) ou des pièces "
+"miroirs (en mode MIRROR). Notez que les modes COPY et MIRROR nécessitent "
+"également la configuration appropriée de l'extrudeur sur le double chariot, "
+"qui peut généralement être atteint avec \"SYNC_EXTRUDER_MOTION "
 "MOTION_QUEUE=extruder EXTRUDER=exedual_carriage_extruderю\" ou une commande "
 "similaire."
 
@@ -2148,12 +2149,12 @@ msgid ""
 "[sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be"
 " used to report humidity in addition to temperature."
 msgstr ""
-"AHT10/AHT20/AHT21 : capteurs environnementaux à deux fils (I2C). Notez que ces"
-" capteurs ne sont pas destinés à être utilisés avec des extrudeurs et des lits"
-" chauffants, mais plutôt pour surveiller la température ambiante (C) et "
+"AHT10/AHT20/AHT21 : capteurs environnementaux à deux fils (I2C). Notez que "
+"ces capteurs ne sont pas destinés à être utilisés avec des extrudeurs et des "
+"lits chauffants, mais plutôt pour surveiller la température ambiante (C) et "
 "l'humidité relative. Voir [sample-macros.cfg](../config/sample-macros.cfg) "
-"pour un gcode_macro qui peut être utilisé pour signaler l'humidité en plus de "
-"la température."
+"pour un gcode_macro qui peut être utilisé pour signaler l'humidité en plus "
+"de la température."
 
 #: docs/Config_Reference.md:block 277 (header)
 msgid "Combined temperature sensor"
