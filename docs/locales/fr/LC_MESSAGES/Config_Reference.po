@@ -1,17 +1,19 @@
 # Wivik <seb+weblate@zedas.fr>, 2021.
 # Phil Clifford <philip.clifford@gmail.com>, 2021, 2022.
 # MOULINIER <moulinier.r@gmail.com>, 2022.
+# jean-luc MATTEI <jlucm@free.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-03-05 22:43+0000\n"
-"Last-Translator: MOULINIER <moulinier.r@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/config_reference/fr/>\n"
+"PO-Revision-Date: 2022-11-29 09:48+0000\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"config_reference/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -538,6 +540,8 @@ msgstr ""
 
 msgid "Tool to disable heaters when homing or probing an axis."
 msgstr ""
+"Outil pour désactiver les éléments chauffants lors de la prise d'origine ou "
+"du palpage d'un axe."
 
 msgid "[thermistor]"
 msgstr ""
@@ -604,6 +608,8 @@ msgid ""
 "Directly connected PT1000 sensor. The following parameters are available in "
 "heater sections that use one of these sensors."
 msgstr ""
+"Capteur PT1000 connecté en direct. Les paramètres suivants sont disponibles "
+"dans les sections chauffage qui utilisent ces capteurs."
 
 msgid "MAXxxxxx temperature sensors"
 msgstr ""
@@ -667,7 +673,7 @@ msgid "[fan]"
 msgstr ""
 
 msgid "Print cooling fan."
-msgstr ""
+msgstr "Ventilateur de refroidissement de la pièce."
 
 msgid "[heater_fan]"
 msgstr ""

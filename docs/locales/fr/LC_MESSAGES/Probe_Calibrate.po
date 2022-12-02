@@ -1,11 +1,12 @@
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
 # Tl <rflma99@pm.me>, 2022.
 # Jonathan <jonathanhav09@sfr.fr>, 2022.
+# jean-luc MATTEI <jlucm@free.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-24 21:48+0000\n"
-"Last-Translator: Jonathan <jonathanhav09@sfr.fr>\n"
+"PO-Revision-Date: 2022-11-30 10:48+0000\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "probe_calibrate/fr/>\n"
 "Language: fr\n"
@@ -234,7 +235,7 @@ msgid "G1 F300 X57 Y30 Z15\n"
 msgstr ""
 
 msgid "SAVE_CONFIG\n"
-msgstr ""
+msgstr "SAVE_CONFIG\n"
 
 msgid ""
 "Recv: // probe accuracy: at X:0.000 Y:0.000 Z:10.000\n"
