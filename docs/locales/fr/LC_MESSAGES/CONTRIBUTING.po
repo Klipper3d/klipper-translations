@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-02 14:27+0000\n"
+"PO-Revision-Date: 2022-11-29 09:48+0000\n"
 "Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "contributing/fr/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid "Contributing to Klipper"
 msgstr "Contribuer à Klipper"
@@ -60,17 +60,16 @@ msgid "Contributing to Klipper Translations"
 msgstr "Contribuer aux traductions de Klipper"
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
-#, fuzzy
 msgid "75% Total coverage"
 msgstr "75% Couverture totale"
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
-#, fuzzy
 msgid "An updated navigation hierarchy PR in klipper-translations."
-msgstr "Une hiérarchie de navigation mise à jour PR dans klipper-translations."
+msgstr ""
+"Une PR (Pull Request) hiérarchisée de navigation mise à jour dans klipper-"
+"translations."
 
 #: docs/CONTRIBUTING.md:block 13 (paragraph)
-#, fuzzy
 msgid ""
 "To reduce the frustration of translating domain-specific terms and gain "
 "awareness of the ongoing translations, you can submit a PR modifying the "
@@ -80,7 +79,7 @@ msgid ""
 msgstr ""
 "Afin de réduire la frustration liée à la traduction de termes spécifiques à "
 "un domaine et de prendre connaissance des traductions en cours, vous pouvez "
-"soumettre un PR modifiant le [Projet Klipper-translations](https://github."
+"soumettre une PR modifiant le [Projet Klipper-translations](https://github."
 "com/Klipper3d/klipper-translations) `readme.md`. Dès qu'une traduction est "
 "prête, la modification correspondante du projet Klipper peut être effectuée."
 
@@ -122,15 +121,14 @@ msgstr ""
 ":"
 
 #: docs/CONTRIBUTING.md:block 6 (ordered list)
-#, fuzzy
 msgid ""
 "A submitter starts by creating a [GitHub Pull "
 "Request](https://github.com/Klipper3d/klipper/pulls) when a submission is "
 "ready for widespread deployment."
 msgstr ""
-"Un soumissionnaire commence par créer une [GitHub Pull Request] "
-"(https://github.com/Klipper3d/klipper/pulls) lorsqu'une soumission est prête "
-"à être déployée à grande échelle."
+"Un soumissionnaire commence par créer une [GitHub Pull "
+"Request](https://github.com/Klipper3d/klipper/pulls) lorsqu'une soumission "
+"est prête à être déployée à grande échelle."
 
 #: docs/CONTRIBUTING.md:block 6 (ordered list)
 msgid ""

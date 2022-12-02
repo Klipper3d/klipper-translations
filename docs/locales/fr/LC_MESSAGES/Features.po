@@ -1,17 +1,19 @@
 # wilmouths <wilmouthsteven@gmail.com>, 2021.
 # Wivik <seb+weblate@zedas.fr>, 2021.
 # Maxime Leroy <lisacintosh@gmail.com>, 2022.
+# Francis Poulizac <francis@poulizac.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-22 21:20+0000\n"
-"Last-Translator: Maxime Leroy <lisacintosh@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/features/fr/>\n"
+"PO-Revision-Date: 2022-11-29 09:48+0000\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/features/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid "Klipper has several compelling features:"
 msgstr "Klipper propose plusieurs caractéristiques intéressantes :"
@@ -275,8 +277,8 @@ msgid ""
 " [config directory](../config/) for a list."
 msgstr ""
 "Des exemples de fichiers de configuration sont disponibles pour de "
-"nombreuses imprimantes courantes. Consultez le [répertoire "
-"config](../config/) pour en obtenir la liste."
+"nombreuses imprimantes courantes. Consultez le [répertoire des "
+"configurations](../config/) pour en obtenir la liste."
 
 msgid ""
 "To get started with Klipper, read the [installation](Installation.md) guide."
@@ -322,12 +324,17 @@ msgid ""
 "Standard G-Code support. Common g-code commands that are produced by typical"
 " \"slicers\" (SuperSlicer, Cura, PrusaSlicer, etc.) are supported."
 msgstr ""
+"Prise en charge du G-Code standard. Les commandes de g-code courantes "
+"produites par les \"trancheurs\" (slicers) typiques (SuperSlicer, Cura, "
+"PrusaSlicer, etc.) sont prises en charge."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, "
 "rotary delta, polar, and cable winch style printers."
 msgstr ""
+"Prise en charge des imprimantes de type cartésien, delta, corexy, corexz, "
+"hybride-corexy, hybride-corexz, delta rotatif, polaire et treuil à câble."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -338,6 +345,13 @@ msgid ""
 "micro-controller temperature sensor and the internal temperature sensor of a"
 " Raspberry Pi."
 msgstr ""
+"Prise en charge des capteurs de température courants (par exemple, les "
+"thermistances courantes, AD595, AD597, AD849x, PT100, PT1000, MAX6675, "
+"MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20 et LM75). Des "
+"thermistances et des capteurs de température analogiques personnalisés "
+"peuvent également être configurés. On peut surveiller le capteur de "
+"température interne du microcontrôleur et le capteur de température interne "
+"d'un Raspberry Pi."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -345,12 +359,18 @@ msgid ""
 "need to keep fans running when the printer is idle. Fan speed can be "
 "monitored on fans that have a tachometer."
 msgstr ""
+"Prise en charge des ventilateurs standard, des ventilateurs de buses et des "
+"ventilateurs à température contrôlée. Il n'est pas nécessaire de faire "
+"tourner les ventilateurs lorsque l'imprimante est inactive. La vitesse du "
+"ventilateur peut être contrôlée sur les ventilateurs dotés d'un tachymètre."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for filament presence sensors, filament motion sensors, and filament"
 " width sensors."
 msgstr ""
+"Prise en charge des capteurs de présence de filaments, des capteurs de "
+"mouvement de filaments et des capteurs de largeur de filaments."
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -361,10 +381,18 @@ msgid ""
 "higher print velocities. The stepper event timing remains precise even at "
 "high speeds which improves overall stability."
 msgstr ""
+"Meilleures performances de sa catégorie. Klipper est capable d'atteindre des "
+"taux de pas élevés sur les micro-contrôleurs nouveaux et anciens. Même les "
+"anciens microcontrôleurs 8 bits peuvent obtenir des taux supérieurs à 175 "
+"000 pas par seconde. Sur les micro-contrôleurs plus récents, plusieurs "
+"millions de pas par seconde sont possibles. Des taux de pas plus élevés "
+"permettent des vitesses d'impression plus élevées. La synchronisation des "
+"événements du pas à pas reste précise même à des vitesses élevées, ce qui "
+"améliore la stabilité globale."
 
 #: docs/Features.md:block 10 (table)
 msgid "1 stepper active"
-msgstr ""
+msgstr "1 stepper actif"
 
 #: docs/Features.md:block 10 (table)
 msgid "157K"
@@ -491,6 +519,8 @@ msgid ""
 "Further details on the benchmarks are available in the [Benchmarks "
 "document](Benchmarks.md)."
 msgstr ""
+"De plus amples détails sur les bancs d'essais sont disponibles dans le ["
+"document des bancs d'essais](Benchmarks.md)."
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32G0B1"
@@ -554,6 +584,9 @@ msgid ""
 "appropriate [config file](../config/), and look for the micro-controller "
 "name in the comments at the top of that file."
 msgstr ""
+"Si vous n'êtes pas sûr du microcontrôleur d'une carte particulière, trouvez "
+"le [fichier de configuration](../config/) approprié , et cherchez le nom du "
+"microcontrôleur dans les commentaires en haut de ce fichier."
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32H743"

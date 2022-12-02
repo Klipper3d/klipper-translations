@@ -3,17 +3,19 @@
 # Rhenaud Dubois <rhen33390@gmail.com>, 2021.
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
 # Linda 'linigrhf' Ayasing <linigrhf@gmail.com>, 2022.
+# Francis Poulizac <francis@poulizac.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-02 09:52+0000\n"
-"Last-Translator: Linda 'linigrhf' Ayasing <linigrhf@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/overview/fr/>\n"
+"PO-Revision-Date: 2022-11-29 09:48+0000\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/overview/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -295,12 +297,16 @@ msgid ""
 "[Skew correction](Skew_Correction.md): Adjustments for axes not perfectly "
 "square."
 msgstr ""
+"[Correction d'obliquité](Skew_Correction.md) : Ajustements des axes qui ne "
+"sont pas parfaitement perpendiculaires."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
 "[Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone "
 "PRU."
 msgstr ""
+"[Beaglebone](Beaglebone.md) : Détails pour l'exécution de Klipper sur le SBC "
+"Beaglebone."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
@@ -311,6 +317,8 @@ msgid ""
 "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
 "implementation."
 msgstr ""
+"[Exclude Object](Exclude_Object.md) : Le guide de l'implémentation "
+"d'exclusion d'objets."
 
 #~ msgid ""
 #~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "

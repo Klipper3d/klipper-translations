@@ -1,11 +1,12 @@
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
 # Tl <rflma99@pm.me>, 2022.
 # Jonathan <jonathanhav09@sfr.fr>, 2022.
+# Francis Poulizac <francis@poulizac.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-24 21:48+0000\n"
-"Last-Translator: Jonathan <jonathanhav09@sfr.fr>\n"
+"PO-Revision-Date: 2022-11-28 14:13+0000\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "rpi_microcontroller/fr/>\n"
 "Language: fr\n"
@@ -19,7 +20,7 @@ msgid ""
 "same RPi as secondary mcu."
 msgstr ""
 "Ce document décrit le processus via lequel il est possible de lancer Klipper "
-"sur un Raspberry Pi et d'utiliser le même Raspberry Pi comme mcu secondaire"
+"sur un Raspberry Pi et d'utiliser le même Raspberry Pi comme mcu secondaire."
 
 msgid "Why use RPi as a secondary MCU?"
 msgstr ""

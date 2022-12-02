@@ -1,19 +1,21 @@
 # wilmouths <wilmouthsteven@gmail.com>, 2021.
 # Wivik <seb+weblate@zedas.fr>, 2021.
+# Francis Poulizac <francis@poulizac.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-20 02:20+0000\n"
-"Last-Translator: Wivik <seb+weblate@zedas.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/tsl1401cl_filament_width_sensor/fr/>\n"
+"PO-Revision-Date: 2022-11-28 14:13+0000\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"tsl1401cl_filament_width_sensor/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid "How does it work?"
-msgstr "Comment ça marche ?"
+msgstr "Comment cela fonctionne-t-il ?"
 
 msgid ""
 "Sensor generates analog output based on calculated filament width. Output "
