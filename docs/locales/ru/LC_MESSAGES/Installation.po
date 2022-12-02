@@ -1,11 +1,12 @@
 # Comocen <Comoc_en@mail.ru>, 2022.
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 # WofWca <wofwca@protonmail.com>, 2022.
+# Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-28 09:48+0000\n"
-"Last-Translator: WofWca <wofwca@protonmail.com>\n"
+"PO-Revision-Date: 2022-11-30 10:48+0000\n"
+"Last-Translator: Evgeniy Khramov <thejenjagamertjg@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "installation/ru/>\n"
 "Language: ru\n"
@@ -204,7 +205,6 @@ msgid ""
 msgstr ""
 
 #: docs/Installation.md:block 1 (header)
-#, fuzzy
 msgid "Installation"
 msgstr "Установка"
 

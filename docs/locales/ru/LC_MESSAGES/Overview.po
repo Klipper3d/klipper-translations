@@ -2,11 +2,12 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 # Vik <xasertop@gmail.com>, 2022.
 # Mari Japaridze <mari.mari.japaridze@mail.ru>, 2022.
+# Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-05 22:06+0000\n"
-"Last-Translator: Mari Japaridze <mari.mari.japaridze@mail.ru>\n"
+"PO-Revision-Date: 2022-11-30 10:48+0000\n"
+"Last-Translator: Evgeniy Khramov <thejenjagamertjg@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/overview/"
 "ru/>\n"
 "Language: ru\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -194,7 +195,7 @@ msgid "[Packaging](Packaging.md): Information on building OS packages."
 msgstr ""
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "Документы по конкретным устройствам"
 
 msgid ""
 "[Example configs](Example_Configs.md): Information on adding an example "
