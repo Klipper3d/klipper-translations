@@ -8,7 +8,7 @@ Veuillez consulter la [page de contact](Contact.md) pour obtenir des information
 
 Les contributions à Klipper suivent généralement un processus de haut niveau :
 
-1. Un soumissionnaire commence par créer une [GitHub Pull Request] (https://github.com/Klipper3d/klipper/pulls) lorsqu'une soumission est prête à être déployée à grande échelle.
+1. Un soumissionnaire commence par créer une [GitHub Pull Request](https://github.com/Klipper3d/klipper/pulls) lorsqu'une soumission est prête à être déployée à grande échelle.
 1. Lorsqu'un [relecteur](#reviewers) est disponible pour [réviser](#what-to-expect-in-a-review) la soumission, il s'attribuera la Pull Request sur GitHub. L'objectif de la révision est de rechercher les défauts et de vérifier que la soumission suit les directives documentées.
 1. Après une révision réussie, le relecteur "approuve la révision" sur GitHub et un [mainteneur](#reviewers) commet la modification dans la branche principale de Klipper.
 
@@ -144,9 +144,9 @@ Il est important d'avoir une ligne "Signed-off-by" sur chaque commit - elle cert
 
 - [ ] 75% Couverture totale
 - [ ] All titles (H1) are translated
-- [ ] Une hiérarchie de navigation mise à jour PR dans klipper-translations.
+- [ ] Une PR (Pull Request) hiérarchisée de navigation mise à jour dans klipper-translations.
 
-Afin de réduire la frustration liée à la traduction de termes spécifiques à un domaine et de prendre connaissance des traductions en cours, vous pouvez soumettre un PR modifiant le [Projet Klipper-translations](https://github.com/Klipper3d/klipper-translations) `readme.md`. Dès qu'une traduction est prête, la modification correspondante du projet Klipper peut être effectuée.
+Afin de réduire la frustration liée à la traduction de termes spécifiques à un domaine et de prendre connaissance des traductions en cours, vous pouvez soumettre une PR modifiant le [Projet Klipper-translations](https://github.com/Klipper3d/klipper-translations) `readme.md`. Dès qu'une traduction est prête, la modification correspondante du projet Klipper peut être effectuée.
 
 Si une traduction existe déjà dans le référentiel Klipper et ne répond plus à la liste de contrôle ci-dessus, elle sera marquée comme obsolète après un mois sans mise à jour.
 

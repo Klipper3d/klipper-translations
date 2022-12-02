@@ -1,12 +1,12 @@
 # Bootloaders
 
-This document provides information on common bootloaders found on micro-controllers that Klipper supports.
+Ce document fournit des informations sur les "chargeurs de démarrage" ou "Bootloaders" courants trouvés sur les microcontrôleurs pris en charge par Klipper.
 
-The bootloader is 3rd-party software that runs on the micro-controller when it is first powered on. It is typically used to flash a new application (eg, Klipper) to the micro-controller without requiring specialized hardware. Unfortunately, there is no industry wide standard for flashing a micro-controller, nor is there a standard bootloader that works across all micro-controllers. Worse, it is common for each bootloader to require a different set of steps to flash an application.
+Le chargeur de démarrage est un logiciel tiers qui s'exécute sur le microcontrôleur lors de sa première mise sous tension. Il est généralement utilisé pour flasher une nouvelle application (par exemple, Klipper) sur le microcontrôleur sans nécessiter de matériel spécialisé. Malheureusement, il n'existe pas de norme à l'échelle de l'industrie pour flasher un microcontrôleur, ni de chargeur de démarrage standard qui fonctionne sur tous les microcontrôleurs. Pire encore, il est courant que chaque chargeur de démarrage nécessite un ensemble d'étapes différent pour flasher une application.
 
-If one can flash a bootloader to a micro-controller then one can generally also use that mechanism to flash an application, but care should be taken when doing this as one may inadvertently remove the bootloader. In contrast, a bootloader will generally only permit a user to flash an application. It is therefore recommended to use a bootloader to flash an application where possible.
+Si l'on peut flasher un chargeur de démarrage sur un microcontrôleur, on peut généralement également utiliser ce mécanisme pour flasher une application, mais il faut faire attention en faisant cela car on peut supprimer le chargeur de démarrage par inadvertance. En revanche, un chargeur de démarrage permettra généralement à un utilisateur de flasher une application. Il est donc recommandé d'utiliser le chargeur de démarrage pour flasher une application lorsque cela est possible.
 
-This document attempts to describe common bootloaders, the steps needed to flash a bootloader, and the steps needed to flash an application. This document is not an authoritative reference; it is intended as a collection of useful information that the Klipper developers have accumulated.
+Ce document tente de décrire les chargeurs de démarrage courants, les étapes nécessaires pour flasher un chargeur de démarrage et les étapes nécessaires pour flasher une application. Ce document n'est pas une référence faisant autorité ; il est conçu comme une collection d'informations utiles que les développeurs de Klipper ont accumulées.
 
 ## AVR micro-controllers
 

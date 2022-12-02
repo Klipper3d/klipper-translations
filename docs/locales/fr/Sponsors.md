@@ -1,26 +1,26 @@
 # Sponsors
 
-Klipper is Free Software. We depend on the generous support from sponsors. Please consider sponsoring Klipper or supporting our sponsors.
+Klipper est un logiciel libre. Nous dépendons du généreux soutien des sponsors. Merci de sponsoriser Klipper ou de soutenir nos sponsors.
 
 ## BIGTREETECH
 
 [<img src="./img/sponsors/BTT_BTT.png" width="200" />
 
-BIGTREETECH is the official mainboard sponsor of Klipper. BIGTREETECH is committed to developing innovative and competitive products to serve the 3D printing community better. Follow them on [Facebook](https://www.facebook.com/BIGTREETECH) or [Twitter](https://twitter.com/BigTreeTech).
+BIGTREETECH est le sponsor officiel de cartes mères pour Klipper. BIGTREETECH s’engage à développer des produits innovants et compétitifs pour mieux servir la communauté de l’impression 3D. Suivez-les sur [Facebook](https://www.facebook.com/BIGTREETECH) ou [Twitter](https://twitter.com/BigTreeTech).
 
-## Klipper Developers
+## Développeurs Klipper
 
 ### Kevin O'Connor
 
-Kevin is the original author and current maintainer of Klipper. Donate at: <https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>
+Kevin est l'auteur original et le mainteneur actuel de Klipper. Faites un don sur : <https://ko-fi.com/koconnor> ou <https://www.patreon.com/koconnor>
 
 ### Eric Callahan
 
-Eric is the author of bed_mesh, spi_flash, and several other Klipper modules. Eric has a donations page at: <https://ko-fi.com/arksine>
+Eric est l'auteur de bed_mesh, spi_flash et de plusieurs autres modules Klipper. Eric a une page de dons sur : <https://ko-fi.com/arksine>
 
-## Related Klipper Projects
+## Projets Klipper associés
 
-Klipper is frequently used with other Free Software. Consider using or supporting these projects.
+Klipper est fréquemment utilisé avec d'autres logiciels libres. Pensez à utiliser ou à soutenir ces projets.
 
 * [Moonraker](https://github.com/Arksine/moonraker)
 * [Mainsail](https://github.com/mainsail-crew/mainsail)

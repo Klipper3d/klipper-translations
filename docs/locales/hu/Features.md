@@ -62,6 +62,6 @@ Az alábbiakban a léptető teljesítménytesztek eredményeit mutatjuk be. A fe
 | STM32F446 | 3913K | 2634K |
 | STM32H743 | 9091K | 6061K |
 
-Ha nem tudja, hogy egy adott lapon milyen mikrokontroller van, keresse meg a megfelelő [config fájlt](../config/), és keresse meg a mikrokontroller nevét a fájl tetején lévő megjegyzésekben.
+Ha nem tudod, hogy egy adott lapon milyen mikrokontroller van, keresd meg a megfelelő [config fájlt](../config/), és keresd meg a mikrokontroller nevét a fájl tetején lévő megjegyzésekben.
 
 A referenciaértékekkel kapcsolatos további részletek a [Referenciaértékek dokumentumban](Benchmarks.md) találhatók.

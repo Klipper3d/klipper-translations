@@ -1,6 +1,6 @@
 # RPi microcontroller
 
-Ce document décrit le processus via lequel il est possible de lancer Klipper sur un Raspberry Pi et d'utiliser le même Raspberry Pi comme mcu secondaire
+Ce document décrit le processus via lequel il est possible de lancer Klipper sur un Raspberry Pi et d'utiliser le même Raspberry Pi comme mcu secondaire.
 
 ## Why use RPi as a secondary MCU?
 
@@ -51,7 +51,7 @@ Complete the installation by configuring Klipper secondary MCU following the ins
 
 ## Optional: Enabling SPI
 
-Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and enabling SPI under the "Interfacing options" menu.
+Assurez-vous que le pilote SPI Linux est activé en exécutant `sudo raspi-config` et en activant SPI dans le menu « Options d’interface ».
 
 ## Optional: Enabling I2C
 

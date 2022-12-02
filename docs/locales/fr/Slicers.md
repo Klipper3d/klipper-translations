@@ -2,44 +2,44 @@
 
 Ce document fournit certains conseils concernant la configuration d'une application "Slicer" pour une utilisation avec Klipper. Des slicers les plus courants utilisés avec Klipper sont Sli3r, Cura, Simplify3D, etc.
 
-## Set the G-Code flavor to Marlin
+## Définissez le parfum g-code sur 'Marlin'
 
-Many slicers have an option to configure the "G-Code flavor". The default is frequently "Marlin" and that works well with Klipper. The "Smoothieware" setting also works well with Klipper.
+De nombreux trancheurs ont une option pour configurer le "Parfum G-Code". La valeur par défaut est souvent "Marlin" et cela fonctionne bien avec Klipper. La valeur "Smoothieware" fonctionne également bien avec Klipper.
 
-## Klipper gcode_macro
+## Les macros G-code de Klipper
 
-Slicers will often allow one to configure "Start G-Code" and "End G-Code" sequences. It is often convenient to define custom macros in the Klipper config file instead - such as: `[gcode_macro START_PRINT]` and `[gcode_macro END_PRINT]`. Then one can just run START_PRINT and END_PRINT in the slicer's configuration. Defining these actions in the Klipper configuration may make it easier to tweak the printer's start and end steps as changes do not require re-slicing.
+Les trancheurs permettent souvent de configurer les séquences "Start G-Code" et "End G-Code". Il est souvent pratique de définir des macros personnalisées dans le fichier de configuration de Klipper - telles que : `[gcode_macro START_PRINT]` et `[gcode_macro END_PRINT]`. Ensuite, on peut simplement indiquer START_PRINT et END_PRINT dans la configuration du slicer. La définition de ces actions dans la configuration de Klipper peut faciliter la modification des étapes de début et de fin de l'imprimante, car les modifications ne nécessitent pas de nouveau découpage.
 
-See [sample-macros.cfg](../config/sample-macros.cfg) for example START_PRINT and END_PRINT macros.
+Voir [sample-macros.cfg](../config/sample-macros.cfg) par exemple les macros START_PRINT et END_PRINT.
 
-See the [config reference](Config_Reference.md#gcode_macro) for details on defining a gcode_macro.
+Voir la [référence de configuration](Config_Reference.md#gcode_macro) pour plus de détails sur la définition de macros G-Code.
 
-## Large retraction settings may require tuning Klipper
+## Un réglage de rétraction important peut nécessiter un réglage de Klipper
 
-The maximum speed and acceleration of retraction moves are controlled in Klipper by the `max_extrude_only_velocity` and `max_extrude_only_accel` config settings. These settings have a default value that should work well on many printers. However, if one has configured a large retraction in the slicer (eg, 5mm or greater) then one may find they limit the desired speed of retractions.
+La vitesse et l'accélération maximales des mouvements de rétraction sont contrôlés dans Klipper par les paramètres de configuration `max_extrude_only_velocity` et `max_extrude_only_accel`. Ces paramètres ont une valeur par défaut qui doit bien fonctionner sur de nombreuses imprimantes. Cependant, si l'on a configuré une grande rétraction dans le trancheur (par exemple, 5 mm ou plus), on peut constater qu'ils limitent la vitesse de rétraction souhaitée.
 
-If using a large retraction, consider tuning Klipper's [pressure advance](Pressure_Advance.md) instead. Otherwise, if one finds the toolhead seems to "pause" during retraction and priming, then consider explicitly defining `max_extrude_only_velocity` and `max_extrude_only_accel` in the Klipper config file.
+Si vous utilisez une grande distance rétraction, envisagez plutôt de régler le [Pressure advance](Pressure_Advance.md) de Klipper. Dans la cas ou l'on trouve que la tête semble "s'arrêter" pendant la rétraction et l'amorçage, définissez explicitement `max_extrude_only_velocity` et `max_extrude_only_accel` dans le fichier de configuration de Klipper.
 
-## Do not enable "coasting"
+## N'activez pas le mode "roue libre"
 
-The "coasting" feature is likely to result in poor quality prints with Klipper. Consider using Klipper's [pressure advance](Pressure_Advance.md) instead.
+Le mode "roue libre" est susceptible d'entraîner des impressions de mauvaise qualité avec Klipper. Envisagez d'utiliser à la place le [pressure Advance](Pressure_Advance.md) de Klipper.
 
-Specifically, if the slicer dramatically changes the extrusion rate between moves then Klipper will perform deceleration and acceleration between moves. This is likely to make blobbing worse, not better.
+Plus précisément, si le slicer modifie considérablement le taux d'extrusion entre les mouvements, Klipper effectuera une décélération et une accélération entre les mouvements. Cela risque d'aggraver les bavures, pas de les améliorer.
 
-In contrast, it is okay (and often helpful) to use a slicer's "retract" setting, "wipe" setting, and/or "wipe on retract" setting.
+En revanche, il est possible (et souvent utile) d'utiliser le réglage « rétracter », le réglage « essuyer » et/ou le réglage « essuyer lors de la rétractation » d'un trancheur.
 
-## Do not use "extra restart distance" on Simplify3d
+## Ne pas utiliser la "distance de redémarrage supplémentaire" sur Simplify3d
 
-This setting can cause dramatic changes to extrusion rates which can trigger Klipper's maximum extrusion cross-section check. Consider using Klipper's [pressure advance](Pressure_Advance.md) or the regular Simplify3d retract setting instead.
+Ce paramètre peut entraîner de gros changements dans le taux d'extrusion, ce qui peut déclencher la limite d'extrusion maximale de Klipper. Envisagez d'utiliser à la place le [pressure advance](Pressure_Advance.md) de Klipper (Pressure_Advance.md) ou le paramètre de rétractation standard de Simplify3d.
 
-## Disable "PreloadVE" on KISSlicer
+## Désactivez "PreloadVE" sur KISSlicer
 
-If using KISSlicer slicing software then set "PreloadVE" to zero. Consider using Klipper's [pressure advance](Pressure_Advance.md) instead.
+Si vous utilisez le trancheur KISSlicer, réglez "PreloadVE" sur zéro. Envisagez d'utiliser à la place le [Pressure Advance](Pressure_Advance.md) de Klipper.
 
-## Disable any "advanced extruder pressure" settings
+## Désactivez tous les paramètres de "pression d'extrusion avancée"
 
-Some slicers advertise an "advanced extruder pressure" capability. It is recommended to keep these options disabled when using Klipper as they are likely to result in poor quality prints. Consider using Klipper's [pressure advance](Pressure_Advance.md) instead.
+Certains trancheurs présentent une fonction de "pression d'extrudeuse avancée". Il est recommandé de garder ces options désactivées lors de l'utilisation de Klipper car elles risquent d'entraîner des impressions de mauvaise qualité. Envisagez d'utiliser à la place la [Pressure Advance](Pressure_Advance.md) de Klipper.
 
-Specifically, these slicer settings can instruct the firmware to make wild changes to the extrusion rate in the hope that the firmware will approximate those requests and the printer will roughly obtain a desirable extruder pressure. Klipper, however, utilizes precise kinematic calculations and timing. When Klipper is commanded to make significant changes to the extrusion rate it will plan out the corresponding changes to velocity, acceleration, and extruder movement - which is not the slicer's intent. The slicer may even command excessive extrusion rates to the point that it triggers Klipper's maximum extrusion cross-section check.
+Ces paramètres de trancheur peuvent demander au micrologiciel d'apporter des modifications non contrôlées au taux d'extrusion dans l'espoir que le micrologiciel se rapprochera de ces demandes et que l'imprimante obtiendra approximativement une pression d'extrudeuse souhaitable. Klipper, utilise des calculs cinématiques et une synchronisation précise. Lorsque Klipper reçoit l'ordre d'apporter des modifications importantes au taux d'extrusion, il planifiera les modifications correspondantes de la vitesse, de l'accélération et du mouvement de l'extrudeuse - ce qui n'est pas prévu par le trancheur. Le trancheur peut même commander des taux d'extrusion excessifs au point de déclencher la limite d'extrusion maximale de Klipper.
 
-In contrast, it is okay (and often helpful) to use a slicer's "retract" setting, "wipe" setting, and/or "wipe on retract" setting.
+En revanche, il est possible (et souvent utile) d'utiliser le réglage « rétracter », le réglage « essuyer » et/ou le réglage « essuyer lors de la rétractation » d'un trancheur.

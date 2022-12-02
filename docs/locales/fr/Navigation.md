@@ -1,14 +1,14 @@
-Klipper documentation
+Documentation Klipper
 
 Installation et Configuration
 
-Configuration Reference
+Référence de configuration
 
-Bed Level
+Nivellement du lit
 
 Compensation de résonance
 
-Command templates
+Modèles de commandes
 
 Documentation pour les Développeurs
 

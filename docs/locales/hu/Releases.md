@@ -109,7 +109,7 @@ Elérhető a 20180331. Főbb változások ebben a kiadásban:
    * Kezdeti támogatás kettős kocsikhoz
 * Több léptető tengelyenkénti konfigurálásának támogatása (pl. kettős Z)
 * Egyedi digitális és PWM kimeneti tűk támogatása (új SET_PIN paranccsal)
-* Kezdeti támogatás egy "virtuális SDcard" számára, amely lehetővé teszi a nyomtatást közvetlenül a Klipperről (segít a túl lassú gépeken, hogy az OctoPrint jól fusson)
+* Kezdeti támogatás egy "virtuális SDcard" számára, amely lehetővé teszi a nyomtatást közvetlenül a Klipper-ről (segít a túl lassú gépeken, hogy az OctoPrint jól fusson)
 * Különböző karhosszúságok beállításának támogatása a delta minden egyes tornyán
 * A G-kód M220/M221 parancsok támogatása (sebességtényező felülbírálása / extrudálási tényező felülbírálása)
 * Számos dokumentáció frissítés:
@@ -124,11 +124,11 @@ Elérhető a 20180331. Főbb változások ebben a kiadásban:
 
 Elérhető a 20171025. Főbb változások ebben a kiadásban:
 
-* Több extruderrel rendelkező nyomtatók támogatása.
+* Több extruder-el rendelkező nyomtatók támogatása.
 * Kezdeti támogatás a Beaglebone PRU-n való futtatáshoz. Kezdeti támogatás a Replicape alaplaphoz.
 * Kezdeti támogatás a mikrokontroller kódjának valós idejű Linux-folyamatban történő futtatásához.
 * Több mikrovezérlő támogatása. (Például egy extruder vezérelhető egy mikrokontrollerrel, a nyomtató többi része pedig egy másikkal.) A mikrovezérlők közötti műveletek összehangolásához szoftveres órajel-szinkronizálás van implementálva.
-* Lépegető teljesítményének javítása (20Mhz-es AVR-ek akár 189K lépés/másodpercig).
+* Léptető teljesítményének javítása (20Mhz-es AVR-ek akár 189K lépés/másodpercig).
 * Támogatás a szervók vezérléséhez és a fejhűtő ventilátorok meghatározásához.
 * Számos hibajavítás és kódtisztítás
 

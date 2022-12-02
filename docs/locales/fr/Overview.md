@@ -32,9 +32,9 @@ Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, comme
 - [Pilotes TMC](TMC_Drivers.md) : Utilisation des pilotes de moteurs pas à pas Trinamic avec Klipper.
 - [Multi-MCU Prise origine matérielle](Multi_MCU_Homing.md) : Prise d'origine matérielle et palpage utilisant plusieurs micro-contrôleurs.
 - [Slicers](Slicers.md) : Configurer un logiciel "slicer" pour Klipper.
-- [Skew correction](Skew_Correction.md): Adjustments for axes not perfectly square.
+- [Correction d'obliquité](Skew_Correction.md) : Ajustements des axes qui ne sont pas parfaitement perpendiculaires.
 - [Outils PWM](Using_PWM_Tools.md) : Guide sur l'utilisation des outils contrôlés par PWM tels que les lasers ou les broches.
-- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs implementation.
+- [Exclude Object](Exclude_Object.md) : Le guide de l'implémentation d'exclusion d'objets.
 
 ## Documentation pour les Développeurs
 
@@ -54,7 +54,7 @@ Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, comme
 - [Configs d'exemple](Example_Configs.md) : Informations sur l'ajout d'un exemple de fichier de configuration à Klipper.
 - [Mises à jour par SDCard](SDCard_Updates.md) : Flasher le micro-contrôleur en copiant un binaire sur une carte SD.
 - [Raspberry Pi en tant que Microcontrôleur](RPi_microcontroller.md) : Détails pour contrôler les appareils connectés aux broches GPIO d'un Raspberry Pi.
-- [Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone PRU.
+- [Beaglebone](Beaglebone.md) : Détails pour l'exécution de Klipper sur le SBC Beaglebone.
 - [Bootloaders](Bootloaders.md) : Informations pour les développeurs sur le flashage des microcontrôleurs.
 - [Bus CAN](CANBUS.md) : Informations sur l'utilisation du bus CAN avec Klipper.
 - [Capteur de largeur de filament TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
