@@ -1,9 +1,10 @@
 # Jonathan <jonathanhav09@sfr.fr>, 2022.
+# jean-luc MATTEI <jlucm@free.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-24 21:48+0000\n"
-"Last-Translator: Jonathan <jonathanhav09@sfr.fr>\n"
+"PO-Revision-Date: 2022-12-02 08:48+0000\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "resonance_compensation/fr/>\n"
 "Language: fr\n"
@@ -265,7 +266,7 @@ msgid ""
 msgstr ""
 
 msgid "Selecting max_accel"
-msgstr ""
+msgstr "Sélection de max_accel"
 
 msgid ""
 "In order to select a suitable max_accel value, inspect the model for the "

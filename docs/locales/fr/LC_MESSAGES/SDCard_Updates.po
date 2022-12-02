@@ -1,15 +1,17 @@
 # Nathan <bonnemainsnathan@gmail.com>, 2021.
+# jean-luc MATTEI <jlucm@free.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-11 08:32+0000\n"
-"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/sdcard_updates/fr/>\n"
+"PO-Revision-Date: 2022-12-01 05:47+0000\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"sdcard_updates/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid ""
 "Many of today's popular controller boards ship with a bootloader capable of "
@@ -83,7 +85,7 @@ msgid ""
 msgstr ""
 
 msgid "Caveats"
-msgstr ""
+msgstr "Avertissements"
 
 msgid ""
 "As mentioned in the introduction, this method only works for upgrading "
@@ -411,7 +413,7 @@ msgstr ""
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CS"
-msgstr ""
+msgstr "CS"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "3"
@@ -487,7 +489,7 @@ msgstr ""
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "GND"
-msgstr ""
+msgstr "GND"
 
 #: docs/SDCard_Updates.md:block 45 (paragraph)
 msgid "\\* None (PU) indicates an unused pin with a pull-up resistor"
