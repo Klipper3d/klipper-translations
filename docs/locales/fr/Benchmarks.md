@@ -2,11 +2,11 @@
 
 Ce document décrit les benchmarks Klipper.
 
-## Bancs d'essai pour micro-contrôleurs
+## Bancs d'essai des microcontrôleurs
 
-Cette section décrit le mécanisme utilisé pour générer les benchmarks de fréquence de pas du microcontrôleur Klipper.
+Cette section décrit le mécanisme utilisé pour générer les bancs d'essais (benchmarks) de fréquence de pas du microcontrôleur Klipper.
 
-L'objectif principal des benchmarks est de fournir un mécanisme cohérent pour mesurer l'impact des changements de codage dans le logiciel. Un objectif secondaire est de fournir des mesures de haut niveau pour comparer les performances entre puces et entre plateformes logicielles.
+L'objectif principal des bancs d'essais est de fournir un mécanisme cohérent pour mesurer l'impact des changements de codage dans le logiciel. Un objectif secondaire est de fournir des mesures de haut niveau pour comparer les performances entre puces et entre plateformes logicielles.
 
 The step rate benchmark is designed to find the maximum stepping rate that the hardware and software can reach. This benchmark stepping rate is not achievable in day-to-day use as Klipper needs to perform other tasks (eg, mcu/host communication, temperature reading, endstop checking) in any real-world usage.
 

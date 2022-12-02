@@ -1,78 +1,78 @@
 # API server
 
-This document describes Klipper's Application Programmer Interface (API). This interface enables external applications to query and control the Klipper host software.
+Ce document décrit l'Interface de Programmation d'Applications (API) de Klipper. Cette interface permet à des applications externes d'interroger et de contrôler Klipper.
 
-## Enabling the API socket
+## Activer le socket API
 
-In order to use the API server, the klippy.py host software must be started with the `-a` parameter. For example:
+Pour pouvoir utiliser les Serveur API, le logiciel hôte klippy.py doit être démarré avec le paramètre `-a`. Par exemple :
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 ```
 
-This causes the host software to create a Unix Domain Socket. A client can then open a connection on that socket and send commands to Klipper.
+Cela force le logiciel hôte à créer un socket de domaine Unix. Un client peut alors ouvrir une connexion sur ce socket et envoyer des commandes à Klipper.
 
 See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.
 
-## Request format
+## Format de la demande
 
-Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:
+Les messages envoyés et reçus sur le socket sont des chaînes au format JSON et terminées par le caractère ASCII 0x03 :
 
 ```
 <json_object_1><0x03><json_object_2><0x03>...
 ```
 
-Klipper contains a `scripts/whconsole.py` tool that can perform the above message framing. For example:
+Klipper contiens un outil `scripts/whconsole.py` qui peut effectuer la mise en forme du message ci-dessus. Par exemple :
 
 ```
 ~/klipper/scripts/whconsole.py /tmp/klippy_uds
 ```
 
-This tool can read a series of JSON commands from stdin, send them to Klipper, and report the results. The tool expects each JSON command to be on a single line, and it will automatically append the 0x03 terminator when transmitting a request. (The Klipper API server does not have a newline requirement.)
+Cet outil peut lire une série de commandes JSON à partir de l'entrée standard stdin, les envoyer à Klipper et afficher les résultats. Cet outil s'attend à avoir une commande JSON par ligne et il ajoute automatiquement le terminateur 0x03 avant d'envoyer les requêtes. (Le serveur d'API de Klipper ne attend pas un saut de ligne.)
 
-## API Protocol
+## Protocole de l'API
 
-The command protocol used on the communication socket is inspired by [json-rpc](https://www.jsonrpc.org/).
+Le protocole de commande utilisé sur le socket de communications est inspiré par [json-rpc](https://www.jsonrpc.org/).
 
-A request might look like:
+Une requête pourrait ressembler à ça :
 
 `{"id": 123, "method": "info", "params": {}}`
 
-and a response might look like:
+et une réponse pourrait ressembler à ça :
 
 `{"id": 123, "result": {"state_message": "Printer is ready", "klipper_path": "/home/pi/klipper", "config_file": "/home/pi/printer.cfg", "software_version": "v0.8.0-823-g883b1cb6", "hostname": "octopi", "cpu_info": "4 core ARMv7 Processor rev 4 (v7l)", "state": "ready", "python_path": "/home/pi/klippy-env/bin/python", "log_file": "/tmp/klippy.log"}}`
 
-Each request must be a JSON dictionary. (This document uses the Python term "dictionary" to describe a "JSON object" - a mapping of key/value pairs contained within `{}`.)
+Toutes les requêtes doivent être un dictionnaire JSON. (Ce document utilise le terme Python 'dictionary' pour décrire un objet JSON - une affectation de paires Clé/Valeur comprises en deux parenthèses `{}`.)
 
-The request dictionary must contain a "method" parameter that is the string name of an available Klipper "endpoint".
+le dictionnaire de requête doit contenir un paramètre "méthode" disponible dans les "points de terminaison" de Klipper.
 
-The request dictionary may contain a "params" parameter which must be of a dictionary type. The "params" provide additional parameter information to the Klipper "endpoint" handling the request. Its content is specific to the "endpoint".
+Le dictionnaire de requête peut contenir un paramètre "params" qui doit être de type dictionnaire. Les "params" fournissent des informations de paramètre supplémentaires au "endpoint" Klipper qui traite la demande. Son contenu est spécifique au "endpoint".
 
-The request dictionary may contain an "id" parameter which may be of any JSON type. If "id" is present then Klipper will respond to the request with a response message containing that "id". If "id" is omitted (or set to a JSON "null" value) then Klipper will not provide any response to the request. A response message is a JSON dictionary containing "id" and "result". The "result" is always a dictionary - its contents are specific to the "endpoint" handling the request.
+Le dictionnaire de requête peut contenir un paramètre "id" qui peut être de n'importe quel type JSON. Si "id" est présent, alors Klipper répondra à la demande avec une réponse contenant cet "id". Si "id" est omis (ou défini sur une valeur JSON "null"), Klipper ne fournira aucune réponse à la requête. Un message de réponse est un dictionnaire JSON contenant "id" et "result". Le "résultat" est toujours un dictionnaire - son contenu est spécifique au "endpoint" traitant la demande.
 
-If the processing of a request results in an error, then the response message will contain an "error" field instead of a "result" field. For example, the request: `{"id": 123, "method": "gcode/script", "params": {"script": "G1 X200"}}` might result in an error response such as: `{"id": 123, "error": {"message": "Must home axis first: 200.000 0.000 0.000 [0.000]", "error": "WebRequestError"}}`
+Si le traitement d'un requête est en erreur, le message de réponse contiendra un champ "error" au lieu de "result". Par exemple, la requête : `{"id": 123, "method": "gcode/script", "params": {"script": "G1 X200"}}` pourrait retourner une erreur telle que :: `{"id": 123, "error": {"message": "Must home axis first: 200.000 0.000 0.000 [0.000]", "error": "WebRequestError"}}`
 
-Klipper will always start processing requests in the order that they are received. However, some request may not complete immediately, which could cause the associated response to be sent out of order with respect to responses from other requests. A JSON request will never pause the processing of future JSON requests.
+Klipper traite toujours les demandes dans l'ordre de leur réception. Cependant, certaines requêtes peuvent ne pas se terminer immédiatement, ce qui peut entraîner l'envoi de la réponse associée dans le désordre par rapport aux réponses d'autres requêtes. Une requête JSON ne suspend jamais le traitement des requêtes JSON suivantes.
 
-## Subscriptions
+## Abonnements
 
-Some Klipper "endpoint" requests allow one to "subscribe" to future asynchronous update messages.
+Certains "endpoint" de Klipper autorisent un "abonnement" pour de futurs messages asynchrone de mise à jour.
 
-For example:
+Par exemple :
 
 `{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{"key": 345}}}`
 
-may initially respond with:
+Peut répondre dans un premier temps :
 
 `{"id": 123, "result": {}}`
 
-and cause Klipper to send future messages similar to:
+et faire en sorte que Klipper envoie de futurs messages similaires à :
 
 `{"params": {"response": "ok B:22.8 /0.0 T0:22.4 /0.0"}, "key": 345}`
 
 A subscription request accepts a "response_template" dictionary in the "params" field of the request. That "response_template" dictionary is used as a template for future asynchronous messages - it may contain arbitrary key/value pairs. When sending these future asynchronous messages, Klipper will add a "params" field containing a dictionary with "endpoint" specific contents to the response template and then send that template. If a "response_template" field is not provided then it defaults to an empty dictionary (`{}`).
 
-## Available "endpoints"
+## "endpoints" disponibles
 
 By convention, Klipper "endpoints" are of the form `<module_name>/<some_name>`. When making a request to an "endpoint", the full name must be set in the "method" parameter of the request dictionary (eg, `{"method"="gcode/restart"}`).
 

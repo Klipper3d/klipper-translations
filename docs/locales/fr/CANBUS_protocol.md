@@ -1,37 +1,37 @@
-# CANBUS protocol
+# Protocole CANBUS
 
-This document describes the protocol Klipper uses to communicate over [CAN bus](https://en.wikipedia.org/wiki/CAN_bus). See <CANBUS.md> for information on configuring Klipper with CAN bus.
+Ce document décrit le protocole qu'utilise Klipper pour communiquer sur la couche [CAN bus](https://en.wikipedia.org/wiki/CAN_bus). Voir <CANBUS.md> pour plus d'informations sur la configuration de canbus avec Klipper.
 
 ## Assignation de l'identifiant du micro-contrôleur
 
-Klipper uses only CAN 2.0A standard size CAN bus packets, which are limited to 8 data bytes and an 11-bit CAN bus identifier. In order to support efficient communication, each micro-controller is assigned at run-time a unique 1-byte CAN bus nodeid (`canbus_nodeid`) for general Klipper command and response traffic. Klipper command messages going from host to micro-controller use the CAN bus id of `canbus_nodeid * 2 + 256`, while Klipper response messages from micro-controller to host use `canbus_nodeid * 2 + 256 + 1`.
+Klipper utilise uniquement les paquets CAN bus 2.0A de taille standard, limités à 8 octets de données et à un identificateur de bus CAN de 11 bits. Afin de permettre des communications efficaces, un identifiant (`canbus_nodeid`) de 1 octet est affecté à chaque microcontrôleur pour gérer les commandes et réponses Klipper. Les commandes Klipper émises du microcontrôleur vers l'hôte utilisent l'id du bus CAN `canbus_nodeid * 2 + 256`, tandis que les messages de retour du microcontrôleur vers l'hôte utilisent `canbus_nodeid' *2 + 256 + 1`.
 
-Each micro-controller has a factory assigned unique chip identifier that is used during id assignment. This identifier can exceed the length of one CAN packet, so a hash function is used to generate a unique 6-byte id (`canbus_uuid`) from the factory id.
+Chaque microcontrôleur possède un identifiant unique attribué en usine qui est utilisé lors de l'attribution de l'id. Cet identifiant pout dépasser la taille d'un paquet CAN, un fonction de hash est utilisée pour génerer un id unique de 6 octets (`canbus_uuid`) à partir de l'id 'usine'.
 
-## Admin messages
+## Messages 'Admin'
 
-Admin messages are used for id assignment. Admin messages sent from host to micro-controller use the CAN bus id `0x3f0` and messages sent from micro-controller to host use the CAN bus id `0x3f1`. All micro-controllers listen to messages on id `0x3f0`; that id can be thought of as a "broadcast address".
+Les messages 'administratifs' sont utilisés pour l'attribution des id. Ces messages envoyés de l'hôte vers le microcontrôleur utilisent l'id `0x3f0̀` et les messages envoyés du microcontrôleur vers l'hôte utilisent l'id `0x3f1`. Tous les microcontrôleurs écoutent les messages en provenance de `0x3f0`. Cet id peut être considéré comme une adresse de multidiffusion.
 
-### CMD_QUERY_UNASSIGNED message
+### Message CMD_QUERY_UNASSIGNED
 
-This command queries all micro-controllers that have not yet been assigned a `canbus_nodeid`. Unassigned micro-controllers will respond with a RESP_NEED_NODEID response message.
+Cette commande interroge tous les microcontrôleurs pour lesquels aucun `canbus_nodeid`n'a été assigné. Ces microcontrôleurs non assignés, retournent un message RESP_NEED_NODEID.
 
-The CMD_QUERY_UNASSIGNED message format is: `<1-byte message_id = 0x00>`
+Le format du message CMD_QUERY_UNASSIGNED est : `<1-octet pour le message_id = 0x00>`
 
-### CMD_SET_KLIPPER_NODEID message
+### Message CMD_SET_KLIPPER_NODEID
 
-This command assigns a `canbus_nodeid` to the micro-controller with a given `canbus_uuid`.
+Cette commande attribue un `canbus_nodeid` à partir du `canbus_uuid` du microcontrôleur.
 
-The CMD_SET_KLIPPER_NODEID message format is: `<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`
+Le format du message CMD_SET_KLIPPER_NODEID est : `<1 octet pour le message_id = 0x01><6 octets pour le canbus_uuid><1 octet pour le canbus_nodeid>`
 
-### RESP_NEED_NODEID message
+### Message RESP_NEED_NODEID
 
-The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte canbus_uuid><1-byte set_klipper_nodeid = 0x01>`
+Le format du message RESP_NODE_NODEID est : `<1 octet pour le message_id = 0x20><6 octets pour le canbus_uuid><1 octet pour le set_klipper_nodeid=0x01>`
 
-## Data Packets
+## Paquets de données
 
-A micro-controller that has been assigned a nodeid via the CMD_SET_KLIPPER_NODEID command can send and receive data packets.
+Un microcontôleur ayant reçu un nodeid par la commande CMD_SET_KLIPPER_NODEID peut envoyer et recevoir des paquets de données.
 
-The packet data in messages using the node's receive CAN bus id (`canbus_nodeid * 2 + 256`) are simply appended to a buffer, and when a complete [mcu protocol message](Protocol.md) is found its contents are parsed and processed. The data is treated as a byte stream - there is no requirement for the start of a Klipper message block to align with the start of a CAN bus packet.
+Les données des paquets des messages utilisant l'identifiant de réception du bus CAN du nœud (`canbus_nodeid * 2 + 256`)' sont simplement ajoutés à la fin du tampon et lorsque un [mcu protocol message](Protocol.md) complet est trouvé son contenu est analysé et traité. Les données sont traitées comme un flux d'octets - il n'est pas nécessaire que le début d'un bloc de message Klipper soit aligné avec le début d'un paquet CAN bus.
 
-Similarly, mcu protocol message responses are sent from micro-controller to host by copying the message data into one or more packets with the node's transmit CAN bus id (`canbus_nodeid * 2 + 256 + 1`).
+De la même manière, les réponses sont renvoyées du micrcontrôleur à l'hôte en copiant les données du message dans un ou plusieurs paquets avec l'identifiant canbus (`canbus_nodeid * 2 + 256 + 1`).

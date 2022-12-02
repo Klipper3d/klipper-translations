@@ -1,6 +1,6 @@
 # Установка
 
-В этих инструкциях предполагается, что программное обеспечение будет работать на компьютере Raspberry Pi совместно с OctoPrint. В качестве хост-машины рекомендуется использовать компьютер Raspberry Pi 2, 3 или 4 (см. [Часто задаваемые вопросы](FAQ.md#могу ли я запустить klipper на чем-то, отличном от raspberry pi-3) для других машин).
+В этих инструкциях предполагается, что программное обеспечение будет работать на компьютере Raspberry Pi совместно с OctoPrint. В качестве хост-машины рекомендуется использовать компьютер Raspberry Pi 2, 3 или 4 (см. [Часто задаваемые вопросы](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) для других машин).
 
 ## Obtain a Klipper Configuration File
 
@@ -16,7 +16,7 @@ It is also possible to define a new printer configuration from scratch. However,
 
 Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry Pi computer. Use OctoPi v0.17.0 or later - see the [OctoPi releases](https://github.com/guysoft/OctoPi/releases) for release information. One should verify that OctoPi boots and that the OctoPrint web server works. After connecting to the OctoPrint web page, follow the prompt to upgrade OctoPrint to v1.4.2 or later.
 
-После установки OctoPi и обновления OctoPrint необходимо будет подключиться к целевому компьютеру по ssh для выполнения нескольких системных команд. Если используется рабочий стол Linux или macOS, то программное обеспечение "ssh" уже должно быть установлено на рабочем столе. Существуют бесплатные ssh-клиенты, доступные для других настольных компьютеров (например, [PuTTY](https://www.chiark.greenend.org.uk /~sgtatham/замазка/)). Используйте утилиту ssh для подключения к Raspberry Pi (ssh pi@octopi -- пароль "raspberry") и выполните следующие команды:
+После установки OctoPi и обновления OctoPrint необходимо будет подключиться к целевому компьютеру по ssh для выполнения нескольких системных команд. Если используется рабочий стол Linux или macOS, то программное обеспечение "ssh" уже должна быть установлено на рабочем столе. Существуют бесплатные ssh-клиенты, доступные для других настольных компьютеров (например, [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Используйте утилиту ssh для подключения к Raspberry Pi (ssh pi@octopi -- пароль "raspberry") и выполните следующие команды:
 
 ```
 git clone https://github.com/Klipper3d/klipper
@@ -25,9 +25,9 @@ git clone https://github.com/Klipper3d/klipper
 
 Вышеописанное позволит загрузить Klipper, установить некоторые системные зависимости, настроить Klipper для запуска при запуске системы и запустить программное обеспечение Klipper host. Для этого потребуется подключение к Интернету, и его выполнение может занять несколько минут.
 
-## Building and flashing the micro-controller
+## Компиляция и прошивка микроконтроллера
 
-To compile the micro-controller code, start by running these commands on the Raspberry Pi:
+Чтобы начать компиляцию кода прошивки, введите следующие команды на Raspberry Pi:
 
 ```
 cd ~/klipper/
@@ -48,15 +48,15 @@ Otherwise, the following steps are often used to "flash" the printer control boa
 ls /dev/serial/by-id/*
 ```
 
-It should report something similar to the following:
+Должно отобразиться что-то вроде:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-It's common for each printer to have its own unique serial port name. This unique name will be used when flashing the micro-controller. It's possible there may be multiple lines in the above output - if so, choose the line corresponding to the micro-controller (see the [FAQ](FAQ.md#wheres-my-serial-port) for more information).
+Зачастую у каждого принтера есть своё уникальное имя последовательного порта. По этому имени мы и будем производить прошивку. Вышеуказанная команда также может вывести и несколько строк вместо одной – в таком случае вам нужно выбрать строку, соответствующую микроконтроллеру, который вы хотите прошить (см [ЧАВО](FAQ.md#wheres-my-serial-port)).
 
-For common micro-controllers, the code can be flashed with something similar to:
+Большинство контроллеров могут быть прошиты с помощью:
 
 ```
 sudo service klipper stop
@@ -64,19 +64,19 @@ make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 ```
 
-Be sure to update the FLASH_DEVICE with the printer's unique serial port name.
+Не забудьте заменить значение FLASH_DEVICE на имя порта вашего принтера.
 
-When flashing for the first time, make sure that OctoPrint is not connected directly to the printer (from the OctoPrint web page, under the "Connection" section, click "Disconnect").
+При первой прошивке убедитесь, что OctoPrint не подключен напрямую к принтеру (на странице OctoPrint в разделе "Соединение" нажмите "Отключиться").
 
-## Configuring OctoPrint to use Klipper
+## Конфигурация OctoPrint для работы с Klipper
 
-The OctoPrint web server needs to be configured to communicate with the Klipper host software. Using a web browser, login to the OctoPrint web page and then configure the following items:
+Чтобы веб-сервер OctoPrint мог взаимодействовать с Klipper, его нужно соответствующим образом настроить. Войдите в OctoPrint через браузер и установите следующие настройки:
 
-Navigate to the Settings tab (the wrench icon at the top of the page). Under "Serial Connection" in "Additional serial ports" add "/tmp/printer". Then click "Save".
+Перейдите на вкладку "Настройки" (иконка ключа вверху страницы). В разделе "Соединение", в "Дополнительные последовательные порты" добавьте "/tmp/printer". Затем нажмите "Сохранить".
 
-Enter the Settings tab again and under "Serial Connection" change the "Serial Port" setting to "/tmp/printer".
+Снова зайдите на вкладку "Настройки" и в разделе "Соединение" замените "Последовательный порт" на "/tmp/printer".
 
-In the Settings tab, navigate to the "Behavior" sub-tab and select the "Cancel any ongoing prints but stay connected to the printer" option. Click "Save".
+На вкладке "Настройки", перейдите на под-вкладку "Поведение" и выберите "Отменить все неоконченные печати, но не прерывать соединение". Нажмите "Сохранить".
 
 From the main page, under the "Connection" section (at the top left of the page) make sure the "Serial Port" is set to "/tmp/printer" and click "Connect". (If "/tmp/printer" is not an available selection then try reloading the page.)
 
@@ -101,7 +101,7 @@ It's common for each printer to have its own unique name for the micro-controlle
 ls /dev/serial/by-id/*
 ```
 
-It should report something similar to the following:
+Должно отобразиться что-то вроде:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0

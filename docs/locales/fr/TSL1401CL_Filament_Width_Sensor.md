@@ -4,7 +4,7 @@ This document describes Filament Width Sensor host module. Hardware used for dev
 
 To use a sensor array as a filament width sensor, read [Config Reference](Config_Reference.md#tsl1401cl_filament_width_sensor) and [G-Code documentation](G-Codes.md#hall_filament_width_sensor).
 
-## Comment ça marche ?
+## Comment cela fonctionne-t-il ?
 
 Le capteur génère une sortie analogique basée sur la largeur calculée du filament. La tension de sortie est toujours égale à la largeur de filament détectée (ex. 1,65v, 1,70v, 3,0v). Le module hôte surveille les changements de tension et ajuste le multiplicateur d'extrusion.
 

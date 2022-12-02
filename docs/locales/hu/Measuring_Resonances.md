@@ -136,7 +136,7 @@ Vedd figyelembe, hogy az X tengelyen rezgéseket hoz létre. A bemeneti alakít�
 ```
 [resonance_tester]
 accel_chip: adxl345
-accel_per_hz: 50  # default is 75
+accel_per_hz: 50    # alapértelmezett a 75
 probe_points: ...
 ```
 
@@ -242,7 +242,7 @@ A fenti példában a javasolt alakító paraméterek nem rosszak, de mi van akko
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --max_smoothing=0.2
 ```
 
-amely a simítást 0,2 pontszámra korlátozza. Most a következő eredményt kaphatja:
+amely a simítást 0,2 pontszámra korlátozza. Most a következő eredményt kaphatod:
 
 ![Resonances](img/calibrate-x-max-smoothing.png)
 
@@ -262,9 +262,9 @@ Az ajánlott alakító 3hump_ei @ 72,6 Hz.
 
 Ha összehasonlítjuk a korábban javasolt paraméterekkel, a rezgések kicsit nagyobbak, de a simítás lényegesen kisebb, mint korábban, ami nagyobb maximális gyorsulást tesz lehetővé.
 
-A `max_smoothing` paraméter kiválasztásakor a próbálgatás és a tévedés módszerét alkalmazhatjuk. Próbáljon ki néhány különböző értéket, és nézze meg, milyen eredményeket kap. Vedd figyelembe, hogy a bemeneti alakító által előállított tényleges simítás elsősorban a nyomtató legalacsonyabb rezonanciafrekvenciájától függ: minél magasabb a legalacsonyabb rezonancia frekvenciája - annál kisebb a simítás. Ezért ha azt kéri a parancsfájltól, hogy a bemeneti alakító olyan konfigurációját keresse meg, amely irreálisan kis simítással rendelkezik, akkor ez a legalacsonyabb rezonanciafrekvenciákon (amelyek jellemzően a nyomatokon is jobban láthatóak) megnövekedett rezgés árán fog történni. Ezért mindig ellenőrizd kétszeresen a szkript által jelzett vetített maradó rezgéseket, és győződj meg róla, hogy azok nem túl magasak.
+A `max_smoothing` paraméter kiválasztásakor a próbálgatás és a tévedés módszerét alkalmazhatjuk. Próbálj ki néhány különböző értéket, és nézd meg, milyen eredményeket kapsz. Vedd figyelembe, hogy a bemeneti alakító által előállított tényleges simítás elsősorban a nyomtató legalacsonyabb rezonanciafrekvenciájától függ: minél magasabb a legalacsonyabb rezonancia frekvenciája - annál kisebb a simítás. Ezért ha azt kéred a parancsfájltól, hogy a bemeneti alakító olyan konfigurációt keressen meg, amely irreálisan kis simítással rendelkezik, akkor ez a legalacsonyabb rezonanciafrekvenciákon (amelyek jellemzően a nyomatokon is jobban láthatóak) megnövekedett rezgés árán fog történni. Ezért mindig ellenőrizd kétszeresen a szkript által jelzett vetített maradó rezgéseket, és győződj meg róla, hogy azok nem túl magasak.
 
-Ha mindkét tengelyhez jó `max_smoothing` értéket választott, akkor azt a `printer.cfg` állományban tárolhatja a következő módon
+Ha mindkét tengelyhez jó `max_smoothing` értéket választasz, akkor azt a `printer.cfg` állományban tárolhatod a következő módon
 
 ```
 [resonance_tester]
@@ -273,13 +273,13 @@ probe_points: ...
 max_smoothing: 0.25 # egy példa
 ```
 
-Ezután, ha a jövőben [újraindítja](#bemeneti-formazo-ujrakalibralasa) a bemeneti alakító automatikus hangolását a `SHAPER_CALIBRATE` Klipper parancs segítségével, akkor a tárolt `max_smoothing` értéket fogja referenciaként használni.
+Ezután, ha a jövőben [újraindítod](#bemeneti-formazo-ujrakalibralasa) a bemeneti alakító automatikus hangolását a `SHAPER_CALIBRATE` Klipper parancs segítségével, akkor a tárolt `max_smoothing` értéket fogja referenciaként használni.
 
 ### A max_accel kiválasztása
 
-Mivel a bemeneti alakító némi simítást okozhat az elemekben, különösen nagy gyorsulásoknál, továbbra is meg kell választani a `max_accel` értéket, amely nem okoz túl nagy simítást a nyomtatott alkatrészekben. Egy kalibrációs szkript becslést ad a `max_accel` paraméterre, amely nem okozhat túl nagy simítást. Vedd figyelembe, hogy a kalibrációs szkript által megjelenített `max_accel` csak egy elméleti maximum, amelynél az adott alakító még képes úgy dolgozni, hogy nem okoz túl nagy simítást. Semmiképpen sem ajánlott ezt a gyorsulást beállítani a nyomtatáshoz. A nyomtatója által elviselhető maximális gyorsulás a nyomtató mechanikai tulajdonságaitól és a használt léptetőmotorok maximális nyomatékától függ. Ezért javasolt a `max_accel` beállítása a `[nyomtató]` szakaszban, amely nem haladja meg az X és Y tengelyek becsült értékeit, valószínűleg némi konzervatív biztonsági tartalékkal.
+Mivel a bemeneti alakító némi simítást okozhat az elemekben, különösen nagy gyorsulásoknál, továbbra is meg kell választani a `max_accel` értéket, amely nem okoz túl nagy simítást a nyomtatott alkatrészekben. Egy kalibrációs szkript becslést ad a `max_accel` paraméterre, amely nem okozhat túl nagy simítást. Vedd figyelembe, hogy a kalibrációs szkript által megjelenített `max_accel` csak egy elméleti maximum, amelynél az adott alakító még képes úgy dolgozni, hogy nem okoz túl nagy simítást. Semmiképpen sem ajánlott ezt a gyorsulást beállítani a nyomtatáshoz. A nyomtatód által elviselhető maximális gyorsulás a nyomtató mechanikai tulajdonságaitól és a használt léptetőmotorok maximális nyomatékától függ. Ezért javasolt a `max_accel` beállítása a `[nyomtató]` szakaszban, amely nem haladja meg az X és Y tengelyek becsült értékeit, valószínűleg némi konzervatív biztonsági tartalékkal.
 
-Alternatívaként kövesse [ezt](Resonance_Compensation.md#selecting-max_accel) a részt a bemeneti alakító hangolási útmutatójában, és nyomtasd ki a tesztmodellt a `max_accel` paraméter kísérleti kiválasztásához.
+Alternatívaként kövesd [ezt](Resonance_Compensation.md#selecting-max_accel) a részt a bemeneti alakító hangolási útmutatójában, és nyomtasd ki a tesztmodellt a `max_accel` paraméter kísérleti kiválasztásához.
 
 Ugyanez a figyelmeztetés vonatkozik a bemeneti alakító [automatikus kalibrálás](#bemeneti-formazo-automatikus-kalibralasa) `SHAPER_CALIBRATE` paranccsal történő használatára is: az automatikus kalibrálás után továbbra is szükséges a megfelelő `max_accel` érték kiválasztása, és a javasolt gyorsulási korlátok nem lesznek automatikusan alkalmazva.
 
@@ -322,13 +322,13 @@ majd használd ugyanazt a parancsot
 
 ## Bemeneti formázó automatikus kalibrálása
 
-A bemeneti formázó funkció megfelelő paramétereinek kézi kiválasztása mellett a bemeneti alakító automatikus hangolása közvetlenül a Klipperből is elvégezhető. Futtassa a következő parancsot az Octoprint terminálon keresztül:
+A bemeneti formázó funkció megfelelő paramétereinek kézi kiválasztása mellett a bemeneti alakító automatikus hangolása közvetlenül a Klipperből is elvégezhető. Futtasd a következő parancsot az Octoprint terminálon keresztül:
 
 ```
 SHAPER_CALIBRATE
 ```
 
-Ez lefuttatja a teljes tesztet mindkét tengelyre, és létrehozza a csv-kimenetet (`/tmp/calibration_data_*.csv` alapértelmezés szerint) a frekvenciaválaszról és a javasolt bemeneti alakítókról. Az Octoprint konzolon megkapja az egyes bemeneti alakítók javasolt frekvenciáit is, valamint azt, hogy melyik bemeneti alakítót ajánljuk az Ön beállításához. Például:
+Ez lefuttatja a teljes tesztet mindkét tengelyre, és létrehozza a csv-kimenetet (`/tmp/calibration_data_*.csv` alapértelmezés szerint) a frekvenciaválaszról és a javasolt bemeneti alakítókról. Az Octoprint konzolon megkapod az egyes bemeneti alakítók javasolt frekvenciáit is, valamint azt, hogy melyik bemeneti alakítót ajánljuk a Te beállításodhoz. Például:
 
 ```
 A legjobb bemeneti alakító paraméterek kiszámítása az y tengelyhez
@@ -345,9 +345,9 @@ A túl nagy simítás elkerülése érdekében a '3hump_ei' esetében javasolt m
 Ajánlott shaper_type_y = mzv, shaper_freq_y = 36,8 Hz
 ```
 
-Ha egyetért a javasolt paraméterekkel, akkor a `SAVE_CONFIG` parancsot most végre lehet hajtani a paraméterek mentéséhez és a Klipper újraindításához. Vedd figyelembe, hogy ez nem frissíti a `max_accel` értéket a `[printer]` szakaszban. Ezt manuálisan kell frissítenie a [max_accel kiválasztása](#a-max_accel-kivalasztasa) szakaszban leírtak szerint.
+Ha egyetértesz a javasolt paraméterekkel, akkor a `SAVE_CONFIG` parancsot most végre lehet hajtani a paraméterek mentéséhez és a Klipper újraindításához. Vedd figyelembe, hogy ez nem frissíti a `max_accel` értéket a `[printer]` szakaszban. Ezt manuálisan kell frissítened a [max_accel kiválasztása](#a-max_accel-kivalasztasa) szakaszban leírtak szerint.
 
-Ha a nyomtatója Y tengelyén van a tárgyasztal akkor megadhatod, hogy melyik tengelyt kívánod tesztelni, így a tesztek között megváltoztathatja a gyorsulásmérő rögzítési pontját (alapértelmezés szerint a teszt mindkét tengelyen végrehajtásra kerül):
+Ha a nyomtatód Y tengelyén van a tárgyasztal akkor megadhatod, hogy melyik tengelyt kívánod tesztelni, így a tesztek között megváltoztathatod a gyorsulásmérő rögzítési pontját (alapértelmezés szerint a teszt mindkét tengelyen végrehajtásra kerül):
 
 ```
 SHAPER_CALIBRATE AXIS=Y
@@ -355,7 +355,7 @@ SHAPER_CALIBRATE AXIS=Y
 
 A `SAVE_CONFIG` parancsot kétszer - minden egyes tengely kalibrálása után - lehet végrehajtani.
 
-Ha azonban egyszerre két gyorsulásmérőt csatlakoztatott, egyszerűen futtassa a `SHAPER_CALIBRATE` parancsot tengely megadása nélkül, hogy a bemeneti alakítót mindkét tengelyre egy menetben kalibrálja.
+Ha azonban egyszerre két gyorsulásmérőt csatlakoztattál, egyszerűen futtasd a `SHAPER_CALIBRATE` parancsot tengely megadása nélkül, hogy a bemeneti alakítót mindkét tengelyre egy menetben kalibráld.
 
 ### Bemeneti formázó újrakalibrálása
 
@@ -371,7 +371,7 @@ Továbbá a mérések zajossága miatt lehetséges, hogy a hangolási eredménye
 
 ## A gyorsulásmérő adatainak offline feldolgozása
 
-Lehetőség van a nyers gyorsulásmérő adatok előállítására és offline feldolgozására (pl. egy központi gépen), például rezonanciák keresésére. Ehhez futtassa a következő parancsokat az Octoprint terminálon keresztül:
+Lehetőség van a nyers gyorsulásmérő adatok előállítására és offline feldolgozására (pl. egy központi gépen), például rezonanciák keresésére. Ehhez futtasd a következő parancsokat az Octoprint terminálon keresztül:
 
 ```
 SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0

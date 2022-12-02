@@ -1922,7 +1922,7 @@ Heater and temperature sensor verification. Heater verification is automatically
 
 ### [homing_heaters]
 
-Tool to disable heaters when homing or probing an axis.
+Outil pour désactiver les éléments chauffants lors de la prise d'origine ou du palpage d'un axe.
 
 ```
 [homing_heaters]
@@ -2076,7 +2076,7 @@ sensor_pin:
 
 ### Directly connected PT1000 sensor
 
-Directly connected PT1000 sensor. The following parameters are available in heater sections that use one of these sensors.
+Capteur PT1000 connecté en direct. Les paramètres suivants sont disponibles dans les sections chauffage qui utilisent ces capteurs.
 
 ```
 sensor_type: PT1000
@@ -2253,7 +2253,7 @@ serial_no:
 
 ### [fan]
 
-Print cooling fan.
+Ventilateur de refroidissement de la pièce.
 
 ```
 [fan]

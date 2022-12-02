@@ -279,7 +279,7 @@ Info : stm32f1x.cpu: external reset detected
 Info : starting gdb server for stm32f1x.cpu on 3333
 Info : Listening on port 3333 for gdb connections
    ```
-Ezt követően elengedheti a reset gombot.
+Ezt követően elengedheted a reset gombot.
 
 Ez a bootloader 2KiB-os flash memóriát igényel (az alkalmazást 2KiB kezdőcímmel kell lefordítani).
 
@@ -436,13 +436,13 @@ reset halt
 
 Kapcsold ki mind a Raspberry Pi-t, mind a célchipet a kábelezés előtt! Ellenőrizd, hogy a célchip 3,3V-ot használ-e a Raspberry Pi csatlakoztatása előtt!
 
-Csatlakoztassa a célchip GND, SWDCLK, SWDIO és RST értékeit a Raspberry Pi GND, GPIO25, GPIO24 és GPIO18 értékéhez.
+Csatlakoztasd a célchip GND, SWDCLK, SWDIO és RST tűit a Raspberry Pi GND, GPIO25, GPIO24 és GPIO18 tűihez.
 
-Ezután kapcsold be a Raspberry Pi-t, és táplálja a célchipet.
+Ezután kapcsold be a Raspberry Pi-t, és adj áramot a cél chip-nek.
 
 ### OpenOCD futtatása
 
-Futtassa az OpenOCD-t:
+Futtasd az OpenOCD-t:
 
 ```
 cd ~/openocd/
@@ -457,7 +457,7 @@ Ha az OpenOCD fut és stabilan működik, akkor telneten keresztül parancsokat 
 telnet 127.0.0.1 4444
 ```
 
-(A telnetből a ctrl+] billentyűkombinációval, majd a "quit" parancs futtatásával lehet kilépni.)
+(A telnet-ből a ctrl+] billentyűkombinációval, majd a "quit" parancs futtatásával lehet kilépni.)
 
 ### OpenOCD és gdb
 
@@ -470,7 +470,7 @@ bindto 0.0.0.0
 gdb_port 44444
 ```
 
-Indítsa újra az OpenOCD-t a Raspberry Pi-n, majd futtassa a következő Unix parancsot az asztali gépen:
+Indítsd újra az OpenOCD-t a Raspberry Pi-n, majd futtasd a következő Unix parancsot az asztali gépen:
 
 ```
 cd /path/to/klipper/
@@ -483,4 +483,4 @@ A gdb futtatása:
 target remote octopi:44444
 ```
 
-(Cserélje ki a "octopi" -t a Raspberry Pi gazdagép nevére.) Ha a gdb fut, lehetőség van töréspontok beállítására és a regiszterek vizsgálatára.
+(Cseréld ki az "octopi" -t a Raspberry Pi gazdagép nevére.) Ha a gdb fut, lehetőség van töréspontok beállítására és a regiszterek vizsgálatára.

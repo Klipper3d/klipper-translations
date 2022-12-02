@@ -1210,7 +1210,7 @@ gcode:
 
 ### [endstop_phase]
 
-Léptető fázissal beállított végállások. A funkció használatához definiáljon egy konfigurációs részt egy "endstop_phase" előtaggal, amelyet a megfelelő stepper konfigurációs rész neve követ (például "[endstop_phase stepper_z]"). Ez a funkció javíthatja a végálláskapcsolók pontosságát. Adj hozzá egy csupasz "[endstop_phase]" deklarációt az ENDSTOP_PHASE_CALIBRATE parancs engedélyezéséhez.
+Léptető fázissal beállított végállások. A funkció használatához definiálj egy konfigurációs részt egy "endstop_phase" előtaggal, amelyet a megfelelő stepper konfigurációs rész neve követ (például "[endstop_phase stepper_z]"). Ez a funkció javíthatja a végálláskapcsolók pontosságát. Adj hozzá egy csupasz "[endstop_phase]" deklarációt az ENDSTOP_PHASE_CALIBRATE parancs engedélyezéséhez.
 
 További információkért lásd a [végállási fázisok útmutató](Endstop_Phase.md) és a [Parancs hivatkozás](G-Codes.md#endstop_phase) dokumentumot.
 
@@ -1582,7 +1582,7 @@ A rezonancia tesztelés és az automatikus bemeneti alakító kalibráció támo
 
 ### [board_pins]
 
-Alaplap tű álnevek (tetszőleges számú szekciót definiálhatunk "board_pins" előtaggal). Ezzel definiálhat álneveket a mikrokontroller tűihez.
+Alaplap tű álnevek (tetszőleges számú szekciót definiálhatunk "board_pins" előtaggal). Ezzel definiálhatsz álneveket a mikrokontroller tűihez.
 
 ```
 [board_pins my_aliases]
@@ -1845,7 +1845,7 @@ Lásd a [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) példak
 
 ### [dual_carriage]
 
-Az egy tengelyen két kocsival rendelkező cartesian nyomtatók támogatása. Az aktív kocsit a SET_DUAL_CARRIAGE kiterjesztett G-kód parancs segítségével állíthatjuk be. A "SET_DUAL_CARRIAGE CARRIAGE=1" parancs az ebben a szakaszban meghatározott kocsit aktiválja (a CARRIAGE=0 az elsődleges kocsi aktiválását állítja vissza). A kettős kocsitámogatást általában extra extruderekkel kombinálják. A SET_DUAL_CARRIAGE parancsot gyakran az ACTIVATE_EXTRUDER paranccsal egyidejűleg hívják meg. Ügyelj arra, hogy a kocsikat a deaktiválás során parkoló állásba küldje.
+Az egy tengelyen két kocsival rendelkező cartesian nyomtatók támogatása. Az aktív kocsit a SET_DUAL_CARRIAGE kiterjesztett G-kód parancs segítségével állíthatjuk be. A "SET_DUAL_CARRIAGE CARRIAGE=1" parancs az ebben a szakaszban meghatározott kocsit aktiválja (a CARRIAGE=0 az elsődleges kocsi aktiválását állítja vissza). A kettős kocsitámogatást általában extra extruderekkel kombinálják. A SET_DUAL_CARRIAGE parancsot gyakran az ACTIVATE_EXTRUDER paranccsal egyidejűleg hívják meg. Ügyelj arra, hogy a kocsikat a deaktiválás során parkoló állásba küld.
 
 Lásd a [sample-idex.cfg](../config/sample-idex.cfg) példakonfigurációt.
 
@@ -1971,7 +1971,7 @@ Eszköz a fűtőberendezések letiltására, amikor egy tengely kezdőpont felv�
 
 ### [thermistor]
 
-Egyéni termisztorok (tetszőleges számú szakasz definiálható "termisztor" előtaggal). Egyéni termisztor használható a fűtőberendezés konfigurációs szakaszának sensor_type mezőjében. (Ha például egy "[thermistor my_thermistor]" szekciót definiálunk, akkor a fűtőelem definiálásakor használhatjuk a "sensor_type: my_thermistor" mezőt.). Ügyelj arra, hogy a termisztor szekciót a konfigurációs fájlban az első fűtőszekcióban való használata fölé helyezd.
+Egyéni termisztorok (tetszőleges számú szakasz definiálható "termisztor" előtaggal). Egyéni termisztor használható a fűtőberendezés konfigurációs szakaszának sensor_type mezőjében. (Ha például egy "[thermistor my_thermistor]" szekciót definiálunk, akkor a fűtőelem definiálásakor használhatjuk a "sensor_type: my_thermistor" mezőt.) Ügyelj arra, hogy a termisztor szekciót a konfigurációs fájlban az első fűtőszekcióban való használata fölé helyezd.
 
 ```
 [thermistor my_thermistor]

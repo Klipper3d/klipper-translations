@@ -20,13 +20,13 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 20220304: Az [extruder_stepper](Config_Reference.md#extruder_stepper) konfigurációs szakaszok `extruder` paramétere már nem alapértelmezett. Ha szükséges, add meg kifejezetten az `extruder: extruder` paramétert, hogy a léptetőmotort indításkor az "extruder" mozgássorhoz társítsa.
 
-20220210: A `SYNC_STEPPER_TO_EXTRUDER` parancs elavult; a `SET_EXTRUDER_STEP_DISTANCE` parancs elavult; az [extruder](Config_Reference.md#extruder) `shared_heater` config opció elavult. Ezek a funkciók a közeljövőben eltávolításra kerülnek. A `SET_EXTRUDER_STEP_DISTANCE` helyett `SET_EXTRUDER_ROTATION_DISTANCE`. Cserélje ki a `SYNC_STEPPER_TO_EXTRUDER` értéket a `SYNC_EXTRUDER_MOTION` értékre. Cserélje ki a `shared_heater` extruder konfigurációs szakaszokat [extruder_stepper](Config_Reference.md#extruder_stepper) konfigurációs szakaszokra, és frissítse az aktiválási makrókat a [SYNC_EXTRUDER_MOTION](G-Codes.md#sync_extruder_motion) használatára.
+20220210: A `SYNC_STEPPER_TO_EXTRUDER` parancs elavult; a `SET_EXTRUDER_STEP_DISTANCE` parancs elavult; az [extruder](Config_Reference.md#extruder) `shared_heater` config opció elavult. Ezek a funkciók a közeljövőben eltávolításra kerülnek. A `SET_EXTRUDER_STEP_DISTANCE` helyett `SET_EXTRUDER_ROTATION_DISTANCE`. Cseréld ki a `SYNC_STEPPER_TO_EXTRUDER` értéket a `SYNC_EXTRUDER_MOTION` értékre. Cseréld ki a `shared_heater` extruder konfigurációs szakaszokat [extruder_stepper](Config_Reference.md#extruder_stepper) konfigurációs szakaszokra, és frissítsd az aktiválási makrókat a [SYNC_EXTRUDER_MOTION](G-Codes.md#sync_extruder_motion) használatára.
 
 20220116: A tmc2130, tmc2208, tmc2209 és tmc2660 `run_current` számítási kód megváltozott. Egyes `run_current` beállításoknál az illesztőprogramok most másképp konfigurálhatók. Ennek az új konfigurációnak pontosabbnak kell lennie, de érvénytelenítheti a korábbi TMC illesztőprogram-hangolást.
 
 20211230: A bemeneti alakító hangolására szolgáló szkriptek (`scripts/calibrate_shaper.py` és `scripts/graph_accelerometer.py`) alapértelmezés szerint Python3-at használnak. Ennek eredményeképpen a felhasználóknak telepíteniük kell bizonyos csomagok Python3 verzióit (pl. `sudo apt install python3-numpy python3-matplotlib`), hogy továbbra is használni tudják ezeket a szkripteket. További részletekért lásd a [Szoftvertelepítés](Measuring_Resonances.md#software-installation) című részt. Alternatívaként a felhasználók ideiglenesen kikényszeríthetik ezeknek a szkripteknek a Python 2 alatti végrehajtását a Python2 interpretor explicit meghívásával a konzolon: `python2 ~/klipper/scripts/calibrate_shaper.py ...`
 
-20211110: Az "NTC 100K beta 3950" hőmérséklet-érzékelő elavult. Ez az érzékelő a közeljövőben eltávolításra kerül. A legtöbb felhasználó a "Generic 3950" hőmérséklet-érzékelőt pontosabbnak fogja találni. Ha továbbra is a régebbi (jellemzően kevésbé pontos) definíciót szeretnéd használni, definiáljon egy egyéni [termisztort](Config_Reference.md#thermistor) a `temperature1: 25`, `resistance1: 100000`, és `beta: 3950` értékeken.
+20211110: Az "NTC 100K beta 3950" hőmérséklet-érzékelő elavult. Ez az érzékelő a közeljövőben eltávolításra kerül. A legtöbb felhasználó a "Generic 3950" hőmérséklet-érzékelőt pontosabbnak fogja találni. Ha továbbra is a régebbi (jellemzően kevésbé pontos) definíciót szeretnéd használni, definiálj egy egyéni [termisztort](Config_Reference.md#thermistor) a `temperature1: 25`, `resistance1: 100000`, és `beta: 3950` értékeken.
 
 20211104: A "step pulse duration" opció a "make menuconfig" menüből eltávolításra került. Az UART vagy SPI módban konfigurált TMC-meghajtók alapértelmezett lépésimpulzus időtartama mostantól 100ns. Egy új `step_pulse_duration` beállítást kell megadni a [stepper config szakaszban](Config_Reference.md#stepper) minden olyan stepper esetében, amely egyéni impulzus időtartamot igényel.
 
@@ -38,7 +38,7 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 20210830: Az alapértelmezett adxl345 név mostantól "adxl345". Az `ACCELEROMETER_MEASURE` és `ACCELEROMETER_QUERY` alapértelmezett CHIP paramétere mostantól szintén "adxl345".
 
-20210830: Az adxl345 ACCELEROMETER_MEASURE parancs már nem támogatja a RATE paramétert. A lekérdezési sebesség módosításához frissítse a printer.cfg fájlt, és adj ki egy RESTART parancsot.
+20210830: Az adxl345 ACCELEROMETER_MEASURE parancs már nem támogatja a RATE paramétert. A lekérdezési sebesség módosításához frissítsd a printer.cfg fájlt, és adj ki egy RESTART parancsot.
 
 20210821: A `printer.configfile.settings` több konfigurációs beállítása mostantól listaként lesz jelentve a nyers karakterláncok helyett. Ha a tényleges nyers karakterláncra van szükség, használd helyette a `printer.configfile.config`-t.
 

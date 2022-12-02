@@ -1,4 +1,4 @@
-# Features
+# Функции
 
 Клиппер обладает несколькими привлекательными функциями:
 
@@ -42,24 +42,24 @@ To get started with Klipper, read the [installation](Installation.md) guide.
 
 Below are the results of stepper performance tests. The numbers shown represent total number of steps per second on the micro-controller.
 
-| Micro-controller | 1 stepper active | 3 steppers active |
+| Микроконтроллер | 1 stepper active | 3 steppers active |
 | --- | --- | --- |
-| 16Mhz AVR | 157K | 99K |
-| 20Mhz AVR | 196K | 123K |
-| SAMD21 | 686K | 471K |
-| STM32F042 | 814K | 578K |
-| Beaglebone PRU | 866K | 708K |
-| STM32G0B1 | 1103K | 790K |
-| STM32F103 | 1180K | 818K |
-| SAM3X8E | 1273K | 981K |
-| SAM4S8C | 1690K | 1385K |
-| LPC1768 | 1923K | 1351K |
-| LPC1769 | 2353K | 1622K |
-| RP2040 | 2400K | 1636K |
-| SAM4E8E | 2500K | 1674K |
-| SAMD51 | 3077K | 1885K |
-| STM32F407 | 3652K | 2459K |
-| STM32F446 | 3913K | 2634K |
+| 16Mhz AVR | 157 тыс. | 99 тыс. |
+| 20Mhz AVR | 196 тыс. | 123 тыс. |
+| SAMD21 | 686 тыс. | 471 тыс. |
+| STM32F042 | 814 тыс. | 578 тыс. |
+| Beaglebone PRU | 866 тыс. | 708 тыс. |
+| STM32G0B1 | 1103 тыс. | 790K |
+| STM32F103 | 1180 тыс. | 818 тыс. |
+| SAM3X8E | 1273 тыс. | 981 тыс. |
+| SAM4S8C | 1690 тыс. | 1385 тыс. |
+| LPC1768 | 1923 тыс. | 1351 тыс. |
+| LPC1769 | 2353 тыс. | 1622 тыс. |
+| RP2040 | 2400 тыс. | 1636 тыс. |
+| SAM4E8E | 2500 тыс. | 1674 тыс. |
+| SAMD51 | 3077 тыс. | 1885 тыс. |
+| STM32F407 | 3652 тыс. | 2459 тыс. |
+| STM32F446 | 3913 тыс. | 2634 тыс. |
 | STM32H743 | 9091K | 6061K |
 
 If unsure of the micro-controller on a particular board, find the appropriate [config file](../config/), and look for the micro-controller name in the comments at the top of that file.

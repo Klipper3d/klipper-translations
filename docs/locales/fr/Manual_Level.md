@@ -1,34 +1,34 @@
-# Manual leveling
+# Nivellement manuel
 
-This document describes tools for calibrating a Z endstop and for performing adjustments to bed leveling screws.
+Ce document décrit les outils pour le réglage de la fin de course Z et pour effectuer les réglages sur les vis de mise à niveau du lit.
 
-## Calibrating a Z endstop
+## Calibrer la fin de course Z
 
-An accurate Z endstop position is critical to obtaining high quality prints.
+Une position précise de la butée Z est essentielle pour obtenir des impressions de haute qualité.
 
-Note, though, the accuracy of the Z endstop switch itself can be a limiting factor. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of the switch.
+Notez que la précision de l'interrupteur de fin de course Z lui-même peut être un facteur limitant. Si vous utilisez des pilotes de moteurs pas à pas Trinamic, pensez à activer la détection [endstop phase](Endstop_Phase.md) pour améliorer la précision du commutateur.
 
-To perform a Z endstop calibration, home the printer, command the head to move to a Z position that is at least five millimeters above the bed (if it is not already), command the head to move to an XY position near the center of the bed, then navigate to the OctoPrint terminal tab and run:
+Pour effectuer un étalonnage de la fin de course Z, placez l'imprimante à l'origine, déplacez la tête vers une position Z située à au moins cinq millimètres au-dessus du lit (si ce n'est déjà fait), déplacez ensuite la tête vers une position XY près du centre de le lit, puis accédez à l'aide du terminal exécutez :
 
 ```
 Z_ENDSTOP_CALIBRATE
 ```
 
-Then follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test) to determine the actual distance between the nozzle and bed at the given location. Once those steps are complete one can `ACCEPT` the position and save the results to the config file with:
+Suivez ensuite les étapes décrites dans ["le test du papier"](Bed_Level.md#the-paper-test) pour déterminer la distance réelle entre la buse et le lit à l'emplacement donné. Une fois ces étapes terminées, on peut taper `ACCEPT` pour valider la position et enregistrer les résultats dans le fichier de configuration avec :
 
 ```
 SAVE_CONFIG
 ```
 
-It's preferable to use a Z endstop switch on the opposite end of the Z axis from the bed. (Homing away from the bed is more robust as then it is generally always safe to home the Z.) However, if one must home towards the bed it is recommended to adjust the endstop so that it triggers a small distance (eg, .5mm) above the bed. Almost all endstop switches can safely be depressed a small distance beyond their trigger point. When this is done, one should find that the `Z_ENDSTOP_CALIBRATE` command reports a small positive value (eg, .5mm) for the Z position_endstop. Triggering the endstop while it is still some distance from the bed reduces the risk of inadvertent bed crashes.
+Il est préférable d'utiliser un interrupteur de fin de course Z à l'extrémité de l'axe Z opposée au lit (il est plus sécurisant d'effectuer le retour au point d'origine loin du lit). Cependant, si l'on doit se diriger vers le lit, il est recommandé de régler la butée de fin de course de manière à ce qu'elle se déclenche à une petite distance (par exemple, 0,5 mm) au-dessus du lit. Presque tous les interrupteurs de fin de course peuvent être enfoncés en toute sécurité à une petite distance au-delà de leur point de déclenchement. Lorsque cela est fait, on devrait constater que la commande `Z_ENDSTOP_CALIBRATE` rapporte une petite valeur positive (par exemple, 0,5 mm) pour la position Z_endstop. Déclencher la butée de fin de course alors qu'elle est encore à une certaine distance du lit réduit le risque d'écrasement involontaire de la buse sur le lit.
 
-Some printers have the ability to manually adjust the location of the physical endstop switch. However, it's recommended to perform Z endstop positioning in software with Klipper - once the physical location of the endstop is in a convenient location, one can make any further adjustments by running Z_ENDSTOP_CALIBRATE or by manually updating the Z position_endstop in the configuration file.
+Certaines imprimantes laissent la possibilité d'ajuster manuellement l'emplacement de l'interrupteur de fin de course. Cependant, il est recommandé d'effectuer le positionnement de la butée Z dans le logiciel avec Klipper - une fois que la butée est bien positionné, on peut faire d'autres ajustements en exécutant Z_ENDSTOP_CALIBRATE ou en mettant à jour manuellement la position Z_endstop dans le fichier de configuration.
 
-## Adjusting bed leveling screws
+## Réglage des vis de mise à niveau du lit
 
-The secret to getting good bed leveling with bed leveling screws is to utilize the printer's high precision motion system during the bed leveling process itself. This is done by commanding the nozzle to a position near each bed screw and then adjusting that screw until the bed is a set distance from the nozzle. Klipper has a tool to assist with this. In order to use the tool it is necessary to specify each screw XY location.
+Le secret pour obtenir un bon nivellement du lit avec les vis est d'utiliser le système de mouvement de haute précision de l'imprimante pendant le processus de nivellement du lit lui-même. Cela se fait en commandant la buse à une position proche de chaque vis de réglage du lit, puis en ajustant cette vis jusqu'à ce que le lit soit à une distance définie de la buse. Klipper a un outil pour vous aider. Pour utiliser l'outil, il est nécessaire de spécifier l'emplacement XY de chaque vis.
 
-This is done by creating a `[bed_screws]` config section. For example, it might look something similar to:
+Cela se fait en créant une section de configuration `[bed_screws]`. Par exemple, cela pourrait ressembler à :
 
 ```
 [bed_screws]
@@ -37,31 +37,31 @@ screw2: 100, 150
 screw3: 150, 100
 ```
 
-If a bed screw is under the bed, then specify the XY position directly above the screw. If the screw is outside the bed then specify an XY position closest to the screw that is still within the range of the bed.
+Si la vis de réglage se trouve sous le lit, spécifiez la position XY directement au-dessus de la vis. Si la vis est à l'extérieur du lit, spécifiez une position XY la plus proche de la vis tout en restant dans les limites du lit.
 
-Once the config file is ready, run `RESTART` to load that config, and then one can start the tool by running:
+Une fois que le fichier de configuration est prêt, exécutez `RESTART` pour charger la nouvelle configuration, puis vous pouvez démarrer l'outil en exécutant :
 
 ```
 BED_SCREWS_ADJUST
 ```
 
-This tool will move the printer's nozzle to each screw XY location and then move the nozzle to a Z=0 height. At this point one can use the "paper test" to adjust the bed screw directly under the nozzle. See the information described in ["the paper test"](Bed_Level.md#the-paper-test), but adjust the bed screw instead of commanding the nozzle to different heights. Adjust the bed screw until there is a small amount of friction when pushing the paper back and forth.
+Cet outil va déplacer la buse de l'imprimante vers chaque emplacement XY de vis, puis déplacera la buse à une hauteur Z = 0. À ce stade, on peut utiliser le "test du papier" pour ajuster la vis de réglage directement sous la buse. Voir les informations décrites dans ["le test du papier"](Bed_Level.md#the-paper-test), mais ajustez la vis de réglage au lieu de déplacer la buse à différentes hauteurs. Ajustez la vis de réglage jusqu'à ce qu'il y ait une petite friction lorsque vous poussez le papier d'avant en arrière.
 
-Once the screw is adjusted so that a small amount of friction is felt, run either the `ACCEPT` or `ADJUSTED` command. Use the `ADJUSTED` command if the bed screw needed an adjustment (typically anything more than about 1/8th of a turn of the screw). Use the `ACCEPT` command if no significant adjustment is necessary. Both commands will cause the tool to proceed to the next screw. (When an `ADJUSTED` command is used, the tool will schedule an additional cycle of bed screw adjustments; the tool completes successfully when all bed screws are verified to not require any significant adjustments.) One can use the `ABORT` command to exit the tool early.
+Une fois la vis ajustée de manière à ressentir une légère friction, exécutez la commande `ACCEPT` ou `ADJUSTED`. Utilisez la commande `ADJUSTED` si la vis du lit nécessitait un ajustement (généralement plus d'environ 1/8 de tour de vis). Utilisez la commande `ACCEPTER` si aucun ajustement significatif n'est nécessaire. Les deux commandes feront passer l'outil à la vis suivante. (Lorsqu'une commande `ADJUSTED` est utilisée, l'outil programme un cycle supplémentaire d'ajustements des vis ; l'outil se termine avec succès lorsque toutes les vis d'assise sont vérifiées pour ne pas nécessiter d'ajustements importants.) On peut utiliser la commande `ABORT` pour quitter l'outil plus tôt.
 
-This system works best when the printer has a flat printing surface (such as glass) and has straight rails. Upon successful completion of the bed leveling tool the bed should be ready for printing.
+Ce système fonctionne mieux lorsque l'imprimante a une surface d'impression plate (telle que du verre) et des rails rectilignes. Une fois l'outil de nivellement du lit terminé avec succès, le lit est prêt pour l'impression.
 
-### Fine grained bed screw adjustments
+### Réglages fin des vis de nivellement
 
-If the printer uses three bed screws and all three screws are under the bed, then it may be possible to perform a second "high precision" bed leveling step. This is done by commanding the nozzle to locations where the bed moves a larger distance with each bed screw adjustment.
+Si l'imprimante utilise trois vis de réglages et que les trois vis sont sous le lit, il est alors être possible d'effectuer une deuxième étape de mise à niveau du lit de « haute précision ». Cela se fait en déplaçant la buse vers les endroits les plus éloignés des vis de réglages.
 
-For example, consider a bed with screws at locations A, B, and C:
+Par exemple, considérons un lit avec des vis aux emplacements A, B et C :
 
-![bed_screws](img/bed_screws.svg.png)
+![vis de réglage](img/bed_screws.svg.png)
 
-For each adjustment made to the bed screw at location C, the bed will swing along a pendulum defined by the remaining two bed screws (shown here as a green line). In this situation, each adjustment to the bed screw at C will move the bed at position D a further amount than directly at C. It is thus possible to make an improved C screw adjustment when the nozzle is at position D.
+Pour chaque réglage effectué sur la vis du lit à l'emplacement C, le lit oscillera le long d'un axe défini par les deux vis du lit restantes (représentées ici par une ligne verte). Dans cette situation, chaque réglage de la vis du lit en C déplacera le lit en position D d'une plus grande distance que directement en C. Il est ainsi possible d'effectuer un réglage amélioré de la vis C lorsque la buse est en position D.
 
-To enable this feature, one would determine the additional nozzle coordinates and add them to the config file. For example, it might look like:
+Pour activer cette fonctionnalité, il faudra déterminer les coordonnées supplémentaires de la buse et les ajouter au fichier de configuration. Par exemple, cela pourrait ressembler à :
 
 ```
 [bed_screws]
@@ -73,13 +73,13 @@ screw3: 150, 100
 screw3_fine_adjust: 0, 100
 ```
 
-When this feature is enabled, the `BED_SCREWS_ADJUST` tool will first prompt for coarse adjustments directly above each screw position, and once those are accepted, it will prompt for fine adjustments at the additional locations. Continue to use `ACCEPT` and `ADJUSTED` at each position.
+Lorsque cette fonctionnalité est activée, la commande `BED_SCREWS_ADJUST` demandera d'abord des ajustements grossiers directement au-dessus de chaque position de vis, et une fois ceux-ci acceptés, il demandera des ajustements fins aux emplacements supplémentaires. Continuez à utiliser `ACCEPT` et `ADJUSTED` à chaque position.
 
-## Adjusting bed leveling screws using the bed probe
+## Réglage des vis de mise à niveau du lit à l'aide de la sonde de lit
 
-This is another way to calibrate the bed level using the bed probe. To use it you must have a Z probe (BL Touch, Inductive sensor, etc).
+C'est une autre façon de calibrer le niveau du lit avec la sonde de lit. Pour l'utiliser, vous devez disposer d'une sonde Z (BL Touch, capteur inductif, etc.).
 
-To enable this feature, one would determine the nozzle coordinates such that the Z probe is above the screws, and then add them to the config file. For example, it might look like:
+Pour activer cette fonctionnalité, il faut déterminer les coordonnées de la buse de sorte que la sonde Z soit au-dessus des vis, puis les ajouter au fichier de configuration. Par exemple, cela pourrait ressembler à :
 
 ```
 [screws_tilt_adjust]
@@ -96,7 +96,7 @@ speed: 50.
 screw_thread: CW-M3
 ```
 
-The screw1 is always the reference point for the others, so the system assumes that screw1 is at the correct height. Always run `G28` first and then run `SCREWS_TILT_CALCULATE` - it should produce output similar to:
+La vis1 est toujours le point de référence pour les autres, donc le système suppose que la vis1 est à la bonne hauteur. Exécutez toujours `G28` en premier, puis exécutez `SCREWS_TILT_CALCULATE` - cela devrait produire une sortie similaire à :
 
 ```
 Send: G28
@@ -110,19 +110,19 @@ Recv: // read left screw : x=-5.0, y=190.0, z=2.47250 : adjust CW 00:02
 Recv: ok
 ```
 
-This means that:
+Cela signifie que :
 
-- front left screw is the reference point you must not change it.
-- front right screw must be turned clockwise 1 full turn and a quarter turn
-- rear right screw must be turned counter-clockwise 50 minutes
-- rear left screw must be turned clockwise 2 minutes (not need it's ok)
+- la vis avant gauche est le point de référence vous ne devez pas la changer.
+- la vis avant droite doit être tournée dans le sens des aiguilles d'une montre d'un tour complet et d'un quart de tour
+- La vis arrière droite doit être tournée dans le sens inverse des aiguilles d’une montre d'environ 50 minutes
+- la vis arrière gauche doit être tournée dans le sens des aiguilles d'une montre d'un angle de 2 minutes (pas besoin c'est ok)
 
-Note that "minutes" refers to "minutes of a clock face". So, for example, 15 minutes is a quarter of a full turn.
+Notez que "minutes" fait référence aux "minutes d'un cadran d'horloge". Ainsi, par exemple, 15 minutes correspondent à un quart de tour complet.
 
-Repeat the process several times until you get a good level bed - normally when all adjustments are below 6 minutes.
+Répétez le processus plusieurs fois jusqu'à ce que vous obteniez un bon niveau de lit - normalement lorsque tous les ajustements sont inférieurs à une rotation de 6 minutes des vis de réglage.
 
-If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that adjusting the bed tilt will invalidate any previous probe calibration that was performed with a tilted bed. Be sure to run [probe calibration](Probe_Calibrate.md) after the bed screws have been adjusted.
+Si vous utilisez une sonde montée sur le côté de la hotend (c'est-à-dire qu'elle a un décalage X ou Y), notez que le réglage de l'inclinaison du lit rendra caduc l'étalonnage de sonde précédemment effectué avec un lit incliné. Assurez-vous d'exécuter [étalonnage de la sonde](Probe_Calibrate.md) après avoir ajusté les vis du lit.
 
-The `MAX_DEVIATION` parameter is useful when a saved bed mesh is used, to ensure that the bed level has not drifted too far from where it was when the mesh was created. For example, `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` can be added to the custom start gcode of the slicer before the mesh is loaded. It will abort the print if the configured limit is exceeded (0.01mm in this example), giving the user a chance to adjust the screws and restart the print.
+Le paramètre `MAX_DEVIATION` est utile lorsqu'un maillage de lit sauvegardé est utilisé, pour s'assurer que le niveau du lit n'a pas trop dérivé de l'endroit où il se trouvait lorsque le maillage a été créé. Par exemple, `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` peut être ajouté au gcode de démarrage personnalisé du trancheur avant le chargement du maillage. Il interrompra l'impression si la limite configurée est dépassée (0,01 mm dans cet exemple), donnant à l'utilisateur une chance d'ajuster les vis et de redémarrer l'impression.
 
-The `DIRECTION` parameter is useful if you can turn your bed adjustment screws in one direction only. For example, you might have screws that start tightened in their lowest (or highest) possible position, which can only be turned in a single direction, to raise (or lower) the bed. If you can only turn the screws clockwise, run `SCREWS_TILT_CALCULATE DIRECTION=CW`. If you can only turn them counter-clockwise, run `SCREWS_TILT_CALCULATE DIRECTION=CCW`. A suitable reference point will be chosen such that the bed can be leveled by turning all the screws in the given direction.
+Le paramètre `DIRECTION` est utile si vous ne pouvez tourner les vis de réglage de votre lit que dans un seul sens. Par exemple, vous pourriez avoir des vis qui commencent à être serrées dans leur position la plus basse (ou la plus haute) possible, qui ne peuvent être tournées que dans une seule direction, pour élever (ou abaisser) le lit. Si vous ne pouvez tourner les vis que dans le sens des aiguilles d'une montre, exécutez `SCREWS_TILT_CALCULATE DIRECTION=CW`. Si vous ne pouvez les tourner que dans le sens antihoraire, exécutez `SCREWS_TILT_CALCULATE DIRECTION=CCW`. Un point de référence approprié sera choisi de sorte que le lit puisse être nivelé en tournant toutes les vis dans la direction donnée.

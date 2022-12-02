@@ -129,7 +129,7 @@ Ha a TMC2208 (vagy TMC2224) motorvezérlőt "standalone módban" használod, akk
 Ezt általában a gazdagép és a mikrokontroller közötti USB-kapcsolat hardverhibái okozzák. Amit keresni kell:
 
 - Használj jó minőségű USB-kábelt a gazdagép és a mikrokontroller között. Győződj meg róla, hogy a csatlakozók biztonságosan csatlakoznak.
-- Ha Raspberry Pi-t használ, használj [jó minőségű tápegységet](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply) a Raspberry Pi számára, és egy [jó minőségű USB-kábellel](https://forums.raspberrypi.com/viewtopic.php?p=589877#p589877) csatlakoztassa a tápegységet a Pihez. Ha az OctoPrint "feszültség alatt" figyelmeztetéseket kap, az a tápegységgel függ össze, és ezt meg kell javítani.
+- Ha Raspberry Pi-t használsz, használj [jó minőségű tápegységet](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply) a Raspberry Pi számára, és egy [jó minőségű USB-kábellel](https://forums.raspberrypi.com/viewtopic.php?p=589877#p589877) csatlakoztasd a tápegységet a Pi-hez. Ha az OctoPrint "alulfeszültség" figyelmeztetéseket kapsz, az a tápegységgel függ össze, és ezt ki kell javítani.
 - Győződj meg róla, hogy a nyomtató áramellátása nincs túlterhelve. (A mikrovezérlő USB-chip áramellátásának ingadozása a chip újraindítását eredményezheti.)
 - Ellenőrizd, hogy a léptető, fűtő és egyéb nyomtatóvezetékek nem szakadtak vagy rongálódtak. (A nyomtató mozgása megterhelheti a hibás vezetéket, ami érintkezési hibákhoz, rövidzárlathoz vagy túlzott zajkeltéshez vezethet.)
 - Jelentéseket kaptunk magas USB-zajról, amikor a nyomtató, és a gazdagép 5V-os tápellátása keveredik. (Ha azt tapasztalod, hogy a mikrokontroller bekapcsol, amikor a gazdagép tápellátása be van kapcsolva, vagy az USB-kábel be van dugva, akkor ez azt jelzi, hogy az 5V-os tápegységek keverednek.) Segíthet, ha úgy konfigurálod a mikrokontrollert, hogy csak az egyik forrásból származó áramot használod. (Alternatív megoldásként, ha a mikrokontroller lapja nem tudja konfigurálni az áramforrását, módosíthatunk egy USB-kábelt úgy, hogy az ne szállítson 5V-os áramot a gazdagép és a mikrokontroller között.)
@@ -168,7 +168,7 @@ A zavar elkerülése érdekében a Klipper alapkódja a mikrokontroller által m
 
 Ez az eszköz típusától és a tű típusától függ:
 
-ADC tűk (vagy analóg tűk): Termisztorok és hasonló "analóg" érzékelők esetén az eszközt a mikrokontroller egy "analóg" vagy "ADC" -képes tűjére kell csatlakoztatni. Ha a Klippert olyan tű használatára konfigurálod, amely nem analóg képes, a Klipper egy "Nem érvényes ADC tű" hibát fog jelenteni.
+ADC tűk (vagy analóg tűk): Termisztorok és hasonló "analóg" érzékelők esetén az eszközt a mikrokontroller egy "analóg" vagy "ADC" -képes tűjére kell csatlakoztatni. Ha a Klipper-t olyan tű használatára konfigurálod, amely nem analóg képes, a Klipper egy "Nem érvényes ADC tű" hibát fog jelenteni.
 
 PWM tűk (vagy időzítő tűk): A Klipper alapértelmezés szerint nem használ hardveres PWM-et egyetlen eszköz esetében sem. Tehát általában a fűtőtesteket, ventilátorokat és hasonló eszközöket bármelyik általános célú IO tűre lehet vezetékezni. A ventilátorok és az output_pin eszközök azonban opcionálisan úgy konfigurálhatók, hogy `hardware_pwm: True` értéket használnak, amely esetben a mikrokontrollernek támogatnia kell a hardveres PWM-et a tűn (ellenkező esetben a Klipper egy "Not a valid PWM pin" hibát fog jelezni).
 
@@ -182,13 +182,13 @@ Más eszközök bármelyik általános célú IO tűre csatlakoztathatók. Péld
 
 ## Hogyan tudom törölni az M109/M190 "várakozás a hőmérsékletre" kérést?
 
-Navigálj az OctoPrint terminál fülre, és adj ki egy M112 parancsot a terminálmezőben. Az M112 parancs hatására a Klipper "leállítás" állapotba kerül, és az OctoPrint megszakítja a kapcsolatot a Klipperrel. Navigálj az OctoPrint csatlakozási területére, és kattints a "Kapcsolódás" gombra, hogy az OctoPrint újra csatlakozzon. Navigálj vissza a terminál fülre, és adj ki egy FIRMWARE_RESTART parancsot a Klipper hibaállapotának törléséhez. E műveletsor befejezése után az előző fűtéskérés törlődik, és új nyomtatás indítható.
+Navigálj az OctoPrint terminál fülre, és adj ki egy M112 parancsot a terminálmezőben. Az M112 parancs hatására a Klipper "leállítás" állapotba kerül, és az OctoPrint megszakítja a kapcsolatot a Klipper-el. Navigálj az OctoPrint csatlakozási területére, és kattints a "Kapcsolódás" gombra, hogy az OctoPrint újra csatlakozzon. Navigálj vissza a terminál fülre, és adj ki egy FIRMWARE_RESTART parancsot a Klipper hibaállapotának törléséhez. E műveletsor befejezése után az előző fűtéskérés törlődik, és új nyomtatás indítható.
 
 ## Meg tudom állapítani, hogy a nyomtató vesztett-e lépéseket?
 
-Bizonyos értelemben igen. Indítsa el a nyomtatót, adj ki egy `GET_POSITION` parancsot, indítsa el a nyomtatást, indítsa el újra, és adj ki egy újabb `GET_POSITION` parancsot. Ezután hasonlítsa össze az `mcu:` sorban szereplő értékeket.
+Bizonyos értelemben igen. Indítsd el a nyomtatót, adj ki egy `GET_POSITION` parancsot, indítsd el a nyomtatást, kezdőpont felvétel újra, és adj ki egy újabb `GET_POSITION` parancsot. Ezután hasonlítsd össze az `mcu:` sorban szereplő értékeket.
 
-Ez hasznos lehet a beállítások, például a léptetőmotorok áramának, gyorsulásának és sebességének beállításához anélkül, hogy ténylegesen nyomtatnod kellene valamit és pazarolnod kellene a szálakat: csak futtass néhány nagy sebességű mozgást a `GET_POSITION` parancsok között.
+Ez hasznos lehet a beállítások, például a léptetőmotorok áramának, gyorsulásának és sebességének beállításához anélkül, hogy ténylegesen nyomtatnod kellene valamit és pazarolnod kellene az anyagot: csak futtass néhány nagy sebességű mozgást a `GET_POSITION` parancsok között.
 
 Vedd figyelembe, hogy a végálláskapcsolók maguk is hajlamosak kissé eltérő pozícióban kioldani, így a néhány mikrolépésnyi különbség valószínűleg a végállás pontatlanságának eredménye. Maga a léptetőmotor csak 4 teljes lépésenként képes lépéseket veszíteni. (Tehát, ha 16 mikrolépést használunk, akkor a léptető egy elvesztett lépése azt eredményezi, hogy az "mcu:" lépésszámláló 64 mikrolépés többszörösével téved.)
 
@@ -204,7 +204,7 @@ Van néhány kapcsolódó kérdés: Miért nem szünetelteti a Klipper a nyomtat
 
 A szoftver frissítésének első lépése a legfrissebb [konfigurációs változások](Config_Changes.md) dokumentum áttekintése. Alkalmanként olyan változások történnek a szoftverben, amelyek miatt a felhasználóknak frissíteniük kell a beállításaikat a szoftverfrissítés részeként. A frissítés előtt érdemes átnézni ezt a dokumentumot.
 
-Ha készen áll a frissítésre, az általános módszer az, hogy SSH-t használunk a Raspberry Pi-n, és futtatjuk:
+Ha készen állsz a frissítésre, az általános módszer az, hogy SSH-t használunk a Raspberry Pi-n, és futtatjuk:
 
 ```
 cd ~/klipper
@@ -232,15 +232,15 @@ git pull
 sudo service klipper restart
 ```
 
-Ha e parancs használata után a szoftver arra figyelmeztet, hogy a mikrokontrollert újra kell égetni, vagy más szokatlan hiba lép fel, akkor kövesse a fent leírt teljes frissítési lépéseket.
+Ha e parancs használata után a szoftver arra figyelmeztet, hogy a mikrokontrollert újra kell égetni, vagy más szokatlan hiba lép fel, akkor kövesd a fent leírt teljes frissítési lépéseket.
 
 Ha továbbra is fennállnak a hibák, akkor ellenőrizd a [konfigurációs változások](Config_Changes.md) dokumentumot, mivel lehet, hogy módosítani kell a nyomtató konfigurációját.
 
 Ne feledd, hogy a RESTART és FIRMWARE_RESTART G-kód parancsok nem töltenek be új szoftvert a fenti "sudo service klipper restart" és "make flash" parancsok szükségesek a szoftverváltás érvénybe lépéséhez.
 
-## Hogyan távolítsam el a klippert?
+## Hogyan távolítsam el a Klipper-t?
 
-A firmware oldalon semmi különösnek nem kell történnie. Csak kövesse az új firmware égetési utasításait.
+A firmware oldalon semmi különösnek nem kell történnie. Csak kövesd az új firmware égetési utasításait.
 
 A Raspberry Pi oldalon egy eltávolító szkript elérhető a [scripts/klipper-uninstall.sh](../scripts/klipper-uninstall.sh) alatt. Például:
 

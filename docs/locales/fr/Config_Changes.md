@@ -1,10 +1,10 @@
 # Configuration Changes
 
-This document covers recent software changes to the config file that are not backwards compatible. It is a good idea to review this document when upgrading the Klipper software.
+Ce document couvre les modifications logicielles apportées au fichier de configuration qui ne sont pas rétro compatibles. Il est conseillé de consulter ce document lors de la mise à jour du logiciel Klipper.
 
-All dates in this document are approximate.
+Toutes les dates de ce document sont approximatives.
 
-## Changes
+## Changements
 
 20220616: It was previously possible to flash an rp2040 in bootloader mode by running `make flash FLASH_DEVICE=first`. The equivalent command is now `make flash FLASH_DEVICE=2e8a:0003`.
 
@@ -50,22 +50,22 @@ All dates in this document are approximate.
 
 20210703: A `samd_sercom` config section must now specify the sercom bus it is configuring via the `sercom` option.
 
-20210612: The `pid_integral_max` config option in heater and temperature_fan sections is deprecated. The option will be removed in the near future.
+20210612 : l'option de configuration `pid_integral_max` dans les sections heater et temperature_fan est obsolète. Cette option sera supprimée dans les prochaines versions.
 
 20210503: The gcode_macro `default_parameter_<name>` config option is deprecated. Use the `params` pseudo-variable to access macro parameters. Other methods for accessing macro parameters will be removed in the near future. Most users can replace a `default_parameter_NAME: VALUE` config option with a line like the following in the start of the macro: ` {% set NAME = params.NAME|default(VALUE)|float %}`. See the [Command Templates
 document](Command_Templates.md#macro-parameters) for examples.
 
-20210430: The SET_VELOCITY_LIMIT (and M204) command may now set a velocity, acceleration, and square_corner_velocity larger than the specified values in the config file.
+20210430 : la commande SET_VELOCITY_LIMIT (et M204) peuvent maintenant définir une "velocity", "acceleration", et "square_corner_velocity" supérieurs aux valeurs spécifiées dans le fichier de configuration.
 
-20210325: Support for the `pin_map` config option is deprecated. Use the [sample-aliases.cfg](../config/sample-aliases.cfg) file to translate to the actual micro-controller pin names. The `pin_map` config option will be removed in the near future.
+20210325 : La prise en charge de l'option de configuration `pin_map` est obsolète. Utilisez le fichier [sample-aliases.cfg](../config/sample-aliases.cfg) pour traduire les noms des broches réelles du microcontrôleur. L'option de configuration `pin_map` sera supprimée dans les prochaines version.
 
-20210313: Klipper's support for micro-controllers that communicate with CAN bus has changed. If using CAN bus then all micro-controllers must be reflashed and the [Klipper configuration must be updated](CANBUS.md).
+20210313 : La prise en charge de Klipper pour les microcontrôleurs CAN bus a été modifiée. Si vous utilisez CANBus, tous les microcontrôleurs doivent être reflashés et [le fichier de configuration de Klipper doit être mise à jour](CANBUS.md).
 
-20210310: The TMC2660 default for driver_SFILT has been changed from 1 to 0.
+20210310 : la valeur par défaut de driver_SFILT pour les TMC2660 a été modifiée : passage de 1 à 0 par défaut.
 
-20210227: TMC stepper motor drivers in UART or SPI mode are now queried once per second whenever they are enabled - if the driver can not be contacted or if the driver reports an error, then Klipper will transition to a shutdown state.
+20210227 : Les pilotes de moteur pas à pas TMC en mode UART ou SPI sont désormais interrogés une fois par seconde si ils sont activés - si le pilote ne peut pas être contacté ou si le pilote signale une erreur, alors Klipper passera à un état d'arrêt.
 
-20210219: The `rpi_temperature` module has been renamed to `temperature_host`. Replace any occurrences of `sensor_type: rpi_temperature` with `sensor_type: temperature_host`. The path to the temperature file may be specified in the `sensor_path` config variable. The `rpi_temperature` name is deprecated and will be removed in the near future.
+20210219 : Le module `rpi_temperature` a été renommé en `temperature_host`. Remplacez toutes les occurrences de `sensor_type : rpi_temperature` par `sensor_type : temperature_host`. Le chemin vers le fichier de température peut être spécifié dans la variable de configuration `sensor_path`. Le nom `rpi_temperature` est obsolète et sera supprimé dans les prochaines versions.
 
 20210201: The `TEST_RESONANCES` command will now disable input shaping if it was previously enabled (and re-enable it after the test). In order to override this behavior and keep the input shaping enabled, one can pass an additional parameter `INPUT_SHAPING=1` to the command.
 

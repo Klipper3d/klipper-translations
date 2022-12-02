@@ -1,6 +1,6 @@
 # Релизы
 
-История релизов Клиппера. Пожалуйста, смотрите раздел [Installation](Installation.md) для получения информации об установке Klipper.
+История релизов Klipper. Пожалуйста, смотрите раздел [Установка](Installation.md) для получения информации об установке Klipper.
 
 ## Klipper 0.10.0
 
@@ -26,10 +26,10 @@ Available on 20210929. Major changes in this release:
 
 * Поддержка "Формирования входных данных" - механизма противодействия резонансу принтера. Это может уменьшить или устранить "звон" в отпечатках.
 * Новая система "Плавного повышения давления". Это обеспечивает "Повышение давления" без мгновенного изменения скорости. Кроме того, теперь можно настраивать повышение давления с помощью метода "Настроечной башни".
-* New "webhooks" API server. This provides a programmable JSON interface to Klipper.
-* The LCD display and menu are now configurable using the Jinja2 template language.
-* The TMC2208 stepper motor drivers can now be used in "standalone" mode with Klipper.
-* Improved BL-Touch v3 support.
+* Новый API-сервер "webhooks". Он предоставляет программируемый JSON-интерфейс для Klipper.
+* ЖК-дисплей и меню теперь настраиваются с помощью языка шаблонов Jinja2.
+* Драйверы шаговых двигателей TMC2208 теперь можно использовать в "автономном" режиме с Klipper.
+* Улучшена поддержка BL-Touch v3.
 * Improved USB identification. Klipper now has its own USB identification code and micro-controllers can now report their unique serial numbers during USB identification.
 * New kinematic support for "Rotary Delta" and "CoreXZ" printers.
 * Micro-controller improvements: support for stm32f070, support for stm32f207, support for GPIO pins on "Linux MCU", stm32 "HID bootloader" support, Chitu bootloader support, MKS Robin bootloader support.

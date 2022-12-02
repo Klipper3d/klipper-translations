@@ -85,7 +85,7 @@ A következő parancsok akkor érhetők el, ha a [bed_mesh konfigurációs szaka
 
 #### BED_MESH_CALIBRATE
 
-`BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: Ez a parancs a tárgyasztalt a konfigurációban megadott paraméterek által generált pontok segítségével szintezi. A szintezés után egy háló generálódik, és a Z elmozdulás a hálónak megfelelően kerül beállításra. Az opcionális szintező paraméterekkel kapcsolatos részletekért lásd a PROBE parancsot. Ha a METHOD=manual parancsot adta meg, akkor a kézi szintező eszköz aktiválódik. Az eszköz aktiválása közben elérhető további parancsok részleteit lásd a fenti MANUAL_PROBE parancsban.
+`BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: Ez a parancs a tárgyasztalt a konfigurációban megadott paraméterek által generált pontok segítségével szintezi. A szintezés után egy háló generálódik, és a Z elmozdulás a hálónak megfelelően kerül beállításra. Az opcionális szintező paraméterekkel kapcsolatos részletekért lásd a PROBE parancsot. Ha a METHOD=manual parancsot adtad meg, akkor a kézi szintező eszköz aktiválódik. Az eszköz aktiválása közben elérhető további parancsok részleteit lásd a fenti MANUAL_PROBE parancsban.
 
 #### BED_MESH_OUTPUT
 
@@ -105,7 +105,7 @@ A következő parancsok akkor érhetők el, ha a [bed_mesh konfigurációs szaka
 
 #### BED_MESH_OFFSET
 
-`BED_MESH_OFFSET [X=<value>] [Y=<value>]`: X és/vagy Y eltolást alkalmazza a hálókereséshez. Ez a független extruderekkel rendelkező nyomtatóknál hasznos, mivel az eltolás szükséges a szerszámcsere utáni helyes Z-beállításhoz.
+`BED_MESH_OFFSET [X=<value>] [Y=<value>]`: X és/vagy Y eltolást alkalmaz a hálókereséshez. Ez a független extruderekkel rendelkező nyomtatóknál hasznos, mivel az eltolás szükséges a szerszámcsere utáni helyes Z-beállításhoz.
 
 ### [bed_screws]
 
@@ -309,7 +309,7 @@ A force_move modul automatikusan betöltődik, azonban néhány parancshoz szük
 
 #### FORCE_MOVE
 
-`FORCE_MOVE STEPPER=<config_name> DISTANCE=<value> VELOCITY=<value> [ACCEL=<value>]`: Ez a parancs az adott léptetőmotort az adott távolságon (mm-ben) a megadott állandó sebességgel (mm/sec-ben) kényszerrel mozgatja. Ha az ACCEL meg van adva, és nagyobb, mint nulla, akkor a megadott gyorsulás (mm/sec^2-en) kerül alkalmazásra; egyébként nem történik gyorsítás. Nem történik határérték ellenőrzés; nem történik kinematikai frissítés; a tengelyen lévő más párhuzamos léptetők nem kerülnek mozgatásra. Legyen óvatos, mert a helytelen parancs kárt okozhat! A parancs használata szinte biztosan helytelen állapotba hozza az alacsony szintű kinematikát; a kinematika visszaállításához adj ki utána egy G28 parancsot. Ez a parancs alacsony szintű diagnosztikára és hibakeresésre szolgál.
+`FORCE_MOVE STEPPER=<config_name> DISTANCE=<value> VELOCITY=<value> [ACCEL=<value>]`: Ez a parancs az adott léptetőmotort az adott távolságon (mm-ben) a megadott állandó sebességgel (mm/sec-ben) kényszerrel mozgatja. Ha az ACCEL meg van adva, és nagyobb, mint nulla, akkor a megadott gyorsulás (mm/sec^2-en) kerül alkalmazásra; egyébként nem történik gyorsítás. Nem történik határérték ellenőrzés; nem történik kinematikai frissítés; a tengelyen lévő más párhuzamos léptetők nem kerülnek mozgatásra. Legyél óvatos, mert a helytelen parancs kárt okozhat! A parancs használata szinte biztosan helytelen állapotba hozza az alacsony szintű kinematikát; a kinematika visszaállításához adj ki utána egy G28 parancsot. Ez a parancs alacsony szintű diagnosztikára és hibakeresésre szolgál.
 
 #### SET_KINEMATIC_POSITION
 
@@ -451,7 +451,7 @@ A manual_probe modul automatikusan betöltődik.
 
 #### Z_OFFSET_APPLY_ENDSTOP
 
-`Z_OFFSET_APPLY_ENDSTOP`: Vegyük az aktuális Z G-kód eltolást (más néven mikrolépés), és vonjuk ki a stepper_z endstop_positionból. Ez egy gyakran használt mikrolépés értéket vesz, és "állandóvá teszi". Egy `SAVE_CONFIG` szükséges a hatálybalépéshez.
+`Z_OFFSET_APPLY_ENDSTOP`: Vegyük az aktuális Z G-kód eltolást (más néven mikrolépés), és vonjuk ki a stepper_z endstop_position-ból. Ez egy gyakran használt mikrolépés értéket vesz, és "állandóvá teszi". Egy `SAVE_CONFIG` szükséges a hatálybalépéshez.
 
 ### [manual_stepper]
 
@@ -459,7 +459,7 @@ A következő parancs akkor érhető el, ha a [manual_stepper konfigurációs sz
 
 #### MANUAL_STEPPER
 
-`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|2|-1|-2]] [SYNC=0]]]`: Ez a parancs megváltoztatja a léptető állapotát. Az ENABLE paraméterrel engedélyezheti/letilthatja a léptetőt. A SET_POSITION paraméterrel kényszerítheti a léptetőt arra, hogy azt higgye, az adott helyzetben van. A MOVE paraméterrel kezdeményezhet mozgást egy adott pozícióba. Ha a SPEED és/vagy az ACCEL paraméter meg van adva, akkor a rendszer a megadott értékeket használja a konfigurációs fájlban megadott alapértelmezett értékek helyett. Ha nulla ACCEL-t ad meg, akkor nem történik gyorsítás. Ha STOP_ON_ENDSTOP=1 van megadva, akkor a lépés korán véget ér. Ha a végálláskapcsoló aktiválódik (a STOP_ON_ENDSTOP=2 paranccsal hiba nélkül befejezheti a mozgást, még akkor is, ha a végálláskapcsoló nem aktiválódott. Használd a -1 vagy a -2 jelölést, hogy leálljon, amikor a végálláskapcsoló még nem aktiválódott). Normális esetben a későbbi G-kód parancsok a léptetőmozgás befejezése után kerülnek ütemezésre, azonban ha a kézi léptetőmozgás parancs a SYNC=0 értéket használod, akkor a későbbi G-kód mozgatási parancsok a léptetőmozgással párhuzamosan is futhatnak.
+`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|2|-1|-2]] [SYNC=0]]]`: Ez a parancs megváltoztatja a léptető állapotát. Az ENABLE paraméterrel engedélyezheted/letilthatod a léptetőt. A SET_POSITION paraméterrel kényszerítheted a léptetőt arra, hogy azt higgye, az adott helyzetben van. A MOVE paraméterrel kezdeményezhetsz mozgást egy adott pozícióba. Ha a SPEED és/vagy az ACCEL paraméter meg van adva, akkor a rendszer a megadott értékeket használja a konfigurációs fájlban megadott alapértelmezett értékek helyett. Ha nulla ACCEL-t ad meg, akkor nem történik gyorsítás. Ha STOP_ON_ENDSTOP=1 van megadva, akkor a lépés korán véget ér. Ha a végálláskapcsoló aktiválódik (a STOP_ON_ENDSTOP=2 paranccsal hiba nélkül befejezheted a mozgást, még akkor is, ha a végálláskapcsoló nem aktiválódott. Használd a -1 vagy a -2 jelölést, hogy leálljon, amikor a végálláskapcsoló még nem aktiválódott). Normális esetben a későbbi G-kód parancsok a léptetőmozgás befejezése után kerülnek ütemezésre, azonban ha a kézi léptetőmozgás parancs a SYNC=0 értéket használja, akkor a későbbi G-kód mozgatási parancsok a léptetőmozgással párhuzamosan is futhatnak.
 
 ### [mcp4018]
 
@@ -533,7 +533,7 @@ A következő parancsok akkor érhetők el, ha a [pause_resume konfigurációs s
 
 #### PAUSE
 
-`PAUSE`: Az aktuális nyomtatás szüneteltetése. Az aktuális pozíció rögzítésre kerül, hogy a folytatáskor visszaállítható legyen.
+`PAUSE`: Az aktuális nyomtatás szüneteltetése. Az aktuális pozíció rögzítésre kerül, hogy folytatáskor visszaállítható legyen.
 
 #### RESUME
 
@@ -668,7 +668,7 @@ A következő parancsok akkor érhetők el, ha a [szervó konfigurációs szakas
 
 #### SET_SERVO
 
-`SET_SERVO SERVO=config_name [ANGLE=<degrees> | WIDTH=<seconds>]`: A szervó pozíciójának beállítása a megadott szögre (fokban) vagy impulzusszélességre (másodpercben). A `WIDTH=0` használatával letilthatja a szervókimenetet.
+`SET_SERVO SERVO=config_name [ANGLE=<degrees> | WIDTH=<seconds>]`: A szervó pozíciójának beállítása a megadott szögre (fokban) vagy impulzusszélességre (másodpercben). A `WIDTH=0` használatával letilthatod a szervókimenetet.
 
 ### [skew_correction]
 
@@ -752,7 +752,7 @@ A tuning_tower modul automatikusan betöltődik.
 
 #### TUNING_TOWER
 
-`TUNING_TOWER COMMAND=<command> PARAMETER=<name> START=<value> [SKIP=<value>] [FACTOR=<value> [BAND=<value>]] | [STEP_DELTA=<value> STEP_HEIGHT=<value>]`: Egy eszköz egy paraméter beállítására minden egyes Z magasságon a nyomtatás során. Az eszköz az adott `COMMAND` parancsot a megadott `PARAMETER` értékhez rendelt `Z` értékkel egy képlet szerint változó értékkel futtatja. Használd a `FACTOR` lehetőséget, ha vonalzóval vagy tolómérővel fogja mérni az optimális Z magasságot, vagy `STEP_DELTA` és `STEP_HEIGHT`, ha a hangolótorony modellje diszkrét értékek sávjaival rendelkezik, mint ahogy az a hőmérséklet-tornyoknál gyakori. Ha `SKIP=<value>` van megadva, akkor a hangolási folyamat nem kezdődik meg, amíg a Z magasság `<value>` elérését, és ez alatt az érték `START` értékre lesz beállítva; ebben az esetben az alábbi képletekben használt `z_height` valójában `max(z - skip, 0)`. Három lehetséges kombináció létezik:
+`TUNING_TOWER COMMAND=<command> PARAMETER=<name> START=<value> [SKIP=<value>] [FACTOR=<value> [BAND=<value>]] | [STEP_DELTA=<value> STEP_HEIGHT=<value>]`: Egy eszköz egy paraméter beállítására minden egyes Z magasságon a nyomtatás során. Az eszköz az adott `COMMAND` parancsot a megadott `PARAMETER` értékhez rendelt `Z` értékkel egy képlet szerint változó értékkel futtatja. Használd a `FACTOR` lehetőséget, ha vonalzóval vagy tolómérővel fogod mérni az optimális Z magasságot, vagy `STEP_DELTA` és `STEP_HEIGHT`, ha a hangolótorony modellje diszkrét értékek sávjaival rendelkezik, mint ahogy az a hőmérséklet-tornyoknál gyakori. Ha `SKIP=<value>` van megadva, akkor a hangolási folyamat nem kezdődik meg, amíg a Z magasság `<value>` elérését, és ez alatt az érték `START` értékre lesz beállítva; ebben az esetben az alábbi képletekben használt `z_height` valójában `max(z - skip, 0)`. Három lehetséges kombináció létezik:
 
 - `FACTOR`: Az érték `factor` milliméterenként változik. Az alkalmazott képlet: `value = start + factor * z_height`. Az optimális Z magasságot közvetlenül a képletbe illesztheti az optimális paraméterérték meghatározásához.
 - `FACTOR` és `BAND`: Az érték átlagosan `Faktor` milliméterenként változik, de diszkrét sávokban, ahol a kiigazítás csak minden `BAND` milliméterenként történik a Z magasságban. A használt képlet a következő: `value= start + factor* ((floor(z_height / band) + .5) * band)`.

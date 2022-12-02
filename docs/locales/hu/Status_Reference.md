@@ -220,7 +220,7 @@ A következő információk a [palette2](Config_Reference.md#palette2) objektumb
 
 A következő információk a [pause_resume](Config_Reference.md#pause_resume) objektumban érhetők el:
 
-- `is_paused`: True, ha egy PAUSE parancsot hajtottak végre a megfelelő RESUME parancs nélkül.
+- `is_paused`: True, ha egy PAUSE parancsot hajtottunk végre a megfelelő RESUME parancs nélkül.
 
 ## print_stats
 
@@ -247,7 +247,7 @@ A következő információk a `quad_gantry_level` objektumban érhetők el (ez a
 
 A következő információk a `query_endstops` objektumban érhetők el (ez az objektum akkor érhető el, ha bármilyen végálláskapcsoló definiálva van):
 
-- `last_query["<endstop>"]`: True értéket ad, ha az adott végálláskapcsolót az utolsó QUERY_ENDSTOP parancs során "triggered" -ként jelentették. Megjegyzés: ha ezt egy makróban használjuk, a sablon bővítési sorrendje miatt a QUERY_ENDSTOP parancsot akkor ezt a hivatkozást tartalmazó makró előtt kell lefuttatni.
+- `last_query["<endstop>"]`: True értéket ad, ha az adott végálláskapcsolót az utolsó QUERY_ENDSTOP parancs során "triggered" -ként jelenti. Megjegyzés: ha ezt egy makróban használjuk, a sablon bővítési sorrendje miatt a QUERY_ENDSTOP parancsot akkor ezt a hivatkozást tartalmazó makró előtt kell lefuttatni.
 
 ## servo
 
@@ -318,7 +318,7 @@ A következő információk a [dual_carriage](Config_Reference.md#dual_carriage)
 A következő információk a [virtual_sdcard](Config_Reference.md#virtual_sdcard) objektumban érhetők el:
 
 - `is_active`: True értéket ad, ha a fájlból való nyomtatás aktív.
-- `progressz`: A nyomtatás aktuális előrehaladásának becslése (a fájlméret és a fájl pozíciója alapján).
+- `progress`: A nyomtatás aktuális előrehaladásának becslése (a fájlméret és a fájl pozíciója alapján).
 - `file_path`: Az aktuálisan betöltött fájl teljes elérési útja.
 - `file_position`: Az aktív nyomtatás aktuális pozíciója (bájtokban).
 - `file_size`: Az aktuálisan betöltött fájl mérete (bájtokban).
