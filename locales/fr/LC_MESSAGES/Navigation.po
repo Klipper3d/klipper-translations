@@ -1,12 +1,13 @@
 # Linda 'linigrhf' Ayasing <linigrhf@gmail.com>, 2022.
 # Jonathan <jonathanhav09@sfr.fr>, 2022.
+# jean-luc MATTEI <jlucm@free.fr>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2022-03-06 16:53+0200\n"
-"PO-Revision-Date: 2022-11-24 21:48+0000\n"
-"Last-Translator: Jonathan <jonathanhav09@sfr.fr>\n"
+"PO-Revision-Date: 2022-11-30 10:48+0000\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "navigation/fr/>\n"
 "Language: fr\n"
@@ -17,22 +18,22 @@ msgstr ""
 "X-Generator: Weblate 4.15-dev\n"
 
 msgid "Klipper documentation"
-msgstr ""
+msgstr "Documentation Klipper"
 
 msgid "Installation and Configuration"
 msgstr "Installation et Configuration"
 
 msgid "Configuration Reference"
-msgstr ""
+msgstr "Référence de configuration"
 
 msgid "Bed Level"
-msgstr ""
+msgstr "Nivellement du lit"
 
 msgid "Resonance Compensation"
 msgstr "Compensation de résonance"
 
 msgid "Command templates"
-msgstr ""
+msgstr "Modèles de commandes"
 
 msgid "Developer Documentation"
 msgstr "Documentation pour les Développeurs"

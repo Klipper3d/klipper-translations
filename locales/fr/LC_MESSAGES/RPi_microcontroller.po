@@ -1,11 +1,13 @@
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
 # Tl <rflma99@pm.me>, 2022.
 # Jonathan <jonathanhav09@sfr.fr>, 2022.
+# Francis Poulizac <francis@poulizac.fr>, 2022.
+# jean-luc MATTEI <jlucm@free.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-24 21:48+0000\n"
-"Last-Translator: Jonathan <jonathanhav09@sfr.fr>\n"
+"PO-Revision-Date: 2022-12-01 05:47+0000\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "rpi_microcontroller/fr/>\n"
 "Language: fr\n"
@@ -19,7 +21,7 @@ msgid ""
 "same RPi as secondary mcu."
 msgstr ""
 "Ce document décrit le processus via lequel il est possible de lancer Klipper "
-"sur un Raspberry Pi et d'utiliser le même Raspberry Pi comme mcu secondaire"
+"sur un Raspberry Pi et d'utiliser le même Raspberry Pi comme mcu secondaire."
 
 msgid "Why use RPi as a secondary MCU?"
 msgstr ""
@@ -323,7 +325,7 @@ msgstr ""
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "19"
-msgstr ""
+msgstr "19"
 
 #: docs/RPi_microcontroller.md:block 20 (header)
 msgid "Optional: Enabling SPI"
@@ -334,6 +336,8 @@ msgid ""
 "Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and"
 " enabling SPI under the \"Interfacing options\" menu."
 msgstr ""
+"Assurez-vous que le pilote SPI Linux est activé en exécutant `sudo raspi-"
+"config` et en activant SPI dans le menu « Options d’interface »."
 
 #: docs/RPi_microcontroller.md:block 30 (paragraph)
 msgid ""

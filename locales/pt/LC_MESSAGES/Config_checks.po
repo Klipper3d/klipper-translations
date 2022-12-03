@@ -3,12 +3,14 @@
 # KrulesExGamer <pedro.hvn.2018@gmail.com>, 2022.
 # fanylouise <gandra.fany@gmail.com>, 2022.
 # djudju12 <jonathan.willian321@gmail.com>, 2022.
+# gbonaspetti <gbonaspetti@hotmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-10-18 00:03+0000\n"
-"Last-Translator: djudju12 <jonathan.willian321@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/config_checks/pt/>\n"
+"PO-Revision-Date: 2022-11-28 09:48+0000\n"
+"Last-Translator: gbonaspetti <gbonaspetti@hotmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"config_checks/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -52,7 +54,7 @@ msgstr ""
 "Navegue até a aba de temperatura Octoprint."
 
 msgid "![octoprint-temperature](img/octoprint-temperature.png)"
-msgstr ""
+msgstr "![temperatura-no-octoprint](img/octoprint-temperature.png)"
 
 msgid ""
 "Verify that the temperature of the nozzle and bed (if applicable) are "
@@ -85,7 +87,6 @@ msgstr ""
 "se a temperatura continua a atualizar e não esta subindo. Se a temperatura "
 "estiver subindo, remova a impressora da tomada."
 
-#, fuzzy
 msgid ""
 "The M112 command causes Klipper to go into a \"shutdown\" state. To clear "
 "this state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab."
@@ -106,14 +107,23 @@ msgid ""
 "value. If the temperature does not increase then verify the \"heater_pin\" "
 "setting in the config."
 msgstr ""
+"Navegue até a aba temperatura do Octoprint e na caixa de temperatura "
+"\"Ferramenta\", digite 50 e tecle em Enter. No gráfico a temperatura da "
+"extrusora deverá começar a aumentar (dentro de cerca de 30 segundos ou mais)"
+". Em seguida, selecione \"Desligar\" na caixa suspensa de temperatura em "
+"\"Ferramenta\". Após vários minutos, a temperatura deverá retornar ao seu "
+"valor inicial, na temperatura ambiente. Se a temperatura não aumentar, "
+"verifique a configuração \"heater_pin\"."
 
 msgid ""
 "If the printer has a heated bed then perform the above test again with the "
 "bed."
 msgstr ""
+"Se a impressora tiver uma base aquecida, efetue o procedimento com descrito "
+"no teste acima com a base."
 
 msgid "Verify stepper motor enable pin"
-msgstr ""
+msgstr "Verifique o pino de ativação do motor de passo"
 
 msgid ""
 "Verify that all of the printer axes can manually move freely (the stepper "
@@ -126,7 +136,7 @@ msgid ""
 msgstr ""
 
 msgid "Verify endstops"
-msgstr ""
+msgstr "Verique os fins de curso"
 
 msgid ""
 "Manually move all the printer axes so that none of them are in contact with "

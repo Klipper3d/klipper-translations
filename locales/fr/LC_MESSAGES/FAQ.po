@@ -1,31 +1,30 @@
 # Tircown <tircown@gmail.com>, 2021.
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
 # Jean-Charles Deshaies <jcdeshaies@mac.com>, 2022.
+# Francis Poulizac <francis@poulizac.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-02 15:55+0000\n"
-"Last-Translator: Jean-Charles Deshaies <jcdeshaies@mac.com>\n"
+"PO-Revision-Date: 2022-11-29 09:48+0000\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/faq/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid "How can I donate to the project?"
-msgstr "Comment puis-je faire un don au projet?"
+msgstr "Comment puis-je faire un don au projet ?"
 
 msgid "How do I calculate the rotation_distance config parameter?"
-msgstr "Comment calculer le paramètre de configuration rotation_distance?"
+msgstr "Comment calculer le paramètre de configuration rotation_distance ?"
 
-#, fuzzy
 msgid "See the [rotation distance document](Rotation_Distance.md)."
-msgstr ""
-"Voir le [document sur la distance de rotation] (Rotation_Distance.md)."
+msgstr "Voir le [document sur la distance de rotation](Rotation_Distance.md)."
 
 msgid "Where's my serial port?"
-msgstr "Où est mon port série?"
+msgstr "Où est mon port série ?"
 
 msgid ""
 "The general way to find a USB serial port is to run `ls /dev/serial/by-id/*`"
@@ -33,20 +32,20 @@ msgid ""
 "similar to the following:"
 msgstr ""
 "De manière générale, on exécute la commande `ls /dev/serial/by-id/*` à "
-"partir d'un terminal ssh sur la machine hôte pour trouver un port série USB."
-" Cette commande produira sûrement un résultat similaire à celui-ci:"
+"partir d'un terminal ssh sur la machine hôte pour trouver un port série USB. "
+"Cette commande produira sûrement un résultat similaire à celui-ci :"
 
 msgid ""
 "The name found in the above command is stable and it is possible to use it "
 "in the config file and while flashing the micro-controller code. For "
 "example, a flash command might look similar to:"
 msgstr ""
-"Le nom retourné par la commande ci-dessus est constant et il est possible de"
-" l'utiliser dans le fichier de configuration et lors du flashage du "
-"microcontrôleur. Par exemple, une commande de flash peur ressembler à:"
+"Le nom retourné par la commande ci-dessus est constant, il est donc possible "
+"de l'utiliser dans le fichier de configuration et lors du flashage du "
+"microcontrôleur. Par exemple, une commande de flash peur ressembler à :"
 
 msgid "and the updated config might look like:"
-msgstr "Et la configuration mise à jour devrait ressembler à:"
+msgstr "et la configuration mise à jour devrait ressembler à :"
 
 msgid ""
 "Be sure to copy-and-paste the name from the \"ls\" command that you ran "
@@ -69,19 +68,16 @@ msgid "When the micro-controller restarts the device changes to /dev/ttyUSB1"
 msgstr ""
 "Lorsque le microcontrôleur redémarre, le périphérique passe à /dev/ttyUSB1"
 
-#, fuzzy
 msgid ""
 "Follow the directions in the \"[Where's my serial port?](#wheres-my-serial-"
 "port)\" section to prevent this from occurring."
 msgstr ""
-"Suivez les instructions de la section \"[Where's my serial port ?](#wheres-"
-"my-serial-port)\" pour éviter que cela ne se produise."
+"Suivez les instructions de la section \"[Où est mon port série ?](#wheres-my-"
+"serial-port)\" pour éviter que cela ne se produise."
 
-#, fuzzy
 msgid "The \"make flash\" command doesn't work"
 msgstr "La commande \"make flash\" ne fonctionne pas"
 
-#, fuzzy
 msgid ""
 "The code attempts to flash the device using the most common method for each "
 "platform. Unfortunately, there is a lot of variance in flashing methods, so "
@@ -90,7 +86,7 @@ msgstr ""
 "Le code tente de flasher le dispositif en utilisant la méthode la plus "
 "courante pour chaque plateforme. Malheureusement, il y a beaucoup de "
 "variations dans les méthodes de flashage, donc la commande \"make flash\" "
-"peut ne pas fonctionner sur toutes les cartes."
+"peut ne pas fonctionner avec toutes les cartes."
 
 msgid ""
 "If you're having an intermittent failure or you do have a standard setup, "
@@ -127,7 +123,7 @@ msgstr ""
 "booloaders](Bootloaders.md) pour plus d'informations."
 
 msgid "How do I change the serial baud rate?"
-msgstr "Comment changer le baud rate (taux bit/s) du port série?"
+msgstr "Comment changer la vitesse de communication(baud rate) du port série ?"
 
 msgid ""
 "The recommended baud rate for Klipper is 250000. This baud rate works well "
@@ -178,16 +174,14 @@ msgstr ""
 
 msgid "Can I run Klipper on something other than a Raspberry Pi 3?"
 msgstr ""
-"Puis-je faire fonctionner Klipper sur quelque chose d'autre qu'un Raspberry "
-"Pi 3?"
+"Puis-je faire fonctionner Klipper sur autre chose qu'un Raspberry Pi 3 ?"
 
-#, fuzzy
 msgid ""
 "The recommended hardware is a Raspberry Pi 2, Raspberry Pi 3, or Raspberry "
 "Pi 4."
 msgstr ""
-"Le matériel recommandé est un Raspberry Pi 2, Raspberry Pi 3 ou Raspberry Pi"
-" 4."
+"Le matériel recommandé est un Raspberry Pi 2, Raspberry Pi 3 ou Raspberry Pi "
+"4."
 
 msgid ""
 "Klipper will run on a Raspberry Pi 1 and on the Raspberry Pi Zero, but these"
@@ -264,17 +258,16 @@ msgid ""
 msgstr ""
 
 msgid "Do I have to use OctoPrint?"
-msgstr "Suis-je obligé d'utiliser Octoprint?"
+msgstr "Suis-je obligé d'utiliser Octoprint ?"
 
-#, fuzzy
 msgid ""
 "The Klipper software is not dependent on OctoPrint. It is possible to use "
 "alternative software to send commands to Klipper, but doing so requires "
 "Linux admin knowledge."
 msgstr ""
 "Le logiciel Klipper n'est pas dépendant d'OctoPrint. Il est possible "
-"d'utiliser un autre logiciel pour envoyer des commandes à Klipper, mais cela"
-" nécessite des connaissances en administration Linux."
+"d'utiliser un autre logiciel pour envoyer des commandes à Klipper, mais cela "
+"nécessite des connaissances en administration Linux."
 
 msgid ""
 "Klipper creates a \"virtual serial port\" via the \"/tmp/printer\" file, and"
@@ -285,7 +278,7 @@ msgstr ""
 
 msgid "Why can't I move the stepper before homing the printer?"
 msgstr ""
-"Pourquoi ne puis-je pas commander un déplacement avant de prendre l'origine?"
+"Pourquoi ne puis-je pas lancer un déplacement avant de prendre l'origine ?"
 
 msgid ""
 "The code does this to reduce the chance of accidentally commanding the head "
@@ -331,8 +324,8 @@ msgstr ""
 
 msgid "Why is the Z position_endstop set to 0.5 in the default configs?"
 msgstr ""
-"Pourquoi le paramètre position_endstop Z est-il défini à 0.5 dans la "
-"configuration par défaut?"
+"Pourquoi le paramètre position_endstop de l'axe Z est-il défini à 0.5 dans "
+"les configurations par défaut ?"
 
 msgid ""
 "For cartesian style printers the Z position_endstop specifies how far the "
@@ -387,7 +380,6 @@ msgstr ""
 "J'ai des erreurs aléatoires \"Lost communication with MCU\" (communication "
 "perdue avec le microcontrôleur)"
 
-#, fuzzy
 msgid ""
 "This is commonly caused by hardware errors on the USB connection between the"
 " host machine and the micro-controller. Things to look for:"
@@ -396,15 +388,13 @@ msgstr ""
 "connexion USB entre la machine hôte et le microcontrôleur. Les choses à "
 "rechercher :"
 
-#, fuzzy
 msgid ""
 "Use a good quality USB cable between the host machine and micro-controller. "
 "Make sure the plugs are secure."
 msgstr ""
-"Utilisez un câble USB de bonne qualité entre la machine hôte et le "
+"Utilisez un câble USB de qualité entre la machine hôte et le "
 "microcontrôleur. Assurez-vous que les fiches sont bien fixées."
 
-#, fuzzy
 msgid ""
 "Make sure the printer's power supply is not being overloaded. (Power "
 "fluctuations to the micro-controller's USB chip may result in resets of that"
@@ -412,7 +402,7 @@ msgid ""
 msgstr ""
 "Assurez-vous que l'alimentation électrique de l'imprimante n'est pas "
 "surchargée. (Les fluctuations d'alimentation de la puce USB du "
-"microcontrôleur peuvent entraîner une réinitialisation de cette puce)."
+"microcontrôleur peuvent entraîner une réinitialisation de cette puce.)"
 
 msgid ""
 "Verify stepper, heater, and other printer wires are not crimped or frayed. "
@@ -472,8 +462,8 @@ msgstr ""
 
 msgid "Will the heaters be left on if the Raspberry Pi crashes?"
 msgstr ""
-"Est-ce que les éléments chauffants restent allumés si le Raspberry Pi "
-"plante?"
+"Est-ce que les éléments chauffants restent allumés si le Raspberry Pi plante "
+"?"
 
 msgid ""
 "The software has been designed to prevent that. Once the host enables a "
@@ -520,7 +510,7 @@ msgstr ""
 "configurations](Config_Reference.md#verify_heater) pour plus de détails."
 
 msgid "How do I convert a Marlin pin number to a Klipper pin name?"
-msgstr "Comment puis-je convertir des noms broches de Marlin à Klipper?"
+msgstr "Comment puis-je convertir les noms de broches de Marlin à Klipper ?"
 
 msgid ""
 "Short answer: A mapping is available in the [sample-"
@@ -584,10 +574,10 @@ msgid ""
 "Do I have to wire my device to a specific type of micro-controller pin?"
 msgstr ""
 "Dois-je connecter mon appareil à un type spécifique de broche de "
-"microcontrôleur?"
+"microcontrôleur ?"
 
 msgid "It depends on the type of device and type of pin:"
-msgstr "Cela dépend du type d'appareil et du type de broche:"
+msgstr "Cela dépend du type d'appareil et du type de broche :"
 
 msgid ""
 "ADC pins (or Analog pins): For thermistors and similar \"analog\" sensors, "
@@ -640,7 +630,6 @@ msgstr ""
 "logiciel\", auquel cas n'importe quelle broche d'E/S d'usage général peut "
 "être utilisée."
 
-#, fuzzy
 msgid ""
 "I2C pins: When using I2C it is necessary to wire the pins to the micro-"
 "controller's I2C capable pins."
@@ -683,7 +672,7 @@ msgstr ""
 "pourra être lancée."
 
 msgid "Can I find out whether the printer has lost steps?"
-msgstr "Comment savoir si l'imprimante a perdu des pas?"
+msgstr "Comment savoir si l'imprimante a perdu des pas ?"
 
 msgid ""
 "In a way, yes. Home the printer, issue a `GET_POSITION` command, run your "
@@ -723,7 +712,7 @@ msgstr ""
 "64 micropas avec le compteur de pas \"mcu :\")"
 
 msgid "Why does Klipper report errors? I lost my print!"
-msgstr "Pourquoi Klipper signale-t-il des erreurs? J’ai raté mon impression!"
+msgstr "Pourquoi Klipper signale-t-il des erreurs ? J’ai raté mon impression !"
 
 msgid ""
 "Short answer: We want to know if our printers detect a problem so that the "
@@ -772,10 +761,10 @@ msgid ""
 "but it is expected that will require notable infrastructure work (including "
 "a shift away from G-Code)."
 msgstr ""
-"Il y a quelques questions connexes: Pourquoi Klipper ne met-il pas plutôt "
-"l'impression en pause? Ne signale-t-il pas plutôt un avertissement? Ne "
-"vérifie-t-il pas les erreurs avant l'impression? N'ignore-t-il pas les "
-"erreurs dans les commandes saisies par l'utilisateur? etc. Actuellement, "
+"Il y a quelques questions connexes : Pourquoi Klipper ne met-il pas plutôt "
+"l'impression en pause ? Ne signale-t-il pas plutôt un avertissement ? Ne "
+"vérifie-t-il pas les erreurs avant l'impression ? N'ignore-t-il pas les "
+"erreurs dans les commandes saisies par l'utilisateur ? etc. Actuellement, "
 "Klipper lit les commandes en utilisant le protocole G-Code, et "
 "malheureusement le protocole de commande G-Code n'est pas assez flexible "
 "pour rendre ces alternatives praticables aujourd'hui. Il y a un intérêt "
@@ -784,7 +773,7 @@ msgstr ""
 "l'infrastructure (incluant de détourner le G-Code)."
 
 msgid "How do I upgrade to the latest software?"
-msgstr "Comment mettre à jour vers la dernière version du logiciel?"
+msgstr "Comment mettre à jour vers la dernière version du logiciel ?"
 
 msgid ""
 "The first step to upgrading the software is to review the latest [config "
@@ -799,7 +788,6 @@ msgstr ""
 "paramètres dans le cadre d'une mise à niveau logicielle. Il est conseillé de"
 " consulter ce document avant de procéder à la mise à niveau."
 
-#, fuzzy
 msgid ""
 "When ready to upgrade, the general method is to ssh into the Raspberry Pi "
 "and run:"
@@ -807,19 +795,17 @@ msgstr ""
 "Lorsque vous êtes prêt à mettre à jour, la méthode générale consiste à se "
 "connecter au Raspberry Pi et à exécuter :"
 
-#, fuzzy
 msgid ""
 "Then one can recompile and flash the micro-controller code. For example:"
 msgstr ""
 "On peut ensuite recompiler et flasher le code du microcontrôleur. Par "
 "exemple :"
 
-#, fuzzy
 msgid ""
 "However, it's often the case that only the host software changes. In this "
 "case, one can update and restart just the host software with:"
 msgstr ""
-"Cependant, il arrive souvent que seul le logiciel hôte change. Dans ce cas, "
+"Cependant, il arrive parfois que seul le logiciel hôte change. Dans ce cas, "
 "on peut mettre à jour et redémarrer uniquement le logiciel hôte avec :"
 
 msgid ""
@@ -851,25 +837,22 @@ msgstr ""
 "prennent effet."
 
 msgid "How do I uninstall Klipper?"
-msgstr "Comment désinstaller Klipper?"
+msgstr "Comment désinstaller Klipper ?"
 
-#, fuzzy
 msgid ""
 "On the firmware end, nothing special needs to happen. Just follow the "
 "flashing directions for the new firmware."
 msgstr ""
 "Pour ce qui est du firmware, il n'y a rien de spécial à faire. Suivez "
-"simplement les instructions de flashage pour le nouveau firmware."
+"simplement les instructions de flashage du nouveau firmware."
 
-#, fuzzy
 msgid ""
 "On the raspberry pi end, an uninstall script is available in "
 "[scripts/klipper-uninstall.sh](../scripts/klipper-uninstall.sh). For "
 "example:"
 msgstr ""
-"Du côté de Raspberry Pi, un script de désinstallation est disponible dans "
-"[scripts/klipper-uninstall.sh](../scripts/klipper-uninstall.sh). Par exemple"
-" :"
+"Du côté Raspberry Pi, un script de désinstallation est disponible dans ["
+"scripts/klipper-uninstall.sh](../scripts/klipper-uninstall.sh). Par exemple :"
 
 msgid "/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 msgstr "/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
@@ -890,7 +873,6 @@ msgstr ""
 "[mcu]\n"
 "serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0\n"
 
-#, fuzzy
 msgid ""
 "[mcu]\n"
 "baud: 250000\n"
@@ -898,23 +880,20 @@ msgstr ""
 "[mcu]\n"
 "baud: 250000\n"
 
-#, fuzzy
 msgid ""
 "~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -l "
 "/tmp/klippy.log\n"
 msgstr ""
-"~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -l "
-"/tmp/klippy.log\n"
+"~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -l /tmp/"
+"klippy.log\n"
 
-#, fuzzy
 msgid ""
 "~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer2.cfg -l "
 "/tmp/klippy2.log -I /tmp/printer2\n"
 msgstr ""
-"~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer2.cfg -l "
-"/tmp/klippy2.log -I /tmp/printer2\n"
+"~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer2.cfg -l /tmp/"
+"klippy2.log -I /tmp/printer2\n"
 
-#, fuzzy
 msgid ""
 "cd ~/klipper\n"
 "git pull\n"
@@ -924,7 +903,6 @@ msgstr ""
 "git pull\n"
 "~/klipper/scripts/install-octopi.sh\n"
 
-#, fuzzy
 msgid ""
 "make menuconfig\n"
 "make clean\n"
@@ -942,7 +920,6 @@ msgstr ""
 "make flash FLASH_DEVICE=/dev/ttyACM0\n"
 "sudo service klipper start\n"
 
-#, fuzzy
 msgid ""
 "cd ~/klipper\n"
 "git pull\n"
@@ -952,7 +929,6 @@ msgstr ""
 "git pull\n"
 "sudo service klipper restart\n"
 
-#, fuzzy
 msgid ""
 "sudo ~/klipper/scripts/klipper-uninstall.sh\n"
 "rm -rf ~/klippy-env ~/klipper\n"
@@ -961,9 +937,8 @@ msgstr ""
 "rm -rf ~/klippy-env ~/klipper\n"
 
 #: docs/FAQ.md:block 1 (header)
-#, fuzzy
 msgid "Frequently Asked Questions"
-msgstr "Foire aux questions"
+msgstr "Foire Aux Questions"
 
 #: docs/FAQ.md:block 31 (paragraph)
 msgid ""
