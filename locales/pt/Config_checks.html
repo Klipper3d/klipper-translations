@@ -1240,15 +1240,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verify-stepper-motor-enable-pin" class="md-nav__link">
-    Verify stepper motor enable pin
+  <a href="#verifique-o-pino-de-ativacao-do-motor-de-passo" class="md-nav__link">
+    Verifique o pino de ativação do motor de passo
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#verify-endstops" class="md-nav__link">
-    Verify endstops
+  <a href="#verique-os-fins-de-curso" class="md-nav__link">
+    Verique os fins de curso
   </a>
   
 </li>
@@ -1303,17 +1303,17 @@
 <p>Durante este guia, talvez seja necessário fazer mudanças no arquivo de configurações do Klipper. Certifica-se de emitir um comando de RESTART após cada mudança no arquivo de configuração, garantindo que as mudanças tenham efeito (digite "restart" na aba do terminal do Octoprint e clique em "Send"). Também é uma boa ideia emitir um comando STATUS depois de todas as reinicializações, para verificar se o arquivo de configurações foi carregado corretamente.</p>
 <h2 id="verificar-temperatura">Verificar temperatura<a class="headerlink" href="#verificar-temperatura" title="Permanent link">&para;</a></h2>
 <p>Comece verificando se a temperatura começou a ser reportada corretamente. Navegue até a aba de temperatura Octoprint.</p>
-<p><img alt="octoprint-temperature" src="img/octoprint-temperature.png" /></p>
+<p><img alt="temperatura-no-octoprint" src="img/octoprint-temperature.png" /></p>
 <p>Verificar se a temperatura do bocal e da base(se aplicável) estão presentes e não subindo. Se estiver subindo, remover a energia da impressora. Se a temperatura não estiver exata, reveja as configurações de "sensor_tipo" e "sensor_pino" do bocal e/ou da base.</p>
 <h2 id="verificar-m112">Verificar M112<a class="headerlink" href="#verificar-m112" title="Permanent link">&para;</a></h2>
 <p>Navegue até a aba do terminal do Octoprint e emita um comando M112 na caixa do terminal. Este comando solicita que o Klipper entre em um estado de "desligamento", fazendo com que o Octoprint desconecte do Klipper - navegue ate a área "Connection" e clique em "Connect" para reconectar o Octoprint. Então navegue até a aba de temperatura do Octoprint e verifique se a temperatura continua a atualizar e não esta subindo. Se a temperatura estiver subindo, remova a impressora da tomada.</p>
 <p>O comando M112 fará com que o Klipper entre em modo de "desligamento". Para desfazer, emita um comando FIRMWARE_RESTART na aba do terminal do Octoprint.</p>
 <h2 id="verificar-aquecedores">Verificar aquecedores<a class="headerlink" href="#verificar-aquecedores" title="Permanent link">&para;</a></h2>
-<p>Navigate to the Octoprint temperature tab and type in 50 followed by enter in the "Tool" temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the "Tool" temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.</p>
-<p>If the printer has a heated bed then perform the above test again with the bed.</p>
-<h2 id="verify-stepper-motor-enable-pin">Verify stepper motor enable pin<a class="headerlink" href="#verify-stepper-motor-enable-pin" title="Permanent link">&para;</a></h2>
+<p>Navegue até a aba temperatura do Octoprint e na caixa de temperatura "Ferramenta", digite 50 e tecle em Enter. No gráfico a temperatura da extrusora deverá começar a aumentar (dentro de cerca de 30 segundos ou mais). Em seguida, selecione "Desligar" na caixa suspensa de temperatura em "Ferramenta". Após vários minutos, a temperatura deverá retornar ao seu valor inicial, na temperatura ambiente. Se a temperatura não aumentar, verifique a configuração "heater_pin".</p>
+<p>Se a impressora tiver uma base aquecida, efetue o procedimento com descrito no teste acima com a base.</p>
+<h2 id="verifique-o-pino-de-ativacao-do-motor-de-passo">Verifique o pino de ativação do motor de passo<a class="headerlink" href="#verifique-o-pino-de-ativacao-do-motor-de-passo" title="Permanent link">&para;</a></h2>
 <p>Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !ar38").</p>
-<h2 id="verify-endstops">Verify endstops<a class="headerlink" href="#verify-endstops" title="Permanent link">&para;</a></h2>
+<h2 id="verique-os-fins-de-curso">Verique os fins de curso<a class="headerlink" href="#verique-os-fins-de-curso" title="Permanent link">&para;</a></h2>
 <p>Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the Octoprint terminal tab. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".</p>
 <p>If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!ar3"), or remove the "!" if there is already one present.</p>
 <p>If the endstop does not change at all then it generally indicates that the endstop is connected to a different pin. However, it may also require a change to the pullup setting of the pin (the '^' at the start of the endstop_pin name - most printers will use a pullup resistor and the '^' should be present).</p>

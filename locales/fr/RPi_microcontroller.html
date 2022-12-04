@@ -1292,7 +1292,7 @@
 
 
 <h1 id="rpi-microcontroller">RPi microcontroller<a class="headerlink" href="#rpi-microcontroller" title="Permanent link">&para;</a></h1>
-<p>Ce document décrit le processus via lequel il est possible de lancer Klipper sur un Raspberry Pi et d'utiliser le même Raspberry Pi comme mcu secondaire</p>
+<p>Ce document décrit le processus via lequel il est possible de lancer Klipper sur un Raspberry Pi et d'utiliser le même Raspberry Pi comme mcu secondaire.</p>
 <h2 id="why-use-rpi-as-a-secondary-mcu">Why use RPi as a secondary MCU?<a class="headerlink" href="#why-use-rpi-as-a-secondary-mcu" title="Permanent link">&para;</a></h2>
 <p>Often the MCUs dedicated to controlling 3D printers have a limited and pre-configured number of exposed pins to manage the main printing functions (thermal resistors, extruders, steppers ...). Using the RPi where Klipper is installed as a secondary MCU gives the possibility to directly use the GPIOs and the buses (i2c, spi) of the RPi inside klipper without using Octoprint plugins (if used) or external programs giving the ability to control everything within the print GCODE.</p>
 <p><strong>Warning</strong>: If your platform is a <em>Beaglebone</em> and you have correctly followed the installation steps, the linux mcu is already installed and configured for your system.</p>
@@ -1324,7 +1324,7 @@ sudo service klipper start
 <h2 id="remaining-configuration">Remaining configuration<a class="headerlink" href="#remaining-configuration" title="Permanent link">&para;</a></h2>
 <p>Complete the installation by configuring Klipper secondary MCU following the instructions in <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-raspberry-pi.cfg">RaspberryPi sample config</a> and <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-multi-mcu.cfg">Multi MCU sample config</a>.</p>
 <h2 id="optional-enabling-spi">Optional: Enabling SPI<a class="headerlink" href="#optional-enabling-spi" title="Permanent link">&para;</a></h2>
-<p>Make sure the Linux SPI driver is enabled by running <code>sudo raspi-config</code> and enabling SPI under the "Interfacing options" menu.</p>
+<p>Assurez-vous que le pilote SPI Linux est activé en exécutant <code>sudo raspi-config</code> et en activant SPI dans le menu « Options d’interface ».</p>
 <h2 id="optional-enabling-i2c">Optional: Enabling I2C<a class="headerlink" href="#optional-enabling-i2c" title="Permanent link">&para;</a></h2>
 <p>Make sure the Linux I2C driver is enabled by running <code>sudo raspi-config</code> and enabling I2C under the "Interfacing options" menu. If planning to use I2C for the MPU accelerometer, it is also required to set the baud rate to 400000 by: adding/uncommenting <code>dtparam=i2c_arm=on,i2c_arm_baudrate=400000</code> in <code>/boot/config.txt</code> (or <code>/boot/firmware/config.txt</code> in some distros).</p>
 <h2 id="optional-identify-the-correct-gpiochip">Optional: Identify the correct gpiochip<a class="headerlink" href="#optional-identify-the-correct-gpiochip" title="Permanent link">&para;</a></h2>

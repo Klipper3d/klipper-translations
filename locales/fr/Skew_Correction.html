@@ -13,7 +13,7 @@
     
     
       
-        <title>Skew correction - Klipper documentation</title>
+        <title>Correction de l'équerrage - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#skew-correction" class="md-skip">
+        <a href="#correction-de-lequerrage" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Skew correction
+              Correction de l'équerrage
             
           </span>
         </div>
@@ -1219,36 +1219,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#print-a-calibration-object" class="md-nav__link">
-    Print a Calibration Object
+  <a href="#impression-dun-objet-de-calibrage" class="md-nav__link">
+    Impression d'un objet de calibrage
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#take-your-measurements" class="md-nav__link">
-    Take your measurements
+  <a href="#prenez-vos-mesures" class="md-nav__link">
+    Prenez vos mesures
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-your-skew" class="md-nav__link">
-    Configure your skew
+  <a href="#configurez-votre-equerrage" class="md-nav__link">
+    Configurez votre équerrage
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#verifying-your-correction" class="md-nav__link">
-    Verifying your correction
+  <a href="#verification-de-votre-correction" class="md-nav__link">
+    Vérification de votre correction
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#caveats" class="md-nav__link">
-    Caveats
+  <a href="#avertissements" class="md-nav__link">
+    Avertissements
   </a>
   
 </li>
@@ -1270,51 +1270,51 @@
 </a>
 
 
-<h1 id="skew-correction">Skew correction<a class="headerlink" href="#skew-correction" title="Permanent link">&para;</a></h1>
-<p>Software based skew correction can help resolve dimensional inaccuracies resulting from a printer assembly that is not perfectly square. Note that if your printer is significantly skewed it is strongly recommended to first use mechanical means to get your printer as square as possible prior to applying software based correction.</p>
-<h2 id="print-a-calibration-object">Print a Calibration Object<a class="headerlink" href="#print-a-calibration-object" title="Permanent link">&para;</a></h2>
-<p>The first step in correcting skew is to print a <a href="https://www.thingiverse.com/thing:2563185/files">calibration object</a> along the plane you want to correct. There is also a <a href="https://www.thingiverse.com/thing:2972743">calibration object</a> that includes all planes in one model. You want the object oriented so that corner A is toward the origin of the plane.</p>
-<p>Make sure that no skew correction is applied during this print. You may do this by either removing the <code>[skew_correction]</code> module from printer.cfg or by issuing a <code>SET_SKEW CLEAR=1</code> gcode.</p>
-<h2 id="take-your-measurements">Take your measurements<a class="headerlink" href="#take-your-measurements" title="Permanent link">&para;</a></h2>
-<p>The <code>[skew_correcton]</code> module requires 3 measurements for each plane you want to correct; the length from Corner A to Corner C, the length from Corner B to Corner D, and the length from Corner A to Corner D. When measuring length AD do not include the flats on the corners that some test objects provide.</p>
+<h1 id="correction-de-lequerrage">Correction de l'équerrage<a class="headerlink" href="#correction-de-lequerrage" title="Permanent link">&para;</a></h1>
+<p>La correction logicielle de l'équerrage peut aider à résoudre les inexactitudes dimensionnelles résultant d'un assemblage d'imprimante qui n'est pas parfaitement d'équerre. Notez que si votre imprimante est considérablement asymétrique, il est fortement recommandé d'utiliser d'abord des moyens mécaniques pour obtenir une imprimante le plus d'équerre possible avant d'appliquer la correction basée sur le logiciel.</p>
+<h2 id="impression-dun-objet-de-calibrage">Impression d'un objet de calibrage<a class="headerlink" href="#impression-dun-objet-de-calibrage" title="Permanent link">&para;</a></h2>
+<p>La première étape de la correction de l'équerrage consiste à imprimer un <a href="https://www.thingiverse.com/thing:2563185/files">objet d'étalonnage</a> le long du plan que vous souhaitez corriger. Il existe également un <a href="https://www.thingverse.com/thing:2972743">objet d'étalonnage</a> qui inclut tous les plans dans un seul modèle. Veuillez à orienter l'objet de sorte que le coin A soit vers l'origine du plan.</p>
+<p>Assurez-vous qu'aucune correction d'équerrage n'est appliquée pendant cette impression. Vous pouvez le faire en supprimant le module <code>[skew_correction]</code> du fichier printer.cfg ou en tapant un gcode <code>SET_SKEW CLEAR=1</code>.</p>
+<h2 id="prenez-vos-mesures">Prenez vos mesures<a class="headerlink" href="#prenez-vos-mesures" title="Permanent link">&para;</a></h2>
+<p>Le module <code>[skew_correcton]</code> nécessite 3 mesures pour chaque plan que vous souhaitez corriger ; la longueur du coin A au coin C, la longueur du coin B au coin D et la longueur du coin A au coin D. Lors de la mesure de la longueur AD, n'incluez pas les plats sur les coins fournis par certains objets de test.</p>
 <p><img alt="skew_lengths" src="img/skew_lengths.png" /></p>
-<h2 id="configure-your-skew">Configure your skew<a class="headerlink" href="#configure-your-skew" title="Permanent link">&para;</a></h2>
-<p>Make sure <code>[skew_correction]</code> is in printer.cfg. You may now use the <code>SET_SKEW</code> gcode to configure skew_correcton. For example, if your measured lengths along XY are as follows:</p>
+<h2 id="configurez-votre-equerrage">Configurez votre équerrage<a class="headerlink" href="#configurez-votre-equerrage" title="Permanent link">&para;</a></h2>
+<p>Assurez-vous que <code>[skew_correction]</code> est bien dans le fichier printer.cfg. Vous pouvez maintenant utiliser le gcode <code>SET_SKEW</code> pour configurer skew_correcton. Par exemple, si vos longueurs mesurées le long de XY sont les suivantes :</p>
 <div class="highlight"><pre><span></span><code>Length AC = 140.4
 Length BD = 142.8
 Length AD = 99.8
 </code></pre></div>
 
-<p><code>SET_SKEW</code> can be used to configure skew correction for the XY plane.</p>
+<p><code>SET_SKEW</code> peut être utilisé pour configurer la correction d'équerrage pour le plan XY.</p>
 <div class="highlight"><pre><span></span><code>SET_SKEW XY=140.4,142.8,99.8
 </code></pre></div>
 
-<p>You may also add measurements for XZ and YZ to the gcode:</p>
+<p>Vous pouvez également ajouter des mesures pour XZ et YZ au gcode :</p>
 <div class="highlight"><pre><span></span><code>SET_SKEW XY=140.4,142.8,99.8 XZ=141.6,141.4,99.8 YZ=142.4,140.5,99.5
 </code></pre></div>
 
-<p>The <code>[skew_correction]</code> module also supports profile management in a manner similar to <code>[bed_mesh]</code>. After setting skew using the <code>SET_SKEW</code> gcode, you may use the <code>SKEW_PROFILE</code> gcode to save it:</p>
+<p>Le module <code>[skew_correction]</code> prend également en charge la gestion des profils d'une manière similaire à <code>[bed_mesh]</code>. Après avoir défini la correction d'équerrage à l'aide du gcode <code>SET_SKEW</code>, vous pouvez utiliser le gcode <code>SKEW_PROFILE</code> pour l'enregistrer :</p>
 <div class="highlight"><pre><span></span><code>SKEW_PROFILE SAVE=my_skew_profile
 </code></pre></div>
 
-<p>After this command you will be prompted to issue a <code>SAVE_CONFIG</code> gcode to save the profile to persistent storage. If no profile is named <code>my_skew_profile</code> then a new profile will be created. If the named profile exists it will be overwritten.</p>
-<p>Once you have a saved profile, you may load it:</p>
+<p>Après cette commande, vous serez invité à saisir un <code>SAVE_CONFIG</code> pour enregistrer le profil de manière permanente. Si aucun profil n'est nommé <code>my_skew_profile</code> alors un nouveau profil sera créé. Si le profil nommé existe, il sera écrasé.</p>
+<p>Une fois que vous avez un profil enregistré, vous pouvez le charger :</p>
 <div class="highlight"><pre><span></span><code>SKEW_PROFILE LOAD=my_skew_profile
 </code></pre></div>
 
-<p>It is also possible to remove an old or out of date profile:</p>
+<p>Il est également possible de supprimer un profil ancien ou obsolète :</p>
 <div class="highlight"><pre><span></span><code>SKEW_PROFILE REMOVE=my_skew_profile
 </code></pre></div>
 
-<p>After removing a profile you will be prompted to issue a <code>SAVE_CONFIG</code> to make this change persist.</p>
-<h2 id="verifying-your-correction">Verifying your correction<a class="headerlink" href="#verifying-your-correction" title="Permanent link">&para;</a></h2>
-<p>After skew_correction has been configured you may reprint the calibration part with correction enabled. Use the following gcode to check your skew on each plane. The results should be lower than those reported via <code>GET_CURRENT_SKEW</code>.</p>
+<p>Après avoir supprimé un profil, vous serez invité à saisir un <code>SAVE_CONFIG</code> pour que cette suppression soit sauvegardée.</p>
+<h2 id="verification-de-votre-correction">Vérification de votre correction<a class="headerlink" href="#verification-de-votre-correction" title="Permanent link">&para;</a></h2>
+<p>Une fois que skew_correction a été configuré, vous pouvez réimprimer l'objet de calibrage avec la correction activée. Utilisez le g-code suivant pour vérifier votre équerrage sur chaque plan. Les résultats devraient être inférieurs à ceux rapportés via <code>GET_CURRENT_SKEW</code>.</p>
 <div class="highlight"><pre><span></span><code>CALC_MEASURED_SKEW AC=&lt;ac_length&gt; BD=&lt;bd_length&gt; AD=&lt;ad_length&gt;
 </code></pre></div>
 
-<h2 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link">&para;</a></h2>
-<p>Due to the nature of skew correction it is recommended to configure skew in your start gcode, after homing and any kind of movement that travels near the edge of the print area such as a purge or nozzle wipe. You may use use the <code>SET_SKEW</code> or <code>SKEW_PROFILE</code> gcodes to accomplish this. It is also recommended to issue a <code>SET_SKEW CLEAR=1</code> in your end gcode.</p>
-<p>Keep in mind that it is possible for <code>[skew_correction]</code> to generate a correction that moves the tool beyond the printer's boundaries on the X and/or Y axes. It is recommended to arrange parts away from the edges when using <code>[skew_correction]</code>.</p>
+<h2 id="avertissements">Avertissements<a class="headerlink" href="#avertissements" title="Permanent link">&para;</a></h2>
+<p>En raison de la nature de la correction de l'équerrage, il est recommandé de configurer la correction dans votre gcode de démarrage, après la mise à l'origine et après tout type de mouvement qui se déplace près du bord de la zone d'impression, comme une purge ou un essuyage de buse. Vous pouvez utiliser les gcodes <code>SET_SKEW</code> ou <code>SKEW_PROFILE</code> pour le faire. Il est également recommandé d'émettre un <code>SET_SKEW CLEAR=1</code> dans votre gcode final.</p>
+<p>Gardez à l'esprit qu'il est possible que <code>[skew_correction]</code> génère une correction qui déplace l'outil au-delà des limites de l'imprimante sur les axes X et/ou Y. Il est recommandé d'éloigner les pièces des bords lors de l'utilisation de <code>[skew_correction]</code>.</p>
 
               
             </article>

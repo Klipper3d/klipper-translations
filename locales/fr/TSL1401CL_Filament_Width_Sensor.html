@@ -1219,8 +1219,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#comment-ca-marche" class="md-nav__link">
-    Comment ça marche ?
+  <a href="#comment-cela-fonctionne-t-il" class="md-nav__link">
+    Comment cela fonctionne-t-il ?
   </a>
   
 </li>
@@ -1252,7 +1252,7 @@
 <h1 id="capteur-de-largeur-de-filament-tsl1401cl">Capteur de largeur de filament TSL1401CL<a class="headerlink" href="#capteur-de-largeur-de-filament-tsl1401cl" title="Permanent link">&para;</a></h1>
 <p>This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on TSL1401CL linear sensor array but it can work with any sensor array that has analog output. You can find designs at <a href="https://www.thingiverse.com/search?q=filament%20width%20sensor">Thingiverse</a>.</p>
 <p>To use a sensor array as a filament width sensor, read <a href="Config_Reference.html#tsl1401cl_filament_width_sensor">Config Reference</a> and <a href="G-Codes.html#hall_filament_width_sensor">G-Code documentation</a>.</p>
-<h2 id="comment-ca-marche">Comment ça marche ?<a class="headerlink" href="#comment-ca-marche" title="Permanent link">&para;</a></h2>
+<h2 id="comment-cela-fonctionne-t-il">Comment cela fonctionne-t-il ?<a class="headerlink" href="#comment-cela-fonctionne-t-il" title="Permanent link">&para;</a></h2>
 <p>Le capteur génère une sortie analogique basée sur la largeur calculée du filament. La tension de sortie est toujours égale à la largeur de filament détectée (ex. 1,65v, 1,70v, 3,0v). Le module hôte surveille les changements de tension et ajuste le multiplicateur d'extrusion.</p>
 <h2 id="note">Note:<a class="headerlink" href="#note" title="Permanent link">&para;</a></h2>
 <p>Les lectures du capteur sont effectuées par défaut avec des intervalles de 10 mm. Si nécessaire, vous pouvez modifier ce paramètre en modifiant le paramètre <strong><em>MEASUREMENT_INTERVAL_MM</em></strong> dans le fichier <strong>filament_width_sensor.py</strong>.</p>

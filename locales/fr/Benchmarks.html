@@ -1219,11 +1219,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#bancs-dessai-pour-micro-controleurs" class="md-nav__link">
-    Bancs d'essai pour micro-contrôleurs
+  <a href="#bancs-dessai-des-microcontroleurs" class="md-nav__link">
+    Bancs d'essai des microcontrôleurs
   </a>
   
-    <nav class="md-nav" aria-label="Bancs d'essai pour micro-contrôleurs">
+    <nav class="md-nav" aria-label="Bancs d'essai des microcontrôleurs">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1376,9 +1376,9 @@
 
 <h1 id="benchmarks">Benchmarks<a class="headerlink" href="#benchmarks" title="Permanent link">&para;</a></h1>
 <p>Ce document décrit les benchmarks Klipper.</p>
-<h2 id="bancs-dessai-pour-micro-controleurs">Bancs d'essai pour micro-contrôleurs<a class="headerlink" href="#bancs-dessai-pour-micro-controleurs" title="Permanent link">&para;</a></h2>
-<p>Cette section décrit le mécanisme utilisé pour générer les benchmarks de fréquence de pas du microcontrôleur Klipper.</p>
-<p>L'objectif principal des benchmarks est de fournir un mécanisme cohérent pour mesurer l'impact des changements de codage dans le logiciel. Un objectif secondaire est de fournir des mesures de haut niveau pour comparer les performances entre puces et entre plateformes logicielles.</p>
+<h2 id="bancs-dessai-des-microcontroleurs">Bancs d'essai des microcontrôleurs<a class="headerlink" href="#bancs-dessai-des-microcontroleurs" title="Permanent link">&para;</a></h2>
+<p>Cette section décrit le mécanisme utilisé pour générer les bancs d'essais (benchmarks) de fréquence de pas du microcontrôleur Klipper.</p>
+<p>L'objectif principal des bancs d'essais est de fournir un mécanisme cohérent pour mesurer l'impact des changements de codage dans le logiciel. Un objectif secondaire est de fournir des mesures de haut niveau pour comparer les performances entre puces et entre plateformes logicielles.</p>
 <p>The step rate benchmark is designed to find the maximum stepping rate that the hardware and software can reach. This benchmark stepping rate is not achievable in day-to-day use as Klipper needs to perform other tasks (eg, mcu/host communication, temperature reading, endstop checking) in any real-world usage.</p>
 <p>In general, the pins for the benchmark tests are chosen to flash LEDs or other innocuous pins. <strong>Always verify that it is safe to drive the configured pins prior to running a benchmark.</strong> It is not recommended to drive an actual stepper during a benchmark.</p>
 <h3 id="step-rate-benchmark-test">Step rate benchmark test<a class="headerlink" href="#step-rate-benchmark-test" title="Permanent link">&para;</a></h3>

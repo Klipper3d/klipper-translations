@@ -1248,8 +1248,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#selecting-max_accel" class="md-nav__link">
-    Selecting max_accel
+  <a href="#selection-de-max_accel" class="md-nav__link">
+    Sélection de max_accel
   </a>
   
 </li>
@@ -1448,7 +1448,7 @@ shaper_type: mzv
 <li>EI shaper may be more suited for bed slinger printers (if the resonance frequency and resulting smoothing allows): as more filament is deposited on the moving bed, the mass of the bed increases and the resonance frequency will decrease. Since EI shaper is more robust to resonance frequency changes, it may work better when printing large parts.</li>
 <li>Due to the nature of delta kinematics, resonance frequencies can differ a lot in different parts of the build volume. Therefore, EI shaper can be a better fit for delta printers rather than MZV or ZV, and should be considered for the use. If the resonance frequency is sufficiently large (more than 50-60 Hz), then one can even attempt to test 2HUMP_EI shaper (by running the suggested test above with <code>SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI</code>), but check the considerations in the <a href="#selecting-max_accel">section below</a> before enabling it.</li>
 </ul>
-<h3 id="selecting-max_accel">Selecting max_accel<a class="headerlink" href="#selecting-max_accel" title="Permanent link">&para;</a></h3>
+<h3 id="selection-de-max_accel">Sélection de max_accel<a class="headerlink" href="#selection-de-max_accel" title="Permanent link">&para;</a></h3>
 <p>You should have a printed test for the shaper you chose from the previous step (if you don't, print the test model sliced with the <a href="#tuning">suggested parameters</a> with the pressure advance disabled <code>SET_PRESSURE_ADVANCE ADVANCE=0</code> and with the tuning tower enabled as <code>TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5</code>). Note that at very high accelerations, depending on the resonance frequency and the input shaper you chose (e.g. EI shaper creates more smoothing than MZV), input shaping may cause too much smoothing and rounding of the parts. So, max_accel should be chosen such as to prevent that. Another parameter that can impact smoothing is <code>square_corner_velocity</code>, so it is not advisable to increase it above the default 5 mm/sec to prevent increased smoothing.</p>
 <p>In order to select a suitable max_accel value, inspect the model for the chosen input shaper. First, take a note at which acceleration ringing is still small - that you are comfortable with it.</p>
 <p>Next, check the smoothing. To help with that, the test model has a small gap in the wall (0.15 mm):</p>

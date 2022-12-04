@@ -1233,15 +1233,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-and-flashing-the-micro-controller" class="md-nav__link">
-    Building and flashing the micro-controller
+  <a href="#_3" class="md-nav__link">
+    Компиляция и прошивка микроконтроллера
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuring-octoprint-to-use-klipper" class="md-nav__link">
-    Configuring OctoPrint to use Klipper
+  <a href="#octoprint-klipper" class="md-nav__link">
+    Конфигурация OctoPrint для работы с Klipper
   </a>
   
 </li>
@@ -1271,7 +1271,7 @@
 
 
 <h1 id="_1">Установка<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>В этих инструкциях предполагается, что программное обеспечение будет работать на компьютере Raspberry Pi совместно с OctoPrint. В качестве хост-машины рекомендуется использовать компьютер Raspberry Pi 2, 3 или 4 (см. <a href="FAQ.html#могу ли я запустить klipper на чем-то, отличном от raspberry pi-3">Часто задаваемые вопросы</a> для других машин).</p>
+<p>В этих инструкциях предполагается, что программное обеспечение будет работать на компьютере Raspberry Pi совместно с OctoPrint. В качестве хост-машины рекомендуется использовать компьютер Raspberry Pi 2, 3 или 4 (см. <a href="FAQ.html#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3">Часто задаваемые вопросы</a> для других машин).</p>
 <h2 id="obtain-a-klipper-configuration-file">Obtain a Klipper Configuration File<a class="headerlink" href="#obtain-a-klipper-configuration-file" title="Permanent link">&para;</a></h2>
 <p>Most Klipper settings are determined by a "printer configuration file" that will be stored on the Raspberry Pi. An appropriate configuration file can often be found by looking in the Klipper <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config directory</a> for a file starting with a "printer-" prefix that corresponds to the target printer. The Klipper configuration file contains technical information about the printer that will be needed during the installation.</p>
 <p>If there isn't an appropriate printer configuration file in the Klipper config directory then try searching the printer manufacturer's website to see if they have an appropriate Klipper configuration file.</p>
@@ -1279,14 +1279,14 @@
 <p>It is also possible to define a new printer configuration from scratch. However, this requires significant technical knowledge about the printer and its electronics. It is recommended that most users start with an appropriate configuration file. If creating a new custom printer configuration file, then start with the closest example <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config file</a> and use the Klipper <a href="Config_Reference.html">config reference</a> for further information.</p>
 <h2 id="_2">Подготовка образа операционной системы<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Start by installing <a href="https://github.com/guysoft/OctoPi">OctoPi</a> on the Raspberry Pi computer. Use OctoPi v0.17.0 or later - see the <a href="https://github.com/guysoft/OctoPi/releases">OctoPi releases</a> for release information. One should verify that OctoPi boots and that the OctoPrint web server works. After connecting to the OctoPrint web page, follow the prompt to upgrade OctoPrint to v1.4.2 or later.</p>
-<p>После установки OctoPi и обновления OctoPrint необходимо будет подключиться к целевому компьютеру по ssh для выполнения нескольких системных команд. Если используется рабочий стол Linux или macOS, то программное обеспечение "ssh" уже должно быть установлено на рабочем столе. Существуют бесплатные ssh-клиенты, доступные для других настольных компьютеров (например, <a href="https://www.chiark.greenend.org.uk /~sgtatham/замазка/">PuTTY</a>). Используйте утилиту ssh для подключения к Raspberry Pi (ssh pi@octopi -- пароль "raspberry") и выполните следующие команды:</p>
+<p>После установки OctoPi и обновления OctoPrint необходимо будет подключиться к целевому компьютеру по ssh для выполнения нескольких системных команд. Если используется рабочий стол Linux или macOS, то программное обеспечение "ssh" уже должна быть установлено на рабочем столе. Существуют бесплатные ssh-клиенты, доступные для других настольных компьютеров (например, <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a>). Используйте утилиту ssh для подключения к Raspberry Pi (ssh pi@octopi -- пароль "raspberry") и выполните следующие команды:</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/Klipper3d/klipper
 ./klipper/scripts/install-octopi.sh
 </code></pre></div>
 
 <p>Вышеописанное позволит загрузить Klipper, установить некоторые системные зависимости, настроить Klipper для запуска при запуске системы и запустить программное обеспечение Klipper host. Для этого потребуется подключение к Интернету, и его выполнение может занять несколько минут.</p>
-<h2 id="building-and-flashing-the-micro-controller">Building and flashing the micro-controller<a class="headerlink" href="#building-and-flashing-the-micro-controller" title="Permanent link">&para;</a></h2>
-<p>To compile the micro-controller code, start by running these commands on the Raspberry Pi:</p>
+<h2 id="_3">Компиляция и прошивка микроконтроллера<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Чтобы начать компиляцию кода прошивки, введите следующие команды на Raspberry Pi:</p>
 <div class="highlight"><pre><span></span><code>cd ~/klipper/
 make menuconfig
 </code></pre></div>
@@ -1300,24 +1300,24 @@ make menuconfig
 <div class="highlight"><pre><span></span><code>ls /dev/serial/by-id/*
 </code></pre></div>
 
-<p>It should report something similar to the following:</p>
+<p>Должно отобразиться что-то вроде:</p>
 <div class="highlight"><pre><span></span><code>/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 </code></pre></div>
 
-<p>It's common for each printer to have its own unique serial port name. This unique name will be used when flashing the micro-controller. It's possible there may be multiple lines in the above output - if so, choose the line corresponding to the micro-controller (see the <a href="FAQ.html#wheres-my-serial-port">FAQ</a> for more information).</p>
-<p>For common micro-controllers, the code can be flashed with something similar to:</p>
+<p>Зачастую у каждого принтера есть своё уникальное имя последовательного порта. По этому имени мы и будем производить прошивку. Вышеуказанная команда также может вывести и несколько строк вместо одной – в таком случае вам нужно выбрать строку, соответствующую микроконтроллеру, который вы хотите прошить (см <a href="FAQ.html#wheres-my-serial-port">ЧАВО</a>).</p>
+<p>Большинство контроллеров могут быть прошиты с помощью:</p>
 <div class="highlight"><pre><span></span><code>sudo service klipper stop
 make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 </code></pre></div>
 
-<p>Be sure to update the FLASH_DEVICE with the printer's unique serial port name.</p>
-<p>When flashing for the first time, make sure that OctoPrint is not connected directly to the printer (from the OctoPrint web page, under the "Connection" section, click "Disconnect").</p>
-<h2 id="configuring-octoprint-to-use-klipper">Configuring OctoPrint to use Klipper<a class="headerlink" href="#configuring-octoprint-to-use-klipper" title="Permanent link">&para;</a></h2>
-<p>The OctoPrint web server needs to be configured to communicate with the Klipper host software. Using a web browser, login to the OctoPrint web page and then configure the following items:</p>
-<p>Navigate to the Settings tab (the wrench icon at the top of the page). Under "Serial Connection" in "Additional serial ports" add "/tmp/printer". Then click "Save".</p>
-<p>Enter the Settings tab again and under "Serial Connection" change the "Serial Port" setting to "/tmp/printer".</p>
-<p>In the Settings tab, navigate to the "Behavior" sub-tab and select the "Cancel any ongoing prints but stay connected to the printer" option. Click "Save".</p>
+<p>Не забудьте заменить значение FLASH_DEVICE на имя порта вашего принтера.</p>
+<p>При первой прошивке убедитесь, что OctoPrint не подключен напрямую к принтеру (на странице OctoPrint в разделе "Соединение" нажмите "Отключиться").</p>
+<h2 id="octoprint-klipper">Конфигурация OctoPrint для работы с Klipper<a class="headerlink" href="#octoprint-klipper" title="Permanent link">&para;</a></h2>
+<p>Чтобы веб-сервер OctoPrint мог взаимодействовать с Klipper, его нужно соответствующим образом настроить. Войдите в OctoPrint через браузер и установите следующие настройки:</p>
+<p>Перейдите на вкладку "Настройки" (иконка ключа вверху страницы). В разделе "Соединение", в "Дополнительные последовательные порты" добавьте "/tmp/printer". Затем нажмите "Сохранить".</p>
+<p>Снова зайдите на вкладку "Настройки" и в разделе "Соединение" замените "Последовательный порт" на "/tmp/printer".</p>
+<p>На вкладке "Настройки", перейдите на под-вкладку "Поведение" и выберите "Отменить все неоконченные печати, но не прерывать соединение". Нажмите "Сохранить".</p>
 <p>From the main page, under the "Connection" section (at the top left of the page) make sure the "Serial Port" is set to "/tmp/printer" and click "Connect". (If "/tmp/printer" is not an available selection then try reloading the page.)</p>
 <p>Once connected, navigate to the "Terminal" tab and type "status" (without the quotes) into the command entry box and click "Send". The terminal window will likely report there is an error opening the config file - that means OctoPrint is successfully communicating with Klipper. Proceed to the next section.</p>
 <h2 id="configuring-klipper">Configuring Klipper<a class="headerlink" href="#configuring-klipper" title="Permanent link">&para;</a></h2>
@@ -1332,7 +1332,7 @@ nano ~/printer.cfg
 <div class="highlight"><pre><span></span><code>ls /dev/serial/by-id/*
 </code></pre></div>
 
-<p>It should report something similar to the following:</p>
+<p>Должно отобразиться что-то вроде:</p>
 <div class="highlight"><pre><span></span><code>/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 </code></pre></div>
 

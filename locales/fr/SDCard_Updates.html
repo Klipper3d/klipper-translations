@@ -1233,8 +1233,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#caveats" class="md-nav__link">
-    Caveats
+  <a href="#avertissements" class="md-nav__link">
+    Avertissements
   </a>
   
 </li>
@@ -1347,7 +1347,7 @@ optional arguments:
 
 <p>Note that when upgrading a MKS Robin E3 it is not necessary to manually run <code>update_mks_robin.py</code> and supply the resulting binary to <code>flash-sdcard.sh</code>. This procedure is automated during the upload process.</p>
 <p>The <code>-c</code> option is used to perform a check or verify-only operation to test if the board is running the specified firmware correctly. This option is primarily intended for cases where a manual power-cycle is necessary to complete the flashing procedure, such as with bootloaders that use SDIO mode instead of SPI to access their SD Cards. (See Caveats below) But, it can also be used anytime to verify if the code flashed into the board matches the version in your build folder on any supported board.</p>
-<h2 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link">&para;</a></h2>
+<h2 id="avertissements">Avertissements<a class="headerlink" href="#avertissements" title="Permanent link">&para;</a></h2>
 <ul>
 <li>As mentioned in the introduction, this method only works for upgrading firmware. The initial flashing procedure must be done manually per the instructions that apply to your controller board.</li>
 <li>While it is possible to flash a build that changes the Serial Baud or connection interface (ie: from USB to UART), verification will always fail as the script will be unable to reconnect to the MCU to verify the current version.</li>
