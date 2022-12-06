@@ -8,11 +8,13 @@
 # Saveliy <jitropolit@gmail.com>, 2024.
 # Mika <akimivanov43@gmail.com>, 2024.
 # Arseniy <arseniy@neburalis.space>, 2024, 2025.
+# Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: Arseniy <arseniy@neburalis.space>\n"
+"Last-Translator: Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>"
+"\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/overview/"
 "ru/>\n"
 "Language: ru\n"
