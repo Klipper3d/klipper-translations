@@ -3,11 +3,13 @@
 # VICTOR <subfyn@gmail.com>, 2023.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
+# Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:36+0000\n"
-"Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
+"Last-Translator: Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>"
+"\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "contributing/ru/>\n"
 "Language: ru\n"
@@ -53,10 +55,10 @@ msgid ""
 "modification to the Klipper project can be made."
 msgstr ""
 "Чтобы уменьшить трудности перевода специфических терминов и получить "
-"информацию о текущих переводах, вы можете отправить PR, изменяющий [Klipper-"
-"translations Project](https://github.com/Klipper3d/klipper-translations) "
-"`readme.md`. Как только перевод будет готов, можно внести соответствующую "
-"модификацию в проект Klipper."
+"информацию о текущих переводах, вы можете отправить PR, изменяющий "
+"[Klipper-translations Project](https://github.com/Klipper3d/klipper-"
+"translations) `readme.md`. Как только перевод будет готов, можно внести "
+"соответствующую модификацию в проект Klipper."
 
 #: docs/CONTRIBUTING.md:block 14 (paragraph)
 msgid ""
@@ -92,8 +94,8 @@ msgstr "Обзор процесса внесения вклада"
 #: docs/CONTRIBUTING.md:block 5 (paragraph)
 msgid "Contributions to Klipper generally follow a high-level process:"
 msgstr ""
-"Вклад в Klipper, как правило, осуществляется в соответствии с высокоуровневым "
-"процессом:"
+"Вклад в Klipper, как правило, осуществляется в соответствии с "
+"высокоуровневым процессом:"
 
 #: docs/CONTRIBUTING.md:block 6 (ordered list)
 msgid ""
@@ -101,9 +103,9 @@ msgid ""
 "Request](https://github.com/Klipper3d/klipper/pulls) when a submission is "
 "ready for widespread deployment."
 msgstr ""
-"Участник начинает с создания [GitHub Pull "
-"Request](https://github.com/Klipper3d/klipper/pulls), когда представленная "
-"работа готова к широкому развертыванию."
+"Участник начинает с создания [GitHub Pull Request](https://github.com/"
+"Klipper3d/klipper/pulls), когда представленная работа готова к широкому "
+"развертыванию."
 
 #: docs/CONTRIBUTING.md:block 6 (ordered list)
 msgid ""
@@ -134,10 +136,10 @@ msgid ""
 "improve visibility of development work and may attract others interested in "
 "testing new work."
 msgstr ""
-"При работе над усовершенствованиями подумайте о том, чтобы начать (или внести "
-"свой вклад) тему на [Klipper Discourse](Contact.md). Постоянное обсуждение на "
-"форуме может улучшить видимость работы над улучшением и привлечь других людей,"
-" заинтересованных в тестировании новой работы."
+"При работе над усовершенствованиями подумайте о том, чтобы начать (или "
+"внести свой вклад) тему на [Klipper Discourse](Contact.md). Постоянное "
+"обсуждение на форуме может улучшить видимость работы над улучшением и "
+"привлечь других людей, заинтересованных в тестировании новой работы."
 
 #: docs/CONTRIBUTING.md:block 8 (header)
 msgid "What to expect in a review"
