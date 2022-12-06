@@ -1,12 +1,12 @@
 # wilmouths <wilmouthsteven@gmail.com>, 2021.
 # Tl <rflma99@pm.me>, 2022.
 # NicolasBFR <nicolas.boganski@epita.fr>, 2022, 2025.
-# jean-luc MATTEI <jlucm@free.fr>, 2022, 2023.
+# jean-luc MATTEI <jlucm@free.fr>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: NicolasBFR <nicolas.boganski@epita.fr>\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/packaging/"
 "fr/>\n"
 "Language: fr\n"
@@ -61,11 +61,11 @@ msgid ""
 "as follows: `python2 scripts/make_version.py YOURDISTRONAME > "
 "klippy/.version`."
 msgstr ""
-"Si vous construisez un paquet de Klipper à partir de git, il est d'usage de ne"
-" pas envoyer de répertoire .git, donc la gestion des versions doit être gérée "
-"sans git. Pour ce faire, utilisez le script fourni dans "
-"`scripts/make_version.py` qui doit être exécuté comme suit : `python2 "
-"scripts/make_version.py YOURDISTRONAME > klippy/.version`."
+"Si vous construisez un paquet de Klipper à partir de git, il est d'usage de "
+"ne pas envoyer de répertoire .git, donc la gestion des versions doit être "
+"gérée sans git. Pour ce faire, utilisez le script fourni dans `scripts/"
+"make_version.py` qui doit être exécuté comme suit : `python2 scripts/"
+"make_version.py YOURDISTRONAME > klippy/.version`."
 
 msgid "Sample packaging script"
 msgstr "Exemple de script de précompilation"
@@ -82,9 +82,8 @@ msgid ""
 "git)."
 msgstr ""
 "klipper-git est packagé pour Arch Linux et possède un PKGBUILD (script de "
-"construction de paquet) disponible sur [Arch User "
-"Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper- "
-"git)."
+"construction de paquet) disponible sur [Arch User Repository](https://"
+"aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper- git)."
 
 #~ msgid ""
 #~ "klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build "
