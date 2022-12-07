@@ -1,15 +1,18 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-16 16:17+0000\n"
-"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/sdcard_updates/ru/>\n"
+"PO-Revision-Date: 2022-12-07 05:47+0000\n"
+"Last-Translator: Evgeniy Khramov <thejenjagamertjg@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"sdcard_updates/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid ""
 "Many of today's popular controller boards ship with a bootloader capable of "
@@ -64,7 +67,7 @@ msgid ""
 msgstr ""
 
 msgid "Advanced Usage"
-msgstr ""
+msgstr "Продвинутое использование"
 
 msgid ""
 "The above commands assume that your MCU connects at the default baud rate of"
@@ -90,7 +93,7 @@ msgid ""
 msgstr ""
 
 msgid "Caveats"
-msgstr ""
+msgstr "Оговорки"
 
 msgid ""
 "As mentioned in the introduction, this method only works for upgrading "
@@ -106,7 +109,7 @@ msgid ""
 msgstr ""
 
 msgid "Board Definitions"
-msgstr ""
+msgstr "Определения платы"
 
 msgid ""
 "Most common boards should be available, however it is possible to add a new "
@@ -116,7 +119,7 @@ msgid ""
 msgstr ""
 
 msgid "The following fields may be specified:"
-msgstr ""
+msgstr "Могут быть указаны следующие поля:"
 
 msgid ""
 "`mcu`: The mcu type. This can be retrevied after configuring the build via "
@@ -170,15 +173,17 @@ msgid ""
 msgstr ""
 
 msgid "./scripts/flash-sdcard.sh -l\n"
-msgstr ""
+msgstr "./scripts/flash-sdcard.sh -l\n"
 
 msgid "./scripts/flash-sdcard.sh -b 115200 /dev/ttyAMA0 btt-skr-v1.3\n"
-msgstr ""
+msgstr "./scripts/flash-sdcard.sh -b 115200 /dev/ttyAMA0 btt-skr-v1.3\n"
 
 msgid ""
 "./scripts/flash-sdcard.sh -f ~/downloads/klipper.bin /dev/ttyAMA0 btt-"
 "skr-v1.3\n"
 msgstr ""
+"./scripts/flash-sdcard.sh -f ~/downloads/klipper.bin /dev/ttyAMA0 btt-skr-v1."
+"3\n"
 
 msgid ""
 "BOARD_DEFS = {\n"
@@ -197,10 +202,14 @@ msgid ""
 "    'my-new-board': BOARD_DEFS['generic-lpc1768'],\n"
 "}\n"
 msgstr ""
+"BOARD_ALIASES = {\n"
+"    ...<предыдущие псевдонимы>,\n"
+"    'my-new-board': BOARD_DEFS['generic-lpc1768'],\n"
+"}\n"
 
 #: docs/SDCard_Updates.md:block 1 (header)
 msgid "SDCard updates"
-msgstr ""
+msgstr "Обновления SDCard"
 
 #: docs/SDCard_Updates.md:block 12 (code)
 msgid ""
@@ -281,7 +290,7 @@ msgstr ""
 
 #: docs/SDCard_Updates.md:block 32 (header)
 msgid "Flashing Boards that use SDIO"
-msgstr ""
+msgstr "Прошивка плат, использующих SDIO"
 
 #: docs/SDCard_Updates.md:block 33 (paragraph)
 msgid ""
@@ -307,7 +316,7 @@ msgstr ""
 
 #: docs/SDCard_Updates.md:block 35 (header)
 msgid "SDIO Programming with RPi on Separate Power Supply"
-msgstr ""
+msgstr "Программирование SDIO с RPi на отдельном источнике питания"
 
 #: docs/SDCard_Updates.md:block 36 (paragraph)
 msgid ""
@@ -367,7 +376,7 @@ msgstr ""
 
 #: docs/SDCard_Updates.md:block 42 (header)
 msgid "SDIO to SPI Pin Mapping"
-msgstr ""
+msgstr "Сопоставление выводов SDIO и SPI"
 
 #: docs/SDCard_Updates.md:block 43 (paragraph)
 msgid ""
@@ -378,123 +387,123 @@ msgstr ""
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SD Card Pin"
-msgstr ""
+msgstr "Контакт SD-карты"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "Micro SD Card Pin"
-msgstr ""
+msgstr "Штырь для карты Micro SD"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SDIO Pin Name"
-msgstr ""
+msgstr "Имя контакта SDIO"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SPI Pin Name"
-msgstr ""
+msgstr "Имя вывода SPI"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "9"
-msgstr ""
+msgstr "9"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA2"
-msgstr ""
+msgstr "ДАТА2"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "None (PU)*"
-msgstr ""
+msgstr "Нет (ПУ)*"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CD/DATA3"
-msgstr ""
+msgstr "CD/DATA3"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CS"
-msgstr ""
+msgstr "CS"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CMD"
-msgstr ""
+msgstr "CMD"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "MOSI"
-msgstr ""
+msgstr "MOSI"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "+3.3V (VDD)"
-msgstr ""
+msgstr "+3,3 В (VDD)"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CLK"
-msgstr ""
+msgstr "CLK"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SCLK"
-msgstr ""
+msgstr "SCLK"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "6"
-msgstr ""
+msgstr "6"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "GND (VSS)"
-msgstr ""
+msgstr "GND (VSS)"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "7"
-msgstr ""
+msgstr "7"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA0"
-msgstr ""
+msgstr "ДАТА0"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "MISO"
-msgstr ""
+msgstr "MISO"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "8"
-msgstr ""
+msgstr "8"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA1"
-msgstr ""
+msgstr "ДАТА1"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "N/A"
-msgstr ""
+msgstr "Н/Д"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "Card Detect (CD)"
-msgstr ""
+msgstr "Обнаружение карты (CD)"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "10"
-msgstr ""
+msgstr "10"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "GND"
-msgstr ""
+msgstr "GND"
 
 #: docs/SDCard_Updates.md:block 45 (paragraph)
 msgid "\\* None (PU) indicates an unused pin with a pull-up resistor"

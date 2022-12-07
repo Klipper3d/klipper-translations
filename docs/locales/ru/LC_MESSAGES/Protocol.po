@@ -1,17 +1,20 @@
 # Comocen <Comoc_en@mail.ru>, 2022.
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 # Vik <xasertop@gmail.com>, 2022.
+# Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-20 19:20+0000\n"
-"Last-Translator: Vik <xasertop@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/protocol/ru/>\n"
+"PO-Revision-Date: 2022-12-07 05:47+0000\n"
+"Last-Translator: Evgeniy Khramov <thejenjagamertjg@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/protocol/"
+"ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid ""
 "The Klipper messaging protocol is used for low-level communication between "
@@ -288,31 +291,31 @@ msgid "-32 .. 95"
 msgstr ""
 
 msgid "1"
-msgstr ""
+msgstr "1"
 
 msgid "-4096 .. 12287"
 msgstr ""
 
 msgid "2"
-msgstr ""
+msgstr "2"
 
 msgid "-524288 .. 1572863"
 msgstr ""
 
 msgid "3"
-msgstr ""
+msgstr "3"
 
 msgid "-67108864 .. 201326591"
 msgstr ""
 
 msgid "4"
-msgstr ""
+msgstr "4"
 
 msgid "-2147483648 .. 4294967295"
 msgstr ""
 
 msgid "5"
-msgstr ""
+msgstr "5"
 
 msgid "Variable length strings"
 msgstr ""
