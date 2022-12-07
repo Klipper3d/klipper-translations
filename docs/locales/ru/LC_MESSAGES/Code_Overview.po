@@ -1,17 +1,21 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024.
+# Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-12-30 05:00+0000\n"
-"Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/code_overview/ru/>\n"
+"PO-Revision-Date: 2025-05-03 07:34+0000\n"
+"Last-Translator: Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>"
+"\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"code_overview/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "This document describes the overall code layout and major code flow of "
@@ -73,8 +77,8 @@ msgid ""
 "The **scripts/** directory contains build-time scripts useful for compiling "
 "the micro-controller code."
 msgstr ""
-"Каталог **scripts/** содержит скрипты времени сборки, полезные для компиляции "
-"кода микроконтроллера."
+"Каталог **scripts/** содержит скрипты времени сборки, полезные для "
+"компиляции кода микроконтроллера."
 
 msgid "The **test/** directory contains automated test cases."
 msgstr "Каталог **test/** содержит автоматизированные тестовые случаи."
