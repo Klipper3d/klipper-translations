@@ -1,11 +1,13 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
+# Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:36+0000\n"
-"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
+"Last-Translator: Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>"
+"\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "status_reference/ru/>\n"
 "Language: ru\n"
@@ -89,8 +91,8 @@ msgid ""
 "config section is defined):"
 msgstr ""
 "Следующая информация доступна в объекте `display_status` (этот объект "
-"автоматически доступен, если определен раздел конфигурации "
-"[display](Config_Reference.md#display)):"
+"автоматически доступен, если определен раздел конфигурации [display]"
+"(Config_Reference.md#display)):"
 
 msgid ""
 "`progress`: The progress value of the last `M73` G-Code command (or "
@@ -109,8 +111,8 @@ msgid ""
 "The following information is available in the "
 "[endstop_phase](Config_Reference.md#endstop_phase) object:"
 msgstr ""
-"Следующая информация доступна в объекте "
-"[endstop_phase](Config_Reference.md#endstop_phase):"
+"Следующая информация доступна в объекте [endstop_phase]"
+"(Config_Reference.md#endstop_phase):"
 
 msgid ""
 "`last_home.<stepper name>.phase`: The phase of the stepper motor at the end of"
