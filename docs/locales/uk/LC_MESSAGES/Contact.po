@@ -1,63 +1,83 @@
-#
+# Dan <denqwerta@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-12-07 05:47+0000\n"
+"Last-Translator: Dan <denqwerta@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
+"contact/uk/>\n"
 "Language: uk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid "This document provides contact information for Klipper."
-msgstr ""
+msgstr "Цей документ містить контактну інформацію Klipper."
 
 msgid "[Community Forum](#community-forum)"
-msgstr ""
+msgstr "[Форум спільноти](#community-forum)"
 
 msgid "[Discord Chat](#discord-chat)"
-msgstr ""
+msgstr "[Discord чат](#discord-chat)"
 
 msgid "[I have a question about Klipper](#i-have-a-question-about-klipper)"
-msgstr ""
+msgstr "[У мене запитання до Klipper](#i-have-a-question-about-klipper)"
 
 msgid "[I have a feature request](#i-have-a-feature-request)"
-msgstr ""
+msgstr "[У мене запит на функцію](#i-have-a-feature-request)"
 
 msgid "[Help! It doesn't work!](#help-it-doesnt-work)"
-msgstr ""
+msgstr "[Допомога! Це не працює!](#help-it-doesnt-work)"
 
 msgid ""
 "[I have diagnosed a defect in the Klipper software](#i-have-diagnosed-a-"
 "defect-in-the-klipper-software)"
 msgstr ""
+"[Я виявили дефект у програмному забезпеченні Klipper](#i-have-diagnosed-a"
+"-defect-in-the-klipper-software)"
 
 msgid ""
 "[I am making changes that I'd like to include in Klipper](#i-am-making-"
 "changes-that-id-like-to-include-in-klipper)"
 msgstr ""
+"[Я вношу зміни, які хочу включити в Klipper](#i-am-making-changes-that-id-"
+"like-to-include-in-klipper)"
 
 msgid "Community Forum"
-msgstr ""
+msgstr "Форум Спільности"
 
 msgid ""
 "There is a [Klipper Community Discourse "
 "server](https://community.klipper3d.org) for discussions on Klipper."
 msgstr ""
+"Існує [Klipper Community Discord server](https://community.klipper3d.org) "
+"для обговорення Klipper."
 
 msgid "Discord Chat"
-msgstr ""
+msgstr "Discord чат"
 
 msgid ""
 "This server is run by a community of Klipper enthusiasts dedicated to "
 "discussions on Klipper. It allows users to chat with other users in real-"
 "time."
 msgstr ""
+"Цим сервером керує спільнота ентузіастів Klipper, які займаються "
+"обговореннями щодо Klipper. Це дозволяє користувачам спілкуватися з іншими "
+"користувачами в режимі реального часу."
 
 msgid "I have a question about Klipper"
-msgstr ""
+msgstr "У мене є запитання щодо Klipper"
 
 msgid ""
 "Many questions we receive are already answered in the [Klipper "
 "documentation](Overview.md). Please be sure to to read the documentation and"
 " follow the directions provided there."
 msgstr ""
+"На багато запитань, які ми отримуємо, уже є відповіді в [документації "
+"Klipper](Overview.md). Обов’язково прочитайте документацію та дотримуйтесь "
+"наведених там вказівок."
 
 msgid ""
 "It is also possible to search for similar questions in the [Klipper "
