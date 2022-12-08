@@ -1,20 +1,20 @@
 # Вклад в Klipper
 
-Thank you for contributing to Klipper! This document describes the process for contributing changes to Klipper.
+Благодарим вас за внесение изменений в Klipper! Этот документ описывает процесс внесения изменений в Klipper.
 
-Please see the [contact page](Contact.md) for information on reporting an issue or for details on contacting the developers.
+Пожалуйста, обратитесь к странице [contact page](Contact.md) для получения информации о сообщении о проблеме или для получения подробной информации о том, как связаться с разработчиками.
 
-## Overview of Contribution Process
+## Обзор процесса внесения вклада
 
-Contributions to Klipper generally follow a high-level process:
+Вклад в Klipper, как правило, осуществляется в соответствии с высокоуровневым процессом:
 
-1. A submitter starts by creating a [GitHub Pull Request](https://github.com/Klipper3d/klipper/pulls) when a submission is ready for widespread deployment.
-1. When a [reviewer](#reviewers) is available to [review](#what-to-expect-in-a-review) the submission, they will assign themselves to the Pull Request on GitHub. The goal of the review is to look for defects and to check that the submission follows documented guidelines.
-1. After a successful review, the reviewer will "approve the review" on GitHub and a [maintainer](#reviewers) will commit the change to the Klipper master branch.
+1. Участник начинает с создания [GitHub Pull Request](https://github.com/Klipper3d/klipper/pulls), когда представленная работа готова к широкому развертыванию.
+1. Когда [рецензент](#reviewers) будет доступен для [рассмотрения](#what-to-expect-in-a-review) представленного материала, он назначит себя на Pull Request на GitHub. Целью рецензирования является поиск дефектов и проверка того, что представленный материал соответствует документированным рекомендациям.
+1. После успешной проверки рецензент "одобрит проверку" на GitHub, а [сопровождающий](#reviewers) зафиксирует изменение в основной ветке Klipper.
 
-When working on enhancements, consider starting (or contributing to) a topic on [Klipper Discourse](Contact.md). An ongoing discussion on the forum can improve visibility of development work and may attract others interested in testing new work.
+При работе над усовершенствованиями подумайте о том, чтобы начать (или внести свой вклад) тему на [Klipper Discourse](Contact.md). Постоянное обсуждение на форуме может улучшить видимость работы над улучшением и привлечь других людей, заинтересованных в тестировании новой работы.
 
-## What to expect in a review
+## Что ожидать от рецензии
 
 Contributions to Klipper are reviewed before merging. The primary goal of the review process is to check for defects and to check that the submission follows guidelines specified in the Klipper documentation.
 
@@ -98,9 +98,9 @@ We also appreciate testing of submissions. If the code was tested then please ad
 
 ### Reviewers
 
-The Klipper "reviewers" are:
+"Рецензентами" Клиппера являются:
 
-| Name | GitHub Id | Areas of interest |
+| Name | GitHub Id | Сферы интересов |
 | --- | --- | --- |
 | Dmitry Butyugin | @dmbutyugin | Input shaping, resonance testing, kinematics |
 | Eric Callahan | @Arksine | Bed leveling, MCU flashing |
@@ -142,20 +142,20 @@ In the above example, `module` should be the name of a file or directory in the 
 
 [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) is a project dedicated to translating Klipper to different languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all the Gettext strings for translating and reviewing. Locales can be displayed on [klipper3d.org](https://www.klipper3d.org) once they satisfy the following requirements:
 
-- [ ] 75% Total coverage
+- [ ] 75% Общее покрытие
 - [ ] All titles (H1) are translated
 - [ ] An updated navigation hierarchy PR in klipper-translations.
 
-To reduce the frustration of translating domain-specific terms and gain awareness of the ongoing translations, you can submit a PR modifying the [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md`. Once a translation is ready, the corresponding modification to the Klipper project can be made.
+Чтобы уменьшить трудности перевода специфических терминов и получить информацию о текущих переводах, вы можете отправить PR, изменяющий [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md`. Как только перевод будет готов, можно внести соответствующую модификацию в проект Klipper.
 
-If a translation already exists in the Klipper repository and no longer meets the checklist above, it will be marked out-of-date after a month without updates.
+Если перевод уже существует в репозитории Klipper и больше не соответствует приведенному выше контрольному списку, он будет помечен как устаревший через месяц без обновлений.
 
 Once the requirements are met, you need to:
 
 1. update klipper-tranlations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
 1. Optional: add a manual-index.md file in klipper-translations repository's `docs\locals\<lang>` folder to replace the language specific index.md (generated index.md does not render correctly).
 
-Known Issues:
+Известные проблемы:
 
 1. Currently, there isn't a method for correctly translating pictures in the documentation
 1. It is impossible to translate titles in mkdocs.yml.

@@ -1,24 +1,24 @@
 # Configuration reference
 
-This document is a reference for options available in the Klipper config file.
+Ce document est la référencedes options disponibles dans le fichier de configuration de Klipper.
 
-The descriptions in this document are formatted so that it is possible to cut-and-paste them into a printer config file. See the [installation document](Installation.md) for information on setting up Klipper and choosing an initial config file.
+Les descriptions de ce document sont formatées de manière à ce qu'il soit possible de les copier-coller dans un fichier de configuration d'imprimante. Consultez le [document d'installation](Installation.md) pour obtenir des informations sur la configuration de Klipper et le choix d'un fichier de configuration initial.
 
-## Micro-controller configuration
+## Configuration du microcontrôleur
 
-### Format of micro-controller pin names
+### Format du nom des broches du microcontrôleur
 
-Many config options require the name of a micro-controller pin. Klipper uses the hardware names for these pins - for example `PA4`.
+De nombreuses options de configuration nécessitent le nom d'une broche du micro-contrôleur. Klipper utilise les noms matériel pour ces broches - par exemple `PA4`.
 
-Pin names may be preceded by `!` to indicate that a reverse polarity should be used (eg, trigger on low instead of high).
+Les noms des broches peuvent être précédés de `!` pour indiquer qu'une polarité inverse doit être utilisée (par exemple, déclencher sur le bas au lieu du haut).
 
-Input pins may be preceded by `^` to indicate that a hardware pull-up resistor should be enabled for the pin. If the micro-controller supports pull-down resistors then an input pin may alternatively be preceded by `~`.
+Les broches d'entrée peuvent être précédées de `^` pour indiquer qu'une résistance pull-up matérielle doit être activée pour cette broche. Si le micro-contrôleur supporte les résistances pull-down, une broche d'entrée peut également être précédée de `~`.
 
-Note, some config sections may "create" additional pins. Where this occurs, the config section defining the pins must be listed in the config file before any sections using those pins.
+Notez que certaines sections de configuration peuvent "créer" des broches supplémentaires. Lorsque cela se produit, la section de configuration définissant les broches doit être répertoriée dans le fichier de configuration avant toute section utilisant ces broches.
 
-### [mcu]
+### [mcu|
 
-Configuration of the primary micro-controller.
+Configuration du microcontrôleur primaire.
 
 ```
 [mcu]
@@ -51,18 +51,18 @@ serial:
 
 ### [mcu my_extra_mcu]
 
-Microcontrôleurs supplémentaires (on peut définir un nombre quelconque de sections avec un préfixe "mcu"). Les microcontrôleurs supplémentaires introduisent des broches additionnelles qui peuvent être configurées comme des chauffeurs, des steppers, des ventilateurs, etc. Par exemple, si une section "[mcu extra_mcu]" est introduite, des broches telles que "extra_mcu:ar9" peuvent alors être utilisées ailleurs dans la configuration (où "ar9" est un nom de broche matérielle ou un nom d'alias sur le mcu donné).
+Microcontrôleurs supplémentaires (on peut définir un nombre quelconque de sections avec un préfixe "mcu"). Les microcontrôleurs supplémentaires introduisent des broches additionnelles pouvant être configurées comme des éléments chuaffant, des pilotes moteurs, des ventilateurs, etc. Par exemple, si une section "[mcu extra_mcu]" est ajoutée, des broches telles que "extra_mcu:ar9" pourront alors être utilisées ailleurs dans la configuration (où "ar9" est un nom de broche matérielle ou un nom d'alias sur le mcu donné).
 
 ```
 [mcu my_extra_mcu]
 # See the "mcu" section for configuration parameters.
 ```
 
-## Common kinematic settings
+## Paramètres cinématiques courants
 
 ### [printer]
 
-The printer section controls high level printer settings.
+La section imprimante contrôle les paramètres de haut niveau de l'imprimante.
 
 ```
 [printer]
@@ -96,7 +96,7 @@ max_accel:
 
 ### [stepper]
 
-Stepper motor definitions. Different printer types (as specified by the "kinematics" option in the [printer] config section) require different names for the stepper (eg, `stepper_x` vs `stepper_a`). Below are common stepper definitions.
+Définitions des pilotes de moteurs pas à pas. Différents types d'imprimantes (comme spécifié par l'option "kinematics" dans la section [printer]) requièrent différents noms pour le moteur pas à pas (par exemple, `stepper_x` vs `stepper_a`). Ci-dessous, vous trouverez les définitions les plus courantes.
 
 See the [rotation distance document](Rotation_Distance.md) for information on calculating the `rotation_distance` parameter. See the [Multi-MCU homing](Multi_MCU_Homing.md) document for information on homing using multiple micro-controllers.
 
@@ -174,11 +174,11 @@ position_max:
 #   if near position_min.
 ```
 
-### Cartesian Kinematics
+### Cinématique cartésienne
 
-See [example-cartesian.cfg](../config/example-cartesian.cfg) for an example cartesian kinematics config file.
+Voir [example-cartesian.cfg](../config/example-cartesian.cfg) pour un exemple de fichier de configuration de cinématique cartésienne.
 
-Only parameters specific to cartesian printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Seuls les paramètres spécifiques aux imprimantes cartésiennes sont décrits ici - voir [paramètres cinématiques communs](#common-kinematic-settings) pour les paramètres disponibles.
 
 ```
 [printer]
@@ -206,11 +206,11 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Linear Delta Kinematics
+### Cinématique Delta linéaire
 
-See [example-delta.cfg](../config/example-delta.cfg) for an example linear delta kinematics config file. See the [delta calibrate guide](Delta_Calibrate.md) for information on calibration.
+Voir [example-delta.cfg](../config/example-delta.cfg) pour un exemple de fichier de configuration de cinématique delta linéaire. Voir le [guide de calibrage delta](Delta_Calibrate.md) pour des informations sur le calibrage.
 
-Only parameters specific to linear delta printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Seuls les paramètres spécifiques aux imprimantes delta linéaires sont décrits ici - voir [paramètres cinématiques communs](#common-kinematic-settings) pour les paramètres disponibles.
 
 ```
 [printer]
@@ -359,11 +359,11 @@ arm_x_length:
 [stepper_y]
 ```
 
-### CoreXY Kinematics
+### Cinématique CoreXY
 
-See [example-corexy.cfg](../config/example-corexy.cfg) for an example corexy (and h-bot) kinematics file.
+Voir [example-corexy.cfg](../config/example-corexy.cfg) pour un exemple de fichier cinématique corexy (et h-bot).
 
-Only parameters specific to corexy printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Seuls les paramètres spécifiques aux imprimantes corexy sont décrits ici - voir [paramètres cinématiques communs](#common-kinematic-settings) pour les paramètres disponibles.
 
 ```
 [printer]
@@ -391,11 +391,11 @@ max_z_accel:
 [stepper_z]
 ```
 
-### CoreXZ Kinematics
+### Cinématique CoreXZ
 
-See [example-corexz.cfg](../config/example-corexz.cfg) for an example corexz kinematics config file.
+Voir [example-corexz.cfg](../config/example-corexz.cfg) pour un exemple de fichier de configuration de cinématique corexz.
 
-Only parameters specific to corexz printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Seuls les paramètres spécifiques aux imprimantes corexz sont décrits ici - voir [paramètres cinématiques communs](#common-kinematic-settings) pour les paramètres disponibles.
 
 ```
 [printer]
@@ -420,13 +420,13 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Hybrid-CoreXY Kinematics
+### Cinématique Hybride-CoreXY
 
-See [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) for an example hybrid corexy kinematics config file.
+Voir [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) pour un exemple de fichier de configuration de cinématique hybride corexy.
 
-This kinematic is also known as Markforged kinematic.
+Cette cinématique est également connue sous le nom de cinématique Markforged.
 
-Only parameters specific to hybrid corexy printers are described here see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Seuls les paramètres spécifiques aux imprimantes hybrides corexy sont décrits ici ; voir [paramètres cinématiques communs](#common-kinematic-settings) pour les paramètres disponibles.
 
 ```
 [printer]
@@ -451,13 +451,13 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Hybrid-CoreXZ Kinematics
+### Cinématique Hybride-CoreXZ
 
-See [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) for an example hybrid corexz kinematics config file.
+Voir [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) pour un exemple de fichier de configuration de cinématique hybride corexz.
 
-This kinematic is also known as Markforged kinematic.
+Cette cinématique est également connue sous le nom de cinématique Markforged.
 
-Only parameters specific to hybrid corexy printers are described here see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Seuls les paramètres spécifiques aux imprimantes hybrides corexy sont décrits ici ; voir [paramètres cinématiques communs](#common-kinematic-settings) pour les paramètres disponibles.
 
 ```
 [printer]
@@ -482,11 +482,11 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Polar Kinematics
+### Cinématique polaire
 
-See [example-polar.cfg](../config/example-polar.cfg) for an example polar kinematics config file.
+Voir [example-polar.cfg](../config/example-polar.cfg) pour un exemple de fichier de configuration de cinématique polaire.
 
-Only parameters specific to polar printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Seuls les paramètres spécifiques aux imprimantes polaires sont décrits ici - voir [paramètres cinématiques communs](#common-kinematic-settings) pour les paramètres disponibles.
 
 POLAR KINEMATICS ARE A WORK IN PROGRESS. Moves around the 0, 0 position are known to not work properly.
 
@@ -521,13 +521,13 @@ gear_ratio:
 [stepper_z]
 ```
 
-### Rotary delta Kinematics
+### Cinématique rotative delta
 
-See [example-rotary-delta.cfg](../config/example-rotary-delta.cfg) for an example rotary delta kinematics config file.
+Voir [example-rotary-delta.cfg](../config/example-rotary-delta.cfg) pour un exemple de fichier de configuration de cinématique rotative delta.
 
-Only parameters specific to rotary delta printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Seuls les paramètres spécifiques aux imprimantes rotatives delta sont décrits ici - voir [paramètres cinématiques communs](#common-kinematic-settings) pour les paramètres disponibles.
 
-ROTARY DELTA KINEMATICS ARE A WORK IN PROGRESS. Homing moves may timeout and some boundary checks are not implemented.
+LA CINÉMATIQUE ROTATIVE DELTA EST UN TRAVAIL EN COURS. Les mouvements d'orientation peuvent dépasser le temps imparti et certains contrôles de limites ne sont pas implémentés.
 
 ```
 [printer]
@@ -607,13 +607,13 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-### Cable winch Kinematics
+### Cinématique du treuil à câble
 
-See the [example-winch.cfg](../config/example-winch.cfg) for an example cable winch kinematics config file.
+Voir le fichier [example-winch.cfg](../config/example-winch.cfg) pour un exemple de fichier de configuration cinématique d'un treuil à câble.
 
-Only parameters specific to cable winch printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Seuls les paramètres spécifiques aux imprimantes à treuil sont décrits ici - voir [paramètres cinématiques communs](#common-kinematic-settings) pour les paramètres disponibles.
 
-CABLE WINCH SUPPORT IS EXPERIMENTAL. Homing is not implemented on cable winch kinematics. In order to home the printer, manually send movement commands until the toolhead is at 0, 0, 0 and then issue a `G28` command.
+LE SUPPORT DU TREUIL À CÂBLE EST EXPÉRIMENTAL. L'orientation n'est pas implémentée dans la cinématique du treuil à câble. Pour ramener l'imprimante à l'origine, envoyez manuellement des commandes de mouvement jusqu'à ce que la tête de l'outil soit à 0, 0, 0, puis envoyez une commande `G28`.
 
 ```
 [printer]
@@ -634,9 +634,9 @@ anchor_z:
 #   These parameters must be provided.
 ```
 
-### None Kinematics
+### Aucune cinématique
 
-It is possible to define a special "none" kinematics to disable kinematic support in Klipper. This may be useful for controlling devices that are not typical 3d-printers or for debugging purposes.
+Il est possible de définir une cinématique spéciale "aucune (none)" pour désactiver le support cinématique dans Klipper. Cela peut être utile pour contrôler des périphériques qui ne sont pas des imprimantes 3D typiques ou à des fins de débogage.
 
 ```
 [printer]
@@ -647,7 +647,7 @@ max_accel: 1
 #   values are not used for "none" kinematics.
 ```
 
-## Common extruder and heated bed support
+## Support d'extrudeur commun et support de lit chauffant
 
 ### [extruder]
 
@@ -779,7 +779,7 @@ max_temp:
 
 ### [heater_bed]
 
-The heater_bed section describes a heated bed. It uses the same heater settings described in the "extruder" section.
+La section heater_bed concerne le lit chauffant. Elle utilise les mêmes paramètres de chauffage que ceux décrits dans la section "extrudeuse".
 
 ```
 [heater_bed]
@@ -792,15 +792,15 @@ max_temp:
 #   See the "extruder" section for a description of the above parameters.
 ```
 
-## Bed level support
+## Support du nivelage du lit
 
 ### [bed_mesh]
 
-Mesh Bed Leveling. One may define a bed_mesh config section to enable move transformations that offset the z axis based on a mesh generated from probed points. When using a probe to home the z-axis, it is recommended to define a safe_z_home section in printer.cfg to home toward the center of the print area.
+Nivelage du maillage du lit. On peut définir une section de configuration bed_mesh pour activer les transformations de déplacement qui décalent l'axe z en fonction d'un maillage généré à partir de points sondés. Lorsqu'on utilise une sonde pour définir l'origine de l'axe z, il est recommandé de définir une section safe_z_home dans printer.cfg pour réaliser cette mise à l'origine au centre de la zone d'impression.
 
 See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#bed_mesh) for additional information.
 
-Visual Examples:
+Exemples visuels :
 
 ```
  rectangular bed, probe_count = 3, 3:
@@ -825,166 +825,165 @@ Visual Examples:
 ```
 [bed_mesh]
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+#     La vitesse (en mm/s) des mouvements entre les points de palpage
+#     pendant l'étalonnage.
+#     La valeur par défaut est 50.
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+#     La hauteur (en mm) à laquelle la tête doit être relevée  juste avant de
+#     lancer une opération de palpage. La valeur par défaut est 5.
 #mesh_radius:
-#   Defines the radius of the mesh to probe for round beds. Note that
-#   the radius is relative to the coordinate specified by the
-#   mesh_origin option. This parameter must be provided for round beds
-#   and omitted for rectangular beds.
+#     Définit le rayon de la maille à sonder pour les lits circulaires. Notez que
+#     le rayon est relatif à la coordonnée spécifiée par l'option
+#    mesh_origin. Ce paramètre doit être fourni pour les lits circulaires
+#     et omis pour les lits rectangulaires.
 #mesh_origin:
-#   Defines the center X, Y coordinate of the mesh for round beds. This
-#   coordinate is relative to the probe's location. It may be useful
-#   to adjust the mesh_origin in an effort to maximize the size of the
-#   mesh radius. Default is 0, 0. This parameter must be omitted for
-#   rectangular beds.
+#     Définit les coordonnées X, Y du centre du maillage pour les lits circulaires. Cette
+#     coordonnée est relative à l'emplacement de la sonde. Il peut être utile
+#     d'ajuster l'origine du maillage afin de maximiser la taille du rayon du maillage.
+#     La valeur par défaut est 0, 0. Ce paramètre doit être omis pour les lits rectangulaires.
 #mesh_min:
-#   Defines the minimum X, Y coordinate of the mesh for rectangular
-#   beds. This coordinate is relative to the probe's location. This
-#   will be the first point probed, nearest to the origin. This
-#   parameter must be provided for rectangular beds.
+#     Définit les coordonnées X, Y minimales du maillage pour les lits rectangulaires.
+#     Ces coordonnées sont relatives à l'emplacement de la sonde. Cette position
+#     sera le premier point sondé, le plus proche de l'origine. Ce paramètre
+#    doit être fourni pour les lits rectangulaires.
 #mesh_max:
-#   Defines the maximum X, Y coordinate of the mesh for rectangular
-#   beds. Adheres to the same principle as mesh_min, however this will
-#   be the furthest point probed from the bed's origin. This parameter
-#   must be provided for rectangular beds.
+#      Définit les coordonnées X, Y maximales du maillage pour les lits rectangulaires.
+#      Le principe est le même que pour mesh_min, mais ce sera le point le plus éloigné
+#      atteignable par rapport à l'origine du lit. Ce paramètre  doit être fourni pour 
+#     les lits rectangulaires.
 #probe_count: 3, 3
-#   For rectangular beds, this is a comma separate pair of integer
-#   values X, Y defining the number of points to probe along each
-#   axis. A single value is also valid, in which case that value will
-#   be applied to both axes. Default is 3, 3.
+#     Pour les lits rectangulaires, il s'agit d'une paire d'entiers X, Y séparés par des virgules,
+#     définissant le nombre de points à sonder le long de chaque axe.
+#     Une seule valeur est également valide, auquel cas cette valeur sera appliquée aux
+#     deux axes. La valeur par défaut est 3, 3.
 #round_probe_count: 5
-#   For round beds, this integer value defines the maximum number of
-#   points to probe along each axis. This value must be an odd number.
-#   Default is 5.
+#      Pour les lits circulaires, cette valeur entière définit le nombre maximum de 
+#      points à sonder le long de chaque axe. Cette valeur doit être un nombre impair.
+#      La valeur par défaut est 5.
 #fade_start: 1.0
-#   The gcode z position in which to start phasing out z-adjustment
-#   when fade is enabled. Default is 1.0.
+#      La position z du gcode à partir de laquelle il faut commencer à supprimer
+#      progressivement l'ajustement z lorsque le fondu est activé. La valeur par défaut est 1.0.
 #fade_end: 0.0
-#   The gcode z position in which phasing out completes. When set to a
-#   value below fade_start, fade is disabled. It should be noted that
-#   fade may add unwanted scaling along the z-axis of a print. If a
-#   user wishes to enable fade, a value of 10.0 is recommended.
-#   Default is 0.0, which disables fade.
+#       La position z du gcode à partir de laquelle la compensation se termine. Lorsqu'elle est
+#      définie à une valeur inférieure à fade_start, le fondu est désactivé. Il est à noter que
+#      le fondu peut ajouter une mise à l'échelle indésirable le long de l'axe z d'une impression.
+#      Si un utilisateur souhaite activer le fondu, une valeur de 10.0 est recommandée.
+#       La valeur par défaut est 0.0, ce qui désactive le fondu.
 #fade_target:
-#   The z position in which fade should converge. When this value is
-#   set to a non-zero value it must be within the range of z-values in
-#   the mesh. Users that wish to converge to the z homing position
-#   should set this to 0. Default is the average z value of the mesh.
+#       La position z vers laquelle le fondu doit converger. Lorsque cette valeur est
+#      définie à une valeur non nulle, elle doit se situer dans la plage des valeurs z du maillage.
+#      Les utilisateurs qui souhaitent converger vers la position de mise à l'origine du Z
+#      doivent régler cette valeur à 0.
+#      La valeur par défaut est la valeur z moyenne du maillage.
 #split_delta_z: .025
-#   The amount of Z difference (in mm) along a move that will trigger
-#   a split. Default is .025.
+#      Le delta de différence de Z (en mm) le long d'un mouvement qui déclenchera une séparation.
+#      La valeur par défaut est de 0,025.
 #move_check_distance: 5.0
-#   The distance (in mm) along a move to check for split_delta_z.
-#   This is also the minimum length that a move can be split. Default
-#   is 5.0.
+#      La distance (en mm) le long d'un mouvement pour vérifier le split_delta_z.
+#     C'est également la longueur minimale à laquelle un mouvement peut être divisé. 
+#     La valeur par défaut est 5.0.
 #mesh_pps: 2, 2
-#   A comma separated pair of integers X, Y defining the number of
-#   points per segment to interpolate in the mesh along each axis. A
-#   "segment" can be defined as the space between each probed point.
-#   The user may enter a single value which will be applied to both
-#   axes. Default is 2, 2.
-#algorithm: lagrange
-#   The interpolation algorithm to use. May be either "lagrange" or
-#   "bicubic". This option will not affect 3x3 grids, which are forced
-#   to use lagrange sampling. Default is lagrange.
+#     Une paire de nombres entiers X, Y séparés par des virgules, définissant le nombre de
+#     points par segment à interpoler dans le maillage le long de chaque axe. Un  "segment" 
+#     étant défini comme l'espace entre chaque point sondé.
+#     L'utilisateur peut saisir une seule valeur qui sera appliquée aux deux axes.
+#     La valeur par défaut est 2, 2.
+#algorithme: lagrange
+#     L'algorithme d'interpolation à utiliser. Soit "lagrange", soit "bicubique". Cette option
+#     n'affecte pas les grilles 3x3, qui sont forcées d'utiliser l'échantillonnage de lagrange.
+#     La valeur par défaut est lagrange.
 #bicubic_tension: .2
-#   When using the bicubic algorithm the tension parameter above may
-#   be applied to change the amount of slope interpolated. Larger
-#   numbers will increase the amount of slope, which results in more
-#   curvature in the mesh. Default is .2.
+#     Lors de l'utilisation de l'algorithme bicubique, le paramètre de tension ci-dessus peut
+#     être appliqué pour modifier la quantité de pente interpolée.
+#     Des nombres plus grands augmenteront la quantité de pente entraînant une plus grande
+#     courbure du maillage. La valeur par défaut est 0,2.
 #relative_reference_index:
-#   A point index in the mesh to reference all z values to. Enabling
-#   this parameter produces a mesh relative to the probed z position
-#   at the provided index.
+#     Un index de point dans le maillage auquel référencer toutes les valeurs z. En activant
+#     ce paramètre, on produit un maillage relatif à la position z sondée de l'indice fourni.
 #faulty_region_1_min:
 #faulty_region_1_max:
-#   Optional points that define a faulty region.  See docs/Bed_Mesh.md
-#   for details on faulty regions.  Up to 99 faulty regions may be added.
-#   By default no faulty regions are set.
+#      Points optionnels qui définissent une région défectueuse.  Voir docs/Bed_Mesh.md
+#      pour plus de détails sur les régions défectueuses.  Jusqu'à 99 régions défectueuses 
+#      peuvent être ajoutées.
+#     Par défaut, aucune région défectueuse n'est définie.
 ```
 
 ### [bed_tilt]
 
-Bed tilt compensation. One may define a bed_tilt config section to enable move transformations that account for a tilted bed. Note that bed_mesh and bed_tilt are incompatible; both cannot be defined.
+Compensation de l'inclinaison du lit. On peut définir une section de configuration bed_tilt pour activer les transformations de déplacement qui tiennent compte d'un lit incliné. Notez que bed_mesh et bed_tilt sont incompatibles ; les deux ne peuvent pas être définis en même temps.
 
 See the [command reference](G-Codes.md#bed_tilt) for additional information.
 
 ```
 [bed_tilt]
 #x_adjust: 0
-#   The amount to add to each move's Z height for each mm on the X
-#   axis. The default is 0.
+#      Quantité à ajouter à la hauteur Z de chaque mouvement pour chaque mm sur l'axe X
+#     La valeur par défaut est 0.
 #y_adjust: 0
-#   The amount to add to each move's Z height for each mm on the Y
-#   axis. The default is 0.
+#     Quantité à ajouter à la hauteur Z de chaque mouvement pour chaque mm sur l'axe Y.
+#     La valeur par défaut est 0.
 #z_adjust: 0
-#   The amount to add to the Z height when the nozzle is nominally at
-#   0, 0. The default is 0.
-# The remaining parameters control a BED_TILT_CALIBRATE extended
-# g-code command that may be used to calibrate appropriate x and y
-# adjustment parameters.
+#     Quantité à ajouter à la hauteur Z lorsque la buse est nominalement à 0, 0.
+#     La valeur par défaut est 0.
+#     Les paramètres restants contrôlent une commande g-code étendue BED_TILT_CALIBRATE utilisée
+#     pour calibrer les paramètres de réglage x et y appropriés.
 #points:
-#   A list of X, Y coordinates (one per line; subsequent lines
-#   indented) that should be probed during a BED_TILT_CALIBRATE
-#   command. Specify coordinates of the nozzle and be sure the probe
-#   is above the bed at the given nozzle coordinates. The default is
-#   to not enable the command.
+#      Une liste de coordonnées X, Y (une par ligne ; les lignes suivantes indentées) qui doivent
+#      être sondées pendant une commande BED_TILT_CALIBRATE
+#      Spécifiez les coordonnées de la buse et assurez-vous que la sonde est au-dessus du lit 
+#      aux coordonnées données de la buse. 
+#      La valeur par défaut est de ne pas activer la commande.
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+#      Vitesse (en mm/s) des mouvements de déplacements hors palpage pendant l'étalonnage.
+#      La valeur par défaut est 50.
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+#     Hauteur (en mm) à laquelle la tête doit être relevée lors du déplacement
+#     juste avant de lancer une opération de palpage. La valeur par défaut est 5.
 ```
 
 ### [bed_screws]
 
-Tool to help adjust bed leveling screws. One may define a [bed_screws] config section to enable a BED_SCREWS_ADJUST g-code command.
+Outil d'aide au réglage des vis de mise à niveau du lit. On peut définir une section de configuration [bed_screws] pour activer une commande g-code BED_SCREWS_ADJUST.
 
 See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [command reference](G-Codes.md#bed_screws) for additional information.
 
 ```
 [bed_screws]
 #screw1:
-#   The X, Y coordinate of the first bed leveling screw. This is a
-#   position to command the nozzle to that is directly above the bed
-#   screw (or as close as possible while still being above the bed).
-#   This parameter must be provided.
+#       Coordonnées X, Y de la première vis de réglage du niveau du lit. Il s'agit d'une
+#       position vers laquelle déplacer la buse afin qu'elle soit placée au-dessus de cette vis
+#      de réglage (ou aussi proche que possible tout en étant au-dessus  du lit).
+#       Ce paramètre doit être fourni.
 #screw1_name:
-#   An arbitrary name for the given screw. This name is displayed when
-#   the helper script runs. The default is to use a name based upon
-#   the screw XY location.
-#screw1_fine_adjust:
-#   An X, Y coordinate to command the nozzle to so that one can fine
-#   tune the bed leveling screw. The default is to not perform fine
-#   adjustments on the bed screw.
+#       Un nom arbitraire pour la vis donnée. Ce nom est affiché lors de
+#       l'exécution du script d'aide. Par défaut, le nom utilisé est basé sur
+#       la position XY de la vis.
+#screw1_fine_adjust :
+#       Coordonnées X, Y pour commander la buse afin de pouvoir affiner le réglage de la vis de mise 
+#       à niveau du lit. Par défaut, il n'y a pas de réglage fin sur la vis de mise à niveau du lit.
 #screw2:
 #screw2_name:
 #screw2_fine_adjust:
 #...
-#   Additional bed leveling screws. At least three screws must be
-#   defined.
+#       Vis supplémentaires de mise à niveau du lit. Au moins trois vis doivent être
+#      définies.
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   when moving from one screw location to the next. The default is 5.
+#       Hauteur (en mm) à laquelle la tête doit être relevée pour se déplacer
+#       lors du passage d'une vis à la suivante. La valeur par défaut est 5.
 #probe_height: 0
-#   The height of the probe (in mm) after adjusting for the thermal
-#   expansion of bed and nozzle. The default is zero.
+#       Hauteur de la sonde (en mm) après ajustement pour la dilatation thermique du lit
+#       et de la buse. La valeur par défaut est zéro.
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+#      Vitesse (en mm/s) des déplacements entre les palpages pendant l'étalonnage.
+#      La valeur par défaut est 50.
 #probe_speed: 5
-#   The speed (in mm/s) when moving from a horizontal_move_z position
-#   to a probe_height position. The default is 5.
+#      Vitesse (en mm/s) lors du déplacement d'une position horizontal_move_z
+#      à la position probe_height. La valeur par défaut est 5.
 ```
 
 ### [screws_tilt_adjust]
 
-Tool to help adjust bed screws tilt using Z probe. One may define a screws_tilt_adjust config section to enable a SCREWS_TILT_CALCULATE g-code command.
+Outil d'aide au réglage de l'inclinaison des vis du lit à l'aide du palpeur Z. On peut définir une section de configuration screws_tilt_adjust pour activer une commande g-code SCREWS_TILT_CALCULATE.
 
 See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) and [command reference](G-Codes.md#screws_tilt_adjust) for additional information.
 
@@ -1060,7 +1059,7 @@ Multiple Z stepper tilt adjustment. This feature enables independent adjustment 
 
 ### [quad_gantry_level]
 
-Moving gantry leveling using 4 independently controlled Z motors. Corrects hyperbolic parabola effects (potato chip) on moving gantry which is more flexible. WARNING: Using this on a moving bed may lead to undesirable results. If this section is present then a QUAD_GANTRY_LEVEL extended G-Code command becomes available. This routine assumes the following Z motor configuration:
+Mise à niveau du portique mobile à l'aide de 4 moteurs Z contrôlés indépendamment. Corrige les effets de paraboles hyperboliques (chips de pommes de terre) sur le portique mobile qui est plus flexible. AVERTISSEMENT : L'utilisation de cette section sur un lit mobile peut conduire à des résultats indésirables. Si cette section est présente, une commande G-Code étendue QUAD_GANTRY_LEVEL devient disponible. Cette routine suppose la configuration suivante du moteur Z :
 
 ```
  ----------------
@@ -1148,7 +1147,7 @@ See also: [extended g-code commands](G-Codes.md#z_thermal_adjust).
 #   parameter.
 ```
 
-## Customized homing
+## Mise à l'origine personnalisée
 
 ### [safe_z_home]
 
@@ -1179,7 +1178,7 @@ home_xy_position:
 
 ### [homing_override]
 
-Homing override. One may use this mechanism to run a series of g-code commands in place of a G28 found in the normal g-code input. This may be useful on printers that require a specific procedure to home the machine.
+Homing override. On peut utiliser ce mécanisme pour exécuter une série de commandes g-code à la place d'un G28 trouvé dans l'entrée g-code normale. Cela peut être utile sur les imprimantes qui nécessitent une procédure spécifique du retour au point d'origine de la machine.
 
 ```
 [homing_override]
@@ -1208,7 +1207,7 @@ gcode:
 
 ### [endstop_phase]
 
-Stepper phase adjusted endstops. To use this feature, define a config section with an "endstop_phase" prefix followed by the name of the corresponding stepper config section (for example, "[endstop_phase stepper_z]"). This feature can improve the accuracy of endstop switches. Add a bare "[endstop_phase]" declaration to enable the ENDSTOP_PHASE_CALIBRATE command.
+Interrupteurs de fin de course ajustés à la phase du pilote de moteur pas à pas. Pour utiliser cette fonction, définissez une section de configuration avec un préfixe "endstop_phase" suivi du nom de la section de configuration du pilote de moteur pas à pas correspondante (par exemple, "[endstop_phase stepper_z]"). Cette fonctionnalité peut améliorer la précision des interrupteurs de fin de course. Ajouter une déclaration nue "[endstop_phase]" pour activer la commande ENDSTOP_PHASE_CALIBRATE.
 
 See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes.md#endstop_phase) for additional information.
 
@@ -1236,11 +1235,11 @@ See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes
 #   layer will occur on a full step.) The default is False.
 ```
 
-## G-Code macros and events
+## Macros et événements G-Code
 
 ### [gcode_macro]
 
-G-Code macros (one may define any number of sections with a "gcode_macro" prefix). See the [command template guide](Command_Templates.md) for more information.
+Macros G-Code (on peut définir un nombre quelconque de sections avec le préfixe "gcode_macro"). Voir le [guide des modèles de commande](Command_Templates.md) pour plus d'informations.
 
 ```
 [gcode_macro my_cmd]
@@ -1301,7 +1300,7 @@ filename:
 
 ### [idle_timeout]
 
-Idle timeout. An idle timeout is automatically enabled - add an explicit idle_timeout config section to change the default settings.
+Délai d'inactivité. Un délai d'inactivité est automatiquement activé - ajoutez une section de configuration idle_timeout explicite pour modifier les paramètres par défaut.
 
 ```
 [idle_timeout]
@@ -1314,11 +1313,11 @@ Idle timeout. An idle timeout is automatically enabled - add an explicit idle_ti
 #   commands. The default is 600 seconds.
 ```
 
-## Optional G-Code features
+## Fonctionnalités optionnelles du G-code
 
 ### [virtual_sdcard]
 
-A virtual sdcard may be useful if the host machine is not fast enough to run OctoPrint well. It allows the Klipper host software to directly print gcode files stored in a directory on the host using standard sdcard G-Code commands (eg, M24).
+Une carte SD virtuelle peut être utile si la machine hôte n'est pas assez rapide pour faire fonctionner OctoPrint correctement. Elle permet au logiciel hôte Klipper d'imprimer directement les fichiers gcode stockés dans un répertoire sur l'hôte en utilisant les commandes G-Code standard de la carte SD (par exemple, M24).
 
 ```
 [virtual_sdcard]
@@ -1334,7 +1333,7 @@ path:
 
 ### [sdcard_loop]
 
-Some printers with stage-clearing features, such as a part ejector or a belt printer, can find use in looping sections of the sdcard file. (For example, to print the same part over and over, or repeat the a section of a part for a chain or other repeated pattern).
+Certaines imprimantes dotées de fonctions d'éjections des pièces imprimées, comme un éjecteur de pièces ou une imprimante à courroie, peuvent trouver une utilité dans la mise en boucle de sections du fichier de la carte SD (par exemple, pour imprimer la même pièce encore et encore, ou répéter une section d'une pièce pour une chaîne ou un autre motif répété).
 
 See the [command reference](G-Codes.md#sdcard_loop) for supported commands. See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin compatible M808 G-Code macro.
 
@@ -1385,7 +1384,7 @@ Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCO
 
 ### [gcode_arcs]
 
-Support for gcode arc (G2/G3) commands.
+Support des commandes gcode de courbes (arc) (G2/G3).
 
 ```
 [gcode_arcs]
@@ -1470,29 +1469,29 @@ Support for ADXL345 accelerometers. This support allows one to query acceleromet
 ```
 [adxl345]
 cs_pin:
-#   The SPI enable pin for the sensor. This parameter must be provided.
+#     La broche d'activation SPI du capteur. Ce paramètre doit être fourni.
 #spi_speed: 5000000
-#   The SPI speed (in hz) to use when communicating with the chip.
-#   The default is 5000000.
+#     La vitesse SPI (en hz) à utiliser lors de la communication avec la puce.
+#    La valeur par défaut est 5000000.
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
-#axes_map: x, y, z
-#   The accelerometer axis for each of the printer's X, Y, and Z axes.
-#   This may be useful if the accelerometer is mounted in an
-#   orientation that does not match the printer orientation. For
-#   example, one could set this to "y, x, z" to swap the X and Y axes.
-#   It is also possible to negate an axis if the accelerometer
-#   direction is reversed (eg, "x, z, -y"). The default is "x, y, z".
-#rate: 3200
-#   Output data rate for ADXL345. ADXL345 supports the following data
-#   rates: 3200, 1600, 800, 400, 200, 100, 50, and 25. Note that it is
-#   not recommended to change this rate from the default 3200, and
-#   rates below 800 will considerably affect the quality of resonance
-#   measurements.
+#     Voir la section "paramètres SPI communs" pour une description des
+#     paramètres ci-dessus.
+#axes_map : x, y, z
+#     L'axe de l'accéléromètre de chacun des axes X, Y et Z de l'imprimante.
+#     Ceci peut être utile si l'accéléromètre est monté dans une orientation 
+#     qui ne correspond pas à celle de l'imprimante. Par exemple,
+#     on peut régler cette option sur "y, x, z" pour permuter les axes X et Y.
+#     Il est également possible d'annuler un axe si la direction de l'accéléromètre
+#     est inversée (par exemple, "x, z, -y"). La valeur par défaut est "x, y, z".
+#Rate: 3200
+#     Taux de données de sortie pour ADXL345. ADXL345 supporte les taux de
+#     de données suivants : 3200, 1600, 800, 400, 200, 100, 50, et 25. Notez qu'il n'est
+#     pas recommandé de changer ce taux par rapport au taux par défaut de 3200, et
+#     les taux inférieurs à 800 affecteront considérablement la qualité des mesures 
+#     des mesures de résonance.
 ```
 
 ### [mpu9250]
@@ -1563,30 +1562,30 @@ Support for resonance testing and automatic input shaper calibration. In order t
 #   (Hz/sec == sec^-2).
 ```
 
-## Config file helpers
+## Aides pour les fichiers de configuration
 
 ### [board_pins]
 
-Board pin aliases (one may define any number of sections with a "board_pins" prefix). Use this to define aliases for the pins on a micro-controller.
+Alias des broches de la carte (on peut définir un nombre quelconque de sections avec le préfixe "board_pins"). Utilisez ceci pour définir des alias pour les broches d'un micro-contrôleur.
 
 ```
 [board_pins my_aliases]
 mcu: mcu
-#   A comma separated list of micro-controllers that may use the
-#   aliases. The default is to apply the aliases to the main "mcu".
-aliases:
-aliases_<name>:
-#   A comma separated list of "name=value" aliases to create for the
-#   given micro-controller. For example, "EXP1_1=PE6" would create an
-#   "EXP1_1" alias for the "PE6" pin. However, if "value" is enclosed
-#   in "<>" then "name" is created as a reserved pin (for example,
-#   "EXP1_9=<GND>" would reserve "EXP1_9"). Any number of options
-#   starting with "aliases_" may be specified.
+#      Une liste de micro-contrôleurs séparés par des virgules qui peuvent utiliser les
+#      alias. La valeur par défaut est d'appliquer les alias au "mcu" principal.
+alias:
+aliases_<nom>:
+#      Une liste séparée par des virgules d'alias "nom=valeur" à créer pour le 
+#      microcontrôleur donné. Par exemple, "EXP1_1=PE6" créera un alias "EXP1_1"
+#      pour la broche "PE6". Cependant, si la "valeur" est incluse
+#      dans "<>", alors "nom" est créé comme une broche réservée (par exemple,
+#      "EXP1_9=<GND>" réserverait "EXP1_9"). Un nombre quelconque d'options
+#      commençant par "alias_" peuvent être spécifiées.
 ```
 
 ### [include]
 
-Include file support. One may include additional config file from the main printer config file. Wildcards may also be used (eg, "configs/*.cfg").
+Prise en charge des fichiers d'inclusion. On peut inclure des fichiers de configuration supplémentaires à partir du fichier de configuration principal de l'imprimante. Des caractères génériques peuvent également être utilisés (par exemple, "configs/*.cfg").
 
 ```
 [include my_other_config.cfg]
@@ -1604,11 +1603,11 @@ pins:
 #   provided.
 ```
 
-## Bed probing hardware
+## Matériel de nivelage du lit
 
 ### [probe]
 
-Z height probe. One may define this section to enable Z height probing hardware. When this section is enabled, PROBE and QUERY_PROBE extended [g-code commands](G-Codes.md#probe) become available. Also, see the [probe calibrate guide](Probe_Calibrate.md). The probe section also creates a virtual "probe:z_virtual_endstop" pin. One may set the stepper_z endstop_pin to this virtual pin on cartesian style printers that use the probe in place of a z endstop. If using "probe:z_virtual_endstop" then do not define a position_endstop in the stepper_z config section.
+Sonde de hauteur Z. On peut définir cette section pour activer le matériel de nivelage de l'axer Z. Lorsque cette section est activée, les commandes [g-code étendus](G-Codes.md#probe) PROBE et QUERY_PROBE deviennent disponibles. Consultez également le [guide d'étalonnage des sondes](Probe_Calibrate.md). La section probe crée également une broche virtuelle "probe:z_virtual_endstop". Il est possible de définir la broche du stepper_z, endstop_pin, sur cette broche virtuelle pour les imprimantes de style cartésien qui utilisent la sonde à la place d'un interrupteur de fin de course Z. Si vous utilisez "probe:z_virtual_endstop", ne définissez pas de position_endstop dans la configuration de la section stepper_z.
 
 ```
 [probe]
@@ -1671,45 +1670,45 @@ z_offset:
 
 ### [bltouch]
 
-BLTouch probe. One may define this section (instead of a probe section) to enable a BLTouch probe. See [BL-Touch guide](BLTouch.md) and [command reference](G-Codes.md#bltouch) for further information. A virtual "probe:z_virtual_endstop" pin is also created (see the "probe" section for the details).
+Sonde BLTouch. On peut définir cette section (au lieu d'une section probe) pour activer une sonde BLTouch. Voir [Guide BL-Touch](BLTouch.md) et [Référence de la commande](G-Codes.md#bltouch) pour plus d'informations. Une broche virtuelle "probe:z_virtual_endstop" est également créée (voir la section "probe" pour les détails).
 
 ```
 [bltouch]
 sensor_pin:
-#   Pin connected to the BLTouch sensor pin. Most BLTouch devices
-#   require a pullup on the sensor pin (prefix the pin name with "^").
-#   This parameter must be provided.
+#      Broche connectée à la broche du capteur BLTouch. La plupart des dispositifs BLTouch
+#      exigent un pullup sur la broche du capteur (préfixez le nom de la broche par "^").
+#      Ce paramètre doit être fourni.
 control_pin:
-#   Pin connected to the BLTouch control pin. This parameter must be
-#   provided.
+#      Broche connectée à la broche de commande du BLTouch.
+#      Ce paramètre doit être fourni.
 #pin_move_time: 0.680
-#   The amount of time (in seconds) to wait for the BLTouch pin to
-#   move up or down. The default is 0.680 seconds.
+#      Durée d'attente (en secondes) pour que la broche BLTouch se
+#      se déplace vers le haut ou le bas. La valeur par défaut est de 0,680 seconde.
 #stow_on_each_sample: True
-#   This determines if Klipper should command the pin to move up
-#   between each probe attempt when performing a multiple probe
-#   sequence. Read the directions in docs/BLTouch.md before setting
-#   this to False. The default is True.
+#      Détermine si Klipper doit ordonner à la broche de se déplacer vers le haut 
+#      entre chaque tentative de palpage lors d'une séquence de palpage multiple.
+#      Lisez les instructions dans docs/BLTouch.md avant de mettre ce paramètre à False.
+#      La valeur par défaut est True.
 #probe_with_touch_mode: False
-#   If this is set to True then Klipper will probe with the device in
-#   "touch_mode". The default is False (probing in "pin_down" mode).
+#       Si ce paramètre est défini sur True, Klipper sondera avec le périphérique en
+#       "touch_mode". La valeur par défaut est False (palpage en mode "pin_down").
 #pin_up_reports_not_triggered: True
-#   Set if the BLTouch consistently reports the probe in a "not
-#   triggered" state after a successful "pin_up" command. This should
-#   be True for all genuine BLTouch devices. Read the directions in
-#   docs/BLTouch.md before setting this to False. The default is True.
+#       Définit si le BLTouch rapporte systématiquement le palpeur dans un état "non
+#       déclenché" après une commande "pin_up" réussie. Ceci devrait
+#       être True pour tous les BLTouch authentiques. Lisez les instructions de
+#      docs/BLTouch.md avant de mettre cette valeur à False. La valeur par défaut est True.
 #pin_up_touch_mode_reports_triggered: True
-#   Set if the BLTouch consistently reports a "triggered" state after
-#   the commands "pin_up" followed by "touch_mode". This should be
-#   True for all genuine BLTouch devices. Read the directions in
-#   docs/BLTouch.md before setting this to False. The default is True.
+#      Définit si la BLTouch rapporte systématiquement un état "déclenché" après 
+#      la commande "pin_up_mode_reports_triggered". Ceci devrait être
+#     True pour tous les BLTouch authentiques. Lisez les instructions de
+#     docs/BLTouch.md avant de mettre cette valeur à False. La valeur par défaut est True.
 #set_output_mode:
-#   Request a specific sensor pin output mode on the BLTouch V3.0 (and
-#   later). This setting should not be used on other types of probes.
-#   Set to "5V" to request a sensor pin output of 5 Volts (only use if
-#   the controller board needs 5V mode and is 5V tolerant on its input
-#   signal line). Set to "OD" to request the sensor pin output use
-#   open drain mode. The default is to not request an output mode.
+#      Demande un mode de sortie spécifique pour la broche du capteur sur le BLTouch V3.0 (et
+#      ultérieurs). Ce paramètre ne doit pas être utilisé sur d'autres types de sondes.
+#      Réglez sur "5V" pour demander une sortie de 5 Volts pour la broche du capteur (à n'utiliser que si
+#      la carte contrôleur a besoin du mode 5V et est tolérante à 5V sur sa ligne de signal d'entrée).
+#      Réglez sur "OD" pour demander l'utilisation de la sortie de la broche du capteur en
+#      mode drain ouvert. La valeur par défaut est de ne pas demander de mode de sortie.
 #x_offset:
 #y_offset:
 #z_offset:
@@ -1720,7 +1719,7 @@ control_pin:
 #samples_result:
 #samples_tolerance:
 #samples_tolerance_retries:
-#   See the "probe" section for information on these parameters.
+#     Voir la section "probe" pour des informations sur ces paramètres.
 ```
 
 ### [smart_effector]
@@ -1777,7 +1776,7 @@ z_offset:
 
 ### [stepper_z1]
 
-Multi-stepper axes. On a cartesian style printer, the stepper controlling a given axis may have additional config blocks defining steppers that should be stepped in concert with the primary stepper. One may define any number of sections with a numeric suffix starting at 1 (for example, "stepper_z1", "stepper_z2", etc.).
+Axes à pilotes de moteurs pas à pas multiples. Sur une imprimante de style cartésien, le pilote moteur contrôlant un axe donné peut avoir des blocs de configuration supplémentaires définissant les pilotes moteurs qui doivent être mis en marche de concert avec le pilote principal. On peut définir un nombre quelconque de sections avec un suffixe numérique commençant à 1 (par exemple, "stepper_z1", "stepper_z2", etc.).
 
 ```
 [stepper_z1]
@@ -1796,9 +1795,9 @@ Multi-stepper axes. On a cartesian style printer, the stepper controlling a give
 
 ### [extruder1]
 
-In a multi-extruder printer add an additional extruder section for each additional extruder. The additional extruder sections should be named "extruder1", "extruder2", "extruder3", and so on. See the "extruder" section for a description of available parameters.
+Dans une imprimante multi-extrudeurs, ajoutez une section d'extrudeur supplémentaire pour chaque extrudeur supplémentaire. Les sections d'extrudeur supplémentaires doivent être nommées "extruder1", "extruder2", "extruder3", et ainsi de suite. Voir la section "extruder" pour une description des paramètres disponibles.
 
-See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an example configuration.
+Voir [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) pour un exemple de configuration.
 
 ```
 [extruder1]
@@ -1966,27 +1965,26 @@ Custom ADC temperature sensors (one may define any number of sections with an "a
 
 ```
 [adc_temperature mon_capteur]
-#température1 :
+#temperature1 :
 #voltage1 :
 #temperature2 :
 #voltage2 :
 #...
-# Un ensemble de températures (en Celsius) et de tensions (en Volts) à utiliser
-# comme référence lors de la conversion d'une température. Une section de chauffage utilisant
-# ce capteur peut également spécifier les paramètres adc_voltage et voltage_offset
-# pour définir la tension ADC (voir la section "Température commune
-# température commune" pour plus de détails). Au moins deux mesures doivent
-# être fournies.
-#température1 :
-#résistance1 :
-#température2 :
-#résistance2 :
+#    Un ensemble de températures (en Celsius) et de tensions (en Volts) à utiliser
+#    comme référence lors de la conversion d'une température. Une section de chauffage utilisant
+#    ce capteur peut également spécifier les paramètres adc_voltage et voltage_offset
+#    pour définir la tension ADC (voir la section "Amplificateurs communs de température"
+#    pour plus de détails). Au moins deux mesures doivent être fournies.
+#temperature1 :
+#resistance1 :
+#temperature2 :
+#resistance2 :
 #...
-# Alternativement, on peut spécifier un ensemble de températures (en Celsius)
-# et de résistance (en Ohms) à utiliser comme référence lors de la conversion d'une
-# température. Une section de chauffage utilisant ce capteur peut également spécifier un paramètre
-# paramètre pullup_resistor (voir la section "extrudeuse" pour plus de détails). Sur
-# au moins deux mesures doivent être fournies.
+#    Alternativement, on peut spécifier un ensemble de températures (en Celsius)
+#    et de résistance (en Ohms) à utiliser comme référence lors de la conversion d'une
+#    température. Une section de chauffage utilisant ce capteur peut également spécifier un
+#    paramètre pullup_resistor (voir la section "extrudeuse" pour plus de détails). Au
+#    moins deux mesures doivent être fournies.
 ```
 
 ### [heater_generic]
@@ -2076,7 +2074,7 @@ sensor_pin:
 
 ### Directly connected PT1000 sensor
 
-Capteur PT1000 connecté en direct. Les paramètres suivants sont disponibles dans les sections chauffage qui utilisent ces capteurs.
+Capteur PT1000 connecté en direct. Les paramètres suivants sont disponibles dans les sections chauffage utilisant ces capteurs.
 
 ```
 sensor_type: PT1000
@@ -2122,9 +2120,9 @@ sensor_pin:
 #   name in the above list.
 ```
 
-### BMP280/BME280/BME680 temperature sensor
+### Sonde de température BMP280/BME280/BME680
 
-BMP280/BME280/BME680 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C), pressure (hPa), relative humidity and in case of the BME680 gas level. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report pressure and humidity in addition to temperature.
+Capteurs environnementaux BMP280/BME280/BME680 à interface à deux fils (I2C). Notez que ces capteurs ne sont pas destinés à être utilisés avec les extrudeurpours et les lits chauffants, mais plutôt pour surveiller la température ambiante (C), la pression (hPa), l'humidité relative et, dans le cas du BME680, le niveau de gaz. Voir [sample-macros.cfg](../config/sample-macros.cfg) pour un gcode_macro qui peut être utilisé pour signaler la pression et l'humidité en plus de la température.
 
 ```
 sensor_type: BME280
@@ -2188,7 +2186,7 @@ sensor_type: LM75
 #   0.5.
 ```
 
-### Builtin micro-controller temperature sensor
+### Capteur de température intégré au microcontrôleur
 
 The atsam, atsamd, and stm32 micro-controllers contain an internal temperature sensor. One can use the "temperature_mcu" sensor to monitor these temperatures.
 
@@ -2599,7 +2597,7 @@ PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
 #   See the "led" section for information on these parameters.
 ```
 
-## Additional servos, buttons, and other pins
+## Servos supplémentaires, boutons et autres broches
 
 ### [servo]
 
@@ -3075,36 +3073,35 @@ Statically configured AD5206 digipots connected via SPI bus (one may define any 
 ```
 [ad5206 my_digipot]
 enable_pin:
-# Il pin corrispondente alla linea di chip select dell'AD5206. Questo pin
-# sarà impostato su basso all'inizio dei messaggi SPI e sollevato su alto
-# dopo il completamento del messaggio. Questo parametro deve essere fornito.
+#    La broche correspondant à la ligne de sélection de la puce AD5206. Cette broche
+#    sera réglée à un niveau bas au début des messages SPI et sera relevée à un niveau élevé
+#    après la fin du message. Ce paramètre doit être fourni.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-# Vedere la sezione "impostazioni SPI comuni" per una descrizione dei
-# parametri di cui sopra.
-#canale_1:
-#canale_2:
-#canale_3:
-#canale_4:
-#canale_5:
-#canale_6:
-# Il valore su cui impostare staticamente il canale AD5206 dato. Questo è
-# tipicamente impostato su un numero tra 0.0 e 1.0 con 1.0 che è la
-# resistenza più alta e 0,0 è la resistenza più bassa. Tuttavia,
-# l'intervallo può essere cambiato con il parametro 'scala' (vedi sotto).
-# Se un canale non è specificato, viene lasciato non configurato.
-# scala:
-# Questo parametro può essere usato per alterare il modo in cui i parametri 'channel_x
-# sono interpretati. Se fornito, allora i parametri 'channel_x'
-# dovrebbero essere compresi tra 0,0 e 'scala'. Questo può essere utile quando l'
-# AD5206 è usato per impostare i riferimenti di tensione stepper. La 'scala' può
-# essere impostata all'amperaggio equivalente di uno stepper se l'AD5206 fosse alla
-# sua massima resistenza, e poi i parametri 'channel_x' possono essere
-# specificati usando il valore di amperaggio desiderato per lo stepper. Il
-# default è di non scalare i parametri 'channel_x'.
+#    Voir la section "paramètres communs SPI" pour une description des paramètres ci-dessus.
+#    
+#channel_1:
+#channel_2:
+#channel_3:
+#channel_4:
+#channel_5:
+#channel_6:
+#     La valeur pour définir statiquement le canal AD5206 donné. Cette valeur est
+#     généralement définie sur un nombre compris entre 0,0 et 1,0. 1,0 étant la résistance
+#     la plus élevée et 0,0 la résistance la plus faible. Cependant,  la plage peut être
+#     modifiée à l'aide du paramètre 'scale' (voir ci-dessous).
+#     Si un canal n'est pas spécifié, il n'est pas configuré.
+# scale:
+#     Ce paramètre peut être utilisé pour modifier l'interprétation des paramètres 'channel_x'.
+#     S'il est fourni, alors les paramètres 'channel_x' doivent être compris entre 0.0 et 'scale'. 
+#    Cela peut être utile lorsque le AD5206 est utilisé pour définir des références de tension
+#    pas à pas. L''échelle' peut être réglée sur l'intensité équivalente de la commande pas à pas
+#    si l'AD5206 était à sa résistance la plus élevée, puis les paramètres 'channel_x' peuvent être
+#    spécifiés en utilisant la valeur d'intensité désirée pour le pilote pas à pas. La configuration
+#    par défaut est de ne pas mettre à l'échelle les paramètres 'channel_x'.
 ```
 
 ### [mcp4451]
@@ -3531,7 +3528,7 @@ If a primary [display] section has been defined in printer.cfg as shown above it
 
 Customizable lcd display menus.
 
-A [default set of menus](../klippy/extras/display/menu.cfg) are automatically created. One can replace or extend the menu by overriding the defaults in the main printer.cfg config file.
+Un [ensemble de menus par défaut](../klippy/extras/display/menu.cfg) est automatiquement créé. On peut remplacer ou étendre le menu en remplaçant les valeurs par défaut dans le fichier de configuration principal printer.cfg.
 
 See the [command template document](Command_Templates.md#menu-templates) for information on menu attributes available during template rendering.
 
@@ -3736,7 +3733,7 @@ adc2:
 #   above parameters.
 ```
 
-## Board specific hardware support
+## Support matériel spécifique à une carte
 
 ### [sx1509]
 
@@ -3793,17 +3790,17 @@ Duet2 Maestro analog scaling by vref and vssa readings. Defining an adc_scaled s
 See the [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) file for an example.
 
 ```
-[adc_scaled mon_nom]
+[adc_scaled my_name]
 vref_pin :
-# La broche ADC à utiliser pour le contrôle de VREF. Ce paramètre doit être
-# fourni.
+#    La broche ADC à utiliser pour le contrôle de VREF. Ce paramètre doit être
+#    fourni.
 vssa_pin :
-# La broche ADC à utiliser pour la surveillance VSSA. Ce paramètre doit être
-# fourni.
+#    La broche ADC à utiliser pour la surveillance VSSA. Ce paramètre doit être
+#    fourni.
 #smooth_time : 2.0
-# Une valeur de temps (en secondes) sur laquelle les mesures de vref et vssa
-# seront lissées pour réduire l'impact du bruit de mesure.
-# bruit de mesure. La valeur par défaut est de 2 secondes.
+#    Une durée (en secondes) sur laquelle les mesures de vref et vssa
+#    seront lissées pour réduire l'impact du bruit des mesures.
+#    La valeur par défaut est de 2 secondes.
 ```
 
 ### [replicape]
@@ -3905,30 +3902,29 @@ Magnetic hall angle sensor support for reading stepper motor angle shaft measure
 ```
 [angle my_angle_sensor]
 sensor_type:
-#   The type of the magnetic hall sensor chip. Available choices are
-#   "a1333", "as5047d", and "tle5012b". This parameter must be
-#   specified.
+#     Le type de la puce du capteur magnétique à effet Hall. Les choix disponibles sont
+#     "a1333", "as5047d" et "tle5012b". Ce paramètre doit être
+#      spécifié.
 #sample_period: 0.000400
-#   The query period (in seconds) to use during measurements. The
-#   default is 0.000400 (which is 2500 samples per second).
+#      La période d'interrogation (en secondes) à utiliser pendant les mesures. La valeur
+#      par défaut est de 0.000400 (ce qui correspond à 2500 échantillons par seconde).
 #stepper:
-#   The name of the stepper that the angle sensor is attached to (eg,
-#   "stepper_x"). Setting this value enables an angle calibration
-#   tool. To use this feature, the Python "numpy" package must be
-#   installed. The default is to not enable angle calibration for the
-#   angle sensor.
+#      Le nom du pilote moteur pas à pas auquel le capteur d'angle est attaché (ex,
+#     "stepper_x"). La définition de cette valeur active un étalonnage d'angle.
+#      Pour utiliser cette fonction, le paquet Python "numpy" doit être installé.
+#      Par défaut, l'étalonnage angulaire n'est pas activé pour le capteur angulaire.
 cs_pin:
-#   The SPI enable pin for the sensor. This parameter must be provided.
+#     La broche d'activation SPI du capteur. Ce paramètre doit être fourni.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#     Voir la section "paramètres SPI communs" pour une description des
+#     paramètres ci-dessus.
 ```
 
-## Common bus parameters
+## Paramètres communs aux bus
 
 ### Common SPI settings
 
@@ -3951,7 +3947,7 @@ The following parameters are generally available for devices using an SPI bus.
 #   "software spi".
 ```
 
-### Common I2C settings
+### Paramètres I2C communs
 
 The following parameters are generally available for devices using an I2C bus.
 
