@@ -16,7 +16,7 @@ It is also possible to define a new printer configuration from scratch. However,
 
 Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry Pi computer. Use OctoPi v0.17.0 or later - see the [OctoPi releases](https://github.com/guysoft/OctoPi/releases) for release information. One should verify that OctoPi boots and that the OctoPrint web server works. After connecting to the OctoPrint web page, follow the prompt to upgrade OctoPrint to v1.4.2 or later.
 
-После установки OctoPi и обновления OctoPrint необходимо будет подключиться к целевому компьютеру по ssh для выполнения нескольких системных команд. Если используется рабочий стол Linux или macOS, то программное обеспечение "ssh" уже должна быть установлено на рабочем столе. Существуют бесплатные ssh-клиенты, доступные для других настольных компьютеров (например, [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Используйте утилиту ssh для подключения к Raspberry Pi (ssh pi@octopi -- пароль "raspberry") и выполните следующие команды:
+После установки OctoPi и обновления OctoPrint необходимо будет подключиться к целевому компьютеру по ssh для выполнения нескольких системных команд. Если используется рабочий стол Linux или macOS, то утилита "ssh", скорее всего, уже установлена. Существуют бесплатные ssh-клиенты, доступные для других настольных компьютеров (например, [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Используйте утилиту ssh для подключения к Raspberry Pi (ssh pi@octopi -- пароль "raspberry") и выполните следующие команды:
 
 ```
 git clone https://github.com/Klipper3d/klipper

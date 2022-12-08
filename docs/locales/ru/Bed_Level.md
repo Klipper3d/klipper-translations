@@ -8,41 +8,41 @@
 
 ## Выберите подходящий механизм калибровки
 
-Different types of printers use different methods for performing bed leveling. All of them ultimately depend on the "paper test" (described below). However, the actual process for a particular type of printer is described in other documents.
+Различные типы принтеров используют разные методы для выполнения выравнивания ложа. Все они в конечном итоге зависят от "бумажного теста" (описанного ниже). Однако фактический процесс для конкретного типа принтера описан в других документах.
 
-Prior to running any of these calibration tools, be sure to run the checks described in the [config check document](Config_checks.md). It is necessary to verify basic printer motion before performing bed leveling.
+Перед запуском любого из этих инструментов калибровки обязательно выполните проверки, описанные в документе [config check document](Config_checks.md). Перед выполнением выравнивания станины необходимо проверить базовое движение принтера.
 
-For printers with an "automatic Z probe" be sure to calibrate the probe following the directions in the [Probe Calibrate](Probe_Calibrate.md) document. For delta printers, see the [Delta Calibrate](Delta_Calibrate.md) document. For printers with bed screws and traditional Z endstops, see the [Manual Level](Manual_Level.md) document.
+Для принтеров с "автоматическим Z-зондом" обязательно откалибруйте зонд, следуя указаниям в документе [Probe Calibrate](Probe_Calibrate.md). Для дельта-принтеров см. документ [Delta Calibrate](Delta_Calibrate.md). Для принтеров с винтами станины и традиционными концевыми упорами Z см. документ [Manual Level](Manual_Level.md).
 
-During calibration it may be necessary to set the printer's Z `position_min` to a negative number (eg, `position_min = -2`). The printer enforces boundary checks even during calibration routines. Setting a negative number allows the printer to move below the nominal position of the bed, which may help when trying to determine the actual bed position.
+Во время калибровки может потребоваться установить для параметра Z принтера `position_min` отрицательное число (например, `position_min = -2`). Принтер обеспечивает проверку границ даже во время процедуры калибровки. Установка отрицательного числа позволяет принтеру двигаться ниже номинального положения станины, что может помочь при попытке определить фактическое положение станины.
 
-## The "paper test"
+## "Бумажный тест"
 
-The primary bed calibration mechanism is the "paper test". It involves placing a regular piece of "copy machine paper" between the printer's bed and nozzle, and then commanding the nozzle to different Z heights until one feels a small amount of friction when pushing the paper back and forth.
+Основным механизмом калибровки станины является "бумажный тест". Он включает в себя размещение обычного листа "копировальной бумаги" между станиной принтера и соплом, а затем подачу команды соплу на разные высоты Z до тех пор, пока не будет ощущаться небольшое трение при проталкивании бумаги вперед и назад.
 
-It is important to understand the "paper test" even if one has an "automatic Z probe". The probe itself often needs to be calibrated to get good results. That probe calibration is done using this "paper test".
+Важно понимать "бумажный тест", даже если у вас есть "автоматический Z-зонд". Для получения хороших результатов часто требуется калибровка самого датчика. Калибровка датчика выполняется с помощью этого "бумажного теста".
 
 In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a thickness of around 100 microns (0.100mm). (The exact thickness of the paper isn't crucial.)
 
-The first step of the paper test is to inspect the printer's nozzle and bed. Make sure there is no plastic (or other debris) on the nozzle or bed.
+Первым шагом проверки бумаги является осмотр сопла и станины принтера. Убедитесь, что на сопле и станине нет пластика (или другого мусора).
 
-**Inspect the nozzle and bed to ensure no plastic is present!**
+**Осмотрите сопло и станину, чтобы убедиться в отсутствии пластика!**
 
 If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a thickness and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.
 
-If there is plastic on the nozzle then heat up the extruder and use a metal tweezers to remove that plastic. Wait for the extruder to fully cool to room temperature before continuing with the paper test. While the nozzle is cooling, use the metal tweezers to remove any plastic that may ooze out.
+Если на сопле остался пластик, нагрейте экструдер и удалите его металлическим пинцетом. Подождите, пока экструдер полностью остынет до комнатной температуры, прежде чем продолжить тест бумаги. Пока насадка остывает, удалите металлическим пинцетом пластик, который может вытечь.
 
-**Always perform the paper test when both nozzle and bed are at room temperature!**
+**Всегда проводите тест бумаги, когда сопло и станина находятся при комнатной температуре!**
 
 When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same thickness as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact thickness of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two distances).
 
-It may seem odd to calibrate the distance at room temperature when the goal is to have a consistent distance when heated. However, if one calibrates when the nozzle is heated, it tends to impart small amounts of molten plastic on to the paper, which changes the amount of friction felt. That makes it harder to get a good calibration. Calibrating while the bed/nozzle is hot also greatly increases the risk of burning oneself. The amount of thermal expansion is stable, so it is easily accounted for later in the calibration process.
+Может показаться странным калибровать расстояние при комнатной температуре, когда цель - получить постоянное расстояние при нагревании. Однако, если калибровать при нагретом сопле, то на бумагу попадает небольшое количество расплавленного пластика, что изменяет величину ощущаемого трения. Это затрудняет получение хорошей калибровки. Калибровка при горячем ложе/сопле также значительно повышает риск обжечься. Величина теплового расширения стабильна, поэтому ее легко учесть позже в процессе калибровки.
 
-**Use an automated tool to determine precise Z heights!**
+**Используйте автоматизированный инструмент для точного определения высоты Z!**
 
-Klipper has several helper scripts available (eg, MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). See the documents [described above](#choose-the-appropriate-calibration-mechanism) to choose one of them.
+В Klipper есть несколько вспомогательных скриптов (например, MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). Чтобы выбрать один из них, смотрите документы [описанные выше](#choose-the-appropriate-calibration-mechanism).
 
-Run the appropriate command in the OctoPrint terminal window. The script will prompt for user interaction in the OctoPrint terminal output. It will look something like:
+Запустите соответствующую команду в окне терминала OctoPrint. Сценарий запросит взаимодействие с пользователем в выводе терминала OctoPrint. Это будет выглядеть примерно так:
 
 ```
 Recv: // Starting manual Z probe. Use TESTZ to adjust position.
@@ -50,19 +50,19 @@ Recv: // Finish with ACCEPT or ABORT command.
 Recv: // Z position: ?????? --> 5.000 <-- ??????
 ```
 
-The current height of the nozzle (as the printer currently understands it) is shown between the "--> <--". The number to the right is the height of the last probe attempt just greater than the current height, and to the left is the last probe attempt less than the current height (or ?????? if no attempt has been made).
+Текущая высота сопла (как ее понимает принтер в данный момент) отображается между символами "--> <--". Число справа - это высота последней попытки зонда чуть больше текущей высоты, а слева - последняя попытка зонда меньше текущей высоты (или ??????, если попыток не было).
 
-Place the paper between the nozzle and bed. It can be useful to fold a corner of the paper so that it is easier to grab. (Try not to push down on the bed when moving the paper back and forth.)
+Поместите бумагу между соплом и станиной. Может быть полезно загнуть угол бумаги, чтобы ее было легче захватить. (Старайтесь не давить на станину при перемещении бумаги вперед-назад.)
 
 ![paper-test](img/paper-test.jpg)
 
-Use the TESTZ command to request the nozzle to move closer to the paper. For example:
+Используйте команду TESTZ, чтобы запросить перемещение сопла ближе к бумаге. Например:
 
 ```
 TESTZ Z=-.1
 ```
 
-The TESTZ command will move the nozzle a relative distance from the nozzle's current position. (So, `Z=-.1` requests the nozzle to move closer to the bed by .1mm.) After the nozzle stops moving, push the paper back and forth to check if the nozzle is in contact with the paper and to feel the amount of friction. Continue issuing TESTZ commands until one feels a small amount of friction when testing with the paper.
+Команда TESTZ переместит сопло на относительное расстояние от текущего положения сопла. (Так, `Z=-.1` просит сопло переместиться ближе к станине на .1 мм.) После того, как сопло перестанет двигаться, подтолкните бумагу вперед-назад, чтобы проверить, соприкасается ли сопло с бумагой, и почувствовать трение. Продолжайте подавать команды TESTZ, пока не почувствуете небольшое трение при тестировании с бумагой.
 
 If too much friction is found then one can use a positive Z value to move the nozzle up. It is also possible to use `TESTZ Z=+` or `TESTZ Z=-` to "bisect" the last position - that is to move to a position half way between two positions. For example, if one received the following prompt from a TESTZ command:
 

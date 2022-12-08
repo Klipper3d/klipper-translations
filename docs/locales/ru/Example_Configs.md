@@ -1,37 +1,37 @@
-# Example configurations
+# Примеры конфигураций
 
-Этот документ содержит рекомендации по внесению примера конфигурации Klipper в репозиторий Klipper github (расположенный в каталоге [config](../config/)).
+Этот документ содержит рекомендации по внесению примера конфигурации Klipper в репозиторий Klipper github (расположенный в каталоге [директория конфига](../config/)).
 
 Обратите внимание, что [Klipper Community Discourse server](https://community.klipper3d.org) также является полезным ресурсом для поиска конфигурационных файлов и обмена ими.
 
 ## Рекомендации
 
-1. Select the appropriate config filename prefix:
-   1. The `printer` prefix is used for stock printers sold by a mainstream manufacturer.
+1. Выберите соответствующий префикс имени файла конфигурации:
+   1. Префикс `принтера` используется для стоковых принтеров, продаваемых основным производителем.
    1. Префикс `generic` используется для платы 3d-принтера, которая может использоваться во многих различных типах принтеров.
-   1. The `kit` prefix is for 3d printers that are assembled according to a widely used specification. These "kit" printers are generally distinct from normal "printers" in that they are not sold by a manufacturer.
-   1. The `sample` prefix is used for config "snippets" that one may copy-and-paste into the main config file.
-   1. The `example` prefix is used to describe printer kinematics. This type of config is typically only added along with code for a new type of printer kinematics.
-1. All configuration files must end in a `.cfg` suffix. The `printer` config files must end in a year followed by `.cfg` (eg, `-2019.cfg`). In this case, the year is an approximate year the given printer was sold.
-1. Do not use spaces or special characters in the config filename. The filename should contain only characters `A-Z`, `a-z`, `0-9`, `-`, and `.`.
-1. Klipper must be able to start `printer`, `generic`, and `kit` example config file without error. These config files should be added to the [test/klippy/printers.test](../test/klippy/printers.test) regression test case. Add new config files to that test case in the appropriate section and in alphabetical order within that section.
-1. The example configuration should be for the "stock" configuration of the printer. (There are too many "customized" configurations to track in the main Klipper repository.) Similarly, we only add example config files for printers, kits, and boards that have mainstream popularity (eg, there should be at least a 100 of them in active use). Consider using the [Klipper Community Discourse server](https://community.klipper3d.org) for other configs.
+   1. Префикс `kit` предназначен для 3d-принтеров, собранных в соответствии с широко используемой спецификацией. Такие принтеры "kit" отличаются от обычных "принтеров" тем, что они не продаются производителем.
+   1. Префикс `sample` используется для "фрагментов" конфигурации, которые можно скопировать и вставить в основной файл конфигурации.
+   1. Префикс `example` используется для описания кинематики принтера. Этот тип конфигурации обычно добавляется только вместе с кодом для нового типа кинематики принтера.
+1. Все файлы конфигурации должны заканчиваться суффиксом `.cfg`. Файлы конфигурации принтера `` должны заканчиваться годом, за которым следует `.cfg` (например, `-2019.cfg`). В данном случае год - это примерный год продажи данного принтера.
+1. Не используйте пробелы или специальные символы в имени файла конфигурации. Имя файла должно содержать только символы `A-Z`, `a-z`, `0-9`, `-`, и `.`.
+1. Klipper должен иметь возможность запускать принтер `` , `generic`, и `kit` пример конфигурационного файла без ошибок. Эти конфигурационные файлы должны быть добавлены в тестовый пример регрессии [test/klippy/printers.test](../test/klippy/printers.test). Добавьте новые файлы конфигурации в этот тестовый пример в соответствующем разделе и в алфавитном порядке внутри этого раздела.
+1. Пример конфигурации должен быть для "базовой" конфигурации принтера. (Существует слишком много "настроенных" конфигураций, чтобы отслеживать их в основном репозитории Klipper). Аналогично, мы добавляем примеры конфигурационных файлов только для принтеров, наборов и плат, которые пользуются популярностью (например, их должно быть не менее 100 в активном использовании). Рассмотрите возможность использования [Klipper Community Discourse server](https://community.klipper3d.org) для других конфигураций.
 1. Only specify those devices present on the given printer or board. Do not specify settings specific to your particular setup.
    1. For `generic` config files, only those devices on the mainboard should be described. For example, it would not make sense to add a display config section to a "generic" config as there is no way to know if the board will be attached to that type of display. If the board has a specific hardware port to facilitate an optional peripheral (eg, a bltouch port) then one can add a "commented out" config section for the given device.
-   1. Do not specify `pressure_advance` in an example config, as that value is specific to the filament, not the printer hardware. Similarly, do not specify `max_extrude_only_velocity` nor `max_extrude_only_accel` settings.
-   1. Do not specify a config section containing a host path or host hardware. For example, do not specify `[virtual_sdcard]` nor `[temperature_host]` config sections.
-   1. Only define macros that utilize functionality specific to the given printer or to define g-codes that are commonly emitted by slicers configured for the given printer.
+   1. Не указывайте `pressure_advance` в примере конфигурации, так как это значение относится к филаменту, а не к оборудованию принтера. Аналогично, не указывайте настройки `max_extrude_only_velocity` и `max_extrude_only_accel`.
+   1. Не указывайте раздел конфигурации, содержащий путь к хосту или аппаратное обеспечение хоста. Например, не указывайте разделы конфигурации `[virtual_sdcard]` и `[temperature_host]`.
+   1. Определяйте только макросы, использующие функциональность, специфичную для данного принтера, или определяющие g-коды, которые обычно выдаются слайсерами, настроенными для данного принтера.
 1. Where possible, it is best to use the same wording, phrasing, indentation, and section ordering as the existing config files.
    1. The top of each config file should list the type of micro-controller the user should select during "make menuconfig". It should also have a reference to "docs/Config_Reference.md".
-   1. Do not copy the field documentation into the example config files. (Doing so creates a maintenance burden as an update to the documentation would then require changing it in many places.)
-   1. Example config files should not contain a "SAVE_CONFIG" section. If necessary, copy the relevant fields from the SAVE_CONFIG section to the appropriate section in the main config area.
-   1. Use `field: value` syntax instead of `field=value`.
-   1. When adding an extruder `rotation_distance` it is preferable to specify a `gear_ratio` if the extruder has a gearing mechanism. We expect the rotation_distance in the example configs to correlate with the circumference of the hobbed gear in the extruder - it is normally in the range of 20 to 35mm. When specifying a `gear_ratio` it is preferable to specify the actual gears on the mechanism (eg, prefer `gear_ratio: 80:20` over `gear_ratio: 4:1`). See the [rotation distance document](Rotation_Distance.md#using-a-gear_ratio) for more information.
-   1. Avoid defining field values that are set to their default value. For example, one should not specify `min_extrude_temp: 170` as that is already the default value.
-   1. Where possible, lines should not exceed 80 columns.
-   1. Avoid adding attribution or revision messages to the config files. (For example, avoid adding lines like "this file was created by ...".) Place attribution and change history in the git commit message.
-1. Do not use any deprecated features in the example config file.
-1. Do not disable a default safety system in an example config file. For example, a config should not specify a custom `max_extrude_cross_section`. Do not enable debugging features. For example there should not be a `force_move` config section.
-1. All known boards that Klipper supports can use the default serial baud rate of 250000. Do not recommend a different baud rate in an example config file.
+   1. Не копируйте документацию по полям в файлы конфигурации примеров. (Это создает бремя обслуживания, поскольку обновление документации потребует ее изменения во многих местах.)
+   1. Примеры конфигурационных файлов не должны содержать раздел "SAVE_CONFIG". При необходимости скопируйте соответствующие поля из раздела SAVE_CONFIG в соответствующий раздел в основной области конфигурации.
+   1. Используйте синтаксис `field: value` вместо `field=value`.
+   1. При добавлении экструдера `rotation_distance` желательно указать `gear_ratio`, если экструдер имеет зубчатый механизм. Мы ожидаем, что расстояние_вращения в примерах конфигураций будет соотноситься с окружностью зубчатого колеса экструдера - обычно оно находится в диапазоне от 20 до 35 мм. При указании `передаточного числа` предпочтительнее указывать фактические шестерни механизма (например, предпочтительнее `передаточное число: 80:20`, чем `передаточное число: 4:1`). Дополнительную информацию см. в документе [rotation distance document](Rotation_Distance.md#using-a-gear_ratio).
+   1. Избегайте определения значений полей, которые установлены по умолчанию. Например, не следует указывать `min_extrude_temp: 170`, так как это уже является значением по умолчанию.
+   1. По возможности, строки не должны превышать 80 колонок.
+   1. Избегайте добавления сообщений об авторстве или ревизии в конфигурационные файлы. (Например, избегайте добавления строк типа "этот файл был создан ..."). Поместите атрибуцию и историю изменений в сообщение git-коммита.
+1. Не используйте устаревшие функции в конфигурационном файле примера.
+1. Не отключайте систему безопасности по умолчанию в конфигурационном файле примера. Например, в конфигурации не следует указывать пользовательское значение `max_extrude_cross_section`. Не включайте функции отладки. Например, не должно быть секции конфига `force_move`.
+1. Все известные платы, которые поддерживает Klipper, могут использовать скорость передачи данных по умолчанию 250000. Не рекомендуется использовать другую скорость передачи данных в конфигурационном файле примера.
 
-Example config files are submitted by creating a github "pull request". Please also follow the directions in the [contributing document](CONTRIBUTING.md).
+Примеры конфигурационных файлов предоставляются путем создания "pull request" на github. Также следуйте указаниям в [документе о внесении вклада](CONTRIBUTING.md).

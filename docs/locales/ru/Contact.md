@@ -8,41 +8,41 @@
 1. [У меня есть запрос на функцию](#i-have-a-feature-request)
 1. [Помогите! Это не работает!](#help-it-doesnt-work)
 1. [Я диагностировал дефект в программном обеспечении Klipper](#i-have-diagnosed-a-defect-in-the-klipper-software)
-1. [I am making changes that I'd like to include in Klipper](#i-am-making-changes-that-id-like-to-include-in-klipper)
+1. [Я вношу изменения, которые хотел бы включить в Klipper](#i-am-making-changes-that-id-like-to-include-in-klipper)
 
 ## Community Forum
 
-There is a [Klipper Community Discourse server](https://community.klipper3d.org) for discussions on Klipper.
+Существует [Klipper Community Discourse server](https://community.klipper3d.org) для обсуждения Клиппера.
 
 ## Discord Chat
 
 There is a Discord server dedicated to Klipper at: <https://discord.klipper3d.org>.
 
-This server is run by a community of Klipper enthusiasts dedicated to discussions on Klipper. It allows users to chat with other users in real-time.
+Этот сервер управляется сообществом энтузиастов Клиппера, посвященным обсуждениям Клиппера. Он позволяет пользователям общаться с другими пользователями в режиме реального времени.
 
-## I have a question about Klipper
+## У меня есть вопрос о Клиппере
 
 Many questions we receive are already answered in the [Klipper documentation](Overview.md). Please be sure to to read the documentation and follow the directions provided there.
 
 It is also possible to search for similar questions in the [Klipper Community Forum](#community-forum).
 
-If you are interested in sharing your knowledge and experience with other Klipper users then you can join the [Klipper Community Forum](#community-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
+Если вы хотите поделиться своими знаниями и опытом с другими пользователями Klipper, то вы можете присоединиться к [Klipper Community Forum](#community-forum) или [Klipper Discord Chat](#discord-chat). Оба сообщества - это сообщества, где пользователи Klipper могут обсуждать Klipper с другими пользователями.
 
-Many questions we receive are general 3d-printing questions that are not specific to Klipper. If you have a general question or are experiencing general printing problems, then you will likely get a better response by asking in a general 3d-printing forum or a forum dedicated to your printer hardware.
+Многие вопросы, которые мы получаем, являются общими вопросами 3d-печати, не относящимися к Klipper. Если у вас есть общий вопрос или вы испытываете общие проблемы с печатью, то, скорее всего, вы получите лучший ответ, задав вопрос на общем форуме по 3d-печати или на форуме, посвященном оборудованию вашего принтера.
 
-Do not open a Klipper github issue to ask a question.
+Не открывайте проблему Klipper на github, чтобы задать вопрос.
 
-## I have a feature request
+## У меня есть просьба о возможности
 
-All new features require someone interested and able to implement that feature. If you are interested in helping to implement or test a new feature, you can search for ongoing developments in the [Klipper Community Forum](#community-forum). There is also [Klipper Discord Chat](#discord-chat) for discussions between collaborators.
+Для всех новых функций требуется кто-то заинтересованный и способный реализовать эту функцию. Если вы заинтересованы в помощи в реализации или тестировании новой функции, вы можете поискать текущие разработки на [Klipper Community Forum](#community-forum). Существует также [Klipper Discord Chat](#discord-chat) для обсуждений между участниками.
 
-Do not open a Klipper github issue to request a feature.
+Не открывайте проблему Klipper на github для запроса функции.
 
-## Help! It doesn't work!
+## Помогите! Не работает!
 
-Unfortunately, we receive many more requests for help than we could possibly answer. Most problem reports we see are eventually tracked down to:
+К сожалению, мы получаем гораздо больше запросов о помощи, чем можем ответить. Большинство сообщений о проблемах, которые мы видим, в конечном итоге сводятся к следующему:
 
-1. Subtle errors in the hardware, or
+1. Незначительные ошибки в оборудовании, или
 1. Not following all the steps described in the Klipper documentation.
 
 If you are experiencing problems we recommend you carefully read the [Klipper documentation](Overview.md) and double check that all steps were followed.
@@ -51,13 +51,13 @@ If you are experiencing a printing problem, then we recommend carefully inspecti
 
 It is also possible to search for similar issues in the [Klipper Community Forum](#community-forum).
 
-If you are interested in sharing your knowledge and experience with other Klipper users then you can join the [Klipper Community Forum](#community-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
+Если вы хотите поделиться своими знаниями и опытом с другими пользователями Klipper, то вы можете присоединиться к [Klipper Community Forum](#community-forum) или [Klipper Discord Chat](#discord-chat). Оба сообщества - это сообщества, где пользователи Klipper могут обсуждать Klipper с другими пользователями.
 
-Do not open a Klipper github issue to request help.
+Не открывайте проблему Klipper на github для запроса помощи.
 
-## I have diagnosed a defect in the Klipper software
+## Я диагностировал дефект в программном обеспечении Klipper
 
-Klipper is an open-source project and we appreciate when collaborators diagnose errors in the software.
+Klipper - это проект с открытым исходным кодом, и мы ценим, когда соавторы диагностируют ошибки в программном обеспечении.
 
 There is important information that will be needed in order to fix a bug. Please follow these steps:
 

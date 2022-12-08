@@ -245,7 +245,7 @@ Input shapers used in Klipper are rather standard, and one can find more in-dept
 
 | Input <br> shaper | Shaper <br> duration | Vibration reduction 20x <br> (5% vibration tolerance) | Vibration reduction 10x <br> (10% vibration tolerance) |
 | :-: | :-: | :-: | :-: |
-| ZV | 0.5 / shaper_freq | N/A | ± 5% shaper_freq |
+| ZV | 0.5 / shaper_freq | Н/Д | ± 5% shaper_freq |
 | MZV | 0.75 / shaper_freq | ± 4% shaper_freq | -10%...+15% shaper_freq |
 | ZVD | 1 / shaper_freq | ± 15% shaper_freq | ± 22% shaper_freq |
 | EI | 1 / shaper_freq | ± 20% shaper_freq | ± 25% shaper_freq |

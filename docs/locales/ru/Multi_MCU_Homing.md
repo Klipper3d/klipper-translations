@@ -6,10 +6,10 @@ Klipper поддерживает механизм самонаведения с 
 
 Превышение происходит из-за возможных задержек передачи сообщений между микроконтроллером, контролирующим конечный упор, и микроконтроллерами, приводящими в движение шаговые двигатели. Код Клиппера предназначен для ограничения этой задержки не более чем на 25 мс. (Когда активировано самонаведение с несколькими микроконтроллерами, микроконтроллеры периодически отправляют сообщения о состоянии и проверяют, что соответствующие сообщения о состоянии получены в течение 25 мс.)
 
-So, for example, if homing at 10mm/s then it is possible for an overshoot of up to 0.250mm (10mm/s * .025s == 0.250mm). Care should be taken when configuring multi-mcu homing to account for this type of overshoot. Using slower homing or probing speeds can reduce the overshoot.
+Так, например, при наведении со скоростью 10 мм/с возможно превышение до 0,250 мм (10 мм/с * .025s == 0,250 мм). При конфигурировании наведения с несколькими модулями необходимо учитывать этот тип проскакивания. Использование более медленных скоростей наведения или зондирования может уменьшить перерегулирование.
 
-Stepper motor overshoot should not adversely impact the precision of the homing and probing procedure. The Klipper code will detect the overshoot and account for it in its calculations. However, it is important that the hardware design is capable of handling overshoot without causing damage to the machine.
+Перерегулирование шагового двигателя не должно отрицательно влиять на точность процедуры наведения и зондирования. Код Klipper обнаружит проскакивание и учтет его в своих расчетах. Однако важно, чтобы аппаратная конструкция была способна справиться с перерегулированием без повреждения машины.
 
-Should Klipper detect a communication issue between micro-controllers during multi-mcu homing then it will raise a "Communication timeout during homing" error.
+Если Klipper обнаружит проблему связи между микроконтроллерами во время наведения нескольких мку, он выдаст ошибку "Communication timeout during homing".
 
-Note that an axis with multiple steppers (eg, `stepper_z` and `stepper_z1`) need to be on the same micro-controller in order to use multi-mcu homing. For example, if an endstop is on a separate micro-controller from `stepper_z` then `stepper_z1` must be on the same micro-controller as `stepper_z`.
+Обратите внимание, что ось с несколькими степперами (например, `stepper_z` и `stepper_z1`) должна быть на одном микроконтроллере, чтобы использовать мульти-mcu homing. Например, если концевой упор находится на отдельном микроконтроллере от `stepper_z`, то `stepper_z1` должен быть на том же микроконтроллере, что и `stepper_z`.
