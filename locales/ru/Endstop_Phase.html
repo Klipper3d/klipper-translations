@@ -1219,16 +1219,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#calibrating-endstop-phases" class="md-nav__link">
-    Calibrating endstop phases
+  <a href="#_1" class="md-nav__link">
+    Калибровка фаз конечного останова
   </a>
   
-    <nav class="md-nav" aria-label="Calibrating endstop phases">
+    <nav class="md-nav" aria-label="Калибровка фаз конечного останова">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#additional-notes" class="md-nav__link">
-    Additional notes
+  <a href="#_2" class="md-nav__link">
+    Дополнительные примечания
   </a>
   
 </li>
@@ -1260,28 +1260,28 @@
 <p>Типичный концевой выключатель имеет точность около 100 микрон. (Каждый раз, когда ось устанавливается на место, переключатель может срабатывать немного раньше или немного позже.) Хотя это относительно небольшая ошибка, она может привести к нежелательным артефактам. В частности, это позиционное отклонение может быть заметно при печати первого слоя объекта. В отличие от этого, обычные шаговые двигатели могут обеспечить значительно более высокую точность.</p>
 <p>Механизм концевого выключателя с регулируемой фазой шага может использовать точность шаговых двигателей для повышения точности концевых выключателей. Шаговый двигатель движется циклически через ряд фаз, пока не завершит четыре "полных шага". Таким образом, шаговый двигатель, использующий 16 микрошагов, будет иметь 64 фазы, и при движении в положительном направлении он будет циклически проходить через фазы: 0, 1, 2, ... 61, 62, 63, 0, 1, 2, и т.д. Важно отметить, что когда шаговый двигатель находится в определенном положении на линейном рельсе, он всегда должен находиться в одной и той же фазе шага. Таким образом, когда каретка приводит в действие концевой выключатель, шаговый двигатель, управляющий этой кареткой, всегда должен находиться в одной и той же фазе шагового двигателя. Система endstop phase от Klipper сочетает в себе шаговую фазу с триггером endstop для повышения точности endstop.</p>
 <p>Для того, чтобы использовать эту функциональность, необходимо иметь возможность идентифицировать фазу шагового двигателя. Если кто-то использует драйверы Trinamic TMC2130, TMC2208, TMC2224 или TMC2660 в режиме конфигурации во время выполнения (т.Е. не в автономном режиме), то Klipper может запросить шаговую фазу у драйвера. (Также возможно использовать эту систему на традиционных шаговых драйверах, если можно надежно сбросить шаговые драйверы - подробности см. Ниже.)</p>
-<h2 id="calibrating-endstop-phases">Calibrating endstop phases<a class="headerlink" href="#calibrating-endstop-phases" title="Permanent link">&para;</a></h2>
-<p>If using Trinamic stepper motor drivers with run-time configuration then one can calibrate the endstop phases using the ENDSTOP_PHASE_CALIBRATE command. Start by adding the following to the config file:</p>
+<h2 id="_1">Калибровка фаз конечного останова<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>При использовании драйверов шаговых двигателей Trinamic с конфигурацией во время выполнения можно откалибровать фазы конечного останова с помощью команды ENDSTOP_PHASE_CALIBRATE. Начните с добавления в файл конфигурации следующих параметров:</p>
 <div class="highlight"><pre><span></span><code>[endstop_phase]
 </code></pre></div>
 
-<p>Then RESTART the printer and run a <code>G28</code> command followed by an <code>ENDSTOP_PHASE_CALIBRATE</code> command. Then move the toolhead to a new location and run <code>G28</code> again. Try moving the toolhead to several different locations and rerun <code>G28</code> from each position. Run at least five <code>G28</code> commands.</p>
-<p>After performing the above, the <code>ENDSTOP_PHASE_CALIBRATE</code> command will often report the same (or nearly the same) phase for the stepper. This phase can be saved in the config file so that all future G28 commands use that phase. (So, in future homing operations, Klipper will obtain the same position even if the endstop triggers a little earlier or a little later.)</p>
-<p>To save the endstop phase for a particular stepper motor, run something like the following:</p>
+<p>Затем перезагрузите принтер и выполните команду <code>G28</code>, а затем команду <code>ENDSTOP_PHASE_CALIBRATE</code>. Затем переместите головку инструмента в другое место и снова выполните команду <code>G28</code>. Попробуйте переместить головку инструмента в несколько разных мест и повторно запустить <code>G28</code> из каждого положения. Выполните не менее пяти команд <code>G28</code>.</p>
+<p>После выполнения вышеуказанных действий команда <code>ENDSTOP_PHASE_CALIBRATE</code> часто сообщает о той же (или почти той же) фазе для степпера. Эту фазу можно сохранить в конфигурационном файле, чтобы все последующие команды G28 использовали эту фазу. (Таким образом, при последующих операциях самонаведения клипер будет занимать одно и то же положение, даже если конечная остановка сработает немного раньше или немного позже.)</p>
+<p>Чтобы сохранить фазу остановки для конкретного шагового двигателя, выполните примерно следующее:</p>
 <div class="highlight"><pre><span></span><code>ENDSTOP_PHASE_CALIBRATE STEPPER=stepper_z
 </code></pre></div>
 
-<p>Run the above for all the steppers one wishes to save. Typically, one would use this on stepper_z for cartesian and corexy printers, and for stepper_a, stepper_b, and stepper_c on delta printers. Finally, run the following to update the configuration file with the data:</p>
+<p>Выполните описанные выше действия для всех степперов, которые вы хотите сохранить. Обычно это используется для степпера_z для картезианских и корексиальных принтеров и для степпера_a, степпера_b и степпера_c для дельта-принтеров. Наконец, выполните следующую команду, чтобы обновить конфигурационный файл с данными:</p>
 <div class="highlight"><pre><span></span><code>SAVE_CONFIG
 </code></pre></div>
 
-<h3 id="additional-notes">Additional notes<a class="headerlink" href="#additional-notes" title="Permanent link">&para;</a></h3>
+<h3 id="_2">Дополнительные примечания<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ul>
-<li>This feature is most useful on delta printers and on the Z endstop of cartesian/corexy printers. It is possible to use this feature on the XY endstops of cartesian printers, but that isn't particularly useful as a minor error in X/Y endstop position is unlikely to impact print quality. It is not valid to use this feature on the XY endstops of corexy printers (as the XY position is not determined by a single stepper on corexy kinematics). It is not valid to use this feature on a printer using a "probe:z_virtual_endstop" Z endstop (as the stepper phase is only stable if the endstop is at a static location on a rail).</li>
-<li>After calibrating the endstop phase, if the endstop is later moved or adjusted then it will be necessary to recalibrate the endstop. Remove the calibration data from the config file and rerun the steps above.</li>
-<li>In order to use this system the endstop must be accurate enough to identify the stepper position within two "full steps". So, for example, if a stepper is using 16 micro-steps with a step distance of 0.005mm then the endstop must have an accuracy of at least 0.160mm. If one gets "Endstop stepper_z incorrect phase" type error messages than in may be due to an endstop that is not sufficiently accurate. If recalibration does not help then disable endstop phase adjustments by removing them from the config file.</li>
-<li>If one is using a traditional stepper controlled Z axis (as on a cartesian or corexy printer) along with traditional bed leveling screws then it is also possible to use this system to arrange for each print layer to be performed on a "full step" boundary. To enable this feature be sure the G-Code slicer is configured with a layer height that is a multiple of a "full step", manually enable the endstop_align_zero option in the endstop_phase config section (see <a href="Config_Reference.html#endstop_phase">config reference</a> for further details), and then re-level the bed screws.</li>
-<li>It is possible to use this system with traditional (non-Trinamic) stepper motor drivers. However, doing this requires making sure that the stepper motor drivers are reset every time the micro-controller is reset. (If the two are always reset together then Klipper can determine the stepper phase by tracking the total number of steps it has commanded the stepper to move.) Currently, the only way to do this reliably is if both the micro-controller and stepper motor drivers are powered solely from USB and that USB power is provided from a host running on a Raspberry Pi. In this situation one can specify an mcu config with "restart_method: rpi_usb" - that option will arrange for the micro-controller to always be reset via a USB power reset, which would arrange for both the micro-controller and stepper motor drivers to be reset together. If using this mechanism, one would then need to manually configure the "trigger_phase" config sections (see <a href="Config_Reference.html#endstop_phase">config reference</a> for the details).</li>
+<li>Эта функция наиболее полезна на дельта-принтерах и на концевых упорах Z на картезианских/корексиальных принтерах. Можно использовать эту функцию на концевых упорах XY картриджного принтера, но это не особенно полезно, поскольку незначительная ошибка в положении концевого упора X/Y вряд ли повлияет на качество печати. Недопустимо использовать эту функцию для концевых упоров XY принтеров с корексией (так как положение XY не определяется одним шагом при корексиальной кинематике). Недопустимо использовать эту функцию на принтере, использующем концевой упор Z "probe:z_virtual_endstop" (так как фаза шага стабильна, только если концевой упор находится в статичном положении на рельсе).</li>
+<li>После калибровки фазы концевого упора, если впоследствии концевой упор будет перемещен или отрегулирован, необходимо будет повторно откалибровать концевой упор. Удалите данные калибровки из файла конфигурации и повторно выполните описанные выше действия.</li>
+<li>Для использования этой системы концевой упор должен быть достаточно точным, чтобы определить положение шагового механизма в пределах двух "полных шагов". Так, например, если шаговик использует 16 микрошагов с шаговым расстоянием 0,005 мм, то концевой упор должен иметь точность не менее 0,160 мм. Если появляются сообщения об ошибке типа "Endstop stepper_z incorrect phase", это может быть связано с недостаточно точным концевым упором. Если повторная калибровка не помогает, отключите регулировку фазы концевого ограничителя, удалив ее из файла конфигурации.</li>
+<li>Если используется традиционная ось Z с шаговым управлением (как на картезианском или корекси принтере) вместе с традиционными винтами для выравнивания ложа, то можно также использовать эту систему для организации выполнения каждого слоя печати на границе "полного шага". Чтобы включить эту функцию, убедитесь, что слайсер G-Code настроен на высоту слоя, кратную "полному шагу", вручную включите опцию endstop_align_zero в разделе конфигурации endstop_phase (подробности см. в <a href="Config_Reference.html#endstop_phase">config reference</a>), а затем снова выровняйте винты станины.</li>
+<li>Можно использовать эту систему с традиционными (нетринамическими) драйверами шаговых двигателей. Однако для этого необходимо убедиться, что драйверы шаговых двигателей сбрасываются каждый раз, когда сбрасывается микроконтроллер. (Если эти два устройства всегда сбрасываются вместе, то Klipper может определить фазу шагового двигателя, отслеживая общее количество шагов, на которое он дал команду шаговому двигателю). В настоящее время единственный способ сделать это надежно - если и микроконтроллер, и драйверы шаговых двигателей питаются исключительно от USB, а питание USB обеспечивается от хоста, работающего на Raspberry Pi. В такой ситуации можно указать в конфигурации mcu параметр "restart_method: rpi_usb" - этот параметр обеспечит сброс микроконтроллера через USB-питание, что позволит сбросить и микроконтроллер, и драйверы шагового двигателя вместе. При использовании этого механизма необходимо вручную настроить секции конфигурации "trigger_phase" (подробности см. в <a href="Config_Reference.html#endstop_phase">config reference</a>).</li>
 </ul>
 
               

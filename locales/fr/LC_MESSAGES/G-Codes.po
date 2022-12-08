@@ -1,17 +1,19 @@
 # Wivik <seb+weblate@zedas.fr>, 2021.
 # Tircown <tircown@gmail.com>, 2021.
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
+# Francis Poulizac <francis@poulizac.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-09-25 19:03+0000\n"
-"Last-Translator: Francis Poulizac <fpoulizac@vivaldi.net>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/g-codes/fr/>\n"
+"PO-Revision-Date: 2022-12-05 22:33+0000\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/g-codes/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -1121,7 +1123,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 12 (header)
 msgid "[adxl345]"
-msgstr ""
+msgstr "[adxl345]"
 
 #: docs/G-Codes.md:block 13 (paragraph)
 msgid ""
@@ -1162,7 +1164,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[bed_mesh]"
-msgstr ""
+msgstr "[bed_mesh]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
@@ -1208,7 +1210,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 36 (header)
 msgid "[bed_screws]"
-msgstr ""
+msgstr "[bed_screws]"
 
 #: docs/G-Codes.md:block 37 (paragraph)
 msgid ""
@@ -1223,7 +1225,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 40 (header)
 msgid "[bed_tilt]"
-msgstr ""
+msgstr "[bed_tilt]"
 
 #: docs/G-Codes.md:block 41 (paragraph)
 msgid ""
@@ -1237,7 +1239,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 44 (header)
 msgid "[bltouch]"
-msgstr ""
+msgstr "[bltouch]"
 
 #: docs/G-Codes.md:block 45 (paragraph)
 msgid ""
@@ -1277,7 +1279,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 54 (header)
 msgid "[delayed_gcode]"
-msgstr ""
+msgstr "[delayed_gcode]"
 
 #: docs/G-Codes.md:block 55 (paragraph)
 msgid ""
@@ -1336,7 +1338,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 71 (header)
 msgid "[dual_carriage]"
-msgstr ""
+msgstr "[dual_carriage]"
 
 #: docs/G-Codes.md:block 72 (paragraph)
 msgid ""
@@ -1350,7 +1352,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 75 (header)
 msgid "[endstop_phase]"
-msgstr ""
+msgstr "[endstop_phase]"
 
 #: docs/G-Codes.md:block 76 (paragraph)
 msgid ""
@@ -1365,7 +1367,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 79 (header)
 msgid "[extruder]"
-msgstr ""
+msgstr "[extruder]"
 
 #: docs/G-Codes.md:block 80 (paragraph)
 msgid ""
@@ -1423,7 +1425,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 97 (header)
 msgid "[firmware_retraction]"
-msgstr ""
+msgstr "[firmware_retraction]"
 
 #: docs/G-Codes.md:block 98 (paragraph)
 msgid ""
@@ -1477,7 +1479,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 114 (header)
 msgid "[force_move]"
-msgstr ""
+msgstr "[force_move]"
 
 #: docs/G-Codes.md:block 116 (header)
 msgid "STEPPER_BUZZ"
@@ -1517,11 +1519,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 132 (header)
 msgid "[gcode_arcs]"
-msgstr ""
+msgstr "[gcode_arcs]"
 
 #: docs/G-Codes.md:block 135 (header)
 msgid "[gcode_macro]"
-msgstr ""
+msgstr "[gcode_macro]"
 
 #: docs/G-Codes.md:block 136 (paragraph)
 msgid ""
@@ -1660,7 +1662,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 173 (header)
 msgid "[idle_timeout]"
-msgstr ""
+msgstr "[idle_timeout]"
 
 #: docs/G-Codes.md:block 174 (paragraph)
 msgid "The idle_timeout module is automatically loaded."
@@ -1672,7 +1674,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 177 (header)
 msgid "[input_shaper]"
-msgstr ""
+msgstr "[input_shaper]"
 
 #: docs/G-Codes.md:block 178 (paragraph)
 msgid ""
@@ -1790,7 +1792,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 221 (header)
 msgid "[pause_resume]"
-msgstr ""
+msgstr "[pause_resume]"
 
 #: docs/G-Codes.md:block 223 (header)
 msgid "PAUSE"
@@ -1810,7 +1812,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 231 (header)
 msgid "[probe]"
-msgstr ""
+msgstr "[probe]"
 
 #: docs/G-Codes.md:block 232 (paragraph)
 msgid ""
@@ -1864,7 +1866,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 252 (header)
 msgid "[resonance_tester]"
-msgstr ""
+msgstr "[resonance_tester]"
 
 #: docs/G-Codes.md:block 253 (paragraph)
 msgid ""
@@ -1887,7 +1889,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 260 (header)
 msgid "[respond]"
-msgstr ""
+msgstr "[respond]"
 
 #: docs/G-Codes.md:block 261 (paragraph)
 msgid ""
@@ -1908,7 +1910,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 266 (header)
 msgid "[save_variables]"
-msgstr ""
+msgstr "[save_variables]"
 
 #: docs/G-Codes.md:block 267 (paragraph)
 msgid ""
@@ -1922,7 +1924,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 270 (header)
 msgid "[screws_tilt_adjust]"
-msgstr ""
+msgstr "[screws_tilt_adjust]"
 
 #: docs/G-Codes.md:block 271 (paragraph)
 msgid ""
@@ -1938,7 +1940,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 274 (header)
 msgid "[sdcard_loop]"
-msgstr ""
+msgstr "[sdcard_loop]"
 
 #: docs/G-Codes.md:block 275 (paragraph)
 msgid ""
@@ -1980,7 +1982,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 286 (header)
 msgid "[skew_correction]"
-msgstr ""
+msgstr "[skew_correction]"
 
 #: docs/G-Codes.md:block 287 (paragraph)
 msgid ""
@@ -2134,7 +2136,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 323 (header)
 msgid "[virtual_sdcard]"
-msgstr ""
+msgstr "[virtual_sdcard]"
 
 #: docs/G-Codes.md:block 324 (paragraph)
 msgid ""
@@ -2168,7 +2170,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 331 (header)
 msgid "[z_tilt]"
-msgstr ""
+msgstr "[z_tilt]"
 
 #: docs/G-Codes.md:block 332 (paragraph)
 msgid ""
@@ -2207,7 +2209,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[angle]"
-msgstr ""
+msgstr "[angle]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""

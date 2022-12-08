@@ -1247,8 +1247,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#caveats" class="md-nav__link">
-    Caveats
+  <a href="#_3" class="md-nav__link">
+    Оговорки
   </a>
   
 </li>
@@ -1312,7 +1312,7 @@ Length AD = 99.8
 <div class="highlight"><pre><span></span><code>CALC_MEASURED_SKEW AC=&lt;ac_length&gt; BD=&lt;bd_length&gt; AD=&lt;ad_length&gt;
 </code></pre></div>
 
-<h2 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link">&para;</a></h2>
+<h2 id="_3">Оговорки<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>Due to the nature of skew correction it is recommended to configure skew in your start gcode, after homing and any kind of movement that travels near the edge of the print area such as a purge or nozzle wipe. You may use use the <code>SET_SKEW</code> or <code>SKEW_PROFILE</code> gcodes to accomplish this. It is also recommended to issue a <code>SET_SKEW CLEAR=1</code> in your end gcode.</p>
 <p>Keep in mind that it is possible for <code>[skew_correction]</code> to generate a correction that moves the tool beyond the printer's boundaries on the X and/or Y axes. It is recommended to arrange parts away from the edges when using <code>[skew_correction]</code>.</p>
 

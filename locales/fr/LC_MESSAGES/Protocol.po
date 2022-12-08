@@ -1,10 +1,11 @@
 # Nathan <bonnemainsnathan@gmail.com>, 2021.
 # Jonathan <jonathanhav09@sfr.fr>, 2022.
+# Francis Poulizac <francis@poulizac.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-24 21:48+0000\n"
-"Last-Translator: Jonathan <jonathanhav09@sfr.fr>\n"
+"PO-Revision-Date: 2022-12-05 22:33+0000\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/protocol/"
 "fr/>\n"
 "Language: fr\n"
@@ -13,7 +14,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.15-dev\n"
 
-#, fuzzy
 msgid ""
 "The Klipper messaging protocol is used for low-level communication between "
 "the Klipper host software and the Klipper micro-controller software. At a "
@@ -25,9 +25,9 @@ msgstr ""
 "Le protocole de messagerie Klipper est utilisé pour la communication de bas "
 "niveau entre le logiciel hôte Klipper et le logiciel du microcontrôleur "
 "Klipper. À un niveau élevé, le protocole peut être considéré comme une série "
-"de chaînes de commande et de réponse qui sont compressées, transmises, puis "
-"traitées du côté réception. Une série d'exemples de commandes dans un format "
-"lisible par l'homme non compressé pourrait ressembler à :"
+"de chaînes de commandes et de réponses qui sont compressées, transmises, "
+"puis traitées du côté réception. Un exemple d'une séries de commandes dans "
+"un format non compressé lisible par l'homme pourrait ressembler à :"
 
 msgid ""
 "See the [mcu commands](MCU_Commands.md) document for information on "

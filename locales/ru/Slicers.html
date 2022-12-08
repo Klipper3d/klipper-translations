@@ -1233,36 +1233,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#large-retraction-settings-may-require-tuning-klipper" class="md-nav__link">
-    Large retraction settings may require tuning Klipper
+  <a href="#_2" class="md-nav__link">
+    При больших настройках втягивания может потребоваться настройка клиппера
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#do-not-enable-coasting" class="md-nav__link">
-    Do not enable "coasting"
+  <a href="#_3" class="md-nav__link">
+    Не включайте "движение накатом"
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#do-not-use-extra-restart-distance-on-simplify3d" class="md-nav__link">
-    Do not use "extra restart distance" on Simplify3d
+  <a href="#simplify3d" class="md-nav__link">
+    Не используйте "дополнительное расстояние перезапуска" в Simplify3d
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#disable-preloadve-on-kisslicer" class="md-nav__link">
-    Disable "PreloadVE" on KISSlicer
+  <a href="#preloadve-kisslicer" class="md-nav__link">
+    Отключите "PreloadVE" в KISSlicer
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#disable-any-advanced-extruder-pressure-settings" class="md-nav__link">
-    Disable any "advanced extruder pressure" settings
+  <a href="#_4" class="md-nav__link">
+    Отключите все настройки "расширенного давления экструдера"
   </a>
   
 </li>
@@ -1289,24 +1289,24 @@
 <h2 id="g-marlin">Установите для G-кода значение Marlin<a class="headerlink" href="#g-marlin" title="Permanent link">&para;</a></h2>
 <p>Во многих слайсерах есть возможность настроить "предпочтение G-кода". По умолчанию часто используется "Marlin", и это хорошо работает с Klipper. Настройка "Smoothieware" также хорошо работает с Klipper.</p>
 <h2 id="klipper-gcode_macro">Klipper gcode_macro<a class="headerlink" href="#klipper-gcode_macro" title="Permanent link">&para;</a></h2>
-<p>Slicers will often allow one to configure "Start G-Code" and "End G-Code" sequences. It is often convenient to define custom macros in the Klipper config file instead - such as: <code>[gcode_macro START_PRINT]</code> and <code>[gcode_macro END_PRINT]</code>. Then one can just run START_PRINT and END_PRINT in the slicer's configuration. Defining these actions in the Klipper configuration may make it easier to tweak the printer's start and end steps as changes do not require re-slicing.</p>
-<p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> for example START_PRINT and END_PRINT macros.</p>
-<p>See the <a href="Config_Reference.html#gcode_macro">config reference</a> for details on defining a gcode_macro.</p>
-<h2 id="large-retraction-settings-may-require-tuning-klipper">Large retraction settings may require tuning Klipper<a class="headerlink" href="#large-retraction-settings-may-require-tuning-klipper" title="Permanent link">&para;</a></h2>
-<p>The maximum speed and acceleration of retraction moves are controlled in Klipper by the <code>max_extrude_only_velocity</code> and <code>max_extrude_only_accel</code> config settings. These settings have a default value that should work well on many printers. However, if one has configured a large retraction in the slicer (eg, 5mm or greater) then one may find they limit the desired speed of retractions.</p>
-<p>If using a large retraction, consider tuning Klipper's <a href="Pressure_Advance.html">pressure advance</a> instead. Otherwise, if one finds the toolhead seems to "pause" during retraction and priming, then consider explicitly defining <code>max_extrude_only_velocity</code> and <code>max_extrude_only_accel</code> in the Klipper config file.</p>
-<h2 id="do-not-enable-coasting">Do not enable "coasting"<a class="headerlink" href="#do-not-enable-coasting" title="Permanent link">&para;</a></h2>
-<p>The "coasting" feature is likely to result in poor quality prints with Klipper. Consider using Klipper's <a href="Pressure_Advance.html">pressure advance</a> instead.</p>
-<p>Specifically, if the slicer dramatically changes the extrusion rate between moves then Klipper will perform deceleration and acceleration between moves. This is likely to make blobbing worse, not better.</p>
-<p>In contrast, it is okay (and often helpful) to use a slicer's "retract" setting, "wipe" setting, and/or "wipe on retract" setting.</p>
-<h2 id="do-not-use-extra-restart-distance-on-simplify3d">Do not use "extra restart distance" on Simplify3d<a class="headerlink" href="#do-not-use-extra-restart-distance-on-simplify3d" title="Permanent link">&para;</a></h2>
-<p>This setting can cause dramatic changes to extrusion rates which can trigger Klipper's maximum extrusion cross-section check. Consider using Klipper's <a href="Pressure_Advance.html">pressure advance</a> or the regular Simplify3d retract setting instead.</p>
-<h2 id="disable-preloadve-on-kisslicer">Disable "PreloadVE" on KISSlicer<a class="headerlink" href="#disable-preloadve-on-kisslicer" title="Permanent link">&para;</a></h2>
-<p>If using KISSlicer slicing software then set "PreloadVE" to zero. Consider using Klipper's <a href="Pressure_Advance.html">pressure advance</a> instead.</p>
-<h2 id="disable-any-advanced-extruder-pressure-settings">Disable any "advanced extruder pressure" settings<a class="headerlink" href="#disable-any-advanced-extruder-pressure-settings" title="Permanent link">&para;</a></h2>
-<p>Some slicers advertise an "advanced extruder pressure" capability. It is recommended to keep these options disabled when using Klipper as they are likely to result in poor quality prints. Consider using Klipper's <a href="Pressure_Advance.html">pressure advance</a> instead.</p>
-<p>Specifically, these slicer settings can instruct the firmware to make wild changes to the extrusion rate in the hope that the firmware will approximate those requests and the printer will roughly obtain a desirable extruder pressure. Klipper, however, utilizes precise kinematic calculations and timing. When Klipper is commanded to make significant changes to the extrusion rate it will plan out the corresponding changes to velocity, acceleration, and extruder movement - which is not the slicer's intent. The slicer may even command excessive extrusion rates to the point that it triggers Klipper's maximum extrusion cross-section check.</p>
-<p>In contrast, it is okay (and often helpful) to use a slicer's "retract" setting, "wipe" setting, and/or "wipe on retract" setting.</p>
+<p>Часто слайсеры позволяют настраивать последовательности "Start G-Code" и "End G-Code". Часто вместо этого удобно определить пользовательские макросы в конфигурационном файле Klipper - например: <code>[gcode_macro START_PRINT]</code> и <code>[gcode_macro END_PRINT]</code>. Тогда можно просто выполнить START_PRINT и END_PRINT в конфигурации слайсера. Определение этих действий в конфигурации клиппера может облегчить настройку начального и конечного шагов принтера, поскольку изменения не требуют повторной нарезки.</p>
+<p>Примеры макросов START_PRINT и END_PRINT см. в <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a>.</p>
+<p>Подробнее об определении gcode_macro см. в <a href="Config_Reference.html#gcode_macro">config reference</a>.</p>
+<h2 id="_2">При больших настройках втягивания может потребоваться настройка клиппера<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Максимальная скорость и ускорение движений втягивания контролируются в Klipper настройками конфигурации <code>max_extrude_only_velocity</code> и <code>max_extrude_only_accel</code>. Эти параметры имеют значение по умолчанию, которое должно хорошо работать на многих принтерах. Однако если в слайсере настроено большое втягивание (например, 5 мм или более), то можно обнаружить, что они ограничивают желаемую скорость втягивания.</p>
+<p>Если используется большое втягивание, рассмотрите возможность настройки <a href="Pressure_Advance.html">опережения давления</a> Клиппера вместо этого. В противном случае, если вы обнаружите, что головка инструмента как бы "приостанавливается" во время втягивания и заливки, то подумайте о явном определении <code>max_extrude_only_velocity</code> и <code>max_extrude_only_accel</code> в конфигурационном файле Klipper.</p>
+<h2 id="_3">Не включайте "движение накатом"<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Функция "накатом", скорее всего, приведет к плохому качеству отпечатков с Klipper. Вместо этого используйте <a href="Pressure_Advance.html">pressure advance</a> от Klipper.</p>
+<p>В частности, если слайсер резко меняет скорость выдавливания между движениями, Klipper будет выполнять замедление и ускорение между движениями. Это, скорее всего, приведет к ухудшению, а не к улучшению качества.</p>
+<p>В отличие от этого, можно (и часто полезно) использовать настройки "втягивание", "протирка" и/или "протирка при втягивании" ломтерезки.</p>
+<h2 id="simplify3d">Не используйте "дополнительное расстояние перезапуска" в Simplify3d<a class="headerlink" href="#simplify3d" title="Permanent link">&para;</a></h2>
+<p>Эта настройка может привести к резким изменениям скорости экструзии, что может вызвать срабатывание проверки максимального сечения экструзии Klipper. Вместо этого используйте <a href="Pressure_Advance.html">pressure advance</a> или обычную настройку Simplify3d retract.</p>
+<h2 id="preloadve-kisslicer">Отключите "PreloadVE" в KISSlicer<a class="headerlink" href="#preloadve-kisslicer" title="Permanent link">&para;</a></h2>
+<p>Если используется программа для нарезки KISSlicer, установите "PreloadVE" на ноль. Вместо этого используйте <a href="Pressure_Advance.html">pressure advance</a> программы Klipper.</p>
+<h2 id="_4">Отключите все настройки "расширенного давления экструдера"<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Некоторые слайсеры рекламируют возможность "расширенного давления экструдера". При использовании Klipper рекомендуется отключать эти опции, так как они, скорее всего, приведут к плохому качеству отпечатков. Вместо этого используйте опцию Klipper <a href="Pressure_Advance.html">pressure advance</a>.</p>
+<p>В частности, эти настройки слайсера могут предписывать микропрограмме вносить дикие изменения в скорость экструзии в надежде, что микропрограмма приблизительно выполнит эти запросы и принтер примерно получит желаемое давление в экструдере. Klipper, однако, использует точные кинематические расчеты и синхронизацию. Когда Klipper получает команду внести значительные изменения в скорость экструзии, он планирует соответствующие изменения скорости, ускорения и движения экструдера, что не входит в намерения слайсера. Слайсер может даже задать чрезмерную скорость экструзии до такой степени, что сработает проверка Klipper на максимальное сечение экструзии.</p>
+<p>В отличие от этого, можно (и часто полезно) использовать настройки "втягивание", "протирка" и/или "протирка при втягивании" ломтерезки.</p>
 
               
             </article>

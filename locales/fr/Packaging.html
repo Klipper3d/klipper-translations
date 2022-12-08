@@ -1240,8 +1240,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-packaging-script" class="md-nav__link">
-    Sample packaging script
+  <a href="#exemple-de-script-de-precompilation" class="md-nav__link">
+    Exemple de script de précompilation
   </a>
   
 </li>
@@ -1266,12 +1266,12 @@
 <h1 id="packager-klipper">Packager Klipper<a class="headerlink" href="#packager-klipper" title="Permanent link">&para;</a></h1>
 <p>Klipper est en quelque sorte comme une anomalie de packaging au sein des programmes Python, car il ne requiert pas d'outils de configuration pour être construit et installé. Quelques notes en ce qui concerne comment package au mieux sont :</p>
 <h2 id="modules-c">Modules C<a class="headerlink" href="#modules-c" title="Permanent link">&para;</a></h2>
-<p>Klipper uses a C module to handle some kinematics calculations more quickly. This module needs to be compiled at packaging time to avoid introducing a runtime dependency on a compiler. To compile the C module, run <code>python2 klippy/chelper/__init__.py</code>.</p>
+<p>Klipper utilise un module en langage C pour gérer plus rapidement certains calculs cinématiques. Ce module doit être compilé au moment de l'empaquetage pour éviter d'introduire une dépendance d'exécution sur un compilateur. Pour compiler le module C, exécutez <code>python2 klippy/chelper/__init__.py</code>.</p>
 <h2 id="compiler-du-code-python">Compiler du code python<a class="headerlink" href="#compiler-du-code-python" title="Permanent link">&para;</a></h2>
-<p>Many distributions have a policy of compiling all python code before packaging to improve startup time. You can do this by running <code>python2 -m compileall klippy</code>.</p>
+<p>De nombreuses distributions compilent tout le code python avant de l'empaqueter pour améliorer le temps de démarrage. Vous pouvez le faire en exécutant <code>python2 -m compileall klippy</code>.</p>
 <h2 id="versionnage">Versionnage<a class="headerlink" href="#versionnage" title="Permanent link">&para;</a></h2>
-<p>If you are building a package of Klipper from git, it is usual practice not to ship a .git directory, so the versioning must be handled without git. To do this, use the script shipped in <code>scripts/make_version.py</code> which should be run as follows: <code>python2 scripts/make_version.py YOURDISTRONAME &gt; klippy/.version</code>.</p>
-<h2 id="sample-packaging-script">Sample packaging script<a class="headerlink" href="#sample-packaging-script" title="Permanent link">&para;</a></h2>
+<p>Si vous construisez un paquet de Klipper à partir de git, il est d'usage de ne pas envoyer de répertoire .git, donc la gestion des versions doit être gérée sans git. Pour ce faire, utilisez le script fourni dans <code>scripts/make_version.py</code> qui doit être exécuté comme suit : <code>python2 scripts/make_version.py YOURDISTRONAME &gt; klippy/.version</code>.</p>
+<h2 id="exemple-de-script-de-precompilation">Exemple de script de précompilation<a class="headerlink" href="#exemple-de-script-de-precompilation" title="Permanent link">&para;</a></h2>
 <p>klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git">Arch User Repositiory</a>.</p>
 
               
