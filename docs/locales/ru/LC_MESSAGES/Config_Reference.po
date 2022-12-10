@@ -1,16 +1,19 @@
 # Comocen <Comoc_en@mail.ru>, 2022.
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-16 16:17+0000\n"
-"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/config_reference/ru/>\n"
+"PO-Revision-Date: 2022-12-08 10:47+0000\n"
+"Last-Translator: Evgeniy Khramov <thejenjagamertjg@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"config_reference/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -61,7 +64,7 @@ msgid ""
 msgstr ""
 
 msgid "[mcu]"
-msgstr ""
+msgstr "[mcu]"
 
 msgid "Configuration of the primary micro-controller."
 msgstr ""
@@ -82,13 +85,13 @@ msgid "Common kinematic settings"
 msgstr ""
 
 msgid "[printer]"
-msgstr ""
+msgstr "[printer]"
 
 msgid "The printer section controls high level printer settings."
 msgstr ""
 
 msgid "[stepper]"
-msgstr ""
+msgstr "[stepper]"
 
 msgid ""
 "Stepper motor definitions. Different printer types (as specified by the "
@@ -236,10 +239,10 @@ msgid "Common extruder and heated bed support"
 msgstr ""
 
 msgid "[extruder]"
-msgstr ""
+msgstr "[extruder]"
 
 msgid "[heater_bed]"
-msgstr ""
+msgstr "[heater_bed]"
 
 msgid ""
 "The heater_bed section describes a heated bed. It uses the same heater "
@@ -250,7 +253,7 @@ msgid "Bed level support"
 msgstr ""
 
 msgid "[bed_mesh]"
-msgstr ""
+msgstr "[bed_mesh]"
 
 msgid ""
 "Mesh Bed Leveling. One may define a bed_mesh config section to enable move "
@@ -264,7 +267,7 @@ msgid "Visual Examples:"
 msgstr ""
 
 msgid "[bed_tilt]"
-msgstr ""
+msgstr "[bed_tilt]"
 
 msgid ""
 "Bed tilt compensation. One may define a bed_tilt config section to enable "
@@ -408,7 +411,7 @@ msgid "[input_shaper]"
 msgstr ""
 
 msgid "[adxl345]"
-msgstr ""
+msgstr "[adxl345]"
 
 msgid "[resonance_tester]"
 msgstr ""

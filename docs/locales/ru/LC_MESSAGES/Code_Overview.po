@@ -1,15 +1,18 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-16 16:17+0000\n"
-"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/code_overview/ru/>\n"
+"PO-Revision-Date: 2022-12-08 10:47+0000\n"
+"Last-Translator: Evgeniy Khramov <thejenjagamertjg@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"code_overview/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid ""
 "This document describes the overall code layout and major code flow of "
@@ -66,15 +69,17 @@ msgstr ""
 
 msgid ""
 "The **config/** directory contains example printer configuration files."
-msgstr ""
+msgstr "Каталог **config/** содержит примеры файлов конфигурации принтера."
 
 msgid ""
 "The **scripts/** directory contains build-time scripts useful for compiling "
 "the micro-controller code."
 msgstr ""
+"Каталог **scripts/** содержит скрипты времени сборки, полезные для "
+"компиляции кода микроконтроллера."
 
 msgid "The **test/** directory contains automated test cases."
-msgstr ""
+msgstr "Каталог **test/** содержит автоматизированные тестовые случаи."
 
 msgid ""
 "During compilation, the build may create an **out/** directory. This "
@@ -84,7 +89,7 @@ msgid ""
 msgstr ""
 
 msgid "Micro-controller code flow"
-msgstr ""
+msgstr "Поток кода микроконтроллера"
 
 msgid ""
 "Execution of the micro-controller code starts in architecture specific code "
@@ -134,7 +139,7 @@ msgid ""
 msgstr ""
 
 msgid "Klippy code overview"
-msgstr ""
+msgstr "Обзор кода Klippy"
 
 msgid ""
 "The host code (Klippy) is intended to run on a low-cost computer (such as a "
@@ -166,7 +171,7 @@ msgid ""
 msgstr ""
 
 msgid "Code flow of a move command"
-msgstr ""
+msgstr "Кодовый поток команды перемещения"
 
 msgid ""
 "A typical printer movement starts when a \"G1\" command is sent to the "
@@ -209,10 +214,12 @@ msgstr ""
 
 msgid "MoveQueue.add_move() places the move object on the \"look-ahead\" queue."
 msgstr ""
+"MoveQueue.add_move() помещает объект перемещения в очередь \"look-ahead\"."
 
 msgid ""
 "MoveQueue.flush() determines the start and end velocities of each move."
 msgstr ""
+"MoveQueue.flush() определяет начальную и конечную скорости каждого движения."
 
 msgid ""
 "Move.set_junction() implements the \"trapezoid generator\" on a move. The "
@@ -303,7 +310,7 @@ msgid ""
 msgstr ""
 
 msgid "Adding a host module"
-msgstr ""
+msgstr "Добавление хост-модуля"
 
 msgid ""
 "The Klippy host code has a dynamic module loading capability. If a config "
@@ -319,7 +326,7 @@ msgid ""
 msgstr ""
 
 msgid "The following may also be useful:"
-msgstr ""
+msgstr "Также может быть полезно следующее:"
 
 msgid ""
 "Execution of the module starts in the module level `load_config()` function "
@@ -418,7 +425,7 @@ msgid ""
 msgstr ""
 
 msgid "Adding new kinematics"
-msgstr ""
+msgstr "Добавление новой кинематики"
 
 msgid ""
 "This section provides some tips on adding support to Klipper for additional "
@@ -429,7 +436,7 @@ msgid ""
 msgstr ""
 
 msgid "Useful steps:"
-msgstr ""
+msgstr "Полезные шаги:"
 
 msgid ""
 "Start by studying the \"[code flow of a move](#code-flow-of-a-move-"
@@ -475,7 +482,7 @@ msgid ""
 msgstr ""
 
 msgid "Porting to a new micro-controller"
-msgstr ""
+msgstr "Перенос на новый микроконтроллер"
 
 msgid ""
 "This section provides some tips on porting Klipper's micro-controller code "
@@ -515,9 +522,10 @@ msgstr ""
 
 msgid "Consider adding build test cases in the test/ directory."
 msgstr ""
+"Рассмотрите возможность добавления тестовых примеров сборки в каталог test/."
 
 msgid "Coordinate Systems"
-msgstr ""
+msgstr "Системы координат"
 
 msgid ""
 "Internally, Klipper primarily tracks the position of the toolhead in "
@@ -593,7 +601,7 @@ msgid ""
 msgstr ""
 
 msgid "Time"
-msgstr ""
+msgstr "Время"
 
 msgid ""
 "Fundamental to the operation of Klipper is the handling of clocks, times, "
@@ -608,6 +616,8 @@ msgid ""
 "There are three types of times tracked internally in the Klipper host "
 "software:"
 msgstr ""
+"Существует три типа времени, отслеживаемых внутри программного обеспечения "
+"Klipper:"
 
 msgid ""
 "System time. The system time uses the system's monotonic clock - it is a "
@@ -648,6 +658,7 @@ msgstr ""
 
 msgid "Some things to be aware of when reviewing the code:"
 msgstr ""
+"Некоторые моменты, на которые следует обратить внимание при просмотре кода:"
 
 msgid ""
 "32bit and 64bit clocks: To reduce bandwidth and to improve micro-controller "
@@ -687,7 +698,7 @@ msgstr ""
 
 #: docs/Code_Overview.md:block 1 (header)
 msgid "Code overview"
-msgstr ""
+msgstr "Обзор кода"
 
 #: docs/Code_Overview.md:block 43 (paragraph)
 msgid ""
@@ -771,7 +782,7 @@ msgstr ""
 
 #: docs/Code_Overview.md:block 39 (paragraph)
 msgid "Additional coding tips:"
-msgstr ""
+msgstr "Дополнительные советы по кодированию:"
 
 #: docs/Code_Overview.md:block 40 (ordered list)
 msgid ""
