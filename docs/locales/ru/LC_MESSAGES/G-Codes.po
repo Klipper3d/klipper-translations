@@ -1,15 +1,18 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-16 16:17+0000\n"
-"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/g-codes/ru/>\n"
+"PO-Revision-Date: 2022-12-08 10:47+0000\n"
+"Last-Translator: Evgeniy Khramov <thejenjagamertjg@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/g-codes/"
+"ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #, fuzzy
 msgid ""
@@ -714,7 +717,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 1 (header)
 msgid "G-Codes"
-msgstr ""
+msgstr "G-коды"
 
 #: docs/G-Codes.md:block 29 (unordered list)
 msgid ""
@@ -798,7 +801,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 12 (header)
 msgid "[adxl345]"
-msgstr ""
+msgstr "[adxl345]"
 
 #: docs/G-Codes.md:block 13 (paragraph)
 msgid ""
@@ -839,7 +842,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[bed_mesh]"
-msgstr ""
+msgstr "[bed_mesh]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
@@ -900,7 +903,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 40 (header)
 msgid "[bed_tilt]"
-msgstr ""
+msgstr "[bed_tilt]"
 
 #: docs/G-Codes.md:block 41 (paragraph)
 msgid ""
@@ -1042,7 +1045,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 79 (header)
 msgid "[extruder]"
-msgstr ""
+msgstr "[extruder]"
 
 #: docs/G-Codes.md:block 80 (paragraph)
 msgid ""

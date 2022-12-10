@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-07 05:47+0000\n"
+"PO-Revision-Date: 2022-12-08 10:47+0000\n"
 "Last-Translator: Evgeniy Khramov <thejenjagamertjg@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "resonance_compensation/ru/>\n"
@@ -67,7 +67,7 @@ msgstr ""
 "stepper drivers."
 
 msgid "Tuning"
-msgstr ""
+msgstr "Тюнинг"
 
 msgid ""
 "Slice the ringing test model, which can be found in "
