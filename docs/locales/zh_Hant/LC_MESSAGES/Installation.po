@@ -1,16 +1,18 @@
 # Fred Chan <fred2088@gmail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Dysen Chi <dysen@3dprow.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-02 07:24+0000\n"
-"Last-Translator: Fred Chan <fred2088@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/klipper/installation/zh_Hant/>\n"
+"PO-Revision-Date: 2022-12-10 06:49+0000\n"
+"Last-Translator: Dysen Chi <dysen@3dprow.com>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"klipper/installation/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 msgid ""
 "These instructions assume the software will run on a Raspberry Pi computer "
@@ -22,7 +24,7 @@ msgstr ""
 "i-run-klipper-on-something-other-than-a-raspberry-pi-3)）。"
 
 msgid "Prepping an OS image"
-msgstr "準備操作系統映象"
+msgstr "準備作業系統映象"
 
 msgid ""
 "After installing OctoPi and upgrading OctoPrint, it will be necessary to ssh"
