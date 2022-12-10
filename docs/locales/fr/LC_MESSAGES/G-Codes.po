@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-05 22:33+0000\n"
+"PO-Revision-Date: 2022-12-10 06:49+0000\n"
 "Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/g-codes/"
 "fr/>\n"
@@ -1313,7 +1313,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 64 (header)
 msgid "[display]"
-msgstr ""
+msgstr "[display]"
 
 #: docs/G-Codes.md:block 65 (paragraph)
 msgid ""
@@ -1405,7 +1405,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 93 (header)
 msgid "[fan_generic]"
-msgstr ""
+msgstr "[fan_generic]"
 
 #: docs/G-Codes.md:block 94 (paragraph)
 msgid ""
@@ -1452,7 +1452,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 105 (header)
 msgid "[filament_switch_sensor]"
-msgstr ""
+msgstr "[filament_switch_sensor]"
 
 #: docs/G-Codes.md:block 106 (paragraph)
 msgid ""
@@ -1562,7 +1562,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 149 (header)
 msgid "[hall_filament_width_sensor]"
-msgstr ""
+msgstr "[hall_filament_width_sensor]"
 
 #: docs/G-Codes.md:block 150 (paragraph)
 msgid ""
@@ -1709,7 +1709,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 190 (header)
 msgid "[manual_stepper]"
-msgstr ""
+msgstr "[manual_stepper]"
 
 #: docs/G-Codes.md:block 191 (paragraph)
 msgid ""
@@ -2264,7 +2264,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 199 (header)
 msgid "[led]"
-msgstr ""
+msgstr "[led]"
 
 #: docs/G-Codes.md:block 200 (paragraph)
 msgid ""
@@ -2373,7 +2373,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 87 (header)
 msgid "[exclude_object]"
-msgstr ""
+msgstr "[exclude_object]"
 
 #: docs/G-Codes.md:block 88 (paragraph)
 msgid ""
@@ -2589,7 +2589,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 218 (header)
 msgid "[mcp4018]"
-msgstr ""
+msgstr "[mcp4018]"
 
 #: docs/G-Codes.md:block 219 (paragraph)
 msgid ""
