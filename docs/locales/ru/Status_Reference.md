@@ -14,7 +14,7 @@ The following information is available in [angle some_name](Config_Reference.md#
 
 Следующая информация доступна в объекте [bed_mesh](Config_Reference.md#bed_mesh):
 
-- `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: Information on the currently active bed_mesh.
+- `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: Информация о текущей активной сетке bed_mesh.
 - `profiles`: The set of currently defined profiles as setup using BED_MESH_PROFILE.
 
 ## bed_screws
@@ -28,28 +28,28 @@ The following information is available in the `Config_Reference.md#bed_screws` o
 
 ## configfile
 
-The following information is available in the `configfile` object (this object is always available):
+Следующая информация доступна в объекте `configfile` (этот объект всегда доступен):
 
-- `settings.<section>.<option>`: Returns the given config file setting (or default value) during the last software start or restart. (Any settings changed at run-time will not be reflected here.)
-- `config.<section>.<option>`: Returns the given raw config file setting as read by Klipper during the last software start or restart. (Any settings changed at run-time will not be reflected here.) All values are returned as strings.
+- `settings.<section>.<option>`: Возвращает заданную настройку файла конфигурации (или значение по умолчанию) во время последнего запуска или перезапуска программы. (Любые настройки, измененные во время выполнения, не будут отражены здесь.)
+- `config.<section>.<option>`: Возвращает заданные необработанные настройки конфигурационного файла, считанные Klipper во время последнего запуска или перезапуска программы. (Любые настройки, измененные во время выполнения, не будут отражены здесь). Все значения возвращаются в виде строк.
 - `save_config_pending`: Returns true if there are updates that a `SAVE_CONFIG` command may persist to disk.
 - `save_config_pending_items`: Contains the sections and options that were changed and would be persisted by a `SAVE_CONFIG`.
 - `warnings`: A list of warnings about config options. Each entry in the list will be a dictionary containing a `type` and `message` field (both strings). Additional fields may be available depending on the type of warning.
 
 ## display_status
 
-The following information is available in the `display_status` object (this object is automatically available if a [display](Config_Reference.md#display) config section is defined):
+Следующая информация доступна в объекте `display_status` (этот объект автоматически доступен, если определен раздел конфигурации [display](Config_Reference.md#display)):
 
-- `progress`: The progress value of the last `M73` G-Code command (or `virtual_sdcard.progress` if no recent `M73` received).
-- `message`: The message contained in the last `M117` G-Code command.
+- `progress`: Значение прогресса последней `M73` команды G-Code (или `virtual_sdcard.progress`, если не получена последняя `M73` команда).
+- `сообщение`: Сообщение, содержащееся в последней `M117` команде G-кода.
 
 ## endstop_phase
 
-The following information is available in the [endstop_phase](Config_Reference.md#endstop_phase) object:
+Следующая информация доступна в объекте [endstop_phase](Config_Reference.md#endstop_phase):
 
-- `last_home.<stepper name>.phase`: The phase of the stepper motor at the end of the last home attempt.
-- `last_home.<stepper name>.phases`: The total number of phases available on the stepper motor.
-- `last_home.<stepper name>.mcu_position`: The position (as tracked by the micro-controller) of the stepper motor at the end of the last home attempt. The position is the total number of steps taken in a forward direction minus the total number of steps taken in the reverse direction since the micro-controller was last restarted.
+- `last_home.<имя шагового двигателя>.phase`: Фаза шагового двигателя в конце последней попытки возврата домой.
+- `last_home.<имя шагового двигателя>.phases`: Общее количество фаз, доступных на шаговом двигателе.
+- `last_home.<имя шагового двигателя>.mcu_position`: Положение (отслеживаемое микроконтроллером) шагового двигателя в конце последней попытки возврата домой. Позиция - это общее количество шагов, сделанных в прямом направлении, минус общее количество шагов, сделанных в обратном направлении с момента последнего перезапуска микроконтроллера.
 
 ## exclude_object
 

@@ -12,7 +12,7 @@
 
 也可以從頭開始定義新的打印機配置。但是，這需要有關打印機及其電子設備的大量技術知識。建議大多數用戶從適當的配置文件開始。如果創建新的自定義打印機配置文件，請從最接近的示例 [config file](../config/) 開始，並使用 Klipper [config reference](Config_Reference.md) 獲取更多信息。
 
-## 準備操作系統映象
+## 準備作業系統映象
 
 先在樹莓派上安裝 [OctoPi](https://github.com/guysoft/OctoPi)。請使用OctoPi v0.17.0或更高版本，檢視 [Octopi 發行版](https://github.com/guysoft/OctoPi/releases)來獲取最新發布版本。安裝完系統后，請先驗證 OctoPi 能正常啟動，並且 OctoPrint 網路伺服器正常執行。連線到 OctoPrint 網頁后，按照提示將 OctoPrint 更新到v1.4.2或更高版本。
 
