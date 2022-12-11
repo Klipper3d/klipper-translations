@@ -13,7 +13,7 @@
     
     
       
-        <title>Probe calibration - Klipper documentation</title>
+        <title>Étalonnage de la sonde - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#probe-calibration" class="md-skip">
+        <a href="#etalonnage-de-la-sonde" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Probe calibration
+              Étalonnage de la sonde
             
           </span>
         </div>
@@ -1226,29 +1226,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#calibrating-probe-z-offset" class="md-nav__link">
-    Calibrating probe Z offset
+  <a href="#etalonnage-de-loffset-z-de-la-sonde" class="md-nav__link">
+    Étalonnage de l'offset Z de la sonde
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#repeatability-check" class="md-nav__link">
-    Repeatability check
+  <a href="#controle-de-repetabilite" class="md-nav__link">
+    Contrôle de répétabilité
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#location-bias-check" class="md-nav__link">
-    Location Bias Check
+  <a href="#verification-des-erreurs-de-localisation" class="md-nav__link">
+    Vérification des erreurs de localisation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#temperature-bias" class="md-nav__link">
-    Temperature Bias
+  <a href="#erreurs-de-temperature" class="md-nav__link">
+    Erreurs de température
   </a>
   
 </li>
@@ -1270,40 +1270,40 @@
 </a>
 
 
-<h1 id="probe-calibration">Probe calibration<a class="headerlink" href="#probe-calibration" title="Permanent link">&para;</a></h1>
-<p>This document describes the method for calibrating the X, Y, and Z offsets of an "automatic z probe" in Klipper. This is useful for users that have a <code>[probe]</code> or <code>[bltouch]</code> section in their config file.</p>
+<h1 id="etalonnage-de-la-sonde">Étalonnage de la sonde<a class="headerlink" href="#etalonnage-de-la-sonde" title="Permanent link">&para;</a></h1>
+<p>Ce document décrit la méthode de réglage des décalages X, Y et Z d'une "sonde z automatique" dans Klipper. Ceci est utile pour les utilisateurs qui ont une section <code>[probe]</code> ou <code>[bltouch]</code> dans leur fichier de configuration.</p>
 <h2 id="etalonnage-des-decalages-x-et-y-de-la-sonde">Étalonnage des décalages X et Y de la sonde<a class="headerlink" href="#etalonnage-des-decalages-x-et-y-de-la-sonde" title="Permanent link">&para;</a></h2>
-<p>To calibrate the X and Y offset, navigate to the OctoPrint "Control" tab, home the printer, and then use the OctoPrint jogging buttons to move the head to a position near the center of the bed.</p>
-<p>Place a piece of blue painters tape (or similar) on the bed underneath the probe. Navigate to the OctoPrint "Terminal" tab and issue a PROBE command:</p>
-<div class="highlight"><pre><span></span><code>PROBE
+<p>Pour calibrer le décalage X et Y, accédez à l'onglet "Contrôle" d'OctoPrint, placez l'imprimante à l'origine, puis utilisez les flèches de déplacement pour amener la tête vers une position proche du centre du lit.</p>
+<p>Placez un morceau de ruban adhésif bleu (ou similaire) sur le lit sous la sonde. Accédez à l'onglet "Terminal" d'OctoPrint et lancez une commande PROBE :</p>
+<div class="highlight"><pre><span></span><code>SONDE
 </code></pre></div>
 
-<p>Place a mark on the tape directly under where the probe is (or use a similar method to note the location on the bed).</p>
-<p>Issue a <code>GET_POSITION</code> command and record the toolhead XY location reported by that command. For example if one sees:</p>
+<p>Placez une marque sur le ruban directement sous l'endroit où se trouve la sonde (ou utilisez une méthode similaire pour noter l'emplacement sur le lit).</p>
+<p>Exécutez une commande <code>GET_POSITION</code> et enregistrez l'emplacement XY de la tête d'outil signalé par cette commande. Par exemple si l'on voit :</p>
 <div class="highlight"><pre><span></span><code>Recv: // toolhead: X:46.500000 Y:27.000000 Z:15.000000 E:0.000000
 </code></pre></div>
 
-<p>then one would record a probe X position of 46.5 and probe Y position of 27.</p>
-<p>After recording the probe position, issue a series of G1 commands until the nozzle is directly above the mark on the bed. For example, one might issue:</p>
+<p>La position d l a sonde serait de 46,5 en X et de 27 en Y.</p>
+<p>Après avoir enregistré la position de la sonde, lancez une série de commandes G1 jusqu'à ce que la buse soit directement au-dessus de la marque sur le lit. Par exemple, on pourrait lancer :</p>
 <div class="highlight"><pre><span></span><code>G1 F300 X57 Y30 Z15
 </code></pre></div>
 
-<p>to move the nozzle to an X position of 57 and Y of 30. Once one finds the position directly above the mark, use the <code>GET_POSITION</code> command to report that position. This is the nozzle position.</p>
-<p>The x_offset is then the <code>nozzle_x_position - probe_x_position</code> and y_offset is similarly the <code>nozzle_y_position - probe_y_position</code>. Update the printer.cfg file with the given values, remove the tape/marks from the bed, and then issue a <code>RESTART</code> command so that the new values take effect.</p>
-<h2 id="calibrating-probe-z-offset">Calibrating probe Z offset<a class="headerlink" href="#calibrating-probe-z-offset" title="Permanent link">&para;</a></h2>
-<p>Providing an accurate probe z_offset is critical to obtaining high quality prints. The z_offset is the distance between the nozzle and bed when the probe triggers. The Klipper <code>PROBE_CALIBRATE</code> tool can be used to obtain this value - it will run an automatic probe to measure the probe's Z trigger position and then start a manual probe to obtain the nozzle Z height. The probe z_offset will then be calculated from these measurements.</p>
-<p>Start by homing the printer and then move the head to a position near the center of the bed. Navigate to the OctoPrint terminal tab and run the <code>PROBE_CALIBRATE</code> command to start the tool.</p>
-<p>This tool will perform an automatic probe, then lift the head, move the nozzle over the location of the probe point, and start the manual probe tool. If the nozzle does not move to a position above the automatic probe point, then <code>ABORT</code> the manual probe tool and perform the XY probe offset calibration described above.</p>
-<p>Once the manual probe tool starts, follow the steps described at <a href="Bed_Level.html#the-paper-test">"the paper test"</a>) to determine the actual distance between the nozzle and bed at the given location. Once those steps are complete one can <code>ACCEPT</code> the position and save the results to the config file with:</p>
+<p>pour déplacer la buse vers une position X de 57 et Y de 30. Une fois que l'on a trouvé la position directement au-dessus de la marque, utilisez la commande <code>GET_POSITION</code> pour afficher cette position. C'est la position de la buse.</p>
+<p>Le x_offset est alors la <code>nozzle_x_position - probe_x_position</code> et y_offset est de même la <code>nozzle_y_position - probe_y_position</code>. Mettez à jour le fichier printer.cfg avec les valeurs données, retirez la bande/les marques du lit, puis émettez une commande <code>RESTART</code> afin que les nouvelles valeurs prennent effet.</p>
+<h2 id="etalonnage-de-loffset-z-de-la-sonde">Étalonnage de l'offset Z de la sonde<a class="headerlink" href="#etalonnage-de-loffset-z-de-la-sonde" title="Permanent link">&para;</a></h2>
+<p>Avoir un z offset précis est essentiel pour obtenir des impressions de haute qualité. Le z_offset est la distance entre la buse et le lit lorsque la sonde se déclenche. L'outil Klipper <code>PROBE_CALIBRATE</code> peut être utilisé pour obtenir cette valeur - il exécutera un sondage automatique pour mesurer la position de déclenchement Z de la sonde, puis démarrera un sondage manuel pour obtenir la hauteur Z de la buse. Le z_offset sera alors calculée à partir de ces mesures.</p>
+<p>Commencez par mettre l'imprimante à l'origine, puis déplacez la tête vers une position proche du centre du lit. Accédez à l'onglet du terminal OctoPrint et exécutez la commande <code>PROBE_CALIBRATE</code> pour démarrer l'outil.</p>
+<p>Cet outil effectuera un sondage automatique, puis soulèvera la tête, déplacera la buse sur l'emplacement du point de sonde et démarrera l'outil de sondage manuel. Si la buse ne se déplace pas vers une position au-dessus du point de sonde automatique, tapez <code>ABORT</code> pour annuler le sondage manuel et effectuez l'étalonnage de décalage de sonde XY décrit ci-dessus.</p>
+<p>Une fois que l'outil de sondage manuel démarre, suivez les étapes décrites dans <a href="Bed_Level.html#the-paper-test">"le test du papier"</a>) pour déterminer la distance réelle entre la buse et le lit à l'emplacement donné. Une fois ces étapes terminées, vous pouvez taper <code>ACCEPT</code> pour enregistrer les résultats dans le fichier de configuration avec :</p>
 <div class="highlight"><pre><span></span><code>SAVE_CONFIG
 </code></pre></div>
 
-<p>Note that if a change is made to the printer's motion system, hotend position, or probe location then it will invalidate the results of PROBE_CALIBRATE.</p>
-<p>If the probe has an X or Y offset and the bed tilt is changed (eg, by adjusting bed screws, running DELTA_CALIBRATE, running Z_TILT_ADJUST, running QUAD_GANTRY_LEVEL, or similar) then it will invalidate the results of PROBE_CALIBRATE. After making any of the above adjustments it will be necessary to run PROBE_CALIBRATE again.</p>
-<p>If the results of PROBE_CALIBRATE are invalidated, then any previous <a href="Bed_Mesh.html">bed mesh</a> results that were obtained using the probe are also invalidated - it will be necessary to rerun BED_MESH_CALIBRATE after recalibrating the probe.</p>
-<h2 id="repeatability-check">Repeatability check<a class="headerlink" href="#repeatability-check" title="Permanent link">&para;</a></h2>
-<p>After calibrating the probe X, Y, and Z offsets it is a good idea to verify that the probe provides repeatable results. Start by homing the printer and then move the head to a position near the center of the bed. Navigate to the OctoPrint terminal tab and run the <code>PROBE_ACCURACY</code> command.</p>
-<p>This command will run the probe ten times and produce output similar to the following:</p>
+<p>Notez que si une modification est apportée au système de mouvement de l'imprimante, à la position de la hotend ou à l'emplacement de la sonde, cela invalidera les résultats de PROBE_CALIBRATE.</p>
+<p>Si la sonde a un décalage X ou Y et que l'inclinaison du lit est modifiée (par exemple, en ajustant les vis du lit, en exécutant DELTA_CALIBRATE, en exécutant Z_TILT_ADJUST, en exécutant QUAD_GANTRY_LEVEL, ou similaire), les résultats de PROBE_CALIBRATE seront invalidés. Après avoir effectué l'un des ajustements ci-dessus, il sera nécessaire d'exécuter à nouveau PROBE_CALIBRATE.</p>
+<p>Si les résultats de PROBE_CALIBRATE sont invalidés, tous les résultats précédents <a href="Bed_Mesh.html">bed mesh</a> qui ont été obtenus à l'aide de la sonde sont également invalidés - il sera nécessaire de réexécuter BED_MESH_CALIBRATE après avoir recalibré la sonde.</p>
+<h2 id="controle-de-repetabilite">Contrôle de répétabilité<a class="headerlink" href="#controle-de-repetabilite" title="Permanent link">&para;</a></h2>
+<p>Après avoir calibré les décalages X, Y et Z de la sonde, il est conseillé de vérifier que la sonde fournit des résultats reproductibles. Commencez par mettre l'imprimante à l'origine, puis déplacez la tête vers une position proche du centre du lit. Accédez à l'onglet du terminal OctoPrint et exécutez la commande <code>PROBE_ACCURACY</code>.</p>
+<p>Cette commande exécutera le sondage dix fois et produira une sortie semblable à la suivante :</p>
 <div class="highlight"><pre><span></span><code>Recv: // probe accuracy: at X:0.000 Y:0.000 Z:10.000
 Recv: // and read 10 times with speed of 5 mm/s
 Recv: // probe at -0.003,0.005 is z=2.506948
@@ -1319,20 +1319,20 @@ Recv: // probe at -0.003,0.005 is z=2.506948
 Recv: // probe accuracy results: maximum 2.519448, minimum 2.506948, range 0.012500, average 2.513198, median 2.513198, standard deviation 0.006250
 </code></pre></div>
 
-<p>Ideally the tool will report an identical maximum and minimum value. (That is, ideally the probe obtains an identical result on all ten probes.) However, it's normal for the minimum and maximum values to differ by one Z "step distance" or up to 5 microns (.005mm). A "step distance" is <code>rotation_distance/(full_steps_per_rotation*microsteps)</code>. The distance between the minimum and the maximum value is called the range. So, in the above example, since the printer uses a Z step distance of .0125, a range of 0.012500 would be considered normal.</p>
-<p>If the results of the test show a range value that is greater than 25 microns (.025mm) then the probe does not have sufficient accuracy for typical bed leveling procedures. It may be possible to tune the probe speed and/or probe start height to improve the repeatability of the probe. The <code>PROBE_ACCURACY</code> command allows one to run tests with different parameters to see their impact - see the <a href="G-Codes.html#probe_accuracy">G-Codes document</a> for further details. If the probe generally obtains repeatable results but has an occasional outlier, then it may be possible to account for that by using multiple samples on each probe - read the description of the probe <code>samples</code> config parameters in the <a href="Config_Reference.html#probe">config reference</a> for more details.</p>
-<p>If new probe speed, samples count, or other settings are needed, then update the printer.cfg file and issue a <code>RESTART</code> command. If so, it is a good idea to <a href="#calibrating-probe-z-offset">calibrate the z_offset</a> again. If repeatable results can not be obtained then don't use the probe for bed leveling. Klipper has several manual probing tools that can be used instead - see the <a href="Bed_Level.html">Bed Level document</a> for further details.</p>
-<h2 id="location-bias-check">Location Bias Check<a class="headerlink" href="#location-bias-check" title="Permanent link">&para;</a></h2>
-<p>Some probes can have a systemic bias that corrupts the results of the probe at certain toolhead locations. For example, if the probe mount tilts slightly when moving along the Y axis then it could result in the probe reporting biased results at different Y positions.</p>
-<p>This is a common issue with probes on delta printers, however it can occur on all printers.</p>
-<p>One can check for a location bias by using the <code>PROBE_CALIBRATE</code> command to measuring the probe z_offset at various X and Y locations. Ideally, the probe z_offset would be a constant value at every printer location.</p>
-<p>For delta printers, try measuring the z_offset at a position near the A tower, at a position near the B tower, and at a position near the C tower. For cartesian, corexy, and similar printers, try measuring the z_offset at positions near the four corners of the bed.</p>
-<p>Before starting this test, first calibrate the probe X, Y, and Z offsets as described at the beginning of this document. Then home the printer and navigate to the first XY position. Follow the steps at <a href="#calibrating-probe-z-offset">calibrating probe Z offset</a> to run the <code>PROBE_CALIBRATE</code> command, <code>TESTZ</code> commands, and <code>ACCEPT</code> command, but do not run <code>SAVE_CONFIG</code>. Note the reported z_offset found. Then navigate to the other XY positions, repeat these <code>PROBE_CALIBRATE</code> steps, and note the reported z_offset.</p>
-<p>If the difference between the minimum reported z_offset and the maximum reported z_offset is greater than 25 microns (.025mm) then the probe is not suitable for typical bed leveling procedures. See the <a href="Bed_Level.html">Bed Level document</a> for manual probe alternatives.</p>
-<h2 id="temperature-bias">Temperature Bias<a class="headerlink" href="#temperature-bias" title="Permanent link">&para;</a></h2>
-<p>Many probes have a systemic bias when probing at different temperatures. For example, the probe may consistently trigger at a lower height when the probe is at a higher temperature.</p>
-<p>It is recommended to run the bed leveling tools at a consistent temperature to account for this bias. For example, either always run the tools when the printer is at room temperature, or always run the tools after the printer has obtained a consistent print temperature. In either case, it is a good idea to wait several minutes after the desired temperature is reached, so that the printer apparatus is consistently at the desired temperature.</p>
-<p>To check for a temperature bias, start with the printer at room temperature and then home the printer, move the head to a position near the center of the bed, and run the <code>PROBE_ACCURACY</code> command. Note the results. Then, without homing or disabling the stepper motors, heat the printer nozzle and bed to printing temperature, and run the <code>PROBE_ACCURACY</code> command again. Ideally, the command will report identical results. As above, if the probe does have a temperature bias then be careful to always use the probe at a consistent temperature.</p>
+<p>Idéalement, l'outil rapportera une valeur maximale et minimale identique. (C'est-à-dire que, idéalement, la sonde obtient un résultat identique sur les dix sondes.) Cependant, il est normal que les valeurs minimale et maximale diffèrent d'une "distance de pas" Z ou jusqu'à 5 microns (0,005 mm). Une "distance de pas" est <code>distance_rotation/(full_steps_per_rotation*microsteps)</code>. La distance entre la valeur minimale et la valeur maximale s'appelle la plage. Ainsi, dans l'exemple ci-dessus, étant donné que l'imprimante utilise une distance de pas Z de 0,0125, une plage de 0,012500 serait considérée comme normale.</p>
+<p>Si les résultats du test indiquent une plage de valeur supérieure à 25 microns (0,025 mm), la sonde n'a pas une précision suffisante pour les procédures de nivellement de lit typiques. Il peut être possible de régler la vitesse de la sonde et/ou la hauteur de départ de la sonde pour améliorer la répétabilité de la sonde. La commande <code>PROBE_ACCURACY</code> permet d'exécuter des tests avec différents paramètres pour voir leur impact - voir le <a href="G-Codes.html#probe_accuracy">document G-Codes</a> pour plus de détails. Si la sonde obtient généralement des résultats reproductibles mais présente une valeur aberrante occasionnelle, il peut être possible d'en tenir compte en utilisant plusieurs échantillons sur chaque sonde - lisez la description des paramètres de configuration de la sonde <code>samples</code> dans la <a href="Config_Reference.html#probe">référence de configuration </a> pour plus de détails.</p>
+<p>Si une nouvelle vitesse de sondage, un nouveau nombre d'échantillons ou d'autres paramètres sont nécessaires, mettez à jour le fichier printer.cfg et lancez une commande <code>RESTART</code>. Si c'est le cas, c'est une bonne idée de <a href="#calibrating-probe-z-offset">calibrer le z_offset</a> à nouveau. Si des résultats reproductibles ne peuvent pas être obtenus, n'utilisez pas la sonde pour le nivellement du lit. Klipper dispose de plusieurs outils de sondage manuels qui peuvent être utilisés à la place - voir le <a href="Bed_Level.html">Mise à niveau du lit</a> pour plus de détails.</p>
+<h2 id="verification-des-erreurs-de-localisation">Vérification des erreurs de localisation<a class="headerlink" href="#verification-des-erreurs-de-localisation" title="Permanent link">&para;</a></h2>
+<p>Certaines sondes peuvent avoir une erreur systémique qui corrompt les résultats de la sonde à certains emplacements de la tête d'outil. Par exemple, si le support de la sonde s'incline légèrement lorsqu'il se déplace le long de l'axe Y, la sonde peut alors signaler des résultats faussés à différentes positions Y.</p>
+<p>Il s'agit d'un problème courant avec les sondes sur les imprimantes delta, mais il peut se produire sur toutes les imprimantes.</p>
+<p>On peut vérifier une erreur d'emplacement en utilisant la commande <code>PROBE_CALIBRATE</code> pour mesurer le décalage z_offset de la sonde à divers emplacements X et Y. Idéalement, le z_offset serait une valeur constante à chaque emplacement d'imprimante.</p>
+<p>Pour les imprimantes delta, essayez de mesurer le z_offset à une position proche de la tour A, à une position proche de la tour B et à une position proche de la tour C. Pour les imprimantes cartésiennes, corexy et similaires, essayez de mesurer le z_offset à des positions proches des quatre coins du lit.</p>
+<p>Avant de commencer ce test, calibrez d'abord les décalages X, Y et Z de la sonde comme décrit au début de ce document. Remettez ensuite l'imprimante à l'origine et naviguez jusqu'à la première position XY. Suivez les étapes de <a href="#calibrating-probe-z-offset">calibrer le décalage en Z de la sonde</a> en exécutant la commande <code>PROBE_CALIBRATE</code>, les commandes <code>TESTZ</code> et la commande <code>ACCEPT</code>. , mais n'exécutez pas <code>SAVE_CONFIG</code>. Notez le rapport z_offset trouvé. Naviguez ensuite vers les autres positions XY, répétez ces étapes <code>PROBE_CALIBRATE</code> et notez le décalage z signalé.</p>
+<p>Si la différence entre le décalage z_offset minimum signalé et le décalage z_maximum signalé est supérieure à 25 microns (0,025 mm), la sonde n'est pas adaptée aux procédures de nivellement de lit typiques. Voir le <a href="Bed_Level.html">document mise à niveau du lit</a> pour les alternatives de sonde manuelle.</p>
+<h2 id="erreurs-de-temperature">Erreurs de température<a class="headerlink" href="#erreurs-de-temperature" title="Permanent link">&para;</a></h2>
+<p>De nombreuses sondes ont une erreur systémique lorsqu'elles sondent à différentes températures. Par exemple, la sonde peut se déclencher systématiquement à une hauteur inférieure lorsque la sonde est à une température plus élevée.</p>
+<p>Il est recommandé de faire fonctionner les outils de nivellement du lit à une température constante pour tenir compte de cette erreur. Par exemple, exécutez toujours les outils lorsque l'imprimante est à température ambiante ou exécutez toujours les outils une fois que l'imprimante a obtenu une température d'impression constante. Dans les deux cas, c'est une bonne idée d'attendre plusieurs minutes après que la température souhaitée est atteinte, de sorte que l'appareil d'impression soit constamment à la température souhaitée.</p>
+<p>Pour vérifier une erreur de température, commencez avec l'imprimante à température ambiante, puis mettez l'imprimante à l'origine, déplacez la tête vers une position proche du centre du lit et exécutez la commande <code>PROBE_ACCURACY</code>. Notez les résultats. Ensuite, sans mise à l'origine ou désactiver les moteurs pas à pas, chauffez la buse et le lit de l'imprimante à la température d'impression, puis exécutez à nouveau la commande <code>PROBE_ACCURACY</code>. Idéalement, la commande rapportera des résultats identiques. Comme ci-dessus, si la sonde a un décalage en température, veillez à toujours utiliser la sonde à une température constante.</p>
 
               
             </article>

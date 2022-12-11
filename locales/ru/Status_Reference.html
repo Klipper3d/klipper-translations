@@ -1533,7 +1533,7 @@
 <h2 id="bed_mesh">сетка постели (bed_mesh)<a class="headerlink" href="#bed_mesh" title="Permanent link">&para;</a></h2>
 <p>Следующая информация доступна в объекте <a href="Config_Reference.html#bed_mesh">bed_mesh</a>:</p>
 <ul>
-<li><code>profile_name</code>, <code>mesh_min</code>, <code>mesh_max</code>, <code>probed_matrix</code>, <code>mesh_matrix</code>: Information on the currently active bed_mesh.</li>
+<li><code>profile_name</code>, <code>mesh_min</code>, <code>mesh_max</code>, <code>probed_matrix</code>, <code>mesh_matrix</code>: Информация о текущей активной сетке bed_mesh.</li>
 <li><code>profiles</code>: The set of currently defined profiles as setup using BED_MESH_PROFILE.</li>
 </ul>
 <h2 id="bed_screws">bed_screws<a class="headerlink" href="#bed_screws" title="Permanent link">&para;</a></h2>
@@ -1545,26 +1545,26 @@
 <li><code>accepted_screws</code>: The number of accepted screws.</li>
 </ul>
 <h2 id="configfile">configfile<a class="headerlink" href="#configfile" title="Permanent link">&para;</a></h2>
-<p>The following information is available in the <code>configfile</code> object (this object is always available):</p>
+<p>Следующая информация доступна в объекте <code>configfile</code> (этот объект всегда доступен):</p>
 <ul>
-<li><code>settings.&lt;section&gt;.&lt;option&gt;</code>: Returns the given config file setting (or default value) during the last software start or restart. (Any settings changed at run-time will not be reflected here.)</li>
-<li><code>config.&lt;section&gt;.&lt;option&gt;</code>: Returns the given raw config file setting as read by Klipper during the last software start or restart. (Any settings changed at run-time will not be reflected here.) All values are returned as strings.</li>
+<li><code>settings.&lt;section&gt;.&lt;option&gt;</code>: Возвращает заданную настройку файла конфигурации (или значение по умолчанию) во время последнего запуска или перезапуска программы. (Любые настройки, измененные во время выполнения, не будут отражены здесь.)</li>
+<li><code>config.&lt;section&gt;.&lt;option&gt;</code>: Возвращает заданные необработанные настройки конфигурационного файла, считанные Klipper во время последнего запуска или перезапуска программы. (Любые настройки, измененные во время выполнения, не будут отражены здесь). Все значения возвращаются в виде строк.</li>
 <li><code>save_config_pending</code>: Returns true if there are updates that a <code>SAVE_CONFIG</code> command may persist to disk.</li>
 <li><code>save_config_pending_items</code>: Contains the sections and options that were changed and would be persisted by a <code>SAVE_CONFIG</code>.</li>
 <li><code>warnings</code>: A list of warnings about config options. Each entry in the list will be a dictionary containing a <code>type</code> and <code>message</code> field (both strings). Additional fields may be available depending on the type of warning.</li>
 </ul>
 <h2 id="display_status">display_status<a class="headerlink" href="#display_status" title="Permanent link">&para;</a></h2>
-<p>The following information is available in the <code>display_status</code> object (this object is automatically available if a <a href="Config_Reference.html#display">display</a> config section is defined):</p>
+<p>Следующая информация доступна в объекте <code>display_status</code> (этот объект автоматически доступен, если определен раздел конфигурации <a href="Config_Reference.html#display">display</a>):</p>
 <ul>
-<li><code>progress</code>: The progress value of the last <code>M73</code> G-Code command (or <code>virtual_sdcard.progress</code> if no recent <code>M73</code> received).</li>
-<li><code>message</code>: The message contained in the last <code>M117</code> G-Code command.</li>
+<li><code>progress</code>: Значение прогресса последней <code>M73</code> команды G-Code (или <code>virtual_sdcard.progress</code>, если не получена последняя <code>M73</code> команда).</li>
+<li><code>сообщение</code>: Сообщение, содержащееся в последней <code>M117</code> команде G-кода.</li>
 </ul>
 <h2 id="endstop_phase">endstop_phase<a class="headerlink" href="#endstop_phase" title="Permanent link">&para;</a></h2>
-<p>The following information is available in the <a href="Config_Reference.html#endstop_phase">endstop_phase</a> object:</p>
+<p>Следующая информация доступна в объекте <a href="Config_Reference.html#endstop_phase">endstop_phase</a>:</p>
 <ul>
-<li><code>last_home.&lt;stepper name&gt;.phase</code>: The phase of the stepper motor at the end of the last home attempt.</li>
-<li><code>last_home.&lt;stepper name&gt;.phases</code>: The total number of phases available on the stepper motor.</li>
-<li><code>last_home.&lt;stepper name&gt;.mcu_position</code>: The position (as tracked by the micro-controller) of the stepper motor at the end of the last home attempt. The position is the total number of steps taken in a forward direction minus the total number of steps taken in the reverse direction since the micro-controller was last restarted.</li>
+<li><code>last_home.&lt;имя шагового двигателя&gt;.phase</code>: Фаза шагового двигателя в конце последней попытки возврата домой.</li>
+<li><code>last_home.&lt;имя шагового двигателя&gt;.phases</code>: Общее количество фаз, доступных на шаговом двигателе.</li>
+<li><code>last_home.&lt;имя шагового двигателя&gt;.mcu_position</code>: Положение (отслеживаемое микроконтроллером) шагового двигателя в конце последней попытки возврата домой. Позиция - это общее количество шагов, сделанных в прямом направлении, минус общее количество шагов, сделанных в обратном направлении с момента последнего перезапуска микроконтроллера.</li>
 </ul>
 <h2 id="exclude_object">exclude_object<a class="headerlink" href="#exclude_object" title="Permanent link">&para;</a></h2>
 <p>The following information is available in the <a href="Exclude_Object.html">exclude_object</a> object:</p>

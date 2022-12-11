@@ -13,7 +13,7 @@
     
     
       
-        <title>Code overview - Klipper documentation</title>
+        <title>Обзор кода - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#code-overview" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Code overview
+              Обзор кода
             
           </span>
         </div>
@@ -1219,64 +1219,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     Расположение каталогов
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#micro-controller-code-flow" class="md-nav__link">
-    Micro-controller code flow
+  <a href="#_3" class="md-nav__link">
+    Поток кода микроконтроллера
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#klippy-code-overview" class="md-nav__link">
-    Klippy code overview
+  <a href="#klippy" class="md-nav__link">
+    Обзор кода Klippy
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-flow-of-a-move-command" class="md-nav__link">
-    Code flow of a move command
+  <a href="#_4" class="md-nav__link">
+    Кодовый поток команды перемещения
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-a-host-module" class="md-nav__link">
-    Adding a host module
+  <a href="#-" class="md-nav__link">
+    Добавление хост-модуля
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-new-kinematics" class="md-nav__link">
-    Adding new kinematics
+  <a href="#_5" class="md-nav__link">
+    Добавление новой кинематики
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#porting-to-a-new-micro-controller" class="md-nav__link">
-    Porting to a new micro-controller
+  <a href="#_6" class="md-nav__link">
+    Перенос на новый микроконтроллер
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#coordinate-systems" class="md-nav__link">
-    Coordinate Systems
+  <a href="#_7" class="md-nav__link">
+    Системы координат
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#time" class="md-nav__link">
-    Time
+  <a href="#_8" class="md-nav__link">
+    Время
   </a>
   
 </li>
@@ -1298,36 +1298,36 @@
 </a>
 
 
-<h1 id="code-overview">Code overview<a class="headerlink" href="#code-overview" title="Permanent link">&para;</a></h1>
+<h1 id="_1">Обзор кода<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>В этом документе описывается общая компоновка кода и основной поток кода Klipper.</p>
-<h2 id="_1">Расположение каталогов<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_2">Расположение каталогов<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Каталог <strong>src/</strong> содержит исходный код C для кода микроконтроллера. <strong>src/atsam/</strong>, <strong>src/atsamd/</strong>, <strong>src/avr/</strong>, <strong>src/linux/</strong>, <strong>src/lpc176x/</strong>, <strong>src/pru/</strong> и <strong>src/каталоги stm32/</strong> содержат код микроконтроллера, специфичный для архитектуры. <strong>src/simulator/</strong> содержит заглушки кода, которые позволяют тестировать микроконтроллер, скомпилированный на других архитектурах. Каталог <strong>src/generic/</strong> содержит вспомогательный код, который может быть полезен в различных архитектурах. Сборка организует включение "board/somefile.h", чтобы сначала заглянуть в текущий каталог архитектуры (например, src/avr/somefile.h), а затем в общий каталог (например, src/generic/somefile.h).</p>
 <p>Каталог <strong>klippy/</strong> содержит программное обеспечение хоста. Большая часть программного обеспечения хоста написана на Python, однако каталог <strong>klippy/chelper/</strong> содержит несколько помощников по коду C. Каталог <strong>klippy/kinematics/</strong> содержит код кинематики робота. Каталог <strong>klippy/extras/</strong> содержит расширяемые "модули" хост-кода.</p>
 <p>Каталог <strong>lib/</strong> содержит код внешней библиотеки третьей стороны, который необходим для создания некоторых целевых объектов.</p>
-<p>The <strong>config/</strong> directory contains example printer configuration files.</p>
-<p>The <strong>scripts/</strong> directory contains build-time scripts useful for compiling the micro-controller code.</p>
-<p>The <strong>test/</strong> directory contains automated test cases.</p>
+<p>Каталог <strong>config/</strong> содержит примеры файлов конфигурации принтера.</p>
+<p>Каталог <strong>scripts/</strong> содержит скрипты времени сборки, полезные для компиляции кода микроконтроллера.</p>
+<p>Каталог <strong>test/</strong> содержит автоматизированные тестовые случаи.</p>
 <p>During compilation, the build may create an <strong>out/</strong> directory. This contains temporary build time objects. The final micro-controller object that is built is <strong>out/klipper.elf.hex</strong> on AVR and <strong>out/klipper.bin</strong> on ARM.</p>
-<h2 id="micro-controller-code-flow">Micro-controller code flow<a class="headerlink" href="#micro-controller-code-flow" title="Permanent link">&para;</a></h2>
+<h2 id="_3">Поток кода микроконтроллера<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>Execution of the micro-controller code starts in architecture specific code (eg, <strong>src/avr/main.c</strong>) which ultimately calls sched_main() located in <strong>src/sched.c</strong>. The sched_main() code starts by running all functions that have been tagged with the DECL_INIT() macro. It then goes on to repeatedly run all functions tagged with the DECL_TASK() macro.</p>
 <p>One of the main task functions is command_dispatch() located in <strong>src/command.c</strong>. This function is called from the board specific input/output code (eg, <strong>src/avr/serial.c</strong>, <strong>src/generic/serial_irq.c</strong>) and it runs the command functions associated with the commands found in the input stream. Command functions are declared using the DECL_COMMAND() macro (see the <a href="Protocol.html">protocol</a> document for more information).</p>
 <p>Task, init, and command functions always run with interrupts enabled (however, they can temporarily disable interrupts if needed). These functions should avoid long pauses, delays, or do work that lasts a significant time. (Long delays in these "task" functions result in scheduling jitter for other "tasks" - delays over 100us may become noticeable, delays over 500us may result in command retransmissions, delays over 100ms may result in watchdog reboots.) These functions schedule work at specific times by scheduling timers.</p>
 <p>Timer functions are scheduled by calling sched_add_timer() (located in <strong>src/sched.c</strong>). The scheduler code will arrange for the given function to be called at the requested clock time. Timer interrupts are initially handled in an architecture specific interrupt handler (eg, <strong>src/avr/timer.c</strong>) which calls sched_timer_dispatch() located in <strong>src/sched.c</strong>. The timer interrupt leads to execution of schedule timer functions. Timer functions always run with interrupts disabled. The timer functions should always complete within a few micro-seconds. At completion of the timer event, the function may choose to reschedule itself.</p>
 <p>In the event an error is detected the code can invoke shutdown() (a macro which calls sched_shutdown() located in <strong>src/sched.c</strong>). Invoking shutdown() causes all functions tagged with the DECL_SHUTDOWN() macro to be run. Shutdown functions always run with interrupts disabled.</p>
 <p>Much of the functionality of the micro-controller involves working with General-Purpose Input/Output pins (GPIO). In order to abstract the low-level architecture specific code from the high-level task code, all GPIO events are implemented in architecture specific wrappers (eg, <strong>src/avr/gpio.c</strong>). The code is compiled with gcc's "-flto -fwhole-program" optimization which does an excellent job of inlining functions across compilation units, so most of these tiny gpio functions are inlined into their callers, and there is no run-time cost to using them.</p>
-<h2 id="klippy-code-overview">Klippy code overview<a class="headerlink" href="#klippy-code-overview" title="Permanent link">&para;</a></h2>
+<h2 id="klippy">Обзор кода Klippy<a class="headerlink" href="#klippy" title="Permanent link">&para;</a></h2>
 <p>The host code (Klippy) is intended to run on a low-cost computer (such as a Raspberry Pi) paired with the micro-controller. The code is primarily written in Python, however it does use CFFI to implement some functionality in C code.</p>
 <p>Initial execution starts in <strong>klippy/klippy.py</strong>. This reads the command-line arguments, opens the printer config file, instantiates the main printer objects, and starts the serial connection. The main execution of G-code commands is in the process_commands() method in <strong>klippy/gcode.py</strong>. This code translates the G-code commands into printer object calls, which frequently translate the actions to commands to be executed on the micro-controller (as declared via the DECL_COMMAND macro in the micro-controller code).</p>
 <p>There are four threads in the Klippy host code. The main thread handles incoming gcode commands. A second thread (which resides entirely in the <strong>klippy/chelper/serialqueue.c</strong> C code) handles low-level IO with the serial port. The third thread is used to process response messages from the micro-controller in the Python code (see <strong>klippy/serialhdl.py</strong>). The fourth thread writes debug messages to the log (see <strong>klippy/queuelogger.py</strong>) so that the other threads never block on log writes.</p>
-<h2 id="code-flow-of-a-move-command">Code flow of a move command<a class="headerlink" href="#code-flow-of-a-move-command" title="Permanent link">&para;</a></h2>
+<h2 id="_4">Кодовый поток команды перемещения<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>A typical printer movement starts when a "G1" command is sent to the Klippy host and it completes when the corresponding step pulses are produced on the micro-controller. This section outlines the code flow of a typical move command. The <a href="Kinematics.html">kinematics</a> document provides further information on the mechanics of moves.</p>
 <ul>
 <li>Processing for a move command starts in gcode.py. The goal of gcode.py is to translate G-code into internal calls. A G1 command will invoke cmd_G1() in klippy/extras/gcode_move.py. The gcode_move.py code handles changes in origin (eg, G92), changes in relative vs absolute positions (eg, G90), and unit changes (eg, F6000=100mm/s). The code path for a move is: <code>_process_data() -&gt; _process_commands() -&gt; cmd_G1()</code>. Ultimately the ToolHead class is invoked to execute the actual request: <code>cmd_G1() -&gt; ToolHead.move()</code></li>
 <li>The ToolHead class (in toolhead.py) handles "look-ahead" and tracks the timing of printing actions. The main codepath for a move is: <code>ToolHead.move() -&gt; MoveQueue.add_move() -&gt; MoveQueue.flush() -&gt; Move.set_junction() -&gt; ToolHead._process_moves()</code>.<ul>
 <li>ToolHead.move() creates a Move() object with the parameters of the move (in cartesian space and in units of seconds and millimeters).</li>
 <li>The kinematics class is given the opportunity to audit each move (<code>ToolHead.move() -&gt; kin.check_move()</code>). The kinematics classes are located in the klippy/kinematics/ directory. The check_move() code may raise an error if the move is not valid. If check_move() completes successfully then the underlying kinematics must be able to handle the move.</li>
-<li>MoveQueue.add_move() places the move object on the "look-ahead" queue.</li>
-<li>MoveQueue.flush() determines the start and end velocities of each move.</li>
+<li>MoveQueue.add_move() помещает объект перемещения в очередь "look-ahead".</li>
+<li>MoveQueue.flush() определяет начальную и конечную скорости каждого движения.</li>
 <li>Move.set_junction() implements the "trapezoid generator" on a move. The "trapezoid generator" breaks every move into three parts: a constant acceleration phase, followed by a constant velocity phase, followed by a constant deceleration phase. Every move contains these three phases in this order, but some phases may be of zero duration.</li>
 <li>When ToolHead._process_moves() is called, everything about the move is known - its start location, its end location, its acceleration, its start/cruising/end velocity, and distance traveled during acceleration/cruising/deceleration. All the information is stored in the Move() class and is in cartesian space in units of millimeters and seconds.</li>
 </ul>
@@ -1339,10 +1339,10 @@
 <li>Processing of the queue_step commands on the micro-controller starts in src/command.c which parses the command and calls <code>command_queue_step()</code>. The command_queue_step() code (in src/stepper.c) just appends the parameters of each queue_step command to a per stepper queue. Under normal operation the queue_step command is parsed and queued at least 100ms before the time of its first step. Finally, the generation of stepper events is done in <code>stepper_event()</code>. It's called from the hardware timer interrupt at the scheduled time of the first step. The stepper_event() code generates a step pulse and then reschedules itself to run at the time of the next step pulse for the given queue_step parameters. The parameters for each queue_step command are "interval", "count", and "add". At a high-level, stepper_event() runs the following, 'count' times: <code>do_step(); next_wake_time = last_wake_time + interval; interval += add;</code></li>
 </ul>
 <p>The above may seem like a lot of complexity to execute a movement. However, the only really interesting parts are in the ToolHead and kinematic classes. It's this part of the code which specifies the movements and their timings. The remaining parts of the processing is mostly just communication and plumbing.</p>
-<h2 id="adding-a-host-module">Adding a host module<a class="headerlink" href="#adding-a-host-module" title="Permanent link">&para;</a></h2>
+<h2 id="-">Добавление хост-модуля<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
 <p>The Klippy host code has a dynamic module loading capability. If a config section named "[my_module]" is found in the printer config file then the software will automatically attempt to load the python module klippy/extras/my_module.py . This module system is the preferred method for adding new functionality to Klipper.</p>
 <p>The easiest way to add a new module is to use an existing module as a reference - see <strong>klippy/extras/servo.py</strong> as an example.</p>
-<p>The following may also be useful:</p>
+<p>Также может быть полезно следующее:</p>
 <ul>
 <li>Execution of the module starts in the module level <code>load_config()</code> function (for config sections of the form [my_module]) or in <code>load_config_prefix()</code> (for config sections of the form [my_module my_name]). This function is passed a "config" object and it must return a new "printer object" associated with the given config section.</li>
 <li>During the process of instantiating a new printer object, the config object can be used to read parameters from the given config section. This is done using <code>config.get()</code>, <code>config.getfloat()</code>, <code>config.getint()</code>, etc. methods. Be sure to read all values from the config during the construction of the printer object - if the user specifies a config parameter that is not read during this phase then it will be assumed it is a typo in the config and an error will be raised.</li>
@@ -1362,9 +1362,9 @@
 <li>If a Python variable is to store a floating point value then it is recommended to always assign and manipulate that variable with floating point constants (and never use integer constants). For example, prefer <code>self.speed = 1.</code> over <code>self.speed = 1</code>, and prefer <code>self.speed = 2. * x</code> over <code>self.speed = 2 * x</code>. Consistent use of floating point values can avoid hard to debug quirks in Python type conversions.</li>
 <li>If submitting the module for inclusion in the main Klipper code, be sure to place a copyright notice at the top of the module. See the existing modules for the preferred format.</li>
 </ul>
-<h2 id="adding-new-kinematics">Adding new kinematics<a class="headerlink" href="#adding-new-kinematics" title="Permanent link">&para;</a></h2>
+<h2 id="_5">Добавление новой кинематики<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>This section provides some tips on adding support to Klipper for additional types of printer kinematics. This type of activity requires excellent understanding of the math formulas for the target kinematics. It also requires software development skills - though one should only need to update the host software.</p>
-<p>Useful steps:</p>
+<p>Полезные шаги:</p>
 <ol>
 <li>Start by studying the "<a href="#code-flow-of-a-move-command">code flow of a move</a>" section and the <a href="Kinematics.html">Kinematics document</a>.</li>
 <li>Review the existing kinematic classes in the klippy/kinematics/ directory. The kinematic classes are tasked with converting a move in cartesian coordinates to the movement on each stepper. One should be able to copy one of these files as a starting point.</li>
@@ -1373,9 +1373,9 @@
 <li>Other methods. Implement the <code>check_move()</code>, <code>get_status()</code>, <code>get_steppers()</code>, <code>home()</code>, and <code>set_position()</code> methods. These functions are typically used to provide kinematic specific checks. However, at the start of development one can use boiler-plate code here.</li>
 <li>Implement test cases. Create a g-code file with a series of moves that can test important cases for the given kinematics. Follow the <a href="Debugging.html">debugging documentation</a> to convert this g-code file to micro-controller commands. This is useful to exercise corner cases and to check for regressions.</li>
 </ol>
-<h2 id="porting-to-a-new-micro-controller">Porting to a new micro-controller<a class="headerlink" href="#porting-to-a-new-micro-controller" title="Permanent link">&para;</a></h2>
+<h2 id="_6">Перенос на новый микроконтроллер<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>This section provides some tips on porting Klipper's micro-controller code to a new architecture. This type of activity requires good knowledge of embedded development and hands-on access to the target micro-controller.</p>
-<p>Useful steps:</p>
+<p>Полезные шаги:</p>
 <ol>
 <li>Start by identifying any 3rd party libraries that will be used during the port. Common examples include "CMSIS" wrappers and manufacturer "HAL" libraries. All 3rd party code needs to be GNU GPLv3 compatible. The 3rd party code should be committed to the Klipper lib/ directory. Update the lib/README file with information on where and when the library was obtained. It is preferable to copy the code into the Klipper repository unchanged, but if any changes are required then those changes should be listed explicitly in the lib/README file.</li>
 <li>Create a new architecture sub-directory in the src/ directory and add initial Kconfig and Makefile support. Use the existing architectures as a guide. The src/simulator provides a basic example of a minimum starting point.</li>
@@ -1385,14 +1385,14 @@
 <li>Bring up basic GPIO input and output support. See Klipper <a href="https://github.com/Klipper3d/klipper/commit/c78b90767f19c9e8510c3155b89fb7ad64ca3c54">commit c78b9076</a> as an example of this.</li>
 <li>Bring up additional peripherals - for example see Klipper commit <a href="https://github.com/Klipper3d/klipper/commit/65613aeddfb9ef86905cb1dade9e773a02ef3c27">65613aed</a>, <a href="https://github.com/Klipper3d/klipper/commit/c812a40a3782415e454b04bf7bd2158a6f0ec8b5">c812a40a</a>, and <a href="https://github.com/Klipper3d/klipper/commit/c381d03aad5c3ee761169b7c7bced519cc14da29">c381d03a</a>.</li>
 <li>Create a sample Klipper config file in the config/ directory. Test the micro-controller with the main klippy.py program.</li>
-<li>Consider adding build test cases in the test/ directory.</li>
+<li>Рассмотрите возможность добавления тестовых примеров сборки в каталог test/.</li>
 </ol>
-<p>Additional coding tips:</p>
+<p>Дополнительные советы по кодированию:</p>
 <ol>
 <li>Avoid using "C bitfields" to access IO registers; prefer direct read and write operations of 32bit, 16bit, or 8bit integers. The C language specifications don't clearly specify how the compiler must implement C bitfields (eg, endianness, and bit layout), and it's difficult to determine what IO operations will occur on a C bitfield read or write.</li>
 <li>Prefer writing explicit values to IO registers instead of using read-modify-write operations. That is, if updating a field in an IO register where the other fields have known values, then it is preferable to explicitly write the full contents of the register. Explicit writes produce code that is smaller, faster, and easier to debug.</li>
 </ol>
-<h2 id="coordinate-systems">Coordinate Systems<a class="headerlink" href="#coordinate-systems" title="Permanent link">&para;</a></h2>
+<h2 id="_7">Системы координат<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>Internally, Klipper primarily tracks the position of the toolhead in cartesian coordinates that are relative to the coordinate system specified in the config file. That is, most of the Klipper code will never experience a change in coordinate systems. If the user makes a request to change the origin (eg, a <code>G92</code> command) then that effect is obtained by translating future commands to the primary coordinate system.</p>
 <p>However, in some cases it is useful to obtain the toolhead position in some other coordinate system and Klipper has several tools to facilitate that. This can be seen by running the GET_POSITION command. For example:</p>
 <div class="highlight"><pre><span></span><code>Send: GET_POSITION
@@ -1412,16 +1412,16 @@ Recv: // gcode homing: X:0.000000 Y:0.000000 Z:0.000000
 <p>The "gcode" position is the last requested position from a <code>G1</code> (or <code>G0</code>) command in cartesian coordinates relative to the coordinate system specified in the config file. This may differ from the "toolhead" position if a g-code transformation (eg, bed_mesh, bed_tilt, skew_correction) is in effect. This may differ from the actual coordinates specified in the last <code>G1</code> command if the g-code origin has been changed (eg, <code>G92</code>, <code>SET_GCODE_OFFSET</code>, <code>M221</code>). The <code>M114</code> command (<code>gcode_move.get_status()['gcode_position']</code>) will report the last g-code position relative to the current g-code coordinate system.</p>
 <p>The "gcode base" is the location of the g-code origin in cartesian coordinates relative to the coordinate system specified in the config file. Commands such as <code>G92</code>, <code>SET_GCODE_OFFSET</code>, and <code>M221</code> alter this value.</p>
 <p>The "gcode homing" is the location to use for the g-code origin (in cartesian coordinates relative to the coordinate system specified in the config file) after a <code>G28</code> home command. The <code>SET_GCODE_OFFSET</code> command can alter this value.</p>
-<h2 id="time">Time<a class="headerlink" href="#time" title="Permanent link">&para;</a></h2>
+<h2 id="_8">Время<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>Fundamental to the operation of Klipper is the handling of clocks, times, and timestamps. Klipper executes actions on the printer by scheduling events to occur in the near future. For example, to turn on a fan, the code might schedule a change to a GPIO pin in a 100ms. It is rare for the code to attempt to take an instantaneous action. Thus, the handling of time within Klipper is critical to correct operation.</p>
-<p>There are three types of times tracked internally in the Klipper host software:</p>
+<p>Существует три типа времени, отслеживаемых внутри программного обеспечения Klipper:</p>
 <ul>
 <li>System time. The system time uses the system's monotonic clock - it is a floating point number stored as seconds and it is (generally) relative to when the host computer was last started. System times have limited use in the software - they are primarily used when interacting with the operating system. Within the host code, system times are frequently stored in variables named <em>eventtime</em> or <em>curtime</em>.</li>
 <li>Print time. The print time is synchronized to the main micro-controller clock (the micro-controller defined in the "[mcu]" config section). It is a floating point number stored as seconds and is relative to when the main mcu was last restarted. It is possible to convert from a "print time" to the main micro-controller's hardware clock by multiplying the print time by the mcu's statically configured frequency rate. The high-level host code uses print times to calculate almost all physical actions (eg, head movement, heater changes, etc.). Within the host code, print times are generally stored in variables named <em>print_time</em> or <em>move_time</em>.</li>
 <li>MCU clock. This is the hardware clock counter on each micro-controller. It is stored as an integer and its update rate is relative to the frequency of the given micro-controller. The host software translates its internal times to clocks before transmission to the mcu. The mcu code only ever tracks time in clock ticks. Within the host code, clock values are tracked as 64bit integers, while the mcu code uses 32bit integers. Within the host code, clocks are generally stored in variables with names containing <em>clock</em> or <em>ticks</em>.</li>
 </ul>
 <p>Conversion between the different time formats is primarily implemented in the <strong>klippy/clocksync.py</strong> code.</p>
-<p>Some things to be aware of when reviewing the code:</p>
+<p>Некоторые моменты, на которые следует обратить внимание при просмотре кода:</p>
 <ul>
 <li>32bit and 64bit clocks: To reduce bandwidth and to improve micro-controller efficiency, clocks on the micro-controller are tracked as 32bit integers. When comparing two clocks in the mcu code, the <code>timer_is_before()</code> function must always be used to ensure integer rollovers are handled properly. The host software converts 32bit clocks to 64bit clocks by appending the high-order bits from the last mcu timestamp it has received - no message from the mcu is ever more than 2^31 clock ticks in the future or past so this conversion is never ambiguous. The host converts from 64bit clocks to 32bit clocks by simply truncating the high-order bits. To ensure there is no ambiguity in this conversion, the <strong>klippy/chelper/serialqueue.c</strong> code will buffer messages until they are within 2^31 clock ticks of their target time.</li>
 <li>Multiple micro-controllers: The host software supports using multiple micro-controllers on a single printer. In this case, the "MCU clock" of each micro-controller is tracked separately. The clocksync.py code handles clock drift between micro-controllers by modifying the way it converts from "print time" to "MCU clock". On secondary mcus, the mcu frequency that is used in this conversion is regularly updated to account for measured drift.</li>
