@@ -23,30 +23,30 @@ Configuration du microcontrôleur primaire.
 ```
 [mcu]
 serial:
-#   The serial port to connect to the MCU. If unsure (or if it
-#   changes) see the "Where's my serial port?" section of the FAQ.
-#   This parameter must be provided when using a serial port.
+#    Le port série à connecter à l'unité MCU. Si vous n'êtes pas sûr (ou s'il
+#    change) consultez la section "Où est mon port série ?" de la FAQ.
+#    Ce paramètre doit être fourni lors de l'utilisation d'un port série.
 #baud: 250000
-#   The baud rate to use. The default is 250000.
+#    Le débit en bauds à utiliser. La valeur par défaut est 250000.
 #canbus_uuid:
-#   If using a device connected to a CAN bus then this sets the unique
-#   chip identifier to connect to. This value must be provided when using
-#   CAN bus for communication.
+#    Si vous utilisez un dispositif connecté à un bus CAN, ceci définit l'identifiant
+#    unique de la puce à laquelle se connecter. Cette valeur doit être fournie lorsque l'on utilise
+#    le bus CAN pour la communication.
 #canbus_interface:
-#   If using a device connected to a CAN bus then this sets the CAN
-#   network interface to use. The default is 'can0'.
+#    Si vous utilisez un dispositif connecté à un bus CAN, ceci définit l'interface réseau CAN
+#    à utiliser. La valeur par défaut est 'can0'.
 #restart_method:
-#   This controls the mechanism the host will use to reset the
-#   micro-controller. The choices are 'arduino', 'cheetah', 'rpi_usb',
-#   and 'command'. The 'arduino' method (toggle DTR) is common on
-#   Arduino boards and clones. The 'cheetah' method is a special
-#   method needed for some Fysetc Cheetah boards. The 'rpi_usb' method
-#   is useful on Raspberry Pi boards with micro-controllers powered
-#   over USB - it briefly disables power to all USB ports to
-#   accomplish a micro-controller reset. The 'command' method involves
-#   sending a Klipper command to the micro-controller so that it can
-#   reset itself. The default is 'arduino' if the micro-controller
-#   communicates over a serial port, 'command' otherwise.
+#    Ceci contrôle le mécanisme que l'hôte utilisera pour réinitialiser le microcontrôleur.
+#    Les choix sont 'arduino', 'cheetah', 'rpi_usb', et 'command'. La méthode 'arduino' 
+#   (basculer DTR) est courante sur les cartes et clones Arduino.
+#    La méthode 'cheetah' est une méthode particulière nécessaire pour certaines cartes
+#   Fysetc Cheetah. La méthode 'rpi_usb' est utile sur les cartes Raspberry Pi avec des
+#    micro-contrôleurs alimentés par USB - elle désactive brièvement l'alimentation de tous
+#    les ports USB pour effectuer une réinitialisation du microcontrôleur.
+#    La méthode 'command' implique l'envoi d'une commande Klipper au microcontrôleur
+#    afin qu'il puisse # se réinitialiser.
+#    La valeur par défaut est 'arduino' si le micro-contrôleur communique via un port série,
+#    'command' sinon.
 ```
 
 ### [mcu my_extra_mcu]
@@ -55,7 +55,7 @@ Microcontrôleurs supplémentaires (on peut définir un nombre quelconque de sec
 
 ```
 [mcu my_extra_mcu]
-# See the "mcu" section for configuration parameters.
+#    Voir la section "mcu" pour les paramètres de configuration.
 ```
 
 ## Paramètres cinématiques courants
@@ -67,31 +67,30 @@ La section imprimante contrôle les paramètres de haut niveau de l'imprimante.
 ```
 [printer]
 kinematics:
-#   The type of printer in use. This option may be one of: cartesian,
-#   corexy, corexz, hybrid_corexy, hybrid_corexz, rotary_delta, delta,
-#   deltesian, polar, winch, or none. This parameter must be specified.
+#    Le type d'imprimante utilisé. Cette option peut être l'une des suivantes : cartésienne,
+#    corexy, corexz, hybrid_corexy, hybrid_corexz, rotary_delta, delta,
+#    deltesian, polar, winch, ou none. Ce paramètre doit être spécifié.
 max_velocity:
-#   Maximum velocity (in mm/s) of the toolhead (relative to the
-#   print). This parameter must be specified.
+#    Vitesse maximale (en mm/s) de la tête d'outil (par rapport à l'impression).
+#   Ce paramètre doit être spécifié.
 max_accel:
-#   Maximum acceleration (in mm/s^2) of the toolhead (relative to the
-#   print). This parameter must be specified.
+#    Accélération maximale (en mm/s^2) de la tête de l'outil (par rapport à l'impression).
+#    Ce paramètre doit être spécifié.
 #max_accel_to_decel:
-#   A pseudo acceleration (in mm/s^2) controlling how fast the
-#   toolhead may go from acceleration to deceleration. It is used to
-#   reduce the top speed of short zig-zag moves (and thus reduce
-#   printer vibration from these moves). The default is half of
-#   max_accel.
+#    Une pseudo-accélération (en mm/s^2) contrôlant la vitesse à laquelle la tête
+#    de l'outil peut passer de l'accélération à la décélération. Elle est utilisée pour
+#    réduire la vitesse maximale des courts mouvements en zigzag (et donc réduire les vibrations
+#    de l'imprimante dues à ces mouvements). La valeur par défaut est la moitié de
+#    max_accel.
 #square_corner_velocity: 5.0
-#   The maximum velocity (in mm/s) that the toolhead may travel a 90
-#   degree corner at. A non-zero value can reduce changes in extruder
-#   flow rates by enabling instantaneous velocity changes of the
-#   toolhead during cornering. This value configures the internal
-#   centripetal velocity cornering algorithm; corners with angles
-#   larger than 90 degrees will have a higher cornering velocity while
-#   corners with angles less than 90 degrees will have a lower
-#   cornering velocity. If this is set to zero then the toolhead will
-#   decelerate to zero at each corner. The default is 5mm/s.
+#    La vitesse maximale (en mm/s) à laquelle la tête d'outil peut parcourir un angle de 90 degrés.
+#    Une valeur non nulle peut réduire les changements dans les débits de l'extrudeuse en permettant
+#    des changements de vitesse instantanés de la tête d'outil pendant les virages.
+#    Cette valeur configure l'algorithme interne de prise de virage à vitesse centripète ; les virages dont
+#    l'angle est supérieur à 90 degrés auront une vitesse de prise de virage plus élevée tandis que
+#    les angles inférieurs à 90 degrés auront une vitesse de virage plus faible.
+#    Si ce paramètre est défini sur zéro, la tête d'outil décélérera jusqu'à zéro à chaque coin.
+#   La valeur par défaut est 5mm/s.
 ```
 
 ### [stepper]
@@ -184,25 +183,25 @@ Seuls les paramètres spécifiques aux imprimantes cartésiennes sont décrits i
 [printer]
 kinematics: cartesian
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. This setting can be used to restrict the maximum speed of
-#   the z stepper motor. The default is to use max_velocity for
-#   max_z_velocity.
+#    Ceci définit la vitesse maximale (en mm/s) du mouvement le long de l'axe z
+#    Ce paramètre peut être utilisé pour limiter la vitesse maximale du moteur pas à pas z.
+#    le moteur pas à pas z. La valeur par défaut est l'utilisation de max_velocity pour
+#    max_z_velocity.
 max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. It limits the acceleration of the z stepper motor. The
-#   default is to use max_accel for max_z_accel.
+#    Ce paramètre définit l'accélération maximale (en mm/s^2) du mouvement sur l'axe z.
+#    Cela limite l'accélération du moteur pas à pas z. La valeur par défaut est
+#    d'utiliser max_accel pour max_z_accel.
 
-# The stepper_x section is used to describe the stepper controlling
-# the X axis in a cartesian robot.
+#    La section stepper_x est utilisée pour décrire le moteur pas à pas contrôlant
+#    l'axe X dans un robot cartésien.
 [stepper_x]
 
-# The stepper_y section is used to describe the stepper controlling
-# the Y axis in a cartesian robot.
+#    La section stepper_y est utilisée pour décrire le moteur pas à pas contrôlant
+#    l'axe Y d'un robot cartésien.
 [stepper_y]
 
-# The stepper_z section is used to describe the stepper controlling
-# the Z axis in a cartesian robot.
+#    La section stepper_z est utilisée pour décrire le moteur pas à pas contrôlant
+#    l'axe Z d'un robot cartésien.
 [stepper_z]
 ```
 
@@ -216,82 +215,77 @@ Seuls les paramètres spécifiques aux imprimantes delta linéaires sont décrit
 [printer]
 kinematics: delta
 max_z_velocity:
-#   For delta printers this limits the maximum velocity (in mm/s) of
-#   moves with z axis movement. This setting can be used to reduce the
-#   maximum speed of up/down moves (which require a higher step rate
-#   than other moves on a delta printer). The default is to use
-#   max_velocity for max_z_velocity.
+#    Pour les imprimantes delta, cela limite la vitesse maximale (en mm/s) des
+#    mouvements de l'axe z. Ce paramètre peut être utilisé pour réduire la
+#    vitesse maximale des déplacements vers le haut/bas (nécessitent une vitesse
+#   de pas plus élevée que les autres mouvements sur une imprimante delta). La
+#    valeur par défaut est d'utiliser max_velocity pour max_z_velocity.
 #max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. Setting this may be useful if the printer can reach higher
-#   acceleration on XY moves than Z moves (eg, when using input shaper).
-#   The default is to use max_accel for max_z_accel.
+#    Ceci définit l'accélération maximale (en mm/s^2) du mouvement le long de l'axe z.
+#    Ce paramètre peut être utile si l'imprimante peut atteindre une plus grande
+#    accélération sur les mouvements XY que sur les mouvements Z (par exemple, lors
+#    de l'utilisation de la compensation de résonance).
+#    La valeur par défaut est d'utiliser max_accel pour max_z_accel.
 #minimum_z_position: 0
-#   The minimum Z position that the user may command the head to move
-#   to. The default is 0.
+#    Position Z minimale à laquelle l'utilisateur peut ordonner à la tête de se déplacer.
+#   La valeur par défaut est 0.
 delta_radius:
-#   Radius (in mm) of the horizontal circle formed by the three linear
-#   axis towers. This parameter may also be calculated as:
-#    delta_radius = smooth_rod_offset - effector_offset - carriage_offset
-#   This parameter must be provided.
+#    Rayon (en mm) du cercle horizontal formé par les trois colonnes d'axe linéaire.
+#    Ce paramètre peut également être calculé comme suit :
+#    delta_radius = smooth_rod_offset - effector_offset - carriage_offset.
+#    Ce paramètre doit être fourni.
 #print_radius:
-#   The radius (in mm) of valid toolhead XY coordinates. One may use
-#   this setting to customize the range checking of toolhead moves. If
-#   a large value is specified here then it may be possible to command
-#   the toolhead into a collision with a tower. The default is to use
-#   delta_radius for print_radius (which would normally prevent a
-#   tower collision).
+#    Le rayon (en mm) des coordonnées XY valides de la tête d'extrusion. On peut utiliser
+#    ce paramètre pour personnaliser la vérification de la plage des mouvements de la tête.
+#    Si une grande valeur est spécifiée ici, il peut être possible de faire entrer la tête en collision
+#    avec une colonne. La valeur par défaut est d'utiliser delta_radius pour print_radius (ce qui
+#    empêchera normalement une collision avec une colonne).
 
-# The stepper_a section describes the stepper controlling the front
-# left tower (at 210 degrees). This section also controls the homing
-# parameters (homing_speed, homing_retract_dist) for all towers.
+#    La section stepper_a décrit le moteur pas à pas contrôlant la colonne avant gauche (à 210 degrés).
+#    Cette section contrôle également les paramètres de la mise à l'origine (homing_speed, 
+#    homing_retract_dist) pour toutes les colonnes.
 [stepper_a]
 position_endstop:
-#   Distance (in mm) between the nozzle and the bed when the nozzle is
-#   in the center of the build area and the endstop triggers. This
-#   parameter must be provided for stepper_a; for stepper_b and
-#   stepper_c this parameter defaults to the value specified for
-#   stepper_a.
+#    Distance (en mm) entre la buse et le lit lorsque la buse se trouve au centre de la zone de construction
+#    et que la fin de course se déclenche. Ce paramètre doit être fourni pour le stepper_a ; pour les
+#    stepper_b et stepper_c, ce paramètre prend par défaut la valeur spécifiée pour
+#    stepper_a.
 arm_length:
-#   Length (in mm) of the diagonal rod that connects this tower to the
-#   print head. This parameter must be provided for stepper_a; for
-#   stepper_b and stepper_c this parameter defaults to the value
-#   specified for stepper_a.
+#    Longueur (en mm) de la tige diagonale qui relie cette colonne à la tête d'impression.
+#    Ce paramètre doit être fourni pour stepper_a ; pour stepper_b et stepper_c, ce paramètre
+#    prend par défaut la valeur spécifiée pour stepper_a.
 #angle:
-#   This option specifies the angle (in degrees) that the tower is
-#   at. The default is 210 for stepper_a, 330 for stepper_b, and 90
-#   for stepper_c.
+#    Cette option spécifie l'angle (en degrés) où se trouve positionnée la colonne.
+#   La valeur par défaut est 210 pour stepper_a, 330 pour stepper_b, et 90
+#    pour stepper_c.
 
-# The stepper_b section describes the stepper controlling the front
-# right tower (at 330 degrees).
+#    La section stepper_b décrit le moteur pas à pas contrôlant la colonne avant droite (à 330 degrés).
 [stepper_b]
 
-# The stepper_c section describes the stepper controlling the rear
-# tower (at 90 degrees).
+#    La section stepper_c décrit le moteur pas à pas contrôlant la colonne arrière droite (à 90 degrés).
 [stepper_c]
 
-# The delta_calibrate section enables a DELTA_CALIBRATE extended
-# g-code command that can calibrate the tower endstop positions and
-# angles.
+#    La section delta_calibrate active une commande G-code étendue DELTA_CALIBRATE
+#   permettant de calibrer les positions et les angles de la fin de la colonne.
 [delta_calibrate]
 radius:
-#   Radius (in mm) of the area that may be probed. This is the radius
-#   of nozzle coordinates to be probed; if using an automatic probe
-#   with an XY offset then choose a radius small enough so that the
-#   probe always fits over the bed. This parameter must be provided.
+#    Rayon (en mm) de la zone qui peut être sondée. Il s'agit du rayon des coordonnées de
+#    la buse à sonder ; si vous utilisez un palpeur automatique avec un décalage XY, choisissez
+#    un rayon suffisamment petit pour que la sonde s'adapte toujours au lit.
+#   Ce paramètre doit être fourni.
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+#    La vitesse (en mm/s) des mouvements sans palpage pendant l'étalonnage.
+#    La valeur par défaut est 50.
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+#    La hauteur (en mm) à laquelle la tête doit être relevée pour se déplacer
+#    juste avant de lancer une opération de palpage. La valeur par défaut est 5.
 ```
 
 ### Cinématique deltesienne
 
 See [example-deltesian.cfg](../config/example-deltesian.cfg) for an example deltesian kinematics config file.
 
-Only parameters specific to deltesian printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Seuls les paramètres spécifiques aux imprimantes deltesiennes sont décrits ici - voir [paramètres cinématiques communs](#common-kinematic-settings) pour les paramètres disponibles.
 
 ```
 [printer]
@@ -369,25 +363,23 @@ Seuls les paramètres spécifiques aux imprimantes corexy sont décrits ici - vo
 [printer]
 kinematics: corexy
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. This setting can be used to restrict the maximum speed of
-#   the z stepper motor. The default is to use max_velocity for
-#   max_z_velocity.
+#    Ceci définit la vitesse maximale (en mm/s) du mouvement le long de l'axe z
+#    Ce paramètre peut être utilisé pour limiter la vitesse maximale du moteur pas à pas z.
+#    La valeur par défaut est l'utilisation de max_velocity pour max_z_velocity.
 max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. It limits the acceleration of the z stepper motor. The
-#   default is to use max_accel for max_z_accel.
+#    Ce paramètre définit l'accélération maximale (en mm/s^2) du mouvement sur l'axe z.
+#    Cela limite l'accélération du moteur pas à pas z. La valeur par défaut est
+#    d'utiliser max_accel pour max_z_accel.
 
-# The stepper_x section is used to describe the X axis as well as the
-# stepper controlling the X+Y movement.
+#    La section stepper_x est utilisée pour décrire l'axe X ainsi que le moteur pas à pas
+#   contrôlant le mouvement X+Y.
 [stepper_x]
 
-# The stepper_y section is used to describe the Y axis as well as the
-# stepper controlling the X-Y movement.
+#    La section stepper_y est utilisée pour décrire l'axe Y ainsi que le moteur pas à pas 
+#    contrôlant le mouvement X-Y.
 [stepper_y]
 
-# The stepper_z section is used to describe the stepper controlling
-# the Z axis.
+#    La section stepper_z est utilisée pour décrire le moteur pas à pas contrôlant l'axe Z.
 [stepper_z]
 ```
 
@@ -401,22 +393,21 @@ Seuls les paramètres spécifiques aux imprimantes corexz sont décrits ici - vo
 [printer]
 kinematics: corexz
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. The default is to use max_velocity for max_z_velocity.
+#    Ceci définit la vitesse maximale (en mm/s) du mouvement le long de l'axe z.
+#    La valeur par défaut est d'utiliser max_velocity pour max_z_velocity.
 max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. The default is to use max_accel for max_z_accel.
+#    Ceci définit l'accélération maximale (en mm/s^2) du mouvement le long de l'axe z.
+#    La valeur par défaut est d'utiliser max_accel pour max_z_accel.
 
-# The stepper_x section is used to describe the X axis as well as the
-# stepper controlling the X+Z movement.
+#    La section stepper_x est utilisée pour décrire l'axe X ainsi que le moteur pas à pas
+#    contrôlant le mouvement X+Z.
 [stepper_x]
 
-# The stepper_y section is used to describe the stepper controlling
-# the Y axis.
+#    La section stepper_y est utilisée pour décrire le moteur pas à pas contrôlant l'axe Y.
 [stepper_y]
 
-# The stepper_z section is used to describe the Z axis as well as the
-# stepper controlling the X-Z movement.
+#    La section stepper_z est utilisée pour décrire l'axe Z ainsi que le moteur pas à pas
+#     contrôlant le mouvement X-Z.
 [stepper_z]
 ```
 
@@ -432,22 +423,23 @@ Seuls les paramètres spécifiques aux imprimantes hybrides corexy sont décrits
 [printer]
 kinematics: hybrid_corexy
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. The default is to use max_velocity for max_z_velocity.
-max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. The default is to use max_accel for max_z_accel.
+#    Ceci définit la vitesse maximale (en mm/s) du mouvement le long de l'axe z
+#    La valeur par défaut est d'utiliser max_velocity pour max_z_velocity.
+max_z_acce :
+#    Ceci définit l'accélération maximale (en mm/s^2) du mouvement le long de l'axe z.
+#    La valeur par défaut est d'utiliser max_accel pour max_z_accel.
 
-# The stepper_x section is used to describe the X axis as well as the
-# stepper controlling the X-Y movement.
+#    La section stepper_x est utilisée pour décrire l'axe X ainsi que le moteur pas à pas
+#    contrôlant le mouvement X-Y.
 [stepper_x]
 
-# The stepper_y section is used to describe the stepper controlling
-# the Y axis.
+#    La section stepper_y est utilisée pour décrire le moteur pas à pas contrôlant
+#    l'axe Y.
+
 [stepper_y]
 
-# The stepper_z section is used to describe the stepper controlling
-# the Z axis.
+#    La section stepper_z est utilisée pour décrire le moteur pas à pas contrôlant
+#    l'axe Z.
 [stepper_z]
 ```
 
@@ -463,22 +455,22 @@ Seuls les paramètres spécifiques aux imprimantes hybrides corexy sont décrits
 [printer]
 kinematics: hybrid_corexz
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. The default is to use max_velocity for max_z_velocity.
+#    Ceci définit la vitesse maximale (en mm/s) du mouvement le long de l'axe z
+#    La valeur par défaut est d'utiliser max_velocity pour max_z_velocity.
 max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. The default is to use max_accel for max_z_accel.
+#    Ceci définit l'accélération maximale (en mm/s^2) du mouvement le long de
+#    l'axe z. La valeur par défaut est d'utiliser max_accel pour max_z_accel.
 
-# The stepper_x section is used to describe the X axis as well as the
-# stepper controlling the X-Z movement.
+#    La section stepper_x est utilisée pour décrire l'axe X ainsi que le moteur pas à pas
+#    contrôlant le mouvement X-Z.
 [stepper_x]
 
-# The stepper_y section is used to describe the stepper controlling
-# the Y axis.
+#    La section stepper_y est utilisée pour décrire le moteur pas à pas contrôlant
+#    l'axe Y.
 [stepper_y]
 
-# The stepper_z section is used to describe the stepper controlling
-# the Z axis.
+#    La section stepper_z est utilisée pour décrire le moteur pas à pas contrôlant
+#    l'axe Z.
 [stepper_z]
 ```
 
@@ -488,36 +480,34 @@ Voir [example-polar.cfg](../config/example-polar.cfg) pour un exemple de fichier
 
 Seuls les paramètres spécifiques aux imprimantes polaires sont décrits ici - voir [paramètres cinématiques communs](#common-kinematic-settings) pour les paramètres disponibles.
 
-POLAR KINEMATICS ARE A WORK IN PROGRESS. Moves around the 0, 0 position are known to not work properly.
+LA CINÉMATIQUE POLAIRE EST UN TRAVAIL EN COURS. Les déplacements autour de la position 0, 0 sont connus pour ne pas fonctionner correctement.
 
 ```
 [printer]
 kinematics: polar
 max_z_velocity:
-#   This sets the maximum velocity (in mm/s) of movement along the z
-#   axis. This setting can be used to restrict the maximum speed of
-#   the z stepper motor. The default is to use max_velocity for
-#   max_z_velocity.
+#    Ceci définit la vitesse maximale (en mm/s) du mouvement le long de l'axe z
+#    Ce paramètre peut être utilisé pour limiter la vitesse maximale du moteur pas à pas z.
+#    La valeur par défaut est d'utiliser max_velocity pour max_z_velocity.
 max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. It limits the acceleration of the z stepper motor. The
-#   default is to use max_accel for max_z_accel.
+#    Ce paramètre définit l'accélération maximale (en mm/s^2) du mouvement sur l'axe z.
+#    Cela limite l'accélération du moteur pas à pas z. La valeur
+#    par défaut est d'utiliser max_accel pour max_z_accel.
 
-# The stepper_bed section is used to describe the stepper controlling
-# the bed.
+#    La section stepper_bed est utilisée pour décrire le moteur pas à pas contrôlant
+#    le lit.
 [stepper_bed]
 gear_ratio:
-#   A gear_ratio must be specified and rotation_distance may not be
-#   specified. For example, if the bed has an 80 toothed pulley driven
-#   by a stepper with a 16 toothed pulley then one would specify a
-#   gear ratio of "80:16". This parameter must be provided.
+#    Un rapport de vitesse doit être spécifié et la distance de rotation ne peut pas être spécifiée.
+#    Par exemple, si le lit est équipé d'une poulie à 80 dents entraînée par un stepper à 16 dents,
+#    il faut spécifier le rapport d'engrenage de "80:16".
+#    Ce paramètre doit être fourni.
 
-# The stepper_arm section is used to describe the stepper controlling
-# the carriage on the arm.
+#    La section stepper_arm est utilisée pour décrire le moteur pas à pas contrôlant
+#    le chariot sur le bras.
 [stepper_arm]
 
-# The stepper_z section is used to describe the stepper controlling
-# the Z axis.
+#    La section stepper_z permet de décrire le moteur pas à pas contrôlant l'axe Z.
 [stepper_z]
 ```
 
@@ -643,8 +633,8 @@ Il est possible de définir une cinématique spéciale "aucune (none)" pour dés
 kinematics: none
 max_velocity: 1
 max_accel: 1
-#   The max_velocity and max_accel parameters must be defined. The
-#   values are not used for "none" kinematics.
+#    Les paramètres max_velocity et max_accel doivent être définis. Les
+#    valeurs par défaut ne sont pas utilisées pour la cinématique "none".
 ```
 
 ## Support d'extrudeur commun et support de lit chauffant
@@ -1015,7 +1005,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the
 
 ### [z_tilt]
 
-Multiple Z stepper tilt adjustment. This feature enables independent adjustment of multiple z steppers (see the "stepper_z1" section) to adjust for tilt. If this section is present then a Z_TILT_ADJUST extended [G-Code command](G-Codes.md#z_tilt) becomes available.
+Réglage de l'inclinaison de plusieurs moteurs pas à pas de l'axe Z. Cette fonction permet d'ajuster de manière indépendante l'inclinaison de plusieurs moteurs Z (voir la section "stepper_z1"). Si cette section est présente, une [commande G-Code étendue Z_TILT_ADJUST](G-Codes.md#z_tilt) devient disponible.
 
 ```
 [z_tilt]
@@ -1099,7 +1089,7 @@ Where x is the 0, 0 point on the bed
 
 ### [skew_correction]
 
-Printer Skew Correction. It is possible to use software to correct printer skew across 3 planes, xy, xz, yz. This is done by printing a calibration model along a plane and measuring three lengths. Due to the nature of skew correction these lengths are set via gcode. See [Skew Correction](Skew_Correction.md) and [Command Reference](G-Codes.md#skew_correction) for details.
+Correction de l'inclinaison de l'imprimante. Il est possible d'utiliser un logiciel pour corriger l'inclinaison de l'imprimante sur 3 plans, xy, xz, yz. Pour ce faire, on imprime un modèle d'étalonnage le long d'un plan et on mesure trois longueurs. En raison de la nature de la correction d'obliquité, ces longueurs sont définies via le gcode. Voir [Skew Correction](Skew_Correction.md) et [Command Reference](G-Codes.md#skew_correction) pour plus de détails.
 
 ```
 [skew_correction]
@@ -1348,13 +1338,13 @@ Support manually moving stepper motors for diagnostic purposes. Note, using this
 
 ### [pause_resume]
 
-Pause/Resume functionality with support of position capture and restore. See the [command reference](G-Codes.md#pause_resume) for more information.
+Fonctionnalité Pause/Reprise avec prise en charge de la capture et de la restauration de position. Voir la [référence de la commande](G-Codes.md#pause_resume) pour plus d'informations.
 
 ```
 [pause_resume]
 #recover_velocity: 50.
-#   When capture/restore is enabled, the speed at which to return to
-#   the captured position (in mm/s). Default is 50.0 mm/s.
+#    Lorsque la capture/restauration est activée, la vitesse à laquelle retourner à
+#    la position capturée (en mm/s). La valeur par défaut est 50,0 mm/s.
 ```
 
 ### [firmware_retraction]
@@ -1492,14 +1482,14 @@ Support for mpu9250 and mpu6050 accelerometers (one may define any number of sec
 ```
 [mpu9250 my_accelerometer]
 #i2c_address:
-#   Default is 104 (0x68).
+#    La valeur par défaut est 104 (0x68).
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed: 400000
-#   See the "common I2C settings" section for a description of the
-#   above parameters. The default "i2c_speed" is 400000.
+#    Voir la section "paramètres I2C communs" pour une description des paramètres ci-dessus.
+#    La valeur par défaut de "i2c_speed" est 400000.
 #axes_map: x, y, z
-#   See the "adxl345" section for information on this parameter.
+#    Voir la section "adxl345" pour des informations sur ce paramètre.
 ```
 
 ### [resonance_tester]
@@ -1603,60 +1593,59 @@ Sonde de hauteur Z. On peut définir cette section pour activer le matériel de 
 ```
 [probe]
 pin:
-#   Probe detection pin. If the pin is on a different microcontroller
-#   than the Z steppers then it enables "multi-mcu homing". This
-#   parameter must be provided.
+#    Broche de détection de la sonde. Si la broche se trouve sur un microcontrôleur différent
+#    que les moteurs pas à pas de l'axe Z alors elle active le "multi-mcu homing". Ce paramètre
+#   doit être fourni.
 #deactivate_on_each_sample: True
-#   This determines if Klipper should execute deactivation gcode
-#   between each probe attempt when performing a multiple probe
-#   sequence. The default is True.
+#    Ceci détermine si Klipper doit exécuter le gcode de désactivation
+#    entre chaque tentative de palpage lors d'une séquence de palpages multiples.
+#    La valeur par défaut est True.
 #x_offset: 0.0
-#   The distance (in mm) between the probe and the nozzle along the
-#   x-axis. The default is 0.
+#    La distance (en mm) entre la sonde et la buse le long de l'axe x.
+#   La valeur par défaut est 0.
 #y_offset: 0.0
-#   The distance (in mm) between the probe and the nozzle along the
-#   y-axis. The default is 0.
+#    La distance (en mm) entre la sonde et la buse le long de l'axe y.
+#   La valeur par défaut est 0.
 z_offset:
-#   The distance (in mm) between the bed and the nozzle when the probe
-#   triggers. This parameter must be provided.
+#    La distance (en mm) entre le lit et la buse lorsque la sonde se déclenche.
+#    Ce paramètre doit être fourni.
 #speed: 5.0
-#   Speed (in mm/s) of the Z axis when probing. The default is 5mm/s.
+#    Vitesse (en mm/s) de l'axe Z lors du palpage. La valeur par défaut est 5mm/s.
 #samples: 1
-#   The number of times to probe each point. The probed z-values will
-#   be averaged. The default is to probe 1 time.
+#    Le nombre de fois où il faut palper chaque point. Les valeurs z palpées seront
+#    moyennées. La valeur par défaut est de palper 1 fois.
 #sample_retract_dist: 2.0
-#   The distance (in mm) to lift the toolhead between each sample (if
-#   sampling more than once). The default is 2mm.
+#    Distance (en mm) à parcourir pour soulever la tête de l'outil entre chaque échantillon
+#    (en cas d'échantillonnage multiple). La valeur par défaut est 2mm.
 #lift_speed:
-#   Speed (in mm/s) of the Z axis when lifting the probe between
-#   samples. The default is to use the same value as the 'speed'
-#   parameter.
+#    Vitesse (en mm/s) de l'axe Z lors du levage de la sonde entre les échantillons.
+#    La valeur par défaut est la même que celle du paramètre 'speed'.
 #samples_result: average
-#   The calculation method when sampling more than once - either
-#   "median" or "average". The default is average.
+#    La méthode de calcul lorsque l'on échantillonne plusieurs fois - soit
+#    "médiane" (median) ou "moyenne" (average). La valeur par défaut est "moyenne".
 #samples_tolerance: 0.100
-#   The maximum Z distance (in mm) that a sample may differ from other
-#   samples. If this tolerance is exceeded then either an error is
-#   reported or the attempt is restarted (see
-#   samples_tolerance_retries). The default is 0.100mm.
+#    La distance Z maximale (en mm) à laquelle un échantillon peut différer des autres
+#    échantillons. Si cette tolérance est dépassée, soit une erreur est signalée
+#   soit la tentative est recommencée (cf. samples_tolerance_retries).
+#   La valeur par défaut est 0.100mm.
 #samples_tolerance_retries: 0
-#   The number of times to retry if a sample is found that exceeds
-#   samples_tolerance. On a retry, all current samples are discarded
-#   and the probe attempt is restarted. If a valid set of samples are
-#   not obtained in the given number of retries then an error is
-#   reported. The default is zero which causes an error to be reported
-#   on the first sample that exceeds samples_tolerance.
+#    Le nombre de fois qu'il faut réessayer si l'on trouve un échantillon qui dépasse la
+#    tolérance des échantillons. Lors d'une nouvelle tentative, tous les échantillons en cours
+#   sont rejetés et la tentative de sondage est relancée.
+#    Si un ensemble valide d'échantillons n'est pas obtenu dans le nombre de tentatives donné,
+#   une erreur est signalée. La valeur par défaut est zéro, ce qui entraîne le signalement d'une
+#   erreur au premier échantillon dépassant la tolérance de samples_tolerance.
 #activate_gcode:
-#   A list of G-Code commands to execute prior to each probe attempt.
-#   See docs/Command_Templates.md for G-Code format. This may be
-#   useful if the probe needs to be activated in some way. Do not
-#   issue any commands here that move the toolhead (eg, G1). The
-#   default is to not run any special G-Code commands on activation.
+#    Une liste de commandes G-Code à exécuter avant chaque tentative de palpage.
+#    Voir docs/Command_Templates.md pour le format G-Code. Cela peut être
+#    utile si la sonde doit être activée d'une manière particulière. Ne pas
+#    envoyer ici de commandes déplaçant la tête de l'outil (par exemple, G1). La valeur
+#    par défaut est de ne pas exécuter de commandes G-code spéciales lors de l'activation.
 #deactivate_gcode:
-#   A list of G-Code commands to execute after each probe attempt
-#   completes. See docs/Command_Templates.md for G-Code format. Do not
-#   issue any commands here that move the toolhead. The default is to
-#   not run any special G-Code commands on deactivation.
+#    Une liste de commandes G-Code à exécuter après la fin de chaque tentative de palpage
+#    terminée. Voir docs/Command_Templates.md pour le format G-Code. Ne pas
+#    envoyer ici de commandes déplaçant la tête de l'outil. La valeur par défaut est de
+#    ne pas exécuter de commandes G-code spéciales lors de la désactivation.
 ```
 
 ### [bltouch]
@@ -2487,29 +2476,28 @@ Support for LEDs (and LED strips) controlled via micro-controller PWM pins (one 
 
 ### [neopixel]
 
-Neopixel (aka WS2812) LED support (one may define any number of sections with a "neopixel" prefix). See the [command reference](G-Codes.md#led) for more information.
+Prise en charge des LED néopixel (alias WS2812) (on peut définir un nombre quelconque de sections avec le préfixe "neopixel"). Voir la [référence de commande](G-Codes.md#led) pour plus d'informations.
 
-Note that the [linux mcu](RPi_microcontroller.md) implementation does not currently support directly connected neopixels. The current design using the Linux kernel interface does not allow this scenario because the kernel GPIO interface is not fast enough to provide the required pulse rates.
+Notez que l'implémentation du [mcu linux](RPi_microcontroller.md) ne supporte pas actuellement les néopixels directement connectés. La conception actuelle utilisant l'interface du noyau Linux ne permet pas ce scénario car l'interface GPIO du noyau n'est pas assez rapide pour fournir les taux d'impulsion requis.
 
 ```
 [neopixel my_neopixel]
 pin:
-#   The pin connected to the neopixel. This parameter must be
-#   provided.
+#    La broche connectée au neopixel. Ce paramètre doit être
+#    fourni.
 #chain_count:
-#   The number of Neopixel chips that are "daisy chained" to the
-#   provided pin. The default is 1 (which indicates only a single
-#   Neopixel is connected to the pin).
-#color_order: GRB
-#   Set the pixel order required by the LED hardware (using a string
-#   containing the letters R, G, B, W with W optional). Alternatively,
-#   this may be a comma separated list of pixel orders - one for each
-#   LED in the chain. The default is GRB.
+#    Le nombre de puces Neopixel connectées en "chaîne" à la broche fournie.
+#    La valeur par défaut est 1 (ce qui indique qu'un seul Neopixel est connecté à la broche).
+#color_order:  GRB
+#    Définit l'ordre des pixels requis par le matériel LED (en utilisant une chaîne
+#    contenant les lettres R, G, B, W avec W en option). Alternativement, il peut s'agir d'une liste
+#    d'ordres de pixels séparés par des virgules - un pour chaque LED de la chaîne.
+#    La valeur par défaut est GRB.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-#   See the "led" section for information on these parameters.
+#    Voir la section "led" pour des informations sur ces paramètres.
 ```
 
 ### [dotstar]
@@ -2534,52 +2522,52 @@ clock_pin:
 
 ### [pca9533]
 
-PCA9533 LED support. The PCA9533 is used on the mightyboard.
+Support de la LED PCA9533. Le PCA9533 est utilisé sur la mightyboard.
 
 ```
 [pca9533 my_pca9533]
-#i2c_address: 98
-#   The i2c address that the chip is using on the i2c bus. Use 98 for
-#   the PCA9533/1, 99 for the PCA9533/2. The default is 98.
+#i2c_address : 98
+#    L'adresse i2c que la puce utilise sur le bus i2c. Utilisez 98 pour
+#    le PCA9533/1, 99 pour le PCA9533/2. La valeur par défaut est 98.
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
+#    Voir la section "paramètres I2C communs" pour une description des
+#    paramètres ci-dessus.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-#   See the "led" section for information on these parameters.
+#    Voir la section "led" pour des informations sur ces paramètres.
 ```
 
 ### [pca9632]
 
-PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
+Support des LEDs du PCA9632. Le PCA9632 est utilisé sur le FlashForge Dreamer.
 
 ```
 [pca9632 my_pca9632]
-#i2c_address: 98
-#   The i2c address that the chip is using on the i2c bus. This may be
-#   96, 97, 98, or 99.  The default is 98.
+#i2c_address  98
+#    L'adresse i2c que la puce utilise sur le bus i2c. Cela peut être
+#    96, 97, 98, ou 99.  La valeur par défaut est 98.
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
+#    Voir la section "paramètres I2C communs" pour une description des
+#    paramètres ci-dessus.
 #scl_pin:
 #sda_pin:
-#   Alternatively, if the pca9632 is not connected to a hardware I2C
-#   bus, then one may specify the "clock" (scl_pin) and "data"
-#   (sda_pin) pins. The default is to use hardware I2C.
-#color_order: RGBW
-#   Set the pixel order of the LED (using a string containing the
-#   letters R, G, B, W). The default is RGBW.
+#    Alternativement, si le pca9632 n'est pas connecté à un bus matériel I2C
+#    il est possible de spécifier les broches "clock" (scl_pin) et "data" (sda_pin).
+#    Le défaut est d'utiliser l'I2C matériel.
+#color_order : RGBW
+#    Définit l'ordre des pixels de la LED (en utilisant une chaîne contenant les lettres
+#    R, G, B, W). La valeur par défaut est RGBW.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-#   See the "led" section for information on these parameters.
+#    Voir la section "led" pour des informations sur ces paramètres.
 ```
 
 ## Servos supplémentaires, boutons et autres broches
@@ -2645,50 +2633,49 @@ Run-time configurable output pins (one may define any number of sections with an
 ```
 [output_pin my_pin]
 pin:
-#   The pin to configure as an output. This parameter must be
-#   provided.
+#    La broche à configurer comme une sortie. Ce paramètre doit être
+#    fourni.
 #pwm: False
-#   Set if the output pin should be capable of pulse-width-modulation.
-#   If this is true, the value fields should be between 0 and 1; if it
-#   is false the value fields should be either 0 or 1. The default is
-#   False.
+#    Définit si la broche de sortie doit être capable de modulation de largeur d'impulsion.
+#    Si ce paramètre est vrai, les champs de valeur doivent être compris entre 0 et 1.
+#    La valeur par défaut est False.
 #static_value:
-#   If this is set, then the pin is assigned to this value at startup
-#   and the pin can not be changed during runtime. A static pin uses
-#   slightly less ram in the micro-controller. The default is to use
-#   runtime configuration of pins.
+#    Si cette valeur est définie, la broche est affectée à cette valeur au démarrage et
+#    et la broche ne peut pas être modifiée pendant l'exécution. Une broche statique utilise
+#    légèrement moins de RAM dans le micro-contrôleur. Le défaut est d'utiliser
+#    la configuration des broches paramétrées lors du démarrage.
 #value:
-#   The value to initially set the pin to during MCU configuration.
-#   The default is 0 (for low voltage).
+#    La valeur à donner initialement à la broche pendant la configuration du MCU.
+#    La valeur par défaut est 0 (pour une tension basse).
 #shutdown_value:
-#   The value to set the pin to on an MCU shutdown event. The default
-#   is 0 (for low voltage).
+#    La valeur à donner à la broche lors d'un événement d'arrêt du MCU. La valeur par défaut
+#    est 0 (pour une tension basse).
 #maximum_mcu_duration:
-#   The maximum duration a non-shutdown value may be driven by the MCU
-#   without an acknowledge from the host.
-#   If host can not keep up with an update, the MCU will shutdown
-#   and set all pins to their respective shutdown values.
-#   Default: 0 (disabled)
-#   Usual values are around 5 seconds.
+#    La durée maximale pendant laquelle une valeur de non-arrêt peut être pilotée par le MCU
+#    sans un accusé de réception de l'hôte.
+#    Si l'hôte ne peut pas suivre une mise à jour, le MCU s'éteindra
+#    et met toutes les broches à leurs valeurs d'arrêt respectives.
+#    Défaut : 0 (désactivé)
+#    Les valeurs habituelles sont d'environ 5 secondes.
 #cycle_time: 0.100
-#   The amount of time (in seconds) per PWM cycle. It is recommended
-#   this be 10 milliseconds or greater when using software based PWM.
-#   The default is 0.100 seconds for pwm pins.
+#    La durée (en secondes) par cycle PWM. Il est recommandé
+#    que ce soit 10 millisecondes ou plus lorsque vous utilisez un PWM logiciel.
+#    La valeur par défaut est de 0.100 secondes pour les broches PWM.
 #hardware_pwm: False
-#   Enable this to use hardware PWM instead of software PWM. When
-#   using hardware PWM the actual cycle time is constrained by the
-#   implementation and may be significantly different than the
-#   requested cycle_time. The default is False.
-#scale:
-#   This parameter can be used to alter how the 'value' and
-#   'shutdown_value' parameters are interpreted for pwm pins. If
-#   provided, then the 'value' parameter should be between 0.0 and
-#   'scale'. This may be useful when configuring a PWM pin that
-#   controls a stepper voltage reference. The 'scale' can be set to
-#   the equivalent stepper amperage if the PWM were fully enabled, and
-#   then the 'value' parameter can be specified using the desired
-#   amperage for the stepper. The default is to not scale the 'value'
-#   parameter.
+#    Activez pour utiliser le PWM matériel au lieu du PWM logiciel. Lors de
+#    l'utilisation d'un PWM matériel, le temps de cycle réel est limité par
+#    l'implémentation et peut être significativement différent du
+#    cycle_time demandé. La valeur par défaut est False.
+#scale :
+#    Ce paramètre peut être utilisé pour modifier la façon dont les paramètres 'value' et
+#    'shutdown_value' sont interprétés pour les broches pwm. Si
+#    fourni, alors le paramètre 'value' doit être compris entre 0.0 et
+#    'scale'. Cela peut être utile lors de la configuration d'une broche PWM qui
+#    contrôle une référence de tension d'un moteur pas à pas. L''échelle' peut être définie sur
+#    l'intensité du moteur pas à pas équivalent si le PWM était entièrement activé, et
+#    puis le paramètre 'value' peut être spécifié en utilisant l'intensité souhaitée pour
+#    le moteur pas à pas. La valeur par défaut est de ne pas mettre à l'échelle le
+#   paramètre 'value'.
 ```
 
 ### [static_digital_output]
@@ -2705,13 +2692,13 @@ pins:
 
 ### [multi_pin]
 
-Multiple pin outputs (one may define any number of sections with a "multi_pin" prefix). A multi_pin output creates an internal pin alias that can modify multiple output pins each time the alias pin is set. For example, one could define a "[multi_pin my_fan]" object containing two pins and then set "pin=multi_pin:my_fan" in the "[fan]" section - on each fan change both output pins would be updated. These aliases may not be used with stepper motor pins.
+Sorties à broches multiples (on peut définir un nombre quelconque de sections avec le préfixe "multi_pin"). Une sortie multi_pin crée un alias de broche interne pouvant modifier plusieurs broches de sortie chaque fois que la broche alias est définie. Par exemple, on peut définir un objet "[multi_pin my_fan]" contenant deux broches et ensuite définir "pin=multi_pin:my_fan" dans la section "[fan]" - à chaque changement de ventilateur, les deux broches de sortie seront mises à jour. Ces alias ne peuvent pas être utilisés avec des broches de moteur pas à pas.
 
 ```
 [multi_pin my_multi_pin]
 pins:
-#   A comma separated list of pins associated with this alias. This
-#   parameter must be provided.
+#    Une liste séparée par des virgules des broches associées à cet alias. Ce paramètre
+#    doit être fourni.
 ```
 
 ## TMC stepper driver configuration
@@ -3129,32 +3116,31 @@ Statically configured MCP4728 digital-to-analog converter connected via I2C bus 
 ```
 [mcp4728 my_dac]
 #i2c_address: 96
-#   The i2c address that the chip is using on the i2c bus. The default
-#   is 96.
+#    L'adresse i2c que la puce utilise sur le bus i2c. La valeur par défaut
+#    est 96.
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   See the "common I2C settings" section for a description of the
-#   above parameters.
+#    Voir la section "paramètres I2C communs" pour une description des
+#    paramètres ci-dessus.
 #channel_a:
 #channel_b:
 #channel_c:
 #channel_d:
-#   The value to statically set the given MCP4728 channel to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest voltage (2.048V) and 0.0 being the lowest voltage.
-#   However, the range may be changed with the 'scale' parameter (see
-#   below). If a channel is not specified then it is left
-#   unconfigured.
+#    La valeur pour définir statiquement le canal MCP4728 donné. Ceci est
+#    généralement définie par un nombre compris entre 0.0 et 1.0, 1.0 représentant
+#    la tension la plus élevée (2.048V) et 0.0 la tension la plus basse.
+#    Cependant, la plage peut être modifiée à l'aide du paramètre 'scale' (cf.
+#    ci-dessous). Si un canal n'est pas spécifié, il n'est pas configuré.
 #scale:
-#   This parameter can be used to alter how the 'channel_x' parameters
-#   are interpreted. If provided, then the 'channel_x' parameters
-#   should be between 0.0 and 'scale'. This may be useful when the
-#   MCP4728 is used to set stepper voltage references. The 'scale' can
-#   be set to the equivalent stepper amperage if the MCP4728 were at
-#   its highest voltage (2.048V), and then the 'channel_x' parameters
-#   can be specified using the desired amperage value for the
-#   stepper. The default is to not scale the 'channel_x' parameters.
+#    Ce paramètre peut être utilisé pour modifier l'interprétation des paramètres 'channel_x'.
+#    S'il est fourni, le paramètre 'channel_x' doit être compris entre 0,0 et 'scale'.
+#    Cela peut être utile lorsque le MCP4728 est utilisé pour définir des références de tension
+#    de moteur pas à pas. L''échelle' peut être réglée sur l'intensité équivalente de la commande
+#   de moteur pas à pas si le MCP4728 était à sa tension la plus élevée (2.048V), et ensuite les
+#    paramètres 'channel_x' peuvent être spécifiés en utilisant l'intensité désirée pour le
+#    moteur pas à pas. La valeur par défaut est de ne pas mettre à l'échelle les
+#    paramètres 'channel_x'.
 ```
 
 ### [mcp4018]
@@ -3835,11 +3821,11 @@ host_mcu:
 #   (True sets CFG5 high, False sets it low). The default is True.
 ```
 
-## Other Custom Modules
+## Autres modules spécifiques
 
 ### [palette2]
 
-Palette 2 multimaterial support - provides a tighter integration supporting Palette 2 devices in connected mode.
+Prise en charge des multimatériaux de la Palette 2 - assure une intégration plus étroite de la prise en charge des périphériques de la Palette 2 en mode connecté.
 
 This modules also requires `[virtual_sdcard]` and `[pause_resume]` for full functionality.
 
@@ -3850,17 +3836,17 @@ Si vous utilisez Octoprint et que vous diffusez du gcode sur le port série au l
 ```
 [palette2]
 serial:
-#   The serial port to connect to the Palette 2.
+#    Le port série à connecter à la Palette 2.
 #baud: 115200
-#   The baud rate to use. The default is 115200.
+#    Le débit en bauds à utiliser. La valeur par défaut est 115200.
 #feedrate_splice: 0.8
-#   The feedrate to use when splicing, default is 0.8
+#    Le taux d'avance à utiliser lors de l'épissage, la valeur par défaut est 0.8.
 #feedrate_normal: 1.0
-#   The feedrate to use after splicing, default is 1.0
+#    L'avance à utiliser après l'épissage, la valeur par défaut est 1.0.
 #auto_load_speed: 2
-#   Extrude feedrate when autoloading, default is 2 (mm/s)
+#    Vitesse d'extrusion lors du chargement automatique, par défaut 2 (mm/s).
 #auto_cancel_variation: 0.1
-#   Auto cancel print when ping varation is above this threshold
+#    Annulation automatique de l'impression lorsque la variation du ping est supérieure à ce seuil.
 ```
 
 ### [angle]
@@ -3919,9 +3905,9 @@ The following parameters are generally available for devices using an SPI bus.
 
 The following parameters are generally available for devices using an I2C bus.
 
-Note that Klipper's current micro-controller support for i2c is generally not tolerant to line noise. Unexpected errors on the i2c wires may result in Klipper raising a run-time error. Klipper's support for error recovery varies between each micro-controller type. It is generally recommended to only use i2c devices that are on the same printed circuit board as the micro-controller.
+Notez que le support actuel des micro-contrôleurs de Klipper pour i2c n'est généralement pas tolérant au bruit de ligne. Des erreurs inattendues sur les fils i2c peuvent entraîner une erreur d'exécution de Klipper. Le support de Klipper pour la récupération des erreurs varie selon le type de micro-contrôleur. Il est généralement recommandé de n'utiliser que des dispositifs i2c qui se trouvent sur la même carte de circuit imprimé que le microcontrôleur.
 
-Most Klipper micro-controller implementations only support an `i2c_speed` of 100000. The Klipper "linux" micro-controller supports a 400000 speed, but it must be [set in the operating system](RPi_microcontroller.md#optional-enabling-i2c) and the `i2c_speed` parameter is otherwise ignored. The Klipper "rp2040" micro-controller supports a rate of 400000 via the `i2c_speed` parameter. All other Klipper micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter.
+La plupart des implémentations de micro-contrôleurs Klipper ne supportent qu'une `i2c_speed` de 100000. Le micro-contrôleur Klipper "linux" supporte une vitesse de 400000, mais elle doit être [définie dans le système d'exploitation](RPi_microcontroller.md#optional-enabling-i2c) sinon le paramètre `i2c_speed` est ignoré. Le micro-contrôleur Klipper "rp2040" supporte un taux de 400000 via le paramètre `i2c_speed`. Tous les autres micro-contrôleurs Klipper utilisent un taux de 100000 et ignorent le paramètre `i2c_speed`.
 
 ```
 #i2c_address:
