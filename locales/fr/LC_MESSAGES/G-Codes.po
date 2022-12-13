@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-10 06:49+0000\n"
+"PO-Revision-Date: 2022-12-11 16:51+0000\n"
 "Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/g-codes/"
 "fr/>\n"
@@ -1727,7 +1727,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 198 (header)
 msgid "[output_pin]"
-msgstr ""
+msgstr "[output_pin]"
 
 #: docs/G-Codes.md:block 199 (paragraph)
 msgid ""
@@ -1748,7 +1748,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 202 (header)
 msgid "[palette2]"
-msgstr ""
+msgstr "[palette2]"
 
 #: docs/G-Codes.md:block 203 (paragraph)
 msgid ""
