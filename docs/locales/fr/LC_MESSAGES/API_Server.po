@@ -1,9 +1,10 @@
 # jean-luc MATTEI <jlucm@free.fr>, 2022.
+# Francis Poulizac <francis@poulizac.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-29 09:48+0000\n"
-"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
+"PO-Revision-Date: 2022-12-15 18:51+0000\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "api_server/fr/>\n"
 "Language: fr\n"
@@ -82,14 +83,12 @@ msgstr ""
 msgid "A request might look like:"
 msgstr "Une requête pourrait ressembler à ça :"
 
-#, fuzzy
 msgid "`{\"id\": 123, \"method\": \"info\", \"params\": {}}`"
 msgstr "`{\"id\": 123, \"method\": \"info\", \"params\": {}}`"
 
 msgid "and a response might look like:"
 msgstr "et une réponse pourrait ressembler à ça :"
 
-#, fuzzy
 msgid ""
 "`{\"id\": 123, \"result\": {\"state_message\": \"Printer is ready\", "
 "\"klipper_path\": \"/home/pi/klipper\", \"config_file\": "
@@ -190,7 +189,6 @@ msgstr ""
 msgid "For example:"
 msgstr "Par exemple :"
 
-#, fuzzy
 msgid ""
 "`{\"id\": 123, \"method\": \"gcode/subscribe_output\", \"params\": "
 "{\"response_template\":{\"key\": 345}}}`"
@@ -201,14 +199,12 @@ msgstr ""
 msgid "may initially respond with:"
 msgstr "Peut répondre dans un premier temps :"
 
-#, fuzzy
 msgid "`{\"id\": 123, \"result\": {}}`"
 msgstr "`{\"id\": 123, \"result\": {}}`"
 
 msgid "and cause Klipper to send future messages similar to:"
 msgstr "et faire en sorte que Klipper envoie de futurs messages similaires à :"
 
-#, fuzzy
 msgid "`{\"params\": {\"response\": \"ok B:22.8 /0.0 T0:22.4 /0.0\"}, \"key\": 345}`"
 msgstr ""
 "`{\"params\": {\"response\": \"ok B:22.8 /0.0 T0:22.4 /0.0\"}, \"key\": 345}`"
