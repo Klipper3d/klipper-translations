@@ -1,14 +1,14 @@
 # Comocen <Comoc_en@mail.ru>, 2022.
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
-# Anatoliy <anatoliy.males@yandex.ru>, 2022.
+# Anatoliy <anatoliy.males@yandex.ru>, 2022, 2025.
 # VICTOR <subfyn@gmail.com>, 2023, 2025.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: VICTOR <subfyn@gmail.com>\n"
+"Last-Translator: Anatoliy <anatoliy.males@yandex.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "hall_filament_width_sensor/ru/>\n"
 "Language: ru\n"
@@ -92,9 +92,9 @@ msgid ""
 "[Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video is"
 " also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
-"Вы можете найти примеры на "
-"[Thingiverse](https://www.thingiverse.com/thing:4138933), также доступно видео"
-" на [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
+"Вы можете найти примеры на [Thingiverse](https://www.thingiverse.com/"
+"thing:4138933), также доступно видео на [Youtube](https://www.youtube.com/"
+"watch?v=TDO9tME8vp4)"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 10 (paragraph)
 msgid ""
