@@ -2,7 +2,7 @@
 # Savio Fialho <saviofialhoan@gmail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # Wagner Reck <wagner.reck@gmail.com>, 2022.
-# Francisco Lima <limamg@gmail.com>, 2022.
+# Francisco Lima <limamg@gmail.com>, 2022, 2025.
 # Roberto Besser <rmbesser@gmail.com>, 2023, 2025.
 # delvani <inavleb@users.noreply.hosted.weblate.org>, 2024.
 # Jose Delvani <jsdelvani@users.noreply.hosted.weblate.org>, 2024.
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:28+0000\n"
-"Last-Translator: Roberto Besser <rmbesser@gmail.com>\n"
+"Last-Translator: Francisco Lima <limamg@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/overview/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -266,7 +266,8 @@ msgstr ""
 
 msgid "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
 msgstr ""
-"[Sensor de largura de filamento TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)"
+"[Sensor de largura de filamento TSL1401CL]"
+"(TSL1401CL_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 1 (header)
 msgid "Overview"
