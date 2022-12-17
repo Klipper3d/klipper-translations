@@ -1,20 +1,32 @@
-#
+# Ezber Bozan <mapperiz.biz@gmail.com>, 2022.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2022-12-17 15:52+0000\n"
+"Last-Translator: Ezber Bozan <mapperiz.biz@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/canbus/"
+"tr/>\n"
+"Language: tr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid "This document describes Klipper's CAN bus support."
-msgstr ""
+msgstr "Bu belge Klipper'ın CAN bus'a desteğini açıklar."
 
 msgid "Device Hardware"
-msgstr ""
+msgstr "Cihaz Donanımı"
 
 msgid "Host Hardware"
-msgstr ""
+msgstr "Ana Bilgisayar Donanımı"
 
 msgid ""
 "In order to use a CAN bus, it is necessary to have a host adapter. There are"
 " currently two common options:"
 msgstr ""
+"Bir CAN bus kullanmak için ana bilgisay adaptörü lazımdır. Şu anda 2 sıradan "
+"seçenek vardır:"
 
 msgid ""
 "Use a [Waveshare Raspberry Pi CAN hat](https://www.waveshare.com/rs485-can-"
