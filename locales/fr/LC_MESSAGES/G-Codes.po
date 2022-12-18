@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-11 16:51+0000\n"
+"PO-Revision-Date: 2022-12-14 17:51+0000\n"
 "Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/g-codes/"
 "fr/>\n"
@@ -1968,7 +1968,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 282 (header)
 msgid "[servo]"
-msgstr ""
+msgstr "[servo]"
 
 #: docs/G-Codes.md:block 283 (paragraph)
 msgid ""
@@ -2032,7 +2032,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 300 (header)
 msgid "[temperature_fan]"
-msgstr ""
+msgstr "[temperature_fan]"
 
 #: docs/G-Codes.md:block 301 (paragraph)
 msgid ""
@@ -2321,7 +2321,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 303 (header)
 msgid "[smart_effector]"
-msgstr ""
+msgstr "[smart_effector]"
 
 #: docs/G-Codes.md:block 304 (paragraph)
 msgid ""
@@ -2632,8 +2632,9 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 371 (header)
+#, fuzzy
 msgid "[z_thermal_adjust]"
-msgstr ""
+msgstr "[z_thermal_adjust]"
 
 #: docs/G-Codes.md:block 372 (paragraph)
 msgid ""

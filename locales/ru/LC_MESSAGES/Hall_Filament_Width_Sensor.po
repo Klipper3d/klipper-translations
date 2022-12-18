@@ -1,18 +1,19 @@
 # Comocen <Comoc_en@mail.ru>, 2022.
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
+# Anatoliy <anatoliy.males@yandex.ru>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-30 10:48+0000\n"
-"Last-Translator: Evgeniy Khramov <thejenjagamertjg@gmail.com>\n"
+"PO-Revision-Date: 2022-12-15 18:51+0000\n"
+"Last-Translator: Anatoliy <anatoliy.males@yandex.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "hall_filament_width_sensor/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.15-dev\n"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 1 (header)
@@ -44,7 +45,7 @@ msgstr ""
 
 #: docs/Hall_Filament_Width_Sensor.md:block 22 (header)
 msgid "Calibration procedure"
-msgstr ""
+msgstr "Процедура калибровки"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid "Insert first calibration rod (1.5 mm size) get first raw sensor value"
@@ -61,19 +62,19 @@ msgstr ""
 
 #: docs/Hall_Filament_Width_Sensor.md:block 25 (header)
 msgid "How to enable sensor"
-msgstr ""
+msgstr "Как включить сенсор"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 26 (paragraph)
 msgid "By default, the sensor is disabled at power-on."
-msgstr ""
+msgstr "По умолчанию датчик выключен при включении."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 28 (header)
 msgid "Logging"
-msgstr ""
+msgstr "Журнал"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 29 (paragraph)
 msgid "By default, diameter logging is disabled at power-on."
-msgstr ""
+msgstr "По умолчанию регистрация диаметра отключена при включении питания."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 30 (paragraph)
 msgid ""
@@ -87,6 +88,8 @@ msgid ""
 "Filament diameter is logged on every measurement interval (10 mm by "
 "default)."
 msgstr ""
+"Диаметр филамента регистрируется на каждом интервале измерения (по умолчанию "
+"10 мм)."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 2 (paragraph)
 msgid ""
@@ -96,6 +99,12 @@ msgid ""
 "operation: two hall sensors work in differential mode, temperature drift "
 "same for sensor. Special temperature compensation not needed."
 msgstr ""
+"В этом документе описывается хост-модуль датчика ширины филамента. "
+"Аппаратное обеспечение, используемое для разработки этого главного модуля, "
+"основано на двух линейных датчиках Холла (например, ss49e). Датчики в "
+"корпусе расположены с противоположных сторон. Принцип работы: два датчика "
+"Холла работают в дифференциальном режиме, температурный дрейф одинаков для "
+"датчика. Специальная температурная компенсация не требуется."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 3 (paragraph)
 msgid ""
@@ -103,6 +112,9 @@ msgid ""
 "[Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video "
 "is also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
+"Вы можете найти примеры на [Thingiverse](https://www.thingiverse.com/"
+"thing:4138933), также доступно видео на [Youtube](https://www.youtube.com/"
+"watch?v=TDO9tME8vp4)"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 6 (paragraph)
 msgid ""
