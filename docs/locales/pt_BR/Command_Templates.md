@@ -1,14 +1,14 @@
-# Commands templates
+# Modelos de comandos
 
-This document provides information on implementing G-Code command sequences in gcode_macro (and similar) config sections.
+Este documento fornece informações sobre a implementação de sequências de comando G-Code nas seções de configuração gcode_macro (e similares).
 
-## G-Code Macro Naming
+## Nomenclatura de macro de código G
 
-Case is not important for the G-Code macro name - MY_MACRO and my_macro will evaluate the same and may be called in either upper or lower case. If any numbers are used in the macro name then they must all be at the end of the name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not).
+As letras maiúsculas e minúsculas não são importantes para o nome da macro G-Code - MY_MACRO e my_macro avaliarão o mesmo e podem ser chamadas em letras maiúsculas ou minúsculas. Se algum número for usado no nome da macro, todos devem estar no final do nome (por exemplo, TEST_MACRO25 é válido, mas MACRO25_TEST3 não é).
 
-## Formatting of G-Code in the config
+## Formatação do G-Code na configuração
 
-Indentation is important when defining a macro in the config file. To specify a multi-line G-Code sequence it is important for each line to have proper indentation. For example:
+O recuo é importante ao definir uma macro no arquivo de configuração. Para especificar uma sequência de código G de várias linhas, é importante que cada linha tenha a indentação adequada. Por exemplo:
 
 ```
 [gcode_macro blink_led]
@@ -18,45 +18,45 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 ```
 
-Note how the `gcode:` config option always starts at the beginning of the line and subsequent lines in the G-Code macro never start at the beginning.
+Observe como a opção de configuração `gcode:` sempre começa no início da linha e as linhas subsequentes na macro G-Code nunca começam no início.
 
-## Add a description to your macro
+## Adicione uma descrição à sua macro
 
-To help identify the functionality a short description can be added. Add `description:` with a short text to describe the functionality. Default is "G-Code macro" if not specified. For example:
+Para ajudar a identificar a funcionalidade, uma breve descrição pode ser adicionada. Adicione `description:` com um texto curto para descrever a funcionalidade. O padrão é "macro G-Code" se não for especificado. Por exemplo:
 
 ```
 [gcode_macro blink_led]
-description: Blink my_led one time
+descrição: Piscar my_led uma vez
 gcode:
   SET_PIN PIN=my_led VALUE=1
   G4 P2000
   SET_PIN PIN=my_led VALUE=0
 ```
 
-The terminal will display the description when you use the `HELP` command or the autocomplete function.
+O terminal exibirá a descrição quando você usar o comando `HELP` ou a função de preenchimento automático.
 
-## Save/Restore state for G-Code moves
+## Salvar/Restaurar estado para movimentos G-Code
 
-Unfortunately, the G-Code command language can be challenging to use. The standard mechanism to move the toolhead is via the `G1` command (the `G0` command is an alias for `G1` and it can be used interchangeably with it). However, this command relies on the "G-Code parsing state" setup by `M82`, `M83`, `G90`, `G91`, `G92`, and previous `G1` commands. When creating a G-Code macro it is a good idea to always explicitly set the G-Code parsing state prior to issuing a `G1` command. (Otherwise, there is a risk the `G1` command will make an undesirable request.)
+Infelizmente, a linguagem de comando G-Code pode ser difícil de usar. O mecanismo padrão para mover o cabeçote é através do comando `G1` (o comando `G0` é um alias para `G1` e pode ser usado de forma intercambiável com ele). No entanto, este comando depende da configuração do "estado de análise de código G" pelos comandos `M82`, `M83`, `G90`, `G91`, `G92` e `G1` anteriores. Ao criar uma macro G-Code, é uma boa ideia sempre definir explicitamente o estado de análise do G-Code antes de emitir um comando `G1`. (Caso contrário, existe o risco de o comando `G1` fazer uma solicitação indesejável.)
 
-A common way to accomplish that is to wrap the `G1` moves in `SAVE_GCODE_STATE`, `G91`, and `RESTORE_GCODE_STATE`. For example:
+Uma maneira comum de conseguir isso é agrupar os movimentos `G1` em `SAVE_GCODE_STATE`, `G91` e `RESTORE_GCODE_STATE`. Por exemplo:
 
 ```
 [gcode_macro MOVE_UP]
 gcode:
-  SAVE_GCODE_STATE NAME=my_move_up_state
+  SAVE_GCODE_STATE NOME=my_move_up_state
   G91
   G1 Z10 F300
-  RESTORE_GCODE_STATE NAME=my_move_up_state
+  RESTORE_GCODE_STATE NOME=my_move_up_state
 ```
 
-The `G91` command places the G-Code parsing state into "relative move mode" and the `RESTORE_GCODE_STATE` command restores the state to what it was prior to entering the macro. Be sure to specify an explicit speed (via the `F` parameter) on the first `G1` command.
+O comando `G91` coloca o estado de análise G-Code em "modo de movimento relativo" e o comando `RESTORE_GCODE_STATE` restaura o estado ao que era antes de entrar na macro. Certifique-se de especificar uma velocidade explícita (através do parâmetro `F`) no primeiro comando `G1`.
 
-## Template expansion
+## Expansão do modelo
 
-The gcode_macro `gcode:` config section is evaluated using the Jinja2 template language. One can evaluate expressions at run-time by wrapping them in `{ }` characters or use conditional statements wrapped in `{% %}`. See the [Jinja2 documentation](http://jinja.pocoo.org/docs/2.10/templates/) for further information on the syntax.
+A seção de configuração gcode_macro `gcode:` é avaliada usando a linguagem de modelo Jinja2. Pode-se avaliar expressões em tempo de execução agrupando-as em caracteres `{ }` ou usando instruções condicionais agrupadas em `{% %}`. Consulte a [documentação do Jinja2](http://jinja.pocoo.org/docs/2.10/templates/) para obter mais informações sobre a sintaxe.
 
-An example of a complex macro:
+Um exemplo de uma macro complexa:
 
 ```
 [gcode_macro clean_nozzle]
@@ -73,19 +73,19 @@ gcode:
   RESTORE_GCODE_STATE NAME=clean_nozzle_state
 ```
 
-### Macro parameters
+### Parâmetros de macro
 
-It is often useful to inspect parameters passed to the macro when it is called. These parameters are available via the `params` pseudo-variable. For example, if the macro:
+Geralmente é útil inspecionar os parâmetros passados para a macro quando ela é chamada. Esses parâmetros estão disponíveis através da pseudo-variável `params`. Por exemplo, se a macro:
 
 ```
 [gcode_macro SET_PERCENT]
 gcode:
-  M117 Now at { params.VALUE|float * 100 }%
+  M117 Agora em { params.VALUE|float * 100 }%
 ```
 
-were invoked as `SET_PERCENT VALUE=.2` it would evaluate to `M117 Now at 20%`. Note that parameter names are always in upper-case when evaluated in the macro and are always passed as strings. If performing math then they must be explicitly converted to integers or floats.
+fossem invocados como `SET_PERCENT VALUE=.2` seria avaliado como `M117 Now at 20%`. Observe que os nomes dos parâmetros estão sempre em letras maiúsculas quando avaliados na macro e são sempre passados como strings. Se estiver executando matemática, eles devem ser explicitamente convertidos em números inteiros ou flutuantes.
 
-It's common to use the Jinja2 `set` directive to use a default parameter and assign the result to a local name. For example:
+É comum usar a diretiva `set` Jinja2 para usar um parâmetro padrão e atribuir o resultado a um nome local. Por exemplo:
 
 ```
 [gcode_macro SET_BED_TEMPERATURE]
@@ -94,31 +94,31 @@ gcode:
   M140 S{bed_temp}
 ```
 
-### The "rawparams" variable
+### A variável "rawparams"
 
-The full unparsed parameters for the running macro can be access via the `rawparams` pseudo-variable.
+Os parâmetros completos não analisados para a macro em execução podem ser acessados por meio da pseudovariável `rawparams`.
 
-Note that this will include any comments that were part of the original command.
+Observe que isso incluirá todos os comentários que faziam parte do comando original.
 
-See the [sample-macros.cfg](../config/sample-macros.cfg) file for an example showing how to override the `M117` command using `rawparams`.
+Consulte o arquivo [sample-macros.cfg](../config/sample-macros.cfg) para obter um exemplo que mostra como substituir o comando `M117` usando `rawparams`.
 
-### The "printer" Variable
+### A variável "impressora"
 
-It is possible to inspect (and alter) the current state of the printer via the `printer` pseudo-variable. For example:
+É possível inspecionar (e alterar) o estado atual da impressora através da pseudo-variável `printer`. Por exemplo:
 
 ```
 [gcode_macro slow_fan]
-gcode:
+gcode: 
   M106 S{ printer.fan.speed * 0.9 * 255}
 ```
 
-Available fields are defined in the [Status Reference](Status_Reference.md) document.
+Os campos disponíveis são definidos no documento [Referência de estado](Status_Reference.md).
 
-Important! Macros are first evaluated in entirety and only then are the resulting commands executed. If a macro issues a command that alters the state of the printer, the results of that state change will not be visible during the evaluation of the macro. This can also result in subtle behavior when a macro generates commands that call other macros, as the called macro is evaluated when it is invoked (which is after the entire evaluation of the calling macro).
+Importante! As macros são primeiro avaliadas em sua totalidade e somente então os comandos resultantes são executados. Se uma macro emitir um comando que altere o estado da impressora, os resultados dessa mudança de estado não serão visíveis durante a avaliação da macro. Isso também pode resultar em um comportamento sutil quando uma macro gera comandos que chamam outras macros, pois a macro chamada é avaliada quando é invocada (que ocorre após toda a avaliação da macro de chamada).
 
-By convention, the name immediately following `printer` is the name of a config section. So, for example, `printer.fan` refers to the fan object created by the `[fan]` config section. There are some exceptions to this rule - notably the `gcode_move` and `toolhead` objects. If the config section contains spaces in it, then one can access it via the `[ ]` accessor - for example: `printer["generic_heater my_chamber_heater"].temperature`.
+Por convenção, o nome imediatamente após `printer` é o nome de uma seção de configuração. Então, por exemplo, `printer.fan` refere-se ao objeto fan criado pela seção de configuração `[fan]`. Existem algumas exceções a esta regra - principalmente os objetos `gcode_move` e `toolhead`. Se a seção de configuração contiver espaços, então é possível acessá-la por meio do acessador `[ ]` - por exemplo: `printer["generic_heater my_chamber_heater"].temperature`.
 
-Note that the Jinja2 `set` directive can assign a local name to an object in the `printer` hierarchy. This can make macros more readable and reduce typing. For example:
+Observe que a diretiva Jinja2 `set` pode atribuir um nome local a um objeto na hierarquia `printer`. Isso pode tornar as macros mais legíveis e reduzir a digitação. Por exemplo:
 
 ```
 [gcode_macro QUERY_HTU21D]
@@ -127,20 +127,20 @@ gcode:
     M117 Temp:{sensor.temperature} Humidity:{sensor.humidity}
 ```
 
-## Actions
+## Ações
 
-There are some commands available that can alter the state of the printer. For example, `{ action_emergency_stop() }` would cause the printer to go into a shutdown state. Note that these actions are taken at the time that the macro is evaluated, which may be a significant amount of time before the generated g-code commands are executed.
+Existem alguns comandos disponíveis que podem alterar o estado da impressora. Por exemplo, `{ action_emergency_stop() }` faria com que a impressora entrasse em estado de desligamento. Observe que essas ações são executadas no momento em que a macro é avaliada, o que pode levar um tempo significativo antes que os comandos do g-code gerados sejam executados.
 
-Available "action" commands:
+Comandos de "ação" disponíveis:
 
-- `action_respond_info(msg)`: Write the given `msg` to the /tmp/printer pseudo-terminal. Each line of `msg` will be sent with a "// " prefix.
-- `action_raise_error(msg)`: Abort the current macro (and any calling macros) and write the given `msg` to the /tmp/printer pseudo-terminal. The first line of `msg` will be sent with a "!! " prefix and subsequent lines will have a "// " prefix.
-- `action_emergency_stop(msg)`: Transition the printer to a shutdown state. The `msg` parameter is optional, it may be useful to describe the reason for the shutdown.
-- `action_call_remote_method(method_name)`: Calls a method registered by a remote client. If the method takes parameters they should be provided via keyword arguments, ie: `action_call_remote_method("print_stuff", my_arg="hello_world")`
+- `action_respond_info(msg)`: Escreva a `msg` fornecida no pseudo-terminal /tmp/printer. Cada linha de `msg` será enviada com um prefixo "//".
+- `action_raise_error(msg)`: Aborte a macro atual (e quaisquer macros de chamada) e escreva a `msg` fornecida no pseudo-terminal /tmp/printer. A primeira linha de `msg` será enviada com um prefixo "!! " e as linhas subseqüentes terão um prefixo "//".
+- `action_emergency_stop(msg)`: Faz a transição da impressora para um estado de desligamento. O parâmetro `msg` é opcional, pode ser útil para descrever o motivo do desligamento.
+- `action_call_remote_method(method_name)`: Chama um método registrado por um cliente remoto. Se o método receber parâmetros, eles devem ser fornecidos por meio de argumentos de palavra-chave, por exemplo: `action_call_remote_method("print_stuff", my_arg="hello_world")`
 
-## Variables
+## Variáveis
 
-The SET_GCODE_VARIABLE command may be useful for saving state between macro calls. Variable names may not contain any upper case characters. For example:
+O comando SET_GCODE_VARIABLE pode ser útil para salvar o estado entre chamadas de macro. Os nomes das variáveis não podem conter caracteres maiúsculos. Por exemplo:
 
 ```
 [gcode_macro start_probe]
@@ -161,11 +161,11 @@ gcode:
   M140 S{printer["gcode_macro start_probe"].bed_temp}
 ```
 
-Be sure to take the timing of macro evaluation and command execution into account when using SET_GCODE_VARIABLE.
+Certifique-se de levar em consideração o tempo de avaliação de macro e execução de comando ao usar SET_GCODE_VARIABLE.
 
-## Delayed Gcodes
+## Códigos G atrasados
 
-The [delayed_gcode] configuration option can be used to execute a delayed gcode sequence:
+A opção de configuração [delayed_gcode] pode ser usada para executar uma sequência de gcode atrasada:
 
 ```
 [delayed_gcode clear_display]
@@ -182,9 +182,9 @@ gcode:
  UPDATE_DELAYED_GCODE ID=clear_display DURATION=10
 ```
 
-When the `load_filament` macro above executes, it will display a "Load Complete!" message after the extrusion is finished. The last line of gcode enables the "clear_display" delayed_gcode, set to execute in 10 seconds.
+Quando a macro `load_filament` acima for executada, ela exibirá uma mensagem "Load Complete!" mensagem após a conclusão da extrusão. A última linha do gcode habilita o delay_gcode "clear_display", definido para ser executado em 10 segundos.
 
-The `initial_duration` config option can be set to execute the delayed_gcode on printer startup. The countdown begins when the printer enters the "ready" state. For example, the below delayed_gcode will execute 5 seconds after the printer is ready, initializing the display with a "Welcome!" message:
+A opção de configuração `initial_duration` pode ser definida para executar o delay_gcode na inicialização da impressora. A contagem regressiva começa quando a impressora entra no estado "pronta". Por exemplo, o delay_gcode abaixo será executado 5 segundos depois que a impressora estiver pronta, inicializando a exibição com um "Bem-vindo!" mensagem:
 
 ```
 [delayed_gcode welcome]
@@ -193,7 +193,7 @@ gcode:
   M117 Welcome!
 ```
 
-Its possible for a delayed gcode to repeat by updating itself in the gcode option:
+É possível que um gcode atrasado se repita atualizando-se na opção gcode:
 
 ```
 [delayed_gcode report_temp]
@@ -203,7 +203,7 @@ gcode:
   UPDATE_DELAYED_GCODE ID=report_temp DURATION=2
 ```
 
-The above delayed_gcode will send "// Extruder Temp: [ex0_temp]" to Octoprint every 2 seconds. This can be canceled with the following gcode:
+O delay_gcode acima enviará "// Extruder Temp: [ex0_temp]" para Octoprint a cada 2 segundos. Isso pode ser cancelado com o seguinte gcode:
 
 ```
 UPDATE_DELAYED_GCODE ID=report_temp DURATION=0
@@ -211,32 +211,32 @@ UPDATE_DELAYED_GCODE ID=report_temp DURATION=0
 
 ## Menu templates
 
-If a [display config section](Config_Reference.md#display) is enabled, then it is possible to customize the menu with [menu](Config_Reference.md#menu) config sections.
+Se uma [seção de configuração de exibição](Config_Reference.md#display) estiver ativada, é possível personalizar o menu com as seções de configuração [menu](Config_Reference.md#menu).
 
-The following read-only attributes are available in menu templates:
+Os seguintes atributos somente leitura estão disponíveis em modelos de menu:
 
-* `menu.width` - element width (number of display columns)
-* `menu.ns` - element namespace
-* `menu.event` - name of the event that triggered the script
-* `menu.input` - input value, only available in input script context
+* `menu.width` - largura do elemento (número de colunas de exibição)
+* `menu.ns` - namespace do elemento
+* `menu.event` - nome do evento que acionou o script
+* `menu.input` - valor de entrada, disponível apenas no contexto do script de entrada
 
-The following actions are available in menu templates:
+As seguintes ações estão disponíveis nos modelos de menu:
 
-* `menu.back(force, update)`: will execute menu back command, optional boolean parameters `<force>` and `<update>`.
-   * When `<force>` is set True then it will also stop editing. Default value is False.
-   * When `<update>` is set False then parent container items are not updated. Default value is True.
-* `menu.exit(force)` - will execute menu exit command, optional boolean parameter `<force>` default value False.
-   * When `<force>` is set True then it will also stop editing. Default value is False.
+* `menu.back(force, update)`: executará o comando de voltar ao menu, parâmetros booleanos opcionais `<force>` e `<update>`.
+   * Quando `<force>` for definido como True, ele também interromperá a edição. O valor padrão é Falso.
+   * Quando `<atualizar>` é definido como falso, os itens do contêiner pai não são atualizados. O valor padrão é Verdadeiro.
+* `menu.exit(force)` - executará o comando de saída do menu, parâmetro booleano opcional `<force>` valor padrão False.
+   * Quando `<force>` for definido como True, ele também interromperá a edição. O valor padrão é Falso.
 
-## Save Variables to disk
+## Salvar Variáveis no disco
 
-If a [save_variables config section](Config_Reference.md#save_variables) has been enabled, `SAVE_VARIABLE VARIABLE=<name> VALUE=<value>` can be used to save the variable to disk so that it can be used across restarts. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. to avoid overly long lines you can add the following at the top of the macro:
+Se uma [seção de configuração save_variables](Config_Reference.md#save_variables) tiver sido habilitada, `SAVE_VARIABLE VARIABLE=<nome> VALUE=<valor>` pode ser usado para salvar a variável no disco para que possa ser usada nas reinicializações. Todas as variáveis armazenadas são carregadas no dict `printer.save_variables.variables` na inicialização e podem ser usadas em macros gcode. para evitar linhas excessivamente longas, você pode adicionar o seguinte na parte superior da macro:
 
 ```
 {% set svv = printer.save_variables.variables %}
 ```
 
-As an example, it could be used to save the state of 2-in-1-out hotend and when starting a print ensure that the active extruder is used, instead of T0:
+Como exemplo, poderia ser usado para salvar o estado de hotend 2-in-1-out e ao iniciar uma impressão garantir que o extrusor ativo seja usado, em vez de T0:
 
 ```
 [gcode_macro T1]

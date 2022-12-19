@@ -1,16 +1,16 @@
 # CANBUS
 
-This document describes Klipper's CAN bus support.
+Bu belge Klipper'ın CAN bus'a desteğini açıklar.
 
-## Device Hardware
+## Cihaz Donanımı
 
 Klipper currently supports CAN on stm32, same5x, and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.
 
 To compile for CAN, run `make menuconfig` and select "CAN bus" as the communication interface. Finally, compile the micro-controller code and flash it to the target board.
 
-## Host Hardware
+## Ana Bilgisayar Donanımı
 
-In order to use a CAN bus, it is necessary to have a host adapter. There are currently two common options:
+Bir CAN bus kullanmak için ana bilgisay adaptörü lazımdır. Şu anda 2 sıradan seçenek vardır:
 
 1. Use a [Waveshare Raspberry Pi CAN hat](https://www.waveshare.com/rs485-can-hat.htm) or one of its many clones.
 1. Use a USB CAN adapter (for example <https://hacker-gadgets.com/product/cantact-usb-can-adapter/>). There are many different USB to CAN adapters available - when choosing one, we recommend verifying it can run the [candlelight firmware](https://github.com/candle-usb/candleLight_fw). (Unfortunately, we've found some USB adapters run defective firmware and are locked down, so verify before purchasing.)

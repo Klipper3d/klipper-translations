@@ -1,4 +1,4 @@
-# Overview
+# Visão geral
 
 Bem-vindo à documentação do Klipper. Se for novo no Klipper, comece com os documentos de [recursos](Features.md) e [Instalação](Installation.md).
 
@@ -10,7 +10,7 @@ Bem-vindo à documentação do Klipper. Se for novo no Klipper, comece com os do
 - [Alterações de configurações](Config_Changes.md): Alterações recentes de software que podem exigir que os usuários atualizem seu arquivo de configuração da impressora.
 - [Contato](Contact.md): Informação sobre como reportar erros ou comunicação em geral com os desenvolvedores do Klipper.
 
-## Installation and Configuration
+## Instalação e configuração
 
 - [Instalação](Installation.md): Guia de instalação do Klipper.
 - [Referências para Configuração](Config_Reference.md): Descrição dos parâmetros de configuração.
@@ -30,11 +30,11 @@ Bem-vindo à documentação do Klipper. Se for novo no Klipper, comece com os do
 - [Modelos de comandos](Command_Templates.md): Macros em G-Code e avaliação condicional.
    - [Referência de Status](Status_Reference.md): Informações disponíveis para macros (e similares).
 - [Drivers TMC](TMC_Drivers.md): Usando drivers Trinamic para motores de passo com o Klipper.
-- [Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple micro-controllers.
+- [Multi-MCU Homing](Multi_MCU_Homing.md): Posicionamento e sondagem usando vários micro-controladores.
 - [Fatiadores](Slicers.md): Configuração do programa "fatiador" para o Klipper.
-- [Skew correction](Skew_Correction.md): Adjustments for axes not perfectly square.
+- [Skew correction](Skew_Correction.md): Ajustes para eixos não perfeitamente quadrados.
 - [Ferramentas PWM](Using_PWM_Tools.md): Guia de como usar ferramentas de controladas por PWM tais como lasers e fusos.
-- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs implementation.
+- [Exclude Object](Exclude_Object.md): O guia para a implementação Exclude Objects.
 
 ## Documentação de desenvolvedor
 
@@ -54,8 +54,8 @@ Bem-vindo à documentação do Klipper. Se for novo no Klipper, comece com os do
 - [Configurações de exemplo](Example_Configs.md): Informação de como adicionar um arquivo de configuração de exemplo no Klipper.
 - [Atualizações por cartão SD](SDCard_Updates.md): Programar um micro controlador via cópia de binário para um cartão SD no microcontrolador.
 - [Raspberry Pi como Micro-controlador](RPi_microcontroller.md): Detalhes para controlar dispositivos cabeados a pinos GPIO de um Raspberry Pi.
-- [Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone PRU.
-- [Bootloaders](Bootloaders.md): Developer information on micro-controller flashing.
-- [CAN bus](CANBUS.md): Information on using CAN bus with Klipper.
-- [TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)
-- [Hall filament width sensor](Hall_Filament_Width_Sensor.md)
+- [Beaglebone](Beaglebone.md): Detalhes para executar o Klipper no Beaglebone PRU.
+- [Bootloaders](Bootloaders.md): Informações do desenvolvedor sobre o flash do microcontrolador.
+- [CAN bus](CANBUS.md): Informações sobre o uso do barramento CAN com Klipper.
+- [Sensor de largura de filamento TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
+- [Sensor de largura de filamento Hall](Hall_Filament_Width_Sensor.md)

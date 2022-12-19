@@ -1,6 +1,6 @@
 Klipper documentation
 
-Installation and Configuration
+Instalação e configuração
 
 Configuration Reference
 
