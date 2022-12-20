@@ -2,17 +2,19 @@
 # Savio Fialho <saviofialhoan@gmail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # Wagner Reck <wagner.reck@gmail.com>, 2022.
+# Francisco Lima <limamg@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-29 11:17+0000\n"
-"Last-Translator: Wagner Reck <wagner.reck@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/klipper/overview/pt_BR/>\n"
+"PO-Revision-Date: 2022-12-17 15:52+0000\n"
+"Last-Translator: Francisco Lima <limamg@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/overview/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -257,48 +259,61 @@ msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-controller "
 "flashing."
 msgstr ""
+"[Bootloaders](Bootloaders.md): Informações do desenvolvedor sobre o flash do "
+"microcontrolador."
 
 msgid "[CAN bus](CANBUS.md): Information on using CAN bus with Klipper."
 msgstr ""
+"[CAN bus](CANBUS.md): Informações sobre o uso do barramento CAN com Klipper."
 
 msgid "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
 msgstr ""
+"[Sensor de largura de filamento TSL1401CL](TSL1401CL_Filament_Width_Sensor."
+"md)"
 
 #: docs/Overview.md:block 1 (header)
 msgid "Overview"
-msgstr ""
+msgstr "Visão geral"
 
 #: docs/Overview.md:block 5 (header)
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "Instalação e configuração"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple "
 "micro-controllers."
 msgstr ""
+"[Multi-MCU Homing](Multi_MCU_Homing.md): Posicionamento e sondagem usando "
+"vários micro-controladores."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Skew correction](Skew_Correction.md): Adjustments for axes not perfectly "
 "square."
 msgstr ""
+"[Skew correction](Skew_Correction.md): Ajustes para eixos não perfeitamente "
+"quadrados."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
 "[Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone "
 "PRU."
 msgstr ""
+"[Beaglebone](Beaglebone.md): Detalhes para executar o Klipper no Beaglebone "
+"PRU."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
-msgstr ""
+msgstr "[Sensor de largura de filamento Hall](Hall_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
 "implementation."
 msgstr ""
+"[Exclude Object](Exclude_Object.md): O guia para a implementação Exclude "
+"Objects."
 
 #~ msgid ""
 #~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
