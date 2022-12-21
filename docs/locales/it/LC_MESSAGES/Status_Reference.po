@@ -4,8 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2022-11-02 14:27+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
-"status_reference/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/status_reference/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1274,16 +1273,16 @@ msgid ""
 "`info.total_layer`: The total layer value of the last `SET_PRINT_STATS_INFO "
 "TOTAL_LAYER=<value>` G-Code command."
 msgstr ""
-"`info.total_layer`: Il valore totale del layer dell'ultimo comando G-Code `"
-"SET_PRINT_STATS_INFO TOTAL_LAYER=<valore>`."
+"`info.total_layer`: Il valore totale del layer dell'ultimo comando G-Code "
+"`SET_PRINT_STATS_INFO TOTAL_LAYER=<valore>`."
 
 #: docs/Status_Reference.md:block 83 (unordered list)
 msgid ""
 "`info.current_layer`: The current layer value of the last "
 "`SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-Code command."
 msgstr ""
-"`info.current_layer`: il valore del layer corrente dell'ultimo comando G-"
-"Code `SET_PRINT_STATS_INFO CURRENT_LAYER=<valore>`."
+"`info.current_layer`: il valore del layer corrente dell'ultimo comando "
+"G-Code `SET_PRINT_STATS_INFO CURRENT_LAYER=<valore>`."
 
 #: docs/Status_Reference.md:block 124 (header)
 msgid "z_thermal_adjust"
@@ -1295,9 +1294,9 @@ msgid ""
 "(this object is available if "
 "[z_thermal_adjust](Config_Reference.md#z_thermal_adjust) is defined)."
 msgstr ""
-"Le seguenti informazioni sono disponibili nell'oggetto `z_thermal_adjust` ("
-"questo oggetto è disponibile se [z_thermal_adjust](Config_Reference."
-"md#z_thermal_adjust) è definito)."
+"Le seguenti informazioni sono disponibili nell'oggetto `z_thermal_adjust` "
+"(questo oggetto è disponibile se "
+"[z_thermal_adjust](Config_Reference.md#z_thermal_adjust) è definito)."
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid "`enabled`: Returns True if adjustment is enabled."
@@ -1329,6 +1328,59 @@ msgid ""
 msgstr ""
 "`z_adjust_ref_temperature`:Temperatura di riferimento corrente utilizzata "
 "per il calcolo di Z `current_z_adjust` [degC]."
+
+#: docs/Status_Reference.md:block 93 (header)
+msgid "screws_tilt_adjust"
+msgstr ""
+
+#: docs/Status_Reference.md:block 94 (paragraph)
+msgid ""
+"The following information is available in the `screws_tilt_adjust` object:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid ""
+"`error`: Returns True if the most recent `SCREWS_TILT_CALCULATE` command "
+"included the `MAX_DEVIATION` parameter and any of the probed screw points "
+"exceeded the specified `MAX_DEVIATION`."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid ""
+"`results`: A list of the probed screw locations. Each entry in the list will"
+" be a dictionary containing the following keys:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`name`: The name of the screw as specified in the config file."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`x`: The X coordinate of the screw as specified in the config file."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`y`: The Y coordinate of the screw as specified in the config file."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`z`: The measured Z height of the screw location."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid ""
+"`sign`: A string specifying the direction to turn to screw for the necessary"
+" adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise. "
+"The base screw will not have a `sign` key."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid ""
+"`adjust`: The number of screw turns to adjust the screw, given in the format"
+" \"HH:MM,\" where \"HH\" is the number of full screw turns and \"MM\" is the"
+" number of \"minutes of a clock face\" representing a partial screw turn. "
+"(E.g. \"01:15\" would mean to turn the screw one and a quarter revolutions.)"
+msgstr ""
 
 #~ msgid "neopixel / dotstar"
 #~ msgstr ""

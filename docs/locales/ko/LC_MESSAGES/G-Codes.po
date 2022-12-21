@@ -145,13 +145,6 @@ msgstr ""
 "[gcode_arcs config section](Config_Reference.md#gcode_arcs)이 활성화된 경우 다음 표준 "
 "G-Code 명령을 사용할 수 있습니다."
 
-msgid ""
-"Controlled Arc Move (G2 or G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] "
-"[F<speed>] I<value> J<value>`"
-msgstr ""
-"Controlled Arc Move (G2 or G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] "
-"[F<speed>] I<value> J<value>`"
-
 msgid "Display Message: `M117 <message>`"
 msgstr "메시지 표시: `M117 <message>`"
 
@@ -2543,6 +2536,24 @@ msgid ""
 " homing (for use in e.g. non-standard homing routines) - will be reset "
 "automatically upon homing."
 msgstr ""
+
+#: docs/G-Codes.md:block 158 (unordered list)
+msgid ""
+"Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): `G2|G3 [X<pos>] "
+"[Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> "
+"K<value>|J<value> K<value>`"
+msgstr ""
+
+#: docs/G-Codes.md:block 158 (unordered list)
+msgid "Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)"
+msgstr ""
+
+#~ msgid ""
+#~ "Controlled Arc Move (G2 or G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] "
+#~ "[F<speed>] I<value> J<value>`"
+#~ msgstr ""
+#~ "Controlled Arc Move (G2 or G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] "
+#~ "[F<speed>] I<value> J<value>`"
 
 #~ msgid ""
 #~ "`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [<probe_parameter>=<value>]`: This"

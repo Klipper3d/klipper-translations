@@ -5,13 +5,11 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2022-12-08 10:47+0000\n"
 "Last-Translator: Evgeniy Khramov <thejenjagamertjg@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
-"status_reference/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/status_reference/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.15-dev\n"
 
 msgid ""
@@ -102,7 +100,8 @@ msgstr ""
 "`virtual_sdcard.progress`, если не получена последняя `M73` команда)."
 
 msgid "`message`: The message contained in the last `M117` G-Code command."
-msgstr "`сообщение`: Сообщение, содержащееся в последней `M117` команде G-кода."
+msgstr ""
+"`сообщение`: Сообщение, содержащееся в последней `M117` команде G-кода."
 
 msgid "endstop_phase"
 msgstr "endstop_phase"
@@ -111,8 +110,8 @@ msgid ""
 "The following information is available in the "
 "[endstop_phase](Config_Reference.md#endstop_phase) object:"
 msgstr ""
-"Следующая информация доступна в объекте [endstop_phase](Config_Reference."
-"md#endstop_phase):"
+"Следующая информация доступна в объекте "
+"[endstop_phase](Config_Reference.md#endstop_phase):"
 
 msgid ""
 "`last_home.<stepper name>.phase`: The phase of the stepper motor at the end "
@@ -125,8 +124,8 @@ msgid ""
 "`last_home.<stepper name>.phases`: The total number of phases available on "
 "the stepper motor."
 msgstr ""
-"`last_home.<имя шагового двигателя>.phases`: Общее количество фаз, доступных "
-"на шаговом двигателе."
+"`last_home.<имя шагового двигателя>.phases`: Общее количество фаз, доступных"
+" на шаговом двигателе."
 
 msgid ""
 "`last_home.<stepper name>.mcu_position`: The position (as tracked by the "
@@ -137,8 +136,8 @@ msgid ""
 msgstr ""
 "`last_home.<имя шагового двигателя>.mcu_position`: Положение (отслеживаемое "
 "микроконтроллером) шагового двигателя в конце последней попытки возврата "
-"домой. Позиция - это общее количество шагов, сделанных в прямом направлении, "
-"минус общее количество шагов, сделанных в обратном направлении с момента "
+"домой. Позиция - это общее количество шагов, сделанных в прямом направлении,"
+" минус общее количество шагов, сделанных в обратном направлении с момента "
 "последнего перезапуска микроконтроллера."
 
 msgid "fan"
@@ -1013,6 +1012,59 @@ msgstr ""
 msgid ""
 "`z_adjust_ref_temperature`: Current reference temperature used for "
 "calculation of Z `current_z_adjust` [degC]."
+msgstr ""
+
+#: docs/Status_Reference.md:block 93 (header)
+msgid "screws_tilt_adjust"
+msgstr ""
+
+#: docs/Status_Reference.md:block 94 (paragraph)
+msgid ""
+"The following information is available in the `screws_tilt_adjust` object:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid ""
+"`error`: Returns True if the most recent `SCREWS_TILT_CALCULATE` command "
+"included the `MAX_DEVIATION` parameter and any of the probed screw points "
+"exceeded the specified `MAX_DEVIATION`."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid ""
+"`results`: A list of the probed screw locations. Each entry in the list will"
+" be a dictionary containing the following keys:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`name`: The name of the screw as specified in the config file."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`x`: The X coordinate of the screw as specified in the config file."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`y`: The Y coordinate of the screw as specified in the config file."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`z`: The measured Z height of the screw location."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid ""
+"`sign`: A string specifying the direction to turn to screw for the necessary"
+" adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise. "
+"The base screw will not have a `sign` key."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid ""
+"`adjust`: The number of screw turns to adjust the screw, given in the format"
+" \"HH:MM,\" where \"HH\" is the number of full screw turns and \"MM\" is the"
+" number of \"minutes of a clock face\" representing a partial screw turn. "
+"(E.g. \"01:15\" would mean to turn the screw one and a quarter revolutions.)"
 msgstr ""
 
 #~ msgid "neopixel / dotstar"

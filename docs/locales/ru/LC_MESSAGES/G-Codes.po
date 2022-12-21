@@ -5,13 +5,11 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2022-12-08 10:47+0000\n"
 "Last-Translator: Evgeniy Khramov <thejenjagamertjg@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/g-codes/"
-"ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/g-codes/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.15-dev\n"
 
 #, fuzzy
@@ -140,11 +138,6 @@ msgstr ""
 msgid ""
 "The following standard G-Code commands are available if a [gcode_arcs config"
 " section](Config_Reference.md#gcode_arcs) is enabled:"
-msgstr ""
-
-msgid ""
-"Controlled Arc Move (G2 or G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] "
-"[F<speed>] I<value> J<value>`"
 msgstr ""
 
 msgid "Display Message: `M117 <message>`"
@@ -2337,6 +2330,22 @@ msgid ""
 " homing (for use in e.g. non-standard homing routines) - will be reset "
 "automatically upon homing."
 msgstr ""
+
+#: docs/G-Codes.md:block 158 (unordered list)
+msgid ""
+"Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): `G2|G3 [X<pos>] "
+"[Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> "
+"K<value>|J<value> K<value>`"
+msgstr ""
+
+#: docs/G-Codes.md:block 158 (unordered list)
+msgid "Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)"
+msgstr ""
+
+#~ msgid ""
+#~ "Controlled Arc Move (G2 or G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] "
+#~ "[F<speed>] I<value> J<value>`"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [<probe_parameter>=<value>]`: This"
