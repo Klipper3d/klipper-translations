@@ -8,6 +8,26 @@ When sourcing ADXL345, be aware that there is a variety of different PCB board d
 
 ### 배선
 
+An ethernet cable with shielded twisted pairs (cat5e or better) is recommended for signal integrety over a long distance. If you still experience signal integrity issues (SPI/I2C errors), shorten the cable.
+
+Connect ethernet cable shielding to the controller board/RPI ground.
+
+***Double-check your wiring before powering up to prevent damaging your MCU/Raspberry Pi or the accelerometer.***
+
+#### SPI Accelerometers
+
+Suggested twisted pair order:
+
+```
+GND+MISO
+3.3V+MOSI
+SCLK+CS
+```
+
+##### ADXL345
+
+**Note: Many MCUs will work with an ADXL345 in SPI mode(eg Pi Pico), wiring and configuration will vary according to your specific board and avaliable pins.**
+
 SPI 를 통해 ADXL345 를 Raspberry Pi에 연결해야 합니다. ADXL345 문서에서 제안하는 I2C 연결은 처리량이 너무 낮아 **작동하지 않습니다**. 권장 연결 방식:
 
 | ADXL345 핀 | RPi 핀 | RPi 핀 이름 |
@@ -19,20 +39,44 @@ SPI 를 통해 ADXL345 를 Raspberry Pi에 연결해야 합니다. ADXL345 문�
 | SDA | 19 | GPIO10 (SPI0_MOSI) |
 | SCL | 23 | GPIO11 (SPI0_SCLK) |
 
-An alternative to the ADXL345 is the MPU-9250 (or MPU-6050). This accelerometer has been tested to work over I2C on the RPi at 400kbaud. Recommended connection scheme for I2C:
-
-| MPU-9250 pin | RPi 핀 | RPi 핀 이름 |
-| :-: | :-: | :-: |
-| 3V3 (또는 VCC) | 01 | 3.3v 직류 전원 |
-| GND | 09 | Ground |
-| SDA | 03 | GPIO02 (SDA1) |
-| SCL | 05 | GPIO03 (SCL1) |
-
 ADXL345 보드에 대한 Fritzing 배선 다이어그램:
 
 ![ADXL345-Rpi](img/adxl345-fritzing.png)
 
-Raspberry Pi 또는 가속도계의 손상을 방지하기 위해 Raspberry Pi의 전원을 켜기 전에 배선을 다시 확인하십시오.
+#### I2C Accelerometers
+
+Suggested twisted pair order:
+
+```
+3.3V+SDA
+GND+SCL
+```
+
+##### MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500
+
+Alternatives to the ADXL345 are MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500. These accelerometers have been tested to work over I2C on the RPi or RP2040(pico) at 400kbaud.
+
+Recommended connection scheme for I2C on the Raspberry Pi:
+
+| MPU-9250 pin | RPi 핀 | RPi 핀 이름 |
+| :-: | :-: | :-: |
+| VCC | 01 | 3.3v 직류 전원 |
+| GND | 09 | Ground |
+| SDA | 03 | GPIO02 (SDA1) |
+| SCL | 05 | GPIO03 (SCL1) |
+
+![MPU-9250 connected to RPI](img/mpu9250-PI-fritzing.png)
+
+Recommended connection scheme for I2C(i2c0a) on the RP2040:
+
+| MPU-9250 pin | RP2040 pin | RPi 핀 이름 |
+| :-: | :-: | :-: |
+| VCC | 39 | 3v3 |
+| GND | 38 | Ground |
+| SDA | 01 | GP0 (I2C0 SDA) |
+| SCL | 02 | GP1 (I2C0 SCL) |
+
+![MPU-9250 connected to PICO](img/mpu9250-PICO-fritzing.png)
 
 ### 가속도계 장착
 
@@ -65,9 +109,11 @@ Note that, depending on the performance of the CPU, it may take *a lot* of time,
 
 이후 [RPi Microcontroller document](RPi_microcontroller.md) 의 지시사항에 따라 라즈베리파이에 "linux mcu"를 설정합니다.
 
+#### Configure ADXL345 With RPi
+
 `sudo raspi-config` 를 실행하고 "Interfacing options" 메뉴에서 SPI를 활성화하여 Linux SPI 드라이버가 활성화되어 있는지 확인합니다.
 
-For the ADXL345, add the following to the printer.cfg file:
+다음을 printer.cfg 파일에 추가합니다:
 
 ```
 [mcu rpi]
@@ -84,7 +130,9 @@ probe_points:
 
 프린터 BED 중간, 약간 위에서 프로브 포인트 1개로 시작하는 것이 좋습니다.
 
-For the MPU-9250, make sure the Linux I2C driver is enabled and the baud rate is set to 400000 (see [Enabling I2C](RPi_microcontroller.md#optional-enabling-i2c) section for more details). Then, add the following to the printer.cfg:
+#### Configure MPU-6000/9000 series With RPi
+
+Make sure the Linux I2C driver is enabled and the baud rate is set to 400000 (see [Enabling I2C](RPi_microcontroller.md#optional-enabling-i2c) section for more details). Then, add the following to the printer.cfg:
 
 ```
 [mcu rpi]
@@ -98,6 +146,27 @@ i2c_bus: i2c.1
 accel_chip: mpu9250
 probe_points:
     100, 100, 20  # an example
+```
+
+#### Configure MPU-6000/9000 series With PICO
+
+PICO I2C is set to 400000 on default. Simply add the following to the printer.cfg:
+
+```
+[mcu pico]
+serial: /dev/serial/by-id/<your PICO's serial ID>
+
+[mpu9250]
+i2c_mcu: pico
+i2c_bus: i2c1a
+
+[resonance_tester]
+accel_chip: mpu9250
+probe_points:
+    100, 100, 20  # an example
+
+[static_digital_output pico_3V3pwm] # Improve power stability
+pin: pico:gpio23
 ```
 
 `RESTART` 명령을 통해 Klipper를 다시 시작하십시오.
@@ -118,6 +187,8 @@ Recv: // adxl345 values (x, y, z): 470.719200, 941.438400, 9728.196800
 ```
 
 `Invalid adxl345 id (got xx vs e5)` 와 같은 오류가 발생하면 (여기서 'xx'는 다른 ID임) ADXL345의 연결 문제 또는 센서 결함을 나타냅니다. 전원, 배선(회로도와 일치하는지, 와이어가 끊어지거나 느슨하지 않은지 등) 및 납땜 품질을 다시 확인하십시오.
+
+**If you are using MPU-6000/9000 series accelerometer and it show up as `mpu-unknown`, use with caution! They are probably refurbished chips!**
 
 다음으로 Octoprint에서 `MEASURE_AXES_NOISE`를 실행해 보십시오. 축의 가속도계 노이즈에 대한 기준 수치를 얻어야 합니다 (~1-100 범위 어딘가에 있어야 함). 너무 높은 축 노이즈(예: 1000개 이상)는 센서 문제, 전원 문제 또는 3D 프린터의 너무 시끄러운 팬이 원인일 수 있습니다.
 

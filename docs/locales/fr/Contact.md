@@ -7,8 +7,9 @@ Ce document fourni les informations de contact pour Klipper.
 1. [J'ai une question au sujet de Klipper](#i-have-a-question-about-klipper)
 1. [J'ai une demande d'ajout de fonctionnalité](#i-have-a-feature-request)
 1. [A l'aide ! Ca ne fonctionne pas !](#help-it-doesnt-work)
-1. [J'ai identifié un problème dans le logiciel Klipper](#i-have-diagnosed-a-defect-in-the-klipper-software)
+1. [I found a bug in the Klipper software](#i-found-a-bug-in-the-klipper-software)
 1. [J’apporte des modifications que j’aimerais inclure dans Klipper](#i-am-making-changes-that-id-like-to-include-in-klipper)
+1. [Klipper github](#klipper-github)
 
 ## Forum de la communauté
 
@@ -30,13 +31,9 @@ Si vous souhaitez partager vos connaissances et votre expérience avec d'autres 
 
 De nombreuses questions que nous recevons sont relatives à l'impression 3D en général et ne sont pas spécifiques à Klipper. Si vous avez une question ou si vous rencontrez des problèmes d'impression en général, vous obtiendrez probablement une meilleure réponse en la posant sur un forum consacré à l'impression 3D dans la globalité ou bien sur un dédié au matériel de votre imprimante.
 
-N'ouvrez pas d'Issue sur le dépôt GitHub de Klipper pour poser une question.
-
 ## J'ai une demande d'ajout de fonctionnalité
 
 Toute nouvelle fonctionnalité nécessite d'avoir une personne intéressée et en capacité de la mettre en oeuvre. Si vous souhaitez aider à implémenter ou tester une fonctionnalité, nous pouvez consulter les développements en cours sur le [Forum de la Communauté Klipper](#community-forum). Le [Salon Discord Klipper](#discord-chat) est également là pour les discussions entre contributeurs.
-
-N'ouvrez pas d'issue GitHub pour demander une fonctionnalité.
 
 ## A l'aide ! Ca ne fonctionne pas !
 
@@ -53,25 +50,23 @@ Il est également possible de rechercher des questions similaires sur le [Forum 
 
 Si vous souhaitez partager vos connaissances et votre expérience avec d'autres utilisateurs de Klipper, vous pouvez rejoindre le [Forum de la communauté Klipper](#community-forum) ou encore le [Salon Discord Klipper](#discord-chat). Il s'agit de deux communautés où les utilisateurs de Klipper peuvent discuter du logiciel avec d'autres.
 
-N'ouvrez pas d'Issue sur le dépôt GitHub de Klipper pour demander de l'aide.
-
-## J'ai identifié un problème dans le logiciel Klipper
+## I found a bug in the Klipper software
 
 Klipper est un projet open-source et nous apprécions quand des contributeurs diagnostiquent des erreurs dans le logiciel.
 
+Problems should be reported in the [Klipper Community Forum](#community-forum).
+
 Il y a des informations importantes qui sont nécessaires pour pouvoir corriger un bug. Veuillez suivre ces étapes :
 
-1. Assurez-vous que le bug se trouve bien dans le logiciel Klipper. Si vous pensez "il y a un problème, ne j'arrive pas à comprendre pourquoi, c'est donc un bug dans Klipper", alors veuillez **ne pas** ouvrir d'issue GitHub. Dans ce cas, une personne intéressée et capable devra d'abord rechercher et diagnostiquer la cause racine de l'anomalie. Si vous souhaitez partager les résultats de vos recherches ou vérifier si d'autres utilisateurs rencontrent des problèmes similaires, vous pouvez consulter le [Forum de la Communauté Klipper](#community-forum).
-1. Assurez-vous que vous exécutez le code non modifié de <https://github.com/Klipper3d/klipper>. Si le code a été modifié ou provient d'une autre source, vous devrez reproduire le problème sur le code non modifié de <https://github.com/Klipper3d/klipper> avant de signaler un problème.
-1. Si possible, exécutez une commande `M112` dans la fenêtre du terminal OctoPrint immédiatement que l'anomalie s'est produite. Cela bascule Klipper dans un "état d'arrêt" et entraîne l'écriture d'informations de débogage supplémentaires dans le fichier journal.
+1. Make sure you are running unmodified code from <https://github.com/Klipper3d/klipper>. If the code has been modified or is obtained from another source, then you should reproduce the problem on the unmodified code from <https://github.com/Klipper3d/klipper> prior to reporting.
+1. If possible, run an `M112` command immediately after the undesirable event occurs. This causes Klipper to go into a "shutdown state" and it will cause additional debugging information to be written to the log file.
 1. Récupérez l'événement depuis le fichier journal Klipper. Ce journal a été conçu pour répondre aux questions courantes que les développeurs de Klipper se posent sur le logiciel et son environnement (version du logiciel, type de matériel, configuration, à quel moment l'anomalie eu lieu, et des centaines d'autres questions).
    1. Le fichier journal de Klipper est situé dans `/tmp/klippy.log` sur l'ordinateur "hôte" de Klipper (le Raspberry Pi).
    1. Un utilitaire comme "scp" ou "sftp" est nécessaire pour copier ce fichier journal sur votre ordinateur. L'utilitaire "scp" est fourni en standard avec les systèmes Linux et MacOS. Il existe des utilitaires scp disponibles gratuitement pour d'autres systèmes (par exemple, WinSCP). Si vous utilisez un utilitaire scp graphique qui ne peut pas copier directement `/tmp/klippy.log`, cliquez plusieurs fois sur `...` ou `dossier parent` jusqu'à ce que vous arriviez au répertoire racine, cliquez ensuite sur le dossier `tmp`, puis sélectionnez le fichier `klippy.log`.
    1. Copiez le fichier journal sur votre bureau afin de le joindre au rapport d'anomalie.
    1. Ne modifiez pas le fichier journal de quelque façon que ce soit ; ne fournissez pas un extrait non plus. Seul le fichier journal complet sans altération fournira les informations nécessaires.
-   1. Si le fichier journal est très volumineux (par exemple, plus de 2 Mo), il peut être nécessaire de le compresser avec zip ou gzip.
-
-   1. Ouvrez un nouveau problème github à <https://github.com/Klipper3d/klipper/issues> et fournissez une description claire du problème. Les développeurs de Klipper doivent comprendre quelles étapes ont été suivies, quel était le résultat souhaité et quel résultat s'est effectivement produit. Le fichier journal de Klipper **doit être joint** à ce ticket :![attach-issue](img/attach-issue.png)
+   1. It is a good idea to compress the log file with zip or gzip.
+1. Open a new topic on the [Klipper Community Forum](#community-forum) and provide a clear description of the problem. Other Klipper contributors will need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The compressed Klipper log file should be attached to that topic.
 
 ## J’apporte des modifications que j’aimerais inclure dans Klipper
 
@@ -79,4 +74,8 @@ Klipper est un logiciel libre et nous apprécions les nouvelles contributions.
 
 Les nouvelles contributions (que ce soit pour le code ou pour la documentation) sont soumises au moyen de Pull Requests Github. Référez-vous au document [CONTRIBUTIONS](CONTRIBUTION.md) pour connaître les informations importantes à ce sujet.
 
-Il y a plusieurs [documentations pour les développeurs](Overview.md#developer-documentation). Si vous avez des questions sur le code, vous pouvez également les poser sur le [Forum de la communauté Klipper](#community-forum) ou sur le [Discord de la communauté Klipper](#discord-chat). Si vous souhaitez partager un état d'avancement, vous pouvez ouvrir une issue Github avec l'emplacement de votre code, un aperçu des modifications et une description de son état actuel.
+There are several [documents for developers](Overview.md#developer-documentation). If you have questions on the code then you can also ask in the [Klipper Community Forum](#community-forum) or on the [Klipper Community Discord](#discord-chat).
+
+## Klipper github
+
+Klipper github may be used by contributors to share the status of their work to improve Klipper. It is expected that the person opening a github ticket is actively working on the given task and will be the one performing all the work necessary to accomplish it. The Klipper github is not used for requests, nor to report bugs, nor to ask questions. Use the [Klipper Community Forum](#community-forum) or the [Klipper Community Discord](#discord-chat) instead.

@@ -339,7 +339,8 @@ The gcode module is automatically loaded.
 
 Następujące standardowe polecenia G-Code są dostępne, jeśli włączona jest sekcja konfiguracyjna [gcode_arcs](Config_Reference.md#gcode_arcs):
 
-- Kontrolowany ruch łuku (G2 lub G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<prędkość>] I<wartość> J<wartość>`
+- Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): `G2|G3 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> K<value>|J<value> K<value>`
+- Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)
 
 ### [gcode_macro]
 

@@ -249,6 +249,19 @@ A következő információk a `query_endstops` objektumban érhetők el (ez az o
 
 - `last_query["<endstop>"]`: True értéket ad, ha az adott végálláskapcsolót az utolsó QUERY_ENDSTOP parancs során "triggered" -ként jelenti. Megjegyzés: ha ezt egy makróban használjuk, a sablon bővítési sorrendje miatt a QUERY_ENDSTOP parancsot akkor ezt a hivatkozást tartalmazó makró előtt kell lefuttatni.
 
+## screws_tilt_adjust
+
+The following information is available in the `screws_tilt_adjust` object:
+
+- `error`: Returns True if the most recent `SCREWS_TILT_CALCULATE` command included the `MAX_DEVIATION` parameter and any of the probed screw points exceeded the specified `MAX_DEVIATION`.
+- `results`: A list of the probed screw locations. Each entry in the list will be a dictionary containing the following keys:
+   - `name`: The name of the screw as specified in the config file.
+   - `x`: The X coordinate of the screw as specified in the config file.
+   - `y`: The Y coordinate of the screw as specified in the config file.
+   - `z`: The measured Z height of the screw location.
+   - `sign`: A string specifying the direction to turn to screw for the necessary adjustment. Either "CW" for clockwise or "CCW" for counterclockwise. The base screw will not have a `sign` key.
+   - `adjust`: The number of screw turns to adjust the screw, given in the format "HH:MM," where "HH" is the number of full screw turns and "MM" is the number of "minutes of a clock face" representing a partial screw turn. (E.g. "01:15" would mean to turn the screw one and a quarter revolutions.)
+
 ## servo
 
 A következő információk a [szervó some_name](Config_Reference.md#servo) objektumokban érhetők el:

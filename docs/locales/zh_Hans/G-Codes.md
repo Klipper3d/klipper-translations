@@ -339,7 +339,8 @@ The gcode module is automatically loaded.
 
 如果启用了[gcode_arcs 配置分段](Config_Reference.md#gcode_arcs)，下列标准G代码命令可用：
 
-- 受控弧线移动（G2或G3）。`G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>` 。
+- Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): `G2|G3 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> K<value>|J<value> K<value>`
+- Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)
 
 ### [gcode_macro]
 

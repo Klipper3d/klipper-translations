@@ -8,6 +8,26 @@ Klipper內建有ADXL345加速度感測器驅動，可用以測量印表機不同
 
 ### 接線
 
+An ethernet cable with shielded twisted pairs (cat5e or better) is recommended for signal integrety over a long distance. If you still experience signal integrity issues (SPI/I2C errors), shorten the cable.
+
+Connect ethernet cable shielding to the controller board/RPI ground.
+
+***Double-check your wiring before powering up to prevent damaging your MCU/Raspberry Pi or the accelerometer.***
+
+#### SPI Accelerometers
+
+Suggested twisted pair order:
+
+```
+GND+MISO
+3.3V+MOSI
+SCLK+CS
+```
+
+##### ADXL345
+
+**Note: Many MCUs will work with an ADXL345 in SPI mode(eg Pi Pico), wiring and configuration will vary according to your specific board and avaliable pins.**
+
 我們需要將ADXL345連線到樹莓派的SPI介面。注意，儘管ADXL345文件推薦使用I2C，但其數據吞吐能力不足，**不能**實現共振測量的要求。推薦的接線圖為：
 
 | ADXL345引腳 | 樹莓派引腳 | 樹莓派引腳名稱 |
@@ -19,20 +39,44 @@ Klipper內建有ADXL345加速度感測器驅動，可用以測量印表機不同
 | SDA | 19 | GPIO10 (SPI0_MOSI) |
 | SCL | 23 | GPIO11 (SPI0_SCLK) |
 
-An alternative to the ADXL345 is the MPU-9250 (or MPU-6050). This accelerometer has been tested to work over I2C on the RPi at 400kbaud. Recommended connection scheme for I2C:
-
-| MPU-9250 pin | 樹莓派引腳 | 樹莓派引腳名稱 |
-| :-: | :-: | :-: |
-| 3V3 或 VCC | 01 | 3.3v 直流（DC）電源 |
-| GND | 09 | 地（GND） |
-| SDA | 03 | GPIO02 (SDA1) |
-| SCL | 05 | GPIO03 (SCL1) |
-
 部分ADXL345開發板的Fritzing接線圖如下：
 
 ![ADXL345-樹莓派](img/adxl345-fritzing.png)
 
-為避免損害樹莓派或加速度感測器，請再三確認接線正確再對樹莓派上電。
+#### I2C Accelerometers
+
+Suggested twisted pair order:
+
+```
+3.3V+SDA
+GND+SCL
+```
+
+##### MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500
+
+Alternatives to the ADXL345 are MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500. These accelerometers have been tested to work over I2C on the RPi or RP2040(pico) at 400kbaud.
+
+Recommended connection scheme for I2C on the Raspberry Pi:
+
+| MPU-9250 pin | 樹莓派引腳 | 樹莓派引腳名稱 |
+| :-: | :-: | :-: |
+| VCC | 01 | 3.3v 直流（DC）電源 |
+| GND | 09 | 地（GND） |
+| SDA | 03 | GPIO02 (SDA1) |
+| SCL | 05 | GPIO03 (SCL1) |
+
+![MPU-9250 connected to RPI](img/mpu9250-PI-fritzing.png)
+
+Recommended connection scheme for I2C(i2c0a) on the RP2040:
+
+| MPU-9250 pin | RP2040 pin | 樹莓派引腳名稱 |
+| :-: | :-: | :-: |
+| VCC | 39 | 3v3 |
+| GND | 38 | 地（GND） |
+| SDA | 01 | GP0 (I2C0 SDA) |
+| SCL | 02 | GP1 (I2C0 SCL) |
+
+![MPU-9250 connected to PICO](img/mpu9250-PICO-fritzing.png)
 
 ### 固定加速度感測器
 
@@ -65,9 +109,11 @@ Note that, depending on the performance of the CPU, it may take *a lot* of time,
 
 之後，參考[樹莓派作為微控制器文件](RPi_microcontroller.md)的指引完成「LINUX微處理器」的設定。
 
+#### Configure ADXL345 With RPi
+
 通過執行`sudo raspi-config` 后的 "Interfacing options"菜單中啟用 SPI 以確保Linux SPI 驅動已啟用。
 
-For the ADXL345, add the following to the printer.cfg file:
+在printer.cfg附上下面的內容：
 
 ```
 [mcu rpi]
@@ -84,7 +130,9 @@ probe_points:
 
 建議在測試開始前，用探針在熱床中央進行一次探測，觸發后稍微上移。
 
-For the MPU-9250, make sure the Linux I2C driver is enabled and the baud rate is set to 400000 (see [Enabling I2C](RPi_microcontroller.md#optional-enabling-i2c) section for more details). Then, add the following to the printer.cfg:
+#### Configure MPU-6000/9000 series With RPi
+
+Make sure the Linux I2C driver is enabled and the baud rate is set to 400000 (see [Enabling I2C](RPi_microcontroller.md#optional-enabling-i2c) section for more details). Then, add the following to the printer.cfg:
 
 ```
 [mcu rpi]
@@ -98,6 +146,27 @@ i2c_bus: i2c.1
 accel_chip: mpu9250
 probe_points:
     100, 100, 20  # an example
+```
+
+#### Configure MPU-6000/9000 series With PICO
+
+PICO I2C is set to 400000 on default. Simply add the following to the printer.cfg:
+
+```
+[mcu pico]
+serial: /dev/serial/by-id/<your PICO's serial ID>
+
+[mpu9250]
+i2c_mcu: pico
+i2c_bus: i2c1a
+
+[resonance_tester]
+accel_chip: mpu9250
+probe_points:
+    100, 100, 20  # an example
+
+[static_digital_output pico_3V3pwm] # Improve power stability
+pin: pico:gpio23
 ```
 
 通過`RESTART`命令重啟Klipper。
@@ -118,6 +187,8 @@ Recv: // adxl345 values (x, y, z): 470.719200, 941.438400, 9728.196800
 ```
 
 如果輸出類似 `Invalid adxl345 id (got xx vs e5)`，其中'xx'為e5以外ID，這表示出現連線問題（如，連線錯誤、線纜電阻過大、干擾等），或感測器錯誤（如，殘次感測器 或 錯誤的感測器）。請在此檢查電源，接線（再三確定接線正確，沒有破損、鬆動的電線）或焊接問題。
+
+**If you are using MPU-6000/9000 series accelerometer and it show up as `mpu-unknown`, use with caution! They are probably refurbished chips!**
 
 下一步，在Octoprint中輸入 `MEASURE_AXES_NOISE`，之後將會顯示各個軸的基準測量噪聲（其值應在1-100之間）。如果軸的噪聲極高（例如 1000 或更高）可能意味著3D印表機上存在感測器問題、電源問題或不平衡的風扇。
 
