@@ -7,8 +7,9 @@
 1. [我有一个关于 Klipper 的问题](#i-have-a-question-about-klipper)
 1. [我有一个功能请求](#i-have-a-feature-request)
 1. [我需要帮助！它炸了！](#help-it-doesnt-work)
-1. [我在 Klipper 中发现了一个缺陷](#i-have-diagnosed-a-defect-in-the-klipper-software)
+1. [I found a bug in the Klipper software](#i-found-a-bug-in-the-klipper-software)
 1. [我正在进行我想纳入 Klipper 的修改](#i-am-making-changes-that-id-like-to-include-in-klipper)
+1. [Klipper github](#klipper-github)
 
 ## 社区论坛
 
@@ -30,13 +31,9 @@
 
 我们经常收到许多并不针对 Klipper 的常规3D打印疑问。如果你有常规的疑问或遇到了常规的打印问题，那么你可能会在一般的3D打印论坛或专门针对你的打印机硬件的论坛上得到更好的答案。
 
-不要在 Klipper 的 Github 上创建议题来提问。
-
 ## 我有一个功能请求
 
 所有的新功能都需要有感兴趣并能够实现这些功能的人。如果你想帮助实现或测试一个新功能，你可以在[ Klipper 社区论坛](#community-forum)中搜索正在进行的开发进程。还有[Klipper Discord 聊天室](#discord-chat)供合作者之间讨论。
-
-不要在 Klipper 的 Github 上创建议题来请求功能。
 
 ## 我需要帮助！它炸了！
 
@@ -53,25 +50,23 @@
 
 如果你有兴趣与其他 Klipper 用户分享你的知识和经验，那么你可以加入[ Klipper 社区论坛](#community-forum)或[ Klipper Discord 聊天室](#discord-chat)。这两个社区都是 Klipper 用户间讨论 Klipper 的地方。
 
-不要在 Klipper 的 Github 上创建议题来求助。
-
-## 我在 Klipper 软件中诊断出了一个缺陷
+## I found a bug in the Klipper software
 
 Klipper 是一个开源项目，我们诚挚的感谢贡献者们在软件中诊断出错误。
 
+Problems should be reported in the [Klipper Community Forum](#community-forum).
+
 修复bug需要提供一些重要的信息。请遵循以下步骤：
 
-1. 首先要确定这个错误是在 Klipper 软件中。如果你在想 "我有一个问题，我无法找出原因，因此这是一个Klipper的错误"，那么**不要**创建一个 Github 议题。在这种情况下，有兴趣且有能力的人需要先找到问题的根源。如果你想分享你的研究结果或检查其他用户是否遇到类似的问题，那么你可以搜索 [Klipper 社区论坛](#community-forum)。
-1. 请确保您正在运行 <https://github.com/Klipper3d/klipper > 的未修改代码。如果代码已被修改或从其他来源获得，则您需要在报告问题之前先在 <https://github.com/Klipper3d/klipper > 获取的未修改的代码上重现问题。
-1. 如果可能的话，在不期望的事件发生后，立即在 OctoPrint 终端窗口运行一个`M112`命令。这将使 Klipper 进入 "关闭"(shutdown)状态，并在日志文件中写入额外的调试信息。
+1. Make sure you are running unmodified code from <https://github.com/Klipper3d/klipper>. If the code has been modified or is obtained from another source, then you should reproduce the problem on the unmodified code from <https://github.com/Klipper3d/klipper> prior to reporting.
+1. If possible, run an `M112` command immediately after the undesirable event occurs. This causes Klipper to go into a "shutdown state" and it will cause additional debugging information to be written to the log file.
 1. 获取事件发送时的 Klipper 日志文件。该日志文件已被设计用来给 Klipper 开发人员提供关于软件及其运行环境的常见问题（软件版本、硬件类型、配置、事件时间和数百个其他问题）。
    1. Klipper 日志文件位于 Klipper "主机"（树莓派）的`/tmp/klippy.log`文件中。
    1. 你需要用“scp”或“sftp”程序将此日志文件复制到您的计算机。 “scp”程序是 Linux 和 MacOS 系统的标准配置。其他系统也通常有可用的 scp 实用程序（例如 WinSCP）。如果使用图形界面的 scp 程序无法直接复制 `/tmp/klippy.log`，可以尝试重复点击 `..`或者`parent folder`（父文件夹）直到进入根目录，再点击`tmp`文件夹，然后选择`klippy.log`文件。
    1. 将日志文件复制到你的电脑，以便将其上传到问题报告中。
    1. 不要以任何方式修改日志文件；不要只提供日志的片段。只有完整的未修改的日志文件才能够提供必要的信息。
-   1. 如果日志文件非常大（例如，大于2MB），那么可能需要用 zip 或 gzip 来压缩日志。
-
-   1. 在 <https://github.com/Klipper3d/klipper/issues>开一个新的GitHub议题，并对问题进行清晰的描述。Klipper 开发者需要了解你采取了哪些步骤，期望的结果是什么，以及实际发生了什么结果。Klipper 的日志文件**必须被添加到议题附件**：![议题附件](img/attach-issue.png)
+   1. It is a good idea to compress the log file with zip or gzip.
+1. Open a new topic on the [Klipper Community Forum](#community-forum) and provide a clear description of the problem. Other Klipper contributors will need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The compressed Klipper log file should be attached to that topic.
 
 ## 我正在进行一些我想添加到 Klipper 中的改进
 
@@ -79,4 +74,8 @@ Klipper 是开源软件，我们非常感谢新的贡献。
 
 新的贡献（包括代码和文档）需要通过拉取请求(PR)提交。重要信息请参见[贡献文档](CONTRIBUTING.md)。
 
-有几个[开发人员文档](Overview.md#developer-documentation)。如果你对代码有疑问，那么你也可以在[Klipper社区论坛](#community-forum)或[Klipper社区 Discord](#discord-chat)上提问。如果你想提供你目前的进展情况，那么你可以在 Github 上开一个问题，写上你的代码的位置，修改的概述，以及对其目前状态的描述。
+There are several [documents for developers](Overview.md#developer-documentation). If you have questions on the code then you can also ask in the [Klipper Community Forum](#community-forum) or on the [Klipper Community Discord](#discord-chat).
+
+## Klipper github
+
+Klipper github may be used by contributors to share the status of their work to improve Klipper. It is expected that the person opening a github ticket is actively working on the given task and will be the one performing all the work necessary to accomplish it. The Klipper github is not used for requests, nor to report bugs, nor to ask questions. Use the [Klipper Community Forum](#community-forum) or the [Klipper Community Discord](#discord-chat) instead.

@@ -1453,19 +1453,19 @@ cs_pin:
 
 ### [mpu9250]
 
-Support des accéléromètres mpu9250 et mpu6050 (on peut définir un nombre quelconque de sections avec le préfixe "mpu9250").
+Support for MPU-9250, MPU-9255, MPU-9255, MPU-6050, and MPU-6500 accelerometers (one may define any number of sections with an "mpu9250" prefix).
 
 ```
 [mpu9250 my_accelerometer]
 #i2c_address:
-#    La valeur par défaut est 104 (0x68).
+#   Default is 104 (0x68). If AD0 is high, it would be 0x69 instead.
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed: 400000
-#    Voir la section "paramètres I2C communs" pour une description des paramètres ci-dessus.
-#    La valeur par défaut de "i2c_speed" est 400000.
+#   See the "common I2C settings" section for a description of the
+#   above parameters. The default "i2c_speed" is 400000.
 #axes_map: x, y, z
-#    Voir la section "adxl345" pour des informations sur ce paramètre.
+#   See the "adxl345" section for information on this parameter.
 ```
 
 ### [resonance_tester]

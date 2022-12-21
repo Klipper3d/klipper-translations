@@ -6,6 +6,8 @@
 
 ## 变更
 
+20221122: Previously, with safe_z_home, it was possible that the z_hop after the g28 homing would go in the negative z direction. Now, a z_hop is performed after g28 only if it results in a positive hop, mirroring the behavior of the z_hop that occurs before the g28 homing.
+
 20220616：以前可以通过运行`make flash FLASH_DEVICE=first`在引导程序模式下刷写rp2040。新的等效命令是`make flash FLASH_DEVICE=2e8a:0003`。
 
 20220612: 实现了rp2040上"rp2040-e5"USB数据错误的一个解决办法。这应该使最初的 USB 连接更加可靠。然而，它可能会导致gpio15引脚的行为发生变化。gpio15的行为变化不太可能有明显影响。

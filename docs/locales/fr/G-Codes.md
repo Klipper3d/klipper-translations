@@ -339,7 +339,8 @@ The gcode module is automatically loaded.
 
 The following standard G-Code commands are available if a [gcode_arcs config section](Config_Reference.md#gcode_arcs) is enabled:
 
-- Controlled Arc Move (G2 or G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>`
+- Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): `G2|G3 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> K<value>|J<value> K<value>`
+- Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)
 
 ### [gcode_macro]
 

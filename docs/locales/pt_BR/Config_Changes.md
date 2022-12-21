@@ -6,6 +6,8 @@ Todas as datas neste documento são aproximadas.
 
 ## Mudanças
 
+20221122: Previously, with safe_z_home, it was possible that the z_hop after the g28 homing would go in the negative z direction. Now, a z_hop is performed after g28 only if it results in a positive hop, mirroring the behavior of the z_hop that occurs before the g28 homing.
+
 20220616: It was previously possible to flash an rp2040 in bootloader mode by running `make flash FLASH_DEVICE=first`. The equivalent command is now `make flash FLASH_DEVICE=2e8a:0003`.
 
 20220612: The rp2040 micro-controller now has a workaround for the "rp2040-e5" USB errata. This should make initial USB connections more reliable. However, it may result in a change in behavior for the gpio15 pin. It is unlikely the gpio15 behavior change will be noticeable.
