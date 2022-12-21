@@ -27,6 +27,6 @@ for dir in docs/locales/*/; do
     targetmdfile=docs/locales/$dir/$mdfile #Add target directory to mdfile
     echo "Converting $mdfile to $pofile"
     md2po $mdfilepath --md-encoding utf-8 --po-encoding utf-8 -q -s -c \
-    -d "Content-Type:text/plain; charset=UTF-8" -po $pofilepath
+    -d "Content-Type:text/plain; charset=UTF-8" --save --po-filepath $pofilepath
   done
 done
