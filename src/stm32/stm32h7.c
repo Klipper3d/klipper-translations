@@ -83,10 +83,11 @@ DECL_CONSTANT_STR("RESERVE_PINS_crystal", "PH0,PH1");
 static void
 clock_setup(void)
 {
+#if !CONFIG_MACH_STM32H723
     // Ensure USB OTG ULPI is not enabled
     CLEAR_BIT(RCC->AHB1ENR, RCC_AHB1ENR_USB2OTGHSULPIEN);
     CLEAR_BIT(RCC->AHB1LPENR, RCC_AHB1LPENR_USB2OTGHSULPILPEN);
-
+#endif
     // Set this despite correct defaults.
     // "The software has to program the supply configuration in PWR control
     // register 3" (pg. 259)
@@ -143,7 +144,11 @@ clock_setup(void)
     // Enable VOS0 (overdrive)
     if (CONFIG_CLOCK_FREQ > 400000000) {
         RCC->APB4ENR |= RCC_APB4ENR_SYSCFGEN;
+#if !CONFIG_MACH_STM32H723
         SYSCFG->PWRCR |= SYSCFG_PWRCR_ODEN;
+#else
+        PWR->CR3 |= PWR_CR3_BYPASS;
+#endif
         while (!(PWR->D3CR & PWR_D3CR_VOSRDY))
             ;
     }
@@ -203,36 +208,12 @@ clock_setup(void)
  * Bootloader
  ****************************************************************/
 
-#define USB_BOOT_FLAG_ADDR (CONFIG_RAM_START + CONFIG_RAM_SIZE - 1024)
-#define USB_BOOT_FLAG 0x55534220424f4f54 // "USB BOOT"
-
-// Flag that bootloader is desired and reboot
-static void
-usb_reboot_for_dfu_bootloader(void)
-{
-    irq_disable();
-    *(uint64_t*)USB_BOOT_FLAG_ADDR = USB_BOOT_FLAG;
-    NVIC_SystemReset();
-}
-
-// Check if rebooting into system DFU Bootloader
-static void
-check_usb_dfu_bootloader(void)
-{
-    if (!CONFIG_USB || *(uint64_t*)USB_BOOT_FLAG_ADDR != USB_BOOT_FLAG)
-        return;
-    *(uint64_t*)USB_BOOT_FLAG_ADDR = 0;
-    uint32_t *sysbase = (uint32_t*)0x1FF09800;
-    asm volatile("mov sp, %0\n bx %1"
-                 : : "r"(sysbase[0]), "r"(sysbase[1]));
-}
-
 // Handle reboot requests
 void
 bootloader_request(void)
 {
     try_request_canboot();
-    usb_reboot_for_dfu_bootloader();
+    dfu_reboot();
 }
 
 
@@ -252,7 +233,7 @@ armcm_main(void)
     RCC->D3CCIPR = 0x00000000;
     SCB->VTOR = (uint32_t)VectorTable;
 
-    check_usb_dfu_bootloader();
+    dfu_reboot_check();
 
     clock_setup();
 

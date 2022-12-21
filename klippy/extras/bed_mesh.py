@@ -315,7 +315,7 @@ class BedMeshCalibrate:
         # floor distances down to next hundredth
         x_dist = math.floor(x_dist * 100) / 100
         y_dist = math.floor(y_dist * 100) / 100
-        if x_dist <= 1. or y_dist <= 1.:
+        if x_dist < 1. or y_dist < 1.:
             raise error("bed_mesh: min/max points too close together")
 
         if self.radius is not None:
@@ -601,6 +601,8 @@ class BedMeshCalibrate:
     cmd_BED_MESH_CALIBRATE_help = "Perform Mesh Bed Leveling"
     def cmd_BED_MESH_CALIBRATE(self, gcmd):
         self._profile_name = gcmd.get('PROFILE', "default")
+        if not self._profile_name.strip():
+            raise gcmd.error("Value for parameter 'PROFILE' must be specified")
         self.bedmesh.set_mesh(None)
         self.update_config(gcmd)
         self.probe_helper.start_probe(gcmd)
@@ -1229,6 +1231,10 @@ class ProfileManager:
         for key in options:
             name = gcmd.get(key, None)
             if name is not None:
+                if not name.strip():
+                    raise gcmd.error(
+                        "Value for parameter '%s' must be specified" % (key)
+                    )
                 if name == "default" and key == 'SAVE':
                     gcmd.respond_info(
                         "Profile 'default' is reserved, please choose"
