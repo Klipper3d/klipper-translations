@@ -1233,22 +1233,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#calibration-procedure" class="md-nav__link">
-    Calibration procedure
+  <a href="#_4" class="md-nav__link">
+    Процедура калибровки
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-enable-sensor" class="md-nav__link">
-    How to enable sensor
+  <a href="#_5" class="md-nav__link">
+    Как включить сенсор
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#logging" class="md-nav__link">
-    Logging
+  <a href="#_6" class="md-nav__link">
+    Журнал
   </a>
   
 </li>
@@ -1271,8 +1271,8 @@
 
 
 <h1 id="_1">Датчик Холла ширины филамента<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on two Hall linear sensors (ss49e for example). Sensors in the body are located opposite sides. Principle of operation: two hall sensors work in differential mode, temperature drift same for sensor. Special temperature compensation not needed.</p>
-<p>You can find designs at <a href="https://www.thingiverse.com/thing:4138933">Thingiverse</a>, an assembly video is also available on <a href="https://www.youtube.com/watch?v=TDO9tME8vp4">Youtube</a></p>
+<p>В этом документе описывается хост-модуль датчика ширины филамента. Аппаратное обеспечение, используемое для разработки этого главного модуля, основано на двух линейных датчиках Холла (например, ss49e). Датчики в корпусе расположены с противоположных сторон. Принцип работы: два датчика Холла работают в дифференциальном режиме, температурный дрейф одинаков для датчика. Специальная температурная компенсация не требуется.</p>
+<p>Вы можете найти примеры на <a href="https://www.thingiverse.com/thing:4138933">Thingiverse</a>, также доступно видео на <a href="https://www.youtube.com/watch?v=TDO9tME8vp4">Youtube</a></p>
 <p>To use Hall filament width sensor, read <a href="Config_Reference.html#hall_filament_width_sensor">Config Reference</a> and <a href="G-Codes.html#hall_filament_width_sensor">G-Code documentation</a>.</p>
 <h2 id="_2">Как это работает?<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use aux2 connector on ramps-like board analog11 and analog12 pins. You can use different pins and differenr boards.</p>
@@ -1290,20 +1290,20 @@ name: Raw: {&#39;%4.0F&#39; % printer.hall_filament_width_sensor.Raw}
 index: 1
 </code></pre></div>
 
-<h2 id="calibration-procedure">Calibration procedure<a class="headerlink" href="#calibration-procedure" title="Permanent link">&para;</a></h2>
+<h2 id="_4">Процедура калибровки<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>To get raw sensor value you can use menu item or <strong>QUERY_RAW_FILAMENT_WIDTH</strong> command in terminal.</p>
 <ol>
 <li>Insert first calibration rod (1.5 mm size) get first raw sensor value</li>
 <li>Insert second calibration rod (2.0 mm size) get second raw sensor value</li>
 <li>Save raw sensor values in config parameter <code>Raw_dia1</code> and <code>Raw_dia2</code></li>
 </ol>
-<h2 id="how-to-enable-sensor">How to enable sensor<a class="headerlink" href="#how-to-enable-sensor" title="Permanent link">&para;</a></h2>
-<p>By default, the sensor is disabled at power-on.</p>
+<h2 id="_5">Как включить сенсор<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>По умолчанию датчик выключен при включении.</p>
 <p>To enable the sensor, issue <strong>ENABLE_FILAMENT_WIDTH_SENSOR</strong> command or set the <code>enable</code> parameter to <code>true</code>.</p>
-<h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
-<p>By default, diameter logging is disabled at power-on.</p>
+<h2 id="_6">Журнал<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>По умолчанию регистрация диаметра отключена при включении питания.</p>
 <p>Issue <strong>ENABLE_FILAMENT_WIDTH_LOG</strong> command to start logging and issue <strong>DISABLE_FILAMENT_WIDTH_LOG</strong> command to stop logging. To enable logging at power-on, set the <code>logging</code> parameter to <code>true</code>.</p>
-<p>Filament diameter is logged on every measurement interval (10 mm by default).</p>
+<p>Диаметр филамента регистрируется на каждом интервале измерения (по умолчанию 10 мм).</p>
 
               
             </article>

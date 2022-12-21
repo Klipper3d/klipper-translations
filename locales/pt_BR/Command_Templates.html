@@ -13,7 +13,7 @@
     
     
       
-        <title>Commands templates - Klipper documentation</title>
+        <title>Modelos de comandos - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#commands-templates" class="md-skip">
+        <a href="#modelos-de-comandos" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Commands templates
+              Modelos de comandos
             
           </span>
         </div>
@@ -1219,58 +1219,58 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#g-code-macro-naming" class="md-nav__link">
-    G-Code Macro Naming
+  <a href="#nomenclatura-de-macro-de-codigo-g" class="md-nav__link">
+    Nomenclatura de macro de código G
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#formatting-of-g-code-in-the-config" class="md-nav__link">
-    Formatting of G-Code in the config
+  <a href="#formatacao-do-g-code-na-configuracao" class="md-nav__link">
+    Formatação do G-Code na configuração
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#add-a-description-to-your-macro" class="md-nav__link">
-    Add a description to your macro
+  <a href="#adicione-uma-descricao-a-sua-macro" class="md-nav__link">
+    Adicione uma descrição à sua macro
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#saverestore-state-for-g-code-moves" class="md-nav__link">
-    Save/Restore state for G-Code moves
+  <a href="#salvarrestaurar-estado-para-movimentos-g-code" class="md-nav__link">
+    Salvar/Restaurar estado para movimentos G-Code
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#template-expansion" class="md-nav__link">
-    Template expansion
+  <a href="#expansao-do-modelo" class="md-nav__link">
+    Expansão do modelo
   </a>
   
-    <nav class="md-nav" aria-label="Template expansion">
+    <nav class="md-nav" aria-label="Expansão do modelo">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#macro-parameters" class="md-nav__link">
-    Macro parameters
+  <a href="#parametros-de-macro" class="md-nav__link">
+    Parâmetros de macro
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#the-rawparams-variable" class="md-nav__link">
-    The "rawparams" variable
+  <a href="#a-variavel-rawparams" class="md-nav__link">
+    A variável "rawparams"
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#the-printer-variable" class="md-nav__link">
-    The "printer" Variable
+  <a href="#a-variavel-impressora" class="md-nav__link">
+    A variável "impressora"
   </a>
   
 </li>
@@ -1281,22 +1281,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#actions" class="md-nav__link">
-    Actions
+  <a href="#acoes" class="md-nav__link">
+    Ações
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#variables" class="md-nav__link">
-    Variables
+  <a href="#variaveis" class="md-nav__link">
+    Variáveis
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#delayed-gcodes" class="md-nav__link">
-    Delayed Gcodes
+  <a href="#codigos-g-atrasados" class="md-nav__link">
+    Códigos G atrasados
   </a>
   
 </li>
@@ -1309,8 +1309,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#save-variables-to-disk" class="md-nav__link">
-    Save Variables to disk
+  <a href="#salvar-variaveis-no-disco" class="md-nav__link">
+    Salvar Variáveis no disco
   </a>
   
 </li>
@@ -1332,12 +1332,12 @@
 </a>
 
 
-<h1 id="commands-templates">Commands templates<a class="headerlink" href="#commands-templates" title="Permanent link">&para;</a></h1>
-<p>This document provides information on implementing G-Code command sequences in gcode_macro (and similar) config sections.</p>
-<h2 id="g-code-macro-naming">G-Code Macro Naming<a class="headerlink" href="#g-code-macro-naming" title="Permanent link">&para;</a></h2>
-<p>Case is not important for the G-Code macro name - MY_MACRO and my_macro will evaluate the same and may be called in either upper or lower case. If any numbers are used in the macro name then they must all be at the end of the name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not).</p>
-<h2 id="formatting-of-g-code-in-the-config">Formatting of G-Code in the config<a class="headerlink" href="#formatting-of-g-code-in-the-config" title="Permanent link">&para;</a></h2>
-<p>Indentation is important when defining a macro in the config file. To specify a multi-line G-Code sequence it is important for each line to have proper indentation. For example:</p>
+<h1 id="modelos-de-comandos">Modelos de comandos<a class="headerlink" href="#modelos-de-comandos" title="Permanent link">&para;</a></h1>
+<p>Este documento fornece informações sobre a implementação de sequências de comando G-Code nas seções de configuração gcode_macro (e similares).</p>
+<h2 id="nomenclatura-de-macro-de-codigo-g">Nomenclatura de macro de código G<a class="headerlink" href="#nomenclatura-de-macro-de-codigo-g" title="Permanent link">&para;</a></h2>
+<p>As letras maiúsculas e minúsculas não são importantes para o nome da macro G-Code - MY_MACRO e my_macro avaliarão o mesmo e podem ser chamadas em letras maiúsculas ou minúsculas. Se algum número for usado no nome da macro, todos devem estar no final do nome (por exemplo, TEST_MACRO25 é válido, mas MACRO25_TEST3 não é).</p>
+<h2 id="formatacao-do-g-code-na-configuracao">Formatação do G-Code na configuração<a class="headerlink" href="#formatacao-do-g-code-na-configuracao" title="Permanent link">&para;</a></h2>
+<p>O recuo é importante ao definir uma macro no arquivo de configuração. Para especificar uma sequência de código G de várias linhas, é importante que cada linha tenha a indentação adequada. Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro blink_led]
 gcode:
   SET_PIN PIN=my_led VALUE=1
@@ -1345,33 +1345,33 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 </code></pre></div>
 
-<p>Note how the <code>gcode:</code> config option always starts at the beginning of the line and subsequent lines in the G-Code macro never start at the beginning.</p>
-<h2 id="add-a-description-to-your-macro">Add a description to your macro<a class="headerlink" href="#add-a-description-to-your-macro" title="Permanent link">&para;</a></h2>
-<p>To help identify the functionality a short description can be added. Add <code>description:</code> with a short text to describe the functionality. Default is "G-Code macro" if not specified. For example:</p>
+<p>Observe como a opção de configuração <code>gcode:</code> sempre começa no início da linha e as linhas subsequentes na macro G-Code nunca começam no início.</p>
+<h2 id="adicione-uma-descricao-a-sua-macro">Adicione uma descrição à sua macro<a class="headerlink" href="#adicione-uma-descricao-a-sua-macro" title="Permanent link">&para;</a></h2>
+<p>Para ajudar a identificar a funcionalidade, uma breve descrição pode ser adicionada. Adicione <code>description:</code> com um texto curto para descrever a funcionalidade. O padrão é "macro G-Code" se não for especificado. Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro blink_led]
-description: Blink my_led one time
+descrição: Piscar my_led uma vez
 gcode:
   SET_PIN PIN=my_led VALUE=1
   G4 P2000
   SET_PIN PIN=my_led VALUE=0
 </code></pre></div>
 
-<p>The terminal will display the description when you use the <code>HELP</code> command or the autocomplete function.</p>
-<h2 id="saverestore-state-for-g-code-moves">Save/Restore state for G-Code moves<a class="headerlink" href="#saverestore-state-for-g-code-moves" title="Permanent link">&para;</a></h2>
-<p>Unfortunately, the G-Code command language can be challenging to use. The standard mechanism to move the toolhead is via the <code>G1</code> command (the <code>G0</code> command is an alias for <code>G1</code> and it can be used interchangeably with it). However, this command relies on the "G-Code parsing state" setup by <code>M82</code>, <code>M83</code>, <code>G90</code>, <code>G91</code>, <code>G92</code>, and previous <code>G1</code> commands. When creating a G-Code macro it is a good idea to always explicitly set the G-Code parsing state prior to issuing a <code>G1</code> command. (Otherwise, there is a risk the <code>G1</code> command will make an undesirable request.)</p>
-<p>A common way to accomplish that is to wrap the <code>G1</code> moves in <code>SAVE_GCODE_STATE</code>, <code>G91</code>, and <code>RESTORE_GCODE_STATE</code>. For example:</p>
+<p>O terminal exibirá a descrição quando você usar o comando <code>HELP</code> ou a função de preenchimento automático.</p>
+<h2 id="salvarrestaurar-estado-para-movimentos-g-code">Salvar/Restaurar estado para movimentos G-Code<a class="headerlink" href="#salvarrestaurar-estado-para-movimentos-g-code" title="Permanent link">&para;</a></h2>
+<p>Infelizmente, a linguagem de comando G-Code pode ser difícil de usar. O mecanismo padrão para mover o cabeçote é através do comando <code>G1</code> (o comando <code>G0</code> é um alias para <code>G1</code> e pode ser usado de forma intercambiável com ele). No entanto, este comando depende da configuração do "estado de análise de código G" pelos comandos <code>M82</code>, <code>M83</code>, <code>G90</code>, <code>G91</code>, <code>G92</code> e <code>G1</code> anteriores. Ao criar uma macro G-Code, é uma boa ideia sempre definir explicitamente o estado de análise do G-Code antes de emitir um comando <code>G1</code>. (Caso contrário, existe o risco de o comando <code>G1</code> fazer uma solicitação indesejável.)</p>
+<p>Uma maneira comum de conseguir isso é agrupar os movimentos <code>G1</code> em <code>SAVE_GCODE_STATE</code>, <code>G91</code> e <code>RESTORE_GCODE_STATE</code>. Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro MOVE_UP]
 gcode:
-  SAVE_GCODE_STATE NAME=my_move_up_state
+  SAVE_GCODE_STATE NOME=my_move_up_state
   G91
   G1 Z10 F300
-  RESTORE_GCODE_STATE NAME=my_move_up_state
+  RESTORE_GCODE_STATE NOME=my_move_up_state
 </code></pre></div>
 
-<p>The <code>G91</code> command places the G-Code parsing state into "relative move mode" and the <code>RESTORE_GCODE_STATE</code> command restores the state to what it was prior to entering the macro. Be sure to specify an explicit speed (via the <code>F</code> parameter) on the first <code>G1</code> command.</p>
-<h2 id="template-expansion">Template expansion<a class="headerlink" href="#template-expansion" title="Permanent link">&para;</a></h2>
-<p>The gcode_macro <code>gcode:</code> config section is evaluated using the Jinja2 template language. One can evaluate expressions at run-time by wrapping them in <code>{ }</code> characters or use conditional statements wrapped in <code>{% %}</code>. See the <a href="http://jinja.pocoo.org/docs/2.10/templates/">Jinja2 documentation</a> for further information on the syntax.</p>
-<p>An example of a complex macro:</p>
+<p>O comando <code>G91</code> coloca o estado de análise G-Code em "modo de movimento relativo" e o comando <code>RESTORE_GCODE_STATE</code> restaura o estado ao que era antes de entrar na macro. Certifique-se de especificar uma velocidade explícita (através do parâmetro <code>F</code>) no primeiro comando <code>G1</code>.</p>
+<h2 id="expansao-do-modelo">Expansão do modelo<a class="headerlink" href="#expansao-do-modelo" title="Permanent link">&para;</a></h2>
+<p>A seção de configuração gcode_macro <code>gcode:</code> é avaliada usando a linguagem de modelo Jinja2. Pode-se avaliar expressões em tempo de execução agrupando-as em caracteres <code>{ }</code> ou usando instruções condicionais agrupadas em <code>{% %}</code>. Consulte a <a href="http://jinja.pocoo.org/docs/2.10/templates/">documentação do Jinja2</a> para obter mais informações sobre a sintaxe.</p>
+<p>Um exemplo de uma macro complexa:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro clean_nozzle]
 gcode:
   {% set wipe_count = 8 %}
@@ -1386,53 +1386,53 @@ gcode:
   RESTORE_GCODE_STATE NAME=clean_nozzle_state
 </code></pre></div>
 
-<h3 id="macro-parameters">Macro parameters<a class="headerlink" href="#macro-parameters" title="Permanent link">&para;</a></h3>
-<p>It is often useful to inspect parameters passed to the macro when it is called. These parameters are available via the <code>params</code> pseudo-variable. For example, if the macro:</p>
+<h3 id="parametros-de-macro">Parâmetros de macro<a class="headerlink" href="#parametros-de-macro" title="Permanent link">&para;</a></h3>
+<p>Geralmente é útil inspecionar os parâmetros passados para a macro quando ela é chamada. Esses parâmetros estão disponíveis através da pseudo-variável <code>params</code>. Por exemplo, se a macro:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro SET_PERCENT]
 gcode:
-  M117 Now at { params.VALUE|float * 100 }%
+  M117 Agora em { params.VALUE|float * 100 }%
 </code></pre></div>
 
-<p>were invoked as <code>SET_PERCENT VALUE=.2</code> it would evaluate to <code>M117 Now at 20%</code>. Note that parameter names are always in upper-case when evaluated in the macro and are always passed as strings. If performing math then they must be explicitly converted to integers or floats.</p>
-<p>It's common to use the Jinja2 <code>set</code> directive to use a default parameter and assign the result to a local name. For example:</p>
+<p>fossem invocados como <code>SET_PERCENT VALUE=.2</code> seria avaliado como <code>M117 Now at 20%</code>. Observe que os nomes dos parâmetros estão sempre em letras maiúsculas quando avaliados na macro e são sempre passados como strings. Se estiver executando matemática, eles devem ser explicitamente convertidos em números inteiros ou flutuantes.</p>
+<p>É comum usar a diretiva <code>set</code> Jinja2 para usar um parâmetro padrão e atribuir o resultado a um nome local. Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro SET_BED_TEMPERATURE]
 gcode:
   {% set bed_temp = params.TEMPERATURE|default(40)|float %}
   M140 S{bed_temp}
 </code></pre></div>
 
-<h3 id="the-rawparams-variable">The "rawparams" variable<a class="headerlink" href="#the-rawparams-variable" title="Permanent link">&para;</a></h3>
-<p>The full unparsed parameters for the running macro can be access via the <code>rawparams</code> pseudo-variable.</p>
-<p>Note that this will include any comments that were part of the original command.</p>
-<p>See the <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> file for an example showing how to override the <code>M117</code> command using <code>rawparams</code>.</p>
-<h3 id="the-printer-variable">The "printer" Variable<a class="headerlink" href="#the-printer-variable" title="Permanent link">&para;</a></h3>
-<p>It is possible to inspect (and alter) the current state of the printer via the <code>printer</code> pseudo-variable. For example:</p>
+<h3 id="a-variavel-rawparams">A variável "rawparams"<a class="headerlink" href="#a-variavel-rawparams" title="Permanent link">&para;</a></h3>
+<p>Os parâmetros completos não analisados para a macro em execução podem ser acessados por meio da pseudovariável <code>rawparams</code>.</p>
+<p>Observe que isso incluirá todos os comentários que faziam parte do comando original.</p>
+<p>Consulte o arquivo <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> para obter um exemplo que mostra como substituir o comando <code>M117</code> usando <code>rawparams</code>.</p>
+<h3 id="a-variavel-impressora">A variável "impressora"<a class="headerlink" href="#a-variavel-impressora" title="Permanent link">&para;</a></h3>
+<p>É possível inspecionar (e alterar) o estado atual da impressora através da pseudo-variável <code>printer</code>. Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro slow_fan]
-gcode:
+gcode: 
   M106 S{ printer.fan.speed * 0.9 * 255}
 </code></pre></div>
 
-<p>Available fields are defined in the <a href="Status_Reference.html">Status Reference</a> document.</p>
-<p>Important! Macros are first evaluated in entirety and only then are the resulting commands executed. If a macro issues a command that alters the state of the printer, the results of that state change will not be visible during the evaluation of the macro. This can also result in subtle behavior when a macro generates commands that call other macros, as the called macro is evaluated when it is invoked (which is after the entire evaluation of the calling macro).</p>
-<p>By convention, the name immediately following <code>printer</code> is the name of a config section. So, for example, <code>printer.fan</code> refers to the fan object created by the <code>[fan]</code> config section. There are some exceptions to this rule - notably the <code>gcode_move</code> and <code>toolhead</code> objects. If the config section contains spaces in it, then one can access it via the <code>[ ]</code> accessor - for example: <code>printer["generic_heater my_chamber_heater"].temperature</code>.</p>
-<p>Note that the Jinja2 <code>set</code> directive can assign a local name to an object in the <code>printer</code> hierarchy. This can make macros more readable and reduce typing. For example:</p>
+<p>Os campos disponíveis são definidos no documento <a href="Status_Reference.html">Referência de estado</a>.</p>
+<p>Importante! As macros são primeiro avaliadas em sua totalidade e somente então os comandos resultantes são executados. Se uma macro emitir um comando que altere o estado da impressora, os resultados dessa mudança de estado não serão visíveis durante a avaliação da macro. Isso também pode resultar em um comportamento sutil quando uma macro gera comandos que chamam outras macros, pois a macro chamada é avaliada quando é invocada (que ocorre após toda a avaliação da macro de chamada).</p>
+<p>Por convenção, o nome imediatamente após <code>printer</code> é o nome de uma seção de configuração. Então, por exemplo, <code>printer.fan</code> refere-se ao objeto fan criado pela seção de configuração <code>[fan]</code>. Existem algumas exceções a esta regra - principalmente os objetos <code>gcode_move</code> e <code>toolhead</code>. Se a seção de configuração contiver espaços, então é possível acessá-la por meio do acessador <code>[ ]</code> - por exemplo: <code>printer["generic_heater my_chamber_heater"].temperature</code>.</p>
+<p>Observe que a diretiva Jinja2 <code>set</code> pode atribuir um nome local a um objeto na hierarquia <code>printer</code>. Isso pode tornar as macros mais legíveis e reduzir a digitação. Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro QUERY_HTU21D]
 gcode:
     {% set sensor = printer[&quot;htu21d my_sensor&quot;] %}
     M117 Temp:{sensor.temperature} Humidity:{sensor.humidity}
 </code></pre></div>
 
-<h2 id="actions">Actions<a class="headerlink" href="#actions" title="Permanent link">&para;</a></h2>
-<p>There are some commands available that can alter the state of the printer. For example, <code>{ action_emergency_stop() }</code> would cause the printer to go into a shutdown state. Note that these actions are taken at the time that the macro is evaluated, which may be a significant amount of time before the generated g-code commands are executed.</p>
-<p>Available "action" commands:</p>
+<h2 id="acoes">Ações<a class="headerlink" href="#acoes" title="Permanent link">&para;</a></h2>
+<p>Existem alguns comandos disponíveis que podem alterar o estado da impressora. Por exemplo, <code>{ action_emergency_stop() }</code> faria com que a impressora entrasse em estado de desligamento. Observe que essas ações são executadas no momento em que a macro é avaliada, o que pode levar um tempo significativo antes que os comandos do g-code gerados sejam executados.</p>
+<p>Comandos de "ação" disponíveis:</p>
 <ul>
-<li><code>action_respond_info(msg)</code>: Write the given <code>msg</code> to the /tmp/printer pseudo-terminal. Each line of <code>msg</code> will be sent with a "// " prefix.</li>
-<li><code>action_raise_error(msg)</code>: Abort the current macro (and any calling macros) and write the given <code>msg</code> to the /tmp/printer pseudo-terminal. The first line of <code>msg</code> will be sent with a "!! " prefix and subsequent lines will have a "// " prefix.</li>
-<li><code>action_emergency_stop(msg)</code>: Transition the printer to a shutdown state. The <code>msg</code> parameter is optional, it may be useful to describe the reason for the shutdown.</li>
-<li><code>action_call_remote_method(method_name)</code>: Calls a method registered by a remote client. If the method takes parameters they should be provided via keyword arguments, ie: <code>action_call_remote_method("print_stuff", my_arg="hello_world")</code></li>
+<li><code>action_respond_info(msg)</code>: Escreva a <code>msg</code> fornecida no pseudo-terminal /tmp/printer. Cada linha de <code>msg</code> será enviada com um prefixo "//".</li>
+<li><code>action_raise_error(msg)</code>: Aborte a macro atual (e quaisquer macros de chamada) e escreva a <code>msg</code> fornecida no pseudo-terminal /tmp/printer. A primeira linha de <code>msg</code> será enviada com um prefixo "!! " e as linhas subseqüentes terão um prefixo "//".</li>
+<li><code>action_emergency_stop(msg)</code>: Faz a transição da impressora para um estado de desligamento. O parâmetro <code>msg</code> é opcional, pode ser útil para descrever o motivo do desligamento.</li>
+<li><code>action_call_remote_method(method_name)</code>: Chama um método registrado por um cliente remoto. Se o método receber parâmetros, eles devem ser fornecidos por meio de argumentos de palavra-chave, por exemplo: <code>action_call_remote_method("print_stuff", my_arg="hello_world")</code></li>
 </ul>
-<h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
-<p>The SET_GCODE_VARIABLE command may be useful for saving state between macro calls. Variable names may not contain any upper case characters. For example:</p>
+<h2 id="variaveis">Variáveis<a class="headerlink" href="#variaveis" title="Permanent link">&para;</a></h2>
+<p>O comando SET_GCODE_VARIABLE pode ser útil para salvar o estado entre chamadas de macro. Os nomes das variáveis não podem conter caracteres maiúsculos. Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro start_probe]
 variable_bed_temp: 0
 gcode:
@@ -1451,9 +1451,9 @@ gcode:
   M140 S{printer[&quot;gcode_macro start_probe&quot;].bed_temp}
 </code></pre></div>
 
-<p>Be sure to take the timing of macro evaluation and command execution into account when using SET_GCODE_VARIABLE.</p>
-<h2 id="delayed-gcodes">Delayed Gcodes<a class="headerlink" href="#delayed-gcodes" title="Permanent link">&para;</a></h2>
-<p>The [delayed_gcode] configuration option can be used to execute a delayed gcode sequence:</p>
+<p>Certifique-se de levar em consideração o tempo de avaliação de macro e execução de comando ao usar SET_GCODE_VARIABLE.</p>
+<h2 id="codigos-g-atrasados">Códigos G atrasados<a class="headerlink" href="#codigos-g-atrasados" title="Permanent link">&para;</a></h2>
+<p>A opção de configuração [delayed_gcode] pode ser usada para executar uma sequência de gcode atrasada:</p>
 <div class="highlight"><pre><span></span><code>[delayed_gcode clear_display]
 gcode:
   M117
@@ -1468,15 +1468,15 @@ gcode:
  UPDATE_DELAYED_GCODE ID=clear_display DURATION=10
 </code></pre></div>
 
-<p>When the <code>load_filament</code> macro above executes, it will display a "Load Complete!" message after the extrusion is finished. The last line of gcode enables the "clear_display" delayed_gcode, set to execute in 10 seconds.</p>
-<p>The <code>initial_duration</code> config option can be set to execute the delayed_gcode on printer startup. The countdown begins when the printer enters the "ready" state. For example, the below delayed_gcode will execute 5 seconds after the printer is ready, initializing the display with a "Welcome!" message:</p>
+<p>Quando a macro <code>load_filament</code> acima for executada, ela exibirá uma mensagem "Load Complete!" mensagem após a conclusão da extrusão. A última linha do gcode habilita o delay_gcode "clear_display", definido para ser executado em 10 segundos.</p>
+<p>A opção de configuração <code>initial_duration</code> pode ser definida para executar o delay_gcode na inicialização da impressora. A contagem regressiva começa quando a impressora entra no estado "pronta". Por exemplo, o delay_gcode abaixo será executado 5 segundos depois que a impressora estiver pronta, inicializando a exibição com um "Bem-vindo!" mensagem:</p>
 <div class="highlight"><pre><span></span><code>[delayed_gcode welcome]
 initial_duration: 5.
 gcode:
   M117 Welcome!
 </code></pre></div>
 
-<p>Its possible for a delayed gcode to repeat by updating itself in the gcode option:</p>
+<p>É possível que um gcode atrasado se repita atualizando-se na opção gcode:</p>
 <div class="highlight"><pre><span></span><code>[delayed_gcode report_temp]
 initial_duration: 2.
 gcode:
@@ -1484,37 +1484,37 @@ gcode:
   UPDATE_DELAYED_GCODE ID=report_temp DURATION=2
 </code></pre></div>
 
-<p>The above delayed_gcode will send "// Extruder Temp: [ex0_temp]" to Octoprint every 2 seconds. This can be canceled with the following gcode:</p>
+<p>O delay_gcode acima enviará "// Extruder Temp: [ex0_temp]" para Octoprint a cada 2 segundos. Isso pode ser cancelado com o seguinte gcode:</p>
 <div class="highlight"><pre><span></span><code>UPDATE_DELAYED_GCODE ID=report_temp DURATION=0
 </code></pre></div>
 
 <h2 id="menu-templates">Menu templates<a class="headerlink" href="#menu-templates" title="Permanent link">&para;</a></h2>
-<p>If a <a href="Config_Reference.html#display">display config section</a> is enabled, then it is possible to customize the menu with <a href="Config_Reference.html#menu">menu</a> config sections.</p>
-<p>The following read-only attributes are available in menu templates:</p>
+<p>Se uma <a href="Config_Reference.html#display">seção de configuração de exibição</a> estiver ativada, é possível personalizar o menu com as seções de configuração <a href="Config_Reference.html#menu">menu</a>.</p>
+<p>Os seguintes atributos somente leitura estão disponíveis em modelos de menu:</p>
 <ul>
-<li><code>menu.width</code> - element width (number of display columns)</li>
-<li><code>menu.ns</code> - element namespace</li>
-<li><code>menu.event</code> - name of the event that triggered the script</li>
-<li><code>menu.input</code> - input value, only available in input script context</li>
+<li><code>menu.width</code> - largura do elemento (número de colunas de exibição)</li>
+<li><code>menu.ns</code> - namespace do elemento</li>
+<li><code>menu.event</code> - nome do evento que acionou o script</li>
+<li><code>menu.input</code> - valor de entrada, disponível apenas no contexto do script de entrada</li>
 </ul>
-<p>The following actions are available in menu templates:</p>
+<p>As seguintes ações estão disponíveis nos modelos de menu:</p>
 <ul>
-<li><code>menu.back(force, update)</code>: will execute menu back command, optional boolean parameters <code>&lt;force&gt;</code> and <code>&lt;update&gt;</code>.<ul>
-<li>When <code>&lt;force&gt;</code> is set True then it will also stop editing. Default value is False.</li>
-<li>When <code>&lt;update&gt;</code> is set False then parent container items are not updated. Default value is True.</li>
+<li><code>menu.back(force, update)</code>: executará o comando de voltar ao menu, parâmetros booleanos opcionais <code>&lt;force&gt;</code> e <code>&lt;update&gt;</code>.<ul>
+<li>Quando <code>&lt;force&gt;</code> for definido como True, ele também interromperá a edição. O valor padrão é Falso.</li>
+<li>Quando <code>&lt;atualizar&gt;</code> é definido como falso, os itens do contêiner pai não são atualizados. O valor padrão é Verdadeiro.</li>
 </ul>
 </li>
-<li><code>menu.exit(force)</code> - will execute menu exit command, optional boolean parameter <code>&lt;force&gt;</code> default value False.<ul>
-<li>When <code>&lt;force&gt;</code> is set True then it will also stop editing. Default value is False.</li>
+<li><code>menu.exit(force)</code> - executará o comando de saída do menu, parâmetro booleano opcional <code>&lt;force&gt;</code> valor padrão False.<ul>
+<li>Quando <code>&lt;force&gt;</code> for definido como True, ele também interromperá a edição. O valor padrão é Falso.</li>
 </ul>
 </li>
 </ul>
-<h2 id="save-variables-to-disk">Save Variables to disk<a class="headerlink" href="#save-variables-to-disk" title="Permanent link">&para;</a></h2>
-<p>If a <a href="Config_Reference.html#save_variables">save_variables config section</a> has been enabled, <code>SAVE_VARIABLE VARIABLE=&lt;name&gt; VALUE=&lt;value&gt;</code> can be used to save the variable to disk so that it can be used across restarts. All stored variables are loaded into the <code>printer.save_variables.variables</code> dict at startup and can be used in gcode macros. to avoid overly long lines you can add the following at the top of the macro:</p>
+<h2 id="salvar-variaveis-no-disco">Salvar Variáveis no disco<a class="headerlink" href="#salvar-variaveis-no-disco" title="Permanent link">&para;</a></h2>
+<p>Se uma <a href="Config_Reference.html#save_variables">seção de configuração save_variables</a> tiver sido habilitada, <code>SAVE_VARIABLE VARIABLE=&lt;nome&gt; VALUE=&lt;valor&gt;</code> pode ser usado para salvar a variável no disco para que possa ser usada nas reinicializações. Todas as variáveis armazenadas são carregadas no dict <code>printer.save_variables.variables</code> na inicialização e podem ser usadas em macros gcode. para evitar linhas excessivamente longas, você pode adicionar o seguinte na parte superior da macro:</p>
 <div class="highlight"><pre><span></span><code>{% set svv = printer.save_variables.variables %}
 </code></pre></div>
 
-<p>As an example, it could be used to save the state of 2-in-1-out hotend and when starting a print ensure that the active extruder is used, instead of T0:</p>
+<p>Como exemplo, poderia ser usado para salvar o estado de hotend 2-in-1-out e ao iniciar uma impressão garantir que o extrusor ativo seja usado, em vez de T0:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro T1]
 gcode:
   ACTIVATE_EXTRUDER extruder=extruder1
