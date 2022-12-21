@@ -7,8 +7,7 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2022-11-28 09:48+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
-"status_reference/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/status_reference/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,8 +31,8 @@ msgid ""
 "upgrading the Klipper software."
 msgstr ""
 "Az ebben a dokumentumban szereplő mezők változhatnak. Ha egy attribútumot "
-"használsz, a Klipper szoftver frissítésekor mindenképpen nézd át a ["
-"Konfigurációs változások dokumentumot](Config_Changes.md)."
+"használsz, a Klipper szoftver frissítésekor mindenképpen nézd át a "
+"[Konfigurációs változások dokumentumot](Config_Changes.md)."
 
 msgid "bed_mesh"
 msgstr "bed_mesh"
@@ -793,8 +792,8 @@ msgid ""
 "`progress`: An estimate of the current print progress (based of file size "
 "and file position)."
 msgstr ""
-"`progress`: A nyomtatás aktuális előrehaladásának becslése (a fájlméret és a "
-"fájl pozíciója alapján)."
+"`progress`: A nyomtatás aktuális előrehaladásának becslése (a fájlméret és a"
+" fájl pozíciója alapján)."
 
 msgid "`file_position`: The current position (in bytes) of an active print."
 msgstr "`file_position`: Az aktív nyomtatás aktuális pozíciója (bájtokban)."
@@ -1257,16 +1256,16 @@ msgid ""
 "`info.total_layer`: The total layer value of the last `SET_PRINT_STATS_INFO "
 "TOTAL_LAYER=<value>` G-Code command."
 msgstr ""
-"`info.total_layer`: Az utolsó `SET_PRINT_STATS_INFO TOTAL_LAYER=<value>` G-"
-"kódú parancs."
+"`info.total_layer`: Az utolsó `SET_PRINT_STATS_INFO TOTAL_LAYER=<value>` "
+"G-kódú parancs."
 
 #: docs/Status_Reference.md:block 83 (unordered list)
 msgid ""
 "`info.current_layer`: The current layer value of the last "
 "`SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-Code command."
 msgstr ""
-"`info.current_layer`: Az aktuális réteg értéke az utolsó `"
-"SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-kódú parancs."
+"`info.current_layer`: Az aktuális réteg értéke az utolsó "
+"`SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-kódú parancs."
 
 #: docs/Status_Reference.md:block 124 (header)
 msgid "z_thermal_adjust"
@@ -1279,8 +1278,8 @@ msgid ""
 "[z_thermal_adjust](Config_Reference.md#z_thermal_adjust) is defined)."
 msgstr ""
 "A következő információk a `z_thermal_adjust` parancsal érhetők el (ez a "
-"parancs akkor érhető el, ha a [z_thermal_adjust](Config_Reference."
-"md#z_thermal_adjust) definiálva van)."
+"parancs akkor érhető el, ha a "
+"[z_thermal_adjust](Config_Reference.md#z_thermal_adjust) definiálva van)."
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid "`enabled`: Returns True if adjustment is enabled."
@@ -1312,3 +1311,56 @@ msgid ""
 msgstr ""
 "`z_adjust_ref_temperature`: A Z kiszámításához használt aktuális referencia-"
 "hőmérséklet `current_z_adjust` [°C]."
+
+#: docs/Status_Reference.md:block 93 (header)
+msgid "screws_tilt_adjust"
+msgstr ""
+
+#: docs/Status_Reference.md:block 94 (paragraph)
+msgid ""
+"The following information is available in the `screws_tilt_adjust` object:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid ""
+"`error`: Returns True if the most recent `SCREWS_TILT_CALCULATE` command "
+"included the `MAX_DEVIATION` parameter and any of the probed screw points "
+"exceeded the specified `MAX_DEVIATION`."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid ""
+"`results`: A list of the probed screw locations. Each entry in the list will"
+" be a dictionary containing the following keys:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`name`: The name of the screw as specified in the config file."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`x`: The X coordinate of the screw as specified in the config file."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`y`: The Y coordinate of the screw as specified in the config file."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`z`: The measured Z height of the screw location."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid ""
+"`sign`: A string specifying the direction to turn to screw for the necessary"
+" adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise. "
+"The base screw will not have a `sign` key."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid ""
+"`adjust`: The number of screw turns to adjust the screw, given in the format"
+" \"HH:MM,\" where \"HH\" is the number of full screw turns and \"MM\" is the"
+" number of \"minutes of a clock face\" representing a partial screw turn. "
+"(E.g. \"01:15\" would mean to turn the screw one and a quarter revolutions.)"
+msgstr ""

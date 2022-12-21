@@ -6,8 +6,7 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2022-11-28 09:48+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
-"releases/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/releases/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,10 +40,10 @@ msgid ""
 " without introducing instantaneous velocity changes. It is also now possible"
 " to tune pressure advance using a \"Tuning Tower\" method."
 msgstr ""
-"Új \"Smooth Pressure Advance\" rendszer. Ezt a \"Pressure Advance\" rendszer "
-"a pillanatnyi sebesség változások bevezetése nélkül valósítja meg. Mostantól "
-"lehetőség van a nyomás előtolás beállítására is a \"Tuning Tower\" "
-"módszerrel."
+"Új \"Smooth Pressure Advance\" rendszer. Ezt a \"Pressure Advance\" rendszer"
+" a pillanatnyi sebesség változások bevezetése nélkül valósítja meg. "
+"Mostantól lehetőség van a nyomás előtolás beállítására is a \"Tuning Tower\""
+" módszerrel."
 
 msgid ""
 "New \"webhooks\" API server. This provides a programmable JSON interface to "
@@ -455,8 +454,8 @@ msgstr ""
 msgid ""
 "Stepper performance improvements (20Mhz AVRs up to 189K steps per second)."
 msgstr ""
-"Léptető teljesítményének javítása (20Mhz-es AVR-ek akár 189K lépés/"
-"másodpercig)."
+"Léptető teljesítményének javítása (20Mhz-es AVR-ek akár 189K "
+"lépés/másodpercig)."
 
 msgid ""
 "Support for controlling servos and support for defining nozzle cooling fans."
@@ -701,6 +700,66 @@ msgstr ""
 "Hozzáadva számos további modul: ds18b20, duplicate_pin_override, "
 "filament_motion_sensor, palette2, motion_report, pca9533, pulse_counter, "
 "save_variables, sdcard_loop, temperature_host, temperature_mcu"
+
+#: docs/Releases.md:block 3 (header)
+msgid "Klipper 0.11.0"
+msgstr ""
+
+#: docs/Releases.md:block 4 (paragraph)
+msgid "Available on 20221128. Major changes in this release:"
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "Trinamic stepper motor driver \"step on both edges\" optimization."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"Support for Python3. The Klipper host code will run with either Python2 or "
+"Python3."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"Enhanced CAN bus support. Support for CAN bus on rp2040, stm32g0, stm32h7, "
+"same51, and same54 chips. Support for \"USB to CAN bus bridge\" mode."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "Support for CanBoot bootloader."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "Support for mpu9250 and mpu6050 accelerometers."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"Improved error handling for max31856, max31855, max31865, and max6675 "
+"temperature sensors."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"It is now possible to configure LEDs to update during long running G-Code "
+"commands using LED \"template\" support."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"Several micro-controller improvements. New support for stm32h743, stm32h750,"
+" stm32l412, stm32g0b1, same70, same51, and same54 chips. Support for i2c "
+"reads on atsamd and stm32f0. Hardware pwm support on stm32. Linux mcu signal"
+" based event dispatch. New rp2040 support for \"make flash\", i2c, and "
+"rp2040-e5 USB errata."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"New modules added: angle, dac084S085, exclude_object, led, mpu9250, pca9632,"
+" smart_effector, z_thermal_adjust. New deltesian kinematics added. New "
+"dump_mcu tool added."
+msgstr ""
 
 #~ msgid ""
 #~ "Support for common g-code commands. Support for interfacing with OctoPrint."
