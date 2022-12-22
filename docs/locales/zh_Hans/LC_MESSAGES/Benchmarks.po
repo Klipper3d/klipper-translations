@@ -3,14 +3,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-08 09:23+0000\n"
-"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/benchmarks/zh_Hans/>\n"
+"PO-Revision-Date: 2022-12-22 08:48+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/benchmarks/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "这个文档解释了Klipper的基准测试。"
@@ -911,11 +912,11 @@ msgstr "stm32g0b1"
 
 #: docs/Benchmarks.md:block 59 (header)
 msgid "STM32H7 step rate benchmark"
-msgstr ""
+msgstr "STM32H7 步进率基准测试"
 
 #: docs/Benchmarks.md:block 60 (paragraph)
 msgid "The following configuration sequence is used on a STM32H743VIT6:"
-msgstr ""
+msgstr "在STM32H743VIT6上使用以下配置序列："
 
 #: docs/Benchmarks.md:block 61 (code)
 msgid ""
@@ -925,6 +926,14 @@ msgid ""
 "config_stepper oid=2 step_pin=PE2 dir_pin=PE3 invert_step=-1 step_pulse_ticks=0\n"
 "finalize_config crc=0\n"
 msgstr ""
+"allocate_oids count=3\n"
+"config_stepper oid=0 step_pin=PD4 dir_pin=PD3 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=1 step_pin=PA15 dir_pin=PA8 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=2 step_pin=PE2 dir_pin=PE3 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"finalize_config crc=0\n"
 
 #: docs/Benchmarks.md:block 62 (paragraph)
 msgid ""
@@ -932,18 +941,21 @@ msgid ""
 "gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision "
 "273027]`."
 msgstr ""
+"该测试最后一次运行基于提交 `00191b5c`，gcc 版本为 `arm-none-eabi-gcc "
+"(15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision "
+"273027]`。"
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "stm32h7"
-msgstr ""
+msgstr "stm32h7"
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "44"
-msgstr ""
+msgstr "44"
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "198"
-msgstr ""
+msgstr "198"
 
 #~ msgid ""
 #~ "To produce the benchmarks found in the Features.md document, the total "

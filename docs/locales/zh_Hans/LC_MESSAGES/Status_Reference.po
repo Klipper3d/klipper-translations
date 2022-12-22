@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-15 07:23+0000\n"
+"PO-Revision-Date: 2022-12-22 08:48+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/status_reference/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/status_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -1052,7 +1053,7 @@ msgstr ""
 
 #: docs/Status_Reference.md:block 124 (header)
 msgid "z_thermal_adjust"
-msgstr ""
+msgstr "z_thermal_adjust"
 
 #: docs/Status_Reference.md:block 125 (paragraph)
 msgid ""
@@ -1060,10 +1061,13 @@ msgid ""
 "(this object is available if "
 "[z_thermal_adjust](Config_Reference.md#z_thermal_adjust) is defined)."
 msgstr ""
+"`z_thermal_adjust` "
+"对象提供以下信息（如果定义了[z_thermal_adjust](Config_Reference."
+"md#z_thermal_adjust)配置分段，该对象就可用）。"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid "`enabled`: Returns True if adjustment is enabled."
-msgstr ""
+msgstr "`enabled`：如果启用调整，则返回 True。"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid ""
