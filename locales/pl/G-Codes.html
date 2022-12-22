@@ -2978,7 +2978,8 @@
 <h3 id="gcode_arcs">[gcode_arcs]<a class="headerlink" href="#gcode_arcs" title="Permanent link">&para;</a></h3>
 <p>Następujące standardowe polecenia G-Code są dostępne, jeśli włączona jest sekcja konfiguracyjna <a href="Config_Reference.html#gcode_arcs">gcode_arcs</a>:</p>
 <ul>
-<li>Kontrolowany ruch łuku (G2 lub G3): <code>G2 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;] [F&lt;prędkość&gt;] I&lt;wartość&gt; J&lt;wartość&gt;</code></li>
+<li>Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): <code>G2|G3 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;] [F&lt;speed&gt;] I&lt;value&gt; J&lt;value&gt;|I&lt;value&gt; K&lt;value&gt;|J&lt;value&gt; K&lt;value&gt;</code></li>
+<li>Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)</li>
 </ul>
 <h3 id="gcode_macro">[gcode_macro]<a class="headerlink" href="#gcode_macro" title="Permanent link">&para;</a></h3>
 <p>The following command is available when a <a href="Config_Reference.html#gcode_macro">gcode_macro config section</a> is enabled (also see the <a href="Command_Templates.html">command templates guide</a>).</p>

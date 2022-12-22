@@ -162,13 +162,6 @@ msgstr ""
 "Następujące standardowe polecenia G-Code są dostępne, jeśli włączona jest "
 "sekcja konfiguracyjna [gcode_arcs](Config_Reference.md#gcode_arcs):"
 
-msgid ""
-"Controlled Arc Move (G2 or G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] "
-"[F<speed>] I<value> J<value>`"
-msgstr ""
-"Kontrolowany ruch łuku (G2 lub G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] "
-"[F<prędkość>] I<wartość> J<wartość>`"
-
 msgid "Display Message: `M117 <message>`"
 msgstr "Wyświetlenie komunikatu: `M117 <message>`."
 
@@ -2420,6 +2413,24 @@ msgid ""
 " homing (for use in e.g. non-standard homing routines) - will be reset "
 "automatically upon homing."
 msgstr ""
+
+#: docs/G-Codes.md:block 158 (unordered list)
+msgid ""
+"Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): `G2|G3 [X<pos>] "
+"[Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> "
+"K<value>|J<value> K<value>`"
+msgstr ""
+
+#: docs/G-Codes.md:block 158 (unordered list)
+msgid "Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)"
+msgstr ""
+
+#~ msgid ""
+#~ "Controlled Arc Move (G2 or G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] "
+#~ "[F<speed>] I<value> J<value>`"
+#~ msgstr ""
+#~ "Kontrolowany ruch łuku (G2 lub G3): `G2 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] "
+#~ "[F<prędkość>] I<wartość> J<wartość>`"
 
 #~ msgid ""
 #~ "`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [<probe_parameter>=<value>]`: This"

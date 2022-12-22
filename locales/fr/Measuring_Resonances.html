@@ -1231,6 +1231,52 @@
     Câblage
   </a>
   
+    <nav class="md-nav" aria-label="Câblage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spi-accelerometers" class="md-nav__link">
+    SPI Accelerometers
+  </a>
+  
+    <nav class="md-nav" aria-label="SPI Accelerometers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adxl345" class="md-nav__link">
+    ADXL345
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i2c-accelerometers" class="md-nav__link">
+    I2C Accelerometers
+  </a>
+  
+    <nav class="md-nav" aria-label="I2C Accelerometers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mpu-9250mpu-9255mpu-6515mpu-6050mpu-6500" class="md-nav__link">
+    MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1244,6 +1290,33 @@
   <a href="#installation-logicielle" class="md-nav__link">
     Installation logicielle
   </a>
+  
+    <nav class="md-nav" aria-label="Installation logicielle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-adxl345-with-rpi" class="md-nav__link">
+    Configure ADXL345 With RPi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-mpu-60009000-series-with-rpi" class="md-nav__link">
+    Configure MPU-6000/9000 series With RPi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-mpu-60009000-series-with-pico" class="md-nav__link">
+    Configure MPU-6000/9000 series With PICO
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1356,6 +1429,18 @@
 <p>Lors de l’approvisionnement en ADXL345, sachez qu’il existe une variété de conceptions de cartes PCB différentes et différents clones. Assurez-vous que la carte prend en charge le mode SPI (un petit nombre de cartes semble être configurée en dur pour I2C avec SDO raccordé au GND) et, si elle doit être connectée à un microcontrôleur d’imprimante 5V, qu’elle dispose d’un régulateur de tension et d’un décalage de niveau.</p>
 <h2 id="instructions-dinstallation">Instructions d’installation<a class="headerlink" href="#instructions-dinstallation" title="Permanent link">&para;</a></h2>
 <h3 id="cablage">Câblage<a class="headerlink" href="#cablage" title="Permanent link">&para;</a></h3>
+<p>An ethernet cable with shielded twisted pairs (cat5e or better) is recommended for signal integrety over a long distance. If you still experience signal integrity issues (SPI/I2C errors), shorten the cable.</p>
+<p>Connect ethernet cable shielding to the controller board/RPI ground.</p>
+<p><strong><em>Double-check your wiring before powering up to prevent damaging your MCU/Raspberry Pi or the accelerometer.</em></strong></p>
+<h4 id="spi-accelerometers">SPI Accelerometers<a class="headerlink" href="#spi-accelerometers" title="Permanent link">&para;</a></h4>
+<p>Suggested twisted pair order:</p>
+<div class="highlight"><pre><span></span><code>GND+MISO
+3.3V+MOSI
+SCLK+CS
+</code></pre></div>
+
+<h5 id="adxl345">ADXL345<a class="headerlink" href="#adxl345" title="Permanent link">&para;</a></h5>
+<p><strong>Note: Many MCUs will work with an ADXL345 in SPI mode(eg Pi Pico), wiring and configuration will vary according to your specific board and avaliable pins.</strong></p>
 <p>Vous devez connecter ADXL345 à votre Raspberry Pi via SPI. Notez que la connexion I2C, suggérée par la documentation ADXL345, a un débit trop faible et <strong> ne fonctionnera pas</strong>. Le schéma de connexion recommandé :</p>
 <table>
 <thead>
@@ -1398,7 +1483,17 @@
 </tr>
 </tbody>
 </table>
-<p>Une alternative à l’ADXL345 est le MPU-9250 (ou MPU-6050). Cet accéléromètre a été testé pour fonctionner en I2C sur le RPi à 400kbaud. Schéma de connexion recommandé pour I2C :</p>
+<p>Schémas de câblage de Fritzing pour certaines des cartes ADXL345 :</p>
+<p><img alt="ADXL345-Rpi" src="img/adxl345-fritzing.png" /></p>
+<h4 id="i2c-accelerometers">I2C Accelerometers<a class="headerlink" href="#i2c-accelerometers" title="Permanent link">&para;</a></h4>
+<p>Suggested twisted pair order:</p>
+<div class="highlight"><pre><span></span><code>3.3V+SDA
+GND+SCL
+</code></pre></div>
+
+<h5 id="mpu-9250mpu-9255mpu-6515mpu-6050mpu-6500">MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500<a class="headerlink" href="#mpu-9250mpu-9255mpu-6515mpu-6050mpu-6500" title="Permanent link">&para;</a></h5>
+<p>Alternatives to the ADXL345 are MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500. These accelerometers have been tested to work over I2C on the RPi or RP2040(pico) at 400kbaud.</p>
+<p>Recommended connection scheme for I2C on the Raspberry Pi:</p>
 <table>
 <thead>
 <tr>
@@ -1409,7 +1504,7 @@
 </thead>
 <tbody>
 <tr>
-<td align="center">3,3 V (ou VCC)</td>
+<td align="center">VCC</td>
 <td align="center">01</td>
 <td align="center">Alimentation 3.3v continu</td>
 </tr>
@@ -1430,9 +1525,40 @@
 </tr>
 </tbody>
 </table>
-<p>Schémas de câblage de Fritzing pour certaines des cartes ADXL345 :</p>
-<p><img alt="ADXL345-Rpi" src="img/adxl345-fritzing.png" /></p>
-<p>Vérifiez votre câblage avant de mettre le Raspberry Pi sous tension pour éviter de l’endommager ou d’endommager l’accéléromètre.</p>
+<p><img alt="MPU-9250 connected to RPI" src="img/mpu9250-PI-fritzing.png" /></p>
+<p>Recommended connection scheme for I2C(i2c0a) on the RP2040:</p>
+<table>
+<thead>
+<tr>
+<th align="center">brochage du MPU-9250</th>
+<th align="center">RP2040 pin</th>
+<th align="center">Nom des broches du RPI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">VCC</td>
+<td align="center">39</td>
+<td align="center">3v3</td>
+</tr>
+<tr>
+<td align="center">GND</td>
+<td align="center">38</td>
+<td align="center">Terre</td>
+</tr>
+<tr>
+<td align="center">SDA</td>
+<td align="center">01</td>
+<td align="center">GP0 (I2C0 SDA)</td>
+</tr>
+<tr>
+<td align="center">SCL</td>
+<td align="center">02</td>
+<td align="center">GP1 (I2C0 SCL)</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="MPU-9250 connected to PICO" src="img/mpu9250-PICO-fritzing.png" /></p>
 <h3 id="montage-de-laccelerometre">Montage de l’accéléromètre<a class="headerlink" href="#montage-de-laccelerometre" title="Permanent link">&para;</a></h3>
 <p>L’accéléromètre doit être fixé sur la tête d'impression. Il faut concevoir un support approprié qui s’adapte à l'imprimante 3D. Il est préférable d’aligner les axes de l’accéléromètre avec les axes de l’imprimante (mais ce n'est pas obligatoire - c’est-à-dire pas besoin d’aligner l’axe X avec X et ainsi de suite - cela devrait être correct même si l’axe Z de l’accéléromètre est l’axe X de l’imprimante, etc.).</p>
 <p>Exemple de montage d’ADXL345 sur le SmartEffector :</p>
@@ -1451,8 +1577,9 @@ sudo apt install python3-numpy python3-matplotlib libatlas-base-dev
 
 <p>Selon les performances du processeur, cette opération peut prendre jusqu’à 20 minutes. Soyez patient et attendez la fin de l’installation. Dans certains cas, si la carte a trop peu de mémoire, l’installation peut échouer et vous devrez activer le fichier d’échange.</p>
 <p>Vérifiez et suivez les instructions dans le <a href="RPi_microcontroller.html">document RPi Microcontroller</a> pour configurer le « linux mcu » sur le Raspberry Pi.</p>
+<h4 id="configure-adxl345-with-rpi">Configure ADXL345 With RPi<a class="headerlink" href="#configure-adxl345-with-rpi" title="Permanent link">&para;</a></h4>
 <p>Assurez-vous que le pilote SPI Linux est activé en exécutant <code>sudo raspi-config</code> et en activant SPI dans le menu « Options d’interface ».</p>
-<p>Pour l’ADXL345, ajoutez ce qui suit au fichier .cfg l’imprimante :</p>
+<p>Add the following to the printer.cfg file:</p>
 <div class="highlight"><pre><span></span><code>[mcu rpi]
 serial: /tmp/klipper_host_mcu
 
@@ -1466,7 +1593,8 @@ probe_points:
 </code></pre></div>
 
 <p>Il est conseillé de commencer par 1 point de test, au milieu du lit d’impression, légèrement au-dessus.</p>
-<p>Pour le MPU-9250, assurez-vous que le pilote I2C Linux est activé et que le débit en bauds est défini sur 400000 (voir la section <a href="RPi_microcontroller.html#optional-enbling-i2c">Activation d’I2C</a> pour plus de détails). Ensuite, ajoutez ce qui suit au fichier printer.cfg :</p>
+<h4 id="configure-mpu-60009000-series-with-rpi">Configure MPU-6000/9000 series With RPi<a class="headerlink" href="#configure-mpu-60009000-series-with-rpi" title="Permanent link">&para;</a></h4>
+<p>Make sure the Linux I2C driver is enabled and the baud rate is set to 400000 (see <a href="RPi_microcontroller.html#optional-enabling-i2c">Enabling I2C</a> section for more details). Then, add the following to the printer.cfg:</p>
 <div class="highlight"><pre><span></span><code>[mcu rpi]
 serial: /tmp/klipper_host_mcu
 
@@ -1478,6 +1606,24 @@ i2c_bus: i2c.1
 accel_chip: mpu9250
 probe_points:
     100, 100, 20  # valeurs exemple
+</code></pre></div>
+
+<h4 id="configure-mpu-60009000-series-with-pico">Configure MPU-6000/9000 series With PICO<a class="headerlink" href="#configure-mpu-60009000-series-with-pico" title="Permanent link">&para;</a></h4>
+<p>PICO I2C is set to 400000 on default. Simply add the following to the printer.cfg:</p>
+<div class="highlight"><pre><span></span><code>[mcu pico]
+serial: /dev/serial/by-id/&lt;your PICO&#39;s serial ID&gt;
+
+[mpu9250]
+i2c_mcu: pico
+i2c_bus: i2c1a
+
+[resonance_tester]
+accel_chip: mpu9250
+probe_points:
+    100, 100, 20  # an example
+
+[static_digital_output pico_3V3pwm] # Improve power stability
+pin: pico:gpio23
 </code></pre></div>
 
 <p>Redémarrez Klipper avec la commande <code>RESTART</code>.</p>
@@ -1493,6 +1639,7 @@ probe_points:
 </code></pre></div>
 
 <p>Si vous obtenez une erreur comme <code>Invalid adxl345 id (got xx vs e5)</code>, où <code>xx</code> est un autre ID, cela indique un problème de connexion avec ADXL345, ou de capteur défectueux. Vérifiez l’alimentation, le câblage (correspondance avec les schémas, aucun fil coupé ou desserré, etc.) et la qualité de la soudure.</p>
+<p><strong>If you are using MPU-6000/9000 series accelerometer and it show up as <code>mpu-unknown</code>, use with caution! They are probably refurbished chips!</strong></p>
 <p>Ensuite, essayez d’exécuter <code>MEASURE_AXES_NOISE</code> dans Octoprint, vous devriez obtenir des chiffres de base pour le bruit de fond l’accéléromètre sur les axes (qui devrait se situer entre 1 et 100). Un bruit de fond d’axe trop élevé (par exemple 1000 et plus) peut indiquer des problèmes de capteur, des problèmes de puissance ou des ventilateurs déséquilibrés amenant trop de vibrations sur l'imprimante 3D.</p>
 <h3 id="mesurer-les-resonances_1">Mesurer les résonances<a class="headerlink" href="#mesurer-les-resonances_1" title="Permanent link">&para;</a></h3>
 <p>Vous pouvez maintenant exécuter des tests réels. Exécutez la commande suivante :</p>

@@ -630,6 +630,14 @@ msgid ""
 " It is unlikely the gpio15 behavior change will be noticeable."
 msgstr ""
 
+#: docs/Config_Changes.md:block 5 (paragraph)
+msgid ""
+"20221122: Previously, with safe_z_home, it was possible that the z_hop after"
+" the g28 homing would go in the negative z direction. Now, a z_hop is "
+"performed after g28 only if it results in a positive hop, mirroring the "
+"behavior of the z_hop that occurs before the g28 homing."
+msgstr ""
+
 #~ msgid ""
 #~ "20211104: The \"step pulse duration\" option in \"make menuconfig\" has been"
 #~ " removed. A new `step_pulse_duration` setting in the [stepper config "

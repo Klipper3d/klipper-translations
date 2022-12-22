@@ -6,8 +6,7 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2022-11-28 09:48+0000\n"
 "Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
-"measuring_resonances/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/measuring_resonances/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -119,13 +118,6 @@ msgstr "Fritzing kapcsolási rajzok néhány ADXL345 laphoz:"
 msgid "![ADXL345-Rpi](img/adxl345-fritzing.png)"
 msgstr "![ADXL345-Rpi](img/adxl345-fritzing.png)"
 
-msgid ""
-"Double-check your wiring before powering up the Raspberry Pi to prevent "
-"damaging it or the accelerometer."
-msgstr ""
-"A Raspberry Pi bekapcsolása előtt ellenőrizd kétszer is a vezetékeket, "
-"nehogy megsérüljön a Raspberry Pi vagy a gyorsulásmérő."
-
 msgid "Mounting the accelerometer"
 msgstr "A gyorsulásmérő felszerelése"
 
@@ -137,8 +129,8 @@ msgid ""
 " forth - it should be fine even if Z axis of accelerometer is X axis of the "
 "printer, etc.)."
 msgstr ""
-"A gyorsulásmérőt a nyomtatófejhez kell csatlakoztatni. Meg kell tervezni egy "
-"megfelelő rögzítést, amely illeszkedik a saját 3D nyomtatódhoz. A "
+"A gyorsulásmérőt a nyomtatófejhez kell csatlakoztatni. Meg kell tervezni egy"
+" megfelelő rögzítést, amely illeszkedik a saját 3D nyomtatódhoz. A "
 "gyorsulásmérő tengelyeit jobb a nyomtató tengelyeihez igazítani (de ha ez "
 "kényelmesebbé teszi, a tengelyek felcserélhetők - azaz nem kell az X "
 "tengelyt X-hez igazítani, és így tovább. Akkor is jónak kell lennie, ha a "
@@ -168,8 +160,8 @@ msgid ""
 "the system that may damage the electronics."
 msgstr ""
 "**Figyelem:** győződj meg arról, hogy a gyorsulásmérő és a helyére rögzítő "
-"csavarok nem érnek a nyomtató fém részeihez. Alapvetően a rögzítést úgy kell "
-"kialakítani, hogy biztosítsa a gyorsulásmérő elektromos szigetelését a "
+"csavarok nem érnek a nyomtató fém részeihez. Alapvetően a rögzítést úgy kell"
+" kialakítani, hogy biztosítsa a gyorsulásmérő elektromos szigetelését a "
 "nyomtató keretétől. Ennek elmulasztása földhurkot hozhat létre a "
 "rendszerben, ami károsíthatja az elektronikát."
 
@@ -197,8 +189,8 @@ msgid ""
 "It is advised to start with 1 probe point, in the middle of the print bed, "
 "slightly above it."
 msgstr ""
-"Javasoljuk, hogy 1 mérőponttal kezd, a nyomtatási tárgyasztal közepén, kissé "
-"felette."
+"Javasoljuk, hogy 1 mérőponttal kezd, a nyomtatási tárgyasztal közepén, kissé"
+" felette."
 
 msgid "Restart Klipper via the `RESTART` command."
 msgstr "Indítsd újra a Klippert a `RESTART` paranccsal."
@@ -216,8 +208,8 @@ msgid ""
 "For \"non bed-slingers\" (e.g. one accelerometer), in Octoprint, enter "
 "`ACCELEROMETER_QUERY`"
 msgstr ""
-"A \"nem tárgyasztalt érintő\" (pl. egy gyorsulásmérő), az Octoprintbe írd be "
-"az `ACCELEROMETER_QUERY` parancsot"
+"A \"nem tárgyasztalt érintő\" (pl. egy gyorsulásmérő), az Octoprintbe írd be"
+" az `ACCELEROMETER_QUERY` parancsot"
 
 msgid ""
 "For \"bed-slingers\" (e.g. more than one accelerometer), enter "
@@ -225,10 +217,10 @@ msgid ""
 "entered, e.g. `CHIP=bed` (see: [bed-slinger](#bed-slinger-printers)) for all"
 " installed accelerometer chips."
 msgstr ""
-"A \"bed-slingers\" (pl. egynél több gyorsulásmérő) esetében írd be az `"
-"ACCELEROMETER_QUERY CHIP=<chip>` ahol `<chip>` a chip neve a beírt formában, "
-"pl. `CHIP=bed` (lásd: [bed-slinger nyomtatók](#bed-slinger-nyomtatok)) az "
-"összes telepített gyorsulásmérő chip-hez."
+"A \"bed-slingers\" (pl. egynél több gyorsulásmérő) esetében írd be az "
+"`ACCELEROMETER_QUERY CHIP=<chip>` ahol `<chip>` a chip neve a beírt "
+"formában, pl. `CHIP=bed` (lásd: [bed-slinger nyomtatók](#bed-slinger-"
+"nyomtatok)) az összes telepített gyorsulásmérő chip-hez."
 
 msgid ""
 "You should see the current measurements from the accelerometer, including "
@@ -245,8 +237,8 @@ msgid ""
 msgstr ""
 "Ha olyan hibát kapsz, mint `Invalid adxl345 id (got xx vs e5)`, ahol `xx` "
 "valami más azonosító, azaz ADXL345-öt érintő kapcsolati problémára vagy a "
-"hibás érzékelőre utal. Ellenőrizd kétszer is a tápellátást, a kábelezést ("
-"hogy megfelel-e a kapcsolási rajzoknak, nincs-e törött vagy laza vezeték "
+"hibás érzékelőre utal. Ellenőrizd kétszer is a tápellátást, a kábelezést "
+"(hogy megfelel-e a kapcsolási rajzoknak, nincs-e törött vagy laza vezeték "
 "stb.) és a forrasztás minőségét."
 
 msgid ""
@@ -257,8 +249,8 @@ msgid ""
 "noisy imbalanced fans on a 3D printer."
 msgstr ""
 "Ezután próbáld meg futtatni a `MEASURE_AXES_NOISE` parancsot az Octoprint-"
-"ben, így kaphatsz néhány alapszámot a gyorsulásmérő zajára a tengelyeken ("
-"valahol a ~1-100-as tartományban kell lennie). A túl magas tengelyzaj (pl. "
+"ben, így kaphatsz néhány alapszámot a gyorsulásmérő zajára a tengelyeken "
+"(valahol a ~1-100-as tartományban kell lennie). A túl magas tengelyzaj (pl. "
 "1000 és több) az érzékelő problémáira, a tápellátásával kapcsolatos "
 "problémákra vagy a 3D nyomtató túl zajos, kiegyensúlyozatlan ventilátoraira "
 "utalhat."
@@ -300,8 +292,8 @@ msgid ""
 "the suggested frequencies for each input shaper, as well as which input "
 "shaper is recommended for your setup. For example:"
 msgstr ""
-"Ez a szkript létrehozza a `/tmp/shaper_calibrate_x.png` és `/tmp/"
-"shaper_calibrate_y.png` diagramokat a frekvenciaválaszokkal. Az egyes "
+"Ez a szkript létrehozza a `/tmp/shaper_calibrate_x.png` és "
+"`/tmp/shaper_calibrate_y.png` diagramokat a frekvenciaválaszokkal. Az egyes "
 "bemeneti shaperek javasolt frekvenciáit is megkapja, valamint azt, hogy "
 "melyik bemeneti shaper ajánlott a te beállításodhoz. Például:"
 
@@ -464,10 +456,10 @@ msgstr ""
 "frekvenciája - annál kisebb a simítás. Ezért ha azt kéred a parancsfájltól, "
 "hogy a bemeneti alakító olyan konfigurációt keressen meg, amely irreálisan "
 "kis simítással rendelkezik, akkor ez a legalacsonyabb "
-"rezonanciafrekvenciákon (amelyek jellemzően a nyomatokon is jobban láthatóak)"
-" megnövekedett rezgés árán fog történni. Ezért mindig ellenőrizd kétszeresen "
-"a szkript által jelzett vetített maradó rezgéseket, és győződj meg róla, "
-"hogy azok nem túl magasak."
+"rezonanciafrekvenciákon (amelyek jellemzően a nyomatokon is jobban "
+"láthatóak) megnövekedett rezgés árán fog történni. Ezért mindig ellenőrizd "
+"kétszeresen a szkript által jelzett vetített maradó rezgéseket, és győződj "
+"meg róla, hogy azok nem túl magasak."
 
 msgid ""
 "Note that if you chose a good `max_smoothing` value for both of your axes, "
@@ -482,8 +474,8 @@ msgid ""
 "the stored `max_smoothing` value as a reference."
 msgstr ""
 "Ezután, ha a jövőben [újraindítod](#bemeneti-formazo-ujrakalibralasa) a "
-"bemeneti alakító automatikus hangolását a `SHAPER_CALIBRATE` Klipper parancs "
-"segítségével, akkor a tárolt `max_smoothing` értéket fogja referenciaként "
+"bemeneti alakító automatikus hangolását a `SHAPER_CALIBRATE` Klipper parancs"
+" segítségével, akkor a tárolt `max_smoothing` értéket fogja referenciaként "
 "használni."
 
 msgid "Selecting max_accel"
@@ -505,8 +497,8 @@ msgid ""
 "margin."
 msgstr ""
 "Mivel a bemeneti alakító némi simítást okozhat az elemekben, különösen nagy "
-"gyorsulásoknál, továbbra is meg kell választani a `max_accel` értéket, amely "
-"nem okoz túl nagy simítást a nyomtatott alkatrészekben. Egy kalibrációs "
+"gyorsulásoknál, továbbra is meg kell választani a `max_accel` értéket, amely"
+" nem okoz túl nagy simítást a nyomtatott alkatrészekben. Egy kalibrációs "
 "szkript becslést ad a `max_accel` paraméterre, amely nem okozhat túl nagy "
 "simítást. Vedd figyelembe, hogy a kalibrációs szkript által megjelenített "
 "`max_accel` csak egy elméleti maximum, amelynél az adott alakító még képes "
@@ -557,8 +549,9 @@ msgid ""
 "directly from Klipper. Run the following command via Octoprint terminal:"
 msgstr ""
 "A bemeneti formázó funkció megfelelő paramétereinek kézi kiválasztása "
-"mellett a bemeneti alakító automatikus hangolása közvetlenül a Klipperből is "
-"elvégezhető. Futtasd a következő parancsot az Octoprint terminálon keresztül:"
+"mellett a bemeneti alakító automatikus hangolása közvetlenül a Klipperből is"
+" elvégezhető. Futtasd a következő parancsot az Octoprint terminálon "
+"keresztül:"
 
 msgid ""
 "This will run the full test for both axes and generate the csv output "
@@ -583,8 +576,8 @@ msgid ""
 msgstr ""
 "Ha egyetértesz a javasolt paraméterekkel, akkor a `SAVE_CONFIG` parancsot "
 "most végre lehet hajtani a paraméterek mentéséhez és a Klipper "
-"újraindításához. Vedd figyelembe, hogy ez nem frissíti a `max_accel` értéket "
-"a `[printer]` szakaszban. Ezt manuálisan kell frissítened a [max_accel "
+"újraindításához. Vedd figyelembe, hogy ez nem frissíti a `max_accel` értéket"
+" a `[printer]` szakaszban. Ezt manuálisan kell frissítened a [max_accel "
 "kiválasztása](#a-max_accel-kivalasztasa) szakaszban leírtak szerint."
 
 msgid ""
@@ -647,9 +640,9 @@ msgstr ""
 "rezgéseknek tartósan ellenálljanak. Ez növelheti a nyomtató alkatrészeinek "
 "kopását és csökkentheti élettartamukat. Megnő a kockázata annak is, hogy "
 "egyes alkatrészek kicsavarodnak vagy meglazulnak. Minden egyes automatikus "
-"hangolás után mindig ellenőrizd, hogy a nyomtató minden alkatrésze ("
-"beleértve azokat is, amelyek normál esetben nem mozoghatnak) biztonságosan a "
-"helyén van-e rögzítve."
+"hangolás után mindig ellenőrizd, hogy a nyomtató minden alkatrésze "
+"(beleértve azokat is, amelyek normál esetben nem mozoghatnak) biztonságosan "
+"a helyén van-e rögzítve."
 
 msgid ""
 "Also, due to some noise in measurements, it is possible that the tuning "
@@ -729,9 +722,9 @@ msgid ""
 " all axes is used)."
 msgstr ""
 "a spektrogram ábrázolása (használd a `-s` paramétert), csak 1 bemenet "
-"támogatott; a `-a x`, `-a y` vagy `-a z` paraméterrel ezen felül megadhatod, "
-"hogy melyik gyorsulásmérő tengelyt vegye figyelembe (ha nincs megadva, akkor "
-"az összes tengely rezgéseinek összegét használja)."
+"támogatott; a `-a x`, `-a y` vagy `-a z` paraméterrel ezen felül megadhatod,"
+" hogy melyik gyorsulásmérő tengelyt vegye figyelembe (ha nincs megadva, "
+"akkor az összes tengely rezgéseinek összegét használja)."
 
 msgid ""
 "Note that graph_accelerometer.py script supports only the raw_data\\*.csv "
@@ -1170,16 +1163,6 @@ msgstr ""
 "írásához. További részletekért lásd a [G-kódok](G-Codes.md#adxl345) című "
 "dokumentumot."
 
-#: docs/Measuring_Resonances.md:block 8 (paragraph)
-msgid ""
-"An alternative to the ADXL345 is the MPU-9250 (or MPU-6050). This "
-"accelerometer has been tested to work over I2C on the RPi at 400kbaud. "
-"Recommended connection scheme for I2C:"
-msgstr ""
-"Az ADXL345 alternatívája az MPU-9250 (vagy MPU-6050). Ezt a gyorsulásmérőt "
-"úgy tesztelték, hogy az RPi-n 400kbaud-on keresztül I2C-n keresztül működik."
-" Ajánlott csatlakozási séma az I2C-hez:"
-
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "MPU-9250 pin"
 msgstr "MPU-9250 tű"
@@ -1241,23 +1224,6 @@ msgstr ""
 "befejezését. Bizonyos esetekben, ha a kártyán túl kevés RAM van, a telepítés"
 " meghiúsulhat, és engedélyeznie kell a swapot."
 
-#: docs/Measuring_Resonances.md:block 27 (paragraph)
-msgid "For the ADXL345, add the following to the printer.cfg file:"
-msgstr "Az ADXL345 esetében add hozzá a következőket a printer.cfg fájlhoz:"
-
-#: docs/Measuring_Resonances.md:block 30 (paragraph)
-msgid ""
-"For the MPU-9250, make sure the Linux I2C driver is enabled and the baud "
-"rate is set to 400000 (see [Enabling I2C](RPi_microcontroller.md#optional-"
-"enabling-i2c) section for more details). Then, add the following to the "
-"printer.cfg:"
-msgstr ""
-"Az MPU-9250 esetében győződj meg róla, hogy a Linux I2C illesztőprogram "
-"engedélyezve van, és az átviteli sebesség 400000-re van állítva (további "
-"részletekért lásd az [I2C engedélyezése](RPi_microcontroller.md#optional-"
-"enabling-i2c) részt). Ezután adjuk hozzá a következőket a printer.cfg "
-"fájlhoz:"
-
 #: docs/Measuring_Resonances.md:block 31 (code)
 msgid ""
 "[mcu rpi]\n"
@@ -1284,6 +1250,202 @@ msgstr ""
 "probe_points:\n"
 "    100, 100, 20  # an example\n"
 
+#: docs/Measuring_Resonances.md:block 6 (paragraph)
+msgid ""
+"An ethernet cable with shielded twisted pairs (cat5e or better) is "
+"recommended for signal integrety over a long distance. If you still "
+"experience signal integrity issues (SPI/I2C errors), shorten the cable."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 7 (paragraph)
+msgid "Connect ethernet cable shielding to the controller board/RPI ground."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 8 (paragraph)
+msgid ""
+"***Double-check your wiring before powering up to prevent damaging your "
+"MCU/Raspberry Pi or the accelerometer.***"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 9 (header)
+msgid "SPI Accelerometers"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 10 (paragraph)
+msgid "Suggested twisted pair order:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 11 (code)
+msgid ""
+"GND+MISO\n"
+"3.3V+MOSI\n"
+"SCLK+CS\n"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 12 (header)
+msgid "ADXL345"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 13 (paragraph)
+msgid ""
+"**Note: Many MCUs will work with an ADXL345 in SPI mode(eg Pi Pico), wiring "
+"and configuration will vary according to your specific board and avaliable "
+"pins.**"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 18 (header)
+msgid "I2C Accelerometers"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 20 (code)
+msgid ""
+"3.3V+SDA\n"
+"GND+SCL\n"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 21 (header)
+msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 22 (paragraph)
+msgid ""
+"Alternatives to the ADXL345 are "
+"MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500. These accelerometers have been"
+" tested to work over I2C on the RPi or RP2040(pico) at 400kbaud."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 23 (paragraph)
+msgid "Recommended connection scheme for I2C on the Raspberry Pi:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 24 (table)
+msgid "VCC"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 25 (paragraph)
+msgid "![MPU-9250 connected to RPI](img/mpu9250-PI-fritzing.png)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 26 (paragraph)
+msgid "Recommended connection scheme for I2C(i2c0a) on the RP2040:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 27 (table)
+msgid "RP2040 pin"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 27 (table)
+msgid "39"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 27 (table)
+msgid "3v3"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 27 (table)
+msgid "38"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 27 (table)
+msgid "GP0 (I2C0 SDA)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 27 (table)
+msgid "02"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 27 (table)
+msgid "GP1 (I2C0 SCL)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 28 (paragraph)
+msgid "![MPU-9250 connected to PICO](img/mpu9250-PICO-fritzing.png)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 42 (header)
+msgid "Configure ADXL345 With RPi"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 44 (paragraph)
+msgid "Add the following to the printer.cfg file:"
+msgstr "Adja hozzá a következőket a printer.cfg fájlhoz:"
+
+#: docs/Measuring_Resonances.md:block 47 (header)
+msgid "Configure MPU-6000/9000 series With RPi"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 48 (paragraph)
+msgid ""
+"Make sure the Linux I2C driver is enabled and the baud rate is set to 400000"
+" (see [Enabling I2C](RPi_microcontroller.md#optional-enabling-i2c) section "
+"for more details). Then, add the following to the printer.cfg:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 50 (header)
+msgid "Configure MPU-6000/9000 series With PICO"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 51 (paragraph)
+msgid ""
+"PICO I2C is set to 400000 on default. Simply add the following to the "
+"printer.cfg:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 52 (code)
+msgid ""
+"[mcu pico]\n"
+"serial: /dev/serial/by-id/<your PICO's serial ID>\n"
+"\n"
+"[mpu9250]\n"
+"i2c_mcu: pico\n"
+"i2c_bus: i2c1a\n"
+"\n"
+"[resonance_tester]\n"
+"accel_chip: mpu9250\n"
+"probe_points:\n"
+"    100, 100, 20  # an example\n"
+"\n"
+"[static_digital_output pico_3V3pwm] # Improve power stability\n"
+"pin: pico:gpio23\n"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 61 (paragraph)
+msgid ""
+"**If you are using MPU-6000/9000 series accelerometer and it show up as "
+"`mpu-unknown`, use with caution! They are probably refurbished chips!**"
+msgstr ""
+
+#~ msgid ""
+#~ "Double-check your wiring before powering up the Raspberry Pi to prevent "
+#~ "damaging it or the accelerometer."
+#~ msgstr ""
+#~ "A Raspberry Pi bekapcsolása előtt ellenőrizd kétszer is a vezetékeket, "
+#~ "nehogy megsérüljön a Raspberry Pi vagy a gyorsulásmérő."
+
+#~ msgid ""
+#~ "An alternative to the ADXL345 is the MPU-9250 (or MPU-6050). This "
+#~ "accelerometer has been tested to work over I2C on the RPi at 400kbaud. "
+#~ "Recommended connection scheme for I2C:"
+#~ msgstr ""
+#~ "Az ADXL345 alternatívája az MPU-9250 (vagy MPU-6050). Ezt a gyorsulásmérőt "
+#~ "úgy tesztelték, hogy az RPi-n 400kbaud-on keresztül I2C-n keresztül működik."
+#~ " Ajánlott csatlakozási séma az I2C-hez:"
+
+#~ msgid "For the ADXL345, add the following to the printer.cfg file:"
+#~ msgstr "Az ADXL345 esetében add hozzá a következőket a printer.cfg fájlhoz:"
+
+#~ msgid ""
+#~ "For the MPU-9250, make sure the Linux I2C driver is enabled and the baud "
+#~ "rate is set to 400000 (see [Enabling I2C](RPi_microcontroller.md#optional-"
+#~ "enabling-i2c) section for more details). Then, add the following to the "
+#~ "printer.cfg:"
+#~ msgstr ""
+#~ "Az MPU-9250 esetében győződj meg róla, hogy a Linux I2C illesztőprogram "
+#~ "engedélyezve van, és az átviteli sebesség 400000-re van állítva (további "
+#~ "részletekért lásd az [I2C engedélyezése](RPi_microcontroller.md#optional-"
+#~ "enabling-i2c) részt). Ezután adjuk hozzá a következőket a printer.cfg "
+#~ "fájlhoz:"
+
 #~ msgid ""
 #~ "Note that resonance measurements and shaper auto-calibration require "
 #~ "additional software dependencies not installed by default. First, you will "
@@ -1305,9 +1467,6 @@ msgstr ""
 #~ "Legyen türelmes, és várja meg a telepítés befejezését. Bizonyos esetekben, "
 #~ "ha a kártyán túl kevés RAM van, a telepítés meghiúsulhat, és engedélyeznie "
 #~ "kell a swapot."
-
-#~ msgid "Add the following to the printer.cfg file:"
-#~ msgstr "Adja hozzá a következőket a printer.cfg fájlhoz:"
 
 #~ msgid ""
 #~ "Next, run the following commands to install the additional dependencies:"

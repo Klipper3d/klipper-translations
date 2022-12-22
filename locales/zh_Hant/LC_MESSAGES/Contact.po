@@ -30,12 +30,6 @@ msgid "[Help! It doesn't work!](#help-it-doesnt-work)"
 msgstr "[我需要幫助！它炸了！](#help-it-doesnt-work)"
 
 msgid ""
-"[I have diagnosed a defect in the Klipper software](#i-have-diagnosed-a-"
-"defect-in-the-klipper-software)"
-msgstr ""
-"[我在 Klipper 中發現了一個缺陷](#i-have-diagnosed-a-defect-in-the-klipper-software)"
-
-msgid ""
 "[I am making changes that I'd like to include in Klipper](#i-am-making-"
 "changes-that-id-like-to-include-in-klipper)"
 msgstr ""
@@ -94,9 +88,6 @@ msgstr ""
 "我們經常收到許多並不針對 Klipper "
 "的常規3D列印疑問。如果你有常規的疑問或遇到了常規的列印問題，那麼你可能會在一般的3D列印論壇或專門針對你的印表機硬體的論壇上得到更好的答案。"
 
-msgid "Do not open a Klipper github issue to ask a question."
-msgstr "不要在 Klipper 的 Github 上建立議題來提問。"
-
 msgid "I have a feature request"
 msgstr "我有一個功能請求"
 
@@ -109,9 +100,6 @@ msgid ""
 msgstr ""
 "所有的新功能都需要有感興趣並能夠實現這些功能的人。如果你想幫助實現或測試一個新功能，你可以在[ Klipper 社區論壇](#community-"
 "forum)中搜索正在進行的開發程序。還有[Klipper Discord 聊天室](#discord-chat)供合作者之間討論。"
-
-msgid "Do not open a Klipper github issue to request a feature."
-msgstr "不要在 Klipper 的 Github 上建立議題來請求功能。"
 
 msgid "Help! It doesn't work!"
 msgstr "我需要幫助！它炸了！"
@@ -149,12 +137,6 @@ msgid ""
 "Forum](#community-forum)."
 msgstr "也可以在[ Klipper 社區論壇](#community-forum)中查詢類似的問題。"
 
-msgid "Do not open a Klipper github issue to request help."
-msgstr "不要在 Klipper 的 Github 上建立議題來求助。"
-
-msgid "I have diagnosed a defect in the Klipper software"
-msgstr "我在 Klipper 軟體中診斷出了一個缺陷"
-
 msgid ""
 "Klipper is an open-source project and we appreciate when collaborators "
 "diagnose errors in the software."
@@ -164,29 +146,6 @@ msgid ""
 "There is important information that will be needed in order to fix a bug. "
 "Please follow these steps:"
 msgstr "修復bug需要提供一些重要的資訊。請遵循以下步驟："
-
-msgid ""
-"Be sure the bug is in the Klipper software. If you are thinking \"there is a"
-" problem, I can't figure out why, and therefore it is a Klipper bug\", then "
-"**do not** open a github issue. In that case, someone interested and able "
-"will need to first research and diagnose the root cause of the problem. If "
-"you would like to share the results of your research or check if other users"
-" are experiencing similar issues then you can search the [Klipper Community "
-"Forum](#community-forum)."
-msgstr ""
-"首先要確定這個錯誤是在 Klipper 軟體中。如果你在想 "
-"\"我有一個問題，我無法找出原因，因此這是一個Klipper的錯誤\"，那麼**不要**建立一個 Github "
-"議題。在這種情況下，有興趣且有能力的人需要先找到問題的根源。如果你想分享你的研究結果或檢查其他使用者是否遇到類似的問題，那麼你可以搜索 [Klipper"
-" 社區論壇](#community-forum)。"
-
-msgid ""
-"If possible, run an `M112` command in the OctoPrint terminal window "
-"immediately after the undesirable event occurs. This causes Klipper to go "
-"into a \"shutdown state\" and it will cause additional debugging information"
-" to be written to the log file."
-msgstr ""
-"如果可能的話，在不期望的事件發生后，立即在 OctoPrint 終端視窗執行一個`M112`命令。這將使 Klipper 進入 "
-"\"關閉\"(shutdown)狀態，並在日誌檔案中寫入額外的除錯資訊。"
 
 msgid ""
 "Obtain the Klipper log file from the event. The log file has been engineered"
@@ -225,14 +184,6 @@ msgid ""
 "Only the full unmodified log file provides the necessary information."
 msgstr "不要以任何方式修改日誌檔案；不要只提供日誌的片段。只有完整的未修改的日誌檔案才能夠提供必要的資訊。"
 
-msgid ""
-"If the log file is very large (eg, greater than 2MB) then one may need to "
-"compress the log with zip or gzip."
-msgstr "如果日誌檔案非常大（例如，大於2MB），那麼可能需要用 zip 或 gzip 來壓縮日誌。"
-
-msgid "![attach-issue](img/attach-issue.png)"
-msgstr "![議題附件](img/attach-issue.png)"
-
 msgid "I am making changes that I'd like to include in Klipper"
 msgstr "我正在進行一些我想新增到 Klipper 中的改進"
 
@@ -245,19 +196,6 @@ msgid ""
 "important information."
 msgstr "新的貢獻（包括程式碼和文件）需要通過拉取請求(PR)提交。重要資訊請參見[貢獻文件](CONTRIBUTING.md)。"
 
-msgid ""
-"There are several [documents for developers](Overview.md#developer-"
-"documentation). If you have questions on the code then you can also ask in "
-"the [Klipper Community Forum](#community-forum) or on the [Klipper Community"
-" Discord](#discord-chat). If you would like to provide an update on your "
-"current progress then you can open a Github issue with the location of your "
-"code, an overview of the changes, and a description of its current status."
-msgstr ""
-"有幾個[開發人員文件](Overview.md#developer-"
-"documentation)。如果你對程式碼有疑問，那麼你也可以在[Klipper社區論壇](#community-forum)或[Klipper社區 "
-"Discord](#discord-chat)上提問。如果你想提供你目前的進展情況，那麼你可以在 Github "
-"上開一個問題，寫上你的程式碼的位置，修改的概述，以及對其目前狀態的描述。"
-
 #: docs/Contact.md:block 1 (header)
 msgid "Contact"
 msgstr "聯繫方式"
@@ -268,28 +206,160 @@ msgid ""
 "<https://discord.klipper3d.org>."
 msgstr "我們有一個用來討論Klipper的Discord伺服器，它的邀請鏈接是<https://discord.klipper3d.org>。"
 
-#: docs/Contact.md:block 29 (ordered list)
+#: docs/Contact.md:block 3 (ordered list)
+msgid ""
+"[I found a bug in the Klipper software](#i-found-a-bug-in-the-klipper-"
+"software)"
+msgstr ""
+
+#: docs/Contact.md:block 3 (ordered list)
+msgid "[Klipper github](#klipper-github)"
+msgstr ""
+
+#: docs/Contact.md:block 23 (header)
+msgid "I found a bug in the Klipper software"
+msgstr ""
+
+#: docs/Contact.md:block 25 (paragraph)
+msgid ""
+"Problems should be reported in the [Klipper Community Forum](#community-"
+"forum)."
+msgstr ""
+
+#: docs/Contact.md:block 27 (ordered list)
 msgid ""
 "Make sure you are running unmodified code from "
 "<https://github.com/Klipper3d/klipper>. If the code has been modified or is "
-"obtained from another source, then you will need to reproduce the problem on"
-" the unmodified code from <https://github.com/Klipper3d/klipper> prior to "
-"reporting an issue."
+"obtained from another source, then you should reproduce the problem on the "
+"unmodified code from <https://github.com/Klipper3d/klipper> prior to "
+"reporting."
 msgstr ""
-"請確保您正在執行 <https://github.com/Klipper3d/klipper > "
-"的未修改程式碼。如果程式碼已被修改或從其他來源獲得，則您需要在報告問題之前先在 "
-"<https://github.com/Klipper3d/klipper > 獲取的未修改的程式碼上重現問題。"
 
-#: docs/Contact.md:block 30 (paragraph)
+#: docs/Contact.md:block 27 (ordered list)
 msgid ""
-"Open a new github issue at <https://github.com/Klipper3d/klipper/issues> and"
-" provide a clear description of the problem. The Klipper developers need to "
-"understand what steps were taken, what the desired outcome was, and what "
-"outcome actually occurred. The Klipper log file **must be attached** to that"
-" ticket:"
+"If possible, run an `M112` command immediately after the undesirable event "
+"occurs. This causes Klipper to go into a \"shutdown state\" and it will "
+"cause additional debugging information to be written to the log file."
 msgstr ""
-"在<https://github.com/Klipper3d/klipper/issues>開一個新的GitHub議題，並對問題進行清晰的描述。Klipper"
-" 開發者需要了解你採取了哪些步驟，期望的結果是什麼，以及實際發生了什麼結果。Klipper 的日誌檔案**必須被新增到議題附件**："
+
+#: docs/Contact.md:block 27 (ordered list)
+msgid "It is a good idea to compress the log file with zip or gzip."
+msgstr ""
+
+#: docs/Contact.md:block 27 (ordered list)
+msgid ""
+"Open a new topic on the [Klipper Community Forum](#community-forum) and "
+"provide a clear description of the problem. Other Klipper contributors will "
+"need to understand what steps were taken, what the desired outcome was, and "
+"what outcome actually occurred. The compressed Klipper log file should be "
+"attached to that topic."
+msgstr ""
+
+#: docs/Contact.md:block 31 (paragraph)
+msgid ""
+"There are several [documents for developers](Overview.md#developer-"
+"documentation). If you have questions on the code then you can also ask in "
+"the [Klipper Community Forum](#community-forum) or on the [Klipper Community"
+" Discord](#discord-chat)."
+msgstr ""
+
+#: docs/Contact.md:block 32 (header)
+msgid "Klipper github"
+msgstr ""
+
+#: docs/Contact.md:block 33 (paragraph)
+msgid ""
+"Klipper github may be used by contributors to share the status of their work"
+" to improve Klipper. It is expected that the person opening a github ticket "
+"is actively working on the given task and will be the one performing all the"
+" work necessary to accomplish it. The Klipper github is not used for "
+"requests, nor to report bugs, nor to ask questions. Use the [Klipper "
+"Community Forum](#community-forum) or the [Klipper Community "
+"Discord](#discord-chat) instead."
+msgstr ""
+
+#~ msgid ""
+#~ "[I have diagnosed a defect in the Klipper software](#i-have-diagnosed-a-"
+#~ "defect-in-the-klipper-software)"
+#~ msgstr ""
+#~ "[我在 Klipper 中發現了一個缺陷](#i-have-diagnosed-a-defect-in-the-klipper-software)"
+
+#~ msgid "Do not open a Klipper github issue to ask a question."
+#~ msgstr "不要在 Klipper 的 Github 上建立議題來提問。"
+
+#~ msgid "Do not open a Klipper github issue to request a feature."
+#~ msgstr "不要在 Klipper 的 Github 上建立議題來請求功能。"
+
+#~ msgid "Do not open a Klipper github issue to request help."
+#~ msgstr "不要在 Klipper 的 Github 上建立議題來求助。"
+
+#~ msgid "I have diagnosed a defect in the Klipper software"
+#~ msgstr "我在 Klipper 軟體中診斷出了一個缺陷"
+
+#~ msgid ""
+#~ "Be sure the bug is in the Klipper software. If you are thinking \"there is a"
+#~ " problem, I can't figure out why, and therefore it is a Klipper bug\", then "
+#~ "**do not** open a github issue. In that case, someone interested and able "
+#~ "will need to first research and diagnose the root cause of the problem. If "
+#~ "you would like to share the results of your research or check if other users"
+#~ " are experiencing similar issues then you can search the [Klipper Community "
+#~ "Forum](#community-forum)."
+#~ msgstr ""
+#~ "首先要確定這個錯誤是在 Klipper 軟體中。如果你在想 "
+#~ "\"我有一個問題，我無法找出原因，因此這是一個Klipper的錯誤\"，那麼**不要**建立一個 Github "
+#~ "議題。在這種情況下，有興趣且有能力的人需要先找到問題的根源。如果你想分享你的研究結果或檢查其他使用者是否遇到類似的問題，那麼你可以搜索 [Klipper"
+#~ " 社區論壇](#community-forum)。"
+
+#~ msgid ""
+#~ "If possible, run an `M112` command in the OctoPrint terminal window "
+#~ "immediately after the undesirable event occurs. This causes Klipper to go "
+#~ "into a \"shutdown state\" and it will cause additional debugging information"
+#~ " to be written to the log file."
+#~ msgstr ""
+#~ "如果可能的話，在不期望的事件發生后，立即在 OctoPrint 終端視窗執行一個`M112`命令。這將使 Klipper 進入 "
+#~ "\"關閉\"(shutdown)狀態，並在日誌檔案中寫入額外的除錯資訊。"
+
+#~ msgid ""
+#~ "If the log file is very large (eg, greater than 2MB) then one may need to "
+#~ "compress the log with zip or gzip."
+#~ msgstr "如果日誌檔案非常大（例如，大於2MB），那麼可能需要用 zip 或 gzip 來壓縮日誌。"
+
+#~ msgid "![attach-issue](img/attach-issue.png)"
+#~ msgstr "![議題附件](img/attach-issue.png)"
+
+#~ msgid ""
+#~ "There are several [documents for developers](Overview.md#developer-"
+#~ "documentation). If you have questions on the code then you can also ask in "
+#~ "the [Klipper Community Forum](#community-forum) or on the [Klipper Community"
+#~ " Discord](#discord-chat). If you would like to provide an update on your "
+#~ "current progress then you can open a Github issue with the location of your "
+#~ "code, an overview of the changes, and a description of its current status."
+#~ msgstr ""
+#~ "有幾個[開發人員文件](Overview.md#developer-"
+#~ "documentation)。如果你對程式碼有疑問，那麼你也可以在[Klipper社區論壇](#community-forum)或[Klipper社區 "
+#~ "Discord](#discord-chat)上提問。如果你想提供你目前的進展情況，那麼你可以在 Github "
+#~ "上開一個問題，寫上你的程式碼的位置，修改的概述，以及對其目前狀態的描述。"
+
+#~ msgid ""
+#~ "Make sure you are running unmodified code from "
+#~ "<https://github.com/Klipper3d/klipper>. If the code has been modified or is "
+#~ "obtained from another source, then you will need to reproduce the problem on"
+#~ " the unmodified code from <https://github.com/Klipper3d/klipper> prior to "
+#~ "reporting an issue."
+#~ msgstr ""
+#~ "請確保您正在執行 <https://github.com/Klipper3d/klipper > "
+#~ "的未修改程式碼。如果程式碼已被修改或從其他來源獲得，則您需要在報告問題之前先在 "
+#~ "<https://github.com/Klipper3d/klipper > 獲取的未修改的程式碼上重現問題。"
+
+#~ msgid ""
+#~ "Open a new github issue at <https://github.com/Klipper3d/klipper/issues> and"
+#~ " provide a clear description of the problem. The Klipper developers need to "
+#~ "understand what steps were taken, what the desired outcome was, and what "
+#~ "outcome actually occurred. The Klipper log file **must be attached** to that"
+#~ " ticket:"
+#~ msgstr ""
+#~ "在<https://github.com/Klipper3d/klipper/issues>開一個新的GitHub議題，並對問題進行清晰的描述。Klipper"
+#~ " 開發者需要了解你採取了哪些步驟，期望的結果是什麼，以及實際發生了什麼結果。Klipper 的日誌檔案**必須被新增到議題附件**："
 
 #~ msgid ""
 #~ "Make sure you are running unmodified code from "
