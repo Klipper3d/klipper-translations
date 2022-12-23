@@ -345,10 +345,10 @@ The following information is available in the `screws_tilt_adjust` object:
 
 ## z_thermal_adjust
 
-The following information is available in the `z_thermal_adjust` object (this object is available if [z_thermal_adjust](Config_Reference.md#z_thermal_adjust) is defined).
+`z_thermal_adjust` 对象提供以下信息（如果定义了[z_thermal_adjust](Config_Reference.md#z_thermal_adjust)配置分段，该对象就可用）。
 
-- `enabled`: Returns True if adjustment is enabled.
-- `temperature`: Current (smoothed) temperature of the defined sensor. [degC]
+- `enabled`：如果启用调整，则返回 True。
+- `temperature`：定义传感器的当前（平滑后的）温度。 [摄氏度]
 - `measured_min_temp`: Minimum measured temperature. [degC]
 - `measured_max_temp`: Maximum measured temperature. [degC]
 - `current_z_adjust`: Last computed Z adjustment [mm].

@@ -251,16 +251,16 @@ A következő információk a `query_endstops` objektumban érhetők el (ez az o
 
 ## screws_tilt_adjust
 
-The following information is available in the `screws_tilt_adjust` object:
+A következő információk a `screws_tilt_adjust` objektumban találhatók:
 
-- `error`: Returns True if the most recent `SCREWS_TILT_CALCULATE` command included the `MAX_DEVIATION` parameter and any of the probed screw points exceeded the specified `MAX_DEVIATION`.
-- `results`: A list of the probed screw locations. Each entry in the list will be a dictionary containing the following keys:
-   - `name`: The name of the screw as specified in the config file.
-   - `x`: The X coordinate of the screw as specified in the config file.
-   - `y`: The Y coordinate of the screw as specified in the config file.
-   - `z`: The measured Z height of the screw location.
-   - `sign`: A string specifying the direction to turn to screw for the necessary adjustment. Either "CW" for clockwise or "CCW" for counterclockwise. The base screw will not have a `sign` key.
-   - `adjust`: The number of screw turns to adjust the screw, given in the format "HH:MM," where "HH" is the number of full screw turns and "MM" is the number of "minutes of a clock face" representing a partial screw turn. (E.g. "01:15" would mean to turn the screw one and a quarter revolutions.)
+- `error`: True értéket ad vissza, ha a legutóbbi `SCREWS_TILT_CALCULATE` parancs tartalmazta a `MAX_DEVIATION` paramétert, és bármelyik vizsgált csavarpont meghaladta a megadott `MAX_DEVIATION` értéket.
+- `results`: A vizsgált csavarok helyének listája. A lista minden egyes bejegyzése egy szótár lesz, amely a következő kulcsokat tartalmazza:
+   - `name`: A csavar neve a konfigurációs fájlban megadottak szerint.
+   - `x`: A csavar X koordinátája a konfigurációs fájlban megadottak szerint.
+   - `x`: A csavar X koordinátája a konfigurációs fájlban megadottak szerint.
+   - `z`: A csavar helyének mért Z magassága.
+   - `sign`: Egy karakterlánc, amely megadja, hogy a szükséges beállításhoz milyen irányba kell elfordítani a csavart. Vagy "CW" az óramutató járásával megegyező irányban, vagy "CCW" az óramutató járásával ellentétes irányban. Az alapcsavar nem rendelkezik `sign` kulcsal.
+   - `adjust`: A csavar beállításához szükséges csavarfordítások száma, "HH:MM" formátumban megadva, ahol "HH" a teljes csavarfordítások száma, "MM" pedig a részleges csavarfordítást jelentő "óramutató percek" száma. (Pl. "01:15" azt jelentené, hogy a csavart egy és negyed fordulatot kell elfordítani.)
 
 ## servo
 

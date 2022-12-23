@@ -1506,19 +1506,22 @@ cs_pin:
 
 ### [mpu9250]
 
-Support for MPU-9250, MPU-9255, MPU-9255, MPU-6050, and MPU-6500 accelerometers (one may define any number of sections with an "mpu9250" prefix).
+MPU-9250, MPU-9255, MPU-9255, MPU-6050 és MPU-6500 gyorsulásmérők támogatása (tetszőleges számú szekciót lehet definiálni "mpu9250" előtaggal).
 
 ```
 [mpu9250 my_accelerometer]
 #i2c_address:
-#   Default is 104 (0x68). If AD0 is high, it would be 0x69 instead.
+#   Az alapértelmezett 104 (0x68). Ha az AD0 magas, akkor
+#   0x69 lesz helyette.
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed: 400000
-#   See the "common I2C settings" section for a description of the
-#   above parameters. The default "i2c_speed" is 400000.
+#   Lásd a "közös I2C beállítások" fejezetben a
+#   fenti paraméterek leírását.
+#   Az alapértelmezett "i2c_speed" 400000.
 #axes_map: x, y, z
-#   See the "adxl345" section for information on this parameter.
+#   Lásd az "adxl345" szakaszban az ezzel a paraméterrel
+#   kapcsolatos információkat.
 ```
 
 ### [resonance_tester]
