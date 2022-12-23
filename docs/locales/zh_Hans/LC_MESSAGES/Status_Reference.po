@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-22 08:48+0000\n"
+"PO-Revision-Date: 2022-12-23 11:49+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/status_reference/zh_Hans/>\n"
@@ -1072,7 +1072,7 @@ msgstr "`enabled`：如果启用调整，则返回 True。"
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid ""
 "`temperature`: Current (smoothed) temperature of the defined sensor. [degC]"
-msgstr ""
+msgstr "`temperature`：定义传感器的当前（平滑后的）温度。 [摄氏度]"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid "`measured_min_temp`: Minimum measured temperature. [degC]"
