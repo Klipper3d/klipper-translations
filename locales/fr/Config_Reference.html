@@ -1838,8 +1838,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sondes-de-temperature-maxxxxxx" class="md-nav__link">
-    Sondes de température MAXxxxxx
+  <a href="#capteurs-de-temperature-maxxxxxx" class="md-nav__link">
+    Capteurs de température MAXxxxxx
   </a>
   
 </li>
@@ -2386,9 +2386,9 @@
 <h2 id="configuration-du-microcontroleur">Configuration du microcontrôleur<a class="headerlink" href="#configuration-du-microcontroleur" title="Permanent link">&para;</a></h2>
 <h3 id="format-du-nom-des-broches-du-microcontroleur">Format du nom des broches du microcontrôleur<a class="headerlink" href="#format-du-nom-des-broches-du-microcontroleur" title="Permanent link">&para;</a></h3>
 <p>De nombreuses options de configuration nécessitent le nom d'une broche du micro-contrôleur. Klipper utilise les noms matériel pour ces broches - par exemple <code>PA4</code>.</p>
-<p>Les noms des broches peuvent être précédés de <code>!</code> pour indiquer qu'une polarité inverse doit être utilisée (par exemple, déclencher sur le bas au lieu du haut).</p>
+<p>Les noms des broches peuvent être précédés de <code>!</code> pour indiquer qu'une polarité inverse doit être utilisée (par exemple, déclencher sur le niveau bas au lieu du niveau haut).</p>
 <p>Les broches d'entrée peuvent être précédées de <code>^</code> pour indiquer qu'une résistance pull-up matérielle doit être activée pour cette broche. Si le micro-contrôleur supporte les résistances pull-down, une broche d'entrée peut également être précédée de <code>~</code>.</p>
-<p>Notez que certaines sections de configuration peuvent "créer" des broches supplémentaires. Lorsque cela se produit, la section de configuration définissant les broches doit être répertoriée dans le fichier de configuration avant toute section utilisant ces broches.</p>
+<p>Notez que certaines sections de configuration peuvent "créer" des broches supplémentaires. Lorsque cela se produit, la section de configuration définissant ces broches doit être répertoriée dans le fichier de configuration avant toute section utilisant celles-ci.</p>
 <h3 id="mcu">[mcu|<a class="headerlink" href="#mcu" title="Permanent link">&para;</a></h3>
 <p>Configuration du microcontrôleur primaire.</p>
 <div class="highlight"><pre><span></span><code>[mcu]
@@ -2408,9 +2408,9 @@ serial:
 #restart_method:
 #    Ceci contrôle le mécanisme que l&#39;hôte utilisera pour réinitialiser le microcontrôleur.
 #    Les choix sont &#39;arduino&#39;, &#39;cheetah&#39;, &#39;rpi_usb&#39;, et &#39;command&#39;. La méthode &#39;arduino&#39; 
-#   (basculer DTR) est courante sur les cartes et clones Arduino.
+#    (basculer DTR) est courante sur les cartes et clones Arduino.
 #    La méthode &#39;cheetah&#39; est une méthode particulière nécessaire pour certaines cartes
-#   Fysetc Cheetah. La méthode &#39;rpi_usb&#39; est utile sur les cartes Raspberry Pi avec des
+#    Fysetc Cheetah. La méthode &#39;rpi_usb&#39; est utile sur les cartes Raspberry Pi avec des
 #    micro-contrôleurs alimentés par USB - elle désactive brièvement l&#39;alimentation de tous
 #    les ports USB pour effectuer une réinitialisation du microcontrôleur.
 #    La méthode &#39;command&#39; implique l&#39;envoi d&#39;une commande Klipper au microcontrôleur
@@ -2536,7 +2536,7 @@ kinematics: cartesian
 max_z_velocity:
 #    Ceci définit la vitesse maximale (en mm/s) du mouvement le long de l&#39;axe z
 #    Ce paramètre peut être utilisé pour limiter la vitesse maximale du moteur pas à pas z.
-#    le moteur pas à pas z. La valeur par défaut est l&#39;utilisation de max_velocity pour
+#    La valeur par défaut est l&#39;utilisation de max_velocity pour
 #    max_z_velocity.
 max_z_accel:
 #    Ce paramètre définit l&#39;accélération maximale (en mm/s^2) du mouvement sur l&#39;axe z.
@@ -3063,7 +3063,7 @@ max_temp:
 
 <h2 id="support-du-nivelage-du-lit">Support du nivelage du lit<a class="headerlink" href="#support-du-nivelage-du-lit" title="Permanent link">&para;</a></h2>
 <h3 id="bed_mesh">[bed_mesh]<a class="headerlink" href="#bed_mesh" title="Permanent link">&para;</a></h3>
-<p>Nivelage du maillage du lit. On peut définir une section de configuration bed_mesh pour activer les transformations de déplacement qui décalent l'axe z en fonction d'un maillage généré à partir de points sondés. Lorsqu'on utilise une sonde pour définir l'origine de l'axe z, il est recommandé de définir une section safe_z_home dans printer.cfg pour réaliser cette mise à l'origine au centre de la zone d'impression.</p>
+<p>Nivelage du maillage du lit. On peut définir une section de configuration bed_mesh pour activer les transformations de déplacement qui décalent l'axe z en fonction d'un maillage généré à partir de points palpés. Lorsqu'on utilise une sonde pour définir l'origine de l'axe z, il est recommandé de définir une section safe_z_home dans printer.cfg pour réaliser cette mise à l'origine au centre de la zone d'impression.</p>
 <p>Consultez le <a href="Bed_Mesh.html">guide du maillage du lit</a> et la <a href="G-Codes.html#bed_mesh">référence de la commande</a> pour plus d'informations.</p>
 <p>Exemples visuels :</p>
 <div class="highlight"><pre><span></span><code> lit rectangulaire, probe_count = 3, 3:
@@ -3270,7 +3270,7 @@ max_temp:
 </code></pre></div>
 
 <h3 id="z_tilt">[z_tilt]<a class="headerlink" href="#z_tilt" title="Permanent link">&para;</a></h3>
-<p>Réglage de l'inclinaison de plusieurs moteurs pas à pas de l'axe Z. Cette fonction permet d'ajuster de manière indépendante l'inclinaison de plusieurs moteurs Z (voir la section "stepper_z1"). Si cette section est présente, une <a href="G-Codes.html#z_tilt">commande G-Code étendue Z_TILT_ADJUST</a> devient disponible.</p>
+<p>Réglage multiples de l'inclinaison de moteurs pas à pas de l'axe Z. Cette fonction permet d'ajuster de manière indépendante l'inclinaison de plusieurs moteurs Z (voir la section "stepper_z1"). Si cette section est présente, une <a href="G-Codes.html#z_tilt">commande G-Code étendue Z_TILT_ADJUST</a> devient disponible.</p>
 <div class="highlight"><pre><span></span><code>[z_tilt]
 #z_positions:
 #    Une liste de coordonnées X, Y (une par ligne ; les lignes subséquentes
@@ -3303,7 +3303,7 @@ max_temp:
 </code></pre></div>
 
 <h3 id="quad_gantry_level">[quad_gantry_level]<a class="headerlink" href="#quad_gantry_level" title="Permanent link">&para;</a></h3>
-<p>Mise à niveau du portique mobile à l'aide de 4 moteurs Z contrôlés indépendamment. Corrige les effets de paraboles hyperboliques (chips de pommes de terre) sur le portique mobile qui est plus flexible. AVERTISSEMENT : L'utilisation de cette section sur un lit mobile peut conduire à des résultats indésirables. Si cette section est présente, une commande G-Code étendue QUAD_GANTRY_LEVEL devient disponible. Cette routine suppose la configuration suivante du moteur Z :</p>
+<p>Mise à niveau du portique mobile à l'aide de 4 moteurs Z contrôlés indépendamment. Corrige les effets de paraboles hyperboliques (chips de pommes de terre) sur un portique mobile qui est plus flexible. AVERTISSEMENT : l'utilisation de cette section sur un lit mobile peut conduire à des résultats indésirables. Si cette section est présente, une commande G-Code étendue QUAD_GANTRY_LEVEL devient disponible. Cette routine suppose la configuration suivante des moteurs Z :</p>
 <div class="highlight"><pre><span></span><code> ----------------
  |Z1          Z2|
  |  ---------   |
@@ -3664,17 +3664,17 @@ cs_pin:
 </code></pre></div>
 
 <h3 id="mpu9250">[mpu9250]<a class="headerlink" href="#mpu9250" title="Permanent link">&para;</a></h3>
-<p>Support for MPU-9250, MPU-9255, MPU-9255, MPU-6050, and MPU-6500 accelerometers (one may define any number of sections with an "mpu9250" prefix).</p>
+<p>Prise en charge des accéléromètres MPU-9250, MPU-9255, MPU-6050 et MPU-6500 (on peut définir un nombre quelconque de sections avec le préfixe "mpu9250").</p>
 <div class="highlight"><pre><span></span><code>[mpu9250 my_accelerometer]
 #i2c_address:
-#   Default is 104 (0x68). If AD0 is high, it would be 0x69 instead.
+#    La valeur par défaut est 104 (0x68). Si AD0 est élevé, ce sera 0x69 à la place.
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed: 400000
-#   See the &quot;common I2C settings&quot; section for a description of the
-#   above parameters. The default &quot;i2c_speed&quot; is 400000.
+#    Voir la section &quot;paramètres I2C communs&quot; pour une description des
+#    paramètres ci-dessus. La valeur par défaut de &quot;i2c_speed&quot; est 400000.
 #axes_map: x, y, z
-#   See the &quot;adxl345&quot; section for information on this parameter.
+#    Voir la section &quot;adxl345&quot; pour des informations sur ce paramètre.
 </code></pre></div>
 
 <h3 id="resonance_tester">[resonance_tester]<a class="headerlink" href="#resonance_tester" title="Permanent link">&para;</a></h3>
@@ -3910,7 +3910,7 @@ z_offset:
 
 <h2 id="moteurs-pas-a-pas-et-extrudeurs-additionnels">Moteurs pas à pas et extrudeurs additionnels<a class="headerlink" href="#moteurs-pas-a-pas-et-extrudeurs-additionnels" title="Permanent link">&para;</a></h2>
 <h3 id="stepper_z1">[stepper_z1]<a class="headerlink" href="#stepper_z1" title="Permanent link">&para;</a></h3>
-<p>Axes à pilotes de moteurs pas à pas multiples. Sur une imprimante de style cartésien, le pilote moteur contrôlant un axe donné peut avoir des blocs de configuration supplémentaires définissant les pilotes moteurs qui doivent être mis en marche de concert avec le pilote principal. On peut définir un nombre quelconque de sections avec un suffixe numérique commençant à 1 (par exemple, "stepper_z1", "stepper_z2", etc.).</p>
+<p>Axes à moteurs pas à pas multiples. Sur une imprimante de style cartésien, le pilote moteur contrôlant un axe donné peut avoir des blocs de configuration supplémentaires définissant les pilotes moteurs qui doivent être mis en marche de concert avec le pilote principal. On peut définir un nombre quelconque de sections avec un suffixe numérique commençant à 1 (par exemple, "stepper_z1", "stepper_z2", etc.).</p>
 <div class="highlight"><pre><span></span><code>[stepper_z1]
 #step_pin:
 #dir_pin:
@@ -4170,7 +4170,7 @@ sensor_pin:
 #    défaut est 4700 ohms.
 </code></pre></div>
 
-<h3 id="sondes-de-temperature-maxxxxxx">Sondes de température MAXxxxxx<a class="headerlink" href="#sondes-de-temperature-maxxxxxx" title="Permanent link">&para;</a></h3>
+<h3 id="capteurs-de-temperature-maxxxxxx">Capteurs de température MAXxxxxx<a class="headerlink" href="#capteurs-de-temperature-maxxxxxx" title="Permanent link">&para;</a></h3>
 <p>Capteurs MAXxxxxx à interface périphérique série (SPI) basés sur la température. Les paramètres suivants sont disponibles dans les sections de chauffage qui utilisent l'un de ces types de capteurs.</p>
 <div class="highlight"><pre><span></span><code>sensor_type :
 #    Un parmi les types suivants : &quot;MAX6675&quot;, &quot;MAX31855&quot;, &quot;MAX31856&quot; ou &quot;MAX31865&quot;.
@@ -4535,8 +4535,8 @@ pin:
 </code></pre></div>
 
 <h3 id="neopixel">[neopixel]<a class="headerlink" href="#neopixel" title="Permanent link">&para;</a></h3>
-<p>Prise en charge des LED néopixel (alias WS2812) (on peut définir un nombre quelconque de sections avec le préfixe "neopixel"). Voir la <a href="G-Codes.html#led">référence de commande</a> pour plus d'informations.</p>
-<p>Notez que l'implémentation du <a href="RPi_microcontroller.html">mcu linux</a> ne supporte pas actuellement les néopixels directement connectés. La conception actuelle utilisant l'interface du noyau Linux ne permet pas ce scénario car l'interface GPIO du noyau n'est pas assez rapide pour fournir les taux d'impulsion requis.</p>
+<p>Prise en charge des LED neopixel (alias WS2812) (on peut définir un nombre quelconque de sections avec le préfixe "neopixel"). Voir la <a href="G-Codes.html#led">référence de commande</a> pour plus d'informations.</p>
+<p>Notez que l'implémentation du <a href="RPi_microcontroller.html">mcu linux</a> ne supporte pas actuellement les neopixels directement connectés. La conception actuelle utilisant l'interface du noyau Linux ne permet pas ce scénario car l'interface GPIO du noyau n'est pas assez rapide pour fournir les taux d'impulsion requis.</p>
 <div class="highlight"><pre><span></span><code>[neopixel my_neopixel]
 pin:
 #    La broche connectée au neopixel. Ce paramètre doit être
@@ -4677,25 +4677,25 @@ pin:
 #    La valeur par défaut est False.
 #static_value:
 #    Si cette valeur est définie, la broche est affectée à cette valeur au démarrage et
-#    et la broche ne peut pas être modifiée pendant l&#39;exécution. Une broche statique utilise
+#    la broche ne peut pas être modifiée pendant l&#39;exécution. Une broche statique utilise
 #    légèrement moins de RAM dans le micro-contrôleur. Le défaut est d&#39;utiliser
 #    la configuration des broches paramétrées lors du démarrage.
 #value:
 #    La valeur à donner initialement à la broche pendant la configuration du MCU.
 #    La valeur par défaut est 0 (pour une tension basse).
 #shutdown_value:
-#    La valeur à donner à la broche lors d&#39;un événement d&#39;arrêt du MCU. La valeur par défaut
-#    est 0 (pour une tension basse).
+#    La valeur à donner à la broche lors d&#39;un événement d&#39;arrêt du MCU. La valeur par
+#    défaut est 0 (pour une tension basse).
 #maximum_mcu_duration:
-#    La durée maximale pendant laquelle une valeur de non-arrêt peut être pilotée par le MCU
-#    sans un accusé de réception de l&#39;hôte.
-#    Si l&#39;hôte ne peut pas suivre une mise à jour, le MCU s&#39;éteindra
-#    et met toutes les broches à leurs valeurs d&#39;arrêt respectives.
+#    La durée maximale pendant laquelle une valeur de non-arrêt peut être pilotée par
+#    le MCUsans un accusé de réception de l&#39;hôte.
+#    Si l&#39;hôte ne peut pas suivre une mise à jour, le MCU s&#39;éteindra et mettra
+#    toutes les broches à leurs valeurs d&#39;arrêt respectives.
 #    Défaut : 0 (désactivé)
 #    Les valeurs habituelles sont d&#39;environ 5 secondes.
 #cycle_time: 0.100
-#    La durée (en secondes) par cycle PWM. Il est recommandé
-#    que ce soit 10 millisecondes ou plus lorsque vous utilisez un PWM logiciel.
+#    La durée (en secondes) par cycle PWM. Il est recommandé que ce soit
+#    10 millisecondes ou plus lorsque vous utilisez un PWM logiciel.
 #    La valeur par défaut est de 0.100 secondes pour les broches PWM.
 #hardware_pwm: False
 #    Activez pour utiliser le PWM matériel au lieu du PWM logiciel. Lors de
@@ -4703,15 +4703,14 @@ pin:
 #    l&#39;implémentation et peut être significativement différent du
 #    cycle_time demandé. La valeur par défaut est False.
 #scale :
-#    Ce paramètre peut être utilisé pour modifier la façon dont les paramètres &#39;value&#39; et
-#    &#39;shutdown_value&#39; sont interprétés pour les broches pwm. Si
-#    fourni, alors le paramètre &#39;value&#39; doit être compris entre 0.0 et
-#    &#39;scale&#39;. Cela peut être utile lors de la configuration d&#39;une broche PWM qui
-#    contrôle une référence de tension d&#39;un moteur pas à pas. L&#39;&#39;échelle&#39; peut être définie sur
-#    l&#39;intensité du moteur pas à pas équivalent si le PWM était entièrement activé, et
-#    puis le paramètre &#39;value&#39; peut être spécifié en utilisant l&#39;intensité souhaitée pour
-#    le moteur pas à pas. La valeur par défaut est de ne pas mettre à l&#39;échelle le
-#   paramètre &#39;value&#39;.
+#    Ce paramètre peut être utilisé pour modifier la façon dont les paramètres &#39;value&#39;
+#    et &#39;shutdown_value&#39; sont interprétés pour les broches pwm. Si fourni, alors
+#    le paramètre &#39;value&#39; doit être compris entre 0.0 et &#39;scale&#39;. Cela peut être utile
+#    lors de la configuration d&#39;une broche PWM contrôlant une référence de tension
+#    d&#39;un moteur pas à pas. L&#39;&#39;échelle&#39; peut être définie sur l&#39;intensité du moteur pas
+#    à pas équivalent si le PWM était entièrement activé, et puis le paramètre &#39;value&#39;
+#    peut être spécifié en utilisant l&#39;intensité souhaitée pour le moteur pas à pas. La
+#    valeur par défaut est de ne pas mettre à l&#39;échelle le paramètre &#39;value&#39;.
 </code></pre></div>
 
 <h3 id="static_digital_output">[static_digital_output]<a class="headerlink" href="#static_digital_output" title="Permanent link">&para;</a></h3>
@@ -4724,7 +4723,7 @@ pins:
 </code></pre></div>
 
 <h3 id="multi_pin">[multi_pin]<a class="headerlink" href="#multi_pin" title="Permanent link">&para;</a></h3>
-<p>Sorties à broches multiples (on peut définir un nombre quelconque de sections avec le préfixe "multi_pin"). Une sortie multi_pin crée un alias de broche interne pouvant modifier plusieurs broches de sortie chaque fois que la broche alias est définie. Par exemple, on peut définir un objet "[multi_pin my_fan]" contenant deux broches et ensuite définir "pin=multi_pin:my_fan" dans la section "[fan]" - à chaque changement de ventilateur, les deux broches de sortie seront mises à jour. Ces alias ne peuvent pas être utilisés avec des broches de moteur pas à pas.</p>
+<p>Sorties à broches multiples (on peut définir un nombre quelconque de sections avec le préfixe "multi_pin"). Une sortie multi_pin crée un alias de broche interne pouvant modifier plusieurs broches de sortie chaque fois que la broche alias est définie. Par exemple, on peut définir un objet "[multi_pin my_fan]" contenant deux broches et ensuite définir "pin=multi_pin:my_fan" dans la section "[fan]" - à chaque changement du ventilateur, les deux broches de sortie seront mises à jour. Ces alias ne peuvent pas être utilisés avec des broches de moteur pas à pas.</p>
 <div class="highlight"><pre><span></span><code>[multi_pin my_multi_pin]
 pins:
 #    Une liste séparée par des virgules des broches associées à cet alias. Ce paramètre
@@ -5098,8 +5097,8 @@ i2c_address:
 #scale:
 #    Ce paramètre peut être utilisé pour modifier l&#39;interprétation des paramètres &#39;wiper_x&#39;.
 #    S&#39;il est fourni, alors les paramètres &#39;wiper_x&#39; doivent être compris entre 0,0 et &#39;scale&#39;.
-#   Ceci peut être utile lorsque le MCP4451 est utilisé pour définir des références de tension
-#   du pilote pas à pas.L&#39;&#39;échelle&#39; peut être réglée sur l&#39;intensité du pilote pas à pas équivalent
+#    Ceci peut être utile lorsque le MCP4451 est utilisé pour définir des références de tension
+#    du pilote pas à pas.L&#39;&#39;échelle&#39; peut être réglée sur l&#39;intensité du pilote pas à pas équivalent
 #    si le MCP4451 était à sa résistance la plus élevée, puis les paramètres &#39;wiper_x&#39; peuvent
 #    être spécifiés en utilisant la valeur d&#39;intensité désirée pour le pilote pas à pas. La valeur
 #    par défaut est de ne pas mettre à l&#39;échelle les paramètres &#39;wiper_x&#39;.
@@ -5130,7 +5129,7 @@ i2c_address:
 #    S&#39;il est fourni, le paramètre &#39;channel_x&#39; doit être compris entre 0,0 et &#39;scale&#39;.
 #    Cela peut être utile lorsque le MCP4728 est utilisé pour définir des références de tension
 #    de moteur pas à pas. L&#39;&#39;échelle&#39; peut être réglée sur l&#39;intensité équivalente de la commande
-#   de moteur pas à pas si le MCP4728 était à sa tension la plus élevée (2.048V), et ensuite les
+#    de moteur pas à pas si le MCP4728 était à sa tension la plus élevée (2.048V), et ensuite les
 #    paramètres &#39;channel_x&#39; peuvent être spécifiés en utilisant l&#39;intensité désirée pour le
 #    moteur pas à pas. La valeur par défaut est de ne pas mettre à l&#39;échelle les
 #    paramètres &#39;channel_x&#39;.
@@ -5800,7 +5799,7 @@ cs_pin:
 
 <h3 id="parametres-i2c-communs">Paramètres I2C communs<a class="headerlink" href="#parametres-i2c-communs" title="Permanent link">&para;</a></h3>
 <p>Les paramètres suivants sont généralement disponibles pour les dispositifs utilisant un bus I2C.</p>
-<p>Notez que le support actuel des micro-contrôleurs de Klipper pour i2c n'est généralement pas tolérant au bruit de ligne. Des erreurs inattendues sur les fils i2c peuvent entraîner une erreur d'exécution de Klipper. Le support de Klipper pour la récupération des erreurs varie selon le type de micro-contrôleur. Il est généralement recommandé de n'utiliser que des dispositifs i2c qui se trouvent sur la même carte de circuit imprimé que le microcontrôleur.</p>
+<p>Notez que le support actuel des micro-contrôleurs de Klipper pour i2c n'est généralement pas tolérant au bruit sur la ligne. Des erreurs inattendues sur les fils i2c peuvent entraîner une erreur d'exécution de Klipper. Le support de Klipper de récupération des erreurs varie selon le type de micro-contrôleur. Il est généralement recommandé de n'utiliser que des dispositifs i2c se trouvant sur la même carte de circuit imprimé que le microcontrôleur.</p>
 <p>La plupart des implémentations de micro-contrôleurs Klipper ne supportent qu'une <code>i2c_speed</code> de 100000. Le micro-contrôleur Klipper "linux" supporte une vitesse de 400000, mais elle doit être <a href="RPi_microcontroller.html#optional-enabling-i2c">définie dans le système d'exploitation</a> sinon le paramètre <code>i2c_speed</code> est ignoré. Le micro-contrôleur Klipper "rp2040" supporte un taux de 400000 via le paramètre <code>i2c_speed</code>. Tous les autres micro-contrôleurs Klipper utilisent un taux de 100000 et ignorent le paramètre <code>i2c_speed</code>.</p>
 <div class="highlight"><pre><span></span><code>#i2c_address:
 #    L&#39;adresse i2c du périphérique. Elle doit être spécifiée sous la forme d&#39;un nombre décimal

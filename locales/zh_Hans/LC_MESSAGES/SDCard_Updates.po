@@ -1,16 +1,17 @@
 # badpoi <a1635835119@gmail.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-04 15:32+0000\n"
+"PO-Revision-Date: 2022-12-22 08:48+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/sdcard_updates/zh_Hans/>\n"
-"Language: zh-hans\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/sdcard_updates/zh_Hans/>\n"
+"Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid ""
 "Many of today's popular controller boards ship with a bootloader capable of "
@@ -425,7 +426,7 @@ msgstr ""
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA2"
@@ -437,7 +438,7 @@ msgstr ""
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CD/DATA3"
@@ -449,7 +450,7 @@ msgstr ""
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CMD"
@@ -461,7 +462,7 @@ msgstr ""
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "+3.3V (VDD)"
@@ -469,7 +470,7 @@ msgstr ""
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CLK"
