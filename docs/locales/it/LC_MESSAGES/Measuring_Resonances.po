@@ -3,14 +3,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-26 11:24+0000\n"
+"PO-Revision-Date: 2022-12-26 16:42+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/measuring_resonances/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"measuring_resonances/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "Misurazione delle risonanze"
@@ -1247,24 +1248,32 @@ msgid ""
 "recommended for signal integrety over a long distance. If you still "
 "experience signal integrity issues (SPI/I2C errors), shorten the cable."
 msgstr ""
+"Si consiglia un cavo Ethernet con doppini intrecciati schermati (cat5e o "
+"superiore) per l'integrità del segnale su lunghe distanze. Se si verificano "
+"ancora problemi di integrità del segnale (errori SPI/I2C), accorciare il "
+"cavo."
 
 #: docs/Measuring_Resonances.md:block 7 (paragraph)
 msgid "Connect ethernet cable shielding to the controller board/RPI ground."
 msgstr ""
+"Collegare la schermatura del cavo Ethernet al gnd/ground della scheda "
+"controller RPI."
 
 #: docs/Measuring_Resonances.md:block 8 (paragraph)
 msgid ""
 "***Double-check your wiring before powering up to prevent damaging your "
 "MCU/Raspberry Pi or the accelerometer.***"
 msgstr ""
+"***Ricontrolla il cablaggio prima di accendere per evitare di danneggiare il "
+"tuo MCU/Raspberry Pi o l'accelerometro.***"
 
 #: docs/Measuring_Resonances.md:block 9 (header)
 msgid "SPI Accelerometers"
-msgstr ""
+msgstr "Accelerometri SPI"
 
 #: docs/Measuring_Resonances.md:block 10 (paragraph)
 msgid "Suggested twisted pair order:"
-msgstr ""
+msgstr "Ordine dei doppini intrecciati suggerito:"
 
 #: docs/Measuring_Resonances.md:block 11 (code)
 msgid ""
@@ -1272,10 +1281,13 @@ msgid ""
 "3.3V+MOSI\n"
 "SCLK+CS\n"
 msgstr ""
+"GND+MISO\n"
+"3.3V+MOSI\n"
+"SCLK+CS\n"
 
 #: docs/Measuring_Resonances.md:block 12 (header)
 msgid "ADXL345"
-msgstr ""
+msgstr "ADXL345"
 
 #: docs/Measuring_Resonances.md:block 13 (paragraph)
 msgid ""
@@ -1283,20 +1295,25 @@ msgid ""
 "and configuration will vary according to your specific board and avaliable "
 "pins.**"
 msgstr ""
+"**Nota: molti MCU funzionano con un ADXL345 in modalità SPI (ad es. Pi Pico)"
+", il cablaggio e la configurazione variano in base alla scheda specifica ed "
+"ai pin disponibili.**"
 
 #: docs/Measuring_Resonances.md:block 18 (header)
 msgid "I2C Accelerometers"
-msgstr ""
+msgstr "Accelerometri I2C"
 
 #: docs/Measuring_Resonances.md:block 20 (code)
 msgid ""
 "3.3V+SDA\n"
 "GND+SCL\n"
 msgstr ""
+"3.3V+SDA\n"
+"GND+SCL\n"
 
 #: docs/Measuring_Resonances.md:block 21 (header)
 msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
-msgstr ""
+msgstr "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
 
 #: docs/Measuring_Resonances.md:block 22 (paragraph)
 msgid ""
@@ -1304,66 +1321,69 @@ msgid ""
 "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500. These accelerometers have been"
 " tested to work over I2C on the RPi or RP2040(pico) at 400kbaud."
 msgstr ""
+"Le alternative all'ADXL345 sono MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-"
+"6500. Questi accelerometri sono stati testati per funzionare su I2C su RPi o "
+"RP2040(pico) a 400kbaud."
 
 #: docs/Measuring_Resonances.md:block 23 (paragraph)
 msgid "Recommended connection scheme for I2C on the Raspberry Pi:"
-msgstr ""
+msgstr "Schema di connessione consigliato per I2C su Raspberry Pi:"
 
 #: docs/Measuring_Resonances.md:block 24 (table)
 msgid "VCC"
-msgstr ""
+msgstr "VCC"
 
 #: docs/Measuring_Resonances.md:block 25 (paragraph)
 msgid "![MPU-9250 connected to RPI](img/mpu9250-PI-fritzing.png)"
-msgstr ""
+msgstr "![MPU-9250 Connesso a RPI](img/mpu9250-PI-fritzing.png)"
 
 #: docs/Measuring_Resonances.md:block 26 (paragraph)
 msgid "Recommended connection scheme for I2C(i2c0a) on the RP2040:"
-msgstr ""
+msgstr "Schema di connessione consigliato per I2C(i2c0a) su RP2040:"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "RP2040 pin"
-msgstr ""
+msgstr "pin RP2040"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "39"
-msgstr ""
+msgstr "39"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "3v3"
-msgstr ""
+msgstr "3v3"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "38"
-msgstr ""
+msgstr "38"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "GP0 (I2C0 SDA)"
-msgstr ""
+msgstr "GP0 (I2C0 SDA)"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "02"
-msgstr ""
+msgstr "02"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "GP1 (I2C0 SCL)"
-msgstr ""
+msgstr "GP1 (I2C0 SCL)"
 
 #: docs/Measuring_Resonances.md:block 28 (paragraph)
 msgid "![MPU-9250 connected to PICO](img/mpu9250-PICO-fritzing.png)"
-msgstr ""
+msgstr "![MPU-9250 collegato a PICO](img/mpu9250-PICO-fritzing.png)"
 
 #: docs/Measuring_Resonances.md:block 42 (header)
 msgid "Configure ADXL345 With RPi"
-msgstr ""
+msgstr "Configura ADXL345 con RPi"
 
 #: docs/Measuring_Resonances.md:block 44 (paragraph)
 msgid "Add the following to the printer.cfg file:"
-msgstr ""
+msgstr "Aggiungere quanto segue al file printer.cfg:"
 
 #: docs/Measuring_Resonances.md:block 47 (header)
 msgid "Configure MPU-6000/9000 series With RPi"
-msgstr ""
+msgstr "Configura la serie MPU-6000/9000 con RPi"
 
 #: docs/Measuring_Resonances.md:block 48 (paragraph)
 msgid ""
@@ -1371,16 +1391,22 @@ msgid ""
 " (see [Enabling I2C](RPi_microcontroller.md#optional-enabling-i2c) section "
 "for more details). Then, add the following to the printer.cfg:"
 msgstr ""
+"Assicurati che il driver Linux I2C sia abilitato e che la velocità di "
+"trasmissione sia impostata su 400000 (consulta la sezione [Abilitazione di "
+"I2C](RPi_microcontroller.md#optional-enabling-i2c) per ulteriori dettagli). "
+"Quindi, aggiungi quanto segue a printer.cfg:"
 
 #: docs/Measuring_Resonances.md:block 50 (header)
 msgid "Configure MPU-6000/9000 series With PICO"
-msgstr ""
+msgstr "Configura la serie MPU-6000/9000 con PICO"
 
 #: docs/Measuring_Resonances.md:block 51 (paragraph)
 msgid ""
 "PICO I2C is set to 400000 on default. Simply add the following to the "
 "printer.cfg:"
 msgstr ""
+"PICO I2C è impostato su 400000 per impostazione predefinita. Aggiungi "
+"semplicemente quanto segue a printer.cfg:"
 
 #: docs/Measuring_Resonances.md:block 52 (code)
 msgid ""
@@ -1399,12 +1425,29 @@ msgid ""
 "[static_digital_output pico_3V3pwm] # Improve power stability\n"
 "pin: pico:gpio23\n"
 msgstr ""
+"[mcu pico]\n"
+"serial: /dev/serial/by-id/<ID seriale del tuo PICO>\n"
+"\n"
+"[mpu9250]\n"
+"i2c_mcu: pico\n"
+"i2c_bus: i2c1a\n"
+"\n"
+"[resonance_tester]\n"
+"accel_chip: mpu9250\n"
+"probe_points:\n"
+"    100, 100, 20  # un esempio\n"
+"\n"
+"[static_digital_output pico_3V3pwm] # Aumenta la stabilità\n"
+"pin:pico:gpio23\n"
 
 #: docs/Measuring_Resonances.md:block 61 (paragraph)
 msgid ""
 "**If you are using MPU-6000/9000 series accelerometer and it show up as "
 "`mpu-unknown`, use with caution! They are probably refurbished chips!**"
 msgstr ""
+"**Se si utilizza l'accelerometro della serie MPU-6000/9000 e viene "
+"visualizzato come `mpu-unknown`, utilizzare con cautela! Probabilmente sono "
+"chip ricondizionati!**"
 
 #~ msgid ""
 #~ "Double-check your wiring before powering up the Raspberry Pi to prevent "
