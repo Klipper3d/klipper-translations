@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-02 14:27+0000\n"
+"PO-Revision-Date: 2022-12-26 16:42+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/status_reference/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"status_reference/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -1331,12 +1332,13 @@ msgstr ""
 
 #: docs/Status_Reference.md:block 93 (header)
 msgid "screws_tilt_adjust"
-msgstr ""
+msgstr "screws_tilt_adjust"
 
 #: docs/Status_Reference.md:block 94 (paragraph)
 msgid ""
 "The following information is available in the `screws_tilt_adjust` object:"
 msgstr ""
+"Le seguenti informazioni sono disponibili nell'oggetto `screws_tilt_adjust`:"
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid ""
@@ -1344,28 +1346,35 @@ msgid ""
 "included the `MAX_DEVIATION` parameter and any of the probed screw points "
 "exceeded the specified `MAX_DEVIATION`."
 msgstr ""
+"`error`: restituisce True se il comando `SCREWS_TILT_CALCULATE` più recente "
+"includeva il parametro `MAX_DEVIATION` e uno qualsiasi dei punti della vite "
+"rilevati superava il `MAX_DEVIATION` specificato."
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid ""
 "`results`: A list of the probed screw locations. Each entry in the list will"
 " be a dictionary containing the following keys:"
 msgstr ""
+"`results`: un elenco delle posizioni delle viti rilevate. Ogni voce "
+"nell'elenco sarà un dizionario contenente le seguenti chiavi:"
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`name`: The name of the screw as specified in the config file."
-msgstr ""
+msgstr "`name`: il nome della vite come specificato nel file di configurazione."
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`x`: The X coordinate of the screw as specified in the config file."
 msgstr ""
+"`x`: la coordinata X della vite come specificato nel file di configurazione."
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`y`: The Y coordinate of the screw as specified in the config file."
 msgstr ""
+"`y`: la coordinata Y della vite come specificato nel file di configurazione."
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`z`: The measured Z height of the screw location."
-msgstr ""
+msgstr "`z`: L'altezza Z misurata della posizione della vite."
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid ""
@@ -1373,6 +1382,9 @@ msgid ""
 " adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise. "
 "The base screw will not have a `sign` key."
 msgstr ""
+"`sign`: Una stringa che specifica la direzione da girare per avvitare per la "
+"regolazione necessaria. O \"CW\" per senso orario o \"CCW\" per senso "
+"antiorario. La vite di base non avrà una chiave di \"segno\"."
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid ""
@@ -1381,6 +1393,11 @@ msgid ""
 " number of \"minutes of a clock face\" representing a partial screw turn. "
 "(E.g. \"01:15\" would mean to turn the screw one and a quarter revolutions.)"
 msgstr ""
+"`adjust`: il numero di giri di vite per regolare la vite, dato nel formato "
+"\"HH:MM\", dove \"HH\" è il numero di giri di vite completi e \"MM\" è il "
+"numero di \"minuti di un quadrante di orologio\" che rappresenta un giro di "
+"vite parziale. (Es. \"01:15\" significherebbe girare la vite di un giro e un "
+"quarto.)"
 
 #~ msgid "neopixel / dotstar"
 #~ msgstr ""
