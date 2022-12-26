@@ -1,17 +1,19 @@
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
 # Francis Poulizac <francis@poulizac.fr>, 2022.
+# jean-luc MATTEI <jlucm@free.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-29 09:48+0000\n"
-"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/benchmarks/fr/>\n"
+"PO-Revision-Date: 2022-12-26 16:42+0000\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"benchmarks/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "Ce document décrit les benchmarks Klipper."
@@ -684,7 +686,7 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 74 (table)
 msgid "39"
-msgstr ""
+msgstr "39"
 
 #: docs/Benchmarks.md:block 74 (table)
 msgid "191"
