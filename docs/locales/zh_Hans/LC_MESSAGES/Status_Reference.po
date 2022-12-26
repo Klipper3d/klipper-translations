@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-23 11:49+0000\n"
+"PO-Revision-Date: 2022-12-25 05:50+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/status_reference/zh_Hans/>\n"
@@ -1044,6 +1044,8 @@ msgid ""
 "`info.total_layer`: The total layer value of the last `SET_PRINT_STATS_INFO "
 "TOTAL_LAYER=<value>` G-Code command."
 msgstr ""
+"`info.total_layer`：最后一条`SET_PRINT_STATS_INFO TOTAL_LAYER=<值>` "
+"G-Code命令的总层值。"
 
 #: docs/Status_Reference.md:block 83 (unordered list)
 msgid ""
@@ -1076,21 +1078,22 @@ msgstr "`temperature`：定义传感器的当前（平滑后的）温度。 [摄
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid "`measured_min_temp`: Minimum measured temperature. [degC]"
-msgstr ""
+msgstr "`measured_min_temp`：最小测量温度。[摄氏度]"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid "`measured_max_temp`: Maximum measured temperature. [degC]"
-msgstr ""
+msgstr "`measured_max_temp`：最大测量温度。[摄氏度]"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid "`current_z_adjust`: Last computed Z adjustment [mm]."
-msgstr ""
+msgstr "`current_z_adjust`：上次计算的z调整[mm]。"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid ""
 "`z_adjust_ref_temperature`: Current reference temperature used for "
 "calculation of Z `current_z_adjust` [degC]."
-msgstr ""
+msgstr "`z_adjust_ref_temperature`：用于计算Z "
+"`current_z_adjust`的当前参考温度[degC]。"
 
 #: docs/Status_Reference.md:block 93 (header)
 msgid "screws_tilt_adjust"
