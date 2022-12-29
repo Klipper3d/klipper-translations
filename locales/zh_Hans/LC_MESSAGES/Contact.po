@@ -1,18 +1,19 @@
-# Yifei Ding <dingyifeiair@gmail.com>, 2021.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2021-10-25 01:44+0000\n"
+"PO-Revision-Date: 2022-12-25 05:50+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/contact/zh_Hans/>\n"
-"Language: zh-hans\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/contact/zh_Hans/>\n"
+"Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid "This document provides contact information for Klipper."
 msgstr "本文档提供了关于 Klipper 的联系信息。"
@@ -213,21 +214,21 @@ msgstr "我们有一个用来讨论Klipper的Discord服务器，它的邀请链�
 msgid ""
 "[I found a bug in the Klipper software](#i-found-a-bug-in-the-klipper-"
 "software)"
-msgstr ""
+msgstr "[我在Klipper中发现了一个缺陷](#i-found-a-bug-in-the-klipper-software)"
 
 #: docs/Contact.md:block 3 (ordered list)
 msgid "[Klipper github](#klipper-github)"
-msgstr ""
+msgstr "[Klipper GitHub](#klipper-github)"
 
 #: docs/Contact.md:block 23 (header)
 msgid "I found a bug in the Klipper software"
-msgstr ""
+msgstr "我在Klipper中发现了一个缺陷"
 
 #: docs/Contact.md:block 25 (paragraph)
 msgid ""
 "Problems should be reported in the [Klipper Community Forum](#community-"
 "forum)."
-msgstr ""
+msgstr "如果有问题，应在[Klipper社区论坛](#community-forum)上报告。"
 
 #: docs/Contact.md:block 27 (ordered list)
 msgid ""
@@ -237,17 +238,22 @@ msgid ""
 "unmodified code from <https://github.com/Klipper3d/klipper> prior to "
 "reporting."
 msgstr ""
+"请确保您正在运行从 <https://github.com/Klipper3d/klipper > "
+"获取的未修改代码。如果代码已被修改或从其他来源获得，"
+"则您需要在报告问题之前先在从 <https://github.com/Klipper3d/klipper > "
+"获取的未修改的代码上重现问题。"
 
 #: docs/Contact.md:block 27 (ordered list)
 msgid ""
 "If possible, run an `M112` command immediately after the undesirable event "
 "occurs. This causes Klipper to go into a \"shutdown state\" and it will "
 "cause additional debugging information to be written to the log file."
-msgstr ""
+msgstr "如果可能，在不良事件发生后立即运行`M112` 命令。这将导致Klipper进入 \"关闭状态"
+"\"，并会导致额外的调试信息被写入日志文件中。"
 
 #: docs/Contact.md:block 27 (ordered list)
 msgid "It is a good idea to compress the log file with zip or gzip."
-msgstr ""
+msgstr "最好使用 zip 或 gzip 压缩日志文件。"
 
 #: docs/Contact.md:block 27 (ordered list)
 msgid ""

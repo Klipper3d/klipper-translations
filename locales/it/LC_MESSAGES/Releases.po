@@ -3,14 +3,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-08 09:23+0000\n"
+"PO-Revision-Date: 2022-12-26 16:42+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/releases/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/releases/"
+"it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid ""
 "History of Klipper releases. Please see [installation](Installation.md) for "
@@ -704,47 +705,58 @@ msgstr ""
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.11.0"
-msgstr ""
+msgstr "Klipper 0.11.0"
 
 #: docs/Releases.md:block 4 (paragraph)
 msgid "Available on 20221128. Major changes in this release:"
-msgstr ""
+msgstr "Disponibile su 20221128. Modifiche principali in questa versione:"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Trinamic stepper motor driver \"step on both edges\" optimization."
 msgstr ""
+"Ottimizzazione \"passo su entrambi i lati\" del driver del motore passo-"
+"passo Trinamic."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Support for Python3. The Klipper host code will run with either Python2 or "
 "Python3."
 msgstr ""
+"Supporto per Python3. Il codice host di Klipper verrà eseguito con Python2 o "
+"Python3."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Enhanced CAN bus support. Support for CAN bus on rp2040, stm32g0, stm32h7, "
 "same51, and same54 chips. Support for \"USB to CAN bus bridge\" mode."
 msgstr ""
+"Supporto bus CAN migliorato. Supporto per bus CAN su chip rp2040, stm32g0, "
+"stm32h7, same51 e same54. Supporto per la modalità \"Bridge da USB a CAN "
+"bus\"."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Support for CanBoot bootloader."
-msgstr ""
+msgstr "Supporto per il bootloader CanBoot."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Support for mpu9250 and mpu6050 accelerometers."
-msgstr ""
+msgstr "Supporto per accelerometri mpu9250 e mpu6050."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Improved error handling for max31856, max31855, max31865, and max6675 "
 "temperature sensors."
 msgstr ""
+"Gestione degli errori migliorata per i sensori di temperatura max31856, "
+"max31855, max31865 e max6675."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "It is now possible to configure LEDs to update during long running G-Code "
 "commands using LED \"template\" support."
 msgstr ""
+"Ora è possibile configurare i LED per l'aggiornamento durante i comandi G-"
+"Code di lunga durata utilizzando il supporto del \"template\" LED."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -754,6 +766,11 @@ msgid ""
 " based event dispatch. New rp2040 support for \"make flash\", i2c, and "
 "rp2040-e5 USB errata."
 msgstr ""
+"Diversi miglioramenti del microcontrollore. Nuovo supporto per i chip "
+"stm32h743, stm32h750, stm32l412, stm32g0b1, same70, same51 e same54. "
+"Supporto per letture i2c su atsamd e stm32f0. Supporto hardware pwm su "
+"stm32. Invio di eventi basato sul segnale Linux mcu. Nuovo supporto rp2040 "
+"per \"make flash\", i2c ed errata USB rp2040-e5."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -761,3 +778,6 @@ msgid ""
 " smart_effector, z_thermal_adjust. New deltesian kinematics added. New "
 "dump_mcu tool added."
 msgstr ""
+"Aggiunti nuovi moduli: angle, dac084S085, exclude_object, led, mpu9250, "
+"pca9632, smart_effector, z_thermal_adjust. Aggiunta nuova cinematica "
+"deltesiana. Nuovo strumento dump_mcu aggiunto."
