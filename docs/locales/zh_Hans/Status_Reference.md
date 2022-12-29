@@ -227,7 +227,7 @@
 `print_stats` 对象提供了以下信息（如果定义了 [virtual_sdcard](Config_Reference.md#virtual_sdcard) 配置分段，则此对象自动可用）：
 
 - `filename`、`total_duration`、`print_duration`、`filament_used`、`state`、`message`：virtual_sdcard 打印处于活动状态时有关当前打印的估测。
-- `info.total_layer`: The total layer value of the last `SET_PRINT_STATS_INFO TOTAL_LAYER=<value>` G-Code command.
+- `info.total_layer`：最后一条`SET_PRINT_STATS_INFO TOTAL_LAYER=<值>` G-Code命令的总层值。
 - `info.current_layer`: The current layer value of the last `SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-Code command.
 
 ## probe
@@ -349,10 +349,10 @@ The following information is available in the `screws_tilt_adjust` object:
 
 - `enabled`：如果启用调整，则返回 True。
 - `temperature`：定义传感器的当前（平滑后的）温度。 [摄氏度]
-- `measured_min_temp`: Minimum measured temperature. [degC]
-- `measured_max_temp`: Maximum measured temperature. [degC]
-- `current_z_adjust`: Last computed Z adjustment [mm].
-- `z_adjust_ref_temperature`: Current reference temperature used for calculation of Z `current_z_adjust` [degC].
+- `measured_min_temp`：最小测量温度。[摄氏度]
+- `measured_max_temp`：最大测量温度。[摄氏度]
+- `current_z_adjust`：上次计算的z调整[mm]。
+- `z_adjust_ref_temperature`：用于计算Z `current_z_adjust`的当前参考温度[degC]。
 
 ## z_tilt
 
