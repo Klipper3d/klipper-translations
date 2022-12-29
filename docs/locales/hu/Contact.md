@@ -7,7 +7,7 @@ Ez a dokumentum a Klipper csapatának elérhetőségét tartalmazza.
 1. [Kérdésem van a Klipperrel kapcsolatban](#kerdesem-van-a-klipperrel-kapcsolatban)
 1. [Van egy funkciókérelmem](#van-egy-funkciokerelmem)
 1. [Segítség! Nem működik!](#segitseg-nem-mukodik)
-1. [I found a bug in the Klipper software](#i-found-a-bug-in-the-klipper-software)
+1. [Találtam egy hibát a Klipper szoftverben](#i-found-a-bug-in-the-klipper-software)
 1. [Változtatásokat végzek, amelyeket szeretnék a Klipperbe beépíteni](#valtoztatasokat-vegzek-amelyeket-szeretnek-a-klipperbe-beepiteni)
 1. [Klipper github](#klipper-github)
 
@@ -50,23 +50,23 @@ A [Klipper Közösségi Fórumban](#kozossegi-forum) is kereshetsz hasonló kér
 
 Ha szeretnéd megosztani tudásodat és tapasztalataidat más Klipper felhasználókkal, akkor csatlakozhatsz a [Klipper Közösségi Fórum](#kozossegi-forum) vagy a [Discord Csevegés](#discord-cseveges)-hez. Mindkettő olyan közösség, ahol a Klipper felhasználók megvitathatják a Klippert más felhasználókkal.
 
-## I found a bug in the Klipper software
+## Találtam egy hibát a Klipper szoftverben
 
 A Klipper egy nyílt forráskódú projekt, és nagyra értékeljük, ha a munkatársak diagnosztizálják a szoftver hibáit.
 
-Problems should be reported in the [Klipper Community Forum](#community-forum).
+A problémákat a [Klipper Közösségi Fórumban](#community-forum) kell jelenteni.
 
 Fontos információkra lesz szükség a hiba kijavításához. Kérjük, kövesd az alábbi lépéseket:
 
-1. Make sure you are running unmodified code from <https://github.com/Klipper3d/klipper>. If the code has been modified or is obtained from another source, then you should reproduce the problem on the unmodified code from <https://github.com/Klipper3d/klipper> prior to reporting.
-1. If possible, run an `M112` command immediately after the undesirable event occurs. This causes Klipper to go into a "shutdown state" and it will cause additional debugging information to be written to the log file.
+1. Győződj meg róla, hogy a <https://github.com/Klipper3d/klipper> változatlan kódját futtatod. Ha a kódot módosították, vagy más forrásból származik, akkor a hiba bejelentése előtt reprodukálnod kell a problémát a <https://github.com/Klipper3d/klipper> nem módosított kóddal.
+1. Ha lehetséges, futtass egy `M112` parancsot közvetlenül a nemkívánatos esemény bekövetkezése után. Ennek hatására a Klipper "leállási állapotba" kerül, és további hibakeresési információk íródnak a naplófájlba.
 1. Szerezd be a Klipper naplófájlt az eseményből. A naplófájlt úgy alakították ki, hogy választ adjon a Klipper fejlesztőinek a szoftverrel és környezetével kapcsolatos gyakori kérdéseire (szoftver verzió, hardvertípus, konfiguráció, eseményidőzítés és több száz egyéb kérdés).
    1. A Klipper naplófájlja a `/tmp/klippy.log` címen található a Klipper "gazdagépen" (vagyis a Raspberry Pi-n).
    1. Egy "SCP" vagy "SFTP" segédprogram szükséges a naplófájlnak az asztali számítógépre való másolásához. Az "SCP" segédprogram alapfelszereltségként jár a Linux és MacOS asztali számítógépekhez. Más asztali számítógépekhez szabadon elérhető SCP segédprogramok is léteznek (pl. WinSCP). Ha olyan grafikus SCP segédprogramot használsz, amely nem tudja közvetlenül másolni a `/tmp/klippy.log`, akkor kattints többször a `...` vagy `parent folder`, amíg el nem jutunk a gyökérkönyvtárba, kattintsunk a `tmp` mappára, majd válasszuk ki a `klippy.log` fájlt.
    1. Másold a naplófájlt az asztalára, hogy csatolni tudd egy problémajelentéshez.
    1. Ne módosítsd a naplófájlt semmilyen módon; ne adj meg egy részletet a naplóból. Csak a teljes, változatlan naplófájl nyújtja a szükséges információkat.
-   1. It is a good idea to compress the log file with zip or gzip.
-1. Open a new topic on the [Klipper Community Forum](#community-forum) and provide a clear description of the problem. Other Klipper contributors will need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The compressed Klipper log file should be attached to that topic.
+   1. Jó ötlet a naplófájlt zip vagy gzip segítségével tömöríteni.
+1. Nyiss egy új témát a [Klipper Közösségi Fórumon](#community-forum), és írd le a problémát. A többi Klipper hozzászólónak meg kell értenie, hogy milyen lépéseket tettek, mi volt a kívánt eredmény, és mi történt valójában. A tömörített Klipper naplófájlt csatolni kell a témához.
 
 ## Változtatásokat végzek, amelyeket szeretnék a Klipperbe beépíteni
 
@@ -74,7 +74,7 @@ A Klipper nyílt forráskódú szoftver, és örömmel fogadjuk az új hozzájá
 
 Az új hozzájárulásokat (mind a kódot, mind a dokumentációt illetően) a GitHub Pull Requests-en keresztül küldheted be. Lásd a [CONTRIBUTING dokumentumot](CONTRIBUTING.md) a fontos információkért.
 
-There are several [documents for developers](Overview.md#developer-documentation). If you have questions on the code then you can also ask in the [Klipper Community Forum](#community-forum) or on the [Klipper Community Discord](#discord-chat).
+Számos [dokumentum fejlesztőknek](Overview.md#developer-documentation). Ha kérdésed van a kóddal kapcsolatban, akkor a [Klipper Közösségi Fórum](#community-forum) vagy a [Klipper Közösségi Discord](#discord-chat) oldalon is felteheted.
 
 ## Klipper github
 

@@ -6,7 +6,7 @@ Tutte le date in questo documento sono approssimative.
 
 ## Cambiamenti
 
-20221122: Previously, with safe_z_home, it was possible that the z_hop after the g28 homing would go in the negative z direction. Now, a z_hop is performed after g28 only if it results in a positive hop, mirroring the behavior of the z_hop that occurs before the g28 homing.
+20221122: In precedenza, con safe_z_home, era possibile che z_hop dopo l'homing g28 andasse nella direzione z negativa. Ora, uno z_hop viene eseguito dopo g28 solo se risulta in un hop positivo, rispecchiando il comportamento dello z_hop che si verifica prima dell'homing g28.
 
 20220616: in precedenza era possibile eseguire il flashing di un rp2040 in modalità bootloader eseguendo `make flash FLASH_DEVICE=first`. Il comando equivalente è ora `make flash FLASH_DEVICE=2e8a:0003`.
 

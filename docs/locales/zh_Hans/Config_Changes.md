@@ -6,7 +6,7 @@
 
 ## 变更
 
-20221122: Previously, with safe_z_home, it was possible that the z_hop after the g28 homing would go in the negative z direction. Now, a z_hop is performed after g28 only if it results in a positive hop, mirroring the behavior of the z_hop that occurs before the g28 homing.
+20221122：原先使用safe_z_home时，g28归位后的 z_hop 有可能会向负Z方向移动。现在，g28之后的 z_hop 只有在产生抬升（正方向）时才会被执行，这镜像了 g28 归位之前发生的 z_hop 的行为。
 
 20220616：以前可以通过运行`make flash FLASH_DEVICE=first`在引导程序模式下刷写rp2040。新的等效命令是`make flash FLASH_DEVICE=2e8a:0003`。
 

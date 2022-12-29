@@ -7,9 +7,9 @@
 1. [我有一个关于 Klipper 的问题](#i-have-a-question-about-klipper)
 1. [我有一个功能请求](#i-have-a-feature-request)
 1. [我需要帮助！它炸了！](#help-it-doesnt-work)
-1. [I found a bug in the Klipper software](#i-found-a-bug-in-the-klipper-software)
+1. [我在Klipper中发现了一个缺陷](#i-found-a-bug-in-the-klipper-software)
 1. [我正在进行我想纳入 Klipper 的修改](#i-am-making-changes-that-id-like-to-include-in-klipper)
-1. [Klipper github](#klipper-github)
+1. [Klipper GitHub](#klipper-github)
 
 ## 社区论坛
 
@@ -50,22 +50,22 @@
 
 如果你有兴趣与其他 Klipper 用户分享你的知识和经验，那么你可以加入[ Klipper 社区论坛](#community-forum)或[ Klipper Discord 聊天室](#discord-chat)。这两个社区都是 Klipper 用户间讨论 Klipper 的地方。
 
-## I found a bug in the Klipper software
+## 我在Klipper中发现了一个缺陷
 
 Klipper 是一个开源项目，我们诚挚的感谢贡献者们在软件中诊断出错误。
 
-Problems should be reported in the [Klipper Community Forum](#community-forum).
+如果有问题，应在[Klipper社区论坛](#community-forum)上报告。
 
 修复bug需要提供一些重要的信息。请遵循以下步骤：
 
-1. Make sure you are running unmodified code from <https://github.com/Klipper3d/klipper>. If the code has been modified or is obtained from another source, then you should reproduce the problem on the unmodified code from <https://github.com/Klipper3d/klipper> prior to reporting.
-1. If possible, run an `M112` command immediately after the undesirable event occurs. This causes Klipper to go into a "shutdown state" and it will cause additional debugging information to be written to the log file.
+1. 请确保您正在运行从 <https://github.com/Klipper3d/klipper > 获取的未修改代码。如果代码已被修改或从其他来源获得，则您需要在报告问题之前先在从 <https://github.com/Klipper3d/klipper > 获取的未修改的代码上重现问题。
+1. 如果可能，在不良事件发生后立即运行`M112` 命令。这将导致Klipper进入 "关闭状态"，并会导致额外的调试信息被写入日志文件中。
 1. 获取事件发送时的 Klipper 日志文件。该日志文件已被设计用来给 Klipper 开发人员提供关于软件及其运行环境的常见问题（软件版本、硬件类型、配置、事件时间和数百个其他问题）。
    1. Klipper 日志文件位于 Klipper "主机"（树莓派）的`/tmp/klippy.log`文件中。
    1. 你需要用“scp”或“sftp”程序将此日志文件复制到您的计算机。 “scp”程序是 Linux 和 MacOS 系统的标准配置。其他系统也通常有可用的 scp 实用程序（例如 WinSCP）。如果使用图形界面的 scp 程序无法直接复制 `/tmp/klippy.log`，可以尝试重复点击 `..`或者`parent folder`（父文件夹）直到进入根目录，再点击`tmp`文件夹，然后选择`klippy.log`文件。
    1. 将日志文件复制到你的电脑，以便将其上传到问题报告中。
    1. 不要以任何方式修改日志文件；不要只提供日志的片段。只有完整的未修改的日志文件才能够提供必要的信息。
-   1. It is a good idea to compress the log file with zip or gzip.
+   1. 最好使用 zip 或 gzip 压缩日志文件。
 1. Open a new topic on the [Klipper Community Forum](#community-forum) and provide a clear description of the problem. Other Klipper contributors will need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The compressed Klipper log file should be attached to that topic.
 
 ## 我正在进行一些我想添加到 Klipper 中的改进

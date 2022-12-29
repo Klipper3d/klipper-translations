@@ -339,8 +339,8 @@ Il modulo gcode viene caricato automaticamente.
 
 I seguenti comandi G-Code standard sono disponibili se una [sezione di configurazione gcode_arcs](Config_Reference.md#gcode_arcs) è abilitata:
 
-- Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): `G2|G3 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> K<value>|J<value> K<value>`
-- Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)
+- Movimento dell'arco in senso orario (G2), Movimento dell'arco in senso antiorario (G3): `G2|G3 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<velocità>] I<valore> J<valore>|I<valore> K<valore>|J<valore> K<valore>`
+- Selezione del piano dell'arco: G17 (piano XY), G18 (piano XZ), G19 (piano YZ)
 
 ### [gcode_macro]
 

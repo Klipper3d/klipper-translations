@@ -214,7 +214,7 @@ max_z_velocity:
 #    Pour les imprimantes delta, cela limite la vitesse maximale (en mm/s) des
 #    mouvements de l'axe z. Ce paramètre peut être utilisé pour réduire la
 #    vitesse maximale des déplacements vers le haut/bas (nécessitent une vitesse
-#   de pas plus élevée que les autres mouvements sur une imprimante delta). La
+#    de pas plus élevée que les autres mouvements sur une imprimante delta). La
 #    valeur par défaut est d'utiliser max_velocity pour max_z_velocity.
 #max_z_accel:
 #    Ceci définit l'accélération maximale (en mm/s^2) du mouvement le long de l'axe z.
@@ -224,35 +224,35 @@ max_z_velocity:
 #    La valeur par défaut est d'utiliser max_accel pour max_z_accel.
 #minimum_z_position: 0
 #    Position Z minimale à laquelle l'utilisateur peut ordonner à la tête de se déplacer.
-#   La valeur par défaut est 0.
+#    La valeur par défaut est 0.
 delta_radius:
 #    Rayon (en mm) du cercle horizontal formé par les trois colonnes d'axe linéaire.
 #    Ce paramètre peut également être calculé comme suit :
-#    delta_radius = smooth_rod_offset - effector_offset - carriage_offset.
+#        delta_radius = smooth_rod_offset - effector_offset - carriage_offset.
 #    Ce paramètre doit être fourni.
 #print_radius:
 #    Le rayon (en mm) des coordonnées XY valides de la tête d'extrusion. On peut utiliser
-#    ce paramètre pour personnaliser la vérification de la plage des mouvements de la tête.
+#    ce paramètre pour personnaliser la vérification de la plage de mouvements de la tête.
 #    Si une grande valeur est spécifiée ici, il peut être possible de faire entrer la tête en collision
 #    avec une colonne. La valeur par défaut est d'utiliser delta_radius pour print_radius (ce qui
 #    empêchera normalement une collision avec une colonne).
 
-#    La section stepper_a décrit le moteur pas à pas contrôlant la colonne avant gauche (à 210 degrés).
-#    Cette section contrôle également les paramètres de la mise à l'origine (homing_speed, 
-#    homing_retract_dist) pour toutes les colonnes.
+#    La section stepper_a décrit le moteur pas à pas contrôlant la colonne avant gauche (à 210
+#    degrés). Cette section contrôle également les paramètres de la mise à l'origine
+#    (homing_speed, homing_retract_dist) pour toutes les colonnes.
 [stepper_a]
 position_endstop:
-#    Distance (en mm) entre la buse et le lit lorsque la buse se trouve au centre de la zone de construction
-#    et que la fin de course se déclenche. Ce paramètre doit être fourni pour le stepper_a ; pour les
-#    stepper_b et stepper_c, ce paramètre prend par défaut la valeur spécifiée pour
-#    stepper_a.
+#    Distance (en mm) entre la buse et le lit lorsque la buse se trouve au centre de la zone de
+#    construction et que la fin de course se déclenche. Ce paramètre doit être fourni pour le
+#    stepper_a ; pour les stepper_b et stepper_c, ce paramètre prend par défaut la valeur
+#    spécifiée pour stepper_a.
 arm_length:
-#    Longueur (en mm) de la tige diagonale qui relie cette colonne à la tête d'impression.
+#    Longueur (en mm) du bras reliant cette colonne à la tête d'impression.
 #    Ce paramètre doit être fourni pour stepper_a ; pour stepper_b et stepper_c, ce paramètre
 #    prend par défaut la valeur spécifiée pour stepper_a.
 #angle:
 #    Cette option spécifie l'angle (en degrés) où se trouve positionnée la colonne.
-#   La valeur par défaut est 210 pour stepper_a, 330 pour stepper_b, et 90
+#    La valeur par défaut est 210 pour stepper_a, 330 pour stepper_b, et 90
 #    pour stepper_c.
 
 #    La section stepper_b décrit le moteur pas à pas contrôlant la colonne avant droite (à 330 degrés).
@@ -261,14 +261,14 @@ arm_length:
 #    La section stepper_c décrit le moteur pas à pas contrôlant la colonne arrière droite (à 90 degrés).
 [stepper_c]
 
-#    La section delta_calibrate active une commande G-code étendue DELTA_CALIBRATE
-#   permettant de calibrer les positions et les angles de la fin de la colonne.
+#    La section delta_calibrate active une commande G-code étendue DELTA_CALIBRATE permettant
+#    de calibrer la position des interrupteurs de fin de course ainsi que les angles des colonnes.
 [delta_calibrate]
 radius:
-#    Rayon (en mm) de la zone qui peut être sondée. Il s'agit du rayon des coordonnées de
-#    la buse à sonder ; si vous utilisez un palpeur automatique avec un décalage XY, choisissez
-#    un rayon suffisamment petit pour que la sonde s'adapte toujours au lit.
-#   Ce paramètre doit être fourni.
+#    Rayon (en mm) de la zone palpable. Il s'agit du rayon des coordonnées de la buse à sonder ; si
+#    vous utilisez un palpeur automatique avec un décalage XY, choisissez un rayon suffisamment
+#    petit pour que la sonde reste toujours au-dessus du lit.
+#    Ce paramètre doit être fourni.
 #speed: 50
 #    La vitesse (en mm/s) des mouvements sans palpage pendant l'étalonnage.
 #    La valeur par défaut est 50.
@@ -289,13 +289,13 @@ kinematics: deltesian
 max_z_velocity:
 #    Pour les imprimantes deltesiennes, ceci limite la vitesse maximale (en mm/s) des
 #    déplacements avec un mouvement sur l'axe z. Ce paramètre peut être utilisé pour réduire la
-#   vitesse maximale des déplacements vers le haut/bas (qui nécessitent un taux de pas plus élevé
-#   que les autres mouvements sur une imprimante deltesienne). La valeur par défaut est d'utiliser
-#   max_velocity pour max_z_velocity.
+#    vitesse maximale des déplacements vers le haut/bas (qui nécessitent un taux de pas plus élevé
+#    que les autres mouvements sur une imprimante deltesienne). La valeur par défaut est d'utiliser
+#    max_velocity pour max_z_velocity.
 #max_z_accel:
 #    Ceci définit l'accélération maximale (en mm/s^2) du mouvement le long de l'axe z.
-#   Ce paramètre peut être utile si l'imprimante peut atteindre une plus grande
-#   accélération plus élevée sur les mouvements XY que sur les mouvements Z (par exemple, lors
+#    Ce paramètre peut être utile si l'imprimante peut atteindre une plus grande
+#    accélération sur les mouvements XY que sur les mouvements Z (par exemple, lors
 #    de l'utilisation de la compensation de la résonance).
 #    La valeur par défaut est d'utiliser max_accel pour max_z_accel.
 #minimum_z_position : 0
@@ -306,18 +306,18 @@ max_z_velocity:
 #    que les bras deltesiens sont autorisés à atteindre. Ce paramètre est
 #    destiné à empêcher les bras de devenir complètement horizontaux,
 #    ce qui risquerait de provoquer une inversion accidentelle de l'axe XZ.
-#   La valeur par défaut est 5.
+#    La valeur par défaut est 5.
 #print_width:
 #    La distance (en mm) des coordonnées X valides de la tête de l'outil. On peut utiliser
 #    ce paramètre pour personnaliser la vérification de la plage des mouvements de la tête de
-#   l'outil. Si une grande valeur est spécifiée ici, il peut être possible de faire entrer
-#   la tête de l'outil en collision avec une colonne. Ce paramètre correspond généralement
-#   à la largeur du banc (en mm).
+#    l'outil. Si une grande valeur est spécifiée ici, il peut être possible de faire entrer
+#    la tête de l'outil en collision avec une colonne. Ce paramètre correspond généralement
+#    à la largeur du banc (en mm).
 #slow_ratio: 3
 #    Rapport utilisé pour limiter la vitesse et l'accélération des mouvements proches des extrêmes
 #    extrêmes de l'axe X. Si la distance verticale divisée par la distance horizontale
-#   dépasse la valeur de slow_ratio, la vitesse et l'accélération sont limitées à la moitié de leur
-#   valeur nominale. Si la distance verticale divisée par la distance horizontale dépasse deux fois
+#    dépasse la valeur de slow_ratio, la vitesse et l'accélération sont limitées à la moitié de leur
+#    valeur nominale. Si la distance verticale divisée par la distance horizontale dépasse deux fois
 #    la valeur de slow_ratio, alors la vitesse et l'accélération sont limitées à un quart de leurs
 #    valeurs nominales. La valeur par défaut est 3.
 
@@ -327,8 +327,8 @@ max_z_velocity:
 [stepper_left]
 position_endstop:
 #    Distance (en mm) entre la buse et le lit lorsque la buse se trouve au centre de la zone de construction. 
-#   Ce paramètre doit être fourni pour stepper_left ; pour le paramètre stepper_right ce paramètre prend
-#   par défaut la valeur spécifiée pour stepper_left.
+#    Ce paramètre doit être fourni pour stepper_left ; pour le paramètre stepper_right ce paramètre prend
+#    par défaut la valeur spécifiée pour stepper_left.
 arm_length:
 #    Longueur (en mm) de la tige diagonale qui relie le chariot de la colonne à la tête d'impression. Ce
 #    paramètre doit être fourni pour stepper_left. Pour  le paramètre stepper_right, ce paramètre prend par
@@ -364,7 +364,7 @@ max_z_accel:
 #    d'utiliser max_accel pour max_z_accel.
 
 #    La section stepper_x est utilisée pour décrire l'axe X ainsi que le moteur pas à pas
-#   contrôlant le mouvement X+Y.
+#    contrôlant le mouvement X+Y.
 [stepper_x]
 
 #    La section stepper_y est utilisée pour décrire l'axe Y ainsi que le moteur pas à pas 
@@ -399,7 +399,7 @@ max_z_accel:
 [stepper_y]
 
 #    La section stepper_z est utilisée pour décrire l'axe Z ainsi que le moteur pas à pas
-#     contrôlant le mouvement X-Z.
+#    contrôlant le mouvement X-Z.
 [stepper_z]
 ```
 

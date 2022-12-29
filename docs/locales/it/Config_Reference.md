@@ -627,7 +627,7 @@ radius:
 
 ### Cable winch Kinematics
 
-See the [example-winch.cfg](../config/example-winch.cfg) for an example cable winch kinematics config file.
+Vedere [example-winch.cfg](../config/example-winch.cfg) per un esempio di file di configurazione della cinematica con verricello, cable winch.
 
 Qui sono descritti solo i parametri specifici per le stampanti cavo verricello - vedere [impostazioni comuni cinematiche](#common-kinematic-settings) per i parametri disponibili.
 
@@ -1593,7 +1593,7 @@ Supporto per test di risonanza e calibrazione automatica del input shaper. Per u
 #   la precisione del test. Il valore predefinito è 1,0 (Hz/sec == sec^-2).
 ```
 
-## Config file helpers
+## Helper per i file di configurazione
 
 ### [board_pins]
 

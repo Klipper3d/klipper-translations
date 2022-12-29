@@ -251,16 +251,16 @@ Le seguenti informazioni sono disponibili nell'oggetto `query_endstops` (questo 
 
 ## screws_tilt_adjust
 
-The following information is available in the `screws_tilt_adjust` object:
+Le seguenti informazioni sono disponibili nell'oggetto `screws_tilt_adjust`:
 
-- `error`: Returns True if the most recent `SCREWS_TILT_CALCULATE` command included the `MAX_DEVIATION` parameter and any of the probed screw points exceeded the specified `MAX_DEVIATION`.
-- `results`: A list of the probed screw locations. Each entry in the list will be a dictionary containing the following keys:
-   - `name`: The name of the screw as specified in the config file.
-   - `x`: The X coordinate of the screw as specified in the config file.
-   - `y`: The Y coordinate of the screw as specified in the config file.
-   - `z`: The measured Z height of the screw location.
-   - `sign`: A string specifying the direction to turn to screw for the necessary adjustment. Either "CW" for clockwise or "CCW" for counterclockwise. The base screw will not have a `sign` key.
-   - `adjust`: The number of screw turns to adjust the screw, given in the format "HH:MM," where "HH" is the number of full screw turns and "MM" is the number of "minutes of a clock face" representing a partial screw turn. (E.g. "01:15" would mean to turn the screw one and a quarter revolutions.)
+- `error`: restituisce True se il comando `SCREWS_TILT_CALCULATE` più recente includeva il parametro `MAX_DEVIATION` e uno qualsiasi dei punti della vite rilevati superava il `MAX_DEVIATION` specificato.
+- `results`: un elenco delle posizioni delle viti rilevate. Ogni voce nell'elenco sarà un dizionario contenente le seguenti chiavi:
+   - `name`: il nome della vite come specificato nel file di configurazione.
+   - `x`: la coordinata X della vite come specificato nel file di configurazione.
+   - `y`: la coordinata Y della vite come specificato nel file di configurazione.
+   - `z`: L'altezza Z misurata della posizione della vite.
+   - `sign`: Una stringa che specifica la direzione da girare per avvitare per la regolazione necessaria. O "CW" per senso orario o "CCW" per senso antiorario. La vite di base non avrà una chiave di "segno".
+   - `adjust`: il numero di giri di vite per regolare la vite, dato nel formato "HH:MM", dove "HH" è il numero di giri di vite completi e "MM" è il numero di "minuti di un quadrante di orologio" che rappresenta un giro di vite parziale. (Es. "01:15" significherebbe girare la vite di un giro e un quarto.)
 
 ## servo
 

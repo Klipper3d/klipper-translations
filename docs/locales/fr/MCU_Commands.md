@@ -1,12 +1,12 @@
 # Commandes MCU
 
-This document provides information on the low-level micro-controller commands that are sent from the Klipper "host" software and processed by the Klipper micro-controller software. This document is not an authoritative reference for these commands, nor is it an exclusive list of all available commands.
+Ce document fournit des informations sur les commandes de bas niveau du microcontrôleur qui sont envoyées depuis le logiciel "hôte" Klipper et traitées par le firmware Klipper du microcontrôleur. Ce document n'est pas une référence faisant autorité pour ces commandes, ni une liste exclusive de toutes les commandes disponibles.
 
-This document may be useful for developers interested in understanding the low-level micro-controller commands.
+Ce document peut être utile aux développeurs souhaitant comprendre les commandes de bas niveau du microcontrôleur.
 
-See the [protocol](Protocol.md) document for more information on the format of commands and their transmission. The commands here are described using their "printf" style syntax - for those unfamiliar with that format, just note that where a '%...' sequence is seen it should be replaced with an actual integer. For example, a description with "count=%c" could be replaced with the text "count=10". Note that parameters that are considered "enumerations" (see the above protocol document) take a string value which is automatically converted to an integer value for the micro-controller. This is common with parameters named "pin" (or that have a suffix of "_pin").
+Voir le document [protocole](Protocol.md) pour plus d'informations sur le format des commandes et leur transmission. Les commandes ici sont décrites en utilisant une syntaxe de style "printf" - pour ceux qui ne connaissent pas ce format, notez simplement que lorsqu'une séquence '%...' est vue, elle doit être remplacée par un entier réel. Par exemple, une description avec "count=%c" pourrait être remplacée par le texte "count=10". Notez que les paramètres qui sont considérés comme des "énumérations" (voir le document de protocole ci-dessus) prennent une valeur de chaîne qui est automatiquement convertie en une valeur entière pour le microcontrôleur. Ceci est courant avec les paramètres nommés "pin" (ou qui ont le suffixe "_pin").
 
-## Startup Commands
+## Commandes de démarrage
 
 It may be necessary to take certain one-time actions to configure the micro-controller and its peripherals. This section lists common commands available for that purpose. Unlike most micro-controller commands, these commands run as soon as they are received and they do not require any particular setup.
 
