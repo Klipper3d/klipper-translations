@@ -1,15 +1,17 @@
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
+# Francis Poulizac <francis@poulizac.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-09-25 19:03+0000\n"
-"Last-Translator: Francis Poulizac <fpoulizac@vivaldi.net>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/code_overview/fr/>\n"
+"PO-Revision-Date: 2022-12-29 14:51+0000\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"code_overview/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid ""
 "This document describes the overall code layout and major code flow of "
@@ -19,7 +21,7 @@ msgstr ""
 "principal de Klipper."
 
 msgid "Directory Layout"
-msgstr ""
+msgstr "Disposition du répertoire"
 
 msgid ""
 "The **src/** directory contains the C source for the micro-controller code. "
