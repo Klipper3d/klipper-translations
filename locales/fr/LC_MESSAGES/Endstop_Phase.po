@@ -1,16 +1,18 @@
 # Wivik <seb+weblate@zedas.fr>, 2021.
 # Jonathan <jonathanhav09@sfr.fr>, 2022.
+# Francis Poulizac <francis@poulizac.fr>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-24 21:48+0000\n"
-"Last-Translator: Jonathan <jonathanhav09@sfr.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/endstop_phase/fr/>\n"
+"PO-Revision-Date: 2022-12-30 18:51+0000\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"endstop_phase/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid ""
 "This document describes Klipper's stepper phase adjusted endstop system. "
@@ -160,7 +162,7 @@ msgid "ENDSTOP_PHASE_CALIBRATE STEPPER=stepper_z\n"
 msgstr ""
 
 msgid "SAVE_CONFIG\n"
-msgstr ""
+msgstr "SAVE_CONFIG\n"
 
 #: docs/Endstop_Phase.md:block 1 (header)
 msgid "Endstop phase"
