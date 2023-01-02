@@ -1,11 +1,12 @@
 # Tl <rflma99@pm.me>, 2022.
 # Jonathan <jonathanhav09@sfr.fr>, 2022, 2025.
 # jean-luc MATTEI <jlucm@free.fr>, 2023, 2025.
+# Francis Poulizac <francis@poulizac.fr>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: Jonathan <jonathanhav09@sfr.fr>\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "status_reference/fr/>\n"
 "Language: fr\n"
@@ -28,9 +29,10 @@ msgid ""
 "sure to review the [Config Changes document](Config_Changes.md) when upgrading"
 " the Klipper software."
 msgstr ""
-"Les champs de ce document sont susceptibles d'être modifiés - si vous utilisez"
-" un attribut, veillez à consulter le document [Modifications des "
-"configurations](Config_Changes.md) lors de la mise à jour du logiciel Klipper."
+"Les champs de ce document sont susceptibles d'être modifiés - si vous "
+"utilisez un attribut, veillez à consulter le document "
+"[Modifications des configurations](Config_Changes.md) lors de la mise à jour "
+"du logiciel Klipper."
 
 msgid "bed_mesh"
 msgstr "bed_mesh"
