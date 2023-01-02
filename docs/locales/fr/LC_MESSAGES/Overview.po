@@ -3,14 +3,14 @@
 # Rhenaud Dubois <rhen33390@gmail.com>, 2021, 2025.
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
 # Linda 'linigrhf' Ayasing <linigrhf@gmail.com>, 2022.
-# Francis Poulizac <francis@poulizac.fr>, 2022, 2023.
+# Francis Poulizac <francis@poulizac.fr>, 2022, 2023, 2025.
 # jean-luc MATTEI <jlucm@free.fr>, 2023.
 # Thomas Fournier <thomas@artivain.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/overview/"
 "fr/>\n"
 "Language: fr\n"
@@ -81,12 +81,13 @@ msgstr ""
 
 msgid "[Bed level](Bed_Level.md): Information on \"bed leveling\" in Klipper."
 msgstr ""
-"[Nivelage du lit](Bed_Level.md) : Informations sur le \"nivelage du lit\" dans"
-" Klipper."
+"[Nivelage du lit](Bed_Level.md) : Informations sur le \"nivelage du lit\" "
+"dans Klipper."
 
 msgid "[Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics."
 msgstr ""
-"[Calibration delta](Delta_Calibrate.md) : Calibration de la cinématique Delta."
+"[Calibration delta](Delta_Calibrate.md) : Calibration de la cinématique "
+"Delta."
 
 msgid ""
 "[Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes."
@@ -100,12 +101,13 @@ msgstr "[BL-Touch](BLTouch.md) : Configuration d'une sonde \"BL-Touch\"."
 msgid ""
 "[Manual level](Manual_Level.md): Calibration of Z endstops (and similar)."
 msgstr ""
-"[Nivelage manuel](Manual_Level.md) : Calibration des butées Z (et similaires)."
+"[Nivelage manuel](Manual_Level.md) : Calibration des butées Z (et "
+"similaires)."
 
 msgid "[Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations."
 msgstr ""
-"[Maillage du lit](Bed_Mesh.md) : Correction de la hauteur du lit basée sur les"
-" emplacements XY."
+"[Maillage du lit](Bed_Mesh.md) : Correction de la hauteur du lit basée sur "
+"les emplacements XY."
 
 msgid ""
 "[Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning."
@@ -129,8 +131,8 @@ msgstr ""
 
 msgid "[Pressure advance](Pressure_Advance.md): Calibrate extruder pressure."
 msgstr ""
-"[Avance à la pression](Pressure_Advance.md) : Calibration de la pression dans "
-"l'extrudeur."
+"[Avance à la pression](Pressure_Advance.md) : Calibration de la pression "
+"dans l'extrudeur."
 
 msgid "[Slicers](Slicers.md): Configure \"slicer\" software for Klipper."
 msgstr ""
@@ -207,8 +209,8 @@ msgstr ""
 
 msgid "[CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format."
 msgstr ""
-"[Protocole du bus CAN](CANBUS_protocol.md) : Format de messages du bus CAN de "
-"Klipper."
+"[Protocole du bus CAN](CANBUS_protocol.md) : Format de messages du bus CAN "
+"de Klipper."
 
 msgid "[Debugging](Debugging.md): Information on how to test and debug Klipper."
 msgstr ""
@@ -254,8 +256,9 @@ msgid ""
 "[Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for "
 "controlling devices wired to the GPIO pins of a Raspberry Pi."
 msgstr ""
-"[Raspberry Pi en tant que micro-contrôleur](RPi_microcontroller.md) : Détails "
-"pour contrôler les appareils connectés aux broches GPIO d'un Raspberry Pi."
+"[Raspberry Pi en tant que micro-contrôleur](RPi_microcontroller.md) : "
+"Détails pour contrôler les appareils connectés aux broches GPIO d'un "
+"Raspberry Pi."
 
 msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-controller "
