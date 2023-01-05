@@ -1,18 +1,19 @@
 # mirokymac <toufubomb@gmail.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 # 红豆蛋黄派 <zgpride87@outlook.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-02 14:27+0000\n"
-"Last-Translator: 红豆蛋黄派 <zgpride87@outlook.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/measuring_resonances/zh_Hans/>\n"
+"PO-Revision-Date: 2023-01-01 08:50+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/measuring_resonances/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "共振值测量"
@@ -512,9 +513,12 @@ msgid ""
 "much. However, it is still advised to double-check the suggested parameters,"
 " and print some test prints before using them to confirm they are good."
 msgstr ""
+"此外，由于测量中的一些噪音，每次校准得到的调谐结果会略有不同。不过，这些噪音"
+"一般不会对打印质量产生太大影响。然而，我们仍然建议仔细检查建议的参数，并在使"
+"用前打印一些测试件以确认它们是正确的。"
 
 msgid "Offline processing of the accelerometer data"
-msgstr ""
+msgstr "离线处理加速计数据"
 
 msgid ""
 "It is possible to generate the raw accelerometer data and process it offline"
