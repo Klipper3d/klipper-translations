@@ -1,4 +1,4 @@
-# Pressure Advance
+# Avance à la pression
 
 Ce document fournit des informations sur les réglages de la variable "pressure advance" pour une buse et un filament donné. La fonctionnalité pressure advance peut aider à réduire le suintement. Pour plus d'informations sur l'implémentation du pressure advance, vous pouvez lire le document [kinematics](Kinematics.md).
 

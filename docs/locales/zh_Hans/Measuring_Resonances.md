@@ -438,9 +438,9 @@ SHAPER_CALIBRATE AXIS=X
 
 **警告！ **不建议非常频繁地运行成型机自动校准（例如，在每次打印之前或每天）。为了确定共振频率，自动校准会在每个轴上产生强烈的振动。通常，3D 打印机的设计不能承受长时间暴露于共振频率附近的振动。这样做可能会增加打印机组件的磨损并缩短其使用寿命。某些零件拧松或松动的风险也会增加。每次自动调整后，请务必检查打印机的所有部件（包括通常不会移动的部件）是否牢固地固定到位。
 
-Also, due to some noise in measurements, it is possible that the tuning results will be slightly different from one calibration run to another one. Still, it is not expected that the noise will affect the print quality too much. However, it is still advised to double-check the suggested parameters, and print some test prints before using them to confirm they are good.
+此外，由于测量中的一些噪音，每次校准得到的调谐结果会略有不同。不过，这些噪音一般不会对打印质量产生太大影响。然而，我们仍然建议仔细检查建议的参数，并在使用前打印一些测试件以确认它们是正确的。
 
-## Offline processing of the accelerometer data
+## 离线处理加速计数据
 
 It is possible to generate the raw accelerometer data and process it offline (e.g. on a host machine), for example to find resonances. In order to do so, run the following commands via Octoprint terminal:
 

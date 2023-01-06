@@ -15,7 +15,7 @@ Available on 20221128. Major changes in this release:
 * It is now possible to configure LEDs to update during long running G-Code commands using LED "template" support.
 * Several micro-controller improvements. New support for stm32h743, stm32h750, stm32l412, stm32g0b1, same70, same51, and same54 chips. Support for i2c reads on atsamd and stm32f0. Hardware pwm support on stm32. Linux mcu signal based event dispatch. New rp2040 support for "make flash", i2c, and rp2040-e5 USB errata.
 * New modules added: angle, dac084S085, exclude_object, led, mpu9250, pca9632, smart_effector, z_thermal_adjust. New deltesian kinematics added. New dump_mcu tool added.
-* Several bug fixes and code cleanups.
+* Plusieurs corrections de bogues et nettoyages de code.
 
 ## Klipper 0.10.0
 
@@ -33,85 +33,85 @@ Available on 20210929. Major changes in this release:
 * Support for the rp2040 micro-controller (Raspberry Pi Pico boards).
 * The "make menuconfig" system now utilizes kconfiglib.
 * Many additional modules added: ds18b20, duplicate_pin_override, filament_motion_sensor, palette2, motion_report, pca9533, pulse_counter, save_variables, sdcard_loop, temperature_host, temperature_mcu
-* Several bug fixes and code cleanups.
+* Plusieurs corrections de bogues et nettoyages de code.
 
 ## Klipper 0.9.0
 
-Available on 20201020. Major changes in this release:
+Disponible le 20/10/2020. Changements majeurs dans cette version :
 
-* Support for "Input Shaping" - a mechanism to counteract printer resonance. It can reduce or eliminate "ringing" in prints.
-* New "Smooth Pressure Advance" system. This implements "Pressure Advance" without introducing instantaneous velocity changes. It is also now possible to tune pressure advance using a "Tuning Tower" method.
-* New "webhooks" API server. This provides a programmable JSON interface to Klipper.
-* The LCD display and menu are now configurable using the Jinja2 template language.
-* The TMC2208 stepper motor drivers can now be used in "standalone" mode with Klipper.
-* Improved BL-Touch v3 support.
-* Improved USB identification. Klipper now has its own USB identification code and micro-controllers can now report their unique serial numbers during USB identification.
-* New kinematic support for "Rotary Delta" and "CoreXZ" printers.
-* Micro-controller improvements: support for stm32f070, support for stm32f207, support for GPIO pins on "Linux MCU", stm32 "HID bootloader" support, Chitu bootloader support, MKS Robin bootloader support.
-* Improved handling of Python "garbage collection" events.
-* Many additional modules added: adc_scaled, adxl345, bme280, display_status, extruder_stepper, fan_generic, hall_filament_width_sensor, htu21d, homing_heaters, input_shaper, lm75, print_stats, resonance_tester, shaper_calibrate, query_adc, graph_accelerometer, graph_extruder, graph_motion, graph_shaper, graph_temp_sensor, whconsole
-* Several bug fixes and code cleanups.
+* Prise en charge de "Input Shaping" - un mécanisme pour contrer la résonance de l'imprimante. Il peut réduire ou éliminer les "ondulations" dans les impressions.
+* Nouveau système "Smooth Pressure Advance". Cela implémente "Pressure Advance" sans introduire de changements de vitesse instantanés. Il est désormais possible de régler l'avance de pression à l'aide d'une méthode "Tour de réglage".
+* Nouveau serveur API "webhooks". Fournit une interface JSON programmable à Klipper.
+* L'écran LCD et le menu sont désormais configurables à l'aide du langage Jinja2.
+* Les pilotes de moteur pas à pas TMC2208 peuvent désormais être utilisés en mode "standalone" avec Klipper.
+* Prise en charge améliorée du BL-Touch v3.
+* Identification USB améliorée. Klipper dispose désormais de son propre code d'identification USB et les micro-contrôleurs peuvent désormais signaler leurs numéros de série lors de l'identification USB.
+* Nouveau support cinématique pour les imprimantes "Rotary Delta" et "CoreXZ".
+* Améliorations du microcontrôleur : prise en charge de stm32f070, prise en charge de stm32f207, prise en charge des broches GPIO sur "Linux MCU", prise en charge du "chargeur de démarrage HID" stm32, prise en charge du chargeur de démarrage Chitu, prise en charge du chargeur de démarrage MKS Robin.
+* Amélioration de la gestion des événements Python pour "garbage collection".
+* Nombreux modules supplémentaires ajoutés : adc_scaled, adxl345, bme280, display_status, extruder_stepper, fan_generic, hall_filament_width_sensor, htu21d, homing_heaters, input_shaper, lm75, print_stats, resonance_tester, shaper_calibrate, query_adc, graph_accelerometer, graph_extruder, graph_motion, graph_shaper, graph_temp_sensor, whconsole
+* Plusieurs corrections de bogues et nettoyages de code.
 
 ### Klipper 0.9.1
 
-Available on 20201028. Release containing only bug fixes.
+Disponible le 28/10/2020. Version contenant uniquement des corrections de bogues.
 
 ## Klipper 0.8.0
 
-Available on 20191021. Major changes in this release:
+Disponible le 21/10/2019. Changements majeurs dans cette version :
 
-* New G-Code command template support. G-Code in the config file is now evaluated with the Jinja2 template language.
-* Improvements to Trinamic stepper drivers:
-   * New support for TMC2209 and TMC5160 drivers.
-   * Improved DUMP_TMC, SET_TMC_CURRENT, and INIT_TMC G-Code commands.
-   * Improved support for TMC UART handling with an analog mux.
-* Improved homing, probing, and bed leveling support:
-   * New manual_probe, bed_screws, screws_tilt_adjust, skew_correction, safe_z_home modules added.
-   * Enhanced multi-sample probing with median, average, and retry logic.
-   * Improved documentation for BL-Touch, probe calibration, endstop calibration, delta calibration, sensorless homing, and endstop phase calibration.
-   * Improved homing support on a large Z axis.
-* Many Klipper micro-controller improvements:
-   * Klipper ported to: SAM3X8C, SAM4S8C, SAMD51, STM32F042, STM32F4
-   * New USB CDC driver implementations on SAM3X, SAM4, STM32F4.
-   * Enhanced support for flashing Klipper over USB.
-   * Software SPI support.
-   * Greatly improved temperature filtering on the LPC176x.
-   * Early output pin settings can be configured in the micro-controller.
-* New website with the Klipper documentation: http://klipper3d.org/
-   * Klipper now has a logo.
-* Experimental support for polar and "cable winch" kinematics.
-* The config file can now include other config files.
-* Many additional modules added: board_pins, controller_fan, delayed_gcode, dotstar, filament_switch_sensor, firmware_retraction, gcode_arcs, gcode_button, heater_generic, manual_stepper, mcp4018, mcp4728, neopixel, pause_resume, respond, temperature_sensor tsl1401cl_filament_width_sensor, tuning_tower
-* Many additional commands added: RESTORE_GCODE_STATE, SAVE_GCODE_STATE, SET_GCODE_VARIABLE, SET_HEATER_TEMPERATURE, SET_IDLE_TIMEOUT, SET_TEMPERATURE_FAN_TARGET
-* Several bug fixes and code cleanups.
+* Prise en charge du nouveau modèle de commande G-Code. Le G-Code dans le fichier de configuration est maintenant évalué avec le langage Jinja2.
+* Améliorations de la gestion des pilotes pas à pas Trinamic :
+   * Nouvelle prise en charge pour les pilotes TMC2209 et TMC5160.
+   * Commandes G-Code DUMP_TMC, SET_TMC_CURRENT et INIT_TMC améliorées.
+   * Prise en charge améliorée de la gestion TMC UART avec un multiplexage analogique.
+* Prise en charge améliorée de la mise à l'origine, du sondage et de la mise à niveau du lit :
+   * Nouveaux modules manual_probe, bed_screws, screw_tilt_adjust, skew_correction, safe_z_home ajoutés.
+   * Sondage multi-échantillons amélioré avec une logique de médiane, de moyenne et de nouvel essai.
+   * Documentation améliorée pour le BL-Touch, l'étalonnage de la sonde, l'étalonnage de la fin de course, l'étalonnage des imprimantes delta, la mise à l'origine sans capteur et l'étalonnage de la phase de fin de course.
+   * Prise en charge améliorée de la mise à l'origine sur un axe Z de grande taille.
+* De nombreuses améliorations du micro-contrôleur Klipper :
+   * Klipper porté sur : SAM3X8C, SAM4S8C, SAMD51, STM32F042, STM32F4
+   * Nouvelles implémentations des pilotes USB CDC sur SAM3X, SAM4, STM32F4.
+   * Prise en charge améliorée du flashage de Klipper via USB.
+   * Prise en charge du SPI logiciel.
+   * Filtrage de température grandement amélioré sur le capteur LPC176x.
+   * Les premiers paramètres des broches de sortie peuvent être configurés dans le micro-contrôleur.
+* Nouveau site web avec la documentation Klipper : http://klipper3d.org/
+   * Klipper a maintenant un logo.
+* Support expérimental pour la cinématique polaire et "treuil à câble".
+* Le fichier de configuration peut maintenant inclure d'autres fichiers de configuration.
+* De nombreux modules supplémentaires ajoutés : board_pins, controller_fan, delay_gcode, dotstar, filament_switch_sensor, firmware_retraction, gcode_arcs, gcode_button, heater_generic, manual_stepper, mcp4018, mcp4728, neopixel, pause_resume, respond, temperature_sensor tsl1401cl_filament_width_sensor, tuning_tower
+* De nombreuses commandes supplémentaires ajoutées : RESTORE_GCODE_STATE, SAVE_GCODE_STATE, SET_GCODE_VARIABLE, SET_HEATER_TEMPERATURE, SET_IDLE_TIMEOUT, SET_TEMPERATURE_FAN_TARGET
+* Plusieurs corrections de bogues et nettoyages de code.
 
 ## Klipper 0.7.0
 
-Available on 20181220. Major changes in this release:
+Disponible le 20/12/2018. Changements majeurs dans cette version :
 
-* Klipper now supports "mesh" bed leveling
-* New support for "enhanced" delta calibration (calibrates print x/y dimensions on delta printers)
-* Support for run-time configuration of Trinamic stepper motor drivers (tmc2130, tmc2208, tmc2660)
-* Improved temperature sensor support: MAX6675, MAX31855, MAX31856, MAX31865, custom thermistors, common pt100 style sensors
-* Several new modules: temperature_fan, sx1509, force_move, mcp4451, z_tilt, quad_gantry_level, endstop_phase, bltouch
-* Several new commands added: SAVE_CONFIG, SET_PRESSURE_ADVANCE, SET_GCODE_OFFSET, SET_VELOCITY_LIMIT, STEPPER_BUZZ, TURN_OFF_HEATERS, M204, custom g-code macros
-* Expanded LCD display support:
-   * Support for run-time menus
-   * New display icons
-   * Support for "uc1701" and "ssd1306" displays
-* Additional micro-controller support:
-   * Klipper ported to: LPC176x (Smoothieboards), SAM4E8E (Duet2), SAMD21 (Arduino Zero), STM32F103 ("Blue pill" devices), atmega32u4
-   * New Generic USB CDC driver implemented on AVR, LPC176x, SAMD21, and STM32F103
-   * Performance improvements on ARM processors
-* The kinematics code was rewritten to use an "iterative solver"
-* New automatic test cases for the Klipper host software
-* Many new example config files for common off-the-shelf printers
-* Documentation updates for bootloaders, benchmarking, micro-controller porting, config checks, pin mapping, slicer settings, packaging, and more
-* Several bug fixes and code cleanups
+* Klipper prend désormais en charge le nivellement du lit par maillage
+* Nouvel étalonnage des imprimantes delta "amélioré" (étalonne les dimensions d'impression x/y sur les imprimantes delta)
+* Gestion de la configuration pendant l'exécution des pilotes de moteur pas à pas Trinamic (tmc2130, tmc2208, tmc2660)
+* Prise en charge améliorée des capteurs de température : MAX6675, MAX31855, MAX31856, MAX31865, thermistances personnalisées, capteurs de style pt100
+* Plusieurs nouveaux modules : temperature_fan, sx1509, force_move, mcp4451, z_tilt, quad_gantry_level, endstop_phase, bltouch
+* Plusieurs nouvelles commandes ajoutées : SAVE_CONFIG, SET_PRESSURE_ADVANCE, SET_GCODE_OFFSET, SET_VELOCITY_LIMIT, STEPPER_BUZZ, TURN_OFF_HEATERS, M204, macros g-code personnalisées
+* Prise en charge étendue de l'écran LCD :
+   * Prise en charge des menus d'exécution
+   * Nouvelles icônes d'affichage
+   * Prise en charge des écrans "uc1701" et "ssd1306"
+* Prise en charge de nouveaux micro-contrôleurs :
+   * Klipper porté sur : LPC176x (Smoothieboards), SAM4E8E (Duet2), SAMD21 (Arduino Zero), STM32F103 (appareils "Blue pill"), atmega32u4
+   * Nouveau pilote CDC USB générique implémenté sur AVR, LPC176x, SAMD21 et STM32F103
+   * Améliorations des performances sur les processeurs ARM
+* Le code cinématique a été réécrit pour utiliser un "solveur itératif"
+* Nouveaux tests automatisés pour le logiciel hôte Klipper
+* De nombreux nouveaux exemples de fichiers de configuration pour les imprimantes les plus courantes
+* Mises à jour de la documentation pour les chargeurs de démarrage, l'analyse comparative, le portage des micro-contrôleurs, les vérifications de configuration, le mappage des broches, les paramètres du trancheur, le packaging, etc... .
+* Plusieurs corrections de bogues et nettoyages de code
 
 ## Klipper 0.6.0
 
-Available on 20180331. Major changes in this release:
+Disponible le 31/03/2018. Changements majeurs dans cette version :
 
 * Enhanced heater and thermistor hardware failure checks
 * Support for Z probes
@@ -128,12 +128,12 @@ Available on 20180331. Major changes in this release:
 * Support for setting different arm lengths on each tower of a delta
 * Support for G-Code M220/M221 commands (speed factor override / extrude factor override)
 * Several documentation updates:
-   * Many new example config files for common off-the-shelf printers
+   * De nombreux nouveaux exemples de fichiers de configuration pour les imprimantes les plus courantes
    * New multiple MCU config example
    * New bltouch sensor config example
    * New FAQ, config check, and G-Code documents
 * Initial support for continuous integration testing on all github commits
-* Several bug fixes and code cleanups
+* Plusieurs corrections de bogues et nettoyages de code
 
 ## Klipper 0.5.0
 
@@ -145,7 +145,7 @@ Available on 20171025. Major changes in this release:
 * Support for multiple micro-controllers. (For example, one could control an extruder with one micro-controller and the rest of the printer with another.) Software clock synchronization is implemented to coordinate actions between micro-controllers.
 * Stepper performance improvements (20Mhz AVRs up to 189K steps per second).
 * Support for controlling servos and support for defining nozzle cooling fans.
-* Several bug fixes and code cleanups
+* Plusieurs corrections de bogues et nettoyages de code
 
 ## Klipper 0.4.0
 
@@ -159,7 +159,7 @@ Available on 20170503. Major changes in this release:
 * The pressure advance algorithm now works with look-ahead to reduce pressure changes during cornering.
 * Support for limiting the top speed of short zigzag moves
 * Support for AD595 sensors
-* Several bug fixes and code cleanups
+* Plusieurs corrections de bogues et nettoyages de code
 
 ## Klipper 0.3.0
 
@@ -175,7 +175,7 @@ Available on 20161223. Major changes in this release:
 * Support for reloading the Klipper config and restarting the host software by issuing a "restart" command from the terminal.
 * Stepper performance improvements (20Mhz AVRs up to 158K steps per second).
 * Improved error reporting. Most errors now shown via the terminal along with help on how to resolve.
-* Several bug fixes and code cleanups
+* Plusieurs corrections de bogues et nettoyages de code
 
 ## Klipper 0.2.0
 

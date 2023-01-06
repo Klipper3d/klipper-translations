@@ -1,6 +1,6 @@
 Documentation Klipper
 
-Installation et Configuration
+Installation et configuration
 
 Référence de configuration
 
@@ -10,6 +10,6 @@ Compensation de résonance
 
 Modèles de commandes
 
-Documentation pour les Développeurs
+Documentation pour les développeurs
 
-Documents Spécifiques pour Certains Appareils
+Documents spécifiques à certains appareils

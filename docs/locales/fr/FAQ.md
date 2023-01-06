@@ -2,7 +2,7 @@
 
 ## Comment puis-je faire un don au projet ?
 
-Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
+Merci de votre soutien. Voir la page [Sponsors](Sponsors.md) pour plus d'informations.
 
 ## Comment calculer le paramètre de configuration rotation_distance ?
 
@@ -68,37 +68,37 @@ Le matériel recommandé est un Raspberry Pi 2, Raspberry Pi 3 ou Raspberry Pi 4
 
 Klipper fonctionne sur un Raspberry Pi 1 et sur le Raspberry Pi Zero, mais ces cartes n'ont pas assez de puissance de traitement pour faire fonctionner OctoPrint correctement. Il est fréquent que l'impression se fasse par à-coup avec ces machines plus lentes lorsqu'on imprime directement depuis OctoPrint. (L'imprimante peut chercher à imprimer plus rapidement que la vitesse à laquelle OctoPrint peut envoyer les commandes de mouvement.) Si vous souhaitez quand même utiliser une de ces cartes plus lentes, pensez à utiliser la fonctionnalité "virtual_sdcard" lors de l'impression (voir le document de [référence des configurations](Config_Reference.md#virtual_sdcard) pour plus de détails).
 
-For running on the Beaglebone, see the [Beaglebone specific installation instructions](Beaglebone.md).
+Pour l'exécution sur le Beaglebone, voir les [instructions d'installation spécifiques au Beaglebone](Beaglebone.md).
 
-Klipper has been run on other machines. The Klipper host software only requires Python running on a Linux (or similar) computer. However, if you wish to run it on a different machine you will need Linux admin knowledge to install the system prerequisites for that particular machine. See the [install-octopi.sh](../scripts/install-octopi.sh) script for further information on the necessary Linux admin steps.
+Klipper a été exécuté sur d'autres machines. Le logiciel hôte de Klipper ne nécessite que l'exécution de Python sur un ordinateur Linux (ou similaire). Cependant, si vous souhaitez l'exécuter sur une autre machine, vous aurez besoin de connaissances d'administrateur Linux pour installer les prérequis du système pour cette machine particulière. Consultez le script [install-octopi.sh](../scripts/install-octopi.sh) pour plus d'informations sur les étapes nécessaires à l'administration de Linux.
 
-If you are looking to run the Klipper host software on a low-end chip, then be aware that, at a minimum, a machine with "double precision floating point" hardware is required.
+Si vous souhaitez exécuter le logiciel hôte Klipper sur une puce bas de gamme, sachez qu'il faut au minimum une machine dotée d'un matériel à "double précision en virgule flottante".
 
-If you are looking to run the Klipper host software on a shared general-purpose desktop or server class machine, then note that Klipper has some real-time scheduling requirements. If, during a print, the host computer also performs an intensive general-purpose computing task (such as defragmenting a hard drive, 3d rendering, heavy swapping, etc.), then it may cause Klipper to report print errors.
+Si vous souhaitez exécuter le logiciel hôte Klipper sur un ordinateur de bureau ou un serveur polyvalent partagé, notez que Klipper a des exigences en matière de programmation en temps réel. Si, au cours d'une impression, l'ordinateur hôte exécute également une tâche informatique intensive (comme la défragmentation d'un disque dur, un rendu 3D, une forte utilisation du fichier d'échange, etc.), Klipper pourrait signaler des erreurs d'impression.
 
-Note: If you are not using an OctoPi image, be aware that several Linux distributions enable a "ModemManager" (or similar) package that can disrupt serial communication. (Which can cause Klipper to report seemingly random "Lost communication with MCU" errors.) If you install Klipper on one of these distributions you may need to disable that package.
+Note : Si vous n'utilisez pas une image OctoPi, sachez que de nombreuses distributions Linux activent un paquet "ModemManager" (ou similaire) pouvant perturber la communication série. (Ce qui peut amener Klipper à rapporter des erreurs apparemment aléatoires "Lost communication with MCU"). Si vous installez Klipper sur une de ces distributions, vous devrez peut-être désactiver ce paquet.
 
-## Can I run multiple instances of Klipper on the same host machine?
+## Puis-je exécuter plusieurs instances de Klipper sur la même machine hôte ?
 
-It is possible to run multiple instances of the Klipper host software, but doing so requires Linux admin knowledge. The Klipper installation scripts ultimately cause the following Unix command to be run:
+Il est possible d'exécuter plusieurs instances du logiciel hôte Klipper, mais cela nécessite des connaissances en administration Linux. Les scripts d'installation de Klipper entraînent finalement l'exécution de la commande Unix suivante :
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -l /tmp/klippy.log
 ```
 
-One can run multiple instances of the above command as long as each instance has its own printer config file, its own log file, and its own pseudo-tty. For example:
+On peut exécuter plusieurs instances de la commande ci-dessus à condition que chaque instance ait son propre fichier de configuration d'imprimante, son propre fichier journal et son propre pseudo-tty. Par exemple :
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer2.cfg -l /tmp/klippy2.log -I /tmp/printer2
 ```
 
-If you choose to do this, you will need to implement the necessary start, stop, and installation scripts (if any). The [install-octopi.sh](../scripts/install-octopi.sh) script and the [klipper-start.sh](../scripts/klipper-start.sh) script may be useful as examples.
+Si vous choisissez de le faire, vous devrez implémenter les scripts de démarrage, d'arrêt et d'installation nécessaires (le cas échéant). Le script [install-octopi.sh](../scripts/install-octopi.sh) et le script [klipper-start.sh](../scripts/klipper-start.sh) peuvent être utiles comme exemples.
 
 ## Suis-je obligé d'utiliser Octoprint ?
 
 Le logiciel Klipper n'est pas dépendant d'OctoPrint. Il est possible d'utiliser un autre logiciel pour envoyer des commandes à Klipper, mais cela nécessite des connaissances en administration Linux.
 
-Klipper creates a "virtual serial port" via the "/tmp/printer" file, and it emulates a classic 3d-printer serial interface via that file. In general, alternative software may work with Klipper as long as it can be configured to use "/tmp/printer" for the printer serial port.
+Klipper crée un "port série virtuel" via le fichier "/tmp/printer" qui émule une interface série classique d'imprimante 3d via ce fichier. En général, les logiciels alternatifs peuvent fonctionner avec Klipper tant qu'ils peuvent être configurés pour utiliser "/tmp/printer" pour le port série de l'imprimante.
 
 ## Pourquoi ne puis-je pas lancer un déplacement avant de prendre l'origine ?
 
@@ -108,17 +108,17 @@ Si vous souhaitez déplacer la tête après avoir annulé une impression via Oct
 
 Si vous souhaitez déplacer la tête après la fin d'une impression, pensez à ajouter le mouvement souhaité à la section "G-Code personnalisé" de votre slicer.
 
-If the printer requires some additional movement as part of the homing process itself (or fundamentally does not have a homing process) then consider using a safe_z_home or homing_override section in the config file. If you need to move a stepper for diagnostic or debugging purposes then consider adding a force_move section to the config file. See [config reference](Config_Reference.md#customized_homing) for further details on these options.
+Si l'imprimante nécessite un mouvement supplémentaire dans le cadre du processus de mise à l'origine (ou si elle n'a pas de processus de mise à l'origine), envisagez d'utiliser une section safe_z_home ou homing_override dans le fichier de configuration. Si vous devez déplacer un moteur à des fins de diagnostic ou de débogage, pensez à ajouter une section force_move dans le fichier de configuration. Voir [référence de configuration](Config_Reference.md#customized_homing) pour plus de détails sur ces options.
 
 ## Pourquoi le paramètre position_endstop de l'axe Z est-il défini à 0.5 dans les configurations par défaut ?
 
-For cartesian style printers the Z position_endstop specifies how far the nozzle is from the bed when the endstop triggers. If possible, it is recommended to use a Z-max endstop and home away from the bed (as this reduces the potential for bed collisions). However, if one must home towards the bed then it is recommended to position the endstop so it triggers when the nozzle is still a small distance away from the bed. This way, when homing the axis, it will stop before the nozzle touches the bed. See the [bed level document](Bed_Level.md) for more information.
+Pour les imprimantes de style cartésien, la position Z_endstop indique la distance entre la buse et le lit au moment du déclenchement de la fin de course. Si possible, il est recommandé d'utiliser une butée de fin de course Z-max et de s'éloigner du lit (car cela réduit le risque de collision avec le lit). Cependant, si l'on doit se rapprocher du lit, il est recommandé de positionner la butée de manière à ce qu'elle se déclenche lorsque la buse est encore à une petite distance du lit. De cette façon, lorsque l'axe se dirige vers le lit, il s'arrête avant que la buse ne touche le lit. Voir le document [niveau du lit](Bed_Level.md) pour plus d'informations.
 
-## I converted my config from Marlin and the X/Y axes work fine, but I just get a screeching noise when homing the Z axis
+## J'ai converti ma configuration depuis Marlin et les axes X/Y fonctionnent bien, mais j'obtiens un bruit strident lors de l'orientation de l'axe Z
 
-Short answer: First, make sure you have verified the stepper configuration as described in the [config check document](Config_checks.md). If the problem persists, try reducing the max_z_velocity setting in the printer config.
+Réponse courte : Tout d'abord, assurez-vous d'avoir vérifié la configuration du moteur comme décrit dans le [document de vérification de la configuration](Config_checks.md). Si le problème persiste, essayez de réduire le paramètre max_z_velocity dans la configuration de l'imprimante.
 
-Long answer: In practice Marlin can typically only step at a rate of around 10000 steps per second. If it is requested to move at a speed that would require a higher step rate then Marlin will generally just step as fast as it can. Klipper is able to achieve much higher step rates, but the stepper motor may not have sufficient torque to move at a higher speed. So, for a Z axis with a high gearing ratio or high microsteps setting the actual obtainable max_z_velocity may be smaller than what is configured in Marlin.
+Réponse longue : En pratique, Marlin ne peut se déplacer qu'à une vitesse d'environ 10000 pas par seconde. Si on lui demande de se déplacer à une vitesse nécessitant un taux de pas plus élevé, Marlin se contentera généralement de faire des pas aussi rapides qu'il le peut. Klipper est capable d'atteindre des taux de pas beaucoup plus élevés, mais le moteur pas à pas peut ne pas avoir de couple suffisant pour se déplacer à une vitesse plus élevée. Ainsi, pour un axe Z avec un rapport d'engrenage élevé ou un réglage de micropas élevé, la vitesse max_z_obtenue peut être inférieure à ce qui est configuré dans Marlin.
 
 ## Mes pilotes de moteur TMC s'arrêtent en plein milieu d'une impression
 
@@ -129,16 +129,16 @@ Si vous utilisez le pilote TMC2208 (ou TMC2224) en "mode autonome", assurez-vous
 Ce problème est généralement causé par des erreurs matérielles sur la connexion USB entre la machine hôte et le microcontrôleur. Les choses à rechercher :
 
 - Utilisez un câble USB de qualité entre la machine hôte et le microcontrôleur. Assurez-vous que les fiches sont bien fixées.
-- If using a Raspberry Pi, use a [good quality power supply](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply) for the Raspberry Pi and use a [good quality USB cable](https://forums.raspberrypi.com/viewtopic.php?p=589877#p589877) to connect that power supply to the Pi. If you get "under voltage" warnings from OctoPrint, this is related to the power supply and it must be fixed.
+- Si vous utilisez un Raspberry Pi, utilisez une [alimentation de bonne qualité](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply) pour le Raspberry Pi et utilisez un [câble USB de bonne qualité](https://forums.raspberrypi.com/viewtopic.php?p=589877#p589877) pour connecter cette alimentation au Pi. Si OctoPrint vous avertit que vous êtes sous tension, cela est lié à l'alimentation électrique et doit être réparé.
 - Assurez-vous que l'alimentation électrique de l'imprimante n'est pas surchargée. (Les fluctuations d'alimentation de la puce USB du microcontrôleur peuvent entraîner une réinitialisation de cette puce.)
-- Verify stepper, heater, and other printer wires are not crimped or frayed. (Printer movement may place stress on a faulty wire causing it to lose contact, briefly short, or generate excessive noise.)
-- There have been reports of high USB noise when both the printer's power supply and the host's 5V power supply are mixed. (If you find that the micro-controller powers on when either the printer's power supply is on or the USB cable is plugged in, then it indicates the 5V power supplies are being mixed.) It may help to configure the micro-controller to use power from only one source. (Alternatively, if the micro-controller board can not configure its power source, one may modify a USB cable so that it does not carry 5V power between the host and micro-controller.)
+- Vérifiez que les fils de l'imprimante (pastille, élément chauffant et autres) sont bien sertis et pas effilochés. (Le mouvement de l'imprimante peut exercer une contrainte sur un câblage défectueux entraînant une perte de contact, un court-circuit bref ou la production d'un bruit excessif.)
+- Des signalements ont fait état d'un bruit USB élevé lorsque l'alimentation de l'imprimante et l'alimentation 5V de l'hôte sont mélangées. (Si vous constatez que le microcontrôleur s'allume lorsque l'alimentation de l'imprimante est sous tension ou que le câble USB est branché, cela indique que les alimentations 5V sont mélangées). Il peut être utile de configurer le micro-contrôleur pour qu'il utilise l'alimentation d'une seule source. (Alternativement, si la carte du micro-contrôleur ne peut pas configurer sa source d'alimentation, on peut modifier un câble USB pour qu'il ne transporte pas de tension de 5V entre l'hôte et le micro-contrôleur.)
 
 ## Mon Raspberry Pi redémarre pendant les impressions
 
 Cela est très probablement dû à des fluctuations de tension. Suivez les mêmes étapes de dépannage que pour une erreur [« Communication perdue avec le MCU »](#i-keep-getting-random-lost-communication-with-mcu-errors).
 
-## When I set `restart_method=command` my AVR device just hangs on a restart
+## Lorsque j'ai défini `restart_method=command`, mon appareil AVR se bloque lors d'un redémarrage
 
 Certaines anciennes versions du bootloader AVR ont un bogue connu dans la gestion des événements de chien de garde. Cela se manifeste typiquement lorsque le paramètre restart_method est défini sur "command" dans le fichier printer.cfg. Lorsque le bogue se produit, le dispositif AVR ne répond pas jusqu'à ce que l'alimentation de la carte soit coupée puis remise (les DEL d'alimentation ou d'état peuvent également clignoter de manière répétée jusqu'à ce que l'alimentation soit retirée).
 
