@@ -33,11 +33,11 @@ Klipper prend en charge les commandes G-Code standard suivantes :
 
 Pour plus de détails sur les commandes ci-dessus, voir la [documentation RepRap G-Code] (http://reprap.org/wiki/G-code).
 
-Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable ["extended G-Code commands"](#additional-commands). Similarly, the G-Code terminal output is only intended to be human readable - see the [API Server document](API_Server.md) if controlling Klipper from external software.
+L'objectif de Klipper est de prendre en charge les commandes G-Code produites par les logiciels tiers courants (par exemple, OctoPrint, Printrun, Slic3r, Cura, etc.) dans leurs configurations standards. Le but n'est pas de prendre en charge toutes les commandes G-Code possibles. Au contraire, Klipper préfère les ["commandes G-Code étendues"] (#additional-commands) humainement lisibles. De la même manière, la sortie du terminal G-Code est uniquement destinée à être humainement lisible - voir le [document du serveur API](API_Server.md) si vous contrôlez Klipper depuis un logiciel externe.
 
 Si vous avez besoin d'une commande G-Code moins courante, il est possible de l'implémenter avec une section de configuration [gcode_macro personnalisée](Config_Reference.md#gcode_macro). Par exemple, on peut utiliser ceci pour implémenter : `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`, etc.
 
-## Additional Commands
+## Commandes additionnelles
 
 Klipper utilise des commandes G-Code "étendues" pour la configuration générale et l'état. Ces commandes étendues suivent toutes un format similaire : elles commencent par le nom de la commande et peuvent être suivies d'un ou plusieurs paramètres. Par exemple : `SET_SERVO SERVO=myservo ANGLE=5.3 `. Dans ce document, les commandes et les paramètres sont indiqués en majuscules, mais ils ne sont pas sensibles à la casse. (Ainsi, "SET_SERVO" et "set_servo" exécuteront tous deux la même commande).
 
@@ -49,19 +49,19 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 #### ACCELEROMETER_MEASURE
 
-`ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]`: Starts accelerometer measurements at the requested number of samples per second. If CHIP is not specified it defaults to "adxl345". The command works in a start-stop mode: when executed for the first time, it starts the measurements, next execution stops them. The results of measurements are written to a file named `/tmp/adxl345-<chip>-<name>.csv` where `<chip>` is the name of the accelerometer chip (`my_chip_name` from `[adxl345 my_chip_name]`) and `<name>` is the optional NAME parameter. If NAME is not specified it defaults to the current time in "YYYYMMDD_HHMMSS" format. If the accelerometer does not have a name in its config section (simply `[adxl345]`) then `<chip>` part of the name is not generated.
+`ACCELEROMETER_MEASURE [CHIP=<nom_de_la_configuration>] [NAME=<valeur>]` : Démarre les mesures de l'accéléromètre au nombre d'échantillons par seconde demandé. Si CHIP n'est pas précisé, la valeur par défaut est "adxl345". La commande fonctionne en mode start-stop : exécutée pour la première fois, elle démarre les mesures, l'exécution suivante les arrête. Les résultats des mesures sont écrits dans un fichier nommé `/tmp/adxl345-<chip>-<nom>.csv` où `<chip>` est le nom de la puce accéléromètre (`my_chip_name` de `[adxl345 my_chip_name]`) et `<nom>` est le paramètre optionnel NAME. Si le paramètre NOM n'est pas précisé, l'heure actuelle est utilisée par défaut au format "AAAAMMJJ_HHMMSS". Si l'accéléromètre n'a pas de nom dans sa section de configuration (simplement `[adxl345]`) alors la partie `<chip>` du nom n'est pas générée.
 
 #### ACCELEROMETER_QUERY
 
-`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).
+`ACCELEROMETER_QUERY [CHIP=<nom_de_la_configuration>] [RATE=<valeur>]` : interroge l'accéléromètre pour la valeur courante. Si CHIP n'est pas précisé, la valeur par défaut est "adxl345". Si RATE n'est pas précisé, la valeur par défaut est utilisée. Cette commande permet de tester la connexion à l'accéléromètre ADXL345 : une des valeurs retournées devrait être une accélération en chute libre (+/- un certain bruit de la puce).
 
 #### ACCELEROMETER_DEBUG_READ
 
-`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries ADXL345 register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes.
+`ACCELEROMETER_DEBUG_READ [CHIP=<nom_de_la_configuration>] REG=<registre>` : interroge le registre ADXL345 "registre" (par exemple 44 ou 0x2C). Peut être utile à des fins de débogage.
 
 #### ACCELEROMETER_DEBUG_WRITE
 
-`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Writes raw "value" into a register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.
+`ACCELEROMETER_DEBUG_WRITE [CHIP=<nom_de_la_configuration>] REG=<registre> VAL=<valeur>` : Ecrit la "valeur" brute dans le registre "registre". La "valeur" et le "registre" peuvent être des entiers décimaux ou hexadécimaux. A utiliser avec précaution, et se référer à la fiche technique de l'ADXL345 pour la référence.
 
 ### [angle]
 
@@ -69,15 +69,15 @@ The following commands are available when an [angle config section](Config_Refer
 
 #### ANGLE_CALIBRATE
 
-`ANGLE_CALIBRATE CHIP=<chip_name>`: Perform angle calibration on the given sensor (there must be an `[angle chip_name]` config section that has specified a `stepper` parameter). IMPORTANT - this tool will command the stepper motor to move without checking the normal kinematic boundary limits. Ideally the motor should be disconnected from any printer carriage before performing calibration. If the stepper can not be disconnected from the printer, make sure the carriage is near the center of its rail before starting calibration. (The stepper motor may move forwards or backwards two full rotations during this test.) After completing this test use the `SAVE_CONFIG` command to save the calibration data to the config file. In order to use this tool the Python "numpy" package must be installed (see the [measuring resonance document](Measuring_Resonances.md#software-installation) for more information).
+`ANGLE_CALIBRATE CHIP=<nom_de_la_puce>` : Effectue une calibration d'angle sur le capteur donné (il doit y avoir une section de configuration `[angle nom_de_la_puce]` qui a indiqué un paramètre `stepper`). IMPORTANT - cet outil commandera au moteur pas à pas de se déplacer sans vérifier les limites normales de la cinématique. Idéalement, le moteur devrait être déconnecté de tout chariot d'imprimante avant d'effectuer le calibrage. Si le moteur pas à pas ne peut pas être déconnecté de l'imprimante, assurez-vous que le chariot est proche du centre de son rail avant de commencer l'étalonnage. (Le moteur pas à pas peut se déplacer vers l'avant ou l'arrière de deux rotations complètes durant ce test). Après avoir terminé ce test, utilisez la commande `SAVE_CONFIG` pour sauvegarder les données de calibration dans le fichier de configuration. Afin d'utiliser cet outil, le paquetage Python "numpy" doit être installé (voir le document [mesurer les résonances](Measuring_Resonances.md#software-installation) pour plus d'informations).
 
 #### ANGLE_DEBUG_READ
 
-`ANGLE_DEBUG_READ CHIP=<config_name> REG=<register>`: Queries sensor register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes. This is only available for tle5012b chips.
+`ANGLE_DEBUG_READ CHIP=<nom_de_la_configuration> REG=<registre>` : Interroge le registre "registre" du capteur (par exemple 44 ou 0x2C). Peut être utile à des fins de débogage. Ceci n'est disponible que pour les puces tle5012b.
 
 #### ANGLE_DEBUG_WRITE
 
-`ANGLE_DEBUG_WRITE CHIP=<config_name> REG=<register> VAL=<value>`: Writes raw "value" into register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to sensor data sheet for the reference. This is only available for tle5012b chips.
+`ANGLE_DEBUG_WRITE CHIP=<nom_de_la_configuration> REG=<registre> VAL=<valeur>` : Écrit la "valeur" brute dans le registre "registre". La "valeur" et le "registre" peuvent être des entiers décimaux ou hexadécimaux. A utiliser avec précaution, et se référer à la fiche technique du capteur pour la référence. Cette fonction n'est disponible que pour les puces tle5012b.
 
 ### [bed_mesh]
 
@@ -89,7 +89,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 #### BED_MESH_OUTPUT
 
-`BED_MESH_OUTPUT PGP=[<0:1>]`: This command outputs the current probed z values and current mesh values to the terminal. If PGP=1 is specified the X, Y coordinates generated by bed_mesh, along with their associated indices, will be output to the terminal.
+`BED_MESH_OUTPUT PGP=[<0:1>]` : Cette commande écrit les valeurs z palpées actuelles et les valeurs de maillage actuelles sur le terminal. Si PGP=1 est spécifié, les coordonnées X, Y générées par bed_mesh, ainsi que leurs indices associés, seront envoyés au terminal.
 
 #### BED_MESH_MAP
 
@@ -101,7 +101,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 #### BED_MESH_PROFILE
 
-`BED_MESH_PROFILE LOAD=<name> SAVE=<name> REMOVE=<name>`: This command provides profile management for mesh state. LOAD will restore the mesh state from the profile matching the supplied name. SAVE will save the current mesh state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to persistent memory permanent.
+`BED_MESH_PROFILE LOAD=<nom> SAVE=<nom> REMOVE=<nom>` : Cette commande fournit une gestion de profil pour l'état du maillage. LOAD restaurera l'état du maillage à partir du profil correspondant au nom fourni. SAVE sauvegarde l'état du maillage actuel dans un profil correspondant au nom fourni. REMOVE supprimera le profil correspondant au nom fourni de la mémoire persistante. Notez qu'après l'exécution des opérations SAVE ou REMOVE, le gcode SAVE_CONFIG doit être exécuté pour rendre les changements de la mémoire persistante permanents.
 
 #### BED_MESH_OFFSET
 
@@ -129,7 +129,7 @@ The following command is available when a [bltouch config section](Config_Refere
 
 #### BLTOUCH_DEBUG
 
-`BLTOUCH_DEBUG COMMAND=<command>`: This sends a command to the BLTouch. It may be useful for debugging. Available commands are: `pin_down`, `touch_mode`, `pin_up`, `self_test`, `reset`. A BL-Touch V3.0 or V3.1 may also support `set_5V_output_mode`, `set_OD_output_mode`, `output_mode_store` commands.
+`BLTOUCH_DEBUG COMMAND=<commande>` : Ceci envoie une commande au BLTouch. Elle peut être utile pour le débogage. Les commandes disponibles sont : `pin_down`, `touch_mode`, `pin_up`, `self_test`, `reset`. Un BL-Touch V3.0 ou V3.1 accepte en plus les commandes `set_5V_output_mode`, `set_OD_output_mode`, `output_mode_store`.
 
 #### BLTOUCH_STORE
 
@@ -178,9 +178,9 @@ The display_status module is automatically loaded if a [display config section](
 - Afficher un message : `M117 <message> `
 - Définir le pourcentage de génération : `M73 P<pourcentage>`
 
-Also provided is the following extended G-Code command:
+La commande G-Code étendue suivante est également fournie :
 
-- `SET_DISPLAY_TEXT MSG=<message>`: Performs the equivalent of M117, setting the supplied `MSG` as the current display message. If `MSG` is omitted the display will be cleared.
+- `SET_DISPLAY_TEXT MSG=<message>` : Effectue l'équivalent de M117, en définissant le `MSG` fourni comme le message d'affichage actuel. Si `MSG` est omis, l'affichage est effacé.
 
 ### [dual_carriage]
 
@@ -204,7 +204,7 @@ The following commands are available when an [exclude_object config section](Con
 
 #### `EXCLUDE_OBJECT`
 
-`EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]`: With no parameters, this will return a list of all currently excluded objects.
+`EXCLUDE_OBJECT [NAME=nom_objet] [CURRENT=1] [RESET=1]` : Sans paramètres, cette commande renvoie une liste de tous les objets actuellement exclus.
 
 When the `NAME` parameter is given, the named object will be excluded from printing.
 
@@ -214,25 +214,25 @@ When the `RESET` parameter is given, the list of excluded objects will be cleare
 
 #### `EXCLUDE_OBJECT_DEFINE`
 
-`EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] [RESET=1] [JSON=1]`: Provides a summary of an object in the file.
+`EXCLUDE_OBJECT_DEFINE [NAME=nom_objet [CENTER=X,Y] [POLYGON=[[x,y],...]]] [RESET=1] [JSON=1]` : Fournit le résumé d'un objet dans le fichier.
 
 With no parameters provided, this will list the defined objects known to Klipper. Returns a list of strings, unless the `JSON` parameter is given, when it will return object details in json format.
 
 When the `NAME` parameter is included, this defines an object to be excluded.
 
-- `NAME`: This parameter is required. It is the identifier used by other commands in this module.
-- `CENTER`: An X,Y coordinate for the object.
-- `POLYGON`: An array of X,Y coordinates that provide an outline for the object.
+- `NAME` : Ce paramètre est obligatoire. Il s'agit de l'identifiant utilisé par les autres commandes de ce module.
+- `CENTER` : Une coordonnée X,Y pour l'objet.
+- `POLYGON` : Un tableau de coordonnées X,Y fournissant le contour d'un objet.
 
 When the `RESET` parameter is provided, all defined objects will be cleared, and the `[exclude_object]` module will be reset.
 
 #### `EXCLUDE_OBJECT_START`
 
-`EXCLUDE_OBJECT_START NAME=object_name`: This command takes a `NAME` parameter and denotes the start of the gcode for an object on the current layer.
+`EXCLUDE_OBJECT_START NAME=nom_objet` : Cette commande prend un paramètre `NAME` et indique le début du gcode pour un objet sur la couche courante.
 
 #### `EXCLUDE_OBJECT_END`
 
-`EXCLUDE_OBJECT_END [NAME=object_name]`: Denotes the end of the object's gcode for the layer. It is paired with `EXCLUDE_OBJECT_START`. A `NAME` parameter is optional, and will only warn when the provided name does not match the current object.
+`EXCLUDE_OBJECT_END [NAME=nom_objet]` : Indique la fin du gcode de l'objet pour la couche. Il est associé à `EXCLUDE_OBJECT_START`. Le paramètre `NAME` est optionnel, et n'avertira que si le nom fourni ne correspond au nom actuel.
 
 ### [extruder]
 
@@ -240,7 +240,7 @@ The following commands are available if an [extruder config section](Config_Refe
 
 #### ACTIVATE_EXTRUDER
 
-`ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: In a printer with multiple [extruder](Config_Reference.md#extruder) config sections, this command changes the active hotend.
+`ACTIVATE_EXTRUDER EXTRUDER=<nom_de_la_configuration>` : Dans une imprimante comportant plusieurs sections de configuration d'[extrudeuse](Config_Reference.md#extrudeur), cette commande sélectionne la tête d'outil active.
 
 #### SET_PRESSURE_ADVANCE
 
@@ -248,7 +248,7 @@ The following commands are available if an [extruder config section](Config_Refe
 
 #### SET_EXTRUDER_ROTATION_DISTANCE
 
-`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: Set a new value for the provided extruder stepper's "rotation distance" (as defined in an [extruder](Config_Reference.md#extruder) or [extruder_stepper](Config_Reference.md#extruder_stepper) config section). If the rotation distance is a negative number then the stepper motion will be inverted (relative to the stepper direction specified in the config file). Changed settings are not retained on Klipper reset. Use with caution as small changes can result in excessive pressure between extruder and hotend. Do proper calibration with filament before use. If 'DISTANCE' value is not provided then this command will return the current rotation distance.
+`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<nom_config> [DISTANCE=<distance>]` : Définit une nouvelle valeur pour la "distance de rotation" du moteur de l'extrudeuse fournie (telle que définie dans une section de configuration [extruder](Config_Reference.md#extruder) ou [extruder_stepper](Config_Reference.md#extruder_stepper)). Si la distance de rotation est un nombre négatif, le mouvement du moteur sera inversé (par rapport à la direction du moteur spécifiée dans le fichier de configuration). Les paramètres modifiés ne sont pas conservés lors de la réinitialisation de Klipper. Utilisez avec précaution car de petites modifications peuvent entraîner une pression excessive entre l'extrudeuse et la tête de l'outil. Effectuez un calibrage correct avec le filament avant de l'utiliser. Si la valeur 'DISTANCE' n'est pas fournie, cette commande renvoie la distance de rotation actuelle.
 
 #### SYNC_EXTRUDER_MOTION
 
@@ -276,7 +276,7 @@ The following command is available when a [filament_switch_sensor](Config_Refere
 
 #### QUERY_FILAMENT_SENSOR
 
-`QUERY_FILAMENT_SENSOR SENSOR=<sensor_name>`: Queries the current status of the filament sensor. The data displayed on the terminal will depend on the sensor type defined in the configuration.
+`QUERY_FILAMENT_SENSOR SENSOR=<nom_du_capteur>` : Interroge l'état actuel du capteur de filament. Les données affichées sur le terminal dépendront du type de capteur défini dans la configuration.
 
 #### SET_FILAMENT_SENSOR
 
@@ -339,8 +339,8 @@ The gcode module is automatically loaded.
 
 The following standard G-Code commands are available if a [gcode_arcs config section](Config_Reference.md#gcode_arcs) is enabled:
 
-- Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): `G2|G3 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> K<value>|J<value> K<value>`
-- Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)
+- Déplacement d'un arc dans le sens des aiguilles d'une montre (G2), déplacement d'un arc dans le sens inverse des aiguilles d'une montre (G3) : `G2|G3 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> K<value>|J<value> K<value>`
+- Sélection du plan de l'arc : G17 (plan XY), G18 (plan XZ), G19 (plan YZ)
 
 ### [gcode_macro]
 
@@ -356,7 +356,7 @@ The gcode_move module is automatically loaded.
 
 #### GET_POSITION
 
-`GET_POSITION`: Return information on the current location of the toolhead. See the developer documentation of [GET_POSITION output](Code_Overview.md#coordinate-systems) for more information.
+`GET_POSITION` : Retourne les informations de l'emplacement actuel de la tête d'outil. Voir la documentation du développeur de [restitution de GET_POSITION](Code_Overview.md#coordinate-systems) pour plus d'informations.
 
 #### SET_GCODE_OFFSET
 
@@ -376,31 +376,31 @@ The following commands are available when the [tsl1401cl filament width sensor c
 
 #### QUERY_FILAMENT_WIDTH
 
-`QUERY_FILAMENT_WIDTH`: Return the current measured filament width.
+`QUERY_FILAMENT_WIDTH` : Renvoie la largeur actuelle du filament mesuré.
 
 #### RESET_FILAMENT_WIDTH_SENSOR
 
-`RESET_FILAMENT_WIDTH_SENSOR`: Clear all sensor readings. Helpful after filament change.
+`RESET_FILAMENT_WIDTH_SENSOR` : Efface toutes les lectures du capteur. Utile après un changement de filament.
 
 #### DISABLE_FILAMENT_WIDTH_SENSOR
 
-`DISABLE_FILAMENT_WIDTH_SENSOR`: Turn off the filament width sensor and stop using it for flow control.
+`DISABLE_FILAMENT_WIDTH_SENSOR` : Désactiver le capteur de largeur de filament et arrêter de l'utiliser pour le contrôle du flux.
 
 #### ENABLE_FILAMENT_WIDTH_SENSOR
 
-`ENABLE_FILAMENT_WIDTH_SENSOR`: Turn on the filament width sensor and start using it for flow control.
+`ENABLE_FILAMENT_WIDTH_SENSOR` : Activez le capteur de largeur de filament et commencez à l'utiliser pour le contrôle du flux.
 
 #### QUERY_RAW_FILAMENT_WIDTH
 
-`QUERY_RAW_FILAMENT_WIDTH`: Return the current ADC channel readings and RAW sensor value for calibration points.
+`QUERY_RAW_FILAMENT_WIDTH` : Renvoie les lectures actuelles des canaux ADC et la valeur RAW du capteur des points de calibration.
 
 #### ENABLE_FILAMENT_WIDTH_LOG
 
-`ENABLE_FILAMENT_WIDTH_LOG`: Turn on diameter logging.
+`ENABLE_FILAMENT_WIDTH_LOG` : Activer la journalisation du diamètre.
 
 #### DISABLE_FILAMENT_WIDTH_LOG
 
-`DISABLE_FILAMENT_WIDTH_LOG`: Turn off diameter logging.
+`DISABLE_FILAMENT_WIDTH_LOG` : Désactiver la journalisation du diamètre.
 
 ### [heaters]
 
@@ -468,7 +468,7 @@ The following command is available when a [mcp4018 config section](Config_Refere
 
 #### SET_DIGIPOT
 
-`SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: This command will change the current value of the digipot. This value should typically be between 0.0 and 1.0, unless a 'scale' is defined in the config. When 'scale' is defined, then this value should be between 0.0 and 'scale'.
+`SET_DIGIPOT DIGIPOT=config_name WIPER=<valeur>` : Cette commande change la valeur actuelle du digipot. Cette valeur devrait typiquement être comprise entre 0.0 et 1.0, à moins qu'une 'échelle' soit définie dans la configuration. Lorsque 'scale' est défini, alors cette valeur doit être comprise entre 0.0 et 'scale'.
 
 ### [led]
 
@@ -626,8 +626,8 @@ The following additional commands are also available.
 
 - `RESPOND MSG="<message>"` : Affiche le message précédé du préfixe par défaut configuré (ou `echo : ` si aucun préfixe n'est configuré).
 - `RESPOND TYPE=echo MSG="<message>" ` : affiche le message précédé par `echo : `.
-- `RESPOND TYPE=echo_no_space MSG="<message>"`: echo the message prepended with `echo:` without a space between prefix and message, helpful for compatibility with some octoprint plugins that expect very specific formatting.
-- `RESPOND TYPE=command MSG="<message>"`: echo the message prepended with `// `. OctoPrint can be configured to respond to these messages (e.g. `RESPOND TYPE=command MSG=action:pause`).
+- `RESPOND TYPE=echo_no_space MSG="<message>"` : renvoie le message précédé de `echo:` sans espace entre le préfixe et le message, utile pour la compatibilité avec certains plugins octoprint qui attendent un formatage très spécifique.
+- `RESPOND TYPE=command MSG="<message>"` : renvoie le message précédé de `// `. OctoPrint peut être configuré pour répondre à ces messages (par exemple, `RESPOND TYPE=command MSG=action:pause`).
 - `RESPOND TYPE=error MSG="<message>" ` : affiche le message précédé par `!!!`.
 - `RESPOND PREFIX=<prefix> MSG="<message>"` : renvoie le message précédé de `<prefix>`. (Le paramètre `PREFIX` est prioritaire sur le paramètre `TYPE`).
 
@@ -645,7 +645,7 @@ The following commands are available when the [screws_tilt_adjust config section
 
 #### SCREWS_TILT_CALCULATE
 
-`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [<probe_parameter>=<value>]`: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) probing the z height and calculate the number of knob turns to adjust the bed level. If DIRECTION is specified, the knob turns will all be in the same direction, clockwise (CW) or counterclockwise (CCW). See the PROBE command for details on the optional probe parameters. IMPORTANT: You MUST always do a G28 before using this command. If MAX_DEVIATION is specified, the command will raise a gcode error if any difference in the screw height relative to the base screw height is greater than the value provided.
+`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<valeur>] [<probe_parameter>=<valeur>]` : Cette commande invoquera l'outil de réglage des vis du lit. Elle déplacera la buse à différents endroits (tels que définis dans le fichier de configuration) en palpant la hauteur z et calculera le nombre de tours de la molette de réglage pour ajuster le niveau du lit. Si DIRECTION est spécifié, les tours de la molette seront tous dans la même direction, dans le sens des aiguilles d'une montre (CW) ou dans le sens inverse (CCW). Voir la commande PROBE pour plus de détails sur les paramètres optionnels de la sonde. IMPORTANT : Vous DEVEZ toujours effectuer un G28 avant d'utiliser cette commande. Si MAX_DEVIATION est spécifié, la commande déclenchera une erreur de gcode si une différence de hauteur de vis par rapport à la hauteur de vis de base est supérieure à la valeur fournie.
 
 ### [sdcard_loop]
 
@@ -653,7 +653,7 @@ When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is enable
 
 #### SDCARD_LOOP_BEGIN
 
-`SDCARD_LOOP_BEGIN COUNT=<count>`: Begin a looped section in the SD print. A count of 0 indicates that the section should be looped indefinitely.
+`SDCARD_LOOP_BEGIN COUNT=<compte>` : Commence une section bouclée dans l'impression SD. Un compte de 0 indique que la section doit être bouclée indéfiniment.
 
 #### SDCARD_LOOP_END
 
@@ -685,7 +685,7 @@ The following commands are available when the [skew_correction config section](C
 
 #### CALC_MEASURED_SKEW
 
-`CALC_MEASURED_SKEW [AC=<ac_length>] [BD=<bd_length>] [AD=<ad_length>]`: Calculates and reports the skew (in radians and degrees) based on a measured print. This can be useful for determining the printer's current skew after correction has been applied. It may also be useful before correction is applied to determine if skew correction is necessary. See [Skew Correction](Skew_Correction.md) for details on skew calibration objects and measurements.
+`CALC_MEASURED_SKEW [AC=<ac_length>] [BD=<bd_length>] [AD=<ad_length>]` : Calcule et rapporte l'inclinaison (en radians et en degrés) basée sur une impression mesurée. Cela peut être utile pour déterminer l'inclinaison actuelle de l'imprimante après l'application de la correction. Elle peut également être utile avant l'application de la correction pour déterminer si une correction de l'inclinaison est nécessaire. Reportez-vous à la section [Correction de l'obliquité] (Skew_Correction.md) pour plus de détails sur les objets et les mesures de calibrage de l'obliquité.
 
 #### SKEW_PROFILE
 
@@ -701,7 +701,7 @@ Several commands are available when a [smart_effector config section](Config_Ref
 
 #### RESET_SMART_EFFECTOR
 
-`RESET_SMART_EFFECTOR`: Resets Smart Effector sensitivity to its factory settings. Requires `control_pin` to be provided in the config section.
+`RESET_SMART_EFFECTOR` : Réinitialise la sensibilité du Smart Effector à ses paramètres d'usine. Nécessite que `control_pin` soit fourni dans la section de configuration.
 
 ### [stepper_enable]
 
@@ -729,7 +729,7 @@ The following commands are available when any of the [tmcXXXX config sections](C
 
 #### INIT_TMC
 
-`INIT_TMC STEPPER=<name>`: This command will initialize the TMC registers. Needed to re-enable the driver if power to the chip is turned off then back on.
+`INIT_TMC STEPPER=<nom>` : Cette commande initialise les registres de la puce TMC. Nécessaire pour réactiver le pilote si l'alimentation de la puce est coupée puis rétablie.
 
 #### SET_TMC_CURRENT
 
@@ -755,13 +755,13 @@ The tuning_tower module is automatically loaded.
 
 `TUNING_TOWER COMMAND=<command> PARAMETER=<name> START=<value> [SKIP=<value>] [FACTOR=<value> [BAND=<value>]] | [STEP_DELTA=<value> STEP_HEIGHT=<value>]`: A tool for tuning a parameter on each Z height during a print. The tool will run the given `COMMAND` with the given `PARAMETER` assigned to a value that varies with `Z` according to a formula. Use `FACTOR` if you will use a ruler or calipers to measure the Z height of the optimum value, or `STEP_DELTA` and `STEP_HEIGHT` if the tuning tower model has bands of discrete values as is common with temperature towers. If `SKIP=<value>` is specified, the tuning process doesn't begin until Z height `<value>` is reached, and below that the value will be set to `START`; in this case, the `z_height` used in the formulas below is actually `max(z - skip, 0)`. There are three possible combinations of options:
 
-- `FACTOR`: The value changes at a rate of `factor` per millimeter. The formula used is: `value = start + factor * z_height`. You can plug the optimum Z height directly into the formula to determine the optimum parameter value.
-- `FACTOR` and `BAND`: The value changes at an average rate of `factor` per millimeter, but in discrete bands where the adjustment will only be made every `BAND` millimeters of Z height. The formula used is: `value = start + factor * ((floor(z_height / band) + .5) * band)`.
+- `FACTOR` : La valeur change à un taux de `factor` par millimètre. La formule utilisée est : `valeur = start + factor * z_height`. Vous pouvez insérer la hauteur Z optimale directement dans la formule pour déterminer la valeur optimale du paramètre.
+- `FACTOR` and `BAND`: La valeur change à un taux moyen de `factor` par millimètre, mais dans des bandes discrètes où l'ajustement ne sera fait que tous les `BAND` millimètres de hauteur Z. La formule utilisée est : `valeur =start + factor * ((floor(z_height / band) + .5) * band)`.
 - `STEP_DELTA` and `STEP_HEIGHT`: The value changes by `STEP_DELTA` every `STEP_HEIGHT` millimeters. The formula used is: `value = start + step_delta * floor(z_height / step_height)`. You can simply count bands or read tuning tower labels to determine the optimum value.
 
 ### [virtual_sdcard]
 
-Klipper supports the following standard G-Code commands if the [virtual_sdcard config section](Config_Reference.md#virtual_sdcard) is enabled:
+Klipper prend en charge les commandes G-Code standards suivantes si la section de configuration [virtual_sdcard](Config_Reference.md#virtual_sdcard) est activée :
 
 - Liste des cartes SD : `M20`
 - Initialiser la carte SD : `M21`
@@ -771,15 +771,15 @@ Klipper supports the following standard G-Code commands if the [virtual_sdcard c
 - Définir la position SD : `M26 S<décalage> `
 - Afficher l'état d'impression depuis la carte SD : `M27`
 
-In addition, the following extended commands are available when the "virtual_sdcard" config section is enabled.
+En outre, les commandes étendues suivantes sont disponibles lorsque la section de configuration "virtual_sdcard" est activée.
 
 #### SDCARD_PRINT_FILE
 
-`SDCARD_PRINT_FILE FILENAME=<filename>`: Load a file and start SD print.
+`SDCARD_PRINT_FILE FILENAME=<nom_fichier>` : Charge un fichier et lance l'impression SD.
 
 #### SDCARD_RESET_FILE
 
-`SDCARD_RESET_FILE`: Unload file and clear SD state.
+`SDCARD_RESET_FILE` : Décharge le fichier et efface l'état de la carte SD.
 
 ### [z_thermal_adjust]
 

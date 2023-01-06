@@ -47,7 +47,7 @@ sudo systemctl start octoprint
 
 Make sure the OctoPrint web server is accessible - it should be at: <http://beaglebone:5000/>
 
-## Building the micro-controller code
+## Construire le code du microcontrôleur
 
 To compile the Klipper micro-controller code, start by configuring it for the "Beaglebone PRU":
 
@@ -56,7 +56,7 @@ cd ~/klipper/
 make menuconfig
 ```
 
-To build and install the new micro-controller code, run:
+Pour compiler et installer le nouveau code du microcontrôleur, exécutez :
 
 ```
 sudo service klipper stop
@@ -78,7 +78,7 @@ make flash
 sudo service klipper start
 ```
 
-## Remaining configuration
+## Configuration restante
 
 Complete the installation by configuring Klipper and Octoprint following the instructions in the main [Installation](Installation.md#configuring-klipper) document.
 

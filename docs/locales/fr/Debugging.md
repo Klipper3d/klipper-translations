@@ -31,7 +31,7 @@ See the "HELP" command within the tool for more information on its functionality
 
 Some command-line options are available. For more information run: `~/klippy-env/bin/python ./klippy/console.py --help`
 
-## Translating gcode files to micro-controller commands
+## Traduction des fichiers G-Code en commandes de microcontrôleur
 
 The Klippy host code can run in a batch mode to produce the low-level micro-controller commands associated with a gcode file. Inspecting these low-level commands is useful when trying to understand the actions of the low-level hardware. It can also be useful to compare the difference in micro-controller commands after a code change.
 

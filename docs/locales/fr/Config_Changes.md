@@ -1,4 +1,4 @@
-# Configuration Changes
+# Changements de configuration
 
 Ce document couvre les modifications logicielles apportées au fichier de configuration qui ne sont pas rétro compatibles. Il est conseillé de consulter ce document lors de la mise à jour du logiciel Klipper.
 
@@ -6,51 +6,51 @@ Toutes les dates de ce document sont approximatives.
 
 ## Changements
 
-20221122: Previously, with safe_z_home, it was possible that the z_hop after the g28 homing would go in the negative z direction. Now, a z_hop is performed after g28 only if it results in a positive hop, mirroring the behavior of the z_hop that occurs before the g28 homing.
+20221122 : Auparavant, avec safe_z_home, il était possible que le z_hop après la mise à l'origine g28 aille dans une direction z négative. Maintenant, un saut en z n'est effectué après g28 que s'il résulte en un saut positif, reflétant le comportement du saut en z se produisant avant la mise à l'origine g28.
 
-20220616: It was previously possible to flash an rp2040 in bootloader mode by running `make flash FLASH_DEVICE=first`. The equivalent command is now `make flash FLASH_DEVICE=2e8a:0003`.
+20220616 : Il était auparavant possible de flasher un rp2040 en mode bootloader en exécutant `make flash FLASH_DEVICE=first`. La commande équivalente est maintenant `make flash FLASH_DEVICE=2e8a:0003`.
 
-20220612: The rp2040 micro-controller now has a workaround for the "rp2040-e5" USB errata. This should make initial USB connections more reliable. However, it may result in a change in behavior for the gpio15 pin. It is unlikely the gpio15 behavior change will be noticeable.
+20220612 : Le micro-contrôleur rp2040 a maintenant une solution de contournement pour l'errata USB "rp2040-e5". Cela devrait rendre les premières connexions USB plus fiables. Cependant, cela peut entraîner un changement de comportement de la broche gpio15. Il est peu probable que le changement de comportement de la gpio15 soit perceptible.
 
-20220407: The temperature_fan `pid_integral_max` config option has been removed (it was deprecated on 20210612).
+20220407 : L'option de configuration `pid_integral_max` de temperature_fan a été supprimée (elle était obsolète depuis 20210612).
 
-20220407: The default color order for pca9632 LEDs is now "RGBW". Add an explicit `color_order: RBGW` setting to the pca9632 config section to obtain the previous behavior.
+20220407 : L'ordre des couleurs par défaut pour les LEDs pca9632 est maintenant "RGBW". Ajoutez un paramètre explicite `color_order : RBGW` à la section pca9632 config pour obtenir le comportement précédent.
 
-20220330: The format of the `printer.neopixel.color_data` status information for neopixel and dotstar modules has changed. The information is now stored as a list of color lists (instead of a list of dictionaries). See the [status reference](Status_Reference.md#led) for details.
+20220330 : Le format des informations d'état `printer.neopixel.color_data` des modules neopixel et dotstar a changé. L'information est maintenant stockée comme une liste de listes de couleurs (au lieu d'une liste de dictionnaires). Voir la [référence d'état](Status_Reference.md#led) pour plus de détails.
 
-20220307: `M73` will no longer set print progress to 0 if `P` is missing.
+20220307 : `M73` ne mettra plus la progression de l'impression à 0 si `P` est absent.
 
-20220304: There is no longer a default for the `extruder` parameter of [extruder_stepper](Config_Reference.md#extruder_stepper) config sections. If desired, specify `extruder: extruder` explicitly to associate the stepper motor with the "extruder" motion queue at startup.
+20220304 : Il n'y a plus de valeur par défaut pour le paramètre `extruder` des sections de configuration [extruder_stepper](Config_Reference.md#extruder_stepper). Si vous le souhaitez, spécifiez explicitement `extruder : extruder` pour associer le moteur pas à pas à la file d'attente de mouvement "extruder" au démarrage.
 
-20220210: The `SYNC_STEPPER_TO_EXTRUDER` command is deprecated; the `SET_EXTRUDER_STEP_DISTANCE` command is deprecated; the [extruder](Config_Reference.md#extruder) `shared_heater` config option is deprecated. These features will be removed in the near future. Replace `SET_EXTRUDER_STEP_DISTANCE` with `SET_EXTRUDER_ROTATION_DISTANCE`. Replace `SYNC_STEPPER_TO_EXTRUDER` with `SYNC_EXTRUDER_MOTION`. Replace extruder config sections using `shared_heater` with [extruder_stepper](Config_Reference.md#extruder_stepper) config sections and update any activation macros to use [SYNC_EXTRUDER_MOTION](G-Codes.md#sync_extruder_motion).
+20220210 : La commande `SYNC_STEPPER_TO_EXTRUDER` est obsolète ; la commande `SET_EXTRUDER_STEP_DISTANCE` est obsolète ; l'option de configuration `shared_heater` de l'[extrudeuse](Config_Reference.md#extruder) est obsolète. Ces fonctionnalités seront supprimées dans un futur proche. Remplacez `SET_EXTRUDER_STEP_DISTANCE` par `SET_EXTRUDER_ROTATION_DISTANCE`. Remplacez `SYNC_STEPPER_TO_EXTRUDER` par `SYNC_EXTRUDER_MOTION`. Remplacez les sections de configuration de l'extrudeuse utilisant `shared_heater` par les sections de configuration [extruder_stepper](Config_Reference.md#extruder_stepper) et mettez à jour toutes les macros d'activation pour utiliser [SYNC_EXTRUDER_MOTION](G-Codes.md#sync_extruder_motion).
 
-20220116: The tmc2130, tmc2208, tmc2209, and tmc2660 `run_current` calculation code has changed. For some `run_current` settings the drivers may now be configured differently. This new configuration should be more accurate, but it may invalidate previous tmc driver tuning.
+20220116 : Le code de calcul `run_current` des tmc2130, tmc2208, tmc2209, et tmc2660 a changé. Pour certains paramètres `run_current` les pilotes peuvent maintenant être configurés différemment. Cette nouvelle configuration devrait être plus précise, mais elle peut invalider les réglages précédents des pilotes tmc.
 
-20211230: Scripts to tune input shaper (`scripts/calibrate_shaper.py` and `scripts/graph_accelerometer.py`) were migrated to use Python3 by default. As a result, users must install Python3 versions of certain packages (e.g. `sudo apt install python3-numpy python3-matplotlib`) to continue using these scripts. For more details, refer to [Software installation](Measuring_Resonances.md#software-installation). Alternatively, users can temporarily force the execution of these scripts under Python 2 by explicitly calling Python2 interpretor in the console: `python2 ~/klipper/scripts/calibrate_shaper.py ...`
+20211230 : Les scripts pour ajuster le façonneur d'entrée (`scripts/calibrate_shaper.py` et `scripts/graph_accelerometer.py`) ont été migrés pour utiliser Python3 par défaut. Par conséquent, les utilisateurs doivent installer les versions Python3 de certains paquets (par exemple, `sudo apt install python3-numpy python3-matplotlib`) pour continuer à utiliser ces scripts. Pour plus de détails, reportez-vous à [Installation du logiciel](Measuring_Resonances.md#software-installation). Alternativement, les utilisateurs peuvent temporairement forcer l'exécution de ces scripts sous Python 2 en appelant explicitement l'interpréteur Python2 dans la console : `python2 ~/klipper/scripts/calibrate_shaper.py ...`
 
-20211110: The "NTC 100K beta 3950" temperature sensor is deprecated. This sensor will be removed in the near future. Most users will find the "Generic 3950" temperature sensor more accurate. To continue to use the older (typically less accurate) definition, define a custom [thermistor](Config_Reference.md#thermistor) with `temperature1: 25`, `resistance1: 100000`, and `beta: 3950`.
+20211110 : Le capteur de température "NTC 100K beta 3950" est déprécié. Ce capteur sera supprimé dans un avenir proche. La plupart des utilisateurs trouveront le capteur de température "Generic 3950" plus précis. Pour continuer à utiliser l'ancienne définition (généralement moins précise), définissez une [thermistance personnalisée ](Config_Reference.md#thermistor) avec `température1 : 25`, `résistance1 : 100000`, et `beta : 3950`.
 
-20211104: The "step pulse duration" option in "make menuconfig" has been removed. The default step duration for TMC drivers configured in UART or SPI mode is now 100ns. A new `step_pulse_duration` setting in the [stepper config section](Config_Reference.md#stepper) should be set for all steppers that need a custom pulse duration.
+20211104 : L'option "step pulse duration" dans "make menuconfig" a été supprimée. La durée d'impulsion par défaut pour les pilotes TMC configurés en mode UART ou SPI est maintenant de 100ns. Un nouveau paramètre `step_pulse_duration` dans la section [configuration des moteurs](Config_Reference.md#stepper) doit être défini pour tous les moteurs nécessitant une durée d'impulsion personnalisée.
 
-20211102: Several deprecated features have been removed. The stepper `step_distance` option has been removed (deprecated on 20201222). The `rpi_temperature` sensor alias has been removed (deprecated on 20210219). The mcu `pin_map` option has been removed (deprecated on 20210325). The gcode_macro `default_parameter_<name>` and macro access to command parameters other than via the `params` pseudo-variable has been removed (deprecated on 20210503). The heater `pid_integral_max` option has been removed (deprecated on 20210612).
+20211102 : Plusieurs fonctionnalités obsolètes ont été supprimées. L'option `step_distance` du stepper a été supprimée (obsolète depuis 20201222). L'alias du capteur `rpi_temperature` a été supprimé (obsolète depuis 20210219). L'option mcu `pin_map` a été supprimée (obsolète depuis 20210325). L'option gcode_macro `default_parameter_<name>` et l'accès aux paramètres de commande par la macro autrement que par la pseudo-variable `params` ont été supprimés (obsolète depuis 20210503). L'option heater `pid_integral_max` a été supprimée (obsolète le 20210612).
 
-20210929: Klipper v0.10.0 released.
+20210929 : Sortie de Klipper v0.10.0.
 
-20210903: The default [`smooth_time`](Config_Reference.md#extruder) for heaters has changed to 1 second (from 2 seconds). For most printers this will result in more stable temperature control.
+20210903 : La valeur par défaut de [`smooth_time`](Config_Reference.md#extruder) pour les éléments chauffants est passée à 1 seconde (au lieu de 2 secondes). Pour la plupart des imprimantes, cela permettra un contrôle plus stable de la température.
 
-20210830: The default adxl345 name is now "adxl345". The default CHIP parameter for the `ACCELEROMETER_MEASURE` and `ACCELEROMETER_QUERY` is now also "adxl345".
+20210830 : Le nom par défaut de adxl345 est maintenant "adxl345". Le paramètre CHIP par défaut pour les fonctions `ACCELEROMETER_MEASURE` et `ACCELEROMETER_QUERY` est maintenant aussi "adxl345".
 
-20210830: The adxl345 ACCELEROMETER_MEASURE command no longer supports a RATE parameter. To alter the query rate, update the printer.cfg file and issue a RESTART command.
+20210830 : La commande adxl345 ACCELEROMETER_MEASURE ne prend plus en charge un paramètre RATE. Pour modifier le taux d'interrogation, mettez à jour le fichier printer.cfg et lancez une commande RESTART.
 
-20210821: Several config settings in `printer.configfile.settings` will now be reported as lists instead of raw strings. If the actual raw string is desired, use `printer.configfile.config` instead.
+20210821 : Plusieurs paramètres de configuration dans `printer.configfile.settings` seront maintenant rapportés sous forme de listes au lieu de chaînes brutes. Si vous souhaitez obtenir une chaîne de caractères brute, utilisez `printer.configfile.config` à la place.
 
-20210819: In some cases, a `G28` homing move may end in a position that is nominally outside the valid movement range. In rare situations this may result in confusing "Move out of range" errors after homing. If this occurs, change your start scripts to move the toolhead to a valid position immediately after homing.
+20210819 : Dans certains cas, un mouvement de retour à l'origine `G28` peut se terminer dans une position qui est nominalement en dehors de la plage de mouvement valide. Dans de rares situations, cela peut entraîner des erreurs déroutantes "Move out of range" après le retour à la position initiale. Si cela se produit, modifiez vos scripts de démarrage pour déplacer la tête d'outil vers une position valide immédiatement après le retour à la position initiale.
 
-20210814: The analog only pseudo-pins on the atmega168 and atmega328 have been renamed from PE0/PE1 to PE2/PE3.
+20210814 : Les pseudo-pins analogiques sur l'atmega168 et l'atmega328 ont été renommés de PE0/PE1 à PE2/PE3.
 
-20210720: A controller_fan section now monitors all stepper motors by default (not just the kinematic stepper motors). If the previous behavior is desired, see the `stepper` config option in the [config reference](Config_Reference.md#controller_fan).
+20210720 : Une section controller_fan surveille maintenant tous les moteurs pas à pas par défaut (pas seulement les moteurs pas à pas cinématiques). Si le comportement précédent est souhaité, voir l'option de configuration `stepper` dans la [référence de configuration](Config_Reference.md#controller_fan).
 
-20210703: A `samd_sercom` config section must now specify the sercom bus it is configuring via the `sercom` option.
+20210703 : Une section de configuration `samd_sercom` doit maintenant spécifier le bus sercom qu'elle configure via l'option `sercom`.
 
 20210612 : l'option de configuration `pid_integral_max` dans les sections heater et temperature_fan est obsolète. Cette option sera supprimée dans les prochaines versions.
 
@@ -69,120 +69,120 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20210219 : Le module `rpi_temperature` a été renommé en `temperature_host`. Remplacez toutes les occurrences de `sensor_type : rpi_temperature` par `sensor_type : temperature_host`. Le chemin vers le fichier de température peut être spécifié dans la variable de configuration `sensor_path`. Le nom `rpi_temperature` est obsolète et sera supprimé dans les prochaines versions.
 
-20210201: The `TEST_RESONANCES` command will now disable input shaping if it was previously enabled (and re-enable it after the test). In order to override this behavior and keep the input shaping enabled, one can pass an additional parameter `INPUT_SHAPING=1` to the command.
+20210201: La commande `TEST_RESONANCES` va maintenant désactiver la mise en forme des entrées si elle était précédemment activée (et la réactiver après le test). Afin d'outrepasser ce comportement et de garder la mise en forme de l'entrée activée, on peut passer un paramètre supplémentaire `INPUT_SHAPING=1` à la commande.
 
-20210201: The `ACCELEROMETER_MEASURE` command will now append the name of the accelerometer chip to the output file name if the chip was given a name in the corresponding adxl345 section of the printer.cfg.
+20210201 : La commande `ACCELEROMETER_MEASURE` ajoutera désormais le nom de la puce accéléromètre au nom du fichier de sortie si un nom a été donné à la puce dans la section adxl345 correspondante du printer.cfg.
 
-20201222: The `step_distance` setting in the stepper config sections is deprecated. It is advised to update the config to use the [`rotation_distance`](Rotation_Distance.md) setting. Support for `step_distance` will be removed in the near future.
+20201222 : Le paramètre `step_distance` dans les sections de configuration de moteur est obsolète. Il est conseillé de mettre à jour la configuration pour utiliser le paramètre [`rotation_distance`](Rotation_Distance.md). Le support de `step_distance` sera supprimé dans un futur proche.
 
-20201218: The `endstop_phase` setting in the endstop_phase module has been replaced with `trigger_phase`. If using the endstop phases module then it will be necessary to convert to [`rotation_distance`](Rotation_Distance.md) and recalibrate any endstop phases by running the ENDSTOP_PHASE_CALIBRATE command.
+20201218 : Le paramètre `endstop_phase` du module endstop_phase a été remplacé par `trigger_phase`. Si vous utilisez le module endstop phases, il sera nécessaire de convertir en [`rotation_distance`](Rotation_Distance.md) et de recalibrer les phases endstop en exécutant la commande ENDSTOP_PHASE_CALIBRATE.
 
-20201218: Rotary delta and polar printers must now specify a `gear_ratio` for their rotary steppers, and they may no longer specify a `step_distance` parameter. See the [config reference](Config_Reference.md#stepper) for the format of the new gear_ratio paramter.
+20201218 : Les imprimantes rotatives delta et polaires doivent maintenant spécifier un `gear_ratio` pour leurs moteurs rotatifs, et elles ne peuvent plus spécifier un paramètre `step_distance`. Voir la [référence de configuration](Config_Reference.md#stepper) pour le format du nouveau paramètre gear_ratio.
 
-20201213: It is not valid to specify a Z "position_endstop" when using "probe:z_virtual_endstop". An error will now be raised if a Z "position_endstop" is specified with "probe:z_virtual_endstop". Remove the Z "position_endstop" definition to fix the error.
+20201213 : Il n'est pas valide de spécifier un Z "position_endstop" lors de l'utilisation de "probe:z_virtual_endstop". Une erreur sera maintenant soulevée si un Z "position_endstop" est spécifié avec "probe:z_virtual_endstop". Supprimez la définition de Z "position_endstop" pour corriger l'erreur.
 
-20201120: The `[board_pins]` config section now specifies the mcu name in an explicit `mcu:` parameter. If using board_pins for a secondary mcu, then the config must be updated to specify that name. See the [config reference](Config_Reference.md#board_pins) for further details.
+20201120 : La section de configuration `[board_pins]` spécifie maintenant le nom du mcu dans un paramètre explicite `mcu:`. Si vous utilisez board_pins pour un mcu secondaire, alors la config doit être mise à jour pour spécifier ce nom. Voir la [référence config](Config_Reference.md#board_pins) pour plus de détails.
 
-20201112: The time reported by `print_stats.print_duration` has changed. The duration prior to the first detected extrusion is now excluded.
+20201112 : La durée rapportée par `print_stats.print_duration` a changé. La durée précédant la première extrusion détectée est maintenant exclue.
 
-20201029: The neopixel `color_order_GRB` config option has been removed. If necessary, update the config to set the new `color_order` option to RGB, GRB, RGBW, or GRBW.
+20201029 : L'option de configuration neopixel `color_order_GRB` a été supprimée. Si nécessaire, mettez à jour la configuration pour définir la nouvelle option `color_order` sur RGB, GRB, RGBW, ou GRBW.
 
-20201029: The serial option in the mcu config section no longer defaults to /dev/ttyS0. In the rare situation where /dev/ttyS0 is the desired serial port, it must be specified explicitly.
+20201029 : L'option serial dans la section mcu config ne prend plus par défaut /dev/ttyS0. Dans la rare situation où /dev/ttyS0 est le port série désiré, il doit être indiqué explicitement.
 
-20201020: Klipper v0.9.0 released.
+20201020 : Sortie de Klipper v0.9.0.
 
-20200902: The RTD resistance-to-temperature calculation for MAX31865 converters has been corrected to not read low. If you are using such a device, you should recalibrate your print temperature and PID settings.
+20200902 : Le calcul de la résistance à la température des RTD des convertisseurs MAX31865 a été corrigé pour ne pas lire une valeur basse. Si vous utilisez un tel dispositif, vous devez recalibrer votre température d'impression et vos paramètres PID.
 
-20200816: The gcode macro `printer.gcode` object has been renamed to `printer.gcode_move`. Several undocumented variables in `printer.toolhead` and `printer.gcode` have been removed. See docs/Command_Templates.md for a list of available template variables.
+20200816 : L'objet macro gcode `printer.gcode` a été renommé en `printer.gcode_move`. Plusieurs variables non documentées dans `printer.toolhead` et `printer.gcode` ont été supprimées. Voir docs/Command_Templates.md pour une liste des variables de modèles disponibles.
 
-20200816: The gcode macro "action_" system has changed. Replace any calls to `printer.gcode.action_emergency_stop()` with `action_emergency_stop()`, `printer.gcode.action_respond_info()` with `action_respond_info()`, and `printer.gcode.action_respond_error()` with `action_raise_error()`.
+20200816 : Le système de macro gcode "action_" a changé. Remplacez tout appel à `printer.gcode.action_emergency_stop()` par `action_emergency_stop()`, `printer.gcode.action_respond_info()` par `action_respond_info()`, et `printer.gcode.action_respond_error()` par `action_raise_error()`.
 
-20200809: The menu system has been rewritten. If the menu has been customized then it will be necessary to update to the new configuration. See config/example-menu.cfg for configuration details and see klippy/extras/display/menu.cfg for examples.
+20200809 : Le système de menu a été réécrit. Si le menu a été personnalisé, il sera nécessaire de le mettre à jour avec la nouvelle configuration. Voir config/example-menu.cfg pour les détails de la configuration et voir klippy/extras/display/menu.cfg pour les exemples.
 
-20200731: The behavior of the `progress` attribute reported by the `virtual_sdcard` printer object has changed. Progress is no longer reset to 0 when a print is paused. It will now always report progress based on the internal file position, or 0 if no file is currently loaded.
+20200731 : Le comportement de l'attribut `progress` rapporté par l'objet imprimante `virtual_sdcard` a changé. La progression n'est plus remise à 0 lorsqu'une impression est mise en pause. La progression est maintenant toujours basée sur la position interne du fichier, ou 0 si aucun fichier n'est chargé.
 
-20200725: The servo `enable` config parameter and the SET_SERVO `ENABLE` parameter have been removed. Update any macros to use `SET_SERVO SERVO=my_servo WIDTH=0` to disable a servo.
+20200725 : Le paramètre de configuration `enable` du servo et le paramètre SET_SERVO `ENABLE` ont été supprimés. Mettez à jour toutes les macros pour utiliser `SET_SERVO SERVO=my_servo WIDTH=0` pour désactiver un servo.
 
-20200608: The LCD display support has changed the name of some internal "glyphs". If a custom display layout was implemented it may be necessary to update to the latest glyph names (see klippy/extras/display/display.cfg for a list of available glyphs).
+20200608 : Le support de l'affichage LCD a changé le nom de certains "glyphes" internes. Si une disposition d'affichage personnalisée a été implémentée, il peut être nécessaire d'actualiser avec les noms actuels de glyphes (voir klippy/extras/display/display.cfg pour une liste des glyphes disponibles).
 
-20200606: The pin names on linux mcu have changed. Pins now have names of the form `gpiochip<chipid>/gpio<gpio>`. For gpiochip0 you can also use a short `gpio<gpio>`. For example, what was previously referred to as `P20` now becomes `gpio20` or `gpiochip0/gpio20`.
+20200606 : Les noms des broches sur linux mcu ont changé. Les broches ont maintenant des noms de la forme `gpiochip<chipid>/gpio<gpio>`. Pour gpiochip0 vous pouvez aussi utiliser un court `gpio<gpio>`. Par exemple, ce qui était précédemment appelé `P20` devient maintenant `gpio20` ou `gpiochip0/gpio20``.
 
-20200603: The default 16x4 LCD layout will no longer show the estimated time remaining in a print. (Only the elapsed time will be shown.) If the old behavior is desired one can customize the menu display with that information (see the description of display_data in config/example-extras.cfg for details).
+20200603 : La disposition par défaut de l'écran LCD 16x4 n'affiche plus le temps estimé restant pour une impression. (Seul le temps écoulé sera affiché.) Si l'on souhaite conserver l'ancien comportement, on peut personnaliser l'affichage du menu avec cette information (voir la description de display_data dans config/example-extras.cfg pour plus de détails).
 
-20200531: The default USB vendor/product id is now 0x1d50/0x614e. These new ids are reserved for Klipper (thanks to the openmoko project). This change should not require any config changes, but the new ids may appear in system logs.
+20200531 : L'id par défaut du vendeur/produit USB est maintenant 0x1d50/0x614e. Ces nouveaux identifiants sont réservés à Klipper (grâce au projet openmoko). Ce changement ne devrait pas nécessiter de modification de la configuration, mais les nouveaux identifiants peuvent apparaître dans les journaux système.
 
-20200524: The default value for the tmc5160 pwm_freq field is now zero (instead of one).
+20200524 : La valeur par défaut du champ pwm_freq du tmc5160 est maintenant zéro (au lieu de un).
 
-20200425: The gcode_macro command template variable `printer.heater` was renamed to `printer.heaters`.
+20200425 : La variable du modèle de commande gcode_macro `printer.heater` a été renommée en `printer.heaters`.
 
-20200313: The default lcd layout for multi-extruder printers with a 16x4 screen has changed. The single extruder screen layout is now the default and it will show the currently active extruder. To use the previous display layout set "display_group: _multiextruder_16x4" in the [display] section of the printer.cfg file.
+20200313 : La disposition par défaut de l'écran pour les imprimantes multi-extrudeurs avec un écran 16x4 a changé. La disposition de l'écran pour un seul extrudeur est maintenant la disposition par défaut et elle montrera l'extrudeur actuellement actif. Pour utiliser la disposition d'écran précédente, définissez "display_group : _multiextruder_16x4" dans la section [display] du fichier printer.cfg.
 
-20200308: The default `__test` menu item was removed. If the config file has a custom menu then be sure to remove all references to this `__test` menu item.
+20200308 : L'élément de menu par défaut `__test` a été supprimé. Si le fichier de configuration a un menu personnalisé, assurez-vous de supprimer toutes les références à cet élément de menu `__test`.
 
-20200308: The menu "deck" and "card" options were removed. To customize the layout of an lcd screen use the new display_data config sections (see config/example-extras.cfg for the details).
+20200308 : Les options "deck" et "card" du menu ont été supprimées. Pour personnaliser la disposition d'un écran lcd, utilisez les nouvelles sections de configuration display_data (voir config/example-extras.cfg pour les détails).
 
-20200109: The bed_mesh module now references the probe's location in for the mesh configuration. As such, some configuration options have been renamed to more accurately reflect their intended functionality. For rectangular beds, `min_point` and `max_point` have been renamed to `mesh_min` and `mesh_max` respectively. For round beds, `bed_radius` has been renamed to `mesh_radius`. A new `mesh_origin` option has also been added for round beds. Note that these changes are also incompatible with previously saved mesh profiles. If an incompatible profile is detected it will be ignored and scheduled for removal. The removal process can be completed by issuing the SAVE_CONFIG command. The user will need to re-calibrate each profile.
+20200109 : Le module bed_mesh fait désormais référence à l'emplacement de la sonde pour la configuration du maillage. Ainsi, certaines options de configuration ont été renommées pour mieux refléter leur fonctionnalité. Pour les lits rectangulaires, `min_point` et `max_point` ont été renommés en `mesh_min` et `mesh_max` respectivement. Pour les lits ronds, `bed_radius` a été renommé en `mesh_radius`. Une nouvelle option `mesh_origin` a également été ajoutée pour les lits ronds. Notez que ces changements sont également incompatibles avec les profils de maillage précédemment enregistrés. Si un profil incompatible est détecté, il sera ignoré et sa suppression sera programmée. Le processus de suppression peut être achevé en lançant la commande SAVE_CONFIG. L'utilisateur devra recalibrer chaque profil.
 
-20191218: The display config section no longer supports "lcd_type: st7567". Use the "uc1701" display type instead - set "lcd_type: uc1701" and change the "rs_pin: some_pin" to "rst_pin: some_pin". It may also be necessary to add a "contrast: 60" config setting.
+20191218 : La section de configuration de l'affichage ne prend plus en charge "lcd_type : st7567". Utilisez le type d'affichage "uc1701" à la place - définissez "lcd_type : uc1701" et changez "rs_pin : some_pin" en "rst_pin : some_pin". Il peut également être nécessaire d'ajouter un paramètre de configuration "contrast : 60".
 
-20191210: The builtin T0, T1, T2, ... commands have been removed. The extruder activate_gcode and deactivate_gcode config options have been removed. If these commands (and scripts) are needed then define individual [gcode_macro T0] style macros that call the ACTIVATE_EXTRUDER command. See the config/sample-idex.cfg and sample-multi-extruder.cfg files for examples.
+20191210 : Les commandes intégrées T0, T1, T2, ... ont été supprimées. Les options de configuration activate_gcode et deactivate_gcode de l'extrudeuse ont été supprimées. Si ces commandes (et scripts) sont nécessaires, définissez des macros individuelles de type [gcode_macro T0] qui appellent la commande ACTIVATE_EXTRUDER. Voir les fichiers config/sample-idex.cfg et sample-multi-extruder.cfg pour des exemples.
 
-20191210: Support for the M206 command has been removed. Replace with calls to SET_GCODE_OFFSET. If support for M206 is needed, add a [gcode_macro M206] config section that calls SET_GCODE_OFFSET. (For example "SET_GCODE_OFFSET Z=-{params.Z}".)
+20191210 : La prise en charge de la commande M206 a été supprimée. Remplacer par des appels à SET_GCODE_OFFSET. Si le support de M206 est nécessaire, ajoutez une section de configuration [gcode_macro M206] qui appelle SET_GCODE_OFFSET. (Par exemple "SET_GCODE_OFFSET Z=-{params.Z}".)
 
-20191202: Support for the undocumented "S" parameter of the "G4" command has been removed. Replace any occurrences of S with the standard "P" parameter (the delay specified in milliseconds).
+20191202 : La prise en charge du paramètre non documenté "S" de la commande "G4" a été supprimée. Remplacez toutes les occurrences de S par le paramètre standard "P" (le délai spécifié en millisecondes).
 
-20191126: The USB names have changed on micro-controllers with native USB support. They now use a unique chip id by default (where available). If an "mcu" config section uses a "serial" setting that starts with "/dev/serial/by-id/" then it may be necessary to update the config. Run "ls /dev/serial/by-id/*" in an ssh terminal to determine the new id.
+20191126 : Les noms USB ont changé sur les micro-contrôleurs avec un support USB natif. Ils utilisent désormais un identifiant de puce unique par défaut (lorsqu'il est disponible). Si une section de configuration "mcu" utilise un paramètre "serial" qui commence par "/dev/serial/by-id/", il peut être nécessaire de mettre à jour la configuration. Exécutez "ls /dev/serial/by-id/*" dans un terminal ssh pour déterminer le nouvel identifiant.
 
-20191121: The pressure_advance_lookahead_time parameter has been removed. See example.cfg for alternate configuration settings.
+20191121 : Le paramètre pressure_advance_lookahead_time a été supprimé. Voir example.cfg pour d'autres paramètres de configuration.
 
-20191112: The tmc stepper driver virtual enable capability is now automatically enabled if the stepper does not have a dedicated stepper enable pin. Remove references to tmcXXXX:virtual_enable from the config. The ability to control multiple pins in the stepper enable_pin config has been removed. If multiple pins are needed then use a multi_pin config section.
+20191112 : La capacité d'activation virtuelle du pilote de pas à pas tmc est désormais automatiquement activée si le moteur pas à pas ne possède pas de broche d'activation dédiée. Supprimez les références à tmcXXXX:virtual_enable de la configuration. La possibilité de contrôler plusieurs broches dans la configuration enable_pin du moteur a été supprimée. Si plusieurs broches sont nécessaires, utilisez une section de configuration multi_pin.
 
-20191107: The primary extruder config section must be specified as "extruder" and may no longer be specified as "extruder0". Gcode command templates that query the extruder status are now accessed via "{printer.extruder}".
+20191107 : La section de configuration de l'extrudeur primaire doit être spécifiée comme "extruder" et ne peut plus être spécifiée comme "extruder0". Les modèles de commande Gcode qui interrogent le statut de l'extrudeur sont désormais accessibles via "{printer.extruder}".
 
-20191021: Klipper v0.8.0 released
+20191021 : Sortie de Klipper v0.8.0
 
-20191003: The move_to_previous option in [safe_z_homing] now defaults to False. (It was effectively False prior to 20190918.)
+20191003 : L'option move_to_previous de [safe_z_homing] a désormais la valeur par défaut False. (Elle était effectivement False avant 20190918.)
 
-20190918: The zhop option in [safe_z_homing] is always re-applied after Z axis homing completed. This might need users to update custom scripts based on this module.
+20190918 : L'option zhop de [safe_z_homing] est toujours réappliquée après la fin du homing sur l'axe Z. Cela peut obliger les utilisateurs à mettre à jour les scripts personnalisés basés sur ce module.
 
-20190806: The SET_NEOPIXEL command has been renamed to SET_LED.
+20190806 : La commande SET_NEOPIXEL a été renommée SET_LED.
 
-20190726: The mcp4728 digital-to-analog code has changed. The default i2c_address is now 0x60 and the voltage reference is now relative to the mcp4728's internal 2.048 volt reference.
+20190726 : Le code numérique-analogique du mcp4728 a été modifié. L'adresse i2c_address par défaut est maintenant 0x60 et la référence de tension est maintenant relative à la référence interne de 2,048 volts du mcp4728.
 
-20190710: The z_hop option was removed from the [firmware_retract] config section. The z_hop support was incomplete and could cause incorrect behavior with several common slicers.
+20190710 : L'option z_hop a été supprimée de la section de configuration [firmware_retract]. La prise en charge de z_hop était incomplète et pouvait provoquer un comportement incorrect avec plusieurs trancheurs courants.
 
-20190710: The optional parameters of the PROBE_ACCURACY command have changed. It may be necessary to update any macros or scripts that use that command.
+20190710 : Les paramètres optionnels de la commande PROBE_ACCURACY ont été modifiés. Il peut être nécessaire de mettre à jour les macros ou les scripts qui utilisent cette commande.
 
-20190628: All configuration options have been removed from the [skew_correction] section. Configuration for skew_correction is now done via the SET_SKEW gcode. See [Skew Correction](Skew_Correction.md) for recommended usage.
+20190628 : Toutes les options de configuration ont été supprimées de la section [skew_correction]. La configuration de la correction d'obliquité se fait désormais via le gcode SET_SKEW. Voir [Correction de l'obliquité](Skew_Correction.md) pour l'utilisation recommandée.
 
-20190607: The "variable_X" parameters of gcode_macro (along with the VALUE parameter of SET_GCODE_VARIABLE) are now parsed as Python literals. If a value needs to be assigned a string then wrap the value in quotes so that it is evaluated as a string.
+20190607 : Les paramètres "variable_X" de gcode_macro (ainsi que le paramètre VALUE de SET_GCODE_VARIABLE) sont maintenant analysés comme des littéraux Python. Si une valeur doit être assignée à une chaîne de caractères, mettez-la entre guillemets pour qu'elle soit évaluée comme une chaîne de caractères.
 
-20190606: The "samples", "samples_result", and "sample_retract_dist" config options have been moved to the "probe" config section. These options are no longer supported in the "delta_calibrate", "bed_tilt", "bed_mesh", "screws_tilt_adjust", "z_tilt", or "quad_gantry_level" config sections.
+20190606 : Les options de configuration "samples", "samples_result" et "sample_retract_dist" ont été déplacées vers la section de configuration "probe". Ces options ne sont plus supportées dans les sections de configuration "delta_calibrate", "bed_tilt", "bed_mesh", "screws_tilt_adjust", "z_tilt", ou "quad_gantry_level".
 
-20190528: The magic "status" variable in gcode_macro template evaluation has been renamed to "printer".
+20190528 : La variable magique "status" dans l'évaluation du modèle gcode_macro a été renommée en "printer".
 
-20190520: The SET_GCODE_OFFSET command has changed; update any g-code macros accordingly. The command will no longer apply the requested offset to the next G1 command. The old behavior may be approximated by using the new "MOVE=1" parameter.
+20190520 : La commande SET_GCODE_OFFSET a été modifiée ; mettez à jour vos macros de code G en conséquence. La commande n'appliquera plus le décalage demandé à la prochaine commande G1. L'ancien comportement peut être approché en utilisant le nouveau paramètre "MOVE=1".
 
-20190404: The Python host software packages were updated. Users will need to rerun the ~/klipper/scripts/install-octopi.sh script (or otherwise upgrade the python dependencies if not using a standard OctoPi installation).
+20190404 : Les paquets du logiciel hôte Python ont été mis à jour. Les utilisateurs devront réexécuter le script ~/klipper/scripts/install-octopi.sh (ou mettre à jour les dépendances python s'ils n'utilisent pas une installation OctoPi standard).
 
-20190404: The i2c_bus and spi_bus parameters (in various config sections) now take a bus name instead of a number.
+20190404 : Les paramètres i2c_bus et spi_bus (dans diverses sections de configuration) prennent désormais un nom de bus au lieu d'un numéro.
 
-20190404: The sx1509 config parameters have changed. The 'address' parameter is now 'i2c_address' and it must be specified as a decimal number. Where 0x3E was previously used, specify 62.
+20190404 : Les paramètres de configuration du sx1509 ont changé. Le paramètre 'adresse' est maintenant 'i2c_address' et doit être spécifié comme un nombre décimal. Là où 0x3E était précédemment utilisé, spécifiez 62.
 
-20190328: The min_speed value in [temperature_fan] config will now be respected and the fan will always run at this speed or higher in PID mode.
+20190328 : La valeur min_speed dans la configuration [temperature_fan] sera désormais respectée et le ventilateur fonctionnera toujours à cette vitesse ou plus en mode PID.
 
-20190322: The default value for "driver_HEND" in [tmc2660] config sections was changed from 6 to 3. The "driver_VSENSE" field was removed (it is now automatically calculated from run_current).
+20190322 : La valeur par défaut de "driver_HEND" dans les sections de configuration [tmc2660] a été modifiée de 6 à 3. Le champ "driver_VSENSE" a été supprimé (il est désormais calculé automatiquement à partir de run_current).
 
-20190310: The [controller_fan] config section now always takes a name (such as [controller_fan my_controller_fan]).
+20190310 : La section de configuration [controller_fan] prend désormais toujours un nom (tel que [controller_fan my_controller_fan]).
 
-20190308: The "driver_BLANK_TIME_SELECT" field in [tmc2130] and [tmc2208] config sections has been renamed to "driver_TBL".
+20190308 : Le champ "driver_BLANK_TIME_SELECT" dans les sections de configuration [tmc2130] et [tmc2208] a été renommé "driver_TBL".
 
-20190308: The [tmc2660] config section has changed. A new sense_resistor config parameter must now be provided. The meaning of several of the driver_XXX parameters has changed.
+20190308 : La section config [tmc2660] a été modifiée. Un nouveau paramètre de configuration sense_resistor doit maintenant être fourni. La signification de plusieurs des paramètres driver_XXX a été modifiée.
 
-20190228: Users of SPI or I2C on SAMD21 boards must now specify the bus pins via a [samd_sercom] config section.
+20190228 : Les utilisateurs de SPI ou I2C sur les cartes SAMD21 doivent maintenant spécifier les broches du bus via une section de configuration [samd_sercom].
 
-20190224: The bed_shape option has been removed from bed_mesh. The radius option has been renamed to bed_radius. Users with round beds should supply the bed_radius and round_probe_count options.
+20190224 : L'option bed_shape a été supprimée de bed_mesh. L'option radius a été renommée bed_radius. Les utilisateurs avec des lits ronds doivent fournir les options bed_radius et round_probe_count.
 
-20190107: The i2c_address parameter in the mcp4451 config section changed. This is a common setting on Smoothieboards. The new value is half the old value (88 should be changed to 44, and 90 should be changed to 45).
+20190107 : Le paramètre i2c_address de la section config du mcp4451 a été modifié. Il s'agit d'un paramètre courant sur les Smoothieboards. La nouvelle valeur est la moitié de l'ancienne valeur (88 doit être changé en 44, et 90 doit être changé en 45).
 
-20181220: Klipper v0.7.0 released
+20181220 : Sortie de Klipper v0.7.0
