@@ -1226,11 +1226,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-commands" class="md-nav__link">
-    Additional Commands
+  <a href="#commandes-additionnelles" class="md-nav__link">
+    Commandes additionnelles
   </a>
   
-    <nav class="md-nav" aria-label="Additional Commands">
+    <nav class="md-nav" aria-label="Commandes additionnelles">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2814,41 +2814,41 @@
 <li>Obtenir la version du firmware : <code>M115</code></li>
 </ul>
 <p>Pour plus de détails sur les commandes ci-dessus, voir la [documentation RepRap G-Code] (<a href="http://reprap.org/wiki/G-code">http://reprap.org/wiki/G-code</a>).</p>
-<p>Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable <a href="#additional-commands">"extended G-Code commands"</a>. Similarly, the G-Code terminal output is only intended to be human readable - see the <a href="API_Server.html">API Server document</a> if controlling Klipper from external software.</p>
+<p>L'objectif de Klipper est de prendre en charge les commandes G-Code produites par les logiciels tiers courants (par exemple, OctoPrint, Printrun, Slic3r, Cura, etc.) dans leurs configurations standards. Le but n'est pas de prendre en charge toutes les commandes G-Code possibles. Au contraire, Klipper préfère les ["commandes G-Code étendues"] (#additional-commands) humainement lisibles. De la même manière, la sortie du terminal G-Code est uniquement destinée à être humainement lisible - voir le <a href="API_Server.html">document du serveur API</a> si vous contrôlez Klipper depuis un logiciel externe.</p>
 <p>Si vous avez besoin d'une commande G-Code moins courante, il est possible de l'implémenter avec une section de configuration <a href="Config_Reference.html#gcode_macro">gcode_macro personnalisée</a>. Par exemple, on peut utiliser ceci pour implémenter : <code>G12</code>, <code>G29</code>, <code>G30</code>, <code>G31</code>, <code>M42</code>, <code>M80</code>, <code>M81</code>, <code>T1</code>, etc.</p>
-<h2 id="additional-commands">Additional Commands<a class="headerlink" href="#additional-commands" title="Permanent link">&para;</a></h2>
+<h2 id="commandes-additionnelles">Commandes additionnelles<a class="headerlink" href="#commandes-additionnelles" title="Permanent link">&para;</a></h2>
 <p>Klipper utilise des commandes G-Code "étendues" pour la configuration générale et l'état. Ces commandes étendues suivent toutes un format similaire : elles commencent par le nom de la commande et peuvent être suivies d'un ou plusieurs paramètres. Par exemple : <code>SET_SERVO SERVO=myservo ANGLE=5.3</code>. Dans ce document, les commandes et les paramètres sont indiqués en majuscules, mais ils ne sont pas sensibles à la casse. (Ainsi, "SET_SERVO" et "set_servo" exécuteront tous deux la même commande).</p>
 <p>This section is organized by Klipper module name, which generally follows the section names specified in the <a href="Config_Reference.html">printer configuration file</a>. Note that some modules are automatically loaded.</p>
 <h3 id="adxl345">[adxl345]<a class="headerlink" href="#adxl345" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when an <a href="Config_Reference.html#adxl345">adxl345 config section</a> is enabled.</p>
 <h4 id="accelerometer_measure">ACCELEROMETER_MEASURE<a class="headerlink" href="#accelerometer_measure" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_MEASURE [CHIP=&lt;config_name&gt;] [NAME=&lt;value&gt;]</code>: Starts accelerometer measurements at the requested number of samples per second. If CHIP is not specified it defaults to "adxl345". The command works in a start-stop mode: when executed for the first time, it starts the measurements, next execution stops them. The results of measurements are written to a file named <code>/tmp/adxl345-&lt;chip&gt;-&lt;name&gt;.csv</code> where <code>&lt;chip&gt;</code> is the name of the accelerometer chip (<code>my_chip_name</code> from <code>[adxl345 my_chip_name]</code>) and <code>&lt;name&gt;</code> is the optional NAME parameter. If NAME is not specified it defaults to the current time in "YYYYMMDD_HHMMSS" format. If the accelerometer does not have a name in its config section (simply <code>[adxl345]</code>) then <code>&lt;chip&gt;</code> part of the name is not generated.</p>
+<p><code>ACCELEROMETER_MEASURE [CHIP=&lt;nom_de_la_configuration&gt;] [NAME=&lt;valeur&gt;]</code> : Démarre les mesures de l'accéléromètre au nombre d'échantillons par seconde demandé. Si CHIP n'est pas précisé, la valeur par défaut est "adxl345". La commande fonctionne en mode start-stop : exécutée pour la première fois, elle démarre les mesures, l'exécution suivante les arrête. Les résultats des mesures sont écrits dans un fichier nommé <code>/tmp/adxl345-&lt;chip&gt;-&lt;nom&gt;.csv</code> où <code>&lt;chip&gt;</code> est le nom de la puce accéléromètre (<code>my_chip_name</code> de <code>[adxl345 my_chip_name]</code>) et <code>&lt;nom&gt;</code> est le paramètre optionnel NAME. Si le paramètre NOM n'est pas précisé, l'heure actuelle est utilisée par défaut au format "AAAAMMJJ_HHMMSS". Si l'accéléromètre n'a pas de nom dans sa section de configuration (simplement <code>[adxl345]</code>) alors la partie <code>&lt;chip&gt;</code> du nom n'est pas générée.</p>
 <h4 id="accelerometer_query">ACCELEROMETER_QUERY<a class="headerlink" href="#accelerometer_query" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_QUERY [CHIP=&lt;config_name&gt;] [RATE=&lt;value&gt;]</code>: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).</p>
+<p><code>ACCELEROMETER_QUERY [CHIP=&lt;nom_de_la_configuration&gt;] [RATE=&lt;valeur&gt;]</code> : interroge l'accéléromètre pour la valeur courante. Si CHIP n'est pas précisé, la valeur par défaut est "adxl345". Si RATE n'est pas précisé, la valeur par défaut est utilisée. Cette commande permet de tester la connexion à l'accéléromètre ADXL345 : une des valeurs retournées devrait être une accélération en chute libre (+/- un certain bruit de la puce).</p>
 <h4 id="accelerometer_debug_read">ACCELEROMETER_DEBUG_READ<a class="headerlink" href="#accelerometer_debug_read" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_DEBUG_READ [CHIP=&lt;config_name&gt;] REG=&lt;register&gt;</code>: queries ADXL345 register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes.</p>
+<p><code>ACCELEROMETER_DEBUG_READ [CHIP=&lt;nom_de_la_configuration&gt;] REG=&lt;registre&gt;</code> : interroge le registre ADXL345 "registre" (par exemple 44 ou 0x2C). Peut être utile à des fins de débogage.</p>
 <h4 id="accelerometer_debug_write">ACCELEROMETER_DEBUG_WRITE<a class="headerlink" href="#accelerometer_debug_write" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_DEBUG_WRITE [CHIP=&lt;config_name&gt;] REG=&lt;register&gt; VAL=&lt;value&gt;</code>: Writes raw "value" into a register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.</p>
+<p><code>ACCELEROMETER_DEBUG_WRITE [CHIP=&lt;nom_de_la_configuration&gt;] REG=&lt;registre&gt; VAL=&lt;valeur&gt;</code> : Ecrit la "valeur" brute dans le registre "registre". La "valeur" et le "registre" peuvent être des entiers décimaux ou hexadécimaux. A utiliser avec précaution, et se référer à la fiche technique de l'ADXL345 pour la référence.</p>
 <h3 id="angle">[angle]<a class="headerlink" href="#angle" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when an <a href="Config_Reference.html#angle">angle config section</a> is enabled.</p>
 <h4 id="angle_calibrate">ANGLE_CALIBRATE<a class="headerlink" href="#angle_calibrate" title="Permanent link">&para;</a></h4>
-<p><code>ANGLE_CALIBRATE CHIP=&lt;chip_name&gt;</code>: Perform angle calibration on the given sensor (there must be an <code>[angle chip_name]</code> config section that has specified a <code>stepper</code> parameter). IMPORTANT - this tool will command the stepper motor to move without checking the normal kinematic boundary limits. Ideally the motor should be disconnected from any printer carriage before performing calibration. If the stepper can not be disconnected from the printer, make sure the carriage is near the center of its rail before starting calibration. (The stepper motor may move forwards or backwards two full rotations during this test.) After completing this test use the <code>SAVE_CONFIG</code> command to save the calibration data to the config file. In order to use this tool the Python "numpy" package must be installed (see the <a href="Measuring_Resonances.html#software-installation">measuring resonance document</a> for more information).</p>
+<p><code>ANGLE_CALIBRATE CHIP=&lt;nom_de_la_puce&gt;</code> : Effectue une calibration d'angle sur le capteur donné (il doit y avoir une section de configuration <code>[angle nom_de_la_puce]</code> qui a indiqué un paramètre <code>stepper</code>). IMPORTANT - cet outil commandera au moteur pas à pas de se déplacer sans vérifier les limites normales de la cinématique. Idéalement, le moteur devrait être déconnecté de tout chariot d'imprimante avant d'effectuer le calibrage. Si le moteur pas à pas ne peut pas être déconnecté de l'imprimante, assurez-vous que le chariot est proche du centre de son rail avant de commencer l'étalonnage. (Le moteur pas à pas peut se déplacer vers l'avant ou l'arrière de deux rotations complètes durant ce test). Après avoir terminé ce test, utilisez la commande <code>SAVE_CONFIG</code> pour sauvegarder les données de calibration dans le fichier de configuration. Afin d'utiliser cet outil, le paquetage Python "numpy" doit être installé (voir le document <a href="Measuring_Resonances.html#software-installation">mesurer les résonances</a> pour plus d'informations).</p>
 <h4 id="angle_debug_read">ANGLE_DEBUG_READ<a class="headerlink" href="#angle_debug_read" title="Permanent link">&para;</a></h4>
-<p><code>ANGLE_DEBUG_READ CHIP=&lt;config_name&gt; REG=&lt;register&gt;</code>: Queries sensor register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes. This is only available for tle5012b chips.</p>
+<p><code>ANGLE_DEBUG_READ CHIP=&lt;nom_de_la_configuration&gt; REG=&lt;registre&gt;</code> : Interroge le registre "registre" du capteur (par exemple 44 ou 0x2C). Peut être utile à des fins de débogage. Ceci n'est disponible que pour les puces tle5012b.</p>
 <h4 id="angle_debug_write">ANGLE_DEBUG_WRITE<a class="headerlink" href="#angle_debug_write" title="Permanent link">&para;</a></h4>
-<p><code>ANGLE_DEBUG_WRITE CHIP=&lt;config_name&gt; REG=&lt;register&gt; VAL=&lt;value&gt;</code>: Writes raw "value" into register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to sensor data sheet for the reference. This is only available for tle5012b chips.</p>
+<p><code>ANGLE_DEBUG_WRITE CHIP=&lt;nom_de_la_configuration&gt; REG=&lt;registre&gt; VAL=&lt;valeur&gt;</code> : Écrit la "valeur" brute dans le registre "registre". La "valeur" et le "registre" peuvent être des entiers décimaux ou hexadécimaux. A utiliser avec précaution, et se référer à la fiche technique du capteur pour la référence. Cette fonction n'est disponible que pour les puces tle5012b.</p>
 <h3 id="bed_mesh">[bed_mesh]<a class="headerlink" href="#bed_mesh" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when the <a href="Config_Reference.html#bed_mesh">bed_mesh config section</a> is enabled (also see the <a href="Bed_Mesh.html">bed mesh guide</a>).</p>
 <h4 id="bed_mesh_calibrate">BED_MESH_CALIBRATE<a class="headerlink" href="#bed_mesh_calibrate" title="Permanent link">&para;</a></h4>
 <p><code>BED_MESH_CALIBRATE [METHOD=manual] [&lt;probe_parameter&gt;=&lt;value&gt;] [&lt;mesh_parameter&gt;=&lt;value&gt;]</code> : Cette commande palpe le bed en utilisant des points générés spécifiés par les paramètres de la config. Après le test, un maillage est généré et le déplacement de l'axe Z est ajusté en fonction de celui-ci. Référez-vous à la commande PROBE pour plus de détails sur les paramètres optionnels. Si METHOD=manual est spécifié, l'outil de palpage manuel est activé - voir la commande MANUAL_PROBE ci-dessus pour plus de détails sur les possibilités supplémentaires disponibles lorsque cet outil est utilisé.</p>
 <h4 id="bed_mesh_output">BED_MESH_OUTPUT<a class="headerlink" href="#bed_mesh_output" title="Permanent link">&para;</a></h4>
-<p><code>BED_MESH_OUTPUT PGP=[&lt;0:1&gt;]</code>: This command outputs the current probed z values and current mesh values to the terminal. If PGP=1 is specified the X, Y coordinates generated by bed_mesh, along with their associated indices, will be output to the terminal.</p>
+<p><code>BED_MESH_OUTPUT PGP=[&lt;0:1&gt;]</code> : Cette commande écrit les valeurs z palpées actuelles et les valeurs de maillage actuelles sur le terminal. Si PGP=1 est spécifié, les coordonnées X, Y générées par bed_mesh, ainsi que leurs indices associés, seront envoyés au terminal.</p>
 <h4 id="bed_mesh_map">BED_MESH_MAP<a class="headerlink" href="#bed_mesh_map" title="Permanent link">&para;</a></h4>
 <p><code>BED_MESH_MAP</code> : Comme pour BED_MESH_OUTPUT, cette commande affiche l'état actuel du maillage sur le terminal. L'état sera retourné au format json. Cela permet aux plugins octoprint de récupérer facilement les données et de générer des cartes d'altitude au plus proche de la surface du bed.</p>
 <h4 id="bed_mesh_clear">BED_MESH_CLEAR<a class="headerlink" href="#bed_mesh_clear" title="Permanent link">&para;</a></h4>
 <p><code>BED_MESH_CLEAR</code>: Cette commande efface le maillage actuel et supprime les ajustements de l'axe z. Il est recommandé de mettre cette commande dans votre gcode de fin.</p>
 <h4 id="bed_mesh_profile">BED_MESH_PROFILE<a class="headerlink" href="#bed_mesh_profile" title="Permanent link">&para;</a></h4>
-<p><code>BED_MESH_PROFILE LOAD=&lt;name&gt; SAVE=&lt;name&gt; REMOVE=&lt;name&gt;</code>: This command provides profile management for mesh state. LOAD will restore the mesh state from the profile matching the supplied name. SAVE will save the current mesh state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to persistent memory permanent.</p>
+<p><code>BED_MESH_PROFILE LOAD=&lt;nom&gt; SAVE=&lt;nom&gt; REMOVE=&lt;nom&gt;</code> : Cette commande fournit une gestion de profil pour l'état du maillage. LOAD restaurera l'état du maillage à partir du profil correspondant au nom fourni. SAVE sauvegarde l'état du maillage actuel dans un profil correspondant au nom fourni. REMOVE supprimera le profil correspondant au nom fourni de la mémoire persistante. Notez qu'après l'exécution des opérations SAVE ou REMOVE, le gcode SAVE_CONFIG doit être exécuté pour rendre les changements de la mémoire persistante permanents.</p>
 <h4 id="bed_mesh_offset">BED_MESH_OFFSET<a class="headerlink" href="#bed_mesh_offset" title="Permanent link">&para;</a></h4>
 <p><code>BED_MESH_OFFSET [X=&lt;value&gt;] [Y=&lt;value&gt;]</code> : Applique des décalages X et/ou Y pour l'évaluation du maillage. Ceci est utile pour les imprimantes avec extrudeurs indépendants, car un décalage est nécessaire pour obtenir un ajustement Z correct après un changement d'outil.</p>
 <h3 id="bed_screws">[bed_screws]<a class="headerlink" href="#bed_screws" title="Permanent link">&para;</a></h3>
@@ -2862,7 +2862,7 @@
 <h3 id="bltouch">[bltouch]<a class="headerlink" href="#bltouch" title="Permanent link">&para;</a></h3>
 <p>The following command is available when a <a href="Config_Reference.html#bltouch">bltouch config section</a> is enabled (also see the <a href="BLTouch.html">BL-Touch guide</a>).</p>
 <h4 id="bltouch_debug">BLTOUCH_DEBUG<a class="headerlink" href="#bltouch_debug" title="Permanent link">&para;</a></h4>
-<p><code>BLTOUCH_DEBUG COMMAND=&lt;command&gt;</code>: This sends a command to the BLTouch. It may be useful for debugging. Available commands are: <code>pin_down</code>, <code>touch_mode</code>, <code>pin_up</code>, <code>self_test</code>, <code>reset</code>. A BL-Touch V3.0 or V3.1 may also support <code>set_5V_output_mode</code>, <code>set_OD_output_mode</code>, <code>output_mode_store</code> commands.</p>
+<p><code>BLTOUCH_DEBUG COMMAND=&lt;commande&gt;</code> : Ceci envoie une commande au BLTouch. Elle peut être utile pour le débogage. Les commandes disponibles sont : <code>pin_down</code>, <code>touch_mode</code>, <code>pin_up</code>, <code>self_test</code>, <code>reset</code>. Un BL-Touch V3.0 ou V3.1 accepte en plus les commandes <code>set_5V_output_mode</code>, <code>set_OD_output_mode</code>, <code>output_mode_store</code>.</p>
 <h4 id="bltouch_store">BLTOUCH_STORE<a class="headerlink" href="#bltouch_store" title="Permanent link">&para;</a></h4>
 <p><code>BLTOUCH_STORE MODE=&lt;output_mode&gt;</code> : Stocke un mode de sortie dans l'EEPROM d'un BLTouch V3.1 Les modes de sortie disponibles sont : <code>5V</code>, <code>OD</code></p>
 <h3 id="configfile">[configfile]<a class="headerlink" href="#configfile" title="Permanent link">&para;</a></h3>
@@ -2889,9 +2889,9 @@
 <li>Afficher un message : <code>M117 &lt;message&gt;</code></li>
 <li>Définir le pourcentage de génération : <code>M73 P&lt;pourcentage&gt;</code></li>
 </ul>
-<p>Also provided is the following extended G-Code command:</p>
+<p>La commande G-Code étendue suivante est également fournie :</p>
 <ul>
-<li><code>SET_DISPLAY_TEXT MSG=&lt;message&gt;</code>: Performs the equivalent of M117, setting the supplied <code>MSG</code> as the current display message. If <code>MSG</code> is omitted the display will be cleared.</li>
+<li><code>SET_DISPLAY_TEXT MSG=&lt;message&gt;</code> : Effectue l'équivalent de M117, en définissant le <code>MSG</code> fourni comme le message d'affichage actuel. Si <code>MSG</code> est omis, l'affichage est effacé.</li>
 </ul>
 <h3 id="dual_carriage">[dual_carriage]<a class="headerlink" href="#dual_carriage" title="Permanent link">&para;</a></h3>
 <p>The following command is available when the <a href="Config_Reference.html#dual_carriage">dual_carriage config section</a> is enabled.</p>
@@ -2904,32 +2904,32 @@
 <h3 id="exclude_object">[exclude_object]<a class="headerlink" href="#exclude_object" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when an <a href="Config_Reference.html#exclude_object">exclude_object config section</a> is enabled (also see the <a href="Exclude_Object.html">exclude object guide</a>):</p>
 <h4 id="exclude_object_1"><code>EXCLUDE_OBJECT</code><a class="headerlink" href="#exclude_object_1" title="Permanent link">&para;</a></h4>
-<p><code>EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]</code>: With no parameters, this will return a list of all currently excluded objects.</p>
+<p><code>EXCLUDE_OBJECT [NAME=nom_objet] [CURRENT=1] [RESET=1]</code> : Sans paramètres, cette commande renvoie une liste de tous les objets actuellement exclus.</p>
 <p>When the <code>NAME</code> parameter is given, the named object will be excluded from printing.</p>
 <p>When the <code>CURRENT</code> parameter is given, the current object will be excluded from printing.</p>
 <p>When the <code>RESET</code> parameter is given, the list of excluded objects will be cleared. Additionally including <code>NAME</code> will only reset the named object. This <strong>can</strong> cause print failures, if layers were already skipped.</p>
 <h4 id="exclude_object_define"><code>EXCLUDE_OBJECT_DEFINE</code><a class="headerlink" href="#exclude_object_define" title="Permanent link">&para;</a></h4>
-<p><code>EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] [RESET=1] [JSON=1]</code>: Provides a summary of an object in the file.</p>
+<p><code>EXCLUDE_OBJECT_DEFINE [NAME=nom_objet [CENTER=X,Y] [POLYGON=[[x,y],...]]] [RESET=1] [JSON=1]</code> : Fournit le résumé d'un objet dans le fichier.</p>
 <p>With no parameters provided, this will list the defined objects known to Klipper. Returns a list of strings, unless the <code>JSON</code> parameter is given, when it will return object details in json format.</p>
 <p>When the <code>NAME</code> parameter is included, this defines an object to be excluded.</p>
 <ul>
-<li><code>NAME</code>: This parameter is required. It is the identifier used by other commands in this module.</li>
-<li><code>CENTER</code>: An X,Y coordinate for the object.</li>
-<li><code>POLYGON</code>: An array of X,Y coordinates that provide an outline for the object.</li>
+<li><code>NAME</code> : Ce paramètre est obligatoire. Il s'agit de l'identifiant utilisé par les autres commandes de ce module.</li>
+<li><code>CENTER</code> : Une coordonnée X,Y pour l'objet.</li>
+<li><code>POLYGON</code> : Un tableau de coordonnées X,Y fournissant le contour d'un objet.</li>
 </ul>
 <p>When the <code>RESET</code> parameter is provided, all defined objects will be cleared, and the <code>[exclude_object]</code> module will be reset.</p>
 <h4 id="exclude_object_start"><code>EXCLUDE_OBJECT_START</code><a class="headerlink" href="#exclude_object_start" title="Permanent link">&para;</a></h4>
-<p><code>EXCLUDE_OBJECT_START NAME=object_name</code>: This command takes a <code>NAME</code> parameter and denotes the start of the gcode for an object on the current layer.</p>
+<p><code>EXCLUDE_OBJECT_START NAME=nom_objet</code> : Cette commande prend un paramètre <code>NAME</code> et indique le début du gcode pour un objet sur la couche courante.</p>
 <h4 id="exclude_object_end"><code>EXCLUDE_OBJECT_END</code><a class="headerlink" href="#exclude_object_end" title="Permanent link">&para;</a></h4>
-<p><code>EXCLUDE_OBJECT_END [NAME=object_name]</code>: Denotes the end of the object's gcode for the layer. It is paired with <code>EXCLUDE_OBJECT_START</code>. A <code>NAME</code> parameter is optional, and will only warn when the provided name does not match the current object.</p>
+<p><code>EXCLUDE_OBJECT_END [NAME=nom_objet]</code> : Indique la fin du gcode de l'objet pour la couche. Il est associé à <code>EXCLUDE_OBJECT_START</code>. Le paramètre <code>NAME</code> est optionnel, et n'avertira que si le nom fourni ne correspond au nom actuel.</p>
 <h3 id="extruder">[extruder]<a class="headerlink" href="#extruder" title="Permanent link">&para;</a></h3>
 <p>The following commands are available if an <a href="Config_Reference.html#extruder">extruder config section</a> is enabled:</p>
 <h4 id="activate_extruder">ACTIVATE_EXTRUDER<a class="headerlink" href="#activate_extruder" title="Permanent link">&para;</a></h4>
-<p><code>ACTIVATE_EXTRUDER EXTRUDER=&lt;config_name&gt;</code>: In a printer with multiple <a href="Config_Reference.html#extruder">extruder</a> config sections, this command changes the active hotend.</p>
+<p><code>ACTIVATE_EXTRUDER EXTRUDER=&lt;nom_de_la_configuration&gt;</code> : Dans une imprimante comportant plusieurs sections de configuration d'<a href="Config_Reference.html#extrudeur">extrudeuse</a>, cette commande sélectionne la tête d'outil active.</p>
 <h4 id="set_pressure_advance">SET_PRESSURE_ADVANCE<a class="headerlink" href="#set_pressure_advance" title="Permanent link">&para;</a></h4>
 <p><code>SET_PRESSURE_ADVANCE [EXTRUDER=&lt;config_name&gt;] [ADVANCE=&lt;pressure_advance&gt;] [SMOOTH_TIME=&lt;pressure_advance_smooth_time&gt;]</code>: Set pressure advance parameters of an extruder stepper (as defined in an <a href="Config_Reference.html#extruder">extruder</a> or <a href="Config_Reference.html#extruder_stepper">extruder_stepper</a> config section). If EXTRUDER is not specified, it defaults to the stepper defined in the active hotend.</p>
 <h4 id="set_extruder_rotation_distance">SET_EXTRUDER_ROTATION_DISTANCE<a class="headerlink" href="#set_extruder_rotation_distance" title="Permanent link">&para;</a></h4>
-<p><code>SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=&lt;config_name&gt; [DISTANCE=&lt;distance&gt;]</code>: Set a new value for the provided extruder stepper's "rotation distance" (as defined in an <a href="Config_Reference.html#extruder">extruder</a> or <a href="Config_Reference.html#extruder_stepper">extruder_stepper</a> config section). If the rotation distance is a negative number then the stepper motion will be inverted (relative to the stepper direction specified in the config file). Changed settings are not retained on Klipper reset. Use with caution as small changes can result in excessive pressure between extruder and hotend. Do proper calibration with filament before use. If 'DISTANCE' value is not provided then this command will return the current rotation distance.</p>
+<p><code>SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=&lt;nom_config&gt; [DISTANCE=&lt;distance&gt;]</code> : Définit une nouvelle valeur pour la "distance de rotation" du moteur de l'extrudeuse fournie (telle que définie dans une section de configuration <a href="Config_Reference.html#extruder">extruder</a> ou <a href="Config_Reference.html#extruder_stepper">extruder_stepper</a>). Si la distance de rotation est un nombre négatif, le mouvement du moteur sera inversé (par rapport à la direction du moteur spécifiée dans le fichier de configuration). Les paramètres modifiés ne sont pas conservés lors de la réinitialisation de Klipper. Utilisez avec précaution car de petites modifications peuvent entraîner une pression excessive entre l'extrudeuse et la tête de l'outil. Effectuez un calibrage correct avec le filament avant de l'utiliser. Si la valeur 'DISTANCE' n'est pas fournie, cette commande renvoie la distance de rotation actuelle.</p>
 <h4 id="sync_extruder_motion">SYNC_EXTRUDER_MOTION<a class="headerlink" href="#sync_extruder_motion" title="Permanent link">&para;</a></h4>
 <p><code>SYNC_EXTRUDER_MOTION EXTRUDER=&lt;name&gt; MOTION_QUEUE=&lt;name&gt;</code>: This command will cause the stepper specified by EXTRUDER (as defined in an <a href="Config_Reference.html#extruder">extruder</a> or <a href="Config_Reference.html#extruder_stepper">extruder_stepper</a> config section) to become synchronized to the movement of an extruder specified by MOTION_QUEUE (as defined in an <a href="Config_Reference.html#extruder">extruder</a> config section). If MOTION_QUEUE is an empty string then the stepper will be desynchronized from all extruder movement.</p>
 <h4 id="set_extruder_step_distance">SET_EXTRUDER_STEP_DISTANCE<a class="headerlink" href="#set_extruder_step_distance" title="Permanent link">&para;</a></h4>
@@ -2943,7 +2943,7 @@
 <h3 id="filament_switch_sensor">[filament_switch_sensor]<a class="headerlink" href="#filament_switch_sensor" title="Permanent link">&para;</a></h3>
 <p>The following command is available when a <a href="Config_Reference.html#filament_switch_sensor">filament_switch_sensor</a> or <a href="Config_Reference.html#filament_motion_sensor">filament_motion_sensor</a> config section is enabled.</p>
 <h4 id="query_filament_sensor">QUERY_FILAMENT_SENSOR<a class="headerlink" href="#query_filament_sensor" title="Permanent link">&para;</a></h4>
-<p><code>QUERY_FILAMENT_SENSOR SENSOR=&lt;sensor_name&gt;</code>: Queries the current status of the filament sensor. The data displayed on the terminal will depend on the sensor type defined in the configuration.</p>
+<p><code>QUERY_FILAMENT_SENSOR SENSOR=&lt;nom_du_capteur&gt;</code> : Interroge l'état actuel du capteur de filament. Les données affichées sur le terminal dépendront du type de capteur défini dans la configuration.</p>
 <h4 id="set_filament_sensor">SET_FILAMENT_SENSOR<a class="headerlink" href="#set_filament_sensor" title="Permanent link">&para;</a></h4>
 <p><code>SET_FILAMENT_SENSOR SENSOR=&lt;nom_du_capteur&gt; ENABLE=[0|1]</code> : Active/désactive le détecteur de filament. Si ENABLE est réglé sur 0, le détecteur de filament est désactivé, s'il est réglé sur 1, il est activé.</p>
 <h3 id="firmware_retraction">[firmware_retraction]<a class="headerlink" href="#firmware_retraction" title="Permanent link">&para;</a></h3>
@@ -2978,8 +2978,8 @@
 <h3 id="gcode_arcs">[gcode_arcs]<a class="headerlink" href="#gcode_arcs" title="Permanent link">&para;</a></h3>
 <p>The following standard G-Code commands are available if a <a href="Config_Reference.html#gcode_arcs">gcode_arcs config section</a> is enabled:</p>
 <ul>
-<li>Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): <code>G2|G3 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;] [F&lt;speed&gt;] I&lt;value&gt; J&lt;value&gt;|I&lt;value&gt; K&lt;value&gt;|J&lt;value&gt; K&lt;value&gt;</code></li>
-<li>Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)</li>
+<li>Déplacement d'un arc dans le sens des aiguilles d'une montre (G2), déplacement d'un arc dans le sens inverse des aiguilles d'une montre (G3) : <code>G2|G3 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;] [F&lt;speed&gt;] I&lt;value&gt; J&lt;value&gt;|I&lt;value&gt; K&lt;value&gt;|J&lt;value&gt; K&lt;value&gt;</code></li>
+<li>Sélection du plan de l'arc : G17 (plan XY), G18 (plan XZ), G19 (plan YZ)</li>
 </ul>
 <h3 id="gcode_macro">[gcode_macro]<a class="headerlink" href="#gcode_macro" title="Permanent link">&para;</a></h3>
 <p>The following command is available when a <a href="Config_Reference.html#gcode_macro">gcode_macro config section</a> is enabled (also see the <a href="Command_Templates.html">command templates guide</a>).</p>
@@ -2988,7 +2988,7 @@
 <h3 id="gcode_move">[gcode_move]<a class="headerlink" href="#gcode_move" title="Permanent link">&para;</a></h3>
 <p>The gcode_move module is automatically loaded.</p>
 <h4 id="get_position">GET_POSITION<a class="headerlink" href="#get_position" title="Permanent link">&para;</a></h4>
-<p><code>GET_POSITION</code>: Return information on the current location of the toolhead. See the developer documentation of <a href="Code_Overview.html#coordinate-systems">GET_POSITION output</a> for more information.</p>
+<p><code>GET_POSITION</code> : Retourne les informations de l'emplacement actuel de la tête d'outil. Voir la documentation du développeur de <a href="Code_Overview.html#coordinate-systems">restitution de GET_POSITION</a> pour plus d'informations.</p>
 <h4 id="set_gcode_offset">SET_GCODE_OFFSET<a class="headerlink" href="#set_gcode_offset" title="Permanent link">&para;</a></h4>
 <p><code>SET_GCODE_OFFSET [X=&lt;pos&gt;|X_ADJUST=&lt;adjust&gt;] [Y=&lt;pos&gt;|Y_ADJUST=&lt;adjust&gt;] [Z=&lt;pos&gt;|Z_ADJUST=&lt;adjust&gt;] [MOVE=1 [MOVE_SPEED=&lt;speed&gt;]]</code> : Définit un décalage positionnel à appliquer aux futures commandes G-Code. Ceci est généralement utilisé pour changer virtuellement le décalage Z du bed ou pour définir les décalages XY des buses lors du changement d'extrudeur. Par exemple, si "SET_GCODE_OFFSET Z=0.2" est donné, les prochains mouvements G-Code auront 0,2mm ajouté à leur hauteur Z. Si les paramètres de style X_ADJUST sont utilisés, l'ajustement sera ajouté à tout décalage existant (par exemple, "SET_GCODE_OFFSET Z=-0.2" suivi de "SET_GCODE_OFFSET Z_ADJUST=0.3" donnerait un décalage Z total de 0.1). Si "MOVE=1" est spécifié, un déplacement de la tête d'outil sera effectué pour appliquer le décalage donné (sinon le décalage prendra effet lors du prochain déplacement absolu en G-code qui spécifie l'axe donné). Si "MOVE_SPEED" est spécifié, le déplacement de la tête d'outil sera effectué avec la vitesse donnée (en mm/s) ; sinon, le déplacement de la tête d'outil utilisera la dernière vitesse G-Code spécifiée.</p>
 <h4 id="save_gcode_state">SAVE_GCODE_STATE<a class="headerlink" href="#save_gcode_state" title="Permanent link">&para;</a></h4>
@@ -2998,19 +2998,19 @@
 <h3 id="hall_filament_width_sensor">[hall_filament_width_sensor]<a class="headerlink" href="#hall_filament_width_sensor" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when the <a href="Config_Reference.html#tsl1401cl_filament_width_sensor">tsl1401cl filament width sensor config section</a> or <a href="Config_Reference.html#hall_filament_width_sensor">hall filament width sensor config section</a> is enabled (also see <a href="TSL1401CL_Filament_Width_Sensor.html">TSLl401CL Filament Width Sensor</a> and <a href="Hall_Filament_Width_Sensor.html">Hall Filament Width Sensor</a>):</p>
 <h4 id="query_filament_width">QUERY_FILAMENT_WIDTH<a class="headerlink" href="#query_filament_width" title="Permanent link">&para;</a></h4>
-<p><code>QUERY_FILAMENT_WIDTH</code>: Return the current measured filament width.</p>
+<p><code>QUERY_FILAMENT_WIDTH</code> : Renvoie la largeur actuelle du filament mesuré.</p>
 <h4 id="reset_filament_width_sensor">RESET_FILAMENT_WIDTH_SENSOR<a class="headerlink" href="#reset_filament_width_sensor" title="Permanent link">&para;</a></h4>
-<p><code>RESET_FILAMENT_WIDTH_SENSOR</code>: Clear all sensor readings. Helpful after filament change.</p>
+<p><code>RESET_FILAMENT_WIDTH_SENSOR</code> : Efface toutes les lectures du capteur. Utile après un changement de filament.</p>
 <h4 id="disable_filament_width_sensor">DISABLE_FILAMENT_WIDTH_SENSOR<a class="headerlink" href="#disable_filament_width_sensor" title="Permanent link">&para;</a></h4>
-<p><code>DISABLE_FILAMENT_WIDTH_SENSOR</code>: Turn off the filament width sensor and stop using it for flow control.</p>
+<p><code>DISABLE_FILAMENT_WIDTH_SENSOR</code> : Désactiver le capteur de largeur de filament et arrêter de l'utiliser pour le contrôle du flux.</p>
 <h4 id="enable_filament_width_sensor">ENABLE_FILAMENT_WIDTH_SENSOR<a class="headerlink" href="#enable_filament_width_sensor" title="Permanent link">&para;</a></h4>
-<p><code>ENABLE_FILAMENT_WIDTH_SENSOR</code>: Turn on the filament width sensor and start using it for flow control.</p>
+<p><code>ENABLE_FILAMENT_WIDTH_SENSOR</code> : Activez le capteur de largeur de filament et commencez à l'utiliser pour le contrôle du flux.</p>
 <h4 id="query_raw_filament_width">QUERY_RAW_FILAMENT_WIDTH<a class="headerlink" href="#query_raw_filament_width" title="Permanent link">&para;</a></h4>
-<p><code>QUERY_RAW_FILAMENT_WIDTH</code>: Return the current ADC channel readings and RAW sensor value for calibration points.</p>
+<p><code>QUERY_RAW_FILAMENT_WIDTH</code> : Renvoie les lectures actuelles des canaux ADC et la valeur RAW du capteur des points de calibration.</p>
 <h4 id="enable_filament_width_log">ENABLE_FILAMENT_WIDTH_LOG<a class="headerlink" href="#enable_filament_width_log" title="Permanent link">&para;</a></h4>
-<p><code>ENABLE_FILAMENT_WIDTH_LOG</code>: Turn on diameter logging.</p>
+<p><code>ENABLE_FILAMENT_WIDTH_LOG</code> : Activer la journalisation du diamètre.</p>
 <h4 id="disable_filament_width_log">DISABLE_FILAMENT_WIDTH_LOG<a class="headerlink" href="#disable_filament_width_log" title="Permanent link">&para;</a></h4>
-<p><code>DISABLE_FILAMENT_WIDTH_LOG</code>: Turn off diameter logging.</p>
+<p><code>DISABLE_FILAMENT_WIDTH_LOG</code> : Désactiver la journalisation du diamètre.</p>
 <h3 id="heaters">[heaters]<a class="headerlink" href="#heaters" title="Permanent link">&para;</a></h3>
 <p>The heaters module is automatically loaded if a heater is defined in the config file.</p>
 <h4 id="turn_off_heaters">TURN_OFF_HEATERS<a class="headerlink" href="#turn_off_heaters" title="Permanent link">&para;</a></h4>
@@ -3047,7 +3047,7 @@
 <h3 id="mcp4018">[mcp4018]<a class="headerlink" href="#mcp4018" title="Permanent link">&para;</a></h3>
 <p>The following command is available when a <a href="Config_Reference.html#mcp4018">mcp4018 config section</a> is enabled.</p>
 <h4 id="set_digipot">SET_DIGIPOT<a class="headerlink" href="#set_digipot" title="Permanent link">&para;</a></h4>
-<p><code>SET_DIGIPOT DIGIPOT=config_name WIPER=&lt;value&gt;</code>: This command will change the current value of the digipot. This value should typically be between 0.0 and 1.0, unless a 'scale' is defined in the config. When 'scale' is defined, then this value should be between 0.0 and 'scale'.</p>
+<p><code>SET_DIGIPOT DIGIPOT=config_name WIPER=&lt;valeur&gt;</code> : Cette commande change la valeur actuelle du digipot. Cette valeur devrait typiquement être comprise entre 0.0 et 1.0, à moins qu'une 'échelle' soit définie dans la configuration. Lorsque 'scale' est défini, alors cette valeur doit être comprise entre 0.0 et 'scale'.</p>
 <h3 id="led">[led]<a class="headerlink" href="#led" title="Permanent link">&para;</a></h3>
 <p>The following command is available when any of the <a href="Config_Reference.html#leds">led config sections</a> are enabled.</p>
 <h4 id="set_led">SET_LED<a class="headerlink" href="#set_led" title="Permanent link">&para;</a></h4>
@@ -3134,8 +3134,8 @@
 <ul>
 <li><code>RESPOND MSG="&lt;message&gt;"</code> : Affiche le message précédé du préfixe par défaut configuré (ou <code>echo :</code> si aucun préfixe n'est configuré).</li>
 <li><code>RESPOND TYPE=echo MSG="&lt;message&gt;"</code> : affiche le message précédé par <code>echo :</code>.</li>
-<li><code>RESPOND TYPE=echo_no_space MSG="&lt;message&gt;"</code>: echo the message prepended with <code>echo:</code> without a space between prefix and message, helpful for compatibility with some octoprint plugins that expect very specific formatting.</li>
-<li><code>RESPOND TYPE=command MSG="&lt;message&gt;"</code>: echo the message prepended with <code>//</code>. OctoPrint can be configured to respond to these messages (e.g. <code>RESPOND TYPE=command MSG=action:pause</code>).</li>
+<li><code>RESPOND TYPE=echo_no_space MSG="&lt;message&gt;"</code> : renvoie le message précédé de <code>echo:</code> sans espace entre le préfixe et le message, utile pour la compatibilité avec certains plugins octoprint qui attendent un formatage très spécifique.</li>
+<li><code>RESPOND TYPE=command MSG="&lt;message&gt;"</code> : renvoie le message précédé de <code>//</code>. OctoPrint peut être configuré pour répondre à ces messages (par exemple, <code>RESPOND TYPE=command MSG=action:pause</code>).</li>
 <li><code>RESPOND TYPE=error MSG="&lt;message&gt;"</code> : affiche le message précédé par <code>!!!</code>.</li>
 <li><code>RESPOND PREFIX=&lt;prefix&gt; MSG="&lt;message&gt;"</code> : renvoie le message précédé de <code>&lt;prefix&gt;</code>. (Le paramètre <code>PREFIX</code> est prioritaire sur le paramètre <code>TYPE</code>).</li>
 </ul>
@@ -3146,11 +3146,11 @@
 <h3 id="screws_tilt_adjust">[screws_tilt_adjust]<a class="headerlink" href="#screws_tilt_adjust" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when the <a href="Config_Reference.html#screws_tilt_adjust">screws_tilt_adjust config section</a> is enabled (also see the <a href="Manual_Level.html#adjusting-bed-leveling-screws-using-the-bed-probe">manual level guide</a>).</p>
 <h4 id="screws_tilt_calculate">SCREWS_TILT_CALCULATE<a class="headerlink" href="#screws_tilt_calculate" title="Permanent link">&para;</a></h4>
-<p><code>SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=&lt;value&gt;] [&lt;probe_parameter&gt;=&lt;value&gt;]</code>: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) probing the z height and calculate the number of knob turns to adjust the bed level. If DIRECTION is specified, the knob turns will all be in the same direction, clockwise (CW) or counterclockwise (CCW). See the PROBE command for details on the optional probe parameters. IMPORTANT: You MUST always do a G28 before using this command. If MAX_DEVIATION is specified, the command will raise a gcode error if any difference in the screw height relative to the base screw height is greater than the value provided.</p>
+<p><code>SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=&lt;valeur&gt;] [&lt;probe_parameter&gt;=&lt;valeur&gt;]</code> : Cette commande invoquera l'outil de réglage des vis du lit. Elle déplacera la buse à différents endroits (tels que définis dans le fichier de configuration) en palpant la hauteur z et calculera le nombre de tours de la molette de réglage pour ajuster le niveau du lit. Si DIRECTION est spécifié, les tours de la molette seront tous dans la même direction, dans le sens des aiguilles d'une montre (CW) ou dans le sens inverse (CCW). Voir la commande PROBE pour plus de détails sur les paramètres optionnels de la sonde. IMPORTANT : Vous DEVEZ toujours effectuer un G28 avant d'utiliser cette commande. Si MAX_DEVIATION est spécifié, la commande déclenchera une erreur de gcode si une différence de hauteur de vis par rapport à la hauteur de vis de base est supérieure à la valeur fournie.</p>
 <h3 id="sdcard_loop">[sdcard_loop]<a class="headerlink" href="#sdcard_loop" title="Permanent link">&para;</a></h3>
 <p>When the <a href="Config_Reference.html#sdcard_loop">sdcard_loop config section</a> is enabled, the following extended commands are available.</p>
 <h4 id="sdcard_loop_begin">SDCARD_LOOP_BEGIN<a class="headerlink" href="#sdcard_loop_begin" title="Permanent link">&para;</a></h4>
-<p><code>SDCARD_LOOP_BEGIN COUNT=&lt;count&gt;</code>: Begin a looped section in the SD print. A count of 0 indicates that the section should be looped indefinitely.</p>
+<p><code>SDCARD_LOOP_BEGIN COUNT=&lt;compte&gt;</code> : Commence une section bouclée dans l'impression SD. Un compte de 0 indique que la section doit être bouclée indéfiniment.</p>
 <h4 id="sdcard_loop_end">SDCARD_LOOP_END<a class="headerlink" href="#sdcard_loop_end" title="Permanent link">&para;</a></h4>
 <p><code>SDCARD_LOOP_END</code>: Termine une section de boucle dans l'impression SD.</p>
 <h4 id="sdcard_loop_desist">SDCARD_LOOP_DESIST<a class="headerlink" href="#sdcard_loop_desist" title="Permanent link">&para;</a></h4>
@@ -3166,7 +3166,7 @@
 <h4 id="get_current_skew">GET_CURRENT_SKEW<a class="headerlink" href="#get_current_skew" title="Permanent link">&para;</a></h4>
 <p><code>GET_CURRENT_SKEW</code>: Indique l'inclinaison actuelle de l'imprimante pour chaque plan en radians et en degrés. L'inclinaison est calculée en fonction des paramètres fournis par le gcode <code>SET_SKEW</code>.</p>
 <h4 id="calc_measured_skew">CALC_MEASURED_SKEW<a class="headerlink" href="#calc_measured_skew" title="Permanent link">&para;</a></h4>
-<p><code>CALC_MEASURED_SKEW [AC=&lt;ac_length&gt;] [BD=&lt;bd_length&gt;] [AD=&lt;ad_length&gt;]</code>: Calculates and reports the skew (in radians and degrees) based on a measured print. This can be useful for determining the printer's current skew after correction has been applied. It may also be useful before correction is applied to determine if skew correction is necessary. See <a href="Skew_Correction.html">Skew Correction</a> for details on skew calibration objects and measurements.</p>
+<p><code>CALC_MEASURED_SKEW [AC=&lt;ac_length&gt;] [BD=&lt;bd_length&gt;] [AD=&lt;ad_length&gt;]</code> : Calcule et rapporte l'inclinaison (en radians et en degrés) basée sur une impression mesurée. Cela peut être utile pour déterminer l'inclinaison actuelle de l'imprimante après l'application de la correction. Elle peut également être utile avant l'application de la correction pour déterminer si une correction de l'inclinaison est nécessaire. Reportez-vous à la section [Correction de l'obliquité] (Skew_Correction.md) pour plus de détails sur les objets et les mesures de calibrage de l'obliquité.</p>
 <h4 id="skew_profile">SKEW_PROFILE<a class="headerlink" href="#skew_profile" title="Permanent link">&para;</a></h4>
 <p><code>SKEW_PROFILE [LOAD=&lt;name&gt;] [SAVE=&lt;name&gt;] [REMOVE=&lt;name&gt;]</code>: Profile management for skew_correction. LOAD will restore skew state from the profile matching the supplied name. SAVE will save the current skew state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to persistent memory permanent.</p>
 <h3 id="smart_effector">[smart_effector]<a class="headerlink" href="#smart_effector" title="Permanent link">&para;</a></h3>
@@ -3174,7 +3174,7 @@
 <h4 id="set_smart_effector">SET_SMART_EFFECTOR<a class="headerlink" href="#set_smart_effector" title="Permanent link">&para;</a></h4>
 <p><code>SET_SMART_EFFECTOR [SENSITIVITY=&lt;sensitivity&gt;] [ACCEL=&lt;accel&gt;] [RECOVERY_TIME=&lt;time&gt;]</code>: Set the Smart Effector parameters. When <code>SENSITIVITY</code> is specified, the respective value is written to the SmartEffector EEPROM (requires <code>control_pin</code> to be provided). Acceptable <code>&lt;sensitivity&gt;</code> values are 0..255, the default is 50. Lower values require less nozzle contact force to trigger (but there is a higher risk of false triggering due to vibrations during probing), and higher values reduce false triggering (but require larger contact force to trigger). Since the sensitivity is written to EEPROM, it is preserved after the shutdown, and so it does not need to be configured on every printer startup. <code>ACCEL</code> and <code>RECOVERY_TIME</code> allow to override the corresponding parameters at run-time, see the <a href="Config_Reference.html#smart_effector">config section</a> of Smart Effector for more info on those parameters.</p>
 <h4 id="reset_smart_effector">RESET_SMART_EFFECTOR<a class="headerlink" href="#reset_smart_effector" title="Permanent link">&para;</a></h4>
-<p><code>RESET_SMART_EFFECTOR</code>: Resets Smart Effector sensitivity to its factory settings. Requires <code>control_pin</code> to be provided in the config section.</p>
+<p><code>RESET_SMART_EFFECTOR</code> : Réinitialise la sensibilité du Smart Effector à ses paramètres d'usine. Nécessite que <code>control_pin</code> soit fourni dans la section de configuration.</p>
 <h3 id="stepper_enable">[stepper_enable]<a class="headerlink" href="#stepper_enable" title="Permanent link">&para;</a></h3>
 <p>The stepper_enable module is automatically loaded.</p>
 <h4 id="set_stepper_enable">SET_STEPPER_ENABLE<a class="headerlink" href="#set_stepper_enable" title="Permanent link">&para;</a></h4>
@@ -3188,7 +3188,7 @@
 <h4 id="dump_tmc">DUMP_TMC<a class="headerlink" href="#dump_tmc" title="Permanent link">&para;</a></h4>
 <p><code>DUMP_TMC STEPPER=&lt;nom&gt;</code> : Cette commande lit les registres du pilote TMC et renvoie leurs valeurs.</p>
 <h4 id="init_tmc">INIT_TMC<a class="headerlink" href="#init_tmc" title="Permanent link">&para;</a></h4>
-<p><code>INIT_TMC STEPPER=&lt;name&gt;</code>: This command will initialize the TMC registers. Needed to re-enable the driver if power to the chip is turned off then back on.</p>
+<p><code>INIT_TMC STEPPER=&lt;nom&gt;</code> : Cette commande initialise les registres de la puce TMC. Nécessaire pour réactiver le pilote si l'alimentation de la puce est coupée puis rétablie.</p>
 <h4 id="set_tmc_current">SET_TMC_CURRENT<a class="headerlink" href="#set_tmc_current" title="Permanent link">&para;</a></h4>
 <p><code>SET_TMC_CURRENT STEPPER=&lt;name&gt; CURRENT=&lt;amps&gt; HOLDCURRENT=&lt;amps&gt;</code>: This will adjust the run and hold currents of the TMC driver. (HOLDCURRENT is not applicable to tmc2660 drivers.)</p>
 <h4 id="set_tmc_field">SET_TMC_FIELD<a class="headerlink" href="#set_tmc_field" title="Permanent link">&para;</a></h4>
@@ -3202,12 +3202,12 @@
 <h4 id="tuning_tower_1">TUNING_TOWER<a class="headerlink" href="#tuning_tower_1" title="Permanent link">&para;</a></h4>
 <p><code>TUNING_TOWER COMMAND=&lt;command&gt; PARAMETER=&lt;name&gt; START=&lt;value&gt; [SKIP=&lt;value&gt;] [FACTOR=&lt;value&gt; [BAND=&lt;value&gt;]] | [STEP_DELTA=&lt;value&gt; STEP_HEIGHT=&lt;value&gt;]</code>: A tool for tuning a parameter on each Z height during a print. The tool will run the given <code>COMMAND</code> with the given <code>PARAMETER</code> assigned to a value that varies with <code>Z</code> according to a formula. Use <code>FACTOR</code> if you will use a ruler or calipers to measure the Z height of the optimum value, or <code>STEP_DELTA</code> and <code>STEP_HEIGHT</code> if the tuning tower model has bands of discrete values as is common with temperature towers. If <code>SKIP=&lt;value&gt;</code> is specified, the tuning process doesn't begin until Z height <code>&lt;value&gt;</code> is reached, and below that the value will be set to <code>START</code>; in this case, the <code>z_height</code> used in the formulas below is actually <code>max(z - skip, 0)</code>. There are three possible combinations of options:</p>
 <ul>
-<li><code>FACTOR</code>: The value changes at a rate of <code>factor</code> per millimeter. The formula used is: <code>value = start + factor * z_height</code>. You can plug the optimum Z height directly into the formula to determine the optimum parameter value.</li>
-<li><code>FACTOR</code> and <code>BAND</code>: The value changes at an average rate of <code>factor</code> per millimeter, but in discrete bands where the adjustment will only be made every <code>BAND</code> millimeters of Z height. The formula used is: <code>value = start + factor * ((floor(z_height / band) + .5) * band)</code>.</li>
+<li><code>FACTOR</code> : La valeur change à un taux de <code>factor</code> par millimètre. La formule utilisée est : <code>valeur = start + factor * z_height</code>. Vous pouvez insérer la hauteur Z optimale directement dans la formule pour déterminer la valeur optimale du paramètre.</li>
+<li><code>FACTOR</code> and <code>BAND</code>: La valeur change à un taux moyen de <code>factor</code> par millimètre, mais dans des bandes discrètes où l'ajustement ne sera fait que tous les <code>BAND</code> millimètres de hauteur Z. La formule utilisée est : <code>valeur =start + factor * ((floor(z_height / band) + .5) * band)</code>.</li>
 <li><code>STEP_DELTA</code> and <code>STEP_HEIGHT</code>: The value changes by <code>STEP_DELTA</code> every <code>STEP_HEIGHT</code> millimeters. The formula used is: <code>value = start + step_delta * floor(z_height / step_height)</code>. You can simply count bands or read tuning tower labels to determine the optimum value.</li>
 </ul>
 <h3 id="virtual_sdcard">[virtual_sdcard]<a class="headerlink" href="#virtual_sdcard" title="Permanent link">&para;</a></h3>
-<p>Klipper supports the following standard G-Code commands if the <a href="Config_Reference.html#virtual_sdcard">virtual_sdcard config section</a> is enabled:</p>
+<p>Klipper prend en charge les commandes G-Code standards suivantes si la section de configuration <a href="Config_Reference.html#virtual_sdcard">virtual_sdcard</a> est activée :</p>
 <ul>
 <li>Liste des cartes SD : <code>M20</code></li>
 <li>Initialiser la carte SD : <code>M21</code></li>
@@ -3217,11 +3217,11 @@
 <li>Définir la position SD : <code>M26 S&lt;décalage&gt;</code></li>
 <li>Afficher l'état d'impression depuis la carte SD : <code>M27</code></li>
 </ul>
-<p>In addition, the following extended commands are available when the "virtual_sdcard" config section is enabled.</p>
+<p>En outre, les commandes étendues suivantes sont disponibles lorsque la section de configuration "virtual_sdcard" est activée.</p>
 <h4 id="sdcard_print_file">SDCARD_PRINT_FILE<a class="headerlink" href="#sdcard_print_file" title="Permanent link">&para;</a></h4>
-<p><code>SDCARD_PRINT_FILE FILENAME=&lt;filename&gt;</code>: Load a file and start SD print.</p>
+<p><code>SDCARD_PRINT_FILE FILENAME=&lt;nom_fichier&gt;</code> : Charge un fichier et lance l'impression SD.</p>
 <h4 id="sdcard_reset_file">SDCARD_RESET_FILE<a class="headerlink" href="#sdcard_reset_file" title="Permanent link">&para;</a></h4>
-<p><code>SDCARD_RESET_FILE</code>: Unload file and clear SD state.</p>
+<p><code>SDCARD_RESET_FILE</code> : Décharge le fichier et efface l'état de la carte SD.</p>
 <h3 id="z_thermal_adjust">[z_thermal_adjust]<a class="headerlink" href="#z_thermal_adjust" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when the <a href="Config_Reference.html#z_thermal_adjust">z_thermal_adjust config section</a> is enabled.</p>
 <h4 id="set_z_thermal_adjust">SET_Z_THERMAL_ADJUST<a class="headerlink" href="#set_z_thermal_adjust" title="Permanent link">&para;</a></h4>

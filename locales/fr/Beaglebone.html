@@ -1233,15 +1233,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-the-micro-controller-code" class="md-nav__link">
-    Building the micro-controller code
+  <a href="#construire-le-code-du-microcontroleur" class="md-nav__link">
+    Construire le code du microcontrôleur
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#remaining-configuration" class="md-nav__link">
-    Remaining configuration
+  <a href="#configuration-restante" class="md-nav__link">
+    Configuration restante
   </a>
   
 </li>
@@ -1303,13 +1303,13 @@ sudo update-rc.d octoprint defaults
 </code></pre></div>
 
 <p>Make sure the OctoPrint web server is accessible - it should be at: <a href="http://beaglebone:5000/">http://beaglebone:5000/</a></p>
-<h2 id="building-the-micro-controller-code">Building the micro-controller code<a class="headerlink" href="#building-the-micro-controller-code" title="Permanent link">&para;</a></h2>
+<h2 id="construire-le-code-du-microcontroleur">Construire le code du microcontrôleur<a class="headerlink" href="#construire-le-code-du-microcontroleur" title="Permanent link">&para;</a></h2>
 <p>To compile the Klipper micro-controller code, start by configuring it for the "Beaglebone PRU":</p>
 <div class="highlight"><pre><span></span><code>cd ~/klipper/
 make menuconfig
 </code></pre></div>
 
-<p>To build and install the new micro-controller code, run:</p>
+<p>Pour compiler et installer le nouveau code du microcontrôleur, exécutez :</p>
 <div class="highlight"><pre><span></span><code>sudo service klipper stop
 make flash
 sudo service klipper start
@@ -1325,7 +1325,7 @@ make flash
 sudo service klipper start
 </code></pre></div>
 
-<h2 id="remaining-configuration">Remaining configuration<a class="headerlink" href="#remaining-configuration" title="Permanent link">&para;</a></h2>
+<h2 id="configuration-restante">Configuration restante<a class="headerlink" href="#configuration-restante" title="Permanent link">&para;</a></h2>
 <p>Complete the installation by configuring Klipper and Octoprint following the instructions in the main <a href="Installation.html#configuring-klipper">Installation</a> document.</p>
 <h2 id="printing-on-the-beaglebone">Printing on the Beaglebone<a class="headerlink" href="#printing-on-the-beaglebone" title="Permanent link">&para;</a></h2>
 <p>Unfortunately, the Beaglebone processor can sometimes struggle to run OctoPrint well. Print stalls have been known to occur on complex prints (the printer may move faster than OctoPrint can send movement commands). If this occurs, consider using the "virtual_sdcard" feature (see <a href="Config_Reference.html#virtual_sdcard">Config Reference</a> for details) to print directly from Klipper.</p>

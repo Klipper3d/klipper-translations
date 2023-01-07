@@ -1254,8 +1254,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#i-found-a-bug-in-the-klipper-software" class="md-nav__link">
-    I found a bug in the Klipper software
+  <a href="#jai-trouve-un-bug-dans-le-logiciel-klipper" class="md-nav__link">
+    J'ai trouvé un bug dans le logiciel Klipper
   </a>
   
 </li>
@@ -1268,8 +1268,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#klipper-github" class="md-nav__link">
-    Klipper github
+  <a href="#github-klipper" class="md-nav__link">
+    GitHub Klipper
   </a>
   
 </li>
@@ -1299,9 +1299,9 @@
 <li><a href="#i-have-a-question-about-klipper">J'ai une question au sujet de Klipper</a></li>
 <li><a href="#i-have-a-feature-request">J'ai une demande d'ajout de fonctionnalité</a></li>
 <li><a href="#help-it-doesnt-work">A l'aide ! Ca ne fonctionne pas !</a></li>
-<li><a href="#i-found-a-bug-in-the-klipper-software">I found a bug in the Klipper software</a></li>
+<li><a href="#i-found-a-bug-in-the-klipper-software">J'ai trouvé un bug dans le logiciel Klipper</a></li>
 <li><a href="#i-am-making-changes-that-id-like-to-include-in-klipper">J’apporte des modifications que j’aimerais inclure dans Klipper</a></li>
-<li><a href="#klipper-github">Klipper github</a></li>
+<li><a href="#klipper-github">Github Klipper</a></li>
 </ol>
 <h2 id="forum-de-la-communaute">Forum de la communauté<a class="headerlink" href="#forum-de-la-communaute" title="Permanent link">&para;</a></h2>
 <p>Il y a un <a href="https://community.klipper3d.org">Serveur Communautaire Discourse Klipper</a> pour les discussions sur Klipper.</p>
@@ -1325,29 +1325,29 @@
 <p>Si vous rencontrez des soucis d'impression, nous vous recommandons d'inspecter minutieusement votre imprimante pour voir s'il n'y a pas d'anomalies (joints, vis, fils, etc). Nous avons remarqué que la plupart des anomalies ne sont pas spécifiquement liées à Klipper. Si vous avez un problème avec votre imprimante, vous obtiendrez sûrement une meilleure réponse en recherchant sur un forum dédié à l'impression 3D en général ou bien sur un consacré au matériel de votre imprimante.</p>
 <p>Il est également possible de rechercher des questions similaires sur le <a href="#community-forum">Forum de la communauté Klipper</a>.</p>
 <p>Si vous souhaitez partager vos connaissances et votre expérience avec d'autres utilisateurs de Klipper, vous pouvez rejoindre le <a href="#community-forum">Forum de la communauté Klipper</a> ou encore le <a href="#discord-chat">Salon Discord Klipper</a>. Il s'agit de deux communautés où les utilisateurs de Klipper peuvent discuter du logiciel avec d'autres.</p>
-<h2 id="i-found-a-bug-in-the-klipper-software">I found a bug in the Klipper software<a class="headerlink" href="#i-found-a-bug-in-the-klipper-software" title="Permanent link">&para;</a></h2>
+<h2 id="jai-trouve-un-bug-dans-le-logiciel-klipper">J'ai trouvé un bug dans le logiciel Klipper<a class="headerlink" href="#jai-trouve-un-bug-dans-le-logiciel-klipper" title="Permanent link">&para;</a></h2>
 <p>Klipper est un projet open-source et nous apprécions quand des contributeurs diagnostiquent des erreurs dans le logiciel.</p>
-<p>Problems should be reported in the <a href="#community-forum">Klipper Community Forum</a>.</p>
+<p>Les problèmes devraient être signalés dans le <a href="#community-forum">Forum communautaire Klipper</a>.</p>
 <p>Il y a des informations importantes qui sont nécessaires pour pouvoir corriger un bug. Veuillez suivre ces étapes :</p>
 <ol>
-<li>Make sure you are running unmodified code from <a href="https://github.com/Klipper3d/klipper">https://github.com/Klipper3d/klipper</a>. If the code has been modified or is obtained from another source, then you should reproduce the problem on the unmodified code from <a href="https://github.com/Klipper3d/klipper">https://github.com/Klipper3d/klipper</a> prior to reporting.</li>
-<li>If possible, run an <code>M112</code> command immediately after the undesirable event occurs. This causes Klipper to go into a "shutdown state" and it will cause additional debugging information to be written to the log file.</li>
+<li>Assurez-vous que vous exécutez le code non modifié de <a href="https://github.com/Klipper3d/klipper">https://github.com/Klipper3d/klipper</a>. Si le code a été modifié ou provient d'une autre source, vous devez reproduire le problème sur le code non modifié de <a href="https://github.com/Klipper3d/klipper">https://github.com/Klipper3d/klipper</a> avant de le signaler.</li>
+<li>Si possible, exécutez une commande <code>M112</code> immédiatement après que l'événement indésirable se soit produit. Klipper se met alors dans un "état d'arrêt" et des informations de débogage supplémentaires sont écrites dans le fichier journal.</li>
 <li>Récupérez l'événement depuis le fichier journal Klipper. Ce journal a été conçu pour répondre aux questions courantes que les développeurs de Klipper se posent sur le logiciel et son environnement (version du logiciel, type de matériel, configuration, à quel moment l'anomalie eu lieu, et des centaines d'autres questions).<ol>
 <li>Le fichier journal de Klipper est situé dans <code>/tmp/klippy.log</code> sur l'ordinateur "hôte" de Klipper (le Raspberry Pi).</li>
 <li>Un utilitaire comme "scp" ou "sftp" est nécessaire pour copier ce fichier journal sur votre ordinateur. L'utilitaire "scp" est fourni en standard avec les systèmes Linux et MacOS. Il existe des utilitaires scp disponibles gratuitement pour d'autres systèmes (par exemple, WinSCP). Si vous utilisez un utilitaire scp graphique qui ne peut pas copier directement <code>/tmp/klippy.log</code>, cliquez plusieurs fois sur <code>...</code> ou <code>dossier parent</code> jusqu'à ce que vous arriviez au répertoire racine, cliquez ensuite sur le dossier <code>tmp</code>, puis sélectionnez le fichier <code>klippy.log</code>.</li>
 <li>Copiez le fichier journal sur votre bureau afin de le joindre au rapport d'anomalie.</li>
 <li>Ne modifiez pas le fichier journal de quelque façon que ce soit ; ne fournissez pas un extrait non plus. Seul le fichier journal complet sans altération fournira les informations nécessaires.</li>
-<li>It is a good idea to compress the log file with zip or gzip.</li>
+<li>C'est une bonne idée de compresser le fichier journal avec zip ou gzip.</li>
 </ol>
 </li>
-<li>Open a new topic on the <a href="#community-forum">Klipper Community Forum</a> and provide a clear description of the problem. Other Klipper contributors will need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The compressed Klipper log file should be attached to that topic.</li>
+<li>Ouvrez un nouveau sujet sur le <a href="#community-forum">Forum communautaire Klipper</a> et fournissez une description claire du problème. Les autres contributeurs de Klipper devront comprendre quelles mesures ont été prises, quel était le résultat souhaité et quel résultat s'est effectivement produit. Le fichier journal Klipper compressé doit être joint à ce sujet.</li>
 </ol>
 <h2 id="japporte-des-modifications-que-jaimerais-inclure-dans-klipper">J’apporte des modifications que j’aimerais inclure dans Klipper<a class="headerlink" href="#japporte-des-modifications-que-jaimerais-inclure-dans-klipper" title="Permanent link">&para;</a></h2>
 <p>Klipper est un logiciel libre et nous apprécions les nouvelles contributions.</p>
 <p>Les nouvelles contributions (que ce soit pour le code ou pour la documentation) sont soumises au moyen de Pull Requests Github. Référez-vous au document <a href="CONTRIBUTION.md">CONTRIBUTIONS</a> pour connaître les informations importantes à ce sujet.</p>
-<p>There are several <a href="Overview.html#developer-documentation">documents for developers</a>. If you have questions on the code then you can also ask in the <a href="#community-forum">Klipper Community Forum</a> or on the <a href="#discord-chat">Klipper Community Discord</a>.</p>
-<h2 id="klipper-github">Klipper github<a class="headerlink" href="#klipper-github" title="Permanent link">&para;</a></h2>
-<p>Klipper github may be used by contributors to share the status of their work to improve Klipper. It is expected that the person opening a github ticket is actively working on the given task and will be the one performing all the work necessary to accomplish it. The Klipper github is not used for requests, nor to report bugs, nor to ask questions. Use the <a href="#community-forum">Klipper Community Forum</a> or the <a href="#discord-chat">Klipper Community Discord</a> instead.</p>
+<p>Il existe plusieurs <a href="Overview.html#developer-documentation">documents pour les développeurs</a>. Si vous avez des questions sur le code, vous pouvez également les poser sur le <a href="#community-forum">Forum de la communauté Klipper</a> ou sur le <a href="#discord-chat">Discord de la communauté Klipper</a>.</p>
+<h2 id="github-klipper">GitHub Klipper<a class="headerlink" href="#github-klipper" title="Permanent link">&para;</a></h2>
+<p>Le GitHub de Klipper peut être utilisé par les contributeurs pour partager l'état de leur travail pour améliorer Klipper. On s'attend à ce que la personne qui ouvre un ticket github travaille activement sur la tâche donnée et soit celle qui effectue tout le travail nécessaire pour l'accomplir. Le GitHub de Klipper n'est pas utilisé pour les demandes, ni pour signaler des bogues, ni pour poser des questions. Utilisez plutôt le <a href="#community-forum">Forum communautaire Klipper</a> ou le <a href="#discord-chat">Discord communautaire Klipper</a>.</p>
 
               
             </article>

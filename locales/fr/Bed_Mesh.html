@@ -1219,23 +1219,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#basic-configuration" class="md-nav__link">
-    Basic Configuration
+  <a href="#configuration-de-base" class="md-nav__link">
+    Configuration de base
   </a>
   
-    <nav class="md-nav" aria-label="Basic Configuration">
+    <nav class="md-nav" aria-label="Configuration de base">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rectangular-beds" class="md-nav__link">
-    Rectangular Beds
+  <a href="#lits-rectangulaires" class="md-nav__link">
+    Lits rectangulaires
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#round-beds" class="md-nav__link">
-    Round beds
+  <a href="#lits-circulaires" class="md-nav__link">
+    Lits circulaires
   </a>
   
 </li>
@@ -1246,44 +1246,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-configuration" class="md-nav__link">
-    Advanced Configuration
+  <a href="#configuration-avancee" class="md-nav__link">
+    Configuration avancée
   </a>
   
-    <nav class="md-nav" aria-label="Advanced Configuration">
+    <nav class="md-nav" aria-label="Configuration avancée">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#mesh-interpolation" class="md-nav__link">
-    Mesh Interpolation
+  <a href="#interpolation-du-maillage" class="md-nav__link">
+    Interpolation du maillage
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#move-splitting" class="md-nav__link">
-    Move Splitting
+  <a href="#fractionnement-des-deplacements" class="md-nav__link">
+    Fractionnement des déplacements
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#mesh-fade" class="md-nav__link">
-    Mesh Fade
+  <a href="#attenuation-du-maillage" class="md-nav__link">
+    Atténuation du maillage
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#the-relative-reference-index" class="md-nav__link">
-    The Relative Reference Index
+  <a href="#lindice-de-reference-relatif" class="md-nav__link">
+    L'indice de référence relatif
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#faulty-regions" class="md-nav__link">
-    Faulty Regions
+  <a href="#regions-defectueuses" class="md-nav__link">
+    Régions défectueuses
   </a>
   
 </li>
@@ -1294,11 +1294,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bed-mesh-gcodes" class="md-nav__link">
-    Bed Mesh Gcodes
+  <a href="#gcodes-de-maillage-du-lit" class="md-nav__link">
+    Gcodes de maillage du lit
   </a>
   
-    <nav class="md-nav" aria-label="Bed Mesh Gcodes">
+    <nav class="md-nav" aria-label="Gcodes de maillage du lit">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1309,29 +1309,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#profiles" class="md-nav__link">
-    Profiles
+  <a href="#profils" class="md-nav__link">
+    Profils
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#output" class="md-nav__link">
-    Output
+  <a href="#sortie" class="md-nav__link">
+    Sortie
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#clear-mesh-state" class="md-nav__link">
-    Clear Mesh State
+  <a href="#effacer-letat-du-maillage" class="md-nav__link">
+    Effacer l'état du maillage
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#apply-xy-offsets" class="md-nav__link">
-    Apply X/Y offsets
+  <a href="#appliquer-les-decalages-xy" class="md-nav__link">
+    Appliquer les décalages X/Y
   </a>
   
 </li>
@@ -1359,11 +1359,11 @@
 
 
 <h1 id="maillage-du-bed">Maillage du Bed<a class="headerlink" href="#maillage-du-bed" title="Permanent link">&para;</a></h1>
-<p>The Bed Mesh module may be used to compensate for bed surface irregularties to achieve a better first layer across the entire bed. It should be noted that software based correction will not achieve perfect results, it can only approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical and electrical issues. If an axis is skewed or a probe is not accurate then the bed_mesh module will not receive accurate results from the probing process.</p>
-<p>Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See <a href="Probe_Calibrate.html">Probe Calibrate</a> and Z_ENDSTOP_CALIBRATE in <a href="Manual_Level.html">Manual Level</a> for more information.</p>
-<h2 id="basic-configuration">Basic Configuration<a class="headerlink" href="#basic-configuration" title="Permanent link">&para;</a></h2>
-<h3 id="rectangular-beds">Rectangular Beds<a class="headerlink" href="#rectangular-beds" title="Permanent link">&para;</a></h3>
-<p>This example assumes a printer with a 250 mm x 220 mm rectangular bed and a probe with an x-offset of 24 mm and y-offset of 5 mm.</p>
+<p>Le module Maillage du lit peut être utilisé pour compenser les irrégularités de la surface du lit afin d'obtenir une meilleure première couche sur l'ensemble du lit. Il convient de noter que la correction logicielle ne permet pas d'obtenir de résultats parfaits, elle ne peut qu'approximer la forme du lit. Le maillage du lit ne peut pas non plus compenser les problèmes mécaniques et électriques. Si un axe est de travers ou si un palpeur n'est pas précis, le module bed_mesh n'obtiendra pas de résultats précis lors du processus de palpage.</p>
+<p>Avant de procéder à l'étalonnage du maillage, vous devez vous assurer que l'offset Z de votre sonde est réglé. Si vous utilisez une butée de fin de course pour la mise à l'origine en Z, elle doit également être réglée. Voir <a href="Probe_Calibrate.html">Calibration de la sonde</a> et Z_ENDSTOP_CALIBRATE dans <a href="Manual_Level.html">Nivelage manuel</a> pour plus d'informations.</p>
+<h2 id="configuration-de-base">Configuration de base<a class="headerlink" href="#configuration-de-base" title="Permanent link">&para;</a></h2>
+<h3 id="lits-rectangulaires">Lits rectangulaires<a class="headerlink" href="#lits-rectangulaires" title="Permanent link">&para;</a></h3>
+<p>Cet exemple suppose une imprimante avec un lit rectangulaire de 250 mm x 220 mm et une sonde avec un décalage x de 24 mm et un décalage y de 5 mm.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1373,16 +1373,16 @@ probe_count: 5, 3
 </code></pre></div>
 
 <ul>
-<li><code>speed: 120</code> <em>Default Value: 50</em> The speed in which the tool moves between points.</li>
-<li><code>horizontal_move_z: 5</code> <em>Default Value: 5</em> The Z coordinate the probe rises to prior to traveling between points.</li>
-<li><code>mesh_min: 35, 6</code> <em>Required</em> The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.</li>
-<li><code>mesh_max: 240, 198</code> <em>Required</em> The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with <code>mesh_min</code>, this coordiante is relative to the probe's location.</li>
-<li><code>probe_count: 5, 3</code> <em>Default Value: 3, 3</em> The number of points to probe on each axis, specified as X, Y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie <code>probe_count: 3</code>. Note that a mesh requires a minimum probe_count of 3 along each axis.</li>
+<li><code>speed : 120</code> <em>Valeur par défaut : 50</em> La vitesse à laquelle l'outil se déplace entre les points palpés.</li>
+<li><code>horizontal_move_z : 5</code> <em>Valeur par défaut : 5</em> La coordonnée Z à laquelle la sonde s'élève avant de se déplacer entre les points.</li>
+<li><code>mesh_min : 35, 6</code> <em>Requis</em> La première coordonnée palpée, la plus proche de l'origine. Cette coordonnée est relative à l'emplacement de la sonde.</li>
+<li><code>mesh_max : 240, 198</code> <em>Requis</em> La coordonnée palpée la plus éloignée de l'origine. Ce n'est pas nécessairement le dernier point palpé, car le processus de palpage se déroule en zig-zag. Comme pour <code>mesh_min</code>, cette coordonnée est relative à l'emplacement de la sonde.</li>
+<li><code>probe_count : 5, 3</code> <em>Valeur par défaut : 3, 3</em> Le nombre de points à palper sur chaque axe, spécifié sous forme de valeurs entières X, Y. Dans cet exemple, 5 points seront palpés le long de l'axe X, avec 3 points le long de l'axe Y, pour un total de 15 points palpés. Notez que si vous voulez une grille carrée, par exemple 3x3, il est possible de n'utiliser qu'une seule valeur entière pour les deux axes, par exemple <code>probe_count : 3</code>. Notez qu'un maillage nécessite un nombre minimum de 3 points de sondage sur chaque axe.</li>
 </ul>
-<p>The illustration below demonstrates how the <code>mesh_min</code>, <code>mesh_max</code>, and <code>probe_count</code> options are used to generate probe points. The arrows indicate the direction of the probing procedure, beginning at <code>mesh_min</code>. For reference, when the probe is at <code>mesh_min</code> the nozzle will be at (11, 1), and when the probe is at <code>mesh_max</code>, the nozzle will be at (206, 193).</p>
+<p>L'illustration ci-dessous montre comment les options <code>mesh_min</code>, <code>mesh_max</code>, et <code>probe_count</code> sont utilisées pour générer des points de palpage. Les flèches indiquent la direction de la procédure de palpage, commençant en <code>mesh_min</code>. Pour référence, lorsque la sonde est à <code>mesh_min</code>, la buse sera à (11, 1), et lorsque la sonde est à <code>mesh_max</code>, la buse sera à (206, 193).</p>
 <p><img alt="bedmesh_rect_basic" src="img/bedmesh_rect_basic.svg" /></p>
-<h3 id="round-beds">Round beds<a class="headerlink" href="#round-beds" title="Permanent link">&para;</a></h3>
-<p>This example assumes a printer equipped with a round bed radius of 100mm. We will use the same probe offsets as the rectangular example, 24 mm on X and 5 mm on Y.</p>
+<h3 id="lits-circulaires">Lits circulaires<a class="headerlink" href="#lits-circulaires" title="Permanent link">&para;</a></h3>
+<p>Cet exemple suppose une imprimante équipée d'un lit circulaire de 100 mm de rayon. Nous utiliserons les mêmes décalages de sonde que dans l'exemple rectangulaire, 24 mm sur X et 5 mm sur Y.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1392,16 +1392,16 @@ round_probe_count: 5
 </code></pre></div>
 
 <ul>
-<li><code>mesh_radius: 75</code> <em>Required</em> The radius of the probed mesh in mm, relative to the <code>mesh_origin</code>. Note that the probe's offsets limit the size of the mesh radius. In this example, a radius larger than 76 would move the tool beyond the range of the printer.</li>
-<li><code>mesh_origin: 0, 0</code> <em>Default Value: 0, 0</em> The center point of the mesh. This coordinate is relative to the probe's location. While the default is 0, 0, it may be useful to adjust the origin in an effort to probe a larger portion of the bed. See the illustration below.</li>
-<li><code>round_probe_count: 5</code> <em>Default Value: 5</em> This is an integer value that defines the maximum number of probed points along the X and Y axes. By "maximum", we mean the number of points probed along the mesh origin. This value must be an odd number, as it is required that the center of the mesh is probed.</li>
+<li><code>mesh_radius : 75</code> <em>Requis</em> Le rayon du maillage palpé en mm, par rapport à <code>mesh_origin</code>. Notez que les décalages de la sonde limitent la taille du rayon du maillage. Dans cet exemple, un rayon supérieur à 76 déplacerait la tête de l'outil en dehors des limites physiques de l'imprimante.</li>
+<li><code>mesh_origin : 0, 0</code> <em>Valeur par défaut : 0, 0</em> Le point central du maillage. Cette coordonnée est relative à l'emplacement de la sonde. Bien que la valeur par défaut soit 0, 0, il peut être utile d'ajuster l'origine dans le but de sonder une plus grande partie du lit. Voir l'illustration ci-dessous.</li>
+<li><code>round_probe_count : 5</code> <em>Valeur par défaut : 5</em> C'est une valeur entière définissant le nombre maximum de points palpés le long des axes X et Y. Par "maximum", nous entendons le nombre de points palpés le long de l'origine du maillage. Cette valeur doit être un nombre impair, car il est nécessaire que le centre du maillage soit palpé.</li>
 </ul>
-<p>The illustration below shows how the probed points are generated. As you can see, setting the <code>mesh_origin</code> to (-10, 0) allows us to specifiy a larger mesh radius of 85.</p>
+<p>L'illustration ci-dessous montre comment les points palpés sont générés. Comme vous pouvez le voir, le réglage de <code>mesh_origin</code> à (-10, 0) nous permet de spécifier un rayon de maillage plus grand de 85.</p>
 <p><img alt="bedmesh_round_basic" src="img/bedmesh_round_basic.svg" /></p>
-<h2 id="advanced-configuration">Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permanent link">&para;</a></h2>
-<p>Below the more advanced configuration options are explained in detail. Each example will build upon the basic rectangular bed configuration shown above. Each of the advanced options apply to round beds in the same manner.</p>
-<h3 id="mesh-interpolation">Mesh Interpolation<a class="headerlink" href="#mesh-interpolation" title="Permanent link">&para;</a></h3>
-<p>While its possible to sample the probed matrix directly using simple bilinear interpolation to determine the Z-Values between probed points, it is often useful to interpolate extra points using more advanced interpolation algorithms to increase mesh density. These algorithms add curvature to the mesh, attempting to simulate the material properties of the bed. Bed Mesh offers lagrange and bicubic interpolation to accomplish this.</p>
+<h2 id="configuration-avancee">Configuration avancée<a class="headerlink" href="#configuration-avancee" title="Permanent link">&para;</a></h2>
+<p>Les options de configuration plus avancées sont expliquées en détail ci-dessous. Chaque exemple s'appuie sur la configuration de base du lit rectangulaire présentée ci-dessus. Chacune des options avancées s'applique de la même manière aux lits circulaires.</p>
+<h3 id="interpolation-du-maillage">Interpolation du maillage<a class="headerlink" href="#interpolation-du-maillage" title="Permanent link">&para;</a></h3>
+<p>Bien qu'il soit possible d'échantillonner directement la matrice palpée en utilisant une simple interpolation bilinéaire afin de déterminer les valeurs Z entre les points palpés, il est souvent utile d'interpoler des points supplémentaires en utilisant des algorithmes d'interpolation plus avancés pour augmenter la densité du maillage. Ces algorithmes ajoutent une courbure au maillage, en essayant de simuler les propriétés matérielles du lit. Le maillage du lit offre l'interpolation de lagrange et bicubique pour accomplir ceci.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1414,14 +1414,14 @@ bicubic_tension: 0.2
 </code></pre></div>
 
 <ul>
-<li><code>mesh_pps: 2, 3</code> <em>Default Value: 2, 2</em> The <code>mesh_pps</code> option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like <code>probe_count</code>, <code>mesh_pps</code> is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x8 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.</li>
-<li><code>algorithm: lagrange</code> <em>Default Value: lagrange</em> The algorithm used to interpolate the mesh. May be <code>lagrange</code> or <code>bicubic</code>. Lagrange interpolation is capped at 6 probed points as oscillation tends to occur with a larger number of samples. Bicubic interpolation requires a minimum of 4 probed points along each axis, if less than 4 points are specified then lagrange sampling is forced. If <code>mesh_pps</code> is set to 0 then this value is ignored as no mesh interpolation is done.</li>
-<li><code>bicubic_tension: 0.2</code> <em>Default Value: 0.2</em> If the <code>algorithm</code> option is set to bicubic it is possible to specify the tension value. The higher the tension the more slope is interpolated. Be careful when adjusting this, as higher values also create more overshoot, which will result in interpolated values higher or lower than your probed points.</li>
+<li><code>mesh_pps : 2, 3</code> <em>Valeur par défaut : 2, 2</em> L'option <code>mesh_pps</code> est l'abréviation de Mesh Points Per Segment. Cette option indique le nombre de points à interpoler pour chaque segment le long des axes X et Y. Un 'segment' est l'espace entre chaque point palpé. Comme pour <code>probe_count</code>, <code>mesh_pps</code> est spécifié en tant que paire de nombres entiers X, Y mais peut aussi être spécifié comme un seul nombre entier en ce cas appliqué aux deux axes. Dans cet exemple, il y a 4 segments le long de l'axe X et 2 segments le long de l'axe Y. Cela résulte en 8 points interpolés le long de l'axe X et 6 points interpolés le long de l'axe Y, ce qui donne un maillage de 13x8. Notez que si mesh_pps est défini à 0, l'interpolation de maillage est désactivée et la matrice sondée sera échantillonnée directement.</li>
+<li><code>algorithm : lagrange</code> <em>Valeur par défaut : lagrange</em> L'algorithme utilisé pour interpoler le maillage. Peut être <code>lagrange</code> ou <code>bicubique</code>. L'interpolation de Lagrange est plafonnée à 6 points palpés car une oscillation tend à se produire avec un plus grand nombre d'échantillons. L'interpolation bicubique requiert un minimum de 4 points le long de chaque axe, si moins de 4 points sont spécifiés, l'échantillonnage de Lagrange est forcé. Si <code>mesh_pps</code> est défini à 0 alors cette valeur est ignorée car aucune interpolation de maille n'est faite.</li>
+<li><code>bicubic_tension : 0.2</code> <em>Valeur par défaut : 0.2</em> Si l'option <code>algorithm</code> est définie sur bicubique, il est possible d'indiquer une valeur de tension. Plus la tension est élevée, plus la pente est interpolée. Soyez prudent lorsque vous ajustez cette valeur, car des valeurs plus élevées créent également plus de dépassement, ce qui entraînera des valeurs interpolées plus élevées ou plus basses que vos points palpés.</li>
 </ul>
-<p>The illustration below shows how the options above are used to generate an interpolated mesh.</p>
+<p>L'illustration ci-dessous montre comment les options ci-dessus sont utilisées pour générer un maillage interpolé.</p>
 <p><img alt="bedmesh_interpolated" src="img/bedmesh_interpolated.svg" /></p>
-<h3 id="move-splitting">Move Splitting<a class="headerlink" href="#move-splitting" title="Permanent link">&para;</a></h3>
-<p>Bed Mesh works by intercepting gcode move commands and applying a transform to their Z coordinate. Long moves must be split into smaller moves to correctly follow the shape of the bed. The options below control the splitting behavior.</p>
+<h3 id="fractionnement-des-deplacements">Fractionnement des déplacements<a class="headerlink" href="#fractionnement-des-deplacements" title="Permanent link">&para;</a></h3>
+<p>Le maillage du lit fonctionne en interceptant les commandes de déplacement du gcode et en appliquant une transformation à leur coordonnée Z. Les longs déplacements doivent être divisés en déplacements plus petits pour suivre correctement la forme du lit. Les options ci-dessous contrôlent le comportement du fractionnement.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1433,12 +1433,12 @@ split_delta_z: .025
 </code></pre></div>
 
 <ul>
-<li><code>move_check_distance: 5</code> <em>Default Value: 5</em> The minimum distance to check for the desired change in Z before performing a split. In this example, a move longer than 5mm will be traversed by the algorithm. Each 5mm a mesh Z lookup will occur, comparing it with the Z value of the previous move. If the delta meets the threshold set by <code>split_delta_z</code>, the move will be split and traversal will continue. This process repeats until the end of the move is reached, where a final adjustment will be applied. Moves shorter than the <code>move_check_distance</code> have the correct Z adjustment applied directly to the move without traversal or splitting.</li>
-<li><code>split_delta_z: .025</code> <em>Default Value: .025</em> As mentioned above, this is the minimum deviation required to trigger a move split. In this example, any Z value with a deviation +/- .025mm will trigger a split.</li>
+<li><code>move_check_distance : 5</code> <em>Valeur par défaut : 5</em> La distance minimale de vérification de changement de Z souhaité avant d'effectuer un fractionnemeny. Dans cet exemple, un mouvement de plus de 5mm sera traversé par l'algorithme. Tous les 5 mm, une recherche de maille Z sera effectuée, en la comparant à la valeur Z du mouvement précédent. Si le delta atteint le seuil fixé par <code>split_delta_z</code>, le mouvement sera divisé et la traversée continuera. Ce processus se répète jusqu'à ce que la fin du déplacement soit atteinte, où un ajustement final sera appliqué. Les déplacements plus courts que la <code>move_check_distance</code> ont l'ajustement Z correct appliqué directement au déplacement sans traversée ou division.</li>
+<li><code>split_delta_z : .025</code> <em>Valeur par défaut : .025</em> Comme mentionné ci-dessus, il s'agit de l'écart minimum requis pour déclencher un fractionnement du mouvement. Dans cet exemple, toute valeur Z avec un écart de +/- 0,025 mm déclenchera un fractionnement.</li>
 </ul>
-<p>Generally the default values for these options are sufficient, in fact the default value of 5mm for the <code>move_check_distance</code> may be overkill. However an advanced user may wish to experiment with these options in an effort to squeeze out the optimial first layer.</p>
-<h3 id="mesh-fade">Mesh Fade<a class="headerlink" href="#mesh-fade" title="Permanent link">&para;</a></h3>
-<p>When "fade" is enabled Z adjustment is phased out over a distance defined by the configuration. This is accomplished by applying small adjustments to the layer height, either increasing or decreasing depending on the shape of the bed. When fade has completed, Z adjustment is no longer applied, allowing the top of the print to be flat rather than mirror the shape of the bed. Fade also may have some undesirable traits, if you fade too quickly it can result in visible artifacts on the print. Also, if your bed is significantly warped, fade can shrink or stretch the Z height of the print. As such, fade is disabled by default.</p>
+<p>Généralement les valeurs par défaut de ces options sont suffisantes, en fait la valeur par défaut de 5mm pour la <code>move_check_distance</code> est probablement exagérée. Cependant, un utilisateur avancé peut souhaiter expérimenter avec ces options dans le but d'obtenir une première couche optimale.</p>
+<h3 id="attenuation-du-maillage">Atténuation du maillage<a class="headerlink" href="#attenuation-du-maillage" title="Permanent link">&para;</a></h3>
+<p>Lorsque l'option "fondu" est activée, l'ajustement du Z est réduit progressivement sur une distance définie par la configuration. Ceci est réalisé en appliquant de petits ajustements à la hauteur de la couche, en augmentant ou en diminuant selon la forme du lit. Lorsque le fondu est terminé, l'ajustement Z n'est plus appliqué, ce qui permet au sommet de l'impression d'être plat plutôt que de refléter la forme du lit. Le fondu peut également présenter quelques caractéristiques indésirables, si le fondu est effectué trop rapidement, il peut entraîner des artefacts visibles sur l'impression. De plus, si votre lit est sensiblement déformé, le fondu peut rétrécir ou étirer la hauteur Z de l'impression. C'est pourquoi le fondu est désactivé par défaut.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1451,12 +1451,12 @@ fade_target: 0
 </code></pre></div>
 
 <ul>
-<li><code>fade_start: 1</code> <em>Default Value: 1</em> The Z height in which to start phasing out adjustment. It is a good idea to get a few layers down before starting the fade process.</li>
-<li><code>fade_end: 10</code> <em>Default Value: 0</em> The Z height in which fade should complete. If this value is lower than <code>fade_start</code> then fade is disabled. This value may be adjusted depending on how warped the print surface is. A significantly warped surface should fade out over a longer distance. A near flat surface may be able to reduce this value to phase out more quickly. 10mm is a sane value to begin with if using the default value of 1 for <code>fade_start</code>.</li>
-<li><code>fade_target: 0</code> <em>Default Value: The average Z value of the mesh</em> The <code>fade_target</code> can be thought of as an additional Z offset applied to the entire bed after fade completes. Generally speaking we would like this value to be 0, however there are circumstances where it should not be. For example, lets assume your homing position on the bed is an outlier, its .2 mm lower than the average probed height of the bed. If the <code>fade_target</code> is 0, fade will shrink the print by an average of .2 mm across the bed. By setting the <code>fade_target</code> to .2, the homed area will expand by .2 mm, however the rest of the bed will have an accurately sized. Generally its a good idea to leave <code>fade_target</code> out of the configuration so the average height of the mesh is used, however it may be desirable to manually adjust the fade target if one wants to print on a specific portion of the bed.</li>
+<li><code>fade_start: 1</code> <em>Valeur par défaut : 1</em> La hauteur Z à laquelle il faut commencer l'atténuation progressive de l'ajustement. C'est une bonne idée d'avoir quelques couches déjà déposées avant de commencer le processus de fondu.</li>
+<li><code>fade_end : 10</code> <em>Valeur par défaut : 0</em> La hauteur Z à laquelle le fondu doit s'arrêter. Si cette valeur est inférieure à <code>fade_start</code>, le fondu est désactivé. Cette valeur peut être ajustée en fonction de la déformation de la surface d'impression. Une surface fortement déformée devrait s'estomper sur une plus grande distance. Une surface presque plate peut être capable de réduire cette valeur pour s'estomper plus rapidement. 10mm est une valeur raisonnable pour commencer si vous utilisez la valeur par défaut de 1 pour <code>fade_start</code>.</li>
+<li><code>fade_target : 0</code> <em>Valeur par défaut : La valeur Z moyenne du maillage</em> Le <code>fade_target</code> peut être considéré comme un décalage Z supplémentaire appliqué à l'ensemble du lit après la fin du fondu. En général, nous aimerions que cette valeur soit égale à 0, mais il y a des circonstances où elle ne devrait pas l'être. Par exemple, supposons que votre position d'origine sur le lit est aberrante, elle est inférieure de 0,2 mm à la hauteur moyenne palpée du lit. Si le <code>fade_target</code> est 0, le fondu va rétrécir l'impression d'une moyenne de 0,2 mm à travers le lit. En réglant la <code>fade_target</code> sur .2, la zone d'origine sera agrandie de .2 mm, mais le reste du lit aura une taille précise. En général, c'est une bonne idée de laisser <code>fade_target</code> en dehors de la configuration afin que la hauteur moyenne du maillage soit utilisée, cependant il peut être souhaitable d'ajuster manuellement la cible du fondu si l'on ne veut imprimer que sur une partie spécifique du lit.</li>
 </ul>
-<h3 id="the-relative-reference-index">The Relative Reference Index<a class="headerlink" href="#the-relative-reference-index" title="Permanent link">&para;</a></h3>
-<p>Most probes are suceptible to drift, ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particuarly at different bed temperatures. As such, some printers use an endstop for homing the Z axis, and a probe for calibrating the mesh. These printers can benefit from configuring the relative reference index.</p>
+<h3 id="lindice-de-reference-relatif">L'indice de référence relatif<a class="headerlink" href="#lindice-de-reference-relatif" title="Permanent link">&para;</a></h3>
+<p>La plupart des sondes sont sensibles à une dérive, c'est-à-dire à des inexactitudes dans le palpage introduites par la chaleur ou des interférences. Cela peut rendre difficile le calcul du décalage en Z de la sonde, en particulier à différentes températures du lit. C'est pourquoi certaines imprimantes utilisent à la fois une butée pour la mise à l'origine de l'axe Z et une sonde pour réaliser le maillage. Ces imprimantes peuvent bénéficier de la configuration de l'index de référence relatif.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1467,12 +1467,12 @@ relative_reference_index: 7
 </code></pre></div>
 
 <ul>
-<li><code>relative_reference_index: 7</code> <em>Default Value: None (disabled)</em> When the probed points are generated they are each assigned an index. You can look up this index in klippy.log or by using BED_MESH_OUTPUT (see the section on Bed Mesh GCodes below for more information). If you assign an index to the <code>relative_reference_index</code> option, the value probed at this coordinate will replace the probe's z_offset. This effectively makes this coordinate the "zero" reference for the mesh.</li>
+<li><code>relative_reference_index : 7</code> <em>Valeur par défaut : None (désactivé)</em> Lorsque les points palpés sont générés, un index leur est attribué. Vous pouvez consulter cet index dans klippy.log ou en utilisant BED_MESH_OUTPUT (voir la section sur les GCodes de maillage de lit ci-dessous pour plus d'informations). Si vous assignez un index à l'option <code>relative_reference_index</code>, la valeur palpée à cette coordonnée remplacera le z_offset de la sonde. Ce qui fait de cette coordonnée la référence "zéro" pour le maillage.</li>
 </ul>
-<p>When using the relative reference index, you should choose the index nearest to the spot on the bed where Z endstop calibration was done. Note that when looking up the index using the log or BED_MESH_OUTPUT, you should use the coordinates listed under the "Probe" header to find the correct index.</p>
-<h3 id="faulty-regions">Faulty Regions<a class="headerlink" href="#faulty-regions" title="Permanent link">&para;</a></h3>
-<p>It is possible for some areas of a bed to report inaccurate results when probing due to a "fault" at specific locations. The best example of this are beds with series of integrated magnets used to retain removable steel sheets. The magnetic field at and around these magnets may cause an inductive probe to trigger at a distance higher or lower than it would otherwise, resulting in a mesh that does not accurately represent the surface at these locations. <strong>Note: This should not be confused with probe location bias, which produces inaccurate results across the entire bed.</strong></p>
-<p>The <code>faulty_region</code> options may be configured to compensate for this affect. If a generated point lies within a faulty region bed mesh will attempt to probe up to 4 points at the boundaries of this region. These probed values will be averaged and inserted in the mesh as the Z value at the generated (X, Y) coordinate.</p>
+<p>Lorsque vous utilisez l'indice de référence relatif, vous devez choisir l'indice le plus proche de l'endroit du lit où le calibrage de la butée Z a été effectué. Notez que lorsque vous recherchez l'indice en utilisant le journal ou BED_MESH_OUTPUT, vous devez utiliser les coordonnées listées sous l'en-tête "Probe" pour trouver l'indice correct.</p>
+<h3 id="regions-defectueuses">Régions défectueuses<a class="headerlink" href="#regions-defectueuses" title="Permanent link">&para;</a></h3>
+<p>Il est possible que certaines zones d'un lit donnent des résultats inexacts lors du palpage en raison d'un "défaut" à des endroits particuliers. Le meilleur exemple de ce phénomène est celui des lits comportant une série d'aimants intégrés utilisés pour retenir les tôles d'acier amovibles. Le champ magnétique au niveau et autour de ces aimants peut faire qu'une sonde inductive se déclenche à une distance plus élevée ou plus basse qu'elle ne le ferait autrement, ce qui donne un maillage ne représentant pas précisément la surface à ces endroits. <strong>Remarque : Il ne faut pas confondre ce phénomène avec le biais de l'emplacement de la sonde, qui produit des résultats inexacts sur l'ensemble du lit.</strong></p>
+<p>Les options <code>faulty_region</code> peuvent être configurées pour compenser cet effet. Si un point généré se trouve dans une région défectueuse, le maillage du lit tentera de palper jusqu'à 4 points aux limites de cette région. Ces valeurs palpées seront moyennées et insérées dans le maillage comme valeur Z à la coordonnée (X, Y) générée.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1490,47 +1490,47 @@ faulty_region_4_max: 45.0, 210.0
 </code></pre></div>
 
 <ul>
-<li><code>faulty_region_{1...99}_min</code> <code>faulty_region_{1..99}_max</code> <em>Default Value: None (disabled)</em> Faulty Regions are defined in a way similar to that of mesh itself, where minimum and maximum (X, Y) coordinates must be specified for each region. A faulty region may extend outside of a mesh, however the alternate points generated will always be within the mesh boundary. No two regions may overlap.</li>
+<li><code>faulty_region_{1...99}_min</code> <code>faulty_region_{1..99}_max</code> <em>Valeur par défaut : None (désactivé)</em> Les régions défectueuses sont définies d'une manière similaire à celle du maillage lui-même, où les coordonnées minimum et maximum (X, Y) doivent être infiquées pour chaque région. Une région défectueuse peut s'étendre à l'extérieur d'un maillage, mais les points alternatifs générés seront toujours à l'intérieur des limites du maillage. Deux régions ne peuvent pas se chevaucher.</li>
 </ul>
-<p>The image below illustrates how replacement points are generated when a generated point lies within a faulty region. The regions shown match those in the sample config above. The replacement points and their coordinates are identified in green.</p>
+<p>L'image ci-dessous illustre comment les points de remplacement sont générés lorsqu'un point généré se trouve dans une région défectueuse. Les régions représentées correspondent à celles de l'exemple de configuration ci-dessus. Les points de remplacement et leurs coordonnées sont identifiés en vert.</p>
 <p><img alt="bedmesh_interpolated" src="img/bedmesh_faulty_regions.svg" /></p>
-<h2 id="bed-mesh-gcodes">Bed Mesh Gcodes<a class="headerlink" href="#bed-mesh-gcodes" title="Permanent link">&para;</a></h2>
+<h2 id="gcodes-de-maillage-du-lit">Gcodes de maillage du lit<a class="headerlink" href="#gcodes-de-maillage-du-lit" title="Permanent link">&para;</a></h2>
 <h3 id="calibration">Calibration<a class="headerlink" href="#calibration" title="Permanent link">&para;</a></h3>
-<p><code>BED_MESH_CALIBRATE PROFILE=&lt;name&gt; METHOD=[manual | automatic] [&lt;probe_parameter&gt;=&lt;value&gt;] [&lt;mesh_parameter&gt;=&lt;value&gt;]</code> <em>Default Profile: default</em> <em>Default Method: automatic if a probe is detected, otherwise manual</em></p>
-<p>Initiates the probing procedure for Bed Mesh Calibration.</p>
-<p>The mesh will be saved into a profile specified by the <code>PROFILE</code> parameter, or <code>default</code> if unspecified. If <code>METHOD=manual</code> is selected then manual probing will occur. When switching between automatic and manual probing the generated mesh points will automatically be adjusted.</p>
-<p>It is possible to specify mesh parameters to modify the probed area. The following parameters are available:</p>
+<p><code>BED_MESH_CALIBRATE PROFILE=&lt;name&gt; METHOD=[manual | automatic] [&lt;probe_parameter&gt;=&lt;value&gt;] [&lt;mesh_parameter&gt;=&lt;value&gt;]</code> <em>Profil par défaut : default</em> <em>Méthode par défaut : automatique si une sonde est détectée, sinon manuelle</em></p>
+<p>Lance la procédure de palpage de l'étalonnage du maillage du lit.</p>
+<p>Le maillage sera sauvegardé dans un profil indiqué par le paramètre <code>PROFILE</code>, ou <code>default</code> si non précisé. Si <code>METHOD=manual</code> est sélectionné, un palpage manuel sera effectué. Lorsque vous passez du mode automatique au mode manuel, les points de maillage générés seront automatiquement ajustés.</p>
+<p>Il est possible de spécifier des paramètres de maillage pour modifier la zone palpée. Les paramètres suivants sont disponibles :</p>
 <ul>
-<li>Rectangular beds (cartesian):<ul>
+<li>Lits rectangulaires (cartésiens) :<ul>
 <li><code>MESH_MIN</code></li>
 <li><code>MESH_MAX</code></li>
 <li><code>PROBE_COUNT</code></li>
 </ul>
 </li>
-<li>Round beds (delta):<ul>
+<li>Lits circulaires (delta) :<ul>
 <li><code>MESH_RADIUS</code></li>
 <li><code>MESH_ORIGIN</code></li>
 <li><code>ROUND_PROBE_COUNT</code></li>
 </ul>
 </li>
-<li>All beds:<ul>
+<li>Tous les lits :<ul>
 <li><code>RELATIVE_REFERNCE_INDEX</code></li>
 <li><code>ALGORITHM</code></li>
 </ul>
 </li>
 </ul>
-<p>See the configuration documentation above for details on how each parameter applies to the mesh.</p>
-<h3 id="profiles">Profiles<a class="headerlink" href="#profiles" title="Permanent link">&para;</a></h3>
+<p>Consultez la documentation de configuration ci-dessus pour plus de détails sur la façon dont chaque paramètre s'applique au maillage.</p>
+<h3 id="profils">Profils<a class="headerlink" href="#profils" title="Permanent link">&para;</a></h3>
 <p><code>BED_MESH_PROFILE SAVE=&lt;name&gt; LOAD=&lt;name&gt; REMOVE=&lt;name&gt;</code></p>
-<p>After a BED_MESH_CALIBRATE has been performed, it is possible to save the current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using <code>BED_MESH_PROFILE SAVE=&lt;name&gt;</code> the <code>SAVE_CONFIG</code> gcode may be executed to write the profile to printer.cfg.</p>
-<p>Profiles can be loaded by executing <code>BED_MESH_PROFILE LOAD=&lt;name&gt;</code>.</p>
-<p>It should be noted that each time a BED_MESH_CALIBRATE occurs, the current state is automatically saved to the <em>default</em> profile. If this profile exists it is automatically loaded when Klipper starts. If this behavior is not desirable the <em>default</em> profile can be removed as follows:</p>
+<p>Après avoir réalisé un BED_MESH_CALIBRATE, il est possible de sauvegarder l'état actuel du maillage dans un profil nommé. Cela permet de charger un maillage sans re-palper le lit. Après qu'un profil ait été enregistré en utilisant <code>BED_MESH_PROFILE SAVE=&lt;name&gt;</code>, le gcode <code>SAVE_CONFIG</code> peut être exécuté pour écrire le profil dans printer.cfg.</p>
+<p>Les profils peuvent être chargés en exécutant <code>BED_MESH_PROFILE LOAD=&lt;name&gt;</code>.</p>
+<p>Il convient de noter que chaque fois qu'un BED_MESH_CALIBRATE est produit, l'état actuel est automatiquement enregistré dans le profil <em>par défaut</em>. Si ce profil existe, il est automatiquement chargé au démarrage de Klipper. Si ce comportement n'est pas souhaitable, le profil <em>par défaut</em> peut être supprimé comme suit :</p>
 <p><code>BED_MESH_PROFILE REMOVE=default</code></p>
-<p>Any other saved profile can be removed in the same fashion, replacing <em>default</em> with the named profile you wish to remove.</p>
-<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h3>
+<p>Tout autre profil enregistré peut être supprimé de la même manière, en remplaçant <em>default</em> par le nom du profil que vous souhaitez supprimer.</p>
+<h3 id="sortie">Sortie<a class="headerlink" href="#sortie" title="Permanent link">&para;</a></h3>
 <p><code>BED_MESH_OUTPUT PGP=[0 | 1]</code></p>
-<p>Outputs the current mesh state to the terminal. Note that the mesh itself is output</p>
-<p>The PGP parameter is shorthand for "Print Generated Points". If <code>PGP=1</code> is set, the generated probed points will be output to the terminal:</p>
+<p>Affiche l'état actuel du maillage dans le terminal. Notez que le maillage lui-même est affiché</p>
+<p>Le paramètre PGP est l'abréviation de "Print Generated Points". Si <code>PGP=1</code> est défini, les points palpés générés seront affichés sur le terminal :</p>
 <div class="highlight"><pre><span></span><code>// bed_mesh: generated points
 // Index | Tool Adjusted | Probe
 // 0 | (11.0, 1.0) | (35.0, 6.0)
@@ -1550,13 +1550,13 @@ faulty_region_4_max: 45.0, 210.0
 // 14 | (216.0, 193.0) | (240.0, 198.0)
 </code></pre></div>
 
-<p>The "Tool Adjusted" points refer to the nozzle location for each point, and the "Probe" points refer to the probe location. Note that when manually probing the "Probe" points will refer to both the tool and nozzle locations.</p>
-<h3 id="clear-mesh-state">Clear Mesh State<a class="headerlink" href="#clear-mesh-state" title="Permanent link">&para;</a></h3>
+<p>Les points de la colonne "Tool Adjusted" font référence à l'emplacement de la buse, et les points de la colonne "Probe" font référence à l'emplacement du palpeur. Notez que lors d'un palpage manuel, les points "Probe" se réfèrent à la fois à l'emplacement de l'outil et de la buse.</p>
+<h3 id="effacer-letat-du-maillage">Effacer l'état du maillage<a class="headerlink" href="#effacer-letat-du-maillage" title="Permanent link">&para;</a></h3>
 <p><code>BED_MESH_CLEAR</code></p>
-<p>This gcode may be used to clear the internal mesh state.</p>
-<h3 id="apply-xy-offsets">Apply X/Y offsets<a class="headerlink" href="#apply-xy-offsets" title="Permanent link">&para;</a></h3>
+<p>Ce G-Code peut être utilisé pour effacer l'état interne du maillage.</p>
+<h3 id="appliquer-les-decalages-xy">Appliquer les décalages X/Y<a class="headerlink" href="#appliquer-les-decalages-xy" title="Permanent link">&para;</a></h3>
 <p><code>BED_MESH_OFFSET [X=&lt;value&gt;] [Y=&lt;value&gt;]</code></p>
-<p>This is useful for printers with multiple independent extruders, as an offset is necessary to produce correct Z adjustment after a tool change. Offsets should be specified relative to the primary extruder. That is, a positive X offset should be specified if the secondary extruder is mounted to the right of the primary extruder, and a positive Y offset should be specified if the secondary extruder is mounted "behind" the primary extruder.</p>
+<p>Ceci est utile pour les imprimantes avec plusieurs extrudeuses indépendantes, car un décalage est nécessaire pour produire un ajustement Z correct après un changement d'outil. Les décalages doivent être indiqués par rapport à l'extrudeuse primaire. C'est-à-dire qu'un décalage X positif doit être indiqué si l'extrudeuse secondaire est montée à droite de l'extrudeuse primaire, et un décalage Y positif doit être indiqué si l'extrudeuse secondaire est montée "derrière" l'extrudeuse primaire.</p>
 
               
             </article>

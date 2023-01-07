@@ -1,21 +1,23 @@
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
+# Francis Poulizac <francis@poulizac.fr>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-09-25 19:03+0000\n"
-"Last-Translator: Francis Poulizac <fpoulizac@vivaldi.net>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/debugging/fr/>\n"
+"PO-Revision-Date: 2023-01-03 16:49+0000\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/debugging/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid "This document describes some of the Klipper debugging tools."
 msgstr "Ce document décrit certains des outils de débogage de Klipper."
 
 msgid "Translating gcode files to micro-controller commands"
-msgstr ""
+msgstr "Traduction des fichiers G-Code en commandes de microcontrôleur"
 
 msgid ""
 "The Klippy host code can run in a batch mode to produce the low-level micro-"
