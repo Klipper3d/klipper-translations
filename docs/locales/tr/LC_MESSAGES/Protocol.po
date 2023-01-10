@@ -1,10 +1,10 @@
-# Kaan Özbilek <info@kaanozbilek.com>, 2023.
+# Kaan Özbilek <info@kaanozbilek.com>, 2023, 2025.
 # Makers Lab <makerslab.tr@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Kaan Özbilek <info@kaanozbilek.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/protocol/"
 "tr/>\n"
 "Language: tr\n"
@@ -24,8 +24,9 @@ msgstr ""
 "Klipper mesajlaşma protokolü, Klipper ana bilgisayar yazılımı ile Klipper "
 "mikro denetleyici yazılımı arasındaki alçak düzey iletişim için kullanılır. "
 "Yüksek düzey protokol, sıkıştırılan, iletilen ve daha sonra alıcı tarafta "
-"işlenen bir dizi komut ve yanıt dizisi olarak düşünülebilir. Sıkıştırılmamış, "
-"okunabilir formatta örnek bir komut dizisi aşağıdaki gibi görünebilir:"
+"işlenen bir dizi komut ve yanıt dizisi olarak düşünülebilir. "
+"Sıkıştırılmamış, okunabilir formatta örnek bir komut dizisi aşağıdaki gibi "
+"görünebilir:"
 
 msgid ""
 "See the [mcu commands](MCU_Commands.md) document for information on available "
