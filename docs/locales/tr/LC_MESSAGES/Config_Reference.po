@@ -1,6 +1,16 @@
-#
+# Kaan Özbilek <info@kaanozbilek.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-01-10 15:50+0000\n"
+"Last-Translator: Kaan Özbilek <info@kaanozbilek.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
+"config_reference/tr/>\n"
+"Language: tr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -390,7 +400,7 @@ msgid "[input_shaper]"
 msgstr ""
 
 msgid "[adxl345]"
-msgstr ""
+msgstr "[adxl345]"
 
 msgid "[resonance_tester]"
 msgstr ""
@@ -779,7 +789,7 @@ msgid "Run-time stepper motor current configuration"
 msgstr ""
 
 msgid "[ad5206]"
-msgstr ""
+msgstr "[ad5206]"
 
 msgid ""
 "Statically configured AD5206 digipots connected via SPI bus (one may define "
@@ -4050,7 +4060,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 267 (header)
 msgid "[led]"
-msgstr ""
+msgstr "[led]"
 
 #: docs/Config_Reference.md:block 268 (paragraph)
 msgid ""
@@ -4214,7 +4224,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 409 (header)
 msgid "[angle]"
-msgstr ""
+msgstr "[angle]"
 
 #: docs/Config_Reference.md:block 410 (paragraph)
 msgid ""

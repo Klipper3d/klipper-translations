@@ -1,17 +1,19 @@
 # Yusuf Yavuzyigit <yusufyavuzyigit25@gmail.com>, 2021.
 # Oguz <mustafa.oguz@live.com>, 2022.
 # Mustafa Said Ağca <m.said.agca@gmail.com>, 2022.
+# Kaan Özbilek <info@kaanozbilek.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-19 13:22+0000\n"
-"Last-Translator: Mustafa Said Ağca <m.said.agca@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/overview/tr/>\n"
+"PO-Revision-Date: 2023-01-10 15:50+0000\n"
+"Last-Translator: Kaan Özbilek <info@kaanozbilek.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/overview/"
+"tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -154,6 +156,8 @@ msgid ""
 "[Protocol](Protocol.md): Information on the low-level messaging protocol "
 "between host and micro-controller."
 msgstr ""
+"[Protokol](Protocol.md): Ana bilgisayar ile mikro denetleyici arasındaki "
+"düşük düzey mesajlaşma protokolü hakkında bilgi."
 
 msgid ""
 "[API Server](API_Server.md): Information on Klipper's command and control "

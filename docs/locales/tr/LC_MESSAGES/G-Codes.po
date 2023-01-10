@@ -1,26 +1,30 @@
 # benjamin <itsbenx@outlook.com>, 2022.
+# Kaan Özbilek <info@kaanozbilek.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-09 13:53+0000\n"
-"Last-Translator: benjamin <itsbenx@outlook.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/g-codes/tr/>\n"
+"PO-Revision-Date: 2023-01-10 15:50+0000\n"
+"Last-Translator: Kaan Özbilek <info@kaanozbilek.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/g-codes/"
+"tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
 "commands that one may enter into the OctoPrint terminal tab."
 msgstr ""
+"Bu doküman Klipper'ın desteklediği komutları tarif etmektedir. Bu komutlar, "
+"OctoPrint terminal sekmesine girilebilecek komutlardır."
 
 msgid "G-Code commands"
 msgstr ""
 
 msgid "Klipper supports the following standard G-Code commands:"
-msgstr ""
+msgstr "Klipper aşağıdaki standart G-Kodu komutlarını destekler:"
 
 msgid "Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`"
 msgstr ""
@@ -152,6 +156,13 @@ msgid ""
 " and parameters are shown in uppercase, however they are not case sensitive."
 " (So, \"SET_SERVO\" and \"set_servo\" both run the same command.)"
 msgstr ""
+"Klipper, genel yapılandırma ve durum raporları için \"genişletilmiş\" G-Kodu "
+"komutlarını kullanır. Bu genişletilmiş komutların tümü benzer bir "
+"formattadır - bir komut adıyla başlarlar ve bir veya birden fazla fazla "
+"parametre tarafından takip edilebilirler. Örneğin: \"SET_SERVO SERVO=myservo "
+"ANGLE=5.3\". Bu belgede, komutlar ve parametreler büyük harfle "
+"gösterilmiştir, ancak bunlar büyük/küçük harfe duyarlı değildir. (Yani, "
+"\"SET_SERVO\" ve \"set_servo\" aynı komutu çalıştırır.)"
 
 msgid ""
 "`QUERY_ENDSTOPS`: Probe the axis endstops and report if they are "
@@ -262,7 +273,7 @@ msgid ""
 msgstr ""
 
 msgid "`ABORT`: This command terminates the manual probing tool."
-msgstr "`ABORT`: Bu komut manuel sondalama aracını sonlandırır."
+msgstr "`ABORT`: Bu komut manuel prob aracını sonlandırır."
 
 msgid ""
 "`TESTZ Z=<value>`: This command moves the nozzle up or down by the amount "
@@ -785,11 +796,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 9 (header)
 msgid "Additional Commands"
-msgstr ""
+msgstr "Ek Komutlar"
 
 #: docs/G-Codes.md:block 12 (header)
 msgid "[adxl345]"
-msgstr ""
+msgstr "[adxl345]"
 
 #: docs/G-Codes.md:block 13 (paragraph)
 msgid ""
@@ -1063,7 +1074,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 90 (paragraph)
 msgid "This command is deprecated and will be removed in the near future."
-msgstr ""
+msgstr "Bu komut kullanımdan kaldırılmıştır ve yakın zamanda silinecektir."
 
 #: docs/G-Codes.md:block 91 (header)
 msgid "SYNC_STEPPER_TO_EXTRUDER"
@@ -1721,7 +1732,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 304 (header)
 msgid "[tmcXXXX]"
-msgstr ""
+msgstr "[tmcXXXX]"
 
 #: docs/G-Codes.md:block 305 (paragraph)
 msgid ""
@@ -1754,11 +1765,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 314 (header)
 msgid "[toolhead]"
-msgstr ""
+msgstr "[toolhead]"
 
 #: docs/G-Codes.md:block 315 (paragraph)
 msgid "The toolhead module is automatically loaded."
-msgstr ""
+msgstr "Takım kafası modülü otomatik olarak yüklendi."
 
 #: docs/G-Codes.md:block 316 (header)
 msgid "SET_VELOCITY_LIMIT"
@@ -1766,11 +1777,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 318 (header)
 msgid "[tuning_tower]"
-msgstr ""
+msgstr "[tuning_tower]"
 
 #: docs/G-Codes.md:block 319 (paragraph)
 msgid "The tuning_tower module is automatically loaded."
-msgstr ""
+msgstr "tuning_tower modülü otomatik olarak yüklendi."
 
 #: docs/G-Codes.md:block 320 (header)
 msgid "TUNING_TOWER"
@@ -1810,6 +1821,8 @@ msgid ""
 "[virtual_sdcard config section](Config_Reference.md#virtual_sdcard) is "
 "enabled:"
 msgstr ""
+"[virtual_sdcard config section](Config_Reference.md#virtual_sdcard) "
+"etkinleştirilmişse Klipper aşağıdaki standart G-Kodu komutlarını destekler:"
 
 #: docs/G-Codes.md:block 326 (paragraph)
 msgid ""
@@ -1858,6 +1871,15 @@ msgid ""
 "only intended to be human readable - see the [API Server "
 "document](API_Server.md) if controlling Klipper from external software."
 msgstr ""
+"Klipper'ın amacı, yaygın olarak kullanılan 3. parti yazılımlar (örn. "
+"OctoPrint, Printrun, Slic3r, Cura, vb.) tarafından standart "
+"yapılandırmalarında üretilen G-Kodu komutlarını desteklemektir. Amacı mümkün "
+"olan her G-Kodu komutunu desteklemek değildir. Bunun yerine Klipper, insan "
+"tarafından okunabilen [\"genişletilmiş G Kodu komutlarını\"](#ek komutlar) "
+"tercih eder. Benzer şekilde, G-Kodu terminal çıktısının yalnızca operatör "
+"tarafından okunabilir olması amaçlanmıştır - Eğer terminal çıktıları Klipper "
+"harici yazılımlar tarafından kontrol ediliyorsa lütfen [API Sunucusu "
+"belgesine](API_Server.md) bakınız."
 
 #: docs/G-Codes.md:block 139 (paragraph)
 msgid ""
@@ -1875,7 +1897,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[angle]"
-msgstr ""
+msgstr "[angle]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
@@ -1930,7 +1952,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 199 (header)
 msgid "[led]"
-msgstr ""
+msgstr "[led]"
 
 #: docs/G-Codes.md:block 200 (paragraph)
 msgid ""
@@ -2036,6 +2058,10 @@ msgid ""
 "the section names specified in the [printer configuration "
 "file](Config_Reference.md). Note that some modules are automatically loaded."
 msgstr ""
+"Bu bölüm, genellikle [yazıcı yapılandırma dosyasında](Config_Reference.md) "
+"belirtilen bölüm adlarını takip eden Klipper modül adına göre "
+"düzenlenmiştir. Bazı modüllerin bazılarının otomatik olarak yüklendiğini "
+"unutmayın."
 
 #: docs/G-Codes.md:block 87 (header)
 msgid "[exclude_object]"
@@ -2236,7 +2262,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 79 (paragraph)
 msgid "Also provided is the following extended G-Code command:"
-msgstr ""
+msgstr "Ayrıca aşağıdaki genişletilmiş G-Kodu komutu da sağlanmıştır:"
 
 #: docs/G-Codes.md:block 80 (unordered list)
 msgid ""
