@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-05 18:51+0000\n"
+"PO-Revision-Date: 2023-01-08 18:51+0000\n"
 "Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/g-codes/"
 "fr/>\n"
@@ -147,7 +147,7 @@ msgid "Select SD file: `M23 <filename>`"
 msgstr "Sélectionnez le fichier SD : `M23 <nom du fichier> `"
 
 msgid "Start/resume SD print: `M24`"
-msgstr ""
+msgstr "Démarrer/reprendre l'impression SD : `M24`"
 
 msgid "Pause SD print: `M25`"
 msgstr "Suspendre l'impression depuis la SD : `M25`"
@@ -162,6 +162,8 @@ msgid ""
 "The following standard G-Code commands are available if a [gcode_arcs config"
 " section](Config_Reference.md#gcode_arcs) is enabled:"
 msgstr ""
+"Les commandes G-Code standard suivantes sont disponibles si une section ["
+"gcode_arcs config](Config_Reference.md#gcode_arcs) est activée :"
 
 msgid "Display Message: `M117 <message>`"
 msgstr "Afficher un message : `M117 <message> `"
@@ -306,12 +308,18 @@ msgid ""
 "[MAXIMUM=<target>]`: Wait until the given temperature sensor is at or above "
 "the supplied MINIMUM and/or at or below the supplied MAXIMUM."
 msgstr ""
+"`TEMPERATURE_WAIT SENSOR=<nom_config> [MINIMUM=<cible>] [MAXIMUM=<cible>]` : "
+"Attend jusqu'à ce que le capteur de température donné soit à ou au-dessus du "
+"MINIMUM fourni et/ou à ou en dessous du MAXIMUM fourni."
 
 msgid ""
 "`SET_VELOCITY_LIMIT [VELOCITY=<value>] [ACCEL=<value>] "
 "[ACCEL_TO_DECEL=<value>] [SQUARE_CORNER_VELOCITY=<value>]`: Modify the "
 "printer's velocity limits."
 msgstr ""
+"`SET_VELOCITY_LIMIT [VELOCITY=<valeur>] [ACCEL=<valeur>] "
+"[ACCEL_TO_DECEL=<valeur>] [SQUARE_CORNER_VELOCITY=<valeur>]` : Modifie les "
+"limites de vélocité de l'imprimante."
 
 msgid ""
 "`SET_HEATER_TEMPERATURE HEATER=<heater_name> [TARGET=<target_temperature>]`:"
@@ -344,6 +352,9 @@ msgid ""
 "and then backward one mm, repeated 10 times. This is a diagnostic tool to "
 "help verify stepper connectivity."
 msgstr ""
+"`STEPPER_BUZZ STEPPER=<nom_de_la_configuration>` : Déplace le moteur donné "
+"en avant d'un mm puis en arrière d'un mm, répété 10 fois. Il s'agit d'un "
+"outil de diagnostic permettant de vérifier la connectivité du moteur."
 
 msgid ""
 "`MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the"
@@ -373,6 +384,12 @@ msgid ""
 "also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount "
 "relative to previous attempts."
 msgstr ""
+"`TESTZ Z=<valeur>` : Cette commande déplace la buse vers le haut ou vers le "
+"bas de la quantité spécifiée dans \"valeur\". Par exemple, `TESTZ Z=-.1` "
+"déplacera la buse vers le bas de 0,1mm tandis que `TESTZ Z=.1` déplacera la "
+"buse vers le haut de 0,1mm. La valeur peut également être `+`, `-`, `++`, ou "
+"`--` pour déplacer la buse vers le haut ou vers le bas d'une quantité "
+"relative aux tentatives précédentes."
 
 msgid ""
 "`Z_ENDSTOP_CALIBRATE [SPEED=<speed>]`: Run a helper script useful for "
@@ -432,7 +449,7 @@ msgstr ""
 "résultats de ces tests."
 
 msgid "`STATUS`: Report the Klipper host software status."
-msgstr ""
+msgstr "`STATUS` : Indique l'état du logiciel de l'hôte Klipper."
 
 msgid "`HELP`: Report the list of available extended G-Code commands."
 msgstr "`HELP` : Affiche la liste des commandes G-Code étendues disponibles."
@@ -681,6 +698,9 @@ msgid ""
 "will adjust the run and hold currents of the TMC driver. (HOLDCURRENT is not"
 " applicable to tmc2660 drivers.)"
 msgstr ""
+"`SET_TMC_CURRENT STEPPER=<nom> CURRENT=<amps> HOLDCURRENT=<amps>` : Ceci "
+"ajustera les courants de marche et de maintien du pilote TMC. (HOLDCURRENT "
+"n'est pas applicable aux pilotes tmc2660)."
 
 msgid ""
 "`SET_TMC_FIELD STEPPER=<name> FIELD=<field> VALUE=<value>`: This will alter "
@@ -691,6 +711,14 @@ msgid ""
 " configuration file instead. No sanity checks are performed for the given "
 "values."
 msgstr ""
+"`SET_TMC_FIELD STEPPER=<nom> FIELD=<champ> VALUE=<valeur>` : Cette commande "
+"modifie la valeur du champ de registre spécifié du pilote TMC. Cette "
+"commande est destinée aux diagnostics de bas niveau et au débogage "
+"uniquement car la modification des champs pendant l'exécution peut entraîner "
+"un comportement indésirable et potentiellement dangereux de votre "
+"imprimante. Les modifications permanentes doivent être effectuées à l'aide "
+"du fichier de configuration de l'imprimante. Aucun contrôle d'intégrité "
+"n'est effectué pour les valeurs données."
 
 msgid ""
 "`ENDSTOP_PHASE_CALIBRATE [STEPPER=<config_name>]`: If no STEPPER parameter "
@@ -801,6 +829,8 @@ msgid ""
 "The following commands are available when the [pause_resume config "
 "section](Config_Reference.md#pause_resume) is enabled:"
 msgstr ""
+"Les commandes suivantes sont disponibles lorsque la section [pause_resume "
+"config](Config_Reference.md#pause_resume) est activée :"
 
 msgid ""
 "`PAUSE`: Pauses the current print. The current position is captured for "
@@ -977,6 +1007,22 @@ msgid ""
 "suggested input shaper parameters can be persisted in the config by issuing "
 "`SAVE_CONFIG` command."
 msgstr ""
+"`SHAPER_CALIBRATE [AXIS=<axe>] [NAME=<nom>] [FREQ_START=<freq_min>] "
+"[FREQ_END=<freq_max>] [HZ_PER_SEC=<hz_par_sec>] "
+"[MAX_SMOOTHING=<adoucissement_max>]` : Comme `TEST_RESONANCES`, exécute le "
+"test de résonance tel que configuré, et essaie de trouver les paramètres "
+"optimaux pour le façonneur d'entrée pour l'axe demandé (ou les deux axes X "
+"et Y si le paramètre `AXIS` est désactivé). Si `MAX_SMOOTHING` n'est pas "
+"défini, sa valeur est reprise de la section `[resonance_tester]`, la valeur "
+"par défaut étant non définie. Voir le [Max smoothing](Measuring_Resonances.md"
+"#max-smoothing) du guide de la mesure des résonances pour plus "
+"d'informations sur l'utilisation de cette fonctionnalité. Les résultats de l’"
+"étalonnage sont imprimés sur la console, les réponses en fréquence et les "
+"différentes valeurs des façonneurs d'entrée sont écrites dans un ou "
+"plusieurs fichiers CSV `/tmp/calibration_data_<axe>_<nom>.csv`. Sauf si "
+"spécifié, NOM est par défaut l'heure actuelle au format \"AAAAMMJJ_HHMMSS\". "
+"Notez que les paramètres de mise en forme d'entrée suggérés peuvent être "
+"conservés dans la configuration en émettant la commande `SAVE_CONFIG`."
 
 msgid ""
 "`PALETTE_CONNECT`: This command initializes the connection with the Palette "
@@ -1153,6 +1199,8 @@ msgid ""
 "The following commands are available when an [adxl345 config "
 "section](Config_Reference.md#adxl345) is enabled."
 msgstr ""
+"Les commandes suivantes sont disponibles lorsqu'une section [adxl345 "
+"config](Config_Reference.md#adxl345) est activée."
 
 #: docs/G-Codes.md:block 14 (header)
 msgid "ACCELEROMETER_MEASURE"
@@ -1203,6 +1251,9 @@ msgid ""
 "section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh "
 "guide](Bed_Mesh.md))."
 msgstr ""
+"Les commandes suivantes sont disponibles lorsque la section [configuration "
+"de bed_mesh](Config_Reference.md#bed_mesh) est activée (voir également le ["
+"guide de bed_mesh](Bed_Mesh.md))."
 
 #: docs/G-Codes.md:block 24 (header)
 msgid "BED_MESH_CALIBRATE"
@@ -1257,6 +1308,9 @@ msgid ""
 "section](Config_Reference.md#bed_screws) is enabled (also see the [manual "
 "level guide](Manual_Level.md#adjusting-bed-leveling-screws))."
 msgstr ""
+"Les commandes suivantes sont disponibles lorsque la section [config "
+"bed_screws](Config_Reference.md#bed_screws) est activée (voir également le ["
+"guide du nivelage manuel](Manual_Level.md#adjusting-bed-leveling-screws))."
 
 #: docs/G-Codes.md:block 38 (header)
 msgid "BED_SCREWS_ADJUST"
@@ -1271,6 +1325,8 @@ msgid ""
 "The following commands are available when the [bed_tilt config "
 "section](Config_Reference.md#bed_tilt) is enabled."
 msgstr ""
+"Les commandes suivantes sont disponibles lorsque la section [config "
+"bed_tilt](Config_Reference.md#bed_tilt) est activée."
 
 #: docs/G-Codes.md:block 42 (header)
 msgid "BED_TILT_CALIBRATE"
@@ -1286,6 +1342,9 @@ msgid ""
 "section](Config_Reference.md#bltouch) is enabled (also see the [BL-Touch "
 "guide](BLTouch.md))."
 msgstr ""
+"La commande suivante est disponible lorsqu'une section [bltouch "
+"config](Config_Reference.md#bltouch) est activée (voir également le [Guide "
+"BL-Touch](BLTouch.md))."
 
 #: docs/G-Codes.md:block 46 (header)
 msgid "BLTOUCH_DEBUG"
@@ -1315,7 +1374,7 @@ msgstr "[configfile]"
 
 #: docs/G-Codes.md:block 51 (paragraph)
 msgid "The configfile module is automatically loaded."
-msgstr ""
+msgstr "Le module configfile est automatiquement chargé."
 
 #: docs/G-Codes.md:block 52 (header)
 msgid "SAVE_CONFIG"
@@ -1331,6 +1390,9 @@ msgid ""
 "section](Config_Reference.md#delayed_gcode) has been enabled (also see the "
 "[template guide](Command_Templates.md#delayed-gcodes))."
 msgstr ""
+"La commande suivante est activée si une section de configuration "
+"[delayed_gcode](Config_Reference.md#delayed_gcode) a été activée (voir "
+"également le [guide des modèles](Command_Templates.md#delayed-gcodes))."
 
 #: docs/G-Codes.md:block 56 (header)
 msgid "UPDATE_DELAYED_GCODE"
@@ -1346,6 +1408,9 @@ msgid ""
 "section](Config_Reference.md#linear-delta-kinematics) is enabled (also see "
 "the [delta calibrate guide](Delta_Calibrate.md))."
 msgstr ""
+"Les commandes suivantes sont disponibles lorsque la section [delta_calibrate "
+"config](Config_Reference.md#linear-delta-kinematics) est activée (voir "
+"également le [guide delta calibrate](Delta_Calibrate.md))."
 
 #: docs/G-Codes.md:block 60 (header)
 msgid "DELTA_CALIBRATE"
@@ -1364,6 +1429,8 @@ msgid ""
 "The following command is available when a [display config "
 "section](Config_Reference.md#gcode_macro) is enabled."
 msgstr ""
+"La commande suivante est disponible lorsqu'une section [display "
+"config](Config_Reference.md#gcode_macro) est activée."
 
 #: docs/G-Codes.md:block 66 (header)
 msgid "SET_DISPLAY_GROUP"
@@ -1379,6 +1446,9 @@ msgid ""
 "section](Config_Reference.md#display) is enabled. It provides the following "
 "standard G-Code commands:"
 msgstr ""
+"Le module display_status est automatiquement chargé si une section [display "
+"config](Config_Reference.md#display) est activée. Il fournit les commandes G-"
+"Code standard suivantes :"
 
 #: docs/G-Codes.md:block 71 (header)
 msgid "[dual_carriage]"
@@ -1389,6 +1459,8 @@ msgid ""
 "The following command is available when the [dual_carriage config "
 "section](Config_Reference.md#dual_carriage) is enabled."
 msgstr ""
+"La commande suivante est disponible lorsque la section [config "
+"dual_carriage](Config_Reference.md#dual_carriage) est activée."
 
 #: docs/G-Codes.md:block 73 (header)
 msgid "SET_DUAL_CARRIAGE"
@@ -1404,6 +1476,9 @@ msgid ""
 "section](Config_Reference.md#endstop_phase) is enabled (also see the "
 "[endstop phase guide](Endstop_Phase.md))."
 msgstr ""
+"Les commandes suivantes sont disponibles lorsqu'une section de configuration "
+"[endstop_phase](Config_Reference.md#endstop_phase) est activée (voir "
+"également le [guide de la phase d'arrêt](Endstop_Phase.md))."
 
 #: docs/G-Codes.md:block 77 (header)
 msgid "ENDSTOP_PHASE_CALIBRATE"
@@ -1418,6 +1493,8 @@ msgid ""
 "The following commands are available if an [extruder config "
 "section](Config_Reference.md#extruder) is enabled:"
 msgstr ""
+"Les commandes suivantes sont disponibles si une section [configuration de "
+"l'extrudeuse](Config_Reference.md#extrudeuse) est activée :"
 
 #: docs/G-Codes.md:block 81 (header)
 msgid "ACTIVATE_EXTRUDER"
@@ -1425,7 +1502,7 @@ msgstr "ACTIVATE_EXTRUDER"
 
 #: docs/G-Codes.md:block 83 (header)
 msgid "SET_PRESSURE_ADVANCE"
-msgstr ""
+msgstr "SET_PRESSURE_ADVANCE"
 
 #: docs/G-Codes.md:block 85 (header)
 msgid "SET_EXTRUDER_ROTATION_DISTANCE"
@@ -1433,7 +1510,7 @@ msgstr "SET_EXTRUDER_ROTATION_DISTANCE"
 
 #: docs/G-Codes.md:block 87 (header)
 msgid "SYNC_EXTRUDER_MOTION"
-msgstr ""
+msgstr "SYNC_EXTRUDER_MOTION"
 
 #: docs/G-Codes.md:block 89 (header)
 msgid "SET_EXTRUDER_STEP_DISTANCE"
@@ -1445,7 +1522,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 91 (header)
 msgid "SYNC_STEPPER_TO_EXTRUDER"
-msgstr ""
+msgstr "SYNC_STEPPER_TO_EXTRUDER"
 
 #: docs/G-Codes.md:block 93 (header)
 msgid "[fan_generic]"
@@ -1456,16 +1533,21 @@ msgid ""
 "The following command is available when a [fan_generic config "
 "section](Config_Reference.md#fan_generic) is enabled."
 msgstr ""
+"La commande suivante est disponible lorsqu'une section [fan_generic "
+"config](Config_Reference.md#fan_generic) est activée."
 
 #: docs/G-Codes.md:block 95 (header)
 msgid "SET_FAN_SPEED"
-msgstr ""
+msgstr "SET_FAN_SPEED"
 
 #: docs/G-Codes.md:block 96 (paragraph)
 msgid ""
 "`SET_FAN_SPEED FAN=config_name SPEED=<speed>` This command sets the speed of"
 " a fan. \"speed\" must be between 0.0 and 1.0."
 msgstr ""
+"`SET_FAN_SPEED FAN=nom_config SPEED=<vitesse>` Cette commande définit la "
+"vitesse d'un ventilateur. La valeur de \"vitesse\" doit être comprise entre "
+"0,0 et 1,0."
 
 #: docs/G-Codes.md:block 97 (header)
 msgid "[firmware_retraction]"
@@ -1484,11 +1566,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 100 (paragraph)
 msgid "The following additional commands are also available."
-msgstr ""
+msgstr "Les commandes supplémentaires suivantes sont également disponibles."
 
 #: docs/G-Codes.md:block 101 (header)
 msgid "SET_RETRACTION"
-msgstr ""
+msgstr "SET_RETRACTION"
 
 #: docs/G-Codes.md:block 103 (header)
 msgid "GET_RETRACTION"
@@ -1505,6 +1587,10 @@ msgid ""
 "[filament_motion_sensor](Config_Reference.md#filament_motion_sensor) config "
 "section is enabled."
 msgstr ""
+"La commande suivante est disponible lorsqu'une section de configuration "
+"[filament_switch_sensor](Config_Reference.md#filament_switch_sensor) ou "
+"[filament_motion_sensor](Config_Reference.md#filament_motion_sensor) est "
+"activée."
 
 #: docs/G-Codes.md:block 107 (header)
 msgid "QUERY_FILAMENT_SENSOR"
@@ -1522,7 +1608,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 109 (header)
 msgid "SET_FILAMENT_SENSOR"
-msgstr ""
+msgstr "SET_FILAMENT_SENSOR"
 
 #: docs/G-Codes.md:block 114 (header)
 msgid "[force_move]"
@@ -1530,7 +1616,7 @@ msgstr "[force_move]"
 
 #: docs/G-Codes.md:block 116 (header)
 msgid "STEPPER_BUZZ"
-msgstr ""
+msgstr "STEPPER_BUZZ"
 
 #: docs/G-Codes.md:block 118 (header)
 msgid "FORCE_MOVE"
@@ -1538,7 +1624,7 @@ msgstr "FORCE_MOVE"
 
 #: docs/G-Codes.md:block 120 (header)
 msgid "SET_KINEMATIC_POSITION"
-msgstr ""
+msgstr "SET_KINEMATIC_POSITION"
 
 #: docs/G-Codes.md:block 122 (header)
 msgid "[gcode]"
@@ -1558,7 +1644,7 @@ msgstr "FIRMWARE_RESTART"
 
 #: docs/G-Codes.md:block 128 (header)
 msgid "STATUS"
-msgstr ""
+msgstr "STATUS"
 
 #: docs/G-Codes.md:block 130 (header)
 msgid "HELP"
@@ -1578,10 +1664,13 @@ msgid ""
 "section](Config_Reference.md#gcode_macro) is enabled (also see the [command "
 "templates guide](Command_Templates.md))."
 msgstr ""
+"La commande suivante est disponible lorsqu'une section de configuration "
+"[gcode_macro](Config_Reference.md#gcode_macro) est activée (voir également "
+"le [guide des modèles de commande](Command_Templates.md))."
 
 #: docs/G-Codes.md:block 137 (header)
 msgid "SET_GCODE_VARIABLE"
-msgstr ""
+msgstr "SET_GCODE_VARIABLE"
 
 #: docs/G-Codes.md:block 139 (header)
 msgid "[gcode_move]"
@@ -1597,7 +1686,7 @@ msgstr "GET_POSITION"
 
 #: docs/G-Codes.md:block 143 (header)
 msgid "SET_GCODE_OFFSET"
-msgstr ""
+msgstr "SET_GCODE_OFFSET"
 
 #: docs/G-Codes.md:block 145 (header)
 msgid "SAVE_GCODE_STATE"
@@ -1620,6 +1709,12 @@ msgid ""
 "see [TSLl401CL Filament Width Sensor](TSL1401CL_Filament_Width_Sensor.md) "
 "and [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)):"
 msgstr ""
+"Les commandes suivantes sont disponibles lorsque la section de configuration "
+"[tsl1401cl filament width sensor](Config_Reference."
+"md#tsl1401cl_filament_width_sensor) ou [hall filament width sensor]("
+"Config_Reference. md#hall_filament_width_sensor) est activée (voir également "
+"[TSLl401CL Filament Width Sensor](TSL1401CL_Filament_Width_Sensor.md) et ["
+"Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)) :"
 
 #: docs/G-Codes.md:block 151 (header)
 msgid "QUERY_FILAMENT_WIDTH"
@@ -1711,11 +1806,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 169 (header)
 msgid "TEMPERATURE_WAIT"
-msgstr ""
+msgstr "TEMPERATURE_WAIT"
 
 #: docs/G-Codes.md:block 171 (header)
 msgid "SET_HEATER_TEMPERATURE"
-msgstr ""
+msgstr "SET_HEATER_TEMPERATURE"
 
 #: docs/G-Codes.md:block 173 (header)
 msgid "[idle_timeout]"
@@ -1727,7 +1822,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 175 (header)
 msgid "SET_IDLE_TIMEOUT"
-msgstr ""
+msgstr "SET_IDLE_TIMEOUT"
 
 #: docs/G-Codes.md:block 177 (header)
 msgid "[input_shaper]"
@@ -1739,10 +1834,14 @@ msgid ""
 "section](Config_Reference.md#input_shaper) has been enabled (also see the "
 "[resonance compensation guide](Resonance_Compensation.md))."
 msgstr ""
+"La commande suivante est activée si une section de configuration "
+"[input_shaper](Config_Reference.md#input_shaper) a été activée (voir "
+"également le [guide de compensation de résonance](Resonance_Compensation."
+"md))."
 
 #: docs/G-Codes.md:block 179 (header)
 msgid "SET_INPUT_SHAPER"
-msgstr ""
+msgstr "SET_INPUT_SHAPER"
 
 #: docs/G-Codes.md:block 181 (header)
 msgid "[manual_probe]"
@@ -1773,6 +1872,8 @@ msgid ""
 "The following command is available when a [manual_stepper config "
 "section](Config_Reference.md#manual_stepper) is enabled."
 msgstr ""
+"La commande suivante est disponible lorsqu'une section [manual_stepper "
+"config](Config_Reference.md#manual_stepper) est activée."
 
 #: docs/G-Codes.md:block 192 (header)
 msgid "MANUAL_STEPPER"
@@ -1780,7 +1881,7 @@ msgstr "MANUAL_STEPPER"
 
 #: docs/G-Codes.md:block 196 (header)
 msgid "SET_LED"
-msgstr ""
+msgstr "SET_LED"
 
 #: docs/G-Codes.md:block 198 (header)
 msgid "[output_pin]"
@@ -1791,10 +1892,12 @@ msgid ""
 "The following command is available when an [output_pin config "
 "section](Config_Reference.md#output_pin) is enabled."
 msgstr ""
+"La commande suivante est disponible lorsqu'une section [output_pin "
+"config](Config_Reference.md#output_pin) est activée."
 
 #: docs/G-Codes.md:block 200 (header)
 msgid "SET_PIN"
-msgstr ""
+msgstr "SET_PIN"
 
 #: docs/G-Codes.md:block 201 (paragraph)
 msgid ""
@@ -1802,6 +1905,10 @@ msgid ""
 "hardware PWM does not currently support the CYCLE_TIME parameter and will "
 "use the cycle time defined in the config."
 msgstr ""
+"`SET_PIN PIN=nom_de_la_configuration VALUE=<valeur> "
+"CYCLE_TIME=<durée_du_cycle>` : Note - le PWM matériel ne supporte pas "
+"actuellement le paramètre CYCLE_TIME et utilisera la durée de cycle définie "
+"dans la configuration."
 
 #: docs/G-Codes.md:block 202 (header)
 msgid "[palette2]"
@@ -1812,6 +1919,8 @@ msgid ""
 "The following commands are available when the [palette2 config "
 "section](Config_Reference.md#palette2) is enabled."
 msgstr ""
+"Les commandes suivantes sont disponibles lorsque la section [palette2 "
+"config](Config_Reference.md#palette2) est activée."
 
 #: docs/G-Codes.md:block 207 (header)
 msgid "PALETTE_CONNECT"
@@ -1878,6 +1987,10 @@ msgid ""
 "section](Config_Reference.md#bltouch) is enabled (also see the [probe "
 "calibrate guide](Probe_Calibrate.md))."
 msgstr ""
+"Les commandes suivantes sont disponibles lorsqu'une section [probe "
+"config](Config_Reference.md#probe) ou [bltouch config](Config_Reference."
+"md#bltouch) est activée (voir également le [guide d'étalonnage de la "
+"sonde](Probe_Calibrate.md))."
 
 #: docs/G-Codes.md:block 233 (header)
 msgid "PROBE"
@@ -1931,6 +2044,9 @@ msgid ""
 "section](Config_Reference.md#resonance_tester) is enabled (also see the "
 "[measuring resonances guide](Measuring_Resonances.md))."
 msgstr ""
+"Les commandes suivantes sont disponibles lorsqu'une section [configuration "
+"du testeur de résonances](Config_Reference.md#resonance_tester) est activée ("
+"voir également le [guide de mesure des résonances](Measuring_Resonances.md))."
 
 #: docs/G-Codes.md:block 254 (header)
 msgid "MEASURE_AXES_NOISE"
@@ -1938,11 +2054,11 @@ msgstr "MEASURE_AXES_NOISE"
 
 #: docs/G-Codes.md:block 256 (header)
 msgid "TEST_RESONANCES"
-msgstr ""
+msgstr "TEST_RESONANCES"
 
 #: docs/G-Codes.md:block 258 (header)
 msgid "SHAPER_CALIBRATE"
-msgstr ""
+msgstr "SHAPER_CALIBRATE"
 
 #: docs/G-Codes.md:block 260 (header)
 msgid "[respond]"
@@ -1977,6 +2093,8 @@ msgid ""
 "The following command is enabled if a [save_variables config "
 "section](Config_Reference.md#save_variables) has been enabled."
 msgstr ""
+"La commande suivante est activée si une section [save_variables "
+"config](Config_Reference.md#save_variables) a été activée."
 
 #: docs/G-Codes.md:block 268 (header)
 msgid "SAVE_VARIABLE"
@@ -1993,6 +2111,10 @@ msgid ""
 "[manual level guide](Manual_Level.md#adjusting-bed-leveling-screws-using-"
 "the-bed-probe))."
 msgstr ""
+"Les commandes suivantes sont disponibles lorsque la section de configuration "
+"[screws_tilt_adjust](Config_Reference.md#screws_tilt_adjust) est activée ("
+"voir également le [guide du nivelage manuel](Manual_Level.md#adjusting-bed-"
+"leveling-screws-using-the-bed-probe))."
 
 #: docs/G-Codes.md:block 272 (header)
 msgid "SCREWS_TILT_CALCULATE"
@@ -2038,10 +2160,12 @@ msgid ""
 "The following commands are available when a [servo config "
 "section](Config_Reference.md#servo) is enabled."
 msgstr ""
+"Les commandes suivantes sont disponibles lorsqu'une section [servo "
+"config](Config_Reference.md#servo) est activée."
 
 #: docs/G-Codes.md:block 284 (header)
 msgid "SET_SERVO"
-msgstr ""
+msgstr "SET_SERVO"
 
 #: docs/G-Codes.md:block 286 (header)
 msgid "[skew_correction]"
@@ -2053,10 +2177,13 @@ msgid ""
 "section](Config_Reference.md#skew_correction) is enabled (also see the [Skew"
 " Correction](Skew_Correction.md) guide)."
 msgstr ""
+"Les commandes suivantes sont disponibles lorsque la section de configuration "
+"[skew_correction](Config_Reference.md#skew_correction) est activée (voir "
+"également le guide [Skew Correction](Skew_Correction.md))."
 
 #: docs/G-Codes.md:block 288 (header)
 msgid "SET_SKEW"
-msgstr ""
+msgstr "SET_SKEW"
 
 #: docs/G-Codes.md:block 290 (header)
 msgid "GET_CURRENT_SKEW"
@@ -2068,7 +2195,7 @@ msgstr "CALC_MEASURED_SKEW"
 
 #: docs/G-Codes.md:block 294 (header)
 msgid "SKEW_PROFILE"
-msgstr ""
+msgstr "SKEW_PROFILE"
 
 #: docs/G-Codes.md:block 295 (paragraph)
 msgid ""
@@ -2080,10 +2207,18 @@ msgid ""
 "REMOVE operations have been run the SAVE_CONFIG gcode must be run to make "
 "the changes to persistent memory permanent."
 msgstr ""
+"`SKEW_PROFILE [LOAD=<nom>] [SAVE=<nom>] [REMOVE=<nom>]` : Gestion des "
+"profils pour la correction de l'obliquité. LOAD restaurera l'état "
+"d'inclinaison à partir du profil correspondant au nom fourni. SAVE "
+"sauvegardera l'état actuel d'inclinaison dans un profil correspondant au nom "
+"fourni. Remove supprimera le profil correspondant au nom fourni de la "
+"mémoire persistante. Notez qu'après l'exécution des opérations SAVE ou "
+"REMOVE, le gcode SAVE_CONFIG doit être exécuté pour que les modifications "
+"apportées à la mémoire permanente deviennent permanentes."
 
 #: docs/G-Codes.md:block 296 (header)
 msgid "[stepper_enable]"
-msgstr ""
+msgstr "[stepper_enable]"
 
 #: docs/G-Codes.md:block 297 (paragraph)
 msgid "The stepper_enable module is automatically loaded."
@@ -2091,7 +2226,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 298 (header)
 msgid "SET_STEPPER_ENABLE"
-msgstr ""
+msgstr "SET_STEPPER_ENABLE"
 
 #: docs/G-Codes.md:block 300 (header)
 msgid "[temperature_fan]"
@@ -2102,10 +2237,12 @@ msgid ""
 "The following command is available when a [temperature_fan config "
 "section](Config_Reference.md#temperature_fan) is enabled."
 msgstr ""
+"La commande suivante est disponible lorsqu'une section [temperature_fan "
+"config](Config_Reference.md#temperature_fan) est activée."
 
 #: docs/G-Codes.md:block 302 (header)
 msgid "SET_TEMPERATURE_FAN_TARGET"
-msgstr ""
+msgstr "SET_TEMPERATURE_FAN_TARGET"
 
 #: docs/G-Codes.md:block 303 (paragraph)
 msgid ""
@@ -2115,6 +2252,12 @@ msgid ""
 " If a target is not supplied, it is set to the specified temperature in the "
 "config file. If speeds are not supplied, no change is applied."
 msgstr ""
+"`SET_TEMPERATURE_FAN_TARGET temperature_fan=<nom_du_ventilateur_température> "
+"[target=<température_cible>] [min_speed=<vitesse_min>] "
+"[max_speed=<vitesse_max>]` : Définit la température cible d'un "
+"ventilateur_température. Si une cible n'est pas fournie, elle est fixée à la "
+"température spécifiée dans le fichier de configuration. Si les vitesses ne "
+"sont pas fournies, aucun changement n'est appliqué."
 
 #: docs/G-Codes.md:block 304 (header)
 msgid "[tmcXXXX]"
@@ -2125,6 +2268,8 @@ msgid ""
 "The following commands are available when any of the [tmcXXXX config "
 "sections](Config_Reference.md#tmc-stepper-driver-configuration) are enabled."
 msgstr ""
+"Les commandes suivantes sont disponibles lorsque l'une des sections [tmcXXXX "
+"config](Config_Reference.md#tmc-stepper-driver-configuration) est activée."
 
 #: docs/G-Codes.md:block 306 (header)
 msgid "DUMP_TMC"
@@ -2146,11 +2291,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 310 (header)
 msgid "SET_TMC_CURRENT"
-msgstr ""
+msgstr "SET_TMC_CURRENT"
 
 #: docs/G-Codes.md:block 312 (header)
 msgid "SET_TMC_FIELD"
-msgstr ""
+msgstr "SET_TMC_FIELD"
 
 #: docs/G-Codes.md:block 314 (header)
 msgid "[toolhead]"
@@ -2162,7 +2307,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 316 (header)
 msgid "SET_VELOCITY_LIMIT"
-msgstr ""
+msgstr "SET_VELOCITY_LIMIT"
 
 #: docs/G-Codes.md:block 318 (header)
 msgid "[tuning_tower]"
@@ -2207,6 +2352,11 @@ msgid ""
 "* floor(z_height / step_height)`. You can simply count bands or read tuning "
 "tower labels to determine the optimum value."
 msgstr ""
+"`STEP_DELTA` et `STEP_HEIGHT` : La valeur change de `STEP_DELTA` tous les "
+"millimètres de `STEP_HEIGHT`. La formule utilisée est : `valeur = start + "
+"step_delta * floor(z_height / step_height)`. Vous pouvez simplement compter "
+"les bandes ou lire les étiquettes des tours de réglage pour déterminer la "
+"valeur optimale."
 
 #: docs/G-Codes.md:block 323 (header)
 msgid "[virtual_sdcard]"
@@ -2259,6 +2409,8 @@ msgid ""
 "The following commands are available when the [z_tilt config "
 "section](Config_Reference.md#z_tilt) is enabled."
 msgstr ""
+"Les commandes suivantes sont disponibles lorsque la section [z_tilt "
+"config](Config_Reference.md#z_tilt) est activée."
 
 #: docs/G-Codes.md:block 333 (header)
 msgid "Z_TILT_ADJUST"
@@ -2314,6 +2466,8 @@ msgid ""
 "The following commands are available when an [angle config "
 "section](Config_Reference.md#angle) is enabled."
 msgstr ""
+"Les commandes suivantes sont disponibles lorsqu'une section [angle "
+"config](Config_Reference.md#angle) est activée."
 
 #: docs/G-Codes.md:block 24 (header)
 msgid "ANGLE_CALIBRATE"
@@ -2394,6 +2548,8 @@ msgid ""
 "The following command is available when any of the [led config "
 "sections](Config_Reference.md#leds) are enabled."
 msgstr ""
+"La commande suivante est disponible lorsque l'une des sections [led "
+"config](Config_Reference.md#leds) est activée."
 
 #: docs/G-Codes.md:block 202 (paragraph)
 msgid ""
@@ -2413,10 +2569,27 @@ msgid ""
 "timeout. If careful timing is not needed, the optional SYNC=0 parameter can "
 "be specified to apply the changes without resetting the idle timeout."
 msgstr ""
+"`SET_LED LED=<nom_de_la_configuration> RED=<valeur> GREEN=<valeur> "
+"BLUE=<valeur> WHITE=<valeur> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]` : Ceci "
+"définit la sortie de la LED. Chaque `<valeur>` de couleur doit être comprise "
+"entre 0.0 et 1.0. L'option WHITE n'est valable que pour les LEDs RGBW. Si la "
+"LED supporte plusieurs puces dans une chaîne, on peut spécifier INDEX pour "
+"modifier la couleur de la seule puce donnée (1 pour la première puce, 2 pour "
+"la seconde, etc.). Si INDEX n'est pas spécifié, alors toutes les LEDs de la "
+"chaîne seront réglées sur la couleur fournie. Si TRANSMIT=0 est spécifié, le "
+"changement de couleur ne sera effectué que lors de la prochaine commande "
+"SET_LED qui ne spécifie pas TRANSMIT=0 ; cela peut être utile en combinaison "
+"avec le paramètre INDEX pour effectuer plusieurs mises à jour dans une "
+"chaîne. Par défaut, la commande SET_LED synchronisera ses changements avec "
+"les autres commandes gcode en cours. Cela peut conduire à un comportement "
+"indésirable si les LEDs sont réglées alors que l'imprimante n'imprime pas, "
+"car cela réinitialisera le délai d'inactivité. Si un timing précis n'est pas "
+"nécessaire, le paramètre optionnel SYNC=0 peut être spécifié pour appliquer "
+"les changements sans réinitialiser le délai d'inactivité."
 
 #: docs/G-Codes.md:block 203 (header)
 msgid "SET_LED_TEMPLATE"
-msgstr ""
+msgstr "SET_LED_TEMPLATE"
 
 #: docs/G-Codes.md:block 204 (paragraph)
 msgid ""
@@ -2437,6 +2610,23 @@ msgid ""
 "template assigned to the LED (one can then use `SET_LED` commands to manage "
 "the LED's color settings)."
 msgstr ""
+"`SET_LED_TEMPLATE LED=<nom_de_la_led> TEMPLATE=<nom_du_modèle> "
+"[<param_x>=<literal>] [INDEX=<index>]` : Attribue un [modèle "
+"d'affichage](Config_Reference.md#display_template) à une "
+"[LED](Config_Reference.md#leds) donnée. Par exemple, si l'on définit une "
+"section de configuration `[display_template my_led_template]`, on peut "
+"affecter `TEMPLATE=my_led_template` ici. Le modèle d'affichage doit produire "
+"une chaîne de caractères séparée par des virgules contenant quatre nombres à "
+"virgule flottante correspondant aux paramètres de couleur rouge, vert, bleu "
+"et blanc. Le modèle sera continuellement évalué et la LED sera "
+"automatiquement réglée sur les couleurs résultantes. On peut définir des "
+"paramètres display_template à utiliser pendant l'évaluation du modèle (les "
+"paramètres seront analysés comme des littéraux Python). Si INDEX n'est pas "
+"spécifié, alors toutes les puces dans la chaîne de la LED seront réglées sur "
+"le modèle, sinon seule la puce avec l'index donné sera mise à jour. Si "
+"TEMPLATE est une chaîne vide, cette commande effacera tout modèle précédent "
+"assigné à la LED (on peut alors utiliser les commandes `SET_LED` pour gérer "
+"les paramètres de couleur de la LED)."
 
 #: docs/G-Codes.md:block 251 (paragraph)
 msgid "The query_adc module is automatically loaded."
@@ -2455,10 +2645,17 @@ msgid ""
 " before changing the Smart Effector parameters. Also check the [probe "
 "calibration guide](Probe_Calibrate.md)."
 msgstr ""
+"Plusieurs commandes sont disponibles lorsqu'une section de configuration "
+"[smart_effector](Config_Reference.md#smart_effector) est activée. Assurez-"
+"vous de consulter la documentation officielle du Smart Effector sur le ["
+"Duet3D Wiki](https://duet3d.dozuki.com/Wiki/"
+"Smart_effector_and_carriage_adapters_for_delta_printer) avant de modifier "
+"les paramètres du Smart Effector. Consultez également le [guide d'étalonnage "
+"de la sonde](Probe_Calibrate.md)."
 
 #: docs/G-Codes.md:block 305 (header)
 msgid "SET_SMART_EFFECTOR"
-msgstr ""
+msgstr "SET_SMART_EFFECTOR"
 
 #: docs/G-Codes.md:block 306 (paragraph)
 msgid ""
@@ -2476,6 +2673,21 @@ msgid ""
 "see the [config section](Config_Reference.md#smart_effector) of Smart "
 "Effector for more info on those parameters."
 msgstr ""
+"`SET_SMART_EFFECTOR [SENSITIVITY=<sensitivity>] [ACCEL=<accel>] "
+"[RECOVERY_TIME=<time>]` : Définit les paramètres du Smart Effector. Lorsque "
+"`SENSITIVITY` est spécifié, la valeur respective est écrite dans l'EEPROM du "
+"SmartEffecteur (nécessite que `control_pin` soit fourni). Les valeurs "
+"acceptables de `<sensitivity>` sont 0..255, la valeur par défaut est 50. Des "
+"valeurs plus faibles nécessitent moins de force de contact de la buse pour "
+"se déclencher (mais il y a un plus grand risque de faux déclenchement dû aux "
+"vibrations pendant le palpage), des valeurs plus élevées réduisent les faux "
+"déclenchements (mais nécessitent une plus grande force de contact pour se "
+"déclencher). Comme la sensibilité est écrite dans l'EEPROM, elle est "
+"conservée après l'arrêt, il n'est donc pas nécessaire de la configurer à "
+"chaque démarrage de l'imprimante. `ACCEL` et `RECOVERY_TIME` permettent de "
+"modifier les paramètres correspondants lors de l'exécution, voir la section "
+"[config](Config_Reference.md#smart_effector) de Smart Effector pour plus "
+"d'informations sur ces paramètres."
 
 #: docs/G-Codes.md:block 307 (header)
 msgid "RESET_SMART_EFFECTOR"
@@ -2507,6 +2719,9 @@ msgid ""
 "section](Config_Reference.md#exclude_object) is enabled (also see the "
 "[exclude object guide](Exclude_Object.md)):"
 msgstr ""
+"Les commandes suivantes sont disponibles lorsqu'une section de configuration "
+"[exclude_object](Config_Reference.md#exclude_object) est activée (voir "
+"également le [guide d'exclusion d'objet](Exclude_Object.md)) :"
 
 #: docs/G-Codes.md:block 89 (header)
 msgid "`EXCLUDE_OBJECT`"
@@ -2628,6 +2843,14 @@ msgid ""
 " EXTRUDER is not specified, it defaults to the stepper defined in the active"
 " hotend."
 msgstr ""
+"`SET_PRESSURE_ADVANCE [EXTRUDER=<nom_de_la_configuration>] "
+"[ADVANCE=<avance_de_pression>] "
+"[SMOOTH_TIME=<durée_adoucissemt_avance_de_pression>]` : Définit les "
+"paramètres d'avance de pression du moteur d'extrudeuse (comme défini dans "
+"une section de configuration [extrudeur](Config_Reference.md#extruder) ou "
+"[extruder_stepper](Config_Reference.md#extruder_stepper)). Si EXTRUDER n'est "
+"pas spécifié, il s'agit par défaut du stepper défini dans la tête d'outil "
+"active."
 
 #: docs/G-Codes.md:block 111 (paragraph)
 msgid ""
@@ -2668,6 +2891,14 @@ msgid ""
 " If MOTION_QUEUE is an empty string then the stepper will be desynchronized "
 "from all extruder movement."
 msgstr ""
+"`SYNC_EXTRUDER_MOTION EXTRUDER=<nom> MOTION_QUEUE=<nom>` : Cette commande "
+"permet de synchroniser le moteur d'entraînement spécifié par EXTRUDER (tel "
+"que défini dans la section de configuration [extruder](Config_Reference."
+"md#extruder) ou [extruder_stepper](Config_Reference.md#extruder_stepper) "
+"avec le mouvement d'un extrudeur spécifié par MOTION_QUEUE (tel que défini "
+"dans la section de configuration [extruder](Config_Reference.md#extruder)). "
+"Si MOTION_QUEUE est une chaîne vide, le stepper sera désynchronisé de tout "
+"mouvement d'extrudeuse."
 
 #: docs/G-Codes.md:block 137 (paragraph)
 msgid ""
@@ -2704,6 +2935,33 @@ msgid ""
 "`resonances`, and NAME defaults to the current time in \"YYYYMMDD_HHMMSS\" "
 "format."
 msgstr ""
+"`TEST_RESONANCES AXE=<axe> OUTPUT=<resonances,raw_data> [NOM=<nom>] "
+"[FREQ_START=<freq_min>] [FREQ_END=<freq_max>] [HZ_PER_SEC=<hz_par_sec>] "
+"[CHIPS=<nom_puce_adxl345>] [POINT=x,y,z] [INPUT_SHAPING=[<0:1>]]` : Exécute "
+"le test de résonance dans tous les points de sonde configurés pour l'\"axe\" "
+"demandé et mesure l'accélération en utilisant les puces accélérométres "
+"configurées pour l'axe respectif. L'\"axe\" peut être X ou Y, ou spécifier "
+"une direction arbitraire comme `AXIS=dx,dy`, où dx et dy sont des nombres à "
+"virgule flottante définissant un vecteur de direction (par exemple, `AXIS=X`"
+", `AXIS=Y`, ou `AXIS=1,-1` pour définir une direction diagonale). Notez que "
+"`AXIS=dx,dy` et `AXIS=-dx,-dy` sont équivalents. `nom_puce_adxl345` peut "
+"être une ou plusieurs puces adxl345 configurées, délimitées par des "
+"virgules, par exemple `CHIPS=\"adxl345, adxl345 rpi\"`. Notez que le terme "
+"`adxl345` peut être omis pour les puces adxl345 nommées. Si POINT est "
+"indiqué, il remplacera le(s) point(s) configuré(s) dans `[resonance_tester]`"
+". Si `INPUT_SHAPING=0` ou non défini (par défaut), désactive la mise en "
+"forme de l'entrée pour le test de résonance, car il n'est pas valide "
+"d'exécuter le test de résonance avec la mise en forme de l'entrée active. Le "
+"paramètre `OUTPUT` consiste en une liste séparée par des virgules des "
+"sorties qui seront écrites. Si `raw_data` est demandé, alors les données "
+"brutes de l'accéléromètre sont écrites dans un fichier ou une série de "
+"fichiers `/tmp/raw_data_<axe>_[<nom_puce>_][<point>_]<nom>.csv` avec (la "
+"partie `<point>_` du nom générée seulement si plus d'un point de sonde est "
+"configuré ou si POINT est spécifié). Si `resonances` est spécifié, la "
+"réponse en fréquence est calculée (à travers tous les points de sonde) et "
+"écrite dans le fichier `/tmp/resonances_<axe>_<nom>.csv`. S'il n'est pas "
+"défini, OUTPUT prend par défaut la valeur de `resonances`, et NAME prend par "
+"défaut la valeur de l'heure actuelle au format \"AAAAMMJJ_HHMMSS\"."
 
 #: docs/G-Codes.md:block 297 (paragraph)
 msgid ""
@@ -2767,6 +3025,8 @@ msgid ""
 "The following command is available when a [mcp4018 config "
 "section](Config_Reference.md#mcp4018) is enabled."
 msgstr ""
+"La commande suivante est disponible lorsqu'une section [mcp4018 "
+"config](Config_Reference.md#mcp4018) est activée."
 
 #: docs/G-Codes.md:block 220 (header)
 msgid "SET_DIGIPOT"
@@ -2795,7 +3055,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 263 (header)
 msgid "SET_PRINT_STATS_INFO"
-msgstr ""
+msgstr "SET_PRINT_STATS_INFO"
 
 #: docs/G-Codes.md:block 264 (paragraph)
 msgid ""
@@ -2806,6 +3066,13 @@ msgid ""
 "<current_layer>]` at the layer change gcode section to pass layer "
 "information from your slicer to Klipper."
 msgstr ""
+"`SET_PRINT_STATS_INFO [TOTAL_LAYER=<nombre_total_de_couches>] ["
+"CURRENT_LAYER= <couche_actuelle>]` : Passe les informations du trancheur "
+"comme le nombre total de couches et celle actuellement en cours à Klipper. "
+"Ajoutez `SET_PRINT_STATS_INFO [TOTAL_LAYER=<nombre_total_de_couches>]` à "
+"votre section gcode de début du trancheur et `SET_PRINT_STATS_INFO ["
+"CURRENT_LAYER= <couche_actuelle>]` à la section gcode de changement de "
+"couche pour passer les informations de couche de votre trancheur à Klipper."
 
 #: docs/G-Codes.md:block 371 (header)
 msgid "[z_thermal_adjust]"
@@ -2816,10 +3083,12 @@ msgid ""
 "The following commands are available when the [z_thermal_adjust config "
 "section](Config_Reference.md#z_thermal_adjust) is enabled."
 msgstr ""
+"Les commandes suivantes sont disponibles lorsque la section ["
+"z_thermal_adjust config](Config_Reference.md#z_thermal_adjust) est activée."
 
 #: docs/G-Codes.md:block 373 (header)
 msgid "SET_Z_THERMAL_ADJUST"
-msgstr ""
+msgstr "SET_Z_THERMAL_ADJUST"
 
 #: docs/G-Codes.md:block 374 (paragraph)
 msgid ""
@@ -2835,6 +3104,19 @@ msgid ""
 " homing (for use in e.g. non-standard homing routines) - will be reset "
 "automatically upon homing."
 msgstr ""
+"`SET_Z_THERMAL_ADJUST [ENABLE=<0:1>] [TEMP_COEFF=<valeur>] "
+"[REF_TEMP=<valeur>]` : Active ou désactive l'ajustement thermique Z avec "
+"`ENABLE`. La désactivation ne supprime pas l'ajustement déjà appliqué, mais "
+"gèle la valeur d'ajustement actuelle - cela empêche un mouvement Z vers le "
+"bas potentiellement dangereux. La réactivation peut potentiellement causer "
+"un mouvement de l'outil vers le haut lorsque l'ajustement est mis à jour et "
+"appliqué. `TEMP_COEFF` permet de régler le coefficient de température de "
+"l'ajustement en cours d'exécution (c'est-à-dire le paramètre de "
+"configuration `TEMP_COEFF`). Les valeurs de `TEMP_COEFF` ne sont pas "
+"sauvegardées dans la config. `REF_TEMP` remplace manuellement la température "
+"de référence généralement réglée pendant le retour à l'origine (pour une "
+"utilisation dans des routines de retour à l'origine non standard) - sera "
+"remis à zéro automatiquement lors du retour à l'origine."
 
 #: docs/G-Codes.md:block 158 (unordered list)
 msgid ""
