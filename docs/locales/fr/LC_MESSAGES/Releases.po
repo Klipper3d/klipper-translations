@@ -2,11 +2,12 @@
 # Tl <rflma99@pm.me>, 2022.
 # Jonathan <jonathanhav09@sfr.fr>, 2022.
 # jean-luc MATTEI <jlucm@free.fr>, 2023.
+# Francis Poulizac <francis@poulizac.fr>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-05 18:51+0000\n"
-"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
+"PO-Revision-Date: 2023-01-08 18:51+0000\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/releases/"
 "fr/>\n"
 "Language: fr\n"
@@ -336,7 +337,7 @@ msgstr ""
 "Mises à jour de la documentation pour les chargeurs de démarrage, l'analyse "
 "comparative, le portage des micro-contrôleurs, les vérifications de "
 "configuration, le mappage des broches, les paramètres du trancheur, le "
-"packaging, etc... ."
+"packaging, etc."
 
 msgid "Several bug fixes and code cleanups"
 msgstr "Plusieurs corrections de bogues et nettoyages de code"
