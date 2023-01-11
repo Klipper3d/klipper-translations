@@ -1,15 +1,17 @@
 # Pepe <ec288eb6-6bd6-473b-93a5-5c8fb60ceb16@simplelogin.fr>, 2023.
+# Pepe <bungeeranked@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-11 18:10+0000\n"
-"Last-Translator: Pepe <ec288eb6-6bd6-473b-93a5-5c8fb60ceb16@simplelogin.fr>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/beaglebone/es/>\n"
+"PO-Revision-Date: 2025-05-03 07:28+0000\n"
+"Last-Translator: Pepe <bungeeranked@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"beaglebone/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "This document describes the process of running Klipper on a Beaglebone PRU."
