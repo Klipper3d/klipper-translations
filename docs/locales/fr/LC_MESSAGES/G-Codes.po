@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-08 18:51+0000\n"
+"PO-Revision-Date: 2023-01-11 18:10+0000\n"
 "Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/g-codes/"
 "fr/>\n"
@@ -38,16 +38,17 @@ msgid "Move to origin: `G28 [X] [Y] [Z]`"
 msgstr "Déplacement vers l'origine : `G28 [X] [Y] [Z] `"
 
 msgid "Turn off motors: `M18` or `M84`"
-msgstr ""
+msgstr "Éteindre les moteurs : `M18` ou `M84`"
 
 msgid "Wait for current moves to finish: `M400`"
-msgstr ""
+msgstr "Attendre la fin des mouvements en cours : `M400`"
 
 msgid "Use absolute/relative distances for extrusion: `M82`, `M83`"
 msgstr ""
+"Utiliser des distances absolues/relatives pour l'extrusion : `M82`, `M83`"
 
 msgid "Use absolute/relative coordinates: `G90`, `G91`"
-msgstr ""
+msgstr "Utiliser des coordonnées absolues/relatives : `G90`, `G91`"
 
 msgid "Set position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`"
 msgstr "Définir la position : `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] `"
@@ -107,7 +108,7 @@ msgid "Set fan speed: `M106 S<value>`"
 msgstr "Régler la vitesse du ventilateur : `M106 S<valeur>`"
 
 msgid "Turn fan off: `M107`"
-msgstr ""
+msgstr "Désactiver le ventilateur : `M107`"
 
 msgid "Emergency stop: `M112`"
 msgstr "Arrêt d'urgence : `M112`"
@@ -301,7 +302,7 @@ msgstr ""
 "température mesurés pendant le test."
 
 msgid "`TURN_OFF_HEATERS`: Turn off all heaters."
-msgstr ""
+msgstr "`TURN_OFF_HEATERS` : Éteindre tous les chauffages."
 
 msgid ""
 "`TEMPERATURE_WAIT SENSOR=<config_name> [MINIMUM=<target>] "
@@ -397,6 +398,10 @@ msgid ""
 "command for details on the parameters and the additional commands available "
 "while the tool is active."
 msgstr ""
+"`Z_ENDSTOP_CALIBRATE [SPEED=<vitesse>]` : Exécute un script d'assistance "
+"utile pour calibrer un paramètre de configuration de la position Z_endstop. "
+"Voir la commande MANUAL_PROBE pour plus de détails sur les paramètres et les "
+"commandes supplémentaires disponibles lorsque l'outil est actif."
 
 msgid ""
 "`SET_DISPLAY_GROUP [DISPLAY=<display>] GROUP=<group>`: Set the active "
@@ -676,6 +681,11 @@ msgid ""
 " Z stepper to compensate for tilt. See the PROBE command for details on the "
 "optional probe parameters."
 msgstr ""
+"`Z_TILT_ADJUST [<probe_parameter>=<valeur>]` : Cette commande palpe les "
+"points spécifiés dans la configuration et effectue ensuite des ajustements "
+"indépendants pour chaque moteur Z afin de compenser l'inclinaison. Reportez-"
+"vous à la commande PROBE pour plus de détails sur les paramètres de palpage "
+"optionnels."
 
 msgid ""
 "`SET_DUAL_CARRIAGE CARRIAGE=[0|1]`: This command will set the active "
@@ -946,6 +956,10 @@ msgid ""
 "duration for the identified [delayed_gcode] and starts the timer for gcode "
 "execution. A value of 0 will cancel a pending delayed gcode from executing."
 msgstr ""
+"`UPDATE_DELAYED_GCODE [ID=<nom>] [DURATION=<secondes>]` : Met à jour la "
+"durée du retard du [delayed_gcode] identifié et démarre le minuteur pour "
+"l'exécution du gcode. Une valeur de 0 annulera l'exécution d'un gcode "
+"retardé en attente."
 
 msgid ""
 "`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Saves the variable to disk so"
@@ -1087,6 +1101,11 @@ msgid ""
 "acts to take a frequently used babystepping value, and \"make it "
 "permanent\". Requires a `SAVE_CONFIG` to take effect."
 msgstr ""
+"`Z_OFFSET_APPLY_ENDSTOP` : Prend le décalage actuel du Gcode Z (alias, "
+"babystepping), et le soustrait de la position endstop_position définie dans "
+"stepper_z. Ceci permet de prendre une valeur de babystepping fréquemment "
+"utilisée, et de la rendre permanente. Nécessite un `SAVE_CONFIG` pour "
+"prendre effet."
 
 #: docs/G-Codes.md:block 54 (unordered list)
 msgid ""
@@ -1095,6 +1114,10 @@ msgid ""
 "used babystepping value, and \"make it permanent\". Requires a `SAVE_CONFIG`"
 " to take effect."
 msgstr ""
+"`Z_OFFSET_APPLY_PROBE` : Prend le décalage actuel du Gcode Z (alias, "
+"babystepping), et le soustrait du z_offset de la sonde. Cela permet de "
+"prendre une valeur de babystepping fréquemment utilisée, et de la rendre "
+"permanente. Nécessite un `SAVE_CONFIG` pour prendre effet."
 
 #: docs/G-Codes.md:block 29 (unordered list)
 msgid ""
@@ -1111,6 +1134,20 @@ msgid ""
 "this case, the `z_height` used in the formulas below is actually `max(z - "
 "skip, 0)`. There are three possible combinations of options:"
 msgstr ""
+"`TUNING_TOWER COMMAND=<commande> PARAMETER=<nom> START=<valeur> "
+"[SKIP=<valeur>] [FACTOR=<valeur> [BAND=<valeur>]]. | [STEP_DELTA=<valeur> "
+"STEP_HEIGHT=<valeur>]` : Un outil pour affiner un paramètre sur chaque "
+"hauteur Z pendant une impression. L'outil exécutera la `COMMANDE` donnée "
+"avec le `PARAMÈTRE` donné assigné à une valeur qui varie avec `Z` selon une "
+"formule. Utilisez `FACTOR` si vous allez utiliser une règle ou un pied à "
+"coulisse pour mesurer la hauteur Z de la valeur optimale, ou `STEP_DELTA` et "
+"`STEP_HEIGHT` si le modèle de tour de réglage a des bandes de valeurs "
+"discrètes comme c'est le cas avec les tours de température. Si "
+"`SKIP=<valeur>` est spécifié, le processus de réglage ne commence pas avant "
+"que la hauteur Z `<valeur>` soit atteinte, et en dessous, la valeur sera "
+"mise à `START` ; dans ce cas, la `z_height` utilisée dans les formules ci-"
+"dessous est en fait `max(z - skip, 0)`. Il y a trois combinaisons possibles "
+"d'options :"
 
 #: docs/G-Codes.md:block 120 (unordered list)
 msgid ""
@@ -1396,7 +1433,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 56 (header)
 msgid "UPDATE_DELAYED_GCODE"
-msgstr ""
+msgstr "UPDATE_DELAYED_GCODE"
 
 #: docs/G-Codes.md:block 58 (header)
 msgid "[delta_calibrate]"
@@ -1518,7 +1555,7 @@ msgstr "SET_EXTRUDER_STEP_DISTANCE"
 
 #: docs/G-Codes.md:block 90 (paragraph)
 msgid "This command is deprecated and will be removed in the near future."
-msgstr ""
+msgstr "Cette commande est obsolète et sera supprimée dans un avenir proche."
 
 #: docs/G-Codes.md:block 91 (header)
 msgid "SYNC_STEPPER_TO_EXTRUDER"
@@ -1563,6 +1600,14 @@ msgid ""
 " print to another. Appropriately configuring pressure advance reduces the "
 "length of retraction required."
 msgstr ""
+"Les commandes G-Code standard suivantes sont disponibles lorsque la section "
+"de configuration [firmware_retraction](Config_Reference."
+"md#firmware_retraction) est activée. Ces commandes vous permettent "
+"d'utiliser la fonction de rétraction du micrologiciel disponible dans de "
+"nombreux trancheurs, afin de réduire le cordage pendant les déplacements "
+"sans extrusion d'une partie de l'impression à une autre. Une configuration "
+"appropriée de l'avance à la pression réduit la longueur de rétraction "
+"requise."
 
 #: docs/G-Codes.md:block 100 (paragraph)
 msgid "The following additional commands are also available."
@@ -1632,7 +1677,7 @@ msgstr "[gcode]"
 
 #: docs/G-Codes.md:block 123 (paragraph)
 msgid "The gcode module is automatically loaded."
-msgstr ""
+msgstr "Le module gcode est automatiquement chargé."
 
 #: docs/G-Codes.md:block 124 (header)
 msgid "RESTART"
@@ -1678,7 +1723,7 @@ msgstr "[gcode_move]"
 
 #: docs/G-Codes.md:block 140 (paragraph)
 msgid "The gcode_move module is automatically loaded."
-msgstr ""
+msgstr "Le module gcode_move est automatiquement chargé."
 
 #: docs/G-Codes.md:block 141 (header)
 msgid "GET_POSITION"
@@ -1799,10 +1844,12 @@ msgid ""
 "The heaters module is automatically loaded if a heater is defined in the "
 "config file."
 msgstr ""
+"Le module chauffages est automatiquement chargé si un chauffage est défini "
+"dans le fichier de configuration."
 
 #: docs/G-Codes.md:block 167 (header)
 msgid "TURN_OFF_HEATERS"
-msgstr ""
+msgstr "TURN_OFF_HEATERS"
 
 #: docs/G-Codes.md:block 169 (header)
 msgid "TEMPERATURE_WAIT"
@@ -1818,7 +1865,7 @@ msgstr "[idle_timeout]"
 
 #: docs/G-Codes.md:block 174 (paragraph)
 msgid "The idle_timeout module is automatically loaded."
-msgstr ""
+msgstr "Le module idle_timeout est automatiquement chargé."
 
 #: docs/G-Codes.md:block 175 (header)
 msgid "SET_IDLE_TIMEOUT"
@@ -1849,7 +1896,7 @@ msgstr "[manual_probe]"
 
 #: docs/G-Codes.md:block 182 (paragraph)
 msgid "The manual_probe module is automatically loaded."
-msgstr ""
+msgstr "Le module manual_probe est automatiquement chargé."
 
 #: docs/G-Codes.md:block 183 (header)
 msgid "MANUAL_PROBE"
@@ -1857,11 +1904,11 @@ msgstr "MANUAL_PROBE"
 
 #: docs/G-Codes.md:block 186 (header)
 msgid "Z_ENDSTOP_CALIBRATE"
-msgstr ""
+msgstr "Z_ENDSTOP_CALIBRATE"
 
 #: docs/G-Codes.md:block 188 (header)
 msgid "Z_OFFSET_APPLY_ENDSTOP"
-msgstr ""
+msgstr "Z_OFFSET_APPLY_ENDSTOP"
 
 #: docs/G-Codes.md:block 190 (header)
 msgid "[manual_stepper]"
@@ -1951,6 +1998,8 @@ msgid ""
 "The pid_calibrate module is automatically loaded if a heater is defined in "
 "the config file."
 msgstr ""
+"Le module pid_calibrate est automatiquement chargé si un chauffage est "
+"défini dans le fichier de configuration."
 
 #: docs/G-Codes.md:block 219 (header)
 msgid "PID_CALIBRATE"
@@ -2010,7 +2059,7 @@ msgstr "PROBE_CALIBRATE"
 
 #: docs/G-Codes.md:block 241 (header)
 msgid "Z_OFFSET_APPLY_PROBE"
-msgstr ""
+msgstr "Z_OFFSET_APPLY_PROBE"
 
 #: docs/G-Codes.md:block 243 (header)
 msgid "[query_adc]"
@@ -2029,6 +2078,9 @@ msgid ""
 "The query_endstops module is automatically loaded. The following standard "
 "G-Code commands are currently available, but using them is not recommended:"
 msgstr ""
+"Le module query_endstops est automatiquement chargé. Les commandes G-Code "
+"standard suivantes sont actuellement disponibles, mais leur utilisation "
+"n'est pas recommandée :"
 
 #: docs/G-Codes.md:block 250 (header)
 msgid "QUERY_ENDSTOPS"
@@ -2069,6 +2121,8 @@ msgid ""
 "The following standard G-Code commands are available when the [respond "
 "config section](Config_Reference.md#respond) is enabled:"
 msgstr ""
+"Les commandes G-Code standard suivantes sont disponibles lorsque la section ["
+"respond config](Config_Reference.md#respond) est activée :"
 
 #: docs/G-Codes.md:block 264 (header)
 msgid "RESPOND"
@@ -2129,6 +2183,9 @@ msgid ""
 "When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is "
 "enabled, the following extended commands are available."
 msgstr ""
+"Lorsque la section de configuration [sdcard_loop](Config_Reference."
+"md#sdcard_loop) est activée, les commandes étendues suivantes sont "
+"disponibles."
 
 #: docs/G-Codes.md:block 276 (header)
 msgid "SDCARD_LOOP_BEGIN"
@@ -2222,7 +2279,7 @@ msgstr "[stepper_enable]"
 
 #: docs/G-Codes.md:block 297 (paragraph)
 msgid "The stepper_enable module is automatically loaded."
-msgstr ""
+msgstr "Le module stepper_enable est automatiquement chargé."
 
 #: docs/G-Codes.md:block 298 (header)
 msgid "SET_STEPPER_ENABLE"
@@ -2261,7 +2318,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 304 (header)
 msgid "[tmcXXXX]"
-msgstr ""
+msgstr "[tmcXXXX]"
 
 #: docs/G-Codes.md:block 305 (paragraph)
 msgid ""
@@ -2299,11 +2356,11 @@ msgstr "SET_TMC_FIELD"
 
 #: docs/G-Codes.md:block 314 (header)
 msgid "[toolhead]"
-msgstr ""
+msgstr "[toolhead]"
 
 #: docs/G-Codes.md:block 315 (paragraph)
 msgid "The toolhead module is automatically loaded."
-msgstr ""
+msgstr "Le module de tête d'outil est automatiquement chargé."
 
 #: docs/G-Codes.md:block 316 (header)
 msgid "SET_VELOCITY_LIMIT"
@@ -2311,15 +2368,15 @@ msgstr "SET_VELOCITY_LIMIT"
 
 #: docs/G-Codes.md:block 318 (header)
 msgid "[tuning_tower]"
-msgstr ""
+msgstr "[tuning_tower]"
 
 #: docs/G-Codes.md:block 319 (paragraph)
 msgid "The tuning_tower module is automatically loaded."
-msgstr ""
+msgstr "Le module tuning_tower est automatiquement chargé."
 
 #: docs/G-Codes.md:block 320 (header)
 msgid "TUNING_TOWER"
-msgstr ""
+msgstr "TUNING_TOWER"
 
 #: docs/G-Codes.md:block 322 (unordered list)
 msgid ""
@@ -2414,7 +2471,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 333 (header)
 msgid "Z_TILT_ADJUST"
-msgstr ""
+msgstr "Z_TILT_ADJUST"
 
 #: docs/G-Codes.md:block 7 (paragraph)
 msgid ""
@@ -2630,7 +2687,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 251 (paragraph)
 msgid "The query_adc module is automatically loaded."
-msgstr ""
+msgstr "Le module query_adc est automatiquement chargé."
 
 #: docs/G-Codes.md:block 303 (header)
 msgid "[smart_effector]"
@@ -2708,6 +2765,10 @@ msgid ""
 "the section names specified in the [printer configuration "
 "file](Config_Reference.md). Note that some modules are automatically loaded."
 msgstr ""
+"Cette section est organisée par nom de module Klipper, en suivant "
+"généralement les noms de section spécifiés dans le [fichier de configuration "
+"de l'imprimante](Config_Reference.md). Notez que certains modules sont "
+"automatiquement chargés."
 
 #: docs/G-Codes.md:block 87 (header)
 msgid "[exclude_object]"
@@ -2740,12 +2801,16 @@ msgid ""
 "When the `NAME` parameter is given, the named object will be excluded from "
 "printing."
 msgstr ""
+"Lorsque le paramètre `NAME` est donné, l'objet nommé sera exclu de "
+"l'impression."
 
 #: docs/G-Codes.md:block 92 (paragraph)
 msgid ""
 "When the `CURRENT` parameter is given, the current object will be excluded "
 "from printing."
 msgstr ""
+"Lorsque le paramètre `CURRENT` est donné, l'objet courant sera exclu de "
+"l'impression."
 
 #: docs/G-Codes.md:block 93 (paragraph)
 msgid ""
@@ -2753,6 +2818,10 @@ msgid ""
 "cleared. Additionally including `NAME` will only reset the named object. "
 "This **can** cause print failures, if layers were already skipped."
 msgstr ""
+"Lorsque le paramètre `RESET` est donné, la liste des objets exclus sera "
+"effacée. De plus, inclure le paramètre `NAME` ne réinitialisera que l'objet "
+"nommé. Cela **peut** provoquer des échecs d'impression, si des couches ont "
+"déjà été omises."
 
 #: docs/G-Codes.md:block 94 (header)
 msgid "`EXCLUDE_OBJECT_DEFINE`"
@@ -2772,12 +2841,17 @@ msgid ""
 "Klipper. Returns a list of strings, unless the `JSON` parameter is given, "
 "when it will return object details in json format."
 msgstr ""
+"Sans paramètres fournis, ceci va lister les objets définis connus de "
+"Klipper. Retourne une liste de chaînes de caractères, à moins que le "
+"paramètre `JSON` soit donné, auquel cas retournera les détails de l'objet au "
+"format json."
 
 #: docs/G-Codes.md:block 97 (paragraph)
 msgid ""
 "When the `NAME` parameter is included, this defines an object to be "
 "excluded."
 msgstr ""
+"Lorsque le paramètre `NAME` est inclus, cela définit un objet à exclure."
 
 #: docs/G-Codes.md:block 98 (unordered list)
 msgid ""
@@ -2803,6 +2877,8 @@ msgid ""
 "When the `RESET` parameter is provided, all defined objects will be cleared,"
 " and the `[exclude_object]` module will be reset."
 msgstr ""
+"Lorsque le paramètre `RESET` est fourni, tous les objets définis seront "
+"effacés, et le module `[exclude_object]` sera réinitialisé."
 
 #: docs/G-Codes.md:block 100 (header)
 msgid "`EXCLUDE_OBJECT_START`"
@@ -2906,6 +2982,9 @@ msgid ""
 " setting `enable_force_move` in the [printer "
 "config](Config_Reference.md#force_move)."
 msgstr ""
+"Le module force_move est automatiquement chargé, mais certaines commandes "
+"nécessitent de définir `enable_force_move` dans la [configuration de "
+"l'imprimante](Config_Reference.md#force_move)."
 
 #: docs/G-Codes.md:block 281 (paragraph)
 msgid ""
@@ -3051,7 +3130,7 @@ msgstr "[print_stats]"
 
 #: docs/G-Codes.md:block 262 (paragraph)
 msgid "The print_stats module is automatically loaded."
-msgstr ""
+msgstr "Le module print_stats est automatiquement chargé."
 
 #: docs/G-Codes.md:block 263 (header)
 msgid "SET_PRINT_STATS_INFO"
