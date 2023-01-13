@@ -1,18 +1,18 @@
 # RPi microcontroller
 
-This document describes the process of running Klipper on a RPi and use the same RPi as secondary mcu.
+Este documento describe el proceso de ejecutar Klipper en una RPi y utilizar la misma RPi como MCU secundaria.
 
-## Why use RPi as a secondary MCU?
+## ¿Por qué utilizar RPi como MCU secundaria?
 
-Often the MCUs dedicated to controlling 3D printers have a limited and pre-configured number of exposed pins to manage the main printing functions (thermal resistors, extruders, steppers ...). Using the RPi where Klipper is installed as a secondary MCU gives the possibility to directly use the GPIOs and the buses (i2c, spi) of the RPi inside klipper without using Octoprint plugins (if used) or external programs giving the ability to control everything within the print GCODE.
+A menudo las MCUs dedicadas a controlar impresoras 3D tienen un número limitado y pre-configurado de pines expuestos para gestionar las principales funciones de impresión (resistencias térmicas, extrusores, steppers ...). Usando la RPi donde Klipper está instalado como MCU secundario da la posibilidad de usar directamente los GPIOs y los buses ( I2C, SPI) de la RPi dentro de Klipper sin usar plugins de Octoprint (si se usan) o programas externos dando la posibilidad de controlar todo dentro del GCODE de impresión.
 
-**Warning**: If your platform is a *Beaglebone* and you have correctly followed the installation steps, the linux mcu is already installed and configured for your system.
+**Atención**: Si tu plataforma es un *Beaglebone* y has seguido correctamente los pasos de instalación, la MCU con Linux ya está instalada y configurada para tu sistema.
 
 ## Install the rc script
 
-If you want to use the host as a secondary MCU the klipper_mcu process must run before the klippy process.
+Si quieres usar el host como MCU secundaria el proceso klipper_mcu debe ejecutarse antes que el proceso klippy.
 
-After installing Klipper, install the script. run:
+Después de instalar Klipper, instale el script. Ejecútalo:
 
 ```
 cd ~/klipper/
@@ -20,18 +20,18 @@ sudo cp "./scripts/klipper-mcu-start.sh" /etc/init.d/klipper_mcu
 sudo update-rc.d klipper_mcu defaults
 ```
 
-## Building the micro-controller code
+## Compilar el código del microcontrolador
 
-To compile the Klipper micro-controller code, start by configuring it for the "Linux process":
+Para compilar el código del microcontrolador Klipper, empieza por configurarlo para el "proceso Linux":
 
 ```
 cd ~/klipper/
 make menuconfig
 ```
 
-In the menu, set "Microcontroller Architecture" to "Linux process," then save and exit.
+En el menú, ajuste "Arquitectura del microcontrolador" a "Proceso Linux", luego guarde y salga.
 
-To build and install the new micro-controller code, run:
+Para compilar e instalar el nuevo código del microcontrolador, ejecute:
 
 ```
 sudo service klipper stop
@@ -39,15 +39,15 @@ make flash
 sudo service klipper start
 ```
 
-If klippy.log reports a "Permission denied" error when attempting to connect to `/tmp/klipper_host_mcu` then you need to add your user to the tty group. The following command will add the "pi" user to the tty group:
+Si klippy.log reporta un error de "Permiso denegado" cuando intenta conectarse a `/tmp/klipper_host_mcu` entonces necesita agregar su usuario al grupo tty. El siguiente comando agregará el usuario "pi" al grupo tty:
 
 ```
 sudo usermod -a -G tty pi
 ```
 
-## Remaining configuration
+## Configuración restante
 
-Complete the installation by configuring Klipper secondary MCU following the instructions in [RaspberryPi sample config](../config/sample-raspberry-pi.cfg) and [Multi MCU sample config](../config/sample-multi-mcu.cfg).
+Complete la instalación configurando la MCU secundaria Klipper siguiendo las instrucciones de [RaspberryPi sample config](../config/sample-raspberry-pi.cfg) y [Multi MCU sample config](../config/sample-multi-mcu.cfg).
 
 ## Optional: Enabling SPI
 
@@ -57,23 +57,23 @@ Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and ena
 
 Make sure the Linux I2C driver is enabled by running `sudo raspi-config` and enabling I2C under the "Interfacing options" menu. If planning to use I2C for the MPU accelerometer, it is also required to set the baud rate to 400000 by: adding/uncommenting `dtparam=i2c_arm=on,i2c_arm_baudrate=400000` in `/boot/config.txt` (or `/boot/firmware/config.txt` in some distros).
 
-## Optional: Identify the correct gpiochip
+## Opcional: Identificar el gpiochip correcto
 
 On Raspberry Pi and on many clones the pins exposed on the GPIO belong to the first gpiochip. They can therefore be used on klipper simply by referring them with the name `gpio0..n`. However, there are cases in which the exposed pins belong to gpiochips other than the first. For example in the case of some OrangePi models or if a Port Expander is used. In these cases it is useful to use the commands to access the *Linux GPIO character device* to verify the configuration.
 
-To install the *Linux GPIO character device - binary* on a debian based distro like octopi run:
+Para instalar el *Linux GPIO character device - binary* en una distro basada en debian como octopi ejecute:
 
 ```
 sudo apt-get install gpiod
 ```
 
-To check available gpiochip run:
+Para comprobar gpiochip disponibles ejecutar:
 
 ```
 gpiodetect
 ```
 
-To check the pin number and the pin availability tun:
+Para comprobar el número de pin y la disponibilidad de pin ejecute:
 
 ```
 gpioinfo
@@ -81,9 +81,9 @@ gpioinfo
 
 The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the`gpioinfo` command.
 
-***Warning:*** only gpio marked as `unused` can be used. It is not possible for a *line* to be used by multiple processes simultaneously.
+***Atención:*** sólo se pueden utilizar las gpio marcadas como `unused`. No es posible que una *pista* sea utilizada por múltiples procesos simultáneamente.
 
-For example on a RPi 3B+ where klipper use the GPIO20 for a switch:
+Por ejemplo en una RPi 3B+ donde Klipper usa el GPIO20 para un interruptor:
 
 ```
 $ gpiodetect

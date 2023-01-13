@@ -67,30 +67,29 @@ La section imprimante contrôle les paramètres de haut niveau de l'imprimante.
 ```
 [printer]
 kinematics:
-#    Le type d'imprimante utilisé. Cette option peut être l'une des suivantes : cartésienne,
-#    corexy, corexz, hybrid_corexy, hybrid_corexz, rotary_delta, delta,
-#    deltesian, polar, winch, ou none. Ce paramètre doit être spécifié.
+#    Le type d'imprimante utilisée. Cette option peut être l'une des suivantes : cartésienne,
+#    corexy, corexz, hybrid_corexy, hybrid_corexz, rotary_delta, delta, deltesian, polar, winch,
+#    ou none. Ce paramètre doit être spécifié.
 max_velocity:
 #    Vitesse maximale (en mm/s) de la tête d'outil (par rapport à l'impression).
-#   Ce paramètre doit être spécifié.
+#    Ce paramètre doit être spécifié.
 max_accel:
 #    Accélération maximale (en mm/s^2) de la tête de l'outil (par rapport à l'impression).
 #    Ce paramètre doit être spécifié.
 #max_accel_to_decel:
-#    Une pseudo-accélération (en mm/s^2) contrôlant la vitesse à laquelle la tête
-#    de l'outil peut passer de l'accélération à la décélération. Elle est utilisée pour
-#    réduire la vitesse maximale des courts mouvements en zigzag (et donc réduire les vibrations
-#    de l'imprimante dues à ces mouvements). La valeur par défaut est la moitié de
-#    max_accel.
+#    Une pseudo-accélération (en mm/s^2) contrôlant la vitesse à laquelle la tête de l'outil peut
+#    passer de l'accélération à la décélération. Elle est utilisée pour réduire la vitesse maximale
+#    des courts mouvements en zigzag (et donc réduire les vibrations de l'imprimante dues à ces
+#    mouvements). La valeur par défaut est la moitié de max_accel.
 #square_corner_velocity: 5.0
 #    La vitesse maximale (en mm/s) à laquelle la tête d'outil peut parcourir un angle de 90 degrés.
-#    Une valeur non nulle peut réduire les changements dans les débits de l'extrudeuse en permettant
-#    des changements de vitesse instantanés de la tête d'outil pendant les virages.
-#    Cette valeur configure l'algorithme interne de prise de virage à vitesse centripète ; les virages dont
-#    l'angle est supérieur à 90 degrés auront une vitesse de prise de virage plus élevée tandis que
-#    les angles inférieurs à 90 degrés auront une vitesse de virage plus faible.
+#    Une valeur non nulle peut réduire les changements dans les débits de l'extrudeuse en
+#    permettant des changements de vitesse instantanés de la tête d'outil pendant les virages.
+#    Cette valeur configure l'algorithme interne de prise de virage à vitesse centripète ; les virages
+#    dont l'angle est supérieur à 90 degrés auront une vitesse de prise de virage plus élevée tandis
+#    que ceux d'angles inférieurs à 90 degrés auront une vitesse de virage plus faible.
 #    Si ce paramètre est défini sur zéro, la tête d'outil décélérera jusqu'à zéro à chaque coin.
-#   La valeur par défaut est 5mm/s.
+#    La valeur par défaut est 5mm/s.
 ```
 
 ### [stepper]
@@ -203,7 +202,7 @@ max_z_accel:
 
 ### Cinématique Delta linéaire
 
-Voir [example-delta.cfg](../config/example-delta.cfg) pour un exemple de fichier de configuration de cinématique delta linéaire. Voir le [guide de calibrage delta](Delta_Calibrate.md) pour des informations sur le calibrage.
+Voir [example-delta.cfg](../config/example-delta.cfg) pour un exemple de fichier de configuration de cinématique delta linéaire. Voir le [guide de calibration delta](Delta_Calibrate.md) pour des informations sur la calibration.
 
 Seuls les paramètres spécifiques aux imprimantes delta linéaires sont décrits ici - voir [paramètres cinématiques communs](#common-kinematic-settings) pour les paramètres disponibles.
 
@@ -288,10 +287,10 @@ Seuls les paramètres spécifiques aux imprimantes deltesiennes sont décrits ic
 kinematics: deltesian
 max_z_velocity:
 #    Pour les imprimantes deltesiennes, ceci limite la vitesse maximale (en mm/s) des
-#    déplacements avec un mouvement sur l'axe z. Ce paramètre peut être utilisé pour réduire la
-#    vitesse maximale des déplacements vers le haut/bas (qui nécessitent un taux de pas plus élevé
-#    que les autres mouvements sur une imprimante deltesienne). La valeur par défaut est d'utiliser
-#    max_velocity pour max_z_velocity.
+#    déplacements avec un mouvement sur l'axe z. Ce paramètre peut être utilisé pour
+#    réduire la vitesse maximale des déplacements vers le haut/bas (qui nécessitent un
+#    taux de pas plus élevé que les autres mouvements sur une imprimante deltesienne).
+#    La valeur par défaut est d'utiliser max_velocity pour max_z_velocity.
 #max_z_accel:
 #    Ceci définit l'accélération maximale (en mm/s^2) du mouvement le long de l'axe z.
 #    Ce paramètre peut être utile si l'imprimante peut atteindre une plus grande
@@ -302,41 +301,41 @@ max_z_velocity:
 #    Position Z minimale à laquelle l'utilisateur peut ordonner à la tête de se déplacer.
 #    La valeur par défaut est 0.
 #min_angle: 5
-#    Ceci représente l'angle minimum (en degrés) par rapport à l'horizontale
-#    que les bras deltesiens sont autorisés à atteindre. Ce paramètre est
-#    destiné à empêcher les bras de devenir complètement horizontaux,
-#    ce qui risquerait de provoquer une inversion accidentelle de l'axe XZ.
+#    Ceci représente l'angle minimum (en degrés) par rapport à l'horizontale que les bras
+#    deltesiens sont autorisés à atteindre. Ce paramètre est destiné à empêcher les bras de
+#    devenir complètement horizontaux, ce qui risquerait de provoquer une inversion
+#    accidentelle de l'axe XZ.
 #    La valeur par défaut est 5.
 #print_width:
-#    La distance (en mm) des coordonnées X valides de la tête de l'outil. On peut utiliser
-#    ce paramètre pour personnaliser la vérification de la plage des mouvements de la tête de
-#    l'outil. Si une grande valeur est spécifiée ici, il peut être possible de faire entrer
-#    la tête de l'outil en collision avec une colonne. Ce paramètre correspond généralement
-#    à la largeur du banc (en mm).
+#    La distance (en mm) des coordonnées X valides de la tête de l'outil. On peut utiliser ce
+#    paramètre pour personnaliser la vérification de la plage des mouvements de la tête de
+#    l'outil. Si une grande valeur est spécifiée ici, il peut être possible de faire entrer la tête
+#    de l'outil en collision avec une colonne. Ce paramètre correspond généralement à la
+#    largeur du banc (en mm).
 #slow_ratio: 3
-#    Rapport utilisé pour limiter la vitesse et l'accélération des mouvements proches des extrêmes
-#    extrêmes de l'axe X. Si la distance verticale divisée par la distance horizontale
-#    dépasse la valeur de slow_ratio, la vitesse et l'accélération sont limitées à la moitié de leur
-#    valeur nominale. Si la distance verticale divisée par la distance horizontale dépasse deux fois
-#    la valeur de slow_ratio, alors la vitesse et l'accélération sont limitées à un quart de leurs
-#    valeurs nominales. La valeur par défaut est 3.
+#    Rapport utilisé pour limiter la vitesse et l'accélération des mouvements proches des
+#    extrêmes de l'axe X. Si la distance verticale divisée par la distance horizontale dépasse
+#    la valeur de slow_ratio, la vitesse et l'accélération sont limitées à la moitié de leur valeur
+#    nominale. Si la distance verticale divisée par la distance horizontale dépasse de deux fois
+#    la valeur de slow_ratio, alors la vitesse et l'accélération sont limitées à un quart de leur
+#    valeur nominale. La valeur par défaut est 3.
 
-#    La section stepper_left est utilisée pour décrire le moteur pas à pas contrôlant la colonne gauche.
-#    Cette section contrôle également les paramètres d'orientation (homing_speed, homing_retract_dist)
-#    pour toutes les colonnes.
+#    La section stepper_left est utilisée pour décrire le moteur pas à pas contrôlant la colonne
+#    gauche. Cette section contrôle également les paramètres d'orientation (homing_speed,
+#    homing_retract_dist) pour toutes les colonnes.
 [stepper_left]
 position_endstop:
-#    Distance (en mm) entre la buse et le lit lorsque la buse se trouve au centre de la zone de construction. 
-#    Ce paramètre doit être fourni pour stepper_left ; pour le paramètre stepper_right ce paramètre prend
-#    par défaut la valeur spécifiée pour stepper_left.
+#    Distance (en mm) entre la buse et le lit lorsque la buse se trouve au centre de la zone de
+#    construction. Ce paramètre doit être fourni pour stepper_left ; pour le paramètre stepper_right
+#    ce paramètre prend par défaut la valeur spécifiée pour stepper_left.
 arm_length:
-#    Longueur (en mm) de la tige diagonale qui relie le chariot de la colonne à la tête d'impression. Ce
-#    paramètre doit être fourni pour stepper_left. Pour  le paramètre stepper_right, ce paramètre prend par
-#    défaut la valeur spécifiée pour stepper_left.
+#    Longueur (en mm) de la tige diagonale reliant le chariot de la colonne à la tête d'impression.
+#    Ce paramètre doit être fourni pour stepper_left. Pour le paramètre stepper_right, ce paramètre
+#    prend par défaut la valeur spécifiée pour stepper_left.
 arm_x_length:
-#    Distance horizontale entre la tête d'impression et la colonne lorsque l'imprimante est mise à l'origine.
-#    Ce paramètre doit être fourni pour stepper_left ; pour stepper_right, ce paramètre prend par défaut
-#    la valeur spécifiée pour stepper_left.
+#    Distance horizontale entre la tête d'impression et la colonne lorsque l'imprimante est mise à
+#    l'origine. Ce paramètre doit être fourni pour stepper_left ; pour stepper_right, ce paramètre
+#    prend par défaut la valeur spécifiée pour stepper_left.
 
 #    La section stepper_right est utilisée pour décrire le moteur pas à pas contrôlant la colonne de droite.
 [stepper_right]
@@ -479,21 +478,21 @@ LA CINÉMATIQUE POLAIRE EST UN TRAVAIL EN COURS. Les déplacements autour de la 
 kinematics: polar
 max_z_velocity:
 #    Ceci définit la vitesse maximale (en mm/s) du mouvement le long de l'axe z
-#    Ce paramètre peut être utilisé pour limiter la vitesse maximale du moteur pas à pas z.
+#    Ce paramètre peut être utilisé pour limiter la vitesse maximale du moteur z.
 #    La valeur par défaut est d'utiliser max_velocity pour max_z_velocity.
 max_z_accel:
 #    Ce paramètre définit l'accélération maximale (en mm/s^2) du mouvement sur l'axe z.
-#    Cela limite l'accélération du moteur pas à pas z. La valeur
-#    par défaut est d'utiliser max_accel pour max_z_accel.
+#    Cela limite l'accélération du moteur pas à pas z. La valeur par défaut est d'utiliser
+#    max_accel pour max_z_accel.
 
 #    La section stepper_bed est utilisée pour décrire le moteur pas à pas contrôlant
 #    le lit.
 [stepper_bed]
 gear_ratio:
-#    Un rapport de vitesse doit être spécifié et la distance de rotation ne peut pas être spécifiée.
-#    Par exemple, si le lit est équipé d'une poulie à 80 dents entraînée par un stepper à 16 dents,
-#    il faut spécifier le rapport d'engrenage de "80:16".
-#    Ce paramètre doit être fourni.
+#    Un rapport de vitesse doit être spécifié et la distance de rotation ne peut pas être
+#    spécifiée. Par exemple, si le lit est équipé d'une poulie à 80 dents entraînée par un
+#    moteur dont l'axe est muni d'une poulie à 16 dents, il faut spécifier le rapport
+#    d'engrenage de "80:16". Ce paramètre doit être fourni.
 
 #    La section stepper_arm est utilisée pour décrire le moteur pas à pas contrôlant
 #    le chariot sur le bras.
@@ -515,22 +514,22 @@ LA CINÉMATIQUE ROTATIVE DELTA EST UN TRAVAIL EN COURS. Les mouvements d'orienta
 [printer]
 kinematics: rotary_delta
 max_z_velocity:
-#    Pour les imprimantes delta, ceci limite la vitesse maximale (en mm/s) des déplacements avec un
-#    mouvement sur l'axe z. Ce paramètre peut être utilisé pour réduire la vitesse maximale des
-#    mouvements de montée/descente (qui nécessitent un taux de pas plus élevé que les autres mouvements
+#    Pour les imprimantes delta, ceci limite la vitesse maximale (en mm/s) des déplacements avec
+#    mouvement de l'axe z. Ce paramètre peut être utilisé pour réduire la vitesse maximale des
+#    mouvements de montée/descente (nécessitant un taux de pas plus élevé que les autres mouvements
 #    sur une imprimante delta). La valeur par défaut est d'utiliser max_velocity pour max_z_velocity.
 #minimum_z_position: 0
 #    La position Z minimale à laquelle l'utilisateur peut ordonner à la tête de se déplacer.
-# l  La valeur par défaut est 0.
+#    La valeur par défaut est 0.
 shoulder_radius:
-#    Rayon (en mm) du cercle horizontal formé par les trois articulations de l'effecteur., moins le rayon du
-#    cercle formé par l'articulation de l'effecteur..
+#    Rayon (en mm) du cercle horizontal formé par les trois articulations de l'effecteur, moins le rayon
+#    du cercle formé par l'articulation de l'effecteur.
 #    Ce paramètre peut également être calculé comme suit
-#    shoulder_radius = (delta_f - delta_e) / sqrt(12)
+#       shoulder_radius = (delta_f - delta_e) / sqrt(12)
 #    Ce paramètre doit être fourni.
 shoulder_height:
-#    Distance (en mm) des joints de l'effecteur.par rapport au lit, moins la hauteur de la tête de l'outil sur
-#    l'effecteur. Ce paramètre doit être fourni.
+#    Distance (en mm) des joints de l'effecteur par rapport au lit, moins la hauteur de la tête de l'outil
+#    sur l'effecteur. Ce paramètre doit être fourni.
 
 #    La section stepper_a décrit le moteur pas à pas contrôlant le bras arrière droit (à 30 degrés).
 #    Cette section contrôle également les paramètres de la mise à l'origine (homing_speed,
@@ -538,14 +537,14 @@ shoulder_height:
 [stepper_a]
 gear_ratio:
 #    Un rapport de vitesse doit être spécifié et la rotation_distance ne peut pas être spécifiée.
-#   Par exemple, si le bras a une poulie de 80 dents entraînée par une poulie de 16 dents, qui est à son
-#   tour reliée à une poulie de 60 dents entraînée par un moteur pas à pas dont l'arbre est muni d'une poulie
-#   à 16 dents, alors on spécifierait un rapport de vitesse de "80:16, 60:16". Ce paramètre
-#   doit être fourni.
+#    Par exemple, si le bras a une poulie de 80 dents entraînée par une poulie de 16 dents, à son
+#    tour reliée à une poulie de 60 dents entraînée par un moteur dont l'arbre est muni d'une poulie
+#    à 16 dents, alors on spécifierait un rapport de vitesse de "80:16, 60:16".
+#    Ce paramètre doit être fourni.
 position_endstop:
 #    Distance (en mm) entre la buse et le lit lorsque la buse se trouve au centre de la zone de construction
 #    et que la butée se déclenche. Ce paramètre doit être fourni pour le stepper_a ; pour le stepper_b et
-#    le stepper_c,  ce paramètre prend par défaut la valeur spécifiée pour stepper_a.
+#    le stepper_c, ce paramètre prend par défaut la valeur spécifiée pour stepper_a.
 upper_arm_length:
 #    Longueur (en mm) du bras reliant l'"articulation de l'effecteur" à l'"articulation du coude".
 #    Ce paramètre doit être fourni pour stepper_a ; pour stepper_b et stepper_c, ce paramètre prend par
@@ -561,22 +560,22 @@ lower_arm_length:
 #    La section stepper_b décrit le moteur pas à pas contrôlant le bras arrière gauche (à 150 degrés).
 [stepper_b]
 
-#   La section stepper_c décrit le moteur pas à pas qui contrôle le bras avant (à 270 degrés).
+#    La section stepper_c décrit le moteur pas à pas contrôlant le bras avant (à 270 degrés).
 [stepper_c]
 
 #    La section delta_calibrate active une commande G-code étendue DELTA_CALIBRATE permettant
-#   de  calibrer les positions de la butée de l'effecteur.
+#    de calibrer les positions de la butée de l'effecteur.
 [delta_calibrate]
 radius:
 #    Rayon (en mm) de la zone pouvant être palpée. Il s'agit du rayon des coordonnées de palpage
-#   de la buse; si vous utilisez un palpeur automatique avec un décalage XY, choisissez un rayon
+#    de la buse; si vous utilisez un palpeur automatique avec un décalage XY, choisissez un rayon
 #    suffisamment petit pour que la sonde s'adapte toujours au lit. Ce paramètre doit être fourni.
 #speed: 50
 #    La vitesse (en mm/s) des mouvements sans palpage pendant l'étalonnage.
 #    La valeur par défaut est 50.
 #horizontal_move_z: 5
-#    La hauteur (en mm) à laquelle la tête doit être remontée pour se déplacer
-#    juste avant de lancer une opération de palpage. La valeur par défaut est 5.
+#    La hauteur (en mm) à laquelle la tête doit être remontée pour se déplacer juste avant de lancer
+#    une opération de palpage. La valeur par défaut est 5.
 ```
 
 ### Cinématique du treuil à câble
@@ -592,13 +591,13 @@ LE SUPPORT DU TREUIL À CÂBLE EST EXPÉRIMENTAL. La mise à l'origine n'est pas
 kinematics: winch
 
 #    La section stepper_a décrit le moteur pas à pas connecté au premier treuil à câble.
-#    Un minimum de 3 et un maximum de 26 treuils à câble peuvent être définis (stepper_a à stepper_z)
-#   bien qu'il soit courant d'en définir 4.
+#    Un minimum de 3 et un maximum de 26 treuils à câble peuvent être définis
+#    (stepper_a à stepper_z) bien qu'il soit courant d'en définir 4.
 [stepper_a]
 rotation_distance:
 #    La rotation_distance est la distance nominale (en mm) à laquelle la tête de l'outil
-#    se déplace vers le treuil de câble pour chaque rotation complète du moteur
-#    pas à pas. Ce paramètre doit être fourni.
+#    se déplace vers le treuil de câble pour chaque rotation complète du moteur pas
+#    à pas. Ce paramètre doit être fourni.
 anchor_x:
 anchor_y:
 anchor_z:
@@ -877,7 +876,7 @@ Exemples visuels :
 
 Compensation de l'inclinaison du lit. On peut définir une section de configuration bed_tilt pour activer les transformations de déplacement tenant compte d'un lit incliné. Notez que bed_mesh et bed_tilt sont incompatibles ; les deux ne peuvent pas être définis en même temps.
 
-Voir la [référence de la commande](G-Codes.md#bed_tilt) pour plus d'informations.
+Voir la [référence des commandes](G-Codes.md#bed_tilt) pour plus d'informations.
 
 ```
 [bed_tilt]
@@ -910,7 +909,7 @@ Voir la [référence de la commande](G-Codes.md#bed_tilt) pour plus d'informatio
 
 Outil d'aide au réglage des vis de mise à niveau du lit. On peut définir une section de configuration [bed_screws] pour activer une commande g-code BED_SCREWS_ADJUST.
 
-Consultez le [guide de nivelage](Manual_Level.md#adjusting-bed-leveling-screws) et la [référence de commande](G-Codes.md#bed_screws) pour plus d'informations.
+Consultez le [guide de nivelage](Manual_Level.md#adjusting-bed-leveling-screws) et la [référence des commandes](G-Codes.md#bed_screws) pour plus d'informations.
 
 ```
 [bed_screws]
@@ -950,20 +949,19 @@ Consultez le [guide de nivelage](Manual_Level.md#adjusting-bed-leveling-screws) 
 
 Outil d'aide au réglage de l'inclinaison des vis du lit à l'aide du palpeur Z. On peut définir une section de configuration screws_tilt_adjust pour activer une commande g-code SCREWS_TILT_CALCULATE.
 
-Voir le [guide de nivelage](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) et la [référence de commande](G-Codes.md#screws_tilt_adjust) pour des informations supplémentaires.
+Voir le [guide de nivelage](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) et la [référence des commandes](G-Codes.md#screws_tilt_adjust) pour des informations supplémentaires.
 
 ```
 [screws_tilt_adjust]
 #screw1:
 #    Les coordonnées (X, Y) de la première vis de mise à niveau du lit. Il s'agit d'une
 #    position à laquelle déplacer la buse de manière à ce que la sonde soit directement
-#    au-dessus de la vis de mise à niveau du lit (ou aussi près que possible tout en étant encore
-#    au-dessus du lit). Il s'agit de la vis de base utilisée dans les calculs. Ce paramètre
-#    doit être fourni.
+#    au-dessus de la vis de mise à niveau du lit (ou aussi près que possible tout en étant
+#    encore au-dessus du lit). Il s'agit de la vis de base utilisée dans les calculs.
+#    Ce paramètre doit être fourni.
 #screw1_name:
-#    Un nom arbitraire pour la vis donnée. Ce nom est affiché lorsque
-#    le script d'aide s'exécute. Par défaut, le nom utilisé est basé sur
-#    la position XY de la vis.
+#    Un nom arbitraire pour la vis donnée. Ce nom est affiché lorsque le script d'aide
+#    s'exécute. Par défaut, le nom utilisé est basé sur la position XY de la vis.
 #screw2:
 #screw2_name:
 #...
@@ -973,15 +971,15 @@ Voir le [guide de nivelage](Manual_Level.md#adjusting-bed-leveling-screws-using-
 #    La vitesse (en mm/s) des déplacements sans palpage pendant l'étalonnage.
 #    La valeur par défaut est 50.
 #horizontal_move_z: 5
-#    La hauteur (en mm) à laquelle la tête doit être relevée pour se déplacer
-#    juste avant de lancer une opération de palpage. La valeur par défaut est 5.
+#    La hauteur (en mm) à laquelle la tête doit être levée pour se déplacer juste
+#    avant de lancer une opération de palpage. La valeur par défaut est 5.
 #screw_thread: CW-M3
-#    Le type de vis utilisé pour le niveau du lit, M3, M4 ou M5 et la direction de la molette utilisée pour
-#    le niveau du lit, diminution dans le sens des aiguilles d'une montre, augmentation dans le sens
-#    inverse des aiguilles d'une montre.
+#    Le type de vis utilisée pour le niveau du lit, M3, M4 ou M5 et la direction de la molette
+#    utilisée pour le nivelage du lit, diminution dans le sens des aiguilles d'une montre,
+#    augmentation dans le sens inverse des aiguilles d'une montre.
 #    Valeurs acceptées : CW-M3, CCW-M3, CW-M4, CCW-M4, CW-M5, CCW-M5.
-#    La valeur par défaut est CW-M3, de nombreuses imprimantes utilisent une vis M3.
-#    En tournant la molette dans le sens des aiguilles d'une montre, la distance diminue.
+#    La valeur par défaut est CW-M3. De nombreuses imprimantes utilisent une vis M3,
+#    un tour de molette dans le sens des aiguilles d'une montre diminue la distance.
 ```
 
 ### [z_tilt]
@@ -1040,34 +1038,34 @@ Où x est la position 0, 0 sur le lit
 ```
 [quad_gantry_level]
 #gantry_corners:
-#    Une liste de coordonnées X, Y, séparées par des nouvelles lignes, décrivant les deux
+#    Une liste de coordonnées X, Y, séparées par des retours à la ligne, décrivant les deux
 #    coins opposés du portique. La première entrée correspond à Z, la seconde à Z2.
-#   Ce paramètre doit être fourni.
+#    Ce paramètre doit être fourni.
 #points:
-#    Une liste, séparée par des retours à la ligne, de quatre points X, Y qui doivent être palpés
+#    Une liste, séparée par des retours à la ligne, de quatre points X, Y devant être palpés
 #    pendant une commande QUAD_GANTRY_LEVEL. L'ordre des emplacements est
-#    important, et doit correspondre aux emplacements Z, Z1, Z2 et Z3 dans l'ordre.
-#   Ce paramètre doit être fourni. Pour une précision maximale, assurez-vous que les décalages
-#   de votre sonde sont configurés.
+#    important, il doit correspondre aux emplacements Z, Z1, Z2 et Z3 dans l'ordre.
+#    Ce paramètre doit être fourni. Pour une précision maximale, assurez-vous que les
+#    décalages de votre sonde sont configurés.
 #speed: 50
 #    La vitesse (en mm/s) des mouvements sans palpage pendant l'étalonnage.
 #    La valeur par défaut est 50.
 #horizontal_move_z: 5
-#    La hauteur (en mm) à laquelle la tête doit être relevée pour se déplacer
-#    juste avant de lancer une opération de palpage. La valeur par défaut est 5.
+#    La hauteur (en mm) à laquelle la tête doit être relevée pour se déplacer juste
+#    avant de lancer une opération de palpage. La valeur par défaut est 5.
 #max_adjust: 4
-#    Limite de sécurité si un ajustement supérieur à cette valeur est demandé.
+#    Limite de sécurité quand un ajustement supérieur à cette valeur est demandé.
 #    quad_gantry_level abandonnera.
 #retries: 0
 #    Nombre de tentatives si les points palpés ne sont pas dans la tolérance.
 #retry_tolerance: 0
-#    Si les re-tentatives (retries) sont activés, réessayer si les points palpés les plus grands et les plus
-#    petits diffèrent plus que la tolérance de re-tentative (retry_tolerance).
+#    Si les re-tentatives (retries) sont activées, réessayer si les points palpés les plus grands
+#    et les plus petits diffèrent plus que la tolérance de re-tentative (retry_tolerance).
 ```
 
 ### [skew_correction]
 
-Correction de l'inclinaison de l'imprimante. Il est possible d'utiliser un logiciel pour corriger l'inclinaison de l'imprimante sur 3 plans, xy, xz, yz. Pour ce faire, on imprime un modèle d'étalonnage le long d'un plan et on mesure trois longueurs. En raison de la nature de la correction d'obliquité, ces longueurs sont définies via le gcode. Voir [Skew Correction](Skew_Correction.md) et [Command Reference](G-Codes.md#skew_correction) pour plus de détails.
+Correction de l'inclinaison de l'imprimante. Il est possible de corriger l'inclinaison de l'imprimante logiciellement sur 3 plans, xy, xz, yz. Pour ce faire, on imprime un modèle d'étalonnage le long d'un plan et on mesure trois longueurs. En raison de la nature de la correction d'inclinaison, ces longueurs sont définies via le gcode. Voir [Correction d'inclinaison](Skew_Correction.md) et [Référence des commandes](G-Codes.md#skew_correction) pour plus de détails.
 
 ```
 [skew_correction]
@@ -1118,23 +1116,23 @@ Mise à l'origine sûre de l'axe Z. On peut utiliser ce mécanisme pour centrer 
 [safe_z_home]
 home_xy_position:
 #    Une coordonnée X, Y (par exemple 100, 100) où la mise à l'origine Z doit être
-#    être effectuée. Ce paramètre doit être fourni.
+#    effectuée. Ce paramètre doit être fourni.
 #speed: 50.0
 #    Vitesse à laquelle la tête de l'outil est déplacée vers la position de référence Z sûre.
-#   La valeur par défaut est 50 mm/s
+#    La valeur par défaut est 50 mm/s
 #z_hop:
 #    Distance (en mm) pour lever l'axe Z avant le retour au point d'origine. Cette valeur est
 #    appliquée à toute commande d'initialisation, même si elle n'initialise pas l'axe Z.
 #    Si l'axe Z est déjà ramené à la position de base et que la position Z actuelle est inférieure
-#    à z_hop, alors ceci élèvera la tête à une hauteur de z_hop. Si l'axe Z n'est pas déjà centré,
+#    à z_hop, alors ceci lèvera la tête à une hauteur de z_hop. Si l'axe Z n'est pas déjà centré,
 #    la tête est relevée de z_hop.
 #    La valeur par défaut est de ne pas implémenter le relevage en Z.
 #z_hop_speed: 15.0
-#    Vitesse (en mm/s) à laquelle l'axe Z est relevé avant le retour à la position initiale. La
-#   valeur par défaut est de 15 mm/s.
+#    Vitesse (en mm/s) à laquelle l'axe Z est relevé avant le retour à la position initiale.
+#    La valeur par défaut est de 15 mm/s.
 #move_to_previous: False
 #    Lorsqu'il a la valeur True, les axes X et Y sont réinitialisés à leurs positions précédentes après
-#    le retour à la position initiale de l'axe Z. La valeur par défaut est False.
+#    retour à la position initiale de l'axe Z. La valeur par défaut est False.
 ```
 
 ### [homing_override]
@@ -1253,8 +1251,8 @@ Prise en charge de l'enregistrement des variables sur le disque afin qu'elles so
 ```
 [save_variables]
 filename:
-#    Obligatoire - fournir un nom de fichier qui sera utilisé pour enregistrer les
-#    variables sur le disque, par exemple ~/variables.cfg.
+#    Obligatoire - fournir un nom de fichier utilisé pour enregistrer les variables
+#    sur le disque, par exemple ~/variables.cfg.
 ```
 
 ### [idle_timeout]
@@ -1294,7 +1292,7 @@ path:
 
 Certaines imprimantes dotées de fonctions d'éjections des pièces imprimées, comme un éjecteur de pièces ou une imprimante à courroie, peuvent trouver une utilité dans la mise en boucle de sections du fichier de la carte SD (par exemple, pour imprimer la même pièce encore et encore, ou répéter une section d'une pièce pour une chaîne ou un autre motif répété).
 
-Voir la [référence de commande](G-Codes.md#sdcard_loop) pour les commandes prises en charge. Voir le fichier [sample-macros.cfg](../config/sample-macros.cfg) pour une macro G-Code M808 compatible avec Marlin.
+Voir la [référence des commandes](G-Codes.md#sdcard_loop) pour les commandes prises en charge. Voir le fichier [sample-macros.cfg](../config/sample-macros.cfg) pour une macro G-Code compatible avec le M808 de Marlin.
 
 ```
 [sdcard_loop]
@@ -1362,21 +1360,21 @@ Active les [commandes étendues "M118" et "RESPOND"](G-Codes.md#respond).
 ```
 [respond]
 #default_type: echo
-#    Définit le préfixe par défaut de la sortie "M118" et "RESPOND" à l'une des
-#    des éléments suivants :
+#    Définit le préfixe par défaut de la sortie "M118" et "RESPOND" à l'un des
+#    éléments suivants :
 #            echo: "echo : " (C'est la valeur par défaut)
 #            command: "// "
 #            error: " !! "
 #default_prefix: echo:
 #    Définit directement le préfixe par défaut. Si elle est présente, cette valeur
-#    remplacera le "default_type".
+#    remplacera celle de "default_type".
 ```
 
 ### [exclude_object]
 
 Permet de prendre en charge l'exclusion ou l'annulation d'objets individuels pendant le processus d'impression.
 
-Voir le [guide des objets exclus](Exclude_Object.md) et la [référence de la commande](G-Codes.md#excludeobject) pour plus d'informations. Voir le fichier [sample-macros.cfg](../config/sample-macros.cfg) pour une macro G-Code M486 compatible avec Marlin/RepRapFirmware.
+Voir le [guide des objets exclus](Exclude_Object.md) et la [référence des commandes](G-Codes.md#excludeobject) pour plus d'informations. Voir le fichier [sample-macros.cfg](../config/sample-macros.cfg) pour une macro G-Code M486 compatible avec Marlin/RepRapFirmware.
 
 ```
 [exclude_object]
@@ -1477,26 +1475,25 @@ Prise en charge du test de résonance et du calibrage automatique du façonneur 
 #probe_points:
 #    Une liste de coordonnées X, Y, Z de points (un point par ligne) à tester.
 #    Au moins un point est requis. Assurez-vous que tous les points avec une certaine marge
-#   de sécurité dans le plan XY (~ quelques centimètres) sont accessibles par la tête de l'outil.
+#    de sécurité dans le plan XY (~ quelques centimètres) sont accessibles par la tête de l'outil.
 #accel_chip:
 #    Nom de la puce d'accéléromètre à utiliser pour les mesures. Si la puce adxl345 a été définie
 #    sans un nom explicite, ce paramètre peut simplement la référencer en tant que
-#   "accel_chip : adxl345", sinon un nom explicite doit être fourni, par exemple 
-#   "accel_chip : adxl345 my_chip_name". Soit ce paramètre seul, soit les deux paramètres
+#    "accel_chip : adxl345", sinon un nom explicite doit être fourni, par exemple
+#    "accel_chip : adxl345 my_chip_name". Soit ce paramètre seul, soit les deux paramètres
 #    suivants doivent être définis.
 #accel_chip_x:
 #accel_chip_y:
 #    Noms des puces d'accéléromètre à utiliser pour les mesures de chaque axe.
-#    Peut être utile, par exemple, sur une imprimante de type "bed slinger",
-#    si deux accéléromètres séparés sont montés, un sur le lit (pour l'axe Y)
-#    et l'autre sur la tête de l'outil (pour l'axe X). Ces paramètres ont le même
-#    format que le paramètre 'accel_chip'. Seul le paramètre 'accel_chip' ou ces deux
-#    paramètres doivent être fournis.
+#    Peut être utile, par exemple, sur une imprimante de type "bed slinger", si deux accéléromètres
+#    séparés sont montés, un sur le lit (pour l'axe Y), l'autre sur la tête de l'outil (pour l'axe X).
+#    Ces paramètres ont le même format que le paramètre 'accel_chip'. Soit le paramètre
+#    'accel_chip' soit ces deux paramètres doivent être fournis.
 #max_smoothing:
 #    Lissage maximal du façonneur (shaper) d'entrée à autoriser pour chaque axe pendant
-#    l'auto-calibration (avec la commande 'SHAPER_CALIBRATE'). Par défaut, aucun
-#    lissage maximal n'est spécifié. Reportez-vous au guide Measuring_Resonances
-#    pour plus de détails sur l'utilisation de cette fonction.
+#    l'auto-calibration (avec la commande 'SHAPER_CALIBRATE'). Par défaut, aucun lissage
+#    maximal n'est spécifié. Reportez-vous au guide Measuring_Resonances pour plus de détails
+#    sur l'utilisation de cette fonction.
 #min_freq: 5
 #    Fréquence minimale de test des résonances. La valeur par défaut est 5 Hz.
 #max_freq: 133.33
@@ -1506,12 +1503,12 @@ Prise en charge du test de résonance et du calibrage automatique du façonneur 
 #    spécifique: accel = accel_per_hz * freq. Plus haute est cette valeur, plus l'énergie des
 #    oscillations est élevée. Peut être fixé à une valeur inférieure à celle par défaut si les
 #    résonances deviennent trop fortes sur l'imprimante. Cependant, des valeurs plus faibles
-#    rendent les mesures des résonances à haute fréquence moins précises. La valeur
-#    par défaut est de 75 (mm/sec).
+#    rendent les mesures des résonances à haute fréquence moins précises. La valeur par
+#    défaut est de 75 (mm/sec).
 #hz_per_sec: 1
-#    Détermine la vitesse de l'essai. Lors du test de toutes les fréquences dans
-#    la plage [min_freq, max_freq], chaque seconde, la fréquence augmente de hz_per_sec.
-#    De faibles valeurs rendent le test lent, et de grandes valeurs diminueront la précision du test.
+#    Détermine la vitesse de l'essai. Lors du test de toutes les fréquences dans la plage [min_freq,
+#    max_freq], chaque seconde, la fréquence augmente de hz_per_sec.
+#    De faibles valeurs rendent le test lent, de grandes valeurs diminueront la précision du test.
 #    La valeur par défaut est 1.0 (Hz/sec == sec^-2).
 ```
 
@@ -1565,18 +1562,18 @@ Sonde de hauteur Z. On peut définir cette section pour activer le matériel de 
 [probe]
 pin:
 #    Broche de détection de la sonde. Si la broche se trouve sur un microcontrôleur différent
-#    que les moteurs pas à pas de l'axe Z alors elle active le "multi-mcu homing". Ce paramètre
-#   doit être fourni.
+#    de celui des moteurs de l'axe Z alors elle active le "multi-mcu homing". Ce paramètre
+#    doit être fourni.
 #deactivate_on_each_sample: True
-#    Ceci détermine si Klipper doit exécuter le gcode de désactivation
-#    entre chaque tentative de palpage lors d'une séquence de palpages multiples.
+#    Ceci détermine si Klipper doit exécuter le gcode de désactivation entre chaque tentative
+#    de palpage lors d'une séquence de palpages multiples.
 #    La valeur par défaut est True.
 #x_offset: 0.0
 #    La distance (en mm) entre la sonde et la buse le long de l'axe x.
-#   La valeur par défaut est 0.
+#    La valeur par défaut est 0.
 #y_offset: 0.0
 #    La distance (en mm) entre la sonde et la buse le long de l'axe y.
-#   La valeur par défaut est 0.
+#    La valeur par défaut est 0.
 z_offset:
 #    La distance (en mm) entre le lit et la buse lorsque la sonde se déclenche.
 #    Ce paramètre doit être fourni.
@@ -1586,37 +1583,37 @@ z_offset:
 #    Le nombre de fois où il faut palper chaque point. Les valeurs z palpées seront
 #    moyennées. La valeur par défaut est de palper 1 fois.
 #sample_retract_dist: 2.0
-#    Distance (en mm) à parcourir pour soulever la tête de l'outil entre chaque échantillon
+#    Distance (en mm) à parcourir pour relever la tête de l'outil entre chaque palpage
 #    (en cas d'échantillonnage multiple). La valeur par défaut est 2mm.
 #lift_speed:
 #    Vitesse (en mm/s) de l'axe Z lors du levage de la sonde entre les échantillons.
 #    La valeur par défaut est la même que celle du paramètre 'speed'.
 #samples_result: average
-#    La méthode de calcul lorsque l'on échantillonne plusieurs fois - soit
-#    "médiane" (median) ou "moyenne" (average). La valeur par défaut est "moyenne".
+#    La méthode de calcul lorsque l'on échantillonne plusieurs fois - soit "médiane"
+#    (median) ou "moyenne" (average). La valeur par défaut est "moyenne".
 #samples_tolerance: 0.100
 #    La distance Z maximale (en mm) à laquelle un échantillon peut différer des autres
-#    échantillons. Si cette tolérance est dépassée, soit une erreur est signalée
-#   soit la tentative est recommencée (cf. samples_tolerance_retries).
-#   La valeur par défaut est 0.100mm.
+#    échantillons. Si cette tolérance est dépassée, soit une erreur est signalée soit une
+#    tentative de palpage est recommencée (cf. samples_tolerance_retries).
+#    La valeur par défaut est 0.100mm.
 #samples_tolerance_retries: 0
-#    Le nombre de fois qu'il faut réessayer si l'on trouve un échantillon qui dépasse la
-#    tolérance des échantillons. Lors d'une nouvelle tentative, tous les échantillons en cours
-#   sont rejetés et la tentative de sondage est relancée.
-#    Si un ensemble valide d'échantillons n'est pas obtenu dans le nombre de tentatives donné,
-#   une erreur est signalée. La valeur par défaut est zéro, ce qui entraîne le signalement d'une
-#   erreur au premier échantillon dépassant la tolérance de samples_tolerance.
+#    Le nombre de fois qu'il faut réessayer quand un palpage dépasse la tolérance des
+#    échantillons. Lors d'une nouvelle tentative, tous les échantillons en cours sont rejetés
+#    et une tentative de palpa est relancée. Si un ensemble valide d'échantillons n'est pas
+#    obtenu dans le nombre de tentatives donné, une erreur est signalée. La valeur par défaut
+#    est zéro, ce qui entraîne le signalement d'une erreur dès le premier échantillon dépassant
+#    la tolérance de samples_tolerance.
 #activate_gcode:
 #    Une liste de commandes G-Code à exécuter avant chaque tentative de palpage.
-#    Voir docs/Command_Templates.md pour le format G-Code. Cela peut être
-#    utile si la sonde doit être activée d'une manière particulière. Ne pas
-#    envoyer ici de commandes déplaçant la tête de l'outil (par exemple, G1). La valeur
-#    par défaut est de ne pas exécuter de commandes G-code spéciales lors de l'activation.
+#    Voir docs/Command_Templates.md pour le format G-Code. Cela peut être  utile si la sonde
+#    doit être activée d'une manière particulière. Ne pas envoyer ici de commandes déplaçant
+#    la tête de l'outil (par exemple, G1). La valeur par défaut est de ne pas exécuter de commandes
+#    G-code spéciales lors de l'activation.
 #deactivate_gcode:
 #    Une liste de commandes G-Code à exécuter après la fin de chaque tentative de palpage
-#    terminée. Voir docs/Command_Templates.md pour le format G-Code. Ne pas
-#    envoyer ici de commandes déplaçant la tête de l'outil. La valeur par défaut est de
-#    ne pas exécuter de commandes G-code spéciales lors de la désactivation.
+#    terminée. Voir docs/Command_Templates.md pour le format G-Code. Ne pas envoyer ici
+#    de commandes déplaçant la tête de l'outil. La valeur par défaut est de ne pas exécuter de
+#    commandes G-code spéciales lors de la désactivation.
 ```
 
 ### [bltouch]
@@ -1680,19 +1677,19 @@ Le "Smart Effector" de Duet3d implémente une sonde Z utilisant un capteur de fo
 ```
 [smart_effector]
 pin:
-#    Broche connectée à la broche de sortie de la sonde Z de Smart Effector (broche 5). Notez qu'
-#    une résistance de tirage (pullup) sur la carte n'est généralement pas nécessaire. Cependant, si la broche de sortie
-#    est connectée à la broche de la carte à l'aide d'une résistance de tirage, cette résistance doit être de valeur élevée (par ex.
-#    10K Ohm ou plus). Certaines cartes ont une résistance de tirage de faible valeur sur l'entrée de la sonde Z, ce qui
-#    entraînera probablement un état de sonde toujours déclenché. Dans ce cas, connectez le Smart Effector à
-#    une autre broche sur la carte. Ce paramètre est nécessaire.
+#    Broche connectée à la broche de sortie de la sonde Z de Smart Effector (broche 5). Notez qu' une
+#    résistance de tirage (pullup) sur la carte n'est généralement pas nécessaire. Cependant, si la broche
+#    de sortie est connectée à la broche de la carte à l'aide d'une résistance de tirage, cette résistance doit
+#    être de valeur élevée (par ex. 10K Ohm ou plus). Certaines cartes ont une résistance de tirage de faible
+#    valeur sur l'entrée de la sonde Z, ce qui entraînera probablement un état de sonde toujours déclenché.
+#    Dans ce cas, connectez le Smart Effector à une autre broche sur la carte. Ce paramètre est nécessaire.
 #control_pin:
 #    Broche connectée à la broche d'entrée de contrôle du Smart Effector (broche 7). Si elle est fournie,
 #    les commandes de programmation de la sensibilité du Smart Effector deviennent disponibles.
 #probe_accel:
 #    Si elle est définie, limite l'accélération des mouvements de palpage (en mm/sec^2).
-#    Une grande accélération soudaine au début du mouvement de palpage peut
-#    provoquer des déclenchements intempestifs de la sonde, surtout si la tête de l'outil est lourde.
+#    Une grande accélération soudaine au début du mouvement de palpage peut provoquer des
+#    déclenchements intempestifs de la sonde, surtout si la tête de l'outil est lourde.
 #    Pour éviter cela, il peut être nécessaire de réduire l'accélération des mouvements de palpage
 #    via ce paramètre.
 #recovery_time: 0.4
@@ -1703,14 +1700,14 @@ pin:
 #    La valeur par défaut est 0,4.
 #x_offset:
 #y_offset:
-#    Doit être laissé non défini (ou défini à 0).
+#    Doivent être laissés non définis (ou définis à 0).
 z_offset:
-#    Hauteur de déclenchement de la sonde. Commencez avec -0,1 (mm), et ajustez plus tard en utilisant
-#    la commande `PROBE_CALIBRATE`. Ce paramètre doit être fourni.
+#    Hauteur de déclenchement de la sonde. Commencez avec -0,1 (mm), et ajustez plus tard en
+#    utilisant la commande `PROBE_CALIBRATE`. Ce paramètre doit être fourni.
 #speed:
-#    Vitesse (en mm/s) de l'axe Z lors du palpage. Il est recommandé de commencer
-#    avec une vitesse de palpage de 20 mm/s et de l'ajuster si nécessaire pour améliorer la précision
-#    et la répétabilité du déclenchement du palpeur.
+#    Vitesse (en mm/s) de l'axe Z lors du palpage. Il est recommandé de commencer avec une
+#    vitesse de palpage de 20 mm/s et d'ajuster si nécessaire pour améliorer la précision et la
+#    répétabilité du déclenchement du palpeur.
 #samples:
 #sample_retract_dist:
 #samples_result:
@@ -1787,7 +1784,7 @@ axis:
 
 Support pour des moteurs supplémentaires synchronisés avec le mouvement d'une extrudeuse (on peut définir un nombre quelconque de sections avec un préfixe "extruder_stepper").
 
-Voir la [référence de la commande](G-Codes.md#extruder) pour plus d'informations.
+Voir la [référence des commandes](G-Codes.md#extruder) pour plus d'informations.
 
 ```
 [extrudeur_stepper my_extra_stepper]
@@ -2029,7 +2026,7 @@ sensor_pin:
 #    Broche d'entrée analogique connectée au capteur. Ce paramètre doit être
 #    fourni.
 #pullup_resistor: 4700
-#    La résistance (en ohms) de tirage (pullup) relié au capteur. La valeur par
+#    La résistance (en ohms) de tirage (pullup) reliée au capteur. La valeur par
 #    défaut est 4700 ohms.
 ```
 
@@ -2098,16 +2095,16 @@ sensor_type:
 #    Voir la section "paramètres I2C communs" pour une description des
 #    paramètres ci-dessus.
 #htu21d_hold_master:
-#    Si le capteur peut maintenir le tampon I2C pendant la lecture. Si Vrai, aucune autre
-#    communication par bus ne peut être effectuée pendant que la lecture est en cours.
+#    Si le capteur peut maintenir le tampon I2C durant la lecture. Si True, aucune autre
+#    communication par bus ne peut être effectuée durant la lecture en cours.
 #    La valeur par défaut est False.
 #htu21d_resolution:
 #    La résolution de lecture de la température et de l'humidité.
 #    Les valeurs valides sont :
-#    'TEMP14_HUM12' -> 14bit pour la température et 12bit pour l'humidité.
+#    'TEMP14_HUM12' -> 14 bits pour la température et 12 bits pour l'humidité.
 #    'TEMP13_HUM10' -> 13 bits pour la température et 10 bits pour l'humidité.
-#    'TEMP12_HUM08' -> 12bit pour la température et 08bit pour l'humidité
-#    'TEMP11_HUM11' -> 11bit pour la température et 11bit pour l'humidité
+#    'TEMP12_HUM08' -> 12 bits pour la température et 08 bits pour l'humidité
+#    'TEMP11_HUM11' -> 11 bits pour la température et 11 bits pour l'humidité
 #    La valeur par défaut est "TEMP11_HUM11"
 #htu21d_report_time:
 #    Intervalle en secondes entre les lectures. La valeur par défaut est 30
@@ -2120,7 +2117,7 @@ Capteurs de température LM75/LM75A connectés en deux fils (I2C). Ces capteurs 
 ```
 sensor_type: LM75
 #i2c_address:
-#    La valeur par défaut est 72 (0x48). La plage normale est 72-79 (0x48-0x4F) et les 3
+#    La valeur par défaut est 72 (0x48). La plage normale est 72-79 (0x48-0x4F), les 3
 #    bits de poids faible de l'adresse sont configurés via des broches sur la puce
 #    (généralement avec des cavaliers ou câblés).
 #i2c_mcu:
@@ -2129,8 +2126,8 @@ sensor_type: LM75
 #    Voir la section "paramètres I2C communs" pour une description des
 #    paramètres ci-dessus.
 #lm75_report_time:
-#    Intervalle en secondes entre les lectures. La valeur par défaut est 0.8, avec un minimum de
-#    0.5.
+#    Intervalle en secondes entre les lectures. La valeur par défaut est 0.8, avec un
+#    minimum de 0.5.
 ```
 
 ### Capteur de température intégré au microcontrôleur
@@ -2143,12 +2140,12 @@ sensor_type: temperature_mcu
 #    Le micro-contrôleur à lire. La valeur par défaut est "mcu".
 #sensor_temperature1:
 #sensor_adc1:
-#    Spécifiez les deux paramètres ci-dessus (une température en Celsius et une valeur d'
-#    ADC sous forme de flottant entre 0,0 et 1,0) pour calibrer la température du
-#    microcontrôleur. Cela peut améliorer la précision de la température rapportée sur certaines puces.
-#    Une façon typique d'obtenir ces informations d'étalonnage est de couper complètement l'alimentation
-#    de l'imprimante pendant quelques heures (afin de s'assurer qu'elle est à la température ambiante),
-#    puis de la remettre sous tension et d'utiliser la fonction QUERY_ADC pour obtenir une mesure ADC.
+#    Spécifiez les deux paramètres ci-dessus (une température en Celsius et une valeur d' ADC sous
+#    forme de flottant entre 0,0 et 1,0) pour calibrer la température du microcontrôleur. Cela peut
+#    améliorer la précision de la température rapportée sur certaines puces. Une façon typique d'obtenir
+#    ces informations d'étalonnage est de couper complètement l'alimentation de l'imprimante pendant
+#    quelques heures (afin de s'assurer qu'elle est à la température ambiante), puis de la remettre sous
+#    tension et d'utiliser la fonction QUERY_ADC pour obtenir une mesure ADC.
 #    Utilisez un autre capteur de température sur l'imprimante pour trouver la température ambiante
 #    correspondante. La valeur par défaut est d'utiliser les données d'étalonnage d'usine du microcontrôleur
 #    (le cas échéant) ou les valeurs nominales de la spécification du microcontrôleur.
@@ -2180,10 +2177,10 @@ Le DS18B20 est un capteur de température numérique à 1 fil (w1). Notez que ce
 ```
 sensor_type: DS18B20
 serial_no:
-#    Chaque dispositif à 1 fil possède un numéro de série unique utilisé pour l'identifier,
+#    Chaque dispositif à 1-wire possède un numéro de série unique utilisé pour l'identifier,
 #    généralement au format 28-031674b175ff. Ce paramètre doit être fourni.
 #    Les périphériques 1-wire connectés peuvent être listés à l'aide de la commande Linux suivante :
-#    ls /sys/bus/w1/devices/
+#        ls /sys/bus/w1/devices/
 #ds18_report_time:
 #    Intervalle en secondes entre les lectures. La valeur par défaut est de 3,0, avec un minimum de 1,0.
 #sensor_mcu:
@@ -2334,7 +2331,7 @@ Ventilateur de refroidissement du contrôleur (on peut définir un nombre quelco
 
 Ventilateurs de refroidissement déclenchés par la température (on peut définir un nombre quelconque de sections avec le préfixe "temperature_fan"). Un "ventilateur de température" est un ventilateur activé lorsque le capteur qui lui est associé est au-dessus d'une température définie. Par défaut, un ventilateur de température a une vitesse d'arrêt égale à la puissance maximale.
 
-Voir la [référence de la commande](G-Codes.md#temperature_fan) pour plus d'informations.
+Voir la [référence des commandes](G-Codes.md#temperature_fan) pour plus d'informations.
 
 ```
 [temperature_fan my_temp_fan]
@@ -3512,7 +3509,7 @@ Consultez le [document sur les modèles de commande](Command_Templates.md#menu-t
 
 Capteur de commutation de filament. Prise en charge de la détection de l'insertion et du déplacement du filament à l'aide d'un capteur de commutation, tel qu'un interrupteur de fin de course.
 
-Voir la [référence de la commande](G-Codes.md#filament_switch_sensor) pour plus d'informations.
+Voir la [référence des commandes](G-Codes.md#filament_switch_sensor) pour plus d'informations.
 
 ```
 [filament_switch_sensor my_sensor]
@@ -3546,7 +3543,7 @@ Voir la [référence de la commande](G-Codes.md#filament_switch_sensor) pour plu
 
 Capteur de mouvement de filament. Prise en charge de la détection de présence et déplacement du filament à l'aide d'un encodeur basculant la broche de sortie pendant le mouvement du filament dans le capteur.
 
-Voir la [référence de la commande](G-Codes.md#filament_switch_sensor) pour plus d'informations.
+Voir la [référence des commandes](G-Codes.md#filament_switch_sensor) pour plus d'informations.
 
 ```
 [filament_motion_sensor my_sensor]
@@ -3669,12 +3666,12 @@ Configuration de SAMD SERCOM pour indiquer les broches à utiliser sur un matér
 [samd_sercom my_sercom]
 sercom:
 #    Le nom du bus sercom à configurer dans le micro-contrôleur.
-#    Les noms disponibles sont "sercom0", "sercom1", etc. Ce paramètre
-#    doit être fourni.
+#    Les noms disponibles sont "sercom0", "sercom1", etc.
+#    Ce paramètredoit être fourni.
 tx_pin:
 #    Broche MOSI pour la communication SPI, ou broche SDA (données) pour la communication I2C.
-#    La broche doit avoir une configuration pinmux valide pour le périphérique SERCOM donné. Ce
-#    paramètre doit être fourni.
+#    La broche doit avoir une configuration pinmux valide pour le périphérique SERCOM donné.
+#    Ce paramètre doit être fourni.
 #rx_pin:
 #    Broche MISO pour la communication SPI. Cette broche n'est pas utilisée pour la communication I2C
 #    (I2C utilise tx_pin pour l'envoi et la réception).
@@ -3682,8 +3679,8 @@ tx_pin:
 #    Ce paramètre est optionnel.
 clk_pin:
 #    La broche CLK pour la communication SPI, ou la broche SCL (horloge) pour la communication I2C.
-#    La broche doit avoir une configuration pinmux valide pour le périphérique SERCOM donné. Ce
-#    paramètre doit être fourni
+#    La broche doit avoir une configuration pinmux valide pour le périphérique SERCOM donné.
+#    Ce paramètre doit être fourni
 ```
 
 ### [adc_scaled]
