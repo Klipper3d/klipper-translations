@@ -1,10 +1,11 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
 # gnu-ewm <gnu.ewm@protonmail.com>, 2023.
+# Eryk Michalak <gnu.ewm@protonmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
+"Last-Translator: Eryk Michalak <gnu.ewm@protonmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "tsl1401cl_filament_width_sensor/pl/>\n"
 "Language: pl\n"
@@ -51,8 +52,8 @@ msgstr ""
 "Niniejszy dokument opisuje czujnik szerokości włókna. Sprzęt użyty do "
 "opracowania tego modułu bazuje na liniowym układzie czujników TSL1401CL, ale "
 "może on współpracować z dowolnym układem czujników z wyjściem analogowym. "
-"Projekty można znaleźć na stronie "
-"[Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor)."
+"Projekty można znaleźć na stronie [Thingiverse](https://www.thingiverse.com/"
+"search?q=filament%20width%20sensor)."
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 6 (header)
 msgid "Note:"
@@ -64,9 +65,9 @@ msgid ""
 "Reference](Config_Reference.md#tsl1401cl_filament_width_sensor) and [G-Code "
 "documentation](G-Codes.md#hall_filament_width_sensor)."
 msgstr ""
-"Aby użyć tablicy czujników jako czujnika szerokości włókna, przeczytaj [Config"
-" Reference](Config_Reference.md#tsl1401cl_filament_width_sensor) i [G-Code "
-"documentation](G-Codes.md#hall_filament_width_sensor)."
+"Aby użyć tablicy czujników jako czujnika szerokości włókna, przeczytaj "
+"[Config Reference](Config_Reference.md#tsl1401cl_filament_width_sensor) i "
+"[G-Code documentation](G-Codes.md#hall_filament_width_sensor)."
 
 #~ msgid ""
 #~ "To use a sensor array as a filament width sensor, read [Config "
