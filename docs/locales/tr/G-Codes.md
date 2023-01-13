@@ -1,10 +1,10 @@
 # G-Codes
 
-This document describes the commands that Klipper supports. These are commands that one may enter into the OctoPrint terminal tab.
+Bu doküman Klipper'ın desteklediği komutları tarif etmektedir. Bu komutlar, OctoPrint terminal sekmesine girilebilecek komutlardır.
 
 ## G-Code commands
 
-Klipper supports the following standard G-Code commands:
+Klipper aşağıdaki standart G-Kodu komutlarını destekler:
 
 - Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
 - Dwell: `G4 P<milliseconds>`
@@ -33,15 +33,15 @@ Klipper supports the following standard G-Code commands:
 
 For further details on the above commands see the [RepRap G-Code documentation](http://reprap.org/wiki/G-code).
 
-Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable ["extended G-Code commands"](#additional-commands). Similarly, the G-Code terminal output is only intended to be human readable - see the [API Server document](API_Server.md) if controlling Klipper from external software.
+Klipper'ın amacı, yaygın olarak kullanılan 3. parti yazılımlar (örn. OctoPrint, Printrun, Slic3r, Cura, vb.) tarafından standart yapılandırmalarında üretilen G-Kodu komutlarını desteklemektir. Amacı mümkün olan her G-Kodu komutunu desteklemek değildir. Bunun yerine Klipper, insan tarafından okunabilen ["genişletilmiş G Kodu komutlarını"](#ek komutlar) tercih eder. Benzer şekilde, G-Kodu terminal çıktısının yalnızca operatör tarafından okunabilir olması amaçlanmıştır - Eğer terminal çıktıları Klipper harici yazılımlar tarafından kontrol ediliyorsa lütfen [API Sunucusu belgesine](API_Server.md) bakınız.
 
 If one requires a less common G-Code command then it may be possible to implement it with a custom [gcode_macro config section](Config_Reference.md#gcode_macro). For example, one might use this to implement: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`, etc.
 
-## Additional Commands
+## Ek Komutlar
 
-Klipper uses "extended" G-Code commands for general configuration and status. These extended commands all follow a similar format - they start with a command name and may be followed by one or more parameters. For example: `SET_SERVO SERVO=myservo ANGLE=5.3`. In this document, the commands and parameters are shown in uppercase, however they are not case sensitive. (So, "SET_SERVO" and "set_servo" both run the same command.)
+Klipper, genel yapılandırma ve durum raporları için "genişletilmiş" G-Kodu komutlarını kullanır. Bu genişletilmiş komutların tümü benzer bir formattadır - bir komut adıyla başlarlar ve bir veya birden fazla fazla parametre tarafından takip edilebilirler. Örneğin: "SET_SERVO SERVO=myservo ANGLE=5.3". Bu belgede, komutlar ve parametreler büyük harfle gösterilmiştir, ancak bunlar büyük/küçük harfe duyarlı değildir. (Yani, "SET_SERVO" ve "set_servo" aynı komutu çalıştırır.)
 
-This section is organized by Klipper module name, which generally follows the section names specified in the [printer configuration file](Config_Reference.md). Note that some modules are automatically loaded.
+Bu bölüm, genellikle [yazıcı yapılandırma dosyasında](Config_Reference.md) belirtilen bölüm adlarını takip eden Klipper modül adına göre düzenlenmiştir. Bazı modüllerin bazılarının otomatik olarak yüklendiğini unutmayın.
 
 ### [adxl345]
 
@@ -178,7 +178,7 @@ The display_status module is automatically loaded if a [display config section](
 - Display Message: `M117 <message>`
 - Set build percentage: `M73 P<percent>`
 
-Also provided is the following extended G-Code command:
+Ayrıca aşağıdaki genişletilmiş G-Kodu komutu da sağlanmıştır:
 
 - `SET_DISPLAY_TEXT MSG=<message>`: Performs the equivalent of M117, setting the supplied `MSG` as the current display message. If `MSG` is omitted the display will be cleared.
 
@@ -256,11 +256,11 @@ The following commands are available if an [extruder config section](Config_Refe
 
 #### SET_EXTRUDER_STEP_DISTANCE
 
-This command is deprecated and will be removed in the near future.
+Bu komut kullanımdan kaldırılmıştır ve yakın zamanda silinecektir.
 
 #### SYNC_STEPPER_TO_EXTRUDER
 
-This command is deprecated and will be removed in the near future.
+Bu komut kullanımdan kaldırılmıştır ve yakın zamanda silinecektir.
 
 ### [fan_generic]
 
@@ -443,7 +443,7 @@ The manual_probe module is automatically loaded.
 `MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:
 
 - `ACCEPT`: This command accepts the current Z position and concludes the manual probing tool.
-- `ABORT`: Bu komut manuel sondalama aracını sonlandırır.
+- `ABORT`: Bu komut manuel prob aracını sonlandırır.
 - `TESTZ Z=<value>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
 
 #### Z_ENDSTOP_CALIBRATE
@@ -741,7 +741,7 @@ The following commands are available when any of the [tmcXXXX config sections](C
 
 ### [toolhead]
 
-The toolhead module is automatically loaded.
+Takım kafası modülü otomatik olarak yüklendi.
 
 #### SET_VELOCITY_LIMIT
 
@@ -749,7 +749,7 @@ The toolhead module is automatically loaded.
 
 ### [tuning_tower]
 
-The tuning_tower module is automatically loaded.
+tuning_tower modülü otomatik olarak yüklendi.
 
 #### TUNING_TOWER
 
@@ -761,7 +761,7 @@ The tuning_tower module is automatically loaded.
 
 ### [virtual_sdcard]
 
-Klipper supports the following standard G-Code commands if the [virtual_sdcard config section](Config_Reference.md#virtual_sdcard) is enabled:
+[virtual_sdcard config section](Config_Reference.md#virtual_sdcard) etkinleştirilmişse Klipper aşağıdaki standart G-Kodu komutlarını destekler:
 
 - List SD card: `M20`
 - Initialize SD card: `M21`

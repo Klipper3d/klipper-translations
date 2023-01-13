@@ -1,10 +1,10 @@
 # Beaglebone
 
-This document describes the process of running Klipper on a Beaglebone PRU.
+Este documento describe el proceso de ejecución de Klipper en un Beaglebone PRU.
 
-## Building an OS image
+## Creando una imagen del SO
 
-Start by installing the [Debian 9.9 2019-08-03 4GB SD IoT](https://beagleboard.org/latest-images) image. One may run the image from either a micro-SD card or from builtin eMMC. If using the eMMC, install it to eMMC now by following the instructions from the above link.
+Comience instalando la imagen [Debian 9.9 2019-08-03 4GB SD IoT](https://beagleboard.org/latest-images). Puede ejecutar la imagen desde una tarjeta micro-SD o desde la eMMC integrada. Si utiliza la eMMC, instálela ahora en la eMMC siguiendo las instrucciones del enlace anterior.
 
 Then ssh into the Beaglebone machine (`ssh debian@beaglebone` -- password is `temppwd`) and install Klipper by running the following commands:
 
@@ -13,9 +13,9 @@ git clone https://github.com/Klipper3d/klipper
 ./klipper/scripts/install-beaglebone.sh
 ```
 
-## Install Octoprint
+## Instala Octoprint
 
-One may then install Octoprint:
+A continuación, puede instalar Octoprint:
 
 ```
 git clone https://github.com/foosel/OctoPrint.git
@@ -24,7 +24,7 @@ virtualenv venv
 ./venv/bin/python setup.py install
 ```
 
-And setup OctoPrint to start at bootup:
+Y configure OctoPrint para que se inicie al arrancar:
 
 ```
 sudo cp ~/OctoPrint/scripts/octoprint.init /etc/init.d/octoprint
@@ -39,7 +39,7 @@ It is necessary to modify OctoPrint's **/etc/default/octoprint** configuration f
 sudo nano /etc/default/octoprint
 ```
 
-Then start the Octoprint service:
+A continuación, inicie el servicio Octoprint:
 
 ```
 sudo systemctl start octoprint
@@ -47,7 +47,7 @@ sudo systemctl start octoprint
 
 Make sure the OctoPrint web server is accessible - it should be at: <http://beaglebone:5000/>
 
-## Building the micro-controller code
+## Compilar el código del microcontrolador
 
 To compile the Klipper micro-controller code, start by configuring it for the "Beaglebone PRU":
 
@@ -56,7 +56,7 @@ cd ~/klipper/
 make menuconfig
 ```
 
-To build and install the new micro-controller code, run:
+Para compilar e instalar el nuevo código del microcontrolador, ejecute:
 
 ```
 sudo service klipper stop
@@ -78,7 +78,7 @@ make flash
 sudo service klipper start
 ```
 
-## Remaining configuration
+## Configuración restante
 
 Complete the installation by configuring Klipper and Octoprint following the instructions in the main [Installation](Installation.md#configuring-klipper) document.
 

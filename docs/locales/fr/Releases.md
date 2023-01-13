@@ -76,7 +76,7 @@ Disponible le 21/10/2019. Changements majeurs dans cette version :
    * Prise en charge améliorée du flashage de Klipper via USB.
    * Prise en charge du SPI logiciel.
    * Filtrage de température grandement amélioré sur le capteur LPC176x.
-   * Les premiers paramètres des broches de sortie peuvent être configurés dans le micro-contrôleur.
+   * Les paramètres de démarrage des broches de sortie peuvent être configurés dans le micro-contrôleur.
 * Nouveau site web avec la documentation Klipper : http://klipper3d.org/
    * Klipper a maintenant un logo.
 * Support expérimental pour la cinématique polaire et "treuil à câble".
@@ -106,72 +106,72 @@ Disponible le 20/12/2018. Changements majeurs dans cette version :
 * Le code cinématique a été réécrit pour utiliser un "solveur itératif"
 * Nouveaux tests automatisés pour le logiciel hôte Klipper
 * De nombreux nouveaux exemples de fichiers de configuration pour les imprimantes les plus courantes
-* Mises à jour de la documentation pour les chargeurs de démarrage, l'analyse comparative, le portage des micro-contrôleurs, les vérifications de configuration, le mappage des broches, les paramètres du trancheur, le packaging, etc... .
+* Mises à jour de la documentation pour les chargeurs de démarrage, l'analyse comparative, le portage des micro-contrôleurs, les vérifications de configuration, le mappage des broches, les paramètres du trancheur, le packaging, et plus
 * Plusieurs corrections de bogues et nettoyages de code
 
 ## Klipper 0.6.0
 
 Disponible le 31/03/2018. Changements majeurs dans cette version :
 
-* Enhanced heater and thermistor hardware failure checks
-* Support for Z probes
-* Initial support for automatic parameter calibration on deltas (via a new delta_calibrate command)
-* Initial support for bed tilt compensation (via bed_tilt_calibrate command)
-* Initial support for "safe homing" and homing overrides
-* Initial support for displaying status on RepRapDiscount style 2004 and 12864 displays
-* New multi-extruder improvements:
-   * Support for shared heaters
-   * Initial support for dual carriages
-* Support for configuring multiple steppers per axis (eg, dual Z)
-* Support for custom digital and pwm output pins (with a new SET_PIN command)
-* Initial support for a "virtual sdcard" that allows printing directly from Klipper (helps on machines too slow to run OctoPrint well)
-* Support for setting different arm lengths on each tower of a delta
-* Support for G-Code M220/M221 commands (speed factor override / extrude factor override)
-* Several documentation updates:
+* Vérifications améliorées des défaillances matérielles des éléments chauffants et des thermistances
+* Prise en charge des sondes Z
+* Première prise en charge de l'étalonnage automatique des paramètres sur les deltas (via une nouvelle commande delta_calibrate)
+* Première prise en charge de la compensation d'inclinaison du lit (via la commande bed_tilt_calibrate)
+* Première prise en charge de la « mise à l'origine 'sûre' » et des surcharges des mises à l'origine
+* Prise en charge de l'affichage de l'état sur les écrans RepRapDiscount style 2004 et 12864
+* Nouvelles améliorations pour la multi-extrusion :
+   * Prise en charge des chauffages partagés
+   * Prise en charge des chariots doubles (IDEX)
+* Prise en charge de la configuration de plusieurs steppers par axe (par exemple, double Z)
+* Prise en charge des broches de sortie numériques et pwm personnalisées (avec une nouvelle commande SET_PIN)
+* Prise en charge d'une "carte SD virtuelle" qui permet d'imprimer directement depuis Klipper (aide sur les machines trop lentes pour bien exécuter OctoPrint)
+* Prise en charge du réglage de différentes longueurs de bras sur chaque tour d'une delta
+* Prise en charge des commandes G-Code M220/M221 (remplacement du facteur de vitesse/remplacement du facteur d'extrusion)
+* Plusieurs mises à jour de la documentation :
    * De nombreux nouveaux exemples de fichiers de configuration pour les imprimantes les plus courantes
-   * New multiple MCU config example
-   * New bltouch sensor config example
-   * New FAQ, config check, and G-Code documents
-* Initial support for continuous integration testing on all github commits
+   * Nouvel exemple de configuration multi-MCU
+   * Nouvel exemple de configuration du capteur bltouch
+   * Nouveaux documents sur la FAQ, la vérification de la configuration et le G-Code
+* Prise en charge des tests d'intégration continue sur tous les commits github
 * Plusieurs corrections de bogues et nettoyages de code
 
 ## Klipper 0.5.0
 
-Available on 20171025. Major changes in this release:
+Disponible le 25/10/2017. Changements majeurs dans cette version :
 
-* Support for printers with multiple extruders.
-* Initial support for running on the Beaglebone PRU. Initial support for the Replicape board.
-* Initial support for running the micro-controller code in a real-time Linux process.
-* Support for multiple micro-controllers. (For example, one could control an extruder with one micro-controller and the rest of the printer with another.) Software clock synchronization is implemented to coordinate actions between micro-controllers.
-* Stepper performance improvements (20Mhz AVRs up to 189K steps per second).
-* Support for controlling servos and support for defining nozzle cooling fans.
+* Prise en charge des imprimantes avec plusieurs extrudeuses.
+* Prise en charge pour l'exécution sur le PRU Beaglebone. Prise en charge de la carte Replicape.
+* Prise en charge de l'exécution du code du microcontrôleur dans un processus Linux en temps réel.
+* Prise en charge de plusieurs microcontrôleurs. (Par exemple, on pourrait contrôler une extrudeuse avec un microcontrôleur et le reste de l'imprimante avec un autre.) Une synchronisation d'horloge logicielle est mise en œuvre pour coordonner les actions entre les microcontrôleurs.
+* Améliorations des performances des moteurs pas à pas (AVR 20Mhz jusqu'à 189K pas par seconde).
+* Prise en charge du contrôle des servos et prise en charge de la définition des ventilateurs de refroidissement des buses.
 * Plusieurs corrections de bogues et nettoyages de code
 
 ## Klipper 0.4.0
 
-Available on 20170503. Major changes in this release:
+Disponible le 03/05/2017. Changements majeurs dans cette version :
 
-* Improved installation on Raspberry Pi machines. Most of the install is now scripted.
-* Support for corexy kinematics
-* Documentation updates: New Kinematics document, new Pressure Advance tuning guide, new example config files, and more
-* Stepper performance improvements (20Mhz AVRs over 175K steps per second, Arduino Due over 460K)
-* Support for automatic micro-controller resets. Support for resets via toggling USB power on Raspberry Pi.
-* The pressure advance algorithm now works with look-ahead to reduce pressure changes during cornering.
-* Support for limiting the top speed of short zigzag moves
-* Support for AD595 sensors
+* Installation améliorée sur les machines Raspberry Pi. La majeure partie de l'installation est maintenant scriptée.
+* Prise en charge des imprimantes corexy
+* Mises à jour de la documentation : nouveau document cinématique, nouveau guide de réglage Pressure Advance, nouveaux exemples de fichiers de configuration, et plus
+* Améliorations des performances des moteurs pas à pas (AVR 20Mhz sur 175K pas par seconde, Arduino Due sur 460K)
+* Prise en charge des réinitialisations automatiques du microcontrôleur. Prise en charge des réinitialisations via basculement de l'alimentation USB sur Raspberry Pi.
+* L'algorithme d'avance de pression fonctionne désormais avec anticipation pour réduire les changements de pression dans les virages.
+* Prise en charge de la limitation de la vitesse maximale des mouvements courts en zigzag
+* Prise en charge des capteurs AD595
 * Plusieurs corrections de bogues et nettoyages de code
 
 ## Klipper 0.3.0
 
-Available on 20161223. Major changes in this release:
+Disponible le 23/12/2016. Changements majeurs dans cette version :
 
-* Improved documentation
-* Support for robots with delta kinematics
-* Support for Arduino Due micro-controller (ARM cortex-M3)
-* Support for USB based AVR micro-controllers
-* Support for "pressure advance" algorithm - it reduces ooze during prints.
-* New "stepper phased based endstop" feature - enables higher precision on endstop homing.
-* Support for "extended g-code" commands such as "help", "restart", and "status".
+* Documentation améliorée
+* Prise en charge des imprimantes avec cinématique delta
+* Prise en charge du microcontrôleur Arduino Due (ARM cortex-M3)
+* Prise en charge des microcontrôleurs AVR basés sur USB
+* Prise en charge de l'algorithme "d'avance de pression" - il réduit le suintement pendant les impressions.
+* Nouvelle fonctionnalité "butée de fin de course basée sur la phase de moteurs pas à pas" - permet une plus grande précision sur la prise d'origine de la fin de course.
+* Prise en charge des commandes "g-code étendu" telles que "help", "restart" et "status".
 * Support for reloading the Klipper config and restarting the host software by issuing a "restart" command from the terminal.
 * Stepper performance improvements (20Mhz AVRs up to 158K steps per second).
 * Improved error reporting. Most errors now shown via the terminal along with help on how to resolve.
