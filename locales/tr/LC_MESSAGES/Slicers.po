@@ -1,6 +1,16 @@
-#
+# Kaan Özbilek <info@kaanozbilek.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-01-10 15:50+0000\n"
+"Last-Translator: Kaan Özbilek <info@kaanozbilek.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/slicers/"
+"tr/>\n"
+"Language: tr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid ""
 "This document provides some tips for configuring a \"slicer\" application "
@@ -122,4 +132,4 @@ msgstr ""
 
 #: docs/Slicers.md:block 1 (header)
 msgid "Slicers"
-msgstr ""
+msgstr "Dilimleyiciler"

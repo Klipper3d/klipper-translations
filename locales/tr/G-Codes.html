@@ -1226,11 +1226,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-commands" class="md-nav__link">
-    Additional Commands
+  <a href="#ek-komutlar" class="md-nav__link">
+    Ek Komutlar
   </a>
   
-    <nav class="md-nav" aria-label="Additional Commands">
+    <nav class="md-nav" aria-label="Ek Komutlar">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2778,9 +2778,9 @@
 
 
 <h1 id="g-codes">G-Codes<a class="headerlink" href="#g-codes" title="Permanent link">&para;</a></h1>
-<p>This document describes the commands that Klipper supports. These are commands that one may enter into the OctoPrint terminal tab.</p>
+<p>Bu doküman Klipper'ın desteklediği komutları tarif etmektedir. Bu komutlar, OctoPrint terminal sekmesine girilebilecek komutlardır.</p>
 <h2 id="g-code-commands">G-Code commands<a class="headerlink" href="#g-code-commands" title="Permanent link">&para;</a></h2>
-<p>Klipper supports the following standard G-Code commands:</p>
+<p>Klipper aşağıdaki standart G-Kodu komutlarını destekler:</p>
 <ul>
 <li>Move (G0 or G1): <code>G1 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;] [F&lt;speed&gt;]</code></li>
 <li>Dwell: <code>G4 P&lt;milliseconds&gt;</code></li>
@@ -2814,11 +2814,11 @@
 <li>Get firmware version: <code>M115</code></li>
 </ul>
 <p>For further details on the above commands see the <a href="http://reprap.org/wiki/G-code">RepRap G-Code documentation</a>.</p>
-<p>Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable <a href="#additional-commands">"extended G-Code commands"</a>. Similarly, the G-Code terminal output is only intended to be human readable - see the <a href="API_Server.html">API Server document</a> if controlling Klipper from external software.</p>
+<p>Klipper'ın amacı, yaygın olarak kullanılan 3. parti yazılımlar (örn. OctoPrint, Printrun, Slic3r, Cura, vb.) tarafından standart yapılandırmalarında üretilen G-Kodu komutlarını desteklemektir. Amacı mümkün olan her G-Kodu komutunu desteklemek değildir. Bunun yerine Klipper, insan tarafından okunabilen <a href="#ek komutlar">"genişletilmiş G Kodu komutlarını"</a> tercih eder. Benzer şekilde, G-Kodu terminal çıktısının yalnızca operatör tarafından okunabilir olması amaçlanmıştır - Eğer terminal çıktıları Klipper harici yazılımlar tarafından kontrol ediliyorsa lütfen <a href="API_Server.html">API Sunucusu belgesine</a> bakınız.</p>
 <p>If one requires a less common G-Code command then it may be possible to implement it with a custom <a href="Config_Reference.html#gcode_macro">gcode_macro config section</a>. For example, one might use this to implement: <code>G12</code>, <code>G29</code>, <code>G30</code>, <code>G31</code>, <code>M42</code>, <code>M80</code>, <code>M81</code>, <code>T1</code>, etc.</p>
-<h2 id="additional-commands">Additional Commands<a class="headerlink" href="#additional-commands" title="Permanent link">&para;</a></h2>
-<p>Klipper uses "extended" G-Code commands for general configuration and status. These extended commands all follow a similar format - they start with a command name and may be followed by one or more parameters. For example: <code>SET_SERVO SERVO=myservo ANGLE=5.3</code>. In this document, the commands and parameters are shown in uppercase, however they are not case sensitive. (So, "SET_SERVO" and "set_servo" both run the same command.)</p>
-<p>This section is organized by Klipper module name, which generally follows the section names specified in the <a href="Config_Reference.html">printer configuration file</a>. Note that some modules are automatically loaded.</p>
+<h2 id="ek-komutlar">Ek Komutlar<a class="headerlink" href="#ek-komutlar" title="Permanent link">&para;</a></h2>
+<p>Klipper, genel yapılandırma ve durum raporları için "genişletilmiş" G-Kodu komutlarını kullanır. Bu genişletilmiş komutların tümü benzer bir formattadır - bir komut adıyla başlarlar ve bir veya birden fazla fazla parametre tarafından takip edilebilirler. Örneğin: "SET_SERVO SERVO=myservo ANGLE=5.3". Bu belgede, komutlar ve parametreler büyük harfle gösterilmiştir, ancak bunlar büyük/küçük harfe duyarlı değildir. (Yani, "SET_SERVO" ve "set_servo" aynı komutu çalıştırır.)</p>
+<p>Bu bölüm, genellikle <a href="Config_Reference.html">yazıcı yapılandırma dosyasında</a> belirtilen bölüm adlarını takip eden Klipper modül adına göre düzenlenmiştir. Bazı modüllerin bazılarının otomatik olarak yüklendiğini unutmayın.</p>
 <h3 id="adxl345">[adxl345]<a class="headerlink" href="#adxl345" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when an <a href="Config_Reference.html#adxl345">adxl345 config section</a> is enabled.</p>
 <h4 id="accelerometer_measure">ACCELEROMETER_MEASURE<a class="headerlink" href="#accelerometer_measure" title="Permanent link">&para;</a></h4>
@@ -2889,7 +2889,7 @@
 <li>Display Message: <code>M117 &lt;message&gt;</code></li>
 <li>Set build percentage: <code>M73 P&lt;percent&gt;</code></li>
 </ul>
-<p>Also provided is the following extended G-Code command:</p>
+<p>Ayrıca aşağıdaki genişletilmiş G-Kodu komutu da sağlanmıştır:</p>
 <ul>
 <li><code>SET_DISPLAY_TEXT MSG=&lt;message&gt;</code>: Performs the equivalent of M117, setting the supplied <code>MSG</code> as the current display message. If <code>MSG</code> is omitted the display will be cleared.</li>
 </ul>
@@ -2933,9 +2933,9 @@
 <h4 id="sync_extruder_motion">SYNC_EXTRUDER_MOTION<a class="headerlink" href="#sync_extruder_motion" title="Permanent link">&para;</a></h4>
 <p><code>SYNC_EXTRUDER_MOTION EXTRUDER=&lt;name&gt; MOTION_QUEUE=&lt;name&gt;</code>: This command will cause the stepper specified by EXTRUDER (as defined in an <a href="Config_Reference.html#extruder">extruder</a> or <a href="Config_Reference.html#extruder_stepper">extruder_stepper</a> config section) to become synchronized to the movement of an extruder specified by MOTION_QUEUE (as defined in an <a href="Config_Reference.html#extruder">extruder</a> config section). If MOTION_QUEUE is an empty string then the stepper will be desynchronized from all extruder movement.</p>
 <h4 id="set_extruder_step_distance">SET_EXTRUDER_STEP_DISTANCE<a class="headerlink" href="#set_extruder_step_distance" title="Permanent link">&para;</a></h4>
-<p>This command is deprecated and will be removed in the near future.</p>
+<p>Bu komut kullanımdan kaldırılmıştır ve yakın zamanda silinecektir.</p>
 <h4 id="sync_stepper_to_extruder">SYNC_STEPPER_TO_EXTRUDER<a class="headerlink" href="#sync_stepper_to_extruder" title="Permanent link">&para;</a></h4>
-<p>This command is deprecated and will be removed in the near future.</p>
+<p>Bu komut kullanımdan kaldırılmıştır ve yakın zamanda silinecektir.</p>
 <h3 id="fan_generic">[fan_generic]<a class="headerlink" href="#fan_generic" title="Permanent link">&para;</a></h3>
 <p>The following command is available when a <a href="Config_Reference.html#fan_generic">fan_generic config section</a> is enabled.</p>
 <h4 id="set_fan_speed">SET_FAN_SPEED<a class="headerlink" href="#set_fan_speed" title="Permanent link">&para;</a></h4>
@@ -3033,7 +3033,7 @@
 <p><code>MANUAL_PROBE [SPEED=&lt;speed&gt;]</code>: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:</p>
 <ul>
 <li><code>ACCEPT</code>: This command accepts the current Z position and concludes the manual probing tool.</li>
-<li><code>ABORT</code>: Bu komut manuel sondalama aracını sonlandırır.</li>
+<li><code>ABORT</code>: Bu komut manuel prob aracını sonlandırır.</li>
 <li><code>TESTZ Z=&lt;value&gt;</code>: This command moves the nozzle up or down by the amount specified in "value". For example, <code>TESTZ Z=-.1</code> would move the nozzle down .1mm while <code>TESTZ Z=.1</code> would move the nozzle up .1mm. The value may also be <code>+</code>, <code>-</code>, <code>++</code>, or <code>--</code> to move the nozzle up or down an amount relative to previous attempts.</li>
 </ul>
 <h4 id="z_endstop_calibrate">Z_ENDSTOP_CALIBRATE<a class="headerlink" href="#z_endstop_calibrate" title="Permanent link">&para;</a></h4>
@@ -3194,11 +3194,11 @@
 <h4 id="set_tmc_field">SET_TMC_FIELD<a class="headerlink" href="#set_tmc_field" title="Permanent link">&para;</a></h4>
 <p><code>SET_TMC_FIELD STEPPER=&lt;name&gt; FIELD=&lt;field&gt; VALUE=&lt;value&gt;</code>: This will alter the value of the specified register field of the TMC driver. This command is intended for low-level diagnostics and debugging only because changing the fields during run-time can lead to undesired and potentially dangerous behavior of your printer. Permanent changes should be made using the printer configuration file instead. No sanity checks are performed for the given values.</p>
 <h3 id="toolhead">[toolhead]<a class="headerlink" href="#toolhead" title="Permanent link">&para;</a></h3>
-<p>The toolhead module is automatically loaded.</p>
+<p>Takım kafası modülü otomatik olarak yüklendi.</p>
 <h4 id="set_velocity_limit">SET_VELOCITY_LIMIT<a class="headerlink" href="#set_velocity_limit" title="Permanent link">&para;</a></h4>
 <p><code>SET_VELOCITY_LIMIT [VELOCITY=&lt;value&gt;] [ACCEL=&lt;value&gt;] [ACCEL_TO_DECEL=&lt;value&gt;] [SQUARE_CORNER_VELOCITY=&lt;value&gt;]</code>: Modify the printer's velocity limits.</p>
 <h3 id="tuning_tower">[tuning_tower]<a class="headerlink" href="#tuning_tower" title="Permanent link">&para;</a></h3>
-<p>The tuning_tower module is automatically loaded.</p>
+<p>tuning_tower modülü otomatik olarak yüklendi.</p>
 <h4 id="tuning_tower_1">TUNING_TOWER<a class="headerlink" href="#tuning_tower_1" title="Permanent link">&para;</a></h4>
 <p><code>TUNING_TOWER COMMAND=&lt;command&gt; PARAMETER=&lt;name&gt; START=&lt;value&gt; [SKIP=&lt;value&gt;] [FACTOR=&lt;value&gt; [BAND=&lt;value&gt;]] | [STEP_DELTA=&lt;value&gt; STEP_HEIGHT=&lt;value&gt;]</code>: A tool for tuning a parameter on each Z height during a print. The tool will run the given <code>COMMAND</code> with the given <code>PARAMETER</code> assigned to a value that varies with <code>Z</code> according to a formula. Use <code>FACTOR</code> if you will use a ruler or calipers to measure the Z height of the optimum value, or <code>STEP_DELTA</code> and <code>STEP_HEIGHT</code> if the tuning tower model has bands of discrete values as is common with temperature towers. If <code>SKIP=&lt;value&gt;</code> is specified, the tuning process doesn't begin until Z height <code>&lt;value&gt;</code> is reached, and below that the value will be set to <code>START</code>; in this case, the <code>z_height</code> used in the formulas below is actually <code>max(z - skip, 0)</code>. There are three possible combinations of options:</p>
 <ul>
@@ -3207,7 +3207,7 @@
 <li><code>STEP_DELTA</code> and <code>STEP_HEIGHT</code>: The value changes by <code>STEP_DELTA</code> every <code>STEP_HEIGHT</code> millimeters. The formula used is: <code>value = start + step_delta * floor(z_height / step_height)</code>. You can simply count bands or read tuning tower labels to determine the optimum value.</li>
 </ul>
 <h3 id="virtual_sdcard">[virtual_sdcard]<a class="headerlink" href="#virtual_sdcard" title="Permanent link">&para;</a></h3>
-<p>Klipper supports the following standard G-Code commands if the <a href="Config_Reference.html#virtual_sdcard">virtual_sdcard config section</a> is enabled:</p>
+<p><a href="Config_Reference.html#virtual_sdcard">virtual_sdcard config section</a> etkinleştirilmişse Klipper aşağıdaki standart G-Kodu komutlarını destekler:</p>
 <ul>
 <li>List SD card: <code>M20</code></li>
 <li>Initialize SD card: <code>M21</code></li>

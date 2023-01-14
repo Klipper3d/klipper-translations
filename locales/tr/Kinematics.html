@@ -1296,8 +1296,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pressure-advance" class="md-nav__link">
-    Pressure advance
+  <a href="#basnc-avans" class="md-nav__link">
+    Basınç avansı
   </a>
   
 </li>
@@ -1409,7 +1409,7 @@ stepper_z_position = cartesian_z_position
 <div class="highlight"><pre><span></span><code>stepper_position = requested_e_position
 </code></pre></div>
 
-<h3 id="pressure-advance">Pressure advance<a class="headerlink" href="#pressure-advance" title="Permanent link">&para;</a></h3>
+<h3 id="basnc-avans">Basınç avansı<a class="headerlink" href="#basnc-avans" title="Permanent link">&para;</a></h3>
 <p>Experimentation has shown that it's possible to improve the modeling of the extruder beyond the basic extruder formula. In the ideal case, as an extrusion move progresses, the same volume of filament should be deposited at each point along the move and there should be no volume extruded after the move. Unfortunately, it's common to find that the basic extrusion formulas cause too little filament to exit the extruder at the start of extrusion moves and for excess filament to extrude after extrusion ends. This is often referred to as "ooze".</p>
 <p><img alt="ooze" src="img/ooze.svg.png" /></p>
 <p>The "pressure advance" system attempts to account for this by using a different model for the extruder. Instead of naively believing that each mm^3 of filament fed into the extruder will result in that amount of mm^3 immediately exiting the extruder, it uses a model based on pressure. Pressure increases when filament is pushed into the extruder (as in <a href="https://en.wikipedia.org/wiki/Hooke%27s_law">Hooke's law</a>) and the pressure necessary to extrude is dominated by the flow rate through the nozzle orifice (as in <a href="https://en.wikipedia.org/wiki/Poiseuille_law">Poiseuille's law</a>). The key idea is that the relationship between filament, pressure, and flow rate can be modeled using a linear coefficient:</p>

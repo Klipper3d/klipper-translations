@@ -1,9 +1,19 @@
-#
+# Kaan Özbilek <info@kaanozbilek.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-01-10 15:50+0000\n"
+"Last-Translator: Kaan Özbilek <info@kaanozbilek.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
+"hall_filament_width_sensor/tr/>\n"
+"Language: tr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid "How does it work?"
-msgstr ""
+msgstr "Nasıl çalışıyor?"
 
 msgid "Template for menu variables"
 msgstr ""
@@ -40,7 +50,7 @@ msgstr ""
 
 #: docs/HallFilamentWidthSensor.md:block 1 (header)
 msgid "Hall filament width sensor"
-msgstr ""
+msgstr "Hall filament genişlik sensörü"
 
 #: docs/HallFilamentWidthSensor.md:block 24 (ordered list)
 msgid "Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`"
