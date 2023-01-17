@@ -1,11 +1,11 @@
 # Roberto Besser <rmbesser@gmail.com>, 2021.
 # Wagner Reck <wagner.reck@gmail.com>, 2022, 2025.
-# Francisco Lima <limamg@gmail.com>, 2023.
+# Francisco Lima <limamg@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:28+0000\n"
-"Last-Translator: Wagner Reck <wagner.reck@gmail.com>\n"
+"Last-Translator: Francisco Lima <limamg@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/tsl1401cl_filament_width_sensor/pt_BR/>\n"
 "Language: pt_BR\n"
