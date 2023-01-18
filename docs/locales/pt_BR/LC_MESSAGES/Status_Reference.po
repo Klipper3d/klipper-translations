@@ -1,9 +1,9 @@
-# Francisco Lima <limamg@gmail.com>, 2023.
+# Francisco Lima <limamg@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:28+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Francisco Lima <limamg@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/status_reference/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -18,9 +18,8 @@ msgid ""
 "fields](Config_Reference.md#display), and via the [API Server](API_Server.md)."
 msgstr ""
 "Este documento é uma referência das informações de status da impressora "
-"disponíveis no Klipper [macros](Command_Templates.md), [campos de "
-"exibição](Config_Reference.md#display) e por meio do [API "
-"Server](API_Server.md)."
+"disponíveis no Klipper [macros](Command_Templates.md), [campos de exibição]"
+"(Config_Reference.md#display) e por meio do [API Server](API_Server.md)."
 
 msgid ""
 "The fields in this document are subject to change - if using an attribute be "
