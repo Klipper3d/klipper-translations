@@ -1,10 +1,10 @@
 # Roberto Besser <rmbesser@gmail.com>, 2021, 2025.
-# Francisco Lima <limamg@gmail.com>, 2023.
+# Francisco Lima <limamg@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:28+0000\n"
-"Last-Translator: Roberto Besser <rmbesser@gmail.com>\n"
+"Last-Translator: Francisco Lima <limamg@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/kinematics/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -21,11 +21,10 @@ msgid ""
 "machines."
 msgstr ""
 "Este documento fornece uma visão geral de como o Klipper implementa o "
-"movimento do robô (sua "
-"[cinemática](https://en.wikipedia.org/wiki/Kinematics)). O conteúdo pode ser "
-"de interesse tanto para desenvolvedores interessados em trabalhar no software "
-"Klipper quanto para usuários interessados em entender melhor a mecânica de "
-"suas máquinas."
+"movimento do robô (sua [cinemática](https://en.wikipedia.org/wiki/"
+"Kinematics)). O conteúdo pode ser de interesse tanto para desenvolvedores "
+"interessados em trabalhar no software Klipper quanto para usuários "
+"interessados em entender melhor a mecânica de suas máquinas."
 
 msgid "Acceleration"
 msgstr ""
