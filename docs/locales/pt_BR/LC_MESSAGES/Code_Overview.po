@@ -1,14 +1,23 @@
-#
+# Francisco Lima <limamg@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-01-19 00:50+0000\n"
+"Last-Translator: Francisco Lima <limamg@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/code_overview/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid ""
 "This document describes the overall code layout and major code flow of "
 "Klipper."
 msgstr ""
+"Este documento descreve o layout de código geral e o fluxo de código "
+"principal do Klipper."
 
 msgid "Directory Layout"
 msgstr ""
