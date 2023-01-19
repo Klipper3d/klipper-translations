@@ -4,35 +4,35 @@ Historique de versions de Klipper. Merci de vous référer a la ressource [insta
 
 ## Klipper 0.11.0
 
-Available on 20221128. Major changes in this release:
+Disponible le 28/11/2022. Changements majeurs dans cette version :
 
-* Trinamic stepper motor driver "step on both edges" optimization.
-* Support for Python3. The Klipper host code will run with either Python2 or Python3.
-* Enhanced CAN bus support. Support for CAN bus on rp2040, stm32g0, stm32h7, same51, and same54 chips. Support for "USB to CAN bus bridge" mode.
-* Support for CanBoot bootloader.
-* Support for mpu9250 and mpu6050 accelerometers.
-* Improved error handling for max31856, max31855, max31865, and max6675 temperature sensors.
-* It is now possible to configure LEDs to update during long running G-Code commands using LED "template" support.
-* Several micro-controller improvements. New support for stm32h743, stm32h750, stm32l412, stm32g0b1, same70, same51, and same54 chips. Support for i2c reads on atsamd and stm32f0. Hardware pwm support on stm32. Linux mcu signal based event dispatch. New rp2040 support for "make flash", i2c, and rp2040-e5 USB errata.
-* New modules added: angle, dac084S085, exclude_object, led, mpu9250, pca9632, smart_effector, z_thermal_adjust. New deltesian kinematics added. New dump_mcu tool added.
+* Optimisation du pilote de moteur pas à pas trinamic "pas sur les deux côtés" ("step on both edges").
+* Prise en charge de Python3. Le code hôte Klipper fonctionnera avec Python2 ou Python3.
+* Prise en charge améliorée du bus CAN. Prise en charge du bus CAN sur les puces rp2040, stm32g0, stm32h7, same51 et same54. Prise en charge du mode "pont USB vers bus CAN".
+* Prise en charge du chargeur de démarrage CanBoot.
+* Prise en charge des accéléromètres mpu9250 et mpu6050.
+* Amélioration de la gestion des erreurs pour les capteurs de température max31856, max31855, max31865 et max6675.
+* Il est désormais possible de configurer les LED pour qu'elles se mettent à jour pendant les longues commandes G-Code à l'aide de la prise en charge du "modèle" de LED.
+* Plusieurs améliorations sur le microcontrôleur. Nouvelle prise en charge des puces stm32h743, stm32h750, stm32l412, stm32g0b1, same70, same51 et same54. Prise en charge des lectures i2c sur atsamd et stm32f0. Prise en charge pwm matérielle sur stm32. Envoi d'événements basé sur le signal Linux mcu. Nouveau support rp2040 pour "make flash", i2c et rp2040-e5 USB errata.
+* Nouveaux modules ajoutés : angle, dac084S085, exclude_object, led, mpu9250, pca9632, smart_effector, z_thermal_adjust. Nouvelle cinématique "deltésienne" ajoutée. Nouvel outil dump_mcu ajouté.
 * Plusieurs corrections de bogues et nettoyages de code.
 
 ## Klipper 0.10.0
 
-Available on 20210929. Major changes in this release:
+Disponible le 29/09/2021. Changements majeurs dans cette version :
 
-* Support for "Multi-MCU Homing". It is now possible for a stepper motor and its endstop to be wired to separate micro-controllers. This simplifies wiring of Z probes on "toolhead boards".
-* Klipper now has a [Community Discord Server](https://discord.klipper3d.org) and a [Community Discourse Server](https://community.klipper3d.org).
-* The [Klipper website](https://www.klipper3d.org) now uses the "mkdocs" infrastructure. There is also a [Klipper Translations](https://github.com/Klipper3d/klipper-translations) project.
-* Automated support for flashing firmware via sdcard on many boards.
-* New kinematic support for "Hybrid CoreXY" and "Hybrid CoreXZ" printers.
-* Klipper now uses `rotation_distance` to configure stepper motor travel distances.
-* The main Klipper host code can now directly communicate with micro-controllers using CAN bus.
-* New "motion analysis" system. Klipper's internal motion updates and sensor results can be tracked and logged for analysis.
-* Trinamic stepper motor drivers are now continuously monitored for error conditions.
-* Support for the rp2040 micro-controller (Raspberry Pi Pico boards).
-* The "make menuconfig" system now utilizes kconfiglib.
-* Many additional modules added: ds18b20, duplicate_pin_override, filament_motion_sensor, palette2, motion_report, pca9533, pulse_counter, save_variables, sdcard_loop, temperature_host, temperature_mcu
+* Prise en charge de la mise à l'origine "Multi-MCU". Il est désormais possible de câbler un pilote de moteur pas à pas et sa fin de course sur des microcontrôleurs séparés. Cela simplifie le câblage des sondes Z sur les "cartes de tête d'outil".
+* Klipper a maintenant un [Serveur Discord](https://discord.klipper3d.org) et un [Serveur Discourse](https://community.klipper3d.org).
+* Le [site Web de Klipper](https://www.klipper3d.org) utilise désormais l'infrastructure "mkdocs". Il existe également un projet [Klipper Translations](https://github.com/Klipper3d/klipper-translations).
+* Prise en charge automatisée du flash du micrologiciel via une carte SD sur de nombreuses cartes.
+* Nouveau support cinématique pour les imprimantes "Hybrid CoreXY" et "Hybrid CoreXZ".
+* Klipper utilise maintenant `rotation_distance` pour configurer les distances de déplacement du moteur pas à pas.
+* Le code hôte principal de Klipper peut désormais communiquer directement avec les microcontrôleurs via le bus CAN.
+* Nouveau système "d'analyse de mouvement". Les mises à jour des mouvements internes de Klipper et les résultats des capteurs peuvent être suivis et enregistrés pour analyse.
+* Les pilotes de moteur pas à pas Trinamic sont désormais surveillés en permanence pour les conditions d'erreur.
+* Prise en charge du microcontrôleur rp2040 (cartes Raspberry Pi Pico).
+* Le système "make menuconfig" utilise maintenant kconfiglib.
+* De nombreux modules supplémentaires ajoutés : ds18b20, duplicate_pin_override, filament_motion_sensor, palette2, motion_report, pca9533, pulse_counter, save_variables, sdcard_loop, temperature_host, temperature_mcu
 * Plusieurs corrections de bogues et nettoyages de code.
 
 ## Klipper 0.9.0
@@ -172,16 +172,16 @@ Disponible le 23/12/2016. Changements majeurs dans cette version :
 * Prise en charge de l'algorithme "d'avance de pression" - il réduit le suintement pendant les impressions.
 * Nouvelle fonctionnalité "butée de fin de course basée sur la phase de moteurs pas à pas" - permet une plus grande précision sur la prise d'origine de la fin de course.
 * Prise en charge des commandes "g-code étendu" telles que "help", "restart" et "status".
-* Support for reloading the Klipper config and restarting the host software by issuing a "restart" command from the terminal.
-* Stepper performance improvements (20Mhz AVRs up to 158K steps per second).
-* Improved error reporting. Most errors now shown via the terminal along with help on how to resolve.
+* Prise en charge du rechargement de la configuration Klipper et du redémarrage du logiciel hôte en émettant une commande "restart" depuis le terminal.
+* Améliorations des performances des moteurs pas à pas (AVR 20Mhz jusqu'à 158K pas par seconde).
+* Gestion des erreurs améliorée. La plupart des erreurs sont maintenant affichées via le terminal avec une aide sur la façon de les résoudre.
 * Plusieurs corrections de bogues et nettoyages de code
 
 ## Klipper 0.2.0
 
-Initial release of Klipper. Available on 20160525. Major features available in the initial release include:
+Première version de Klipper. Disponible le 25/05/2016. Les principales fonctionnalités disponibles dans la version initiale incluent :
 
-* Basic support for cartesian printers (steppers, extruder, heated bed, cooling fan).
-* Support for common g-code commands. Support for interfacing with OctoPrint.
-* Acceleration and lookahead handling
-* Support for AVR micro-controllers via standard serial ports
+* Prise en charge de base des imprimantes cartésiennes (moteurs pas à pas, extrudeur, lit chauffant, ventilateur de refroidissement).
+* Prise en charge des commandes g-code de base. Prise en charge de l'interfaçage avec OctoPrint.
+* Accélération et gestion de l'anticipation
+* Prise en charge des microcontrôleurs AVR via des ports série standard

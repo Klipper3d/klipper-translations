@@ -1,6 +1,6 @@
 # BL-Touch
 
-## Connecting BL-Touch
+## Conectando o BL-Touch
 
 A **warning** before you start: Avoid touching the BL-Touch pin with your bare fingers, since it is quite sensitive to finger grease. And if you do touch it, be very gentle, in order to not bend or push anything.
 

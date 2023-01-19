@@ -1,6 +1,6 @@
 # SDCard updates
 
-Many of today's popular controller boards ship with a bootloader capable of updating firmware via SD Card. While this is convenient in many circumstances, these bootloaders typically provide no other way to update firmware. This can be a nuisance if your board is mounted in a location that is difficult to access or if you need to update firmware often. After Klipper has been initially flashed to a controller it is possible to transfer new firmware to the SD Card and initiate the flashing procedure via ssh.
+Muitas das placas controladoras populares de hoje vêm com um bootloader capaz de atualizar o firmware via cartão SD. Embora isso seja conveniente em muitas circunstâncias, esses gerenciadores de inicialização geralmente não fornecem outra maneira de atualizar o firmware. Isso pode ser um incômodo se sua placa estiver montada em um local de difícil acesso ou se você precisar atualizar o firmware com frequência. Depois que o Klipper foi inicialmente atualizado para um controlador, é possível transferir o novo firmware para o cartão SD e iniciar o procedimento de atualização via ssh.
 
 ## Typical Upgrade Procedure
 

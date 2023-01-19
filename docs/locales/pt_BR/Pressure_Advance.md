@@ -1,6 +1,6 @@
 # Avanço de pressão
 
-This document provides information on tuning the "pressure advance" configuration variable for a particular nozzle and filament. The pressure advance feature can be helpful in reducing ooze. For more information on how pressure advance is implemented see the [kinematics](Kinematics.md) document.
+Este documento fornece informações sobre como ajustar a variável de configuração "avanço de pressão" para um bico e filamento específicos. O recurso de avanço de pressão pode ser útil para reduzir o lodo. Para obter mais informações sobre como o avanço de pressão é implementado, consulte o documento [kinematics](Kinematics.md).
 
 ## Tuning pressure advance
 

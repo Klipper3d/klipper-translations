@@ -1,6 +1,6 @@
 # Fatiadores
 
-This document provides some tips for configuring a "slicer" application for use with Klipper. Common slicers used with Klipper are Slic3r, Cura, Simplify3D, etc.
+Este documento fornece algumas dicas para configurar um aplicativo "slicer" para uso com o Klipper. Slicers comuns usados com o Klipper são Slic3r, Cura, Simplify3D, etc.
 
 ## Set the G-Code flavor to Marlin
 
