@@ -33,7 +33,7 @@ serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 
 Обязательно скопируйте и вставьте имя из команды «ls», которую вы запустили выше, так как имя будет разным для каждого принтера.
 
-If you are using multiple micro-controllers and they do not have unique ids (common on boards with a CH340 USB chip) then follow the directions above using the command `ls /dev/serial/by-path/*` instead.
+Если вы используете несколько микроконтроллеров, которые не имеют уникальных идентификаторов (распространены на чипах CH340 USB) тогда следуйте инструкциям выше, используя команду `ls /dev/serial/by-path/*` вместо этого.
 
 ## When the micro-controller restarts the device changes to /dev/ttyUSB1
 

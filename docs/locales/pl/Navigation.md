@@ -4,7 +4,7 @@ Instalacja i konfiguracja
 
 Informacje o konfiguracji
 
-Bed Level
+Poziomowanie stołu
 
 Kompensacja rezonansu
 

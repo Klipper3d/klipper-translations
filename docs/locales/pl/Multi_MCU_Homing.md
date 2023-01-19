@@ -2,11 +2,11 @@
 
 Klipper wspiera mechanizm homingu z endstopem podłączonym do jednego mikrokontrolera, podczas gdy jego silniki krokowe są na innym mikrokontrolerze. Ta obsługa jest określana jako "multi-mcu homing". Funkcja ta jest również wykorzystywana, gdy sonda Z znajduje się na innym mikrokontrolerze niż silniki krokowe Z.
 
-This feature can be useful to simplify wiring, as it may be more convenient to attach an endstop or probe to a closer micro-controller. However, using this feature may result in "overshoot" of the stepper motors during homing and probing operations.
+Funkcja ta może być przydatna do uproszczenia okablowania, ponieważ wygodniejsze może być dołączenie ogranicznika krańcowego lub sondy do bliższego mikrokontrolera. Jednakże użycie tej funkcji może spowodować "przesterowanie" silników krokowych podczas operacji naprowadzania i sondowania.
 
 The overshoot occurs due to possible message transmission delays between the micro-controller monitoring the endstop and the micro-controllers moving the stepper motors. The Klipper code is designed to limit this delay to no more than 25ms. (When multi-mcu homing is activated, the micro-controllers send periodic status messages and check that corresponding status messages are received within 25ms.)
 
-So, for example, if homing at 10mm/s then it is possible for an overshoot of up to 0.250mm (10mm/s * .025s == 0.250mm). Care should be taken when configuring multi-mcu homing to account for this type of overshoot. Using slower homing or probing speeds can reduce the overshoot.
+Tak więc, na przykład, jeśli naprowadzanie odbywa się z prędkością 10mm/s, możliwe jest przekroczenie zakresu do 0.250mm (10mm/s * .025s == 0.250mm). Należy zachować ostrożność podczas konfigurowania naprowadzania za pomocą wielu modułów, aby uwzględnić ten rodzaj przekroczenia. Użycie wolniejszych prędkości naprowadzania lub sondowania może zredukować przekroczenie prędkości.
 
 Stepper motor overshoot should not adversely impact the precision of the homing and probing procedure. The Klipper code will detect the overshoot and account for it in its calculations. However, it is important that the hardware design is capable of handling overshoot without causing damage to the machine.
 
