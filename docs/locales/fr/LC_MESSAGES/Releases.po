@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-12 18:50+0000\n"
-"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
+"PO-Revision-Date: 2023-01-17 09:51+0000\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/releases/"
 "fr/>\n"
 "Language: fr\n"
@@ -582,38 +582,51 @@ msgid ""
 "Support for reloading the Klipper config and restarting the host software by "
 "issuing a \"restart\" command from the terminal."
 msgstr ""
+"Prise en charge du rechargement de la configuration Klipper et du "
+"redémarrage du logiciel hôte en émettant une commande \"restart\" depuis le "
+"terminal."
 
 msgid ""
 "Stepper performance improvements (20Mhz AVRs up to 158K steps per second)."
 msgstr ""
+"Améliorations des performances des moteurs pas à pas (AVR 20Mhz jusqu'à 158K "
+"pas par seconde)."
 
 msgid ""
 "Improved error reporting. Most errors now shown via the terminal along with "
 "help on how to resolve."
 msgstr ""
+"Gestion des erreurs améliorée. La plupart des erreurs sont maintenant "
+"affichées via le terminal avec une aide sur la façon de les résoudre."
 
 msgid "Klipper 0.2.0"
-msgstr ""
+msgstr "Klipper 0.2.0"
 
 msgid ""
 "Initial release of Klipper. Available on 20160525. Major features available "
 "in the initial release include:"
 msgstr ""
+"Première version de Klipper. Disponible le 25/05/2016. Les principales "
+"fonctionnalités disponibles dans la version initiale incluent :"
 
 msgid ""
 "Basic support for cartesian printers (steppers, extruder, heated bed, "
 "cooling fan)."
 msgstr ""
+"Prise en charge de base des imprimantes cartésiennes (moteurs pas à pas, "
+"extrudeur, lit chauffant, ventilateur de refroidissement)."
 
 msgid ""
 "Support for common g-code commands. Support for interfacing with OctoPrint."
 msgstr ""
+"Prise en charge des commandes g-code de base. Prise en charge de "
+"l'interfaçage avec OctoPrint."
 
 msgid "Acceleration and lookahead handling"
-msgstr ""
+msgstr "Accélération et gestion de l'anticipation"
 
 msgid "Support for AVR micro-controllers via standard serial ports"
-msgstr ""
+msgstr "Prise en charge des microcontrôleurs AVR via des ports série standard"
 
 #: docs/Releases.md:block 1 (header)
 msgid "Releases"
@@ -621,11 +634,11 @@ msgstr "Versions"
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.10.0"
-msgstr ""
+msgstr "Klipper 0.10.0"
 
 #: docs/Releases.md:block 4 (paragraph)
 msgid "Available on 20210929. Major changes in this release:"
-msgstr ""
+msgstr "Disponible le 29/09/2021. Changements majeurs dans cette version :"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -633,12 +646,18 @@ msgid ""
 "its endstop to be wired to separate micro-controllers. This simplifies "
 "wiring of Z probes on \"toolhead boards\"."
 msgstr ""
+"Prise en charge de la mise à l'origine \"Multi-MCU\". Il est désormais "
+"possible de câbler un pilote de moteur pas à pas et sa fin de course sur des "
+"microcontrôleurs séparés. Cela simplifie le câblage des sondes Z sur les "
+"\"cartes de tête d'outil\"."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Klipper now has a [Community Discord Server](https://discord.klipper3d.org) "
 "and a [Community Discourse Server](https://community.klipper3d.org)."
 msgstr ""
+"Klipper a maintenant un [Serveur Discord](https://discord.klipper3d.org) et "
+"un [Serveur Discourse](https://community.klipper3d.org)."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -646,47 +665,63 @@ msgid ""
 "infrastructure. There is also a [Klipper Translations](https://github.com/"
 "Klipper3d/klipper-translations) project."
 msgstr ""
+"Le [site Web de Klipper](https://www.klipper3d.org) utilise désormais "
+"l'infrastructure \"mkdocs\". Il existe également un projet [Klipper "
+"Translations](https://github.com/Klipper3d/klipper-translations)."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Automated support for flashing firmware via sdcard on many boards."
 msgstr ""
+"Prise en charge automatisée du flash du micrologiciel via une carte SD sur "
+"de nombreuses cartes."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "New kinematic support for \"Hybrid CoreXY\" and \"Hybrid CoreXZ\" printers."
 msgstr ""
+"Nouveau support cinématique pour les imprimantes \"Hybrid CoreXY\" et "
+"\"Hybrid CoreXZ\"."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Klipper now uses `rotation_distance` to configure stepper motor travel "
 "distances."
 msgstr ""
+"Klipper utilise maintenant `rotation_distance` pour configurer les distances "
+"de déplacement du moteur pas à pas."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "The main Klipper host code can now directly communicate with micro-"
 "controllers using CAN bus."
 msgstr ""
+"Le code hôte principal de Klipper peut désormais communiquer directement "
+"avec les microcontrôleurs via le bus CAN."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "New \"motion analysis\" system. Klipper's internal motion updates and sensor "
 "results can be tracked and logged for analysis."
 msgstr ""
+"Nouveau système \"d'analyse de mouvement\". Les mises à jour des mouvements "
+"internes de Klipper et les résultats des capteurs peuvent être suivis et "
+"enregistrés pour analyse."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Trinamic stepper motor drivers are now continuously monitored for error "
 "conditions."
 msgstr ""
+"Les pilotes de moteur pas à pas Trinamic sont désormais surveillés en "
+"permanence pour les conditions d'erreur."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Support for the rp2040 micro-controller (Raspberry Pi Pico boards)."
-msgstr ""
+msgstr "Prise en charge du microcontrôleur rp2040 (cartes Raspberry Pi Pico)."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "The \"make menuconfig\" system now utilizes kconfiglib."
-msgstr ""
+msgstr "Le système \"make menuconfig\" utilise maintenant kconfiglib."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -694,50 +729,66 @@ msgid ""
 "filament_motion_sensor, palette2, motion_report, pca9533, pulse_counter, "
 "save_variables, sdcard_loop, temperature_host, temperature_mcu"
 msgstr ""
+"De nombreux modules supplémentaires ajoutés : ds18b20, "
+"duplicate_pin_override, filament_motion_sensor, palette2, motion_report, "
+"pca9533, pulse_counter, save_variables, sdcard_loop, temperature_host, "
+"temperature_mcu"
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.11.0"
-msgstr ""
+msgstr "Klipper 0.11.0"
 
 #: docs/Releases.md:block 4 (paragraph)
 msgid "Available on 20221128. Major changes in this release:"
-msgstr ""
+msgstr "Disponible le 28/11/2022. Changements majeurs dans cette version :"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Trinamic stepper motor driver \"step on both edges\" optimization."
 msgstr ""
+"Optimisation du pilote de moteur pas à pas trinamic \"pas sur les deux "
+"côtés\" (\"step on both edges\")."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Support for Python3. The Klipper host code will run with either Python2 or "
 "Python3."
 msgstr ""
+"Prise en charge de Python3. Le code hôte Klipper fonctionnera avec Python2 "
+"ou Python3."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Enhanced CAN bus support. Support for CAN bus on rp2040, stm32g0, stm32h7, "
 "same51, and same54 chips. Support for \"USB to CAN bus bridge\" mode."
 msgstr ""
+"Prise en charge améliorée du bus CAN. Prise en charge du bus CAN sur les "
+"puces rp2040, stm32g0, stm32h7, same51 et same54. Prise en charge du mode "
+"\"pont USB vers bus CAN\"."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Support for CanBoot bootloader."
-msgstr ""
+msgstr "Prise en charge du chargeur de démarrage CanBoot."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Support for mpu9250 and mpu6050 accelerometers."
-msgstr ""
+msgstr "Prise en charge des accéléromètres mpu9250 et mpu6050."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Improved error handling for max31856, max31855, max31865, and max6675 "
 "temperature sensors."
 msgstr ""
+"Amélioration de la gestion des erreurs pour les capteurs de température "
+"max31856, max31855, max31865 et max6675."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "It is now possible to configure LEDs to update during long running G-Code "
 "commands using LED \"template\" support."
 msgstr ""
+"Il est désormais possible de configurer les LED pour qu'elles se mettent à "
+"jour pendant les longues commandes G-Code à l'aide de la prise en charge du "
+"\"modèle\" de LED."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -747,6 +798,11 @@ msgid ""
 "based event dispatch. New rp2040 support for \"make flash\", i2c, and rp2040-"
 "e5 USB errata."
 msgstr ""
+"Plusieurs améliorations sur le microcontrôleur. Nouvelle prise en charge des "
+"puces stm32h743, stm32h750, stm32l412, stm32g0b1, same70, same51 et same54. "
+"Prise en charge des lectures i2c sur atsamd et stm32f0. Prise en charge pwm "
+"matérielle sur stm32. Envoi d'événements basé sur le signal Linux mcu. "
+"Nouveau support rp2040 pour \"make flash\", i2c et rp2040-e5 USB errata."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -754,3 +810,6 @@ msgid ""
 "smart_effector, z_thermal_adjust. New deltesian kinematics added. New "
 "dump_mcu tool added."
 msgstr ""
+"Nouveaux modules ajoutés : angle, dac084S085, exclude_object, led, mpu9250, "
+"pca9632, smart_effector, z_thermal_adjust. Nouvelle cinématique \"deltésienne"
+"\" ajoutée. Nouvel outil dump_mcu ajouté."
