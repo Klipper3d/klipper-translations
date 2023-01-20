@@ -1,15 +1,18 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
+# gnu-ewm <gnu.ewm@protonmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-03 11:20+0000\n"
-"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/multi_mcu_homing/pl/>\n"
+"PO-Revision-Date: 2023-01-14 20:48+0000\n"
+"Last-Translator: gnu-ewm <gnu.ewm@protonmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
+"multi_mcu_homing/pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 #: docs/Multi_MCU_Homing.md:block 1 (header)
 msgid "Multiple Micro-controller Homing and Probing"
@@ -36,6 +39,11 @@ msgid ""
 "this feature may result in \"overshoot\" of the stepper motors during homing"
 " and probing operations."
 msgstr ""
+"Funkcja ta może być przydatna do uproszczenia okablowania, ponieważ "
+"wygodniejsze może być dołączenie ogranicznika krańcowego lub sondy do "
+"bliższego mikrokontrolera. Jednakże użycie tej funkcji może spowodować "
+"\"przesterowanie\" silników krokowych podczas operacji naprowadzania i "
+"sondowania."
 
 #: docs/Multi_MCU_Homing.md:block 4 (paragraph)
 msgid ""
@@ -54,6 +62,12 @@ msgid ""
 "configuring multi-mcu homing to account for this type of overshoot. Using "
 "slower homing or probing speeds can reduce the overshoot."
 msgstr ""
+"Tak więc, na przykład, jeśli naprowadzanie odbywa się z prędkością 10mm/s, "
+"możliwe jest przekroczenie zakresu do 0.250mm (10mm/s * .025s == 0.250mm). "
+"Należy zachować ostrożność podczas konfigurowania naprowadzania za pomocą "
+"wielu modułów, aby uwzględnić ten rodzaj przekroczenia. Użycie wolniejszych "
+"prędkości naprowadzania lub sondowania może zredukować przekroczenie "
+"prędkości."
 
 #: docs/Multi_MCU_Homing.md:block 6 (paragraph)
 msgid ""

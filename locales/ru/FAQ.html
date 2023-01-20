@@ -1425,7 +1425,7 @@ serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 </code></pre></div>
 
 <p>Обязательно скопируйте и вставьте имя из команды «ls», которую вы запустили выше, так как имя будет разным для каждого принтера.</p>
-<p>If you are using multiple micro-controllers and they do not have unique ids (common on boards with a CH340 USB chip) then follow the directions above using the command <code>ls /dev/serial/by-path/*</code> instead.</p>
+<p>Если вы используете несколько микроконтроллеров, которые не имеют уникальных идентификаторов (распространены на чипах CH340 USB) тогда следуйте инструкциям выше, используя команду <code>ls /dev/serial/by-path/*</code> вместо этого.</p>
 <h2 id="when-the-micro-controller-restarts-the-device-changes-to-devttyusb1">When the micro-controller restarts the device changes to /dev/ttyUSB1<a class="headerlink" href="#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1" title="Permanent link">&para;</a></h2>
 <p>Follow the directions in the "<a href="#wheres-my-serial-port">Where's my serial port?</a>" section to prevent this from occurring.</p>
 <h2 id="the-make-flash-command-doesnt-work">The "make flash" command doesn't work<a class="headerlink" href="#the-make-flash-command-doesnt-work" title="Permanent link">&para;</a></h2>

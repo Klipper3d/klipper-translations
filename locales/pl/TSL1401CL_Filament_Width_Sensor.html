@@ -1226,8 +1226,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#note" class="md-nav__link">
-    Note:
+  <a href="#uwaga" class="md-nav__link">
+    Uwaga:
   </a>
   
 </li>
@@ -1250,11 +1250,11 @@
 
 
 <h1 id="tsl1401cl-czujnik-szerokosci-filamentu">TSL1401CL czujnik szerokości filamentu<a class="headerlink" href="#tsl1401cl-czujnik-szerokosci-filamentu" title="Permanent link">&para;</a></h1>
-<p>This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on TSL1401CL linear sensor array but it can work with any sensor array that has analog output. You can find designs at <a href="https://www.thingiverse.com/search?q=filament%20width%20sensor">Thingiverse</a>.</p>
-<p>To use a sensor array as a filament width sensor, read <a href="Config_Reference.html#tsl1401cl_filament_width_sensor">Config Reference</a> and <a href="G-Codes.html#hall_filament_width_sensor">G-Code documentation</a>.</p>
+<p>Niniejszy dokument opisuje czujnik szerokości włókna. Sprzęt użyty do opracowania tego modułu bazuje na liniowym układzie czujników TSL1401CL, ale może on współpracować z dowolnym układem czujników z wyjściem analogowym. Projekty można znaleźć na stronie <a href="https://www.thingiverse.com/search?q=filament%20width%20sensor">Thingiverse</a>.</p>
+<p>Aby użyć tablicy czujników jako czujnika szerokości włókna, przeczytaj <a href="Config_Reference.html#tsl1401cl_filament_width_sensor">Config Reference</a> i <a href="G-Codes.html#hall_filament_width_sensor">G-Code documentation</a>.</p>
 <h2 id="jak-to-dziaa">Jak to działa?<a class="headerlink" href="#jak-to-dziaa" title="Permanent link">&para;</a></h2>
 <p>Czujnik generuje wyjście analogowe na podstawie obliczonej szerokości żarnika. Napięcie wyjściowe jest zawsze równe wykrytej szerokości włókna (np. 1.65v, 1.70v, 3.0v). Moduł hosta monitoruje zmiany napięcia i dostosowuje mnożnik ekstruzji.</p>
-<h2 id="note">Note:<a class="headerlink" href="#note" title="Permanent link">&para;</a></h2>
+<h2 id="uwaga">Uwaga:<a class="headerlink" href="#uwaga" title="Permanent link">&para;</a></h2>
 <p>Odczyty czujnika są domyślnie wykonywane w odstępach co 10 mm. W razie potrzeby można zmienić to ustawienie poprzez edycję parametru <strong><em>MEASUREMENT_INTERVAL_MM</em></strong> w pliku <strong>filament_width_sensor.py</strong>.</p>
 
               

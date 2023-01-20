@@ -1,12 +1,19 @@
-#
+# Francisco Lima <limamg@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-01-19 00:50+0000\n"
+"Last-Translator: Francisco Lima <limamg@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/contributing/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid "Contributing to Klipper"
-msgstr ""
+msgstr "Contribuindo para o Klipper"
 
 msgid ""
 "It is important to have a \"Signed-off-by\" line on each commit - it "
