@@ -78,7 +78,7 @@ By convention, Klipper "endpoints" are of the form `<module_name>/<some_name>`. 
 
 ### 信息
 
-The "info" endpoint is used to obtain system and version information from Klipper. It is also used to provide the client's version information to Klipper. For example: `{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}`
+“info” 用于从Klipper获取系统和版本信息。同时也被用来向Klipper提供客户端的版本信息。比如说`{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}`
 
 If present, the "client_info" parameter must be a dictionary, but that dictionary may have arbitrary contents. Clients are encouraged to provide the name of the client and its software version when first connecting to the Klipper API server.
 
@@ -100,7 +100,7 @@ gcode:
   {action_call_remote_method("paneldue_beep", frequency=300, duration=1.0)}
 ```
 
-When the PANELDUE_BEEP gcode macro is executed, Klipper would send something like the following over the socket: `{"action": "run_paneldue_beep", "params": {"frequency": 300, "duration": 1.0}}`
+当PANELDUE_BEEP gcode宏被执行时，Klipper将通过套接字发送类似以下内容：`{"action": "run_paneldue_beep", "params": {"frequency": 300, "duration": 1.0}}`
 
 ### objects/list
 

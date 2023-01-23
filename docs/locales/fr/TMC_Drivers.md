@@ -1,86 +1,86 @@
-# TMC drivers
+# Pilotes de moteur pas à pas TMC
 
 Ce document fournit des informations sur l'utilisation des pilotes de moteur pas à pas Trinamic en mode SPI/UART sur Klipper.
 
-Klipper can also use Trinamic drivers in their "standalone mode". However, when the drivers are in this mode, no special Klipper configuration is needed and the advanced Klipper features discussed in this document are not available.
+Klipper peut également utiliser les pilotes Trinamic dans leur "mode autonome". Cependant, lorsque les pilotes sont dans ce mode, aucune configuration spéciale de Klipper n'est possible et les fonctionnalités avancées de Klipper décrites dans ce document ne sont pas disponibles.
 
-In addition to this document, be sure to review the [TMC driver config reference](Config_Reference.md#tmc-stepper-driver-configuration).
+En plus de ce document, veillez à consulter la [référence de configuration du pilote TMC](Config_Reference.md#tmc-stepper-driver-configuration).
 
-## Tuning motor current
+## Réglage du courant du moteur
 
-A higher driver current increases positional accuracy and torque. However, a higher current also increases the heat produced by the stepper motor and the stepper motor driver. If the stepper motor driver gets too hot it will disable itself and Klipper will report an error. If the stepper motor gets too hot, it loses torque and positional accuracy. (If it gets very hot it may also melt plastic parts attached to it or near it.)
+Un courant de commande plus élevé augmente la précision de positionnement et le couple. Cependant, un courant plus élevé augmente également la chaleur produite par le moteur pas à pas et le pilote du moteur pas à pas. Si le pilote du moteur pas à pas devient trop chaud, il se désactivera et Klipper signalera une erreur. Si le moteur pas à pas devient trop chaud, il perd du couple et de la précision de positionnement. (S'il devient très chaud, il peut également faire fondre les pièces en plastique qui y sont attachées ou à proximité.)
 
-As a general tuning tip, prefer higher current values as long as the stepper motor does not get too hot and the stepper motor driver does not report warnings or errors. In general, it is okay for the stepper motor to feel warm, but it should not become so hot that it is painful to touch.
+Comme conseil de réglage général : préférez des valeurs de courant plus élevées tant que le moteur pas à pas ne chauffe pas trop et que le pilote du moteur pas à pas ne signale pas d'avertissements ou d'erreurs. En général, il est normal que le moteur pas à pas soit chaud, mais il ne doit pas devenir si chaud qu'il soit douloureux au toucher.
 
-## Prefer to not specify a hold_current
+## Ne spécifiez pas de hold_current
 
-If one configures a `hold_current` then the TMC driver can reduce current to the stepper motor when it detects that the stepper is not moving. However, changing motor current may itself introduce motor movement. This may occur due to "detent forces" within the stepper motor (the permanent magnet in the rotor pulls towards the iron teeth in the stator) or due to external forces on the axis carriage.
+Si l'on configure un `hold_current`, le pilote TMC peut réduire le courant vers le moteur pas à pas lorsqu'il détecte que le moteur pas à pas ne bouge pas. Cependant, la modification du courant du moteur peut elle-même introduire un mouvement du moteur. Cela peut se produire en raison de "forces de détente" dans le moteur pas à pas (l'aimant permanent du rotor tire vers les dents en fer du stator) ou en raison de forces externes sur le chariot d'axe.
 
-Most stepper motors will not obtain a significant benefit to reducing current during normal prints, because few printing moves will leave a stepper motor idle for sufficiently long to activate the `hold_current` feature. And, it is unlikely that one would want to introduce subtle print artifacts to the few printing moves that do leave a stepper idle sufficiently long.
+La plupart des moteurs pas à pas ne fonctionneront pas mieux en réduisant le courant pendant les impressions normales, car peu de mouvements d'impression laisseront un moteur pas à pas inactif suffisamment longtemps pour activer la fonction `hold_current`. Et, il est peu probable que l'on veuille introduire des artefacts d'impression dans les quelques mouvements d'impression qui laissent un stepper inactif suffisamment longtemps.
 
-If one wishes to reduce current to motors during print start routines, then consider issuing [SET_TMC_CURRENT](G-Codes.md#set_tmc_current) commands in a [START_PRINT macro](Slicers.md#klipper-gcode_macro) to adjust the current before and after normal printing moves.
+Si l'on souhaite réduire le courant vers les moteurs pendant les routines de démarrage d'impression, envisagez d'émettre des commandes [SET_TMC_CURRENT](G-Codes.md#set_tmc_current) dans une [MACRO START_PRINT](Slicers.md#klipper-gcode_macro) pour ajuster le courant avant et après les mouvements d'impression normaux.
 
-Some printers with dedicated Z motors that are idle during normal printing moves (no bed_mesh, no bed_tilt, no Z skew_correction, no "vase mode" prints, etc.) may find that Z motors do run cooler with a `hold_current`. If implementing this then be sure to take into account this type of uncommanded Z axis movement during bed leveling, bed probing, probe calibration, and similar. The `driver_TPOWERDOWN` and `driver_IHOLDDELAY` should also be calibrated accordingly. If unsure, prefer to not specify a `hold_current`.
+Certaines imprimantes avec des moteurs Z dédiés qui sont inactifs pendant les mouvements d'impression normaux (pas de bed_mesh, pas de bed_tilt, pas de Z skew_correction, pas d'impressions en "mode vase", etc.) peuvent constater que les moteurs Z fonctionnent plus froid avec un `hold_current`. Si vous l'implémentez, assurez-vous de prendre en compte ce type de mouvement non commandé de l'axe Z pendant le nivellement du lit, le sondage du lit, l'étalonnage de la sonde, etc. Le `driver_TPOWERDOWN` et le `driver_IHOLDDELAY` doivent également être calibrés en conséquence. En cas de doute, préférez ne pas spécifier de `hold_current`.
 
-## Setting "spreadCycle" vs "stealthChop" Mode
+## Réglage du mode "spreadCycle" vs "stealthChop"
 
-By default, Klipper places the TMC drivers in "spreadCycle" mode. If the driver supports "stealthChop" then it can be enabled by adding `stealthchop_threshold: 999999` to the TMC config section.
+Par défaut, Klipper place les pilotes TMC en mode "spreadCycle". Si le pilote prend en charge "stealthChop", il peut être activé en ajoutant `stealthchop_threshold : 999999` à la section de configuration TMC.
 
-In general, spreadCycle mode provides greater torque and greater positional accuracy than stealthChop mode. However, stealthChop mode may produce significantly lower audible noise on some printers.
+Le mode spreadCycle fournit un couple supérieur et une plus grande précision de positionnement que le mode stealthChop. Cependant, le mode StealthChop peut produire un bruit audible nettement plus faible sur certaines imprimantes.
 
-Tests comparing modes have shown an increased "positional lag" of around 75% of a full-step during constant velocity moves when using stealthChop mode (for example, on a printer with 40mm rotation_distance and 200 steps_per_rotation, position deviation of constant speed moves increased by ~0.150mm). However, this "delay in obtaining the requested position" may not manifest as a significant print defect and one may prefer the quieter behavior of stealthChop mode.
+Les tests comparant les modes ont montré un "décalage de position" accru d'environ 75 % d'un pas complet lors de mouvements à vitesse constante lors de l'utilisation du mode StealthChop (par exemple, sur une imprimante avec une distance de rotation de 40 mm et 200 pas_par_rotation, l'écart de position des mouvements à vitesse constante a augmenté de ~0,150 mm). Cependant, ce "retard dans l'obtention de la position demandée" peut ne pas se manifester par un défaut d'impression significatif et on peut préférer le comportement plus silencieux du mode StealthChop.
 
-It is recommended to always use "spreadCycle" mode (by not specifying `stealthchop_threshold`) or to always use "stealthChop" mode (by setting `stealthchop_threshold` to 999999). Unfortunately, the drivers often produce poor and confusing results if the mode changes while the motor is at a non-zero velocity.
+Il est recommandé de toujours utiliser le mode "spreadCycle" (en ne spécifiant pas `stealthchop_threshold`) ou de toujours utiliser le mode "stealthChop" (en réglant `stealthchop_threshold` sur 999999). Malheureusement, les pilotes produisent souvent des résultats médiocres et erronés si le mode est changé alors que le moteur tourne.
 
-## TMC interpolate setting introduces small position deviation
+## Le réglage d'interpolation TMC introduit un petit écart de position
 
-The TMC driver `interpolate` setting may reduce the audible noise of printer movement at the cost of introducing a small systemic positional error. This systemic positional error results from the driver's delay in executing "steps" that Klipper sends it. During constant velocity moves, this delay results in a positional error of nearly half a configured microstep (more precisely, the error is half a microstep distance minus a 512th of a full step distance). For example, on an axis with a 40mm rotation_distance, 200 steps_per_rotation, and 16 microsteps, the systemic error introduced during constant velocity moves is ~0.006mm.
+Le paramètre `interpolation` du pilote TMC peut réduire le bruit audible du mouvement de l'imprimante au prix de l'introduction d'une petite erreur de position systémique. Cette erreur de position systémique résulte du retard du conducteur à exécuter les "étapes" que Klipper lui envoie. Pendant les déplacements à vitesse constante, ce retard entraîne une erreur de position de près d'un demi-micropas configuré (plus précisément, l'erreur est d'une demi-distance de micropas moins un 512e de distance d'un pas complet). Par exemple, sur un axe avec une rotation_distance de 40 mm, 200 pas_par_rotation et 16 micropas, l'erreur systémique introduite lors des mouvements à vitesse constante est d'environ 0,006 mm.
 
-For best positional accuracy consider using spreadCycle mode and disable interpolation (set `interpolate: False` in the TMC driver config). When configured this way, one may increase the `microstep` setting to reduce audible noise during stepper movement. Typically, a microstep setting of `64` or `128` will have similar audible noise as interpolation, and do so without introducing a systemic positional error.
+Pour une meilleure précision de positionnement, envisagez d'utiliser le mode spreadCycle et désactivez l'interpolation (définissez `interpolate : False` dans la configuration du pilote TMC). Lorsqu'il est configuré de cette façon, on peut augmenter le paramètre `microstep` pour réduire le bruit audible pendant le mouvement pas à pas. En règle générale, un réglage de micropas de `64` ou `128` aura un bruit audible similaire à celui de l'interpolation, et ce, sans introduire d'erreur de position systémique.
 
-If using stealthChop mode then the positional inaccuracy from interpolation is small relative to the positional inaccuracy introduced from stealthChop mode. Therefore tuning interpolation is not considered useful when in stealthChop mode, and one can leave interpolation in its default state.
+Si vous utilisez le mode StealthChop, l'imprécision de position due à l'interpolation est faible par rapport à l'imprécision de position introduite à partir du mode StealthChop. Par conséquent, le réglage de l'interpolation n'est pas considérée comme utile en mode StealthChop, et on peut laisser l'interpolation dans son état par défaut.
 
-## Sensorless Homing
+## Mise à l'origine sans capteur
 
-Sensorless homing allows to home an axis without the need for a physical limit switch. Instead, the carriage on the axis is moved into the mechanical limit making the stepper motor lose steps. The stepper driver senses the lost steps and indicates this to the controlling MCU (Klipper) by toggling a pin. This information can be used by Klipper as end stop for the axis.
+La mise à l'origine ans capteur permet de référencer un axe sans avoir besoin d'une fin de course physique. Au lieu de cela, le chariot sur l'axe est déplacé dans la limite mécanique, ce qui fait perdre des pas au moteur pas à pas. Le pilote pas à pas détecte les pas perdus et l'indique au MCU de contrôle (Klipper) en basculant une broche. Cette information peut être utilisée par Klipper comme fin de course pour l'axe.
 
-This guide covers the setup of sensorless homing for the X axis of your (cartesian) printer. However, it works the same with all other axes (that require an end stop). You should configure and tune it for one axis at a time.
+Ce guide couvre la configuration de la mise à l'origine sans capteur pour l'axe X de votre imprimante (cartésienne). Cependant, cela fonctionne de la même manière avec tous les autres axes (qui nécessitent une fin de course). Vous devez le configurer et le régler pour un axe à la fois.
 
-### Limitations
+### Limites
 
-Be sure that your mechanical components are able to handle the load of the carriage bumping into the limit of the axis repeatedly. Especially leadscrews might generate a lot of force. Homing a Z axis by bumping the nozzle into the printing surface might not be a good idea. For best results, verify that the axis carriage will make a firm contact with the axis limit.
+Assurez-vous que vos composants mécaniques sont capables de supporter la charge du chariot heurtant à plusieurs reprises la fin de course de l'axe. Les vis sans fin, en particulier, peuvent générer beaucoup de force. La prise d'origine d'un axe Z en écrasant la buse dans la surface d'impression n'est peut-être pas une bonne idée. Pour de meilleurs résultats, vérifiez que le chariot de l'axe établit un contact lors de la mise à l'origine.
 
-Further, sensorless homing might not be accurate enough for your printer. While homing X and Y axes on a cartesian machine can work well, homing the Z axis is generally not accurate enough and may result in an inconsistent first layer height. Homing a delta printer sensorless is not advisable due to missing accuracy.
+De plus, la mise à l'origine sans capteur peut ne pas être suffisamment précise pour votre imprimante. Bien que la mise à l'origine des axes X et Y sur une machine cartésienne puisse bien fonctionner, la prise d'origine de l'axe Z n'est généralement pas assez précise et peut entraîner une hauteur de première couche incohérente. Le référencement d'une imprimante delta sans capteur n'est pas conseillé en raison du manque de précision.
 
-Further, the stall detection of the stepper driver is dependent on the mechanical load on the motor, the motor current and the motor temperature (coil resistance).
+De plus, la détection de décrochage du pilote pas à pas dépend de la charge mécanique sur le moteur, du courant du moteur et de la température du moteur (résistance de la bobine).
 
-Sensorless homing works best at medium motor speeds. For very slow speeds (less than 10 RPM) the motor does not generate significant back EMF and the TMC cannot reliably detect motor stalls. Further, at very high speeds, the back EMF of the motor approaches the supply voltage of the motor, so the TMC cannot detect stalls anymore. It is advised to have a look in the datasheet of your specific TMCs. There you can also find more details on limitations of this setup.
+La mise à l'origine sans capteur fonctionne mieux à des vitesses de moteur moyennes. Pour des vitesses très lentes (moins de 10 tr/min), le moteur ne génère pas de force contre-électromotrice significative et le TMC ne peut pas détecter de manière fiable les calages du moteur. A des vitesses très élevées, la force contre-électromotrice du moteur se rapproche de la tension d'alimentation du moteur, de sorte que le TMC ne peut plus détecter les calages. Il est conseillé de consulter la fiche technique de vos TMC spécifiques. Vous y trouverez également plus de détails sur les limites de cette configuration.
 
-### Prerequisites
+### Conditions préalables
 
-A few prerequisites are needed to use sensorless homing:
+Quelques prérequis sont nécessaires pour utiliser la mise à l'origine sans capteur :
 
-1. A stallGuard capable TMC stepper driver (tmc2130, tmc2209, tmc2660, or tmc5160).
-1. SPI / UART interface of the TMC driver wired to micro-controller (stand-alone mode does not work).
-1. The appropriate "DIAG" or "SG_TST" pin of TMC driver connected to the micro-controller.
-1. The steps in the [config checks](Config_checks.md) document must be run to confirm the stepper motors are configured and working properly.
+1. Un pilote pas à pas TMC compatible stallGuard (tmc2130, tmc2209, tmc2660 ou tmc5160).
+1. Interface SPI/UART du driver TMC câblé au micro-contrôleur (le mode autonome ne fonctionne pas).
+1. La broche "DIAG" ou "SG_TST" appropriée du pilote TMC doit être connectée au microcontrôleur.
+1. Les étapes du document [vérification de la configuration](Config_checks.md) doivent être exécutées pour confirmer que les moteurs pas à pas sont configurés et fonctionnent correctement.
 
-### Tuning
+### Réglages
 
-The procedure described here has six major steps:
+La procédure décrite ici comporte six étapes principales :
 
-1. Choose a homing speed.
-1. Configure the `printer.cfg` file to enable sensorless homing.
-1. Find the stallguard setting with highest sensitivity that successfully homes.
-1. Find the stallguard setting with lowest sensitivity that successfully homes with a single touch.
-1. Update the `printer.cfg` with the desired stallguard setting.
-1. Create or update `printer.cfg` macros to home consistently.
+1. Choisissez une vitesse de mise à l'origine.
+1. Configurez le fichier `printer.cfg` pour activer la mise à l'origine sans capteur.
+1. Trouvez le meilleur réglage anti-décrochage avec la sensibilité la plus élevée.
+1. Trouvez le réglage anti-décrochage avec la sensibilité la plus faible qui fonctionne avec une seule touche en fin de course.
+1. Mettez à jour le fichier `printer.cfg` avec le paramètre anti-décrochage souhaité.
+1. Créez ou mettez à jour les macros dans `printer.cfg` pour une mise à l'origine répétable.
 
-#### Choose homing speed
+#### Choisir la vitesse de prise d'origine
 
-The homing speed is an important choice when performing sensorless homing. It's desirable to use a slow homing speed so that the carriage does not exert excessive force on the frame when making contact with the end of the rail. However, the TMC drivers can't reliably detect a stall at very slow speeds.
+La vitesse de mise à l'origine est importante lors de la réalisation d'une mise à l'origine sans capteur. Il est souhaitable d'utiliser une vitesse de prise d'origine lente afin que le chariot n'exerce pas de force excessive sur le châssis lorsqu'il entre en contact avec l'extrémité du rail. Cependant, les pilotes TMC ne peuvent pas détecter de manière fiable un décrochage à des vitesses très lentes.
 
-A good starting point for the homing speed is for the stepper motor to make a full rotation every two seconds. For many axes this will be the `rotation_distance` divided by two. For example:
+Un bon point de départ pour la vitesse de prise d'origine est que le moteur pas à pas effectue une rotation complète toutes les deux secondes. Pour de nombreux axes, ce sera la distance `rotation_distance` divisée par deux. Par example :
 
 ```
 [stepper_x]
@@ -89,18 +89,18 @@ homing_speed: 20
 ...
 ```
 
-#### Configure printer.cfg for sensorless homing
+#### Configurer 'printer.cfg' pour une mise à l'origine sans capteur
 
-The `homing_retract_dist` setting must be set to zero in the `stepper_x` config section to disable the second homing move. The second homing attempt does not add value when using sensorless homing, it will not work reliably, and it will confuse the tuning process.
+Le paramètre `homing_retract_dist` doit être défini sur zéro dans la section de configuration `stepper_x` pour désactiver le deuxième mouvement de mise à l'origine. La deuxième tentative de mise à l'origine n'ajoute pas de valeur lors de l'utilisation d'une mise à l'origine sans capteur, elle ne fonctionnera pas de manière fiable et introduira des erreurs dans le processus de réglage.
 
-Be sure that a `hold_current` setting is not specified in the TMC driver section of the config. (If a hold_current is set then after contact is made, the motor stops while the carriage is pressed against the end of the rail, and reducing the current while in that position may cause the carriage to move - that results in poor performance and will confuse the tuning process.)
+Assurez-vous que le paramètre `hold_current` n’est pas spécifié dans la section Pilote TMC de la configuration. (Si un hold_current est réglé, le moteur s’arrête lorsque le chariot est appuyé contre l’extrémité du rail, et la réduction du courant dans cette position peut entraîner le déplacement du chariot - ce qui entraînera de mauvaises performances et perturbera le processus de réglage.)
 
-It is necessary to configure the sensorless homing pins and to configure initial "stallguard" settings. A tmc2209 example configuration for an X axis might look like:
+Il est nécessaire de configurer les broches du TMC pour le mode sans capteur et de configurer les paramètres initiaux de « Stallguard ». Un exemple de configuration tmc2209 pour un axe X pourrait ressembler à :
 
 ```
 [tmc2209 stepper_x]
-diag_pin: ^PA1      # Set to MCU pin connected to TMC DIAG pin
-driver_SGTHRS: 255  # 255 is most sensitive value, 0 is least sensitive
+diag_pin: ^PA1      # Définit pour le MCU, la broche TMC DIAG
+driver_SGTHRS: 255  # 255 est la valeur la plus sensible, 0 la moins sensible
 ...
 
 [stepper_x]
@@ -109,12 +109,12 @@ homing_retract_dist: 0
 ...
 ```
 
-An example tmc2130 or tmc5160 config might look like:
+Un exemple de configuration de tmc2130 ou tmc5160 pourrait ressembler à :
 
 ```
 [tmc2130 stepper_x]
-diag1_pin: ^!PA1 # Pin connected to TMC DIAG1 pin (or use diag0_pin / DIAG0 pin)
-driver_SGT: -64  # -64 is most sensitive value, 63 is least sensitive
+diag1_pin: ^!PA1 # Broche connectée à TMC DIAG1  (ou utilisez diag0_pin / DIAG0 pin)
+driver_SGT: -64  # -64 est la valeur la plus sensible, 63 est moins sensible
 ...
 
 [stepper_x]
@@ -123,70 +123,70 @@ homing_retract_dist: 0
 ...
 ```
 
-An example tmc2660 config might look like:
+Un exemple de configuration de tmc2660 pourrait ressembler à :
 
 ```
 [tmc2660 stepper_x]
-driver_SGT: -64     # -64 is most sensitive value, 63 is least sensitive
+driver_SGT: -64     # -64 est la valeur la plus sensible,, 63 est moins sensible
 ...
 
 [stepper_x]
-endstop_pin: ^PA1   # Pin connected to TMC SG_TST pin
+endstop_pin: ^PA1   # Broche connectée à TMC SG_TST
 homing_retract_dist: 0
 ...
 ```
 
-The examples above only show settings specific to sensorless homing. See the [config reference](Config_Reference.md#tmc-stepper-driver-configuration) for all the available options.
+Les exemples ci-dessus ne montrent que les paramètres spécifiques à la mise à l'origine sans capteur. Voir la [référence de configuration](Config_Reference.md#tmc-stepper-driver-configuration) pour toutes les options disponibles.
 
-#### Find highest sensitivity that successfully homes
+#### Trouvez la sensibilité la plus élevée qui fonctionne avec succès
 
-Place the carriage near the center of the rail. Use the SET_TMC_FIELD command to set the highest sensitivity. For tmc2209:
+Placez le chariot près du centre du rail. Utilisez la commande SET_TMC_FIELD pour définir la sensibilité la plus élevée. Pour un tmc2209 :
 
 ```
 SET_TMC_FIELD STEPPER=stepper_x FIELD=SGTHRS VALUE=255
 ```
 
-For tmc2130, tmc5160, and tmc2660:
+Pour un tmc2130, tmc5160 et tmc2660 :
 
 ```
 SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 ```
 
-Then issue a `G28 X0` command and verify the axis does not move at all or quickly stops moving. If the axis does not stop, then issue an `M112` to halt the printer - something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.
+Émettez ensuite une commande `G28 X0` et vérifiez que l'axe ne bouge pas du tout ou s'arrête rapidement. Si l'axe ne s'arrête pas, émettez un `M112` pour arrêter l'imprimante - quelque chose n'est pas correct avec le câblage ou la configuration de la broche diag/sg_tst et ce doit être corrigé avant de continuer.
 
-Next, continually decrease the sensitivity of the `VALUE` setting and run the `SET_TMC_FIELD` `G28 X0` commands again to find the highest sensitivity that results in the carriage successfully moving all the way to the endstop and halting. (For tmc2209 drivers this will be decreasing SGTHRS, for other drivers it will be increasing sgt.) Be sure to start each attempt with the carriage near the center of the rail (if needed issue `M84` and then manually move the carriage to the center). It should be possible to find the highest sensitivity that homes reliably (settings with higher sensitivity result in small or no movement). Note the found value as *maximum_sensitivity*. (If the minimum possible sensitivity (SGTHRS=0 or sgt=63) is obtained without any carriage movement then something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.)
+Ensuite, diminuez continuellement la sensibilité du paramètre `VALUE` et exécutez à nouveau les commandes `SET_TMC_FIELD` `G28 X0` pour trouver la sensibilité la plus élevée qui permet au chariot de se déplacer et de s'arrêter en butée. (Pour les pilotes tmc2209, cela diminuera SGTHRS, pour les autres pilotes, cela augmentera sgt.). Il devrait être possible de trouver la sensibilité la plus élevée et fiable (les réglages avec une sensibilité plus élevée entraînant peu ou pas de mouvement). Notez la valeur trouvée comme *maximum_sensitivity*. (Si la sensibilité minimale possible (SGTHRS = 0 ou sgt = 63) est obtenue sans aucun mouvement du chariot, alors quelque chose ne fonctionne pas aun niveau câblage ou configuration de la broche diag/sg_tst et il faut corriger le problème avant de continuer.)
 
-When searching for maximum_sensitivity, it may be convenient to jump to different VALUE settings (so as to bisect the VALUE parameter). If doing this then be prepared to issue an `M112` command to halt the printer, as a setting with a very low sensitivity may cause the axis to repeatedly "bang" into the end of the rail.
+Lors de la recherche de maximum_sensitivity, il peut être pratique de passer à différents paramètres VALUE (travaillez le paramètre VALUE par dichotomie pour plus d'efficacité). Si vous procédez ainsi, préparez-vous à émettre une commande `M112` pour arrêter l'imprimante, car un réglage avec une sensibilité trop faible peut entraîner un "cognement" répété de l'axe contre l'extrémité du rail.
 
-Be sure to wait a couple of seconds between each homing attempt. After the TMC driver detects a stall it may take a little time for it to clear its internal indicator and be capable of detecting another stall.
+Assurez-vous d'attendre quelques secondes entre chaque tentative de prise d'origine. Une fois que le pilote TMC a détecté un décrochage, il peut lui falloir un peu de temps pour effacer son indicateur interne et être capable de détecter un autre décrochage.
 
-During these tuning tests, if a `G28 X0` command does not move all the way to the axis limit, then be careful with issuing any regular movement commands (eg, `G1`). Klipper will not have a correct understanding of the carriage position and a move command may cause undesirable and confusing results.
+Au cours de ces tests de réglage, si une commande `G28 X0` ne se déplace pas jusqu'à la limite d'axe, soyez prudent lorsque vous exécutez des commandes de mouvement 'normales' (par exemple, `G1`). Klipper ne sachant pas ou est le chariot, une commande de déplacement pourra entraîner des résultats indésirables.
 
-#### Find lowest sensitivity that homes with one touch
+#### Trouver la sensibilité la plus basse qui permette la mise à l'origine en une seule fois
 
-When homing with the found *maximum_sensitivity* value, the axis should move to the end of the rail and stop with a "single touch" - that is, there should not be a "clicking" or "banging" sound. (If there is a banging or clicking sound at maximum_sensitivity then the homing_speed may be too low, the driver current may be too low, or sensorless homing may not be a good choice for the axis.)
+Lors de la mise à l'origine avec la valeur *maximum_sensitivity*, l'axe doit se déplacer jusqu'à l'extrémité du rail et s'arrêter avec un « simple toucher » - c'est-à-dire qu'il ne doit pas y avoir de « clic » ou de « claquement ». (S'il y a un bruit de claquement ou de clic à la sensibilité maximale, la vitesse de mise à l'origine est peut-être trop faible, le courant du pilote peut être trop faible ou la mise à l'origine sans capteur n'est peut-être pas un bon choix pour cet axe.)
 
-The next step is to again continually move the carriage to a position near the center of the rail, decrease the sensitivity, and run the `SET_TMC_FIELD` `G28 X0` commands - the goal is now to find the lowest sensitivity that still results in the carriage successfully homing with a "single touch". That is, it does not "bang" or "click" when contacting the end of the rail. Note the found value as *minimum_sensitivity*.
+L'étape suivante consiste à nouveau à déplacer le chariot vers une position proche du centre du rail, à diminuer la sensibilité et à exécuter les commandes `SET_TMC_FIELD` `G28 X0` - l'objectif est maintenant de trouver la sensibilité la plus faible qui permette au chariot de se mettre à l'origine correctement avec une "simple touche". C'est-à-dire qu'il ne "cogne" pas ou ne "clique" pas lorsqu'il entre en contact avec l'extrémité du rail. Notez la valeur trouvée comme *minimum_sensitivity*.
 
-#### Update printer.cfg with sensitivity value
+#### Mettez à jour printer.cfg avec la valeur de sensibilité
 
-After finding *maximum_sensitivity* and *minimum_sensitivity*, use a calculator to obtain the recommend sensitivity as *minimum_sensitivity + (maximum_sensitivity - minimum_sensitivity)/3*. The recommended sensitivity should be in the range between the minimum and maximum, but slightly closer to the minimum. Round the final value to the nearest integer value.
+Après avoir trouvé *maximum_sensitivity* et *minimum_sensitivity*, utilisez une calculatrice pour obtenir la sensibilité recommandée : *minimum_sensitivity + (maximum_sensitivity - minimum_sensitivity)/3*. La sensibilité recommandée doit être comprise entre le minimum et le maximum, mais légèrement plus proche du minimum. Arrondissez la valeur finale à la valeur entière la plus proche.
 
-For tmc2209 set this in the config as `driver_SGTHRS`, for other TMC drivers set this in the config as `driver_SGT`.
+Pour un tmc2209, définissez-le dans la configuration en tant que `driver_SGTHRS`, pour les autres pilotes TMC, définissez-le dans la configuration en tant que `driver_SGT`.
 
-If the range between *maximum_sensitivity* and *minimum_sensitivity* is small (eg, less than 5) then it may result in unstable homing. A faster homing speed may increase the range and make the operation more stable.
+Si la plage entre *maximum_sensitivity* et *minimum_sensitivity* est petite (par exemple, inférieure à 5), cela peut entraîner une mise à l'origine instable. Une vitesse de mise à l'origine plus rapide peut rendre l'opération plus stable.
 
-Note that if any change is made to driver current, homing speed, or a notable change is made to the printer hardware, then it will be necessary to run the tuning process again.
+Notez que si une modification est apportée au courant du pilote, à la vitesse de prise d'origine ou si une modification notable est apportée au matériel de l'imprimante, il sera alors nécessaire de refaire le processus de réglage.
 
-#### Using Macros when Homing
+#### Utilisation de macros lors de la mise à l'origine
 
-After sensorless homing completes the carriage will be pressed against the end of the rail and the stepper will exert a force on the frame until the carriage is moved away. It is a good idea to create a macro to home the axis and immediately move the carriage away from the end of the rail.
+Une fois la mise à l'origine sans capteur terminée, le chariot sera appuyé contre l'extrémité du rail et le stepper exercera une force sur le cadre tant que le chariot ne sera pas éloigné de la fin de course. Il est préférable de créer une macro pour positionner l'axe en butée et l'éloigner immédiatement de l'extrémité du rail.
 
-It is a good idea for the macro to pause at least 2 seconds prior to starting sensorless homing (or otherwise ensure that there has been no movement on the stepper for 2 seconds). Without a delay it is possible for the driver's internal stall flag to still be set from a previous move.
+Il est préférable, dans la macro, de faire une pause d'au moins 2 secondes avant de commencer la prise d'origine sans capteur (ou de s'assurer qu'il n'y a eu aucun mouvement sur le moteur pas à pas depuis au moins 2 secondes). Sans délai, il est possible que le drapeau de décrochage interne du pilote de moteur pas à pas soit toujours activé suite à un mouvement précédent.
 
-It can also be useful to have that macro set the driver current before homing and set a new current after the carriage has moved away.
+Il peut également être utile que cette macro définisse le courant du pilote avant la prise d'origine et définisse un nouveau courant après que le chariot s'est éloigné.
 
-An example macro might look something like:
+Un exemple de macro pourrait ressembler à :
 
 ```
 [gcode_macro SENSORLESS_HOME_X]
@@ -194,121 +194,121 @@ gcode:
     {% set HOME_CUR = 0.700 %}
     {% set driver_config = printer.configfile.settings['tmc2209 stepper_x'] %}
     {% set RUN_CUR = driver_config.run_current %}
-    # Set current for sensorless homing
+    # Définir le courant pour la mise à l'origine sans capteur
     SET_TMC_CURRENT STEPPER=stepper_x CURRENT={HOME_CUR}
-    # Pause to ensure driver stall flag is clear
+    # Petit pause pour attendre que le drapeau stall flag soit désactivé
     G4 P2000
-    # Home
+    # mise à l'origine
     G28 X0
-    # Move away
+    # Déplacement 
     G90
     G1 X5 F1200
-    # Set current during print
+    # Remise du courant d'impression
     SET_TMC_CURRENT STEPPER=stepper_x CURRENT={RUN_CUR}
 ```
 
-The resulting macro can be called from a [homing_override config section](Config_Reference.md#homing_override) or from a [START_PRINT macro](Slicers.md#klipper-gcode_macro).
+La macro peut être appelée depuis une [section de configuration homing_override](Config_Reference.md#homing_override) ou depuis une [macro START_PRINT](Slicers.md#klipper-gcode_macro).
 
-Note that if the driver current during homing is changed, then the tuning process should be run again.
+Notez que si le courant du pilote pas à pas lors de la mise à l'origine est modifié, le processus de réglage doit être entièrement refait.
 
-### Tips for sensorless homing on CoreXY
+### Conseils pour la mise à l'origine sans capteur sur CoreXY
 
-It is possible to use sensorless homing on the X and Y carriages of a CoreXY printer. Klipper uses the `[stepper_x]` stepper to detect stalls when homing the X carriage and uses the `[stepper_y]` stepper to detect stalls when homing the Y carriage.
+Il est possible d'utiliser la mise à l'origine sans capteur sur les chariots X et Y d'une imprimante CoreXY. Klipper utilise le stepper `[stepper_x]` pour détecter les décrochages lors de la mise à l'origine du chariot X et utilise le stepper `[stepper_y]` pour détecter les décrochages lors de la mise à l'origine du chariot Y.
 
-Use the tuning guide described above to find the appropriate "stall sensitivity" for each carriage, but be aware of the following restrictions:
+Utilisez le guide de réglage décrit ci-dessus pour trouver la "sensibilité au décrochage" appropriée pour chaque chariot, mais soyez conscient des restrictions suivantes :
 
-1. When using sensorless homing on CoreXY, make sure there is no `hold_current` configured for either stepper.
-1. While tuning, make sure both the X and Y carriages are near the center of their rails before each home attempt.
-1. After tuning is complete, when homing both X and Y, use macros to ensure that one axis is homed first, then move that carriage away from the axis limit, pause for at least 2 seconds, and then start the homing of the other carriage. The move away from the axis avoids homing one axis while the other is pressed against the axis limit (which may skew the stall detection). The pause is necessary to ensure the driver's stall flag is cleared prior to homing again.
+1. Lors de l'utilisation de la prise d'origine sans capteur sur CoreXY, assurez-vous qu'aucun `hold_current` n'est configuré pour l'un ou l'autre des moteurs pas à pas.
+1. Pendant le réglage, assurez-vous que les chariots X et Y sont proches du centre de leurs rails avant chaque tentative de mise à l'origine.
+1. Une fois les réglages terminés, lors de la prise d'origine de X et Y, utilisez des macros pour vous assurer qu'un axe est pris en charge en premier, puis éloignez ce chariot de la fin de course de l'axe, faites une pause d'au moins 2 secondes, puis démarrez la prise d'origine de l'autre axe. L'éloignement de l'axe évite le référencement d'un axe alors que l'autre est plaqué contre la fin de course (ce qui peut fausser la détection de décrochage). La pause est nécessaire pour s'assurer que le drapeau de décrochage du pilote pas à pas est effacé avant de se déplacer à nouveau.
 
-An example CoreXY homing macro might look like:
+Un exemple de macro de référencement CoreXY pourrait ressembler à :
 
 ```
 [gcode_macro HOME]
 gcode:
     G90
-    # Home Z
+    # mise à l'origine Z
     G28 Z0
     G1 Z10 F1200
-    # Home Y
+    # mise à l'origine Y
     G28 Y0
     G1 Y5 F1200
-    # Home X
+    # mise à l'origine X
     G4 P2000
     G28 X0
     G1 X5 F1200
 ```
 
-## Querying and diagnosing driver settings
+## Interroger et diagnostiquer les informations du pilote pas à pas
 
-The `[DUMP_TMC command](G-Codes.md#dump_tmc) is a useful tool when configuring and diagnosing the drivers. It will report all fields configured by Klipper as well as all fields that can be queried from the driver.
+La `[commande DUMP_TMC](G-Codes.md#dump_tmc) est un outil utile lors de la configuration et du diagnostic des pilotes. Il signalera tous les champs configurés par Klipper ainsi que tous les champs pouvant être interrogés à partir du pilote.
 
-All of the reported fields are defined in the Trinamic datasheet for each driver. These datasheets can be found on the [Trinamic website](https://www.trinamic.com/). Obtain and review the Trinamic datasheet for the driver to interpret the results of DUMP_TMC.
+Tous les champs signalés sont définis dans la fiche technique de Trinamic pour chaque pilote. Ces fiches techniques sont disponibles sur le [site Internet de Trinamic](https://www.trinamic.com/). Obtenez et examinez la fiche technique de Trinamic du pilote pas à pas afin d'interpréter correctement les résultats d'un DUMP_TMC.
 
-## Configuring driver_XXX settings
+## Configuration des paramètres d'un 'driver_XXX'
 
-Klipper supports configuring many low-level driver fields using `driver_XXX` settings. The [TMC driver config reference](Config_Reference.md#tmc-stepper-driver-configuration) has the full list of fields available for each type of driver.
+Klipper prend en charge la configuration de nombreux paramètres de bas niveau pour les pilotes de moteurs pas à pas à l'aide des paramètres de la section `driver_XXX`. La [référence de configuration du pilote TMC](Config_Reference.md#tmc-stepper-driver-configuration) contient la liste complète des paramètres disponibles pour chaque type de pilote.
 
-In addition, almost all fields can be modified at run-time using the [SET_TMC_FIELD command](G-Codes.md#set_tmc_field).
+De plus, presque tous les champs peuvent être modifiés au moment de l'exécution à l'aide de la [commande SET_TMC_FIELD](G-Codes.md#set_tmc_field).
 
-Each of these fields is defined in the Trinamic datasheet for each driver. These datasheets can be found on the [Trinamic website](https://www.trinamic.com/).
+Chacun de ces paramètres est défini dans la fiche technique de Trinamic pour chaque pilote. Ces fiches techniques sont disponibles sur le [site Internet de Trinamic](https://www.trinamic.com/).
 
-Note that the Trinamic datasheets sometime use wording that can confuse a high-level setting (such as "hysteresis end") with a low-level field value (eg, "HEND"). In Klipper, `driver_XXX` and SET_TMC_FIELD always set the low-level field value that is actually written to the driver. So, for example, if the Trinamic datasheet states that a value of 3 must be written to the HEND field to obtain a "hysteresis end" of 0, then set `driver_HEND=3` to obtain the high-level value of 0.
+Les fiches techniques de Trinamic utilisent parfois une formulation qui peut confondre un paramètre de haut niveau (tel que "fin d'hystérésis") avec une valeur de paramètre de bas niveau (par exemple, "HEND"). Dans Klipper, `driver_XXX` et SET_TMC_FIELD définissent toujours la valeur de paramètres de bas niveau (celles qui sontt réellement écrite dans le pilote). Ainsi, par exemple, si la fiche technique Trinamic indique qu'une valeur de 3 doit être écrite dans le champ HEND pour obtenir une "fin d'hystérésis" de 0, alors définissez `driver_HEND=3` pour obtenir une valeur de haut niveau de 0.
 
-## Common Questions
+## Questions courantes
 
-### Can I use stealthChop mode on an extruder with pressure advance?
+### Puis-je utiliser le mode StealthChop sur une extrudeuse avec avance de pression ?
 
-Many people successfully use "stealthChop" mode with Klipper's pressure advance. Klipper implements [smooth pressure advance](Kinematics.md#pressure-advance) which does not introduce any instantaneous velocity changes.
+Beaucoup de gens utilisent avec succès le mode "stealthChop" avec l'avance de pression de Klipper. Klipper implémente [avance de pression "adoucie"](Kinematics.md#pressure-advance) qui n'introduit aucun changement de vitesse instantané.
 
-However, "stealthChop" mode may produce lower motor torque and/or produce higher motor heat. It may or may not be an adequate mode for your particular printer.
+Cependant, le mode "stealthChop" peut produire un couple moteur plus faible et/ou produire une chaleur moteur plus élevée. Il peut s'agir ou non d'un mode utilisable avec votre imprimante.
 
-### I keep getting "Unable to read tmc uart 'stepper_x' register IFCNT" errors?
+### J'ai des erreurs "Unable to read tmc uart 'stepper_x' register IFCNT" ?
 
-This occurs when Klipper is unable to communicate with a tmc2208 or tmc2209 driver.
+Cela se produit lorsque Klipper est incapable de communiquer avec un pilote tmc2208 ou tmc2209.
 
-Make sure that the motor power is enabled, as the stepper motor driver generally needs motor power before it can communicate with the micro-controller.
+Assurez-vous que l'alimentation du moteur est activée, car le pilote du moteur pas à pas a généralement besoin de l'alimentation du moteur avant de pouvoir communiquer avec le micro-contrôleur.
 
-If this error occurs after flashing Klipper for the first time, then the stepper driver may have been previously programmed in a state that is not compatible with Klipper. To reset the state, remove all power from the printer for several seconds (physically unplug both USB and power plugs).
+Si cette erreur se produit après avoir flashé Klipper pour la première fois, le pilote pas à pas peut avoir été précédemment programmé dans un état qui n'est pas compatible avec Klipper. Pour réinitialiser l'état, coupez toute alimentation de l'imprimante pendant plusieurs secondes (débranchez physiquement les prises USB et d'alimentation).
 
-Otherwise, this error is typically the result of incorrect UART pin wiring or an incorrect Klipper configuration of the UART pin settings.
+Sinon, cette erreur est souvent due à un câblage incorrect des broche UART ou d'une configuration incorrecte des paramètres de broche UART dans Klipper.
 
-### I keep getting "Unable to write tmc spi 'stepper_x' register ..." errors?
+### J'ai des erreurs "Unable to write tmc spi 'stepper_x' register ..." ?
 
-This occurs when Klipper is unable to communicate with a tmc2130 or tmc5160 driver.
+Cela se produit lorsque Klipper est incapable de communiquer avec un pilote tmc2130 ou tmc5160.
 
-Make sure that the motor power is enabled, as the stepper motor driver generally needs motor power before it can communicate with the micro-controller.
+Assurez-vous que l'alimentation du moteur est activée, car le pilote du moteur pas à pas a généralement besoin de l'alimentation du moteur avant de pouvoir communiquer avec le micro-contrôleur.
 
-Otherwise, this error is typically the result of incorrect SPI wiring, an incorrect Klipper configuration of the SPI settings, or an incomplete configuration of devices on an SPI bus.
+Cette erreur est souvent due à un câblage SPI incorrect, à une configuration incorrecte des paramètres SPI de Klipper ou d'une configuration incomplète des périphériques sur un bus SPI.
 
-Note that if the driver is on a shared SPI bus with multiple devices then be sure to fully configure every device on that shared SPI bus in Klipper. If a device on a shared SPI bus is not configured, then it may incorrectly respond to commands not intended for it and corrupt the communication to the intended device. If there is a device on a shared SPI bus that can not be configured in Klipper, then use a [static_digital_output config section](Config_Reference.md#static_digital_output) to set the CS pin of the unused device high (so that it will not attempt to use the SPI bus). The board's schematic is often a useful reference for finding which devices are on an SPI bus and their associated pins.
+Si le pilote se trouve sur un bus SPI partagé avec plusieurs périphériques, assurez-vous de configurer - dans Klipper - chaque périphérique sur ce bus SPI. Si un appareil sur un bus SPI partagé n'est pas configuré, il peut répondre de manière incorrecte à des commandes qui ne lui sont pas destinées et corrompre la communication avec l'appareil prévu. S'il y a un appareil sur un bus SPI partagé qui ne peut pas être configuré dans Klipper, utilisez la [section de configuration static_digital_output](Config_Reference.md#static_digital_output) pour régler la broche CS de l'appareil inutilisé à un niveau élevé (afin qu'il n'essaie pas d'utiliser le bus SPI). Le schéma de la carte est une référence utile (ndt et nécessaire) pour trouver les périphériques qui se trouvent sur un bus SPI et leurs broches associées.
 
-### Why did I get a "TMC reports error: ..." error?
+### Pourquoi ai-je une erreur "TMC reports error : ..." ?
 
-This type of error indicates the TMC driver detected a problem and has disabled itself. That is, the driver stopped holding its position and ignored movement commands. If Klipper detects that an active driver has disabled itself, it will transition the printer into a "shutdown" state.
+Ce type d'erreur indique que le pilote TMC a détecté un problème et s'est désactivé. C'est-à-dire que le pilote de moteur pas à pas a cessé de maintenir sa position et a ignoré les commandes de mouvement. Si Klipper détecte qu'un pilote actif s'est désactivé, il fera passer l'imprimante dans un état "arrêt".
 
-It's also possible that a **TMC reports error** shutdown occurs due to SPI errors that prevent communication with the driver (on tmc2130, tmc5160, or tmc2660). If this occurs, it's common for the reported driver status to show `00000000` or `ffffffff` - for example: `TMC reports error: DRV_STATUS: ffffffff ...` OR `TMC reports error: READRSP@RDSEL2: 00000000 ...`. Such a failure may be due to an SPI wiring problem or may be due to a self-reset or failure of the TMC driver.
+Il est également possible qu'un arrêt **TMC reports error** se produise en raison d'erreurs SPI qui empêchent la communication avec le pilote (sur les tmc2130, tmc5160 ou tmc2660). Si cela se produit, il est fréquent que l'état du pilote indiqué affiche `00000000` ou `ffffffff` - par exemple : `TMC reports error : DRV_STATUS : ffffffff ...` OU [ X316X]TMC reports error : READRSP@RDSEL2 : 00000000 ...`. Une telle défaillance peut être due à un problème de câblage SPI ou à une réinitialisation automatique ou à une défaillance du pilote TMC.
 
-Some common errors and tips for diagnosing them:
+Quelques erreurs courantes et conseils pour les diagnostiquer :
 
-#### TMC reports error: `... ot=1(OvertempError!)`
+#### TMC signale une erreur : `... ot=1(OvertempError !)`
 
-This indicates the motor driver disabled itself because it became too hot. Typical solutions are to decrease the stepper motor current, increase cooling on the stepper motor driver, and/or increase cooling on the stepper motor.
+Cela indique que le pilote du moteur s'est désactivé car il est en surchauffe. Les solutions typiques consistent à diminuer le courant du pilote de moteur pas à pas, à augmenter le refroidissement du pilote du moteur pas à pas et/ou à augmenter le refroidissement du pilote du moteur pas à pas.
 
-#### TMC reports error: `... ShortToGND` OR `LowSideShort`
+#### TMC signale une erreur : `... ShortToGND` OU `LowSideShort`
 
-This indicates the driver has disabled itself because it detected very high current passing through the driver. This may indicate a loose or shorted wire to the stepper motor or within the stepper motor itself.
+Cela indique que le pilote s'est désactivé car il a détecté un courant très élevé le traversant. Cela peut indiquer un fil desserré ou court-circuité vers le moteur pas à pas ou dans le moteur pas à pas lui-même.
 
-This error may also occur if using stealthChop mode and the TMC driver is not able to accurately predict the mechanical load of the motor. (If the driver makes a poor prediction then it may send too much current through the motor and trigger its own over-current detection.) To test this, disable stealthChop mode and check if the errors continue to occur.
+Cette erreur peut également se produire si vous utilisez le mode StealthChop et que le pilote TMC n'est pas en mesure de prédire avec précision la charge mécanique du moteur. (Si le pilote fait une mauvaise prédiction, il peut envoyer trop de courant à travers le moteur et déclencher sa propre détection de surintensité.) Pour tester cela, désactivez le mode StealthChop et vérifiez si les erreurs continuent de se produire.
 
-#### TMC reports error: `... reset=1(Reset)` OR `CS_ACTUAL=0(Reset?)` OR `SE=0(Reset?)`
+#### TMC signale une erreur : `... reset=1(Reset)` OR `CS_ACTUAL=0(Reset ?)` OR `SE=0(Reset?)`
 
-This indicates that the driver has reset itself mid-print. This may be due to voltage or wiring issues.
+Cela indique que le pilote s'est réinitialisé en cours d'impression. Cela peut être dû à des problèmes de tension ou de câblage.
 
-#### TMC reports error: `... uv_cp=1(Undervoltage!)`
+#### TMC signale une erreur : `... uv_cp=1(Sous-tension !)`
 
-This indicates the driver has detected a low-voltage event and has disabled itself. This may be due to wiring or power supply issues.
+Cela indique que le pilote a détecté un événement de basse tension et s'est désactivé. Cela peut être dû à des problèmes de câblage ou d'alimentation.
 
-### How do I tune spreadCycle/coolStep/etc. mode on my drivers?
+### Comment régler spreadCycle/coolStep/etc. mode sur mes pilotes ?
 
-The [Trinamic website](https://www.trinamic.com/) has guides on configuring the drivers. These guides are often technical, low-level, and may require specialized hardware. Regardless, they are the best source of information.
+Le [site Web de Trinamic](https://www.trinamic.com/) contient des guides sur la configuration des pilotes. Ces guides sont souvent techniques, de bas niveau et peuvent nécessiter du matériel spécialisé. Quoi qu'il en soit, ils sont la meilleure source d'information.
