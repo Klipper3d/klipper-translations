@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-01 08:50+0000\n"
+"PO-Revision-Date: 2023-01-23 15:59+0000\n"
 "Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "sdcard_updates/fr/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 msgid ""
 "Many of today's popular controller boards ship with a bootloader capable of "
@@ -417,7 +417,7 @@ msgstr "CS"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CMD"
@@ -437,7 +437,7 @@ msgstr ""
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CLK"
@@ -477,7 +477,7 @@ msgstr ""
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "Card Detect (CD)"
