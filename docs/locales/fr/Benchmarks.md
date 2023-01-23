@@ -1,4 +1,4 @@
-# Benchmarks
+# Tests
 
 Ce document décrit les benchmarks Klipper.
 
@@ -8,13 +8,13 @@ Cette section décrit le mécanisme utilisé pour générer les bancs d'essais (
 
 L'objectif principal des bancs d'essais est de fournir un mécanisme cohérent pour mesurer l'impact des changements de codage dans le logiciel. Un objectif secondaire est de fournir des mesures de haut niveau pour comparer les performances entre puces et entre plateformes logicielles.
 
-The step rate benchmark is designed to find the maximum stepping rate that the hardware and software can reach. This benchmark stepping rate is not achievable in day-to-day use as Klipper needs to perform other tasks (eg, mcu/host communication, temperature reading, endstop checking) in any real-world usage.
+Le test de vitesse des moteurs pas à pas est conçu pour trouver la fréquence de pas maximale que le matériel et le logiciel peuvent atteindre. Ce taux de pas de référence n'est pas réalisable dans une utilisation normale de Klipper car il doit effectuer d'autres tâches (par exemple, la communication mcu/hôte, la lecture de la température, la vérification des fin de course).
 
-In general, the pins for the benchmark tests are chosen to flash LEDs or other innocuous pins. **Always verify that it is safe to drive the configured pins prior to running a benchmark.** It is not recommended to drive an actual stepper during a benchmark.
+En général, les broches pour les tests sont choisies pour faire clignoter des LED ou d'autres actions inoffensives. **Vérifiez toujours qu'il est sûr de commander les broches configurées avant d'exécuter un test.** Il n'est pas recommandé de piloter un moteur pas à pas lors d'un benchmark.
 
-### Step rate benchmark test
+### Test du taux de pas
 
-The test is performed using the console.py tool (described in <Debugging.md>). The micro-controller is configured for the particular hardware platform (see below) and then the following is cut-and-paste into the console.py terminal window:
+Le test est effectué à l'aide de l'outil console.py (décrit dans <Debugging.md>). Le microcontrôleur est configuré pour la plate-forme matérielle (voir ci-dessous), puis ce qui suit est copié-collé dans la fenêtre du terminal console.py :
 
 ```
 SET start_clock {clock+freq}
@@ -39,27 +39,27 @@ set_next_step_dir oid=2 dir=1
 queue_step oid=2 interval=3000 count=1 add=0
 ```
 
-The above tests three steppers simultaneously stepping. If running the above results in a "Rescheduled timer in the past" or "Stepper too far in past" error then it indicates the `ticks` parameter is too low (it results in a stepping rate that is too fast). The goal is to find the lowest setting of the ticks parameter that reliably results in a successful completion of the test. It should be possible to bisect the ticks parameter until a stable value is found.
+Ces tests simule le déplacement de trois moteurs pas à pas simultanément. Si son exécution entraîne une erreur "Rescheduled timer in the past" or "Stepper too far in past", cela indique que le paramètre `ticks` est trop faible (il en résulte une vitesse de pas trop rapide) . L'objectif est de trouver le réglage le plus bas du paramètre ticks qui aboutit de manière fiable à la réussite du test. Il devrait être possible de rechercher par dichotomie le paramètre ticks jusqu'à ce qu'une valeur stable soit trouvée.
 
-On a failure, one can copy-and-paste the following to clear the error in preparation for the next test:
+En cas d'échec, on peut copier-coller ce qui suit pour effacer l'erreur en vue du prochain test :
 
 ```
 clear_shutdown
 ```
 
-To obtain the single stepper benchmarks, the same configuration sequence is used, but only the first block of the above test is cut-and-paste into the console.py window.
+Pour obtenir les tests de moteurs pas à pas, la même séquence de configuration est utilisée, mais seul le premier bloc du test ci-dessus est copié-collé dans la fenêtre console.py.
 
-To produce the benchmarks found in the [Features](Features.md) document, the total number of steps per second is calculated by multiplying the number of active steppers with the nominal mcu frequency and dividing by the final ticks parameter. The results are rounded to the nearest K. For example, with three active steppers:
+Pour produire les tests trouvés dans le document [Fonctionnalités](Features.md), le nombre total de pas par seconde est calculé en multipliant le nombre de steppers actifs par la fréquence mcu nominale et en divisant par le paramètre final ticks. Les résultats sont arrondis au K le plus proche. Par exemple, avec trois steppers actifs :
 
 ```
 ECHO Test result is: {"%.0fK" % (3. * freq / ticks / 1000.)}
 ```
 
-The benchmarks are run with parameters suitable for TMC Drivers. For micro-controllers that support `STEPPER_BOTH_EDGE=1` (as reported in the `MCU config` line when console.py first starts) use `step_pulse_duration=0` and `invert_step=-1` to enable optimized stepping on both edges of the step pulse. For other micro-controllers use a `step_pulse_duration` corresponding to 100ns.
+Les tests sont exécutés avec des paramètres adaptés aux pilotes TMC. Pour les microcontrôleurs prenant en charge `STEPPER_BOTH_EDGE=1` (comme indiqué dans la ligne `MCU config` au premier démarrage de console.py), utilisez `step_pulse_duration=0` et ` invert_step=-1` pour permettre un pas optimisé sur les deux fronts de l'impulsion de pas. Pour les autres microcontrôleurs utiliser un `step_pulse_duration` correspondant à 100ns.
 
-### AVR step rate benchmark
+### Test du taux de pas sur AVR
 
-The following configuration sequence is used on AVR chips:
+La séquence de configuration suivante est utilisée sur les puces AVR :
 
 ```
 allocate_oids count=3
@@ -69,16 +69,16 @@ config_stepper oid=2 step_pin=PC7 dir_pin=PC6 invert_step=0 step_pulse_ticks=32
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `avr-gcc (GCC) 5.4.0`. Both the 16Mhz and 20Mhz tests were run using simulavr configured for an atmega644p (previous tests have confirmed simulavr results match tests on both a 16Mhz at90usb and a 16Mhz atmega2560).
+Le test a été exécuté pour la dernière fois sur le commit `59314d99` avec la version gcc `avr-gcc (GCC) 5.4.0`. Les tests 16Mhz et 20Mhz ont été exécutés à l'aide d'un simulavr configuré pour un atmega644p (les tests précédents ont confirmé que les résultats du simulavr correspondent aux tests sur un 16Mhz at90usb et un 16Mhz atmega2560).
 
 | avr | ticks |
 | --- | --- |
-| 1 stepper | 102 |
-| 3 stepper | 486 |
+| 1 moteur pas à pas | 102 |
+| 3 moteurs pas à pas | 486 |
 
-### Arduino Due step rate benchmark
+### Test du taux de pas sur Arduino Due
 
-The following configuration sequence is used on the Due:
+La séquence de configuration suivante est utilisée sur le Due :
 
 ```
 allocate_oids count=3
@@ -88,16 +88,16 @@ config_stepper oid=2 step_pin=PA21 dir_pin=PC30 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+Le test a été exécuté pour la dernière fois sur le commit `59314d99` avec la version de gcc `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
 | sam3x8e | ticks |
 | --- | --- |
-| 1 stepper | 66 |
-| 3 stepper | 257 |
+| 1 moteur pas à pas | 66 |
+| 3 moteurs pas à pas | 257 |
 
-### Duet Maestro step rate benchmark
+### Test du taux de pas sur Duet Maestro
 
-The following configuration sequence is used on the Duet Maestro:
+La séquence de configuration suivante est utilisée sur le Duet Maestro :
 
 ```
 allocate_oids count=3
@@ -107,16 +107,16 @@ config_stepper oid=2 step_pin=PC26 dir_pin=PB4 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+Le test a été exécuté pour la dernière fois sur le commit `59314d99` avec la version de gcc `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
 | sam4s8c | ticks |
 | --- | --- |
-| 1 stepper | 71 |
-| 3 stepper | 260 |
+| 1 moteur pas à pas | 71 |
+| 3 moteurs pas à pas | 260 |
 
-### Duet Wifi step rate benchmark
+### Test du taux de pas sur Duet Wifi
 
-The following configuration sequence is used on the Duet Wifi:
+La séquence de configuration suivante est utilisée sur le Duet Wifi :
 
 ```
 allocate_oids count=3
@@ -126,16 +126,16 @@ config_stepper oid=2 step_pin=PD8 dir_pin=PD13 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `gcc version 10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`.
+Le test a été exécuté pour la dernière fois sur la validation `59314d99` avec la version gcc `gcc version 10.3.1 20210621 (version) (GNU Arm Embedded Toolchain 10.3-2021.07)`.
 
 | sam4e8e | ticks |
 | --- | --- |
-| 1 stepper | 48 |
-| 3 stepper | 215 |
+| 1 moteur pas à pas | 48 |
+| 3 moteurs pas à pas | 215 |
 
-### Beaglebone PRU step rate benchmark
+### Test du taux de pas sur Beaglebone PRU
 
-The following configuration sequence is used on the PRU:
+La séquence de configuration suivante est utilisée sur le PRU :
 
 ```
 allocate_oids count=3
@@ -145,16 +145,16 @@ config_stepper oid=2 step_pin=gpio0_22 dir_pin=gpio2_1 invert_step=0 step_pulse_
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `pru-gcc (GCC) 8.0.0 20170530 (experimental)`.
+Le test a été exécuté pour la dernière fois sur le commit `59314d99` avec la version de gcc `pru-gcc (GCC) 8.0.0 20170530 (expérimental)`.
 
 | pru | ticks |
 | --- | --- |
-| 1 stepper | 231 |
-| 3 stepper | 847 |
+| 1 moteur pas à pas | 231 |
+| 3 moteurs pas à pas | 847 |
 
-### STM32F042 step rate benchmark
+### Test du taux de pas STM32F042
 
-The following configuration sequence is used on the STM32F042:
+La séquence de configuration suivante est utilisée sur le STM32F042 :
 
 ```
 allocate_oids count=3
@@ -164,16 +164,16 @@ config_stepper oid=2 step_pin=PB8 dir_pin=PA2 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+Le test a été exécuté pour la dernière fois sur le commit `59314d99` avec la version de gcc `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
 | stm32f042 | ticks |
 | --- | --- |
-| 1 stepper | 59 |
-| 3 stepper | 249 |
+| 1 moteur pas à pas | 59 |
+| 3 moteurs pas à pas | 249 |
 
-### STM32F103 step rate benchmark
+### Test du taux de pas sur STM32F103
 
-The following configuration sequence is used on the STM32F103:
+La séquence de configuration suivante est utilisée sur le STM32F103 :
 
 ```
 allocate_oids count=3
@@ -183,16 +183,16 @@ config_stepper oid=2 step_pin=PA4 dir_pin=PB7 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+Le test a été exécuté pour la dernière fois sur le commit `59314d99` avec la version de gcc `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
 | stm32f103 | ticks |
 | --- | --- |
-| 1 stepper | 61 |
-| 3 stepper | 264 |
+| 1 moteur pas à pas | 61 |
+| 3 moteurs pas à pas | 264 |
 
-### STM32F4 step rate benchmark
+### Test du taux de pas sur STM32F4
 
-The following configuration sequence is used on the STM32F4:
+La séquence de configuration suivante est utilisée sur le STM32F4 :
 
 ```
 allocate_oids count=3
@@ -202,21 +202,21 @@ config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The STM32F407 results were obtained by running an STM32F407 binary on an STM32F446 (and thus using a 168Mhz clock).
+Le test a été exécuté pour la dernière fois sur le commit `59314d99` avec la version de gcc `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. Les résultats STM32F407 ont été obtenus en exécutant un binaire STM32F407 sur un STM32F446 (et donc en utilisant une horloge de 168 MHz).
 
 | stm32f446 | ticks |
 | --- | --- |
-| 1 stepper | 46 |
-| 3 stepper | 205 |
+| 1 moteur pas à pas | 46 |
+| 3 moteurs pas à pas | 205 |
 
 | stm32f407 | ticks |
 | --- | --- |
-| 1 stepper | 46 |
-| 3 stepper | 205 |
+| 1 moteur pas à pas | 46 |
+| 3 moteurs pas à pas | 205 |
 
-### STM32H7 step rate benchmark
+### Test du taux de pas sur STM32H7
 
-The following configuration sequence is used on a STM32H743VIT6:
+La séquence de configuration suivante est utilisée sur un STM32H743VIT6 :
 
 ```
 allocate_oids count=3
@@ -226,16 +226,16 @@ config_stepper oid=2 step_pin=PE2 dir_pin=PE3 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`.
+Le test a été exécuté pour la dernière fois sur le commit `00191b5c` avec la version de gcc `arm-none-eabi-gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc- 8 branches révision 273027]`.
 
 | stm32h7 | ticks |
 | --- | --- |
-| 1 stepper | 44 |
-| 3 stepper | 198 |
+| 1 moteur pas à pas | 44 |
+| 3 moteurs pas à pas | 198 |
 
-### STM32G0B1 step rate benchmark
+### Test du taux de pas sur STM32G0B1
 
-The following configuration sequence is used on the STM32G0B1:
+La séquence de configuration suivante est utilisée sur le STM32G0B1 :
 
 ```
 allocate_oids count=3
@@ -245,16 +245,16 @@ config_stepper oid=2 step_pin=PB0 dir_pin=PC5 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `247cd753` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
+Le test a été exécuté pour la dernière fois sur le commit `247cd753` avec la version gcc `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
 | stm32g0b1 | ticks |
 | --- | --- |
-| 1 stepper | 58 |
-| 3 stepper | 243 |
+| 1 moteur pas à pas | 58 |
+| 3 moteurs pas à pas | 243 |
 
-### LPC176x step rate benchmark
+### Test du taux de pas sur LPC176x
 
-The following configuration sequence is used on the LPC176x:
+La séquence de configuration suivante est utilisée sur le LPC176x :
 
 ```
 allocate_oids count=3
@@ -264,21 +264,21 @@ config_stepper oid=2 step_pin=P1.23 dir_pin=P1.18 invert_step=-1 step_pulse_tick
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The 120Mhz LPC1769 results were obtained by overclocking an LPC1768 to 120Mhz.
+Le test a été exécuté pour la dernière fois sur le commit `59314d99` avec la version de gcc `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. Les résultats du LPC1769 à 120Mhz ont été obtenus en overclockant un LPC1768 à 120Mhz.
 
 | lpc1768 | ticks |
 | --- | --- |
-| 1 stepper | 52 |
-| 3 stepper | 222 |
+| 1 moteur pas à pas | 52 |
+| 3 moteurs pas à pas | 222 |
 
 | lpc1769 | ticks |
 | --- | --- |
-| 1 stepper | 51 |
-| 3 stepper | 222 |
+| 1 moteur pas à pas | 51 |
+| 3 moteurs pas à pas | 222 |
 
-### SAMD21 step rate benchmark
+### Test du taux de pas sur SAMD21
 
-The following configuration sequence is used on the SAMD21:
+La séquence de configuration suivante est utilisée sur le SAMD21 :
 
 ```
 allocate_oids count=3
@@ -288,16 +288,16 @@ config_stepper oid=2 step_pin=PA17 dir_pin=PA21 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD21G18 micro-controller.
+Le test a été exécuté pour la dernière fois sur le commit `59314d99` avec la version de gcc `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` sur un microcontrôleur SAMD21G18.
 
 | samd21 | ticks |
 | --- | --- |
-| 1 stepper | 70 |
-| 3 stepper | 306 |
+| 1 moteur pas à pas | 70 |
+| 3 moteurs pas à pas | 306 |
 
-### SAMD51 step rate benchmark
+### Test du taux de pas sur SAMD51
 
-The following configuration sequence is used on the SAMD51:
+La séquence de configuration suivante est utilisée sur le SAMD51 :
 
 ```
 allocate_oids count=3
@@ -307,18 +307,18 @@ config_stepper oid=2 step_pin=PA22 dir_pin=PA19 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD51J19A micro-controller.
+Le test a été exécuté pour la dernière fois sur le commit `59314d99` avec la version gcc `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` sur un microcontrôleur SAMD51J19A.
 
 | samd51 | ticks |
 | --- | --- |
-| 1 stepper | 39 |
-| 3 stepper | 191 |
-| 1 stepper (200Mhz) | 39 |
-| 3 stepper (200Mhz) | 181 |
+| 1 moteur pas à pas | 39 |
+| 3 moteurs pas à pas | 191 |
+| 1 moteur pas à pas (200Mhz) | 39 |
+| 3 moteurs pas à pas (200Mhz) | 181 |
 
-### RP2040 step rate benchmark
+### Test du taux de pas sur RP2040
 
-The following configuration sequence is used on the RP2040:
+La séquence de configuration suivante est utilisée sur le RP2040 :
 
 ```
 allocate_oids count=3
@@ -328,16 +328,16 @@ config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=-1 step_pulse_tic
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a Raspberry Pi Pico board.
+Le test a été exécuté pour la dernière fois sur le commit `59314d99` avec la version gcc `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` sur une carte Raspberry Pi Pico.
 
 | rp2040 | ticks |
 | --- | --- |
-| 1 stepper | 5 |
-| 3 stepper | 22 |
+| 1 moteur pas à pas | 5 |
+| 3 moteurs pas à pas | 22 |
 
-### Linux MCU step rate benchmark
+### Test du taux de pas pour le MCU Linux
 
-The following configuration sequence is used on a Raspberry Pi:
+La séquence de configuration suivante est utilisée sur un Raspberry Pi :
 
 ```
 allocate_oids count=3
@@ -347,16 +347,16 @@ config_stepper oid=2 step_pin=gpio6 dir_pin=gpio17 invert_step=0 step_pulse_tick
 finalize_config crc=0
 ```
 
-The test was last run on commit `59314d99` with gcc version `gcc (Raspbian 8.3.0-6+rpi1) 8.3.0` on a Raspberry Pi 3 (revision a02082). It was difficult to get stable results in this benchmark.
+Le test a été exécuté pour la dernière fois sur le commit `59314d99` avec la version gcc `gcc (Raspbian 8.3.0-6+rpi1) 8.3.0` sur un Raspberry Pi 3 (révision a02082). Il était difficile d'obtenir des résultats stables dans ce benchmark.
 
 | Linux (RPi3) | ticks |
 | --- | --- |
-| 1 stepper | 160 |
-| 3 stepper | 380 |
+| 1 moteur pas à pas | 160 |
+| 3 moteurs pas à pas | 380 |
 
-## Command dispatch benchmark
+## Test de répartition des commandes
 
-The command dispatch benchmark tests how many "dummy" commands the micro-controller can process. It is primarily a test of the hardware communication mechanism. The test is run using the console.py tool (described in <Debugging.md>). The following is cut-and-paste into the console.py terminal window:
+Le test de répartition des commandes teste le nombre de commandes "factices" que le microcontrôleur peut traiter. Il s'agit principalement d'un test du mécanisme de communication matériel. Le test est exécuté à l'aide de l'outil console.py (décrit dans <Debugging.md>). Ce qui suit est copié-collé dans la fenêtre du terminal console.py :
 
 ```
 DELAY {clock + 2*freq} get_uptime
@@ -364,18 +364,18 @@ FLOOD 100000 0.0 debug_nop
 get_uptime
 ```
 
-When the test completes, determine the difference between the clocks reported in the two "uptime" response messages. The total number of commands per second is then `100000 * mcu_frequency / clock_diff`.
+Une fois le test terminé, déterminez la différence entre les horloges signalées dans les deux messages de réponse "uptime". Le nombre total de commandes par seconde est alors `100000 * mcu_frequency / clock_diff`.
 
-Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If running on a Raspberry Pi, Beaglebone, or similar host computer then increase the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the benchmarks below are with console.py running on a desktop class machine with the device connected via a high-speed hub.
+Notez que ce test peut saturer la capacité USB/CPU d'un Raspberry Pi. En cas d'exécution sur un Raspberry Pi, Beaglebone ou un ordinateur hôte similaire, augmentez le délai (par exemple, `DELAY {clock + 20*freq} get_uptime`). Le cas échéant, les tests de performances ci-dessous concernent console.py exécuté sur une machine de bureau avec l'appareil connecté via un concentrateur à haut débit.
 
-| MCU | Rate | Build | Build compiler |
+| MCU | Fréquence | Version | Compilateur |
 | --- | --- | --- | --- |
 | stm32f042 (CAN) | 18K | c105adc8 | arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1 |
 | atmega2560 (serial) | 23K | b161a69e | avr-gcc (GCC) 4.8.1 |
 | sam3x8e (serial) | 23K | b161a69e | arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0 |
 | at90usb1286 (USB) | 75K | 01d2183f | avr-gcc (GCC) 5.4.0 |
 | samd21 (USB) | 223K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
-| pru (shared memory) | 260K | c5968a08 | pru-gcc (GCC) 8.0.0 20170530 (experimental) |
+| pru (mémoire partagée) | 260K | c5968a08 | pru-gcc (GCC) 8.0.0 20170530 (expérimental) |
 | stm32f103 (USB) | 355K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | sam3x8e (USB) | 418K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | lpc1768 (USB) | 534K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
@@ -385,9 +385,9 @@ Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If runn
 | stm32f446 (USB) | 870K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | rp2040 (USB) | 873K | c5667193 | arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0 |
 
-## Host Benchmarks
+## Tests de l'hôte
 
-It is possible to run timing tests on the host software using the "batch mode" processing mechanism (described in <Debugging.md>). This is typically done by choosing a large and complex G-Code file and timing how long it takes for the host software to process it. For example:
+Il est possible d'exécuter des tests de temporisation sur le logiciel hôte en utilisant le mécanisme de traitement "mode batch" (décrit dans <Debugging.md>). Cela se fait généralement en choisissant un fichier G-Code volumineux et complexe et en chronométrant le temps nécessaire au logiciel hôte pour le traiter. Par example :
 
 ```
 time ~/klippy-env/bin/python ./klippy/klippy.py config/example-cartesian.cfg -i something_complex.gcode -o /dev/null -d out/klipper.dict

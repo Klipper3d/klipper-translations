@@ -104,27 +104,27 @@ step_pin:
 #    Broche GPIO du moteur (déclenchée à l'état haut). Ce paramètre doit être fourni.
 dir_pin:
 #    Broche GPIO de direction (le niveau haut indique une direction positive). Ce paramètre
-#   doit être fourni.
+#    doit être fourni.
 enable_pin:
 #    Broche d'activation (par défaut, enable est haut ; utilisez ! pour indiquer enable
 #    bas). Si ce paramètre n'est pas fourni, le pilote du moteur pas à pas doit toujours
 #    être activé.
 rotation_distance:
 #    Distance (en mm) parcourue par l'axe lors d'une rotation complète du moteur pas à pas
-#   (ou de l'engrenage final si le rapport de vitesse est spécifié).
+#    (ou de l'engrenage final si le rapport de vitesse est spécifié).
 #    Ce paramètre doit être fourni.
 microsteps:
 #    Le nombre de micropas utilisés par le pilote du moteur pas à pas. Ce paramètre
 #    doit être fourni.
 #full_steps_per_rotation: 200
-#    Nombre de pas complets pour une rotation entière du moteur pas à pas.
+#    Nombre de pas complets pour une rotation complète du moteur pas à pas.
 #    Réglez ce paramètre sur 200 pour un moteur pas à pas de 1,8 degré ou sur 400 pour
 #    un moteur de 0,9 degré. La valeur par défaut est 200.
 #gear_ratio:
-#    Le rapport d'engrenage si le moteur pas à pas est relié à l'axe via une
-#    boîte de vitesses. Par exemple, on peut spécifier "5:1" si un réducteur de 5 pour 1 est utilisé.
-#    Si l'axe a plusieurs boîtes de vitesses, on peut spécifier une liste de rapports séparés par
-#    des virgules (par exemple, "57:11, 2:1"). Si un rapport de vitesse est spécifié, alors 
+#    Le rapport d'engrenage si le moteur pas à pas est relié à l'axe via une démultiplication.
+#    Par exemple, on peut spécifier "5:1" si un réducteur de 5 pour 1 est utilisé.
+#    Si l'axe a plusieurs démultiplications, on peut spécifier une liste de rapports séparés par
+#    des virgules (par exemple, "57:11, 2:1"). Si un rapport de vitesse est spécifié, alors
 #    rotation_distance spécifie la distance parcourue par l'axe pour une rotation complète
 #    de l'engrenage final.
 #    La valeur par défaut est de ne pas utiliser de rapport de vitesse.
@@ -145,18 +145,18 @@ position_endstop:
 #    Emplacement de la butée (en mm). Ce paramètre doit être fourni pour les moteurs X, Y et Z
 #    des imprimantes de style cartésien.
 position_max:
-#    Distance maximale valide (en mm) vers laquelle l'utilisateur peut ordonner au moteur pas à pas de se déplacer.
+#    Distance maximale valide (en mm) vers laquelle l'utilisateur peut ordonner au moteur de se déplacer.
 #    Ce paramètre doit être fourni pour les moteurs X, Y, et Z des imprimantes de type cartésien.
 #homing_speed: 5.0
 #    Vitesse maximale (en mm/s) du moteur pas à pas lors de la mise à l'origine. La valeur par défaut
 #    est de 5mm/s.
 #homing_retract_dist: 5.0
 #    Distance de recul (en mm) avant le retour au point d'origine une seconde fois.
-#    Réglez cette valeur à zéro pour désactiver le second retour à l'origne. La valeur par défaut
+#    Réglez cette valeur à zéro pour désactiver le second retour à l'origine. La valeur par défaut
 #    est de 5 mm.
 #homing_retract_speed:
-#    Vitesse à utiliser pour le mouvement de recul après le retour à l'origine au cas où
-#    elle soit différente de la vitesse de mise à l'origine qui est la valeur par défaut de ce paramètre.
+#    Vitesse à utiliser pour le mouvement de recul après le retour à l'origine au cas où elle soit
+#    différente de la vitesse de mise à l'origine qui est la valeur par défaut de ce paramètre.
 #second_homing_speed:
 #    Vitesse (en mm/s) du moteur pas à pas lors du second retour à l'origine.
 #    La valeur par défaut est homing_speed/2.
@@ -1166,7 +1166,7 @@ gcode:
 
 ### [endstop_phase]
 
-Interrupteurs de fin de course ajustés à la phase du pilote de moteur pas à pas. Pour utiliser cette fonction, définissez une section de configuration avec un préfixe "endstop_phase" suivi du nom de la section de configuration du pilote de moteur pas à pas correspondante (par exemple, "[endstop_phase stepper_z]"). Cette fonctionnalité peut améliorer la précision des interrupteurs de fin de course. Ajouter une déclaration nue "[endstop_phase]" pour activer la commande ENDSTOP_PHASE_CALIBRATE.
+Interrupteurs de fin de course ajustés à la phase du moteur pas à pas. Pour utiliser cette fonction, définissez une section de configuration avec un préfixe "endstop_phase" suivi du nom de la section de configuration du moteur pas à pas correspondante (par exemple, "[endstop_phase stepper_z]"). Cette fonctionnalité peut améliorer la précision des interrupteurs de fin de course. Ajoutez une déclaration nue "[endstop_phase]" pour activer la commande ENDSTOP_PHASE_CALIBRATE.
 
 Voir le [guide de détecteurs de fin de course](Endstop_Phase.md) et la [référence des commandes](G-Codes.md#endstop_phase) pour plus d'informations.
 
@@ -3833,16 +3833,16 @@ Les paramètres suivants sont généralement disponibles pour les dispositifs ut
 #    La vitesse SPI (en hz) à utiliser lors de la communication avec le périphérique.
 #    La valeur par défaut dépend du type de périphérique.
 #spi_bus:
-#    Si le micro-contrôleur supporte plusieurs bus SPI alors on peut
-#    spécifier le nom du bus du micro-contrôleur ici. La valeur par défaut dépend du
-#    type de micro-contrôleur.
+#    Si le micro-contrôleur supporte plusieurs bus SPI alors on peut spécifier le nom
+#    du bus du micro-contrôleur ici. La valeur par défaut dépend du type de
+#    micro-contrôleur.
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#    Spécifiez les paramètres ci-dessus pour utiliser le "SPI logiciel". Ce mode
-#    ne nécessite pas le support matériel du micro-contrôleur (typiquement
-#    n'importe quelle broche d'usage général peut être utilisée). La valeur par défaut est
-#    de ne pas utiliser le "spi logiciel".
+#    Spécifiez les paramètres ci-dessus pour utiliser le "SPI logiciel". Ce mode ne
+#    nécessite pas le support matériel du micro-contrôleur (typiquement n'importe
+#    quelle broche d'usage général peut être utilisée). La valeur par défaut est de
+#    ne pas utiliser le "spi logiciel".
 ```
 
 ### Paramètres I2C communs
