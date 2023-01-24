@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-24 16:32+0000\n"
+"PO-Revision-Date: 2023-01-24 17:07+0000\n"
 "Last-Translator: Simon Tillema <simontillema@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/"
 "tsl1401cl_filament_width_sensor/nl/>\n"
@@ -36,7 +36,7 @@ msgstr ""
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 1 (header)
 msgid "TSL1401CL filament width sensor"
-msgstr ""
+msgstr "TSL1401CL filamentdiametersensor"
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 2 (paragraph)
 msgid ""
@@ -46,10 +46,15 @@ msgid ""
 "designs at "
 "[Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor)."
 msgstr ""
+"Dit document beschrijft de filamentdiametersensor-hostmodule. De gebruikte "
+"hardware voor de ontwikkeling van deze hostmodule is gebaseerd op de "
+"TSL1401CL-sensor maar werkt met elke sensor van dit type met analoge output. "
+"U kunt het ontwerp vinden op [Thingiverse](https://www.thingiverse.com/"
+"search?q=filament%20width%20sensor)."
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 6 (header)
 msgid "Note:"
-msgstr ""
+msgstr "Let op:"
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 3 (paragraph)
 msgid ""
@@ -57,6 +62,9 @@ msgid ""
 "Reference](Config_Reference.md#tsl1401cl_filament_width_sensor) and [G-Code "
 "documentation](G-Codes.md#hall_filament_width_sensor)."
 msgstr ""
+"Lees [configreferenties](Config_Reference.md#tsl1401cl_filament_width_sensor)"
+" en de [G-code documentatie](G-Codes.md#hall_filament_width_sensor) om deze "
+"sensor te gebruiken."
 
 #~ msgid ""
 #~ "To use a sensor array as a filament width sensor, read [Config "
