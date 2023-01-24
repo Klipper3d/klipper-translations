@@ -1,28 +1,31 @@
 # Wivik <seb+weblate@zedas.fr>, 2021.
-# Francis Poulizac <francis@poulizac.fr>, 2022.
+# Francis Poulizac <francis@poulizac.fr>, 2022, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-28 14:13+0000\n"
+"PO-Revision-Date: 2023-01-24 13:49+0000\n"
 "Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/hall_filament_width_sensor/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"hall_filament_width_sensor/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 msgid "How does it work?"
 msgstr "Comment cela fonctionne-t-il ?"
 
 msgid "Template for menu variables"
-msgstr ""
+msgstr "Modèle pour les variables du menu"
 
 msgid "Calibration procedure"
-msgstr ""
+msgstr "Procédure d'étalonnage"
 
 msgid "Insert first calibration rod (1.5 mm size) get first raw sensor value"
 msgstr ""
+"Insérer la première tige d'étalonnage (taille 1,5 mm) pour obtenir la "
+"première valeur brute du capteur"
 
 msgid ""
 "Insert second calibration rod (2.0 mm size) get second raw sensor value"
