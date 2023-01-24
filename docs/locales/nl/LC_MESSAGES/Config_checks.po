@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-24 16:10+0000\n"
+"PO-Revision-Date: 2023-01-24 16:11+0000\n"
 "Last-Translator: Simon Tillema <simontillema@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/"
 "config_checks/nl/>\n"
@@ -48,7 +48,7 @@ msgstr ""
 "Octoprint-temperatuurtabblad."
 
 msgid "![octoprint-temperature](img/octoprint-temperature.png)"
-msgstr ""
+msgstr "![octoprint-temperatuur](img/octoprint-temperature.png)"
 
 msgid ""
 "Verify that the temperature of the nozzle and bed (if applicable) are "
