@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-24 16:22+0000\n"
+"PO-Revision-Date: 2023-01-24 16:23+0000\n"
 "Last-Translator: Simon Tillema <simontillema@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/index/nl/>"
 "\n"
@@ -31,6 +31,9 @@ msgid ""
 "[features](Features.md) document for more information on why you should use "
 "Klipper."
 msgstr ""
+"Klipper is firmware voor een 3D-printer. Het combineer de kracht van een "
+"computer met één of meer microcontrollers. Zie het [features](Features.md)"
+"document voor meer informatie over waarom u Klipper zou moeten gebruiken."
 
 #: docs/index.md:block 5 (paragraph)
 msgid "To begin using Klipper start by [installing](Installation.md) it."
