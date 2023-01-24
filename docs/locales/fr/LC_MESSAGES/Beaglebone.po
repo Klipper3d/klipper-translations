@@ -1,17 +1,18 @@
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
 # jean-luc MATTEI <jlucm@free.fr>, 2023.
+# Francis Poulizac <francis@poulizac.fr>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-01 08:50+0000\n"
-"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
+"PO-Revision-Date: 2023-01-24 13:49+0000\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "beaglebone/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 msgid ""
 "This document describes the process of running Klipper on a Beaglebone PRU."
@@ -20,7 +21,7 @@ msgstr ""
 "PRU."
 
 msgid "Building an OS image"
-msgstr ""
+msgstr "Construire l'image de l'OS"
 
 msgid ""
 "Start by installing the [Debian 9.9 2019-08-03 4GB SD "
@@ -28,18 +29,23 @@ msgid ""
 "from either a micro-SD card or from builtin eMMC. If using the eMMC, install"
 " it to eMMC now by following the instructions from the above link."
 msgstr ""
+"Commencez par installer l'image [Debian 9.9 2019-08-03 4GB SD "
+"IoT](https://beagleboard.org/latest-images). Vous pouvez exécuter l'image à "
+"partir d'une carte micro-SD ou de la carte eMMC intégrée. Si vous utilisez "
+"l'eMMC, installez-la sur l'eMMC maintenant en suivant les instructions du "
+"lien ci-dessus."
 
 msgid "Install Octoprint"
-msgstr ""
+msgstr "Installer Octoprint"
 
 msgid "One may then install Octoprint:"
-msgstr ""
+msgstr "On peut ensuite installer Octoprint :"
 
 msgid "And setup OctoPrint to start at bootup:"
-msgstr ""
+msgstr "Et configurer OctoPrint pour qu'il démarre au démarrage :"
 
 msgid "Then start the Octoprint service:"
-msgstr ""
+msgstr "Démarrez ensuite le service Octoprint :"
 
 msgid "Building the micro-controller code"
 msgstr "Construire le code du microcontrôleur"
@@ -48,19 +54,21 @@ msgid ""
 "To compile the Klipper micro-controller code, start by configuring it for "
 "the \"Beaglebone PRU\":"
 msgstr ""
+"Pour compiler le code du microcontrôleur Klipper, commencez par le "
+"configurer pour le \"Beaglebone PRU\" :"
 
 msgid "To build and install the new micro-controller code, run:"
 msgstr ""
 "Pour compiler et installer le nouveau code du microcontrôleur, exécutez :"
 
 msgid "Then install this micro-controller code as well:"
-msgstr ""
+msgstr "Puis installez également ce code de micro-contrôleur :"
 
 msgid "Remaining configuration"
 msgstr "Configuration restante"
 
 msgid "Printing on the Beaglebone"
-msgstr ""
+msgstr "Imprimer avec le Beaglebone"
 
 msgid ""
 "git clone https://github.com/foosel/OctoPrint.git\n"
@@ -68,6 +76,10 @@ msgid ""
 "virtualenv venv\n"
 "./venv/bin/python setup.py install\n"
 msgstr ""
+"git clone https://github.com/foosel/OctoPrint.git\n"
+"cd OctoPrint/\n"
+"virtualenv venv\n"
+"./venv/bin/python setup.py install\n"
 
 msgid ""
 "sudo cp ~/OctoPrint/scripts/octoprint.init /etc/init.d/octoprint\n"
@@ -75,12 +87,16 @@ msgid ""
 "sudo cp ~/OctoPrint/scripts/octoprint.default /etc/default/octoprint\n"
 "sudo update-rc.d octoprint defaults\n"
 msgstr ""
+"sudo cp ~/OctoPrint/scripts/octoprint.init /etc/init.d/octoprint\n"
+"sudo chmod +x /etc/init.d/octoprint\n"
+"sudo cp ~/OctoPrint/scripts/octoprint.default /etc/default/octoprint\n"
+"sudo update-rc.d octoprint defaults\n"
 
 msgid "sudo nano /etc/default/octoprint\n"
-msgstr ""
+msgstr "sudo nano /etc/default/octoprint\n"
 
 msgid "sudo systemctl start octoprint\n"
-msgstr ""
+msgstr "sudo systemctl start octoprint\n"
 
 msgid ""
 "cd ~/klipper/\n"
@@ -99,23 +115,28 @@ msgstr ""
 "sudo service klipper start\n"
 
 msgid "make menuconfig\n"
-msgstr ""
+msgstr "make menuconfig\n"
 
 #: docs/beaglebone.md:block 1 (header)
 msgid "Beaglebone"
-msgstr ""
+msgstr "Beaglebone"
 
 #: docs/beaglebone.md:block 6 (code)
 msgid ""
 "git clone https://github.com/Klipper3d/klipper\n"
 "./klipper/scripts/install-beaglebone.sh\n"
 msgstr ""
+"git clone https://github.com/Klipper3d/klipper\n"
+"./klipper/scripts/install-beaglebone.sh\n"
 
 #: docs/Beaglebone.md:block 5 (paragraph)
 msgid ""
 "Then ssh into the Beaglebone machine (`ssh debian@beaglebone` -- password is"
 " `temppwd`) and install Klipper by running the following commands:"
 msgstr ""
+"Ensuite, connectez-vous à la machine Beaglebone (`ssh debian@beaglebone` -- "
+"le mot de passe est `temppwd`) et installez Klipper en exécutant les "
+"commandes suivantes :"
 
 #: docs/Beaglebone.md:block 12 (paragraph)
 msgid ""
@@ -125,18 +146,28 @@ msgid ""
 "`DAEMON` settings and change the references from `/home/pi/` to "
 "`/home/debian/`:"
 msgstr ""
+"Il est nécessaire de modifier le fichier de configuration d'OctoPrint **/etc/"
+"default/octoprint**. Il faut changer l'utilisateur `OCTOPRINT_USER` en "
+"`debian`, changer `NICELEVEL` en `0`, décommenter les paramètres `BASEDIR`, "
+"`CONFIGFILE`, et `DAEMON` et changer les références de `/home/pi/` en `/home/"
+"debian/` :"
 
 #: docs/Beaglebone.md:block 16 (paragraph)
 msgid ""
 "Make sure the OctoPrint web server is accessible - it should be at: "
 "<http://beaglebone:5000/>"
 msgstr ""
+"Assurez-vous que le serveur web OctoPrint est accessible - il devrait se "
+"trouver à l'adresse suivante : <http://beaglebone:5000/>"
 
 #: docs/Beaglebone.md:block 22 (paragraph)
 msgid ""
 "It is also necessary to compile and install the micro-controller code for a "
 "Linux host process. Configure it a second time for a \"Linux process\":"
 msgstr ""
+"Il est également nécessaire de compiler et d'installer le code du "
+"microcontrôleur pour un processus hôte Linux. Configurez-le une seconde fois "
+"pour un \"processus Linux\" :"
 
 #: docs/Beaglebone.md:block 27 (paragraph)
 msgid ""
@@ -144,6 +175,9 @@ msgid ""
 " instructions in the main [Installation](Installation.md#configuring-"
 "klipper) document."
 msgstr ""
+"Terminez l'installation en configurant Klipper et Octoprint en suivant les "
+"instructions du document principal [Installation](Installation.md"
+"#configuration-klipper)."
 
 #: docs/Beaglebone.md:block 29 (paragraph)
 msgid ""
@@ -154,6 +188,14 @@ msgid ""
 "Reference](Config_Reference.md#virtual_sdcard) for details) to print "
 "directly from Klipper."
 msgstr ""
+"Malheureusement, le processeur du Beaglebone peut parfois avoir du mal à "
+"faire fonctionner OctoPrint correctement. Des blocages d'impression sont "
+"connus pour se produire sur des impressions complexes (l'imprimante peut se "
+"déplacer plus rapidement qu'OctoPrint ne peut envoyer de commandes de "
+"mouvement). Si cela se produit, envisagez d'utiliser la fonctionnalité "
+"\"virtual_sdcard\" (voir [Référence des configurations](Config_Reference."
+"md#virtual_sdcard) pour plus de détails) pour imprimer directement depuis "
+"Klipper."
 
 #~ msgid ""
 #~ "Then ssh into the beaglebone machine (ssh debian@beaglebone -- password is "
