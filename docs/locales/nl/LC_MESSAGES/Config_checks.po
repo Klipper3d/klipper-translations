@@ -21,6 +21,7 @@ msgstr ""
 "printer.cfg te bevestigen. Het is belangrijk om deze stappen door te lopen "
 "in het [installatiedocument](Installation.md)."
 
+#, fuzzy
 msgid ""
 "During this guide, it may be necessary to make changes to the Klipper config"
 " file. Be sure to issue a RESTART command after every change to the config "
@@ -37,7 +38,7 @@ msgstr ""
 "doorgevoerd."
 
 msgid "Verify temperature"
-msgstr "Verifieer temperatuur"
+msgstr "Controleer temperatuur"
 
 msgid ""
 "Start by verifying that temperatures are being properly reported. Navigate "
