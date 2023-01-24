@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-24 16:23+0000\n"
+"PO-Revision-Date: 2023-01-24 16:25+0000\n"
 "Last-Translator: Simon Tillema <simontillema@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/index/nl/>"
 "\n"
@@ -38,6 +38,7 @@ msgstr ""
 #: docs/index.md:block 5 (paragraph)
 msgid "To begin using Klipper start by [installing](Installation.md) it."
 msgstr ""
+"Om Klipper te gaan gebruiken begint u bij [installing](Installation.md)."
 
 #: docs/index.md:block 6 (paragraph)
 msgid ""
