@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-24 16:31+0000\n"
+"PO-Revision-Date: 2023-01-24 16:32+0000\n"
 "Last-Translator: Simon Tillema <simontillema@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/"
 "tsl1401cl_filament_width_sensor/nl/>\n"
@@ -30,6 +30,9 @@ msgid ""
 "free to change this setting by editing ***MEASUREMENT_INTERVAL_MM*** "
 "parameter in **filament_width_sensor.py** file."
 msgstr ""
+"De metingen worden gedaan bij een standaard interval van 10 mm. Dit kan "
+"gewijzigd worden door de instelling ***MEASUREMENT_INTERVAL_MM*** in "
+"**filament_width_sensor.py** aan te passen."
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 1 (header)
 msgid "TSL1401CL filament width sensor"
