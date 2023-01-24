@@ -1,63 +1,82 @@
-#
+# Simon Tillema <simontillema@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-01-25 17:51+0000\n"
+"Last-Translator: Simon Tillema <simontillema@gmail.com>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/contact/nl/"
+">\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 msgid "This document provides contact information for Klipper."
-msgstr ""
+msgstr "Dit document bevat contactinformatie voor Klipper."
 
 msgid "[Community Forum](#community-forum)"
-msgstr ""
+msgstr "[Communityforum](#community-forum)"
 
 msgid "[Discord Chat](#discord-chat)"
-msgstr ""
+msgstr "[Discord-chat](#discord-chat)"
 
 msgid "[I have a question about Klipper](#i-have-a-question-about-klipper)"
-msgstr ""
+msgstr "[Ik heb een vraag over Klipper](#i-have-a-question-about-klipper)"
 
 msgid "[I have a feature request](#i-have-a-feature-request)"
-msgstr ""
+msgstr "[Ik heb een verzoek voor een functie](#i-have-a-feature-request)"
 
 msgid "[Help! It doesn't work!](#help-it-doesnt-work)"
-msgstr ""
+msgstr "[Help! Het werkt niet!](#help-it-doesnt-work)"
 
 msgid ""
 "[I am making changes that I'd like to include in Klipper](#i-am-making-"
 "changes-that-id-like-to-include-in-klipper)"
 msgstr ""
+"[Ik doe wijzigingen die ik graag terugzie in Klipper](#i-am-making-changes-"
+"that-id-like-to-include-in-klipper)"
 
 msgid "Community Forum"
-msgstr ""
+msgstr "Community-forum"
 
 msgid ""
 "There is a [Klipper Community Discourse "
 "server](https://community.klipper3d.org) for discussions on Klipper."
 msgstr ""
+"Er is een [Klipper Discourse-server](https://community.klipper3d.org) voor "
+"discussies over Klipper."
 
 msgid "Discord Chat"
-msgstr ""
+msgstr "Discord-chat"
 
 msgid ""
 "This server is run by a community of Klipper enthusiasts dedicated to "
 "discussions on Klipper. It allows users to chat with other users in real-"
 "time."
 msgstr ""
+"Deze server wordt gebruikt door een community van Klipper-fans voor "
+"discussies over Klipper. Het stelt gebruikers in staat om te chatten met "
+"anderen."
 
 msgid "I have a question about Klipper"
-msgstr ""
+msgstr "Ik heb een vraag over Klipper"
 
 msgid ""
 "Many questions we receive are already answered in the [Klipper "
 "documentation](Overview.md). Please be sure to to read the documentation and"
 " follow the directions provided there."
 msgstr ""
+"Veel vragen die we krijgen zijn al beantwoord in de [Klipper-"
+"documentatie](Overview.md). Lees alstublieft de documentatie en volg de daar "
+"gegeven aanwijzingen."
 
 msgid ""
 "It is also possible to search for similar questions in the [Klipper "
 "Community Forum](#community-forum)."
 msgstr ""
+"Het is ook mogelijk om te zoeken naar vergelijkbare vragen in het [community-"
+"forum](#community-forum)."
 
 msgid ""
 "If you are interested in sharing your knowledge and experience with other "
