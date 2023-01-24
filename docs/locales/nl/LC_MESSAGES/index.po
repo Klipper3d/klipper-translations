@@ -38,7 +38,7 @@ msgstr ""
 #: docs/index.md:block 5 (paragraph)
 msgid "To begin using Klipper start by [installing](Installation.md) it."
 msgstr ""
-"Om Klipper te gaan gebruiken begint u bij [installing](Installation.md)."
+"Om Klipper te gaan gebruiken begint u bij de [installatie](Installation.md)."
 
 #: docs/index.md:block 6 (paragraph)
 msgid ""
