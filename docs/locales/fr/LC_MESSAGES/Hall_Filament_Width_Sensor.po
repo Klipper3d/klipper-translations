@@ -1,17 +1,18 @@
 # Wivik <seb+weblate@zedas.fr>, 2021.
-# Francis Poulizac <francis@poulizac.fr>, 2022, 2023.
+# Francis Poulizac <francis@poulizac.fr>, 2022, 2023, 2025.
 # jean-luc MATTEI <jlucm@free.fr>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-04-26 06:52+0000\n"
-"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/hall_filament_width_sensor/fr/>\n"
+"PO-Revision-Date: 2025-05-03 07:28+0000\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"hall_filament_width_sensor/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid "How does it work?"
 msgstr "Comment cela fonctionne-t-il ?"
@@ -24,8 +25,8 @@ msgstr "Procédure d'étalonnage"
 
 msgid "Insert first calibration rod (1.5 mm size) get first raw sensor value"
 msgstr ""
-"Insérer la première tige d'étalonnage (taille 1,5 mm) pour obtenir la première"
-" valeur brute du capteur"
+"Insérer la première tige d'étalonnage (taille 1,5 mm) pour obtenir la "
+"première valeur brute du capteur"
 
 msgid "Insert second calibration rod (2.0 mm size) get second raw sensor value"
 msgstr ""
@@ -82,10 +83,9 @@ msgid ""
 "[Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video is"
 " also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
-"Vous trouverez les modèles sur "
-"[Thingiverse](https://www.thingiverse.com/thing:4138933), une vidéo de montage"
-" est également disponible sur "
-"[Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
+"Vous trouverez les modèles sur [Thingiverse](https://www.thingiverse.com/"
+"thing:4138933), une vidéo de montage est également disponible sur [Youtube]"
+"(https://www.youtube.com/watch?v=TDO9tME8vp4)"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 10 (paragraph)
 msgid ""
@@ -101,9 +101,10 @@ msgid ""
 "Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
 "documentation](G-Codes.md#hall_filament_width_sensor)."
 msgstr ""
-"Pour utiliser le capteur de largeur de filament de Hall, consultez [Référence "
-"des configurations](Config_Reference.md#hall_filament_width_sensor) et "
-"[documentation G-Code](G-Codes.md#hall_filament_width_sensor)."
+"Pour utiliser le capteur de largeur de filament de Hall, consultez "
+"[Référence des configurations]"
+"(Config_Reference.md#hall_filament_width_sensor) et [documentation G-Code]"
+"(G-Codes.md#hall_filament_width_sensor)."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 14 (paragraph)
 msgid ""
