@@ -1219,31 +1219,31 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#micro-controller-interface" class="md-nav__link">
-    Micro-controller Interface
+  <a href="#interface-du-micro-controleur" class="md-nav__link">
+    Interface du micro-contrôleur
   </a>
   
-    <nav class="md-nav" aria-label="Micro-controller Interface">
+    <nav class="md-nav" aria-label="Interface du micro-contrôleur">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#declaring-commands" class="md-nav__link">
-    Declaring commands
+  <a href="#declaration-des-commandes" class="md-nav__link">
+    Déclaration des commandes
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#declaring-responses" class="md-nav__link">
-    Declaring responses
+  <a href="#declaration-des-reponses" class="md-nav__link">
+    Déclaration des réponses
   </a>
   
-    <nav class="md-nav" aria-label="Declaring responses">
+    <nav class="md-nav" aria-label="Déclaration des réponses">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#output-responses" class="md-nav__link">
-    Output responses
+  <a href="#reponses-de-sortie" class="md-nav__link">
+    Réponses de sortie
   </a>
   
 </li>
@@ -1254,63 +1254,16 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#declaring-enumerations" class="md-nav__link">
-    Declaring enumerations
+  <a href="#declarer-des-enumerations" class="md-nav__link">
+    Déclarer des énumérations
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#declaring-constants" class="md-nav__link">
-    Declaring constants
+  <a href="#declaration-de-constantes" class="md-nav__link">
+    Déclaration de constantes
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#low-level-message-encoding" class="md-nav__link">
-    Low-level message encoding
-  </a>
-  
-    <nav class="md-nav" aria-label="Low-level message encoding">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#message-blocks" class="md-nav__link">
-    Message Blocks
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#message-block-contents" class="md-nav__link">
-    Message Block Contents
-  </a>
-  
-    <nav class="md-nav" aria-label="Message Block Contents">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#variable-length-quantities" class="md-nav__link">
-    Variable Length Quantities
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#variable-length-strings" class="md-nav__link">
-    Variable length strings
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1320,15 +1273,62 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-dictionary" class="md-nav__link">
-    Data Dictionary
+  <a href="#encodage-des-message-de-bas-niveau" class="md-nav__link">
+    Encodage des message de bas niveau
+  </a>
+  
+    <nav class="md-nav" aria-label="Encodage des message de bas niveau">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blocs-de-message" class="md-nav__link">
+    Blocs de message
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contenu-du-bloc-de-message" class="md-nav__link">
+    Contenu du bloc de message
+  </a>
+  
+    <nav class="md-nav" aria-label="Contenu du bloc de message">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quantites-de-longueur-variable" class="md-nav__link">
+    Quantités de longueur variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chaines-de-longueur-variable" class="md-nav__link">
+    Chaînes de longueur variable
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dictionnaire-de-donnees" class="md-nav__link">
+    Dictionnaire de données
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#message-flow" class="md-nav__link">
-    Message flow
+  <a href="#flux-de-messages" class="md-nav__link">
+    Flux de messages
   </a>
   
 </li>
@@ -1359,82 +1359,82 @@ queue_step oid=7 interval=7458 count=10 add=331
 queue_step oid=7 interval=11717 count=4 add=1281
 </code></pre></div>
 
-<p>See the <a href="MCU_Commands.html">mcu commands</a> document for information on available commands. See the <a href="Debugging.html">debugging</a> document for information on how to translate a G-Code file into its corresponding human-readable micro-controller commands.</p>
-<p>This page provides a high-level description of the Klipper messaging protocol itself. It describes how messages are declared, encoded in binary format (the "compression" scheme), and transmitted.</p>
-<p>The goal of the protocol is to enable an error-free communication channel between the host and micro-controller that is low-latency, low-bandwidth, and low-complexity for the micro-controller.</p>
-<h2 id="micro-controller-interface">Micro-controller Interface<a class="headerlink" href="#micro-controller-interface" title="Permanent link">&para;</a></h2>
-<p>The Klipper transmission protocol can be thought of as a <a href="https://en.wikipedia.org/wiki/Remote_procedure_call">RPC</a> mechanism between micro-controller and host. The micro-controller software declares the commands that the host may invoke along with the response messages that it can generate. The host uses that information to command the micro-controller to perform actions and to interpret the results.</p>
-<h3 id="declaring-commands">Declaring commands<a class="headerlink" href="#declaring-commands" title="Permanent link">&para;</a></h3>
-<p>The micro-controller software declares a "command" by using the DECL_COMMAND() macro in the C code. For example:</p>
+<p>Consultez le document <a href="MCU_Commands.html">commandes mcu</a> pour plus d'informations sur les commandes disponibles. Voir le document <a href="Debugging.html">deboguage</a> pour plus d'informations sur la façon de traduire un fichier G-Code en commandes de microcontrôleur lisibles.</p>
+<p>Cette page fournit une description de haut niveau du protocole de communication de Klipper lui-même. Il décrit comment les messages sont déclarés, codés au format binaire (le schéma de "compression") et transmis.</p>
+<p>L'objectif du protocole est de permettre un canal de communication sans erreur entre l'hôte et le microcontrôleur qui soit à faible latence, à faible bande passante et à faible complexité pour le microcontrôleur.</p>
+<h2 id="interface-du-micro-controleur">Interface du micro-contrôleur<a class="headerlink" href="#interface-du-micro-controleur" title="Permanent link">&para;</a></h2>
+<p>Le protocole de transmission Klipper peut être considéré comme un mécanisme <a href="https://en.wikipedia.org/wiki/Remote_procedure_call">Appel de procédure à distance</a> entre le micro-contrôleur et l'hôte. Le logiciel du microcontrôleur déclare les commandes que l'hôte peut invoquer ainsi que les messages de réponse qu'il peut générer. L'hôte utilise ces informations pour ordonner au microcontrôleur d'effectuer des actions et d'interpréter les résultats.</p>
+<h3 id="declaration-des-commandes">Déclaration des commandes<a class="headerlink" href="#declaration-des-commandes" title="Permanent link">&para;</a></h3>
+<p>Le logiciel du microcontrôleur déclare une "commande" en utilisant la macro DECL_COMMAND() dans le code C. Par exemple :</p>
 <div class="highlight"><pre><span></span><code>DECL_COMMAND(command_update_digital_out, &quot;update_digital_out oid=%c value=%c&quot;);
 </code></pre></div>
 
-<p>The above declares a command named "update_digital_out". This allows the host to "invoke" this command which would cause the command_update_digital_out() C function to be executed in the micro-controller. The above also indicates that the command takes two integer parameters. When the command_update_digital_out() C code is executed, it will be passed an array containing these two integers - the first corresponding to the 'oid' and the second corresponding to the 'value'.</p>
-<p>In general, the parameters are described with printf() style syntax (eg, "%u"). The formatting directly corresponds to the human-readable view of commands (eg, "update_digital_out oid=7 value=1"). In the above example, "value=" is a parameter name and "%c" indicates the parameter is an integer. Internally, the parameter name is only used as documentation. In this example, the "%c" is also used as documentation to indicate the expected integer is 1 byte in size (the declared integer size does not impact the parsing or encoding).</p>
-<p>The micro-controller build will collect all commands declared with DECL_COMMAND(), determine their parameters, and arrange for them to be callable.</p>
-<h3 id="declaring-responses">Declaring responses<a class="headerlink" href="#declaring-responses" title="Permanent link">&para;</a></h3>
-<p>To send information from the micro-controller to the host a "response" is generated. These are both declared and transmitted using the sendf() C macro. For example:</p>
+<p>Ce qui précède déclare une commande nommée "update_digital_out". Cela permet à l'hôte "d'appeler" cette commande qui entraînerait l'exécution de la fonction C command_update_digital_out() dans le microcontrôleur. Ce qui précède indique également que la commande prend deux paramètres entiers. Lorsque le code C command_update_digital_out() est exécuté, un tableau contenant ces deux entiers lui sera transmis - le premier correspondant à 'oid' et le second correspondant à 'value'.</p>
+<p>En général, les paramètres sont décrits avec une syntaxe de style printf() (par exemple, "%u"). Le formatage correspond directement à une vue "lisible" des commandes (par exemple, "update_digital_out oid=7 value=1"). Dans l'exemple ci-dessus, "value=" est un nom de paramètre et "%c" indique que le paramètre est un entier. En interne, le nom du paramètre n'est utilisé que comme documentation. Dans cet exemple, le "%c" est également utilisé comme documentation pour indiquer que l'entier attendu a une taille de 1 octet (la taille de l'entier déclaré n'a pas d'impact sur l'analyse ou l'encodage).</p>
+<p>La construction du micrologiciel du microcontrôleur collectera toutes les commandes déclarées avec DECL_COMMAND(), déterminera leurs paramètres et s'arrangera pour qu'elles soient appelables.</p>
+<h3 id="declaration-des-reponses">Déclaration des réponses<a class="headerlink" href="#declaration-des-reponses" title="Permanent link">&para;</a></h3>
+<p>Pour envoyer des informations du microcontrôleur à l'hôte, des "réponses" sont générées. Celles-ci sont à la fois déclarées et transmises à l'aide de la macro C sendf(). Par example :</p>
 <div class="highlight"><pre><span></span><code>sendf(&quot;status clock=%u status=%c&quot;, sched_read_time(), sched_is_shutdown());
 </code></pre></div>
 
-<p>The above transmits a "status" response message that contains two integer parameters ("clock" and "status"). The micro-controller build automatically finds all sendf() calls and generates encoders for them. The first parameter of the sendf() function describes the response and it is in the same format as command declarations.</p>
-<p>The host can arrange to register a callback function for each response. So, in effect, commands allow the host to invoke C functions in the micro-controller and responses allow the micro-controller software to invoke code in the host.</p>
-<p>The sendf() macro should only be invoked from command or task handlers, and it should not be invoked from interrupts or timers. The code does not need to issue a sendf() in response to a received command, it is not limited in the number of times sendf() may be invoked, and it may invoke sendf() at any time from a task handler.</p>
-<h4 id="output-responses">Output responses<a class="headerlink" href="#output-responses" title="Permanent link">&para;</a></h4>
-<p>To simplify debugging, there is also an output() C function. For example:</p>
-<div class="highlight"><pre><span></span><code>output(&quot;The value of %u is %s with size %u.&quot;, x, buf, buf_len);
+<p>Ce qui précède transmet un message de réponse "status" qui contient deux paramètres entiers ("clock" et "status"). La construction du microcontrôleur trouve automatiquement tous les appels sendf() et génère des encodeurs pour eux. Le premier paramètre de la fonction sendf() décrit la réponse et il est dans le même format que les déclarations de commande.</p>
+<p>L'hôte peut enregistrer une fonction de rappel pour chaque réponse. Ainsi, les commandes permettent à l'hôte d'invoquer des fonctions C dans le microcontrôleur et les réponses permettent au logiciel du microcontrôleur d'invoquer du code dans l'hôte.</p>
+<p>La macro sendf() ne doit être appelée qu'à partir de commandes ou de gestionnaires de tâches, et elle ne doit pas être appelée à partir d'interruptions ou de timers. Le code n'a pas besoin d'émettre un sendf() en réponse à une commande reçue, le nombre d'appels à sendf() n'est pas limié, et il est possible d'appeler sendf() à tout moment à partir d'un gestionnaire de tâches.</p>
+<h4 id="reponses-de-sortie">Réponses de sortie<a class="headerlink" href="#reponses-de-sortie" title="Permanent link">&para;</a></h4>
+<p>Pour simplifier le débogage, il existe également une fonction C output(). Par exemple :</p>
+<div class="highlight"><pre><span></span><code>output(&quot;La valeur de %u est %s avec une taille de %u.&quot;, x, buf, buf_len);
 </code></pre></div>
 
-<p>The output() function is similar in usage to printf() - it is intended to generate and format arbitrary messages for human consumption.</p>
-<h3 id="declaring-enumerations">Declaring enumerations<a class="headerlink" href="#declaring-enumerations" title="Permanent link">&para;</a></h3>
-<p>Enumerations allow the host code to use string identifiers for parameters that the micro-controller handles as integers. They are declared in the micro-controller code - for example:</p>
+<p>La fonction output() est similaire à printf() - elle est destinée à générer et formater des messages de débogage avec un affichage dans un format compréhensible (ndt : par un humain normalement constitué :-)).</p>
+<h3 id="declarer-des-enumerations">Déclarer des énumérations<a class="headerlink" href="#declarer-des-enumerations" title="Permanent link">&para;</a></h3>
+<p>Les énumérations permettent au code hôte d'utiliser des identificateurs de type chaîne pour des paramètres que le microcontrôleur gère comme des entiers. Ils sont déclarés dans le code du microcontrôleur - par exemple :</p>
 <div class="highlight"><pre><span></span><code>DECL_ENUMERATION(&quot;spi_bus&quot;, &quot;spi&quot;, 0);
 
 DECL_ENUMERATION_RANGE(&quot;pin&quot;, &quot;PC0&quot;, 16, 8);
 </code></pre></div>
 
-<p>If the first example, the DECL_ENUMERATION() macro defines an enumeration for any command/response message with a parameter name of "spi_bus" or parameter name with a suffix of "_spi_bus". For those parameters the string "spi" is a valid value and it will be transmitted with an integer value of zero.</p>
-<p>It's also possible to declare an enumeration range. In the second example, a "pin" parameter (or any parameter with a suffix of "_pin") would accept PC0, PC1, PC2, ..., PC7 as valid values. The strings will be transmitted with integers 16, 17, 18, ..., 23.</p>
-<h3 id="declaring-constants">Declaring constants<a class="headerlink" href="#declaring-constants" title="Permanent link">&para;</a></h3>
-<p>Constants can also be exported. For example, the following:</p>
+<p>Dans le premier exemple, la macro DECL_ENUMERATION() définit une énumération pour les messages de commande/réponse avec un nom de paramètre "spi_bus" ou un nom de paramètre avec un suffixe "_spi_bus". Pour ces paramètres, la chaîne "spi" sera une valeur valide et elle sera transmise comme une valeur entière égale à zéro.</p>
+<p>Il est également possible de déclarer une plage d'énumération. Dans le deuxième exemple, un paramètre "pin" (ou tout paramètre avec le suffixe "_pin") accepterait PC0, PC1, PC2, ..., PC7 comme valeurs valides. Les chaînes seront transmises comme des entiers 16, 17, 18, ..., 23.</p>
+<h3 id="declaration-de-constantes">Déclaration de constantes<a class="headerlink" href="#declaration-de-constantes" title="Permanent link">&para;</a></h3>
+<p>Les constantes peuvent être exportées. Par exemple, les éléments suivants :</p>
 <div class="highlight"><pre><span></span><code>DECL_CONSTANT(&quot;SERIAL_BAUD&quot;, 250000);
 </code></pre></div>
 
-<p>would export a constant named "SERIAL_BAUD" with a value of 250000 from the micro-controller to the host. It is also possible to declare a constant that is a string - for example:</p>
+<p>exporterait une constante nommée "SERIAL_BAUD" avec une valeur de 250000 du microcontrôleur vers l'hôte. Il est également possible de déclarer une constante de type chaîne - par exemple :</p>
 <div class="highlight"><pre><span></span><code>DECL_CONSTANT_STR(&quot;MCU&quot;, &quot;pru&quot;);
 </code></pre></div>
 
-<h2 id="low-level-message-encoding">Low-level message encoding<a class="headerlink" href="#low-level-message-encoding" title="Permanent link">&para;</a></h2>
-<p>To accomplish the above RPC mechanism, each command and response is encoded into a binary format for transmission. This section describes the transmission system.</p>
-<h3 id="message-blocks">Message Blocks<a class="headerlink" href="#message-blocks" title="Permanent link">&para;</a></h3>
-<p>All data sent from host to micro-controller and vice-versa are contained in "message blocks". A message block has a two byte header and a three byte trailer. The format of a message block is:</p>
+<h2 id="encodage-des-message-de-bas-niveau">Encodage des message de bas niveau<a class="headerlink" href="#encodage-des-message-de-bas-niveau" title="Permanent link">&para;</a></h2>
+<p>Pour accomplir le mécanisme "RPC" ci-dessus, chaque commandes et réponses sont codées dans un format binaire pour la transmission. Cette section décrit le système de transmission.</p>
+<h3 id="blocs-de-message">Blocs de message<a class="headerlink" href="#blocs-de-message" title="Permanent link">&para;</a></h3>
+<p>Toutes les données envoyées de l'hôte au microcontrôleur et vice-versa sont contenues dans des "blocs de message". Un bloc de message a un en-tête de deux octets et une fin de trois octets. Le format d'un bloc de message est :</p>
 <div class="highlight"><pre><span></span><code>&lt;1 byte length&gt;&lt;1 byte sequence&gt;&lt;n-byte content&gt;&lt;2 byte crc&gt;&lt;1 byte sync&gt;
 </code></pre></div>
 
-<p>The length byte contains the number of bytes in the message block including the header and trailer bytes (thus the minimum message length is 5 bytes). The maximum message block length is currently 64 bytes. The sequence byte contains a 4 bit sequence number in the low-order bits and the high-order bits always contain 0x10 (the high-order bits are reserved for future use). The content bytes contain arbitrary data and its format is described in the following section. The crc bytes contain a 16bit CCITT <a href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check">CRC</a> of the message block including the header bytes but excluding the trailer bytes. The sync byte is 0x7e.</p>
-<p>The format of the message block is inspired by <a href="https://en.wikipedia.org/wiki/High-Level_Data_Link_Control">HDLC</a> message frames. Like in HDLC, the message block may optionally contain an additional sync character at the start of the block. Unlike in HDLC, a sync character is not exclusive to the framing and may be present in the message block content.</p>
-<h3 id="message-block-contents">Message Block Contents<a class="headerlink" href="#message-block-contents" title="Permanent link">&para;</a></h3>
-<p>Each message block sent from host to micro-controller contains a series of zero or more message commands in its contents. Each command starts with a <a href="#variable-length-quantities">Variable Length Quantity</a> (VLQ) encoded integer command-id followed by zero or more VLQ parameters for the given command.</p>
-<p>As an example, the following four commands might be placed in a single message block:</p>
+<p>L'octet de longueur contient le nombre d'octets dans le bloc de message, y compris les octets d'en-tête et de fin (la longueur minimale du message est donc de 5 octets). La longueur maximale d'un bloc de message est de 64 octets. L'octet de séquence contient un numéro de séquence de 4 bits dans les bits de poids faible et les bits de poids fort contiennent toujours 0x10 (les bits de poids fort sont réservés pour une utilisation future). Les octets de contenu contiennent les données du message et leur format est décrit dans la section suivante. Les octets crc contiennent un <a href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check">CCITT CRC 16 bits</a> du bloc de message incluant les octets d'en-tête mais excluant les octets de fin. L'octet de synchronisation est 0x7e.</p>
+<p>Le format du bloc de message est inspiré des trames de message <a href="https://en.wikipedia.org/wiki/High-Level_Data_Link_Control">HDLC</a>. Comme dans HDLC, le bloc de message peut éventuellement contenir un caractère de synchronisation supplémentaire au début du bloc. Contrairement à HDLC, un caractère de synchronisation n'est pas propre au header et peut être présent dans le contenu du bloc de message.</p>
+<h3 id="contenu-du-bloc-de-message">Contenu du bloc de message<a class="headerlink" href="#contenu-du-bloc-de-message" title="Permanent link">&para;</a></h3>
+<p>Chaque bloc de message envoyé de l'hôte au microcontrôleur contient une série de zéro ou plusieurs commandes de message dans son contenu. Chaque commande commence par une <a href="#variable-length-quantities">Quantité de longueur variable</a> (VLQ) encodé entier command-id suivi de zéro ou plusieurs paramètres VLQ pour la commande donnée.</p>
+<p>Par exemple, les quatre commandes suivantes peuvent être placées dans un seul bloc de message :</p>
 <div class="highlight"><pre><span></span><code>update_digital_out oid=6 value=1
 update_digital_out oid=5 value=0
 get_config
 get_clock
 </code></pre></div>
 
-<p>and encoded into the following eight VLQ integers:</p>
+<p>et codé dans les huit entiers VLQ suivants :</p>
 <div class="highlight"><pre><span></span><code>&lt;id_update_digital_out&gt;&lt;6&gt;&lt;1&gt;&lt;id_update_digital_out&gt;&lt;5&gt;&lt;0&gt;&lt;id_get_config&gt;&lt;id_get_clock&gt;
 </code></pre></div>
 
-<p>In order to encode and parse the message contents, both the host and micro-controller must agree on the command ids and the number of parameters each command has. So, in the above example, both the host and micro-controller would know that "id_update_digital_out" is always followed by two parameters, and "id_get_config" and "id_get_clock" have zero parameters. The host and micro-controller share a "data dictionary" that maps the command descriptions (eg, "update_digital_out oid=%c value=%c") to their integer command-ids. When processing the data, the parser will know to expect a specific number of VLQ encoded parameters following a given command id.</p>
-<p>The message contents for blocks sent from micro-controller to host follow the same format. The identifiers in these messages are "response ids", but they serve the same purpose and follow the same encoding rules. In practice, message blocks sent from the micro-controller to the host never contain more than one response in the message block contents.</p>
-<h4 id="variable-length-quantities">Variable Length Quantities<a class="headerlink" href="#variable-length-quantities" title="Permanent link">&para;</a></h4>
-<p>See the <a href="https://en.wikipedia.org/wiki/Variable-length_quantity">wikipedia article</a> for more information on the general format of VLQ encoded integers. Klipper uses an encoding scheme that supports both positive and negative integers. Integers close to zero use less bytes to encode and positive integers typically encode using less bytes than negative integers. The following table shows the number of bytes each integer takes to encode:</p>
+<p>Afin d'encoder et d'analyser le contenu du message, l'hôte et le microcontrôleur doivent s'accorder sur les identifiants de commande et le nombre de paramètres de chaque commande. Ainsi, dans l'exemple ci-dessus, l'hôte et le microcontrôleur savent que "id_update_digital_out" est toujours suivi de deux paramètres, et "id_get_config" et "id_get_clock" n'ont aucun paramètre. L'hôte et le microcontrôleur partagent un "dictionnaire de données" qui mappe les descriptions de commande (par exemple, "update_digital_out oid=%c value=%c") à leurs identifiants de commande "entiers". Lors du traitement des données, l'analyseur saura s'attendre à un nombre spécifique de paramètres codés VLQ après un identifiant de commande donné.</p>
+<p>Le contenu des messages pour les blocs envoyés du microcontrôleur à l'hôte suit le même format. Les identifiants de ces messages sont des "identifiants de réponse", mais ils ont le même objectif et suivent les mêmes règles de codage. En pratique, les blocs de message envoyés du microcontrôleur à l'hôte ne contiennent jamais plus d'une réponse dans le contenu du bloc de message.</p>
+<h4 id="quantites-de-longueur-variable">Quantités de longueur variable<a class="headerlink" href="#quantites-de-longueur-variable" title="Permanent link">&para;</a></h4>
+<p>Voir l'<a href="https://en.wikipedia.org/wiki/Variable-length_quantity">article wikipedia sur les VLQ</a> pour plus d'informations sur le format général des entiers codés VLQ. Klipper utilise un schéma de codage qui prend en charge les entiers positifs et négatifs. Les entiers proches de zéro utilisent moins d'octets pour coder et les entiers positifs codés utilisent moins d'octets - en général - que les entiers négatifs. Le tableau suivant indique le nombre d'octets nécessaires à l'encodage de chaque entier :</p>
 <table>
 <thead>
 <tr>
 <th>Integer</th>
-<th>Encoded size</th>
+<th>Taille encodée</th>
 </tr>
 </thead>
 <tbody>
@@ -1460,25 +1460,25 @@ get_clock
 </tr>
 </tbody>
 </table>
-<h4 id="variable-length-strings">Variable length strings<a class="headerlink" href="#variable-length-strings" title="Permanent link">&para;</a></h4>
-<p>As an exception to the above encoding rules, if a parameter to a command or response is a dynamic string then the parameter is not encoded as a simple VLQ integer. Instead it is encoded by transmitting the length as a VLQ encoded integer followed by the contents itself:</p>
+<h4 id="chaines-de-longueur-variable">Chaînes de longueur variable<a class="headerlink" href="#chaines-de-longueur-variable" title="Permanent link">&para;</a></h4>
+<p>Une exception aux règles de codage ci-dessus, si le paramètre d'une commande ou d'une réponse est une chaîne dynamique, le paramètre n'est pas codé comme un simple entier VLQ. Au lieu de cela, il est codé en transmettant la longueur sous la forme d'un entier codé VLQ suivi du contenu de la chaîne lui-même :</p>
 <div class="highlight"><pre><span></span><code>&lt;VLQ encoded length&gt;&lt;n-byte contents&gt;
 </code></pre></div>
 
-<p>The command descriptions found in the data dictionary allow both the host and micro-controller to know which command parameters use simple VLQ encoding and which parameters use string encoding.</p>
-<h2 id="data-dictionary">Data Dictionary<a class="headerlink" href="#data-dictionary" title="Permanent link">&para;</a></h2>
-<p>In order for meaningful communications to be established between micro-controller and host, both sides must agree on a "data dictionary". This data dictionary contains the integer identifiers for commands and responses along with their descriptions.</p>
-<p>The micro-controller build uses the contents of DECL_COMMAND() and sendf() macros to generate the data dictionary. The build automatically assigns unique identifiers to each command and response. This system allows both the host and micro-controller code to seamlessly use descriptive human-readable names while still using minimal bandwidth.</p>
-<p>The host queries the data dictionary when it first connects to the micro-controller. Once the host downloads the data dictionary from the micro-controller, it uses that data dictionary to encode all commands and to parse all responses from the micro-controller. The host must therefore handle a dynamic data dictionary. However, to keep the micro-controller software simple, the micro-controller always uses its static (compiled in) data dictionary.</p>
-<p>The data dictionary is queried by sending "identify" commands to the micro-controller. The micro-controller will respond to each identify command with an "identify_response" message. Since these two commands are needed prior to obtaining the data dictionary, their integer ids and parameter types are hard-coded in both the micro-controller and the host. The "identify_response" response id is 0, the "identify" command id is 1. Other than having hard-coded ids the identify command and its response are declared and transmitted the same way as other commands and responses. No other command or response is hard-coded.</p>
-<p>The format of the transmitted data dictionary itself is a zlib compressed JSON string. The micro-controller build process generates the string, compresses it, and stores it in the text section of the micro-controller flash. The data dictionary can be much larger than the maximum message block size - the host downloads it by sending multiple identify commands requesting progressive chunks of the data dictionary. Once all chunks are obtained the host will assemble the chunks, uncompress the data, and parse the contents.</p>
-<p>In addition to information on the communication protocol, the data dictionary also contains the software version, enumerations (as defined by DECL_ENUMERATION), and constants (as defined by DECL_CONSTANT).</p>
-<h2 id="message-flow">Message flow<a class="headerlink" href="#message-flow" title="Permanent link">&para;</a></h2>
-<p>Message commands sent from host to micro-controller are intended to be error-free. The micro-controller will check the CRC and sequence numbers in each message block to ensure the commands are accurate and in-order. The micro-controller always processes message blocks in-order - should it receive a block out-of-order it will discard it and any other out-of-order blocks until it receives blocks with the correct sequencing.</p>
-<p>The low-level host code implements an automatic retransmission system for lost and corrupt message blocks sent to the micro-controller. To facilitate this, the micro-controller transmits an "ack message block" after each successfully received message block. The host schedules a timeout after sending each block and it will retransmit should the timeout expire without receiving a corresponding "ack". In addition, if the micro-controller detects a corrupt or out-of-order block it may transmit a "nak message block" to facilitate fast retransmission.</p>
-<p>An "ack" is a message block with empty content (ie, a 5 byte message block) and a sequence number greater than the last received host sequence number. A "nak" is a message block with empty content and a sequence number less than the last received host sequence number.</p>
-<p>The protocol facilitates a "window" transmission system so that the host can have many outstanding message blocks in-flight at a time. (This is in addition to the many commands that may be present in a given message block.) This allows maximum bandwidth utilization even in the event of transmission latency. The timeout, retransmit, windowing, and ack mechanism are inspired by similar mechanisms in <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a>.</p>
-<p>In the other direction, message blocks sent from micro-controller to host are designed to be error-free, but they do not have assured transmission. (Responses should not be corrupt, but they may go missing.) This is done to keep the implementation in the micro-controller simple. There is no automatic retransmission system for responses - the high-level code is expected to be capable of handling an occasional missing response (usually by re-requesting the content or setting up a recurring schedule of response transmission). The sequence number field in message blocks sent to the host is always one greater than the last received sequence number of message blocks received from the host. It is not used to track sequences of response message blocks.</p>
+<p>Les descriptions de commande trouvées dans le dictionnaire de données permettent à la fois à l'hôte et au microcontrôleur de savoir quels paramètres de commande utilisent un codage VLQ simple et quels paramètres utilisent un codage de chaîne.</p>
+<h2 id="dictionnaire-de-donnees">Dictionnaire de données<a class="headerlink" href="#dictionnaire-de-donnees" title="Permanent link">&para;</a></h2>
+<p>Pour que des communications significatives soient établies entre le microcontrôleur et l'hôte, les deux parties doivent s'entendre sur un "dictionnaire de données". Ce dictionnaire de données contient les identificateurs entiers des commandes et des réponses ainsi que leurs descriptions.</p>
+<p>La construction du micrologiciel du microcontrôleur utilise le contenu des macros DECL_COMMAND() et sendf() pour générer le dictionnaire de données. La construction attribue automatiquement des identifiants uniques à chaque commande et réponse. Ce système permet à la fois au code hôte et au code du microcontrôleur d'utiliser de manière transparente des noms descriptifs lisibles par l'homme tout en utilisant une bande passante minimale.</p>
+<p>L'hôte interroge le dictionnaire de données lors de sa première connexion au microcontrôleur. Une fois que l'hôte a téléchargé le dictionnaire de données du microcontrôleur, il utilise ce dictionnaire de données pour coder toutes les commandes et analyser toutes les réponses du microcontrôleur. L'hôte doit donc gérer un dictionnaire de données dynamique. Cependant, pour garder le logiciel du microcontrôleur simple, le microcontrôleur utilise - lui - toujours son dictionnaire de données statique (compilé).</p>
+<p>Le dictionnaire de données est demandé en envoyant des commandes "identify" au microcontrôleur. Le microcontrôleur répond à chaque commande d'identification par un message "identifier_response". Étant donné que ces deux commandes sont nécessaires avant d'obtenir le dictionnaire de données, leurs identifiants entiers et leurs types de paramètres sont codés en dur à la fois dans le microcontrôleur et dans l'hôte. L'identifiant de réponse "identifier_response" est 0, l'identifiant de commande "identify" est 1. En plus d'avoir des identifiants codés en dur, la commande d'identification et sa réponse sont déclarées et transmises de la même manière que les autres commandes et réponses. Aucune autre commande ou réponse n'est codée en dur.</p>
+<p>Le format du dictionnaire de données transmis est une chaîne JSON compressée zlib. Le processus de construction du microcontrôleur génère la chaîne, la comprime et la stocke dans la section texte du flash du microcontrôleur. Le dictionnaire de données peut être beaucoup plus grand que la taille maximale du bloc de message - l'hôte le télécharge en envoyant plusieurs commandes d'identification demandant des blocs progressifs du dictionnaire de données. Une fois que tous les morceaux sont obtenus, l'hôte réassemble les morceaux, décompresse les données et analyse le contenu.</p>
+<p>En plus des informations sur le protocole de communication, le dictionnaire de données contient également la version du logiciel, les énumérations (telles que définies par DECL_ENUMERATION) et les constantes (telles que définies par DECL_CONSTANT).</p>
+<h2 id="flux-de-messages">Flux de messages<a class="headerlink" href="#flux-de-messages" title="Permanent link">&para;</a></h2>
+<p>Les message de commande envoyées de l'hôte au microcontrôleur sont censées être sans erreur. Le microcontrôleur vérifiera le CRC et les numéros de séquence dans chaque bloc de message pour s'assurer que les commandes sont exactes et dans l'ordre. Le microcontrôleur traite toujours les blocs de message dans l'ordre - s'il reçoit un bloc dans le désordre, il le rejettera ainsi que tout autre bloc dans le désordre jusqu'à ce qu'il reçoive des blocs avec le bon séquencement.</p>
+<p>Le code de bas niveau de l'hôte implémente un système de retransmission automatique des blocs de messages perdus ou corrompus envoyés au microcontrôleur. Pour faciliter cela, le microcontrôleur transmet un "bloc de message ack" après chaque bloc de message reçu avec succès. L'hôte planifie un délai après l'envoi de chaque bloc et il retransmettra si le délai expire sans recevoir de "ack" correspondant. De plus, si le microcontrôleur détecte un bloc corrompu ou dans le désordre, il peut transmettre un "bloc de message nak" pour faciliter une retransmission rapide.</p>
+<p>Un "ack" est un bloc de message avec un contenu vide (c'est-à-dire un bloc de message de 5 octets) et un numéro de séquence supérieur au dernier numéro de séquence d'hôte reçu. Un "nak" est un bloc de message avec un contenu vide et un numéro de séquence inférieur au dernier numéro de séquence d'hôte reçu.</p>
+<p>Le protocole facilite un système de transmission "fenêtré" : l'hôte peut avoir de nombreux blocs de messages en cours à la fois. (Ceci s'ajoute aux nombreuses commandes qui peuvent être présentes dans un bloc de message.) Cela permet une utilisation maximale de la bande passante même en cas de latence de transmission. Les mécanismes de temporisation, de retransmission, de fenêtrage et d'accusé de réception sont inspirés de mécanismes similaires de <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a>.</p>
+<p>Dans l'autre sens, les blocs de messages envoyés du microcontrôleur à l'hôte sont aussi conçus pour être sans erreur, mais ils n'ont pas de validation de transmission. (Les réponses ne doivent pas être corrompues, mais elles peuvent disparaître.) Cette conception a été choisie pour garder une mise en œuvre simple dans le microcontrôleur. Il n'y a pas de système de retransmission automatique des réponses - le code de haut niveau devrait être capable de gérer une réponse manquante occasionnelle (généralement en redemandant le contenu ou en établissant un calendrier récurrent de transmission des réponses). Le champ du numéro de séquence dans les blocs de message envoyés à l'hôte est toujours supérieur d'une unité au dernier numéro de séquence envoyé par l'hôte. Il n'est pas utilisé pour suivre les séquences de blocs de message de réponse.</p>
 
               
             </article>
