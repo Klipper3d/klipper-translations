@@ -1,84 +1,84 @@
-# API 服务器
+# API server
 
-该文档介绍Klipper的应用开发者接口（API）功能。该接口允许外部应用程序访问和控制Klipper主机。
+This document describes Klipper's Application Programmer Interface (API). This interface enables external applications to query and control the Klipper host software.
 
-## 启用API套接字
+## Enabling the API socket
 
-要启用API服务器，klipper.py运行时应加上 `-a` 参数。例如：
+In order to use the API server, the klippy.py host software must be started with the `-a` parameter. For example:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 ```
 
-上述操作会使主机创建一个Unix本地套接字。之后，客户应用程序可以创建一个套接字链接，从而给Klipper发送命令。
+This causes the host software to create a Unix Domain Socket. A client can then open a connection on that socket and send commands to Klipper.
 
-参见[Moonraker](https://github.com/Arksine/moonraker)项目，该项目是一个流行的工具，可以将HTTP请求转发到Klipper的API服务器Unix域插座。
+See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.
 
-## 请求格式
+## Request format
 
-套接字进出的数据包应使用JSON编码的字符串，并以ASCII字符0x03作为结尾：
+Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:
 
 ```
 <json_object_1><0x03><json_object_2><0x03>...
 ```
 
-Klipper使用`scripts/whconsole.py`的代码进行上述的数据帧打包。例如：
+Klipper contains a `scripts/whconsole.py` tool that can perform the above message framing. For example:
 
 ```
 ~/klipper/scripts/whconsole.py /tmp/klippy_uds
 ```
 
-该工具会从stdin中读取一系列的JSON命令，发送到Klipper执行，并将结果送出。该工具默认输入的每条Json命令中不存在换行，并自动地在发送命令时在结尾附上0x03。（Klipper API服务器没有换行符要求。）
+This tool can read a series of JSON commands from stdin, send them to Klipper, and report the results. The tool expects each JSON command to be on a single line, and it will automatically append the 0x03 terminator when transmitting a request. (The Klipper API server does not have a newline requirement.)
 
-## API协议
+## API Protocol
 
-套接字的命令协议受 [json-rpc](https://www.jsonrpc.org/) 启发。
+The command protocol used on the communication socket is inspired by [json-rpc](https://www.jsonrpc.org/).
 
-一个请求命令类似：
+A request might look like:
 
 `{"id": 123, "method": "info", "params": {}}`
 
-一个回应帧类似：
+and a response might look like:
 
 `{"id": 123, "result": {"state_message": "Printer is ready", "klipper_path": "/home/pi/klipper", "config_file": "/home/pi/printer.cfg", "software_version": "v0.8.0-823-g883b1cb6", "hostname": "octopi", "cpu_info": "4 core ARMv7 Processor rev 4 (v7l)", "state": "ready", "python_path": "/home/pi/klippy-env/bin/python", "log_file": "/tmp/klippy.log"}}`
 
-每个请求应为一个JSON字典。（本文档使用Python中的术语“字典”描述以`{}`为边界的“键-值”JSON对象。）
+Each request must be a JSON dictionary. (This document uses the Python term "dictionary" to describe a "JSON object" - a mapping of key/value pairs contained within `{}`.)
 
-请求字典中必须包含一个”method”字段，其值应包含一个可用的Klipper端点”endpoint”名称字符串。
+The request dictionary must contain a "method" parameter that is the string name of an available Klipper "endpoint".
 
-请求字典可能包含”params”参数，并其值应为一个字典类型。”params”提供Klipper”endpoint”处理请求所需的额外数据，其内容依”endpoint”而定。
+The request dictionary may contain a "params" parameter which must be of a dictionary type. The "params" provide additional parameter information to the Klipper "endpoint" handling the request. Its content is specific to the "endpoint".
 
-请求的字典可以包含一个可以是任何 JSON类型的"id"参数。如果"id"存在，那么 Klipper 将用一个包含该"id"的响应信息来回应请求。如果"id"被省略（或设置为 JSON 的 "null" 值），那么 Klipper 将不会对该请求进行任何响应。响应信息是一个 包含 "id" 和 "result"的 JSON 字典。"result"总是一个字典--它的内容是特定于处理请求的"endstop"。
+The request dictionary may contain an "id" parameter which may be of any JSON type. If "id" is present then Klipper will respond to the request with a response message containing that "id". If "id" is omitted (or set to a JSON "null" value) then Klipper will not provide any response to the request. A response message is a JSON dictionary containing "id" and "result". The "result" is always a dictionary - its contents are specific to the "endpoint" handling the request.
 
-如果处理的请求造成了错误，则响应消息将包含"error"字段，而不是"result"字段。例如，请求： `{"id"： 123， "method"： "gcode/script"， "params"： {"script"： "G1 X200"}}` 可能会返回错误响应，例如： `{"id"： 123， "error"： {"message"： "Must home axis first： 200.000 0.000 0.000 [0.000]"， "error"： "WebRequestError"}}`
+If the processing of a request results in an error, then the response message will contain an "error" field instead of a "result" field. For example, the request: `{"id": 123, "method": "gcode/script", "params": {"script": "G1 X200"}}` might result in an error response such as: `{"id": 123, "error": {"message": "Must home axis first: 200.000 0.000 0.000 [0.000]", "error": "WebRequestError"}}`
 
-Klipper 会按照收到请求的顺序依次处理请求。然而，一些请求可能不会立即完成，这可能会导致相关的响应与其他请求的响应不按顺序发送。一个 JSON 请求永远不会暂停对未来JSON 请求的处理。
+Klipper will always start processing requests in the order that they are received. However, some request may not complete immediately, which could cause the associated response to be sent out of order with respect to responses from other requests. A JSON request will never pause the processing of future JSON requests.
 
-## 订阅
+## Subscriptions
 
-一些 Klipper 的"endpoint"可以以 "订阅" 的形式接收未来的异步更新消息。
+Some Klipper "endpoint" requests allow one to "subscribe" to future asynchronous update messages.
 
-例如：
+For example:
 
 `{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{"key": 345}}}`
 
-可能会返回一个初始回应：
+may initially respond with:
 
 `{"id": 123, "result": {}}`
 
-并导致 Klipper 在未来发送类似于以下内容的消息：
+and cause Klipper to send future messages similar to:
 
 `{"params": {"response": "ok B:22.8 /0.0 T0:22.4 /0.0"}, "key": 345}`
 
 A subscription request accepts a "response_template" dictionary in the "params" field of the request. That "response_template" dictionary is used as a template for future asynchronous messages - it may contain arbitrary key/value pairs. When sending these future asynchronous messages, Klipper will add a "params" field containing a dictionary with "endpoint" specific contents to the response template and then send that template. If a "response_template" field is not provided then it defaults to an empty dictionary (`{}`).
 
-## 可用的"endpoint"
+## Available "endpoints"
 
 By convention, Klipper "endpoints" are of the form `<module_name>/<some_name>`. When making a request to an "endpoint", the full name must be set in the "method" parameter of the request dictionary (eg, `{"method"="gcode/restart"}`).
 
-### 信息
+### info
 
-“info” 用于从Klipper获取系统和版本信息。同时也被用来向Klipper提供客户端的版本信息。比如说`{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}`
+The "info" endpoint is used to obtain system and version information from Klipper. It is also used to provide the client's version information to Klipper. For example: `{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}`
 
 If present, the "client_info" parameter must be a dictionary, but that dictionary may have arbitrary contents. Clients are encouraged to provide the name of the client and its software version when first connecting to the Klipper API server.
 
@@ -100,7 +100,7 @@ gcode:
   {action_call_remote_method("paneldue_beep", frequency=300, duration=1.0)}
 ```
 
-当PANELDUE_BEEP gcode宏被执行时，Klipper将通过套接字发送类似以下内容：`{"action": "run_paneldue_beep", "params": {"frequency": 300, "duration": 1.0}}`
+When the PANELDUE_BEEP gcode macro is executed, Klipper would send something like the following over the socket: `{"action": "run_paneldue_beep", "params": {"frequency": 300, "duration": 1.0}}`
 
 ### objects/list
 
@@ -108,29 +108,29 @@ This endpoint queries the list of available printer "objects" that one may query
 
 ### objects/query
 
-这个endpoint允许从打印机对象中查询信息。比如说：`{"id": 123, "method": "objects/query", "params": {"objects": {"toolhead": ["position"], "webhooks": null}}}` 可能返回。`{"id": 123, "result": {"status": {"webhooks": {"state": "ready", "state_message": "Printer is ready"}, "toolhead": {"position": [0.0, 0.0, 0.0, 0.0]}}, "eventtime": 3051555.377933684}}`
+This endpoint allows one to query information from printer objects. For example: `{"id": 123, "method": "objects/query", "params": {"objects": {"toolhead": ["position"], "webhooks": null}}}` might return: `{"id": 123, "result": {"status": {"webhooks": {"state": "ready", "state_message": "Printer is ready"}, "toolhead": {"position": [0.0, 0.0, 0.0, 0.0]}}, "eventtime": 3051555.377933684}}`
 
-请求中的 "objects "参数必须是一个包含要查询的打印机对象的字典 - 键包含打印机对象名称，值是 "null"（查询所有字段）或一个字段名的列表。
+The "objects" parameter in the request must be a dictionary containing the printer objects that are to be queried - the key contains the printer object name and the value is either "null" (to query all fields) or a list of field names.
 
-响应消息将包含一个 "status "字段，其中包含一个包含查询信息的字典 - 键包含打印机对象名称，值是一个包含其字段的字典。响应消息还将包含一个 "eventtime "字段，其中包含从查询开始的时间戳。
+The response message will contain a "status" field containing a dictionary with the queried information - the key contains the printer object name and the value is a dictionary containing its fields. The response message will also contain an "eventtime" field containing the timestamp from when the query was taken.
 
-[Status Reference](Status_Reference.md) 文档中定义了可用字段。
+Available fields are documented in the [Status Reference](Status_Reference.md) document.
 
 ### objects/subscribe
 
-这个endpoint允许查询，然后subscribe打印机对象的信息。端点的请求和响应与 "objects/query" endpoint相同。例如。`"id": 123, "method": "objects/subscribe", "params": {"objects":{"toolhead": ["position"], "webhooks": ["state"]}, "response_template":{}}}` 可能返回：`{"id": 123, "result": {"status": {"webhooks": {"state": "ready"}, "toolhead": {"position": [0.0, 0.0, 0.0, 0.0]}}, "eventtime": 3052153.382083195}}` ，并导致随后的异步消息，例如：`{"params": {"status": {"webhooks": {"state": "shutdown"}}, "eventtime": 3052165.418815847}}`
+This endpoint allows one to query and then subscribe to information from printer objects. The endpoint request and response is identical to the "objects/query" endpoint. For example: `{"id": 123, "method": "objects/subscribe", "params": {"objects":{"toolhead": ["position"], "webhooks": ["state"]}, "response_template":{}}}` might return: `{"id": 123, "result": {"status": {"webhooks": {"state": "ready"}, "toolhead": {"position": [0.0, 0.0, 0.0, 0.0]}}, "eventtime": 3052153.382083195}}` and result in subsequent asynchronous messages such as: `{"params": {"status": {"webhooks": {"state": "shutdown"}}, "eventtime": 3052165.418815847}}`
 
 ### gcode/help
 
-这个endpoint允许查询有定义帮助字符串的可用G-Code命令。例如：`{"id": 123, "method": "gcode/help"}` 可能返回：`{"id": 123, "result": {"RESTORE_GCODE_STATE": "Restore a previously saved G-Code state", "PID_CALIBRATE": "Run PID calibration test", "QUERY_ADC": "Report the last value of an analog pin", ...}}`
+This endpoint allows one to query available G-Code commands that have a help string defined. For example: `{"id": 123, "method": "gcode/help"}` might return: `{"id": 123, "result": {"RESTORE_GCODE_STATE": "Restore a previously saved G-Code state", "PID_CALIBRATE": "Run PID calibration test", "QUERY_ADC": "Report the last value of an analog pin", ...}}`
 
 ### gcode/script
 
-这个endpoint允许运行一系列的G代码命令。比如说：`{"id": 123, "method": "gcode/script", "params": {"script": "G90"}}`
+This endpoint allows one to run a series of G-Code commands. For example: `{"id": 123, "method": "gcode/script", "params": {"script": "G90"}}`
 
-如果提供的G-Code脚本产生了错误，那么就会产生一个错误响应。然而，如果G-Code命令产生了终端输出，则该终端输出不会在响应中提供。(使用 "gcode/subscribe_output " endpoint 来获取G-Code终端输出。）
+If the provided G-Code script raises an error, then an error response is generated. However, if the G-Code command produces terminal output, that terminal output is not provided in the response. (Use the "gcode/subscribe_output" endpoint to obtain G-Code terminal output.)
 
-如果在收到这个请求时有一个G-Code命令正在处理，那么所提供的脚本将被排队。这个延迟可能很严重（例如，如果一个G-Code等待温度的命令正在运行）。当脚本的处理完全完成时，将发送JSON响应信息。
+If there is a G-Code command being processed when this request is received, then the provided script will be queued. This delay could be significant (eg, if a G-Code wait for temperature command is running). The JSON response message is sent when the processing of the script fully completes.
 
 ### gcode/restart
 
