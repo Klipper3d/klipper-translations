@@ -30,7 +30,7 @@ Tout d'abord, mesurez la **fréquence de résonance**.
 1. Augmentez `max_accel_to_decel` en lançant la commande suivante : `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
 1. Désactivez l'avance de pression : `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. Si vous avez déjà ajouté la section `[input_shaper]` au printer.cfg, exécutez la commande `SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0`. Si vous obtenez l'erreur "Unknown command", vous pouvez l'ignorer à ce stade et continuer les mesures.
-1. Exécutez la commande : `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5` Dans la pratique, nous essayons de rendre la résonance plus prononcée en définissant différentes grandes valeurs pour l'accélération. Cette commande va augmenter l'accélération tous les 5 mm à partir de 1500 mm/sec² : 1500 mm/sec², 2000 mm/sec², 2500 mm/sec² et ainsi de suite jusqu'à 7000 mm/sec² à la dernière bande.
+1. Exécutez la commande : `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5` Dans la pratique, nous essayons de rendre la résonance plus prononcée en définissant différentes valeurs élevées pour l'accélération. Cette commande augmentera l'accélération tous les 5 mm à partir de 1500 mm/sec² : 1500 mm/sec², 2000 mm/sec², 2500 mm/sec² et ainsi de suite jusqu'à 7000 mm/sec² pour la dernière bande.
 1. Imprimez le modèle de test tranché avec les paramètres suggérés.
 1. Vous pouvez arrêter l'impression plus tôt si la résonance est clairement visible et si vous constatez que l'accélération devient trop forte pour votre imprimante (par exemple, l'imprimante tremble trop ou commence à sauter des pas).
 
@@ -62,8 +62,8 @@ Une fois les fréquences de résonance des axes X et Y mesurées, vous pouvez aj
 
 ```
 [input_shaper]
-shaper_freq_x: ...  # frequence pour la marque X sur le modèle
-shaper_freq_y: ...  # frequence pour la marque Y sur le modèle
+shaper_freq_x: ...    # frequence pour la marque X sur le modèle de test
+shaper_freq_y: ...    # frequence pour la marque Y sur le modèle de test
 ```
 
 Pour l'exemple ci-dessus, nous obtenons shaper_freq_x/y = 49,4.
@@ -105,7 +105,7 @@ Quelques notes sur le choix de l'input shaper :
 
 ### Sélection de max_accel
 
-Vous devriez avoir un test imprimé pour l'input shaper que vous aviez choisi à l'étape précédente (si vous ne le faites pas, imprimez le modèle de test découpé avec les [paramètres suggérés](#tuning) avec l'avance de pression désactivée `SET_PRESSURE_ADVANCE ADVANCE=0` et avec la tour de réglage activée comme `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`). Notez qu'à des accélérations très élevées, selon la fréquence de résonance et l'input shaper que vous avez choisi (par exemple, le shaper EI crée plus de lissage que MZV), cela peut provoquer trop de lissage et d'arrondi des pièces. Ainsi, max_accel doit être choisi de manière à éviter cela. Un autre paramètre qui peut avoir un impact sur le lissage est `square_corner_velocity`, il n'est donc pas conseillé de l'augmenter au-dessus de la valeur par défaut de 5 mm/s pour éviter un lissage accru.
+Vous devriez obtenir le test imprimé avec l'input shaper choisi à l'étape précédente (si vous ne le faites pas, imprimez le modèle de test découpé avec les [paramètres suggérés](#tuning) avec l'avance de pression désactivée `SET_PRESSURE_ADVANCE ADVANCE=0` et avec la tour de réglage activée comme `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`). Notez qu'à des accélérations très élevées, selon la fréquence de résonance et l'input shaper choisi (par exemple, le shaper EI crée plus de lissage que MZV), cela peut provoquer trop de lissage et d'arrondi des pièces. Ainsi, max_accel doit être choisi de manière à l'éviter. Un autre paramètre ayant un impact sur le lissage est `square_corner_velocity`, il n'est donc pas conseillé de l'augmenter au-dessus de la valeur par défaut de 5 mm/s pour éviter un lissage accru.
 
 Afin de sélectionner une valeur max_accel appropriée, inspectez le modèle pour l'input shaper choisi. Tout d'abord, notez à quelle accélération la résonance est encore faible - convenant également à l'imprimante.
 
@@ -121,7 +121,7 @@ Sur cette image, l'accélération augmente de gauche à droite, et l'écart comm
 
 Notez l'accélération lorsque l'écart est encore très faible dans votre test d'impression. Si vous voyez des renflements, mais aucun espace dans le mur, même à des accélérations élevées, cela peut être dû à une avance de pression (PA) désactivée, en particulier sur les extrudeurs de type Bowden. Si tel est le cas, vous devrez peut-être répéter l'impression avec le PA activé. Cela peut également être le résultat d'un flux de filament mal calibré (trop élevé), il faut donc vérifier cela aussi.
 
-Choisissez la valeur minimale des deux valeurs d'accélération (de la résonance et du lissage) et affectez là à `max_accel` dans printer.cfg.
+Choisissez la valeur minimale des deux valeurs d'accélération (de la résonance et du lissage) et affectez-là à `max_accel` dans printer.cfg.
 
 Notez qu'il peut arriver - en particulier à des fréquences de résonance basses - que l'input shaper EI provoque trop de lissage, même à des accélérations faibles. Dans ce cas, MZV peut être un meilleur choix, car il peut permettre des valeurs d'accélération plus élevées.
 
@@ -138,7 +138,7 @@ En considérant que vous avez tranché le modèle de résonance avec les paramè
 1. Préparez-vous pour le test : `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
 1. Assurez-vous que l'avance de pression est désactivée : `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. Exécutez : `SET_INPUT_SHAPER SHAPER_TYPE=ZV`
-1. À partir du modèle de test de résonance imprimé avec l'input shaper que vous avez choisi, sélectionnez l'accélération qui montre suffisamment bien la résonancee et définissez-la avec : `SET_VELOCITY_LIMIT ACCEL=...`
+1. À partir du modèle de test de résonance imprimé avec l'input shaper choisi, sélectionnez l'accélération montrant suffisamment bien la résonance et définissez-la avec : `SET_VELOCITY_LIMIT ACCEL=...`
 1. Calculez les paramètres nécessaires pour que la commande `TUNING_TOWER` règle le paramètre `shaper_freq_x` comme suit : start = shaper_freq_x * 83 / 132 et factor = shaper_freq_x / 66, où `shaper_freq_x` est la valeur indiquée dans `printer.cfg`.
 1. Exécutez la commande : `TUNING_TOWER COMMAND=SET_INPUT_SHAPER PARAMETER=SHAPER_FREQ_X START=start FACTOR=factor BAND=5` en utilisant les valeurs `start` et `factor` calculées à l'étape (5).
 1. Imprimez le modèle de test.
@@ -154,7 +154,7 @@ Une fois les deux nouveaux paramètres `shaper_freq_x` et `shaper_freq_y` calcul
 
 ### Avance de pression (PA)
 
-Si vous utilisez l'avance de pression, il peut être nécessaire de la réajuster. Suivez les [instructions](Pressure_Advance.md#tuning-pressure-advance) pour trouver la nouvelle valeur, si elle diffère de la précédente. Assurez-vous de redémarrer Klipper avant de régler Pressure Advance.
+Si vous utilisiez l'avance de pression, il pourra être nécessaire de la réajuster. Suivez les [instructions](Pressure_Advance.md#tuning-pressure-advance) pour trouver la nouvelle valeur, si elle diffère de la précédente. Assurez-vous de redémarrer Klipper avant de régler l'avance de pression.
 
 ### Mesures peu fiables des fréquences de résonance
 
@@ -241,24 +241,24 @@ Non, la fonctionnalité `input_shaper` n'a pratiquement aucun impact sur les tem
 
 ### Input shapers
 
-Les input shaper utilisés dans Klipper sont plutôt standard, et on peut en trouver un aperçu plus détaillé dans les articles décrivant les input shaper correspondants. Cette section contient un bref aperçu de certains aspects techniques des input shaper pris en charge. Le tableau ci-dessous montre certains paramètres (généralement approximatifs) pour chaque input shaper.
+Les input shaper utilisés dans Klipper sont plutôt standards, et on peut en trouver un aperçu plus détaillé dans les articles décrivant les input shaper correspondants. Cette section contient un bref aperçu de certains aspects techniques des input shapers pris en charge. Le tableau ci-dessous montre certains paramètres (généralement approximatifs) pour chaque input shaper.
 
 | Input <br> shaper | Durée de <br> l'input shaper | Réduction des vibrations 20x <br> (5 % de tolérance aux vibrations) | Réduction des vibrations 10x <br> (tolérance aux vibrations de 10 %) |
 | :-: | :-: | :-: | :-: |
-| ZV | 0.5 / shaper_freq | N/A | ± 5% shaper_freq |
-| MZV | 0.75 / shaper_freq | ± 4% shaper_freq | -10%...+15% shaper_freq |
+| ZV | 0,5 / shaper_freq | N/A | ± 5% shaper_freq |
+| MZV | 0,75 / shaper_freq | ± 4% shaper_freq | -10%...+15% shaper_freq |
 | ZVD | 1 / shaper_freq | ± 15% shaper_freq | ± 22% shaper_freq |
 | EI | 1 / shaper_freq | ± 20% shaper_freq | ± 25% shaper_freq |
-| 2HUMP_EI | 1.5 / shaper_freq | ± 35% shaper_freq | ± 40 shaper_freq |
+| 2HUMP_EI | 1,5 / shaper_freq | ± 35% shaper_freq | ± 40 shaper_freq |
 | 3HUMP_EI | 2 / shaper_freq | -45...+50% shaper_freq | -50%...+55% shaper_freq |
 
-Remarque sur la réduction des vibrations : les valeurs du tableau ci-dessus sont approximatives. Si le taux d'amortissement de l'imprimante est connu pour chaque axe, l'input shaper peut être configuré plus précisément et il réduira alors les résonances dans une plage de fréquences un peu plus large. Cependant, le taux d'amortissement est généralement inconnu et difficile à estimer sans équipement spécial. Klipper utilise donc la valeur 0,1 par défaut, ce qui est une bonne valeur globale. Les gammes de fréquences du tableau couvrent un certain nombre de différents rapports d'amortissement possibles autour de cette valeur (environ de 0,05 à 0,2).
+Remarque concernant l'atténuation des vibrations : les valeurs du tableau ci-dessus sont approximatives. Si le taux d'amortissement de l'imprimante est connu pour chaque axe, l'input shaper peut être configuré plus précisément ce qui réduira alors les résonances dans une plage de fréquences un peu plus large. Cependant, le taux d'amortissement est généralement inconnu et difficile à estimer sans équipement spécial. Klipper utilise donc la valeur 0,1 par défaut, ce qui est une bonne valeur globale. Les gammes de fréquences du tableau couvrent un certain nombre de différents rapports d'amortissement possibles autour de cette valeur (environ de 0,05 à 0,2).
 
 Notez également que EI, 2HUMP_EI et 3HUMP_EI sont réglés pour réduire les vibrations à 5 %, les valeurs pour une tolérance de vibration de 10 % sont fournies uniquement à titre indicatif.
 
 **Comment utiliser ce tableau :**
 
-* La durée de l'input shaper affecte le lissage des pièces - plus elle est grande, plus les pieces sont lisses. Cette dépendance n'est pas linéaire, mais peut donner une idée des input shapers qui "lissent" le plus pour la même fréquence. L'ordre par lissage est le suivant : ZV < MZV < ZVD ≈ EI < 2HUMP_EI < 3HUMP_EI. De plus, il est rarement recommandé de régler shaper_freq = fréquence de résonance pour les types 2HUMP_EI et 3HUMP_EI (ils doivent être utilisés pour réduire les vibrations sur plusieurs fréquences).
-* On peut estimer une gamme de fréquences dans laquelle l'input shaper réduit les vibrations. Par exemple, MZV avec shaper_freq = 35 Hz réduit les vibrations à 5 % pour les fréquences [33,6, 36,4] Hz. 3HUMP_EI avec shaper_freq = 50 Hz réduit les vibrations à 5 % dans la plage [27,5, 75] Hz.
-* On peut utiliser ce tableau pour vérifier quel input shaper utiliser s'il faut réduire les vibrations à plusieurs fréquences. Par exemple, si on a des résonances à 35 Hz et 60 Hz sur le même axe : a) EI doit avoir shaper_freq = 35 / (1 - 0.2) = 43.75 Hz, et il réduira les résonances jusqu'à 43.75 * (1 + 0,2) = 52,5 Hz, donc ce n'est pas suffisant ; b) Le 2HUMP_EI doit avoir shaper_freq = 35 / (1 - 0,35) = 53,85 Hz et réduira les vibrations jusqu'à 53,85 * (1 + 0,35) = 72,7 Hz - c'est donc une configuration acceptable. Essayez toujours d'utiliser le plus haut shaper_freq possible pour un input shaper donné (peut-être avec une certaine marge de sécurité, donc dans cet exemple shaper_freq ≈ 50-52 Hz fonctionnerait mieux), et essayez d'utiliser un input shaper avec une durée aussi petite que possible.
-* Si l'on a besoin de réduire les vibrations à plusieurs fréquences très différentes (par exemple, 30 Hz et 100 Hz), le tableau ci-dessus ne fournit pas suffisamment d'informations. Dans ce cas, on peut avoir plus de chance avec le script [scripts/graph_shaper.py](../scripts/graph_shaper.py), qui est plus flexible.
+* La durée de l'input shaper affecte le lissage des pièces - plus elle est grande, plus les pièces sont lisses. Cette dépendance n'est pas linéaire, mais peut donner une idée des input shapers qui "lissent" le plus pour une même fréquence. L'ordre par lissage est le suivant : ZV < MZV < ZVD ≈ EI < 2HUMP_EI < 3HUMP_EI. De plus, il est rarement pratique de régler shaper_freq = fréquence de résonance des types 2HUMP_EI et 3HUMP_EI (utilisés pour réduire les vibrations sur plusieurs fréquences).
+* On peut estimer une gamme de fréquences pour laquelle l'input shaper réduit les vibrations. Par exemple, MZV avec shaper_freq = 35 Hz réduit les vibrations à 5 % pour les fréquences [33,6, 36,4] Hz. 3HUMP_EI avec shaper_freq = 50 Hz réduit les vibrations à 5 % dans la plage [27,5 - 75] Hz.
+* On peut utiliser ce tableau pour vérifier quel input shaper choisir pour la réduction des vibrations de plusieurs fréquences. Par exemple, si on a des résonances à 35 Hz et 60 Hz sur le même axe : a) EI doit avoir shaper_freq = 35 / (1 - 0.2) = 43.75 Hz, ce qui réduirait les résonances jusqu'à 43.75 * (1 + 0,2) = 52,5 Hz, donc ce n'est pas suffisant ; b) Le 2HUMP_EI doit avoir shaper_freq = 35 / (1 - 0,35) = 53,85 Hz ce qui réduira les vibrations jusqu'à 53,85 * (1 + 0,35) = 72,7 Hz - c'est donc une configuration acceptable. Essayez toujours d'utiliser le plus haut shaper_freq possible pour un input shaper donné (peut-être avec une certaine marge de sécurité, donc dans cet exemple shaper_freq ≈ 50-52 Hz fonctionnerait mieux), et essayez d'utiliser un input shaper avec une durée aussi petite que possible.
+* Si l'on a besoin de réduire les vibrations de plusieurs fréquences très différentes (par exemple, 30 Hz et 100 Hz), le tableau ci-dessus ne fournit pas suffisamment d'informations. Dans ce cas, on peut avoir plus de chance avec le script [scripts/graph_shaper.py](../scripts/graph_shaper.py), qui est plus flexible.

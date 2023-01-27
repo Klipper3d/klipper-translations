@@ -1,16 +1,16 @@
 # Détecteur de largeur de filament à effet hall
 
-This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on two Hall linear sensors (ss49e for example). Sensors in the body are located opposite sides. Principle of operation: two hall sensors work in differential mode, temperature drift same for sensor. Special temperature compensation not needed.
+Ce document décrit le module hôte du capteur de largeur de filament. Le matériel utilisé pour développer ce module hôte est basé sur deux capteurs linéaires de type Hall (ss49e par exemple). Les capteurs dans le corps sont situés sur des côtés opposés. Principe de fonctionnement : deux capteurs Hall fonctionnent en mode différentiel, la dérive de température est la même pour tous les capteurs. Une compensation spéciale de la température n'est donc pas nécessaire.
 
-You can find designs at [Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video is also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)
+Vous trouverez les modèles sur [Thingiverse](https://www.thingiverse.com/thing:4138933), une vidéo de montage est également disponible sur [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)
 
-To use Hall filament width sensor, read [Config Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code documentation](G-Codes.md#hall_filament_width_sensor).
+Pour utiliser le capteur de largeur de filament de Hall, consultez [Référence des configurations](Config_Reference.md#hall_filament_width_sensor) et [documentation G-Code](G-Codes.md#hall_filament_width_sensor).
 
 ## Comment cela fonctionne-t-il ?
 
-Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use aux2 connector on ramps-like board analog11 and analog12 pins. You can use different pins and differenr boards.
+Le capteur génère deux sorties analogiques basées sur la largeur calculée du filament. La somme des tensions de sortie est toujours égale à la largeur de filament détectée. Le module hôte surveille les changements de tension et ajuste le multiplicateur d'extrusion. J'utilise le connecteur aux2 sur les broches analogiques 11 et 12 d'une carte genre Ramps. Vous pouvez utiliser des broches différentes et des cartes différentes.
 
-## Template for menu variables
+## Modèle pour les variables du menu
 
 ```
 [menu __main __filament __width_current]
@@ -26,24 +26,24 @@ name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}
 index: 1
 ```
 
-## Calibration procedure
+## Procédure d'étalonnage
 
-To get raw sensor value you can use menu item or **QUERY_RAW_FILAMENT_WIDTH** command in terminal.
+Pour obtenir la valeur brute du capteur, vous pouvez utiliser le menu ou la commande **QUERY_RAW_FILAMENT_WIDTH** dans le terminal.
 
-1. Insert first calibration rod (1.5 mm size) get first raw sensor value
-1. Insert second calibration rod (2.0 mm size) get second raw sensor value
-1. Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`
+1. Insérer la première tige d'étalonnage (taille 1,5 mm) pour obtenir la première valeur brute du capteur
+1. Insérer une deuxième tige d'étalonnage (taille 2,0 mm) pour obtenir la deuxième valeur brute du capteur
+1. Enregistrer les valeurs brutes des capteurs dans les paramètres de configuration `Raw_dia1` et `Raw_dia2`
 
-## How to enable sensor
+## Comment activer le capteur
 
-By default, the sensor is disabled at power-on.
+Par défaut, le capteur est désactivé à la mise sous tension.
 
-To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set the `enable` parameter to `true`.
+Pour activer le capteur, lancez la commande **ENABLE_FILAMENT_WIDTH_SENSOR** ou définissez le paramètre `enable` sur `true`.
 
-## Logging
+## Journalisation
 
-By default, diameter logging is disabled at power-on.
+Par défaut, la journalisation du diamètre est désactivée à la mise sous tension.
 
-Issue **ENABLE_FILAMENT_WIDTH_LOG** command to start logging and issue **DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at power-on, set the `logging` parameter to `true`.
+Envoyez la commande **ENABLE_FILAMENT_WIDTH_LOG** pour démarrer la journalisation, envoyez la commande **DISABLE_FILAMENT_WIDTH_LOG** pour l'arrêter. Pour activer la journalisation à la mise sous tension, définissez le paramètre `logging` à `true`.
 
-Filament diameter is logged on every measurement interval (10 mm by default).
+Le diamètre du filament est enregistré à chaque intervalle de mesure (10 mm par défaut).

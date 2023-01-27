@@ -1,20 +1,20 @@
 # Configuration checks
 
-В цьому документі наведений список дій, які допоможуть підтвердити налаштування виводів (pin) у файлі Klipper printer.cfg. Рекомендуємо виконати ці кроки опісля виконання кроків, описаних в [документі по встановленню](Installation.md).
+Dit document bevat een lijst met stappen om de pininstellingen in printer.cfg te bevestigen. Het is belangrijk om deze stappen door te lopen in het [installatiedocument](Installation.md).
 
-Під час роботи з цим посібником може виникнути необхідність внести зміни до конфігураційного файлу Klipper. Обов'язково виконуйте команду RESTART після кожної зміни конфігураційного файлу, щоб переконатися, що зміни набули чинності (введіть "restart" у вкладці терміналу Octoprint, а потім натисніть "Send"). Також бажано виконувати команду STATUS після кожного RESTART, щоб переконатися, що конфігураційний файл успішно завантажено.
+Tijdens het volgen van deze handleiding zijn mogelijk wijzigingen in het configuratiebestand nodig. Zorg ervoor dat u na elke wijzigingen een HERSTART-commando geeft om wijzigingen door te voeren (of type "restart" in de Octoprint-terminal en klik op "Send"). Het is handig om na elke herstart een STATUS-commando te geven om te zien of wijzigingen zijn doorgevoerd.
 
-## Перевірте температуру
+## Controleer temperatuur
 
-Розпочніть з перевірки правильності звіту про температуру. Перейдіть на вкладку температури Octoprint.
+Controleer eerst of de temperatuur goed gemeten worden. Ga naar het Octoprint-temperatuurtabblad.
 
-![octoprint-temperature](img/octoprint-temperature.png)
+![octoprint-temperatuur](img/octoprint-temperature.png)
 
-Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.
+Controleer of de temperatuur van de nozzle en het bed (indien van toepassing) gegeven worden en niet stijgen. Als de waarden stijgen, dient de printer uitgezet te worden. Controleer de instellingen "sensor_type" en "sensor_pin" voor nozzle en/of bed als de waarden niet kloppen.
 
-## Verify M112
+## Controleer M112
 
-Navigate to the Octoprint terminal tab and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause Octoprint to disconnect from Klipper - navigate to the Connection area and click on "Connect" to cause Octoprint to reconnect. Then navigate to the Octoprint temperature tab and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
+Ga naar de Octoprint-terminal en geef een M112-commando. Dit commando zorgt dat Klipper stopt. Hierdoor zal Octoprint de verbinding met Klipper verbreken. Klik op "Connect" om opnieuw te verbinden. Ga dan naar het Octoprint-temperatuurtabblad en controleer of de temperatuurwaarden verversen en niet stijgen. Als de waarden stijgen, dient de printer uitgezet te worden.
 
 The M112 command causes Klipper to go into a "shutdown" state. To clear this state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab.
 

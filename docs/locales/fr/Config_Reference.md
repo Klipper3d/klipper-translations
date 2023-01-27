@@ -1,6 +1,6 @@
 # Référence de configuration
 
-Ce document est la référencedes options disponibles dans le fichier de configuration de Klipper.
+Ce document est la référence des options disponibles dans le fichier de configuration de Klipper.
 
 Les descriptions de ce document sont formatées de manière à ce qu'il soit possible de les copier-coller dans un fichier de configuration d'imprimante. Consultez le [document d'installation](Installation.md) pour obtenir des informations sur la configuration de Klipper et le choix d'un fichier de configuration initial.
 
@@ -743,7 +743,7 @@ max_temp:
 
 ### [heater_bed]
 
-La section heater_bed concerne le lit chauffant. Elle utilise les mêmes paramètres de chauffage que ceux décrits dans la section "extrudeuse".
+La section heater_bed concerne le lit chauffant. Elle utilise les mêmes paramètres de mise en chauffe que ceux décrits dans la section "extrudeuse".
 
 ```
 [heater_bed]
@@ -907,7 +907,7 @@ Voir la [référence des commandes](G-Codes.md#bed_tilt) pour plus d'information
 
 ### [bed_screws]
 
-Outil d'aide au réglage des vis de mise à niveau du lit. On peut définir une section de configuration [bed_screws] pour activer une commande g-code BED_SCREWS_ADJUST.
+Outil d'aide au réglage des vis de nivellement du lit. On peut définir une section de configuration [bed_screws] pour activer une commande g-code BED_SCREWS_ADJUST.
 
 Consultez le [guide de nivelage](Manual_Level.md#adjusting-bed-leveling-screws) et la [référence des commandes](G-Codes.md#bed_screws) pour plus d'informations.
 
@@ -947,7 +947,7 @@ Consultez le [guide de nivelage](Manual_Level.md#adjusting-bed-leveling-screws) 
 
 ### [screws_tilt_adjust]
 
-Outil d'aide au réglage de l'inclinaison des vis du lit à l'aide du palpeur Z. On peut définir une section de configuration screws_tilt_adjust pour activer une commande g-code SCREWS_TILT_CALCULATE.
+Outil d'assistance au nivellement du lit avec les vis de réglage et l'aide du palpeur Z. On peut définir une section de configuration screws_tilt_adjust pour activer une commande g-code SCREWS_TILT_CALCULATE.
 
 Voir le [guide de nivelage](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) et la [référence des commandes](G-Codes.md#screws_tilt_adjust) pour des informations supplémentaires.
 
@@ -999,23 +999,25 @@ Réglage multiples de l'inclinaison de moteurs pas à pas de l'axe Z. Cette fonc
 #points:
 #    Une liste de coordonnées X, Y (une par ligne ; les lignes ultérieures
 #    indentées) qui doivent être palpées pendant une commande Z_TILT_ADJUST.
-#    Spécifiez les coordonnées de la buse et assurez-vous que le palpeur est au-dessus
-#    du lit aux coordonnées données de la buse. Ce paramètre doit être
-#    fourni.
+#    Spécifiez les coordonnées de la buse et assurez-vous que le palpeur est
+#    au-dessus du lit aux coordonnées données de la buse.
+#    Ce paramètre doit être fourni.
 #speed: 50
 #    La vitesse (en mm/s) des mouvements de déplacements hors palpage
 #    pendant l'étalonnage. La valeur par défaut est 50.
 #horizontal_move_z: 5
-#    Hauteur (en mm) à laquelle la tête doit être relevée pour se déplacer juste avant
-#    de lancer une opération de palpage. La valeur par défaut est 5.
+#    Hauteur (en mm) à laquelle la tête doit être relevée pour se déplacer juste
+#    avant de lancer une opération de palpage. La valeur par défaut est 5.
 #retries: 0
-#    Nombre de tentatives à effectuer si les points palpés ne sont pas dans la tolérance.
+#    Nombre de tentatives à effectuer si les points palpés ne sont pas dans la
+#    tolérance.
 #retry_tolerance: 0
-#    Si les réessais sont activés, réessayer si les points sondés les plus grands et les plus petits
-#    diffèrent plus que la tolérance retry_tolerance. Notez que la plus petite unité de
-#    changement ici serait un seul pas. Cependant, si vous sondez plus de points que de steppers,
-#    il est probable que vous aurez une valeur minimale fixe pour la plage de points sondés. Vous
-#    pouvez en apprendre plus en observant la sortie de la commande.
+#    Si les ré-essais sont activés, réessayer si les points sondés les plus grands et
+#    les plus petits diffèrent plus que la tolérance retry_tolerance. Notez que la
+#    plus petite unité de changement ici serait un seul pas. Cependant, si vous
+#    sondez plus de points que de moteurs, il est probable que vous aurez une
+#    valeur minimale fixe pour la plage de points sondés. Vous pouvez en
+#    apprendre plus en observant la sortie de la commande.
 ```
 
 ### [quad_gantry_level]
@@ -1073,25 +1075,26 @@ Correction de l'inclinaison de l'imprimante. Il est possible de corriger l'incli
 
 ### [z_thermal_adjust]
 
-Réglage de la position Z de la tête d'impression en fonction de la température. Compenser le mouvement vertical de la tête d'impression causé par la dilatation thermique du châssis de l'imprimante en temps réel à l'aide d'un capteur de température (généralement couplé à une section verticale du châssis).
+Ajustement de la position Z de la tête d'impression en fonction de la température. Compenser le mouvement vertical de la tête d'impression causé par la dilatation thermique du châssis de l'imprimante en temps réel à l'aide d'un capteur de température (généralement couplé à une section verticale du châssis).
 
 Voir aussi : [commandes de code G étendues](G-Codes.md#z_thermal_adjust).
 
 ```
 [z_thermal_adjust]
 #temp_coeff:
-#    Le coefficient de dilatation thermique, en mm/degC. Par exemple, un
-#    temp_coeff de 0,01 mm/degC déplacera l'axe Z vers le bas de 0,01 mm à
-#    chaque degré Celsius d'augmentation du capteur de température. La valeur 
-#   par défaut, 0,0 mm/degC, n'applique aucun ajustement.
+#    Le coefficient de dilatation thermique, en mm/°C. Par exemple, un
+#    temp_coeff de 0,01 mm/°C déplacera l'axe Z vers le bas de 0,01 mm pour
+#    chaque degré Celsius d'augmentation du capteur de température. La
+#    valeur par défaut, 0,0 mm/°C, n'applique aucun ajustement.
 #smooth_time:
-#    Fenêtre de lissage appliquée au capteur de température, en secondes. Peut réduire
-#    le bruit du moteur dû à de petites corrections excessives en réponse au bruit du capteur.
-#    La valeur par défaut est de 2,0 secondes.
+#    Fenêtre de lissage appliquée au capteur de température, en secondes.
+#    Peut réduire le bruit du moteur dû à de petites corrections excessives en
+#    réponse au bruit du capteur. La valeur par défaut est de 2,0 secondes.
 #z_adjust_off_above:
-#    Désactive les ajustements au-dessus de cette hauteur Z [mm]. La dernière correction calculée
-#    restera appliquée jusqu'à ce que la tête de l'outil passe à nouveau en dessous de la hauteur Z spécifiée.
-#    La valeur par défaut est 99999999.0 mm (toujours actif).
+#    Désactive les ajustements au-dessus de cette hauteur Z [mm]. La dernière
+#    correction calculée restera appliquée jusqu'à ce que la tête de l'outil passe
+#    à nouveau en dessous de la hauteur Z spécifiée. La valeur par défaut est
+#    99999999.0 mm (toujours actif).
 #max_z_adjustment:
 #    Ajustement absolu maximal pouvant être appliqué à l'axe Z [mm].
 #    La valeur par défaut est 99999999.0 mm (illimité).
@@ -1246,7 +1249,7 @@ gcode:
 
 ### [save_variables]
 
-Prise en charge de l'enregistrement des variables sur le disque afin qu'elles soient conservées lors des redémarrages. Voir [modèles de commande](Command_Templates.md#save-variables-to-disk) et [référence au code G](G-Codes.md#save_variables) pour plus d'informations.
+Prise en charge de l'enregistrement des variables sur le disque afin qu'elles soient conservées lors des redémarrages. Voir [modèles de commande](Command_Templates.md#save-variables-to-disk) et [référence G-code](G-Codes.md#save_variables) pour plus d'informations.
 
 ```
 [save_variables]
@@ -1280,10 +1283,10 @@ Une carte SD virtuelle peut être utile si la machine hôte n'est pas assez rapi
 [virtual_sdcard]
 path:
 #    Le chemin d'accès au répertoire local sur la machine hôte de recherche
-#    des fichiers g-code. Il s'agit d'un répertoire en lecture seule (les écritures de fichiers sdcard
-#    ne sont pas supportées). On peut le faire pointer vers le répertoire de téléchargement
-#    d'OctoPrint (généralement ~/.octoprint/uploads/ ). Ce paramètre doit
-#    être fourni.
+#    des fichiers g-code. Il s'agit d'un répertoire en lecture seule (les écritures
+#    de fichiers sur une carte SD ne sont pas supportées). On peut le faire pointer
+#    vers le répertoire de téléchargement d'OctoPrint (généralement
+#    ~/.octoprint/uploads/ ). Ce paramètre doit être fourni.
 #on_error_gcode:
 #    Une liste de commandes G-Code à exécuter lorsqu'une erreur est signalée.
 ```
@@ -1468,7 +1471,7 @@ Prise en charge des accéléromètres MPU-9250, MPU-9255, MPU-6050 et MPU-6500 (
 
 ### [resonance_tester]
 
-Prise en charge du test de résonance et du calibrage automatique du façonneur d'entrée (input shaper). Pour utiliser la plupart des fonctionnalités de ce module, des dépendances logicielles supplémentaires doivent être installées ; reportez-vous à [Measuring Resonances](Measuring_Resonances.md) et à la [référence de commande](G-Codes.md#resonance_tester) pour plus d'informations. Voir la section [Adoucissement Max](Measuring_Resonances.md#max-smoothing) du guide de mesure des résonances pour plus d'informations sur le paramètre `max_smoothing` et son utilisation.
+Prise en charge du test de résonance et du calibrage automatique du façonneur d'entrée (input shaper). Pour utiliser la plupart des fonctionnalités de ce module, des dépendances logicielles supplémentaires doivent être installées ; reportez-vous à [Mesurer les résonances](Measuring_Resonances.md) et à la [référence de commande](G-Codes.md#resonance_tester) pour plus d'informations. Voir la section [Adoucissement Max](Measuring_Resonances.md#max-smoothing) du guide de mesure des résonances pour plus d'informations sur le paramètre `max_smoothing` et son utilisation.
 
 ```
 [resonance_tester]
@@ -1556,7 +1559,7 @@ pins:
 
 ### [probe]
 
-Sonde de hauteur Z. On peut définir cette section pour activer le matériel de nivelage de l'axer Z. Lorsque cette section est activée, les commandes [g-code étendus](G-Codes.md#probe) PROBE et QUERY_PROBE deviennent disponibles. Consultez également le [guide d'étalonnage des sondes](Probe_Calibrate.md). La section probe crée également une broche virtuelle "probe:z_virtual_endstop". Il est possible de définir la broche du stepper_z, endstop_pin, sur cette broche virtuelle pour les imprimantes de style cartésien qui utilisent la sonde à la place d'un interrupteur de fin de course Z. Si vous utilisez "probe:z_virtual_endstop", ne définissez pas de position_endstop dans la configuration de la section stepper_z.
+Sonde de hauteur Z. On peut définir cette section pour activer le matériel de nivellement de l'axe Z. Lorsque cette section est activée, les commandes [g-code étendus](G-Codes.md#probe) PROBE et QUERY_PROBE deviennent disponibles. Consultez également le [guide d'étalonnage des sondes](Probe_Calibrate.md). La section probe crée également une broche virtuelle "probe:z_virtual_endstop". Il est possible de définir la broche du stepper_z, endstop_pin, sur cette broche virtuelle pour les imprimantes de style cartésien qui utilisent la sonde à la place d'un interrupteur de fin de course Z. Si vous utilisez "probe:z_virtual_endstop", ne définissez pas de position_endstop dans la configuration de la section stepper_z.
 
 ```
 [probe]
@@ -1672,7 +1675,7 @@ control_pin:
 
 ### [smart_effector]
 
-Le "Smart Effector" de Duet3d implémente une sonde Z utilisant un capteur de force. On peut définir cette section à la place de `[probe]` pour activer les fonctionnalités spécifiques du Smart Effector. Cela permet également d'activer les [commandes d'exécution](G-Codes.md#smart_effector) afin d'ajuster les paramètres du Smart Effector au moment de l'exécution.
+Le "Smart Effector" de Duet3d implémente une sonde Z utilisant un capteur de force. On peut définir cette section à la place de `[probe]` pour activer les fonctionnalités spécifiques du Smart Effector. Cela permet également d'activer les [commandes d'exécution](G-Codes.md#smart_effector) afin d'ajuster les paramètres du Smart Effector au moment de son exécution.
 
 ```
 [smart_effector]
@@ -1837,25 +1840,27 @@ Vérification de l'élément chauffant et du capteur de température. La vérifi
 ```
 [verify_heater heater_config_name]
 #max_error: 120
-#    L'erreur maximale de température cumulée avant de déclencher une erreur.
-#    Des valeurs plus petites entraînent une vérification plus stricte et des valeurs plus grandes
-#    permettent un délai plus long avant qu'une erreur ne soit signalée.
+#    L'erreur de température cumulée maximale avant de déclencher une erreur.
+#    Des valeurs plus petites entraînent une vérification plus stricte et des valeurs
+#    plus grandes permettent un délai plus long avant qu'une erreur ne soit signalée.
 #    Plus précisément, la température est inspectée une fois par seconde et si elle
-#    est proche de la température cible, un "compteur d'erreurs" interne est remis à zéro;
-#    sinon, si la température est inférieure à la plage cible, le compteur est augmenté
-#    de la quantité de température rapportée diffèrant de cette plage. Si le compteur
-#    dépasse ce "max_error", une erreur est signalée. La valeur par défaut est 120.
+#    est proche de la température cible, un "compteur d'erreurs" interne est remis
+#    à zéro; sinon, si la température est inférieure à la plage cible, le compteur est
+#    augmenté de la quantité de température rapportée différant de cette plage. Si
+#    le compteur dépasse ce "max_error", une erreur est signalée. La valeur par
+#    défaut est 120.
 #check_gain_time:
-#    Ceci contrôle la vérification du chauffage durant la chauffe initiale. Des valeurs plus petites
-#    entraînent une vérification plus stricte et des valeurs plus grandes autorisent un délai
-#    plus grand avant qu'une erreur ne soit signalée. Spécifiquement, pendant la chauffe initiale,
-#    tant que la température de l'élément chauffant augmente durant ce laps de temps (spécifié
-#    en secondes), le "compteur d'erreurs" interne est remis à zéro.
-#    La valeur par défaut est de 20 secondes pour les extrudeuses et 60 secondes pour le lit chauffant.
+#    Ceci contrôle la vérification du chauffage durant la chauffe initiale. Des valeurs
+#    plus petites entraînent une vérification plus stricte et des valeurs plus grandes
+#    autorisent un délai plus grand avant qu'une erreur ne soit signalée. Spécifiquement,
+#    pendant la chauffe initiale, tant que la température de l'élément chauffant augmente
+#    durant ce laps de temps (spécifié en secondes), le "compteur d'erreurs" interne est
+#    remis à zéro. La valeur par défaut est de 20 secondes pour les extrudeuses et 60
+#    secondes pour le lit chauffant.
 #hysteresis: 5
-#    La différence de température maximale (en Celsius) par rapport à une température cible
-#   considérée comme située dans la plage de la cible. Ceci contrôle la vérification de la plage
-#   du paramètre max_error. Il est rare de personnaliser cette valeur.
+#    La différence de température maximale (en Celsius) par rapport à une température
+#    cible considérée comme située dans la plage de la cible. Ceci contrôle la vérification
+#    de la plage du paramètre max_error. Il est rare de personnaliser cette valeur.
 #   La valeur par défaut est 5.
 #heating_gain: 2
 #    La température minimale (en Celsius) pour laquelle le chauffage doit progresser
@@ -1865,7 +1870,7 @@ Vérification de l'élément chauffant et du capteur de température. La vérifi
 
 ### [homing_heaters]
 
-Outil pour désactiver les éléments chauffants lors de la prise d'origine ou du palpage d'un axe.
+Outil de désactivation des éléments chauffants lors de la prise d'origine ou du palpage d'un axe.
 
 ```
 [homing_heaters]
@@ -1885,7 +1890,7 @@ Outil pour désactiver les éléments chauffants lors de la prise d'origine ou d
 Thermistances personnalisées (on peut définir un nombre quelconque de sections avec le préfixe "thermistor"). Une thermistance personnalisée peut être utilisée dans le champ sensor_type d'une section de configuration de chauffage. (Par exemple, si l'on définit une section "[thermistor my_thermistor]", on peut utiliser un "sensor_type: my_thermistor" lors de la définition d'un élément de chauffe). Veillez à placer la section thermistor dans le fichier de configuration avant sa première utilisation dans une section de chauffage.
 
 ```
-[thermistor mon_thermistor]
+[thermistor ma_thermistance]
 #temperature1:
 #resistance1:
 #temperature2:
@@ -2160,7 +2165,7 @@ sensor_type: temperature_mcu
 
 ### Capteur de température de l'hôte
 
-Température de la machine (par exemple Raspberry Pi) qui exécute le logiciel hôte.
+Température de la machine (par exemple Raspberry Pi) exécutant le logiciel hôte.
 
 ```
 sensor_type: temperature_host
@@ -2329,7 +2334,7 @@ Ventilateur de refroidissement du contrôleur (on peut définir un nombre quelco
 
 ### [temperature_fan]
 
-Ventilateurs de refroidissement déclenchés par la température (on peut définir un nombre quelconque de sections avec le préfixe "temperature_fan"). Un "ventilateur de température" est un ventilateur activé lorsque le capteur qui lui est associé est au-dessus d'une température définie. Par défaut, un ventilateur de température a une vitesse d'arrêt égale à la puissance maximale.
+Ventilateurs de refroidissement déclenchés en fonction de la température (on peut définir un nombre quelconque de sections avec le préfixe "temperature_fan"). Un "ventilateur de température" est un ventilateur activé lorsque le capteur qui lui est associé est au-dessus d'une température définie. Par défaut, un ventilateur de température a une vitesse d'arrêt égale à la puissance maximale.
 
 Voir la [référence des commandes](G-Codes.md#temperature_fan) pour plus d'informations.
 
@@ -2358,31 +2363,31 @@ Voir la [référence des commandes](G-Codes.md#temperature_fan) pour plus d'info
 #pid_Ki:
 #pid_Kd:
 #    Les paramètres proportionnels (pid_Kp), intégraux (pid_Ki), et dérivés (pid_Ki)
-#    pour le système de contrôle par rétroaction PID. Klipper évalue les paramètres PID
+#    du système de contrôle par rétroaction PID. Klipper évalue les paramètres PID
 #    avec la formule générale suivante :
 #        fan_pwm = max_power - (Kp*e + Ki*integral(e) - Kd*derivative(e)) / 255
 #    Où "e" est "température_cible - température_mesurée" et
-#    "fan_pwm" est le débit du ventilateur demandé, 0,0 correspondant à un arrêt complet et
-#    1,0 correspond à un fonctionnement à plein régime. Les paramètres pid_Kp, pid_Ki, et pid_Kd
-#    doivent être fournis lorsque l'algorithme de contrôle PID est activé.
+#    "fan_pwm" est le débit du ventilateur demandé, 0,0 correspondant à un arrêt complet
+#    et 1,0 correspond à un fonctionnement à plein régime. Les paramètres pid_Kp, pid_Ki,
+#    et pid_Kd doivent être fournis lorsque l'algorithme de contrôle PID est activé.
 #pid_deriv_time: 2.0
-#    Une durée (en secondes) sur laquelle les mesures de température seront lissées lors de
-#    l'utilisation de l'algorithme de contrôle PID. Cela peut réduire l'impact du bruit de mesure.
-#    La valeur par défaut est de 2 secondes.
+#    Une durée (en secondes) sur laquelle lisser les mesures de température lors de
+#    l'utilisation de l'algorithme de contrôle PID. Cela peut réduire l'impact du bruit de
+#    mesure. La valeur par défaut est de 2 secondes.
 #target_temp: 40.0
 #    Une température (en Celsius) qui sera la température cible.
 #    La valeur par défaut est 40 degrés.
 #max_speed: 1.0
-#    La vitesse du ventilateur (exprimée comme une valeur de 0,0 à 1,0) à laquelle le ventilateur
-#    sera réglé lorsque la température du capteur dépassera la valeur définie.
+#    La vitesse du ventilateur (exprimée comme une valeur de 0,0 à 1,0) à laquelle régler
+#    le ventilateur lorsque la température du capteur dépassera la valeur définie.
 #    La valeur par défaut est 1.0.
 #min_speed: 0.3
-#    Vitesse minimale du ventilateur (exprimée sous la forme d'une valeur comprise entre 0,0 et 1,0)
-#    à laquelle le ventilateur sera réglé pour les ventilateurs à température PID.
+#    Vitesse minimale du ventilateur (exprimée sous forme d'une valeur comprise entre 0,0
+#    et 1,0) à laquelle régler le ventilateur pour les ventilateurs à température PID.
 #    La valeur par défaut est 0,3.
 #gcode_id:
 #    S'il est défini, la température sera signalée dans les requêtes M105 en utilisant l'identifiant
-#    id donné. La valeur par défaut est de ne pas rapporter la température via M105.
+#    d'id donné. La valeur par défaut est de ne pas rapporter la température via M105.
 ```
 
 ### [fan_generic]
@@ -2409,7 +2414,7 @@ Ventilateur commandé manuellement (on peut définir un nombre quelconque de sec
 
 ### [led]
 
-Prise en charge des LEDs (et des bandes de LED) contrôlées par les broches PWM du microcontrôleur (on peut définir un nombre quelconque de sections avec le préfixe "led"). Voir la [référence de la commande](G-Codes.md#led) pour plus d'informations.
+Prise en charge des LEDs (et des bandes de LEDs) contrôlées par les broches PWM du microcontrôleur (on peut définir un nombre quelconque de sections avec le préfixe "led"). Voir la [référence de la commande](G-Codes.md#led) pour plus d'informations.
 
 ```
 [led my_led]
@@ -2673,8 +2678,8 @@ Configuration d' un pilote de moteur pas à pas TMC2130 via le bus SPI. Pour uti
 [tmc2130 stepper_x]
 cs_pin:
 #    La broche correspondant à la ligne de sélection de la puce TMC2130. Cette broche
-#    sera mise à l'état bas au début des messages SPI et remontée à l'état haut 
-#    après la fin du message. Ce paramètre doit être fourni.
+#    sera mise à l'état bas au début des messages SPI et remontée à l'état haut après
+#    la fin du message. Ce paramètre doit être fourni.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
@@ -2684,8 +2689,8 @@ cs_pin:
 #    paramètres ci-dessus.
 #chain_position:
 #chain_length:
-#    Ces paramètres configurent une guirlande SPI. Les deux paramètres
-#    définissent la position du pilote dans la chaîne et la longueur totale de la chaîne.
+#    Ces paramètres configurent une guirlande SPI. Les deux paramètres définissent
+#    la position du pilote dans la chaîne et la longueur totale de la chaîne.
 #    La position 1 correspond au pilote qui se connecte au signal MOSI.
 #    La valeur par défaut est de ne pas utiliser de guirlande SPI.
 #interpolate: True
@@ -2694,21 +2699,21 @@ cs_pin:
 #    systémique de la position - voir TMC_Drivers.md pour plus de détails.
 #    La valeur par défaut est True.
 run_current:
-#    La quantité de courant (en ampères RMS) à configurer que le pilote utilise
-#    pendant le mouvement pas à pas. Ce paramètre doit être fourni.
+#    La quantité de courant (en ampères RMS) à configurer que le pilote doit
+#    utiliser pendant le mouvement pas à pas. Ce paramètre doit être fourni.
 #hold_current:
-#    La quantité de courant (en ampères RMS) à configurer que le pilote utilise
-#    lorsque le moteur pas à pas n'est pas en mouvement. La définition d'un hold_current n'est pas
-#    recommandé (voir TMC_Drivers.md pour plus de détails). La valeur par défaut est de
-#    ne pas réduire le courant.
+#    La quantité de courant (en ampères RMS) à configurer que le pilote doit
+#    utiliser lorsque le moteur pas à pas n'est pas en mouvement. La définition
+#    d'un hold_current n'est pas recommandée (voir TMC_Drivers.md pour plus
+#    de détails). La valeur par défaut est de ne pas réduire le courant.
 #sense_resistor: 0.110
-#    La résistance (en ohms) de la résistance de détection du moteur (Vréf). La valeur par défaut
-#    est de 0.110 ohms.
+#    La résistance (en ohms) de la résistance de détection du moteur (Vréf). La
+#    valeur par défaut est de 0.110 ohms.
 #stealthchop_threshold: 0
 #    La vitesse (en mm/s) à laquelle le seuil "stealthChop" doit être fixé. Lorsque
-#    défini, le mode "stealthChop" sera activé si la vitesse du moteur pas à pas
-#    est inférieure à cette valeur. La valeur par défaut est 0, ce qui désactive
-#    le mode "stealthChop".
+#    défini, le mode "stealthChop" sera activé si la vitesse du moteur pas à pas est
+#    inférieure à cette valeur. La valeur par défaut est 0, ce qui désactive le
+#    mode "stealthChop".
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 0
 #driver_TBL: 1
@@ -2720,19 +2725,20 @@ run_current:
 #driver_PWM_GRAD: 4
 #driver_PWM_AMPL: 128
 #driver_SGT: 0
-#    Définir le registre donné pendant la configuration de la puce TMC2130.
-#    Ceci peut être utilisé pour définir les paramètres personnalisés du moteur. Les valeurs par défaut de
-#    chaque paramètre sont indiquées à côté du nom du paramètre dans la liste ci-dessus.
+#    Définit le registre donné pendant la configuration de la puce TMC2130.
+#    Ceci peut être utilisé pour définir les paramètres personnalisés du moteur. Les
+#    valeurs par défaut de chaque paramètre sont indiquées à côté du nom du
+#    paramètre dans la liste ci-dessus.
 #diag0_pin:
 #diag1_pin:
 #    La broche du microcontrôleur reliée à l'une des lignes DIAG de la puce
-#    TMC2130. Une seule broche diag doit être spécifiée. La broche
-#    est "active low" et est donc normalement précédée de "^ !". Ce réglage
-#    crée une broche virtuelle "tmc2130_stepper_x:virtual_endstop".
-#    pouvant être utilisée comme broche de fin de course du moteur. Cela permet d'activer le
-#    "sensorless homing". (Assurez-vous de régler également driver_SGT à une
-#    valeur de sensibilité appropriée). La valeur par défaut est de ne pas activer
-#    la recherche d'origine sans capteur.
+#    TMC2130. Une seule broche diag doit être spécifiée. La broche est
+#    "active low" et est donc normalement précédée de "^ !". Ce réglage crée
+#    une broche virtuelle "tmc2130_stepper_x:virtual_endstop" pouvant être utilisée
+#    comme broche de fin de course du moteur. Cela permet d'activer le "sensorless
+#    homing". (Assurez-vous de régler également driver_SGT à une valeur de sensibilité
+#    appropriée). La valeur par défaut est de ne pas activer la recherche d'origine
+#    sans capteur.
 ```
 
 ### [tmc2208]
@@ -2745,33 +2751,32 @@ uart_pin:
 #    La broche connectée à la ligne PDN_UART de la TMC2208. Ce paramètre
 #    doit être fourni.
 #tx_pin:
-#    Si vous utilisez des lignes de réception et de transmission séparées pour communiquer avec
-#    le pilote, réglez uart_pin sur la broche de réception et tx_pin sur la broche d'émission.
-#    La valeur par défaut est d'utiliser uart_pin pour la lecture et l'écriture.
+#    Si vous utilisez des lignes de réception et de transmission séparées pour communiquer
+#    avec le pilote, réglez uart_pin sur la broche de réception et tx_pin sur la broche
+#    d'émission. La valeur par défaut est d'utiliser uart_pin pour la lecture et l'écriture.
 #select_pins:
 #    Une liste de broches, séparées par des virgules, à définir avant d'accéder à l'UART du
-#    tmc2208. Ceci peut être utile pour configurer un mux analogique pour la
-#    la communication UART. La valeur par défaut est de ne pas configurer de broches.
+#    tmc2208. Ceci peut être utile pour configurer un mux analogique pour la communication
+#    UART. La valeur par défaut est de ne pas configurer de broches.
 #interpolate: True
-#    Si true, active l'interpolation de pas (le pilote fera un pas interne à un taux de 256 micro-pas).
-#    Cette interpolation introduit une petite déviation systémique de la position - voir
-#    TMC_Drivers.md pour plus de détails. La valeur par défaut est True.
+#    Si true, active l'interpolation de pas (le pilote fera un pas interne à un taux de 256
+#    micro-pas). Cette interpolation introduit une petite déviation systémique de la position -
+#    voir TMC_Drivers.md pour plus de détails. La valeur par défaut est True.
 run_current:
-#    La quantité de courant (en ampères RMS) à configurer que le pilote utilise
+#    La quantité de courant (en ampères RMS) à configurer que le pilote doit utiliser
 #    pendant le mouvement du pas. Ce paramètre doit être fourni.
 #hold_current:
-#    La quantité de courant (en ampères RMS) à configurer que le pilote utilise 
-#    lorsque le moteur pas à pas n'est pas en mouvement. La définition d'un hold_current n'est pas
+#    La quantité de courant (en ampères RMS) à configurer que le pilote doit utiliser quand
+#    le moteur pas à pas n'est pas en mouvement. La définition d'un hold_current n'est pas
 #    recommandée (voir TMC_Drivers.md pour plus de détails). La valeur par défaut est de
 #    ne pas réduire le courant.
 #sense_resistor: 0.110
-#    La résistance (en ohms) de la résistance de détection du moteur (Vréf). La valeur par défaut
-#    est de 0.110 ohms.
+#    La résistance (en ohms) de la résistance de détection du moteur (Vréf). La valeur par
+#    défaut est de 0.110 ohms.
 #stealthchop_threshold: 0
-#    La vitesse (en mm/s) à laquelle le seuil "stealthChop" doit être fixé. Lorsque
-#    défini, le mode "stealthChop" sera activé si la vitesse du moteur pas à pas
-#    est inférieure à cette valeur. La valeur par défaut est 0, ce qui désactive
-#    le mode "stealthChop".
+#    La vitesse (en mm/s) à laquelle le seuil "stealthChop" doit être fixé. Lorsque défini,
+#    le mode "stealthChop" sera activé si la vitesse du moteur pas à pas est inférieure à
+#    cette valeur. La valeur par défaut est 0, ce qui désactive le mode "stealthChop".
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
 #driver_TBL: 2
@@ -2785,8 +2790,8 @@ run_current:
 #driver_PWM_FREQ: 1
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
-#    Définissez le registre donné pendant la configuration de la puce TMC2208.
-#    Ceci peut être utilisé pour définir les paramètres personnalisés du moteur. Les valeurs par défaut de
+#    Définissez le registre donné pendant la configuration de la puce TMC2208. Ceci peut être
+#    utilisé pour définir les paramètres personnalisés du moteur. Les valeurs par défaut de
 #    chaque paramètre sont indiquées à côté du nom du paramètre dans la liste ci-dessus.
 ```
 
@@ -2807,8 +2812,8 @@ run_current:
 #    Voir la section "tmc2208" pour la définition de ces paramètres.
 #uart_address:
 #    L'adresse de la puce TMC2209 pour les messages UART (un entier entre 0 et 3).
-#    entre 0 et 3). Ce paramètre est généralement utilisé lorsque plusieurs puces TMC2209
-#    sont connectées à la même broche UART. La valeur par défaut est zéro.
+#    Ce paramètre est généralement utilisé lorsque plusieurs puces TMC2209 sont
+#    connectées à la même broche UART. La valeur par défaut est zéro.
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
 #driver_TBL: 2
@@ -2823,15 +2828,15 @@ run_current:
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
 #driver_SGTHRS: 0
-#    Définir le registre donné pendant la configuration de la puce TMC2209.
-#    Ceci peut être utilisé pour définir les paramètres personnalisés du moteur. Les valeurs par défaut de
+#    Définit le registre donné pendant la configuration de la puce TMC2209. Ceci peut être
+#    utilisé pour définir les paramètres personnalisés du moteur. Les valeurs par défaut de
 #    chaque paramètre sont indiquées à côté du nom du paramètre dans la liste ci-dessus.
 #diag_pin:
-#    La broche du microcontrôleur reliée à la ligne DIAG de la puce TMC2209.
-#    La broche est normalement précédée de "^" pour activer un pullup.
-#    Le paramétrage de cette broche crée une broche virtuelle "tmc2209_stepper_x:virtual_endstop"
-#    pouvant être utilisée comme broche d'arrêt du stepper. Ainsi cela active le "sensorless homing".
-#    (Assurez-vous de définir également driver_SGTHRS à une valeur de sensibilité appropriée).
+#    La broche du microcontrôleur reliée à la ligne DIAG de la puce TMC2209. La broche est
+#    normalement précédée de "^" pour activer un pullup. Le paramétrage de cette broche
+#    crée une broche virtuelle "tmc2209_stepper_x:virtual_endstop" pouvant être utilisée
+#    comme broche d'arrêt du moteur. Ainsi cela active le "sensorless homing". (Assurez-
+#    vous de définir également driver_SGTHRS à une valeur de sensibilité appropriée).
 #    La valeur par défaut est de ne pas activer la recherche d'origine sans capteur.
 ```
 
@@ -2842,12 +2847,12 @@ Configuration d'un pilote de moteur pas à pas TMC2660 via le bus SPI. Pour util
 ```
 [tmc2660 stepper_x]
 cs_pin:
-#    La broche correspondant à la ligne de sélection de la puce TMC2660. Cette broche
-#    sera mise à l'état bas au début des messages SPI et passera à l'état haut
-#    après la fin du transfert du message. Ce paramètre doit être fourni.
+#    La broche correspondant à la ligne de sélection de la puce TMC2660. Cette
+#    broche sera mise à l'état bas au début des messages SPI et passera à l'état
+#    haut après la fin du transfert du message. Ce paramètre doit être fourni.
 #spi_speed: 4000000
-#    Fréquence du bus SPI utilisée pour communiquer avec le pilote de pas à pas TMC2660.
-#    La valeur par défaut est 4000000.
+#    Fréquence du bus SPI utilisée pour communiquer avec le pilote de pas à pas
+#    TMC2660. La valeur par défaut est 4000000.
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
@@ -2855,19 +2860,19 @@ cs_pin:
 #    Voir la section "paramètres SPI communs" pour une description des
 #    paramètres ci-dessus.
 #interpolate: True
-#    Si vrai, active l'interpolation par pas (le pilote fera un pas interne à un taux de 256 micro-pas).
-#    Cela ne fonctionne que si les micro-pas sont fixés à 16. L'interpolation introduit une petite
-#    déviation systémique positionnelle - voir TMC_Drivers.md pour plus de détails.
-#    La valeur par défaut est True.
+#    Si vrai, active l'interpolation par pas (le pilote fera un pas interne à un taux
+#    de 256 micro-pas). Cela ne fonctionne que si les micro-pas sont fixés à 16.
+#    L'interpolation introduit une petite déviation de position systémique - voir
+#    TMC_Drivers.md pour plus de détails. La valeur par défaut est True.
 run_current:
-#    La quantité de courant (en ampères RMS) utilisée par le pilote pendant le déplacement du
-#    moteur pas à pas. Ce paramètre doit être fourni.
+#    La quantité de courant (en ampères RMS) utilisée par le pilote pendant le
+#    déplacement du moteur pas à pas. Ce paramètre doit être fourni.
 #sense_resistor:
-#    La résistance (en ohms) de la résistance de détection du moteur (Vréf). Ce paramètre
-#    doit être fourni.
+#    La résistance (en ohms) de la résistance de détection du moteur (Vréf). Ce
+#    paramètre doit être fourni.
 #idle_current_percent  100
-#    Le pourcentage du courant de fonctionnement auquel le pilote pas à pas sera
-#    abaissé lorsque le délai d'inactivité expirera (vous devez configurer le
+#    Le pourcentage du courant de fonctionnement auquel le pilote pas à pas
+#    sera abaissé quand le délai d'inactivité expirera (vous devez configurer le
 #    délai à l'aide d'une section de configuration [idle_timeout]). Le courant sera
 #    remonté dès que le moteur devra à nouveau se déplacer. Assurez-vous de
 #    définir une valeur suffisamment élevée pour que les moteurs ne perdent pas
@@ -2893,12 +2898,13 @@ run_current:
 #driver_DISS2G: 0
 #driver_TS2G: 3
 #    Définit les paramètres à utiliser pendant la configuration de la puce TMC2660.
-#    Ceci peut être utilisé pour définir des paramètres de pilote personnalisés. Les valeurs par défaut de
-#    chaque paramètre sont indiquées à côté du nom du paramètre dans la liste ci-dessus.
-#    Consultez la fiche technique du TMC2660 pour connaître la fonction de chaque paramètre ainsi que
-#   les restrictions sur les combinaisons de paramètres. Soyez particulièrement attentif au
-#    registre CHOPCONF, où le fait de régler CHM à soit zéro, soit un, entraîne des modifications de
-#   la disposition (le premier bit de HDEC est interprété comme le MSB de HSTRT dans ce cas).
+#    Ceci peut être utilisé pour définir des paramètres de pilote personnalisés. Les
+#    valeurs par défaut de chaque paramètre sont indiquées à côté du nom du paramètre
+#    dans la liste ci-dessus. Consultez la fiche technique du TMC2660 pour connaître la
+#    fonction de chaque paramètre ainsi que les restrictions sur les combinaisons de
+#    paramètres. Soyez particulièrement attentif au registre CHOPCONF, où le fait de
+#    régler CHM à soit zéro, soit un, entraîne des modifications de la disposition (le
+#    premier bit de HDEC est interprété comme le MSB de HSTRT dans ce cas).
 ```
 
 ### [tmc5160]
@@ -2908,9 +2914,9 @@ Configuration d'un pilote de moteur pas à pas TMC5160 via le bus SPI. Pour util
 ```
 [tmc5160 stepper_x]
 cs_pin:
-#    La broche correspondant à la ligne de sélection de la puce TMC5160. Cette broche
-#    sera mise à l'état bas au début des messages SPI et remontée à l'état haut
-#    après la fin du message. Ce paramètre doit être fourni.
+#    La broche correspondant à la ligne de sélection de la puce TMC5160. Cette
+#    broche sera mise à l'état bas au début des messages SPI et remontée à l'état
+#    haut après la fin du message. Ce paramètre doit être fourni.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
@@ -2932,17 +2938,17 @@ run_current:
 #    pendant le mouvement du moteur pas à pas. Ce paramètre doit être fourni.
 #hold_current:
 #    La quantité de courant (en ampères RMS) à configurer que le pilote utilise
-#    lorsque le moteur pas à pas n'est pas en mouvement. La définition d'un hold_current n'est pas
-#    recommandée (voir TMC_Drivers.md pour plus de détails). La valeur par défaut est de
-#    ne pas réduire le courant.
+#    lorsque le moteur pas à pas n'est pas en mouvement. La définition d'un 
+#    hold_current n'est pas recommandée (voir TMC_Drivers.md pour plus de détails).
+#    La valeur par défaut est de ne pas réduire le courant.
 #sense_resistor: 0.075
-#    La résistance (en ohms) de la résistance de détection du moteur (Vréf). La valeur par défaut
-#    est de 0,075 ohms.
+#    La résistance (en ohms) de la résistance de détection du moteur (Vréf). La
+#    valeur par défaut est de 0,075 ohms.
 #stealthchop_threshold: 0
 #    La vitesse (en mm/s) à laquelle le seuil de "stealthChop" doit être fixé. Lorsque
-#    défini, le mode "stealthChop" sera activé si la vitesse du moteur pas à pas
-#    est inférieure à cette valeur. La valeur par défaut est 0, ce qui désactive
-#    le mode "stealthChop".
+#    défini, le mode "stealthChop" sera activé si la vitesse du moteur pas à pas est
+#    inférieure à cette valeur. La valeur par défaut est 0, ce qui désactive le mode
+#    "stealthChop".
 #driver_IHOLDDELAY: 6
 #driver_TPOWERDOWN: 10
 #driver_TBL: 2
@@ -2979,7 +2985,7 @@ run_current:
 #diag1_pin:
 #    La broche du microcontrôleur reliée à l'une des lignes DIAG de la puce TMC5160.
 #    Une seule broche diag doit être spécifiée. La broche est "active low" et est donc
-#    normalement précédée de "^ !". Ce réglage crée une broche virtuelle
+#    normalement précédée de "^!". Ce réglage crée une broche virtuelle
 #    "tmc5160_stepper_x:virtual_endstop" pouvant être utilisée comme broche d'arrêt
 #    du moteur. Cela permet d'activer le mode "sensorless homing". (Assurez-vous de
 #    régler également driver_SGT à une valeur de sensibilité appropriée).
@@ -3375,7 +3381,7 @@ text:
 
 Les "macros" de texte des données d'affichage (on peut définir un nombre quelconque de sections avec un préfixe display_template). Voir le document [modèles de commande](Command_Templates.md) pour des informations sur l'évaluation des modèles.
 
-Cette fonctionnalité permet de réduire les définitions répétitives dans les sections display_data. On peut utiliser la fonction intégrée `render()` dans les sections display_data pour évaluer un modèle. Par exemple, si l'on définit "[display_template my_template]`", on peut utiliser "{ render('my_template') }` dans une section display_data.
+Cette fonctionnalité permet de réduire les définitions répétitives dans les sections display_data. On peut utiliser la fonction intégrée `render()` dans les sections display_data pour évaluer un modèle. Par exemple, si l'on définit "[display_template my_template]`", on peut alors utiliser "{ render('my_template') }` dans une section display_data.
 
 Cette fonctionnalité peut également être utilisée pour des mises à jour continues des LEDs à l'aide de la commande [SET_LED_TEMPLATE](G-Codes.md#set_led_template).
 
@@ -3566,7 +3572,7 @@ switch_pin:
 
 ### [tsl1401cl_filament_width_sensor]
 
-Capteur de largeur de filament basé sur le TSLl401CL. Voir le [guide](TSL1401CL_Filament_Width_Sensor.md) pour plus d'informations.
+Capteur de largeur de filament basé sur le TSLl401CL. Voir ce [guide](TSL1401CL_Filament_Width_Sensor.md) pour plus d'informations.
 
 ```
 [tsl1401cl_filament_width_sensor]
@@ -3645,17 +3651,17 @@ Voir le fichier [generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg) pour 
 [sx1509 my_sx1509]
 i2c_address:
 #    Adresse I2C utilisée par cet expandeur. Selon le matériel
-#    il s'agit de l'une des adresses suivantes : 62 63 112
-#    113. Ce paramètre doit être fourni.
+#    il s'agit de l'une des adresses suivantes : 62 63 112 113.
+#    Ce paramètre doit être fourni.
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
 #    Voir la section "paramètres I2C communs" pour une description des
 #    paramètres ci-dessus.
 #i2c_bus:
-#    Si l'implémentation I2C de votre micro-contrôleur prend en charge plusieurs bus I2C,
-#     vous pouvez spécifier le nom du bus ici. La valeur par
-#    défaut est d'utiliser le bus i2c par défaut du micro-contrôleur.
+#    Si l'implémentation I2C de votre micro-contrôleur prend en charge
+#    plusieurs bus I2C, vous pouvez spécifier le nom du bus ici. La valeur
+#    par défaut est d'utiliser le bus i2c par défaut du micro-contrôleur.
 ```
 
 ### [samd_sercom]
@@ -3708,8 +3714,8 @@ vssa_pin :
 Support de Replicape - voir le [guide beaglebone](Beaglebone.md) et le fichier [generic-replicape.cfg](../config/generic-replicape.cfg) pour un exemple.
 
 ```
-#    La section de configuration "replicape" ajoute "replicape:stepper_x_enable".
-#    des broches virtuelles d'activation de moteur pas à pas (pour les moteurs X, Y, Z, E et H) et
+#    La section de configuration "replicape" ajoute "replicape:stepper_x_enable" pour
+#    l'activation de broches virtuelles de moteur (pour les moteurs X, Y, Z, E et H) et
 #    "replicape:power_x" des broches de sortie PWM (pour les pilotes, e, h, fan0, fan1,
 #    fan2, et fan3) utilisables ailleurs dans le fichier de configuration.
 [replicape]
@@ -3717,8 +3723,8 @@ revision:
 #    La révision du matériel replicape. Actuellement, seule la révision "B3" est
 #    supportée. Ce paramètre doit être fourni.
 #enable_pin: !gpio0_20
-#    La broche d'activation globale de la replicape. La valeur par défaut est !gpio0_20 (aka
-#    P9_41).
+#    La broche d'activation globale de la replicape. La valeur par défaut est !gpio0_20
+#    (aka P9_41).
 host_mcu :
 #    Le nom de la section de configuration mcu communiquant avec la section de
 #    l'instance mcu du "processus linux" de Klipper. Ce paramètre doit être
@@ -3732,9 +3738,9 @@ host_mcu :
 #stepper_z_microstep_mode:
 #stepper_e_microstep_mode:
 #stepper_h_microstep_mode:
-#    Ce paramètre contrôle les broches CFG1 et CFG2 du # pilote de moteur pas à pas donné.
-#    Les options disponibles sont : disable, 1, 2, spread2, 4, 16, spread4, spread16, stealth4,
-#    et stealth16. La valeur par défaut est disable.
+#    Ce paramètre contrôle les broches CFG1 et CFG2 du pilote de moteur donné.
+#    Les options disponibles sont : disable, 1, 2, spread2, 4, 16, spread4, spread16,
+#    stealth4, et stealth16. La valeur par défaut est disable.
 #stepper_x_current:
 #stepper_y_current:
 #stepper_z_current:
