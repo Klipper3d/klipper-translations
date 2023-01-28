@@ -1,15 +1,17 @@
 # wilmouths <wilmouthsteven@gmail.com>, 2021.
+# Francis Poulizac <francis@poulizac.fr>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-01 10:34+0000\n"
-"Last-Translator: wilmouths <wilmouthsteven@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/using_pwm_tools/fr/>\n"
+"PO-Revision-Date: 2023-01-24 13:48+0000\n"
+"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"using_pwm_tools/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.8-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 msgid ""
 "This document describes how to setup a PWM-controlled laser or spindle using"
@@ -148,13 +150,15 @@ msgstr ""
 
 #: docs/Using_PWM_Tools.md:block 1 (header)
 msgid "Using PWM tools"
-msgstr ""
+msgstr "Utilisation des outils PWM"
 
 #: docs/Using_PWM_Tools.md:block 6 (paragraph)
 msgid ""
 "For an example configuration, see [config/sample-pwm-"
 "tool.cfg](/config/sample-pwm-tool.cfg)."
 msgstr ""
+"Pour un exemple de configuration, voir [config/sample-pwm-tool.cfg](/config/"
+"sample-pwm-tool.cfg)."
 
 #~ msgid "For an example configuration, see `config/sample-pwm-tool-cfg`."
 #~ msgstr "Pour un exemple de configuration, voir `config/sample-pwm-tool-cfg`."
