@@ -1,6 +1,6 @@
 # Mesurer la résonance
 
-Klipper prend en charge l’accéléromètre ADXL345, qui peut être utilisé pour mesurer les fréquences de résonance de l’imprimante sur différents axes, et le réglage automatique [input shapers](Resonance_Compensation.md) pour limiter les résonances. Notez que l’utilisation de l’ADXL345 nécessite un peu de soudure et de sertissage. L’ADXL345 peut être connecté directement à un Raspberry Pi, ou à une interface SPI d’une carte MCU (qui doit être rapide).
+Klipper prend en charge l’accéléromètre ADXL345, utilisé pour mesurer les fréquences de résonance de l’imprimante sur différents axes ainsi que le réglage automatique des [formateurs d'entrée ( aka input shapers)](Resonance_Compensation.md) pour limiter les résonances. Notez que l’utilisation de l’ADXL345 nécessite un peu de soudure et de sertissage. L’ADXL345 peut être connecté directement à un Raspberry Pi, ou à une interface SPI d’une carte MCU (qui devra être rapide).
 
 Lors de l’approvisionnement en ADXL345, sachez qu’il existe une variété de conceptions de cartes PCB différentes et différents clones. Assurez-vous que la carte prend en charge le mode SPI (un petit nombre de cartes semble être configurée en dur pour I2C avec SDO raccordé au GND) et, si elle doit être connectée à un microcontrôleur d’imprimante 5V, qu’elle dispose d’un régulateur de tension et d’un décalage de niveau.
 
@@ -28,7 +28,7 @@ SCLK+CS
 
 **Remarque : de nombreux microcontrôleurs fonctionnent avec un ADXL345 en mode SPI (par exemple, Pi Pico), le câblage et la configuration varient en fonction de votre carte ADXL et des broches disponibles. sur votre MCU**
 
-Vous devez connecter ADXL345 à votre Raspberry Pi via SPI. Notez que la connexion I2C, suggérée par la documentation ADXL345, a un débit trop faible et ** ne fonctionnera pas**. Le schéma de connexion recommandé :
+Vous devez connecter votre ADXL345 à votre Raspberry Pi via SPI. Notez que la connexion I2C, suggérée par la documentation ADXL345, possède un débit trop faible et ** ne fonctionnera pas**. Le schéma de connexion recommandé :
 
 | Brochage de l'ADXL345 | Brochage du RPI | Nom des broches du RPI |
 | :-: | :-: | :-: |
