@@ -80,7 +80,7 @@ Schéma de connexion recommandé pour I2C(i2c0a) connecté au RP2040 :
 
 ### Montage de l’accéléromètre
 
-L’accéléromètre doit être fixé sur la tête d'impression. Il faut concevoir un support approprié qui s’adapte à l'imprimante 3D. Il est préférable d’aligner les axes de l’accéléromètre avec les axes de l’imprimante (mais ce n'est pas obligatoire - c’est-à-dire pas besoin d’aligner l’axe X avec X et ainsi de suite - cela devrait être correct même si l’axe Z de l’accéléromètre est l’axe X de l’imprimante, etc.).
+L’accéléromètre doit être fixé sur la tête d'impression. Il faut concevoir un support approprié et adapté à l'imprimante 3D. Il est préférable d’aligner les axes de l’accéléromètre avec les axes de l’imprimante (mais ce n'est pas obligatoire - c’est-à-dire pas besoin d’aligner l’axe X avec X et ainsi de suite - cela devrait être correct même si l’axe Z de l’accéléromètre est l’axe X de l’imprimante, etc.).
 
 Exemple de montage d’ADXL345 sur le SmartEffector :
 
@@ -88,7 +88,7 @@ Exemple de montage d’ADXL345 sur le SmartEffector :
 
 Notez que sur une imprimante cartésienne, il faut concevoir 2 supports : un pour la tête et un pour le lit, et exécuter les mesures deux fois. Voir la [section](#bed-slinger-printers) correspondante pour plus de détails.
 
-** Attention:** assurez-vous que l’accéléromètre et les vis qui le maintiennent en place ne touchent aucune partie métallique de l’imprimante. Fondamentalement, le support doit être conçu de manière à assurer l’isolation électrique de l’accéléromètre du châssis de l’imprimante. Ne pas s’assurer de cette isolation peut créer une boucle de terre dans le système qui peut endommager l’électronique.
+** Attention : assurez-vous que l’accéléromètre et les vis qui le maintiennent en place ne touchent aucune partie métallique de l’imprimante.** Fondamentalement, le support doit être conçu de manière à assurer l’isolation électrique de l’accéléromètre du châssis de l’imprimante. Ne pas s’assurer de cette isolation peut créer une boucle de masse dans le système conduisant à l'endommagement de l’électronique.
 
 ### Installation logicielle
 
@@ -107,7 +107,7 @@ Ensuite, pour installer NumPy dans l’environnement Klipper, exécutez la comma
 
 Selon les performances du processeur, cette opération peut prendre jusqu’à 20 minutes. Soyez patient et attendez la fin de l’installation. Dans certains cas, si la carte a trop peu de mémoire, l’installation peut échouer et vous devrez activer le fichier d’échange.
 
-Vérifiez et suivez les instructions dans le [document RPi Microcontroller](RPi_microcontroller.md) pour configurer le « linux mcu » sur le Raspberry Pi.
+Vérifiez et suivez les instructions dans le document du [Microcontrôleur RPi](RPi_microcontroller.md) pour configurer le « mcu linux » sur le Raspberry Pi.
 
 #### Configurer l'ADXL345 avec le RPi
 
@@ -177,7 +177,7 @@ Redémarrez Klipper avec la commande `RESTART`.
 
 Vous pouvez maintenant tester la connexion.
 
-- Pour les imprimntes non cartésiennes (celles avec une seul accéléromètre), dans Octoprint, entrez `ACCELEROMETER_QUERY`
+- Pour les imprimantes non cartésiennes (celles avec une seul accéléromètre), dans Octoprint, entrez `ACCELEROMETER_QUERY`
 - Pour les imprimante cartésiennes (plus d’un accéléromètre), entrez `ACCELEROMETER_QUERY CHIP=<chip>` où `<chip>` est le nom de la puce tel qu’il a été entré, par exemple `CHIP=bed` (voir : [bed-slinger](#bed-slinger-printers)) faites-le pour tous les accéléromètre installés.
 
 Vous devriez voir les mesures actuelles de l’accéléromètre, y compris l’accélération en chute libre.
@@ -186,23 +186,23 @@ Vous devriez voir les mesures actuelles de l’accéléromètre, y compris l’a
 Recv: // adxl345 values (x, y, z) : 470.719200, 941.438400, 9728.196800
 ```
 
-Si vous obtenez une erreur comme `Invalid adxl345 id (got xx vs e5)`, où `xx` est un autre ID, cela indique un problème de connexion avec ADXL345, ou de capteur défectueux. Vérifiez l’alimentation, le câblage (correspondance avec les schémas, aucun fil coupé ou desserré, etc.) et la qualité de la soudure.
+Si vous obtenez une erreur comme `Invalid adxl345 id (got xx vs e5)`, où `xx` est un autre ID, cela indique un problème de connexion avec l'ADXL345, ou un capteur défectueux. Vérifiez l’alimentation, le câblage (correspondance avec les schémas, aucun fil coupé ou desserré, etc.) et la qualité des soudures.
 
 **Si vous utilisez un accéléromètre de la série MPU-6000/9000 et qu'il s'affiche comme "mpu-unknown", utilisez-le avec prudence ! Ce sont probablement des puces reconditionnées !**
 
-Ensuite, essayez d’exécuter `MEASURE_AXES_NOISE` dans Octoprint, vous devriez obtenir des chiffres de base pour le bruit de fond l’accéléromètre sur les axes (qui devrait se situer entre 1 et 100). Un bruit de fond d’axe trop élevé (par exemple 1000 et plus) peut indiquer des problèmes de capteur, des problèmes de puissance ou des ventilateurs déséquilibrés amenant trop de vibrations sur l'imprimante 3D.
+Ensuite, essayez d’exécuter `MEASURE_AXES_NOISE` dans Octoprint, vous devriez obtenir des chiffres de base pour le bruit de fond de l’accéléromètre sur les axes (devraient se situer entre 1 et 100). Un bruit de fond d’axe trop élevé (par exemple 1000 et plus) peut indiquer des problèmes de capteur, des problèmes de puissance ou des ventilateurs déséquilibrés entrainant trop de vibrations sur l'imprimante 3D.
 
 ### Mesurer les résonances
 
-Vous pouvez maintenant exécuter des tests réels. Exécutez la commande suivante :
+Vous pouvez maintenant exécuter les tests réels. Exécutez la commande suivante :
 
 ```
 TEST_RESONANCES AXIS=X
 ```
 
-Notez que cela créera des vibrations sur l’axe X. Ce test désactivera les valeurs l'input shaper déjà paramétrées. Le test de résonnance ne peut pas être fait avec l'input shaper' déjà activé.
+Notez que cela créera des vibrations sur l’axe X. Ce test désactivera les valeurs du formateur d'entrée (aka input shapper) déjà paramétrées. Le test de résonance ne peut pas être fait avec le formateur d'entrée déjà activé.
 
-** Attention ! ** Observez l’imprimante la première fois, pour vous assurer que les vibrations ne deviennent pas trop violentes (la commande `M112` peut être utilisée pour interrompre le test en cas d’urgence - espérons que cela n’arrivera pas à cela). Si les vibrations deviennent trop fortes, vous pouvez essayer de spécifier une valeur inférieure à la valeur par défaut pour le paramètre `accel_per_hz` dans la section `[resonance_tester]`.
+** Attention ! ** Gardez un œil sur l’imprimante la première fois, pour vous assurer que les vibrations ne deviennent pas trop violentes (la commande `M112` peut être utilisée pour interrompre le test en cas d’urgence - en espérant ne pas avoir à l'utiliser). Si les vibrations deviennent trop fortes, vous pouvez spécifier une valeur inférieure à la valeur par défaut du paramètre `accel_per_hz` dans la section `[resonance_tester]`.
 
 ```
 [resonance_tester]
@@ -211,7 +211,7 @@ accel_per_hz: 50  # default is 75
 probe_points: ...
 ```
 
-Si cela fonctionne pour l’axe X, exécutez également la commande pour l’axe Y :
+Si cela fonctionne pour l’axe X, exécutez ensuite la commande pour l’axe Y :
 
 ```
 TEST_RESONANCES AXIS=Y
@@ -224,7 +224,7 @@ Cela générera 2 fichiers CSV (`/tmp/resonances_x_*.csv` et `/tmp/resonances_y_
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_y_*.csv -o /tmp/shaper_calibrate_y.png
 ```
 
-Ce script générera les graphiques `/tmp/shaper_calibrate_x.png` et `/tmp/shaper_calibrate_y.png` avec les réponses en fréquence. Vous obtiendrez également les fréquences suggérées pour chaque mode d'input shaper', ainsi que la valeur recommandée pour votre configuration. Par exemple :
+Ce script générera les graphiques `/tmp/shaper_calibrate_x.png` et `/tmp/shaper_calibrate_y.png` avec les réponses en fréquence. Vous obtiendrez également les fréquences suggérées pour chaque mode du formateur d'entrée (input shapper), ainsi que la valeur recommandée pour votre configuration. Par exemple :
 
 ![Resonances](img/calibrate-y.png)
 
@@ -257,13 +257,13 @@ max_accel: 3000  # Ne devrait pas dépasser les valeurs estimées d'accélérati
 
 Ou vous pouvez choisir vous-même une autre configuration en fonction des graphiques générés : les pics de densité spectrale de puissance sur les graphiques correspondent aux fréquences de résonance de l’imprimante.
 
-Notez que vous pouvez également exécuter l’autoétalonnage de l'input shaper' à partir de Klipper [directement](#input-shaper-auto-calibration), ce qui peut être pratique, par exemple, pour l'input shaper' [recalibration](#input-shaper-re-calibration).
+Notez que vous pouvez également exécuter l’auto-étalonnage du formateur d'entrée (input shapper) à partir de Klipper [directement](#input-shaper-auto-calibration), pratique, par exemple, pour la [recalibration](#input-shaper-re-calibration) du formateur d'entrée.
 
-### Imprimantes cartésiennes
+### Imprimantes cartésiennes à lit mobile
 
-Si votre imprimante est une imprimante cartésienne, vous devrez changer l’emplacement de l’accéléromètre entre les mesures pour les axes X et Y : mesurez les résonances de l’axe X avec l’accéléromètre fixé à la tête d’outil et les résonances de l’axe Y - au lit (la configuration habituelle des imprimantes cartésiennes).
+Si votre imprimante est une imprimante cartésienne dont le plateau est mobile sur l'axe Y, vous devrez changer l’emplacement de l’accéléromètre entre les mesures des axes X et Y : mesurez les résonances de l’axe X avec l’accéléromètre fixé à la tête et les résonances de l’axe Y - au lit (la configuration habituelle des imprimantes cartésiennes).
 
-Cependant, vous pouvez également connecter les deux accéléromètres simultanément, bien qu'ils doivent être connectés à des cartes différentes (par exemple, à une carte RPi et MCU d'imprimante), ou à deux interfaces SPI physiques différentes sur la même carte (rarement disponibles). Ensuite, ils peuvent être configurés de la manière suivante :
+Cependant, vous pouvez également connecter les deux accéléromètres simultanément, bien qu'ils doivent être connectés à des cartes différentes (par exemple, à une carte RPi et au MCU de l'imprimante), ou à deux interfaces SPI physiques différentes sur la même carte (rarement disponibles). Ensuite, ils peuvent être configurés de la manière suivante :
 
 ```
 [adxl345 hotend]
@@ -285,7 +285,7 @@ Ensuite, les commandes `TEST_RESONANCES AXIS=X` et `TEST_RESONANCES AXIS=Y` util
 
 ### Lissage maximum
 
-Gardez à l'esprit que l'input shaper peut créer un lissage sur certaines parties de l'impression. Le réglage automatique du input shaper effectué par le script `calibrate_shaper.py` ou la commande `SHAPER_CALIBRATE` essaie de limiter le lissage, mais il essaie aussi de minimiser les vibrations résultantes. Cela peut conduire parfois, à un choix peu optimisé de la fréquence du input shaper ou peut-être préférez-vous simplement avoir moins de lissage dans certaines parties de l'impression au détriment des vibrations restantes. Dans ces cas, vous pouvez demander de limiter le lissage maximal à partir du input haper.
+Gardez à l'esprit que le formateur d'entrée (input shapper) peut créer un lissage sur certaines parties de l'impression. Le réglage automatique du formateur d'entrée effectué par le script `calibrate_shaper.py` ou la commande `SHAPER_CALIBRATE` essaie de limiter le lissage, mais il essaie aussi de minimiser les vibrations résultantes. Cela peut conduire parfois, à un choix peu optimisé de la fréquence du formateur d'entrée ou peut-être préférez-vous simplement avoir moins de lissage dans certaines parties de l'impression au détriment des vibrations restantes. Dans ces cas, vous pouvez demander de limiter le lissage maximal à partir du formateur d'entrée.
 
 Regardons les résultats suivants du réglage automatique :
 
@@ -305,9 +305,9 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 1500 mm/sec^
 Recommended shaper is 2hump_ei @ 45.2 Hz
 ```
 
-Notez que les valeurs rapportées `smoothing` sont des valeurs projetées abstraites. Ces valeurs peuvent être utilisées pour comparer différentes configurations : plus la valeur est élevée, plus l'input shaper créera de lissage. Cependant, ces scores de lissage ne représentent aucune mesure réelle du lissage, car le lissage réel dépend des paramètres [`max_accel`](#selecting-max-accel) et `square_corner_velocity`. Par conséquent, vous devez faire des impressions de test pour voir exactement le lissage crée par la configuration choisie.
+Notez que les valeurs rapportées `smoothing` sont des valeurs projetées abstraites. Ces valeurs peuvent être utilisées pour comparer différentes configurations : plus la valeur est élevée, plus le formateur d'entrée créera de lissage. Cependant, ces scores de lissage ne représentent aucune mesure réelle du lissage, car le lissage réel dépend des paramètres [`max_accel`](#selecting-max-accel) et `square_corner_velocity`. Par conséquent, vous devrez faire des impressions de test pour voir exactement le lissage créé par la configuration choisie.
 
-Dans l'exemple ci-dessus, les paramètres de mise en forme suggérés ne sont pas mauvais, mais que se passe-t-il si vous souhaitez obtenir moins de lissage sur l'axe X ? Vous pouvez essayer de limiter le lissage maximal du shaper à l'aide de la commande suivante :
+Dans l'exemple ci-dessus, les paramètres de mise en forme suggérés ne sont pas mauvais, mais que se passe-t-il si vous souhaitez obtenir moins de lissage sur l'axe X ? Vous pouvez essayer de limiter le lissage maximal du formateur d'entrée à l'aide de la commande suivante :
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --max_smoothing=0.2
@@ -331,11 +331,11 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 3900 mm/sec^
 Recommended shaper is 3hump_ei @ 72.6 Hz
 ```
 
-Si vous comparez avec les paramètres suggérés précédemment, les vibrations sont un peu plus importantes, mais le lissage est nettement plus faible qu'auparavant, ce qui permet une accélération maximale plus importante.
+Si vous comparez avec les précédents paramètres suggérés, les vibrations sont un peu plus importantes, mais le lissage est nettement plus faible qu'auparavant, ce qui permet une accélération maximale plus importante.
 
-Lorsque vous choisissez le paramètre `max_smoothing`, vous pouvez utiliser une approche par essais et erreurs. Essayez quelques valeurs différentes et voyez quels résultats vous obtenez. Notez que le lissage réel produit par le modeleur d'entrée dépend principalement de la fréquence de résonance la plus basse de l'imprimante : plus la fréquence de la résonance la plus basse est élevée, plus le lissage est petit. Par conséquent, si vous demandez au script de trouver une configuration de l'input shaper avec un lissage irréaliste, cela se fera au détriment d'une résonnance accrue aux fréquences les plus basses (qui sont, généralement, plus visibles dans les impressions). Donc, vérifiez toujours les vibrations restantes projetées signalées par le script et assurez-vous qu'elles ne sont pas trop élevées.
+Lorsque vous choisissez le paramètre `max_smoothing`, vous pouvez utiliser une approche par essais et erreurs. Essayez quelques valeurs différentes et voyez quels résultats vous obtenez. Notez que le lissage réel produit par le formateur d'entrée dépend principalement de la fréquence de résonance la plus basse de l'imprimante : plus la fréquence de résonance la plus basse est élevée, plus le lissage est faible. Par conséquent, si vous demandez au script de trouver une configuration du formateur d'entrée avec un lissage irréaliste, cela se fera au détriment d'une résonance accrue aux fréquences les plus basses (généralement, les plus visibles dans les impressions). Vérifiez donc toujours les vibrations restantes projetées signalées par le script et assurez-vous qu'elles ne sont pas trop élevées.
 
-Notez que si vous avez choisi une bonne valeur `max_smoothing` pour vos deux axes, vous pouvez la stocker dans `printer.cfg` comme
+Notez que si vous avez trouvé une bonne valeur de `max_smoothing` pour vos deux axes, vous pouvez la stocker dans `printer.cfg` comme
 
 ```
 [resonance_tester]
@@ -344,17 +344,17 @@ probe_points: ...
 max_smoothing: 0.25  # valeur exemple
 ```
 
-Ensuite, si vous [réexécutez](#input-shaper-re-calibration) le réglage automatique de l'input shaper à l'aide de la commande `SHAPER_CALIBRATE`, c'est la valeur stockée `max_smoothing` qui sera prise comme référence.
+Ensuite, si vous [réexécutez](#input-shaper-re-calibration) le réglage automatique du formateur d'entrée à l'aide de la commande `SHAPER_CALIBRATE`, c'est cette valeur stockée `max_smoothing` qui sera prise comme référence.
 
 ### Sélection de max_accel
 
-Étant donné que l'input shaper peut créer un certain lissage dans les pièces, en particulier à des accélérations élevées, vous devrez toujours choisir la valeur `max_accel` qui ne crée pas trop de lissage dans les pièces imprimées. Un script d'étalonnage fournit une estimation du paramètre `max_accel` qui ne devrait pas créer trop de lissage. Notez que le `max_accel` tel qu'affiché par le script de calibrage n'est qu'un maximum théorique auquel l'input shaper est encore capable de travailler sans produire trop de lissage. Il ne s'agit en aucun cas d'une recommandation pour définir cette accélération sur vos l'impression. L'accélération maximale que votre imprimante est capable de supporter dépend de ses propriétés mécaniques et du couple maximal des moteurs pas à pas utilisés. Par conséquent, il est suggéré de définir un `max_accel` dans la section `[printer]` qui ne dépasse pas les valeurs estimées pour les axes X et Y, probablement avec une marge de sécurité.
+Étant donné que le formateur d'entrée peut créer un certain lissage dans les pièces, en particulier avec des accélérations élevées, vous devrez toujours choisir une valeur `max_accel` ne créant pas trop de lissage dans les pièces imprimées. Un script d'étalonnage fournit une estimation du paramètre `max_accel` qui ne devrait pas créer trop de lissage. Notez que le `max_accel` tel qu'affiché par le script de calibrage n'est qu'un maximum théorique auquel le formateur d'entrée est encore capable de travailler sans produire trop de lissage. Il ne s'agit en aucun cas d'une recommandation pour définir cette accélération sur vos impressions. L'accélération maximale supportée par votre imprimante dépend de ses propriétés mécaniques et du couple maximal des moteurs pas à pas utilisés. Par conséquent, il est suggéré de définir un `max_accel` dans la section `[printer]` qui ne dépasse pas les valeurs estimées pour les axes X et Y, probablement avec une marge de sécurité.
 
-Vous pouvez également suivre la partie [this](Resonance_Compensation.md#selecting-max_accel) du guide de réglage de l'input shaper et imprimer un modèle de test pour choisir le paramètre `max_accel` de manière expérimentale.
+Vous pouvez également suivre [cette partie](Resonance_Compensation.md#selecting-max_accel) du guide de réglage du formateur d'entrée et imprimer un modèle de test pour choisir le paramètre `max_accel` de manière expérimentale.
 
-Même remarque pour l'input shaper [auto-calibration](#input-shaper-auto-calibration) avec la commande `SHAPER_CALIBRATE` : il faut encore choisir la bonne valeur `max_accel` après l'auto-calibrage et les limites d'accélération suggérées ne seront pas appliquées automatiquement.
+Même remarque pour l'[auto-calibration](#input-shaper-auto-calibration) du formateur d'entrée avec la commande `SHAPER_CALIBRATE` : il faut encore choisir la bonne valeur `max_accel` après l'auto-calibrage, notez que les limites d'accélérations suggérées ne sont pas appliquées automatiquement.
 
-Si vous effectuez un réétalonnage du shaper et que le lissage signalé pour la configuration de shaper suggérée est presque le même que celui que vous avez obtenu lors du calibrage précédent, cette étape peut être ignorée.
+Si vous effectuez un ré-étalonnage du formateur d'entrée et que le lissage indiqué pour la configuration de formateur suggérée est pratiquement le même que celui obtenu lors du calibrage précédent, cette étape peut être ignorée.
 
 ### Test des axes personnalisés
 
@@ -391,15 +391,15 @@ puis utilisez la même commande
 
 pour générer le fichier de comparaison des résonnances `/tmp/résonances.png`.
 
-## Calibrage automatique de l'input shaper
+## Calibrage automatique du formateur d'entrée
 
-En plus de choisir manuellement les paramètres appropriés pour la fonction d'input shaper, il est également possible d'exécuter le réglage automatique pour l'input shaper directement à partir de Klipper. Exécutez la commande suivante via le terminal Octoprint :
+En plus de choisir manuellement les paramètres appropriés pour la fonction de formateur d'entrée, il est également possible d'exécuter le réglage automatique du formateur d'entrée directement à partir de Klipper. Exécutez la commande suivante via le terminal Octoprint :
 
 ```
 SHAPER_CALIBRATE
 ```
 
-Cela exécutera le test complet pour les deux axes et générera la sortie csv (`/tmp/calibration_data_*.csv` par défaut) pour la réponse en fréquence et les input shaper suggérés. Vous obtiendrez également les fréquences suggérées pour chaque input shaper, ainsi que l'input shaper recommandé pour votre configuration, sur la console Octoprint. Par exemple :
+Cela exécutera le test complet pour les deux axes et générera la sortie csv (`/tmp/calibration_data_*.csv` par défaut) pour la réponse en fréquence et les formateurs d'entrée suggérés. Vous obtiendrez également les fréquences suggérées pour chaque formateur, ainsi que le modèle de formateur d'entrée recommandé pour votre configuration, sur la console Octoprint. Par exemple :
 
 ```
 Calculating the best input shaper parameters for y axis
@@ -416,9 +416,9 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2500 mm/sec^
 Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz
 ```
 
-Si vous êtes d'accord avec les paramètres suggérés, vous pouvez exécuter `SAVE_CONFIG` maintenant pour les enregistrer et redémarrer Klipper. Notez que cela ne mettra pas à jour la valeur `max_accel` dans la section `[printer]`. Vous devez le mettre à jour manuellement en suivant les recommandations de la section [Selecting max_accel](#selecting-max_accel).
+Si vous êtes d'accord avec les paramètres suggérés, vous pouvez exécuter `SAVE_CONFIG` maintenant pour les enregistrer et redémarrer Klipper. Notez que cela ne mettra pas à jour la valeur `max_accel` dans la section `[printer]`. Vous devrez la mettre à jour manuellement en suivant les recommandations de la section [Choisir l'accélération maximale](#selecting-max_accel).
 
-Si votre imprimante est une imprimante cartésienne, vous pouvez spécifier l'axe à tester, afin de pouvoir modifier le point de montage de l'accéléromètre entre les tests (par défaut, le test est effectué pour les deux axes) :
+Si votre imprimante est une imprimante cartésienne, vous pouvez préciser l'axe à tester, afin de pouvoir modifier le point de montage de l'accéléromètre entre les tests (par défaut, le test est effectué pour les deux axes) :
 
 ```
 SHAPER_CALIBRATE AXIS=Y
@@ -426,11 +426,11 @@ SHAPER_CALIBRATE AXIS=Y
 
 Vous pouvez exécuter `SAVE_CONFIG` deux fois - après avoir calibré chaque axe.
 
-Cependant, si vous avez connecté deux accéléromètres simultanément, vous pouvez exécutez simplement `SHAPER_CALIBRATE` sans spécifier d'axe pour calibrer l'input shaper pour les deux axes en une seule fois.
+Cependant, si vous avez connecté deux accéléromètres simultanément, vous pouvez exécutez simplement `SHAPER_CALIBRATE` sans spécifier d'axe pour calibrer les formateurs d'entrée des deux axes en une seule fois.
 
-### Réétalonnage de l'input shaper
+### Ré-étalonnage du formateur d'entrée (aka input shapper)
 
-La commande `SHAPER_CALIBRATE` peut également être utilisée pour recalibrer l'input shaper ultérieurement, en particulier si des modifications de l'imprimante pouvant affecter sa cinématique sont apportées. On peut soit relancer l'étalonnage complet à l'aide de la commande `SHAPER_CALIBRATE`, soit restreindre l'auto-étalonnage à un seul axe en fournissant le paramètre `AXIS=`, comme
+La commande `SHAPER_CALIBRATE` peut également être utilisée pour recalibrer le formateur d'entrée ultérieurement, en particulier si des modifications de l'imprimante pouvant affecter sa cinématique sont apportées. On peut soit relancer l'étalonnage complet à l'aide de la commande `SHAPER_CALIBRATE`, soit restreindre l'auto-étalonnage à un seul axe en fournissant le paramètre `AXIS=`, comme
 
 ```
 SHAPER_CALIBRATE AXIS=X
