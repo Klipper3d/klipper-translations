@@ -1,4 +1,4 @@
-# FATTY <uzikyavny@gmail.com>, 2023.
+# FATTY <uzikyavny@gmail.com>, 2023, 2025.
 # Владислав <vlad.marusenko2000@gmail.com>, 2024.
 # Ruslan Kyba <kybargr@gmail.com>, 2024, 2025.
 # Максим Горпиніч <mgorpinic2005@gmail.com>, 2024.
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:36+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: FATTY <uzikyavny@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
 "config_reference/uk/>\n"
 "Language: uk\n"
