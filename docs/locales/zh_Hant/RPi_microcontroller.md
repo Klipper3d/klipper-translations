@@ -16,8 +16,8 @@
 
 ```
 cd ~/klipper/
-sudo cp "./scripts/klipper-mcu-start.sh" /etc/init.d/klipper_mcu
-sudo update-rc.d klipper_mcu defaults
+sudo cp ./scripts/klipper-mcu.service /etc/systemd/system/
+sudo systemctl enable klipper-mcu.service
 ```
 
 ## 構建微控制器程式碼

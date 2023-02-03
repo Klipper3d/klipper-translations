@@ -205,6 +205,19 @@ Va notato che ogni volta che si verifica un BED_MESH_CALIBRATE, lo stato corrent
 
 Qualsiasi altro profilo salvato può essere rimosso allo stesso modo, sostituendo *default* con il nome del profilo che desideri rimuovere.
 
+#### Loading the default profile
+
+Previous versions of `bed_mesh` always loaded the profile named *default* on startup if it was present. This behavior has been removed in favor of allowing the user to determine when a profile is loaded. If a user wishes to load the `default` profile it is recommended to add `BED_MESH_PROFILE LOAD=default` to either their `START_PRINT` macro or their slicer's "Start G-Code" configuration, whichever is applicable.
+
+Alternatively the old behavior of loading a profile at startup can be restored with a `[delayed_gcode]`:
+
+```ini
+[delayed_gcode bed_mesh_init]
+initial_duration: .01
+gcode:
+  BED_MESH_PROFILE LOAD=default
+```
+
 ### Output
 
 `BED_MESH_OUTPUT PGP=[0 | 1]`

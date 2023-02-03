@@ -16,8 +16,8 @@ Después de instalar Klipper, instale el script. Ejecútalo:
 
 ```
 cd ~/klipper/
-sudo cp "./scripts/klipper-mcu-start.sh" /etc/init.d/klipper_mcu
-sudo update-rc.d klipper_mcu defaults
+sudo cp ./scripts/klipper-mcu.service /etc/systemd/system/
+sudo systemctl enable klipper-mcu.service
 ```
 
 ## Compilar el código del microcontrolador
