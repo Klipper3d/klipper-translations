@@ -488,7 +488,9 @@ La commande suivante est disponible lorsqu'une section [output_pin config](Confi
 
 #### SET_PIN
 
-`SET_PIN PIN=nom_de_la_configuration VALUE=<valeur> CYCLE_TIME=<durée_du_cycle>` : Note - le PWM matériel ne supporte pas actuellement le paramètre CYCLE_TIME et utilisera la durée de cycle définie dans la configuration.
+`SET_PIN PIN=config_name VALUE=<value> [CYCLE_TIME=<cycle_time>]`: Set the pin to the given output `VALUE`. VALUE should be 0 or 1 for "digital" output pins. For PWM pins, set to a value between 0.0 and 1.0, or between 0.0 and `scale` if a scale is configured in the output_pin config section.
+
+Some pins (currently only "soft PWM" pins) support setting an explicit cycle time using the CYCLE_TIME parameter (specified in seconds). Note that the CYCLE_TIME parameter is not stored between SET_PIN commands (any SET_PIN command without an explicit CYCLE_TIME parameter will use the `cycle_time` specified in the output_pin config section).
 
 ### [palette2]
 
