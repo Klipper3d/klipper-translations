@@ -1319,6 +1319,19 @@
     프로필
   </a>
   
+    <nav class="md-nav" aria-label="프로필">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loading-the-default-profile" class="md-nav__link">
+    Loading the default profile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1533,6 +1546,15 @@ faulty_region_4_max: 45.0, 210.0
 <p>BED_MESH_CALIBRATE가 발생할 때마다 현재 상태가 <em>default</em>프로필에 자동으로 저장됩니다. 만일 이 프로필이 존재한다면 클리퍼가 시작될때 자동으로 불러와진다. 만일 이렇게 자동불러와지는것을 원치 않는다면 <em>default</em>프로필은 아래와 같은 방법으로 삭제할 수 있다:</p>
 <p><code>BED_MESH_PROFILE REMOVE=default</code></p>
 <p>어떤 다른 저장된 프로필도 같은 방식으로 삭제될 수 있다. 그저 제거하기 원하는 프로필 이름을 <em>default</em> 대신에 써넣으면 된다.</p>
+<h4 id="loading-the-default-profile">Loading the default profile<a class="headerlink" href="#loading-the-default-profile" title="Permanent link">&para;</a></h4>
+<p>Previous versions of <code>bed_mesh</code> always loaded the profile named <em>default</em> on startup if it was present. This behavior has been removed in favor of allowing the user to determine when a profile is loaded. If a user wishes to load the <code>default</code> profile it is recommended to add <code>BED_MESH_PROFILE LOAD=default</code> to either their <code>START_PRINT</code> macro or their slicer's "Start G-Code" configuration, whichever is applicable.</p>
+<p>Alternatively the old behavior of loading a profile at startup can be restored with a <code>[delayed_gcode]</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[delayed_gcode bed_mesh_init]</span>
+<span class="na">initial_duration</span><span class="o">:</span><span class="w"> </span><span class="s">.01</span>
+<span class="na">gcode</span><span class="o">:</span>
+<span class="w">  </span><span class="na">BED_MESH_PROFILE LOAD</span><span class="o">=</span><span class="s">default</span>
+</code></pre></div>
+
 <h3 id="_13">결과출력<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <p><code>BED_MESH_OUTPUT PGP=[0 | 1]</code></p>
 <p>현재 메쉬 측정상태를 터미널에 출력한다. 메쉬 그자체가 출력됨을 기억하라</p>

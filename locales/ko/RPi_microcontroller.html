@@ -1306,8 +1306,8 @@
 <p>호스트를 보조 MCU로 사용하려면 klipper_mcu 프로세스가 klippy 프로세스보다 먼저 실행되어야 합니다.</p>
 <p>Klipper를 설치한 후 스크립트를 설치합니다. 다음을 실행합니다:</p>
 <div class="highlight"><pre><span></span><code>cd ~/klipper/
-sudo cp &quot;./scripts/klipper-mcu-start.sh&quot; /etc/init.d/klipper_mcu
-sudo update-rc.d klipper_mcu defaults
+sudo cp ./scripts/klipper-mcu.service /etc/systemd/system/
+sudo systemctl enable klipper-mcu.service
 </code></pre></div>
 
 <h2 id="_1">마이크로 컨트롤러 코드를 빌드하기<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>

@@ -770,6 +770,34 @@ msgstr ""
 "faulty_region_4_min: 30.0, 170.0\n"
 "faulty_region_4_max: 45.0, 210.0\n"
 
+#: docs/Bed_Mesh.md:block 61 (header)
+msgid "Loading the default profile"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 62 (paragraph)
+msgid ""
+"Previous versions of `bed_mesh` always loaded the profile named *default* on"
+" startup if it was present. This behavior has been removed in favor of "
+"allowing the user to determine when a profile is loaded. If a user wishes to"
+" load the `default` profile it is recommended to add `BED_MESH_PROFILE "
+"LOAD=default` to either their `START_PRINT` macro or their slicer's \"Start "
+"G-Code\" configuration, whichever is applicable."
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 63 (paragraph)
+msgid ""
+"Alternatively the old behavior of loading a profile at startup can be "
+"restored with a `[delayed_gcode]`:"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 64 (code)
+msgid ""
+"[delayed_gcode bed_mesh_init]\n"
+"initial_duration: .01\n"
+"gcode:\n"
+"  BED_MESH_PROFILE LOAD=default\n"
+msgstr ""
+
 #~ msgid ""
 #~ "`mesh_min: 35,6` *Required* The first probed coordinate, nearest to the "
 #~ "origin. This coordinate is relative to the probe's location."

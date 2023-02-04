@@ -626,6 +626,26 @@ msgid ""
 "behavior of the z_hop that occurs before the g28 homing."
 msgstr ""
 
+#: docs/Config_Changes.md:block 5 (paragraph)
+msgid ""
+"20230201: The `[bed_mesh]` module no longer loads the `default` profile on "
+"startup. It is recommended that users who use the `default` profile add "
+"`BED_MESH_PROFILE LOAD=default` to their `START_PRINT` macro (or to their "
+"slicer's \"Start G-Code\" configuration when applicable)."
+msgstr ""
+
+#: docs/Config_Changes.md:block 6 (paragraph)
+msgid ""
+"20230103: It is now possible with the flash-sdcard.sh script to flash both "
+"variants of the Bigtreetech SKR-2, STM32F407 and STM32F429. This means that "
+"the original tag of btt-skr2 now has changed to either btt-skr-2-f407 or "
+"btt-skr-2-f429."
+msgstr ""
+
+#: docs/Config_Changes.md:block 7 (paragraph)
+msgid "20221128: Klipper v0.11.0 released."
+msgstr ""
+
 #~ msgid ""
 #~ "20211104: The \"step pulse duration\" option in \"make menuconfig\" has been"
 #~ " removed. A new `step_pulse_duration` setting in the [stepper config "
