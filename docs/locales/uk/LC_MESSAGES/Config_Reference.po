@@ -1,9 +1,17 @@
-#
+# FATTY <uzikyavny@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-02-04 04:39+0000\n"
+"Last-Translator: FATTY <uzikyavny@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
+"config_reference/uk/>\n"
 "Language: uk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -1444,7 +1452,7 @@ msgid ""
 "#recover_velocity: 50.\n"
 "#   When capture/restore is enabled, the speed at which to return to\n"
 "#   the captured position (in mm/s). Default is 50.0 mm/s.\n"
-msgstr ""
+msgstr "призупинити_відновити\n"
 
 msgid ""
 "[firmware_retraction]\n"
@@ -3970,7 +3978,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 277 (header)
 msgid "[pca9533]"
-msgstr ""
+msgstr "[pca9533]"
 
 #: docs/Config_Reference.md:block 279 (code)
 msgid ""
