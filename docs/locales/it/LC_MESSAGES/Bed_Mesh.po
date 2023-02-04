@@ -1,17 +1,18 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
 # Dex94 <Dasvaresu@dr.com>, 2022.
-# Ale Ale <ale.99.ale@gmail.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-13 09:17+0000\n"
+"PO-Revision-Date: 2023-02-04 04:39+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/bed_mesh/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/bed_mesh/"
+"it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 msgid ""
 "The Bed Mesh module may be used to compensate for bed surface irregularties "
@@ -926,7 +927,7 @@ msgstr ""
 
 #: docs/Bed_Mesh.md:block 61 (header)
 msgid "Loading the default profile"
-msgstr ""
+msgstr "Caricamento del profilo predefinito"
 
 #: docs/Bed_Mesh.md:block 62 (paragraph)
 msgid ""
@@ -937,12 +938,21 @@ msgid ""
 "LOAD=default` to either their `START_PRINT` macro or their slicer's \"Start "
 "G-Code\" configuration, whichever is applicable."
 msgstr ""
+"Le versioni precedenti di `bed_mesh` caricavano sempre il profilo denominato "
+"*default* all'avvio se era presente. Questo comportamento è stato rimosso "
+"per consentire all'utente di determinare quando viene caricato un profilo. "
+"Se un utente desidera caricare il profilo `predefinito`, si consiglia di "
+"aggiungere `BED_MESH_PROFILE LOAD=default` alla macro `START_PRINT` o alla "
+"configurazione \"Start G-Code\" del proprio slicer, a seconda di quale sia "
+"applicabile."
 
 #: docs/Bed_Mesh.md:block 63 (paragraph)
 msgid ""
 "Alternatively the old behavior of loading a profile at startup can be "
 "restored with a `[delayed_gcode]`:"
 msgstr ""
+"In alternativa, il vecchio comportamento di caricamento di un profilo "
+"all'avvio può essere ripristinato con un `[delayed_gcode]`:"
 
 #: docs/Bed_Mesh.md:block 64 (code)
 msgid ""
@@ -951,6 +961,10 @@ msgid ""
 "gcode:\n"
 "  BED_MESH_PROFILE LOAD=default\n"
 msgstr ""
+"[delayed_gcode bed_mesh_init]\n"
+"initial_duration: .01\n"
+"gcode:\n"
+"  BED_MESH_PROFILE LOAD=default\n"
 
 #~ msgid ""
 #~ "`mesh_min: 35,6` *Required* The first probed coordinate, nearest to the "
