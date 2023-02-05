@@ -1,51 +1,51 @@
-# Compensation de résonance
+# Compensation de la résonance
 
-Klipper prend en charge la mise en forme de l'entrée, une technique utilisée pour réduire l'effet de résonance (également connu sous le nom d'écho, d'image fantôme ou d'ondulation) dans les impressions. La résonance est un défaut d'impression de surface lorsque des éléments tels que des bords se répètent sur une surface imprimée sous forme d'un "écho" subtil :
+Klipper prend en charge l'input shaper, une technique utilisée pour réduire l'effet de la résonance (également connu sous le nom d'écho, d'image fantôme - "ghosting" - ou d'ondulation - "ringing") dans les impressions. La résonance est un défaut d'impression de la surface lorsque des éléments tels que des bords se répètent sous la forme d'un léger "écho" :
 
 |![Test de résonance](img/ringing-test.jpg)|![3D Benchy](img/ringing-3dbenchy.jpg)|
 
-La résonance est causée par des vibrations mécaniques dans l'imprimante dues à des changements rapides de direction durant une impression. Notez que la résonance a généralement des origines mécaniques : cadre de l'imprimante insuffisamment rigide, courroies non tendues ou trop élastiques, problèmes d'alignement des pièces mécaniques, masse mobile importante, etc. Ces problèmes doivent être vérifiés et corrigés en premier lieu, si possible.
+La résonance est causée par des vibrations mécaniques dans l'imprimante dues à des changements rapides de direction pendant l'impression. La résonance a généralement des origines mécaniques : cadre de l'imprimante insuffisamment rigide, courroies non tendues ou trop élastiques, problèmes d'alignement des pièces mécaniques, masse mobile importante, etc. Ces problèmes doivent être vérifiés et corrigés en premier lieu, si possible.
 
-La [mise en forme de l'entrée](https://en.wikipedia.org/wiki/Input_shaping) est une technique de contrôle en boucle ouverte qui crée un signal de commande annulant ses propres vibrations. La mise en forme de l'entrée nécessite quelques réglages et mesures avant de pouvoir être activée. Outre la résonance, la mise en forme de l'entrée réduit généralement les vibrations et les secousses de l'imprimante en général, et peut également améliorer la fiabilité du mode stealthChop des pilotes Trinamic.
+L' [input shaping](https://en.wikipedia.org/wiki/Input_shaping) est une technique de contrôle en boucle ouverte qui crée un signal de commande annulant ses propres vibrations. L'input shaping nécessite quelques réglages et mesures avant de pouvoir être activée. Outre la résonance, l'input shaping réduit aussi les vibrations et les secousses de l'imprimante en général, et peut également améliorer la fiabilité du mode stealthChop des pilotes Trinamic.
 
 ## Réglages
 
 Le réglage de base nécessite de mesurer les fréquences de résonance de l'imprimante en imprimant un modèle de test.
 
-Tranchez le modèle de test de résonance, qui se trouve dans [docs/prints/ringing_tower.stl](prints/ringing_tower.stl), dans le trancheur :
+Tranchez le modèle de test de résonance, qui se trouve dans [docs/prints/ringing_tower.stl](prints/ringing_tower.stl), avec votre trancheur :
 
-* La hauteur de couche suggérée est de 0,2 ou 0,25 mm.
-* Les couches de remplissage et de finition peuvent être réglées sur 0.
-* Utilisez 1-2 périmètres, ou mieux encore le mode vase avec 1-2 mm de base.
-* Utilisez une vitesse suffisamment élevée, environ 80-100 mm/s, pour les périmètres **externes**.
-* Veillez à ce que le temps de pause minimum soit **au maximum** de 3 secondes.
-* Assurez-vous que le "contrôle d'accélération" est désactivé dans le trancheur.
-* Ne tournez pas le modèle. Le modèle comporte des marques X et Y à l'arrière du modèle. Notez l'emplacement inhabituel des marques par rapport aux axes de l'imprimante - il ne s'agit pas d'une erreur. Les marques peuvent être utilisées plus tard dans le processus de réglage comme référence, car elles indiquent à quel axe correspondent les mesures.
+* La hauteur de couche recommandée est de 0,2 ou 0,25 mm.
+* Le remplissage et le nombre de couches supérieures peuvent être réglés sur 0.
+* Utilisez 1 ou 2 parois, ou mieux encore le mode vase avec 1 ou 2 mm de base.
+* Utilisez une vitesse suffisamment élevée, entre 80 et 100 mm/s, pour les parois **externes**.
+* Veillez à ce que le temps minimum par couche soit **au maximum** de 3 secondes.
+* Assurez-vous que toutes les options de "contrôle d'accélération" soient bien désactivées dans le trancheur.
+* Ne tournez pas le modèle. Le modèle comporte des marques X et Y à l'arrière du modèle. L'emplacement inhabituel des marques par rapport aux axes de l'imprimante n'est pas une erreur. Ces marques pourront être utilisées plus tard - comme référence - dans le processus de réglage, car elles indiquent à quel axe correspondent les mesures.
 
 ### Fréquence de résonance
 
-Tout d'abord, mesurez la **fréquence de résonance**.
+En premier lieu, mesurez la **fréquence de résonance**.
 
 1. Si le paramètre `square_corner_velocity` a été modifié, remettez-le à 5.0. Il n'est pas conseillé de l'augmenter lors de l'utilisation de l'input shaper car cela peut provoquer plus de lissage dans les pièces - il est préférable d'utiliser une valeur d'accélération plus élevée à la place.
 1. Augmentez `max_accel_to_decel` en lançant la commande suivante : `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
 1. Désactivez l'avance de pression : `SET_PRESSURE_ADVANCE ADVANCE=0`
-1. Si vous avez déjà ajouté la section `[input_shaper]` au printer.cfg, exécutez la commande `SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0`. Si vous obtenez l'erreur "Unknown command", vous pouvez l'ignorer à ce stade et continuer les mesures.
+1. Si vous avez déjà ajouté la section `[input_shaper]` au fichier printer.cfg, exécutez la commande `SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0`. Si vous obtenez l'erreur "Unknown command", vous pouvez l'ignorer - pour le moment - et continuer les mesures.
 1. Exécutez la commande : `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5` Dans la pratique, nous essayons de rendre la résonance plus prononcée en définissant différentes valeurs élevées pour l'accélération. Cette commande augmentera l'accélération tous les 5 mm à partir de 1500 mm/sec² : 1500 mm/sec², 2000 mm/sec², 2500 mm/sec² et ainsi de suite jusqu'à 7000 mm/sec² pour la dernière bande.
-1. Imprimez le modèle de test tranché avec les paramètres suggérés.
-1. Vous pouvez arrêter l'impression plus tôt si la résonance est clairement visible et si vous constatez que l'accélération devient trop forte pour votre imprimante (par exemple, l'imprimante tremble trop ou commence à sauter des pas).
+1. Imprimez le modèle de test tranché avec les paramètres indiqués.
+1. Vous pouvez arrêter l'impression avant la fin si la résonance est clairement visible et si vous constatez que l'accélération devient trop forte pour votre imprimante (par exemple, l'imprimante tremble trop ou commence à sauter des pas).
 
-   1. Utilisez les marques X et Y à l'arrière du modèle comme référence. Les mesures du côté avec la marque X doivent être utilisées pour la *configuration* de l'axe X, et la marque Y - pour la configuration de l'axe Y. Mesurez la distance *D* (en mm) entre plusieurs oscillations sur la pièce avec la marque X, près des encoches, en sautant de préférence la ou les deux premières oscillations. Pour mesurer plus facilement la distance entre les oscillations, marquez d'abord les oscillations, puis mesurez la distance entre les marques avec une règle ou un pied à coulisse :|![Marques de résonances](img/ringing-mark.jpg)|![Mesure de la résonance](img/ringing-measure.jpg)|
+   1. Utilisez les marques X et Y à l'arrière du modèle comme référence. Les mesures du côté avec la marque X doivent être utilisées pour la *configuration* de l'axe X, et les mesures du côté avec la marque Y pour la configuration de l'axe Y. Mesurez la distance *D* (en mm) entre plusieurs oscillations sur la partie de la pièce avec la marque X, près des encoches et en sautant de préférence la ou les deux premières oscillations. Pour mesurer plus facilement la distance entre les oscillations, marquez d'abord les oscillations, puis mesurez la distance entre les marques avec une règle ou un pied à coulisse :|![Marques de résonances](img/ringing-mark.jpg)|![Mesure de la résonance](img/ringing-measure.jpg)|
 1. Comptez le nombre d'oscillations *N* correspondant à la distance mesurée *D*. Si vous ne savez pas comment compter les oscillations, reportez-vous à l'image ci-dessus, qui montre *N* = 6 oscillations.
-1. Calculer la fréquence de résonance de l'axe X comme *V* &middot; *N* / *D* (Hz), où *V* est la vitesse des périmètres extérieurs (mm/s). Pour l'exemple ci-dessus, nous avons marqué 6 oscillations, et le test a été imprimé à une vitesse de 100 mm/s, donc la fréquence est 100 * 6 / 12,14 ≈ 49,4 Hz.
+1. Calculez la fréquence de résonance de l'axe X : *V* &middot; *N* / *D* (Hz), où *V* est la vitesse des périmètres extérieurs (mm/s). Pour l'exemple ci-dessus, nous avons marqué 6 oscillations (N) sur une distance de 12,14 mm (D), et le test a été imprimé à une vitesse de 100 mm/s (V), donc la fréquence est 100 * 6 / 12,14 ≈ 49,4 Hz.
 1. Faites (8) - (10) pour la marque Y également.
 
-Notez que la résonanc sur l'impression de test devrait correspondre au modèle des encoches courbes, comme dans l'image ci-dessus. Si ce n'est pas le cas, alors ce défaut n'est pas vraiment une résonance et a probablement une origine différente - soit mécanique, soit un problème d'extrudeuse. Ce problème doit être résolu avant d'activer et de régler les façonneurs d'entrée.
+Notez que la résonance sur l'impression de test devrait suivre les encoches courbées de la pièce, comme dans l'image ci-dessus. Si ce n'est pas le cas, alors ce défaut n'est pas vraiment une résonance et a probablement une origine différente - soit mécanique, soit un problème d'extrudeuse. Ce problème doit être résolu avant d'activer et de régler les input shapers.
 
-Si les mesures ne sont pas fiables parce que, par exemple, la distance entre les oscillations n'est pas stable, cela peut signifier que l'imprimante a plusieurs fréquences de résonance sur le même axe. On peut essayer de suivre le processus de réglage décrit dans la section [Mesures peu fiables des fréquences de résonance](#unreliable-measurements-of-ringing-frequencies) à la place et obtenir quand même quelque chose de la technique de mise en forme de l'entrée.
+Si les mesures ne sont pas fiables parce que, par exemple, la distance entre les oscillations n'est pas régulière, cela peut signifier que l'imprimante a plusieurs fréquences de résonance sur le même axe. On peut essayer de suivre le processus de réglage décrit dans la section [Mesures peu fiables des fréquences de résonance](#unreliable-measurements-of-ringing-frequencies) à la place et obtenir quand même une amélioration grâce à l'input shaping.
 
-La fréquence de résonance peut dépendre de la position du modèle sur la plaque de construction et de la hauteur Z, *surtout sur les imprimantes delta* ; vous pouvez vérifier si vous observez des différences de fréquences à différentes positions le long des côtés du modèle de test et à différentes hauteurs. Vous pouvez calculer les fréquences de résonance moyennes sur les axes X et Y si c'est le cas.
+La fréquence de résonance peut dépendre de la position du modèle sur le plateau et de la hauteur Z, *surtout sur les imprimantes delta* ; vous pouvez vérifier si vous observez des différences de fréquences à différentes positions le long des côtés du modèle de test et à différentes hauteurs. Si c'est le cas, vous pouvez calculer les fréquences de résonance moyennes sur les axes X et Y.
 
-Si la fréquence de résonance mesurée est très basse (inférieure à 20-25 Hz environ), il peut être judicieux d'investir dans le raidissement de l'imprimante ou la réduction de la masse mobile - selon ce qui est applicable dans votre cas - avant de poursuivre le réglage de la mise en forme de l'entrée et de mesurer à nouveau les fréquences par la suite. Pour de nombreux modèles d'imprimantes populaires, il existe souvent des solutions déjà disponibles.
+Si la fréquence de résonance mesurée est très basse (inférieure à 20-25 Hz), il peut être judicieux de penser à rigidifier la structure de l'imprimante ou à réduire la masse mobile - dans la mesure du possible - avant de poursuivre le réglage de l'input shaping et de mesurer à nouveau les fréquences. Pour de nombreux modèles d'imprimantes populaires, il existe souvent des solutions déjà disponibles.
 
 Les fréquences de résonance peuvent changer si des modifications sont apportées à l'imprimante qui affectent la masse en mouvement ou modifient la rigidité du système, par exemple :
 
@@ -54,11 +54,11 @@ Les fréquences de résonance peuvent changer si des modifications sont apporté
 * Des pièces conçues pour augmenter la rigidité du cadre sont installées.
 * Un plateau différent est installé sur une imprimante à lit mobile, ou une plaque de verre est ajoutée, etc.
 
-Si de tels changements sont apportés, Il est conseillé de mesurer au moins les fréquences de résonance pour vérifier s'il y a eu un changement ou pas.
+Si de telles modifications sont apportées, Il est conseillé - au minimum - de mesurer les fréquences de résonance pour vérifier s'il elles ont changées (ou pas).
 
-### Configuration de l'"input shaper"
+### Configuration de l'input shaper
 
-Une fois les fréquences de résonance des axes X et Y mesurées, vous pouvez ajouter la section suivante à votre `printer.cfg` :
+Une fois les fréquences de résonance des axes X et Y mesurées, vous pouvez ajouter la section suivante à votre fichier `printer.cfg` :
 
 ```
 [input_shaper]
@@ -68,11 +68,11 @@ shaper_freq_y: ...    # frequence pour la marque Y sur le modèle de test
 
 Pour l'exemple ci-dessus, nous obtenons shaper_freq_x/y = 49,4.
 
-### Choix de l'"input shaper"
+### Choix de l'input shaper
 
 Klipper prend en charge plusieurs type d'"input shaper". Ils diffèrent par leur sensibilité aux erreurs déterminant la fréquence de résonance et le degré de lissage qu'ils provoquent dans les pièces imprimées. De plus, certains de ces "input shaper" comme 2HUMP_EI et 3HUMP_EI ne doivent généralement pas être utilisés avec shaper_freq = fréquence de résonance - ils sont configurés à partir de différentes considérations pour réduire plusieurs résonances à la fois (ndt : le 2HUMP_EI est à utiliser lorsque deux pics de résonance sont détectés, le 3HUMP_EI est à utiliser lorsque trois pics de résonance sont détectés).
 
-Pour la plupart des imprimantes, les shapers MZV ou EI peuvent être recommandés. Cette section décrit un processus de test pour choisir entre eux et déterminer quelques autres paramètres connexes.
+Pour la plupart des imprimantes, les types MZV ou EI sont recommandés. Cette section décrit un processus de test pour choisir entre eux et déterminer quelques autres paramètres connexes.
 
 Imprimez le modèle de test de résonance comme suit :
 
@@ -81,15 +81,15 @@ Imprimez le modèle de test de résonance comme suit :
 1. Désactivez l'avance de pression : `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. Exécutez : `SET_INPUT_SHAPER SHAPER_TYPE=MZV`
 1. Exécutez la commande : `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`
-1. Imprimez le modèle de test tranché avec les paramètres suggérés.
+1. Imprimez le modèle de test tranché avec les paramètres indiqués.
 
-Si vous ne voyez pas de résonance à ce stade, l'utilisation de l'"input shaper" MZV peut être recommandée.
+Si vous ne voyez pas de résonance à ce stade, l'utilisation du type MZV peut être recommandée.
 
 Si vous voyez une résonance, mesurez à nouveau les fréquences en suivant les étapes (8) à (10) décrites dans la section [Fréquence de résonance](#ringing-frequency). Si les fréquences diffèrent considérablement des valeurs obtenues précédemment, une configuration d'input shaper plus complexe est nécessaire. Vous pouvez vous référer aux détails techniques de la section [Input shapers](#input-shapers). Sinon, passez à l'étape suivante.
 
 Essayez l'input shaper EI. Pour l'essayer, répétez les étapes (1) à (6) ci-dessus, mais en exécutant à l'étape 4 la commande suivante à la place : `SET_INPUT_SHAPER SHAPER_TYPE=EI`.
 
-Comparez deux impressions avec les input shaper MZV et EI. Si EI montre des résultats sensiblement meilleurs que MZV, utilisez EI, sinon préférez MZV. Notez que le input shaper EI provoquera plus de lissage dans les pièces imprimées (voir la section suivante pour plus de détails). Ajoutez le paramètre `shaper_type: mzv` (ou ei) à la section [input_shaper], par exemple :
+Comparez deux impressions avec les types MZV et EI. Si EI montre des résultats sensiblement meilleurs que MZV, utilisez EI, sinon préférez MZV. Notez que le type EI provoquera plus de lissage dans les pièces imprimées (voir la section suivante pour plus de détails). Ajoutez le paramètre `shaper_type: mzv` (ou ei) à la section [input_shaper], par exemple :
 
 ```
 [input_shaper]
@@ -100,14 +100,14 @@ shaper_type: mzv
 
 Quelques notes sur le choix de l'input shaper :
 
-* L' input shaper EI peut être plus adapté aux imprimantes à lit mobile (si la fréquence de résonance et le lissage résultant le permettent) : plus le filament est déposé sur le lit en mouvement, plus la masse du lit augmente et la fréquence de résonance diminue. Étant donné que le input shaper EI est plus robuste aux changements de fréquence de résonance, il peut mieux fonctionner lors de l'impression de grandes pièces.
-* En raison de la nature de la cinématique delta, les fréquences de résonance peuvent différer considérablement dans différentes parties du volume de construction. Par conséquent, l'input shaper EI peut être mieux adapté aux imprimantes delta plutôt que MZV ou ZV. Si la fréquence de résonance est suffisamment grande (plus de 50-60 Hz), alors on peut même essayer de tester 2HUMP_EI (en exécutant le test suggéré ci-dessus avec `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI`), mais vérifiez les considérations dans la [section ci-dessous](#selecting-max_accel) avant de l'activer.
+* Le type EI peut être plus adapté aux imprimantes à lit mobile (si la fréquence de résonance et le lissage résultant le permettent) : plus le filament est déposé sur le lit en mouvement, plus la masse du lit augmente et la fréquence de résonance diminue. Étant donné que le type EI est plus robuste aux changements de fréquence de résonance, il peut être plus efficace lors de l'impression de grandes pièces.
+* En raison de la nature de la cinématique delta, les fréquences de résonance peuvent différer considérablement dans différentes parties du volume de construction. Par conséquent, le type EI peut être mieux adapté aux imprimantes delta plutôt que MZV ou ZV. Si la fréquence de résonance est suffisamment grande (plus de 50-60 Hz), alors on peut même essayer de tester 2HUMP_EI (en exécutant le test suggéré ci-dessus avec `SET_INPUT_SHAPER SHAPER_TYPE=2HUMP_EI`), mais vérifiez les considérations dans la [section ci-dessous](#selecting-max_accel) avant de l'activer.
 
 ### Sélection de max_accel
 
 Vous devriez obtenir le test imprimé avec l'input shaper choisi à l'étape précédente (si vous ne le faites pas, imprimez le modèle de test découpé avec les [paramètres suggérés](#tuning) avec l'avance de pression désactivée `SET_PRESSURE_ADVANCE ADVANCE=0` et avec la tour de réglage activée comme `TUNING_TOWER COMMAND=SET_VELOCITY_LIMIT PARAMETER=ACCEL START=1500 STEP_DELTA=500 STEP_HEIGHT=5`). Notez qu'à des accélérations très élevées, selon la fréquence de résonance et l'input shaper choisi (par exemple, le shaper EI crée plus de lissage que MZV), cela peut provoquer trop de lissage et d'arrondi des pièces. Ainsi, max_accel doit être choisi de manière à l'éviter. Un autre paramètre ayant un impact sur le lissage est `square_corner_velocity`, il n'est donc pas conseillé de l'augmenter au-dessus de la valeur par défaut de 5 mm/s pour éviter un lissage accru.
 
-Afin de sélectionner une valeur max_accel appropriée, inspectez le modèle pour l'input shaper choisi. Tout d'abord, notez à quelle accélération la résonance est encore faible - convenant également à l'imprimante.
+Afin de sélectionner une valeur correcte pour max_accel, inspectez le modèle imprimé pour l'input shaper choisi. Tout d'abord, notez à quelle accélération la résonance reste imperceptible.
 
 Ensuite, vérifiez le lissage. Pour vous aider, le modèle de test a un petit espace dans la paroi (0,15 mm) :
 
@@ -119,7 +119,7 @@ Ensuite, vérifiez le lissage. Pour vous aider, le modèle de test a un petit es
 
 Sur cette image, l'accélération augmente de gauche à droite, et l'écart commence à croître à partir de 3500 mm/s² (5ème bande à partir de la gauche). Dans ce cas, la valeur pour max_accel = 3000 (mm/s²) permet d'éviter un lissage excessif.
 
-Notez l'accélération lorsque l'écart est encore très faible dans votre test d'impression. Si vous voyez des renflements, mais aucun espace dans le mur, même à des accélérations élevées, cela peut être dû à une avance de pression (PA) désactivée, en particulier sur les extrudeurs de type Bowden. Si tel est le cas, vous devrez peut-être répéter l'impression avec le PA activé. Cela peut également être le résultat d'un flux de filament mal calibré (trop élevé), il faut donc vérifier cela aussi.
+Notez l'accélération lorsque l'écart est encore très faible dans votre test d'impression. Si vous voyez des renflements, mais aucun espace dans le mur, même à des accélérations élevées, cela peut être dû à une avance de pression (PA) désactivée, en particulier sur les extrudeurs de type Bowden. Si tel est le cas, vous devrez peut-être relancer l'impression avec le PA activé. Cela peut également être le résultat d'un extrudeur mal calibré (trop élevé), il faut donc vérifier cela aussi.
 
 Choisissez la valeur minimale des deux valeurs d'accélération (de la résonance et du lissage) et affectez-là à `max_accel` dans printer.cfg.
 

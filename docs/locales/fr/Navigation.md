@@ -6,7 +6,7 @@ Référence de configuration
 
 Nivellement du lit
 
-Compensation de résonance
+Compensation de la résonance
 
 Modèles de commandes
 

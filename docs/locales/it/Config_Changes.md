@@ -6,11 +6,11 @@ Tutte le date in questo documento sono approssimative.
 
 ## Cambiamenti
 
-20230201: The `[bed_mesh]` module no longer loads the `default` profile on startup. It is recommended that users who use the `default` profile add `BED_MESH_PROFILE LOAD=default` to their `START_PRINT` macro (or to their slicer's "Start G-Code" configuration when applicable).
+20230201: Il modulo `[bed_mesh]` non carica più il profilo `default` all'avvio. Si consiglia agli utenti che usano il profilo `default` di aggiungere `BED_MESH_PROFILE LOAD=default` alla loro macro `START_PRINT` (o alla configurazione "Start G-Code" del loro slicer quando applicabile).
 
-20230103: It is now possible with the flash-sdcard.sh script to flash both variants of the Bigtreetech SKR-2, STM32F407 and STM32F429. This means that the original tag of btt-skr2 now has changed to either btt-skr-2-f407 or btt-skr-2-f429.
+20230103: Ora è possibile con lo script flash-sdcard.sh eseguire il flashing di entrambe le varianti di Bigtreetech SKR-2, STM32F407 e STM32F429. Ciò significa che il tag originale di btt-skr2 ora è cambiato in btt-skr-2-f407 o btt-skr-2-f429.
 
-20221128: Klipper v0.11.0 released.
+20221128: rilascio di Klipper v0.11.0.
 
 20221122: In precedenza, con safe_z_home, era possibile che z_hop dopo l'homing g28 andasse nella direzione z negativa. Ora, uno z_hop viene eseguito dopo g28 solo se risulta in un hop positivo, rispecchiando il comportamento dello z_hop che si verifica prima dell'homing g28.
 
