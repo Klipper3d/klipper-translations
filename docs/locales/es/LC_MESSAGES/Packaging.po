@@ -1,10 +1,11 @@
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2021, 2025.
 # Juan <benitesjn@gmail.com>, 2023.
+# Juan Benites <benitesjn@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"Last-Translator: Juan Benites <benitesjn@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "packaging/es/>\n"
 "Language: es\n"
