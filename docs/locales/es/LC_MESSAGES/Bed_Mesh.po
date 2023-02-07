@@ -1,12 +1,12 @@
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
-# Isaias Carrillo <icarrillo1304@gmail.com>, 2023.
+# Isaias Carrillo <icarrillo1304@gmail.com>, 2023, 2025.
 # Gael Caraballo <gcaraballo@alvic.net>, 2023, 2025.
 # Francisco Serrador <fserrador@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Gael Caraballo <gcaraballo@alvic.net>\n"
+"Last-Translator: Isaias Carrillo <icarrillo1304@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/bed_mesh/"
 "es/>\n"
 "Language: es\n"
@@ -27,8 +27,8 @@ msgid ""
 "This example assumes a printer with a 250 mm x 220 mm rectangular bed and a "
 "probe with an x-offset of 24 mm and y-offset of 5 mm."
 msgstr ""
-"Este ejemplo asume una impresora con una cama rectangular de 250 mm x 220 mm y"
-" una sonda con un con un x-offset de 24 mm y un y-offset de 5 mm."
+"Este ejemplo asume una impresora con una cama rectangular de 250 mm x 220 mm "
+"y una sonda con un con un x-offset de 24 mm y un y-offset de 5 mm."
 
 msgid ""
 "`speed: 120` *Default Value: 50* The speed in which the tool moves between "
@@ -54,10 +54,10 @@ msgid ""
 "when the probe is at `mesh_max`, the nozzle will be at (206, 193)."
 msgstr ""
 "La ilustración debajo muestra como las son usadas las opciones  `mesh_min`, "
-"`mesh_max`, y `probe_count` para generar puntos de sondeo. Las flechas indican"
-" la dirección del procedimiento de sondeo, empezando por `mesh_min`. Como "
-"referencia, cuando la sonda está en `mesh_min`, la boquilla estará en (11,1) y"
-" cuando la sonda esté en `mesh_max`, la boquilla estará en (206,193)."
+"`mesh_max`, y `probe_count` para generar puntos de sondeo. Las flechas "
+"indican la dirección del procedimiento de sondeo, empezando por `mesh_min`. "
+"Como referencia, cuando la sonda está en `mesh_min`, la boquilla estará en "
+"(11,1) y cuando la sonda esté en `mesh_max`, la boquilla estará en (206,193)."
 
 msgid "![bedmesh_rect_basic](img/bedmesh_rect_basic.svg)"
 msgstr ""
