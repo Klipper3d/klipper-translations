@@ -3841,17 +3841,17 @@ Duet2 Maestro analog scaling by vref and vssa readings. Defining an adc_scaled s
 See the [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) file for an example.
 
 ```
-[adc_scaled my_name]
+[adc_scaled 任意の名称]
 vref_pin:
-#   The ADC pin to use for VREF monitoring. This parameter must be
-#   provided.
+#    VREFをモニタリングするためのアナログ入力ピンを指定します。
+#   このパラメーターの設定は必須です。
 vssa_pin:
-#   The ADC pin to use for VSSA monitoring. This parameter must be
-#   provided.
+#   VSSAをモニタリングするためのアナログ入力ピンを指定します。
+#   このパラメーターの設定は必須です。
 #smooth_time: 2.0
-#   A time value (in seconds) over which the vref and vssa
-#   measurements will be smoothed to reduce the impact of measurement
-#   noise. The default is 2 seconds.
+#   vrefとvssaの変化を平滑化するための時定数(秒単位)を指定します。
+#   測定結果はノイズの影響を除去するために設定された時定数のもと平滑化されます。
+#   標準値は2秒です・
 ```
 
 ### [replicape]

@@ -2,14 +2,14 @@
 
 hide:
 
-- toc title: Welcome
+- toc title: ようこそ
 
 ***
 
 ![](img/klipper-logo.png){ .center-image }
 
-Klipper is a 3d-Printer firmware. It combines the power of a general purpose computer with one or more micro-controllers. See the [features](Features.md) document for more information on why you should use Klipper.
+Klipper は1つ以上のマイクロコントローラー(制御基板)と高速なホストコンピューターを組み合わせた3Dプリンターファームウェアです。 [機能一覧](Features.md) ページでKlipperを選ぶメリットをご確認ください。
 
-To begin using Klipper start by [installing](Installation.md) it.
+Klipperを使い始める為には[インストール](Installation.md) をご覧ください。
 
-Klipper is Free Software. Read the [documentation](Overview.md) or view [the Klipper code on github](https://github.com/Klipper3d/klipper). We depend on the generous support from our [sponsors](Sponsors.md).
+Klipperはフリーソフトです。 [ドキュメント](Overview.md)もしくは[GithubのKlipperコード](https://github.com/Klipper3d/klipper)をご覧ください。私たちは理解のある[スポンサーの方々](Sponsors.md)によって支えられています。
