@@ -1,9 +1,16 @@
-#
+# 京都タラレバ息子 <japan100@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-02-07 00:53+0000\n"
+"Last-Translator: 京都タラレバ息子 <japan100@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
+"kinematics/ja/>\n"
 "Language: ja\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 msgid ""
 "This document provides an overview of how Klipper implements robot motion "
@@ -265,7 +272,7 @@ msgid ""
 msgstr ""
 
 msgid "Pressure advance"
-msgstr ""
+msgstr "Pressure advance"
 
 msgid ""
 "Experimentation has shown that it's possible to improve the modeling of the "

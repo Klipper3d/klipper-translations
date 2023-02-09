@@ -1,228 +1,268 @@
-#
+# 京都タラレバ息子 <japan100@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-02-07 03:26+0000\n"
+"Last-Translator: 京都タラレバ息子 <japan100@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
+"overview/ja/>\n"
 "Language: ja\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
+"Klipperドキュメントへようこそ。Klipperが初めての方は [機能一覧](Features.md)"
+"と [インストール](Installation.md)からご覧ください。"
 
 msgid "Overview information"
-msgstr ""
+msgstr "概要情報"
 
 msgid "[Features](Features.md): A high-level list of features in Klipper."
-msgstr ""
+msgstr "[機能一覧](Features.md): Klipperの各機能に関する詳細なリストです。"
 
 msgid "[FAQ](FAQ.md): Frequently asked questions."
-msgstr ""
+msgstr "[FAQ](FAQ.md): よくある質問と回答です。"
 
 msgid "[Releases](Releases.md): The history of Klipper releases."
-msgstr ""
+msgstr "[リリース](Releases.md): Klipperのリリース履歴です。"
 
 msgid ""
 "[Config changes](Config_Changes.md): Recent software changes that may "
 "require users to update their printer config file."
-msgstr ""
+msgstr "[Config更新情報](Config_Changes."
+"md):Configの変更が必要な可能性のある直近のソフトウェアの仕様変更情報です。"
 
 msgid ""
 "[Contact](Contact.md): Information on bug reporting and general "
 "communication with the Klipper developers."
-msgstr ""
+msgstr "[問い合わせ先](Contact.md): "
+"Klipper開発者へのバグ報告と一般的な連絡先について。"
 
 msgid "[Installation](Installation.md): Guide to installing Klipper."
-msgstr ""
+msgstr "[インストール](Installation.md): Klipperのインストールガイドです。"
 
 msgid ""
 "[Config Reference](Config_Reference.md): Description of config parameters."
-msgstr ""
+msgstr "[Config参照情報](Config_Reference.md): Configの各種パラメータの説明です。"
 
 msgid ""
 "[Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance"
 " stepper parameter."
 msgstr ""
+"[Rotation Distance](Rotation_Distance.md): ステッパーモーターの設定で必要な "
+"rotation_distanceの計算について。"
 
 msgid ""
 "[Config checks](Config_checks.md): Verify basic pin settings in the config "
 "file."
-msgstr ""
+msgstr "[設定確認](Config_checks.md): "
+"Configファイルのピン設定の基本的な確認方法について。"
 
 msgid "[Bed level](Bed_Level.md): Information on \"bed leveling\" in Klipper."
-msgstr ""
+msgstr "[ベッドレベリング](Bed_Level.md): Klipperの\"bed leveling\"の設定について。"
 
 msgid ""
 "[Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics."
-msgstr ""
+msgstr "[デルタキャリブレーション](Delta_Calibrate.md): "
+"デルタ型プリンタのキャリブレーションについて。"
 
 msgid ""
 "[Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes."
-msgstr ""
+msgstr "[プローブキャリブレーション](Probe_Calibrate.md): "
+"オートレベリング用のZ軸プローブのキャリブレーションについて。"
 
 msgid "[BL-Touch](BLTouch.md): Configure a \"BL-Touch\" Z probe."
-msgstr ""
+msgstr "[BL-Touch](BLTouch.md): \"BL-Touch\"型の Z軸プローブの設定について。"
 
 msgid ""
 "[Manual level](Manual_Level.md): Calibration of Z endstops (and similar)."
-msgstr ""
+msgstr "[マニュアルレベリング](Manual_Level.md): "
+"Z軸エンドストップとマニュアルベッドレベリングについて。"
 
 msgid "[Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations."
-msgstr ""
+msgstr "[ベッドメッシュ](Bed_Mesh.md): ベッド表面の凹凸の補正について。"
 
 msgid ""
 "[Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning."
 msgstr ""
+"[Endstop phase](Endstop_Phase.md): ステッピングモーターの励磁ステップ状態を活"
+"用したZ軸ホーミング制度の向上について。"
 
 msgid ""
 "[Resonance compensation](Resonance_Compensation.md): A tool to reduce "
 "ringing in prints."
-msgstr ""
+msgstr "[共振補償](Resonance_Compensation.md): "
+"共振による印刷品質低下を抑制する機能について。"
 
 msgid ""
 "[Measuring resonances](Measuring_Resonances.md): Information on using "
 "adxl345 accelerometer hardware to measure resonance."
-msgstr ""
+msgstr "[共振周波数測定](Measuring_Resonances.md): "
+"adxl345加速度センサーを使用した固有共振周波数の測定方法です。"
 
 msgid "[Pressure advance](Pressure_Advance.md): Calibrate extruder pressure."
-msgstr ""
+msgstr "[Pressure advance](Pressure_Advance."
+"md):エクストルーダーのプレッシャーアドバンスの設定です。"
 
 msgid "[Slicers](Slicers.md): Configure \"slicer\" software for Klipper."
-msgstr ""
+msgstr "[スラサー設定](Slicers.md): 各スライサーにおけるKlipper向けの設定について。"
 
 msgid ""
 "[Command Templates](Command_Templates.md): G-Code macros and conditional "
 "evaluation."
-msgstr ""
+msgstr "[コマンドテンプレート](Command_Templates.md): "
+"Gコードマクロと条件演算子について。"
 
 msgid ""
 "[Status Reference](Status_Reference.md): Information available to macros "
 "(and similar)."
-msgstr ""
+msgstr "[情報の参照](Status_Reference.md): "
+"Gコードマクロ等で参照可能なプリンターに関する情報について。"
 
 msgid ""
 "[TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with "
 "Klipper."
 msgstr ""
+"[TMCドライバー](TMC_Drivers.md): "
+"KlipperでのTrinamic社製ステッピングモータードライバーICの使用について。"
 
 msgid ""
 "[PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools "
 "such as lasers or spindles."
-msgstr ""
+msgstr "[PWMツール](Using_PWM_Tools.md): "
+"PWM制御ツールの使用について(レーザーやスピンドル等の)。"
 
 msgid "[G-Codes](G-Codes.md): Information on commands supported by Klipper."
-msgstr ""
+msgstr "[Gコード](G-Codes.md): KlipperでサポートされているGコードについて。"
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "開発者向けドキュメント"
 
 msgid "[Code overview](Code_Overview.md): Developers should read this first."
-msgstr ""
+msgstr "[コード全体の流れについて](Code_Overview.md): "
+"開発を希望される方はこちらを最初にお読みください。"
 
 msgid ""
 "[Kinematics](Kinematics.md): Technical details on how Klipper implements "
 "motion."
-msgstr ""
+msgstr "[運動力学](Kinematics.md): Klipperでの制御実装の技術的な詳細について。"
 
 msgid ""
 "[Protocol](Protocol.md): Information on the low-level messaging protocol "
 "between host and micro-controller."
-msgstr ""
+msgstr "[プロトコル](Protocol.md): ホストコンピューターとマイクロコントローラー間の低"
+"レベルなメッセージングプロトコルの情報。"
 
 msgid ""
 "[API Server](API_Server.md): Information on Klipper's command and control "
 "API."
-msgstr ""
+msgstr "[APIサーバー](API_Server.md): KlipperのAPIと制御コマンドに関する情報。"
 
 msgid ""
 "[MCU commands](MCU_Commands.md): A description of low-level commands "
 "implemented in the micro-controller software."
-msgstr ""
+msgstr "[MCUコマンド](MCU_Commands.md): "
+"マイクロコントローラーの低レベルな制御コマンドの実装について。"
 
 msgid ""
 "[CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format."
-msgstr ""
+msgstr "[CAN busプロトコル](CANBUS_protocol.md): KlipperのCAN "
+"busメッセージのフォーマットについて。"
 
 msgid ""
 "[Debugging](Debugging.md): Information on how to test and debug Klipper."
-msgstr ""
+msgstr "[デバッグ](Debugging.md): Klipperのテストとデバッグ方法について。"
 
 msgid ""
 "[Benchmarks](Benchmarks.md): Information on the Klipper benchmark method."
-msgstr ""
+msgstr "[ベンチマーク](Benchmarks.md): Klipperベンチマークの実施方法について。"
 
 msgid ""
 "[Contributing](CONTRIBUTING.md): Information on how to submit improvements "
 "to Klipper."
-msgstr ""
+msgstr "[貢献方法](CONTRIBUTING.md): Klipperの改善への貢献方法について。"
 
 msgid "[Packaging](Packaging.md): Information on building OS packages."
-msgstr ""
+msgstr "[パッケージング](Packaging.md): OSパッケージの作成方法について。"
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "特定の機器に関するドキュメント"
 
 msgid ""
 "[Example configs](Example_Configs.md): Information on adding an example "
 "config file to Klipper."
-msgstr ""
+msgstr "[Config例](Example_Configs.md): KlipperにConfigファイルを追加する際の例です。"
 
 msgid ""
 "[SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a "
 "binary to an sdcard in the micro-controller."
 msgstr ""
+"[SDカードによる更新](SDCard_Updates.md): SDカードにコピーしたファームウェアフ"
+"ァイルによるマイクロコントローラーのフラッシュ方法について。"
 
 msgid ""
 "[Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for "
 "controlling devices wired to the GPIO pins of a Raspberry Pi."
 msgstr ""
+"[Raspberry PiのMCUとしての使用](RPi_microcontroller.md): Raspberry "
+"PiのGPIOピンを利用した周辺機器の制御に関する詳細情報です。"
 
 msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-controller "
 "flashing."
-msgstr ""
+msgstr "[ブートローダー](Bootloaders.md): "
+"マイクロコントローラーのフラッシュに関する開発情報。"
 
 msgid "[CAN bus](CANBUS.md): Information on using CAN bus with Klipper."
-msgstr ""
+msgstr "[CAN bus](CANBUS.md): KlipperでのCAN bus使用に関する情報。"
 
 msgid "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
-msgstr ""
+msgstr "[TSL1401CLフィラメント径センサー](TSL1401CL_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 1 (header)
 msgid "Overview"
-msgstr ""
+msgstr "概要"
 
 #: docs/Overview.md:block 5 (header)
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "インストールと設定"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple "
 "micro-controllers."
 msgstr ""
+"[マルチMCUホーミング](Multi_MCU_Homing.md): "
+"複数のマイクロコントローラーを使用したホーミングとプロービングについて。"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Skew correction](Skew_Correction.md): Adjustments for axes not perfectly "
 "square."
-msgstr ""
+msgstr "[斜め補正](Skew_Correction.md): XY軸が斜めに印刷される際の調整について。"
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
 "[Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone "
 "PRU."
-msgstr ""
+msgstr "[Beaglebone](Beaglebone.md): Beaglebone "
+"PRUでKlipperを実行する際の詳細について。"
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
-msgstr ""
+msgstr "[ホール素子フィラメント径センサー](Hall_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
 "implementation."
-msgstr ""
+msgstr "[オブジェクトの除外](Exclude_Object.md): "
+"オブジェクトの除外設定の実施方法について。"
 
 #~ msgid ""
 #~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
