@@ -1,14 +1,14 @@
 # Cama de malla
 
-The Bed Mesh module may be used to compensate for bed surface irregularties to achieve a better first layer across the entire bed. It should be noted that software based correction will not achieve perfect results, it can only approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical and electrical issues. If an axis is skewed or a probe is not accurate then the bed_mesh module will not receive accurate results from the probing process.
+El módulo Bed Mesh puede usarse para compensar irregularidades en la superficie de la cama para obtener una primera capa mejor. Se debe tener en cuenta que la corrección basada en software no conseguirá resultados perfectos y solo puede aproximarse a la forma de la cama . Bed Mesh tampoco puede compensar problemas mecánicos y eléctricos. Si un eje está torcido o una sonda no es exacta, entonces el módulo bed_mesh no obtendrá resultados exactos del proceso de sondeo.
 
 Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information.
 
-## Basic Configuration
+## Configuración básica
 
-### Rectangular Beds
+### Camas rectangulares
 
-This example assumes a printer with a 250 mm x 220 mm rectangular bed and a probe with an x-offset of 24 mm and y-offset of 5 mm.
+Este ejemplo asume una impresora con una cama rectangular de 250 mm x 220 mm y una sonda con un con un x-offset de 24 mm y un y-offset de 5 mm.
 
 ```
 [bed_mesh]
@@ -19,17 +19,17 @@ mesh_max: 240, 198
 probe_count: 5, 3
 ```
 
-- `speed: 120` *Default Value: 50* The speed in which the tool moves between points.
-- `horizontal_move_z: 5` *Default Value: 5* The Z coordinate the probe rises to prior to traveling between points.
+- `speed: 120` *Vapor por defecto: 50* La velocidad a la que se mueve la herramienta entre puntos.
+- `horizontal_move_z: 5` *Valor por defecto: 5* La coordenada Z a la que la sonda sube antes de moverse entre puntos.
 - `mesh_min: 35, 6` *Required* The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.
 - `mesh_max: 240, 198` *Required* The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with `mesh_min`, this coordiante is relative to the probe's location.
 - `probe_count: 5, 3` *Default Value: 3, 3* The number of points to probe on each axis, specified as X, Y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie `probe_count: 3`. Note that a mesh requires a minimum probe_count of 3 along each axis.
 
-The illustration below demonstrates how the `mesh_min`, `mesh_max`, and `probe_count` options are used to generate probe points. The arrows indicate the direction of the probing procedure, beginning at `mesh_min`. For reference, when the probe is at `mesh_min` the nozzle will be at (11, 1), and when the probe is at `mesh_max`, the nozzle will be at (206, 193).
+La ilustración debajo muestra como las son usadas las opciones `mesh_min`, `mesh_max`, y `probe_count` para generar puntos de sondeo. Las flechas indican la dirección del procedimiento de sondeo, empezando por `mesh_min`. Como referencia, cuando la sonda está en `mesh_min`, la boquilla estará en (11,1) y cuando la sonda esté en `mesh_max`, la boquilla estará en (206,193).
 
 ![bedmesh_rect_basic](img/bedmesh_rect_basic.svg)
 
-### Round beds
+### Camas redondeadas
 
 This example assumes a printer equipped with a round bed radius of 100mm. We will use the same probe offsets as the rectangular example, 24 mm on X and 5 mm on Y.
 
