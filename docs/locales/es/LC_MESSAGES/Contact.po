@@ -1,16 +1,18 @@
 # Pepe <ec288eb6-6bd6-473b-93a5-5c8fb60ceb16@simplelogin.fr>, 2022.
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
+# Juan <benitesjn@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-06-15 00:56+0000\n"
-"Last-Translator: Alberto <aru_hackZ.official@zohomail.eu>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/contact/es/>\n"
+"PO-Revision-Date: 2023-02-08 04:39+0000\n"
+"Last-Translator: Juan <benitesjn@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/contact/"
+"es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 msgid "This document provides contact information for Klipper."
 msgstr "Este documento provee información de contacto para Klipper."
@@ -242,8 +244,9 @@ msgid ""
 msgstr ""
 
 #: docs/Contact.md:block 3 (ordered list)
+#, fuzzy
 msgid "[Klipper github](#klipper-github)"
-msgstr ""
+msgstr "[Klipper github](#klipper-github)"
 
 #: docs/Contact.md:block 23 (header)
 msgid "I found a bug in the Klipper software"
@@ -294,7 +297,7 @@ msgstr ""
 
 #: docs/Contact.md:block 32 (header)
 msgid "Klipper github"
-msgstr ""
+msgstr "Klipper github"
 
 #: docs/Contact.md:block 33 (paragraph)
 msgid ""

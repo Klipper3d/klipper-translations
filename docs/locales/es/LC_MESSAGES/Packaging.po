@@ -1,15 +1,17 @@
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2021.
+# Juan <benitesjn@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-09-14 03:35+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/packaging/es/>\n"
+"PO-Revision-Date: 2023-02-08 04:39+0000\n"
+"Last-Translator: Juan <benitesjn@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"packaging/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 msgid ""
 "Klipper is somewhat of a packaging anomaly among python programs, as it "
@@ -70,7 +72,7 @@ msgstr "Secuencia de órdenes simple para empaquetamiento"
 
 #: docs/Packaging.md:block 1 (header)
 msgid "Packaging Klipper"
-msgstr ""
+msgstr "Packaging Klipper"
 
 #: docs/Packaging.md:block 10 (paragraph)
 msgid ""
@@ -79,6 +81,10 @@ msgid ""
 "Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-"
 "git)."
 msgstr ""
+"klipper-git está empaquetado para Arch Linux ya en PKGBUILD (secuencia de "
+"comandos de creación de paquetes) disponible en [Arch User "
+"Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-"
+"git)."
 
 #~ msgid "Packaging klipper"
 #~ msgstr "Empaquetamiento de Klipper"
