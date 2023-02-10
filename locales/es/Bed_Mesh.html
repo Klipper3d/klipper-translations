@@ -1225,23 +1225,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#basic-configuration" class="md-nav__link">
-    Basic Configuration
+  <a href="#configuracion-basica" class="md-nav__link">
+    Configuración básica
   </a>
   
-    <nav class="md-nav" aria-label="Basic Configuration">
+    <nav class="md-nav" aria-label="Configuración básica">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rectangular-beds" class="md-nav__link">
-    Rectangular Beds
+  <a href="#camas-rectangulares" class="md-nav__link">
+    Camas rectangulares
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#round-beds" class="md-nav__link">
-    Round beds
+  <a href="#camas-redondeadas" class="md-nav__link">
+    Camas redondeadas
   </a>
   
 </li>
@@ -1378,11 +1378,11 @@
 
 
 <h1 id="cama-de-malla">Cama de malla<a class="headerlink" href="#cama-de-malla" title="Permanent link">&para;</a></h1>
-<p>The Bed Mesh module may be used to compensate for bed surface irregularties to achieve a better first layer across the entire bed. It should be noted that software based correction will not achieve perfect results, it can only approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical and electrical issues. If an axis is skewed or a probe is not accurate then the bed_mesh module will not receive accurate results from the probing process.</p>
+<p>El módulo Bed Mesh puede usarse para compensar irregularidades en la superficie de la cama para obtener una primera capa mejor. Se debe tener en cuenta que la corrección basada en software no conseguirá resultados perfectos y solo puede aproximarse a la forma de la cama . Bed Mesh tampoco puede compensar problemas mecánicos y eléctricos. Si un eje está torcido o una sonda no es exacta, entonces el módulo bed_mesh no obtendrá resultados exactos del proceso de sondeo.</p>
 <p>Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See <a href="Probe_Calibrate.html">Probe Calibrate</a> and Z_ENDSTOP_CALIBRATE in <a href="Manual_Level.html">Manual Level</a> for more information.</p>
-<h2 id="basic-configuration">Basic Configuration<a class="headerlink" href="#basic-configuration" title="Permanent link">&para;</a></h2>
-<h3 id="rectangular-beds">Rectangular Beds<a class="headerlink" href="#rectangular-beds" title="Permanent link">&para;</a></h3>
-<p>This example assumes a printer with a 250 mm x 220 mm rectangular bed and a probe with an x-offset of 24 mm and y-offset of 5 mm.</p>
+<h2 id="configuracion-basica">Configuración básica<a class="headerlink" href="#configuracion-basica" title="Permanent link">&para;</a></h2>
+<h3 id="camas-rectangulares">Camas rectangulares<a class="headerlink" href="#camas-rectangulares" title="Permanent link">&para;</a></h3>
+<p>Este ejemplo asume una impresora con una cama rectangular de 250 mm x 220 mm y una sonda con un con un x-offset de 24 mm y un y-offset de 5 mm.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1392,15 +1392,15 @@ probe_count: 5, 3
 </code></pre></div>
 
 <ul>
-<li><code>speed: 120</code> <em>Default Value: 50</em> The speed in which the tool moves between points.</li>
-<li><code>horizontal_move_z: 5</code> <em>Default Value: 5</em> The Z coordinate the probe rises to prior to traveling between points.</li>
+<li><code>speed: 120</code> <em>Vapor por defecto: 50</em> La velocidad a la que se mueve la herramienta entre puntos.</li>
+<li><code>horizontal_move_z: 5</code> <em>Valor por defecto: 5</em> La coordenada Z a la que la sonda sube antes de moverse entre puntos.</li>
 <li><code>mesh_min: 35, 6</code> <em>Required</em> The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.</li>
 <li><code>mesh_max: 240, 198</code> <em>Required</em> The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with <code>mesh_min</code>, this coordiante is relative to the probe's location.</li>
 <li><code>probe_count: 5, 3</code> <em>Default Value: 3, 3</em> The number of points to probe on each axis, specified as X, Y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie <code>probe_count: 3</code>. Note that a mesh requires a minimum probe_count of 3 along each axis.</li>
 </ul>
-<p>The illustration below demonstrates how the <code>mesh_min</code>, <code>mesh_max</code>, and <code>probe_count</code> options are used to generate probe points. The arrows indicate the direction of the probing procedure, beginning at <code>mesh_min</code>. For reference, when the probe is at <code>mesh_min</code> the nozzle will be at (11, 1), and when the probe is at <code>mesh_max</code>, the nozzle will be at (206, 193).</p>
+<p>La ilustración debajo muestra como las son usadas las opciones <code>mesh_min</code>, <code>mesh_max</code>, y <code>probe_count</code> para generar puntos de sondeo. Las flechas indican la dirección del procedimiento de sondeo, empezando por <code>mesh_min</code>. Como referencia, cuando la sonda está en <code>mesh_min</code>, la boquilla estará en (11,1) y cuando la sonda esté en <code>mesh_max</code>, la boquilla estará en (206,193).</p>
 <p><img alt="bedmesh_rect_basic" src="img/bedmesh_rect_basic.svg" /></p>
-<h3 id="round-beds">Round beds<a class="headerlink" href="#round-beds" title="Permanent link">&para;</a></h3>
+<h3 id="camas-redondeadas">Camas redondeadas<a class="headerlink" href="#camas-redondeadas" title="Permanent link">&para;</a></h3>
 <p>This example assumes a printer equipped with a round bed radius of 100mm. We will use the same probe offsets as the rectangular example, 24 mm on X and 5 mm on Y.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120

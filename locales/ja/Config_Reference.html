@@ -5813,17 +5813,17 @@ clk_pin:
 <h3 id="adc_scaled">[adc_scaled]<a class="headerlink" href="#adc_scaled" title="Permanent link">&para;</a></h3>
 <p>Duet2 Maestro analog scaling by vref and vssa readings. Defining an adc_scaled section enables virtual adc pins (such as "my_name:PB0") that are automatically adjusted by the board's vref and vssa monitoring pins. Be sure to define this config section above any config sections that use one these virtual pins.</p>
 <p>See the <a href="https://github.com/Klipper3d/klipper/blob/master/config/generic-duet2-maestro.cfg">generic-duet2-maestro.cfg</a> file for an example.</p>
-<div class="highlight"><pre><span></span><code>[adc_scaled my_name]
+<div class="highlight"><pre><span></span><code>[adc_scaled 任意の名称]
 vref_pin:
-#   The ADC pin to use for VREF monitoring. This parameter must be
-#   provided.
+#    VREFをモニタリングするためのアナログ入力ピンを指定します。
+#   このパラメーターの設定は必須です。
 vssa_pin:
-#   The ADC pin to use for VSSA monitoring. This parameter must be
-#   provided.
+#   VSSAをモニタリングするためのアナログ入力ピンを指定します。
+#   このパラメーターの設定は必須です。
 #smooth_time: 2.0
-#   A time value (in seconds) over which the vref and vssa
-#   measurements will be smoothed to reduce the impact of measurement
-#   noise. The default is 2 seconds.
+#   vrefとvssaの変化を平滑化するための時定数(秒単位)を指定します。
+#   測定結果はノイズの影響を除去するために設定された時定数のもと平滑化されます。
+#   標準値は2秒です・
 </code></pre></div>
 
 <h3 id="replicape">[replicape]<a class="headerlink" href="#replicape" title="Permanent link">&para;</a></h3>

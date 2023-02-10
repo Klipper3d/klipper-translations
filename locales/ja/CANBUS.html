@@ -1225,8 +1225,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#device-hardware" class="md-nav__link">
-    Device Hardware
+  <a href="#_1" class="md-nav__link">
+    デバイスハードウェアー
   </a>
   
 </li>
@@ -1284,17 +1284,17 @@
 
 
 <h1 id="canbus">CANBUS<a class="headerlink" href="#canbus" title="Permanent link">&para;</a></h1>
-<p>This document describes Klipper's CAN bus support.</p>
-<h2 id="device-hardware">Device Hardware<a class="headerlink" href="#device-hardware" title="Permanent link">&para;</a></h2>
+<p>このドキュメントではKlipperのCAN busサポート状況について解説しています。</p>
+<h2 id="_1">デバイスハードウェアー<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Klipper currently supports CAN on stm32, same5x, and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.</p>
 <p>To compile for CAN, run <code>make menuconfig</code> and select "CAN bus" as the communication interface. Finally, compile the micro-controller code and flash it to the target board.</p>
 <h2 id="host-hardware">Host Hardware<a class="headerlink" href="#host-hardware" title="Permanent link">&para;</a></h2>
 <p>In order to use a CAN bus, it is necessary to have a host adapter. There are currently two common options:</p>
 <ol>
-<li>Use a <a href="https://www.waveshare.com/rs485-can-hat.htm">Waveshare Raspberry Pi CAN hat</a> or one of its many clones.</li>
+<li><a href="https://www.waveshare.com/rs485-can-hat.htm">Waveshare Raspberry Pi CAN hat</a> を使用するか、同等のクローン品。</li>
 <li>Use a USB CAN adapter (for example <a href="https://hacker-gadgets.com/product/cantact-usb-can-adapter/">https://hacker-gadgets.com/product/cantact-usb-can-adapter/</a>). There are many different USB to CAN adapters available - when choosing one, we recommend verifying it can run the <a href="https://github.com/candle-usb/candleLight_fw">candlelight firmware</a>. (Unfortunately, we've found some USB adapters run defective firmware and are locked down, so verify before purchasing.)</li>
 </ol>
-<p>It is also necessary to configure the host operating system to use the adapter. This is typically done by creating a new file named <code>/etc/network/interfaces.d/can0</code> with the following contents:</p>
+<p>また、使用にあたってはホスト側のOSでアダプターを使用できるように設定が必要です。一般的には下記のコマンドを使用し<code>/etc/network/interfaces.d/can0</code> ファイルを作成することで実施できます：</p>
 <div class="highlight"><pre><span></span><code>auto can0
 iface can0 can static
     bitrate 500000

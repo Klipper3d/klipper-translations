@@ -1,15 +1,22 @@
-#
+# 京都タラレバ息子 <japan100@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-02-07 03:26+0000\n"
+"Last-Translator: 京都タラレバ息子 <japan100@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
+"navigation/ja/>\n"
 "Language: ja\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 msgid "Klipper documentation"
 msgstr ""
 
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "インストールと設定"
 
 msgid "Configuration Reference"
 msgstr ""
@@ -24,7 +31,7 @@ msgid "Command templates"
 msgstr ""
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "開発者向けドキュメント"
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "特定の機器に関するドキュメント"
