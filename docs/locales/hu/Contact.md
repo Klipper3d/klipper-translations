@@ -78,4 +78,4 @@ Számos [dokumentum fejlesztőknek](Overview.md#developer-documentation). Ha ké
 
 ## Klipper github
 
-Klipper github may be used by contributors to share the status of their work to improve Klipper. It is expected that the person opening a github ticket is actively working on the given task and will be the one performing all the work necessary to accomplish it. The Klipper github is not used for requests, nor to report bugs, nor to ask questions. Use the [Klipper Community Forum](#community-forum) or the [Klipper Community Discord](#discord-chat) instead.
+A Klipper githubot a közreműködők arra használhatják, hogy megosszák a Klipper fejlesztésére irányuló munkájuk állapotát. Elvárás, hogy a github jegyet nyitó személy aktívan dolgozzon az adott feladaton, és ő végezze el az összes szükséges munkát a feladat elvégzéséhez. A Klipper githubot nem használjuk kérésekre, sem hibák bejelentésére, sem kérdések feltevésére. Használd helyette a [Klipper közösségi fórumot](#community-forum) vagy a [Klipper közösségi discordot](#discord-chat).
