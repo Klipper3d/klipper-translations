@@ -6,13 +6,13 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 ## Változások
 
-20230201: The `[bed_mesh]` module no longer loads the `default` profile on startup. It is recommended that users who use the `default` profile add `BED_MESH_PROFILE LOAD=default` to their `START_PRINT` macro (or to their slicer's "Start G-Code" configuration when applicable).
+20230201: A `[bed_mesh]` modul már nem tölti be az `alapértelmezett` profilt indításkor. Az `alapértelmezett` profilt használó felhasználóknak ajánlott a `BED_MESH_PROFILE LOAD=default` hozzáadni a `START_PRINT` makróhoz (vagy adott esetben a szeletelő "Start G-Code" konfigurációjához).
 
-20230103: It is now possible with the flash-sdcard.sh script to flash both variants of the Bigtreetech SKR-2, STM32F407 and STM32F429. This means that the original tag of btt-skr2 now has changed to either btt-skr-2-f407 or btt-skr-2-f429.
+20230103: A flash-sdcard.sh szkript segítségével mostantól a Bigtreetech SKR-2 mindkét változata, az STM32F407 és az STM32F429 is égethető. Ez azt jelenti, hogy az eredeti btt-skr2 címke mostantól vagy btt-skr-2-f407-re, vagy btt-skr-2-f429-re változik.
 
-20221128: Klipper v0.11.0 released.
+20221128: Klipper v0.11.0 megjelent.
 
-20221122: Previously, with safe_z_home, it was possible that the z_hop after the g28 homing would go in the negative z direction. Now, a z_hop is performed after g28 only if it results in a positive hop, mirroring the behavior of the z_hop that occurs before the g28 homing.
+20221122: Korábban a safe_z_home használatával lehetséges volt, hogy a z_hop a G28 kezdőpont felvétel után negatív Z irányba ment. Most a G28 után csak akkor történik z_hop, ha az pozitív emelést eredményez, tükrözve a G28 kezdőpont felvétel előtti z_hop viselkedését.
 
 20220616: Korábban egy rp2040-et bootloader módban lehetett égetni a `make flash FLASH_DEVICE=first` futtatásával. Az ezzel egyenértékű parancs mostantól `make flash FLASH_DEVICE=2e8a:0003`.
 

@@ -4,17 +4,17 @@ A Klipper kiadások története. A Klipper telepítésével kapcsolatos informá
 
 ## Klipper 0.11.0
 
-Available on 20221128. Major changes in this release:
+Elérhető a 20201020. Főbb változások ebben a kiadásban:
 
-* Trinamic stepper motor driver "step on both edges" optimization.
-* Support for Python3. The Klipper host code will run with either Python2 or Python3.
-* Enhanced CAN bus support. Support for CAN bus on rp2040, stm32g0, stm32h7, same51, and same54 chips. Support for "USB to CAN bus bridge" mode.
-* Support for CanBoot bootloader.
-* Support for mpu9250 and mpu6050 accelerometers.
-* Improved error handling for max31856, max31855, max31865, and max6675 temperature sensors.
-* It is now possible to configure LEDs to update during long running G-Code commands using LED "template" support.
-* Several micro-controller improvements. New support for stm32h743, stm32h750, stm32l412, stm32g0b1, same70, same51, and same54 chips. Support for i2c reads on atsamd and stm32f0. Hardware pwm support on stm32. Linux mcu signal based event dispatch. New rp2040 support for "make flash", i2c, and rp2040-e5 USB errata.
-* New modules added: angle, dac084S085, exclude_object, led, mpu9250, pca9632, smart_effector, z_thermal_adjust. New deltesian kinematics added. New dump_mcu tool added.
+* Trinamic léptetőmotor-meghajtó "lépés mindkét szélén" optimalizálás.
+* A Python3 támogatása. A Klipper gazdagép kódja Python2 vagy Python3 programmal is fut.
+* Továbbfejlesztett CAN-busz támogatás. Az rp2040, stm32g0, stm32h7, same51 és same54 chipek CAN-buszának támogatása. "USB és CAN-busz közötti híd" üzemmód támogatása.
+* CanBoot bootloader támogatása.
+* Az mpu9250 és mpu6050 gyorsulásmérők támogatása.
+* Javított hibakezelés a max31856, max31855, max31865 és max6675 hőmérséklet-érzékelők esetében.
+* Mostantól lehetőség van arra, hogy a LED-eket úgy konfiguráljuk, hogy a LED "sablon" támogatással frissüljenek a hosszú ideig futó G-kód parancsok alatt.
+* Számos mikrokontroller-fejlesztés. Új támogatás az stm32h743, stm32h750, stm32l412, stm32g0b1, same70, same51 és same54 chipekhez. Az i2c olvasás támogatása atsamd és stm32f0 chipeken. Hardveres PWM támogatás az stm32-n. Linux mcu jel alapú eseményküldés. Új rp2040 támogatás a "make flash", i2c és rp2040-e5 USB errata számára.
+* Új modulok hozzáadása: angle, dac084S085, exclude_object, led, mpu9250, pca9632, smart_effector, z_thermal_adjust. Új deltesian kinematika hozzáadása. Új dump_mcu eszköz hozzáadása.
 * Számos hibajavítás és kódtisztítás.
 
 ## Klipper 0.10.0

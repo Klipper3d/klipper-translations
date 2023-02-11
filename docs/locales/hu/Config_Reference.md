@@ -1506,7 +1506,7 @@ cs_pin:
 
 ### [mpu9250]
 
-Support for MPU-9250, MPU-9255, MPU-6515, MPU-6050, and MPU-6500 accelerometers (one may define any number of sections with an "mpu9250" prefix).
+MPU-9250, MPU-9255, MPU-6515, MPU-6050 és MPU-6500 gyorsulásmérők támogatása (tetszőleges számú szekciót lehet definiálni "mpu9250" előtaggal).
 
 ```
 [mpu9250 my_accelerometer]

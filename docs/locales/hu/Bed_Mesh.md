@@ -205,11 +205,11 @@ Meg kell jegyezni, hogy minden alkalommal, amikor a BED_MESH_CALIBRATE használa
 
 Bármely más elmentett profil ugyanígy eltávolítható, a *default* helyettesítve az eltávolítani kívánt névvel.
 
-#### Loading the default profile
+#### Az alapértelmezett profil betöltése
 
-Previous versions of `bed_mesh` always loaded the profile named *default* on startup if it was present. This behavior has been removed in favor of allowing the user to determine when a profile is loaded. If a user wishes to load the `default` profile it is recommended to add `BED_MESH_PROFILE LOAD=default` to either their `START_PRINT` macro or their slicer's "Start G-Code" configuration, whichever is applicable.
+A `bed_mesh` korábbi verziói indításkor mindig betöltötték az *alapértelmezett* nevű profilt, ha az jelen volt. Ezt a viselkedést megszüntettük annak érdekében, hogy a felhasználó határozhassa meg, mikor töltődik be egy profil. Ha a felhasználó az `alapértelmezett` profilt kívánja betölteni, ajánlott a `BED_MESH_PROFILE LOAD=default` hozzáadása a `START_PRINT` makróhoz vagy a szeletelő "Start G-Code" konfigurációjához, attól függően, hogy melyik alkalmazandó.
 
-Alternatively the old behavior of loading a profile at startup can be restored with a `[delayed_gcode]`:
+Alternatívaként a `[delayed_gcode]` segítségével visszaállítható a profil indításkor történő betöltésének régi viselkedése:
 
 ```ini
 [delayed_gcode bed_mesh_init]
