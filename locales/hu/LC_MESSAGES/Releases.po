@@ -1,18 +1,20 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
+# "Zs.Antal" <zsikaiantal@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-11-28 09:48+0000\n"
-"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/releases/hu/>\n"
+"PO-Revision-Date: 2023-02-11 15:38+0000\n"
+"Last-Translator: \"Zs.Antal\" <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"releases/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.16-dev\n"
 
 msgid ""
 "History of Klipper releases. Please see [installation](Installation.md) for "
@@ -703,47 +705,57 @@ msgstr ""
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.11.0"
-msgstr ""
+msgstr "Klipper 0.11.0"
 
 #: docs/Releases.md:block 4 (paragraph)
 msgid "Available on 20221128. Major changes in this release:"
-msgstr ""
+msgstr "Elérhető a 20201020. Főbb változások ebben a kiadásban:"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Trinamic stepper motor driver \"step on both edges\" optimization."
-msgstr ""
+msgstr "Trinamic léptetőmotor-meghajtó \"lépés mindkét szélén\" optimalizálás."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Support for Python3. The Klipper host code will run with either Python2 or "
 "Python3."
 msgstr ""
+"A Python3 támogatása. A Klipper gazdagép kódja Python2 vagy Python3 "
+"programmal is fut."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Enhanced CAN bus support. Support for CAN bus on rp2040, stm32g0, stm32h7, "
 "same51, and same54 chips. Support for \"USB to CAN bus bridge\" mode."
 msgstr ""
+"Továbbfejlesztett CAN-busz támogatás. Az rp2040, stm32g0, stm32h7, same51 és "
+"same54 chipek CAN-buszának támogatása. \"USB és CAN-busz közötti híd\" "
+"üzemmód támogatása."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Support for CanBoot bootloader."
-msgstr ""
+msgstr "CanBoot bootloader támogatása."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Support for mpu9250 and mpu6050 accelerometers."
-msgstr ""
+msgstr "Az mpu9250 és mpu6050 gyorsulásmérők támogatása."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Improved error handling for max31856, max31855, max31865, and max6675 "
 "temperature sensors."
 msgstr ""
+"Javított hibakezelés a max31856, max31855, max31865 és max6675 hőmérséklet-"
+"érzékelők esetében."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "It is now possible to configure LEDs to update during long running G-Code "
 "commands using LED \"template\" support."
 msgstr ""
+"Mostantól lehetőség van arra, hogy a LED-eket úgy konfiguráljuk, hogy a LED "
+"\"sablon\" támogatással frissüljenek a hosszú ideig futó G-kód parancsok "
+"alatt."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -753,6 +765,11 @@ msgid ""
 " based event dispatch. New rp2040 support for \"make flash\", i2c, and "
 "rp2040-e5 USB errata."
 msgstr ""
+"Számos mikrokontroller-fejlesztés. Új támogatás az stm32h743, stm32h750, "
+"stm32l412, stm32g0b1, same70, same51 és same54 chipekhez. Az i2c olvasás "
+"támogatása atsamd és stm32f0 chipeken. Hardveres PWM támogatás az stm32-n. "
+"Linux mcu jel alapú eseményküldés. Új rp2040 támogatás a \"make flash\", i2c "
+"és rp2040-e5 USB errata számára."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -760,6 +777,9 @@ msgid ""
 " smart_effector, z_thermal_adjust. New deltesian kinematics added. New "
 "dump_mcu tool added."
 msgstr ""
+"Új modulok hozzáadása: angle, dac084S085, exclude_object, led, mpu9250, "
+"pca9632, smart_effector, z_thermal_adjust. Új deltesian kinematika "
+"hozzáadása. Új dump_mcu eszköz hozzáadása."
 
 #~ msgid ""
 #~ "Support for common g-code commands. Support for interfacing with OctoPrint."
