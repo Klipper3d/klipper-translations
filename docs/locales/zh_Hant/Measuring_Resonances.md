@@ -375,7 +375,7 @@ TEST_RESONANCES AXIS=1,-1 OUTPUT=raw_data
 
 以產生`/tmp/resonances.png`，對比共振的數據。
 
-對標準構型的三角洲印表機（A塔210°，B塔330°，C塔~90°），執行
+對標準構型的三角洲印表機（A塔~210°，B塔~330°，C塔~90°），執行
 
 ```
 TEST_RESONANCES AXIS=0,1 OUTPUT=raw_data

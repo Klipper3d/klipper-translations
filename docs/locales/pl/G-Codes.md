@@ -39,7 +39,9 @@ Jeżeli ktoś potrzebuje mniej popularnej komendy G-Code, to może być możliwe
 
 ## Additional Commands
 
-Klipper używa "rozszerzonych" poleceń G-Code do ogólnej konfiguracji i statusu. Wszystkie te rozszerzone komendy mają podobny format - rozpoczynają się od nazwy komendy, po której może następować jeden lub więcej parametrów. Na przykład: `SET_SERVO SERVO=myservo ANGLE=5.3`. W tym dokumencie polecenia i parametry są wyświetlane wielkimi literami, ale nie jest rozróżniana wielkość liter. (Tak więc "SET_SERVO" i "set_servo" uruchamiają to samo polecenie).Przetłumaczono z www.DeepL.com/Translator (wersja darmowa)
+Klipper używa "rozszerzonych" poleceń G-Code do ogólnej konfiguracji i statusu. Wszystkie te rozszerzone komendy mają podobny format - rozpoczynają się od nazwy komendy, po której może następować jeden lub więcej parametrów. Na przykład: `SET_SERVO SERVO=myservo ANGLE=5.3`. W tym dokumencie polecenia i parametry są wyświetlane wielkimi literami, ale nie jest rozróżniana wielkość liter. (Tak więc "SET_SERVO" i "set_servo" uruchamiają to samo polecenie).
+
+Przetłumaczono z www.DeepL.com/Translator (wersja darmowa)
 
 This section is organized by Klipper module name, which generally follows the section names specified in the [printer configuration file](Config_Reference.md). Note that some modules are automatically loaded.
 
@@ -61,7 +63,7 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 #### ACCELEROMETER_DEBUG_WRITE
 
-`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Wpisuje Surową "value" w rejestr "register". "value" i "register" może być w systemie dziesiętnym albo szesnastkowym. Uzywać ostrożnie, i odnoś sie do ADXL345 Arkuszu danych jako referencja.
+`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Wpisuje Surową "value" w rejestr "register".  "value" i "register" może być w systemie dziesiętnym albo szesnastkowym. Uzywać ostrożnie, i odnoś sie do ADXL345 Arkuszu danych jako referencja.
 
 ### [angle]
 
@@ -360,7 +362,9 @@ The gcode_move module is automatically loaded.
 
 #### SET_GCODE_OFFSET
 
-`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Ustawienie przesunięcia pozycji, aby zastosować je do przyszłych poleceń G-Code. Jest to powszechnie używane do wirtualnej zmiany przesunięcia stołu Z lub do ustawienia przesunięcia dysz XY przy przełączaniu ekstruderów. Na przykład, jeśli "SET_GCODE_OFFSET Z=0.2" jest wysłane, to przyszłe ruchy G-Code będą miały 0.2mm dodane do ich wysokości Z. Jeśli użyto parametrów stylu X_ADJUST, to korekta zostanie dodana do istniejącego przesunięcia (np. "SET_GCODE_OFFSET Z=-0.2", a następnie "SET_GCODE_OFFSET Z_ADJUST=0.3" spowoduje całkowite przesunięcie Z o 0.1). Jeśli podano "MOVE=1", to zostanie wydany ruch głowicy narzędziowej, aby zastosować podane przesunięcie (w przeciwnym razie przesunięcie zacznie obowiązywać przy następnym absolutnym ruchu G-Code, który określa daną oś). Jeżeli jest podane "MOVE_SPEED", to zostanie wykonany ruch głowicy narzędziowej z podaną prędkością (w mm/s); w przeciwnym razie zostanie zastosowana ostatnio podana prędkość G-Code.Przetłumaczono z www.DeepL.com/Translator (wersja darmowa)
+`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Ustawienie przesunięcia pozycji, aby zastosować je do przyszłych poleceń G-Code. Jest to powszechnie używane do wirtualnej zmiany przesunięcia stołu Z lub do ustawienia przesunięcia dysz XY przy przełączaniu ekstruderów. Na przykład, jeśli "SET_GCODE_OFFSET Z=0.2" jest wysłane, to przyszłe ruchy G-Code będą miały 0.2mm dodane do ich wysokości Z. Jeśli użyto parametrów stylu X_ADJUST, to korekta zostanie dodana do istniejącego przesunięcia (np. "SET_GCODE_OFFSET Z=-0.2", a następnie "SET_GCODE_OFFSET Z_ADJUST=0.3" spowoduje całkowite przesunięcie Z o 0.1). Jeśli podano "MOVE=1", to zostanie wydany ruch głowicy narzędziowej, aby zastosować podane przesunięcie (w przeciwnym razie przesunięcie zacznie obowiązywać przy następnym absolutnym ruchu G-Code, który określa daną oś). Jeżeli jest podane "MOVE_SPEED", to zostanie wykonany ruch głowicy narzędziowej z podaną prędkością (w mm/s); w przeciwnym razie zostanie zastosowana ostatnio podana prędkość G-Code.
+
+Przetłumaczono z www.DeepL.com/Translator (wersja darmowa)
 
 #### SAVE_GCODE_STATE
 

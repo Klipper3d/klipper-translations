@@ -45,7 +45,7 @@ sudo nano /etc/default/octoprint
 sudo systemctl start octoprint
 ```
 
-需要確定可以訪問 OctoPrint 網路伺服器 - 它應該可以通過這個鏈接訪問： <http://beaglebone:5000/>
+需要確定可以訪問 OctoPrint 網路伺服器 - 它應該可以通過這個鏈接訪問：<http://beaglebone:5000/>
 
 ## 構建微控制器程式碼
 

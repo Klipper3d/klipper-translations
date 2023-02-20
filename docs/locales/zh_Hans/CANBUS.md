@@ -13,7 +13,7 @@ Klipper目前支持在stm32、same5x和rp2040芯片上使用CAN总线。此外�
 为了使用 CAN 总线，主机需要一个适配器。目前有两种常见的选择：
 
 1. 使用[Waveshare Raspberry Pi CAN hat](https://www.waveshare.com/rs485-can-hat.htm)或其众多克隆中的一个。
-1. 使用一个USB CAN适配器（例如 <https://hacker-gadgets.com/product/cantact-usb-can-adapter/>）。有许多不同的USB到CAN适配器—当选择时，我们建议验证它是否能运行[candlelight 固件](https://github.com/candle-usb/candleLight_fw)。(不幸的是，我们发现一些USB适配器运行有缺陷的固件，并被锁死，所以在购买前要进行核实。）
+1. 使用一个USB CAN适配器（例如<https://hacker-gadgets.com/product/cantact-usb-can-adapter/>）。有许多不同的USB到CAN适配器—当选择时，我们建议验证它是否能运行[candlelight 固件](https://github.com/candle-usb/candleLight_fw)。(不幸的是，我们发现一些USB适配器运行有缺陷的固件，并被锁死，所以在购买前要进行核实。）
 
 还需要将主机操作系统配置为使用适配器。通常可以通过创建一个名为 `/etc/network/interfaces.d/can0` 的新文件来实现，该文件包含以下内容：
 

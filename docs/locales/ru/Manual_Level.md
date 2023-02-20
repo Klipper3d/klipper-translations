@@ -6,7 +6,7 @@
 
 Точное положение концевого упора Z имеет решающее значение для получения высококачественных отпечатков.
 
-Обратите внимание, однако, что точность самого переключателя Z endstop может быть ограничивающим фактором. Если вы используете драйверы шаговых двигателей Trinamic, то рассмотрите возможность включения [фаза конечной остановки](Endstop_Phase.md) обнаружение для повышения точности переключения.
+Обратите внимание, однако, что точность самого переключателя Z endstop может быть ограничивающим фактором. Если вы используете драйверы шаговых двигателей Trinamic, то рассмотрите возможность включения [фаза конечной остановки](Endstop_Phase.md ) обнаружение для повышения точности переключения.
 
 To perform a Z endstop calibration, home the printer, command the head to move to a Z position that is at least five millimeters above the bed (if it is not already), command the head to move to an XY position near the center of the bed, then navigate to the OctoPrint terminal tab and run:
 

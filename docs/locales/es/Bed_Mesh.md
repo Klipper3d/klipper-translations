@@ -25,7 +25,7 @@ probe_count: 5, 3
 - `mesh_max: 240, 198` *Required* The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with `mesh_min`, this coordiante is relative to the probe's location.
 - `probe_count: 5, 3` *Default Value: 3, 3* The number of points to probe on each axis, specified as X, Y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie `probe_count: 3`. Note that a mesh requires a minimum probe_count of 3 along each axis.
 
-La ilustración debajo muestra como las son usadas las opciones `mesh_min`, `mesh_max`, y `probe_count` para generar puntos de sondeo. Las flechas indican la dirección del procedimiento de sondeo, empezando por `mesh_min`. Como referencia, cuando la sonda está en `mesh_min`, la boquilla estará en (11,1) y cuando la sonda esté en `mesh_max`, la boquilla estará en (206,193).
+La ilustración debajo muestra como las son usadas las opciones  `mesh_min`, `mesh_max`, y `probe_count` para generar puntos de sondeo. Las flechas indican la dirección del procedimiento de sondeo, empezando por `mesh_min`. Como referencia, cuando la sonda está en `mesh_min`, la boquilla estará en (11,1) y cuando la sonda esté en `mesh_max`, la boquilla estará en (206,193).
 
 ![bedmesh_rect_basic](img/bedmesh_rect_basic.svg)
 

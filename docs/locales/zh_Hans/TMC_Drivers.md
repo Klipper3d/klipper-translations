@@ -241,7 +241,7 @@ gcode:
 
 ## 查询和诊断驱动程序设置
 
-\`[DUMP_TMC 命令](G-Code.md#dump_tmc)是配置和诊断驱动程序的有效工具。它将报告所有由Klipper配置的字段，以及所有可以从驱动中查询到的字段。
+`[DUMP_TMC 命令](G-Code.md#dump_tmc)是配置和诊断驱动程序的有效工具。它将报告所有由Klipper配置的字段，以及所有可以从驱动中查询到的字段。
 
 所有报告的字段都定义在驱动器的Trinamic数据手册中。这些数据表可以在[Trinamic网站](https://www.trinamic.com/)上找到。请获取并查看驱动器的Trinamic数据手册来解释DUMP_TMC的结果。
 

@@ -12,7 +12,7 @@ To compile for CAN, run `make menuconfig` and select "CAN bus" as the communicat
 
 Для того чтобы использовать CAN-шину, необходимо иметь хост-адаптер. В настоящее время существует два распространенных варианта:
 
-1. Используйте [Waveshare Raspberry Pi CAN hat](https://www.waveshare.com/rs485-can-hat.htm) или один из его многочисленных клонов.
+1. Используйте [Waveshare Raspberry Pi CAN hat](https://www.waveshare.com/rs485-can-hat.htm ) или один из его многочисленных клонов.
 1. Use a USB CAN adapter (for example <https://hacker-gadgets.com/product/cantact-usb-can-adapter/>). There are many different USB to CAN adapters available - when choosing one, we recommend verifying it can run the [candlelight firmware](https://github.com/candle-usb/candleLight_fw). (Unfortunately, we've found some USB adapters run defective firmware and are locked down, so verify before purchasing.)
 
 It is also necessary to configure the host operating system to use the adapter. This is typically done by creating a new file named `/etc/network/interfaces.d/can0` with the following contents:

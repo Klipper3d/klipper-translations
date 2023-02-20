@@ -4,7 +4,7 @@ Klipper是自由软件。我们依赖于赞助商的慷慨支持。请考虑赞�
 
 ## BIGTREETECH
 
-[<img src="./img/sponsors/BTT_BTT.png" width="200" />
+[<img src="./img/sponsors/BTT_BTT.png" width="200" />](https://bigtree-tech.com/collections/all-products)
 
 BIGTREETECH是Klipper的官方主板赞助商。BIGTREETECH致力于开发创新和有竞争力的产品，更好地服务于3D打印社区。在[Facebook](https://www.facebook.com/BIGTREETECH)或[Twitter](https://twitter.com/BigTreeTech)上关注他们。
 
@@ -12,11 +12,11 @@ BIGTREETECH是Klipper的官方主板赞助商。BIGTREETECH致力于开发创新
 
 ### Kevin O'Connor
 
-Kevin 是项目原作者和当前Klipper的维护。支持链接在 <https://ko-fi.com/koconnor> 或者 <https://www.patreon.com/koconnor>
+Kevin 是项目原作者和当前Klipper的维护。支持链接在<https://ko-fi.com/koconnor> 或者 <https://www.patreon.com/koconnor>
 
 ### Eric Callahan
 
-Eric是bed_mesh、spi_flash和其他几个Klipper模块的作者。Eric的支持页面： <https://ko-fi.com/arksine>
+Eric是bed_mesh、spi_flash和其他几个Klipper模块的作者。Eric的支持页面：<https://ko-fi.com/arksine>
 
 ## 相关的Klipper项目
 

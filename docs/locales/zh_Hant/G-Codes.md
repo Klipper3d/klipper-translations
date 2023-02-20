@@ -145,7 +145,7 @@ The following commands are available when an [angle config section](Config_Refer
 
 ### [delayed_gcode]
 
-如果啟用了 [delayed_gcode config section](Config_Reference.md#delayed_gcode)，則啟用以下命令（另請參閱 [template guide](Command_Templates.md#delayed-gcodes)）。
+如果啟用了 [delayed_gcode config section](Config_Reference.md#delayed_gcode)，則啟用以下命令（另請參閱  [template guide](Command_Templates.md#delayed-gcodes)）。
 
 #### UPDATE_DELAYED_GCODE
 
@@ -372,7 +372,7 @@ The force_move module is automatically loaded, however some commands require set
 
 ### [hall_filament_width_sensor]
 
-當啟用 [tsl1401cl filament width sensor config section](Config_Reference.md#tsl1401cl_filament_width_sensor) 或 [hall filament width sensor config section](Config_Reference.md#hall_filament_width_sensor) 時，以下命令可用（另請參閱 [TSLl401CL Filament Width Sensor](TSL1401CL_Filament_Width_Sensor.md) 和 [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md))：
+當啟用 [tsl1401cl filament width sensor config section](Config_Reference.md#tsl1401cl_filament_width_sensor) 或 [hall filament width sensor config section](Config_Reference.md#hall_filament_width_sensor) 時，以下命令可用（另請參閱 [TSLl401CL Filament Width Sensor]( TSL1401CL_Filament_Width_Sensor.md) 和 [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md))：
 
 #### QUERY_FILAMENT_WIDTH
 

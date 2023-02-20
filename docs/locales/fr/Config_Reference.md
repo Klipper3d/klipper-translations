@@ -1454,7 +1454,7 @@ cs_pin:
 
 ### [mpu9250]
 
-Support for MPU-9250, MPU-9255, MPU-6515, MPU-6050, and MPU-6500 accelerometers (one may define any number of sections with an "mpu9250" prefix).
+Prise en charge des accéléromètres MPU-9250, MPU-9255, MPU-6515, MPU-6050 et MPU-6500 (on peut définir un nombre quelconque de sections avec le préfixe "mpu9250").
 
 ```
 [mpu9250 my_accelerometer]
@@ -1722,7 +1722,7 @@ z_offset:
 #    Voir la section "sonde" (probe) pour plus d'informations sur les paramètres ci-dessus.
 ```
 
-## Moteurs pas à pas et extrudeurs additionnels
+## Moteurs pas à  pas et extrudeurs additionnels
 
 ### [stepper_z1]
 
@@ -2677,43 +2677,41 @@ Configuration d' un pilote de moteur pas à pas TMC2130 via le bus SPI. Pour uti
 ```
 [tmc2130 stepper_x]
 cs_pin:
-#   The pin corresponding to the TMC2130 chip select line. This pin
-#   will be set to low at the start of SPI messages and raised to high
-#   after the message completes. This parameter must be provided.
+#    La broche correspondant à la ligne de sélection de puce de la TMC2130. Cette
+#    broche sera mise à l'état bas au début des messages SPI et remontée à l'état haut
+#    après la fin du message. Ce paramètre doit être fourni.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#    Voir la section "paramètres SPI communs" pour une description des paramètres
+#    ci-dessus.
 #chain_position:
 #chain_length:
-#   These parameters configure an SPI daisy chain. The two parameters
-#   define the stepper position in the chain and the total chain length.
-#   Position 1 corresponds to the stepper that connects to the MOSI signal.
-#   The default is to not use an SPI daisy chain.
-#interpolate: True
-#   If true, enable step interpolation (the driver will internally
-#   step at a rate of 256 micro-steps). This interpolation does
-#   introduce a small systemic positional deviation - see
-#   TMC_Drivers.md for details. The default is True.
+#    Ces paramètres configurent une guirlande SPI. Les deux paramètres définissent la
+#    position du pilote moteur dans la chaîne et la longueur totale de la chaîne.
+#    La position 1 correspond au pilote moteur stepper qui se connecte au signal MOSI.
+#    La valeur par défaut est de ne pas utiliser de guirlande SPI.
+# Interpoler: True
+#    Si true, active l'interpolation de pas (le pilote fera un pas interne à un taux de 256
+#    micro-pas). Cette interpolation introduit une petite déviation systémique de la
+#    position - voir TMC_Drivers.md pour plus de détails. La valeur par défaut est True.
 run_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   during stepper movement. This parameter must be provided.
+#    Configuration de la quantité de courant (en ampères RMS) que le pilote utilise
+#    pendant le mouvement du moteur pas à pas. Ce paramètre doit être fourni.
 #hold_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   when the stepper is not moving. Setting a hold_current is not
-#   recommended (see TMC_Drivers.md for details). The default is to
-#   not reduce the current.
+#    Configuration de la quantité de courant (en ampères RMS) que le pilote utilise
+#    lorsque le moteur pas à pas n'est pas en mouvement. La définition d'un hold_current
+#    n'est pas recommandée (voir TMC_Drivers.md pour plus de détails). La valeur par
+#    défaut est de ne pas réduire le courant.
 #sense_resistor: 0.110
-#   The resistance (in ohms) of the motor sense resistor. The default
-#   is 0.110 ohms.
+#    La résistance (en ohms) de la résistance de détection du moteur. La valeur par défaut
+#    est de 0.110 ohms.
 #stealthchop_threshold: 0
-#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
-#   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#    La vitesse (en mm/s) à laquelle le seuil "stealthChop" doit être fixé. Lorsque défini, le
+#    mode "stealthChop" sera activé si la vitesse du moteur pas à pas est inférieure à cette
+#    valeur. La valeur par défaut est 0, ce qui désactive le mode "stealthChop".
 #driver_MSLUT0: 2863314260
 #driver_MSLUT1: 1251300522
 #driver_MSLUT2: 608774441
@@ -2731,13 +2729,14 @@ run_current:
 #driver_X3: 255
 #driver_START_SIN: 0
 #driver_START_SIN90: 247
-#   These fields control the Microstep Table registers directly. The optimal
-#   wave table is specific to each motor and might vary with current. An
-#   optimal configuration will have minimal print artifacts caused by
-#   non-linear stepper movement. The values specified above are the default
-#   values used by the driver. The value must be specified as a decimal integer
-#   (hex form is not supported). In order to compute the wave table fields,
-#   see the tmc2130 "Calculation Sheet" from the Trinamic website.
+#    Ces champs contrôlent directement les registres de la table des micro-pas. La table
+#   d'ondes est spécifique à chaque moteur et peut varier en fonction du courant. Une
+#    configuration optimale aura un minimum d'artefacts d'impression causés par le
+#    mouvement non linéaire du moteur pas à pas. Les valeurs spécifiées ci-dessus sont
+#    les valeurs par défaut utilisées par le pilote. La valeur doit être spécifiée sous la forme
+#    d'un entier décimal (la forme hexadécimale n'est pas prise en charge). Afin de calculer
+#    les champs de la table d'onde, consultez la "feuille de calcul" tmc2130 sur le site
+#    Web de Trinamic.
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 0
 #driver_TBL: 1
@@ -2749,20 +2748,19 @@ run_current:
 #driver_PWM_GRAD: 4
 #driver_PWM_AMPL: 128
 #driver_SGT: 0
-#   Set the given register during the configuration of the TMC2130
-#   chip. This may be used to set custom motor parameters. The
-#   defaults for each parameter are next to the parameter name in the
-#   above list.
+#    Permet de définir le registre donné pendant la configuration de la puce TMC2130.
+#    Ceci peut être utilisé pour définir les paramètres personnalisés du moteur. Les valeurs
+#    par défaut de chaque paramètre sont indiquées à côté du nom du paramètre dans la
+#    liste ci-dessus.
 #diag0_pin:
 #diag1_pin:
-#   The micro-controller pin attached to one of the DIAG lines of the
-#   TMC2130 chip. Only a single diag pin should be specified. The pin
-#   is "active low" and is thus normally prefaced with "^!". Setting
-#   this creates a "tmc2130_stepper_x:virtual_endstop" virtual pin
-#   which may be used as the stepper's endstop_pin. Doing this enables
-#   "sensorless homing". (Be sure to also set driver_SGT to an
-#   appropriate sensitivity value.) The default is to not enable
-#   sensorless homing.
+#    La broche du microcontrôleur reliée à l'une des lignes DIAG de la puce TMC2130.
+#    Une seule broche diag doit être spécifiée. La broche est "active low" et est donc
+#    normalement précédée de "^ !". Le réglage de ceci crée une broche virtuelle
+#    "tmc2130_stepper_x:virtual_endstop" pouvant être utilisée comme broche d'arrêt
+#    du moteur. Cela permet d'activer le "sensorless homing". (Assurez-vous de régler
+#     également driver_SGT à une valeur de sensibilité appropriée).
+#    La valeur par défaut est de ne pas activer la recherche d'origine sans capteur.
 ```
 
 ### [tmc2208]
@@ -2938,41 +2936,40 @@ Configuration d'un pilote de moteur pas à pas TMC5160 via le bus SPI. Pour util
 ```
 [tmc5160 stepper_x]
 cs_pin:
-#   The pin corresponding to the TMC5160 chip select line. This pin
-#   will be set to low at the start of SPI messages and raised to high
-#   after the message completes. This parameter must be provided.
+#    La broche correspondant à la ligne de sélection de puce de la TMC5160. Cette
+#    broche sera mise à l'état bas au début des messages SPI et remontée à l'état
+#    haut après la fin du message. Ce paramètre doit être fourni.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#    Voir la section "paramètres SPI communs" pour une description des
+#    paramètres ci-dessus.
 #chain_position:
 #chain_length:
-#   These parameters configure an SPI daisy chain. The two parameters
-#   define the stepper position in the chain and the total chain length.
-#   Position 1 corresponds to the stepper that connects to the MOSI signal.
-#   The default is to not use an SPI daisy chain.
-#interpolate: True
-#   If true, enable step interpolation (the driver will internally
-#   step at a rate of 256 micro-steps). The default is True.
+#    Ces paramètres configurent une guirlande SPI. Les deux paramètres définissent
+#    la position du stepper dans la chaîne et la longueur totale de la chaîne.
+#    La position 1 correspond au pilote moteur connecté au signal MOSI.
+#    La valeur par défaut est de ne pas utiliser de guirlande SPI.
+# Interpoler: True
+#    Si vrai, activer l'interpolation de pas (le pilote va faire un pas interne à un taux
+#    de 256 micro-pas). La valeur par défaut est True.
 run_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   during stepper movement. This parameter must be provided.
+#    Configuration de la quantité de courant (en ampères RMS) que le pilote utilise
+#    pendant le mouvement pas à pas. Ce paramètre doit être fourni.
 #hold_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   when the stepper is not moving. Setting a hold_current is not
-#   recommended (see TMC_Drivers.md for details). The default is to
-#   not reduce the current.
+#    Configuration de la quantité de courant (en ampères RMS) que le pilote utilise
+#    lorsque le moteur pas à pas n'est pas en mouvement. La définition d'un hold_current
+#    n'est pas recommandée (voir TMC_Drivers.md pour plus de détails). La valeur par
+#    défaut est de ne pas réduire le courant.
 #sense_resistor: 0.075
-#   The resistance (in ohms) of the motor sense resistor. The default
-#   is 0.075 ohms.
+#    La résistance (en ohms) de la résistance de détection du moteur. La valeur par défaut
+#    est de 0,075 ohms.
 #stealthchop_threshold: 0
-#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
-#   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#    La vitesse (en mm/s) à laquelle le seuil de "stealthChop" doit être fixé. Lorsque défini,
+#    le mode "stealthChop" sera activé si la vitesse du moteur pas à pas est inférieure à cette
+#    valeur. La valeur par défaut est 0, ce qui désactive le mode "stealthChop".
 #driver_MSLUT0: 2863314260
 #driver_MSLUT1: 1251300522
 #driver_MSLUT2: 608774441
@@ -2990,13 +2987,13 @@ run_current:
 #driver_X3: 255
 #driver_START_SIN: 0
 #driver_START_SIN90: 247
-#   These fields control the Microstep Table registers directly. The optimal
-#   wave table is specific to each motor and might vary with current. An
-#   optimal configuration will have minimal print artifacts caused by
-#   non-linear stepper movement. The values specified above are the default
-#   values used by the driver. The value must be specified as a decimal integer
-#   (hex form is not supported). In order to compute the wave table fields,
-#   see the tmc2130 "Calculation Sheet" from the Trinamic website.
+#    Ces champs contrôlent directement les registres de la table des micro-pas. La table d'ondes
+#    est spécifique à chaque moteur et peut varier en fonction du courant. Une configuration
+#    optimale aura un minimum d'artefacts d'impression causés par un mouvement non linéaire
+#    du moteur pas à pas. Les valeurs spécifiées ci-dessus sont les valeurs par défaut utilisées par
+#    le pilote. La valeur doit être spécifiée sous la forme d'un entier décimal (la forme hexadécimale
+#    n'est pas prise en charge). Afin de calculer les champs de la table d'onde, consultez la "feuille
+#    de calcul" tmc2130 sur le site Web de Trinamic.
 #driver_IHOLDDELAY: 6
 #driver_TPOWERDOWN: 10
 #driver_TBL: 2
@@ -3025,20 +3022,18 @@ run_current:
 #driver_SEDN: 0
 #driver_SEIMIN: 0
 #driver_SFILT: 0
-#   Set the given register during the configuration of the TMC5160
-#   chip. This may be used to set custom motor parameters. The
-#   defaults for each parameter are next to the parameter name in the
-#   above list.
+#    Définir le registre donné pendant la configuration de la puce TMC5160. Ceci peut être utilisé
+#    pour définir les paramètres personnalisés du moteur. Les valeurs par défaut de chaque
+#    paramètre sont à côté du nom du paramètre dans la liste ci-dessus.
 #diag0_pin:
 #diag1_pin:
-#   The micro-controller pin attached to one of the DIAG lines of the
-#   TMC5160 chip. Only a single diag pin should be specified. The pin
-#   is "active low" and is thus normally prefaced with "^!". Setting
-#   this creates a "tmc5160_stepper_x:virtual_endstop" virtual pin
-#   which may be used as the stepper's endstop_pin. Doing this enables
-#   "sensorless homing". (Be sure to also set driver_SGT to an
-#   appropriate sensitivity value.) The default is to not enable
-#   sensorless homing.
+#    La broche du microcontrôleur reliée à l'une des lignes DIAG de la puce # TMC5160.
+#    Une seule broche diag doit être spécifiée. La broche est "active low" et est donc normalement
+#    précédée de "^ !". Le réglage de ceci crée une broche virtuelle
+#    "tmc5160_stepper_x:virtual_endstop" pouvant être utilisée comme broche de fin de course
+#    du pilote moteur. Cela permet d'activer le "sensorless homing". (Assurez-vous de régler
+#    également driver_SGT à une valeur de sensibilité appropriée).
+#    La valeur par défaut est de ne pas activer la recherche d'origine sans capteur.
 ```
 
 ## Configuration du courant du moteur pas à pas en temps réel

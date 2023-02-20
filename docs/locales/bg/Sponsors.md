@@ -4,7 +4,7 @@ Klipper е свободен софтуер. Разчитаме на щедрат
 
 ## BIGTREETECH
 
-[<img src="./img/sponsors/BTT_BTT.png" width="200" />
+[<img src="./img/sponsors/BTT_BTT.png" width="200" />](https://bigtree-tech.com/collections/all-products)
 
 BIGTREETECH е официалният спонсор на Klipper. BIGTREETECH се ангажира да разработва иновативни и конкурентни продукти, които да служат по-добре на общността за 3D принтиране. Последвайте ги във [Facebook](https://www.facebook.com/BIGTREETECH) или [Twitter](https://twitter.com/BigTreeTech).
 

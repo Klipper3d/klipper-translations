@@ -372,7 +372,7 @@ GET_POSITION`: Restituisce informazioni sulla posizione corrente della testa di 
 
 ### [hall_filament_width_sensor]
 
-I seguenti comandi sono disponibili quando la [sezione di configurazione del sensore di larghezza del filamento tsl1401cl](Config_Reference.md#tsl1401cl_filament_width_sensor) o [sezione di configurazione del sensore di larghezza del filamento hall](Config_Reference.md#hall_filament_width_sensor) è abilitata (consultare anche [Sensore di larghezza del filamento TSLl401CL](TSL1401CL_Filament_Width_Sensor.md) e [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)):
+I seguenti comandi sono disponibili quando la [sezione di configurazione del sensore di larghezza del filamento tsl1401cl](Config_Reference.md#tsl1401cl_filament_width_sensor) o [sezione di configurazione del sensore di larghezza del filamento hall](Config_Reference.md#hall_filament_width_sensor) è abilitata (consultare anche [Sensore di larghezza del filamento TSLl401CL]( TSL1401CL_Filament_Width_Sensor.md) e [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)):
 
 #### QUERY_FILAMENT_WIDTH
 
@@ -643,7 +643,7 @@ Il comando seguente è abilitato se è stata abilitata una [sezione di configura
 
 ### [screws_tilt_adjust]
 
-I seguenti comandi sono disponibili quando la [sezione di configurazione viti_tilt_adjust](Config_Reference.md#screws_tilt_adjust) è abilitata (consultare anche la [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe)).
+I seguenti comandi sono disponibili quando la [sezione di configurazione viti_tilt_adjust](Config_Reference.md#screws_tilt_adjust) è abilitata (consultare anche la [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe )).
 
 #### SCREWS_TILT_CALCULATE
 
@@ -683,7 +683,7 @@ I seguenti comandi sono disponibili quando è abilitata la [sezione config_corre
 
 #### GET_CURRENT_SKEW
 
-`GET_CURRENT_SKEW`: Riporta l'inclinazione corrente della stampante per ciascun piano sia in radianti che in gradi. L'inclinazione viene calcolata in base ai parametri forniti tramite il gcode `SET_SKEW`.
+`GET_CURRENT_SKEW`: Riporta l'inclinazione corrente della stampante per ciascun piano sia in radianti che in gradi. L'inclinazione  viene calcolata in base ai parametri forniti tramite il gcode `SET_SKEW`.
 
 #### CALC_MEASURED_SKEW
 

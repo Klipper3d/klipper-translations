@@ -4,7 +4,7 @@ Klipper 是免費軟件。我們依靠贊助商的慷慨支持。請考慮贊助
 
 ## BIGTREETECH
 
-[<img src="./img/sponsors/BTT_BTT.png" width="200" />
+[<img src="./img/sponsors/BTT_BTT.png" width="200" />](https://bigtree-tech.com/collections/all-products)
 
 BIGTREETECH 是 Klipper 的主板官方贊助商。 BIGTREETECH 致力於開發具有創新性和競爭力的產品，以更好地服務於 3D 打印社區。在 [Facebook](https://www.facebook.com/BIGTREETECH) 或 [Twitter](https://twitter.com/BigTreeTech) 上關注他們。
 
@@ -16,7 +16,7 @@ Kevin is the original author and current maintainer of Klipper. Donate at: <http
 
 ### Eric Callahan
 
-Eric 是 bed_mesh、spi_flash 和其他幾個 Klipper 模塊的作者。 Eric 的捐款頁面位於： <https://ko-fi.com/arksine>
+Eric 是 bed_mesh、spi_flash 和其他幾個 Klipper 模塊的作者。 Eric 的捐款頁面位於：<https://ko-fi.com/arksine>
 
 ## 相關的 Klipper 項目
 

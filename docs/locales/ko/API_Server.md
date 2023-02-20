@@ -147,7 +147,8 @@ PANELDUE_BEEP gcode 매크로가 실행되면 클리퍼는 소켓위에 아래�
 
 ### gcode/서브스크라이브_출력
 
-이 endpoint 는 클리퍼에 의해 생성된 G-code 터미널 메시지를 표시할 때 사용됩니다. 예를 들어 : `{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{}}}` 이것은 후에 다음과 같은 비동기형 메시지를 내보낼 수 있습니다. : `{"params": {"response": "// Klipper state: Shutdown"}}`
+이 endpoint 는 클리퍼에 의해 생성된 G-code 터미널 메시지를 표시할 때 사용됩니다. 예를 들어 : `{"id": 123, "method": "gcode/subscribe_output", "params":
+{"response_template":{}}}` 이것은 후에 다음과 같은 비동기형 메시지를 내보낼 수 있습니다. : `{"params": {"response": "// Klipper state: Shutdown"}}`
 
 이 endpoint 는 터미널창 인터페이스를 통해 인간과 상호작용을 하도록 도와줄 수 있게 합니다. G-code 터미널 출력으로 부터의 파싱 내용은 낙담케(?) 된다. 클리퍼 상태에 대한 업데이트 내용을 얻고자 할 때는 "objects/subscribe" endpoint 를 사용하라.
 

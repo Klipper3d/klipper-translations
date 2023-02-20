@@ -10,7 +10,7 @@
 
 ## AVR 微控制器
 
-總體上來說，Arduino專案是8位Atmel Atmega微控制器的載入程式和刷寫程式的好的參考。特別是" boards.txt "檔案。 <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt>是一個有用的參考。
+總體上來說，Arduino專案是8位Atmel Atmega微控制器的載入程式和刷寫程式的好的參考。特別是" boards.txt "檔案。<https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt>是一個有用的參考。
 
 要刷寫載入程式本身，AVR 晶片需要一個外部硬體刷寫工具（它使用 SPI 與晶片進行通訊）。這個工具可以購買（例如，在網上搜索 "avr isp"、"arduino isp "或 "usb tiny isp"）。也可以使用另一個Arduino或Raspberry Pi來快閃記憶體AVR載入程式（例如，在網上搜索 "用raspberry pi程式設計AVR"）。下面的例子是在假設使用 "AVR ISP Mk2 "型別的裝置的情況下編寫的。
 
@@ -86,7 +86,7 @@ avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.
 
 本檔案不包括向At90usb1286刷寫載入程式的方法，也不包括向該裝置刷寫一般應用。
 
-來自pjrc.com的Teensy++裝置帶有一個專用的載入程式。它需要一個來自 <https://github.com/PaulStoffregen/teensy_loader_cli>的定製刷寫工具。可以用這個工具來刷寫一個應用程式，例如：
+來自pjrc.com的Teensy++裝置帶有一個專用的載入程式。它需要一個來自<https://github.com/PaulStoffregen/teensy_loader_cli>的定製刷寫工具。可以用這個工具來刷寫一個應用程式，例如：
 
 ```
 teensy_loader_cli --mcu=at90usb1286 out/klipper.elf.hex -v
@@ -116,7 +116,7 @@ avrdude -carduino -patmega168 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.e
 
 爲了啟用ROM，將"erase"引腳在復位過程中保持高電平，這將擦除快閃記憶體的內容，並使ROM執行。在Arduino Due上，這個程式可以通過在 "programming usb port"（程式設計USB口，最靠近電源的USB埠）上設定1200的波特率來完成。
 
- <https://github.com/shumatech/BOSSA>中的程式碼可以用來為SAM3程式設計。建議使用1.9或更高版本。
+<https://github.com/shumatech/BOSSA>中的程式碼可以用來為SAM3程式設計。建議使用1.9或更高版本。
 
 要刷寫一個應用程式使用：
 
@@ -131,7 +131,7 @@ bossac -U -p /dev/ttyACM0 -R
 
 爲了啟用ROM，在復位過程中要將"erase"引腳保持為高電平，這將擦除快閃記憶體內容，並使ROM執行。
 
- <https://github.com/shumatech/BOSSA>中的程式碼可以用來為SAM4程式設計。需要使用`1.8.0`或更高的版本。
+<https://github.com/shumatech/BOSSA>中的程式碼可以用來為SAM4程式設計。需要使用`1.8.0`或更高的版本。
 
 要刷寫一個應用程式使用：
 
@@ -182,7 +182,7 @@ avrdude -c stk500v2 -p atmega2560 -P /dev/ttyACM0 -u -Uflash:w:out/klipper.elf.h
 來源 [查詢目標/atsame5x.cfg]
 ```
 
-獲得一個載入程式--很多載入程式可以從 <https://github.com/adafruit/uf2-samdx1/releases/latest>獲得。例如：
+獲得一個載入程式--很多載入程式可以從<https://github.com/adafruit/uf2-samdx1/releases/latest>獲得。例如：
 
 ```
 wget 'https://github.com/adafruit/uf2-samdx1/releases/download/v3.7.0/bootloader-itsybitsy_m4-v3.7.0.bin'
@@ -210,13 +210,13 @@ The STM32F103 devices have a ROM that can flash a bootloader or application via 
 stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0
 ```
 
-注意，如果使用樹莓派的3.3V串列埠，stm32flash協議使用的序列奇偶校驗模式，樹莓派的 "mini UART "並不支援。關於在樹莓派的GPIO引腳上啟用完整的UART的細節，見 <https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts>。
+注意，如果使用樹莓派的3.3V串列埠，stm32flash協議使用的序列奇偶校驗模式，樹莓派的 "mini UART "並不支援。關於在樹莓派的GPIO引腳上啟用完整的UART的細節，見<https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts>。
 
 刷寫后，將 "boot 0 "和 "boot 1 "都恢復設為低電平，以便在復位后從快閃記憶體啟動。
 
 ### 帶有 stm32duino 引導載入程式的 STM32F103
 
-"stm32duino "專案有一個USB功能的載入程式-參見： <https://github.com/rogerclarkmelbourne/STM32duino-bootloader>
+"stm32duino "專案有一個USB功能的載入程式-參見：<https://github.com/rogerclarkmelbourne/STM32duino-bootloader>
 
 這個載入程式可以通過3.3V的串列埠用類似以下的命令來刷寫：
 
@@ -373,15 +373,15 @@ stm32flash -w hid_bootloader_SKR_PRO.bin -v -g 0 /dev/ttyAMA0
 
 ## LPC176x微控制器（Smoothieboards）
 
-本檔案沒有描述刷寫載入程式本身的方法--見： <http://smoothieware.org/flashing-the-bootloader>以獲得關於該主題的進一步資訊。
+本檔案沒有描述刷寫載入程式本身的方法--見：<http://smoothieware.org/flashing-the-bootloader>以獲得關於該主題的進一步資訊。
 
-Smoothieboards通常帶有一個來自 <https://github.com/triffid/LPC17xx-DFU-Bootloader>的bootloader。當使用這個載入程式時，應用程式必須以16KiB的起始地址進行編譯。用這個載入程式刷寫應用程式的最簡單方法是將應用程式檔案（例如`out/klipper.bin`）複製到SD卡上一個名為`firmware.bin`的檔案，然後用該SD卡重新啟動微控制器。
+Smoothieboards通常帶有一個來自<https://github.com/triffid/LPC17xx-DFU-Bootloader>的bootloader。當使用這個載入程式時，應用程式必須以16KiB的起始地址進行編譯。用這個載入程式刷寫應用程式的最簡單方法是將應用程式檔案（例如`out/klipper.bin`）複製到SD卡上一個名為`firmware.bin`的檔案，然後用該SD卡重新啟動微控制器。
 
 ## 在樹莓派上執行OpenOCD
 
 OpenOCD是一個軟體包，可以進行底層的晶片程式設計和除錯。它可以使用樹莓派上的GPIO引腳與各種ARM晶片通訊。
 
-本節描述瞭如何安裝和啟動OpenOCD。它來自於以下的說明： <https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi>
+本節描述瞭如何安裝和啟動OpenOCD。它來自於以下的說明：<https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi>
 
 開始下載和編譯軟體（每個步驟可能需要數分鐘，"make "步驟可能需要30分鐘以上）：
 
