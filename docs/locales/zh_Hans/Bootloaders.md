@@ -10,7 +10,7 @@
 
 ## AVR 微控制器
 
-总体上来说，Arduino项目是8位Atmel Atmega微控制器的引导程序和刷写程序的好的参考。特别是" boards.txt "文件。 <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt>是一个有用的参考。
+总体上来说，Arduino项目是8位Atmel Atmega微控制器的引导程序和刷写程序的好的参考。特别是" boards.txt "文件。<https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt>是一个有用的参考。
 
 要刷写引导程序本身，AVR 芯片需要一个外部硬件刷写工具（它使用 SPI 与芯片进行通信）。这个工具可以购买（例如，在网上搜索 "avr isp"、"arduino isp "或 "usb tiny isp"）。也可以使用另一个Arduino或Raspberry Pi来闪存AVR引导程序（例如，在网上搜索 "用raspberry pi编程AVR"）。下面的例子是在假设使用 "AVR ISP Mk2 "类型的设备的情况下编写的。
 
@@ -86,7 +86,7 @@ avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.
 
 本文件不包括向At90usb1286刷写引导程序的方法，也不包括向该设备刷写一般应用。
 
-来自pjrc.com的Teensy++设备带有一个专用的引导程序。它需要一个来自 <https://github.com/PaulStoffregen/teensy_loader_cli>的定制刷写工具。可以用这个工具来刷写一个应用程序，例如：
+来自pjrc.com的Teensy++设备带有一个专用的引导程序。它需要一个来自<https://github.com/PaulStoffregen/teensy_loader_cli>的定制刷写工具。可以用这个工具来刷写一个应用程序，例如：
 
 ```
 teensy_loader_cli --mcu=at90usb1286 out/klipper.elf.hex -v
@@ -116,7 +116,7 @@ avrdude -carduino -patmega168 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.e
 
 为了启用ROM，将"erase"引脚在复位过程中保持高电平，这将擦除闪存的内容，并使ROM运行。在Arduino Due上，这个程序可以通过在 "programming usb port"（编程USB口，最靠近电源的USB端口）上设置1200的波特率来完成。
 
- <https://github.com/shumatech/BOSSA>中的代码可以用来为SAM3编程。建议使用1.9或更高版本。
+<https://github.com/shumatech/BOSSA>中的代码可以用来为SAM3编程。建议使用1.9或更高版本。
 
 要刷写一个应用程序使用：
 
@@ -131,7 +131,7 @@ bossac -U -p /dev/ttyACM0 -R
 
 为了启用ROM，在复位过程中要将"erase"引脚保持为高电平，这将擦除闪存内容，并使ROM运行。
 
- <https://github.com/shumatech/BOSSA>中的代码可以用来为SAM4编程。需要使用`1.8.0`或更高的版本。
+<https://github.com/shumatech/BOSSA>中的代码可以用来为SAM4编程。需要使用`1.8.0`或更高的版本。
 
 要刷写一个应用程序使用：
 
@@ -182,7 +182,7 @@ avrdude -c stk500v2 -p atmega2560 -P /dev/ttyACM0 -u -Uflash:w:out/klipper.elf.h
 source [find target/atsame5x.cfg]
 ```
 
-获得一个引导程序--很多引导程序可以从 <https://github.com/adafruit/uf2-samdx1/releases/latest>获得。例如：
+获得一个引导程序--很多引导程序可以从<https://github.com/adafruit/uf2-samdx1/releases/latest>获得。例如：
 
 ```
 wget 'https://github.com/adafruit/uf2-samdx1/releases/download/v3.7.0/bootloader-itsybitsy_m4-v3.7.0.bin'
@@ -210,13 +210,13 @@ STM32F103设备有一个ROM，可以通过3.3V串口刷写引导程序或应用�
 stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0
 ```
 
-注意，如果使用树莓派的3.3V串口，stm32flash协议使用的串行奇偶校验模式，树莓派的 "mini UART "并不支持。关于在树莓派的GPIO引脚上启用完整的UART的细节，见 <https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts>。
+注意，如果使用树莓派的3.3V串口，stm32flash协议使用的串行奇偶校验模式，树莓派的 "mini UART "并不支持。关于在树莓派的GPIO引脚上启用完整的UART的细节，见<https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts>。
 
 刷写后，将 "boot 0 "和 "boot 1 "都恢复设为低电平，以便在复位后从闪存启动。
 
 ### 带有 stm32duino 引导加载程序的 STM32F103
 
-"stm32duino "项目有一个USB功能的引导程序-参见： <https://github.com/rogerclarkmelbourne/STM32duino-bootloader>
+"stm32duino "项目有一个USB功能的引导程序-参见：<https://github.com/rogerclarkmelbourne/STM32duino-bootloader>
 
 这个引导程序可以通过3.3V的串口用类似以下的命令来刷写：
 
@@ -373,15 +373,15 @@ stm32flash -w hid_bootloader_SKR_PRO.bin -v -g 0 /dev/ttyAMA0
 
 ## LPC176x微控制器（Smoothieboards）
 
-本文件没有描述刷写引导程序本身的方法--见： <http://smoothieware.org/flashing-the-bootloader>以获得关于该主题的进一步信息。
+本文件没有描述刷写引导程序本身的方法--见：<http://smoothieware.org/flashing-the-bootloader>以获得关于该主题的进一步信息。
 
-Smoothieboards通常带有一个来自 <https://github.com/triffid/LPC17xx-DFU-Bootloader>的bootloader。当使用这个引导程序时，应用程序必须以16KiB的起始地址进行编译。用这个引导程序刷写应用程序的最简单方法是将应用程序文件（例如`out/klipper.bin`）复制到SD卡上一个名为`firmware.bin`的文件，然后用该SD卡重新启动微控制器。
+Smoothieboards通常带有一个来自<https://github.com/triffid/LPC17xx-DFU-Bootloader>的bootloader。当使用这个引导程序时，应用程序必须以16KiB的起始地址进行编译。用这个引导程序刷写应用程序的最简单方法是将应用程序文件（例如`out/klipper.bin`）复制到SD卡上一个名为`firmware.bin`的文件，然后用该SD卡重新启动微控制器。
 
 ## 在树莓派上运行OpenOCD
 
 OpenOCD是一个软件包，可以进行底层的芯片编程和调试。它可以使用树莓派上的GPIO引脚与各种ARM芯片通信。
 
-本节描述了如何安装和启动OpenOCD。它来自于以下的说明： <https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi>
+本节描述了如何安装和启动OpenOCD。它来自于以下的说明：<https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi>
 
 开始下载和编译软件（每个步骤可能需要数分钟，"make "步骤可能需要30分钟以上）：
 

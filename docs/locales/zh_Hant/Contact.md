@@ -17,7 +17,7 @@
 
 ## Discord 聊天
 
-我們有一個用來討論Klipper的Discord伺服器，它的邀請鏈接是 <https://discord.klipper3d.org>。
+我們有一個用來討論Klipper的Discord伺服器，它的邀請鏈接是<https://discord.klipper3d.org>。
 
 這個伺服器是由 Klipper 愛好者社區執行，致力於討論 Klipper。它允許進行使用者間的實時聊天。
 

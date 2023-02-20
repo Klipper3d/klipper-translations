@@ -105,7 +105,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 #### BED_MESH_OFFSET
 
-`BED_MESH_OFFSET [X=<value>] [Y=<value>]`: 메쉬 조회에 X 및/또는 Y 오프셋을 적용합니다. 이것은 툴 교체 후 정확한 Z 조정을 생성하기 위해 오프셋이 필요하기 때문에 독립 익스트루더가 있는 프린터에 유용합니다.
+`BED_MESH_OFFSET [X=<value>] [Y=<value>]`:  메쉬 조회에 X 및/또는 Y 오프셋을 적용합니다. 이것은 툴 교체 후 정확한 Z 조정을 생성하기 위해 오프셋이 필요하기 때문에 독립 익스트루더가 있는 프린터에 유용합니다.
 
 ### [bed_screws]
 
@@ -614,7 +614,7 @@ The following commands are available when a [resonance_tester config section](Co
 
 #### SHAPER_CALIBRATE
 
-`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [MAX_SMOOTHING=<max_smoothing>]`: `TEST_RESONANCES`와 유사하게 구성된 대로 공진 테스트를 실행하고 요청된 축(또는 `AXIS` 매개변수가 설정되지 않은 경우 X축과 Y축 모두)에 대한 입력 셰이퍼에 대한 최적의 매개변수를 찾으려고 시도합니다. `MAX_SMOOTHING`이 설정되지 않은 경우 해당 값은 `[resonance_tester]` 섹션에서 가져오고 기본값은 설정되지 않습니다. 이 기능의 사용에 대한 자세한 내용은 공진 측정 가이드의 [Max smoothing](Measuring_Resonances.md#max-smoothing) 를 참조하세요. 조정 결과는 콘솔에 인쇄되고 주파수 응답과 다양한 입력 셰이퍼 값은 CSV 파일 `/tmp/calibration_data_<axis>_<name>.csv`에 기록됩니다. 지정하지 않는 한 NAME의 기본값은 "YYYYMMDD_HHMMSS" 형식의 현재 시간입니다. 제안된 입력 셰이퍼 매개변수는 'SAVE_CONFIG' 명령을 실행하여 구성에 유지될 수 있습니다.
+`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [MAX_SMOOTHING=<max_smoothing>]`:  `TEST_RESONANCES`와 유사하게 구성된 대로 공진 테스트를 실행하고 요청된 축(또는 `AXIS` 매개변수가 설정되지 않은 경우 X축과 Y축 모두)에 대한 입력 셰이퍼에 대한 최적의 매개변수를 찾으려고 시도합니다. `MAX_SMOOTHING`이 설정되지 않은 경우 해당 값은 `[resonance_tester]` 섹션에서 가져오고 기본값은 설정되지 않습니다. 이 기능의 사용에 대한 자세한 내용은 공진 측정 가이드의 [Max smoothing](Measuring_Resonances.md#max-smoothing) 를 참조하세요. 조정 결과는 콘솔에 인쇄되고 주파수 응답과 다양한 입력 셰이퍼 값은 CSV 파일 `/tmp/calibration_data_<axis>_<name>.csv`에 기록됩니다. 지정하지 않는 한 NAME의 기본값은 "YYYYMMDD_HHMMSS" 형식의 현재 시간입니다. 제안된 입력 셰이퍼 매개변수는 'SAVE_CONFIG' 명령을 실행하여 구성에 유지될 수 있습니다.
 
 ### [respond]
 

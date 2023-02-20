@@ -4,7 +4,7 @@ Klipper er fri programvare som avhenger av generøs støtte fra kronerullere. Gi
 
 ## BIGTREETECH
 
-[<img src="./img/sponsors/BTT_BTT.png" width="200" />
+[<img src="./img/sponsors/BTT_BTT.png" width="200" />](https://bigtree-tech.com/collections/all-products)
 
 BIGTREETECH er offisiell hovedkortssponsor for Klipper. BIGTREETECH lager innovative og konkurransedyktige produkter til 3D-printing.
 

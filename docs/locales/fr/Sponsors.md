@@ -4,7 +4,7 @@ Klipper est un logiciel libre. Nous dépendons du généreux soutien des sponsor
 
 ## BIGTREETECH
 
-[<img src="./img/sponsors/BTT_BTT.png" width="200" />
+[<img src="./img/sponsors/BTT_BTT.png" width="200" />](https://bigtree-tech.com/collections/all-products)
 
 BIGTREETECH est le sponsor officiel de cartes mères pour Klipper. BIGTREETECH s’engage à développer des produits innovants et compétitifs pour mieux servir la communauté de l’impression 3D. Suivez-les sur [Facebook](https://www.facebook.com/BIGTREETECH) ou [Twitter](https://twitter.com/BigTreeTech).
 

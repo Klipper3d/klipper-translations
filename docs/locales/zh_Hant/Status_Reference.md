@@ -122,7 +122,7 @@ The following information is available for extruder_stepper objects (as well as 
 
 ## gcode_macro
 
-[gcode_macro <名稱> 對像提供了以下資訊：
+[gcode_macro <名稱>](Config_Reference.md#gcode_macro) 對像提供了以下資訊：
 
 - `<變數名>`：[gcode_macro 變數](Command_Templates.md#variables) 的當前值。
 
@@ -204,7 +204,7 @@ The following information is available in the `manual_probe` object:
 
 ## output_pin
 
-[output_pin <配置名稱> 對像提供以下資訊：
+[output_pin <配置名稱>](Config_Reference.md#output_pin) 對像提供以下資訊：
 
 - `value`：由`SET_PIN`指令設定的引腳「值」。
 

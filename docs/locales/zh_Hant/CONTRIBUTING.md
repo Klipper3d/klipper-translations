@@ -57,7 +57,7 @@
 
    1. 提交的版權是否清晰、無償、相容？新的 C 檔案和 Python 檔案應該有一個明確的版權聲明。請看現有檔案以瞭解推薦格式。不推薦在對現有檔案進行小的修改時對該檔案進行版權聲明。
 
-   從第三方來源獲取的程式碼必須與 Klipper 的許可證（GNU GPLv3）相容。大型的第三方程式碼新增應被新增到`lib/`目錄中（並遵循 <../lib/README>中描述的格式）。
+   從第三方來源獲取的程式碼必須與 Klipper 的許可證（GNU GPLv3）相容。大型的第三方程式碼新增應被新增到`lib/`目錄中（並遵循[../lib/README](../lib/README)中描述的格式）。
 
    提交者必須提供一個[Signed-off-by 行](#format-of-commit-messages)，使用他們的真實全名。它表明提交者同意[開發者源頭證書](developer-certificate-of-origin)。
 

@@ -375,7 +375,7 @@ and use `graph_accelerometer.py` to process the generated files, e.g.
 
 以生成`/tmp/resonances.png`，对比共振的数据。
 
-对标准构型的三角洲打印机（A塔210°，B塔330°，C塔~90°），执行
+对标准构型的三角洲打印机（A塔~210°，B塔~330°，C塔~90°），执行
 
 ```
 TEST_RESONANCES AXIS=0,1 OUTPUT=raw_data

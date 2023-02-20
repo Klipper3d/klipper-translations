@@ -4,7 +4,7 @@
 
 ## Сборка образа ОС
 
-Начните с установки [Debian 9.9 2019-08-03 4GB SD IoT](https://beagleboard.org/latest-images) изображение. Изображение можно запустить либо с карты micro-SD, либо со встроенного eMMC. Если вы используете eMMC, установите его в eMMC сейчас, следуя инструкциям по приведенной выше ссылке.
+Начните с установки [Debian 9.9 2019-08-03 4GB SD IoT](https://beagleboard.org/latest-images ) изображение. Изображение можно запустить либо с карты micro-SD, либо со встроенного eMMC. Если вы используете eMMC, установите его в eMMC сейчас, следуя инструкциям по приведенной выше ссылке.
 
 Then ssh into the Beaglebone machine (`ssh debian@beaglebone` -- password is `temppwd`) and install Klipper by running the following commands:
 

@@ -2,7 +2,7 @@
 
 Ce document décrit comment configurer un laser ou une broche contrôlée par PWM en utilisant `output_pin` et quelques macros.
 
-## Comment ça marche ?
+## Comment cela fonctionne-t-il ?
 
 En ré-utilisant la sortie pwm du ventilateur de la tête d'impression, vous pouvez contrôler des lasers ou des broches. Ceci est utile si vous utilisez des têtes d'impression commutables, par exemple le changeur d'outils E3D ou une solution DIY. Habituellement, les outils à came tels que LaserWeb peuvent être configurés pour utiliser les commandes `M3-M5`, qui correspondent à *vitesse de broche CW* (`M3 S[0-255]`), *vitesse de broche CCW* (`M4 S[0-255]`) et *arrêt de broche* (`M5`).
 

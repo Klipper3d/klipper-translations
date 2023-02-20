@@ -205,11 +205,11 @@ Il convient de noter que chaque fois qu'un BED_MESH_CALIBRATE est produit, l'ét
 
 Tout autre profil enregistré peut être supprimé de la même manière, en remplaçant *default* par le nom du profil que vous souhaitez supprimer.
 
-#### Loading the default profile
+#### Chargement du profil par défaut
 
-Previous versions of `bed_mesh` always loaded the profile named *default* on startup if it was present. This behavior has been removed in favor of allowing the user to determine when a profile is loaded. If a user wishes to load the `default` profile it is recommended to add `BED_MESH_PROFILE LOAD=default` to either their `START_PRINT` macro or their slicer's "Start G-Code" configuration, whichever is applicable.
+Les versions précédentes de `bed_mesh` chargeaient toujours le profil nommé *default* au démarrage s'il était présent. Ce comportement a été supprimé afin de permettre à l'utilisateur de déterminer quand un profil est chargé. Si un utilisateur souhaite charger le profil par défaut, il est recommandé d'ajouter `BED_MESH_PROFILE LOAD=default` à sa macro `START_PRINT` ou à la configuration "Start G-Code" de son trancheur, selon ce qui est applicable.
 
-Alternatively the old behavior of loading a profile at startup can be restored with a `[delayed_gcode]`:
+Alternativement, l'ancien comportement de chargement d'un profil au démarrage peut être restauré avec un `[delayed_gcode]` :
 
 ```ini
 [delayed_gcode bed_mesh_init]

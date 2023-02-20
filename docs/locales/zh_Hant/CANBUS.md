@@ -13,7 +13,7 @@ Klipper currently supports CAN on stm32, same5x, and rp2040 chips. In addition, 
 爲了使用 CAN 匯流排，主機需要一個適配器。目前有兩種常見的選擇：
 
 1. 使用[Waveshare Raspberry Pi CAN hat](https://www.waveshare.com/rs485-can-hat.htm)或其眾多克隆中的一個。
-1. 使用一個USB CAN適配器（例如 <https://hacker-gadgets.com/product/cantact-usb-can-adapter/>）。有許多不同的USB到CAN適配器—當選擇時，我們建議驗證它是否能執行[candlelight 韌體](https://github.com/candle-usb/candleLight_fw)。(不幸的是，我們發現一些USB適配器執行有缺陷的韌體，並被鎖死，所以在購買前要進行覈實。）
+1. 使用一個USB CAN適配器（例如<https://hacker-gadgets.com/product/cantact-usb-can-adapter/>）。有許多不同的USB到CAN適配器—當選擇時，我們建議驗證它是否能執行[candlelight 韌體](https://github.com/candle-usb/candleLight_fw)。(不幸的是，我們發現一些USB適配器執行有缺陷的韌體，並被鎖死，所以在購買前要進行覈實。）
 
 還需要將主機操作系統配置為使用適配器。通常可以通過建立一個名為 `/etc/network/interfaces.d/can0` 的新檔案來實現，該檔案包含以下內容：
 

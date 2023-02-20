@@ -122,7 +122,7 @@
 
 ## gcode_macro
 
-[gcode_macro <名称> 对象提供了以下信息：
+[gcode_macro <名称>](Config_Reference.md#gcode_macro) 对象提供了以下信息：
 
 - `<变量名>`：[gcode_macro 变量](Command_Templates.md#variables) 的当前值。
 
@@ -204,7 +204,7 @@
 
 ## output_pin
 
-[output_pin <配置名称> 对象提供以下信息：
+[output_pin <配置名称>](Config_Reference.md#output_pin) 对象提供以下信息：
 
 - `value`：由`SET_PIN`指令设置的引脚“值”。
 
