@@ -1,0 +1,94 @@
+#
+msgid ""
+msgstr ""
+"Language: anp\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/Sponsors.md:block 1 (header)
+msgid "Sponsors"
+msgstr ""
+
+#: docs/Sponsors.md:block 2 (paragraph)
+msgid ""
+"Klipper is Free Software. We depend on the generous support from sponsors. "
+"Please consider sponsoring Klipper or supporting our sponsors."
+msgstr ""
+
+#: docs/Sponsors.md:block 3 (header)
+msgid "BIGTREETECH"
+msgstr ""
+
+#: docs/Sponsors.md:block 4 (paragraph)
+msgid ""
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" />](https://bigtree-"
+"tech.com/collections/all-products)"
+msgstr ""
+
+#: docs/Sponsors.md:block 5 (paragraph)
+msgid ""
+"BIGTREETECH is the official mainboard sponsor of Klipper. BIGTREETECH is "
+"committed to developing innovative and competitive products to serve the 3D "
+"printing community better. Follow them on "
+"[Facebook](https://www.facebook.com/BIGTREETECH) or "
+"[Twitter](https://twitter.com/BigTreeTech)."
+msgstr ""
+
+#: docs/Sponsors.md:block 6 (header)
+msgid "Klipper Developers"
+msgstr ""
+
+#: docs/Sponsors.md:block 7 (header)
+msgid "Kevin O'Connor"
+msgstr ""
+
+#: docs/Sponsors.md:block 9 (header)
+msgid "Eric Callahan"
+msgstr ""
+
+#: docs/Sponsors.md:block 10 (paragraph)
+msgid ""
+"Eric is the author of bed_mesh, spi_flash, and several other Klipper "
+"modules. Eric has a donations page at: <https://ko-fi.com/arksine>"
+msgstr ""
+
+#: docs/Sponsors.md:block 11 (header)
+msgid "Related Klipper Projects"
+msgstr ""
+
+#: docs/Sponsors.md:block 12 (paragraph)
+msgid ""
+"Klipper is frequently used with other Free Software. Consider using or "
+"supporting these projects."
+msgstr ""
+
+#: docs/Sponsors.md:block 13 (unordered list)
+msgid "[Moonraker](https://github.com/Arksine/moonraker)"
+msgstr ""
+
+#: docs/Sponsors.md:block 13 (unordered list)
+msgid "[Mainsail](https://github.com/mainsail-crew/mainsail)"
+msgstr ""
+
+#: docs/Sponsors.md:block 13 (unordered list)
+msgid "[Fluidd](https://github.com/fluidd-core/fluidd)"
+msgstr ""
+
+#: docs/Sponsors.md:block 13 (unordered list)
+msgid "[OctoPrint](https://octoprint.org/)"
+msgstr ""
+
+#: docs/Sponsors.md:block 13 (unordered list)
+msgid "[KlipperScreen](https://github.com/jordanruthe/KlipperScreen)"
+msgstr ""
+
+#: docs/Sponsors.md:block 8 (paragraph)
+msgid ""
+"Kevin is the original author and current maintainer of Klipper. Donate at: "
+"<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
+msgstr ""
+
+#~ msgid ""
+#~ "Kevin is the original author and current maintainer of Klipper. Kevin has a "
+#~ "Patreon page at: <https://www.patreon.com/koconnor>"
+#~ msgstr ""

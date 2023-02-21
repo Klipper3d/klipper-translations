@@ -1495,7 +1495,8 @@ gcode:
 <p>이것은 "gcode/restart" endpoint 와 유사하다. - 그것도 "FIRMWARE_RESTART" G-Code 명령을 수행합니다. 예를 들면 : <code>{"id": 123, "method": "gcode/firmware_restart"}</code></p>
 <p>"gcode/script" endpoint 와 같이 사용할 때 이 endpoint 는 지연된 G-Code 명령들이 완료된 후에만 오직 끝마칠 수 있다.</p>
 <h3 id="gcode_">gcode/서브스크라이브_출력<a class="headerlink" href="#gcode_" title="Permanent link">&para;</a></h3>
-<p>이 endpoint 는 클리퍼에 의해 생성된 G-code 터미널 메시지를 표시할 때 사용됩니다. 예를 들어 : <code>{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{}}}</code> 이것은 후에 다음과 같은 비동기형 메시지를 내보낼 수 있습니다. : <code>{"params": {"response": "// Klipper state: Shutdown"}}</code></p>
+<p>이 endpoint 는 클리퍼에 의해 생성된 G-code 터미널 메시지를 표시할 때 사용됩니다. 예를 들어 : <code>{"id": 123, "method": "gcode/subscribe_output", "params":
+{"response_template":{}}}</code> 이것은 후에 다음과 같은 비동기형 메시지를 내보낼 수 있습니다. : <code>{"params": {"response": "// Klipper state: Shutdown"}}</code></p>
 <p>이 endpoint 는 터미널창 인터페이스를 통해 인간과 상호작용을 하도록 도와줄 수 있게 합니다. G-code 터미널 출력으로 부터의 파싱 내용은 낙담케(?) 된다. 클리퍼 상태에 대한 업데이트 내용을 얻고자 할 때는 "objects/subscribe" endpoint 를 사용하라.</p>
 <h3 id="motion_reportdump_stepper">motion_report/dump_stepper<a class="headerlink" href="#motion_reportdump_stepper" title="Permanent link">&para;</a></h3>
 <p>This endpoint is used to subscribe to Klipper's internal stepper queue_step command stream for a stepper. Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.</p>
