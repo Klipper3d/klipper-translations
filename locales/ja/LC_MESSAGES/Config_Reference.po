@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-02-09 05:44+0000\n"
+"PO-Revision-Date: 2023-02-20 09:40+0000\n"
 "Last-Translator: 京都タラレバ息子 <japan100@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
 "config_reference/ja/>\n"
@@ -53,13 +53,13 @@ msgid ""
 msgstr ""
 
 msgid "[mcu]"
-msgstr ""
+msgstr "[mcu]"
 
 msgid "Configuration of the primary micro-controller."
 msgstr ""
 
 msgid "[mcu my_extra_mcu]"
-msgstr ""
+msgstr "[mcu my_extra_mcu]"
 
 msgid ""
 "Additional micro-controllers (one may define any number of sections with an "
@@ -74,13 +74,13 @@ msgid "Common kinematic settings"
 msgstr ""
 
 msgid "[printer]"
-msgstr ""
+msgstr "[printer]"
 
 msgid "The printer section controls high level printer settings."
 msgstr ""
 
 msgid "[stepper]"
-msgstr ""
+msgstr "[stepper]"
 
 msgid ""
 "Stepper motor definitions. Different printer types (as specified by the "
