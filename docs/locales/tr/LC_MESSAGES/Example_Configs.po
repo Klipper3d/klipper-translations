@@ -1,9 +1,9 @@
-# zafer yazkili <yazkili@hotmail.com>, 2023.
+# zafer yazkili <yazkili@hotmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: zafer yazkili <yazkili@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
 "example_configs/tr/>\n"
 "Language: tr\n"
@@ -17,8 +17,8 @@ msgid ""
 "configuration to the Klipper github repository (located in the [config "
 "directory](../config/))."
 msgstr ""
-"Bu belge, Klipper github deposuna ([config dizini](../config/) içinde bulunur)"
-" örnek bir Klipper yapılandırması eklemek için yönergeler içerir."
+"Bu belge, Klipper github deposuna ([config dizini](../config/) içinde "
+"bulunur) örnek bir Klipper yapılandırması eklemek için yönergeler içerir."
 
 msgid ""
 "Note that the [Klipper Community Discourse "
