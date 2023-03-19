@@ -1,16 +1,17 @@
-# zafer yazkili <yazkili@hotmail.com>, 2023.
+# zafer yazkili <yazkili@hotmail.com>, 2023, 2025.
 # Furkan Öz <info.furkanoz@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-07-30 19:09+0000\n"
-"Last-Translator: Furkan Öz <info.furkanoz@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/contact/tr/>\n"
+"PO-Revision-Date: 2025-05-03 07:21+0000\n"
+"Last-Translator: zafer yazkili <yazkili@hotmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/contact/"
+"tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid "This document provides contact information for Klipper."
 msgstr "Bu belge Klipper için iletişim bilgileri sağlar."
