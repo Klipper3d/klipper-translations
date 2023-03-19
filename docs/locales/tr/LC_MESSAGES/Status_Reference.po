@@ -1,11 +1,11 @@
-# zafer yazkili <yazkili@hotmail.com>, 2023.
+# zafer yazkili <yazkili@hotmail.com>, 2023, 2025.
 # mustafa kaya <m.mkaya92@gmail.com>, 2024.
 # Sümer Okan <smr.okan@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Sümer Okan <smr.okan@gmail.com>\n"
+"Last-Translator: zafer yazkili <yazkili@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
 "status_reference/tr/>\n"
 "Language: tr\n"
@@ -19,9 +19,9 @@ msgid ""
 "Klipper [macros](Command_Templates.md), [display "
 "fields](Config_Reference.md#display), and via the [API Server](API_Server.md)."
 msgstr ""
-"Bu belge, Klipper [makrolar](Command_Templates.md), [görüntü "
-"alanları](Config_Reference.md#display) ve [API Sunucusu](API_Server.md) "
-"aracılığıyla kullanılabilen yazıcı durumu bilgilerinin bir referansıdır."
+"Bu belge, Klipper [makrolar](Command_Templates.md), [görüntü alanları]"
+"(Config_Reference.md#display) ve [API Sunucusu](API_Server.md) aracılığıyla "
+"kullanılabilen yazıcı durumu bilgilerinin bir referansıdır."
 
 msgid ""
 "The fields in this document are subject to change - if using an attribute be "
