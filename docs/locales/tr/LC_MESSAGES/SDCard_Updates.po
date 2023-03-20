@@ -1,10 +1,10 @@
-# zafer yazkili <yazkili@hotmail.com>, 2023.
+# zafer yazkili <yazkili@hotmail.com>, 2023, 2025.
 # mustafa kaya <m.mkaya92@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: zafer yazkili <yazkili@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
 "sdcard_updates/tr/>\n"
 "Language: tr\n"
@@ -26,10 +26,10 @@ msgstr ""
 "yazılımını güncelleyebilen bir önyükleyici ile birlikte gelir. Bu birçok "
 "durumda uygun olsa da, bu önyükleyiciler tipik olarak aygıt yazılımını "
 "güncellemek için başka bir yol sağlamaz. Anakartınız erişimi zor bir yere "
-"monte edilmişse veya ürün yazılımını sık sık güncellemeniz gerekiyorsa bu can "
-"sıkıcı olabilir. Klipper başlangıçta bir denetleyiciye yüklendikten sonra, "
-"yeni ürün yazılımını SD Karta aktarmak ve ssh yoluyla yükleme prosedürünü "
-"başlatmak mümkündür."
+"monte edilmişse veya ürün yazılımını sık sık güncellemeniz gerekiyorsa bu "
+"can sıkıcı olabilir. Klipper başlangıçta bir denetleyiciye yüklendikten "
+"sonra, yeni ürün yazılımını SD Karta aktarmak ve ssh yoluyla yükleme "
+"prosedürünü başlatmak mümkündür."
 
 msgid "Typical Upgrade Procedure"
 msgstr "Tipik Yükseltme Prosedürü"
