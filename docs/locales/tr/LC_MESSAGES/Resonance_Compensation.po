@@ -1,16 +1,17 @@
-# zafer yazkili <yazkili@hotmail.com>, 2023.
+# zafer yazkili <yazkili@hotmail.com>, 2023, 2025.
 # Makers Lab <makerslab.tr@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-05-07 11:07+0000\n"
-"Last-Translator: Makers Lab <makerslab.tr@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/resonance_compensation/tr/>\n"
+"PO-Revision-Date: 2025-05-03 07:21+0000\n"
+"Last-Translator: zafer yazkili <yazkili@hotmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
+"resonance_compensation/tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.4-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid "Resonance Compensation"
 msgstr "Rezonans Telafisi"
