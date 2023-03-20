@@ -1,10 +1,10 @@
-# zafer yazkili <yazkili@hotmail.com>, 2023.
+# zafer yazkili <yazkili@hotmail.com>, 2023, 2025.
 # Makers Lab <makerslab.tr@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: zafer yazkili <yazkili@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
 "rotation_distance/tr/>\n"
 "Language: tr\n"
@@ -20,8 +20,8 @@ msgid ""
 "full revolution of the stepper motor. This document describes how one can "
 "configure this value."
 msgstr ""
-"Klipper üzerindeki step motor sürücüleri, her [adım yapılandırma "
-"bölümünde](Config_Reference.md#stepper) bir \"rotation_distance\" parametresi "
+"Klipper üzerindeki step motor sürücüleri, her [adım yapılandırma bölümünde]"
+"(Config_Reference.md#stepper) bir \"rotation_distance\" parametresi "
 "gerektirir. \"rotation_distance\", step motorun bir tam dönüşünde eksenin "
 "hareket ettiği mesafe miktarıdır. Bu belge, bu değerin nasıl "
 "yapılandırılacağını açıklar."
