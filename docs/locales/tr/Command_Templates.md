@@ -1,6 +1,6 @@
 # Commands templates
 
-This document provides information on implementing G-Code command sequences in gcode_macro (and similar) config sections.
+Bu belge gcode_macro (ve benzeri) yapılandırma bölümlerinde G-Code komut dizilerinin uygulanması hakkında bilgi sağlar.
 
 ## G-Code Macro Naming
 

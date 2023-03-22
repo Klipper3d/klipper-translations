@@ -1,6 +1,6 @@
 # Contact
 
-This document provides contact information for Klipper.
+Bu belge Klipper için iletişim bilgileri sağlar.
 
 1. [Community Forum](#community-forum)
 1. [Discord Chat](#discord-chat)

@@ -1,6 +1,6 @@
 # Debugging
 
-This document describes some of the Klipper debugging tools.
+Bu belge Klipper hata ayıklama araçlarından bazılarını açıklamaktadır.
 
 ## Running the regression tests
 
