@@ -1,6 +1,6 @@
 # Delta calibration
 
-This document describes Klipper's automatic calibration system for "delta" style printers.
+Bu belge Klipper'ın "delta" tarzı yazıcılar için otomatik kalibrasyon sistemini açıklamaktadır.
 
 Delta calibration involves finding the tower endstop positions, tower angles, delta radius, and delta arm lengths. These settings control printer motion on a delta printer. Each one of these parameters has a non-obvious and non-linear impact and it is difficult to calibrate them manually. In contrast, the software calibration code can provide excellent results with just a few minutes of time. No special probing hardware is necessary.
 

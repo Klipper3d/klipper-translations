@@ -1,6 +1,6 @@
 # Sürümler
 
-History of Klipper releases. Please see [installation](Installation.md) for information on installing Klipper.
+Klipper sürümlerinin geçmişi. Klipper kurulumu hakkında bilgi için lütfen [kurulum](Kurulum.md) bölümüne bakınız.
 
 ## Klipper 0.11.0
 

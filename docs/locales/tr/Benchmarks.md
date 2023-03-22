@@ -1,6 +1,6 @@
 # Benchmarks
 
-This document describes Klipper benchmarks.
+Bu belgede Klipper karşılaştırma testleri açıklanmaktadır.
 
 ## Micro-controller Benchmarks
 

@@ -1,6 +1,6 @@
 # Basınç avansı
 
-This document provides information on tuning the "pressure advance" configuration variable for a particular nozzle and filament. The pressure advance feature can be helpful in reducing ooze. For more information on how pressure advance is implemented see the [kinematics](Kinematics.md) document.
+Bu belge, belirli bir nozul ve filament için "basınç avansı" yapılandırma değişkeninin ayarlanması hakkında bilgi sağlar. Basınç ilerletme özelliği sızıntıyı azaltmada yardımcı olabilir. Basınç avansının nasıl uygulandığı hakkında daha fazla bilgi için [kinematics](Kinematics.md) belgesine bakın.
 
 ## Tuning pressure advance
 

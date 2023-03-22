@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-## How can I donate to the project?
+## Projeye nasıl bağış yapabilirim?
 
 Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
 

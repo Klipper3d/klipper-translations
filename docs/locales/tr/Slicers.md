@@ -1,6 +1,6 @@
 # Dilimleyiciler
 
-This document provides some tips for configuring a "slicer" application for use with Klipper. Common slicers used with Klipper are Slic3r, Cura, Simplify3D, etc.
+Bu belge, Klipper ile kullanım için bir "dilimleyici" uygulaması yapılandırmak için bazı ipuçları sağlar. Klipper ile kullanılan yaygın dilimleyiciler Slic3r, Cura, Simplify3D, vs.'dir.
 
 ## Set the G-Code flavor to Marlin
 
