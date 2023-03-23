@@ -1,9 +1,19 @@
-#
+# zafer yazkili <yazkili@hotmail.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-03-20 06:39+0000\n"
+"Last-Translator: zafer yazkili <yazkili@hotmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
+"canbus_protocol/tr/>\n"
+"Language: tr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.16.2-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 msgid "Micro-controller id assignment"
-msgstr ""
+msgstr "Mikro denetleyici kimliği atama"
 
 msgid ""
 "Klipper uses only CAN 2.0A standard size CAN bus packets, which are limited "

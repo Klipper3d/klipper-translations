@@ -1,20 +1,24 @@
 # Kaan Özbilek <info@kaanozbilek.com>, 2023.
+# zafer yazkili <yazkili@hotmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-10 15:50+0000\n"
-"Last-Translator: Kaan Özbilek <info@kaanozbilek.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/config_reference/tr/>\n"
+"PO-Revision-Date: 2023-03-20 06:39+0000\n"
+"Last-Translator: zafer yazkili <yazkili@hotmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
+"config_reference/tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.16.2-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
 "file."
 msgstr ""
+"Bu belge, Klipper yapılandırma dosyasında bulunan seçenekler için bir "
+"referanstır."
 
 msgid ""
 "The descriptions in this document are formatted so that it is possible to "
