@@ -1,9 +1,9 @@
-# Rui Afonso <rui_afonso@msn.com>, 2023.
+# Rui Afonso <rui_afonso@msn.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:30+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Rui Afonso <rui_afonso@msn.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
 "tmc_drivers/pt/>\n"
 "Language: pt\n"
