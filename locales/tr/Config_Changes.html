@@ -1249,7 +1249,7 @@
 
 
 <h1 id="configuration-changes">Configuration Changes<a class="headerlink" href="#configuration-changes" title="Permanent link">&para;</a></h1>
-<p>This document covers recent software changes to the config file that are not backwards compatible. It is a good idea to review this document when upgrading the Klipper software.</p>
+<p>Bu belge, yapılandırma dosyasında geriye dönük uyumlu olmayan son yazılım değişikliklerini kapsamaktadır. Klipper yazılımını yükseltirken bu belgeyi gözden geçirmek iyi bir fikirdir.</p>
 <p>All dates in this document are approximate.</p>
 <h2 id="changes">Changes<a class="headerlink" href="#changes" title="Permanent link">&para;</a></h2>
 <p>20230201: The <code>[bed_mesh]</code> module no longer loads the <code>default</code> profile on startup. It is recommended that users who use the <code>default</code> profile add <code>BED_MESH_PROFILE LOAD=default</code> to their <code>START_PRINT</code> macro (or to their slicer's "Start G-Code" configuration when applicable).</p>

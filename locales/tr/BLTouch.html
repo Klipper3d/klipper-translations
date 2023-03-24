@@ -1225,8 +1225,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#connecting-bl-touch" class="md-nav__link">
-    Connecting BL-Touch
+  <a href="#bl-touch-baglants" class="md-nav__link">
+    BL-Touch Bağlantısı
   </a>
   
 </li>
@@ -1298,7 +1298,7 @@
 
 
 <h1 id="bl-touch">BL-Touch<a class="headerlink" href="#bl-touch" title="Permanent link">&para;</a></h1>
-<h2 id="connecting-bl-touch">Connecting BL-Touch<a class="headerlink" href="#connecting-bl-touch" title="Permanent link">&para;</a></h2>
+<h2 id="bl-touch-baglants">BL-Touch Bağlantısı<a class="headerlink" href="#bl-touch-baglants" title="Permanent link">&para;</a></h2>
 <p>A <strong>warning</strong> before you start: Avoid touching the BL-Touch pin with your bare fingers, since it is quite sensitive to finger grease. And if you do touch it, be very gentle, in order to not bend or push anything.</p>
 <p>Hook up the BL-Touch "servo" connector to a <code>control_pin</code> according to the BL-Touch documentation or your MCU documentation. Using the original wiring, the yellow wire from the triple is the <code>control_pin</code> and the white wire from the pair is the <code>sensor_pin</code>. You need to configure these pins according to your wiring. Most BL-Touch devices require a pullup on the sensor pin (prefix the pin name with "^"). For example:</p>
 <div class="highlight"><pre><span></span><code>[bltouch]
