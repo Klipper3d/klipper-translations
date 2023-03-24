@@ -1,4 +1,4 @@
-# Adrian Medeiros <lima.adrian13@gmail.com>, 2023.
+# Adrian Medeiros <lima.adrian13@gmail.com>, 2023, 2025.
 # João Alves <joao.2003.couto@gmail.com>, 2023, 2025.
 # Milton Miranda Neto <voidmmn@gmail.com>, 2023, 2025.
 # Andre Costa <andrecaeu@gmail.com>, 2024, 2025.
@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:30+0000\n"
-"Last-Translator: Milton Miranda Neto <voidmmn@gmail.com>\n"
+"Last-Translator: Adrian Medeiros <lima.adrian13@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
 "overview/pt/>\n"
 "Language: pt\n"
@@ -19,8 +19,8 @@ msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
-"Bem- vindo a documentação do Klipper, comece com os documentos "
-"[features](Features.md) e [installation](Installation.md) ."
+"Bem- vindo a documentação do Klipper, comece com os documentos [features]"
+"(Features.md) e [installation](Installation.md) ."
 
 msgid "Overview information"
 msgstr "Visão geral"
