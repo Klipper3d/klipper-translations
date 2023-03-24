@@ -1,9 +1,16 @@
-#
+# Rui Afonso <rui_afonso@msn.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-03-24 22:38+0000\n"
+"Last-Translator: Rui Afonso <rui_afonso@msn.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"tmc_drivers/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 msgid ""
 "This document provides information on using Trinamic stepper motor drivers "
@@ -97,7 +104,7 @@ msgid ""
 msgstr ""
 
 msgid "Tuning"
-msgstr ""
+msgstr "Afinação"
 
 msgid "The procedure described here has six major steps:"
 msgstr ""
