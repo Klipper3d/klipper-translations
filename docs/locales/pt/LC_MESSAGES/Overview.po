@@ -1,14 +1,23 @@
-#
+# Adrian Medeiros <lima.adrian13@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-03-24 22:38+0000\n"
+"Last-Translator: Adrian Medeiros <lima.adrian13@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"overview/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
+"Bem- vindo a documentação do Klipper, comece com os documentos "
+"[features](Features.md) e [installation](Installation.md) ."
 
 msgid "Overview information"
 msgstr ""
