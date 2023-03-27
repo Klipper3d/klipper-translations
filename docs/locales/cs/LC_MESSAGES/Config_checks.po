@@ -1,12 +1,12 @@
 # Pepa Mochr Vladik <pvladik@centrum.cz>, 2022.
 # Vojtech Horvath <wojtas@email.cz>, 2022, 2025.
-# Vojtěch Hrubý <vvojtech1564@gmail.com>, 2023.
+# Vojtěch Hrubý <vvojtech1564@gmail.com>, 2023, 2025.
 # Miloslav Kos <kos.m@post.cz>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:30+0000\n"
-"Last-Translator: Miloslav Kos <kos.m@post.cz>\n"
+"Last-Translator: Vojtěch Hrubý <vvojtech1564@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/klipper/"
 "config_checks/cs/>\n"
 "Language: cs\n"
