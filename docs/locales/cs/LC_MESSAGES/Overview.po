@@ -1,11 +1,11 @@
 # Pepa Mochr Vladik <pvladik@centrum.cz>, 2022.
 # Vlastimil Dědek <dedekvlastimil@gmail.com>, 2022, 2025.
-# Vojtěch Hrubý <vvojtech1564@gmail.com>, 2023, 2024.
+# Vojtěch Hrubý <vvojtech1564@gmail.com>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:30+0000\n"
-"Last-Translator: Vlastimil Dědek <dedekvlastimil@gmail.com>\n"
+"Last-Translator: Vojtěch Hrubý <vvojtech1564@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/klipper/overview/"
 "cs/>\n"
 "Language: cs\n"
@@ -159,14 +159,15 @@ msgid ""
 "[Kinematics](Kinematics.md): Technical details on how Klipper implements "
 "motion."
 msgstr ""
-"[Kinematics](Kinematics.md): Technické detaily jak Klipper implementuje pohyb."
+"[Kinematics](Kinematics.md): Technické detaily jak Klipper implementuje "
+"pohyb."
 
 msgid ""
 "[Protocol](Protocol.md): Information on the low-level messaging protocol "
 "between host and micro-controller."
 msgstr ""
-"[Protocol](Protocol.md): Informace o nízkoúrovňovém předávacím protokolu mezi "
-"hostitelem a mikrokontrolerem."
+"[Protocol](Protocol.md): Informace o nízkoúrovňovém předávacím protokolu "
+"mezi hostitelem a mikrokontrolerem."
 
 msgid ""
 "[API Server](API_Server.md): Information on Klipper's command and control API."
