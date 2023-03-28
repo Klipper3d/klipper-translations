@@ -1,16 +1,18 @@
 # Pepa Mochr Vladik <pvladik@centrum.cz>, 2022.
 # Vlastimil Dědek <dedekvlastimil@gmail.com>, 2022.
+# Vojtěch Hrubý <vvojtech1564@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-10-10 18:02+0000\n"
-"Last-Translator: Vlastimil Dědek <dedekvlastimil@gmail.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/overview/cs/>\n"
+"PO-Revision-Date: 2023-03-28 02:43+0000\n"
+"Last-Translator: Vojtěch Hrubý <vvojtech1564@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/overview/"
+"cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -127,6 +129,8 @@ msgid ""
 "[Status Reference](Status_Reference.md): Information available to macros "
 "(and similar)."
 msgstr ""
+"[Status Reference](Status_Reference.md): Informace dostupné pro makra (a "
+"podobné)."
 
 msgid ""
 "[TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with "
@@ -146,20 +150,25 @@ msgid "[G-Codes](G-Codes.md): Information on commands supported by Klipper."
 msgstr ""
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "Dokumentace pro vývojáře"
 
 msgid "[Code overview](Code_Overview.md): Developers should read this first."
 msgstr ""
+"[Code overview](Code_Overview.md): Toto by si vývojáři měli přečíst nejdříve."
 
 msgid ""
 "[Kinematics](Kinematics.md): Technical details on how Klipper implements "
 "motion."
 msgstr ""
+"[Kinematics](Kinematics.md): Technické detaily jak Klipper implementuje "
+"pohyb."
 
 msgid ""
 "[Protocol](Protocol.md): Information on the low-level messaging protocol "
 "between host and micro-controller."
 msgstr ""
+"[Protocol](Protocol.md): Informace o nízkoúrovňovém předávacím protokolu "
+"mezi hostitelem a mikrokontrolerem."
 
 msgid ""
 "[API Server](API_Server.md): Information on Klipper's command and control "
@@ -192,7 +201,7 @@ msgid "[Packaging](Packaging.md): Information on building OS packages."
 msgstr ""
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "Dokumenty specifické pro zařízení"
 
 msgid ""
 "[Example configs](Example_Configs.md): Information on adding an example "
@@ -226,7 +235,7 @@ msgstr ""
 
 #: docs/Overview.md:block 5 (header)
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "Instalace a konfigurace"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
