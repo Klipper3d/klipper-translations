@@ -1,38 +1,40 @@
-#
+# Vojtěch Hrubý <vvojtech1564@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2022-03-06 16:51+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-03-28 02:43+0000\n"
+"Last-Translator: Vojtěch Hrubý <vvojtech1564@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/navigation/"
+"cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 3.6.0\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 msgid "Klipper documentation"
-msgstr ""
+msgstr "Dokumentace Klipper"
 
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "Instalace a konfigurace"
 
 msgid "Configuration Reference"
-msgstr ""
+msgstr "Příklady konfigurací"
 
 msgid "Bed Level"
-msgstr ""
+msgstr "Vyrovnání podložky"
 
 msgid "Resonance Compensation"
-msgstr ""
+msgstr "Rezonanční kompenzace"
 
 msgid "Command templates"
-msgstr ""
+msgstr "Šablony příkazů"
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "Dokumentace pro vývojáře"
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "Dokumenty specifické pro zařízení"
