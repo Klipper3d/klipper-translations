@@ -1,15 +1,17 @@
 # Roberto Besser <rmbesser@gmail.com>, 2021.
+# Felipe Nogueira <contato.fnog@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-11-12 23:51+0000\n"
-"Last-Translator: Roberto Besser <rmbesser@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/klipper/contact/pt_BR/>\n"
+"PO-Revision-Date: 2023-03-29 20:41+0000\n"
+"Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/contact/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.9.1-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 msgid "This document provides contact information for Klipper."
 msgstr "Este documento fornece informações de contato para o Klipper."
@@ -199,6 +201,7 @@ msgstr ""
 
 msgid "Klipper is open-source software and we appreciate new contributions."
 msgstr ""
+"Klipper é um software de código aberto e nós apreciamos novas contribuições."
 
 msgid ""
 "New contributions (for both code and documentation) are submitted via Github"
