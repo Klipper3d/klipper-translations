@@ -1,16 +1,18 @@
 # Wesley Santos <wesleymadre446@gmail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Adrian Medeiros <lima.adrian13@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-28 08:18+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/klipper/api_server/pt_BR/>\n"
+"PO-Revision-Date: 2023-03-28 02:43+0000\n"
+"Last-Translator: Adrian Medeiros <lima.adrian13@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/api_server/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 msgid ""
 "This document describes Klipper's Application Programmer Interface (API). "
@@ -40,12 +42,14 @@ msgstr ""
 "‎‎Klipper‎‎."
 
 msgid "Request format"
-msgstr ""
+msgstr "Formato da solicitação"
 
 msgid ""
 "Messages sent and received on the socket are JSON encoded strings terminated"
 " by an ASCII 0x03 character:"
 msgstr ""
+"As mensagens enviadas e recebidas no soquete são strings codificadas em JSON "
+"terminadas por um caractere ASCII 0x03:"
 
 msgid ""
 "Klipper contains a `scripts/whconsole.py` tool that can perform the above "
