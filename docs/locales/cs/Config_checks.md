@@ -8,9 +8,9 @@ Během této příručky může být nutné provést změny v konfiguračním so
 
 Začněte tím, že si ověříte, že jsou teploty správně hlášeny. Přejděte na kartu teploty Octoprint .
 
-! [oktotisk-teplota] (img/octoprint-teplota.png)
+![octoprint-temperature](img/octoprint-temperature.png)
 
-Ověřte, že teplota trysky a lože (je-li k dispozici) je přítomna a nezvyšuje se. Pokud se zvyšuje, odpojte napájení tiskárny. Pokud teploty nejsou přesné, zkontrolujte nastavení „sensor_type“ a „sensor_pin“ pro trysku a/nebo lože.
+Ověřte, že teplota trysky a podložky (je-li k dispozici) je přítomna a nezvyšuje se. Pokud se zvyšuje, odpojte napájení tiskárny. Pokud teploty nejsou přesné, zkontrolujte nastavení „sensor_type“ a „sensor_pin“ pro trysku a/nebo podložku.
 
 ## Ověřte M112
 
@@ -64,6 +64,6 @@ Pokud má tiskárna vyhřívané lůžko a podporuje řízení pomocí PWM (Puls
 
 Tato příručka má pomoci se základním ověřením nastavení pinů v konfiguračním souboru Klipper. Nezapomeňte si přečíst průvodce [vyrovnání postele](Bed_Level.md). Viz také dokument [Slicers](Slicers.md) pro informace o konfiguraci sliceru pomocí Klipperu.
 
-Poté, co si ověříte, že základní tisk funguje, je dobré zvážit kalibraci [pressure advance] (Pressure_Advance.md).
+Poté, co si ověříte, že základní tisk funguje, je dobré zvážit kalibraci [pressure_advance](Pressure_Advance.md).
 
 Může být nutné provést další typy podrobné kalibrace tiskárny – online je k dispozici řada příruček, které vám s tím pomohou (například vyhledejte na webu „kalibrace 3D tiskárny“). Pokud například zaznamenáte efekt zvaný zvonění, můžete zkusit postupovat podle průvodce laděním [kompenzace rezonance](Resonance_Compensation.md).

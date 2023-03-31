@@ -1,15 +1,15 @@
-Klipper documentation
+Dokumentace Klipper
 
-Installation and Configuration
+Instalace a konfigurace
 
-Configuration Reference
+Příklady konfigurací
 
-Bed Level
+Vyrovnání podložky
 
-Resonance Compensation
+Rezonanční kompenzace
 
-Command templates
+Šablony příkazů
 
-Developer Documentation
+Dokumentace pro vývojáře
 
-Device Specific Documents
+Dokumenty specifické pro zařízení

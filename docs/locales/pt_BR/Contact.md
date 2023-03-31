@@ -70,7 +70,7 @@ There is important information that will be needed in order to fix a bug. Please
 
 ## I am making changes that I'd like to include in Klipper
 
-Klipper is open-source software and we appreciate new contributions.
+Klipper é um software de código aberto e nós apreciamos novas contribuições.
 
 New contributions (for both code and documentation) are submitted via Github Pull Requests. See the [CONTRIBUTING document](CONTRIBUTING.md) for important information.
 

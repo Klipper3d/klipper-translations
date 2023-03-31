@@ -8,16 +8,16 @@ Ringing is caused by mechanical vibrations in the printer due to quick changes o
 
 [Input shaping](https://en.wikipedia.org/wiki/Input_shaping) is an open-loop control technique which creates a commanding signal that cancels its own vibrations. Input shaping requires some tuning and measurements before it can be enabled. Besides ringing, Input Shaping typically reduces the vibrations and shaking of the printer in general, and may also improve the reliability of the stealthChop mode of Trinamic stepper drivers.
 
-## Tuning
+## Afinação
 
 Basic tuning requires measuring the ringing frequencies of the printer by printing a test model.
 
 Slice the ringing test model, which can be found in [docs/prints/ringing_tower.stl](prints/ringing_tower.stl), in the slicer:
 
-* Suggested layer height is 0.2 or 0.25 mm.
-* Infill and top layers can be set to 0.
-* Use 1-2 perimeters, or even better the smooth vase mode with 1-2 mm base.
-* Use sufficiently high speed, around 80-100 mm/sec, for **external** perimeters.
+* Sugere-se camada de altura 0.2 ou 0.25mm.
+* Preenchimento e camada superior podem ser postas a 0.
+* Use 1-2 perímetros, ou ainda melhor o modo de vaso liso com base de 1-2 mm.
+* Use uma velocidade suficientemente alta, em torno de 80-100 mm/seg, para perímetros **externos**.
 * Make sure that the minimum layer time is **at most** 3 seconds.
 * Make sure any "dynamic acceleration control" is disabled in the slicer.
 * Do not turn the model. The model has X and Y marks at the back of the model. Note the unusual location of the marks vs. the axes of the printer - it is not a mistake. The marks can be used later in the tuning process as a reference, because they show which axis the measurements correspond to.
@@ -141,7 +141,7 @@ Assuming that you have sliced the ringing model with suggested parameters, compl
 1. From the existing ringing test model with your chosen input shaper select the acceleration that shows ringing sufficiently well, and set it with: `SET_VELOCITY_LIMIT ACCEL=...`
 1. Calculate the necessary parameters for the `TUNING_TOWER` command to tune `shaper_freq_x` parameter as follows: start = shaper_freq_x * 83 / 132 and factor = shaper_freq_x / 66, where `shaper_freq_x` here is the current value in `printer.cfg`.
 1. Execute the command: `TUNING_TOWER COMMAND=SET_INPUT_SHAPER PARAMETER=SHAPER_FREQ_X START=start FACTOR=factor BAND=5` using `start` and `factor` values calculated at step (5).
-1. Print the test model.
+1. Imprima o modelo de teste.
 1. Reset the original frequency value: `SET_INPUT_SHAPER SHAPER_FREQ_X=...`.
 1. Find the band which shows ringing the least and count its number from the bottom starting at 1.
 1. Calculate the new shaper_freq_x value via old shaper_freq_x * (39 + 5 * #band-number) / 66.

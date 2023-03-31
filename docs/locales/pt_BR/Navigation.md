@@ -1,4 +1,4 @@
-Klipper documentation
+Documentação do Klipper
 
 Instalação e configuração
 
