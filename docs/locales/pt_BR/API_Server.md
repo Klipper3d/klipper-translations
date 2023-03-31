@@ -14,9 +14,9 @@
 
 See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.
 
-## Request format
+## Formato da solicitação
 
-Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:
+As mensagens enviadas e recebidas no soquete são strings codificadas em JSON terminadas por um caractere ASCII 0x03:
 
 ```
 <json_object_1><0x03><json_object_2><0x03>...

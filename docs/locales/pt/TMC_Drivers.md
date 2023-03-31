@@ -65,7 +65,7 @@ A few prerequisites are needed to use sensorless homing:
 1. The appropriate "DIAG" or "SG_TST" pin of TMC driver connected to the micro-controller.
 1. The steps in the [config checks](Config_checks.md) document must be run to confirm the stepper motors are configured and working properly.
 
-### Tuning
+### Afinação
 
 The procedure described here has six major steps:
 

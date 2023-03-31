@@ -10,7 +10,7 @@ Vítejte v dokumentaci ke Klipperu. Pokud s Klipprem začínáte, začněte s do
 - [Změny konfigurace](Config_Changes.md): Aktuální změny softwaru, které mohou vyžadovat aktualizaci konfiguračního souboru tiskárny.
 - [Contact](Contact.md): Informace o hlášení chyb a obecné komunikaci s vývojáři aplikace Klipper.
 
-## Installation and Configuration
+## Instalace a konfigurace
 
 - [Installation](Installation.md): Průvodce instalací Klipperu.
 - [Config Reference](Config_Reference.md): Popis konfiguračních parametrů.
@@ -28,7 +28,7 @@ Vítejte v dokumentaci ke Klipperu. Pokud s Klipprem začínáte, začněte s do
 - [Pressure advance](Pressure_Advance.md): Kalibrace tlaku extrudéru.
 - [G-Codes](G-Codes.md): Information on commands supported by Klipper.
 - [Šablony příkazů](Command_Templates.md): G-kód makra a podmíněné vyhodnocování.
-   - [Status Reference](Status_Reference.md): Information available to macros (and similar).
+   - [Status Reference](Status_Reference.md): Informace dostupné pro makra (a podobné).
 - [TMC Drivers](TMC_Drivers.md): Použití ovladačů krokových motorů Trinamic s Klipperem.
 - [Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple micro-controllers.
 - [Slicers](Slicers.md): Konfigurace softwaru "slicer" pro Klipper.
@@ -36,11 +36,11 @@ Vítejte v dokumentaci ke Klipperu. Pokud s Klipprem začínáte, začněte s do
 - [Nástroje PWM](Using_PWM_Tools.md): Příručka k používání nástrojů řízených PWM, jako jsou lasery nebo vřetena.
 - [Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs implementation.
 
-## Developer Documentation
+## Dokumentace pro vývojáře
 
-- [Code overview](Code_Overview.md): Developers should read this first.
-- [Kinematics](Kinematics.md): Technical details on how Klipper implements motion.
-- [Protocol](Protocol.md): Information on the low-level messaging protocol between host and micro-controller.
+- [Code overview](Code_Overview.md): Toto by si vývojáři měli přečíst nejdříve.
+- [Kinematics](Kinematics.md): Technické detaily jak Klipper implementuje pohyb.
+- [Protocol](Protocol.md): Informace o nízkoúrovňovém předávacím protokolu mezi hostitelem a mikrokontrolerem.
 - [API Server](API_Server.md): Information on Klipper's command and control API.
 - [MCU commands](MCU_Commands.md): A description of low-level commands implemented in the micro-controller software.
 - [CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format.
@@ -49,7 +49,7 @@ Vítejte v dokumentaci ke Klipperu. Pokud s Klipprem začínáte, začněte s do
 - [Contributing](CONTRIBUTING.md): Information on how to submit improvements to Klipper.
 - [Packaging](Packaging.md): Information on building OS packages.
 
-## Device Specific Documents
+## Dokumenty specifické pro zařízení
 
 - [Example configs](Example_Configs.md): Information on adding an example config file to Klipper.
 - [SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a binary to an sdcard in the micro-controller.
