@@ -308,11 +308,16 @@ msgstr "[Sensor de largura de filamento Hall](Hall_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
-"[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
+"[Exclude Object](Exclude_Object.md): The guide to the Exclude Objects "
 "implementation."
 msgstr ""
-"[Exclude Object](Exclude_Object.md): O guia para a implementação Exclude "
-"Objects."
+
+#~ msgid ""
+#~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
+#~ "implementation."
+#~ msgstr ""
+#~ "[Exclude Object](Exclude_Object.md): O guia para a implementação Exclude "
+#~ "Objects."
 
 #~ msgid ""
 #~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "

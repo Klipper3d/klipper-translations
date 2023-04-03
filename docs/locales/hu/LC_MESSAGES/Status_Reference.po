@@ -1333,41 +1333,8 @@ msgstr ""
 "csavarpont meghaladta a megadott `MAX_DEVIATION` értéket."
 
 #: docs/Status_Reference.md:block 95 (unordered list)
-msgid ""
-"`results`: A list of the probed screw locations. Each entry in the list will"
-" be a dictionary containing the following keys:"
-msgstr ""
-"`results`: A vizsgált csavarok helyének listája. A lista minden egyes "
-"bejegyzése egy szótár lesz, amely a következő kulcsokat tartalmazza:"
-
-#: docs/Status_Reference.md:block 95 (unordered list)
-msgid "`name`: The name of the screw as specified in the config file."
-msgstr "`name`: A csavar neve a konfigurációs fájlban megadottak szerint."
-
-#: docs/Status_Reference.md:block 95 (unordered list)
-msgid "`x`: The X coordinate of the screw as specified in the config file."
-msgstr ""
-"`x`: A csavar X koordinátája a konfigurációs fájlban megadottak szerint."
-
-#: docs/Status_Reference.md:block 95 (unordered list)
-msgid "`y`: The Y coordinate of the screw as specified in the config file."
-msgstr ""
-"`x`: A csavar X koordinátája a konfigurációs fájlban megadottak szerint."
-
-#: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`z`: The measured Z height of the screw location."
 msgstr "`z`: A csavar helyének mért Z magassága."
-
-#: docs/Status_Reference.md:block 95 (unordered list)
-msgid ""
-"`sign`: A string specifying the direction to turn to screw for the necessary"
-" adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise. "
-"The base screw will not have a `sign` key."
-msgstr ""
-"`sign`: Egy karakterlánc, amely megadja, hogy a szükséges beállításhoz "
-"milyen irányba kell elfordítani a csavart. Vagy \"CW\" az óramutató "
-"járásával megegyező irányban, vagy \"CCW\" az óramutató járásával ellentétes"
-" irányban. Az alapcsavar nem rendelkezik `sign` kulcsal."
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid ""
@@ -1381,3 +1348,70 @@ msgstr ""
 "pedig a részleges csavarfordítást jelentő \"óramutató percek\" száma. (Pl. "
 "\"01:15\" azt jelentené, hogy a csavart egy és negyed fordulatot kell "
 "elfordítani.)"
+
+#: docs/Status_Reference.md:block 29 (unordered list)
+msgid ""
+"`motion_queue`: The name of the extruder that this extruder stepper is "
+"currently synchronized to. This is reported as `None` if the extruder "
+"stepper is not currently associated with an extruder."
+msgstr ""
+
+#: docs/Status_Reference.md:block 86 (unordered list)
+msgid "`name`: Returns the name of the probe in use."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`results[\"<screw>\"]`: A dictionary containing the following keys:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid ""
+"`sign`: A string specifying the direction to turn to screw for the necessary"
+" adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`is_base`: Returns True if this is the base screw."
+msgstr ""
+
+#: docs/Status_Reference.md:block 99 (header)
+msgid "stepper_enable"
+msgstr ""
+
+#: docs/Status_Reference.md:block 100 (paragraph)
+msgid ""
+"The following information is available in the `stepper_enable` object (this "
+"object is available if any stepper is defined):"
+msgstr ""
+
+#: docs/Status_Reference.md:block 101 (unordered list)
+msgid "`steppers[\"<stepper>\"]`: Returns True if the given stepper is enabled."
+msgstr ""
+
+#~ msgid ""
+#~ "`results`: A list of the probed screw locations. Each entry in the list will"
+#~ " be a dictionary containing the following keys:"
+#~ msgstr ""
+#~ "`results`: A vizsgált csavarok helyének listája. A lista minden egyes "
+#~ "bejegyzése egy szótár lesz, amely a következő kulcsokat tartalmazza:"
+
+#~ msgid "`name`: The name of the screw as specified in the config file."
+#~ msgstr "`name`: A csavar neve a konfigurációs fájlban megadottak szerint."
+
+#~ msgid "`x`: The X coordinate of the screw as specified in the config file."
+#~ msgstr ""
+#~ "`x`: A csavar X koordinátája a konfigurációs fájlban megadottak szerint."
+
+#~ msgid "`y`: The Y coordinate of the screw as specified in the config file."
+#~ msgstr ""
+#~ "`x`: A csavar X koordinátája a konfigurációs fájlban megadottak szerint."
+
+#~ msgid ""
+#~ "`sign`: A string specifying the direction to turn to screw for the necessary"
+#~ " adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise. "
+#~ "The base screw will not have a `sign` key."
+#~ msgstr ""
+#~ "`sign`: Egy karakterlánc, amely megadja, hogy a szükséges beállításhoz "
+#~ "milyen irányba kell elfordítani a csavart. Vagy \"CW\" az óramutató "
+#~ "járásával megegyező irányban, vagy \"CCW\" az óramutató járásával ellentétes"
+#~ " irányban. Az alapcsavar nem rendelkezik `sign` kulcsal."

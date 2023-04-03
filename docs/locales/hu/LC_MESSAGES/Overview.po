@@ -302,8 +302,13 @@ msgstr "[Hall szálszélesség érzékelő](Hall_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
-"[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
+"[Exclude Object](Exclude_Object.md): The guide to the Exclude Objects "
 "implementation."
 msgstr ""
-"[Objektum kizárása](Exclude_Object.md): Az Objektum kizárása "
-"implementációjának útmutatója."
+
+#~ msgid ""
+#~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
+#~ "implementation."
+#~ msgstr ""
+#~ "[Objektum kizárása](Exclude_Object.md): Az Objektum kizárása "
+#~ "implementációjának útmutatója."

@@ -111,22 +111,6 @@ msgid "The following fields may be specified:"
 msgstr ""
 
 msgid ""
-"`mcu`: The mcu type. This can be retrevied after configuring the build via "
-"`make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is "
-"required."
-msgstr ""
-
-msgid ""
-"`spi_bus`: The SPI bus connected to the SD Card. This should be retreived "
-"from the board's schematic. This field is required."
-msgstr ""
-
-msgid ""
-"`cs_pin`: The Chip Select Pin connected to the SD Card. This should be "
-"retreived from the board schematic. This field is required."
-msgstr ""
-
-msgid ""
 "`firmware_path`: The path on the SD Card where firmware should be "
 "transferred. The default is `firmware.bin`."
 msgstr ""
@@ -491,6 +475,41 @@ msgstr ""
 #: docs/SDCard_Updates.md:block 45 (paragraph)
 msgid "\\* None (PU) indicates an unused pin with a pull-up resistor"
 msgstr ""
+
+#: docs/SDCard_Updates.md:block 25 (unordered list)
+msgid ""
+"`mcu`: The mcu type. This can be retrieved after configuring the build via "
+"`make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is "
+"required."
+msgstr ""
+
+#: docs/SDCard_Updates.md:block 25 (unordered list)
+msgid ""
+"`spi_bus`: The SPI bus connected to the SD Card. This should be retrieved "
+"from the board's schematic. This field is required."
+msgstr ""
+
+#: docs/SDCard_Updates.md:block 25 (unordered list)
+msgid ""
+"`cs_pin`: The Chip Select Pin connected to the SD Card. This should be "
+"retrieved from the board schematic. This field is required."
+msgstr ""
+
+#~ msgid ""
+#~ "`mcu`: The mcu type. This can be retrevied after configuring the build via "
+#~ "`make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is "
+#~ "required."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`spi_bus`: The SPI bus connected to the SD Card. This should be retreived "
+#~ "from the board's schematic. This field is required."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`cs_pin`: The Chip Select Pin connected to the SD Card. This should be "
+#~ "retreived from the board schematic. This field is required."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Only boards that use SPI for SD Card communication are supported. Boards "

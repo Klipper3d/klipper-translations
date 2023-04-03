@@ -4,13 +4,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2023-03-20 06:39+0000\n"
 "Last-Translator: zafer yazkili <yazkili@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
-"sdcard_updates/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/sdcard_updates/tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.16.2-dev\n"
-"Content-Transfer-Encoding: 8bit\n"
 
 msgid ""
 "Many of today's popular controller boards ship with a bootloader capable of "
@@ -109,22 +108,6 @@ msgid ""
 msgstr ""
 
 msgid "The following fields may be specified:"
-msgstr ""
-
-msgid ""
-"`mcu`: The mcu type. This can be retrevied after configuring the build via "
-"`make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is "
-"required."
-msgstr ""
-
-msgid ""
-"`spi_bus`: The SPI bus connected to the SD Card. This should be retreived "
-"from the board's schematic. This field is required."
-msgstr ""
-
-msgid ""
-"`cs_pin`: The Chip Select Pin connected to the SD Card. This should be "
-"retreived from the board schematic. This field is required."
 msgstr ""
 
 msgid ""
@@ -492,6 +475,41 @@ msgstr ""
 #: docs/SDCard_Updates.md:block 45 (paragraph)
 msgid "\\* None (PU) indicates an unused pin with a pull-up resistor"
 msgstr ""
+
+#: docs/SDCard_Updates.md:block 25 (unordered list)
+msgid ""
+"`mcu`: The mcu type. This can be retrieved after configuring the build via "
+"`make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is "
+"required."
+msgstr ""
+
+#: docs/SDCard_Updates.md:block 25 (unordered list)
+msgid ""
+"`spi_bus`: The SPI bus connected to the SD Card. This should be retrieved "
+"from the board's schematic. This field is required."
+msgstr ""
+
+#: docs/SDCard_Updates.md:block 25 (unordered list)
+msgid ""
+"`cs_pin`: The Chip Select Pin connected to the SD Card. This should be "
+"retrieved from the board schematic. This field is required."
+msgstr ""
+
+#~ msgid ""
+#~ "`mcu`: The mcu type. This can be retrevied after configuring the build via "
+#~ "`make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is "
+#~ "required."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`spi_bus`: The SPI bus connected to the SD Card. This should be retreived "
+#~ "from the board's schematic. This field is required."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`cs_pin`: The Chip Select Pin connected to the SD Card. This should be "
+#~ "retreived from the board schematic. This field is required."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Only boards that use SPI for SD Card communication are supported. Boards "

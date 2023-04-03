@@ -566,10 +566,6 @@ msgid ""
 "motor."
 msgstr ""
 
-#: docs/TMC_Drivers.md:block 94 (header)
-msgid "TMC reports error: `... ShortToGND` OR `LowSideShort`"
-msgstr ""
-
 #: docs/TMC_Drivers.md:block 95 (paragraph)
 msgid ""
 "This indicates the driver has disabled itself because it detected very high "
@@ -808,6 +804,13 @@ msgid ""
 "    G28 X0\n"
 "    G1 X5 F1200\n"
 msgstr ""
+
+#: docs/TMC_Drivers.md:block 110 (header)
+msgid "TMC reports error: `... ShortToGND` OR `ShortToSupply`"
+msgstr ""
+
+#~ msgid "TMC reports error: `... ShortToGND` OR `LowSideShort`"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Then issue a `G28 X0` command and verify the axis does not move at all. If "

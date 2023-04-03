@@ -140,3 +140,64 @@ msgstr ""
 #: docs/Slicers.md:block 1 (header)
 msgid "Slicers"
 msgstr ""
+
+#: docs/Slicers.md:block 24 (header)
+msgid "START_PRINT macros"
+msgstr ""
+
+#: docs/Slicers.md:block 25 (paragraph)
+msgid ""
+"When using a START_PRINT macro or similar, it is useful to sometimes pass "
+"through parameters from the slicer variables to the macro."
+msgstr ""
+
+#: docs/Slicers.md:block 26 (paragraph)
+msgid ""
+"In Cura, to pass through temperatures, the following start gcode would be "
+"used:"
+msgstr ""
+
+#: docs/Slicers.md:block 27 (code)
+msgid ""
+"START_PRINT BED_TEMP={material_bed_temperature_layer_0} "
+"EXTRUDER_TEMP={material_print_temperature_layer_0}\n"
+msgstr ""
+
+#: docs/Slicers.md:block 28 (paragraph)
+msgid ""
+"In slic3r derivatives such as PrusaSlicer and SuperSlicer, the following "
+"would be used:"
+msgstr ""
+
+#: docs/Slicers.md:block 29 (paragraph)
+msgid ""
+"START_PRINT EXTRUDER_TEMP=[first_layer_temperature] "
+"BED_TEMP=[first_layer_bed_temperature]"
+msgstr ""
+
+#: docs/Slicers.md:block 30 (paragraph)
+msgid ""
+"Also note that these slicers will insert their own heating codes when "
+"certain conditions are not met. In Cura, the existence of the "
+"`{material_bed_temperature_layer_0}` and "
+"`{material_print_temperature_layer_0}` variables is enough to mitigate this."
+" In slic3r derivatives, you would use:"
+msgstr ""
+
+#: docs/Slicers.md:block 31 (code)
+msgid ""
+"M140 S0\n"
+"M104 S0\n"
+msgstr ""
+
+#: docs/Slicers.md:block 32 (paragraph)
+msgid ""
+"before the macro call. Also note that SuperSlicer has a \"custom gcode "
+"only\" button option, which achieves the same outcome."
+msgstr ""
+
+#: docs/Slicers.md:block 33 (paragraph)
+msgid ""
+"An example of a START_PRINT macro using these paramaters can be found in "
+"config/sample-macros.cfg"
+msgstr ""

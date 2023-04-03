@@ -1368,44 +1368,8 @@ msgstr ""
 "niveau des vis de lit dépassait la valeur `MAX_DEVIATION`."
 
 #: docs/Status_Reference.md:block 95 (unordered list)
-msgid ""
-"`results`: A list of the probed screw locations. Each entry in the list will"
-" be a dictionary containing the following keys:"
-msgstr ""
-"`résultats` : une liste des emplacements des vis de lit sondées. Chaque "
-"entrée de la liste est un dictionnaire contenant les clés suivantes :"
-
-#: docs/Status_Reference.md:block 95 (unordered list)
-msgid "`name`: The name of the screw as specified in the config file."
-msgstr ""
-"`name` : le nom de la vis tel qu'il est spécifié dans le fichier de "
-"configuration."
-
-#: docs/Status_Reference.md:block 95 (unordered list)
-msgid "`x`: The X coordinate of the screw as specified in the config file."
-msgstr ""
-"`x` : la coordonnée X de la vis telle que spécifiée dans le fichier de "
-"configuration."
-
-#: docs/Status_Reference.md:block 95 (unordered list)
-msgid "`y`: The Y coordinate of the screw as specified in the config file."
-msgstr ""
-"`y` : la coordonnée Y de la vis telle que spécifiée dans le fichier de "
-"configuration."
-
-#: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`z`: The measured Z height of the screw location."
 msgstr "`z` : La hauteur Z mesurée à l'emplacement de la vis."
-
-#: docs/Status_Reference.md:block 95 (unordered list)
-msgid ""
-"`sign`: A string specifying the direction to turn to screw for the necessary"
-" adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise. "
-"The base screw will not have a `sign` key."
-msgstr ""
-"`sign` : Une chaîne spécifiant le sens de rotation à visser pour le réglage "
-"nécessaire. Soit \"CW\" pour le sens horaire ou \"CCW\" pour le sens "
-"antihoraire. La vis de base n'aura pas de clé `sign`."
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid ""
@@ -1419,3 +1383,73 @@ msgstr ""
 " nombre de \"minutes d'un cadran d'horloge\" représentant un tour de vis "
 "partiel. (Par exemple, \"01:15\" signifierait de tourner la vis d'un tour et"
 " quart.)"
+
+#: docs/Status_Reference.md:block 29 (unordered list)
+msgid ""
+"`motion_queue`: The name of the extruder that this extruder stepper is "
+"currently synchronized to. This is reported as `None` if the extruder "
+"stepper is not currently associated with an extruder."
+msgstr ""
+
+#: docs/Status_Reference.md:block 86 (unordered list)
+msgid "`name`: Returns the name of the probe in use."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`results[\"<screw>\"]`: A dictionary containing the following keys:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid ""
+"`sign`: A string specifying the direction to turn to screw for the necessary"
+" adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`is_base`: Returns True if this is the base screw."
+msgstr ""
+
+#: docs/Status_Reference.md:block 99 (header)
+msgid "stepper_enable"
+msgstr ""
+
+#: docs/Status_Reference.md:block 100 (paragraph)
+msgid ""
+"The following information is available in the `stepper_enable` object (this "
+"object is available if any stepper is defined):"
+msgstr ""
+
+#: docs/Status_Reference.md:block 101 (unordered list)
+msgid "`steppers[\"<stepper>\"]`: Returns True if the given stepper is enabled."
+msgstr ""
+
+#~ msgid ""
+#~ "`results`: A list of the probed screw locations. Each entry in the list will"
+#~ " be a dictionary containing the following keys:"
+#~ msgstr ""
+#~ "`résultats` : une liste des emplacements des vis de lit sondées. Chaque "
+#~ "entrée de la liste est un dictionnaire contenant les clés suivantes :"
+
+#~ msgid "`name`: The name of the screw as specified in the config file."
+#~ msgstr ""
+#~ "`name` : le nom de la vis tel qu'il est spécifié dans le fichier de "
+#~ "configuration."
+
+#~ msgid "`x`: The X coordinate of the screw as specified in the config file."
+#~ msgstr ""
+#~ "`x` : la coordonnée X de la vis telle que spécifiée dans le fichier de "
+#~ "configuration."
+
+#~ msgid "`y`: The Y coordinate of the screw as specified in the config file."
+#~ msgstr ""
+#~ "`y` : la coordonnée Y de la vis telle que spécifiée dans le fichier de "
+#~ "configuration."
+
+#~ msgid ""
+#~ "`sign`: A string specifying the direction to turn to screw for the necessary"
+#~ " adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise. "
+#~ "The base screw will not have a `sign` key."
+#~ msgstr ""
+#~ "`sign` : Une chaîne spécifiant le sens de rotation à visser pour le réglage "
+#~ "nécessaire. Soit \"CW\" pour le sens horaire ou \"CCW\" pour le sens "
+#~ "antihoraire. La vis de base n'aura pas de clé `sign`."

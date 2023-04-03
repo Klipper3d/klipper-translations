@@ -674,10 +674,6 @@ msgid ""
 "motor."
 msgstr "这表明电机驱动器因温度过高而自我禁用。典型的解决方案是降低步进电机的电流，增加步进电机驱动器的冷却，和/或增加步进电机的冷却。"
 
-#: docs/TMC_Drivers.md:block 94 (header)
-msgid "TMC reports error: `... ShortToGND` OR `LowSideShort`"
-msgstr "TMC 报告错误: `... ShortToGND` 或着 `LowSideShort`"
-
 #: docs/TMC_Drivers.md:block 95 (paragraph)
 msgid ""
 "This indicates the driver has disabled itself because it detected very high "
@@ -977,6 +973,13 @@ msgstr ""
 "    G4 P2000\n"
 "    G28 X0\n"
 "    G1 X5 F1200\n"
+
+#: docs/TMC_Drivers.md:block 110 (header)
+msgid "TMC reports error: `... ShortToGND` OR `ShortToSupply`"
+msgstr ""
+
+#~ msgid "TMC reports error: `... ShortToGND` OR `LowSideShort`"
+#~ msgstr "TMC 报告错误: `... ShortToGND` 或着 `LowSideShort`"
 
 #~ msgid ""
 #~ "Then issue a `G28 X0` command and verify the axis does not move at all. If "

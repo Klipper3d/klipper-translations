@@ -808,6 +808,59 @@ msgstr ""
 msgid "198"
 msgstr ""
 
+#: docs/Benchmarks.md:block 85 (header)
+msgid "AR100 step rate benchmark"
+msgstr ""
+
+#: docs/Benchmarks.md:block 86 (paragraph)
+msgid ""
+"The following configuration sequence is used on AR100 CPU (Allwinner A64):"
+msgstr ""
+
+#: docs/Benchmarks.md:block 87 (code)
+msgid ""
+"allocate_oids count=3\n"
+"config_stepper oid=0 step_pin=PL10 dir_pin=PE14 invert_step=-1 step_pulse_ticks=0\n"
+"config_stepper oid=1 step_pin=PL11 dir_pin=PE15 invert_step=-1 step_pulse_ticks=0\n"
+"config_stepper oid=2 step_pin=PL12 dir_pin=PE16 invert_step=-1 step_pulse_ticks=0\n"
+"finalize_config crc=0\n"
+"\n"
+msgstr ""
+
+#: docs/Benchmarks.md:block 88 (paragraph)
+msgid ""
+"The test was last run on commit `08d037c6` with gcc version `or1k-linux-"
+"musl-gcc (GCC) 9.2.0` on an Allwinner A64-H micro-controller."
+msgstr ""
+
+#: docs/Benchmarks.md:block 89 (table)
+msgid "AR100 R_PIO"
+msgstr ""
+
+#: docs/Benchmarks.md:block 89 (table)
+msgid "85"
+msgstr ""
+
+#: docs/Benchmarks.md:block 89 (table)
+msgid "359"
+msgstr ""
+
+#: docs/Benchmarks.md:block 105 (table)
+msgid "ar100 (serial)"
+msgstr ""
+
+#: docs/Benchmarks.md:block 105 (table)
+msgid "138K"
+msgstr ""
+
+#: docs/Benchmarks.md:block 105 (table)
+msgid "08d037c6"
+msgstr ""
+
+#: docs/Benchmarks.md:block 105 (table)
+msgid "or1k-linux-musl-gcc 9.3.0"
+msgstr ""
+
 #~ msgid ""
 #~ "To produce the benchmarks found in the Features.md document, the total "
 #~ "number of steps per second is calculated by multiplying the number of active"

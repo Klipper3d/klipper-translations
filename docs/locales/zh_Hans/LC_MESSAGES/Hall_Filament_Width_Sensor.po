@@ -89,16 +89,6 @@ msgid ""
 "default)."
 msgstr "每个测量间隔都会记录耗材直径（默认为10毫米）。"
 
-#: docs/Hall_Filament_Width_Sensor.md:block 2 (paragraph)
-msgid ""
-"This document describes Filament Width Sensor host module. Hardware used for"
-" developing this host module is based on two Hall linear sensors (ss49e for "
-"example). Sensors in the body are located opposite sides. Principle of "
-"operation: two hall sensors work in differential mode, temperature drift "
-"same for sensor. Special temperature compensation not needed."
-msgstr ""
-"本文件介绍了耗材宽度传感器的主机模块。用于开发该主机模块的硬件基于两个霍尔线性传感器（例如，ss49e）。设备内的两个传感器位于两侧。工作原理：两个霍尔传感器以差分模式工作，由于传感器的温度漂移相同。不需要特殊的温度补偿。"
-
 #: docs/Hall_Filament_Width_Sensor.md:block 3 (paragraph)
 msgid ""
 "You can find designs at "
@@ -106,17 +96,6 @@ msgid ""
 "is also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
 "你可以在[Thingiverse](https://www.thingiverse.com/thing:4138933)上找到设计，在[Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)上也有一个装配视频"
-
-#: docs/Hall_Filament_Width_Sensor.md:block 6 (paragraph)
-msgid ""
-"Sensor generates two analog output based on calculated filament width. Sum "
-"of output voltage always equals to detected filament width. Host module "
-"monitors voltage changes and adjusts extrusion multiplier. I use aux2 "
-"connector on ramps-like board analog11 and analog12 pins. You can use "
-"different pins and differenr boards."
-msgstr ""
-"传感器根据两个模拟输出计算出耗材直径。检测到的电压之和始终对应耗材宽度。主机模块监测电压变化并调整挤出倍率。我在类似ramps的控制板上使用aux2连接器的"
-" analog11和analog12引脚，你也可以使用不同的引脚和不同的控制板。"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 10 (paragraph)
 msgid ""
@@ -138,6 +117,43 @@ msgid ""
 "To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
 "the `enable` parameter to `true`."
 msgstr "要启用传感器，发送**ENABLE_FILAMENT_WIDTH_SENSOR**命令或将`enable`参数改为`true`。"
+
+#: docs/Hall_Filament_Width_Sensor.md:block 2 (paragraph)
+msgid ""
+"This document describes Filament Width Sensor host module. Hardware used for"
+" developing this host module is based on two Hall linear sensors (ss49e for "
+"example). Sensors in the body are located on opposite sides. Principle of "
+"operation: two hall sensors work in differential mode, temperature drift "
+"same for sensor. Special temperature compensation not needed."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 6 (paragraph)
+msgid ""
+"Sensor generates two analog output based on calculated filament width. Sum "
+"of output voltage always equals to detected filament width. Host module "
+"monitors voltage changes and adjusts extrusion multiplier. I use the aux2 "
+"connector on a ramps-like board with the analog11 and analog12 pins. You can"
+" use different pins and different boards."
+msgstr ""
+
+#~ msgid ""
+#~ "This document describes Filament Width Sensor host module. Hardware used for"
+#~ " developing this host module is based on two Hall linear sensors (ss49e for "
+#~ "example). Sensors in the body are located opposite sides. Principle of "
+#~ "operation: two hall sensors work in differential mode, temperature drift "
+#~ "same for sensor. Special temperature compensation not needed."
+#~ msgstr ""
+#~ "本文件介绍了耗材宽度传感器的主机模块。用于开发该主机模块的硬件基于两个霍尔线性传感器（例如，ss49e）。设备内的两个传感器位于两侧。工作原理：两个霍尔传感器以差分模式工作，由于传感器的温度漂移相同。不需要特殊的温度补偿。"
+
+#~ msgid ""
+#~ "Sensor generates two analog output based on calculated filament width. Sum "
+#~ "of output voltage always equals to detected filament width. Host module "
+#~ "monitors voltage changes and adjusts extrusion multiplier. I use aux2 "
+#~ "connector on ramps-like board analog11 and analog12 pins. You can use "
+#~ "different pins and differenr boards."
+#~ msgstr ""
+#~ "传感器根据两个模拟输出计算出耗材直径。检测到的电压之和始终对应耗材宽度。主机模块监测电压变化并调整挤出倍率。我在类似ramps的控制板上使用aux2连接器的"
+#~ " analog11和analog12引脚，你也可以使用不同的引脚和不同的控制板。"
 
 #~ msgid ""
 #~ "To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "

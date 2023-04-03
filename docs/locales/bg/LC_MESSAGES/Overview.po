@@ -301,11 +301,16 @@ msgstr "[Сензор за ширина на нишката на Хол](Hall_Fi
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
-"[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
+"[Exclude Object](Exclude_Object.md): The guide to the Exclude Objects "
 "implementation."
 msgstr ""
-"[Изключване на обект](Exclude_Object.md): Ръководство за внедряване на "
-"Изключване на обекти."
+
+#~ msgid ""
+#~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
+#~ "implementation."
+#~ msgstr ""
+#~ "[Изключване на обект](Exclude_Object.md): Ръководство за внедряване на "
+#~ "Изключване на обекти."
 
 #~ msgid ""
 #~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
