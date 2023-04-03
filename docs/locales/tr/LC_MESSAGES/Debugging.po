@@ -4,16 +4,16 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2023-03-20 06:39+0000\n"
 "Last-Translator: zafer yazkili <yazkili@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
-"debugging/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/debugging/tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.16.2-dev\n"
-"Content-Transfer-Encoding: 8bit\n"
 
 msgid "This document describes some of the Klipper debugging tools."
-msgstr "Bu belge Klipper hata ayıklama araçlarından bazılarını açıklamaktadır."
+msgstr ""
+"Bu belge Klipper hata ayıklama araçlarından bazılarını açıklamaktadır."
 
 msgid "Translating gcode files to micro-controller commands"
 msgstr ""
@@ -376,13 +376,6 @@ msgstr ""
 msgid "ls ./build/pysimulavr/_pysimulavr.*.so\n"
 msgstr ""
 
-#: docs/Debugging.md:block 61 (paragraph)
-msgid ""
-"This commmand should report a specific file (e.g. "
-"**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not "
-"an error."
-msgstr ""
-
 #: docs/Debugging.md:block 62 (paragraph)
 msgid ""
 "If you are on a Debian-based system (Debian, Ubuntu, etc.) you can install "
@@ -413,6 +406,19 @@ msgstr ""
 #: docs/Debugging.md:block 69 (code)
 msgid "./scripts/avrsim.py out/klipper.elf\n"
 msgstr ""
+
+#: docs/Debugging.md:block 61 (paragraph)
+msgid ""
+"This command should report a specific file (e.g. "
+"**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not "
+"an error."
+msgstr ""
+
+#~ msgid ""
+#~ "This commmand should report a specific file (e.g. "
+#~ "**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not "
+#~ "an error."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "To use simulavr, download the simulavr package and compile with python "

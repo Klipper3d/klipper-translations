@@ -293,11 +293,16 @@ msgstr "[Датчик ширини нитки Холла](Hall_Filament_Width_Se
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
-"[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
+"[Exclude Object](Exclude_Object.md): The guide to the Exclude Objects "
 "implementation."
 msgstr ""
-"[Виключити Об'єкт](Exclude_Object.md): Посібник із впровадження Виключення "
-"Об’єктів."
+
+#~ msgid ""
+#~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
+#~ "implementation."
+#~ msgstr ""
+#~ "[Виключити Об'єкт](Exclude_Object.md): Посібник із впровадження Виключення "
+#~ "Об’єктів."
 
 #~ msgid ""
 #~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "

@@ -707,18 +707,6 @@ msgstr "@KevinOConnor"
 msgid "Core motion system, Micro-controller code"
 msgstr "Système de mouvement de base, code du microcontrôleur"
 
-#: docs/CONTRIBUTING.md:block 23 (table)
-msgid "Paul McGowan"
-msgstr "Paul McGowan"
-
-#: docs/CONTRIBUTING.md:block 23 (table)
-msgid "@mental405"
-msgstr "@mental405"
-
-#: docs/CONTRIBUTING.md:block 23 (table)
-msgid "Configuration files, documentation"
-msgstr "Fichiers de configuration, documentation"
-
 #: docs/CONTRIBUTING.md:block 24 (paragraph)
 msgid ""
 "Please do not \"ping\" any of the reviewers and please do not direct "
@@ -864,6 +852,27 @@ msgstr ""
 "Lorsqu'ils corrigent un défaut dans le code, les soumissionnaires doivent "
 "avoir une compréhension générale de la cause fondamentale de ce défaut, et "
 "la correction doit cibler cette seule cause fondamentale."
+
+#: docs/CONTRIBUTING.md:block 23 (table)
+msgid "James Hartley"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 23 (table)
+msgid "@JamesH1978"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 23 (table)
+msgid "Configuration files"
+msgstr ""
+
+#~ msgid "Paul McGowan"
+#~ msgstr "Paul McGowan"
+
+#~ msgid "@mental405"
+#~ msgstr "@mental405"
+
+#~ msgid "Configuration files, documentation"
+#~ msgstr "Fichiers de configuration, documentation"
 
 #~ msgid ""
 #~ "When discussing benefits it is preferable to discuss \"facts and "

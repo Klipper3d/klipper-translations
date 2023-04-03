@@ -225,18 +225,6 @@ msgid ""
 " width sensors."
 msgstr "支援列印絲存在感測器、列印絲運動感測器和列印絲寬度感測器。"
 
-#: docs/Features.md:block 3 (unordered list)
-msgid ""
-"Best in class performance. Klipper is able to achieve high stepping rates on"
-" both new and old micro-controllers. Even old 8bit micro-controllers can "
-"obtain rates over 175K steps per second. On more recent micro-controllers, "
-"several million steps per second are possible. Higher stepper rates enable "
-"higher print velocities. The stepper event timing remains precise even at "
-"high speeds which improves overall stability."
-msgstr ""
-"同類項目中最佳的效能。 Klipper 能夠在新舊微控制器上實現高步進速率。即使是舊的 8 位微控制器也可以發送超過每秒 175K "
-"步的速率。在較新的微控制器上，每秒數百萬步也可以實現。更高的步進速率可以實現更高的列印速度。步進事件計時即使在高速下也能保持精確，提高了整體穩定性。"
-
 #: docs/Features.md:block 10 (table)
 msgid "1 stepper active"
 msgstr "1個活躍步進電機"
@@ -499,6 +487,39 @@ msgid ""
 "Support for measuring and recording acceleration using an adxl345, mpu9250, "
 "and mpu6050 accelerometers."
 msgstr ""
+
+#: docs/Features.md:block 3 (unordered list)
+msgid ""
+"Best in class performance. Klipper is able to achieve high stepping rates on"
+" both new and old micro-controllers. Even old 8-bit micro-controllers can "
+"obtain rates over 175K steps per second. On more recent micro-controllers, "
+"several million steps per second are possible. Higher stepper rates enable "
+"higher print velocities. The stepper event timing remains precise even at "
+"high speeds which improves overall stability."
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "AR100"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "3529K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2507K"
+msgstr ""
+
+#~ msgid ""
+#~ "Best in class performance. Klipper is able to achieve high stepping rates on"
+#~ " both new and old micro-controllers. Even old 8bit micro-controllers can "
+#~ "obtain rates over 175K steps per second. On more recent micro-controllers, "
+#~ "several million steps per second are possible. Higher stepper rates enable "
+#~ "higher print velocities. The stepper event timing remains precise even at "
+#~ "high speeds which improves overall stability."
+#~ msgstr ""
+#~ "同類項目中最佳的效能。 Klipper 能夠在新舊微控制器上實現高步進速率。即使是舊的 8 位微控制器也可以發送超過每秒 175K "
+#~ "步的速率。在較新的微控制器上，每秒數百萬步也可以實現。更高的步進速率可以實現更高的列印速度。步進事件計時即使在高速下也能保持精確，提高了整體穩定性。"
 
 #~ msgid ""
 #~ "High precision stepper movement. Klipper utilizes an application processor "

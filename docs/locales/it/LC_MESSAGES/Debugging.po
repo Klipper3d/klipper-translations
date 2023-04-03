@@ -521,16 +521,6 @@ msgstr ""
 msgid "ls ./build/pysimulavr/_pysimulavr.*.so\n"
 msgstr "ls ./build/pysimulavr/_pysimulavr.*.so\n"
 
-#: docs/Debugging.md:block 61 (paragraph)
-msgid ""
-"This commmand should report a specific file (e.g. "
-"**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not "
-"an error."
-msgstr ""
-"Questo comando dovrebbe segnalare un file specifico (ad es. "
-"**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) e non un "
-"errore."
-
 #: docs/Debugging.md:block 62 (paragraph)
 msgid ""
 "If you are on a Debian-based system (Debian, Ubuntu, etc.) you can install "
@@ -573,6 +563,22 @@ msgstr ""
 #: docs/Debugging.md:block 69 (code)
 msgid "./scripts/avrsim.py out/klipper.elf\n"
 msgstr "./scripts/avrsim.py out/klipper.elf\n"
+
+#: docs/Debugging.md:block 61 (paragraph)
+msgid ""
+"This command should report a specific file (e.g. "
+"**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not "
+"an error."
+msgstr ""
+
+#~ msgid ""
+#~ "This commmand should report a specific file (e.g. "
+#~ "**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not "
+#~ "an error."
+#~ msgstr ""
+#~ "Questo comando dovrebbe segnalare un file specifico (ad es. "
+#~ "**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) e non un "
+#~ "errore."
 
 #~ msgid ""
 #~ "To use simulavr, download the simulavr package and compile with python "

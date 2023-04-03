@@ -7,8 +7,7 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2023-02-11 15:38+0000\n"
 "Last-Translator: \"Zs.Antal\" <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
-"measuring_resonances/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/measuring_resonances/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -232,18 +231,6 @@ msgstr ""
 "gyorsulását is, pl."
 
 msgid ""
-"If you get an error like `Invalid adxl345 id (got xx vs e5)`, where `xx` is "
-"some other ID, it is indicative of the connection problem with ADXL345, or "
-"the faulty sensor. Double-check the power, the wiring (that it matches the "
-"schematics, no wire is broken or loose, etc.), and soldering quality."
-msgstr ""
-"Ha olyan hibát kapsz, mint `Invalid adxl345 id (got xx vs e5)`, ahol `xx` "
-"valami más azonosító, azaz ADXL345-öt érintő kapcsolati problémára vagy a "
-"hibás érzékelőre utal. Ellenőrizd kétszer is a tápellátást, a kábelezést "
-"(hogy megfelel-e a kapcsolási rajzoknak, nincs-e törött vagy laza vezeték "
-"stb.) és a forrasztás minőségét."
-
-msgid ""
 "Next, try running `MEASURE_AXES_NOISE` in Octoprint, you should get some "
 "baseline numbers for the noise of accelerometer on the axes (should be "
 "somewhere in the range of ~1-100). Too high axes noise (e.g. 1000 and more) "
@@ -317,17 +304,6 @@ msgstr ""
 "vagy választhatsz más konfigurációt is a generált diagramok alapján: a "
 "diagramokon a teljesítményspektrális sűrűség csúcsai megfelelnek a nyomtató "
 "rezonanciafrekvenciáinak."
-
-msgid ""
-"Note that alternatively you can run the input shaper autocalibration from "
-"Klipper [directly](#input-shaper-auto-calibration), which can be convenient,"
-" for example, for the input shaper [re-calibration](#input-shaper-re-"
-"calibration)."
-msgstr ""
-"Megjegyzendő, hogy alternatívaként a bemeneti alakító automatikus "
-"kalibrációját a Klipper-ből [közvetlenül](#bemeneti-formazo-automatikus-"
-"kalibralasa) is futtathatod, ami például a bemeneti formázó "
-"[újrakalibrálásához](#bemeneti-formazo-ujrakalibralasa) lehet hasznos."
 
 msgid "Bed-slinger printers"
 msgstr "Bed-slinger nyomtatók"
@@ -622,29 +598,6 @@ msgstr ""
 "`SHAPER_CALIBRATE` paranccsal lehet újra lefuttatni, vagy az automatikus "
 "kalibrálást egyetlen tengelyre lehet korlátozni az `AXIS=` paraméter "
 "megadásával, például a következő módon"
-
-msgid ""
-"**Warning!** It is not advisable to run the shaper autocalibration very "
-"frequently (e.g. before every print, or every day). In order to determine "
-"resonance frequencies, autocalibration creates intensive vibrations on each "
-"of the axes. Generally, 3D printers are not designed to withstand a "
-"prolonged exposure to vibrations near the resonance frequencies. Doing so "
-"may increase wear of the printer components and reduce their lifespan. There"
-" is also an increased risk of some parts unscrewing or becoming loose. "
-"Always check that all parts of the printer (including the ones that may "
-"normally not move) are securely fixed in place after each auto-tuning."
-msgstr ""
-"**Figyelmeztetés!** Nem tanácsos a gépen az automatikus kalibrációt nagyon "
-"gyakran futtatni (pl. minden nyomtatás előtt vagy minden nap). A "
-"rezonanciafrekvenciák meghatározása érdekében az automatikus kalibrálás "
-"intenzív rezgéseket hoz létre az egyes tengelyeken. A 3D nyomtatókat "
-"általában nem úgy tervezték, hogy a rezonanciafrekvenciákhoz közeli "
-"rezgéseknek tartósan ellenálljanak. Ez növelheti a nyomtató alkatrészeinek "
-"kopását és csökkentheti élettartamukat. Megnő a kockázata annak is, hogy "
-"egyes alkatrészek kicsavarodnak vagy meglazulnak. Minden egyes automatikus "
-"hangolás után mindig ellenőrizd, hogy a nyomtató minden alkatrésze "
-"(beleértve azokat is, amelyek normál esetben nem mozoghatnak) biztonságosan "
-"a helyén van-e rögzítve."
 
 msgid ""
 "Also, due to some noise in measurements, it is possible that the tuning "
@@ -1252,29 +1205,19 @@ msgstr ""
 "probe_points:\n"
 "    100, 100, 20  # an example\n"
 
-#: docs/Measuring_Resonances.md:block 6 (paragraph)
-msgid ""
-"An ethernet cable with shielded twisted pairs (cat5e or better) is "
-"recommended for signal integrety over a long distance. If you still "
-"experience signal integrity issues (SPI/I2C errors), shorten the cable."
-msgstr ""
-"A nagy távolságra történő jelintegráció érdekében árnyékolt, sodrott páros ("
-"cat5e vagy jobb) ethernet-kábel használata ajánlott. Ha továbbra is "
-"jelintegritási problémákat tapasztalsz (SPI/I2C hibák), rövidítsd le a "
-"kábelt."
-
 #: docs/Measuring_Resonances.md:block 7 (paragraph)
 msgid "Connect ethernet cable shielding to the controller board/RPI ground."
 msgstr ""
-"Csatlakoztasd az ethernet kábel árnyékolását a vezérlőpanel/RPI földeléséhez."
+"Csatlakoztasd az ethernet kábel árnyékolását a vezérlőpanel/RPI "
+"földeléséhez."
 
 #: docs/Measuring_Resonances.md:block 8 (paragraph)
 msgid ""
 "***Double-check your wiring before powering up to prevent damaging your "
 "MCU/Raspberry Pi or the accelerometer.***"
 msgstr ""
-"***Kétszer is ellenőrizd a vezetékeket a bekapcsolás előtt, hogy elkerüld az "
-"MCU/Raspberry Pi vagy a gyorsulásmérő károsodását.***"
+"***Kétszer is ellenőrizd a vezetékeket a bekapcsolás előtt, hogy elkerüld az"
+" MCU/Raspberry Pi vagy a gyorsulásmérő károsodását.***"
 
 #: docs/Measuring_Resonances.md:block 9 (header)
 msgid "SPI Accelerometers"
@@ -1297,16 +1240,6 @@ msgstr ""
 #: docs/Measuring_Resonances.md:block 12 (header)
 msgid "ADXL345"
 msgstr "ADXL345"
-
-#: docs/Measuring_Resonances.md:block 13 (paragraph)
-msgid ""
-"**Note: Many MCUs will work with an ADXL345 in SPI mode(eg Pi Pico), wiring "
-"and configuration will vary according to your specific board and avaliable "
-"pins.**"
-msgstr ""
-"**Megjegyzés: Sok MCU működik az ADXL345-össel SPI módban (pl. Pi Pico), a "
-"vezetékezés és a konfiguráció az adott laptól és a rendelkezésre álló tűktől "
-"függően változik.**"
 
 #: docs/Measuring_Resonances.md:block 18 (header)
 msgid "I2C Accelerometers"
@@ -1418,14 +1351,202 @@ msgstr ""
 "A PICO I2C alapértelmezés szerint 400000-re van beállítva. Egyszerűen add "
 "hozzá a következőket a printer.cfg fájlhoz:"
 
-#: docs/Measuring_Resonances.md:block 52 (code)
+#: docs/Measuring_Resonances.md:block 61 (paragraph)
+msgid ""
+"**If you are using MPU-6000/9000 series accelerometer and it show up as "
+"`mpu-unknown`, use with caution! They are probably refurbished chips!**"
+msgstr ""
+"**Ha MPU-6000/9000 sorozatú gyorsulásmérőt használsz, és az `mpu-"
+"unknown`-ként jelenik meg, óvatosan használd! Ezek valószínűleg felújított "
+"chipek!**"
+
+#: docs/Measuring_Resonances.md:block 6 (paragraph)
+msgid ""
+"An ethernet cable with shielded twisted pairs (cat5e or better) is "
+"recommended for signal integrity over a long distance. If you still "
+"experience signal integrity issues (SPI/I2C errors), shorten the cable."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 13 (header)
+msgid "Direct to Raspberry Pi"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 14 (paragraph)
+msgid ""
+"**Note: Many MCUs will work with an ADXL345 in SPI mode(eg Pi Pico), wiring "
+"and configuration will vary according to your specific board and available "
+"pins.**"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 16 (table)
+msgid "3.3V DC power"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 19 (header)
+msgid "Using Raspberry Pi Pico"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 20 (paragraph)
+msgid ""
+"You may connect the ADXL345 to your Raspberry Pi Pico and then connect the "
+"Pico to your Raspberry Pi via USB. This makes it easy to reuse the "
+"accelerometer on other Klipper devices, as you can connect via USB instead "
+"of GPIO. The Pico does not have much processing power, so make sure it is "
+"only running the accelerometer and not performing any other duties."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 21 (paragraph)
+msgid ""
+"In order to avoid damage to your RPi make sure to connect the ADXL345 to "
+"3.3V only. Depending on the board's layout, a level shifter may be present, "
+"which makes 5V dangerous for your RPi."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 22 (table)
+msgid "Pico pin"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 22 (table)
+msgid "Pico pin name"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 22 (table)
+msgid "36"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 22 (table)
+msgid "2"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 22 (table)
+msgid "GP1 (SPI0_CSn)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 22 (table)
+msgid "1"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 22 (table)
+msgid "GP0 (SPI0_RX)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 22 (table)
+msgid "5"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 22 (table)
+msgid "GP3 (SPI0_TX)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 22 (table)
+msgid "4"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 22 (table)
+msgid "GP2 (SPI0_SCK)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 23 (paragraph)
+msgid "Wiring diagrams for some of the ADXL345 boards:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 24 (paragraph)
+msgid "![ADXL345-Pico](img/adxl345-pico.png)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 54 (header)
+msgid "Configure ADXL345 With Pi Pico"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 55 (header)
+msgid "Flash the Pico Firmware"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 56 (paragraph)
+msgid "On your Raspberry Pi, compile the firmware for the Pico."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 57 (code)
+msgid ""
+"cd ~/klipper\n"
+"make clean\n"
+"make menuconfig\n"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 58 (paragraph)
+msgid "![Pico menuconfig](img/klipper_pico_menuconfig.png)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 59 (paragraph)
+msgid ""
+"Now, while holding down the `BOOTSEL` button on the Pico, connect the Pico "
+"to the Raspberry Pi via USB. Compile and flash the firmware."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 60 (code)
+msgid "make flash FLASH_DEVICE=first\n"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 61 (paragraph)
+msgid ""
+"If that fails, you will be told which `FLASH_DEVICE` to use. In this "
+"example, that's `make flash FLASH_DEVICE=2e8a:0003`. ![Determine flash "
+"device](img/flash_rp2040_FLASH_DEVICE.png)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 62 (header)
+msgid "Configure the Connection"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 63 (paragraph)
+msgid ""
+"The Pico will now reboot with the new firmware and should show up as a "
+"serial device. Find the pico serial device with `ls /dev/serial/by-id/*`. "
+"You can now add an `adxl.cfg` file with the following settings:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 64 (code)
+msgid ""
+"[mcu adxl]\n"
+"# Change <mySerial> to whatever you found above. For example,\n"
+"# usb-Klipper_rp2040_E661640843545B2E-if00\n"
+"serial: /dev/serial/by-id/usb-Klipper_rp2040_<mySerial>\n"
+"\n"
+"[adxl345]\n"
+"cs_pin: adxl:gpio1\n"
+"spi_bus: spi0a\n"
+"axes_map: x,z,y\n"
+"\n"
+"[resonance_tester]\n"
+"accel_chip: adxl345\n"
+"probe_points:\n"
+"    # Somewhere slightly above the middle of your print bed\n"
+"    147,154, 20\n"
+"\n"
+"[output_pin power_mode] # Improve power stability\n"
+"pin: adxl:gpio23\n"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 65 (paragraph)
+msgid ""
+"If setting up the ADXL345 configuration in a separate file, as shown above, "
+"you'll also want to modify your `printer.cfg` file to include this:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 66 (code)
+msgid ""
+"[include adxl.cfg] # Comment this out when you disconnect the "
+"accelerometer\n"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 73 (code)
 msgid ""
 "[mcu pico]\n"
 "serial: /dev/serial/by-id/<your PICO's serial ID>\n"
 "\n"
 "[mpu9250]\n"
 "i2c_mcu: pico\n"
-"i2c_bus: i2c1a\n"
+"i2c_bus: i2c0a\n"
 "\n"
 "[resonance_tester]\n"
 "accel_chip: mpu9250\n"
@@ -1435,29 +1556,133 @@ msgid ""
 "[static_digital_output pico_3V3pwm] # Improve power stability\n"
 "pin: pico:gpio23\n"
 msgstr ""
-"[mcu pico]\n"
-"serial: /dev/serial/by-id/<a PICO soros azonosítója>\n"
-"\n"
-"[mpu9250]\n"
-"i2c_mcu: pico\n"
-"i2c_bus: i2c1a\n"
-"\n"
-"[resonance_tester]\n"
-"accel_chip: mpu9250\n"
-"probe_points:\n"
-"         100, 100, 20 # egy példa\n"
-"\n"
-"[static_digital_output pico_3V3pwm] # A teljesítmény stabilitásának "
-"javítása\n"
-"pin: pico:gpio23\n"
 
-#: docs/Measuring_Resonances.md:block 61 (paragraph)
+#: docs/Measuring_Resonances.md:block 81 (paragraph)
 msgid ""
-"**If you are using MPU-6000/9000 series accelerometer and it show up as "
-"`mpu-unknown`, use with caution! They are probably refurbished chips!**"
+"If you get an error like `Invalid adxl345 id (got xx vs e5)`, where `xx` is "
+"some other ID, immediately try again. There's an issue with SPI "
+"initialization. If you still get an error, it is indicative of the "
+"connection problem with ADXL345, or the faulty sensor. Double-check the "
+"power, the wiring (that it matches the schematics, no wire is broken or "
+"loose, etc.), and soldering quality."
 msgstr ""
-"**Ha MPU-6000/9000 sorozatú gyorsulásmérőt használsz, és az `mpu-unknown`-"
-"ként jelenik meg, óvatosan használd! Ezek valószínűleg felújított chipek!**"
+
+#: docs/Measuring_Resonances.md:block 100 (paragraph)
+msgid ""
+"Note that alternatively you can run the input shaper auto-calibration from "
+"Klipper [directly](#input-shaper-auto-calibration), which can be convenient,"
+" for example, for the input shaper [re-calibration](#input-shaper-re-"
+"calibration)."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 152 (paragraph)
+msgid ""
+"**Warning!** It is not advisable to run the shaper auto-calibration very "
+"frequently (e.g. before every print, or every day). In order to determine "
+"resonance frequencies, auto-calibration creates intensive vibrations on each"
+" of the axes. Generally, 3D printers are not designed to withstand a "
+"prolonged exposure to vibrations near the resonance frequencies. Doing so "
+"may increase wear of the printer components and reduce their lifespan. There"
+" is also an increased risk of some parts unscrewing or becoming loose. "
+"Always check that all parts of the printer (including the ones that may "
+"normally not move) are securely fixed in place after each auto-tuning."
+msgstr ""
+
+#~ msgid ""
+#~ "If you get an error like `Invalid adxl345 id (got xx vs e5)`, where `xx` is "
+#~ "some other ID, it is indicative of the connection problem with ADXL345, or "
+#~ "the faulty sensor. Double-check the power, the wiring (that it matches the "
+#~ "schematics, no wire is broken or loose, etc.), and soldering quality."
+#~ msgstr ""
+#~ "Ha olyan hibát kapsz, mint `Invalid adxl345 id (got xx vs e5)`, ahol `xx` "
+#~ "valami más azonosító, azaz ADXL345-öt érintő kapcsolati problémára vagy a "
+#~ "hibás érzékelőre utal. Ellenőrizd kétszer is a tápellátást, a kábelezést "
+#~ "(hogy megfelel-e a kapcsolási rajzoknak, nincs-e törött vagy laza vezeték "
+#~ "stb.) és a forrasztás minőségét."
+
+#~ msgid ""
+#~ "Note that alternatively you can run the input shaper autocalibration from "
+#~ "Klipper [directly](#input-shaper-auto-calibration), which can be convenient,"
+#~ " for example, for the input shaper [re-calibration](#input-shaper-re-"
+#~ "calibration)."
+#~ msgstr ""
+#~ "Megjegyzendő, hogy alternatívaként a bemeneti alakító automatikus "
+#~ "kalibrációját a Klipper-ből [közvetlenül](#bemeneti-formazo-automatikus-"
+#~ "kalibralasa) is futtathatod, ami például a bemeneti formázó "
+#~ "[újrakalibrálásához](#bemeneti-formazo-ujrakalibralasa) lehet hasznos."
+
+#~ msgid ""
+#~ "**Warning!** It is not advisable to run the shaper autocalibration very "
+#~ "frequently (e.g. before every print, or every day). In order to determine "
+#~ "resonance frequencies, autocalibration creates intensive vibrations on each "
+#~ "of the axes. Generally, 3D printers are not designed to withstand a "
+#~ "prolonged exposure to vibrations near the resonance frequencies. Doing so "
+#~ "may increase wear of the printer components and reduce their lifespan. There"
+#~ " is also an increased risk of some parts unscrewing or becoming loose. "
+#~ "Always check that all parts of the printer (including the ones that may "
+#~ "normally not move) are securely fixed in place after each auto-tuning."
+#~ msgstr ""
+#~ "**Figyelmeztetés!** Nem tanácsos a gépen az automatikus kalibrációt nagyon "
+#~ "gyakran futtatni (pl. minden nyomtatás előtt vagy minden nap). A "
+#~ "rezonanciafrekvenciák meghatározása érdekében az automatikus kalibrálás "
+#~ "intenzív rezgéseket hoz létre az egyes tengelyeken. A 3D nyomtatókat "
+#~ "általában nem úgy tervezték, hogy a rezonanciafrekvenciákhoz közeli "
+#~ "rezgéseknek tartósan ellenálljanak. Ez növelheti a nyomtató alkatrészeinek "
+#~ "kopását és csökkentheti élettartamukat. Megnő a kockázata annak is, hogy "
+#~ "egyes alkatrészek kicsavarodnak vagy meglazulnak. Minden egyes automatikus "
+#~ "hangolás után mindig ellenőrizd, hogy a nyomtató minden alkatrésze "
+#~ "(beleértve azokat is, amelyek normál esetben nem mozoghatnak) biztonságosan "
+#~ "a helyén van-e rögzítve."
+
+#~ msgid ""
+#~ "An ethernet cable with shielded twisted pairs (cat5e or better) is "
+#~ "recommended for signal integrety over a long distance. If you still "
+#~ "experience signal integrity issues (SPI/I2C errors), shorten the cable."
+#~ msgstr ""
+#~ "A nagy távolságra történő jelintegráció érdekében árnyékolt, sodrott páros "
+#~ "(cat5e vagy jobb) ethernet-kábel használata ajánlott. Ha továbbra is "
+#~ "jelintegritási problémákat tapasztalsz (SPI/I2C hibák), rövidítsd le a "
+#~ "kábelt."
+
+#~ msgid ""
+#~ "**Note: Many MCUs will work with an ADXL345 in SPI mode(eg Pi Pico), wiring "
+#~ "and configuration will vary according to your specific board and avaliable "
+#~ "pins.**"
+#~ msgstr ""
+#~ "**Megjegyzés: Sok MCU működik az ADXL345-össel SPI módban (pl. Pi Pico), a "
+#~ "vezetékezés és a konfiguráció az adott laptól és a rendelkezésre álló tűktől"
+#~ " függően változik.**"
+
+#~ msgid ""
+#~ "[mcu pico]\n"
+#~ "serial: /dev/serial/by-id/<your PICO's serial ID>\n"
+#~ "\n"
+#~ "[mpu9250]\n"
+#~ "i2c_mcu: pico\n"
+#~ "i2c_bus: i2c1a\n"
+#~ "\n"
+#~ "[resonance_tester]\n"
+#~ "accel_chip: mpu9250\n"
+#~ "probe_points:\n"
+#~ "    100, 100, 20  # an example\n"
+#~ "\n"
+#~ "[static_digital_output pico_3V3pwm] # Improve power stability\n"
+#~ "pin: pico:gpio23\n"
+#~ msgstr ""
+#~ "[mcu pico]\n"
+#~ "serial: /dev/serial/by-id/<a PICO soros azonosítója>\n"
+#~ "\n"
+#~ "[mpu9250]\n"
+#~ "i2c_mcu: pico\n"
+#~ "i2c_bus: i2c1a\n"
+#~ "\n"
+#~ "[resonance_tester]\n"
+#~ "accel_chip: mpu9250\n"
+#~ "probe_points:\n"
+#~ "         100, 100, 20 # egy példa\n"
+#~ "\n"
+#~ "[static_digital_output pico_3V3pwm] # A teljesítmény stabilitásának javítása\n"
+#~ "pin: pico:gpio23\n"
 
 #~ msgid ""
 #~ "Double-check your wiring before powering up the Raspberry Pi to prevent "

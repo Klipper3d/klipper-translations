@@ -232,9 +232,14 @@ msgstr "[霍尔打印丝宽度传感器](Hall_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
-"[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
+"[Exclude Object](Exclude_Object.md): The guide to the Exclude Objects "
 "implementation."
-msgstr "[排除对象](Exclude_Object.md)：排除对象实现的指南。"
+msgstr ""
+
+#~ msgid ""
+#~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
+#~ "implementation."
+#~ msgstr "[排除对象](Exclude_Object.md)：排除对象实现的指南。"
 
 #~ msgid ""
 #~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "
