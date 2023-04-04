@@ -440,15 +440,6 @@ msgstr "確保在上述編譯後存在 **./build/pysimulavr/_pysimulavr.*.so** �
 msgid "ls ./build/pysimulavr/_pysimulavr.*.so\n"
 msgstr "ls ./build/pysimulavr/_pysimulavr.*.so\n"
 
-#: docs/Debugging.md:block 61 (paragraph)
-msgid ""
-"This commmand should report a specific file (e.g. "
-"**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not "
-"an error."
-msgstr ""
-"此命令應報告特定文件（例如 **./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-"
-"gnu.so**）而不是錯誤。"
-
 #: docs/Debugging.md:block 62 (paragraph)
 msgid ""
 "If you are on a Debian-based system (Debian, Ubuntu, etc.) you can install "
@@ -488,6 +479,21 @@ msgstr ""
 #: docs/Debugging.md:block 69 (code)
 msgid "./scripts/avrsim.py out/klipper.elf\n"
 msgstr "./scripts/avrsim.py out/klipper.elf\n"
+
+#: docs/Debugging.md:block 61 (paragraph)
+msgid ""
+"This command should report a specific file (e.g. "
+"**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not "
+"an error."
+msgstr ""
+
+#~ msgid ""
+#~ "This commmand should report a specific file (e.g. "
+#~ "**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not "
+#~ "an error."
+#~ msgstr ""
+#~ "此命令應報告特定文件（例如 **./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-"
+#~ "gnu.so**）而不是錯誤。"
 
 #~ msgid ""
 #~ "To use simulavr, download the simulavr package and compile with python "

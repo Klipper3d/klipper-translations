@@ -4,13 +4,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2023-03-20 06:39+0000\n"
 "Last-Translator: zafer yazkili <yazkili@hotmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
-"config_changes/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/config_changes/tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.16.2-dev\n"
-"Content-Transfer-Encoding: 8bit\n"
 
 msgid ""
 "This document covers recent software changes to the config file that are not"
@@ -657,6 +656,25 @@ msgstr ""
 
 #: docs/Config_Changes.md:block 7 (paragraph)
 msgid "20221128: Klipper v0.11.0 released."
+msgstr ""
+
+#: docs/Config_Changes.md:block 5 (paragraph)
+msgid ""
+"20230304: The `SET_TMC_CURRENT` command now properly adjusts the "
+"globalscaler register for drivers that have it. This removes a limitation "
+"where on tmc5160, the currents could not be raised higher with "
+"`SET_TMC_CURRENT` than the `run_current` value set in the config file. "
+"However, this has a side effect: After running `SET_TMC_CURRENT`, the "
+"stepper must be held at standstill for >130ms in case StealthChop2 is used "
+"so that the AT#1 calibration gets executed by the driver."
+msgstr ""
+
+#: docs/Config_Changes.md:block 6 (paragraph)
+msgid ""
+"20230202: The format of the `printer.screws_tilt_adjust` status information "
+"has changed. The information is now stored as a dictionary of screws with "
+"the resulting measurements. See the [status "
+"reference](Status_Reference.md#screws_tilt_adjust) for details."
 msgstr ""
 
 #~ msgid ""

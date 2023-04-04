@@ -1013,6 +1013,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#stepper_enable" class="md-nav__link">
+    stepper_enable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#system_stats" class="md-nav__link">
     system_stats
   </a>
@@ -1774,6 +1781,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#stepper_enable" class="md-nav__link">
+    stepper_enable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#system_stats" class="md-nav__link">
     system_stats
   </a>
@@ -1994,6 +2008,9 @@ the following strings: "adjust", "fine".</li>
 <ul>
 <li><code>pressure_advance</code>: The current <a href="Pressure_Advance.html">pressure advance</a> value.</li>
 <li><code>smooth_time</code>: The current pressure advance smooth time.</li>
+<li><code>motion_queue</code>: The name of the extruder that this extruder stepper is
+  currently synchronized to.  This is reported as <code>None</code> if the extruder stepper
+  is not currently associated with an extruder.</li>
 </ul>
 <h2 id="fan">fan<a class="headerlink" href="#fan" title="Permanent link">&para;</a></h2>
 <p>The following information is available in
@@ -2211,6 +2228,7 @@ defined):</p>
 available if a <a href="Config_Reference.html#bltouch">bltouch</a> config section
 is defined):</p>
 <ul>
+<li><code>name</code>: Returns the name of the probe in use.</li>
 <li><code>last_query</code>: Returns True if the probe was reported as "triggered"
   during the last QUERY_PROBE command. Note, if this is used in a
   macro, due to the order of template expansion, the QUERY_PROBE
@@ -2244,20 +2262,17 @@ object:</p>
 <li><code>error</code>: Returns True if the most recent <code>SCREWS_TILT_CALCULATE</code>
   command included the <code>MAX_DEVIATION</code> parameter and any of the probed
   screw points exceeded the specified <code>MAX_DEVIATION</code>.</li>
-<li><code>results</code>: A list of the probed screw locations. Each entry in
-  the list will be a dictionary containing the following keys:<ul>
-<li><code>name</code>: The name of the screw as specified in the config file.</li>
-<li><code>x</code>: The X coordinate of the screw as specified in the config file.</li>
-<li><code>y</code>: The Y coordinate of the screw as specified in the config file.</li>
+<li><code>results["&lt;screw&gt;"]</code>: A dictionary containing the following keys:<ul>
 <li><code>z</code>: The measured Z height of the screw location.</li>
 <li><code>sign</code>: A string specifying the direction to turn to screw for the
   necessary adjustment. Either "CW" for clockwise or "CCW" for
-  counterclockwise. The base screw will not have a <code>sign</code> key.</li>
+  counterclockwise.</li>
 <li><code>adjust</code>: The number of screw turns to adjust the screw, given in
   the format "HH:MM," where "HH" is the number of full screw turns
   and "MM" is the number of "minutes of a clock face" representing
   a partial screw turn. (E.g. "01:15" would mean to turn the screw
   one and a quarter revolutions.)</li>
+<li><code>is_base</code>: Returns True if this is the base screw.</li>
 </ul>
 </li>
 </ul>
@@ -2267,6 +2282,12 @@ object:</p>
 <ul>
 <li><code>printer["servo &lt;config_name&gt;"].value</code>: The last setting of the PWM
   pin (a value between 0.0 and 1.0) associated with the servo.</li>
+</ul>
+<h2 id="stepper_enable">stepper_enable<a class="headerlink" href="#stepper_enable" title="Permanent link">&para;</a></h2>
+<p>The following information is available in the <code>stepper_enable</code> object (this
+object is available if any stepper is defined):</p>
+<ul>
+<li><code>steppers["&lt;stepper&gt;"]</code>: Returns True if the given stepper is enabled.</li>
 </ul>
 <h2 id="system_stats">system_stats<a class="headerlink" href="#system_stats" title="Permanent link">&para;</a></h2>
 <p>The following information is available in the <code>system_stats</code> object

@@ -996,32 +996,7 @@ msgid ""
 msgstr ""
 
 #: docs/Status_Reference.md:block 95 (unordered list)
-msgid ""
-"`results`: A list of the probed screw locations. Each entry in the list will"
-" be a dictionary containing the following keys:"
-msgstr ""
-
-#: docs/Status_Reference.md:block 95 (unordered list)
-msgid "`name`: The name of the screw as specified in the config file."
-msgstr ""
-
-#: docs/Status_Reference.md:block 95 (unordered list)
-msgid "`x`: The X coordinate of the screw as specified in the config file."
-msgstr ""
-
-#: docs/Status_Reference.md:block 95 (unordered list)
-msgid "`y`: The Y coordinate of the screw as specified in the config file."
-msgstr ""
-
-#: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`z`: The measured Z height of the screw location."
-msgstr ""
-
-#: docs/Status_Reference.md:block 95 (unordered list)
-msgid ""
-"`sign`: A string specifying the direction to turn to screw for the necessary"
-" adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise. "
-"The base screw will not have a `sign` key."
 msgstr ""
 
 #: docs/Status_Reference.md:block 95 (unordered list)
@@ -1031,6 +1006,65 @@ msgid ""
 " number of \"minutes of a clock face\" representing a partial screw turn. "
 "(E.g. \"01:15\" would mean to turn the screw one and a quarter revolutions.)"
 msgstr ""
+
+#: docs/Status_Reference.md:block 29 (unordered list)
+msgid ""
+"`motion_queue`: The name of the extruder that this extruder stepper is "
+"currently synchronized to. This is reported as `None` if the extruder "
+"stepper is not currently associated with an extruder."
+msgstr ""
+
+#: docs/Status_Reference.md:block 86 (unordered list)
+msgid "`name`: Returns the name of the probe in use."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`results[\"<screw>\"]`: A dictionary containing the following keys:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid ""
+"`sign`: A string specifying the direction to turn to screw for the necessary"
+" adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise."
+msgstr ""
+
+#: docs/Status_Reference.md:block 95 (unordered list)
+msgid "`is_base`: Returns True if this is the base screw."
+msgstr ""
+
+#: docs/Status_Reference.md:block 99 (header)
+msgid "stepper_enable"
+msgstr ""
+
+#: docs/Status_Reference.md:block 100 (paragraph)
+msgid ""
+"The following information is available in the `stepper_enable` object (this "
+"object is available if any stepper is defined):"
+msgstr ""
+
+#: docs/Status_Reference.md:block 101 (unordered list)
+msgid "`steppers[\"<stepper>\"]`: Returns True if the given stepper is enabled."
+msgstr ""
+
+#~ msgid ""
+#~ "`results`: A list of the probed screw locations. Each entry in the list will"
+#~ " be a dictionary containing the following keys:"
+#~ msgstr ""
+
+#~ msgid "`name`: The name of the screw as specified in the config file."
+#~ msgstr ""
+
+#~ msgid "`x`: The X coordinate of the screw as specified in the config file."
+#~ msgstr ""
+
+#~ msgid "`y`: The Y coordinate of the screw as specified in the config file."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`sign`: A string specifying the direction to turn to screw for the necessary"
+#~ " adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise. "
+#~ "The base screw will not have a `sign` key."
+#~ msgstr ""
 
 #~ msgid "neopixel / dotstar"
 #~ msgstr ""

@@ -484,18 +484,6 @@ msgstr ""
 msgid "Core motion system, Micro-controller code"
 msgstr ""
 
-#: docs/CONTRIBUTING.md:block 23 (table)
-msgid "Paul McGowan"
-msgstr ""
-
-#: docs/CONTRIBUTING.md:block 23 (table)
-msgid "@mental405"
-msgstr ""
-
-#: docs/CONTRIBUTING.md:block 23 (table)
-msgid "Configuration files, documentation"
-msgstr ""
-
 #: docs/CONTRIBUTING.md:block 24 (paragraph)
 msgid ""
 "Please do not \"ping\" any of the reviewers and please do not direct "
@@ -596,6 +584,27 @@ msgid ""
 "understanding of the root cause of that defect, and the fix should target "
 "that root cause."
 msgstr ""
+
+#: docs/CONTRIBUTING.md:block 23 (table)
+msgid "James Hartley"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 23 (table)
+msgid "@JamesH1978"
+msgstr ""
+
+#: docs/CONTRIBUTING.md:block 23 (table)
+msgid "Configuration files"
+msgstr ""
+
+#~ msgid "Paul McGowan"
+#~ msgstr ""
+
+#~ msgid "@mental405"
+#~ msgstr ""
+
+#~ msgid "Configuration files, documentation"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "When discussing benefits it is preferable to discuss \"facts and "

@@ -243,9 +243,14 @@ msgstr "[홀 필라멘트 폭 센서](Hall_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
-"[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
+"[Exclude Object](Exclude_Object.md): The guide to the Exclude Objects "
 "implementation."
-msgstr "[객체 제외](Exclude_Object.md): Objecs 제외 구현에 대한 가이드입니다."
+msgstr ""
+
+#~ msgid ""
+#~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
+#~ "implementation."
+#~ msgstr "[객체 제외](Exclude_Object.md): Objecs 제외 구현에 대한 가이드입니다."
 
 #~ msgid ""
 #~ "[Skew correction](skew_correction.md): Adjustments for axes not perfectly "

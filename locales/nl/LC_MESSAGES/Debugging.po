@@ -369,13 +369,6 @@ msgstr ""
 msgid "ls ./build/pysimulavr/_pysimulavr.*.so\n"
 msgstr ""
 
-#: docs/Debugging.md:block 61 (paragraph)
-msgid ""
-"This commmand should report a specific file (e.g. "
-"**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not "
-"an error."
-msgstr ""
-
 #: docs/Debugging.md:block 62 (paragraph)
 msgid ""
 "If you are on a Debian-based system (Debian, Ubuntu, etc.) you can install "
@@ -406,6 +399,19 @@ msgstr ""
 #: docs/Debugging.md:block 69 (code)
 msgid "./scripts/avrsim.py out/klipper.elf\n"
 msgstr ""
+
+#: docs/Debugging.md:block 61 (paragraph)
+msgid ""
+"This command should report a specific file (e.g. "
+"**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not "
+"an error."
+msgstr ""
+
+#~ msgid ""
+#~ "This commmand should report a specific file (e.g. "
+#~ "**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not "
+#~ "an error."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "To use simulavr, download the simulavr package and compile with python "

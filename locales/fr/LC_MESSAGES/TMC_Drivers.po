@@ -882,10 +882,6 @@ msgstr ""
 "moteur pas à pas et/ou à augmenter le refroidissement du pilote du moteur "
 "pas à pas."
 
-#: docs/TMC_Drivers.md:block 94 (header)
-msgid "TMC reports error: `... ShortToGND` OR `LowSideShort`"
-msgstr "TMC signale une erreur : `... ShortToGND` OU `LowSideShort`"
-
 #: docs/TMC_Drivers.md:block 95 (paragraph)
 msgid ""
 "This indicates the driver has disabled itself because it detected very high "
@@ -1260,6 +1256,13 @@ msgstr ""
 "    G4 P2000\n"
 "    G28 X0\n"
 "    G1 X5 F1200\n"
+
+#: docs/TMC_Drivers.md:block 110 (header)
+msgid "TMC reports error: `... ShortToGND` OR `ShortToSupply`"
+msgstr ""
+
+#~ msgid "TMC reports error: `... ShortToGND` OR `LowSideShort`"
+#~ msgstr "TMC signale une erreur : `... ShortToGND` OU `LowSideShort`"
 
 #~ msgid ""
 #~ "Then issue a `G28 X0` command and verify the axis does not move at all. If "

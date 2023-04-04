@@ -1309,8 +1309,8 @@
 <p>Během této příručky může být nutné provést změny v konfiguračním souboru Klipper . Ujistěte se, že po každé změně konfiguračního souboru vydáte příkaz RESTART , abyste zajistili, že se změna projeví ( na kartě terminálu Octoprint zadejte " restart " a poté klikněte na "Odeslat"). Je také dobré po každém RESTARTU zadat příkaz STATUS , abyste ověřili, že byl konfigurační soubor úspěšně načten.</p>
 <h2 id="overte-teplotu">Ověřte teplotu<a class="headerlink" href="#overte-teplotu" title="Permanent link">&para;</a></h2>
 <p>Začněte tím, že si ověříte, že jsou teploty správně hlášeny. Přejděte na kartu teploty Octoprint .</p>
-<p>! [oktotisk-teplota] (img/octoprint-teplota.png)</p>
-<p>Ověřte, že teplota trysky a lože (je-li k dispozici) je přítomna a nezvyšuje se. Pokud se zvyšuje, odpojte napájení tiskárny. Pokud teploty nejsou přesné, zkontrolujte nastavení „sensor_type“ a „sensor_pin“ pro trysku a/nebo lože.</p>
+<p><img alt="octoprint-temperature" src="img/octoprint-temperature.png" /></p>
+<p>Ověřte, že teplota trysky a podložky (je-li k dispozici) je přítomna a nezvyšuje se. Pokud se zvyšuje, odpojte napájení tiskárny. Pokud teploty nejsou přesné, zkontrolujte nastavení „sensor_type“ a „sensor_pin“ pro trysku a/nebo podložku.</p>
 <h2 id="overte-m112">Ověřte M112<a class="headerlink" href="#overte-m112" title="Permanent link">&para;</a></h2>
 <p>Přejděte na kartu Terminál Octoprint a zadejte příkaz M112 ve svorkovnici. Tento příkaz požaduje , aby Klipper přešel do stavu „vypnutí“. Způsobí to odpojení Octoprint od Klipper – přejděte do oblasti Připojení a klikněte na „Připojit“, aby se Octoprint znovu připojil. Poté přejděte na kartu teploty Octoprint a ověřte, zda se teploty nadále aktualizují a teploty se nezvyšují. Pokud se teploty zvyšují, odpojte napájení tiskárny.</p>
 <p>Příkaz M112 způsobí , že Klipper přejde do stavu „vypnutí“. Chcete-li tento stav vymazat, zadejte příkaz FIRMWARE_RESTART na kartě terminálu Octoprint .</p>
@@ -1337,7 +1337,7 @@
 <p>Pokud má tiskárna vyhřívané lůžko a podporuje řízení pomocí PWM (Pulse Width Modulation), pak se doporučuje použít pro lůžko PID řízení. (Když je ohřívač postele řízen pomocí algoritmu PID, může se zapnout a vypnout desetkrát za sekundu, což nemusí být vhodné pro ohřívače používající mechanický spínač.) Typický příkaz pro kalibraci PID lůžka je: <code>PID_CALIBRATE HEATER=heater_bed CÍL=60</code></p>
 <h2 id="dalsi-kroky">Další kroky<a class="headerlink" href="#dalsi-kroky" title="Permanent link">&para;</a></h2>
 <p>Tato příručka má pomoci se základním ověřením nastavení pinů v konfiguračním souboru Klipper. Nezapomeňte si přečíst průvodce <a href="Bed_Level.html">vyrovnání postele</a>. Viz také dokument <a href="Slicers.html">Slicers</a> pro informace o konfiguraci sliceru pomocí Klipperu.</p>
-<p>Poté, co si ověříte, že základní tisk funguje, je dobré zvážit kalibraci [pressure advance] (Pressure_Advance.md).</p>
+<p>Poté, co si ověříte, že základní tisk funguje, je dobré zvážit kalibraci <a href="Pressure_Advance.html">pressure_advance</a>.</p>
 <p>Může být nutné provést další typy podrobné kalibrace tiskárny – online je k dispozici řada příruček, které vám s tím pomohou (například vyhledejte na webu „kalibrace 3D tiskárny“). Pokud například zaznamenáte efekt zvaný zvonění, můžete zkusit postupovat podle průvodce laděním <a href="Resonance_Compensation.html">kompenzace rezonance</a>.</p>
 
               
