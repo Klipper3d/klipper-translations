@@ -1,12 +1,12 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
 # gnu-ewm <gnu.ewm@protonmail.com>, 2022.
-# Damian Jasinski <flasch44@gmail.com>, 2023.
+# Damian Jasinski <flasch44@gmail.com>, 2023, 2025.
 # Eryk Michalak <gnu.ewm@protonmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: Eryk Michalak <gnu.ewm@protonmail.com>\n"
+"Last-Translator: Damian Jasinski <flasch44@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/packaging/"
 "pl/>\n"
 "Language: pl\n"
@@ -82,9 +82,8 @@ msgid ""
 "git)."
 msgstr ""
 "klipper-git jest spakowany dla Arch Linux i ma PKGBUILD (skrypt budowania "
-"pakietów) dostępny w [Arch User "
-"Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper- "
-"git)."
+"pakietów) dostępny w [Arch User Repository](https://aur.archlinux.org/cgit/"
+"aur.git/tree/PKGBUILD?h=klipper- git)."
 
 #~ msgid ""
 #~ "klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build "
