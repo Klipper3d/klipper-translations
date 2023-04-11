@@ -1,11 +1,11 @@
-# Nicholas Suaterna Malloye <n.suaterna7@gmail.com>, 2023.
+# Nicholas Suaterna Malloye <n.suaterna7@gmail.com>, 2023, 2025.
 # Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023.
 # Francisco Serrador <fserrador@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
+"Last-Translator: Nicholas Suaterna Malloye <n.suaterna7@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "measuring_resonances/es/>\n"
 "Language: es\n"
@@ -28,10 +28,10 @@ msgid ""
 "connection, which is suggested by ADXL345 documentation, has too low "
 "throughput and **will not work**. The recommended connection scheme:"
 msgstr ""
-"Se necesita conectar el ADXL345 a la Raspberry Pi vía el SPI. Hay que tener en"
-" cuenta que la conexión I2C, la cual es sugerida por la documentación ADXL345,"
-" tiene un rendimiento muy bajo y **no funcionará**. El esquema recomendado de "
-"conexión es:"
+"Se necesita conectar el ADXL345 a la Raspberry Pi vía el SPI. Hay que tener "
+"en cuenta que la conexión I2C, la cual es sugerida por la documentación "
+"ADXL345, tiene un rendimiento muy bajo y **no funcionará**. El esquema "
+"recomendado de conexión es:"
 
 msgid "ADXL345 pin"
 msgstr ""
