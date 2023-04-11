@@ -1,6 +1,16 @@
-#
+# Nicholas Suaterna Malloye <n.suaterna7@gmail.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-04-11 03:16+0000\n"
+"Last-Translator: Nicholas Suaterna Malloye <n.suaterna7@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"measuring_resonances/es/>\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 msgid "Measuring Resonances"
 msgstr ""
@@ -15,7 +25,7 @@ msgid ""
 msgstr ""
 
 msgid "Installation instructions"
-msgstr ""
+msgstr "Instrucciones de instalación"
 
 msgid "Wiring"
 msgstr ""
@@ -25,6 +35,10 @@ msgid ""
 "connection, which is suggested by ADXL345 documentation, has too low "
 "throughput and **will not work**. The recommended connection scheme:"
 msgstr ""
+"Se necesita conectar el ADXL345 a la Raspberry Pi vía el SPI. Hay que tener "
+"en cuenta que la conexión I2C, la cual es sugerida por la documentación "
+"ADXL345, tiene un rendimiento muy bajo y **no funcionará**. El esquema "
+"recomendado de conexión es:"
 
 msgid "ADXL345 pin"
 msgstr ""
