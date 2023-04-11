@@ -1,19 +1,20 @@
 # badpoi <a1635835119@gmail.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
-"PO-Revision-Date: 2022-06-15 00:56+0000\n"
+"PO-Revision-Date: 2023-04-08 07:52+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/bed_mesh/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/bed_mesh/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 msgid "Basic Configuration"
 msgstr "基本配置"
@@ -682,7 +683,7 @@ msgstr ""
 
 #: docs/Bed_Mesh.md:block 61 (header)
 msgid "Loading the default profile"
-msgstr ""
+msgstr "加载默认配置文件"
 
 #: docs/Bed_Mesh.md:block 62 (paragraph)
 msgid ""
@@ -693,12 +694,16 @@ msgid ""
 "LOAD=default` to either their `START_PRINT` macro or their slicer's \"Start "
 "G-Code\" configuration, whichever is applicable."
 msgstr ""
+"以前版本的`bed_mesh`如果(default)默认配置存在，则始终在启动时加载名为*default"
+"*的配置文件。现已删除此行为，以允许用户确定何时加载配置文件。如果用户希望加载"
+"`default`配置文件，则建议将 `BED_MESH_PROFILE LOAD=default` 添加到其 "
+"`START_PRINT` 宏或其切片软件的“启动 G代码”配置中，视情况而定。"
 
 #: docs/Bed_Mesh.md:block 63 (paragraph)
 msgid ""
 "Alternatively the old behavior of loading a profile at startup can be "
 "restored with a `[delayed_gcode]`:"
-msgstr ""
+msgstr "或者可以通过添加`[delayed_gcode]`恢复在启动时加载配置文件的旧行为："
 
 #: docs/Bed_Mesh.md:block 64 (code)
 msgid ""
@@ -707,6 +712,10 @@ msgid ""
 "gcode:\n"
 "  BED_MESH_PROFILE LOAD=default\n"
 msgstr ""
+"[delayed_gcode bed_mesh_init]\n"
+"initial_duration: .01\n"
+"gcode:\n"
+"  BED_MESH_PROFILE LOAD=default\n"
 
 #: docs/Bed_Mesh.md:block 2 (paragraph)
 msgid ""
@@ -718,6 +727,10 @@ msgid ""
 "accurate then the bed_mesh module will not receive accurate results from the"
 " probing process."
 msgstr ""
+"床网模块可以用于补偿床面的不规则性，以实现更好的首层均一性。需要注意的是，基"
+"于软件的校正无法达到完美的结果，它只能近似地模拟床面的形状。床网模块也无法对"
+"机械和电气问题进行补偿。如果一个轴倾斜或探针不准确，那么床网模块将无法从探测"
+"过程中获得准确的结果。"
 
 #: docs/Bed_Mesh.md:block 8 (unordered list)
 msgid ""
@@ -726,13 +739,17 @@ msgid ""
 "process occurs in a zig-zag fashion. As with `mesh_min`, this coordinate is "
 "relative to the probe's location."
 msgstr ""
+"`mesh_max: 240, 198` *必填* 探测坐标最远离原点的点。这不一定是最后一个被探测"
+"到的点，因为探测过程是以锯齿形进行的。与 `mesh_min` "
+"一样，此坐标相对于探针位置。"
 
 #: docs/Bed_Mesh.md:block 15 (paragraph)
 msgid ""
 "The illustration below shows how the probed points are generated. As you can"
 " see, setting the `mesh_origin` to (-10, 0) allows us to specify a larger "
 "mesh radius of 85."
-msgstr ""
+msgstr "下面的插图展示了如何生成探测点。如您所见，将 `mesh_origin` 设置为 (-10, 0) "
+"允许我们指定更大的网格半径为 85。"
 
 #: docs/Bed_Mesh.md:block 20 (paragraph)
 msgid ""
@@ -743,6 +760,10 @@ msgid ""
 "mesh, attempting to simulate the material properties of the bed. Bed Mesh "
 "offers lagrange and bicubic interpolation to accomplish this."
 msgstr ""
+"虽然可以直接使用简单的双线性插值来对探测矩阵进行采样，以确定探测点之间的 Z 值"
+"，但通常使用更高级的插值算法来插值额外的点，以增加网格密度，效果通常很好。这"
+"些算法会向网格添加曲率，试图模拟床的材料属性。床网提供拉格朗日和双三次插值来"
+"实现这一点。"
 
 #: docs/Bed_Mesh.md:block 29 (paragraph)
 msgid ""
@@ -751,6 +772,8 @@ msgid ""
 "an advanced user may wish to experiment with these options in an effort to "
 "squeeze out the optimal first layer."
 msgstr ""
+"通常这些选项的默认值已经足够了，事实上 `move_check_distance` 的默认值 5mm "
+"可能过于保守。但是，高级用户可能希望尝试这些选项，以获取最佳的第一层效果。"
 
 #: docs/Bed_Mesh.md:block 33 (unordered list)
 msgid ""
@@ -767,6 +790,15 @@ msgid ""
 "of the mesh is used, however it may be desirable to manually adjust the fade"
 " target if one wants to print on a specific portion of the bed."
 msgstr ""
+"`fade_target: 0` *默认值：网格的平均 Z 值* `fade_target` "
+"可以被视为在淡化完成后应用于整个床面的额外 Z 偏移量。一般来说，"
+"我们希望这个值为 "
+"0，但有些情况下不应该是这样的。例如，假设您在床上的归位位置是一个异常值，"
+"比床面的平均探测高度低 0.2 毫米。如果 `fade_target` 为 0，"
+"淡化将会使整个床面平均降低 0.2 毫米。通过将 `fade_target` 设置为 0.2，"
+"淡化区域将会提高到 0.2 毫米，但是，床面的其余部分将保持原大小。通常最好将 "
+"`fade_target` 留在配置中，以便使用网格的平均高度，但是如果您想在床面的特定部"
+"分上打印，则可能需要手动调整淡化目标。"
 
 #: docs/Bed_Mesh.md:block 35 (paragraph)
 msgid ""
@@ -777,6 +809,10 @@ msgid ""
 "the mesh. These printers can benefit from configuring the relative reference"
 " index."
 msgstr ""
+"大多数探针容易出现漂移，即由于热量或干扰而引入的探测不准确。"
+"这可能会使计算探针的 z 偏移量变得困难，特别是在不同的床温度下。因此，"
+"一些打印机使用一个终点开关归位 Z "
+"轴，使用探针探测网格。这些打印机可以通过配置相对参考指数来获益。"
 
 #: docs/Bed_Mesh.md:block 58 (paragraph)
 msgid ""
@@ -784,6 +820,8 @@ msgid ""
 "state is automatically saved to the *default* profile. The *default* profile"
 " can be removed as follows:"
 msgstr ""
+"需要注意的是，每次进行 BED_MESH_CALIBRATE 时，当前状态会自动保存到 *default* "
+"配置文件中。可以按以下方式删除 *default* 配置文件："
 
 #~ msgid ""
 #~ "The Bed Mesh module may be used to compensate for bed surface irregularties "

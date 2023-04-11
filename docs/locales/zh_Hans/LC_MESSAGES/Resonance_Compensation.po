@@ -1,18 +1,19 @@
-# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023.
 # Arda <pengfei.fu@gmail.com>, 2022.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 # mirokymac <toufubomb@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-25 05:06+0000\n"
+"PO-Revision-Date: 2023-04-07 22:49+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/resonance_compensation/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/resonance_compensation/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 msgid "Resonance Compensation"
 msgstr "共振补偿"
@@ -617,7 +618,7 @@ msgid "0.5 / shaper_freq"
 msgstr ""
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "± 5% shaper_freq"
 msgstr ""

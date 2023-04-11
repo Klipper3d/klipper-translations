@@ -1,20 +1,21 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023.
 # 红豆蛋黄派 <zgpride87@outlook.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-15 06:32+0200\n"
-"PO-Revision-Date: 2022-12-25 05:49+0000\n"
+"PO-Revision-Date: 2023-04-07 22:49+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/features/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/features/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 #: docs/Features.md:block 1 (paragraph)
 msgid "Klipper has several compelling features:"
@@ -538,18 +539,22 @@ msgid ""
 "higher print velocities. The stepper event timing remains precise even at "
 "high speeds which improves overall stability."
 msgstr ""
+"最佳表现。Klipper 能够在新旧微控制器上实现高步进速率。即使是老的 8 "
+"位微控制器也可以获得超过 175K 步/秒的速率。在较新的微控制器上，数百万步/秒也"
+"是可能的。更高的步进速率使打印速度更快。即使在高速运行时，步进电机的事件定时"
+"仍然保持精确，从而提高了整体稳定性。"
 
 #: docs/Features.md:block 10 (table)
 msgid "AR100"
-msgstr ""
+msgstr "AR100"
 
 #: docs/Features.md:block 10 (table)
 msgid "3529K"
-msgstr ""
+msgstr "3529K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2507K"
-msgstr ""
+msgstr "2507K"
 
 #~ msgid ""
 #~ "Best in class performance. Klipper is able to achieve high stepping rates on"
