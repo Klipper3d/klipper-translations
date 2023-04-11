@@ -3,17 +3,20 @@
 # Den Bo <denbo.swaggins@gmail.com>, 2021.
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Damian Jasinski <flasch44@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-18 04:18+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/config_checks/pl/>\n"
+"PO-Revision-Date: 2023-04-10 20:28+0000\n"
+"Last-Translator: Damian Jasinski <flasch44@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
+"config_checks/pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in "
@@ -327,8 +330,8 @@ msgid ""
 "After one has verified that basic printing works, it is a good idea to "
 "consider calibrating [pressure advance](Pressure_Advance.md)."
 msgstr ""
-"Po sprawdzeniu, że podstawowe drukowanie działa, warto rozważyć kalibrację "
-"[pressure advance] (Pressure_Advance.md)."
+"Po sprawdzeniu, że podstawowe drukowanie działa, warto rozważyć kalibrację ["
+"pressure advance](Pressure_Advance.md)."
 
 msgid ""
 "It may be necessary to perform other types of detailed printer calibration -"
