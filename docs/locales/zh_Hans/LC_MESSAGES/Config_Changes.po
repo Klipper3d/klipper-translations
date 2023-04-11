@@ -1,4 +1,4 @@
-# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023.
 # Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 # Arda <pengfei.fu@gmail.com>, 2022.
 msgid ""
@@ -6,15 +6,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2022-12-25 05:50+0000\n"
+"PO-Revision-Date: 2023-04-07 22:49+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/config_changes/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/config_changes/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 msgid ""
 "This document covers recent software changes to the config file that are not"
@@ -816,6 +817,10 @@ msgid ""
 "`BED_MESH_PROFILE LOAD=default` to their `START_PRINT` macro (or to their "
 "slicer's \"Start G-Code\" configuration when applicable)."
 msgstr ""
+"20230201：`[bed_mesh]` 模块在启动时不再加载`default` "
+"配置文件。建议使用`default` 配置的用户将`BED_MESH_PROFILE LOAD=default` "
+"添加到他们的`START_PRINT` 宏中（或者在适用时添加到他们的切片软件的 "
+"\"启动G代码 \"配置中）。"
 
 #: docs/Config_Changes.md:block 6 (paragraph)
 msgid ""
@@ -824,10 +829,13 @@ msgid ""
 "the original tag of btt-skr2 now has changed to either btt-skr-2-f407 or "
 "btt-skr-2-f429."
 msgstr ""
+"20230103: 现在可以用flash-sdcard.sh脚本对Bigtreetech SKR-"
+"2的两个变体STM32F407和STM32F429进行刷写。这意味着原来的标签 btt-skr2 "
+"现在变成了btt-skr-2-f407 或 btt-skr-2-f429。"
 
 #: docs/Config_Changes.md:block 7 (paragraph)
 msgid "20221128: Klipper v0.11.0 released."
-msgstr ""
+msgstr "20221128: Klipper v0.11.0发布。"
 
 #: docs/Config_Changes.md:block 5 (paragraph)
 msgid ""
@@ -839,6 +847,12 @@ msgid ""
 "stepper must be held at standstill for >130ms in case StealthChop2 is used "
 "so that the AT#1 calibration gets executed by the driver."
 msgstr ""
+"20230304:`SET_TMC_CURRENT` "
+"命令现在可以正确地调整有globalscalar的驱动的globalscalar。这消除了一个限制，"
+"即在 tmc5160 上，使用`SET_TMC_CURRENT` "
+"所提高的电流不能高于配置文件中设置的`run_current` "
+"值。然而，这有一个副作用：如果使用StealthChop2，在运行`SET_TMC_CURRENT` "
+"之后，步进电机必须保持在静止状态至少130ms，这样AT#1校准才会被驱动执行。"
 
 #: docs/Config_Changes.md:block 6 (paragraph)
 msgid ""
@@ -847,6 +861,9 @@ msgid ""
 "the resulting measurements. See the [status "
 "reference](Status_Reference.md#screws_tilt_adjust) for details."
 msgstr ""
+"20230202：`printer.screw_tilt_adjust` 状态信息的格式已经改变。该信息现在是以s"
+"crews的字典形式存储的，并附有测量结果。详情见[状态参考文档](Status_Reference."
+"md#screws_tilt_adjust)。"
 
 #~ msgid ""
 #~ "20211104: The \"step pulse duration\" option in \"make menuconfig\" has been"

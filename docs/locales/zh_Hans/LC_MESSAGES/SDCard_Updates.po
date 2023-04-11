@@ -1,16 +1,17 @@
 # badpoi <a1635835119@gmail.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-22 08:48+0000\n"
+"PO-Revision-Date: 2023-04-07 22:49+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/sdcard_updates/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/sdcard_updates/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 msgid ""
 "Many of today's popular controller boards ship with a bootloader capable of "
@@ -230,6 +231,22 @@ msgid ""
 "  -b <baud>       serial baud rate (default is 250000)\n"
 "  -f <firmware>   path to klipper.bin\n"
 msgstr ""
+"./scripts/flash-sdcard.sh -h\n"
+"Klipper SD卡上传工具\n"
+"\n"
+"usage: flash_sdcard.sh [-h] [-l] [-c] [-b <波特率>] [-f <固件>]\n"
+"                       <设备> <控制板>\n"
+"\n"
+"位置参数：\n"
+"  <设备>        设备串口\n"
+"  <控制板>         控制板类型\n"
+"\n"
+"可选参数：\n"
+"  -h              显示此信息\n"
+"  -l              列出可用控制板\n"
+"  -c              进行闪存检查/仅验证（跳过上传）\n"
+"  -b <波特率>      串口波特率 (默认为250000)\n"
+"  -f <firmware>   klipper.bin文件路径\n"
 
 #: docs/SDCard_Updates.md:block 18 (paragraph)
 msgid ""
@@ -241,6 +258,10 @@ msgid ""
 "also be used anytime to verify if the code flashed into the board matches "
 "the version in your build folder on any supported board."
 msgstr ""
+"`-c` 选项用于执行检查或只验证的操作，以测试控制板是否正确运行指定的固件。这个"
+"选项主要是针对需要手动断电来完成刷写程序的情况，比如使用SDIO模式而不是SPI来访"
+"问SD卡的引导程序。(见下面的注意事项）但是，它也可以在任何时候用来验证在任何支"
+"持的板子上刷入板子的固件是否与你的构建文件夹中的版本一致。"
 
 #: docs/SDCard_Updates.md:block 20 (unordered list)
 msgid ""
@@ -256,12 +277,22 @@ msgid ""
 " add the `-c` option to complete the check/verify operation. See [Flashing "
 "Boards that use SDIO](#flashing-boards-that-use-sdio) for examples."
 msgstr ""
+"只支持使用SPI进行SD卡通信的控制板。使用SDIO的控制，如Flymaker Flyboard和MKS "
+"Robin Nano V1/V2，将不能在SDIO模式下工作。然而，通常可以使用软件 SPI "
+"模式来刷写这种板子。但是如果板子的 bootloader 只支持使用SDIO模式来访问SD卡，"
+"就需要对板子和SD卡进行电源循环，以便模式可以从SPI切换回SDIO来完成重新刷写。这"
+"样的板子应该在定义时启用`skip_verify` "
+"，以便在刷写后立即跳过验证步骤。然后在手动断电后，你可以重新运行完全相同的`./"
+"scripts/flash-sdcard.sh` 命令，但加入`-c` "
+"选项来完成检查/验证操作。请参阅[刷写使用SDIO的控制板](#flashing-boards-that-"
+"use-sdio)以了解实例。"
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
 msgid ""
 "`current_firmware_path`: The path on the SD Card where the renamed firmware "
 "file is located after a successful flash. The default is `firmware.cur`."
-msgstr ""
+msgstr "`current_firmware_path` "
+"：刷写成功后，SD卡上重命名的固件文件所在的路径。默认是`firmware.cur` 。"
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
 msgid ""
@@ -272,12 +303,17 @@ msgid ""
 " again with the `-c` option to perform the verification step. [See caveats "
 "with SDIO cards](#caveats)"
 msgstr ""
+"`skip_verify`: "
+"定义了一个布尔值，它告诉脚本在刷写过程中跳过固件验证步骤。默认值是`False` "
+"。对于需要手动断电才能完成刷写的控制板，它可以被设置为`True` "
+"。要想在之后验证固件，可以用`-c` "
+"选项再次运行脚本来执行验证步骤。[参见SDIO卡的注意事项](#caveats)"
 
 #: docs/SDCard_Updates.md:block 26 (paragraph)
 msgid ""
 "If software SPI is required, the `spi_bus` field should be set to `swspi` "
 "and the following additional field should be specified:"
-msgstr ""
+msgstr "如果需要软件 SPI，`spi_bus` 字段应设置为 `swspi`，并应指定以下附加字段："
 
 #: docs/SDCard_Updates.md:block 28 (paragraph)
 msgid ""
@@ -287,10 +323,13 @@ msgid ""
 "provides an example of the former, and the `btt-octopus-f446-v1` board "
 "definition provides an example of the latter."
 msgstr ""
+"通常只有设计错误或只支持SD卡的SDIO模式的控制板才会需要软件SPI，这种情况极为罕"
+"见。`btt-skr-pro` 控制板定义提供了前者的例子，`btt-octopus-f446-v1` "
+"控制板定义提供了后者的例子。"
 
 #: docs/SDCard_Updates.md:block 32 (header)
 msgid "Flashing Boards that use SDIO"
-msgstr ""
+msgstr "刷写使用SDIO的控制板"
 
 #: docs/SDCard_Updates.md:block 33 (paragraph)
 msgid ""
@@ -303,6 +342,11 @@ msgid ""
 "firmware to the SD Card so that the board can be manually power-cycled and "
 "the verification step deferred until that's complete."
 msgstr ""
+"[正如在注意事项中提到的那样](#caveats)，引导程序使用SDIO模式访问它们的SD卡的"
+"控制板需要对控制板进行电源循环，特别是SD卡本身，以便从将文件写入SD卡时使用的S"
+"PI模式切换回SDIO模式，以便引导程序将其刷写到板子上。这些板子的定义将使用`skip"
+"_verify` 标志，它告诉刷写工具在将固件写入SD卡后停止，以便控制板可以手动断电并"
+"推迟验证步骤直到完成。"
 
 #: docs/SDCard_Updates.md:block 34 (paragraph)
 msgid ""
@@ -313,17 +357,21 @@ msgid ""
 "is complete in order to do the verification step, or if the verification can"
 " be done immediately. Here's examples of the two scenarios:"
 msgstr ""
+"有两种情况 - 一种是RPi主机在独立电源上运行，另一种是RPi主机与被刷写的主板在同"
+"一电源上运行。区别在于是否有必要同时关闭RPi，然后在刷写完成后再次`ssh` "
+"，以进行验证步骤，或者是否可以立即进行验证。下面是这两种情况的例子："
 
 #: docs/SDCard_Updates.md:block 35 (header)
 msgid "SDIO Programming with RPi on Separate Power Supply"
-msgstr ""
+msgstr "RPi有独立的电源时进行SDIO刷写"
 
 #: docs/SDCard_Updates.md:block 36 (paragraph)
 msgid ""
 "A typical session with the RPi on a Separate Power Supply looks like the "
 "following. You will, of course, need to use your proper device path and "
 "board name:"
-msgstr ""
+msgstr "使用独立电源的RPi的典型流程看起来像下面这样。当然，你需要使用适当的设备路径和"
+"控制板名称："
 
 #: docs/SDCard_Updates.md:block 37 (code)
 msgid ""
@@ -338,17 +386,28 @@ msgid ""
 "./scripts/flash-sdcard.sh -c /dev/ttyACM0 btt-octopus-f446-v1\n"
 "sudo service klipper start\n"
 msgstr ""
+"sudo service klipper stop\n"
+"cd ~/klipper\n"
+"git pull\n"
+"make clean\n"
+"make menuconfig\n"
+"make\n"
+"./scripts/flash-sdcard.sh /dev/ttyACM0 btt-octopus-f446-v1\n"
+"[[[在提示时手动重启打印机控制板]]]\n"
+"./scripts/flash-sdcard.sh -c /dev/ttyACM0 btt-octopus-f446-v1\n"
+"sudo service klipper start\n"
 
 #: docs/SDCard_Updates.md:block 38 (header)
 msgid "SDIO Programming with RPi on the Same Power Supply"
-msgstr ""
+msgstr "对与RPi在同一电源上的主板进行SDIO刷写"
 
 #: docs/SDCard_Updates.md:block 39 (paragraph)
 msgid ""
 "A typical session with the RPi on the Same Power Supply looks like the "
 "following. You will, of course, need to use your proper device path and "
 "board name:"
-msgstr ""
+msgstr "RPI和控制板在同一电源上的典型会话看起来像下面这样。当然，你需要使用正确的设备"
+"路径和控制板名称："
 
 #: docs/SDCard_Updates.md:block 40 (code)
 msgid ""
@@ -366,6 +425,19 @@ msgid ""
 "./scripts/flash-sdcard.sh -c /dev/ttyACM0 btt-octopus-f446-v1\n"
 "sudo service klipper start\n"
 msgstr ""
+"sudo service klipper stop\n"
+"cd ~/klipper\n"
+"git pull\n"
+"make clean\n"
+"make menuconfig\n"
+"make\n"
+"./scripts/flash-sdcard.sh /dev/ttyACM0 btt-octopus-f446-v1\n"
+"sudo shutdown -h now\n"
+"[[[等RPI关机后，断电重启后再次 ssh 连接到 RPi]]]\n"
+"sudo service klipper stop\n"
+"cd ~/klipper\n"
+"./scripts/flash-sdcard.sh -c /dev/ttyACM0 btt-octopus-f446-v1\n"
+"sudo service klipper start\n"
 
 #: docs/SDCard_Updates.md:block 41 (paragraph)
 msgid ""
@@ -373,10 +445,13 @@ msgid ""
 "`klipper` service, it's necessary to stop `klipper` again before doing the "
 "verification step and restart it after verification is complete."
 msgstr ""
+"在这种情况下，由于RPi主机被重新启动，这将重新启动`klipper` "
+"服务，所以有必要在做验证步骤之前再次停止`klipper` "
+"，并在验证完成后重新启动服务。"
 
 #: docs/SDCard_Updates.md:block 42 (header)
 msgid "SDIO to SPI Pin Mapping"
-msgstr ""
+msgstr "SDIO到SPI引脚映射"
 
 #: docs/SDCard_Updates.md:block 43 (paragraph)
 msgid ""
@@ -384,26 +459,28 @@ msgid ""
 " described in the chart below to determine the compatible Software SPI pins "
 "to assign in the `board_defs.py` file:"
 msgstr ""
+"如果你的控制板原理图显示它使用SDIO的SD卡，你可以按照下图描述的方式映射引脚，"
+"以确定在`board_defs.py` 文件中分配的兼容的软件SPI引脚："
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SD Card Pin"
-msgstr ""
+msgstr "SD 卡引脚"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "Micro SD Card Pin"
-msgstr ""
+msgstr "MicroSD卡引脚"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SDIO Pin Name"
-msgstr ""
+msgstr "SDIO 引脚名称"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SPI Pin Name"
-msgstr ""
+msgstr "SPI引脚名称"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "9"
-msgstr ""
+msgstr "9"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "1"
@@ -411,11 +488,11 @@ msgstr "1"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA2"
-msgstr ""
+msgstr "DATA2"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "None (PU)*"
-msgstr ""
+msgstr "None (PU)*"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "2"
@@ -423,11 +500,11 @@ msgstr "2"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CD/DATA3"
-msgstr ""
+msgstr "CD/DATA3"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CS"
-msgstr ""
+msgstr "CS"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "3"
@@ -435,11 +512,11 @@ msgstr "3"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CMD"
-msgstr ""
+msgstr "CMD"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "MOSI"
-msgstr ""
+msgstr "MOSI"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "4"
@@ -447,7 +524,7 @@ msgstr "4"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "+3.3V (VDD)"
-msgstr ""
+msgstr "+3.3V (VDD)"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "5"
@@ -455,59 +532,59 @@ msgstr "5"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CLK"
-msgstr ""
+msgstr "CLK"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SCLK"
-msgstr ""
+msgstr "SCLK"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "6"
-msgstr ""
+msgstr "6"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "GND (VSS)"
-msgstr ""
+msgstr "GND (VSS)"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "7"
-msgstr ""
+msgstr "7"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA0"
-msgstr ""
+msgstr "DATA0"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "MISO"
-msgstr ""
+msgstr "MISO"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "8"
-msgstr ""
+msgstr "8"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA1"
-msgstr ""
+msgstr "DATA1"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "Card Detect (CD)"
-msgstr ""
+msgstr "卡片检测 (CD)"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "10"
-msgstr ""
+msgstr "10"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "GND"
-msgstr ""
+msgstr "GND"
 
 #: docs/SDCard_Updates.md:block 45 (paragraph)
 msgid "\\* None (PU) indicates an unused pin with a pull-up resistor"
-msgstr ""
+msgstr "\\* None (PU)表示有上拉电阻的未使用引脚"
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
 msgid ""
@@ -515,18 +592,22 @@ msgid ""
 "`make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is "
 "required."
 msgstr ""
+"`mcu`：微控制器类型。这可以在使用`make menuconfig`配置构建配置后通过运行`cat "
+".config | grep CONFIG_MCU`获取。 此字段是必需的。"
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
 msgid ""
 "`spi_bus`: The SPI bus connected to the SD Card. This should be retrieved "
 "from the board's schematic. This field is required."
-msgstr ""
+msgstr "`spi_bus`：连接到 SD 卡的 SPI 总线。 这应该可以在控制板的原理图中找到。 "
+"此字段是必需的。"
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
 msgid ""
 "`cs_pin`: The Chip Select Pin connected to the SD Card. This should be "
 "retrieved from the board schematic. This field is required."
-msgstr ""
+msgstr "`cs_pin`：连接到 SD 卡的芯片选择引脚。 可以在控制板的原理图中找到。 "
+"此字段是必需的。"
 
 #~ msgid ""
 #~ "`mcu`: The mcu type. This can be retrevied after configuring the build via "
