@@ -1,18 +1,19 @@
-# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023.
 # Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 # mirokymac <toufubomb@gmail.com>, 2021.
 # Arda <pengfei.fu@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-08 09:23+0000\n"
-"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/bootloaders/zh_Hans/>\n"
+"PO-Revision-Date: 2023-04-07 22:49+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/bootloaders/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 msgid ""
 "This document provides information on common bootloaders found on micro-"
@@ -979,6 +980,9 @@ msgid ""
 "section above, substituting the file name for the desired hid bootloader "
 "binary (ie: hid_generic_pc13.bin for the blue pill)."
 msgstr ""
+"对于常见的 STM32F103 板，如Blue Pill，可以使用 stm32flash 通过 3.3V "
+"串行刷写引导程序，如上面 stm32duino 章节所述，将文件名替换为所需的 hid "
+"引导程序二进制文件（即：hid_generic_pc13.bin 适用于 Blue Pill）。"
 
 #: docs/Bootloaders.md:block 104 (paragraph)
 msgid ""
@@ -989,6 +993,11 @@ msgid ""
 "in the SKR Mini E3's \"PIN\" document. There is a ground pin next to PA2 "
 "which you can use to pull PA2 low."
 msgstr ""
+"可能需要手动进入引导程序，可以通过将 \"boot 0\"配置为低电平和 \"boot "
+"1\"为高电平来完成。在SKR Mini E3上不能调整\"Boot 1\"，所以如果你刷写过 "
+"\"hid_btt_skr_mini_e3.bin\"，可以通过设置PA2低电平来完成。在SKR Mini "
+"E3的引脚文档中，这个引脚在TFT头中被标为 \"TX0\""
+"。在PA2旁边有一个接地引脚，你可以用它来把PA2拉低。"
 
 #: docs/Bootloaders.md:block 107 (paragraph)
 msgid ""
@@ -996,6 +1005,9 @@ msgid ""
 "noted in the stm32duino section above, substituting the file name for the "
 "desired MSC bootloader binary (ie: MSCboot-Bluepill.bin for the blue pill)."
 msgstr ""
+"可以通过3.3V串口刷写引导程序，使用stm32flash，如上面stm32duino章节所述，将文"
+"件名替换为所需的MSC引导程序二进制文件（即：MSCboot-Bluepill.bin用于blue "
+"pill）。"
 
 #: docs/Bootloaders.md:block 114 (paragraph)
 msgid ""
@@ -1006,6 +1018,10 @@ msgid ""
 "`canboot.bin` for the file name where appropriate. The CanBoot repository "
 "linked above provides instructions for building the bootloader."
 msgstr ""
+"建议使用ST-Link编程器来刷写CanBoot，然而，在STM32F103设备上使用`stm32flash` "
+"，在STM32F042/STM32F072设备上使用`dfu-util` ，应该也是可以刷写的。关于这些刷"
+"写方法的说明，请参见本文档的前几节，在适当的地方用`canboot.bin` "
+"代替文件名。上面链接的CanBoot资源库提供了构建引导程序的说明。"
 
 #: docs/Bootloaders.md:block 124 (paragraph)
 msgid ""
@@ -1019,6 +1035,13 @@ msgid ""
 "Pro 1.1 is available "
 "here](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest)."
 msgstr ""
+"STM32F4 微控制器配备了一个内置系统引导加载程序，可通过 USB（通过 DFU）、3.3V "
+"串行和其他各种方法（有关更多信息，请参见 STM 文档 AN2606）进行烧录。一些 "
+"STM32F4 板，例如 SKR Pro 1.1，无法进入 DFU 引导加载程序。针对基于 STM32F405/"
+"407 的板，提供了 HID 引导加载程序，用户可以选择通过 USB 进行烧录而不使用 "
+"sdcard。请注意，您可能需要配置和构建适用于您的板的特定版本，[此处提供了 SKR "
+"Pro 1.1 的构建版本](https://github.com/Arksine/STM32_HID_Bootloader/releases/"
+"latest)。"
 
 #: docs/Bootloaders.md:block 125 (paragraph)
 msgid ""
@@ -1027,6 +1050,9 @@ msgid ""
 "STM32F103 using stm32flash](#stm32f103-micro-controllers-blue-pill-devices)."
 " For example:"
 msgstr ""
+"除非您的控制板支持 DFU，否则最易于访问的烧录方法可能是通过 3.3V "
+"串口进行烧录，其遵循与 [使用 stm32flash 烧录 STM32F103](#stm32f103-micro-"
+"controllers-blue-pill-devices) 相同的过程。例如："
 
 #~ msgid ""
 #~ "For generic STM32F103 boards such as the blue pill it is possible to flash "

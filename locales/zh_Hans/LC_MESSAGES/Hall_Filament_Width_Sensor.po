@@ -1,16 +1,17 @@
 # mirokymac <toufubomb@gmail.com>, 2021.
-# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-02-14 07:25+0000\n"
+"PO-Revision-Date: 2023-04-07 22:49+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/hall_filament_width_sensor/zh_Hans/>\n"
-"Language: zh-hans\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/hall_filament_width_sensor/zh_Hans/>\n"
+"Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.17-dev\n"
 
 msgid "How does it work?"
 msgstr "它如何运作？"
@@ -126,6 +127,9 @@ msgid ""
 "operation: two hall sensors work in differential mode, temperature drift "
 "same for sensor. Special temperature compensation not needed."
 msgstr ""
+"本文件介绍了耗材直径传感器的主机模块。用于开发该主机模块的硬件基于两个霍尔线"
+"性传感器（例如，ss49e）。霍尔传感器位于相对耗材直径模块的两侧。工作原理：两个"
+"霍尔传感器以差分模式工作，由于传感器的温度漂移相同，不需要特殊的温度补偿。"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 6 (paragraph)
 msgid ""
@@ -135,6 +139,9 @@ msgid ""
 "connector on a ramps-like board with the analog11 and analog12 pins. You can"
 " use different pins and different boards."
 msgstr ""
+"传感器基于两个模拟输出计算出耗材直径。检测到的电压之和始终对应耗材直径。主机"
+"模块监测电压变化并调整挤出倍率。例如可以在类似ramps的控制板上使用 aux2 "
+"连接器的 analog11和analog12引脚，你也可以使用不同的引脚和不同的控制板。"
 
 #~ msgid ""
 #~ "This document describes Filament Width Sensor host module. Hardware used for"
