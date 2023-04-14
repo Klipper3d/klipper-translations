@@ -3,7 +3,7 @@
 # Mathis Mensing <gcmatmen@gmail.com>, 2021, 2022.
 # Christian S <schnellrieder.cs@gmail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
-# Synertry <jonny.somrak@gmail.com>, 2023.
+# Synertry <jonny.somrak@gmail.com>, 2023, 2025.
 # Kev <leadustin@gmail.com>, 2024.
 # Christian Patzl <christian.patzl@gmx.net>, 2024.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Florian Schaupp <fschaupp@hotmail.com>\n"
+"Last-Translator: Synertry <jonny.somrak@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/overview/"
 "de/>\n"
 "Language: de\n"
@@ -28,9 +28,9 @@ msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
-"Willkommen auf der Klipper-Dokumentationsseite! Wenn Klipper für dich neu ist,"
-" starte doch einfach mit den Dokumenten für die [Features](Features.md) und "
-"der [Installation](Installation.md)."
+"Willkommen auf der Klipper-Dokumentationsseite! Wenn Klipper für dich neu "
+"ist, starte doch einfach mit den Dokumenten für die [Features](Features.md) "
+"und der [Installation](Installation.md)."
 
 msgid "Overview information"
 msgstr "Informationsübersicht"
@@ -312,8 +312,8 @@ msgid ""
 "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objects "
 "implementation."
 msgstr ""
-"[Objekt ausschließen](Exclude_Object.md): Der Leitfaden zur Implementierung um"
-" Objekte auszuschließen."
+"[Objekt ausschließen](Exclude_Object.md): Der Leitfaden zur Implementierung "
+"um Objekte auszuschließen."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
