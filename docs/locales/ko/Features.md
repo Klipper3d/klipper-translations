@@ -3,7 +3,7 @@
 Klipper 에는 다음과 같이 몇가지 매력적인 기능이 있습니다:
 
 * High precision stepper movement. Klipper utilizes an application processor (such as a low-cost Raspberry Pi) when calculating printer movements. The application processor determines when to step each stepper motor, it compresses those events, transmits them to the micro-controller, and then the micro-controller executes each event at the requested time. Each stepper event is scheduled with a precision of 25 micro-seconds or better. The software does not use kinematic estimations (such as the Bresenham algorithm) - instead it calculates precise step times based on the physics of acceleration and the physics of the machine kinematics. More precise stepper movement provides quieter and more stable printer operation.
-* Best in class performance. Klipper is able to achieve high stepping rates on both new and old micro-controllers. Even old 8bit micro-controllers can obtain rates over 175K steps per second. On more recent micro-controllers, several million steps per second are possible. Higher stepper rates enable higher print velocities. The stepper event timing remains precise even at high speeds which improves overall stability.
+* Best in class performance. Klipper is able to achieve high stepping rates on both new and old micro-controllers. Even old 8-bit micro-controllers can obtain rates over 175K steps per second. On more recent micro-controllers, several million steps per second are possible. Higher stepper rates enable higher print velocities. The stepper event timing remains precise even at high speeds which improves overall stability.
 * Klipper는 다수개의 마이크로 컨트롤러가 있는 프린터를 지원합니다. 예를 들어, 하나의 마이크로 컨트롤러는 익스트루더를 제어하는데 사용되고 다른 하나는 프린터의 히터를 제어하고 세 번째는 나머지 프린터를 제어하는데 사용할 수 있습니다. Klipper 호스트 소프트웨어는 마이크로 컨트롤러간의 클럭 드리프트를 계산하기 위해 클록 동기화를 구현합니다.여러 마이크로 컨트롤러를 활성화하는데 특별한 코드는 필요하지 않습니다. 구성 파일에 몇 줄만 추가하면 됩니다.
 * 간단한 config 파일을 통한 구성. 설정을 변경하기 위해 마이크로 컨트롤러를 다시 펌웨어 업데이트할 필요가 없습니다. Klipper의 모든 구성은 쉽게 편집할 수 있는 표준 config 파일에 저장됩니다. 이렇게 하면 하드웨어를 더 쉽게 설정하고 유지 관리할 수 있습니다.
 * Klipper는 익스트루더 내에 압력의 영향을 설명하는 메커니즘인 "Smooth Pressure Advance"를 지원합니다. 이것은 익스트루더의 "노즐 흘러내림" 을 줄이고 인쇄 모서리의 품질을 향상시킵니다. Klipper의 구현은 전반적인 안정성과 견고성을 향상시키는 즉각적인 익스트루더 속도 변경을 도입하지 않습니다.
@@ -60,6 +60,7 @@ Klipper를 시작하려면 [설치](Installation.md) 가이드를 읽으십시�
 | RP2040 | 2400K | 1636K |
 | SAM4E8E | 2500K | 1674K |
 | SAMD51 | 3077K | 1885K |
+| AR100 | 3529K | 2507K |
 | STM32F407 | 3652K | 2459K |
 | STM32F446 | 3913K | 2634K |
 | STM32H743 | 9091K | 6061K |

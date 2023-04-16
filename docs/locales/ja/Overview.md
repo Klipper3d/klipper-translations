@@ -34,7 +34,7 @@ Klipperドキュメントへようこそ。Klipperが初めての方は [機能�
 - [スラサー設定](Slicers.md): 各スライサーにおけるKlipper向けの設定について。
 - [斜め補正](Skew_Correction.md): XY軸が斜めに印刷される際の調整について。
 - [PWMツール](Using_PWM_Tools.md): PWM制御ツールの使用について(レーザーやスピンドル等の)。
-- [オブジェクトの除外](Exclude_Object.md): オブジェクトの除外設定の実施方法について。
+- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objects implementation.
 
 ## 開発者向けドキュメント
 

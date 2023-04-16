@@ -85,7 +85,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 #### BED_MESH_CALIBRATE
 
-`BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: 此命令使用通过配置参数指定并生成的探测点探测打印床。在探测后，一个网格将被生成，z 轴移动将根据网格调整。有关可选探测参数，请见 PROBE命令。如果指定 METHOD=manual ，则会启动手动探测工具 - 有关此工具活跃时可用的额外命令，详见 MANUAL_PROBE 命令。
+`BED_MESH_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: This command probes the bed using generated points specified by the parameters in the config. After probing, a mesh is generated and z-movement is adjusted according to the mesh. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
 
 #### BED_MESH_OUTPUT
 
@@ -121,7 +121,7 @@ The following commands are available when the [bed_tilt config section](Config_R
 
 #### BED_TILT_CALIBRATE
 
-`BED_TILT_CALIBRATE [Method=manual] [<probe_parameter>=<value>] `:该命令将探测配置中指定的点，然后建议更新X和Y的倾斜调整。有关可选探测参数的详细信息，请参见PROBE命令。如果指定METHOD=manual，那么手动探测工具就会被激活 - 关于该工具激活时可用的附加命令，请参见上面的MANUAL_PROBE命令。
+`BED_TILT_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then recommend updated x and y tilt adjustments. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
 
 ### [bltouch]
 
@@ -157,7 +157,7 @@ The following commands are available when the [delta_calibrate config section](C
 
 #### DELTA_CALIBRATE
 
-`DELTA_CALIBRATE [Method=manual] [<probe_parameter>=<value>] `:这条命令将探测床身的七个点，并建议更新限位位置、塔架角度和半径。有关可选探测参数的详细信息，请参见PROBE命令。如果指定METHOD=manual，那么手动探测工具将被激活 - 关于该工具激活时可用的附加命令的详细信息，请参见上面的MANUAL_PROBE命令。
+`DELTA_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe seven points on the bed and recommend updated endstop positions, tower angles, and radius. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
 
 #### DELTA_ANALYZE
 
@@ -647,7 +647,7 @@ The following commands are available when the [screws_tilt_adjust config section
 
 #### SCREWS_TILT_CALCULATE
 
-`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<值>] [<探针参数名>=<值>]`：这个命令将调用床身螺丝调整工具。它将命令喷嘴到不同的位置（如配置文件中定义的）探测z高度，并计算出调整床面水平的旋钮旋转次数。如果指定了DIRECTION（方向），旋钮的转动方向会是固定的，顺时针（CW）或逆时针（CCW）。有关可选探针参数的详细信息，请参见PROBE命令。重要的是：在使用这条命令之前，必须先做一个G28。如果指定了MAX_DEVIATION，如果螺杆高度相对于基础螺杆高度的任何差异大于所提供的值，该命令将引发一个G代码错误。
+`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) probing the z height and calculate the number of knob turns to adjust the bed level. If DIRECTION is specified, the knob turns will all be in the same direction, clockwise (CW) or counterclockwise (CCW). See the PROBE command for details on the optional probe parameters. IMPORTANT: You MUST always do a G28 before using this command. If MAX_DEVIATION is specified, the command will raise a gcode error if any difference in the screw height relative to the base screw height is greater than the value provided. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
 
 ### [sdcard_loop]
 
@@ -727,7 +727,7 @@ The following commands are available when any of the [tmcXXXX config sections](C
 
 #### DUMP_TMC
 
-`DUMP_TMC STEPPER=<name>`。该命令将读取TMC驱动寄存器并报告其值。
+`DUMP_TMC STEPPER=<name> [REGISTER=<name>]`: This command will read all TMC driver registers and report their values. If a REGISTER is provided, only the specified register will be dumped.
 
 #### INIT_TMC
 
@@ -735,11 +735,11 @@ The following commands are available when any of the [tmcXXXX config sections](C
 
 #### SET_TMC_CURRENT
 
-`SET_TMC_CURRENT STEPPER=<名称> CURRENT=<安培> HOLDCURRENT=<安培>`：该命令修改TMC驱动的运行和保持电流（HOLDCURRENT 在 tmc2660 驱动上不起效）。
+`SET_TMC_CURRENT STEPPER=<name> CURRENT=<amps> HOLDCURRENT=<amps>`: This will adjust the run and hold currents of the TMC driver. `HOLDCURRENT` is not applicable to tmc2660 drivers. When used on a driver which has the `globalscaler` field (tmc5160 and tmc2240), if StealthChop2 is used, the stepper must be held at standstill for >130ms so that the driver executes the AT#1 calibration.
 
 #### SET_TMC_FIELD
 
-`SET_TMC_FIELD STEPPER=<名称> FIELD=<字段> VALUE=<值>`：这将修改指定 TMC 步进驱动寄存器字段的值。该命令仅适用于低级别的诊断和调试，因为在运行期间改变字段可能会导致打印机出现不符合预期的、有潜在危险的行为。常规修改应当通过打印机配置文件进行。该命令不会对给定的值进行越界检查。
+`SET_TMC_FIELD STEPPER=<name> FIELD=<field> VALUE=<value> VELOCITY=<value>`: This will alter the value of the specified register field of the TMC driver. This command is intended for low-level diagnostics and debugging only because changing the fields during run-time can lead to undesired and potentially dangerous behavior of your printer. Permanent changes should be made using the printer configuration file instead. No sanity checks are performed for the given values. A VELOCITY can also be specified instead of a VALUE. This velocity is converted to the 20bit TSTEP based value representation. Only use the VELOCITY argument for fields that represent velocities.
 
 ### [toolhead]
 
@@ -797,4 +797,4 @@ The following commands are available when the [z_tilt config section](Config_Ref
 
 #### Z_TILT_ADJUST
 
-`Z_TILT_ADJUST [<probe_参数>=<值>]`：该命令将探测配置中指定的坐标并对每个Z步进电机进行独立的调整以抵消倾斜。有关可选的探针参数，详见 PROBE 命令。
+`Z_TILT_ADJUST [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.

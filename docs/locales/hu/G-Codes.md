@@ -85,7 +85,7 @@ A következő parancsok akkor érhetők el, ha a [bed_mesh konfigurációs szaka
 
 #### BED_MESH_CALIBRATE
 
-`BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: Ez a parancs a tárgyasztalt a konfigurációban megadott paraméterek által generált pontok segítségével szintezi. A szintezés után egy háló generálódik, és a Z elmozdulás a hálónak megfelelően kerül beállításra. Az opcionális szintező paraméterekkel kapcsolatos részletekért lásd a PROBE parancsot. Ha a METHOD=manual parancsot adtad meg, akkor a kézi szintező eszköz aktiválódik. Az eszköz aktiválása közben elérhető további parancsok részleteit lásd a fenti MANUAL_PROBE parancsban.
+`BED_MESH_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: This command probes the bed using generated points specified by the parameters in the config. After probing, a mesh is generated and z-movement is adjusted according to the mesh. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
 
 #### BED_MESH_OUTPUT
 
@@ -121,7 +121,7 @@ A következő parancsok akkor érhetők el, ha a [bed_tilt konfigurációs szaka
 
 #### BED_TILT_CALIBRATE
 
-`BED_TILT_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>]`: Ez a parancs a konfigurációban megadott pontokat vizsgálja, majd frissített X és Y dőlésbeállításokat javasol. Az opcionális mérési paraméterekkel kapcsolatos részletekért lásd a PROBE parancsot. Ha a METHOD=manual van megadva, akkor a kézi szintező aktiválódik. Az ezen eszköz aktiválásakor elérhető további parancsok részleteit lásd a fenti MANUAL_PROBE parancsban.
+`BED_TILT_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then recommend updated x and y tilt adjustments. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
 
 ### [bltouch]
 
@@ -157,7 +157,7 @@ A következő parancsok akkor érhetők el, ha a [delta_kalibrate konfiguráció
 
 #### DELTA_CALIBRATE
 
-`DELTA_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>]`: Ez a parancs a tárgyasztal hét pontját vizsgálja meg, és frissített végállások, toronyszögek és sugarak ajánlására szolgál. Az opcionális mérési paraméterekkel kapcsolatos részletekért lásd a PROBE parancsot. Ha a METHOD=manual érték van megadva, akkor a kézi szintezés aktiválódik. Lásd a fenti MANUAL_PROBE parancsot a további parancsok részleteiért, amelyek akkor állnak rendelkezésre, amikor ez az eszköz aktív.
+`DELTA_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe seven points on the bed and recommend updated endstop positions, tower angles, and radius. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
 
 #### DELTA_ANALYZE
 
@@ -647,7 +647,7 @@ A következő parancsok akkor érhetők el, ha a [screws_tilt_adjust konfigurác
 
 #### SCREWS_TILT_CALCULATE
 
-`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [<probe_parameter>=<value>]`: Ez a parancs a tárgyasztal csavarjainak beállítási eszközét hívja elő. A fúvókát különböző helyekre (a konfigurációs fájlban meghatározottak szerint) parancsolja a Z magasságot mérve, és kiszámítja a tárgyasztal szintjének beállításához szükséges gombfordulatok számát. Ha DIRECTION van megadva, akkor a gombfordulások mind ugyanabba az irányba, az óramutató járásával megegyező vagy az óramutató járásával ellentétes irányba fognak történni. Az opcionális szondaparaméterekkel kapcsolatos részletekért lásd a PROBE parancsot. FONTOS: A parancs használata előtt mindig ki kell adni egy G28 parancsot. Ha MAX_DEVIATION van megadva, a parancs G-kód hibát fog adni, ha a csavar magasságának az alapcsavar magasságához viszonyított bármilyen különbsége nagyobb, mint a megadott érték.
+`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) probing the z height and calculate the number of knob turns to adjust the bed level. If DIRECTION is specified, the knob turns will all be in the same direction, clockwise (CW) or counterclockwise (CCW). See the PROBE command for details on the optional probe parameters. IMPORTANT: You MUST always do a G28 before using this command. If MAX_DEVIATION is specified, the command will raise a gcode error if any difference in the screw height relative to the base screw height is greater than the value provided. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
 
 ### [sdcard_loop]
 
@@ -727,7 +727,7 @@ A következő parancsok akkor érhetők el, ha a [tmcXXXXXX konfigurációs szak
 
 #### DUMP_TMC
 
-`DUMP_TMC STEPPER=<name>`: Ez a parancs kiolvassa a TMC-motorvezérlő regisztereit és jelenti azok értékeit.
+`DUMP_TMC STEPPER=<name> [REGISTER=<name>]`: This command will read all TMC driver registers and report their values. If a REGISTER is provided, only the specified register will be dumped.
 
 #### INIT_TMC
 
@@ -735,11 +735,11 @@ A következő parancsok akkor érhetők el, ha a [tmcXXXXXX konfigurációs szak
 
 #### SET_TMC_CURRENT
 
-`SET_TMC_CURRENT STEPPER=<name> CURRENT=<amps> HOLDCURRENT=<amps>`: Ez a TMC-motorvezérlő futó- és tartóáramát állítja be. (A HOLDCURRENT nem alkalmazható a tmc2660 motorvezérlőkre).
+`SET_TMC_CURRENT STEPPER=<name> CURRENT=<amps> HOLDCURRENT=<amps>`: This will adjust the run and hold currents of the TMC driver. `HOLDCURRENT` is not applicable to tmc2660 drivers. When used on a driver which has the `globalscaler` field (tmc5160 and tmc2240), if StealthChop2 is used, the stepper must be held at standstill for >130ms so that the driver executes the AT#1 calibration.
 
 #### SET_TMC_FIELD
 
-`SET_TMC_FIELD STEPPER=<name> FIELD=<field> VALUE=<value>`: Ez módosítja a TMC-motorvezérlő megadott regisztermezőjének értékét. Ez a parancs csak alacsony szintű diagnosztikára és hibakeresésre szolgál, mivel a mezők futás közbeni módosítása a nyomtató nem kívánt és potenciálisan veszélyes viselkedéséhez vezethet. A tartós változtatásokat inkább a nyomtató konfigurációs fájljának használatával kell elvégezni. A megadott értékek esetében nem történik ellenőrzés.
+`SET_TMC_FIELD STEPPER=<name> FIELD=<field> VALUE=<value> VELOCITY=<value>`: This will alter the value of the specified register field of the TMC driver. This command is intended for low-level diagnostics and debugging only because changing the fields during run-time can lead to undesired and potentially dangerous behavior of your printer. Permanent changes should be made using the printer configuration file instead. No sanity checks are performed for the given values. A VELOCITY can also be specified instead of a VALUE. This velocity is converted to the 20bit TSTEP based value representation. Only use the VELOCITY argument for fields that represent velocities.
 
 ### [toolhead]
 
@@ -797,4 +797,4 @@ A következő parancsok akkor érhetők el, ha a [z_tilt konfigurációs szakasz
 
 #### Z_TILT_ADJUST
 
-`Z_TILT_ADJUST [<probe_parameter>=<value>]`: Ez a parancs a konfigurációban megadott pontokat vizsgálja meg, majd a dőlés kompenzálása érdekében minden egyes Z léptetőn független beállításokat végez. Az opcionális mérési paraméterekkel kapcsolatos részletekért lásd a PROBE parancsot.
+`Z_TILT_ADJUST [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.

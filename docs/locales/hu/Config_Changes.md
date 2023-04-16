@@ -6,6 +6,10 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 ## Változások
 
+20230304: The `SET_TMC_CURRENT` command now properly adjusts the globalscaler register for drivers that have it. This removes a limitation where on tmc5160, the currents could not be raised higher with `SET_TMC_CURRENT` than the `run_current` value set in the config file. However, this has a side effect: After running `SET_TMC_CURRENT`, the stepper must be held at standstill for >130ms in case StealthChop2 is used so that the AT#1 calibration gets executed by the driver.
+
+20230202: The format of the `printer.screws_tilt_adjust` status information has changed. The information is now stored as a dictionary of screws with the resulting measurements. See the [status reference](Status_Reference.md#screws_tilt_adjust) for details.
+
 20230201: A `[bed_mesh]` modul már nem tölti be az `alapértelmezett` profilt indításkor. Az `alapértelmezett` profilt használó felhasználóknak ajánlott a `BED_MESH_PROFILE LOAD=default` hozzáadni a `START_PRINT` makróhoz (vagy adott esetben a szeletelő "Start G-Code" konfigurációjához).
 
 20230103: A flash-sdcard.sh szkript segítségével mostantól a Bigtreetech SKR-2 mindkét változata, az STM32F407 és az STM32F429 is égethető. Ez azt jelenti, hogy az eredeti btt-skr2 címke mostantól vagy btt-skr-2-f407-re, vagy btt-skr-2-f429-re változik.

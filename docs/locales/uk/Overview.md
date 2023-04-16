@@ -34,7 +34,7 @@
 - [Slicers](Slicers.md): Налаштування програмного забезпечення "slicer" для Klipper.
 - [Корекція перекосу](Skew_Correction.md): Регулювання для осей не ідеально квадратних.
 - [PWM інструменти](Using_PWM_Tools.md): Керівництво по використанню інструментів контролю PWM, таких як лазери або шпиндельки.
-- [Виключити Об'єкт](Exclude_Object.md): Посібник із впровадження Виключення Об’єктів.
+- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objects implementation.
 
 ## Документація розробника
 

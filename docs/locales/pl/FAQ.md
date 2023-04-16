@@ -8,15 +8,15 @@ Thank you for your support. See the [Sponsors page](Sponsors.md) for information
 
 See the [rotation distance document](Rotation_Distance.md).
 
-## Where's my serial port?
+## Gdzie jest mój port szeregowy?
 
-The general way to find a USB serial port is to run `ls /dev/serial/by-id/*` from an ssh terminal on the host machine. It will likely produce output similar to the following:
+Ogólny sposób na znalezienie portu szeregowego USB to uruchomienie polecenia ls /dev/serial/by-id/* z terminala SSH na maszynie hosta. Prawdopodobnie spowoduje to wyświetlenie wyniku podobnego do następującego:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-The name found in the above command is stable and it is possible to use it in the config file and while flashing the micro-controller code. For example, a flash command might look similar to:
+Nazwa znaleziona w powyższym poleceniu jest stabilna i można jej używać w pliku konfiguracyjnym oraz podczas flashowania kodu mikrokontrolera. Na przykład polecenie flash może wyglądać podobnie do:
 
 ```
 sudo service klipper stop
@@ -24,26 +24,26 @@ make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 ```
 
-and the updated config might look like:
+a zaktualizowana konfiguracja może wyglądać tak:
 
 ```
 [mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-Be sure to copy-and-paste the name from the "ls" command that you ran above as the name will be different for each printer.
+Pamiętaj, aby skopiować i wkleić nazwę z polecenia „ls”, które uruchomiłeś powyżej, ponieważ nazwa będzie inna dla każdej drukarki.
 
-If you are using multiple micro-controllers and they do not have unique ids (common on boards with a CH340 USB chip) then follow the directions above using the command `ls /dev/serial/by-path/*` instead.
+Jeśli używasz wielu mikrokontrolerów i nie mają one unikalnych identyfikatorów (typowych na płytach z układem USB CH340), postępuj zgodnie z powyższymi wskazówkami, używając polecenia `ls /dev/serial/by-path/*`.
 
-## When the micro-controller restarts the device changes to /dev/ttyUSB1
+## Kiedy mikrokontroler restartuje urządzenie zmienia się na /dev/ttyUSB1
 
-Follow the directions in the "[Where's my serial port?](#wheres-my-serial-port)" section to prevent this from occurring.
+Postępuj zgodnie ze wskazówkami w sekcji „[Gdzie jest mój port szeregowy?](#gdzie jest mój-serial-port)”, aby temu zapobiec.
 
-## The "make flash" command doesn't work
+## Polecenie "make flash" nie działa
 
-The code attempts to flash the device using the most common method for each platform. Unfortunately, there is a lot of variance in flashing methods, so the "make flash" command may not work on all boards.
+Kod próbuje flashować urządzenie za pomocą najbardziej popularnej metody dla każdej platformy. Niestety, istnieje wiele różnic w metodach flashowania, więc polecenie "make flash" może nie działać na wszystkich płytach.
 
-If you're having an intermittent failure or you do have a standard setup, then double check that Klipper isn't running when flashing (sudo service klipper stop), make sure OctoPrint isn't trying to connect directly to the device (open the Connection tab in the web page and click Disconnect if the Serial Port is set to the device), and make sure FLASH_DEVICE is set correctly for your board (see the [question above](#wheres-my-serial-port)).
+Jeśli masz sporadyczną awarię lub masz standardową konfigurację, sprawdź dwukrotnie, czy Klipper nie działa podczas flashowania (sudo service klipper stop), upewnij się, że OctoPrint nie próbuje połączyć się bezpośrednio z urządzeniem (otwórz Karta Połączenie na stronie internetowej i kliknij Rozłącz, jeśli port szeregowy jest ustawiony na urządzeniu) i upewnij się, że FLASH_DEVICE jest ustawione prawidłowo dla twojej płyty głównej (patrz [pytanie powyżej](#wheres-my-serial-port)).
 
 However, if "make flash" just doesn't work for your board, then you will need to manually flash. See if there is a config file in the [config directory](../config) with specific instructions for flashing the device. Also, check the board manufacturer's documentation to see if it describes how to flash the device. Finally, it may be possible to manually flash the device using tools such as "avrdude" or "bossac" - see the [bootloader document](Bootloaders.md) for additional information.
 

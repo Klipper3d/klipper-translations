@@ -162,7 +162,7 @@ make build
 ls ./build/pysimulavr/_pysimulavr.*.so
 ```
 
-此命令應報告特定文件（例如 **./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**）而不是錯誤。
+This command should report a specific file (e.g. **./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not an error.
 
 如果您在基於 Debian 的系統（Debian、Ubuntu 等）上，您可以安裝以下軟件包並生成 *.deb 文件以在系統範圍內安裝 simulavr：
 

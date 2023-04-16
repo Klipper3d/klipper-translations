@@ -89,9 +89,9 @@ BOARD_DEFS = {
 
 다음 필드를 지정할 수 있습니다:
 
-- `mcu`: MCU 유형입니다. 이것은 `cat .config | grep CONFIG_MCU` 실행하여 `make menuconfig`로 그 빌드를 구성한 후 복구할 수 있습니다. 이 필드는 필수입니다.
-- `spi_bus`: SD 카드에 연결된 SPI 버스입니다. 이것은 보드의 회로도에서 가져와야 합니다. 이 필드는 필수입니다.
-- `cs_pin`: SD 카드에 연결된 칩 선택 핀입니다. 이것은 보드 회로도에서 검색해야 합니다. 이 필드는 필수입니다.
+- `mcu`: The mcu type. This can be retrieved after configuring the build via `make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is required.
+- `spi_bus`: The SPI bus connected to the SD Card. This should be retrieved from the board's schematic. This field is required.
+- `cs_pin`: The Chip Select Pin connected to the SD Card. This should be retrieved from the board schematic. This field is required.
 - `firmware_path`: 펌웨어가 전송되어야 하는 SD 카드의 경로입니다. 기본값은 'firmware.bin'입니다.
 - `current_firmware_path`: The path on the SD Card where the renamed firmware file is located after a successful flash. The default is `firmware.cur`.
 - `skip_verify`: This defines a boolean value which tells the scripts to skip the firmware verification step during the flashing process. The default is `False`. It can be set to `True` for boards that require a manual power-cycle to complete flashing. To verify the firmware afterward, run the script again with the `-c` option to perform the verification step. [See caveats with SDIO cards](#caveats)

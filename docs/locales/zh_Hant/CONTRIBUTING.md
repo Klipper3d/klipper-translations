@@ -104,8 +104,8 @@ Klipper 沒有實現嚴格的“編碼風格指南”，但對現有代碼的修
 | --- | --- | --- |
 | Dmitry Butyugin | @dmbutyugin | 輸入整形、共振測試、運動學 |
 | Eric Callahan | @Arksine | 列印床調平中,MCU 更新中 |
+| James Hartley | @JamesH1978 | Configuration files |
 | Kevin O'Connor | @KevinOConnor | 核心運動系統，微控制器代碼 |
-| Paul McGowan | @mental405 | 配置檔案, 文件 |
 
 請不要“ping”任何審閱人仕，也不要直接向他們投稿。所有審閱人仕都會監控論壇和 PR，並會在有時間時進行審閱。
 

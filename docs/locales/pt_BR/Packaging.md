@@ -16,4 +16,4 @@ Se você estiver construindo um pacote do Klipper a partir do git, é prática c
 
 ## Exemplo de script de empacotamento
 
-klipper-git é empacotado para Arch Linux, e tem um PKGBUILD (script de construção de pacote) disponível em [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper- git).
+klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).

@@ -34,7 +34,7 @@ Vítejte v dokumentaci ke Klipperu. Pokud s Klipprem začínáte, začněte s do
 - [Slicers](Slicers.md): Konfigurace softwaru "slicer" pro Klipper.
 - [Skew correction](Skew_Correction.md): Adjustments for axes not perfectly square.
 - [Nástroje PWM](Using_PWM_Tools.md): Příručka k používání nástrojů řízených PWM, jako jsou lasery nebo vřetena.
-- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs implementation.
+- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objects implementation.
 
 ## Dokumentace pro vývojáře
 

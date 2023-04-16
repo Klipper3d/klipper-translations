@@ -34,7 +34,7 @@ Bem- vindo a documentação do Klipper, comece com os documentos [features](Feat
 - [Slicers](Slicers.md): Configure "slicer" software for Klipper.
 - [Skew correction](Skew_Correction.md): Adjustments for axes not perfectly square.
 - [PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such as lasers or spindles.
-- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs implementation.
+- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objects implementation.
 
 ## Developer Documentation
 

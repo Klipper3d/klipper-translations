@@ -3,7 +3,7 @@
 A Klipper számos lenyűgöző tulajdonsággal rendelkezik:
 
 * Nagy pontosságú léptető mozgás. A Klipper egy alkalmazásprocesszort (például egy olcsó Raspberry Pi-t) használ a nyomtató mozgásának kiszámításához. Az alkalmazásprocesszor határozza meg, hogy mikor lépjen a léptetőmotor, tömöríti ezeket az eseményeket, továbbítja őket a mikrokontrollerhez, majd a mikrokontroller végrehajtja az eseményeket a kért időpontban. Minden egyes léptető eseményt 25 mikroszekundum vagy annál jobb pontossággal ütemezünk. A szoftver nem használ kinematikai becsléseket (mint például a Bresenham-algoritmus) - ehelyett a gyorsulás fizikája és a gép kinematikájának fizikája alapján számítja ki a pontos lépésidőket. A pontosabb léptetőmozgás csendesebb és stabilabb nyomtató működést biztosít.
-* Kategóriájában legjobb teljesítmény. A Klipper képes magas léptetési sebességet elérni mind az új, mind a régi mikrokontrollereken. Még a régi 8 bites mikrovezérlők is képesek 175 000 lépés/másodperc feletti sebességet elérni. Az újabb mikrokontrollereken másodpercenként több millió lépés is lehetséges. A nagyobb léptetési sebesség nagyobb nyomtatási sebességet tesz lehetővé. A léptetések időzítése még nagy sebességnél is pontos marad, ami javítja az általános stabilitást.
+* Best in class performance. Klipper is able to achieve high stepping rates on both new and old micro-controllers. Even old 8-bit micro-controllers can obtain rates over 175K steps per second. On more recent micro-controllers, several million steps per second are possible. Higher stepper rates enable higher print velocities. The stepper event timing remains precise even at high speeds which improves overall stability.
 * A Klipper támogatja a több mikrovezérlővel rendelkező nyomtatókat. Például egy mikrokontroller használható az extruder vezérlésére, míg egy másik a nyomtató fűtőberendezését, míg egy harmadik a nyomtató többi részét vezérli. A Klipper gazdaszoftver órajel-szinkronizációt valósít meg a mikrovezérlők közötti órajel-eltolódás figyelembevétele érdekében. A több mikrovezérlő engedélyezéséhez nincs szükség külön kódra, csak néhány extra sorra a konfigurációs fájlban.
 * Konfiguráció egyszerű konfigurációs fájlon keresztül. Nincs szükség a mikrokontroller újrafrissítésére a beállítások megváltoztatásához. Az összes Klipper konfiguráció egy szabványos konfigurációs fájlban van tárolva, amely könnyen szerkeszthető. Ez megkönnyíti a hardver beállítását és karbantartását.
 * A Klipper támogatja a "Smooth Pressure Advance" - egy olyan mechanizmust, amely figyelembe veszi a nyomást az extruderben. Ez csökkenti az extruder "szivárgását" és javítja a nyomtatási sarkok minőségét. A Klipper beavatkozása nem vezet be pillanatnyi extruder sebességváltozást, ami javítja az általános stabilitást és robusztusságot.
@@ -60,6 +60,7 @@ Az alábbiakban a léptető teljesítménytesztek eredményeit mutatjuk be. A fe
 | RP2040 | 2400K | 1636K |
 | SAM4E8E | 2500K | 1674K |
 | SAMD51 | 3077K | 1885K |
+| AR100 | 3529K | 2507K |
 | STM32F407 | 3652K | 2459K |
 | STM32F446 | 3913K | 2634K |
 | STM32H743 | 9091K | 6061K |

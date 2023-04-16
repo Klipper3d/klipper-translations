@@ -43,3 +43,28 @@ KISSlicer 슬라이싱 소프트웨어를 사용하는 경우 "PreloadVE"를 0�
 특히, 이러한 슬라이서 설정은 펌웨어가 이러한 요청에 근접하고 프린터가 대략적으로 원하는 압출기 압력을 얻을 것이라는 희망으로 extrusion rate를 크게 변경하도록 펌웨어에 지시할 수 있습니다. 그러나 Klipper는 정확한 운동학적 계산과 타이밍을 활용합니다. Klipper가 extrusion rate를 크게 변경하라는 명령을 받으면 속도, 가속도 및 압출기 움직임에 대한 해당 변경을 계획합니다. 이는 슬라이서의 의도가 아닙니다. 슬라이서는 Klipper의 최대 압출 단면 검사를 트리거하는 지점까지 과도한 extrusion rate를 명령할 수도 있습니다.
 
 대조적으로, 슬라이서의 "retract" 설정, "wipe" 설정 및/또는 "retract 시 wipe" 설정을 사용하는 것이 좋습니다(그리고 종종 도움이 됩니다).
+
+## START_PRINT macros
+
+When using a START_PRINT macro or similar, it is useful to sometimes pass through parameters from the slicer variables to the macro.
+
+In Cura, to pass through temperatures, the following start gcode would be used:
+
+```
+START_PRINT BED_TEMP={material_bed_temperature_layer_0} EXTRUDER_TEMP={material_print_temperature_layer_0}
+```
+
+In slic3r derivatives such as PrusaSlicer and SuperSlicer, the following would be used:
+
+START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_temperature]
+
+Also note that these slicers will insert their own heating codes when certain conditions are not met. In Cura, the existence of the `{material_bed_temperature_layer_0}` and `{material_print_temperature_layer_0}` variables is enough to mitigate this. In slic3r derivatives, you would use:
+
+```
+M140 S0
+M104 S0
+```
+
+before the macro call. Also note that SuperSlicer has a "custom gcode only" button option, which achieves the same outcome.
+
+An example of a START_PRINT macro using these paramaters can be found in config/sample-macros.cfg

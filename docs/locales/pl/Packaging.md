@@ -16,4 +16,4 @@ Jeśli budujesz pakiet Klippera z gita, zwykle nie wysyłasz katalogu .git, wię
 
 ## Przykładowy skrypt pakowania
 
-klipper-git jest spakowany dla Arch Linux i ma PKGBUILD (skrypt budowania pakietu) dostępny w [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper- git).
+klipper-git jest spakowany dla Arch Linux i ma PKGBUILD (skrypt budowania pakietów) dostępny w [Arch User Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper- git).

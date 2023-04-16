@@ -64,6 +64,6 @@ Jeśli drukarka ma podgrzewane łoże i obsługuje ono sterowanie PWM (modulacja
 
 Ten dokument ma na celu pomóc w podstawowej weryfikacji ustawień pinów w pliku konfiguracyjnym Klippera. Należy zapoznać się z przewodnikiem [Bed Leveling](Bed_Level.md). Zobacz także dokument [Slicers](Slicers.md), aby uzyskać informacje na temat konfigurowania slicera za pomocą programu Klipper.
 
-Po sprawdzeniu, że podstawowe drukowanie działa, warto rozważyć kalibrację [pressure advance] (Pressure_Advance.md).
+Po sprawdzeniu, że podstawowe drukowanie działa, warto rozważyć kalibrację [pressure advance](Pressure_Advance.md).
 
 Może być konieczne przeprowadzenie innych rodzajów szczegółowej kalibracji drukarki - w sieci dostępnych jest wiele poradników, które w tym pomogą (na przykład wyszukaj w Internecie hasło "3d printer calibration"). Na przykład, jeśli doświadczasz efektu zwanego dzwonieniem, możesz spróbować zastosować się do instrukcji strojenia [Kompensacja rezonansu](Resonance_Compensation.md).

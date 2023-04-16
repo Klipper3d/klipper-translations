@@ -3,7 +3,7 @@
 Klipper 有幾個引人注目的功能：
 
 * High precision stepper movement. Klipper utilizes an application processor (such as a low-cost Raspberry Pi) when calculating printer movements. The application processor determines when to step each stepper motor, it compresses those events, transmits them to the micro-controller, and then the micro-controller executes each event at the requested time. Each stepper event is scheduled with a precision of 25 micro-seconds or better. The software does not use kinematic estimations (such as the Bresenham algorithm) - instead it calculates precise step times based on the physics of acceleration and the physics of the machine kinematics. More precise stepper movement provides quieter and more stable printer operation.
-* 同類項目中最佳的效能。 Klipper 能夠在新舊微控制器上實現高步進速率。即使是舊的 8 位微控制器也可以發送超過每秒 175K 步的速率。在較新的微控制器上，每秒數百萬步也可以實現。更高的步進速率可以實現更高的列印速度。步進事件計時即使在高速下也能保持精確，提高了整體穩定性。
+* Best in class performance. Klipper is able to achieve high stepping rates on both new and old micro-controllers. Even old 8-bit micro-controllers can obtain rates over 175K steps per second. On more recent micro-controllers, several million steps per second are possible. Higher stepper rates enable higher print velocities. The stepper event timing remains precise even at high speeds which improves overall stability.
 * Klipper 支援帶有多個微控制器的印表機。例如，一個微控制器可以被用來控制擠出機，而另一個用來控制加熱器，並使用第三個來控制其他的印表機元件。Klipper 主機程式實現了時鐘同步，解決了微處理器之間的時鐘漂移。 啟用多個控制器只需要在配置檔案中新增幾行，不需要任何特殊程式碼。
 * 通過簡單的配置檔案進行配置。修改設定不需要重新刷寫微控制器。Klipper 的所有配置都被儲存在一個易編輯的配置檔案中，大大減少了配置與維護硬體的難度。
 * Klipper 支援「平滑提前壓力」--一種考慮了擠出機內壓力影響的機制。這項技術可以減少噴嘴溢料並改善轉角的列印質量。Klipper 的實現不會引入瞬間擠出機速度變化，改善了整體穩定性和穩健性。
@@ -60,6 +60,7 @@ Klipper 支援許多標準的 3d 印表機功能：
 | RP2040 | 2400K | 1636K |
 | SAM4E8E | 2500K | 1674K |
 | SAMD51 | 3077K | 1885K |
+| AR100 | 3529K | 2507K |
 | STM32F407 | 3652K | 2459K |
 | STM32F446 | 3913K | 2634K |
 | STM32H743 | 9091K | 6061K |

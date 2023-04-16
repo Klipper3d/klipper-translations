@@ -104,8 +104,8 @@ Les "réviseurs" de Klipper sont :
 | --- | --- | --- |
 | Dmitry Butyugin | @dmbutyugin | Input shaping, test de résonance, cinématiques |
 | Eric Callahan | @Arksine | Nivellement du lit, flashage du MCU |
+| James Hartley | @JamesH1978 | Configuration files |
 | Kevin O'Connor | @KevinOConnor | Système de mouvement de base, code du microcontrôleur |
-| Paul McGowan | @mental405 | Fichiers de configuration, documentation |
 
 Veuillez ne pas envoyer de "ping" à l'un des évaluateurs et ne pas leur adresser de soumissions. Tous les évaluateurs surveillent les forums et les PR, et prennent en charge les évaluations quand ils en ont le temps.
 

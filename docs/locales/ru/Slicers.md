@@ -43,3 +43,28 @@
 В частности, эти настройки слайсера могут предписывать микропрограмме вносить дикие изменения в скорость экструзии в надежде, что микропрограмма приблизительно выполнит эти запросы и принтер примерно получит желаемое давление в экструдере. Klipper, однако, использует точные кинематические расчеты и синхронизацию. Когда Klipper получает команду внести значительные изменения в скорость экструзии, он планирует соответствующие изменения скорости, ускорения и движения экструдера, что не входит в намерения слайсера. Слайсер может даже задать чрезмерную скорость экструзии до такой степени, что сработает проверка Klipper на максимальное сечение экструзии.
 
 В отличие от этого, можно (и часто полезно) использовать настройки "втягивание", "протирка" и/или "протирка при втягивании" ломтерезки.
+
+## START_PRINT macros
+
+When using a START_PRINT macro or similar, it is useful to sometimes pass through parameters from the slicer variables to the macro.
+
+In Cura, to pass through temperatures, the following start gcode would be used:
+
+```
+START_PRINT BED_TEMP={material_bed_temperature_layer_0} EXTRUDER_TEMP={material_print_temperature_layer_0}
+```
+
+In slic3r derivatives such as PrusaSlicer and SuperSlicer, the following would be used:
+
+START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_temperature]
+
+Also note that these slicers will insert their own heating codes when certain conditions are not met. In Cura, the existence of the `{material_bed_temperature_layer_0}` and `{material_print_temperature_layer_0}` variables is enough to mitigate this. In slic3r derivatives, you would use:
+
+```
+M140 S0
+M104 S0
+```
+
+before the macro call. Also note that SuperSlicer has a "custom gcode only" button option, which achieves the same outcome.
+
+An example of a START_PRINT macro using these paramaters can be found in config/sample-macros.cfg

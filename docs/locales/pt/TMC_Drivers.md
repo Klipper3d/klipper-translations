@@ -295,7 +295,7 @@ Some common errors and tips for diagnosing them:
 
 This indicates the motor driver disabled itself because it became too hot. Typical solutions are to decrease the stepper motor current, increase cooling on the stepper motor driver, and/or increase cooling on the stepper motor.
 
-#### TMC reports error: `... ShortToGND` OR `LowSideShort`
+#### TMC reports error: `... ShortToGND` OR `ShortToSupply`
 
 This indicates the driver has disabled itself because it detected very high current passing through the driver. This may indicate a loose or shorted wire to the stepper motor or within the stepper motor itself.
 

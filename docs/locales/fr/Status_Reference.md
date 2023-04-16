@@ -92,6 +92,7 @@ Les informations suivantes sont disponibles pour les objets extruder_stepper (ai
 
 - `pressure_advance` : la valeur actuelle de [pressure advance](Pressure_Advance.md).
 - `smooth_time` : Le temps de lissage associé à la valeur de "pressure advance" courante.
+- `motion_queue`: The name of the extruder that this extruder stepper is currently synchronized to. This is reported as `None` if the extruder stepper is not currently associated with an extruder.
 
 ## ventilateur
 
@@ -234,6 +235,7 @@ Les informations suivantes sont disponibles dans l'objet `print_stats` (cet obje
 
 Les informations suivantes sont disponibles dans l'objet [probe](Config_Reference.md#probe) (cet objet est également disponible si une section de configuration [bltouch](Config_Reference.md#bltouch) est définie) :
 
+- `name`: Returns the name of the probe in use.
 - `last_query` : renvoie True si la sonde a été signalée comme "déclenchée" lors de la dernière commande QUERY_PROBE. Notez que si cela est utilisé dans une macro, en raison de l'ordre de développement du modèle, la commande QUERY_PROBE doit être exécutée avant la macro contenant cette demande.
 - `last_z_result` : Renvoie la valeur du Z de la dernière commande PROBE. Notez que si cela est utilisé dans une macro, en raison de l'ordre d'expansion du modèle, la commande PROBE (ou similaire) doit être exécutée avant la macro contenant cette demande.
 
@@ -254,19 +256,23 @@ Les informations suivantes sont disponibles dans l'objet `query_endstops` (cet o
 Les informations suivantes sont disponibles dans l'objet `screws_tilt_adjust` :
 
 - `error` : renvoie True si la commande `SCREWS_TILT_CALCULATE` la plus récente incluait le paramètre `MAX_DEVIATION` et que l'un des sondages au niveau des vis de lit dépassait la valeur `MAX_DEVIATION`.
-- `résultats` : une liste des emplacements des vis de lit sondées. Chaque entrée de la liste est un dictionnaire contenant les clés suivantes :
-   - `name` : le nom de la vis tel qu'il est spécifié dans le fichier de configuration.
-   - `x` : la coordonnée X de la vis telle que spécifiée dans le fichier de configuration.
-   - `y` : la coordonnée Y de la vis telle que spécifiée dans le fichier de configuration.
+- `results["<screw>"]`: A dictionary containing the following keys:
    - `z` : La hauteur Z mesurée à l'emplacement de la vis.
-   - `sign` : Une chaîne spécifiant le sens de rotation à visser pour le réglage nécessaire. Soit "CW" pour le sens horaire ou "CCW" pour le sens antihoraire. La vis de base n'aura pas de clé `sign`.
+   - `sign`: A string specifying the direction to turn to screw for the necessary adjustment. Either "CW" for clockwise or "CCW" for counterclockwise.
    - `adjust` : le nombre de tours de vis pour ajuster la vis, donné au format "HH:MM", où "HH" est le nombre de tours de vis complets et "MM" est le nombre de "minutes d'un cadran d'horloge" représentant un tour de vis partiel. (Par exemple, "01:15" signifierait de tourner la vis d'un tour et quart.)
+   - `is_base`: Returns True if this is the base screw.
 
 ## servo
 
 Les informations suivantes sont disponibles dans les objets [servo some_name](Config_Reference.md#servo) :
 
 - `printer["servo <config_name>"].value` : le dernier réglage de la broche PWM (une valeur comprise entre 0,0 et 1,0) associée au servo.
+
+## stepper_enable
+
+The following information is available in the `stepper_enable` object (this object is available if any stepper is defined):
+
+- `steppers["<stepper>"]`: Returns True if the given stepper is enabled.
 
 ## system_stats
 

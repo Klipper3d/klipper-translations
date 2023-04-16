@@ -8,7 +8,7 @@ Quando acquisti ADXL345, tieni presente che esiste una varietà di diversi desig
 
 ### Cablaggio
 
-Si consiglia un cavo Ethernet con doppini intrecciati schermati (cat5e o superiore) per l'integrità del segnale su lunghe distanze. Se si verificano ancora problemi di integrità del segnale (errori SPI/I2C), accorciare il cavo.
+An ethernet cable with shielded twisted pairs (cat5e or better) is recommended for signal integrity over a long distance. If you still experience signal integrity issues (SPI/I2C errors), shorten the cable.
 
 Collegare la schermatura del cavo Ethernet al gnd/ground della scheda controller RPI.
 
@@ -26,13 +26,15 @@ SCLK+CS
 
 ##### ADXL345
 
-**Nota: molti MCU funzionano con un ADXL345 in modalità SPI (ad es. Pi Pico), il cablaggio e la configurazione variano in base alla scheda specifica ed ai pin disponibili.**
+###### Direct to Raspberry Pi
+
+**Note: Many MCUs will work with an ADXL345 in SPI mode(eg Pi Pico), wiring and configuration will vary according to your specific board and available pins.**
 
 Devi connettere ADXL345 al tuo Raspberry Pi tramite SPI. Si noti che la connessione I2C, suggerita dalla documentazione di ADXL345, ha un throughput troppo basso e **non funzionerà**. Lo schema di connessione consigliato:
 
 | ADXL345 pin | RPi pin | Nome pin RPi |
 | :-: | :-: | :-: |
-| 3V3 (or VCC) | 01 | 3.3v alimentazione DC |
+| 3V3 (or VCC) | 01 | 3.3V DC power |
 | GND | 06 | Ground |
 | CS | 24 | GPIO08 (SPI0_CE0_N) |
 | SDO | 21 | GPIO09 (SPI0_MISO) |
@@ -42,6 +44,25 @@ Devi connettere ADXL345 al tuo Raspberry Pi tramite SPI. Si noti che la connessi
 Schemi collegamenti Fritzing per alcune delle schede ADXL345:
 
 ![ADXL345-Rpi](img/adxl345-fritzing.png)
+
+###### Using Raspberry Pi Pico
+
+You may connect the ADXL345 to your Raspberry Pi Pico and then connect the Pico to your Raspberry Pi via USB. This makes it easy to reuse the accelerometer on other Klipper devices, as you can connect via USB instead of GPIO. The Pico does not have much processing power, so make sure it is only running the accelerometer and not performing any other duties.
+
+In order to avoid damage to your RPi make sure to connect the ADXL345 to 3.3V only. Depending on the board's layout, a level shifter may be present, which makes 5V dangerous for your RPi.
+
+| ADXL345 pin | Pico pin | Pico pin name |
+| :-: | :-: | :-: |
+| 3V3 (or VCC) | 36 | 3.3V DC power |
+| GND | 38 | Ground |
+| CS | 2 | GP1 (SPI0_CSn) |
+| SDO | 1 | GP0 (SPI0_RX) |
+| SDA | 5 | GP3 (SPI0_TX) |
+| SCL | 4 | GP2 (SPI0_SCK) |
+
+Wiring diagrams for some of the ADXL345 boards:
+
+![ADXL345-Pico](img/adxl345-pico.png)
 
 #### Accelerometri I2C
 
@@ -130,6 +151,61 @@ probe_points:
 
 Si consiglia di iniziare con 1 punto sonda, al centro del piano di stampa, leggermente al di sopra di esso.
 
+#### Configure ADXL345 With Pi Pico
+
+##### Flash the Pico Firmware
+
+On your Raspberry Pi, compile the firmware for the Pico.
+
+```
+cd ~/klipper
+make clean
+make menuconfig
+```
+
+![Pico menuconfig](img/klipper_pico_menuconfig.png)
+
+Now, while holding down the `BOOTSEL` button on the Pico, connect the Pico to the Raspberry Pi via USB. Compile and flash the firmware.
+
+```
+make flash FLASH_DEVICE=first
+```
+
+If that fails, you will be told which `FLASH_DEVICE` to use. In this example, that's `make flash FLASH_DEVICE=2e8a:0003`. ![Determine flash device](img/flash_rp2040_FLASH_DEVICE.png)
+
+##### Configure the Connection
+
+The Pico will now reboot with the new firmware and should show up as a serial device. Find the pico serial device with `ls /dev/serial/by-id/*`. You can now add an `adxl.cfg` file with the following settings:
+
+```
+[mcu adxl]
+# Change <mySerial> to whatever you found above. For example,
+# usb-Klipper_rp2040_E661640843545B2E-if00
+serial: /dev/serial/by-id/usb-Klipper_rp2040_<mySerial>
+
+[adxl345]
+cs_pin: adxl:gpio1
+spi_bus: spi0a
+axes_map: x,z,y
+
+[resonance_tester]
+accel_chip: adxl345
+probe_points:
+    # Somewhere slightly above the middle of your print bed
+    147,154, 20
+
+[output_pin power_mode] # Improve power stability
+pin: adxl:gpio23
+```
+
+If setting up the ADXL345 configuration in a separate file, as shown above, you'll also want to modify your `printer.cfg` file to include this:
+
+```
+[include adxl.cfg] # Comment this out when you disconnect the accelerometer
+```
+
+Riavvia Klipper tramite il comando `RESTART`.
+
 #### Configura la serie MPU-6000/9000 con RPi
 
 Assicurati che il driver Linux I2C sia abilitato e che la velocità di trasmissione sia impostata su 400000 (consulta la sezione [Abilitazione di I2C](RPi_microcontroller.md#optional-enabling-i2c) per ulteriori dettagli). Quindi, aggiungi quanto segue a printer.cfg:
@@ -154,19 +230,19 @@ PICO I2C è impostato su 400000 per impostazione predefinita. Aggiungi semplicem
 
 ```
 [mcu pico]
-serial: /dev/serial/by-id/<ID seriale del tuo PICO>
+serial: /dev/serial/by-id/<your PICO's serial ID>
 
 [mpu9250]
 i2c_mcu: pico
-i2c_bus: i2c1a
+i2c_bus: i2c0a
 
 [resonance_tester]
 accel_chip: mpu9250
 probe_points:
-    100, 100, 20  # un esempio
+    100, 100, 20  # an example
 
-[static_digital_output pico_3V3pwm] # Aumenta la stabilità
-pin:pico:gpio23
+[static_digital_output pico_3V3pwm] # Improve power stability
+pin: pico:gpio23
 ```
 
 Riavvia Klipper tramite il comando `RESTART`.
@@ -186,7 +262,7 @@ Dovresti vedere le misurazioni attuali dall'accelerometro, inclusa l'accelerazio
 Recv: // adxl345 values (x, y, z): 470.719200, 941.438400, 9728.196800
 ```
 
-Se ricevi un errore come `Invalid adxl345 id (got xx vs e5)`, dove `xx` è un altro ID, è indicativo del problema di connessione con ADXL345 o del sensore difettoso. Ricontrolla l'alimentazione, il cablaggio (che corrisponda agli schemi, nessun filo è rotto o allentato, ecc.) e la qualità delle saldature.
+If you get an error like `Invalid adxl345 id (got xx vs e5)`, where `xx` is some other ID, immediately try again. There's an issue with SPI initialization. If you still get an error, it is indicative of the connection problem with ADXL345, or the faulty sensor. Double-check the power, the wiring (that it matches the schematics, no wire is broken or loose, etc.), and soldering quality.
 
 **Se si utilizza l'accelerometro della serie MPU-6000/9000 e viene visualizzato come `mpu-unknown`, utilizzare con cautela! Probabilmente sono chip ricondizionati!**
 
@@ -257,7 +333,7 @@ max_accel: 3000  # non dovrebbe superare il max_accel stimato per gli assi X e Y
 
 oppure puoi scegliere tu stesso un'altra configurazione in base ai grafici generati: i picchi nella densità spettrale di potenza sui grafici corrispondono alle frequenze di risonanza della stampante.
 
-Nota che in alternativa puoi eseguire l'autocalibrazione dello input shaper da Klipper [directly](#input-shaper-auto-calibration), che può essere conveniente, ad esempio, per lo input shaper[re-calibration](#input-shaper-re-calibrazione).
+Note that alternatively you can run the input shaper auto-calibration from Klipper [directly](#input-shaper-auto-calibration), which can be convenient, for example, for the input shaper [re-calibration](#input-shaper-re-calibration).
 
 ### Stampanti con piatto scorrevole
 
@@ -436,7 +512,7 @@ Il comando `SHAPER_CALIBRATE` può essere utilizzato anche per ricalibrare lo sh
 SHAPER_CALIBRATE AXIS=X
 ```
 
-**Attenzione!** Non è consigliabile eseguire l'autocalibrazione dello shaper molto frequentemente (ad es. prima di ogni stampa o ogni giorno). Per determinare le frequenze di risonanza, l'autocalibrazione crea intense vibrazioni su ciascuno degli assi. Generalmente, le stampanti 3D non sono progettate per resistere a un'esposizione prolungata a vibrazioni vicino alle frequenze di risonanza. Ciò potrebbe aumentare l'usura dei componenti della stampante e ridurne la durata. C'è anche un aumento del rischio che alcune parti si svitino o si allentino. Verificare sempre che tutte le parti della stampante (comprese quelle che normalmente potrebbero non muoversi) siano fissate saldamente in posizione dopo ogni autotuning.
+**Warning!** It is not advisable to run the shaper auto-calibration very frequently (e.g. before every print, or every day). In order to determine resonance frequencies, auto-calibration creates intensive vibrations on each of the axes. Generally, 3D printers are not designed to withstand a prolonged exposure to vibrations near the resonance frequencies. Doing so may increase wear of the printer components and reduce their lifespan. There is also an increased risk of some parts unscrewing or becoming loose. Always check that all parts of the printer (including the ones that may normally not move) are securely fixed in place after each auto-tuning.
 
 Inoltre, a causa di un po' di rumore nelle misurazioni, è possibile che i risultati dell'ottimizzazione siano leggermente diversi da una calibrazione all'altra. Tuttavia, non ci si aspetta che il rumore influisca troppo sulla qualità di stampa. Tuttavia, si consiglia comunque di ricontrollare i parametri suggeriti e di stampare alcune stampe di prova prima di utilizzarli per confermare che siano corretti.
 

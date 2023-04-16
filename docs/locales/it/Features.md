@@ -3,7 +3,7 @@
 Klipper ha diverse caratteristiche interessanti:
 
 * Movimento passo-passo di alta precisione. Klipper utilizza un processore applicativo (come un Raspberry Pi a basso costo) per calcolare i movimenti della stampante. Il processore dell'applicazione determina quando far avanzare ciascun motore passo-passo, comprime quegli eventi, li trasmette al microcontrollore e quindi il microcontrollore esegue ogni evento all'ora richiesta. Ogni evento stepper è programmato con una precisione di 25 microsecondi o superiore. Il software non utilizza stime cinematiche (come l'algoritmo di Bresenham), ma calcola tempi di passo precisi in base alla fisica dell'accelerazione e alla fisica della cinematica della macchina. Il movimento passo-passo più preciso garantisce un funzionamento della stampante più silenzioso e stabile.
-* Le migliori prestazioni della classe. Klipper è in grado di raggiungere elevate velocità di stepping su microcontrollori nuovi e vecchi. Anche i vecchi microcontrollori a 8 bit possono ottenere velocità di oltre 175.000 passi al secondo. Sui microcontrollori più recenti sono possibili diversi milioni di passi al secondo. Velocità stepper più elevate consentono velocità di stampa più elevate. Il timing dell'evento stepper rimane preciso anche a velocità elevate, migliorando la stabilità generale.
+* Best in class performance. Klipper is able to achieve high stepping rates on both new and old micro-controllers. Even old 8-bit micro-controllers can obtain rates over 175K steps per second. On more recent micro-controllers, several million steps per second are possible. Higher stepper rates enable higher print velocities. The stepper event timing remains precise even at high speeds which improves overall stability.
 * Klipper supporta stampanti con più microcontrollori. Ad esempio, un microcontrollore potrebbe essere utilizzato per controllare un estrusore, mentre un altro controlla i riscaldatori della stampante, mentre un terzo controlla il resto della stampante. Il software host Klipper implementa la sincronizzazione dell'orologio per tenere conto della deriva dell'orologio tra i microcontrollori. Non è necessario alcun codice speciale per abilitare più microcontrollori: sono necessarie solo alcune righe in più nel file di configurazione.
 * Configurazione tramite semplice file. Non è necessario eseguire il reflash del microcontrollore per modificare un'impostazione. Tutta la configurazione di Klipper è memorizzata in un file di configurazione standard che può essere facilmente modificato. Ciò semplifica la configurazione e la manutenzione dell'hardware.
 * Klipper supporta "Smooth Pressure Advance", un meccanismo per tenere conto degli effetti della pressione all'interno di un estrusore. Ciò riduce la "melma" dell'estrusore e migliora la qualità degli angoli di stampa. L'implementazione di Klipper non introduce variazioni istantanee della velocità dell'estrusore, il che migliora la stabilità e la robustezza complessive.
@@ -60,6 +60,7 @@ Di seguito sono riportati i risultati dei test delle prestazioni degli stepper. 
 | RP2040 | 2400K | 1636K |
 | SAM4E8E | 2500K | 1674K |
 | SAMD51 | 3077K | 1885K |
+| AR100 | 3529K | 2507K |
 | STM32F407 | 3652K | 2459K |
 | STM32F446 | 3913K | 2634K |
 | STM32H743 | 9091K | 6061K |
