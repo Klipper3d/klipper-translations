@@ -16,4 +16,4 @@ Si va a crear un paquete para Klipper a partir de Git, es práctica habitual no 
 
 ## Secuencia de órdenes simple para empaquetamiento
 
-klipper-git está empaquetado para Arch Linux ya en PKGBUILD (secuencia de comandos de creación de paquetes) disponible en [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).
+klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).

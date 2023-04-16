@@ -1,6 +1,6 @@
 # Датчик Холла ширины филамента
 
-В этом документе описывается хост-модуль датчика ширины филамента. Аппаратное обеспечение, используемое для разработки этого главного модуля, основано на двух линейных датчиках Холла (например, ss49e). Датчики в корпусе расположены с противоположных сторон. Принцип работы: два датчика Холла работают в дифференциальном режиме, температурный дрейф одинаков для датчика. Специальная температурная компенсация не требуется.
+This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on two Hall linear sensors (ss49e for example). Sensors in the body are located on opposite sides. Principle of operation: two hall sensors work in differential mode, temperature drift same for sensor. Special temperature compensation not needed.
 
 Вы можете найти примеры на [Thingiverse](https://www.thingiverse.com/thing:4138933), также доступно видео на [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)
 
@@ -8,7 +8,7 @@ To use Hall filament width sensor, read [Config Reference](Config_Reference.md#h
 
 ## Как это работает?
 
-Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use aux2 connector on ramps-like board analog11 and analog12 pins. You can use different pins and differenr boards.
+Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use the aux2 connector on a ramps-like board with the analog11 and analog12 pins. You can use different pins and different boards.
 
 ## Шаблон переменных меню
 

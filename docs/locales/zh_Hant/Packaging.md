@@ -16,4 +16,4 @@ Klipper 使用一個 C 模組來更快地處理一些運動學計算。此模組
 
 ## 示例打包指令碼
 
-klipper-git 是 klipper 的 Arch Linux 軟體包，在[Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git)上有一個 PKGBUILD（軟體包構建指令碼）。
+klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).

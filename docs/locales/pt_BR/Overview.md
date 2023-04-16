@@ -34,7 +34,7 @@ Bem-vindo à documentação do Klipper. Se for novo no Klipper, comece com os do
 - [Fatiadores](Slicers.md): Configuração do programa "fatiador" para o Klipper.
 - [Skew correction](Skew_Correction.md): Ajustes para eixos não perfeitamente quadrados.
 - [Ferramentas PWM](Using_PWM_Tools.md): Guia de como usar ferramentas de controladas por PWM tais como lasers e fusos.
-- [Exclude Object](Exclude_Object.md): O guia para a implementação Exclude Objects.
+- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objects implementation.
 
 ## Documentação de desenvolvedor
 

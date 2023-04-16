@@ -3,7 +3,7 @@
 Klipper hat viele überzeugende Funktionen:
 
 * High precision stepper movement. Klipper utilizes an application processor (such as a low-cost Raspberry Pi) when calculating printer movements. The application processor determines when to step each stepper motor, it compresses those events, transmits them to the micro-controller, and then the micro-controller executes each event at the requested time. Each stepper event is scheduled with a precision of 25 micro-seconds or better. The software does not use kinematic estimations (such as the Bresenham algorithm) - instead it calculates precise step times based on the physics of acceleration and the physics of the machine kinematics. More precise stepper movement provides quieter and more stable printer operation.
-* Best in class performance. Klipper is able to achieve high stepping rates on both new and old micro-controllers. Even old 8bit micro-controllers can obtain rates over 175K steps per second. On more recent micro-controllers, several million steps per second are possible. Higher stepper rates enable higher print velocities. The stepper event timing remains precise even at high speeds which improves overall stability.
+* Best in class performance. Klipper is able to achieve high stepping rates on both new and old micro-controllers. Even old 8-bit micro-controllers can obtain rates over 175K steps per second. On more recent micro-controllers, several million steps per second are possible. Higher stepper rates enable higher print velocities. The stepper event timing remains precise even at high speeds which improves overall stability.
 * Klipper unterstützt Drucker mit mehreren Mikrocontrollern. Beispielsweise könnte ein Mikrocontroller einen Extruder steuern und ein anderer die Heizelemente, während ein Dritter die restlichen Funktionen des Druckers steuert. Die Klipper Host-Anwendung synchronisiert den Takt der Mikrocontroller, um Taktschwankungen zwischen Mikrocontrollern auszugleichen. Um mehrere Mikrocontroller zu verwenden müssen lediglich einige Zeilen in der Konfigurationsdatei eingefügt werden.
 * Configuration via simple config file. There's no need to reflash the micro-controller to change a setting. All of Klipper's configuration is stored in a standard config file which can be easily edited. This makes it easier to setup and maintain the hardware.
 * Klipper supports "Smooth Pressure Advance" - a mechanism to account for the effects of pressure within an extruder. This reduces extruder "ooze" and improves the quality of print corners. Klipper's implementation does not introduce instantaneous extruder speed changes, which improves overall stability and robustness.
@@ -60,6 +60,7 @@ Below are the results of stepper performance tests. The numbers shown represent 
 | RP2040 | 2400K | 1636K |
 | SAM4E8E | 2500K | 1674K |
 | SAMD51 | 3077K | 1885K |
+| AR100 | 3529K | 2507K |
 | STM32F407 | 3652K | 2459K |
 | STM32F446 | 3913K | 2634K |
 | STM32H743 | 9091K | 6061K |

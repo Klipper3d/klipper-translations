@@ -162,7 +162,7 @@ Győződjünk meg róla, hogy a fenti fordítás után a **./build/pysimulavr/_p
 ls ./build/pysimulavr/_pysimulavr.*.so
 ```
 
-Ennek a parancsnak egy adott fájlt kell jelentenie (pl. **./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**), nem pedig hibát.
+This command should report a specific file (e.g. **./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not an error.
 
 Ha Debian-alapú rendszert használsz (Debian, Ubuntu, stb.), akkor telepítheted a következő csomagokat, és *.deb fájlokat generálhatsz a simulavr rendszerszintű telepítéséhez:
 

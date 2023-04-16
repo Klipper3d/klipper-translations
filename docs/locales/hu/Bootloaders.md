@@ -238,7 +238,7 @@ A bootloader általában csak rövid ideig fut a rendszerindítás után. Szüks
 
 A [HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader) egy kompakt, driver nélküli bootloader, amely képes USB-n keresztül égetni. Szintén elérhető egy [fork az SKR Mini E3 1.2 specifikus buildekkel](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
 
-Az általános STM32F103 alaplapok, mint például a blue pill esetében a bootloader 3,3V-os soros égetése lehetséges az stm32flash használatával, amint azt a fenti stm32duino szakaszban említettük, a kívánt hid bootloader bináris fájlnevének behelyettesítésével (azaz: hid_generic_pc13.bin a blue pillhez).
+For generic STM32F103 boards such as the blue pill it is possible to flash the bootloader via 3.3V serial using stm32flash as noted in the stm32duino section above, substituting the file name for the desired hid bootloader binary (ie: hid_generic_pc13.bin for the blue pill).
 
 Az SKR Mini E3 esetében nem lehet stm32flash-t használni, mivel a boot0 láb közvetlenül a földre van kötve, és nincs alaplapi tűkiállása. A bootloader égetéséhez ajánlott STLink V2-t használni STM32Cube programozóval. Ha nincs vagy nem fér hozzá egy STLink-hez, akkor lehetséges egy [OpenOCD futtatása a Raspberry PI-n](#az-openocd-futtatasa-a-raspberry-pi-n) használata is a következő chip konfigurációval:
 
@@ -309,13 +309,13 @@ VAGY ha a klippert korábban már égették:
 make flash FLASH_DEVICE=/dev/ttyACM0
 ```
 
-Szükség lehet a bootloader manuális belépésére, ezt a "boot 0" alacsony és "boot 1" magas értékek beállításával lehet megtenni. Az SKR Mini E3 esetében a "Boot 1" nem áll rendelkezésre, ezért a PA2 tű alacsonyra állításával lehet elvégezni, ha a "hid_btt_skr_mini_e3.bin" fájlt égetjük. Ez a tű az SKR Mini E3 "PIN" dokumentumban "TX0"-ként van jelölve a TFT fejlécen. A PA2 mellett van egy földelt tű, amellyel a PA2 alacsonyra húzhatja.
+It may be necessary to manually enter the bootloader, this can be done by setting "boot 0" low and "boot 1" high. On the SKR Mini E3 "Boot 1" is not available, so it may be done by setting pin PA2 low if you flashed "hid_btt_skr_mini_e3.bin". This pin is labeled "TX0" on the TFT header in the SKR Mini E3's "PIN" document. There is a ground pin next to PA2 which you can use to pull PA2 low.
 
 ### STM32F103/STM32F072 MSC bootloaderrel
 
 Az [MSC bootloader](https://github.com/Telekatz/MSC-stm32f103-bootloader) egy USB-n keresztül égethető, driver nélküli bootloader.
 
-Lehetőség van a bootloader 3,3V-os soros égetésére az stm32flash használatával, ahogyan azt a fenti stm32duino szakaszban említettük, a kívánt MSC bootloader bináris fájlnevének behelyettesítésével (azaz: MSCboot-Bluepill.bin a Bluepill-hez).
+It is possible to flash the bootloader via 3.3V serial using stm32flash as noted in the stm32duino section above, substituting the file name for the desired MSC bootloader binary (ie: MSCboot-Bluepill.bin for the blue pill).
 
 Az STM32F072 lapok esetében a bootloader USB-n keresztül (DFU-n keresztül) is égethető, például a következőkkel:
 
@@ -331,7 +331,7 @@ A bootloader a kártya reset gombjának kétszeri megnyomásával aktiválható.
 
 A [CanBoot](https://github.com/Arksine/CanBoot) bootloader lehetőséget biztosít a Klipper firmware feltöltésére CANBUS-on keresztül. Maga a bootloader a Klipper forráskódjából származik. A CanBoot jelenleg az STM32F103, STM32F042 és STM32F072 modelleket támogatja.
 
-A CanBoot égetéséhez ajánlott ST-Link programozót használni, azonban STM32F103 eszközökön az `stm32flash`, STM32F103 eszközökön pedig a `dfu-util` használatával is lehet égetni. A dokumentum korábbi szakaszaiban találhatók az utasítások ezekre az égetési módszerekre vonatkozóan, adott esetben a fájlnevet `canboot.bin`-el helyettesítve. A fentebb linkelt CanBoot repo tartalmaz utasításokat a bootloader elkészítéséhez.
+It is recommended to use a ST-Link Programmer to flash CanBoot, however it should be possible to flash using `stm32flash` on STM32F103 devices, and `dfu-util` on STM32F042/STM32F072 devices. See the previous sections in this document for instructions on these flashing methods, substituting `canboot.bin` for the file name where appropriate. The CanBoot repository linked above provides instructions for building the bootloader.
 
 A CanBoot első égetésénél észlelned kell, hogy nincs jelen alkalmazás, és be kell lépned a bootloaderbe. Ha ez nem történik meg, akkor a reset gomb kétszer egymás utáni megnyomásával lehet belépni a bootloaderbe.
 
@@ -355,9 +355,9 @@ Amikor a Klippert a CanBoot-al való használatra készíted, válaszd a 8 KiB-o
 
 ## STM32F4 mikrovezérlők (SKR Pro 1.1)
 
-Az STM32F4 mikrokontrollerek beépített rendszerbetöltővel rendelkeznek, amely képes USB-n keresztül (DFU-n keresztül), 3,3V-os soros és különböző más módszerekkel is égetni (további információkért lásd az STM AN2606 dokumentumát). Egyes STM32F4 lapok, mint például az SKR Pro 1.1, nem képesek belépni a DFU bootloaderbe. A HID bootloader elérhető az STM32F405/407 alapú lapokhoz, amennyiben a felhasználó az USB-n keresztül történő égetést részesíti előnyben az SD-kártya használatával szemben. Ne feledd, hogy szükség lehet egy, az alaplapodnak specifikus verzió konfigurálására és szerkesztésére, egy [az SKR Pro 1.1-es lapra vonatkozó verzió elérhető itt](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
+STM32F4 micro-controllers come equipped with a built-in system bootloader capable of flashing over USB (via DFU), 3.3V Serial, and various other methods (see STM Document AN2606 for more information). Some STM32F4 boards, such as the SKR Pro 1.1, are not able to enter the DFU bootloader. The HID bootloader is available for STM32F405/407 based boards should the user prefer flashing over USB over using the sdcard. Note that you may need to configure and build a version specific to your board, a [build for the SKR Pro 1.1 is available here](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
 
-Hacsak a lapod nem DFU-képes, a legkönnyebben elérhető égetési módszer valószínűleg a 3,3V-os soros, amely ugyanazt az eljárást követi, mint [az STM32F103 égetése az stm32flash segítségével](#stm32f103-mikrovezerlok-(blue-pill-eszkozok). Például:
+Unless your board is DFU capable the most accessible flashing method is likely via 3.3V serial, which follows the same procedure as [flashing the STM32F103 using stm32flash](#stm32f103-micro-controllers-blue-pill-devices). For example:
 
 ```
 wget https://github.com/Arksine/STM32_HID_Bootloader/releases/download/v0.5-beta/hid_bootloader_SKR_PRO.bin

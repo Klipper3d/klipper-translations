@@ -43,3 +43,28 @@ Alcune affettatrici pubblicizzano una capacità di "pressione dell'estrusore ava
 In particolare, queste impostazioni dello slicer possono indicare al firmware di apportare modifiche alla velocità di estrusione nella speranza che il firmware si avvicini a tali richieste e che la stampante ottenga approssimativamente una pressione dell'estrusore desiderabile. Klipper, tuttavia, utilizza calcoli cinematici e tempi precisi. Quando a Klipper viene comandato di apportare modifiche significative alla velocità di estrusione, pianificherà le modifiche corrispondenti a velocità, accelerazione e movimento dell'estrusore, il che non è l'intento dello slicer. Lo slicer può anche comandare velocità di estrusione eccessive al punto da attivare il controllo della sezione trasversale di estrusione massima di Klipper.
 
 Al contrario, va bene (e spesso utile) utilizzare l'impostazione ritiro "retract" , l'impostazione pulire "wipe" e/o l'impostazione pulire alla retrazione "wipe on retract".
+
+## START_PRINT macros
+
+When using a START_PRINT macro or similar, it is useful to sometimes pass through parameters from the slicer variables to the macro.
+
+In Cura, to pass through temperatures, the following start gcode would be used:
+
+```
+START_PRINT BED_TEMP={material_bed_temperature_layer_0} EXTRUDER_TEMP={material_print_temperature_layer_0}
+```
+
+In slic3r derivatives such as PrusaSlicer and SuperSlicer, the following would be used:
+
+START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_temperature]
+
+Also note that these slicers will insert their own heating codes when certain conditions are not met. In Cura, the existence of the `{material_bed_temperature_layer_0}` and `{material_print_temperature_layer_0}` variables is enough to mitigate this. In slic3r derivatives, you would use:
+
+```
+M140 S0
+M104 S0
+```
+
+before the macro call. Also note that SuperSlicer has a "custom gcode only" button option, which achieves the same outcome.
+
+An example of a START_PRINT macro using these paramaters can be found in config/sample-macros.cfg

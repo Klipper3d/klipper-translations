@@ -295,7 +295,7 @@ Néhány gyakori hiba és tipp a diagnosztizáláshoz:
 
 Ez azt jelzi, hogy a motorvezérlő kikapcsolta magát, mert túlmelegedett. A tipikus megoldások a léptetőmotor áramának csökkentése, a motorvezérlő és/vagy a léptetőmotor hűtése.
 
-#### A TMC hibát jelent: `... ShortToGND` VAGY `LowSideShort`
+#### TMC reports error: `... ShortToGND` OR `ShortToSupply`
 
 Ez azt jelzi, hogy a motorvezérlő letiltotta magát, mert nagyon magas áramot érzékelt a meghajtón keresztül. Ez azt jelezheti, hogy meglazult vagy rövidre zárt vezeték van a léptetőmotorban vagy magához a léptetőmotorhoz futó vezeték hibás.
 

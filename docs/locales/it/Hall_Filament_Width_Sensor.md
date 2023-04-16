@@ -1,6 +1,6 @@
 # Sensore di Hall per larghezza del filamento
 
-Questo documento descrive il modulo host del sensore di larghezza del filamento Filament Width Sensor. L'hardware utilizzato per lo sviluppo di questo modulo host si basa su due sensori lineari Hall (ad esempio ss49e). I sensori nel corpo si trovano ai lati opposti. Principio di funzionamento: due sensori Hall funzionano in modalità differenziale, la stessa deriva di temperatura per il sensore. Non è necessaria una speciale compensazione della temperatura.
+This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on two Hall linear sensors (ss49e for example). Sensors in the body are located on opposite sides. Principle of operation: two hall sensors work in differential mode, temperature drift same for sensor. Special temperature compensation not needed.
 
 Puoi trovare i design su [Thingiverse](https://www.thingiverse.com/thing:4138933), un video di assemblaggio è disponibile anche su [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4 )
 
@@ -8,7 +8,7 @@ Per utilizzare il sensore di larghezza del filamento Hall, leggere [Config Refer
 
 ## Come funziona?
 
-Il sensore genera due uscite analogiche in base alla larghezza del filamento calcolata. La somma della tensione di uscita è sempre uguale alla larghezza del filamento rilevata. Il modulo host monitora le variazioni di tensione e regola il moltiplicatore di estrusione. Uso il connettore aux2 su una scheda simile a rampe analog11 e analog12 pin. Puoi usare diversi pin e diverse schede.
+Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use the aux2 connector on a ramps-like board with the analog11 and analog12 pins. You can use different pins and different boards.
 
 ## Modello per variabili di menu
 

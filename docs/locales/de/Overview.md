@@ -1,10 +1,10 @@
 # Übersicht
 
-Willkommen auf der Klipper-Dokumentationsseite! Wenn Klipper für dich neu ist, starte doch einfach mit den [Features](Features.md) und den [Installations-Dokumenten](Installation.md).
+Willkommen auf der Klipper-Dokumentationsseite! Wenn Klipper für dich neu ist, starte doch einfach mit den Dokumenten für die [Features](Features.md) und der [Installation](Installation.md).
 
-## Übersicht
+## Informationsübersicht
 
-- [Features](Features.md): Eine grobe Übersicht über die Features von Klipper.
+- [Features](Features.md): Eine abstrahierte Liste über die Features von Klipper.
 - [FAQ](FAQ.md): Häufig gestellte Fragen.
 - [Releases](Releases.md): Veröffentlichungshistorie von Klipper.
 - [Config changes](Config_Changes.md): Die neuesten Änderungen, die potentielle Änderungen an der Konfigurationsdatei des Druckers auslösen können.
@@ -34,7 +34,7 @@ Willkommen auf der Klipper-Dokumentationsseite! Wenn Klipper für dich neu ist, 
 - [Slicers](Slicers.md): "Slicer"-Software für Klipper einrichten.
 - [Schräglagenkorrektur](Skew_Correction.md): Anpassungen für nicht perfekt rechtwinklige Achsen.
 - [PWM tools](Using_PWM_Tools.md): Anleitung zum Verwenden von PWM-gesteuerten Werkzeugen (bspw. Laser oder Spindeln).
-- [Objekte ausschließen](Exclude_Object.md): Die Anleitung zur Objektausschluss-Implementierung.
+- [Objekt ausschließen](Exclude_Object.md): Der Leitfaden zur Implementierung um Objekte auszuschließen.
 
 ## Entwicklerdokumentation
 

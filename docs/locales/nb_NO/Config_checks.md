@@ -62,7 +62,7 @@ If the printer has a heated bed and it supports being driven by PWM (Pulse Width
 
 ## Neste steg
 
-Denne veiledningen er tiltenkt hjelp med grunnleggende pinneinnstillinger i Kipper-oppsettsfilen. Sørg for å ha lest [bunnplate-nivelering](Bed_Level.md)-veiledningen. Sjekk også [Inndelere](slicers.md]-dokumentet for info om oppsett av en inndeler med Klipper.
+Denne veiledningen er tiltenkt hjelp med grunnleggende pinneinnstillinger i Kipper-oppsettsfilen. Sørg for å ha lest [bunnplate-nivelering](Bed_Level.md)-veiledningen. Sjekk også [Inndelere](slicers.md)-dokumentet for info om oppsett av en inndeler med Klipper.
 
 After one has verified that basic printing works, it is a good idea to consider calibrating [pressure advance](Pressure_Advance.md).
 

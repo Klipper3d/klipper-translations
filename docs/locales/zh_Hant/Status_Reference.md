@@ -92,6 +92,7 @@ The following information is available for extruder_stepper objects (as well as 
 
 - `pressure_advance`: The current [pressure advance](Pressure_Advance.md) value.
 - `smooth_time`: The current pressure advance smooth time.
+- `motion_queue`: The name of the extruder that this extruder stepper is currently synchronized to. This is reported as `None` if the extruder stepper is not currently associated with an extruder.
 
 ## fan
 
@@ -234,6 +235,7 @@ The following information is available in the `manual_probe` object:
 
 [probe](Config_Reference.md#probe) 對像中提供了以下資訊（如果定義了 [bltouch](Config_Reference.md#bltouch) 配置分段，則此對象也可用）：
 
+- `name`: Returns the name of the probe in use.
 - `last_query`：如果探針在上一個 QUERY_PROBE 命令期間報告為"已觸發"，則返回 True。請注意，如果在宏中使用它，根據模板展開的順序，必須在包含此引用的宏之前執行 QUERY_PROBE 命令。
 - `last_z_result`：返回上一次 PROBE 命令的結果 Z 值。請注意，由於模板展開的順序，在宏中使用時必須在包含此引用的宏之前執行 PROBE（或類似）命令。
 
@@ -254,19 +256,23 @@ The following information is available in the `manual_probe` object:
 The following information is available in the `screws_tilt_adjust` object:
 
 - `error`: Returns True if the most recent `SCREWS_TILT_CALCULATE` command included the `MAX_DEVIATION` parameter and any of the probed screw points exceeded the specified `MAX_DEVIATION`.
-- `results`: A list of the probed screw locations. Each entry in the list will be a dictionary containing the following keys:
-   - `name`: The name of the screw as specified in the config file.
-   - `x`: The X coordinate of the screw as specified in the config file.
-   - `y`: The Y coordinate of the screw as specified in the config file.
+- `results["<screw>"]`: A dictionary containing the following keys:
    - `z`: The measured Z height of the screw location.
-   - `sign`: A string specifying the direction to turn to screw for the necessary adjustment. Either "CW" for clockwise or "CCW" for counterclockwise. The base screw will not have a `sign` key.
+   - `sign`: A string specifying the direction to turn to screw for the necessary adjustment. Either "CW" for clockwise or "CCW" for counterclockwise.
    - `adjust`: The number of screw turns to adjust the screw, given in the format "HH:MM," where "HH" is the number of full screw turns and "MM" is the number of "minutes of a clock face" representing a partial screw turn. (E.g. "01:15" would mean to turn the screw one and a quarter revolutions.)
+   - `is_base`: Returns True if this is the base screw.
 
 ## servo
 
 [servo some_name](Config_Reference.md#servo) 對像提供了以下資訊：
 
 - `printer["servo <配置名>"].value`：與指定伺服相關 PWM 引腳的上一次設定的值（0.0 和 1.0 之間的值）。
+
+## stepper_enable
+
+The following information is available in the `stepper_enable` object (this object is available if any stepper is defined):
+
+- `steppers["<stepper>"]`: Returns True if the given stepper is enabled.
 
 ## system_stats
 

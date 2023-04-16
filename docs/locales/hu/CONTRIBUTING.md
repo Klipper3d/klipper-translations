@@ -104,8 +104,8 @@ A Klipper "értékelők" a következők:
 | --- | --- | --- |
 | Dmitry Butyugin | @dmbutyugin | Bemenetformálás, rezonancia vizsgálat, kinematika |
 | Eric Callahan | @Arksine | Tárgyasztal szintezése, MCU égetés |
+| James Hartley | @JamesH1978 | Configuration files |
 | Kevin O'Connor | @KevinOConnor | Mag mozgási rendszer, mikrokontroller kód |
-| Paul McGowan | @mental405 | Konfigurációs fájlok, dokumentáció |
 
 Kérjük, ne "pingelje" a bírálókat, és ne küldjön beadványokat nekik. Az összes bíráló figyelemmel kíséri a fórumokat és a PR-eket, és ha van idejük, akkor vállalják a bírálatokat.
 

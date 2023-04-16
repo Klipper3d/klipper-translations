@@ -92,6 +92,7 @@ Az alábbi információk az extruder_stepper objektumok (valamint az [extruder](
 
 - `pressure_advance`: Az aktuális [nyomás előtolás](Pressure_Advance.md) érték.
 - `smooth_time`: Az aktuális nyomás előtolásának simítási ideje.
+- `motion_queue`: The name of the extruder that this extruder stepper is currently synchronized to. This is reported as `None` if the extruder stepper is not currently associated with an extruder.
 
 ## fan
 
@@ -234,6 +235,7 @@ A következő információk a `print_stats` objektumban érhetők el (ez az obje
 
 A következő információk a [szonda](Config_Reference.md#probe) objektumban érhetők el (ez az objektum akkor is elérhető, ha egy [bltouch](Config_Reference.md#bltouch) konfigurációs szakasz van definiálva):
 
+- `name`: Returns the name of the probe in use.
 - `last_query`: True értéket ad vissza, ha a szondát az utolsó QUERY_PROBE parancs során "triggered" -ként jelentették. Megjegyzés: ha ezt egy makróban használjuk, a sablon bővítési sorrendje miatt a QUERY_PROBE parancsot akkor ezt a hivatkozást tartalmazó makró előtt kell lefuttatni.
 - `last_z_result`: Az utolsó PROBE parancs Z eredményének értékét adja vissza. Figyelem, ha ezt egy makróban használjuk, a sablon bővítési sorrendje miatt a PROBE (vagy hasonló) parancsot akkor ezt a hivatkozást tartalmazó makró előtt kell lefuttatni.
 
@@ -254,19 +256,23 @@ A következő információk a `query_endstops` objektumban érhetők el (ez az o
 A következő információk a `screws_tilt_adjust` objektumban találhatók:
 
 - `error`: True értéket ad vissza, ha a legutóbbi `SCREWS_TILT_CALCULATE` parancs tartalmazta a `MAX_DEVIATION` paramétert, és bármelyik vizsgált csavarpont meghaladta a megadott `MAX_DEVIATION` értéket.
-- `results`: A vizsgált csavarok helyének listája. A lista minden egyes bejegyzése egy szótár lesz, amely a következő kulcsokat tartalmazza:
-   - `name`: A csavar neve a konfigurációs fájlban megadottak szerint.
-   - `x`: A csavar X koordinátája a konfigurációs fájlban megadottak szerint.
-   - `x`: A csavar X koordinátája a konfigurációs fájlban megadottak szerint.
+- `results["<screw>"]`: A dictionary containing the following keys:
    - `z`: A csavar helyének mért Z magassága.
-   - `sign`: Egy karakterlánc, amely megadja, hogy a szükséges beállításhoz milyen irányba kell elfordítani a csavart. Vagy "CW" az óramutató járásával megegyező irányban, vagy "CCW" az óramutató járásával ellentétes irányban. Az alapcsavar nem rendelkezik `sign` kulcsal.
+   - `sign`: A string specifying the direction to turn to screw for the necessary adjustment. Either "CW" for clockwise or "CCW" for counterclockwise.
    - `adjust`: A csavar beállításához szükséges csavarfordítások száma, "HH:MM" formátumban megadva, ahol "HH" a teljes csavarfordítások száma, "MM" pedig a részleges csavarfordítást jelentő "óramutató percek" száma. (Pl. "01:15" azt jelentené, hogy a csavart egy és negyed fordulatot kell elfordítani.)
+   - `is_base`: Returns True if this is the base screw.
 
 ## servo
 
 A következő információk a [szervó some_name](Config_Reference.md#servo) objektumokban érhetők el:
 
 - `printer["servo <config_name>"].value`: A szervóhoz tartozó PWM tű utolsó beállítása (0,0 és 1,0 közötti érték).
+
+## stepper_enable
+
+The following information is available in the `stepper_enable` object (this object is available if any stepper is defined):
+
+- `steppers["<stepper>"]`: Returns True if the given stepper is enabled.
 
 ## system_stats
 

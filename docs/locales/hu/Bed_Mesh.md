@@ -1,6 +1,6 @@
 # Tárgyasztal háló
 
-A tárgyasztal háló modul használható a tárgyasztal felület egyenetlenségeinek kiegyenlítésére, hogy jobb első réteget kapj az egész tárgyasztalon. Meg kell jegyezni, hogy a szoftveralapú korrekció nem fog tökéletes eredményt elérni, csak megközelítő értékekkel tudatja a tárgyasztal alakját. A tárgyasztal háló szintén nem tudja kompenzálni a mechanikai és elektromos problémákat. Ha egy tengely ferde vagy egy szonda nem pontos, akkor a bed_mesh modul nem fog pontos eredményeket kapni a szintezésről.
+The Bed Mesh module may be used to compensate for bed surface irregularities to achieve a better first layer across the entire bed. It should be noted that software based correction will not achieve perfect results, it can only approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical and electrical issues. If an axis is skewed or a probe is not accurate then the bed_mesh module will not receive accurate results from the probing process.
 
 A hálókalibrálás előtt meg kell győződnöd arról, hogy a szonda Z-eltolása kalibrálva van. Ha végállást használsz a Z-kezdőponthoz, akkor azt is kalibrálni kell. További információkért lásd a [Szonda Kalibrálás](Probe_Calibrate.md) és a Z_ENDSTOP_CALIBRATE című fejezetben a [Kézi Szintezést](Manual_Level.md).
 
@@ -22,7 +22,7 @@ probe_count: 5, 3
 - `speed: 120` * Alapértelmezett érték: 50* A sebesség, amellyel a fej a pontok között mozog.
 - `horizontal_move_z: 5` *Alapértelmezett érték: 5* A Z koordináta, amelyre a szonda a mérőpontok közötti utazás előtt emelkedik.
 - `mesh_min: 35, 6` *Ajánlott* Az első, az origóhoz legközelebbi koordináta. Ez a koordináta a szonda helyéhez képest relatív.
-- `mesh_max: 240, 198` *Ajánlott* Az origótól legtávolabb eső mért koordináta. Ez nem feltétlenül az utolsó mért pont, mivel a mérés cikcakkos módon történik. A `mesh_min` koordinátához hasonlóan ez a koordináta is a szonda helyéhez van viszonyítva.
+- `mesh_max: 240, 198` *Required* The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with `mesh_min`, this coordinate is relative to the probe's location.
 - `probe_count: 5, 3` *Alapértelmezett érték: 3,3* Az egyes tengelyeken mérendő pontok száma, X, Y egész értékben megadva. Ebben a példában az X tengely mentén 5 pont lesz mérve, az Y tengely mentén 3 pont, összesen 15 mért pont. Vedd figyelembe, hogy ha négyzetrácsot szeretnél, például 3x3, akkor ezt egyetlen egész számértékként is megadhatod, amelyet mindkét tengelyre használsz, azaz `probe_count: 3`. Vedd figyelembe, hogy egy hálóhoz mindkét tengely mentén legalább 3 darab mérési számra van szükség.
 
 Az alábbi ábra azt mutatja, hogy a `mesh_min`, `mesh_max` és `probe_count` opciók hogyan használhatók a mérőpontok létrehozására. A nyilak jelzik a mérési eljárás irányát, kezdve a `mesh_min` ponttól. Hivatkozásképpen, amikor a szonda a `mesh_min` pontnál van, a fúvóka a (11, 1) pontnál lesz, és amikor a szonda a `mesh_max` pontnál van, a fúvóka a (206, 193) pontnál lesz.
@@ -46,7 +46,7 @@ round_probe_count: 5
 - `mesh_origin: 0, 0` *Alapértelmezett érték: 0, 0* A háló középpontja. Ez a koordináta a szonda helyéhez képest relatív. Bár az alapértelmezett érték 0, 0 hasznos lehet az origó beállítása, ha a tárgyasztal nagyobb részét szeretnéd megmérni. Lásd az alábbi ábrát.
 - `round_probe_count: 5` *Alapértelmezett érték: 5* Ez egy egész szám, amely meghatározza az X és Y tengely mentén mért pontok maximális számát. A "maximális" alatt a háló origója mentén mért pontok számát értjük. Ennek az értéknek páratlan számnak kell lennie, mivel a háló középpontját kell megvizsgálni.
 
-Az alábbi ábra mutatja, hogyan generálódnak a mért pontok. Mint látható, a `mesh_origin` (-10, 0) értékre állítása lehetővé teszi, hogy nagyobb, 85-ös hálósugarat adjunk meg.
+The illustration below shows how the probed points are generated. As you can see, setting the `mesh_origin` to (-10, 0) allows us to specify a larger mesh radius of 85.
 
 ![bedmesh_round_basic](img/bedmesh_round_basic.svg)
 
@@ -56,7 +56,7 @@ Az alábbiakban részletesen ismertetjük a fejlettebb konfigurációs lehetős�
 
 ### Háló interpoláció
 
-Bár a mért mátrixot közvetlenül egyszerű bilineáris interpolációval lehet mintavételezni a mért pontok közötti Z-értékek meghatározásához, a háló sűrűségének növelése érdekében gyakran hasznos a további pontok interpolálása fejlettebb interpolációs algoritmusok segítségével. Ezek az algoritmusok görbületet adnak a hálóhoz, megkísérelve szimulálni a meder anyagi tulajdonságait. A Bed Mesh ehhez Lagrange és bikubik interpolációt kínál.
+While its possible to sample the probed matrix directly using simple bi-linear interpolation to determine the Z-Values between probed points, it is often useful to interpolate extra points using more advanced interpolation algorithms to increase mesh density. These algorithms add curvature to the mesh, attempting to simulate the material properties of the bed. Bed Mesh offers lagrange and bicubic interpolation to accomplish this.
 
 ```
 [bed_mesh]
@@ -96,7 +96,7 @@ split_delta_z: .025
 - `move_check_distance: 5` *Alapértelmezett érték: 5* A minimális távolság, amellyel a kívánt Z-változást ellenőrizni kell a felosztás végrehajtása előtt. Ebben a példában az 5 mm-nél hosszabb mozgást fog az algoritmus végigjárni. Minden 5 mm-enként egy háló Z mérés történik, összehasonlítva azt az előző lépés Z értékével. Ha a delta eléri a `split_delta_z` által beállított küszöbértéket, akkor a mozgás felosztásra kerül, és a bejárás folytatódik. Ez a folyamat addig ismétlődik, amíg a lépés végére nem érünk, ahol egy végső kiigazítás történik. A `move_check_distance` értéknél rövidebb mozgásoknál a helyes Z kiigazítást közvetlenül a mozgásra alkalmazzák, áthaladás vagy felosztás nélkül.
 - `split_delta_z: .025` *Alapértelmezett érték: .025* Mint fentebb említettük, ez a minimális eltérés szükséges a mozgás felosztásának elindításához. Ebben a példában bármely Z-érték +/- .025 mm eltérés kiváltja a felosztást.
 
-Általában az alapértelmezett értékek elegendőek ezekhez az opciókhoz, sőt, a `move_check_distance` alapértelmezett 5 mm-es értéke túlzás lehet. Egy haladó felhasználó azonban kísérletezhet ezekkel az opciókkal, hogy megpróbálja kiszorítani az optimális első réteget.
+Generally the default values for these options are sufficient, in fact the default value of 5mm for the `move_check_distance` may be overkill. However an advanced user may wish to experiment with these options in an effort to squeeze out the optimal first layer.
 
 ### Háló elhalványulás
 
@@ -116,11 +116,11 @@ fade_target: 0
 
 - `fade_start: 1` *Alapértelmezett érték: 1* A Z magasság, amelyben a fokozatos kiigazítást el kell kezdeni. Jó ötlet, ha a fade folyamat megkezdése előtt néhány réteggel lejjebb kerül.
 - `fade_end: 10` *Alapértelmezett érték: 0* A Z magasság, amelyben a fade-nek be kell fejeződnie. Ha ez az érték kisebb, mint `fade_start` akkor a fade le van tiltva. Ezt az értéket a nyomtatási felület torzulásától függően lehet módosítani. Egy jelentősen görbült felületnek hosszabb távon kell elhalványulnia. Egy közel sík felület esetében ez az érték csökkenthető, hogy gyorsabban fakuljon ki. A 10 mm egy ésszerű érték, ha a `fade_start` alapértelmezett 1 értékét használjuk.
-- `fade_target: 0` *Alapértelmezett érték: A háló átlagos Z értéke* A `fade_target` úgy képzelhető el, mint egy további Z eltolás, amelyet a fade befejezése után a teljes tárgyasztalra alkalmaznak. Általánosságban azt szeretnénk, ha ez az érték 0 lenne, azonban vannak olyan körülmények, amikor nem kell, hogy így legyen. Tegyük fel például, hogy a tárgyasztalon a kezdőpont pozíciója egy kiugró érték, amely 0,2 mm-rel alacsonyabb, mint a tárgyasztal átlagos mért magassága. Ha a `fade_target` értéke 0, akkor a fade átlagosan 0,2 mm-rel zsugorítja a nyomtatást a tárgyasztalon. Ha a `fade_target` értékét .2-re állítod, akkor a kezdőponti terület .2 mm-rel fog tágulni, azonban a tárgyasztal többi része pontosan méretezett lesz. Általában jó ötlet a `fade_target` elhagyása a konfigurációból, így a háló átlagos magassága kerül felhasználásra, azonban kívánatos lehet a fade target kézi beállítása, ha a tárgyasztal egy adott részére szeretnénk nyomtatni.
+- `fade_target: 0` *Default Value: The average Z value of the mesh* The `fade_target` can be thought of as an additional Z offset applied to the entire bed after fade completes. Generally speaking we would like this value to be 0, however there are circumstances where it should not be. For example, lets assume your homing position on the bed is an outlier, its .2 mm lower than the average probed height of the bed. If the `fade_target` is 0, fade will shrink the print by an average of .2 mm across the bed. By setting the `fade_target` to .2, the homed area will expand by .2 mm, however, the rest of the bed will be accurately sized. Generally its a good idea to leave `fade_target` out of the configuration so the average height of the mesh is used, however it may be desirable to manually adjust the fade target if one wants to print on a specific portion of the bed.
 
 ### A relatív referenciaindex
 
-A legtöbb szonda hajlamos a driftre, azaz: a hő vagy interferencia által okozott pontatlanságokra. Ez kihívássá teheti a szonda Z-eltolásának kiszámítását, különösen különböző tárgyasztal hőmérsékleteken. Ezért egyes nyomtatók a Z tengely beállításához végállást, a háló kalibrálásához pedig szondát használnak. Ezeknek a nyomtatóknak előnyös lehet a relatív referenciaindex konfigurálása.
+Most probes are susceptible to drift, ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis, and a probe for calibrating the mesh. These printers can benefit from configuring the relative reference index.
 
 ```
 [bed_mesh]
@@ -199,7 +199,7 @@ A BED_MESH_CALIBRATE elvégzése után lehetőség van a háló aktuális állap
 
 A profilok a `BED_MESH_PROFILE LOAD=<name>` parancs végrehajtásával tölthetők be.
 
-Meg kell jegyezni, hogy minden alkalommal, amikor a BED_MESH_CALIBRATE használatba kerül, az aktuális állapot automatikusan az *alapértelmezett* profilba kerül mentésre. Ha ez a profil létezik, akkor a Klipper indításakor automatikusan betöltődik. Ha ez a viselkedés nem kívánatos, a *default* profil a következőképpen távolítható el:
+It should be noted that each time a BED_MESH_CALIBRATE occurs, the current state is automatically saved to the *default* profile. The *default* profile can be removed as follows:
 
 `BED_MESH_PROFILE REMOVE=default`
 

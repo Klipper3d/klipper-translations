@@ -85,7 +85,7 @@ I seguenti comandi sono disponibili quando la [sezione di configurazione bed_mes
 
 #### BED_MESH_CALIBRATE
 
-`BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: Questo comando sonda il piatto utilizzando i punti generati specificati dai parametri nella configurazione. Dopo il sondaggio, viene generata una mesh e il movimento z viene regolato in base alla mesh. Vedere il comando PROBE per i dettagli sui parametri della sonda opzionali. Se viene specificato METHOD=manual, lo strumento di probing manuale è attivato - vedere il comando MANUAL_PROBE per quanti riguarda per i dettagli sui comandi aggiuntivi disponibili mentre questo strumento è attivo.
+`BED_MESH_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: This command probes the bed using generated points specified by the parameters in the config. After probing, a mesh is generated and z-movement is adjusted according to the mesh. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
 
 #### BED_MESH_OUTPUT
 
@@ -121,7 +121,7 @@ I seguenti comandi sono disponibili quando la [sezione di configurazione inclina
 
 #### BED_TILT_CALIBRATE
 
-`BED_TILT_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>]`: Questo comando sonderà i punti specificati nella configurazione e quindi consiglierà le regolazioni dell'inclinazione x e y aggiornate. Vedere il comando PROBE per i dettagli sui parametri della sonda opzionali. Se viene specificato METHOD=manual, lo strumento di probing manuale è attivato - vedere il comando MANUAL_PROBE sopra per i dettagli sui comandi aggiuntivi disponibili mentre questo strumento è attivo.
+`BED_TILT_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then recommend updated x and y tilt adjustments. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
 
 ### [bltouch]
 
@@ -157,7 +157,7 @@ I seguenti comandi sono disponibili quando la [sezione di configurazione delta_c
 
 #### DELTA_CALIBRATE
 
-`DELTA_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>]`: questo comando sonderà sette punti sul piatto e consiglierà posizioni di finecorsa, angoli della torre e raggio aggiornati. Vedere il comando PROBE per i dettagli sui parametri della sonda opzionali. Se viene specificato METHOD=manual, lo strumento di probe manuale è attivato - vedere il comando MANUAL_PROBE precedente per i dettagli sui comandi aggiuntivi disponibili mentre questo strumento è attivo.
+`DELTA_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe seven points on the bed and recommend updated endstop positions, tower angles, and radius. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
 
 #### DELTA_ANALYZE
 
@@ -647,7 +647,7 @@ I seguenti comandi sono disponibili quando la [sezione di configurazione viti_ti
 
 #### SCREWS_TILT_CALCULATE
 
-`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [<probe_parameter>=<value>]`: Questo comando richiamerà lo strumento di regolazione delle viti del piatto. Comanderà l'ugello in diverse posizioni (come definito nel file di configurazione) sondando l'altezza z e calcolerà il numero di giri della manopola per regolare il livello del piatto. Se si specifica DIRECTION, le rotazioni della manopola saranno tutte nella stessa direzione, in senso orario (CW) o in senso antiorario (CCW). Vedere il comando PROBE per i dettagli sui parametri della sonda opzionali. IMPORTANTE: DEVI sempre eseguire un G28 prima di utilizzare questo comando. Se viene specificato MAX_DEVIATION, il comando genererà un errore gcode se qualsiasi differenza nell'altezza della vite rispetto all'altezza della vite di base è maggiore del valore fornito.
+`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) probing the z height and calculate the number of knob turns to adjust the bed level. If DIRECTION is specified, the knob turns will all be in the same direction, clockwise (CW) or counterclockwise (CCW). See the PROBE command for details on the optional probe parameters. IMPORTANT: You MUST always do a G28 before using this command. If MAX_DEVIATION is specified, the command will raise a gcode error if any difference in the screw height relative to the base screw height is greater than the value provided. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
 
 ### [sdcard_loop]
 
@@ -727,7 +727,7 @@ I seguenti comandi sono disponibili quando una qualsiasi delle [tmcXXXX config s
 
 #### DUMP_TMC
 
-`DUMP_TMC STEPPER=<nome>`: questo comando leggerà i registri del driver TMC e ne riporterà i valori.
+`DUMP_TMC STEPPER=<name> [REGISTER=<name>]`: This command will read all TMC driver registers and report their values. If a REGISTER is provided, only the specified register will be dumped.
 
 #### INIT_TMC
 
@@ -735,11 +735,11 @@ I seguenti comandi sono disponibili quando una qualsiasi delle [tmcXXXX config s
 
 #### SET_TMC_CURRENT
 
-`SET_TMC_CURRENT STEPPER=<nome> CURRENT=<amps> HOLDCURRENT=<amps>`: Questo regolerà le correnti di funzionamento e di mantenimento del driver TMC. (HOLDCURRENT non è applicabile ai driver tmc2660.)
+`SET_TMC_CURRENT STEPPER=<name> CURRENT=<amps> HOLDCURRENT=<amps>`: This will adjust the run and hold currents of the TMC driver. `HOLDCURRENT` is not applicable to tmc2660 drivers. When used on a driver which has the `globalscaler` field (tmc5160 and tmc2240), if StealthChop2 is used, the stepper must be held at standstill for >130ms so that the driver executes the AT#1 calibration.
 
 #### SET_TMC_FIELD
 
-`SET_TMC_FIELD STEPPER=<nome> FIELD=<campo> VALUE=<valore>`: Questo altererà il valore del campo del registro specificato del driver TMC. Questo comando è destinato alla diagnostica e al debug di basso livello solo perché la modifica dei campi durante l'esecuzione può causare comportamenti indesiderati e potenzialmente pericolosi della stampante. Le modifiche permanenti dovrebbero invece essere apportate utilizzando il file di configurazione della stampante. Non vengono eseguiti controlli di integrità per i valori indicati.
+`SET_TMC_FIELD STEPPER=<name> FIELD=<field> VALUE=<value> VELOCITY=<value>`: This will alter the value of the specified register field of the TMC driver. This command is intended for low-level diagnostics and debugging only because changing the fields during run-time can lead to undesired and potentially dangerous behavior of your printer. Permanent changes should be made using the printer configuration file instead. No sanity checks are performed for the given values. A VELOCITY can also be specified instead of a VALUE. This velocity is converted to the 20bit TSTEP based value representation. Only use the VELOCITY argument for fields that represent velocities.
 
 ### [toolhead]
 
@@ -797,4 +797,4 @@ I seguenti comandi sono disponibili quando la [sezione z_tilt config](Config_Ref
 
 #### Z_TILT_ADJUST
 
-`Z_TILT_ADJUST [<probe_parameter>=<value>]`: questo comando sonderà i punti specificati nella configurazione e quindi apporterà regolazioni indipendenti a ciascuno Z stepper per compensare l'inclinazione. Vedere il comando PROBE per i dettagli sui parametri opzionali della sonda.
+`Z_TILT_ADJUST [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.

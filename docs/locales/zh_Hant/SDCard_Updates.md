@@ -89,9 +89,9 @@ BOARD_DEFS = {
 
 可以指定以下欄位：
 
-- `mcu`：微控制器型別。這可以在使用`make menuconfig`配置構建配置后通過執行`cat .config | grep CONFIG_MCU`獲取。 此欄位是必需的。
-- `spi_bus`：連線到 SD 卡的 SPI 匯流排。 這應該從電路板的原理圖中檢索。 此欄位是必需的。
-- `cs_pin`：連線到 SD 卡的晶片選擇引腳。 這應該從電路板原理圖中檢索。 此欄位是必需的。
+- `mcu`: The mcu type. This can be retrieved after configuring the build via `make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is required.
+- `spi_bus`: The SPI bus connected to the SD Card. This should be retrieved from the board's schematic. This field is required.
+- `cs_pin`: The Chip Select Pin connected to the SD Card. This should be retrieved from the board schematic. This field is required.
 - `firmware_path`：SD 卡上韌體應傳輸的路徑。 預設是`firmware.bin`。
 - `current_firmware_path`: The path on the SD Card where the renamed firmware file is located after a successful flash. The default is `firmware.cur`.
 - `skip_verify`: This defines a boolean value which tells the scripts to skip the firmware verification step during the flashing process. The default is `False`. It can be set to `True` for boards that require a manual power-cycle to complete flashing. To verify the firmware afterward, run the script again with the `-c` option to perform the verification step. [See caveats with SDIO cards](#caveats)

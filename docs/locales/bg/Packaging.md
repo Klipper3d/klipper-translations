@@ -16,4 +16,4 @@ Klipper използва модул на C за по-бързо извършва
 
 ## Примерен скрипт за опаковане
 
-klipper-git е пакетиран за Arch Linux и има PKGBUILD (скрипт за изграждане на пакети), достъпен в [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).
+klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).

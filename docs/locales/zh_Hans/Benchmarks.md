@@ -316,6 +316,25 @@ finalize_config crc=0
 | 1 步进电机 (200Mhz) | 39 |
 | 3 步进电机 (200Mhz) | 181 |
 
+### AR100 步进率基准测试
+
+以下配置顺序被用于AR100 CPU（全志A64）：
+
+```
+allocate_oids count=3
+config_stepper oid=0 step_pin=PL10 dir_pin=PE14 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=1 step_pin=PL11 dir_pin=PE15 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=2 step_pin=PL12 dir_pin=PE16 invert_step=-1 step_pulse_ticks=0
+finalize_config crc=0
+```
+
+该测试最后一次运行在提交`08d037c6` ，gcc版本`or1k-linux-musl-gcc（GCC）9.2.0` ，全志A64-H微控制器上进行。
+
+| AR100 R_PIO | ticks |
+| --- | --- |
+| 1个步进电机 | 85 |
+| 3个步进电机 | 359 |
+
 ### RP2040 步速率基准测试
 
 RP2040 上使用以下配置序列：
@@ -374,6 +393,7 @@ get_uptime
 | atmega2560 (serial) | 23K | b161a69e | avr-gcc (GCC) 4.8.1 |
 | sam3x8e (serial) | 23K | b161a69e | arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0 |
 | at90usb1286 (USB) | 75K | 01d2183f | avr-gcc (GCC) 5.4.0 |
+| ar100 (串行) | 138K | 08d037c6 | or1k-linux-musl-gcc 9.3.0 |
 | samd21 (USB) | 223K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | PRU（共享内存） | 260K | c5968a08 | pru-gcc (GCC) 8.0.0 20170530 (experimental) |
 | stm32f103 (USB) | 355K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |

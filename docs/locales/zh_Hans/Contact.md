@@ -66,7 +66,7 @@ Klipper 是一个开源项目，我们诚挚的感谢贡献者们在软件中诊
    1. 将日志文件复制到你的电脑，以便将其上传到问题报告中。
    1. 不要以任何方式修改日志文件；不要只提供日志的片段。只有完整的未修改的日志文件才能够提供必要的信息。
    1. 最好使用 zip 或 gzip 压缩日志文件。
-1. Open a new topic on the [Klipper Community Forum](#community-forum) and provide a clear description of the problem. Other Klipper contributors will need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The compressed Klipper log file should be attached to that topic.
+1. 在[Klipper社区论坛](#community-forum)上发起一个新话题，并对问题进行清晰的描述。其他Klipper贡献者需要了解你采取了哪些步骤，期望的结果是什么，以及实际发生的结果是什么。在话题中应当附上压缩的Klipper日志文件。
 
 ## 我正在进行一些我想添加到 Klipper 中的改进
 
@@ -74,8 +74,8 @@ Klipper 是开源软件，我们非常感谢新的贡献。
 
 新的贡献（包括代码和文档）需要通过拉取请求(PR)提交。重要信息请参见[贡献文档](CONTRIBUTING.md)。
 
-There are several [documents for developers](Overview.md#developer-documentation). If you have questions on the code then you can also ask in the [Klipper Community Forum](#community-forum) or on the [Klipper Community Discord](#discord-chat).
+有几个[开发者文档](Overview.md#developer-documentation)。如果你对代码有疑问，那么你也可以在[Klipper社区论坛](#community-forum)或[Klipper社区Discord](#discord-chat)上提问。
 
-## Klipper github
+## Klipper GitHub
 
-Klipper github may be used by contributors to share the status of their work to improve Klipper. It is expected that the person opening a github ticket is actively working on the given task and will be the one performing all the work necessary to accomplish it. The Klipper github is not used for requests, nor to report bugs, nor to ask questions. Use the [Klipper Community Forum](#community-forum) or the [Klipper Community Discord](#discord-chat) instead.
+Klipper GitHub可以被贡献者用来分享他们改进Klipper的工作状态。我们希望创建GitHub Ticket的人正在积极地处理给定的任务，并将执行所有必要工作以完成该任务。Klipper GitHub不用于功能请求，也不用于报告bug，更不用于提问。请使用[Klipper社区论坛](#community-forum)或[Klipper社区Discord](#discord-chat)来代替。

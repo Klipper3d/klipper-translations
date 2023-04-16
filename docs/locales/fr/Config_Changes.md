@@ -6,6 +6,10 @@ Toutes les dates de ce document sont approximatives.
 
 ## Changements
 
+20230304: The `SET_TMC_CURRENT` command now properly adjusts the globalscaler register for drivers that have it. This removes a limitation where on tmc5160, the currents could not be raised higher with `SET_TMC_CURRENT` than the `run_current` value set in the config file. However, this has a side effect: After running `SET_TMC_CURRENT`, the stepper must be held at standstill for >130ms in case StealthChop2 is used so that the AT#1 calibration gets executed by the driver.
+
+20230202: The format of the `printer.screws_tilt_adjust` status information has changed. The information is now stored as a dictionary of screws with the resulting measurements. See the [status reference](Status_Reference.md#screws_tilt_adjust) for details.
+
 20230201 : Le module `[bed_mesh]` ne charge plus le profil `default` au démarrage. Il est recommandé aux utilisateurs qui utilisent le profil `default` d'ajouter `BED_MESH_PROFILE LOAD=default` à leur macro `START_PRINT` (ou à la configuration "Start G-Code" de leur trancheur si applicable).
 
 20230103 : Il est maintenant possible avec le script flash-sdcard.sh de flasher les deux variantes du Bigtreetech SKR-2, STM32F407 et STM32F429. Cela signifie que le tag originel de btt-skr2 a maintenant changé en btt-skr-2-f407 ou btt-skr-2-f429.

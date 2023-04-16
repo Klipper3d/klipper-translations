@@ -16,4 +16,4 @@ Se stai compilando un pacchetto di Klipper da git, è normale non spedire una di
 
 ## Esempio di script di packaging
 
-klipper-git è un pacchetto per Arch Linux e ha un PKGBUILD (script di compilazione del pacchetto) disponibile su [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).
+klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).

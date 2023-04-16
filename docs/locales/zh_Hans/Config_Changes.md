@@ -6,11 +6,15 @@
 
 ## 变更
 
-20230201: The `[bed_mesh]` module no longer loads the `default` profile on startup. It is recommended that users who use the `default` profile add `BED_MESH_PROFILE LOAD=default` to their `START_PRINT` macro (or to their slicer's "Start G-Code" configuration when applicable).
+20230304:`SET_TMC_CURRENT` 命令现在可以正确地调整有globalscalar的驱动的globalscalar。这消除了一个限制，即在 tmc5160 上，使用`SET_TMC_CURRENT` 所提高的电流不能高于配置文件中设置的`run_current` 值。然而，这有一个副作用：如果使用StealthChop2，在运行`SET_TMC_CURRENT` 之后，步进电机必须保持在静止状态至少130ms，这样AT#1校准才会被驱动执行。
 
-20230103: It is now possible with the flash-sdcard.sh script to flash both variants of the Bigtreetech SKR-2, STM32F407 and STM32F429. This means that the original tag of btt-skr2 now has changed to either btt-skr-2-f407 or btt-skr-2-f429.
+20230202：`printer.screw_tilt_adjust` 状态信息的格式已经改变。该信息现在是以screws的字典形式存储的，并附有测量结果。详情见[状态参考文档](Status_Reference.md#screws_tilt_adjust)。
 
-20221128: Klipper v0.11.0 released.
+20230201：`[bed_mesh]` 模块在启动时不再加载`default` 配置文件。建议使用`default` 配置的用户将`BED_MESH_PROFILE LOAD=default` 添加到他们的`START_PRINT` 宏中（或者在适用时添加到他们的切片软件的 "启动G代码 "配置中）。
+
+20230103: 现在可以用flash-sdcard.sh脚本对Bigtreetech SKR-2的两个变体STM32F407和STM32F429进行刷写。这意味着原来的标签 btt-skr2 现在变成了btt-skr-2-f407 或 btt-skr-2-f429。
+
+20221128: Klipper v0.11.0发布。
 
 20221122：原先使用safe_z_home时，g28归位后的 z_hop 有可能会向负Z方向移动。现在，g28之后的 z_hop 只有在产生抬升（正方向）时才会被执行，这镜像了 g28 归位之前发生的 z_hop 的行为。
 

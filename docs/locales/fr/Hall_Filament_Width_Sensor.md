@@ -1,6 +1,6 @@
 # Détecteur de largeur de filament à effet hall
 
-Ce document décrit le module hôte du capteur de largeur de filament. Le matériel utilisé pour développer ce module hôte est basé sur deux capteurs linéaires de type Hall (ss49e par exemple). Les capteurs dans le corps sont situés sur des côtés opposés. Principe de fonctionnement : deux capteurs Hall fonctionnent en mode différentiel, la dérive de température est la même pour tous les capteurs. Une compensation spéciale de la température n'est donc pas nécessaire.
+This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on two Hall linear sensors (ss49e for example). Sensors in the body are located on opposite sides. Principle of operation: two hall sensors work in differential mode, temperature drift same for sensor. Special temperature compensation not needed.
 
 Vous trouverez les modèles sur [Thingiverse](https://www.thingiverse.com/thing:4138933), une vidéo de montage est également disponible sur [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)
 
@@ -8,7 +8,7 @@ Pour utiliser le capteur de largeur de filament de Hall, consultez [Référence 
 
 ## Comment cela fonctionne-t-il ?
 
-Le capteur génère deux sorties analogiques basées sur la largeur calculée du filament. La somme des tensions de sortie est toujours égale à la largeur de filament détectée. Le module hôte surveille les changements de tension et ajuste le multiplicateur d'extrusion. J'utilise le connecteur aux2 sur les broches analogiques 11 et 12 d'une carte genre Ramps. Vous pouvez utiliser des broches différentes et des cartes différentes.
+Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use the aux2 connector on a ramps-like board with the analog11 and analog12 pins. You can use different pins and different boards.
 
 ## Modèle pour les variables du menu
 

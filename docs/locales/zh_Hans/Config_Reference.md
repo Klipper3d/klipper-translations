@@ -274,7 +274,7 @@ radius:
 #   默认值为5。
 ```
 
-### Deltesian Kinematics
+### Delta 运动学
 
 See [example-deltesian.cfg](../config/example-deltesian.cfg) for an example deltesian kinematics config file.
 
@@ -300,7 +300,7 @@ max_z_velocity:
 #min_angle: 5
 #   This represents the minimum angle (in degrees) relative to horizontal
 #   that the deltesian arms are allowed to achieve. This parameter is
-#   intended to restrict the arms from becomming completely horizontal,
+#   intended to restrict the arms from becoming completely horizontal,
 #   which would risk accidental inversion of the XZ axis. The default is 5.
 #print_width:
 #   The distance (in mm) of valid toolhead X coordinates. One may use
@@ -337,7 +337,7 @@ arm_x_length:
 #   for stepper_right, this parameter defaults to the value specified for
 #   stepper_left.
 
-# The stepper_right section is used to desribe the stepper controlling the
+# The stepper_right section is used to describe the stepper controlling the
 # right tower.
 [stepper_right]
 
@@ -969,12 +969,12 @@ Tool to help adjust bed screws tilt using Z probe. One may define a screws_tilt_
 #   The height (in mm) that the head should be commanded to move to
 #   just prior to starting a probe operation. The default is 5.
 #screw_thread: CW-M3
-#   The type of screw used for bed level, M3, M4 or M5 and the
-#   direction of the knob used to level the bed, clockwise decrease
-#   counter-clockwise decrease.
+#   The type of screw used for bed leveling, M3, M4, or M5, and the
+#   rotation direction of the knob that is used to level the bed.
 #   Accepted values: CW-M3, CCW-M3, CW-M4, CCW-M4, CW-M5, CCW-M5.
-#   Default value is CW-M3, most printers use an M3 screw and
-#   turning the knob clockwise decrease distance.
+#   Default value is CW-M3 which most printers use. A clockwise
+#   rotation of the knob decreases the gap between the nozzle and the
+#   bed. Conversely, a counter-clockwise rotation increases the gap.
 ```
 
 ### [z_tilt]
@@ -2282,26 +2282,22 @@ pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
 #enable_pin:
-#   See the "fan" section for a description of the above parameters.
+#    请参阅“fan”分段，了解上述参数的描述。
 #fan_speed: 1.0
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when a heater or stepper driver is active.
-#   The default is 1.0
+#    当加热器或步进驱动器活跃时，将设置风扇速度（表示为从 0.0 到 1.0 的值）。
+#    默认值为 1.0。
 #idle_timeout:
-#   The amount of time (in seconds) after a stepper driver or heater
-#   was active and the fan should be kept running. The default
-#   is 30 seconds.
+#    在步进驱动器或加热器不再活跃后风扇应保持运行的时间（以秒为单位）。
+#    默认值为 30 秒。
 #idle_speed:
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when a heater or stepper driver was active and
-#   before the idle_timeout is reached. The default is fan_speed.
+#    当步进驱动器或加热器不再活跃后并且达到 idle_timeout 之前，将设置风扇速度
+#    （表示为从 0.0 到 1.0 的值）。
+#    默认值为 fan_speed。
 #heater:
 #stepper:
-#   Name of the config section defining the heater/stepper that this fan
-#   is associated with. If a comma separated list of heater/stepper names
-#   is provided here, then the fan will be enabled when any of the given
-#   heaters/steppers are enabled. The default heater is "extruder", the
-#   default stepper is all of them.
+#    定义与此风扇相关联的加热器/步进器的配置分段的名称。如果在此处提供了逗号分隔的
+#    加热器/步进器名称列表，则当任何给定的加热器/步进器启用时，将启用该风扇。
+#    默认加热器为 "extruder"，默认步进器为所有步进器。
 ```
 
 ### [temperature_fan]
@@ -2379,7 +2375,7 @@ pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
 #enable_pin:
-#   See the "fan" section for a description of the above parameters.
+#   请参阅“fan"分段，了解上述参数的描述。
 ```
 
 ## LEDs
@@ -2904,6 +2900,123 @@ run_current:
 #   especially aware of the CHOPCONF register, where setting CHM to
 #   either zero or one will lead to layout changes (the first bit of
 #   HDEC) is interpreted as the MSB of HSTRT in this case).
+```
+
+### [tmc2240]
+
+通过 SPI 总线配置 TMC2240 步进电机驱动器。要使用此功能，请定义一个配置分段，其前缀为 "tmc2240"，后跟相应步进配置分段的名称（例如，"[tmc2240 stepper_x]"）。
+
+```
+[tmc2240 stepper_x]
+cs_pin:
+#   The pin corresponding to the TMC2240 chip select line. This pin
+#   will be set to low at the start of SPI messages and raised to high
+#   after the message completes. This parameter must be provided.
+#spi_speed:
+#spi_bus:
+#spi_software_sclk_pin:
+#spi_software_mosi_pin:
+#spi_software_miso_pin:
+#   See the "common SPI settings" section for a description of the
+#   above parameters.
+#chain_position:
+#chain_length:
+#   These parameters configure an SPI daisy chain. The two parameters
+#   define the stepper position in the chain and the total chain length.
+#   Position 1 corresponds to the stepper that connects to the MOSI signal.
+#   The default is to not use an SPI daisy chain.
+#interpolate: True
+#   If true, enable step interpolation (the driver will internally
+#   step at a rate of 256 micro-steps). The default is True.
+run_current:
+#   The amount of current (in amps RMS) to configure the driver to use
+#   during stepper movement. This parameter must be provided.
+#hold_current:
+#   The amount of current (in amps RMS) to configure the driver to use
+#   when the stepper is not moving. Setting a hold_current is not
+#   recommended (see TMC_Drivers.md for details). The default is to
+#   not reduce the current.
+#rref: 12000
+#   The resistance (in ohms) of the resistor between IREF and GND. The
+#   default is 12000.
+#stealthchop_threshold: 0
+#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
+#   set, "stealthChop" mode will be enabled if the stepper motor
+#   velocity is below this value. The default is 0, which disables
+#   "stealthChop" mode.
+#driver_MSLUT0: 2863314260
+#driver_MSLUT1: 1251300522
+#driver_MSLUT2: 608774441
+#driver_MSLUT3: 269500962
+#driver_MSLUT4: 4227858431
+#driver_MSLUT5: 3048961917
+#driver_MSLUT6: 1227445590
+#driver_MSLUT7: 4211234
+#driver_W0: 2
+#driver_W1: 1
+#driver_W2: 1
+#driver_W3: 1
+#driver_X1: 128
+#driver_X2: 255
+#driver_X3: 255
+#driver_START_SIN: 0
+#driver_START_SIN90: 247
+#driver_OFFSET_SIN90: 0
+#   These fields control the Microstep Table registers directly. The optimal
+#   wave table is specific to each motor and might vary with current. An
+#   optimal configuration will have minimal print artifacts caused by
+#   non-linear stepper movement. The values specified above are the default
+#   values used by the driver. The value must be specified as a decimal integer
+#   (hex form is not supported). In order to compute the wave table fields,
+#   see the tmc2130 "Calculation Sheet" from the Trinamic website.
+#   Additionally, this driver also has the OFFSET_SIN90 field which can be used
+#   to tune a motor with unbalanced coils. See the `Sine Wave Lookup Table`
+#   section in the datasheet for information about this field and how to tune
+#   it.
+#driver_IHOLDDELAY: 6
+#driver_IRUNDELAY: 4
+#driver_TPOWERDOWN: 10
+#driver_TBL: 2
+#driver_TOFF: 3
+#driver_HEND: 2
+#driver_HSTRT: 5
+#driver_FD3: 0
+#driver_TPFD: 4
+#driver_CHM: 0
+#driver_VHIGHFS: 0
+#driver_VHIGHCHM: 0
+#driver_DISS2G: 0
+#driver_DISS2VS: 0
+#driver_PWM_AUTOSCALE: True
+#driver_PWM_AUTOGRAD: True
+#driver_PWM_FREQ: 0
+#driver_FREEWHEEL: 0
+#driver_PWM_GRAD: 0
+#driver_PWM_OFS: 29
+#driver_PWM_REG: 4
+#driver_PWM_LIM: 12
+#driver_SGT: 0
+#driver_SEMIN: 0
+#driver_SEUP: 0
+#driver_SEMAX: 0
+#driver_SEDN: 0
+#driver_SEIMIN: 0
+#driver_SFILT: 0
+#driver_SG4_ANGLE_OFFSET: 1
+#   Set the given register during the configuration of the TMC2240
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
+#diag0_pin:
+#diag1_pin:
+#   The micro-controller pin attached to one of the DIAG lines of the
+#   TMC2240 chip. Only a single diag pin should be specified. The pin
+#   is "active low" and is thus normally prefaced with "^!". Setting
+#   this creates a "tmc2240_stepper_x:virtual_endstop" virtual pin
+#   which may be used as the stepper's endstop_pin. Doing this enables
+#   "sensorless homing". (Be sure to also set driver_SGT to an
+#   appropriate sensitivity value.) The default is to not enable
+#   sensorless homing.
 ```
 
 ### [tmc5160]
@@ -3799,20 +3912,17 @@ Palette 2 多材料支持 - 提供更紧密的集成，支持处于连接模式�
 ```
 [palette2]
 serial:
-#   连接到 Palette 2 的串口。
+#   The serial port to connect to the Palette 2.
 #baud: 115200
-#   使用的波特率。
-#   默认为115200。
+#   The baud rate to use. The default is 115200.
 #feedrate_splice: 0.8
-#   融接时的给进率
-#   默认为0.8。
+#   The feedrate to use when splicing, default is 0.8
 #feedrate_normal: 1.0
-#   不在融接时的给进率 1.0
+#   The feedrate to use after splicing, default is 1.0
 #auto_load_speed: 2
-#   自动换料时的给近率
-#   默认 2 (mm/s)
+#   Extrude feedrate when autoloading, default is 2 (mm/s)
 #auto_cancel_variation: 0.1
-#   # 当 ping 值变化高于此阈值时自动取消打印
+#   Auto cancel print when ping variation is above this threshold
 ```
 
 ### [angle]
@@ -3870,23 +3980,24 @@ cs_pin:
 
 以下参数一般适用于使用I2C总线的设备。
 
-请注意，Klipper目前的i2c微控制器实现没有对线路噪音容忍的能力。i2c线路上的意外错误可能会导致Klipper产生一个运行时错误。Klipper对从错误恢复的支持因每个微控制器类型而异。一般建议只使用与微控制器在同一印刷电路板上的i2c设备。
+Note that Klipper's current micro-controller support for I2C is generally not tolerant to line noise. Unexpected errors on the I2C wires may result in Klipper raising a run-time error. Klipper's support for error recovery varies between each micro-controller type. It is generally recommended to only use I2C devices that are on the same printed circuit board as the micro-controller.
 
-大多数Klipper微控制器的实现只支持100000的`i2c_speed` 。Klipper 的 "linux "微控制器支持400000的速度，但是必须[在操作系统中修改设置](RPi_microcontroller.md#optional-enabling-i2c)，否则`i2c_speed` 参数会被忽略。Klipper "rp2040 "微控制器通过`i2c_speed` 参数支持400000的速率。所有其他Klipper微控制器使用100000速率，并忽略`i2c_speed` 参数。
+Most Klipper micro-controller implementations only support an `i2c_speed` of 100000 (*standard mode*, 100kbit/s). The Klipper "Linux" micro-controller supports a 400000 speed (*fast mode*, 400kbit/s), but it must be [set in the operating system](RPi_microcontroller.md#optional-enabling-i2c) and the `i2c_speed` parameter is otherwise ignored. The Klipper "RP2040" micro-controller and ATmega AVR family support a rate of 400000 via the `i2c_speed` parameter. All other Klipper micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter.
 
 ```
-#i2c_address。
-#   设备的i2c地址。必须是一个十进制的数字(不是十六进制)。
-#   默认值取决于设备的类型。
+#i2c_address:
+#   The i2c address of the device. This must specified as a decimal
+#   number (not in hex). The default depends on the type of device.
 #i2c_mcu:
-#   芯片所连接的微控制器的名称。
-#   默认为 "mcu"。
+#   The name of the micro-controller that the chip is connected to.
+#   The default is "mcu".
 #i2c_bus:
-#   如果微控制器支持多个I2C总线，那么可以在这里指定
-#   微控制器的总线名称。
-#   默认值取决于微控制器的类型。
+#   If the micro-controller supports multiple I2C busses then one may
+#   specify the micro-controller bus name here. The default depends on
+#   the type of micro-controller.
 #i2c_speed:
-#   与设备通信时使用的I2C速度(Hz)。大多数微控制器上
-#   的Klipper实现被硬编码为100000，因此改变这个值没有作用。
-#   默认值是100000.
+#   The I2C speed (in Hz) to use when communicating with the device.
+#   The Klipper implementation on most micro-controllers is hard-coded
+#   to 100000 and changing this value has no effect. The default is
+#   100000. Linux, RP2040 and ATmega support 400000.
 ```

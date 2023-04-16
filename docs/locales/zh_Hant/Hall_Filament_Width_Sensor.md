@@ -1,6 +1,6 @@
 # 霍爾耗材線徑感測器
 
-本檔案介紹了耗材寬度感測器的主機模組。用於開發該主機模組的硬體基於兩個霍爾線性感測器（例如，ss49e）。裝置內的兩個感測器位於兩側。工作原理：兩個霍爾感測器以差分模式工作，由於感測器的溫度漂移相同。不需要特殊的溫度補償。
+This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on two Hall linear sensors (ss49e for example). Sensors in the body are located on opposite sides. Principle of operation: two hall sensors work in differential mode, temperature drift same for sensor. Special temperature compensation not needed.
 
 你可以在[Thingiverse](https://www.thingiverse.com/thing:4138933)上找到設計，在[Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)上也有一個裝配視訊
 
@@ -8,7 +8,7 @@
 
 ## 它如何運作？
 
-感測器根據兩個模擬輸出計算出耗材直徑。檢測到的電壓之和始終對應耗材寬度。主機模組監測電壓變化並調整擠出倍率。我在類似ramps的控制板上使用aux2聯結器的 analog11和analog12引腳，你也可以使用不同的引腳和不同的控制板。
+Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use the aux2 connector on a ramps-like board with the analog11 and analog12 pins. You can use different pins and different boards.
 
 ## 菜單變數模板
 

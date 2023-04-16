@@ -43,3 +43,28 @@ Certains trancheurs présentent une fonction de "pression d'extrudeuse avancée"
 Ces paramètres de trancheur peuvent demander au micrologiciel d'apporter des modifications non contrôlées au taux d'extrusion dans l'espoir que le micrologiciel se rapprochera de ces demandes et que l'imprimante obtiendra approximativement une pression d'extrudeuse souhaitable. Klipper, utilise des calculs cinématiques et une synchronisation précise. Lorsque Klipper reçoit l'ordre d'apporter des modifications importantes au taux d'extrusion, il planifiera les modifications correspondantes de la vitesse, de l'accélération et du mouvement de l'extrudeuse - ce qui n'est pas prévu par le trancheur. Le trancheur peut même commander des taux d'extrusion excessifs au point de déclencher la limite d'extrusion maximale de Klipper.
 
 En revanche, il est possible (et souvent utile) d'utiliser le réglage « rétracter », le réglage « essuyer » et/ou le réglage « essuyer lors de la rétractation » d'un trancheur.
+
+## START_PRINT macros
+
+When using a START_PRINT macro or similar, it is useful to sometimes pass through parameters from the slicer variables to the macro.
+
+In Cura, to pass through temperatures, the following start gcode would be used:
+
+```
+START_PRINT BED_TEMP={material_bed_temperature_layer_0} EXTRUDER_TEMP={material_print_temperature_layer_0}
+```
+
+In slic3r derivatives such as PrusaSlicer and SuperSlicer, the following would be used:
+
+START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_temperature]
+
+Also note that these slicers will insert their own heating codes when certain conditions are not met. In Cura, the existence of the `{material_bed_temperature_layer_0}` and `{material_print_temperature_layer_0}` variables is enough to mitigate this. In slic3r derivatives, you would use:
+
+```
+M140 S0
+M104 S0
+```
+
+before the macro call. Also note that SuperSlicer has a "custom gcode only" button option, which achieves the same outcome.
+
+An example of a START_PRINT macro using these paramaters can be found in config/sample-macros.cfg

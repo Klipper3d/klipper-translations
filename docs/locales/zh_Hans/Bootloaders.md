@@ -238,7 +238,7 @@ dfu-util -d 1eaf:0003 -a 2 -R -D out/klipper.bin
 
 [HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader)是一个紧凑的、不包含驱动的启动引导程序，能够通过USB进行刷写。此外，还有一个[针对SKR Mini E3 1.2构建的分支](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest)。
 
-对于常见的STM32F103板，如Blue Pill，和 stm32duino 章节中一样，可以通过 3.3v 串行用stm32flash 刷写启动引导程序，将文件名替换为所需的 hid引导程序二进制文件（例如Blue Pill 使用的 hid_generic_pc13.bin）。
+对于常见的 STM32F103 板，如Blue Pill，可以使用 stm32flash 通过 3.3V 串行刷写引导程序，如上面 stm32duino 章节所述，将文件名替换为所需的 hid 引导程序二进制文件（即：hid_generic_pc13.bin 适用于 Blue Pill）。
 
 SKR Mini E3无法使用stm32flash ，因为boot 0引脚被直接接到GND且没有跳线断开。推荐使用STLink V2通过STM32Cubeprogrammer刷写启动引导程序。如果你没有STLink ，也可以按照以下芯片配置使用[树莓派和OpenOCD](#running-openocd-on-the-raspberry-pi) 刷写：
 
@@ -309,13 +309,13 @@ make flash FLASH_DEVICE=1209:BEBA
 make flash FLASH_DEVICE=/dev/ttyACM0
 ```
 
-可能需要手动进入引导程序，这可以通过设置 "boot 0 "的低电平和 "boot 1 "的高电平来完成。在SKR Mini E3上，"Boot 1 "是不可用的，所以如果你写入过"hid_btt_skr_mini_e3.bin"，可以通过设置PA2的低电平来完成。在SKR Mini E3的 "PIN "文件中，这个引脚在TFT插座上被标记为 "TX0"。在PA2旁边有一个接地引脚，你可以用它来把PA2拉低。
+可能需要手动进入引导程序，可以通过将 "boot 0"配置为低电平和 "boot 1"为高电平来完成。在SKR Mini E3上不能调整"Boot 1"，所以如果你刷写过 "hid_btt_skr_mini_e3.bin"，可以通过设置PA2低电平来完成。在SKR Mini E3的引脚文档中，这个引脚在TFT头中被标为 "TX0"。在PA2旁边有一个接地引脚，你可以用它来把PA2拉低。
 
 ### 带MSC引导程序的STM32F103/STM32F072
 
 [MSC 引导程序](https://github.com/Telekatz/MSC-stm32f103-bootloader) 是一个能够进行 USB 刷写的免驱引导程序。
 
-可以使用 stm32flash 通过 3.3v 串行刷写引导程序，如上面的 stm32duino 章节所述，将文件名替换为所需的 MSC 引导加载程序二进制文件（例如：Blue Pill 使用 MSCboot-Bluepill.bin）。
+可以通过3.3V串口刷写引导程序，使用stm32flash，如上面stm32duino章节所述，将文件名替换为所需的MSC引导程序二进制文件（即：MSCboot-Bluepill.bin用于blue pill）。
 
 STM32F072板也可以通过USB（通过DFU）刷写引导程序，如下所示：
 
@@ -331,7 +331,7 @@ STM32F072板也可以通过USB（通过DFU）刷写引导程序，如下所示�
 
 [CanBoot](https://github.com/Arksine/CanBoot)引导程序提供了一个通过CANBUS上传Klipper固件的选项。该引导程序本身来自Klipper的源代码。目前CanBoot支持STM32F103、STM32F042和STM32F072型号。
 
-建议使用ST-Link编程器来刷写CanBoot，然而在STM32F103设备上使用`stm32flash`，在STM32F042/STM32F072设备上使用`dfu-util`应该是可以刷写。关于这些刷写方法的说明，请参见本文的前几节，在适当的地方用`canboot.bin`代替文件名。上面链接的CanBoot repo提供了构建引导程序的说明。
+建议使用ST-Link编程器来刷写CanBoot，然而，在STM32F103设备上使用`stm32flash` ，在STM32F042/STM32F072设备上使用`dfu-util` ，应该也是可以刷写的。关于这些刷写方法的说明，请参见本文档的前几节，在适当的地方用`canboot.bin` 代替文件名。上面链接的CanBoot资源库提供了构建引导程序的说明。
 
 在CanBoot第一次被写入时，应该检测到没有应用程序，并进入引导程序。如果没有出现这种情况，可以通过连续按两次复位按钮进入引导程序。
 
@@ -355,9 +355,9 @@ python3 flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u aabbccddeeff
 
 ## STM32F4 微控制器 (SKR Pro 1.1)
 
-STM32F4微控制器配备了一个内置的系统引导程序，能够通过USB（通过DFU）、3.3v串口和其他各种方法进行刷写（更多信息见STM文件AN2606）。一些STM32F4板，如SKR Pro 1.1，不能进入DFU引导程序。基于STM32F405/407的板子可以使用HID引导程序，如果用户愿意通过USB刷写而不是使用SD卡。请注意，你可能需针对你的板子配置和构建一个特定的版本，[针对SKR Pro 1.1的构建可以在这里找到](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest)。
+STM32F4 微控制器配备了一个内置系统引导加载程序，可通过 USB（通过 DFU）、3.3V 串行和其他各种方法（有关更多信息，请参见 STM 文档 AN2606）进行烧录。一些 STM32F4 板，例如 SKR Pro 1.1，无法进入 DFU 引导加载程序。针对基于 STM32F405/407 的板，提供了 HID 引导加载程序，用户可以选择通过 USB 进行烧录而不使用 sdcard。请注意，您可能需要配置和构建适用于您的板的特定版本，[此处提供了 SKR Pro 1.1 的构建版本](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest)。
 
-除非你的板子有DFU功能，否则最容易的写入方法可能是通过3.3v的串口，这与[使用stm32flash刷写STM32F103](#stm32f103-micro-controllers-blue-pill-devices)的步骤相同。例如：
+除非您的控制板支持 DFU，否则最易于访问的烧录方法可能是通过 3.3V 串口进行烧录，其遵循与 [使用 stm32flash 烧录 STM32F103](#stm32f103-micro-controllers-blue-pill-devices) 相同的过程。例如：
 
 ```
 wget https://github.com/Arksine/STM32_HID_Bootloader/releases/download/v0.5-beta/hid_bootloader_SKR_PRO.bin

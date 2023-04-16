@@ -34,7 +34,7 @@ Klipper 에 오신것을 환영합니다. Klipper를 처음 사용하는 경우�
 - [슬라이서](Slicers.md): Klipper용 "슬라이서" 소프트웨어 구성.
 - [꼬임 보정](꼬임 보정.md): 축의 조정은 완전히 정사각형이 아닙니다.
 - [PWM tools](Using_PWM_Tools.md): 레이저 또는 스핀들과 같은 PWM 제어 도구를 사용하는 방법에 대한 안내.
-- [객체 제외](Exclude_Object.md): Objecs 제외 구현에 대한 가이드입니다.
+- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objects implementation.
 
 ## 개발자 문서
 

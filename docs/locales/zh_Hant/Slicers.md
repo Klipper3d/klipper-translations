@@ -43,3 +43,28 @@
 具體來說，這些切片軟體的設定產生的命令會韌體對擠出率進行劇烈的改變，希望韌體能接近這些請求值，使印表機獲得一個大致理想的擠出機壓力。然而，Klipper利用精確的運動學計算和計時。當Klipper被命令對擠出率進行重大改變時，它將計劃出速度、加速度和擠出機運動的相應變化--這不是切片軟體的意圖。切片軟體甚至可能產生過大的擠出速度，以至於觸發Klipper的最大擠出截面檢查。
 
 相反，使用切片軟體的"回抽"、"擦拭 "和/或 "縮回時擦拭 "設定通常是有益的。
+
+## START_PRINT macros
+
+When using a START_PRINT macro or similar, it is useful to sometimes pass through parameters from the slicer variables to the macro.
+
+In Cura, to pass through temperatures, the following start gcode would be used:
+
+```
+START_PRINT BED_TEMP={material_bed_temperature_layer_0} EXTRUDER_TEMP={material_print_temperature_layer_0}
+```
+
+In slic3r derivatives such as PrusaSlicer and SuperSlicer, the following would be used:
+
+START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_temperature]
+
+Also note that these slicers will insert their own heating codes when certain conditions are not met. In Cura, the existence of the `{material_bed_temperature_layer_0}` and `{material_print_temperature_layer_0}` variables is enough to mitigate this. In slic3r derivatives, you would use:
+
+```
+M140 S0
+M104 S0
+```
+
+before the macro call. Also note that SuperSlicer has a "custom gcode only" button option, which achieves the same outcome.
+
+An example of a START_PRINT macro using these paramaters can be found in config/sample-macros.cfg

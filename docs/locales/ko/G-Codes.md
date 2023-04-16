@@ -85,7 +85,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 #### BED_MESH_CALIBRATE
 
-`BED_MESH_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: 이 명령은 구성의 매개변수로 지정된 생성 지점을 사용하여 침대를 조사합니다. 프로빙 후 mesh 가 생성되고 메쉬에 따라 z-움직임이 조정됩니다. 선택적 프로브 매개변수에 대한 자세한 내용은 PROBE 명령을 참조하십시오. METHOD=manual이 지정되면 수동 프로빙 도구가 활성화됩니다. 이 도구가 활성화되어 있는 동안 사용할 수 있는 추가 명령에 대한 자세한 내용은 위의 MANUAL_PROBE 명령을 참조하십시오.
+`BED_MESH_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: This command probes the bed using generated points specified by the parameters in the config. After probing, a mesh is generated and z-movement is adjusted according to the mesh. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
 
 #### BED_MESH_OUTPUT
 
@@ -121,7 +121,7 @@ The following commands are available when the [bed_tilt config section](Config_R
 
 #### BED_TILT_CALIBRATE
 
-`BED_TILT_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>]`: 이 명령은 구성에 지정된 지점을 조사한 다음 업데이트된 x 및 y 기울기 조정을 권장합니다. 선택적 프로브 매개변수에 대한 자세한 내용은 PROBE 명령을 참조하십시오. METHOD=manual이 지정되면 수동 프로빙 도구가 활성화됩니다. 이 도구가 활성화되어 있는 동안 사용할 수 있는 추가 명령에 대한 자세한 내용은 위의 MANUAL_PROBE 명령을 참조하십시오.
+`BED_TILT_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then recommend updated x and y tilt adjustments. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
 
 ### [bltouch]
 
@@ -157,7 +157,7 @@ The following commands are available when the [delta_calibrate config section](C
 
 #### DELTA_CALIBRATE
 
-`DELTA_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>]`: 이 명령은 BED 의 7개 지점을 조사하고 업데이트된 엔드스톱 위치, 타워 각도 및 반경을 권장합니다. 선택적 프로브 매개변수에 대한 자세한 내용은 PROBE 명령을 참조하십시오. METHOD=manual이 지정되면 수동 프로빙 도구가 활성화됩니다. 이 도구가 활성화되어 있는 동안 사용할 수 있는 추가 명령에 대한 자세한 내용은 위의 MANUAL_PROBE 명령을 참조하십시오.
+`DELTA_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe seven points on the bed and recommend updated endstop positions, tower angles, and radius. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
 
 #### DELTA_ANALYZE
 
@@ -647,7 +647,7 @@ The following commands are available when the [screws_tilt_adjust config section
 
 #### SCREWS_TILT_CALCULATE
 
-`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [<probe_parameter>=<value>]`: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) probing the z height and calculate the number of knob turns to adjust the bed level. If DIRECTION is specified, the knob turns will all be in the same direction, clockwise (CW) or counterclockwise (CCW). See the PROBE command for details on the optional probe parameters. IMPORTANT: You MUST always do a G28 before using this command. If MAX_DEVIATION is specified, the command will raise a gcode error if any difference in the screw height relative to the base screw height is greater than the value provided.
+`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) probing the z height and calculate the number of knob turns to adjust the bed level. If DIRECTION is specified, the knob turns will all be in the same direction, clockwise (CW) or counterclockwise (CCW). See the PROBE command for details on the optional probe parameters. IMPORTANT: You MUST always do a G28 before using this command. If MAX_DEVIATION is specified, the command will raise a gcode error if any difference in the screw height relative to the base screw height is greater than the value provided. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
 
 ### [sdcard_loop]
 
@@ -727,7 +727,7 @@ The following commands are available when any of the [tmcXXXX config sections](C
 
 #### DUMP_TMC
 
-`DUMP_TMC STEPPER=<name>`: 이 명령은 TMC 드라이버 레지스터를 읽고 값을 보고합니다.
+`DUMP_TMC STEPPER=<name> [REGISTER=<name>]`: This command will read all TMC driver registers and report their values. If a REGISTER is provided, only the specified register will be dumped.
 
 #### INIT_TMC
 
@@ -735,11 +735,11 @@ The following commands are available when any of the [tmcXXXX config sections](C
 
 #### SET_TMC_CURRENT
 
-`SET_TMC_CURRENT STEPPER=<name> CURRENT=<amps> HOLDCURRENT=<amps>`: 이것은 TMC 드라이버의 실행 및 유지 전류를 조정합니다. (HOLDCURRENT는 tmc2660 드라이버에는 적용되지 않습니다.)
+`SET_TMC_CURRENT STEPPER=<name> CURRENT=<amps> HOLDCURRENT=<amps>`: This will adjust the run and hold currents of the TMC driver. `HOLDCURRENT` is not applicable to tmc2660 drivers. When used on a driver which has the `globalscaler` field (tmc5160 and tmc2240), if StealthChop2 is used, the stepper must be held at standstill for >130ms so that the driver executes the AT#1 calibration.
 
 #### SET_TMC_FIELD
 
-`SET_TMC_FIELD STEPPER=<name> FIELD=<field> VALUE=<value>`: 이렇게 하면 TMC 드라이버의 지정된 레지스터 필드 값이 변경됩니다. 이 명령은 런타임 중에 필드를 변경하면 프린터의 바람직하지 않고 잠재적으로 위험한 동작으로 이어질 수 있기 때문에 낮은 수준의 진단 및 디버깅만을 위한 것입니다. config 파일을 사용하여 영구적으로 변경해야 합니다. 주어진 값에 대해 sanity check 가 수행되지 않습니다.
+`SET_TMC_FIELD STEPPER=<name> FIELD=<field> VALUE=<value> VELOCITY=<value>`: This will alter the value of the specified register field of the TMC driver. This command is intended for low-level diagnostics and debugging only because changing the fields during run-time can lead to undesired and potentially dangerous behavior of your printer. Permanent changes should be made using the printer configuration file instead. No sanity checks are performed for the given values. A VELOCITY can also be specified instead of a VALUE. This velocity is converted to the 20bit TSTEP based value representation. Only use the VELOCITY argument for fields that represent velocities.
 
 ### [toolhead]
 
@@ -797,4 +797,4 @@ The following commands are available when the [z_tilt config section](Config_Ref
 
 #### Z_TILT_ADJUST
 
-`Z_TILT_ADJUST [<probe_parameter>=<value>]`: 이 명령은 구성에 지정된 지점을 조사한 다음 기울기를 보정하기 위해 각 Z 스테퍼를 독립적으로 조정합니다. 선택적 프로브 매개변수에 대한 자세한 내용은 PROBE 명령을 참조하십시오.
+`Z_TILT_ADJUST [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.

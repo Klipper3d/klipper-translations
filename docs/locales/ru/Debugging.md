@@ -162,7 +162,7 @@ Make sure a file like **./build/pysimulavr/_pysimulavr.*.so** is present after t
 ls ./build/pysimulavr/_pysimulavr.*.so
 ```
 
-This commmand should report a specific file (e.g. **./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not an error.
+This command should report a specific file (e.g. **./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not an error.
 
 If you are on a Debian-based system (Debian, Ubuntu, etc.) you can install the following packages and generate *.deb files for system-wide installation of simulavr:
 

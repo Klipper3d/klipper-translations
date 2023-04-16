@@ -295,7 +295,7 @@ Quelques erreurs courantes et conseils pour les diagnostiquer :
 
 Cela indique que le pilote du moteur s'est désactivé car il est en surchauffe. Les solutions typiques consistent à diminuer le courant du pilote de moteur pas à pas, à augmenter le refroidissement du pilote du moteur pas à pas et/ou à augmenter le refroidissement du pilote du moteur pas à pas.
 
-#### TMC signale une erreur : `... ShortToGND` OU `LowSideShort`
+#### TMC reports error: `... ShortToGND` OR `ShortToSupply`
 
 Cela indique que le pilote s'est désactivé car il a détecté un courant très élevé le traversant. Cela peut indiquer un fil desserré ou court-circuité vers le moteur pas à pas ou dans le moteur pas à pas lui-même.
 

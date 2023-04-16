@@ -92,6 +92,7 @@
 
 - `pressure_advance`：当前的[压力提前](Pressure_Advance.md)值。
 - `smooth_time`：当前压力提前平滑时间。
+- `motion_queue`: The name of the extruder that this extruder stepper is currently synchronized to. This is reported as `None` if the extruder stepper is not currently associated with an extruder.
 
 ## fan
 
@@ -228,12 +229,13 @@
 
 - `filename`、`total_duration`、`print_duration`、`filament_used`、`state`、`message`：virtual_sdcard 打印处于活动状态时有关当前打印的估测。
 - `info.total_layer`：最后一条`SET_PRINT_STATS_INFO TOTAL_LAYER=<值>` G-Code命令的总层值。
-- `info.current_layer`: The current layer value of the last `SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-Code command.
+- `info.current_layer`: 上一条 `SET_PRINT_STATS_INFO CURRENT_LAYER=<值>` G代码命令的当前层值。
 
 ## probe
 
 [probe](Config_Reference.md#probe) 对象中提供了以下信息（如果定义了 [bltouch](Config_Reference.md#bltouch) 配置分段，则此对象也可用）：
 
+- `name`: Returns the name of the probe in use.
 - `last_query`：如果探针在上一个 QUERY_PROBE 命令期间报告为"已触发"，则返回 True。请注意，如果在宏中使用它，根据模板展开的顺序，必须在包含此引用的宏之前运行 QUERY_PROBE 命令。
 - `last_z_result`：返回上一次 PROBE 命令的结果 Z 值。请注意，由于模板展开的顺序，在宏中使用时必须在包含此引用的宏之前运行 PROBE（或类似）命令。
 
@@ -251,22 +253,26 @@
 
 ## screws_tilt_adjust
 
-The following information is available in the `screws_tilt_adjust` object:
+以下信息可在`screws_tilt_adjust`对象中获取：
 
-- `error`: Returns True if the most recent `SCREWS_TILT_CALCULATE` command included the `MAX_DEVIATION` parameter and any of the probed screw points exceeded the specified `MAX_DEVIATION`.
-- `results`: A list of the probed screw locations. Each entry in the list will be a dictionary containing the following keys:
-   - `name`: The name of the screw as specified in the config file.
-   - `x`: The X coordinate of the screw as specified in the config file.
-   - `y`: The Y coordinate of the screw as specified in the config file.
-   - `z`: The measured Z height of the screw location.
-   - `sign`: A string specifying the direction to turn to screw for the necessary adjustment. Either "CW" for clockwise or "CCW" for counterclockwise. The base screw will not have a `sign` key.
-   - `adjust`: The number of screw turns to adjust the screw, given in the format "HH:MM," where "HH" is the number of full screw turns and "MM" is the number of "minutes of a clock face" representing a partial screw turn. (E.g. "01:15" would mean to turn the screw one and a quarter revolutions.)
+- `error`: 如果最近的 `SCREWS_TILT_CALCULATE` 命令包含了 `MAX_DEVIATION` 参数，并且任何一个已探测的螺丝坐标超过了指定的 `MAX_DEVIATION`，则返回 True。
+- `results["<screw>"]`: A dictionary containing the following keys:
+   - `z`: 螺丝坐标测量的 Z 高度。
+   - `sign`: A string specifying the direction to turn to screw for the necessary adjustment. Either "CW" for clockwise or "CCW" for counterclockwise.
+   - `adjust`: 调整螺丝的圈数，格式为 "HH:MM"，其中 "HH" 表示完整螺丝圈数，"MM" 表示代表部分螺丝圈数的 "时钟面的分钟数"。例如，“01:15”表示旋转螺丝一圈和四分之一圈。
+   - `is_base`: Returns True if this is the base screw.
 
 ## servo
 
 [servo some_name](Config_Reference.md#servo) 对象提供了以下信息：
 
 - `printer["servo <配置名>"].value`：与指定伺服相关 PWM 引脚的上一次设置的值（0.0 和 1.0 之间的值）。
+
+## stepper_enable
+
+The following information is available in the `stepper_enable` object (this object is available if any stepper is defined):
+
+- `steppers["<stepper>"]`: Returns True if the given stepper is enabled.
 
 ## system_stats
 

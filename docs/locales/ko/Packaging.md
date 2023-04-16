@@ -16,4 +16,4 @@ git에서 Klipper 패키지를 빌드하는 경우 .git 디렉토리를 제공�
 
 ## 샘플 패키징 스크립트
 
-klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repositiory](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).
+klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).
